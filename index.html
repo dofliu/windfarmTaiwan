@@ -93,6 +93,37 @@
   .imp .iv small{font-size:12px;font-weight:600;color:var(--mist);margin-left:3px}
   .imp .ik{font-size:11px;color:var(--mist-dim);margin-top:3px;letter-spacing:.03em}
   @media (max-width:880px){.impact{grid-template-columns:repeat(2,1fr)}}
+  /* 今日風況 hero(生動/幽默動態文案) */
+  .hero{background:linear-gradient(120deg,#103d52,#0a2a3a);border:1px solid var(--line);border-radius:16px;padding:15px 20px;margin-bottom:14px}
+  .hero .hgreet{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:800;color:var(--foam);line-height:1.3}
+  .hero .hgreet .he{font-size:30px;flex:0 0 auto}
+  .hero .hstory{margin-top:9px;font-size:13.5px;color:var(--mist);line-height:1.55}
+  .hero .hstory b{color:var(--gen);font-weight:800}
+  .hero .hchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+  .hero .hchip{font-size:12px;color:var(--mist);background:var(--sea-0);border:1px solid var(--line);border-radius:20px;padding:4px 13px}
+  .hero .hchip b{color:var(--foam)}
+  /* 政策目標進度 */
+  .policy{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin-bottom:16px}
+  .policy h3{font-size:15px;font-weight:800;color:var(--foam);margin-bottom:4px}
+  .policy .now{font-size:12.5px;color:var(--mist);margin-bottom:6px;line-height:1.5}
+  .policy .now b{color:var(--sky);font-weight:800}
+  .policy .pgoal{margin-top:13px}
+  .policy .pgoal .row{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px;color:var(--mist)}
+  .policy .pgoal .row b{color:var(--gen);font-weight:800}
+  .policy .track{height:13px;background:var(--sea-0);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .policy .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gen-deep),var(--gen));transition:width 1.2s ease}
+  .policy .src{font-size:10.5px;color:var(--mist-dim);margin-top:13px;line-height:1.5}
+  .policy .src a{color:var(--sky)}
+  /* 迷思破解 Q&A */
+  .faq{margin-top:24px}
+  .faq h3{font-size:16px;font-weight:800;color:var(--foam);margin-bottom:12px}
+  .faq details{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
+  .faq summary{cursor:pointer;padding:13px 16px;font-size:14px;font-weight:700;color:var(--foam);list-style:none;display:flex;align-items:center;gap:9px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .q{flex:0 0 auto;color:var(--sky);font-weight:900}
+  .faq summary::after{content:"＋";margin-left:auto;color:var(--mist-dim);font-weight:700;font-size:16px}
+  .faq details[open] summary::after{content:"－"}
+  .faq .a{padding:2px 18px 15px 39px;font-size:13px;color:var(--mist);line-height:1.75}
   .cbody{flex:1;min-width:0}
   .cname{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .cdev{font-size:10.5px;color:var(--mist-dim);margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -180,6 +211,22 @@
   </header>
   <main>
     <section class="view on" id="dash">
+      <div class="hero" id="hero"></div>
+      <div class="impact" id="impact"></div>
+      <div class="policy">
+        <h3>🇹🇼 台灣離岸風電進度</h3>
+        <div class="now">截至 2026/05：累計安裝 <b>4.74 GW</b> · 併網發電 <b>4.25 GW</b> · 已完成 8 座離岸風場<br>
+          台灣 2025 年新增裝置容量全球第三、累計裝置容量全球第五 🌊</div>
+        <div class="pgoal">
+          <div class="row"><span>近程目標 · 2026 年（5.3 GW）</span><b>已達約 89%</b></div>
+          <div class="track"><i style="width:89%"></i></div>
+        </div>
+        <div class="pgoal">
+          <div class="row"><span>長程目標 · 2035 年（18.4 GW）</span><b>已達約 26%</b></div>
+          <div class="track"><i style="width:26%"></i></div>
+        </div>
+        <div class="src">資料來源：經濟部能源署「離岸風電三階段政策」（採先示範、次潛力、後區塊）。<a href="https://ea01.moeaea.gov.tw/d0107/Windpolicy" target="_blank" rel="noopener">官方頁面 ↗</a></div>
+      </div>
       <div class="toolbar">
         <div class="sort" id="sort"><span>排序</span>
           <button class="on" data-s="output">即時出力</button>
@@ -193,8 +240,22 @@
           <span class="chip" data-f="onshore">陸域</span>
         </div>
       </div>
-      <div class="impact" id="impact"></div>
       <div id="groups"></div>
+      <div class="faq">
+        <h3>🤔 關於風電，大家常問</h3>
+        <details><summary><span class="q">Q</span>沒風的時候不就沒電了？</summary>
+          <div class="a">風電是電力組合的一員，不是唯一來源。台電會用燃氣、水力、太陽能與儲能即時互補調度；而且各電源有「互補性」——白天太陽能強、夜晚與冬季風力強，台灣冬季的東北季風正好補上夏季太陽能的空檔。</div></details>
+        <details><summary><span class="q">Q</span>風機會不會很吵？</summary>
+          <div class="a">離岸風機座落在外海數公里到數十公里處，聲音根本傳不到岸上。陸域風機的運轉聲在數百公尺外就降到接近環境背景音，且受噪音管制法規約束。</div></details>
+        <details><summary><span class="q">Q</span>風機會不會殺死很多鳥？</summary>
+          <div class="a">研究普遍指出，風機造成的鳥類死亡數量，遠低於高樓玻璃、車輛、家貓等日常因素。台灣離岸風場設有鳥類與生態監測，必要時以暫停運轉等措施降低衝擊。</div></details>
+        <details><summary><span class="q">Q</span>颱風來會不會被吹倒？</summary>
+          <div class="a">台灣的風機依國際與在地耐風規範設計，能承受強颱等級的風速；當風速過高時，葉片會「順槳」並自動停機保護機組，而不是硬扛強風。</div></details>
+        <details><summary><span class="q">Q</span>離岸風電很貴，會讓電費變高嗎？</summary>
+          <div class="a">早期示範與躉購階段費率較高，但已轉為「競價」開發，得標價格大幅下降、趨近市場行情。長期而言，自產綠電能降低對進口燃料價格波動的依賴，有助能源自主。</div></details>
+        <details><summary><span class="q">Q</span>會影響漁業和海洋生態嗎？</summary>
+          <div class="a">開發前須通過環境影響評估，並推動漁業共生與長期生態監測。部分研究也觀察到，風機的水下基座具有類似「人工魚礁」的聚魚效果。</div></details>
+      </div>
     </section>
     <section class="view" id="map-view">
       <div id="map"></div>
@@ -211,7 +272,7 @@
   </main>
   <footer>
     <span>機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準<br>
-      影響力數字為換算估算：家戶 0.5kW、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值</span>
+      影響力數字為換算估算：家戶 0.5kW、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值</span>
     <span id="datamode"></span>
   </footer>
 </div>
@@ -402,7 +463,7 @@ async function tryLive(){
 }
 async function tryHistory(){                    // 抓真實滾動歷史(供出力趨勢線)
   try{const r=await fetch(HIST_ENDPOINT,{cache:"no-store"});const j=await r.json();
-    if(j&&Array.isArray(j.points)){HIST=j;paintImpact();}}catch(e){/* 尚無歷史檔時靜默忽略 */}
+    if(j&&Array.isArray(j.points)){HIST=j;paintImpact();paintHero();}}catch(e){/* 尚無歷史檔時靜默忽略 */}
 }
 function setFeed(live){
   LIVE=live;const dot=document.getElementById("feeddot"),txt=document.getElementById("feedtxt"),dm=document.getElementById("datamode");
@@ -443,7 +504,31 @@ function turbineSVG(f){
       <circle cx="30" cy="30" r="3.6" fill="${col}"/><circle cx="30" cy="30" r="1.7" fill="var(--sea-0)"/>
     </g></svg>`;
 }
-function paint(){paintTicker();paintImpact();paintGroups();updateMarkers();}
+function paint(){paintTicker();paintHero();paintImpact();paintGroups();updateMarkers();}
+// 依整體利用率產生口語化問候(生動/幽默)
+function heroMood(r){
+  if(r>=0.45)return{e:"💨",t:"狂風時刻！全台風機火力全開，正在猛灌綠電。"};
+  if(r>=0.28)return{e:"🌬️",t:"風勢不錯，風機們穩穩出力中。"};
+  if(r>=0.13)return{e:"🍃",t:"微風徐徐，風機悠閒地轉著。"};
+  return{e:"😴",t:"風有點懶，風機正在放假曬太陽，等東北季風回來上工。"};
+}
+function paintHero(){
+  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
+  const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
+  const m=heroMood(cap>0?total/cap:0);
+  const ops=FARMS.filter(f=>f.cap&&!f.pending);
+  const top=ops.filter(f=>RT[f.id]>0.1).sort((a,b)=>ratioOf(b)-ratioOf(a))[0];
+  const resting=ops.filter(f=>RT[f.id]<=0.1).length;
+  const mwh=todayEnergyMWh();
+  const story=mwh!=null
+    ? `今天到現在，台灣的風已轉出約 <b>${Math.round(mwh*1000).toLocaleString()} 度</b>電 ⚡ ≈ <b>${Math.round(mwh*100).toLocaleString()} 戶</b>家庭一整天的用電 🏠（仍在累積中）`
+    : `今日發電量正在累積中，過一段時間就會說書給你聽 📖`;
+  const topChip=top?`🏆 此刻最賣力：<b>${top.name}</b>（利用率 ${(ratioOf(top)*100).toFixed(0)}%）`:"🏆 此刻暫無風場運轉";
+  document.getElementById("hero").innerHTML=`
+    <div class="hgreet"><span class="he">${m.e}</span><span>${m.t}</span></div>
+    <div class="hstory">${story}</div>
+    <div class="hchips"><span class="hchip">${topChip}</span><span class="hchip">😎 此刻休息中：<b>${resting}</b> 座風場</span></div>`;
+}
 function paintTicker(){
   const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
   const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
