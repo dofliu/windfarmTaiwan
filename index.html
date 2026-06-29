@@ -50,7 +50,7 @@
   main{flex:1 1 auto;position:relative;overflow:hidden}
   .view{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s}
   .view.on{opacity:1;pointer-events:auto}
-  #dash{overflow-y:auto;padding:16px 22px 40px}
+  #dash,#learn{overflow-y:auto;padding:16px 22px 40px}
 
   .toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
   .sort{display:flex;gap:6px;font-size:12px;color:var(--mist-dim);align-items:center;flex-wrap:wrap}
@@ -61,6 +61,10 @@
   .chip{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);
     border-radius:20px;padding:5px 12px;font-family:inherit;font-size:12px;cursor:pointer;transition:.15s}
   .chip.on{border-color:var(--sky);color:var(--foam);background:var(--sea-3)}
+  .selrow{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:2px}
+  .fsel{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);font-family:inherit;
+    font-size:12px;border-radius:9px;padding:5px 10px;cursor:pointer}
+  .fsel:focus{outline:none;border-color:var(--sky);color:var(--foam)}
 
   .grouphead{display:flex;align-items:center;gap:11px;margin:20px 0 11px}
   .grouphead .tag{font-size:10.5px;font-weight:800;letter-spacing:.05em;padding:3px 9px;border-radius:6px;border:1px solid}
@@ -115,7 +119,9 @@
   .policy .src{font-size:10.5px;color:var(--mist-dim);margin-top:13px;line-height:1.5}
   .policy .src a{color:var(--sky)}
   /* 迷思破解 Q&A */
-  .faq{margin-top:24px}
+  .learnintro{font-size:13.5px;color:var(--mist);background:linear-gradient(120deg,#103d52,#0a2a3a);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:18px;line-height:1.5}
+  .faq{margin-top:0}
+  .empty{text-align:center;color:var(--mist-dim);font-size:14px;padding:48px 16px}
   .faq h3{font-size:16px;font-weight:800;color:var(--foam);margin-bottom:12px}
   .faq details{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
   .faq summary{cursor:pointer;padding:13px 16px;font-size:14px;font-weight:700;color:var(--foam);list-style:none;display:flex;align-items:center;gap:9px}
@@ -197,7 +203,19 @@
     display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:5px}
   ::-webkit-scrollbar-track{background:transparent}
-  @media (max-width:880px){.ticker{display:none}.brand h1{font-size:19px}header{gap:10px;padding:11px 14px;flex-wrap:wrap}#dash{padding:14px}}
+  @media (max-width:880px){.ticker{display:none}.brand h1{font-size:19px}header{gap:10px;padding:11px 14px;flex-wrap:wrap}#dash,#learn{padding:14px}}
+  /* 手機：一排兩個風場卡(縮小風機與字級讓兩欄塞得下) */
+  @media (max-width:720px){
+    .grid{grid-template-columns:repeat(2,1fr);gap:9px}
+    .card{gap:8px;padding:10px 10px}
+    .turbwrap{flex:0 0 34px;width:34px}
+    .turb{width:34px;height:56px}
+    .turbwrap .pct{font-size:9px;margin-top:1px}
+    .cname{font-size:12.5px}
+    .cdev{font-size:9.5px;margin:1px 0 6px}
+    .cmw .big{font-size:17px}
+    .cmw .cap{font-size:10px}
+  }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -207,7 +225,7 @@
     <div class="brand"><h1>風電風情</h1><span class="en">Taiwan Wind Watch</span></div>
     <div class="ticker" id="ticker"></div>
     <div class="feed"><span class="dot sim" id="feeddot"></span><span id="feedtxt">載入中…</span></div>
-    <div class="seg" id="seg"><button class="on" data-v="dash">風情儀表</button><button data-v="map">衛星地圖</button></div>
+    <div class="seg" id="seg"><button class="on" data-v="dash">風情儀表</button><button data-v="map">衛星地圖</button><button data-v="learn">認識風電</button></div>
   </header>
   <main>
     <section class="view on" id="dash">
@@ -230,7 +248,7 @@
       <div class="toolbar">
         <div class="sort" id="sort"><span>排序</span>
           <button class="on" data-s="output">即時出力</button>
-          <button data-s="ratio">利用率</button>
+          <button data-s="ratio">可用率</button>
           <button data-s="cap">裝置容量</button>
           <button data-s="name">名稱</button>
         </div>
@@ -238,9 +256,18 @@
           <span class="chip on" data-f="all">全部</span>
           <span class="chip" data-f="offshore">離岸</span>
           <span class="chip" data-f="onshore">陸域</span>
+          <span class="chip" data-f="commercial">已商轉</span>
+          <span class="chip" data-f="building">開發中</span>
+        </div>
+        <div class="selrow">
+          <select id="devsel" class="fsel" aria-label="依開發商篩選"></select>
+          <select id="brandsel" class="fsel" aria-label="依風機廠牌篩選"></select>
         </div>
       </div>
       <div id="groups"></div>
+    </section>
+    <section class="view" id="learn">
+      <div class="learnintro">想多認識台灣的風？這裡放常見問題與基礎知識——想看再點，不打擾即時數據 🌬️</div>
       <div class="faq">
         <h3>🤔 關於風電，大家常問</h3>
         <details><summary><span class="q">Q</span>沒風的時候不就沒電了？</summary>
@@ -262,9 +289,9 @@
       <div class="maphint">點選風場圖示查看即時出力與專案資訊 · 共 30 個機組 / 風場</div>
       <div class="maplegend">
         <div class="ttl">圖示說明</div>
-        <div class="li"><span class="sw" style="background:var(--gen)"></span>利用率高（≥45%）</div>
-        <div class="li"><span class="sw" style="background:var(--sky)"></span>利用率中（20–45%）</div>
-        <div class="li"><span class="sw" style="background:var(--amber)"></span>利用率低（&lt;20%）</div>
+        <div class="li"><span class="sw" style="background:var(--gen)"></span>可用率高（≥45%）</div>
+        <div class="li"><span class="sw" style="background:var(--sky)"></span>可用率中（20–45%）</div>
+        <div class="li"><span class="sw" style="background:var(--amber)"></span>可用率低（&lt;20%）</div>
         <div class="li"><span class="sw" style="background:var(--slate)"></span>開發中／未列容量</div>
         <div class="li" style="margin-top:8px;color:var(--mist-dim)">圈圈大小 ＝ 裝置容量</div>
       </div>
@@ -425,7 +452,7 @@ const GROUPS=[
 ];
 const isOffshore=f=>f.grp.startsWith("off");
 
-let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all";
+let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all",devFilt="all",brandFilt="all";
 let HIST={points:[]};                          // 真實滾動歷史(scraper 累積，每 15 分一筆)
 let sysTotal=null;                             // 全國即時淨發電量(MW)，來自 live JSON
 const HIST_ENDPOINT="./wind_history.json";
@@ -482,7 +509,7 @@ function hexColor(f){if(f.pending||!f.cap)return"#5b7e8a";const r=ratioOf(f);
 function cssColor(f){if(f.pending||!f.cap)return"var(--slate)";const r=ratioOf(f);
   return r>=0.45?"var(--gen)":r>=0.20?"var(--sky)":"var(--amber)";}
 
-// 風機轉速：利用率越高轉越快；停機(出力≈0)不轉。回傳秒/圈，0=不轉。
+// 風機轉速：可用率越高轉越快；停機(出力≈0)不轉。回傳秒/圈，0=不轉。
 function spinDur(f){
   const out=RT[f.id]||0;
   if(out<=0.1)return 0;
@@ -505,7 +532,7 @@ function turbineSVG(f){
     </g></svg>`;
 }
 function paint(){paintTicker();paintHero();paintImpact();paintGroups();updateMarkers();}
-// 依整體利用率產生口語化問候(生動/幽默)
+// 依整體可用率產生口語化問候(生動/幽默)
 function heroMood(r){
   if(r>=0.45)return{e:"💨",t:"狂風時刻！全台風機火力全開，正在猛灌綠電。"};
   if(r>=0.28)return{e:"🌬️",t:"風勢不錯，風機們穩穩出力中。"};
@@ -523,7 +550,7 @@ function paintHero(){
   const story=mwh!=null
     ? `今天到現在，台灣的風已轉出約 <b>${Math.round(mwh*1000).toLocaleString()} 度</b>電 ⚡ ≈ <b>${Math.round(mwh*100).toLocaleString()} 戶</b>家庭一整天的用電 🏠（仍在累積中）`
     : `今日發電量正在累積中，過一段時間就會說書給你聽 📖`;
-  const topChip=top?`🏆 此刻最賣力：<b>${top.name}</b>（利用率 ${(ratioOf(top)*100).toFixed(0)}%）`:"🏆 此刻暫無風場運轉";
+  const topChip=top?`🏆 此刻最賣力：<b>${top.name}</b>（可用率 ${(ratioOf(top)*100).toFixed(0)}%）`:"🏆 此刻暫無風場運轉";
   document.getElementById("hero").innerHTML=`
     <div class="hgreet"><span class="he">${m.e}</span><span>${m.t}</span></div>
     <div class="hstory">${story}</div>
@@ -537,7 +564,7 @@ function paintTicker(){
   document.getElementById("ticker").innerHTML=`
     <div class="stat"><div class="k">全台風電即時出力</div><div class="v green num">${Math.round(total).toLocaleString()}<small>MW</small></div></div>
     <div class="stat"><div class="k">總裝置容量</div><div class="v num">${Math.round(cap).toLocaleString()}<small>MW</small></div></div>
-    <div class="stat"><div class="k">整體利用率</div><div class="v sky num">${(total/cap*100).toFixed(1)}<small>%</small></div></div>
+    <div class="stat"><div class="k">整體可用率</div><div class="v sky num">${(total/cap*100).toFixed(1)}<small>%</small></div></div>
     <div class="stat"><div class="k">每小時減碳（估算）</div><div class="v num">${co2}<small>噸</small></div></div>
     <div class="stat"><div class="k">機組／風場</div><div class="v num">${op}<small>／${FARMS.length}</small></div></div>`;
 }
@@ -591,19 +618,57 @@ function cardHTML(f){
       <div class="cmeta">${badge}</div>
     </div></div>`;
 }
+// 由台電購電合約揭露的開發商字串歸納為簡短名稱(供篩選)
+function devShort(f){
+  const d=f.dev||"";
+  if(/台灣電力|台電/.test(d))return"台電";
+  if(/沃旭|Ørsted|Orsted/i.test(d))return"沃旭 Ørsted";
+  if(/CIP|哥本哈根/i.test(d))return"CIP";
+  if(/達德|wpd/i.test(d))return"達德 wpd";
+  if(/海龍/.test(d))return"海龍";
+  if(/中能|中鋼/.test(d))return"中能（中鋼）";
+  if(/海洋風電|海能|JERA/i.test(d))return"JERA 系";
+  return"其他民營";
+}
+// 由風機型號字串歸納為廠牌(供篩選)；資料來源為各風場 model 欄位
+function farmBrand(f){
+  const m=f.model||"";
+  if(/Siemens Gamesa/i.test(m))return"Siemens Gamesa";
+  if(/Siemens/i.test(m))return"Siemens";
+  if(/Vestas/i.test(m))return"Vestas";
+  if(/Hitachi/i.test(m))return"Hitachi";
+  return"其他／未列";
+}
+function farmPass(f){
+  if(filt==="offshore"&&!isOffshore(f))return false;
+  if(filt==="onshore"&&isOffshore(f))return false;
+  if(filt==="commercial"&&f.pending)return false;   // 已商轉 = 非試運轉
+  if(filt==="building"&&!f.pending)return false;     // 開發中 = 試運轉(註10)
+  if(devFilt!=="all"&&devShort(f)!==devFilt)return false;
+  if(brandFilt!=="all"&&farmBrand(f)!==brandFilt)return false;
+  return true;
+}
+function buildFilterSelects(){                       // 依實際資料動態建立下拉，避免硬寫錯
+  const ds=document.getElementById("devsel"),bs=document.getElementById("brandsel");
+  const devs=[...new Set(FARMS.map(devShort))],brands=[...new Set(FARMS.map(farmBrand))];
+  ds.innerHTML=`<option value="all">全部開發商</option>`+devs.map(d=>`<option value="${d}">${d}</option>`).join("");
+  bs.innerHTML=`<option value="all">全部廠牌</option>`+brands.map(b=>`<option value="${b}">${b}</option>`).join("");
+  ds.onchange=()=>{devFilt=ds.value;paintGroups();};
+  bs.onchange=()=>{brandFilt=bs.value;paintGroups();};
+}
 function paintGroups(){
-  const wrap=document.getElementById("groups");let html="";
+  const wrap=document.getElementById("groups");let html="",shown=0;
   GROUPS.forEach(g=>{
-    if(filt==="offshore"&&g.cls!=="off")return;
-    if(filt==="onshore"&&g.cls!=="on")return;
-    let list=sortFarms(FARMS.filter(f=>f.grp===g.key));
+    let list=sortFarms(FARMS.filter(f=>f.grp===g.key&&farmPass(f)));
+    if(!list.length)return;                          // 篩選後該組無風場 → 隱藏整組
+    shown+=list.length;
     const out=list.reduce((s,f)=>s+RT[f.id],0),cap=list.reduce((s,f)=>s+(f.cap||0),0);
     html+=`<div class="grouphead"><span class="tag ${g.tag}">${g.tag==="tpc"?"台電自有":"購電"}</span>
       <h2>${g.label}</h2><div class="rule"></div>
       <div class="sum num">${out.toFixed(1)} / ${Math.round(cap).toLocaleString()} MW · ${cap>0?(out/cap*100).toFixed(0):0}%</div></div>
       <div class="grid">${list.map(cardHTML).join("")}</div>`;
   });
-  wrap.innerHTML=html;
+  wrap.innerHTML=shown?html:`<div class="empty">查無符合條件的風場，試試放寬篩選 🔍</div>`;
   wrap.querySelectorAll(".card").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);
     c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(c.dataset.id)}};});
 }
@@ -649,7 +714,7 @@ function openDrawer(id){
       <div class="top">
         <div><div class="lab">即時出力 ${LIVE?"":"（模擬·基準快照）"}</div>
           <div class="out num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}<small>MW</small></div></div>
-        <div class="ratio"><div class="v num" style="color:${cssColor(f)}">${f.cap?r.toFixed(0)+"%":"—"}</div><div class="l">利用率</div></div>
+        <div class="ratio"><div class="v num" style="color:${cssColor(f)}">${f.cap?r.toFixed(0)+"%":"—"}</div><div class="l">可用率</div></div>
       </div>${sparkSVG(f)}
       <div class="lab" style="margin-top:6px;color:var(--mist-dim)">${sparkLabel(f)}</div></div>
     <div class="specs">${specs.map(s=>`<div class="spec${s[2]?" wide":""}"><div class="l">${s[0]}</div>
@@ -670,6 +735,7 @@ document.getElementById("seg").onclick=e=>{const b=e.target.closest("button");if
   document.querySelectorAll("#seg button").forEach(x=>x.classList.toggle("on",x===b));
   const v=b.dataset.v;
   document.getElementById("dash").classList.toggle("on",v==="dash");
+  document.getElementById("learn").classList.toggle("on",v==="learn");
   document.getElementById("map-view").classList.toggle("on",v==="map");
   if(v==="map"){initMap();setTimeout(()=>map.invalidateSize(),60);}};
 document.getElementById("sort").onclick=e=>{const b=e.target.closest("button");if(!b)return;
@@ -698,7 +764,7 @@ function popHTML(f){
     <div class="row"><span>台電機組</span><b>${f.tp}</b></div>
     <div class="row"><span>即時出力</span><b class="num" style="color:${hexColor(f)}">${RT[f.id].toFixed(1)} MW</b></div>
     <div class="row"><span>裝置容量</span><b class="num">${capTxt}</b></div>
-    ${f.cap?`<div class="row"><span>利用率</span><b class="num">${r.toFixed(0)}%</b></div>
+    ${f.cap?`<div class="row"><span>可用率</span><b class="num">${r.toFixed(0)}%</b></div>
     <div class="pbar"><i style="width:${r}%"></i></div>`:""}
     <div class="row"><span>${f.dev}</span></div>
     <button id="pop-${f.id}">查看專案資訊 →</button></div>`;
@@ -706,6 +772,7 @@ function popHTML(f){
 function updateMarkers(){if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
   if(m.isPopupOpen())m.setPopupContent(popHTML(f));}});}
 
+buildFilterSelects();
 refresh();tryLive();tryHistory();
 setInterval(refresh,15000);
 if(DATA_ENDPOINT){setInterval(tryLive,600000);setInterval(tryHistory,600000);}
