@@ -352,8 +352,12 @@ const GROUPS=[
 ];
 const isOffshore=f=>f.grp.startsWith("off");
 
-let LIVE=false,lastUpdate=null,sortKey="output",filt="all";
+let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all";
 const RT={};
+// 台電 opendata 的「資料時間」(source_time，台北時間無時區) → 顯示用字串
+function fmtSrc(s){if(!s)return"";const d=new Date(s);if(isNaN(d))return s;
+  const p=n=>String(n).padStart(2,"0");
+  return `${p(d.getMonth()+1)}/${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;}
 function seeded(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return((h>>>0)%1000)/1000}
 function windDrift(){const t=Date.now()/1000;return 1+0.35*Math.sin(t/360)+0.12*Math.sin(t/64);}
 function simOutput(f){
@@ -368,17 +372,21 @@ function simOutput(f){
   v=Math.max(0,Math.min(cap,v));
   return +v.toFixed(1);
 }
-function refresh(){FARMS.forEach(f=>RT[f.id]=simOutput(f));lastUpdate=new Date();paint();}
+function refresh(){if(LIVE)return;            // 即時模式：不跑模擬，保留台電真實值不被覆蓋
+  FARMS.forEach(f=>RT[f.id]=simOutput(f));lastUpdate=new Date();paint();}
 async function tryLive(){
   if(!DATA_ENDPOINT){setFeed(false);return;}
   try{const r=await fetch(DATA_ENDPOINT,{cache:"no-store"});const j=await r.json();
     if(j&&j.farms){FARMS.forEach(f=>{if(j.farms[f.id]!=null)RT[f.id]=j.farms[f.id]});
+      srcTime=j.source_time||null;
       lastUpdate=j.updated?new Date(j.updated):new Date();setFeed(true);paint();return;}
     setFeed(false);}catch(e){setFeed(false)}
 }
 function setFeed(live){
   LIVE=live;const dot=document.getElementById("feeddot"),txt=document.getElementById("feedtxt"),dm=document.getElementById("datamode");
-  if(live){dot.className="dot live";txt.textContent="即時資料 · 每 10 分鐘更新";dm.textContent="● 即時：已連線後端端點";}
+  if(live){dot.className="dot live";
+    txt.textContent=srcTime?`即時資料 · 台電更新 ${fmtSrc(srcTime)}`:"即時資料 · 每 10 分鐘更新";
+    dm.textContent=srcTime?`● 即時：已連線後端端點 · 台電資料時間 ${fmtSrc(srcTime)}`:"● 即時：已連線後端端點";}
   else{dot.className="dot sim";txt.textContent="模擬浮動（基準：台電開放資料 6/15 17:30 快照）";
     dm.textContent="◐ 即時：模擬中 · 設定 DATA_ENDPOINT 後切換為真實資料";}
 }
