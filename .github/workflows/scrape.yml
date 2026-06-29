@@ -3,7 +3,9 @@ name: scrape-taipower-wind
 # 放置位置：.github/workflows/scrape.yml
 on:
   schedule:
-    - cron: "*/15 * * * *"   # 每 15 分鐘（GitHub 排程實際可能延遲數分鐘，且高負載時偶爾略過）
+    # 每 15 分鐘，但刻意錯開 :00/:15/:30/:45 尖峰整點(全球最壅塞、最常被略過的時段)。
+    # 偏移到 :03/:18/:33/:48 可大幅降低 GitHub 排程被延遲或跳過的機率。
+    - cron: "3,18,33,48 * * * *"
   workflow_dispatch: {}       # 允許在 Actions 頁面手動觸發
 
 permissions:
