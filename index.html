@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風電風情 · 台灣風力發電即時資訊</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+  :root{
+    --sea-0:#06212e;--sea-1:#0a2a3a;--sea-2:#0e3547;--sea-3:#13455c;--line:#1d5571;
+    --foam:#e9f5f4;--mist:#9fc3cc;--mist-dim:#6f9aa6;
+    --gen:#34e0ad;--gen-deep:#0fae84;--sky:#56c2e8;--amber:#f4a64d;--slate:#5b7e8a;
+    --tpc:#56c2e8;--ppa:#f4a64d;--shadow:rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    background:radial-gradient(1200px 600px at 78% -8%,#11405455 0%,transparent 60%),
+      radial-gradient(900px 500px at 8% 108%,#0c3a4f55 0%,transparent 55%),var(--sea-1);
+    color:var(--foam);overflow:hidden}
+  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+  #app{display:flex;flex-direction:column;height:100vh}
+
+  header{flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:13px 22px;
+    border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0c3142,#0a2a3a);
+    box-shadow:0 6px 22px -10px var(--shadow);z-index:600}
+  .brand{display:flex;align-items:baseline;gap:11px;min-width:max-content}
+  .brand h1{font-size:24px;font-weight:900;letter-spacing:.16em;
+    background:linear-gradient(92deg,var(--foam),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .brand .en{font-size:10.5px;letter-spacing:.3em;color:var(--mist-dim);text-transform:uppercase}
+  .ticker{display:flex;flex:1;justify-content:center;overflow:hidden}
+  .stat{padding:1px 22px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .k{font-size:10px;letter-spacing:.16em;color:var(--mist-dim);margin-bottom:3px}
+  .stat .v{font-size:22px;font-weight:800;line-height:1}
+  .stat .v small{font-size:11.5px;font-weight:600;color:var(--mist);margin-left:3px}
+  .stat .v.green{color:var(--gen)}.stat .v.sky{color:var(--sky)}
+  .feed{display:flex;align-items:center;gap:8px;min-width:max-content;font-size:11px;color:var(--mist)}
+  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .dot.live{background:var(--gen);animation:pulse 2.2s infinite}
+  .dot.sim{background:var(--amber)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,224,173,.6)}70%{box-shadow:0 0 0 8px rgba(52,224,173,0)}100%{box-shadow:0 0 0 0 rgba(52,224,173,0)}}
+  .seg{display:flex;background:var(--sea-0);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:max-content}
+  .seg button{background:transparent;border:none;color:var(--mist);font-family:inherit;font-size:13px;font-weight:700;
+    padding:9px 15px;cursor:pointer;transition:.18s}
+  .seg button.on{background:linear-gradient(180deg,var(--sea-3),var(--sea-2));color:var(--foam)}
+  .seg button:hover:not(.on){color:var(--foam)}
+
+  main{flex:1 1 auto;position:relative;overflow:hidden}
+  .view{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s}
+  .view.on{opacity:1;pointer-events:auto}
+  #dash{overflow-y:auto;padding:16px 22px 40px}
+
+  .toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .sort{display:flex;gap:6px;font-size:12px;color:var(--mist-dim);align-items:center;flex-wrap:wrap}
+  .sort button{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);
+    border-radius:7px;padding:6px 11px;font-family:inherit;font-size:12px;cursor:pointer;transition:.15s}
+  .sort button.on{border-color:var(--sky);color:var(--foam)}
+  .filt{display:flex;gap:6px;font-size:12px;color:var(--mist-dim);align-items:center;margin-left:auto;flex-wrap:wrap}
+  .chip{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);
+    border-radius:20px;padding:5px 12px;font-family:inherit;font-size:12px;cursor:pointer;transition:.15s}
+  .chip.on{border-color:var(--sky);color:var(--foam);background:var(--sea-3)}
+
+  .grouphead{display:flex;align-items:center;gap:11px;margin:20px 0 11px}
+  .grouphead .tag{font-size:10.5px;font-weight:800;letter-spacing:.05em;padding:3px 9px;border-radius:6px;border:1px solid}
+  .grouphead .tag.tpc{color:var(--tpc);border-color:#1f5c74;background:#0a3344}
+  .grouphead .tag.ppa{color:var(--ppa);border-color:#6b4a22;background:#3a2a14}
+  .grouphead h2{font-size:15.5px;font-weight:800;letter-spacing:.05em}
+  .grouphead .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .grouphead .sum{font-size:12px;color:var(--mist);font-weight:600}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .card{position:relative;display:flex;gap:12px;background:linear-gradient(160deg,var(--sea-2),var(--sea-1));
+    border:1px solid var(--line);border-radius:13px;padding:12px 13px;cursor:pointer;overflow:hidden;
+    transition:transform .18s,border-color .18s,box-shadow .18s}
+  .card:hover{transform:translateY(-3px);border-color:var(--sky);box-shadow:0 14px 30px -16px #000}
+  .card:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+  .card.pending{opacity:.72}
+  .col{position:relative;flex:0 0 26px;width:26px;border-radius:7px;background:var(--sea-0);border:1px solid var(--line);overflow:hidden}
+  .col .fill{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,var(--gen),var(--gen-deep));transition:height 1.1s cubic-bezier(.4,1.2,.5,1)}
+  .col .fill::before{content:"";position:absolute;left:-50%;width:200%;height:12px;top:-6px;
+    background:radial-gradient(circle,rgba(255,255,255,.5) 0 38%,transparent 60%);opacity:.3;animation:wave 4s linear infinite}
+  @keyframes wave{0%{transform:translateX(0)}100%{transform:translateX(25%)}}
+  .col .pct{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-size:9px;font-weight:800;color:#04201a}
+  .cbody{flex:1;min-width:0}
+  .cname{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cdev{font-size:10.5px;color:var(--mist-dim);margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cmw{display:flex;align-items:baseline;gap:5px}
+  .cmw .big{font-size:21px;font-weight:800;line-height:1}
+  .cmw .cap{font-size:11px;color:var(--mist)}
+  .cmeta{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:10.5px;color:var(--mist);flex-wrap:wrap}
+  .badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:700;border:1px solid}
+  .badge.run{color:var(--gen);border-color:#1b6b56;background:#0c3a30}
+  .badge.dev{color:var(--slate);border-color:#33505b;background:#0d2d39}
+  .badge.agg{color:var(--mist);border-color:#33505b;background:#0d2d39}
+
+  #map{position:absolute;inset:0;background:var(--sea-0)}
+  .leaflet-popup-content-wrapper{background:#0c2e3d;color:var(--foam);border:1px solid var(--line);border-radius:12px}
+  .leaflet-popup-tip{background:#0c2e3d;border:1px solid var(--line)}
+  .leaflet-popup-content{margin:13px 15px;font-family:inherit}
+  .pop h3{font-size:15px;font-weight:800;margin-bottom:7px}
+  .pop .row{display:flex;justify-content:space-between;gap:18px;font-size:12px;margin:3px 0;color:var(--mist)}
+  .pop .row b{color:var(--foam);font-weight:700}
+  .pop .pbar{height:6px;border-radius:4px;background:var(--sea-0);margin:8px 0 4px;overflow:hidden}
+  .pop .pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--gen-deep),var(--gen))}
+  .pop button{margin-top:9px;width:100%;background:var(--sky);color:#04222e;border:none;border-radius:8px;
+    padding:7px;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer}
+  .maplegend{position:absolute;right:14px;bottom:22px;z-index:500;background:#0c2e3decf;backdrop-filter:blur(6px);
+    border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:11px;color:var(--mist)}
+  .maplegend .ttl{font-weight:800;color:var(--foam);margin-bottom:8px;letter-spacing:.06em}
+  .maplegend .li{display:flex;align-items:center;gap:8px;margin:5px 0}
+  .maplegend .sw{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+  .maphint{position:absolute;left:14px;top:14px;z-index:500;font-size:11.5px;color:var(--mist);
+    background:#0c2e3dcc;border:1px solid var(--line);border-radius:9px;padding:7px 12px;max-width:60vw}
+
+  #scrim{position:absolute;inset:0;background:#02141bbb;opacity:0;pointer-events:none;transition:.3s;z-index:900}
+  #scrim.on{opacity:1;pointer-events:auto}
+  #drawer{position:absolute;top:0;right:0;height:100%;width:430px;max-width:92vw;z-index:1000;
+    background:linear-gradient(165deg,var(--sea-2),var(--sea-1));border-left:1px solid var(--line);
+    transform:translateX(100%);transition:transform .34s cubic-bezier(.4,.9,.3,1);display:flex;flex-direction:column;
+    box-shadow:-20px 0 50px -20px #000}
+  #drawer.on{transform:translateX(0)}
+  .dhead{padding:20px 22px 16px;border-bottom:1px solid var(--line);position:relative}
+  .dhead .close{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--mist);font-size:24px;cursor:pointer;line-height:1}
+  .dhead .close:hover{color:var(--foam)}
+  .dhead h2{font-size:21px;font-weight:900;padding-right:30px}
+  .dhead .sub{font-size:12.5px;color:var(--mist-dim);margin-top:5px}
+  .dbody{flex:1;overflow-y:auto;padding:20px 22px 40px}
+  .liveblock{background:var(--sea-0);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:18px}
+  .liveblock .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px}
+  .liveblock .top .lab{font-size:11px;letter-spacing:.14em;color:var(--mist-dim)}
+  .liveblock .top .out{font-size:33px;font-weight:900;line-height:.9}
+  .liveblock .top .out small{font-size:14px;font-weight:600;color:var(--mist);margin-left:4px}
+  .liveblock .ratio{text-align:right}.liveblock .ratio .v{font-size:25px;font-weight:800}
+  .liveblock .ratio .l{font-size:10.5px;color:var(--mist-dim);letter-spacing:.1em}
+  .spark{width:100%;height:46px;display:block}
+  .specs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;margin-bottom:18px}
+  .spec{background:var(--sea-2);padding:11px 13px}
+  .spec .l{font-size:10.5px;color:var(--mist-dim);margin-bottom:4px}
+  .spec .v{font-size:14.5px;font-weight:700}
+  .spec.wide{grid-column:1/3}
+  .timeline h3{font-size:13px;letter-spacing:.08em;color:var(--mist);margin-bottom:12px}
+  .tl{position:relative;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--line)}
+  .tlitem{position:relative;margin-bottom:13px}
+  .tlitem::before{content:"";position:absolute;left:-21px;top:3px;width:10px;height:10px;border-radius:50%;
+    background:var(--sea-1);border:2px solid var(--sky)}
+  .tlitem.done::before{background:var(--gen);border-color:var(--gen)}
+  .tlitem .d{font-size:11px;color:var(--sky);font-weight:700}
+  .tlitem .t{font-size:13px;margin-top:2px}
+  .note{font-size:11.5px;color:var(--mist-dim);line-height:1.7;border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
+
+  footer{flex:0 0 auto;padding:7px 22px;border-top:1px solid var(--line);font-size:10.5px;color:var(--mist-dim);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:5px}
+  ::-webkit-scrollbar-track{background:transparent}
+  @media (max-width:880px){.ticker{display:none}.brand h1{font-size:19px}header{gap:10px;padding:11px 14px;flex-wrap:wrap}#dash{padding:14px}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="brand"><h1>風電風情</h1><span class="en">Taiwan Wind Watch</span></div>
+    <div class="ticker" id="ticker"></div>
+    <div class="feed"><span class="dot sim" id="feeddot"></span><span id="feedtxt">載入中…</span></div>
+    <div class="seg" id="seg"><button class="on" data-v="dash">風情儀表</button><button data-v="map">衛星地圖</button></div>
+  </header>
+  <main>
+    <section class="view on" id="dash">
+      <div class="toolbar">
+        <div class="sort" id="sort"><span>排序</span>
+          <button class="on" data-s="output">即時出力</button>
+          <button data-s="ratio">利用率</button>
+          <button data-s="cap">裝置容量</button>
+          <button data-s="name">名稱</button>
+        </div>
+        <div class="filt" id="filt">
+          <span class="chip on" data-f="all">全部</span>
+          <span class="chip" data-f="offshore">離岸</span>
+          <span class="chip" data-f="onshore">陸域</span>
+        </div>
+      </div>
+      <div id="groups"></div>
+    </section>
+    <section class="view" id="map-view">
+      <div id="map"></div>
+      <div class="maphint">點選風場圖示查看即時出力與專案資訊 · 共 30 個機組 / 風場</div>
+      <div class="maplegend">
+        <div class="ttl">圖示說明</div>
+        <div class="li"><span class="sw" style="background:var(--gen)"></span>利用率高（≥45%）</div>
+        <div class="li"><span class="sw" style="background:var(--sky)"></span>利用率中（20–45%）</div>
+        <div class="li"><span class="sw" style="background:var(--amber)"></span>利用率低（&lt;20%）</div>
+        <div class="li"><span class="sw" style="background:var(--slate)"></span>開發中／未列容量</div>
+        <div class="li" style="margin-top:8px;color:var(--mist-dim)">圈圈大小 ＝ 裝置容量</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <span>機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準</span>
+    <span id="datamode"></span>
+  </footer>
+</div>
+<div id="scrim"></div>
+<aside id="drawer" role="dialog" aria-modal="true">
+  <div class="dhead"><button class="close" id="dclose" aria-label="關閉">×</button>
+    <h2 id="dname"></h2><div class="sub" id="dsub"></div></div>
+  <div class="dbody" id="dbody"></div>
+</aside>
+
+<script>
+/* ===== 風電風情 — 對齊台電 genary.json 風力四類三十機組 =====
+   即時資料：填 DATA_ENDPOINT（後端 scraper 產生的 wind_realtime.json）→ 轉真實即時。
+   未連線時：以 6/29 16:13 台電實際快照為基準，做模擬浮動（已明確標示，非真實即時）。 */
+const DATA_ENDPOINT="./wind_realtime.json";   // 例如 "https://your-host/wind_realtime.json"
+
+/* tp=台電 genary 機組名稱(用於即時對應) ; cap=裝置容量MW(null=台電未列,註10)
+   snap=6/29 16:13 實際出力MW ; grp: on-tpc|on-ppa|off-tpc|off-ppa */
+const FARMS=[
+ // ===== 陸域風力 · 台電自有 =====
+ {id:"guanyuan",tp:"觀園",name:"觀園風場",grp:"on-tpc",cap:30.0,snap:8.5,lat:25.03,lng:121.07,
+  dev:"台灣電力公司",site:"桃園市觀音、大園沿海",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
+  tl:[["—","台電西海岸陸域風場之一","done"]],note:"台電自有陸域風場。座標為概略位置。"},
+ {id:"taichungport",tp:"台中港",name:"台中港風場",grp:"on-tpc",cap:35.0,snap:5.8,lat:24.29,lng:120.53,
+  dev:"台灣電力公司",site:"台中港北堤",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
+  tl:[["—","台中港區陸域風場","done"]],note:"座標為概略位置。"},
+ {id:"wanggong",tp:"王功",name:"王功風場",grp:"on-tpc",cap:23.0,snap:6.0,lat:23.99,lng:120.31,
+  dev:"台灣電力公司",site:"彰化縣芳苑鄉王功",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
+  tl:[["—","彰化沿海陸域風場","done"]],note:"座標為概略位置。"},
+ {id:"changgong",tp:"彰工",name:"彰工風場",grp:"on-tpc",cap:86.2,snap:10.9,lat:24.13,lng:120.45,
+  dev:"台灣電力公司",site:"彰化縣線西、伸港（彰濱工業區）",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
+  tl:[["—","彰濱工業區陸域風場，台電陸域容量最大者之一","done"]],note:"座標為概略位置。"},
+ {id:"yunmai",tp:"雲麥",name:"雲麥風場",grp:"on-tpc",cap:46.0,snap:9.9,lat:23.79,lng:120.24,
+  dev:"台灣電力公司",site:"雲林縣麥寮",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
+  tl:[["—","雲林麥寮沿海陸域風場","done"]],note:"座標為概略位置。"},
+ {id:"sihu",tp:"四湖",name:"四湖風場",grp:"on-tpc",cap:28.0,snap:7.9,lat:23.64,lng:120.22,
+  dev:"台灣電力公司",site:"雲林縣四湖",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
+  tl:[["—","雲林四湖沿海陸域風場","done"]],note:"座標為概略位置。"},
+ {id:"tpc-other-on",tp:"其它台電自有",name:"其它台電自有（陸域）",grp:"on-tpc",cap:84.7,snap:23.6,lat:24.80,lng:120.90,agg:true,
+  dev:"台灣電力公司",site:"新竹香山、桃園、其他多處",model:"多型號彙總",unit:"2–3 MW",cod:"—",
+  tl:[["—","台電其餘陸域風場彙總（香山、大潭等多處）","done"]],note:"此為多座風場彙總，非單一風場；座標僅示意。"},
+
+ // ===== 陸域風力 · 購電（民營） =====
+ {id:"dapeng",tp:"苗栗大鵬",name:"苗栗大鵬風場",grp:"on-ppa",cap:42.0,snap:12.2,lat:24.52,lng:120.72,
+  dev:"民營購電",site:"苗栗後龍、通霄一帶",model:"陸域機組",unit:"2–3 MW",cod:"—",
+  tl:[["—","民營陸域風場，售電予台電","done"]],note:"民營風場（購電），開發商以台電購電合約揭露。座標為概略位置。"},
+ {id:"luwei",tp:"鹿威彰濱",name:"鹿威彰濱風場",grp:"on-ppa",cap:55.2,snap:7.0,lat:24.05,lng:120.43,
+  dev:"民營購電（達德能源 wpd 系統）",site:"彰化彰濱、鹿港",model:"陸域機組",unit:"2–3 MW",cod:"—",
+  tl:[["—","彰濱地區民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
+ {id:"guanwei",tp:"觀威觀音&桃威新屋",name:"觀威觀音 & 桃威新屋",grp:"on-ppa",cap:48.3,snap:14.5,lat:25.00,lng:121.04,
+  dev:"民營購電（達德能源 wpd 系統）",site:"桃園觀音、新屋",model:"陸域機組",unit:"2–3 MW",cod:"—",
+  tl:[["—","桃園沿海民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
+ {id:"zhongwei",tp:"中威大安",name:"中威大安風場",grp:"on-ppa",cap:75.9,snap:3.9,lat:24.35,lng:120.57,
+  dev:"民營購電（達德能源 wpd 系統）",site:"台中大安",model:"陸域機組",unit:"2–3 MW",cod:"—",
+  tl:[["—","台中大安沿海民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
+ {id:"chuangwei",tp:"創維風",name:"創維風場",grp:"on-ppa",cap:49.2,snap:24.6,lat:24.20,lng:120.50,
+  dev:"民營購電",site:"中部沿海",model:"陸域機組",unit:"2–3 MW",cod:"—",
+  tl:[["—","民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置，待校正。"},
+ {id:"xinyuan",tp:"新源崙背",name:"新源崙背風場",grp:"on-ppa",cap:25.2,snap:17.7,lat:23.76,lng:120.35,
+  dev:"民營購電",site:"雲林崙背",model:"陸域機組",unit:"2–3 MW",cod:"—",
+  tl:[["—","雲林崙背民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
+ {id:"changpin",tp:"彰品風",name:"彰品風場",grp:"on-ppa",cap:null,snap:0.0,lat:24.00,lng:120.40,pending:true,
+  dev:"民營購電",site:"彰化",model:"陸域機組",unit:"—",cod:"開發中",
+  tl:[["—","台電資料註記為尚未列裝置容量（註10）",""]],note:"台電 genary 標示為「-（註10）」，尚未列裝置容量／商轉。座標為概略位置。"},
+ {id:"ppa-other-on",tp:"其它購電風力",name:"其它購電風力（陸域）",grp:"on-ppa",cap:178.4,snap:26.3,lat:24.40,lng:120.60,agg:true,
+  dev:"民營購電",site:"西海岸多處",model:"多型號彙總",unit:"2–3 MW",cod:"—",
+  tl:[["—","其餘民營陸域風場彙總","done"]],note:"此為多座民營風場彙總，非單一風場；座標僅示意。"},
+
+ // ===== 離岸風力 · 台電自有 =====
+ {id:"offshore1",tp:"離岸一期",name:"台電離岸一期",grp:"off-tpc",cap:109.2,snap:75.0,lat:24.10,lng:120.30,
+  dev:"台灣電力公司",site:"彰化芳苑外海",model:"Hitachi 5.2 MW",unit:"5.2 MW",depth:"約 20 m",dist:"約 8 km",turbines:21,
+  cod:"2020",annual:"約 3.6 億度",homes:"約 9 萬戶",
+  tl:[["2017","示範機組設置","done"],["2020","21 部機組商轉，台電自建首座離岸風場","done"]],note:""},
+ {id:"offshore2",tp:"離岸二期",name:"台電離岸二期",grp:"off-tpc",cap:null,snap:0.9,lat:24.15,lng:120.19,pending:true,
+  dev:"台灣電力公司（富崴能源統包）",site:"彰化鹿港外海",model:"9.5 MW 級",unit:"9.5 MW",depth:"37–49 m",dist:"鹿港外海",turbines:31,planned:294.5,
+  cod:"預計 2026",annual:"逾 10 億度",homes:"約 27 萬戶",
+  tl:[["2020","富崴能源得標統包","done"],["2025","施工進度逾九成","done"],["2026","規劃全面竣工併網",""]],
+  note:"台電 genary 仍標示「-（註10）」、僅見少量測試出力，尚未全面商轉。規劃容量 294.5 MW。"},
+
+ // ===== 離岸風力 · 購電 =====
+ {id:"formosa1",tp:"海洋竹南",name:"海洋風場 Formosa 1",grp:"off-ppa",cap:128.0,snap:96.2,lat:24.71,lng:120.85,
+  dev:"海洋風電（JERA・麥格理・上緯）",site:"苗栗竹南外海",model:"Siemens SWT 4.0 / 6.0",unit:"4–6 MW",depth:"15–30 m",dist:"2–6 km",turbines:22,
+  cod:"2019",annual:"約 4.8 億度",homes:"約 12.8 萬戶",
+  tl:[["2017","2 部示範機組併網","done"],["2019","22 部全數商轉，台灣首座離岸風場","done"]],note:"台灣離岸風電起點。"},
+ {id:"formosa2",tp:"海能風",name:"海能風場 Formosa 2",grp:"off-ppa",cap:376.0,snap:308.3,lat:24.78,lng:120.73,
+  dev:"海能風力發電（JERA 等）",site:"苗栗外海",model:"MHI Vestas V174",unit:"8 MW",depth:"20–40 m",dist:"4–10 km",turbines:47,
+  cod:"2023",annual:"約 14 億度",homes:"約 38 萬戶",
+  tl:[["2022","首座機組併網","done"],["2023","全數機組商轉","done"]],note:""},
+ {id:"wo1",tp:"沃一風",name:"大彰化一階（沃一風）",grp:"off-ppa",cap:605.2,snap:470.4,lat:24.01,lng:120.05,
+  dev:"沃旭能源 Ørsted",site:"彰化外海 35–60 km",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",
+  cod:"2024",annual:"—",homes:"—",
+  tl:[["2021","海上施工開始","done"],["2024","大彰化東南及西南一階 900 MW 全數併網","done"]],
+  note:"大彰化東南及西南第一階段（沃旭）併網點之一；與沃二風合計 900 MW。"},
+ {id:"wo2",tp:"沃二風",name:"大彰化一階（沃二風）",grp:"off-ppa",cap:294.8,snap:211.1,lat:24.03,lng:120.00,
+  dev:"沃旭能源 Ørsted",site:"彰化外海 35–60 km",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",
+  cod:"2024",annual:"—",homes:"—",
+  tl:[["2024","大彰化一階全數商轉，啟用時為亞太最大","done"]],
+  note:"大彰化東南及西南第一階段（沃旭）併網點之一；與沃一風合計 900 MW。"},
+ {id:"wo4",tp:"沃四風",name:"大彰化西北（沃四風）",grp:"off-ppa",cap:null,snap:374.2,lat:23.96,lng:119.93,pending:true,
+  dev:"沃旭能源 Ørsted",site:"彰化外海",model:"Siemens Gamesa SG 14-236 DD",unit:"14 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",planned:"—",
+  cod:"開發中",annual:"—",homes:"—",
+  tl:[["2025/7","大彰化二階及西北首座機組併網","done"],["2026","規劃全數商轉",""]],
+  note:"台電 genary 仍標示「-（註10）」。屬大彰化西南二階及西北（920 MW）計畫。"},
+ {id:"wonan",tp:"沃南風",name:"大彰化西南二階（沃南風）",grp:"off-ppa",cap:null,snap:0.0,lat:23.93,lng:119.97,pending:true,
+  dev:"沃旭能源 Ørsted",site:"彰化外海",model:"Siemens Gamesa SG 14-236 DD",unit:"14 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",planned:"—",
+  cod:"開發中",annual:"—",homes:"—",
+  tl:[["2025","施工推進","done"],["2026","規劃商轉",""]],
+  note:"台電 genary 仍標示「-（註10）」。全球首座專為台積電供電之離岸風場計畫。"},
+ {id:"fang1",tp:"芳一風",name:"彰芳一期（芳一風）",grp:"off-ppa",cap:96.0,snap:62.2,lat:24.09,lng:120.16,
+  dev:"哥本哈根基礎建設基金 CIP",site:"彰化外海",model:"Siemens Gamesa SG 8.0",unit:"8 MW",depth:"30–40 m",dist:"30–45 km",turbines:"—",
+  cod:"2022–2023",annual:"—",homes:"—",
+  tl:[["2021","彰芳一期施工","done"],["2023","彰芳一期併網","done"]],
+  note:"彰芳暨西島計畫（CIP）一期；與芳二風合計約 595 MW。"},
+ {id:"fang2",tp:"芳二風",name:"彰芳二期暨西島（芳二風）",grp:"off-ppa",cap:499.2,snap:248.1,lat:24.06,lng:120.12,
+  dev:"哥本哈根基礎建設基金 CIP",site:"彰化外海",model:"Siemens Gamesa SG 8.0",unit:"8 MW",depth:"30–40 m",dist:"30–45 km",turbines:"—",
+  cod:"2024",annual:"—",homes:"—",
+  tl:[["2024","彰芳二期暨西島完工","done"]],
+  note:"彰芳暨西島計畫（CIP）二期含西島；與芳一風合計約 595 MW。"},
+ {id:"yunhu",tp:"允湖",name:"允能（允湖）",grp:"off-ppa",cap:320.0,snap:7.8,lat:23.87,lng:120.13,
+  dev:"達德能源 wpd",site:"雲林外海",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"7–35 m",dist:"約 8 km",turbines:"—",
+  cod:"2024",annual:"—",homes:"—",
+  tl:[["2021","海事工程啟動","done"],["2024","允能 640 MW 全數完工","done"]],
+  note:"允能風場（達德 wpd）併網點之一；與允西合計 640 MW。"},
+ {id:"yunxi",tp:"允西",name:"允能（允西）",grp:"off-ppa",cap:320.0,snap:146.2,lat:23.82,lng:120.07,
+  dev:"達德能源 wpd",site:"雲林外海",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"7–35 m",dist:"約 8 km",turbines:"—",
+  cod:"2024",annual:"—",homes:"—",
+  tl:[["2024","允能全數商轉","done"]],
+  note:"允能風場（達德 wpd）併網點之一；快照時段出力達 210 MW，為當下全台風電主力。"},
+ {id:"zhongneng",tp:"中能風",name:"中能風場 Zhong Neng",grp:"off-ppa",cap:294.5,snap:206.5,lat:24.12,lng:120.21,
+  dev:"中能發電（中鋼集團）",site:"彰化外海",model:"Siemens Gamesa SG 14-222 DD",unit:"約 10 MW",depth:"約 35 m",dist:"約 30 km",turbines:31,
+  cod:"2024",annual:"約 11 億度",homes:"約 28 萬戶",
+  tl:[["2023","水下基礎安裝","done"],["2024","機組陸續併網商轉","done"]],note:"中鋼集團主導，帶動國產化供應鏈。"},
+ {id:"longA",tp:"龍A風",name:"海龍（龍A風）",grp:"off-ppa",cap:null,snap:254.6,lat:23.90,lng:119.90,pending:true,
+  dev:"海龍（Northland・三井・Gentari）",site:"彰化外海 45–70 km",model:"Siemens Gamesa SG 14-222 DD",unit:"14 MW",depth:"30–55 m",dist:"45–70 km",turbines:"—",planned:"—",
+  cod:"開發中",annual:"—",homes:"—",
+  tl:[["2024","海龍首批機組施工/併網","done"],["2026","規劃全數完工",""]],
+  note:"台電 genary 仍標示「-（註10）」。海龍二號及三號計畫（約 1 GW）併網點之一。"},
+ {id:"longB",tp:"龍B風",name:"海龍（龍B風）",grp:"off-ppa",cap:null,snap:139.1,lat:23.88,lng:119.87,pending:true,
+  dev:"海龍（Northland・三井・Gentari）",site:"彰化外海 45–70 km",model:"Siemens Gamesa SG 14-222 DD",unit:"14 MW",depth:"30–55 m",dist:"45–70 km",turbines:"—",planned:"—",
+  cod:"開發中",annual:"—",homes:"—",
+  tl:[["2025","施工推進","done"],["2026","規劃完工",""]],
+  note:"台電 genary 仍標示「-（註10）」。海龍二號及三號計畫併網點之一。"},
+];
+
+const GROUPS=[
+ {key:"off-ppa",label:"離岸風力 · 購電",tag:"ppa",cls:"off"},
+ {key:"off-tpc",label:"離岸風力 · 台電自有",tag:"tpc",cls:"off"},
+ {key:"on-ppa", label:"陸域風力 · 購電",tag:"ppa",cls:"on"},
+ {key:"on-tpc", label:"陸域風力 · 台電自有",tag:"tpc",cls:"on"},
+];
+const isOffshore=f=>f.grp.startsWith("off");
+
+let LIVE=false,lastUpdate=null,sortKey="output",filt="all";
+const RT={};
+function seeded(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return((h>>>0)%1000)/1000}
+function windDrift(){const t=Date.now()/1000;return 1+0.35*Math.sin(t/360)+0.12*Math.sin(t/64);}
+function simOutput(f){
+  const drift=windDrift();
+  const noise=1+0.10*Math.sin(Date.now()/2200+seeded(f.tp)*7);
+  if(f.pending){                       // 註10 試運轉機組：會發電，但無裝置容量上限可夾
+    let v=f.snap*drift*noise;
+    return +Math.max(0,Math.min(f.snap*1.45,v)).toFixed(1);
+  }
+  const cap=f.cap||0;
+  let v=f.snap*drift*noise;
+  v=Math.max(0,Math.min(cap,v));
+  return +v.toFixed(1);
+}
+function refresh(){FARMS.forEach(f=>RT[f.id]=simOutput(f));lastUpdate=new Date();paint();}
+async function tryLive(){
+  if(!DATA_ENDPOINT){setFeed(false);return;}
+  try{const r=await fetch(DATA_ENDPOINT,{cache:"no-store"});const j=await r.json();
+    if(j&&j.farms){FARMS.forEach(f=>{if(j.farms[f.id]!=null)RT[f.id]=j.farms[f.id]});
+      lastUpdate=j.updated?new Date(j.updated):new Date();setFeed(true);paint();return;}
+    setFeed(false);}catch(e){setFeed(false)}
+}
+function setFeed(live){
+  LIVE=live;const dot=document.getElementById("feeddot"),txt=document.getElementById("feedtxt"),dm=document.getElementById("datamode");
+  if(live){dot.className="dot live";txt.textContent="即時資料 · 每 10 分鐘更新";dm.textContent="● 即時：已連線後端端點";}
+  else{dot.className="dot sim";txt.textContent="模擬浮動（基準：台電開放資料 6/15 17:30 快照）";
+    dm.textContent="◐ 即時：模擬中 · 設定 DATA_ENDPOINT 後切換為真實資料";}
+}
+const capOf=f=>f.cap||f.planned||0;
+const sizeMW=f=>{const c=(typeof f.cap==="number"?f.cap:0)||(typeof f.planned==="number"?f.planned:0);
+  return c>0?c:Math.max(20,(f.snap||0)*1.2);};   // 註10無容量者用出力推估marker大小
+const ratioOf=f=>{const c=f.cap||0;return c>0?RT[f.id]/c:0;};
+function hexColor(f){if(f.pending||!f.cap)return"#5b7e8a";const r=ratioOf(f);
+  return r>=0.45?"#34e0ad":r>=0.20?"#56c2e8":"#f4a64d";}
+function cssColor(f){if(f.pending||!f.cap)return"var(--slate)";const r=ratioOf(f);
+  return r>=0.45?"var(--gen)":r>=0.20?"var(--sky)":"var(--amber)";}
+
+function paint(){paintTicker();paintGroups();updateMarkers();}
+function paintTicker(){
+  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
+  const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
+  const co2=(total*0.495/1000).toFixed(1);
+  const op=FARMS.filter(f=>!f.pending).length;
+  document.getElementById("ticker").innerHTML=`
+    <div class="stat"><div class="k">全台風電即時出力</div><div class="v green num">${Math.round(total).toLocaleString()}<small>MW</small></div></div>
+    <div class="stat"><div class="k">總裝置容量</div><div class="v num">${Math.round(cap).toLocaleString()}<small>MW</small></div></div>
+    <div class="stat"><div class="k">整體利用率</div><div class="v sky num">${(total/cap*100).toFixed(1)}<small>%</small></div></div>
+    <div class="stat"><div class="k">每小時減碳（示意）</div><div class="v num">${co2}<small>噸</small></div></div>
+    <div class="stat"><div class="k">機組／風場</div><div class="v num">${op}<small>／${FARMS.length}</small></div></div>`;
+}
+function sortFarms(a){const c=[...a];
+  if(sortKey==="output")c.sort((x,y)=>RT[y.id]-RT[x.id]);
+  else if(sortKey==="ratio")c.sort((x,y)=>ratioOf(y)-ratioOf(x));
+  else if(sortKey==="cap")c.sort((x,y)=>sizeMW(y)-sizeMW(x));
+  else c.sort((x,y)=>x.name.localeCompare(y.name,"zh-Hant"));
+  return c;}
+function cardHTML(f){
+  const has=f.cap&&!f.pending;
+  const pct=has?Math.max(0,Math.min(100,ratioOf(f)*100)):0;
+  const capTxt=f.cap?`/ ${f.cap} MW`:(f.planned&&f.planned!=="—"?`/ 規劃 ${f.planned}`:"/ 未列容量");
+  const badge=f.pending?`<span class="badge dev">試運轉</span>`:(f.agg?`<span class="badge agg">彙總</span>`:`<span class="badge run">商轉</span>`);
+  return `<div class="card${f.pending?" pending":""}" tabindex="0" data-id="${f.id}" role="button" aria-label="${f.name}">
+    <div class="col"><div class="fill" style="height:${pct}%;background:linear-gradient(180deg,${cssColor(f)},var(--gen-deep))"></div>
+      <div class="pct">${has?pct.toFixed(0)+"%":""}</div></div>
+    <div class="cbody">
+      <div class="cname">${f.name}</div>
+      <div class="cdev">${f.dev}</div>
+      <div class="cmw"><span class="big num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}</span>
+        <span class="cap num">${capTxt}</span></div>
+      <div class="cmeta">${badge}</div>
+    </div></div>`;
+}
+function paintGroups(){
+  const wrap=document.getElementById("groups");let html="";
+  GROUPS.forEach(g=>{
+    if(filt==="offshore"&&g.cls!=="off")return;
+    if(filt==="onshore"&&g.cls!=="on")return;
+    let list=sortFarms(FARMS.filter(f=>f.grp===g.key));
+    const out=list.reduce((s,f)=>s+RT[f.id],0),cap=list.reduce((s,f)=>s+(f.cap||0),0);
+    html+=`<div class="grouphead"><span class="tag ${g.tag}">${g.tag==="tpc"?"台電自有":"購電"}</span>
+      <h2>${g.label}</h2><div class="rule"></div>
+      <div class="sum num">${out.toFixed(1)} / ${Math.round(cap).toLocaleString()} MW · ${cap>0?(out/cap*100).toFixed(0):0}%</div></div>
+      <div class="grid">${list.map(cardHTML).join("")}</div>`;
+  });
+  wrap.innerHTML=html;
+  wrap.querySelectorAll(".card").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);
+    c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(c.dataset.id)}};});
+}
+function sparkSVG(f){
+  const pts=[],n=36;
+  for(let i=0;i<n;i++){const tt=Date.now()/1000-(n-i)*70;
+    const drift=1+0.35*Math.sin(tt/360)+0.12*Math.sin(tt/64);
+    pts.push(Math.max(0,Math.min(f.cap||f.snap||1,(f.snap||0)*drift)));}
+  const w=380,h=46,max=Math.max(...pts,(f.cap||f.snap||1)*0.2,0.5);
+  const d=pts.map((v,i)=>`${(i/(n-1)*w).toFixed(1)},${(h-v/max*h*0.9-2).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <polyline points="${d}" fill="none" stroke="${hexColor(f)}" stroke-width="2"/>
+    <polyline points="0,${h} ${d} ${w},${h}" fill="${hexColor(f)}" opacity="0.12" stroke="none"/></svg>`;
+}
+function openDrawer(id){
+  const f=FARMS.find(x=>x.id===id);if(!f)return;
+  document.getElementById("dname").textContent=f.name;
+  document.getElementById("dsub").textContent=`台電機組名稱：${f.tp} · ${f.dev}`;
+  const r=ratioOf(f)*100,off=isOffshore(f);
+  const stxt=f.pending?"試運轉（台電未列裝置容量·註10）":(f.agg?"彙總":"商轉中");
+  const capTxt=f.cap?`${f.cap} MW`:(f.planned&&f.planned!=="—"?`規劃 ${f.planned} MW`:"台電未列（註10）");
+  const specs=[
+    ["裝置容量",capTxt],["狀態",stxt],
+    ...(off?[["風機數量",f.turbines||"—"],["單機容量",f.unit||"—"],
+            ["風機型號",f.model||"—",true],["水深",f.depth||"—"],["離岸距離",f.dist||"—"],
+            ["年發電量",f.annual||"—"],["可供應",f.homes||"—"]]
+          :[["地點",f.site||"—",true],["機型",f.model||"—"],["單機容量",f.unit||"—"]]),
+  ];
+  document.getElementById("dbody").innerHTML=`
+    <div class="liveblock">
+      <div class="top">
+        <div><div class="lab">即時出力 ${LIVE?"":"（模擬·基準快照）"}</div>
+          <div class="out num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}<small>MW</small></div></div>
+        <div class="ratio"><div class="v num" style="color:${cssColor(f)}">${f.cap?r.toFixed(0)+"%":"—"}</div><div class="l">利用率</div></div>
+      </div>${sparkSVG(f)}
+      <div class="lab" style="margin-top:6px;color:var(--mist-dim)">近 40 分鐘出力趨勢（示意）</div></div>
+    <div class="specs">${specs.map(s=>`<div class="spec${s[2]?" wide":""}"><div class="l">${s[0]}</div>
+      <div class="v" style="font-size:${s[2]?"13px":"14.5px"}">${s[1]}</div></div>`).join("")}</div>
+    <div class="timeline"><h3>開發與營運歷程</h3>
+      <div class="tl">${f.tl.map(t=>`<div class="tlitem ${t[2]}"><div class="d">${t[0]}</div><div class="t">${t[1]}</div></div>`).join("")}</div></div>
+    ${f.note?`<div class="note">${f.note}</div>`:""}`;
+  document.getElementById("scrim").classList.add("on");
+  document.getElementById("drawer").classList.add("on");
+}
+function closeDrawer(){document.getElementById("scrim").classList.remove("on");document.getElementById("drawer").classList.remove("on");}
+document.getElementById("dclose").onclick=closeDrawer;
+document.getElementById("scrim").onclick=closeDrawer;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
+
+let map,markers={};
+document.getElementById("seg").onclick=e=>{const b=e.target.closest("button");if(!b)return;
+  document.querySelectorAll("#seg button").forEach(x=>x.classList.toggle("on",x===b));
+  const v=b.dataset.v;
+  document.getElementById("dash").classList.toggle("on",v==="dash");
+  document.getElementById("map-view").classList.toggle("on",v==="map");
+  if(v==="map"){initMap();setTimeout(()=>map.invalidateSize(),60);}};
+document.getElementById("sort").onclick=e=>{const b=e.target.closest("button");if(!b)return;
+  document.querySelectorAll("#sort button").forEach(x=>x.classList.toggle("on",x===b));sortKey=b.dataset.s;paintGroups();};
+document.getElementById("filt").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;
+  document.querySelectorAll("#filt .chip").forEach(x=>x.classList.toggle("on",x===b));filt=b.dataset.f;paintGroups();};
+
+function initMap(){
+  if(map)return;
+  map=L.map("map",{zoomControl:true}).setView([24.1,120.3],8);
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom:18,attribution:"Tiles © Esri"}).addTo(map);
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom:18,opacity:.9}).addTo(map);
+  FARMS.forEach(f=>{
+    const m=L.circleMarker([f.lat,f.lng],{radius:Math.max(6,Math.sqrt(sizeMW(f))*0.85),
+      color:"#fff",weight:1.1,fillColor:hexColor(f),fillOpacity:.82}).addTo(map);
+    m.bindPopup(popHTML(f),{maxWidth:280});
+    m.on("popupopen",()=>{const b=document.querySelector(`#pop-${f.id}`);if(b)b.onclick=()=>{map.closePopup();openDrawer(f.id);};});
+    markers[f.id]=m;});
+}
+function popHTML(f){
+  const r=f.cap?Math.max(0,Math.min(100,ratioOf(f)*100)):0;
+  const capTxt=f.cap?`${f.cap} MW`:(f.planned&&f.planned!=="—"?`規劃 ${f.planned} MW`:"未列容量");
+  return `<div class="pop"><h3>${f.name}</h3>
+    <div class="row"><span>台電機組</span><b>${f.tp}</b></div>
+    <div class="row"><span>即時出力</span><b class="num" style="color:${hexColor(f)}">${RT[f.id].toFixed(1)} MW</b></div>
+    <div class="row"><span>裝置容量</span><b class="num">${capTxt}</b></div>
+    ${f.cap?`<div class="row"><span>利用率</span><b class="num">${r.toFixed(0)}%</b></div>
+    <div class="pbar"><i style="width:${r}%"></i></div>`:""}
+    <div class="row"><span>${f.dev}</span></div>
+    <button id="pop-${f.id}">查看專案資訊 →</button></div>`;
+}
+function updateMarkers(){if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
+  if(m.isPopupOpen())m.setPopupContent(popHTML(f));}});}
+
+refresh();tryLive();
+setInterval(refresh,15000);
+if(DATA_ENDPOINT)setInterval(tryLive,600000);
+</script>
+</body>
+</html>
