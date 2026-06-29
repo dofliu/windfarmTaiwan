@@ -154,6 +154,26 @@ def parse_wind(data: dict):
     return wind_units, round(total, 2)
 
 
+def parse_system_total(data):
+    """全系統即時淨發電量(MW)：加總所有機組列(排除 小計/合計/總計)，含各能源別。
+    供前端計算「風電佔全國發電比例」。抽蓄水力為負(抽水)亦照實加總，得到系統淨輸出。"""
+    rows = data.get("aaData") or data.get("data") or []
+    total = 0.0
+    for row in rows:
+        if isinstance(row, dict):
+            raw = str(row.get("機組名稱", ""))
+            out = to_float(row.get("淨發電量(MW)"))
+        elif isinstance(row, (list, tuple)) and len(row) >= 4:
+            raw, out = str(row[1]), to_float(row[3])
+        else:
+            continue
+        name = clean_name(raw)
+        if any(x in name for x in ("小計", "合計", "總計")) or out is None:
+            continue
+        total += out
+    return round(total, 2)
+
+
 def map_to_farms(wind_units):
     """名稱明確對應者才填入(完全比對優先，再退化包含比對)；其餘不臆測。"""
     farms = {}
@@ -219,11 +239,13 @@ def main():
 
     wind_units, total = parse_wind(data)
     farms = map_to_farms(wind_units)
+    system_total = parse_system_total(data)
 
     out = {
         "updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
         "source_time": upd,
         "wind_total_mw": total,
+        "system_total_mw": system_total,   # 全國即時淨發電量，供算風電佔比
         "mapped_farm_count": len(farms),
         "farms": farms,
         "raw_wind_units": wind_units,   # 第一次跑請看這裡，據以校準 NAME_MAP
