@@ -44,6 +44,8 @@ import requests
 GENARY_URL = "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json"
 GENARY_URL_ALT = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/genary.json"
 OUTPUT = Path(__file__).with_name("wind_realtime.json")
+HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
+MAX_POINTS = 96          # 每 15 分一筆，保留最近 96 筆(約 24 小時)
 TZ = dt.timezone(dt.timedelta(hours=8))  # 台北時間
 
 # 台電 genary「機組名稱」→ 前端 farm_id 的精確對應(與前端 30 機組 1:1)。
@@ -168,6 +170,34 @@ def map_to_farms(wind_units):
     return farms
 
 
+def update_history(farms, total, source_time, updated):
+    """維護滾動歷史，每筆 = 一次台電快照；供前端畫真實出力趨勢(非模擬)。
+
+    去重關鍵：用台電資料時間(source_time)當每筆的 t。我們每 15 分鐘抓一次，
+    但台電每 10 分鐘才更新，偶有兩次抓到同一份資料(尤其手動+排程相近時)，
+    同 t 者就地覆蓋而非重複累積，避免趨勢線出現假平台。
+    """
+    t = source_time or updated
+    points = []
+    if HISTORY.exists():
+        try:
+            points = json.loads(HISTORY.read_text(encoding="utf-8")).get("points", [])
+        except Exception:
+            points = []
+
+    rec = {"t": t, "farms": farms, "total": total}
+    if points and points[-1].get("t") == t:
+        points[-1] = rec               # 同一台電資料時間 → 覆蓋
+    else:
+        points.append(rec)
+    points = points[-MAX_POINTS:]       # 只保留最近 N 筆
+
+    HISTORY.write_text(json.dumps(
+        {"updated": updated, "interval_min": 15, "points": points},
+        ensure_ascii=False, indent=2), encoding="utf-8")
+    return len(points)
+
+
 def main():
     data = None
     for url in (GENARY_URL, GENARY_URL_ALT):
@@ -200,8 +230,10 @@ def main():
     }
 
     OUTPUT.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    n = update_history(farms, total, upd, out["updated"])
     print(f"[OK] {out['updated']}  風力總出力 {total} MW  "
-          f"(風力機組 {len(wind_units)} 列，對應 {len(farms)} 座風場) → {OUTPUT.name}")
+          f"(風力機組 {len(wind_units)} 列，對應 {len(farms)} 座風場) → {OUTPUT.name}"
+          f"  · 歷史累積 {n} 筆 → {HISTORY.name}")
 
 
 if __name__ == "__main__":

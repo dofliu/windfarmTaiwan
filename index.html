@@ -353,6 +353,8 @@ const GROUPS=[
 const isOffshore=f=>f.grp.startsWith("off");
 
 let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all";
+let HIST={points:[]};                          // 真實滾動歷史(scraper 累積，每 15 分一筆)
+const HIST_ENDPOINT="./wind_history.json";
 const RT={};
 // 台電 opendata 的「資料時間」(source_time，台北時間無時區) → 顯示用字串
 function fmtSrc(s){if(!s)return"";const d=new Date(s);if(isNaN(d))return s;
@@ -381,6 +383,10 @@ async function tryLive(){
       srcTime=j.source_time||null;
       lastUpdate=j.updated?new Date(j.updated):new Date();setFeed(true);paint();return;}
     setFeed(false);}catch(e){setFeed(false)}
+}
+async function tryHistory(){                    // 抓真實滾動歷史(供出力趨勢線)
+  try{const r=await fetch(HIST_ENDPOINT,{cache:"no-store"});const j=await r.json();
+    if(j&&Array.isArray(j.points))HIST=j;}catch(e){/* 尚無歷史檔時靜默忽略 */}
 }
 function setFeed(live){
   LIVE=live;const dot=document.getElementById("feeddot"),txt=document.getElementById("feedtxt"),dm=document.getElementById("datamode");
@@ -450,16 +456,28 @@ function paintGroups(){
   wrap.querySelectorAll(".card").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);
     c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(c.dataset.id)}};});
 }
+const SPARK_WIN=24;                            // 最近 24 筆(每 15 分一筆 ≈ 6 小時)
+function sparkSeries(f){                        // 取該風場最近 N 筆真實出力
+  return HIST.points.slice(-SPARK_WIN)
+    .filter(p=>p&&p.farms&&typeof p.farms[f.id]==="number")
+    .map(p=>({t:p.t,v:p.farms[f.id]}));
+}
 function sparkSVG(f){
-  const pts=[],n=36;
-  for(let i=0;i<n;i++){const tt=Date.now()/1000-(n-i)*70;
-    const drift=1+0.35*Math.sin(tt/360)+0.12*Math.sin(tt/64);
-    pts.push(Math.max(0,Math.min(f.cap||f.snap||1,(f.snap||0)*drift)));}
-  const w=380,h=46,max=Math.max(...pts,(f.cap||f.snap||1)*0.2,0.5);
-  const d=pts.map((v,i)=>`${(i/(n-1)*w).toFixed(1)},${(h-v/max*h*0.9-2).toFixed(1)}`).join(" ");
+  const s=sparkSeries(f),w=380,h=46;
+  if(s.length<2)                                // 歷史不足兩筆，畫不出真實趨勢
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+      <line x1="0" y1="${h-2}" x2="${w}" y2="${h-2}" stroke="${hexColor(f)}" stroke-width="2" opacity=".4"/></svg>`;
+  const vals=s.map(p=>p.v),max=Math.max(...vals,(f.cap||1)*0.1,0.5);
+  const d=vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-v/max*h*0.9-2).toFixed(1)}`).join(" ");
   return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
     <polyline points="${d}" fill="none" stroke="${hexColor(f)}" stroke-width="2"/>
     <polyline points="0,${h} ${d} ${w},${h}" fill="${hexColor(f)}" opacity="0.12" stroke="none"/></svg>`;
+}
+function sparkLabel(f){
+  const s=sparkSeries(f);
+  if(s.length<2)return `出力趨勢累積中（目前 ${s.length} 筆 · 每 15 分鐘一筆）`;
+  const a=fmtSrc(s[0].t),b=fmtSrc(s[s.length-1].t).split(" ").pop();
+  return `${a}–${b} 實際出力 · 每 15 分鐘一筆（台電資料）`;
 }
 function openDrawer(id){
   const f=FARMS.find(x=>x.id===id);if(!f)return;
@@ -482,7 +500,7 @@ function openDrawer(id){
           <div class="out num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}<small>MW</small></div></div>
         <div class="ratio"><div class="v num" style="color:${cssColor(f)}">${f.cap?r.toFixed(0)+"%":"—"}</div><div class="l">利用率</div></div>
       </div>${sparkSVG(f)}
-      <div class="lab" style="margin-top:6px;color:var(--mist-dim)">近 40 分鐘出力趨勢（示意）</div></div>
+      <div class="lab" style="margin-top:6px;color:var(--mist-dim)">${sparkLabel(f)}</div></div>
     <div class="specs">${specs.map(s=>`<div class="spec${s[2]?" wide":""}"><div class="l">${s[0]}</div>
       <div class="v" style="font-size:${s[2]?"13px":"14.5px"}">${s[1]}</div></div>`).join("")}</div>
     <div class="timeline"><h3>開發與營運歷程</h3>
@@ -537,9 +555,9 @@ function popHTML(f){
 function updateMarkers(){if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
   if(m.isPopupOpen())m.setPopupContent(popHTML(f));}});}
 
-refresh();tryLive();
+refresh();tryLive();tryHistory();
 setInterval(refresh,15000);
-if(DATA_ENDPOINT)setInterval(tryLive,600000);
+if(DATA_ENDPOINT){setInterval(tryLive,600000);setInterval(tryHistory,600000);}
 </script>
 </body>
 </html>
