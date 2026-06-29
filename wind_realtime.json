@@ -1,8 +1,8 @@
 {
-  "updated": "2026-06-30T01:47:05+08:00",
-  "source_time": "2026-06-30T01:40:00",
-  "wind_total_mw": 27.4,
-  "system_total_mw": 28893.5,
+  "updated": "2026-06-30T03:28:19+08:00",
+  "source_time": "2026-06-30T03:20:00",
+  "wind_total_mw": 26.7,
+  "system_total_mw": 27735.1,
   "mapped_farm_count": 30,
   "farms": {
     "guanyuan": 0.0,
@@ -11,7 +11,7 @@
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 18.0,
+    "tpc-other-on": 17.3,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -21,7 +21,7 @@
     "changpin": 0.0,
     "ppa-other-on": 0.6,
     "offshore1": 0.0,
-    "offshore2": 0.7,
+    "offshore2": 0.9,
     "formosa1": 0.0,
     "formosa2": 0.0,
     "wo1": 0.0,
@@ -32,7 +32,7 @@
     "fang2": 0.0,
     "yunhu": 7.8,
     "yunxi": 0.0,
-    "zhongneng": 0.2,
+    "zhongneng": 0.0,
     "longA": 0.0,
     "longB": 0.0
   },
@@ -77,7 +77,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 18.0
+      "output": 17.3
     },
     {
       "name": "苗栗大鵬",
@@ -137,7 +137,7 @@
       "name": "離岸二期",
       "raw_name": "離岸二期(註10)",
       "capacity": null,
-      "output": 0.7
+      "output": 0.9
     },
     {
       "name": "海洋竹南",
@@ -203,7 +203,7 @@
       "name": "中能風",
       "raw_name": "中能風",
       "capacity": 294.5,
-      "output": 0.2
+      "output": 0.0
     },
     {
       "name": "龍A風",
