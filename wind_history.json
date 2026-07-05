@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T16:33:46+08:00",
+  "updated": "2026-07-05T18:54:00+08:00",
   "interval_min": 15,
   "points": [
     {
@@ -2449,6 +2449,42 @@
         "longB": 29.2
       },
       "total": 826.0
+    },
+    {
+      "t": "2026-07-05T18:40:00",
+      "farms": {
+        "guanyuan": 0.7,
+        "taichungport": 0.0,
+        "wanggong": 3.4,
+        "changgong": 6.1,
+        "yunmai": 3.3,
+        "sihu": 1.0,
+        "tpc-other-on": 21.0,
+        "dapeng": 4.0,
+        "luwei": 4.8,
+        "guanwei": 2.0,
+        "zhongwei": 4.8,
+        "chuangwei": 5.0,
+        "xinyuan": 3.8,
+        "changpin": 0.0,
+        "ppa-other-on": 7.8,
+        "offshore1": 12.3,
+        "offshore2": 0.7,
+        "formosa1": 9.0,
+        "formosa2": 60.9,
+        "wo1": 172.5,
+        "wo2": 113.4,
+        "wo4": 206.3,
+        "wonan": 0.0,
+        "fang1": 8.1,
+        "fang2": 68.3,
+        "yunhu": 7.8,
+        "yunxi": 54.3,
+        "zhongneng": 72.9,
+        "longA": 84.5,
+        "longB": 69.8
+      },
+      "total": 1008.5
     }
   ]
 }
