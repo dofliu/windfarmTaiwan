@@ -1,17 +1,17 @@
 {
-  "updated": "2026-07-09T01:13:12+08:00",
-  "source_time": "2026-07-09T01:00:00",
-  "wind_total_mw": 32.7,
-  "system_total_mw": 31843.3,
+  "updated": "2026-07-09T02:50:34+08:00",
+  "source_time": "2026-07-09T02:40:00",
+  "wind_total_mw": 33.5,
+  "system_total_mw": 29963.6,
   "mapped_farm_count": 30,
   "farms": {
-    "guanyuan": 0.2,
+    "guanyuan": 0.0,
     "taichungport": 0.0,
     "wanggong": 0.0,
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 22.3,
+    "tpc-other-on": 21.6,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -24,7 +24,7 @@
     "offshore2": 0.9,
     "formosa1": 0.0,
     "formosa2": 0.0,
-    "wo1": 1.1,
+    "wo1": 2.8,
     "wo2": 0.0,
     "wo4": 0.0,
     "wonan": 0.0,
@@ -41,7 +41,7 @@
       "name": "觀園",
       "raw_name": "觀園",
       "capacity": 30.0,
-      "output": 0.2
+      "output": 0.0
     },
     {
       "name": "台中港",
@@ -77,7 +77,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 22.3
+      "output": 21.6
     },
     {
       "name": "苗栗大鵬",
@@ -155,7 +155,7 @@
       "name": "沃一風",
       "raw_name": "沃一風",
       "capacity": 605.2,
-      "output": 1.1
+      "output": 2.8
     },
     {
       "name": "沃二風",
