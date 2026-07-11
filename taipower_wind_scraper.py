@@ -32,6 +32,8 @@
 import json
 import re
 import sys
+import os
+import math
 import datetime as dt
 from pathlib import Path
 
@@ -46,6 +48,25 @@ GENARY_URL_ALT = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/gena
 OUTPUT = Path(__file__).with_name("wind_realtime.json")
 HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
 MAX_POINTS = 96          # 每 15 分一筆，保留最近 96 筆(約 24 小時)
+
+# 中央氣象署 自動氣象站觀測(含風速 WindSpeed m/s)。需免費 API 授權碼(環境變數 CWA_API_KEY)。
+# 誠實聲明：測站在陸上/沿海，風場多在外海(離岸 35–60 km 者尤其)，此處只能取「最近測站」風速
+# 當『沿海參考值』，非風機輪轂高度(100m+)實際風速；前端須明確標示為參考。
+CWA_WIND_URL = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0001-001"
+
+# 各風場座標(與前端 index.html FARMS 一致)，供在後端配對最近測站，避免把數百測站塞進 JSON。
+FARM_COORDS = {
+    "guanyuan": (25.03, 121.07), "taichungport": (24.29, 120.53), "wanggong": (23.99, 120.31),
+    "changgong": (24.13, 120.45), "yunmai": (23.79, 120.24), "sihu": (23.64, 120.22),
+    "tpc-other-on": (24.80, 120.90), "dapeng": (24.52, 120.72), "luwei": (24.05, 120.43),
+    "guanwei": (25.00, 121.04), "zhongwei": (24.35, 120.57), "chuangwei": (24.20, 120.50),
+    "xinyuan": (23.76, 120.35), "changpin": (24.00, 120.40), "ppa-other-on": (24.40, 120.60),
+    "offshore1": (24.10, 120.30), "offshore2": (24.15, 120.19), "formosa1": (24.71, 120.85),
+    "formosa2": (24.78, 120.73), "wo1": (24.01, 120.05), "wo2": (24.03, 120.00),
+    "wo4": (23.96, 119.93), "wonan": (23.93, 119.97), "fang1": (24.09, 120.16),
+    "fang2": (24.06, 120.12), "yunhu": (23.87, 120.13), "yunxi": (23.82, 120.07),
+    "zhongneng": (24.12, 120.21), "longA": (23.90, 119.90), "longB": (23.88, 119.87),
+}
 TZ = dt.timezone(dt.timedelta(hours=8))  # 台北時間
 
 # 台電 genary「機組名稱」→ 前端 farm_id 的精確對應(與前端 30 機組 1:1)。
@@ -190,6 +211,87 @@ def map_to_farms(wind_units):
     return farms
 
 
+def _coord_wgs84(geo):
+    """從 CWA GeoInfo.Coordinates 取 WGS84 經緯度；退化取第一組。"""
+    cs = (geo or {}).get("Coordinates", []) or []
+    for c in cs:
+        if c.get("CoordinateName") == "WGS84":
+            return to_float(c.get("StationLatitude")), to_float(c.get("StationLongitude"))
+    if cs:
+        return to_float(cs[0].get("StationLatitude")), to_float(cs[0].get("StationLongitude"))
+    return None, None
+
+
+def fetch_cwa_stations(key):
+    """抓中央氣象署自動氣象站觀測，回傳 [{name, lat, lon, mps}]（僅保留有效風速）。
+    兼容新版(records.Station[].WeatherElement.WindSpeed)與舊版(location/weatherElement)。"""
+    r = requests.get(CWA_WIND_URL, params={"Authorization": key, "format": "JSON"},
+                     headers=HEADERS, timeout=25)
+    r.raise_for_status()
+    data = r.json()
+    rec = data.get("records") or {}
+    out = []
+    for s in rec.get("Station", []) or []:                 # 新版 v1 結構
+        lat, lon = _coord_wgs84(s.get("GeoInfo"))
+        mps = to_float((s.get("WeatherElement") or {}).get("WindSpeed"))
+        if lat is None or lon is None or mps is None or mps < 0:  # CWA 無效值常為 -99/-990
+            continue
+        out.append({"name": strip_html(str(s.get("StationName", ""))), "lat": lat, "lon": lon, "mps": mps})
+    if not out:                                            # 退化：舊版 location 結構
+        for s in rec.get("location", []) or []:
+            lat, lon = to_float(s.get("lat")), to_float(s.get("lon"))
+            mps = None
+            for el in s.get("weatherElement", []) or []:
+                if el.get("elementName") in ("WDSD", "WindSpeed"):
+                    mps = to_float(el.get("elementValue"))
+            if lat is None or lon is None or mps is None or mps < 0:
+                continue
+            out.append({"name": strip_html(str(s.get("locationName", ""))), "lat": lat, "lon": lon, "mps": mps})
+    return out
+
+
+def _haversine_km(alat, alon, blat, blon):
+    R = 6371.0
+    p1, p2 = math.radians(alat), math.radians(blat)
+    dp, dl = math.radians(blat - alat), math.radians(blon - alon)
+    h = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return 2 * R * math.asin(math.sqrt(h))
+
+
+def build_farm_wind(stations):
+    """每座風場配對最近測站，回傳 {farm_id: {mps, station, km}}。"""
+    fw = {}
+    for fid, (flat, flon) in FARM_COORDS.items():
+        best = None
+        for s in stations:
+            d = _haversine_km(flat, flon, s["lat"], s["lon"])
+            if best is None or d < best[0]:
+                best = (d, s)
+        if best:
+            d, s = best
+            fw[fid] = {"mps": round(s["mps"], 1), "station": s["name"], "km": round(d, 1)}
+    return fw
+
+
+def get_farm_wind():
+    """讀環境變數 CWA_API_KEY 抓風速；任何失敗都回 {} 且不影響台電資料流程。"""
+    key = os.environ.get("CWA_API_KEY")
+    if not key:
+        print("[INFO] 未設定 CWA_API_KEY，略過風速。", file=sys.stderr)
+        return {}
+    try:
+        stations = fetch_cwa_stations(key)
+        if not stations:
+            print("[WARN] CWA 回傳無有效測站風速。", file=sys.stderr)
+            return {}
+        fw = build_farm_wind(stations)
+        print(f"[OK] CWA 風速：{len(stations)} 測站 → 對應 {len(fw)} 風場。", file=sys.stderr)
+        return fw
+    except Exception as e:
+        print(f"[WARN] CWA 風速抓取失敗（不影響發電資料）：{e}", file=sys.stderr)
+        return {}
+
+
 def update_history(farms, total, source_time, updated):
     """維護滾動歷史，每筆 = 一次台電快照；供前端畫真實出力趨勢(非模擬)。
 
@@ -240,12 +342,14 @@ def main():
     wind_units, total = parse_wind(data)
     farms = map_to_farms(wind_units)
     system_total = parse_system_total(data)
+    farm_wind = get_farm_wind()        # {farm_id:{mps,station,km}}，無 key 或失敗則為 {}
 
     out = {
         "updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
         "source_time": upd,
         "wind_total_mw": total,
         "system_total_mw": system_total,   # 全國即時淨發電量，供算風電佔比
+        "farm_wind": farm_wind,            # 各風場鄰近測站風速(參考)，來源：中央氣象署
         "mapped_farm_count": len(farms),
         "farms": farms,
         "raw_wind_units": wind_units,   # 第一次跑請看這裡，據以校準 NAME_MAP

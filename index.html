@@ -138,7 +138,10 @@
   .wtile .wn{font-size:12px;font-weight:800;color:var(--foam);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:22px;flex:0 0 auto;line-height:1.15}
   .wtile .wv{font-size:clamp(16px,2vw,23px);font-weight:800;line-height:1;flex:0 0 auto}
   .wtile .wv small{font-size:11px;color:var(--mist);font-weight:600;margin-left:2px}
-  .wtile .ws{font-size:10.5px;color:var(--mist-dim);flex:0 0 auto;line-height:1}
+  .wtile .ws{font-size:10.5px;color:var(--mist-dim);flex:0 0 auto;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cwmw{margin-left:auto;font-size:11px;color:var(--sky);font-weight:700;white-space:nowrap;flex:0 0 auto}
+  .windnote{margin-top:9px;font-size:11.5px;color:var(--mist-dim);background:var(--sea-0);border:1px solid var(--line);border-radius:9px;padding:8px 11px;line-height:1.5}
+  .windnote b{color:var(--sky)}
   .wtile .wric{position:absolute;top:8px;right:8px;width:22px;height:22px;opacity:.92}
   .rotor-ic{width:100%;height:100%;display:block;overflow:visible}
   .rotor-ic .rotor{transform-box:view-box;transform-origin:20px 20px;animation:spin linear infinite}
@@ -333,7 +336,8 @@
   </main>
   <footer>
     <span>機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準<br>
-      影響力數字為換算估算：家戶 0.5kW、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值</span>
+      影響力數字為換算估算：家戶 0.5kW、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值<br>
+      風速為中央氣象署自動氣象站觀測，取各風場「最近測站」當沿海參考值，非風機輪轂高度實測（外海風場尤其僅供參考）</span>
     <span id="datamode"></span>
   </footer>
 </div>
@@ -489,6 +493,8 @@ const isOffshore=f=>f.grp.startsWith("off");
 let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all",devFilt="all",brandFilt="all";
 let HIST={points:[]};                          // 真實滾動歷史(scraper 累積，每 15 分一筆)
 let sysTotal=null;                             // 全國即時淨發電量(MW)，來自 live JSON
+let WIND={};                                   // 各風場鄰近測站風速{id:{mps,station,km}}，來源中央氣象署
+const windOf=f=>WIND[f.id]||null;
 const HIST_ENDPOINT="./wind_history.json";
 const HH_KW=0.5;                               // 家戶平均用電功率估算(年約3600度÷8760h≈0.41kW，取0.5保守)
 const CO2_KG_PER_KWH=0.495;                    // 台灣電力排碳係數估算(kg CO2/度)
@@ -519,6 +525,7 @@ async function tryLive(){
   try{const r=await fetch(DATA_ENDPOINT,{cache:"no-store"});const j=await r.json();
     if(j&&j.farms){FARMS.forEach(f=>{if(j.farms[f.id]!=null)RT[f.id]=j.farms[f.id]});
       srcTime=j.source_time||null;sysTotal=(typeof j.system_total_mw==="number")?j.system_total_mw:null;
+      WIND=(j.farm_wind&&typeof j.farm_wind==="object")?j.farm_wind:{};
       lastUpdate=j.updated?new Date(j.updated):new Date();setFeed(true);paint();return;}
     setFeed(false);}catch(e){setFeed(false)}
 }
@@ -576,8 +583,9 @@ function rotorSVG(f){
     <circle cx="20" cy="20" r="2.8" fill="${col}"/></g></svg>`;
 }
 function wallTile(f){
-  const col=cssColor(f),has=f.cap&&!f.pending;
-  const st=has?Math.round(ratioOf(f)*100)+"% 可用率":(f.pending?"試運轉":"—");
+  const col=cssColor(f),has=f.cap&&!f.pending,w=windOf(f);
+  const wtxt=w?` · 🌬${Math.round(w.mps)}m/s`:"";
+  const st=has?`${Math.round(ratioOf(f)*100)}%${w?"":" 可用率"}${wtxt}`:((f.pending?"試運轉":"—")+wtxt);
   return `<div class="wtile" data-id="${f.id}" role="button" tabindex="0" aria-label="${f.name}" style="border-left-color:${col}">
     <div class="wric">${rotorSVG(f)}</div>
     <div class="wn">${f.tp}</div>
@@ -673,6 +681,7 @@ function cardHTML(f){
   const pct=has?Math.max(0,Math.min(100,ratioOf(f)*100)):0;
   const capTxt=f.cap?`/ ${f.cap} MW`:(f.planned&&f.planned!=="—"?`/ 規劃 ${f.planned}`:"/ 未列容量");
   const badge=f.pending?`<span class="badge dev">試運轉</span>`:(f.agg?`<span class="badge agg">彙總</span>`:`<span class="badge run">商轉</span>`);
+  const w=windOf(f),windMW=w?`<span class="cwmw" title="${w.station}測站 · 距 ${w.km} km · 沿海參考值">🌬 ${w.mps.toFixed(1)} m/s</span>`:"";
   return `<div class="card${f.pending?" pending":""}" tabindex="0" data-id="${f.id}" role="button" aria-label="${f.name}">
     <div class="turbwrap">${turbineSVG(f)}
       <div class="pct" style="color:${cssColor(f)}">${has?pct.toFixed(0)+"%":(f.pending?"試運轉":"—")}</div></div>
@@ -681,7 +690,7 @@ function cardHTML(f){
       <div class="cdev">${f.dev}</div>
       <div class="cmw"><span class="big num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}</span>
         <span class="cap num">${capTxt}</span></div>
-      <div class="cmeta">${badge}</div>
+      <div class="cmeta">${badge}${windMW}</div>
     </div></div>`;
 }
 // 由台電購電合約揭露的開發商字串歸納為簡短名稱(供篩選)
@@ -782,7 +791,8 @@ function openDrawer(id){
           <div class="out num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}<small>MW</small></div></div>
         <div class="ratio"><div class="v num" style="color:${cssColor(f)}">${f.cap?r.toFixed(0)+"%":"—"}</div><div class="l">可用率</div></div>
       </div>${sparkSVG(f)}
-      <div class="lab" style="margin-top:6px;color:var(--mist-dim)">${sparkLabel(f)}</div></div>
+      <div class="lab" style="margin-top:6px;color:var(--mist-dim)">${sparkLabel(f)}</div>
+      ${(()=>{const w=windOf(f);return w?`<div class="windnote">🌬 鄰近測站風速 <b>${w.mps.toFixed(1)} m/s</b>（${w.station}測站 · 距 ${w.km} km · 沿海參考值，非風機輪轂高度實測）</div>`:"";})()}</div>
     <div class="specs">${specs.map(s=>`<div class="spec${s[2]?" wide":""}"><div class="l">${s[0]}</div>
       <div class="v" style="font-size:${s[2]?"13px":"14.5px"}">${s[1]}</div></div>`).join("")}</div>
     <div class="timeline"><h3>開發與營運歷程</h3>

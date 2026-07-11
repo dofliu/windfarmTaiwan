@@ -29,6 +29,8 @@ jobs:
         run: pip install requests
 
       - name: Run scraper
+        env:
+          CWA_API_KEY: ${{ secrets.CWA_API_KEY }}   # 中央氣象署風速授權碼(未設定則自動略過風速)
         run: python taipower_wind_scraper.py
 
       - name: Commit if changed
