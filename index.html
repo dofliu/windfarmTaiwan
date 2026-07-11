@@ -120,6 +120,32 @@
   .policy .src a{color:var(--sky)}
   /* 迷思破解 Q&A */
   .learnintro{font-size:13.5px;color:var(--mist);background:linear-gradient(120deg,#103d52,#0a2a3a);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:18px;line-height:1.5}
+  .lsec{margin-bottom:28px}
+  .lsec>h3{font-size:17px;font-weight:800;color:var(--foam);margin-bottom:12px}
+  .lp{font-size:13.5px;color:var(--mist);line-height:1.75;margin-bottom:12px}
+  .lp b{color:var(--gen)}
+  .lstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:6px}
+  .lstat{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .lstat .lv{font-size:27px;font-weight:800;color:var(--sky);line-height:1}
+  .lstat .lv small{font-size:13px;color:var(--mist);margin-left:2px;font-weight:600}
+  .lstat .lk{font-size:11px;color:var(--mist-dim);margin-top:6px;line-height:1.4}
+  .chartsvg{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+  .chartsvg svg{width:100%;height:auto;display:block}
+  .myth{margin-bottom:22px}
+  .myth h4{font-size:14.5px;font-weight:800;color:var(--amber);margin-bottom:10px}
+  .ltl{margin-top:4px}
+  .ltl .ti{position:relative;padding:7px 0 7px 20px;margin-left:6px;border-left:2px solid var(--line)}
+  .ltl .ti::before{content:"";position:absolute;left:-6px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--gen);border:2px solid var(--sea-1)}
+  .ltl .ty{font-weight:800;color:var(--sky);font-size:13px;margin-right:8px}
+  .ltl .td{font-size:12.5px;color:var(--mist);line-height:1.55}
+  .sharebtn{background:var(--sea-0);border:1px solid var(--line);color:var(--foam);font-family:inherit;font-size:12.5px;
+    font-weight:700;border-radius:10px;padding:7px 13px;cursor:pointer;white-space:nowrap;transition:.15s}
+  .sharebtn:hover{border-color:var(--sky);background:var(--sea-2)}
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#0c3142;border:1px solid var(--sky);
+    color:var(--foam);font-size:13px;font-weight:700;padding:11px 20px;border-radius:24px;box-shadow:0 12px 30px -12px #000;
+    opacity:0;pointer-events:none;transition:.28s;z-index:900}
+  #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(max-width:700px){.lstats{grid-template-columns:1fr}}
   .faq{margin-top:0}
   .empty{text-align:center;color:var(--mist-dim);font-size:14px;padding:48px 16px}
   /* 圖表 tab：長條 / 樹狀 / 圓環 */
@@ -296,6 +322,7 @@
     <div class="ticker" id="ticker"></div>
     <div class="feed"><span class="dot sim" id="feeddot"></span><span id="feedtxt">載入中…</span></div>
     <div class="seg" id="seg"><button class="on" data-v="dash">風情儀表</button><button data-v="wall">風場總覽</button><button data-v="chart">圖表</button><button data-v="map">衛星地圖</button><button data-v="learn">認識風電</button></div>
+    <button class="sharebtn" id="sharebtn" title="分享此刻風況">🔗 分享</button>
   </header>
   <main>
     <section class="view on" id="dash">
@@ -358,7 +385,50 @@
       <div class="chartwrap" id="chartwrap"></div>
     </section>
     <section class="view" id="learn">
-      <div class="learnintro">想多認識台灣的風？這裡放常見問題與基礎知識——想看再點，不打擾即時數據 🌬️</div>
+      <div class="learnintro">想多認識台灣的風？這裡用數據講清楚：為什麼台灣需要風電、發展到哪了、以及破除常見迷思 🌬️</div>
+
+      <div class="lsec">
+        <h3>⚡ 為什麼台灣需要風電？</h3>
+        <p class="lp">台灣約 <b>96%</b> 的能源仰賴進口，自產只有約 4.2%（2024，經濟部能源署）。風，是台灣少數能「自己生產」的能源——發展風電＝提升能源自主、減少對進口燃料價格波動的曝險，同時減碳、帶動國產化供應鏈與就業。</p>
+        <div class="lstats">
+          <div class="lstat"><div class="lv">95.8<small>%</small></div><div class="lk">能源進口依存度（2024）</div></div>
+          <div class="lstat"><div class="lv">4.2<small>%</small></div><div class="lk">自產能源占比</div></div>
+          <div class="lstat"><div class="lv">0.8<small>%</small></div><div class="lk">風力占總能源（自產中成長最快之一）</div></div>
+        </div>
+      </div>
+
+      <div class="lsec">
+        <h3>📈 台灣風電這樣長大</h3>
+        <div id="growthchart" class="chartsvg"></div>
+        <div class="ltl">
+          <div class="ti"><span class="ty">2017</span><span class="td">海洋竹南示範機組併網，台灣離岸風電起步</span></div>
+          <div class="ti"><span class="ty">2019</span><span class="td">海洋風場 Formosa 1 完工，首座商轉離岸風場（128 MW）</span></div>
+          <div class="ti"><span class="ty">2020</span><span class="td">台電離岸一期商轉，首座國營離岸風場</span></div>
+          <div class="ti"><span class="ty">2023</span><span class="td">海能 Formosa 2 全數商轉</span></div>
+          <div class="ti"><span class="ty">2024</span><span class="td">大爆發：單年新增約 1.78 GW，非中國區全球第一</span></div>
+          <div class="ti"><span class="ty">2026</span><span class="td">完成第 500 座風機，累計約 4.8 GW，全球第五</span></div>
+        </div>
+      </div>
+
+      <div class="lsec">
+        <h3>🔍 用數據破除三大迷思</h3>
+        <div class="myth">
+          <h4>❌「沒風就沒電」</h4>
+          <div id="seasonchart" class="chartsvg"></div>
+          <p class="lp">台灣冬季東北季風最強，離岸風電正好在 <b>冬天</b> 發最多；太陽能則在 <b>夏天</b> 最強。兩者季節互補，加上台電多元電源與儲能即時調度，並非「靠單一來源」。<span style="color:var(--mist-dim)">（示意：典型季節型態，非特定年份實測）</span></p>
+        </div>
+        <div class="myth">
+          <h4>❌「風電很貴」</h4>
+          <div id="costchart" class="chartsvg"></div>
+          <p class="lp">從示範／遴選的約 5.8 元/度，到 2018 競價 2.2–2.5 元/度，再到區塊開發「零元躉購」，離岸風電成本一路大幅下降。<span style="color:var(--mist-dim)">＊零元躉購指改由企業以綠電購售合約（CPPA）承購，不再領政府躉購。</span></p>
+        </div>
+        <div class="myth">
+          <h4>❌「風機殺死很多鳥」</h4>
+          <div id="birdchart" class="chartsvg"></div>
+          <p class="lp">依國際研究估算，風機造成的鳥類死亡遠低於大樓玻璃、家貓等日常因素，約僅碰撞致死的 <b>萬分之一</b>。台灣離岸風場另設有鳥類與生態監測、必要時停機以降低衝擊。</p>
+        </div>
+      </div>
+
       <div class="faq">
         <h3>🤔 關於風電，大家常問</h3>
         <details><summary><span class="q">Q</span>沒風的時候不就沒電了？</summary>
@@ -728,6 +798,69 @@ function paintChart(){
   wrap.querySelectorAll("[data-id]").forEach(el=>{el.onclick=()=>openDrawer(el.dataset.id);
     el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(el.dataset.id)}};});
 }
+// ===== 認識風電：教育圖表(靜態資料，皆標來源) =====
+function growthSVG(){                              // 裝置容量成長曲線(GW)
+  const act=[[2019,0.13],[2024,3.04],[2026,4.8]],tgt=[[2026,4.8],[2030,10.9],[2035,18.4]];
+  const W=640,H=280,pl=40,pr=20,pt=22,pb=32,X=y=>pl+(y-2019)/16*(W-pl-pr),Y=g=>H-pb-g/20*(H-pt-pb);
+  const poly=a=>a.map(([y,g])=>`${X(y).toFixed(1)},${Y(g).toFixed(1)}`).join(" ");
+  let grid="";[0,5,10,15,20].forEach(g=>{const yy=Y(g);grid+=`<line x1="${pl}" y1="${yy}" x2="${W-pr}" y2="${yy}" stroke="#1d5571" opacity=".5"/><text x="${pl-6}" y="${yy+4}" fill="#6f9aa6" font-size="11" text-anchor="end">${g}</text>`;});
+  [2019,2024,2030,2035].forEach(y=>grid+=`<text x="${X(y)}" y="${H-10}" fill="#6f9aa6" font-size="11" text-anchor="middle">${y}</text>`);
+  const dot=(a,c)=>a.map(([y,g])=>`<circle cx="${X(y)}" cy="${Y(g)}" r="4.5" fill="${c}"/><text x="${X(y)}" y="${Y(g)-10}" fill="#e9f5f4" font-size="11.5" font-weight="800" text-anchor="middle">${g}</text>`).join("");
+  return `<svg viewBox="0 0 ${W} ${H}">${grid}
+    <polyline points="${poly(act)}" fill="none" stroke="#34e0ad" stroke-width="3"/>
+    <polyline points="${poly(tgt)}" fill="none" stroke="#56c2e8" stroke-width="3" stroke-dasharray="7 5"/>
+    ${dot(act,"#34e0ad")}${dot([[2030,10.9],[2035,18.4]],"#56c2e8")}
+    <text x="${pl}" y="16" fill="#34e0ad" font-size="11" font-weight="700">GW 累計裝置容量　—實測</text>
+    <text x="${W-pr}" y="16" fill="#56c2e8" font-size="11" font-weight="700" text-anchor="end">‑‑政策目標</text></svg>`;
+}
+function seasonSVG(){                              // 季節互補(示意)
+  const wind=[.9,.85,.72,.52,.36,.26,.22,.28,.42,.66,.84,.9],solar=[.42,.52,.66,.8,.9,.96,.96,.9,.76,.6,.46,.4];
+  const W=640,H=230,pl=26,pr=20,pt=26,pb=26,X=i=>pl+i/11*(W-pl-pr),Y=v=>H-pb-v*(H-pt-pb);
+  const line=a=>a.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" ");
+  let xl="";for(let i=0;i<12;i++)xl+=`<text x="${X(i)}" y="${H-9}" fill="#6f9aa6" font-size="10" text-anchor="middle">${i+1}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}">${xl}
+    <polyline points="${X(0)},${Y(0)} ${line(wind)} ${X(11)},${Y(0)}" fill="#34e0ad" opacity=".1"/>
+    <polyline points="${line(wind)}" fill="none" stroke="#34e0ad" stroke-width="3"/>
+    <polyline points="${line(solar)}" fill="none" stroke="#f4a64d" stroke-width="3"/>
+    <text x="${pl}" y="16" fill="#34e0ad" font-size="12" font-weight="700">🌬 離岸風電（冬強）</text>
+    <text x="${W-pr}" y="16" fill="#f4a64d" font-size="12" font-weight="700" text-anchor="end">☀️ 太陽能（夏強）</text></svg>`;
+}
+function costSVG(){                                // 成本下降(元/度)
+  const bars=[["示範／遴選",5.8,"約 5.8 元"],["競價 2018",2.35,"2.2–2.5 元"],["區塊開發",0,"零元躉購＊"]];
+  const W=640,H=240,pl=36,pr=20,pt=22,pb=42,bw=120,gap=(W-pl-pr-bars.length*bw)/(bars.length+1),Y=v=>H-pb-v/6*(H-pt-pb);
+  let g="";[0,2,4,6].forEach(v=>{const yy=Y(v);g+=`<line x1="${pl}" y1="${yy}" x2="${W-pr}" y2="${yy}" stroke="#1d5571" opacity=".5"/><text x="${pl-6}" y="${yy+4}" fill="#6f9aa6" font-size="11" text-anchor="end">${v}</text>`;});
+  bars.forEach((d,i)=>{const bx=pl+gap+i*(bw+gap),h=Math.max((H-pb)-Y(d[1]),3),col=["#f4a64d","#56c2e8","#34e0ad"][i];
+    g+=`<rect x="${bx}" y="${Y(d[1])}" width="${bw}" height="${h}" rx="5" fill="${col}"/>
+      <text x="${bx+bw/2}" y="${Y(d[1])-8}" fill="#e9f5f4" font-size="12.5" font-weight="800" text-anchor="middle">${d[2]}</text>
+      <text x="${bx+bw/2}" y="${H-20}" fill="#9fc3cc" font-size="11.5" text-anchor="middle">${d[0]}</text>`;});
+  return `<svg viewBox="0 0 ${W} ${H}">${g}<text x="${pl}" y="14" fill="#6f9aa6" font-size="11">元／度</text></svg>`;
+}
+function birdSVG(){                                // 鳥類死因對比(每年,國際研究)
+  const d=[["🐈 家貓",2.4e9,"約 24 億"],["🏢 大樓玻璃",5.99e8,"約 6 億"],["💨 風機",2.34e5,"約 23 萬"]];
+  const max=d[0][1],W=640,rh=48,pl=98,pr=96,H=d.length*rh+22;
+  let g="";d.forEach((r,i)=>{const y=10+i*rh,bw=Math.max(4,r[1]/max*(W-pl-pr)),col=i===2?"#34e0ad":"#5b7e8a";
+    g+=`<text x="${pl-8}" y="${y+19}" fill="#9fc3cc" font-size="12.5" text-anchor="end">${r[0]}</text>
+      <rect x="${pl}" y="${y+4}" width="${bw}" height="26" rx="5" fill="${col}"/>
+      <text x="${pl+bw+8}" y="${y+22}" fill="#e9f5f4" font-size="12" font-weight="700">${r[2]}</text>`;});
+  return `<svg viewBox="0 0 ${W} ${H}">${g}<text x="${W}" y="${H-4}" fill="#6f9aa6" font-size="10" text-anchor="end">每年鳥類死亡估計 · 國際研究（美國魚類及野生動物署等）</text></svg>`;
+}
+function buildLearn(){
+  const set=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html;};
+  set("growthchart",growthSVG());set("seasonchart",seasonSVG());set("costchart",costSVG());set("birdchart",birdSVG());
+}
+// 分享此刻風況
+function toast(msg){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add("on");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("on"),2400);}
+function shareText(){
+  const total=Math.round(FARMS.reduce((s,f)=>s+RT[f.id],0));
+  const share=(LIVE&&sysTotal>0)?`，佔全國發電 ${(total/sysTotal*100).toFixed(1)}%`:"";
+  return `🌬 台灣此刻風電即時出力約 ${total.toLocaleString()} MW${share}。一起看台灣風電即時風況與發展 👉`;
+}
+async function doShare(){
+  const url=location.href.split("?")[0].split("#")[0],text=shareText();
+  if(navigator.share){try{await navigator.share({title:"風電風情 · 台灣風力發電即時資訊",text,url});return;}catch(e){if(e&&e.name==="AbortError")return;}}
+  try{await navigator.clipboard.writeText(text+" "+url);toast("已複製分享文字與連結 ✓");}catch(e){toast("請手動複製網址分享");}
+}
 // 依整體可用率產生口語化問候(生動/幽默)
 function heroMood(r){
   if(r>=0.45)return{e:"💨",t:"狂風時刻！全台風機火力全開，正在猛灌綠電。"};
@@ -1010,7 +1143,8 @@ function popHTML(f){
 function updateMarkers(){if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
   if(m.isPopupOpen())m.setPopupContent(popHTML(f));}});}
 
-buildFilterSelects();
+buildFilterSelects();buildLearn();
+document.getElementById("sharebtn").onclick=doShare;
 refresh();tryLive();tryHistory();
 setInterval(refresh,15000);
 if(DATA_ENDPOINT){setInterval(tryLive,600000);setInterval(tryHistory,600000);}
