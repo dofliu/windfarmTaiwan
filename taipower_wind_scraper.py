@@ -47,7 +47,7 @@ GENARY_URL = "https://service.taipower.com.tw/data/opendata/apply/file/d006001/0
 GENARY_URL_ALT = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/genary.json"
 OUTPUT = Path(__file__).with_name("wind_realtime.json")
 HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
-MAX_POINTS = 96          # 每 15 分一筆，保留最近 96 筆(約 24 小時)
+MAX_POINTS = 672         # 每 15 分一筆，保留最近 672 筆(約 7 天)，供較長趨勢線
 
 # 中央氣象署 自動氣象站觀測(含風速 WindSpeed m/s)。需免費 API 授權碼(環境變數 CWA_API_KEY)。
 # 誠實聲明：測站在陸上/沿海，風場多在外海(離岸 35–60 km 者尤其)，此處只能取「最近測站」風速
@@ -292,12 +292,13 @@ def get_farm_wind():
         return {}
 
 
-def update_history(farms, total, source_time, updated):
-    """維護滾動歷史，每筆 = 一次台電快照；供前端畫真實出力趨勢(非模擬)。
+def update_history(farms, total, source_time, updated, farm_wind):
+    """維護滾動歷史，每筆 = 一次台電快照；供前端畫真實出力/風速趨勢(非模擬)。
 
     去重關鍵：用台電資料時間(source_time)當每筆的 t。我們每 15 分鐘抓一次，
     但台電每 10 分鐘才更新，偶有兩次抓到同一份資料(尤其手動+排程相近時)，
     同 t 者就地覆蓋而非重複累積，避免趨勢線出現假平台。
+    每筆記發電量(farms) 與風速(wind)；可用率不另存(=發電量÷裝置容量，前端可算)。
     """
     t = source_time or updated
     points = []
@@ -307,7 +308,8 @@ def update_history(farms, total, source_time, updated):
         except Exception:
             points = []
 
-    rec = {"t": t, "farms": farms, "total": total}
+    wind = {k: v.get("mps") for k, v in (farm_wind or {}).items() if v.get("mps") is not None}
+    rec = {"t": t, "farms": farms, "wind": wind, "total": total}
     if points and points[-1].get("t") == t:
         points[-1] = rec               # 同一台電資料時間 → 覆蓋
     else:
@@ -356,7 +358,7 @@ def main():
     }
 
     OUTPUT.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    n = update_history(farms, total, upd, out["updated"])
+    n = update_history(farms, total, upd, out["updated"], farm_wind)
     print(f"[OK] {out['updated']}  風力總出力 {total} MW  "
           f"(風力機組 {len(wind_units)} 列，對應 {len(farms)} 座風場) → {OUTPUT.name}"
           f"  · 歷史累積 {n} 筆 → {HISTORY.name}")
