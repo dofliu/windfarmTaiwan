@@ -76,6 +76,7 @@ NAME_MAP_EXACT = {
     # 陸域 · 台電自有
     "觀園": "guanyuan", "台中港": "taichungport", "王功": "wanggong",
     "彰工": "changgong", "雲麥": "yunmai", "四湖": "sihu", "其它台電自有": "tpc-other-on",
+    "中港": "taichungport",   # 歷史資料集 37331 對台中港的簡名(2026-07 實測)
     # 陸域 · 購電
     "苗栗大鵬": "dapeng", "鹿威彰濱": "luwei", "觀威觀音&桃威新屋": "guanwei",
     "中威大安": "zhongwei", "創維風": "chuangwei", "新源崙背": "xinyuan",

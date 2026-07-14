@@ -21,7 +21,9 @@ GitHub Pages 服務同一 repo:  index.html + wind_realtime.json ◄──┘
 - `wind_history_archive.json` — 長期存檔（官方每 10 分鐘回溯值，不修剪；由 backfill 累積）
 - `backfill_history.py` — 抓政府開放資料集 [37331「各機組過去發電量」](https://data.gov.tw/dataset/37331)。
   **時效注意**：37331 為季度回溯檔（2026-07 實測僅涵蓋至 2026-02-28，落後約 4 個月），
-  所以它補不到近 7 天趨勢窗的缺口；主要價值是長期存檔，供日後月/季/年趨勢分析
+  所以它補不到近 7 天趨勢窗的缺口；主要價值是長期存檔，供日後月/季/年趨勢分析。
+  **口徑注意**：37331 只含台電**自有**風力 17 機組（含離島、離岸一期），不含民營購電，
+  存檔的 `total` 是台電自有小計，與即時資料的全系統 `wind_total_mw`（含購電）不可混用比較
 - `.github/workflows/scrape.yml` — 每 15 分鐘自動執行 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
 

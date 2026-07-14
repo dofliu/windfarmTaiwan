@@ -8,13 +8,17 @@
       1. 回填 wind_history.json(滾動 7 天窗)中官方資料涵蓋到的缺漏點
       2. 累積 wind_history_archive.json(長期存檔，不修剪)
 
-重要·資料時效(2026-07 實測)：
-  37331 的資源(d006010/001.json)是「季度回溯檔」——2026-07-14 當下
-  內容僅涵蓋 2025-12-01 ～ 2026-02-28，落後約 4 個半月。因此它
-  「幾乎不可能」補到前端 7 天滾動窗內的缺口(缺口仍只能靠 scraper
-  的即時取樣密度)；本程式的主要價值是長期存檔：把官方每 10 分鐘
-  回溯值完整保存，供日後長期趨勢(月/季/年)分析與展示使用。
-  若官方日後改為滾動近期資料，回填 7 天窗的邏輯即自動生效。
+重要·資料時效與涵蓋範圍(2026-07 實測)：
+  1. 時效：37331 的資源(d006010/001.json)是「季度回溯檔」——2026-07-14
+     當下內容僅涵蓋 2025-12-01 ～ 2026-02-28，落後約 4 個半月。因此它
+     「幾乎不可能」補到前端 7 天滾動窗內的缺口(缺口仍只能靠 scraper
+     的即時取樣密度)；本程式的主要價值是長期存檔：把官方每 10 分鐘
+     回溯值完整保存，供日後長期趨勢(月/季/年)分析與展示使用。
+     若官方日後改為滾動近期資料，回填 7 天窗的邏輯即自動生效。
+  2. 涵蓋：37331 只含「台電自有」風力機組(實測 17 座，含離島與離岸一期)，
+     不含民營購電(無沃旭/海能等)。存檔的 total 是台電自有風力小計，
+     與 wind_realtime/wind_history 的全系統 wind_total(含購電)口徑不同，
+     不可混用比較。機組採簡名(如「中港」=台中港)。
 
 資料來源解析順序(執行時動態決定，不寫死未驗證的網址)：
   1. 環境變數 BACKFILL_URL(手動指定資源網址時優先)
@@ -296,16 +300,18 @@ def update_archive(by_ts, dry_run):
 
 
 def merge(points, by_ts, days):
-    """只補缺：既有 t 不覆蓋。回傳(合併排序修剪後的 points, 新增筆數)。"""
+    """只補缺：既有 t 不覆蓋。回傳(合併排序修剪後的 points, 修剪後仍留在窗內的新增筆數)。
+    注意回傳的新增數是「窗內存活數」：季度回溯檔的點通常全在窗外，會如實回報 0，
+    此時呼叫端不應改寫檔案(修剪既有舊點是 scraper 的職責，避免與其排程互搶 commit)。"""
     existing = {p.get("t") for p in points}
-    added = 0
+    new_ts = set()
     for ts, units in by_ts.items():
         if ts in existing:
             continue
         farms = map_to_farms(units)
         total = round(sum(u["output"] for u in units), 2)
         points.append({"t": ts, "farms": farms, "wind": {}, "total": total})
-        added += 1
+        new_ts.add(ts)
     points.sort(key=lambda p: p.get("t") or "")
     if points:                              # 以最新點為基準保留 days 天(避免依賴本機時鐘)
         try:
@@ -314,7 +320,8 @@ def merge(points, by_ts, days):
             points = [p for p in points if (p.get("t") or "") >= cutoff]
         except ValueError:
             pass
-    return points, added
+    kept = sum(1 for p in points if p.get("t") in new_ts)
+    return points, kept
 
 
 def main():
@@ -356,17 +363,16 @@ def main():
     doc, points = load_history()
     before = len(points)
     points, added = merge(points, by_ts, args.days)
-    in_window = max(0, len(points) - before)
     # 2) 長期存檔：完整保留官方每 10 分鐘回溯值
     arch_added, arch_total = update_archive(by_ts, args.dry_run)
 
-    print(f"[OK] 滾動 {args.days} 天窗({HISTORY.name})：{before} → {len(points)}(補入窗內 {in_window} 筆)")
+    print(f"[OK] 滾動 {args.days} 天窗({HISTORY.name})：{before} → {len(points)}(補入窗內 {added} 筆)")
     print(f"[OK] 長期存檔({ARCHIVE.name})：新增 {arch_added} 筆，累計 {arch_total} 筆")
 
     if args.dry_run:
         print("[DRY-RUN] 未寫檔")
         return
-    if added and len(points) != before:
+    if added:   # 窗內真的有補到點才改寫；純修剪交給 scraper，避免兩個排程互搶 commit
         HISTORY.write_text(json.dumps(
             {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
              "interval_min": doc.get("interval_min", 15), "points": points},
