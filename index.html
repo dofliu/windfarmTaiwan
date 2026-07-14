@@ -710,7 +710,7 @@ const I18N={
   q6:{zh:"會影響漁業和海洋生態嗎？",en:"Does it affect fisheries and marine life?"},
   a6:{zh:"開發前須通過環境影響評估，並推動漁業共生與長期生態監測。部分研究也觀察到，風機的水下基座具有類似「人工魚礁」的聚魚效果。",en:"Projects must pass environmental impact assessment and pursue fishery co-existence and long-term monitoring. Some studies even find turbine foundations act like artificial reefs that attract fish."}
 };
-let HIST={points:[]};                          // 真實滾動歷史(scraper 累積，每 15 分一筆)
+let HIST={points:[]};                          // 真實滾動歷史(scraper 每 15 分累積 + 官方資料集 37331 每日回填，每 10–15 分一筆)
 let sysTotal=null;                             // 全國即時淨發電量(MW)，來自 live JSON
 let WIND={};                                   // 各風場鄰近測站風速{id:{mps,station,km}}，來源中央氣象署
 const windOf=f=>WIND[f.id]||null;
@@ -1182,12 +1182,16 @@ function paintGroups(){
   wrap.querySelectorAll(".card").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);
     c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(c.dataset.id)}};});
 }
-let sparkWin=24, sparkMetric="out";            // 趨勢範圍(筆數) 與 指標(out=出力 / wind=風速)
-const SPARK_RANGES=[[24,"r_6h"],[96,"r_24h"],[672,"r_7d"]];
-function sparkSeries(f){                        // 取該風場最近 N 筆真實資料(依指標)
-  const key=sparkMetric==="wind"?"wind":"farms";
-  return HIST.points.slice(-sparkWin)
-    .filter(p=>p&&p[key]&&typeof p[key][f.id]==="number")
+let sparkWin=6, sparkMetric="out";             // 趨勢範圍(小時) 與 指標(out=出力 / wind=風速)
+const SPARK_RANGES=[[6,"r_6h"],[24,"r_24h"],[168,"r_7d"]];
+function sparkSeries(f){                        // 取該風場最近 N 小時真實資料(依指標)
+  // 用「時間窗」而非固定筆數：歷史點密度不均(即時抓取每 15 分一筆、
+  // 官方回填每 10 分一筆)，固定筆數會讓 6h/24h/7d 標示失真。
+  const key=sparkMetric==="wind"?"wind":"farms",pts=HIST.points||[];
+  if(!pts.length)return[];
+  const cut=new Date(pts[pts.length-1].t).getTime()-sparkWin*3600000;
+  return pts
+    .filter(p=>p&&p[key]&&typeof p[key][f.id]==="number"&&new Date(p.t).getTime()>=cut)
     .map(p=>({t:p.t,v:p[key][f.id]}));
 }
 function sparkSVG(f){
@@ -1206,10 +1210,10 @@ function sparkLabel(f){
   const EN=LANG==="en",s=sparkSeries(f);
   const name=sparkMetric==="wind"?(EN?"wind":"風速"):(EN?"output":"出力");
   const src=sparkMetric==="wind"?(EN?"nearest station · ref.":"鄰近測站·參考"):(EN?"Taipower":"台電資料");
-  if(s.length<2)return EN?`${name} trend accruing (${s.length} pts so far · every 15 min)`:`${name}趨勢累積中（目前 ${s.length} 筆 · 每 15 分鐘一筆）`;
+  if(s.length<2)return EN?`${name} trend accruing (${s.length} pts so far · every 10–15 min)`:`${name}趨勢累積中（目前 ${s.length} 筆 · 每 10–15 分鐘一筆）`;
   const a=fmtSrc(s[0].t),b=fmtSrc(s[s.length-1].t).split(" ").pop();
   const peak=sparkMetric==="wind"?` · ${EN?"peak":"峰值"} ${Math.max(...s.map(p=>p.v)).toFixed(1)} m/s`:"";
-  return EN?`${a}–${b} actual ${name} · every 15 min (${src})${peak}`:`${a}–${b} 實際${name} · 每 15 分鐘一筆（${src}）${peak}`;
+  return EN?`${a}–${b} actual ${name} · every 10–15 min (${src})${peak}`:`${a}–${b} 實際${name} · 每 10–15 分鐘一筆（${src}）${peak}`;
 }
 function renderSparkBox(f){                     // 趨勢區(SVG+標籤)，供切換時就地重繪
   return `${sparkSVG(f)}<div class="lab" style="margin-top:6px;color:var(--mist-dim)">${sparkLabel(f)}</div>`;
