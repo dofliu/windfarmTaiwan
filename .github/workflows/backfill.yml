@@ -1,10 +1,12 @@
 name: backfill-taipower-wind-history
 
-# 每日以政府開放資料集 37331「台灣電力公司_各機組過去發電量」回填
-# wind_history.json 的缺口(GitHub Actions 排程常被延遲/跳過，即時抓取會漏點)。
+# 以政府開放資料集 37331「台灣電力公司_各機組過去發電量」：
+#   1) 回填 wind_history.json 窗內缺口(官方資料若涵蓋到的話)
+#   2) 累積長期存檔 wind_history_archive.json
+# 注意：37331 為「季度回溯檔」(2026-07 實測落後約 4 個月)，每週抓一次即可。
 on:
   schedule:
-    - cron: "23 19 * * *"     # 每日 19:23 UTC = 台北 03:23(離峰，排程較不易被跳過)
+    - cron: "23 19 * * 1"     # 每週一 19:23 UTC = 台北週二 03:23(離峰，排程較不易被跳過)
   workflow_dispatch:          # 允許手動觸發(首次回填請由此執行一次)
     inputs:
       dry_run:
@@ -43,6 +45,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add wind_history.json
+          [ -f wind_history_archive.json ] && git add wind_history_archive.json || true
           git diff --staged --quiet || git commit -m "chore: backfill wind history $(date -u +%FT%TZ)"
           git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
           git push

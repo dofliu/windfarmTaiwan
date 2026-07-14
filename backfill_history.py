@@ -4,14 +4,17 @@
 台電各機組「過去發電量」歷史回填器  ·  backfill_history.py
 ================================================================
 用途：抓取政府資料開放平臺資料集 37331「台灣電力公司_各機組過去發電量」
-      (各機組過去每 10 分鐘淨發電量·瞬間值)，取出風力機組，
-      回填 wind_history.json 中缺漏的時間點。
+      (各機組過去每 10 分鐘淨發電量·瞬間值)，取出風力機組：
+      1. 回填 wind_history.json(滾動 7 天窗)中官方資料涵蓋到的缺漏點
+      2. 累積 wind_history_archive.json(長期存檔，不修剪)
 
-為什麼需要這支程式：
-  taipower_wind_scraper.py 靠 GitHub Actions 每 15 分鐘取樣一次「即時」
-  快照(genary)，但 Actions 排程常被延遲或跳過，趨勢線會出現缺口；
-  且 15 分鐘取樣只能撈到台電 10 分鐘資料的 2/3。
-  資料集 37331 提供官方回溯資料，可把缺漏的 10 分鐘點位補齊。
+重要·資料時效(2026-07 實測)：
+  37331 的資源(d006010/001.json)是「季度回溯檔」——2026-07-14 當下
+  內容僅涵蓋 2025-12-01 ～ 2026-02-28，落後約 4 個半月。因此它
+  「幾乎不可能」補到前端 7 天滾動窗內的缺口(缺口仍只能靠 scraper
+  的即時取樣密度)；本程式的主要價值是長期存檔：把官方每 10 分鐘
+  回溯值完整保存，供日後長期趨勢(月/季/年)分析與展示使用。
+  若官方日後改為滾動近期資料，回填 7 天窗的邏輯即自動生效。
 
 資料來源解析順序(執行時動態決定，不寫死未驗證的網址)：
   1. 環境變數 BACKFILL_URL(手動指定資源網址時優先)
@@ -52,6 +55,8 @@ META_APIS = [
     f"https://data.nat.gov.tw/api/v2/rest/dataset/{DATASET_ID}",
 ]
 HISTORY_DAYS = 7        # 滾動視窗(天)，與 scraper 一致
+ARCHIVE = HISTORY.with_name("wind_history_archive.json")  # 長期存檔(官方回溯，不修剪)
+SIBLING_PROBES = 4      # 資源網址若為 .../001.json，額外探測 002~00N(官方可能分檔存季度)
 
 # 各欄位的候選鍵名(官方欄位名稱可能調整，這裡做寬容比對；比對不到即報錯並印實際欄位)。
 # 2026-07 實測 d006010/001.json 的實際欄位為：DATETIME, FUEL_TYPE, NET_P, UNIT_NAME。
@@ -84,7 +89,7 @@ def _first_key(row, keys):
 
 
 def resolve_resource_urls():
-    """回傳依優先序排列的候選資源網址。"""
+    """回傳依優先序排列的候選資源網址(含編號檔探測)。"""
     urls = []
     manual = os.environ.get("BACKFILL_URL")
     if manual:
@@ -107,6 +112,17 @@ def resolve_resource_urls():
                 break                      # 第一個能回應的 metadata API 就夠了
         except Exception as e:
             print(f"[WARN] metadata API 失敗 {api}：{e}", file=sys.stderr)
+
+    # 台電 opendata 慣用 .../dXXXXXX/001.json 檔名；官方若分檔存不同期間，
+    # 探測同資料夾其他編號(不存在時抓取會失敗並被略過，無副作用)。
+    import re as _re
+    for u in list(urls):
+        m = _re.match(r"^(.*/)(\d{3})(\.(?:json|csv))$", u)
+        if m:
+            for i in range(1, SIBLING_PROBES + 1):
+                cand = f"{m.group(1)}{i:03d}{m.group(3)}"
+                if cand not in urls:
+                    urls.append(cand)
     return urls
 
 
@@ -246,14 +262,37 @@ def _extract_from_dicts(rows):
     return by_ts
 
 
-def load_history():
-    if HISTORY.exists():
+def load_history(path=None):
+    p = path or HISTORY
+    if p.exists():
         try:
-            doc = json.loads(HISTORY.read_text(encoding="utf-8"))
+            doc = json.loads(p.read_text(encoding="utf-8"))
             return doc, list(doc.get("points", []))
         except Exception:
             pass
     return {}, []
+
+
+def update_archive(by_ts, dry_run):
+    """長期存檔：只補缺、排序、不修剪。點位精簡為 {t, farms, total}(無歷史風速)。
+    檔案以緊湊 JSON 寫出(資料量大，縮排會倍增體積)。回傳(新增筆數, 總筆數)。"""
+    _, points = load_history(ARCHIVE)
+    existing = {p.get("t") for p in points}
+    added = 0
+    for ts, units in by_ts.items():
+        if ts in existing:
+            continue
+        points.append({"t": ts, "farms": map_to_farms(units),
+                       "total": round(sum(u["output"] for u in units), 2)})
+        added += 1
+    if added and not dry_run:
+        points.sort(key=lambda p: p.get("t") or "")
+        ARCHIVE.write_text(json.dumps(
+            {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
+             "source": f"data.gov.tw dataset {DATASET_ID}", "interval_min": 10,
+             "points": points},
+            ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return added, len(points)
 
 
 def merge(points, by_ts, days):
@@ -290,44 +329,51 @@ def main():
               "可設環境變數 BACKFILL_URL 手動指定)", file=sys.stderr)
         sys.exit(1)
 
-    by_ts, used_url = None, None
+    # 抓取「全部」可解析的資源並聯集(官方可能分檔存不同期間，不能抓到一個就停)
+    by_ts = {}
     for url in urls:
         try:
             rows, diag = fetch_rows(url)
-            by_ts = extract_points(rows, diag)
-            used_url = url
-            break
+            part = extract_points(rows, diag)
+            new = {ts: u for ts, u in part.items() if ts not in by_ts}
+            by_ts.update(new)
+            print(f"[OK] 來源 {url}：{min(part)} ～ {max(part)}"
+                  f"(共 {len(part)} 個時間點，取用 {len(new)})")
         except Exception as e:
             print(f"[WARN] 資源不可用 {url}：{e}", file=sys.stderr)
-    if by_ts is None:
+    if not by_ts:
         print("[ERROR] 所有候選資源都無法解析，未寫入任何資料", file=sys.stderr)
         sys.exit(1)
 
     ts_sorted = sorted(by_ts)
+    names = sorted({u["name"] for units in by_ts.values() for u in units})
+    print(f"[OK] 官方回溯資料合計涵蓋 {ts_sorted[0]} ～ {ts_sorted[-1]}(共 {len(ts_sorted)} 個時間點)")
+    print(f"[OK] 相異風力機組名稱({len(names)})：{names}")   # 供校準 NAME_MAP(歷史檔常用簡名)
+    # 印一個樣本點供人工核對(尤其位置陣列欄序假設)：值應與 wind_realtime 同量級
+    print(f"[OK] 樣本 {ts_sorted[-1]}：{by_ts[ts_sorted[-1]][:5]}")
+
+    # 1) 滾動 7 天窗(前端趨勢線)：官方資料落在窗內才補得到；季度回溯檔通常補不到，照實回報
     doc, points = load_history()
     before = len(points)
     points, added = merge(points, by_ts, args.days)
+    in_window = max(0, len(points) - before)
+    # 2) 長期存檔：完整保留官方每 10 分鐘回溯值
+    arch_added, arch_total = update_archive(by_ts, args.dry_run)
 
-    print(f"[OK] 來源：{used_url}")
-    print(f"[OK] 官方回溯資料涵蓋 {ts_sorted[0]} ～ {ts_sorted[-1]}(共 {len(ts_sorted)} 個時間點)")
-    # 印一個樣本點供人工核對(尤其位置陣列欄序假設)：值應與 wind_realtime 同量級
-    sample_ts = ts_sorted[-1]
-    print(f"[OK] 樣本 {sample_ts}：{by_ts[sample_ts][:5]}")
-    print(f"[OK] 歷史點位：{before} → {len(points)}(回填 {added} 筆，既有點一律保留)")
+    print(f"[OK] 滾動 {args.days} 天窗({HISTORY.name})：{before} → {len(points)}(補入窗內 {in_window} 筆)")
+    print(f"[OK] 長期存檔({ARCHIVE.name})：新增 {arch_added} 筆，累計 {arch_total} 筆")
 
     if args.dry_run:
         print("[DRY-RUN] 未寫檔")
         return
-    if added == 0 and len(points) == before:
-        print("[OK] 無缺口可補，檔案未變動")
-        return
-    doc = {
-        "updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
-        "interval_min": doc.get("interval_min", 15),
-        "points": points,
-    }
-    HISTORY.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[OK] 已寫入 {HISTORY.name}")
+    if added and len(points) != before:
+        HISTORY.write_text(json.dumps(
+            {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
+             "interval_min": doc.get("interval_min", 15), "points": points},
+            ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[OK] 已寫入 {HISTORY.name}")
+    else:
+        print(f"[OK] {HISTORY.name} 無窗內缺口可補，未變動")
 
 
 if __name__ == "__main__":
