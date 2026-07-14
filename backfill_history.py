@@ -300,29 +300,50 @@ def update_archive(by_ts, dry_run):
     return added, len(points)
 
 
-def write_daily_digest(dry_run, force=False):
-    """由長期存檔彙整每日摘要(單日 平均/最大/最小 MW 與筆數)，供前端「長期趨勢」
-    圖表載入(存檔本體 MB 級，前端不宜直接抓)。存檔無新增且摘要檔已存在時不重寫，
-    避免只有 updated 時間戳變動的無意義 commit。回傳天數。"""
-    _, points = load_history(ARCHIVE)
-    if not points:
-        return 0
-    days = {}
-    for p in points:
-        d = (p.get("t") or "")[:10]
-        v = p.get("total")
-        if len(d) == 10 and isinstance(v, (int, float)):
-            days.setdefault(d, []).append(v)
-    rows = [{"d": d, "avg": round(sum(vs) / len(vs), 1), "max": round(max(vs), 1),
-             "min": round(min(vs), 1), "n": len(vs)} for d, vs in sorted(days.items())]
-    if not dry_run and (force or not DAILY.exists()):
+def write_daily_digest(by_ts, dry_run):
+    """由「本次抓到的官方資料」彙整每日摘要，供前端「長期趨勢」圖表載入
+    (長期存檔本體 MB 級，前端不宜直接抓)。每列：
+      {d, avg, max, min, n,                    # 全體(台電自有小計，逐時間點 total 再彙整)
+       u: {機組名: [單日平均, 單日最大], ...}}  # 逐機組(官方簡名)
+    與既有摘要「按日期合併」：新抓到的日期覆蓋同日舊值(同源官方資料)，
+    其餘保留——官方檔輪替期間時舊季度不會消失。內容無變化就不重寫檔案。
+    回傳(總天數, 本次涵蓋天數)。"""
+    fleet, per = {}, {}
+    for ts, units in by_ts.items():
+        d = ts[:10]
+        fleet.setdefault(d, []).append(round(sum(u["output"] for u in units), 2))
+        rec = per.setdefault(d, {})
+        for u in units:
+            rec.setdefault(u["name"], []).append(u["output"])
+    new_rows = {}
+    for d, vs in fleet.items():
+        new_rows[d] = {
+            "d": d, "avg": round(sum(vs) / len(vs), 1), "max": round(max(vs), 1),
+            "min": round(min(vs), 1), "n": len(vs),
+            "u": {n: [round(sum(x) / len(x), 1), round(max(x), 1)]
+                  for n, x in sorted(per[d].items())},
+        }
+
+    existing, old_days_json = {}, None
+    if DAILY.exists():
+        try:
+            old = json.loads(DAILY.read_text(encoding="utf-8")).get("days", [])
+            existing = {r.get("d"): r for r in old if r.get("d")}
+            old_days_json = json.dumps(old, ensure_ascii=False, sort_keys=True)
+        except Exception:
+            pass
+    merged = {**existing, **new_rows}
+    rows = [merged[d] for d in sorted(merged)]
+
+    changed = json.dumps(rows, ensure_ascii=False, sort_keys=True) != old_days_json
+    if changed and not dry_run:
         DAILY.write_text(json.dumps(
             {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
              "source": f"data.gov.tw dataset {DATASET_ID}",
              "scope": "台電自有風力機組小計(不含民營購電)",
              "days": rows},
             ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    return len(rows)
+    return len(rows), len(new_rows)
 
 
 def merge(points, by_ts, days):
@@ -391,12 +412,12 @@ def main():
     points, added = merge(points, by_ts, args.days)
     # 2) 長期存檔：完整保留官方每 10 分鐘回溯值
     arch_added, arch_total = update_archive(by_ts, args.dry_run)
-    # 3) 每日摘要：前端「長期趨勢」圖的資料來源(存檔有變動時重新彙整)
-    n_days = write_daily_digest(args.dry_run, force=arch_added > 0)
+    # 3) 每日摘要(全體+逐機組)：前端「長期趨勢」圖的資料來源
+    n_days, n_new = write_daily_digest(by_ts, args.dry_run)
 
     print(f"[OK] 滾動 {args.days} 天窗({HISTORY.name})：{before} → {len(points)}(補入窗內 {added} 筆)")
     print(f"[OK] 長期存檔({ARCHIVE.name})：新增 {arch_added} 筆，累計 {arch_total} 筆")
-    print(f"[OK] 每日摘要({DAILY.name})：{n_days} 天")
+    print(f"[OK] 每日摘要({DAILY.name})：共 {n_days} 天(本次官方資料涵蓋 {n_new} 天)")
 
     if args.dry_run:
         print("[DRY-RUN] 未寫檔")
