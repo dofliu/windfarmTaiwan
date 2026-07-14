@@ -17,10 +17,15 @@ GitHub Pages 服務同一 repo:  index.html + wind_realtime.json ◄──┘
 - `index.html` — 單檔前端（Leaflet 衛星地圖、儀表、抽屜式風場詳情）
 - `taipower_wind_scraper.py` — 抓台電開放資料、解析風力 30 機組、產生 `wind_realtime.json`
 - `wind_realtime.json` — 即時資料（由 Actions 自動更新；倉庫內已附一份 6/15 17:30 真實種子）
-- `wind_history.json` — 滾動 7 天歷史（即時抓取累積 + 每日官方回填，供趨勢線）
-- `backfill_history.py` — 以政府開放資料集 [37331「各機組過去發電量」](https://data.gov.tw/dataset/37331) 回填歷史缺口（Actions 排程被跳過時趨勢線不再破洞）
+- `wind_history.json` — 滾動 7 天歷史（scraper 即時累積，供前端趨勢線）
+- `wind_history_archive.json` — 長期存檔（官方每 10 分鐘回溯值，不修剪；由 backfill 累積）
+- `backfill_history.py` — 抓政府開放資料集 [37331「各機組過去發電量」](https://data.gov.tw/dataset/37331)。
+  **時效注意**：37331 為季度回溯檔（2026-07 實測僅涵蓋至 2026-02-28，落後約 4 個月），
+  所以它補不到近 7 天趨勢窗的缺口；主要價值是長期存檔，供日後月/季/年趨勢分析。
+  **口徑注意**：37331 只含台電**自有**風力 17 機組（含離島、離岸一期），不含民營購電，
+  存檔的 `total` 是台電自有小計，與即時資料的全系統 `wind_total_mw`（含購電）不可混用比較
 - `.github/workflows/scrape.yml` — 每 15 分鐘自動執行 scraper 並 commit
-- `.github/workflows/backfill.yml` — 每日 03:23（台北）自動回填前一日缺口；首次啟用請手動跑一次
+- `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
 
 ## 啟用步驟（只剩這些要你做）
 
@@ -41,7 +46,8 @@ GitHub Pages 服務同一 repo:  index.html + wind_realtime.json ◄──┘
 
 - 即時端點：`https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json`
 - 來源：政府資料開放平臺「台灣電力公司各機組發電量即時資訊」（[資料集 8931](https://data.gov.tw/dataset/8931)），每 10 分更新
-- 歷史回填：政府資料開放平臺「台灣電力公司_各機組過去發電量」（[資料集 37331](https://data.gov.tw/dataset/37331)），
-  資源網址由 `backfill_history.py` 於執行時透過 data.gov.tw metadata API 動態解析，回填每 10 分鐘官方回溯值
+- 歷史存檔：政府資料開放平臺「台灣電力公司_各機組過去發電量」（[資料集 37331](https://data.gov.tw/dataset/37331)），
+  實際資源 `d006010/001.json`（欄位：DATETIME/FUEL_TYPE/UNIT_NAME/NET_P），由 `backfill_history.py`
+  透過 data.gov.tw metadata API 動態解析；為季度回溯檔，歷史機組採簡名（如「中港」＝台中港）
 - 授權：政府資料開放授權條款－第 1 版
 - 風機數量、座標、開發商等專案資訊為公開資料整理，座標為概略位置。
