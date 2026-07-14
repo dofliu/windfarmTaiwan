@@ -47,7 +47,8 @@ GENARY_URL = "https://service.taipower.com.tw/data/opendata/apply/file/d006001/0
 GENARY_URL_ALT = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/genary.json"
 OUTPUT = Path(__file__).with_name("wind_realtime.json")
 HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
-MAX_POINTS = 672         # 每 15 分一筆，保留最近 672 筆(約 7 天)，供較長趨勢線
+HISTORY_DAYS = 7         # 滾動視窗：保留最近 7 天(backfill_history.py 回填後密度為每 10 分一筆)
+MAX_POINTS = 1200        # 安全上限(7 天 × 每 10 分 144 筆 = 1008，留餘裕)，防檔案異常膨脹
 
 # 中央氣象署 自動氣象站觀測(含風速 WindSpeed m/s)。需免費 API 授權碼(環境變數 CWA_API_KEY)。
 # 誠實聲明：測站在陸上/沿海，風場多在外海(離岸 35–60 km 者尤其)，此處只能取「最近測站」風速
@@ -314,7 +315,17 @@ def update_history(farms, total, source_time, updated, farm_wind):
         points[-1] = rec               # 同一台電資料時間 → 覆蓋
     else:
         points.append(rec)
-    points = points[-MAX_POINTS:]       # 只保留最近 N 筆
+
+    # 滾動修剪：以「最新點的時間」為基準保留 HISTORY_DAYS 天(不用本機時鐘，避免時區/誤差)。
+    # 改用時間窗而非固定筆數：回填(backfill_history.py)後密度為每 10 分一筆，
+    # 固定筆數會把較舊的回填點誤砍。MAX_POINTS 僅作為異常時的安全上限。
+    try:
+        newest = dt.datetime.fromisoformat(max(p.get("t") or "" for p in points))
+        cutoff = (newest - dt.timedelta(days=HISTORY_DAYS)).isoformat(timespec="seconds")
+        points = [p for p in points if (p.get("t") or "") >= cutoff]
+    except ValueError:
+        pass
+    points = points[-MAX_POINTS:]
 
     HISTORY.write_text(json.dumps(
         {"updated": updated, "interval_min": 15, "points": points},
