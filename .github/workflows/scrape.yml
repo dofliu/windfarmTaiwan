@@ -38,5 +38,6 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add wind_realtime.json wind_history.json
+          [ -f grid_status.json ] && git add grid_status.json || true
           git diff --staged --quiet || git commit -m "chore: update wind data $(date -u +%FT%TZ)"
           git push

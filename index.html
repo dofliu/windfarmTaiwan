@@ -10,7 +10,7 @@
   :root{
     --sea-0:#06212e;--sea-1:#0a2a3a;--sea-2:#0e3547;--sea-3:#13455c;--line:#1d5571;
     --foam:#e9f5f4;--mist:#9fc3cc;--mist-dim:#6f9aa6;
-    --gen:#34e0ad;--gen-deep:#0fae84;--sky:#56c2e8;--amber:#f4a64d;--slate:#5b7e8a;
+    --gen:#34e0ad;--gen-deep:#0fae84;--sky:#56c2e8;--amber:#f4a64d;--slate:#5b7e8a;--red:#ef4444;
     --tpc:#56c2e8;--ppa:#f4a64d;--shadow:rgba(0,0,0,.35);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -99,6 +99,17 @@
   @media (max-width:880px){.impact{grid-template-columns:repeat(2,1fr)}}
   /* 今日風況 hero(生動/幽默動態文案) */
   .hero{background:linear-gradient(120deg,#103d52,#0a2a3a);border:1px solid var(--line);border-radius:16px;padding:15px 20px;margin-bottom:14px}
+  .gridbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:linear-gradient(160deg,var(--sea-2),var(--sea-1));
+    border:1px solid var(--line);border-radius:12px;padding:11px 18px;margin-bottom:14px;font-size:13px}
+  .gridbar:empty{display:none}
+  .gridbar .gdot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 8px currentColor}
+  .gridbar .gstat{font-weight:800;color:var(--foam)}
+  .gridbar .gpct{font-weight:800}
+  .gridbar .gsep{color:var(--line);flex:0 0 auto}
+  .gridbar .gwind{color:var(--mist)}
+  .gridbar .gwind b{color:var(--gen);font-weight:800}
+  .gridbar .gsrc{margin-left:auto;color:var(--mist-dim);font-size:11px}
+  @media (max-width:720px){.gridbar .gsrc{margin-left:0;flex-basis:100%}}
   .hero .hgreet{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:800;color:var(--foam);line-height:1.3}
   .hero .hgreet .he{font-size:30px;flex:0 0 auto}
   .hero .hstory{margin-top:9px;font-size:13.5px;color:var(--mist);line-height:1.55}
@@ -339,6 +350,7 @@
   <main>
     <section class="view on" id="dash">
       <div class="hero" id="hero"></div>
+      <div class="gridbar" id="gridbar"></div>
       <div class="impact" id="impact"></div>
       <div class="policy">
         <h3 data-i18n="policyTitle">🇹🇼 台灣離岸風電進度</h3>
@@ -646,6 +658,12 @@ const I18N={
   allCap:{zh:"全部容量",en:"All sizes"},capL:{zh:"大型 >300MW",en:"Large >300MW"},capM:{zh:"中型 100–300MW",en:"Medium 100–300MW"},capS:{zh:"小型 <100MW",en:"Small <100MW"},
   windTotal:{zh:"全台風電即時出力",en:"National wind output"},totalCap:{zh:"總裝置容量",en:"Total capacity"},
   overallAvail:{zh:"整體可用率",en:"Overall availability"},co2hr:{zh:"每小時減碳（估算）",en:"CO₂ cut / hr (est.)"},
+  grid_ample:{zh:"供電充裕",en:"Ample supply"},grid_tight:{zh:"供電吃緊",en:"Tight supply"},
+  grid_warn:{zh:"供電警戒",en:"Supply warning"},grid_alert:{zh:"限電警戒",en:"Shortage alert"},
+  grid_reserve:{zh:"備轉容量率",en:"Operating reserve"},
+  grid_wind:{zh:"風電此刻貢獻電網",en:"Wind is contributing"},
+  grid_src:{zh:"台電電力供需即時報表",en:"Taipower real-time supply-demand"},
+  grid_src_daily:{zh:"官方每日資料，非即時，截至",en:"Official daily data, not live, as of"},
   unitsFarms:{zh:"機組／風場",en:"Units / farms"},tonHr:{zh:"噸",en:"t"},
   imp_homes:{zh:"可同時供應家庭用電（估算）",en:"Homes powered now (est.)"},imp_share:{zh:"風電佔全國即時發電",en:"Share of national generation"},
   imp_today:{zh:"今日累積發電量",en:"Energy generated today"},imp_trees:{zh:"今日減碳≈種樹年吸碳量",en:"CO₂ cut today ≈ trees/yr"},
@@ -727,6 +745,8 @@ const I18N={
 };
 let HIST={points:[]};                          // 真實滾動歷史(scraper 每 15 分累積 + 官方資料集 37331 每日回填，每 10–15 分一筆)
 let sysTotal=null;                             // 全國即時淨發電量(MW)，來自 live JSON
+let GRID=null;                                 // 電力供需即時報表(peak_load_mw/supply_capacity_mw/reserve_mw/reserve_pct/status_text)
+const GRID_ENDPOINT="./grid_status.json";
 let WIND={};                                   // 各風場鄰近測站風速{id:{mps,station,km}}，來源中央氣象署
 const windOf=f=>WIND[f.id]||null;
 const HIST_ENDPOINT="./wind_history.json";
@@ -766,6 +786,11 @@ async function tryLive(){
 async function tryHistory(){                    // 抓真實滾動歷史(供出力趨勢線)
   try{const r=await fetch(HIST_ENDPOINT,{cache:"no-store"});const j=await r.json();
     if(j&&Array.isArray(j.points)){HIST=j;paintImpact();paintHero();}}catch(e){/* 尚無歷史檔時靜默忽略 */}
+}
+async function tryGrid(){                       // 抓電力供需即時報表(獨立來源，失敗靜默略過)
+  try{const r=await fetch(GRID_ENDPOINT,{cache:"no-store"});const j=await r.json();
+    if(j&&(typeof j.reserve_pct==="number"||typeof j.status_text==="string")){GRID=j;paintGrid();}}
+  catch(e){/* 尚無此檔或抓取失敗：不顯示電網狀態列，非致命 */}
 }
 function setFeed(live){
   LIVE=live;const dot=document.getElementById("feeddot"),txt=document.getElementById("feedtxt"),dm=document.getElementById("datamode");
@@ -807,7 +832,7 @@ function turbineSVG(f){
       <circle cx="30" cy="30" r="3.6" fill="${col}"/><circle cx="30" cy="30" r="1.7" fill="var(--sea-0)"/>
     </g></svg>`;
 }
-function paint(){paintTicker();paintHero();paintImpact();paintGroups();paintWall();paintChart();updateMarkers();}
+function paint(){paintTicker();paintHero();paintGrid();paintImpact();paintGroups();paintWall();paintChart();updateMarkers();}
 // 只有轉子的小圖示(無塔架)，供總覽牆等小尺寸場合使用
 function rotorSVG(f){
   const col=cssColor(f),dur=spinDur(f);
@@ -1123,6 +1148,40 @@ function paintHero(){
     <div class="hstory">${story}</div>
     <div class="hchips"><span class="hchip">${topChip}</span><span class="hchip">${restChip}</span></div>`;
 }
+// 備轉容量率燈號：優先依官方 status_text 的關鍵字判斷顏色(文字與顏色一致)；
+// 官方未給文字時，才退化用台電公開的分級門檻(≥10 綠燈充裕／6–10 黃燈吃緊／3–6 橘燈警戒／<3 紅燈限電)。
+function reserveTier(pct,statusText){
+  if(statusText){
+    if(statusText.includes("限電"))return{c:"var(--red)",k:"grid_alert"};
+    if(statusText.includes("警戒"))return{c:"var(--amber)",k:"grid_warn"};
+    if(statusText.includes("吃緊"))return{c:"var(--amber)",k:"grid_tight"};
+    if(statusText.includes("充裕"))return{c:"var(--gen)",k:"grid_ample"};
+  }
+  if(typeof pct==="number"){
+    if(pct>=10)return{c:"var(--gen)",k:"grid_ample"};
+    if(pct>=6)return{c:"var(--amber)",k:"grid_tight"};
+    if(pct>=3)return{c:"var(--amber)",k:"grid_warn"};
+    return{c:"var(--red)",k:"grid_alert"};
+  }
+  return{c:"var(--slate)",k:null};
+}
+function paintGrid(){
+  const el=document.getElementById("gridbar");if(!el)return;
+  if(!GRID||typeof GRID.reserve_pct!=="number"){el.innerHTML="";return;}
+  const EN=LANG==="en",tier=reserveTier(GRID.reserve_pct,GRID.status_text);
+  const label=GRID.status_text||t(tier.k);
+  const isDaily=GRID.granularity==="daily";
+  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
+  // 備援(每日/非即時)資料不與「此刻」風電出力並列，避免誤導成同一時間點的數字
+  const windTxt=(!isDaily&&LIVE&&total>0)?`<span class="gsep">·</span><span class="gwind">🌬️ ${t("grid_wind")} <b>${Math.round(total).toLocaleString()} MW</b></span>`:"";
+  const srcLabel=isDaily?t("grid_src_daily"):t("grid_src");
+  const srcTime=GRID.source_time?(isDaily?GRID.source_time.slice(0,10):fmtSrc(GRID.source_time)):"";
+  el.innerHTML=`<span class="gdot" style="background:${tier.c};color:${tier.c}"></span>
+    <span class="gstat">${label}</span><span class="gsep">·</span>
+    <span class="gpct" style="color:${tier.c}">${GRID.reserve_pct.toFixed(1)}%</span>
+    <span class="gwind" style="color:var(--mist-dim)">${t("grid_reserve")}</span>${windTxt}
+    <span class="gsrc">${srcLabel}${srcTime?` ${srcTime}`:""}</span>`;
+}
 function paintTicker(){
   const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
   const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
@@ -1394,9 +1453,9 @@ function updateMarkers(){if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];
 buildFilterSelects();buildLearn();
 document.getElementById("sharebtn").onclick=shareCard;
 document.getElementById("langbtn").onclick=toggleLang;
-refresh();tryLive();tryHistory();
+refresh();tryLive();tryHistory();tryGrid();
 setInterval(refresh,15000);
-if(DATA_ENDPOINT){setInterval(tryLive,600000);setInterval(tryHistory,600000);}
+if(DATA_ENDPOINT){setInterval(tryLive,600000);setInterval(tryHistory,600000);setInterval(tryGrid,600000);}
 </script>
 </body>
 </html>

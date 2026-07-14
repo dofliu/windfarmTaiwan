@@ -25,6 +25,8 @@ GitHub Pages 服務同一 repo:  index.html + wind_realtime.json ◄──┘
   所以它補不到近 7 天趨勢窗的缺口；主要價值是長期存檔，供日後月/季/年趨勢分析。
   **口徑注意**：37331 只含台電**自有**風力 17 機組（含離島、離岸一期），不含民營購電，
   存檔的 `total` 是台電自有小計，與即時資料的全系統 `wind_total_mw`（含購電）不可混用比較
+- `grid_status.json` — 電力供需即時報表（尖峰負載/供電能力/備轉容量率），與風力資料同一支 scraper、同排程產生；
+  **無政府開放資料授權端點可用**，僅原始網頁資料一種來源，欄位無法辨識時不寫檔（前端該區塊會自動隱藏，不顯示臆測值）
 - `.github/workflows/scrape.yml` — 每 15 分鐘自動執行 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
 
@@ -50,5 +52,13 @@ GitHub Pages 服務同一 repo:  index.html + wind_realtime.json ◄──┘
 - 歷史存檔：政府資料開放平臺「台灣電力公司_各機組過去發電量」（[資料集 37331](https://data.gov.tw/dataset/37331)），
   實際資源 `d006010/001.json`（欄位：DATETIME/FUEL_TYPE/UNIT_NAME/NET_P），由 `backfill_history.py`
   透過 data.gov.tw metadata API 動態解析；為季度回溯檔，歷史機組採簡名（如「中港」＝台中港）
+- 電力供需：`https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/sys_dem_sup.csv`（台電「本日電力資訊」原始資料，
+  無 opendata 授權鏡像可用），供顯示全國備轉容量率與風電對電網的貢獻。
+  **實測限制**：此端點從 GitHub Actions 執行會回 403（疑似 WAF 封鎖雲端 CI 網段，非帳號或標頭問題），
+  故實務上大多會落到備援——政府資料開放平臺「台灣電力公司過去電力供需資訊」（[資料集 19995](https://data.gov.tw/dataset/19995)，
+  由 `taipower_wind_scraper.py` 透過 metadata API 動態解析，2026-07 實測解析到資源 `d006005/001.csv`）。
+  此備援雖名為每日更新，實測最新資料落後約 6 週，故前端會誠實標示「非即時，截至 YYYY-MM-DD」，
+  不與即時風力出力並列顯示。若之後想要真正即時的供需資料，需改用非雲端 CI 的執行環境（如自架主機）
+  繞過該 WAF 限制
 - 授權：政府資料開放授權條款－第 1 版
 - 風機數量、座標、開發商等專案資訊為公開資料整理，座標為概略位置。

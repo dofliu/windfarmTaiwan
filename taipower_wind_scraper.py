@@ -24,11 +24,18 @@
   台電自有風場 + 民營風力彙總。因此 farms{} 只填「名稱可明確對應」者，
   其餘一律不臆測、不分攤。wind_total_mw 才是可引用的真實系統值。
   前端對未對應的風場應標示為「未個別揭露」而非填入推估值。
+
+  同時抓取電力供需即時報表(尖峰負載/供電能力/備轉容量率)，輸出
+  grid_status.json，供前端呈現「風電佔電網即時貢獻」的脈絡。此來源
+  無政府開放資料授權(opendata)鏡像可用，僅原始網頁資料一種；欄位
+  無法辨識時只印診斷、不寫入猜測值，且失敗絕不影響風力資料主流程。
 ================================================================
 依賴：requests   (pip install requests)
 排程：見檔尾「部署」說明(cron / GitHub Actions / Cloudflare Worker)
 """
 
+import csv
+import io
 import json
 import re
 import sys
@@ -46,6 +53,18 @@ import requests
 GENARY_URL = "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json"
 GENARY_URL_ALT = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/genary.json"
 OUTPUT = Path(__file__).with_name("wind_realtime.json")
+
+# 台電「本日電力資訊」即時供需資料(尖峰負載/供電能力/備轉容量率)，同樣每 10 分鐘更新。
+# 主要：原始網頁資料(即時，但實測會被 403 擋，疑似 WAF 排除自報身分的爬蟲 UA)。
+# 備援：政府資料開放平臺「過去電力供需資訊」(host 與 genary opendata 同源、確認不被擋，
+#      但為每日一筆，非即時)——備援只在主要來源失敗時用，且結果會標明「每日」非即時。
+GRID_URL = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/sys_dem_sup.csv"
+GRID_FALLBACK_DATASET_ID = "19995"   # 台灣電力公司過去電力供需資訊(每日：尖峰負載/供電能力/備轉容量率)
+GRID_FALLBACK_META_APIS = [
+    f"https://data.gov.tw/api/v2/rest/dataset/{GRID_FALLBACK_DATASET_ID}",
+    f"https://data.nat.gov.tw/api/v2/rest/dataset/{GRID_FALLBACK_DATASET_ID}",
+]
+GRID_OUTPUT = Path(__file__).with_name("grid_status.json")
 HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
 HISTORY_DAYS = 7         # 滾動視窗：保留最近 7 天(backfill_history.py 回填後密度為每 10 分一筆)
 MAX_POINTS = 1200        # 安全上限(7 天 × 每 10 分 144 筆 = 1008，留餘裕)，防檔案異常膨脹
@@ -93,6 +112,16 @@ NAME_MAP_EXACT = {
 HEADERS = {  # 帶 UA，避免被當成爬蟲擋掉
     "User-Agent": "Mozilla/5.0 (compatible; WindWatch/1.0; +https://doflab.cc)",
     "Accept": "application/json,text/plain,*/*",
+}
+
+# 電力供需來源(www.taipower.com.tw)首次實測回 403(疑似 WAF 擋自報身分的 bot UA，
+# 而非網址本身有誤)；改用真實瀏覽器標頭 + Referer 重試看看能否放行。
+GRID_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
+    "Accept": "text/csv,application/json,text/plain,*/*",
+    "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
+    "Referer": "https://www.taipower.com.tw/d006/loadGraph/loadGraph/load_briefing3.html",
 }
 
 
@@ -195,6 +224,186 @@ def parse_system_total(data):
             continue
         total += out
     return round(total, 2)
+
+
+# 電力供需即時報表：各欄位候選鍵名(頭一次抓取前無法確認官方實際欄名，
+# 故做寬容比對；完全比對優先，找不到再用「關鍵字包含」比對)。
+GRID_TIME_KEYS = ("時間", "日期時間", "日期", "Date", "DateTime", "datetime", "Time")
+GRID_LOAD_KEYS = ("尖峰負載(MW)", "瞬時尖峰負載(MW)", "即時尖峰負載(MW)",
+                   "尖峰負載(萬瓩)", "瞬時尖峰負載(萬瓩)", "即時尖峰負載(萬瓩)")
+GRID_SUPPLY_KEYS = ("淨尖峰供電能力(MW)", "系統運轉淨尖峰供電能力(MW)",
+                     "淨尖峰供電能力(萬瓩)", "系統運轉淨尖峰供電能力(萬瓩)")
+GRID_RESERVE_KEYS = ("備轉容量(MW)", "瞬時備轉容量(MW)", "備轉容量(萬瓩)", "瞬時備轉容量(萬瓩)")
+GRID_PCT_KEYS = ("備轉容量率(%)", "瞬時備轉容量率(%)", "備轉容量率")
+GRID_STATUS_KEYS = ("燈號", "供電燈號", "備轉容量率燈號", "狀態", "供電狀況")
+# 「關鍵字包含」比對用(官方欄名若含註解/單位變化，用子字串防呆)
+GRID_LOAD_HINTS, GRID_SUPPLY_HINTS, GRID_RESERVE_HINTS, GRID_PCT_HINTS = \
+    "尖峰負載", "供電能力", "備轉容量", "備轉容量率"
+
+
+def _grid_fmt_date(s):
+    """把常見日期格式正規化成 YYYY-MM-DD(供顯示、也供跨列比較新舊)；無法辨識則原樣傳回。"""
+    s = (s or "").strip()
+    if re.fullmatch(r"\d{8}", s):          # 如 "20260531"
+        return f"{s[:4]}-{s[4:6]}-{s[6:]}"
+    return s
+
+
+def _grid_find_key(row, exact_keys, hint=None):
+    for k in exact_keys:
+        if k in row:
+            return k
+    if hint:
+        for k in row:
+            if hint in k and ("率" in hint) == ("率" in k):   # 避免「備轉容量」誤配到「備轉容量率」
+                return k
+    return None
+
+
+def _grid_num_mw(row, key):
+    """依欄名單位字樣換算為 MW；欄名無單位標示時，用台灣系統尖峰負載量級
+    (約 3~5 萬瓩 ≈ 30,000~50,000 MW)判斷是否為「萬瓩」，量級不明則不猜、回傳 None。"""
+    if key is None:
+        return None
+    v = to_float(row.get(key))
+    if v is None:
+        return None
+    if "萬瓩" in key:
+        return round(v * 10, 1)
+    if "MW" in key.upper():
+        return round(v, 1)
+    if 1000 <= v <= 8000:      # 疑似萬瓩(未標示單位)
+        return round(v * 10, 1)
+    if 8000 < v <= 60000:      # 疑似已是 MW
+        return round(v, 1)
+    return None
+
+
+def parse_grid_row(row: dict, granularity="intraday"):
+    """解析電力供需即時報表的一列，回傳 dict 或 None(欄位無法辨識時)。
+    granularity 標明資料頻率("intraday"=即時來源／"daily"=每日備援來源)，
+    前端據此誠實顯示「即時」或「截至某日」，不假裝備援資料也是即時。"""
+    time_key = _grid_find_key(row, GRID_TIME_KEYS)
+    load_key = _grid_find_key(row, GRID_LOAD_KEYS, GRID_LOAD_HINTS)
+    supply_key = _grid_find_key(row, GRID_SUPPLY_KEYS, GRID_SUPPLY_HINTS)
+    reserve_key = _grid_find_key(row, GRID_RESERVE_KEYS, GRID_RESERVE_HINTS)
+    pct_key = _grid_find_key(row, GRID_PCT_KEYS, GRID_PCT_HINTS)
+    status_key = _grid_find_key(row, GRID_STATUS_KEYS)
+
+    peak_load = _grid_num_mw(row, load_key)
+    supply_cap = _grid_num_mw(row, supply_key)
+    reserve_mw = _grid_num_mw(row, reserve_key)
+    reserve_pct = to_float(row.get(pct_key)) if pct_key else None
+    if reserve_pct is None and peak_load and supply_cap:   # 官方無直接給%時，自行算(標明為推算)
+        reserve_pct = round((supply_cap - peak_load) / peak_load * 100, 2) if peak_load > 0 else None
+
+    if peak_load is None and supply_cap is None and reserve_mw is None and reserve_pct is None:
+        return None   # 一個能用的欄位都沒有 → 拒用，讓呼叫端印出實際欄位供校準
+
+    return {
+        "granularity": granularity,
+        "source_time": _grid_fmt_date(strip_html(str(row.get(time_key, "")))) if time_key else None,
+        "peak_load_mw": peak_load,
+        "supply_capacity_mw": supply_cap,
+        "reserve_mw": reserve_mw,
+        "reserve_pct": reserve_pct,
+        "status_text": strip_html(str(row.get(status_key, ""))).strip() or None if status_key else None,
+    }
+
+
+def _grid_rows_from_text(text):
+    """把回應內文解析成 list[dict]；支援 CSV 與 JSON(物件陣列/常見包裹鍵)。"""
+    rows = list(csv.DictReader(io.StringIO(text)))
+    if rows:
+        return rows
+    try:
+        data = json.loads(text)
+        rows = data if isinstance(data, list) else (data.get("data") or data.get("records") or [])
+        return [r for r in rows if isinstance(r, dict)]
+    except json.JSONDecodeError:
+        return []
+
+
+def _fetch_grid_primary():
+    """主要來源：台電原始網頁即時資料。回傳 dict 或 None。"""
+    try:
+        r = requests.get(GRID_URL, headers=GRID_HEADERS, timeout=20)
+        r.raise_for_status()
+        r.encoding = r.apparent_encoding or "utf-8"
+        text = r.text.lstrip("﻿")
+    except Exception as e:
+        print(f"[WARN] 電力供需(即時)來源無法取得 {GRID_URL}：{e}", file=sys.stderr)
+        return None
+
+    rows = _grid_rows_from_text(text)
+    if not rows:
+        print(f"[WARN] 電力供需(即時)來源無可解析列（回應前 200 字：{text[:200]!r}）", file=sys.stderr)
+        return None
+
+    parsed = parse_grid_row(rows[-1], granularity="intraday")
+    if parsed is None:
+        print(f"[WARN] 電力供需(即時)欄位無法辨識（實際欄位：{sorted(rows[-1].keys())}）", file=sys.stderr)
+        return None
+    print(f"[OK] 電力供需(即時)：{parsed}", file=sys.stderr)
+    return parsed
+
+
+def _pick_latest_daily_row(rows):
+    """從每日備援資料找出「日期最新」的一列並解析；不假設檔案已按時間排序
+    (欄位鍵只用第一列解析一次，避免逐列重複掃描欄名)。"""
+    if not rows:
+        return None
+    time_key = _grid_find_key(rows[0], GRID_TIME_KEYS)
+    if time_key is None:
+        return parse_grid_row(rows[-1], granularity="daily")   # 無時間欄可比較，退化取最後一列
+    best_row, best_date = None, ""
+    for row in rows:
+        d = _grid_fmt_date(strip_html(str(row.get(time_key, ""))))
+        if d and d > best_date:
+            best_date, best_row = d, row
+    return parse_grid_row(best_row or rows[-1], granularity="daily")
+
+
+def _fetch_grid_fallback():
+    """備援來源：政府開放資料平臺「過去電力供需資訊」(每日一筆，非即時)。
+    透過 metadata API 動態解析實際資源網址(手法與 backfill_history.py 的 37331 回填相同)。"""
+    urls = []
+    for api in GRID_FALLBACK_META_APIS:
+        try:
+            r = requests.get(api, headers=HEADERS, timeout=25)
+            r.raise_for_status()
+            meta = r.json()
+            dists = (meta.get("result") or meta).get("distribution") or []
+            for d in dists:
+                u = d.get("resourceDownloadUrl") or d.get("resourceAccessUrl")
+                if u:
+                    urls.append(u)
+            if urls:
+                break
+        except Exception as e:
+            print(f"[WARN] 電力供需(備援)metadata API 失敗 {api}：{e}", file=sys.stderr)
+
+    for url in urls:
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            r.encoding = r.apparent_encoding or "utf-8"
+            rows = _grid_rows_from_text(r.text.lstrip("﻿"))
+            if not rows:
+                continue
+            parsed = _pick_latest_daily_row(rows)
+            if parsed:
+                print(f"[OK] 電力供需(每日備援) {url}：共 {len(rows)} 列，取最新 {parsed}", file=sys.stderr)
+                return parsed
+            print(f"[WARN] 電力供需(備援)欄位無法辨識 {url}（實際欄位：{sorted(rows[-1].keys())}）", file=sys.stderr)
+        except Exception as e:
+            print(f"[WARN] 電力供需(備援)來源不可用 {url}：{e}", file=sys.stderr)
+    return None
+
+
+def fetch_grid_status():
+    """依序嘗試即時來源→每日備援。任何失敗都回 None(不寫入猜測值)。"""
+    return _fetch_grid_primary() or _fetch_grid_fallback()
 
 
 def map_to_farms(wind_units):
@@ -357,6 +566,15 @@ def main():
     farms = map_to_farms(wind_units)
     system_total = parse_system_total(data)
     farm_wind = get_farm_wind()        # {farm_id:{mps,station,km}}，無 key 或失敗則為 {}
+
+    try:                                # 電網供需狀態：獨立來源，失敗絕不影響風力資料主流程
+        grid = fetch_grid_status()
+        if grid:
+            GRID_OUTPUT.write_text(json.dumps(
+                {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"), **grid},
+                ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as e:
+        print(f"[WARN] 電力供需處理失敗（不影響風力資料）：{e}", file=sys.stderr)
 
     out = {
         "updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
