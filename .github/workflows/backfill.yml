@@ -5,7 +5,12 @@ name: backfill-taipower-wind-history
 on:
   schedule:
     - cron: "23 19 * * *"     # 每日 19:23 UTC = 台北 03:23(離峰，排程較不易被跳過)
-  workflow_dispatch: {}       # 允許手動觸發(首次回填請由此執行一次)
+  workflow_dispatch:          # 允許手動觸發(首次回填請由此執行一次)
+    inputs:
+      dry_run:
+        description: "只驗證抓取與解析，不寫檔不 commit"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -31,7 +36,7 @@ jobs:
         # BACKFILL_URL(選填 secret)：37331 資源網址若無法由 metadata API 解析時的手動指定值
         env:
           BACKFILL_URL: ${{ secrets.BACKFILL_URL }}
-        run: python backfill_history.py
+        run: python backfill_history.py ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
 
       - name: Commit if changed
         run: |

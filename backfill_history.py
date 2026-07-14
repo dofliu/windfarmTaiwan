@@ -109,36 +109,102 @@ def resolve_resource_urls():
     return urls
 
 
+def _find_rows(data, depth=0):
+    """從 JSON 結構找出資料列 list：慣用包裹鍵優先，其次遞迴，最後取最大的 list。
+    回傳的列可能是 dict(物件陣列)或 list(位置陣列，如 genary 的 aaData)。"""
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict) and depth < 3:
+        for k in ("data", "aaData", "records", "result"):
+            v = data.get(k)
+            got = _find_rows(v, depth + 1) if isinstance(v, (list, dict)) else []
+            if got:
+                return got
+        lists = [v for v in data.values() if isinstance(v, list) and v]
+        if lists:
+            return max(lists, key=len)
+    return []
+
+
+def _diag(data):
+    """資料結構摘要(供解析失敗時印進 log，好校準解析器)。"""
+    try:
+        if isinstance(data, dict):
+            parts = [f"{k}:{type(v).__name__}" + (f"[{len(v)}]" if isinstance(v, (list, dict, str)) else "")
+                     for k, v in list(data.items())[:12]]
+            return "dict{" + ", ".join(parts) + "}"
+        if isinstance(data, list):
+            return f"list[{len(data)}] 首列={repr(data[0])[:300] if data else '∅'}"
+        return f"{type(data).__name__}: {repr(data)[:200]}"
+    except Exception:
+        return "(無法摘要)"
+
+
 def fetch_rows(url):
-    """抓資源並回傳 list[dict]。支援 JSON(物件陣列 / {data|aaData|records:[...]})與 CSV。"""
+    """抓資源並回傳 (rows, 原始結構摘要)。支援 JSON(物件或位置陣列、常見包裹鍵)與 CSV。"""
     r = requests.get(url, headers=HEADERS, timeout=90)
     r.raise_for_status()
     r.encoding = r.apparent_encoding or "utf-8"
     text = r.text.lstrip("﻿")
     try:
         data = json.loads(text)
-        if isinstance(data, dict):
-            for k in ("data", "aaData", "records", "result"):
-                if isinstance(data.get(k), list):
-                    return [x for x in data[k] if isinstance(x, dict)]
-            return []
-        if isinstance(data, list):
-            return [x for x in data if isinstance(x, dict)]
-        return []
+        return _find_rows(data), _diag(data)
     except json.JSONDecodeError:
-        return list(csv.DictReader(io.StringIO(text)))
+        rows = list(csv.DictReader(io.StringIO(text)))
+        return rows, f"CSV 欄位={rows[0].keys() if rows else '∅'}"
 
 
-def extract_points(rows):
+def extract_points(rows, diag=""):
     """把原始列 → {ts: [wind_unit,...]}，只收風力機組(排除小計/合計)。
 
-    驗證：至少要能解析出 2 個相異時間戳，否則視為抓錯資料集
-    (例如誤抓到「即時」快照)而拒用。
-    """
-    sample = next((r for r in rows if isinstance(r, dict)), None)
-    if sample is None:
-        raise ValueError("資源內無物件列，無法解析")
+    支援兩種列格式：
+      dict — 物件陣列(中文鍵，鍵名寬容比對)
+      list — 位置陣列(genary 慣用欄序前加時間欄：[時間, 機組類型, 機組名稱, 裝置容量, 淨發電量, ...])
 
+    驗證(不過即 raise，錯誤訊息附上結構摘要供校準)：
+      1. 至少 2 個相異時間戳(否則視為誤抓「即時」快照)
+      2. 至少一個機組名稱能對應到已知風場(防位置陣列欄序猜錯產生垃圾值)
+    """
+    dict_rows = [r for r in rows if isinstance(r, dict)]
+    if dict_rows:
+        by_ts = _extract_from_dicts(dict_rows)
+    else:
+        list_rows = [r for r in rows if isinstance(r, (list, tuple)) and len(r) >= 5]
+        if not list_rows:
+            raise ValueError(f"資源內無可解析的列。結構摘要：{diag}")
+        by_ts = _extract_from_lists(list_rows)
+
+    if len(by_ts) < 2:
+        raise ValueError(f"僅解析出 {len(by_ts)} 個時間戳，資料形狀不符「過去發電量」(拒用)。結構摘要：{diag}")
+    names = {u["name"] for units in by_ts.values() for u in units}
+    if not any(n in NAME_MAP_EXACT or any(k in n for k in NAME_MAP_EXACT) for n in names):
+        raise ValueError(f"機組名稱與已知風場對應表零匹配(疑欄序/欄名判讀錯誤，拒用)。"
+                         f"樣本名稱：{sorted(names)[:8]}。結構摘要：{diag}")
+    return by_ts
+
+
+def _extract_from_lists(rows):
+    """位置陣列：假設沿用 genary 欄序、前面多一個時間欄：
+    [日期時間, 機組類型, 機組名稱, 裝置容量, 淨發電量, ...]。
+    第 0 欄必須可解析為完整日期時間，否則整批拒用(由呼叫端的驗證擋下)。"""
+    by_ts = {}
+    for row in rows:
+        ts = parse_ts(row[0])
+        if ts is None:
+            continue
+        etype = strip_html(str(row[1]))
+        name = clean_name(str(row[2]))
+        out = to_float(row[4])
+        if out is None or any(x in name for x in ("小計", "合計", "總計")):
+            continue
+        if ("風力" not in etype) and ("wind" not in etype.lower()):
+            continue
+        by_ts.setdefault(ts, []).append({"name": name, "output": round(out, 2)})
+    return by_ts
+
+
+def _extract_from_dicts(rows):
+    sample = rows[0]
     dt_key = _first_key(sample, DT_KEYS)
     date_key = _first_key(sample, DATE_KEYS)
     time_key = None
@@ -176,9 +242,6 @@ def extract_points(rows):
         elif "風" not in name and name not in NAME_MAP_EXACT:
             continue
         by_ts.setdefault(ts, []).append({"name": name, "output": round(out, 2)})
-
-    if len(by_ts) < 2:
-        raise ValueError(f"僅解析出 {len(by_ts)} 個時間戳，資料形狀不符「過去發電量」(拒用)")
     return by_ts
 
 
@@ -229,8 +292,8 @@ def main():
     by_ts, used_url = None, None
     for url in urls:
         try:
-            rows = fetch_rows(url)
-            by_ts = extract_points(rows)
+            rows, diag = fetch_rows(url)
+            by_ts = extract_points(rows, diag)
             used_url = url
             break
         except Exception as e:
@@ -246,6 +309,9 @@ def main():
 
     print(f"[OK] 來源：{used_url}")
     print(f"[OK] 官方回溯資料涵蓋 {ts_sorted[0]} ～ {ts_sorted[-1]}(共 {len(ts_sorted)} 個時間點)")
+    # 印一個樣本點供人工核對(尤其位置陣列欄序假設)：值應與 wind_realtime 同量級
+    sample_ts = ts_sorted[-1]
+    print(f"[OK] 樣本 {sample_ts}：{by_ts[sample_ts][:5]}")
     print(f"[OK] 歷史點位：{before} → {len(points)}(回填 {added} 筆，既有點一律保留)")
 
     if args.dry_run:
