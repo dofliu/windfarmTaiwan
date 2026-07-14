@@ -60,6 +60,7 @@ META_APIS = [
 ]
 HISTORY_DAYS = 7        # 滾動視窗(天)，與 scraper 一致
 ARCHIVE = HISTORY.with_name("wind_history_archive.json")  # 長期存檔(官方回溯，不修剪)
+DAILY = HISTORY.with_name("wind_archive_daily.json")      # 每日摘要(供前端長期趨勢圖，檔案小)
 SIBLING_PROBES = 4      # 資源網址若為 .../001.json，額外探測 002~00N(官方可能分檔存季度)
 
 # 各欄位的候選鍵名(官方欄位名稱可能調整，這裡做寬容比對；比對不到即報錯並印實際欄位)。
@@ -299,6 +300,31 @@ def update_archive(by_ts, dry_run):
     return added, len(points)
 
 
+def write_daily_digest(dry_run, force=False):
+    """由長期存檔彙整每日摘要(單日 平均/最大/最小 MW 與筆數)，供前端「長期趨勢」
+    圖表載入(存檔本體 MB 級，前端不宜直接抓)。存檔無新增且摘要檔已存在時不重寫，
+    避免只有 updated 時間戳變動的無意義 commit。回傳天數。"""
+    _, points = load_history(ARCHIVE)
+    if not points:
+        return 0
+    days = {}
+    for p in points:
+        d = (p.get("t") or "")[:10]
+        v = p.get("total")
+        if len(d) == 10 and isinstance(v, (int, float)):
+            days.setdefault(d, []).append(v)
+    rows = [{"d": d, "avg": round(sum(vs) / len(vs), 1), "max": round(max(vs), 1),
+             "min": round(min(vs), 1), "n": len(vs)} for d, vs in sorted(days.items())]
+    if not dry_run and (force or not DAILY.exists()):
+        DAILY.write_text(json.dumps(
+            {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
+             "source": f"data.gov.tw dataset {DATASET_ID}",
+             "scope": "台電自有風力機組小計(不含民營購電)",
+             "days": rows},
+            ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(rows)
+
+
 def merge(points, by_ts, days):
     """只補缺：既有 t 不覆蓋。回傳(合併排序修剪後的 points, 修剪後仍留在窗內的新增筆數)。
     注意回傳的新增數是「窗內存活數」：季度回溯檔的點通常全在窗外，會如實回報 0，
@@ -365,9 +391,12 @@ def main():
     points, added = merge(points, by_ts, args.days)
     # 2) 長期存檔：完整保留官方每 10 分鐘回溯值
     arch_added, arch_total = update_archive(by_ts, args.dry_run)
+    # 3) 每日摘要：前端「長期趨勢」圖的資料來源(存檔有變動時重新彙整)
+    n_days = write_daily_digest(args.dry_run, force=arch_added > 0)
 
     print(f"[OK] 滾動 {args.days} 天窗({HISTORY.name})：{before} → {len(points)}(補入窗內 {added} 筆)")
     print(f"[OK] 長期存檔({ARCHIVE.name})：新增 {arch_added} 筆，累計 {arch_total} 筆")
+    print(f"[OK] 每日摘要({DAILY.name})：{n_days} 天")
 
     if args.dry_run:
         print("[DRY-RUN] 未寫檔")

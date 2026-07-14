@@ -380,7 +380,7 @@
     </section>
     <section class="view" id="chart-view">
       <div class="chartbar">
-        <div class="seg" id="chartmode"><button class="on" data-c="bar" data-i18n="c_bar">排行長條</button><button data-c="tree" data-i18n="c_tree">樹狀圖</button><button data-c="donut" data-i18n="c_donut">佔比圓環</button></div>
+        <div class="seg" id="chartmode"><button class="on" data-c="bar" data-i18n="c_bar">排行長條</button><button data-c="tree" data-i18n="c_tree">樹狀圖</button><button data-c="donut" data-i18n="c_donut">佔比圓環</button><button data-c="hist" data-i18n="c_hist">長期趨勢</button></div>
         <div class="chartnote" id="chartnote"></div>
       </div>
       <div class="chartwrap" id="chartwrap"></div>
@@ -642,10 +642,14 @@ const I18N={
   policyTitle:{zh:"🇹🇼 台灣離岸風電進度",en:"🇹🇼 Taiwan offshore wind progress"},
   wallAll:{zh:"全部",en:"All"},wallFarms:{zh:"座風場 · 即時總出力",en:"farms · live total"},
   lg_high:{zh:"可用率高",en:"High"},lg_mid:{zh:"中",en:"Mid"},lg_low:{zh:"低",en:"Low"},lg_dev:{zh:"開發中",en:"In dev."},
-  c_bar:{zh:"排行長條",en:"Bar rank"},c_tree:{zh:"樹狀圖",en:"Treemap"},c_donut:{zh:"佔比圓環",en:"Donut"},
+  c_bar:{zh:"排行長條",en:"Bar rank"},c_tree:{zh:"樹狀圖",en:"Treemap"},c_donut:{zh:"佔比圓環",en:"Donut"},c_hist:{zh:"長期趨勢",en:"Long-term"},
   cn_bar:{zh:"全部風場依即時出力排名 · 顏色＝可用率高/中/低",en:"All farms ranked by live output · colour = availability"},
   cn_tree:{zh:"方塊面積＝即時出力佔比（僅顯示發電中風場）",en:"Area = share of live output (generating farms only)"},
   cn_donut:{zh:"即時出力組成 · 點圖例對照",en:"Live output composition"},
+  cn_hist:{zh:"官方回溯資料（開放資料集 37331）· 台電自有風力 17 機組小計，不含民營購電 · 每點＝單日平均/最大（MW）· 官方為季度回溯檔，非即時",en:"Official retrospective data (dataset 37331) · Taipower-owned wind only (17 units, excl. IPP) · each point = daily avg/max (MW) · quarterly archive, not live"},
+  hist_loading:{zh:"長期趨勢資料載入中…",en:"Loading long-term data…"},
+  hist_none:{zh:"尚無長期存檔資料（backfill 尚未執行或抓取失敗）",en:"No long-term archive yet (backfill not run or fetch failed)"},
+  hist_avg:{zh:"—單日平均",en:"—daily average"},hist_max:{zh:"▒ 單日最大",en:"▒ daily max"},
   donutDev:{zh:"依開發商",en:"By developer"},donutType:{zh:"依類型（離岸／陸域）",en:"By type (offshore/onshore)"},
   noGen:{zh:"目前沒有發電中的風場 🌙",en:"No farms generating right now 🌙"},noMatch:{zh:"查無符合條件的風場，試試放寬篩選 🔍",en:"No farms match — try relaxing filters 🔍"},
   tpcOwn:{zh:"台電自有",en:"Taipower"},ppa:{zh:"購電",en:"PPA"},devTag:{zh:"開發商",en:"Developer"},
@@ -890,9 +894,43 @@ function paintChart(){
   const note=document.getElementById("chartnote");
   if(chartMode==="bar"){wrap.innerHTML=chartBar();note.textContent=t("cn_bar");}
   else if(chartMode==="tree"){wrap.innerHTML=chartTree();note.textContent=t("cn_tree");}
+  else if(chartMode==="hist"){wrap.innerHTML=chartHist();note.textContent=t("cn_hist");}
   else{wrap.innerHTML=chartDonut();note.textContent=t("cn_donut");}
   wrap.querySelectorAll("[data-id]").forEach(el=>{el.onclick=()=>openDrawer(el.dataset.id);
     el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(el.dataset.id)}};});
+}
+// ===== 長期趨勢：官方回溯每日摘要(wind_archive_daily.json，由 backfill_history.py 產生) =====
+let ARCHD=null,ARCHD_STATE="idle";                 // idle→loading→ok/fail
+function chartHist(){
+  if(ARCHD_STATE!=="ok"){
+    if(ARCHD_STATE==="idle"){
+      ARCHD_STATE="loading";
+      fetch("./wind_archive_daily.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json()})
+        .then(j=>{ARCHD=j;ARCHD_STATE="ok";})
+        .catch(()=>{ARCHD_STATE="fail";})
+        .finally(()=>{if(chartMode==="hist")paintChart();});
+    }
+    return `<div class="empty">${t(ARCHD_STATE==="fail"?"hist_none":"hist_loading")}</div>`;
+  }
+  const ds=(ARCHD.days||[]).filter(r=>typeof r.avg==="number"&&typeof r.max==="number");
+  if(ds.length<2)return `<div class="empty">${t("hist_none")}</div>`;
+  const EN=LANG==="en";
+  const W=940,H=340,pl=52,pr=18,pt=30,pb=34;
+  const yMax=Math.max(100,Math.ceil(Math.max(...ds.map(r=>r.max))/100)*100);
+  const X=i=>pl+i/(ds.length-1)*(W-pl-pr),Y=v=>H-pb-Math.max(0,v)/yMax*(H-pt-pb);
+  const line=k=>ds.map((r,i)=>`${X(i).toFixed(1)},${Y(r[k]).toFixed(1)}`).join(" ");
+  let grid="";for(let g=0;g<=yMax;g+=yMax/5){const yy=Y(g);
+    grid+=`<line x1="${pl}" y1="${yy}" x2="${W-pr}" y2="${yy}" stroke="#1d5571" opacity=".5"/><text x="${pl-6}" y="${yy+4}" fill="#6f9aa6" font-size="11" text-anchor="end">${g}</text>`;}
+  let xl="",lastM="";ds.forEach((r,i)=>{const m=r.d.slice(0,7);
+    if(m!==lastM){lastM=m;const[y,mo]=m.split("-");
+      xl+=`<text x="${X(i)}" y="${H-10}" fill="#6f9aa6" font-size="11" text-anchor="middle">${EN?`${["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+mo]} ${y}`:`${y}/${mo}`}</text>`;}});
+  return `<div style="max-width:980px;margin:0 auto"><svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">${grid}${xl}
+    <polyline points="${X(0)},${Y(0)} ${line("max")} ${X(ds.length-1)},${Y(0)}" fill="#56c2e8" opacity=".14" stroke="none"/>
+    <polyline points="${line("max")}" fill="none" stroke="#56c2e8" stroke-width="1.5" opacity=".7"/>
+    <polyline points="${line("avg")}" fill="none" stroke="#34e0ad" stroke-width="2.5"/>
+    <text x="${pl}" y="16" fill="#34e0ad" font-size="12" font-weight="700">${t("hist_avg")}</text>
+    <text x="${pl+(EN?110:96)}" y="16" fill="#56c2e8" font-size="12" font-weight="700">${t("hist_max")}</text>
+    <text x="${W-pr}" y="16" fill="#6f9aa6" font-size="11" text-anchor="end">${ds[0].d} ～ ${ds[ds.length-1].d} · MW</text></svg></div>`;
 }
 // ===== 認識風電：教育圖表(靜態資料，皆標來源) =====
 function growthSVG(){                              // 裝置容量成長曲線(GW)
