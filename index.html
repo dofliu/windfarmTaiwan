@@ -321,6 +321,13 @@
     display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:5px}
   ::-webkit-scrollbar-track{background:transparent}
+  /* 880–1650px：一排塞不下 logo+統計+導覽+按鈕(常見筆電/桌機解析度皆在此區間)。
+     過去 .ticker 用 flex:1+overflow:hidden 硬擠，超出部分會被裁切變形(而非換行)。
+     改為讓 header 自動換行、統計列整行移到第二行，不再裁切。 */
+  @media (min-width:881px) and (max-width:1650px){
+    header{flex-wrap:wrap}
+    .ticker{order:5;flex:0 1 100%;overflow:visible;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  }
   @media (max-width:880px){.ticker{display:none}.brand h1{font-size:19px}header{gap:10px;padding:11px 14px;flex-wrap:wrap}#dash,#learn{padding:14px}}
   /* 手機：一排兩個風場卡(縮小風機與字級讓兩欄塞得下) */
   @media (max-width:720px){
