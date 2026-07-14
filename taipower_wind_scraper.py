@@ -241,6 +241,14 @@ GRID_LOAD_HINTS, GRID_SUPPLY_HINTS, GRID_RESERVE_HINTS, GRID_PCT_HINTS = \
     "尖峰負載", "供電能力", "備轉容量", "備轉容量率"
 
 
+def _grid_fmt_date(s):
+    """把常見日期格式正規化成 YYYY-MM-DD(供顯示、也供跨列比較新舊)；無法辨識則原樣傳回。"""
+    s = (s or "").strip()
+    if re.fullmatch(r"\d{8}", s):          # 如 "20260531"
+        return f"{s[:4]}-{s[4:6]}-{s[6:]}"
+    return s
+
+
 def _grid_find_key(row, exact_keys, hint=None):
     for k in exact_keys:
         if k in row:
@@ -294,7 +302,7 @@ def parse_grid_row(row: dict, granularity="intraday"):
 
     return {
         "granularity": granularity,
-        "source_time": strip_html(str(row.get(time_key, ""))) if time_key else None,
+        "source_time": _grid_fmt_date(strip_html(str(row.get(time_key, "")))) if time_key else None,
         "peak_load_mw": peak_load,
         "supply_capacity_mw": supply_cap,
         "reserve_mw": reserve_mw,
@@ -340,6 +348,22 @@ def _fetch_grid_primary():
     return parsed
 
 
+def _pick_latest_daily_row(rows):
+    """從每日備援資料找出「日期最新」的一列並解析；不假設檔案已按時間排序
+    (欄位鍵只用第一列解析一次，避免逐列重複掃描欄名)。"""
+    if not rows:
+        return None
+    time_key = _grid_find_key(rows[0], GRID_TIME_KEYS)
+    if time_key is None:
+        return parse_grid_row(rows[-1], granularity="daily")   # 無時間欄可比較，退化取最後一列
+    best_row, best_date = None, ""
+    for row in rows:
+        d = _grid_fmt_date(strip_html(str(row.get(time_key, ""))))
+        if d and d > best_date:
+            best_date, best_row = d, row
+    return parse_grid_row(best_row or rows[-1], granularity="daily")
+
+
 def _fetch_grid_fallback():
     """備援來源：政府開放資料平臺「過去電力供需資訊」(每日一筆，非即時)。
     透過 metadata API 動態解析實際資源網址(手法與 backfill_history.py 的 37331 回填相同)。"""
@@ -367,9 +391,9 @@ def _fetch_grid_fallback():
             rows = _grid_rows_from_text(r.text.lstrip("﻿"))
             if not rows:
                 continue
-            parsed = parse_grid_row(rows[-1], granularity="daily")
+            parsed = _pick_latest_daily_row(rows)
             if parsed:
-                print(f"[OK] 電力供需(每日備援)：{parsed}", file=sys.stderr)
+                print(f"[OK] 電力供需(每日備援) {url}：共 {len(rows)} 列，取最新 {parsed}", file=sys.stderr)
                 return parsed
             print(f"[WARN] 電力供需(備援)欄位無法辨識 {url}（實際欄位：{sorted(rows[-1].keys())}）", file=sys.stderr)
         except Exception as e:
