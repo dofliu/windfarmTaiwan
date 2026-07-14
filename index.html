@@ -663,6 +663,7 @@ const I18N={
   grid_reserve:{zh:"備轉容量率",en:"Operating reserve"},
   grid_wind:{zh:"風電此刻貢獻電網",en:"Wind is contributing"},
   grid_src:{zh:"台電電力供需即時報表",en:"Taipower real-time supply-demand"},
+  grid_src_daily:{zh:"官方每日資料，非即時，截至",en:"Official daily data, not live, as of"},
   unitsFarms:{zh:"機組／風場",en:"Units / farms"},tonHr:{zh:"噸",en:"t"},
   imp_homes:{zh:"可同時供應家庭用電（估算）",en:"Homes powered now (est.)"},imp_share:{zh:"風電佔全國即時發電",en:"Share of national generation"},
   imp_today:{zh:"今日累積發電量",en:"Energy generated today"},imp_trees:{zh:"今日減碳≈種樹年吸碳量",en:"CO₂ cut today ≈ trees/yr"},
@@ -1169,14 +1170,17 @@ function paintGrid(){
   if(!GRID||typeof GRID.reserve_pct!=="number"){el.innerHTML="";return;}
   const EN=LANG==="en",tier=reserveTier(GRID.reserve_pct,GRID.status_text);
   const label=GRID.status_text||t(tier.k);
+  const isDaily=GRID.granularity==="daily";
   const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
-  const windTxt=(LIVE&&total>0)?`<span class="gsep">·</span><span class="gwind">🌬️ ${t("grid_wind")} <b>${Math.round(total).toLocaleString()} MW</b></span>`:"";
-  const srcTime=GRID.source_time?fmtSrc(GRID.source_time):"";
+  // 備援(每日/非即時)資料不與「此刻」風電出力並列，避免誤導成同一時間點的數字
+  const windTxt=(!isDaily&&LIVE&&total>0)?`<span class="gsep">·</span><span class="gwind">🌬️ ${t("grid_wind")} <b>${Math.round(total).toLocaleString()} MW</b></span>`:"";
+  const srcLabel=isDaily?t("grid_src_daily"):t("grid_src");
+  const srcTime=GRID.source_time?(isDaily?GRID.source_time.slice(0,10):fmtSrc(GRID.source_time)):"";
   el.innerHTML=`<span class="gdot" style="background:${tier.c};color:${tier.c}"></span>
     <span class="gstat">${label}</span><span class="gsep">·</span>
     <span class="gpct" style="color:${tier.c}">${GRID.reserve_pct.toFixed(1)}%</span>
     <span class="gwind" style="color:var(--mist-dim)">${t("grid_reserve")}</span>${windTxt}
-    <span class="gsrc">${t("grid_src")}${srcTime?` · ${srcTime}`:""}</span>`;
+    <span class="gsrc">${srcLabel}${srcTime?` ${srcTime}`:""}</span>`;
 }
 function paintTicker(){
   const total=FARMS.reduce((s,f)=>s+RT[f.id],0);

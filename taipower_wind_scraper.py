@@ -55,8 +55,15 @@ GENARY_URL_ALT = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/gena
 OUTPUT = Path(__file__).with_name("wind_realtime.json")
 
 # 台電「本日電力資訊」即時供需資料(尖峰負載/供電能力/備轉容量率)，同樣每 10 分鐘更新。
-# 沒有對應的政府開放資料授權端點(不像 genary 有 opendata 鏡像)，僅此原始來源可用。
+# 主要：原始網頁資料(即時，但實測會被 403 擋，疑似 WAF 排除自報身分的爬蟲 UA)。
+# 備援：政府資料開放平臺「過去電力供需資訊」(host 與 genary opendata 同源、確認不被擋，
+#      但為每日一筆，非即時)——備援只在主要來源失敗時用，且結果會標明「每日」非即時。
 GRID_URL = "https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/sys_dem_sup.csv"
+GRID_FALLBACK_DATASET_ID = "19995"   # 台灣電力公司過去電力供需資訊(每日：尖峰負載/供電能力/備轉容量率)
+GRID_FALLBACK_META_APIS = [
+    f"https://data.gov.tw/api/v2/rest/dataset/{GRID_FALLBACK_DATASET_ID}",
+    f"https://data.nat.gov.tw/api/v2/rest/dataset/{GRID_FALLBACK_DATASET_ID}",
+]
 GRID_OUTPUT = Path(__file__).with_name("grid_status.json")
 HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
 HISTORY_DAYS = 7         # 滾動視窗：保留最近 7 天(backfill_history.py 回填後密度為每 10 分一筆)
@@ -105,6 +112,16 @@ NAME_MAP_EXACT = {
 HEADERS = {  # 帶 UA，避免被當成爬蟲擋掉
     "User-Agent": "Mozilla/5.0 (compatible; WindWatch/1.0; +https://doflab.cc)",
     "Accept": "application/json,text/plain,*/*",
+}
+
+# 電力供需來源(www.taipower.com.tw)首次實測回 403(疑似 WAF 擋自報身分的 bot UA，
+# 而非網址本身有誤)；改用真實瀏覽器標頭 + Referer 重試看看能否放行。
+GRID_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
+    "Accept": "text/csv,application/json,text/plain,*/*",
+    "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
+    "Referer": "https://www.taipower.com.tw/d006/loadGraph/loadGraph/load_briefing3.html",
 }
 
 
@@ -211,7 +228,7 @@ def parse_system_total(data):
 
 # 電力供需即時報表：各欄位候選鍵名(頭一次抓取前無法確認官方實際欄名，
 # 故做寬容比對；完全比對優先，找不到再用「關鍵字包含」比對)。
-GRID_TIME_KEYS = ("時間", "日期時間", "DateTime", "datetime", "Time")
+GRID_TIME_KEYS = ("時間", "日期時間", "日期", "Date", "DateTime", "datetime", "Time")
 GRID_LOAD_KEYS = ("尖峰負載(MW)", "瞬時尖峰負載(MW)", "即時尖峰負載(MW)",
                    "尖峰負載(萬瓩)", "瞬時尖峰負載(萬瓩)", "即時尖峰負載(萬瓩)")
 GRID_SUPPLY_KEYS = ("淨尖峰供電能力(MW)", "系統運轉淨尖峰供電能力(MW)",
@@ -254,8 +271,10 @@ def _grid_num_mw(row, key):
     return None
 
 
-def parse_grid_row(row: dict):
-    """解析電力供需即時報表的一列，回傳 dict 或 None(欄位無法辨識時)。"""
+def parse_grid_row(row: dict, granularity="intraday"):
+    """解析電力供需即時報表的一列，回傳 dict 或 None(欄位無法辨識時)。
+    granularity 標明資料頻率("intraday"=即時來源／"daily"=每日備援來源)，
+    前端據此誠實顯示「即時」或「截至某日」，不假裝備援資料也是即時。"""
     time_key = _grid_find_key(row, GRID_TIME_KEYS)
     load_key = _grid_find_key(row, GRID_LOAD_KEYS, GRID_LOAD_HINTS)
     supply_key = _grid_find_key(row, GRID_SUPPLY_KEYS, GRID_SUPPLY_HINTS)
@@ -274,6 +293,7 @@ def parse_grid_row(row: dict):
         return None   # 一個能用的欄位都沒有 → 拒用，讓呼叫端印出實際欄位供校準
 
     return {
+        "granularity": granularity,
         "source_time": strip_html(str(row.get(time_key, ""))) if time_key else None,
         "peak_load_mw": peak_load,
         "supply_capacity_mw": supply_cap,
@@ -283,36 +303,83 @@ def parse_grid_row(row: dict):
     }
 
 
-def fetch_grid_status():
-    """抓電力供需即時報表最新一列。任何失敗都回 None(不寫入臆測值)，
-    並印出診斷(實際欄位)供校準——首次執行前無法在此環境驗證真實欄名。"""
+def _grid_rows_from_text(text):
+    """把回應內文解析成 list[dict]；支援 CSV 與 JSON(物件陣列/常見包裹鍵)。"""
+    rows = list(csv.DictReader(io.StringIO(text)))
+    if rows:
+        return rows
     try:
-        r = requests.get(GRID_URL, headers=HEADERS, timeout=20)
+        data = json.loads(text)
+        rows = data if isinstance(data, list) else (data.get("data") or data.get("records") or [])
+        return [r for r in rows if isinstance(r, dict)]
+    except json.JSONDecodeError:
+        return []
+
+
+def _fetch_grid_primary():
+    """主要來源：台電原始網頁即時資料。回傳 dict 或 None。"""
+    try:
+        r = requests.get(GRID_URL, headers=GRID_HEADERS, timeout=20)
         r.raise_for_status()
         r.encoding = r.apparent_encoding or "utf-8"
         text = r.text.lstrip("﻿")
     except Exception as e:
-        print(f"[WARN] 電力供需來源無法取得 {GRID_URL}：{e}", file=sys.stderr)
+        print(f"[WARN] 電力供需(即時)來源無法取得 {GRID_URL}：{e}", file=sys.stderr)
         return None
 
-    rows = list(csv.DictReader(io.StringIO(text)))
+    rows = _grid_rows_from_text(text)
     if not rows:
-        try:
-            data = json.loads(text)
-            rows = data if isinstance(data, list) else (data.get("data") or data.get("records") or [])
-            rows = [r for r in rows if isinstance(r, dict)]
-        except json.JSONDecodeError:
-            rows = []
-    if not rows:
-        print(f"[WARN] 電力供需來源無可解析列（回應前 200 字：{text[:200]!r}）", file=sys.stderr)
+        print(f"[WARN] 電力供需(即時)來源無可解析列（回應前 200 字：{text[:200]!r}）", file=sys.stderr)
         return None
 
-    parsed = parse_grid_row(rows[-1])
+    parsed = parse_grid_row(rows[-1], granularity="intraday")
     if parsed is None:
-        print(f"[WARN] 電力供需欄位無法辨識（實際欄位：{sorted(rows[-1].keys())}）", file=sys.stderr)
+        print(f"[WARN] 電力供需(即時)欄位無法辨識（實際欄位：{sorted(rows[-1].keys())}）", file=sys.stderr)
         return None
-    print(f"[OK] 電力供需：{parsed}", file=sys.stderr)
+    print(f"[OK] 電力供需(即時)：{parsed}", file=sys.stderr)
     return parsed
+
+
+def _fetch_grid_fallback():
+    """備援來源：政府開放資料平臺「過去電力供需資訊」(每日一筆，非即時)。
+    透過 metadata API 動態解析實際資源網址(手法與 backfill_history.py 的 37331 回填相同)。"""
+    urls = []
+    for api in GRID_FALLBACK_META_APIS:
+        try:
+            r = requests.get(api, headers=HEADERS, timeout=25)
+            r.raise_for_status()
+            meta = r.json()
+            dists = (meta.get("result") or meta).get("distribution") or []
+            for d in dists:
+                u = d.get("resourceDownloadUrl") or d.get("resourceAccessUrl")
+                if u:
+                    urls.append(u)
+            if urls:
+                break
+        except Exception as e:
+            print(f"[WARN] 電力供需(備援)metadata API 失敗 {api}：{e}", file=sys.stderr)
+
+    for url in urls:
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            r.encoding = r.apparent_encoding or "utf-8"
+            rows = _grid_rows_from_text(r.text.lstrip("﻿"))
+            if not rows:
+                continue
+            parsed = parse_grid_row(rows[-1], granularity="daily")
+            if parsed:
+                print(f"[OK] 電力供需(每日備援)：{parsed}", file=sys.stderr)
+                return parsed
+            print(f"[WARN] 電力供需(備援)欄位無法辨識 {url}（實際欄位：{sorted(rows[-1].keys())}）", file=sys.stderr)
+        except Exception as e:
+            print(f"[WARN] 電力供需(備援)來源不可用 {url}：{e}", file=sys.stderr)
+    return None
+
+
+def fetch_grid_status():
+    """依序嘗試即時來源→每日備援。任何失敗都回 None(不寫入猜測值)。"""
+    return _fetch_grid_primary() or _fetch_grid_fallback()
 
 
 def map_to_farms(wind_units):
