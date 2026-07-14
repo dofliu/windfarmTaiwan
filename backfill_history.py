@@ -53,12 +53,13 @@ META_APIS = [
 ]
 HISTORY_DAYS = 7        # 滾動視窗(天)，與 scraper 一致
 
-# 各欄位的候選鍵名(官方欄位名稱可能調整，這裡做寬容比對；比對不到即報錯)
-DT_KEYS = ("日期時間", "資料時間", "時間", "DateTime", "datetime", "Time", "TIME", "recordTime")
+# 各欄位的候選鍵名(官方欄位名稱可能調整，這裡做寬容比對；比對不到即報錯並印實際欄位)。
+# 2026-07 實測 d006010/001.json 的實際欄位為：DATETIME, FUEL_TYPE, NET_P, UNIT_NAME。
+DT_KEYS = ("DATETIME", "日期時間", "資料時間", "時間", "DateTime", "datetime", "Time", "TIME", "recordTime")
 DATE_KEYS = ("日期", "Date", "DATE")            # 「日期」「時間」分兩欄的情況
-TYPE_KEYS = ("機組類型", "能源別", "類型", "type", "Type")
-NAME_KEYS = ("機組名稱", "name", "Name", "UNIT_NAME")
-OUT_KEYS = ("淨發電量(MW)", "淨發電量", "發電量(MW)", "發電量", "NET_P")
+TYPE_KEYS = ("FUEL_TYPE", "機組類型", "能源別", "類型", "type", "Type")
+NAME_KEYS = ("UNIT_NAME", "機組名稱", "name", "Name")
+OUT_KEYS = ("NET_P", "淨發電量(MW)", "淨發電量", "發電量(MW)", "發電量")
 
 
 def parse_ts(s):
