@@ -22,9 +22,12 @@
   .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
   #app{display:flex;flex-direction:column;height:100vh}
 
-  header{flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:13px 22px;
+  header{flex:0 0 auto;display:flex;flex-direction:column;gap:8px;padding:12px 22px;
     border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0c3142,#0a2a3a);
     box-shadow:0 6px 22px -10px var(--shadow);z-index:600}
+  .hrow{display:flex;align-items:center;gap:14px}
+  .hbot{justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .navrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .brand{display:flex;align-items:baseline;gap:11px;min-width:max-content}
   .brand h1{font-size:24px;font-weight:900;letter-spacing:.16em;
     background:linear-gradient(92deg,var(--foam),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -325,10 +328,11 @@
      過去 .ticker 用 flex:1+overflow:hidden 硬擠，超出部分會被裁切變形(而非換行)。
      改為讓 header 自動換行、統計列整行移到第二行，不再裁切。 */
   @media (min-width:881px) and (max-width:1650px){
-    header{flex-wrap:wrap}
-    .ticker{order:5;flex:0 1 100%;overflow:visible;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+    .htop{flex-wrap:wrap}
+    .ticker{order:3;flex:0 1 100%;overflow:visible;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
   }
-  @media (max-width:880px){.ticker{display:none}.brand h1{font-size:19px}header{gap:10px;padding:11px 14px;flex-wrap:wrap}#dash,#learn{padding:14px}}
+  @media (max-width:880px){.ticker{display:none}.brand h1{font-size:19px}header{gap:8px;padding:10px 14px}#dash,#learn{padding:14px}
+    .navrow{gap:8px}.seg button{padding:9px 10px;font-size:12.5px}.hbot .sharebtn{padding:7px 11px;font-size:12px}}
   /* 手機：一排兩個風場卡(縮小風機與字級讓兩欄塞得下) */
   @media (max-width:720px){
     .grid{grid-template-columns:repeat(2,1fr);gap:9px}
@@ -347,32 +351,21 @@
 <body>
 <div id="app">
   <header>
-    <div class="brand"><h1>風電風情</h1><span class="en">Taiwan Wind Watch</span></div>
-    <div class="ticker" id="ticker"></div>
-    <div class="feed"><span class="dot sim" id="feeddot"></span><span id="feedtxt">載入中…</span></div>
-    <div class="seg" id="seg"><button class="on" data-v="dash" data-i18n="tab_dash">儀表</button><button data-v="wall" data-i18n="tab_wall">總覽</button><button data-v="chart" data-i18n="tab_chart">數據</button><button data-v="map" data-i18n="tab_map">地圖</button><button data-v="learn" data-i18n="tab_learn">資訊</button></div>
-    <button class="sharebtn" id="langbtn" title="Language / 語言" data-i18n="lang">EN</button>
-    <button class="sharebtn" id="sharebtn" title="分享此刻風況" data-i18n="share">🔗 分享</button>
+    <div class="hrow htop">
+      <div class="brand"><h1>風電風情</h1><span class="en">Taiwan Wind Watch</span></div>
+      <div class="ticker" id="ticker"></div>
+      <button class="sharebtn" id="langbtn" title="Language / 語言" data-i18n="lang">EN</button>
+    </div>
+    <div class="hrow hbot">
+      <div class="feed"><span class="dot sim" id="feeddot"></span><span id="feedtxt">載入中…</span></div>
+      <div class="navrow">
+        <div class="seg" id="seg"><button class="on" data-v="dash" data-i18n="tab_dash">儀表</button><button data-v="wall" data-i18n="tab_wall">總覽</button><button data-v="chart" data-i18n="tab_chart">數據</button><button data-v="map" data-i18n="tab_map">地圖</button><button data-v="learn" data-i18n="tab_learn">資訊</button></div>
+        <button class="sharebtn" id="sharebtn" title="分享此刻風況" data-i18n="share">🔗 分享</button>
+      </div>
+    </div>
   </header>
   <main>
     <section class="view on" id="dash">
-      <div class="hero" id="hero"></div>
-      <div class="gridbar" id="gridbar"></div>
-      <div class="impact" id="impact"></div>
-      <div class="policy">
-        <h3 data-i18n="policyTitle">🇹🇼 台灣離岸風電進度</h3>
-        <div class="now" data-i18n-html="pol_now">截至 2026/05：累計安裝 <b>4.74 GW</b> · 併網發電 <b>4.25 GW</b> · 已完成 8 座離岸風場<br>
-          台灣 2025 年新增裝置容量全球第三、累計裝置容量全球第五 🌊</div>
-        <div class="pgoal">
-          <div class="row"><span data-i18n="pol_near">近程目標 · 2026 年（5.3 GW）</span><b data-i18n="pol_r89">已達約 89%</b></div>
-          <div class="track"><i style="width:89%"></i></div>
-        </div>
-        <div class="pgoal">
-          <div class="row"><span data-i18n="pol_long">長程目標 · 2035 年（18.4 GW）</span><b data-i18n="pol_r26">已達約 26%</b></div>
-          <div class="track"><i style="width:26%"></i></div>
-        </div>
-        <div class="src" data-i18n-html="pol_src">資料來源：經濟部能源署「離岸風電三階段政策」（採先示範、次潛力、後區塊）。<a href="https://ea01.moeaea.gov.tw/d0107/Windpolicy" target="_blank" rel="noopener">官方頁面 ↗</a></div>
-      </div>
       <div class="toolbar">
         <div class="sort" id="sort"><span data-i18n="sortBy">排序</span>
           <button class="on" data-s="output" data-i18n="s_output">即時出力</button>
@@ -417,6 +410,27 @@
     </section>
     <section class="view" id="learn">
       <div class="learnintro" data-i18n="lintro">想多認識台灣的風？這裡用數據講清楚：為什麼台灣需要風電、發展到哪了、以及破除常見迷思 🌬️</div>
+
+      <div class="lsec">
+        <h3 data-i18n="ls_h3">📊 此刻風況摘要</h3>
+        <div class="hero" id="hero"></div>
+        <div class="gridbar" id="gridbar"></div>
+        <div class="impact" id="impact"></div>
+        <div class="policy">
+          <h3 data-i18n="policyTitle">🇹🇼 台灣離岸風電進度</h3>
+          <div class="now" data-i18n-html="pol_now">截至 2026/05：累計安裝 <b>4.74 GW</b> · 併網發電 <b>4.25 GW</b> · 已完成 8 座離岸風場<br>
+            台灣 2025 年新增裝置容量全球第三、累計裝置容量全球第五 🌊</div>
+          <div class="pgoal">
+            <div class="row"><span data-i18n="pol_near">近程目標 · 2026 年（5.3 GW）</span><b data-i18n="pol_r89">已達約 89%</b></div>
+            <div class="track"><i style="width:89%"></i></div>
+          </div>
+          <div class="pgoal">
+            <div class="row"><span data-i18n="pol_long">長程目標 · 2035 年（18.4 GW）</span><b data-i18n="pol_r26">已達約 26%</b></div>
+            <div class="track"><i style="width:26%"></i></div>
+          </div>
+          <div class="src" data-i18n-html="pol_src">資料來源：經濟部能源署「離岸風電三階段政策」（採先示範、次潛力、後區塊）。<a href="https://ea01.moeaea.gov.tw/d0107/Windpolicy" target="_blank" rel="noopener">官方頁面 ↗</a></div>
+        </div>
+      </div>
 
       <div class="lsec">
         <h3 data-i18n="le_h3">⚡ 為什麼台灣需要風電？</h3>
@@ -715,6 +729,7 @@ const I18N={
   foot_main:{zh:'機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準<br>影響力數字為換算估算：家戶 0.5kW、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值<br>風速為中央氣象署自動氣象站觀測，取各風場「最近測站」當沿海參考值，非風機輪轂高度實測（外海風場尤其僅供參考）',
     en:'Unit classification, names & capacity: from Taipower "unit generation" (genary.json), four disclosure classes · capacity/output per Taipower<br>Impact figures are conversions/estimates: 0.5 kW/home, ~10 kWh/home-day, 0.495 kg CO₂/kWh, 12 kg CO₂/tree-yr; underlying MW for output & share are Taipower measured values<br>Wind speed from CWA automatic weather stations — nearest station as a coastal reference, not hub-height (offshore farms especially indicative only)'},
   lintro:{zh:"想多認識台灣的風？這裡用數據講清楚：為什麼台灣需要風電、發展到哪了、以及破除常見迷思 🌬️",en:"Want to understand Taiwan's wind? Here we use data to explain why Taiwan needs wind, how far it's come, and bust common myths 🌬️"},
+  ls_h3:{zh:"📊 此刻風況摘要",en:"📊 Current Snapshot"},
   le_h3:{zh:"⚡ 為什麼台灣需要風電？",en:"⚡ Why Taiwan needs wind"},
   le_p:{zh:'台灣約 <b>96%</b> 的能源仰賴進口，自產只有約 4.2%（2024，經濟部能源署）。風，是台灣少數能「自己生產」的能源——發展風電＝提升能源自主、減少對進口燃料價格波動的曝險，同時減碳、帶動國產化供應鏈與就業。',
     en:'Taiwan imports about <b>96%</b> of its energy; only ~4.2% is home-produced (2024, MOEA). Wind is one of the few energy sources Taiwan can make itself — developing it boosts energy self-sufficiency, cuts exposure to imported-fuel price swings, reduces carbon, and builds a local supply chain and jobs.'},
