@@ -55,7 +55,16 @@
   .view.on{opacity:1;pointer-events:auto}
   #dash,#learn{overflow-y:auto;padding:16px 22px 40px}
 
-  .toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .toolbar{margin-bottom:10px}
+  .toolbartoggle{display:flex;align-items:center;gap:9px;background:var(--sea-2);border:1px solid var(--line);
+    color:var(--mist);font-family:inherit;font-size:12.5px;font-weight:700;border-radius:9px;padding:8px 14px;
+    cursor:pointer;transition:.15s}
+  .toolbartoggle:hover{color:var(--foam);border-color:var(--sky)}
+  .toolbartoggle .ttchev{color:var(--mist-dim);transition:transform .2s}
+  .toolbartoggle[aria-expanded="true"] .ttchev{transform:rotate(180deg)}
+  .ttbadge{background:var(--gen);color:var(--sea-0);font-size:10px;font-weight:800;border-radius:20px;padding:2px 8px;line-height:1.4}
+  .toolbarbody{display:none;align-items:center;gap:14px;flex-wrap:wrap;margin-top:10px}
+  .toolbarbody.open{display:flex}
   .sort{display:flex;gap:6px;font-size:12px;color:var(--mist-dim);align-items:center;flex-wrap:wrap}
   .sort button{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);
     border-radius:7px;padding:6px 11px;font-family:inherit;font-size:12px;cursor:pointer;transition:.15s}
@@ -367,32 +376,39 @@
   <main>
     <section class="view on" id="dash">
       <div class="toolbar">
-        <div class="sort" id="sort"><span data-i18n="sortBy">排序</span>
-          <button class="on" data-s="output" data-i18n="s_output">即時出力</button>
-          <button data-s="ratio" data-i18n="s_ratio">可用率</button>
-          <button data-s="cap" data-i18n="s_cap">裝置容量</button>
-          <button data-s="name" data-i18n="s_name">名稱</button>
-        </div>
-        <div class="sort" id="grpmode"><span data-i18n="groupBy">分組</span>
-          <button class="on" data-g="type" data-i18n="g_type">依類型</button>
-          <button data-g="dev" data-i18n="g_dev">依開發商</button>
-        </div>
-        <div class="filt" id="filt">
-          <span class="chip on" data-f="all" data-i18n="f_all">全部</span>
-          <span class="chip" data-f="offshore" data-i18n="f_offshore">離岸</span>
-          <span class="chip" data-f="onshore" data-i18n="f_onshore">陸域</span>
-          <span class="chip" data-f="commercial" data-i18n="f_commercial">已商轉</span>
-          <span class="chip" data-f="building" data-i18n="f_building">開發中</span>
-        </div>
-        <div class="selrow">
-          <select id="devsel" class="fsel" aria-label="依開發商篩選"></select>
-          <select id="brandsel" class="fsel" aria-label="依風機廠牌篩選"></select>
-          <select id="capsel" class="fsel" aria-label="依裝置容量篩選">
-            <option value="all" data-i18n="allCap">全部容量</option>
-            <option value="L" data-i18n="capL">大型 &gt;300MW</option>
-            <option value="M" data-i18n="capM">中型 100–300MW</option>
-            <option value="S" data-i18n="capS">小型 &lt;100MW</option>
-          </select>
+        <button class="toolbartoggle" id="toolbartoggle" aria-expanded="false">
+          <span data-i18n="toolbarToggle">排序與篩選</span>
+          <span class="ttbadge" id="ttbadge" hidden></span>
+          <span class="ttchev">▾</span>
+        </button>
+        <div class="toolbarbody" id="toolbarbody">
+          <div class="sort" id="sort"><span data-i18n="sortBy">排序</span>
+            <button class="on" data-s="output" data-i18n="s_output">即時出力</button>
+            <button data-s="ratio" data-i18n="s_ratio">可用率</button>
+            <button data-s="cap" data-i18n="s_cap">裝置容量</button>
+            <button data-s="name" data-i18n="s_name">名稱</button>
+          </div>
+          <div class="sort" id="grpmode"><span data-i18n="groupBy">分組</span>
+            <button class="on" data-g="type" data-i18n="g_type">依類型</button>
+            <button data-g="dev" data-i18n="g_dev">依開發商</button>
+          </div>
+          <div class="filt" id="filt">
+            <span class="chip on" data-f="all" data-i18n="f_all">全部</span>
+            <span class="chip" data-f="offshore" data-i18n="f_offshore">離岸</span>
+            <span class="chip" data-f="onshore" data-i18n="f_onshore">陸域</span>
+            <span class="chip" data-f="commercial" data-i18n="f_commercial">已商轉</span>
+            <span class="chip" data-f="building" data-i18n="f_building">開發中</span>
+          </div>
+          <div class="selrow">
+            <select id="devsel" class="fsel" aria-label="依開發商篩選"></select>
+            <select id="brandsel" class="fsel" aria-label="依風機廠牌篩選"></select>
+            <select id="capsel" class="fsel" aria-label="依裝置容量篩選">
+              <option value="all" data-i18n="allCap">全部容量</option>
+              <option value="L" data-i18n="capL">大型 &gt;300MW</option>
+              <option value="M" data-i18n="capM">中型 100–300MW</option>
+              <option value="S" data-i18n="capS">小型 &lt;100MW</option>
+            </select>
+          </div>
         </div>
       </div>
       <div id="groups"></div>
@@ -670,6 +686,7 @@ const I18N={
   share:{zh:"🔗 分享",en:"🔗 Share"},lang:{zh:"EN",en:"中"},
   loading:{zh:"載入中…",en:"Loading…"},
   live:{zh:"即時資料",en:"Live data"},sim:{zh:"模擬浮動",en:"Simulated"},updatedAt:{zh:"台電更新",en:"Taipower"},
+  toolbarToggle:{zh:"排序與篩選",en:"Sort & filter"},
   sortBy:{zh:"排序",en:"Sort"},s_output:{zh:"即時出力",en:"Output"},s_ratio:{zh:"可用率",en:"Availability"},
   s_cap:{zh:"裝置容量",en:"Capacity"},s_name:{zh:"名稱",en:"Name"},
   groupBy:{zh:"分組",en:"Group"},g_type:{zh:"依類型",en:"By type"},g_dev:{zh:"依開發商",en:"By developer"},
@@ -1338,6 +1355,7 @@ function groupsFor(){                                // 依分組模式回傳 [{
   return GROUPS.map(g=>({label:t("grp_"+g.key.replace("-",""))!=="grp_"+g.key.replace("-","")?t("grp_"+g.key.replace("-","")):g.label,tag:g.tag,farms:FARMS.filter(f=>f.grp===g.key)}));
 }
 function paintGroups(){
+  updateToolbarBadge();
   const wrap=document.getElementById("groups");let html="",shown=0;
   groupsFor().forEach(g=>{
     let list=sortFarms(g.farms.filter(farmPass));
@@ -1457,6 +1475,21 @@ document.getElementById("filt").onclick=e=>{const b=e.target.closest(".chip");if
   document.querySelectorAll("#filt .chip").forEach(x=>x.classList.toggle("on",x===b));filt=b.dataset.f;paintGroups();};
 document.getElementById("grpmode").onclick=e=>{const b=e.target.closest("button");if(!b)return;
   document.querySelectorAll("#grpmode button").forEach(x=>x.classList.toggle("on",x===b));groupMode=b.dataset.g;paintGroups();};
+
+// 儀表工具列(排序/分組/篩選)預設收合，避免蓋掉風場卡片牆；記住上次展開/收合狀態
+const toolbarToggle=document.getElementById("toolbartoggle"),toolbarBody=document.getElementById("toolbarbody");
+function setToolbarOpen(open){
+  toolbarBody.classList.toggle("open",open);
+  toolbarToggle.setAttribute("aria-expanded",open?"true":"false");
+  localStorage.setItem("wf_toolbar_open",open?"1":"0");
+}
+toolbarToggle.onclick=()=>setToolbarOpen(!toolbarBody.classList.contains("open"));
+setToolbarOpen(localStorage.getItem("wf_toolbar_open")==="1");
+function updateToolbarBadge(){
+  const n=(sortKey!=="output")+(groupMode!=="type")+(filt!=="all")+(devFilt!=="all")+(brandFilt!=="all")+(capFilt!=="all");
+  const badge=document.getElementById("ttbadge");
+  badge.hidden=n===0;badge.textContent=n;
+}
 
 function initMap(){
   if(map)return;
