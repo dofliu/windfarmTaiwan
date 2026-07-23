@@ -1,26 +1,26 @@
 {
-  "updated": "2026-07-23T20:05:27+08:00",
-  "source_time": "2026-07-23T20:00:00",
-  "wind_total_mw": 26.2,
-  "system_total_mw": 36859.0,
+  "updated": "2026-07-23T22:37:21+08:00",
+  "source_time": "2026-07-23T22:30:00",
+  "wind_total_mw": 27.5,
+  "system_total_mw": 34975.6,
   "farm_wind": {
     "guanyuan": {
-      "mps": 2.4,
+      "mps": 2.7,
       "station": "新屋",
       "km": 3.4
     },
     "taichungport": {
-      "mps": 1.4,
+      "mps": 0.6,
       "station": "西濱N151K",
       "km": 2.4
     },
     "wanggong": {
-      "mps": 1.6,
+      "mps": 2.3,
       "station": "王功漁港",
       "km": 2.9
     },
     "changgong": {
-      "mps": 2.0,
+      "mps": 1.2,
       "station": "線西",
       "km": 1.6
     },
@@ -30,47 +30,47 @@
       "km": 2.5
     },
     "sihu": {
-      "mps": 0.6,
+      "mps": 0.7,
       "station": "四湖",
       "km": 1.3
     },
     "tpc-other-on": {
-      "mps": 0.4,
+      "mps": 0.6,
       "station": "香山濕地",
       "km": 2.4
     },
     "dapeng": {
-      "mps": 0.6,
+      "mps": 0.4,
       "station": "國三S140K",
       "km": 0.6
     },
     "luwei": {
-      "mps": 0.5,
+      "mps": 0.6,
       "station": "福興",
       "km": 1.2
     },
     "guanwei": {
-      "mps": 2.4,
+      "mps": 2.7,
       "station": "新屋",
       "km": 1.1
     },
     "zhongwei": {
-      "mps": 1.7,
+      "mps": 0.9,
       "station": "大安",
       "km": 1.9
     },
     "chuangwei": {
-      "mps": 1.3,
+      "mps": 0.6,
       "station": "臺中電廠",
       "km": 1.9
     },
     "xinyuan": {
-      "mps": 0.7,
+      "mps": 0.5,
       "station": "崙背",
       "km": 3.2
     },
     "changpin": {
-      "mps": 1.0,
+      "mps": 0.8,
       "station": "移民庄",
       "km": 2.4
     },
@@ -80,12 +80,12 @@
       "km": 3.5
     },
     "offshore1": {
-      "mps": 2.3,
+      "mps": 2.6,
       "station": "福寶",
       "km": 10.3
     },
     "offshore2": {
-      "mps": 2.3,
+      "mps": 2.6,
       "station": "福寶",
       "km": 22.7
     },
@@ -95,17 +95,17 @@
       "km": 1.4
     },
     "formosa2": {
-      "mps": 1.5,
+      "mps": 1.0,
       "station": "海埔",
       "km": 15.2
     },
     "wo1": {
-      "mps": 1.5,
+      "mps": 2.6,
       "station": "三豐",
       "km": 28.2
     },
     "wo2": {
-      "mps": 1.5,
+      "mps": 2.6,
       "station": "三豐",
       "km": 33.7
     },
@@ -120,12 +120,12 @@
       "km": 29.1
     },
     "fang1": {
-      "mps": 1.6,
+      "mps": 2.3,
       "station": "王功漁港",
       "km": 21.6
     },
     "fang2": {
-      "mps": 1.6,
+      "mps": 2.3,
       "station": "王功漁港",
       "km": 23.3
     },
@@ -140,7 +140,7 @@
       "km": 15.2
     },
     "zhongneng": {
-      "mps": 2.3,
+      "mps": 2.6,
       "station": "福寶",
       "km": 19.3
     },
@@ -157,13 +157,13 @@
   },
   "mapped_farm_count": 30,
   "farms": {
-    "guanyuan": 2.2,
+    "guanyuan": 0.9,
     "taichungport": 3.0,
     "wanggong": 0.0,
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 19.9,
+    "tpc-other-on": 22.4,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -171,9 +171,9 @@
     "chuangwei": 0.0,
     "xinyuan": 0.0,
     "changpin": 0.0,
-    "ppa-other-on": 0.4,
+    "ppa-other-on": 0.3,
     "offshore1": 0.0,
-    "offshore2": 0.7,
+    "offshore2": 0.9,
     "formosa1": 0.0,
     "formosa2": 0.0,
     "wo1": 0.0,
@@ -193,7 +193,7 @@
       "name": "觀園",
       "raw_name": "觀園",
       "capacity": 30.0,
-      "output": 2.2
+      "output": 0.9
     },
     {
       "name": "台中港",
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 19.9
+      "output": 22.4
     },
     {
       "name": "苗栗大鵬",
@@ -277,7 +277,7 @@
       "name": "其它購電風力",
       "raw_name": "其它購電風力",
       "capacity": 178.4,
-      "output": 0.4
+      "output": 0.3
     },
     {
       "name": "離岸一期",
@@ -289,7 +289,7 @@
       "name": "離岸二期",
       "raw_name": "離岸二期(註10)",
       "capacity": null,
-      "output": 0.7
+      "output": 0.9
     },
     {
       "name": "海洋竹南",
