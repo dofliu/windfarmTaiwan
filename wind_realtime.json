@@ -1,169 +1,169 @@
 {
-  "updated": "2026-07-23T22:37:21+08:00",
-  "source_time": "2026-07-23T22:30:00",
-  "wind_total_mw": 27.5,
-  "system_total_mw": 34975.6,
+  "updated": "2026-07-24T00:15:51+08:00",
+  "source_time": "2026-07-24T00:10:00",
+  "wind_total_mw": 28.0,
+  "system_total_mw": 32632.3,
   "farm_wind": {
     "guanyuan": {
-      "mps": 2.7,
+      "mps": 0.9,
       "station": "新屋",
       "km": 3.4
     },
     "taichungport": {
-      "mps": 0.6,
+      "mps": 1.0,
       "station": "西濱N151K",
       "km": 2.4
     },
     "wanggong": {
-      "mps": 2.3,
+      "mps": 1.5,
       "station": "王功漁港",
       "km": 2.9
     },
     "changgong": {
-      "mps": 1.2,
+      "mps": 0.9,
       "station": "線西",
       "km": 1.6
     },
     "yunmai": {
-      "mps": 0.8,
+      "mps": 0.6,
       "station": "麥寮",
       "km": 2.5
     },
     "sihu": {
-      "mps": 0.7,
+      "mps": 0.4,
       "station": "四湖",
       "km": 1.3
     },
     "tpc-other-on": {
-      "mps": 0.6,
+      "mps": 1.1,
       "station": "香山濕地",
       "km": 2.4
     },
     "dapeng": {
-      "mps": 0.4,
+      "mps": 0.6,
       "station": "國三S140K",
       "km": 0.6
     },
     "luwei": {
-      "mps": 0.6,
+      "mps": 0.3,
       "station": "福興",
       "km": 1.2
     },
     "guanwei": {
-      "mps": 2.7,
+      "mps": 0.9,
       "station": "新屋",
       "km": 1.1
     },
     "zhongwei": {
-      "mps": 0.9,
+      "mps": 0.4,
       "station": "大安",
       "km": 1.9
     },
     "chuangwei": {
-      "mps": 0.6,
+      "mps": 1.2,
       "station": "臺中電廠",
       "km": 1.9
     },
     "xinyuan": {
-      "mps": 0.5,
+      "mps": 0.4,
       "station": "崙背",
       "km": 3.2
     },
     "changpin": {
-      "mps": 0.8,
+      "mps": 0.9,
       "station": "移民庄",
       "km": 2.4
     },
     "ppa-other-on": {
-      "mps": 2.0,
+      "mps": 1.1,
       "station": "溫寮",
       "km": 3.5
     },
     "offshore1": {
-      "mps": 2.6,
+      "mps": 1.8,
       "station": "福寶",
       "km": 10.3
     },
     "offshore2": {
-      "mps": 2.6,
+      "mps": 1.8,
       "station": "福寶",
       "km": 22.7
     },
     "formosa1": {
-      "mps": 1.0,
+      "mps": 1.5,
       "station": "龍鳳",
       "km": 1.4
     },
     "formosa2": {
-      "mps": 1.0,
+      "mps": 0.7,
       "station": "海埔",
       "km": 15.2
     },
     "wo1": {
-      "mps": 2.6,
+      "mps": 1.6,
       "station": "三豐",
       "km": 28.2
     },
     "wo2": {
-      "mps": 2.6,
+      "mps": 1.6,
       "station": "三豐",
       "km": 33.7
     },
     "wo4": {
-      "mps": 0.8,
+      "mps": 0.6,
       "station": "麥寮",
       "km": 34.3
     },
     "wonan": {
-      "mps": 0.8,
+      "mps": 0.6,
       "station": "麥寮",
       "km": 29.1
     },
     "fang1": {
-      "mps": 2.3,
+      "mps": 1.5,
       "station": "王功漁港",
       "km": 21.6
     },
     "fang2": {
-      "mps": 2.3,
+      "mps": 1.5,
       "station": "王功漁港",
       "km": 23.3
     },
     "yunhu": {
-      "mps": 0.8,
+      "mps": 0.6,
       "station": "麥寮",
       "km": 11.9
     },
     "yunxi": {
-      "mps": 0.8,
+      "mps": 0.6,
       "station": "麥寮",
       "km": 15.2
     },
     "zhongneng": {
-      "mps": 2.6,
+      "mps": 1.8,
       "station": "福寶",
       "km": 19.3
     },
     "longA": {
-      "mps": 0.8,
+      "mps": 0.6,
       "station": "麥寮",
       "km": 34.2
     },
     "longB": {
-      "mps": 0.8,
+      "mps": 0.6,
       "station": "麥寮",
       "km": 36.5
     }
   },
   "mapped_farm_count": 30,
   "farms": {
-    "guanyuan": 0.9,
+    "guanyuan": 0.3,
     "taichungport": 3.0,
     "wanggong": 0.0,
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 22.4,
+    "tpc-other-on": 23.5,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -193,7 +193,7 @@
       "name": "觀園",
       "raw_name": "觀園",
       "capacity": 30.0,
-      "output": 0.9
+      "output": 0.3
     },
     {
       "name": "台中港",
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 22.4
+      "output": 23.5
     },
     {
       "name": "苗栗大鵬",
