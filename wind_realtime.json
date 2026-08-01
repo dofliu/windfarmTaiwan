@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-02T02:33:21+08:00",
-  "source_time": "2026-08-02T02:20:00",
-  "wind_total_mw": 43.4,
-  "system_total_mw": 28905.8,
+  "updated": "2026-08-02T04:00:17+08:00",
+  "source_time": "2026-08-02T03:50:00",
+  "wind_total_mw": 30.2,
+  "system_total_mw": 27673.6,
   "farm_wind": {
     "guanyuan": {
       "mps": 1.9,
@@ -10,42 +10,42 @@
       "km": 3.4
     },
     "taichungport": {
-      "mps": 1.1,
+      "mps": 0.6,
       "station": "西濱N151K",
       "km": 2.4
     },
     "wanggong": {
-      "mps": 1.6,
+      "mps": 0.9,
       "station": "王功漁港",
       "km": 2.9
     },
     "changgong": {
-      "mps": 2.0,
+      "mps": 1.4,
       "station": "線西",
       "km": 1.6
     },
     "yunmai": {
-      "mps": 3.1,
+      "mps": 0.9,
       "station": "麥寮",
       "km": 2.5
     },
     "sihu": {
-      "mps": 0.3,
+      "mps": 0.0,
       "station": "四湖",
       "km": 1.3
     },
     "tpc-other-on": {
-      "mps": 1.5,
+      "mps": 1.7,
       "station": "香山濕地",
       "km": 2.4
     },
     "dapeng": {
-      "mps": 0.2,
+      "mps": 0.4,
       "station": "國三S140K",
       "km": 0.6
     },
     "luwei": {
-      "mps": 0.3,
+      "mps": 0.8,
       "station": "福興",
       "km": 1.2
     },
@@ -55,102 +55,102 @@
       "km": 1.1
     },
     "zhongwei": {
-      "mps": 0.9,
+      "mps": 0.5,
       "station": "大安",
       "km": 1.9
     },
     "chuangwei": {
-      "mps": 2.0,
+      "mps": 1.0,
       "station": "臺中電廠",
       "km": 1.9
     },
     "xinyuan": {
-      "mps": 1.1,
+      "mps": 0.7,
       "station": "崙背",
       "km": 3.2
     },
     "changpin": {
-      "mps": 1.5,
+      "mps": 0.7,
       "station": "移民庄",
       "km": 2.4
     },
     "ppa-other-on": {
-      "mps": 1.8,
+      "mps": 2.0,
       "station": "溫寮",
       "km": 3.5
     },
     "offshore1": {
-      "mps": 2.5,
+      "mps": 1.6,
       "station": "福寶",
       "km": 10.3
     },
     "offshore2": {
-      "mps": 2.5,
+      "mps": 1.6,
       "station": "福寶",
       "km": 22.7
     },
     "formosa1": {
-      "mps": 1.1,
+      "mps": 1.0,
       "station": "龍鳳",
       "km": 1.4
     },
     "formosa2": {
-      "mps": 0.9,
+      "mps": 1.0,
       "station": "海埔",
       "km": 15.2
     },
     "wo1": {
-      "mps": 2.8,
+      "mps": 1.8,
       "station": "三豐",
       "km": 28.2
     },
     "wo2": {
-      "mps": 2.8,
+      "mps": 1.8,
       "station": "三豐",
       "km": 33.7
     },
     "wo4": {
-      "mps": 3.1,
+      "mps": 0.9,
       "station": "麥寮",
       "km": 34.3
     },
     "wonan": {
-      "mps": 3.1,
+      "mps": 0.9,
       "station": "麥寮",
       "km": 29.1
     },
     "fang1": {
-      "mps": 1.6,
+      "mps": 0.9,
       "station": "王功漁港",
       "km": 21.6
     },
     "fang2": {
-      "mps": 1.6,
+      "mps": 0.9,
       "station": "王功漁港",
       "km": 23.3
     },
     "yunhu": {
-      "mps": 3.1,
+      "mps": 0.9,
       "station": "麥寮",
       "km": 11.9
     },
     "yunxi": {
-      "mps": 3.1,
+      "mps": 0.9,
       "station": "麥寮",
       "km": 15.2
     },
     "zhongneng": {
-      "mps": 2.5,
+      "mps": 1.6,
       "station": "福寶",
       "km": 19.3
     },
     "longA": {
-      "mps": 3.1,
+      "mps": 0.9,
       "station": "麥寮",
       "km": 34.2
     },
     "longB": {
-      "mps": 3.1,
+      "mps": 0.9,
       "station": "麥寮",
       "km": 36.5
     }
@@ -166,7 +166,7 @@
     "tpc-other-on": 19.7,
     "dapeng": 0.0,
     "luwei": 0.0,
-    "guanwei": 0.6,
+    "guanwei": 0.2,
     "zhongwei": 0.1,
     "chuangwei": 0.0,
     "xinyuan": 0.0,
@@ -175,7 +175,7 @@
     "offshore1": 0.0,
     "offshore2": 0.9,
     "formosa1": 0.0,
-    "formosa2": 12.8,
+    "formosa2": 0.0,
     "wo1": 0.0,
     "wo2": 0.0,
     "wo4": 0.0,
@@ -247,7 +247,7 @@
       "name": "觀威觀音&桃威新屋",
       "raw_name": "觀威觀音&桃威新屋",
       "capacity": 48.3,
-      "output": 0.6
+      "output": 0.2
     },
     {
       "name": "中威大安",
@@ -301,7 +301,7 @@
       "name": "海能風",
       "raw_name": "海能風",
       "capacity": 376.0,
-      "output": 12.8
+      "output": 0.0
     },
     {
       "name": "沃一風",
