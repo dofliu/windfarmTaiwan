@@ -1,96 +1,96 @@
 {
-  "updated": "2026-08-17T03:08:49+08:00",
-  "source_time": "2026-08-17T03:00:00",
-  "wind_total_mw": 53.5,
-  "system_total_mw": 27231.2,
+  "updated": "2026-08-17T03:38:11+08:00",
+  "source_time": "2026-08-17T03:30:00",
+  "wind_total_mw": 34.6,
+  "system_total_mw": 27012.9,
   "farm_wind": {
     "guanyuan": {
-      "mps": 1.1,
+      "mps": 1.7,
       "station": "新屋",
       "km": 3.4
     },
     "taichungport": {
-      "mps": 0.4,
+      "mps": 0.7,
       "station": "西濱N145K",
       "km": 2.4
     },
     "wanggong": {
-      "mps": 1.2,
+      "mps": 1.6,
       "station": "王功漁港",
       "km": 2.9
     },
     "changgong": {
-      "mps": 0.9,
+      "mps": 1.3,
       "station": "線西",
       "km": 1.6
     },
     "yunmai": {
-      "mps": 2.2,
+      "mps": 1.0,
       "station": "麥寮",
       "km": 2.5
     },
     "sihu": {
-      "mps": 0.4,
+      "mps": 0.6,
       "station": "四湖",
       "km": 1.3
     },
     "tpc-other-on": {
-      "mps": 1.4,
+      "mps": 1.3,
       "station": "香山濕地",
       "km": 2.4
     },
     "dapeng": {
-      "mps": 0.5,
+      "mps": 1.1,
       "station": "國三S140K",
       "km": 0.6
     },
     "luwei": {
-      "mps": 0.4,
+      "mps": 0.9,
       "station": "福興",
       "km": 1.2
     },
     "guanwei": {
-      "mps": 1.1,
+      "mps": 1.7,
       "station": "新屋",
       "km": 1.1
     },
     "zhongwei": {
-      "mps": 1.4,
+      "mps": 1.3,
       "station": "大安",
       "km": 1.9
     },
     "chuangwei": {
-      "mps": 1.1,
+      "mps": 0.9,
       "station": "臺中電廠",
       "km": 1.9
     },
     "xinyuan": {
-      "mps": 0.6,
+      "mps": 0.8,
       "station": "崙背",
       "km": 3.2
     },
     "changpin": {
-      "mps": 0.9,
+      "mps": 0.7,
       "station": "移民庄",
       "km": 2.4
     },
     "ppa-other-on": {
-      "mps": 0.9,
+      "mps": 0.8,
       "station": "溫寮",
       "km": 3.5
     },
     "offshore1": {
-      "mps": 1.5,
+      "mps": 1.3,
       "station": "福寶",
       "km": 10.3
     },
     "offshore2": {
-      "mps": 1.5,
+      "mps": 1.3,
       "station": "福寶",
       "km": 22.7
     },
     "formosa1": {
-      "mps": 0.9,
+      "mps": 0.8,
       "station": "龍鳳",
       "km": 1.4
     },
@@ -110,47 +110,47 @@
       "km": 33.7
     },
     "wo4": {
-      "mps": 2.2,
+      "mps": 1.0,
       "station": "麥寮",
       "km": 34.3
     },
     "wonan": {
-      "mps": 2.2,
+      "mps": 1.0,
       "station": "麥寮",
       "km": 29.1
     },
     "fang1": {
-      "mps": 1.2,
+      "mps": 1.6,
       "station": "王功漁港",
       "km": 21.6
     },
     "fang2": {
-      "mps": 1.2,
+      "mps": 1.6,
       "station": "王功漁港",
       "km": 23.3
     },
     "yunhu": {
-      "mps": 2.2,
+      "mps": 1.0,
       "station": "麥寮",
       "km": 11.9
     },
     "yunxi": {
-      "mps": 2.2,
+      "mps": 1.0,
       "station": "麥寮",
       "km": 15.2
     },
     "zhongneng": {
-      "mps": 1.5,
+      "mps": 1.3,
       "station": "福寶",
       "km": 19.3
     },
     "longA": {
-      "mps": 2.2,
+      "mps": 1.0,
       "station": "麥寮",
       "km": 34.2
     },
     "longB": {
-      "mps": 2.2,
+      "mps": 1.0,
       "station": "麥寮",
       "km": 36.5
     }
@@ -182,11 +182,11 @@
     "wonan": 0.0,
     "fang1": 0.0,
     "fang2": 0.0,
-    "yunhu": 14.6,
-    "yunxi": 6.7,
+    "yunhu": 0.3,
+    "yunxi": 11.8,
     "zhongneng": 0.0,
-    "longA": 1.6,
-    "longB": 8.1
+    "longA": 0.0,
+    "longB": 0.0
   },
   "raw_wind_units": [
     {
@@ -343,13 +343,13 @@
       "name": "允湖",
       "raw_name": "允湖",
       "capacity": 320.0,
-      "output": 14.6
+      "output": 0.3
     },
     {
       "name": "允西",
       "raw_name": "允西",
       "capacity": 320.0,
-      "output": 6.7
+      "output": 11.8
     },
     {
       "name": "中能風",
@@ -361,13 +361,13 @@
       "name": "龍A風",
       "raw_name": "龍A風(註10)",
       "capacity": null,
-      "output": 1.6
+      "output": 0.0
     },
     {
       "name": "龍B風",
       "raw_name": "龍B風(註10)",
       "capacity": null,
-      "output": 8.1
+      "output": 0.0
     }
   ]
 }
