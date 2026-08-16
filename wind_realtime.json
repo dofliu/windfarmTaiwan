@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-16T22:42:58+08:00",
-  "source_time": "2026-08-16T22:30:00",
-  "wind_total_mw": 24.7,
-  "system_total_mw": 32110.9,
+  "updated": "2026-08-16T23:01:55+08:00",
+  "source_time": "2026-08-16T22:50:00",
+  "wind_total_mw": 29.2,
+  "system_total_mw": 31642.5,
   "farm_wind": {
     "guanyuan": {
       "mps": 0.9,
@@ -182,8 +182,8 @@
     "wonan": 0.0,
     "fang1": 0.0,
     "fang2": 0.0,
-    "yunhu": 0.0,
-    "yunxi": 1.1,
+    "yunhu": 4.8,
+    "yunxi": 0.8,
     "zhongneng": 0.0,
     "longA": 0.0,
     "longB": 0.0
@@ -343,13 +343,13 @@
       "name": "允湖",
       "raw_name": "允湖",
       "capacity": 320.0,
-      "output": 0.0
+      "output": 4.8
     },
     {
       "name": "允西",
       "raw_name": "允西",
       "capacity": 320.0,
-      "output": 1.1
+      "output": 0.8
     },
     {
       "name": "中能風",
