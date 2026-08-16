@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-17T01:38:20+08:00",
-  "source_time": "2026-08-17T01:30:00",
-  "wind_total_mw": 40.1,
-  "system_total_mw": 28179.0,
+  "updated": "2026-08-17T01:59:59+08:00",
+  "source_time": "2026-08-17T01:50:00",
+  "wind_total_mw": 37.8,
+  "system_total_mw": 28149.5,
   "farm_wind": {
     "guanyuan": {
       "mps": 0.4,
@@ -163,13 +163,13 @@
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 19.3,
+    "tpc-other-on": 18.7,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
-    "zhongwei": 0.0,
+    "zhongwei": 0.2,
     "chuangwei": 0.0,
-    "xinyuan": 0.0,
+    "xinyuan": 0.1,
     "changpin": 0.0,
     "ppa-other-on": 0.4,
     "offshore1": 0.0,
@@ -182,10 +182,10 @@
     "wonan": 0.0,
     "fang1": 0.0,
     "fang2": 0.0,
-    "yunhu": 8.7,
-    "yunxi": 6.2,
+    "yunhu": 8.1,
+    "yunxi": 5.9,
     "zhongneng": 0.0,
-    "longA": 1.6,
+    "longA": 0.5,
     "longB": 0.0
   },
   "raw_wind_units": [
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 19.3
+      "output": 18.7
     },
     {
       "name": "苗栗大鵬",
@@ -253,7 +253,7 @@
       "name": "中威大安",
       "raw_name": "中威大安",
       "capacity": 75.9,
-      "output": 0.0
+      "output": 0.2
     },
     {
       "name": "創維風",
@@ -265,7 +265,7 @@
       "name": "新源崙背",
       "raw_name": "新源崙背",
       "capacity": 25.2,
-      "output": 0.0
+      "output": 0.1
     },
     {
       "name": "彰品風",
@@ -343,13 +343,13 @@
       "name": "允湖",
       "raw_name": "允湖",
       "capacity": 320.0,
-      "output": 8.7
+      "output": 8.1
     },
     {
       "name": "允西",
       "raw_name": "允西",
       "capacity": 320.0,
-      "output": 6.2
+      "output": 5.9
     },
     {
       "name": "中能風",
@@ -361,7 +361,7 @@
       "name": "龍A風",
       "raw_name": "龍A風(註10)",
       "capacity": null,
-      "output": 1.6
+      "output": 0.5
     },
     {
       "name": "龍B風",
