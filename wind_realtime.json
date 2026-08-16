@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-17T05:31:33+08:00",
-  "source_time": "2026-08-17T05:20:00",
-  "wind_total_mw": 22.1,
-  "system_total_mw": 26835.62,
+  "updated": "2026-08-17T05:52:44+08:00",
+  "source_time": "2026-08-17T05:40:00",
+  "wind_total_mw": 19.0,
+  "system_total_mw": 26670.59,
   "farm_wind": {
     "guanyuan": {
       "mps": 1.6,
@@ -163,7 +163,7 @@
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 18.2,
+    "tpc-other-on": 15.4,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -171,7 +171,7 @@
     "chuangwei": 0.0,
     "xinyuan": 0.0,
     "changpin": 0.0,
-    "ppa-other-on": 0.6,
+    "ppa-other-on": 0.3,
     "offshore1": 0.0,
     "offshore2": 0.3,
     "formosa1": 0.0,
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 18.2
+      "output": 15.4
     },
     {
       "name": "苗栗大鵬",
@@ -277,7 +277,7 @@
       "name": "其它購電風力",
       "raw_name": "其它購電風力",
       "capacity": 178.4,
-      "output": 0.6
+      "output": 0.3
     },
     {
       "name": "離岸一期",
