@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-25T23:24:24+08:00",
-  "source_time": "2026-08-25T23:10:00",
-  "wind_total_mw": 18.9,
-  "system_total_mw": 30175.5,
+  "updated": "2026-08-26T00:10:23+08:00",
+  "source_time": "2026-08-26T00:00:00",
+  "wind_total_mw": 18.6,
+  "system_total_mw": 28900.8,
   "farm_wind": {
     "guanyuan": {
       "mps": 1.1,
@@ -163,7 +163,7 @@
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 17.3,
+    "tpc-other-on": 17.0,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 17.3
+      "output": 17.0
     },
     {
       "name": "苗栗大鵬",
