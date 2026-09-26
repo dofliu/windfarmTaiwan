@@ -2,1530 +2,499 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>風電風情 · 台灣風力發電即時資訊</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<style>
-  :root{
-    --sea-0:#06212e;--sea-1:#0a2a3a;--sea-2:#0e3547;--sea-3:#13455c;--line:#1d5571;
-    --foam:#e9f5f4;--mist:#9fc3cc;--mist-dim:#6f9aa6;
-    --gen:#34e0ad;--gen-deep:#0fae84;--sky:#56c2e8;--amber:#f4a64d;--slate:#5b7e8a;--red:#ef4444;
-    --tpc:#56c2e8;--ppa:#f4a64d;--shadow:rgba(0,0,0,.35);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
-    background:radial-gradient(1200px 600px at 78% -8%,#11405455 0%,transparent 60%),
-      radial-gradient(900px 500px at 8% 108%,#0c3a4f55 0%,transparent 55%),var(--sea-1);
-    color:var(--foam);overflow:hidden}
-  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-  #app{display:flex;flex-direction:column;height:100vh}
-
-  header{flex:0 0 auto;display:flex;flex-direction:column;gap:8px;padding:12px 22px;
-    border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0c3142,#0a2a3a);
-    box-shadow:0 6px 22px -10px var(--shadow);z-index:600}
-  .hrow{display:flex;align-items:center;gap:14px}
-  .hbot{justify-content:space-between;flex-wrap:wrap;gap:10px}
-  .navrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .brand{display:flex;align-items:baseline;gap:11px;min-width:max-content}
-  .brand h1{font-size:24px;font-weight:900;letter-spacing:.16em;
-    background:linear-gradient(92deg,var(--foam),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .brand .en{font-size:10.5px;letter-spacing:.3em;color:var(--mist-dim);text-transform:uppercase}
-  .ticker{display:flex;flex:1;justify-content:center;overflow:hidden}
-  .stat{padding:1px 22px;text-align:center;border-right:1px solid var(--line)}
-  .stat:last-child{border-right:none}
-  .stat .k{font-size:10px;letter-spacing:.16em;color:var(--mist-dim);margin-bottom:3px}
-  .stat .v{font-size:22px;font-weight:800;line-height:1}
-  .stat .v small{font-size:11.5px;font-weight:600;color:var(--mist);margin-left:3px}
-  .stat .v.green{color:var(--gen)}.stat .v.sky{color:var(--sky)}
-  .feed{display:flex;align-items:center;gap:8px;min-width:max-content;font-size:11px;color:var(--mist)}
-  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
-  .dot.live{background:var(--gen);animation:pulse 2.2s infinite}
-  .dot.sim{background:var(--amber)}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,224,173,.6)}70%{box-shadow:0 0 0 8px rgba(52,224,173,0)}100%{box-shadow:0 0 0 0 rgba(52,224,173,0)}}
-  .seg{display:flex;background:var(--sea-0);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:max-content}
-  .seg button{background:transparent;border:none;color:var(--mist);font-family:inherit;font-size:13px;font-weight:700;
-    padding:9px 15px;cursor:pointer;transition:.18s}
-  .seg button.on{background:linear-gradient(180deg,var(--sea-3),var(--sea-2));color:var(--foam)}
-  .seg button:hover:not(.on){color:var(--foam)}
-
-  main{flex:1 1 auto;position:relative;overflow:hidden}
-  .view{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s}
-  .view.on{opacity:1;pointer-events:auto}
-  #dash,#learn{overflow-y:auto;padding:16px 22px 40px}
-
-  .toolbar{margin-bottom:10px}
-  .toolbartoggle{display:flex;align-items:center;gap:9px;background:var(--sea-2);border:1px solid var(--line);
-    color:var(--mist);font-family:inherit;font-size:12.5px;font-weight:700;border-radius:9px;padding:8px 14px;
-    cursor:pointer;transition:.15s}
-  .toolbartoggle:hover{color:var(--foam);border-color:var(--sky)}
-  .toolbartoggle .ttchev{color:var(--mist-dim);transition:transform .2s}
-  .toolbartoggle[aria-expanded="true"] .ttchev{transform:rotate(180deg)}
-  .ttbadge{background:var(--gen);color:var(--sea-0);font-size:10px;font-weight:800;border-radius:20px;padding:2px 8px;line-height:1.4}
-  .toolbarbody{display:none;align-items:center;gap:14px;flex-wrap:wrap;margin-top:10px}
-  .toolbarbody.open{display:flex}
-  .sort{display:flex;gap:6px;font-size:12px;color:var(--mist-dim);align-items:center;flex-wrap:wrap}
-  .sort button{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);
-    border-radius:7px;padding:6px 11px;font-family:inherit;font-size:12px;cursor:pointer;transition:.15s}
-  .sort button.on{border-color:var(--sky);color:var(--foam)}
-  .filt{display:flex;gap:6px;font-size:12px;color:var(--mist-dim);align-items:center;margin-left:auto;flex-wrap:wrap}
-  .chip{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);
-    border-radius:20px;padding:5px 12px;font-family:inherit;font-size:12px;cursor:pointer;transition:.15s}
-  .chip.on{border-color:var(--sky);color:var(--foam);background:var(--sea-3)}
-  .selrow{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:2px}
-  .fsel{background:var(--sea-2);border:1px solid var(--line);color:var(--mist);font-family:inherit;
-    font-size:12px;border-radius:9px;padding:5px 10px;cursor:pointer}
-  .fsel:focus{outline:none;border-color:var(--sky);color:var(--foam)}
-
-  .grouphead{display:flex;align-items:center;gap:11px;margin:20px 0 11px}
-  .grouphead .tag{font-size:10.5px;font-weight:800;letter-spacing:.05em;padding:3px 9px;border-radius:6px;border:1px solid}
-  .grouphead .tag.tpc{color:var(--tpc);border-color:#1f5c74;background:#0a3344}
-  .grouphead .tag.ppa{color:var(--ppa);border-color:#6b4a22;background:#3a2a14}
-  .grouphead h2{font-size:15.5px;font-weight:800;letter-spacing:.05em}
-  .grouphead .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
-  .grouphead .sum{font-size:12px;color:var(--mist);font-weight:600}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-  .card{position:relative;display:flex;gap:12px;background:linear-gradient(160deg,var(--sea-2),var(--sea-1));
-    border:1px solid var(--line);border-radius:13px;padding:12px 13px;cursor:pointer;overflow:hidden;
-    transition:transform .18s,border-color .18s,box-shadow .18s}
-  .card:hover{transform:translateY(-3px);border-color:var(--sky);box-shadow:0 14px 30px -16px #000}
-  .card:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
-  .card.pending{opacity:.72}
-  /* 旋轉風機(取代原水波填充條)：轉速代表出力，風大轉快、停機不轉 */
-  .turbwrap{flex:0 0 48px;width:48px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
-  .turb{width:48px;height:76px;display:block;overflow:visible}
-  .turb .rotor{transform-box:view-box;transform-origin:30px 30px;animation:spin linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .turbwrap .pct{font-size:10px;font-weight:800;margin-top:3px;letter-spacing:.02em}
-  /* 影響力指標帶(讓民眾更有感的生活尺度數字) */
-  .impact{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
-  .imp{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);
-    border-radius:14px;padding:12px 15px;display:flex;align-items:center;gap:12px}
-  .imp .ic{font-size:25px;line-height:1;flex:0 0 auto}
-  .imp .tx{min-width:0}
-  .imp .iv{font-size:22px;font-weight:800;line-height:1.05;color:var(--foam)}
-  .imp .iv small{font-size:12px;font-weight:600;color:var(--mist);margin-left:3px}
-  .imp .ik{font-size:11px;color:var(--mist-dim);margin-top:3px;letter-spacing:.03em}
-  @media (max-width:880px){.impact{grid-template-columns:repeat(2,1fr)}}
-  /* 今日風況 hero(生動/幽默動態文案) */
-  .hero{background:linear-gradient(120deg,#103d52,#0a2a3a);border:1px solid var(--line);border-radius:16px;padding:15px 20px;margin-bottom:14px}
-  .gridbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:linear-gradient(160deg,var(--sea-2),var(--sea-1));
-    border:1px solid var(--line);border-radius:12px;padding:11px 18px;margin-bottom:14px;font-size:13px}
-  .gridbar:empty{display:none}
-  .gridbar .gdot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 8px currentColor}
-  .gridbar .gstat{font-weight:800;color:var(--foam)}
-  .gridbar .gpct{font-weight:800}
-  .gridbar .gsep{color:var(--line);flex:0 0 auto}
-  .gridbar .gwind{color:var(--mist)}
-  .gridbar .gwind b{color:var(--gen);font-weight:800}
-  .gridbar .gsrc{margin-left:auto;color:var(--mist-dim);font-size:11px}
-  @media (max-width:720px){.gridbar .gsrc{margin-left:0;flex-basis:100%}}
-  .hero .hgreet{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:800;color:var(--foam);line-height:1.3}
-  .hero .hgreet .he{font-size:30px;flex:0 0 auto}
-  .hero .hstory{margin-top:9px;font-size:13.5px;color:var(--mist);line-height:1.55}
-  .hero .hstory b{color:var(--gen);font-weight:800}
-  .hero .hchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
-  .hero .hchip{font-size:12px;color:var(--mist);background:var(--sea-0);border:1px solid var(--line);border-radius:20px;padding:4px 13px}
-  .hero .hchip b{color:var(--foam)}
-  /* 政策目標進度 */
-  .policy{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin-bottom:16px}
-  .policy h3{font-size:15px;font-weight:800;color:var(--foam);margin-bottom:4px}
-  .policy .now{font-size:12.5px;color:var(--mist);margin-bottom:6px;line-height:1.5}
-  .policy .now b{color:var(--sky);font-weight:800}
-  .policy .pgoal{margin-top:13px}
-  .policy .pgoal .row{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px;color:var(--mist)}
-  .policy .pgoal .row b{color:var(--gen);font-weight:800}
-  .policy .track{height:13px;background:var(--sea-0);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .policy .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gen-deep),var(--gen));transition:width 1.2s ease}
-  .policy .src{font-size:10.5px;color:var(--mist-dim);margin-top:13px;line-height:1.5}
-  .policy .src a{color:var(--sky)}
-  /* 迷思破解 Q&A */
-  .learnintro{font-size:13.5px;color:var(--mist);background:linear-gradient(120deg,#103d52,#0a2a3a);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:18px;line-height:1.5}
-  .lsec{margin-bottom:28px}
-  .lsec>h3{font-size:17px;font-weight:800;color:var(--foam);margin-bottom:12px}
-  .lp{font-size:13.5px;color:var(--mist);line-height:1.75;margin-bottom:12px}
-  .lp b{color:var(--gen)}
-  .lstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:6px}
-  .lstat{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-  .lstat .lv{font-size:27px;font-weight:800;color:var(--sky);line-height:1}
-  .lstat .lv small{font-size:13px;color:var(--mist);margin-left:2px;font-weight:600}
-  .lstat .lk{font-size:11px;color:var(--mist-dim);margin-top:6px;line-height:1.4}
-  .chartsvg{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
-  .chartsvg svg{width:100%;height:auto;display:block}
-  .myth{margin-bottom:22px}
-  .myth h4{font-size:14.5px;font-weight:800;color:var(--amber);margin-bottom:10px}
-  .ltl{margin-top:4px}
-  .ltl .ti{position:relative;padding:7px 0 7px 20px;margin-left:6px;border-left:2px solid var(--line)}
-  .ltl .ti::before{content:"";position:absolute;left:-6px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--gen);border:2px solid var(--sea-1)}
-  .ltl .ty{font-weight:800;color:var(--sky);font-size:13px;margin-right:8px}
-  .ltl .td{font-size:12.5px;color:var(--mist);line-height:1.55}
-  .sharebtn{background:var(--sea-0);border:1px solid var(--line);color:var(--foam);font-family:inherit;font-size:12.5px;
-    font-weight:700;border-radius:10px;padding:7px 13px;cursor:pointer;white-space:nowrap;transition:.15s}
-  .sharebtn:hover{border-color:var(--sky);background:var(--sea-2)}
-  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#0c3142;border:1px solid var(--sky);
-    color:var(--foam);font-size:13px;font-weight:700;padding:11px 20px;border-radius:24px;box-shadow:0 12px 30px -12px #000;
-    opacity:0;pointer-events:none;transition:.28s;z-index:900}
-  #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-  @media(max-width:700px){.lstats{grid-template-columns:1fr}}
-  .faq{margin-top:0}
-  .empty{text-align:center;color:var(--mist-dim);font-size:14px;padding:48px 16px}
-  /* 圖表 tab：長條 / 樹狀 / 圓環 */
-  #chart-view{display:flex;flex-direction:column}
-  .chartbar{flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:14px 20px 10px;flex-wrap:wrap}
-  .chartnote{font-size:11.5px;color:var(--mist-dim)}
-  .chartwrap{flex:1 1 auto;min-height:0;overflow:auto;padding:2px 20px 20px}
-  /* 長期趨勢面板 */
-  .histpanel{max-width:980px;margin:0 auto}
-  .histchips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 14px}
-  .histchips button{background:var(--sea-0);border:1px solid var(--line);border-radius:999px;color:var(--mist);
-    font-family:inherit;font-size:12.5px;font-weight:700;padding:5px 13px;cursor:pointer;transition:.15s}
-  .histchips button:hover:not(.on){color:var(--foam)}
-  .histchips button.on{background:linear-gradient(180deg,var(--sea-3),var(--sea-2));color:var(--foam);border-color:var(--gen)}
-  .histcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:10px;margin-bottom:16px}
-  .histcard{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;padding:13px 15px}
-  .histcard .ht{font-size:12.5px;color:var(--mist);font-weight:700;margin-bottom:6px}
-  .histcard .hv{font-size:21px;font-weight:800;color:var(--foam)}
-  .histcard .hv small{font-size:12px;color:var(--mist-dim);font-weight:700;margin-left:3px}
-  .histcard .hk{font-size:12px;color:var(--mist-dim);margin-top:4px;line-height:1.5}
-  .histsec{font-size:12.5px;color:var(--mist);font-weight:700;margin:14px 0 8px}
-  .histcal{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:6px}
-  .hmon .mt{font-size:12px;color:var(--mist-dim);font-weight:700;margin-bottom:6px;text-align:center}
-  .hgrid{display:grid;grid-template-rows:repeat(7,13px);grid-auto-flow:column;grid-auto-columns:13px;gap:3px}
-  .hcell{width:13px;height:13px;border-radius:3px;background:var(--sea-0)}
-  .barchart{display:flex;flex-direction:column;gap:5px}
-  .brow{display:flex;align-items:center;gap:10px;cursor:pointer;padding:2px 0}
-  .brow:hover .bname{color:var(--foam)}
-  .bname{flex:0 0 96px;font-size:12px;color:var(--mist);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:right}
-  .btrack{flex:1 1 auto;height:16px;background:var(--sea-0);border:1px solid var(--line);border-radius:5px;overflow:hidden}
-  .bfill{height:100%;border-radius:5px 0 0 5px;transition:width .8s cubic-bezier(.4,1,.5,1)}
-  .bval{flex:0 0 78px;font-size:12.5px;font-weight:800;color:var(--foam)}
-  .bval small{color:var(--mist);font-weight:600}
-  .donuts{display:flex;gap:34px;flex-wrap:wrap;padding-top:8px}
-  .donutblock{min-width:200px}
-  .dtitle{font-size:13.5px;font-weight:800;color:var(--foam);margin-bottom:12px}
-  .donut{width:172px;height:172px;border-radius:50%;position:relative}
-  .dhole{position:absolute;inset:27%;background:var(--sea-1);border-radius:50%}
-  .dlegend{margin-top:14px;max-width:260px}
-  .lgrow{display:flex;align-items:center;gap:8px;font-size:12.5px;margin-bottom:6px;color:var(--mist)}
-  .lgrow i{width:12px;height:12px;border-radius:3px;flex:0 0 auto}
-  .lgn{flex:1 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .lgv{font-weight:800;color:var(--foam);flex:0 0 auto}
-  @media (max-width:700px){.bname{flex-basis:66px;font-size:11px}.bval{flex-basis:66px;font-size:11.5px}
-    .donuts{gap:22px}.donut{width:150px;height:150px}}
-  /* 風場總覽牆：全部風場一個畫面看完，不捲動，隨螢幕自適應欄數 */
-  #wall-view{display:flex;flex-direction:column}
-  .wallbar{flex:0 0 auto;display:flex;align-items:center;gap:13px;padding:12px 20px 9px;font-size:12px;color:var(--mist);flex-wrap:wrap}
-  .wallbar b{color:var(--foam);font-weight:800}
-  .wallbar .lg{display:inline-flex;align-items:center;gap:5px;color:var(--mist-dim)}
-  .wallbar .lg i{width:10px;height:10px;border-radius:3px;display:inline-block}
-  .wall{flex:1 1 auto;min-height:0;display:grid;gap:8px;padding:0 20px 18px;
-    grid-template-columns:repeat(6,1fr);grid-auto-rows:1fr}
-  .wtile{position:relative;overflow:hidden;border:1px solid var(--line);border-left-width:4px;border-radius:11px;
-    background:linear-gradient(160deg,var(--sea-2),var(--sea-1));padding:9px 12px;cursor:pointer;transition:.15s;
-    display:flex;flex-direction:column;justify-content:center;gap:3px}
-  .wtile:hover{transform:translateY(-2px);box-shadow:0 10px 22px -14px #000}
-  .wtile:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
-  .wtile .wn{font-size:12px;font-weight:800;color:var(--foam);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:22px;flex:0 0 auto;line-height:1.15}
-  .wtile .wv{font-size:clamp(16px,2vw,23px);font-weight:800;line-height:1;flex:0 0 auto}
-  .wtile .wv small{font-size:11px;color:var(--mist);font-weight:600;margin-left:2px}
-  .wtile .ws{font-size:10.5px;color:var(--mist-dim);flex:0 0 auto;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .cwmw{margin-left:auto;font-size:11px;color:var(--sky);font-weight:700;white-space:nowrap;flex:0 0 auto}
-  .windnote{margin-top:9px;font-size:11.5px;color:var(--mist-dim);background:var(--sea-0);border:1px solid var(--line);border-radius:9px;padding:8px 11px;line-height:1.5}
-  .windnote b{color:var(--sky)}
-  .sparkctl{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
-  .sgrp{display:flex;background:var(--sea-0);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .sgrp button{background:transparent;border:none;color:var(--mist);font-family:inherit;font-size:11.5px;font-weight:700;padding:5px 12px;cursor:pointer;transition:.15s}
-  .sgrp button.on{background:var(--sea-3);color:var(--foam)}
-  .sgrp button:hover:not(.on){color:var(--foam)}
-  .wtile .wric{position:absolute;top:8px;right:8px;width:22px;height:22px;opacity:.92}
-  .rotor-ic{width:100%;height:100%;display:block;overflow:visible}
-  .rotor-ic .rotor{transform-box:view-box;transform-origin:20px 20px;animation:spin linear infinite}
-  @media (max-width:1100px){.wall{grid-template-columns:repeat(5,1fr)}}
-  @media (max-width:700px){
-    .wall{grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px 12px}
-    .wtile{padding:5px 9px;border-radius:9px;gap:1px}
-    .wtile .wn{font-size:10px;padding-right:14px;line-height:1.1}
-    .wtile .wv{font-size:15px}.wtile .wv small{font-size:9px}
-    .wtile .ws{font-size:8.5px}
-    .wtile .wric{width:13px;height:13px;top:4px;right:5px}
-    .wallbar{padding:9px 12px 5px;font-size:10.5px;gap:8px}
-  }
-  .faq h3{font-size:16px;font-weight:800;color:var(--foam);margin-bottom:12px}
-  .faq details{background:linear-gradient(160deg,var(--sea-2),var(--sea-1));border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
-  .faq summary{cursor:pointer;padding:13px 16px;font-size:14px;font-weight:700;color:var(--foam);list-style:none;display:flex;align-items:center;gap:9px}
-  .faq summary::-webkit-details-marker{display:none}
-  .faq summary .q{flex:0 0 auto;color:var(--sky);font-weight:900}
-  .faq summary::after{content:"＋";margin-left:auto;color:var(--mist-dim);font-weight:700;font-size:16px}
-  .faq details[open] summary::after{content:"－"}
-  .faq .a{padding:2px 18px 15px 39px;font-size:13px;color:var(--mist);line-height:1.75}
-  .cbody{flex:1;min-width:0}
-  .cname{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .cdev{font-size:10.5px;color:var(--mist-dim);margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .cmw{display:flex;align-items:baseline;gap:5px}
-  .cmw .big{font-size:21px;font-weight:800;line-height:1}
-  .cmw .cap{font-size:11px;color:var(--mist)}
-  .cmeta{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:10.5px;color:var(--mist);flex-wrap:wrap}
-  .badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:700;border:1px solid}
-  .badge.run{color:var(--gen);border-color:#1b6b56;background:#0c3a30}
-  .badge.dev{color:var(--slate);border-color:#33505b;background:#0d2d39}
-  .badge.agg{color:var(--mist);border-color:#33505b;background:#0d2d39}
-
-  #map{position:absolute;inset:0;background:var(--sea-0)}
-  .leaflet-popup-content-wrapper{background:#0c2e3d;color:var(--foam);border:1px solid var(--line);border-radius:12px}
-  .leaflet-popup-tip{background:#0c2e3d;border:1px solid var(--line)}
-  .leaflet-popup-content{margin:13px 15px;font-family:inherit}
-  .pop h3{font-size:15px;font-weight:800;margin-bottom:7px}
-  .pop .row{display:flex;justify-content:space-between;gap:18px;font-size:12px;margin:3px 0;color:var(--mist)}
-  .pop .row b{color:var(--foam);font-weight:700}
-  .pop .pbar{height:6px;border-radius:4px;background:var(--sea-0);margin:8px 0 4px;overflow:hidden}
-  .pop .pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--gen-deep),var(--gen))}
-  .pop button{margin-top:9px;width:100%;background:var(--sky);color:#04222e;border:none;border-radius:8px;
-    padding:7px;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer}
-  .maplegend{position:absolute;right:14px;bottom:22px;z-index:500;background:#0c2e3decf;backdrop-filter:blur(6px);
-    border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:11px;color:var(--mist)}
-  .maplegend .ttl{font-weight:800;color:var(--foam);margin-bottom:8px;letter-spacing:.06em}
-  .maplegend .li{display:flex;align-items:center;gap:8px;margin:5px 0}
-  .maplegend .sw{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-  .maphint{position:absolute;left:14px;top:14px;z-index:500;font-size:11.5px;color:var(--mist);
-    background:#0c2e3dcc;border:1px solid var(--line);border-radius:9px;padding:7px 12px;max-width:60vw}
-
-  #scrim{position:absolute;inset:0;background:#02141bbb;opacity:0;pointer-events:none;transition:.3s;z-index:900}
-  #scrim.on{opacity:1;pointer-events:auto}
-  #drawer{position:absolute;top:0;right:0;height:100%;width:430px;max-width:92vw;z-index:1000;
-    background:linear-gradient(165deg,var(--sea-2),var(--sea-1));border-left:1px solid var(--line);
-    transform:translateX(100%);transition:transform .34s cubic-bezier(.4,.9,.3,1);display:flex;flex-direction:column;
-    box-shadow:-20px 0 50px -20px #000}
-  #drawer.on{transform:translateX(0)}
-  .dhead{padding:20px 22px 16px;border-bottom:1px solid var(--line);position:relative}
-  .dhead .close{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--mist);font-size:24px;cursor:pointer;line-height:1}
-  .dhead .close:hover{color:var(--foam)}
-  .dhead h2{font-size:21px;font-weight:900;padding-right:30px}
-  .dhead .sub{font-size:12.5px;color:var(--mist-dim);margin-top:5px}
-  .dbody{flex:1;overflow-y:auto;padding:20px 22px 40px}
-  .liveblock{background:var(--sea-0);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:18px}
-  .liveblock .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px}
-  .liveblock .top .lab{font-size:11px;letter-spacing:.14em;color:var(--mist-dim)}
-  .liveblock .top .out{font-size:33px;font-weight:900;line-height:.9}
-  .liveblock .top .out small{font-size:14px;font-weight:600;color:var(--mist);margin-left:4px}
-  .liveblock .ratio{text-align:right}.liveblock .ratio .v{font-size:25px;font-weight:800}
-  .liveblock .ratio .l{font-size:10.5px;color:var(--mist-dim);letter-spacing:.1em}
-  .spark{width:100%;height:46px;display:block}
-  .specs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);
-    border-radius:12px;overflow:hidden;margin-bottom:18px}
-  .spec{background:var(--sea-2);padding:11px 13px}
-  .spec .l{font-size:10.5px;color:var(--mist-dim);margin-bottom:4px}
-  .spec .v{font-size:14.5px;font-weight:700}
-  .spec.wide{grid-column:1/3}
-  .timeline h3{font-size:13px;letter-spacing:.08em;color:var(--mist);margin-bottom:12px}
-  .tl{position:relative;padding-left:22px}
-  .tl::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--line)}
-  .tlitem{position:relative;margin-bottom:13px}
-  .tlitem::before{content:"";position:absolute;left:-21px;top:3px;width:10px;height:10px;border-radius:50%;
-    background:var(--sea-1);border:2px solid var(--sky)}
-  .tlitem.done::before{background:var(--gen);border-color:var(--gen)}
-  .tlitem .d{font-size:11px;color:var(--sky);font-weight:700}
-  .tlitem .t{font-size:13px;margin-top:2px}
-  .note{font-size:11.5px;color:var(--mist-dim);line-height:1.7;border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
-
-  footer{flex:0 0 auto;padding:7px 22px;border-top:1px solid var(--line);font-size:10.5px;color:var(--mist-dim);
-    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:5px}
-  ::-webkit-scrollbar-track{background:transparent}
-  /* 880–1650px：一排塞不下 logo+統計+導覽+按鈕(常見筆電/桌機解析度皆在此區間)。
-     過去 .ticker 用 flex:1+overflow:hidden 硬擠，超出部分會被裁切變形(而非換行)。
-     改為讓 header 自動換行、統計列整行移到第二行，不再裁切。 */
-  @media (min-width:881px) and (max-width:1650px){
-    .htop{flex-wrap:wrap}
-    .ticker{order:3;flex:0 1 100%;overflow:visible;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
-  }
-  @media (max-width:880px){.ticker{display:none}.brand h1{font-size:19px}header{gap:8px;padding:10px 14px}#dash,#learn{padding:14px}
-    .navrow{gap:8px}.seg button{padding:9px 10px;font-size:12.5px}.hbot .sharebtn{padding:7px 11px;font-size:12px}}
-  /* 手機：一排兩個風場卡(縮小風機與字級讓兩欄塞得下) */
-  @media (max-width:720px){
-    .grid{grid-template-columns:repeat(2,1fr);gap:9px}
-    .card{gap:8px;padding:10px 10px}
-    .turbwrap{flex:0 0 34px;width:34px}
-    .turb{width:34px;height:56px}
-    .turbwrap .pct{font-size:9px;margin-top:1px}
-    .cname{font-size:12.5px}
-    .cdev{font-size:9.5px;margin:1px 0 6px}
-    .cmw .big{font-size:17px}
-    .cmw .cap{font-size:10px}
-  }
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>風電風情 · 台灣即時 × 全球風電發展</title>
+<meta name="description" content="台灣風力發電即時資訊（台電開放資料，每 10 分鐘更新）× 全球風電發展 1980–2025：3D 地球儀、各國裝置容量、1,385 座風場、里程碑導覽與 12 章深入介紹。">
+<meta name="theme-color" content="#07101d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="風電風情 · 台灣即時 × 全球風電發展">
+<meta property="og:description" content="台灣 30 個風力機組即時出力，加上 1980–2025 全球風電發展 3D 地球儀與深入介紹。">
+<meta property="og:url" content="https://dofliu.github.io/windfarmTaiwan/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='18.6' y='17' width='2.8' height='21' rx='1.2' fill='%237d8ca3'/%3E%3Cg fill='%233fdcb0'%3E%3Cpath d='M20 17 L18.4 2.5 Q20 0 21.6 2.5Z'/%3E%3Cpath d='M20 17 L18.4 2.5 Q20 0 21.6 2.5Z' transform='rotate(120 20 17)'/%3E%3Cpath d='M20 17 L18.4 2.5 Q20 0 21.6 2.5Z' transform='rotate(240 20 17)'/%3E%3C/g%3E%3Ccircle cx='20' cy='17' r='2.6' fill='%23eaf1f8'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-<div id="app">
-  <header>
-    <div class="hrow htop">
-      <div class="brand"><h1>風電風情</h1><span class="en">Taiwan Wind Watch</span></div>
-      <div class="ticker" id="ticker"></div>
-      <button class="sharebtn" id="langbtn" title="Language / 語言" data-i18n="lang">EN</button>
+<a class="skip" href="#main"><span data-l="zh">跳到主要內容</span><span data-l="en">Skip to content</span></a>
+
+<header class="topbar">
+  <a class="brand" href="#/home" aria-label="風電風情 Taiwan Wind Watch">
+    <svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect x="18.6" y="17" width="2.8" height="21" rx="1.2" fill="#7d8ca3"/>
+      <g class="rotor" fill="#3fdcb0"><path d="M20 17 L18.4 2.5 Q20 0 21.6 2.5Z"/><path d="M20 17 L18.4 2.5 Q20 0 21.6 2.5Z" transform="rotate(120 20 17)"/><path d="M20 17 L18.4 2.5 Q20 0 21.6 2.5Z" transform="rotate(240 20 17)"/></g>
+      <circle cx="20" cy="17" r="2.6" fill="#eaf1f8"/></svg>
+    <span class="bt"><span class="bn">風電風情</span><span class="bs">Taiwan Wind Watch</span></span>
+  </a>
+  <nav class="mainnav" aria-label="主要導覽">
+    <a href="#/home" data-route="home"><span data-l="zh">首頁</span><span data-l="en">Home</span></a>
+    <a href="#/live" data-route="live"><span class="nv-dot" aria-hidden="true"></span><span data-l="zh">台灣即時</span><span data-l="en">Taiwan live</span></a>
+    <a href="#/global" data-route="global"><span data-l="zh">全球發展</span><span data-l="en">Global</span></a>
+    <a href="#/learn" data-route="learn"><span data-l="zh">風電知識</span><span data-l="en">Learn</span></a>
+  </nav>
+  <div class="topbar-right">
+    <a class="feed" id="feed" href="#/live"><span class="dot" id="feeddot"></span><span class="ft" id="feedtxt">載入中…</span></a>
+    <button class="btn sm" id="sharebtn" type="button"><span data-l="zh">分享</span><span data-l="en">Share</span></button>
+    <button class="btn sm" id="langbtn" type="button">EN</button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======================================================== HOME -->
+<section class="page" data-page="home" id="page-home">
+ <div class="wrap">
+  <div class="home-hero">
+    <article class="hh hh-live" aria-labelledby="hh-live-t">
+      <div class="hh-top"><span class="eyebrow" id="hh-live-t"><span data-l="zh">此刻 · 台灣風電</span><span data-l="en">Right now · Taiwan wind</span></span><span class="feed" id="hh-feed"><span class="dot" id="hh-dot"></span><span id="hh-feedtxt">—</span></span></div>
+      <div><div class="big" id="hh-total">—<small>MW</small></div>
+        <div class="cap"><span data-l="zh">全台 30 個風力機組／風場的即時總出力（台電開放資料，每 10 分鐘更新）</span><span data-l="en">Live combined output of Taiwan's 30 wind units/farms (Taipower open data, every 10 min)</span></div></div>
+      <div class="minis" id="hh-minis"></div>
+      <div class="mood-line hh-moodtxt" id="hh-mood"></div>
+      <div class="ctas"><a class="btn primary" href="#/live"><span data-l="zh">看即時儀表</span><span data-l="en">Open live dashboard</span> <span class="arr">→</span></a><a class="btn" href="#/live/map"><span data-l="zh">風場地圖</span><span data-l="en">Farm map</span></a><a class="btn" href="#/live/wall"><span data-l="zh">風場牆</span><span data-l="en">Farm grid</span></a></div>
+      <svg class="hh-turbine" viewBox="0 0 120 200" aria-hidden="true"><rect x="57" y="60" width="6" height="140" rx="3" fill="#eaf1f8"/><g class="rotor" fill="#eaf1f8"><path d="M60 60 L56 8 Q60 0 64 8Z"/><path d="M60 60 L56 8 Q60 0 64 8Z" transform="rotate(120 60 60)"/><path d="M60 60 L56 8 Q60 0 64 8Z" transform="rotate(240 60 60)"/></g></svg>
+    </article>
+    <article class="hh hh-world" aria-labelledby="hh-world-t">
+      <div class="hh-top"><span class="eyebrow" id="hh-world-t"><span data-l="zh">1980 – 2025 · 全球風電</span><span data-l="en">1980 – 2025 · Global wind</span></span></div>
+      <div><div class="big" id="hh-world">—<small>GW</small></div>
+        <div class="cap" id="hh-worldcap"><span data-l="zh">2025 年底全球風電累計裝置容量</span><span data-l="en">Global cumulative wind capacity, end of 2025</span></div></div>
+      <div id="hh-spark"></div>
+      <div class="minis" id="hh-wminis"></div>
+      <div class="ctas"><a class="btn hist" href="#/global"><span data-l="zh">打開 3D 地球儀</span><span data-l="en">Open the 3D globe</span> <span class="arr">→</span></a><a class="btn" href="#/global?y=1980&amp;play=1"><span data-l="zh">從 1980 年播放</span><span data-l="en">Play from 1980</span></a></div>
+    </article>
+  </div>
+
+  <section class="home-sec" aria-labelledby="h-twpos">
+    <div class="hd"><div><div class="eyebrow"><span data-l="zh">台灣在世界</span><span data-l="en">Taiwan in the world</span></div>
+      <h2 class="h2" id="h-twpos"><span data-l="zh">從 2017 年第一部離岸風機，到全球第五大離岸市場</span><span data-l="en">From the first offshore turbine in 2017 to the world's fifth-largest offshore market</span></h2></div>
+      <a class="btn" href="#/learn/taiwan"><span data-l="zh">讀台灣之路</span><span data-l="en">Read Taiwan's story</span> <span class="arr">→</span></a></div>
+    <div class="twpos" id="hh-twpos"></div>
+  </section>
+
+  <section class="home-sec" aria-labelledby="h-explore">
+    <div class="hd"><h2 class="h2" id="h-explore"><span data-l="zh">探索</span><span data-l="en">Explore</span></h2></div>
+    <div class="explore">
+      <a class="xcard" href="#/live"><span class="xi" aria-hidden="true">🌬️</span><span class="xt"><span data-l="zh">台灣即時儀表</span><span data-l="en">Taiwan live dashboard</span></span>
+        <span class="xd"><span data-l="zh">30 個風力機組／風場此刻出力、可用率、鄰近測站風速、電網備轉與今日發電量。</span><span data-l="en">Live output, availability and nearby wind speed for 30 units/farms, plus grid reserve and today's energy.</span></span>
+        <span class="xg"><span data-l="zh">即時資料 →</span><span data-l="en">Live data →</span></span></a>
+      <a class="xcard hist" href="#/global"><span class="xi" aria-hidden="true">🌍</span><span class="xt"><span data-l="zh">全球 3D 地球儀</span><span data-l="en">Global 3D globe</span></span>
+        <span class="xd"><span data-l="zh">1980–2025 年 79 國陸域與離岸容量、1,385 座風場、35 個里程碑，可播放、導覽、放大到風場。</span><span data-l="en">Onshore and offshore capacity of 79 countries 1980–2025, 1,385 farms and 35 milestones — play, tour, zoom to farms.</span></span>
+        <span class="xg"><span data-l="zh">開始探索 →</span><span data-l="en">Start exploring →</span></span></a>
+      <a class="xcard hist" href="#/learn"><span class="xi" aria-hidden="true">📖</span><span class="xt"><span data-l="zh">風電知識 12 章</span><span data-l="en">Learn: 12 chapters</span></span>
+        <span class="xd"><span data-l="zh">起源、加州風潮、亞洲世紀、離岸與浮動式、風機巨型化、台灣之路、迷思與名詞。</span><span data-l="en">Origins, the California wind rush, Asia's century, offshore and floating wind, bigger turbines, Taiwan's path, myths and terms.</span></span>
+        <span class="xg"><span data-l="zh">開始閱讀 →</span><span data-l="en">Start reading →</span></span></a>
+      <a class="xcard" href="#/live/charts?mode=hist"><span class="xi" aria-hidden="true">📈</span><span class="xt"><span data-l="zh">長期趨勢</span><span data-l="en">Long-term trend</span></span>
+        <span class="xd"><span data-l="zh">政府開放資料「各機組過去發電量」回溯：風況日曆熱圖、最強與最弱的一天。</span><span data-l="en">Official retrospective unit data: a wind calendar heat map, the windiest and calmest days.</span></span>
+        <span class="xg"><span data-l="zh">看趨勢 →</span><span data-l="en">See the trend →</span></span></a>
     </div>
-    <div class="hrow hbot">
-      <div class="feed"><span class="dot sim" id="feeddot"></span><span id="feedtxt">載入中…</span></div>
-      <div class="navrow">
-        <div class="seg" id="seg"><button class="on" data-v="dash" data-i18n="tab_dash">儀表</button><button data-v="wall" data-i18n="tab_wall">總覽</button><button data-v="chart" data-i18n="tab_chart">數據</button><button data-v="map" data-i18n="tab_map">地圖</button><button data-v="learn" data-i18n="tab_learn">資訊</button></div>
-        <button class="sharebtn" id="sharebtn" title="分享此刻風況" data-i18n="share">🔗 分享</button>
+  </section>
+
+  <section class="home-sec" aria-labelledby="h-ms">
+    <div class="hd"><div><div class="eyebrow"><span data-l="zh">精選里程碑</span><span data-l="en">Featured milestones</span></div>
+      <h2 class="h2" id="h-ms"><span data-l="zh">點一下，在地球儀上飛到現場</span><span data-l="en">Click to fly there on the globe</span></h2></div>
+      <a class="btn" href="#/global?tour=1"><span data-l="zh">▶ 自動導覽</span><span data-l="en">▶ Guided tour</span></a></div>
+    <div class="msrow" id="hh-ms"></div>
+  </section>
+ </div>
+</section>
+
+<!-- ======================================================== LIVE -->
+<section class="page" data-page="live" id="page-live" hidden>
+  <div class="subbar" id="lv-subbar"><div class="in">
+    <span class="title"><span data-l="zh">台灣風電即時</span><span data-l="en">Taiwan wind · live</span></span>
+    <nav class="segctl" id="lvnav" aria-label="即時分頁">
+      <a href="#/live" data-lv="dash"><span data-l="zh">儀表</span><span data-l="en">Dashboard</span></a>
+      <a href="#/live/wall" data-lv="wall"><span data-l="zh">風場牆</span><span data-l="en">Farm grid</span></a>
+      <a href="#/live/charts" data-lv="charts"><span data-l="zh">數據</span><span data-l="en">Charts</span></a>
+      <a href="#/live/map" data-lv="map"><span data-l="zh">地圖</span><span data-l="en">Map</span></a>
+    </nav>
+    <span class="srcline" id="lv-srcline"></span>
+  </div></div>
+
+  <div class="lv" data-lv="dash">
+   <div class="wrap" style="display:flex;flex-direction:column;gap:14px">
+    <div class="kpis" id="lv-kpis"></div>
+    <div class="gridbar" id="gridbar"></div>
+    <div class="herobox"><div class="mood" id="lv-mood"></div><div class="impact" id="lv-impact"></div></div>
+    <div class="twrank" id="lv-twrank" hidden></div>
+    <div class="toolbar">
+      <button class="btn tbtoggle" id="tbtoggle" type="button" aria-expanded="false" aria-controls="tbbody"><span data-i18n="toolbarToggle">排序與篩選</span><span class="tbbadge" id="tbbadge" hidden></span><span class="tbchev" aria-hidden="true">▾</span></button>
+      <div class="tbbody" id="tbbody">
+        <div class="tbgrp"><span data-i18n="sortBy">排序</span>
+          <div class="segctl sm" id="sort"><button type="button" class="is-on" data-s="output" data-i18n="s_output">即時出力</button><button type="button" data-s="ratio" data-i18n="s_ratio">可用率</button><button type="button" data-s="cap" data-i18n="s_cap">裝置容量</button><button type="button" data-s="name" data-i18n="s_name">名稱</button></div></div>
+        <div class="tbgrp"><span data-i18n="groupBy">分組</span>
+          <div class="segctl sm" id="grpmode"><button type="button" class="is-on" data-g="type" data-i18n="g_type">依類型</button><button type="button" data-g="dev" data-i18n="g_dev">依開發商</button></div></div>
+        <div class="tbgrp" id="filt">
+          <button type="button" class="chip is-on" data-f="all" data-i18n="f_all">全部</button><button type="button" class="chip" data-f="offshore" data-i18n="f_offshore">離岸</button><button type="button" class="chip" data-f="onshore" data-i18n="f_onshore">陸域</button><button type="button" class="chip" data-f="commercial" data-i18n="f_commercial">已商轉</button><button type="button" class="chip" data-f="building" data-i18n="f_building">開發中</button></div>
+        <div class="tbgrp">
+          <select id="devsel" class="fsel" data-i18n-aria="aria_dev"></select>
+          <select id="brandsel" class="fsel" data-i18n-aria="aria_brand"></select>
+          <select id="capsel" class="fsel" data-i18n-aria="aria_cap">
+            <option value="all" data-i18n="allCap">全部容量</option><option value="L" data-i18n="capL">大型 &gt;300MW</option><option value="M" data-i18n="capM">中型 100–300MW</option><option value="S" data-i18n="capS">小型 &lt;100MW</option></select></div>
       </div>
     </div>
-  </header>
-  <main>
-    <section class="view on" id="dash">
-      <div class="toolbar">
-        <button class="toolbartoggle" id="toolbartoggle" aria-expanded="false">
-          <span data-i18n="toolbarToggle">排序與篩選</span>
-          <span class="ttbadge" id="ttbadge" hidden></span>
-          <span class="ttchev">▾</span>
-        </button>
-        <div class="toolbarbody" id="toolbarbody">
-          <div class="sort" id="sort"><span data-i18n="sortBy">排序</span>
-            <button class="on" data-s="output" data-i18n="s_output">即時出力</button>
-            <button data-s="ratio" data-i18n="s_ratio">可用率</button>
-            <button data-s="cap" data-i18n="s_cap">裝置容量</button>
-            <button data-s="name" data-i18n="s_name">名稱</button>
-          </div>
-          <div class="sort" id="grpmode"><span data-i18n="groupBy">分組</span>
-            <button class="on" data-g="type" data-i18n="g_type">依類型</button>
-            <button data-g="dev" data-i18n="g_dev">依開發商</button>
-          </div>
-          <div class="filt" id="filt">
-            <span class="chip on" data-f="all" data-i18n="f_all">全部</span>
-            <span class="chip" data-f="offshore" data-i18n="f_offshore">離岸</span>
-            <span class="chip" data-f="onshore" data-i18n="f_onshore">陸域</span>
-            <span class="chip" data-f="commercial" data-i18n="f_commercial">已商轉</span>
-            <span class="chip" data-f="building" data-i18n="f_building">開發中</span>
-          </div>
-          <div class="selrow">
-            <select id="devsel" class="fsel" aria-label="依開發商篩選"></select>
-            <select id="brandsel" class="fsel" aria-label="依風機廠牌篩選"></select>
-            <select id="capsel" class="fsel" aria-label="依裝置容量篩選">
-              <option value="all" data-i18n="allCap">全部容量</option>
-              <option value="L" data-i18n="capL">大型 &gt;300MW</option>
-              <option value="M" data-i18n="capM">中型 100–300MW</option>
-              <option value="S" data-i18n="capS">小型 &lt;100MW</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div id="groups"></div>
-    </section>
-    <section class="view" id="wall-view">
-      <div class="wallbar" id="wallbar"></div>
-      <div class="wall" id="wall"></div>
-    </section>
-    <section class="view" id="chart-view">
-      <div class="chartbar">
-        <div class="seg" id="chartmode"><button class="on" data-c="bar" data-i18n="c_bar">排行長條</button><button data-c="donut" data-i18n="c_donut">佔比圓環</button><button data-c="hist" data-i18n="c_hist">長期趨勢</button></div>
-        <div class="chartnote" id="chartnote"></div>
-      </div>
-      <div class="chartwrap" id="chartwrap"></div>
-    </section>
-    <section class="view" id="learn">
-      <div class="learnintro" data-i18n="lintro">想多認識台灣的風？這裡用數據講清楚：為什麼台灣需要風電、發展到哪了、以及破除常見迷思 🌬️</div>
+    <div id="groups"></div>
+    <div class="livenote note" data-i18n-html="foot_main"></div>
+    <div class="note" id="lv-datamode"></div>
+   </div>
+  </div>
 
-      <div class="lsec">
-        <h3 data-i18n="ls_h3">📊 此刻風況摘要</h3>
-        <div class="hero" id="hero"></div>
-        <div class="gridbar" id="gridbar"></div>
-        <div class="impact" id="impact"></div>
-        <div class="policy">
-          <h3 data-i18n="policyTitle">🇹🇼 台灣離岸風電進度</h3>
-          <div class="now" data-i18n-html="pol_now">截至 2026/05：累計安裝 <b>4.74 GW</b> · 併網發電 <b>4.25 GW</b> · 已完成 8 座離岸風場<br>
-            台灣 2025 年新增裝置容量全球第三、累計裝置容量全球第五 🌊</div>
-          <div class="pgoal">
-            <div class="row"><span data-i18n="pol_near">近程目標 · 2026 年（5.3 GW）</span><b data-i18n="pol_r89">已達約 89%</b></div>
-            <div class="track"><i style="width:89%"></i></div>
-          </div>
-          <div class="pgoal">
-            <div class="row"><span data-i18n="pol_long">長程目標 · 2035 年（18.4 GW）</span><b data-i18n="pol_r26">已達約 26%</b></div>
-            <div class="track"><i style="width:26%"></i></div>
-          </div>
-          <div class="src" data-i18n-html="pol_src">資料來源：經濟部能源署「離岸風電三階段政策」（採先示範、次潛力、後區塊）。<a href="https://ea01.moeaea.gov.tw/d0107/Windpolicy" target="_blank" rel="noopener">官方頁面 ↗</a></div>
-        </div>
-      </div>
+  <div class="lv lv-full" data-lv="wall" hidden><div class="wallbar" id="wallbar"></div><div class="wall" id="wall"></div></div>
 
-      <div class="lsec">
-        <h3 data-i18n="le_h3">⚡ 為什麼台灣需要風電？</h3>
-        <p class="lp" data-i18n-html="le_p">台灣約 <b>96%</b> 的能源仰賴進口，自產只有約 4.2%（2024，經濟部能源署）。風，是台灣少數能「自己生產」的能源——發展風電＝提升能源自主、減少對進口燃料價格波動的曝險，同時減碳、帶動國產化供應鏈與就業。</p>
-        <div class="lstats">
-          <div class="lstat"><div class="lv">95.8<small>%</small></div><div class="lk" data-i18n="le_k1">能源進口依存度（2024）</div></div>
-          <div class="lstat"><div class="lv">4.2<small>%</small></div><div class="lk" data-i18n="le_k2">自產能源占比</div></div>
-          <div class="lstat"><div class="lv">0.8<small>%</small></div><div class="lk" data-i18n="le_k3">風力占總能源（自產中成長最快之一）</div></div>
-        </div>
-      </div>
+  <div class="lv" data-lv="charts" hidden>
+    <div class="wrap chartpanel">
+      <div class="chartbar"><div class="segctl" id="chartmode" role="tablist"><button type="button" class="is-on" data-c="bar" data-i18n="c_bar">排行長條</button><button type="button" data-c="donut" data-i18n="c_donut">出力組成</button><button type="button" data-c="hist" data-i18n="c_hist">長期趨勢</button></div>
+        <span class="chartnote" id="chartnote"></span></div>
+      <div id="chartwrap"></div>
+    </div>
+  </div>
 
-      <div class="lsec">
-        <h3 data-i18n="lg_h3">📈 台灣風電這樣長大</h3>
-        <div id="growthchart" class="chartsvg"></div>
-        <div class="ltl">
-          <div class="ti"><span class="ty">2017</span><span class="td" data-i18n="tl_2017">海洋竹南示範機組併網，台灣離岸風電起步</span></div>
-          <div class="ti"><span class="ty">2019</span><span class="td" data-i18n="tl_2019">海洋風場 Formosa 1 完工，首座商轉離岸風場（128 MW）</span></div>
-          <div class="ti"><span class="ty">2020</span><span class="td" data-i18n="tl_2020">台電離岸一期商轉，首座國營離岸風場</span></div>
-          <div class="ti"><span class="ty">2023</span><span class="td" data-i18n="tl_2023">海能 Formosa 2 全數商轉</span></div>
-          <div class="ti"><span class="ty">2024</span><span class="td" data-i18n="tl_2024">大爆發：單年新增約 1.78 GW，非中國區全球第一</span></div>
-          <div class="ti"><span class="ty">2026</span><span class="td" data-i18n="tl_2026">完成第 500 座風機，累計約 4.8 GW，全球第五</span></div>
-        </div>
-      </div>
+  <div class="lv lv-full" data-lv="map" hidden>
+    <div id="map"></div>
+    <div class="maphint" data-i18n="mapHint">點選風場圖示查看即時出力與專案資訊 · 共 30 個機組 / 風場</div>
+    <div class="maplegend">
+      <div class="ttl" data-i18n="legendTitle">圖示說明</div>
+      <div class="li"><span class="mk" style="background:var(--gen-hi)"></span><span data-i18n="mlg_high">可用率高（≥45%）</span></div>
+      <div class="li"><span class="mk" style="background:var(--gen-mid)"></span><span data-i18n="mlg_mid">可用率中（20–45%）</span></div>
+      <div class="li"><span class="mk" style="background:var(--gen-lo)"></span><span data-i18n="mlg_low">可用率低（&lt;20%）</span></div>
+      <div class="li"><span class="mk" style="background:var(--gen-na)"></span><span data-i18n="mlg_dev">開發中／未列容量</span></div>
+      <div class="li" style="margin-top:8px;color:var(--ink-3)" data-i18n="lg_size">圈圈大小 ＝ 裝置容量</div>
+    </div>
+  </div>
+</section>
 
-      <div class="lsec">
-        <h3 data-i18n="lm_h3">🔍 用數據破除三大迷思</h3>
-        <div class="myth">
-          <h4 data-i18n="myth1_h">❌「沒風就沒電」</h4>
-          <div id="seasonchart" class="chartsvg"></div>
-          <p class="lp" data-i18n-html="myth1_p">台灣冬季東北季風最強，離岸風電正好在 <b>冬天</b> 發最多；太陽能則在 <b>夏天</b> 最強。兩者季節互補，加上台電多元電源與儲能即時調度，並非「靠單一來源」。<span style="color:var(--mist-dim)">（示意：典型季節型態，非特定年份實測）</span></p>
-        </div>
-        <div class="myth">
-          <h4 data-i18n="myth2_h">❌「風電很貴」</h4>
-          <div id="costchart" class="chartsvg"></div>
-          <p class="lp" data-i18n-html="myth2_p">從示範／遴選的約 5.8 元/度，到 2018 競價 2.2–2.5 元/度，再到區塊開發「零元躉購」，離岸風電成本一路大幅下降。<span style="color:var(--mist-dim)">＊零元躉購指改由企業以綠電購售合約（CPPA）承購，不再領政府躉購。</span></p>
-        </div>
-        <div class="myth">
-          <h4 data-i18n="myth3_h">❌「風機殺死很多鳥」</h4>
-          <div id="birdchart" class="chartsvg"></div>
-          <p class="lp" data-i18n-html="myth3_p">依國際研究估算，風機造成的鳥類死亡遠低於大樓玻璃、家貓等日常因素，約僅碰撞致死的 <b>萬分之一</b>。台灣離岸風場另設有鳥類與生態監測、必要時停機以降低衝擊。</p>
-        </div>
-      </div>
+<!-- ======================================================== GLOBAL -->
+<section class="page page-full" data-page="global" id="page-global" hidden>
+  <div id="globe"><div class="loading" id="globe-loading"><span data-l="zh">載入 3D 地球儀與全球資料…</span><span data-l="en">Loading the 3D globe and global data…</span></div></div>
+</section>
 
-      <div class="faq">
-        <h3 data-i18n="faq_h">🤔 關於風電，大家常問</h3>
-        <details><summary><span class="q">Q</span><span data-i18n="q1">沒風的時候不就沒電了？</span></summary>
-          <div class="a" data-i18n="a1">風電是電力組合的一員，不是唯一來源。台電會用燃氣、水力、太陽能與儲能即時互補調度；而且各電源有「互補性」——白天太陽能強、夜晚與冬季風力強，台灣冬季的東北季風正好補上夏季太陽能的空檔。</div></details>
-        <details><summary><span class="q">Q</span><span data-i18n="q2">風機會不會很吵？</span></summary>
-          <div class="a" data-i18n="a2">離岸風機座落在外海數公里到數十公里處，聲音根本傳不到岸上。陸域風機的運轉聲在數百公尺外就降到接近環境背景音，且受噪音管制法規約束。</div></details>
-        <details><summary><span class="q">Q</span><span data-i18n="q3">風機會不會殺死很多鳥？</span></summary>
-          <div class="a" data-i18n="a3">研究普遍指出，風機造成的鳥類死亡數量，遠低於高樓玻璃、車輛、家貓等日常因素。台灣離岸風場設有鳥類與生態監測，必要時以暫停運轉等措施降低衝擊。</div></details>
-        <details><summary><span class="q">Q</span><span data-i18n="q4">颱風來會不會被吹倒？</span></summary>
-          <div class="a" data-i18n="a4">台灣的風機依國際與在地耐風規範設計，能承受強颱等級的風速；當風速過高時，葉片會「順槳」並自動停機保護機組，而不是硬扛強風。</div></details>
-        <details><summary><span class="q">Q</span><span data-i18n="q5">離岸風電很貴，會讓電費變高嗎？</span></summary>
-          <div class="a" data-i18n="a5">早期示範與躉購階段費率較高，但已轉為「競價」開發，得標價格大幅下降、趨近市場行情。長期而言，自產綠電能降低對進口燃料價格波動的依賴，有助能源自主。</div></details>
-        <details><summary><span class="q">Q</span><span data-i18n="q6">會影響漁業和海洋生態嗎？</span></summary>
-          <div class="a" data-i18n="a6">開發前須通過環境影響評估，並推動漁業共生與長期生態監測。部分研究也觀察到，風機的水下基座具有類似「人工魚礁」的聚魚效果。</div></details>
-      </div>
-    </section>
-    <section class="view" id="map-view">
-      <div id="map"></div>
-      <div class="maphint" data-i18n="mapHint">點選風場圖示查看即時出力與專案資訊 · 共 30 個機組 / 風場</div>
-      <div class="maplegend">
-        <div class="ttl" data-i18n="legendTitle">圖示說明</div>
-        <div class="li"><span class="sw" style="background:var(--gen)"></span><span data-i18n="mlg_high">可用率高（≥45%）</span></div>
-        <div class="li"><span class="sw" style="background:var(--sky)"></span><span data-i18n="mlg_mid">可用率中（20–45%）</span></div>
-        <div class="li"><span class="sw" style="background:var(--amber)"></span><span data-i18n="mlg_low">可用率低（&lt;20%）</span></div>
-        <div class="li"><span class="sw" style="background:var(--slate)"></span><span data-i18n="mlg_dev">開發中／未列容量</span></div>
-        <div class="li" style="margin-top:8px;color:var(--mist-dim)" data-i18n="lg_size">圈圈大小 ＝ 裝置容量</div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <span data-i18n-html="foot_main">機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準<br>
-      影響力數字為換算估算：家戶 0.5kW、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值<br>
-      風速為中央氣象署自動氣象站觀測，取各風場「最近測站」當沿海參考值，非風機輪轂高度實測（外海風場尤其僅供參考）</span>
-    <span id="datamode"></span>
-  </footer>
-</div>
+<!-- ======================================================== LEARN -->
+<section class="page" data-page="learn" id="page-learn" hidden>
+ <div class="learn">
+  <nav class="toc" aria-label="章節">
+    <div class="tt"><span data-l="zh">章節</span><span data-l="en">Chapters</span></div>
+    <ol id="toc">
+      <li><a href="#/learn/glance" data-ch="glance"><span class="n">01</span><span><span data-l="zh">全球一覽</span><span data-l="en">At a glance</span></span></a></li>
+      <li><a href="#/learn/origins" data-ch="origins"><span class="n">02</span><span><span data-l="zh">起源 1888–1979</span><span data-l="en">Origins 1888–1979</span></span></a></li>
+      <li><a href="#/learn/takeoff" data-ch="takeoff"><span class="n">03</span><span><span data-l="zh">起飛 1980–1999</span><span data-l="en">Take-off 1980–1999</span></span></a></li>
+      <li><a href="#/learn/scaleup" data-ch="scaleup"><span class="n">04</span><span><span data-l="zh">擴張 2000–2010</span><span data-l="en">Scale-up 2000–2010</span></span></a></li>
+      <li><a href="#/learn/asia" data-ch="asia"><span class="n">05</span><span><span data-l="zh">亞洲世紀 2010–2025</span><span data-l="en">Asia's century 2010–2025</span></span></a></li>
+      <li><a href="#/learn/offshore" data-ch="offshore"><span class="n">06</span><span><span data-l="zh">走向大海：離岸風電</span><span data-l="en">Going offshore</span></span></a></li>
+      <li><a href="#/learn/floating" data-ch="floating"><span class="n">07</span><span><span data-l="zh">浮動式風電</span><span data-l="en">Floating wind</span></span></a></li>
+      <li><a href="#/learn/bigger" data-ch="bigger"><span class="n">08</span><span><span data-l="zh">風機巨型化</span><span data-l="en">Ever-larger turbines</span></span></a></li>
+      <li><a href="#/learn/taiwan" data-ch="taiwan"><span class="n">09</span><span><span data-l="zh">台灣之路</span><span data-l="en">Taiwan's path</span></span></a></li>
+      <li><a href="#/learn/why" data-ch="why"><span class="n">10</span><span><span data-l="zh">為什麼需要風電 · 迷思</span><span data-l="en">Why wind · myths</span></span></a></li>
+      <li><a href="#/learn/terms" data-ch="terms"><span class="n">11</span><span><span data-l="zh">名詞小辭典</span><span data-l="en">Glossary</span></span></a></li>
+      <li><a href="#/learn/sources" data-ch="sources"><span class="n">12</span><span><span data-l="zh">資料來源與方法</span><span data-l="en">Sources &amp; method</span></span></a></li>
+    </ol>
+  </nav>
+
+  <article class="article">
+   <header class="intro">
+     <div class="eyebrow"><span data-l="zh">風電知識 · 深入了解</span><span data-l="en">Learn · the full story</span></div>
+     <h1 class="h1"><span data-l="zh">風，如何成為全世界成長最快的電力來源之一</span><span data-l="en">How wind became one of the world's fastest-growing sources of electricity</span></h1>
+     <p class="lead" data-l="zh">從 1888 年美國克里夫蘭一座 12 kW 的實驗風機，到 2025 年底全球約 1,287 GW 的裝置容量——風力發電用不到 140 年，從發明家的後院走進各國電網的核心。這一頁用 12 個章節，搭配本站的全球資料集與台灣即時資料，帶你看懂風電的歷史、技術、各國發展，以及台灣的位置。每一章都能直接跳到 3D 地球儀，在地圖上重播那段歷史。</p>
+     <p class="lead" data-l="en">From a 12 kW experimental machine in Cleveland in 1888 to about 1,287 GW installed worldwide by the end of 2025, wind power moved from inventors' backyards into the core of national grids in under 140 years. These twelve chapters, backed by this site's global dataset and Taiwan's live data, explain its history, its technology, the countries that built it — and where Taiwan stands. Every chapter links to the 3D globe so you can replay that part of the story on the map.</p>
+     <div class="facts" id="ln-facts"></div>
+   </header>
+
+   <!-- 01 -->
+   <section class="chapter" id="ch-glance" data-ch="glance">
+     <div class="ch-eyebrow">01 · 1980 – 2025</div>
+     <h2><span data-l="zh">全球一覽：指數成長的 45 年</span><span data-l="en">At a glance: 45 years of exponential growth</span></h2>
+     <div class="prose">
+       <p data-l="zh">全球風電累計裝置容量在 2023 年首度突破 1 太瓦（TW，即 1,000 GW），2025 年底約 <b>1,287 GW</b>。成長曲線是典型的指數型：全球在 1985 年跨過 1 GW、1999 年跨過 10 GW、2008 年跨過 100 GW，之後每幾年就再長一大截。2025 年單年新增約 <b>157 GW</b>，是有紀錄以來最多的一年。</p>
+       <p data-l="en">Cumulative wind capacity passed 1 terawatt (TW, i.e. 1,000 GW) for the first time in 2023 and reached about <b>1,287 GW</b> by the end of 2025. The curve is classically exponential: the world crossed 1 GW in 1985, 10 GW in 1999 and 100 GW in 2008, and has grown by huge steps every few years since. About <b>157 GW</b> was added in 2025 alone — the largest annual addition on record.</p>
+       <p data-l="zh">絕大多數容量仍在陸地上；離岸風電只佔約 <b>7%</b>（約 92 GW），卻是近十年技術變化最大、成長最受矚目的領域。下圖是本站資料集中 79 個國家的年底累計值加總——把滑鼠移到圖上（或用方向鍵）可看每一年的數字，也可以切換成表格。</p>
+       <p data-l="en">Most capacity is still on land. Offshore wind is only about <b>7%</b> of the total (roughly 92 GW), yet it has been the most technologically dynamic part of the industry over the past decade. The chart sums year-end capacity for the 79 countries in this site's dataset — hover (or use the arrow keys) for each year's values, or switch to the table view.</p>
+     </div>
+     <div data-chart="world"></div>
+     <div data-chart="adds"></div>
+     <div class="callout"><span data-l="zh"><b>容量不等於發電量。</b>裝置容量（MW、GW）是風機「最多能發多少電」；實際發電量（度、kWh）還要看風。風場一年平均大約能發出裝置容量 25–50% 的電（容量因數），離岸通常比陸域高。</span><span data-l="en"><b>Capacity is not generation.</b> Installed capacity (MW, GW) is the most a turbine can produce; the energy actually generated (kWh) depends on the wind. Over a year a wind farm typically delivers 25–50% of its capacity (the capacity factor), offshore usually at the higher end.</span></div>
+     <a class="btn hist golink" href="#/global?y=1980&amp;play=1"><span data-l="zh">在 3D 地球儀上從 1980 年播放</span><span data-l="en">Play it on the 3D globe from 1980</span> <span class="arr">→</span></a>
+   </section>
+
+   <!-- 02 -->
+   <section class="chapter" id="ch-origins" data-ch="origins">
+     <div class="ch-eyebrow">02 · 1888 – 1979</div>
+     <h2><span data-l="zh">起源：從發明家的後院到石油危機</span><span data-l="en">Origins: from an inventor's backyard to the oil crises</span></h2>
+     <div class="prose">
+       <p data-l="zh">用風發電的想法，幾乎和電力工業一樣早。1888 年，美國發明家 Charles Brush 在克里夫蘭自家後院蓋了一座葉輪直徑 17 公尺、144 片木製葉片的風機，以 12 kW 的發電機替地下室的蓄電池充電，一般認為是第一部自動運轉的發電用風機。1890 年代，丹麥的 Poul la Cour 在阿斯科夫（Askov）用風洞實驗證明：葉片少、轉得快的風機，發電效率遠比葉片多、轉得慢的好。</p>
+       <p data-l="en">The idea of making electricity from wind is almost as old as the power industry. In 1888 the American inventor Charles Brush built a 17-metre, 144-blade wooden rotor behind his house in Cleveland; its 12 kW dynamo charged the batteries in his basement, and it is generally regarded as the first automatically operated wind turbine for electricity. In the 1890s the Dane Poul la Cour used wind-tunnel experiments at Askov to show that fast-spinning rotors with few blades generate electricity far more efficiently than slow ones with many.</p>
+       <p data-l="zh">接下來半個世紀出現幾部重要的大型試驗機：1931 年蘇聯在克里米亞雅爾達附近的 Balaklava 建造 100 kW 的 D-30，並接上當地電網；1941 年美國佛蒙特州 Grandpa's Knob 的 Smith–Putnam 風機達到 1.25 MW，是第一部百萬瓦級風機，可惜 1945 年葉片斷裂後停止運轉。1957 年，丹麥工程師 Johannes Juul 的 Gedser 風機（200 kW）結合「三葉片、迎風、失速控制」，成為日後「丹麥式風機」的原型。</p>
+       <p data-l="en">Several large experimental machines followed. In 1931 the Soviet 100 kW D-30 at Balaklava near Yalta fed a local grid; in 1941 the Smith–Putnam turbine on Grandpa's Knob, Vermont, reached 1.25 MW — the first megawatt-class machine — until a blade failed in 1945. In 1957 Johannes Juul's 200 kW Gedser turbine in Denmark combined three blades, an upwind rotor and stall control: the template for the later "Danish concept".</p>
+       <p data-l="zh">1973 與 1979 年兩次石油危機，讓各國重新重視風能。美國航太總署（NASA）與能源部推出 MOD 系列大型試驗機（1975 年的 MOD-0、1979 年的 2 MW MOD-1），德國也在 1983 年建造葉輪直徑 100 公尺的 3 MW 巨型機 Growian。這些由政府主導、一步到位的大型機大多問題不斷、很快退場；反而是丹麥的農機廠商從幾十 kW 的小風機一步步放大，靠實際運轉經驗累積可靠度——這條「由小做大」的路線，最後贏得了市場。1978 年由學校師生志工自建的丹麥 Tvind 風機（2 MW）至今仍在運轉。</p>
+       <p data-l="en">The oil crises of 1973 and 1979 revived interest everywhere. NASA and the US Department of Energy built the MOD series of large test machines (the MOD-0 in 1975, the 2 MW MOD-1 in 1979), and Germany built Growian, a 3 MW giant with a 100-metre rotor, in 1983. Most of these state-led, leap-to-the-top prototypes struggled and were soon retired. Instead, Danish agricultural-machinery makers scaled up step by step from turbines of a few dozen kilowatts, building reliability through field experience — and that bottom-up path won the market. The 2 MW Tvind turbine, built by teachers and students in 1978, still turns today.</p>
+     </div>
+     <div class="mslist" data-ms="1800-1979"></div>
+     <a class="btn hist golink" href="#/global?tour=1"><span data-l="zh">跟著導覽走一遍全部里程碑</span><span data-l="en">Take the guided tour of all milestones</span> <span class="arr">→</span></a>
+   </section>
+
+   <!-- 03 -->
+   <section class="chapter" id="ch-takeoff" data-ch="takeoff">
+     <div class="ch-eyebrow">03 · 1980 – 1999</div>
+     <h2><span data-l="zh">起飛：加州風潮與丹麥設計</span><span data-l="en">Take-off: the California wind rush and the Danish design</span></h2>
+     <div class="prose">
+       <p data-l="zh">1980 年，美國新罕布夏州的 Crotched Mountain 立起 20 部 30 kW 風機，常被視為世界第一座風場。真正的爆發在加州：聯邦與州政府的租稅優惠，讓 Altamont Pass、Tehachapi、San Gorgonio 等山口在幾年內插滿數千部小型風機，史稱「加州風潮」（California wind rush）。1985 年全球風電首度超過 1 GW，其中九成以上在美國、主要在加州。</p>
+       <p data-l="en">In 1980 twenty 30 kW turbines went up on Crotched Mountain in New Hampshire, often called the world's first wind farm. The real boom came in California: federal and state tax incentives filled mountain passes such as Altamont, Tehachapi and San Gorgonio with thousands of small turbines within a few years — the "California wind rush". In 1985 world wind capacity passed 1 GW for the first time, more than 90% of it in the United States, mostly in California.</p>
+       <p data-l="zh">加州風場裡有大量進口的丹麥風機——Vestas、Bonus、Nordtank、Micon 等廠商靠「丹麥式」設計的耐用度，在這裡建立出口事業。1980 年代中期優惠陸續到期後，美國市場急凍、許多廠商倒閉，全球風電的重心轉回歐洲。</p>
+       <p data-l="en">Many of those Californian machines were imported from Denmark: Vestas, Bonus, Nordtank, Micon and others built an export business on the durability of the "Danish concept". When the incentives expired in the mid-1980s the US market collapsed, many manufacturers went bankrupt, and the centre of gravity moved back to Europe.</p>
+       <p data-l="zh">1990 年代由歐洲的政策接手：德國 1991 年通過《電力饋網法》（Stromeinspeisungsgesetz），保證風電以固定價格售電；丹麥、西班牙也推出各自的收購制度。單機容量在這十年從幾百 kW 走到百萬瓦級（1995 年 Enercon E-66 1.5 MW、1997 年 Vestas V66 1.65 MW）。依本站資料，德國在 1997 年超越美國成為全球累計容量第一；1999 年全球風電跨過 10 GW。</p>
+       <p data-l="en">In the 1990s European policy took over. Germany's 1991 Electricity Feed-in Act (Stromeinspeisungsgesetz) guaranteed wind power a fixed price, and Denmark and Spain introduced their own purchase schemes. Turbines grew from a few hundred kilowatts to the megawatt class during the decade (Enercon's E-66 at 1.5 MW in 1995, Vestas' V66 at 1.65 MW in 1997). In this site's data Germany overtook the US as the largest wind country in 1997, and the world passed 10 GW in 1999.</p>
+       <p data-l="zh">同一時期，印度 1986 年在坦米爾納德邦的 Muppandal 展開第一期風場；中國 1990 年代在新疆達坂城發展風電（今日金風科技的源頭）；1991 年，丹麥 Vindeby 立起世界第一座離岸風場。這些「第一次」，在接下來的二十年都長成了巨大的產業。</p>
+       <p data-l="en">Meanwhile India opened the first phase of Muppandal in Tamil Nadu in 1986, China began developing wind at Dabancheng in Xinjiang in the 1990s (the roots of today's Goldwind), and in 1991 Denmark's Vindeby became the world's first offshore wind farm. Each of these "firsts" grew into a huge industry over the next two decades.</p>
+     </div>
+     <div class="mslist" data-ms="1980-1999"></div>
+     <a class="btn hist golink" href="#/global?y=1981&amp;r=USA&amp;play=1"><span data-l="zh">從 1981 年加州開始播放</span><span data-l="en">Play from California, 1981</span> <span class="arr">→</span></a>
+   </section>
+
+   <!-- 04 -->
+   <section class="chapter" id="ch-scaleup" data-ch="scaleup">
+     <div class="ch-eyebrow">04 · 2000 – 2010</div>
+     <h2><span data-l="zh">擴張：政策推動的規模化</span><span data-l="en">Scale-up: policy-driven growth</span></h2>
+     <div class="prose">
+       <p data-l="zh">2000 年，德國以《再生能源法》（EEG）取代舊法，以 20 年保證收購價格與優先併網吸引大量投資；德國在 1997–2007 年間一直是全球風電第一大國。西班牙在這十年成長將近十倍。美國則在聯邦「生產稅額抵減」（PTC）時有時無的延長之間，走出一段段繁榮與停頓，並在 2008 年重回全球第一。</p>
+       <p data-l="en">In 2000 Germany replaced its old law with the Renewable Energy Sources Act (EEG), which guaranteed purchase prices for 20 years and priority grid access and drew in a wave of investment; Germany had the world's largest wind fleet from 1997 to 2007. Spain grew almost tenfold during the decade. The United States went through boom-and-bust cycles as the federal Production Tax Credit (PTC) lapsed and was renewed, and regained first place in 2008.</p>
+       <p data-l="zh">中國在 2005 年通過《可再生能源法》（2006 年施行），並規劃大型風電基地，裝置容量從 2005 年的約 1 GW 衝到 2010 年的近 30 GW；2009 年啟動的甘肅酒泉風電基地，規劃規模達千萬瓩（10 GW）等級。</p>
+       <p data-l="en">China passed its Renewable Energy Law in 2005 (in force from 2006) and planned giant wind bases; its capacity rose from about 1 GW in 2005 to nearly 30 GW in 2010. The Jiuquan wind base in Gansu, launched in 2009, was planned at the 10 GW scale.</p>
+       <p data-l="zh">風機也越做越大：2007 年 Enercon E-126 單機達 7.58 MW、葉輪直徑 127 公尺。全球風電在 2008 年突破 100 GW，2010 年接近 181 GW；本資料集中有風電的國家，從 2000 年的 43 國增加到 2010 年的 65 國。</p>
+       <p data-l="en">Turbines kept growing: in 2007 Enercon's E-126 reached 7.58 MW with a 127-metre rotor. World capacity passed 100 GW in 2008 and approached 181 GW in 2010, and the number of countries with wind power in this dataset rose from 43 in 2000 to 65 in 2010.</p>
+     </div>
+     <div class="mslist" data-ms="2000-2010"></div>
+     <a class="btn hist golink" href="#/global?y=2000&amp;r=C%3AEurope&amp;play=1"><span data-l="zh">看歐洲 2000 年後的擴張</span><span data-l="en">Watch Europe's expansion after 2000</span> <span class="arr">→</span></a>
+   </section>
+
+   <!-- 05 -->
+   <section class="chapter" id="ch-asia" data-ch="asia">
+     <div class="ch-eyebrow">05 · 2010 – 2025</div>
+     <h2><span data-l="zh">亞洲世紀：風電重心東移</span><span data-l="en">Asia's century: the centre of gravity moves east</span></h2>
+     <div class="prose">
+       <p data-l="zh">2010 年之後，風電的重心明顯東移。依本站採用的 IRENA 併網口徑，中國在 2011 年超越美國成為全球第一（若依 GWEC 的吊裝口徑，則是 2010 年），之後差距越拉越大；2025 年中國累計約 <b>641 GW</b>，接近全球的一半。</p>
+       <p data-l="en">After 2010 the centre of gravity moved decisively east. On the grid-connected IRENA basis used here, China overtook the United States in 2011 (on GWEC's installed basis, in 2010) and has pulled further ahead every year since; by 2025 China had about <b>641 GW</b>, close to half of the world total.</p>
+       <p data-l="zh">以洲別來看，2000 年歐洲佔全球風電約 75%、亞洲只有 8%；亞洲在 2015 年超越歐洲，2025 年已佔 57%，歐洲降到 22%、北美約 14%。印度（約 55 GW，全球第 4）與巴西（約 35 GW，第 5）也躋身前五大，拉丁美洲、非洲與中東的新興市場逐年擴大。</p>
+       <p data-l="en">By continent, Europe held about 75% of the world's wind capacity in 2000 and Asia just 8%. Asia overtook Europe in 2015 and reached 57% in 2025, with Europe down to 22% and North America at about 14%. India (about 55 GW, fourth) and Brazil (about 35 GW, fifth) joined the top five, and emerging markets in Latin America, Africa and the Middle East keep growing.</p>
+       <p data-l="zh">2023 年全球累計風電首度超過 1 TW；2025 年單年新增約 157 GW，創歷史新高。2015 到 2025 年間，全球風電容量成長約 3.1 倍；前五大國家（中、美、德、印、巴）合計約佔全球 75%。</p>
+       <p data-l="en">Global capacity passed 1 TW in 2023, and about 157 GW was added in 2025, a record. Between 2015 and 2025 the world's wind capacity grew about 3.1-fold, and the top five countries (China, the US, Germany, India and Brazil) together hold about 75% of it.</p>
+     </div>
+     <div data-chart="regions"></div>
+     <div data-chart="top15"></div>
+     <div class="callout"><span data-l="zh">各國數字會因資料來源與口徑（吊裝、併網、完工）而不同。本站的國際比較統一採用 IRENA 年底累計值，並把陸域與離岸分開；詳見第 12 章「資料來源與方法」。</span><span data-l="en">Country figures differ by source and definition (installed, grid-connected, fully commissioned). International comparisons on this site use IRENA year-end totals split into onshore and offshore; see chapter 12, "Sources &amp; method".</span></div>
+     <a class="btn hist golink" href="#/global?v=bars&amp;y=2000&amp;play=1"><span data-l="zh">看各國排名長條賽跑</span><span data-l="en">Watch the country bar race</span> <span class="arr">→</span></a>
+   </section>
+
+   <!-- 06 -->
+   <section class="chapter" id="ch-offshore" data-ch="offshore">
+     <div class="ch-eyebrow">06 · 1991 – 2025</div>
+     <h2><span data-l="zh">走向大海：離岸風電</span><span data-l="en">Going offshore</span></h2>
+     <div class="prose">
+       <p data-l="zh">海上的風比陸地更強、更穩定，沒有山丘與建築阻擋；風機可以做得更大（不受道路運輸限制），又遠離住家。代價是基礎、海纜、施工船隊與維運都更昂貴，還得面對鹽霧、颱風與海浪等嚴苛環境。</p>
+       <p data-l="en">Winds at sea are stronger and steadier than on land, with no hills or buildings in the way; turbines can be bigger (no road-transport limits) and sit far from homes. The price is costlier foundations, cables, installation vessels and maintenance, in a harsh environment of salt spray, storms and waves.</p>
+       <p data-l="zh">世界第一座離岸風場是 1991 年丹麥的 Vindeby：11 部 450 kW 風機、合計 4.95 MW，運轉超過 25 年才除役。2000 年哥本哈根外海的 Middelgrunden（20 部 2 MW）有一半由市民合作社持有；2002 年的 Horns Rev 1（80 部 2 MW、160 MW）則是第一座大型離岸風場，證明離岸風電可以規模化。</p>
+       <p data-l="en">The world's first offshore wind farm was Denmark's Vindeby in 1991: eleven 450 kW turbines, 4.95 MW in total, which ran for more than 25 years before decommissioning. Middelgrunden off Copenhagen (twenty 2 MW turbines, 2000) was half owned by a citizens' cooperative, and Horns Rev 1 (eighty 2 MW turbines, 160 MW) in 2002 was the first large-scale offshore farm, proving that offshore wind could scale.</p>
+       <p data-l="zh">英國在 2008–2020 年間是全球離岸風電第一大國，靠差價合約（CfD）競標與大型開發區塊，陸續建成 London Array（630 MW，2013）、Hornsea 2（1.32 GW，2022）等巨型風場；2025 年英國約一半的風電容量在海上。2018 年荷蘭 Hollandse Kust Zuid 標案出現「零補貼」得標，象徵離岸風電成本大幅下降。2021 年起，中國成為離岸風電第一大國，2025 年約 48 GW，佔全球離岸容量一半以上。</p>
+       <p data-l="en">The United Kingdom led offshore wind from 2008 to 2020; Contracts for Difference (CfD) auctions and large leasing rounds delivered giants such as London Array (630 MW, 2013) and Hornsea 2 (1.32 GW, 2022), and by 2025 about half of the UK's wind capacity was at sea. In 2018 the Dutch Hollandse Kust Zuid tender was won with zero subsidy, a sign of how far costs had fallen. Since 2021 China has been the largest offshore market, with about 48 GW in 2025 — more than half of the world's offshore capacity.</p>
+       <p data-l="zh">台灣海峽有強勁穩定的東北季風與相對淺的水深，是世界級的離岸風場址。依本站資料，台灣 2025 年底離岸風電約 3.6 GW，名列全球第 5，也是中國以外亞洲最大的離岸市場（見第 9 章）。</p>
+       <p data-l="en">The Taiwan Strait combines a strong, steady winter monsoon with relatively shallow water, making it a world-class offshore site. In this site's data Taiwan had about 3.6 GW offshore at the end of 2025 — fifth in the world and the largest offshore market in Asia outside China (see chapter 9).</p>
+       <h3><span data-l="zh">風機怎麼「站」在海上？</span><span data-l="en">How do turbines stand in the sea?</span></h3>
+       <p data-l="zh">水深約 50–60 公尺以內多用固定式基礎：<b>單樁</b>（monopile，把一根巨大鋼管打入海床）最常見；<b>套管式</b>（jacket，三或四支腳的鋼構架）適合較深或地質較複雜的海域，台灣許多風場就採用套管式；此外還有重力式基礎。更深的海域則要改用浮動式平台（下一章）。</p>
+       <p data-l="en">Up to roughly 50–60 m of water, turbines sit on fixed foundations: the <b>monopile</b> (one huge steel tube driven into the seabed) is the most common; the <b>jacket</b> (a three- or four-legged steel lattice) suits deeper water or harder ground and is used by many Taiwanese farms; gravity-based foundations also exist. Deeper still, turbines need floating platforms (next chapter).</p>
+     </div>
+     <div data-chart="offtop"></div>
+     <div class="mslist" data-ms="offshore"></div>
+     <a class="btn hist golink" href="#/global?layer=off&amp;y=2000&amp;r=C%3AEurope&amp;play=1"><span data-l="zh">只看離岸：從 2000 年的北海播放</span><span data-l="en">Offshore only: play the North Sea from 2000</span> <span class="arr">→</span></a>
+   </section>
+
+   <!-- 07 -->
+   <section class="chapter" id="ch-floating" data-ch="floating">
+     <div class="ch-eyebrow">07 · 2009 – 2025</div>
+     <h2><span data-l="zh">漂浮的未來：浮動式風電</span><span data-l="en">A floating future</span></h2>
+     <div class="prose">
+       <p data-l="zh">水深超過約 50–60 公尺，固定式基礎的成本會急遽上升。浮動式風電把風機裝在漂浮平台上，再以繫泊纜繩與錨固定在海床，讓風場可以走向更深、風況更好的海域——全球大多數的離岸風能資源都位於深水區。</p>
+       <p data-l="en">Beyond roughly 50–60 m of water, fixed foundations quickly become too expensive. Floating wind mounts the turbine on a buoyant platform held by mooring lines and anchors, opening up deeper, windier waters — where most of the world's offshore wind resource lies.</p>
+       <p data-l="zh">挪威 Equinor 在 2009 年於 Karmøy 外海放下第一部大型浮動式試驗機 Hywind Demo（2.3 MW，柱式浮台）；2017 年的 Hywind Scotland（5 部 6 MW、30 MW）是世界第一座浮動式風場。之後有葡萄牙 WindFloat Atlantic（25 MW，2020，半潛式）、英國 Kincardine（約 50 MW，2021），以及 2023 年替北海油氣平台供電的挪威 Hywind Tampen（88 MW）。</p>
+       <p data-l="en">Norway's Equinor launched the first large floating test turbine, Hywind Demo (2.3 MW on a spar buoy), off Karmøy in 2009; Hywind Scotland (five 6 MW turbines, 30 MW) became the world's first floating wind farm in 2017. WindFloat Atlantic in Portugal (25 MW, semi-submersible, 2020), Kincardine in the UK (about 50 MW, 2021) and Norway's Hywind Tampen (88 MW, 2023), which powers North Sea oil and gas platforms, followed.</p>
+       <p data-l="zh">浮台主要有三種：<b>柱式</b>（spar，細長如浮標、吃水很深）、<b>半潛式</b>（semi-submersible，三到四個浮筒）、<b>張力腿式</b>（TLP，以繃緊的纜繩往下拉住）。本資料集收錄的浮動式專案有 20 個，多半仍是示範或小型商業規模；成本還在下降中，被視為下一個十年的關鍵技術。台灣海峽的淺水場址有限，政府與業界也已開始評估更深海域的浮動式技術，作為下一階段的選項。</p>
+       <p data-l="en">There are three main platform types: the <b>spar</b> (a long, deep-draught buoy), the <b>semi-submersible</b> (three or four columns) and the <b>tension-leg platform</b> (TLP, pulled down by taut tethers). The 20 floating projects in this dataset are still mostly demonstrators or small commercial arrays; costs are falling and floating wind is widely seen as a key technology for the next decade. With shallow sites in the Taiwan Strait limited, Taiwan's government and industry have also begun assessing floating technology for deeper waters as an option for later phases.</p>
+     </div>
+     <div class="mslist" data-ms="floating"></div>
+     <a class="btn hist golink" href="#/global?ms=Hywind%20Scotland"><span data-l="zh">飛到 Hywind Scotland</span><span data-l="en">Fly to Hywind Scotland</span> <span class="arr">→</span></a>
+   </section>
+
+   <!-- 08 -->
+   <section class="chapter" id="ch-bigger" data-ch="bigger">
+     <div class="ch-eyebrow">08 · 1888 – 2025</div>
+     <h2><span data-l="zh">風機巨型化：為什麼越做越大？</span><span data-l="en">Ever-larger turbines: why bigger?</span></h2>
+     <div class="prose">
+       <p data-l="zh">背後是簡單的物理：風機能擷取的功率與葉輪掃風面積成正比（也就是直徑的平方），並與風速的三次方成正比；而越高的地方風越強、越穩。葉片加長一倍，掃風面積就變成四倍；塔架拉高，風速也跟著提高。</p>
+       <p data-l="en">The physics is simple: the power a turbine can capture scales with the area its rotor sweeps (the square of the diameter) and with the cube of the wind speed — and wind is stronger and steadier higher up. Double the blade length and the swept area quadruples; raise the tower and the wind speed rises too.</p>
+       <p data-l="zh">1980 年代加州的風機多只有幾十 kW、葉輪十幾公尺；2002 年 Horns Rev 用的是 2 MW、80 公尺；2019 年台灣海洋風場用 6 MW、154 公尺；2023 年 Vestas V236 原型機達 15 MW、236 公尺。2025 年中國東方電氣的 26 MW 離岸風機，葉輪直徑約 310 公尺——將近三個足球場長。</p>
+       <p data-l="en">Californian turbines of the 1980s were mostly a few dozen kilowatts with rotors of ten-odd metres; Horns Rev used 2 MW, 80 m machines in 2002; Taiwan's Formosa 1 used 6 MW, 154 m turbines in 2019; the Vestas V236 prototype reached 15 MW and 236 m in 2023. In 2025 Dongfang Electric's 26 MW offshore turbine in China has a rotor about 310 m across — nearly three football pitches.</p>
+       <p data-l="zh">更大的風機代表同樣容量需要更少的基礎、海纜與吊裝次數，能明顯降低每度電成本；但也帶來葉片運輸、吊裝船隊、材料與可靠度的新挑戰。台灣的離岸風場正是這個趨勢的縮影：從 2017 年的 4 MW 示範機，到 8 MW、9.5 MW，再到海龍與大彰化西北使用的 14 MW 機組。</p>
+       <p data-l="en">Bigger turbines mean fewer foundations, cables and lifts for the same capacity, which cuts the cost per kWh — but they also bring new challenges in blade transport, installation vessels, materials and reliability. Taiwan's offshore farms mirror the trend: from 4 MW demonstrators in 2017 to 8 MW and 9.5 MW machines, and 14 MW units at Hai Long and Greater Changhua 2b&amp;4.</p>
+     </div>
+     <div data-chart="rotor"></div>
+     <div data-chart="scale"></div>
+   </section>
+
+   <!-- 09 -->
+   <section class="chapter" id="ch-taiwan" data-ch="taiwan">
+     <div class="ch-eyebrow live">09 · 2000 – 2026</div>
+     <h2><span data-l="zh">台灣之路：從麥寮到台灣海峽</span><span data-l="en">Taiwan's path: from Mailiao to the Strait</span></h2>
+     <div class="prose">
+       <p data-l="zh">台灣的風電始於 2000 年：台塑重工在雲林麥寮設置 4 部 660 kW 風機，是台灣第一批商業運轉的風力機組。之後台電與民間業者（如英華威，今達德能源）沿西部海岸陸續設置陸域風場；2015 年台灣陸域風電約 0.65 GW，此後新增有限，2025 年約 0.95 GW——土地、鄰避與景觀議題，讓陸域風場越來越難找地。</p>
+       <p data-l="en">Taiwan's wind story began in 2000, when Formosa Heavy Industries installed four 660 kW turbines at Mailiao, Yunlin — the island's first commercial wind turbines. Taipower and private developers (such as InfraVest, today wpd Taiwan) then built onshore farms along the west coast. Onshore capacity reached about 0.65 GW in 2015 and has grown slowly since, to about 0.95 GW in 2025: land, local opposition and landscape concerns make new onshore sites hard to find.</p>
+       <p data-l="zh">真正的轉折是離岸風電。經濟部 2012 年推出「千架海陸風力機」計畫，採「先示範、次潛力、後區塊」三階段推動：2017 年海洋風場的 2 部 4 MW 示範機併網，是台灣第一次有離岸風電；2019 年海洋風場 128 MW 完工，成為第一座商轉的離岸風場。2018 年的潛力場址遴選與競價，引進沃旭、哥本哈根基礎建設基金（CIP）、達德、海龍等國際開發商與近兆元投資，也帶動水下基礎、塔架、海纜等國產化供應鏈。</p>
+       <p data-l="en">Offshore wind was the real turning point. In 2012 the Ministry of Economic Affairs launched its "Thousand Wind Turbines" programme with a three-phase approach — demonstration, then potential zones, then zonal development. Formosa 1's two 4 MW demonstration turbines connected in 2017, Taiwan's first offshore wind power, and the 128 MW Formosa 1 was completed in 2019 as the first commercial offshore farm. The 2018 allocation and auction of potential zones brought in international developers such as Ørsted, Copenhagen Infrastructure Partners (CIP), wpd and Hai Long, close to NT$1 trillion of investment, and a local supply chain for foundations, towers and cables.</p>
+       <p data-l="zh">依本站資料，台灣離岸風電 2025 年底約 <b>3.6 GW</b>（含部分併網中的風場），名列全球第 5、約佔全球離岸容量的 3.9%，也是中國以外亞洲最大的離岸市場。你可以在「台灣即時」看到每一座風場此刻的出力，也能在 3D 地球儀上看台灣的風場一座座出現。</p>
+       <p data-l="en">In this site's data Taiwan had about <b>3.6 GW</b> offshore at the end of 2025 (including farms still being connected) — fifth in the world, about 3.9% of global offshore capacity, and the largest offshore market in Asia outside China. The Taiwan live section shows what each farm is producing right now, and the 3D globe shows Taiwan's farms appearing one by one.</p>
+     </div>
+     <div data-chart="taiwan"></div>
+     <div class="callout warn"><span data-l="zh"><b>口徑提醒：</b>本站全球資料對歐洲各國採「全數完工風場」（WFO）口徑，台灣與中國則含部分併網中的容量；經濟部能源署公布的是「累計安裝／併網」容量。同一時間點，不同來源的台灣離岸數字可能相差 1 GW 以上，引用時請註明口徑。</span><span data-l="en"><b>Definitions matter:</b> for European countries this site's global data counts fully commissioned farms (WFO basis), while Taiwan and China include capacity that is still being connected; Taiwan's Energy Administration publishes cumulative installed / grid-connected capacity. At the same moment, Taiwan's offshore figure can differ by more than 1 GW between sources — always say which basis you quote.</span></div>
+     <div class="twocol">
+       <div class="card policy">
+         <h3 class="h3"><span data-l="zh">🇹🇼 台灣離岸風電進度</span><span data-l="en">🇹🇼 Taiwan offshore wind progress</span></h3>
+         <p class="note" style="margin-top:6px" data-l="zh">截至 2026/05：累計安裝 <b>4.74 GW</b> · 併網發電 <b>4.25 GW</b> · 已完成 8 座離岸風場。台灣 2025 年新增裝置容量全球第三、累計裝置容量全球第五。</p>
+         <p class="note" style="margin-top:6px" data-l="en">As of May 2026: <b>4.74 GW</b> installed · <b>4.25 GW</b> grid-connected · 8 offshore farms completed. #3 worldwide in new offshore capacity added in 2025, #5 in cumulative capacity.</p>
+         <div class="pgoal"><div class="pr"><span><span data-l="zh">近程目標 · 2026 年（5.3 GW）</span><span data-l="en">Near-term goal · 2026 (5.3 GW)</span></span><b><span data-l="zh">已達約 89%</span><span data-l="en">~89% reached</span></b></div><div class="track"><i style="width:89%"></i></div></div>
+         <div class="pgoal"><div class="pr"><span><span data-l="zh">長程目標 · 2035 年（18.4 GW）</span><span data-l="en">Long-term goal · 2035 (18.4 GW)</span></span><b><span data-l="zh">已達約 26%</span><span data-l="en">~26% reached</span></b></div><div class="track"><i style="width:26%"></i></div></div>
+         <p class="note" style="margin-top:12px"><span data-l="zh">資料來源：經濟部能源署「離岸風電三階段政策」（先示範、次潛力、後區塊）。</span><span data-l="en">Source: MOEA Energy Administration, three-phase offshore wind policy.</span> <a href="https://ea01.moeaea.gov.tw/d0107/Windpolicy" target="_blank" rel="noopener"><span data-l="zh">官方頁面 ↗</span><span data-l="en">Official page ↗</span></a></p>
+       </div>
+       <div class="card">
+         <h3 class="h3"><span data-l="zh">台灣風電大事記</span><span data-l="en">Taiwan wind timeline</span></h3>
+         <div class="tl" style="margin-top:12px">
+           <div class="tlitem done"><div class="d">2000</div><div class="t"><span data-l="zh">台塑重工麥寮 4 部 660 kW，台灣第一批商轉風機</span><span data-l="en">Formosa Heavy Industries' four 660 kW turbines at Mailiao — Taiwan's first commercial wind turbines</span></div></div>
+           <div class="tlitem done"><div class="d">2012</div><div class="t"><span data-l="zh">經濟部推出「千架海陸風力機」計畫</span><span data-l="en">MOEA launches the "Thousand Wind Turbines" programme</span></div></div>
+           <div class="tlitem done"><div class="d">2017/04</div><div class="t"><span data-l="zh">海洋竹南示範機組（2 × 4 MW）商轉，台灣離岸風電起步</span><span data-l="en">Formosa 1's two 4 MW demonstration turbines enter service — Taiwan's first offshore wind power</span></div></div>
+           <div class="tlitem done"><div class="d">2019/12</div><div class="t"><span data-l="zh">海洋風場 Formosa 1（128 MW）全數商轉，首座商業規模離岸風場</span><span data-l="en">Formosa 1 (128 MW) fully operational — the first commercial-scale offshore farm</span></div></div>
+           <div class="tlitem done"><div class="d">2021/08</div><div class="t"><span data-l="zh">台電離岸一期 21 部機組完成初始併聯（109.2 MW）</span><span data-l="en">Taipower Offshore Phase 1: all 21 turbines connected (109.2 MW)</span></div></div>
+           <div class="tlitem done"><div class="d">2023/09</div><div class="t"><span data-l="zh">海能風場 Formosa 2（376 MW）47 部機組全數商轉</span><span data-l="en">Formosa 2 (376 MW): all 47 turbines in commercial operation</span></div></div>
+           <div class="tlitem done"><div class="d">2024/04</div><div class="t"><span data-l="zh">大彰化東南及西南第一階段 900 MW 完工併聯，啟用時為亞太最大運轉中離岸風場</span><span data-l="en">Greater Changhua 1 &amp; 2a (900 MW) completed — Asia-Pacific's largest operating offshore farm at the time</span></div></div>
+           <div class="tlitem done"><div class="d">2025/08</div><div class="t"><span data-l="zh">允能雲林離岸風場 640 MW 全數商轉</span><span data-l="en">Yunlin (640 MW) fully operational</span></div></div>
+           <div class="tlitem"><div class="d">2026–2027</div><div class="t"><span data-l="zh">大彰化 2b&amp;4、海龍、台電離岸二期陸續完工（進度見即時儀表各風場歷程）</span><span data-l="en">Greater Changhua 2b&amp;4, Hai Long and Taipower Offshore Phase 2 being completed (see each farm's timeline in the live dashboard)</span></div></div>
+         </div>
+       </div>
+     </div>
+     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+       <a class="btn hist golink" href="#/global?r=TWN&amp;y=2000&amp;play=1"><span data-l="zh">在地球儀上看台灣 2000→2025</span><span data-l="en">Watch Taiwan 2000→2025 on the globe</span> <span class="arr">→</span></a>
+       <a class="btn primary golink" href="#/live"><span data-l="zh">看台灣此刻的風電</span><span data-l="en">See Taiwan's wind right now</span> <span class="arr">→</span></a>
+     </div>
+   </section>
+
+   <!-- 10 -->
+   <section class="chapter" id="ch-why" data-ch="why">
+     <div class="ch-eyebrow live">10</div>
+     <h2><span data-l="zh">為什麼台灣需要風電？用數據破除迷思</span><span data-l="en">Why Taiwan needs wind — and the myths, busted with data</span></h2>
+     <div class="prose">
+       <p data-l="zh">台灣約 <b>96%</b> 的能源仰賴進口，自產只有約 4.2%（2024，經濟部能源署）。風是台灣少數能「自己生產」的能源——發展風電可以提升能源自主、減少對進口燃料價格波動的曝險，同時減碳、帶動國產化供應鏈與就業。</p>
+       <p data-l="en">Taiwan imports about <b>96%</b> of its energy; only about 4.2% is home-produced (2024, MOEA Energy Administration). Wind is one of the few energy sources Taiwan can make itself — developing it boosts energy self-sufficiency, cuts exposure to imported-fuel price swings, reduces carbon and builds a local supply chain and jobs.</p>
+     </div>
+     <div class="facts">
+       <div class="stat"><div class="k"><span data-l="zh">能源進口依存度（2024）</span><span data-l="en">Energy import dependence (2024)</span></div><div class="v">95.8<small>%</small></div></div>
+       <div class="stat"><div class="k"><span data-l="zh">自產能源占比</span><span data-l="en">Home-produced share</span></div><div class="v">4.2<small>%</small></div></div>
+       <div class="stat"><div class="k"><span data-l="zh">風力占總能源供給</span><span data-l="en">Wind's share of total energy supply</span></div><div class="v">0.8<small>%</small></div></div>
+     </div>
+     <h3 class="h3"><span data-l="zh">❌「沒風就沒電」</span><span data-l="en">❌ “No wind means no power”</span></h3>
+     <div data-chart="season"></div>
+     <div class="prose"><p data-l="zh">台灣冬季東北季風最強，離岸風電正好在<b>冬天</b>發最多；太陽能則在<b>夏天</b>最強。兩者季節互補，加上台電以多元電源與儲能即時調度，並不是「靠單一來源」。</p><p data-l="en">Taiwan's monsoon is strongest in <b>winter</b> — exactly when offshore wind peaks — while solar peaks in <b>summer</b>. The two complement each other, and Taipower balances a diverse mix plus storage in real time; the grid never relies on a single source.</p></div>
+     <h3 class="h3"><span data-l="zh">❌「風電很貴」</span><span data-l="en">❌ “Wind power is expensive”</span></h3>
+     <div data-chart="cost"></div>
+     <div class="prose"><p data-l="zh">從示範／遴選階段約 5.8 元/度，到 2018 年競價的 2.2–2.5 元/度，再到區塊開發改由企業以綠電購售合約（CPPA）承購、不再領政府躉購，離岸風電成本一路大幅下降。</p><p data-l="en">From about NT$5.8/kWh in the demonstration/selection phase, to NT$2.2–2.5/kWh in the 2018 auction, to zonal development where companies buy the power through corporate PPAs instead of a government feed-in tariff, offshore wind costs have fallen sharply.</p></div>
+     <h3 class="h3"><span data-l="zh">❌「風機殺死很多鳥」</span><span data-l="en">❌ “Turbines kill lots of birds”</span></h3>
+     <div data-chart="birds"></div>
+     <div class="prose"><p data-l="zh">依國際研究估算，風機造成的鳥類死亡遠低於家貓、建築玻璃等日常因素。台灣離岸風場另設有鳥類與生態監測，必要時停機以降低衝擊。</p><p data-l="en">International studies estimate that wind turbines kill far fewer birds than domestic cats or building glass. Taiwan's offshore farms also run bird and ecology monitoring and shut down when needed to reduce impact.</p></div>
+     <h3 class="h3"><span data-l="zh">🤔 大家常問</span><span data-l="en">🤔 Frequently asked</span></h3>
+     <div class="faq">
+       <details><summary><span class="q">Q</span><span data-l="zh">沒風的時候不就沒電了？</span><span data-l="en">No wind means no power, right?</span></summary>
+         <div class="a"><span data-l="zh">風電是電力組合的一員，不是唯一來源。台電會用燃氣、水力、太陽能與儲能即時互補調度；各電源也有互補性——白天太陽能強、夜晚與冬季風力強，台灣冬季的東北季風正好補上夏季太陽能的空檔。</span><span data-l="en">Wind is one part of the power mix, not the only source. Taipower balances gas, hydro, solar and storage in real time, and sources complement each other — solar is strong by day, wind at night and in winter; Taiwan's winter monsoon fills the gap left by summer solar.</span></div></details>
+       <details><summary><span class="q">Q</span><span data-l="zh">風機會不會很吵？</span><span data-l="en">Are turbines noisy?</span></summary>
+         <div class="a"><span data-l="zh">離岸風機位在外海數公里到數十公里處，聲音傳不到岸上。陸域風機的運轉聲在數百公尺外就降到接近環境背景音，且受噪音管制法規約束。</span><span data-l="en">Offshore turbines sit kilometres to tens of kilometres out at sea; the sound doesn't reach shore. Onshore turbines drop to near-background levels a few hundred metres away and are subject to noise regulations.</span></div></details>
+       <details><summary><span class="q">Q</span><span data-l="zh">颱風來會不會被吹倒？</span><span data-l="en">Can a typhoon knock them down?</span></summary>
+         <div class="a"><span data-l="zh">台灣的風機依國際與在地耐風規範設計，能承受強颱等級的風速；風速過高時葉片會「順槳」並自動停機保護機組，而不是硬扛強風。</span><span data-l="en">Turbines here are designed to international and local standards to withstand severe-typhoon winds. When the wind is too strong the blades “feather” and the turbine shuts down automatically to protect itself rather than fighting the gale.</span></div></details>
+       <details><summary><span class="q">Q</span><span data-l="zh">離岸風電很貴，會讓電費變高嗎？</span><span data-l="en">Is offshore wind expensive — will bills rise?</span></summary>
+         <div class="a"><span data-l="zh">早期示範與躉購階段費率較高，但已轉為「競價」開發，得標價格大幅下降、趨近市場行情。長期而言，自產綠電能降低對進口燃料價格波動的依賴，有助能源自主。</span><span data-l="en">Early demonstration and feed-in phases were pricier, but development moved to competitive auctions and prices fell sharply toward market rates. In the long run, home-grown green power reduces exposure to imported-fuel price swings and supports energy independence.</span></div></details>
+       <details><summary><span class="q">Q</span><span data-l="zh">會影響漁業和海洋生態嗎？</span><span data-l="en">Does it affect fisheries and marine life?</span></summary>
+         <div class="a"><span data-l="zh">開發前須通過環境影響評估，並推動漁業共生與長期生態監測。部分研究也觀察到，風機的水下基座有類似「人工魚礁」的聚魚效果。</span><span data-l="en">Projects must pass an environmental impact assessment and pursue fishery co-existence and long-term monitoring. Some studies even find that turbine foundations act like artificial reefs that attract fish.</span></div></details>
+     </div>
+   </section>
+
+   <!-- 11 -->
+   <section class="chapter" id="ch-terms" data-ch="terms">
+     <div class="ch-eyebrow">11</div>
+     <h2><span data-l="zh">名詞小辭典</span><span data-l="en">Glossary</span></h2>
+     <dl class="glossary">
+       <div class="gterm"><dt><span data-l="zh">裝置容量</span><span data-l="en">Installed capacity</span><small>MW · GW</small></dt><dd><span data-l="zh">風機或風場在理想風況下的最大輸出功率。1 GW = 1,000 MW = 100 萬 kW。</span><span data-l="en">The maximum power a turbine or farm can deliver in ideal wind. 1 GW = 1,000 MW = 1 million kW.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">發電量</span><span data-l="en">Energy generated</span><small>kWh ·「度」</small></dt><dd><span data-l="zh">功率 × 時間。1 MW 的風機滿載運轉 1 小時＝1,000 度電。</span><span data-l="en">Power × time. A 1 MW turbine running flat out for one hour produces 1,000 kWh.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">容量因數</span><span data-l="en">Capacity factor</span></dt><dd><span data-l="zh">一段期間的實際發電量 ÷（裝置容量 × 時數）。陸域約 25–35%，離岸約 35–50%。</span><span data-l="en">Actual energy over a period ÷ (capacity × hours). Roughly 25–35% onshore and 35–50% offshore.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">可用率（本站）</span><span data-l="en">Availability (this site)</span></dt><dd><span data-l="zh">即時頁的「可用率」＝此刻出力 ÷ 裝置容量，是會隨風況變動的瞬間值，不是年平均的容量因數。</span><span data-l="en">On the live pages, "availability" = current output ÷ capacity: an instantaneous value that moves with the wind, not the annual capacity factor.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">陸域／離岸／浮動式</span><span data-l="en">Onshore / offshore / floating</span></dt><dd><span data-l="zh">蓋在陸地、海上固定式基礎、或海上漂浮平台的風機。本站國際資料的離岸含潮間帶與近岸（GWEC 口徑）。</span><span data-l="en">Turbines on land, on fixed foundations at sea, or on floating platforms. Offshore in this site's global data includes intertidal and nearshore farms (GWEC convention).</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">併網與商轉</span><span data-l="en">Grid connection &amp; COD</span></dt><dd><span data-l="zh">併網是風機開始把電送進電網；商業運轉（COD）是整座風場完成測試、正式營運。兩者常相隔數月到一年以上。</span><span data-l="en">Grid connection is when turbines start feeding power to the grid; commercial operation (COD) is when the whole farm has passed testing and officially starts operating — often months to a year or more later.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">躉購與競價</span><span data-l="en">Feed-in tariff &amp; auctions</span></dt><dd><span data-l="zh">躉購（FIT）：政府以固定費率長期收購電力；競價：開發商以報價競爭開發權，價低者得。</span><span data-l="en">Feed-in tariff (FIT): the state buys power at a fixed rate for many years. Auction: developers bid for the right to build and the lowest price wins.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">企業購電合約</span><span data-l="en">Corporate PPA</span><small>CPPA</small></dt><dd><span data-l="zh">企業直接向風場長期購買綠電，例如台積電與沃旭為大彰化 2b&amp;4 簽下的 920 MW、20 年合約。</span><span data-l="en">A company buys green power directly from a farm under a long-term contract — e.g. TSMC's 20-year deal with Ørsted for all 920 MW of Greater Changhua 2b&amp;4.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">單樁／套管式基礎</span><span data-l="en">Monopile / jacket</span></dt><dd><span data-l="zh">單樁是打入海床的一根大鋼管；套管式是三或四支腳的鋼構架，適合較深或地質較複雜的海域。</span><span data-l="en">A monopile is one large steel tube driven into the seabed; a jacket is a three- or four-legged steel lattice for deeper water or harder ground.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">葉輪直徑／輪轂高度</span><span data-l="en">Rotor diameter / hub height</span></dt><dd><span data-l="zh">葉輪直徑是葉片掃過圓的直徑；輪轂高度是轉軸中心離地（海）面的高度。</span><span data-l="en">Rotor diameter is the diameter of the circle the blades sweep; hub height is the height of the rotor's centre above ground or sea level.</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">切入／切出風速、順槳</span><span data-l="en">Cut-in / cut-out, feathering</span></dt><dd><span data-l="zh">風速約 3 m/s 開始發電（切入）；約 25 m/s 以上會把葉片轉成順風角度（順槳）並停機保護（切出）。</span><span data-l="en">Turbines start generating at about 3 m/s (cut-in); above about 25 m/s they turn the blades edge-on to the wind (feathering) and stop (cut-out).</span></dd></div>
+       <div class="gterm"><dt><span data-l="zh">備轉容量率</span><span data-l="en">Operating reserve margin</span></dt><dd><span data-l="zh">（供電能力 − 尖峰負載）÷ 尖峰負載。台電以 10%、6%、3% 等門檻分成綠、黃、橘、紅燈號。</span><span data-l="en">(Supply capacity − peak load) ÷ peak load. Taipower uses thresholds such as 10%, 6% and 3% for its green, yellow, orange and red lights.</span></dd></div>
+     </dl>
+   </section>
+
+   <!-- 12 -->
+   <section class="chapter" id="ch-sources" data-ch="sources">
+     <div class="ch-eyebrow">12</div>
+     <h2><span data-l="zh">資料來源與方法</span><span data-l="en">Sources &amp; method</span></h2>
+     <div class="prose">
+       <h3><span data-l="zh">台灣即時（政府開放資料）</span><span data-l="en">Taiwan live (government open data)</span></h3>
+       <ul>
+         <li data-l="zh"><b>即時發電</b>：政府資料開放平臺「台灣電力公司各機組發電量即時資訊」（<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">資料集 8931</a>），每 10 分鐘更新；由 GitHub Actions 每 15 分鐘抓取，產生 <code>wind_realtime.json</code> 與滾動 7 天的 <code>wind_history.json</code>。</li>
+         <li data-l="en"><b>Live generation</b>: Taipower unit generation in real time (<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">dataset 8931</a>), updated every 10 minutes; fetched every 15 minutes by GitHub Actions into <code>wind_realtime.json</code> and a rolling 7-day <code>wind_history.json</code>.</li>
+         <li data-l="zh"><b>長期存檔</b>：「台灣電力公司_各機組過去發電量」（<a href="https://data.gov.tw/dataset/37331" target="_blank" rel="noopener">資料集 37331</a>），季度回溯檔、落後約 4–5 個月，只含台電自有機組。</li>
+         <li data-l="en"><b>Long-term archive</b>: Taipower past unit generation (<a href="https://data.gov.tw/dataset/37331" target="_blank" rel="noopener">dataset 37331</a>), a quarterly retrospective file that lags 4–5 months and covers Taipower-owned units only.</li>
+         <li data-l="zh"><b>電力供需</b>：台電「本日電力資訊」；雲端 CI 抓取常被阻擋，實務上多使用備援「台灣電力公司過去電力供需資訊」（<a href="https://data.gov.tw/dataset/19995" target="_blank" rel="noopener">資料集 19995</a>），網站會標示為非即時。</li>
+         <li data-l="en"><b>Supply and demand</b>: Taipower's daily power information; requests from cloud CI are often blocked, so the fallback (<a href="https://data.gov.tw/dataset/19995" target="_blank" rel="noopener">dataset 19995</a>) is usually used and labelled as not live.</li>
+         <li data-l="zh"><b>風速參考</b>：中央氣象署自動氣象站（<a href="https://opendata.cwa.gov.tw/" target="_blank" rel="noopener">opendata.cwa.gov.tw</a>），取各風場最近測站當沿海參考值，不是風機輪轂高度實測。</li>
+         <li data-l="en"><b>Wind-speed reference</b>: Central Weather Administration automatic stations (<a href="https://opendata.cwa.gov.tw/" target="_blank" rel="noopener">opendata.cwa.gov.tw</a>); the nearest station to each farm is a coastal reference, not a hub-height measurement.</li>
+         <li data-l="zh">授權：政府資料開放授權條款－第 1 版。風場開發歷程整理自台電與各開發商新聞稿，逐條查證、查無精確日期者不臆測。</li>
+         <li data-l="en">Licence: Open Government Data License, version 1.0. Farm timelines are compiled from Taipower and developer releases, each item checked; no dates are guessed.</li>
+       </ul>
+       <h3><span data-l="zh">全球風電（1980–2025）</span><span data-l="en">Global wind (1980–2025)</span></h3>
+       <ul>
+         <li data-l="zh"><b>各國總容量 2000–2025</b>：IRENA 再生能源容量統計（經 Our World in Data，CC BY 4.0）。<b>1980–1999</b> 多數國家為依丹麥、德國、荷蘭官方統計與 BTM Consult、EWEA、IEA 等整理的估計值，僅供觀察趨勢。</li>
+         <li data-l="en"><b>Country totals 2000–2025</b>: IRENA Renewable Capacity Statistics (via Our World in Data, CC BY 4.0). <b>1980–1999</b> values for most countries are estimates built from Danish, German and Dutch official statistics plus BTM Consult, EWEA and IEA reports — for trends only.</li>
+         <li data-l="zh"><b>離岸容量</b>：WFO 全球離岸風電報告（全數完工風場）、EWEA 歐洲離岸統計、GWEC；中國、越南與台灣含部分併網中的容量。</li>
+         <li data-l="en"><b>Offshore capacity</b>: WFO Global Offshore Wind Reports (fully commissioned farms), EWEA European offshore statistics and GWEC; China, Vietnam and Taiwan include partially connected capacity.</li>
+         <li data-l="zh"><b>風場層級</b>：維基百科各國風場清單、WRI Global Power Plant Database 等（1,385 座，座標為概略位置）；風場照片與簡介於瀏覽時即時查詢維基百科。<b>國界</b>：Natural Earth 1:50m（公有領域）。</li>
+         <li data-l="en"><b>Farm level</b>: Wikipedia farm lists, the WRI Global Power Plant Database and others (1,385 farms, approximate coordinates); farm photos and summaries are looked up live from Wikipedia. <b>Borders</b>: Natural Earth 1:50m (public domain).</li>
+       </ul>
+     </div>
+     <div id="ln-edits"></div>
+     <details class="more"><summary><span data-l="zh">全部資料來源與逐項註記（英文原文）</span><span data-l="en">All sources and data notes</span></summary><div id="ln-notes"></div></details>
+     <div class="callout"><span data-l="zh">本站數據為公開資料整理，僅供參考，並非官方正式統計。發現錯誤或有更好的資料來源，歡迎到 <a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub</a> 回報。</span><span data-l="en">Figures on this site are compiled from public data for reference only and are not official statistics. Found an error or a better source? Please report it on <a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub</a>.</span></div>
+   </section>
+  </article>
+ </div>
+</section>
+
+</main>
+
+<footer class="sitefoot">
+  <div class="in">
+    <div><div class="fbrand">風電風情</div>
+      <p><span data-l="zh">台灣風力發電即時資訊 × 全球風電發展 1980–2025。以政府開放資料與公開資料整理，協助綠能資訊揭露；數字僅供參考，非官方正式統計。</span><span data-l="en">Taiwan wind power live × global wind power 1980–2025, compiled from government open data and public sources to support green-energy transparency. Figures are for reference only, not official statistics.</span></p></div>
+    <div><h4><span data-l="zh">資料來源</span><span data-l="en">Data</span></h4>
+      <p><span data-l="zh">台電開放資料 · 中央氣象署 · IRENA / Our World in Data · WFO · GWEC · EWEA · Natural Earth · 維基百科</span><span data-l="en">Taipower open data · CWA · IRENA / Our World in Data · WFO · GWEC · EWEA · Natural Earth · Wikipedia</span><br><a href="#/learn/sources"><span data-l="zh">來源與方法 →</span><span data-l="en">Sources &amp; method →</span></a></p></div>
+    <div><h4><span data-l="zh">專案</span><span data-l="en">Project</span></h4>
+      <p><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a><br><span data-l="zh">政府資料開放授權條款－第 1 版 · three.js（MIT）· Leaflet（BSD-2）· 衛星底圖 © Esri</span><span data-l="en">Open Government Data License v1.0 · three.js (MIT) · Leaflet (BSD-2) · imagery © Esri</span></p></div>
+  </div>
+</footer>
+
 <div id="scrim"></div>
-<aside id="drawer" role="dialog" aria-modal="true">
-  <div class="dhead"><button class="close" id="dclose" aria-label="關閉">×</button>
-    <h2 id="dname"></h2><div class="sub" id="dsub"></div></div>
+<aside id="drawer" role="dialog" aria-modal="true" aria-labelledby="dname" hidden>
+  <div class="dhead"><button class="dclose" id="dclose" type="button" data-i18n-aria="close">×</button>
+    <h2 id="dname"></h2><div class="dsub" id="dsub"></div></div>
   <div class="dbody" id="dbody"></div>
 </aside>
+<div id="toast" role="status" aria-live="polite"></div>
 
-<script>
-/* ===== 風電風情 — 對齊台電 genary.json 風力四類三十機組 =====
-   即時資料：填 DATA_ENDPOINT（後端 scraper 產生的 wind_realtime.json）→ 轉真實即時。
-   未連線時：以 6/29 16:13 台電實際快照為基準，做模擬浮動（已明確標示，非真實即時）。 */
-const DATA_ENDPOINT="./wind_realtime.json";   // 例如 "https://your-host/wind_realtime.json"
-
-/* tp=台電 genary 機組名稱(用於即時對應) ; cap=裝置容量MW(null=台電未列,註10)
-   snap=6/29 16:13 實際出力MW ; grp: on-tpc|on-ppa|off-tpc|off-ppa */
-const FARMS=[
- // ===== 陸域風力 · 台電自有 =====
- {id:"guanyuan",tp:"觀園",name:"觀園風場",grp:"on-tpc",cap:30.0,snap:8.5,lat:25.03,lng:121.07,
-  dev:"台灣電力公司",site:"桃園市觀音、大園沿海",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
-  tl:[["—","台電西海岸陸域風場之一","done"]],note:"台電自有陸域風場。座標為概略位置。"},
- {id:"taichungport",tp:"台中港",name:"台中港風場",grp:"on-tpc",cap:35.0,snap:5.8,lat:24.29,lng:120.53,
-  dev:"台灣電力公司",site:"台中港北堤",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
-  tl:[["—","台中港區陸域風場","done"]],note:"座標為概略位置。"},
- {id:"wanggong",tp:"王功",name:"王功風場",grp:"on-tpc",cap:23.0,snap:6.0,lat:23.99,lng:120.31,
-  dev:"台灣電力公司",site:"彰化縣芳苑鄉王功",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
-  tl:[["—","彰化沿海陸域風場","done"]],note:"座標為概略位置。"},
- {id:"changgong",tp:"彰工",name:"彰工風場",grp:"on-tpc",cap:86.2,snap:10.9,lat:24.13,lng:120.45,
-  dev:"台灣電力公司",site:"彰化縣線西、伸港（彰濱工業區）",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
-  tl:[["—","彰濱工業區陸域風場，台電陸域容量最大者之一","done"]],note:"座標為概略位置。"},
- {id:"yunmai",tp:"雲麥",name:"雲麥風場",grp:"on-tpc",cap:46.0,snap:9.9,lat:23.79,lng:120.24,
-  dev:"台灣電力公司",site:"雲林縣麥寮",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
-  tl:[["—","雲林麥寮沿海陸域風場","done"]],note:"座標為概略位置。"},
- {id:"sihu",tp:"四湖",name:"四湖風場",grp:"on-tpc",cap:28.0,snap:7.9,lat:23.64,lng:120.22,
-  dev:"台灣電力公司",site:"雲林縣四湖",model:"陸域機組（2–3 MW 級）",unit:"2–3 MW",cod:"早期陸域",
-  tl:[["—","雲林四湖沿海陸域風場","done"]],note:"座標為概略位置。"},
- {id:"tpc-other-on",tp:"其它台電自有",name:"其它台電自有（陸域）",grp:"on-tpc",cap:84.7,snap:23.6,lat:24.80,lng:120.90,agg:true,
-  dev:"台灣電力公司",site:"新竹香山、桃園、其他多處",model:"多型號彙總",unit:"2–3 MW",cod:"—",
-  tl:[["—","台電其餘陸域風場彙總（香山、大潭等多處）","done"]],note:"此為多座風場彙總，非單一風場；座標僅示意。"},
-
- // ===== 陸域風力 · 購電（民營） =====
- {id:"dapeng",tp:"苗栗大鵬",name:"苗栗大鵬風場",grp:"on-ppa",cap:42.0,snap:12.2,lat:24.52,lng:120.72,
-  dev:"民營購電",site:"苗栗後龍、通霄一帶",model:"陸域機組",unit:"2–3 MW",cod:"—",
-  tl:[["—","民營陸域風場，售電予台電","done"]],note:"民營風場（購電），開發商以台電購電合約揭露。座標為概略位置。"},
- {id:"luwei",tp:"鹿威彰濱",name:"鹿威彰濱風場",grp:"on-ppa",cap:55.2,snap:7.0,lat:24.05,lng:120.43,
-  dev:"民營購電（達德能源 wpd 系統）",site:"彰化彰濱、鹿港",model:"陸域機組",unit:"2–3 MW",cod:"—",
-  tl:[["—","彰濱地區民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
- {id:"guanwei",tp:"觀威觀音&桃威新屋",name:"觀威觀音 & 桃威新屋",grp:"on-ppa",cap:48.3,snap:14.5,lat:25.00,lng:121.04,
-  dev:"民營購電（達德能源 wpd 系統）",site:"桃園觀音、新屋",model:"陸域機組",unit:"2–3 MW",cod:"—",
-  tl:[["—","桃園沿海民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
- {id:"zhongwei",tp:"中威大安",name:"中威大安風場",grp:"on-ppa",cap:75.9,snap:3.9,lat:24.35,lng:120.57,
-  dev:"民營購電（達德能源 wpd 系統）",site:"台中大安",model:"陸域機組",unit:"2–3 MW",cod:"—",
-  tl:[["—","台中大安沿海民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
- {id:"chuangwei",tp:"創維風",name:"創維風場",grp:"on-ppa",cap:49.2,snap:24.6,lat:24.20,lng:120.50,
-  dev:"民營購電",site:"中部沿海",model:"陸域機組",unit:"2–3 MW",cod:"—",
-  tl:[["—","民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置，待校正。"},
- {id:"xinyuan",tp:"新源崙背",name:"新源崙背風場",grp:"on-ppa",cap:25.2,snap:17.7,lat:23.76,lng:120.35,
-  dev:"民營購電",site:"雲林崙背",model:"陸域機組",unit:"2–3 MW",cod:"—",
-  tl:[["—","雲林崙背民營陸域風場","done"]],note:"民營風場（購電）。座標為概略位置。"},
- {id:"changpin",tp:"彰品風",name:"彰品風場",grp:"on-ppa",cap:null,snap:0.0,lat:24.00,lng:120.40,pending:true,
-  dev:"民營購電",site:"彰化",model:"陸域機組",unit:"—",cod:"開發中",
-  tl:[["—","台電資料註記為尚未列裝置容量（註10）",""]],note:"台電 genary 標示為「-（註10）」，尚未列裝置容量／商轉。座標為概略位置。"},
- {id:"ppa-other-on",tp:"其它購電風力",name:"其它購電風力（陸域）",grp:"on-ppa",cap:178.4,snap:26.3,lat:24.40,lng:120.60,agg:true,
-  dev:"民營購電",site:"西海岸多處",model:"多型號彙總",unit:"2–3 MW",cod:"—",
-  tl:[["—","其餘民營陸域風場彙總","done"]],note:"此為多座民營風場彙總，非單一風場；座標僅示意。"},
-
- // ===== 離岸風力 · 台電自有 =====
- {id:"offshore1",tp:"離岸一期",name:"台電離岸一期",grp:"off-tpc",cap:109.2,snap:75.0,lat:24.10,lng:120.30,
-  dev:"台灣電力公司",site:"彰化芳苑外海",model:"Hitachi 5.2 MW",unit:"5.2 MW",depth:"約 20 m",dist:"約 8 km",turbines:21,
-  cod:"2021",annual:"約 3.6 億度",homes:"約 9 萬戶",
-  tl:[["2015/06","環評審查通過","done"],["2018/02","比利時 DEME 與日立團隊得標統包","done"],["2020/01","完成首支水下基礎，台電自建離岸首例","done"],["2021/08","21 部機組完成初始併聯，全台第 2 座商轉離岸風場","done"]],note:""},
- {id:"offshore2",tp:"離岸二期",name:"台電離岸二期",grp:"off-tpc",cap:null,snap:0.9,lat:24.15,lng:120.19,pending:true,
-  dev:"台灣電力公司（富崴能源統包）",site:"彰化鹿港外海",model:"9.5 MW 級",unit:"9.5 MW",depth:"37–49 m",dist:"鹿港外海",turbines:31,planned:294.5,
-  cod:"預計 2027",annual:"逾 10 億度",homes:"約 27 萬戶",
-  tl:[["2018","取得開發資格","done"],["2020/06","富崴能源決標，628.88 億元統包＋運維","done"],["2026","工程進度逾九成，機組陸續安裝中","done"],["2027","規劃全數機組併聯商轉（原規劃 2026 年已延後）",""]],
-  note:"富崴能源受通膨與船期延誤影響代墊款增加，經濟部已核准價金調整，工程未受母公司下市影響；完工時程較原規劃延後至 2027 年上半年。"},
-
- // ===== 離岸風力 · 購電 =====
- {id:"formosa1",tp:"海洋竹南",name:"海洋風場 Formosa 1",grp:"off-ppa",cap:128.0,snap:96.2,lat:24.71,lng:120.85,
-  dev:"海洋風電（JERA・麥格理・上緯）",site:"苗栗竹南外海",model:"Siemens SWT 4.0 / 6.0",unit:"4–6 MW",depth:"15–30 m",dist:"2–6 km",turbines:22,
-  cod:"2019",annual:"約 4.8 億度",homes:"約 12.8 萬戶",
-  tl:[["2013/11","環評通過","done"],["2017/04","示範機組商轉，全台首度離岸風電併網","done"],["2018/06","完成財務結案，全台離岸風電首件專案融資","done"],["2019/12","22 部機組全數商轉，全台首座商業規模離岸風場","done"]],note:"台灣離岸風電起點。"},
- {id:"formosa2",tp:"海能風",name:"海能風場 Formosa 2",grp:"off-ppa",cap:376.0,snap:308.3,lat:24.78,lng:120.73,
-  dev:"海能風力發電（JERA 等）",site:"苗栗外海",model:"Siemens Gamesa SG 8.0-167 DD",unit:"8 MW",depth:"20–40 m",dist:"4–10 km",turbines:47,
-  cod:"2023",annual:"約 14 億度",homes:"約 38 萬戶",
-  tl:[["2018/03","環評大會通過","done"],["2019/10","完成財務結案，約 620 億元聯貸","done"],["2022/07","首度送電，機組併網試運轉","done"],["2023/09","47 部機組全數正式商轉","done"]],note:""},
- {id:"wo1",tp:"沃一風",name:"大彰化一階（沃一風）",grp:"off-ppa",cap:605.2,snap:470.4,lat:24.01,lng:120.05,
-  dev:"沃旭能源 Ørsted",site:"彰化外海 35–60 km",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",
-  cod:"2024",annual:"—",homes:"—",
-  tl:[["2018/02","四案通過環評大會審查","done"],["2019/04","沃旭宣布最終投資決定（FID）","done"],["2021/02","取得施工許可，海上施工開始","done"],["2024/04","900 MW 全數完工併聯，啟用時為亞太最大運轉中離岸風場","done"]],
-  note:"大彰化東南及西南第一階段（沃旭）併網點之一；與沃二風合計 900 MW。"},
- {id:"wo2",tp:"沃二風",name:"大彰化一階（沃二風）",grp:"off-ppa",cap:294.8,snap:211.1,lat:24.03,lng:120.00,
-  dev:"沃旭能源 Ørsted",site:"彰化外海 35–60 km",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",
-  cod:"2024",annual:"—",homes:"—",
-  tl:[["2019/04","沃旭宣布最終投資決定（FID）","done"],["2024/04","大彰化一階 900 MW 全數商轉，啟用時為亞太最大","done"]],
-  note:"大彰化東南及西南第一階段（沃旭）併網點之一；與沃一風合計 900 MW。"},
- {id:"wo4",tp:"沃四風",name:"大彰化西北（沃四風）",grp:"off-ppa",cap:null,snap:374.2,lat:23.96,lng:119.93,pending:true,
-  dev:"沃旭能源 Ørsted",site:"彰化外海",model:"Siemens Gamesa SG 14-236 DD",unit:"14 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",planned:"—",
-  cod:"開發中",annual:"—",homes:"—",
-  tl:[["2023/03","920 MW 計畫（2b&4）最終投資決定（FID）","done"],["2025/02","啟動 920 MW 海上建置工程","done"],["2025/07","首座風機併網，全球首座專供台積電之離岸風場","done"],["2026","規劃第三季全數商轉",""]],
-  note:"台電 genary 仍標示「-（註10）」。與沃南風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程。"},
- {id:"wonan",tp:"沃南風",name:"大彰化西南二階（沃南風）",grp:"off-ppa",cap:null,snap:0.0,lat:23.93,lng:119.97,pending:true,
-  dev:"沃旭能源 Ørsted",site:"彰化外海",model:"Siemens Gamesa SG 14-236 DD",unit:"14 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",planned:"—",
-  cod:"開發中",annual:"—",homes:"—",
-  tl:[["2020/07","台積電與沃旭簽署 20 年購售電合約，承購 920 MW 全部發電量","done"],["2023/03","920 MW 計畫（2b&4）最終投資決定（FID）","done"],["2026/01","66 座風機全數安裝完成","done"],["2026","規劃第三季全數商轉",""]],
-  note:"台電 genary 仍標示「-（註10）」。與沃四風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程；全球首座專為單一企業（台積電）供電之離岸風場計畫。"},
- {id:"fang1",tp:"芳一風",name:"彰芳一期（芳一風）",grp:"off-ppa",cap:96.0,snap:62.2,lat:24.09,lng:120.16,
-  dev:"哥本哈根基礎建設基金 CIP",site:"彰化外海",model:"Vestas V174-9.5MW",unit:"9.5 MW",depth:"30–40 m",dist:"30–45 km",turbines:"—",
-  cod:"2022–2023",annual:"—",homes:"—",
-  tl:[["2018/01","環評審查結論公告","done"],["2020/02","完成財務結案，約 30 億美元","done"],["2022/11","首度發電併網","done"],["2024/05","一、二期合計完工啟用，CIP 亞太首座完工風場","done"]],
-  note:"彰芳暨西島計畫（CIP）一期；與芳二風合計約 595 MW。"},
- {id:"fang2",tp:"芳二風",name:"彰芳二期暨西島（芳二風）",grp:"off-ppa",cap:499.2,snap:248.1,lat:24.06,lng:120.12,
-  dev:"哥本哈根基礎建設基金 CIP",site:"彰化外海",model:"Vestas V174-9.5MW",unit:"9.5 MW",depth:"30–40 m",dist:"30–45 km",turbines:"—",
-  cod:"2024",annual:"—",homes:"—",
-  tl:[["2020/02","完成財務結案，約 30 億美元","done"],["2023/07","62 座水下基礎全數安裝完成","done"],["2024/05","彰芳暨西島完工啟用，CIP 亞太首座完工風場","done"]],
-  note:"彰芳暨西島計畫（CIP）二期含西島；與芳一風合計約 595 MW。"},
- {id:"yunhu",tp:"允湖",name:"允能（允湖）",grp:"off-ppa",cap:320.0,snap:7.8,lat:23.87,lng:120.13,
-  dev:"達德能源 wpd",site:"雲林外海",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"7–35 m",dist:"約 8 km",turbines:"—",
-  cod:"2025",annual:"—",homes:"—",
-  tl:[["2019/05","完成 940 億元專案融資","done"],["2020/12","首支水下基礎安裝，海事工程啟動","done"],["2022/08","台灣首座國產化達成率逾 100% 離岸風場","done"],["2025/08","640 MW 全數機組正式全面商轉","done"]],
-  note:"允能風場（達德 wpd）併網點之一；與允西合計 640 MW。"},
- {id:"yunxi",tp:"允西",name:"允能（允西）",grp:"off-ppa",cap:320.0,snap:146.2,lat:23.82,lng:120.07,
-  dev:"達德能源 wpd",site:"雲林外海",model:"Siemens Gamesa SG 8.0-167",unit:"8 MW",depth:"7–35 m",dist:"約 8 km",turbines:"—",
-  cod:"2025",annual:"—",homes:"—",
-  tl:[["2021/04","首支風機完成安裝","done"],["2024/10","最後一支風機安裝完成，80 機全數就位","done"],["2025/08","允能 640 MW 全數商轉","done"]],
-  note:"允能風場（達德 wpd）併網點之一；快照時段出力達 210 MW，為當下全台風電主力。"},
- {id:"zhongneng",tp:"中能風",name:"中能風場 Zhong Neng",grp:"off-ppa",cap:294.5,snap:206.5,lat:24.12,lng:120.21,
-  dev:"中能發電（中鋼集團）",site:"彰化外海",model:"Vestas V174-9.5MW",unit:"9.5 MW",depth:"約 35 m",dist:"約 30 km",turbines:31,
-  cod:"2024",annual:"約 11 億度",homes:"約 28 萬戶",
-  tl:[["2018/12","中鋼與丹麥 CIP 合資成立","done"],["2021/06","完成 452 億元專案融資","done"],["2023/03","水下基礎海事工程開工","done"],["2024/08","31 座風機全數安裝完成","done"]],note:"中鋼集團主導，帶動國產化供應鏈。"},
- {id:"longA",tp:"龍A風",name:"海龍（龍A風）",grp:"off-ppa",cap:null,snap:254.6,lat:23.90,lng:119.90,pending:true,
-  dev:"海龍（Northland・三井・Gentari）",site:"彰化外海 45–70 km",model:"Siemens Gamesa SG 14-222 DD",unit:"14 MW",depth:"30–55 m",dist:"45–70 km",turbines:"—",planned:"—",
-  cod:"開發中",annual:"—",homes:"—",
-  tl:[["2023/09","完成最終投資決定與財務結案，約 1,170 億元融資","done"],["2024/04","舉行開工儀式，首階段海事工程展開","done"],["2025/06","首度將綠電併入電網，第一支機組併網","done"],["2025/10","海龍二號全數機組安裝完成","done"]],
-  note:"台電 genary 仍標示「-（註10）」。海龍二號及三號計畫（約 1 GW）併網點之一。"},
- {id:"longB",tp:"龍B風",name:"海龍（龍B風）",grp:"off-ppa",cap:null,snap:139.1,lat:23.88,lng:119.87,pending:true,
-  dev:"海龍（Northland・三井・Gentari）",site:"彰化外海 45–70 km",model:"Siemens Gamesa SG 14-222 DD",unit:"14 MW",depth:"30–55 m",dist:"45–70 km",turbines:"—",planned:"—",
-  cod:"開發中",annual:"—",homes:"—",
-  tl:[["2023/09","完成最終投資決定與財務結案","done"],["2025/06","海龍首度併網發電","done"],["2026/03","海龍三號首支機組安裝完成","done"],["2027","據最新報導，全案商轉時程已延至 2027 年（原規劃 2026 年）",""]],
-  note:"台電 genary 仍標示「-（註10）」。海龍二號及三號計畫併網點之一；原規劃 2026 年商轉，最新報導顯示已順延。"},
-];
-
-const GROUPS=[
- {key:"off-ppa",label:"離岸風力 · 購電",tag:"ppa",cls:"off"},
- {key:"off-tpc",label:"離岸風力 · 台電自有",tag:"tpc",cls:"off"},
- {key:"on-ppa", label:"陸域風力 · 購電",tag:"ppa",cls:"on"},
- {key:"on-tpc", label:"陸域風力 · 台電自有",tag:"tpc",cls:"on"},
-];
-const isOffshore=f=>f.grp.startsWith("off");
-
-let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all",devFilt="all",brandFilt="all",capFilt="all",groupMode="type";
-let LANG="zh";                                 // 介面語言 zh / en
-let drawerFarm=null;                           // 目前開啟詳情的風場(語言切換時重繪用)
-const t=k=>((I18N[k]||{})[LANG])??k;           // 取翻譯(找不到回 key)
-const I18N={
-  brandTag:{zh:"Taiwan Wind Watch",en:"Taiwan Wind Watch"},
-  tab_dash:{zh:"儀表",en:"Dashboard"},tab_wall:{zh:"總覽",en:"Farm Grid"},
-  tab_chart:{zh:"數據",en:"Charts"},tab_map:{zh:"地圖",en:"Map"},tab_learn:{zh:"資訊",en:"Learn"},
-  share:{zh:"🔗 分享",en:"🔗 Share"},lang:{zh:"EN",en:"中"},
-  loading:{zh:"載入中…",en:"Loading…"},
-  live:{zh:"即時資料",en:"Live data"},sim:{zh:"模擬浮動",en:"Simulated"},updatedAt:{zh:"台電更新",en:"Taipower"},
-  toolbarToggle:{zh:"排序與篩選",en:"Sort & filter"},
-  sortBy:{zh:"排序",en:"Sort"},s_output:{zh:"即時出力",en:"Output"},s_ratio:{zh:"可用率",en:"Availability"},
-  s_cap:{zh:"裝置容量",en:"Capacity"},s_name:{zh:"名稱",en:"Name"},
-  groupBy:{zh:"分組",en:"Group"},g_type:{zh:"依類型",en:"By type"},g_dev:{zh:"依開發商",en:"By developer"},
-  f_all:{zh:"全部",en:"All"},f_offshore:{zh:"離岸",en:"Offshore"},f_onshore:{zh:"陸域",en:"Onshore"},
-  f_commercial:{zh:"已商轉",en:"Operating"},f_building:{zh:"開發中",en:"In dev."},
-  allDev:{zh:"全部開發商",en:"All developers"},allBrand:{zh:"全部廠牌",en:"All turbine makers"},
-  allCap:{zh:"全部容量",en:"All sizes"},capL:{zh:"大型 >300MW",en:"Large >300MW"},capM:{zh:"中型 100–300MW",en:"Medium 100–300MW"},capS:{zh:"小型 <100MW",en:"Small <100MW"},
-  windTotal:{zh:"全台風電即時出力",en:"National wind output"},totalCap:{zh:"總裝置容量",en:"Total capacity"},
-  overallAvail:{zh:"整體可用率",en:"Overall availability"},co2hr:{zh:"每小時減碳（估算）",en:"CO₂ cut / hr (est.)"},
-  grid_ample:{zh:"供電充裕",en:"Ample supply"},grid_tight:{zh:"供電吃緊",en:"Tight supply"},
-  grid_warn:{zh:"供電警戒",en:"Supply warning"},grid_alert:{zh:"限電警戒",en:"Shortage alert"},
-  grid_reserve:{zh:"備轉容量率",en:"Operating reserve"},
-  grid_wind:{zh:"風電此刻貢獻電網",en:"Wind is contributing"},
-  grid_src:{zh:"台電電力供需即時報表",en:"Taipower real-time supply-demand"},
-  grid_src_daily:{zh:"官方每日資料，非即時，截至",en:"Official daily data, not live, as of"},
-  unitsFarms:{zh:"機組／風場",en:"Units / farms"},tonHr:{zh:"噸",en:"t"},
-  imp_homes:{zh:"可同時供應家庭用電（估算）",en:"Homes powered now (est.)"},imp_share:{zh:"風電佔全國即時發電",en:"Share of national generation"},
-  imp_today:{zh:"今日累積發電量",en:"Energy generated today"},imp_trees:{zh:"今日減碳≈種樹年吸碳量",en:"CO₂ cut today ≈ trees/yr"},
-  unit_homes:{zh:"萬戶",en:"×10k"},unit_kwh:{zh:"萬度",en:"MWh"},unit_trees:{zh:"棵",en:"trees"},accruing:{zh:"累積中",en:"accruing"},
-  policyTitle:{zh:"🇹🇼 台灣離岸風電進度",en:"🇹🇼 Taiwan offshore wind progress"},
-  wallAll:{zh:"全部",en:"All"},wallFarms:{zh:"座風場 · 即時總出力",en:"farms · live total"},
-  lg_high:{zh:"可用率高",en:"High"},lg_mid:{zh:"中",en:"Mid"},lg_low:{zh:"低",en:"Low"},lg_dev:{zh:"開發中",en:"In dev."},
-  c_bar:{zh:"排行長條",en:"Bar rank"},c_donut:{zh:"佔比圓環",en:"Donut"},c_hist:{zh:"長期趨勢",en:"Long-term"},
-  cn_bar:{zh:"全部風場依即時出力排名 · 顏色＝可用率高/中/低",en:"All farms ranked by live output · colour = availability"},
-  cn_donut:{zh:"即時出力組成 · 點圖例對照",en:"Live output composition"},
-  cn_hist:{zh:"官方回溯資料（開放資料集 37331）· 台電自有風力 17 機組小計，不含民營購電 · 每點＝單日平均/最大（MW）· 官方為季度回溯檔，非即時",en:"Official retrospective data (dataset 37331) · Taipower-owned wind only (17 units, excl. IPP) · each point = daily avg/max (MW) · quarterly archive, not live"},
-  hist_loading:{zh:"長期趨勢資料載入中…",en:"Loading long-term data…"},
-  hist_none:{zh:"尚無長期存檔資料（backfill 尚未執行或抓取失敗）",en:"No long-term archive yet (backfill not run or fetch failed)"},
-  hist_avg:{zh:"單日平均",en:"daily average"},hist_max:{zh:"單日最大",en:"daily max"},
-  hist_all:{zh:"全部（台電自有）",en:"All (TPC-owned)"},
-  donutDev:{zh:"依開發商",en:"By developer"},donutType:{zh:"依類型（離岸／陸域）",en:"By type (offshore/onshore)"},
-  noGen:{zh:"目前沒有發電中的風場 🌙",en:"No farms generating right now 🌙"},noMatch:{zh:"查無符合條件的風場，試試放寬篩選 🔍",en:"No farms match — try relaxing filters 🔍"},
-  tpcOwn:{zh:"台電自有",en:"Taipower"},ppa:{zh:"購電",en:"PPA"},devTag:{zh:"開發商",en:"Developer"},
-  d_output:{zh:"即時出力",en:"Live output"},d_avail:{zh:"可用率",en:"Availability"},d_cap:{zh:"裝置容量",en:"Capacity"},
-  d_status:{zh:"狀態",en:"Status"},d_turbines:{zh:"風機數量",en:"Turbines"},d_unit:{zh:"單機容量",en:"Unit size"},
-  d_model:{zh:"風機型號",en:"Turbine model"},d_depth:{zh:"水深",en:"Water depth"},d_dist:{zh:"離岸距離",en:"Dist. offshore"},
-  d_annual:{zh:"年發電量",en:"Annual output"},d_homes:{zh:"可供應",en:"Homes"},d_site:{zh:"地點",en:"Location"},d_type2:{zh:"機型",en:"Type"},
-  st_run:{zh:"商轉中",en:"Operating"},st_test:{zh:"試運轉（台電未列裝置容量·註10）",en:"Testing (capacity not yet listed)"},st_agg:{zh:"彙總",en:"Aggregate"},
-  b_run:{zh:"商轉",en:"Operating"},b_dev:{zh:"試運轉",en:"Testing"},b_agg:{zh:"彙總",en:"Aggregate"},
-  timeline:{zh:"開發與營運歷程",en:"Development timeline"},
-  r_6h:{zh:"近6時",en:"6 h"},r_24h:{zh:"近24時",en:"24 h"},r_7d:{zh:"近7日",en:"7 d"},m_out:{zh:"出力",en:"Output"},m_wind:{zh:"風速",en:"Wind"},
-  windNote:{zh:"鄰近測站風速",en:"Nearest station wind"},windRef:{zh:"沿海參考值，非風機輪轂高度實測",en:"coastal reference, not hub-height"},
-  mapHint:{zh:"點選風場圖示查看即時出力與專案資訊 · 共 30 個機組 / 風場",en:"Tap a marker for live output & project info · 30 units/farms"},
-  legendTitle:{zh:"圖示說明",en:"Legend"},lg_size:{zh:"圈圈大小 ＝ 裝置容量",en:"Circle size = capacity"},
-  mlg_high:{zh:"可用率高（≥45%）",en:"High availability (≥45%)"},mlg_mid:{zh:"可用率中（20–45%）",en:"Mid (20–45%)"},
-  mlg_low:{zh:"可用率低（<20%）",en:"Low (<20%)"},mlg_dev:{zh:"開發中／未列容量",en:"In dev. / not listed"},
-  copied:{zh:"已複製分享文字與連結 ✓",en:"Copied ✓"},cardDl:{zh:"風況圖卡已下載 ✓",en:"Card image downloaded ✓"},
-  grp_offppa:{zh:"離岸風力 · 購電",en:"Offshore · PPA"},grp_offtpc:{zh:"離岸風力 · 台電自有",en:"Offshore · Taipower"},
-  grp_onppa:{zh:"陸域風力 · 購電",en:"Onshore · PPA"},grp_ontpc:{zh:"陸域風力 · 台電自有",en:"Onshore · Taipower"},
-  simTag:{zh:"（模擬·基準快照）",en:"(simulated snapshot)"},planned:{zh:"規劃",en:"planned"},notListed:{zh:"台電未列（註10）",en:"not yet listed"},
-  pol_now:{zh:'截至 2026/05：累計安裝 <b>4.74 GW</b> · 併網發電 <b>4.25 GW</b> · 已完成 8 座離岸風場<br>台灣 2025 年新增裝置容量全球第三、累計裝置容量全球第五 🌊',
-    en:'As of May 2026: <b>4.74 GW</b> installed · <b>4.25 GW</b> grid-connected · 8 offshore farms completed<br>#3 worldwide in new offshore capacity added in 2025, #5 in cumulative capacity 🌊'},
-  pol_near:{zh:"近程目標 · 2026 年（5.3 GW）",en:"Near-term goal · 2026 (5.3 GW)"},pol_r89:{zh:"已達約 89%",en:"~89% reached"},
-  pol_long:{zh:"長程目標 · 2035 年（18.4 GW）",en:"Long-term goal · 2035 (18.4 GW)"},pol_r26:{zh:"已達約 26%",en:"~26% reached"},
-  pol_src:{zh:'資料來源：經濟部能源署「離岸風電三階段政策」（採先示範、次潛力、後區塊）。<a href="https://ea01.moeaea.gov.tw/d0107/Windpolicy" target="_blank" rel="noopener">官方頁面 ↗</a>',
-    en:'Source: Ministry of Economic Affairs, Energy Administration — three-phase offshore wind policy. <a href="https://ea01.moeaea.gov.tw/d0107/Windpolicy" target="_blank" rel="noopener">Official page ↗</a>'},
-  foot_main:{zh:'機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準<br>影響力數字為換算估算：家戶 0.5kW、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值<br>風速為中央氣象署自動氣象站觀測，取各風場「最近測站」當沿海參考值，非風機輪轂高度實測（外海風場尤其僅供參考）',
-    en:'Unit classification, names & capacity: from Taipower "unit generation" (genary.json), four disclosure classes · capacity/output per Taipower<br>Impact figures are conversions/estimates: 0.5 kW/home, ~10 kWh/home-day, 0.495 kg CO₂/kWh, 12 kg CO₂/tree-yr; underlying MW for output & share are Taipower measured values<br>Wind speed from CWA automatic weather stations — nearest station as a coastal reference, not hub-height (offshore farms especially indicative only)'},
-  lintro:{zh:"想多認識台灣的風？這裡用數據講清楚：為什麼台灣需要風電、發展到哪了、以及破除常見迷思 🌬️",en:"Want to understand Taiwan's wind? Here we use data to explain why Taiwan needs wind, how far it's come, and bust common myths 🌬️"},
-  ls_h3:{zh:"📊 此刻風況摘要",en:"📊 Current Snapshot"},
-  le_h3:{zh:"⚡ 為什麼台灣需要風電？",en:"⚡ Why Taiwan needs wind"},
-  le_p:{zh:'台灣約 <b>96%</b> 的能源仰賴進口，自產只有約 4.2%（2024，經濟部能源署）。風，是台灣少數能「自己生產」的能源——發展風電＝提升能源自主、減少對進口燃料價格波動的曝險，同時減碳、帶動國產化供應鏈與就業。',
-    en:'Taiwan imports about <b>96%</b> of its energy; only ~4.2% is home-produced (2024, MOEA). Wind is one of the few energy sources Taiwan can make itself — developing it boosts energy self-sufficiency, cuts exposure to imported-fuel price swings, reduces carbon, and builds a local supply chain and jobs.'},
-  le_k1:{zh:"能源進口依存度（2024）",en:"Energy import dependence (2024)"},le_k2:{zh:"自產能源占比",en:"Home-produced share"},le_k3:{zh:"風力占總能源（自產中成長最快之一）",en:"Wind's share of total energy (fastest-growing)"},
-  lg_h3:{zh:"📈 台灣風電這樣長大",en:"📈 How Taiwan's wind grew"},
-  tl_2017:{zh:"海洋竹南示範機組併網，台灣離岸風電起步",en:"Formosa demo turbines connect — Taiwan's offshore wind begins"},
-  tl_2019:{zh:"海洋風場 Formosa 1 完工，首座商轉離岸風場（128 MW）",en:"Formosa 1 completed — first commercial offshore farm (128 MW)"},
-  tl_2020:{zh:"台電離岸一期商轉，首座國營離岸風場",en:"Taipower Offshore Phase 1 online — first state-owned offshore farm"},
-  tl_2023:{zh:"海能 Formosa 2 全數商轉",en:"Formosa 2 fully operational"},
-  tl_2024:{zh:"大爆發：單年新增約 1.78 GW，非中國區全球第一",en:"Boom year: ~1.78 GW added — #1 outside China"},
-  tl_2026:{zh:"完成第 500 座風機，累計約 4.8 GW，全球第五",en:"500th turbine installed — ~4.8 GW cumulative, #5 worldwide"},
-  lm_h3:{zh:"🔍 用數據破除三大迷思",en:"🔍 Three myths, busted with data"},
-  myth1_h:{zh:"❌「沒風就沒電」",en:"❌ “No wind means no power”"},
-  myth1_p:{zh:'台灣冬季東北季風最強，離岸風電正好在 <b>冬天</b> 發最多；太陽能則在 <b>夏天</b> 最強。兩者季節互補，加上台電多元電源與儲能即時調度，並非「靠單一來源」。<span style="color:var(--mist-dim)">（示意：典型季節型態，非特定年份實測）</span>',
-    en:'Taiwan’s winter monsoon is strongest in <b>winter</b> — exactly when offshore wind peaks; solar peaks in <b>summer</b>. The two complement each other, and Taipower balances a diverse mix plus storage in real time — it’s not “one source only.” <span style="color:var(--mist-dim)">(illustrative typical pattern, not a specific year)</span>'},
-  myth2_h:{zh:"❌「風電很貴」",en:"❌ “Wind power is expensive”"},
-  myth2_p:{zh:'從示範／遴選的約 5.8 元/度，到 2018 競價 2.2–2.5 元/度，再到區塊開發「零元躉購」，離岸風電成本一路大幅下降。<span style="color:var(--mist-dim)">＊零元躉購指改由企業以綠電購售合約（CPPA）承購，不再領政府躉購。</span>',
-    en:'From ~NT$5.8/kWh in the demo/selection phase, to NT$2.2–2.5/kWh at the 2018 auction, to “zero-subsidy” in the zonal phase, offshore wind costs have fallen sharply. <span style="color:var(--mist-dim)">*Zero-subsidy means power is sold to companies via corporate PPAs instead of a government feed-in tariff.</span>'},
-  myth3_h:{zh:"❌「風機殺死很多鳥」",en:"❌ “Turbines kill lots of birds”"},
-  myth3_p:{zh:'依國際研究估算，風機造成的鳥類死亡遠低於大樓玻璃、家貓等日常因素，約僅碰撞致死的 <b>萬分之一</b>。台灣離岸風場另設有鳥類與生態監測、必要時停機以降低衝擊。',
-    en:'International studies estimate wind turbines cause far fewer bird deaths than building glass or domestic cats — roughly <b>1 in 10,000</b> of collision deaths. Taiwan’s offshore farms also run bird & ecology monitoring and shut down when needed to reduce impact.'},
-  faq_h:{zh:"🤔 關於風電，大家常問",en:"🤔 Wind power FAQ"},
-  q1:{zh:"沒風的時候不就沒電了？",en:"No wind means no power, right?"},
-  a1:{zh:"風電是電力組合的一員，不是唯一來源。台電會用燃氣、水力、太陽能與儲能即時互補調度；而且各電源有「互補性」——白天太陽能強、夜晚與冬季風力強，台灣冬季的東北季風正好補上夏季太陽能的空檔。",en:"Wind is one part of the power mix, not the only source. Taipower balances gas, hydro, solar and storage in real time. Sources complement each other — solar is strong by day, wind at night and in winter; Taiwan's winter monsoon fills the gap left by summer solar."},
-  q2:{zh:"風機會不會很吵？",en:"Are turbines noisy?"},
-  a2:{zh:"離岸風機座落在外海數公里到數十公里處，聲音根本傳不到岸上。陸域風機的運轉聲在數百公尺外就降到接近環境背景音，且受噪音管制法規約束。",en:"Offshore turbines sit kilometres to tens of kilometres out at sea — the sound doesn't reach shore. Onshore turbines drop to near-background levels a few hundred metres away, and are subject to noise regulations."},
-  q3:{zh:"風機會不會殺死很多鳥？",en:"Do turbines kill many birds?"},
-  a3:{zh:"研究普遍指出，風機造成的鳥類死亡數量，遠低於高樓玻璃、車輛、家貓等日常因素。台灣離岸風場設有鳥類與生態監測，必要時以暫停運轉等措施降低衝擊。",en:"Studies consistently show turbines cause far fewer bird deaths than building glass, vehicles or cats. Taiwan's offshore farms run bird & ecology monitoring and pause operations when needed."},
-  q4:{zh:"颱風來會不會被吹倒？",en:"Can a typhoon knock them down?"},
-  a4:{zh:"台灣的風機依國際與在地耐風規範設計，能承受強颱等級的風速；當風速過高時，葉片會「順槳」並自動停機保護機組，而不是硬扛強風。",en:"Turbines here are designed to international and local wind standards to withstand severe-typhoon wind speeds. When wind is too high, the blades “feather” and the turbine auto-shuts down to protect itself rather than fighting the gale."},
-  q5:{zh:"離岸風電很貴，會讓電費變高嗎？",en:"Is offshore wind expensive — will bills rise?"},
-  a5:{zh:"早期示範與躉購階段費率較高，但已轉為「競價」開發，得標價格大幅下降、趨近市場行情。長期而言，自產綠電能降低對進口燃料價格波動的依賴，有助能源自主。",en:"Early demo/feed-in phases were pricier, but development moved to competitive auctions and prices fell sharply toward market rates. Long term, home-grown green power reduces exposure to imported-fuel price swings and boosts energy independence."},
-  q6:{zh:"會影響漁業和海洋生態嗎？",en:"Does it affect fisheries and marine life?"},
-  a6:{zh:"開發前須通過環境影響評估，並推動漁業共生與長期生態監測。部分研究也觀察到，風機的水下基座具有類似「人工魚礁」的聚魚效果。",en:"Projects must pass environmental impact assessment and pursue fishery co-existence and long-term monitoring. Some studies even find turbine foundations act like artificial reefs that attract fish."}
-};
-let HIST={points:[]};                          // 真實滾動歷史(scraper 每 15 分累積 + 官方資料集 37331 每日回填，每 10–15 分一筆)
-let sysTotal=null;                             // 全國即時淨發電量(MW)，來自 live JSON
-let GRID=null;                                 // 電力供需即時報表(peak_load_mw/supply_capacity_mw/reserve_mw/reserve_pct/status_text)
-const GRID_ENDPOINT="./grid_status.json";
-let WIND={};                                   // 各風場鄰近測站風速{id:{mps,station,km}}，來源中央氣象署
-const windOf=f=>WIND[f.id]||null;
-const HIST_ENDPOINT="./wind_history.json";
-const HH_KW=0.5;                               // 家戶平均用電功率估算(年約3600度÷8760h≈0.41kW，取0.5保守)
-const CO2_KG_PER_KWH=0.495;                    // 台灣電力排碳係數估算(kg CO2/度)
-const TREE_KG_PER_YR=12;                       // 一棵樹年吸碳量估算(kg/年)
-const RT={};
-// 台電 opendata 的「資料時間」(source_time，台北時間無時區) → 顯示用字串
-function fmtSrc(s){if(!s)return"";const d=new Date(s);if(isNaN(d))return s;
-  const p=n=>String(n).padStart(2,"0");
-  return `${p(d.getMonth()+1)}/${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;}
-function seeded(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return((h>>>0)%1000)/1000}
-function windDrift(){const t=Date.now()/1000;return 1+0.35*Math.sin(t/360)+0.12*Math.sin(t/64);}
-function simOutput(f){
-  const drift=windDrift();
-  const noise=1+0.10*Math.sin(Date.now()/2200+seeded(f.tp)*7);
-  if(f.pending){                       // 註10 試運轉機組：會發電，但無裝置容量上限可夾
-    let v=f.snap*drift*noise;
-    return +Math.max(0,Math.min(f.snap*1.45,v)).toFixed(1);
-  }
-  const cap=f.cap||0;
-  let v=f.snap*drift*noise;
-  v=Math.max(0,Math.min(cap,v));
-  return +v.toFixed(1);
-}
-function refresh(){if(LIVE)return;            // 即時模式：不跑模擬，保留台電真實值不被覆蓋
-  FARMS.forEach(f=>RT[f.id]=simOutput(f));lastUpdate=new Date();paint();}
-async function tryLive(){
-  if(!DATA_ENDPOINT){setFeed(false);return;}
-  try{const r=await fetch(DATA_ENDPOINT,{cache:"no-store"});const j=await r.json();
-    if(j&&j.farms){FARMS.forEach(f=>{if(j.farms[f.id]!=null)RT[f.id]=j.farms[f.id]});
-      srcTime=j.source_time||null;sysTotal=(typeof j.system_total_mw==="number")?j.system_total_mw:null;
-      WIND=(j.farm_wind&&typeof j.farm_wind==="object")?j.farm_wind:{};
-      lastUpdate=j.updated?new Date(j.updated):new Date();setFeed(true);paint();return;}
-    setFeed(false);}catch(e){setFeed(false)}
-}
-async function tryHistory(){                    // 抓真實滾動歷史(供出力趨勢線)
-  try{const r=await fetch(HIST_ENDPOINT,{cache:"no-store"});const j=await r.json();
-    if(j&&Array.isArray(j.points)){HIST=j;paintImpact();paintHero();}}catch(e){/* 尚無歷史檔時靜默忽略 */}
-}
-async function tryGrid(){                       // 抓電力供需即時報表(獨立來源，失敗靜默略過)
-  try{const r=await fetch(GRID_ENDPOINT,{cache:"no-store"});const j=await r.json();
-    if(j&&(typeof j.reserve_pct==="number"||typeof j.status_text==="string")){GRID=j;paintGrid();}}
-  catch(e){/* 尚無此檔或抓取失敗：不顯示電網狀態列，非致命 */}
-}
-function setFeed(live){
-  LIVE=live;const dot=document.getElementById("feeddot"),txt=document.getElementById("feedtxt"),dm=document.getElementById("datamode");
-  const EN=LANG==="en";
-  if(live){dot.className="dot live";
-    txt.textContent=srcTime?`${t("live")} · ${t("updatedAt")} ${fmtSrc(srcTime)}`:`${t("live")} · ${EN?"every 10 min":"每 10 分鐘更新"}`;
-    dm.textContent=srcTime?`● ${EN?"Live · backend connected · data time":"即時：已連線後端端點 · 台電資料時間"} ${fmtSrc(srcTime)}`:`● ${EN?"Live · backend connected":"即時：已連線後端端點"}`;}
-  else{dot.className="dot sim";txt.textContent=EN?"Simulated (baseline snapshot)":"模擬浮動（基準：台電開放資料 6/15 17:30 快照）";
-    dm.textContent=EN?"◐ Simulated · set DATA_ENDPOINT for live":"◐ 即時：模擬中 · 設定 DATA_ENDPOINT 後切換為真實資料";}
-}
-const capOf=f=>f.cap||f.planned||0;
-const sizeMW=f=>{const c=(typeof f.cap==="number"?f.cap:0)||(typeof f.planned==="number"?f.planned:0);
-  return c>0?c:Math.max(20,(f.snap||0)*1.2);};   // 註10無容量者用出力推估marker大小
-const ratioOf=f=>{const c=f.cap||0;return c>0?RT[f.id]/c:0;};
-function hexColor(f){if(f.pending||!f.cap)return"#5b7e8a";const r=ratioOf(f);
-  return r>=0.45?"#34e0ad":r>=0.20?"#56c2e8":"#f4a64d";}
-function cssColor(f){if(f.pending||!f.cap)return"var(--slate)";const r=ratioOf(f);
-  return r>=0.45?"var(--gen)":r>=0.20?"var(--sky)":"var(--amber)";}
-
-// 風機轉速：可用率越高轉越快；停機(出力≈0)不轉。回傳秒/圈，0=不轉。
-function spinDur(f){
-  const out=RT[f.id]||0;
-  if(out<=0.1)return 0;
-  let r=f.cap?ratioOf(f):Math.min(1,out/300);   // 無容量(註10)者以 300MW 當參考
-  r=Math.max(0.04,Math.min(1,r));
-  return +(0.5+(1-r)*4.5).toFixed(2);            // 0.5s(滿載)~5s(微載)
-}
-function turbineSVG(f){
-  const col=cssColor(f),dur=spinDur(f);
-  const anim=dur>0?`animation-duration:${dur}s`:"animation:none";
-  const blade=`<path d="M30 30 L28.4 9 Q30 4.5 31.6 9 Z" fill="${col}"/>`;   // 單葉，繞輪轂(30,30)
-  return `<svg class="turb" viewBox="0 0 60 92" aria-hidden="true">
-    <rect x="28.7" y="30" width="2.6" height="58" rx="1.2" fill="var(--slate)"/>
-    <rect x="26.3" y="26.5" width="7.4" height="6.2" rx="2.4" fill="var(--mist-dim)"/>
-    <g class="rotor" style="${anim}">
-      <g transform="rotate(0 30 30)">${blade}</g>
-      <g transform="rotate(120 30 30)">${blade}</g>
-      <g transform="rotate(240 30 30)">${blade}</g>
-      <circle cx="30" cy="30" r="3.6" fill="${col}"/><circle cx="30" cy="30" r="1.7" fill="var(--sea-0)"/>
-    </g></svg>`;
-}
-function paint(){paintTicker();paintHero();paintGrid();paintImpact();paintGroups();paintWall();paintChart();updateMarkers();}
-// 只有轉子的小圖示(無塔架)，供總覽牆等小尺寸場合使用
-function rotorSVG(f){
-  const col=cssColor(f),dur=spinDur(f);
-  const anim=dur>0?`animation-duration:${dur}s`:"animation:none";
-  const blade=`<path d="M20 20 L18.6 3.5 Q20 0.5 21.4 3.5 Z" fill="${col}"/>`;
-  return `<svg class="rotor-ic" viewBox="0 0 40 40" aria-hidden="true"><g class="rotor" style="${anim}">
-    <g transform="rotate(0 20 20)">${blade}</g><g transform="rotate(120 20 20)">${blade}</g><g transform="rotate(240 20 20)">${blade}</g>
-    <circle cx="20" cy="20" r="2.8" fill="${col}"/></g></svg>`;
-}
-function wallTile(f){
-  const col=cssColor(f),has=f.cap&&!f.pending,w=windOf(f);
-  const wtxt=w?` · 🌬${Math.round(w.mps)}m/s`:"";
-  const st=has?`${Math.round(ratioOf(f)*100)}%${w?"":" "+t("s_ratio")}${wtxt}`:((f.pending?t("b_dev"):"—")+wtxt);
-  return `<div class="wtile" data-id="${f.id}" role="button" tabindex="0" aria-label="${f.name}" style="border-left-color:${col}">
-    <div class="wric">${rotorSVG(f)}</div>
-    <div class="wn">${f.tp}</div>
-    <div class="wv" style="color:${col}">${RT[f.id].toFixed(1)}<small>MW</small></div>
-    <div class="ws">${st}</div></div>`;
-}
-function paintWall(){
-  const wall=document.getElementById("wall");if(!wall)return;
-  const list=[...FARMS].sort((a,b)=>RT[b.id]-RT[a.id]);   // 出力高者排前(綠色聚在左上)
-  wall.innerHTML=list.map(wallTile).join("");
-  wall.querySelectorAll(".wtile").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);
-    c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(c.dataset.id)}};});
-  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
-  document.getElementById("wallbar").innerHTML=
-    `<b>${t("wallAll")} ${FARMS.length}</b> ${t("wallFarms")} <b>${Math.round(total).toLocaleString()} MW</b>
-     <span class="lg"><i style="background:var(--gen)"></i>${t("lg_high")}</span>
-     <span class="lg"><i style="background:var(--sky)"></i>${t("lg_mid")}</span>
-     <span class="lg"><i style="background:var(--amber)"></i>${t("lg_low")}</span>
-     <span class="lg"><i style="background:var(--slate)"></i>${t("lg_dev")}</span>`;
-}
-// ===== 圖表 tab =====
-let chartMode="bar";
-const PALETTE=["#34e0ad","#56c2e8","#f4a64d","#a78bfa","#f472b6","#fbbf24","#4ade80","#5b7e8a"];
-function chartBar(){
-  const list=[...FARMS].sort((a,b)=>RT[b.id]-RT[a.id]);
-  const max=Math.max(1,...list.map(f=>RT[f.id]));
-  return `<div class="barchart">`+list.map(f=>`<div class="brow" data-id="${f.id}" tabindex="0">
-    <div class="bname">${f.tp}</div>
-    <div class="btrack"><div class="bfill" style="width:${(RT[f.id]/max*100).toFixed(1)}%;background:${cssColor(f)}"></div></div>
-    <div class="bval">${RT[f.id].toFixed(1)}<small> MW</small></div></div>`).join("")+`</div>`;
-}
-function donutHTML(pairs,title){
-  const total=pairs.reduce((s,p)=>s+p.v,0)||1;let acc=0,stops=[];
-  pairs.forEach((p,i)=>{const from=acc/total*100;acc+=p.v;const to=acc/total*100;
-    stops.push(`${PALETTE[i%PALETTE.length]} ${from.toFixed(2)}% ${to.toFixed(2)}%`);});
-  const legend=pairs.map((p,i)=>`<div class="lgrow"><i style="background:${PALETTE[i%PALETTE.length]}"></i>
-    <span class="lgn">${p.label}</span><span class="lgv">${(p.v/total*100).toFixed(0)}% · ${Math.round(p.v)}MW</span></div>`).join("");
-  return `<div class="donutblock"><div class="dtitle">${title}</div>
-    <div class="donut" style="background:conic-gradient(${stops.join(",")||"var(--sea-0) 0 100%"})"><div class="dhole"></div></div>
-    <div class="dlegend">${legend||`<div class="lgrow">${t("noGen")}</div>`}</div></div>`;
-}
-function chartDonut(){
-  const dm={};FARMS.forEach(f=>{const k=devShort(f);dm[k]=(dm[k]||0)+RT[f.id];});
-  const devPairs=Object.entries(dm).map(([label,v])=>({label,v})).filter(p=>p.v>0.1).sort((a,b)=>b.v-a.v);
-  let off=0,on=0;FARMS.forEach(f=>{if(isOffshore(f))off+=RT[f.id];else on+=RT[f.id];});
-  const typePairs=[{label:t("f_offshore"),v:off},{label:t("f_onshore"),v:on}].filter(p=>p.v>0.1);
-  return `<div class="donuts">${donutHTML(devPairs,t("donutDev"))}${donutHTML(typePairs,t("donutType"))}</div>`;
-}
-function paintChart(){
-  const wrap=document.getElementById("chartwrap");if(!wrap)return;
-  const note=document.getElementById("chartnote");
-  if(chartMode==="bar"){wrap.innerHTML=chartBar();note.textContent=t("cn_bar");}
-  else if(chartMode==="hist"){wrap.innerHTML=chartHist();note.textContent=t("cn_hist");
-    wrap.querySelectorAll(".histchips button").forEach(b=>b.onclick=()=>{histUnit=b.dataset.u||null;paintChart();});}
-  else{wrap.innerHTML=chartDonut();note.textContent=t("cn_donut");}
-  wrap.querySelectorAll("[data-id]").forEach(el=>{el.onclick=()=>openDrawer(el.dataset.id);
-    el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(el.dataset.id)}};});
-}
-// ===== 長期趨勢：官方回溯每日摘要(wind_archive_daily.json，由 backfill_history.py 產生) =====
-let ARCHD=null,ARCHD_STATE="idle",histUnit=null;   // idle→loading→ok/fail；histUnit=null 為全部
-function histRows(){                                // 目前選擇的 [{d,avg,max}]
-  const ds=ARCHD.days||[];
-  if(!histUnit)return ds.filter(r=>typeof r.avg==="number"&&typeof r.max==="number");
-  return ds.filter(r=>r.u&&Array.isArray(r.u[histUnit])).map(r=>({d:r.d,avg:r.u[histUnit][0],max:r.u[histUnit][1]}));
-}
-function histUnits(){                               // 機組清單(依期間平均出力排序)
-  const s={};(ARCHD.days||[]).forEach(r=>{if(r.u)for(const k in r.u)s[k]=(s[k]||0)+r.u[k][0];});
-  return Object.keys(s).sort((a,b)=>s[b]-s[a]);
-}
-const HIST_RAMP=["#12384a","#155a51","#1c7f64","#26ac85","#34e0ad"];   // 風況日曆 5 階(同色相·暗→亮)
-function histCalendar(ds){
-  const EN=LANG==="en",MN=["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  const peak=Math.max(...ds.map(r=>r.avg),1);
-  const months={};ds.forEach(r=>{(months[r.d.slice(0,7)]=months[r.d.slice(0,7)]||[]).push(r);});
-  return `<div class="histcal">${Object.keys(months).sort().map(m=>{
-    const rows=months[m],[y,mo]=m.split("-");
-    const lead=new Date(rows[0].d+"T00:00:00").getDay();          // 週日=0 起排
-    const cells=Array(lead).fill(`<div class="hcell" style="visibility:hidden"></div>`)
-      .concat(rows.map(r=>{const lv=r.avg<=0?0:Math.min(4,Math.floor(r.avg/peak*4.999));
-        const tip=EN?`${r.d}\navg ${r.avg} MW · max ${r.max} MW`:`${r.d}\n平均 ${r.avg} MW · 最大 ${r.max} MW`;
-        return `<div class="hcell" style="background:${HIST_RAMP[lv]}" title="${tip}"></div>`;}));
-    return `<div class="hmon"><div class="mt">${EN?`${MN[+mo]} ${y}`:`${y}/${+mo}月`}</div><div class="hgrid">${cells.join("")}</div></div>`;
-  }).join("")}</div>`;
-}
-function histCards(ds){
-  const EN=LANG==="en";
-  const best=ds.reduce((a,b)=>b.avg>a.avg?b:a),calm=ds.reduce((a,b)=>b.avg<a.avg?b:a);
-  const mean=ds.reduce((s,r)=>s+r.avg,0)/ds.length;
-  const mwh=ds.reduce((s,r)=>s+r.avg*24,0);                       // 期間累積發電(MWh，日均×24h)
-  const homes=best.avg*1000/HH_KW/10000;                          // 最強日可同時供應(萬戶)
-  const co2=mwh*CO2_KG_PER_KWH;                                   // 期間減碳(噸)＝MWh×1000度×0.495kg÷1000kg
-  const md=d=>{const[,m,dd]=d.split("-");return EN?`${+m}/${+dd}`:`${+m}/${+dd}`;};
-  const energyTxt=EN?(mwh>=1e5?`${(mwh/1000).toFixed(0)}<small>GWh</small>`:`${Math.round(mwh).toLocaleString()}<small>MWh</small>`)
-                    :(mwh>=1e5?`${(mwh/1e5).toFixed(1)}<small>億度</small>`:`${Math.round(mwh/10).toLocaleString()}<small>萬度</small>`);
-  const card=(ti,v,k)=>`<div class="histcard"><div class="ht">${ti}</div><div class="hv">${v}</div><div class="hk">${k}</div></div>`;
-  return `<div class="histcards">${
-    card(EN?"🏆 Windiest day":"🏆 風神最給力的一天",
-         `${md(best.d)} · ${Math.round(best.avg).toLocaleString()}<small>MW</small>`,
-         EN?`could power ~${Math.round(homes*10).toLocaleString()}k homes at once`:`約可同時供應 ${homes.toFixed(0)} 萬戶家庭用電`)}${
-    card(EN?"⚡ Energy over the period":"⚡ 這段期間吹出的電",
-         energyTxt,
-         EN?`≈ ${co2>=1e4?(co2/1e3).toFixed(0)+"k":Math.round(co2).toLocaleString()} t CO₂ avoided · daily avg ${Math.round(mean)} MW`
-           :`約減碳 ${co2>=1e4?(co2/1e4).toFixed(1)+" 萬噸":Math.round(co2).toLocaleString()+" 噸"} · 日平均出力 ${Math.round(mean)} MW`)}${
-    card(EN?"😴 Calmest day":"😴 風神休假的一天",
-         `${md(calm.d)} · ${Math.round(calm.avg).toLocaleString()}<small>MW</small>`,
-         EN?"wind rests too — that's why the grid mixes sources":"風也有休息的時候——這正是電網要多元電源互補的原因")}</div>`;
-}
-function chartHist(){
-  if(ARCHD_STATE!=="ok"){
-    if(ARCHD_STATE==="idle"){
-      ARCHD_STATE="loading";
-      fetch("./wind_archive_daily.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json()})
-        .then(j=>{ARCHD=j;ARCHD_STATE="ok";})
-        .catch(()=>{ARCHD_STATE="fail";})
-        .finally(()=>{if(chartMode==="hist")paintChart();});
-    }
-    return `<div class="empty">${t(ARCHD_STATE==="fail"?"hist_none":"hist_loading")}</div>`;
-  }
-  const ds=histRows();
-  if(ds.length<2)return `<div class="empty">${t("hist_none")}</div>`;
-  const EN=LANG==="en",units=histUnits();
-  const chips=units.length?`<div class="histchips"><button class="${histUnit?"":"on"}">${t("hist_all")}</button>${
-    units.map(u=>`<button data-u="${u}" class="${histUnit===u?"on":""}">${u}</button>`).join("")}</div>`:"";
-  // 折線圖(單日平均+最大)，逐日 hover 提示
-  const W=940,H=320,pl=52,pr=18,pt=30,pb=34;
-  const yMax=Math.max(10,Math.ceil(Math.max(...ds.map(r=>r.max))/50)*50);
-  const X=i=>pl+i/(ds.length-1)*(W-pl-pr),Y=v=>H-pb-Math.max(0,v)/yMax*(H-pt-pb);
-  const line=k=>ds.map((r,i)=>`${X(i).toFixed(1)},${Y(r[k]).toFixed(1)}`).join(" ");
-  let grid="";for(let g=0;g<=yMax;g+=yMax/5){const yy=Y(g);
-    grid+=`<line x1="${pl}" y1="${yy}" x2="${W-pr}" y2="${yy}" stroke="#1d5571" opacity=".5"/><text x="${pl-6}" y="${yy+4}" fill="#6f9aa6" font-size="11" text-anchor="end">${Math.round(g)}</text>`;}
-  let xl="",lastM="";ds.forEach((r,i)=>{const m=r.d.slice(0,7);
-    if(m!==lastM){lastM=m;const[y,mo]=m.split("-");
-      xl+=`<text x="${X(i)}" y="${H-10}" fill="#6f9aa6" font-size="11" text-anchor="middle">${EN?`${["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+mo]} ${y}`:`${y}/${+mo}月`}</text>`;}});
-  const hw=(W-pl-pr)/(ds.length-1);
-  const hover=ds.map((r,i)=>`<rect x="${(X(i)-hw/2).toFixed(1)}" y="${pt}" width="${hw.toFixed(1)}" height="${H-pt-pb}" fill="transparent"><title>${r.d}\n${EN?"avg":"平均"} ${r.avg} MW · ${EN?"max":"最大"} ${r.max} MW</title></rect>`).join("");
-  const sw=(x,c,dash)=>`<line x1="${x}" y1="12" x2="${x+18}" y2="12" stroke="${c}" stroke-width="${dash?1.5:2.5}"/>`;
-  return `<div class="histpanel">${chips}${histCards(ds)}
-    <div class="histsec">${EN?"🗓️ Wind calendar · brighter = windier day (daily avg)":"🗓️ 風況日曆 · 顏色越亮＝那天風越大（單日平均）"}</div>
-    ${histCalendar(ds)}
-    <div class="histsec">${EN?"📈 Daily trend":"📈 每日趨勢"}</div>
-    <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">${grid}${xl}
-    <polyline points="${X(0)},${Y(0)} ${line("max")} ${X(ds.length-1)},${Y(0)}" fill="#56c2e8" opacity=".12" stroke="none"/>
-    <polyline points="${line("max")}" fill="none" stroke="#56c2e8" stroke-width="1.5" opacity=".7"/>
-    <polyline points="${line("avg")}" fill="none" stroke="#34e0ad" stroke-width="2.5"/>
-    ${sw(pl,"#34e0ad")}<text x="${pl+24}" y="16" fill="#9fc3cc" font-size="12" font-weight="700">${t("hist_avg")}</text>
-    ${sw(pl+(EN?128:104),"#56c2e8",1)}<text x="${pl+(EN?152:128)}" y="16" fill="#9fc3cc" font-size="12" font-weight="700">${t("hist_max")}</text>
-    <text x="${W-pr}" y="16" fill="#6f9aa6" font-size="11" text-anchor="end">${ds[0].d} ～ ${ds[ds.length-1].d} · MW</text>
-    ${hover}</svg></div>`;
-}
-// ===== 認識風電：教育圖表(靜態資料，皆標來源) =====
-function growthSVG(){                              // 裝置容量成長曲線(GW)
-  const act=[[2019,0.13],[2024,3.04],[2026,4.8]],tgt=[[2026,4.8],[2030,10.9],[2035,18.4]];
-  const W=640,H=280,pl=40,pr=20,pt=22,pb=32,X=y=>pl+(y-2019)/16*(W-pl-pr),Y=g=>H-pb-g/20*(H-pt-pb);
-  const poly=a=>a.map(([y,g])=>`${X(y).toFixed(1)},${Y(g).toFixed(1)}`).join(" ");
-  let grid="";[0,5,10,15,20].forEach(g=>{const yy=Y(g);grid+=`<line x1="${pl}" y1="${yy}" x2="${W-pr}" y2="${yy}" stroke="#1d5571" opacity=".5"/><text x="${pl-6}" y="${yy+4}" fill="#6f9aa6" font-size="11" text-anchor="end">${g}</text>`;});
-  [2019,2024,2030,2035].forEach(y=>grid+=`<text x="${X(y)}" y="${H-10}" fill="#6f9aa6" font-size="11" text-anchor="middle">${y}</text>`);
-  const dot=(a,c)=>a.map(([y,g])=>`<circle cx="${X(y)}" cy="${Y(g)}" r="4.5" fill="${c}"/><text x="${X(y)}" y="${Y(g)-10}" fill="#e9f5f4" font-size="11.5" font-weight="800" text-anchor="middle">${g}</text>`).join("");
-  return `<svg viewBox="0 0 ${W} ${H}">${grid}
-    <polyline points="${poly(act)}" fill="none" stroke="#34e0ad" stroke-width="3"/>
-    <polyline points="${poly(tgt)}" fill="none" stroke="#56c2e8" stroke-width="3" stroke-dasharray="7 5"/>
-    ${dot(act,"#34e0ad")}${dot([[2030,10.9],[2035,18.4]],"#56c2e8")}
-    <text x="${pl}" y="16" fill="#34e0ad" font-size="11" font-weight="700">${LANG==="en"?"GW cumulative　—actual":"GW 累計裝置容量　—實測"}</text>
-    <text x="${W-pr}" y="16" fill="#56c2e8" font-size="11" font-weight="700" text-anchor="end">${LANG==="en"?"‑‑policy target":"‑‑政策目標"}</text></svg>`;
-}
-function seasonSVG(){                              // 季節互補(示意)
-  const wind=[.9,.85,.72,.52,.36,.26,.22,.28,.42,.66,.84,.9],solar=[.42,.52,.66,.8,.9,.96,.96,.9,.76,.6,.46,.4];
-  const W=640,H=230,pl=26,pr=20,pt=26,pb=26,X=i=>pl+i/11*(W-pl-pr),Y=v=>H-pb-v*(H-pt-pb);
-  const line=a=>a.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" ");
-  let xl="";for(let i=0;i<12;i++)xl+=`<text x="${X(i)}" y="${H-9}" fill="#6f9aa6" font-size="10" text-anchor="middle">${i+1}</text>`;
-  return `<svg viewBox="0 0 ${W} ${H}">${xl}
-    <polyline points="${X(0)},${Y(0)} ${line(wind)} ${X(11)},${Y(0)}" fill="#34e0ad" opacity=".1"/>
-    <polyline points="${line(wind)}" fill="none" stroke="#34e0ad" stroke-width="3"/>
-    <polyline points="${line(solar)}" fill="none" stroke="#f4a64d" stroke-width="3"/>
-    <text x="${pl}" y="16" fill="#34e0ad" font-size="12" font-weight="700">${LANG==="en"?"🌬 Offshore wind (winter-high)":"🌬 離岸風電（冬強）"}</text>
-    <text x="${W-pr}" y="16" fill="#f4a64d" font-size="12" font-weight="700" text-anchor="end">${LANG==="en"?"☀️ Solar (summer-high)":"☀️ 太陽能（夏強）"}</text></svg>`;
-}
-function costSVG(){                                // 成本下降(元/度)
-  const EN=LANG==="en";
-  const bars=EN?[["Demo/selection",5.8,"~NT$5.8"],["Auction 2018",2.35,"NT$2.2–2.5"],["Zonal phase",0,"Zero subsidy*"]]
-              :[["示範／遴選",5.8,"約 5.8 元"],["競價 2018",2.35,"2.2–2.5 元"],["區塊開發",0,"零元躉購＊"]];
-  const W=640,H=240,pl=36,pr=20,pt=22,pb=42,bw=120,gap=(W-pl-pr-bars.length*bw)/(bars.length+1),Y=v=>H-pb-v/6*(H-pt-pb);
-  let g="";[0,2,4,6].forEach(v=>{const yy=Y(v);g+=`<line x1="${pl}" y1="${yy}" x2="${W-pr}" y2="${yy}" stroke="#1d5571" opacity=".5"/><text x="${pl-6}" y="${yy+4}" fill="#6f9aa6" font-size="11" text-anchor="end">${v}</text>`;});
-  bars.forEach((d,i)=>{const bx=pl+gap+i*(bw+gap),h=Math.max((H-pb)-Y(d[1]),3),col=["#f4a64d","#56c2e8","#34e0ad"][i];
-    g+=`<rect x="${bx}" y="${Y(d[1])}" width="${bw}" height="${h}" rx="5" fill="${col}"/>
-      <text x="${bx+bw/2}" y="${Y(d[1])-8}" fill="#e9f5f4" font-size="12.5" font-weight="800" text-anchor="middle">${d[2]}</text>
-      <text x="${bx+bw/2}" y="${H-20}" fill="#9fc3cc" font-size="11.5" text-anchor="middle">${d[0]}</text>`;});
-  return `<svg viewBox="0 0 ${W} ${H}">${g}<text x="${pl}" y="14" fill="#6f9aa6" font-size="11">${EN?"NT$/kWh":"元／度"}</text></svg>`;
-}
-function birdSVG(){                                // 鳥類死因對比(每年,國際研究)
-  const EN=LANG==="en";
-  const d=EN?[["🐈 Cats",2.4e9,"~2.4 bn"],["🏢 Buildings",5.99e8,"~599 M"],["💨 Turbines",2.34e5,"~234 k"]]
-            :[["🐈 家貓",2.4e9,"約 24 億"],["🏢 大樓玻璃",5.99e8,"約 6 億"],["💨 風機",2.34e5,"約 23 萬"]];
-  const max=d[0][1],W=640,rh=48,pl=108,pr=96,H=d.length*rh+22;
-  let g="";d.forEach((r,i)=>{const y=10+i*rh,bw=Math.max(4,r[1]/max*(W-pl-pr)),col=i===2?"#34e0ad":"#5b7e8a";
-    g+=`<text x="${pl-8}" y="${y+19}" fill="#9fc3cc" font-size="12.5" text-anchor="end">${r[0]}</text>
-      <rect x="${pl}" y="${y+4}" width="${bw}" height="26" rx="5" fill="${col}"/>
-      <text x="${pl+bw+8}" y="${y+22}" fill="#e9f5f4" font-size="12" font-weight="700">${r[2]}</text>`;});
-  return `<svg viewBox="0 0 ${W} ${H}">${g}<text x="${W}" y="${H-4}" fill="#6f9aa6" font-size="10" text-anchor="end">${EN?"Annual bird deaths · intl. studies (US FWS etc.)":"每年鳥類死亡估計 · 國際研究（美國魚類及野生動物署等）"}</text></svg>`;
-}
-function buildLearn(){
-  const set=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html;};
-  set("growthchart",growthSVG());set("seasonchart",seasonSVG());set("costchart",costSVG());set("birdchart",birdSVG());
-}
-// 分享此刻風況
-function toast(msg){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";document.body.appendChild(t);}
-  t.textContent=msg;t.classList.add("on");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("on"),2400);}
-function shareText(){
-  const EN=LANG==="en",total=Math.round(FARMS.reduce((s,f)=>s+RT[f.id],0));
-  const sh=(LIVE&&sysTotal>0)?(EN?`, ${(total/sysTotal*100).toFixed(1)}% of the national grid`:`，佔全國發電 ${(total/sysTotal*100).toFixed(1)}%`):"";
-  return EN?`🌬 Taiwan's wind power right now: ~${total.toLocaleString()} MW${sh}. See the live status 👉`
-           :`🌬 台灣此刻風電即時出力約 ${total.toLocaleString()} MW${sh}。一起看台灣風電即時風況與發展 👉`;
-}
-function roundRect(x,X,Y,W,H,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+W,Y,X+W,Y+H,r);x.arcTo(X+W,Y+H,X,Y+H,r);x.arcTo(X,Y+H,X,Y,r);x.arcTo(X,Y,X+W,Y,r);x.closePath();}
-function drawShareCard(){                       // 產生 1080×1080 即時風況圖卡(canvas)
-  const EN=LANG==="en",S=1080,cv=document.createElement("canvas");cv.width=S;cv.height=S;
-  const x=cv.getContext("2d"),CN='"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif',P=80;
-  const g=x.createLinearGradient(0,0,S,S);g.addColorStop(0,"#0f3d52");g.addColorStop(1,"#061c27");
-  x.fillStyle=g;x.fillRect(0,0,S,S);x.strokeStyle="#1d5571";x.lineWidth=2;roundRect(x,24,24,S-48,S-48,20);x.stroke();
-  x.textBaseline="alphabetic";x.textAlign="left";
-  x.fillStyle="#e9f5f4";x.font=`800 54px ${CN}`;x.fillText(EN?"Taiwan Wind Watch":"風電風情 · 台灣風力發電",P,132);
-  x.fillStyle="#6f9aa6";x.font="600 24px sans-serif";x.fillText("TAIWAN WIND WATCH",P,168);
-  // 圖卡會脫離網站情境被轉傳分享，時間務必含年份且要醒目，否則事後無從得知是哪一年、
-  // 容易被誤認成「當下」的即時發電量。做成徽章放在標題下方，比塞在最下面小字明顯得多。
-  const fmtSrcFull=s=>{if(!s)return"";const d=new Date(s);if(isNaN(d))return s;
-    const p=n=>String(n).padStart(2,"0");
-    return `${d.getFullYear()}/${p(d.getMonth()+1)}/${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;};
-  const st=srcTime?fmtSrcFull(srcTime):"";
-  if(st){
-    const dtText=(EN?"As of ":"資料時間 ")+st;
-    x.font=`700 30px ${CN}`;
-    const dtW=x.measureText(dtText).width,padX=22,pillH=52,pillW=dtW+padX*2,pillX=S-P-pillW,pillY=186;
-    roundRect(x,pillX,pillY,pillW,pillH,pillH/2);x.fillStyle="#0a2a3a";x.fill();x.strokeStyle="#34e0ad";x.lineWidth=2;x.stroke();
-    x.textAlign="right";x.fillStyle="#34e0ad";x.fillText(dtText,pillX+pillW-padX,pillY+pillH/2+10);x.textAlign="left";
-  }
-  const total=Math.round(FARMS.reduce((s,f)=>s+RT[f.id],0));
-  x.fillStyle="#9fc3cc";x.font=`500 36px ${CN}`;x.fillText(EN?"Taiwan's wind power right now":"台灣此刻風電即時出力",P,290);
-  const ns=total.toLocaleString();x.fillStyle="#34e0ad";x.font=`800 156px ${CN}`;
-  const nw=x.measureText(ns).width;x.fillText(ns,P,432);   // 先量寬度(同字體)再畫，避免 MW 重疊
-  x.fillStyle="#9fc3cc";x.font="700 58px sans-serif";x.fillText("MW",P+nw+26,432);
-  const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0),hm=Math.round(total*1000/0.5/10000);
-  const blocks=[[cap>0?(total/cap*100).toFixed(0)+"%":"—",EN?"Availability":"可用率"],
-    [(LIVE&&sysTotal>0)?(total/sysTotal*100).toFixed(1)+"%":"—",EN?"of national grid":"佔全國發電"],
-    [EN?(hm*10)+"k":hm+"萬戶",EN?"homes (est.)":"可供家庭(估算)"]];
-  let bx=P,bw=(S-2*P-2*24)/3;
-  blocks.forEach(b=>{roundRect(x,bx,500,bw,120,16);x.fillStyle="#0a2a3a";x.fill();x.strokeStyle="#1d5571";x.stroke();
-    x.textAlign="center";x.fillStyle="#56c2e8";x.font=`800 46px ${CN}`;x.fillText(b[0],bx+bw/2,560);
-    x.fillStyle="#6f9aa6";x.font=`500 22px ${CN}`;x.fillText(b[1],bx+bw/2,598);x.textAlign="left";bx+=bw+24;});
-  x.fillStyle="#9fc3cc";x.font=`600 26px ${CN}`;x.fillText(EN?"Top farms right now":"此刻出力前段風場",P,700);
-  const top=[...FARMS].sort((a,b)=>RT[b.id]-RT[a.id]).slice(0,6),mx=Math.max(1,...top.map(f=>RT[f.id]));
-  let ty=726;const tX=P+176,tW=S-tX-P-118;
-  top.forEach(f=>{x.textAlign="right";x.fillStyle="#9fc3cc";x.font=`600 23px ${CN}`;x.fillText(f.tp,P+160,ty+26);x.textAlign="left";
-    x.fillStyle="#06212e";roundRect(x,tX,ty+8,tW,24,7);x.fill();
-    x.fillStyle=hexColor(f);roundRect(x,tX,ty+8,Math.max(6,RT[f.id]/mx*tW),24,7);x.fill();
-    x.fillStyle="#e9f5f4";x.font=`700 23px ${CN}`;x.fillText((RT[f.id]||0).toFixed(0)+" MW",tX+tW+12,ty+27);ty+=39;});
-  x.fillStyle="#6f9aa6";x.font=`500 22px ${CN}`;
-  x.fillText(EN?"Data: Taipower + CWA":"資料：台電＋中央氣象署",P,992);
-  x.fillStyle="#5b7e8a";x.font=`400 18px ${CN}`;
-  x.fillText(EN?"Figures are rough estimates from public data, for reference only.":"以上數據為公開資料整理之粗略估算，僅供參考，非官方正式數字。",P,1020);
-  x.fillStyle="#34e0ad";x.font=`700 27px ${CN}`;x.fillText("dofliu.github.io/windfarmTaiwan",P,1052);
-  return cv;
-}
-function shareCard(){
-  let cv;try{cv=drawShareCard();}catch(e){return doShareText();}
-  const url=location.href.split("?")[0].split("#")[0];
-  cv.toBlob(async blob=>{
-    if(!blob)return doShareText();
-    const file=new File([blob],"taiwan-wind.png",{type:"image/png"});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){
-      try{await navigator.share({files:[file],title:"風電風情 Taiwan Wind Watch",text:shareText(),url});return;}catch(e){if(e&&e.name==="AbortError")return;}}
-    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="taiwan-wind.png";a.click();
-    setTimeout(()=>URL.revokeObjectURL(a.href),5000);toast(LANG==="en"?"Card image downloaded ✓":"風況圖卡已下載 ✓");
-  },"image/png");
-}
-function applyI18n(){                            // 套用目前語言到所有介面
-  document.documentElement.lang=LANG==="en"?"en":"zh-Hant";
-  document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n);});
-  document.querySelectorAll("[data-i18n-html]").forEach(el=>{el.innerHTML=t(el.dataset.i18nHtml);});
-  buildFilterSelects();                          // 重建開發商/廠牌選項(含翻譯的「全部」標題)並還原選取
-  if(document.getElementById("capsel"))document.getElementById("capsel").value=capFilt;
-  setFeed(LIVE);buildLearn();paint();
-  if(document.getElementById("drawer").classList.contains("on")&&drawerFarm)openDrawer(drawerFarm.id);
-}
-function toggleLang(){LANG=LANG==="zh"?"en":"zh";applyI18n();}
-async function doShareText(){                   // 純文字/連結後援
-  const url=location.href.split("?")[0].split("#")[0],text=shareText();
-  if(navigator.share){try{await navigator.share({title:"風電風情",text,url});return;}catch(e){if(e&&e.name==="AbortError")return;}}
-  try{await navigator.clipboard.writeText(text+" "+url);toast(LANG==="en"?"Copied ✓":"已複製分享文字與連結 ✓");}catch(e){toast("請手動複製網址");}
-}
-// 依整體可用率產生口語化問候(生動/幽默)
-function heroMood(r){
-  const EN=LANG==="en";
-  if(r>=0.45)return{e:"💨",t:EN?"Big wind! Turbines across Taiwan are going full throttle.":"狂風時刻！全台風機火力全開，正在猛灌綠電。"};
-  if(r>=0.28)return{e:"🌬️",t:EN?"Good breeze — turbines are humming along steadily.":"風勢不錯，風機們穩穩出力中。"};
-  if(r>=0.13)return{e:"🍃",t:EN?"Light winds — turbines turning at an easy pace.":"微風徐徐，風機悠閒地轉著。"};
-  return{e:"😴",t:EN?"Calm out there — turbines resting, waiting for the winter monsoon.":"風有點懶，風機正在放假曬太陽，等東北季風回來上工。"};
-}
-function paintHero(){
-  const EN=LANG==="en";
-  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
-  const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
-  const m=heroMood(cap>0?total/cap:0);
-  const ops=FARMS.filter(f=>f.cap&&!f.pending);
-  const top=ops.filter(f=>RT[f.id]>0.1).sort((a,b)=>ratioOf(b)-ratioOf(a))[0];
-  const resting=ops.filter(f=>RT[f.id]<=0.1).length;
-  const mwh=todayEnergyMWh();
-  const story=mwh!=null
-    ?(EN?`So far today, Taiwan's wind has generated ~<b>${Math.round(mwh).toLocaleString()} MWh</b> ⚡ ≈ a full day's power for <b>${Math.round(mwh*100).toLocaleString()}</b> homes 🏠 (still accruing)`
-        :`今天到現在，台灣的風已轉出約 <b>${Math.round(mwh*1000).toLocaleString()} 度</b>電 ⚡ ≈ <b>${Math.round(mwh*100).toLocaleString()} 戶</b>家庭一整天的用電 🏠（仍在累積中）`)
-    :(EN?`Today's total is still adding up — check back soon 📖`:`今日發電量正在累積中，過一段時間就會說書給你聽 📖`);
-  const topChip=top?(EN?`🏆 Top performer: <b>${top.name}</b> (${(ratioOf(top)*100).toFixed(0)}%)`:`🏆 此刻最賣力：<b>${top.name}</b>（可用率 ${(ratioOf(top)*100).toFixed(0)}%）`)
-    :(EN?"🏆 No farms generating now":"🏆 此刻暫無風場運轉");
-  const restChip=EN?`😎 Resting now: <b>${resting}</b> farms`:`😎 此刻休息中：<b>${resting}</b> 座風場`;
-  document.getElementById("hero").innerHTML=`
-    <div class="hgreet"><span class="he">${m.e}</span><span>${m.t}</span></div>
-    <div class="hstory">${story}</div>
-    <div class="hchips"><span class="hchip">${topChip}</span><span class="hchip">${restChip}</span></div>`;
-}
-// 備轉容量率燈號：優先依官方 status_text 的關鍵字判斷顏色(文字與顏色一致)；
-// 官方未給文字時，才退化用台電公開的分級門檻(≥10 綠燈充裕／6–10 黃燈吃緊／3–6 橘燈警戒／<3 紅燈限電)。
-function reserveTier(pct,statusText){
-  if(statusText){
-    if(statusText.includes("限電"))return{c:"var(--red)",k:"grid_alert"};
-    if(statusText.includes("警戒"))return{c:"var(--amber)",k:"grid_warn"};
-    if(statusText.includes("吃緊"))return{c:"var(--amber)",k:"grid_tight"};
-    if(statusText.includes("充裕"))return{c:"var(--gen)",k:"grid_ample"};
-  }
-  if(typeof pct==="number"){
-    if(pct>=10)return{c:"var(--gen)",k:"grid_ample"};
-    if(pct>=6)return{c:"var(--amber)",k:"grid_tight"};
-    if(pct>=3)return{c:"var(--amber)",k:"grid_warn"};
-    return{c:"var(--red)",k:"grid_alert"};
-  }
-  return{c:"var(--slate)",k:null};
-}
-function paintGrid(){
-  const el=document.getElementById("gridbar");if(!el)return;
-  if(!GRID||typeof GRID.reserve_pct!=="number"){el.innerHTML="";return;}
-  const EN=LANG==="en",tier=reserveTier(GRID.reserve_pct,GRID.status_text);
-  const label=GRID.status_text||t(tier.k);
-  const isDaily=GRID.granularity==="daily";
-  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
-  // 備援(每日/非即時)資料不與「此刻」風電出力並列，避免誤導成同一時間點的數字
-  const windTxt=(!isDaily&&LIVE&&total>0)?`<span class="gsep">·</span><span class="gwind">🌬️ ${t("grid_wind")} <b>${Math.round(total).toLocaleString()} MW</b></span>`:"";
-  const srcLabel=isDaily?t("grid_src_daily"):t("grid_src");
-  const srcTime=GRID.source_time?(isDaily?GRID.source_time.slice(0,10):fmtSrc(GRID.source_time)):"";
-  el.innerHTML=`<span class="gdot" style="background:${tier.c};color:${tier.c}"></span>
-    <span class="gstat">${label}</span><span class="gsep">·</span>
-    <span class="gpct" style="color:${tier.c}">${GRID.reserve_pct.toFixed(1)}%</span>
-    <span class="gwind" style="color:var(--mist-dim)">${t("grid_reserve")}</span>${windTxt}
-    <span class="gsrc">${srcLabel}${srcTime?` ${srcTime}`:""}</span>`;
-}
-function paintTicker(){
-  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
-  const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
-  const co2=Math.round(total*CO2_KG_PER_KWH).toLocaleString();   // 噸/小時(總出力MW×排碳係數)
-  const op=FARMS.filter(f=>!f.pending).length;
-  document.getElementById("ticker").innerHTML=`
-    <div class="stat"><div class="k">${t("windTotal")}</div><div class="v green num">${Math.round(total).toLocaleString()}<small>MW</small></div></div>
-    <div class="stat"><div class="k">${t("totalCap")}</div><div class="v num">${Math.round(cap).toLocaleString()}<small>MW</small></div></div>
-    <div class="stat"><div class="k">${t("overallAvail")}</div><div class="v sky num">${(total/cap*100).toFixed(1)}<small>%</small></div></div>
-    <div class="stat"><div class="k">${t("co2hr")}</div><div class="v num">${co2}<small>${t("tonHr")}</small></div></div>
-    <div class="stat"><div class="k">${t("unitsFarms")}</div><div class="v num">${op}<small>／${FARMS.length}</small></div></div>`;
-}
-// 今日(台北)累積發電量(MWh)：用真實歷史的 total 對時間梯形積分；不足則回 null
-function todayEnergyMWh(){
-  const pts=(HIST.points||[]).filter(p=>p&&typeof p.total==="number");
-  if(pts.length<2)return null;
-  const n=new Date(),y=n.getFullYear(),m=n.getMonth(),d=n.getDate();
-  const td=pts.filter(p=>{const t=new Date(p.t);return t.getFullYear()===y&&t.getMonth()===m&&t.getDate()===d;});
-  if(td.length<2)return null;
-  let e=0;
-  for(let i=1;i<td.length;i++){
-    const dtH=(new Date(td[i].t)-new Date(td[i-1].t))/3600000;
-    if(dtH>0&&dtH<1.05)e+=(td[i].total+td[i-1].total)/2*dtH;   // MWh；跨距>1h視為斷點不積
-  }
-  return e;
-}
-function paintImpact(){
-  const total=FARMS.reduce((s,f)=>s+RT[f.id],0);
-  const homes=total*1000/HH_KW/10000;                          // 萬戶(即時出力可同時供應)
-  const share=(LIVE&&sysTotal>0)?(total/sysTotal*100):null;    // 風電佔全國發電%
-  const mwh=todayEnergyMWh();                                  // 今日累積發電(MWh)
-  const trees=mwh!=null?(mwh*1000*CO2_KG_PER_KWH/TREE_KG_PER_YR):null;  // 今日減碳等效樹(棵·年)
-  const card=(ic,iv,unit,k)=>`<div class="imp"><div class="ic">${ic}</div><div class="tx">
-    <div class="iv">${iv}${unit?`<small>${unit}</small>`:""}</div><div class="ik">${k}</div></div></div>`;
-  const EN=LANG==="en",homesV=EN?Math.round(homes*10).toLocaleString():homes.toFixed(homes<10?1:0),homesU=EN?"k homes":"萬戶";
-  const todayV=mwh!=null?(EN?Math.round(mwh).toLocaleString():(mwh/10).toFixed(mwh/10<10?2:1)):t("accruing"),todayU=mwh!=null?(EN?"MWh":"萬度"):"";
-  document.getElementById("impact").innerHTML=
-    card("🏠",homesV,homesU,t("imp_homes"))+
-    card("⚡",share!=null?share.toFixed(1):"—",share!=null?"%":"",t("imp_share"))+
-    card("💡",todayV,todayU,t("imp_today"))+
-    card("🌳",trees!=null?Math.round(trees).toLocaleString():t("accruing"),trees!=null?t("unit_trees"):"",t("imp_trees"));
-}
-function sortFarms(a){const c=[...a];
-  if(sortKey==="output")c.sort((x,y)=>RT[y.id]-RT[x.id]);
-  else if(sortKey==="ratio")c.sort((x,y)=>ratioOf(y)-ratioOf(x));
-  else if(sortKey==="cap")c.sort((x,y)=>sizeMW(y)-sizeMW(x));
-  else c.sort((x,y)=>x.name.localeCompare(y.name,"zh-Hant"));
-  return c;}
-function cardHTML(f){
-  const has=f.cap&&!f.pending;
-  const pct=has?Math.max(0,Math.min(100,ratioOf(f)*100)):0;
-  const EN=LANG==="en";
-  const capTxt=f.cap?`/ ${f.cap} MW`:(f.planned&&f.planned!=="—"?`/ ${EN?"planned":"規劃"} ${f.planned}`:(EN?"/ not listed":"/ 未列容量"));
-  const badge=f.pending?`<span class="badge dev">${t("b_dev")}</span>`:(f.agg?`<span class="badge agg">${t("b_agg")}</span>`:`<span class="badge run">${t("b_run")}</span>`);
-  const w=windOf(f),windMW=w?`<span class="cwmw" title="${w.station}${EN?" station · "+w.km+" km · coastal ref.":"測站 · 距 "+w.km+" km · 沿海參考值"}">🌬 ${w.mps.toFixed(1)} m/s</span>`:"";
-  return `<div class="card${f.pending?" pending":""}" tabindex="0" data-id="${f.id}" role="button" aria-label="${f.name}">
-    <div class="turbwrap">${turbineSVG(f)}
-      <div class="pct" style="color:${cssColor(f)}">${has?pct.toFixed(0)+"%":(f.pending?t("b_dev"):"—")}</div></div>
-    <div class="cbody">
-      <div class="cname">${f.name}</div>
-      <div class="cdev">${f.dev}</div>
-      <div class="cmw"><span class="big num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}</span>
-        <span class="cap num">${capTxt}</span></div>
-      <div class="cmeta">${badge}${windMW}</div>
-    </div></div>`;
-}
-// 由台電購電合約揭露的開發商字串歸納為簡短名稱(供篩選)
-function devShort(f){
-  const d=f.dev||"";
-  if(/台灣電力|台電/.test(d))return"台電";
-  if(/沃旭|Ørsted|Orsted/i.test(d))return"沃旭 Ørsted";
-  if(/CIP|哥本哈根/i.test(d))return"CIP";
-  if(/達德|wpd/i.test(d))return"達德 wpd";
-  if(/海龍/.test(d))return"海龍";
-  if(/中能|中鋼/.test(d))return"中能（中鋼）";
-  if(/海洋風電|海能|JERA/i.test(d))return"JERA 系";
-  return"其他民營";
-}
-// 由風機型號字串歸納為廠牌(供篩選)；資料來源為各風場 model 欄位
-function farmBrand(f){
-  const m=f.model||"";
-  if(/Siemens Gamesa/i.test(m))return"Siemens Gamesa";
-  if(/Siemens/i.test(m))return"Siemens";
-  if(/Vestas/i.test(m))return"Vestas";
-  if(/Hitachi/i.test(m))return"Hitachi";
-  return"其他／未列";
-}
-function farmPass(f){
-  if(filt==="offshore"&&!isOffshore(f))return false;
-  if(filt==="onshore"&&isOffshore(f))return false;
-  if(filt==="commercial"&&f.pending)return false;   // 已商轉 = 非試運轉
-  if(filt==="building"&&!f.pending)return false;     // 開發中 = 試運轉(註10)
-  if(devFilt!=="all"&&devShort(f)!==devFilt)return false;
-  if(brandFilt!=="all"&&farmBrand(f)!==brandFilt)return false;
-  if(capFilt!=="all"){const c=f.cap||0;
-    if(capFilt==="L"&&!(c>300))return false;
-    if(capFilt==="M"&&!(c>=100&&c<=300))return false;
-    if(capFilt==="S"&&!(c>0&&c<100))return false;}
-  return true;
-}
-function buildFilterSelects(){                       // 依實際資料動態建立下拉，避免硬寫錯
-  const ds=document.getElementById("devsel"),bs=document.getElementById("brandsel");
-  const devs=[...new Set(FARMS.map(devShort))],brands=[...new Set(FARMS.map(farmBrand))];
-  ds.innerHTML=`<option value="all">${t("allDev")}</option>`+devs.map(d=>`<option value="${d}">${d}</option>`).join("");
-  bs.innerHTML=`<option value="all">${t("allBrand")}</option>`+brands.map(b=>`<option value="${b}">${b}</option>`).join("");
-  ds.value=devFilt;bs.value=brandFilt;              // 還原選取(語言切換時)
-  ds.onchange=()=>{devFilt=ds.value;paintGroups();};
-  bs.onchange=()=>{brandFilt=bs.value;paintGroups();};
-  document.getElementById("capsel").onchange=e=>{capFilt=e.target.value;paintGroups();};
-}
-function groupsFor(){                                // 依分組模式回傳 [{label,tag,farms}]
-  if(groupMode==="dev"){
-    const map={};FARMS.forEach(f=>{const k=devShort(f);(map[k]=map[k]||[]).push(f);});
-    return Object.keys(map).map(k=>({label:k,tag:/台電/.test(k)?"tpc":"ppa",farms:map[k]}))
-      .sort((a,b)=>b.farms.reduce((s,f)=>s+RT[f.id],0)-a.farms.reduce((s,f)=>s+RT[f.id],0));
-  }
-  return GROUPS.map(g=>({label:t("grp_"+g.key.replace("-",""))!=="grp_"+g.key.replace("-","")?t("grp_"+g.key.replace("-","")):g.label,tag:g.tag,farms:FARMS.filter(f=>f.grp===g.key)}));
-}
-function paintGroups(){
-  updateToolbarBadge();
-  const wrap=document.getElementById("groups");let html="",shown=0;
-  groupsFor().forEach(g=>{
-    let list=sortFarms(g.farms.filter(farmPass));
-    if(!list.length)return;                          // 篩選後該組無風場 → 隱藏整組
-    shown+=list.length;
-    const out=list.reduce((s,f)=>s+RT[f.id],0),cap=list.reduce((s,f)=>s+(f.cap||0),0);
-    const tagTxt=groupMode==="dev"?t("devTag"):(g.tag==="tpc"?t("tpcOwn"):t("ppa"));
-    html+=`<div class="grouphead"><span class="tag ${g.tag}">${tagTxt}</span>
-      <h2>${g.label}</h2><div class="rule"></div>
-      <div class="sum num">${out.toFixed(1)} / ${Math.round(cap).toLocaleString()} MW · ${cap>0?(out/cap*100).toFixed(0):0}%</div></div>
-      <div class="grid">${list.map(cardHTML).join("")}</div>`;
-  });
-  wrap.innerHTML=shown?html:`<div class="empty">${t("noMatch")}</div>`;
-  wrap.querySelectorAll(".card").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);
-    c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(c.dataset.id)}};});
-}
-let sparkWin=6, sparkMetric="out";             // 趨勢範圍(小時) 與 指標(out=出力 / wind=風速)
-const SPARK_RANGES=[[6,"r_6h"],[24,"r_24h"],[168,"r_7d"]];
-function sparkSeries(f){                        // 取該風場最近 N 小時真實資料(依指標)
-  // 用「時間窗」而非固定筆數：歷史點密度不均(即時抓取每 15 分一筆、
-  // 官方回填每 10 分一筆)，固定筆數會讓 6h/24h/7d 標示失真。
-  const key=sparkMetric==="wind"?"wind":"farms",pts=HIST.points||[];
-  if(!pts.length)return[];
-  const cut=new Date(pts[pts.length-1].t).getTime()-sparkWin*3600000;
-  return pts
-    .filter(p=>p&&p[key]&&typeof p[key][f.id]==="number"&&new Date(p.t).getTime()>=cut)
-    .map(p=>({t:p.t,v:p[key][f.id]}));
-}
-function sparkSVG(f){
-  const s=sparkSeries(f),w=380,h=46;
-  const col=sparkMetric==="wind"?"#56c2e8":hexColor(f);
-  if(s.length<2)                                // 歷史不足兩筆，畫不出真實趨勢
-    return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-      <line x1="0" y1="${h-2}" x2="${w}" y2="${h-2}" stroke="${col}" stroke-width="2" opacity=".4"/></svg>`;
-  const vals=s.map(p=>p.v),base=sparkMetric==="wind"?2:(f.cap||1)*0.1,max=Math.max(...vals,base,0.5);
-  const d=vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-v/max*h*0.9-2).toFixed(1)}`).join(" ");
-  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-    <polyline points="${d}" fill="none" stroke="${col}" stroke-width="2"/>
-    <polyline points="0,${h} ${d} ${w},${h}" fill="${col}" opacity="0.12" stroke="none"/></svg>`;
-}
-function sparkLabel(f){
-  const EN=LANG==="en",s=sparkSeries(f);
-  const name=sparkMetric==="wind"?(EN?"wind":"風速"):(EN?"output":"出力");
-  const src=sparkMetric==="wind"?(EN?"nearest station · ref.":"鄰近測站·參考"):(EN?"Taipower":"台電資料");
-  if(s.length<2)return EN?`${name} trend accruing (${s.length} pts so far · every 10–15 min)`:`${name}趨勢累積中（目前 ${s.length} 筆 · 每 10–15 分鐘一筆）`;
-  const a=fmtSrc(s[0].t),b=fmtSrc(s[s.length-1].t).split(" ").pop();
-  const peak=sparkMetric==="wind"?` · ${EN?"peak":"峰值"} ${Math.max(...s.map(p=>p.v)).toFixed(1)} m/s`:"";
-  return EN?`${a}–${b} actual ${name} · every 10–15 min (${src})${peak}`:`${a}–${b} 實際${name} · 每 10–15 分鐘一筆（${src}）${peak}`;
-}
-function renderSparkBox(f){                     // 趨勢區(SVG+標籤)，供切換時就地重繪
-  return `${sparkSVG(f)}<div class="lab" style="margin-top:6px;color:var(--mist-dim)">${sparkLabel(f)}</div>`;
-}
-function openDrawer(id){
-  const f=FARMS.find(x=>x.id===id);if(!f)return;drawerFarm=f;
-  const EN=LANG==="en";
-  document.getElementById("dname").textContent=f.name;
-  document.getElementById("dsub").textContent=`${EN?"Taipower unit":"台電機組名稱"}：${f.tp} · ${f.dev}`;
-  const r=ratioOf(f)*100,off=isOffshore(f);
-  const stxt=f.pending?t("st_test"):(f.agg?t("st_agg"):t("st_run"));
-  const capTxt=f.cap?`${f.cap} MW`:(f.planned&&f.planned!=="—"?`${t("planned")} ${f.planned} MW`:t("notListed"));
-  const specs=[
-    [t("d_cap"),capTxt],[t("d_status"),stxt],
-    ...(off?[[t("d_turbines"),f.turbines||"—"],[t("d_unit"),f.unit||"—"],
-            [t("d_model"),f.model||"—",true],[t("d_depth"),f.depth||"—"],[t("d_dist"),f.dist||"—"],
-            [t("d_annual"),f.annual||"—"],[t("d_homes"),f.homes||"—"]]
-          :[[t("d_site"),f.site||"—",true],[t("d_type2"),f.model||"—"],[t("d_unit"),f.unit||"—"]]),
-  ];
-  document.getElementById("dbody").innerHTML=`
-    <div class="liveblock">
-      <div class="top">
-        <div><div class="lab">${t("d_output")} ${LIVE?"":t("simTag")}</div>
-          <div class="out num" style="color:${cssColor(f)}">${RT[f.id].toFixed(1)}<small>MW</small></div></div>
-        <div class="ratio"><div class="v num" style="color:${cssColor(f)}">${f.cap?r.toFixed(0)+"%":"—"}</div><div class="l">${t("d_avail")}</div></div>
-      </div>
-      <div class="sparkctl">
-        <div class="sgrp" id="sparkRange">${SPARK_RANGES.map(([wv,l])=>`<button data-w="${wv}" class="${sparkWin===wv?'on':''}">${t(l)}</button>`).join("")}</div>
-        <div class="sgrp" id="sparkMetric"><button data-m="out" class="${sparkMetric==='out'?'on':''}">${t("m_out")}</button><button data-m="wind" class="${sparkMetric==='wind'?'on':''}">${t("m_wind")}</button></div>
-      </div>
-      <div id="sparkbox">${renderSparkBox(f)}</div>
-      ${(()=>{const w=windOf(f);return w?`<div class="windnote">🌬 ${t("windNote")} <b>${w.mps.toFixed(1)} m/s</b>（${w.station}${EN?" station · "+w.km+" km · ":"測站 · 距 "+w.km+" km · "}${t("windRef")}）</div>`:"";})()}</div>
-    <div class="specs">${specs.map(s=>`<div class="spec${s[2]?" wide":""}"><div class="l">${s[0]}</div>
-      <div class="v" style="font-size:${s[2]?"13px":"14.5px"}">${s[1]}</div></div>`).join("")}</div>
-    <div class="timeline"><h3>${t("timeline")}</h3>
-      <div class="tl">${f.tl.map(t=>`<div class="tlitem ${t[2]}"><div class="d">${t[0]}</div><div class="t">${t[1]}</div></div>`).join("")}</div></div>
-    ${f.note?`<div class="note">${f.note}</div>`:""}`;
-  const rerender=()=>{document.getElementById("sparkbox").innerHTML=renderSparkBox(f);};
-  document.getElementById("sparkRange").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-    document.querySelectorAll("#sparkRange button").forEach(x=>x.classList.toggle("on",x===b));sparkWin=+b.dataset.w;rerender();};
-  document.getElementById("sparkMetric").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-    document.querySelectorAll("#sparkMetric button").forEach(x=>x.classList.toggle("on",x===b));sparkMetric=b.dataset.m;rerender();};
-  document.getElementById("scrim").classList.add("on");
-  document.getElementById("drawer").classList.add("on");
-}
-function closeDrawer(){document.getElementById("scrim").classList.remove("on");document.getElementById("drawer").classList.remove("on");}
-document.getElementById("dclose").onclick=closeDrawer;
-document.getElementById("scrim").onclick=closeDrawer;
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
-
-let map,markers={};
-document.getElementById("seg").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-  document.querySelectorAll("#seg button").forEach(x=>x.classList.toggle("on",x===b));
-  const v=b.dataset.v;
-  document.getElementById("dash").classList.toggle("on",v==="dash");
-  document.getElementById("wall-view").classList.toggle("on",v==="wall");
-  document.getElementById("chart-view").classList.toggle("on",v==="chart");
-  document.getElementById("learn").classList.toggle("on",v==="learn");
-  document.getElementById("map-view").classList.toggle("on",v==="map");
-  document.querySelector("footer").style.display=(v==="wall"||v==="chart")?"none":"";  // 總覽牆/圖表隱藏頁尾註記，騰出高度
-  if(v==="wall")paintWall();
-  if(v==="chart")paintChart();
-  if(v==="map"){initMap();setTimeout(()=>map.invalidateSize(),60);}};
-document.getElementById("chartmode").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-  document.querySelectorAll("#chartmode button").forEach(x=>x.classList.toggle("on",x===b));chartMode=b.dataset.c;paintChart();};
-document.getElementById("sort").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-  document.querySelectorAll("#sort button").forEach(x=>x.classList.toggle("on",x===b));sortKey=b.dataset.s;paintGroups();};
-document.getElementById("filt").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;
-  document.querySelectorAll("#filt .chip").forEach(x=>x.classList.toggle("on",x===b));filt=b.dataset.f;paintGroups();};
-document.getElementById("grpmode").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-  document.querySelectorAll("#grpmode button").forEach(x=>x.classList.toggle("on",x===b));groupMode=b.dataset.g;paintGroups();};
-
-// 儀表工具列(排序/分組/篩選)預設收合，避免蓋掉風場卡片牆；記住上次展開/收合狀態
-const toolbarToggle=document.getElementById("toolbartoggle"),toolbarBody=document.getElementById("toolbarbody");
-function setToolbarOpen(open){
-  toolbarBody.classList.toggle("open",open);
-  toolbarToggle.setAttribute("aria-expanded",open?"true":"false");
-  localStorage.setItem("wf_toolbar_open",open?"1":"0");
-}
-toolbarToggle.onclick=()=>setToolbarOpen(!toolbarBody.classList.contains("open"));
-setToolbarOpen(localStorage.getItem("wf_toolbar_open")==="1");
-function updateToolbarBadge(){
-  const n=(sortKey!=="output")+(groupMode!=="type")+(filt!=="all")+(devFilt!=="all")+(brandFilt!=="all")+(capFilt!=="all");
-  const badge=document.getElementById("ttbadge");
-  badge.hidden=n===0;badge.textContent=n;
-}
-
-function initMap(){
-  if(map)return;
-  map=L.map("map",{zoomControl:true}).setView([24.1,120.3],8);
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    {maxZoom:18,attribution:"Tiles © Esri"}).addTo(map);
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
-    {maxZoom:18,opacity:.9}).addTo(map);
-  FARMS.forEach(f=>{
-    const m=L.circleMarker([f.lat,f.lng],{radius:Math.max(6,Math.sqrt(sizeMW(f))*0.85),
-      color:"#fff",weight:1.1,fillColor:hexColor(f),fillOpacity:.82}).addTo(map);
-    m.bindPopup(popHTML(f),{maxWidth:280});
-    m.on("popupopen",()=>{const b=document.querySelector(`#pop-${f.id}`);if(b)b.onclick=()=>{map.closePopup();openDrawer(f.id);};});
-    markers[f.id]=m;});
-}
-function popHTML(f){
-  const r=f.cap?Math.max(0,Math.min(100,ratioOf(f)*100)):0;
-  const capTxt=f.cap?`${f.cap} MW`:(f.planned&&f.planned!=="—"?`規劃 ${f.planned} MW`:"未列容量");
-  return `<div class="pop"><h3>${f.name}</h3>
-    <div class="row"><span>台電機組</span><b>${f.tp}</b></div>
-    <div class="row"><span>即時出力</span><b class="num" style="color:${hexColor(f)}">${RT[f.id].toFixed(1)} MW</b></div>
-    <div class="row"><span>裝置容量</span><b class="num">${capTxt}</b></div>
-    ${f.cap?`<div class="row"><span>可用率</span><b class="num">${r.toFixed(0)}%</b></div>
-    <div class="pbar"><i style="width:${r}%"></i></div>`:""}
-    <div class="row"><span>${f.dev}</span></div>
-    <button id="pop-${f.id}">查看專案資訊 →</button></div>`;
-}
-function updateMarkers(){if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
-  if(m.isPopupOpen())m.setPopupContent(popHTML(f));}});}
-
-buildFilterSelects();buildLearn();
-document.getElementById("sharebtn").onclick=shareCard;
-document.getElementById("langbtn").onclick=toggleLang;
-refresh();tryLive();tryHistory();tryGrid();
-setInterval(refresh,15000);
-if(DATA_ENDPOINT){setInterval(tryLive,600000);setInterval(tryHistory,600000);setInterval(tryGrid,600000);}
-</script>
+<script src="assets/js/core.js" defer></script>
+<script src="assets/js/charts.js" defer></script>
+<script src="assets/js/live.js" defer></script>
+<script src="assets/js/home.js" defer></script>
+<script src="assets/js/learn.js" defer></script>
 </body>
 </html>

@@ -74,7 +74,7 @@ MAX_POINTS = 1200        # 安全上限(7 天 × 每 10 分 144 筆 = 1008，留
 # 當『沿海參考值』，非風機輪轂高度(100m+)實際風速；前端須明確標示為參考。
 CWA_WIND_URL = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0001-001"
 
-# 各風場座標(與前端 index.html FARMS 一致)，供在後端配對最近測站，避免把數百測站塞進 JSON。
+# 各風場座標(與前端 assets/js/live.js 的 FARMS 一致)，供在後端配對最近測站，避免把數百測站塞進 JSON。
 FARM_COORDS = {
     "guanyuan": (25.03, 121.07), "taichungport": (24.29, 120.53), "wanggong": (23.99, 120.31),
     "changgong": (24.13, 120.45), "yunmai": (23.79, 120.24), "sihu": (23.64, 120.22),

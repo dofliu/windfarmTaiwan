@@ -1,0 +1,81 @@
+ADD  TWN announced Chu Tin Offshore wind farm 100.0 y2026
+ADD  TWN announced Feng You Offshore wind farm 600.0 y0
+ADD  TWN announced Formosa 3 offshore wind farm · 3 720.0 y0
+ADD  TWN announced Formosa 5 offshore wind farm 1536.0 y0
+ADD  TWN announced Winds of September floating wind farm 1000.0 y0
+ADD  TWN announced Wo Neng Offshore wind farm 3000.0 y0
+ADD  TWN announced Xu Feng No. 1 Offshore wind farm 600.0 y0
+ADD  TWN announced Xu Feng No. 2 Offshore wind farm 750.0 y0
+ADD  TWN announced Xu Feng No. 3 Offshore wind farm 750.0 y0
+ADD  TWN announced Zhong Neng wind farm · 2 180.0 y0
+ADD  TWN announced Zhu Ting Offshore wind farm 1000.0 y0
+ADD  TWN construction Budai wind farm 10.0 y2028
+ADD  TWN construction Changkong wind farm · 4 15.0 y0
+ADD  TWN operating Anwei Dajia wind farm 12.0 y2016
+ADD  TWN operating Beiyuan wind farm 14.0 y2021
+ADD  TWN operating Changbin (TCC) wind farm 7.0 y2020
+ADD  TWN operating Changwang wind farm 14.0 y2019
+ADD  TWN operating Changyuan wind farm 14.0 y2021
+ADD  TWN operating Chuangwei wind farm 45.0 y2021
+ADD  TWN operating Starwind wind farm 11.0 y2020
+ADD  TWN operating Tung Kang wind farm 12.0 y2016
+ADD  TWN pre-construction Changbin (TCC) wind farm · 2 11.0 y0
+ADD  TWN pre-construction Datian Offshore wind farm 700.0 y2029
+ADD  TWN pre-construction Fangyuan Hongwei wind farm 17.0 y0
+ADD  TWN pre-construction Fangyuan wind farm 36.0 y0
+ADD  TWN pre-construction Formosa 3 offshore wind farm · 1, 2 960.0 y2027
+ADD  TWN pre-construction Formosa 4 offshore wind farm 495.0 y2028
+ADD  TWN pre-construction Formosa 6 Haiguang Offshore wind farm 800.0 y2029
+ADD  TWN pre-construction Fuhan wind farm 72.0 y0
+ADD  TWN pre-construction Haixia Offshore wind farm 300.0 y2027
+ADD  TWN pre-construction Hanxing wind farm 25.8 y0
+ADD  TWN pre-construction Heyuan wind farm 34.0 y0
+ADD  TWN pre-construction Huanyang Offshore wind farm 440.0 y2028
+ADD  TWN pre-construction Kouhu wind farm 71.0 y0
+ADD  TWN pre-construction Mei Sen wind farm 240.0 y2028
+ADD  TWN pre-construction Taichung Fengmiao Floating wind farm 1100.0 y2027
+DROP JPN construction Goto City (Chubu Electric Power) Offshore Floating wind farm 17.0 ~ Goto Sakiyama floating 16.8
+DROP JPN construction Kitakyushu Hibikinada Offshore wind farm 220.0 ~ Kitakyushu Hibikinada 220.0
+DROP JPN operating Akita Noshiro Offshore wind farm 84.0 ~ Noshiro Port 84.0
+DROP JPN operating Akita Port (Marubeni) Offshore wind farm 55.0 ~ Akita Port 55.0
+DROP JPN operating Ishikari Bay New Port offshore wind farm 112.0 ~ Ishikari Bay New Port 112.0
+DROP JPN operating Kamisu wind farm 10.0 ~ Kamisu Phase 1 (Wind Power Ibaraki) 14.0
+DROP JPN operating Koriyama Nunobiki-Kogen wind farm 66.0 ~ Eurus Nunobiki Kogen 66.0
+DROP JPN operating New Aoyama-Kogen wind farm 80.0 ~ Shin Aoyama Kogen 80.0
+DROP JPN operating Noshiro City (Marubeni) Offshore wind farm 140.0 ~ Noshiro Port 84.0
+DROP JPN operating Shin Izumo wind farm 78.0 ~ Shin-Izumo 78.0
+DROP JPN operating Tomamae Greenhill Wind Park 20.0 ~ Tomamae Winvilla 30.6
+DROP JPN operating Tomamae Winvilla wind farm 34.0 ~ Tomamae Winvilla 30.6
+DROP JPN operating Tomamae wind farm 20.0 ~ Tomamae Winvilla 30.6
+DROP TWN construction Greater Changhua Northwest wind farm 583.0 ~ Greater Changhua 2b & 4 920.0
+DROP TWN construction Hai Long Offshore wind farm 1044.0 ~ Hai Long 2 & 3 1044.0
+DROP TWN construction Taipower Offshore wind farm 295.0 ~ Taipower Offshore Phase 2 294.0
+DROP TWN construction Yunlin Offshore wind farm 640.0 ~ Yunlin 640.0
+DROP TWN construction Yunlin Taixi wind farm 10.0 ~ Yunlin Taixi 16.8
+DROP TWN operating Changbin wind farm 76.0 ~ Changgong (Changbin Xianxi) 80.0
+DROP TWN operating Changfang And Xidao Offshore wind farm 600.0 ~ Changfang & Xidao 589.0
+DROP TWN operating Changkong wind farm 71.0 ~ Changgong (Changbin Xianxi) 80.0
+DROP TWN operating Datan wind farm 15.0 ~ Datan (Tatan) 12.5
+DROP TWN operating Formosa 1 offshore wind farm 128.0 ~ Formosa 1 Phase 2 120.0
+DROP TWN operating Formosa 2 offshore wind farm 376.0 ~ Formosa 1 Phase 2 120.0
+DROP TWN operating Greater Changhua Southeast wind farm 605.0 ~ Greater Changhua 1 & 2a 900.0
+DROP TWN operating Greater Changhua Southwest wind farm 632.0 ~ Greater Changhua 1 & 2a 900.0
+DROP TWN operating Guanyin wind farm 44.0 ~ Guanyin 43.7
+DROP TWN operating Guanyuan wind farm 30.0 ~ Dayuan Guanyuan 30.0
+DROP TWN operating Houlong wind farm 44.0 ~ Dapeng (Miaoli Houlong) 49.8
+DROP TWN operating Hsinchu Xiangshan wind farm 12.0 ~ Hsinchu Xiangshan 12.0
+DROP TWN operating Hsinfeng wind farm 12.0 ~ Xinfeng 11.5
+DROP TWN operating Hsinyuan wind farm 25.0 ~ Yunlin Lunbei 25.2
+DROP TWN operating Leadway wind farm 25.0 ~ Changhua Fuxing-Fangyuan 33.6
+DROP TWN operating Miaoli Dapeng wind farm 50.0 ~ Dapeng (Miaoli Houlong) 49.8
+DROP TWN operating Penghu Longmen wind farm 18.0 ~ Penghu Longmen 6.9
+DROP TWN operating Sihu wind farm 28.0 ~ Sihu 28.0
+DROP TWN operating Taichung Port wind farm 36.0 ~ Taichung Port 36.0
+DROP TWN operating Taichung wind farm 88.0 ~ Taichung Port 36.0
+DROP TWN operating Taipower Offshore wind farm 110.0 ~ Taipower Offshore Phase 1 (Changhua) 109.2
+DROP TWN operating Tongyuan wind farm 28.0 ~ Houlong / Tongyuan 44.1
+DROP TWN operating Wanggong wind farm 23.0 ~ Wanggong 20.0
+DROP TWN operating Yunlin Mailiao wind farm 46.0 ~ Yunmai (Mailiao) 46.0
+DROP TWN operating Zhong Neng wind farm 300.0 ~ Zhong Neng 298.0
+DROP TWN operating Zhunan wind farm 15.0 ~ Zhunan 6.9
+DROP TWN pre-construction Sihu (Kewei) wind farm 25.0 ~ Sihu 28.0

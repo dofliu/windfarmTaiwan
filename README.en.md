@@ -2,10 +2,14 @@
 
 [中文](./README.md) ｜ English (this page)
 
-A live dashboard for Taiwan's wind power generation. Shows real-time output for all 30 tracked
-wind turbine units/farms nationwide (like a reservoir-level gauge), with a satellite map,
-per-farm development history, long-term trends, and national grid context — supporting public
-transparency for renewable energy.
+Taiwan's wind power, live — and the world's wind power story, 1980–2025. One site, two scales:
+
+- **Taiwan right now**: real-time output for all 30 tracked wind turbine units/farms nationwide, shown
+  like a reservoir-level gauge, straight from Taipower and Taiwan government open data.
+- **45 years worldwide**: a 3D globe that replays every country's wind build-out from 1980 to 2025 and
+  zooms down to individual farms (about 23,000, including projects under construction and in the
+  pipeline), plus a 12-chapter "Learn" section on the history, technology, countries and Taiwan's place
+  in it.
 
 Live site: `https://dofliu.github.io/windfarmTaiwan/`
 
@@ -14,38 +18,78 @@ See [ROADMAP.md](./ROADMAP.md) and [TODO.md](./TODO.md) for planned work and kno
 
 ## Features
 
-Five tabs in the nav bar:
+Four pages in the nav bar (hash routes, so every view can be shared as a link):
 
-- **Dashboard** — live overview: national wind output, availability, grid operating reserve rate
-  and wind's contribution to it, today's estimated generation
-- **Farm Grid** — every tracked farm on one card wall
-- **Charts** — bar ranking / donut breakdown / **Long-term trend** (a 90-day official-retrospective
-  calendar heatmap + highlight cards, switchable between fleet-wide and any single unit)
-- **Map** — Leaflet satellite map; click a farm for its live output
-- **Learn** — per-farm development history, national offshore wind policy progress, myths & FAQ
+- **Home** `#/home` — Taiwan's live total next to global cumulative capacity 1980–2025; where Taiwan
+  ranks; three key milestones (click one to fly there on the globe)
+- **Taiwan live** `#/live` — everything the original live site did:
+  - Dashboard — national wind output, availability, grid operating reserve rate and wind's
+    contribution, today's estimated generation, grouped/filterable unit gauges
+  - Farm wall `#/live/wall`, Charts `#/live/charts` (ranking / share / distribution, 90-day official
+    long-term trend), Map `#/live/map` (Leaflet satellite map)
+  - A detail drawer per farm (live trend, nearby weather-station wind speed, specs, verified
+    development and operation timeline); open one directly with `#/live?farm=<id>`
+  - "Share" generates a live-data card with a prominent date-time badge
+- **Global** `#/global` — a 3D globe (three.js, loaded only when you open this page and paused when
+  you leave it):
+  - Year-by-year animation of each country's onshore/offshore **year-end cumulative capacity**; the
+    ranking bars are always in **MW**; map / map + bars / bar race views, 3D globe or 2.5D map
+  - **Farm layer**: curated farms merged with the Global Energy Monitor Global Wind Power Tracker
+    (Feb 2025), about 15,000 operating farms; selecting a country draws all of its farms, and close to
+    the ground each farm becomes a group of turbines based on its unit count
+  - **Pipeline layer** (dashed rings): about 7,800 projects under construction, in pre-construction or
+    announced — brighter means closer to completion; toggle with the "Pipeline" button
+  - **Terrain basemaps**: relief (Natural Earth shaded relief + ocean bottom) / satellite (NASA Blue
+    Marble) / plain; zooming in adds Esri hillshade or imagery tiles automatically
+  - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, pipeline totals,
+    short notes for major markets), milestones, and a searchable farm list
+  - Guided tour and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
+    `#/global?f=Hai%20Long%202%20%26%203`)
+  - Taiwanese farms are linked to the live data: click one to see Taipower's current output and jump
+    to its live details
+  - Devices without WebGL fall back to the bar race automatically
+- **Learn** `#/learn` — 12 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore,
+  floating wind, ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a
+  glossary and full source list; every chart is drawn from the same global dataset and every chapter
+  links to the globe to replay that part of the story
 
-Each farm's detail drawer includes a live output trend, nearby weather-station wind speed
-(reference only), specs, and a **development timeline** — the 15 offshore farms have been
-deepened with verified real milestones (environmental assessment, financial close, construction
-start, grid connection, commercial operation, etc.), most dated to the year/month.
-
-The "Share" button generates a live-data card with a prominent date-time badge (year included, so
-a screenshot shared out of context can't be mistaken for "right now").
+The whole site is bilingual (toggle top right; remembered in the browser).
 
 ## Architecture
 
 ```
-GitHub Actions (every 15 min cron) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
-GitHub Actions (weekly Monday cron) ── backfill_history.py    ──► wind_history_archive.json / wind_archive_daily.json ────────┤
-                                                                                                                                ├─► commit back to repo
-GitHub Pages serves this same repo: index.html + the JSON above ◄─────────────────────────────────────────────────────────────┘
-Browser loads index.html → fetches each JSON (same origin, no CORS)
+GitHub Actions (every 15 min cron)  ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
+GitHub Actions (weekly Monday cron) ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ────────┤
+                                                                                                                                 ├─► commit back to repo
+tools/*.py (manual, rare: when source data changes) ──► data/global/*.json, assets/img/globe/*.jpg ─────────────────────────────┤
+GitHub Pages serves this same repo: index.html + assets/ + data/ + the JSON above ◄──────────────────────────────────────────────┘
+Browser loads index.html → lazy-loads page modules and data (same origin, no CORS)
 ```
+
+A plain static site with no build step: `index.html` is the shell, and each module in `assets/js/`
+registers its page with the hash router via `WW.registerPage()`. The globe's three.js (~600 KB),
+basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/global` is opened.
 
 ## Files
 
-- `index.html` — single-file frontend (Leaflet satellite map, dashboard, per-farm drawer,
-  long-term trend chart, grid-status banner, share card)
+- `index.html` — site shell: top navigation, the four pages' layout and bilingual copy, drawer, toast
+- `assets/css/site.css` — design system (dark data style, palette, components, responsive);
+  `assets/css/globe.css` — globe styles
+- `assets/js/core.js` — shared core: i18n, hash router, lazy loading, data cache, number formats, share
+- `assets/js/live.js` — Taiwan live (the `FARMS` list of 30 units/farms with specs and timelines;
+  live / history / grid data loading; dashboard, farm wall, charts, map, drawer, share card)
+- `assets/js/charts.js` — lightweight SVG charts (line, columns, bars, scatter; tooltips and table views)
+- `assets/js/home.js`, `assets/js/learn.js` — Home and Learn pages
+- `assets/js/globe.js` — the 3D globe (rewritten from the "Global wind power development map",
+  wind-history-map v3)
+- `assets/vendor/` — three.js r128 and OrbitControls (MIT, vendored unmodified)
+- `assets/img/globe/` — relief / satellite basemaps (4096×2048 and 2048×1024)
+- `data/global/wind_global.json` — per-country onshore/offshore capacity 1980–2025, world totals,
+  milestones, sources and notes (~70 KB)
+- `data/global/wind_farms.json` — ~23,000 farm-level records (operating, pipeline, retired)
+- `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
+- `data/global/sources/` — the curated farm list before merging, and the merge log
+- `tools/` — generators for the global data and basemaps (see "Updating the global data" below)
 - `taipower_wind_scraper.py` — runs every 15 min: fetches Taipower's open data, parses the 30
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`;
   also fetches the real-time supply-demand report → `grid_status.json`
@@ -83,6 +127,8 @@ Browser loads index.html → fetches each JSON (same origin, no CORS)
 
 > The repo ships with a real seed snapshot, so the site shows live-mode data as soon as Pages is
 > enabled, even before Actions has run.
+> Local preview: run `python3 -m http.server` in the repo root and open `http://localhost:8000/`
+> (opening `index.html` from disk can't load the JSON files over `file://`).
 
 ## Notes
 
@@ -93,8 +139,51 @@ Browser loads index.html → fetches each JSON (same origin, no CORS)
   manually once a month to keep it alive.
 - Every update creates a commit, so git history accumulates (harmless functionally). To avoid
   this, switch to a Cloudflare Worker Cron (see `DEPLOY.md`).
+- Third-party services contacted while browsing: cdnjs (Leaflet, map tab only), Esri tiles (only
+  when zoomed in on the globe) and the Wikipedia API (farm photos and summaries; links only when
+  unavailable). The rest of the site keeps working if any of them fails.
+
+## Updating the global data
+
+The global data changes rarely (once a year is enough). It is generated offline by the scripts in
+`tools/` and committed — no scheduled job:
+
+```bash
+# 1. Country capacity by year and milestones (source: the WIND_DATA block embedded in the
+#    "Global wind power development map" single-file HTML)
+python tools/extract_global_data.py wind-history-map.html data/global
+# 2. Borders (Natural Earth 1:50m)
+curl -LO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world_borders.json
+# 3. Farm layer (curated farms × GEM Global Wind Power Tracker)
+curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
+python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
+python tools/qa_farms.py        # sanity check: lists farms located outside their country
+# 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
+python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
+```
+
+### Corrections this site made to the data (all recorded in the data files and the site's "Sources")
+
+- Taiwan 2022–2025 onshore/offshore split: upstream counted offshore farms that were still being
+  connected as onshore (e.g. 2,064 MW onshore in 2023, while Taiwan's onshore fleet is ~0.9 GW);
+  re-split using the actual onshore fleet (yearly totals unchanged)
+- Formosa 1 Phase 1 and Formosa 2 years aligned with their actual grid connection / commercial dates
+- Borders rebuilt from Natural Earth 1:50m (the original lacked the mainland Australia polygon);
+  Crimea shown as part of Ukraine per UN General Assembly resolution 68/262, matching the country
+  GEM assigns to Crimean wind farms
+- GEM phases more than 25 km apart under one location are shown as separate points instead of an
+  averaged position (which put multi-state projects in the wrong place); three coordinate errors
+  that the project names make obvious were fixed (Miyagi Kami, Suzu 1, Suzu 2 phase 2), and one WRI
+  GPPD record whose country and coordinates disagree was dropped
+
+> Farm capacity in the farm layer is each farm's **full nameplate**: farms still being connected in
+> stages (e.g. Hai Long 2 & 3 and Greater Changhua 2b & 4 in 2025) count in full, so farm sums can
+> exceed national year-end statistics — they measure different things.
 
 ## Data sources & license
+
+**Taiwan live**
 
 - Live generation: Government Open Data Platform, "Taiwan Power Company — Real-time Information
   on Power Generation of Each Unit" ([dataset 8931](https://data.gov.tw/dataset/8931)), endpoint
@@ -113,5 +202,24 @@ Browser loads index.html → fetches each JSON (same origin, no CORS)
   Taipower, Ørsted, CIP, wpd, China Steel Corporation, Hai Long, and others; each milestone is
   sourced during research and omitted rather than guessed when no precise date could be verified
 - License: Government Open Data License, Version 1
-- Turbine counts, coordinates, and developer info are compiled from public sources; coordinates
-  are approximate.
+
+**Global**
+
+- Country totals 2000–2025: Our World in Data / IRENA Renewable Capacity Statistics
+- Offshore capacity 1991–2025: WFO Global Offshore Wind Reports, GWEC, EWEA / WindEurope statistics
+  (each source is listed on the site under "Sources")
+- Early data 1980–1999: BTM Consult, IEA Wind annual reports, Danish Energy Agency, US EIA and other
+  national statistics (most countries are estimates — for trends only)
+- Farm layer: the curated farms from the "Global wind power development map", WRI Global Power Plant
+  Database v1.3 (CC BY 4.0), and Global Energy Monitor's
+  [Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/),
+  February 2025 release (CC BY 4.0)
+- Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
+  Marble Next Generation (public domain)
+- Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
+  (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
+- Farm photos and summaries: looked up live from Wikipedia / Wikimedia Commons (per-image licences)
+- Libraries: three.js r128 (MIT), Leaflet 1.9.4 (BSD-2)
+
+Turbine counts, coordinates, and developer info are compiled from public sources; coordinates are
+approximate.
