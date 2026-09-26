@@ -77,7 +77,7 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
 - Farm layer: farms commissioned in 2026 (e.g. Taiwan's Hai Long and Greater Changhua 2b & 4) need their status
   and year updated one by one.
 
-**2. Offshore foundation-type layer** · medium (Europe, floating, Taiwan/Japan/Korea/USA) / large (China, Vietnam)
+**2. Offshore foundation-type layer** · medium (Europe, floating, Taiwan/Japan/Korea/USA) / large (China, Vietnam) · **owner's decision (2026-09-27): collect it step by step**
 
 - Goal: a switchable layer, like onshore/offshore, that colours offshore farms on the same globe by foundation
   type: monopile, jacket (piled), jacket (suction bucket), tripod/tripile, gravity-based, high-rise pile cap
@@ -96,8 +96,19 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
   and Taiwan/Japan/Korea/USA: an estimated 2–4 days for about 199 farms (45% of capacity). China and Vietnam (about
   194 farms, 55% of capacity) need Chinese and Vietnamese sources, an estimated 50–70 hours; ask the owner before
   starting. Until then they show as "fixed-bottom, type unknown".
+- Order of work (the owner decided on 2026-09-27 to collect the data step by step): one PR per step, and the layer
+  shows whatever has been collected so far. The legend and country profiles always give the number of classified
+  farms and their share of capacity; farms not yet classified show as "fixed-bottom, type unknown" or "floating,
+  type unknown" from the existing fixed/floating split, never a guess.
+  1. Europe within OSPAR's coverage (North Sea and NE Atlantic, about 107 farms): a per-farm table and a check
+     script, each match confirmed by hand, then the layer itself.
+  2. The rest of Europe (Baltic, Mediterranean and others): developers' pages, German Wikipedia infoboxes and
+     similar, with a source for every farm.
+  3. Floating farms.
+  4. Taiwan, Japan, Korea and the USA: developers' websites and EIA documents.
+  5. China and Vietnam: ask the owner once the first four steps are done.
 
-**3. Status of work vessels (installation vessels, "mother ships")** · verdict: no live positions for now
+**3. Status of work vessels (installation vessels, "mother ships")** · **verdict: not doing it (owner's decision, 2026-09-27)**
 
 - Live positions need AIS. The only free real-time source, aisstream.io, needs an account and API key (which by
   project rule needs the owner's approval), has no written terms that allow public redisplay, and users report
@@ -112,7 +123,8 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
   (Government Open Data License) lists berths and port calls; wind-farm work vessels are marked "wind farm work",
   and their previous/next port is a wind-farm code (e.g. TWOWP1 = Formosa 1, TWOWP6 = Zhong Neng). That would show
   which work vessel is in which port and which farm it is heading to — port calls, not live positions at sea.
-  Whether to build it is the owner's call.
+- The owner decided on 2026-09-27 to do neither the live positions nor this port-call alternative. The research
+  above is kept so it does not have to be repeated.
 
 **4. Important transport and assembly ports** · **done (Sep 2026)**: see "Global farm search and filters" in phase 1.
 
@@ -266,7 +278,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 
 ## Directions evaluated and deferred (with reasons, to avoid repeating the research)
 
-- **Live work-vessel positions (AIS)**: evaluated in Sep 2026. The free real-time source needs a key, has no redistribution terms and barely reaches Taiwan's waters; details and the Taiwan port-call alternative are in item 3 of "Owner's new plans (Sep 2026)" above.
+- **Work-vessel status (live AIS positions and Taiwan International Ports Corporation port calls)**: evaluated in Sep 2026; the owner decided on 2026-09-27 not to do it. The free real-time source needs a key, has no redistribution terms and barely reaches Taiwan's waters, and port calls only show which port a vessel is in. Details are in item 3 of "Owner's new plans (Sep 2026)" above.
 - **Energy Administration monthly/annual statistics API**
   ([ea01.moeaea.gov.tw](https://ea01.moeaea.gov.tw/a0303/02/database/api/)): too coarse (monthly data)
   and overlapping heavily with the existing live + 90-day daily data; it would not tell a new story.
