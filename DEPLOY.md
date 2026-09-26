@@ -1,5 +1,7 @@
 # 風電風情 — 部署說明
 
+[English](./DEPLOY.en.md) ｜ 中文（本頁）
+
 ## 方案 A：GitHub Pages + GitHub Actions（免費、零維運，本 repo 目前採用）
 
 GitHub Pages 只服務靜態檔；自動跑 Python 由 GitHub Actions 排程負責，
@@ -17,7 +19,9 @@ windfarmTaiwan/
 │  ├─ vendor/                       # three.js r128 + OrbitControls（只在全球發展頁載入）
 │  └─ img/globe/                    # 地形／衛星底圖
 ├─ data/global/                     # 全球資料：國家逐年容量、風場層、國界（由 tools/ 產生，非排程）
-├─ tools/                           # 全球資料與底圖的產生程式
+├─ tools/                           # 全球資料、底圖、單檔版與覆蓋率報告的產生程式
+├─ standalone/                      # 單檔版 HTML（tools/build_standalone.py 產生，可下載後離線開啟）
+├─ docs/                            # 資料覆蓋率報告、即時資料來源評估（中英文各一份）
 ├─ taipower_wind_scraper.py         # 每 15 分鐘：風力即時 + 電力供需即時
 ├─ backfill_history.py             # 每週一：官方回溯歷史回填
 ├─ wind_realtime.json               # 風力即時資料（Actions 自動更新）
@@ -27,7 +31,8 @@ windfarmTaiwan/
 ├─ grid_status.json                 # 電力供需即時報表
 └─ .github/workflows/
    ├─ scrape.yml                    # 每 15 分鐘執行 taipower_wind_scraper.py
-   └─ backfill.yml                  # 每週一執行 backfill_history.py
+   ├─ backfill.yml                  # 每週一執行 backfill_history.py
+   └─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML
 ```
 
 若要從零建立新專案（而非直接使用本 repo），步驟如下：
@@ -36,7 +41,7 @@ windfarmTaiwan/
 
 1. 建一個 **public** repo（公開 repo 的 Actions 分鐘數無限、免費；私有 repo 每月只有 2000 分鐘，每 15 分鐘跑會超量）。
 2. 把 `index.html`、`assets/`、`data/`、`taipower_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄（`tools/` 只在更新全球資料時需要）。
-3. 把 `.github/workflows/scrape.yml` 與 `.github/workflows/backfill.yml` 放進對應位置。
+3. 把 `.github/workflows/scrape.yml`、`backfill.yml` 與 `standalone.yml` 放進對應位置。
 4. 確認 `assets/js/live.js` 開頭的 `DATA_ENDPOINT` 等常數指向相對路徑（同網域，例如 `./wind_realtime.json`），
    若是直接 fork/clone 本 repo 則不需修改。
 5. Settings → Pages → Source 選 `main` branch、`/ (root)`，存檔。

@@ -40,7 +40,7 @@ const I18N = {
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
-    attrPlain: '國界：Natural Earth', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
+    attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量',
     pipeTab: '規劃', pipeHead: '規劃中與興建中專案', gemTotals: 'GEM 2026-02 開發管線（各國總量）',
@@ -76,7 +76,7 @@ const I18N = {
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
-    attrPlain: 'Borders: Natural Earth', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
+    attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity',
     pipeTab: 'Pipeline', pipeHead: 'Projects in the pipeline', gemTotals: 'GEM pipeline, Feb 2026 (country totals)',
@@ -303,12 +303,14 @@ function setBase(b, silent) {
   const img = new Image(); img.decoding = 'async';
   img.onload = () => { const t = new THREE.Texture(img); t.anisotropy = 4; t.needsUpdate = true; baseTex[b] = t; baseImg[b] = img; if (S.base === b) apply(t); };
   img.onerror = () => { if (!silent) notice(L('底圖載入失敗，改用簡潔底圖', 'Basemap failed to load; using plain')); if (S.base === b) apply(landTex); };
-  img.src = BASE_URL[b] + (TEXW >= 4096 ? '4k' : '2k') + '.jpg';
+  let src = BASE_URL[b] + (TEXW >= 4096 ? '4k' : '2k') + '.jpg';
+  if (WW.standalone && !WW.standalone.url(src)) src = BASE_URL[b] + '2k.jpg';   // 單檔版只內嵌 2k 底圖
+  img.src = WW.asset(src);
   apply(landTex);   // 載入前先用向量底圖
 }
 function updateAttr() {
   const tiles = patch && patch.visible && S.base !== 'plain' && tileAttrOn;
-  const parts = [S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : T('attrPlain')];
+  const parts = [T('credit'), S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : T('attrPlain')];
   if (tiles) parts.push(S.base === 'sat' ? T('attrTileSat') : T('attrTileRelief'));
   $('g-attr').textContent = parts.join(' · ');
 }
@@ -1762,7 +1764,10 @@ function showSources() {
       esc(D.pipelineCuratedAsOf || '2026') + (zh ? '），用來更新狀態與預計商轉年，GEM 沒有的才新增；「暫緩」不收錄。' : '), used to update status and expected commissioning year and to add projects GEM lacks; on-hold projects are left out.') + '</li>' +
       (D.pipelineTotals ? '<li>' + (zh ? '各國總量：' : 'Country totals: ') + esc(D.pipelineTotals.source) + ' · ' + esc(D.pipelineTotals.release) + ' — <a href="' + esc(D.pipelineTotals.url) + '" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' : '') +
       '<li>' + (zh ? '日本另補 NEDO 各縣風場清單（1 MW 以上，至 2018 年 3 月）與 windfarm.work／營運商資料中 GEM 未收錄的小型風場，並據以修正 GEM 錯置的座標。' : 'Japan adds small farms missing from GEM from the NEDO prefecture lists (≥1 MW, to March 2018) and windfarm.work / operator pages, which were also used to correct misplaced GEM coordinates.') + '</li></ul>' +
-    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain)</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>';
+    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain)</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>' +
+    '<h4>' + (zh ? '開發者與版權' : 'Developer & copyright') + '</h4><p>國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室<br>National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu<br>' +
+    (zh ? '網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用。' : 'Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source listed above.') +
+    '<br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a> · <a href="standalone/windfarmTaiwan-standalone.html" download>' + (zh ? '下載單檔版 HTML' : 'Download the single-file HTML') + '</a></p>';
   $('g-modal').classList.add('show');
   $('g-modalClose').focus();
 }
