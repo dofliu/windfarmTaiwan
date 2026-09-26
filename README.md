@@ -39,6 +39,12 @@
   - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
     里程碑、可搜尋的風場清單
   - 導覽模式、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
+  - **全球風場搜尋與篩選**：工具列「🔍 搜尋」或按 / 鍵，依名稱、中文名、開發商、機型、國名搜尋全部約 2.3 萬座風場，
+    依狀態、類型（陸域／離岸／浮動式）、容量、年份篩選；範圍跟著「範圍」選單（全世界、洲或國家）。有條件時地圖只顯示符合的風場
+    （全球視角也看得到），條件寫進網址可以分享（例：`#/global?fty=fl&fst=op` 全球營運中的浮動式風場）
+  - **港口圖層**（⚓）：離岸風電的組裝出港、水下基礎與風機零組件製造、海纜、浮動式組裝與運維港口 55 個（15 國，2026-09 人工整理，
+    每港附出處）；全球視角為小點，拉近才有圖示與名稱。港口卡片列出角色、服務過的風場（可點選切換）與出處，可以搜尋，
+    也有「港口」分頁（例：`#/global?port=twn-taichung`）
   - **風場卡片**：點風場可看維基百科照片與簡介；在國內的地位（依時間軸年份的容量排名與占全國風電裝置容量比例）、
     分期時間軸、附近風場（30 km 內）與同開發商的其他風場（可直接點選切換）；衛星地圖、OpenStreetMap、
     風能資源地圖（Global Wind Atlas）、Wikidata 等連結；「複製此風場連結」與「回報資料錯誤」（開啟預填的 GitHub issue）
@@ -82,9 +88,10 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/wind_global.json` — 國家逐年陸域／離岸容量 1980–2025、全球總量、里程碑、來源與註記（約 70 KB）
 - `data/global/wind_farms.json` — 風場層級資料約 2.3 萬筆（營運中、規劃中、已除役）
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
+- `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
-  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標
+  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料
 - `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
 - `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
@@ -163,6 +170,7 @@ python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-f
 python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
+python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離岸 15 km 內、出處、「服務過的風場」對得到風場名稱
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
 # 5. 單檔版（push 到 main 後 Actions 也會自動重建）

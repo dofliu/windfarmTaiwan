@@ -56,6 +56,12 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   If a rule stops matching, the build stops: re-check it rather than just deleting it. GEM projects that are confirmed to be
   different farms but have look-alike names go in `GEM_KEEP` in the same file.
 
+- 港口資料 `data/global/ports.json` 是人工整理、每港附出處：座標標在碼頭或港池（`coordNote` 說明是哪裡），「服務過的風場」只列有出處佐證的，
+  名稱要與 `wind_farms.json` 完全一致；角色已結束的港口標 `former`。改完跑 `python3 tools/qa_ports.py`。查不到的港口不要猜，列在 TODO。
+  Ports (`data/global/ports.json`) are curated by hand with sources for every port: coordinates mark the quay or harbour basin
+  (`coordNote` says which), "farms" lists only farms a source ties to the port, using exact names from `wind_farms.json`, and ports
+  whose role has ended are marked `former`. Run `python3 tools/qa_ports.py` after editing. Never guess a port — list missing ones in TODO.
+
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。
   各來源的授權標示（AEMO 來源、AESO 與 IESO 的版權聲明）顯示在資料旁，不要刪。

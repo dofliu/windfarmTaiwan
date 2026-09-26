@@ -56,6 +56,15 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     milestones, and a searchable farm list
   - Guided tour and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
     `#/global?f=Hai%20Long%202%20%26%203`)
+  - **Global farm search and filters**: "🔍 Search" in the toolbar or the / key searches all ~23,000 farms by name,
+    Chinese name, developer, turbine model or country, with filters for status, type (onshore/offshore/floating),
+    size and year; the scope follows the region selector (world, continent or country). While any condition is set,
+    the map shows only the matching farms (visible even at world zoom), and the conditions go into the URL so the
+    view can be shared (e.g. `#/global?fty=fl&fst=op`, operating floating farms worldwide)
+  - **Ports layer** (⚓): 55 offshore wind ports in 15 countries for marshalling, foundation and turbine-component
+    manufacturing, cables, floating assembly and O&M (compiled by hand in Sep 2026, each with sources); small dots at
+    world zoom, icons and names when zoomed in. Port cards list the roles, the wind farms served (click to switch)
+    and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
   - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
     nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
@@ -110,11 +119,12 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   milestones, sources and notes (~70 KB)
 - `data/global/wind_farms.json` — ~23,000 farm-level records (operating, pipeline, retired)
 - `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
+- `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, and the merge log
 - `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
   `tools/build_standalone.py` builds the single-file edition, `tools/coverage_report.py` the data coverage report,
-  and `tools/qa_farms.py` checks farm coordinates
+  `tools/qa_farms.py` checks farm coordinates and `tools/qa_ports.py` checks the ports data
 - `standalone/windfarmTaiwan-standalone.html` — the single-file edition (generated; do not edit by hand)
 - `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`) and the
   assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
@@ -220,6 +230,7 @@ python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-f
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
+python tools/qa_ports.py        # ports check: fields, inside the country or within 15 km of its coast, sources, farm names
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
 # 5. Single-file edition (Actions also rebuilds it after pushes to main)

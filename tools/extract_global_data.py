@@ -156,8 +156,12 @@ D["milestones"].sort(key=lambda ms: ms["year"])  # stable: keeps upstream order 
 
 # 附件的英文國名有一筆取錯（澳洲被標成國界檔裡同屬 AUS 的「Ashmore and Cartier Is.」）
 NAME_FIX = {"AUS": "Australia"}
+# 同一個錯誤也讓澳洲的外框變成 Ashmore 的一個點（地球儀選澳洲時拉得太近）：改用 Natural Earth 1:50m 國界
+# （world_borders.json）裡本土＋塔斯馬尼亞的範圍 [西, 南, 東, 北]
+BBOX_FIX = {"AUS": [113.2, -43.6, 153.6, -10.7]}
 for c in D["countries"]:
     c["name"] = NAME_FIX.get(c["iso"], c["name"])
+    c["bbox"] = BBOX_FIX.get(c["iso"], c.get("bbox"))
 
 # 全球總量＝各國加總（台灣、日本改用官方序列後重新計算）
 D["worldTotal"] = [round(sum(c["on"][i] + c["off"][i] for c in D["countries"]), 1) for i in range(len(Y))]

@@ -64,8 +64,8 @@ const I18N = {
     fsMapOnly: '地圖只顯示符合條件的風場', fsHidden: (y, n) => `時間軸在 ${y} 年：其中 ${n} 座這一年不在地圖上（尚未完工、已除役，或是規劃中而未開啟「規劃中」）`, fsToLatest: '移到最新年份',
     fsHud: n => `🔍 篩選中：地圖只顯示符合的 ${n} 座風場`, fsNone: '沒有符合條件的風場。', fsKey: '按 / 開始搜尋',
     role: { marshalling: '組裝出港', foundation: '水下基礎製造', tower: '塔架製造', blade: '葉片製造', nacelle: '機艙組裝', cable: '海纜製造', floating: '浮動式組裝', om: '運維基地' },
-    portTag: '港口', portDev: '開發中', portOld: '已停止', portSince: y => `${y} 年起`, portFarms: '服務過的風場', portOther: '其他專案：', portSrc: n => `來源 ${n}`,
-    portsHead: n => `收錄 ${n} 個港口`, portNone: '這個範圍沒有收錄的港口。', portsAll: '看全部港口 →', copyLinkPort: '複製此港口連結',
+    portTag: '港口', portDev: '開發中', portOld: '已停止', portSince: y => `${y} 年起`, portFarms: '服務過的風場', portOther: '其他專案：',
+    portSrcT: '出處', portsHead: n => `收錄 ${n} 個港口`, portNone: '這個範圍沒有收錄的港口。', portsAll: '看全部港口 →', copyLinkPort: '複製此港口連結',
     portNote: '離岸風電的組裝出港、製造與運維港口（2026 年 9 月整理，每個港口附出處）。橘色錨＝使用中，虛線＝開發中，灰色＝離岸風電用途已停止。'
   },
   en: {
@@ -119,8 +119,8 @@ const I18N = {
     fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
     fsHud: n => `🔍 Filter on: the map shows only the ${n} matching farms`, fsNone: 'No farms match.', fsKey: 'Press / to search',
     role: { marshalling: 'Marshalling', foundation: 'Foundations', tower: 'Towers', blade: 'Blades', nacelle: 'Nacelles', cable: 'Cables', floating: 'Floating assembly', om: 'O&M base' },
-    portTag: 'Port', portDev: 'in development', portOld: 'no longer active', portSince: y => `since ${y}`, portFarms: 'Wind farms served', portOther: 'Other projects: ', portSrc: n => `Source ${n}`,
-    portsHead: n => `${n} ports listed`, portNone: 'No listed ports in this area.', portsAll: 'All ports →', copyLinkPort: 'Copy link to this port',
+    portTag: 'Port', portDev: 'in development', portOld: 'no longer active', portSince: y => `since ${y}`, portFarms: 'Wind farms served', portOther: 'Other projects: ',
+    portSrcT: 'Sources', portsHead: n => `${n} ports listed`, portNone: 'No listed ports in this area.', portsAll: 'All ports →', copyLinkPort: 'Copy link to this port',
     portNote: 'Offshore wind marshalling, manufacturing and O&M ports (compiled Sep 2026, each with sources). Orange anchor = in use, dashed = in development, grey = offshore wind role has ended.'
   }
 };
@@ -275,6 +275,7 @@ function expandFarms(J) {
   farmLayerDirty = true;
   renderFarmList(true); renderProfile(); renderPipeList(true);
   if (pendingParams) { const p = pendingParams; pendingParams = null; applyParams(p, true); }
+  if (cardItem && cardItem.kind === 'port') renderCard(cardItem);     // 港口卡片比風場資料先開：補上服務過的風場
   warmOwners();
 }
 function notice(msg, ms) {
@@ -2066,6 +2067,7 @@ function reportURL(it) {
   return REPO_URL + '/issues/new?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body);
 }
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
+const srcLabel = u => { try { const x = new URL(u), path = decodeURIComponent(x.pathname).replace(/\/$/, ''); return hostOf(u) + (path.length > 38 ? path.slice(0, 36) + '…' : path); } catch (e) { return u; } };
 async function copyText(s) {
   try { if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(s); return true; } } catch (e) { /* 改用下面的舊方法 */ }
   const ta = document.createElement('textarea'); ta.value = s; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
@@ -2114,14 +2116,16 @@ function renderCard(it) {
   if (it.kind !== 'port' && !(f && f.nStack)) links += ext('https://globalwindatlas.info/' + (lang === 'zh' ? 'zh' : 'en') + '/shared/' + encodeURIComponent(JSON.stringify({ type: 'Feature', properties: { type: 'marker' }, geometry: { type: 'Point', coordinates: [+lo, +la] } })), T('lnkGwa'), '', T('lnkGwaT'));
   links += ext('https://www.google.com/search?tbm=isch&q=' + q, T('lnkPhoto'));
   if (f && f.src === 2) links += ext('https://www.gem.wiki/' + encodeURIComponent(bare.replace(/ /g, '_')), T('lnkGem'));
-  if (it.kind === 'port') (it.p.src || []).forEach((u, i) => { links += ext(u, T('portSrc')(i + 1) + ' · ' + hostOf(u)); });
-  else links += ext('https://www.wikidata.org/w/index.php?search=' + encodeURIComponent(bare), T('lnkWd'), 'wd');
+  if (it.kind !== 'port') links += ext('https://www.wikidata.org/w/index.php?search=' + encodeURIComponent(bare), T('lnkWd'), 'wd');
   if (f && f.url) links += ext(f.url, T('lnkSrc'));
   let rel = '';
   if (it.kind === 'port' && full) {                  // 港口：服務過的風場（對得到資料的可點選），其他專案列文字
     const served = (it.p.farms || []).map(farmNamed).filter(Boolean), other = (it.p.farmsOther || []).join(lang === 'zh' ? '、' : ', ');
     if (served.length) rel += relSection('pserved', T('portFarms'), served, { iso: it.p.iso }, false, other ? T('portOther') + other : '');
     else if (other) rel += '<p class="gnote fnear0">' + esc(T('portFarms') + L('：', ': ') + other) + '</p>';
+    const src = it.p.src || [];                     // 出處可能很多：收成可展開的編號清單（網站＋路徑），不塞在連結列
+    if (src.length) rel += '<details class="frel" data-k="psrc"' + (WW.store.get('ww_card_psrc', '1') === '1' ? ' open' : '') + '><summary>' + esc(T('portSrcT')) + '<span class="cnt">' + src.length + '</span></summary><ol class="psrc">' +
+      src.map(u => '<li><a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(srcLabel(u)) + '</a></li>').join('') + '</ol></details>';
   }
   if (real && full) {
     const near = nearbyFarms(f);
