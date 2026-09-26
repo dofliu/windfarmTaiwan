@@ -10,11 +10,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Every document has a Traditional Chinese `X.md` and an English `X.en.md`, cross-linked on the first lines.
 - 修改文件時兩個版本在同一個 commit 一起更新，數字、步驟、連結要一致；新增文件時兩個版本一起新增。
   Change both versions in the same commit, keeping numbers, steps and links identical; add new documents in both languages.
-- 由程式產生的文件（例：`docs/data-coverage*.md`）由產生程式同時輸出兩種語言，不要手動改。
-  Generated documents (e.g. `docs/data-coverage*.md`) are written in both languages by their generator; do not edit them by hand.
+- 由程式產生的文件（例：`docs/data-coverage*.md`、`docs/data-cleanup*.md`）由產生程式同時輸出兩種語言，不要手動改。
+  Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`) are written in both languages by their generator; do not edit them by hand.
 - 網站介面文字也一律雙語：HTML 用 `data-l="zh"`／`data-l="en"`，JS 用 `WW.L(zh, en)` 或各模組的 i18n 字典。
   All UI text is bilingual as well: `data-l="zh"` / `data-l="en"` in HTML, `WW.L(zh, en)` or the module's i18n table in JS.
-- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、docs/data-coverage、docs/live-data-sources。
+- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、docs/data-coverage、docs/data-cleanup、docs/live-data-sources。
   `CLAUDE.md` 本身以中英並列寫在同一個檔。This file itself keeps both languages side by side.
 
 ## 2. 版權與開發者 · Copyright and developer
@@ -48,6 +48,13 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   National figures: Taiwan from the Energy Administration handbook, Japan from JWPA, other countries from IRENA via Our World in Data.
 - 數字寫進網站或文件前先對照原始資料；查不到的不要臆測，寫明「待查證」。
   Check numbers against the original source before publishing them; if something cannot be verified, say so instead of guessing.
+- 風場的逐筆修正（重複、從未建成、錯置、數字錯誤）寫在 `tools/farm_cleanup.py`：每條規則用（國別, 名稱, 來源）指定剛好一筆，
+  附中英文理由與出處連結，建置時輸出 `docs/data-cleanup*.md`。規則對不到資料時建置會中止，要逐條重新查證，不要直接刪掉規則了事。
+  確認是不同風場、但名稱相近會被當成重複的 GEM 專案，列在同一檔的 `GEM_KEEP`。
+  Record-level farm fixes (duplicates, never built, misplaced, wrong figures) live in `tools/farm_cleanup.py`: each rule names
+  exactly one record by (country, name, source) with bilingual reasons and a source link, and the build writes `docs/data-cleanup*.md`.
+  If a rule stops matching, the build stops: re-check it rather than just deleting it. GEM projects that are confirmed to be
+  different farms but have look-alike names go in `GEM_KEEP` in the same file.
 
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。

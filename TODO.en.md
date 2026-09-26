@@ -30,9 +30,11 @@ Concrete, actionable tasks. Background, the reasons behind decisions and the pha
       YouDe, Greater Changhua Northeast) every quarter
 - [ ] When GEM publishes a new public Global Wind Power Tracker file, rerun `tools/build_farms.py` and
       then `tools/qa_farms.py` to check coordinates; check whether the `COORD_FIX` corrections are still
-      needed (remove the ones fixed upstream)
-- [ ] Verify the location of Pohjoinen wind farm in Finland (99 MW, 2020, Fortum): GEM's coordinates
-      68.04, 16.66 fall in Norway
+      needed (remove the ones fixed upstream). If a clean-up rule in `tools/farm_cleanup.py` no longer
+      matches, the build stops and lists the rules: re-check each one, delete it if fixed upstream, or
+      update the name if the record was renamed
+- [x] Verify Pohjoinen wind farm in Finland: it is Norway's Sørfjord (same 99 MW, 2020, Fortum, identical
+      coordinates); removed (Sep 2026)
 - [ ] If stage-by-stage grid-connection figures become available for Taiwan's phased offshore farms
       (Hai Long 2 & 3, Greater Changhua 2b & 4, Taipower Offshore Phase 2), fill in the `ph` field
 - [ ] After every rebuild of the farm data, run `tools/coverage_report.py` to refresh
@@ -43,25 +45,35 @@ Concrete, actionable tasks. Background, the reasons behind decisions and the pha
 
 ## Data quality (from [docs/data-coverage.en.md](./docs/data-coverage.en.md), generated Sep 2026)
 
-- [ ] Resolve the 9 "suspected duplicates A" (different sources, same or similar name): confirm each
-      pair and drop the duplicate in `tools/build_farms.py` — e.g. Kenya's Lake Turkana (one record from
-      GPPD and one curated, 310 MW counted twice), Jiangsu Binhai North H1 / H2, Dafeng H5 / H7,
-      Denmark's Vesterhav Nord, Japan's Kakegawa
-- [ ] Review the 12 countries whose farm sum is above 110% of the national figure: Colombia, Kenya,
-      Romania, the Philippines, Thailand, Norway, Iran, Senegal, the Dominican Republic, Vietnam, Jordan,
-      Uruguay. Known causes: Norway's Fosen aggregate record sits next to its component farms (Storheia,
-      Roan); five GEM farms in Romania share the country-centre coordinates; Pagudpud and Balaoi &
-      Caunayan in the Philippines look like the same farm
-- [ ] 137 shared coordinate points (1,357 operating farms stacked on one point each, mostly
-      province-centre placeholders, mainly in China): update from a newer GEM release or local data
-- [ ] 588 pipeline projects whose expected year has already passed (102 GW): update their status from a
+The phase-1 data clean-up was done in Sep 2026: after checking record by record, 77 records were removed
+and 52 fixed. The reason and source for each are in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md);
+the rules are in `tools/farm_cleanup.py`.
+
+- [x] The 9 "suspected duplicates A": done (only Japan's Enshu Kakegawa / Kakegawa is left to confirm)
+- [x] The 12 countries whose farm sum was above 110% of the national figure: the Philippines (Pagudpud
+      was completed in 2024–25 and IRENA may not count it yet) and Iran remain
+- [x] Duplicates found while adding live data: Whitla (Alberta), Snowtown, Bluff Point (Tasmania) and
+      Yambuk (Victoria)
+- [x] Shared coordinate points: the map fans the farms out around the point and their cards say the
+      position is schematic (`flags` 4)
+- [ ] 135 shared coordinate points remain (1,338 operating farms, mostly province-centre placeholders in
+      China): add real coordinates from a newer GEM release or local data
+- [ ] Items the clean-up could not find or confirm: whether Iran's Tizbaad (99 MW) and Aqkand (50 MW) are
+      operating (SATBA data); China's curated "CGN Taizhou 1" (300 MW; no CGN offshore project in Taizhou
+      was found) and "Guoxin Sheyang H1" (300 MW; Sheyang H1 is Huaneng's), and GEM's Sheyang South H5
+      (400 MW, possibly not yet operating); Vietnam's Song An (46.2 MW, no commissioning found); the
+      repowering history of Kemi Ajos in Finland; why the Dominican Republic is about 50 MW below IRENA
+- [ ] Farms missing from the data (found while checking): Hanuman 10 in Thailand (80 MW), Lạc Hòa 2
+      (123.6 MW) and the other 105.5 MW of Chơ Long in Vietnam, Pantelimon in Romania (123 MW), Carreto in
+      Colombia (9.6 MW, 2025)
+- [ ] 11 "suspected duplicates B" remain (different names, same capacity, close by), e.g. Solano / Shiloh
+      and Big Smile / Dempsey Ridge in the US, Dreiberg / Druiberg in Germany: confirm pair by pair
+- [ ] 587 pipeline projects whose expected year has already passed (101 GW): update their status from a
       newer GEM release or the news
-- [ ] 49 GW of operating farms have no commissioning year (mostly in China and India), so the map can
+- [ ] 46 GW of operating farms have no commissioning year (mostly in China and India), so the map can
       only show them from 2025: add years where they can be found
-- [ ] Large countries with low coverage (China 127 GW short, Germany 27 GW, India 15 GW): assess filling
+- [ ] Large countries with low coverage (China 144 GW short, Germany 27 GW, India 15 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
-- [ ] Duplicates found while adding live data: Whitla in Alberta (one curated and one GEM record, 353 MW) and
-      Snowtown in Australia (a curated aggregate next to GEM's Snowtown I)
 
 ## To assess / waiting for the owner's decision (do not start on your own)
 

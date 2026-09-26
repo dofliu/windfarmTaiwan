@@ -11,7 +11,8 @@
 線上：`https://dofliu.github.io/windfarmTaiwan/`
 
 後續規劃與待辦見 [ROADMAP.md](./ROADMAP.md)、[TODO.md](./TODO.md)；各國風場資料覆蓋率與待查證項目見
-[docs/data-coverage.md](./docs/data-coverage.md)；其他國家即時發電資料的可行性評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)。
+[docs/data-coverage.md](./docs/data-coverage.md)，逐筆刪除或修正的風場紀錄與理由見 [docs/data-cleanup.md](./docs/data-cleanup.md)；
+其他國家即時發電資料的可行性評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)。
 
 **單檔版**：[下載 windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
 （約 6 MB），存到電腦後直接用瀏覽器開啟即可，不需架站；詳見下方「單檔版」。
@@ -82,7 +83,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
   `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標
 - `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
-- `docs/` — 資料覆蓋率報告（`data-coverage.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
+- `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 每 15 分鐘執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
@@ -155,6 +156,7 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 # 3. 風場層（精選風場 × GEM 全球風電追蹤）
 curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
 python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
+#    （會套用 tools/farm_cleanup.py 的逐筆清理規則，並輸出 docs/data-cleanup.md 與 .en.md）
 python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
@@ -177,6 +179,11 @@ python tools/build_standalone.py
   與風場資料（GEM 將克里米亞風場列於烏克蘭）一致
 - GEM 同一場址下相距 25 km 以上的分期分開標示，不取平均座標（原本會把跨州專案平均到錯誤位置）；
   3 筆可由專案名稱確認的座標錯誤已修正（宮城加美、珠洲第 1、珠洲第 2 期），1 筆國別與座標不符的 WRI GPPD 舊資料已排除
+- 2026 年 9 月第一階段資料清理：逐筆查證後刪除 77 筆重複、從未建成或查無此場的紀錄（例：泰國並不存在的 600 MW「Jhimpir」、
+  從未獲准的挪威 Hordavind 682 MW、與逐場資料重複的中國達坂城等整區彙總、羅馬尼亞放在國土中心卻查無建成紀錄的 15 座），
+  修正 52 筆的座標、容量、年份、分期或狀態；比對名稱時先把繁體轉成簡體並比較分區代號（江蘇等地同一座離岸風場不再重複收錄）；
+  共用省或國家中心代用座標的風場在地圖上示意排開並註明。逐筆理由與出處見 [docs/data-cleanup.md](./docs/data-cleanup.md)
+- 英文國名：澳洲原被標成同屬 AUS 代碼的「Ashmore and Cartier Is.」，已改正
 
 > 國家概況的「逐場資料覆蓋率」＝已逐場標示的營運中容量 ÷ 國家年底統計（台灣 2025 年約 89%、日本約 87%），差額明白列出，
 > 不補虛構風場。其他國家的風場來自 GEM，容量為全場裝置容量，加總可能略高或略低於國家統計。

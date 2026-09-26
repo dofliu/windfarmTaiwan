@@ -42,6 +42,7 @@ MANUAL = {
     ("AEMO", "NBHWF1"): "Hallett (Brown Hill/Hallett Hill/North Brown Hill/Bluff)",    # Hallett 4 = North Brown Hill
     ("AEMO", "BLUFF1"): "Hallett (Brown Hill/Hallett Hill/North Brown Hill/Bluff)",    # Hallett 5 = The Bluff（不是塔斯馬尼亞的 Bluff Point）
     ("AEMO", "DIAPURWF1"): "Diapur 2 wind farm",
+    ("AEMO", "YAMBUKWF"): "Portland (PWEP) Wind Energy Project · Yambuk wind farm",   # Yambuk＝Portland 風電計畫第一期
     ("AEMO", "GPWFEST1"): "Golden Plains (Stage 1)", ("AEMO", "GPWFEST2"): "Golden Plains (Stage 1)",
     ("AEMO", "GPWFEST3"): "Golden Plains (Stage 1)",       # Golden Plains 東區＝第一期 756 MW
     ("AEMO", "GPWFWST1"): None, ("AEMO", "GPWFWST2"): None,   # Golden Plains 西區（第二期）：資料中是興建中的整體專案列

@@ -34,7 +34,7 @@ const I18N = {
     wikiLoading: '正在查詢維基百科…', wikiNone: '找不到對應的維基百科條目，可用下方連結搜尋。', wikiOffline: '目前無法連線維基百科（離線或網路受限），可用下方連結查詢。',
     lnkWiki: '維基百科', lnkMap: '衛星地圖', lnkPhoto: '搜尋照片', lnkGem: 'GEM 專案頁', photoCredit: '圖片：Wikipedia / Wikimedia Commons',
     whyFirstOff: c => c + '第一座離岸風場', whyFirstOn: c => c + '資料中最早的陸域風場', whyRecOff: c => '併網時為' + c + '規模最大的離岸風場', whyRecOn: c => '併網時為' + c + '規模最大的陸域風場', whyTop: c => c + '規模最大的風場之一',
-    tourEnd: '導覽結束', decom: '已除役', yearUnknown: '商轉年份不詳', expected: '預計', pipeNote: '規劃中專案為 GEM 2025 年 2 月資料，拉到 2025 年才會顯示',
+    tourEnd: '導覽結束', decom: '已除役', yearUnknown: '商轉年份不詳', posStack: '位置示意：與另外 {n} 筆共用同一座標（多為省或國家中心的代用點），地圖上以該點為中心排開，不是實際位置。', posApprox: '座標為概略位置（資料來源標示）。', tipStack: '位置示意（共用代用座標）', expected: '預計', pipeNote: '規劃中專案為 GEM 2025 年 2 月資料，拉到 2025 年才會顯示',
     liveNow: '此刻即時出力', liveLegend: '綠色外圈：有即時資料的風場，葉片轉速依此刻出力', liveSee: '看即時詳情', availability: '可用率', open: '開啟', more: '顯示更多', search: '搜尋風場名稱',
     fAll: '全部', fOp: '營運中', fPipe: '規劃中', sortMw: '依容量', sortYear: '依年份',
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
@@ -70,7 +70,7 @@ const I18N = {
     wikiLoading: 'Looking up Wikipedia…', wikiNone: 'No matching Wikipedia article found — try the links below.', wikiOffline: 'Wikipedia is unreachable right now (offline or blocked) — try the links below.',
     lnkWiki: 'Wikipedia', lnkMap: 'Satellite map', lnkPhoto: 'Search photos', lnkGem: 'GEM project page', photoCredit: 'Image: Wikipedia / Wikimedia Commons',
     whyFirstOff: c => 'First offshore wind farm in ' + c, whyFirstOn: c => 'Earliest onshore wind farm in the dataset for ' + c, whyRecOff: c => 'Largest offshore wind farm in ' + c + ' when commissioned', whyRecOn: c => 'Largest onshore wind farm in ' + c + ' when commissioned', whyTop: c => 'One of the largest wind farms in ' + c,
-    tourEnd: 'Tour finished', decom: 'decommissioned', yearUnknown: 'start year unknown', expected: 'expected', pipeNote: 'Pipeline projects are GEM data as of Feb 2025 — move to 2025 to see them',
+    tourEnd: 'Tour finished', decom: 'decommissioned', yearUnknown: 'start year unknown', posStack: 'Schematic position: shares one point with {n} other records (usually a province or country centre used as a placeholder), so they are fanned out around it on the map; this is not the real location.', posApprox: 'Approximate location (as marked by the source).', tipStack: 'Schematic position (shared placeholder point)', expected: 'expected', pipeNote: 'Pipeline projects are GEM data as of Feb 2025 — move to 2025 to see them',
     liveNow: 'Live output now', liveLegend: 'Green ring: farms with live data; rotors spin with their current output', liveSee: 'Live details', availability: 'availability', open: 'Open', more: 'Show more', search: 'Search farms',
     fAll: 'All', fOp: 'Operating', fPipe: 'Pipeline', sortMw: 'By size', sortYear: 'By year',
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
@@ -200,6 +200,8 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders)]).then((
   WW.getJSON(WW.DATA.farms).then(expandFarms).catch(e => { console.error(e); notice(L('風場資料載入失敗', 'Farm data failed to load')); });
 });
 
+const STACK_STEP = 0.045;     // 共用座標排開的間距（度，約 5 km）
+const AGG_RE = /\bbase\b|cluster|corridor|aggregate|remainder|placeholder|smaller projects|unnamed/i;   // 整區彙總列的名稱
 function expandFarms(J) {
   const TY = ['onshore', 'offshore', 'floating'];
   D.farms = J.rows.map(r => {
@@ -209,6 +211,19 @@ function expandFarms(J) {
     if (f.st >= 1 && f.st <= 3) f.pipe = true;
     if (f.st === 4 && !f.end) f.end = f.year + 20;
     return f;
+  });
+  // 共用同一座標的紀錄（flags 4，多為省或國家中心的代用點）：以該點為中心、依容量由內而外排成向日葵狀，每一座才點得到；
+  // 原座標留在 lat0／lon0（地圖連結用），卡片註明位置為示意
+  const stacks = new Map();
+  D.farms.forEach(f => { if (f.flags & 4) { const k = f.iso + '|' + f.lat + '|' + f.lon; if (!stacks.has(k)) stacks.set(k, []); stacks.get(k).push(f); } });
+  stacks.forEach(list => {
+    list.sort((a, b) => b.mw - a.mw || (a.name < b.name ? -1 : 1));
+    const lat0 = list[0].lat, lon0 = list[0].lon, cl = Math.max(0.2, Math.cos(lat0 * Math.PI / 180));
+    list.forEach((f, i) => {
+      const r = STACK_STEP * Math.sqrt(i + 0.5), a = i * 2.39996;
+      f.lat0 = lat0; f.lon0 = lon0; f.nStack = list.length;
+      f.lat = lat0 + r * Math.cos(a); f.lon = lon0 + r * Math.sin(a) / cl;
+    });
   });
   D.pipelineCuratedAsOf = J.meta && J.meta.pipeline_curated_asof;
   farmsByIso = {};
@@ -1368,7 +1383,8 @@ function renderProfile() {
   let farmsHTML = '';
   if (farmsReady && farmsByIso[c.iso]) {
     const fl = farmsByIso[c.iso], op = fl.filter(f => !f.pipe && farmActive(f, S.year));
-    const big = op.slice().sort((a, b) => b.mw - a.mw)[0], early = fl.filter(f => !f.pipe && !f.yu).sort((a, b) => a.year - b.year)[0];
+    // 「最大風場」不取整區彙總列（例：新疆哈密風電基地），那不是單一座風場
+    const big = op.filter(f => !AGG_RE.test(f.name)).sort((a, b) => b.mw - a.mw)[0], early = fl.filter(f => !f.pipe && !f.yu).sort((a, b) => a.year - b.year)[0];
     const fr = [[T('profFarms'), L(`${op.length} 座 · ${fmtMW(op.reduce((s, f) => s + farmMwAt(f, S.year), 0))}`, `${op.length} · ${fmtMW(op.reduce((s, f) => s + farmMwAt(f, S.year), 0))}`)]];
     if (big) fr.push([T('profLargest'), `<a href="#" data-farm="${esc(big.name)}">${esc(fname(big))}</a> · ${fmtMW(big.mw)}`]);
     if (early) fr.push([T('profEarliest'), `<a href="#" data-farm="${esc(early.name)}">${esc(fname(early))}</a> · ${early.year}`]);
@@ -1501,7 +1517,8 @@ function wikiLookup(it) {
 
 /* ================= items (farm / milestone) and info card ================= */
 const noteOf = f => f && f.note ? (lang === 'en' ? (f.note[1] || f.note[0]) : (f.note[0] || f.note[1])) : '';
-function farmItem(f, why) { return { kind: 'farm', f, name: f.name, zh: f.zh, lat: f.lat, lon: f.lon, year: f.year, end: f.end, type: f.type, mw: f.mw, turbine: f.turbine, owner: f.owner, iso: f.iso, why }; }
+const posNote = f => !f || f.pseudo ? '' : f.nStack ? T('posStack').replace('{n}', f.nStack - 1) : (f.flags & 1) ? T('posApprox') : '';
+function farmItem(f, why) { return { kind: 'farm', f, name: f.name, zh: f.zh, lat: f.lat0 != null ? f.lat0 : f.lat, lon: f.lon0 != null ? f.lon0 : f.lon, year: f.year, end: f.end, type: f.type, mw: f.mw, turbine: f.turbine, owner: f.owner, iso: f.iso, why }; }
 function msPseudoFarm(m) {
   let best = null, bs = 0;
   for (const f of D.farms) {
@@ -1635,6 +1652,7 @@ function renderCard(it) {
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
     (spec ? '<div class="spec">' + spec + '</div>' : '') + (desc ? '<p class="desc">' + esc(desc) + '</p>' : '') +
     (noteOf(f) ? '<p class="fnote">' + esc(noteOf(f)) + '</p>' : '') +
+    (posNote(f) ? '<p class="fnote pos">' + esc(posNote(f)) + '</p>' : '') +
     (f ? liveBoxFor(f) : (it.farm ? liveBoxFor(it.farm) : '')) +
     '<p class="wx">' + T('wikiLoading') + '</p><div class="links">' + links + '</div>';
   card.classList.add('show');
@@ -1761,6 +1779,7 @@ function tipFarm(f, w) {
     '<br><i class="gsw" style="background:' + col + '"></i>' + T('type')[f.type] + ' · ' + esc(String(when)) +
     '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
     (noteOf(f) ? '<div class="tnote">' + esc(noteOf(f).length > 140 ? noteOf(f).slice(0, 140) + '…' : noteOf(f)) + '</div>' : '') +
+    (f.nStack ? '<div class="tnote">' + T('tipStack') + '</div>' : '') +
     liveTip(f) + '<div class="hint2">' + T('clickMore') + '</div>';
 }
 function tipMs(m) { return '<b>★ ' + esc(m.name) + '</b><br>' + m.year + ' · ' + T('type')[m.type] + '<br><span style="color:var(--ink-2)">' + esc(lang === 'zh' ? m.zh : m.en) + '</span><div class="hint2">' + T('clickMore') + '</div>'; }
@@ -1849,7 +1868,10 @@ function showSources() {
   $('g-modalBody').innerHTML = '<h2>' + T('srcTitle') + '</h2>' +
     (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，放大到接近地面時，風場會依機組數量與間距畫成一群風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，拉近時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片與簡介於瀏覽時即時查詢維基百科，離線時不會顯示。</p>'
         : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, and close to the ground each farm is drawn as a group of turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and zooming in shows the planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos and summaries are looked up live from Wikipedia.</p>') +
-    '<h4>' + (zh ? '本站修正' : 'Corrections by this site') + '</h4><ul>' + li((D.meta && D.meta.edits) || []) + '<li>' + (zh ? '國界改以 Natural Earth 1:50m 重建（原資料缺澳洲本土；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭）；風場與 GEM 全球風電追蹤（2025-02，CC BY 4.0）合併並加入規劃中專案；GEM 同一場址相距 25 km 以上的分期分開標示，3 筆明顯的座標錯誤已修正。' : 'Borders rebuilt from Natural Earth 1:50m (the original lacked mainland Australia; Crimea shown as part of Ukraine per UN GA resolution 68/262); farms merged with the GEM Global Wind Power Tracker (Feb 2025, CC BY 4.0), adding pipeline projects; GEM phases more than 25 km apart are shown separately and three obvious coordinate errors were corrected.') + '</li></ul>' +
+    '<h4>' + (zh ? '本站修正' : 'Corrections by this site') + '</h4><ul>' + li((D.meta && D.meta.edits) || []) +
+    '<li>' + (zh ? '2026 年 9 月逐筆查證：刪除重複、從未建成或查無此場的風場紀錄，修正座標、容量、年份、分期或狀態；共用省或國家中心代用座標的風場在地圖上示意排開（卡片註明「位置示意」）。逐筆理由見'
+      : 'Checked record by record in Sep 2026: duplicate, never-built or non-existent farm records were removed and locations, capacities, years, phases or statuses fixed; farms sharing a province or country centre as a placeholder are fanned out on the map (their cards say the position is schematic). Every record is in the') +
+    ' <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/data-cleanup' + (zh ? '' : '.en') + '.md" target="_blank" rel="noopener">' + (zh ? '資料清理紀錄' : 'clean-up log') + '</a>' + (zh ? '。' : '.') + '</li><li>' + (zh ? '國界改以 Natural Earth 1:50m 重建（原資料缺澳洲本土；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭）；風場與 GEM 全球風電追蹤（2025-02，CC BY 4.0）合併並加入規劃中專案；GEM 同一場址相距 25 km 以上的分期分開標示，3 筆明顯的座標錯誤已修正。' : 'Borders rebuilt from Natural Earth 1:50m (the original lacked mainland Australia; Crimea shown as part of Ukraine per UN GA resolution 68/262); farms merged with the GEM Global Wind Power Tracker (Feb 2025, CC BY 4.0), adding pipeline projects; GEM phases more than 25 km apart are shown separately and three obvious coordinate errors were corrected.') + '</li></ul>' +
     '<h4>' + (zh ? '總容量 2000–2025' : 'Total capacity 2000–2025') + '</h4><ul><li>Our World in Data — Installed wind energy capacity (IRENA Renewable Capacity Statistics): <a href="https://ourworldindata.org/grapher/cumulative-installed-wind-energy-capacity-gigawatts" target="_blank" rel="noopener">ourworldindata.org</a></li></ul>' +
     '<h4>' + (zh ? '離岸容量 1991–2025' : 'Offshore capacity 1991–2025') + '</h4><ul>' + li(src.offshore) + '</ul>' +
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +

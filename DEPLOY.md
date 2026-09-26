@@ -21,7 +21,7 @@ windfarmTaiwan/
 ├─ data/global/                     # 全球資料：國家逐年容量、風場層、國界（由 tools/ 產生，非排程）
 ├─ tools/                           # 全球資料、底圖、單檔版與覆蓋率報告的產生程式
 ├─ standalone/                      # 單檔版 HTML（tools/build_standalone.py 產生，可下載後離線開啟）
-├─ docs/                            # 資料覆蓋率報告、即時資料來源評估（中英文各一份）
+├─ docs/                            # 資料覆蓋率報告、資料清理紀錄、即時資料來源評估（中英文各一份）
 ├─ taipower_wind_scraper.py         # 每 15 分鐘：風力即時 + 電力供需即時
 ├─ intl_wind_scraper.py             # 每 15 分鐘：澳洲東部電網、亞伯達、安大略的風場即時出力 → data/live/
 ├─ backfill_history.py             # 每週一：官方回溯歷史回填

@@ -34,50 +34,707 @@ ADD  TWN pre-construction Huanyang Offshore wind farm 440.0 y2028
 ADD  TWN pre-construction Kouhu wind farm 71.0 y0
 ADD  TWN pre-construction Mei Sen wind farm 240.0 y2028
 ADD  TWN pre-construction Taichung Fengmiao Floating wind farm 1100.0 y2027
+CLEAN drop CHN Dabancheng 2500.0
+CLEAN drop CHN Guangdong Yangjiang Shaba (Three Gorges) Offshore wind farm 1706.0
+CLEAN drop CHN Minqin Hongshagang 1300.0
+CLEAN drop CHN Mori wind complex 2200.0
+CLEAN drop CHN Togtoh 1750.0
+CLEAN drop CHN Yumen Changma 1000.0
+CLEAN drop COL El Morro wind farm 8.0
+CLEAN drop FIN Pohjoinen wind farm 99.0
+CLEAN drop GBR Hornsea wind farm · 3, 4 5000.0
+CLEAN drop NLD Beaufort wind farm 350.0
+CLEAN drop NOR Fosen Vind (six farms) 1057.0
+CLEAN drop NOR Hordavind wind farm 682.0
+CLEAN drop ROU Adamdel wind farm 484.0
+CLEAN drop ROU Auseu-Borod wind farm 65.0
+CLEAN drop ROU Banca wind farm 300.0
+CLEAN drop ROU Beidaud wind farm 128.0
+CLEAN drop ROU Cwp Independenta I Wind Farm wind farm 226.0
+CLEAN drop ROU Falciu wind farm 198.0
+CLEAN drop ROU Gebelesis Enel wind farm 27.0
+CLEAN drop ROU Iberdrola Cogealac wind farm 322.0
+CLEAN drop ROU Iberdrola Piatra wind farms 64.0
+CLEAN drop ROU Iberdrola Sacele wind farm 162.0
+CLEAN drop ROU Istria wind farm 74.0
+CLEAN drop ROU Monsson Orsova wind farm 35.0
+CLEAN drop ROU Monsson Serbotesti wind farm 150.0
+CLEAN drop ROU Pestera Sorgenia wind farm 50.0
+CLEAN drop ROU Windkraft Sfanta Elena wind farm 84.0
+CLEAN drop THA Jhimpir Power (Energy Absolute) wind farm 600.0
+CLEAN drop VNM Bến Tre 5 Thạnh Hải Offshore wind farm 120.0
+CLEAN drop VNM Chu Pu wind farm 200.0
+CLEAN drop VNM Chu Se wind farm 700.0
+CLEAN dup AUS Bluff Point wind farm 64.0 -> Woolnorth (Bluff Point / Studland Bay)
+CLEAN dup AUS Snowtown I wind farm 99.0 -> Snowtown
+CLEAN dup AUS Yambuk wind farm 30.0 -> Portland (PWEP) Wind Energy Project · Yambuk wind farm
+CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
+CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
+CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang Southern Area H5 Offshore wind farm
+CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
+CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
+CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
+CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
+CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
+CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
+CLEAN dup IRN Harzvil wind farm 14.0 -> Manjil wind farm
+CLEAN dup IRN Siahpoush (Manjil) wind farm 48.0 -> Manjil wind farm
+CLEAN dup JOR Tafilah wind farm 117.0 -> Tafila
+CLEAN dup KEN Lake Turkana 310.0 -> Lake Turkana
+CLEAN dup KOR Yeongyang 61.5 -> Yeong Yang (Macquarie Group) wind farm
+CLEAN dup NLD Amazon Shell HKN offshore wind farm 759.0 -> Hollandse Kust Noord
+CLEAN dup NLD Binnenjijks wind farm 68.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
+CLEAN dup NLD Noordoostpolder Buitendijks wind farm 15.0 -> Westermeerwind
+CLEAN dup NLD Noordoostpolder-Westermeerwind Windpark 429.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
+CLEAN dup NOR Smola wind farm 150.0 -> Smøla
+CLEAN dup PHL Pagudpu wind farm 80.0 -> Balaoi & Caunayan
+CLEAN dup PHL Pagudpud wind farm 160.0 -> Balaoi & Caunayan
+CLEAN dup PRT Alto Do Talefe wind farm 14.0 -> Alto do Talefe
+CLEAN dup PRT Chaminé wind farm 6.9 -> Chaminé
+CLEAN dup PRT Felgar wind farm 8.0 -> Felgar
+CLEAN dup ROU Valea Nucarilor wind farm 70.0 -> Salbatica wind farm · 2
+CLEAN dup TUR Gökçedag wind farm 135.0 -> Gökçedağ (Osmaniye)
+CLEAN dup URY Pampa (Nordex) wind farm 141.6 -> Pampa (Tacuarembó)
+CLEAN dup USA Chanarambie Power Partners  LLC 85.5 -> Chanarambie wind farm
+CLEAN dup USA Criterion 70.0 -> Criterion wind farm · 1
+CLEAN dup USA FPL Energy Story Wind LLC 150.0 -> Story County
+CLEAN dup USA Prairie Winds SD1 162.0 -> Crow Lake wind farm
+CLEAN dup USA Snyder Wind Farm 63.0 -> Snyder wind farm
+CLEAN dup USA Windy Point wind farm (United States) 136.3 -> Windy Point / Windy Flats
+CLEAN dup VNM Binh Dai 1 Phase 1 (TTC/Gulf, Ben Tre) 30.0 -> Bến Tre 10 Bình Đại 1 Offshore wind farm
+CLEAN dup VNM Binh Dai 1 Phase 2 30.0 -> Bến Tre 10 Bình Đại 1 Offshore wind farm
+CLEAN dup VNM Dong Hai 1 Phase 2 (Bac Lieu, Bac Phuong) 50.0 -> Dong Hai 1 Offshore wind farm
+CLEAN dup VNM Hiệp Thành wind farm 65.0 -> Hiep Thanh (Tra Vinh)
+CLEAN dup VNM Phuoc wind farm 27.0 -> Phuoc Minh Revn wind farm
+CLEAN dup VNM Tan An 1 Phase 1 (Ca Mau) 30.0 -> Tân An 1 offshore wind farm
+CLEAN dup VNM Thuận Bắc Trungnam wind farm 152.0 -> Trung Nam Ninh Thuận
+CLEAN dup VNM Tân Phú Đông 2 nearshore wind power plant 50.0 -> Tan Phu Dong 2 (Tien Giang, GEC)
+CLEAN dup ZAF Amakhala Emoyeni wind farm 134.0 -> Amakhala Emoyeni
+CLEAN dup ZAF Waainek wind farm 25.0 -> Waainek Wind Farm
+CLEAN fix AUS Portland (PWEP) Wind Energy Project · Cape Bridgewater wind farm, Cape Nelson South wind farm, Cape Sir William Grant/Cape Nelson North, Codrington wind farm 167.0
+CLEAN fix AUS Snowtown 370.0
+CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
+CLEAN fix CHN Huadian Yuhuan 2 500.0
+CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
+CLEAN fix COL Vientos De Galerazamba wind farm 69.9
+CLEAN fix COL WESP 01 wind farm 12.0
+CLEAN fix DNK Vesterhav Nord 176.4
+CLEAN fix DOM Granadillos wind farm 50.0
+CLEAN fix DOM La Isabela wind farm 50.0
+CLEAN fix DOM Los Cocos wind farm 87.3
+CLEAN fix DOM Los Guzmancito wind farm 98.0
+CLEAN fix DOM Matafongo wind farm 34.0
+CLEAN fix DOM Puerto Plata-Imbert wind farm 46.0
+CLEAN fix IRN Binalood wind farm 28.0
+CLEAN fix IRN Manjil wind farm 93.0
+CLEAN fix KEN Chania Green Wind Project 50.0
+CLEAN fix KEN Kilifi wind farm 36.0
+CLEAN fix KEN Lake Turkana 310.0
+CLEAN fix NLD Hollandse Kust Noord 759.0
+CLEAN fix NLD Noordoostpolder (incl. Westermeerwind nearshore) 429.0
+CLEAN fix NOR Gismarvik wind farm 12.6
+CLEAN fix NOR Haram wind farm 34.0
+CLEAN fix NOR Havøygavlen wind farm 38.0
+CLEAN fix NOR Lutelandet wind farm 51.0
+CLEAN fix NOR Sormarkfjellet wind farm 130.0
+CLEAN fix NOR Stokkfjellet wind farm 88.0
+CLEAN fix NOR Svaheia wind farm 25.0
+CLEAN fix NOR Tysvaer wind farm 47.0
+CLEAN fix PHL Bangui Bay 33.0
+CLEAN fix ROU Alpha Wind Nord wind farm 81.0
+CLEAN fix ROU Babadag wind farm 66.0
+CLEAN fix ROU Baia Holrom wind farm 17.0
+CLEAN fix ROU Casimcea Verbund wind farm 200.0
+CLEAN fix ROU Casimcea wind farm · 1 10.0
+CLEAN fix ROU Casimcea wind farm · 2 10.0
+CLEAN fix ROU Corugea wind farm 70.0
+CLEAN fix ROU Ruginoasa wind farm 60.0
+CLEAN fix ROU Salbatica wind farm · 2 70.0
+CLEAN fix ROU Ventus Nord-2 wind farm 69.0
+CLEAN fix SEN Léona wind farm 50.0
+CLEAN fix SEN Taiba N’Diaye wind farm 158.0
+CLEAN fix THA Subyai (Chaiyaphum) 90.0
+CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
+CLEAN fix URY Pampa (Tacuarembó) 141.6
+CLEAN fix USA Story County 300.0
+CLEAN fix VNM BPP Vĩnh Châu wind farm 30.0
+CLEAN fix VNM Cư An wind farm 200.0
+CLEAN fix VNM Dong Hai 1 Phase 1 (Tra Vinh, Trungnam) 100.0
+CLEAN fix VNM Tân An 1 offshore wind farm 115.0
+CLEAN fix ZAF Amakhala Emoyeni 134.0
+CLEAN fix ZAF Waainek Wind Farm 23.0
+DROP ARG announced Arauco wind farm 100.0 ~ Arauco (La Rioja) 100.0
+DROP ARG operating Antonio Moran wind farm 18.0 ~ Antonio Morán (Comodoro Rivadavia) 16.6
+DROP ARG operating Arauco wind farm 217.3 ~ Arauco (La Rioja) 100.0
+DROP ARG operating Loma Blanca wind farm 304.0 ~ Loma Blanca (I-IV, VI) 304.0
+DROP ARG operating Pampa Energia wind farm 327.5 ~ Pampa Energía (Corti / Pampa III-IV / Bahía Blanca) 327.5
+DROP ARG operating Rawson wind farm 108.0 ~ Rawson 109.0
+DROP AUS announced MacIntyre precinct wind farm 1000.0 ~ MacIntyre 923.0
+DROP AUS operating Berrybank wind farm 288.0 ~ Berrybank 288.0
+DROP AUS operating Clarke Creek wind farm 450.0 ~ Clarke Creek 450.0
+DROP AUS operating Codrington wind farm 18.0 ~ Codrington 18.2
+DROP AUS operating Coopers Gap wind farm 450.0 ~ Coopers Gap 453.0
+DROP AUS operating Dundonnell wind farm 336.0 ~ Dundonnell 336.0
+DROP AUS operating Hallett wind farm 268.0 ~ Hallett (Brown Hill/Hallett Hill/North Brown Hill/Bluff) 351.0
+DROP AUS operating Hornsdale wind farm 316.0 ~ Hornsdale 315.0
+DROP AUS operating Lake Bonney wind farm 278.0 ~ Lake Bonney 279.0
+DROP AUS operating Lal Lal wind farm 300.0 ~ Lal Lal 228.0
+DROP AUS operating MacIntyre precinct wind farm 923.0 ~ MacIntyre 923.0
+DROP AUS operating Macarthur wind farm 420.0 ~ Macarthur 420.0
+DROP AUS operating Rye Park wind farm 327.0 ~ Rye Park 327.0
+DROP AUS operating Sapphire wind farm (Australia) 270.0 ~ Sapphire 270.0
+DROP AUS operating Snowtown Ii wind farm 270.0 ~ Snowtown 370.0
+DROP AUS operating Stockyard Hill wind farm 530.0 ~ Stockyard Hill 530.0
+DROP AUS operating Studland Bay wind farm 75.0 ~ Woolnorth (Bluff Point / Studland Bay) 140.0
+DROP AUS pre-construction Clarke Creek wind farm 450.0 ~ Clarke Creek 450.0
+DROP AUT operating Andau wind farm 114.0 ~ Andau-Halbturn 79.0
+DROP BEL operating Belwind Offshore Wind Project 165.0 ~ Belwind I (Bligh Bank) 165.0
+DROP BEL operating Nobelwind Offshore Wind Project 165.0 ~ Nobelwind (Bligh Bank II) 165.0
+DROP BEL operating Norther Offshore Wind Project 370.0 ~ Norther 370.0
+DROP BEL operating Northwind wind farm 216.0 ~ Northwind 216.0
+DROP BEL operating Rentel wind farm 309.0 ~ Rentel 309.0
+DROP BEL operating Seamade Mermaid wind farm 235.0 ~ SeaMade - Mermaid 235.0
+DROP BEL operating Seamade Seastar wind farm 252.0 ~ SeaMade - Seastar 252.0
+DROP BEL operating The Northwester 2 Offshore Wind Project 219.0 ~ Northwester 2 219.0
+DROP BGR operating Saint Nikola wind farm 156.0 ~ St. Nikola (Kavarna) 156.0
+DROP BRA operating Alto Sertão 1 wind farm 280.0 ~ Alto Sertão I 270.4
+DROP BRA operating Alto Sertão 2 wind farm 285.2 ~ Alto Sertão I 270.4
+DROP BRA operating Alto Sertão 3 wind farm 169.5 ~ Alto Sertão II 386.0
+DROP BRA operating Alto Sertão 3 wind farm 237.9 ~ Alto Sertão I 270.4
+DROP BRA operating Babilônia wind farm 136.5 ~ Serra da Babilônia 382.3
+DROP BRA operating Cajuina 2 wind farm 224.1 ~ Cajuína 461.7
+DROP BRA operating Cajuina wind farm 461.7 ~ Cajuína 461.7
+DROP BRA operating Campo Largo 2 wind farm 361.2 ~ Campo Largo 326.7
+DROP BRA operating Campo Largo wind farm 326.7 ~ Campo Largo 326.7
+DROP BRA operating Chafariz wind farm 471.9 ~ Chafariz 471.9
+DROP BRA operating Delta Maranhão wind farm 426.0 ~ Delta Maranhão 426.0
+DROP BRA operating Lagoa Dos Ventos 3 wind farm 396.0 ~ Lagoa dos Ventos 716.0
+DROP BRA operating Lagoa Dos Ventos wind farm 716.6 ~ Lagoa dos Ventos 716.0
+DROP BRA operating Oitis wind farm 566.5 ~ Oitis 566.5
+DROP BRA operating Rio Do Vento 2 wind farm 504.0 ~ Rio do Vento 534.2
+DROP BRA operating Rio Do Vento wind farm 534.2 ~ Rio do Vento 534.2
+DROP BRA operating Santo Agostinho wind farm 427.8 ~ Santo Agostinho 421.6
+DROP BRA operating Serra Da Babilônia wind farm 382.3 ~ Serra da Babilônia 382.3
+DROP BRA operating Serra do Assuruá wind farm 490.5 ~ Serra do Assuruá 490.5
+DROP BRA operating Umburanas wind farm 352.5 ~ Umburanas 352.5
+DROP BRA operating Ventos Do Araripe 1 wind farm 210.0 ~ Ventos do Araripe III 357.9
+DROP BRA operating Ventos Do Araripe 3 wind farm 357.9 ~ Ventos do Araripe III 357.9
+DROP BRA operating Ventos de São Zacarias wind farm 456.0 ~ Ventos de São Zacarias 456.0
+DROP CAN operating Blackspring Ridge wind farm 299.0 ~ Blackspring Ridge 300.0
+DROP CAN operating Buffalo Plains wind farm 494.0 ~ Buffalo Plains 494.0
+DROP CAN operating Cowley North wind farm 20.0 ~ Cowley Ridge 21.0
+DROP CAN operating Gros-Morne wind farm 211.0 ~ Gros-Morne 211.5
+DROP CAN operating Henvey Inlet wind farm 300.0 ~ Henvey Inlet 300.0
+DROP CAN operating Jenner wind farm 302.0 ~ Jenner 302.0
+DROP CAN operating K2 Wind Power Facility 270.0 ~ K2 Wind 270.0
+DROP CAN operating Lac Alfred wind farm 300.0 ~ Lac Alfred 300.0
+DROP CAN operating Le Nordais wind farm 56.0 ~ Le Nordais (Cap-Chat / Matane) 99.9
+DROP CAN operating Melancthon wind farm 200.0 ~ Melancthon EcoPower Centre 199.5
+DROP CAN operating Rivière-Du-Moulin wind farm 350.0 ~ Rivière-du-Moulin 350.0
+DROP CAN operating Seigneurie De Beaupré wind farm 364.0 ~ Seigneurie de Beaupré 364.0
+DROP CAN operating Sharp Hills wind farm 297.0 ~ Sharp Hills 297.0
+DROP CAN operating South Kent wind farm 270.0 ~ South Kent 270.0
+DROP CAN operating Wolfe Island wind farm 198.0 ~ Wolfe Island 197.8
+DROP CHL operating Canela wind farm 78.0 ~ Canela 78.0
+DROP CHL operating El Arrayan wind farm 115.0 ~ El Arrayán 115.0
+DROP CHL operating Malleco wind farm 273.0 ~ Malleco 273.0
+DROP CHL operating Renaico wind farm 288.0 ~ Renaico I & II 232.0
+DROP CHL operating Renaico wind farm 88.0 ~ Renaico I & II 232.0
+DROP CHL operating San Juan wind farm 193.0 ~ San Juan de Chañaral de Aceituno 185.0
+DROP CHL operating Sarco wind farm 170.0 ~ Sarco 170.0
+DROP CHN announced Guangdong Jieyang Shenquan 1 Offshore wind farm 400.0 ~ SPIC Jieyang Shenquan I 400.0
+DROP CHN construction Fujian Ningde Xiapu Offshore wind farm 300.0 ~ Ningde Xiapu / Xiapu A 300.0
+DROP CHN construction Fujian Zhangpu Liu'Ao Offshore wind farm 402.0 ~ Zhangpu Liu'ao Phase 1 400.0
+DROP CHN construction Guangdong Yangjiang Fanshi Offshore wind farm 2000.0 ~ CGN Fanshi I 1000.0
+DROP CHN construction Hainan Lingao Offshore wind farm 600.0 ~ Huaneng Lingao CZ1 600.0
+DROP CHN construction Liaoning Dalian Zhuanghe 5 Offshore wind farm 250.0 ~ Huaneng Dalian Zhuanghe III 300.0
+DROP CHN construction Liaoning Zhuanghe (Taopingwan) wind farm 250.0 ~ Huaneng Dalian Zhuanghe III 300.0
+DROP CHN construction Shanghai Fengxian Offshore wind farm 250.0 ~ Shanghai Fengxian 200.0
+DROP CHN construction Zhejiang Yuhuan (Huaneng) wind farm 504.0 ~ Huadian Yuhuan 2 500.0
+DROP CHN construction Zhejiang Yuhuan No.2 offshore wind farm 504.0 ~ Huadian Yuhuan 2 500.0
+DROP CHN operating Fujian Changle 'Outer Ocean' Area A Offshore wind farm 300.0 ~ CTG Fujian Changle Waihai A 300.0
+DROP CHN operating Fujian Changle offshore wind farm 496.0 ~ Changle Waihai C 498.0
+DROP CHN operating Fujian Fuqing Haitan Straits Offshore wind farm 299.0 ~ Fuqing Haitan Strait 300.0
+DROP CHN operating Fujian Fuqing Xinghuawan Experimental Offshore wind farm 77.0 ~ Fuqing Xinghua Bay Phase 1 (demo) 77.4
+DROP CHN operating Fujian Fuqing Xinghuawan Offshore wind farm 280.0 ~ Fuqing Xinghua Bay Phase 2 300.0
+DROP CHN operating Fujian Pingtan Waihai Offshore wind farm 111.0 ~ Datang Pingtan Waihai 300.0
+DROP CHN operating Fujian Putian Nanridao Offshore wind farm 400.0 ~ Longyuan Putian Nanri Island 400.0
+DROP CHN operating Fujian Putian Pinghaiwan Offshore wind farm 814.0 ~ Putian Pinghai Bay Phase 3 308.0
+DROP CHN operating Fujian Shicheng Offshore wind farm 196.0 ~ Putian Shicheng 200.0
+DROP CHN operating Fujian Zhangpu Liu'ao Offshore wind farm 400.0 ~ CTG Zhangpu Liu'ao Phase 2 400.0
+DROP CHN operating Gansu Minqin Hongshagang 1 wind farm 400.0 ~ Minqin Hongshagang 1300.0
+DROP CHN operating Gansu Qingyang Huanxian (Huaneng) Wind/Solar Demonstration Project wind farm 760.0 ~ Qingyang Huanxian (Huaneng) 2270.0
+DROP CHN operating Guangdong Huizhou Gangkou 1 Offshore wind farm 250.0 ~ CGN Huizhou Gangkou I 400.0
+DROP CHN operating Guangdong Huizhou Gangkou 2 Offshore wind farm 750.0 ~ CGN Huizhou Gangkou I 400.0
+DROP CHN operating Guangdong Jieyang Shenquan 1 Offshore wind farm 406.5 ~ SPIC Jieyang Shenquan I 400.0
+DROP CHN operating Guangdong Jieyang Shenquan 2 Offshore wind farm 502.0 ~ SPIC Jieyang Shenquan II 502.0
+DROP CHN operating Guangdong Nan'Ao (Huaneng) wind farm 45.0 ~ Nan'ao Island 50.0
+DROP CHN operating Guangdong Nan'Ao (Huarun) wind farm 29.0 ~ Nan'ao Island 50.0
+DROP CHN operating Guangdong Nan'Ao (Nanya) wind farm 33.0 ~ Nan'ao Island 50.0
+DROP CHN operating Guangdong Nan'ao Lemen 1 Offshore wind farm 245.0 ~ Datang Nan'ao Lemen I 245.0
+DROP CHN operating Guangdong Nan'ao Lemen 2 Offshore wind farm 406.0 ~ Huaneng Shantou Lemen 245.0
+DROP CHN operating Guangdong Shantou Nan'ao Isand wind farm 29.2 ~ Nan'ao Island 50.0
+DROP CHN operating Guangdong Shanwei Houhu Offshore wind farm 500.0 ~ CGN Shanwei Houhu 500.5
+DROP CHN operating Guangdong Shanwei Jiazi 1 Offshore wind farm 503.0 ~ CGN Shanwei Jiazi I 503.0
+DROP CHN operating Guangdong Shanwei Jiazi 2 Offshore wind farm 400.0 ~ CGN Shanwei Jiazi II 400.0
+DROP CHN operating Guangdong Yangjiang Nanpengdao (China Guangdong Nuclear) Offshore wind farm 402.0 ~ CGN Yangjiang Nanpeng Island 401.5
+DROP CHN operating Guangdong Yangjiang Qingzhou I Offshore wind farm 400.0 ~ CTG Yangjiang Shapa Phase 1 300.0
+DROP CHN operating Guangdong Yangjiang Qingzhou III Offshore wind farm 503.0 ~ CTG Yangjiang Shapa Phase 2 400.0
+DROP CHN operating Guangdong Yangjiang Qingzhou Iv Offshore wind farm 505.0 ~ Mingyang Yangjiang Qingzhou 4 500.0
+DROP CHN operating Guangdong Zhanjiang Wailuo Offshore wind farm 398.0 ~ Guangdong Energy Zhanjiang Wailuo Phase 2 200.0
+DROP CHN operating Guangdong Zhanjiang Xinliao Offshore wind farm 200.0 ~ Guangdong Energy Zhanjiang Wailuo Phase 1 200.0
+DROP CHN operating Guangdong Zhuhai Guishan Offshore Wind Demonstration Project 120.0 ~ Zhuhai Guishan 198.0
+DROP CHN operating Guangdong Zhuhai Guishan Offshore wind farm 90.0 ~ Zhuhai Guishan 198.0
+DROP CHN operating Guangdong Zhuhai Jinwan Offshore wind farm 302.0 ~ Guangdong Energy Zhuhai Jinwan 300.0
+DROP CHN operating Hainan CZ1 Offshore wind farm 600.0 ~ Huaneng Lingao CZ1 600.0
+DROP CHN operating Hebei Tangshan Leting Putidao Offshore wind farm 300.0 ~ Tangshan Laoting Putidao 300.0
+DROP CHN operating Inner Mongolia Dongsu Bayanwula (Inner Mongolia Energy) wind farm 1000.0 ~ Dongsu (Sonid Left) Bayanwula 1000.0
+DROP CHN operating Inner Mongolia Hexigten Banner (Mengneng) wind farm with storage 1000.0 ~ Hexigten Banner 1000.0
+DROP CHN operating Inner Mongolia Shangdu (Huaneng Beifang) wind farm 1100.0 ~ Shangdu Huaneng Beifang 1600.0
+DROP CHN operating Inner Mongolia Urad Middle Banner (Mengneng) wind farm with storage 1500.0 ~ Urad Middle Banner Mengneng 1500.0
+DROP CHN operating Inner Mongolia Xilinhaote (Taifu) 1000 MW Power Export wind farm 1000.0 ~ Xilinhot Taifu 1000.0
+DROP CHN operating Jiangsu Binhai (Datang) Offshore wind farm 302.0 ~ SPIC Binhai South H3 300.0
+DROP CHN operating Jiangsu Binhai North Area H1 Offshore wind farm 100.0 ~ SPIC Binhai North H1 100.0
+DROP CHN operating Jiangsu Binhai North Area H2 Offshore wind farm 400.0 ~ SPIC Binhai North H2 400.0
+DROP CHN operating Jiangsu Binhai South Area H3 (China Power Investment) Offshore wind farm 300.0 ~ SPIC Binhai South H3 300.0
+DROP CHN operating Jiangsu Dafeng (Huaneng) Offshore wind farm 302.0 ~ CTG Jiangsu Dafeng 300 MW 300.0
+DROP CHN operating Jiangsu Dafeng H3 Offshore (Shanghai Power) wind farm 302.0 ~ Huaneng Dafeng 300.0
+DROP CHN operating Jiangsu Dafeng H5 Offshore (Guoneng) wind farm 206.0 ~ Guoneng Dafeng H5 200.0
+DROP CHN operating Jiangsu Dafeng H7 (Longyuan) Offshore wind farm 200.0 ~ Longyuan Dafeng H7 200.0
+DROP CHN operating Jiangsu Dafeng H8-2 (Three Gorges) Offshore wind farm 300.0 ~ CTG Dafeng H8-2 300.0
+DROP CHN operating Jiangsu Dongtai (Jiangsu Guangheng) Offshore wind farm 200.0 ~ Guohua Dongtai IV (H2) 300.0
+DROP CHN operating Jiangsu Dongtai H2 Offshore wind farm 302.0 ~ Guohua Dongtai IV (H2) 300.0
+DROP CHN operating Jiangsu Guanyun (Huaneng) Offshore wind farm 303.0 ~ Huaneng Guanyun 300.0
+DROP CHN operating Jiangsu Qidong (Huaruier) H3 Offshore wind farm 300.0 ~ Huaneng Qidong H3 300.0
+DROP CHN operating Jiangsu Qidong (Huawei) H1 Offshore wind farm 252.0 ~ Jiangsu Qidong H1+H2 503.0
+DROP CHN operating Jiangsu Qidong (Huawei) H2 Offshore wind farm 252.0 ~ Jiangsu Qidong H1+H2 503.0
+DROP CHN operating Jiangsu Rudong (China Guangdong Nuclear) Offshore wind farm 152.0 ~ CGN Rudong H8 300.0
+DROP CHN operating Jiangsu Rudong (Longyuan) Intertidal Zone Demonstration wind farm 195.0 ~ Longyuan Rudong Intertidal 150 MW Demo 150.0
+DROP CHN operating Jiangsu Rudong (Sinohydro) Intertidal Zone Demonstration wind farm 100.0 ~ Longyuan Rudong Intertidal 150 MW Demo 150.0
+DROP CHN operating Jiangsu Rudong Baxianjiao Offshore wind farm 302.0 ~ Huaneng Rudong 300.0
+DROP CHN operating Jiangsu Rudong C4 Offshore wind farm 200.0 ~ Longyuan Rudong Intertidal Expansion 200.0
+DROP CHN operating Jiangsu Rudong H10 (Three Gorges) Offshore wind farm 400.0 ~ CTG Rudong H10 400.0
+DROP CHN operating Jiangsu Rudong H13 (Xiexin) Offshore wind farm 152.0 ~ Huaneng Rudong 300.0
+DROP CHN operating Jiangsu Rudong H15 (Xiexin) Offshore wind farm 200.0 ~ Zhongtian Rudong H15 200.0
+DROP CHN operating Jiangsu Rudong H3 (Huaneng) Offshore wind farm 500.0 ~ Huaneng Rudong H3 300.0
+DROP CHN operating Jiangsu Rudong H4 (State Power Investment Corporation) Offshore wind farm 400.0 ~ SPIC Rudong H4 400.0
+DROP CHN operating Jiangsu Rudong H6 (Three Gorges) Offshore wind farm 400.0 ~ CTG Rudong H6 400.0
+DROP CHN operating Jiangsu Rudong H7 (State Power Investment Corporation) Offshore wind farm 400.0 ~ SPIC Rudong H7 400.0
+DROP CHN operating Jiangsu Rudong H8 (China Guangdong Nuclear) Offshore wind farm 300.0 ~ CGN Rudong H8 300.0
+DROP CHN operating Jiangsu Rudong Intertidal Zone Experimental wind farm 32.0 ~ Longyuan Rudong Intertidal Demo 32.0
+DROP CHN operating Jiangsu Sheyang Souithern Area H2 Offshore wind farm 302.0 ~ Longyuan Sheyang H2 300.0
+DROP CHN operating Jiangsu Sheyang Southern Area H1 Offshore wind farm 302.0 ~ Jiangsu Sheyang South H1 (Longyuan) 400.0
+DROP CHN operating Jiangsu Xiangshui (Three Gorges) Offshore wind farm 202.0 ~ Longyuan Jiangsu Xiangshui 202.0
+DROP CHN operating Jilin Taonan Xiangyang wind farm 400.0 ~ Taonan Xiangyang (Jilin) 1000.0
+DROP CHN operating Liaoning Dalian Zhuanghe 2 Offshore wind farm 300.0 ~ Huaneng Dalian Zhuanghe III 300.0
+DROP CHN operating Liaoning Dalian Zhuanghe 3 Offshore wind farm 299.0 ~ Huaneng Dalian Zhuanghe III 300.0
+DROP CHN operating Ningxia Haiyuan Caowa wind farm 400.0 ~ Haiyuan Caowa 1100.0
+DROP CHN operating Ningxia Tenggeli Desert (China Energy) wind farm 1800.0 ~ Tengger Desert (Ningxia) 1800.0
+DROP CHN operating Qinghai Hainan Prefecture (State Power Investment) High Voltage Windpower Export Project Section 1 1000.0 ~ Hainan Prefecture Qieji (Qinghai) 1300.0
+DROP CHN operating Shandong Bandaonan 3 Offshore wind farm 302.0 ~ SPIC Peninsula South 3 301.5
+DROP CHN operating Shandong Bandaonan U Offshore wind farm 450.0 ~ Shandong Haiwei Peninsula South U 450.0
+DROP CHN operating Shandong Bozhong A Offshore wind farm 501.0 ~ Shandong Energy Bozhong A 501.0
+DROP CHN operating Shandong Bozhong B Offshore wind farm 399.5 ~ Guoneng Bozhong B1 / Bozhong B 500.0
+DROP CHN operating Shandong Bozhong B2 Offshore wind farm 501.5 ~ Shandong Bozhong B2 501.5
+DROP CHN operating Shanghai Donghai Bridge Offshore wind farm 147.5 ~ Donghai Bridge 102.0
+DROP CHN operating Shanghai Fengxian Offshore wind farm 206.0 ~ Shanghai Fengxian 200.0
+DROP CHN operating Shanghai Lingang Offshore wind farm 207.0 ~ Shanghai Lingang Demonstration Phase 1 102.0
+DROP CHN operating Tianjin Nangang Offshore wind farm 90.0 ~ Tianjin Nangang 90.0
+DROP CHN operating Xinjiang Altai (SPIC) Renewable Energy Complex wind farm 600.0 ~ Altai (SPIC) 1200.0
+DROP CHN operating Xinjiang Turpan (Huaneng) wind farm 1000.0 ~ Turpan Huaneng 1000.0
+DROP CHN operating Yunnan Fuyuan North wind farm 350.0 ~ Fuyuan West (Yunnan) 947.4
+DROP CHN operating Yunnan Fuyuan West wind farm 800.0 ~ Fuyuan West (Yunnan) 947.4
+DROP CHN operating Yunnan Mile West wind farm 550.0 ~ Mile West (Yunnan) 1095.0
+DROP CHN operating Zhejiang Cangnan 1 Offshore wind farm 400.0 ~ Zhejiang Energy Cangnan 1 400.0
+DROP CHN operating Zhejiang Cangnan 4 Offshore wind farm 400.0 ~ Huaneng Cangnan 4 400.0
+DROP CHN operating Zhejiang Jiaxing 1 Offshore wind farm 300.0 ~ Zhejiang Energy Jiaxing 1 300.0
+DROP CHN operating Zhejiang Xiangshan Tuci Offshore wind farm 300.0 ~ CGN Xiangshan 1 Phase 1 (Tuci) 280.0
+DROP CHN operating Zhejiang Yuhuan 1 Offshore wind farm 301.0 ~ Zhejiang Energy Taizhou Yuhuan 1 300.0
+DROP CHN pre-construction Guangdong Shanwei Jiazi 3 Offshore wind farm 600.0 ~ CGN Shanwei Jiazi I 503.0
+DROP CHN pre-construction Hebei Tangshan Leting Yuetuodao wind farm 304.0 ~ Tangshan Laoting Yuetuo Island Phase 1 304.0
+DROP CHN pre-construction Shanghai Fengxian Offshore wind farm 200.0 ~ Shanghai Fengxian 200.0
+DROP DEU construction Borkum Riffgrund 3 wind farm 900.0 ~ Borkum Riffgrund 3 913.0
+DROP DEU operating Albatros wind farm 112.0 ~ Albatros 112.0
+DROP DEU operating Alpha Ventus wind farm 60.0 ~ alpha ventus 60.0
+DROP DEU operating Amrumbank West wind farm 302.0 ~ Amrumbank West 302.0
+DROP DEU operating Arcadis Ost wind farm 257.0 ~ Arcadis Ost 1 257.0
+DROP DEU operating Arkona Becken SüDost wind farm 384.0 ~ Arkona 385.0
+DROP DEU operating BARD Offshore wind farm 400.0 ~ BARD Offshore 1 400.0
+DROP DEU operating Baltic Eagle wind farm 476.0 ~ Baltic Eagle 476.0
+DROP DEU operating Borkum Riffgrund 1 wind farm 312.0 ~ Borkum Riffgrund 1 312.0
+DROP DEU operating Borkum Riffgrund 2 wind farm 450.0 ~ Borkum Riffgrund 2 450.0
+DROP DEU operating Butendiek wind farm 288.0 ~ Butendiek 288.0
+DROP DEU operating Dantysk wind farm 288.0 ~ DanTysk 288.0
+DROP DEU operating Deutsche Bucht wind farm 260.0 ~ Deutsche Bucht 252.0
+DROP DEU operating Druiberg wind farm 38.0 ~ Windpark Druiberg (Dardesheim) 62.0
+DROP DEU operating Enbw Baltic wind farm 288.0 ~ EnBW Baltic 2 288.0
+DROP DEU operating Enbw Baltic wind farm 48.0 ~ EnBW Baltic 1 48.3
+DROP DEU operating Feldheim wind farm 113.0 ~ Windpark Feldheim 74.0
+DROP DEU operating Global Tech wind farm 400.0 ~ Global Tech I 400.0
+DROP DEU operating Gode wind farm 847.0 ~ Gode Wind 1 330.0
+DROP DEU operating Hohe See wind farm 497.0 ~ Hohe See 497.0
+DROP DEU operating Holtriem wind farm 115.0 ~ Windpark Holtriem 65.0
+DROP DEU operating Kaskasi wind farm 342.0 ~ Kaskasi 342.0
+DROP DEU operating Klettwitz wind farm 106.0 ~ Windpark Klettwitz 57.0
+DROP DEU operating Meerwind Süd Ost wind farm 288.0 ~ Meerwind Süd/Ost 288.0
+DROP DEU operating Merkur wind farm 396.0 ~ Merkur 396.0
+DROP DEU operating Nordergründe wind farm 111.0 ~ Nordergründe 110.7
+DROP DEU operating Nordsee One wind farm 332.0 ~ Nordsee Ost 295.2
+DROP DEU operating Nordsee Ost wind farm 332.0 ~ Nordsee Ost 295.2
+DROP DEU operating Riffgat wind farm 113.0 ~ Riffgat 113.4
+DROP DEU operating Sandbank wind farm 288.0 ~ Sandbank 288.0
+DROP DEU operating Sintfeld wind farm 45.0 ~ Windpark Sintfeld 66.0
+DROP DEU operating Trianel Borkum wind farm 403.0 ~ Trianel Windpark Borkum II 203.0
+DROP DEU operating Veja Mate wind farm 402.0 ~ Veja Mate 402.0
+DROP DEU operating Wikinger wind farm 350.0 ~ Wikinger 350.0
+DROP DEU operating Wybelsumer wind farm 70.0 ~ Wybelsumer Polder 31.0
+DROP DEU pre-construction He Dreiht wind farm 960.0 ~ EnBW He Dreiht 960.0
+DROP DEU retired Reußenköge wind farm 135.0 ~ Bürgerwindpark Reußenköge 300.0
+DROP DNK operating Anholt wind farm 400.0 ~ Anholt 400.0
+DROP DNK operating Avedøre Offshore wind farm 11.0 ~ Avedøre Holme 10.8
+DROP DNK operating Frederikshavn Offshore wind farm 10.6 ~ Frederikshavn 7.6
+DROP DNK operating Horns Rev Offshore wind farm 776.0 ~ Horns Rev 3 406.7
+DROP DNK operating Kriegers Flak Offshore wind farm 605.0 ~ Kriegers Flak 604.8
+DROP DNK operating Middelgrunden Offshore wind farm 40.0 ~ Middelgrunden 40.0
+DROP DNK operating Nissum Bredning Offshore wind farm 28.0 ~ Nissum Bredning Vind 28.0
+DROP DNK operating Nørrekær Enge wind farm 30.0 ~ Nørrekær Enge 30.0
+DROP DNK operating Rødsand wind farm 373.0 ~ Rødsand II 207.0
+DROP DNK operating Rønland Offshore wind farm 17.0 ~ Rønland 17.2
+DROP DNK operating Samsø Offshore wind farm 21.0 ~ Samsø 23.0
+DROP DNK operating Sprogo Offshore wind farm 21.0 ~ Sprogø 21.0
+DROP DNK operating Thorup-Sletten wind farm 74.0 ~ Thorup-Sletten 77.0
+DROP DNK operating Vesterhav Offshore wind farm 170.0 ~ Vesterhav Syd 168.0
+DROP DNK retired Nørrekær Enge wind farm 17.0 ~ Nørrekær Enge 30.0
+DROP EGY operating Gulf of Suez Wind Project 252.0 ~ Gulf of Suez (Engie/Toyota/Eurus) 262.5
+DROP EGY operating Ras Ghareb wind farm 263.0 ~ Ras Ghareb (Lekela) 262.5
+DROP EGY operating West Bakr wind farm 252.0 ~ West Bakr (Lekela) 252.0
+DROP EGY operating Zafarana wind farm 546.0 ~ Zafarana 545.0
+DROP ESP operating Campillo De Altobuey wind farm 259.2 ~ Campillo de Altobuey 259.2
+DROP ESP operating GECAMA wind farm 329.2 ~ GECAMA 329.2
+DROP ESP operating Las Majas wind farm 465.0 ~ Las Majas 465.0
+DROP ESP operating Maranchón wind farm 66.0 ~ Maranchón 208.0
+DROP ESP operating Sotavento wind farm 18.0 ~ Sotavento 17.6
+DROP EST operating Sopi-Tootsi wind farm 255.0 ~ Sopi-Tootsi 255.0
+DROP ETH operating Adama wind farm 204.0 ~ Adama II 153.0
+DROP ETH operating Ashegoda wind farm 120.0 ~ Ashegoda 120.0
+DROP FIN construction Lestijärvi wind farm 455.0 ~ Lestijärvi 455.0
+DROP FIN operating Mutkalampi wind farm 403.8 ~ Mutkalampi 403.8
+DROP FIN operating Piiparinmäki wind farm 212.0 ~ Piiparinmäki 211.0
+DROP FIN operating Pjelax wind farm 251.6 ~ Pjelax-Böle 251.6
+DROP FIN operating Tahkoluoto Offshore wind farm 42.0 ~ Pori Tahkoluoto (Offshore Pori) 42.0
+DROP FRA construction Courseulles-Sur-Mer wind farm 448.0 ~ Calvados (Courseulles-sur-Mer) 450.0
+DROP FRA operating Catalan wind farm 96.0 ~ Ensemble Éolien Catalan 96.0
+DROP FRA operating Chemin D'Ablis wind farm 52.0 ~ Chemin d'Ablis 52.0
+DROP FRA operating Ensemble Eolien Catalan wind farm 96.0 ~ Ensemble Éolien Catalan 96.0
+DROP FRA operating Fecamp wind farm 498.0 ~ Fécamp 497.0
+DROP FRA operating Les Moulins De Fruges Wind Project 60.0 ~ Fruges 70.0
+DROP FRA operating Provence Grand Large wind farm 25.0 ~ Provence Grand Large 25.0
+DROP FRA operating Saint Nazaire wind farm 480.0 ~ Saint-Nazaire (Banc de Guérande) 480.0
+DROP FRA operating Salles-Curan wind farm 87.0 ~ Salles-Curan 87.0
+DROP FRA operating Yeu And Noirmoutier wind farm 496.0 ~ Îles d'Yeu et de Noirmoutier 496.0
+DROP FRA pre-construction Mont Des Quatre Faux wind farm 226.0 ~ Mont des Quatre Faux 226.0
+DROP GBR construction Moray West Offshore wind farm 882.0 ~ Moray West 882.0
+DROP GBR construction Neart Na Gaoithe wind farm 450.0 ~ Neart na Gaoithe 450.0
+DROP GBR operating Aberdeen Offshore wind farm 97.0 ~ European Offshore Wind Deployment Centre (Aberdeen) 93.2
+DROP GBR operating Barrow wind farm 90.0 ~ Barrow 90.0
+DROP GBR operating Beatrice Demonstrator wind farm 10.0 ~ Beatrice Demonstrator 10.0
+DROP GBR operating Beatrice wind farm 588.0 ~ Beatrice 588.0
+DROP GBR operating Black Law wind farm 172.4 ~ Black Law 124.0
+DROP GBR operating Blyth Offshore wind farm 41.5 ~ Blyth Offshore Demonstrator 41.5
+DROP GBR operating Burbo Bank wind farm 348.0 ~ Burbo Bank Extension 258.0
+DROP GBR operating Clyde wind farm 522.8 ~ Clyde 522.0
+DROP GBR operating Crystal Rig wind farm 235.0 ~ Crystal Rig 200.0
+DROP GBR operating Delabole wind farm 9.2 ~ Delabole 9.2
+DROP GBR operating Dorenell wind farm 177.0 ~ Dorenell 177.0
+DROP GBR operating Dudgeon wind farm 402.0 ~ Dudgeon 402.0
+DROP GBR operating East Anglia wind farm 714.0 ~ East Anglia ONE 714.0
+DROP GBR operating European Offshore Wind Deployment Centre (Eowdc) wind farm 96.8 ~ European Offshore Wind Deployment Centre (Aberdeen) 93.2
+DROP GBR operating Fallago Rig wind farm 144.0 ~ Fallago Rig 144.0
+DROP GBR operating Farr wind farm 92.0 ~ Farr 92.0
+DROP GBR operating Galloper offshore wind farm 353.0 ~ Galloper 353.0
+DROP GBR operating Greater Gabbard wind farm 504.0 ~ Greater Gabbard 504.0
+DROP GBR operating Griffin wind farm 156.0 ~ Griffin 204.0
+DROP GBR operating Gunfleet Sands Offshore wind farm 184.8 ~ Gunfleet Sands 1 & 2 172.8
+DROP GBR operating Gwynt Y Môr Offshore wind farm 576.0 ~ Gwynt y Môr 576.0
+DROP GBR operating Hadyard Hill wind farm 120.0 ~ Hadyard Hill 120.0
+DROP GBR operating Hornsea wind farm 1320.0 ~ Hornsea Two 1386.0
+DROP GBR operating Humber Gateway A wind farm 219.0 ~ Humber Gateway 219.0
+DROP GBR operating Hywind Scotland Pilot Park Demonstrator wind farm 30.0 ~ Hywind Scotland 30.0
+DROP GBR operating Inner Dowsing wind farm 97.2 ~ Lynn and Inner Dowsing 194.4
+DROP GBR operating Kentish Flats wind farm 139.5 ~ Kentish Flats 90.0
+DROP GBR operating Kilgallioch wind farm 239.0 ~ Kilgallioch 239.0
+DROP GBR operating Kincardine Offshore wind farm 49.5 ~ Kincardine 49.5
+DROP GBR operating Levenmouth demonstration turbine, Fife Energy Park wind farm 7.0 ~ Levenmouth Demonstration (Methil) 7.0
+DROP GBR operating Lincs wind farm 270.0 ~ Lincs 270.0
+DROP GBR operating London Array wind farm 630.0 ~ London Array 630.0
+DROP GBR operating Lynn wind farm 97.2 ~ Lynn and Inner Dowsing 194.4
+DROP GBR operating Moray East Offshore wind farm 948.0 ~ Moray East 950.0
+DROP GBR operating North Hoyle wind farm 60.0 ~ North Hoyle 60.0
+DROP GBR operating Ormonde Offshore wind farm 150.0 ~ Ormonde 150.0
+DROP GBR operating Pen Y Cymoedd wind farm 228.0 ~ Pen y Cymoedd 228.0
+DROP GBR operating Race Bank wind farm 573.3 ~ Race Bank 573.0
+DROP GBR operating Rampion Offshore wind farm 400.0 ~ Rampion 400.0
+DROP GBR operating Rhyl Flats wind farm 90.0 ~ Rhyl Flats 90.0
+DROP GBR operating Robin Rigg West wind farm 90.0 ~ Robin Rigg 174.0
+DROP GBR operating Robin Rigg wind farm 84.0 ~ Robin Rigg 174.0
+DROP GBR operating Scout Moor wind farm 65.0 ~ Scout Moor 65.0
+DROP GBR operating Scroby Sands wind farm 60.0 ~ Scroby Sands 60.0
+DROP GBR operating Seagreen offshore wind farm 1075.0 ~ Seagreen Phase 1 1075.0
+DROP GBR operating Sheringham Shoal wind farm 317.0 ~ Sheringham Shoal 316.8
+DROP GBR operating Spiorad na Mara offshore wind farm 62.0 ~ Teesside (Redcar) 62.1
+DROP GBR operating Stronelairg wind farm 227.7 ~ Stronelairg 228.0
+DROP GBR operating Teesside Offshore wind farm 62.0 ~ Teesside (Redcar) 62.1
+DROP GBR operating Thanet wind farm 300.0 ~ Thanet 300.0
+DROP GBR operating Viking wind farm (United Kingdom) 443.0 ~ Viking 443.0
+DROP GBR operating Walney wind farm 1026.2 ~ Walney Extension 659.0
+DROP GBR operating West Of Duddon Sands wind farm 389.0 ~ West of Duddon Sands 388.8
+DROP GBR operating Whitelee wind farm 539.0 ~ Whitelee 539.0
+DROP GBR pre-construction Dogger Bank South offshore wind farm 1500.0 ~ Dogger Bank A 1200.0
+DROP GBR pre-construction Dudgeon wind farm 402.0 ~ Dudgeon 402.0
+DROP GBR pre-construction East Anglia wind farm 800.0 ~ East Anglia ONE 714.0
+DROP GBR pre-construction Greater Gabbard wind farm 504.0 ~ Greater Gabbard 504.0
+DROP GBR pre-construction Sheringham Shoal wind farm 317.0 ~ Sheringham Shoal 316.8
+DROP GBR pre-construction Viking wind farm 370.0 ~ Viking 443.0
+DROP IND operating Brahamvel wind farm 528.0 ~ Brahmanvel 528.0
+DROP IND operating Chakla (Suzlon) I wind farm 255.0 ~ Chakala (Suzlon) 255.0
+DROP IND operating Gadag (Ayana) wind farm 300.0 ~ Gadag (Ayana) 300.0
+DROP IND operating Koppal (Renew) hybrid wind farm 322.0 ~ Koppal (ReNew) hybrid 322.0
+DROP IND operating Rosepetal wind farm 510.0 ~ Rosepetal (Rajasthan) 510.0
+DROP IND operating Sidhpur wind farm 251.0 ~ Sidhpur (Patan) 251.0
+DROP IND operating Tiruppur wind farm 540.0 ~ Tiruppur 540.0
+DROP IND operating Tiruppur-Karur (Sprng) wind farm 300.0 ~ Tiruppur 540.0
+DROP IRL operating Arklow Bank wind farm 25.0 ~ Arklow Bank Phase 1 25.2
+DROP IRL operating Galway wind farm 174.0 ~ Galway Wind Park (Cloosh Valley) 174.0
+DROP IRL operating Meenadreen wind farm 95.0 ~ Meenadreen Extension 95.0
+DROP IRL operating Oweninny wind farm 176.0 ~ Oweninny 192.0
+DROP IRL retired Derrybrien wind farm 60.0 ~ Derrybrien 60.0
+DROP ITA operating Andretta - Bisaccia wind farm 70.0 ~ Bisaccia (Alta Irpinia) 46.0
+DROP ITA operating Taranto Offshore wind farm 30.0 ~ Beleolico (Taranto) 30.0
 DROP JPN construction Goto City (Chubu Electric Power) Offshore Floating wind farm 17.0 ~ Goto City Offshore floating project 16.8
 DROP JPN construction Kitakyushu Hibikinada Offshore wind farm 220.0 ~ Kitakyushu Hibikinada 220.0
 DROP JPN operating Akita Noshiro Offshore wind farm 84.0 ~ Noshiro Port 84.0
 DROP JPN operating Akita Port (Marubeni) Offshore wind farm 55.0 ~ Akita Port 54.6
 DROP JPN operating Ishikari Bay New Port offshore wind farm 112.0 ~ Ishikari Bay New Port 99.9
-DROP JPN operating Kamisu wind farm 10.0 ~ Kamisu Phase 1 (Wind Power Ibaraki) 14.0
 DROP JPN operating Koriyama Nunobiki-Kogen wind farm 66.0 ~ Eurus Nunobiki Kogen 66.0
 DROP JPN operating New Aoyama-Kogen wind farm 80.0 ~ Shin Aoyama Kogen 80.0
 DROP JPN operating Noshiro City (Marubeni) Offshore wind farm 140.0 ~ Noshiro Port 84.0
 DROP JPN operating Shin Izumo wind farm 78.0 ~ Shin-Izumo 78.0
 DROP JPN operating Tomamae Greenhill Wind Park 20.0 ~ Tomamae Winvilla 30.6
 DROP JPN operating Tomamae wind farm 20.0 ~ Tomamae Winvilla 30.6
+DROP KAZ operating Zhanatas wind farm 100.0 ~ Zhanatas 100.0
+DROP KEN operating Kipeto wind farm 100.0 ~ Kipeto 100.0
+DROP KEN operating Lake Turkana wind farm 310.0 ~ Lake Turkana 310.0
+DROP KEN operating Ngong wind farm 36.5 ~ Ngong Hills 25.5
+DROP KOR operating Gangwon wind farm 98.0 ~ Gangwon (Daegwallyeong) Wind Farm 98.0
+DROP KOR operating Gasiri wind farm 10.0 ~ Gasiri (Jeju) 30.0
+DROP KOR operating Jeju Island wind farm 30.0 ~ Gasiri (Jeju) 30.0
+DROP KOR operating Southwest Offshore wind farm 60.0 ~ Southwest Offshore Demonstration (Seonam) 60.0
+DROP KOR operating Tamra Offshore wind farm 30.0 ~ Tamra (Jeju Hallim/Hangyeong) 30.0
+DROP KOR operating YEP wind farm 76.0 ~ Yeongyang 61.5
+DROP KOR operating Yeongdeok wind farm 40.0 ~ Yeongdeok 39.6
+DROP KOR operating Yeongyang 2nd wind power generation 42.0 ~ Yeongyang 61.5
+DROP KOR pre-construction Gangwon Wind Power 88.2 ~ Gangwon (Daegwallyeong) Wind Farm 98.0
+DROP KOR pre-construction Yeongdeok Ganggu Wind Power Plant 45.0 ~ Yeongdeok 39.6
+DROP KOR pre-construction Yeonggwang Nakwol offshore wind power generation project 365.0 ~ Yeonggwang Nakwol 364.8
+DROP MAR operating Al Koudia wind farm 54.0 ~ Koudia Al Baida 50.0
+DROP MAR operating Midelt wind farm 210.0 ~ Midelt 210.0
+DROP MEX operating El Mezquite wind farm 252.0 ~ El Mezquite 250.0
+DROP MEX operating Eolica Del Sur wind farm 396.0 ~ Eólica del Sur 396.0
+DROP MEX operating Eurus wind farm (Mexico) 251.0 ~ Eurus 250.5
+DROP MEX operating La Venta wind farm 185.0 ~ La Venta II 83.3
+DROP MEX operating Mesa La Paz wind farm 310.0 ~ Mesa La Paz 306.0
+DROP MEX operating Oaxaca wind farm 408.0 ~ Oaxaca I-IV (Acciona) 306.0
+DROP MEX operating Reynosa wind farm 424.0 ~ Reynosa 424.0
+DROP MEX operating Sierra Juarez wind farm 263.0 ~ Energía Sierra Juárez 263.0
+DROP MEX operating Tres Mesas wind farm 302.0 ~ Tres Mesas 302.0
+DROP MEX operating Ventika wind farm 252.0 ~ Ventika I-II 252.0
+DROP NLD operating Borssele I & II offshore wind farm 752.0 ~ Borssele I & II 752.0
+DROP NLD operating Borssele III & IV offshore wind farm 740.0 ~ Hollandse Kust Noord 759.0
+DROP NLD operating Egmond Aan Zee wind farm 108.0 ~ Egmond aan Zee (OWEZ) 108.0
+DROP NLD operating Eneco Luchterduinen wind farm 129.0 ~ Luchterduinen 129.0
+DROP NLD operating Fryslân wind farm 383.0 ~ Windpark Fryslân 382.7
+DROP NLD operating Gemini Offshore Wind Park 600.0 ~ Gemini 600.0
+DROP NLD operating Hollandse Kust Noord offshore wind farm 759.0 ~ Hollandse Kust Noord 759.0
+DROP NLD operating Hollandse Kust Zuid wind farm 385.0 ~ Hollandse Kust Noord 759.0
+DROP NLD operating Hollandse Kust Zuid wind farm 735.0 ~ Hollandse Kust Zuid I & II 759.0
+DROP NLD operating Krammer Wind Park 102.0 ~ Krammer 102.0
+DROP NLD operating Luchterduinen wind farm 129.0 ~ Luchterduinen 129.0
+DROP NLD operating Prinses Amalia offshore wind farm 120.0 ~ Prinses Amalia 120.0
+DROP NLD operating Prinses Ariane Windpark 301.0 ~ Prinses Ariane (Wieringermeer) 301.0
+DROP NLD operating Zeewolde wind farm 247.4 ~ Zeewolde 322.0
+DROP NOR operating Hywind Tampen Floating Offshore wind farm 88.0 ~ Hywind Tampen 88.0
+DROP NOR operating Oyfjellet wind farm 400.0 ~ Øyfjellet 400.0
+DROP NOR operating Roan wind farm 256.0 ~ Roan (Fosen) 256.0
+DROP NOR operating Storheia wind farm 288.0 ~ Storheia (Fosen) 288.0
+DROP NOR operating Tellenes wind farm 168.0 ~ Tellenes 160.0
+DROP PER operating Marcona wind farm 32.0 ~ Marcona 32.0
+DROP PER operating Punta Lomitas wind farm 296.4 ~ Punta Lomitas 296.4
+DROP PER operating Wayra wind farm (Peru) 132.0 ~ Wayra I + Wayra Extension 309.0
+DROP PER operating Wayra wind farm (Peru) 177.0 ~ Wayra I + Wayra Extension 309.0
+DROP PHL construction Caparispisan wind farm 70.0 ~ Caparispisan 81.0
+DROP PHL operating Balaoi & Caunayan wind farm 160.0 ~ Balaoi & Caunayan 160.0
+DROP PHL operating Bangui Bay I wind farm 25.0 ~ Bangui Bay 33.0
+DROP PHL operating Bangui Bay wind farm 19.0 ~ Bangui Bay 33.0
+DROP PHL operating Burgos Wind Power Project 150.0 ~ Burgos 150.0
+DROP PHL operating Caparispisan wind farm 81.0 ~ Caparispisan 81.0
+DROP PHL operating Pililla wind farm 54.0 ~ Pililla 54.0
+DROP PHL operating San Lorenzo wind farm (Philippines) 54.0 ~ San Lorenzo (Guimaras) 54.0
+DROP PHL pre-construction Burgos 3 Wind Power Project 150.0 ~ Burgos 150.0
+DROP POL operating Banie-Kozielice wind farm 243.0 ~ Banie 106.0
+DROP POL operating Dębsk wind farm 121.0 ~ Dębsk 121.0
+DROP POL operating Margonin wind farm 120.0 ~ Margonin 120.0
+DROP POL operating Potegowo wind farm 101.0 ~ Potęgowo 219.0
+DROP PRT operating Pinhal Interior wind farm 156.6 ~ Pinhal Interior 144.0
+DROP PRT operating Ventominho wind farm 259.0 ~ Ventominho (Alto Minho I) 240.0
+DROP PRT operating Windfloat Atlantic Offshore wind farm 25.0 ~ WindFloat Atlantic 25.2
+DROP ROU operating Crucea North wind farm 108.0 ~ Crucea Nord 108.0
+DROP ROU operating Fântânele wind farm 347.0 ~ Fântânele-Cogealac 600.0
+DROP ROU operating Fântânele – Cogealac wind farm 252.0 ~ Fântânele-Cogealac 600.0
+DROP ROU operating Pantelimon wind farm 123.0 ~ Crucea Nord 108.0
+DROP SAU operating Dumat Al Jandal wind farm 400.0 ~ Dumat Al Jandal 400.0
+DROP SRB operating Cibuk wind farm 158.0 ~ Čibuk 1 158.0
+DROP SRB pre-construction Cibuk wind farm 155.0 ~ Čibuk 1 158.0
+DROP SWE operating Björkhöjden wind farm 288.0 ~ Björkhöjden 288.0
+DROP SWE operating Björnberget wind farm 372.0 ~ Björnberget 372.0
+DROP SWE operating Blakliden Fäbodberget wind farm 353.0 ~ Blakliden Fäbodberget 353.0
+DROP SWE operating Fäbodberget wind farm 154.8 ~ Blakliden Fäbodberget 353.0
+DROP SWE operating Glötesvålen wind farm 90.0 ~ Glötesvålen 220.0
+DROP SWE operating Kårehamn wind farm 48.0 ~ Kårehamn 48.0
+DROP SWE operating Lillgrund wind farm 110.0 ~ Lillgrund 110.0
+DROP SWE operating Nysäter wind farm 475.5 ~ Nysäter 475.5
+DROP SWE operating Vänern wind farm 30.0 ~ Vindpark Vänern (Gässlingegrund) 30.0
+DROP SWE operating Åndberg wind farm 286.0 ~ Åndberg 286.0
+DROP SWE operating Åskälen wind farm 288.0 ~ Åskälen 288.0
+DROP SWE retired Utgrunden wind farm 11.0 ~ Utgrunden I 10.5
+DROP SWE retired Yttre Stengrund wind farm 10.0 ~ Yttre Stengrund 10.0
+DROP THA operating Chaiyaphum (EGCO) wind farm 80.0 ~ Subyai (Chaiyaphum) 90.0
+DROP THA operating Hanuman 10 wind farm 80.0 ~ Subyai (Chaiyaphum) 90.0
+DROP THA operating Huay Bong wind farm 208.0 ~ Huai Bong (West Huay Bong 2 & 3) 207.0
+DROP TUR operating Karaburun wind farm (Türkiye) 252.0 ~ Karaburun 252.0
+DROP TUR operating Soma (Polat) wind farm 311.0 ~ Soma (Polat) 311.0
+DROP TUR operating Çesme wind farm 18.0 ~ Alaçatı (Çeşme) 7.2
 DROP TWN construction Greater Changhua Northwest wind farm 583.0 ~ Greater Changhua 2b & 4 920.0
 DROP TWN construction Hai Long Offshore wind farm 1044.0 ~ Hai Long 2 & 3 1044.0
 DROP TWN construction Taipower Offshore wind farm 295.0 ~ Taipower Offshore Phase 2 294.0
 DROP TWN construction Yunlin Offshore wind farm 640.0 ~ Yunlin 640.0
 DROP TWN construction Yunlin Taixi wind farm 10.0 ~ Yunlin Taixi 16.8
-DROP TWN operating Changbin wind farm 76.0 ~ Changgong (Changbin Xianxi) 80.0
+DROP TWN operating Changbin wind farm 76.0 ~ Changbin Lukang (incl. Lunwei) 96.6
 DROP TWN operating Changfang And Xidao Offshore wind farm 600.0 ~ Changfang & Xidao 589.0
 DROP TWN operating Changkong wind farm 71.0 ~ Changgong (Changbin Xianxi) 80.0
 DROP TWN operating Datan wind farm 15.0 ~ Datan (Tatan) 12.5
 DROP TWN operating Formosa 1 offshore wind farm 128.0 ~ Formosa 1 Phase 2 120.0
-DROP TWN operating Formosa 2 offshore wind farm 376.0 ~ Formosa 1 Phase 2 120.0
+DROP TWN operating Formosa 2 offshore wind farm 376.0 ~ Formosa 2 376.0
 DROP TWN operating Greater Changhua Southeast wind farm 605.0 ~ Greater Changhua 1 & 2a 900.0
-DROP TWN operating Greater Changhua Southwest wind farm 632.0 ~ Greater Changhua 1 & 2a 900.0
+DROP TWN operating Greater Changhua Southwest wind farm 632.0 ~ Greater Changhua 2b & 4 920.0
 DROP TWN operating Guanyin wind farm 44.0 ~ Guanyin 43.7
 DROP TWN operating Guanyuan wind farm 30.0 ~ Dayuan Guanyuan 30.0
-DROP TWN operating Houlong wind farm 44.0 ~ Dapeng (Miaoli Houlong) 49.8
+DROP TWN operating Houlong wind farm 44.0 ~ Houlong / Tongyuan 44.1
 DROP TWN operating Hsinchu Xiangshan wind farm 12.0 ~ Hsinchu Xiangshan 12.0
 DROP TWN operating Hsinfeng wind farm 12.0 ~ Xinfeng 11.5
 DROP TWN operating Hsinyuan wind farm 25.0 ~ Yunlin Lunbei 25.2
 DROP TWN operating Leadway wind farm 25.0 ~ Changhua Fuxing-Fangyuan 33.6
 DROP TWN operating Miaoli Dapeng wind farm 50.0 ~ Dapeng (Miaoli Houlong) 49.8
 DROP TWN operating Penghu Longmen wind farm 18.0 ~ Penghu Longmen 6.9
-DROP TWN operating Sihu wind farm 28.0 ~ Sihu 28.0
+DROP TWN operating Sihu wind farm 28.0 ~ Yunlin Sihu (wpd) 16.8
 DROP TWN operating Taichung Port wind farm 36.0 ~ Taichung Port 36.0
-DROP TWN operating Taichung wind farm 88.0 ~ Taichung Port 36.0
+DROP TWN operating Taichung wind farm 88.0 ~ Taichung (Da'an/Dajia) 87.4
 DROP TWN operating Taipower Offshore wind farm 110.0 ~ Taipower Offshore Phase 1 (Changhua) 109.2
 DROP TWN operating Tongyuan wind farm 28.0 ~ Houlong / Tongyuan 44.1
 DROP TWN operating Wanggong wind farm 23.0 ~ Wanggong 20.0
-DROP TWN operating Yunlin Mailiao wind farm 46.0 ~ Yunmai (Mailiao) 46.0
+DROP TWN operating Yunlin Mailiao wind farm 46.0 ~ Yunlin Mailiao-Taixi 53.4
 DROP TWN operating Zhong Neng wind farm 300.0 ~ Zhong Neng 298.0
 DROP TWN operating Zhunan wind farm 15.0 ~ Zhunan 6.9
 DROP TWN pre-construction Sihu (Kewei) wind farm 25.0 ~ Sihu 28.0
+DROP URY operating Peralta wind farm 108.8 ~ Peralta I-II 100.0
+DROP USA construction Vineyard Wind 800.0 ~ Vineyard Wind 1 806.0
+DROP USA operating Alta Wind Energy Center 1097.0 ~ Alta Wind Energy Center 1548.0
+DROP USA operating Big Spring wind farm 34.3 ~ Big Spring 34.0
+DROP USA operating Biglow Canyon wind farm 450.0 ~ Biglow Canyon 450.0
+DROP USA operating Block Island wind farm 30.0 ~ Block Island 30.0
+DROP USA operating Blue Canyon wind farm 434.0 ~ Blue Canyon 423.4
+DROP USA operating Bronco Plains wind farm 499.0 ~ Bronco Plains 299.0
+DROP USA operating Buffalo Gap wind farm 523.0 ~ Buffalo Gap 523.3
+DROP USA operating Capricorn Ridge Wind Energy Center 660.0 ~ Capricorn Ridge 662.5
+DROP USA operating Cayuga Ridge wind farm 300.0 ~ Streator Cayuga Ridge South 300.0
+DROP USA operating Cedar Point wind farm 252.0 ~ Cedar Point 252.0
+DROP USA operating Cimarron Bend wind farm 599.0 ~ Cimarron Bend 400.0
+DROP USA operating Coastal Virginia Offshore Wind (CVOW) Pilot Project 12.0 ~ Coastal Virginia Offshore Wind (CVOW) Pilot 12.0
+DROP USA operating Crystal Lake wind farm 228.0 ~ Crystal Lake 416.0
+DROP USA operating Flat Ridge wind farm 720.0 ~ Flat Ridge 2 570.4
+DROP USA operating Fowler Ridge wind farm 588.3 ~ Fowler Ridge 600.0
+DROP USA operating Frontier wind farm 552.0 ~ Frontier Windpower I & II 550.0
+DROP USA operating Grande Prairie wind farm 400.0 ~ Grande Prairie 400.0
+DROP USA operating Horse Hollow Wind Energy Center 733.0 ~ Horse Hollow 735.5
+DROP USA operating Klondike wind farm 401.0 ~ Klondike 399.0
+DROP USA operating Limon wind farm 601.0 ~ Limon Wind Energy Center 601.0
+DROP USA operating Lone Star wind farm 400.0 ~ Lone Star 400.0
+DROP USA operating Lower Snake River Wind Energy Project 342.7 ~ Lower Snake River 343.0
+DROP USA operating Maple Ridge wind farm 322.0 ~ Maple Ridge 321.8
+DROP USA operating Meadow Lake wind farm 612.0 ~ Meadow Lake 801.0
+DROP USA operating Mesquite Star wind farm 418.9 ~ Mesquite Star 419.0
+DROP USA operating Papalote Creek wind farm 380.0 ~ Papalote Creek 380.0
+DROP USA operating Peetz Table (NextEra) wind farm 401.0 ~ Peetz Table / Peetz Wind 430.0
+DROP USA operating Rolling Hills (MidAmerican) wind farm 429.0 ~ Rolling Hills 443.9
+DROP USA operating Roscoe Wind Farm Project 781.0 ~ Roscoe 781.5
+DROP USA operating Rush Creek wind farm 600.0 ~ Rush Creek 600.0
+DROP USA operating Sherbino II wind farm 128.0 ~ Sherbino 300.0
+DROP USA operating Shiloh Wind Project 504.0 ~ Shiloh 300.0
+DROP USA operating Smoky Hills Wind Project 264.0 ~ Smoky Hills 250.0
+DROP USA operating South Fork (Ørsted) wind farm 132.0 ~ South Fork Wind 132.0
+DROP USA operating Stateline Wind Project 300.0 ~ Stateline 300.0
+DROP USA operating Storm Lake wind farm 109.0 ~ Storm Lake 193.0
+DROP USA operating Story County wind farm 300.0 ~ Story County 300.0
+DROP USA operating Sweetwater wind farm 606.0 ~ Sweetwater 585.3
+DROP USA operating Traverse Wind Project 999.0 ~ Traverse Wind Energy Center 998.0
+DROP USA operating Twin Groves wind farm 396.0 ~ Twin Groves 396.0
+DROP USA operating Windy Flats Wind Project 262.0 ~ Windy Point / Windy Flats 400.0
+DROP USA retired Altamont Pass Windplant wind farm 332.5 ~ Altamont Pass 576.0
+DROP USA retired Blue Canyon wind farm 151.0 ~ Blue Canyon 423.4
+DROP USA retired Capricorn Ridge Wind Energy Center 662.0 ~ Capricorn Ridge 662.5
+DROP USA retired Crystal Lake wind farm 350.0 ~ Crystal Lake 416.0
+DROP USA retired Horse Hollow Wind Energy Center 733.0 ~ Horse Hollow 735.5
+DROP USA retired Hurlburt wind farm 845.0 ~ Shepherds Flat 845.0
+DROP USA retired Rolling Hills (MidAmerican) wind farm 444.0 ~ Rolling Hills 443.9
+DROP USA retired Sherbino II wind farm 150.0 ~ Sherbino 300.0
+DROP USA retired Smoky Hills Wind Project 249.0 ~ Smoky Hills 250.0
+DROP USA retired Story County wind farm 150.0 ~ Story County 300.0
+DROP USA retired Sweetwater wind farm 265.0 ~ Sweetwater 585.3
+DROP UZB construction Zarafshan wind farm 500.0 ~ Zarafshan 500.0
+DROP UZB operating Bash wind farm 500.0 ~ Bash 500.0
+DROP VNM construction Bạc Liêu Offshore wind farm 142.0 ~ Bac Lieu Phase 3 142.0
+DROP VNM construction Bến Tre Nexif Energy Offshore wind farm 30.0 ~ VPL Ben Tre (Nexif Ben Tre 1) 30.0
+DROP VNM operating Bạc Liêu Kosy Offshore wind farm 40.5 ~ Bac Lieu Phase 2 83.2
+DROP VNM operating Bạc Liêu Offshore wind farm 99.0 ~ Bac Lieu Phase 2 83.2
+DROP VNM operating Bến Tre V1-3 Offshore wind farm 29.0 ~ V1-3 Ben Tre (BTRE) 30.0
+DROP VNM operating Dong Hai - Trà Vinh Offshore wind farm 100.0 ~ Dong Hai 1 Phase 1 (Tra Vinh, Trungnam) 100.0
+DROP VNM operating Ea Nam Da Lak wind farm 400.0 ~ Ea Nam 400.0
+DROP VNM operating Hiệp Thành Offshore wind farm 78.0 ~ Hiep Thanh (Tra Vinh) 78.0
+DROP VNM operating Hoa Binh 1 Offshore wind farm 100.0 ~ Hoa Binh 1 Phase 1 50.0
+DROP VNM operating Hoa Binh 2 Offshore wind farm 50.0 ~ Hoa Binh 1 Phase 2 50.0
+DROP VNM operating Hướng Linh wind farm 90.0 ~ Hướng Linh 1-2 60.0
+DROP VNM operating Hướng Phùng wind farm 80.0 ~ Hướng Linh 1-2 60.0
+DROP VNM operating Ia Pết Đắk Đoa wind farm 200.0 ~ Ia Pết-Đăk Đoa 1 & 2 200.0
+DROP VNM operating Ninh Thuận (AC Energy) wind farm 88.0 ~ Trung Nam Ninh Thuận 151.9
+DROP VNM operating Ninh Thuận No. 5 wind farm 46.0 ~ Trung Nam Ninh Thuận 151.9
+DROP VNM operating Ninh Thuận wind farm 88.0 ~ Trung Nam Ninh Thuận 151.9
+DROP VNM operating Soc Trang 7 Offshore wind farm 29.0 ~ Soc Trang 7 Phase 1 30.0
+DROP VNM operating Sóc Trăng 1 Offshore wind farm 30.0 ~ Soc Trang 7 Phase 1 30.0
+DROP VNM operating Tra Vinh Truong Long Hoa offshore wind farm 96.0 ~ V1-1 Truong Long Hoa (Tra Vinh) 48.0
+DROP VNM operating Trung Nam wind farm 152.0 ~ Trung Nam Ninh Thuận 151.9
+DROP VNM operating Truong Long Hoa offshore wind farm 48.0 ~ V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) 48.0
+DROP VNM operating Trà Vinh V1-2 Offshore wind farm 48.0 ~ V1-2 Truong Long Hoa (Tra Vinh) 48.0
+DROP VNM operating Tân Phú Đông 1 Wind Power Plant Project 100.0 ~ Tan Phu Dong 1 (Tien Giang, GEC) 100.0
+DROP VNM operating Tân Thuận PECC2 Offshore wind farm 75.0 ~ Tan Thuan (PECC2) Phase 1+2 75.0
+DROP VNM pre-construction Bạc Liêu Kosy Offshore wind farm 50.0 ~ Bac Lieu Phase 3 142.0
+DROP ZAF operating Cookhouse wind farm 139.0 ~ Cookhouse 138.6
+DROP ZAF operating Gouda wind farm 138.0 ~ Gouda 138.0
+DROP ZAF operating Jeffrey's Bay wind farm 138.0 ~ Jeffreys Bay 138.0
+DROP ZAF operating Kangnas wind farm 140.0 ~ Kangnas 140.0
+DROP ZAF operating Khobab wind farm 140.0 ~ Loeriesfontein 2 & Khobab 280.0
+DROP ZAF operating Loeriesfontein wind farm 278.0 ~ Loeriesfontein 2 & Khobab 280.0
+DROP ZAF operating Perdekraal East wind farm 110.0 ~ Perdekraal East 110.0
+DROP ZAF operating Roggeveld wind farm 147.0 ~ Roggeveld 147.0
+DROP ZAF operating Sere wind farm 100.0 ~ Sere (Eskom) 100.0
 JP-COORD Azumakogen wind farm moved 107 km to Adumakogen Wind Farm
 JP-COORD Chitose wind farm moved 50 km to Riene Rokkasho Chitose Wind Farm
 JP-COORD Esashi (Eurus) wind farm moved 6 km to Esashi Wind Farm (repowered)

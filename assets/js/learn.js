@@ -213,6 +213,12 @@ function paintSources() {
   ul.appendChild(WW.el('li', null, L('台灣 2005–2025 陸域／離岸改採經濟部能源署《2025 能源統計手冊》表 3-6 官方年表；日本 2011–2025 改採日本風力發電協會（JWPA）年末累積導入量（原資料為 IRENA）；兩國風場逐場稽核，分批併網的大型離岸風場以全場完工年計入，2025 年底尚未全場商轉者列為興建中。', 'Taiwan 2005–2025 onshore/offshore now follows the official MOEA Energy Administration table (Energy Statistics Handbook 2025, Table 3-6); Japan 2011–2025 follows JWPA year-end statistics (the original used IRENA); farms in both countries were audited one by one — large offshore farms connected in stages count from their full-completion year, and those not fully operating at end-2025 are listed as under construction.')));
   ul.appendChild(WW.el('li', null, L('日本補上 GEM 未收錄的小型風場（NEDO 各縣清單與 windfarm.work／營運商資料，共 100 座），並修正 22 筆 GEM 錯置的座標（例：石狩八の沢、尻別）。', 'Japan adds 100 small farms missing from GEM (NEDO prefecture lists and windfarm.work / operator pages) and corrects 22 misplaced GEM coordinates (e.g. Ishikari Hachinosawa, Shiribetsu).')));
   ul.appendChild(WW.el('li', null, L('GEM 同一場址底下相距 25 km 以上的分期分開標示（不取平均座標）；3 筆可由專案名稱確認的座標錯誤已修正（宮城加美、珠洲第 1、珠洲第 2 期）；1 筆國別與座標不符的 WRI GPPD 舊資料已排除。', 'GEM phases more than 25 km apart under one location are shown as separate points (no averaged coordinates); three coordinate errors that the project names make obvious were corrected (Miyagi Kami, Suzu 1, Suzu 2 phase 2); one WRI GPPD record whose country and coordinates disagree was dropped.')));
+  const cl = WW.el('li', null, L('2026 年 9 月逐筆查證：刪除重複、從未建成或查無此場的風場紀錄（例：泰國並不存在的 600 MW「Jhimpir」、挪威未獲准的 Hordavind、中國與逐場資料重複的整區彙總），並修正座標、容量、年份、分期或狀態；共用省或國家中心代用座標的風場在地圖上示意排開。逐筆理由與出處見',
+    'Checked record by record in Sep 2026: duplicate, never-built or non-existent farm records were removed (e.g. a 600 MW “Jhimpir” farm in Thailand that does not exist, Norway’s unapproved Hordavind, whole-area totals in China that duplicated the farm-by-farm records), and locations, capacities, years, phases or statuses were fixed; farms sharing a province or country centre as a placeholder are fanned out on the map. Every record, with its reason and source, is in the'));
+  cl.appendChild(document.createTextNode(' '));
+  cl.appendChild(WW.el('a', { href: 'https://github.com/dofliu/windfarmTaiwan/blob/main/docs/data-cleanup' + (WW.lang === 'en' ? '.en' : '') + '.md', target: '_blank', rel: 'noopener' }, L('資料清理紀錄', 'clean-up log')));
+  cl.appendChild(document.createTextNode(L('。', '.')));
+  ul.appendChild(cl);
   e.appendChild(ul);
   const n = $('ln-notes'); n.textContent = '';
   const sect = (title, arr) => {

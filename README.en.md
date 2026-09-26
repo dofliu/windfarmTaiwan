@@ -15,7 +15,8 @@ Live site: `https://dofliu.github.io/windfarmTaiwan/`
 
 See [ROADMAP.en.md](./ROADMAP.en.md) and [TODO.en.md](./TODO.en.md) for planned work and known limitations,
 [docs/data-coverage.en.md](./docs/data-coverage.en.md) for farm-level coverage by country and the items still to
-verify, and [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) for which other countries publish live
+verify, [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) for every farm record removed or corrected and why,
+and [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) for which other countries publish live
 wind generation data.
 
 **Single-file edition**: [download windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
@@ -110,8 +111,8 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   `tools/build_standalone.py` builds the single-file edition, `tools/coverage_report.py` the data coverage report,
   and `tools/qa_farms.py` checks farm coordinates
 - `standalone/windfarmTaiwan-standalone.html` — the single-file edition (generated; do not edit by hand)
-- `docs/` — the data coverage report (`data-coverage.en.md`) and the assessment of live-data sources in other
-  countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
+- `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`) and the
+  assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
 - `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing) for future
   contributors and AI agents
 - `intl_wind_scraper.py` — runs every 15 min: fetches each wind farm's live output from Australia's NEM
@@ -210,6 +211,7 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 # 3. Farm layer (curated farms × GEM Global Wind Power Tracker)
 curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
 python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
+#    (applies the record-level clean-up rules in tools/farm_cleanup.py and writes docs/data-cleanup.md and .en.md)
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
@@ -239,6 +241,15 @@ python tools/build_standalone.py
   averaged position (which put multi-state projects in the wrong place); three coordinate errors
   that the project names make obvious were fixed (Miyagi Kami, Suzu 1, Suzu 2 phase 2), and one WRI
   GPPD record whose country and coordinates disagree was dropped
+- Phase-1 data clean-up (Sep 2026): after checking record by record, 77 duplicate, never-built or non-existent
+  records were removed (e.g. a 600 MW "Jhimpir" farm in Thailand that does not exist, Norway's never-approved
+  682 MW Hordavind, whole-area totals in China such as Dabancheng that duplicated the farm-by-farm records, and
+  15 farms in Romania placed at the country centre with no evidence they were built), and 52 records had their
+  location, capacity, year, phases or status fixed; names are compared after converting Traditional to
+  Simplified Chinese and zone codes are compared too (the same offshore farm in Jiangsu and elsewhere is no
+  longer listed twice); farms sharing a province or country centre as a placeholder are fanned out on the map
+  and labelled. Every record, with its reason and source, is in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
+- English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total
 > (Taiwan ~89%, Japan ~87% in 2025); the gap is shown explicitly and never filled with synthetic farms.

@@ -21,7 +21,7 @@ windfarmTaiwan/
 ├─ data/global/                     # global data: country capacity by year, farm layer, borders (built by tools/, not scheduled)
 ├─ tools/                           # generators for the global data, basemaps, the single-file HTML and the coverage report
 ├─ standalone/                      # single-file HTML (built by tools/build_standalone.py; download and open offline)
-├─ docs/                            # data coverage report, live-data source assessment (one Chinese and one English copy each)
+├─ docs/                            # data coverage report, data clean-up log, live-data source assessment (one Chinese and one English copy each)
 ├─ taipower_wind_scraper.py         # every 15 min: live wind + live supply/demand
 ├─ intl_wind_scraper.py             # every 15 min: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
 ├─ backfill_history.py              # every Monday: official retrospective history backfill

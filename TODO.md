@@ -23,8 +23,9 @@
 - [ ] 規劃中重點專案（`data/global/sources/pipeline_curated.json`，2026-09 整理）狀態變動快：
       台灣第三階段區塊開發（渢妙、福爾摩沙 4／6 號、海鼎一、德帥、佑德、大彰化東北）每季核對一次
 - [ ] GEM 釋出新版 Global Wind Power Tracker 公開檔時重跑 `tools/build_farms.py`，再跑 `tools/qa_farms.py`
-      檢查座標；確認 `COORD_FIX` 的修正是否仍需要（上游已修正者可移除）
-- [ ] 查證芬蘭 Pohjoinen wind farm（99 MW，2020，Fortum）的正確位置：GEM 座標 68.04, 16.66 落在挪威
+      檢查座標；確認 `COORD_FIX` 的修正是否仍需要（上游已修正者可移除）。`tools/farm_cleanup.py` 的清理規則若對不到資料，
+      建置會中止並列出是哪幾條：逐條重新查證，上游已修正者刪除、改名者更新名稱
+- [x] 查證芬蘭 Pohjoinen wind farm：就是挪威的 Sørfjord（同為 99 MW、2020、Fortum、座標相同），已刪除（2026-09）
 - [ ] 台灣分批併網的離岸風場（海龍 2&3、大彰化 2b&4、台電離岸二期）若取得逐期併網容量，填進 `ph` 欄位
 - [ ] 每次重建風場資料後跑 `tools/coverage_report.py`，更新 `docs/data-coverage.md`／`.en.md`
 - [ ] 澳洲、加拿大即時資料的機組對照（`data/live/units.json`）每季重跑 `tools/build_live_units.py`：新風場併網、機組改名時
@@ -32,16 +33,25 @@
 
 ## 資料品質（來自 [docs/data-coverage.md](./docs/data-coverage.md)，2026-09 產生）
 
-- [ ] 處理 9 組「疑似重複 A」（來源不同、名稱相同或相似）：逐組確認後在 `tools/build_farms.py` 排除重複，
-      例：肯亞 Lake Turkana（GPPD 與精選各一筆，310 MW 重複）、江蘇濱海北 H1／H2、大豐 H5／H7、丹麥 Vesterhav Nord、日本掛川
-- [ ] 檢查 12 個「逐場加總高於國家統計 110%」的國家：哥倫比亞、肯亞、羅馬尼亞、菲律賓、泰國、挪威、伊朗、塞內加爾、
-      多明尼加、越南、約旦、烏拉圭。已知原因：挪威 Fosen 彙總列與其子風場（Storheia、Roan）並存；羅馬尼亞 5 座 GEM 風場共用國家中心座標；
-      菲律賓 Pagudpud／Balaoi & Caunayan 疑為同一風場
-- [ ] 137 個共用座標點（1,357 座營運中風場疊在同一點，多為省份中心代用座標，以中國為主）：以 GEM 新版或在地資料更新
-- [ ] 588 個預計商轉年已過卻仍列規劃中的專案（102 GW）：以 GEM 新版或新聞更新狀態
-- [ ] 49 GW 營運中風場沒有商轉年（多在中國、印度），地圖只能從 2025 年顯示：找得到年份的補上
-- [ ] 覆蓋率較低的大國（中國差 127 GW、德國 27 GW、印度 15 GW）：評估以各國官方登錄資料補齊（見 ROADMAP 第 1 階段）
-- [ ] 接入即時資料時另發現的重複：亞伯達 Whitla（精選與 GEM 各一筆，353 MW）、澳洲 Snowtown（精選彙總列與 GEM 的 Snowtown I 並存）
+第一階段資料清理已於 2026-09 完成：逐筆查證後刪除 77 筆、修正 52 筆，每筆的理由與出處見
+[docs/data-cleanup.md](./docs/data-cleanup.md)，規則在 `tools/farm_cleanup.py`。
+
+- [x] 9 組「疑似重複 A」：已處理（剩日本遠州掛川／掛川一組，待確認是否為同一座）
+- [x] 12 個「逐場加總高於國家統計 110%」的國家：剩菲律賓（Pagudpud 2024–25 年才完工，IRENA 可能尚未計入）與伊朗
+- [x] 接入即時資料時發現的重複：亞伯達 Whitla、澳洲 Snowtown、塔斯馬尼亞 Bluff Point、維多利亞 Yambuk
+- [x] 共用座標點：地圖上以該點為中心示意排開、卡片註明「位置示意」（`flags` 4）
+- [ ] 共用座標點仍有 135 個（1,338 座營運中風場，多為中國的省份中心代用座標）：以 GEM 新版或在地資料補上實際座標
+- [ ] 清理時查不到或未能證實的項目：伊朗 Tizbaad（99 MW）與 Aqkand（50 MW）是否已運轉（SATBA 資料）；
+      中國精選的「CGN Taizhou 1」（300 MW，查無中廣核在台州的離岸案）與「Guoxin Sheyang H1」（300 MW，射陽 H1 屬華能）、
+      GEM 的射陽南區 H5（400 MW，可能尚未運轉）；越南 Song An（46.2 MW，未見商轉）；芬蘭 Kemi Ajos 的汰換沿革；
+      多明尼加比 IRENA 少約 50 MW 的原因
+- [ ] 資料中缺的風場（查證時發現）：泰國 Hanuman 10（80 MW）、越南 Lạc Hòa 2（123.6 MW）與 Chơ Long 其餘 105.5 MW、
+      羅馬尼亞 Pantelimon（123 MW）、哥倫比亞 Carreto（9.6 MW，2025）
+- [ ] 剩下 11 組「疑似重複 B」（名稱不同、容量相同、位置相近），例：美國 Solano／Shiloh、Big Smile／Dempsey Ridge、
+      德國 Dreiberg／Druiberg：逐組確認
+- [ ] 587 個預計商轉年已過卻仍列規劃中的專案（101 GW）：以 GEM 新版或新聞更新狀態
+- [ ] 46 GW 營運中風場沒有商轉年（多在中國、印度），地圖只能從 2025 年顯示：找得到年份的補上
+- [ ] 覆蓋率較低的大國（中國差 144 GW、德國 27 GW、印度 15 GW）：評估以各國官方登錄資料補齊（見 ROADMAP 第 1 階段）
 
 ## 待評估／待使用者決定方向（不要自作主張動工）
 

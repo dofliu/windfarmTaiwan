@@ -23,7 +23,7 @@ TODO is about what to do next.
 
 | Item | What | Effort |
 |---|---|---|
-| Clean up duplicates and misplaced points | The coverage report's 9 "suspected duplicates A", the 12 countries whose farm sum exceeds the national figure, and the 137 shared coordinate points; add rules to `tools/build_farms.py` and rebuild | medium |
+| Clean up duplicates and misplaced points | **Done (Sep 2026)**: after checking record by record, 77 duplicate, never-built or non-existent records were removed and 52 fixed (reasons and sources in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)); name matching now unifies Traditional and Simplified Chinese and compares zone codes; the countries whose farm sum exceeds the national figure went from 12 to 2; farms sharing a placeholder point are fanned out on the map. The remaining items to verify are in TODO | medium |
 | Farm details v1 | Group A under "What farm details could add" below (no new data needed): nearby farms, farms by the same developer, a phase timeline, rank and share within the country, more links, report an error, copy link | medium |
 | Global farm search and filters | Search every farm by name, developer or turbine model; filter by type (onshore / offshore / floating), capacity, commissioning year and status, with map and list in sync | medium |
 | Automated checks | GitHub Actions on pull requests: a Playwright smoke test (including the single-file edition over `file://`), `qa_farms.py` and the coverage report, flagging large changes in the numbers | small |
