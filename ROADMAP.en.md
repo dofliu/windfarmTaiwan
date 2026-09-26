@@ -24,7 +24,7 @@ TODO is about what to do next.
 | Item | What | Effort |
 |---|---|---|
 | Clean up duplicates and misplaced points | **Done (Sep 2026)**: after checking record by record, 77 duplicate, never-built or non-existent records were removed and 52 fixed (reasons and sources in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)); name matching now unifies Traditional and Simplified Chinese and compares zone codes; the countries whose farm sum exceeds the national figure went from 12 to 2; farms sharing a placeholder point are fanned out on the map. The remaining items to verify are in TODO | medium |
-| Farm details v1 | Group A under "What farm details could add" below (no new data needed): nearby farms, farms by the same developer, a phase timeline, rank and share within the country, more links, report an error, copy link | medium |
+| Farm details v1 | **Done (Sep 2026)**: all of group A under "What farm details could add" below — standing within the country (capacity rank and share of national capacity at the timeline year), a phase timeline, nearby farms (within 30 km) and farms by the same developer (clickable to switch), OpenStreetMap / Wikidata / Global Wind Atlas links, report a data error, copy link to this farm | medium |
 | Global farm search and filters | Search every farm by name, developer or turbine model; filter by type (onshore / offshore / floating), capacity, commissioning year and status, with map and list in sync | medium |
 | Automated checks | GitHub Actions on pull requests: a Playwright smoke test (including the single-file edition over `file://`), `qa_farms.py` and the coverage report, flagging large changes in the numbers | small |
 
@@ -64,19 +64,31 @@ TODO is about what to do next.
 
 ### What farm details could add (full list)
 
-Selecting a farm currently shows its name, status, commissioning year, country, total capacity and
-phases, turbine model, developer, audit notes and a Wikipedia photo and summary, with links to a
-satellite map, a photo search, the GEM project page and the source; Taiwan's farms also show
-Taipower's live output. It could also show:
+Selecting a farm currently shows its name, status, commissioning year, country, total capacity,
+turbine model, developer, audit notes and a Wikipedia photo and summary; its standing within the country
+(at the timeline year: capacity rank among the country's operating farms listed here, rank among onshore
+or offshore farms, and share of national installed wind capacity; pipeline projects are ranked among the
+country's pipeline); a phase timeline for farms with two or more phases; nearby farms (within 30 km, by
+distance) and other farms by the same developer (same country first, then by capacity), clickable to
+switch; links to a satellite map, OpenStreetMap, a wind resource map (Global Wind Atlas), a photo search,
+the GEM project page, Wikidata and the source; and at the bottom "Copy link to this farm" and "Report a
+data error" (a GitHub issue pre-filled with the name, coordinates, capacity and deep link). Farms in
+Taiwan, Australia and Canada also show live output. It could also show:
 
-**A. No new data needed (phase 1)**
+**A. No new data needed (phase 1) — done in Sep 2026**
 
-- Nearby farms (within 30 km) and other farms by the same developer, clickable to switch
-- A phase timeline (for farms with phase data); the farm's capacity rank and share within its country
-- More links: OpenStreetMap, Wikidata, Global Wind Atlas (the wind resource at the site; the URL
-  parameter format still needs checking)
-- "Report an error": opens a GitHub issue pre-filled with the farm's name and coordinates
-- A "copy link to this farm" button (the `#/global?f=…` deep link already works)
+- Nearby farms (within 30 km) and other farms by the same developer, clickable to switch. Farms on a
+  shared placeholder point get no nearby list; developers are matched on normalised owner names (legal
+  forms, generic words and country names removed, plus aliases for a few common groups), preferring a
+  missed match to a wrong one
+- A phase timeline (for farms with two or more phases); the farm's capacity rank and share within its country
+- More links: OpenStreetMap, Wikidata (the item itself when a Wikipedia article is found, otherwise a
+  search) and Global Wind Atlas — tested in Sep 2026, the URL format is
+  `globalwindatlas.info/<language>/shared/<GeoJSON point>`, which opens zoomed in on the site with the
+  mean wind speed layer (the full point analysis needs one more click on the point in GWA)
+- "Report a data error": opens a GitHub issue pre-filled with the farm's name, country, coordinates,
+  capacity, status, owner, dataset and deep link (field labels in both languages)
+- A "copy link to this farm" button (the single-file edition copies the official site's link)
 
 **B. Needs new data (phases 2 and 3)**
 

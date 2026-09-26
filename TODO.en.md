@@ -75,6 +75,18 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Large countries with low coverage (China 144 GW short, Germany 27 GW, India 15 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
 
+## Farm details
+
+- [x] Farm details v1 (Sep 2026): standing within the country, a phase timeline, nearby farms and farms by the
+      same developer, OpenStreetMap / Wikidata / Global Wind Atlas links, report a data error, copy link (details
+      in group A of "What farm details could add" in ROADMAP.en.md)
+- [ ] Same-developer matching relies on normalised owner names (`OWN_LEGAL` / `OWN_WEAK` / `OWN_PLACE` /
+      `OWN_PREFIX` in `assets/js/globe.js`): GEM's owner field keeps only the first two owners, cut at 60
+      characters, and group subsidiaries are spelled differently; when someone reports a missed or wrong match,
+      add an alias to `OWN_PREFIX`
+- [ ] Farm details v2 (needs new data): estimated annual generation, links to national registers, turbine
+      spec cards and so on — see group B of "What farm details could add" in ROADMAP.en.md
+
 ## To assess / waiting for the owner's decision (do not start on your own)
 
 - [ ] Whether to give `grid_status` (supply/demand) a long-term archive and trend chart, following the

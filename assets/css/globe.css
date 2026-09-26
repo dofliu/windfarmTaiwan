@@ -150,6 +150,38 @@
 #g-infoCard .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 #g-infoCard .links a,#g-infoCard .links button{font-size:11.5px;color:var(--off-b);text-decoration:none;border:1px solid var(--gline);border-radius:99px;padding:3px 9px;background:rgba(255,255,255,.04)}
 #g-infoCard .links a:hover{background:rgba(255,255,255,.1)}
+/* 風場詳情：國內地位、分期時間軸、附近／同開發商清單、動作列 */
+#g-infoCard .fh{margin:10px 0 4px;font-size:11px;font-weight:700;color:var(--ink-2)}
+#g-infoCard .ftiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px}
+#g-infoCard .ftiles>div{padding:6px 9px;border:1px solid var(--gline);border-radius:10px;background:rgba(255,255,255,.03)}
+#g-infoCard .ftiles b{display:block;font-size:17px;line-height:1.3;font-variant-numeric:tabular-nums}
+#g-infoCard .ftiles span{display:block;font-size:11px;line-height:1.4;color:var(--ink-2)}
+#g-infoCard .fphase{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+#g-infoCard .fphase li{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:8px;font-size:11.5px;font-variant-numeric:tabular-nums}
+#g-infoCard .fphase .y{color:var(--ink-2)}
+#g-infoCard .fphase .v{min-width:64px;text-align:right}
+#g-infoCard .fphase .tr{position:relative;height:8px;border-radius:4px;background:rgba(255,255,255,.05)}
+#g-infoCard .fphase .tr i{--c:var(--off);position:absolute;top:0;bottom:0;border-radius:4px;background:var(--c)}
+#g-infoCard .fphase .tr i.on{--c:var(--on)}
+#g-infoCard .fphase .tr i.fl{--c:var(--fl)}
+#g-infoCard .fphase li.todo .tr i{background:transparent;border:1px dashed var(--c)}
+#g-infoCard .fphase li.todo .y,#g-infoCard .fphase li.todo .v{color:var(--ginkm)}
+#g-infoCard .fnear0{margin:10px 0 0}
+#g-infoCard .frel{margin-top:10px;padding-top:6px;border-top:1px solid var(--gline)}
+#g-infoCard .frel summary{cursor:pointer;padding:3px 0;font-size:12px;font-weight:700}
+#g-infoCard .frel summary .cnt{margin-left:6px;padding:0 6px;border-radius:99px;background:rgba(255,255,255,.08);font-size:10.5px;font-weight:600;color:var(--ink-2)}
+#g-infoCard .frel ul{list-style:none;margin:4px 0 0;padding:0}
+#g-infoCard .frel ul.clip li:nth-child(n+7){display:none}
+#g-infoCard .frel a{display:block;padding:4px 8px;border-left:3px solid rgba(255,255,255,.15);border-radius:0 6px 6px 0;color:var(--ink);text-decoration:none}
+#g-infoCard .frel a:hover,#g-infoCard .frel a:focus-visible{background:rgba(255,255,255,.07)}
+#g-infoCard .frel .n{display:block;font-size:12px;font-weight:700}
+#g-infoCard .frel .m{display:block;font-size:11px;color:var(--ginkm)}
+#globe #g-infoCard .frmore{margin-top:4px;padding:2px 10px;border-radius:99px;font-size:11px}
+#g-infoCard .frel .gnote{margin-top:4px;font-size:10.5px}
+#g-infoCard .factions{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:10px;border-top:1px solid var(--gline)}
+#globe #g-infoCard .factions button,#g-infoCard .factions a{padding:4px 11px;border:1px solid var(--gline);border-radius:99px;background:rgba(255,255,255,.05);color:var(--ink);font-size:11.5px;text-decoration:none}
+#g-infoCard .factions a:hover{background:rgba(255,255,255,.1)}
+#globe #g-infoCard .factions .flink{flex:1 1 100%;cursor:text;font-size:11px}
 #g-tourBar{display:none;align-items:center;gap:6px;padding:8px 12px;border-top:1px solid var(--gline);position:sticky;bottom:0;background:rgba(10,17,30,.97)}
 #globe.touring #g-tourBar{display:flex}
 #globe.touring #g-msPanel{display:none}
