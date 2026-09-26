@@ -10,7 +10,13 @@
 
 線上：`https://dofliu.github.io/windfarmTaiwan/`
 
-後續規劃與待辦見 [ROADMAP.md](./ROADMAP.md)、[TODO.md](./TODO.md)。
+後續規劃與待辦見 [ROADMAP.md](./ROADMAP.md)、[TODO.md](./TODO.md)；各國風場資料覆蓋率與待查證項目見
+[docs/data-coverage.md](./docs/data-coverage.md)；其他國家即時發電資料的可行性評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)。
+
+**單檔版**：[下載 windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
+（約 6 MB），存到電腦後直接用瀏覽器開啟即可，不需架站；詳見下方「單檔版」。
+
+開發者：國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）
 
 ## 功能
 
@@ -46,6 +52,7 @@ GitHub Actions (每 15 分鐘 cron) ── taipower_wind_scraper.py ──► wi
 GitHub Actions (每週一 cron)     ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ──────┤
                                                                                                                             ├─► commit 回 repo
 tools/*.py（手動、低頻：資料改版時才跑） ──► data/global/*.json、assets/img/globe/*.jpg ───────────────────────────────────┤
+GitHub Actions（push 到 main 且改到網站程式或全球資料）── tools/build_standalone.py ──► standalone/*.html ─────────────────┤
 GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄──────────────────────────────────────────────────────┘
 瀏覽器讀 index.html → 依頁面延遲載入模組與資料（同網域，無 CORS）
 ```
@@ -68,7 +75,11 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/wind_farms.json` — 風場層級資料約 2.3 萬筆（營運中、規劃中、已除役）
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄
-- `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）
+- `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
+  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標
+- `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
+- `docs/` — 資料覆蓋率報告（`data-coverage.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
+- `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 每 15 分鐘執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
 - `wind_realtime.json` — 即時資料（由 Actions 自動更新）
@@ -84,8 +95,11 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   **口徑注意**：37331 只含台電**自有**風力機組，不含民營購電，與即時資料的全系統數值不可混用比較。
 - `.github/workflows/scrape.yml` — 每 15 分鐘自動執行 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
+- `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版並 commit
 - `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
 - `ROADMAP.md` / `TODO.md` — 已知限制、後續規劃與待辦事項
+
+所有說明文件都有英文版（`README.en.md`、`DEPLOY.en.md`、`ROADMAP.en.md`、`TODO.en.md`、`docs/*.en.md`）。
 
 ## 啟用步驟（只剩這些要你做）
 
@@ -94,7 +108,20 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 3. 開 `https://dofliu.github.io/windfarmTaiwan/`，右上角應顯示綠點「即時」。
 
 > 倉庫已附真實種子資料，所以 Pages 一啟用、即使 Actions 還沒跑，畫面就是即時模式。
-> 本機預覽：在 repo 根目錄執行 `python3 -m http.server`，開 `http://localhost:8000/`（直接雙擊 `index.html` 會因 `file://` 無法讀取 JSON）。
+> 本機預覽：在 repo 根目錄執行 `python3 -m http.server`，開 `http://localhost:8000/`（直接雙擊 `index.html` 會因 `file://` 無法讀取 JSON；
+> 想直接雙擊開啟請用單檔版）。
+
+## 單檔版（下載後直接開啟）
+
+`standalone/windfarmTaiwan-standalone.html` 把整個網站（首頁、台灣即時、全球 3D 地球儀、風電知識）打包成一個約 6 MB 的 HTML：
+
+- **下載**：網站頁尾或「風電知識 → 資料來源與方法 → 關於本站」的「下載單檔版 HTML」，
+  或直接開 `https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html` 另存。
+- **連網時**：台灣即時資料直接向正式網站抓最新的（每 10–15 分鐘更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
+- **離線時**：全球資料、約 2.3 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
+  並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網。
+- **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建；
+  本機也可以執行 `python3 tools/build_standalone.py`。分享按鈕在單檔版一律分享正式網站的網址。
 
 ## 注意事項
 
@@ -122,8 +149,11 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
 python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
 python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
+python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
+# 5. 單檔版（push 到 main 後 Actions 也會自動重建）
+python tools/build_standalone.py
 ```
 
 ### 本站對資料的修正（皆記錄在資料檔與網站「資料來源」中）
@@ -142,6 +172,7 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
 
 > 國家概況的「逐場資料覆蓋率」＝已逐場標示的營運中容量 ÷ 國家年底統計（台灣 2025 年約 89%、日本約 87%），差額明白列出，
 > 不補虛構風場。其他國家的風場來自 GEM，容量為全場裝置容量，加總可能略高或略低於國家統計。
+> 全部國家的明細、疑似重複與待查證項目見 [docs/data-coverage.md](./docs/data-coverage.md)。
 
 ## 資料來源與授權
 
@@ -176,3 +207,9 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
 - 程式庫：three.js r128（MIT）、Leaflet 1.9.4（BSD-2）
 
 風機數量、座標、開發商等專案資訊為公開資料整理，座標為概略位置。
+
+## 開發者與版權
+
+- 開發與維護：**國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室**（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）
+- 網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用（政府資料開放授權條款、CC BY 4.0、公有領域等）。
+- 發現資料錯誤或有更好的來源，歡迎在 [GitHub](https://github.com/dofliu/windfarmTaiwan/issues) 回報。

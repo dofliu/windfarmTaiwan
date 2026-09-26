@@ -6,6 +6,15 @@
 'use strict';
 const WW = window.WW = window.WW || {};
 
+/* 單檔版（tools/build_standalone.py 產生）：延遲載入的 JS／CSS、全球資料與底圖都內嵌在同一個 HTML 裡，
+   即時資料連網時向正式網站抓最新的，離線時用建置當下的快照。一般網站上 EMB 為 null，以下行為都不變。 */
+const EMB = WW.standalone = window.WW_STANDALONE || null;
+WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
+WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
+/* 分享用網址：單檔版（file://）一律指向正式網站 */
+WW.pageURL = hash => hash == null ? (EMB ? WW.SITE + location.hash : location.href)
+  : (EMB ? WW.SITE : location.href.split('?')[0].split('#')[0]) + hash;
+
 /* ---------------- 瀏覽器儲存（只存個人偏好；私密視窗等情況讀寫會失敗，一律靜默） ---------------- */
 WW.store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : v; } catch (e) { return d; } },
@@ -74,21 +83,26 @@ WW.toast = msg => {
 /* ---------------- 延遲載入與資料快取 ---------------- */
 const scripts = {}, styles = {}, jsonCache = {};
 WW.loadScript = src => scripts[src] || (scripts[src] = new Promise((res, rej) => {
-  const s = document.createElement('script'); s.src = src; s.async = false;
+  const s = document.createElement('script');
+  const code = EMB && EMB.text(src);
+  if (code != null) { s.textContent = code; document.head.appendChild(s); res(); return; }   // 內嵌：插入即同步執行，順序不變
+  s.src = src; s.async = false;
   s.onload = () => res(); s.onerror = () => { delete scripts[src]; rej(new Error('failed to load ' + src)); };
   document.head.appendChild(s);
 }));
 WW.loadCSS = href => styles[href] || (styles[href] = new Promise((res, rej) => {
+  const css = EMB && EMB.text(href);
+  if (css != null) { const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st); res(); return; }
   const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = href;
   l.onload = () => res(); l.onerror = () => { delete styles[href]; rej(new Error('failed to load ' + href)); };
   document.head.appendChild(l);
 }));
 /* 靜態資料（全球資料集）：整個工作階段只抓一次 */
-WW.getJSON = url => jsonCache[url] || (jsonCache[url] = fetch(url).then(r => {
+WW.getJSON = url => jsonCache[url] || (jsonCache[url] = (EMB && EMB.has(url) ? Promise.resolve().then(() => EMB.json(url)) : fetch(url).then(r => {
   if (!r.ok) throw new Error(url + ' ' + r.status); return r.json();
-}).catch(e => { delete jsonCache[url]; throw e; }));
+})).catch(e => { delete jsonCache[url]; throw e; }));
 /* 即時資料（每 10–15 分更新）：不快取 */
-WW.getLiveJSON = url => fetch(url, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); });
+WW.getLiveJSON = url => EMB ? EMB.live(url) : fetch(url, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); });
 
 WW.DATA = {
   global: 'data/global/wind_global.json',
@@ -186,7 +200,7 @@ WW.shareHandlers = {};
 WW.share = async () => {
   const h = WW.shareHandlers[cur];
   if (h) return h();
-  const url = location.href;
+  const url = WW.pageURL();
   const text = WW.L('風電風情：台灣風電即時資訊 × 全球風電發展 1980–2025', 'Wind Watch: Taiwan wind live × global wind power 1980–2025');
   if (navigator.share) { try { await navigator.share({ title: document.title, text, url }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
   try { await navigator.clipboard.writeText(url); WW.toast(WW.L('已複製此頁連結 ✓', 'Link copied ✓')); }

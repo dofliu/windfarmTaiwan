@@ -157,7 +157,7 @@ const GLOBE_FARM={guanyuan:"Dayuan Guanyuan",taichungport:"Taichung Port",wanggo
 const t=WW.t;
 WW.addI18n({
   loading:{zh:"載入中…",en:"Loading…"},
-  live:{zh:"即時",en:"Live"},updatedAt:{zh:"台電",en:"Taipower"},simShort:{zh:"模擬浮動",en:"Simulated"},
+  live:{zh:"即時",en:"Live"},updatedAt:{zh:"台電",en:"Taipower"},simShort:{zh:"模擬浮動",en:"Simulated"},snapShort:{zh:"離線快照",en:"Offline snapshot"},
   toolbarToggle:{zh:"排序與篩選",en:"Sort & filter"},
   sortBy:{zh:"排序",en:"Sort"},s_output:{zh:"即時出力",en:"Output"},s_ratio:{zh:"可用率",en:"Availability"},
   s_cap:{zh:"裝置容量",en:"Capacity"},s_name:{zh:"名稱",en:"Name"},
@@ -270,15 +270,17 @@ async function tryGrid(){                       // 抓電力供需即時報表(�
 }
 function setFeed(live){
   LIVE=live;
-  const cls=live?"dot live":"dot sim";
-  const short=live?(srcTime?`${t("live")} · ${t("updatedAt")} ${fmtSrc(srcTime)}`:`${t("live")}`):t("simShort");
+  const snap=live&&WW.standalone&&WW.standalone.usedSnapshot;   // 單檔版離線：真實資料但不是即時
+  const cls=live&&!snap?"dot live":"dot sim";
+  const short=snap?`${t("snapShort")} · ${fmtSrc(srcTime)}`:live?(srcTime?`${t("live")} · ${t("updatedAt")} ${fmtSrc(srcTime)}`:`${t("live")}`):t("simShort");
   ["feeddot","hh-dot"].forEach(id=>{const d=document.getElementById(id);if(d)d.className=cls;});
   ["feedtxt","hh-feedtxt"].forEach(id=>{const d=document.getElementById(id);if(d)d.textContent=short;});
   const dm=document.getElementById("lv-datamode"),sl=document.getElementById("lv-srcline");
-  const long=live?(srcTime?(EN()?`● Live · backend connected · Taipower data time ${fmtSrc(srcTime)}`:`● 即時：已連線後端端點 · 台電資料時間 ${fmtSrc(srcTime)}`):(EN()?"● Live · backend connected":"● 即時：已連線後端端點"))
+  const long=snap?(EN()?`◐ Offline snapshot saved in this single-file copy · Taipower data time ${fmtSrc(srcTime)}`:`◐ 離線快照：單檔版建置時儲存的台電資料 · 資料時間 ${fmtSrc(srcTime)}`)
+    :live?(srcTime?(EN()?`● Live · backend connected · Taipower data time ${fmtSrc(srcTime)}`:`● 即時：已連線後端端點 · 台電資料時間 ${fmtSrc(srcTime)}`):(EN()?"● Live · backend connected":"● 即時：已連線後端端點"))
     :(EN()?"◐ Simulated (baseline: Taipower open-data snapshot) · live data not reachable":"◐ 模擬浮動（基準：台電開放資料快照）· 目前無法取得即時資料");
   if(dm)dm.textContent=long;
-  if(sl)sl.textContent=live?(EN()?`Taipower open data · ${fmtSrc(srcTime)} · updates every 10 min`:`台電開放資料 · ${fmtSrc(srcTime)} · 每 10 分鐘更新`):(EN()?"Simulated from a Taipower snapshot":"以台電快照模擬");
+  if(sl)sl.textContent=snap?(EN()?`Offline snapshot · ${fmtSrc(srcTime)}`:`離線快照 · ${fmtSrc(srcTime)}`):live?(EN()?`Taipower open data · ${fmtSrc(srcTime)} · updates every 10 min`:`台電開放資料 · ${fmtSrc(srcTime)} · 每 10 分鐘更新`):(EN()?"Simulated from a Taipower snapshot":"以台電快照模擬");
 }
 const capOf=f=>f.cap||f.planned||0;
 const sizeMW=f=>{const c=(typeof f.cap==="number"?f.cap:0)||(typeof f.planned==="number"?f.planned:0);
@@ -867,13 +869,13 @@ function drawShareCard(){                       // 產生 1080×1080 即時風�
   return cv;
 }
 async function doShareText(){                   // 純文字/連結後援
-  const url=location.href.split("?")[0].split("#")[0]+"#/live",text=shareText();
+  const url=WW.pageURL("#/live"),text=shareText();
   if(navigator.share){try{await navigator.share({title:"風電風情",text,url});return;}catch(e){if(e&&e.name==="AbortError")return;}}
   try{await navigator.clipboard.writeText(text+" "+url);WW.toast(EN()?"Copied ✓":"已複製分享文字與連結 ✓");}catch(e){WW.toast(EN()?"Please copy the URL manually":"請手動複製網址");}
 }
 function shareCard(){
   let cv;try{cv=drawShareCard();}catch(e){return doShareText();}
-  const url=location.href.split("?")[0].split("#")[0]+"#/live";
+  const url=WW.pageURL("#/live");
   cv.toBlob(async blob=>{
     if(!blob)return doShareText();
     const file=new File([blob],"taiwan-wind.png",{type:"image/png"});

@@ -13,8 +13,15 @@ Taiwan's wind power, live — and the world's wind power story, 1980–2025. One
 
 Live site: `https://dofliu.github.io/windfarmTaiwan/`
 
-See [ROADMAP.md](./ROADMAP.md) and [TODO.md](./TODO.md) for planned work and known limitations
-(currently Traditional Chinese only; translation help welcome).
+See [ROADMAP.en.md](./ROADMAP.en.md) and [TODO.en.md](./TODO.en.md) for planned work and known limitations,
+[docs/data-coverage.en.md](./docs/data-coverage.en.md) for farm-level coverage by country and the items still to
+verify, and [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) for which other countries publish live
+wind generation data.
+
+**Single-file edition**: [download windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
+(about 6 MB), save it and open it in any browser — no web server needed. See "Single-file edition" below.
+
+Developed by National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu (國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室)
 
 ## Features
 
@@ -65,6 +72,7 @@ GitHub Actions (every 15 min cron)  ── taipower_wind_scraper.py ──► wi
 GitHub Actions (weekly Monday cron) ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ────────┤
                                                                                                                                  ├─► commit back to repo
 tools/*.py (manual, rare: when source data changes) ──► data/global/*.json, assets/img/globe/*.jpg ─────────────────────────────┤
+GitHub Actions (push to main touching site code or global data) ── tools/build_standalone.py ──► standalone/*.html ─────────────┤
 GitHub Pages serves this same repo: index.html + assets/ + data/ + the JSON above ◄──────────────────────────────────────────────┘
 Browser loads index.html → lazy-loads page modules and data (same origin, no CORS)
 ```
@@ -93,7 +101,14 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, and the merge log
-- `tools/` — generators for the global data and basemaps (see "Updating the global data" below)
+- `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
+  `tools/build_standalone.py` builds the single-file edition, `tools/coverage_report.py` the data coverage report,
+  and `tools/qa_farms.py` checks farm coordinates
+- `standalone/windfarmTaiwan-standalone.html` — the single-file edition (generated; do not edit by hand)
+- `docs/` — the data coverage report (`data-coverage.en.md`) and the assessment of live-data sources in other
+  countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
+- `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing) for future
+  contributors and AI agents
 - `taipower_wind_scraper.py` — runs every 15 min: fetches Taipower's open data, parses the 30
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`;
   also fetches the real-time supply-demand report → `grid_status.json`
@@ -118,8 +133,11 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `.github/workflows/scrape.yml` — runs the scraper every 15 minutes and commits
 - `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly;
   can also be triggered manually (with a dry-run option)
-- `DEPLOY.md` — detailed deployment options (GitHub Pages / Cloudflare Worker / self-hosted)
-- `ROADMAP.md` / `TODO.md` — known limitations, planned work, and open tasks
+- `.github/workflows/standalone.yml` — rebuilds and commits the single-file edition when site code or global data change
+- `DEPLOY.en.md` — detailed deployment options (GitHub Pages / Cloudflare Worker / self-hosted)
+- `ROADMAP.en.md` / `TODO.en.md` — known limitations, planned work, and open tasks
+
+Every document has a Traditional Chinese version (`README.md`, `DEPLOY.md`, `ROADMAP.md`, `TODO.md`, `docs/*.md`).
 
 ## Setup (the only steps left for you)
 
@@ -132,7 +150,24 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 > The repo ships with a real seed snapshot, so the site shows live-mode data as soon as Pages is
 > enabled, even before Actions has run.
 > Local preview: run `python3 -m http.server` in the repo root and open `http://localhost:8000/`
-> (opening `index.html` from disk can't load the JSON files over `file://`).
+> (opening `index.html` from disk can't load the JSON files over `file://`; to open the site straight
+> from disk, use the single-file edition).
+
+## Single-file edition (download and open)
+
+`standalone/windfarmTaiwan-standalone.html` packs the whole site (Home, Taiwan live, the 3D globe and
+Learn) into one HTML file of about 6 MB:
+
+- **Download**: "Download the single-file HTML" in the site footer or under Learn → Sources & method →
+  About this site, or save `https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html`.
+- **Online**: Taiwan live data is fetched fresh from the live site (updated every 10–15 minutes),
+  zooming in on the globe loads Esri detail tiles, and farm cards look up Wikipedia.
+- **Offline**: the global data, ~23,000 farm records, borders and the 2k relief/satellite basemaps are
+  inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled
+  "Offline snapshot". The satellite map on the Taiwan live page (Leaflet) needs a connection.
+- **Updates**: pushes to `main` that touch `index.html`, `assets/` or `data/global/*.json` rebuild it
+  automatically through GitHub Actions; locally, run `python3 tools/build_standalone.py`. In the
+  single-file edition the Share button always shares the live site's URL.
 
 ## Notes
 
@@ -166,8 +201,11 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
 python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
+python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
+# 5. Single-file edition (Actions also rebuilds it after pushes to main)
+python tools/build_standalone.py
 ```
 
 ### Corrections this site made to the data (all recorded in the data files and the site's "Sources")
@@ -194,6 +232,8 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total
 > (Taiwan ~89%, Japan ~87% in 2025); the gap is shown explicitly and never filled with synthetic farms.
 > Elsewhere farms come from GEM at full nameplate, so sums can be slightly above or below national totals.
+> Every country, suspected duplicates and the items still to verify are listed in
+> [docs/data-coverage.en.md](./docs/data-coverage.en.md).
 
 ## Data sources & license
 
@@ -241,3 +281,10 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
 
 Turbine counts, coordinates, and developer info are compiled from public sources; coordinates are
 approximate.
+
+## Developer & copyright
+
+- Developed and maintained by **National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu** (國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室)
+- Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source
+  listed above (Open Government Data License, CC BY 4.0, public domain, etc.).
+- Found a data error or a better source? Please report it on [GitHub](https://github.com/dofliu/windfarmTaiwan/issues).

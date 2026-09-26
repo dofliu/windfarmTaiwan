@@ -1,6 +1,8 @@
 # 待辦 · TODO
 
-具體可執行的任務清單。背景與評估理由見 [ROADMAP.md](./ROADMAP.md)。
+[English](./TODO.en.md) ｜ 中文（本頁）
+
+具體可執行的任務清單。背景、評估理由與分階段規劃見 [ROADMAP.md](./ROADMAP.md)。
 
 ## 需要定期回頭核對（時效敏感，非程式問題）
 
@@ -14,7 +16,8 @@
 
 ## 全球資料（每年一次，見 README「全球資料更新」）
 
-- [ ] 每年 IRENA（約 7 月）與 GWEC／WFO 年報（約春季）發布後，更新國家逐年容量（`data/global/wind_global.json`）
+- [ ] 每年 IRENA《Renewable Capacity Statistics》（約 3 月）與 GWEC／WFO 年報（約春季）發布後，更新國家逐年容量（`data/global/wind_global.json`），
+      並抽查前十大國家的官方統計（中國國家能源局、美國 EIA、德國 BNetzA 等）
 - [ ] 能源署《能源統計手冊》新版（表 3-6 再生能源發電裝置容量）發布後，更新 `tools/extract_global_data.py` 的
       `TWN_OFFICIAL`；JWPA 年末累積導入量（每年約 2 月公布）發布後更新 `JPN_JWPA`，並重跑擷取程式
 - [ ] 規劃中重點專案（`data/global/sources/pipeline_curated.json`，2026-09 整理）狀態變動快：
@@ -23,6 +26,19 @@
       檢查座標；確認 `COORD_FIX` 的修正是否仍需要（上游已修正者可移除）
 - [ ] 查證芬蘭 Pohjoinen wind farm（99 MW，2020，Fortum）的正確位置：GEM 座標 68.04, 16.66 落在挪威
 - [ ] 台灣分批併網的離岸風場（海龍 2&3、大彰化 2b&4、台電離岸二期）若取得逐期併網容量，填進 `ph` 欄位
+- [ ] 每次重建風場資料後跑 `tools/coverage_report.py`，更新 `docs/data-coverage.md`／`.en.md`
+
+## 資料品質（來自 [docs/data-coverage.md](./docs/data-coverage.md)，2026-09 產生）
+
+- [ ] 處理 9 組「疑似重複 A」（來源不同、名稱相同或相似）：逐組確認後在 `tools/build_farms.py` 排除重複，
+      例：肯亞 Lake Turkana（GPPD 與精選各一筆，310 MW 重複）、江蘇濱海北 H1／H2、大豐 H5／H7、丹麥 Vesterhav Nord、日本掛川
+- [ ] 檢查 12 個「逐場加總高於國家統計 110%」的國家：哥倫比亞、肯亞、羅馬尼亞、菲律賓、泰國、挪威、伊朗、塞內加爾、
+      多明尼加、越南、約旦、烏拉圭。已知原因：挪威 Fosen 彙總列與其子風場（Storheia、Roan）並存；羅馬尼亞 5 座 GEM 風場共用國家中心座標；
+      菲律賓 Pagudpud／Balaoi & Caunayan 疑為同一風場
+- [ ] 137 個共用座標點（1,357 座營運中風場疊在同一點，多為省份中心代用座標，以中國為主）：以 GEM 新版或在地資料更新
+- [ ] 588 個預計商轉年已過卻仍列規劃中的專案（102 GW）：以 GEM 新版或新聞更新狀態
+- [ ] 49 GW 營運中風場沒有商轉年（多在中國、印度），地圖只能從 2025 年顯示：找得到年份的補上
+- [ ] 覆蓋率較低的大國（中國差 127 GW、德國 27 GW、印度 15 GW）：評估以各國官方登錄資料補齊（見 ROADMAP 第 1 階段）
 
 ## 待評估／待使用者決定方向（不要自作主張動工）
 
@@ -31,6 +47,9 @@
       這是網站範疇的重大決定，動工前務必先確認方向
 - [ ] 是否要嘗試解決電力供需即時來源的 WAF 403（需要換執行環境，例如自架 runner 或非雲端 CI 的主機，
       不是單純改程式碼能解決）
+- [ ] 是否接入其他國家的即時風電資料（評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)）：
+      部分來源需要免費 API 金鑰（存成 GitHub Secrets），先確認要做哪幾國
+- [ ] ROADMAP「下一步規劃」各階段的優先順序
 
 ## 維運
 
