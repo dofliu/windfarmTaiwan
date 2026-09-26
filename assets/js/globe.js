@@ -1537,8 +1537,9 @@ function msPseudoFarm(m) {
 }
 function msStop(m) { return { kind: 'ms', m, name: m.name, zh: null, lat: m.lat, lon: m.lon, year: m.year, type: m.type, iso: m.iso, farm: farmsReady ? msPseudoFarm(m) : null }; }
 let cardItem = null;
-/* ================= 澳洲、加拿大即時出力（intl_wind_scraper.py 每 15 分鐘更新 data/live/intl_realtime.json） ================= */
-const INTL_URL = 'data/live/intl_realtime.json', LIVE_HEX = 0x3fdcb0, LIVE_STALE_MS = 3 * 3600e3;
+/* ================= 澳洲、加拿大即時出力（intl_wind_scraper.py 約每 2 小時更新 data/live/intl_realtime.json） ================= */
+// 超過 LIVE_STALE_MS 的電網資料不再疊到風場上：排程約每 2 小時，容許漏跑一兩次（安大略的資料本身還晚約 1 小時）
+const INTL_URL = 'data/live/intl_realtime.json', LIVE_HEX = 0x3fdcb0, LIVE_STALE_MS = 6 * 3600e3;
 const GRID_TZ = { AEMO: 'Australia/Brisbane', AESO: 'America/Edmonton', IESO: 'America/Toronto' };
 const GRID_SRC = { AEMO: 'https://nemweb.com.au/Reports/Current/Dispatch_SCADA/', AESO: 'http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet',
   IESO: 'https://reports-public.ieso.ca/public/GenOutputCapability/PUB_GenOutputCapability.xml' };

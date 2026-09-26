@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""澳洲與加拿大的風場即時出力（GitHub Actions 每 15 分鐘與台電資料一起執行）。
+"""澳洲與加拿大的風場即時出力（GitHub Actions 約每 2 小時與台電資料一起執行）。
 
     python3 intl_wind_scraper.py          # 更新 data/live/intl_realtime.json
 

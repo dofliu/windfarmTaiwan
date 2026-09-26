@@ -1,9 +1,9 @@
 name: build-standalone
 
 # 單檔版 HTML（standalone/windfarmTaiwan-standalone.html）：網站程式、index.html 或全球資料有變更時自動重建並 commit。
-# 台灣即時資料每 15 分鐘更新，不觸發重建——單檔版連網時會直接向正式網站抓最新的即時資料。
+# 即時資料約每 2 小時更新，不觸發重建——單檔版連網時會直接向正式網站抓最新的即時資料。
 # Single-file HTML: rebuilt and committed whenever the site code, index.html or the global data change.
-# The 15-minute live-data commits do not trigger it; the single-file copy fetches live data from the site when online.
+# The live-data commits (about every 2 hours) do not trigger it; the single-file copy fetches live data from the site when online.
 on:
   push:
     branches: [main]
@@ -41,7 +41,7 @@ jobs:
           git add standalone/windfarmTaiwan-standalone.html
           git diff --staged --quiet && { echo "no change"; exit 0; }
           git commit -m "chore: rebuild single-file HTML $(date -u +%FT%TZ)"
-          # 可能與每 15 分鐘的資料 commit 同時推送：先 rebase 再推，最多重試 4 次
+          # 可能與排程的資料 commit 同時推送：先 rebase 再推，最多重試 4 次
           for i in 1 2 3 4; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0
             sleep $((i * 10))

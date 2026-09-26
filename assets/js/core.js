@@ -101,7 +101,7 @@ WW.loadCSS = href => styles[href] || (styles[href] = new Promise((res, rej) => {
 WW.getJSON = url => jsonCache[url] || (jsonCache[url] = (EMB && EMB.has(url) ? Promise.resolve().then(() => EMB.json(url)) : fetch(url).then(r => {
   if (!r.ok) throw new Error(url + ' ' + r.status); return r.json();
 })).catch(e => { delete jsonCache[url]; throw e; }));
-/* 即時資料（每 10–15 分更新）：不快取 */
+/* 即時資料（約每 2 小時更新）：不快取 */
 WW.getLiveJSON = url => EMB ? EMB.live(url) : fetch(url, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); });
 
 WW.DATA = {

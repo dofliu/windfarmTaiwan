@@ -22,8 +22,8 @@ windfarmTaiwan/
 ├─ tools/                           # generators for the global data, basemaps, the single-file HTML and the coverage report
 ├─ standalone/                      # single-file HTML (built by tools/build_standalone.py; download and open offline)
 ├─ docs/                            # data coverage report, data clean-up log, live-data source assessment (one Chinese and one English copy each)
-├─ taipower_wind_scraper.py         # every 15 min: live wind + live supply/demand
-├─ intl_wind_scraper.py             # every 15 min: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
+├─ taipower_wind_scraper.py         # about every 2 hours: live wind + live supply/demand
+├─ intl_wind_scraper.py             # about every 2 hours: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
 ├─ backfill_history.py              # every Monday: official retrospective history backfill
 ├─ wind_realtime.json               # live wind data (auto-updated by Actions)
 ├─ wind_history.json                # rolling 7-day wind history
@@ -31,7 +31,7 @@ windfarmTaiwan/
 ├─ wind_archive_daily.json          # daily digest of the archive (read by the long-term trend chart)
 ├─ grid_status.json                 # live power supply/demand report
 └─ .github/workflows/
-   ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py every 15 minutes
+   ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py about every 2 hours
    ├─ backfill.yml                  # runs backfill_history.py every Monday
    └─ standalone.yml                # rebuilds the single-file HTML when site code or global data change
 ```
@@ -41,7 +41,8 @@ To set up a new project from scratch (instead of using this repo directly):
 ### Steps
 
 1. Create a **public** repo (public repos get unlimited free Actions minutes; private repos get
-   2,000 minutes a month, which a 15-minute schedule would exceed).
+   2,000 minutes a month; the current schedule, about every 2 hours or roughly 360 runs a month, is well within
+   that, but a high-frequency schedule would exceed it).
 2. Put `index.html`, `assets/`, `data/`, `taipower_wind_scraper.py`, `intl_wind_scraper.py` and
    `backfill_history.py` in the repo root (`tools/` is only needed to update the global data).
 3. Put `.github/workflows/scrape.yml`, `backfill.yml` and `standalone.yml` in place.
@@ -57,14 +58,15 @@ To set up a new project from scratch (instead of using this repo directly):
 
 ### Limits to know about
 
-- **The schedule is not precise**: GitHub's `schedule` is not guaranteed to run on time; runs are
-  often a few minutes late and occasionally skipped at peak times. Taipower only updates every 10
-  minutes, so this is acceptable here, but it is not second-level real time.
+- **The schedule is not precise**: `scrape.yml` runs every 2 hours (minute 18 of even hours, UTC). GitHub's
+  `schedule` is not guaranteed to run on time; runs are often late and occasionally skipped at peak times,
+  and high-frequency schedules (e.g. every 15 minutes) in practice stretch to one run every 3–5 hours.
+  The site does not need minute-by-minute data, so this is acceptable.
 - **Disabled after 60 days**: if a repo has no activity for 60 days, its scheduled workflows are
   disabled automatically, and bot commits made with the default `GITHUB_TOKEN` do not always count as
   activity. Remedies: trigger a run by hand once a month, push with a personal PAT, or add a keepalive
   workflow (see "Deployment stability" in `ROADMAP.en.md`).
-- **Commits pile up**: one commit every 15 minutes means tens of thousands a year. It works fine, but
+- **Commits pile up**: one commit about every 2 hours means over four thousand a year. It works fine, but
   the repo grows; `wind_history_archive.json` also keeps growing with each weekly backfill (about
   1.8 MB now). Accept it, squash history now and then, or switch to option B.
 - **The live supply/demand source is blocked by a WAF**: the primary source for `grid_status.json`

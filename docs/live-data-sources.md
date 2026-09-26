@@ -8,7 +8,7 @@
 
 ## 目前狀態（2026-09 更新）
 
-**已接入**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 每 15 分鐘抓取，
+**已接入**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 約每 2 小時抓取，
 輸出 `data/live/intl_realtime.json`。
 
 - **地球儀上的顯示**：國家概況有各電網此刻的總出力與 48 小時趨勢；對應到的風場在卡片、提示與風場清單顯示此刻出力。
@@ -102,7 +102,7 @@
 ## 接入時要注意
 
 - **沒有座標**：所有逐場來源都只給機組代碼或名稱，需要一份人工維護的對照表（機組代碼 → `wind_farms.json` 的風場），合計數百列。
-- **repo 體積**：每 15 分鐘多一個國家的 commit 會讓 git 歷史更快變大。建議併進現有 `scrape.yml` 的同一次 commit，
+- **repo 體積**：每個國家各自 commit 會讓 git 歷史更快變大。建議併進現有 `scrape.yml` 的同一次 commit，
   或改用 Cloudflare Worker（見 [DEPLOY.md](../DEPLOY.md) 方案 B）。
 - **金鑰**：需要註冊或金鑰的來源（ENTSO-E、NED、EIA）先經網站負責人同意；金鑰存成 GitHub Secrets，不寫進程式。
 - **標示**：英國的逐場值要標示「估計」；延遲一天以上的來源（巴西、愛爾蘭 SEMO、西澳）不能標成「即時」。

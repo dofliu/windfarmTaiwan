@@ -9,7 +9,7 @@ English (this page) ｜ [中文](./live-data-sources.md)
 
 ## Current status (updated Sep 2026)
 
-**Integrated**: Australia's NEM (AEMO), Alberta (AESO) and Ontario (IESO), fetched every 15 minutes by
+**Integrated**: Australia's NEM (AEMO), Alberta (AESO) and Ontario (IESO), fetched about every 2 hours by
 `intl_wind_scraper.py` into `data/live/intl_realtime.json`.
 
 - **On the globe**: country profiles show each grid's current total and a 48-hour trend; matched farms show
@@ -123,7 +123,7 @@ Actions.
 
 - **No coordinates**: every per-farm source gives only unit codes or names, so a hand-maintained
   mapping table (unit code → farm in `wind_farms.json`) is needed — a few hundred rows in total.
-- **Repo size**: one more commit per country every 15 minutes makes the git history grow faster. Fold
+- **Repo size**: a separate commit per country makes the git history grow faster. Fold
   new countries into the existing `scrape.yml` commit, or move to a Cloudflare Worker (option B in
   [DEPLOY.en.md](../DEPLOY.en.md)).
 - **Keys**: sources that need registration or a key (ENTSO-E, NED, EIA) need the site owner's approval

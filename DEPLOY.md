@@ -22,8 +22,8 @@ windfarmTaiwan/
 ├─ tools/                           # 全球資料、底圖、單檔版與覆蓋率報告的產生程式
 ├─ standalone/                      # 單檔版 HTML（tools/build_standalone.py 產生，可下載後離線開啟）
 ├─ docs/                            # 資料覆蓋率報告、資料清理紀錄、即時資料來源評估（中英文各一份）
-├─ taipower_wind_scraper.py         # 每 15 分鐘：風力即時 + 電力供需即時
-├─ intl_wind_scraper.py             # 每 15 分鐘：澳洲東部電網、亞伯達、安大略的風場即時出力 → data/live/
+├─ taipower_wind_scraper.py         # 約每 2 小時：風力即時 + 電力供需即時
+├─ intl_wind_scraper.py             # 約每 2 小時：澳洲東部電網、亞伯達、安大略的風場即時出力 → data/live/
 ├─ backfill_history.py             # 每週一：官方回溯歷史回填
 ├─ wind_realtime.json               # 風力即時資料（Actions 自動更新）
 ├─ wind_history.json                # 風力滾動 7 天歷史
@@ -31,7 +31,7 @@ windfarmTaiwan/
 ├─ wind_archive_daily.json          # 長期存檔的每日摘要（前端長期趨勢圖讀這個）
 ├─ grid_status.json                 # 電力供需即時報表
 └─ .github/workflows/
-   ├─ scrape.yml                    # 每 15 分鐘執行 taipower_wind_scraper.py 與 intl_wind_scraper.py
+   ├─ scrape.yml                    # 約每 2 小時執行 taipower_wind_scraper.py 與 intl_wind_scraper.py
    ├─ backfill.yml                  # 每週一執行 backfill_history.py
    └─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML
 ```
@@ -40,7 +40,7 @@ windfarmTaiwan/
 
 ### 步驟
 
-1. 建一個 **public** repo（公開 repo 的 Actions 分鐘數無限、免費；私有 repo 每月只有 2000 分鐘，每 15 分鐘跑會超量）。
+1. 建一個 **public** repo（公開 repo 的 Actions 分鐘數無限、免費；私有 repo 每月只有 2000 分鐘；目前約每 2 小時跑一次、每月約 360 次，量不大，但改成高頻排程就會超量）。
 2. 把 `index.html`、`assets/`、`data/`、`taipower_wind_scraper.py`、`intl_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄（`tools/` 只在更新全球資料時需要）。
 3. 把 `.github/workflows/scrape.yml`、`backfill.yml` 與 `standalone.yml` 放進對應位置。
 4. 確認 `assets/js/live.js` 開頭的 `DATA_ENDPOINT` 等常數指向相對路徑（同網域，例如 `./wind_realtime.json`），
@@ -52,9 +52,10 @@ windfarmTaiwan/
 
 ### 必須知道的限制（誠實說明）
 
-- **排程不精準**：GitHub 的 `schedule` 不保證準時，常延遲數分鐘、尖峰偶爾略過。台電本來就是每 10 分更新，這個用途可接受，但不是「秒級即時」。
+- **排程不精準**：`scrape.yml` 設定每 2 小時一次（偶數小時的第 18 分，UTC）。GitHub 的 `schedule` 不保證準時，常延遲、尖峰時段偶爾略過；
+  高頻排程（例如每 15 分鐘）實際上常被拉長到 3–5 小時一次。本站不需要逐分即時，這樣可接受。
 - **60 天自動停用**：repo 連續 60 天無活動，排程 workflow 會被自動停用；而且用預設 `GITHUB_TOKEN` 的 bot commit 在某些情況不被算作「活動」。對策：每月手動觸發一次，或改用個人 PAT 來 push，或加一支 keepalive（見 `ROADMAP.md`「部署穩定性」）。
-- **commit 會累積**：每 15 分鐘一次 commit，一年數萬筆 git 歷史。功能無礙，但 repo 會變肥；`wind_history_archive.json` 也會隨每週回填持續成長（目前約 1.8MB）。可接受，或定期 squash，或改用方案 B。
+- **commit 會累積**：約每 2 小時一次 commit，一年約四千多筆 git 歷史。功能無礙，但 repo 會變肥；`wind_history_archive.json` 也會隨每週回填持續成長（目前約 1.8MB）。可接受，或定期 squash，或改用方案 B。
 - **電力供需即時來源會被 WAF 擋**：`grid_status.json` 的主要來源從 GitHub Actions 執行會回 403（詳見 `ROADMAP.md`「已知限制」），落到每日備援；若要真正即時，需要換到非雲端 CI 的執行環境（見方案 C）。
 - Actions runner 在海外（Azure），抓台電公開 opendata 端點沒問題（伺服器端抓取不受 CORS 限制）。
 
