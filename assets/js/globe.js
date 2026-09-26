@@ -370,7 +370,7 @@ function setBase(b, silent) {
 }
 function updateAttr() {
   const tiles = patch && patch.visible && S.base !== 'plain' && tileAttrOn;
-  const parts = [T('credit'), S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : T('attrPlain')];
+  const parts = [T('credit') + ' · v' + WW.VERSION, S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : T('attrPlain')];
   if (tiles) parts.push(S.base === 'sat' ? T('attrTileSat') : T('attrTileRelief'));
   $('g-attr').textContent = parts.join(' · ');
 }
@@ -2412,7 +2412,8 @@ function showSources() {
     '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain)</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>' +
     '<h4>' + (zh ? '開發者與版權' : 'Developer & copyright') + '</h4><p>國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室<br>National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu<br>' +
     (zh ? '網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用。' : 'Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source listed above.') +
-    '<br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a> · <a href="standalone/windfarmTaiwan-standalone.html" download>' + (zh ? '下載單檔版 HTML' : 'Download the single-file HTML') + '</a></p>';
+    '<br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a> · <a href="standalone/windfarmTaiwan-standalone.html" download>' + (zh ? '下載單檔版 HTML' : 'Download the single-file HTML') + '</a>' +
+    '<br>' + (zh ? '網站版本 ' : 'Site version ') + '<a href="' + WW.changelogURL() + '" target="_blank" rel="noopener">v' + WW.VERSION + '</a>' + (zh ? '（點版本號看更新紀錄）' : ' (click for the changelog)') + '</p>';
   $('g-modal').classList.add('show');
   $('g-modalClose').focus();
 }

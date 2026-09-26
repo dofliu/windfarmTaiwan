@@ -10,7 +10,7 @@
 
 線上：`https://dofliu.github.io/windfarmTaiwan/`
 
-後續規劃與待辦見 [ROADMAP.md](./ROADMAP.md)、[TODO.md](./TODO.md)；各國風場資料覆蓋率與待查證項目見
+版本與更新紀錄見 [CHANGELOG.md](./CHANGELOG.md)（網站頁尾會顯示目前版本）；後續規劃與待辦見 [ROADMAP.md](./ROADMAP.md)、[TODO.md](./TODO.md)；各國風場資料覆蓋率與待查證項目見
 [docs/data-coverage.md](./docs/data-coverage.md)，逐筆刪除或修正的風場紀錄與理由見 [docs/data-cleanup.md](./docs/data-cleanup.md)；
 其他國家即時發電資料的可行性評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)。
 
@@ -116,8 +116,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版並 commit
 - `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
 - `ROADMAP.md` / `TODO.md` — 已知限制、後續規劃與待辦事項
+- `CHANGELOG.md` — 版本與更新紀錄（版本號是 `assets/js/core.js` 的 `WW.VERSION`）
 
-所有說明文件都有英文版（`README.en.md`、`DEPLOY.en.md`、`ROADMAP.en.md`、`TODO.en.md`、`docs/*.en.md`）。
+所有說明文件都有英文版（`README.en.md`、`DEPLOY.en.md`、`ROADMAP.en.md`、`TODO.en.md`、`CHANGELOG.en.md`、`docs/*.en.md`）。
 
 ## 啟用步驟（只剩這些要你做）
 
@@ -139,7 +140,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - **離線時**：全球資料、約 2.3 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
   並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網。
 - **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建；
-  本機也可以執行 `python3 tools/build_standalone.py`。分享按鈕在單檔版一律分享正式網站的網址。
+  本機也可以執行 `python3 tools/build_standalone.py`（`WW.VERSION` 在兩份 CHANGELOG 沒有對應段落時會中止）。
+  頁尾標示版本號、建置時間與 commit。分享按鈕在單檔版一律分享正式網站的網址。
 
 ## 注意事項
 
