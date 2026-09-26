@@ -34,18 +34,17 @@ ADD  TWN pre-construction Huanyang Offshore wind farm 440.0 y2028
 ADD  TWN pre-construction Kouhu wind farm 71.0 y0
 ADD  TWN pre-construction Mei Sen wind farm 240.0 y2028
 ADD  TWN pre-construction Taichung Fengmiao Floating wind farm 1100.0 y2027
-DROP JPN construction Goto City (Chubu Electric Power) Offshore Floating wind farm 17.0 ~ Goto Sakiyama floating 16.8
+DROP JPN construction Goto City (Chubu Electric Power) Offshore Floating wind farm 17.0 ~ Goto City Offshore floating project 16.8
 DROP JPN construction Kitakyushu Hibikinada Offshore wind farm 220.0 ~ Kitakyushu Hibikinada 220.0
 DROP JPN operating Akita Noshiro Offshore wind farm 84.0 ~ Noshiro Port 84.0
-DROP JPN operating Akita Port (Marubeni) Offshore wind farm 55.0 ~ Akita Port 55.0
-DROP JPN operating Ishikari Bay New Port offshore wind farm 112.0 ~ Ishikari Bay New Port 112.0
+DROP JPN operating Akita Port (Marubeni) Offshore wind farm 55.0 ~ Akita Port 54.6
+DROP JPN operating Ishikari Bay New Port offshore wind farm 112.0 ~ Ishikari Bay New Port 99.9
 DROP JPN operating Kamisu wind farm 10.0 ~ Kamisu Phase 1 (Wind Power Ibaraki) 14.0
 DROP JPN operating Koriyama Nunobiki-Kogen wind farm 66.0 ~ Eurus Nunobiki Kogen 66.0
 DROP JPN operating New Aoyama-Kogen wind farm 80.0 ~ Shin Aoyama Kogen 80.0
 DROP JPN operating Noshiro City (Marubeni) Offshore wind farm 140.0 ~ Noshiro Port 84.0
 DROP JPN operating Shin Izumo wind farm 78.0 ~ Shin-Izumo 78.0
 DROP JPN operating Tomamae Greenhill Wind Park 20.0 ~ Tomamae Winvilla 30.6
-DROP JPN operating Tomamae Winvilla wind farm 34.0 ~ Tomamae Winvilla 30.6
 DROP JPN operating Tomamae wind farm 20.0 ~ Tomamae Winvilla 30.6
 DROP TWN construction Greater Changhua Northwest wind farm 583.0 ~ Greater Changhua 2b & 4 920.0
 DROP TWN construction Hai Long Offshore wind farm 1044.0 ~ Hai Long 2 & 3 1044.0
@@ -79,3 +78,44 @@ DROP TWN operating Yunlin Mailiao wind farm 46.0 ~ Yunmai (Mailiao) 46.0
 DROP TWN operating Zhong Neng wind farm 300.0 ~ Zhong Neng 298.0
 DROP TWN operating Zhunan wind farm 15.0 ~ Zhunan 6.9
 DROP TWN pre-construction Sihu (Kewei) wind farm 25.0 ~ Sihu 28.0
+JP-COORD Azumakogen wind farm moved 107 km to Adumakogen Wind Farm
+JP-COORD Chitose wind farm moved 50 km to Riene Rokkasho Chitose Wind Farm
+JP-COORD Esashi (Eurus) wind farm moved 6 km to Esashi Wind Farm (repowered)
+JP-COORD Hirokawa･Hidakagawa wind farm moved 18 km to Hirokawa-Hidakagawa
+JP-COORD Ikata wind farm moved 10 km to Ikata Wind
+JP-COORD Ishikari Hachinosaw wind farm moved 18 km to Ishikari Hachinosawa Wind Farm
+JP-COORD Iwaya (Eurus) wind farm moved 7 km to Iwaya Ecopower
+JP-COORD Kakegawa wind farm moved 725 km to Kakegawa Wind Farm
+JP-COORD Kaminokuni No.2 wind farm moved 8 km to Kaminokuni No.2 Wind Farm
+JP-COORD Kuzumaki No.2 wind farm moved 95 km to Kuzumaki No.2 Wind Farm
+JP-COORD Matsumae wind farm moved 187 km to Riene Matsumae Wind Farm
+JP-COORD Miyagi Kami wind farm moved 11 km to JRE Miyagi Kami-machi Wind Farm
+JP-COORD Mutsu Ogawara wind farm moved 6 km to Mutsu-Ogawara
+JP-COORD Nakasato wind farm moved 26 km to Nakasato Wind Farm
+JP-COORD Rokkasho-Mura wind farm moved 50 km to Rokkasho-mura Wind Farm (JWD)
+JP-COORD Shingo Village Wind Power Plant moved 16 km to Shingo-mura Wind Farm
+JP-COORD Shiribetsu wind farm moved 703 km to Shiribetsu Wind Farm
+JP-COORD Toyotomi wind farm moved 245 km to Wind Farm Toyotomi
+JP-COORD Tsuruoka Hachimorimama wind farm moved 14 km to JRE Tsuruoka Hachimoriyama Wind Farm
+JP-COORD Ueno/Hikawara wind farm moved 8 km to Ueno-Hikawara Wind Farm (Shinato no Kaze)
+JP-COORD Wakami wind farm moved 351 km to Wakami Wind Farm
+JP-COORD Yokohama-machi (JWD) wind farm moved 9 km to Yokohama-machi Wind Farm
+JP-UPG Abukuma Wind Farm -> Abukuma wind power plant y2025
+PIPE-ADD JPN Enoshima-Saikai st2 y2029
+PIPE-ADD JPN Noshiro-Mitane-Oga (re-tender) st2 y2032
+PIPE-ADD TWN Fengmiao 2 st2 y2029
+PIPE-ADD TWN Greater Changhua Northeast st2 y2030
+PIPE-ADD TWN YouDe st2 y2029
+PIPE-UPD JPN Akita Yurihonjo (re-tender) -> Yurihonjo (Mitsubishi) Offshore wind farm st2 y2032
+PIPE-UPD JPN Aomori Sea of Japan South -> Aomori South and North - RWE offshore wind farm st3 y2030
+PIPE-UPD JPN Choshi (re-tender) -> Choshi Offshore wind farm st2 y2032
+PIPE-UPD JPN Happo-Noshiro -> Happou Noshiro offshore wind farm st3 y2029
+PIPE-UPD JPN Murakami-Tainai -> Murakami Offshore wind farm st3 y2029
+PIPE-UPD JPN Oga-Katagami-Akita -> Katagami-Oga-Akita Offshore wind farm st2 y2028
+PIPE-UPD JPN Yuza -> Yamagata Prefecture Yuza Offshore wind farm st3 y2030
+PIPE-UPD TWN DeShuai -> DeShuai st2 y2029
+PIPE-UPD TWN Fengmiao 1 -> Fengmiao 1 st1 y2027
+PIPE-UPD TWN Formosa 4 -> Formosa 4 st2 y2028
+PIPE-UPD TWN Formosa 6 -> Formosa 6 st2 y2029
+PIPE-UPD TWN Haiding 1 (Formosa 3) -> Haiding 1 (Formosa 3) st2 y2029
+PIPE-UPD TWN Huanyang -> Huanyang st2 y2028

@@ -38,11 +38,16 @@ const I18N = {
     liveNow: '此刻即時出力', liveSee: '看即時詳情', availability: '可用率', open: '開啟', more: '顯示更多', search: '搜尋風場名稱',
     fAll: '全部', fOp: '營運中', fPipe: '規劃中', sortMw: '依容量', sortYear: '依年份',
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
-    profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場', profPipe: '規劃中（GEM 2025-02）',
+    profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
     attrPlain: '國界：Natural Earth', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
-    worldCap: '年底累計裝置容量'
+    worldCap: '年底累計裝置容量',
+    pipeTab: '規劃', pipeHead: '規劃中與興建中專案', gemTotals: 'GEM 2026-02 開發管線（各國總量）',
+    pipeCaveat: '狀態與時程會變動，座標多為概略位置。逐案資料：GEM 2025-02＋2026 年 9 月整理的清單（台灣第三階段區塊開發、歐洲大型離岸案等）；各國總量：GEM 2026-02。',
+    pipeLegendT: '規劃中（虛線環）', pipeInData: (n, mw) => `資料中逐案 ${n} 案 · ${mw}`, pipeSee: '看規劃清單 →',
+    coverage: '逐場資料覆蓋率', covMapped: '已逐場標示', covGap: '差額（未逐場標示）', covOver: '風場加總高於國家統計（口徑不同）',
+    lnkSrc: '來源', tbd: '時程未定', auditSrc: '官方統計稽核'
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
@@ -69,11 +74,16 @@ const I18N = {
     liveNow: 'Live output now', liveSee: 'Live details', availability: 'availability', open: 'Open', more: 'Show more', search: 'Search farms',
     fAll: 'All', fOp: 'Operating', fPipe: 'Pipeline', sortMw: 'By size', sortYear: 'By year',
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
-    profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm', profPipe: 'Pipeline (GEM Feb 2025)',
+    profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
     attrPlain: 'Borders: Natural Earth', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
-    worldCap: 'Year-end cumulative installed capacity'
+    worldCap: 'Year-end cumulative installed capacity',
+    pipeTab: 'Pipeline', pipeHead: 'Projects in the pipeline', gemTotals: 'GEM pipeline, Feb 2026 (country totals)',
+    pipeCaveat: 'Status and timing change often; coordinates are mostly approximate. Projects: GEM Feb 2025 + a list curated in Sep 2026 (Taiwan Round 3, large European offshore, etc.); country totals: GEM Feb 2026.',
+    pipeLegendT: 'Pipeline (dashed rings)', pipeInData: (n, mw) => `${n} projects in the data · ${mw}`, pipeSee: 'Pipeline list →',
+    coverage: 'Farm-level coverage', covMapped: 'Mapped', covGap: 'Gap (not mapped)', covOver: 'Farm sum exceeds the national total (different scope)',
+    lnkSrc: 'Source', tbd: 'timing TBD', auditSrc: 'Official statistics audit'
   }
 };
 let lang = WW.lang;
@@ -103,12 +113,13 @@ host.innerHTML = `
     <div id="g-yearBig">1980<small></small></div>
     <div id="g-worldStat"></div>
     <div id="g-msPanel">
-      <div class="ph"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" data-gi="profTab"></button><button id="g-tabMs" type="button" class="active" data-gi="msTitle"></button><button id="g-tabFarms" type="button" data-gi="farmsTab"></button></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div>
+      <div class="ph"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" data-gi="profTab"></button><button id="g-tabMs" type="button" class="active" data-gi="msTitle"></button><button id="g-tabFarms" type="button" data-gi="farmsTab"></button><button id="g-tabPipe" type="button" data-gi="pipeTab"></button></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div>
       <div class="gpbody prof" id="g-profBody" hidden></div>
       <div class="gpbody" id="g-msList"></div>
       <div class="gpbody" id="g-farmList" hidden></div>
+      <div class="gpbody" id="g-pipeList" hidden></div>
     </div>
-    <div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -193,17 +204,18 @@ function expandFarms(J) {
   const TY = ['onshore', 'offshore', 'floating'];
   D.farms = J.rows.map(r => {
     const f = { name: r[0], zh: r[1] || null, iso: r[2], lat: r[3], lon: r[4], mw: r[5], year: r[6], type: TY[r[7]] || 'onshore', st: r[8],
-      end: r[9] || null, owner: r[10] || null, turbine: r[11] || null, flags: r[12], src: r[13], ph: r[14] || null };
+      end: r[9] || null, owner: r[10] || null, turbine: r[11] || null, flags: r[12], src: r[13], ph: r[14] || null, note: r[15] || null, url: r[16] || null };
     if (f.flags & 2) { f.yu = true; f.year = Y1; }
     if (f.st >= 1 && f.st <= 3) f.pipe = true;
     if (f.st === 4 && !f.end) f.end = f.year + 20;
     return f;
   });
+  D.pipelineCuratedAsOf = J.meta && J.meta.pipeline_curated_asof;
   farmsByIso = {};
   D.farms.forEach(f => { (farmsByIso[f.iso] = farmsByIso[f.iso] || []).push(f); });
   farmsReady = true;
   farmLayerDirty = true;
-  renderFarmList(true); renderProfile();
+  renderFarmList(true); renderProfile(); renderPipeList(true);
   if (pendingParams) { const p = pendingParams; pendingParams = null; applyParams(p, true); }
 }
 function notice(msg, ms) {
@@ -492,7 +504,7 @@ function updatePatch(now) {
 }
 
 /* ================= symbols: turbines, milestones, farm layer, clusters ================= */
-let towerGeo, nacGeo, hubGeo, bladeGeo, ringGeo, discGeo, rotorGeo, dashRingGeo, thinRingGeo;
+let towerGeo, nacGeo, hubGeo, bladeGeo, ringGeo, discGeo, rotorGeo, dashRingGeo, thinRingGeo, thinDashGeo;
 const COL = { on: 0xB8892F, onB: 0xe3b458, off: 0x3B8FE0, offB: 0x6fb3ff, fl: 0x1f9e8a, flB: 0x9be8d8 };
 let surfaceRoot, countryRoot, msRoot, clusterRoot;
 const cGroups = [];
@@ -557,6 +569,14 @@ function buildSymbols() {
     on: { disc: new THREE.MeshBasicMaterial({ color: COL.on, transparent: true, opacity: 0.16, depthWrite: false }), ring: new THREE.MeshBasicMaterial({ color: COL.on, transparent: true, opacity: 0.55, depthWrite: false }), tower: new THREE.MeshPhongMaterial({ color: 0xe6ebf2 }), nac: new THREE.MeshPhongMaterial({ color: COL.on }), blade: new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: COL.onB, emissiveIntensity: 0.18 }) },
     off: { disc: new THREE.MeshBasicMaterial({ color: COL.off, transparent: true, opacity: 0.16, depthWrite: false }), ring: new THREE.MeshBasicMaterial({ color: COL.off, transparent: true, opacity: 0.6, depthWrite: false }), tower: new THREE.MeshPhongMaterial({ color: 0xe6ebf2 }), nac: new THREE.MeshPhongMaterial({ color: COL.off }), blade: new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: COL.offB, emissiveIntensity: 0.18 }) }
   };
+  // 規劃中專案拉近時畫成半透明「預定配置」：風機不轉，外圈為依狀態上色的虛線
+  const ghost = () => new THREE.MeshPhongMaterial({ color: 0xdfe6f0, transparent: true, opacity: 0.38, depthWrite: false });
+  [1, 2, 3].forEach(st => {
+    clusterMats['p' + st] = { disc: new THREE.MeshBasicMaterial({ color: PIPE_HEX[st], transparent: true, opacity: 0.06, depthWrite: false }),
+      ring: new THREE.MeshBasicMaterial({ color: PIPE_HEX[st], transparent: true, opacity: 0.9, depthWrite: false, side: THREE.DoubleSide }),
+      tower: ghost(), nac: ghost(), blade: ghost() };
+  });
+  thinDashGeo = mergeGeos([...Array(36)].map((_, i) => [new THREE.RingGeometry(0.96, 1, 3, 1, i * Math.PI / 18, Math.PI / 18 * 0.55), new THREE.Matrix4()])); thinDashGeo.rotateX(-Math.PI / 2);
 }
 
 /* ---------------- farm layer: InstancedMesh（營運中一組、規劃中一組） ---------------- */
@@ -724,7 +744,7 @@ function farmAlt(f) { const sp = turbSpec(f); return clamp(sp.extent * KM * 3.0,
 function seeded(str) { let h = 2166136261; for (const ch of str) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return () => { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; return ((h >>> 0) % 10000) / 10000; }; }
 const clusters = new Map();
 function makeCluster(f) {
-  const sp = turbSpec(f), kind = f.type === 'onshore' ? 'on' : 'off', mats = clusterMats[kind];
+  const sp = turbSpec(f), kind = f.pipe ? 'p' + f.st : f.type === 'onshore' ? 'on' : 'off', mats = clusterMats[kind];
   const rnd = seeded(f.name + f.lat);
   const r = Math.ceil(Math.sqrt(sp.n)) + 2, pts = [];
   for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) { const x = i + (j & 1) * 0.5, z = j * 0.866; pts.push([x, z, x * x + z * z]); }
@@ -737,7 +757,7 @@ function makeCluster(f) {
   [tower, nac, rotor].forEach(m => { m.userData.farm = f; m.instanceMatrix.needsUpdate = true; });
   const g = new THREE.Group(); g.add(tower, nac, rotor);
   let rad = 0; P.forEach(p => { rad = Math.max(rad, Math.hypot(p[0], p[1])); }); rad += sp.spacing * KM * 0.8;
-  const disc = new THREE.Mesh(discGeo, clusterMats[kind].disc), ring = new THREE.Mesh(thinRingGeo, clusterMats[kind].ring);
+  const disc = new THREE.Mesh(discGeo, clusterMats[kind].disc), ring = new THREE.Mesh(f.pipe ? thinDashGeo : thinRingGeo, clusterMats[kind].ring);
   disc.scale.set(rad / 0.75, 1, rad / 0.75); ring.scale.set(rad, 1, rad); disc.position.y = ring.position.y = h * 0.02;
   disc.userData.farm = f; g.add(disc, ring);
   g.userData = { f, P, h, tower, nac, rotor, disc, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
@@ -756,12 +776,12 @@ function updateClusters(now, force) {
     const rad = Math.max(0.35, alt * 0.6 * 2.6);
     const cands = [];
     for (const f of D.farms) {
-      if (f.pipe || !farmActive(f, S.year) || !layerOk(f.type)) continue;
+      if (!farmActive(f, S.year) || !layerOk(f.type)) continue;          // 規劃中：開啟「規劃中」且在時間軸終點才出現
       const dl = (f.lat - fc.lat), dn = (f.lon - fc.lon) * cosl, d = Math.sqrt(dl * dl + dn * dn);
       if (d < rad + 0.15) cands.push([d, f]);
     }
     cands.sort((a, b) => a[0] - b[0]); cands.slice(0, 18).forEach(c => want.add(c[1]));
-    if (focusFarm && !focusFarm.pipe && farmActive(focusFarm, S.year)) want.add(focusFarm);
+    if (focusFarm && farmActive(focusFarm, S.year)) want.add(focusFarm);
   }
   clusters.forEach((g, f) => { if (!want.has(f)) removeCluster(f); });
   want.forEach(f => { if (!clusters.has(f)) clusters.set(f, makeCluster(f)); });
@@ -769,9 +789,9 @@ function updateClusters(now, force) {
 function animateClusters(dt) {
   clusters.forEach((g, f) => {
     const u = g.userData, n = u.P.length;
-    const built = f.yu ? n : clamp(Math.ceil(n * fAge(f) / BUILD), 0, n);
+    const built = (f.yu || f.pipe) ? n : clamp(Math.ceil(n * fAge(f) / BUILD), 0, n);
     if (built !== u.count) { u.count = built; u.tower.count = built; u.nac.count = built; u.rotor.count = built; }
-    u.ang += dt * 1.6;
+    if (!f.pipe) u.ang += dt * 1.6;
     _s.set(u.h, u.h, u.h);
     for (let i = 0; i < built; i++) { _p3.set(u.P[i][0], u.h, u.P[i][1] + 0.12 * u.h); _q.setFromAxisAngle(_zAxis, u.ang + u.phase[i]); _m4.compose(_p3, _q, _s); u.rotor.setMatrixAt(i, _m4); }
     u.rotor.instanceMatrix.needsUpdate = true;
@@ -871,6 +891,22 @@ function syncRenderCamera(dt) {
   if (Math.abs(camera.near - near) > near * 0.05 || camera.far !== far) { camera.near = near; camera.far = far; camera.updateProjectionMatrix(); }
 }
 
+/* 自動旋轉：以秒計速（與畫面更新率無關），任何範圍、兩種模式都有效。
+   3D 地球繞地軸由西向東自轉，全球視角約 60 秒一圈，拉近時等比放慢，畫面上的移動速度維持一致；
+   2.5D 平面則繞畫面中心緩慢旋轉。拖曳、飛行途中與導覽時暫停。 */
+const _qs = new THREE.Quaternion(), _sv = new THREE.Vector3();
+function autoSpin(dt) {
+  if (S.mode === 'globe') {
+    const degPerSec = 6 * clamp(curAlt() / 320, 0.0005, 1.5);
+    _qs.setFromAxisAngle(UP, -degPerSec * D2R * dt);
+    vcam.position.applyQuaternion(_qs);
+  } else {
+    _qs.setFromAxisAngle(UP, 5 * D2R * dt);
+    _sv.copy(vcam.position).sub(controls.target).applyQuaternion(_qs);
+    vcam.position.copy(controls.target).add(_sv);
+  }
+}
+
 /* ================= mode switch ================= */
 let modeAnim = null;
 function setMode(m) {
@@ -908,7 +944,7 @@ function setRegion(r, noFly) {
   setHighlight(byIso[r] ? r : null);
   farmLayerDirty = true;
   focusFarm = null;
-  setPanelTab(byIso[r] ? 'prof' : 'ms');
+  setPanelTab(panelTab === 'pipe' || (panelTab === 'farms' && byIso[r]) ? panelTab : (byIso[r] ? 'prof' : 'ms'));
   if (!noFly) flyToRegion(false);
   updateBars(true); renderMilestones(true); renderProfile();
   syncURL();
@@ -916,12 +952,13 @@ function setRegion(r, noFly) {
 let panelTab = 'ms';
 function setPanelTab(t) {
   panelTab = t;
-  [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList']].forEach(([k, b, body]) => {
+  [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList'], ['pipe', 'g-tabPipe', 'g-pipeList']].forEach(([k, b, body]) => {
     $(b).classList.toggle('active', k === t); $(b).setAttribute('aria-selected', k === t ? 'true' : 'false'); $(body).hidden = k !== t;
   });
   $('g-tabProf').hidden = !(byIso[S.region] || S.region.startsWith('C:') || S.region === 'WORLD');
   if (t === 'farms') renderFarmList(true);
   if (t === 'prof') renderProfile();
+  if (t === 'pipe') renderPipeList(true);
 }
 
 /* ================= labels ================= */
@@ -950,7 +987,7 @@ function stop() { running = false; }
 function frame(now) {
   if (!running) return;
   requestAnimationFrame(frame);
-  const dt = Math.min(0.25, (now - S.lastT) / 1000 || 0); S.lastT = now;
+  const dt = Math.min(0.25, (now - S.lastT) / 1000 || 0); S.lastT = now; S.frames = (S.frames || 0) + 1;
 
   if (S.playing) { S.year += dt * S.speed; if (S.year >= Y1) { S.year = Y1; setPlaying(false); } syncYearUI(); }
   if (TOUR) tourTick(dt);
@@ -970,8 +1007,7 @@ function frame(now) {
     }
   };
   zoomFix();
-  controls.autoRotate = !camTween && !TOUR && S.rotate && S.mode === 'globe' && S.region === 'WORLD';
-  controls.autoRotateSpeed = 0.6;
+  if (S.rotate && !camTween && !TOUR && !modeAnim && !S.dragging) autoSpin(dt);
   const alt0 = curAlt();
   if (S.mode === 'globe') controls.rotateSpeed = clamp(0.0013 * alt0, 0.00008, 0.5);
   S.lastDist = vcam.position.length();
@@ -1054,7 +1090,8 @@ function frame(now) {
     if (g.userData.count <= 0 || f.pseudo) return;     // 里程碑的示意風場：由里程碑標籤代表
     g.getWorldPosition(tmpV);
     const isNew = !f.yu && fAge(f) < 1.5;
-    cands.push({ cat: f === focusFarm ? 'm' : (isNew ? 'n' : 'f'), pri: f.mw + (f === focusFarm ? 1e9 : 0), pos: tmpV.clone().addScaledVector(upAt(tmpV), g.userData.h * 2.2), name: fname(f), val: (f.yu ? '' : f.year + ' · ') + fmtMW(f.mw), cls: f === focusFarm ? 'focus' : (isNew ? 'fnew' : 'farm'), key: 'k' + f.name + f.lat });
+    const val = f.pipe ? T('st')[f.st] + (f.year ? ' · ' + T('expected') + ' ' + f.year : '') + ' · ' + fmtMW(f.mw) : (f.yu ? '' : f.year + ' · ') + fmtMW(f.mw);
+    cands.push({ cat: f === focusFarm ? 'm' : (isNew && !f.pipe ? 'n' : 'f'), pri: f.mw + (f === focusFarm ? 1e9 : 0) - (f.pipe ? 1e5 : 0), pos: tmpV.clone().addScaledVector(upAt(tmpV), g.userData.h * 2.2), name: fname(f), val, cls: f === focusFarm ? 'focus' : f.pipe ? 'pipe' : (isNew ? 'fnew' : 'farm'), key: 'k' + f.name + f.lat });
   });
   const tourMs = TOUR && TOUR.stops[TOUR.i] && TOUR.stops[TOUR.i].m;
   msMarkers.forEach(g => {
@@ -1129,6 +1166,11 @@ function updateHUD() {
   if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
   if (panelTab === 'farms') renderFarmList(false);
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
+  const lg = $('g-pipeLegend'), showLg = S.pipe && S.year >= Y1 - 0.02 && !!renderer && S.view !== 'bars' && farmsReady;
+  if (lg.hidden === showLg) {
+    lg.hidden = !showLg;
+    if (showLg) lg.innerHTML = '<span>' + T('pipeLegendT') + '</span>' + [1, 2, 3].map(k => '<span><i class="gsw dash p' + k + '"></i>' + T('st')[k] + '</span>').join('');
+  }
 }
 
 /* ================= side panel: milestones, farms, profile ================= */
@@ -1190,6 +1232,65 @@ function renderFarmList(force) {
     m.onclick = () => { FL_UI.limit += 300; renderFarmList(true); }; box.appendChild(m);
   }
 }
+/* 規劃中清單（規劃分頁）：範圍內逐案專案，依狀態、預計年份、容量排序；上方是逐案合計與 GEM 2026-02 各國總量 */
+const PL_UI = { st: 0, q: '', limit: 150 };
+let pipeRendered = '';
+function gemTotalsFor(region) {
+  const P = D.pipelineTotals; if (!P) return null;
+  if (region === 'WORLD') return P.world;
+  const out = { operating: 0, construction: 0, preconstruction: 0, announced: 0 };
+  C.filter(c => inScope(c.iso, region)).forEach(c => { const g = P.byIso[c.iso]; if (g) for (const k in out) out[k] += g[k] || 0; });
+  return out;
+}
+function pipeBar(g) {
+  const parts = [['construction', 1], ['preconstruction', 2], ['announced', 3]];
+  const tot = parts.reduce((a, [k]) => a + (g[k] || 0), 0);
+  if (!tot) return '';
+  return '<div class="pbar" role="img" aria-label="' + esc(parts.map(([k, st]) => T('st')[st] + ' ' + fmtMW(g[k] || 0)).join(', ')) + '">' +
+    parts.map(([k, st]) => g[k] ? '<i class="p' + st + '" style="flex:' + g[k] + '"></i>' : '').join('') + '</div>' +
+    '<div class="pleg">' + parts.map(([k, st]) => '<span><i class="gsw dash p' + st + '"></i>' + T('st')[st] + ' <b>' + fmtMW(g[k] || 0) + '</b></span>').join('') + '</div>';
+}
+function renderPipeList(force) {
+  if (panelTab !== 'pipe') return;
+  const box = $('g-pipeList');
+  if (!farmsReady) { box.innerHTML = '<div class="gnote">' + T('farmsLoading') + '</div>'; return; }
+  const all = D.farms.filter(f => f.pipe && inScope(f.iso) && layerOk(f.type));
+  const cnt = [0, 0, 0, 0], mw = [0, 0, 0, 0];
+  all.forEach(f => { cnt[f.st]++; mw[f.st] += f.mw; });
+  let list = PL_UI.st ? all.filter(f => f.st === PL_UI.st) : all;
+  if (PL_UI.q) { const q = PL_UI.q.toLowerCase(); list = list.filter(f => (f.name + ' ' + (f.zh || '') + ' ' + (f.owner || '')).toLowerCase().includes(q)); }
+  const key = [S.region, S.layer, PL_UI.st, PL_UI.q, PL_UI.limit, lang, list.length].join('|');
+  if (!force && key === pipeRendered) return; pipeRendered = key;
+  list.sort((a, b) => a.st - b.st || (a.year || 9999) - (b.year || 9999) || b.mw - a.mw);
+  const g = gemTotalsFor(S.region);
+  box.innerHTML = '';
+  const head = document.createElement('div'); head.className = 'phead';
+  head.innerHTML = '<h4>' + esc(scopeName()) + '</h4><div class="gnote">' + T('pipeHead') + ' · ' + T('pipeInData')(cnt[1] + cnt[2] + cnt[3], fmtMW(mw[1] + mw[2] + mw[3])) + '</div>' +
+    pipeBar({ construction: mw[1], preconstruction: mw[2], announced: mw[3] }) +
+    (g ? '<div class="pipeh">' + T('gemTotals') + '</div><div class="gnote">' + L('營運中', 'Operating') + ' ' + fmtMW(g.operating) + '</div>' + pipeBar(g) : '') +
+    '<div class="gnote" style="margin-top:6px">' + T('pipeCaveat') + '</div>';
+  box.appendChild(head);
+  const ctl = document.createElement('div'); ctl.style.cssText = 'display:flex;flex-direction:column;gap:6px';
+  ctl.innerHTML = '<input type="search" id="g-pq" placeholder="' + esc(T('search')) + '" value="' + esc(PL_UI.q) + '"><div class="gchips">' +
+    [0, 1, 2, 3].map(k => '<button type="button" data-ps="' + k + '" class="' + (PL_UI.st === k ? 'active' : '') + '">' + (k ? T('st')[k] + ' ' + cnt[k] : T('fAll')) + '</button>').join('') + '</div>';
+  box.appendChild(ctl);
+  const q = ctl.querySelector('#g-pq');
+  q.oninput = () => { PL_UI.q = q.value.trim(); PL_UI.limit = 150; renderPipeList(true); const nq = $('g-pq'); if (nq) { nq.focus(); nq.setSelectionRange(nq.value.length, nq.value.length); } };
+  ctl.querySelectorAll('[data-ps]').forEach(b => b.onclick = () => { PL_UI.st = +b.dataset.ps; PL_UI.limit = 150; renderPipeList(true); });
+  list.slice(0, PL_UI.limit).forEach(f => {
+    const d = document.createElement('button'); d.type = 'button'; d.className = 'msItem pipe';
+    const c = byIso[f.iso];
+    d.innerHTML = '<span class="y">' + (f.year ? esc(String(f.year)) : '—') + '</span><span class="n">' + esc(fname(f)) + '</span>' +
+      '<span class="t"><span class="gtag p' + f.st + '">' + T('st')[f.st] + '</span>' + (byIso[S.region] ? '' : esc(c ? cname(c) : f.iso) + ' · ') + fmtMW(f.mw) +
+      (f.owner ? ' · ' + esc(f.owner) : '') + (f.year ? '' : ' · ' + T('tbd')) + '</span>';
+    d.onclick = () => selectFarm(f);
+    box.appendChild(d);
+  });
+  if (list.length > PL_UI.limit) {
+    const m = document.createElement('button'); m.type = 'button'; m.className = 'gmore'; m.textContent = T('more') + ` (${list.length - PL_UI.limit})`;
+    m.onclick = () => { PL_UI.limit += 300; renderPipeList(true); }; box.appendChild(m);
+  }
+}
 /* 國家概況：自動由資料計算＋主要國家的簡介 */
 const NOTE = {
   CHN: ['全球最大的風電市場。2005 年《可再生能源法》後快速成長，在甘肅、新疆、內蒙古等地建設大型風電基地；2021 年起也是離岸風電第一大國，江蘇、廣東、福建沿海是主要場址。', "The world's largest wind market. Growth took off after the 2005 Renewable Energy Law, with giant wind bases in Gansu, Xinjiang and Inner Mongolia; since 2021 China is also the largest offshore market, led by Jiangsu, Guangdong and Fujian."],
@@ -1231,7 +1332,9 @@ function renderProfile() {
     box.innerHTML = `<h4>${esc(scopeName())}</h4><div class="sub">${y} · ${T('worldCap')}</div>
       <div class="big">${WW.int(on[yi] + off[yi])}<small>MW</small></div>${sparkSVG(on, off, yi)}
       ${rowsHTML([[T('profOnOff'), `${WW.int(on[yi])} / ${WW.int(off[yi])}`], ...top.map((c, k) => [`#${k + 1} ${esc(cname(c))}`, WW.int(c.on[yi] + c.off[yi])])])}
+      ${pipeBlock(S.region)}
       <div class="gnote" style="margin-top:8px">${L('在「範圍」選一個國家，可看該國概況、風場與規劃中專案。', 'Pick a country in “Focus” to see its profile, farms and pipeline.')}</div>`;
+    const ps0 = box.querySelector('[data-act="pipe"]'); if (ps0) ps0.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
     return;
   }
   const c = byIso[S.region];
@@ -1248,9 +1351,7 @@ function renderProfile() {
     const fr = [[T('profFarms'), L(`${op.length} 座 · ${fmtMW(op.reduce((s, f) => s + farmMwAt(f, S.year), 0))}`, `${op.length} · ${fmtMW(op.reduce((s, f) => s + farmMwAt(f, S.year), 0))}`)]];
     if (big) fr.push([T('profLargest'), `<a href="#" data-farm="${esc(big.name)}">${esc(fname(big))}</a> · ${fmtMW(big.mw)}`]);
     if (early) fr.push([T('profEarliest'), `<a href="#" data-farm="${esc(early.name)}">${esc(fname(early))}</a> · ${early.year}`]);
-    const ps = [1, 2, 3].map(s => { const l = fl.filter(f => f.st === s); return [l.length, l.reduce((a, f) => a + f.mw, 0)]; });
-    farmsHTML = rowsHTML(fr);
-    if (ps.some(p => p[0])) farmsHTML += `<div class="pipeh">${T('profPipe')}</div>` + rowsHTML(ps.map((p, k) => p[0] ? [`<span class="gtag p${k + 1}">${T('st')[k + 1]}</span>`, L(`${p[0]} 案 · ${WW.int(p[1])} MW`, `${p[0]} · ${WW.int(p[1])} MW`)] : null).filter(Boolean));
+    farmsHTML = rowsHTML(fr) + coverageBox(op.reduce((a, f) => a + farmMwAt(f, S.year), 0), tot);
   } else if (!farmsReady) farmsHTML = '<div class="gnote" style="margin-top:8px">' + T('farmsLoading') + '</div>';
   const note = NOTE[c.iso] ? `<div class="blurb">${esc(NOTE[c.iso][lang === 'en' ? 1 : 0])}</div>` : '';
   let live = '';
@@ -1259,11 +1360,38 @@ function renderProfile() {
     live = `<div class="livebox">🌬 ${T('liveNow')}：<b>${WW.int(Tt.total)} MW</b>（${WW.live.isLive() ? L('台電', 'Taipower') + ' ' + WW.live.fmtSrc(WW.live.srcTime()) : L('模擬', 'simulated')}）· ${T('availability')} ${(Tt.ratio * 100).toFixed(1)}%</div>`;
   }
   box.innerHTML = `<h4>${esc(cname(c))}</h4><div class="sub">${esc(T('cont')[c.cont] || c.cont)} · ${y}</div>
-    <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${rowsHTML(rows)}${live}${note}${farmsHTML}
+    <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${rowsHTML(rows)}${auditBox(c.iso)}${live}${note}${farmsHTML}${pipeBlock(c.iso)}
     <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button>${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
   box.querySelectorAll('[data-farm]').forEach(a => a.onclick = e => { e.preventDefault(); const f = D.farms.find(x => x.name === a.dataset.farm && x.iso === c.iso); if (f) selectFarm(f); });
   box.querySelector('[data-act="tour"]').onclick = () => tourStart();
   box.querySelector('[data-act="farms"]').onclick = () => setPanelTab('farms');
+  const ps1 = box.querySelector('[data-act="pipe"]'); if (ps1) ps1.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
+}
+/* 逐場資料覆蓋率：已逐場標示的營運中容量 ÷ 國家年底統計；差額明白列出，不補虛構風場 */
+function coverageBox(mapped, national) {
+  if (!national) return '';
+  const pct = mapped / national * 100;
+  return '<div class="cov"><div class="covh"><span>' + T('coverage') + '</span><b>' + pct.toFixed(0) + '%</b></div>' +
+    '<div class="covr" role="img" aria-label="' + T('coverage') + ' ' + pct.toFixed(0) + '%"><i style="width:' + Math.min(100, pct).toFixed(1) + '%"></i></div>' +
+    '<div class="covm"><span>' + T('covMapped') + ' ' + fmtMW(mapped) + '</span><span>' + (pct > 100.5 ? T('covOver') : T('covGap') + ' ' + fmtMW(Math.max(0, national - mapped))) + '</span></div></div>';
+}
+/* 台灣、日本：官方統計稽核標記與來源 */
+function auditBox(iso) {
+  const a = D.audit && D.audit[iso]; if (!a) return '';
+  const zh = lang === 'zh';
+  return '<div class="audit"><b>✓ ' + esc(zh ? a.badgeZh : a.badgeEn) + '</b> · ' + esc(zh ? a.periodZh : a.periodEn) +
+    '<div class="gnote" style="margin-top:3px">' + esc(zh ? a.methodZh : a.methodEn) + '</div><div class="alinks">' +
+    (a.sources || []).map(x => '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.name) + '</a>').join('') + '</div></div>';
+}
+/* 規劃中區塊：逐案資料合計＋GEM 2026-02 總量 */
+function pipeBlock(region) {
+  if (!farmsReady) return '';
+  const fl = D.farms.filter(f => f.pipe && inScope(f.iso, region));
+  const n = fl.length, mw = fl.reduce((a, f) => a + f.mw, 0);
+  const g = gemTotalsFor(region);
+  if (!n && !(g && (g.construction || g.preconstruction || g.announced))) return '';
+  return '<div class="pipeh">' + T('gemTotals') + '</div>' + (g ? pipeBar(g) : '') +
+    '<div class="gnote" style="margin-top:4px">' + T('pipeInData')(n, fmtMW(mw)) + ' · <a href="#" data-act="pipe">' + T('pipeSee') + '</a></div>';
 }
 
 /* ================= bar chart race（MW） ================= */
@@ -1351,6 +1479,7 @@ function wikiLookup(it) {
 }
 
 /* ================= items (farm / milestone) and info card ================= */
+const noteOf = f => f && f.note ? (lang === 'en' ? (f.note[1] || f.note[0]) : (f.note[0] || f.note[1])) : '';
 function farmItem(f, why) { return { kind: 'farm', f, name: f.name, zh: f.zh, lat: f.lat, lon: f.lon, year: f.year, end: f.end, type: f.type, mw: f.mw, turbine: f.turbine, owner: f.owner, iso: f.iso, why }; }
 function msPseudoFarm(m) {
   let best = null, bs = 0;
@@ -1402,11 +1531,13 @@ function renderCard(it) {
   let links = '<a href="https://www.google.com/maps/@' + it.lat + ',' + it.lon + ',' + (it.kind === 'ms' && !(it.m.farm) ? 14 : 11) + 'z/data=!3m1!1e3" target="_blank" rel="noopener">' + T('lnkMap') + '</a>' +
     '<a href="https://www.google.com/search?tbm=isch&q=' + q + '" target="_blank" rel="noopener">' + T('lnkPhoto') + '</a>';
   if (f && f.src === 2) links += '<a href="https://www.gem.wiki/' + encodeURIComponent(f.name.replace(/ · .*$/, '').replace(/ /g, '_')) + '" target="_blank" rel="noopener">' + T('lnkGem') + '</a>';
+  if (f && f.url) links += '<a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + T('lnkSrc') + '</a>';
   card.querySelector('.cb').innerHTML =
     '<div class="gph" hidden><img alt=""><span class="cr">' + T('photoCredit') + '</span></div>' +
     '<div class="kick">' + tag + esc(String(yrs)) + ' · ' + esc(cn) + '</div>' +
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
     (spec ? '<div class="spec">' + spec + '</div>' : '') + (desc ? '<p class="desc">' + esc(desc) + '</p>' : '') +
+    (noteOf(f) ? '<p class="fnote">' + esc(noteOf(f)) + '</p>' : '') +
     (f ? liveBoxFor(f) : (it.farm ? liveBoxFor(it.farm) : '')) +
     '<p class="wx">' + T('wikiLoading') + '</p><div class="links">' + links + '</div>';
   card.classList.add('show');
@@ -1528,6 +1659,7 @@ function tipFarm(f, w) {
     '<b>' + esc(fname(f)) + '</b>' + (f.zh && lang === 'zh' ? '<br><span style="color:var(--ink-2)">' + esc(f.name) + '</span>' : '') +
     '<br><i class="gsw" style="background:' + col + '"></i>' + T('type')[f.type] + ' · ' + esc(String(when)) +
     '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
+    (noteOf(f) ? '<div class="tnote">' + esc(noteOf(f).length > 140 ? noteOf(f).slice(0, 140) + '…' : noteOf(f)) + '</div>' : '') +
     '<div class="hint2">' + T('clickMore') + '</div>';
 }
 function tipMs(m) { return '<b>★ ' + esc(m.name) + '</b><br>' + m.year + ' · ' + T('type')[m.type] + '<br><span style="color:var(--ink-2)">' + esc(lang === 'zh' ? m.zh : m.en) + '</span><div class="hint2">' + T('clickMore') + '</div>'; }
@@ -1593,9 +1725,9 @@ function setView(v) {
 function togglePipe(on) {
   S.pipe = on != null ? on : !S.pipe; WW.store.set('ww_globe_pipe', S.pipe ? '1' : '0');
   const b = $('g-btnPipe'); b.classList.toggle('active', S.pipe); b.setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
-  farmLayerDirty = true; hudCache = '';
+  farmLayerDirty = true; hudCache = ''; updateClusters(0, true);
   if (S.pipe && S.year < Y1 - 0.02 && !S.playing) notice(T('pipeNote'), 3500);
-  renderFarmList(true);
+  renderFarmList(true); renderPipeList(true);
 }
 function applyI18n() {
   host.querySelectorAll('[data-gi]').forEach(el => { const v = T(el.dataset.gi); if (typeof v === 'string') el.textContent = v; });
@@ -1604,7 +1736,8 @@ function applyI18n() {
   document.querySelectorAll('#g-densSel option').forEach(o => { o.textContent = T('dens')[+o.value]; });
   $('g-hint').textContent = isTouch ? T('hintTouch') : T('hint');
   buildRegionSelect();
-  hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); updateAttr();
+  hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); updateAttr();
+  $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
 }
@@ -1613,8 +1746,8 @@ function showSources() {
   const li = arr => (arr || []).map(s => '<li>' + (/^https?:/.test(s) ? '<a href="' + esc(s.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(s) + '</a>' : esc(s)) + '</li>').join('');
   const zh = lang === 'zh';
   $('g-modalBody').innerHTML = '<h2>' + T('srcTitle') + '</h2>' +
-    (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，放大到接近地面時，風場會依機組數量與間距畫成一群風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（GEM 2025 年 2 月資料：越亮越接近完工）。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片與簡介於瀏覽時即時查詢維基百科，離線時不會顯示。</p>'
-        : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, and close to the ground each farm is drawn as a group of turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (GEM, February 2025: brighter = closer to completion). Most 1980–1999 country series are estimates. Farm photos and summaries are looked up live from Wikipedia.</p>') +
+    (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，放大到接近地面時，風場會依機組數量與間距畫成一群風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，拉近時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片與簡介於瀏覽時即時查詢維基百科，離線時不會顯示。</p>'
+        : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, and close to the ground each farm is drawn as a group of turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and zooming in shows the planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos and summaries are looked up live from Wikipedia.</p>') +
     '<h4>' + (zh ? '本站修正' : 'Corrections by this site') + '</h4><ul>' + li((D.meta && D.meta.edits) || []) + '<li>' + (zh ? '國界改以 Natural Earth 1:50m 重建（原資料缺澳洲本土；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭）；風場與 GEM 全球風電追蹤（2025-02，CC BY 4.0）合併並加入規劃中專案；GEM 同一場址相距 25 km 以上的分期分開標示，3 筆明顯的座標錯誤已修正。' : 'Borders rebuilt from Natural Earth 1:50m (the original lacked mainland Australia; Crimea shown as part of Ukraine per UN GA resolution 68/262); farms merged with the GEM Global Wind Power Tracker (Feb 2025, CC BY 4.0), adding pipeline projects; GEM phases more than 25 km apart are shown separately and three obvious coordinate errors were corrected.') + '</li></ul>' +
     '<h4>' + (zh ? '總容量 2000–2025' : 'Total capacity 2000–2025') + '</h4><ul><li>Our World in Data — Installed wind energy capacity (IRENA Renewable Capacity Statistics): <a href="https://ourworldindata.org/grapher/cumulative-installed-wind-energy-capacity-gigawatts" target="_blank" rel="noopener">ourworldindata.org</a></li></ul>' +
     '<h4>' + (zh ? '離岸容量 1991–2025' : 'Offshore capacity 1991–2025') + '</h4><ul>' + li(src.offshore) + '</ul>' +
@@ -1623,6 +1756,12 @@ function showSources() {
     '<h4>' + (zh ? '備註（離岸）' : 'Notes (offshore)') + '</h4><ul>' + li(n.offshore) + '</ul>' +
     '<h4>' + (zh ? '備註（早期）' : 'Notes (early)') + '</h4><ul>' + li(n.early) + '</ul>' +
     '<h4>' + (zh ? '備註（風場）' : 'Notes (farms)') + '</h4><ul>' + li(n.farms) + '</ul>' +
+    '<h4>' + (zh ? '台灣、日本官方統計稽核' : 'Taiwan & Japan official-statistics audit') + '</h4><ul>' + li(src.audit) + li(n.audit) + '</ul>' +
+    '<h4>' + (zh ? '規劃中專案' : 'Pipeline projects') + '</h4><ul>' +
+      '<li>' + (zh ? '逐案：GEM 全球風電追蹤 2025-02（興建中、前期開發、已宣布）；2026 年 9 月人工整理的 177 個重點專案（' : 'Projects: GEM Global Wind Power Tracker, Feb 2025 (construction, pre-construction, announced); 177 key projects curated in Sep 2026 (') +
+      esc(D.pipelineCuratedAsOf || '2026') + (zh ? '），用來更新狀態與預計商轉年，GEM 沒有的才新增；「暫緩」不收錄。' : '), used to update status and expected commissioning year and to add projects GEM lacks; on-hold projects are left out.') + '</li>' +
+      (D.pipelineTotals ? '<li>' + (zh ? '各國總量：' : 'Country totals: ') + esc(D.pipelineTotals.source) + ' · ' + esc(D.pipelineTotals.release) + ' — <a href="' + esc(D.pipelineTotals.url) + '" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' : '') +
+      '<li>' + (zh ? '日本另補 NEDO 各縣風場清單（1 MW 以上，至 2018 年 3 月）與 windfarm.work／營運商資料中 GEM 未收錄的小型風場，並據以修正 GEM 錯置的座標。' : 'Japan adds small farms missing from GEM from the NEDO prefecture lists (≥1 MW, to March 2018) and windfarm.work / operator pages, which were also used to correct misplaced GEM coordinates.') + '</li></ul>' +
     '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain)</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>';
   $('g-modal').classList.add('show');
   $('g-modalClose').focus();
@@ -1675,7 +1814,8 @@ function applyParams(p, fromFarms) {
 /* ================= UI wiring ================= */
 function wireUI() {
   labelsEl = $('g-labels');
-  controls.addEventListener('start', () => { camTween = null; if (TOUR && !TOUR.paused) tourPause(true); });
+  controls.addEventListener('start', () => { S.dragging = true; camTween = null; if (TOUR && !TOUR.paused) tourPause(true); });
+  controls.addEventListener('end', () => { S.dragging = false; });
   canvas.addEventListener('mousemove', ev => {
     if (ev.buttons) { hideTip(); return; }
     const h = pick(ev), pane = $('g-mapPane');
@@ -1716,18 +1856,18 @@ function wireUI() {
   tb.querySelector('.tp').onclick = () => TOUR && tourPause(!TOUR.paused);
   tb.querySelector('.tx').onclick = () => { tourEnd(false); closeCard(); };
   $('g-btnTour').onclick = () => { if (TOUR) { tourEnd(false); closeCard(); } else tourStart(); };
-  $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms');
+  $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe');
   $('g-msToggle').onclick = e => { const p = $('g-msPanel'); p.classList.toggle('collapsed'); e.currentTarget.textContent = p.classList.contains('collapsed') ? '+' : '–'; };
   if (window.innerWidth < 700) { $('g-msPanel').classList.add('collapsed'); $('g-msToggle').textContent = '+'; }
   $('g-play').onclick = () => setPlaying(!S.playing);
   $('g-slider').oninput = () => { if (TOUR) tourPause(true); S.year = parseFloat($('g-slider').value); syncYearUI(); };
   $('g-slider').onchange = () => syncURL();
   $('g-speedSel').onchange = e => { S.speed = parseFloat(e.target.value); };
-  $('g-layerSel').onchange = e => { S.layer = e.target.value; updateBars(true); updateClusters(0, true); farmLayerDirty = true; syncURL(); };
+  $('g-layerSel').onchange = e => { S.layer = e.target.value; updateBars(true); updateClusters(0, true); farmLayerDirty = true; renderPipeList(true); syncURL(); };
   $('g-densSel').onchange = e => { S.density = +e.target.value; };
   $('g-regionSel').onchange = e => { if (TOUR) tourEnd(false); closeCard(); setRegion(e.target.value); };
   $('g-baseSel').onchange = e => setBase(e.target.value);
-  $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } };
+  $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
   document.querySelectorAll('#g-viewSeg button').forEach(b => b.onclick = () => setView(b.dataset.view));
   document.querySelectorAll('#g-modeSeg button').forEach(b => b.onclick = () => setMode(b.dataset.mode));
@@ -1771,6 +1911,7 @@ WW.globe = {
   },
   leave() { active = false; clearTimeout(urlT); stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
   api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, flyToLonLat, curAlt, FL, clusters, get TOUR() { return TOUR; },
+    cam: () => { const f = focusLonLat(); return { lon: +f.lon.toFixed(3), lat: +f.lat.toFixed(3), alt: +curAlt().toFixed(1), frames: S.frames || 0, rotate: S.rotate }; },
     patchState: () => ({ info: patchInfo, tiles: tileAttrOn, visible: !!(patch && patch.visible), cache: tileCache.size, ok: [...tileCache.values()].filter(t => t.ok).length }) })
 };
 WW.onLang(l => { lang = l; if (D) { applyI18n(); updateBars(true); if (cardItem) renderCard(cardItem); } });

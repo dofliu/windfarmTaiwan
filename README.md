@@ -26,9 +26,11 @@
   - 各國陸域／離岸**年底累計裝置容量**逐年動畫，長條圖排名一律以 **MW** 顯示；可切換地圖／地圖＋長條／長條排名、3D 地球／2.5D 平面
   - **風場層**：合併附件精選風場與 Global Energy Monitor 全球風電追蹤（2025-02），營運中約 1.5 萬座；
     選一個國家就畫出該國全部風場，放大到接近地面時依機組數量畫成一群風機
-  - **規劃中圖層**（虛線環）：興建中／前期開發／已宣布約 7,800 案，越亮越接近完工；可用「規劃中」按鈕開關
+  - **規劃中圖層**（虛線環）：興建中／前期開發／已宣布約 7,850 案，越亮越接近完工；可用「規劃中」按鈕開關。
+    「規劃」分頁依狀態與預計商轉年列出範圍內所有專案，並附 GEM 2026-02 各國開發管線總量；拉近專案時以半透明風機顯示預定配置
   - **地貌底圖**：地形（Natural Earth 陰影地形＋海底地形）／衛星（NASA Blue Marble）／簡潔；放大後自動疊上 Esri 山影或衛星影像圖磚
-  - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、規劃中統計、主要國家簡介）、里程碑、可搜尋的風場清單
+  - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
+    里程碑、可搜尋的風場清單
   - 導覽模式、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
   - 台灣風場與即時資料連動：點台灣風場可看到台電此刻的出力並跳到即時詳情
   - 無 WebGL 的裝置自動改用長條圖排名
@@ -65,7 +67,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/wind_global.json` — 國家逐年陸域／離岸容量 1980–2025、全球總量、里程碑、來源與註記（約 70 KB）
 - `data/global/wind_farms.json` — 風場層級資料約 2.3 萬筆（營運中、規劃中、已除役）
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
-- `data/global/sources/` — 合併前的附件精選風場與合併紀錄
+- `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）
 - `taipower_wind_scraper.py` — 每 15 分鐘執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
@@ -108,8 +110,11 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 全球資料是低頻資料（每年更新一次即可），由 `tools/` 的程式離線產生後 commit，不走排程：
 
 ```bash
-# 1. 國家逐年容量、里程碑（來源：「全球風電發展觀察地圖」單檔 HTML 內嵌的 WIND_DATA）
-python tools/extract_global_data.py wind-history-map.html data/global
+# 1. 國家逐年容量、里程碑、GEM 2026-02 各國總量（來源：「全球風能發展圖譜 v3｜台灣・日本稽核版」單檔 HTML；
+#    台灣、日本的官方序列寫在程式中，輸入原版 wind-history-map v3 也會得到相同數字）
+python tools/extract_global_data.py global-wind-development-atlas-v3-tw-jp-audited.html data/global
+#    另一平行開發版本的補充資料：2026 年整理的規劃中專案、日本風場清單
+python tools/extract_curated_extras.py wind-history-map.html data/global/sources
 # 2. 國界（Natural Earth 1:50m）
 curl -LO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
 python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world_borders.json
@@ -123,16 +128,20 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
 
 ### 本站對資料的修正（皆記錄在資料檔與網站「資料來源」中）
 
-- 台灣 2022–2025 年陸域／離岸拆分：原資料把分批併網中的離岸風場算成陸域（例如 2023 年陸域 2,064 MW，實際陸域約 0.9 GW），
-  改以陸域風場實際規模重新拆分（各年總量不變）
+- 台灣 2005–2025 年陸域／離岸改採經濟部能源署《2025 能源統計手冊》表 3-6 官方年表（2025 年底陸域 930.3、離岸 3,586.9 MW）。
+  原資料把分批併網中的離岸風場算成陸域（例如 2023 年陸域 2,064 MW，實際約 0.9 GW）
+- 日本 2011–2025 年改採日本風力發電協會（JWPA）年末累積導入量（2025 年底 6,434.2 MW；洋上＝本格洋上＋セミ洋上），原資料為 IRENA（6,249 MW）
+- 台灣、日本風場逐場稽核：分批併網的大型離岸風場以全場完工年計入（允能雲林 2025、大彰化 1&2a 與彰芳暨西島 2024），
+  2025 年底尚未全場商轉者列為興建中（海龍 2&3、大彰化 2b&4、台電離岸二期、北九州響灘、五島浮體式）；日本另補 5 座セミ洋上／港灣風場、
+  標記已除役的實證機，並補上 GEM 未收錄的 100 座小型風場（NEDO 各縣清單、windfarm.work），修正 22 筆 GEM 錯置的座標
 - 海洋風電一期、海能風電（Formosa 2）年份對齊實際併網／商轉時間
 - 國界改以 Natural Earth 1:50m 重建（原資料缺澳洲本土多邊形）；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭，
   與風場資料（GEM 將克里米亞風場列於烏克蘭）一致
 - GEM 同一場址下相距 25 km 以上的分期分開標示，不取平均座標（原本會把跨州專案平均到錯誤位置）；
   3 筆可由專案名稱確認的座標錯誤已修正（宮城加美、珠洲第 1、珠洲第 2 期），1 筆國別與座標不符的 WRI GPPD 舊資料已排除
 
-> 風場層的容量是各風場的**全場裝置容量**：仍在分批併網的風場（例如 2025 年的海龍 2&3、大彰化 2b&4）會以全額計入，
-> 因此風場加總可能大於國家年底統計，兩者口徑不同。
+> 國家概況的「逐場資料覆蓋率」＝已逐場標示的營運中容量 ÷ 國家年底統計（台灣 2025 年約 89%、日本約 87%），差額明白列出，
+> 不補虛構風場。其他國家的風場來自 GEM，容量為全場裝置容量，加總可能略高或略低於國家統計。
 
 ## 資料來源與授權
 
@@ -155,8 +164,12 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
 - 國家總容量 2000–2025：Our World in Data／IRENA Renewable Capacity Statistics
 - 離岸容量 1991–2025：WFO Global Offshore Wind Report、GWEC、EWEA／WindEurope 歷年統計（逐項來源列在網站「資料來源」）
 - 1980–1999 早期資料：BTM Consult、IEA Wind 年報、丹麥能源署、美國 EIA 等各國能源統計（多數國家為估計值，僅供趨勢觀察）
-- 風場層：附件「全球風電發展觀察地圖」精選風場、WRI Global Power Plant Database v1.3（CC BY 4.0）、
-  Global Energy Monitor「[Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/)」2025 年 2 月版（CC BY 4.0）
+- 台灣國家序列：[經濟部能源署《2025 能源統計手冊》表 3-6](https://ea01.moeaea.gov.tw/a0303/02/attachments/handbook/2025/docs/3-06.%E5%86%8D%E7%94%9F%E8%83%BD%E6%BA%90%E7%99%BC%E9%9B%BB%E8%A3%9D%E7%BD%AE%E5%AE%B9%E9%87%8F(114).pdf)；
+  日本國家序列：[JWPA 年末累積導入量](https://jwpa.jp/information/12660/)
+- 風場層：附件「全球風電發展觀察地圖」精選風場（台灣、日本經逐場稽核）、WRI Global Power Plant Database v1.3（CC BY 4.0）、
+  Global Energy Monitor「[Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/)」2025 年 2 月版（CC BY 4.0）、
+  2026 年 9 月整理的規劃中重點專案與日本風場清單（NEDO、windfarm.work、營運商資料）
+- 開發管線各國總量：GEM Global Wind Power Tracker 2026 年 2 月版
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
 - 放大後的圖磚：Esri World Imagery（Esri, Vantor, Earthstar Geographics）、Esri World Hillshade（Esri, USGS, NASA 等），依 Esri 使用條款顯示出處
 - 風場照片與簡介：瀏覽時即時查詢 Wikipedia／Wikimedia Commons（各圖授權依原頁面）

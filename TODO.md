@@ -14,8 +14,11 @@
 
 ## 全球資料（每年一次，見 README「全球資料更新」）
 
-- [ ] 每年 IRENA（約 7 月）與 GWEC／WFO 年報（約春季）發布後，更新國家逐年容量（`data/global/wind_global.json`），
-      連同台灣陸域／離岸拆分一起核對
+- [ ] 每年 IRENA（約 7 月）與 GWEC／WFO 年報（約春季）發布後，更新國家逐年容量（`data/global/wind_global.json`）
+- [ ] 能源署《能源統計手冊》新版（表 3-6 再生能源發電裝置容量）發布後，更新 `tools/extract_global_data.py` 的
+      `TWN_OFFICIAL`；JWPA 年末累積導入量（每年約 2 月公布）發布後更新 `JPN_JWPA`，並重跑擷取程式
+- [ ] 規劃中重點專案（`data/global/sources/pipeline_curated.json`，2026-09 整理）狀態變動快：
+      台灣第三階段區塊開發（渢妙、福爾摩沙 4／6 號、海鼎一、德帥、佑德、大彰化東北）每季核對一次
 - [ ] GEM 釋出新版 Global Wind Power Tracker 公開檔時重跑 `tools/build_farms.py`，再跑 `tools/qa_farms.py`
       檢查座標；確認 `COORD_FIX` 的修正是否仍需要（上游已修正者可移除）
 - [ ] 查證芬蘭 Pohjoinen wind farm（99 MW，2020，Fortum）的正確位置：GEM 座標 68.04, 16.66 落在挪威
