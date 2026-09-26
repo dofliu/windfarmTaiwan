@@ -28,9 +28,9 @@ const I18N = {
     srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況',
     msFocus: '點里程碑可跳到該年份並把鏡頭飛到現場',
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
-    farmSrc: '點風場可拉近並查看照片與連結 · 座標為概略位置 · 風場容量為全場裝置容量，加總可能與國家年底統計不同', farmsLoading: '風場資料載入中…',
+    farmsLoading: '風場資料載入中…',
     dens: ['關閉', '精簡', '標準', '詳細'],
-    totalCap: '容量', units: '部', clickMore: '點擊：拉近並查看照片與連結',
+    totalCap: '容量', units: '部', clickMore: '點擊：拉近並查看照片與連結', clickFarm: '點擊：拉近、畫出全部風機，並查看照片與連結',
     wikiLoading: '正在查詢維基百科…', wikiNone: '找不到對應的維基百科條目，可用下方連結搜尋。', wikiOffline: '目前無法連線維基百科（離線或網路受限），可用下方連結查詢。',
     lnkWiki: '維基百科', lnkMap: '衛星地圖', lnkPhoto: '搜尋照片', lnkGem: 'GEM 專案頁', photoCredit: '圖片：Wikipedia / Wikimedia Commons',
     whyFirstOff: c => c + '第一座離岸風場', whyFirstOn: c => c + '資料中最早的陸域風場', whyRecOff: c => '併網時為' + c + '規模最大的離岸風場', whyRecOn: c => '併網時為' + c + '規模最大的陸域風場', whyTop: c => c + '規模最大的風場之一',
@@ -83,9 +83,9 @@ const I18N = {
     srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile',
     msFocus: 'Click a milestone to jump to that year and fly there',
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
-    farmSrc: 'Click a farm to zoom in and see photo & links · approximate coordinates · farm capacity is full nameplate, so sums can differ from national year-end totals', farmsLoading: 'Loading farm data…',
+    farmsLoading: 'Loading farm data…',
     dens: ['Off', 'Minimal', 'Standard', 'Detailed'],
-    totalCap: 'Capacity', units: 'units', clickMore: 'Click to zoom in and see photo & links',
+    totalCap: 'Capacity', units: 'units', clickMore: 'Click to zoom in and see photo & links', clickFarm: 'Click to zoom in, draw all its turbines and see photo & links',
     wikiLoading: 'Looking up Wikipedia…', wikiNone: 'No matching Wikipedia article found — try the links below.', wikiOffline: 'Wikipedia is unreachable right now (offline or blocked) — try the links below.',
     lnkWiki: 'Wikipedia', lnkMap: 'Satellite map', lnkPhoto: 'Search photos', lnkGem: 'GEM project page', photoCredit: 'Image: Wikipedia / Wikimedia Commons',
     whyFirstOff: c => 'First offshore wind farm in ' + c, whyFirstOn: c => 'Earliest onshore wind farm in the dataset for ' + c, whyRecOff: c => 'Largest offshore wind farm in ' + c + ' when commissioned', whyRecOn: c => 'Largest onshore wind farm in ' + c + ' when commissioned', whyTop: c => 'One of the largest wind farms in ' + c,
@@ -631,7 +631,7 @@ function buildSymbols() {
     on: { disc: new THREE.MeshBasicMaterial({ color: COL.on, transparent: true, opacity: 0.16, depthWrite: false }), ring: new THREE.MeshBasicMaterial({ color: COL.on, transparent: true, opacity: 0.55, depthWrite: false }), tower: new THREE.MeshPhongMaterial({ color: 0xe6ebf2 }), nac: new THREE.MeshPhongMaterial({ color: COL.on }), blade: new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: COL.onB, emissiveIntensity: 0.18 }) },
     off: { disc: new THREE.MeshBasicMaterial({ color: COL.off, transparent: true, opacity: 0.16, depthWrite: false }), ring: new THREE.MeshBasicMaterial({ color: COL.off, transparent: true, opacity: 0.6, depthWrite: false }), tower: new THREE.MeshPhongMaterial({ color: 0xe6ebf2 }), nac: new THREE.MeshPhongMaterial({ color: COL.off }), blade: new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: COL.offB, emissiveIntensity: 0.18 }) }
   };
-  // 規劃中專案拉近時畫成半透明「預定配置」：風機不轉，外圈為依狀態上色的虛線
+  // 點選規劃中專案時畫成半透明「預定配置」：風機不轉，外圈為依狀態上色的虛線
   const ghost = () => new THREE.MeshPhongMaterial({ color: 0xdfe6f0, transparent: true, opacity: 0.38, depthWrite: false });
   [1, 2, 3].forEach(st => {
     clusterMats['p' + st] = { disc: new THREE.MeshBasicMaterial({ color: PIPE_HEX[st], transparent: true, opacity: 0.06, depthWrite: false }),
@@ -661,7 +661,7 @@ function makeInst(isPipe) {
   // 而 setColorAt 會依當下的 count（此時為 0）配置緩衝，所以要自己配置 FARM_MAX 筆
   [nac, ring, disc].filter(Boolean).forEach(m => { m.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(FARM_MAX * 3).fill(1), 3); m.instanceColor.setUsage(THREE.DynamicDrawUsage); });
   const grp = new THREE.Group(); grp.add(...meshes);
-  return { grp, tower, nac, rotor, ring, disc, meshes, list: [], h: new Float32Array(FARM_MAX), r: new Float32Array(FARM_MAX), pos: [], quat: [], phase: new Float32Array(FARM_MAX), ang: 0, isPipe,
+  return { grp, tower, nac, rotor, ring, disc, meshes, list: [], idx: new Map(), h: new Float32Array(FARM_MAX), r: new Float32Array(FARM_MAX), pos: [], quat: [], phase: new Float32Array(FARM_MAX), ang: 0, isPipe,
     spin: new Float32Array(FARM_MAX).fill(1), angF: new Float32Array(FARM_MAX) };
 }
 function buildFarmLayer() {
@@ -726,7 +726,7 @@ function rebuildFarmInstances(now, force) {
     const L2 = FL[k], nl = byKind[k], old = new Map(L2.list.map((f, i) => [f, i]));
     const h = new Float32Array(FARM_MAX), r = new Float32Array(FARM_MAX), angF = new Float32Array(FARM_MAX), spin = new Float32Array(FARM_MAX);
     nl.forEach((f, i) => { const j = old.get(f); if (j != null) { h[i] = L2.h[j]; r[i] = L2.r[j]; angF[i] = L2.angF[j]; } });
-    L2.h = h; L2.r = r; L2.angF = angF; L2.spin = spin; L2.list = nl;
+    L2.h = h; L2.r = r; L2.angF = angF; L2.spin = spin; L2.list = nl; L2.idx = new Map(nl.map((f, i) => [f, i]));
     const colored = [L2.nac, L2.ring, L2.disc].filter(Boolean);
     nl.forEach((f, i) => {
       _col.setHex(farmColor(f)); colored.forEach(m => m.setColorAt(i, _col)); L2.phase[i] = (i * 2.399) % 6.283;
@@ -750,14 +750,14 @@ function layoutFarmKind(L2) {
 function layoutFarms() { if (FL.op) { layoutFarmKind(FL.op); layoutFarmKind(FL.pp); } }
 const _m4 = new THREE.Matrix4(), _q = new THREE.Quaternion(), _q2 = new THREE.Quaternion(), _s = new THREE.Vector3(), _p3 = new THREE.Vector3(), _zAxis = new THREE.Vector3(0, 0, 1), _off = new THREE.Vector3();
 const _m4b = new THREE.Matrix4(), _m4c = new THREE.Matrix4();
-function animateFarmKind(L2, dt, farmScale, deep, now) {
+function animateFarmKind(L2, dt, farmScale) {
   const n = L2.list.length; if (!n) return;
   L2.ang += dt * 3;
   let dirty = false;
   const k = Math.min(1, dt * 4);
   for (let i = 0; i < n; i++) {
     const f = L2.list[i];
-    const act = farmActive(f, S.year) && layerOk(f.type) && !clusters.has(f) && !deep;
+    const act = farmActive(f, S.year) && layerOk(f.type) && !clusters.has(f);     // 拉近時也保留一支風機；被點選、畫成風機群的那座才藏起來
     const mw = act ? farmMwAt(f, S.year) : 0;
     const hT = act ? fHeight(mw) * farmScale : 0, rT = act ? fRadius(mw) * farmScale : 0;
     const h0 = L2.h[i], r0 = L2.r[i];
@@ -841,24 +841,27 @@ function makeCluster(f) {
 }
 function removeCluster(f) { const g = clusters.get(f); if (!g) return; clusterRoot.remove(g); [g.userData.tower, g.userData.nac, g.userData.rotor].forEach(m => m.dispose && m.dispose()); clusters.delete(f); }
 function layoutClusters() { const q = new THREE.Quaternion(); clusters.forEach((g, f) => { posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q)); }); }
-let lastClusterT = 0, focusFarm = null;
+let lastClusterT = 0, focusFarm = null, nearFarms = [];
+/* 拉近時每座風場仍以一支風機代表；只有使用者點選（或導覽停留）的風場才依機組數量畫出所有風機（2026-09 使用者決定）。
+   視野中心附近的風場另外記下來補名稱標籤：風場層的標籤只從容量前 120 大取，拉近時附近的小風場也要有名字 */
 function updateClusters(now, force) {
   if (!force && now - lastClusterT < 280) return; lastClusterT = now;
   const alt = curAlt();
-  const want = new Set();
+  const want = new Set(); let near = [];
   if (alt < CL_ALT && !modeAnim && farmsReady) {
+    if (focusFarm && farmActive(focusFarm, S.year)) want.add(focusFarm);
     const fc = focusLonLat(), cosl = Math.max(0.2, Math.cos(fc.lat * D2R));
     const rad = Math.max(0.35, alt * 0.6 * 2.6);
     const cands = [], fsOn = fsActive();
     for (const f of D.farms) {
       if (!farmActive(f, S.year) || !layerOk(f.type)) continue;          // 規劃中：開啟「規劃中」且在時間軸終點才出現
-      if (fsOn && (!inScope(f.iso) || !fsMatch(f))) continue;           // 搜尋／篩選中：近距離的風機群也只畫符合的
+      if (fsOn && (!inScope(f.iso) || !fsMatch(f))) continue;           // 搜尋／篩選中：只替符合的風場補標籤
       const dl = (f.lat - fc.lat), dn = (f.lon - fc.lon) * cosl, d = Math.sqrt(dl * dl + dn * dn);
       if (d < rad + 0.15) cands.push([d, f]);
     }
-    cands.sort((a, b) => a[0] - b[0]); cands.slice(0, 18).forEach(c => want.add(c[1]));
-    if (focusFarm && farmActive(focusFarm, S.year)) want.add(focusFarm);
+    cands.sort((a, b) => a[0] - b[0]); near = cands.slice(0, 24).map(c => c[1]);
   }
+  nearFarms = near;
   clusters.forEach((g, f) => { if (!want.has(f)) removeCluster(f); });
   want.forEach(f => { if (!clusters.has(f)) clusters.set(f, makeCluster(f)); });
 }
@@ -1154,17 +1157,19 @@ function frame(now) {
   S.worldOn = worldOn; S.worldOff = worldOff; S.nWith = nWith;
 
   // 風場層（InstancedMesh）＋標籤候選（只取容量最大的一批）
-  animateFarmKind(FL.op, dt, farmScale, deep, now);
-  animateFarmKind(FL.pp, dt, farmScale, deep, now);
+  animateFarmKind(FL.op, dt, farmScale);
+  animateFarmKind(FL.pp, dt, farmScale);
   [FL.op, FL.pp].forEach(L2 => {
     const lim = Math.min(L2.list.length, 120);
-    for (let i = 0; i < lim; i++) {
-      const f = L2.list[i], h = L2.h[i]; if (h < 0.0003) continue;
+    const add = i => {
+      const f = L2.list[i], h = L2.h[i]; if (h < 0.0003) return;
       tmpW.copy(L2.pos[i]).applyMatrix4(surfaceRoot.matrixWorld);
       const age = fAge(f), isNew = !f.pipe && !f.yu && age >= 0 && age < 1.5;
       cands.push({ cat: isNew ? 'n' : 'f', pri: f.mw + (f === focusFarm ? 1e9 : 0) - (f.pipe ? 1e5 : 0), pos: tmpW.clone().addScaledVector(upAt(tmpW), h * (L2.isPipe ? 0.25 : 1.2) * surfaceRoot.scale.x + 0.25 * farmScale),
         name: fname(f), val: f.pipe ? T('st')[f.st] + ' · ' + fmtMW(f.mw) : (f.yu ? '' : f.year + ' · ') + fmtMW(farmMwAt(f, S.year)), cls: f.pipe ? 'pipe' : isNew ? 'fnew' : 'farm', key: 'f' + f.name + f.lat });
-    }
+    };
+    for (let i = 0; i < lim; i++) add(i);
+    if (deep) nearFarms.forEach(f => { const i = L2.idx.get(f); if (i != null && i >= lim) add(i); });     // 拉近時：視野附近的小風場也有名字
   });
   clusters.forEach((g, f) => {
     if (g.userData.count <= 0 || f.pseudo) return;     // 里程碑的示意風場：由里程碑標籤代表
@@ -1198,7 +1203,7 @@ function frame(now) {
     for (const cd of cands) {
       if (used[cd.cat] >= lim[cd.cat] && cd.pri < 1e9) continue;
       if (!facing(cd.pos)) continue;
-      const p = project(cd.pos); if (cd.dy) p.y -= cd.dy; if (p.z > 1 || p.y < 10 || p.y > H + 10) continue;
+      const p = project(cd.pos); if (cd.dy) p.y -= cd.dy; if (p.z > 1 || p.y < 31 || p.y > H + 10) continue;     // 標籤高 29px，錨點在底部：上緣也要在畫面內
       const w = Math.max(textW(cd.name, 12), textW(cd.val, 10.5)) + 6, h = 29;
       if (p.x - w / 2 < 2 || p.x + w / 2 > W - 2) continue;             // 標籤要完整落在畫面內
       const r = [p.x - w / 2 - 3, p.y - h - 2, p.x + w / 2 + 3, p.y + 2];
@@ -2176,14 +2181,14 @@ function renderCard(it) {
     if (w.thumb) { const ph = card.querySelector('.gph'), img = ph.querySelector('img'); img.onload = () => { ph.hidden = false; }; img.onerror = () => { ph.hidden = true; }; img.src = w.thumb; }
   });
 }
-function closeCard() { $('g-infoCard').classList.remove('show'); cardItem = null; focusPort = null; if (!TOUR) focusFarm = null; syncURL(); }
+function closeCard() { $('g-infoCard').classList.remove('show'); cardItem = null; focusPort = null; if (!TOUR) focusFarm = null; updateClusters(0, true); syncURL(); }
 function selectFarm(f) {
   setPlaying(false);
   if (f.pipe) { if (!S.pipe) togglePipe(true); S.year = Y1; syncYearUI(); }
   else if (fAge(f) < BUILD) { S.year = Math.min(Y1, f.year + 0.5); syncYearUI(); }
   else if (f.end && S.year >= f.end) { S.year = Math.max(f.year + 0.5, f.end - 0.5); syncYearUI(); }     // 已除役：回到它還在運轉的年份
   if (f.iso && byIso[f.iso] && S.region !== f.iso) setRegion(f.iso, true);
-  focusFarm = f; focusPort = null;
+  focusFarm = f; focusPort = null; updateClusters(0, true);
   flyToLonLat(f.lon, f.lat, farmAlt(f));
   renderCard(farmItem(f));
   syncURL();
@@ -2291,7 +2296,7 @@ function tipFarm(f, w) {
     '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
     (noteOf(f) ? '<div class="tnote">' + esc(noteOf(f).length > 140 ? noteOf(f).slice(0, 140) + '…' : noteOf(f)) + '</div>' : '') +
     (f.nStack ? '<div class="tnote">' + T('tipStack') + '</div>' : '') +
-    liveTip(f) + '<div class="hint2">' + T('clickMore') + '</div>';
+    liveTip(f) + '<div class="hint2">' + T('clickFarm') + '</div>';
 }
 function tipMs(m) { return '<b>★ ' + esc(m.name) + '</b><br>' + m.year + ' · ' + T('type')[m.type] + '<br><span style="color:var(--ink-2)">' + esc(lang === 'zh' ? m.zh : m.en) + '</span><div class="hint2">' + T('clickMore') + '</div>'; }
 function showTip(ev, html, pane) { const tip = $('g-tip'); tip.style.display = 'block'; tip.innerHTML = html; if (tip.parentElement !== pane) pane.appendChild(tip); tipPane = pane; moveTip(ev, pane); }
@@ -2378,8 +2383,8 @@ function showSources() {
   const li = arr => (arr || []).map(s => '<li>' + (/^https?:/.test(s) ? '<a href="' + esc(s.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(s) + '</a>' : esc(s)) + '</li>').join('');
   const zh = lang === 'zh';
   $('g-modalBody').innerHTML = '<h2>' + T('srcTitle') + '</h2>' +
-    (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，放大到接近地面時，風場會依機組數量與間距畫成一群風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，拉近時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片與簡介於瀏覽時即時查詢維基百科，離線時不會顯示。</p>'
-        : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, and close to the ground each farm is drawn as a group of turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and zooming in shows the planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos and summaries are looked up live from Wikipedia.</p>') +
+    (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，每座風場以一支風機代表；點選某座風場時，才依它的機組數量與間距畫出全部風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，點選專案時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片與簡介於瀏覽時即時查詢維基百科，離線時不會顯示。</p>'
+        : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, each shown as a single turbine; clicking a farm draws all of its turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and clicking a project shows its planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos and summaries are looked up live from Wikipedia.</p>') +
     '<h4>' + (zh ? '本站修正' : 'Corrections by this site') + '</h4><ul>' + li((D.meta && D.meta.edits) || []) +
     '<li>' + (zh ? '2026 年 9 月逐筆查證：刪除重複、從未建成或查無此場的風場紀錄，修正座標、容量、年份、分期或狀態；共用省或國家中心代用座標的風場在地圖上示意排開（卡片註明「位置示意」）。逐筆理由見'
       : 'Checked record by record in Sep 2026: duplicate, never-built or non-existent farm records were removed and locations, capacities, years, phases or statuses fixed; farms sharing a province or country centre as a placeholder are fanned out on the map (their cards say the position is schematic). Every record is in the') +

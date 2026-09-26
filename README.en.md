@@ -43,12 +43,12 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - Year-by-year animation of each country's onshore/offshore **year-end cumulative capacity**; the
     ranking bars are always in **MW**; map / map + bars / bar race views, 3D globe or 2.5D map
   - **Farm layer**: curated farms merged with the Global Energy Monitor Global Wind Power Tracker
-    (Feb 2025), about 15,000 operating farms; selecting a country draws all of its farms, and close to
-    the ground each farm becomes a group of turbines based on its unit count
+    (Feb 2025), about 15,000 operating farms; selecting a country draws all of its farms, each shown as a
+    single turbine at any zoom; clicking a farm draws all of its turbines based on its unit count
   - **Pipeline layer** (dashed rings): about 7,850 projects under construction, in pre-construction or
     announced — brighter means closer to completion; toggle with the "Pipeline" button. The Pipeline tab lists
     every project in scope by status and expected commissioning year, next to GEM's February 2026 country
-    totals, and zooming in on a project shows its planned layout as translucent turbines
+    totals, and clicking a project shows its planned layout as translucent turbines
   - **Terrain basemaps**: relief (Natural Earth shaded relief + ocean bottom) / satellite (NASA Blue
     Marble) / plain; zooming in adds Esri hillshade or imagery tiles automatically
   - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
