@@ -238,6 +238,7 @@ function paintSources() {
   sect(L('台灣、日本官方統計稽核', 'Taiwan & Japan official-statistics audit'), (D.sources.audit || []).concat(D.notes.audit || []));
   if (D.pipelineTotals) sect(L('規劃中專案', 'Pipeline projects'), [D.pipelineTotals.source + ', ' + D.pipelineTotals.release + ': ' + D.pipelineTotals.url,
     L('逐案：GEM 2025-02＋2026 年 9 月人工整理的重點專案（更新狀態與預計商轉年；GEM 沒有的才新增）', 'Projects: GEM Feb 2025 plus key projects curated in Sep 2026 (status and expected year updated; projects GEM lacks are added)')]);
+  sect(L('離岸風電港口', 'Offshore wind ports'), [L('2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。', 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.')]);
   sect(L('底圖與元件', 'Basemap & libraries'), ['Natural Earth 1:50m Admin-0 countries & Gray Earth shaded relief (public domain)', 'NASA Earth Observatory — Blue Marble Next Generation with topography and bathymetry (public domain)', 'Esri World Imagery & World Hillshade tiles (zoomed-in detail; © Esri and data providers)', 'three.js r128 (MIT) · Leaflet 1.9.4 (BSD-2)', 'Wikipedia / Wikimedia Commons (farm photos & summaries looked up live; per-image licences)']);
 }
 

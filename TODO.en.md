@@ -74,6 +74,27 @@ the rules are in `tools/farm_cleanup.py`.
       only show them from 2025: add years where they can be found
 - [ ] Large countries with low coverage (China 144 GW short, Germany 27 GW, India 15 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
+- [ ] Duplicate farm records: the US Sunrise Wind appears both as GEM's "Sunrise wind farm (United States)" and as "Sunrise Wind" from the 2026 compilation (both 924 MW, under construction); add a rule to `tools/farm_cleanup.py` in the next clean-up (found while compiling the ports data, Sep 2026)
+- [ ] France's 2025 offshore capacity (1,500 MW in `wind_global.json`, the same as 2024) may be too low: the SDES Q2 2026 wind dashboard implies about 2.0 GW at end-2025; to be verified
+- [ ] Offshore farm sums above the national series, to be verified: China's operating offshore farms add up to 58.9 GW against a 2025 national figure of 48.4 GW; Vietnam's 28 "offshore" farms (mostly intertidal) add up to 2.0 GW against 1.0 GW. Possibly farms counted at full capacity while still connecting in phases, or duplicates
+
+## Ports data (data/global/ports.json, compiled by hand in Sep 2026)
+
+- [x] Global farm search and filters, and the ports layer (55 ports in 15 countries, each with sources; checked by `tools/qa_ports.py`)
+- [ ] Ports still missing (no citable source could be found in Sep 2026, so none was guessed):
+      China (none yet, e.g. Rudong/Yangkou, Nantong/Qidong, Yangjiang, Shantou, Fuqing/Jiangyin, Penglai, Weihai, Dalian); Korea's Mokpo
+      New Port, Ulsan and LS Cable's Donghae cable plant; the Philippines; in Europe Vlissingen, Den Helder, IJmuiden, Emden, Nordenham,
+      Aalborg, Lindø/Odense, Brest, Port-la-Nouvelle, Fos-sur-Mer, Świnoujście, Gdańsk, Szczecin, Viana do Castelo, Taranto, Irish ports
+      and Dundee
+- [ ] Five US ports have sources but no checked quay coordinates yet, so they are left out: New Jersey Wind Port (finished 2024,
+      never used), Long Beach Pier Wind (planned), Vineyard Haven (Vineyard Wind 1 O&M base), Quonset/Davisville (South Fork Wind
+      O&M) and the Nexans Goose Creek cable plant
+- [ ] Port status changes quickly (several US projects were halted or lost grants in 2025–26): re-check twice a year; mark ports
+      whose role has ended as `former` (grey on the map) and run `tools/qa_ports.py` after editing
+- [ ] Duplicate farm records found while compiling the ports, to handle in `tools/farm_cleanup.py` in the next clean-up: the UK's
+      Sofia (curated "Sofia", operating, and GEM "Sofia wind farm", under construction, both 1,400 MW); Poland's Baltica 2 (GEM's
+      "Baltica II Offshore wind farm", 1,500 MW pre-construction, and "EW Baltica 2 Offshore wind farm", 210 MW under construction, at
+      almost the same point; the real project is 1.5 GW and under construction)
 
 ## Farm details
 
@@ -89,6 +110,9 @@ the rules are in `tools/farm_cleanup.py`.
 
 ## To assess / waiting for the owner's decision (do not start on your own)
 
+- [ ] Extend the timeline to "2026 (latest available)": 8 countries have official 2026 figures, the others carry 2025 forward, clearly marked; start once the approach is agreed (see item 1 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
+- [ ] Offshore foundation-type layer: do the OSPAR-covered part of Europe, the rest of Europe, floating farms and Taiwan/Japan/Korea/USA first (about 2–4 days); decide whether China and Vietnam are worth about 50–70 hours (item 2)
+- [ ] Whether to show Taiwan's wind-farm work vessels in port (Taiwan International Ports Corporation open data, no key); live positions (AIS) were evaluated and deferred (item 3)
 - [ ] Whether to give `grid_status` (supply/demand) a long-term archive and trend chart, following the
       wind data's "live → 7 days → 90 days" layers
 - [ ] Whether to expand to all energy sources (genary already contains hydro, solar, thermal and

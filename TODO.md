@@ -52,6 +52,23 @@
 - [ ] 587 個預計商轉年已過卻仍列規劃中的專案（101 GW）：以 GEM 新版或新聞更新狀態
 - [ ] 46 GW 營運中風場沒有商轉年（多在中國、印度），地圖只能從 2025 年顯示：找得到年份的補上
 - [ ] 覆蓋率較低的大國（中國差 144 GW、德國 27 GW、印度 15 GW）：評估以各國官方登錄資料補齊（見 ROADMAP 第 1 階段）
+- [ ] 重複的風場紀錄：美國 Sunrise Wind 同時有 GEM 的「Sunrise wind farm (United States)」與 2026 年整理清單的「Sunrise Wind」（同為 924 MW、興建中），下次清理時在 `tools/farm_cleanup.py` 加一條規則（2026-09 整理港口資料時發現）
+- [ ] 法國 2025 年離岸容量（`wind_global.json` 為 1,500 MW，與 2024 年相同）可能偏低：SDES 2026 年第 2 季風電儀表板推算 2025 年底約 2.0 GW，待查證
+- [ ] 離岸逐場加總高於國家數列，待查證：中國營運中離岸風場加總 58.9 GW，國家數列 2025 年為 48.4 GW；越南 28 座「離岸」（多為潮間帶）加總 2.0 GW，國家數列為 1.0 GW。可能是分批併網卻以全場容量計入，或有重複
+
+## 港口資料（data/global/ports.json，2026-09 人工整理）
+
+- [x] 全球風場搜尋與篩選、港口圖層（55 個港口、15 國，每港附出處；`tools/qa_ports.py` 檢查）
+- [ ] 待補的港口（2026-09 查證時找不到可引用的出處，沒有猜）：
+      中國（一個都還沒有，例：如東洋口、南通啟東、陽江、汕頭、福清江陰、蓬萊、威海、大連）；韓國木浦新港、蔚山、LS 電線東海海纜廠；菲律賓；
+      歐洲 Vlissingen、Den Helder、IJmuiden、Emden、Nordenham、Aalborg、Lindø／Odense、Brest、Port-la-Nouvelle、Fos-sur-Mer、Świnoujście、
+      Gdańsk、Szczecin、Viana do Castelo、Taranto、愛爾蘭各港、Dundee
+- [ ] 美國 5 個港口已有出處、但碼頭座標還沒核對，先不列：紐澤西風電港（2024 年完工、從未使用）、長灘 Pier Wind（規劃中）、
+      Vineyard Haven（Vineyard Wind 1 運維基地）、Quonset／Davisville（South Fork Wind 運維）、Nexans Goose Creek 海纜廠
+- [ ] 港口狀態變動快（美國多個計畫 2025–26 年喊停、補助取消）：每半年核對一次；角色已結束的港口改標 `former`（地圖為灰色），改完跑 `tools/qa_ports.py`
+- [ ] 整理港口資料時發現的重複風場紀錄，下次清理時在 `tools/farm_cleanup.py` 處理：英國 Sofia（精選「Sofia」營運中與 GEM「Sofia wind farm」
+      興建中，同為 1,400 MW）；波蘭 Baltica 2（GEM「Baltica II Offshore wind farm」1,500 MW 前期開發與「EW Baltica 2 Offshore wind farm」
+      210 MW 興建中，位置幾乎相同，實際為 1.5 GW、興建中）
 
 ## 風場詳情
 
@@ -63,6 +80,9 @@
 
 ## 待評估／待使用者決定方向（不要自作主張動工）
 
+- [ ] 時間軸延伸到「2026（最新可得）」：8 國有官方 2026 年數字，其他國家沿用 2025 年並標示；確認做法後動工（見 ROADMAP「使用者 2026-09 提出的新規劃」第 1 項）
+- [ ] 離岸水下基礎型式圖層：先做 OSPAR 涵蓋的歐洲、其他歐洲風場、浮動式與台日韓美（約 2–4 天）；中國、越南是否投入約 50–70 小時（同上第 2 項）
+- [ ] 台灣風電工作船進出港（臺灣港務公司開放資料，免金鑰）是否要做；即時船位（AIS）已評估為暫不做（同上第 3 項）
 - [ ] 是否要幫 `grid_status`（電力供需）做長期存檔 + 前端趨勢圖，比照風力的「即時→7天→90天」三層做法
 - [ ] 是否要擴展成多能源別（genary 本身已含水力/太陽能/火力/核能資料，scraper 目前只取風力列）——
       這是網站範疇的重大決定，動工前務必先確認方向

@@ -25,7 +25,7 @@ TODO is about what to do next.
 |---|---|---|
 | Clean up duplicates and misplaced points | **Done (Sep 2026)**: after checking record by record, 77 duplicate, never-built or non-existent records were removed and 52 fixed (reasons and sources in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)); name matching now unifies Traditional and Simplified Chinese and compares zone codes; the countries whose farm sum exceeds the national figure went from 12 to 2; farms sharing a placeholder point are fanned out on the map. The remaining items to verify are in TODO | medium |
 | Farm details v1 | **Done (Sep 2026)**: all of group A under "What farm details could add" below — standing within the country (capacity rank and share of national capacity at the timeline year), a phase timeline, nearby farms (within 30 km) and farms by the same developer (clickable to switch), OpenStreetMap / Wikidata / Global Wind Atlas links, report a data error, copy link to this farm | medium |
-| Global farm search and filters | Search every farm by name, developer or turbine model; filter by type (onshore / offshore / floating), capacity, commissioning year and status, with map and list in sync | medium |
+| Global farm search and filters | **Done (Sep 2026)**: search every farm by name, Chinese name, developer, turbine model or country; filter by status, type (onshore / offshore / floating), size and year, with the scope following the region selector; while any condition is set the map shows only the matching farms (even at world zoom), and the conditions go into the URL to share. Added at the owner's request: a **ports layer** of 55 offshore wind marshalling, manufacturing and O&M ports in 15 countries, each with sources, searchable, with a Ports tab and port cards; missing countries and ports are listed in TODO | medium |
 | Automated checks | GitHub Actions on pull requests: a Playwright smoke test (including the single-file edition over `file://`), `qa_farms.py` and the coverage report, flagging large changes in the numbers | small |
 
 ### Phase 2: live data from other countries + comparisons
@@ -47,6 +47,74 @@ TODO is about what to do next.
 | Offshore zones and sea areas | Taiwan's offshore wind zones, Japan's promotion zones, the North Sea countries' sea areas, exclusive economic zones (Marine Regions, CC BY) | medium |
 | Story tours | Chapter-style tours such as Taiwan's offshore journey, China's rise, North Sea offshore and floating wind, linked with the Learn pages | medium |
 | Interactive teaching | Interactive charts for the power curve (wind speed → output), capacity factor, wake effects and falling costs (IRENA); a classroom mode | medium |
+
+### Owner's new plans (Sep 2026)
+
+Compiled 26 Sep 2026; data availability was checked the same day (anything not verified is marked as such).
+
+**1. Extend the timeline into 2026 (latest available data)** · medium
+
+- Goal: one more point after end-2025. Call it "2026 (latest available)" rather than "September 2026": each
+  country's latest official figure ends in a different month, and in September 2026 no source has September data
+  yet. Tooltips show each country's month and source.
+- Countries with an official 2026 figure (8, about 80% of the 2025 world total):
+  - Taiwan: Energy Administration API (table 4-02, monthly, JSON, no key, onshore/offshore), July; it is the same
+    series the site already uses for 2025.
+  - USA: EIA-860M monthly generator inventory (Excel, onshore/offshore), August.
+  - China: National Energy Administration, August total; onshore/offshore split only at quarterly press
+    conferences (June).
+  - India: MNRE monthly progress table, August.
+  - Brazil: ANEEL SIGA open data (daily CSV, ODbL).
+  - Germany: Deutsche WindGuard half-year reports (onshore and offshore), June.
+  - France: SDES quarterly wind dashboard, June.
+  - UK: DESNZ Energy Trends 6.1 (quarterly, onshore/offshore/floating), March; Q2 is due on 29 Sep 2026.
+- Other countries carry their end-2025 figure forward, clearly marked (hollow or hatched), with no growth
+  animation; the world total is labelled "some countries updated" or hidden.
+- No-key automation: Taiwan, USA, Brazil, UK (the UK link changes with each release); China, India, Germany and
+  France need manual monthly or quarterly entry.
+- Where a source's scope differs from the site's, plot "site 2025 + this year's additions from that source",
+  labelled as an estimate, to avoid false jumps from switching sources.
+- Farm layer: farms commissioned in 2026 (e.g. Taiwan's Hai Long and Greater Changhua 2b & 4) need their status
+  and year updated one by one.
+
+**2. Offshore foundation-type layer** · medium (Europe, floating, Taiwan/Japan/Korea/USA) / large (China, Vietnam)
+
+- Goal: a switchable layer, like onshore/offshore, that colours offshore farms on the same globe by foundation
+  type: monopile, jacket (piled), jacket (suction bucket), tripod/tripile, gravity-based, high-rise pile cap
+  (common in China), floating (semi-submersible, spar, barge, TLP), mixed, and "fixed-bottom, type unknown". The
+  legend always says how many farms and what share of capacity are classified; country profiles add a bar per type.
+- Data (checked Sep 2026):
+  - The only open dataset with a foundation type per farm is OSPAR Offshore Renewables 2024 (CC0). It covers the
+    North Sea and NE Atlantic only (not the Baltic or Mediterranean) and matches about 107 of the site's 393
+    operating offshore farms (about 34% of their capacity).
+  - EMODnet only says fixed or floating; GEM only hard mount or floating; Wikidata has no such property; English
+    Wikipedia lists have no foundation column (German farm articles do, in the infobox); 4C Offshore is paid and
+    forbids reuse, so it cannot be used; Taiwan has no official list, so each project needs the developer's pages or
+    EIA documents.
+- Method: a per-farm table like `tools/farm_cleanup.py` (country, name, source → type + source link, with a note
+  for mixed farms). Seed it from OSPAR and confirm each match by hand, then add the rest of Europe, floating farms
+  and Taiwan/Japan/Korea/USA: an estimated 2–4 days for about 199 farms (45% of capacity). China and Vietnam (about
+  194 farms, 55% of capacity) need Chinese and Vietnamese sources, an estimated 50–70 hours; ask the owner before
+  starting. Until then they show as "fixed-bottom, type unknown".
+
+**3. Status of work vessels (installation vessels, "mother ships")** · verdict: no live positions for now
+
+- Live positions need AIS. The only free real-time source, aisstream.io, needs an account and API key (which by
+  project rule needs the owner's approval), has no written terms that allow public redisplay, and users report
+  almost no data in Asia. Most of Taiwan's offshore farms are 45–85 km from the only volunteer receiver on the
+  west-central coast (Changhua City), beyond the usual range of shore-based AIS.
+- Other sources: Global Fishing Watch is about 4 days late, non-commercial only and needs a token; the Danish
+  Maritime Authority's daily files are 2–3 days late; US MarineCadastre is about 3 months late; Norway's
+  BarentsWatch covers Norwegian waters only; AISHub requires your own receiver; MarineTraffic, VesselFinder and
+  Kpler (Spire) are paid and must not be scraped. There is also no complete, citable open list of installation
+  vessels (it would have to be built from Wikidata and owners' fleet pages).
+- A key-free alternative for Taiwan (about 1–2 days): Taiwan International Ports Corporation open data
+  (Government Open Data License) lists berths and port calls; wind-farm work vessels are marked "wind farm work",
+  and their previous/next port is a wind-farm code (e.g. TWOWP1 = Formosa 1, TWOWP6 = Zhong Neng). That would show
+  which work vessel is in which port and which farm it is heading to — port calls, not live positions at sea.
+  Whether to build it is the owner's call.
+
+**4. Important transport and assembly ports** · **done (Sep 2026)**: see "Global farm search and filters" in phase 1.
 
 ### Engineering and open data
 
@@ -198,6 +266,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 
 ## Directions evaluated and deferred (with reasons, to avoid repeating the research)
 
+- **Live work-vessel positions (AIS)**: evaluated in Sep 2026. The free real-time source needs a key, has no redistribution terms and barely reaches Taiwan's waters; details and the Taiwan port-call alternative are in item 3 of "Owner's new plans (Sep 2026)" above.
 - **Energy Administration monthly/annual statistics API**
   ([ea01.moeaea.gov.tw](https://ea01.moeaea.gov.tw/a0303/02/database/api/)): too coarse (monthly data)
   and overlapping heavily with the existing live + 90-day daily data; it would not tell a new story.
