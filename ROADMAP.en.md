@@ -32,7 +32,7 @@ TODO is about what to do next.
 
 | Item | What | Effort |
 |---|---|---|
-| Live output in other countries | Following [docs/live-data-sources.en.md](./docs/live-data-sources.en.md), start with countries that publish output per wind farm, then add a "wind output right now" panel from national data; farms with live data light up on the globe | medium–large |
+| Live output in other countries | Following [docs/live-data-sources.en.md](./docs/live-data-sources.en.md): start with Australia NEM, Alberta and Ontario (per farm, no key), then UK estimates; a national "wind output right now" panel can come first; farms with live data light up on the globe | medium–large |
 | Country comparison | Put 2–4 countries side by side (small multiples): cumulative capacity, yearly additions, onshore / offshore, indexed growth | medium |
 | More metrics | Capacity per person, wind's share of electricity generation, capacity factor (Ember yearly data, CC BY 4.0); colour the map by any metric | medium |
 | Yearly additions | Show capacity added each year (not just cumulative) to reveal each country's build-out peaks and cycles | small |
@@ -93,7 +93,21 @@ Taipower's live output. It could also show:
 
 ### Live generation in other countries
 
-Being verified; the results and the suggested order of integration will be in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md).
+The results of testing each source in Sep 2026 are in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md). In short:
+
+- **Per farm, close to real time**: Australia's eastern grid (NEM; about 100 farms, measured every
+  5 minutes, no key), Alberta (about 50 farms, about 1 minute) and Ontario (45 farms, hourly). For the
+  UK's ~290 units only *planned* output is live and metered output comes about two weeks later, so
+  per-farm values must be labelled as estimates.
+- **Free key, server-side only**: eight Dutch offshore farms (NED) and European units of 100 MW or more
+  (ENTSO-E, per unit up to 5 days later).
+- **National or regional totals only**: the UK, Germany, France, Belgium, Poland and Brazil (readable
+  straight from the browser); Denmark, Ireland, Texas and California, Japan and South Korea (need
+  Actions). No usable public live data for China or India.
+- **Suggested order**: Australia NEM → Alberta + Ontario → UK (estimates) → Netherlands / ENTSO-E (keys);
+  the national panel can come first. No per-farm source has coordinates, so a hand-maintained
+  "unit code → farm" table is needed (a few hundred rows); fold new countries into the existing
+  scheduled commit.
 
 ## Known limitations (current state — not bugs, but worth knowing)
 

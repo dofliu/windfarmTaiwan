@@ -48,7 +48,8 @@
 - [ ] 是否要嘗試解決電力供需即時來源的 WAF 403（需要換執行環境，例如自架 runner 或非雲端 CI 的主機，
       不是單純改程式碼能解決）
 - [ ] 是否接入其他國家的即時風電資料（評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)）：
-      部分來源需要免費 API 金鑰（存成 GitHub Secrets），先確認要做哪幾國
+      建議先做免金鑰、逐座風場的澳洲 NEM 與加拿大亞伯達、安大略；荷蘭 NED、ENTSO-E 需要免費金鑰（存成 GitHub Secrets），
+      先確認要做哪幾國
 - [ ] ROADMAP「下一步規劃」各階段的優先順序
 
 ## 維運

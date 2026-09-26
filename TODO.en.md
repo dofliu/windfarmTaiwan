@@ -69,8 +69,9 @@ Concrete, actionable tasks. Background, the reasons behind decisions and the pha
       execution environment, e.g. a self-hosted runner or a non-cloud-CI host; changing code alone
       cannot fix it)
 - [ ] Whether to add live wind data from other countries (assessment in
-      [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)): some sources need a free API key
-      (stored as a GitHub secret), so decide which countries first
+      [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)): the suggested start is Australia NEM,
+      Alberta and Ontario (per farm, no key); the Dutch NED and ENTSO-E need a free key (stored as a
+      GitHub secret) — decide which countries first
 - [ ] The priority order of the phases under "Next steps" in the ROADMAP
 
 ## Operations
