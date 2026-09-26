@@ -64,9 +64,9 @@ const I18N = {
     fsMapOnly: '地圖只顯示符合條件的風場', fsHidden: (y, n) => `時間軸在 ${y} 年：其中 ${n} 座這一年不在地圖上（尚未完工、已除役，或是規劃中而未開啟「規劃中」）`, fsToLatest: '移到最新年份',
     fsHud: n => `🔍 篩選中：地圖只顯示符合的 ${n} 座風場`, fsNone: '沒有符合條件的風場。', fsKey: '按 / 開始搜尋',
     role: { marshalling: '組裝出港', foundation: '水下基礎製造', tower: '塔架製造', blade: '葉片製造', nacelle: '機艙組裝', cable: '海纜製造', floating: '浮動式組裝', om: '運維基地' },
-    portTag: '港口', portDev: '開發中', portSince: y => `${y} 年起`, portFarms: '服務過的風場', portOther: '其他專案：', portSrc: n => `來源 ${n}`,
+    portTag: '港口', portDev: '開發中', portOld: '已停止', portSince: y => `${y} 年起`, portFarms: '服務過的風場', portOther: '其他專案：', portSrc: n => `來源 ${n}`,
     portsHead: n => `收錄 ${n} 個港口`, portNone: '這個範圍沒有收錄的港口。', portsAll: '看全部港口 →', copyLinkPort: '複製此港口連結',
-    portNote: '離岸風電的組裝出港、製造與運維港口（2026 年 9 月整理，每個港口附出處）。橘色錨＝已使用，虛線＝開發中。'
+    portNote: '離岸風電的組裝出港、製造與運維港口（2026 年 9 月整理，每個港口附出處）。橘色錨＝使用中，虛線＝開發中，灰色＝離岸風電用途已停止。'
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
@@ -119,9 +119,9 @@ const I18N = {
     fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
     fsHud: n => `🔍 Filter on: the map shows only the ${n} matching farms`, fsNone: 'No farms match.', fsKey: 'Press / to search',
     role: { marshalling: 'Marshalling', foundation: 'Foundations', tower: 'Towers', blade: 'Blades', nacelle: 'Nacelles', cable: 'Cables', floating: 'Floating assembly', om: 'O&M base' },
-    portTag: 'Port', portDev: 'in development', portSince: y => `since ${y}`, portFarms: 'Wind farms served', portOther: 'Other projects: ', portSrc: n => `Source ${n}`,
+    portTag: 'Port', portDev: 'in development', portOld: 'no longer active', portSince: y => `since ${y}`, portFarms: 'Wind farms served', portOther: 'Other projects: ', portSrc: n => `Source ${n}`,
     portsHead: n => `${n} ports listed`, portNone: 'No listed ports in this area.', portsAll: 'All ports →', copyLinkPort: 'Copy link to this port',
-    portNote: 'Offshore wind marshalling, manufacturing and O&M ports (compiled Sep 2026, each with sources). Orange anchor = in use, dashed = in development.'
+    portNote: 'Offshore wind marshalling, manufacturing and O&M ports (compiled Sep 2026, each with sources). Orange anchor = in use, dashed = in development, grey = offshore wind role has ended.'
   }
 };
 let lang = WW.lang;
@@ -1430,7 +1430,7 @@ function loadPorts() {
     PORTS.forEach(p => {
       p.roles = (p.roles || []).filter(r => PORT_ROLES.includes(r));
       const b = document.createElement('button'); b.type = 'button'; b.tabIndex = -1;          // 鍵盤改用「港口」分頁的清單
-      b.className = 'pmk' + (p.status === 'developing' ? ' dev' : ''); b.textContent = '⚓'; b.style.display = 'none';
+      b.className = 'pmk' + (p.status === 'developing' ? ' dev' : p.status === 'former' ? ' old' : ''); b.textContent = '⚓'; b.style.display = 'none';
       b.onclick = e => { e.stopPropagation(); selectPort(p); };
       b.onmouseenter = ev => showTip(ev, tipPort(p), $('g-mapPane'));
       b.onmousemove = ev => moveTip(ev, $('g-mapPane'));
@@ -1445,7 +1445,8 @@ function loadPorts() {
 }
 function layoutPorts() { PORTS.forEach(p => { p._pos = posAt(p.lon, p.lat, 0, p._pos); }); }
 function tipPort(p) {
-  return '<b>⚓ ' + esc(pname(p)) + '</b>' + (p.status === 'developing' ? ' <span style="color:var(--ink-2)">(' + esc(T('portDev')) + ')</span>' : '') +
+  const st = p.status === 'developing' ? T('portDev') : p.status === 'former' ? T('portOld') : '';
+  return '<b>⚓ ' + esc(pname(p)) + '</b>' + (st ? ' <span style="color:var(--ink-2)">(' + esc(st) + ')</span>' : '') +
     '<br>' + esc(portRoles(p)) + '<br><span style="color:var(--ink-2)">' + esc(lang === 'zh' ? p.zhNote || p.en : p.en) + '</span><div class="hint2">' + T('clickMore') + '</div>';
 }
 /* 每一格：錨點跟著地球轉；背面或畫面外就藏起來。全球視角縮成小點，拉近或被選取時才有圖示與名稱標籤 */
@@ -1493,8 +1494,9 @@ function farmNamed(n) {
   if (!farmByName) { farmByName = new Map(); D.farms.forEach(f => farmByName.set(f.name, f)); }
   return farmByName.get(n) || null;
 }
-const portRowHTML = p => '<button type="button" class="msItem port' + (p.status === 'developing' ? ' pipe' : '') + '" data-port="' + esc(p.id) + '"><span class="y">⚓</span><span class="n">' + esc(pname(p)) + '</span>' +
-  '<span class="t">' + (byIso[p.iso] ? esc(cname(byIso[p.iso])) + ' · ' : '') + (p.status === 'developing' ? '<span class="gtag p2">' + esc(T('portDev')) + '</span>' : '') + esc(portRoles(p)) + '</span></button>';
+const portStatusTag = p => p.status === 'developing' ? '<span class="gtag p2">' + esc(T('portDev')) + '</span>' : p.status === 'former' ? '<span class="gtag ret">' + esc(T('portOld')) + '</span>' : '';
+const portRowHTML = p => '<button type="button" class="msItem port' + (p.status === 'developing' ? ' pipe' : p.status === 'former' ? ' gone' : '') + '" data-port="' + esc(p.id) + '"><span class="y">⚓</span><span class="n">' + esc(pname(p)) + '</span>' +
+  '<span class="t">' + (byIso[p.iso] ? esc(cname(byIso[p.iso])) + ' · ' : '') + portStatusTag(p) + esc(portRoles(p)) + '</span></button>';
 /* 「港口」分頁：範圍內的港口，可搜尋、依角色篩選 */
 function renderPortList() {
   if (panelTab !== 'ports') return;
@@ -2054,7 +2056,7 @@ function reportURL(it) {
   else if (it.kind === 'port') {
     const pt = it.p;
     rows.push('角色 Roles: ' + pt.roles.map(r => I18N.zh.role[r] + ' / ' + I18N.en.role[r]).join('; '));
-    rows.push('狀態 Status: ' + (pt.status === 'developing' ? '開發中 / in development' : '已使用 / in use') + (pt.since ? ' · ' + pt.since : ''));
+    rows.push('狀態 Status: ' + (pt.status === 'developing' ? '開發中 / in development' : pt.status === 'former' ? '已停止 / no longer active' : '使用中 / in use') + (pt.since ? ' · ' + pt.since : ''));
     if (pt.farms && pt.farms.length) rows.push('服務過的風場 Farms served: ' + pt.farms.join('; '));
     rows.push('出處 Sources: ' + (pt.src || []).join(' '));
   }
@@ -2090,7 +2092,7 @@ function renderCard(it) {
     desc = lang === 'zh' ? m.zh : m.en;
   } else if (it.kind === 'port') {
     const pt = it.p; title = pname(pt); if (lang === 'zh' && pt.zh) sub = pt.name;
-    tag = '<span class="gtag port">⚓ ' + esc(T('portTag')) + '</span>' + (pt.status === 'developing' ? '<span class="gtag p2">' + esc(T('portDev')) + '</span>' : '');
+    tag = '<span class="gtag port">⚓ ' + esc(T('portTag')) + '</span>' + portStatusTag(pt);
     spec = '<div class="proles">' + pt.roles.map(r => '<span>' + esc(T('role')[r]) + '</span>').join('') + '</div>';
     desc = lang === 'zh' ? (pt.zhNote || pt.en) : pt.en;
   } else {

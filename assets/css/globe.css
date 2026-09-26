@@ -206,6 +206,7 @@
 #g-ports .pmk{position:absolute;left:0;top:0;width:20px;height:20px;padding:0;display:grid;place-items:center;border-radius:50%;border:1.5px solid rgba(255,255,255,.75);background:var(--port);color:#2a1206;font-size:11px;line-height:1;pointer-events:auto;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.6);will-change:transform}
 #g-ports .pmk:hover{background:#ffb08f}
 #g-ports .pmk.dev{background:rgba(10,17,30,.8);color:var(--port);border:1.5px dashed var(--port)}
+#g-ports .pmk.old{background:#6b7686;color:#1a1f27;border-color:rgba(255,255,255,.45)}
 #g-ports .pmk.far{width:8px;height:8px;font-size:0;border-width:1px}
 #g-ports .pmk.sel{width:26px;height:26px;font-size:14px;border-color:#fff;box-shadow:0 0 0 3px rgba(255,138,91,.45),0 1px 6px rgba(0,0,0,.7)}
 #globe .lbl.port{color:#ffc2a8}

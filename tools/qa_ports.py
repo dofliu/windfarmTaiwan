@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ROLES = {"marshalling", "foundation", "tower", "blade", "nacelle", "cable", "floating", "om"}
-STATUS = {"operating", "developing"}
+STATUS = {"operating", "developing", "former"}   # former：離岸風電用途已停止 · the offshore wind role has ended
 REQUIRED = ["id", "name", "zh", "iso", "lat", "lon", "roles", "status", "en", "zhNote", "src"]
 MARGIN = 0.6  # 度：港口可以在國界外框稍外（離岸島嶼、港口外堤）
 
