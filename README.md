@@ -39,6 +39,9 @@
     里程碑、可搜尋的風場清單
   - 導覽模式、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
   - 台灣風場與即時資料連動：點台灣風場可看到台電此刻的出力並跳到即時詳情
+  - **澳洲、加拿大即時出力**：澳洲東部電網（AEMO，每 5 分鐘實測）、亞伯達（AESO，約 1 分鐘）與安大略（IESO，每小時）
+    約 150 座風場顯示此刻出力；國家概況有各電網總出力與 48 小時趨勢。時間軸在最新年份時，有即時資料的風場外圈為綠色、
+    葉片轉速依此刻出力
   - 無 WebGL 的裝置自動改用長條圖排名
 - **風電知識** `#/learn` — 12 章：從 1888 年 Brush 風機到 2025 年、陸域與離岸、浮動式、風機大型化、亞洲崛起、台灣的離岸風電、
   為什麼要發展風電、名詞解釋與完整資料來源；圖表皆由同一份全球資料集繪製，每章都能跳到地球儀重播那一段
@@ -49,6 +52,7 @@
 
 ```
 GitHub Actions (每 15 分鐘 cron) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
+                                 ── intl_wind_scraper.py    ──► data/live/intl_realtime.json（澳洲、加拿大）──────────────────┤
 GitHub Actions (每週一 cron)     ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ──────┤
                                                                                                                             ├─► commit 回 repo
 tools/*.py（手動、低頻：資料改版時才跑） ──► data/global/*.json、assets/img/globe/*.jpg ───────────────────────────────────┤
@@ -82,6 +86,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 每 15 分鐘執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
+- `intl_wind_scraper.py` — 每 15 分鐘執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力 →
+  `data/live/intl_realtime.json`（含各電網 48 小時總出力）；任一來源失敗時保留上一次的數值並標示，不影響台灣資料
+- `data/live/units.json` — 電網機組代碼 → 風場的對照表（`tools/build_live_units.py` 產生；安大略依 IESO 公布的設施對照人工核對）
 - `wind_realtime.json` — 即時資料（由 Actions 自動更新）
 - `wind_history.json` — 滾動 7 天歷史（scraper 即時累積，供前端趨勢線）
 - `grid_status.json` — 全國電力供需即時報表（尖峰負載/供電能力/備轉容量率）。
@@ -149,6 +156,7 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
 python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
 python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
+python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
@@ -189,6 +197,17 @@ python tools/build_standalone.py
 - 離岸風場開發歷程：整理自台電、沃旭能源、CIP、達德能源 wpd、中鋼集團、海龍等開發商官方新聞稿與媒體報導，
   逐條附來源查證，查無精確日期者不臆測填補
 - 授權：政府資料開放授權條款－第 1 版
+
+**澳洲、加拿大即時**
+
+- 澳洲東部電網：AEMO NEMWeb [Dispatch_SCADA](https://nemweb.com.au/Reports/Current/Dispatch_SCADA/)（每個發電機組每 5 分鐘的實測出力）；
+  資料來源：Australian Energy Market Operator（AEMO）；機組清單：AEMO NEM Registration and Exemption List
+- 亞伯達：AESO [Current Supply Demand](http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet) 報表。
+  © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved；依 [AESO 網站條款](https://www.aeso.ca/legal/)供非商業與教育用途，數值未修改
+- 安大略：IESO [Generators Output and Capability](https://reports-public.ieso.ca/public/GenOutputCapability/) 報表；機組名稱對照：
+  IESO [Transmission-Connected Generation](https://www.ieso.ca/en/Power-Data/Supply-Overview/Transmission-Connected-Generation)。
+  Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).
+- 評估與未接入的國家見 [docs/live-data-sources.md](./docs/live-data-sources.md)
 
 **全球發展**
 

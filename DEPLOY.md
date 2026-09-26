@@ -23,6 +23,7 @@ windfarmTaiwan/
 ├─ standalone/                      # 單檔版 HTML（tools/build_standalone.py 產生，可下載後離線開啟）
 ├─ docs/                            # 資料覆蓋率報告、即時資料來源評估（中英文各一份）
 ├─ taipower_wind_scraper.py         # 每 15 分鐘：風力即時 + 電力供需即時
+├─ intl_wind_scraper.py             # 每 15 分鐘：澳洲東部電網、亞伯達、安大略的風場即時出力 → data/live/
 ├─ backfill_history.py             # 每週一：官方回溯歷史回填
 ├─ wind_realtime.json               # 風力即時資料（Actions 自動更新）
 ├─ wind_history.json                # 風力滾動 7 天歷史
@@ -30,7 +31,7 @@ windfarmTaiwan/
 ├─ wind_archive_daily.json          # 長期存檔的每日摘要（前端長期趨勢圖讀這個）
 ├─ grid_status.json                 # 電力供需即時報表
 └─ .github/workflows/
-   ├─ scrape.yml                    # 每 15 分鐘執行 taipower_wind_scraper.py
+   ├─ scrape.yml                    # 每 15 分鐘執行 taipower_wind_scraper.py 與 intl_wind_scraper.py
    ├─ backfill.yml                  # 每週一執行 backfill_history.py
    └─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML
 ```
@@ -40,7 +41,7 @@ windfarmTaiwan/
 ### 步驟
 
 1. 建一個 **public** repo（公開 repo 的 Actions 分鐘數無限、免費；私有 repo 每月只有 2000 分鐘，每 15 分鐘跑會超量）。
-2. 把 `index.html`、`assets/`、`data/`、`taipower_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄（`tools/` 只在更新全球資料時需要）。
+2. 把 `index.html`、`assets/`、`data/`、`taipower_wind_scraper.py`、`intl_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄（`tools/` 只在更新全球資料時需要）。
 3. 把 `.github/workflows/scrape.yml`、`backfill.yml` 與 `standalone.yml` 放進對應位置。
 4. 確認 `assets/js/live.js` 開頭的 `DATA_ENDPOINT` 等常數指向相對路徑（同網域，例如 `./wind_realtime.json`），
    若是直接 fork/clone 本 repo 則不需修改。

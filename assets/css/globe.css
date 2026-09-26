@@ -119,6 +119,15 @@
 #globe .alinks a,#globe .gnote a{color:var(--off-b)}
 #g-pipeLegend{position:absolute;left:16px;bottom:26px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:11px;color:var(--ink-2);background:rgba(7,13,24,.62);border-radius:8px;padding:4px 9px;pointer-events:none;max-width:60%}
 #g-pipeLegend[hidden]{display:none}
+#g-liveLegend{position:absolute;left:16px;bottom:26px;display:flex;gap:6px;align-items:center;font-size:11px;color:var(--ink-2);background:rgba(7,13,24,.62);border-radius:8px;padding:4px 9px;pointer-events:none;max-width:60%}
+#g-liveLegend.up{bottom:56px}
+#g-liveLegend[hidden]{display:none}
+#globe .livebox .lrow{margin-top:6px}
+#globe .livebox .lic{margin-top:6px;font-size:10px;line-height:1.4;opacity:.8}
+#globe .livebox.none{border-color:var(--gline);background:transparent}
+#globe .livebox .lspark{display:block;margin-top:3px}
+#globe .msItem .lv{color:var(--live);font-weight:700}
+#g-tip .tlive{margin-top:4px;color:var(--live)}
 #g-tip .tnote{margin-top:4px;font-size:11px;color:var(--ink-2);border-left:2px solid var(--p2);padding-left:6px}
 /* info card */
 #g-infoCard{position:absolute;left:14px;bottom:30px;width:350px;max-height:calc(100% - 60px);overflow:auto;background:rgba(10,17,30,.95);border:1px solid var(--gline);border-radius:14px;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.45);display:none;z-index:8;line-height:1.55}
@@ -212,6 +221,7 @@
   #g-infoCard{left:8px;right:8px;width:auto;bottom:8px;max-height:58%}
   #g-hint{display:none}
   #g-pipeLegend{display:none!important}
+  #g-liveLegend{display:none!important}
   #globe .brow{grid-template-columns:78px 1fr 92px;gap:6px}
   #g-axis{left:84px;right:98px}
   #g-bottom{gap:6px;padding:6px 8px}

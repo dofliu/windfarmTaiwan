@@ -27,6 +27,8 @@
 - [ ] 查證芬蘭 Pohjoinen wind farm（99 MW，2020，Fortum）的正確位置：GEM 座標 68.04, 16.66 落在挪威
 - [ ] 台灣分批併網的離岸風場（海龍 2&3、大彰化 2b&4、台電離岸二期）若取得逐期併網容量，填進 `ph` 欄位
 - [ ] 每次重建風場資料後跑 `tools/coverage_report.py`，更新 `docs/data-coverage.md`／`.en.md`
+- [ ] 澳洲、加拿大即時資料的機組對照（`data/live/units.json`）每季重跑 `tools/build_live_units.py`：新風場併網、機組改名時
+      檢查「未對應」清單；目前資料中缺 Elaine、Yawong（澳洲維多利亞）與 Forty Mile Bow Island（亞伯達）三座風場
 
 ## 資料品質（來自 [docs/data-coverage.md](./docs/data-coverage.md)，2026-09 產生）
 
@@ -39,6 +41,7 @@
 - [ ] 588 個預計商轉年已過卻仍列規劃中的專案（102 GW）：以 GEM 新版或新聞更新狀態
 - [ ] 49 GW 營運中風場沒有商轉年（多在中國、印度），地圖只能從 2025 年顯示：找得到年份的補上
 - [ ] 覆蓋率較低的大國（中國差 127 GW、德國 27 GW、印度 15 GW）：評估以各國官方登錄資料補齊（見 ROADMAP 第 1 階段）
+- [ ] 接入即時資料時另發現的重複：亞伯達 Whitla（精選與 GEM 各一筆，353 MW）、澳洲 Snowtown（精選彙總列與 GEM 的 Snowtown I 並存）
 
 ## 待評估／待使用者決定方向（不要自作主張動工）
 
@@ -47,9 +50,8 @@
       這是網站範疇的重大決定，動工前務必先確認方向
 - [ ] 是否要嘗試解決電力供需即時來源的 WAF 403（需要換執行環境，例如自架 runner 或非雲端 CI 的主機，
       不是單純改程式碼能解決）
-- [ ] 是否接入其他國家的即時風電資料（評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)）：
-      建議先做免金鑰、逐座風場的澳洲 NEM 與加拿大亞伯達、安大略；荷蘭 NED、ENTSO-E 需要免費金鑰（存成 GitHub Secrets），
-      先確認要做哪幾國
+- [ ] 其他國家的即時風電資料（評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)）：澳洲 NEM、加拿大亞伯達與安大略
+      已於 2026-09 接入；英國（估計值）、荷蘭 NED 與 ENTSO-E（需免費金鑰，存成 GitHub Secrets）待決定
 - [ ] ROADMAP「下一步規劃」各階段的優先順序
 
 ## 維運

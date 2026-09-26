@@ -57,6 +57,10 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     `#/global?f=Hai%20Long%202%20%26%203`)
   - Taiwanese farms are linked to the live data: click one to see Taipower's current output and jump
     to its live details
+  - **Live output in Australia and Canada**: about 150 farms on Australia's NEM (AEMO, measured every
+    5 minutes), in Alberta (AESO, about a minute old) and in Ontario (IESO, hourly) show their current
+    output; country profiles show each grid's total and a 48-hour trend. With the timeline at the latest
+    year, farms with live data get a green ring and their rotors spin with their current output
   - Devices without WebGL fall back to the bar race automatically
 - **Learn** `#/learn` — 12 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore,
   floating wind, ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a
@@ -69,6 +73,7 @@ The whole site is bilingual (toggle top right; remembered in the browser).
 
 ```
 GitHub Actions (every 15 min cron)  ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
+                                    ── intl_wind_scraper.py    ──► data/live/intl_realtime.json (Australia, Canada) ─────────────┤
 GitHub Actions (weekly Monday cron) ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ────────┤
                                                                                                                                  ├─► commit back to repo
 tools/*.py (manual, rare: when source data changes) ──► data/global/*.json, assets/img/globe/*.jpg ─────────────────────────────┤
@@ -109,6 +114,11 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
 - `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing) for future
   contributors and AI agents
+- `intl_wind_scraper.py` — runs every 15 min: fetches each wind farm's live output from Australia's NEM
+  (AEMO), Alberta (AESO) and Ontario (IESO) → `data/live/intl_realtime.json` (with each grid's 48-hour
+  total); if a source fails, the previous values are kept and flagged, and Taiwan's data is unaffected
+- `data/live/units.json` — grid unit code → farm mapping (built by `tools/build_live_units.py`; Ontario
+  checked by hand against IESO's published facility list)
 - `taipower_wind_scraper.py` — runs every 15 min: fetches Taipower's open data, parses the 30
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`;
   also fetches the real-time supply-demand report → `grid_status.json`
@@ -201,6 +211,7 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
 python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
+python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
@@ -256,6 +267,19 @@ python tools/build_standalone.py
   Taipower, Ørsted, CIP, wpd, China Steel Corporation, Hai Long, and others; each milestone is
   sourced during research and omitted rather than guessed when no precise date could be verified
 - License: Government Open Data License, Version 1
+
+**Australia and Canada live**
+
+- Australia's NEM: AEMO NEMWeb [Dispatch_SCADA](https://nemweb.com.au/Reports/Current/Dispatch_SCADA/) (measured output
+  of every generating unit every 5 minutes); source: Australian Energy Market Operator (AEMO); unit list: AEMO NEM
+  Registration and Exemption List
+- Alberta: AESO [Current Supply Demand](http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet) report.
+  © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; used for non-commercial, educational purposes under
+  [AESO's website terms](https://www.aeso.ca/legal/), values unmodified
+- Ontario: IESO [Generators Output and Capability](https://reports-public.ieso.ca/public/GenOutputCapability/) report;
+  unit names matched with IESO's [Transmission-Connected Generation](https://www.ieso.ca/en/Power-Data/Supply-Overview/Transmission-Connected-Generation) list.
+  Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).
+- The assessment, and the countries not yet added, are in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)
 
 **Global**
 

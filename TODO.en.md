@@ -37,6 +37,9 @@ Concrete, actionable tasks. Background, the reasons behind decisions and the pha
       (Hai Long 2 & 3, Greater Changhua 2b & 4, Taipower Offshore Phase 2), fill in the `ph` field
 - [ ] After every rebuild of the farm data, run `tools/coverage_report.py` to refresh
       `docs/data-coverage.md` / `.en.md`
+- [ ] Every quarter, rerun `tools/build_live_units.py` for the Australian/Canadian unit mapping
+      (`data/live/units.json`) and check the "unmapped" list when new farms connect or units are renamed;
+      the data currently lacks the Elaine and Yawong farms (Victoria, Australia) and Forty Mile Bow Island (Alberta)
 
 ## Data quality (from [docs/data-coverage.en.md](./docs/data-coverage.en.md), generated Sep 2026)
 
@@ -57,6 +60,8 @@ Concrete, actionable tasks. Background, the reasons behind decisions and the pha
       only show them from 2025: add years where they can be found
 - [ ] Large countries with low coverage (China 127 GW short, Germany 27 GW, India 15 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
+- [ ] Duplicates found while adding live data: Whitla in Alberta (one curated and one GEM record, 353 MW) and
+      Snowtown in Australia (a curated aggregate next to GEM's Snowtown I)
 
 ## To assess / waiting for the owner's decision (do not start on your own)
 
@@ -68,10 +73,9 @@ Concrete, actionable tasks. Background, the reasons behind decisions and the pha
 - [ ] Whether to try to get past the WAF 403 on the live supply/demand source (needs a different
       execution environment, e.g. a self-hosted runner or a non-cloud-CI host; changing code alone
       cannot fix it)
-- [ ] Whether to add live wind data from other countries (assessment in
-      [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)): the suggested start is Australia NEM,
-      Alberta and Ontario (per farm, no key); the Dutch NED and ENTSO-E need a free key (stored as a
-      GitHub secret) — decide which countries first
+- [ ] Live wind data from more countries (assessment in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)):
+      Australia NEM, Alberta and Ontario were added in Sep 2026; the UK (estimates), the Dutch NED and ENTSO-E
+      (free key, stored as a GitHub secret) are still to be decided
 - [ ] The priority order of the phases under "Next steps" in the ROADMAP
 
 ## Operations
