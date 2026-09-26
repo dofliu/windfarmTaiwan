@@ -8,7 +8,7 @@
     - site.css 與五個頁面程式（直接執行）
     - 地球儀的 globe.css、three.js、OrbitControls、globe.js（進入全球頁時才執行，與網站相同）
     - 全球資料（國家逐年容量、風場、國界）與 2k 地形／衛星底圖
-    - 台灣即時資料的快照（建置當下）
+    - 台灣與澳洲、加拿大即時資料的快照（建置當下）
 
 單檔版連網時會向正式網站抓最新的即時資料，離線時改用快照並標示「離線快照」。
 Leaflet 地圖、Esri 高解析圖磚與維基百科簡介需要連網。
@@ -29,7 +29,7 @@ SITE = "https://dofliu.github.io/windfarmTaiwan/"
 PAGE_SCRIPTS = ["assets/js/core.js", "assets/js/charts.js", "assets/js/live.js", "assets/js/home.js", "assets/js/learn.js"]
 LAZY = ["assets/css/globe.css", "assets/vendor/three-r128.min.js", "assets/vendor/OrbitControls-r128.js", "assets/js/globe.js"]
 DATA = ["data/global/wind_global.json", "data/global/wind_farms.json", "data/global/world_borders.json"]
-LIVE = ["wind_realtime.json", "wind_history.json", "grid_status.json", "wind_archive_daily.json"]
+LIVE = ["wind_realtime.json", "wind_history.json", "grid_status.json", "wind_archive_daily.json", "data/live/intl_realtime.json"]
 IMAGES = ["assets/img/globe/relief_2k.jpg", "assets/img/globe/sat_2k.jpg"]
 
 

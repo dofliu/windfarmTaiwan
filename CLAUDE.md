@@ -49,6 +49,13 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 數字寫進網站或文件前先對照原始資料；查不到的不要臆測，寫明「待查證」。
   Check numbers against the original source before publishing them; if something cannot be verified, say so instead of guessing.
 
+- 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
+  `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。
+  各來源的授權標示（AEMO 來源、AESO 與 IESO 的版權聲明）顯示在資料旁，不要刪。
+  Australian/Canadian live data: the scheduled `intl_wind_scraper.py` (standard library only) reads `data/live/units.json`,
+  built by `tools/build_live_units.py`; hand-checked matches live in its `MANUAL` with their source. Never guess a match —
+  leave unmatched units in the grid total. Keep each source's attribution (AEMO source, AESO and IESO copyright notices) next to the data.
+
 ## 5. 測試 · Testing
 
 - 本機預覽：`python3 -m http.server 8000`，開 `http://localhost:8000/`。

@@ -77,7 +77,7 @@
         <span class="xd"><span data-l="zh">30 個風力機組／風場此刻出力、可用率、鄰近測站風速、電網備轉與今日發電量。</span><span data-l="en">Live output, availability and nearby wind speed for 30 units/farms, plus grid reserve and today's energy.</span></span>
         <span class="xg"><span data-l="zh">即時資料 →</span><span data-l="en">Live data →</span></span></a>
       <a class="xcard hist" href="#/global"><span class="xi" aria-hidden="true">🌍</span><span class="xt"><span data-l="zh">全球 3D 地球儀</span><span data-l="en">Global 3D globe</span></span>
-        <span class="xd"><span data-l="zh">1980–2025 年 79 國陸域與離岸容量、逾 1.5 萬座風場與近 8,000 個規劃中專案、35 個里程碑，可播放、導覽、放大到風場。</span><span data-l="en">Onshore and offshore capacity of 79 countries 1980–2025, 15,000+ wind farms, nearly 8,000 pipeline projects and 35 milestones — play, tour, zoom to farms.</span></span>
+        <span class="xd"><span data-l="zh">1980–2025 年 79 國陸域與離岸容量、逾 1.5 萬座風場與近 8,000 個規劃中專案、35 個里程碑；台灣、澳洲與加拿大的風場另有即時出力。</span><span data-l="en">Onshore and offshore capacity of 79 countries 1980–2025, 15,000+ wind farms, nearly 8,000 pipeline projects and 35 milestones, plus live output for farms in Taiwan, Australia and Canada.</span></span>
         <span class="xg"><span data-l="zh">開始探索 →</span><span data-l="en">Start exploring →</span></span></a>
       <a class="xcard hist" href="#/learn"><span class="xi" aria-hidden="true">📖</span><span class="xt"><span data-l="zh">風電知識 12 章</span><span data-l="en">Learn: 12 chapters</span></span>
         <span class="xd"><span data-l="zh">起源、加州風潮、亞洲世紀、離岸與浮動式、風機巨型化、台灣之路、迷思與名詞。</span><span data-l="en">Origins, the California wind rush, Asia's century, offshore and floating wind, bigger turbines, Taiwan's path, myths and terms.</span></span>
@@ -454,6 +454,17 @@
          <li data-l="zh">授權：政府資料開放授權條款－第 1 版。風場開發歷程整理自台電與各開發商新聞稿，逐條查證、查無精確日期者不臆測。</li>
          <li data-l="en">Licence: Open Government Data License, version 1.0. Farm timelines are compiled from Taipower and developer releases, each item checked; no dates are guessed.</li>
        </ul>
+       <h3><span data-l="zh">澳洲、加拿大即時（電網營運機構公開資料）</span><span data-l="en">Australia and Canada live (grid operators' public data)</span></h3>
+       <ul>
+         <li data-l="zh"><b>澳洲東部電網</b>：AEMO NEMWeb「Dispatch_SCADA」，每個發電機組每 5 分鐘的實測出力（<a href="https://nemweb.com.au/Reports/Current/Dispatch_SCADA/" target="_blank" rel="noopener">nemweb.com.au</a>）。資料來源：Australian Energy Market Operator（AEMO）。西澳與北領地不在此電網。</li>
+         <li data-l="en"><b>Australia's NEM</b>: AEMO NEMWeb "Dispatch_SCADA", measured output of every generating unit every 5 minutes (<a href="https://nemweb.com.au/Reports/Current/Dispatch_SCADA/" target="_blank" rel="noopener">nemweb.com.au</a>). Source: Australian Energy Market Operator (AEMO). Western Australia and the Northern Territory are not on this grid.</li>
+         <li data-l="zh"><b>加拿大亞伯達</b>：AESO「Current Supply Demand」報表，各風場約 1 分鐘的即時淨出力。© 2026 The Independent System Operator（AESO）. All rights reserved；依 AESO 網站條款供非商業與教育用途，數值未經修改。</li>
+         <li data-l="en"><b>Alberta</b>: AESO "Current Supply Demand" report, each wind asset's net output about a minute old. © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; used for non-commercial, educational purposes under AESO's website terms, values unmodified.</li>
+         <li data-l="zh"><b>加拿大安大略</b>：IESO「Generators Output and Capability」報表，各風場每小時出力。Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).</li>
+         <li data-l="en"><b>Ontario</b>: IESO "Generators Output and Capability" report, each wind farm's hourly output. Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).</li>
+         <li data-l="zh">由 GitHub Actions 每 15 分鐘抓取。電網只給機組代碼，本站以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對對應到風場；對不到的機組只計入電網總量，一個機組涵蓋數座風場時依容量比例估算並標示。詳見 <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/live-data-sources.md" target="_blank" rel="noopener">即時資料來源評估</a>。</li>
+         <li data-l="en">Fetched every 15 minutes by GitHub Actions. The grids only publish unit codes, so units are matched to farms using AEMO's registration list and IESO's "Transmission-Connected Generation" page, checked by hand; unmatched units only count toward the grid total, and a unit covering several farms is split by capacity and labelled as an estimate. See the <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/live-data-sources.en.md" target="_blank" rel="noopener">live-data source assessment</a>.</li>
+       </ul>
        <h3><span data-l="zh">全球風電（1980–2025）</span><span data-l="en">Global wind (1980–2025)</span></h3>
        <ul>
          <li data-l="zh"><b>各國總容量 2000–2025</b>：IRENA 再生能源容量統計（經 Our World in Data，CC BY 4.0）。<b>1980–1999</b> 多數國家為依丹麥、德國、荷蘭官方統計與 BTM Consult、EWEA、IEA 等整理的估計值，僅供觀察趨勢。</li>
@@ -484,7 +495,7 @@
     <div><div class="fbrand">風電風情</div>
       <p><span data-l="zh">台灣風力發電即時資訊 × 全球風電發展 1980–2025。以政府開放資料與公開資料整理，協助綠能資訊揭露；數字僅供參考，非官方正式統計。</span><span data-l="en">Taiwan wind power live × global wind power 1980–2025, compiled from government open data and public sources to support green-energy transparency. Figures are for reference only, not official statistics.</span></p></div>
     <div><h4><span data-l="zh">資料來源</span><span data-l="en">Data</span></h4>
-      <p><span data-l="zh">台電開放資料 · 中央氣象署 · 經濟部能源署 · JWPA · IRENA / Our World in Data · Global Energy Monitor · WFO · GWEC · EWEA · Natural Earth · 維基百科</span><span data-l="en">Taipower open data · CWA · MOEA Energy Administration · JWPA · IRENA / Our World in Data · Global Energy Monitor · WFO · GWEC · EWEA · Natural Earth · Wikipedia</span><br><a href="#/learn/sources"><span data-l="zh">來源與方法 →</span><span data-l="en">Sources &amp; method →</span></a></p></div>
+      <p><span data-l="zh">台電開放資料 · 中央氣象署 · 經濟部能源署 · JWPA · AEMO · AESO · IESO · IRENA / Our World in Data · Global Energy Monitor · WFO · GWEC · EWEA · Natural Earth · 維基百科</span><span data-l="en">Taipower open data · CWA · MOEA Energy Administration · JWPA · AEMO · AESO · IESO · IRENA / Our World in Data · Global Energy Monitor · WFO · GWEC · EWEA · Natural Earth · Wikipedia</span><br><a href="#/learn/sources"><span data-l="zh">來源與方法 →</span><span data-l="en">Sources &amp; method →</span></a></p></div>
     <div><h4><span data-l="zh">專案</span><span data-l="en">Project</span></h4>
       <p><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a><br><a href="standalone/windfarmTaiwan-standalone.html" download><span data-l="zh">下載單檔版 HTML（離線也能開）</span><span data-l="en">Download the single-file HTML (opens offline)</span></a><br><span data-l="zh">政府資料開放授權條款－第 1 版 · three.js（MIT）· Leaflet（BSD-2）· 衛星底圖 © Esri</span><span data-l="en">Open Government Data License v1.0 · three.js (MIT) · Leaflet (BSD-2) · imagery © Esri</span></p></div>
   </div>

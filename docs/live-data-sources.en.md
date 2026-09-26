@@ -7,6 +7,23 @@ English (this page) ｜ [中文](./live-data-sources.md)
 > account was registered and no key was used (except the US EIA's public test key `DEMO_KEY`). Items
 > that could not be verified are listed in the last section.
 
+## Current status (updated Sep 2026)
+
+**Integrated**: Australia's NEM (AEMO), Alberta (AESO) and Ontario (IESO), fetched every 15 minutes by
+`intl_wind_scraper.py` into `data/live/intl_realtime.json`.
+
+- **On the globe**: country profiles show each grid's current total and a 48-hour trend; matched farms show
+  their current output in the card, the tooltip and the farm list. With the timeline at the latest year these
+  farms get a green ring and their rotors spin with their current output.
+- **Unit mapping** (`data/live/units.json`, built by `tools/build_live_units.py`):
+  - Australia: 104 of 108 wind units are matched to farms.
+  - Alberta: 49 of 50.
+  - Ontario: all 45, checked by hand against the facility names on IESO's "Transmission-Connected Generation" page.
+  - Unmatched units only count toward the grid total: the Elaine, Yawong and Forty Mile Bow Island farms are missing from
+    the data, and Golden Plains West is the under-construction whole-project record.
+- **Attribution**: AEMO is credited as the source; AESO's copyright notice is shown and its data is used for
+  non-commercial, educational purposes without modification; IESO's required copyright notice is shown in full.
+
 ## Conclusion
 
 Yes, but only a few places match Taiwan's "per wind farm, close to real time":
@@ -82,7 +99,9 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 - ODRÉ: Licence Ouverte 2.0
 - Elia: its own open-data licence
 - ONS: Creative Commons Attribution
-- IESO, AESO, EirGrid, NED, SEMO: not found yet
+- IESO: use and reproduction allowed with IESO's required copyright notice on every reproduction ([terms of use](https://www.ieso.ca/Terms-of-Use))
+- AESO: non-commercial, personal or educational use only, unmodified, with copyright notices kept ([legal](https://www.aeso.ca/legal/))
+- EirGrid, NED, SEMO: not found yet
 
 ## Suggested order of integration
 
@@ -123,7 +142,7 @@ Actions.
 - Spain's REE (WAF block), TEPCO (CDN block), India (unreachable), Chile's per-plant SCADA page
   (Cloudflare 403 and a TLS error)
 - Lists mapping SEMO unit codes and Brazil's `ceg` codes to names and coordinates
-- The licences of IESO, AESO, EirGrid, NED and SEMO
+- The licences of EirGrid, NED and SEMO
 - The ~31-hour EIA delay and the ~14-day B1610 delay were each observed only once
 
 ## References

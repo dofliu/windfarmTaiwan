@@ -33,11 +33,16 @@ jobs:
           CWA_API_KEY: ${{ secrets.CWA_API_KEY }}   # 中央氣象署風速授權碼(未設定則自動略過風速)
         run: python taipower_wind_scraper.py
 
+      - name: Run international scraper (Australia NEM, Alberta, Ontario)
+        continue-on-error: true     # 國外來源失敗不影響台灣資料的更新
+        run: python intl_wind_scraper.py
+
       - name: Commit if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add wind_realtime.json wind_history.json
           [ -f grid_status.json ] && git add grid_status.json || true
+          [ -f data/live/intl_realtime.json ] && git add data/live/intl_realtime.json || true
           git diff --staged --quiet || git commit -m "chore: update wind data $(date -u +%FT%TZ)"
           git push

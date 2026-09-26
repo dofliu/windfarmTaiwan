@@ -23,6 +23,7 @@ windfarmTaiwan/
 ├─ standalone/                      # single-file HTML (built by tools/build_standalone.py; download and open offline)
 ├─ docs/                            # data coverage report, live-data source assessment (one Chinese and one English copy each)
 ├─ taipower_wind_scraper.py         # every 15 min: live wind + live supply/demand
+├─ intl_wind_scraper.py             # every 15 min: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
 ├─ backfill_history.py              # every Monday: official retrospective history backfill
 ├─ wind_realtime.json               # live wind data (auto-updated by Actions)
 ├─ wind_history.json                # rolling 7-day wind history
@@ -30,7 +31,7 @@ windfarmTaiwan/
 ├─ wind_archive_daily.json          # daily digest of the archive (read by the long-term trend chart)
 ├─ grid_status.json                 # live power supply/demand report
 └─ .github/workflows/
-   ├─ scrape.yml                    # runs taipower_wind_scraper.py every 15 minutes
+   ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py every 15 minutes
    ├─ backfill.yml                  # runs backfill_history.py every Monday
    └─ standalone.yml                # rebuilds the single-file HTML when site code or global data change
 ```
@@ -41,8 +42,8 @@ To set up a new project from scratch (instead of using this repo directly):
 
 1. Create a **public** repo (public repos get unlimited free Actions minutes; private repos get
    2,000 minutes a month, which a 15-minute schedule would exceed).
-2. Put `index.html`, `assets/`, `data/`, `taipower_wind_scraper.py` and `backfill_history.py` in the
-   repo root (`tools/` is only needed to update the global data).
+2. Put `index.html`, `assets/`, `data/`, `taipower_wind_scraper.py`, `intl_wind_scraper.py` and
+   `backfill_history.py` in the repo root (`tools/` is only needed to update the global data).
 3. Put `.github/workflows/scrape.yml`, `backfill.yml` and `standalone.yml` in place.
 4. Make sure `DATA_ENDPOINT` and the other constants at the top of `assets/js/live.js` point to
    relative paths on the same origin (e.g. `./wind_realtime.json`). No change is needed if you fork

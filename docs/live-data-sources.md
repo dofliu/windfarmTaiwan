@@ -6,6 +6,20 @@
 > 檢查瀏覽器能否直接讀取（CORS）。沒有註冊任何帳號、沒有使用任何金鑰（美國 EIA 官方公開的測試用 `DEMO_KEY` 除外）。
 > 沒能實測成功的項目另列在最後一節。
 
+## 目前狀態（2026-09 更新）
+
+**已接入**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 每 15 分鐘抓取，
+輸出 `data/live/intl_realtime.json`。
+
+- **地球儀上的顯示**：國家概況有各電網此刻的總出力與 48 小時趨勢；對應到的風場在卡片、提示與風場清單顯示此刻出力。
+  時間軸在最新年份時，這些風場外圈為綠色，葉片轉速依此刻出力。
+- **機組對照**（`data/live/units.json`，由 `tools/build_live_units.py` 產生）：
+  - 澳洲：108 個風電機組中 104 個對應到風場。
+  - 亞伯達：50 個中 49 個。
+  - 安大略：45 個全部對應，依 IESO「Transmission-Connected Generation」頁的設施對照人工核對。
+  - 對不到的機組只計入電網總量：資料中沒有 Elaine、Yawong、Forty Mile Bow Island 三座風場；Golden Plains 西區在資料中是興建中的整體專案列。
+- **授權標示**：AEMO 標示來源；AESO 附版權聲明，限非商業與教育用途、數值不修改；IESO 附其規定的版權聲明全文。
+
 ## 結論
 
 可以，但能像台灣一樣「逐座風場、接近即時」的地方不多：
@@ -70,7 +84,9 @@
 - ODRÉ：Licence Ouverte 2.0
 - Elia：自有開放資料授權
 - ONS：創用 CC 姓名標示
-- IESO、AESO、EirGrid、NED、SEMO：尚未查到
+- IESO：可使用與轉載，須在轉載處附上 IESO 規定的版權聲明（[使用條款](https://www.ieso.ca/Terms-of-Use)）
+- AESO：限非商業、個人或教育用途，不得修改，並保留版權聲明（[法律聲明](https://www.aeso.ca/legal/)）
+- EirGrid、NED、SEMO：尚未查到
 
 ## 建議的接入順序
 
@@ -100,7 +116,7 @@
 - SMARD 的 100 MW 以上機組下載（只看過文件）
 - 西班牙 REE（WAF 封鎖）、東京電力（CDN 封鎖）、印度（無法連線）、智利逐廠 SCADA 頁面（Cloudflare 403 與 TLS 錯誤）
 - SEMO 機組代碼、巴西 `ceg` 代碼對應名稱與座標的清單
-- IESO、AESO、EirGrid、NED、SEMO 的授權條款
+- EirGrid、NED、SEMO 的授權條款
 - EIA 約 31 小時、B1610 約 14 天的延遲各只觀察到一次
 
 ## 參考連結

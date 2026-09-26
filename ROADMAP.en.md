@@ -32,7 +32,7 @@ TODO is about what to do next.
 
 | Item | What | Effort |
 |---|---|---|
-| Live output in other countries | Following [docs/live-data-sources.en.md](./docs/live-data-sources.en.md): start with Australia NEM, Alberta and Ontario (per farm, no key), then UK estimates; a national "wind output right now" panel can come first; farms with live data light up on the globe | medium–large |
+| Live output in other countries | **Done (Sep 2026)**: Australia NEM, Alberta and Ontario, about 150 farms; farms with live data get a green ring. Next: UK estimates and a national "wind output right now" panel (see [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)) | medium–large |
 | Country comparison | Put 2–4 countries side by side (small multiples): cumulative capacity, yearly additions, onshore / offshore, indexed growth | medium |
 | More metrics | Capacity per person, wind's share of electricity generation, capacity factor (Ember yearly data, CC BY 4.0); colour the map by any metric | medium |
 | Yearly additions | Show capacity added each year (not just cumulative) to reveal each country's build-out peaks and cycles | small |

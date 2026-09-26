@@ -35,7 +35,7 @@ const I18N = {
     lnkWiki: '維基百科', lnkMap: '衛星地圖', lnkPhoto: '搜尋照片', lnkGem: 'GEM 專案頁', photoCredit: '圖片：Wikipedia / Wikimedia Commons',
     whyFirstOff: c => c + '第一座離岸風場', whyFirstOn: c => c + '資料中最早的陸域風場', whyRecOff: c => '併網時為' + c + '規模最大的離岸風場', whyRecOn: c => '併網時為' + c + '規模最大的陸域風場', whyTop: c => c + '規模最大的風場之一',
     tourEnd: '導覽結束', decom: '已除役', yearUnknown: '商轉年份不詳', expected: '預計', pipeNote: '規劃中專案為 GEM 2025 年 2 月資料，拉到 2025 年才會顯示',
-    liveNow: '此刻即時出力', liveSee: '看即時詳情', availability: '可用率', open: '開啟', more: '顯示更多', search: '搜尋風場名稱',
+    liveNow: '此刻即時出力', liveLegend: '綠色外圈：有即時資料的風場，葉片轉速依此刻出力', liveSee: '看即時詳情', availability: '可用率', open: '開啟', more: '顯示更多', search: '搜尋風場名稱',
     fAll: '全部', fOp: '營運中', fPipe: '規劃中', sortMw: '依容量', sortYear: '依年份',
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
@@ -71,7 +71,7 @@ const I18N = {
     lnkWiki: 'Wikipedia', lnkMap: 'Satellite map', lnkPhoto: 'Search photos', lnkGem: 'GEM project page', photoCredit: 'Image: Wikipedia / Wikimedia Commons',
     whyFirstOff: c => 'First offshore wind farm in ' + c, whyFirstOn: c => 'Earliest onshore wind farm in the dataset for ' + c, whyRecOff: c => 'Largest offshore wind farm in ' + c + ' when commissioned', whyRecOn: c => 'Largest onshore wind farm in ' + c + ' when commissioned', whyTop: c => 'One of the largest wind farms in ' + c,
     tourEnd: 'Tour finished', decom: 'decommissioned', yearUnknown: 'start year unknown', expected: 'expected', pipeNote: 'Pipeline projects are GEM data as of Feb 2025 — move to 2025 to see them',
-    liveNow: 'Live output now', liveSee: 'Live details', availability: 'availability', open: 'Open', more: 'Show more', search: 'Search farms',
+    liveNow: 'Live output now', liveLegend: 'Green ring: farms with live data; rotors spin with their current output', liveSee: 'Live details', availability: 'availability', open: 'Open', more: 'Show more', search: 'Search farms',
     fAll: 'All', fOp: 'Operating', fPipe: 'Pipeline', sortMw: 'By size', sortYear: 'By year',
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
@@ -119,7 +119,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-farmList" hidden></div>
       <div class="gpbody" id="g-pipeList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -578,6 +578,7 @@ function buildSymbols() {
       ring: new THREE.MeshBasicMaterial({ color: PIPE_HEX[st], transparent: true, opacity: 0.9, depthWrite: false, side: THREE.DoubleSide }),
       tower: ghost(), nac: ghost(), blade: ghost() };
   });
+  clusterMats.liveRing = new THREE.MeshBasicMaterial({ color: LIVE_HEX, transparent: true, opacity: 0.85, depthWrite: false, side: THREE.DoubleSide });
   thinDashGeo = mergeGeos([...Array(36)].map((_, i) => [new THREE.RingGeometry(0.96, 1, 3, 1, i * Math.PI / 18, Math.PI / 18 * 0.55), new THREE.Matrix4()])); thinDashGeo.rotateX(-Math.PI / 2);
 }
 
@@ -596,8 +597,12 @@ function makeInst(isPipe) {
   const ring = mk(isPipe ? dashRingGeo : ringGeo, new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: isPipe ? 0.9 : 0.55, depthWrite: false, side: THREE.DoubleSide }));
   const disc = mk(discGeo, new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: isPipe ? 0.06 : 0.16, depthWrite: false }));
   const meshes = [tower, nac, rotor, ring, disc].filter(Boolean);
+  // 先建立完整大小的逐實例顏色緩衝：three.js 在第一次繪製時決定著色器是否支援逐實例顏色（之後才加的會被忽略），
+  // 而 setColorAt 會依當下的 count（此時為 0）配置緩衝，所以要自己配置 FARM_MAX 筆
+  [nac, ring, disc].filter(Boolean).forEach(m => { m.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(FARM_MAX * 3).fill(1), 3); m.instanceColor.setUsage(THREE.DynamicDrawUsage); });
   const grp = new THREE.Group(); grp.add(...meshes);
-  return { grp, tower, nac, rotor, ring, disc, meshes, list: [], h: new Float32Array(FARM_MAX), r: new Float32Array(FARM_MAX), pos: [], quat: [], phase: new Float32Array(FARM_MAX), ang: 0, isPipe };
+  return { grp, tower, nac, rotor, ring, disc, meshes, list: [], h: new Float32Array(FARM_MAX), r: new Float32Array(FARM_MAX), pos: [], quat: [], phase: new Float32Array(FARM_MAX), ang: 0, isPipe,
+    spin: new Float32Array(FARM_MAX).fill(1), angF: new Float32Array(FARM_MAX) };
 }
 function buildFarmLayer() {
   FL.op = makeInst(false); FL.pp = makeInst(true);
@@ -646,22 +651,28 @@ function rebuildFarmInstances(now, force) {
   if (!force && now - lastFarmBuild < 450) return;
   lastFarmBuild = now;
   const fc = focusLonLat(), alt = curAlt();
-  const key = [S.region, S.mode, S.pipe, S.layer, farmsReady, (fc.lat / Math.max(1, alt * 0.3)).toFixed(0), (fc.lon / Math.max(1, alt * 0.3)).toFixed(0), Math.round(Math.log2(Math.max(0.1, alt)) * 2)].join('|');
+  const key = [S.region, S.mode, S.pipe, S.layer, farmsReady, liveOn(), (fc.lat / Math.max(1, alt * 0.3)).toFixed(0), (fc.lon / Math.max(1, alt * 0.3)).toFixed(0), Math.round(Math.log2(Math.max(0.1, alt)) * 2)].join('|');
   if (!force && !farmLayerDirty && key === farmBuildKey) return;
   farmBuildKey = key; farmLayerDirty = false;
   const list = pickFarms();
   const byKind = { op: [], pp: [] };
+  liveSeen = false;
   for (const f of list) {
     if (f.pipe) { if (S.pipe && byKind.pp.length < FARM_MAX) byKind.pp.push(f); }
     else if (byKind.op.length < FARM_MAX) byKind.op.push(f);
   }
   ['op', 'pp'].forEach(k => {
     const L2 = FL[k], nl = byKind[k], old = new Map(L2.list.map((f, i) => [f, i]));
-    const h = new Float32Array(FARM_MAX), r = new Float32Array(FARM_MAX);
-    nl.forEach((f, i) => { const j = old.get(f); if (j != null) { h[i] = L2.h[j]; r[i] = L2.r[j]; } });
-    L2.h = h; L2.r = r; L2.list = nl;
+    const h = new Float32Array(FARM_MAX), r = new Float32Array(FARM_MAX), angF = new Float32Array(FARM_MAX), spin = new Float32Array(FARM_MAX);
+    nl.forEach((f, i) => { const j = old.get(f); if (j != null) { h[i] = L2.h[j]; r[i] = L2.r[j]; angF[i] = L2.angF[j]; } });
+    L2.h = h; L2.r = r; L2.angF = angF; L2.spin = spin; L2.list = nl;
     const colored = [L2.nac, L2.ring, L2.disc].filter(Boolean);
-    nl.forEach((f, i) => { _col.setHex(farmColor(f)); colored.forEach(m => m.setColorAt(i, _col)); L2.phase[i] = (i * 2.399) % 6.283; });
+    nl.forEach((f, i) => {
+      _col.setHex(farmColor(f)); colored.forEach(m => m.setColorAt(i, _col)); L2.phase[i] = (i * 2.399) % 6.283;
+      const lv = liveOn() && liveFor(f);
+      spin[i] = lv ? spinOf(lv) : 1;
+      if (lv) { _col.setHex(LIVE_HEX); L2.ring.setColorAt(i, _col); liveSeen = true; }   // 有即時資料：外圈改為即時綠
+    });
     colored.forEach(m => { if (m.instanceColor) m.instanceColor.needsUpdate = true; });
     L2.meshes.forEach(m => { m.count = nl.length; });
     layoutFarmKind(L2);
@@ -707,7 +718,8 @@ function animateFarmKind(L2, dt, farmScale, deep, now) {
       // rotor：位置在塔頂前方，繞本地 Z 軸旋轉
       _off.set(0, hs, 0.12 * hs).applyQuaternion(q);
       _p3.copy(p).add(_off);
-      _q2.setFromAxisAngle(_zAxis, (f.pipe ? 0 : L2.ang) + L2.phase[i]);
+      if (!f.pipe) L2.angF[i] += dt * 3 * L2.spin[i];          // 有即時資料的風場：轉速依此刻出力
+      _q2.setFromAxisAngle(_zAxis, (f.pipe ? 0 : L2.angF[i]) + L2.phase[i]);
       _q.copy(q).multiply(_q2);
       _s.set(hs, hs, hs); _m4.compose(_p3, _q, _s); L2.rotor.setMatrixAt(i, _m4);
     }
@@ -762,7 +774,7 @@ function makeCluster(f) {
   const disc = new THREE.Mesh(discGeo, clusterMats[kind].disc), ring = new THREE.Mesh(f.pipe ? thinDashGeo : thinRingGeo, clusterMats[kind].ring);
   disc.scale.set(rad / 0.75, 1, rad / 0.75); ring.scale.set(rad, 1, rad); disc.position.y = ring.position.y = h * 0.02;
   disc.userData.farm = f; g.add(disc, ring);
-  g.userData = { f, P, h, tower, nac, rotor, disc, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
+  g.userData = { f, P, h, tower, nac, rotor, disc, ring, ringMat: ring.material, live: false, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
   const q = new THREE.Quaternion(); posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q));
   clusterRoot.add(g); return g;
 }
@@ -793,7 +805,9 @@ function animateClusters(dt) {
     const u = g.userData, n = u.P.length;
     const built = (f.yu || f.pipe) ? n : clamp(Math.ceil(n * fAge(f) / BUILD), 0, n);
     if (built !== u.count) { u.count = built; u.tower.count = built; u.nac.count = built; u.rotor.count = built; }
-    if (!f.pipe) u.ang += dt * 1.6;
+    const lv = liveOn() && liveFor(f);
+    if (!!lv !== u.live) { u.live = !!lv; u.ring.material = lv ? clusterMats.liveRing : u.ringMat; }   // 有即時資料：外圈改為即時綠
+    u.ang += dt * 1.6 * (lv ? spinOf(lv) : f.pipe ? 0 : 1);   // 近看的風機群：轉速依此刻出力（興建中但已併網發電者也會轉）
     _s.set(u.h, u.h, u.h);
     for (let i = 0; i < built; i++) { _p3.set(u.P[i][0], u.h, u.P[i][1] + 0.12 * u.h); _q.setFromAxisAngle(_zAxis, u.ang + u.phase[i]); _m4.compose(_p3, _q, _s); u.rotor.setMatrixAt(i, _m4); }
     u.rotor.instanceMatrix.needsUpdate = true;
@@ -1168,7 +1182,10 @@ function updateHUD() {
   if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
   if (panelTab === 'farms') renderFarmList(false);
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
+  const ll = $('g-liveLegend'), showLl = liveSeen && liveOn() && !!renderer && S.view !== 'bars' && farmsReady;
+  if (ll.hidden === showLl || ll._lang !== lang) { ll.hidden = !showLl; ll._lang = lang; ll.innerHTML = '<i class="gsw" style="background:var(--live)"></i>' + T('liveLegend'); }
   const lg = $('g-pipeLegend'), showLg = S.pipe && S.year >= Y1 - 0.02 && !!renderer && S.view !== 'bars' && farmsReady;
+  ll.classList.toggle('up', showLg);
   if (lg.hidden === showLg) {
     lg.hidden = !showLg;
     if (showLg) lg.innerHTML = '<span>' + T('pipeLegendT') + '</span>' + [1, 2, 3].map(k => '<span><i class="gsw dash p' + k + '"></i>' + T('st')[k] + '</span>').join('');
@@ -1226,6 +1243,8 @@ function renderFarmList(force) {
     const yr = f.pipe ? (f.year ? T('expected') + ' ' + f.year : T('st')[f.st]) : (f.yu ? '—' : f.year + (f.end ? '–' + f.end : ''));
     d.innerHTML = '<span class="y">' + esc(String(yr)) + '</span><span class="n">' + esc(fname(f)) + '</span>' +
       '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + fmtMW(f.mw) + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(f.owner) : '') + '</span>';
+    const lv = liveOn() && liveFor(f);
+    if (lv) d.querySelector('.t').insertAdjacentHTML('beforeend', ' · <b class="lv">● ' + WW.num(lv.mw, lv.mw < 100 ? 1 : 0) + ' MW</b>');
     d.onclick = () => selectFarm(f);
     box.appendChild(d);
   });
@@ -1356,7 +1375,7 @@ function renderProfile() {
     farmsHTML = rowsHTML(fr) + coverageBox(op.reduce((a, f) => a + farmMwAt(f, S.year), 0), tot);
   } else if (!farmsReady) farmsHTML = '<div class="gnote" style="margin-top:8px">' + T('farmsLoading') + '</div>';
   const note = NOTE[c.iso] ? `<div class="blurb">${esc(NOTE[c.iso][lang === 'en' ? 1 : 0])}</div>` : '';
-  let live = '';
+  let live = intlProfileBox(c.iso);
   if (c.iso === 'TWN' && WW.live) {
     const Tt = WW.live.totals();
     live = `<div class="livebox">🌬 ${T('liveNow')}：<b>${WW.int(Tt.total)} MW</b>（${WW.live.isLive() ? L('台電', 'Taipower') + ' ' + WW.live.fmtSrc(WW.live.srcTime()) : L('模擬', 'simulated')}）· ${T('availability')} ${(Tt.ratio * 100).toFixed(1)}%</div>`;
@@ -1501,12 +1520,88 @@ function msPseudoFarm(m) {
 }
 function msStop(m) { return { kind: 'ms', m, name: m.name, zh: null, lat: m.lat, lon: m.lon, year: m.year, type: m.type, iso: m.iso, farm: farmsReady ? msPseudoFarm(m) : null }; }
 let cardItem = null;
+/* ================= 澳洲、加拿大即時出力（intl_wind_scraper.py 每 15 分鐘更新 data/live/intl_realtime.json） ================= */
+const INTL_URL = 'data/live/intl_realtime.json', LIVE_HEX = 0x3fdcb0, LIVE_STALE_MS = 3 * 3600e3;
+const GRID_TZ = { AEMO: 'Australia/Brisbane', AESO: 'America/Edmonton', IESO: 'America/Toronto' };
+const GRID_SRC = { AEMO: 'https://nemweb.com.au/Reports/Current/Dispatch_SCADA/', AESO: 'http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet',
+  IESO: 'https://reports-public.ieso.ca/public/GenOutputCapability/PUB_GenOutputCapability.xml' };
+let INTL = null, intlByKey = new Map(), intlTimer = null, liveSeen = false;
+function loadIntl() {
+  return WW.getLiveJSON(INTL_URL).then(j => {
+    if (!j || !j.grids) return;
+    INTL = j; intlByKey = new Map((j.farms || []).map(x => [x.iso + '|' + x.name, x]));
+    liveChanged();
+  }).catch(() => { /* 沒有即時檔或離線：不顯示即時資訊 */ });
+}
+function liveChanged() {
+  farmLayerDirty = true;
+  if (!active || !farmsReady) return;
+  if (panelTab === 'prof' && (S.region === 'AUS' || S.region === 'CAN' || S.region === 'TWN')) renderProfile();
+  if (panelTab === 'farms') renderFarmList(true);
+  const box = $('g-infoCard').querySelector('.livebox[data-live]');
+  if (box && cardItem) { const f = cardItem.f || cardItem.farm; const html = f ? liveBoxFor(f) : ''; if (html) box.outerHTML = html; }
+}
+const liveOn = () => S.year >= Y1 - 0.02;                                   // 時間軸在最新年份時才疊上「此刻」
+const gridFresh = g => !!g && g.ok !== false && Date.now() - Date.parse(g.time) < LIVE_STALE_MS;
+const spinOf = x => { const cf = x.cap ? clamp(x.mw / x.cap, 0, 1) : 0; return cf < 0.01 ? 0 : 0.25 + 1.75 * cf; };
+/* 一座風場此刻的出力；沒有即時資料時為 null。台灣來自台電，澳洲、加拿大來自各電網 */
+function liveFor(f) {
+  if (!f) return null;
+  if (f.iso === 'TWN') {
+    if (!WW.live || !WW.live.isLive()) return null;
+    const units = WW.live.unitsForGlobalFarm(f.name); if (!units.length) return null;
+    return { mw: units.reduce((s, u) => s + (WW.live.RT[u.id] || 0), 0), cap: units.reduce((s, u) => s + (u.cap || 0), 0), grid: 'TPC' };
+  }
+  const x = INTL && intlByKey.get(f.iso + '|' + f.name);
+  return x && gridFresh(INTL.grids[x.grid]) ? x : null;
+}
+function gridName(g) { return ({ AEMO: L('澳洲東部電網（AEMO）', 'Australia NEM (AEMO)'), AESO: L('亞伯達（AESO）', 'Alberta (AESO)'), IESO: L('安大略（IESO）', 'Ontario (IESO)') })[g] || g; }
+function gridRes(g) { return ({ '5min': L('每 5 分鐘實測', 'measured every 5 min'), snapshot: L('約 1 分鐘的即時值', 'real-time value (~1 min)'), hourly: L('每小時平均', 'hourly average') })[g.res] || ''; }
+function gridTime(key, g) {
+  const t = new Date(g.time), mins = Math.max(0, Math.round((Date.now() - t) / 60000));
+  let local = '';
+  try { local = new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'zh-TW', { timeZone: GRID_TZ[key], month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(t); } catch (e) { local = g.time; }
+  const zone = ({ AEMO: L('澳洲東部時間', 'AEST'), AESO: L('亞伯達時間', 'Alberta time'), IESO: L('安大略時間', 'Ontario time') })[key] || '';
+  const ago = mins < 90 ? L(mins + ' 分鐘前', mins + ' min ago') : L(Math.round(mins / 60) + ' 小時前', Math.round(mins / 60) + ' h ago');
+  return `${local}（${zone}，${ago}）`.replace('（', lang === 'en' ? ' (' : '（').replace('，', lang === 'en' ? ', ' : '，').replace('）', lang === 'en' ? ')' : '）');
+}
+function gridNotice(key) { return INTL && INTL.notice && INTL.notice[key] ? '<div class="gnote lic">' + esc(INTL.notice[key]) + '</div>' : ''; }
+function liveSpark(pts, cap) {
+  if (!pts || pts.length < 2) return '';
+  const W = 250, H = 36, t0 = Date.parse(pts[0][0]), t1 = Date.parse(pts[pts.length - 1][0]) || t0 + 1, ym = Math.max(cap || 0, ...pts.map(p => p[1])) || 1;
+  const xy = pts.map(p => [((Date.parse(p[0]) - t0) / (t1 - t0 || 1)) * W, H - 2 - (p[1] / ym) * (H - 4)]);
+  const last = xy[xy.length - 1];
+  return `<svg class="lspark" viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="${esc(L('過去 48 小時風電出力', 'Wind output, last 48 hours'))}"><polyline fill="none" stroke="var(--live)" stroke-width="1.5" points="${xy.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ')}"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="var(--live)"/></svg>`;
+}
+/* 國家概況：澳洲、加拿大此刻的風電總出力（各電網）與 48 小時趨勢 */
+function intlProfileBox(iso) {
+  if (!INTL || (iso !== 'AUS' && iso !== 'CAN')) return '';
+  const keys = Object.keys(INTL.grids).filter(k => INTL.grids[k].iso === iso);
+  if (!keys.length) return '';
+  const rows = keys.map(k => {
+    const g = INTL.grids[k], fresh = gridFresh(g);
+    return `<div class="lrow"><div>${esc(gridName(k))}${L('：', ': ')}<b>${fresh ? WW.int(g.mw) + ' MW' : L('資料延遲', 'delayed')}</b>` +
+      (fresh && g.cap_listed ? ` · ${L('約為已登錄容量 ' + fmtMW(g.cap_listed) + ' 的 ', 'about ')}${(g.mw / g.cap_listed * 100).toFixed(0)}%${L('', ' of ' + fmtMW(g.cap_listed) + ' registered')}` : '') +
+      `</div><div class="gnote">${esc(gridRes(g))} · ${esc(gridTime(k, g))}</div>${liveSpark(INTL.hist && INTL.hist[k], g.cap_listed)}</div>`;
+  }).join('');
+  const other = iso === 'AUS' ? L('西澳與北領地不在東部電網，沒有即時資料。', 'Western Australia and the Northern Territory are outside the NEM and have no live data here.')
+    : L('其他省份沒有公開的即時資料。', 'Other provinces publish no live data.');
+  return `<div class="livebox intl">🌬 ${T('liveNow')}${rows}<div class="gnote">${other} ${L('地圖上綠色外圈的風場有即時資料。', 'Farms with a green ring on the map have live data.')}</div>${keys.map(gridNotice).join('')}</div>`;
+}
 function liveBoxFor(f) {
+  if (f.iso === 'AUS' || f.iso === 'CAN') {
+    const x = liveFor(f);
+    if (!x) return INTL && !f.pipe ? '<div class="livebox none" data-live><span class="gnote">' + L('這座風場沒有公開的即時資料（目前只有澳洲東部電網、亞伯達與安大略的風場有）。', 'No live data for this farm (only farms on Australia’s NEM, in Alberta and in Ontario have it).') + '</span></div>' : '';
+    const g = INTL.grids[x.grid], pct = x.cap ? (x.mw / x.cap * 100).toFixed(0) : null;
+    return `<div class="livebox" data-live>🌬 ${T('liveNow')}${L('：', ': ')}<b>${WW.num(x.mw, x.mw < 100 ? 1 : 0)} MW</b>${pct != null ? ` · ${L('約為裝置容量的 ' + pct + '%', pct + '% of capacity')}` : ''}` +
+      `<br><span class="gnote">${esc(gridName(x.grid))} · ${esc(gridRes(g))} · ${esc(gridTime(x.grid, g))}${x.est ? '<br>' + esc(L('一個發電機組涵蓋數座風場，依容量比例估算。', 'One grid unit covers several farms; split by capacity (estimate).')) : ''}</span>` +
+      gridNotice(x.grid) + `<div class="links" style="margin-top:6px"><a href="${esc(GRID_SRC[x.grid])}" target="_blank" rel="noopener">${T('lnkSrc')} ↗</a></div></div>`;
+  }
   if (!WW.live || f.iso !== 'TWN') return '';
   const units = WW.live.unitsForGlobalFarm(f.name); if (!units.length) return '';
   const out = units.reduce((s, u) => s + (WW.live.RT[u.id] || 0), 0), cap = units.reduce((s, u) => s + (u.cap || 0), 0);
   const when = WW.live.isLive() ? L('台電', 'Taipower') + ' ' + WW.live.fmtSrc(WW.live.srcTime()) : L('模擬', 'simulated');
-  return `<div class="livebox">🌬 ${T('liveNow')}：<b>${out.toFixed(1)} MW</b>${cap ? ` · ${T('availability')} ${(out / cap * 100).toFixed(0)}%` : ''}<br><span class="gnote">${esc(units.map(u => u.tp).join(' + '))} · ${esc(when)}</span>
+  return `<div class="livebox" data-live>🌬 ${T('liveNow')}：<b>${out.toFixed(1)} MW</b>${cap ? ` · ${T('availability')} ${(out / cap * 100).toFixed(0)}%` : ''}<br><span class="gnote">${esc(units.map(u => u.tp).join(' + '))} · ${esc(when)}</span>
     <div class="links" style="margin-top:6px"><a href="#/live?farm=${esc(units[0].id)}">${T('liveSee')} →</a></div></div>`;
 }
 function renderCard(it) {
@@ -1653,6 +1748,10 @@ function tipCountry(c) {
   const on = valAt(c.on, S.year), off = valAt(c.off, S.year);
   return '<b>' + esc(cname(c)) + '</b> · ' + Math.floor(S.year) + '<br><i class="gsw" style="background:var(--on)"></i>' + T('onshore') + ' ' + fmtMW(on) + '<br><i class="gsw" style="background:var(--off)"></i>' + T('offshore') + ' ' + fmtMW(off) + '<br>' + T('total') + ' <b>' + fmtMW(on + off) + '</b>';
 }
+function liveTip(f) {
+  const x = liveOn() && liveFor(f); if (!x) return '';
+  return '<div class="tlive">● ' + T('liveNow') + ' <b>' + WW.num(x.mw, x.mw < 100 ? 1 : 0) + ' MW</b>' + (x.cap ? ' · ' + (x.mw / x.cap * 100).toFixed(0) + '%' : '') + '</div>';
+}
 function tipFarm(f, w) {
   const sp = turbSpec(f);
   const col = f.pipe ? 'var(--p' + f.st + ')' : 'var(--' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'fl' : 'off') + ')';
@@ -1662,7 +1761,7 @@ function tipFarm(f, w) {
     '<br><i class="gsw" style="background:' + col + '"></i>' + T('type')[f.type] + ' · ' + esc(String(when)) +
     '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
     (noteOf(f) ? '<div class="tnote">' + esc(noteOf(f).length > 140 ? noteOf(f).slice(0, 140) + '…' : noteOf(f)) + '</div>' : '') +
-    '<div class="hint2">' + T('clickMore') + '</div>';
+    liveTip(f) + '<div class="hint2">' + T('clickMore') + '</div>';
 }
 function tipMs(m) { return '<b>★ ' + esc(m.name) + '</b><br>' + m.year + ' · ' + T('type')[m.type] + '<br><span style="color:var(--ink-2)">' + esc(lang === 'zh' ? m.zh : m.en) + '</span><div class="hint2">' + T('clickMore') + '</div>'; }
 function showTip(ev, html, pane) { const tip = $('g-tip'); tip.style.display = 'block'; tip.innerHTML = html; if (tip.parentElement !== pane) pane.appendChild(tip); tipPane = pane; moveTip(ev, pane); }
@@ -1764,6 +1863,12 @@ function showSources() {
       esc(D.pipelineCuratedAsOf || '2026') + (zh ? '），用來更新狀態與預計商轉年，GEM 沒有的才新增；「暫緩」不收錄。' : '), used to update status and expected commissioning year and to add projects GEM lacks; on-hold projects are left out.') + '</li>' +
       (D.pipelineTotals ? '<li>' + (zh ? '各國總量：' : 'Country totals: ') + esc(D.pipelineTotals.source) + ' · ' + esc(D.pipelineTotals.release) + ' — <a href="' + esc(D.pipelineTotals.url) + '" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' : '') +
       '<li>' + (zh ? '日本另補 NEDO 各縣風場清單（1 MW 以上，至 2018 年 3 月）與 windfarm.work／營運商資料中 GEM 未收錄的小型風場，並據以修正 GEM 錯置的座標。' : 'Japan adds small farms missing from GEM from the NEDO prefecture lists (≥1 MW, to March 2018) and windfarm.work / operator pages, which were also used to correct misplaced GEM coordinates.') + '</li></ul>' +
+    '<h4>' + (zh ? '即時出力（台灣、澳洲、加拿大）' : 'Live output (Taiwan, Australia, Canada)') + '</h4><ul>' +
+      '<li>' + (zh ? '台灣：台電「各機組發電量即時資訊」（政府資料開放平臺資料集 8931）。' : 'Taiwan: Taipower real-time generation by unit (government open data, dataset 8931).') + '</li>' +
+      '<li>' + (zh ? '澳洲東部電網：AEMO NEMWeb Dispatch_SCADA（每 5 分鐘）。資料來源：Australian Energy Market Operator (AEMO)。' : 'Australia NEM: AEMO NEMWeb Dispatch_SCADA (every 5 minutes). Source: Australian Energy Market Operator (AEMO).') + '</li>' +
+      '<li>' + (zh ? '亞伯達：AESO Current Supply Demand 報表（約 1 分鐘）。© 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved；非商業與教育用途，數值未修改。' : 'Alberta: AESO Current Supply Demand report (about 1 minute). © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; non-commercial, educational use, values unmodified.') + '</li>' +
+      '<li>' + (zh ? '安大略：IESO Generators Output and Capability 報表（每小時）。' : 'Ontario: IESO Generators Output and Capability report (hourly). ') + 'Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO\'s website (www.ieso.ca).</li>' +
+      '<li>' + (zh ? '機組與風場的對照以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對；對不到的機組只計入電網總量。綠色外圈只在時間軸位於最新年份時顯示。' : 'Units are matched to farms using AEMO’s registration list and IESO’s “Transmission-Connected Generation” page, checked by hand; unmatched units only count toward the grid total. Green rings only show when the timeline is at the latest year.') + '</li></ul>' +
     '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain)</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>' +
     '<h4>' + (zh ? '開發者與版權' : 'Developer & copyright') + '</h4><p>國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室<br>National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu<br>' +
     (zh ? '網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用。' : 'Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source listed above.') +
@@ -1903,6 +2008,8 @@ WW.globe = {
       if (!active) return;
       if (loadingEl && loadingEl.parentNode) loadingEl.remove();
       resize(); start();
+      loadIntl(); clearInterval(intlTimer);
+      intlTimer = setInterval(() => { if (active) loadIntl(); }, 5 * 60e3);   // 每 5 分鐘重抓澳洲、加拿大即時資料
       const p = r && r.params ? r.params : {};
       const hasParams = Object.keys(p).length > 0;
       if (hasParams) applyParams(p);
@@ -1914,11 +2021,11 @@ WW.globe = {
       if (loadingEl) loadingEl.textContent = L('全球資料載入失敗，請檢查網路後重新整理。', 'Global data failed to load. Check your connection and reload.');
     });
   },
-  leave() { active = false; clearTimeout(urlT); stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
+  leave() { active = false; clearTimeout(urlT); clearInterval(intlTimer); intlTimer = null; stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
   api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, flyToLonLat, curAlt, FL, clusters, get TOUR() { return TOUR; },
     cam: () => { const f = focusLonLat(); return { lon: +f.lon.toFixed(3), lat: +f.lat.toFixed(3), alt: +curAlt().toFixed(1), frames: S.frames || 0, rotate: S.rotate }; },
     patchState: () => ({ info: patchInfo, tiles: tileAttrOn, visible: !!(patch && patch.visible), cache: tileCache.size, ok: [...tileCache.values()].filter(t => t.ok).length }) })
 };
 WW.onLang(l => { lang = l; if (D) { applyI18n(); updateBars(true); if (cardItem) renderCard(cardItem); } });
-if (WW.live) WW.live.onUpdate(() => { if (active && panelTab === 'prof' && S.region === 'TWN') renderProfile(); if (active && cardItem && cardItem.iso === 'TWN') renderCard(cardItem); });
+if (WW.live) WW.live.onUpdate(() => { farmLayerDirty = true; if (active && panelTab === 'prof' && S.region === 'TWN') renderProfile(); if (active && cardItem && cardItem.iso === 'TWN') renderCard(cardItem); });
 })();
