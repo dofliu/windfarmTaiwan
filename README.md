@@ -52,7 +52,7 @@
 ## 架構
 
 ```
-GitHub Actions (每 15 分鐘 cron) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
+GitHub Actions (每 2 小時 cron)  ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
                                  ── intl_wind_scraper.py    ──► data/live/intl_realtime.json（澳洲、加拿大）──────────────────┤
 GitHub Actions (每週一 cron)     ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ──────┤
                                                                                                                             ├─► commit 回 repo
@@ -85,9 +85,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
 - `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
-- `taipower_wind_scraper.py` — 每 15 分鐘執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
+- `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
-- `intl_wind_scraper.py` — 每 15 分鐘執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力 →
+- `intl_wind_scraper.py` — 約每 2 小時執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力 →
   `data/live/intl_realtime.json`（含各電網 48 小時總出力）；任一來源失敗時保留上一次的數值並標示，不影響台灣資料
 - `data/live/units.json` — 電網機組代碼 → 風場的對照表（`tools/build_live_units.py` 產生；安大略依 IESO 公布的設施對照人工核對）
 - `wind_realtime.json` — 即時資料（由 Actions 自動更新）
@@ -101,7 +101,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   （前端「數據 → 長期趨勢」讀這個，含逐機組明細）。
   **時效注意**：37331 為季度回溯檔，落後約 4–5 個月，補不到近 7 天趨勢窗的缺口，主要價值是長期趨勢分析。
   **口徑注意**：37331 只含台電**自有**風力機組，不含民營購電，與即時資料的全系統數值不可混用比較。
-- `.github/workflows/scrape.yml` — 每 15 分鐘自動執行 scraper 並 commit
+- `.github/workflows/scrape.yml` — 約每 2 小時自動執行 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版並 commit
 - `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
@@ -125,7 +125,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 
 - **下載**：網站頁尾或「風電知識 → 資料來源與方法 → 關於本站」的「下載單檔版 HTML」，
   或直接開 `https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html` 另存。
-- **連網時**：台灣即時資料直接向正式網站抓最新的（每 10–15 分鐘更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
+- **連網時**：台灣即時資料直接向正式網站抓最新的（約每 2 小時更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
 - **離線時**：全球資料、約 2.3 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
   並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網。
 - **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建；
@@ -134,7 +134,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 ## 注意事項
 
 - 用 **public repo**：Actions 分鐘數免費無限。
-- GitHub 排程不保證準時（常延遲數分鐘），台電本就每 10 分更新，足夠。
+- 排程約每 2 小時一次；GitHub 排程不保證準時（可能延遲或略過一兩次），本站不需要逐分即時，足夠。
 - repo 連續 60 天無活動，排程會被自動停用；每月手動觸發一次即可維持。
 - 每次更新會 commit 一筆，git 歷史會累積（功能無礙）。若要避免，可改用 Cloudflare Worker Cron（見 `DEPLOY.md`）。
 - 瀏覽時會連到的第三方服務：cdnjs（Leaflet，僅地圖分頁）、Esri 圖磚（僅地球儀放大後）、維基百科 API（風場照片與簡介，查不到或離線時只顯示連結）。

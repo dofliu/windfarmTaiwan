@@ -1,5 +1,5 @@
 /* 風電風情 · live.js — 台灣風電即時（台電開放資料＋中央氣象署），對齊台電 genary 風力四類三十機組
-   即時資料：DATA_ENDPOINT（GitHub Actions 每 15 分鐘由 taipower_wind_scraper.py 產生的 wind_realtime.json）。
+   即時資料：DATA_ENDPOINT（GitHub Actions 約每 2 小時由 taipower_wind_scraper.py 產生的 wind_realtime.json）。
    未連線時：以 6/29 16:13 台電實際快照為基準，做模擬浮動（已明確標示，非真實即時）。
    資料端點與政府開放資料的對接（8931 即時、37331 歷史、19995 供需、CWA 風速）全部沿用，未更動。 */
 (function () {
@@ -217,7 +217,7 @@ WW.addI18n({
 
 let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all",devFilt="all",brandFilt="all",capFilt="all",groupMode="type";
 let drawerFarm=null;                           // 目前開啟詳情的風場(語言切換時重繪用)
-let HIST={points:[]};                          // 真實滾動歷史(scraper 每 15 分累積 + 官方資料集 37331 每日回填)
+let HIST={points:[]};                          // 真實滾動歷史(scraper 約每 2 小時累積 + 官方資料集 37331 回填)
 let sysTotal=null;                             // 全國即時淨發電量(MW)，來自 live JSON
 let GRID=null;                                 // 電力供需即時報表
 let WIND={};                                   // 各風場鄰近測站風速{id:{mps,station,km}}，來源中央氣象署
@@ -280,7 +280,7 @@ function setFeed(live){
     :live?(srcTime?(EN()?`● Live · backend connected · Taipower data time ${fmtSrc(srcTime)}`:`● 即時：已連線後端端點 · 台電資料時間 ${fmtSrc(srcTime)}`):(EN()?"● Live · backend connected":"● 即時：已連線後端端點"))
     :(EN()?"◐ Simulated (baseline: Taipower open-data snapshot) · live data not reachable":"◐ 模擬浮動（基準：台電開放資料快照）· 目前無法取得即時資料");
   if(dm)dm.textContent=long;
-  if(sl)sl.textContent=snap?(EN()?`Offline snapshot · ${fmtSrc(srcTime)}`:`離線快照 · ${fmtSrc(srcTime)}`):live?(EN()?`Taipower open data · ${fmtSrc(srcTime)} · updates every 10 min`:`台電開放資料 · ${fmtSrc(srcTime)} · 每 10 分鐘更新`):(EN()?"Simulated from a Taipower snapshot":"以台電快照模擬");
+  if(sl)sl.textContent=snap?(EN()?`Offline snapshot · ${fmtSrc(srcTime)}`:`離線快照 · ${fmtSrc(srcTime)}`):live?(EN()?`Taipower open data · ${fmtSrc(srcTime)} · this site refreshes about every 2 h`:`台電開放資料 · ${fmtSrc(srcTime)} · 本站約每 2 小時更新`):(EN()?"Simulated from a Taipower snapshot":"以台電快照模擬");
 }
 const capOf=f=>f.cap||f.planned||0;
 const sizeMW=f=>{const c=(typeof f.cap==="number"?f.cap:0)||(typeof f.planned==="number"?f.planned:0);
@@ -338,7 +338,7 @@ function paintKPIs(){
   const T=totals(),co2=Math.round(T.total*CO2_KG_PER_KWH);   // 噸/小時(總出力MW×排碳係數)
   const stat=(cls,k,v,u,s,meter)=>`<div class="stat ${cls}"><div class="k">${k}</div><div class="v">${v}${u?`<small>${u}</small>`:""}</div>${meter!=null?`<div class="meter"><i style="width:${Math.min(100,meter).toFixed(1)}%"></i></div>`:""}${s?`<div class="s">${s}</div>`:""}</div>`;
   el.innerHTML=
-    stat("hero",t("windTotal"),WW.int(T.total),"MW",LIVE?(EN()?`Taipower data ${fmtSrc(srcTime)} · every 10 min`:`台電資料 ${fmtSrc(srcTime)} · 每 10 分鐘更新`):(EN()?"Simulated from a Taipower snapshot":"以台電快照模擬浮動"))+
+    stat("hero",t("windTotal"),WW.int(T.total),"MW",LIVE?(EN()?`Taipower data ${fmtSrc(srcTime)} · refreshed about every 2 h`:`台電資料 ${fmtSrc(srcTime)} · 本站約每 2 小時更新`):(EN()?"Simulated from a Taipower snapshot":"以台電快照模擬浮動"))+
     stat("",t("totalCap"),WW.int(T.cap),"MW",EN()?`+ ${T.pending} units testing (capacity not yet listed)`:`另有 ${T.pending} 個試運轉機組未列容量`)+
     stat("",t("overallAvail"),(T.ratio*100).toFixed(1),"%","",T.ratio*100)+
     stat("",t("co2hr"),WW.int(co2),t("tonHr"),EN()?"output × 0.495 kg/kWh":"出力 × 0.495 kg/度")+
@@ -414,7 +414,7 @@ function todayEnergyMWh(){
   let e=0;
   for(let i=1;i<td.length;i++){
     const dtH=(new Date(td[i].t)-new Date(td[i-1].t))/3600000;
-    if(dtH>0&&dtH<1.05)e+=(td[i].total+td[i-1].total)/2*dtH;   // MWh；跨距>1h視為斷點不積
+    if(dtH>0&&dtH<4.5)e+=(td[i].total+td[i-1].total)/2*dtH;    // MWh；排程約每 2 小時一筆，跨距超過 4.5 小時（連漏兩次以上）視為斷點不積
   }
   return e;
 }
@@ -690,10 +690,10 @@ function chartHist(wrap){
 }
 
 /* ---------------- 詳情抽屜 ---------------- */
-let sparkWin=6, sparkMetric="out";             // 趨勢範圍(小時) 與 指標(out=出力 / wind=風速)
+let sparkWin=24, sparkMetric="out";            // 趨勢範圍(小時，預設 24：排程約每 2 小時一筆) 與 指標(out=出力 / wind=風速)
 const SPARK_RANGES=[[6,"r_6h"],[24,"r_24h"],[168,"r_7d"]];
 function sparkSeries(f){                        // 取該風場最近 N 小時真實資料(依指標)
-  // 用「時間窗」而非固定筆數：歷史點密度不均(即時抓取每 15 分一筆、官方回填每 10 分一筆)
+  // 用「時間窗」而非固定筆數：歷史點密度不均(即時抓取約每 2 小時一筆、官方回填每 10 分一筆)
   const key=sparkMetric==="wind"?"wind":"farms",pts=HIST.points||[];
   if(!pts.length)return[];
   const cut=new Date(pts[pts.length-1].t).getTime()-sparkWin*3600000;
@@ -714,11 +714,11 @@ function sparkLabel(f){
   const s=sparkSeries(f);
   const name=sparkMetric==="wind"?(EN()?"wind":"風速"):(EN()?"output":"出力");
   const src=sparkMetric==="wind"?(EN()?"nearest station · ref.":"鄰近測站·參考"):(EN()?"Taipower":"台電資料");
-  if(s.length<2)return EN()?`${name} trend accruing (${s.length} pts so far · every 10–15 min)`:`${name}趨勢累積中（目前 ${s.length} 筆 · 每 10–15 分鐘一筆）`;
+  if(s.length<2)return EN()?`${name} trend accruing (${s.length} pts so far · one every 10 min–2 h)`:`${name}趨勢累積中（目前 ${s.length} 筆 · 每 10 分鐘～2 小時一筆）`;
   const a=fmtSrc(s[0].t),b=fmtSrc(s[s.length-1].t).split(" ").pop();
   const vals=s.map(p=>p.v),peak=Math.max(...vals);
   const unit=sparkMetric==="wind"?"m/s":"MW";
-  return EN()?`${a}–${b} actual ${name} · every 10–15 min (${src}) · peak ${peak.toFixed(1)} ${unit}`:`${a}–${b} 實際${name} · 每 10–15 分鐘一筆（${src}）· 峰值 ${peak.toFixed(1)} ${unit}`;
+  return EN()?`${a}–${b} actual ${name} · one point every 10 min–2 h (${src}) · peak ${peak.toFixed(1)} ${unit}`:`${a}–${b} 實際${name} · 每 10 分鐘～2 小時一筆（${src}）· 峰值 ${peak.toFixed(1)} ${unit}`;
 }
 function renderSparkBox(f){return `${sparkSVG(f)}<div class="note" style="margin-top:6px">${esc(sparkLabel(f))}</div>`;}
 let lastFocus=null;

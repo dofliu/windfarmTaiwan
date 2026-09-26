@@ -137,7 +137,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
     2026 to 2027
   - Greater Changhua 2b & 4 (Ørsted, one 920 MW project): full operation planned for Q3 2026; check
     whether it happened on time
-- **Git history keeps growing**: `scrape.yml` commits every 15 minutes, tens of thousands of commits a
+- **Git history keeps growing**: `scrape.yml` commits about every 2 hours, over four thousand commits a
   year. It works, but the repo grows; `wind_history_archive.json` is already 1.8 MB and grows with each
   weekly backfill.
 

@@ -73,7 +73,7 @@ The whole site is bilingual (toggle top right; remembered in the browser).
 ## Architecture
 
 ```
-GitHub Actions (every 15 min cron)  ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
+GitHub Actions (every 2 hours cron) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
                                     ── intl_wind_scraper.py    ──► data/live/intl_realtime.json (Australia, Canada) ─────────────┤
 GitHub Actions (weekly Monday cron) ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ────────┤
                                                                                                                                  ├─► commit back to repo
@@ -115,12 +115,12 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
 - `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing) for future
   contributors and AI agents
-- `intl_wind_scraper.py` — runs every 15 min: fetches each wind farm's live output from Australia's NEM
+- `intl_wind_scraper.py` — runs about every 2 hours: fetches each wind farm's live output from Australia's NEM
   (AEMO), Alberta (AESO) and Ontario (IESO) → `data/live/intl_realtime.json` (with each grid's 48-hour
   total); if a source fails, the previous values are kept and flagged, and Taiwan's data is unaffected
 - `data/live/units.json` — grid unit code → farm mapping (built by `tools/build_live_units.py`; Ontario
   checked by hand against IESO's published facility list)
-- `taipower_wind_scraper.py` — runs every 15 min: fetches Taipower's open data, parses the 30
+- `taipower_wind_scraper.py` — runs about every 2 hours: fetches Taipower's open data, parses the 30
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`;
   also fetches the real-time supply-demand report → `grid_status.json`
 - `wind_realtime.json` — live data (auto-updated by Actions)
@@ -141,7 +141,7 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   can't fill gaps in the live 7-day trend window — its value is long-term trend analysis only.
   **Scope caveat**: 37331 covers only Taipower-**owned** wind units, excluding IPP (independent
   power producer) purchases; its totals aren't comparable to the live system-wide figure.
-- `.github/workflows/scrape.yml` — runs the scraper every 15 minutes and commits
+- `.github/workflows/scrape.yml` — runs the scraper about every 2 hours and commits
 - `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly;
   can also be triggered manually (with a dry-run option)
 - `.github/workflows/standalone.yml` — rebuilds and commits the single-file edition when site code or global data change
@@ -171,7 +171,7 @@ Learn) into one HTML file of about 6 MB:
 
 - **Download**: "Download the single-file HTML" in the site footer or under Learn → Sources & method →
   About this site, or save `https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html`.
-- **Online**: Taiwan live data is fetched fresh from the live site (updated every 10–15 minutes),
+- **Online**: Taiwan live data is fetched fresh from the live site (updated about every 2 hours),
   zooming in on the globe loads Esri detail tiles, and farm cards look up Wikipedia.
 - **Offline**: the global data, ~23,000 farm records, borders and the 2k relief/satellite basemaps are
   inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled
@@ -183,8 +183,8 @@ Learn) into one HTML file of about 6 MB:
 ## Notes
 
 - Uses a **public repo**: unlimited free Actions minutes.
-- GitHub's cron schedule isn't precise (often delayed a few minutes) — fine here, since Taipower
-  itself only updates every 10 minutes.
+- The schedule runs about every 2 hours; GitHub's cron isn't precise (runs can be late or occasionally
+  skipped), which is fine here because the site does not need minute-by-minute data.
 - A repo with 60 days of no activity gets its scheduled workflows auto-disabled; trigger one
   manually once a month to keep it alive.
 - Every update creates a commit, so git history accumulates (harmless functionally). To avoid

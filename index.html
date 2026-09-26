@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>風電風情 · 台灣即時 × 全球風電發展</title>
-<meta name="description" content="台灣風力發電即時資訊（台電開放資料，每 10 分鐘更新）× 全球風電發展 1980–2025：3D 地球儀、各國裝置容量、逾 1.5 萬座風場與規劃中專案、里程碑導覽與 12 章深入介紹。">
+<meta name="description" content="台灣風力發電即時資訊（台電開放資料，約每 2 小時更新）× 全球風電發展 1980–2025：3D 地球儀、各國裝置容量、逾 1.5 萬座風場與規劃中專案、里程碑導覽與 12 章深入介紹。">
 <meta name="author" content="國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）">
 <meta name="copyright" content="© 2026 國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）">
 <meta name="theme-color" content="#07101d">
@@ -47,7 +47,7 @@
     <article class="hh hh-live" aria-labelledby="hh-live-t">
       <div class="hh-top"><span class="eyebrow" id="hh-live-t"><span data-l="zh">此刻 · 台灣風電</span><span data-l="en">Right now · Taiwan wind</span></span><span class="feed" id="hh-feed"><span class="dot" id="hh-dot"></span><span id="hh-feedtxt">—</span></span></div>
       <div><div class="big" id="hh-total">—<small>MW</small></div>
-        <div class="cap"><span data-l="zh">全台 30 個風力機組／風場的即時總出力（台電開放資料，每 10 分鐘更新）</span><span data-l="en">Live combined output of Taiwan's 30 wind units/farms (Taipower open data, every 10 min)</span></div></div>
+        <div class="cap"><span data-l="zh">全台 30 個風力機組／風場的即時總出力（台電開放資料，本站約每 2 小時更新）</span><span data-l="en">Live combined output of Taiwan's 30 wind units/farms (Taipower open data, refreshed about every 2 hours)</span></div></div>
       <div class="minis" id="hh-minis"></div>
       <div class="mood-line hh-moodtxt" id="hh-mood"></div>
       <div class="ctas"><a class="btn primary" href="#/live"><span data-l="zh">看即時儀表</span><span data-l="en">Open live dashboard</span> <span class="arr">→</span></a><a class="btn" href="#/live/map"><span data-l="zh">風場地圖</span><span data-l="en">Farm map</span></a><a class="btn" href="#/live/wall"><span data-l="zh">風場牆</span><span data-l="en">Farm grid</span></a></div>
@@ -443,8 +443,8 @@
      <div class="prose">
        <h3><span data-l="zh">台灣即時（政府開放資料）</span><span data-l="en">Taiwan live (government open data)</span></h3>
        <ul>
-         <li data-l="zh"><b>即時發電</b>：政府資料開放平臺「台灣電力公司各機組發電量即時資訊」（<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">資料集 8931</a>），每 10 分鐘更新；由 GitHub Actions 每 15 分鐘抓取，產生 <code>wind_realtime.json</code> 與滾動 7 天的 <code>wind_history.json</code>。</li>
-         <li data-l="en"><b>Live generation</b>: Taipower unit generation in real time (<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">dataset 8931</a>), updated every 10 minutes; fetched every 15 minutes by GitHub Actions into <code>wind_realtime.json</code> and a rolling 7-day <code>wind_history.json</code>.</li>
+         <li data-l="zh"><b>即時發電</b>：政府資料開放平臺「台灣電力公司各機組發電量即時資訊」（<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">資料集 8931</a>），台電每 10 分鐘更新；本站由 GitHub Actions 約每 2 小時抓取，產生 <code>wind_realtime.json</code> 與滾動 7 天的 <code>wind_history.json</code>。</li>
+         <li data-l="en"><b>Live generation</b>: Taipower unit generation in real time (<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">dataset 8931</a>), updated by Taipower every 10 minutes; fetched about every 2 hours by GitHub Actions into <code>wind_realtime.json</code> and a rolling 7-day <code>wind_history.json</code>.</li>
          <li data-l="zh"><b>長期存檔</b>：「台灣電力公司_各機組過去發電量」（<a href="https://data.gov.tw/dataset/37331" target="_blank" rel="noopener">資料集 37331</a>），季度回溯檔、落後約 4–5 個月，只含台電自有機組。</li>
          <li data-l="en"><b>Long-term archive</b>: Taipower past unit generation (<a href="https://data.gov.tw/dataset/37331" target="_blank" rel="noopener">dataset 37331</a>), a quarterly retrospective file that lags 4–5 months and covers Taipower-owned units only.</li>
          <li data-l="zh"><b>電力供需</b>：台電「本日電力資訊」；雲端 CI 抓取常被阻擋，實務上多使用備援「台灣電力公司過去電力供需資訊」（<a href="https://data.gov.tw/dataset/19995" target="_blank" rel="noopener">資料集 19995</a>），網站會標示為非即時。</li>
@@ -462,8 +462,8 @@
          <li data-l="en"><b>Alberta</b>: AESO "Current Supply Demand" report, each wind asset's net output about a minute old. © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; used for non-commercial, educational purposes under AESO's website terms, values unmodified.</li>
          <li data-l="zh"><b>加拿大安大略</b>：IESO「Generators Output and Capability」報表，各風場每小時出力。Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).</li>
          <li data-l="en"><b>Ontario</b>: IESO "Generators Output and Capability" report, each wind farm's hourly output. Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).</li>
-         <li data-l="zh">由 GitHub Actions 每 15 分鐘抓取。電網只給機組代碼，本站以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對對應到風場；對不到的機組只計入電網總量，一個機組涵蓋數座風場時依容量比例估算並標示。詳見 <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/live-data-sources.md" target="_blank" rel="noopener">即時資料來源評估</a>。</li>
-         <li data-l="en">Fetched every 15 minutes by GitHub Actions. The grids only publish unit codes, so units are matched to farms using AEMO's registration list and IESO's "Transmission-Connected Generation" page, checked by hand; unmatched units only count toward the grid total, and a unit covering several farms is split by capacity and labelled as an estimate. See the <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/live-data-sources.en.md" target="_blank" rel="noopener">live-data source assessment</a>.</li>
+         <li data-l="zh">由 GitHub Actions 約每 2 小時抓取。電網只給機組代碼，本站以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對對應到風場；對不到的機組只計入電網總量，一個機組涵蓋數座風場時依容量比例估算並標示。詳見 <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/live-data-sources.md" target="_blank" rel="noopener">即時資料來源評估</a>。</li>
+         <li data-l="en">Fetched about every 2 hours by GitHub Actions. The grids only publish unit codes, so units are matched to farms using AEMO's registration list and IESO's "Transmission-Connected Generation" page, checked by hand; unmatched units only count toward the grid total, and a unit covering several farms is split by capacity and labelled as an estimate. See the <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/live-data-sources.en.md" target="_blank" rel="noopener">live-data source assessment</a>.</li>
        </ul>
        <h3><span data-l="zh">全球風電（1980–2025）</span><span data-l="en">Global wind (1980–2025)</span></h3>
        <ul>
