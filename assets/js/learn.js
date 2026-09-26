@@ -210,6 +210,8 @@ function paintSources() {
   (D.meta && D.meta.edits || []).forEach(x => ul.appendChild(WW.el('li', null, x)));
   ul.appendChild(WW.el('li', null, L('國界改用 Natural Earth 1:50m 官方資料重建（原資料缺少澳洲本土）；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭，與風場資料的國別一致。', 'Borders rebuilt from the official Natural Earth 1:50m data (the original lacked mainland Australia); Crimea is shown as part of Ukraine per UN General Assembly resolution 68/262, matching the country of its wind farms in the farm data.')));
   ul.appendChild(WW.el('li', null, L('風場層級資料與 Global Energy Monitor「全球風電追蹤」2025-02 版合併（CC BY 4.0），加入興建中、前期開發與已宣布的規劃案；與精選風場重複者以精選為準。', 'Farm-level data merged with the Global Energy Monitor Global Wind Power Tracker, February 2025 release (CC BY 4.0), adding projects under construction, in pre-construction and announced; duplicates of curated farms keep the curated record.')));
+  ul.appendChild(WW.el('li', null, L('台灣 2005–2025 陸域／離岸改採經濟部能源署《2025 能源統計手冊》表 3-6 官方年表；日本 2011–2025 改採日本風力發電協會（JWPA）年末累積導入量（原資料為 IRENA）；兩國風場逐場稽核，分批併網的大型離岸風場以全場完工年計入，2025 年底尚未全場商轉者列為興建中。', 'Taiwan 2005–2025 onshore/offshore now follows the official MOEA Energy Administration table (Energy Statistics Handbook 2025, Table 3-6); Japan 2011–2025 follows JWPA year-end statistics (the original used IRENA); farms in both countries were audited one by one — large offshore farms connected in stages count from their full-completion year, and those not fully operating at end-2025 are listed as under construction.')));
+  ul.appendChild(WW.el('li', null, L('日本補上 GEM 未收錄的小型風場（NEDO 各縣清單與 windfarm.work／營運商資料，共 100 座），並修正 22 筆 GEM 錯置的座標（例：石狩八の沢、尻別）。', 'Japan adds 100 small farms missing from GEM (NEDO prefecture lists and windfarm.work / operator pages) and corrects 22 misplaced GEM coordinates (e.g. Ishikari Hachinosawa, Shiribetsu).')));
   ul.appendChild(WW.el('li', null, L('GEM 同一場址底下相距 25 km 以上的分期分開標示（不取平均座標）；3 筆可由專案名稱確認的座標錯誤已修正（宮城加美、珠洲第 1、珠洲第 2 期）；1 筆國別與座標不符的 WRI GPPD 舊資料已排除。', 'GEM phases more than 25 km apart under one location are shown as separate points (no averaged coordinates); three coordinate errors that the project names make obvious were corrected (Miyagi Kami, Suzu 1, Suzu 2 phase 2); one WRI GPPD record whose country and coordinates disagree was dropped.')));
   e.appendChild(ul);
   const n = $('ln-notes'); n.textContent = '';
@@ -227,6 +229,9 @@ function paintSources() {
   sect(L('註記：離岸', 'Notes: offshore'), D.notes.offshore);
   sect(L('註記：早期', 'Notes: early years'), D.notes.early);
   sect(L('註記：風場', 'Notes: farms'), D.notes.farms);
+  sect(L('台灣、日本官方統計稽核', 'Taiwan & Japan official-statistics audit'), (D.sources.audit || []).concat(D.notes.audit || []));
+  if (D.pipelineTotals) sect(L('規劃中專案', 'Pipeline projects'), [D.pipelineTotals.source + ', ' + D.pipelineTotals.release + ': ' + D.pipelineTotals.url,
+    L('逐案：GEM 2025-02＋2026 年 9 月人工整理的重點專案（更新狀態與預計商轉年；GEM 沒有的才新增）', 'Projects: GEM Feb 2025 plus key projects curated in Sep 2026 (status and expected year updated; projects GEM lacks are added)')]);
   sect(L('底圖與元件', 'Basemap & libraries'), ['Natural Earth 1:50m Admin-0 countries & Gray Earth shaded relief (public domain)', 'NASA Earth Observatory — Blue Marble Next Generation with topography and bathymetry (public domain)', 'Esri World Imagery & World Hillshade tiles (zoomed-in detail; © Esri and data providers)', 'three.js r128 (MIT) · Leaflet 1.9.4 (BSD-2)', 'Wikipedia / Wikimedia Commons (farm photos & summaries looked up live; per-image licences)']);
 }
 

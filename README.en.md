@@ -37,12 +37,15 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - **Farm layer**: curated farms merged with the Global Energy Monitor Global Wind Power Tracker
     (Feb 2025), about 15,000 operating farms; selecting a country draws all of its farms, and close to
     the ground each farm becomes a group of turbines based on its unit count
-  - **Pipeline layer** (dashed rings): about 7,800 projects under construction, in pre-construction or
-    announced — brighter means closer to completion; toggle with the "Pipeline" button
+  - **Pipeline layer** (dashed rings): about 7,850 projects under construction, in pre-construction or
+    announced — brighter means closer to completion; toggle with the "Pipeline" button. The Pipeline tab lists
+    every project in scope by status and expected commissioning year, next to GEM's February 2026 country
+    totals, and zooming in on a project shows its planned layout as translucent turbines
   - **Terrain basemaps**: relief (Natural Earth shaded relief + ocean bottom) / satellite (NASA Blue
     Marble) / plain; zooming in adds Esri hillshade or imagery tiles automatically
-  - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, pipeline totals,
-    short notes for major markets), milestones, and a searchable farm list
+  - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
+    pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
+    milestones, and a searchable farm list
   - Guided tour and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
     `#/global?f=Hai%20Long%202%20%26%203`)
   - Taiwanese farms are linked to the live data: click one to see Taipower's current output and jump
@@ -88,7 +91,8 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   milestones, sources and notes (~70 KB)
 - `data/global/wind_farms.json` — ~23,000 farm-level records (operating, pipeline, retired)
 - `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
-- `data/global/sources/` — the curated farm list before merging, and the merge log
+- `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
+  pipeline projects and Japanese farm list compiled in 2026, and the merge log
 - `tools/` — generators for the global data and basemaps (see "Updating the global data" below)
 - `taipower_wind_scraper.py` — runs every 15 min: fetches Taipower's open data, parses the 30
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`;
@@ -149,9 +153,12 @@ The global data changes rarely (once a year is enough). It is generated offline 
 `tools/` and committed — no scheduled job:
 
 ```bash
-# 1. Country capacity by year and milestones (source: the WIND_DATA block embedded in the
-#    "Global wind power development map" single-file HTML)
-python tools/extract_global_data.py wind-history-map.html data/global
+# 1. Country capacity by year, milestones and GEM Feb-2026 country totals (source: the "Global wind development
+#    atlas v3, Taiwan/Japan audited" single-file HTML; the official Taiwan/Japan series live in the script,
+#    so the original wind-history-map v3 file gives the same numbers)
+python tools/extract_global_data.py global-wind-development-atlas-v3-tw-jp-audited.html data/global
+#    Extras from the other parallel version: pipeline projects and the Japanese farm list compiled in 2026
+python tools/extract_curated_extras.py wind-history-map.html data/global/sources
 # 2. Borders (Natural Earth 1:50m)
 curl -LO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
 python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world_borders.json
@@ -165,9 +172,16 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
 
 ### Corrections this site made to the data (all recorded in the data files and the site's "Sources")
 
-- Taiwan 2022–2025 onshore/offshore split: upstream counted offshore farms that were still being
-  connected as onshore (e.g. 2,064 MW onshore in 2023, while Taiwan's onshore fleet is ~0.9 GW);
-  re-split using the actual onshore fleet (yearly totals unchanged)
+- Taiwan 2005–2025 onshore/offshore now follows the official MOEA Energy Administration table (Energy
+  Statistics Handbook 2025, Table 3-6; end-2025: 930.3 onshore, 3,586.9 MW offshore). The original counted
+  offshore farms still being connected as onshore (e.g. 2,064 MW onshore in 2023, while the onshore fleet is ~0.9 GW)
+- Japan 2011–2025 now follows JWPA year-end statistics (end-2025: 6,434.2 MW; offshore = full offshore +
+  semi-offshore); the original used IRENA (6,249 MW)
+- Taiwan and Japan farms were audited one by one: large offshore farms connected in stages count from their
+  full-completion year (Yunlin 2025, Greater Changhua 1&2a and Changfang & Xidao 2024), and those not fully
+  operating at end-2025 are under construction (Hai Long 2&3, Greater Changhua 2b&4, Taipower Offshore Phase 2,
+  Kitakyushu Hibikinada, Goto floating). Japan also gains five semi-offshore/port sites, retired demonstrators,
+  100 small farms missing from GEM (NEDO prefecture lists, windfarm.work) and 22 corrected GEM coordinates
 - Formosa 1 Phase 1 and Formosa 2 years aligned with their actual grid connection / commercial dates
 - Borders rebuilt from Natural Earth 1:50m (the original lacked the mainland Australia polygon);
   Crimea shown as part of Ukraine per UN General Assembly resolution 68/262, matching the country
@@ -177,9 +191,9 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
   that the project names make obvious were fixed (Miyagi Kami, Suzu 1, Suzu 2 phase 2), and one WRI
   GPPD record whose country and coordinates disagree was dropped
 
-> Farm capacity in the farm layer is each farm's **full nameplate**: farms still being connected in
-> stages (e.g. Hai Long 2 & 3 and Greater Changhua 2b & 4 in 2025) count in full, so farm sums can
-> exceed national year-end statistics — they measure different things.
+> The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total
+> (Taiwan ~89%, Japan ~87% in 2025); the gap is shown explicitly and never filled with synthetic farms.
+> Elsewhere farms come from GEM at full nameplate, so sums can be slightly above or below national totals.
 
 ## Data sources & license
 
@@ -210,10 +224,14 @@ python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_
   (each source is listed on the site under "Sources")
 - Early data 1980–1999: BTM Consult, IEA Wind annual reports, Danish Energy Agency, US EIA and other
   national statistics (most countries are estimates — for trends only)
-- Farm layer: the curated farms from the "Global wind power development map", WRI Global Power Plant
-  Database v1.3 (CC BY 4.0), and Global Energy Monitor's
+- Taiwan national series: [MOEA Energy Administration, Energy Statistics Handbook 2025, Table 3-6](https://ea01.moeaea.gov.tw/a0303/02/attachments/handbook/2025/docs/3-06.%E5%86%8D%E7%94%9F%E8%83%BD%E6%BA%90%E7%99%BC%E9%9B%BB%E8%A3%9D%E7%BD%AE%E5%AE%B9%E9%87%8F(114).pdf);
+  Japan national series: [JWPA year-end installed capacity](https://jwpa.jp/information/12660/)
+- Farm layer: the curated farms from the "Global wind power development map" (Taiwan/Japan audited), WRI
+  Global Power Plant Database v1.3 (CC BY 4.0), Global Energy Monitor's
   [Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/),
-  February 2025 release (CC BY 4.0)
+  February 2025 release (CC BY 4.0), and the pipeline projects and Japanese farm list compiled in Sep 2026
+  (NEDO, windfarm.work, operator pages)
+- Pipeline country totals: GEM Global Wind Power Tracker, February 2026 release
 - Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
   Marble Next Generation (public domain)
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
