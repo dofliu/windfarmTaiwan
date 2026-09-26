@@ -193,6 +193,15 @@ for r in rows[:15]:
         pipe_cmp.append((r, gp))
 
 
+# 已查證、但加總仍高於國家統計的原因（2026 年 9 月）
+OVER_NOTE = {
+    "PHL": ("逐場資料已查證（DOE 2020 年清單 443 MW 加上 2024–25 年陸續完工的 Pagudpud 160 MW）；IRENA 的數字可能還沒完整計入 Pagudpud",
+            "the farm list checks out (DOE’s 2020 list, 443 MW, plus the 160 MW Pagudpud farm completed in 2024–25); IRENA’s figure may not yet fully count Pagudpud"),
+    "IRN": ("Manjil 風場群的重複已合併；Tizbaad（99 MW）與 Aqkand（50 MW）的商轉狀態還需要以 SATBA 資料查證",
+            "the Manjil complex duplicates are merged; whether Tizbaad (99 MW) and Aqkand (50 MW) are in operation still needs checking against SATBA data"),
+}
+
+
 def report(lang):
     zh = lang == "zh"
     L = (lambda a, b: a) if zh else (lambda a, b: b)
@@ -216,6 +225,11 @@ def report(lang):
     s.append(L(
         f"- **覆蓋率分級**：✓ 85% 以上 {bands['✓']} 國 · △ 60–85% {bands['△']} 國 · ✗ 低於 60% {bands['✗']} 國 · ⚠ 高於 110% {bands['⚠']} 國（逐場加總超過國家統計，口徑不同或有重複，需要求證）。",
         f"- **Coverage bands**: ✓ 85% or more: {bands['✓']} countries · △ 60–85%: {bands['△']} · ✗ below 60%: {bands['✗']} · ⚠ above 110%: {bands['⚠']} (the farm sum exceeds the national figure — a scope difference or duplicates to verify)."))
+    cl = F["meta"].get("cleanup")
+    if cl:
+        s.append(L(
+            f"- **資料清理**：{cl['asof']} 逐筆查證，刪除 {cl['removed']} 筆重複、從未建成或查無此場的紀錄，修正 {cl['fixed']} 筆（座標、容量、年份、分期、狀態），每筆的理由與出處見[資料清理紀錄](data-cleanup.md)。",
+            f"- **Clean-up**: checked record by record in {cl['asof']}; {cl['removed']} duplicate, never-built or non-existent records were removed and {cl['fixed']} were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md)."))
     s.append(L(
         f"- **規劃中**：逐案 {sum(b['pipe_n'] for b in by.values()):,} 案、{fmt(sum(b['pipe_mw'] for b in by.values()))} MW（GEM 2025-02＋2026 年 9 月人工整理）；另以 GEM {pt.get('release', '')} 各國總量對照。",
         f"- **Pipeline**: {sum(b['pipe_n'] for b in by.values()):,} projects, {fmt(sum(b['pipe_mw'] for b in by.values()))} MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM {pt.get('release', '')} country totals."))
@@ -231,7 +245,9 @@ def report(lang):
     s.append(L("1. **逐場加總高於國家統計（⚠）**：可能是同一風場在不同來源重複、分期被重複計入、除役風場仍列營運，或國家統計口徑較窄。",
                "1. **Farm sum above the national figure (⚠)**: possible duplicates across sources, phases counted twice, retired farms still listed as operating, or a narrower national scope."))
     for r in over:
-        s.append(L(f"   - {r['zh']}：{r['pct']:.0f}%（{fmt(r['mw'])} / {fmt(r['nat'])} MW）", f"   - {r['en']}: {r['pct']:.0f}% ({fmt(r['mw'])} / {fmt(r['nat'])} MW)"))
+        nz, ne = OVER_NOTE.get(r["iso"], ("", ""))
+        s.append(L(f"   - {r['zh']}：{r['pct']:.0f}%（{fmt(r['mw'])} / {fmt(r['nat'])} MW）" + (f"——{nz}" if nz else ""),
+                   f"   - {r['en']}: {r['pct']:.0f}% ({fmt(r['mw'])} / {fmt(r['nat'])} MW)" + (f" — {ne}" if ne else "")))
     s.append(L(f"2. **商轉年份不詳**：{fmt(yu_total)} MW 的營運中風場沒有商轉年（GEM 未提供），地圖只能從 2025 年開始顯示，早年的逐場畫面會偏少。容量最多的國家：",
                f"2. **Unknown commissioning year**: {fmt(yu_total)} MW of operating farms have no start year in GEM, so the map can only show them from 2025 and earlier years look sparser at farm level. Largest by country:"))
     s.append("   " + L("、", ", ").join(f"{(r['zh'] if zh else r['en'])} {fmt(r['yu'])} MW" for r in yu_top))
@@ -241,17 +257,17 @@ def report(lang):
     for f in late[:10]:
         nm = (f["zh"] or f["name"]) if zh else f["name"]
         s.append(f"   - {nm} ({f['iso']}) · {fmt(f['mw'])} MW · {ST[f['st']]} · {L('預計', 'expected')} {f['year']}")
-    s.append(L(f"4. **座標**：{sum(r['approx'] for r in rows):,} 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 {qa_n if qa_n is not None else '?'} 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各），芬蘭 Pohjoinen 的座標待查。",
-               f"4. **Coordinates**: {sum(r['approx'] for r in rows):,} operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists {qa_n if qa_n is not None else '?'} farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico); Finland’s Pohjoinen still needs checking."))
+    s.append(L(f"4. **座標**：{sum(r['approx'] for r in rows):,} 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 {qa_n if qa_n is not None else '?'} 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各）。",
+               f"4. **Coordinates**: {sum(r['approx'] for r in rows):,} operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists {qa_n if qa_n is not None else '?'} farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico)."))
     SRC = ({0: '精選', 1: 'WRI GPPD', 2: 'GEM', 3: '2026 整理'} if zh else {0: 'curated', 1: 'WRI GPPD', 2: 'GEM', 3: '2026 compilation'})
     s.append(L(f"   **疑似重複 A（名稱相同或相似）**：{len(dupA)} 組、較小一方合計 {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupA))} MW——來源不同、名稱相同或高度相似、相距 50 km 內，很可能是同一座風場被收了兩次，應優先處理：",
                f"   **Suspected duplicates A (same or similar name)**: {len(dupA)} pairs, smaller side {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupA))} MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:"))
     for x, y, d in dupA[:12]:
         s.append(f"   - {x['iso']} · {x['name']} ({SRC[x['src']]}, {fmt(x['mw'])} MW, {x['year']}) ↔ {y['name']} ({SRC[y['src']]}, {fmt(y['mw'])} MW, {y['year']}) · {d:.1f} km")
-    s.append(L(f"   **疑似重複 B（名稱不同、容量相同、位置相近）**：{len(dupB)} 組、較小一方合計 {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW——多數是相鄰的姊妹風場（例：江蘇如東 H4／H6／H7），少數是同一風場換了名稱（例：菲律賓 Pagudpud／Balaoi & Caunayan），需逐組人工確認。",
-               f"   **Suspected duplicates B (different names, same capacity, close by)**: {len(dupB)} pairs, smaller side {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW — mostly neighbouring sister farms (e.g. Jiangsu Rudong H4/H6/H7), a few the same farm under another name (e.g. Pagudpud / Balaoi & Caunayan in the Philippines); each needs a manual check."))
-    s.append(L(f"   **共用座標**：{len(stacks)} 個點上各有 3 座以上營運中風場（合計 {sum(len(v) for v in stacks):,} 座、{fmt(sum(f['mw'] for v in stacks for f in v))} MW），多半是國家或省份中心的代用座標，地圖上會疊在一起。最大的 5 處：",
-               f"   **Shared coordinates**: {len(stacks)} points each hold 3 or more operating farms ({sum(len(v) for v in stacks):,} farms, {fmt(sum(f['mw'] for v in stacks for f in v))} MW in total) — mostly country or province centroids used as placeholders, so the farms stack up on the map. The 5 largest:"))
+    s.append(L(f"   **疑似重複 B（名稱不同、容量相同、位置相近）**：{len(dupB)} 組、較小一方合計 {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW——多數是相鄰的姊妹風場（例：江蘇大豐 H4 與 H8-2）；已查證為同一座的已由清理規則合併（見[資料清理紀錄](data-cleanup.md)），其餘需逐組人工確認。",
+               f"   **Suspected duplicates B (different names, same capacity, close by)**: {len(dupB)} pairs, smaller side {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check."))
+    s.append(L(f"   **共用座標**：{len(stacks)} 個點上各有 3 座以上營運中風場（合計 {sum(len(v) for v in stacks):,} 座、{fmt(sum(f['mw'] for v in stacks for f in v))} MW），多半是國家或省份中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：",
+               f"   **Shared coordinates**: {len(stacks)} points each hold 3 or more operating farms ({sum(len(v) for v in stacks):,} farms, {fmt(sum(f['mw'] for v in stacks for f in v))} MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:"))
     for v in stacks[:5]:
         s.append(f"   - {v[0]['iso']} ({v[0]['lat']}, {v[0]['lon']}) · {len(v)} {L('座', 'farms')} · {fmt(sum(f['mw'] for f in v))} MW · " + ", ".join(f["name"] for f in sorted(v, key=lambda f: -f["mw"])[:3]) + ("…" if len(v) > 3 else ""))
     s.append(L(f"5. **規劃中總量版本不一**：逐案資料為 GEM 2025-02，各國總量為 GEM {pt.get('release', '')}，兩者相差一年，下一版 GEM 逐案資料釋出後應一併更新。前 15 大國家的對照：",

@@ -17,6 +17,8 @@
     並保留逐期 [年份, MW]）；興建中／前期開發／已宣布各自成一筆「規劃中」專案；已除役者保留起訖年。
     同一 location id 底下相距 25 km 以上的分期（例：跨州的企業購電專案）分成不同的點，不取平均座標。
   · 來源座標的已知錯誤以 COORD_FIX 修正；位置明顯錯誤的 GPPD 舊資料以 DROP_CUR 排除（見下方註解）。
+  · 比對名稱時先把繁體轉成簡體（T2S），並比較分區代號（H6、K 區…）與陸域／離岸；GEM_KEEP 列出不可當成重複的 GEM 專案。
+  · 合併後套用 tools/farm_cleanup.py 的逐筆查證規則（重複、從未建成、錯置、數字錯誤），並輸出 docs/data-cleanup.md。
   · 取消、擱置、封存（cancelled / shelved / mothballed）不收錄。
   · 精選風場帶有稽核狀態（台灣、日本；見 tools/extract_global_data.py）：construction → 規劃中（興建中），
     retired → 已除役，其餘為營運中；稽核註記與來源連結寫入 note／url 欄。精選風場已有除役年、
@@ -33,6 +35,8 @@
 import csv, difflib, json, math, re, sys, unicodedata, urllib.parse
 from collections import defaultdict
 from pathlib import Path
+
+from farm_cleanup import GEM_KEEP, apply as cleanup, summary as cleanup_summary, write_docs as cleanup_docs
 
 CUR, GEM, OUT = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
 
@@ -62,7 +66,8 @@ ISO = {  # GEM country/area → ISO 3166-1 alpha-3（Kosovo 用 Natural Earth �
 ST = {'operating': 0, 'construction': 1, 'pre-construction': 2, 'announced': 3, 'retired': 4}
 TYPES = {'onshore': 0, 'offshore': 1, 'floating': 2}
 COLS = ["name", "zh", "iso", "lat", "lon", "mw", "year", "type", "st", "end", "owner", "turbine", "flags", "src", "ph", "note", "url"]
-# flags: 1 = 座標為概略位置, 2 = 商轉年份不詳（前端放在時間軸終點）；src: 0 精選, 1 WRI GPPD, 2 GEM, 3 2026 年整理的補充清單
+# flags: 1 = 座標為概略位置, 2 = 商轉年份不詳（前端放在時間軸終點）, 4 = 與另外 2 筆以上共用同一座標（多為省或國家中心的
+#        代用點；前端以該點為中心排開並註明位置為示意）；src: 0 精選, 1 WRI GPPD, 2 GEM, 3 2026 年整理的補充清單
 # note: [中文, English] 稽核或狀態註記；url: 來源連結
 
 STOP = set("""wind farm farms windfarm windpark park parc parque eolico eolica eolien eolienne vindpark vindkraftpark
@@ -77,11 +82,33 @@ def toks(s):
     return {t for t in re.split(r'[^a-z0-9]+', s) if len(t) >= 3 and t not in STOP and not t.isdigit()}
 
 
+# 繁→簡字對照（只含精選清單與 GEM 在地名稱中出現、且簡繁不同的字；以 opencc t2s 產生）。精選清單用繁體、GEM 用簡體，
+# 比對名稱前先統一成簡體，否則「三峽如東H6」與「三峡如东H6」沒有任何共同字詞（例：江蘇、廣東、山東的離岸風場）。
+T2S = str.maketrans(
+    '乾亞側儀內別創劃動務勝區協呂啟國園圖場塗墰壇壓宮寧寶專岡島峽崙帥帶庫廠廣張後恆愛掛搶擴昇東楊業榮構樂樣樺橋機橫檜檳櫓欽歐'
+    '汎沖渢湊準溫漁漢潤濟濱瀾灘灣烏熱爾環畫發碩磯種範粵紀紅紙組統綠維線縣續羅聞臨臺興舘莊華萊萬葉蒼蓮薩藍蘆蘇蘭號衛裝製見觀計'
+    '託設証試講豐貢貴賀資賢車輝輪連遊運達遠遼鄉銚鋐鋼鍾鎮長門開間陸陽階離雲電靈響項順頓領頭頴風飯館馬駐驗鰲鰺鳥鴨鵬鶴鷲麗麥龍',
+    '干亚侧仪内别创划动务胜区协吕启国园图场涂坛坛压宫宁宝专冈岛峡仑帅带库厂广张后恒爱挂抢扩升东杨业荣构乐样桦桥机横桧槟橹钦欧'
+    '泛冲沨凑准温渔汉润济滨澜滩湾乌热尔环画发硕矶种范粤纪红纸组统绿维线县续罗闻临台兴馆庄华莱万叶苍莲萨蓝芦苏兰号卫装制见观计'
+    '托设证试讲丰贡贵贺资贤车辉轮连游运达远辽乡铫𬭎钢钟镇长门开间陆阳阶离云电灵响项顺顿领头颕风饭馆马驻验鳌鲹鸟鸭鹏鹤鹫丽麦龙')
+
+
 def cjk2(s):
     s = re.sub(r'[（(].*?[)）]', '', s or '')
     s = re.sub(r'離岸|离岸|海上|陸域|陆域|風力發電|风力发电|風電|风电|風場|风场|發電|发电|計畫|计划|項目|项目|[一二三四五]期|第|階段|示範|示范|廠|厂|站', '', s)
+    s = s.translate(T2S)
     cj = ''.join(ch for ch in s if '一' <= ch <= '鿿')
     return {cj[i:i + 2] for i in range(len(cj) - 1)}
+
+
+def codes(*ss):
+    """分區／標段代號：K 區、H6、H8-2、U1、B2…（單一大寫字母，可接數字）。兩邊都有代號卻沒有共同者就不是同一座，
+    例：長樂外海 C 區 vs K 區、大豐 H5 vs H13（中文名稱比對會把代號丟掉，只剩「長樂外海」「大豐」）。
+    單獨的 I、V、X 多半是羅馬數字的期別（Serra das Vacas I），不算代號。"""
+    out = set()
+    for s in ss:
+        out |= set(re.findall(r'(?<![A-Za-zÀ-ɏ])[A-Z]\d{0,2}(?:-\d+)?(?![A-Za-zÀ-ɏ])', (s or '').translate(T2S)))
+    return out - {'I', 'V', 'X'}
 
 
 def km(a, b, c, d):
@@ -106,7 +133,7 @@ SPLIT_KM = 25
 # ---------------------------------------------------------------- curated / GPPD from the attachment
 cur = [f for f in json.loads(CUR.read_text(encoding='utf-8'))['farms'] if f['name'] not in DROP_CUR]
 for f in cur:
-    f['_t'] = toks(f['name']); f['_z'] = cjk2(f.get('zh'))
+    f['_t'] = toks(f['name']); f['_z'] = cjk2(f.get('zh')); f['_c'] = codes(f['name'], f.get('zh'))
 cur_by = defaultdict(list)
 for f in cur:
     cur_by[f['iso']].append(f)
@@ -116,19 +143,26 @@ def nums(s):
     return set(re.findall(r'\d+', s or ''))
 
 
+
 AGG = re.compile(r'remainder|placeholder|aggregate|misc|corridor|cluster|\bbase\b|smaller projects|unnamed|其他|合計', re.I)
 
 
-def matches(f, name, zh, lat, lon, mw, pipeline=False, year=0):
-    """GEM 專案是否就是精選風場 f（同國已先篩過）。編號不同（Formosa 1 vs Formosa 3）一律視為不同案。
+def matches(f, name, zh, lat, lon, mw, pipeline=False, year=0, sea=None):
+    """GEM 專案是否就是精選風場 f（同國已先篩過）。編號或分區代號不同（Formosa 1 vs Formosa 3、長樂外海 C 區 vs K 區）
+    一律視為不同案；陸域與離岸不同也不算。
     規劃案（興建中／前期開發／已宣布）只有名稱強相符、且精選風場本身就是這個剛完工的案子時才算重複。"""
     d = km(f['lat'], f['lon'], lat, lon)
     if d > 60:
+        return False
+    if sea is not None and (f['type'] != 'onshore') != sea:
         return False
     if f.get('end') and year and not pipeline and year >= f['end']:   # 精選風場除役後才開始的階段＝汰換新機組
         return False
     nd, fd = nums(name), nums(f['name'])
     if nd and fd and not (nd & fd):
+        return False
+    nc = codes(name, zh)
+    if nc and f['_c'] and not (nc & f['_c']):
         return False
     nt, nz = toks(name), cjk2(zh)
     ft, fz = f['_t'], f['_z']
@@ -141,6 +175,8 @@ def matches(f, name, zh, lat, lon, mw, pipeline=False, year=0):
         return (jac >= 0.5 or cj >= 2) and d < 30 and (f['year'] >= 2025 or 0.8 <= ratio <= 1.25)
     if jac >= 0.75 and 0.8 <= ratio <= 1.25:          # 名稱幾乎相同、容量相近：座標誤差可能較大（例：石狩湾新港 35 km）
         return True
+    if nc and nc == f['_c'] and d < 50 and ((strong and 0.7 <= ratio <= 1.4) or (weak and 0.8 <= ratio <= 1.25)):
+        return True                                   # 同一地名的同一分區代號（大豐 H8-2、啟東 H3）：離岸座標常是概略位置
     if d > 40:
         return False
     if strong and d < 30 and 0.3 <= ratio <= 3.5:
@@ -250,23 +286,26 @@ for x in groups_all:
         end = max(ends)
     # 與精選風場重複 → 捨棄（只補業主）
     pipe = st in ('construction', 'pre-construction', 'announced')
-    if iso == 'TWN' and name in TW_KEEP:
+    sea = gem_type(g) != 'onshore'
+    if (iso == 'TWN' and name in TW_KEEP) or (iso, name) in GEM_KEEP:
         cand = []
     elif iso == 'TWN' and name in TW_SAME:
         cand = [f for f in cur_by['TWN'] if f['name'] == TW_SAME[name]]
     else:
-        cand = [f for f in cur_by.get(iso, []) if keep_cur(f) and matches(f, name, zh, lat, lon, mw, pipe, year)]
+        cand = [f for f in cur_by.get(iso, []) if keep_cur(f) and matches(f, name, zh, lat, lon, mw, pipe, year, sea)]
     if cand:
-        for f in cand:
-            if not f.get('owner'):
-                o = owner_of(g)
-                if o: f['owner'] = o
+        nt, nz = toks(name), cjk2(zh)
+        best = max(cand, key=lambda f: (len(f['_t'] & nt) + len(f['_z'] & nz), -abs(math.log(max(mw, 0.1) / max(f['mw'], 0.1))),
+                                        -km(f['lat'], f['lon'], lat, lon)))
+        if not best.get('owner'):          # 只補最相符的那一筆：同一區有好幾座精選風場時，其他風場不會被填上這座的業主
+            o = owner_of(g)
+            if o: best['owner'] = o
         dropped += 1
-        if iso in ('TWN', 'JPN'): log.append(f"DROP {iso} {st} {name} {mw} ~ {cand[0]['name']} {cand[0]['mw']}")
+        log.append(f"DROP {iso} {st} {name} {mw} ~ {best['name']} {best['mw']}")
         continue
     if st == 'operating':   # WRI GPPD 舊資料若與 GEM 營運中風場相同，以 GEM 為準
         for f in cur_by.get(iso, []):
-            if f.get('src') == 'GPPD' and id(f) not in gppd_hit and matches(f, name, zh, lat, lon, mw):
+            if f.get('src') == 'GPPD' and id(f) not in gppd_hit and matches(f, name, zh, lat, lon, mw, False, year, sea):
                 gppd_hit.add(id(f))
     label = name
     if (x['multi'] and st != 'operating') or x['part']:
@@ -299,6 +338,10 @@ for f in cur:
                     f.get('note') or 0, f.get('url') or 0])
 
 allrows = cur_out + gem_out
+# 第一階段資料清理：逐筆查證過的重複、未建成與錯置紀錄（規則與理由見 tools/farm_cleanup.py）
+allrows, clean_log = cleanup(allrows)
+for c, before, after in clean_log:
+    log.append(f"CLEAN {c['act']} {c['iso']} {before[0]} {before[5]}" + (f" -> {c['keep'][0]}" if c['keep'] else ''))
 
 
 # ---------------------------------------------------------------- 2026 年整理的補充清單（另一平行開發版本）
@@ -475,6 +518,17 @@ for f in jc['farms']:
     allrows.append(row); by_iso['JPN'].append(row); jp_add += 1
 print(f"curated pipeline: updated {pipe_upd} GEM projects, added {pipe_add}; Japan list: added {jp_add} farms, "
       f"upgraded {jp_upg} to operating, fixed {jp_fix} GEM coordinates")
+# 共用座標：同一國同一點上有 3 筆以上的紀錄（多為省或國家中心的代用座標）→ flags 4
+stack = defaultdict(list)
+for r in allrows:
+    stack[(r[2], r[3], r[4])].append(r)
+n_stack = 0
+for v in stack.values():
+    if len(v) >= 3:
+        for r in v:
+            r[12] |= 4
+        n_stack += 1
+print(f"shared coordinates: {n_stack} points with 3+ records ({sum(len(v) for v in stack.values() if len(v) >= 3)} records) flagged")
 Path(OUT.parent / 'sources' / 'build_farms.log').write_text('\n'.join(sorted(log)), encoding='utf-8')
 meta = {
     "cols": COLS,
@@ -486,8 +540,11 @@ meta = {
                 "prefecture lists and windfarm.work / operator sites"],
     "gem_release": "2025-02",
     "pipeline_curated_asof": pc.get('asOf'),
+    "cleanup": cleanup_summary(clean_log),
 }
 OUT.write_text(json.dumps({"meta": meta, "rows": allrows}, ensure_ascii=False, separators=(",", ":")), encoding='utf-8')
+GLOBAL = Path(__file__).resolve().parent.parent / 'data' / 'global' / 'wind_global.json'
+cleanup_docs(clean_log, json.loads(GLOBAL.read_text(encoding='utf-8'))['countries'])
 cnt = defaultdict(int)
 for r in allrows:
     cnt[r[8]] += 1

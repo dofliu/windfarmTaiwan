@@ -154,6 +154,11 @@ if f2_fixed:
 
 D["milestones"].sort(key=lambda ms: ms["year"])  # stable: keeps upstream order within a year
 
+# 附件的英文國名有一筆取錯（澳洲被標成國界檔裡同屬 AUS 的「Ashmore and Cartier Is.」）
+NAME_FIX = {"AUS": "Australia"}
+for c in D["countries"]:
+    c["name"] = NAME_FIX.get(c["iso"], c["name"])
+
 # 全球總量＝各國加總（台灣、日本改用官方序列後重新計算）
 D["worldTotal"] = [round(sum(c["on"][i] + c["off"][i] for c in D["countries"]), 1) for i in range(len(Y))]
 
