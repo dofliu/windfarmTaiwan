@@ -56,6 +56,11 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     milestones, and a searchable farm list
   - Guided tour and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
     `#/global?f=Hai%20Long%202%20%26%203`)
+  - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
+    (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
+    nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
+    satellite map, OpenStreetMap, a wind resource map (Global Wind Atlas) and Wikidata; "Copy link to this
+    farm" and "Report a data error" (opens a pre-filled GitHub issue)
   - Taiwanese farms are linked to the live data: click one to see Taipower's current output and jump
     to its live details
   - **Live output in Australia and Canada**: about 150 farms on Australia's NEM (AEMO, measured every
