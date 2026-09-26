@@ -5,12 +5,21 @@
 ## 需要定期回頭核對（時效敏感，非程式問題）
 
 - [ ] 台電離岸二期：規劃完工時間目前寫「2027」，屆時（或每季）核對工程進度報導是否仍準確，
-      需要時更新 `index.html` 的 `FARMS` 陣列（`id:"offshore2"`）
+      需要時更新 `assets/js/live.js` 的 `FARMS` 陣列（`id:"offshore2"`）
 - [ ] 沃四風／沃南風（大彰化 2b&4，920 MW）：規劃 2026 年第三季全數商轉，屆時核對是否如期，
       更新 `id:"wo4"` / `id:"wonan"` 的 `tl` 與 `cod`
 - [ ] 海龍（龍B風）：全案商轉時程可能已由 2026 延至 2027，持續追蹤最新報導，更新 `id:"longB"`
 - [ ] 每季手動觸發一次 `backfill-taipower-wind-history` workflow 的 dry-run，確認 37331 資料集是否已
       更新到更近期的季度（若官方改善時效，回填 7 天窗的邏輯已就緒會自動生效，值得定期檢查）
+
+## 全球資料（每年一次，見 README「全球資料更新」）
+
+- [ ] 每年 IRENA（約 7 月）與 GWEC／WFO 年報（約春季）發布後，更新國家逐年容量（`data/global/wind_global.json`），
+      連同台灣陸域／離岸拆分一起核對
+- [ ] GEM 釋出新版 Global Wind Power Tracker 公開檔時重跑 `tools/build_farms.py`，再跑 `tools/qa_farms.py`
+      檢查座標；確認 `COORD_FIX` 的修正是否仍需要（上游已修正者可移除）
+- [ ] 查證芬蘭 Pohjoinen wind farm（99 MW，2020，Fortum）的正確位置：GEM 座標 68.04, 16.66 落在挪威
+- [ ] 台灣分批併網的離岸風場（海龍 2&3、大彰化 2b&4、台電離岸二期）若取得逐期併網容量，填進 `ph` 欄位
 
 ## 待評估／待使用者決定方向（不要自作主張動工）
 

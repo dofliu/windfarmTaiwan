@@ -10,7 +10,14 @@ HTML 與 JSON 同網域，**沒有 CORS 問題**。
 
 ```
 windfarmTaiwan/
-├─ index.html                       # 前端主頁
+├─ index.html                       # 網站外殼（四個頁面：首頁／台灣即時／全球發展／風電知識）
+├─ assets/
+│  ├─ css/                          # site.css（設計系統）、globe.css（地球儀）
+│  ├─ js/                           # core / live / charts / home / learn / globe（依頁面延遲載入）
+│  ├─ vendor/                       # three.js r128 + OrbitControls（只在全球發展頁載入）
+│  └─ img/globe/                    # 地形／衛星底圖
+├─ data/global/                     # 全球資料：國家逐年容量、風場層、國界（由 tools/ 產生，非排程）
+├─ tools/                           # 全球資料與底圖的產生程式
 ├─ taipower_wind_scraper.py         # 每 15 分鐘：風力即時 + 電力供需即時
 ├─ backfill_history.py             # 每週一：官方回溯歷史回填
 ├─ wind_realtime.json               # 風力即時資料（Actions 自動更新）
@@ -28,9 +35,9 @@ windfarmTaiwan/
 ### 步驟
 
 1. 建一個 **public** repo（公開 repo 的 Actions 分鐘數無限、免費；私有 repo 每月只有 2000 分鐘，每 15 分鐘跑會超量）。
-2. 把 `index.html`、`taipower_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄。
+2. 把 `index.html`、`assets/`、`data/`、`taipower_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄（`tools/` 只在更新全球資料時需要）。
 3. 把 `.github/workflows/scrape.yml` 與 `.github/workflows/backfill.yml` 放進對應位置。
-4. 確認 `index.html` 內的 `DATA_ENDPOINT` 等常數指向相對路徑（同網域，例如 `./wind_realtime.json`），
+4. 確認 `assets/js/live.js` 開頭的 `DATA_ENDPOINT` 等常數指向相對路徑（同網域，例如 `./wind_realtime.json`），
    若是直接 fork/clone 本 repo 則不需修改。
 5. Settings → Pages → Source 選 `main` branch、`/ (root)`，存檔。
 6. Actions 頁面手動跑一次 `scrape-taipower-wind`（workflow_dispatch），確認 `wind_realtime.json` 有被 commit；
@@ -49,7 +56,7 @@ windfarmTaiwan/
 
 ## 方案 B：Cloudflare Pages + Worker Cron（更穩、無 commit 累積；你已有 Cloudflare 基礎設施）
 
-- **Cloudflare Pages** 放靜態 `index.html`。
+- **Cloudflare Pages** 放靜態網站（`index.html`、`assets/`、`data/`）。
 - **Cloudflare Worker + Cron Trigger**（每 10 分，排程比 GitHub 準）抓台電 opendata，
   把結果寫進 **KV** 或 **R2**，並以 Worker 端點回應 JSON（自行加上 CORS 標頭）。
 - `DATA_ENDPOINT` 指向 Worker 的 URL。
