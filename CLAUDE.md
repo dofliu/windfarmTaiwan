@@ -14,7 +14,7 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`) are written in both languages by their generator; do not edit them by hand.
 - 網站介面文字也一律雙語：HTML 用 `data-l="zh"`／`data-l="en"`，JS 用 `WW.L(zh, en)` 或各模組的 i18n 字典。
   All UI text is bilingual as well: `data-l="zh"` / `data-l="en"` in HTML, `WW.L(zh, en)` or the module's i18n table in JS.
-- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、docs/data-coverage、docs/data-cleanup、docs/live-data-sources。
+- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/data-coverage、docs/data-cleanup、docs/live-data-sources。
   `CLAUDE.md` 本身以中英並列寫在同一個檔。This file itself keeps both languages side by side.
 
 ## 2. 版權與開發者 · Copyright and developer
@@ -84,3 +84,18 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 網站聚焦風電。擴展成多能源別、改變部署方式或加入需要帳號／金鑰的資料源等決定，動工前先問使用者。
   The site is about wind power. Ask the owner before widening the scope (other energy sources, a different
   deployment, data sources that need accounts or API keys).
+
+## 7. 版本 · Versioning
+
+- 版本號只寫在 `assets/js/core.js` 的 `WW.VERSION`（語意化版本 主版.次版.修訂）；頁尾、「關於本站」、地球儀出處列與「資料來源」視窗
+  都從這裡讀（HTML 用 `data-ver`），不要在別處寫死版本號。
+  The version lives only in `WW.VERSION` in `assets/js/core.js` (semantic versioning); the footer, "About this site", the
+  globe's attribution line and sources dialog read it (`data-ver` in HTML). Never hard-code it anywhere else.
+- 每個改到網站的 PR 都要更新版本號，並在 `CHANGELOG.md` 與 `CHANGELOG.en.md` 最上面各加一段（同一個 commit，日期用台灣時間）。
+  全面改版加主版號；新功能、新頁面、新圖層或新資料來源加次版號；修正、文字、小幅顯示調整與資料更正加修訂號。
+  Every PR that changes the site bumps the version and adds an entry at the top of both changelogs in the same commit
+  (dates in Taiwan time): MAJOR for a redesign, MINOR for new features, pages, layers or data sources, PATCH for fixes,
+  wording, small display changes and data corrections.
+- 排程更新的即時資料與機器人重建的單檔版不改版號。`tools/build_standalone.py` 會檢查兩份 CHANGELOG 都有目前版本，沒有就中止。
+  Scheduled live-data commits and the bot's single-file rebuilds do not change the version. The single-file build stops if
+  either changelog lacks the current version.
