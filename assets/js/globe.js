@@ -57,7 +57,16 @@ const I18N = {
     sameOwner: '同開發商', ownNote: '依業主名稱比對；各來源寫法不一，可能有遺漏。本國優先，依容量排序。',
     relMore: n => `顯示全部 ${n} 座`, relCap: n => `另有 ${n} 座未列出`,
     copyLink: '複製此風場連結', copyLinkMs: '複製此里程碑連結', copied: '已複製連結 ✓', copyFail: '無法自動複製，請手動複製下方連結',
-    report: '回報資料錯誤', reportT: '在 GitHub 開一則 issue（需登入），已預填名稱、座標與連結'
+    report: '回報資料錯誤', reportT: '在 GitHub 開一則 issue（需登入），已預填名稱、座標與連結',
+    btnSearch: '🔍 搜尋', btnPorts: '⚓ 港口', portsTab: '港口',
+    fsPh: '搜尋風場、開發商、機型、國家或港口…', fsSt: '狀態', fsTy: '類型', fsMin: '容量', fsYear: '年份', fsSort: '排序', fsAny: '不限', fsName: '名稱',
+    fsClear: '清除篩選', fsWorld: '改搜全球', fsScope: s => `範圍：${s}`, fsCount: (n, mw) => `符合 ${n} 座 · ${mw}`, fsAll: (n, mw) => `共 ${n} 座 · ${mw}`,
+    fsMapOnly: '地圖只顯示符合條件的風場', fsHidden: (y, n) => `時間軸在 ${y} 年：其中 ${n} 座這一年不在地圖上（尚未完工、已除役，或是規劃中而未開啟「規劃中」）`, fsToLatest: '移到最新年份',
+    fsHud: n => `🔍 篩選中：地圖只顯示符合的 ${n} 座風場`, fsNone: '沒有符合條件的風場。', fsKey: '按 / 開始搜尋',
+    role: { marshalling: '組裝出港', foundation: '水下基礎製造', tower: '塔架製造', blade: '葉片製造', nacelle: '機艙組裝', cable: '海纜製造', floating: '浮動式組裝', om: '運維基地' },
+    portTag: '港口', portDev: '開發中', portSince: y => `${y} 年起`, portFarms: '服務過的風場', portOther: '其他專案：', portSrc: n => `來源 ${n}`,
+    portsHead: n => `收錄 ${n} 個港口`, portNone: '這個範圍沒有收錄的港口。', portsAll: '看全部港口 →', copyLinkPort: '複製此港口連結',
+    portNote: '離岸風電的組裝出港、製造與運維港口（2026 年 9 月整理，每個港口附出處）。橘色錨＝已使用，虛線＝開發中。'
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
@@ -103,7 +112,16 @@ const I18N = {
     sameOwner: 'Same developer', ownNote: 'Matched by owner name; sources spell names differently, so some may be missing. Same country first, then by capacity.',
     relMore: n => `Show all ${n}`, relCap: n => `${n} more not listed`,
     copyLink: 'Copy link to this farm', copyLinkMs: 'Copy link to this milestone', copied: 'Link copied ✓', copyFail: 'Could not copy automatically — copy the link below',
-    report: 'Report a data error', reportT: 'Opens a GitHub issue (sign-in needed) pre-filled with the name, coordinates and link'
+    report: 'Report a data error', reportT: 'Opens a GitHub issue (sign-in needed) pre-filled with the name, coordinates and link',
+    btnSearch: '🔍 Search', btnPorts: '⚓ Ports', portsTab: 'Ports',
+    fsPh: 'Search farms, developers, turbines, countries or ports…', fsSt: 'Status', fsTy: 'Type', fsMin: 'Size', fsYear: 'Year', fsSort: 'Sort', fsAny: 'Any', fsName: 'Name',
+    fsClear: 'Clear filters', fsWorld: 'Search worldwide', fsScope: s => `Scope: ${s}`, fsCount: (n, mw) => `${n} matching · ${mw}`, fsAll: (n, mw) => `${n} farms · ${mw}`,
+    fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
+    fsHud: n => `🔍 Filter on: the map shows only the ${n} matching farms`, fsNone: 'No farms match.', fsKey: 'Press / to search',
+    role: { marshalling: 'Marshalling', foundation: 'Foundations', tower: 'Towers', blade: 'Blades', nacelle: 'Nacelles', cable: 'Cables', floating: 'Floating assembly', om: 'O&M base' },
+    portTag: 'Port', portDev: 'in development', portSince: y => `since ${y}`, portFarms: 'Wind farms served', portOther: 'Other projects: ', portSrc: n => `Source ${n}`,
+    portsHead: n => `${n} ports listed`, portNone: 'No listed ports in this area.', portsAll: 'All ports →', copyLinkPort: 'Copy link to this port',
+    portNote: 'Offshore wind marshalling, manufacturing and O&M ports (compiled Sep 2026, each with sources). Orange anchor = in use, dashed = in development.'
   }
 };
 let lang = WW.lang;
@@ -118,8 +136,10 @@ host.innerHTML = `
   <div class="gseg" id="g-viewSeg" role="group"><button data-view="map" class="active" data-gi="vMap"></button><button data-view="split" data-gi="vSplit"></button><button data-view="bars" data-gi="vBars"></button></div>
   <div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div>
   <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
+  <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
   <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option></select></div>
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
+  <button id="g-btnPorts" type="button" aria-pressed="true" data-gi="btnPorts"></button>
   <span class="gsp"></span>
   <button id="g-btnRotate" type="button" aria-pressed="false" data-gi="rotate"></button>
   <button id="g-btnTour" type="button" data-gi="tour"></button>
@@ -129,15 +149,17 @@ host.innerHTML = `
 <div id="g-stage" class="mapOnly">
   <div id="g-mapPane">
     <canvas id="g-gl" aria-label="3D globe"></canvas>
+    <div id="g-ports" aria-hidden="true"></div>
     <div id="g-labels"></div>
     <div id="g-yearBig">1980<small></small></div>
     <div id="g-worldStat"></div>
     <div id="g-msPanel">
-      <div class="ph"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" data-gi="profTab"></button><button id="g-tabMs" type="button" class="active" data-gi="msTitle"></button><button id="g-tabFarms" type="button" data-gi="farmsTab"></button><button id="g-tabPipe" type="button" data-gi="pipeTab"></button></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div>
+      <div class="ph"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" data-gi="profTab"></button><button id="g-tabMs" type="button" class="active" data-gi="msTitle"></button><button id="g-tabFarms" type="button" data-gi="farmsTab"></button><button id="g-tabPipe" type="button" data-gi="pipeTab"></button><button id="g-tabPorts" type="button" data-gi="portsTab"></button></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div>
       <div class="gpbody prof" id="g-profBody" hidden></div>
       <div class="gpbody" id="g-msList"></div>
       <div class="gpbody" id="g-farmList" hidden></div>
       <div class="gpbody" id="g-pipeList" hidden></div>
+      <div class="gpbody" id="g-portList" hidden></div>
     </div>
     <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
@@ -218,6 +240,7 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders)]).then((
   $('g-slider').min = Y0; $('g-slider').max = Y1;
   init();
   WW.getJSON(WW.DATA.farms).then(expandFarms).catch(e => { console.error(e); notice(L('風場資料載入失敗', 'Farm data failed to load')); });
+  loadPorts();
 });
 
 const STACK_STEP = 0.045;     // 共用座標排開的間距（度，約 5 km）
@@ -664,6 +687,7 @@ function farmActive(f, y) {
 /* 選出要畫的風場：選定國家的全部風場＋放大時視野內的風場（上限 FARM_MAX，依容量） */
 function pickFarms() {
   if (!farmsReady) return [];
+  if (fsActive()) { fsResults(); return fsCache.byMw.slice(0, FARM_MAX * 2); }     // 搜尋／篩選中：地圖與清單同一份結果
   const want = new Map();
   const iso = byIso[S.region] ? S.region : null;
   if (iso && farmsByIso[iso]) farmsByIso[iso].forEach(f => want.set(f, 1));
@@ -687,7 +711,7 @@ function rebuildFarmInstances(now, force) {
   if (!force && now - lastFarmBuild < 450) return;
   lastFarmBuild = now;
   const fc = focusLonLat(), alt = curAlt();
-  const key = [S.region, S.mode, S.pipe, S.layer, farmsReady, liveOn(), (fc.lat / Math.max(1, alt * 0.3)).toFixed(0), (fc.lon / Math.max(1, alt * 0.3)).toFixed(0), Math.round(Math.log2(Math.max(0.1, alt)) * 2)].join('|');
+  const key = [S.region, S.mode, S.pipe, S.layer, farmsReady, liveOn(), fsRev, (fc.lat / Math.max(1, alt * 0.3)).toFixed(0), (fc.lon / Math.max(1, alt * 0.3)).toFixed(0), Math.round(Math.log2(Math.max(0.1, alt)) * 2)].join('|');
   if (!force && !farmLayerDirty && key === farmBuildKey) return;
   farmBuildKey = key; farmLayerDirty = false;
   const list = pickFarms();
@@ -824,9 +848,10 @@ function updateClusters(now, force) {
   if (alt < CL_ALT && !modeAnim && farmsReady) {
     const fc = focusLonLat(), cosl = Math.max(0.2, Math.cos(fc.lat * D2R));
     const rad = Math.max(0.35, alt * 0.6 * 2.6);
-    const cands = [];
+    const cands = [], fsOn = fsActive();
     for (const f of D.farms) {
       if (!farmActive(f, S.year) || !layerOk(f.type)) continue;          // 規劃中：開啟「規劃中」且在時間軸終點才出現
+      if (fsOn && (!inScope(f.iso) || !fsMatch(f))) continue;           // 搜尋／篩選中：近距離的風機群也只畫符合的
       const dl = (f.lat - fc.lat), dn = (f.lon - fc.lon) * cosl, d = Math.sqrt(dl * dl + dn * dn);
       if (d < rad + 0.15) cands.push([d, f]);
     }
@@ -855,7 +880,7 @@ function layoutAnchors() {
   msMarkers.forEach(g => { const m = g.userData.m; posAt(m.lon, m.lat, 0, g.position); g.quaternion.copy(quatAt(m.lon, m.lat, q)); });
   if (hiLines) setHighlight(hiIso);
   layoutFarms(); if (FL.op) { FL.op._force = true; FL.pp._force = true; }
-  layoutClusters();
+  layoutClusters(); layoutPorts();
 }
 
 /* ================= camera: regions, tweens, auto-tilt ================= */
@@ -996,7 +1021,7 @@ function setRegion(r, noFly) {
   setHighlight(byIso[r] ? r : null);
   farmLayerDirty = true;
   focusFarm = null;
-  setPanelTab(panelTab === 'pipe' || (panelTab === 'farms' && byIso[r]) ? panelTab : (byIso[r] ? 'prof' : 'ms'));
+  setPanelTab(panelTab === 'pipe' || panelTab === 'farms' || panelTab === 'ports' ? panelTab : (byIso[r] ? 'prof' : 'ms'));
   if (!noFly) flyToRegion(false);
   updateBars(true); renderMilestones(true); renderProfile();
   syncURL();
@@ -1004,13 +1029,14 @@ function setRegion(r, noFly) {
 let panelTab = 'ms';
 function setPanelTab(t) {
   panelTab = t;
-  [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList'], ['pipe', 'g-tabPipe', 'g-pipeList']].forEach(([k, b, body]) => {
+  [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList'], ['pipe', 'g-tabPipe', 'g-pipeList'], ['ports', 'g-tabPorts', 'g-portList']].forEach(([k, b, body]) => {
     $(b).classList.toggle('active', k === t); $(b).setAttribute('aria-selected', k === t ? 'true' : 'false'); $(body).hidden = k !== t;
   });
   $('g-tabProf').hidden = !(byIso[S.region] || S.region.startsWith('C:') || S.region === 'WORLD');
   if (t === 'farms') renderFarmList(true);
   if (t === 'prof') renderProfile();
   if (t === 'pipe') renderPipeList(true);
+  if (t === 'ports') renderPortList(true);
 }
 
 /* ================= labels ================= */
@@ -1024,7 +1050,7 @@ function facing(worldPos) {
   return _pp.copy(camera.position).sub(worldPos).dot(_n) > 0;
 }
 function textW(s, px) { let w = 0; for (const ch of s) w += /[⺀-鿿豈-￯]/.test(ch) ? px * 1.02 : px * 0.57; return w; }
-const DENS = [{ c: 0, f: 0, m: 0, n: 0 }, { c: 7, f: 5, m: 1, n: 3 }, { c: 12, f: 11, m: 3, n: 5 }, { c: 22, f: 24, m: 5, n: 8 }];
+const DENS = [{ c: 0, f: 0, m: 0, n: 0, p: 0 }, { c: 7, f: 5, m: 1, n: 3, p: 3 }, { c: 12, f: 11, m: 3, n: 5, p: 6 }, { c: 22, f: 24, m: 5, n: 8, p: 12 }];
 function upAt(p) { return S.modeT > 0.5 ? UP : _u.copy(p).normalize(); }
 
 /* ================= main loop ================= */
@@ -1090,7 +1116,8 @@ function frame(now) {
   const deep = alt < CL_ALT;
 
   const sizeK = S.mode === 'globe' ? clamp(alt / 65, 0.02, 1) : clamp(alt / 220, 0.02, 1.4);
-  const farmScale = farmK * clamp(Math.pow(alt / Math.max(1, farmRefAlt), 0.75), 0.015, 1.3);
+  const fsOn = farmsReady && fsActive();
+  const farmScale = farmK * clamp(Math.pow(alt / Math.max(1, farmRefAlt), 0.75), 0.015, 1.3) * (fsOn && !byIso[S.region] ? clamp(alt / 30, 1, 6) : 1);   // 篩選結果在全球視角也看得到
   const pinK = clamp(Math.pow(alt / 150, 0.85), 0.004, 1) * (FL.op.list.length ? 0.5 : 1);
   const selHasFarms = !!(byIso[S.region] && farmsByIso[S.region] && farmsByIso[S.region].length);
 
@@ -1101,7 +1128,7 @@ function frame(now) {
   cGroups.forEach(a => {
     const c = a.userData.c, cap = capOf(c, S.year), inR = inRegion(c);
     const hasFarms = selHasFarms && S.region === c.iso;
-    const dimT = (hasFarms || (selHasFarms && !inR) || deep || zoomFarms) ? 0 : (inR ? 1 : 0.18);
+    const dimT = (hasFarms || (selHasFarms && !inR) || deep || zoomFarms || fsOn) ? 0 : (inR ? 1 : 0.18);
     a.userData.dim += (dimT - a.userData.dim) * Math.min(1, dt * 6);
     a.visible = a.userData.dim > 0.02;
     worldOn += valAt(c.on, S.year); worldOff += valAt(c.off, S.year); if (cap.tot > 0.5) nWith++;
@@ -1158,18 +1185,19 @@ function frame(now) {
     if (isTour || age < 1.5) { g.getWorldPosition(tmpV); cands.push({ cat: 'm', pri: isTour ? 2e9 : 1e8, pos: tmpV.clone().addScaledVector(upAt(tmpV), 3.4 * pinK * surfaceRoot.scale.x), name: '★ ' + m.name, val: m.year + (m.farm ? ' · ' + fmtMW(m.farm) : m.mw ? ' · ' + T('turbine') + ' ' + (m.mw < 1 ? WW.int(m.mw * 1000) + ' kW' : m.mw + ' MW') : ''), cls: 'ms', key: 'm' + m.name }); }
   });
 
+  updatePorts(alt, cands);
   let li = 0;
   if (S.density > 0 || TOUR) {
     const rects = [];
     const pr = $('g-mapPane').getBoundingClientRect();
     ['g-yearBig', 'g-worldStat', 'g-msPanel', 'g-infoCard'].forEach(id => { const el = $(id); if (!el || el.offsetParent === null) return; const b = el.getBoundingClientRect(); if (b.width) rects.push([b.left - pr.left, b.top - pr.top, b.right - pr.left, b.bottom - pr.top]); });
-    const used = { c: 0, f: 0, m: 0, n: 0 };
-    const lim = S.density > 0 ? dens : { c: 0, f: 0, m: 1, n: 0 };
+    const used = { c: 0, f: 0, m: 0, n: 0, p: 0 };
+    const lim = S.density > 0 ? dens : { c: 0, f: 0, m: 1, n: 0, p: 0 };
     cands.sort((a, b) => b.pri - a.pri);
     for (const cd of cands) {
       if (used[cd.cat] >= lim[cd.cat] && cd.pri < 1e9) continue;
       if (!facing(cd.pos)) continue;
-      const p = project(cd.pos); if (p.z > 1 || p.y < 10 || p.y > H + 10) continue;
+      const p = project(cd.pos); if (cd.dy) p.y -= cd.dy; if (p.z > 1 || p.y < 10 || p.y > H + 10) continue;
       const w = Math.max(textW(cd.name, 12), textW(cd.val, 10.5)) + 6, h = 29;
       if (p.x - w / 2 < 2 || p.x + w / 2 > W - 2) continue;             // 標籤要完整落在畫面內
       const r = [p.x - w / 2 - 3, p.y - h - 2, p.x + w / 2 + 3, p.y + 2];
@@ -1214,9 +1242,10 @@ function updateHUD() {
       } else html += '<div style="margin-top:4px;color:var(--ginkm)">' + T('farmNone') + '</div>';
     }
   }
+  if (farmsReady && fsActive()) html += '<div style="margin-top:4px;color:var(--acc)">' + esc(T('fsHud')(WW.int(fsResults().length))) + '</div>';
   const key = yr + '|' + html;
   if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
-  if (panelTab === 'farms') renderFarmList(false);
+  if (panelTab === 'farms') renderFarmResults(false);
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
   const ll = $('g-liveLegend'), showLl = liveSeen && liveOn() && !!renderer && S.view !== 'bars' && farmsReady;
   if (ll.hidden === showLl || ll._lang !== lang) { ll.hidden = !showLl; ll._lang = lang; ll.innerHTML = '<i class="gsw" style="background:var(--live)"></i>' + T('liveLegend'); }
@@ -1246,48 +1275,247 @@ function renderMilestones(force) {
     box.appendChild(d);
   });
 }
-const FL_UI = { filter: 'all', sort: 'mw', q: '', limit: 200 };
-let farmRendered = '';
-function renderFarmList(force) {
+/* ================= 全球風場搜尋與篩選 =================
+   依名稱、中文名、開發商、機型、國名搜尋，依狀態、類型、容量、年份篩選；範圍跟著「範圍」選單（全世界／洲／國家）。
+   有任何條件時，地圖只畫符合的風場（見 pickFarms），國家的風機符號淡出——清單與地圖用同一份結果。 */
+const SQ_ST = ['op', 'p1', 'p2', 'p3', 'ret'];                 // 依序對應 f.st 0–4
+const SQ_TY = ['on', 'off', 'fl'];
+const SQ_MIN = [0, 10, 50, 100, 300, 1000];
+const SQ = { q: '', st: [], ty: [], min: 0, y0: 0, y1: 0, sort: 'mw', limit: 200 };
+let fsTokens = [], fsCache = null, fsRev = 0, fsTimer = 0, farmRendered = '';
+const fsActive = () => !!(SQ.q || SQ.st.length || SQ.ty.length || SQ.min || SQ.y0 || SQ.y1);
+const tyKey = f => f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'fl' : 'off';
+const fold = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ø/g, 'o').replace(/æ/g, 'ae').replace(/ß/g, 'ss').replace(/ł/g, 'l').replace(/đ/g, 'd');   // Ørsted＝Orsted
+function hayOf(f) {                          // 搜尋用的字串：名稱、中文名、開發商、機型、國名（中英）
+  if (f._hay) return f._hay;
+  const c = byIso[f.iso];
+  return (f._hay = fold([f.name, f.zh, f.owner, f.turbine, c && c.name, c && c.zh, f.iso].filter(Boolean).join(' | ')));
+}
+function fsMatch(f) {
+  if (SQ.st.length && !SQ.st.includes(SQ_ST[f.st])) return false;
+  if (SQ.ty.length && !SQ.ty.includes(tyKey(f))) return false;
+  if (SQ.min && !(f.mw >= SQ.min)) return false;
+  if ((SQ.y0 || SQ.y1) && (f.yu || !f.year || (SQ.y0 && f.year < SQ.y0) || (SQ.y1 && f.year > SQ.y1))) return false;
+  if (fsTokens.length) { const h = hayOf(f); for (const t of fsTokens) if (!h.includes(t)) return false; }
+  return true;
+}
+/* 範圍內符合條件的風場（清單依選定的排序；地圖另用依容量排序的一份）；同一組條件只算一次 */
+function fsResults() {
+  const key = [fsRev, S.region, SQ.sort, lang, farmsReady].join('|');
+  if (fsCache && fsCache.key === key) return fsCache.list;
+  const list = farmsReady ? D.farms.filter(f => inScope(f.iso) && fsMatch(f)) : [];
+  const byMw = list.slice().sort((a, b) => b.mw - a.mw);
+  if (SQ.sort === 'year') list.sort((a, b) => (b.yu ? 0 : b.year || 0) - (a.yu ? 0 : a.year || 0) || b.mw - a.mw);
+  else if (SQ.sort === 'name') { const co = new Intl.Collator(lang === 'zh' ? 'zh-Hant-TW' : 'en'); list.sort((a, b) => co.compare(fname(a), fname(b))); }
+  else list.sort((a, b) => b.mw - a.mw);
+  fsCache = { key, list, byMw };
+  return list;
+}
+function fsChanged() {                        // 條件改變：清單、地圖、網址一起更新
+  fsRev++; fsTokens = fold(SQ.q).split(/\s+/).filter(Boolean); SQ.limit = 200;
+  farmLayerDirty = true; hudCache = '';
+  renderFarmResults(true); syncURL();
+}
+function fsReset() { Object.assign(SQ, { q: '', st: [], ty: [], min: 0, y0: 0, y1: 0 }); fsChanged(); renderFarmList(true); }
+let fsMaxYear = 0;
+function yearOpts(sel) {
+  if (!fsMaxYear) fsMaxYear = farmsReady ? D.farms.reduce((m, f) => f.year && f.year < 2100 && f.year > m ? f.year : m, Y1) : Y1;
+  let o = '<option value="0">' + esc(T('fsAny')) + '</option>';
+  for (let y = Y0; y <= fsMaxYear; y++) o += '<option value="' + y + '"' + (sel === y ? ' selected' : '') + '>' + y + '</option>';
+  return o;
+}
+/* 「風場」分頁：控制項只在開分頁、換語言或換範圍時重建（打字時不重建輸入框），結果區另外更新 */
+function renderFarmList() {
   if (panelTab !== 'farms') return;
   const box = $('g-farmList');
-  if (!farmsReady) { box.innerHTML = '<div class="gnote">' + T('farmsLoading') + '</div>'; return; }
-  const iso = byIso[S.region] ? S.region : null;
-  if (!iso) { box.innerHTML = '<div class="gnote">' + L('先在「範圍」選一個國家，或點地圖上的國家。', 'Pick a country in “Focus” or click one on the map.') + '</div>'; return; }
-  let list = (farmsByIso[iso] || []).filter(f => f.pipe ? (FL_UI.filter !== 'op') : (FL_UI.filter !== 'pipe' && fAge(f) >= 0));
-  if (FL_UI.q) { const q = FL_UI.q.toLowerCase(); list = list.filter(f => (f.name + ' ' + (f.zh || '') + ' ' + (f.owner || '')).toLowerCase().includes(q)); }
-  const key = [iso, Math.floor(S.year), FL_UI.filter, FL_UI.sort, FL_UI.q, FL_UI.limit, lang, list.length].join('|');
+  if (!farmsReady) { box.innerHTML = '<div class="gnote">' + T('farmsLoading') + '</div>'; farmRendered = ''; return; }
+  const chips = (g, items) => '<div class="gchips" role="group" data-g="' + g + '">' + items.map(([v, t]) => { const on = SQ[g].includes(v); return '<button type="button" data-v="' + v + '" aria-pressed="' + on + '"' + (on ? ' class="active"' : '') + '>' + esc(t) + '</button>'; }).join('') + '</div>';
+  const opt = (v, t, cur) => '<option value="' + v + '"' + (cur === v ? ' selected' : '') + '>' + esc(t) + '</option>';
+  box.innerHTML = '<div class="fsx">' +
+    '<input type="search" id="g-fq" placeholder="' + esc(T('fsPh')) + '" aria-label="' + esc(T('fsPh')) + '" value="' + esc(SQ.q) + '" autocomplete="off">' +
+    '<div class="fsrow"><span class="fsl">' + esc(T('fsSt')) + '</span>' + chips('st', SQ_ST.map((k, i) => [k, T('st')[i]])) + '</div>' +
+    '<div class="fsrow"><span class="fsl">' + esc(T('fsTy')) + '</span>' + chips('ty', [['on', T('type').onshore], ['off', T('type').offshore], ['fl', T('type').floating]]) + '</div>' +
+    '<div class="fsrow fsel"><label>' + esc(T('fsMin')) + ' <select id="g-fmin">' + SQ_MIN.map(v => opt(v, v ? '≥ ' + WW.int(v) + ' MW' : T('fsAny'), SQ.min)).join('') + '</select></label>' +
+      '<label>' + esc(T('fsYear')) + ' <select id="g-fy0">' + yearOpts(SQ.y0) + '</select></label><label aria-label="' + esc(T('fsYear')) + '">– <select id="g-fy1">' + yearOpts(SQ.y1) + '</select></label>' +
+      '<label>' + esc(T('fsSort')) + ' <select id="g-fsort">' + opt('mw', T('fsMin'), SQ.sort) + opt('year', T('fsYear'), SQ.sort) + opt('name', T('fsName'), SQ.sort) + '</select></label></div>' +
+    '<div class="fsrow fsbar"><button type="button" class="fsclr">' + esc(T('fsClear')) + '</button>' + (S.region !== 'WORLD' ? '<button type="button" class="fsworld">' + esc(T('fsWorld')) + '</button>' : '') + '</div>' +
+    '</div><div class="fres"></div>';
+  const q = box.querySelector('#g-fq');
+  q.oninput = () => { clearTimeout(fsTimer); fsTimer = setTimeout(() => { if (SQ.q !== q.value.trim()) { SQ.q = q.value.trim(); fsChanged(); } }, 160); };
+  q.onkeydown = e => { if (e.key === 'Enter') { const r = fsResults(); if (r.length) selectFarm(r[0]); } };
+  box.querySelectorAll('.gchips[data-g]').forEach(g => g.querySelectorAll('button').forEach(b => b.onclick = () => {
+    const arr = SQ[g.dataset.g], v = b.dataset.v, i = arr.indexOf(v);
+    if (i >= 0) arr.splice(i, 1); else arr.push(v);
+    b.classList.toggle('active', i < 0); b.setAttribute('aria-pressed', i < 0 ? 'true' : 'false');
+    fsChanged();
+  }));
+  box.querySelector('#g-fmin').onchange = e => { SQ.min = +e.target.value || 0; fsChanged(); };
+  box.querySelector('#g-fy0').onchange = e => { SQ.y0 = +e.target.value || 0; fsChanged(); };
+  box.querySelector('#g-fy1').onchange = e => { SQ.y1 = +e.target.value || 0; fsChanged(); };
+  box.querySelector('#g-fsort').onchange = e => { SQ.sort = e.target.value; SQ.limit = 200; renderFarmResults(true); };
+  box.querySelector('.fsclr').onclick = fsReset;
+  const w = box.querySelector('.fsworld'); if (w) w.onclick = () => setRegion('WORLD');
+  farmRendered = '';
+  renderFarmResults(true);
+}
+function farmRow(f) {
+  const d = document.createElement('button'); d.type = 'button';
+  const gone = (f.end && S.year >= f.end) || (!f.pipe && fAge(f) < 0);           // 這個年份不在地圖上：淡色
+  d.className = 'msItem' + (!f.pipe && !f.yu && fAge(f) >= 0 && fAge(f) < 1.5 ? ' new' : '') + (gone ? ' gone' : '') + (f.pipe ? ' pipe' : '');
+  const yr = f.pipe ? (f.year ? T('expected') + ' ' + f.year : T('st')[f.st]) : (f.yu ? '—' : f.year + (f.end ? '–' + f.end : ''));
+  const where = S.region !== f.iso && byIso[f.iso] ? ' · ' + esc(cname(byIso[f.iso])) : '';
+  d.innerHTML = '<span class="y">' + esc(String(yr)) + '</span><span class="n">' + esc(fname(f)) + '</span>' +
+    '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + fmtMW(f.mw) + where + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(f.owner) : '') + '</span>';
+  const lv = liveOn() && liveFor(f);
+  if (lv) d.querySelector('.t').insertAdjacentHTML('beforeend', ' · <b class="lv">● ' + WW.num(lv.mw, lv.mw < 100 ? 1 : 0) + ' MW</b>');
+  d.onclick = () => selectFarm(f);
+  return d;
+}
+function renderFarmResults(force) {
+  if (panelTab !== 'farms' || !farmsReady) return;
+  const box = $('g-farmList').querySelector('.fres'); if (!box) return;
+  const list = fsResults(), on = fsActive(), yr = Math.floor(S.year + 1e-6);
+  const key = [fsCache.key, SQ.limit, yr, S.pipe, S.layer, liveOn(), portsReady].join('|');
   if (!force && key === farmRendered) return; farmRendered = key;
-  list.sort(FL_UI.sort === 'mw' ? (a, b) => b.mw - a.mw : (a, b) => (b.pipe - a.pipe) || (b.year - a.year) || (b.mw - a.mw));
-  const st = farmStats();
-  box.innerHTML = '';
-  const head = document.createElement('div'); head.className = 'gnote';
-  head.innerHTML = esc(cname(byIso[iso])) + ' · ' + L(`營運中 ${st.n} 座 ${fmtMW(st.mw)}`, `${st.n} operating · ${fmtMW(st.mw)}`) + (st.pn ? L(` · 規劃中 ${st.pn} 案 ${fmtMW(st.pmw)}`, ` · ${st.pn} pipeline · ${fmtMW(st.pmw)}`) : '') + '<br>' + T('farmSrc');
-  box.appendChild(head);
-  const ctl = document.createElement('div'); ctl.style.cssText = 'display:flex;flex-direction:column;gap:6px';
-  ctl.innerHTML = `<input type="search" id="g-fq" placeholder="${esc(T('search'))}" value="${esc(FL_UI.q)}">
-    <div class="gchips"><button type="button" data-fl="all" class="${FL_UI.filter === 'all' ? 'active' : ''}">${T('fAll')}</button><button type="button" data-fl="op" class="${FL_UI.filter === 'op' ? 'active' : ''}">${T('fOp')}</button><button type="button" data-fl="pipe" class="${FL_UI.filter === 'pipe' ? 'active' : ''}">${T('fPipe')}</button>
-    <span style="flex:1"></span><button type="button" data-so="mw" class="${FL_UI.sort === 'mw' ? 'active' : ''}">${T('sortMw')}</button><button type="button" data-so="year" class="${FL_UI.sort === 'year' ? 'active' : ''}">${T('sortYear')}</button></div>`;
-  box.appendChild(ctl);
-  const q = ctl.querySelector('#g-fq');
-  q.oninput = () => { FL_UI.q = q.value.trim(); FL_UI.limit = 200; renderFarmList(true); const nq = $('g-fq'); if (nq) { nq.focus(); nq.setSelectionRange(nq.value.length, nq.value.length); } };
-  ctl.querySelectorAll('[data-fl]').forEach(b => b.onclick = () => { FL_UI.filter = b.dataset.fl; FL_UI.limit = 200; renderFarmList(true); });
-  ctl.querySelectorAll('[data-so]').forEach(b => b.onclick = () => { FL_UI.sort = b.dataset.so; renderFarmList(true); });
-  list.slice(0, FL_UI.limit).forEach(f => {
-    const d = document.createElement('button'); d.type = 'button'; const gone = f.end && S.year >= f.end;
-    d.className = 'msItem' + (!f.pipe && !f.yu && fAge(f) < 1.5 ? ' new' : '') + (gone ? ' gone' : '') + (f.pipe ? ' pipe' : '');
-    const yr = f.pipe ? (f.year ? T('expected') + ' ' + f.year : T('st')[f.st]) : (f.yu ? '—' : f.year + (f.end ? '–' + f.end : ''));
-    d.innerHTML = '<span class="y">' + esc(String(yr)) + '</span><span class="n">' + esc(fname(f)) + '</span>' +
-      '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + fmtMW(f.mw) + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(f.owner) : '') + '</span>';
-    const lv = liveOn() && liveFor(f);
-    if (lv) d.querySelector('.t').insertAdjacentHTML('beforeend', ' · <b class="lv">● ' + WW.num(lv.mw, lv.mw < 100 ? 1 : 0) + ' MW</b>');
-    d.onclick = () => selectFarm(f);
-    box.appendChild(d);
-  });
-  if (list.length > FL_UI.limit) {
-    const m = document.createElement('button'); m.type = 'button'; m.className = 'gmore'; m.textContent = T('more') + ` (${list.length - FL_UI.limit})`;
-    m.onclick = () => { FL_UI.limit += 300; renderFarmList(true); }; box.appendChild(m);
+  const mw = list.reduce((s, f) => s + f.mw, 0), scope = S.region === 'WORLD' ? L('全球', 'worldwide') : scopeName();
+  let html = '<div class="gnote fshead">' + esc((on ? T('fsCount') : T('fsAll'))(WW.int(list.length), fmtMW(mw))) + ' · ' + esc(T('fsScope')(scope)) + (on ? '<br>' + esc(T('fsMapOnly')) : '') + '</div>';
+  if (on && list.length) {
+    const hidden = list.filter(f => !farmActive(f, S.year) || !layerOk(f.type)).length;
+    const fix = S.year < Y1 - 0.02 || (!S.pipe && list.some(f => f.pipe)) || S.layer !== 'both';
+    if (hidden) html += '<div class="gnote fshide">' + esc(T('fsHidden')(yr, WW.int(hidden))) + (fix ? ' <button type="button" class="fslatest">' + esc(T('fsToLatest')) + '</button>' : '') + '</div>';
   }
+  if (fsTokens.length && portsReady) {                  // 名稱也符合的港口列在最前面
+    const pm = PORTS.filter(p => inScope(p.iso) && portMatch(p, fsTokens));
+    if (pm.length) html += '<div class="fsports"><div class="fh">⚓ ' + esc(T('portsTab')) + '</div>' + pm.slice(0, 5).map(portRowHTML).join('') +
+      (pm.length > 5 ? '<button type="button" class="gmore fsallports">' + esc(T('portsAll')) + '</button>' : '') + '</div>';
+  }
+  box.innerHTML = html;
+  const lb = box.querySelector('.fslatest');
+  if (lb) lb.onclick = () => { if (list.some(f => f.pipe) && !S.pipe) togglePipe(true); if (S.layer !== 'both') { S.layer = 'both'; $('g-layerSel').value = 'both'; updateBars(true); farmLayerDirty = true; } S.year = Y1; syncYearUI(); syncURL(); renderFarmResults(true); };
+  box.querySelectorAll('[data-port]').forEach(b => b.onclick = () => { const p = PORTS.find(x => x.id === b.dataset.port); if (p) selectPort(p); });
+  const ap = box.querySelector('.fsallports'); if (ap) ap.onclick = () => { PT_UI.q = SQ.q; setPanelTab('ports'); };
+  list.slice(0, SQ.limit).forEach(f => box.appendChild(farmRow(f)));
+  if (!list.length) box.insertAdjacentHTML('beforeend', '<div class="gnote">' + esc(T('fsNone')) + '</div>');
+  if (list.length > SQ.limit) {
+    const m = document.createElement('button'); m.type = 'button'; m.className = 'gmore'; m.textContent = T('more') + ` (${WW.int(list.length - SQ.limit)})`;
+    m.onclick = () => { SQ.limit += 300; renderFarmResults(true); }; box.appendChild(m);
+  }
+}
+function expandPanel() { const pn = $('g-msPanel'); if (pn.classList.contains('collapsed')) { pn.classList.remove('collapsed'); $('g-msToggle').textContent = '–'; } }
+function openSearch() {                        // 工具列「搜尋」與 / 鍵
+  if (TOUR) tourEnd(false);
+  if (cardItem && window.innerWidth <= 900) closeCard();            // 手機：資訊卡會蓋住面板
+  expandPanel();
+  setPanelTab('farms');
+  const q = $('g-fq'); if (q) { q.focus(); q.select(); }
+}
+/* ================= 港口：離岸風電的組裝出港、製造與運維港口（data/global/ports.json，2026-09 整理，每港附出處） =================
+   地圖上以 DOM 錨點標示（全球視角縮成小點，拉近才有圖示與名稱標籤）；點選開港口卡片，可搜尋，也有「港口」分頁 */
+const PORT_ROLES = ['marshalling', 'foundation', 'tower', 'blade', 'nacelle', 'cable', 'floating', 'om'];
+let PORTS = [], portsReady = false, focusPort = null, pendingPort = null, portRendered = '';
+const PT_UI = { q: '', role: '' };
+S.ports = WW.store.get('ww_globe_ports', '1') === '1';
+const pname = p => lang === 'zh' && p.zh ? p.zh : p.name;
+const portRoles = (p, n) => p.roles.slice(0, n || 9).map(r => T('role')[r]).join(lang === 'zh' ? '、' : ', ');
+function portHay(p) {
+  if (p._hay) return p._hay;
+  const c = byIso[p.iso];
+  return (p._hay = fold([p.name, p.zh, c && c.name, c && c.zh, p.iso, ...p.roles.map(r => I18N.zh.role[r] + ' ' + I18N.en.role[r]), ...(p.farms || []), ...(p.farmsOther || [])].filter(Boolean).join(' | ')));
+}
+const portMatch = (p, toks) => { const h = portHay(p); return toks.every(t => h.includes(t)); };
+function loadPorts() {
+  return WW.getJSON(WW.DATA.ports).then(j => {
+    const box = $('g-ports');
+    PORTS = (j.ports || []).filter(p => isFinite(p.lat) && isFinite(p.lon) && p.id);
+    PORTS.forEach(p => {
+      p.roles = (p.roles || []).filter(r => PORT_ROLES.includes(r));
+      const b = document.createElement('button'); b.type = 'button'; b.tabIndex = -1;          // 鍵盤改用「港口」分頁的清單
+      b.className = 'pmk' + (p.status === 'developing' ? ' dev' : ''); b.textContent = '⚓'; b.style.display = 'none';
+      b.onclick = e => { e.stopPropagation(); selectPort(p); };
+      b.onmouseenter = ev => showTip(ev, tipPort(p), $('g-mapPane'));
+      b.onmousemove = ev => moveTip(ev, $('g-mapPane'));
+      b.onmouseleave = hideTip;
+      p._el = b; p._vis = false; box.appendChild(b);
+    });
+    layoutPorts(); portsReady = true; farmRendered = '';
+    if (panelTab === 'ports') renderPortList(true);
+    if (panelTab === 'farms') renderFarmResults(true);
+    if (pendingPort) { const id = pendingPort; pendingPort = null; const p = PORTS.find(x => x.id === id); if (p) selectPort(p); }
+  }).catch(e => { console.error(e); });
+}
+function layoutPorts() { PORTS.forEach(p => { p._pos = posAt(p.lon, p.lat, 0, p._pos); }); }
+function tipPort(p) {
+  return '<b>⚓ ' + esc(pname(p)) + '</b>' + (p.status === 'developing' ? ' <span style="color:var(--ink-2)">(' + esc(T('portDev')) + ')</span>' : '') +
+    '<br>' + esc(portRoles(p)) + '<br><span style="color:var(--ink-2)">' + esc(lang === 'zh' ? p.zhNote || p.en : p.en) + '</span><div class="hint2">' + T('clickMore') + '</div>';
+}
+/* 每一格：錨點跟著地球轉；背面或畫面外就藏起來。全球視角縮成小點，拉近或被選取時才有圖示與名稱標籤 */
+function updatePorts(alt, cands) {
+  if (!portsReady) return;
+  const show = S.ports && S.view !== 'bars' && !TOUR, far = alt > 60;
+  const scoped = S.region === 'WORLD' || S.region.startsWith('C:');
+  for (const p of PORTS) {
+    let vis = show && (scoped ? inScope(p.iso) : (p.iso === S.region || alt < 25 || p === focusPort));
+    if (vis) {
+      tmpW.copy(p._pos).applyMatrix4(surfaceRoot.matrixWorld);
+      vis = facing(tmpW);
+      if (vis) {
+        const q = project(tmpW);
+        vis = q.z <= 1 && q.x > -12 && q.x < W + 12 && q.y > -12 && q.y < H + 12;
+        if (vis) {
+          p._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)';
+          if (!far || p === focusPort) cands.push({ cat: 'p', pri: p === focusPort ? 2e9 : 5e7 + p.roles.length * 1e5, pos: tmpW.clone(), dy: 12,
+            name: '⚓ ' + pname(p), val: portRoles(p, 2), cls: 'port' + (p === focusPort ? ' focus' : ''), key: 'p' + p.id });
+        }
+      }
+    }
+    if (p._vis !== vis) { p._vis = vis; p._el.style.display = vis ? '' : 'none'; }
+    const small = far && p !== focusPort; if (p._far !== small) { p._far = small; p._el.classList.toggle('far', small); }
+    const sel = p === focusPort; if (p._sel !== sel) { p._sel = sel; p._el.classList.toggle('sel', sel); }
+  }
+}
+function togglePorts(on) {
+  S.ports = on != null ? on : !S.ports; WW.store.set('ww_globe_ports', S.ports ? '1' : '0');
+  const b = $('g-btnPorts'); b.classList.toggle('active', S.ports); b.setAttribute('aria-pressed', S.ports ? 'true' : 'false');
+}
+const portItem = p => ({ kind: 'port', p, name: p.name, zh: p.zh, lat: p.lat, lon: p.lon, iso: p.iso, year: p.since || null });
+function selectPort(p) {
+  setPlaying(false); if (TOUR) tourEnd(false);
+  if (!S.ports) togglePorts(true);
+  if (byIso[p.iso] && S.region !== p.iso) setRegion(p.iso, true);
+  focusFarm = null; focusPort = p;
+  flyToLonLat(p.lon, p.lat, 1.3);
+  renderCard(portItem(p));
+  syncURL();
+}
+let farmByName = null;
+function farmNamed(n) {
+  if (!farmsReady) return null;
+  if (!farmByName) { farmByName = new Map(); D.farms.forEach(f => farmByName.set(f.name, f)); }
+  return farmByName.get(n) || null;
+}
+const portRowHTML = p => '<button type="button" class="msItem port' + (p.status === 'developing' ? ' pipe' : '') + '" data-port="' + esc(p.id) + '"><span class="y">⚓</span><span class="n">' + esc(pname(p)) + '</span>' +
+  '<span class="t">' + (byIso[p.iso] ? esc(cname(byIso[p.iso])) + ' · ' : '') + (p.status === 'developing' ? '<span class="gtag p2">' + esc(T('portDev')) + '</span>' : '') + esc(portRoles(p)) + '</span></button>';
+/* 「港口」分頁：範圍內的港口，可搜尋、依角色篩選 */
+function renderPortList() {
+  if (panelTab !== 'ports') return;
+  const box = $('g-portList');
+  if (!portsReady) { box.innerHTML = '<div class="gnote">' + T('farmsLoading') + '</div>'; portRendered = ''; return; }
+  box.innerHTML = '<div class="fsx"><input type="search" id="g-pq" placeholder="' + esc(T('fsPh')) + '" aria-label="' + esc(T('portsTab')) + '" value="' + esc(PT_UI.q) + '" autocomplete="off">' +
+    '<div class="gchips" role="group">' + [''].concat(PORT_ROLES).map(r => '<button type="button" data-r="' + r + '" aria-pressed="' + (PT_UI.role === r) + '"' + (PT_UI.role === r ? ' class="active"' : '') + '>' + esc(r ? T('role')[r] : T('fAll')) + '</button>').join('') + '</div></div><div class="pres"></div>';
+  const q = box.querySelector('#g-pq');
+  q.oninput = () => { PT_UI.q = q.value.trim(); renderPortResults(); };
+  box.querySelectorAll('[data-r]').forEach(b => b.onclick = () => { PT_UI.role = b.dataset.r; box.querySelectorAll('[data-r]').forEach(x => { const on = x === b; x.classList.toggle('active', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); }); renderPortResults(); });
+  renderPortResults();
+}
+function renderPortResults() {
+  const box = $('g-portList').querySelector('.pres'); if (!box) return;
+  const toks = fold(PT_UI.q).split(/\s+/).filter(Boolean);
+  const list = PORTS.filter(p => inScope(p.iso) && (!PT_UI.role || p.roles.includes(PT_UI.role)) && (!toks.length || portMatch(p, toks)));
+  const co = new Intl.Collator(lang === 'zh' ? 'zh-Hant-TW' : 'en');
+  list.sort((a, b) => co.compare(byIso[a.iso] ? cname(byIso[a.iso]) : a.iso, byIso[b.iso] ? cname(byIso[b.iso]) : b.iso) || co.compare(pname(a), pname(b)));
+  box.innerHTML = '<div class="gnote">' + esc(T('portsHead')(list.length)) + ' · ' + esc(T('fsScope')(S.region === 'WORLD' ? L('全球', 'worldwide') : scopeName())) + '<br>' + esc(T('portNote')) + '</div>' +
+    (list.length ? list.map(portRowHTML).join('') : '<div class="gnote">' + esc(T('portNone')) + '</div>');
+  box.querySelectorAll('[data-port]').forEach(b => b.onclick = () => { const p = PORTS.find(x => x.id === b.dataset.port); if (p) selectPort(p); });
 }
 /* 規劃中清單（規劃分頁）：範圍內逐案專案，依狀態、預計年份、容量排序；上方是逐案合計與 GEM 2026-02 各國總量 */
 const PL_UI = { st: 0, q: '', limit: 150 };
@@ -1576,7 +1804,7 @@ function liveChanged() {
   farmLayerDirty = true;
   if (!active || !farmsReady) return;
   if (panelTab === 'prof' && (S.region === 'AUS' || S.region === 'CAN' || S.region === 'TWN')) renderProfile();
-  if (panelTab === 'farms') renderFarmList(true);
+  if (panelTab === 'farms') renderFarmResults(true);
   refreshLiveBox();
 }
 const liveOn = () => S.year >= Y1 - 0.02;                                   // 時間軸在最新年份時才疊上「此刻」
@@ -1710,12 +1938,12 @@ function ownerParts(f) {
 }
 /* 正規化全部業主約需 0.1 秒（手機更久）：風場資料載入後利用瀏覽器空檔先算好，第一次開卡片才不會卡頓 */
 function warmOwners() {
-  const list = D.farms.filter(f => f.owner && !f._own);
+  const list = D.farms.filter(f => !f._hay || (f.owner && !f._own));          // 也順便算好搜尋用字串，第一次搜尋不卡頓
   const idle = window.requestIdleCallback ? fn => requestIdleCallback(fn, { timeout: 1000 })      // 繪圖迴圈一直忙時也至少每秒做一小段
     : fn => setTimeout(() => { const t = performance.now(); fn({ timeRemaining: () => 8 - (performance.now() - t) }); }, 60);
   let i = 0;
   const step = dl => {
-    do { for (const e = Math.min(list.length, i + (dl.didTimeout ? 1000 : 200)); i < e; i++) ownerParts(list[i]); } while (i < list.length && dl.timeRemaining() > 2);
+    do { for (const e = Math.min(list.length, i + (dl.didTimeout ? 1000 : 200)); i < e; i++) { hayOf(list[i]); if (list[i].owner) ownerParts(list[i]); } } while (i < list.length && dl.timeRemaining() > 2);
     if (i < list.length) idle(step);
   };
   idle(step);
@@ -1804,7 +2032,7 @@ function relSection(key, title, list, f, withKm, note) {
 /* 深連結（複製連結、回報錯誤用）：單檔版一律指向正式網站 */
 function itemLink(it) {
   const p = { r: byIso[it.iso] ? it.iso : null };
-  if (it.kind === 'ms') p.ms = it.m.name; else p.f = it.f.name;
+  if (it.kind === 'ms') p.ms = it.m.name; else if (it.kind === 'port') p.port = it.p.id; else p.f = it.f.name;
   return WW.pageURL(WW.hashFor('global', null, p));
 }
 /* 「回報資料錯誤」：開一則預填好的 GitHub issue（標題與欄位中英並列，方便維護者與回報者） */
@@ -1812,7 +2040,7 @@ function reportURL(it) {
   const f = it.f, c = byIso[it.iso], Z = I18N.zh, E = I18N.en;
   const both = (z, e) => z === e ? z : z + ' / ' + e;
   const rows = [
-    (it.kind === 'ms' ? '里程碑 Milestone' : '風場 Farm') + ': ' + it.name + (it.zh ? ' / ' + it.zh : ''),
+    (it.kind === 'ms' ? '里程碑 Milestone' : it.kind === 'port' ? '港口 Port' : '風場 Farm') + ': ' + it.name + (it.zh ? ' / ' + it.zh : ''),
     '國家 Country: ' + (c ? c.zh + ' / ' + c.name : (it.iso || '—')),
     '座標 Coordinates: ' + (+it.lat).toFixed(4) + ', ' + (+it.lon).toFixed(4) + (f && f.nStack ? '（共用代用座標 shared placeholder point）' : f && (f.flags & 1) ? '（概略位置 approximate）' : '')
   ];
@@ -1823,11 +2051,19 @@ function reportURL(it) {
     if (f.turbine) rows.push('機型 Turbines: ' + f.turbine);
     rows.push('資料集 Dataset: ' + (['精選清單 curated list', 'GPPD (WRI)', 'GEM Global Wind Power Tracker', '2026 年整理清單 2026 compilation'][f.src] || '—'));
   } else if (it.kind === 'ms') rows.push('年份 Year: ' + it.m.year);
+  else if (it.kind === 'port') {
+    const pt = it.p;
+    rows.push('角色 Roles: ' + pt.roles.map(r => I18N.zh.role[r] + ' / ' + I18N.en.role[r]).join('; '));
+    rows.push('狀態 Status: ' + (pt.status === 'developing' ? '開發中 / in development' : '已使用 / in use') + (pt.since ? ' · ' + pt.since : ''));
+    if (pt.farms && pt.farms.length) rows.push('服務過的風場 Farms served: ' + pt.farms.join('; '));
+    rows.push('出處 Sources: ' + (pt.src || []).join(' '));
+  }
   rows.push('連結 Link: ' + itemLink(it));
   const body = rows.map(r => '- ' + r).join('\n') + '\n\n### 哪裡有錯？正確的資料是什麼？ What is wrong, and what is correct?\n\n\n### 出處 Source (URL or document)\n\n';
   const title = '資料錯誤 Data error: ' + it.name + (c ? ' (' + c.name + ')' : '');
   return REPO_URL + '/issues/new?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body);
 }
+const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
 async function copyText(s) {
   try { if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(s); return true; } } catch (e) { /* 改用下面的舊方法 */ }
   const ta = document.createElement('textarea'); ta.value = s; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
@@ -1852,6 +2088,11 @@ function renderCard(it) {
     tag = '<span class="gtag ' + stCls({ type: it.type }) + '">' + T('type')[it.type] + '</span>';
     spec = [m.mw ? T('turbine') + ' ' + (m.mw < 1 ? (m.mw * 1000).toFixed(0) + ' kW' : m.mw + ' MW') : null, m.farm ? T('farm') + ' ' + WW.int(m.farm) + ' MW' : null, m.rotor ? T('rotor') + ' ' + m.rotor + ' m' : null, m.maker ? esc(m.maker) : null].filter(Boolean).join(' · ');
     desc = lang === 'zh' ? m.zh : m.en;
+  } else if (it.kind === 'port') {
+    const pt = it.p; title = pname(pt); if (lang === 'zh' && pt.zh) sub = pt.name;
+    tag = '<span class="gtag port">⚓ ' + esc(T('portTag')) + '</span>' + (pt.status === 'developing' ? '<span class="gtag p2">' + esc(T('portDev')) + '</span>' : '');
+    spec = '<div class="proles">' + pt.roles.map(r => '<span>' + esc(T('role')[r]) + '</span>').join('') + '</div>';
+    desc = lang === 'zh' ? (pt.zhNote || pt.en) : pt.en;
   } else {
     title = fname(f); if (lang === 'zh' && f.zh) sub = f.name;
     tag = '<span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + (f.pipe ? '<span class="gtag ' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off') + '">' + T('type')[f.type] + '</span>' : '');
@@ -1860,19 +2101,26 @@ function renderCard(it) {
     spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(f.owner) : '');
     desc = it.why || '';
   }
-  const yrs = f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : ''));
+  const yrs = it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : ''));
   const bare = it.name.replace(/ · .*$/, ''), la = (+it.lat).toFixed(5), lo = (+it.lon).toFixed(5);
-  const q = encodeURIComponent((it.zh && lang === 'zh' ? it.zh : bare) + (/wind|turbine|風/i.test(it.name) ? '' : ' wind farm'));
+  const q = encodeURIComponent(it.kind === 'port' ? (it.zh && lang === 'zh' ? it.zh + ' 離岸風電' : bare + ' offshore wind')
+    : (it.zh && lang === 'zh' ? it.zh : bare) + (/wind|turbine|風/i.test(it.name) ? '' : ' wind farm'));
   const ext = (href, text, cls, tip) => '<a href="' + esc(href) + '" target="_blank" rel="noopener"' + (cls ? ' class="' + cls + '"' : '') + (tip ? ' title="' + esc(tip) + '"' : '') + '>' + esc(text) + '</a>';
   let links = ext('https://www.google.com/maps/@' + it.lat + ',' + it.lon + ',' + (it.kind === 'ms' && !(it.m.farm) ? 14 : 11) + 'z/data=!3m1!1e3', T('lnkMap')) +
     ext('https://www.openstreetmap.org/?mlat=' + la + '&mlon=' + lo + '#map=13/' + la + '/' + lo, T('lnkOsm'));
   // Global Wind Atlas：/shared/ 後接 GeoJSON 點，開啟即拉近到該點並顯示平均風速圖層（2026-09 實測）；共用代用座標的風場不給
-  if (!(f && f.nStack)) links += ext('https://globalwindatlas.info/' + (lang === 'zh' ? 'zh' : 'en') + '/shared/' + encodeURIComponent(JSON.stringify({ type: 'Feature', properties: { type: 'marker' }, geometry: { type: 'Point', coordinates: [+lo, +la] } })), T('lnkGwa'), '', T('lnkGwaT'));
+  if (it.kind !== 'port' && !(f && f.nStack)) links += ext('https://globalwindatlas.info/' + (lang === 'zh' ? 'zh' : 'en') + '/shared/' + encodeURIComponent(JSON.stringify({ type: 'Feature', properties: { type: 'marker' }, geometry: { type: 'Point', coordinates: [+lo, +la] } })), T('lnkGwa'), '', T('lnkGwaT'));
   links += ext('https://www.google.com/search?tbm=isch&q=' + q, T('lnkPhoto'));
   if (f && f.src === 2) links += ext('https://www.gem.wiki/' + encodeURIComponent(bare.replace(/ /g, '_')), T('lnkGem'));
-  links += ext('https://www.wikidata.org/w/index.php?search=' + encodeURIComponent(bare), T('lnkWd'), 'wd');
+  if (it.kind === 'port') (it.p.src || []).forEach((u, i) => { links += ext(u, T('portSrc')(i + 1) + ' · ' + hostOf(u)); });
+  else links += ext('https://www.wikidata.org/w/index.php?search=' + encodeURIComponent(bare), T('lnkWd'), 'wd');
   if (f && f.url) links += ext(f.url, T('lnkSrc'));
   let rel = '';
+  if (it.kind === 'port' && full) {                  // 港口：服務過的風場（對得到資料的可點選），其他專案列文字
+    const served = (it.p.farms || []).map(farmNamed).filter(Boolean), other = (it.p.farmsOther || []).join(lang === 'zh' ? '、' : ', ');
+    if (served.length) rel += relSection('pserved', T('portFarms'), served, { iso: it.p.iso }, false, other ? T('portOther') + other : '');
+    else if (other) rel += '<p class="gnote fnear0">' + esc(T('portFarms') + L('：', ': ') + other) + '</p>';
+  }
   if (real && full) {
     const near = nearbyFarms(f);
     if (near) rel += near.length ? relSection('near', T('near'), near, f, true) : '<p class="gnote fnear0">' + esc(T('nearNone')) + '</p>';
@@ -1880,7 +2128,7 @@ function renderCard(it) {
   }
   card.querySelector('.cb').innerHTML =
     '<div class="gph" hidden><img alt=""><span class="cr">' + T('photoCredit') + '</span></div>' +
-    '<div class="kick">' + tag + esc(String(yrs)) + ' · ' + esc(cn) + '</div>' +
+    '<div class="kick">' + tag + (yrs !== '' ? esc(String(yrs)) + ' · ' : '') + esc(cn) + '</div>' +
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
     (spec ? '<div class="spec">' + spec + '</div>' : '') +
     (real ? '<div class="fstat">' + rankHTML(f) + '</div><div class="fphw">' + phaseHTML(f) + '</div>' : '') +
@@ -1889,7 +2137,7 @@ function renderCard(it) {
     (posNote(f) ? '<p class="fnote pos">' + esc(posNote(f)) + '</p>' : '') +
     '<div class="lvslot">' + (f ? liveBoxFor(f) : (it.farm ? liveBoxFor(it.farm) : '')) + '</div>' +
     '<p class="wx">' + T('wikiLoading') + '</p><div class="links xl">' + links + '</div>' + rel +
-    (full ? '<div class="factions"><button type="button" class="fcopy">🔗 ' + esc(T(it.kind === 'ms' ? 'copyLinkMs' : 'copyLink')) + '</button>' +
+    (full ? '<div class="factions"><button type="button" class="fcopy">🔗 ' + esc(T(it.kind === 'ms' ? 'copyLinkMs' : it.kind === 'port' ? 'copyLinkPort' : 'copyLink')) + '</button>' +
       '<a class="freport" href="' + esc(reportURL(it)) + '" target="_blank" rel="noopener" title="' + esc(T('reportT')) + '">⚑ ' + esc(T('report')) + '</a></div>' : '');
   card.classList.add('show');
   if (!same) card.scrollTop = 0;
@@ -1910,6 +2158,7 @@ function renderCard(it) {
     inp.value = url; inp.focus(); inp.select();
   };
   const myIt = it;
+  if (it.kind === 'port') { card.querySelector('.wx').remove(); return; }      // 港口：維基百科比對容易誤配，改列出處
   wikiLookup(it).then(w => {
     if (cardItem !== myIt) return;
     const wx = card.querySelector('.wx');
@@ -1921,14 +2170,14 @@ function renderCard(it) {
     if (w.thumb) { const ph = card.querySelector('.gph'), img = ph.querySelector('img'); img.onload = () => { ph.hidden = false; }; img.onerror = () => { ph.hidden = true; }; img.src = w.thumb; }
   });
 }
-function closeCard() { $('g-infoCard').classList.remove('show'); cardItem = null; if (!TOUR) focusFarm = null; syncURL(); }
+function closeCard() { $('g-infoCard').classList.remove('show'); cardItem = null; focusPort = null; if (!TOUR) focusFarm = null; syncURL(); }
 function selectFarm(f) {
   setPlaying(false);
   if (f.pipe) { if (!S.pipe) togglePipe(true); S.year = Y1; syncYearUI(); }
   else if (fAge(f) < BUILD) { S.year = Math.min(Y1, f.year + 0.5); syncYearUI(); }
   else if (f.end && S.year >= f.end) { S.year = Math.max(f.year + 0.5, f.end - 0.5); syncYearUI(); }     // 已除役：回到它還在運轉的年份
   if (f.iso && byIso[f.iso] && S.region !== f.iso) setRegion(f.iso, true);
-  focusFarm = f;
+  focusFarm = f; focusPort = null;
   flyToLonLat(f.lon, f.lat, farmAlt(f));
   renderCard(farmItem(f));
   syncURL();
@@ -2103,7 +2352,7 @@ function togglePipe(on) {
   const b = $('g-btnPipe'); b.classList.toggle('active', S.pipe); b.setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
   farmLayerDirty = true; hudCache = ''; updateClusters(0, true);
   if (S.pipe && S.year < Y1 - 0.02 && !S.playing) notice(T('pipeNote'), 3500);
-  renderFarmList(true); renderPipeList(true);
+  renderFarmResults(true); renderPipeList(true);
 }
 function applyI18n() {
   host.querySelectorAll('[data-gi]').forEach(el => { const v = T(el.dataset.gi); if (typeof v === 'string') el.textContent = v; });
@@ -2112,7 +2361,8 @@ function applyI18n() {
   document.querySelectorAll('#g-densSel option').forEach(o => { o.textContent = T('dens')[+o.value]; });
   $('g-hint').textContent = isTouch ? T('hintTouch') : T('hint');
   buildRegionSelect();
-  hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); updateAttr();
+  hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); updateAttr();
+  $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
@@ -2132,6 +2382,7 @@ function showSources() {
     '<h4>' + (zh ? '離岸容量 1991–2025' : 'Offshore capacity 1991–2025') + '</h4><ul>' + li(src.offshore) + '</ul>' +
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
     '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2025 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '</ul>' +
+    '<h4>' + (zh ? '離岸風電港口' : 'Offshore wind ports') + '</h4><ul><li>' + (zh ? '2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。' : 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.') + '</li></ul>' +
     '<h4>' + (zh ? '備註（離岸）' : 'Notes (offshore)') + '</h4><ul>' + li(n.offshore) + '</ul>' +
     '<h4>' + (zh ? '備註（早期）' : 'Notes (early)') + '</h4><ul>' + li(n.early) + '</ul>' +
     '<h4>' + (zh ? '備註（風場）' : 'Notes (farms)') + '</h4><ul>' + li(n.farms) + '</ul>' +
@@ -2166,6 +2417,12 @@ function stateParams() {
   if (S.layer !== 'both') p.layer = S.layer;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
   if (cardItem && cardItem.kind === 'ms') p.ms = cardItem.m.name;
+  if (focusPort && cardItem && cardItem.kind === 'port') p.port = focusPort.id;
+  if (SQ.q) p.q = SQ.q;                              // 搜尋與篩選也寫進網址，可分享
+  if (SQ.st.length) p.fst = SQ.st.join(',');
+  if (SQ.ty.length) p.fty = SQ.ty.join(',');
+  if (SQ.min) p.fmin = SQ.min;
+  if (SQ.y0 || SQ.y1) p.fy = (SQ.y0 || '') + '-' + (SQ.y1 || '');
   return p;
 }
 function syncURL() {
@@ -2196,6 +2453,19 @@ function applyParams(p, fromFarms) {
     if (!farmsReady) { pendingParams = Object.assign(pendingParams || {}, { f: p.f }); }
     else { const f = D.farms.find(x => x.name === p.f && x.src === 0) || D.farms.find(x => x.name === p.f) || D.farms.find(x => x.name.toLowerCase().startsWith(String(p.f).toLowerCase())); if (f) selectFarm(f); }
   }
+  if (!fromFarms) {                          // 網址即狀態：套用連結裡的搜尋條件，連結沒有就清空
+    const had = fsActive();
+    SQ.q = String(p.q || '').slice(0, 100);
+    SQ.st = String(p.fst || '').split(',').filter(k => SQ_ST.includes(k));
+    SQ.ty = String(p.fty || '').split(',').filter(k => SQ_TY.includes(k));
+    SQ.min = SQ_MIN.includes(+p.fmin) ? +p.fmin : 0;
+    const fy = String(p.fy || '').split('-'); SQ.y0 = clamp(+fy[0] || 0, 0, 2100); SQ.y1 = clamp(+fy[1] || 0, 0, 2100);
+    if (had || fsActive()) {
+      fsRev++; fsTokens = fold(SQ.q).split(/\s+/).filter(Boolean); SQ.limit = 200; farmLayerDirty = true; hudCache = '';
+      if (fsActive() && !p.f && !p.ms && !p.port) { expandPanel(); setPanelTab('farms'); } else renderFarmList();   // 分享的搜尋連結：直接看到結果
+    }
+  }
+  if (p.port) { if (!portsReady) pendingPort = p.port; else { const pt = PORTS.find(x => x.id === p.port); if (pt) selectPort(pt); } }
   if (p.play === '1') { if (!p.y) S.year = Y0; setPlaying(true); }
   if (p.tour === '1') { if (farmsReady) tourStart(); else pendingParams = Object.assign(pendingParams || {}, { tour: '1' }); }
 }
@@ -2245,7 +2515,7 @@ function wireUI() {
   tb.querySelector('.tp').onclick = () => TOUR && tourPause(!TOUR.paused);
   tb.querySelector('.tx').onclick = () => { tourEnd(false); closeCard(); };
   $('g-btnTour').onclick = () => { if (TOUR) { tourEnd(false); closeCard(); } else tourStart(); };
-  $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe');
+  $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe'); $('g-tabPorts').onclick = () => setPanelTab('ports');
   $('g-msToggle').onclick = e => { const p = $('g-msPanel'); p.classList.toggle('collapsed'); e.currentTarget.textContent = p.classList.contains('collapsed') ? '+' : '–'; };
   if (window.innerWidth < 700) { $('g-msPanel').classList.add('collapsed'); $('g-msToggle').textContent = '+'; }
   $('g-play').onclick = () => setPlaying(!S.playing);
@@ -2258,6 +2528,9 @@ function wireUI() {
   $('g-baseSel').onchange = e => setBase(e.target.value);
   $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
+  $('g-btnPorts').onclick = () => { togglePorts(); if (S.ports) setPanelTab('ports'); };
+  togglePorts(S.ports);
+  $('g-btnSearch').onclick = openSearch;
   document.querySelectorAll('#g-viewSeg button').forEach(b => b.onclick = () => setView(b.dataset.view));
   document.querySelectorAll('#g-modeSeg button').forEach(b => b.onclick = () => setMode(b.dataset.mode));
   $('g-btnRotate').onclick = e => { S.rotate = !S.rotate; e.currentTarget.classList.toggle('active', S.rotate); e.currentTarget.setAttribute('aria-pressed', S.rotate ? 'true' : 'false'); };
@@ -2272,6 +2545,7 @@ function wireUI() {
     }
     const tg = e.target.tagName;
     if (tg === 'INPUT' || tg === 'SELECT' || tg === 'TEXTAREA' || tg === 'BUTTON' || tg === 'A') return;
+    if (e.key === '/') { e.preventDefault(); openSearch(); return; }
     if (e.code === 'Space') { e.preventDefault(); if (TOUR) tourPause(!TOUR.paused); else setPlaying(!S.playing); }
     if (e.key === 'ArrowRight') { if (TOUR) tourShowStop(TOUR.i + 1); else { S.year = Math.min(Y1, Math.floor(S.year) + 1); syncYearUI(); } }
     if (e.key === 'ArrowLeft') { if (TOUR) tourShowStop(TOUR.i - 1); else { S.year = Math.max(Y0, Math.ceil(S.year) - 1); syncYearUI(); } }
@@ -2293,6 +2567,7 @@ WW.globe = {
       const hasParams = Object.keys(p).length > 0;
       if (hasParams) applyParams(p);
       else if (firstEnter) setTimeout(() => { if (active && !TOUR && S.year === Y0 && !S.playing) setPlaying(true); }, 900);
+      if (!hasParams && fsActive()) syncURL();          // 回到本頁時網址補上仍有效的搜尋條件
       firstEnter = false;
       if (lang !== WW.lang) { lang = WW.lang; applyI18n(); }
     }, e => {

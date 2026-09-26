@@ -107,7 +107,8 @@ WW.getLiveJSON = url => EMB ? EMB.live(url) : fetch(url, { cache: 'no-store' }).
 WW.DATA = {
   global: 'data/global/wind_global.json',
   farms: 'data/global/wind_farms.json',
-  borders: 'data/global/world_borders.json'
+  borders: 'data/global/world_borders.json',
+  ports: 'data/global/ports.json'
 };
 /* 全球資料集＋衍生查詢（首頁、知識頁、地球儀共用） */
 WW.globalData = () => WW.getJSON(WW.DATA.global).then(D => {

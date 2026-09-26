@@ -1,7 +1,7 @@
 /* 風電風情 · globe.css — 全球風電 3D 地球儀（改寫自 wind-history-map v3；所有規則限定在 #globe 內） */
 #globe{--gpanel:rgba(10,18,32,.88);--gline:rgba(255,255,255,.09);--ginkm:#7d8ca3;
   --on:#B8892F;--on-b:#e3b458;--off:#3B8FE0;--off-b:#6fb3ff;--fl:#1f9e8a;--fl-b:#9be8d8;--acc:#f0c86a;
-  --p1:#e3eaf5;--p2:#9fb0c9;--p3:#6a7c97;
+  --p1:#e3eaf5;--p2:#9fb0c9;--p3:#6a7c97;--port:#ff8a5b;
   position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;color:var(--ink);background:#070d18;font-size:13px}
 #globe button,#globe select,#globe input{font-family:inherit;font-size:12.5px;color:var(--ink);background:rgba(255,255,255,.06);border:1px solid var(--gline);border-radius:8px;padding:6px 10px;cursor:pointer}
 #globe button{white-space:nowrap}
@@ -181,6 +181,35 @@
 #g-infoCard .factions{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:10px;border-top:1px solid var(--gline)}
 #globe #g-infoCard .factions button,#g-infoCard .factions a{padding:4px 11px;border:1px solid var(--gline);border-radius:99px;background:rgba(255,255,255,.05);color:var(--ink);font-size:11.5px;text-decoration:none}
 #g-infoCard .factions a:hover{background:rgba(255,255,255,.1)}
+#g-infoCard .proles{display:flex;flex-wrap:wrap;gap:4px}
+#g-infoCard .proles span{font-size:11px;padding:1px 8px;border-radius:99px;border:1px solid rgba(255,138,91,.45);color:#ffc2a8;background:rgba(255,138,91,.08)}
+/* 全球風場搜尋與篩選（「風場」分頁） */
+#globe .fsx{display:flex;flex-direction:column;gap:6px}
+#globe .fsrow{display:flex;align-items:flex-start;gap:6px}
+#globe .fsrow .fsl{flex:0 0 auto;min-width:30px;padding-top:3px;font-size:11px;color:var(--ink-2)}
+#globe .fsel{flex-wrap:wrap;gap:4px 10px}
+#globe .fsel label{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--ink-2)}
+#globe .fsel select{padding:3px 20px 3px 7px;font-size:11.5px}
+#globe .fsbar{gap:6px}
+#globe .fsbar button,#globe .fshide button{padding:2px 10px;font-size:11px;border-radius:99px}
+#globe .fres{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+#globe .fres .fshead{margin-bottom:2px}
+#globe .fres .fshide{color:var(--acc)}
+#globe .fsports{margin:4px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--gline)}
+#globe .fsports .fh,#globe .pres .fh{margin:2px 0 4px;font-size:11px;font-weight:700;color:var(--port)}
+#globe .msItem.port{border-left-color:var(--port)}
+#globe .msItem.port .y{color:var(--port)}
+#globe .pres{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+#globe .gtag.port{color:var(--port);border-color:var(--port)}
+/* 港口錨點（DOM，跟著地球轉） */
+#g-ports{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#g-ports .pmk{position:absolute;left:0;top:0;width:20px;height:20px;padding:0;display:grid;place-items:center;border-radius:50%;border:1.5px solid rgba(255,255,255,.75);background:var(--port);color:#2a1206;font-size:11px;line-height:1;pointer-events:auto;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.6);will-change:transform}
+#g-ports .pmk:hover{background:#ffb08f}
+#g-ports .pmk.dev{background:rgba(10,17,30,.8);color:var(--port);border:1.5px dashed var(--port)}
+#g-ports .pmk.far{width:8px;height:8px;font-size:0;border-width:1px}
+#g-ports .pmk.sel{width:26px;height:26px;font-size:14px;border-color:#fff;box-shadow:0 0 0 3px rgba(255,138,91,.45),0 1px 6px rgba(0,0,0,.7)}
+#globe .lbl.port{color:#ffc2a8}
+#globe .lbl.port.focus b{color:var(--port)}
 #globe #g-infoCard .factions .flink{flex:1 1 100%;cursor:text;font-size:11px}
 #g-tourBar{display:none;align-items:center;gap:6px;padding:8px 12px;border-top:1px solid var(--gline);position:sticky;bottom:0;background:rgba(10,17,30,.97)}
 #globe.touring #g-tourBar{display:flex}
