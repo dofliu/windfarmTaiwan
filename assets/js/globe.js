@@ -20,7 +20,7 @@ const I18N = {
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式（細分型式之後補齊）', other: '重力式、高樁承台、混合', unk: '還沒查證的固定式離岸風場' },
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
-    fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdSecond: '第二來源', fdDoc: '逐場清單',
+    fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
     fdStep: '逐步收集中：已完成北海與東北大西洋（OSPAR 涵蓋範圍），其他海域暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
     hint: '拖曳旋轉 · 滾輪縮放（可一路放大到風場） · 點國家或風場直接飛過去 · 空白鍵播放/暫停',
     hintTouch: '單指旋轉 · 雙指縮放 · 點國家或風場直接飛過去',
@@ -80,7 +80,7 @@ const I18N = {
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating (sub-types to follow)', other: 'Gravity-based, high-rise pile cap, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
-    fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdSecond: 'second source', fdDoc: 'Farm-by-farm list',
+    fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
     fdStep: 'Collected step by step: the North Sea and NE Atlantic (OSPAR coverage) are done; other seas show as type unknown for now', fdProf: 'Foundations (operating offshore farms, by capacity)',
     hint: 'Drag to rotate · scroll to zoom (down to farms) · click a country or farm to fly there · Space = play/pause',
     hintTouch: 'One finger to rotate · pinch to zoom · tap a country or farm to fly there',
@@ -709,7 +709,12 @@ function loadFoundations() {
 }
 function applyFoundations() {
   if (!FD || !farmsReady) return;
-  D.farms.forEach(f => { const r = FD.farms[f.name]; if (r && f.type !== 'onshore') f.fd = r; });
+  const x = FD.x || {};
+  D.farms.forEach(f => {
+    if (f.type === 'onshore') return;
+    if (FD.farms[f.name]) f.fd = FD.farms[f.name];
+    else if (x[f.name]) f.fdx = x[f.name];                 // 查過但找不到可引用出處：卡片寫出理由
+  });
   farmLayerDirty = true; fdLegendKey = '';
   if (S.layer === 'fd') layerChanged();
   if (panelTab === 'prof') renderProfile();
@@ -2177,10 +2182,10 @@ function fdHTML(f) {
   if (!f || f.pipe || f.pseudo || f.type === 'onshore' || !FD || (!f.fd && S.layer !== 'fd')) return '';
   const r = f.fd, note = r && (lang === 'zh' ? r.zh : r.en);
   const src = r ? (r.o || []).map(id => '<a href="' + esc(FD.meta.ospar.url) + '" target="_blank" rel="noopener" title="' + esc(FD.meta.ospar.title) + '">OSPAR ' + esc(id) + '</a>')
-    .concat(r.u ? ['<a href="' + esc(r.u) + '" target="_blank" rel="noopener" title="' + esc(T('fdSecond')) + '">' + esc(hostOf(r.u)) + '</a>'] : []) : [];
+    .concat(r.u ? ['<a href="' + esc(r.u) + '" target="_blank" rel="noopener" title="' + esc(T(r.o ? 'fdSecond' : 'fdSrc')) + '">' + esc(hostOf(r.u)) + '</a>'] : []) : [];
   return '<div class="ffd"><i class="fdsw fd-' + fdGroup(f) + '"></i><b>' + esc(T('fdLabel')) + '</b>' + esc(L('：', ': ') + fdText(f)) +
     (src.length ? '<span class="fds">' + src.join('') + '</span>' : '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') +
-    (!r && f.type !== 'floating' ? '<div class="gnote">' + esc(T('fdStep')) + '</div>' : '') + '</div>';
+    (!r && f.type !== 'floating' ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') + '</div>';
 }
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
 const srcLabel = u => { try { const x = new URL(u), path = decodeURIComponent(x.pathname).replace(/\/$/, ''); return hostOf(u) + (path.length > 38 ? path.slice(0, 36) + '…' : path); } catch (e) { return u; } };

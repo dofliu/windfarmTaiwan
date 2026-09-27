@@ -12,10 +12,13 @@ docs/foundations.md、docs/foundations.en.md。
 建置時會檢查：風場存在且是離岸或浮動式；引用 OSPAR 時，OSPAR 的值要與 t 相符，不相符（或 OSPAR 沒有具體型式）就必須
 有 url 與理由；同一座風場不可出現兩次。
 
-第 1 步（2026-09）：OSPAR 涵蓋的北海與東北大西洋。OSPAR 的「營運中」紀錄逐筆比對過名稱、位置與容量；
+第 1 步（2026-09，F）：OSPAR 涵蓋的北海與東北大西洋。OSPAR 的「營運中」紀錄逐筆比對過名稱、位置與容量；
 德國的紀錄不可靠（10 筆只寫「單樁／三腳／三樁／套管／重力式／其他」任一種，Merkur、Veja Mate、Trianel Borkum II 與
 alpha ventus 則與建成紀錄不符），所以德國每一座都改以德文維基百科資訊框的「Gründung」（附建造紀錄）為準；
 Hornsea One 西區也與建成紀錄不符。
+第 2 步（2026-09，F2）：歐洲其他風場，包括 OSPAR 範圍以外的波羅的海、地中海與艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場。
+每一座都附出處（開發商、施工廠商、產業新聞、政府文件或維基百科，原文逐筆核對過）。OSPAR 對 2024 年以後完工的風場只有
+核准階段的設計（Current Status 是 authorised 等，不是 operational 或 decommissioned），設計可能改變，所以這種紀錄一定要再附施工紀錄，建置會檢查。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
 
@@ -46,8 +49,13 @@ SUBS = {
 }
 
 
-def F(iso, name, t, ospar=(), url=None, sub=None, parts=None, zh='', en=''):
-    return dict(iso=iso, name=name, t=t, ospar=list(ospar), url=url, sub=sub, parts=parts, zh=zh, en=en, step=1)
+def F(iso, name, t, ospar=(), url=None, sub=None, parts=None, zh='', en='', step=1):
+    return dict(iso=iso, name=name, t=t, ospar=list(ospar), url=url, sub=sub, parts=parts, zh=zh, en=en, step=step)
+
+
+def F2(*a, **k):
+    """第 2 步加入的列"""
+    return F(*a, step=2, **k)
 
 
 GER = ('OSPAR 只寫「任一種」，改以德文維基百科（附建造紀錄）為準', 'OSPAR says “any of these”, so German Wikipedia (with construction records) is used')

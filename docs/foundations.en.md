@@ -6,18 +6,19 @@ English (this page) ｜ [中文](foundations.md)
 
 The globe’s Display menu has an “Offshore: foundations” layer that colours offshore farms by foundation type. The data is collected step by step:
 
-1. **North Sea and NE Atlantic (OSPAR coverage)**: this page.
-2. The rest of Europe (Baltic, Mediterranean and others).
+1. **North Sea and NE Atlantic (OSPAR coverage)**: done (Sep 2026).
+2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): in progress.
 3. Sub-types of floating farms.
 4. Taiwan, Japan, Korea and the USA.
 5. China and Vietnam: to be decided after the first four steps.
 
-Offshore farms not yet checked are shown as “type unknown”, never guessed.
+This page shows the results of step 1. Offshore farms not yet checked are shown as “type unknown”, never guessed.
 
 ## Sources and method
 
 - **OSPAR Offshore Renewable Energy Developments 2024** ([ODIMS](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/), CC0, data as of 1 Jan 2024) is the only open dataset with a foundation type per farm. Its operational wind records were matched one by one to the farms on this site by name, location (OSPAR’s site outlines) and capacity; `data/global/sources/ospar_offshore_renewables_2024.csv` holds the values used.
 - OSPAR does not always describe what was built: 10 German records only say “monopile/tripod/tripile/jacket/gravity-based/other”, and Merkur, Veja Mate, Trianel Borkum II and alpha ventus differ from the construction records, as does the western part of Hornsea One in the UK. So every German farm uses German Wikipedia (with construction records), and every other disagreement cites a second source with a note.
+- In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.
 - The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, mixed). Farm cards and this page give the exact type.
 
 ## Progress by country (operating offshore farms)
@@ -61,9 +62,9 @@ Total: type known for 113 of 385 farms, 29.0% of their capacity (floating farms 
 | Rentel | 309 | 2018 | Monopile | [OSPAR Be004](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | SeaMade - Mermaid | 235 | 2020 | Monopile | [OSPAR Be007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | SeaMade - Seastar | 252 | 2020 | Monopile | [OSPAR Be006](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
-| Thornton Bank I | 30.0 | 2009 | Gravity-based | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[second source](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | The six phase-1 turbines stand on concrete gravity bases; OSPAR lists the three phases together as “gravity-based/jacket” |
-| Thornton Bank II | 184 | 2012 | Jacket | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[second source](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | Phases 2 and 3 (48 turbines) use steel jackets designed by OWEC |
-| Thornton Bank III | 111 | 2013 | Jacket | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[second source](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | Phases 2 and 3 (48 turbines) use steel jackets designed by OWEC |
+| Thornton Bank I | 30.0 | 2009 | Gravity-based | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | The six phase-1 turbines stand on concrete gravity bases; OSPAR lists the three phases together as “gravity-based/jacket” |
+| Thornton Bank II | 184 | 2012 | Jacket | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | Phases 2 and 3 (48 turbines) use steel jackets designed by OWEC |
+| Thornton Bank III | 111 | 2013 | Jacket | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | Phases 2 and 3 (48 turbines) use steel jackets designed by OWEC |
 
 ### Denmark
 
@@ -82,40 +83,40 @@ Total: type known for 113 of 385 farms, 29.0% of their capacity (floating farms 
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
-| Fécamp | 497 | 2024 | Gravity-based | [OSPAR FR04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravitation”<br>[second source](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_F%C3%A9camp) | 71 concrete gravity bases (about 5,000 t each) |
+| Fécamp | 497 | 2024 | Gravity-based | [OSPAR FR04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravitation”<br>[fr.wikipedia.org](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_F%C3%A9camp) | 71 concrete gravity bases (about 5,000 t each) |
 | Provence Grand Large | 25.0 | 2024 | Floating | [OSPAR FR11](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other” |  |
 | Saint-Brieuc | 496 | 2024 | Jacket | [OSPAR FR02](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket” |  |
-| Saint-Nazaire (Banc de Guérande) | 480 | 2022 | Monopile | [OSPAR FR03](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_Saint-Nazaire) |  |
+| Saint-Nazaire (Banc de Guérande) | 480 | 2022 | Monopile | [OSPAR FR03](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[fr.wikipedia.org](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_Saint-Nazaire) |  |
 
 ### Germany
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
-| Albatros | 112 | 2019 | Monopile | [OSPAR DE037](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Albatros) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Amrumbank West | 302 | 2015 | Monopile | [OSPAR DE005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Amrumbank_West) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| BARD Offshore 1 | 400 | 2013 | Tripile | [OSPAR DE021](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripile”<br>[second source](https://de.wikipedia.org/wiki/BARD_Offshore_1) |  |
-| Borkum Riffgrund 1 | 312 | 2015 | Monopile | [OSPAR DE004](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Borkum_Riffgrund) | 77 monopiles plus one suction-bucket jacket (a trial) |
-| Borkum Riffgrund 2 | 450 | 2019 | Mixed: Monopile 36, Jacket 20 (suction bucket) | [OSPAR DE028](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Borkum_Riffgrund) | 36 monopiles and 20 suction-bucket jackets |
-| Butendiek | 288 | 2015 | Monopile | [OSPAR DE008](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Butendiek) |  |
-| DanTysk | 288 | 2015 | Monopile | [OSPAR DE002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_DanTysk) |  |
-| Deutsche Bucht | 252 | 2019 | Monopile | [OSPAR DE022](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Deutsche_Bucht) |  |
-| EnBW He Dreiht | 960 | 2025 | Monopile | [OSPAR DE017](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_He_dreiht) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Global Tech I | 400 | 2015 | Tripod | [OSPAR DE009](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod/tripile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Global_Tech_I) |  |
-| Gode Wind 1 | 330 | 2016 | Monopile | [OSPAR DE013](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Gode_Wind_I) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Gode Wind 2 | 252 | 2016 | Monopile | [OSPAR DE032](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Gode_Wind_II) |  |
-| Gode Wind 3 | 253 | 2024 | Monopile | [OSPAR DE074](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Gode_Wind_III) |  |
-| Kaskasi | 342 | 2022 | Monopile | [OSPAR DE031](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Kaskasi) |  |
-| Meerwind Süd/Ost | 288 | 2014 | Monopile | [OSPAR DE036](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Meerwind) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Merkur | 396 | 2019 | Monopile | [OSPAR DE024](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Merkur) | 66 monopiles; OSPAR lists tripods, which does not match what was built |
-| Nordergründe | 111 | 2017 | Monopile | [OSPAR DE018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Nordergr%C3%BCnde) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Nordsee One | 332 | 2017 | Monopile | [OSPAR DE026](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Nordsee_One) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Nordsee Ost | 295 | 2015 | Jacket | [OSPAR DE006](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Nordsee_Ost) |  |
-| Riffgat | 113 | 2014 | Monopile | [OSPAR DE019](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Riffgat) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Sandbank | 288 | 2017 | Monopile | [OSPAR DE012](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Sandbank) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
-| Trianel Windpark Borkum I | 200 | 2015 | Tripod | [OSPAR DE025a](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod”<br>[second source](https://de.wikipedia.org/wiki/Trianel_Windpark_Borkum) |  |
-| Trianel Windpark Borkum II | 203 | 2020 | Monopile | [OSPAR DE025b](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod/tripile”<br>[second source](https://de.wikipedia.org/wiki/Trianel_Windpark_Borkum) | Phase 2 uses monopiles; OSPAR lists tripod/tripile |
-| Veja Mate | 402 | 2017 | Monopile | [OSPAR DE034](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod/tripile”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_Veja_Mate) | 67 monopiles (7.8 m diameter); OSPAR lists tripod/tripile |
-| alpha ventus | 60.0 | 2010 | Mixed: Tripod 6, Jacket 6 | [OSPAR DE001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/jacket”<br>[second source](https://de.wikipedia.org/wiki/Offshore-Windpark_alpha_ventus) | 6 tripods and 6 jackets; OSPAR wrongly lists “monopile/jacket” |
+| Albatros | 112 | 2019 | Monopile | [OSPAR DE037](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Albatros) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Amrumbank West | 302 | 2015 | Monopile | [OSPAR DE005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Amrumbank_West) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| BARD Offshore 1 | 400 | 2013 | Tripile | [OSPAR DE021](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/BARD_Offshore_1) |  |
+| Borkum Riffgrund 1 | 312 | 2015 | Monopile | [OSPAR DE004](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Borkum_Riffgrund) | 77 monopiles plus one suction-bucket jacket (a trial) |
+| Borkum Riffgrund 2 | 450 | 2019 | Mixed: Monopile 36, Jacket 20 (suction bucket) | [OSPAR DE028](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Borkum_Riffgrund) | 36 monopiles and 20 suction-bucket jackets |
+| Butendiek | 288 | 2015 | Monopile | [OSPAR DE008](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Butendiek) |  |
+| DanTysk | 288 | 2015 | Monopile | [OSPAR DE002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_DanTysk) |  |
+| Deutsche Bucht | 252 | 2019 | Monopile | [OSPAR DE022](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Deutsche_Bucht) |  |
+| EnBW He Dreiht | 960 | 2025 | Monopile | [OSPAR DE017](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_He_dreiht) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Global Tech I | 400 | 2015 | Tripod | [OSPAR DE009](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod/tripile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Global_Tech_I) |  |
+| Gode Wind 1 | 330 | 2016 | Monopile | [OSPAR DE013](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Gode_Wind_I) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Gode Wind 2 | 252 | 2016 | Monopile | [OSPAR DE032](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Gode_Wind_II) |  |
+| Gode Wind 3 | 253 | 2024 | Monopile | [OSPAR DE074](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Gode_Wind_III) |  |
+| Kaskasi | 342 | 2022 | Monopile | [OSPAR DE031](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Kaskasi) |  |
+| Meerwind Süd/Ost | 288 | 2014 | Monopile | [OSPAR DE036](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Meerwind) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Merkur | 396 | 2019 | Monopile | [OSPAR DE024](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Merkur) | 66 monopiles; OSPAR lists tripods, which does not match what was built |
+| Nordergründe | 111 | 2017 | Monopile | [OSPAR DE018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Nordergr%C3%BCnde) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Nordsee One | 332 | 2017 | Monopile | [OSPAR DE026](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Nordsee_One) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Nordsee Ost | 295 | 2015 | Jacket | [OSPAR DE006](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Nordsee_Ost) |  |
+| Riffgat | 113 | 2014 | Monopile | [OSPAR DE019](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Riffgat) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Sandbank | 288 | 2017 | Monopile | [OSPAR DE012](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Sandbank) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
+| Trianel Windpark Borkum I | 200 | 2015 | Tripod | [OSPAR DE025a](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Trianel_Windpark_Borkum) |  |
+| Trianel Windpark Borkum II | 203 | 2020 | Monopile | [OSPAR DE025b](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod/tripile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Trianel_Windpark_Borkum) | Phase 2 uses monopiles; OSPAR lists tripod/tripile |
+| Veja Mate | 402 | 2017 | Monopile | [OSPAR DE034](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “tripod/tripile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Veja_Mate) | 67 monopiles (7.8 m diameter); OSPAR lists tripod/tripile |
+| alpha ventus | 60.0 | 2010 | Mixed: Tripod 6, Jacket 6 | [OSPAR DE001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/jacket”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_alpha_ventus) | 6 tripods and 6 jackets; OSPAR wrongly lists “monopile/jacket” |
 
 ### Netherlands
 
@@ -135,8 +136,8 @@ Total: type known for 113 of 385 farms, 29.0% of their capacity (floating farms 
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
-| Hywind Demo (Karmøy) | 2.3 | 2009 | Floating (spar) | [OSPAR NO001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[second source](https://en.wikipedia.org/wiki/Hywind) | Renamed Unitech Zefyros in 2019 (the name OSPAR uses) |
-| Hywind Tampen | 88.0 | 2023 | Floating (spar) | [OSPAR NO010](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[second source](https://en.wikipedia.org/wiki/Hywind_Tampen) | Concrete spar buoys |
+| Hywind Demo (Karmøy) | 2.3 | 2009 | Floating (spar) | [OSPAR NO001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind) | Renamed Unitech Zefyros in 2019 (the name OSPAR uses) |
+| Hywind Tampen | 88.0 | 2023 | Floating (spar) | [OSPAR NO010](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind_Tampen) | Concrete spar buoys |
 | TetraSpar Demonstrator (METCentre) | 3.6 | 2021 | Floating | [OSPAR NO018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other” |  |
 
 ### United Kingdom
@@ -151,13 +152,13 @@ Total: type known for 113 of 385 farms, 29.0% of their capacity (floating farms 
 | Burbo Bank Extension | 258 | 2017 | Monopile | [OSPAR UK012](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Dudgeon | 402 | 2017 | Monopile | [OSPAR UK019](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | East Anglia ONE | 714 | 2020 | Jacket | [OSPAR UK022](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket” |  |
-| European Offshore Wind Deployment Centre (Aberdeen) | 93.2 | 2018 | Jacket (suction bucket) | [OSPAR UK001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[second source](https://en.wikipedia.org/wiki/European_Offshore_Wind_Deployment_Centre) | 11 suction-bucket jackets |
+| European Offshore Wind Deployment Centre (Aberdeen) | 93.2 | 2018 | Jacket (suction bucket) | [OSPAR UK001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/European_Offshore_Wind_Deployment_Centre) | 11 suction-bucket jackets |
 | Galloper | 353 | 2018 | Monopile | [OSPAR UK034](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Greater Gabbard | 504 | 2012 | Monopile | [OSPAR UK036](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Gunfleet Sands 1 & 2 | 173 | 2010 | Monopile | [OSPAR UK038](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[OSPAR UK039](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Gunfleet Sands 3 Demonstration | 12.0 | 2013 | Monopile | [OSPAR UK037](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Gwynt y Môr | 576 | 2015 | Monopile | [OSPAR UK040](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
-| Hornsea One | 1,218 | 2019 | Monopile | [OSPAR UK043](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[OSPAR UK044](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[OSPAR UK045](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[second source](https://www.offshorewind.biz/2019/04/26/hornsea-one-foundations-all-in-place/) | All 174 are monopiles (completed April 2019); OSPAR lists the western part as jackets, which does not match what was built (in 2015 DONG planned suction buckets for a third of the turbines) |
+| Hornsea One | 1,218 | 2019 | Monopile | [OSPAR UK043](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[OSPAR UK044](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[OSPAR UK045](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[offshorewind.biz](https://www.offshorewind.biz/2019/04/26/hornsea-one-foundations-all-in-place/) | All 174 are monopiles (completed April 2019); OSPAR lists the western part as jackets, which does not match what was built (in 2015 DONG planned suction buckets for a third of the turbines) |
 | Hornsea Two | 1,386 | 2022 | Monopile | [OSPAR UK046](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[OSPAR UK046A](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “—”<br>[OSPAR UK046B](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “—” |  |
 | Humber Gateway | 219 | 2015 | Monopile | [OSPAR UK049](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Kentish Flats | 90.0 | 2005 | Monopile | [OSPAR UK057](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
@@ -183,7 +184,7 @@ Total: type known for 113 of 385 farms, 29.0% of their capacity (floating farms 
 | West of Duddon Sands | 389 | 2014 | Monopile | [OSPAR UK113](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Westermost Rough | 210 | 2015 | Monopile | [OSPAR UK114](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 
-## Left out on purpose in this step
+## Checked but left out for now
 
 | Farm | OSPAR | Reason |
 |---|---|---|
