@@ -36,6 +36,14 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
     record listing it as planned is removed.
 - Site wording: the globe's foundation notes and sources dialog and the Learn chapter now say step 5 is under way.
 
+## v2.10.2 — 2026-09-27
+
+- Taiwan live page: farm names are in English in the English interface. Cards, the drawer and map popups use the full name
+  (the project name for offshore farms, e.g. Greater Changhua 1 & 2a (Wo-1)); the farm grid, the ranking and the share image
+  use a short name (e.g. Wo-1); grid connection points of one project carry the romanised Taipower unit name. The drawer
+  subtitle still gives Taipower's unit name in Chinese.
+- Notes that mention another grid connection point of the same project now use these short names in English too (e.g. 900 MW together with Wo-2).
+
 ## v2.10.1 — 2026-09-27
 
 - Data correction: all 31 turbines at Zhong Neng were installed and grid-connected by August 2024, and commercial operation began
@@ -50,7 +58,7 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 - Taiwan live page: farm notes, developer, site, turbine model, water depth, distance from shore, annual output and homes
   supplied, plus the group names and filter options for developers, now show in English in the English interface
   (82 values; annual output in GWh and homes as a count, e.g. 約 11 億度 → about 1,100 GWh). Filtering and grouping still
-  match the original Chinese values. In English, farm titles still show Taipower's unit names (Chinese).
+  match the original Chinese values.
 
 ## v2.10.0 — 2026-09-27
 

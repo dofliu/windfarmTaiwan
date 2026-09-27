@@ -161,8 +161,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] English for the farm notes and spec fields on the Taiwan live page (developer, site, turbine model, water depth,
       distance from shore, annual output, homes supplied; Sep 2026, v2.10.1): `ZH_EN` in `assets/js/live.js` maps each
       Chinese string to English; add the English when adding or changing a Chinese value
-- [ ] In the English interface, farm titles on the Taiwan live page show Taipower's unit names (`tp`, in Chinese): whether
-      to switch to English names, and which set of names to use, is the owner's call
+- [x] English farm names on the Taiwan live page in the English interface (Sep 2026, v2.10.2): `NAME_EN` in
+      `assets/js/live.js` holds [full name, short name]; add both when adding a farm
 - [ ] Farm details v2 (needs new data): estimated annual generation, links to national registers, turbine
       spec cards and so on — see group B of "What farm details could add" in ROADMAP.en.md
 
