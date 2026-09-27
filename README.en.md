@@ -69,7 +69,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
   - **Foundation layer** (“Offshore: foundations” in the Show menu): colours operating offshore farms by foundation
     type — monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile
-    cap, cofferdam, rock-anchored, mixed); farms not yet checked are “type unknown”. The legend counts each group in scope and
+    cap, cofferdam, rock-anchored, composite bucket, mixed); farms not yet checked are “type unknown”. The legend counts each group in scope and
     the share of capacity with a known type, and a click on a group shows only that group; farm cards give the exact type and
     sources, and country profiles get a capacity bar. The data is collected step by step: step 1 is the North Sea and NE
     Atlantic within OSPAR (Sep 2026, 99 farms; where OSPAR differs from what was built or gives no specific type, German
@@ -79,8 +79,10 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     sub-type (Sep 2026: spar, semi-submersible, barge, tension-leg platform), and country profiles count floating farms by
     sub-type; step 4 covers Taiwan, Japan, Korea and the USA (Sep 2026, 36 farms: every operating farm in Taiwan and the USA,
     9 of the 10 in Japan and 6 of the 7 in Korea), each citing a developer, construction contractor, government document or
-    trade press, with farms inside Japanese ports following NEDO's classification of support structures. Fixed-bottom farms
-    elsewhere, such as in China and Vietnam, still read “type unknown”.
+    trade press, with farms inside Japanese ports following NEDO's classification of support structures; step 5 (China and
+    Vietnam) is under way: in Sep 2026, 4 Chinese farms (Donghai Bridge phase 1, CTG Rudong H6 and H10, Zhangpu Liu'ao phase 2)
+    were added from the owner's case-by-case review, with a new “composite bucket” type; their quoted passages are still to be
+    checked. The rest still read “type unknown”.
     Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
   - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
@@ -311,6 +313,9 @@ python tools/build_standalone.py
   commercial project now finishes at the end of 2027; Revolution Wind is 704 MW and Empire Wind 810 MW; Setana is out of
   service and the Kitakyushu demonstrator was removed in 2019; and Kamisu phases 1 and 2 and Eurus Akita Port were moved to
   where they are
+- From the owner's case-by-case review (Sep 2026), 6 more rules corrected the data: duplicate records of Donghai Bridge
+  phase 1, Qingzhou 6 and Hollandse Kust Zuid site 4 were merged; Qingzhou 6 is 1,000 MW; the 202 MW Xiangshui nearshore
+  farm belongs to China Three Gorges; Fuqing Xinghua Bay phase 2 is 280 MW, fully connected in 2021
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total

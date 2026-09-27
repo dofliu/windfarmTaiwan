@@ -138,7 +138,12 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      Yeonggwang Wind in Korea) are listed as “checked but left out”, with the reason on their cards. The research also produced 24 rules
      correcting farm records (3 duplicates merged, status and years, capacity, turbines, locations); see
      [docs/data-cleanup.en.md](./docs/data-cleanup.en.md).
-  5. China and Vietnam: ask the owner once the first four steps are done (**waiting on the owner, 2026-09-27**).
+  5. China and Vietnam: ask the owner once the first four steps are done.
+     **Under way (Sep 2026, v2.11.0)**: 4 Chinese farms added from the owner's case-by-case review of 27 Sep 2026 (Donghai Bridge
+     phase 1 on high-rise pile caps, CTG Rudong H6 on monopiles, Rudong H10 on 77 monopiles and 23 composite buckets, Zhangpu Liu'ao
+     phase 2 on four-pile jackets), with a new “composite bucket” type (in the “other fixed-bottom” colour group, no colour change).
+     The sources are that sheet's first-hand documents; their quoted passages have not yet been checked with check_quotes. The
+     Vietnamese cases there only say intertidal / nearshore and were not added. The other Chinese farms are still to be checked.
 
 **3. Status of work vessels (installation vessels, "mother ships")** · **verdict: not doing it (owner's decision, 2026-09-27)**
 

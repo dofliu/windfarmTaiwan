@@ -24,6 +24,9 @@ Hornsea One 西區也與建成紀錄不符。
 第 4 步（2026-09，F4）：台灣、日本、韓國、美國的離岸風場。這些海域沒有 OSPAR 紀錄，每一座都附開發商、施工廠商、政府文件或
 產業新聞的出處，引用的原文逐筆核對過（tools/check_quotes.py），不引用 4C Offshore。日本港灣內的風場以 NEDO 的支持構造分類為準
 （NEDO 明寫「ドルフィン」＝ High-Rise Pile Cap 高樁承台）。
+第 5 步（2026-09 起，F5）：中國、越南。先依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」
+補上中國 4 座；出處是該表各列的第一手來源（三峽集團、上海市政府），原文尚未以 tools/check_quotes.py 核對
+（整理時的工作環境無法連線），列在 TODO 待補。越南各案該表只寫潮間帶／近岸、細分待查，未列入。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
 
@@ -34,9 +37,10 @@ EN = 'https://en.wikipedia.org/wiki/'
 FR = 'https://fr.wikipedia.org/wiki/'
 
 # 型式：代碼 → (中文, English, 地圖色組)。地圖上多於三種色相時分不清（見 globe.js 的 FD_GROUPS），
-# 所以依結構歸成四組：單樁、鋼構框架（套管、三腳、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）。
+# 所以依結構歸成四組：單樁、鋼構框架（套管、三腳、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合）。
 # 圍堰式：近岸淺水處用鋼板樁（或鋼管樁加板樁）圍成一圈、填砂，上面做混凝土基座，等於把陸上風機的基礎做在水中
 # 岩錨式：湖底或海底是岩盤時，以錨桿把基礎固定在岩盤上
+# 複合筒：大直徑鋼筒（頂部為混凝土或鋼構過渡段）以負壓沉入海床，靠筒體與土壤承載；中國江蘇等軟弱海床常用，不打樁
 TYPES = {
     'mp': ('單樁', 'Monopile', 'mp'),
     'jk': ('套管式', 'Jacket', 'frame'),
@@ -46,6 +50,7 @@ TYPES = {
     'pc': ('高樁承台', 'High-rise pile cap', 'other'),
     'cf': ('圍堰式', 'Cofferdam', 'other'),
     'ra': ('岩錨式', 'Rock-anchored', 'other'),
+    'bk': ('複合筒', 'Composite bucket', 'other'),
     'mx': ('混合', 'Mixed', 'other'),
     'fl': ('浮動式', 'Floating', 'fl'),
 }
@@ -75,6 +80,11 @@ def F3(*a, **k):
 def F4(*a, **k):
     """第 4 步加入的列（台灣、日本、韓國、美國）"""
     return F(*a, step=4, **k)
+
+
+def F5(*a, **k):
+    """第 5 步加入的列（中國、越南）"""
+    return F(*a, step=5, **k)
 
 
 FLOAT_SUBS = ('spar', 'semi', 'barge', 'tlp')      # 浮動式的細分型式（sb 吸力桶是固定式套管用的）
@@ -342,6 +352,21 @@ FOUNDATIONS = [
     F3('JPN', 'Fukushima FORWARD floating demo', 'fl', url='https://www.fukushima-forward.jp/reference/pdf/study086.pdf',
        zh='兩部半潛式（2 MW、7 MW V 型）與一部單柱式（5 MW），型式不同，所以不標單一細分型式',
        en='Two semi-submersibles (2 MW and a V-shaped 7 MW) and one spar (5 MW); the types differ, so no single sub-type is given'),
+
+    # ================================================ 第 5 步（2026-09 起）：中國、越南
+    # 依使用者 2026-09-27 的「亞洲逐案覆核」；原文待以 check_quotes 核對（見 TODO）
+    F5('CHN', 'Donghai Bridge', 'pc', url='https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html',
+       zh='34 部 3 MW 風機立在高樁混凝土承台上（2010 年 8 月全數併網），中國第一座大型離岸風場',
+       en='34 × 3 MW turbines on high-rise pile caps with concrete caps (all connected by August 2010); China’s first large offshore wind farm'),
+    F5('CHN', 'CTG Rudong H6', 'mp', url='https://eps.ctg.com.cn/cms/channel/1ywgg1/17129.htm',
+       zh='100 部 4 MW 風機，全部為單樁（2021 年 12 月全容量併網；與 H10 共用柔性直流送出）',
+       en='100 × 4 MW turbines, all on monopiles (fully connected in December 2021; shares a flexible HVDC link with H10)'),
+    F5('CHN', 'CTG Rudong H10', 'mx', url='https://eps.ctg.com.cn/cms/channel/1ywgg1/19830.htm', parts=[['mp', 77], ['bk', 23]],
+       zh='100 部 4 MW 風機：77 座單樁、23 座複合筒（2021 年 12 月全容量併網）',
+       en='100 × 4 MW turbines: 77 on monopiles and 23 on composite buckets (fully connected in December 2021)'),
+    F5('CHN', "CTG Zhangpu Liu'ao Phase 2", 'jk', url='https://www.ctg.com.cn/sxjt/xwzx55/zhxw23/2024081106434692154/index.html',
+       zh='四樁套管；2024 年 6 月 28 部（約 400.2 MW）全容量併網，之後另增 20 MW 樣機',
+       en='Four-pile jackets; 28 turbines (about 400.2 MW) fully connected in June 2024, later joined by a 20 MW prototype'),
     # ================================================ 第 4 步（2026-09）：台灣、日本、韓國、美國
     # ------------------------------------------------ Taiwan
     F4('TWN', 'Formosa 1 Phase 1', 'mp',
