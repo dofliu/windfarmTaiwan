@@ -38,6 +38,8 @@ UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 # 有些網站擋瀏覽器樣式的 User-Agent（回 403），美國 SEC 要求自報身分：依序改用這些再試
 UA_FALLBACK = ('curl/8.0', 'windfarmTaiwan-research/1.0 (+https://github.com/dofliu/windfarmTaiwan)')
 CHARSETS = ('utf-8', 'big5', 'gb18030', 'shift_jis', 'euc-jp', 'cp949')     # 標頭與網頁都沒寫編碼時依序嘗試
+LANG_FIRST = {'ko': ('cp949',), 'ja': ('shift_jis', 'euc-jp'), 'zh-cn': ('gb18030',), 'zh-hans': ('gb18030',),
+              'zh-tw': ('big5',), 'zh-hant': ('big5',)}                        # 依網頁的 lang 屬性先試的編碼
 
 
 def to_text(b, charset=None):
@@ -56,8 +58,11 @@ def to_text(b, charset=None):
             x = z.read('word/document.xml').decode('utf-8', 'replace')
             return html.unescape(re.sub(r'<[^>]+>', '', x.replace('</w:p>', '\n')))
     m = re.search(rb'<meta[^>]+charset=["\']?([A-Za-z0-9_\-]+)', b[:4000], re.I)
+    lang = re.search(rb'<html[^>]+lang=["\']?([A-Za-z\-]+)', b[:4000], re.I)
+    lang = lang.group(1).decode().lower() if lang else ''
+    first = LANG_FIRST.get(lang) or LANG_FIRST.get(lang.split('-')[0], ())
     t = None
-    for cs in [charset, m.group(1).decode() if m else None, *CHARSETS]:
+    for cs in [charset, m.group(1).decode() if m else None, 'utf-8', *first, *CHARSETS]:
         if not cs:
             continue
         try:
