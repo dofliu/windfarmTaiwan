@@ -2189,7 +2189,7 @@ function fdHTML(f) {
     .concat(r.u ? ['<a href="' + esc(r.u) + '" target="_blank" rel="noopener" title="' + esc(T(r.o ? 'fdSecond' : 'fdSrc')) + '">' + esc(hostOf(r.u)) + '</a>'] : []) : [];
   return '<div class="ffd"><i class="fdsw fd-' + fdGroup(f) + '"></i><b>' + esc(T('fdLabel')) + '</b>' + esc(L('：', ': ') + fdText(f)) +
     (src.length ? '<span class="fds">' + src.join('') + '</span>' : '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') +
-    (!r && f.type !== 'floating' ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') + '</div>';
+    (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') + '</div>';
 }
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
 const srcLabel = u => { try { const x = new URL(u), path = decodeURIComponent(x.pathname).replace(/\/$/, ''); return hostOf(u) + (path.length > 38 ? path.slice(0, 36) + '…' : path); } catch (e) { return u; } };
