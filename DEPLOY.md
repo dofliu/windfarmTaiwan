@@ -21,7 +21,8 @@ windfarmTaiwan/
 ├─ data/global/                     # 全球資料：國家逐年容量、風場層、國界（由 tools/ 產生，非排程）
 ├─ tools/                           # 全球資料、底圖、單檔版與覆蓋率報告的產生程式
 ├─ standalone/                      # 單檔版 HTML（tools/build_standalone.py 產生，可下載後離線開啟）
-├─ docs/                            # 資料覆蓋率報告、資料清理紀錄、即時資料來源評估（中英文各一份）
+├─ docs/                            # 資料覆蓋率報告、資料清理紀錄、水下基礎逐場清單、即時資料來源評估（中英文各一份）
+├─ data/live/                       # 澳洲、加拿大即時出力（intl_realtime.json，排程更新）與機組對照（units.json）
 ├─ taipower_wind_scraper.py         # 約每 2 小時：風力即時 + 電力供需即時
 ├─ intl_wind_scraper.py             # 約每 2 小時：澳洲東部電網、亞伯達、安大略的風場即時出力 → data/live/
 ├─ backfill_history.py             # 每週一：官方回溯歷史回填
@@ -55,9 +56,36 @@ windfarmTaiwan/
 - **排程不精準**：`scrape.yml` 設定每 2 小時一次（偶數小時的第 18 分，UTC）。GitHub 的 `schedule` 不保證準時，常延遲、尖峰時段偶爾略過；
   高頻排程（例如每 15 分鐘）實際上常被拉長到 3–5 小時一次。本站不需要逐分即時，這樣可接受。
 - **60 天自動停用**：repo 連續 60 天無活動，排程 workflow 會被自動停用；而且用預設 `GITHUB_TOKEN` 的 bot commit 在某些情況不被算作「活動」。對策：每月手動觸發一次，或改用個人 PAT 來 push，或加一支 keepalive（見 `ROADMAP.md`「部署穩定性」）。
-- **commit 會累積**：約每 2 小時一次 commit，一年約四千多筆 git 歷史。功能無礙，但 repo 會變肥；`wind_history_archive.json` 也會隨每週回填持續成長（目前約 1.8MB）。可接受，或定期 squash，或改用方案 B。
+- **commit 會累積**：約每 2 小時一次 commit，一年約四千多筆 git 歷史。功能無礙，但 repo 會變肥；`wind_history_archive.json` 也會隨每週回填持續成長（2026-09 約 3.2 MB）。可接受，或定期 squash，或改用方案 B。
 - **電力供需即時來源會被 WAF 擋**：`grid_status.json` 的主要來源從 GitHub Actions 執行會回 403（詳見 `ROADMAP.md`「已知限制」），落到每日備援；若要真正即時，需要換到非雲端 CI 的執行環境（見方案 C）。
 - Actions runner 在海外（Azure），抓台電公開 opendata 端點沒問題（伺服器端抓取不受 CORS 限制）。
+
+### 維護（暫停開發期間）
+
+2026-09-27（v2.11.1）起專案暫告段落。以下都是自動進行的，不需要人手：
+
+- `scrape-taipower-wind`：約每 2 小時抓台電即時風力、電力供需與澳洲、加拿大的即時出力，有變動就 commit。
+- `backfill-taipower-wind-history`：每週一（台北週二清晨）累積台電官方回溯存檔。
+- `build-standalone`：`main` 的網站程式或全球資料有變更時重建單檔版。排程更新的即時資料不會觸發重建，
+  所以單檔版的「離線快照」停在最後一次重建的時間。
+
+**每月檢查一次（約 5 分鐘）**：
+
+1. 開網站，看頁首「即時 · 台電 MM/DD HH:MM」的資料時間。超過半天沒有前進，表示排程停了或抓取失敗；
+   網站不會顯示錯誤，只會一直顯示最後一次抓到的資料。
+2. 到 GitHub 的 **Actions** 分頁，看三個 workflow 最近一次是不是綠色。若 `scrape-taipower-wind` 顯示
+   「This scheduled workflow is disabled…」（連續 60 天沒有活動會被 GitHub 自動停用），按 **Enable workflow**。
+3. 在 `scrape-taipower-wind` 按 **Run workflow** 手動跑一次，確認 `wind_realtime.json` 有新的 commit。
+   手動跑一次也能避免 60 天停用。
+
+**常見狀況**：
+
+- `scrape-taipower-wind` 失敗（紅色）：先看執行紀錄。台電端點改了格式時，要改 `taipower_wind_scraper.py` 的解析；
+  國外來源失敗不影響台灣資料（該步驟設了 `continue-on-error`），前端會標示該電網資料未更新。
+- 風場卡片的風速不見了：中央氣象署授權碼（repo 的 Actions secret `CWA_API_KEY`）過期或失效，到 Settings → Secrets and variables →
+  Actions 更新即可；沒有授權碼時只略過風速，其他資料照常。
+- 電力供需一直是幾週前的日期：這是已知限制（主要來源擋雲端 CI，只能用政府開放資料的每日備援），不是故障。
+- 每年一次的全球資料更新（國家容量、風場層）不在排程裡，步驟見 README「全球資料更新」與 TODO「全球資料」。
 
 ---
 

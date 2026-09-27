@@ -7,6 +7,22 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
+## Current status (27 Sep 2026, v2.11.1): project paused
+
+The main features are finished; the owner decided not to add new features, and the project is in maintenance. The automatic Taiwan
+live-data updates keep running (maintenance: "Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)). What is done:
+
+- Four pages: Home, Taiwan live (dashboard, farm grid, charts, map, farm details, share cards), Global (3D globe 1980–2025, about
+  23,000 farms, search and filters, pipeline, ports and foundation layers, country profiles, tour) and Learn (12 chapters); the
+  whole site is bilingual, with a single-file edition that opens offline.
+- Live output for about 150 farms in Australia and Canada.
+- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 207 record-level farm
+  clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)); offshore foundation types, steps 1–4 done and 5 farms of
+  step 5 (China and Vietnam) added (172 of 363 operating offshore farms have a known type, 43.6% of capacity).
+
+The phased plans and ideas below are kept but not scheduled; when work resumes, read the hand-off at the top of
+[TODO.en.md](./TODO.en.md) first, then re-rank the priorities by the "Principles".
+
 ## Next steps (compiled Sep 2026)
 
 ### Principles
@@ -268,7 +284,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   - Greater Changhua 2b & 4 (Ørsted, one 920 MW project): full operation planned for Q3 2026; check
     whether it happened on time
 - **Git history keeps growing**: `scrape.yml` commits about every 2 hours, over four thousand commits a
-  year. It works, but the repo grows; `wind_history_archive.json` is already 1.8 MB and grows with each
+  year. It works, but the repo grows; `wind_history_archive.json` is already about 3.2 MB (Sep 2026) and grows with each
   weekly backfill.
 
 ### Global (3D globe)
@@ -295,8 +311,10 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   figures are the official statistics. Making farms appear stage by stage needs stage-by-stage grid
   connection data (see the ideas below).
 - **GEM versions differ**: farms and pipeline projects are GEM's February 2025 release (the public map
-  file), while the country pipeline totals are GEM's February 2026 release; the 2026 project-level data
-  needs a registration to download — once it is available, rerun `tools/build_farms.py` to align them.
+  file), while the country pipeline totals are GEM's February 2026 release. The 2026 project-level data is
+  only published as a GeoJSON in GEM's DigitalOcean space (see "GEM's 2026 farm data" below); aligning them
+  means changing how `tools/build_farms.py` reads its input, rebuilding and re-checking the clean-up rules
+  (steps at the top of TODO).
 - **1980–1999 is mostly estimated**: most countries' early yearly figures are interpolated from a few
   years of statistics; use them for trends only.
 - **GEM coordinates are often approximate**: errors that the project names make obvious have been fixed
@@ -327,9 +345,12 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   reports): local measurements would be more convincing than the international studies the information
   pages cite now, but the data are mostly PDF reports — unstructured and not machine-readable. Revisit
   when a structured source exists.
-- **GEM's 2026 farm data**: GEM's public map repo only has the February 2025 file (the 2026 path returns
-  404), and the full download needs a registration form, so CI cannot fetch it automatically. The
-  February 2025 release is used until a new public file appears; then rerun `tools/build_farms.py`.
+- **GEM's 2026 farm data**: GEM's public map repo (GlobalEnergyMonitor/maps) only has the February 2025 CSV (on its `main`
+  branch, still downloadable from the old URL; the default branch no longer carries it). The February 2026 release is a GeoJSON at
+  `publicgemdata.nyc3.cdn.digitaloceanspaces.com/wind/2026-02/wind_map_2026-02-05.geojson` (per `trackers/wind/config.js`
+  in GEM's maps repo), a host the Sep 2026 development environment's network policy blocked, so it has not been adopted yet.
+  Upgrading means making `tools/build_farms.py` read the GeoJSON (mapping its fields to the 2025-02 CSV columns) and re-checking
+  `farm_cleanup.py`, `GEM_KEEP` and `PIPE_*` against the new names.
 - **The WAF block on the live supply/demand report**: retrying with a real browser User-Agent and
   Referer still returned 403, so the block is at the IP-range level, not about headers. Fixing it needs
   a different execution environment (see TODO); a code change alone cannot solve it.
@@ -356,7 +377,8 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 
 ## Deployment stability
 
-- GitHub disables scheduled workflows in a public repo after 60 days without activity; currently
-  activity comes indirectly from feature work and there is no dedicated keepalive. If development slows
-  down, add a simple monthly workflow to prevent this, or switch to a Cloudflare Worker Cron (option B in
-  `DEPLOY.en.md`: more punctual, no commit pile-up).
+- GitHub disables scheduled workflows in a public repo after 60 days without activity. With the project
+  paused there is no feature work to keep the repo active, so this is the one way the site can quietly stop
+  (it shows no error, only the last data it got). There is no dedicated keepalive; the monthly check with a manual
+  run ("Maintenance" in `DEPLOY.en.md`) covers it. Alternatively add a simple monthly keepalive workflow, or switch
+  to a Cloudflare Worker Cron (option B in `DEPLOY.en.md`: more punctual, no commit pile-up).

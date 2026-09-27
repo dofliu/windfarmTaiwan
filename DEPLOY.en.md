@@ -21,7 +21,8 @@ windfarmTaiwan/
 ├─ data/global/                     # global data: country capacity by year, farm layer, borders (built by tools/, not scheduled)
 ├─ tools/                           # generators for the global data, basemaps, the single-file HTML and the coverage report
 ├─ standalone/                      # single-file HTML (built by tools/build_standalone.py; download and open offline)
-├─ docs/                            # data coverage report, data clean-up log, live-data source assessment (one Chinese and one English copy each)
+├─ docs/                            # data coverage report, data clean-up log, per-farm foundation list, live-data source assessment (one Chinese and one English copy each)
+├─ data/live/                       # live output in Australia and Canada (intl_realtime.json, scheduled) and the unit mapping (units.json)
 ├─ taipower_wind_scraper.py         # about every 2 hours: live wind + live supply/demand
 ├─ intl_wind_scraper.py             # about every 2 hours: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
 ├─ backfill_history.py              # every Monday: official retrospective history backfill
@@ -68,12 +69,43 @@ To set up a new project from scratch (instead of using this repo directly):
   workflow (see "Deployment stability" in `ROADMAP.en.md`).
 - **Commits pile up**: one commit about every 2 hours means over four thousand a year. It works fine, but
   the repo grows; `wind_history_archive.json` also keeps growing with each weekly backfill (about
-  1.8 MB now). Accept it, squash history now and then, or switch to option B.
+  3.2 MB in Sep 2026). Accept it, squash history now and then, or switch to option B.
 - **The live supply/demand source is blocked by a WAF**: the primary source for `grid_status.json`
   returns 403 from GitHub Actions (see "Known limitations" in `ROADMAP.en.md`), so the daily fallback
   is used. Truly live figures need a non-cloud-CI host (see option C).
 - The Actions runners are overseas (Azure); fetching Taipower's public open-data endpoints works
   fine (server-side fetches are not subject to CORS).
+
+### Maintenance (while development is paused)
+
+The project has been paused since 27 Sep 2026 (v2.11.1). All of the following runs by itself:
+
+- `scrape-taipower-wind`: about every 2 hours, fetches Taipower's live wind output, the supply/demand report and live output in
+  Australia and Canada, and commits any change.
+- `backfill-taipower-wind-history`: every Monday (early Tuesday in Taipei), adds to Taipower's official retrospective archive.
+- `build-standalone`: rebuilds the single-file edition when site code or global data change on `main`. Scheduled live-data commits
+  do not trigger it, so the single-file edition's offline snapshot stays at the time of its last rebuild.
+
+**Check once a month (about 5 minutes)**:
+
+1. Open the site and look at the data time in the header ("Live · Taipower MM/DD HH:MM"). If it has not moved for more than half a
+   day, the schedule has stopped or fetching is failing; the site shows no error, it just keeps showing the last data it got.
+2. On GitHub's **Actions** tab, check that the latest run of each of the three workflows is green. If `scrape-taipower-wind` says
+   "This scheduled workflow is disabled…" (GitHub disables schedules after 60 days without activity), press **Enable workflow**.
+3. On `scrape-taipower-wind`, press **Run workflow** to run it by hand and check that `wind_realtime.json` gets a new commit.
+   A manual run also keeps the 60-day timer from running out.
+
+**Common situations**:
+
+- `scrape-taipower-wind` fails (red): read the run log first. If Taipower changed its endpoint format, the parsing in
+  `taipower_wind_scraper.py` needs updating. Failures of the international sources do not affect Taiwan's data (that step uses
+  `continue-on-error`), and the site marks that grid's data as not updated.
+- Wind speeds disappear from farm cards: the Central Weather Administration key (the repo's Actions secret `CWA_API_KEY`) has expired
+  or stopped working; update it under Settings → Secrets and variables → Actions. Without a key only the wind speeds are skipped.
+- Supply/demand keeps showing a date weeks ago: a known limitation (the primary source blocks cloud CI, so only the government
+  open-data daily fallback is available), not a fault.
+- The yearly global data update (country capacity, farm layer) is not scheduled; see "Updating the global data" in the README and
+  "Global data" in TODO.
 
 ---
 
