@@ -108,11 +108,17 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Farm details v2 (needs new data): estimated annual generation, links to national registers, turbine
       spec cards and so on — see group B of "What farm details could add" in ROADMAP.en.md
 
+## Offshore foundation types (collected step by step, owner's decision of 2026-09-27; see item 2 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
+
+- [ ] Step 1: Europe within OSPAR's coverage (North Sea and NE Atlantic, about 107 farms): per-farm table, check script, layer
+- [ ] Step 2: the rest of Europe (Baltic, Mediterranean and others)
+- [ ] Step 3: floating farms
+- [ ] Step 4: Taiwan, Japan, Korea and the USA
+- [ ] Whether China and Vietnam are worth about 50–70 hours: ask the owner after the first four steps
+
 ## To assess / waiting for the owner's decision (do not start on your own)
 
 - [ ] Extend the timeline to "2026 (latest available)": 8 countries have official 2026 figures, the others carry 2025 forward, clearly marked; start once the approach is agreed (see item 1 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
-- [ ] Offshore foundation-type layer: do the OSPAR-covered part of Europe, the rest of Europe, floating farms and Taiwan/Japan/Korea/USA first (about 2–4 days); decide whether China and Vietnam are worth about 50–70 hours (item 2)
-- [ ] Whether to show Taiwan's wind-farm work vessels in port (Taiwan International Ports Corporation open data, no key); live positions (AIS) were evaluated and deferred (item 3)
 - [ ] Whether to give `grid_status` (supply/demand) a long-term archive and trend chart, following the
       wind data's "live → 7 days → 90 days" layers
 - [ ] Whether to expand to all energy sources (genary already contains hydro, solar, thermal and
@@ -139,3 +145,5 @@ the rules are in `tools/farm_cleanup.py`.
 - Central Weather Administration buoy data (few buoys, most far from the farms, low benefit)
 - Ministry of Environment offshore-wind ecological monitoring data (mostly unstructured PDFs, nothing
   machine-readable yet)
+- Work-vessel status: live AIS positions and Taiwan International Ports Corporation port calls (the owner
+  decided on 2026-09-27 not to do it)
