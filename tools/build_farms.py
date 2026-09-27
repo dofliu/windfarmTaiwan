@@ -36,7 +36,7 @@ import csv, difflib, json, math, re, sys, unicodedata, urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
-from farm_cleanup import GEM_KEEP, apply as cleanup, summary as cleanup_summary, write_docs as cleanup_docs
+from farm_cleanup import GEM_KEEP, PIPE_DROP, apply as cleanup, summary as cleanup_summary, write_docs as cleanup_docs
 
 CUR, GEM, OUT = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
 
@@ -411,8 +411,12 @@ TW_PIPE_NOTE_ZH = {'Fengmiao 1': '區塊開發 3.1 期；2024 年完成融資；
                    'Greater Changhua Northeast': '區塊開發 3.2 期；場址與福爾摩沙 6 號重疊；座標為概略位置',
                    'Haiding 1 (Formosa 3)': '區塊開發 3.2 期；座標為概略位置', 'DeShuai': '區塊開發 3.2 期；座標為概略位置'}
 pipe_upd = pipe_add = 0
+pipe_seen = set()
 pc = json.loads((EXTRA / 'pipeline_curated.json').read_text(encoding='utf-8')) if (EXTRA / 'pipeline_curated.json').exists() else {'projects': []}
 for p in pc['projects']:
+    if (p['iso'], p['name']) in PIPE_DROP:          # 清單整理後才停止開發的專案（理由見 tools/farm_cleanup.py 的 PIPE_DROP）
+        pipe_seen.add((p['iso'], p['name'])); log.append(f"PIPE-DROP {p['iso']} {p['name']}")
+        continue
     if p['iso'] not in ISO.values() and p['iso'] not in by_iso:
         continue
     note = [TW_PIPE_NOTE_ZH.get(p['name'], '') if p['iso'] == 'TWN' else '', p.get('note', '')] if p.get('note') else 0
@@ -516,6 +520,8 @@ for f in jc['farms']:
            4 if f.get('end') else 0, f.get('end') or 0, (f.get('owner') or '')[:60], f.get('turbine') or '',
            1 if 'approx' in (f.get('note') or '') else 0, 3, 0, 0, 0]
     allrows.append(row); by_iso['JPN'].append(row); jp_add += 1
+if set(PIPE_DROP) - pipe_seen:
+    raise SystemExit(f"farm_cleanup.PIPE_DROP entries not found in pipeline_curated.json: {sorted(set(PIPE_DROP) - pipe_seen)}")
 print(f"curated pipeline: updated {pipe_upd} GEM projects, added {pipe_add}; Japan list: added {jp_add} farms, "
       f"upgraded {jp_upg} to operating, fixed {jp_fix} GEM coordinates")
 # 共用座標：同一國同一點上有 3 筆以上的紀錄（多為省或國家中心的代用座標）→ flags 4

@@ -50,9 +50,17 @@
 
 ## 浮動式風場（營運中）
 
-共 15 座、260.7 MW：單柱式 4、半潛式 2、駁船式 2、張力腳 1、細分型式不詳或混合 6。
+共 15 座、260.8 MW：單柱式 5、半潛式 5、駁船式 3、張力腳 1、細分型式不詳或混合 1。
 
 ## 逐場清單
+
+### 中國大陸
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| 海油觀瀾號（Haiyou Guanlan (CNOOC floating)） | 7.2 | 2023 | 浮動式（半潛式） | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/) | 半潛式；供電給文昌油田群，不接公用電網 |
+| 明陽天成號浮式（Mingyang OceanX (Tiancheng) floating） | 16.6 | 2024 | 浮動式（半潛式） | [mlit.go.jp](https://www.mlit.go.jp/kowan/content/001869831.pdf) | 一座浮台上兩部 8.3 MW 風機，浮台由浮筒與混凝土構件組成（日本國土交通省的調查列為半潛式） |
+| 三峽引領號（Yangjiang Shapa 'Sanxia Yinling' floating） | 5.5 | 2021 | 浮動式（半潛式） | [sasac.gov.cn](http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html) | 半潛式平台 |
 
 ### 丹麥
 
@@ -129,6 +137,15 @@
 | Hywind Demo (Karmøy) | 2.3 | 2009 | 浮動式（單柱式） | [OSPAR NO001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind) | 2019 年起改名 Unitech Zefyros（OSPAR 用此名） |
 | Hywind Tampen | 88.0 | 2023 | 浮動式（單柱式） | [OSPAR NO010](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind_Tampen) | 混凝土單柱式浮台 |
 | TetraSpar Demonstrator (METCentre) | 3.6 | 2021 | 浮動式（單柱式） | [OSPAR NO018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」<br>[stiesdaloffshore.com](https://stiesdaloffshore.com/projects/the-tetraspar-full-scale-demonstration-project/) | Stiesdal 的 Tetra 浮台，採單柱式配置（下方懸吊壓艙）；2026 年除役（細分型式於第 3 步補上） |
+
+### 日本
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| 福島浮体式洋上風力実証（Fukushima FORWARD floating demo） | 14.0 | 2013 | 浮動式 | [fukushima-forward.jp](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) | 兩部半潛式（2 MW、7 MW V 型）與一部單柱式（5 MW），型式不同，所以不標單一細分型式 |
+| 五島洋上風場（Goto City Offshore floating project） | 16.8 | 2026 | 浮動式（單柱式） | [toda.co.jp](https://www.toda.co.jp/news/2026/20260105_006181.html) | 8 座混合式單柱浮台（上段鋼、下段混凝土） |
+| 五島崎山浮体式洋上風力（Goto Sakiyama floating demonstration） | 2.0 | 2016 | 浮動式（單柱式） | [toda.co.jp](https://www.toda.co.jp/business/ecology/haenkaze/about/facility.html) | 戶田建設的混合式單柱浮台「はえんかぜ」 |
+| 北九州響灘浮体式実証（Hibiki floating demo (NEDO)） | 3.0 | 2019 | 浮動式（駁船式） | [nedo.go.jp](https://www.nedo.go.jp/news/press/AA5_101117.html) | 鋼製駁船式浮台，搭載兩葉片 3 MW 風機 |
 
 ### 比利時
 
@@ -271,4 +288,5 @@
 
 | 風場 | OSPAR | 理由 |
 |---|---|---|
+| 南韓 · Ulsan Dongbu floating demo (Vindmøllen 750 kW) | — | 計畫中的 750 kW 半潛式試驗機；2019 年 11 月仍因許可未發而沒有安裝，查不到之後在海上發電的紀錄，待查證 |
 | 丹麥 · Frederikshavn | DK03 | 試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列 |

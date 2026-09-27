@@ -316,10 +316,32 @@ FOUNDATIONS = [
        zh='Principle Power 的 WindFloat 半潛式平台', en='Principle Power’s WindFloat semi-submersibles'),
     F3('ESP', 'DemoSATH (BiMEP)', 'fl', url='https://saitec-offshore.com/en/sath/', sub='barge',
        zh='Saitec 的 SATH 混凝土駁船', en='Saitec’s SATH concrete barge'),
+    # ------------------------------------------------ Asia
+    F3('CHN', 'Mingyang OceanX (Tiancheng) floating', 'fl', url='https://www.mlit.go.jp/kowan/content/001869831.pdf', sub='semi',
+       zh='一座浮台上兩部 8.3 MW 風機，浮台由浮筒與混凝土構件組成（日本國土交通省的調查列為半潛式）',
+       en='Two 8.3 MW turbines on one floater of buoys and concrete members (listed as a semi-submersible in a survey by Japan’s MLIT)'),
+    F3('CHN', 'Haiyou Guanlan (CNOOC floating)', 'fl', url='https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/',
+       sub='semi', zh='半潛式；供電給文昌油田群，不接公用電網', en='Semi-submersible; it supplies the Wenchang oilfield grid, not the public grid'),
+    F3('CHN', "Yangjiang Shapa 'Sanxia Yinling' floating", 'fl',
+       url='http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html', sub='semi',
+       zh='半潛式平台', en='Semi-submersible platform'),
+    F3('JPN', 'Hibiki floating demo (NEDO)', 'fl', url='https://www.nedo.go.jp/news/press/AA5_101117.html', sub='barge',
+       zh='鋼製駁船式浮台，搭載兩葉片 3 MW 風機', en='A steel barge floater carrying a two-bladed 3 MW turbine'),
+    F3('JPN', 'Goto Sakiyama floating demonstration', 'fl', url='https://www.toda.co.jp/business/ecology/haenkaze/about/facility.html', sub='spar',
+       zh='戶田建設的混合式單柱浮台「はえんかぜ」', en='Toda’s hybrid spar “Haenkaze”'),
+    F3('JPN', 'Goto City Offshore floating project', 'fl', url='https://www.toda.co.jp/news/2026/20260105_006181.html', sub='spar',
+       zh='8 座混合式單柱浮台（上段鋼、下段混凝土）', en='8 hybrid spars (steel upper part, concrete lower part)'),
+    F3('JPN', 'Fukushima FORWARD floating demo', 'fl', url='https://www.fukushima-forward.jp/reference/pdf/study086.pdf',
+       zh='兩部半潛式（2 MW、7 MW V 型）與一部單柱式（5 MW），型式不同，所以不標單一細分型式',
+       en='Two semi-submersibles (2 MW and a V-shaped 7 MW) and one spar (5 MW); the types differ, so no single sub-type is given'),
 ]
 
 # OSPAR 有紀錄、但這一步刻意不列的風場（理由寫在報告裡，之後的步驟再查）
 EXCLUDED = [
+    ('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', [],
+     '計畫中的 750 kW 半潛式試驗機；2019 年 11 月仍因許可未發而沒有安裝，查不到之後在海上發電的紀錄，待查證',
+     'A planned 750 kW semi-submersible pilot; in November 2019 it was still not installed because permits were withheld, and there is '
+     'no record of it generating at sea afterwards; to be verified'),
     ('DNK', 'Frederikshavn', ['DK03'],
      '試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；'
      '各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列',

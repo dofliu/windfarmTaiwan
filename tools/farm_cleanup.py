@@ -10,6 +10,8 @@
           改了座標就不再標「概略位置」（approx=True 則仍標）；補上年份或改成規劃中就不再標「年份不詳」；
           改了容量而舊分期加總對不上時清掉分期
 GEM_KEEP 列出不可被當成重複的 GEM 專案（例：與精選風場名稱相近、實為另一座）。
+PIPE_DROP 列出 2026 整理的規劃中專案清單（data/global/sources/pipeline_curated.json）裡已經停止、不再收錄的專案；
+對不到清單裡的專案時建置會中止。
 每條規則都附中英文理由與來源連結（url=None 表示依資料本身比對：同名、同容量、同地點），
 build_farms.py 會把套用結果寫成 docs/data-cleanup.md 與 docs/data-cleanup.en.md。
 """
@@ -411,6 +413,30 @@ RULES = [
     fix('PRT', 'WindFloat Atlantic', C, '業主改為專案出資方 Ocean Winds、東京瓦斯與 Repsol；原欄位是比對錯的公司名',
         'Owner set to the project sponsors Ocean Winds, Tokyo Gas and Repsol; the field held a wrongly matched company name',
         'https://www.principlepower.com/projects/windfloat-atlantic', owner='Ocean Winds; Tokyo Gas; Repsol'),
+    fix('CHN', "Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng", C,
+        '「OceanX」與「明陽天成號」是同一座浮台（一座浮台上兩部 8.3 MW 風機，共 16.6 MW），名稱合為一個',
+        '“OceanX” and “Mingyang Tiancheng” are the same floater (two 8.3 MW turbines on one platform, 16.6 MW), so the names are merged',
+        'https://www.ditan.com/industry/energy/4497.html', rename='Mingyang OceanX (Tiancheng) floating'),
+    fix('CHN', 'Haiyou Guanlan (CNOOC floating)', C, '裝機容量 7.25 MW', 'Installed capacity 7.25 MW',
+        'http://finance.people.com.cn/n1/2023/0520/c1004-32690779.html', mw=7.25),
+    fix('JPN', 'Fukushima FORWARD floating demo', C,
+        '三部浮動式機組：2013 年 11 月 2 MW（半潛式）、2015 年 12 月 7 MW（V 型半潛式）、2017 年 2 月 5 MW（單柱式）開始運轉；'
+        '7 MW 於 2018 年決定停機、2020 年撤除，其餘兩部 2021 年 2 月起撤除',
+        'Three floating units started in November 2013 (2 MW, semi-submersible), December 2015 (7 MW, V-shaped semi-submersible) and '
+        'February 2017 (5 MW, spar); the 7 MW unit was stopped in 2018 and removed in 2020, and removal of the other two began in February 2021',
+        'https://www.fukushima-forward.jp/reference/pdf/study086.pdf', ph=[[2013, 2], [2015, 7], [2017, 5]], note=True),
+    fix('JPN', 'Goto City Offshore floating project', C, '2026 年 1 月 5 日開始商轉（8 部 2.1 MW，五島洋上風場）' + '；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
+        'Commercial operation began on 5 January 2026 (eight 2.1 MW units, Goto Offshore Wind Farm)' + '; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now',
+        'https://www.toda.co.jp/news/2026/20260105_006181.html', zhname='五島洋上風場', note=True),
+    dup('JPN', 'Kyushu floating wind farm', G, ('Kyushu - GIP floating wind farm', G), '同一個規劃案（Skyborn，1 GW，五島外海）；GEM 有兩筆',
+        'The same planned project (Skyborn, 1 GW, off the Goto Islands); GEM lists it twice', 'https://www.gem.wiki/Kyushu_floating_wind_farm'),
+    fix('PHL', 'Claveria floating offshore wind farm', G, '浮動式（GEM 的專案頁已改列為浮動式）', 'Floating (GEM’s project page now lists it as floating)',
+        'https://www.gem.wiki/Claveria_(Domhain)_wind_farm', type=2),
+    drop('KOR', 'Firefly (Bandibuli) floating offshore wind farm', G, 'Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
+         'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
+    fix('ESP', 'Timanfaya Floating Offshore wind farm', G, '浮動式：開發商 Capital Energy 的專案採浮動式技術（GEM 誤列為固定式）',
+        'Floating: the developer, Capital Energy, uses floating technology for it (GEM lists it as fixed-bottom)',
+        'https://www.evwind.es/2023/02/17/capital-energy-will-invest-2500-million-in-four-wind-farms-in-the-canary-islands-three-of-them-offshore/90273', type=2),
     # ------------------------------------------------ Thailand, Philippines, Iran
     drop('THA', 'Jhimpir Power (Energy Absolute) wind farm', G,
          '不存在：Jhimpir 在巴基斯坦，Energy Absolute 在泰國沒有 600 MW 風場（它在猜也蓬的 Hanuman 各場另有紀錄）',
@@ -538,6 +564,12 @@ GEM_KEEP = {
          'https://www.nbd.com.cn/articles/2021-11-03/1978454.html'),
 }
 
+# 2026 整理的規劃中專案清單裡、之後已停止開發的專案（國別, 清單上的名稱）→（中文理由, English, 出處）
+PIPE_DROP = {
+    ('KOR', 'Firefly (Bandibuli)'): ('Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
+                                     'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
+}
+
 FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'type': 7, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
 LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'type': '陸域／離岸', 'st': '狀態',
             'end': '除役年', 'owner': '業主', 'turbine': '機組', 'ph': '分期'}
@@ -662,6 +694,11 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
                 link = f"[{'連結' if zh else 'link'}]({c['url']})" if c['url'] else ('資料比對' if zh else 'data comparison')
                 L.append(f"| {rec} | {src} | {act} | {c['zh'] if zh else c['en']} | {link} |")
             L.append('')
+        L += ['## ' + ('規劃中專案清單（2026 整理）裡不收錄的專案' if zh else 'Projects left out of the 2026 pipeline compilation'), '',
+              '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']
+        for (iso, name), (rz, re_, url) in PIPE_DROP.items():
+            L.append(f"| {name} ({iso}) | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
+        L.append('')
         L += ['## ' + ('不當成重複的 GEM 專案' if zh else 'GEM projects kept apart'), '',
               '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']
         for (iso, name), (rz, re_, url) in GEM_KEEP.items():

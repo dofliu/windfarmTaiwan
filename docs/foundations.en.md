@@ -50,7 +50,7 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 
 ## Floating farms (operating)
 
-15 farms, 260.7 MW: spar 4, semi-submersible 2, barge 2, tension-leg platform 1, sub-type unknown or mixed 6.
+15 farms, 260.8 MW: spar 5, semi-submersible 5, barge 3, tension-leg platform 1, sub-type unknown or mixed 1.
 
 ## Farm by farm
 
@@ -70,6 +70,14 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 | Thornton Bank I | 30.0 | 2009 | Gravity-based | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | The six phase-1 turbines stand on concrete gravity bases; OSPAR lists the three phases together as “gravity-based/jacket” |
 | Thornton Bank II | 184 | 2012 | Jacket | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | Phases 2 and 3 (48 turbines) use steel jackets designed by OWEC |
 | Thornton Bank III | 111 | 2013 | Jacket | [OSPAR Be001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based/jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) | Phases 2 and 3 (48 turbines) use steel jackets designed by OWEC |
+
+### China
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| Haiyou Guanlan (CNOOC floating) | 7.2 | 2023 | Floating (semi-submersible) | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/) | Semi-submersible; it supplies the Wenchang oilfield grid, not the public grid |
+| Mingyang OceanX (Tiancheng) floating | 16.6 | 2024 | Floating (semi-submersible) | [mlit.go.jp](https://www.mlit.go.jp/kowan/content/001869831.pdf) | Two 8.3 MW turbines on one floater of buoys and concrete members (listed as a semi-submersible in a survey by Japan’s MLIT) |
+| Yangjiang Shapa 'Sanxia Yinling' floating | 5.5 | 2021 | Floating (semi-submersible) | [sasac.gov.cn](http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html) | Semi-submersible platform |
 
 ### Denmark
 
@@ -164,6 +172,15 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
 | Beleolico (Taranto) | 30.0 | 2022 | Monopile | [offshorewind.biz](https://www.offshorewind.biz/2022/01/13/foundations-stand-at-first-mediterranean-offshore-wind-farm/) | 10 monopiles; the first offshore wind farm in the Mediterranean |
+
+### Japan
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| Fukushima FORWARD floating demo | 14.0 | 2013 | Floating | [fukushima-forward.jp](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) | Two semi-submersibles (2 MW and a V-shaped 7 MW) and one spar (5 MW); the types differ, so no single sub-type is given |
+| Goto City Offshore floating project | 16.8 | 2026 | Floating (spar) | [toda.co.jp](https://www.toda.co.jp/news/2026/20260105_006181.html) | 8 hybrid spars (steel upper part, concrete lower part) |
+| Goto Sakiyama floating demonstration | 2.0 | 2016 | Floating (spar) | [toda.co.jp](https://www.toda.co.jp/business/ecology/haenkaze/about/facility.html) | Toda’s hybrid spar “Haenkaze” |
+| Hibiki floating demo (NEDO) | 3.0 | 2019 | Floating (barge) | [nedo.go.jp](https://www.nedo.go.jp/news/press/AA5_101117.html) | A steel barge floater carrying a two-bladed 3 MW turbine |
 
 ### Netherlands
 
@@ -271,4 +288,5 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 
 | Farm | OSPAR | Reason |
 |---|---|---|
+| South Korea · Ulsan Dongbu floating demo (Vindmøllen 750 kW) | — | A planned 750 kW semi-submersible pilot; in November 2019 it was still not installed because permits were withheld, and there is no record of it generating at sea afterwards; to be verified |
 | Denmark · Frederikshavn | DK03 | A test site: the Danish Energy Agency records 3 turbines at sea from 2003 (7.6 MW); after the harbour was extended two now stand on land and only one 2.3 MW turbine is left at sea, but it does not say which; the turbines had different foundations (one V90 on a trial suction bucket), and OSPAR’s “all monopiles” and 14 MW do not match, so it is left out |
