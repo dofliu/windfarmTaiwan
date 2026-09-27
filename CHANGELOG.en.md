@@ -15,6 +15,50 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.10.0 — 2026-09-27
+
+- Foundation data, step 4: Taiwan, Japan, Korea and the USA, 36 farms in all (11 in Taiwan, 11 in Japan, 6 in Korea and
+  8 in the USA). Operating offshore farms with a known type go from 144 (38.2% of capacity) to 167 (42.3%):
+  - All eight operating Taiwanese farms now have a type: 3 monopile (Formosa 1 phases 1 and 2, Yunlin) and 5 jacket.
+    Greater Changhua 2b & 4, under construction, is the first farm in Taiwan founded entirely on suction-bucket jackets
+    (66 of them, no piling); Hai Long and Taipower phase 2 use piled jackets.
+  - Japan: 5 monopile (Kamisu phases 1 and 2, Noshiro Port, Akita Port, Nyuzen), 2 jacket (Ishikari Bay New Port,
+    Kitakyushu Hibikinada), 2 gravity-based (Choshi; the Kitakyushu demonstrator used a “hybrid gravity” base of a jacket
+    on a concrete slab) and 2 high-rise pile caps (Setana and Sakata Port, which NEDO calls “dolphins”).
+  - Korea: 4 piled jackets (the Woljeong test site, Tamra, Hanlim and the Southwest demonstration) and 2 monopile
+    (Jeonnam Offshore Wind 1, Yeonggwang Nakwol); one of the 20 jackets at the Southwest demonstration is a
+    suction-bucket jacket by KEPCO's research institute, which the note explains.
+  - USA: Block Island is on piled jackets and the other seven (the CVOW pilot and commercial project, South Fork,
+    Vineyard Wind 1, Revolution Wind, Empire Wind and Sunrise Wind) are on monopiles.
+  - Every farm cites a developer, construction contractor, government document or trade press, and each quoted passage was
+    checked against the page (Japanese and Korean pages in their own encodings, PDFs page by page); 4C Offshore is never
+    cited. Farms inside Japanese ports follow NEDO's classification of support structures (a “dolphin” is a high-rise
+    pile cap).
+  - Two farms whose type could not be found are listed as “checked but left out”, with the reason on their cards: Eurus
+    Akita Port in Japan (the one turbine of six that stands in the water) and the 15 intertidal turbines of Yeonggwang
+    Wind in Korea.
+- Data corrections (24 record-level rules; reasons and sources in `docs/data-cleanup.en.md`):
+  - Taiwan: Zhong Neng only reached full commercial operation with its electricity licence in April 2025 (it was listed as
+    2024); the Taipower phase 1 turbines are Hitachi HTW5.2-127.
+  - Japan: GEM's record bundling Kamisu phases 1 and 2 is removed; the points for Phase 1 (Minamihama) and Phase 2
+    (Kitahama) were inland and the wrong way round, and now follow the turbine positions; Setana is out of service after
+    breakdowns and will be removed in the 2027 financial year; the Kitakyushu demonstrator was removed in September 2019
+    (it was listed as 2023); Kitakyushu Hibikinada started commercial operation on 2 March 2026 with 25 × 9.6 MW turbines
+    (still listed as under construction, with a note, while the timeline ends in 2025); Eurus Akita Port moves to
+    Mukaihama; and GEM's 1 GW Hokkaido Ishikari Bay project, which has only filed a planning-stage document, is no longer
+    shown as under construction.
+  - Korea: Jeonnam Offshore Wind 1 and GEM's “Jeonnam (SK E&C)” are the same farm, merged into one record with its name,
+    turbines and location corrected; Yeonggwang Nakwol was only partly operating at the end of 2025 (full operation is
+    planned for December 2026) and its turbines are Vensys 5.7 MW; the second unit at the Woljeong test site is an STX
+    2 MW (2011–12, idle since June 2016); Tamra stands off Hangyeong; GEM's Jwasari is still at the EIA stage (360 MW);
+    and Yeonggwang Wind is 34.5 MW.
+  - USA: the two Sunrise Wind records are merged into one, at the centre of BOEM lease OCS-A 0487; Vineyard Wind 1 only
+    had its last turbine installed in March 2026 (44 of 62 were operating at the end of 2025), so it is listed as under
+    construction; the CVOW commercial project now finishes at the end of 2027; Revolution Wind is 704 MW; and Empire Wind
+    is 810 MW.
+- Site wording: the globe's foundation legend and sources dialog and the Learn chapter on foundation types now say step 4
+  is done and that fixed-bottom farms elsewhere, such as in China and Vietnam, are shown as type unknown.
+
 ## v2.9.0 — 2026-09-27
 
 - Foundation data, step 3: floating farms worldwide get their sub-type — spar, semi-submersible, barge or tension-leg platform

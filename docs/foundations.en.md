@@ -9,10 +9,10 @@ The globe’s Display menu has an “Offshore: foundations” layer that colours
 1. **North Sea and NE Atlantic (OSPAR coverage)**: done (Sep 2026).
 2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): done (Sep 2026).
 3. **Sub-types of floating farms** (worldwide): done (Sep 2026).
-4. **Taiwan, Japan, Korea and the USA**: in progress.
+4. **Taiwan, Japan, Korea and the USA**: done (Sep 2026).
 5. China and Vietnam: to be decided after the first four steps.
 
-This page shows the results of steps 1–3. Offshore farms not yet checked are shown as “type unknown”, never guessed.
+This page shows the results of steps 1–4. Offshore farms not yet checked are shown as “type unknown”, never guessed.
 
 ## Sources and method
 
@@ -20,12 +20,13 @@ This page shows the results of steps 1–3. Offshore farms not yet checked are s
 - OSPAR does not always describe what was built: 10 German records only say “monopile/tripod/tripile/jacket/gravity-based/other”, and Merkur, Veja Mate, Trianel Borkum II and alpha ventus differ from the construction records, as does the western part of Hornsea One in the UK. So every German farm uses German Wikipedia (with construction records), and every other disagreement cites a second source with a note.
 - **Step 2**: OSPAR does not cover the Baltic or the Mediterranean, and for farms finished after 2024 it only has the consented design, which can change. These farms were checked one by one against developers, construction contractors, trade press, government documents or Wikipedia; every farm cites a source, and each quoted passage was checked against the page. Where OSPAR has a consent-stage record, a construction source is always added (the build checks this).
 - **Step 3**: floating farms worldwide get their sub-type: spar, semi-submersible, barge (including damping-pool hulls) or tension-leg platform, checked one by one against technology providers, developers or trade press, with every quoted passage checked against the page; where one record holds units of different types, the note lists them.
+- **Step 4**: no offshore farm in Taiwan, Japan, Korea or the USA has an OSPAR record, so each was checked one by one against developers, construction contractors, government documents and trade press, with every quoted passage checked against the page (Japanese and Korean pages in their own encodings, PDFs page by page) and 4C Offshore never cited; farms inside Japanese ports follow NEDO’s classification of support structures (NEDO states that a “dolphin” is a High-Rise Pile Cap). Farms whose type could not be found are under “Checked but left out for now” below.
 - In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.
 - The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed). Farm cards and this page give the exact type.
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 167 of 364 farms, 42.3% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -33,15 +34,15 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
-| Taiwan | 8 | 0 | 0% |  |  |  |  |
+| Taiwan | 8 | 8 | 100% | 3 | 5 |  |  |
 | Denmark | 17 | 16 | 99% | 8 |  |  | 8 |
 | Belgium | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | Vietnam | 28 | 0 | 0% |  |  |  |  |
 | France | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
-| United States of America | 4 | 0 | 0% |  |  |  |  |
-| South Korea | 8 | 1 | <1% |  |  | 1 |  |
-| Japan | 12 | 2 | 1% |  |  | 2 |  |
+| South Korea | 7 | 6 | 89% | 1 | 4 | 1 |  |
+| Japan | 10 | 9 | 98% | 5 | 1 | 2 | 1 |
 | Sweden | 4 | 4 | 100% | 1 |  |  | 3 |
+| United States of America | 3 | 3 | 100% | 2 | 1 |  |  |
 | Norway | 3 | 3 | 100% |  |  | 3 |  |
 | Finland | 1 | 1 | 100% |  |  |  | 1 |
 | Italy | 1 | 1 | 100% | 1 |  |  |  |
@@ -177,10 +178,21 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
+| Akita Port | 54.6 | 2023 | Monopile | [kajima.co.jp](https://www.kajima.co.jp/news/press/202003/26c1-j.htm) | 13 monopiles with transition pieces (Kajima and Sumitomo Electric EPCI) |
+| Choshi Offshore Demonstration (NEDO/TEPCO) | 2.4 | 2019 | Gravity-based | [kajima.co.jp](https://www.kajima.co.jp/news/press/201302/27c1-j.htm) | A prestressed-concrete caisson gravity base (2,400 t), towed out half-submerged and then filled with copper-slag ballast, 5,400 t in all |
 | Fukushima FORWARD floating demo | 14.0 | 2013 | Floating | [fukushima-forward.jp](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) | Two semi-submersibles (2 MW and a V-shaped 7 MW) and one spar (5 MW); the types differ, so no single sub-type is given |
 | Goto City Offshore floating project | 16.8 | 2026 | Floating (spar) | [toda.co.jp](https://www.toda.co.jp/news/2026/20260105_006181.html) | 8 hybrid spars (steel upper part, concrete lower part) |
 | Goto Sakiyama floating demonstration | 2.0 | 2016 | Floating (spar) | [toda.co.jp](https://www.toda.co.jp/business/ecology/haenkaze/about/facility.html) | Toda’s hybrid spar “Haenkaze” |
 | Hibiki floating demo (NEDO) | 3.0 | 2019 | Floating (barge) | [nedo.go.jp](https://www.nedo.go.jp/news/press/AA5_101117.html) | A steel barge floater carrying a two-bladed 3 MW turbine |
+| Ishikari Bay New Port | 99.9 | 2024 | Jacket | [eng.nipponsteel.com](https://www.eng.nipponsteel.com/news/detail/20220909/) | 14 four-legged jackets fixed to pre-driven steel pipe piles (chosen for the soft seabed; Japan’s first jacket-founded offshore farm) |
+| Kamisu Phase 1 (Wind Power Ibaraki) | 14.0 | 2010 | Monopile | [jcmanet.or.jp](https://jcmanet.or.jp/bunken/kikanshi/2011/12/014.pdf) | 7 monopiles 3.5 m across and 24.5 m long with grouted joint sleeves, driven from the shore with a crawler crane |
+| Kamisu Phase 2 | 16.0 | 2013 | Monopile | [jepoc.or.jp](https://www.jepoc.or.jp/magazine/magazine.php?_w=magazine&_x=kikan_detail&kikan_m_id=17&kikan_n_id=444) | 8 monopiles; driven from a jack-up vessel because of the 275 kV lines nearby |
+| Kitakyushu Hibikinada | 220 | 2026 | Jacket | [hibikiwindenergy.co.jp](https://hibikiwindenergy.co.jp/news/2026/0601.html) | 25 jackets in two variants (4-pile and 8-pile), 144 piles in all, installed by three methods (all-casing, RS-plus and driving) to suit the seabed, in 8–30 m of water |
+| Kitakyushu Offshore Demonstration (NEDO/J-Power) | 2.0 | 2013 | Gravity-based | [nedo.go.jp](https://www.nedo.go.jp/content/100890005.pdf) | J-Power’s “hybrid gravity” foundation: a precast concrete base slab on a rubble mound carrying a steel jacket filled with concrete; the turbine and substructure were removed in September 2019 and the base was kept as a research facility |
+| Noshiro Port | 84.0 | 2022 | Monopile | [kajima.co.jp](https://www.kajima.co.jp/news/press/202003/26c1-j.htm) | 20 monopiles with transition pieces (Kajima and Sumitomo Electric EPCI) |
+| Nyuzen Offshore Wind Farm | 7.5 | 2023 | Monopile | [shimz.co.jp](https://www.shimz.co.jp/works/jp_ene_202308_nyuzen.html) | 3 monopiles 5.5 m across and 48.1–51.6 m long with no transition piece (a first in Japan), designed and built by Shimizu |
+| Sakata Port semi-offshore | 10.0 | 2004 | High-rise pile cap | [nedo.go.jp](https://www.nedo.go.jp/content/100890000.pdf) | NEDO calls it a “dolphin”, that is a high-rise pile cap: eight vertical piles (27 m long, 1 m across) under an octagonal concrete cap 12 m across and 2.5 m thick; removed in 2023 |
+| Setana semi-offshore | 1.2 | 2004 | High-rise pile cap | [nedo.go.jp](https://www.nedo.go.jp/content/100889997.pdf) | NEDO calls it a “dolphin”, that is a high-rise pile cap: four vertical piles (27 m long, 1.1 m across) under a concrete cap about 10 m wide and 2 m thick |
 
 ### Netherlands
 
@@ -216,6 +228,17 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 | WindFloat 1 (Aguçadoura demo) | 2.0 | 2011 | Floating (semi-submersible) | [principlepower.com](https://www.principlepower.com/projects/windfloat1) | The first floating turbine on a semi-submersible (2011–2016; later moved to Kincardine in Scotland, where it ran until 2020) |
 | WindFloat Atlantic | 25.2 | 2020 | Floating (semi-submersible) | [principlepower.com](https://www.principlepower.com/projects/windfloat-atlantic) | Principle Power’s WindFloat semi-submersibles |
 
+### South Korea
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| Jeju Hanlim | 100 | 2024 | Jacket | [kgs-m.org](https://www.kgs-m.org/magazine/kgsm/sm-35/pt-post/nd-582) | 18 jackets, post-piled: set on pre-drilled, levelled basalt and then fixed with RCD-drilled, grouted pin piles |
+| Jeju Woljeong test (Doosan) | 5.0 | 2012 | Jacket | [cloudcdn.taiwantradeshows.com.tw](https://cloudcdn.taiwantradeshows.com.tw/2019/energytaiwan/download/Wind-Energy-Forum-KR.pdf) | Both test turbines stand on steel jackets: KIER describes the 2 MW unit’s inclined two-stage jacket held by short pin piles, while for Doosan’s 3 MW unit only a 2019 industry presentation states the type |
+| Jeonnam Offshore Wind 1 | 96.0 | 2025 | Monopile | [epj.co.kr](https://www.epj.co.kr/news/articleView.html?idxno=37579) | 10 monopiles; the first monopile-founded offshore wind farm in Korea |
+| Southwest Offshore Demonstration (Seonam) | 60.0 | 2020 | Jacket | [e2news.com](http://www.e2news.com/news/articleView.html?idxno=101605) | 20 jackets: 19 piled (including POSCO’s R&D jacket under turbine 2) and one suction-bucket jacket by KEPCO’s research institute under turbine 7 |
+| Tamra (Jeju Hangyeong) | 30.0 | 2017 | Jacket | [tamra-owp.co.kr](http://tamra-owp.co.kr/2019/sub0206.php) | 10 jackets whose pin piles were drilled into the basalt seabed with reverse-circulation drilling (RCD) and grouted |
+| Yeonggwang Nakwol | 365 | 2026 | Monopile | [electimes.com](https://www.electimes.com/news/articleView.html?idxno=368993) | 64 monopiles (made by GS Entec, 60.2–71.2 m long and 7.5 m across at the base); the first large Korean farm to choose monopiles instead of jackets |
+
 ### Spain
 
 | Farm | MW | Year | Type | Sources | Note |
@@ -232,6 +255,22 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 | Lillgrund | 110 | 2007 | Gravity-based | [osti.gov](https://www.osti.gov/etdeweb/servlets/purl/979747) | Reinforced-concrete gravity bases filled with ballast |
 | Utgrunden I | 10.5 | 2000 | Monopile | [offshorewind.biz](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) | 7 monopiles (dismantled in 2018) |
 | Vindpark Vänern (Gässlingegrund) | 30.0 | 2010 | Rock-anchored | [evwind.aeeolica.org](https://evwind.aeeolica.org/2010/05/24/the-first-vanern-offshore-wind-farm-inaugurated/5723) | Anchored to the bedrock of the lake bed (Lake Vänern) |
+
+### Taiwan
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| Changfang & Xidao | 589 | 2024 | Jacket | [offshorewind.biz](https://www.offshorewind.biz/2023/07/17/all-foundations-stand-at-changfang-xidao-wind-farms-offshore-taiwan/) | 62 three-legged jackets (built by Century Wind Power) on 186 pin piles |
+| Formosa 1 Phase 1 | 8.0 | 2017 | Monopile | [siemensgamesa.com](https://www.siemensgamesa.com/global/en/home/press-releases/siemens-gamesa-awarded-120-mw-expansion-of-taiwans-pioneering-formosa-1-offshore-wind-power-plant.html) | 2 monopiles, installed in 2016 together with the two demonstration turbines |
+| Formosa 1 Phase 2 | 120 | 2019 | Monopile | [jandenul.com](https://www.jandenul.com/news/all-foundations-formosa-1-phase-2-installed) | 20 monopiles with grouted transition pieces |
+| Formosa 2 | 376 | 2023 | Jacket | [jandenul.com](https://www.jandenul.com/news/jan-de-nul-completes-foundation-and-cable-installation-formosa-2-offshore-wind-farm) | 47 jackets on 188 pin piles (installed in 2022) |
+| Greater Changhua 1 & 2a | 900 | 2024 | Jacket | [cdn.orsted.com](https://cdn.orsted.com/-/media/www/docs/corp/tw/en-chw-1-and-2a-case-study.pdf) | 111 jackets, each on three pin piles (333 in total); six of them were built entirely in Taiwan |
+| Greater Changhua 2b & 4 | 920 | 2026 | Jacket (suction bucket) | [heerema.com](https://heerema.com/news/heerema-sets-down-last-suction-bucket-jacket-at-%C3%B8rsteds-greater-changhua-2a-4) | All 66 are suction-bucket jackets (no piling): 24 at Greater Changhua 2b and 42 at Greater Changhua 4, the first such farm in the Asia-Pacific |
+| Hai Long 2 & 3 | 1,044 | 2026 | Jacket | [cdwe.com.tw](https://www.cdwe.com.tw/news_detail.php?id=151) | 73 jackets, each on three pre-installed pin piles (219 in total), completed in August 2025 |
+| Taipower Offshore Phase 1 (Changhua) | 109 | 2021 | Jacket | [jandenul.com](https://www.jandenul.com/our-projects/offshore-windfarm-changhua-taiwan) | 21 four-legged jackets with transition pieces, each grouted onto four pre-installed pin piles (84 in total) |
+| Taipower Offshore Phase 2 | 294 | 2026 | Jacket | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 four-legged jackets with transition pieces, grouted onto 124 pre-installed pin piles |
+| Yunlin | 640 | 2025 | Monopile | [yunlin-offshore.com](https://www.yunlin-offshore.com/en/technology) | 80 monopiles 8 m across with transition pieces (three earlier ones that suffered pile runs in 2021–2023 were removed and are not counted) |
+| Zhong Neng | 298 | 2025 | Jacket | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/) | 31 jackets (built by Sing Da Marine Structure) on 93 locally made pin piles |
 
 ### United Kingdom
 
@@ -284,9 +323,24 @@ Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms 
 | West of Duddon Sands | 389 | 2014 | Monopile | [OSPAR UK113](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Westermost Rough | 210 | 2015 | Monopile | [OSPAR UK114](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 
+### United States of America
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| Block Island | 30.0 | 2016 | Jacket | [windpowerengineering.com](https://www.windpowerengineering.com/historic-milestone-for-u-s-offshore-wind-block-island-wind-farm-installs-steel-in-the-water/) | 5 four-legged jackets (about 400 t each) fixed by pin piles driven through the legs; the first offshore wind farm in the USA |
+| Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,587 | 2027 | Monopile | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 monopiles (up to 9.5 m across and 1,538 t), installed in 2024–2025 (the three offshore substations stand on pin piles) |
+| Coastal Virginia Offshore Wind (CVOW) Pilot | 12.0 | 2020 | Monopile | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 2 monopiles (877 t, 7.8 m across) with transition pieces |
+| Empire wind farm | 810 | 2027 | Monopile | [empirewind.com](https://www.empirewind.com/offshore-installation/) | 54 monopiles (made by Sif) with transition pieces, installed in summer and autumn 2025 (the offshore substation stands on a jacket) |
+| Revolution Wind | 704 | 2026 | Monopile | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us) | 65 XXL turbine monopiles installed between May 2024 and Q2 2025 (two larger monopiles carry the offshore substations) |
+| South Fork Wind | 132 | 2024 | Monopile | [offshorewind.biz](https://www.offshorewind.biz/2023/08/10/all-monopiles-up-for-new-yorks-first-offshore-wind-farm/) | 12 turbine monopiles installed between June and August 2023 (a 13th carries the offshore substation) |
+| Sunrise Wind | 924 | 2027 | Monopile | [orsted.com](https://orsted.com/en/media/news/2026/01/sunrise-wind-llc-to-file-preliminary-injunction-ag-1474210611) | 84 turbine monopiles (installation started in mid-2025; 77 were in place by August 2026); the offshore converter station is a separate structure |
+| Vineyard Wind 1 | 806 | 2026 | Monopile | [deme-group.com](https://www.deme-group.com/news/offshore-works-kick-vineyard-wind-farm-us-installation-first-foundation) | 62 turbine monopiles with transition pieces, installed from June 2023 (the offshore substation stands on its own monopile) |
+
 ## Checked but left out for now
 
 | Farm | OSPAR | Reason |
 |---|---|---|
 | South Korea · Ulsan Dongbu floating demo (Vindmøllen 750 kW) | — | A planned 750 kW semi-submersible pilot; in November 2019 it was still not installed because permits were withheld, and there is no record of it generating at sea afterwards; to be verified |
 | Denmark · Frederikshavn | DK03 | A test site: the Danish Energy Agency records 3 turbines at sea from 2003 (7.6 MW); after the harbour was extended two now stand on land and only one 2.3 MW turbine is left at sea, but it does not say which; the turbines had different foundations (one V90 on a trial suction bucket), and OSPAR’s “all monopiles” and 14 MW do not match, so it is left out |
+| Japan · Eurus Akita Port semi-offshore | — | The single 3 MW unit that JWPA counts as “semi-offshore”: the one turbine standing in the water at Eurus Akita Port Wind Farm (six 3 MW turbines, operating since February 2015); no document from the owner, the contractors, NEDO, MLIT or JWPA was found that gives its foundation type |
+| South Korea · Yeonggwang Wind offshore wind farm | — | The 15 × 2.3 MW turbines of the Yeonggwang Wind onshore-and-offshore complex (35 turbines, 79.6 MW) that stand in the intertidal zone, dry at low tide; no developer, contractor or government statement of their foundation type was found |

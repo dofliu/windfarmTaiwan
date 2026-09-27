@@ -25,7 +25,8 @@
     而 GEM 的營運階段在除役年之後才開始者，視為汰換後的新機組（例：苫前ウィンビラ 2023 年汰換），不當成重複。
   · 另一平行開發版本（wind-history-map，2026 年 9 月整理；見 tools/extract_curated_extras.py）的兩份補充資料：
       - 規劃中專案 pipeline_curated.json：比對到 GEM 規劃案就更新狀態（興建中）、預計商轉年、中文名與開發商，
-        比對不到才新增（src 3）；已在營運的不動。
+        比對不到才新增（src 3）；已在營運的不動。清單整理後停止的專案列在 farm_cleanup.PIPE_DROP，
+        之後才變動的欄位（例：預計完工年延後）列在 PIPE_FIX，比對前套用。
       - 日本風場 farms_jp_compiled.json：GEM 只收 10 MW 以上，這份補上較小的風場；GEM 2025-02 仍列規劃中、
         但清單中已商轉（≤2025）的案場改為營運中（例：阿武隈風力発電所 2025）。只收錄與既有資料不重複者
         （名稱相符、4 km 內、或 10 km 內且容量相近都視為重複）。
@@ -36,7 +37,7 @@ import csv, difflib, json, math, re, sys, unicodedata, urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
-from farm_cleanup import GEM_KEEP, PIPE_DROP, apply as cleanup, summary as cleanup_summary, write_docs as cleanup_docs
+from farm_cleanup import GEM_KEEP, PIPE_DROP, PIPE_FIX, apply as cleanup, summary as cleanup_summary, write_docs as cleanup_docs
 
 CUR, GEM, OUT = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
 
@@ -411,12 +412,15 @@ TW_PIPE_NOTE_ZH = {'Fengmiao 1': '區塊開發 3.1 期；2024 年完成融資；
                    'Greater Changhua Northeast': '區塊開發 3.2 期；場址與福爾摩沙 6 號重疊；座標為概略位置',
                    'Haiding 1 (Formosa 3)': '區塊開發 3.2 期；座標為概略位置', 'DeShuai': '區塊開發 3.2 期；座標為概略位置'}
 pipe_upd = pipe_add = 0
-pipe_seen = set()
+pipe_seen, pipe_fixed = set(), set()
 pc = json.loads((EXTRA / 'pipeline_curated.json').read_text(encoding='utf-8')) if (EXTRA / 'pipeline_curated.json').exists() else {'projects': []}
 for p in pc['projects']:
     if (p['iso'], p['name']) in PIPE_DROP:          # 清單整理後才停止開發的專案（理由見 tools/farm_cleanup.py 的 PIPE_DROP）
         pipe_seen.add((p['iso'], p['name'])); log.append(f"PIPE-DROP {p['iso']} {p['name']}")
         continue
+    if (p['iso'], p['name']) in PIPE_FIX:           # 清單整理後才變動的欄位（同上，PIPE_FIX）
+        pipe_fixed.add((p['iso'], p['name'])); p = {**p, **PIPE_FIX[(p['iso'], p['name'])][0]}
+        log.append(f"PIPE-FIX {p['iso']} {p['name']} {PIPE_FIX[(p['iso'], p['name'])][0]}")
     if p['iso'] not in ISO.values() and p['iso'] not in by_iso:
         continue
     note = [TW_PIPE_NOTE_ZH.get(p['name'], '') if p['iso'] == 'TWN' else '', p.get('note', '')] if p.get('note') else 0
@@ -522,6 +526,8 @@ for f in jc['farms']:
     allrows.append(row); by_iso['JPN'].append(row); jp_add += 1
 if set(PIPE_DROP) - pipe_seen:
     raise SystemExit(f"farm_cleanup.PIPE_DROP entries not found in pipeline_curated.json: {sorted(set(PIPE_DROP) - pipe_seen)}")
+if set(PIPE_FIX) - pipe_fixed:
+    raise SystemExit(f"farm_cleanup.PIPE_FIX entries not found in pipeline_curated.json: {sorted(set(PIPE_FIX) - pipe_fixed)}")
 print(f"curated pipeline: updated {pipe_upd} GEM projects, added {pipe_add}; Japan list: added {jp_add} farms, "
       f"upgraded {jp_upg} to operating, fixed {jp_fix} GEM coordinates")
 # 共用座標：同一國同一點上有 3 筆以上的紀錄（多為省或國家中心的代用座標）→ flags 4

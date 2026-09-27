@@ -11,7 +11,7 @@
           改了容量而舊分期加總對不上時清掉分期
 GEM_KEEP 列出不可被當成重複的 GEM 專案（例：與精選風場名稱相近、實為另一座）。
 PIPE_DROP 列出 2026 整理的規劃中專案清單（data/global/sources/pipeline_curated.json）裡已經停止、不再收錄的專案；
-對不到清單裡的專案時建置會中止。
+PIPE_FIX 列出清單整理後才變動的欄位（例：預計完工年延後），套用在清單比對之前。兩者對不到清單裡的專案時建置會中止。
 每條規則都附中英文理由與來源連結（url=None 表示依資料本身比對：同名、同容量、同地點），
 build_farms.py 會把套用結果寫成 docs/data-cleanup.md 與 docs/data-cleanup.en.md。
 """
@@ -546,6 +546,117 @@ RULES = [
     fix('ROU', 'Baia Holrom wind farm', G, 'Transelectrica 清單的 Baia 4（Holrom）是 10 MW', 'Transelectrica lists Baia 4 (Holrom) at 10 MW', TRANSELECTRICA, mw=10),
     fix('ROU', 'Ruginoasa wind farm', G, '2023 年 11 月完工', 'Completed November 2023',
         'https://balkangreenenergynews.com/ukrainian-billionaire-akhmetov-completes-60-mw-ruginoasa-wind-farm-in-romania/', year=2023),
+    # ------------------------------------------------ 台灣、日本、韓國、美國的離岸風場（2026-09 查水下基礎第 4 步時發現）
+    fix('TWN', 'Zhong Neng', C, '31 部風機 2024 年裝完，2025 年 4 月取得電業執照才全場商轉',
+        'All 31 turbines were installed in 2024, but the farm only reached commercial operation when it received its electricity licence in April 2025',
+        'https://www.csc.com.tw/csc/esg/env/env2_1.html', year=2025),
+    fix('TWN', 'Taipower Offshore Phase 1 (Changhua)', C, '機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136',
+        'The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136',
+        'https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html', turbine='21 x Hitachi HTW5.2-127'),
+    drop('JPN', 'Kamis Offshore wind farm', G, 'GEM 把神栖一期（2010 年 14 MW）與二期（2013 年 16 MW）合成一筆，本站兩期各有紀錄',
+         'GEM bundles Kamisu Phase 1 (14 MW, 2010) and Phase 2 (16 MW, 2013) into one record; both phases are listed separately here',
+         'https://www.gem.wiki/Kamis_Offshore_wind_farm'),
+    fix('JPN', 'Kamisu Phase 1 (Wind Power Ibaraki)', C,
+        '一期在南濱外海（神栖市資料）；原座標在內陸約 1.5–2 km，改用 OpenStreetMap 的風機位置（概略位置）',
+        'Phase 1 stands off Minamihama (city of Kamisu); the old point was about 1.5–2 km inland, so it is moved to the turbine positions '
+        'in OpenStreetMap (approximate)',
+        'https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html', lat=35.884, lon=140.735, approx=True),
+    fix('JPN', 'Kamisu Phase 2', C,
+        '二期在北濱外海、位於一期北邊（原座標在一期南邊的內陸，南北顛倒）；改用 OpenStreetMap 的風機位置（概略位置）',
+        'Phase 2 stands off Kitahama, north of Phase 1 (the old point was inland and south of Phase 1, the wrong way round); it is moved '
+        'to the turbine positions in OpenStreetMap (approximate)',
+        'https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html', lat=35.91, lon=140.716, approx=True),
+    fix('JPN', 'Setana semi-offshore', C,
+        '因故障與老化停機（確切停機時間待查證，2025 年 7 月已報導決定撤除）；瀨棚町 2026 年 4 月決定 2027 年度撤除',
+        'Out of service after breakdowns and ageing (the exact date it stopped is not verified; the decision to remove it was already '
+        'reported in July 2025); in April 2026 the town of Setana decided to remove it in the 2027 financial year',
+        'https://www.hokkaido-np.co.jp/article/1305209/', end=2025, note=True),
+    fix('JPN', 'Setana semi-offshore', C, '座標改到瀨棚港東外防波堤內側的風機位置（OpenStreetMap，概略位置；原座標偏東北約 1 km）',
+        'Point moved to the turbines inside Setana port, behind the east outer breakwater (OpenStreetMap, approximate; the old one was '
+        'about 1 km to the north-east)',
+        'https://www.khi.co.jp/pressrelease/detail/c3040209-1.html', lat=42.4435, lon=139.839, approx=True),
+    fix('JPN', 'Kitakyushu Offshore Demonstration (NEDO/J-Power)', C,
+        '2019 年 9 月撤除風機與上部結構（10 月起以 SEP 船施工），不是 2023 年；重力式底版留作 J-POWER 的研究設施',
+        'The turbine and substructure were removed in September 2019 (work from a jack-up vessel began that October), not in 2023; the '
+        'gravity base was kept as a J-Power research facility',
+        'https://www.jpower.co.jp/oshirase/2019/10/oshirase191001.html', end=2019, note=True),
+    fix('JPN', 'Kitakyushu Hibikinada', C,
+        '2026 年 3 月 2 日開始商業運轉（25 部 9.6 MW，併網上限 220 MW）；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
+        'Commercial operation began on 2 March 2026 (25 × 9.6 MW turbines, output capped at 220 MW); the timeline on this site ends in '
+        '2025, when it was still under construction, so it is listed as under construction for now',
+        'https://hibikiwindenergy.co.jp/news/2026/0301.html', turbine='25 x Vestas V174-9.6 MW', note=True),
+    fix('JPN', 'Eurus Akita Port semi-offshore', C,
+        '這 1 部屬ユーラス秋田港ウインドファーム，在秋田市向濱；原座標落在秋田港洋上風場上，改為向濱的概略位置',
+        'This single turbine belongs to Eurus Akita Port Wind Farm on the Mukaihama shore of Akita City; the old point fell on the Akita '
+        'Port offshore wind farm, so it is moved to an approximate point at Mukaihama',
+        'https://www.fuji-gab-mesh.co.jp/zisseki/zissekidetail/tikutei24.html', lat=39.734, lon=140.063, approx=True),
+    fix('JPN', 'Hokkaido Ishikari Bay Offshore wind farm', G,
+        '不是興建中：丸紅的石狩灣專案只有 2021 年 2 月的計畫階段環境配慮書，海域尚未指定為促進區域',
+        'Not under construction: Marubeni’s Ishikari Bay project has only filed a planning-stage environmental consideration document '
+        '(February 2021), and the sea area has not yet been designated a promotion zone',
+        'https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html', st=3),
+    dup('KOR', 'Jeonnam (SK E&C) wind farm · 1', G, ('Jeonnam Shinan 1 / others', C),
+        '同一座風場：全南海上風電 1 號（96 MW，SK Innovation E&S 與 CIP），在新安郡自恩島西北約 9 km',
+        'Same farm: Jeonnam Offshore Wind 1 (96 MW, SK Innovation E&S and CIP), about 9 km north-west of Jaeun-do in Sinan County',
+        'https://cop.dk/jeonnam-1-offshore-wind-project-begins-commercial-operations/'),
+    fix('KOR', 'Jeonnam Shinan 1 / others', C,
+        '正式名稱為全南海上風電 1 號；機組是 10 部西門子歌美颯 SG 10.0-193 DD（降額為 9.6 MW），2025 年 5 月 16 日起全面運轉',
+        'Its name is Jeonnam Offshore Wind 1; the turbines are 10 Siemens Gamesa SG 10.0-193 DD derated to 9.6 MW, in full operation '
+        'since 16 May 2025',
+        'https://www.offshorewind.biz/2025/05/21/largest-privately-led-offshore-wind-farm-in-south-korea-enters-commercial-operation/',
+        rename='Jeonnam Offshore Wind 1', zhname='全南海上風電 1 號', turbine='10 x Siemens Gamesa SG 10.0-193 DD (9.6 MW)'),
+    fix('KOR', 'Jeonnam Shinan 1 / others', C, '座標改到自恩島西北約 9 km 的海域（概略位置；原座標偏東南約 19 km）',
+        'Point moved to the water about 9 km north-west of Jaeun-do (approximate; the old one was about 19 km to the south-east)',
+        'https://cop.dk/jeonnam-1-offshore-wind-project-begins-commercial-operations/', lat=34.97, lon=125.95, approx=True),
+    fix('KOR', 'Yeonggwang Nakwol', C,
+        '2025 年 12 月起部分商轉（年底只裝好 7 部風機）；2026 年 8 月 64 座單樁完成、47 部豎立、33 部商轉，預定 2026 年 12 月全面商轉。機組是 Vensys 5.7 MW（原本寫斗山）',
+        'Partial commercial operation began in December 2025 (only 7 turbines were up at the end of the year); by August 2026 all 64 '
+        'monopiles were in, 47 turbines stood and 33 were in commercial operation, with full operation planned for December 2026. The '
+        'turbines are Vensys 5.7 MW (they were listed as Doosan)',
+        'https://www.mt.co.kr/industry/2026/08/24/2026082407272061046', st=1, year=2026, turbine='64 x Vensys 5.7 MW', note=True),
+    fix('KOR', 'Jeju Woljeong test (Doosan)', C,
+        '第二部是 STX 重工 2 MW（能源技術研究院，2011–12 年），不是 2015 年的曉星；該部 2016 年 6 月起停機，荷蘭 RVO 2021 年說試驗場沒有運轉（現況待查證）',
+        'The second unit is an STX Heavy Industries 2 MW turbine (KIER, 2011–12), not a 2015 Hyosung; it has been idle since June 2016, '
+        'and the Netherlands Enterprise Agency wrote in 2021 that the test site was not operational (its present state is unverified)',
+        'https://www.epj.co.kr/news/articleView.html?idxno=37661',
+        turbine='1 x Doosan WinDS3000/91 3 MW (2012) + 1 x STX 2 MW (2011–12)', note=True),
+    fix('KOR', 'Tamra (Jeju Hallim/Hangyeong)', C, '耽羅海上風電在濟州翰京面（Hangyeong-myeon）海域，不在翰林（翰林另有一座風場）',
+        'Tamra stands off Hangyeong-myeon on Jeju (the waters between Dumo-ri and Geumdeung-ri), not off Hallim, where a separate farm lies',
+        'http://tamra-owp.co.kr/2019/sub0201.php', rename='Tamra (Jeju Hangyeong)'),
+    fix('KOR', 'Jwasari Offshore wind farm', G, '還在環評階段（2025 年 3 月舉行環評初稿公聽會），規劃已改為 360 MW（24 部 15 MW）',
+        'Still at the environmental-impact-assessment stage (a public hearing on the draft was held in March 2025); the plan is now '
+        '360 MW (24 × 15 MW)',
+        'https://www.hansannews.com/news/articleView.html?idxno=95554', st=2, year=0, mw=360),
+    fix('KOR', 'Yeonggwang Wind offshore wind farm', G,
+        '靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；GEM 的座標是公司登記地址，位置只能當概略值',
+        'The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); '
+        'GEM’s point is the company’s registered address, so the location can only be treated as approximate',
+        'https://m.etnews.com/20200221000242', mw=34.5, turbine='15 x Unison U113 2.3 MW', lat=35.279, lon=126.336, approx=True, note=True),
+    fix('USA', 'Sunrise wind farm (United States)', G,
+        '與 2026 整理清單的「Sunrise Wind」是同一座（Ørsted，924 MW，BOEM 租約 OCS-A 0487）：GEM 的座標其實落在 Revolution Wind 的租約區內，'
+        '改到 OCS-A 0487 的中心（概略位置）並改用專案名稱，清單那筆就會併進來、不再重複',
+        'The same farm as “Sunrise Wind” in the 2026 compilation (Ørsted, 924 MW, BOEM lease OCS-A 0487): the GEM point actually falls '
+        'inside Revolution Wind’s lease area, so it is moved to the centre of OCS-A 0487 (approximate) and takes the project’s name, '
+        'which merges the compilation record into it instead of leaving two',
+        'https://www.boem.gov/renewable-energy/state-activities/sunrise-wind', rename='Sunrise Wind', lat=40.99, lon=-71.06, approx=True),
+    fix('USA', 'Vineyard Wind 1', C,
+        '最後一部風機 2026 年 3 月 13 日才裝好（開發商 2026 年 1 月的訴狀說 2025 年底 62 部中只有 44 部運轉、約 572 MW）；'
+        '依本站慣例改列興建中、年份 2026',
+        'The last turbine was only installed on 13 March 2026 (the developer’s January 2026 court filing says 44 of the 62 turbines were '
+        'operating at the end of 2025, about 572 MW), so it is listed as under construction with 2026 as its year',
+        'https://www.wbur.org/news/2026/03/14/vineyard-wind-construction-complete-massachusetts-offshore-wind', st=1, year=2026, note=True),
+    fix('USA', 'Coastal Virginia Offshore Wind (CVOW) Commercial Project', G,
+        '完工時間延到 2027 年底：2026 年 8 月時 176 部風機裝好 31 部，2026 年 3 月起首批運轉約 450 MW'
+        '（清單的預計完工年也一併改為 2027，見 PIPE_FIX）',
+        'Completion has moved to the end of 2027: 31 of the 176 turbines were installed by August 2026, and the first ones have been '
+        'generating about 450 MW since March 2026 (the compilation’s expected year is corrected to 2027 as well, see PIPE_FIX)',
+        'https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027',
+        turbine='176 x Siemens Gamesa SG 14-222 DD', note=True),
+    fix('USA', 'Revolution Wind', G, '開發商的容量是 704 MW（羅德島 400 MW＋康乃狄克 304 MW）；65 部 × 11 MW 的銘牌合計為 715 MW',
+        'The developers give 704 MW (400 MW for Rhode Island plus 304 MW for Connecticut); 65 × 11 MW of nameplate would be 715 MW',
+        'https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind', mw=704),
+    fix('USA', 'Empire wind farm', G, '開發商的容量是 810 MW（54 部 Vestas V236-15 MW）',
+        'The developer gives 810 MW (54 Vestas V236-15 MW turbines)', 'https://www.empirewind.com/project/', mw=810),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -568,6 +679,16 @@ GEM_KEEP = {
 PIPE_DROP = {
     ('KOR', 'Firefly (Bandibuli)'): ('Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
                                      'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
+}
+
+# 2026 整理清單之後才變動的欄位（國別, 清單上的名稱）→（要改的欄位, 中文理由, English, 出處）；在比對清單前套用
+PIPE_FIX = {
+    ('USA', 'Coastal Virginia Offshore Wind (CVOW)'): (
+        {'expected': 2027},
+        '預計完工年由 2026 改為 2027：2026 年 8 月開發商表示最後一批風機要到 2027 年底才裝完（當時 176 部裝好 31 部）',
+        'Expected completion moved from 2026 to 2027: in August 2026 the developer said the final turbines would only be installed by '
+        'the end of 2027 (31 of the 176 were in place then)',
+        'https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027'),
 }
 
 FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'type': 7, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
@@ -698,6 +819,12 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
               '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']
         for (iso, name), (rz, re_, url) in PIPE_DROP.items():
             L.append(f"| {name} ({iso}) | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
+        L.append('')
+        L += ['## ' + ('規劃中專案清單（2026 整理）之後才變動的欄位' if zh else 'Fields changed since the 2026 pipeline compilation'), '',
+              '| ' + ('專案 | 修正 | 理由 | 出處' if zh else 'Project | Change | Reason | Source link') + ' |', '|---|---|---|---|']
+        for (iso, name), (f, rz, re_, url) in PIPE_FIX.items():
+            ch = ', '.join(f'{k}={v}' for k, v in f.items())
+            L.append(f"| {name} ({iso}) | {ch} | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
         L.append('')
         L += ['## ' + ('不當成重複的 GEM 專案' if zh else 'GEM projects kept apart'), '',
               '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']

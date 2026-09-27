@@ -220,6 +220,9 @@ def write_docs(rows, out, ospar, countries):
                      '產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。'] if done >= 2 else []),
                   *(['- **第 3 步**：全球的浮動式風場補上細分型式：單柱式（spar）、半潛式、駁船式（含阻尼池式）、張力腳平台，逐座查技術供應商、開發商或產業新聞，'
                      '引用的原文逐筆核對過；同一筆紀錄含不同型式的機組時，在說明欄逐部寫出。'] if done >= 3 else []),
+                  *(['- **第 4 步**：台灣、日本、韓國、美國的離岸風場都沒有 OSPAR 紀錄，逐座查開發商、施工廠商、政府文件或產業新聞，'
+                     '引用的原文逐筆核對過（日文、韓文網頁依網頁編碼比對，PDF 逐頁比對），不引用 4C Offshore；日本港灣內的風場以 NEDO 的'
+                     '支持構造分類為準（NEDO 明寫「ドルフィン」就是 High-Rise Pile Cap 高樁承台）。查不到型式的列在下方「查過但暫不列入」。'] if done >= 4 else []),
                   '- 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。',
                   '- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）；'
                   '風場卡片與本頁寫出確切型式。', '',
@@ -251,6 +254,11 @@ def write_docs(rows, out, ospar, countries):
                   *(['- **Step 3**: floating farms worldwide get their sub-type: spar, semi-submersible, barge (including damping-pool hulls) or '
                      'tension-leg platform, checked one by one against technology providers, developers or trade press, with every quoted passage '
                      'checked against the page; where one record holds units of different types, the note lists them.'] if done >= 3 else []),
+                  *(['- **Step 4**: no offshore farm in Taiwan, Japan, Korea or the USA has an OSPAR record, so each was checked one by one against '
+                     'developers, construction contractors, government documents and trade press, with every quoted passage checked against the page '
+                     '(Japanese and Korean pages in their own encodings, PDFs page by page) and 4C Offshore never cited; farms inside Japanese ports '
+                     'follow NEDO’s classification of support structures (NEDO states that a “dolphin” is a High-Rise Pile Cap). Farms whose type '
+                     'could not be found are under “Checked but left out for now” below.'] if done >= 4 else []),
                   '- In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.',
                   '- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame '
                   '(jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed). Farm cards and this page give the exact type.', '',
