@@ -99,7 +99,7 @@ def main():
             want = {p[0] for p in rule['parts']} if t == 'mx' else {t}
             if not (want <= c if t == 'mx' else t in c):
                 agree = False
-        if (not agree or not specific) and not (rule['url'] and rule['zh'] and rule['en']):
+        if rule['ospar'] and (not agree or not specific) and not (rule['url'] and rule['zh'] and rule['en']):
             errors.append(f'{tag}: OSPAR says {[ospar[i]["Foundation/anchor type"] for i in rule["ospar"] if i in ospar]}; '
                           'a second source (url) and a zh/en note are required')
         rec = {'t': t}

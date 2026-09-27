@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 131 條：刪除 79 筆（其中營運中 25,292.8 MW），修正 52 筆。
+- 規則 142 條：刪除 80 筆（其中營運中 25,292.8 MW），修正 62 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -23,9 +23,11 @@
 | 塞內加爾 | 0 | 0 | 2 |
 | 多明尼加 | 1 | 50 | 6 |
 | 巴西 | 1 | 150 | 0 |
+| 德國 | 0 | 0 | 5 |
+| 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 3 | 1,889 | 8 |
 | 比利時 | 1 | 325 | 0 |
-| 法國 | 1 | 496 | 0 |
+| 法國 | 1 | 496 | 2 |
 | 泰國 | 1 | 600 | 1 |
 | 澳洲 | 3 | 193 | 3 |
 | 烏拉圭 | 1 | 141.6 | 1 |
@@ -34,7 +36,7 @@
 | 美國 | 6 | 666.8 | 1 |
 | 肯亞 | 1 | 310 | 3 |
 | 芬蘭 | 2 | 129 | 0 |
-| 英國 | 4 | 2,628 | 0 |
+| 英國 | 5 | 2,628 | 2 |
 | 荷蘭 | 5 | 1,621 | 2 |
 | 菲律賓 | 2 | 240 | 1 |
 | 葡萄牙 | 3 | 28.9 | 0 |
@@ -131,6 +133,22 @@
 |---|---|---|---|---|
 | Ventos Do Sul wind farm · 150 MW · 2006 | GEM | 重複（併入「Osório」） | Ventos do Sul Energia 就是 Osório 風場（150 MW，75 × 2 MW）的業主，同一座 | [連結](https://en.wikipedia.org/wiki/Os%C3%B3rio_wind_farm) |
 
+## 德國 (DEU)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Borkum Riffgrund 3 · 913 MW · 2025 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東南約 18 km，落在 Borkum Riffgrund 1、2 旁） | [連結](https://www.openstreetmap.org/way/1271257138) |
+| Hohe See · 497 MW · 2019 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東約 9 km） | [連結](https://www.openstreetmap.org/way/344491479) |
+| Hooksiel (BARD test turbine) · 5 MW · 2008 | 精選 | 修正：除役年 | 2016 年 5 月拆除（當時已停機約四年） | [連結](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
+| Ems Emden (Enercon E-112 nearshore) · 4.5 MW · 2004 | 精選 | 修正：陸域／離岸 | 立在埃姆登南碼頭堤腳外約 40 m 的埃姆斯河口水域；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3710429) |
+| Breitling (Rostock) · 2.5 MW · 2006 | 精選 | 修正：陸域／離岸 | 立在羅斯托克港 Breitling 水深約 2 m 處的鋼板樁基座上；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2492553) |
+
+## 愛爾蘭 (IRL)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Arklow Bank Phase 1 · 25.2 MW · 2004 | 精選 | 修正：除役年 | 最後三部風機 2024 年 5 月因安全原因停機，此後不再發電；業者 2026 年 9 月表示將申請拆除 | [連結](https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/) |
+
 ## 挪威 (NOR)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -158,6 +176,8 @@
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
 | Saint-Brieuc wind farm · 496 MW · 2024 | GEM | 重複（併入「Saint-Brieuc」） | 同一座風場（496 MW，2024 年）；GEM 座標在布雷斯特外海，偏離約 170 km | [連結](https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm) |
+| Îles d'Yeu et de Noirmoutier · 496 MW · 2025 | 精選 | 修正：容量、機組、分期 | 實際為 61 部 × 8 MW＝488 MW（原本寫 62 部、496 MW）；2025 年 6 月開始發電，年底已併網 408 MW，2026 年 4 月全部完工 | [連結](https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees) |
+| Calvados (Courseulles-sur-Mer) · 450 MW · 2025 | 精選 | 修正：狀態、年份 | 興建中：比原計畫延後約兩年，EDF 預計 2027 年底商轉（原本誤列為 2025 年營運中） | [連結](https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705) |
 
 ## 泰國 (THA)
 
@@ -257,6 +277,9 @@
 | Hornsea wind farm · 1 · 1,218 MW · 2019 | GEM | 重複（併入「Hornsea One」） | 同一座風場 | 資料比對 |
 | Dogger Bank wind farm · 1,200 MW · 2023 | GEM | 重複（併入「Dogger Bank A」） | 同一座風場（Dogger Bank A，2023 年 10 月首次發電） | [連結](https://www.equinor.com/news/202310-dogger-bank) |
 | Hornsea wind farm · 3, 4 · 5,000 MW | GEM | 刪除 | Hornsea 3 已由 2026 整理清單列為興建中；Hornsea 4 已於 2025 年 5 月由 Ørsted 停止開發 | [連結](https://orsted.com/en/company-announcement-list/2025/05/orsted-to-discontinue-the-hornsea-4-offshore-wind--143901911) |
+| Sofia · 1,400 MW · 2025 | 精選 | 修正：狀態、年份 | 興建中：100 部風機 2026 年 6 月 10 日全部裝好，高壓直流輸電系統仍在測試，風機尚未併上（原本誤列為 2025 年營運中） | [連結](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Sofia wind farm · 1,400 MW | GEM | 重複（併入「Sofia」） | 同一座風場（RWE，1.4 GW）；GEM 座標是整個 Dogger Bank 區的代用點 | [連結](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Dogger Bank A · 1,200 MW · 2025 | 精選 | 修正：業主 | 業主改為 Equinor、SSE Renewables 與 Vårgrønn 的合資；原欄位是 Dogger Bank South 的業主 | [連結](https://www.equinor.com/news/202310-dogger-bank) |
 
 ## 荷蘭 (NLD)
 

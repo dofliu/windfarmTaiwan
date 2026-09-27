@@ -78,6 +78,7 @@ CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
 CLEAN dup FRA Saint-Brieuc wind farm 496.0 -> Saint-Brieuc
 CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
+CLEAN dup GBR Sofia wind farm 1400.0 -> Sofia
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
 CLEAN dup IRN Harzvil wind farm 14.0 -> Manjil wind farm
 CLEAN dup IRN Siahpoush (Manjil) wind farm 48.0 -> Manjil wind farm
@@ -120,6 +121,11 @@ CLEAN fix CHN Huadian Yuhuan 2 500.0
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
+CLEAN fix DEU Borkum Riffgrund 3 913.0
+CLEAN fix DEU Breitling (Rostock) 2.5
+CLEAN fix DEU Ems Emden (Enercon E-112 nearshore) 4.5
+CLEAN fix DEU Hohe See 497.0
+CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
 CLEAN fix DNK Vesterhav Nord 176.4
 CLEAN fix DOM Granadillos wind farm 50.0
 CLEAN fix DOM La Isabela wind farm 50.0
@@ -127,6 +133,11 @@ CLEAN fix DOM Los Cocos wind farm 87.3
 CLEAN fix DOM Los Guzmancito wind farm 98.0
 CLEAN fix DOM Matafongo wind farm 34.0
 CLEAN fix DOM Puerto Plata-Imbert wind farm 46.0
+CLEAN fix FRA Calvados (Courseulles-sur-Mer) 450.0
+CLEAN fix FRA Îles d'Yeu et de Noirmoutier 496.0
+CLEAN fix GBR Dogger Bank A 1200.0
+CLEAN fix GBR Sofia 1400.0
+CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0
 CLEAN fix KEN Chania Green Wind Project 50.0

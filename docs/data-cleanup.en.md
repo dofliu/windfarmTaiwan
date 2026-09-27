@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 131 rules: 79 records removed (25,292.8 MW of them operating), 52 records fixed.
+- 142 rules: 80 records removed (25,292.8 MW of them operating), 62 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -21,8 +21,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
 | Finland | 2 | 129 | 0 |
-| France | 1 | 496 | 0 |
+| France | 1 | 496 | 2 |
+| Germany | 0 | 0 | 5 |
 | Iran | 2 | 62 | 2 |
+| Ireland | 0 | 0 | 1 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 1 | 310 | 3 |
 | Netherlands | 5 | 1,621 | 2 |
@@ -35,7 +37,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | South Korea | 1 | 61.5 | 0 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 1 | 135 | 1 |
-| United Kingdom | 4 | 2,628 | 0 |
+| United Kingdom | 5 | 2,628 | 2 |
 | United States of America | 6 | 666.8 | 1 |
 | Uruguay | 1 | 141.6 | 1 |
 | Vietnam | 11 | 1,454 | 4 |
@@ -122,6 +124,18 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Saint-Brieuc wind farm · 496 MW · 2024 | GEM | duplicate of “Saint-Brieuc” | Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away | [link](https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm) |
+| Îles d'Yeu et de Noirmoutier · 496 MW · 2025 | curated | fixed: capacity, turbines, phases | Built as 61 × 8 MW = 488 MW (it was listed as 62 turbines and 496 MW); first power in June 2025, 408 MW connected by the end of 2025, complete in April 2026 | [link](https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees) |
+| Calvados (Courseulles-sur-Mer) · 450 MW · 2025 | curated | fixed: status, year | Under construction: about two years behind the original plan, EDF expects commissioning at the end of 2027 (it was wrongly listed as operating in 2025) | [link](https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705) |
+
+## Germany (DEU)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Borkum Riffgrund 3 · 913 MW · 2025 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 18 km to the south-east, next to Borkum Riffgrund 1 and 2) | [link](https://www.openstreetmap.org/way/1271257138) |
+| Hohe See · 497 MW · 2019 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 9 km to the east) | [link](https://www.openstreetmap.org/way/344491479) |
+| Hooksiel (BARD test turbine) · 5 MW · 2008 | curated | fixed: end year | Dismantled in May 2016, after about four years out of service | [link](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
+| Ems Emden (Enercon E-112 nearshore) · 4.5 MW · 2004 | curated | fixed: onshore/offshore | Stands in the Ems estuary about 40 m off the dike toe at Emden’s Südkai; the federal energy register (MaStR) lists it as an onshore turbine, so it is now counted as onshore | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3710429) |
+| Breitling (Rostock) · 2.5 MW · 2006 | curated | fixed: onshore/offshore | Stands on a sheet-pile base in about 2 m of water in the Breitling at Rostock port; the federal energy register (MaStR) lists it as an onshore turbine, so it is now counted as onshore | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2492553) |
 
 ## Iran (IRN)
 
@@ -131,6 +145,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Harzvil wind farm · 14 MW | GEM | duplicate of “Manjil wind farm” | The Harzevil site of the Manjil complex | [link](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Manjil wind farm · 93 MW | GEM | fixed: capacity | The Manjil complex totals 92.2 MW, built in phases from 1995 and completed in 2015 | [link](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Binalood wind farm · 28 MW · 2017 | GEM | fixed: year | Online in 2008 (43 × 660 kW) | [link](https://en.wikipedia.org/wiki/Binalood_Wind_Farm) |
+
+## Ireland (IRL)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Arklow Bank Phase 1 · 25.2 MW · 2004 | curated | fixed: end year | The last three turbines were shut down for safety reasons in May 2024 and it has not generated since; in September 2026 the operator said it would apply to dismantle it | [link](https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/) |
 
 ## Jordan (JOR)
 
@@ -266,6 +286,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Hornsea wind farm · 1 · 1,218 MW · 2019 | GEM | duplicate of “Hornsea One” | Same farm | data comparison |
 | Dogger Bank wind farm · 1,200 MW · 2023 | GEM | duplicate of “Dogger Bank A” | Same farm (Dogger Bank A, first power October 2023) | [link](https://www.equinor.com/news/202310-dogger-bank) |
 | Hornsea wind farm · 3, 4 · 5,000 MW | GEM | removed | Hornsea 3 is already listed as under construction (2026 compilation); Ørsted discontinued Hornsea 4 in May 2025 | [link](https://orsted.com/en/company-announcement-list/2025/05/orsted-to-discontinue-the-hornsea-4-offshore-wind--143901911) |
+| Sofia · 1,400 MW · 2025 | curated | fixed: status, year | Under construction: all 100 turbines were in place on 10 June 2026, with the HVDC system still being tested before the turbines are connected (it was wrongly listed as operating in 2025) | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Sofia wind farm · 1,400 MW | GEM | duplicate of “Sofia” | Same farm (RWE, 1.4 GW); the GEM point is a placeholder for the whole Dogger Bank area | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Dogger Bank A · 1,200 MW · 2025 | curated | fixed: owner | Owner set to the Equinor, SSE Renewables and Vårgrønn joint venture; the field held Dogger Bank South’s owners | [link](https://www.equinor.com/news/202310-dogger-bank) |
 
 ## United States of America (USA)
 

@@ -5,7 +5,8 @@
 上游資料改版後要重新檢查這裡的每一條。
     dup   與 keep 指定的另一筆是同一座風場 → 刪除；保留者沒有業主或分期時搬過去（分期合計與保留者容量相差 5% 內才搬）
     drop  從未建成、查無此場，或已由逐場資料涵蓋的彙總 → 刪除
-    fix   修正欄位：rename（改名）、zhname、lat、lon、mw、year、st、end、owner、ph、note（note=True 表示把理由寫進卡片的註記）；
+    fix   修正欄位：rename（改名）、zhname、lat、lon、mw、year、type（0 陸域、1 離岸、2 浮動式）、st、end、owner、turbine（機組）、ph、
+          note（note=True 表示把理由寫進卡片的註記）；
           改了座標就不再標「概略位置」（approx=True 則仍標）；補上年份或改成規劃中就不再標「年份不詳」；
           改了容量而舊分期加總對不上時清掉分期
 GEM_KEEP 列出不可被當成重複的 GEM 專案（例：與精選風場名稱相近、實為另一座）。
@@ -276,6 +277,45 @@ RULES = [
     dup('FRA', 'Saint-Brieuc wind farm', G, ('Saint-Brieuc', C), '同一座風場（496 MW，2024 年）；GEM 座標在布雷斯特外海，偏離約 170 km',
         'Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away',
         'https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm'),
+    # ------------------------------------------------ 歐洲離岸風場（2026-09 查水下基礎第 2 步時發現）
+    fix('DEU', 'Borkum Riffgrund 3', C, '座標改到建成風場範圍的中心（原座標偏東南約 18 km，落在 Borkum Riffgrund 1、2 旁）',
+        'Point moved to the centre of the built array (the old one was about 18 km to the south-east, next to Borkum Riffgrund 1 and 2)',
+        'https://www.openstreetmap.org/way/1271257138', lat=54.05, lon=6.19),
+    fix('DEU', 'Hohe See', C, '座標改到建成風場範圍的中心（原座標偏東約 9 km）', 'Point moved to the centre of the built array (the old one was about 9 km to the east)',
+        'https://www.openstreetmap.org/way/344491479', lat=54.44, lon=6.33),
+    fix('DEU', 'Hooksiel (BARD test turbine)', C, '2016 年 5 月拆除（當時已停機約四年）', 'Dismantled in May 2016, after about four years out of service',
+        'https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html', end=2016),
+    fix('DEU', 'Ems Emden (Enercon E-112 nearshore)', C,
+        '立在埃姆登南碼頭堤腳外約 40 m 的埃姆斯河口水域；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域',
+        'Stands in the Ems estuary about 40 m off the dike toe at Emden’s Südkai; the federal energy register (MaStR) lists it as an onshore '
+        'turbine, so it is now counted as onshore', 'https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3710429',
+        type=0, note=True),
+    fix('DEU', 'Breitling (Rostock)', C, '立在羅斯托克港 Breitling 水深約 2 m 處的鋼板樁基座上；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域',
+        'Stands on a sheet-pile base in about 2 m of water in the Breitling at Rostock port; the federal energy register (MaStR) lists it as '
+        'an onshore turbine, so it is now counted as onshore', 'https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2492553',
+        type=0, note=True),
+    fix('GBR', 'Sofia', C, '興建中：100 部風機 2026 年 6 月 10 日全部裝好，高壓直流輸電系統仍在測試，風機尚未併上（原本誤列為 2025 年營運中）',
+        'Under construction: all 100 turbines were in place on 10 June 2026, with the HVDC system still being tested before the turbines are '
+        'connected (it was wrongly listed as operating in 2025)',
+        'https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/', st=1, year=2026, note=True),
+    dup('GBR', 'Sofia wind farm', G, ('Sofia', C), '同一座風場（RWE，1.4 GW）；GEM 座標是整個 Dogger Bank 區的代用點', 'Same farm (RWE, 1.4 GW); the GEM point is a placeholder for the whole Dogger Bank area',
+        'https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/'),
+    fix('GBR', 'Dogger Bank A', C, '業主改為 Equinor、SSE Renewables 與 Vårgrønn 的合資；原欄位是 Dogger Bank South 的業主',
+        'Owner set to the Equinor, SSE Renewables and Vårgrønn joint venture; the field held Dogger Bank South’s owners',
+        'https://www.equinor.com/news/202310-dogger-bank', owner='Equinor; SSE Renewables; Vårgrønn'),
+    fix('FRA', "Îles d'Yeu et de Noirmoutier", C, '實際為 61 部 × 8 MW＝488 MW（原本寫 62 部、496 MW）；2025 年 6 月開始發電，年底已併網 408 MW，2026 年 4 月全部完工',
+        'Built as 61 × 8 MW = 488 MW (it was listed as 62 turbines and 496 MW); first power in June 2025, 408 MW connected by the end of 2025, '
+        'complete in April 2026',
+        'https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees',
+        mw=488, turbine='61 x Siemens Gamesa SG 8.0-167 DD', ph=[[2025, 408], [2026, 80]], note=True),
+    fix('FRA', 'Calvados (Courseulles-sur-Mer)', C, '興建中：比原計畫延後約兩年，EDF 預計 2027 年底商轉（原本誤列為 2025 年營運中）',
+        'Under construction: about two years behind the original plan, EDF expects commissioning at the end of 2027 (it was wrongly listed as '
+        'operating in 2025)', 'https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705',
+        st=1, year=2027, note=True),
+    fix('IRL', 'Arklow Bank Phase 1', C, '最後三部風機 2024 年 5 月因安全原因停機，此後不再發電；業者 2026 年 9 月表示將申請拆除',
+        'The last three turbines were shut down for safety reasons in May 2024 and it has not generated since; in September 2026 the operator '
+        'said it would apply to dismantle it',
+        'https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/', end=2024, note=True),
     # ------------------------------------------------ Thailand, Philippines, Iran
     drop('THA', 'Jhimpir Power (Energy Absolute) wind farm', G,
          '不存在：Jhimpir 在巴基斯坦，Energy Absolute 在泰國沒有 600 MW 風場（它在猜也蓬的 Hanuman 各場另有紀錄）',
@@ -403,11 +443,11 @@ GEM_KEEP = {
          'https://www.nbd.com.cn/articles/2021-11-03/1978454.html'),
 }
 
-FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'st': 8, 'end': 9, 'owner': 10, 'ph': 14}
-LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'st': '狀態',
-            'end': '除役年', 'owner': '業主', 'ph': '分期'}
+FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'type': 7, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
+LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'type': '陸域／離岸', 'st': '狀態',
+            'end': '除役年', 'owner': '業主', 'turbine': '機組', 'ph': '分期'}
 LABEL_EN = {'rename': 'name', 'zhname': 'Chinese name', 'lat': 'location', 'lon': 'location', 'mw': 'capacity', 'year': 'year',
-            'st': 'status', 'end': 'end year', 'owner': 'owner', 'ph': 'phases'}
+            'type': 'onshore/offshore', 'st': 'status', 'end': 'end year', 'owner': 'owner', 'turbine': 'turbines', 'ph': 'phases'}
 
 
 def apply(rows, rules=RULES):
