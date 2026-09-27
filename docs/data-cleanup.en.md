@@ -229,7 +229,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
-| Claveria floating offshore wind farm · 1,600 MW | GEM | fixed: onshore/offshore | Floating (GEM’s project page now lists it as floating) | [link](https://www.gem.wiki/Claveria_(Domhain)_wind_farm) |
+| Claveria floating offshore wind farm · 1,600 MW | GEM | fixed: type | Floating (GEM’s project page now lists it as floating) | [link](https://www.gem.wiki/Claveria_(Domhain)_wind_farm) |
 | Pagudpud wind farm · 160 MW · 2023 | GEM | duplicate of “Balaoi & Caunayan” | Bayog Wind Power is ACEN’s project company for this 160 MW farm: same farm | [link](https://business.inquirer.net/323245/acen-shells-out-p3b-to-partly-fund-phs-biggest-windmill-farm) |
 | Pagudpu wind farm · 80 MW · 2023 | GEM | duplicate of “Balaoi & Caunayan” | Same farm (GEM lists its first 80 MW stage separately) | [link](https://www.gem.wiki/Pagudpu_wind_farm) |
 | Bangui Bay · 33 MW · 2005 | curated | fixed: capacity, phases | Three phases: 24.75 MW (2005), 8.25 MW (2008), 18.9 MW (2014) | [link](https://en.wikipedia.org/wiki/Wind_power_in_the_Philippines) |
@@ -303,7 +303,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Biscay Marine Energy Platform wind farm · 20 MW · 2015 | GEM | removed | The BiMEP test site’s grid capacity (four 5 MW export cables), not a wind farm; the only wind turbine ever installed there, DemoSATH, is listed separately | [link](https://www.bimep.com/en/bimep-area/technical-characteristics/) |
-| Timanfaya Floating Offshore wind farm · 50 MW | GEM | fixed: onshore/offshore | Floating: the developer, Capital Energy, uses floating technology for it (GEM lists it as fixed-bottom) | [link](https://www.evwind.es/2023/02/17/capital-energy-will-invest-2500-million-in-four-wind-farms-in-the-canary-islands-three-of-them-offshore/90273) |
+| Timanfaya Floating Offshore wind farm · 50 MW | GEM | fixed: type | Floating: the developer, Capital Energy, uses floating technology for it (GEM lists it as fixed-bottom) | [link](https://www.evwind.es/2023/02/17/capital-energy-will-invest-2500-million-in-four-wind-farms-in-the-canary-islands-three-of-them-offshore/90273) |
 
 ## Sweden (SWE)
 
@@ -386,7 +386,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
-| Långnabba wind farm · 40 MW · 2022 | GEM | fixed: onshore/offshore | On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm | [link](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
+| Långnabba wind farm · 40 MW · 2022 | GEM | fixed: type | On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm | [link](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
 
 ## Projects left out of the 2026 pipeline compilation
 

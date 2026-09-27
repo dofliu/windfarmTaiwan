@@ -138,7 +138,7 @@
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
-| Långnabba wind farm · 40 MW · 2022 | GEM | 修正：陸域／離岸 | 在奧蘭 Eckerö 南端的陸地上（只有輸電海纜在海底），不是離岸風場 | [連結](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
+| Långnabba wind farm · 40 MW · 2022 | GEM | 修正：類型 | 在奧蘭 Eckerö 南端的陸地上（只有輸電海纜在海底），不是離岸風場 | [連結](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
 
 ## 巴西 (BRA)
 
@@ -346,7 +346,7 @@
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
-| Claveria floating offshore wind farm · 1,600 MW | GEM | 修正：陸域／離岸 | 浮動式（GEM 的專案頁已改列為浮動式） | [連結](https://www.gem.wiki/Claveria_(Domhain)_wind_farm) |
+| Claveria floating offshore wind farm · 1,600 MW | GEM | 修正：類型 | 浮動式（GEM 的專案頁已改列為浮動式） | [連結](https://www.gem.wiki/Claveria_(Domhain)_wind_farm) |
 | Pagudpud wind farm · 160 MW · 2023 | GEM | 重複（併入「Balaoi & Caunayan」） | Bayog Wind Power 是 ACEN 這座 160 MW 風場的專案公司，同一座 | [連結](https://business.inquirer.net/323245/acen-shells-out-p3b-to-partly-fund-phs-biggest-windmill-farm) |
 | Pagudpu wind farm · 80 MW · 2023 | GEM | 重複（併入「Balaoi & Caunayan」） | 同一座（GEM 把第一階段 80 MW 另列一筆） | [連結](https://www.gem.wiki/Pagudpu_wind_farm) |
 | Bangui Bay · 33 MW · 2005 | 精選 | 修正：容量、分期 | 三期：2005 年 24.75 MW、2008 年 8.25 MW、2014 年 18.9 MW | [連結](https://en.wikipedia.org/wiki/Wind_power_in_the_Philippines) |
@@ -366,7 +366,7 @@
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
 | Biscay Marine Energy Platform wind farm · 20 MW · 2015 | GEM | 刪除 | BiMEP 測試場的併網容量（四條 5 MW 海纜），不是一座風場；測試場唯一裝過的風機 DemoSATH 已另列 | [連結](https://www.bimep.com/en/bimep-area/technical-characteristics/) |
-| Timanfaya Floating Offshore wind farm · 50 MW | GEM | 修正：陸域／離岸 | 浮動式：開發商 Capital Energy 的專案採浮動式技術（GEM 誤列為固定式） | [連結](https://www.evwind.es/2023/02/17/capital-energy-will-invest-2500-million-in-four-wind-farms-in-the-canary-islands-three-of-them-offshore/90273) |
+| Timanfaya Floating Offshore wind farm · 50 MW | GEM | 修正：類型 | 浮動式：開發商 Capital Energy 的專案採浮動式技術（GEM 誤列為固定式） | [連結](https://www.evwind.es/2023/02/17/capital-energy-will-invest-2500-million-in-four-wind-farms-in-the-canary-islands-three-of-them-offshore/90273) |
 
 ## 越南 (VNM)
 
