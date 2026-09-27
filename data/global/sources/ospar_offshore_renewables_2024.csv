@@ -1,0 +1,247 @@
+ID,Country,Name,Device Type,No of Devices,Current Status,Capacity,Foundation/anchor type,Remarks
+Be003,Belgium,Belwind I & II,wind turbine,56,operational,171,monopile,55 turbines of Phase I installed in 2010. Operational from end 2010. September 2013: installation Alstom Haliade 6MW: operational from september 2014. In 2015 Belwind was partially transferred to Nobelwind. The partial transfer was granted on 7 October 2015.
+Be001,Belgium,C-Power,wind turbine,54,operational,325.2,gravity-based/jacket,"Project layout in 2 blocks,Six 5 MW turbines operational from 2008 and  thirty 6 MW turbines operational from 2012, Installation of remainder of eightteen 6 MW windturbines  during 2013. Park is fully operational since september 2013."
+Be007,Belgium,Mermaid,wind turbine,28,operational,235.2,monopile,Area concession granted in July 2012. Application environmental permit recevied in september 2014 .In addition wave energy converters will be installed amongs the wind turbine. In 2015 Mermaid was partially transferred to Northwester 2. The modalities for the implementation of the partial transfer were granted on 12 May 2015.
+Be009,Belgium,Nobelwind,wind turbine,51,operational,165,monopile,
+Be005,Belgium,Norther,wind turbine,44,operational,370,monopile,"Area concession granted in June 2009. Environmental permit granted on 8/2/2013, Environmental permit cables granted on 8 april 2014. Under construction."
+Be008,Belgium,Northwester 2,wind turbine,23,operational,219,monopile,Modalities for the implementation of the partial transfer of Mermaid to Northwester 2 granted on 12 May 2015.
+Be002,Belgium,Northwind,wind turbine,72,operational,216,monopile,(old name: Eldepasco)
+Be004,Belgium,Rentel,wind turbine,42,operational,309,monopile,Area concession granted in June 2009. Environmental permit granted on 8/2/2013.
+Be006,Belgium,Seastar,wind turbine,30,operational,252,monopile,Area concession granted in June 2012. Environmental permit granted on 7 february 2014.
+DK02,Denmark,Horns Rev I,wind turbine,80,operational,160,monopile,
+DK03,Denmark,Frederikshavn,wind turbine,3,operational,14,monopile,Only one windmill remains offshore due to expansion of harbour
+DK04,Denmark,Rønland,wind turbine,8,operational,17,gravity-based,
+DK05,Denmark,Horns Rev II,wind turbine,91,operational,209,monopile,
+DK14,Denmark,Anholt,wind turbine,110,operational,400,monopile,
+DK23,Denmark,Nissum Bredning,wind turbine,4,operational,28,gravity-based,
+DK24,Denmark,Horns Rev III,wind turbine,49,operational,407,monopile,
+DK26,Denmark,Vesterhav Syd,wind turbine,20,operational,170,monopile,
+DK27,Denmark,Vesterhav Nord,wind turbine,21,operational,180,monopile,
+DK28,Denmark,Thor,wind turbine,72,authorised,1000,monopile,Expected in operation no later then ultimo 2027
+DK29,Denmark,Hesselø,wind turbine,,designated,,,
+DK30,Denmark,Kattegat,wind turbine,,designated,,,
+DK33,Denmark,Nordsøen I A1,wind turbine,,designated,,,
+DK34,Denmark,Nordsøen I A2,wind turbine,,designated,,,
+DK35,Denmark,Nordsøen I A3,wind turbine,,designated,,,
+DK37,Denmark,Energiø Nordsøen,wind turbine,,designated,,,
+DK39,Denmark,Frederikshavn,wind turbine,,authorised,,,
+FR01,France,Courseulles-sur-mer (Parc éolien en mer du Calvados),wind turbine,64,authorised,448,monopile,
+FR02,France,Saint-Brieuc (Parc éolien en large de la baie de Saint-Brieuc),wind turbine,62,operational,496,jacket,
+FR03,France,Saint-Nazaire (Parc éolien en mer du banc de Guérande),wind turbine,80,operational,480,monopile,
+FR04,France,Fécamp (Eoliennes offshore des Hautes Falaises),wind turbine,71,operational,497,gravitation,
+FR05,France,Dieppe Le Tréport (Eoliennes en mer de Dieppe Le Tréport),wind turbine,62,authorised,496,jacket,
+FR06,France,Iles d'Yeu et de Noirmoutier (Parc éolien en mer des deux îles),wind turbine,61,authorised,488,monopile,
+FR07,France,Dunkerque,wind turbine,46,authorised,600,monopile,
+FR08,France,Leucate-Le Barcarès (Eoliennes flottantes du golfe du Lion),wind turbine,3,authorised,30,other,floating structure (semi-submersible)
+FR10,France,Gruissan (Eoliennes flottantes de Gruissan Eolmed),wind turbine,3,authorised,30,other,"floating structure (semi-submerged, lightweight concrete)"
+FR11,France,Faraman-Port-Saint-Louis-du-Rhône (Provence grand large),wind turbine,3,operational,25.2,other,"floating structure (with tensioned leg platform, TLP)"
+FR12,France,Centre Manche 1 (Eoliennes en Mer Manche Normandie),wind turbine,47,designated,1000,jacket,
+FR13,France,Centre manche 2,wind turbine,,designated,1500,other,posé
+FR14,France,Bretagne Sud 1 (Pennavel),wind turbine,13,designated,2500,other,floating structure
+FR15,France,Bretagne Sud 2,wind turbine,,designated,400-550,other,floating structure
+FR16,France,Golfe de Fos 1,wind turbine,19,designated,230-280,other,floating structure
+FR17,France,Golfe de Fos 2,wind turbine,,designated,450-550,other,floating structure
+FR18,France,Narbonnaise 1,wind turbine,19,designated,230-280,other,floating structure
+FR19,France,Narbonnaise 2,wind turbine,,designated,450-550,other,floating structure
+FR20,France,Oléron 1,wind turbine,,designated,1000,other,posé
+FR21,France,Oléron 2,wind turbine,,designated,1000-1250,other,posé ou flottant
+FR26,France,Bretagne Nord-Ouest,wind turbine,,designated,2000,other,floating structure
+FR29,France,Golfe du Lion Est,wind turbine,,designated,1100,other,floating structure
+FR09,France,Groix et Belle-Ile (Eoliennes flottantes de Groix et Belle-Ile),wind turbine,3,decommissioned,28.5,other,"floating structure (semi-submersible, steel)"
+FR22,France,Golfe de Gascogne Sud,wind turbine,,designated,1200,other,floating structure
+FR23,France,Golfe du Lion Centre,wind turbine,,designated,2000,other,floating structure
+FR24,France,Fécamp Grand Large,wind turbine,,designated,4000,other,posé
+FR25,France,Roches-Douvres,wind turbine,,designated,2000-3000,other,posé
+FR27,France,Bretagne Nord-Est,wind turbine,,designated,1000-2000,other,posé
+FR28,France,Golfe de Gascogne Nord,wind turbine,,designated,1200,other,floating structure
+DE001,Germany,alpha ventus,wind turbine,12,operational,62,monopile/jacket,
+DE002,Germany,DanTysk,wind turbine,80,operational,288,monopile,
+DE004,Germany,Borkum Riffgrund 1,wind turbine,78,operational,312,monopile,
+DE005,Germany,Amrumbank West,wind turbine,80,operational,302,monopile/tripod/tripile/jacket/gravity-based/other,
+DE006,Germany,Nordsee Ost,wind turbine,48,operational,288,jacket,
+DE008,Germany,Butendiek,wind turbine,80,operational,288,monopile,
+DE009,Germany,GlobalTech I,wind turbine,80,operational,400,tripod/tripile,
+DE011,Germany,EnBW Hohe See,wind turbine,71,operational,500,monopile/tripod/tripile/jacket/gravity-based/other,
+DE012,Germany,Sandbank,wind turbine,72,operational,302,monopile/tripod/tripile/jacket/gravity-based/other,
+DE013,Germany,Gode Wind 01,wind turbine,55,operational,320,monopile/tripod/tripile/jacket/gravity-based/other,
+DE017,Germany,EnBW He Dreiht,wind turbine,64,operational,960,monopile/tripod/tripile/jacket/gravity-based/other,
+DE018,Germany,Nordergruende,wind turbine,18,operational,111,monopile/tripod/tripile/jacket/gravity-based/other,
+DE019,Germany,Riffgat,wind turbine,30,operational,108,monopile/tripod/tripile/jacket/gravity-based/other,
+DE021,Germany,BARD Offshore 1,wind turbine,80,operational,400,tripile,
+DE022,Germany,Deutsche Bucht,wind turbine,31,operational,260,monopile,
+DE024,Germany,Merkur Offshore (MEG Offshore I),wind turbine,66,operational,406,tripod,
+DE025a,Germany,Trianel Windpark Borkum Phase 1,wind turbine,40,operational,200,tripod,
+DE025b,Germany,Trianel Windpark Borkum Phase 2,wind turbine,32,operational,200,tripod/tripile,
+DE026,Germany,Nordsee One,wind turbine,54,operational,332,monopile/tripod/tripile/jacket/gravity-based/other,
+DE028,Germany,Borkum Riffgrund 2,wind turbine,56,operational,465,monopile/other,36 monopiles and 20 suction bucket jackets
+DE031,Germany,Kaskasi II,wind turbine,38,operational,342,monopile,
+DE032,Germany,Gode Wind 02,wind turbine,42,operational,252,monopile,
+DE034,Germany,Veja Mate,wind turbine,67,operational,402,tripod/tripile,
+DE036,Germany,Meerwind Sued/Ost,wind turbine,80,operational,288,monopile/tripod/tripile/jacket/gravity-based/other,
+DE037,Germany,Albatros,wind turbine,16,operational,118,monopile/tripod/tripile/jacket/gravity-based/other,
+DE074,Germany,Gode Wind 3,wind turbine,23,operational,266,monopile,
+DE117,Germany,NC 3,wind turbine,29,application,435,monopile,
+DE118,Germany,NC 4,wind turbine,33,application,495,monopile,
+DE119,Germany,NC 1,wind turbine,15,authorised,225,monopile,
+DE120,Germany,NC 2,wind turbine,29,authorised,433,monopile,
+DE121,Germany,N-6.6,wind turbine,,designated,630,,
+DE122,Germany,Waterkant,wind turbine,16,application,296,monopile,
+DE123,Germany,Nordlicht I,wind turbine,68,authorised,1020,monopile,
+DE124,Germany,N-9.1,wind turbine,,designated,2000,,
+DE125,Germany,N-9.2,wind turbine,,designated,2000,,
+DE126,Germany,N-9.3,wind turbine,,designated,1500,,
+DE128,Germany,N-10.1,wind turbine,,designated,2000,,
+DE129,Germany,N-10.2,wind turbine,,designated,500,,
+DE130,Germany,Borkum Riffgrund 3,wind turbine,83,authorised,900,monopile,
+DE131,Germany,N-11.1,wind turbine,,designated,2000,,
+DE132,Germany,N-11.2,wind turbine,,designated,1500,,
+DE133,Germany,N-12.1,wind turbine,,designated,2000,,
+DE134,Germany,N-12.2,wind turbine,,designated,2000,,
+DE135,Germany,N-12.3,wind turbine,,designated,1000,,
+DE136,Germany,N-13.1,wind turbine,,designated,500,,
+DE137,Germany,N-13.2,wind turbine,,designated,1000,,
+DE138,Germany,N-13.3,wind turbine,,designated,2000,,
+DE139,Germany,N-21.1,wind turbine,,designated,2000,,
+IE01,Ireland,Arklow Bank,wind turbine,,authorised,400,monopile,"Currently 7 x 3,6 MW turbines are in place. It is intended that the final output will be 520MV with all turbines with the area specified."
+IE02,Ireland,Codling Bank,wind turbine,220,authorised,1100,,"Phased development over the period 2009 to 2016,Foreshore Lease granted (copy available at http://www.dcmnr.gov.ie/NR/rdonlyres/665CD3AA-C74D-4FBE-9329-70186FC44F3E/0/MS538LForeshoreLease.pdf )"
+IE03,Ireland,Oriel Wind Farm,wind turbine,55,application,330,,Formal application submitted with EIS
+IE04,Ireland,Sceirde Rocks,wind turbine,20,application,100,,Formal application submitted with EIS
+IE05,Ireland,Dublin Array,wind turbine,,application,824,,Formal application submitted with EIA
+IE06,Ireland,North Irish Sea Array,wind turbine,,application,500,,Formal application submitted with EIA
+NL001,Netherlands,OWF Egmond aan Zee (OWEZ),wind turbine,36,operational,108,monopile,
+NL002,Netherlands,OWF Prinses Amalia,wind turbine,60,operational,120,monopile,
+NL003,Netherlands,OWF Luchterduinen,wind turbine,43,operational,129,monopile,
+NL004,Netherlands,OWF Gemini,wind turbine,150,operational,600,monopile,
+NL005,Netherlands,OWF Borssele I + II,wind turbine,94,operational,752,monopile,
+NL006,Netherlands,OWF Borssele III + IV,wind turbine,77,operational,732,monopile,
+NL007,Netherlands,OWF Hollandse Kust (Zuid),wind turbine,139,operational,1519,monopile,
+NL008,Netherlands,OWF Hollandse Kust (Noord),wind turbine,69,operational,759,monopile,
+NL009,Netherlands,OWF IJmuiden Ver Alpha,wind turbine,,authorised,2000,,Windfarm design is still in progress.
+NL010,Netherlands,OWF IJmuiden Ver Beta,wind turbine,,authorised,2000,,Windfarm design is still in progress.
+NO001,Norway,Unitech Zefyros,wind turbine,1,operational,2.3,other,Former Hywind Demo.
+NO002,Norway,Havsul I,wind turbine,78,withdrawn,350,other,Not established before deadline.
+NO003,Norway,Siragrunnen,wind turbine,40,refused,200,gravity-based,
+NO009,Norway,Testområde Stadt,wind turbine,3,refused,10,other,"Three slots for testing floating wind turbines. Not established within deadline, and application for extended deadline was refused."
+NO010,Norway,Hywind Tampen,wind turbine,11,operational,94.6,other,Floating offshore wind farm solely connected to offshore oil and gas installations.
+NO011,Norway,SeaTwirl S2,wind turbine,1,authorised,1,other,A single vertical-axis turbine pilot.
+NO012,Norway,Sørvest F. Sørlige Norsjø II phase 1,wind turbine,,designated,1500,,Under development
+NO013a,Norway,Vestavind F,wind turbine,,designated,500,,"Planned auction in 2025, tidligere Utsira Nord"
+NO013b,Norway,Vestavind F,wind turbine,,designated,500,,"Planned auction in 2025, tidligere Utsira Nord"
+NO013c,Norway,Vestavind F,wind turbine,,designated,500,,"Planned auction in 2025, tidligere Utsira Nord"
+NO014,Norway,Ekofisk Vind,wind turbine,2,withdrawn,24,jacket,Two wind turbines to supply offshore oil and gas installations.
+NO016,Norway,Windcatching,wind turbine,10,refused,1002,other,Application for a three-staged pilot farm for a floating multi-rotor concept.
+NO017,Norway,GoliatVIND,wind turbine,5,application,75,other,Application for a five-turbine farm connected to an offshore gas installation with existing grid connection.
+NO018,Norway,TetraSpar Demonstration Project,wind turbine,1,operational,3.6,other,"The TetraSpar Demonstration Project is the world’s first full-scale demonstration of an industrialized offshore foundation. The project is carried out in a partnership between Shell, RWE, TEPCO Renewable Power, and Stiesdal Offshore."
+ES003,Spain,ZAPER NOR-1,wind turbine,,designated,,other,Information can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182)
+ES004,Spain,ZAPER NOR-2,wind turbine,,designated,,other,Floating structure; ZAPER accounts for area of high potential for wind energy development. Details can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182).
+ES005,Spain,ZAPER NOR-3,wind turbine,,designated,,other,Floating structure; ZAPER accounts for area of high potential for wind energy development. Details can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182).
+ES006,Spain,ZAPER NOR-4,wind turbine,,designated,,other,Floating structure; ZAPER accounts for area of high potential for wind energy development. Details can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182).
+ES007,Spain,ZAPER NOR-5,wind turbine,,designated,,other,Floating structure; ZAPER accounts for area of high potential for wind energy development. Details can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182).
+ES008,Spain,ZAPER NOR-6,wind turbine,,designated,,other,Floating structure; ZAPER accounts for area of high potential for wind energy development. Details can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182).
+ES009,Spain,ZAPER NOR-7,wind turbine,,designated,,other,Floating structure; ZAPER accounts for area of high potential for wind energy development. Details can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182).
+ES010,Spain,ZAPER NOR-8,wind turbine,,designated,,other,Floating structure; ZAPER accounts for area of high potential for wind energy development. Details can be found at https://www.boe.es/eli/es/rd/2023/02/28/150/dof/spa/pdf (pages 132 and 182).
+SE1,Sweden,Kattegatt Offshore,wind turbine,50,authorised,300,,"Authorised by Court of Appeal 2015-12-08, extension of permit to 2029"
+SE2,Sweden,Galene,wind turbine,21,authorised,1700,monopile/gravity-based,"In Swedish EEZ, Approved 2023"
+SE3,Sweden,Kattegatt Syd,wind turbine,,authorised,15-20/turbine,monopile/gravity-based,"In Swedish EEZ, Approved 2023"
+SE4,Sweden,Poseidon,wind turbine,94,authorised,1400,other,"Floating structure; In the Swedish EEZ, Approved 2024"
+SE5,Sweden,Mareld,wind turbine,165,application,2500,other,"Floating structure; In the Swedish EEZ, application is being processed"
+SE6,Sweden,Vidar,wind turbine,91,application,2000,other,"Floating structure; In the Swedish EEZ, application is being processed"
+SE7,Sweden,Västvind,wind turbine,50,application,1000,monopile/gravity-based/other,Floating structure; Application is being processed
+UK001,United Kingdom,Aberdeen Offshore W/F,wind turbine,11,operational,97,jacket,
+UK002,United Kingdom,Barrow,wind turbine,30,operational,90,monopile,
+UK003,United Kingdom,Beatrice Offshore Wind Farm,wind turbine,84,operational,588,jacket,
+UK003A,United Kingdom,Beatrice OFTO,wind turbine,0,operational,0,,N/A
+UK005,United Kingdom,Blyth Demo Phase 1,wind turbine,5,operational,41.5,gravity-based,
+UK006,United Kingdom,Blyth Demonstration Phases 2&3,wind turbine,10,authorised,58.4,other,
+UK007,United Kingdom,Blyth,wind turbine,2,decommissioned,3.8,monopile,
+UK012,United Kingdom,Burbo Bank Extension,wind turbine,32,operational,259,monopile,
+UK013,United Kingdom,Burbo Bank,wind turbine,25,operational,90,monopile,
+UK014,United Kingdom,Dogger Bank A,wind turbine,92,authorised,1200,monopile,
+UK015,United Kingdom,Dogger Bank B,wind turbine,92,authorised,1200,monopile,
+UK019,United Kingdom,Dudgeon,wind turbine,67,operational,402,monopile,
+UK021,United Kingdom,East Anglia ONE NORTH,wind turbine,67,authorised,800,jacket,
+UK022,United Kingdom,East Anglia ONE,wind turbine,102,operational,714,jacket,
+UK024,United Kingdom,East Anglia THREE,wind turbine,95,application,1400,jacket,
+UK025,United Kingdom,East Anglia TWO,wind turbine,75,authorised,800,jacket,
+UK034,United Kingdom,Galloper,wind turbine,56,operational,336,monopile,
+UK036,United Kingdom,Greater Gabbard,wind turbine,140,operational,504,monopile,
+UK037,United Kingdom,Gunfleet Sands Demo,wind turbine,2,operational,12,monopile,
+UK038,United Kingdom,Gunfleet Sands I,wind turbine,30,operational,108,monopile,
+UK039,United Kingdom,Gunfleet Sands II,wind turbine,18,operational,65,monopile,
+UK040,United Kingdom,Gwynt y Mor,wind turbine,160,operational,576,monopile,
+UK043,United Kingdom,Hornsea 1 (East),wind turbine,58,operational,406,monopile,
+UK044,United Kingdom,Hornsea 1 (West),wind turbine,58,operational,406,jacket,
+UK045,United Kingdom,Hornsea 1 (Centre),wind turbine,58,operational,406,monopile,
+UK046,United Kingdom,Hornsea Project 2 - Phase 1 (Breesea),wind turbine,300,operational,1386,monopile,
+UK046A,United Kingdom,Hornsea Project 2 - Phase 2 (Soundmark),wind turbine,165,operational,1386,,Appears to have been merged with Phase 3
+UK046B,United Kingdom,Hornsea Project 2 - Phase 3 (Sonningmay),wind turbine,165,operational,1386,,Appears to have been merged with Phase 2
+UK047,United Kingdom,Hornsea Project Three (HOW03),wind turbine,200,application,2852,monopile,
+UK048,United Kingdom,Hornsea Project Four (HOW04),wind turbine,180,application,2600,,
+UK049,United Kingdom,Humber Gateway,wind turbine,73,operational,219,monopile,
+UK051,United Kingdom,Inch Cape Offshore Wind Farm,wind turbine,72,authorised,1080,monopile,
+UK052,United Kingdom,Inner Dowsing,wind turbine,27,operational,97,monopile,
+UK056,United Kingdom,Kentish Flats Extension,wind turbine,15,operational,49.5,monopile,
+UK057,United Kingdom,Kentish Flats,wind turbine,30,operational,90,monopile,
+UK059,United Kingdom,Lincs,wind turbine,75,operational,270,monopile,
+UK060,United Kingdom,London Array,wind turbine,175,operational,630,monopile,
+UK061,United Kingdom,Lynn,wind turbine,27,operational,97,monopile,
+UK064,United Kingdom,Methil Demo,wind turbine,1,operational,7,jacket,jacket
+UK068,United Kingdom,Neart Na Gaoithe Offshore Wind,wind turbine,54,authorised,448,jacket,
+UK071,United Kingdom,Norfolk Boreas,wind turbine,158,authorised,1800,,TBC
+UK074,United Kingdom,North Hoyle,wind turbine,30,operational,60,monopile,
+UK076,United Kingdom,Ormonde,wind turbine,30,operational,150,jacket,
+UK079,United Kingdom,Race Bank,wind turbine,91,operational,573,monopile,
+UK080,United Kingdom,Rampion,wind turbine,116,operational,400,monopile,
+UK082,United Kingdom,Rhyl Flats,wind turbine,25,operational,90,monopile,
+UK083,United Kingdom,Robin Rigg East,wind turbine,30,operational,84,monopile,
+UK084,United Kingdom,Robin Rigg West,wind turbine,30,operational,90,monopile,
+UK087,United Kingdom,Scroby Sands,wind turbine,30,operational,60,monopile,
+UK088,United Kingdom,Seagreen 1A Offshore Wind Farm,wind turbine,114,authorised,500,jacket,
+UK089,United Kingdom,Seagreen Phase 1 Windfarm,wind turbine,75,authorised,1140,,
+UK092,United Kingdom,Sheringham Shoal,wind turbine,88,operational,317,monopile,
+UK102,United Kingdom,Teesside,wind turbine,27,operational,62,monopile,
+UK104,United Kingdom,Thanet,wind turbine,100,operational,300,monopile,
+UK106,United Kingdom,Triton Knoll,wind turbine,90,operational,860,monopile,
+UK107,United Kingdom,Walney 1,wind turbine,51,operational,184,monopile,
+UK108,United Kingdom,Walney 2,wind turbine,51,operational,184,monopile,
+UK109,United Kingdom,Walney Extension 3,wind turbine,40,operational,330,monopile,
+UK110,United Kingdom,Walney Extension 4,wind turbine,47,operational,329,monopile,
+UK113,United Kingdom,West of Duddon Sands,wind turbine,108,operational,389,monopile,
+UK114,United Kingdom,Westermost Rough,wind turbine,35,operational,210,monopile,
+UK128,United Kingdom,Awel y Mor,wind turbine,,application,,,TBC
+UK129,United Kingdom,Dogger Bank C,wind turbine,93,authorised,1200,monopile,"Now Dogger Bank A, B and C following the Dogger Bank Wind Farms reorganisation"
+UK130,United Kingdom,Dudgeon Extension,wind turbine,34,application,402,,
+UK131,United Kingdom,Erebus Floating Wind Demo,wind turbine,7,application,100,other,Foundation type: Semi-submersible (WindFloat)
+UK132,United Kingdom,Five Estuaries,wind turbine,79,application,353,,
+UK135,United Kingdom,North Falls,wind turbine,57,application,504,,Greater Gabbard Extension
+UK136,United Kingdom,Rampion 2 (Rampion Extension),wind turbine,90,application,1200,,
+UK136A,United Kingdom,Rampion 2 (Zone 6),wind turbine,,application,,,Developed within Rampion Extension
+UK137,United Kingdom,Sheringham Shoal Extension,wind turbine,27,application,317,,
+UK138,United Kingdom,Sofia,wind turbine,100,authorised,1400,monopile,formerly Dogger Bank Teesside B
+UK140,United Kingdom,Berwick Bank Wind Farm,wind turbine,307,application,4100,jacket,R3 z2 pZ3
+UK140B,United Kingdom,Marr Bank Wind Farm,wind turbine,,application,1800,,Marr Bank has now been incorporated into the Berwick Bank Wind Farm
+UK141,United Kingdom,Moray Offshore Windfarm (East),wind turbine,85,operational,953,jacket,Z1 WDA
+UK142,United Kingdom,Moray West,wind turbine,60,authorised,882,jacket,
+UK146,United Kingdom,Norfolk Vanguard East,wind turbine,,authorised,2760,,Includes Norfolk Vanguard West
+UK146A,United Kingdom,Norfolk Vanguard West,wind turbine,,authorised,,,Norfolk Vanguard East and West are consented together
+UK152,United Kingdom,Caledonia Offshore Wind Farm,wind turbine,,application,1000,,
+UK154,United Kingdom,Bowdun Offshore Wind Farm,wind turbine,,designated,1008,,
+UK156,United Kingdom,Forthwind Methil Demonstration,wind turbine,1,authorised,12,jacket,
+UK158,United Kingdom,MachairWind,wind turbine,,application,2000,,
+UK159,United Kingdom,Tallisk Offshore Wind Project,wind turbine,,designated,500,,"Known as ""Talisk"" Offshore Wind Farm"
+UK161,United Kingdom,Marram,wind turbine,,application,3000,,
+UK163,United Kingdom,Morven,wind turbine,,application,2907,,
+UK166,United Kingdom,Spiorad na Mara,wind turbine,,designated,840,,
+UK168,United Kingdom,Round 4 Preferred Project 1,wind turbine,,designated,3,,
+UK169,United Kingdom,Round 4 Preferred Project 2,wind turbine,,designated,,,
+UK170,United Kingdom,Round 4 Preferred Project 3,wind turbine,,designated,,,
+UK171,United Kingdom,Round 4 Preferred Project 4,wind turbine,,designated,,,
+UK172,United Kingdom,Round 4 Preferred Project 5,wind turbine,,designated,,,
+UK173,United Kingdom,Round 4 Preferred Project 6,wind turbine,,designated,,,
+UK174,United Kingdom,Ossian Offshore Windfarm,wind turbine,,application,2610,,
+UK176,United Kingdom,West of Orkney Wind Farm,wind turbine,,application,2000,,
+UK180,United Kingdom,Shetland Offshore Wind,wind turbine,,application,500,,-
+UK181,United Kingdom,Ocean Winds Shetland,wind turbine,,application,500,,-
+UK185,United Kingdom,IN Nora,wind turbine,,application,,,-
+UK186,United Kingdom,IN Malin,wind turbine,,application,100,,-
+UK187,United Kingdom,IN Salamander,wind turbine,,application,100,,-
