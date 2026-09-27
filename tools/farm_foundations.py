@@ -69,6 +69,11 @@ def F3(*a, **k):
     return F(*a, step=3, **k)
 
 
+def F4(*a, **k):
+    """第 4 步加入的列（台灣、日本、韓國、美國）"""
+    return F(*a, step=4, **k)
+
+
 FLOAT_SUBS = ('spar', 'semi', 'barge', 'tlp')      # 浮動式的細分型式（sb 吸力桶是固定式套管用的）
 
 

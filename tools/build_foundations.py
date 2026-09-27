@@ -163,6 +163,10 @@ NOTE = {   # 依對照表已完成到第幾步
     3: ['逐步收集中：第 1、2 步為歐洲，第 3 步為全球浮動式風場的細分型式（2026-09）；其他地區的固定式離岸風場暫列「型式不詳」',
         'Collected step by step: steps 1 and 2 cover Europe and step 3 the sub-types of floating farms worldwide (Sep 2026); '
         'fixed-bottom offshore farms elsewhere are shown as “type unknown” for now'],
+    4: ['逐步收集中：第 1、2 步為歐洲，第 3 步為全球浮動式風場的細分型式，第 4 步為台灣、日本、韓國、美國（2026-09）；'
+        '中國、越南等其他地區的固定式離岸風場暫列「型式不詳」',
+        'Collected step by step: steps 1 and 2 cover Europe, step 3 the sub-types of floating farms worldwide and step 4 Taiwan, Japan, '
+        'Korea and the USA (Sep 2026); fixed-bottom offshore farms elsewhere, such as in China and Vietnam, are shown as “type unknown” for now'],
 }
 
 
@@ -205,7 +209,7 @@ def write_docs(rows, out, ospar, countries):
                   '', '1. **北海與東北大西洋（OSPAR 涵蓋範圍）**：已完成（2026-09）。',
                   '2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：' + ('已完成（2026-09）。' if done >= 2 else '進行中。'),
                   '3. **浮動式風場的細分型式**（全球）：' + ('已完成（2026-09）。' if done >= 3 else '進行中。'),
-                  '4. 台灣、日本、韓國、美國。', '5. 中國、越南：前四步完成後再決定。', '',
+                  '4. **台灣、日本、韓國、美國**' + ('：已完成（2026-09）。' if done >= 4 else '。'), '5. 中國、越南：前四步完成後再決定。', '',
                   '本頁是' + {1: '第 1 步', 2: '前兩步', 3: '前三步', 4: '前四步', 5: '前五步'}[done] + '的結果。還沒查到的離岸風場標「型式不詳」，不臆測。', '',
                   '## 來源與方法', '',
                   f'- **OSPAR Offshore Renewable Energy Developments 2024**（[ODIMS]({OSPAR_URL})，CC0，資料時間 2024-01-01）是唯一逐場列出基礎型式的開放資料。'
@@ -231,7 +235,7 @@ def write_docs(rows, out, ospar, countries):
                   '1. **North Sea and NE Atlantic (OSPAR coverage)**: done (Sep 2026).',
                   '2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): ' + ('done (Sep 2026).' if done >= 2 else 'in progress.'),
                   '3. **Sub-types of floating farms** (worldwide): ' + ('done (Sep 2026).' if done >= 3 else 'in progress.'),
-                  '4. Taiwan, Japan, Korea and the USA.', '5. China and Vietnam: to be decided after the first four steps.', '',
+                  '4. **Taiwan, Japan, Korea and the USA**' + (': done (Sep 2026).' if done >= 4 else '.'), '5. China and Vietnam: to be decided after the first four steps.', '',
                   'This page shows the results of ' + ('step 1' if done == 1 else f'steps 1–{done}') + '. Offshore farms not yet checked are shown as “type unknown”, never guessed.', '',
                   '## Sources and method', '',
                   f'- **OSPAR Offshore Renewable Energy Developments 2024** ([ODIMS]({OSPAR_URL}), CC0, data as of 1 Jan 2024) is the only open dataset '
