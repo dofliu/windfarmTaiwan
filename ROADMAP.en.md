@@ -121,6 +121,12 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      farms never built); see [docs/data-cleanup.en.md](./docs/data-cleanup.en.md). Every operating offshore farm in Europe
      except Frederikshavn now has a known type.
   3. Floating farms.
+     **Done (Sep 2026, v2.9.0)**: the 19 floating farms in the table have a sub-type (spar, semi-submersible, barge or
+     tension-leg platform), 15 of them operating (260.8 MW). Every farm cites a technology provider, developer or government
+     document, and each quoted passage was checked; Fukushima's three demonstrators had different types, so its note lists
+     each one. The checks also corrected 20 farm records (EFGL, EolMed and the Goto Offshore Wind Farm, which only started
+     in 2026, are listed as under construction with a note; duplicates and farms never built were removed). Four floating
+     units in China are not yet in the data (see TODO).
   4. Taiwan, Japan, Korea and the USA: developers' websites and EIA documents.
   5. China and Vietnam: ask the owner once the first four steps are done.
 

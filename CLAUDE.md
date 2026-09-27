@@ -50,11 +50,12 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Check numbers against the original source before publishing them; if something cannot be verified, say so instead of guessing.
 - 風場的逐筆修正（重複、從未建成、錯置、數字錯誤）寫在 `tools/farm_cleanup.py`：每條規則用（國別, 名稱, 來源）指定剛好一筆，
   附中英文理由與出處連結，建置時輸出 `docs/data-cleanup*.md`。規則對不到資料時建置會中止，要逐條重新查證，不要直接刪掉規則了事。
-  確認是不同風場、但名稱相近會被當成重複的 GEM 專案，列在同一檔的 `GEM_KEEP`。
+  確認是不同風場、但名稱相近會被當成重複的 GEM 專案，列在同一檔的 `GEM_KEEP`；2026 年整理的規劃中專案清單裡、之後已停止的專案列在 `PIPE_DROP`。
   Record-level farm fixes (duplicates, never built, misplaced, wrong figures) live in `tools/farm_cleanup.py`: each rule names
   exactly one record by (country, name, source) with bilingual reasons and a source link, and the build writes `docs/data-cleanup*.md`.
   If a rule stops matching, the build stops: re-check it rather than just deleting it. GEM projects that are confirmed to be
-  different farms but have look-alike names go in `GEM_KEEP` in the same file.
+  different farms but have look-alike names go in `GEM_KEEP` in the same file, and projects in the 2026 pipeline compilation that have
+  since stopped go in `PIPE_DROP`.
 
 - 港口資料 `data/global/ports.json` 是人工整理、每港附出處：座標標在碼頭或港池（`coordNote` 說明是哪裡），「服務過的風場」只列有出處佐證的，
   名稱要與 `wind_farms.json` 完全一致；角色已結束的港口標 `former`。改完跑 `python3 tools/qa_ports.py`。查不到的港口不要猜，列在 TODO。
@@ -64,13 +65,13 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 
 - 離岸風場水下基礎型式：逐場對照表在 `tools/farm_foundations.py`（每列用國別與風場名稱指定一座，名稱與 `wind_farms.json` 完全一致），
   改完跑 `python3 tools/build_foundations.py`，輸出 `data/global/foundations.json` 與 `docs/foundations*.md`。OSPAR 的值不一定是建成的樣子
-  （德國的紀錄尤其不可靠）：與 OSPAR 不符或 OSPAR 沒寫明的，一定要附第二來源與中英文說明；OSPAR 只有核准階段設計（authorised 等）的，一定要附施工紀錄；沒有 OSPAR 紀錄的每列都要附出處。以上建置都會檢查；查不到的列在 `EXCLUDED`（卡片會寫出理由）或 TODO，不臆測。
+  （德國的紀錄尤其不可靠）：與 OSPAR 不符或 OSPAR 沒寫明的，一定要附第二來源與中英文說明；OSPAR 只有核准階段設計（authorised 等）的，一定要附施工紀錄；沒有 OSPAR 紀錄的每列都要附出處。浮動式的列一定要有細分型式（單柱式、半潛式、駁船式、張力腳），同一筆含不同型式的機組時改寫中英文說明。以上建置都會檢查；查不到的列在 `EXCLUDED`（卡片會寫出理由）或 TODO，不臆測。
   地圖依結構歸成四組上色（三個色相＋兩個中性色，dataviz 色盲檢查）；新增型式或改色前先重跑色盲檢查。重建風場層後也要重跑一次。
   Offshore foundation types: the per-farm table is `tools/farm_foundations.py` (each row names one farm by country and exact name);
   run `python3 tools/build_foundations.py` after editing to write `data/global/foundations.json` and `docs/foundations*.md`. OSPAR does
   not always describe what was built (German records especially): any row that differs from OSPAR, or where OSPAR gives no specific
   type, needs a second source and a bilingual note; where OSPAR only has a consent-stage design (authorised and so on), a construction
-  source is required; rows without an OSPAR record need a source of their own. The build checks all of this. Leave unverifiable farms
+  source is required; rows without an OSPAR record need a source of their own; a floating row needs a floating sub-type (spar, semi-submersible, barge, tension-leg), or a bilingual note when one record holds units of different types. The build checks all of this. Leave unverifiable farms
   in `EXCLUDED` (the farm card shows the reason) or TODO; never guess. The map folds types into four colour groups (three hues plus two neutrals, checked for colour-blind readers); re-run that
   check before adding a type or changing a colour. Re-run the build after rebuilding the farm layer.
 

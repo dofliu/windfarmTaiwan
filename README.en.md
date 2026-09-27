@@ -75,8 +75,9 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     Atlantic within OSPAR (Sep 2026, 99 farms; where OSPAR differs from what was built or gives no specific type, German
     Wikipedia or construction news is used); step 2 adds the rest of Europe (Sep 2026, 41 farms: the Baltic, the
     Mediterranean, the IJsselmeer and farms finished after OSPAR 2024, each with a construction or other source), so every
-    operating offshore farm in Europe except one test site has a known type. Farm-by-farm list:
-    [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
+    operating offshore farm in Europe except one test site has a known type; step 3 gives floating farms worldwide their
+    sub-type (Sep 2026: spar, semi-submersible, barge, tension-leg platform), and country profiles count floating farms by
+    sub-type. Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
   - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
     nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
@@ -293,6 +294,11 @@ python tools/build_standalone.py
   WindEurope's yearly grid-connection figures; Arklow Bank, Utgrunden I, Irene Vorrink and the Hooksiel test turbine
   have stopped or been dismantled; Yeu-Noirmoutier is 488 MW; three Norwegian demonstration areas that were never built,
   the METCentre test site's licensed capacity and 4 duplicates were removed; and 8 farms were moved to where they are
+- While checking floating farms (foundation step 3, Sep 2026), 20 more rules corrected the data: EFGL and EolMed (France) and
+  the Goto Offshore Wind Farm (Japan) only started operating in 2026 (listed as under construction, with a note, while the
+  timeline ends in 2025); TetraSpar was decommissioned in 2026; Kincardine is 47.5 MW; GEM's BiMEP test-site capacity, the
+  never-built Dounreay Trì, Korea's stopped Bandibuli and 4 duplicates were removed; projects in the 2026 pipeline
+  compilation that have since stopped are left out (`PIPE_DROP`)
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total

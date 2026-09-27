@@ -124,9 +124,19 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] The Frederikshavn test site in Denmark: the Danish Energy Agency says only one 2.3 MW turbine is left at sea after the
       harbour was extended, but not which one (the turbines had different foundations); once known, add it to the table and fix
       the capacity (still the 2003 figure of 3 turbines, 7.6 MW)
-- [ ] Step 3: floating farms. Also check GEM's Spanish “Biscay Marine Energy Platform wind farm” (floating, 20 MW, 2015): like
-      Norway's METCentre record removed in step 2, it may be the test site's licensed capacity, and its actual turbine (DemoSATH,
-      2 MW) is listed separately
+- [x] Step 3: floating farms: 19 get a sub-type, 15 of them operating; 20 more rules corrected the data (GEM's BiMEP test-site
+      capacity was removed) (Sep 2026, v2.9.0)
+- [ ] Floating units in China not yet in the data (sources in the step-3 research notes; their coordinates still need a source,
+      never guessed): CSSC Haizhuang's Fuyao 6.2 MW (2022, Luodousha off Zhanjiang, running on a micro-grid; whether it reached the
+      public grid is unverified) and Longyuan's Guoneng Gongxiang 4 MW (grid-connected June 2024, off Nanri Island, Fujian);
+      CTG's Sanxia Linghang 16 MW (Yangjiang) and CNOOC's Haiyou Anlan 16 MW tension-leg platform (Lufeng oilfield), which only
+      started in 2026, wait for the timeline to reach 2026
+- [ ] Possible double counts, to be verified: Mingyang's OceanX (16.6 MW) sits in the Qingzhou IV farm (500 MW, whose card says
+      "incl. OceanX"), and Sanxia Yinling (5.5 MW) in Shapa III (400 MW); no source says whether the big farms' capacities include them
+- [ ] Korea's Ulsan 750 kW floating pilot: in November 2019 it was still not installed because permits were withheld, and there is no
+      record of it generating at sea afterwards; remove it once it is confirmed that it never operated
+- [ ] The UK's Pentland floating farm has two GEM records ("Pentland Floating Offshore wind farm" and "Pentland wind farm", both
+      100 MW); whether they are the same project is still to be checked
 - [ ] Step 4: Taiwan, Japan, Korea and the USA
 - [ ] Whether China and Vietnam are worth about 50–70 hours: ask the owner after the first four steps
 
