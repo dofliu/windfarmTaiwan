@@ -1,0 +1,30 @@
+name: keepalive
+
+# 放置位置：.github/workflows/keepalive.yml
+# 公開 repo 連續 60 天沒有活動時，GitHub 會自動停用排程 workflow（排程自己的 bot commit 不一定算活動）。
+# 這支每月一次以 GitHub API 重新啟用各排程 workflow，重設 60 天的計時；不產生任何 commit。
+# 已經被停用的 workflow 也會被它重新啟用，但它自己也是排程，所以要在停用前就一直在跑：每月一次遠小於 60 天。
+on:
+  schedule:
+    # 每月 1 日 04:41 UTC（台北 12:41），避開整點
+    - cron: "41 4 1 * *"
+  workflow_dispatch: {}       # 允許在 Actions 頁面手動觸發
+
+permissions:
+  actions: write              # 呼叫「啟用 workflow」API 需要的權限；不需要寫入程式碼
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-enable scheduled workflows
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          # 有 schedule 的 workflow（standalone.yml 只在 push 時執行，不會被停用）
+          for wf in scrape.yml backfill.yml keepalive.yml; do
+            gh api --method PUT "repos/$REPO/actions/workflows/$wf/enable"
+            echo "enabled $wf"
+          done

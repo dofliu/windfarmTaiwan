@@ -161,6 +161,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `.github/workflows/scrape.yml` — 約每 2 小時自動執行 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版並 commit
+- `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）
 - `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
 - `ROADMAP.md` / `TODO.md` — 已知限制、後續規劃與待辦事項
 - `CHANGELOG.md` — 版本與更新紀錄（版本號是 `assets/js/core.js` 的 `WW.VERSION`）
@@ -169,8 +170,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 
 ## 部署現況與本機預覽
 
-- 網站由 GitHub Pages 直接服務本 repo 的 `main`（根目錄），網址 `https://dofliu.github.io/windfarmTaiwan/`；三個 GitHub Actions 排程
-  （台灣與國外即時資料、每週官方回溯、單檔版重建）都在運作，不需要另外設定。
+- 網站由 GitHub Pages 直接服務本 repo 的 `main`（根目錄），網址 `https://dofliu.github.io/windfarmTaiwan/`；四個 GitHub Actions workflow
+  （台灣與國外即時資料、每週官方回溯、單檔版重建、每月保活）都在運作，不需要另外設定。
 - 從零部署到另一個 repo 或換成其他主機的步驟見 [DEPLOY.md](./DEPLOY.md)；暫停開發期間的維護重點見 DEPLOY.md「維護」。
 
 > 本機預覽：在 repo 根目錄執行 `python3 -m http.server`，開 `http://localhost:8000/`（直接雙擊 `index.html` 會因 `file://` 無法讀取 JSON；
@@ -193,7 +194,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 
 - 用 **public repo**：Actions 分鐘數免費無限。
 - 排程約每 2 小時一次；GitHub 排程不保證準時（可能延遲或略過一兩次），本站不需要逐分即時，足夠。
-- repo 連續 60 天無活動，排程會被自動停用；每月手動觸發一次即可維持（檢查方式見 DEPLOY.md「維護」）。
+- repo 連續 60 天無活動，排程會被自動停用；`keepalive` workflow 每月自動重新啟用各排程來避免（檢查方式見 DEPLOY.md「維護」）。
 - 每次更新會 commit 一筆，git 歷史會累積（功能無礙）。若要避免，可改用 Cloudflare Worker Cron（見 `DEPLOY.md`）。
 - 瀏覽時會連到的第三方服務：cdnjs（Leaflet，僅地圖分頁）、Esri 圖磚（僅地球儀放大後）、維基百科 API（風場照片與簡介，查不到或離線時只顯示連結）。
   這些服務失敗時網站其餘功能照常運作。

@@ -269,6 +269,6 @@ GEM 專案頁、Wikidata 與來源；卡片底部可「複製此風場連結」�
 
 ## 部署穩定性
 
-- Public repo 連續 60 天無活動會被 GitHub 自動停用排程 workflow；專案暫停後不再有功能開發，這是網站唯一會悄悄停擺的地方
-  （網站不會報錯，只會一直顯示最後一次的資料）。目前沒有專門的 keepalive 機制，靠每月檢查並手動跑一次（見 `DEPLOY.md`「維護」）；
-  也可以加一支簡單的月排程 keepalive workflow，或改用 Cloudflare Worker Cron（見 `DEPLOY.md` 方案 B，排程更準時、無 commit 累積問題）。
+- Public repo 連續 60 天無活動會被 GitHub 自動停用排程 workflow；專案暫停後不再有功能開發，停用時網站不會報錯、只會一直顯示最後一次的資料。
+  2026-09 加了 `keepalive.yml`：每月 1 日以 GitHub API 重新啟用各排程，不產生 commit（見 `DEPLOY.md`「維護」）。
+  若要排程更準時、沒有 commit 累積，可改用 Cloudflare Worker Cron（見 `DEPLOY.md` 方案 B）。

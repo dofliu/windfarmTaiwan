@@ -34,7 +34,8 @@ windfarmTaiwan/
 └─ .github/workflows/
    ├─ scrape.yml                    # 約每 2 小時執行 taipower_wind_scraper.py 與 intl_wind_scraper.py
    ├─ backfill.yml                  # 每週一執行 backfill_history.py
-   └─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML
+   ├─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML
+   └─ keepalive.yml                 # 每月 1 日重新啟用各排程，避免 60 天無活動被停用
 ```
 
 若要從零建立新專案（而非直接使用本 repo），步驟如下：
@@ -43,7 +44,7 @@ windfarmTaiwan/
 
 1. 建一個 **public** repo（公開 repo 的 Actions 分鐘數無限、免費；私有 repo 每月只有 2000 分鐘；目前約每 2 小時跑一次、每月約 360 次，量不大，但改成高頻排程就會超量）。
 2. 把 `index.html`、`assets/`、`data/`、`taipower_wind_scraper.py`、`intl_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄（`tools/` 只在更新全球資料時需要）。
-3. 把 `.github/workflows/scrape.yml`、`backfill.yml` 與 `standalone.yml` 放進對應位置。
+3. 把 `.github/workflows/scrape.yml`、`backfill.yml`、`standalone.yml` 與 `keepalive.yml` 放進對應位置。
 4. 確認 `assets/js/live.js` 開頭的 `DATA_ENDPOINT` 等常數指向相對路徑（同網域，例如 `./wind_realtime.json`），
    若是直接 fork/clone 本 repo 則不需修改。
 5. Settings → Pages → Source 選 `main` branch、`/ (root)`，存檔。
@@ -55,7 +56,9 @@ windfarmTaiwan/
 
 - **排程不精準**：`scrape.yml` 設定每 2 小時一次（偶數小時的第 18 分，UTC）。GitHub 的 `schedule` 不保證準時，常延遲、尖峰時段偶爾略過；
   高頻排程（例如每 15 分鐘）實際上常被拉長到 3–5 小時一次。本站不需要逐分即時，這樣可接受。
-- **60 天自動停用**：repo 連續 60 天無活動，排程 workflow 會被自動停用；而且用預設 `GITHUB_TOKEN` 的 bot commit 在某些情況不被算作「活動」。對策：每月手動觸發一次，或改用個人 PAT 來 push，或加一支 keepalive（見 `ROADMAP.md`「部署穩定性」）。
+- **60 天自動停用**：repo 連續 60 天無活動，排程 workflow 會被自動停用；而且用預設 `GITHUB_TOKEN` 的 bot commit 在某些情況不被算作「活動」。對策：本 repo 的 `keepalive.yml` 每月 1 日以 GitHub API（`PUT /repos/{owner}/{repo}/actions/workflows/{workflow}/enable`，權限 `actions: write`）
+  重新啟用 `scrape.yml`、`backfill.yml` 與它自己，重設計時、不產生 commit。它自己也是排程，所以要一直在跑；萬一整個 repo 的排程都已被停用，
+  要到 Actions 分頁手動按 **Enable workflow**。
 - **commit 會累積**：約每 2 小時一次 commit，一年約四千多筆 git 歷史。功能無礙，但 repo 會變肥；`wind_history_archive.json` 也會隨每週回填持續成長（2026-09 約 3.2 MB）。可接受，或定期 squash，或改用方案 B。
 - **電力供需即時來源會被 WAF 擋**：`grid_status.json` 的主要來源從 GitHub Actions 執行會回 403（詳見 `ROADMAP.md`「已知限制」），落到每日備援；若要真正即時，需要換到非雲端 CI 的執行環境（見方案 C）。
 - Actions runner 在海外（Azure），抓台電公開 opendata 端點沒問題（伺服器端抓取不受 CORS 限制）。
@@ -68,15 +71,15 @@ windfarmTaiwan/
 - `backfill-taipower-wind-history`：每週一（台北週二清晨）累積台電官方回溯存檔。
 - `build-standalone`：`main` 的網站程式或全球資料有變更時重建單檔版。排程更新的即時資料不會觸發重建，
   所以單檔版的「離線快照」停在最後一次重建的時間。
+- `keepalive`：每月 1 日 04:41 UTC 以 GitHub API 重新啟用上面兩個排程與它自己，避免連續 60 天無活動被 GitHub 停用；不產生 commit。
 
-**每月檢查一次（約 5 分鐘）**：
+**每月檢查一次（約 5 分鐘）**：60 天停用已由 `keepalive` 處理，這個檢查主要是抓出資料來源的問題（例如台電改了格式）。
 
 1. 開網站，看頁首「即時 · 台電 MM/DD HH:MM」的資料時間。超過半天沒有前進，表示排程停了或抓取失敗；
    網站不會顯示錯誤，只會一直顯示最後一次抓到的資料。
-2. 到 GitHub 的 **Actions** 分頁，看三個 workflow 最近一次是不是綠色。若 `scrape-taipower-wind` 顯示
+2. 到 GitHub 的 **Actions** 分頁，看四個 workflow 最近一次是不是綠色（`keepalive` 每月一次）。若有 workflow 顯示
    「This scheduled workflow is disabled…」（連續 60 天沒有活動會被 GitHub 自動停用），按 **Enable workflow**。
-3. 在 `scrape-taipower-wind` 按 **Run workflow** 手動跑一次，確認 `wind_realtime.json` 有新的 commit。
-   手動跑一次也能避免 60 天停用。
+3. 資料時間停住時，在 `scrape-taipower-wind` 按 **Run workflow** 手動跑一次，確認 `wind_realtime.json` 有新的 commit，失敗就看執行紀錄。
 
 **常見狀況**：
 
