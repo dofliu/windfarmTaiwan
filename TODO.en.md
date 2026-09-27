@@ -10,17 +10,25 @@ Concrete, actionable tasks. Background, the reasons behind decisions and the pha
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it for the next piece of work in progress and move
 finished items to the topic lists below.
 
-### Foundation types, step 5 (China and Vietnam): under way, 4 farms added from the owner's review
+### Foundation types, step 5 (China and Vietnam): under way, 5 farms added from the owner's review
 
 - On 27 Sep 2026 (v2.11.0), 4 Chinese farms (Donghai Bridge phase 1, CTG Rudong H6 and H10, Zhangpu Liu'ao phase 2) were added from the
   “Asia case-by-case review” in the owner's compilation, and 6 clean-up rules corrected the data (duplicates of Donghai Bridge phase 1,
   Qingzhou 6 and Hollandse Kust Zuid site 4; Qingzhou 6's capacity; Xiangshui's owner; Fuqing Xinghua Bay phase 2). 171 of the 363
   operating offshore farms (43.3% of capacity) now have a known type.
-- **To do**: the quoted passages for these sources (China Three Gorges and Shanghai government pages; see the F5 rows in
+- On 27 Sep 2026 (v2.11.1), CGN Rudong H8 was added: mixed, 49 monopiles and 16 all-steel buckets (filed as “composite bucket”), from the
+  owner's review and CGN's foundation-monitoring contract. 172 of the 363 operating offshore farms (43.6% of capacity) now have a known type.
+- **To do**: the quoted passages for these sources (China Three Gorges, Shanghai government and CGN pages; see the F5 rows in
   `tools/farm_foundations.py` and the last block of `tools/farm_cleanup.py`) have not yet been checked with `tools/check_quotes.py` (that
   environment had no network access): add the passages and run the check somewhere with network access, and correct or withdraw any that fail.
-- That sheet also has mixed Chinese farms without per-type counts (Xiangshui, CGN Rudong H8, Yangjiang Shapa) and ones that only say “fixed”
-  (Fuqing Xinghua Bay, Qingzhou 6); add them once counts are known. The Vietnamese cases only say intertidal / nearshore and were not added.
+- Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say “fixed”: Fuqing Xinghua Bay and
+  Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets appear
+  only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand source is found. The Vietnamese cases only say intertidal / nearshore and were not added.
+- **Upgrade GEM to the 2026-02 release**: requested by the owner on 27 Sep 2026. GEM 2026-02 is only published at
+  `publicgemdata.nyc3.cdn.digitaloceanspaces.com` (wind/2026-02/wind_map_2026-02-05.geojson, per trackers/wind/config.js in GEM's maps repo),
+  which this environment's network policy blocks; GEM's GitHub repo no longer carries the CSV. Allow that host, or have the owner download and
+  upload the file; then make `tools/build_farms.py` read the GeoJSON (mapping its fields to the 2025-02 CSV columns), rebuild, and re-check every
+  clean-up rule (`farm_cleanup.py`, `GEM_KEEP` and `PIPE_*` are written against 2025-02 names).
 - The original step-5 notes below still apply:
 
 - The first four steps are done (Sep 2026, v2.10.0): Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA — 191 rows in

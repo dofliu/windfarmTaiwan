@@ -1,0 +1,21 @@
+[
+  {
+    "farm": "CTG Yangjiang Shapa Phase 1",
+    "proposed": "mx: mp 39, jk 10, jk+sb 3 (three-bucket suction jacket), sb mono-bucket 3 — 55 turbines",
+    "status": "待核對：只在搜尋結果摘要看到，出處是轉載的投資分析文，網頁在整理時的環境打不開；需要三峽或施工廠商的一手出處 · Not verified: seen only in a search summary of a secondary investment write-up that could not be opened; needs a first-hand CTG or contractor source",
+    "sources": [
+      {"url": "https://www.sohu.com/a/789824114_121779604",
+       "quote": "风机基础包括四桩导管架基础10台、大直径单桩基础39台、三桶吸力桶基础和单桶单柱吸力桶基础各3台"}
+    ]
+  },
+  {
+    "farm": "CTG Yangjiang Shapa Phase 2 / 3 / 4 / 5",
+    "status": "未找到竣工座數；招標文件只有「暫定數」（單柱複合筒 38 台、吸力筒導管架 8 台，二至五期合計），不能當建成紀錄 · No as-built counts found; tenders only give provisional numbers (38 mono-column composite buckets and 8 suction-bucket jackets across phases 2–5), which are not construction records",
+    "sources": []
+  },
+  {
+    "farm": "CTG Jiangsu Xiangshui",
+    "status": "使用者的逐案覆核寫「混合：單樁／高樁承台／複合筒」，但各型式座數未查到 · The owner's review says mixed (monopile / high-rise pile cap / composite bucket) but no per-type counts were found",
+    "sources": []
+  }
+]

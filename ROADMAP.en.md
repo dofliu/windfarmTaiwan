@@ -142,6 +142,7 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      **Under way (Sep 2026, v2.11.0)**: 4 Chinese farms added from the owner's case-by-case review of 27 Sep 2026 (Donghai Bridge
      phase 1 on high-rise pile caps, CTG Rudong H6 on monopiles, Rudong H10 on 77 monopiles and 23 composite buckets, Zhangpu Liu'ao
      phase 2 on four-pile jackets), with a new “composite bucket” type (in the “other fixed-bottom” colour group, no colour change).
+     v2.11.1 adds CGN Rudong H8 (49 monopiles and 16 all-steel buckets, also backed by CGN's foundation-monitoring contract).
      The sources are that sheet's first-hand documents; their quoted passages have not yet been checked with check_quotes. The
      Vietnamese cases there only say intertidal / nearshore and were not added. The other Chinese farms are still to be checked.
 
