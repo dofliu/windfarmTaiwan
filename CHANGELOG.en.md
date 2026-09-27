@@ -24,6 +24,9 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 - Fix: opening a shared link (or going back) while the globe's guided tour was running switched the card to the linked farm but
   left the tour bar in place, and “next” carried on with the tour; the tour now ends first, as it does when you click the globe,
   change the region or search.
+- Taiwan live page: the timelines of all 30 farms (72 entries) now have English, shown when the site is in English; dates and
+  figures match the Chinese (e.g. 628.88 億元 is written as NT$62.888 billion). The farm notes and spec fields are still in
+  Chinese only.
 
 ## v2.10.0 — 2026-09-27
 
