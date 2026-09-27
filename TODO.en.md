@@ -34,7 +34,7 @@ finished items to the topic lists below.
 - [ ] Taipower Offshore Phase 2: completion is currently given as "2027"; check progress reports then
       (or every quarter) and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed
 - [ ] Greater Changhua 2b & 4 (Ørsted, 920 MW): full commercial operation is planned for Q3 2026; check
-      whether it happened on time and update `tl` and `cod` of `id:"wo4"` / `id:"wonan"`
+      whether it happened on time and update `tl` (both languages) and `cod` of `id:"wo4"` / `id:"wonan"`
 - [ ] Hai Long (Hai Long B): full commercial operation may have slipped from 2026 to 2027; keep
       following the latest reports and update `id:"longB"`
 - [ ] Left to verify from foundation step 4 (Sep 2026): when Setana stopped generating (the town decided in April 2026 to
@@ -145,6 +145,13 @@ the rules are in `tools/farm_cleanup.py`.
       `OWN_PREFIX` in `assets/js/globe.js`): GEM's owner field keeps only the first two owners, cut at 60
       characters, and group subsidiaries are spelled differently; when someone reports a missed or wrong match,
       add an alias to `OWN_PREFIX`
+- [x] English for the farm timelines on the Taiwan live page (Sep 2026, v2.10.1): each `tl` entry in `assets/js/live.js`
+      is [date, Chinese, status, English]; write both languages when adding or changing one
+- [x] English for the farm notes and spec fields on the Taiwan live page (developer, site, turbine model, water depth,
+      distance from shore, annual output, homes supplied; Sep 2026, v2.10.1): `ZH_EN` in `assets/js/live.js` maps each
+      Chinese string to English; add the English when adding or changing a Chinese value
+- [ ] In the English interface, farm titles on the Taiwan live page show Taipower's unit names (`tp`, in Chinese): whether
+      to switch to English names, and which set of names to use, is the owner's call
 - [ ] Farm details v2 (needs new data): estimated annual generation, links to national registers, turbine
       spec cards and so on — see group B of "What farm details could add" in ROADMAP.en.md
 
