@@ -102,7 +102,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
   `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
-  `tools/build_foundations.py` 產生水下基礎資料與逐場清單
+  `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上；
+  `tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
 - `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
 - `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考

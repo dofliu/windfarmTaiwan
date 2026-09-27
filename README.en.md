@@ -140,8 +140,10 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   Renewables 2024 (CC0, used for foundation types)
 - `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
   `tools/build_standalone.py` builds the single-file edition, `tools/coverage_report.py` the data coverage report,
-  `tools/qa_farms.py` checks farm coordinates, `tools/qa_ports.py` checks the ports data and
-  `tools/build_foundations.py` builds the foundation data and the farm-by-farm list
+  `tools/qa_farms.py` checks farm coordinates, `tools/qa_ports.py` checks the ports data,
+  `tools/build_foundations.py` builds the foundation data and the farm-by-farm list, and `tools/check_quotes.py` confirms that
+  passages quoted during research really are on their source pages; `tools/research/` holds research notes not yet written into
+  the tables (each source with its quoted passage and check result)
 - `standalone/windfarmTaiwan-standalone.html` — the single-file edition (generated; do not edit by hand)
 - `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
   farm-by-farm foundation list (`foundations.en.md`) and the

@@ -128,6 +128,9 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      in 2026, are listed as under construction with a note; duplicates and farms never built were removed). Four floating
      units in China are not yet in the data (see TODO).
   4. Taiwan, Japan, Korea and the USA: developers' websites and EIA documents.
+     **Research done (2026-09-27), not yet in the table**: 42 records give the type of 36 farms (Taiwan 11, Japan 11, Korea 6, USA 8), with
+     sources and quote checks in `tools/research/foundations_step4.json`; the research also found farm records to correct (duplicates,
+     status, years, locations). The plan and the list are under “In progress” at the top of [TODO.en.md](./TODO.en.md).
   5. China and Vietnam: ask the owner once the first four steps are done.
 
 **3. Status of work vessels (installation vessels, "mother ships")** · **verdict: not doing it (owner's decision, 2026-09-27)**

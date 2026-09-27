@@ -74,6 +74,13 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   source is required; rows without an OSPAR record need a source of their own; a floating row needs a floating sub-type (spar, semi-submersible, barge, tension-leg), or a bilingual note when one record holds units of different types. The build checks all of this. Leave unverifiable farms
   in `EXCLUDED` (the farm card shows the reason) or TODO; never guess. The map folds types into four colour groups (three hues plus two neutrals, checked for colour-blind readers); re-run that
   check before adding a type or changing a colour. Re-run the build after rebuilding the farm layer.
+- 查證（水下基礎、風場更正）時每個出處都附一段原文，寫成 `[{"farm": ..., "sources": [{"url": ..., "quote": ...}]}]` 的 JSON，
+  用 `python3 tools/check_quotes.py 檔案.json` 逐筆核對原文真的在網頁上（中日韓文網頁依編碼比對，PDF 需要 pypdf），只採用 OK 的結果；
+  不引用 4C Offshore（付費、禁止轉載）。還沒寫進對照表的查證紀錄放在 `tools/research/`，寫進去之後刪掉。
+  When researching (foundation types, farm fixes), give every source a quoted passage in a JSON list of
+  `{"farm": ..., "sources": [{"url": ..., "quote": ...}]}` and run `python3 tools/check_quotes.py file.json` to confirm each quote is on
+  its page (CJK pages are decoded by their charset; PDFs need pypdf); use only OK results. Never cite 4C Offshore (paid, no
+  redistribution). Research notes not yet written into the tables live in `tools/research/`; delete them once they are.
 
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。
@@ -112,3 +119,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 排程更新的即時資料與機器人重建的單檔版不改版號。`tools/build_standalone.py` 會檢查兩份 CHANGELOG 都有目前版本，沒有就中止。
   Scheduled live-data commits and the bot's single-file rebuilds do not change the version. The single-file build stops if
   either changelog lacks the current version.
+
+## 8. 接續工作 · Picking up work
+
+- 進行中的工作、交接事項與下一步寫在 `TODO.md` 最上面的「進行中」段落（英文版 `TODO.en.md`）；開新的工作階段時先讀那裡。
+  工作告一段落時更新那一段，完成的項目移到各主題的清單。
+  Work in progress, hand-off notes and next steps are in the "In progress" section at the top of `TODO.en.md` (Chinese: `TODO.md`);
+  read it first in a new session, and update it when you stop, moving finished items to their topic lists.
