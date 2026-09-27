@@ -47,10 +47,11 @@
     每港附出處）；全球視角為小點，拉近才有圖示與名稱。港口卡片列出角色、服務過的風場（可點選切換）與出處，可以搜尋，
     也有「港口」分頁（例：`#/global?port=twn-taichung`）
   - **水下基礎圖層**（「顯示」選單的「離岸：水下基礎」）：依基礎型式為營運中的離岸風場上色——單樁、鋼構框架（套管、三腳架、三樁）、
-    浮動式、其他固定式（重力式、高樁承台、混合），還沒查證的標「型式不詳」。圖例列出範圍內各組的座數與已知型式的容量占比，
+    浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合），還沒查證的標「型式不詳」。圖例列出範圍內各組的座數與已知型式的容量占比，
     點一組可只看這一組；風場卡片寫出確切型式與出處，國家概況有依容量的長條。資料逐步收集：第 1 步是 OSPAR 涵蓋的北海與東北大西洋
-    （2026-09，99 座；OSPAR 與建成紀錄不符或沒寫明的，改以德文維基百科或建造新聞為準），逐場清單見
-    [docs/foundations.md](./docs/foundations.md)（例：`#/global?r=C:Europe&layer=fd`）
+    （2026-09，99 座；OSPAR 與建成紀錄不符或沒寫明的，改以德文維基百科或建造新聞為準）；第 2 步補上歐洲其他風場（2026-09，41 座：
+    波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場，逐座附施工紀錄等出處），歐洲營運中的離岸風場除一座試驗場外都已知型式。
+    逐場清單見 [docs/foundations.md](./docs/foundations.md)（例：`#/global?r=C:Europe&layer=fd`）
   - **風場卡片**：點風場可看維基百科照片與簡介；在國內的地位（依時間軸年份的容量排名與占全國風電裝置容量比例）、
     分期時間軸、附近風場（30 km 內）與同開發商的其他風場（可直接點選切換）；衛星地圖、OpenStreetMap、
     風能資源地圖（Global Wind Atlas）、Wikidata 等連結；「複製此風場連結」與「回報資料錯誤」（開啟預填的 GitHub issue）
@@ -182,7 +183,7 @@ python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離岸 15 km 內、出處、「服務過的風場」對得到風場名稱
-python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源），輸出 foundations.json 與 docs/foundations*.md
+python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源；OSPAR 只有核准階段設計的要附施工紀錄），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
 # 5. 單檔版（push 到 main 後 Actions 也會自動重建）
@@ -208,6 +209,9 @@ python tools/build_standalone.py
   共用省或國家中心代用座標的風場在地圖上示意排開並註明。逐筆理由與出處見 [docs/data-cleanup.md](./docs/data-cleanup.md)
 - 2026 年 9 月比對 OSPAR 離岸風場資料時，另刪除 2 筆重複：GEM 的比利時「C-Power」整場合計（與 Thornton Bank 一、二、三期重複），
   以及法國 Saint-Brieuc 座標偏離約 170 km 的第二筆
+- 2026 年 9 月查歐洲離岸風場水下基礎（第 2 步）時，另以 26 條規則更正：英國 Sofia、法國 Calvados 原本誤列為 2025 年營運中（其實仍在興建）；
+  Dogger Bank A 改依 WindEurope 統計逐年併網；Arklow Bank、Utgrunden I、Irene Vorrink 與 Hooksiel 試驗機已停機或拆除；
+  Yeu-Noirmoutier 為 488 MW；刪除挪威三個從未興建的示範場、METCentre 測試場的許可容量與 4 筆重複；8 座風場的座標移到實際位置
 - 英文國名：澳洲原被標成同屬 AUS 代碼的「Ashmore and Cartier Is.」，已改正
 
 > 國家概況的「逐場資料覆蓋率」＝已逐場標示的營運中容量 ÷ 國家年底統計（台灣 2025 年約 89%、日本約 87%），差額明白列出，

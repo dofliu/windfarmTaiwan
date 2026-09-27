@@ -75,9 +75,11 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Large countries with low coverage (China 144 GW short, Germany 27 GW, India 15 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
 - [ ] Duplicate farm records: the US Sunrise Wind appears both as GEM's "Sunrise wind farm (United States)" and as "Sunrise Wind" from the 2026 compilation (both 924 MW, under construction); add a rule to `tools/farm_cleanup.py` in the next clean-up (found while compiling the ports data, Sep 2026)
-- [ ] Two Dutch duplicates (found while matching foundations): “Borssele V (Two Towers innovation site)” and GEM's “Borssele
-      Site V wind farm” (both 19 MW, 2021), and “Irene Vorrink (Dronten)” and “Dronten offshore wind farm” (both 17 MW, 1996):
-      check them and add rules to `tools/farm_cleanup.py`
+- [x] Two Dutch duplicates (found while matching foundations): Borssele V and GEM's “Borssele Site V”, and Irene Vorrink and
+      GEM's “Dronten”, were checked and merged (Sep 2026, v2.8.0)
+- [ ] Dogger Bank pipeline projects: GEM's “Dogger Bank wind farm · D” (1,320 MW, pre-construction in GEM) now shows as under
+      construction, expected 2027, with the note “first power 2025”. Those are the 2026 compilation's figures for Dogger Bank B,
+      which was matched to phase D; check and fix it in the next pipeline update
 - [ ] France's 2025 offshore capacity (1,500 MW in `wind_global.json`, the same as 2024) may be too low: the SDES Q2 2026 wind dashboard implies about 2.0 GW at end-2025; to be verified
 - [ ] Offshore farm sums above the national series, to be verified: China's operating offshore farms add up to 58.9 GW against a 2025 national figure of 48.4 GW; Vietnam's 28 "offshore" farms (mostly intertidal) add up to 2.0 GW against 1.0 GW. Possibly farms counted at full capacity while still connecting in phases, or duplicates
 
@@ -94,10 +96,10 @@ the rules are in `tools/farm_cleanup.py`.
       O&M) and the Nexans Goose Creek cable plant
 - [ ] Port status changes quickly (several US projects were halted or lost grants in 2025–26): re-check twice a year; mark ports
       whose role has ended as `former` (grey on the map) and run `tools/qa_ports.py` after editing
-- [ ] Duplicate farm records found while compiling the ports, to handle in `tools/farm_cleanup.py` in the next clean-up: the UK's
-      Sofia (curated "Sofia", operating, and GEM "Sofia wind farm", under construction, both 1,400 MW); Poland's Baltica 2 (GEM's
-      "Baltica II Offshore wind farm", 1,500 MW pre-construction, and "EW Baltica 2 Offshore wind farm", 210 MW under construction, at
-      almost the same point; the real project is 1.5 GW and under construction)
+- [ ] Duplicate farm records found while compiling the ports, to handle in `tools/farm_cleanup.py` in the next clean-up: Poland's
+      Baltica 2 (GEM's "Baltica II Offshore wind farm", 1,500 MW pre-construction, and "EW Baltica 2 Offshore wind farm", 210 MW
+      under construction, at almost the same point; the real project is 1.5 GW and under construction). The UK's two Sofia
+      records were merged in foundation step 2 (Sep 2026)
 
 ## Farm details
 
@@ -116,14 +118,15 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Step 1: Europe within OSPAR's coverage (North Sea and NE Atlantic): 99 farms — per-farm table `tools/farm_foundations.py`,
       checks and output by `tools/build_foundations.py`, and the globe's “Offshore: foundations” layer (Sep 2026, v2.7.0;
       farm-by-farm list in [docs/foundations.en.md](./docs/foundations.en.md))
-- [ ] Left over from step 1: Hohe See (OSPAR says “any of these” and Wikipedia is silent), Frederikshavn (a test site: OSPAR
-      says all monopiles, but it had a suction-bucket trial turbine) and Belwind's Alstom Haliade demonstrator (merged into
-      phase 1 by OSPAR): find developer or construction records
-- [ ] Step 2: the rest of Europe (Baltic, Mediterranean and others), plus North Sea farms finished after OSPAR 2024: Seagreen,
-      Moray West, Neart na Gaoithe, Dogger Bank A and Sofia in the UK, Borkum Riffgrund 3 in Germany, Yeu-Noirmoutier and
-      Courseulles in France; in the Baltic Kriegers Flak, Rødsand, Arkona, Wikinger, Baltic 1/2, Baltic Eagle, Lillgrund and
-      others; and the Dutch farms in the IJsselmeer
-- [ ] Step 3: floating farms
+- [x] Step 2: the rest of Europe (the Baltic, the Mediterranean, the IJsselmeer) plus farms finished after OSPAR 2024: 41 farms,
+      each with a source whose quoted passage was checked; Hohe See and Belwind's Haliade demonstrator, left over from step 1,
+      now have sources too; 26 more rules corrected farm records (Sep 2026, v2.8.0)
+- [ ] The Frederikshavn test site in Denmark: the Danish Energy Agency says only one 2.3 MW turbine is left at sea after the
+      harbour was extended, but not which one (the turbines had different foundations); once known, add it to the table and fix
+      the capacity (still the 2003 figure of 3 turbines, 7.6 MW)
+- [ ] Step 3: floating farms. Also check GEM's Spanish “Biscay Marine Energy Platform wind farm” (floating, 20 MW, 2015): like
+      Norway's METCentre record removed in step 2, it may be the test site's licensed capacity, and its actual turbine (DemoSATH,
+      2 MW) is listed separately
 - [ ] Step 4: Taiwan, Japan, Korea and the USA
 - [ ] Whether China and Vietnam are worth about 50–70 hours: ask the owner after the first four steps
 

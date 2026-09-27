@@ -47,6 +47,10 @@ CLEAN drop GBR Hornsea wind farm · 3, 4 5000.0
 CLEAN drop NLD Beaufort wind farm 350.0
 CLEAN drop NOR Fosen Vind (six farms) 1057.0
 CLEAN drop NOR Hordavind wind farm 682.0
+CLEAN drop NOR Karmoy Wind Turbine Demonstration Area 10.0
+CLEAN drop NOR Kvitsoy Wind Turbine Demonstration Area 10.0
+CLEAN drop NOR Marine Energy Test Centre wind farm 20.0
+CLEAN drop NOR Rennesoy Wind Turbine Demonstration Area 10.0
 CLEAN drop ROU Adamdel wind farm 484.0
 CLEAN drop ROU Auseu-Borod wind farm 65.0
 CLEAN drop ROU Banca wind farm 300.0
@@ -78,6 +82,7 @@ CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
 CLEAN dup FRA Saint-Brieuc wind farm 496.0 -> Saint-Brieuc
 CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
+CLEAN dup GBR Sofia wind farm 1400.0 -> Sofia
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
 CLEAN dup IRN Harzvil wind farm 14.0 -> Manjil wind farm
 CLEAN dup IRN Siahpoush (Manjil) wind farm 48.0 -> Manjil wind farm
@@ -86,6 +91,9 @@ CLEAN dup KEN Lake Turkana 310.0 -> Lake Turkana
 CLEAN dup KOR Yeongyang 61.5 -> Yeong Yang (Macquarie Group) wind farm
 CLEAN dup NLD Amazon Shell HKN offshore wind farm 759.0 -> Hollandse Kust Noord
 CLEAN dup NLD Binnenjijks wind farm 68.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
+CLEAN dup NLD Borssele Site V wind farm 19.0 -> Borssele V (Two Towers innovation site)
+CLEAN dup NLD Dronten offshore wind farm 17.0 -> Irene Vorrink (Dronten)
+CLEAN dup NLD NOP Agrowind wind farm 195.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
 CLEAN dup NLD Noordoostpolder Buitendijks wind farm 15.0 -> Westermeerwind
 CLEAN dup NLD Noordoostpolder-Westermeerwind Windpark 429.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
 CLEAN dup NOR Smola wind farm 150.0 -> Smøla
@@ -113,6 +121,7 @@ CLEAN dup VNM Thuận Bắc Trungnam wind farm 152.0 -> Trung Nam Ninh Thuận
 CLEAN dup VNM Tân Phú Đông 2 nearshore wind power plant 50.0 -> Tan Phu Dong 2 (Tien Giang, GEC)
 CLEAN dup ZAF Amakhala Emoyeni wind farm 134.0 -> Amakhala Emoyeni
 CLEAN dup ZAF Waainek wind farm 25.0 -> Waainek Wind Farm
+CLEAN fix ALA Långnabba wind farm 40.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Cape Bridgewater wind farm, Cape Nelson South wind farm, Cape Sir William Grant/Cape Nelson North, Codrington wind farm 167.0
 CLEAN fix AUS Snowtown 370.0
 CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
@@ -120,6 +129,9 @@ CLEAN fix CHN Huadian Yuhuan 2 500.0
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
+CLEAN fix DEU Borkum Riffgrund 3 913.0
+CLEAN fix DEU Hohe See 497.0
+CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
 CLEAN fix DNK Vesterhav Nord 176.4
 CLEAN fix DOM Granadillos wind farm 50.0
 CLEAN fix DOM La Isabela wind farm 50.0
@@ -127,13 +139,24 @@ CLEAN fix DOM Los Cocos wind farm 87.3
 CLEAN fix DOM Los Guzmancito wind farm 98.0
 CLEAN fix DOM Matafongo wind farm 34.0
 CLEAN fix DOM Puerto Plata-Imbert wind farm 46.0
+CLEAN fix FRA Calvados (Courseulles-sur-Mer) 450.0
+CLEAN fix FRA Îles d'Yeu et de Noirmoutier 496.0
+CLEAN fix GBR Dogger Bank A 1200.0
+CLEAN fix GBR Dogger Bank A 1200.0
+CLEAN fix GBR Sofia 1400.0
+CLEAN fix GBR Sofia 1400.0
+CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0
 CLEAN fix KEN Chania Green Wind Project 50.0
 CLEAN fix KEN Kilifi wind farm 36.0
 CLEAN fix KEN Lake Turkana 310.0
+CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
+CLEAN fix NLD Irene Vorrink (Dronten) 16.8
 CLEAN fix NLD Noordoostpolder (incl. Westermeerwind nearshore) 429.0
+CLEAN fix NLD Windpark Fryslân 382.7
+CLEAN fix NLD Windplanblauw offshore wind farm 132.0
 CLEAN fix NOR Gismarvik wind farm 12.6
 CLEAN fix NOR Haram wind farm 34.0
 CLEAN fix NOR Havøygavlen wind farm 38.0
@@ -155,6 +178,9 @@ CLEAN fix ROU Salbatica wind farm · 2 70.0
 CLEAN fix ROU Ventus Nord-2 wind farm 69.0
 CLEAN fix SEN Léona wind farm 50.0
 CLEAN fix SEN Taiba N’Diaye wind farm 158.0
+CLEAN fix SWE Bockstigen 2.8
+CLEAN fix SWE Utgrunden I 10.5
+CLEAN fix SWE Vindpark Vänern (Gässlingegrund) 30.0
 CLEAN fix THA Subyai (Chaiyaphum) 90.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix URY Pampa (Tacuarembó) 141.6

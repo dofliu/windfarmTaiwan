@@ -64,13 +64,14 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 
 - 離岸風場水下基礎型式：逐場對照表在 `tools/farm_foundations.py`（每列用國別與風場名稱指定一座，名稱與 `wind_farms.json` 完全一致），
   改完跑 `python3 tools/build_foundations.py`，輸出 `data/global/foundations.json` 與 `docs/foundations*.md`。OSPAR 的值不一定是建成的樣子
-  （德國的紀錄尤其不可靠）：與 OSPAR 不符或 OSPAR 沒寫明的，一定要附第二來源與中英文說明，建置會檢查；查不到的列在 `EXCLUDED` 或 TODO，不臆測。
+  （德國的紀錄尤其不可靠）：與 OSPAR 不符或 OSPAR 沒寫明的，一定要附第二來源與中英文說明；OSPAR 只有核准階段設計（authorised 等）的，一定要附施工紀錄；沒有 OSPAR 紀錄的每列都要附出處。以上建置都會檢查；查不到的列在 `EXCLUDED`（卡片會寫出理由）或 TODO，不臆測。
   地圖依結構歸成四組上色（三個色相＋兩個中性色，dataviz 色盲檢查）；新增型式或改色前先重跑色盲檢查。重建風場層後也要重跑一次。
   Offshore foundation types: the per-farm table is `tools/farm_foundations.py` (each row names one farm by country and exact name);
   run `python3 tools/build_foundations.py` after editing to write `data/global/foundations.json` and `docs/foundations*.md`. OSPAR does
   not always describe what was built (German records especially): any row that differs from OSPAR, or where OSPAR gives no specific
-  type, needs a second source and a bilingual note, and the build checks this. Leave unverifiable farms in `EXCLUDED` or TODO; never
-  guess. The map folds types into four colour groups (three hues plus two neutrals, checked for colour-blind readers); re-run that
+  type, needs a second source and a bilingual note; where OSPAR only has a consent-stage design (authorised and so on), a construction
+  source is required; rows without an OSPAR record need a source of their own. The build checks all of this. Leave unverifiable farms
+  in `EXCLUDED` (the farm card shows the reason) or TODO; never guess. The map folds types into four colour groups (three hues plus two neutrals, checked for colour-blind readers); re-run that
   check before adding a type or changing a colour. Re-run the build after rebuilding the farm layer.
 
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由

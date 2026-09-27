@@ -5,7 +5,8 @@
 上游資料改版後要重新檢查這裡的每一條。
     dup   與 keep 指定的另一筆是同一座風場 → 刪除；保留者沒有業主或分期時搬過去（分期合計與保留者容量相差 5% 內才搬）
     drop  從未建成、查無此場，或已由逐場資料涵蓋的彙總 → 刪除
-    fix   修正欄位：rename（改名）、zhname、lat、lon、mw、year、st、end、owner、ph、note（note=True 表示把理由寫進卡片的註記）；
+    fix   修正欄位：rename（改名）、zhname、lat、lon、mw、year、type（0 陸域、1 離岸、2 浮動式）、st、end、owner、turbine（機組）、ph、
+          note（note=True 表示把理由寫進卡片的註記）；
           改了座標就不再標「概略位置」（approx=True 則仍標）；補上年份或改成規劃中就不再標「年份不詳」；
           改了容量而舊分期加總對不上時清掉分期
 GEM_KEEP 列出不可被當成重複的 GEM 專案（例：與精選風場名稱相近、實為另一座）。
@@ -276,6 +277,102 @@ RULES = [
     dup('FRA', 'Saint-Brieuc wind farm', G, ('Saint-Brieuc', C), '同一座風場（496 MW，2024 年）；GEM 座標在布雷斯特外海，偏離約 170 km',
         'Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away',
         'https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm'),
+    # ------------------------------------------------ 歐洲離岸風場（2026-09 查水下基礎第 2 步時發現）
+    fix('DEU', 'Borkum Riffgrund 3', C, '座標改到建成風場範圍的中心（原座標偏東南約 18 km，落在 Borkum Riffgrund 1、2 旁）',
+        'Point moved to the centre of the built array (the old one was about 18 km to the south-east, next to Borkum Riffgrund 1 and 2)',
+        'https://www.openstreetmap.org/way/1271257138', lat=54.05, lon=6.19),
+    fix('DEU', 'Hohe See', C, '座標改到建成風場範圍的中心（原座標偏東約 9 km）', 'Point moved to the centre of the built array (the old one was about 9 km to the east)',
+        'https://www.openstreetmap.org/way/344491479', lat=54.44, lon=6.33),
+    fix('DEU', 'Hooksiel (BARD test turbine)', C, '2016 年 5 月拆除（當時已停機約四年）', 'Dismantled in May 2016, after about four years out of service',
+        'https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html', end=2016),
+    fix('GBR', 'Sofia', C, '興建中：100 部風機 2026 年 6 月 10 日全部裝好，仍在試運轉（原本誤列為 2025 年營運中；2025 年還沒有發電）',
+        'Under construction: all 100 turbines were in place on 10 June 2026 and commissioning is still under way (it was wrongly listed as '
+        'operating in 2025; it generated nothing in 2025)',
+        'https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/', st=1, year=2026, note=True),
+    fix('GBR', 'Sofia', C, '座標改到核准風場範圍（Dogger Bank Teesside B，592 km²）的中心；原座標在範圍外約 38 km',
+        'Point moved to the centre of the consented array (Dogger Bank Teesside B, 592 km²); the old one was about 38 km outside it',
+        'https://www.legislation.gov.uk/uksi/2015/1592/schedule/1/made', lat=54.99, lon=2.23),
+    dup('GBR', 'Sofia wind farm', G, ('Sofia', C), '同一座風場（RWE，1.4 GW）；GEM 座標是整個 Dogger Bank 區的代用點', 'Same farm (RWE, 1.4 GW); the GEM point is a placeholder for the whole Dogger Bank area',
+        'https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/'),
+    fix('GBR', 'Dogger Bank A', C, '業主改為 Equinor、SSE Renewables 與 Vårgrønn 的合資；原欄位是 Dogger Bank South 的業主',
+        'Owner set to the Equinor, SSE Renewables and Vårgrønn joint venture; the field held Dogger Bank South’s owners',
+        'https://www.equinor.com/news/202310-dogger-bank', owner='Equinor; SSE Renewables; Vårgrønn'),
+    fix('GBR', 'Dogger Bank A', C,
+        '逐年併網（WindEurope 年度統計）：2023 年 1 部（13 MW）、2024 年 63 MW、2025 年 66 部（834 MW）；95 部風機 2026 年 2 月全部裝好，其餘仍在試運轉',
+        'Connected year by year (WindEurope annual statistics): one turbine (13 MW) in 2023, 63 MW in 2024 and 66 turbines (834 MW) in 2025; '
+        'all 95 turbines were in place by February 2026 and the rest is still being commissioned',
+        'https://proceedings.windeurope.org/biplatform/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa01LIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19'
+        '--8aebcd72a09f63bec00d2131e13a2a48069695a4/WindEurope-European-Stats-2025.pdf',
+        year=2023, ph=[[2023, 13], [2024, 63], [2025, 834], [2026, 290]], note=True),
+    fix('FRA', "Îles d'Yeu et de Noirmoutier", C, '實際為 61 部 × 8 MW＝488 MW（原本寫 62 部、496 MW）；2025 年 6 月開始發電，年底已併網 408 MW，2026 年 4 月全部完工',
+        'Built as 61 × 8 MW = 488 MW (it was listed as 62 turbines and 496 MW); first power in June 2025, 408 MW connected by the end of 2025, '
+        'complete in April 2026',
+        'https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees',
+        mw=488, turbine='61 x Siemens Gamesa SG 8.0-167 DD', ph=[[2025, 408], [2026, 80]], note=True),
+    fix('FRA', 'Calvados (Courseulles-sur-Mer)', C, '興建中：比原計畫延後約兩年，EDF 預計 2027 年底商轉（原本誤列為 2025 年營運中）',
+        'Under construction: about two years behind the original plan, EDF expects commissioning at the end of 2027 (it was wrongly listed as '
+        'operating in 2025)', 'https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705',
+        st=1, year=2027, note=True),
+    fix('IRL', 'Arklow Bank Phase 1', C, '最後三部風機 2024 年 5 月因安全原因停機，此後不再發電；業者 2026 年 9 月表示將申請拆除',
+        'The last three turbines were shut down for safety reasons in May 2024 and it has not generated since; in September 2026 the operator '
+        'said it would apply to dismantle it',
+        'https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/', end=2024, note=True),
+    fix('NLD', 'Windpark Fryslân', C, '座標改到 89 部風機的中心（原座標偏東約 6 km，在最東一排風機外）',
+        'Point moved to the centre of the 89 turbines (the old one was about 6 km to the east, beyond the easternmost row)',
+        'https://www.openstreetmap.org/way/672905354', lon=5.26),
+    fix('NLD', 'Irene Vorrink (Dronten)', C, '2022 年 3 月起拆除，由 Windplanblauw 取代；原座標在陸上，改到萊利斯塔德北邊艾瑟爾湖堤外的水域（概略位置）',
+        'Dismantled from March 2022 and replaced by Windplanblauw; the old point was on land, so it is moved into the water off the '
+        'IJsselmeer dike north of Lelystad (approximate)',
+        'https://group.vattenfall.com/press-and-media/newsroom/2022/dismantling-of-irene-vorrink-wind-farm-after-25-years-of-faithful-service',
+        end=2022, lat=52.6, lon=5.585, approx=True),
+    dup('NLD', 'Dronten offshore wind farm', G, ('Irene Vorrink (Dronten)', C),
+        '同一座風場：早年的離岸風場清單把艾瑟爾湖 Dronten 的 Nordtank 600 kW 風機（1996 年起）列為「Dronten」，就是 Irene Vorrink；GEM 座標在北海',
+        'Same farm: early offshore lists called the Nordtank 600 kW turbines at Dronten in the IJsselmeer (from 1996) “Dronten”, which is '
+        'Irene Vorrink; the GEM point is in the North Sea',
+        'https://www.techniques-ingenieur.fr/actualite/articles/10-parcs-eoliens-offshore-dans-le-monde-et-tous-en-europe-6521/'),
+    dup('NLD', 'NOP Agrowind wind farm', G, ('Noordoostpolder (incl. Westermeerwind nearshore)', C),   # 規則依原名比對（改名見上方荷蘭一節）
+        '就是 Noordoostpolder 風場堤岸上的 NOP Agrowind（26 部 Enercon E-126，195 MW），在陸上，不是離岸',
+        'This is NOP Agrowind (26 Enercon E-126, 195 MW) on the dikes of the Noordoostpolder wind park: on land, not offshore', 'https://nopagrowind.nl/'),
+    fix('NLD', 'Windplanblauw offshore wind farm', G,
+        '座標改到艾瑟爾湖中兩排共 24 部風機的位置（原座標在北海，偏西約 82 km）；132 MW 是湖中部分，另有 37 部在陸上',
+        'Point moved to the two rows of 24 turbines in the IJsselmeer (the old one was in the North Sea, about 82 km to the west); '
+        'the 132 MW is the part in the lake, and 37 more turbines stand on land', 'https://www.openstreetmap.org/relation/12695731', lat=52.6, lon=5.58),
+    fix('NLD', 'Borssele V (Two Towers innovation site)', C, '座標改到兩部風機的位置（原座標偏東北約 3 km）',
+        'Point moved to the two turbines (the old one was about 3 km to the north-east)', 'https://www.openstreetmap.org/node/7680250702',
+        lat=51.71, lon=3.004),
+    dup('NLD', 'Borssele Site V wind farm', G, ('Borssele V (Two Towers innovation site)', C),
+        '同一座風場（兩部 V164-9.5 MW，2022 年由 Octopus Energy 買下）；GEM 座標偏北約 85 km',
+        'Same farm (two V164-9.5 MW, bought by Octopus Energy in 2022); the GEM point is about 85 km to the north',
+        'https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/'),
+    drop('NOR', 'Karmoy Wind Turbine Demonstration Area', G,
+         '只取得許可、從未興建：NVE 2010 年核准兩部固定式示範機組（最多 10 MW），METCentre 於 2024 年 7 月撤回許可',
+         'Licensed but never built: NVE licensed two bottom-fixed demonstration turbines (up to 10 MW) in 2010, and METCentre withdrew the '
+         'licence in July 2024', 'https://www.nve.no/konsesjon/konsesjonssaker/konsesjonssak/?type=A-6&id=193'),
+    drop('NOR', 'Kvitsoy Wind Turbine Demonstration Area', G, '只取得許可、從未興建：NVE 的資料列為「許可已撤回」，沒有運轉日期',
+         'Licensed but never built: NVE lists the licence as withdrawn, with no date of first operation',
+         'https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/5/query?where=saksid+in+(192,193,194)&outFields=saksid,anleggnavn,'
+         'kommune,stadium,sakskategori,status,forsteidriftdato,effekt_mw&returnGeometry=false&f=json'),
+    drop('NOR', 'Rennesoy Wind Turbine Demonstration Area', G,
+         '只取得許可（NVE 2010 年）、從未興建：NVE 的已建成風場圖層在這一帶只有 Tysvær、Gismarvik、Zephyros、Utsira、Storøy',
+         'Licensed (NVE, 2010) but never built: NVE’s layer of built wind plants shows only Tysvær, Gismarvik, Zephyros, Utsira and Storøy in this area',
+         'https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/0/query?where=1%3D1&geometry=4.8,58.9,5.8,59.4&geometryType='
+         'esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=saksid,anleggnavn,kommune,status,effekt_mw&returnGeometry=false&f=json'),
+    drop('NOR', 'Marine Energy Test Centre wind farm', G,
+         'METCentre 測試場許可的容量（浮動式 10 MW＋固定式 10 MW），不是一座風場：實際只有 Hywind Demo（Zefyros）與 TetraSpar 兩部浮動式機組，本站已分別列出；固定式從未興建',
+         'The licensed capacity of the METCentre test site (10 MW floating plus 10 MW bottom-fixed), not a wind farm: the only turbines are '
+         'the floating Hywind Demo (Zefyros) and TetraSpar, both listed separately; the bottom-fixed part was never built',
+         'https://www.norwegianoffshorewind.no/about/initiatives/met-centre/'),
+    fix('SWE', 'Utgrunden I', C, '2018 年由 Vattenfall 拆除', 'Dismantled by Vattenfall in 2018',
+        'https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/', end=2018),
+    fix('SWE', 'Bockstigen', C, '2018 年換上整修過的 Vestas V47（660 kW）機艙與葉片，沿用原本的塔架與基礎，容量由 2.8 MW 增為 3.3 MW',
+        'In 2018 refurbished Vestas V47 (660 kW) nacelles and blades went onto the original towers and foundations, raising the capacity from 2.8 to 3.3 MW',
+        'https://www.offshorewind.biz/2018/12/05/swedish-old-timer-gains-momentum/', mw=3.3, ph=[[1998, 2.8], [2018, 0.5]]),
+    fix('SWE', 'Vindpark Vänern (Gässlingegrund)', C, '座標改到維納恩湖 Gässlingegrund 的 10 部風機（原座標偏南約 27 km）',
+        'Point moved to the 10 turbines on Gässlingegrund in Lake Vänern (the old one was about 27 km to the south)',
+        'https://www.openstreetmap.org/relation/14399986', lat=59.26, lon=13.385),
+    fix('ALA', 'Långnabba wind farm', G, '在奧蘭 Eckerö 南端的陸地上（只有輸電海纜在海底），不是離岸風場',
+        'On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm',
+        'https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/', type=0),
     # ------------------------------------------------ Thailand, Philippines, Iran
     drop('THA', 'Jhimpir Power (Energy Absolute) wind farm', G,
          '不存在：Jhimpir 在巴基斯坦，Energy Absolute 在泰國沒有 600 MW 風場（它在猜也蓬的 Hanuman 各場另有紀錄）',
@@ -403,11 +500,11 @@ GEM_KEEP = {
          'https://www.nbd.com.cn/articles/2021-11-03/1978454.html'),
 }
 
-FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'st': 8, 'end': 9, 'owner': 10, 'ph': 14}
-LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'st': '狀態',
-            'end': '除役年', 'owner': '業主', 'ph': '分期'}
+FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'type': 7, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
+LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'type': '陸域／離岸', 'st': '狀態',
+            'end': '除役年', 'owner': '業主', 'turbine': '機組', 'ph': '分期'}
 LABEL_EN = {'rename': 'name', 'zhname': 'Chinese name', 'lat': 'location', 'lon': 'location', 'mw': 'capacity', 'year': 'year',
-            'st': 'status', 'end': 'end year', 'owner': 'owner', 'ph': 'phases'}
+            'type': 'onshore/offshore', 'st': 'status', 'end': 'end year', 'owner': 'owner', 'turbine': 'turbines', 'ph': 'phases'}
 
 
 def apply(rows, rules=RULES):
@@ -464,6 +561,7 @@ def _fmt(x):
 def write_docs(log, countries, out_dir=ROOT / 'docs'):
     """把套用紀錄寫成 docs/data-cleanup.md（中文）與 docs/data-cleanup.en.md。"""
     names = {c['iso']: (c.get('zh') or c['name'], c['name']) for c in countries}
+    names.setdefault('ALA', ('奧蘭', 'Åland'))          # wind_global.json 沒有國家資料的地區
     for lang in ('zh', 'en'):
         zh = lang == 'zh'
         cname = lambda iso: names.get(iso, (iso, iso))[0 if zh else 1]

@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 131 rules: 79 records removed (25,292.8 MW of them operating), 52 records fixed.
+- 157 rules: 87 records removed (25,573.8 MW of them operating), 70 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -21,24 +21,28 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
 | Finland | 2 | 129 | 0 |
-| France | 1 | 496 | 0 |
+| France | 1 | 496 | 2 |
+| Germany | 0 | 0 | 3 |
 | Iran | 2 | 62 | 2 |
+| Ireland | 0 | 0 | 1 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 1 | 310 | 3 |
-| Netherlands | 5 | 1,621 | 2 |
-| Norway | 3 | 1,889 | 8 |
+| Netherlands | 8 | 1,852 | 6 |
+| Norway | 7 | 1,939 | 8 |
 | Philippines | 2 | 240 | 1 |
 | Portugal | 3 | 28.9 | 0 |
 | Romania | 16 | 2,439 | 10 |
 | Senegal | 0 | 0 | 2 |
 | South Africa | 2 | 159 | 2 |
 | South Korea | 1 | 61.5 | 0 |
+| Sweden | 0 | 0 | 3 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 1 | 135 | 1 |
-| United Kingdom | 4 | 2,628 | 0 |
+| United Kingdom | 5 | 2,628 | 4 |
 | United States of America | 6 | 666.8 | 1 |
 | Uruguay | 1 | 141.6 | 1 |
 | Vietnam | 11 | 1,454 | 4 |
+| Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
 
@@ -122,6 +126,16 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Saint-Brieuc wind farm · 496 MW · 2024 | GEM | duplicate of “Saint-Brieuc” | Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away | [link](https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm) |
+| Îles d'Yeu et de Noirmoutier · 496 MW · 2025 | curated | fixed: capacity, turbines, phases | Built as 61 × 8 MW = 488 MW (it was listed as 62 turbines and 496 MW); first power in June 2025, 408 MW connected by the end of 2025, complete in April 2026 | [link](https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees) |
+| Calvados (Courseulles-sur-Mer) · 450 MW · 2025 | curated | fixed: status, year | Under construction: about two years behind the original plan, EDF expects commissioning at the end of 2027 (it was wrongly listed as operating in 2025) | [link](https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705) |
+
+## Germany (DEU)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Borkum Riffgrund 3 · 913 MW · 2025 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 18 km to the south-east, next to Borkum Riffgrund 1 and 2) | [link](https://www.openstreetmap.org/way/1271257138) |
+| Hohe See · 497 MW · 2019 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 9 km to the east) | [link](https://www.openstreetmap.org/way/344491479) |
+| Hooksiel (BARD test turbine) · 5 MW · 2008 | curated | fixed: end year | Dismantled in May 2016, after about four years out of service | [link](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
 
 ## Iran (IRN)
 
@@ -131,6 +145,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Harzvil wind farm · 14 MW | GEM | duplicate of “Manjil wind farm” | The Harzevil site of the Manjil complex | [link](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Manjil wind farm · 93 MW | GEM | fixed: capacity | The Manjil complex totals 92.2 MW, built in phases from 1995 and completed in 2015 | [link](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Binalood wind farm · 28 MW · 2017 | GEM | fixed: year | Online in 2008 (43 × 660 kW) | [link](https://en.wikipedia.org/wiki/Binalood_Wind_Farm) |
+
+## Ireland (IRL)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Arklow Bank Phase 1 · 25.2 MW · 2004 | curated | fixed: end year | The last three turbines were shut down for safety reasons in May 2024 and it has not generated since; in September 2026 the operator said it would apply to dismantle it | [link](https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/) |
 
 ## Jordan (JOR)
 
@@ -158,6 +178,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Noordoostpolder Buitendijks wind farm · 15 MW | GEM | duplicate of “Westermeerwind” | The Westermeerwind turbines standing in Friesland waters | [link](https://www.gem.wiki/Noordoostpolder_Buitendijks_wind_farm) |
 | Binnenjijks wind farm · 68 MW | GEM | duplicate of “Noordoostpolder (incl. Westermeerwind nearshore)” | The land turbines of Noordoostpolder inside the dike (binnendijks) | [link](https://www.gem.wiki/Binnenjijks_wind_farm) |
 | Noordoostpolder (incl. Westermeerwind nearshore) · 429 MW · 2016 | curated | fixed: name, capacity, year, phases | The whole park is 429 MW: Westermeerwind in the lake, 144 MW (its own record), plus NOP Agrowind 195 MW (2016) and Zuidwester 90 MW (2017) on the dikes; the old 429 MW counted Westermeerwind twice | [link](https://nl.wikipedia.org/wiki/Windpark_Noordoostpolder) |
+| Windpark Fryslân · 382.7 MW · 2021 | curated | fixed: location | Point moved to the centre of the 89 turbines (the old one was about 6 km to the east, beyond the easternmost row) | [link](https://www.openstreetmap.org/way/672905354) |
+| Irene Vorrink (Dronten) · 16.8 MW · 1996 | curated | fixed: end year, location | Dismantled from March 2022 and replaced by Windplanblauw; the old point was on land, so it is moved into the water off the IJsselmeer dike north of Lelystad (approximate) | [link](https://group.vattenfall.com/press-and-media/newsroom/2022/dismantling-of-irene-vorrink-wind-farm-after-25-years-of-faithful-service) |
+| Dronten offshore wind farm · 17 MW · 1996 | GEM | duplicate of “Irene Vorrink (Dronten)” | Same farm: early offshore lists called the Nordtank 600 kW turbines at Dronten in the IJsselmeer (from 1996) “Dronten”, which is Irene Vorrink; the GEM point is in the North Sea | [link](https://www.techniques-ingenieur.fr/actualite/articles/10-parcs-eoliens-offshore-dans-le-monde-et-tous-en-europe-6521/) |
+| NOP Agrowind wind farm · 195 MW · 2017 | GEM | duplicate of “Noordoostpolder (incl. Westermeerwind nearshore)” | This is NOP Agrowind (26 Enercon E-126, 195 MW) on the dikes of the Noordoostpolder wind park: on land, not offshore | [link](https://nopagrowind.nl/) |
+| Windplanblauw offshore wind farm · 132 MW · 2024 | GEM | fixed: location | Point moved to the two rows of 24 turbines in the IJsselmeer (the old one was in the North Sea, about 82 km to the west); the 132 MW is the part in the lake, and 37 more turbines stand on land | [link](https://www.openstreetmap.org/relation/12695731) |
+| Borssele V (Two Towers innovation site) · 19 MW · 2021 | curated | fixed: location | Point moved to the two turbines (the old one was about 3 km to the north-east) | [link](https://www.openstreetmap.org/node/7680250702) |
+| Borssele Site V wind farm · 19 MW · 2021 | GEM | duplicate of “Borssele V (Two Towers innovation site)” | Same farm (two V164-9.5 MW, bought by Octopus Energy in 2022); the GEM point is about 85 km to the north | [link](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
 
 ## Norway (NOR)
 
@@ -174,6 +201,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Svaheia wind farm · 25 MW | GEM | fixed: year, capacity | Commissioning year 2018 added (25.2 MW) | [link](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Gismarvik wind farm · 12.6 MW | GEM | fixed: year, capacity | Commissioning year 2021 added (12.6 MW) | [link](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Havøygavlen wind farm · 38 MW | GEM | fixed: year, capacity | Repowered in 2020–21 with nine Vestas V117 (plus a 3 MW test turbine from 2010), 41.4 MW in total | [link](https://finnmarkkraft.no/prosjekter/havoygavlen-vindpark) |
+| Karmoy Wind Turbine Demonstration Area · 10 MW · 2020 | GEM | removed | Licensed but never built: NVE licensed two bottom-fixed demonstration turbines (up to 10 MW) in 2010, and METCentre withdrew the licence in July 2024 | [link](https://www.nve.no/konsesjon/konsesjonssaker/konsesjonssak/?type=A-6&id=193) |
+| Kvitsoy Wind Turbine Demonstration Area · 10 MW · 2021 | GEM | removed | Licensed but never built: NVE lists the licence as withdrawn, with no date of first operation | [link](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/5/query?where=saksid+in+(192,193,194)&outFields=saksid,anleggnavn,kommune,stadium,sakskategori,status,forsteidriftdato,effekt_mw&returnGeometry=false&f=json) |
+| Rennesoy Wind Turbine Demonstration Area · 10 MW · 2010 | GEM | removed | Licensed (NVE, 2010) but never built: NVE’s layer of built wind plants shows only Tysvær, Gismarvik, Zephyros, Utsira and Storøy in this area | [link](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/0/query?where=1%3D1&geometry=4.8,58.9,5.8,59.4&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=saksid,anleggnavn,kommune,status,effekt_mw&returnGeometry=false&f=json) |
+| Marine Energy Test Centre wind farm · 20 MW · 2009 | GEM | removed | The licensed capacity of the METCentre test site (10 MW floating plus 10 MW bottom-fixed), not a wind farm: the only turbines are the floating Hywind Demo (Zefyros) and TetraSpar, both listed separately; the bottom-fixed part was never built | [link](https://www.norwegianoffshorewind.no/about/initiatives/met-centre/) |
 
 ## Philippines (PHL)
 
@@ -244,6 +275,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Yeongyang · 61.5 MW · 2015 | curated | duplicate of “Yeong Yang (Macquarie Group) wind farm” | Same farm (41 × 1.5 MW on Maengdongsan, built 2008–2009); the curated record had the wrong year (2015), point (county seat) and owner, so the GEM record is kept | [link](https://www.epj.co.kr/news/articleView.html?idxno=4315) |
 
+## Sweden (SWE)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Utgrunden I · 10.5 MW · 2000 | curated | fixed: end year | Dismantled by Vattenfall in 2018 | [link](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) |
+| Bockstigen · 2.8 MW · 1998 | curated | fixed: capacity, phases | In 2018 refurbished Vestas V47 (660 kW) nacelles and blades went onto the original towers and foundations, raising the capacity from 2.8 to 3.3 MW | [link](https://www.offshorewind.biz/2018/12/05/swedish-old-timer-gains-momentum/) |
+| Vindpark Vänern (Gässlingegrund) · 30 MW · 2010 | curated | fixed: location | Point moved to the 10 turbines on Gässlingegrund in Lake Vänern (the old one was about 27 km to the south) | [link](https://www.openstreetmap.org/relation/14399986) |
+
 ## Thailand (THA)
 
 | Record | Source | Action | Reason | Source link |
@@ -266,6 +305,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Hornsea wind farm · 1 · 1,218 MW · 2019 | GEM | duplicate of “Hornsea One” | Same farm | data comparison |
 | Dogger Bank wind farm · 1,200 MW · 2023 | GEM | duplicate of “Dogger Bank A” | Same farm (Dogger Bank A, first power October 2023) | [link](https://www.equinor.com/news/202310-dogger-bank) |
 | Hornsea wind farm · 3, 4 · 5,000 MW | GEM | removed | Hornsea 3 is already listed as under construction (2026 compilation); Ørsted discontinued Hornsea 4 in May 2025 | [link](https://orsted.com/en/company-announcement-list/2025/05/orsted-to-discontinue-the-hornsea-4-offshore-wind--143901911) |
+| Sofia · 1,400 MW · 2025 | curated | fixed: status, year | Under construction: all 100 turbines were in place on 10 June 2026 and commissioning is still under way (it was wrongly listed as operating in 2025; it generated nothing in 2025) | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Sofia · 1,400 MW · 2026 | curated | fixed: location | Point moved to the centre of the consented array (Dogger Bank Teesside B, 592 km²); the old one was about 38 km outside it | [link](https://www.legislation.gov.uk/uksi/2015/1592/schedule/1/made) |
+| Sofia wind farm · 1,400 MW | GEM | duplicate of “Sofia” | Same farm (RWE, 1.4 GW); the GEM point is a placeholder for the whole Dogger Bank area | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Dogger Bank A · 1,200 MW · 2025 | curated | fixed: owner | Owner set to the Equinor, SSE Renewables and Vårgrønn joint venture; the field held Dogger Bank South’s owners | [link](https://www.equinor.com/news/202310-dogger-bank) |
+| Dogger Bank A · 1,200 MW · 2025 | curated | fixed: year, phases | Connected year by year (WindEurope annual statistics): one turbine (13 MW) in 2023, 63 MW in 2024 and 66 turbines (834 MW) in 2025; all 95 turbines were in place by February 2026 and the rest is still being commissioned | [link](https://proceedings.windeurope.org/biplatform/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa01LIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8aebcd72a09f63bec00d2131e13a2a48069695a4/WindEurope-European-Stats-2025.pdf) |
 
 ## United States of America (USA)
 
@@ -305,6 +349,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Tan An 1 Phase 1 (Ca Mau) · 30 MW · 2021 | curated | duplicate of “Tân An 1 offshore wind farm” | Same farm | [link](https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/84-du-an-dien-gio-kip-van-hanh-thuong-mai-voi-tong-cong-suat-hon-3.980-mw.html) |
 | Tân An 1 offshore wind farm · 115 MW · 2021 | GEM | fixed: capacity, phases | Only phase 1 (25 MW, 2021) is in operation; the later phases were still not grid-connected in 2024 | [link](https://thanhnien.vn/ca-mau-kiem-tra-phat-hien-thieu-sot-o-2-nha-may-dien-gio-18524042817170935.htm) |
 | Hiệp Thành wind farm · 65 MW · 2023 | GEM | duplicate of “Hiep Thanh (Tra Vinh)” | Same farm (Hiệp Thạnh on the Trà Vinh coast; GEM lists it as onshore) | data comparison |
+
+## Åland (ALA)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Långnabba wind farm · 40 MW · 2022 | GEM | fixed: onshore/offshore | On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm | [link](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
 
 ## GEM projects kept apart
 

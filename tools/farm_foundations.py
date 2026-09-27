@@ -12,10 +12,13 @@ docs/foundations.md、docs/foundations.en.md。
 建置時會檢查：風場存在且是離岸或浮動式；引用 OSPAR 時，OSPAR 的值要與 t 相符，不相符（或 OSPAR 沒有具體型式）就必須
 有 url 與理由；同一座風場不可出現兩次。
 
-第 1 步（2026-09）：OSPAR 涵蓋的北海與東北大西洋。OSPAR 的「營運中」紀錄逐筆比對過名稱、位置與容量；
+第 1 步（2026-09，F）：OSPAR 涵蓋的北海與東北大西洋。OSPAR 的「營運中」紀錄逐筆比對過名稱、位置與容量；
 德國的紀錄不可靠（10 筆只寫「單樁／三腳／三樁／套管／重力式／其他」任一種，Merkur、Veja Mate、Trianel Borkum II 與
 alpha ventus 則與建成紀錄不符），所以德國每一座都改以德文維基百科資訊框的「Gründung」（附建造紀錄）為準；
 Hornsea One 西區也與建成紀錄不符。
+第 2 步（2026-09，F2）：歐洲其他風場，包括 OSPAR 範圍以外的波羅的海、地中海與艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場。
+每一座都附出處（開發商、施工廠商、產業新聞、政府文件或維基百科，原文逐筆核對過）。OSPAR 對 2024 年以後完工的風場只有
+核准階段的設計（Current Status 是 authorised 等，不是 operational 或 decommissioned），設計可能改變，所以這種紀錄一定要再附施工紀錄，建置會檢查。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
 
@@ -26,7 +29,9 @@ EN = 'https://en.wikipedia.org/wiki/'
 FR = 'https://fr.wikipedia.org/wiki/'
 
 # 型式：代碼 → (中文, English, 地圖色組)。地圖上多於三種色相時分不清（見 globe.js 的 FD_GROUPS），
-# 所以依結構歸成四組：單樁、鋼構框架（套管、三腳、三樁）、浮動式、其他固定式（重力式、高樁承台、混合）
+# 所以依結構歸成四組：單樁、鋼構框架（套管、三腳、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）。
+# 圍堰式：近岸淺水處用鋼板樁（或鋼管樁加板樁）圍成一圈、填砂，上面做混凝土基座，等於把陸上風機的基礎做在水中
+# 岩錨式：湖底或海底是岩盤時，以錨桿把基礎固定在岩盤上
 TYPES = {
     'mp': ('單樁', 'Monopile', 'mp'),
     'jk': ('套管式', 'Jacket', 'frame'),
@@ -34,6 +39,8 @@ TYPES = {
     'tl': ('三樁', 'Tripile', 'frame'),
     'gb': ('重力式', 'Gravity-based', 'other'),
     'pc': ('高樁承台', 'High-rise pile cap', 'other'),
+    'cf': ('圍堰式', 'Cofferdam', 'other'),
+    'ra': ('岩錨式', 'Rock-anchored', 'other'),
     'mx': ('混合', 'Mixed', 'other'),
     'fl': ('浮動式', 'Floating', 'fl'),
 }
@@ -46,8 +53,13 @@ SUBS = {
 }
 
 
-def F(iso, name, t, ospar=(), url=None, sub=None, parts=None, zh='', en=''):
-    return dict(iso=iso, name=name, t=t, ospar=list(ospar), url=url, sub=sub, parts=parts, zh=zh, en=en, step=1)
+def F(iso, name, t, ospar=(), url=None, sub=None, parts=None, zh='', en='', step=1):
+    return dict(iso=iso, name=name, t=t, ospar=list(ospar), url=url, sub=sub, parts=parts, zh=zh, en=en, step=step)
+
+
+def F2(*a, **k):
+    """第 2 步加入的列"""
+    return F(*a, step=2, **k)
 
 
 GER = ('OSPAR 只寫「任一種」，改以德文維基百科（附建造紀錄）為準', 'OSPAR says “any of these”, so German Wikipedia (with construction records) is used')
@@ -174,13 +186,110 @@ FOUNDATIONS = [
     F('GBR', 'Walney Extension', 'mp', ['UK109', 'UK110']),
     F('GBR', 'West of Duddon Sands', 'mp', ['UK113']),
     F('GBR', 'Westermost Rough', 'mp', ['UK114']),
+
+    # ================================================ 第 2 步（2026-09）：歐洲其他風場（波羅的海、地中海、艾瑟爾湖）與 OSPAR 2024 之後完工的風場
+    # ------------------------------------------------ Germany
+    F2('DEU', 'Borkum Riffgrund 3', 'mp', ['DE130'], 'https://www.jandenul.com/news/jan-de-nul-kicks-orsteds-borkum-riffgrund-3-offshore-wind-farm-construction',
+       zh='83 座單樁', en='83 monopiles'),
+    F2('DEU', 'Hohe See', 'mp', ['DE011'], 'https://www.offshorewind.biz/2019/04/11/hohe-see-albatros-foundations-stand-complete/',
+       zh='OSPAR 只寫「任一種」、德文維基百科也沒寫；施工新聞：與相鄰的 Albatros 共 87 部風機全用單樁',
+       en='OSPAR says “any of these” and German Wikipedia does not say; construction news: all 87 turbines of Hohe See and neighbouring Albatros stand on monopiles'),
+    F2('DEU', 'Hooksiel (BARD test turbine)', 'tl', url='https://de.wikipedia.org/wiki/Tripile_(Gr%C3%BCndung)',
+       zh='BARD 的三樁試驗機（2016 年拆除）', en='BARD’s tripile pilot turbine (dismantled in 2016)'),
+    F2('DEU', 'EnBW Baltic 1', 'mp', url='https://www.enbw.com/company/topics/wind-power/offshore-wind-farm-baltic-1/'),
+    F2('DEU', 'EnBW Baltic 2', 'mx', url='https://www.enbw.com/company/topics/wind-power/offshore-wind-farm-baltic-2/', parts=[['mp', 39], ['jk', 41]],
+       zh='水深約 35 m 以內用單樁（39 座），更深處用套管（41 座）', en='Monopiles in water up to about 35 m deep (39) and jackets beyond (41)'),
+    F2('DEU', 'Wikinger', 'jk', url='https://www.offshorewind.biz/2017/10/26/all-wikinger-turbines-up/', zh='70 座套管', en='70 jackets'),
+    F2('DEU', 'Arkona', 'mp', url='https://www.offshorewind.biz/2017/11/09/all-monopiles-installed-at-arkona-offshore-wind-farm-tps-next/',
+       zh='60 座單樁', en='60 monopiles'),
+    F2('DEU', 'Arcadis Ost 1', 'mp', url='https://parkwind.eu/news/ao1-monopile-installation-completed', zh='XXL 單樁', en='XXL monopiles'),
+    F2('DEU', 'Baltic Eagle', 'mp', url='https://www.energyglobal.com/wind/12092023/iberdrola-completes-installation-of-all-50-monopiles-at-baltic-eagle-offshore-wind-farm/',
+       zh='50 座單樁', en='50 monopiles'),
+    F2('DEU', 'Ems Emden (Enercon E-112 nearshore)', 'cf', url='https://w3.windmesse.de/windenergie/news/1004-erstes-nearshore-projekt-mit-grosswindanlage',
+       zh='堤腳外約 40 m 的河口水域中，在鋼板樁圍堰內澆築、由 40 支鋼管樁支撐的混凝土基座；聯邦能源登錄（MaStR）把它列為陸域風機',
+       en='In the estuary about 40 m off the dike toe: a concrete base on 40 steel tube piles, cast inside a sheet-pile wall; the federal '
+          'energy register (MaStR) lists it as an onshore turbine'),
+    F2('DEU', 'Breitling (Rostock)', 'cf', url='https://w3.windmesse.de/windenergie/news/2284-erste-offshore-turbine-in-deutschland-errichtet',
+       zh='水深約 2 m 處以鋼板樁圍成、用砂與混凝土築成的基座（直徑 18 m）；聯邦能源登錄（MaStR）把它列為陸域風機',
+       en='A sheet-pile ring in about 2 m of water, built up with sand and concrete (18 m across); the federal energy register (MaStR) '
+          'lists it as an onshore turbine'),
+    # ------------------------------------------------ Netherlands（艾瑟爾湖與 Borssele 試驗場）、Belgium
+    F2('NLD', 'Windpark Fryslân', 'mp', url='https://www.offshorewind.biz/2020/11/09/windpark-fryslan-monopiles-halfway-there/',
+       zh='89 座單樁（艾瑟爾湖）', en='89 monopiles (IJsselmeer)'),
+    F2('NLD', 'Westermeerwind', 'mp', url='https://www.offshore-energy.biz/westermeerwind-foundations-in-place/',
+       zh='48 座單樁（艾瑟爾湖）', en='48 monopiles (IJsselmeer)'),
+    F2('NLD', 'Windplanblauw offshore wind farm', 'cf',
+       url='https://windpowernl.com/2024/08/30/festive-opening-of-dutch-on-and-nearshore-wind-project-windplanblauw/',
+       zh='湖中 24 部風機：每座以 22 支鋼管樁（間以板樁）圍成一圈、填砂，上面是直徑約 20 m 的混凝土基座',
+       en='The 24 turbines in the lake: each stands on a ring of 22 steel tube piles (with sheet piles between them), filled with sand and '
+          'topped by a concrete base about 20 m across'),
+    F2('NLD', 'Irene Vorrink (Dronten)', 'mp',
+       url='https://windpowernl.com/2022/02/28/vattenfall-starts-decommissioning-of-one-of-the-oldest-operational-dutch-wind-farms/',
+       zh='28 座鋼製單樁，立在堤外的水中（2022 年拆除）', en='28 steel monopiles in the water off the dike (dismantled in 2022)'),
+    F2('NLD', 'Borssele V (Two Towers innovation site)', 'mp',
+       url='https://www.offshore-energy.biz/the-borssele-series-innovation-site-for-the-ever-evolving-industry/',
+       zh='2 座單樁；其中一座試用 Slip Joint（單樁與轉接段以錐面套接）', en='2 monopiles; one tests a Slip Joint (a conical connection between the monopile and transition piece)'),
+    # ------------------------------------------------ Denmark（波羅的海、大貝爾特、厄勒海峽；北海與卡特加特的在第 1 步）
+    F2('DNK', 'Kriegers Flak', 'mp', url='https://group.vattenfall.com/press-and-media/newsroom/2020/all-kriegers-flak-foundations-installed',
+       zh='72 座單樁', en='72 monopiles'),
+    F2('DNK', 'Rødsand II', 'gb', url='https://m.aarsleff.com/img/6885/0/0/Download/180-r%C3%B8dsand-2-uk',
+       zh='混凝土沉箱重力式基礎（與 Nysted 相同）', en='Concrete gravity caissons (as at Nysted)'),
+    F2('DNK', 'Nysted (Rødsand I)', 'gb', url='https://m.aarsleff.com/img/7435/0/0/Download/057-r%C3%B8dsand-uk',
+       zh='壓艙的混凝土沉箱；2022 年一部風機倒塌拆除、一部停用，其餘 70 部繼續運轉', en='Ballasted concrete caissons; one turbine collapsed and was removed in 2022 and another was taken out of service, leaving 70 in operation'),
+    F2('DNK', 'Middelgrunden', 'gb', url='https://ens.dk/media/6684/download', zh='混凝土重力式基礎', en='Concrete gravity bases'),
+    F2('DNK', 'Samsø', 'mp', url='https://ens.dk/media/2563/download', zh='10 座單樁，配混凝土轉接段', en='10 monopiles with concrete transition pieces'),
+    F2('DNK', 'Sprogø', 'gb', url='https://boskalis.com/about-us/projects/offshore-wind-farm-sprogo', zh='混凝土重力式基礎（每座最重約 1,900 噸）',
+       en='Concrete gravity bases (up to about 1,900 t each)'),
+    F2('DNK', 'Avedøre Holme', 'gb', url='https://ens.dk/media/2599/download',
+       zh='3 座混凝土重力式基座，立在堤外約 2 m 深的水中（依 2008 年環評的設計）', en='3 concrete gravity bases in about 2 m of water off the dike (as designed in the 2008 EIA)'),
+    F2('DNK', 'Tunø Knob', 'gb', url='https://www.osti.gov/etdeweb/biblio/630721', zh='箱型沉箱重力式基礎', en='Box-caisson gravity foundations'),
+    # ------------------------------------------------ Sweden, Finland
+    F2('SWE', 'Lillgrund', 'gb', url='https://www.osti.gov/etdeweb/servlets/purl/979747', zh='鋼筋混凝土重力式基礎，內填壓艙物',
+       en='Reinforced-concrete gravity bases filled with ballast'),
+    F2('SWE', 'Kårehamn', 'gb', url='https://www.offshorewind.biz/2026/01/23/nordic-renewable-energy-company-acquiring-rwes-swedish-offshore-wind-farm',
+       zh='16 座重力式基礎', en='16 gravity-based foundations'),
+    F2('SWE', 'Vindpark Vänern (Gässlingegrund)', 'ra', url='https://evwind.aeeolica.org/2010/05/24/the-first-vanern-offshore-wind-farm-inaugurated/5723',
+       zh='錨定在湖底岩盤上的基礎（維納恩湖）', en='Anchored to the bedrock of the lake bed (Lake Vänern)'),
+    F2('SWE', 'Utgrunden I', 'mp', url='https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/', zh='7 座單樁（2018 年拆除）',
+       en='7 monopiles (dismantled in 2018)'),
+    F2('SWE', 'Bockstigen', 'mp', url='https://www.osti.gov/etdeweb/biblio/679603', zh='鑽孔植入石灰岩的單樁', en='Monopiles set in holes drilled into the limestone'),
+    F2('FIN', 'Pori Tahkoluoto (Offshore Pori)', 'gb', url='https://hyotytuuli.fi/en/suomen-hyotytuuli-rakentaa-merituulipuiston-porin-tahkoluotoon-2/',
+       zh='填石的鋼製重力式基礎（海床是岩盤，無法打單樁；需抵抗海冰）', en='Rock-filled steel gravity bases (the bedrock rules out monopiles; built for ice loads)'),
+    F2('BEL', 'Belwind Alstom Haliade demonstrator', 'jk', ['Be003'],
+       'https://www.offshorewind.biz/2013/11/20/belgium-alstom-installs-6mw-haliade-offshore-wind-turbine',
+       zh='61 m 高的套管，架在預先打入海床的樁上（2013 年）；OSPAR 把它併在 Belwind 一期（單樁）裡',
+       en='A 61 m jacket set on pre-driven piles (2013); OSPAR merges it into Belwind phase 1 (monopiles)'),
+    # ------------------------------------------------ United Kingdom
+    F2('GBR', 'Seagreen Phase 1', 'jk', ['UK089'], 'https://www.sserenewables.com/news-and-views/2023/04/final-jacket-foundation-installed-on-seagreen/', sub='sb',
+       zh='114 座吸力桶套管；OSPAR 這筆沒有寫型式', en='114 suction-bucket jackets; OSPAR’s record gives no type'),
+    F2('GBR', 'Moray West', 'mp', ['UK142'], 'https://www.moraywest.com/news/moray-west-celebrates-final-monopile-installation',
+       zh='全部為單樁（2024 年 4 月裝完）；OSPAR 列為套管，與建成紀錄不符', en='All monopiles (completed April 2024); OSPAR lists jackets, which does not match what was built'),
+    F2('GBR', 'Neart na Gaoithe', 'jk', ['UK068'], 'https://www.saipem.com/en/media/press-releases/2023-10-24/saipem-successfully-completed-installation-works-scotland-neart-na',
+       zh='54 座套管', en='54 jackets'),
+    F2('GBR', 'Dogger Bank A', 'mp', ['UK014'], 'https://doggerbank.com/construction/foundation-installation-campaign-begins-on-dogger-bank-b/',
+       zh='95 座單樁（附轉接段）', en='95 monopiles with transition pieces'),
+    F2('GBR', 'Sofia', 'mp', ['UK138'], 'https://www.rwe.com/en/press/rwe-offshore-wind-gmbh/2025-07-15-sofia-offshore-wind-farm-completes-installation-of-foundations/',
+       zh='100 座加長單樁（不另加轉接段）', en='100 extended monopiles (no separate transition piece)'),
+    # ------------------------------------------------ France, Ireland, Italy, Spain
+    F2('FRA', "Îles d'Yeu et de Noirmoutier", 'mp', ['FR06'], 'https://www.deme-group.com/news/all-foundations-installed-iles-dyeu-and-noirmoutier-offshore-wind-farm',
+       zh='61 座鑽孔植入的單樁', en='61 drilled monopiles'),
+    F2('FRA', 'Calvados (Courseulles-sur-Mer)', 'mp', ['FR01'],
+       'https://www.meretmarine.com/fr/energies-marines/parc-eolien-du-calvados-le-seaway-strashnov-est-arrive-au-havre-pour-installer-des-monopieux',
+       zh='64 座單樁（興建中）', en='64 monopiles (under construction)'),
+    F2('IRL', 'Arklow Bank Phase 1', 'mp', ['IE01'], 'https://www.ge.com/news/press-releases/arklow-bank-wind-park-irish-sea-nearing-completion',
+       zh='7 座打入式單樁', en='7 driven monopiles'),
+    F2('ITA', 'Beleolico (Taranto)', 'mp', url='https://www.offshorewind.biz/2022/01/13/foundations-stand-at-first-mediterranean-offshore-wind-farm/',
+       zh='10 座單樁；地中海第一座離岸風場', en='10 monopiles; the first offshore wind farm in the Mediterranean'),
+    F2('ESP', 'Elican / Elisa (Gran Canaria)', 'gb', url='https://cordis.europa.eu/project/id/691919',
+       zh='重力式基礎配伸縮式塔架，可自行安裝的原型機', en='A gravity-based foundation with a telescopic tower; a self-installing prototype'),
 ]
 
 # OSPAR 有紀錄、但這一步刻意不列的風場（理由寫在報告裡，之後的步驟再查）
 EXCLUDED = [
-    ('DEU', 'Hohe See', ['DE011'], 'OSPAR 只寫「任一種」，德文維基百科沒有寫基礎型式', 'OSPAR says “any of these” and German Wikipedia does not state the foundation'),
-    ('DNK', 'Frederikshavn', ['DK03'], 'OSPAR 寫全為單樁，但這個試驗場有過吸力桶基礎的試驗機組，容量也對不上（14 vs 7.6 MW）',
-     'OSPAR says monopiles, but this test site had a suction-bucket trial turbine, and the capacities disagree (14 vs 7.6 MW)'),
-    ('BEL', 'Belwind Alstom Haliade demonstrator', ['Be003'], 'OSPAR 把它併在 Belwind 一期（單樁）裡，這部示範機的基礎要另外查證',
-     'OSPAR merges it into Belwind phase 1 (monopiles); this demonstrator’s own foundation still has to be checked'),
+    ('DNK', 'Frederikshavn', ['DK03'],
+     '試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；'
+     '各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列',
+     'A test site: the Danish Energy Agency records 3 turbines at sea from 2003 (7.6 MW); after the harbour was extended two now stand on land '
+     'and only one 2.3 MW turbine is left at sea, but it does not say which; the turbines had different foundations (one V90 on a trial '
+     'suction bucket), and OSPAR’s “all monopiles” and 14 MW do not match, so it is left out'),
 ]

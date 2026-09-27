@@ -53,8 +53,9 @@
 - [ ] 46 GW 營運中風場沒有商轉年（多在中國、印度），地圖只能從 2025 年顯示：找得到年份的補上
 - [ ] 覆蓋率較低的大國（中國差 144 GW、德國 27 GW、印度 15 GW）：評估以各國官方登錄資料補齊（見 ROADMAP 第 1 階段）
 - [ ] 重複的風場紀錄：美國 Sunrise Wind 同時有 GEM 的「Sunrise wind farm (United States)」與 2026 年整理清單的「Sunrise Wind」（同為 924 MW、興建中），下次清理時在 `tools/farm_cleanup.py` 加一條規則（2026-09 整理港口資料時發現）
-- [ ] 荷蘭的兩組重複（比對水下基礎時發現）：「Borssele V (Two Towers innovation site)」與 GEM 的「Borssele Site V wind farm」（同為 19 MW、2021）、
-      「Irene Vorrink (Dronten)」與「Dronten offshore wind farm」（同為 17 MW、1996）：查證後寫進 `tools/farm_cleanup.py`
+- [x] 荷蘭的兩組重複（比對水下基礎時發現）：Borssele V 與 GEM 的「Borssele Site V」、Irene Vorrink 與 GEM 的「Dronten」已查證合併（2026-09，v2.8.0）
+- [ ] Dogger Bank 規劃中專案：GEM 的「Dogger Bank wind farm · D」（1,320 MW，GEM 列為前期開發）現在顯示為興建中、預計 2027 年並註「first power 2025」，
+      這是 2026 整理清單中 Dogger Bank B 的資料（比對時對到 D 期）；下次整理規劃中專案時查證修正
 - [ ] 法國 2025 年離岸容量（`wind_global.json` 為 1,500 MW，與 2024 年相同）可能偏低：SDES 2026 年第 2 季風電儀表板推算 2025 年底約 2.0 GW，待查證
 - [ ] 離岸逐場加總高於國家數列，待查證：中國營運中離岸風場加總 58.9 GW，國家數列 2025 年為 48.4 GW；越南 28 座「離岸」（多為潮間帶）加總 2.0 GW，國家數列為 1.0 GW。可能是分批併網卻以全場容量計入，或有重複
 
@@ -68,9 +69,9 @@
 - [ ] 美國 5 個港口已有出處、但碼頭座標還沒核對，先不列：紐澤西風電港（2024 年完工、從未使用）、長灘 Pier Wind（規劃中）、
       Vineyard Haven（Vineyard Wind 1 運維基地）、Quonset／Davisville（South Fork Wind 運維）、Nexans Goose Creek 海纜廠
 - [ ] 港口狀態變動快（美國多個計畫 2025–26 年喊停、補助取消）：每半年核對一次；角色已結束的港口改標 `former`（地圖為灰色），改完跑 `tools/qa_ports.py`
-- [ ] 整理港口資料時發現的重複風場紀錄，下次清理時在 `tools/farm_cleanup.py` 處理：英國 Sofia（精選「Sofia」營運中與 GEM「Sofia wind farm」
-      興建中，同為 1,400 MW）；波蘭 Baltica 2（GEM「Baltica II Offshore wind farm」1,500 MW 前期開發與「EW Baltica 2 Offshore wind farm」
-      210 MW 興建中，位置幾乎相同，實際為 1.5 GW、興建中）
+- [ ] 整理港口資料時發現的重複風場紀錄，下次清理時在 `tools/farm_cleanup.py` 處理：波蘭 Baltica 2（GEM「Baltica II Offshore wind farm」
+      1,500 MW 前期開發與「EW Baltica 2 Offshore wind farm」210 MW 興建中，位置幾乎相同，實際為 1.5 GW、興建中）。
+      英國 Sofia 的兩筆已在水下基礎第 2 步合併（2026-09）
 
 ## 風場詳情
 
@@ -84,12 +85,12 @@
 
 - [x] 第 1 步：歐洲 OSPAR 涵蓋範圍（北海、東北大西洋）：99 座，逐場對照表 `tools/farm_foundations.py`、檢查與產生程式
       `tools/build_foundations.py`、地球儀「離岸：水下基礎」圖層（2026-09，v2.7.0；逐場清單見 [docs/foundations.md](./docs/foundations.md)）
-- [ ] 第 1 步留下的：Hohe See（OSPAR 只寫任一種、維基百科沒寫）、Frederikshavn（試驗場，OSPAR 寫全為單樁但有吸力桶試驗機）、
-      Belwind 的 Alstom Haliade 示範機（OSPAR 併在一期裡）：找開發商或建造紀錄
-- [ ] 第 2 步：歐洲其他風場（波羅的海、地中海等），以及 OSPAR 2024 之後才完工的北海風場：英國 Seagreen、Moray West、
-      Neart na Gaoithe、Dogger Bank A、Sofia，德國 Borkum Riffgrund 3，法國 Yeu-Noirmoutier、Courseulles；波羅的海的
-      Kriegers Flak、Rødsand、Arkona、Wikinger、Baltic 1／2、Baltic Eagle、Lillgrund 等；艾瑟爾湖（IJsselmeer）的荷蘭風場
-- [ ] 第 3 步：浮動式風場
+- [x] 第 2 步：歐洲其他風場（波羅的海、地中海、艾瑟爾湖），以及 OSPAR 2024 之後才完工的風場：41 座，每座附出處、引用原文逐筆核對；
+      第 1 步留下的 Hohe See 與 Belwind 的 Haliade 示範機也補上出處；另以 26 條規則更正風場紀錄（2026-09，v2.8.0）
+- [ ] 丹麥 Frederikshavn 試驗場：丹麥能源署記載港口擴建後海上只剩 1 部 2.3 MW，但沒寫是哪一部（各機組基礎不同）；
+      查到是哪一部後補進對照表，並更正容量（目前仍是 2003 年的 3 部、7.6 MW）
+- [ ] 第 3 步：浮動式風場。順便查證 GEM 的西班牙「Biscay Marine Energy Platform wind farm」（浮動式 20 MW、2015）：
+      可能和已刪除的挪威 METCentre 一樣是測試場的許可容量，實際機組（DemoSATH 2 MW）已另列
 - [ ] 第 4 步：台灣、日本、韓國、美國
 - [ ] 中國、越南是否投入（約 50–70 小時）：前四步完成後問使用者
 

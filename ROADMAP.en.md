@@ -111,6 +111,15 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      floating and other fixed-bottom, plus “type unknown”.
   2. The rest of Europe (Baltic, Mediterranean and others): developers' pages, German Wikipedia infoboxes and
      similar, with a source for every farm.
+     **Done (Sep 2026, v2.8.0)**: 41 farms (the Baltic, the Mediterranean, the IJsselmeer, and UK, German and French farms
+     finished after OSPAR 2024). Every farm cites a developer, construction contractor, trade press, government document or
+     Wikipedia, and each quoted passage was checked against the page; where OSPAR only has the consented design, a
+     construction source is always added (Moray West, for example, was consented with jackets but built on monopiles). Two
+     types were added to the “other fixed” colour group (colours unchanged): cofferdam and rock-anchored. Hohe See and
+     Belwind's Haliade demonstrator now have sources; at the Frederikshavn test site it is still unclear which turbine is
+     left at sea, so it stays out. The checks also corrected 26 farm records (status, capacity, location, duplicates and
+     farms never built); see [docs/data-cleanup.en.md](./docs/data-cleanup.en.md). Every operating offshore farm in Europe
+     except Frederikshavn now has a known type.
   3. Floating farms.
   4. Taiwan, Japan, Korea and the USA: developers' websites and EIA documents.
   5. China and Vietnam: ask the owner once the first four steps are done.
