@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 157 條：刪除 87 筆（其中營運中 25,573.8 MW），修正 70 筆。
+- 規則 169 條：刪除 92 筆（其中營運中 25,593.8 MW），修正 77 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -26,9 +26,9 @@
 | 巴西 | 1 | 150 | 0 |
 | 德國 | 0 | 0 | 3 |
 | 愛爾蘭 | 0 | 0 | 1 |
-| 挪威 | 7 | 1,939 | 8 |
+| 挪威 | 7 | 1,939 | 9 |
 | 比利時 | 1 | 325 | 0 |
-| 法國 | 1 | 496 | 2 |
+| 法國 | 4 | 496 | 5 |
 | 泰國 | 1 | 600 | 1 |
 | 澳洲 | 3 | 193 | 3 |
 | 烏拉圭 | 1 | 141.6 | 1 |
@@ -38,10 +38,11 @@
 | 美國 | 6 | 666.8 | 1 |
 | 肯亞 | 1 | 310 | 3 |
 | 芬蘭 | 2 | 129 | 0 |
-| 英國 | 5 | 2,628 | 4 |
+| 英國 | 6 | 2,628 | 5 |
 | 荷蘭 | 8 | 1,852 | 6 |
 | 菲律賓 | 2 | 240 | 1 |
-| 葡萄牙 | 3 | 28.9 | 0 |
+| 葡萄牙 | 3 | 28.9 | 2 |
+| 西班牙 | 1 | 20 | 0 |
 | 越南 | 11 | 1,454 | 4 |
 
 ## 中國大陸 (CHN)
@@ -174,6 +175,7 @@
 | Kvitsoy Wind Turbine Demonstration Area · 10 MW · 2021 | GEM | 刪除 | 只取得許可、從未興建：NVE 的資料列為「許可已撤回」，沒有運轉日期 | [連結](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/5/query?where=saksid+in+(192,193,194)&outFields=saksid,anleggnavn,kommune,stadium,sakskategori,status,forsteidriftdato,effekt_mw&returnGeometry=false&f=json) |
 | Rennesoy Wind Turbine Demonstration Area · 10 MW · 2010 | GEM | 刪除 | 只取得許可（NVE 2010 年）、從未興建：NVE 的已建成風場圖層在這一帶只有 Tysvær、Gismarvik、Zephyros、Utsira、Storøy | [連結](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/0/query?where=1%3D1&geometry=4.8,58.9,5.8,59.4&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=saksid,anleggnavn,kommune,status,effekt_mw&returnGeometry=false&f=json) |
 | Marine Energy Test Centre wind farm · 20 MW · 2009 | GEM | 刪除 | METCentre 測試場許可的容量（浮動式 10 MW＋固定式 10 MW），不是一座風場：實際只有 Hywind Demo（Zefyros）與 TetraSpar 兩部浮動式機組，本站已分別列出；固定式從未興建 | [連結](https://www.norwegianoffshorewind.no/about/initiatives/met-centre/) |
+| TetraSpar Demonstrator (METCentre) · 3.6 MW · 2021 | 精選 | 修正：除役年 | 2026 年夏天除役，拖回港口 | [連結](https://www.rwe.com/en/our-energy/discover-renewables/floating-offshore-wind/tetraspar/) |
 
 ## 比利時 (BEL)
 
@@ -188,6 +190,12 @@
 | Saint-Brieuc wind farm · 496 MW · 2024 | GEM | 重複（併入「Saint-Brieuc」） | 同一座風場（496 MW，2024 年）；GEM 座標在布雷斯特外海，偏離約 170 km | [連結](https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm) |
 | Îles d'Yeu et de Noirmoutier · 496 MW · 2025 | 精選 | 修正：容量、機組、分期 | 實際為 61 部 × 8 MW＝488 MW（原本寫 62 部、496 MW）；2025 年 6 月開始發電，年底已併網 408 MW，2026 年 4 月全部完工 | [連結](https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees) |
 | Calvados (Courseulles-sur-Mer) · 450 MW · 2025 | 精選 | 修正：狀態、年份 | 興建中：比原計畫延後約兩年，EDF 預計 2027 年底商轉（原本誤列為 2025 年營運中） | [連結](https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705) |
+| EFGL wind farm · 30 MW · 2025 | GEM | 重複（併入「Les Éoliennes Flottantes du Golfe du Lion (EFGL)」） | 同一座風場（Leucate 外海，30 MW） | [連結](https://www.gem.wiki/EFGL_wind_farm) |
+| Les Éoliennes Flottantes du Golfe du Lion (EFGL) · 30 MW · 2025 | 精選 | 修正：狀態、年份、業主 | 2026 年 5 月開始發電、7 月全面運轉，業主是 Ocean Winds 與 Banque des Territoires；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://www.offshorewind.biz/2026/07/10/floating-wind-farm-offshore-france-reaches-full-power/) |
+| Eolmed Floating wind farm · 30 MW · 2025 | GEM | 重複（併入「EolMed (Gruissan)」） | 同一座風場（Gruissan 外海，30 MW） | [連結](https://www.gem.wiki/Eolmed_Floating_wind_farm) |
+| EolMed (Gruissan) · 30 MW · 2025 | 精選 | 修正：狀態、年份 | 2026 年 4 月開始發電、5 月全面運轉；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://www.bw-ideol.com/en/eolmed-project) |
+| Golfe De Fos wind farm · 25.2 MW | GEM | 重複（併入「Provence Grand Large」） | 同一座風場：GEM 的 25.2 MW（3 部 8.4 MW）就是福斯灣外海的 Provence Grand Large | [連結](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
+| Provence Grand Large · 25 MW · 2024 | 精選 | 修正：機組 | 機組是西門子歌美颯的 8.4 MW 風機，不是 Vestas | [連結](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
 
 ## 泰國 (THA)
 
@@ -300,6 +308,8 @@
 | Sofia wind farm · 1,400 MW | GEM | 重複（併入「Sofia」） | 同一座風場（RWE，1.4 GW）；GEM 座標是整個 Dogger Bank 區的代用點 | [連結](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
 | Dogger Bank A · 1,200 MW · 2025 | 精選 | 修正：業主 | 業主改為 Equinor、SSE Renewables 與 Vårgrønn 的合資；原欄位是 Dogger Bank South 的業主 | [連結](https://www.equinor.com/news/202310-dogger-bank) |
 | Dogger Bank A · 1,200 MW · 2025 | 精選 | 修正：年份、分期 | 逐年併網（WindEurope 年度統計）：2023 年 1 部（13 MW）、2024 年 63 MW、2025 年 66 部（834 MW）；95 部風機 2026 年 2 月全部裝好，其餘仍在試運轉 | [連結](https://proceedings.windeurope.org/biplatform/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa01LIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8aebcd72a09f63bec00d2131e13a2a48069695a4/WindEurope-European-Stats-2025.pdf) |
+| Dounreay Trì  Floating Wind Demonstration · 10 MW | GEM | 刪除 | 從未興建：這個兩部風機的示範案已經中止，同一場址後來改由 Pentland 浮動式風場開發（另列） | [連結](https://www.offshorewind.biz/2021/06/18/cip-revives-floating-wind-project-offshore-scotland/) |
+| Kincardine · 49.5 MW · 2021 | 精選 | 修正：容量、機組 | 現在是 5 部 9.5 MW（47.5 MW）；2018–2020 年曾有 1 部 2 MW 試驗機（原 WindFloat 1），2020 年移走 | [連結](https://marine.gov.scot/sites/default/files/250403_-_kincardine_offshore_windfarm_-_project_environmental_monitoring_programme_-_revision_c10.pdf) |
 
 ## 荷蘭 (NLD)
 
@@ -335,6 +345,14 @@
 | Alto Do Talefe wind farm · 14 MW · 2005 | GEM | 重複（併入「Alto do Talefe」） | 同一座風場；實際位於 Cinfães（Montemuro 山），GEM 座標誤放在布拉加 | [連結](https://www.openstreetmap.org/relation/14053337) |
 | Chaminé wind farm · 6.9 MW · 2004 | GEM | 重複（併入「Chaminé」） | 同一座風場；GEM 的概略座標是塞圖巴爾市，實際在錫尼什 | [連結](https://www.thewindpower.net/windfarm_en_2570_chamine.php) |
 | Felgar wind farm · 8 MW · 2007 | GEM | 重複（併入「Felgar」） | 同一座風場；GEM 的概略座標是布拉干薩市，實際在 Torre de Moncorvo | [連結](https://www.thewindpower.net/windfarm_en_2641_felgar.php) |
+| WindFloat 1 (Aguçadoura demo) · 2 MW · 2011 | 精選 | 修正：座標 | 座標改到阿古薩杜拉外海約 5 km（概略位置；原座標偏西約 13 km） | [連結](https://www.principlepower.com/projects/windfloat1) |
+| WindFloat Atlantic · 25.2 MW · 2020 | 精選 | 修正：業主 | 業主改為專案出資方 Ocean Winds、東京瓦斯與 Repsol；原欄位是比對錯的公司名 | [連結](https://www.principlepower.com/projects/windfloat-atlantic) |
+
+## 西班牙 (ESP)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Biscay Marine Energy Platform wind farm · 20 MW · 2015 | GEM | 刪除 | BiMEP 測試場的併網容量（四條 5 MW 海纜），不是一座風場；測試場唯一裝過的風機 DemoSATH 已另列 | [連結](https://www.bimep.com/en/bimep-area/technical-characteristics/) |
 
 ## 越南 (VNM)
 

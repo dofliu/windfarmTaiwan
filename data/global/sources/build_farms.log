@@ -42,7 +42,9 @@ CLEAN drop CHN Mori wind complex 2200.0
 CLEAN drop CHN Togtoh 1750.0
 CLEAN drop CHN Yumen Changma 1000.0
 CLEAN drop COL El Morro wind farm 8.0
+CLEAN drop ESP Biscay Marine Energy Platform wind farm 20.0
 CLEAN drop FIN Pohjoinen wind farm 99.0
+CLEAN drop GBR Dounreay Trì  Floating Wind Demonstration 10.0
 CLEAN drop GBR Hornsea wind farm · 3, 4 5000.0
 CLEAN drop NLD Beaufort wind farm 350.0
 CLEAN drop NOR Fosen Vind (six farms) 1057.0
@@ -79,6 +81,9 @@ CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang South
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
+CLEAN dup FRA EFGL wind farm 30.0 -> Les Éoliennes Flottantes du Golfe du Lion (EFGL)
+CLEAN dup FRA Eolmed Floating wind farm 30.0 -> EolMed (Gruissan)
+CLEAN dup FRA Golfe De Fos wind farm 25.2 -> Provence Grand Large
 CLEAN dup FRA Saint-Brieuc wind farm 496.0 -> Saint-Brieuc
 CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
@@ -140,9 +145,13 @@ CLEAN fix DOM Los Guzmancito wind farm 98.0
 CLEAN fix DOM Matafongo wind farm 34.0
 CLEAN fix DOM Puerto Plata-Imbert wind farm 46.0
 CLEAN fix FRA Calvados (Courseulles-sur-Mer) 450.0
+CLEAN fix FRA EolMed (Gruissan) 30.0
+CLEAN fix FRA Les Éoliennes Flottantes du Golfe du Lion (EFGL) 30.0
+CLEAN fix FRA Provence Grand Large 25.0
 CLEAN fix FRA Îles d'Yeu et de Noirmoutier 496.0
 CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank A 1200.0
+CLEAN fix GBR Kincardine 49.5
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
@@ -164,8 +173,11 @@ CLEAN fix NOR Lutelandet wind farm 51.0
 CLEAN fix NOR Sormarkfjellet wind farm 130.0
 CLEAN fix NOR Stokkfjellet wind farm 88.0
 CLEAN fix NOR Svaheia wind farm 25.0
+CLEAN fix NOR TetraSpar Demonstrator (METCentre) 3.6
 CLEAN fix NOR Tysvaer wind farm 47.0
 CLEAN fix PHL Bangui Bay 33.0
+CLEAN fix PRT WindFloat 1 (Aguçadoura demo) 2.0
+CLEAN fix PRT WindFloat Atlantic 25.2
 CLEAN fix ROU Alpha Wind Nord wind farm 81.0
 CLEAN fix ROU Babadag wind farm 66.0
 CLEAN fix ROU Baia Holrom wind farm 17.0

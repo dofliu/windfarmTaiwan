@@ -105,7 +105,9 @@ FOUNDATIONS = [
     F('FRA', 'Saint-Brieuc', 'jk', ['FR02']),
     F('FRA', 'Fécamp', 'gb', ['FR04'], FR + 'Parc_%C3%A9olien_en_mer_de_F%C3%A9camp',
       zh='71 座混凝土重力式基礎（每座約 5,000 噸）', en='71 concrete gravity bases (about 5,000 t each)'),
-    F('FRA', 'Provence Grand Large', 'fl', ['FR11']),
+    F('FRA', 'Provence Grand Large', 'fl', ['FR11'], 'https://www.edf.fr/en/the-edf-group/dedicated-sections/journalists/all-press-releases/provence-grand-large-full-commissioning-of-the-first-french-floating-offshore-wind-farm',
+      sub='tlp', zh='SBM Offshore 與 IFPEN 開發的張力腳平台（細分型式於第 3 步補上）',
+      en='Tension-leg platforms developed by SBM Offshore and IFPEN (sub-type added in step 3)'),
     # ------------------------------------------------ Germany（北海；每一座以德文維基百科為準）
     F('DEU', 'alpha ventus', 'mx', ['DE001'], DE + 'Offshore-Windpark_alpha_ventus', parts=[['tp', 6], ['jk', 6]],
       zh='6 部三腳架、6 部套管；OSPAR 誤列為「單樁／套管」', en='6 tripods and 6 jackets; OSPAR wrongly lists “monopile/jacket”'),
@@ -152,7 +154,9 @@ FOUNDATIONS = [
     F('NOR', 'Hywind Demo (Karmøy)', 'fl', ['NO001'], EN + 'Hywind', sub='spar',
       zh='2019 年起改名 Unitech Zefyros（OSPAR 用此名）', en='Renamed Unitech Zefyros in 2019 (the name OSPAR uses)'),
     F('NOR', 'Hywind Tampen', 'fl', ['NO010'], EN + 'Hywind_Tampen', sub='spar', zh='混凝土單柱式浮台', en='Concrete spar buoys'),
-    F('NOR', 'TetraSpar Demonstrator (METCentre)', 'fl', ['NO018']),
+    F('NOR', 'TetraSpar Demonstrator (METCentre)', 'fl', ['NO018'], 'https://stiesdaloffshore.com/projects/the-tetraspar-full-scale-demonstration-project/',
+      sub='spar', zh='Stiesdal 的 Tetra 浮台，採單柱式配置（下方懸吊壓艙）；2026 年除役（細分型式於第 3 步補上）',
+      en='Stiesdal’s Tetra floater in a spar configuration (with a suspended keel); decommissioned in 2026 (sub-type added in step 3)'),
     # ------------------------------------------------ United Kingdom
     F('GBR', 'Barrow', 'mp', ['UK002']),
     F('GBR', 'Beatrice', 'jk', ['UK003']),
@@ -292,6 +296,26 @@ FOUNDATIONS = [
        zh='10 座單樁；地中海第一座離岸風場', en='10 monopiles; the first offshore wind farm in the Mediterranean'),
     F2('ESP', 'Elican / Elisa (Gran Canaria)', 'gb', url='https://cordis.europa.eu/project/id/691919',
        zh='重力式基礎配伸縮式塔架，可自行安裝的原型機', en='A gravity-based foundation with a telescopic tower; a self-installing prototype'),
+
+    # ================================================ 第 3 步（2026-09）：浮動式風場的細分型式
+    # ------------------------------------------------ Europe
+    F3('GBR', 'Hywind Scotland', 'fl', url='https://www.equinor.com/energy/hywind-scotland', sub='spar',
+       zh='Equinor 的單柱式浮台', en='Equinor’s spar floaters'),
+    F3('GBR', 'Kincardine', 'fl', url='https://www.principlepower.com/projects/kincardine-offshore-wind-farm', sub='semi',
+       zh='Principle Power 的 WindFloat 半潛式平台', en='Principle Power’s WindFloat semi-submersibles'),
+    F3('PRT', 'WindFloat Atlantic', 'fl', url='https://www.principlepower.com/projects/windfloat-atlantic', sub='semi',
+       zh='Principle Power 的 WindFloat 半潛式平台', en='Principle Power’s WindFloat semi-submersibles'),
+    F3('PRT', 'WindFloat 1 (Aguçadoura demo)', 'fl', url='https://www.principlepower.com/projects/windfloat1', sub='semi',
+       zh='第一部裝在半潛式平台上的浮動式風機（2011–2016 年；之後移到蘇格蘭 Kincardine 再運轉到 2020 年）',
+       en='The first floating turbine on a semi-submersible (2011–2016; later moved to Kincardine in Scotland, where it ran until 2020)'),
+    F3('FRA', 'Floatgen (SEM-REV)', 'fl', url='https://www.bw-ideol.com/en/floatgen-demonstrator', sub='barge',
+       zh='BW Ideol 的阻尼池式駁船', en='BW Ideol’s Damping Pool barge'),
+    F3('FRA', 'EolMed (Gruissan)', 'fl', url='https://www.bw-ideol.com/en/eolmed-project', sub='barge',
+       zh='BW Ideol 的阻尼池式駁船（鋼造）', en='BW Ideol’s Damping Pool barges (steel)'),
+    F3('FRA', 'Les Éoliennes Flottantes du Golfe du Lion (EFGL)', 'fl', url='https://www.principlepower.com/projects/efgl', sub='semi',
+       zh='Principle Power 的 WindFloat 半潛式平台', en='Principle Power’s WindFloat semi-submersibles'),
+    F3('ESP', 'DemoSATH (BiMEP)', 'fl', url='https://saitec-offshore.com/en/sath/', sub='barge',
+       zh='Saitec 的 SATH 混凝土駁船', en='Saitec’s SATH concrete barge'),
 ]
 
 # OSPAR 有紀錄、但這一步刻意不列的風場（理由寫在報告裡，之後的步驟再查）

@@ -8,23 +8,24 @@ The globe’s Display menu has an “Offshore: foundations” layer that colours
 
 1. **North Sea and NE Atlantic (OSPAR coverage)**: done (Sep 2026).
 2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): done (Sep 2026).
-3. **Sub-types of floating farms** (worldwide): in progress.
+3. **Sub-types of floating farms** (worldwide): done (Sep 2026).
 4. Taiwan, Japan, Korea and the USA.
 5. China and Vietnam: to be decided after the first four steps.
 
-This page shows the results of steps 1–2. Offshore farms not yet checked are shown as “type unknown”, never guessed.
+This page shows the results of steps 1–3. Offshore farms not yet checked are shown as “type unknown”, never guessed.
 
 ## Sources and method
 
 - **OSPAR Offshore Renewable Energy Developments 2024** ([ODIMS](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/), CC0, data as of 1 Jan 2024) is the only open dataset with a foundation type per farm. Its operational wind records were matched one by one to the farms on this site by name, location (OSPAR’s site outlines) and capacity; `data/global/sources/ospar_offshore_renewables_2024.csv` holds the values used.
 - OSPAR does not always describe what was built: 10 German records only say “monopile/tripod/tripile/jacket/gravity-based/other”, and Merkur, Veja Mate, Trianel Borkum II and alpha ventus differ from the construction records, as does the western part of Hornsea One in the UK. So every German farm uses German Wikipedia (with construction records), and every other disagreement cites a second source with a note.
 - **Step 2**: OSPAR does not cover the Baltic or the Mediterranean, and for farms finished after 2024 it only has the consented design, which can change. These farms were checked one by one against developers, construction contractors, trade press, government documents or Wikipedia; every farm cites a source, and each quoted passage was checked against the page. Where OSPAR has a consent-stage record, a construction source is always added (the build checks this).
+- **Step 3**: floating farms worldwide get their sub-type: spar, semi-submersible, barge (including damping-pool hulls) or tension-leg platform, checked one by one against technology providers, developers or trade press, with every quoted passage checked against the page; where one record holds units of different types, the note lists them.
 - In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.
 - The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed). Farm cards and this page give the exact type.
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 147 of 371 farms, 38.3% of their capacity (floating farms are known to be floating; their sub-types come in step 3).
+Total: type known for 144 of 368 farms, 38.2% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -35,8 +36,8 @@ Total: type known for 147 of 371 farms, 38.3% of their capacity (floating farms 
 | Taiwan | 8 | 0 | 0% |  |  |  |  |
 | Denmark | 17 | 16 | 99% | 8 |  |  | 8 |
 | Belgium | 12 | 12 | 100% | 8 | 3 |  | 1 |
-| France | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | Vietnam | 28 | 0 | 0% |  |  |  |  |
+| France | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
 | United States of America | 4 | 0 | 0% |  |  |  |  |
 | South Korea | 8 | 1 | <1% |  |  | 1 |  |
 | Japan | 12 | 2 | 1% |  |  | 2 |  |
@@ -44,8 +45,12 @@ Total: type known for 147 of 371 farms, 38.3% of their capacity (floating farms 
 | Norway | 3 | 3 | 100% |  |  | 3 |  |
 | Finland | 1 | 1 | 100% |  |  |  | 1 |
 | Italy | 1 | 1 | 100% | 1 |  |  |  |
-| Spain | 3 | 3 | 100% |  |  | 2 | 1 |
 | Portugal | 1 | 1 | 100% |  |  | 1 |  |
+| Spain | 2 | 2 | 100% |  |  | 1 | 1 |
+
+## Floating farms (operating)
+
+15 farms, 260.7 MW: spar 4, semi-submersible 2, barge 2, tension-leg platform 1, sub-type unknown or mixed 6.
 
 ## Farm by farm
 
@@ -98,8 +103,11 @@ Total: type known for 147 of 371 farms, 38.3% of their capacity (floating farms 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
 | Calvados (Courseulles-sur-Mer) | 450 | 2027 | Monopile | [OSPAR FR01](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[meretmarine.com](https://www.meretmarine.com/fr/energies-marines/parc-eolien-du-calvados-le-seaway-strashnov-est-arrive-au-havre-pour-installer-des-monopieux) | 64 monopiles (under construction) |
+| EolMed (Gruissan) | 30.0 | 2026 | Floating (barge) | [bw-ideol.com](https://www.bw-ideol.com/en/eolmed-project) | BW Ideol’s Damping Pool barges (steel) |
+| Floatgen (SEM-REV) | 2.0 | 2018 | Floating (barge) | [bw-ideol.com](https://www.bw-ideol.com/en/floatgen-demonstrator) | BW Ideol’s Damping Pool barge |
 | Fécamp | 497 | 2024 | Gravity-based | [OSPAR FR04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravitation”<br>[fr.wikipedia.org](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_F%C3%A9camp) | 71 concrete gravity bases (about 5,000 t each) |
-| Provence Grand Large | 25.0 | 2024 | Floating | [OSPAR FR11](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other” |  |
+| Les Éoliennes Flottantes du Golfe du Lion (EFGL) | 30.0 | 2026 | Floating (semi-submersible) | [principlepower.com](https://www.principlepower.com/projects/efgl) | Principle Power’s WindFloat semi-submersibles |
+| Provence Grand Large | 25.0 | 2024 | Floating (tension-leg platform) | [OSPAR FR11](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[edf.fr](https://www.edf.fr/en/the-edf-group/dedicated-sections/journalists/all-press-releases/provence-grand-large-full-commissioning-of-the-first-french-floating-offshore-wind-farm) | Tension-leg platforms developed by SBM Offshore and IFPEN (sub-type added in step 3) |
 | Saint-Brieuc | 496 | 2024 | Jacket | [OSPAR FR02](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket” |  |
 | Saint-Nazaire (Banc de Guérande) | 480 | 2022 | Monopile | [OSPAR FR03](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[fr.wikipedia.org](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_Saint-Nazaire) |  |
 | Îles d'Yeu et de Noirmoutier | 488 | 2025 | Monopile | [OSPAR FR06](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[deme-group.com](https://www.deme-group.com/news/all-foundations-installed-iles-dyeu-and-noirmoutier-offshore-wind-farm) | 61 drilled monopiles |
@@ -182,12 +190,20 @@ Total: type known for 147 of 371 farms, 38.3% of their capacity (floating farms 
 |---|---:|---:|---|---|---|
 | Hywind Demo (Karmøy) | 2.3 | 2009 | Floating (spar) | [OSPAR NO001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind) | Renamed Unitech Zefyros in 2019 (the name OSPAR uses) |
 | Hywind Tampen | 88.0 | 2023 | Floating (spar) | [OSPAR NO010](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind_Tampen) | Concrete spar buoys |
-| TetraSpar Demonstrator (METCentre) | 3.6 | 2021 | Floating | [OSPAR NO018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other” |  |
+| TetraSpar Demonstrator (METCentre) | 3.6 | 2021 | Floating (spar) | [OSPAR NO018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “other”<br>[stiesdaloffshore.com](https://stiesdaloffshore.com/projects/the-tetraspar-full-scale-demonstration-project/) | Stiesdal’s Tetra floater in a spar configuration (with a suspended keel); decommissioned in 2026 (sub-type added in step 3) |
+
+### Portugal
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| WindFloat 1 (Aguçadoura demo) | 2.0 | 2011 | Floating (semi-submersible) | [principlepower.com](https://www.principlepower.com/projects/windfloat1) | The first floating turbine on a semi-submersible (2011–2016; later moved to Kincardine in Scotland, where it ran until 2020) |
+| WindFloat Atlantic | 25.2 | 2020 | Floating (semi-submersible) | [principlepower.com](https://www.principlepower.com/projects/windfloat-atlantic) | Principle Power’s WindFloat semi-submersibles |
 
 ### Spain
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
+| DemoSATH (BiMEP) | 2.0 | 2023 | Floating (barge) | [saitec-offshore.com](https://saitec-offshore.com/en/sath/) | Saitec’s SATH concrete barge |
 | Elican / Elisa (Gran Canaria) | 5.0 | 2019 | Gravity-based | [cordis.europa.eu](https://cordis.europa.eu/project/id/691919) | A gravity-based foundation with a telescopic tower; a self-installing prototype |
 
 ### Sweden
@@ -222,8 +238,10 @@ Total: type known for 147 of 371 farms, 38.3% of their capacity (floating farms 
 | Hornsea One | 1,218 | 2019 | Monopile | [OSPAR UK043](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[OSPAR UK044](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[OSPAR UK045](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[offshorewind.biz](https://www.offshorewind.biz/2019/04/26/hornsea-one-foundations-all-in-place/) | All 174 are monopiles (completed April 2019); OSPAR lists the western part as jackets, which does not match what was built (in 2015 DONG planned suction buckets for a third of the turbines) |
 | Hornsea Two | 1,386 | 2022 | Monopile | [OSPAR UK046](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[OSPAR UK046A](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “—”<br>[OSPAR UK046B](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “—” |  |
 | Humber Gateway | 219 | 2015 | Monopile | [OSPAR UK049](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Hywind Scotland | 30.0 | 2017 | Floating (spar) | [equinor.com](https://www.equinor.com/energy/hywind-scotland) | Equinor’s spar floaters |
 | Kentish Flats | 90.0 | 2005 | Monopile | [OSPAR UK057](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Kentish Flats Extension | 49.5 | 2015 | Monopile | [OSPAR UK056](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Kincardine | 47.5 | 2021 | Floating (semi-submersible) | [principlepower.com](https://www.principlepower.com/projects/kincardine-offshore-wind-farm) | Principle Power’s WindFloat semi-submersibles |
 | Levenmouth Demonstration (Methil) | 7.0 | 2013 | Jacket | [OSPAR UK064](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket” |  |
 | Lincs | 270 | 2013 | Monopile | [OSPAR UK059](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | London Array | 630 | 2013 | Monopile | [OSPAR UK060](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
