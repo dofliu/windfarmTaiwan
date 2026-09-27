@@ -226,6 +226,7 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly;
   can also be triggered manually (with a dry-run option)
 - `.github/workflows/standalone.yml` — rebuilds and commits the single-file edition when site code or global data change
+- `.github/workflows/keepalive.yml` — on the 1st of each month, re-enables the scheduled workflows through the GitHub API so they are not disabled after 60 days without activity (no commits)
 - `DEPLOY.en.md` — detailed deployment options (GitHub Pages / Cloudflare Worker / self-hosted)
 - `ROADMAP.en.md` / `TODO.en.md` — known limitations, planned work, and open tasks
 - `CHANGELOG.en.md` — versions and changes (the version number is `WW.VERSION` in `assets/js/core.js`)
@@ -234,9 +235,9 @@ Every document has a Traditional Chinese version (`README.md`, `DEPLOY.md`, `ROA
 
 ## Deployment and local preview
 
-- GitHub Pages serves this repo's `main` branch (root) at `https://dofliu.github.io/windfarmTaiwan/`; the three GitHub Actions
-  schedules (Taiwan and international live data, the weekly official backfill, the single-file rebuild) are running and need no
-  further setup.
+- GitHub Pages serves this repo's `main` branch (root) at `https://dofliu.github.io/windfarmTaiwan/`; the four GitHub Actions
+  workflows (Taiwan and international live data, the weekly official backfill, the single-file rebuild, the monthly keepalive) are
+  running and need no further setup.
 - Steps for deploying from scratch to another repo or host are in [DEPLOY.en.md](./DEPLOY.en.md); what to watch while development is
   paused is under "Maintenance" in DEPLOY.en.md.
 
@@ -266,8 +267,8 @@ Learn) into one HTML file of about 6 MB:
 - Uses a **public repo**: unlimited free Actions minutes.
 - The schedule runs about every 2 hours; GitHub's cron isn't precise (runs can be late or occasionally
   skipped), which is fine here because the site does not need minute-by-minute data.
-- A repo with 60 days of no activity gets its scheduled workflows auto-disabled; trigger one
-  manually once a month to keep it alive (how to check: "Maintenance" in DEPLOY.en.md).
+- A repo with 60 days of no activity gets its scheduled workflows auto-disabled; the `keepalive`
+  workflow re-enables them every month to prevent this (how to check: "Maintenance" in DEPLOY.en.md).
 - Every update creates a commit, so git history accumulates (harmless functionally). To avoid
   this, switch to a Cloudflare Worker Cron (see `DEPLOY.md`).
 - Third-party services contacted while browsing: cdnjs (Leaflet, map tab only), Esri tiles (only

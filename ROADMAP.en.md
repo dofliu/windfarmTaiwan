@@ -378,7 +378,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 ## Deployment stability
 
 - GitHub disables scheduled workflows in a public repo after 60 days without activity. With the project
-  paused there is no feature work to keep the repo active, so this is the one way the site can quietly stop
-  (it shows no error, only the last data it got). There is no dedicated keepalive; the monthly check with a manual
-  run ("Maintenance" in `DEPLOY.en.md`) covers it. Alternatively add a simple monthly keepalive workflow, or switch
-  to a Cloudflare Worker Cron (option B in `DEPLOY.en.md`: more punctual, no commit pile-up).
+  paused there is no feature work to keep the repo active, and when that happens the site shows no error, only the
+  last data it got. `keepalive.yml` (added Sep 2026) re-enables the schedules through the GitHub API on the 1st of each
+  month, without making commits ("Maintenance" in `DEPLOY.en.md`). For more punctual schedules and no commit pile-up,
+  switch to a Cloudflare Worker Cron (option B in `DEPLOY.en.md`).

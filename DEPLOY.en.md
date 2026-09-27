@@ -34,7 +34,8 @@ windfarmTaiwan/
 └─ .github/workflows/
    ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py about every 2 hours
    ├─ backfill.yml                  # runs backfill_history.py every Monday
-   └─ standalone.yml                # rebuilds the single-file HTML when site code or global data change
+   ├─ standalone.yml                # rebuilds the single-file HTML when site code or global data change
+   └─ keepalive.yml                 # on the 1st of each month, re-enables the schedules so they are not disabled after 60 days
 ```
 
 To set up a new project from scratch (instead of using this repo directly):
@@ -46,7 +47,7 @@ To set up a new project from scratch (instead of using this repo directly):
    that, but a high-frequency schedule would exceed it).
 2. Put `index.html`, `assets/`, `data/`, `taipower_wind_scraper.py`, `intl_wind_scraper.py` and
    `backfill_history.py` in the repo root (`tools/` is only needed to update the global data).
-3. Put `.github/workflows/scrape.yml`, `backfill.yml` and `standalone.yml` in place.
+3. Put `.github/workflows/scrape.yml`, `backfill.yml`, `standalone.yml` and `keepalive.yml` in place.
 4. Make sure `DATA_ENDPOINT` and the other constants at the top of `assets/js/live.js` point to
    relative paths on the same origin (e.g. `./wind_realtime.json`). No change is needed if you fork
    or clone this repo.
@@ -65,8 +66,10 @@ To set up a new project from scratch (instead of using this repo directly):
   The site does not need minute-by-minute data, so this is acceptable.
 - **Disabled after 60 days**: if a repo has no activity for 60 days, its scheduled workflows are
   disabled automatically, and bot commits made with the default `GITHUB_TOKEN` do not always count as
-  activity. Remedies: trigger a run by hand once a month, push with a personal PAT, or add a keepalive
-  workflow (see "Deployment stability" in `ROADMAP.en.md`).
+  activity. This repo's `keepalive.yml` handles it: on the 1st of each month it re-enables `scrape.yml`, `backfill.yml` and
+  itself through the GitHub API (`PUT /repos/{owner}/{repo}/actions/workflows/{workflow}/enable`, permission `actions: write`),
+  which resets the timer without making a commit. It is itself scheduled, so it has to keep running; if every schedule in the
+  repo has already been disabled, press **Enable workflow** on the Actions tab by hand.
 - **Commits pile up**: one commit about every 2 hours means over four thousand a year. It works fine, but
   the repo grows; `wind_history_archive.json` also keeps growing with each weekly backfill (about
   3.2 MB in Sep 2026). Accept it, squash history now and then, or switch to option B.
@@ -85,15 +88,18 @@ The project has been paused since 27 Sep 2026 (v2.11.1). All of the following ru
 - `backfill-taipower-wind-history`: every Monday (early Tuesday in Taipei), adds to Taipower's official retrospective archive.
 - `build-standalone`: rebuilds the single-file edition when site code or global data change on `main`. Scheduled live-data commits
   do not trigger it, so the single-file edition's offline snapshot stays at the time of its last rebuild.
+- `keepalive`: at 04:41 UTC on the 1st of each month, re-enables the two schedules above and itself through the GitHub API, so
+  GitHub does not disable them after 60 days without activity; it makes no commits.
 
-**Check once a month (about 5 minutes)**:
+**Check once a month (about 5 minutes)**: `keepalive` takes care of the 60-day rule, so this check is mainly for problems with the
+data sources (for example Taipower changing its format).
 
 1. Open the site and look at the data time in the header ("Live · Taipower MM/DD HH:MM"). If it has not moved for more than half a
    day, the schedule has stopped or fetching is failing; the site shows no error, it just keeps showing the last data it got.
-2. On GitHub's **Actions** tab, check that the latest run of each of the three workflows is green. If `scrape-taipower-wind` says
-   "This scheduled workflow is disabled…" (GitHub disables schedules after 60 days without activity), press **Enable workflow**.
-3. On `scrape-taipower-wind`, press **Run workflow** to run it by hand and check that `wind_realtime.json` gets a new commit.
-   A manual run also keeps the 60-day timer from running out.
+2. On GitHub's **Actions** tab, check that the latest run of each of the four workflows is green (`keepalive` runs monthly). If a
+   workflow says "This scheduled workflow is disabled…" (GitHub disables schedules after 60 days without activity), press **Enable workflow**.
+3. If the data time has stopped, press **Run workflow** on `scrape-taipower-wind` to run it by hand and check that `wind_realtime.json`
+   gets a new commit; if it fails, read the run log.
 
 **Common situations**:
 

@@ -14,9 +14,9 @@ finished items to the topic lists below.
 
 - Since 27 Sep 2026 (v2.11.1) the project is paused: the main features are finished, the owner decided not to add new features, and the
   project is in maintenance (what is done: "Current status" in [ROADMAP.en.md](./ROADMAP.en.md)).
-- The automatic updates keep running; **check once a month** that the schedule is still going (steps under "Maintenance" in
-  [DEPLOY.en.md](./DEPLOY.en.md)). With no feature work, GitHub disables the schedule after 60 days without activity; the site shows no
-  error, only the last data it got.
+- The automatic updates keep running; the `keepalive` workflow re-enables the schedules every month so GitHub does not disable them after
+  60 days without activity. Still **check once a month** that the data time and Actions look right (steps under "Maintenance" in
+  [DEPLOY.en.md](./DEPLOY.en.md)): when fetching fails the site shows no error, only the last data it got.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)
@@ -227,9 +227,9 @@ the rules are in `tools/farm_cleanup.py`.
 
 ## Operations
 
-- [ ] Check once a month that the schedule is still running and trigger it by hand if needed (steps under "Maintenance" in
-      DEPLOY.en.md): with the project paused there is no feature work, and GitHub disables schedules after 60 days without activity.
-      Alternatively add a simple monthly keepalive workflow (it changes the schedule setup, so ask the owner first)
+- [x] Monthly keepalive workflow (`.github/workflows/keepalive.yml`, Sep 2026): re-enables the schedules through the GitHub API on the
+      1st of each month so they are not disabled after 60 days without activity
+- [ ] Check once a month that the data time and Actions look right, and trigger a run by hand if needed (steps under "Maintenance" in DEPLOY.en.md)
 - [ ] `wind_history_archive.json` keeps growing (about 3.2 MB in Sep 2026); keep an eye on repo size and
       archive or compress it periodically if needed
 
