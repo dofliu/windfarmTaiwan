@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 142 條：刪除 80 筆（其中營運中 25,292.8 MW），修正 62 筆。
+- 規則 151 條：刪除 87 筆（其中營運中 25,573.8 MW），修正 64 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -23,9 +23,9 @@
 | 塞內加爾 | 0 | 0 | 2 |
 | 多明尼加 | 1 | 50 | 6 |
 | 巴西 | 1 | 150 | 0 |
-| 德國 | 0 | 0 | 5 |
+| 德國 | 0 | 0 | 3 |
 | 愛爾蘭 | 0 | 0 | 1 |
-| 挪威 | 3 | 1,889 | 8 |
+| 挪威 | 7 | 1,939 | 8 |
 | 比利時 | 1 | 325 | 0 |
 | 法國 | 1 | 496 | 2 |
 | 泰國 | 1 | 600 | 1 |
@@ -37,7 +37,7 @@
 | 肯亞 | 1 | 310 | 3 |
 | 芬蘭 | 2 | 129 | 0 |
 | 英國 | 5 | 2,628 | 2 |
-| 荷蘭 | 5 | 1,621 | 2 |
+| 荷蘭 | 8 | 1,852 | 6 |
 | 菲律賓 | 2 | 240 | 1 |
 | 葡萄牙 | 3 | 28.9 | 0 |
 | 越南 | 11 | 1,454 | 4 |
@@ -140,8 +140,6 @@
 | Borkum Riffgrund 3 · 913 MW · 2025 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東南約 18 km，落在 Borkum Riffgrund 1、2 旁） | [連結](https://www.openstreetmap.org/way/1271257138) |
 | Hohe See · 497 MW · 2019 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東約 9 km） | [連結](https://www.openstreetmap.org/way/344491479) |
 | Hooksiel (BARD test turbine) · 5 MW · 2008 | 精選 | 修正：除役年 | 2016 年 5 月拆除（當時已停機約四年） | [連結](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
-| Ems Emden (Enercon E-112 nearshore) · 4.5 MW · 2004 | 精選 | 修正：陸域／離岸 | 立在埃姆登南碼頭堤腳外約 40 m 的埃姆斯河口水域；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3710429) |
-| Breitling (Rostock) · 2.5 MW · 2006 | 精選 | 修正：陸域／離岸 | 立在羅斯托克港 Breitling 水深約 2 m 處的鋼板樁基座上；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2492553) |
 
 ## 愛爾蘭 (IRL)
 
@@ -164,6 +162,10 @@
 | Svaheia wind farm · 25 MW | GEM | 修正：年份、容量 | 補上商轉年 2018（25.2 MW） | [連結](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Gismarvik wind farm · 12.6 MW | GEM | 修正：年份、容量 | 補上商轉年 2021（12.6 MW） | [連結](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Havøygavlen wind farm · 38 MW | GEM | 修正：年份、容量 | 2020–21 年汰換為 9 部 V117（另保留 1 部 2010 年的 3 MW 測試機），合計 41.4 MW | [連結](https://finnmarkkraft.no/prosjekter/havoygavlen-vindpark) |
+| Karmoy Wind Turbine Demonstration Area · 10 MW · 2020 | GEM | 刪除 | 只取得許可、從未興建：NVE 2010 年核准兩部固定式示範機組（最多 10 MW），METCentre 於 2024 年 7 月撤回許可 | [連結](https://www.nve.no/konsesjon/konsesjonssaker/konsesjonssak/?type=A-6&id=193) |
+| Kvitsoy Wind Turbine Demonstration Area · 10 MW · 2021 | GEM | 刪除 | 只取得許可、從未興建：NVE 的資料列為「許可已撤回」，沒有運轉日期 | [連結](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/5/query?where=saksid+in+(192,193,194)&outFields=saksid,anleggnavn,kommune,stadium,sakskategori,status,forsteidriftdato,effekt_mw&returnGeometry=false&f=json) |
+| Rennesoy Wind Turbine Demonstration Area · 10 MW · 2010 | GEM | 刪除 | 只取得許可（NVE 2010 年）、從未興建：NVE 的已建成風場圖層在這一帶只有 Tysvær、Gismarvik、Zephyros、Utsira、Storøy | [連結](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/0/query?where=1%3D1&geometry=4.8,58.9,5.8,59.4&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=saksid,anleggnavn,kommune,status,effekt_mw&returnGeometry=false&f=json) |
+| Marine Energy Test Centre wind farm · 20 MW · 2009 | GEM | 刪除 | METCentre 測試場許可的容量（浮動式 10 MW＋固定式 10 MW），不是一座風場：實際只有 Hywind Demo（Zefyros）與 TetraSpar 兩部浮動式機組，本站已分別列出；固定式從未興建 | [連結](https://www.norwegianoffshorewind.no/about/initiatives/met-centre/) |
 
 ## 比利時 (BEL)
 
@@ -292,6 +294,13 @@
 | Noordoostpolder Buitendijks wind farm · 15 MW | GEM | 重複（併入「Westermeerwind」） | Westermeerwind 位於弗里斯蘭省水域的幾部風機 | [連結](https://www.gem.wiki/Noordoostpolder_Buitendijks_wind_farm) |
 | Binnenjijks wind farm · 68 MW | GEM | 重複（併入「Noordoostpolder (incl. Westermeerwind nearshore)」） | Noordoostpolder 堤內（binnendijks）的陸上風機 | [連結](https://www.gem.wiki/Binnenjijks_wind_farm) |
 | Noordoostpolder (incl. Westermeerwind nearshore) · 429 MW · 2016 | 精選 | 修正：名稱、容量、年份、分期 | 全區 429 MW＝湖中的 Westermeerwind 144 MW（另列一筆）＋堤岸上的 NOP Agrowind 195 MW（2016）與 Zuidwester 90 MW（2017）；原本的 429 MW 重複計入 Westermeerwind | [連結](https://nl.wikipedia.org/wiki/Windpark_Noordoostpolder) |
+| Windpark Fryslân · 382.7 MW · 2021 | 精選 | 修正：座標 | 座標改到 89 部風機的中心（原座標偏東約 6 km，在最東一排風機外） | [連結](https://www.openstreetmap.org/way/672905354) |
+| Irene Vorrink (Dronten) · 16.8 MW · 1996 | 精選 | 修正：除役年、座標 | 2022 年 3 月起拆除，由 Windplanblauw 取代；原座標在陸上，改到萊利斯塔德北邊艾瑟爾湖堤外的水域（概略位置） | [連結](https://group.vattenfall.com/press-and-media/newsroom/2022/dismantling-of-irene-vorrink-wind-farm-after-25-years-of-faithful-service) |
+| Dronten offshore wind farm · 17 MW · 1996 | GEM | 重複（併入「Irene Vorrink (Dronten)」） | 同一座風場：早年的離岸風場清單把艾瑟爾湖 Dronten 的 Nordtank 600 kW 風機（1996 年起）列為「Dronten」，就是 Irene Vorrink；GEM 座標在北海 | [連結](https://www.techniques-ingenieur.fr/actualite/articles/10-parcs-eoliens-offshore-dans-le-monde-et-tous-en-europe-6521/) |
+| NOP Agrowind wind farm · 195 MW · 2017 | GEM | 重複（併入「Noordoostpolder (incl. Westermeerwind nearshore)」） | 就是 Noordoostpolder 風場堤岸上的 NOP Agrowind（26 部 Enercon E-126，195 MW），在陸上，不是離岸 | [連結](https://nopagrowind.nl/) |
+| Windplanblauw offshore wind farm · 132 MW · 2024 | GEM | 修正：座標 | 座標改到艾瑟爾湖中兩排共 24 部風機的位置（原座標在北海，偏西約 82 km）；132 MW 是湖中部分，另有 37 部在陸上 | [連結](https://www.openstreetmap.org/relation/12695731) |
+| Borssele V (Two Towers innovation site) · 19 MW · 2021 | 精選 | 修正：座標 | 座標改到兩部風機的位置（原座標偏東北約 3 km） | [連結](https://www.openstreetmap.org/node/7680250702) |
+| Borssele Site V wind farm · 19 MW · 2021 | GEM | 重複（併入「Borssele V (Two Towers innovation site)」） | 同一座風場（兩部 V164-9.5 MW，2022 年由 Octopus Energy 買下）；GEM 座標偏北約 85 km | [連結](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
 
 ## 菲律賓 (PHL)
 

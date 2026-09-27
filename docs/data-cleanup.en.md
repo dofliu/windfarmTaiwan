@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 142 rules: 80 records removed (25,292.8 MW of them operating), 62 records fixed.
+- 151 rules: 87 records removed (25,573.8 MW of them operating), 64 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -22,13 +22,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Dominican Rep. | 1 | 50 | 6 |
 | Finland | 2 | 129 | 0 |
 | France | 1 | 496 | 2 |
-| Germany | 0 | 0 | 5 |
+| Germany | 0 | 0 | 3 |
 | Iran | 2 | 62 | 2 |
 | Ireland | 0 | 0 | 1 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 1 | 310 | 3 |
-| Netherlands | 5 | 1,621 | 2 |
-| Norway | 3 | 1,889 | 8 |
+| Netherlands | 8 | 1,852 | 6 |
+| Norway | 7 | 1,939 | 8 |
 | Philippines | 2 | 240 | 1 |
 | Portugal | 3 | 28.9 | 0 |
 | Romania | 16 | 2,439 | 10 |
@@ -134,8 +134,6 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Borkum Riffgrund 3 · 913 MW · 2025 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 18 km to the south-east, next to Borkum Riffgrund 1 and 2) | [link](https://www.openstreetmap.org/way/1271257138) |
 | Hohe See · 497 MW · 2019 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 9 km to the east) | [link](https://www.openstreetmap.org/way/344491479) |
 | Hooksiel (BARD test turbine) · 5 MW · 2008 | curated | fixed: end year | Dismantled in May 2016, after about four years out of service | [link](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
-| Ems Emden (Enercon E-112 nearshore) · 4.5 MW · 2004 | curated | fixed: onshore/offshore | Stands in the Ems estuary about 40 m off the dike toe at Emden’s Südkai; the federal energy register (MaStR) lists it as an onshore turbine, so it is now counted as onshore | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3710429) |
-| Breitling (Rostock) · 2.5 MW · 2006 | curated | fixed: onshore/offshore | Stands on a sheet-pile base in about 2 m of water in the Breitling at Rostock port; the federal energy register (MaStR) lists it as an onshore turbine, so it is now counted as onshore | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2492553) |
 
 ## Iran (IRN)
 
@@ -178,6 +176,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Noordoostpolder Buitendijks wind farm · 15 MW | GEM | duplicate of “Westermeerwind” | The Westermeerwind turbines standing in Friesland waters | [link](https://www.gem.wiki/Noordoostpolder_Buitendijks_wind_farm) |
 | Binnenjijks wind farm · 68 MW | GEM | duplicate of “Noordoostpolder (incl. Westermeerwind nearshore)” | The land turbines of Noordoostpolder inside the dike (binnendijks) | [link](https://www.gem.wiki/Binnenjijks_wind_farm) |
 | Noordoostpolder (incl. Westermeerwind nearshore) · 429 MW · 2016 | curated | fixed: name, capacity, year, phases | The whole park is 429 MW: Westermeerwind in the lake, 144 MW (its own record), plus NOP Agrowind 195 MW (2016) and Zuidwester 90 MW (2017) on the dikes; the old 429 MW counted Westermeerwind twice | [link](https://nl.wikipedia.org/wiki/Windpark_Noordoostpolder) |
+| Windpark Fryslân · 382.7 MW · 2021 | curated | fixed: location | Point moved to the centre of the 89 turbines (the old one was about 6 km to the east, beyond the easternmost row) | [link](https://www.openstreetmap.org/way/672905354) |
+| Irene Vorrink (Dronten) · 16.8 MW · 1996 | curated | fixed: end year, location | Dismantled from March 2022 and replaced by Windplanblauw; the old point was on land, so it is moved into the water off the IJsselmeer dike north of Lelystad (approximate) | [link](https://group.vattenfall.com/press-and-media/newsroom/2022/dismantling-of-irene-vorrink-wind-farm-after-25-years-of-faithful-service) |
+| Dronten offshore wind farm · 17 MW · 1996 | GEM | duplicate of “Irene Vorrink (Dronten)” | Same farm: early offshore lists called the Nordtank 600 kW turbines at Dronten in the IJsselmeer (from 1996) “Dronten”, which is Irene Vorrink; the GEM point is in the North Sea | [link](https://www.techniques-ingenieur.fr/actualite/articles/10-parcs-eoliens-offshore-dans-le-monde-et-tous-en-europe-6521/) |
+| NOP Agrowind wind farm · 195 MW · 2017 | GEM | duplicate of “Noordoostpolder (incl. Westermeerwind nearshore)” | This is NOP Agrowind (26 Enercon E-126, 195 MW) on the dikes of the Noordoostpolder wind park: on land, not offshore | [link](https://nopagrowind.nl/) |
+| Windplanblauw offshore wind farm · 132 MW · 2024 | GEM | fixed: location | Point moved to the two rows of 24 turbines in the IJsselmeer (the old one was in the North Sea, about 82 km to the west); the 132 MW is the part in the lake, and 37 more turbines stand on land | [link](https://www.openstreetmap.org/relation/12695731) |
+| Borssele V (Two Towers innovation site) · 19 MW · 2021 | curated | fixed: location | Point moved to the two turbines (the old one was about 3 km to the north-east) | [link](https://www.openstreetmap.org/node/7680250702) |
+| Borssele Site V wind farm · 19 MW · 2021 | GEM | duplicate of “Borssele V (Two Towers innovation site)” | Same farm (two V164-9.5 MW, bought by Octopus Energy in 2022); the GEM point is about 85 km to the north | [link](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
 
 ## Norway (NOR)
 
@@ -194,6 +199,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Svaheia wind farm · 25 MW | GEM | fixed: year, capacity | Commissioning year 2018 added (25.2 MW) | [link](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Gismarvik wind farm · 12.6 MW | GEM | fixed: year, capacity | Commissioning year 2021 added (12.6 MW) | [link](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Havøygavlen wind farm · 38 MW | GEM | fixed: year, capacity | Repowered in 2020–21 with nine Vestas V117 (plus a 3 MW test turbine from 2010), 41.4 MW in total | [link](https://finnmarkkraft.no/prosjekter/havoygavlen-vindpark) |
+| Karmoy Wind Turbine Demonstration Area · 10 MW · 2020 | GEM | removed | Licensed but never built: NVE licensed two bottom-fixed demonstration turbines (up to 10 MW) in 2010, and METCentre withdrew the licence in July 2024 | [link](https://www.nve.no/konsesjon/konsesjonssaker/konsesjonssak/?type=A-6&id=193) |
+| Kvitsoy Wind Turbine Demonstration Area · 10 MW · 2021 | GEM | removed | Licensed but never built: NVE lists the licence as withdrawn, with no date of first operation | [link](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/5/query?where=saksid+in+(192,193,194)&outFields=saksid,anleggnavn,kommune,stadium,sakskategori,status,forsteidriftdato,effekt_mw&returnGeometry=false&f=json) |
+| Rennesoy Wind Turbine Demonstration Area · 10 MW · 2010 | GEM | removed | Licensed (NVE, 2010) but never built: NVE’s layer of built wind plants shows only Tysvær, Gismarvik, Zephyros, Utsira and Storøy in this area | [link](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/0/query?where=1%3D1&geometry=4.8,58.9,5.8,59.4&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=saksid,anleggnavn,kommune,status,effekt_mw&returnGeometry=false&f=json) |
+| Marine Energy Test Centre wind farm · 20 MW · 2009 | GEM | removed | The licensed capacity of the METCentre test site (10 MW floating plus 10 MW bottom-fixed), not a wind farm: the only turbines are the floating Hywind Demo (Zefyros) and TetraSpar, both listed separately; the bottom-fixed part was never built | [link](https://www.norwegianoffshorewind.no/about/initiatives/met-centre/) |
 
 ## Philippines (PHL)
 

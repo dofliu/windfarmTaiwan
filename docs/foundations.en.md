@@ -20,28 +20,28 @@ This page shows the results of steps 1–2. Offshore farms not yet checked are s
 - OSPAR does not always describe what was built: 10 German records only say “monopile/tripod/tripile/jacket/gravity-based/other”, and Merkur, Veja Mate, Trianel Borkum II and alpha ventus differ from the construction records, as does the western part of Hornsea One in the UK. So every German farm uses German Wikipedia (with construction records), and every other disagreement cites a second source with a note.
 - **Step 2**: OSPAR does not cover the Baltic or the Mediterranean, and for farms finished after 2024 it only has the consented design, which can change. These farms were checked one by one against developers, construction contractors, trade press, government documents or Wikipedia; every farm cites a source, and each quoted passage was checked against the page. Where OSPAR has a consent-stage record, a construction source is always added (the build checks this).
 - In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.
-- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, mixed). Farm cards and this page give the exact type.
+- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, mixed). Farm cards and this page give the exact type.
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 128 of 379 farms, 36.3% of their capacity (floating farms are known to be floating; their sub-types come in step 3).
+Total: type known for 134 of 373 farms, 37.0% of their capacity (floating farms are known to be floating; their sub-types come in step 3).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | China | 169 | 3 | <1% |  |  | 3 |  |
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
-| Germany | 33 | 33 | 100% | 25 | 5 |  | 3 |
-| Netherlands | 17 | 9 | 83% | 9 |  |  |  |
+| Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
+| Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
 | Taiwan | 8 | 0 | 0% |  |  |  |  |
 | Denmark | 17 | 8 | 59% | 6 |  |  | 2 |
-| Belgium | 12 | 11 | 99% | 8 | 2 |  | 1 |
+| Belgium | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | France | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | Vietnam | 28 | 0 | 0% |  |  |  |  |
 | United States of America | 4 | 0 | 0% |  |  |  |  |
 | South Korea | 8 | 1 | <1% |  |  | 1 |  |
 | Japan | 12 | 2 | 1% |  |  | 2 |  |
 | Sweden | 5 | 0 | 0% |  |  |  |  |
-| Norway | 7 | 4 | 79% |  |  | 4 |  |
+| Norway | 3 | 3 | 100% |  |  | 3 |  |
 | Finland | 1 | 0 | 0% |  |  |  |  |
 | Åland | 1 | 0 | 0% |  |  |  |  |
 | Italy | 1 | 1 | 100% | 1 |  |  |  |
@@ -54,6 +54,7 @@ Total: type known for 128 of 379 farms, 36.3% of their capacity (floating farms 
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
+| Belwind Alstom Haliade demonstrator | 6.0 | 2013 | Jacket | [OSPAR Be003](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[offshorewind.biz](https://www.offshorewind.biz/2013/11/20/belgium-alstom-installs-6mw-haliade-offshore-wind-turbine) | A 61 m jacket set on pre-driven piles (2013); OSPAR merges it into Belwind phase 1 (monopiles) |
 | Belwind I (Bligh Bank) | 165 | 2010 | Monopile | [OSPAR Be003](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Nobelwind (Bligh Bank II) | 165 | 2017 | Monopile | [OSPAR Be009](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Norther | 370 | 2019 | Monopile | [OSPAR Be005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
@@ -103,9 +104,11 @@ Total: type known for 128 of 379 farms, 36.3% of their capacity (floating farms 
 | Borkum Riffgrund 1 | 312 | 2015 | Monopile | [OSPAR DE004](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Borkum_Riffgrund) | 77 monopiles plus one suction-bucket jacket (a trial) |
 | Borkum Riffgrund 2 | 450 | 2019 | Mixed: Monopile 36, Jacket 20 (suction bucket) | [OSPAR DE028](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Borkum_Riffgrund) | 36 monopiles and 20 suction-bucket jackets |
 | Borkum Riffgrund 3 | 913 | 2025 | Monopile | [OSPAR DE130](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[jandenul.com](https://www.jandenul.com/news/jan-de-nul-kicks-orsteds-borkum-riffgrund-3-offshore-wind-farm-construction) | 83 monopiles |
+| Breitling (Rostock) | 2.5 | 2006 | Cofferdam | [w3.windmesse.de](https://w3.windmesse.de/windenergie/news/2284-erste-offshore-turbine-in-deutschland-errichtet) | A sheet-pile ring in about 2 m of water, built up with sand and concrete (18 m across); the federal energy register (MaStR) lists it as an onshore turbine |
 | Butendiek | 288 | 2015 | Monopile | [OSPAR DE008](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Butendiek) |  |
 | DanTysk | 288 | 2015 | Monopile | [OSPAR DE002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_DanTysk) |  |
 | Deutsche Bucht | 252 | 2019 | Monopile | [OSPAR DE022](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_Deutsche_Bucht) |  |
+| Ems Emden (Enercon E-112 nearshore) | 4.5 | 2004 | Cofferdam | [w3.windmesse.de](https://w3.windmesse.de/windenergie/news/1004-erstes-nearshore-projekt-mit-grosswindanlage) | In the estuary about 40 m off the dike toe: a concrete base on 40 steel tube piles, cast inside a sheet-pile wall; the federal energy register (MaStR) lists it as an onshore turbine |
 | EnBW Baltic 1 | 48.3 | 2011 | Monopile | [enbw.com](https://www.enbw.com/company/topics/wind-power/offshore-wind-farm-baltic-1/) |  |
 | EnBW Baltic 2 | 288 | 2015 | Mixed: Monopile 39, Jacket 41 | [enbw.com](https://www.enbw.com/company/topics/wind-power/offshore-wind-farm-baltic-2/) | Monopiles in water up to about 35 m deep (39) and jackets beyond (41) |
 | EnBW He Dreiht | 960 | 2025 | Monopile | [OSPAR DE017](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile/tripod/tripile/jacket/gravity-based/other”<br>[de.wikipedia.org](https://de.wikipedia.org/wiki/Offshore-Windpark_He_dreiht) | OSPAR says “any of these”, so German Wikipedia (with construction records) is used |
@@ -147,13 +150,18 @@ Total: type known for 128 of 379 farms, 36.3% of their capacity (floating farms 
 |---|---:|---:|---|---|---|
 | Borssele I & II | 752 | 2020 | Monopile | [OSPAR NL005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Borssele III & IV (Blauwwind) | 732 | 2021 | Monopile | [OSPAR NL006](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Borssele V (Two Towers innovation site) | 19.0 | 2021 | Monopile | [offshore-energy.biz](https://www.offshore-energy.biz/the-borssele-series-innovation-site-for-the-ever-evolving-industry/) | 2 monopiles; one tests a Slip Joint (a conical connection between the monopile and transition piece) |
 | Egmond aan Zee (OWEZ) | 108 | 2007 | Monopile | [OSPAR NL001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Gemini | 600 | 2017 | Monopile | [OSPAR NL004](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Hollandse Kust Noord | 759 | 2023 | Monopile | [OSPAR NL008](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Hollandse Kust Zuid I & II | 759 | 2023 | Monopile | [OSPAR NL007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Hollandse Kust Zuid III & IV | 770 | 2023 | Monopile | [OSPAR NL007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Irene Vorrink (Dronten) | 16.8 | 1996 | Monopile | [windpowernl.com](https://windpowernl.com/2022/02/28/vattenfall-starts-decommissioning-of-one-of-the-oldest-operational-dutch-wind-farms/) | 28 steel monopiles in the water off the dike (dismantled in 2022) |
 | Luchterduinen | 129 | 2015 | Monopile | [OSPAR NL003](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Prinses Amalia | 120 | 2008 | Monopile | [OSPAR NL002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Westermeerwind | 144 | 2016 | Monopile | [offshore-energy.biz](https://www.offshore-energy.biz/westermeerwind-foundations-in-place/) | 48 monopiles (IJsselmeer) |
+| Windpark Fryslân | 383 | 2021 | Monopile | [offshorewind.biz](https://www.offshorewind.biz/2020/11/09/windpark-fryslan-monopiles-halfway-there/) | 89 monopiles (IJsselmeer) |
+| Windplanblauw offshore wind farm | 132 | 2024 | Cofferdam | [windpowernl.com](https://windpowernl.com/2024/08/30/festive-opening-of-dutch-on-and-nearshore-wind-project-windplanblauw/) | The 24 turbines in the lake: each stands on a ring of 22 steel tube piles (with sheet piles between them), filled with sand and topped by a concrete base about 20 m across |
 
 ### Norway
 
@@ -223,4 +231,3 @@ Total: type known for 128 of 379 farms, 36.3% of their capacity (floating farms 
 | Farm | OSPAR | Reason |
 |---|---|---|
 | Denmark · Frederikshavn | DK03 | OSPAR says monopiles, but this test site had a suction-bucket trial turbine, and the capacities disagree (14 vs 7.6 MW) |
-| Belgium · Belwind Alstom Haliade demonstrator | Be003 | OSPAR merges it into Belwind phase 1 (monopiles); this demonstrator’s own foundation still has to be checked |

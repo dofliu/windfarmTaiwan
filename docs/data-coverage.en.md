@@ -7,9 +7,9 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,611 MW at year-end, which is the site’s world total (1,287,611 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 15,216 operating farms, 1,071,016 MW are mapped individually — about **83%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 15,208 operating farms, 1,070,718 MW are mapped individually — about **83%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 51 countries · △ 60–85%: 18 · ✗ below 60%: 8 · ⚠ above 110%: 2 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 80 duplicate, never-built or non-existent records were removed and 62 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Clean-up**: checked record by record in 2026-09; 87 duplicate, never-built or non-existent records were removed and 64 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 7,860 projects, 2,524,429 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
@@ -45,7 +45,7 @@ English ｜ [中文](data-coverage.md)
    - Guangdong Shantou Zhongpeng Area 1 Offshore wind farm (CHN) · 1,000 MW · pre-construction · expected 2025
    - Inner Mongolia Hangjin Banner Renewable Energy Complex wind farm (CHN) · 1,000 MW · announced · expected 2025
    - Inner Mongolia Hinggan League (China Guangdong Nuclear) Green Hydrogen wind farm · 1 (CHN) · 1,000 MW · pre-construction · expected 2025
-4. **Coordinates**: 4,595 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 11 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
+4. **Coordinates**: 4,588 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 11 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
    **Suspected duplicates A (same or similar name)**: 1 pairs, smaller side 14 MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:
    - JPN · Enshu Kakegawa Wind Farm (2026 compilation, 16 MW, 2011) ↔ Kakegawa wind farm (GEM, 14 MW, 2020) · 2.3 km
    **Suspected duplicates B (different names, same capacity, close by)**: 9 pairs, smaller side 1,562 MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check.
@@ -119,7 +119,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 11 | Turkey (TUR) | 14,781 | 0 | 13,784 | 13,224 | 89% | 1,557 | 268 | 1,868 | 12 | ✓ |
 | 12 | Australia (AUS) | 14,529 | 0 | 14,252 | 15,111 | 104% | 0 | 104 | 167 | 3 | ✓ |
 | 13 | Italy (ITA) | 13,568 | 30 | 10,440 | 10,262 | 76% | 3,306 | 333 | 2,206 | 142 | △ |
-| 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,735 | 91% | 1,047 | 160 | 772 | 50 | ✓ |
+| 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,487 | 89% | 1,295 | 156 | 772 | 47 | ✓ |
 | 15 | Poland (POL) | 10,602 | 0 | 8,962 | 8,707 | 82% | 1,895 | 232 | 718 | 109 | △ |
 | 16 | Finland (FIN) | 9,383 | 71 | 8,551 | 7,809 | 83% | 1,574 | 136 | 54 | 19 | △ |
 | 17 | Denmark (DNK) | 7,547 | 2,687 | 5,003 | 5,015 | 66% | 2,532 | 119 | 80 | 4 | △ |
@@ -130,7 +130,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 22 | Belgium (BEL) | 5,851 | 2,263 | 3,966 | 3,833 | 66% | 2,018 | 97 | 267 | 6 | △ |
 | 23 | Greece (GRC) | 5,706 | 0 | 4,706 | 5,529 | 97% | 177 | 356 | 6 | 0 | ✓ |
 | 24 | Portugal (PRT) | 5,605 | 25 | 5,071 | 5,626 | 100% | 0 | 211 | 0 | 62 | ✓ |
-| 25 | Norway (NOR) | 5,158 | 96 | 5,803 | 5,155 | 100% | 3 | 61 | 0 | 21 | ✓ |
+| 25 | Norway (NOR) | 5,158 | 96 | 5,803 | 5,105 | 99% | 53 | 57 | 0 | 17 | ✓ |
 | 26 | Ireland (IRL) | 5,128 | 25 | 4,381 | 4,306 | 84% | 822 | 132 | 175 | 28 | △ |
 | 27 | Taiwan (TWN) | 4,517 | 3,587 | 4,396 | 4,027 | 89% | 490 | 50 | 0 | 6 | ✓ |
 | 28 | Argentina (ARG) | 4,497 | 0 | 4,970 | 4,648 | 103% | 0 | 44 | 150 | 10 | ✓ |

@@ -29,7 +29,8 @@ EN = 'https://en.wikipedia.org/wiki/'
 FR = 'https://fr.wikipedia.org/wiki/'
 
 # 型式：代碼 → (中文, English, 地圖色組)。地圖上多於三種色相時分不清（見 globe.js 的 FD_GROUPS），
-# 所以依結構歸成四組：單樁、鋼構框架（套管、三腳、三樁）、浮動式、其他固定式（重力式、高樁承台、混合）
+# 所以依結構歸成四組：單樁、鋼構框架（套管、三腳、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、混合）。
+# 圍堰式：近岸淺水處用鋼板樁（或鋼管樁加板樁）圍成一圈、填砂，上面做混凝土基座，等於把陸上風機的基礎做在水中
 TYPES = {
     'mp': ('單樁', 'Monopile', 'mp'),
     'jk': ('套管式', 'Jacket', 'frame'),
@@ -37,6 +38,7 @@ TYPES = {
     'tl': ('三樁', 'Tripile', 'frame'),
     'gb': ('重力式', 'Gravity-based', 'other'),
     'pc': ('高樁承台', 'High-rise pile cap', 'other'),
+    'cf': ('圍堰式', 'Cofferdam', 'other'),
     'mx': ('混合', 'Mixed', 'other'),
     'fl': ('浮動式', 'Floating', 'fl'),
 }
@@ -201,6 +203,34 @@ FOUNDATIONS = [
     F2('DEU', 'Arcadis Ost 1', 'mp', url='https://parkwind.eu/news/ao1-monopile-installation-completed', zh='XXL 單樁', en='XXL monopiles'),
     F2('DEU', 'Baltic Eagle', 'mp', url='https://www.energyglobal.com/wind/12092023/iberdrola-completes-installation-of-all-50-monopiles-at-baltic-eagle-offshore-wind-farm/',
        zh='50 座單樁', en='50 monopiles'),
+    F2('DEU', 'Ems Emden (Enercon E-112 nearshore)', 'cf', url='https://w3.windmesse.de/windenergie/news/1004-erstes-nearshore-projekt-mit-grosswindanlage',
+       zh='堤腳外約 40 m 的河口水域中，在鋼板樁圍堰內澆築、由 40 支鋼管樁支撐的混凝土基座；聯邦能源登錄（MaStR）把它列為陸域風機',
+       en='In the estuary about 40 m off the dike toe: a concrete base on 40 steel tube piles, cast inside a sheet-pile wall; the federal '
+          'energy register (MaStR) lists it as an onshore turbine'),
+    F2('DEU', 'Breitling (Rostock)', 'cf', url='https://w3.windmesse.de/windenergie/news/2284-erste-offshore-turbine-in-deutschland-errichtet',
+       zh='水深約 2 m 處以鋼板樁圍成、用砂與混凝土築成的基座（直徑 18 m）；聯邦能源登錄（MaStR）把它列為陸域風機',
+       en='A sheet-pile ring in about 2 m of water, built up with sand and concrete (18 m across); the federal energy register (MaStR) '
+          'lists it as an onshore turbine'),
+    # ------------------------------------------------ Netherlands（艾瑟爾湖與 Borssele 試驗場）、Belgium
+    F2('NLD', 'Windpark Fryslân', 'mp', url='https://www.offshorewind.biz/2020/11/09/windpark-fryslan-monopiles-halfway-there/',
+       zh='89 座單樁（艾瑟爾湖）', en='89 monopiles (IJsselmeer)'),
+    F2('NLD', 'Westermeerwind', 'mp', url='https://www.offshore-energy.biz/westermeerwind-foundations-in-place/',
+       zh='48 座單樁（艾瑟爾湖）', en='48 monopiles (IJsselmeer)'),
+    F2('NLD', 'Windplanblauw offshore wind farm', 'cf',
+       url='https://windpowernl.com/2024/08/30/festive-opening-of-dutch-on-and-nearshore-wind-project-windplanblauw/',
+       zh='湖中 24 部風機：每座以 22 支鋼管樁（間以板樁）圍成一圈、填砂，上面是直徑約 20 m 的混凝土基座',
+       en='The 24 turbines in the lake: each stands on a ring of 22 steel tube piles (with sheet piles between them), filled with sand and '
+          'topped by a concrete base about 20 m across'),
+    F2('NLD', 'Irene Vorrink (Dronten)', 'mp',
+       url='https://windpowernl.com/2022/02/28/vattenfall-starts-decommissioning-of-one-of-the-oldest-operational-dutch-wind-farms/',
+       zh='28 座鋼製單樁，立在堤外的水中（2022 年拆除）', en='28 steel monopiles in the water off the dike (dismantled in 2022)'),
+    F2('NLD', 'Borssele V (Two Towers innovation site)', 'mp',
+       url='https://www.offshore-energy.biz/the-borssele-series-innovation-site-for-the-ever-evolving-industry/',
+       zh='2 座單樁；其中一座試用 Slip Joint（單樁與轉接段以錐面套接）', en='2 monopiles; one tests a Slip Joint (a conical connection between the monopile and transition piece)'),
+    F2('BEL', 'Belwind Alstom Haliade demonstrator', 'jk', ['Be003'],
+       'https://www.offshorewind.biz/2013/11/20/belgium-alstom-installs-6mw-haliade-offshore-wind-turbine',
+       zh='61 m 高的套管，架在預先打入海床的樁上（2013 年）；OSPAR 把它併在 Belwind 一期（單樁）裡',
+       en='A 61 m jacket set on pre-driven piles (2013); OSPAR merges it into Belwind phase 1 (monopiles)'),
     # ------------------------------------------------ United Kingdom
     F2('GBR', 'Seagreen Phase 1', 'jk', ['UK089'], 'https://www.sserenewables.com/news-and-views/2023/04/final-jacket-foundation-installed-on-seagreen/', sub='sb',
        zh='114 座吸力桶套管；OSPAR 這筆沒有寫型式', en='114 suction-bucket jackets; OSPAR’s record gives no type'),
@@ -230,6 +260,4 @@ FOUNDATIONS = [
 EXCLUDED = [
     ('DNK', 'Frederikshavn', ['DK03'], 'OSPAR 寫全為單樁，但這個試驗場有過吸力桶基礎的試驗機組，容量也對不上（14 vs 7.6 MW）',
      'OSPAR says monopiles, but this test site had a suction-bucket trial turbine, and the capacities disagree (14 vs 7.6 MW)'),
-    ('BEL', 'Belwind Alstom Haliade demonstrator', ['Be003'], 'OSPAR 把它併在 Belwind 一期（單樁）裡，這部示範機的基礎要另外查證',
-     'OSPAR merges it into Belwind phase 1 (monopiles); this demonstrator’s own foundation still has to be checked'),
 ]

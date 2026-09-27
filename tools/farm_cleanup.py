@@ -5,8 +5,7 @@
 上游資料改版後要重新檢查這裡的每一條。
     dup   與 keep 指定的另一筆是同一座風場 → 刪除；保留者沒有業主或分期時搬過去（分期合計與保留者容量相差 5% 內才搬）
     drop  從未建成、查無此場，或已由逐場資料涵蓋的彙總 → 刪除
-    fix   修正欄位：rename（改名）、zhname、lat、lon、mw、year、type（0 陸域、1 離岸、2 浮動式）、st、end、owner、turbine（機組）、ph、
-          note（note=True 表示把理由寫進卡片的註記）；
+    fix   修正欄位：rename（改名）、zhname、lat、lon、mw、year、st、end、owner、turbine（機組）、ph、note（note=True 表示把理由寫進卡片的註記）；
           改了座標就不再標「概略位置」（approx=True 則仍標）；補上年份或改成規劃中就不再標「年份不詳」；
           改了容量而舊分期加總對不上時清掉分期
 GEM_KEEP 列出不可被當成重複的 GEM 專案（例：與精選風場名稱相近、實為另一座）。
@@ -285,15 +284,6 @@ RULES = [
         'https://www.openstreetmap.org/way/344491479', lat=54.44, lon=6.33),
     fix('DEU', 'Hooksiel (BARD test turbine)', C, '2016 年 5 月拆除（當時已停機約四年）', 'Dismantled in May 2016, after about four years out of service',
         'https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html', end=2016),
-    fix('DEU', 'Ems Emden (Enercon E-112 nearshore)', C,
-        '立在埃姆登南碼頭堤腳外約 40 m 的埃姆斯河口水域；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域',
-        'Stands in the Ems estuary about 40 m off the dike toe at Emden’s Südkai; the federal energy register (MaStR) lists it as an onshore '
-        'turbine, so it is now counted as onshore', 'https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3710429',
-        type=0, note=True),
-    fix('DEU', 'Breitling (Rostock)', C, '立在羅斯托克港 Breitling 水深約 2 m 處的鋼板樁基座上；聯邦能源登錄（MaStR）列為陸域風機，所以改列陸域',
-        'Stands on a sheet-pile base in about 2 m of water in the Breitling at Rostock port; the federal energy register (MaStR) lists it as '
-        'an onshore turbine, so it is now counted as onshore', 'https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2492553',
-        type=0, note=True),
     fix('GBR', 'Sofia', C, '興建中：100 部風機 2026 年 6 月 10 日全部裝好，高壓直流輸電系統仍在測試，風機尚未併上（原本誤列為 2025 年營運中）',
         'Under construction: all 100 turbines were in place on 10 June 2026, with the HVDC system still being tested before the turbines are '
         'connected (it was wrongly listed as operating in 2025)',
@@ -316,6 +306,51 @@ RULES = [
         'The last three turbines were shut down for safety reasons in May 2024 and it has not generated since; in September 2026 the operator '
         'said it would apply to dismantle it',
         'https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/', end=2024, note=True),
+    fix('NLD', 'Windpark Fryslân', C, '座標改到 89 部風機的中心（原座標偏東約 6 km，在最東一排風機外）',
+        'Point moved to the centre of the 89 turbines (the old one was about 6 km to the east, beyond the easternmost row)',
+        'https://www.openstreetmap.org/way/672905354', lon=5.26),
+    fix('NLD', 'Irene Vorrink (Dronten)', C, '2022 年 3 月起拆除，由 Windplanblauw 取代；原座標在陸上，改到萊利斯塔德北邊艾瑟爾湖堤外的水域（概略位置）',
+        'Dismantled from March 2022 and replaced by Windplanblauw; the old point was on land, so it is moved into the water off the '
+        'IJsselmeer dike north of Lelystad (approximate)',
+        'https://group.vattenfall.com/press-and-media/newsroom/2022/dismantling-of-irene-vorrink-wind-farm-after-25-years-of-faithful-service',
+        end=2022, lat=52.6, lon=5.585, approx=True),
+    dup('NLD', 'Dronten offshore wind farm', G, ('Irene Vorrink (Dronten)', C),
+        '同一座風場：早年的離岸風場清單把艾瑟爾湖 Dronten 的 Nordtank 600 kW 風機（1996 年起）列為「Dronten」，就是 Irene Vorrink；GEM 座標在北海',
+        'Same farm: early offshore lists called the Nordtank 600 kW turbines at Dronten in the IJsselmeer (from 1996) “Dronten”, which is '
+        'Irene Vorrink; the GEM point is in the North Sea',
+        'https://www.techniques-ingenieur.fr/actualite/articles/10-parcs-eoliens-offshore-dans-le-monde-et-tous-en-europe-6521/'),
+    dup('NLD', 'NOP Agrowind wind farm', G, ('Noordoostpolder (incl. Westermeerwind nearshore)', C),   # 規則依原名比對（改名見上方荷蘭一節）
+        '就是 Noordoostpolder 風場堤岸上的 NOP Agrowind（26 部 Enercon E-126，195 MW），在陸上，不是離岸',
+        'This is NOP Agrowind (26 Enercon E-126, 195 MW) on the dikes of the Noordoostpolder wind park: on land, not offshore', 'https://nopagrowind.nl/'),
+    fix('NLD', 'Windplanblauw offshore wind farm', G,
+        '座標改到艾瑟爾湖中兩排共 24 部風機的位置（原座標在北海，偏西約 82 km）；132 MW 是湖中部分，另有 37 部在陸上',
+        'Point moved to the two rows of 24 turbines in the IJsselmeer (the old one was in the North Sea, about 82 km to the west); '
+        'the 132 MW is the part in the lake, and 37 more turbines stand on land', 'https://www.openstreetmap.org/relation/12695731', lat=52.6, lon=5.58),
+    fix('NLD', 'Borssele V (Two Towers innovation site)', C, '座標改到兩部風機的位置（原座標偏東北約 3 km）',
+        'Point moved to the two turbines (the old one was about 3 km to the north-east)', 'https://www.openstreetmap.org/node/7680250702',
+        lat=51.71, lon=3.004),
+    dup('NLD', 'Borssele Site V wind farm', G, ('Borssele V (Two Towers innovation site)', C),
+        '同一座風場（兩部 V164-9.5 MW，2022 年由 Octopus Energy 買下）；GEM 座標偏北約 85 km',
+        'Same farm (two V164-9.5 MW, bought by Octopus Energy in 2022); the GEM point is about 85 km to the north',
+        'https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/'),
+    drop('NOR', 'Karmoy Wind Turbine Demonstration Area', G,
+         '只取得許可、從未興建：NVE 2010 年核准兩部固定式示範機組（最多 10 MW），METCentre 於 2024 年 7 月撤回許可',
+         'Licensed but never built: NVE licensed two bottom-fixed demonstration turbines (up to 10 MW) in 2010, and METCentre withdrew the '
+         'licence in July 2024', 'https://www.nve.no/konsesjon/konsesjonssaker/konsesjonssak/?type=A-6&id=193'),
+    drop('NOR', 'Kvitsoy Wind Turbine Demonstration Area', G, '只取得許可、從未興建：NVE 的資料列為「許可已撤回」，沒有運轉日期',
+         'Licensed but never built: NVE lists the licence as withdrawn, with no date of first operation',
+         'https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/5/query?where=saksid+in+(192,193,194)&outFields=saksid,anleggnavn,'
+         'kommune,stadium,sakskategori,status,forsteidriftdato,effekt_mw&returnGeometry=false&f=json'),
+    drop('NOR', 'Rennesoy Wind Turbine Demonstration Area', G,
+         '只取得許可（NVE 2010 年）、從未興建：NVE 的已建成風場圖層在這一帶只有 Tysvær、Gismarvik、Zephyros、Utsira、Storøy',
+         'Licensed (NVE, 2010) but never built: NVE’s layer of built wind plants shows only Tysvær, Gismarvik, Zephyros, Utsira and Storøy in this area',
+         'https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/0/query?where=1%3D1&geometry=4.8,58.9,5.8,59.4&geometryType='
+         'esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=saksid,anleggnavn,kommune,status,effekt_mw&returnGeometry=false&f=json'),
+    drop('NOR', 'Marine Energy Test Centre wind farm', G,
+         'METCentre 測試場許可的容量（浮動式 10 MW＋固定式 10 MW），不是一座風場：實際只有 Hywind Demo（Zefyros）與 TetraSpar 兩部浮動式機組，本站已分別列出；固定式從未興建',
+         'The licensed capacity of the METCentre test site (10 MW floating plus 10 MW bottom-fixed), not a wind farm: the only turbines are '
+         'the floating Hywind Demo (Zefyros) and TetraSpar, both listed separately; the bottom-fixed part was never built',
+         'https://www.norwegianoffshorewind.no/about/initiatives/met-centre/'),
     # ------------------------------------------------ Thailand, Philippines, Iran
     drop('THA', 'Jhimpir Power (Energy Absolute) wind farm', G,
          '不存在：Jhimpir 在巴基斯坦，Energy Absolute 在泰國沒有 600 MW 風場（它在猜也蓬的 Hanuman 各場另有紀錄）',
@@ -443,11 +478,11 @@ GEM_KEEP = {
          'https://www.nbd.com.cn/articles/2021-11-03/1978454.html'),
 }
 
-FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'type': 7, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
-LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'type': '陸域／離岸', 'st': '狀態',
+FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
+LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'st': '狀態',
             'end': '除役年', 'owner': '業主', 'turbine': '機組', 'ph': '分期'}
 LABEL_EN = {'rename': 'name', 'zhname': 'Chinese name', 'lat': 'location', 'lon': 'location', 'mw': 'capacity', 'year': 'year',
-            'type': 'onshore/offshore', 'st': 'status', 'end': 'end year', 'owner': 'owner', 'turbine': 'turbines', 'ph': 'phases'}
+            'st': 'status', 'end': 'end year', 'owner': 'owner', 'turbine': 'turbines', 'ph': 'phases'}
 
 
 def apply(rows, rules=RULES):

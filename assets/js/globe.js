@@ -18,7 +18,7 @@ const I18N = {
     region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', pipe: '規劃中', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
-    fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式（細分型式之後補齊）', other: '重力式、高樁承台、混合', unk: '還沒查證的固定式離岸風場' },
+    fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式（細分型式之後補齊）', other: '重力式、高樁承台、圍堰式、混合', unk: '還沒查證的固定式離岸風場' },
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
     fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
     fdStep: '逐步收集中：已完成北海與東北大西洋（OSPAR 涵蓋範圍），其他海域暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
@@ -78,7 +78,7 @@ const I18N = {
     region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', pipe: 'Pipeline', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
-    fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating (sub-types to follow)', other: 'Gravity-based, high-rise pile cap, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
+    fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating (sub-types to follow)', other: 'Gravity-based, high-rise pile cap, cofferdam, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
     fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
     fdStep: 'Collected step by step: the North Sea and NE Atlantic (OSPAR coverage) are done; other seas show as type unknown for now', fdProf: 'Foundations (operating offshore farms, by capacity)',
@@ -688,7 +688,7 @@ function buildFarmLayer() {
 }
 const _col = new THREE.Color();
 /* 水下基礎：多於三種色相在地圖上分不清（dataviz 色盲檢查，--pairs all），所以依結構歸成三個色相＋兩個中性色：
-   單樁（藍）、鋼構框架＝套管／三腳／三樁（橘）、浮動式（青綠）、其他固定式＝重力式／高樁承台／混合（近白）、型式不詳（淺灰）。
+   單樁（藍）、鋼構框架＝套管／三腳／三樁（橘）、浮動式（青綠）、其他固定式＝重力式／高樁承台／圍堰式／混合（近白）、型式不詳（淺灰）。
    確切型式寫在卡片與提示框；圖例可只看一組。資料：data/global/foundations.json（tools/build_foundations.py） */
 const FD_GROUPS = ['mp', 'frame', 'fl', 'other', 'unk'];
 const FD_HEX = { mp: 0x3987e5, frame: 0xd95926, fl: 0x199e70, other: 0xdfe3ea, unk: 0xa7adb6 };
