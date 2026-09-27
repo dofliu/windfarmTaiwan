@@ -20,11 +20,11 @@ This page shows the results of steps 1–2. Offshore farms not yet checked are s
 - OSPAR does not always describe what was built: 10 German records only say “monopile/tripod/tripile/jacket/gravity-based/other”, and Merkur, Veja Mate, Trianel Borkum II and alpha ventus differ from the construction records, as does the western part of Hornsea One in the UK. So every German farm uses German Wikipedia (with construction records), and every other disagreement cites a second source with a note.
 - **Step 2**: OSPAR does not cover the Baltic or the Mediterranean, and for farms finished after 2024 it only has the consented design, which can change. These farms were checked one by one against developers, construction contractors, trade press, government documents or Wikipedia; every farm cites a source, and each quoted passage was checked against the page. Where OSPAR has a consent-stage record, a construction source is always added (the build checks this).
 - In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.
-- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, mixed). Farm cards and this page give the exact type.
+- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed). Farm cards and this page give the exact type.
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 134 of 373 farms, 37.0% of their capacity (floating farms are known to be floating; their sub-types come in step 3).
+Total: type known for 147 of 371 farms, 38.3% of their capacity (floating farms are known to be floating; their sub-types come in step 3).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -33,17 +33,16 @@ Total: type known for 134 of 373 farms, 37.0% of their capacity (floating farms 
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
 | Taiwan | 8 | 0 | 0% |  |  |  |  |
-| Denmark | 17 | 8 | 59% | 6 |  |  | 2 |
+| Denmark | 17 | 16 | 99% | 8 |  |  | 8 |
 | Belgium | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | France | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | Vietnam | 28 | 0 | 0% |  |  |  |  |
 | United States of America | 4 | 0 | 0% |  |  |  |  |
 | South Korea | 8 | 1 | <1% |  |  | 1 |  |
 | Japan | 12 | 2 | 1% |  |  | 2 |  |
-| Sweden | 5 | 0 | 0% |  |  |  |  |
+| Sweden | 4 | 4 | 100% | 1 |  |  | 3 |
 | Norway | 3 | 3 | 100% |  |  | 3 |  |
-| Finland | 1 | 0 | 0% |  |  |  |  |
-| Åland | 1 | 0 | 0% |  |  |  |  |
+| Finland | 1 | 1 | 100% |  |  |  | 1 |
 | Italy | 1 | 1 | 100% | 1 |  |  |  |
 | Spain | 3 | 3 | 100% |  |  | 2 | 1 |
 | Portugal | 1 | 1 | 100% |  |  | 1 |  |
@@ -72,13 +71,27 @@ Total: type known for 134 of 373 farms, 37.0% of their capacity (floating farms 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
 | Anholt | 400 | 2013 | Monopile | [OSPAR DK14](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Avedøre Holme | 10.8 | 2009 | Gravity-based | [ens.dk](https://ens.dk/media/2599/download) | 3 concrete gravity bases in about 2 m of water off the dike (as designed in the 2008 EIA) |
 | Horns Rev 1 | 160 | 2002 | Monopile | [OSPAR DK02](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Horns Rev 2 | 209 | 2009 | Monopile | [OSPAR DK05](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Horns Rev 3 | 407 | 2019 | Monopile | [OSPAR DK24](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Kriegers Flak | 605 | 2021 | Monopile | [group.vattenfall.com](https://group.vattenfall.com/press-and-media/newsroom/2020/all-kriegers-flak-foundations-installed) | 72 monopiles |
+| Middelgrunden | 40.0 | 2000 | Gravity-based | [ens.dk](https://ens.dk/media/6684/download) | Concrete gravity bases |
 | Nissum Bredning Vind | 28.0 | 2018 | Gravity-based | [OSPAR DK23](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based” |  |
+| Nysted (Rødsand I) | 166 | 2003 | Gravity-based | [m.aarsleff.com](https://m.aarsleff.com/img/7435/0/0/Download/057-r%C3%B8dsand-uk) | Ballasted concrete caissons; one turbine collapsed and was removed in 2022 and another was taken out of service, leaving 70 in operation |
+| Rødsand II | 207 | 2010 | Gravity-based | [m.aarsleff.com](https://m.aarsleff.com/img/6885/0/0/Download/180-r%C3%B8dsand-2-uk) | Concrete gravity caissons (as at Nysted) |
 | Rønland | 17.2 | 2003 | Gravity-based | [OSPAR DK04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based” |  |
+| Samsø | 23.0 | 2003 | Monopile | [ens.dk](https://ens.dk/media/2563/download) | 10 monopiles with concrete transition pieces |
+| Sprogø | 21.0 | 2009 | Gravity-based | [boskalis.com](https://boskalis.com/about-us/projects/offshore-wind-farm-sprogo) | Concrete gravity bases (up to about 1,900 t each) |
+| Tunø Knob | 5.0 | 1995 | Gravity-based | [osti.gov](https://www.osti.gov/etdeweb/biblio/630721) | Box-caisson gravity foundations |
 | Vesterhav Nord | 176 | 2024 | Monopile | [OSPAR DK27](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Vesterhav Syd | 168 | 2024 | Monopile | [OSPAR DK26](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+
+### Finland
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| Pori Tahkoluoto (Offshore Pori) | 42.0 | 2017 | Gravity-based | [hyotytuuli.fi](https://hyotytuuli.fi/en/suomen-hyotytuuli-rakentaa-merituulipuiston-porin-tahkoluotoon-2/) | Rock-filled steel gravity bases (the bedrock rules out monopiles; built for ice loads) |
 
 ### France
 
@@ -177,6 +190,16 @@ Total: type known for 134 of 373 farms, 37.0% of their capacity (floating farms 
 |---|---:|---:|---|---|---|
 | Elican / Elisa (Gran Canaria) | 5.0 | 2019 | Gravity-based | [cordis.europa.eu](https://cordis.europa.eu/project/id/691919) | A gravity-based foundation with a telescopic tower; a self-installing prototype |
 
+### Sweden
+
+| Farm | MW | Year | Type | Sources | Note |
+|---|---:|---:|---|---|---|
+| Bockstigen | 3.3 | 1998 | Monopile | [osti.gov](https://www.osti.gov/etdeweb/biblio/679603) | Monopiles set in holes drilled into the limestone |
+| Kårehamn | 48.0 | 2013 | Gravity-based | [offshorewind.biz](https://www.offshorewind.biz/2026/01/23/nordic-renewable-energy-company-acquiring-rwes-swedish-offshore-wind-farm) | 16 gravity-based foundations |
+| Lillgrund | 110 | 2007 | Gravity-based | [osti.gov](https://www.osti.gov/etdeweb/servlets/purl/979747) | Reinforced-concrete gravity bases filled with ballast |
+| Utgrunden I | 10.5 | 2000 | Monopile | [offshorewind.biz](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) | 7 monopiles (dismantled in 2018) |
+| Vindpark Vänern (Gässlingegrund) | 30.0 | 2010 | Rock-anchored | [evwind.aeeolica.org](https://evwind.aeeolica.org/2010/05/24/the-first-vanern-offshore-wind-farm-inaugurated/5723) | Anchored to the bedrock of the lake bed (Lake Vänern) |
+
 ### United Kingdom
 
 | Farm | MW | Year | Type | Sources | Note |
@@ -187,7 +210,7 @@ Total: type known for 134 of 373 farms, 37.0% of their capacity (floating farms 
 | Blyth Offshore Demonstrator | 41.5 | 2017 | Gravity-based | [OSPAR UK005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based” |  |
 | Burbo Bank | 90.0 | 2007 | Monopile | [OSPAR UK013](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Burbo Bank Extension | 258 | 2017 | Monopile | [OSPAR UK012](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
-| Dogger Bank A | 1,200 | 2025 | Monopile | [OSPAR UK014](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[doggerbank.com](https://doggerbank.com/construction/foundation-installation-campaign-begins-on-dogger-bank-b/) | 95 monopiles with transition pieces |
+| Dogger Bank A | 1,200 | 2023 | Monopile | [OSPAR UK014](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile”<br>[doggerbank.com](https://doggerbank.com/construction/foundation-installation-campaign-begins-on-dogger-bank-b/) | 95 monopiles with transition pieces |
 | Dudgeon | 402 | 2017 | Monopile | [OSPAR UK019](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | East Anglia ONE | 714 | 2020 | Jacket | [OSPAR UK022](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket” |  |
 | European Offshore Wind Deployment Centre (Aberdeen) | 93.2 | 2018 | Jacket (suction bucket) | [OSPAR UK001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket”<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/European_Offshore_Wind_Deployment_Centre) | 11 suction-bucket jackets |
@@ -230,4 +253,4 @@ Total: type known for 134 of 373 farms, 37.0% of their capacity (floating farms 
 
 | Farm | OSPAR | Reason |
 |---|---|---|
-| Denmark · Frederikshavn | DK03 | OSPAR says monopiles, but this test site had a suction-bucket trial turbine, and the capacities disagree (14 vs 7.6 MW) |
+| Denmark · Frederikshavn | DK03 | A test site: the Danish Energy Agency records 3 turbines at sea from 2003 (7.6 MW); after the harbour was extended two now stand on land and only one 2.3 MW turbine is left at sea, but it does not say which; the turbines had different foundations (one V90 on a trial suction bucket), and OSPAR’s “all monopiles” and 14 MW do not match, so it is left out |

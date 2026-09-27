@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 151 rules: 87 records removed (25,573.8 MW of them operating), 64 records fixed.
+- 157 rules: 87 records removed (25,573.8 MW of them operating), 70 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -35,12 +35,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Senegal | 0 | 0 | 2 |
 | South Africa | 2 | 159 | 2 |
 | South Korea | 1 | 61.5 | 0 |
+| Sweden | 0 | 0 | 3 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 1 | 135 | 1 |
-| United Kingdom | 5 | 2,628 | 2 |
+| United Kingdom | 5 | 2,628 | 4 |
 | United States of America | 6 | 666.8 | 1 |
 | Uruguay | 1 | 141.6 | 1 |
 | Vietnam | 11 | 1,454 | 4 |
+| Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
 
@@ -273,6 +275,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Yeongyang · 61.5 MW · 2015 | curated | duplicate of “Yeong Yang (Macquarie Group) wind farm” | Same farm (41 × 1.5 MW on Maengdongsan, built 2008–2009); the curated record had the wrong year (2015), point (county seat) and owner, so the GEM record is kept | [link](https://www.epj.co.kr/news/articleView.html?idxno=4315) |
 
+## Sweden (SWE)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Utgrunden I · 10.5 MW · 2000 | curated | fixed: end year | Dismantled by Vattenfall in 2018 | [link](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) |
+| Bockstigen · 2.8 MW · 1998 | curated | fixed: capacity, phases | In 2018 refurbished Vestas V47 (660 kW) nacelles and blades went onto the original towers and foundations, raising the capacity from 2.8 to 3.3 MW | [link](https://www.offshorewind.biz/2018/12/05/swedish-old-timer-gains-momentum/) |
+| Vindpark Vänern (Gässlingegrund) · 30 MW · 2010 | curated | fixed: location | Point moved to the 10 turbines on Gässlingegrund in Lake Vänern (the old one was about 27 km to the south) | [link](https://www.openstreetmap.org/relation/14399986) |
+
 ## Thailand (THA)
 
 | Record | Source | Action | Reason | Source link |
@@ -295,9 +305,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Hornsea wind farm · 1 · 1,218 MW · 2019 | GEM | duplicate of “Hornsea One” | Same farm | data comparison |
 | Dogger Bank wind farm · 1,200 MW · 2023 | GEM | duplicate of “Dogger Bank A” | Same farm (Dogger Bank A, first power October 2023) | [link](https://www.equinor.com/news/202310-dogger-bank) |
 | Hornsea wind farm · 3, 4 · 5,000 MW | GEM | removed | Hornsea 3 is already listed as under construction (2026 compilation); Ørsted discontinued Hornsea 4 in May 2025 | [link](https://orsted.com/en/company-announcement-list/2025/05/orsted-to-discontinue-the-hornsea-4-offshore-wind--143901911) |
-| Sofia · 1,400 MW · 2025 | curated | fixed: status, year | Under construction: all 100 turbines were in place on 10 June 2026, with the HVDC system still being tested before the turbines are connected (it was wrongly listed as operating in 2025) | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Sofia · 1,400 MW · 2025 | curated | fixed: status, year | Under construction: all 100 turbines were in place on 10 June 2026 and commissioning is still under way (it was wrongly listed as operating in 2025; it generated nothing in 2025) | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Sofia · 1,400 MW · 2026 | curated | fixed: location | Point moved to the centre of the consented array (Dogger Bank Teesside B, 592 km²); the old one was about 38 km outside it | [link](https://www.legislation.gov.uk/uksi/2015/1592/schedule/1/made) |
 | Sofia wind farm · 1,400 MW | GEM | duplicate of “Sofia” | Same farm (RWE, 1.4 GW); the GEM point is a placeholder for the whole Dogger Bank area | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
 | Dogger Bank A · 1,200 MW · 2025 | curated | fixed: owner | Owner set to the Equinor, SSE Renewables and Vårgrønn joint venture; the field held Dogger Bank South’s owners | [link](https://www.equinor.com/news/202310-dogger-bank) |
+| Dogger Bank A · 1,200 MW · 2025 | curated | fixed: year, phases | Connected year by year (WindEurope annual statistics): one turbine (13 MW) in 2023, 63 MW in 2024 and 66 turbines (834 MW) in 2025; all 95 turbines were in place by February 2026 and the rest is still being commissioned | [link](https://proceedings.windeurope.org/biplatform/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa01LIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8aebcd72a09f63bec00d2131e13a2a48069695a4/WindEurope-European-Stats-2025.pdf) |
 
 ## United States of America (USA)
 
@@ -337,6 +349,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Tan An 1 Phase 1 (Ca Mau) · 30 MW · 2021 | curated | duplicate of “Tân An 1 offshore wind farm” | Same farm | [link](https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/84-du-an-dien-gio-kip-van-hanh-thuong-mai-voi-tong-cong-suat-hon-3.980-mw.html) |
 | Tân An 1 offshore wind farm · 115 MW · 2021 | GEM | fixed: capacity, phases | Only phase 1 (25 MW, 2021) is in operation; the later phases were still not grid-connected in 2024 | [link](https://thanhnien.vn/ca-mau-kiem-tra-phat-hien-thieu-sot-o-2-nha-may-dien-gio-18524042817170935.htm) |
 | Hiệp Thành wind farm · 65 MW · 2023 | GEM | duplicate of “Hiep Thanh (Tra Vinh)” | Same farm (Hiệp Thạnh on the Trà Vinh coast; GEM lists it as onshore) | data comparison |
+
+## Åland (ALA)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Långnabba wind farm · 40 MW · 2022 | GEM | fixed: onshore/offshore | On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm | [link](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
 
 ## GEM projects kept apart
 

@@ -197,7 +197,7 @@ def write_docs(rows, out, ospar, countries):
                   '', '1. **北海與東北大西洋（OSPAR 涵蓋範圍）**：已完成（2026-09）。',
                   '2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：' + ('已完成（2026-09）。' if done >= 2 else '進行中。'),
                   '3. 浮動式風場的細分型式。', '4. 台灣、日本、韓國、美國。', '5. 中國、越南：前四步完成後再決定。', '',
-                  '本頁是' + ('第 1 步' if done == 1 else f'前 {done} 步') + '的結果。還沒查到的離岸風場標「型式不詳」，不臆測。', '',
+                  '本頁是' + {1: '第 1 步', 2: '前兩步', 3: '前三步', 4: '前四步', 5: '前五步'}[done] + '的結果。還沒查到的離岸風場標「型式不詳」，不臆測。', '',
                   '## 來源與方法', '',
                   f'- **OSPAR Offshore Renewable Energy Developments 2024**（[ODIMS]({OSPAR_URL})，CC0，資料時間 2024-01-01）是唯一逐場列出基礎型式的開放資料。'
                   '取其中「營運中」的風機紀錄，逐筆比對本站風場的名稱、位置（OSPAR 範圍圖）與容量；`data/global/sources/ospar_offshore_renewables_2024.csv` 是取出的原始值。',
@@ -206,7 +206,7 @@ def write_docs(rows, out, ospar, countries):
                   *(['- **第 2 步**：OSPAR 不涵蓋波羅的海與地中海，2024 年以後才完工的風場也只有核准階段的設計（設計可能改變）。這些風場逐座查開發商、施工廠商、'
                      '產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。'] if done >= 2 else []),
                   '- 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。',
-                  '- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、混合）；'
+                  '- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）；'
                   '風場卡片與本頁寫出確切型式。', '',
                   '## 各國進度（營運中的離岸風場）', '',
                   f'合計：已知型式 {tot[2]}／{tot[0]} 座，占容量 {tot[3] / tot[1] * 100:.1f}%（浮動式風場本來就知道是浮動式，細分型式在第 3 步補）。', '',
@@ -233,7 +233,7 @@ def write_docs(rows, out, ospar, countries):
                      'is always added (the build checks this).'] if done >= 2 else []),
                   '- In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.',
                   '- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame '
-                  '(jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, mixed). Farm cards and this page give the exact type.', '',
+                  '(jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed). Farm cards and this page give the exact type.', '',
                   '## Progress by country (operating offshore farms)', '',
                   f'Total: type known for {tot[2]} of {tot[0]} farms, {tot[3] / tot[1] * 100:.1f}% of their capacity (floating farms are known to be floating; their sub-types come in step 3).', '',
                   '| Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |', '|---|---:|---:|---:|---:|---:|---:|---:|']

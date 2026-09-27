@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 151 條：刪除 87 筆（其中營運中 25,573.8 MW），修正 64 筆。
+- 規則 157 條：刪除 87 筆（其中營運中 25,573.8 MW），修正 70 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -22,6 +22,7 @@
 | 土耳其 | 1 | 135 | 1 |
 | 塞內加爾 | 0 | 0 | 2 |
 | 多明尼加 | 1 | 50 | 6 |
+| 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 1 | 150 | 0 |
 | 德國 | 0 | 0 | 3 |
 | 愛爾蘭 | 0 | 0 | 1 |
@@ -31,12 +32,13 @@
 | 泰國 | 1 | 600 | 1 |
 | 澳洲 | 3 | 193 | 3 |
 | 烏拉圭 | 1 | 141.6 | 1 |
+| 瑞典 | 0 | 0 | 3 |
 | 約旦 | 1 | 117 | 0 |
 | 羅馬尼亞 | 16 | 2,439 | 10 |
 | 美國 | 6 | 666.8 | 1 |
 | 肯亞 | 1 | 310 | 3 |
 | 芬蘭 | 2 | 129 | 0 |
-| 英國 | 5 | 2,628 | 2 |
+| 英國 | 5 | 2,628 | 4 |
 | 荷蘭 | 8 | 1,852 | 6 |
 | 菲律賓 | 2 | 240 | 1 |
 | 葡萄牙 | 3 | 28.9 | 0 |
@@ -127,6 +129,12 @@
 | Los Guzmancito wind farm · 98 MW · 2019 | GEM | 修正：容量、分期 | 兩期：2019 年 48.3 MW、2023 年 50 MW | [連結](https://www.diariolibre.com/actualidad/nacional/2023/07/01/inauguran-parque-eolico-los-guzmancito-en-puerto-plata/2391911) |
 | Matafongo wind farm · 34 MW · 2019 | GEM | 修正：容量、分期 | 2024 年 10 月擴建 15.6 MW（3 × 5.2 MW） | [連結](https://listindiario.com/economia/energia/20241016/interenergy-instala-turbinas-eolicas-mas-grandes-centroamerica-caribe_829793.html) |
 
+## 奧蘭 (ALA)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Långnabba wind farm · 40 MW · 2022 | GEM | 修正：陸域／離岸 | 在奧蘭 Eckerö 南端的陸地上（只有輸電海纜在海底），不是離岸風場 | [連結](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
+
 ## 巴西 (BRA)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -206,6 +214,14 @@
 | Pampa (Nordex) wind farm · 141.6 MW · 2016 | GEM | 重複（併入「Pampa (Tacuarembó)」） | 同一座風場（UTE 的 Pampa，141.6 MW） | 資料比對 |
 | Pampa (Tacuarembó) · 141.6 MW · 2017 | 精選 | 修正：年份 | 2016 年 10 月開始運轉 | [連結](https://es.wikipedia.org/wiki/Parque_e%C3%B3lico_Pampa) |
 
+## 瑞典 (SWE)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Utgrunden I · 10.5 MW · 2000 | 精選 | 修正：除役年 | 2018 年由 Vattenfall 拆除 | [連結](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) |
+| Bockstigen · 2.8 MW · 1998 | 精選 | 修正：容量、分期 | 2018 年換上整修過的 Vestas V47（660 kW）機艙與葉片，沿用原本的塔架與基礎，容量由 2.8 MW 增為 3.3 MW | [連結](https://www.offshorewind.biz/2018/12/05/swedish-old-timer-gains-momentum/) |
+| Vindpark Vänern (Gässlingegrund) · 30 MW · 2010 | 精選 | 修正：座標 | 座標改到維納恩湖 Gässlingegrund 的 10 部風機（原座標偏南約 27 km） | [連結](https://www.openstreetmap.org/relation/14399986) |
+
 ## 約旦 (JOR)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -279,9 +295,11 @@
 | Hornsea wind farm · 1 · 1,218 MW · 2019 | GEM | 重複（併入「Hornsea One」） | 同一座風場 | 資料比對 |
 | Dogger Bank wind farm · 1,200 MW · 2023 | GEM | 重複（併入「Dogger Bank A」） | 同一座風場（Dogger Bank A，2023 年 10 月首次發電） | [連結](https://www.equinor.com/news/202310-dogger-bank) |
 | Hornsea wind farm · 3, 4 · 5,000 MW | GEM | 刪除 | Hornsea 3 已由 2026 整理清單列為興建中；Hornsea 4 已於 2025 年 5 月由 Ørsted 停止開發 | [連結](https://orsted.com/en/company-announcement-list/2025/05/orsted-to-discontinue-the-hornsea-4-offshore-wind--143901911) |
-| Sofia · 1,400 MW · 2025 | 精選 | 修正：狀態、年份 | 興建中：100 部風機 2026 年 6 月 10 日全部裝好，高壓直流輸電系統仍在測試，風機尚未併上（原本誤列為 2025 年營運中） | [連結](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Sofia · 1,400 MW · 2025 | 精選 | 修正：狀態、年份 | 興建中：100 部風機 2026 年 6 月 10 日全部裝好，仍在試運轉（原本誤列為 2025 年營運中；2025 年還沒有發電） | [連結](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
+| Sofia · 1,400 MW · 2026 | 精選 | 修正：座標 | 座標改到核准風場範圍（Dogger Bank Teesside B，592 km²）的中心；原座標在範圍外約 38 km | [連結](https://www.legislation.gov.uk/uksi/2015/1592/schedule/1/made) |
 | Sofia wind farm · 1,400 MW | GEM | 重複（併入「Sofia」） | 同一座風場（RWE，1.4 GW）；GEM 座標是整個 Dogger Bank 區的代用點 | [連結](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
 | Dogger Bank A · 1,200 MW · 2025 | 精選 | 修正：業主 | 業主改為 Equinor、SSE Renewables 與 Vårgrønn 的合資；原欄位是 Dogger Bank South 的業主 | [連結](https://www.equinor.com/news/202310-dogger-bank) |
+| Dogger Bank A · 1,200 MW · 2025 | 精選 | 修正：年份、分期 | 逐年併網（WindEurope 年度統計）：2023 年 1 部（13 MW）、2024 年 63 MW、2025 年 66 部（834 MW）；95 部風機 2026 年 2 月全部裝好，其餘仍在試運轉 | [連結](https://proceedings.windeurope.org/biplatform/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa01LIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8aebcd72a09f63bec00d2131e13a2a48069695a4/WindEurope-European-Stats-2025.pdf) |
 
 ## 荷蘭 (NLD)
 

@@ -12,7 +12,7 @@
 4. 台灣、日本、韓國、美國。
 5. 中國、越南：前四步完成後再決定。
 
-本頁是前 2 步的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
+本頁是前兩步的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
 
 ## 來源與方法
 
@@ -20,11 +20,11 @@
 - OSPAR 不一定是建成後的樣子：德國的紀錄有 10 筆只寫「單樁／三腳／三樁／套管／重力式／其他」任一種，Merkur、Veja Mate、Trianel Borkum II、alpha ventus 與建成紀錄不符；英國 Hornsea One 西區也不符。所以德國每一座都以德文維基百科（附建造紀錄）為準，其他不符的逐筆附第二來源與說明。
 - **第 2 步**：OSPAR 不涵蓋波羅的海與地中海，2024 年以後才完工的風場也只有核准階段的設計（設計可能改變）。這些風場逐座查開發商、施工廠商、產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。
 - 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。
-- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、混合）；風場卡片與本頁寫出確切型式。
+- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）；風場卡片與本頁寫出確切型式。
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 134／373 座，占容量 37.0%（浮動式風場本來就知道是浮動式，細分型式在第 3 步補）。
+合計：已知型式 147／371 座，占容量 38.3%（浮動式風場本來就知道是浮動式，細分型式在第 3 步補）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -33,17 +33,16 @@
 | 德國 | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | 荷蘭 | 13 | 13 | 100% | 12 |  |  | 1 |
 | 台灣 | 8 | 0 | 0% |  |  |  |  |
-| 丹麥 | 17 | 8 | 59% | 6 |  |  | 2 |
+| 丹麥 | 17 | 16 | 99% | 8 |  |  | 8 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | 法國 | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | 越南 | 28 | 0 | 0% |  |  |  |  |
 | 美國 | 4 | 0 | 0% |  |  |  |  |
 | 南韓 | 8 | 1 | <1% |  |  | 1 |  |
 | 日本 | 12 | 2 | 1% |  |  | 2 |  |
-| 瑞典 | 5 | 0 | 0% |  |  |  |  |
+| 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
 | 挪威 | 3 | 3 | 100% |  |  | 3 |  |
-| 芬蘭 | 1 | 0 | 0% |  |  |  |  |
-| 奧蘭 | 1 | 0 | 0% |  |  |  |  |
+| 芬蘭 | 1 | 1 | 100% |  |  |  | 1 |
 | 義大利 | 1 | 1 | 100% | 1 |  |  |  |
 | 西班牙 | 3 | 3 | 100% |  |  | 2 | 1 |
 | 葡萄牙 | 1 | 1 | 100% |  |  | 1 |  |
@@ -55,11 +54,19 @@
 | 風場 | MW | 年份 | 型式 | 來源 | 說明 |
 |---|---:|---:|---|---|---|
 | Anholt | 400 | 2013 | 單樁 | [OSPAR DK14](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
+| Avedøre Holme | 10.8 | 2009 | 重力式 | [ens.dk](https://ens.dk/media/2599/download) | 3 座混凝土重力式基座，立在堤外約 2 m 深的水中（依 2008 年環評的設計） |
 | Horns Rev 1 | 160 | 2002 | 單樁 | [OSPAR DK02](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Horns Rev 2 | 209 | 2009 | 單樁 | [OSPAR DK05](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Horns Rev 3 | 407 | 2019 | 單樁 | [OSPAR DK24](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
+| Kriegers Flak | 605 | 2021 | 單樁 | [group.vattenfall.com](https://group.vattenfall.com/press-and-media/newsroom/2020/all-kriegers-flak-foundations-installed) | 72 座單樁 |
+| Middelgrunden | 40.0 | 2000 | 重力式 | [ens.dk](https://ens.dk/media/6684/download) | 混凝土重力式基礎 |
 | Nissum Bredning Vind | 28.0 | 2018 | 重力式 | [OSPAR DK23](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravity-based」 |  |
+| Nysted (Rødsand I) | 166 | 2003 | 重力式 | [m.aarsleff.com](https://m.aarsleff.com/img/7435/0/0/Download/057-r%C3%B8dsand-uk) | 壓艙的混凝土沉箱；2022 年一部風機倒塌拆除、一部停用，其餘 70 部繼續運轉 |
+| Rødsand II | 207 | 2010 | 重力式 | [m.aarsleff.com](https://m.aarsleff.com/img/6885/0/0/Download/180-r%C3%B8dsand-2-uk) | 混凝土沉箱重力式基礎（與 Nysted 相同） |
 | Rønland | 17.2 | 2003 | 重力式 | [OSPAR DK04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravity-based」 |  |
+| Samsø | 23.0 | 2003 | 單樁 | [ens.dk](https://ens.dk/media/2563/download) | 10 座單樁，配混凝土轉接段 |
+| Sprogø | 21.0 | 2009 | 重力式 | [boskalis.com](https://boskalis.com/about-us/projects/offshore-wind-farm-sprogo) | 混凝土重力式基礎（每座最重約 1,900 噸） |
+| Tunø Knob | 5.0 | 1995 | 重力式 | [osti.gov](https://www.osti.gov/etdeweb/biblio/630721) | 箱型沉箱重力式基礎 |
 | Vesterhav Nord | 176 | 2024 | 單樁 | [OSPAR DK27](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Vesterhav Syd | 168 | 2024 | 單樁 | [OSPAR DK26](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 
@@ -146,11 +153,27 @@
 | Saint-Nazaire (Banc de Guérande) | 480 | 2022 | 單樁 | [OSPAR FR03](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[fr.wikipedia.org](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_Saint-Nazaire) |  |
 | Îles d'Yeu et de Noirmoutier | 488 | 2025 | 單樁 | [OSPAR FR06](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[deme-group.com](https://www.deme-group.com/news/all-foundations-installed-iles-dyeu-and-noirmoutier-offshore-wind-farm) | 61 座鑽孔植入的單樁 |
 
+### 瑞典
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| Bockstigen | 3.3 | 1998 | 單樁 | [osti.gov](https://www.osti.gov/etdeweb/biblio/679603) | 鑽孔植入石灰岩的單樁 |
+| Kårehamn | 48.0 | 2013 | 重力式 | [offshorewind.biz](https://www.offshorewind.biz/2026/01/23/nordic-renewable-energy-company-acquiring-rwes-swedish-offshore-wind-farm) | 16 座重力式基礎 |
+| Lillgrund | 110 | 2007 | 重力式 | [osti.gov](https://www.osti.gov/etdeweb/servlets/purl/979747) | 鋼筋混凝土重力式基礎，內填壓艙物 |
+| Utgrunden I | 10.5 | 2000 | 單樁 | [offshorewind.biz](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) | 7 座單樁（2018 年拆除） |
+| Vindpark Vänern (Gässlingegrund) | 30.0 | 2010 | 岩錨式 | [evwind.aeeolica.org](https://evwind.aeeolica.org/2010/05/24/the-first-vanern-offshore-wind-farm-inaugurated/5723) | 錨定在湖底岩盤上的基礎（維納恩湖） |
+
 ### 義大利
 
 | 風場 | MW | 年份 | 型式 | 來源 | 說明 |
 |---|---:|---:|---|---|---|
 | Beleolico (Taranto) | 30.0 | 2022 | 單樁 | [offshorewind.biz](https://www.offshorewind.biz/2022/01/13/foundations-stand-at-first-mediterranean-offshore-wind-farm/) | 10 座單樁；地中海第一座離岸風場 |
+
+### 芬蘭
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| Pori Tahkoluoto (Offshore Pori) | 42.0 | 2017 | 重力式 | [hyotytuuli.fi](https://hyotytuuli.fi/en/suomen-hyotytuuli-rakentaa-merituulipuiston-porin-tahkoluotoon-2/) | 填石的鋼製重力式基礎（海床是岩盤，無法打單樁；需抵抗海冰） |
 
 ### 英國
 
@@ -162,7 +185,7 @@
 | Blyth Offshore Demonstrator | 41.5 | 2017 | 重力式 | [OSPAR UK005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravity-based」 |  |
 | Burbo Bank | 90.0 | 2007 | 單樁 | [OSPAR UK013](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Burbo Bank Extension | 258 | 2017 | 單樁 | [OSPAR UK012](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
-| Dogger Bank A | 1,200 | 2025 | 單樁 | [OSPAR UK014](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[doggerbank.com](https://doggerbank.com/construction/foundation-installation-campaign-begins-on-dogger-bank-b/) | 95 座單樁（附轉接段） |
+| Dogger Bank A | 1,200 | 2023 | 單樁 | [OSPAR UK014](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[doggerbank.com](https://doggerbank.com/construction/foundation-installation-campaign-begins-on-dogger-bank-b/) | 95 座單樁（附轉接段） |
 | Dudgeon | 402 | 2017 | 單樁 | [OSPAR UK019](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | East Anglia ONE | 714 | 2020 | 套管式 | [OSPAR UK022](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「jacket」 |  |
 | European Offshore Wind Deployment Centre (Aberdeen) | 93.2 | 2018 | 套管式（吸力桶） | [OSPAR UK001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「jacket」<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/European_Offshore_Wind_Deployment_Centre) | 11 座吸力桶套管 |
@@ -230,4 +253,4 @@
 
 | 風場 | OSPAR | 理由 |
 |---|---|---|
-| 丹麥 · Frederikshavn | DK03 | OSPAR 寫全為單樁，但這個試驗場有過吸力桶基礎的試驗機組，容量也對不上（14 vs 7.6 MW） |
+| 丹麥 · Frederikshavn | DK03 | 試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列 |

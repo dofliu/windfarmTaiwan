@@ -69,11 +69,14 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
   - **Foundation layer** (“Offshore: foundations” in the Show menu): colours operating offshore farms by foundation
     type — monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile
-    cap, mixed); farms not yet checked are “type unknown”. The legend counts each group in scope and the share of capacity
-    with a known type, and a click on a group shows only that group; farm cards give the exact type and sources, and country
-    profiles get a capacity bar. The data is collected step by step: step 1 is the North Sea and NE Atlantic within OSPAR
-    (Sep 2026, 99 farms; where OSPAR differs from what was built or gives no specific type, German Wikipedia or construction
-    news is used). Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
+    cap, cofferdam, rock-anchored, mixed); farms not yet checked are “type unknown”. The legend counts each group in scope and
+    the share of capacity with a known type, and a click on a group shows only that group; farm cards give the exact type and
+    sources, and country profiles get a capacity bar. The data is collected step by step: step 1 is the North Sea and NE
+    Atlantic within OSPAR (Sep 2026, 99 farms; where OSPAR differs from what was built or gives no specific type, German
+    Wikipedia or construction news is used); step 2 adds the rest of Europe (Sep 2026, 41 farms: the Baltic, the
+    Mediterranean, the IJsselmeer and farms finished after OSPAR 2024, each with a construction or other source), so every
+    operating offshore farm in Europe except one test site has a known type. Farm-by-farm list:
+    [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
   - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
     nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
@@ -247,7 +250,7 @@ python tools/qa_farms.py        # sanity check: lists farms located outside thei
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
 python tools/qa_ports.py        # ports check: fields, inside the country or within 15 km of its coast, sources, farm names
-python tools/build_foundations.py # foundations: checks the per-farm table (farm names, OSPAR values, second sources), writes foundations.json and docs/foundations*.md
+python tools/build_foundations.py # foundations: checks the per-farm table (farm names, OSPAR values, second sources; a construction source where OSPAR only has the consented design), writes foundations.json and docs/foundations*.md
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
 # 5. Single-file edition (Actions also rebuilds it after pushes to main)
@@ -285,6 +288,11 @@ python tools/build_standalone.py
 - While matching the OSPAR offshore data in Sep 2026, two more duplicates were removed: GEM's whole-farm “C-Power”
   record in Belgium (which repeated Thornton Bank phases I–III) and a second Saint-Brieuc record in France placed
   about 170 km away
+- While checking foundations for the rest of Europe (step 2, Sep 2026), 26 more rules corrected the data: Sofia (UK) and
+  Calvados (France) were listed as operating in 2025 but are still under construction; Dogger Bank A now follows
+  WindEurope's yearly grid-connection figures; Arklow Bank, Utgrunden I, Irene Vorrink and the Hooksiel test turbine
+  have stopped or been dismantled; Yeu-Noirmoutier is 488 MW; three Norwegian demonstration areas that were never built,
+  the METCentre test site's licensed capacity and 4 duplicates were removed; and 8 farms were moved to where they are
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total

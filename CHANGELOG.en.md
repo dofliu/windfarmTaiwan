@@ -15,6 +15,29 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.8.0 — 2026-09-27
+
+- Foundation data, step 2: 41 more farms, so every operating offshore farm in Europe except one test site now has a known type
+  (sub-types of floating farms come in step 3):
+  - The Baltic (Germany, Denmark, Sweden, Finland), the Mediterranean (Italy) and the IJsselmeer (the Netherlands), plus UK,
+    German and French farms finished after the OSPAR 2024 data.
+  - Every farm cites a developer, construction contractor, trade press, government document or Wikipedia, and each quoted
+    passage was checked against the page. Where OSPAR only has the consented design, a construction source is always added
+    (Moray West, for example, was consented with jackets but built on monopiles).
+  - Two new types in the “other fixed” colour group (the map colours are unchanged): cofferdam (a sheet-pile ring with a concrete
+    base in shallow water near shore, e.g. Windplanblauw in the Netherlands) and rock-anchored (anchored to the bedrock of Lake
+    Vänern in Sweden).
+  - A farm that was checked but has no citable source (the Frederikshavn test site in Denmark) says why on its card.
+- Data corrections (26 record-level rules; reasons and sources in `docs/data-cleanup.en.md`):
+  - Status: Sofia (UK) and Calvados (France) were listed as operating in 2025 but are still under construction; Dogger Bank A
+    now follows WindEurope's yearly grid-connection figures (2023–2025) and its owner is corrected; Arklow Bank (Ireland)
+    stopped in 2024; the Hooksiel test turbine (2016), Utgrunden I (2018) and Irene Vorrink (2022) have been dismantled.
+  - Capacity: Yeu-Noirmoutier (France) is 61 turbines, 488 MW; Bockstigen (Sweden) is 3.3 MW since its 2018 refit.
+  - 8 records removed: three Norwegian demonstration areas that were licensed but never built, the METCentre test site's
+    licensed capacity, and 4 duplicates (GEM's Sofia, Borssele V and Irene Vorrink records, and NOP Agrowind, which is on land).
+  - Locations: 8 farms moved to where they are, including Sofia, Borkum Riffgrund 3, Hohe See, Windplanblauw (which was in the
+    North Sea), Fryslân and Vänern; Långnabba on Åland is on land and is now onshore.
+
 ## v2.7.0 — 2026-09-27
 
 - New “Offshore: foundations” layer on the globe (Show menu), colouring operating offshore farms by foundation type:
