@@ -6,13 +6,14 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 129 rules: 77 records removed (24,471.8 MW of them operating), 52 records fixed.
+- 131 rules: 79 records removed (25,292.8 MW of them operating), 52 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
 | Country | Removed | Operating MW | Fixed |
 |---|---:|---:|---:|
 | Australia | 3 | 193 | 3 |
+| Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
 | China | 7 | 10,856 | 2 |
@@ -20,6 +21,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
 | Finland | 2 | 129 | 0 |
+| France | 1 | 496 | 0 |
 | Iran | 2 | 62 | 2 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 1 | 310 | 3 |
@@ -48,6 +50,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Woolnorth (Bluff Point / Studland Bay) · 140 MW · 2002 | curated | fixed: capacity, phases | Phases: Bluff Point 10.5 MW (2002) and 54.3 MW (2004), Studland Bay 75 MW (2007) | [link](https://en.wikipedia.org/wiki/Woolnorth_Wind_Farm) |
 | Yambuk wind farm · 30 MW · 2010 | GEM | duplicate of “Portland (PWEP) Wind Energy Project · Yambuk wind farm” | Listed twice in GEM; Yambuk (30 MW) is stage 1 of the Portland Wind Project, commissioned in 2007 | [link](https://en.wikipedia.org/wiki/Portland_Wind_Project) |
 | Portland (PWEP) Wind Energy Project · Cape Bridgewater wind farm, Cape Nelson South wind farm, Cape Sir William Grant/Cape Nelson North, Codrington wind farm · 167 MW · 2001 | GEM | fixed: name, capacity, year, phases | Codrington (18.2 MW, 2001) has its own curated record and is taken out: Cape Bridgewater 58 MW (2008), Cape Nelson South 44 MW (2009), Cape Sir William Grant 47 MW (2015) | [link](https://en.wikipedia.org/wiki/Portland_Wind_Project) |
+
+## Belgium (BEL)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| C-Power Offshore Wind Project · 325 MW · 2009 | GEM | removed | The whole-farm total for Thorntonbank (operated by C-Power); its three phases are already listed as the curated Thornton Bank I, II and III (30 + 184.5 + 110.7 MW) | [link](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) |
 
 ## Brazil (BRA)
 
@@ -108,6 +116,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Pohjoinen wind farm · 99 MW · 2020 | GEM | removed | This is Norway’s Sørfjord farm (same 99 MW, 2020, Fortum-owned, identical coordinates; listed under Norway) filed under Finland | data comparison |
 | Kemi Ajos · 30 MW · 2008 | curated | duplicate of “Ajos Retrofit wind farm” | Same site; GEM has the fuller history (the original 27 MW from 2008 to 2016, then repowered to 43 MW), so its two records are kept | data comparison |
+
+## France (FRA)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Saint-Brieuc wind farm · 496 MW · 2024 | GEM | duplicate of “Saint-Brieuc” | Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away | [link](https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm) |
 
 ## Iran (IRN)
 

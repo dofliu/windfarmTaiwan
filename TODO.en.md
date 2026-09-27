@@ -75,6 +75,9 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Large countries with low coverage (China 144 GW short, Germany 27 GW, India 15 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
 - [ ] Duplicate farm records: the US Sunrise Wind appears both as GEM's "Sunrise wind farm (United States)" and as "Sunrise Wind" from the 2026 compilation (both 924 MW, under construction); add a rule to `tools/farm_cleanup.py` in the next clean-up (found while compiling the ports data, Sep 2026)
+- [ ] Two Dutch duplicates (found while matching foundations): “Borssele V (Two Towers innovation site)” and GEM's “Borssele
+      Site V wind farm” (both 19 MW, 2021), and “Irene Vorrink (Dronten)” and “Dronten offshore wind farm” (both 17 MW, 1996):
+      check them and add rules to `tools/farm_cleanup.py`
 - [ ] France's 2025 offshore capacity (1,500 MW in `wind_global.json`, the same as 2024) may be too low: the SDES Q2 2026 wind dashboard implies about 2.0 GW at end-2025; to be verified
 - [ ] Offshore farm sums above the national series, to be verified: China's operating offshore farms add up to 58.9 GW against a 2025 national figure of 48.4 GW; Vietnam's 28 "offshore" farms (mostly intertidal) add up to 2.0 GW against 1.0 GW. Possibly farms counted at full capacity while still connecting in phases, or duplicates
 
@@ -110,8 +113,16 @@ the rules are in `tools/farm_cleanup.py`.
 
 ## Offshore foundation types (collected step by step, owner's decision of 2026-09-27; see item 2 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
 
-- [ ] Step 1: Europe within OSPAR's coverage (North Sea and NE Atlantic, about 107 farms): per-farm table, check script, layer
-- [ ] Step 2: the rest of Europe (Baltic, Mediterranean and others)
+- [x] Step 1: Europe within OSPAR's coverage (North Sea and NE Atlantic): 99 farms — per-farm table `tools/farm_foundations.py`,
+      checks and output by `tools/build_foundations.py`, and the globe's “Offshore: foundations” layer (Sep 2026, v2.7.0;
+      farm-by-farm list in [docs/foundations.en.md](./docs/foundations.en.md))
+- [ ] Left over from step 1: Hohe See (OSPAR says “any of these” and Wikipedia is silent), Frederikshavn (a test site: OSPAR
+      says all monopiles, but it had a suction-bucket trial turbine) and Belwind's Alstom Haliade demonstrator (merged into
+      phase 1 by OSPAR): find developer or construction records
+- [ ] Step 2: the rest of Europe (Baltic, Mediterranean and others), plus North Sea farms finished after OSPAR 2024: Seagreen,
+      Moray West, Neart na Gaoithe, Dogger Bank A and Sofia in the UK, Borkum Riffgrund 3 in Germany, Yeu-Noirmoutier and
+      Courseulles in France; in the Baltic Kriegers Flak, Rødsand, Arkona, Wikinger, Baltic 1/2, Baltic Eagle, Lillgrund and
+      others; and the Dutch farms in the IJsselmeer
 - [ ] Step 3: floating farms
 - [ ] Step 4: Taiwan, Japan, Korea and the USA
 - [ ] Whether China and Vietnam are worth about 50–70 hours: ask the owner after the first four steps

@@ -268,6 +268,14 @@ RULES = [
     fix('TUR', 'Gökçedağ (Osmaniye)', C, '座標改到 Bahçe 與 Hasanbeyli 之間的 Gökçedağ 稜線（原座標偏離約 30 km）',
         'Point moved to the Gökçedağ ridge between Bahçe and Hasanbeyli (the old one was about 30 km off)',
         'https://www.openstreetmap.org/relation/12270025', lat=37.15, lon=36.61),
+    # ------------------------------------------------ Belgium, France（2026-09 比對 OSPAR 離岸風場資料時發現）
+    drop('BEL', 'C-Power Offshore Wind Project', G,
+         'Thorntonbank 風場（營運商 C-Power）的整場合計；三期已由精選的 Thornton Bank I、II、III 逐期列出（30 + 184.5 + 110.7 MW）',
+         'The whole-farm total for Thorntonbank (operated by C-Power); its three phases are already listed as the curated '
+         'Thornton Bank I, II and III (30 + 184.5 + 110.7 MW)', 'https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm'),
+    dup('FRA', 'Saint-Brieuc wind farm', G, ('Saint-Brieuc', C), '同一座風場（496 MW，2024 年）；GEM 座標在布雷斯特外海，偏離約 170 km',
+        'Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away',
+        'https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm'),
     # ------------------------------------------------ Thailand, Philippines, Iran
     drop('THA', 'Jhimpir Power (Energy Absolute) wind farm', G,
          '不存在：Jhimpir 在巴基斯坦，Energy Absolute 在泰國沒有 600 MW 風場（它在猜也蓬的 Hanuman 各場另有紀錄）',

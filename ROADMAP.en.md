@@ -102,6 +102,13 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
   type unknown" from the existing fixed/floating split, never a guess.
   1. Europe within OSPAR's coverage (North Sea and NE Atlantic, about 107 farms): a per-farm table and a check
      script, each match confirmed by hand, then the layer itself.
+     **Done (Sep 2026, v2.7.0)**: 99 farms (`tools/farm_foundations.py`; farm-by-farm list in
+     [docs/foundations.en.md](./docs/foundations.en.md)). OSPAR does not always describe what was built: 10 German records
+     say “any of these”, 4 differ from the construction records, and so does the western part of Hornsea One in the UK.
+     So every German farm uses German Wikipedia (with construction records), and every other disagreement cites a second
+     source; Hohe See, Frederikshavn and Belwind's Haliade demonstrator are left out for now. The map folds the types into
+     four colour groups by structure (three hues plus two neutrals, checked for colour-blind readers): monopile, steel frame,
+     floating and other fixed-bottom, plus “type unknown”.
   2. The rest of Europe (Baltic, Mediterranean and others): developers' pages, German Wikipedia infoboxes and
      similar, with a source for every farm.
   3. Floating farms.

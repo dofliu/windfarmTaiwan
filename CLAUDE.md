@@ -10,11 +10,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Every document has a Traditional Chinese `X.md` and an English `X.en.md`, cross-linked on the first lines.
 - 修改文件時兩個版本在同一個 commit 一起更新，數字、步驟、連結要一致；新增文件時兩個版本一起新增。
   Change both versions in the same commit, keeping numbers, steps and links identical; add new documents in both languages.
-- 由程式產生的文件（例：`docs/data-coverage*.md`、`docs/data-cleanup*.md`）由產生程式同時輸出兩種語言，不要手動改。
-  Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`) are written in both languages by their generator; do not edit them by hand.
+- 由程式產生的文件（例：`docs/data-coverage*.md`、`docs/data-cleanup*.md`、`docs/foundations*.md`）由產生程式同時輸出兩種語言，不要手動改。
+  Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`, `docs/foundations*.md`) are written in both languages by their generator; do not edit them by hand.
 - 網站介面文字也一律雙語：HTML 用 `data-l="zh"`／`data-l="en"`，JS 用 `WW.L(zh, en)` 或各模組的 i18n 字典。
   All UI text is bilingual as well: `data-l="zh"` / `data-l="en"` in HTML, `WW.L(zh, en)` or the module's i18n table in JS.
-- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/data-coverage、docs/data-cleanup、docs/live-data-sources。
+- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/data-coverage、docs/data-cleanup、docs/foundations、docs/live-data-sources。
   `CLAUDE.md` 本身以中英並列寫在同一個檔。This file itself keeps both languages side by side.
 
 ## 2. 版權與開發者 · Copyright and developer
@@ -61,6 +61,17 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Ports (`data/global/ports.json`) are curated by hand with sources for every port: coordinates mark the quay or harbour basin
   (`coordNote` says which), "farms" lists only farms a source ties to the port, using exact names from `wind_farms.json`, and ports
   whose role has ended are marked `former`. Run `python3 tools/qa_ports.py` after editing. Never guess a port — list missing ones in TODO.
+
+- 離岸風場水下基礎型式：逐場對照表在 `tools/farm_foundations.py`（每列用國別與風場名稱指定一座，名稱與 `wind_farms.json` 完全一致），
+  改完跑 `python3 tools/build_foundations.py`，輸出 `data/global/foundations.json` 與 `docs/foundations*.md`。OSPAR 的值不一定是建成的樣子
+  （德國的紀錄尤其不可靠）：與 OSPAR 不符或 OSPAR 沒寫明的，一定要附第二來源與中英文說明，建置會檢查；查不到的列在 `EXCLUDED` 或 TODO，不臆測。
+  地圖依結構歸成四組上色（三個色相＋兩個中性色，dataviz 色盲檢查）；新增型式或改色前先重跑色盲檢查。重建風場層後也要重跑一次。
+  Offshore foundation types: the per-farm table is `tools/farm_foundations.py` (each row names one farm by country and exact name);
+  run `python3 tools/build_foundations.py` after editing to write `data/global/foundations.json` and `docs/foundations*.md`. OSPAR does
+  not always describe what was built (German records especially): any row that differs from OSPAR, or where OSPAR gives no specific
+  type, needs a second source and a bilingual note, and the build checks this. Leave unverifiable farms in `EXCLUDED` or TODO; never
+  guess. The map folds types into four colour groups (three hues plus two neutrals, checked for colour-blind readers); re-run that
+  check before adding a type or changing a colour. Re-run the build after rebuilding the farm layer.
 
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。

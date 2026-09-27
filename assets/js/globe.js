@@ -16,7 +16,12 @@ const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
     region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', pipe: '規劃中', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
-    speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸',
+    speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
+    fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
+    fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式（細分型式之後補齊）', other: '重力式、高樁承台、混合', unk: '還沒查證的固定式離岸風場' },
+    fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
+    fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdSecond: '第二來源', fdDoc: '逐場清單',
+    fdStep: '逐步收集中：已完成北海與東北大西洋（OSPAR 涵蓋範圍），其他海域暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
     hint: '拖曳旋轉 · 滾輪縮放（可一路放大到風場） · 點國家或風場直接飛過去 · 空白鍵播放/暫停',
     hintTouch: '單指旋轉 · 雙指縮放 · 點國家或風場直接飛過去',
     barTitle: '累計裝置容量排名（MW）', onshore: '陸域', offshore: '離岸', total: '合計',
@@ -71,7 +76,12 @@ const I18N = {
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
     region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', pipe: 'Pipeline', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
-    speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only',
+    speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
+    fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
+    fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating (sub-types to follow)', other: 'Gravity-based, high-rise pile cap, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
+    fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
+    fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdSecond: 'second source', fdDoc: 'Farm-by-farm list',
+    fdStep: 'Collected step by step: the North Sea and NE Atlantic (OSPAR coverage) are done; other seas show as type unknown for now', fdProf: 'Foundations (operating offshore farms, by capacity)',
     hint: 'Drag to rotate · scroll to zoom (down to farms) · click a country or farm to fly there · Space = play/pause',
     hintTouch: 'One finger to rotate · pinch to zoom · tap a country or farm to fly there',
     barTitle: 'Cumulative capacity ranking (MW)', onshore: 'Onshore', offshore: 'Offshore', total: 'Total',
@@ -161,7 +171,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-pipeList" hidden></div>
       <div class="gpbody" id="g-portList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -178,7 +188,7 @@ host.innerHTML = `
   <div id="g-yearNow">1980</div>
   <input type="range" id="g-slider" min="1980" max="2025" step="0.02" value="1980">
   <div class="ggrp"><label for="g-speedSel" data-gi="speed"></label><select id="g-speedSel"><option value="0.1"></option><option value="0.2"></option><option value="0.333"></option><option value="0.5"></option><option value="1" selected></option><option value="2"></option><option value="4"></option></select></div>
-  <div class="ggrp"><label for="g-layerSel" data-gi="layer"></label><select id="g-layerSel"><option value="both" data-gi="lBoth"></option><option value="on" data-gi="lOn"></option><option value="off" data-gi="lOff"></option></select></div>
+  <div class="ggrp"><label for="g-layerSel" data-gi="layer"></label><select id="g-layerSel"><option value="both" data-gi="lBoth"></option><option value="on" data-gi="lOn"></option><option value="off" data-gi="lOff"></option><option value="fd" data-gi="lFd"></option></select></div>
 </div>
 <div id="g-modal"><div class="box"><button class="gclose" id="g-modalClose" type="button" aria-label="close">✕</button><div id="g-modalBody"></div></div></div>`;
 if (loadingEl) { loadingEl.classList.add('gload'); host.appendChild(loadingEl); }
@@ -210,7 +220,7 @@ function valAt(arr, y) {
 }
 function capOf(c, y) {
   const on = valAt(c.on, y), off = valAt(c.off, y);
-  const a = S.layer === 'off' ? 0 : on, b = S.layer === 'on' ? 0 : off;
+  const a = S.layer === 'off' || S.layer === 'fd' ? 0 : on, b = S.layer === 'on' ? 0 : off;
   return { on: a, off: b, tot: a + b };
 }
 function inScope(iso, region) {
@@ -227,6 +237,12 @@ function scopeName(region) {
   return byIso[region] ? cname(byIso[region]) : region;
 }
 function layerOk(type) { return S.layer === 'both' || (S.layer === 'on' ? type === 'onshore' : type !== 'onshore'); }
+/* 地圖上要不要畫：水下基礎圖層只畫營運中的離岸風場（規劃中的虛線環顏色會和「其他固定式」「型式不詳」混淆），可再只看一組 */
+function layerChanged() {
+  clusters.forEach((g, f) => removeCluster(f));              // 風機群的材質依圖層不同，下一次更新時重建
+  const pk = $('g-ports'); if (pk) pk.classList.toggle('fdm', S.layer === 'fd');   // 港口的橘色和「鋼構框架」太像：這一層改用中性樣式
+}
+function showFarm(f) { return layerOk(f.type) && (S.layer !== 'fd' || (!f.pipe && (!S.fdOnly || fdGroup(f) === S.fdOnly))); }
 const PIPE_HEX = [0, 0xe3eaf5, 0x9fb0c9, 0x6a7c97];                // 興建中 → 前期開發 → 已宣布（有序，越接近完工越亮）
 const stCls = f => f.st === 1 ? 'p1' : f.st === 2 ? 'p2' : f.st === 3 ? 'p3' : f.st === 4 ? 'ret' : (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off');
 
@@ -241,6 +257,7 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders)]).then((
   init();
   WW.getJSON(WW.DATA.farms).then(expandFarms).catch(e => { console.error(e); notice(L('風場資料載入失敗', 'Farm data failed to load')); });
   loadPorts();
+  loadFoundations();
 });
 
 const STACK_STEP = 0.045;     // 共用座標排開的間距（度，約 5 km）
@@ -276,6 +293,7 @@ function expandFarms(J) {
   renderFarmList(true); renderProfile(); renderPipeList(true);
   if (pendingParams) { const p = pendingParams; pendingParams = null; applyParams(p, true); }
   if (cardItem && cardItem.kind === 'port') renderCard(cardItem);     // 港口卡片比風場資料先開：補上服務過的風場
+  applyFoundations();
   warmOwners();
 }
 function notice(msg, ms) {
@@ -669,8 +687,37 @@ function buildFarmLayer() {
   surfaceRoot.add(FL.op.grp, FL.pp.grp);
 }
 const _col = new THREE.Color();
+/* 水下基礎：多於三種色相在地圖上分不清（dataviz 色盲檢查，--pairs all），所以依結構歸成三個色相＋兩個中性色：
+   單樁（藍）、鋼構框架＝套管／三腳／三樁（橘）、浮動式（青綠）、其他固定式＝重力式／高樁承台／混合（近白）、型式不詳（淺灰）。
+   確切型式寫在卡片與提示框；圖例可只看一組。資料：data/global/foundations.json（tools/build_foundations.py） */
+const FD_GROUPS = ['mp', 'frame', 'fl', 'other', 'unk'];
+const FD_HEX = { mp: 0x3987e5, frame: 0xd95926, fl: 0x199e70, other: 0xdfe3ea, unk: 0xa7adb6 };
+let FD = null;
+function fdGroup(f) { return f.fd ? ((FD && FD.meta.types[f.fd.t]) || [0, 0, 'unk'])[2] : (f.type === 'floating' ? 'fl' : 'unk'); }
+function fdTypeName(t) { const x = FD && FD.meta.types[t]; return x ? x[lang === 'zh' ? 0 : 1] : ''; }
+function fdSubName(k) { const x = FD && FD.meta.subs[k]; return x ? x[lang === 'zh' ? 0 : 1] : ''; }
+/* 型式文字：確切型式＋細分（吸力桶、單柱式…）＋混合型的組成 */
+function fdText(f) {
+  if (!f.fd) return f.type === 'floating' ? T('fdGroup').fl + L('（', ' (') + T('fdFloatSub') + L('）', ')') : T('fdUnknown');
+  let s = fdTypeName(f.fd.t);
+  if (f.fd.p) s += L('：', ': ') + f.fd.p.map(p => fdTypeName(p[0]) + ' ' + p[1]).join(L('、', ', '));
+  if (f.fd.s) s += L('（', ' (') + fdSubName(f.fd.s) + L('）', ')');
+  return s;
+}
+function loadFoundations() {
+  return WW.getJSON(WW.DATA.foundations).then(j => { FD = j; applyFoundations(); }).catch(e => { console.error(e); });
+}
+function applyFoundations() {
+  if (!FD || !farmsReady) return;
+  D.farms.forEach(f => { const r = FD.farms[f.name]; if (r && f.type !== 'onshore') f.fd = r; });
+  farmLayerDirty = true; fdLegendKey = '';
+  if (S.layer === 'fd') layerChanged();
+  if (panelTab === 'prof') renderProfile();
+  if (cardItem && cardItem.kind === 'farm') renderCard(cardItem);
+}
 function farmColor(f) {
   if (f.pipe) return PIPE_HEX[f.st];
+  if (S.layer === 'fd') return FD_HEX[fdGroup(f)];
   return f.type === 'onshore' ? COL.on : f.type === 'floating' ? COL.fl : COL.off;
 }
 /* 時間軸上的 Y.0 代表「Y 年底」：風場在商轉那一年的最後 BUILD 年內逐步蓋好，年底完工（與國家年底累計一致） */
@@ -732,7 +779,7 @@ function rebuildFarmInstances(now, force) {
       _col.setHex(farmColor(f)); colored.forEach(m => m.setColorAt(i, _col)); L2.phase[i] = (i * 2.399) % 6.283;
       const lv = liveOn() && liveFor(f);
       spin[i] = lv ? spinOf(lv) : 1;
-      if (lv) { _col.setHex(LIVE_HEX); L2.ring.setColorAt(i, _col); liveSeen = true; }   // 有即時資料：外圈改為即時綠
+      if (lv && S.layer !== 'fd') { _col.setHex(LIVE_HEX); L2.ring.setColorAt(i, _col); liveSeen = true; }   // 有即時資料：外圈改為即時綠（水下基礎圖層不改，免得混淆）
     });
     colored.forEach(m => { if (m.instanceColor) m.instanceColor.needsUpdate = true; });
     L2.meshes.forEach(m => { m.count = nl.length; });
@@ -757,7 +804,7 @@ function animateFarmKind(L2, dt, farmScale) {
   const k = Math.min(1, dt * 4);
   for (let i = 0; i < n; i++) {
     const f = L2.list[i];
-    const act = farmActive(f, S.year) && layerOk(f.type) && !clusters.has(f);     // 拉近時也保留一支風機；被點選、畫成風機群的那座才藏起來
+    const act = farmActive(f, S.year) && showFarm(f) && !clusters.has(f);     // 拉近時也保留一支風機；被點選、畫成風機群的那座才藏起來
     const mw = act ? farmMwAt(f, S.year) : 0;
     const hT = act ? fHeight(mw) * farmScale : 0, rT = act ? fRadius(mw) * farmScale : 0;
     const h0 = L2.h[i], r0 = L2.r[i];
@@ -819,7 +866,7 @@ function farmAlt(f) { const sp = turbSpec(f); return clamp(sp.extent * KM * 3.0,
 function seeded(str) { let h = 2166136261; for (const ch of str) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return () => { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; return ((h >>> 0) % 10000) / 10000; }; }
 const clusters = new Map();
 function makeCluster(f) {
-  const sp = turbSpec(f), kind = f.pipe ? 'p' + f.st : f.type === 'onshore' ? 'on' : 'off', mats = clusterMats[kind];
+  const sp = turbSpec(f), kind = f.pipe ? 'p' + f.st : S.layer === 'fd' && f.type !== 'onshore' ? fdMats(fdGroup(f)) : f.type === 'onshore' ? 'on' : 'off', mats = clusterMats[kind];
   const rnd = seeded(f.name + f.lat);
   const r = Math.ceil(Math.sqrt(sp.n)) + 2, pts = [];
   for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) { const x = i + (j & 1) * 0.5, z = j * 0.866; pts.push([x, z, x * x + z * z]); }
@@ -839,6 +886,16 @@ function makeCluster(f) {
   const q = new THREE.Quaternion(); posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q));
   clusterRoot.add(g); return g;
 }
+/* 水下基礎圖層的風機群材質（依型式組別，第一次用到才建） */
+function fdMats(g) {
+  const k = 'fd-' + g;
+  if (!clusterMats[k]) {
+    const c = FD_HEX[g];
+    clusterMats[k] = { disc: new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.16, depthWrite: false }), ring: new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.6, depthWrite: false }),
+      tower: new THREE.MeshPhongMaterial({ color: 0xe6ebf2 }), nac: new THREE.MeshPhongMaterial({ color: c }), blade: new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: c, emissiveIntensity: 0.18 }) };
+  }
+  return k;
+}
 function removeCluster(f) { const g = clusters.get(f); if (!g) return; clusterRoot.remove(g); [g.userData.tower, g.userData.nac, g.userData.rotor].forEach(m => m.dispose && m.dispose()); clusters.delete(f); }
 function layoutClusters() { const q = new THREE.Quaternion(); clusters.forEach((g, f) => { posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q)); }); }
 let lastClusterT = 0, focusFarm = null, nearFarms = [];
@@ -854,7 +911,7 @@ function updateClusters(now, force) {
     const rad = Math.max(0.35, alt * 0.6 * 2.6);
     const cands = [], fsOn = fsActive();
     for (const f of D.farms) {
-      if (!farmActive(f, S.year) || !layerOk(f.type)) continue;          // 規劃中：開啟「規劃中」且在時間軸終點才出現
+      if (!farmActive(f, S.year) || !showFarm(f)) continue;          // 規劃中：開啟「規劃中」且在時間軸終點才出現
       if (fsOn && (!inScope(f.iso) || !fsMatch(f))) continue;           // 搜尋／篩選中：只替符合的風場補標籤
       const dl = (f.lat - fc.lat), dn = (f.lon - fc.lon) * cosl, d = Math.sqrt(dl * dl + dn * dn);
       if (d < rad + 0.15) cands.push([d, f]);
@@ -1253,14 +1310,40 @@ function updateHUD() {
   if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
   if (panelTab === 'farms') renderFarmResults(false);
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
-  const ll = $('g-liveLegend'), showLl = liveSeen && liveOn() && !!renderer && S.view !== 'bars' && farmsReady;
+  const ll = $('g-liveLegend'), showLl = liveSeen && liveOn() && !!renderer && S.view !== 'bars' && farmsReady && S.layer !== 'fd';
   if (ll.hidden === showLl || ll._lang !== lang) { ll.hidden = !showLl; ll._lang = lang; ll.innerHTML = '<i class="gsw" style="background:var(--live)"></i>' + T('liveLegend'); }
-  const lg = $('g-pipeLegend'), showLg = S.pipe && S.year >= Y1 - 0.02 && !!renderer && S.view !== 'bars' && farmsReady;
+  const lg = $('g-pipeLegend'), showLg = S.pipe && S.year >= Y1 - 0.02 && !!renderer && S.view !== 'bars' && farmsReady && S.layer !== 'fd';
   ll.classList.toggle('up', showLg);
   if (lg.hidden === showLg) {
     lg.hidden = !showLg;
     if (showLg) lg.innerHTML = '<span>' + T('pipeLegendT') + '</span>' + [1, 2, 3].map(k => '<span><i class="gsw dash p' + k + '"></i>' + T('st')[k] + '</span>').join('');
   }
+  renderFdLegend();
+}
+/* 水下基礎圖例：範圍內、此刻營運中的離岸風場依型式分組的座數，已知型式的座數與容量占比；點一組只看這一組 */
+let fdLegendKey = '';
+function fdStats(region, y) {
+  const n = {}, mw = {}; FD_GROUPS.forEach(g => { n[g] = 0; mw[g] = 0; });
+  (farmsReady ? D.farms : []).forEach(f => {
+    if (f.pipe || f.type === 'onshore' || !inScope(f.iso, region) || !farmActive(f, y)) return;
+    const g = fdGroup(f); n[g]++; mw[g] += farmMwAt(f, y);
+  });
+  const tot = FD_GROUPS.reduce((a, g) => a + n[g], 0), totMw = FD_GROUPS.reduce((a, g) => a + mw[g], 0);
+  return { n, mw, tot, totMw, known: tot - n.unk, knownMw: totMw - mw.unk };
+}
+function fdPct(a, b) { const x = b ? a / b * 100 : 0; return a >= b ? '100%' : x > 0 && x < 1 ? '<1%' : Math.min(99, Math.floor(x)) + '%'; }
+function renderFdLegend() {
+  const el = $('g-fdLegend'), show = S.layer === 'fd' && !!renderer && S.view !== 'bars' && farmsReady;
+  if (!show) { if (!el.hidden) { el.hidden = true; fdLegendKey = ''; } return; }
+  const yr = Math.floor(S.year), key = [lang, yr, S.region, S.fdOnly || '', !!FD, S.pipe && S.year >= Y1 - 0.02].join('|');
+  if (key === fdLegendKey && !el.hidden) return;
+  fdLegendKey = key; el.hidden = false;
+  const st = fdStats(S.region, S.year);
+  el.innerHTML = '<div class="fdh"><b>' + esc(T('fdTitle')) + '</b> · ' + esc(st.tot ? T('fdCov')(WW.int(st.known), WW.int(st.tot), fdPct(st.knownMw, st.totMw)) : T('fdNoFarm')) + '</div>' +
+    '<div class="fdrow" role="group" aria-label="' + esc(T('fdTitle')) + '">' + FD_GROUPS.map(g => '<button type="button" class="fdchip' + (S.fdOnly === g ? ' on' : '') + (S.fdOnly && S.fdOnly !== g ? ' off' : '') +
+      '" data-g="' + g + '" aria-pressed="' + (S.fdOnly === g) + '" title="' + esc(T('fdGroupTip')[g]) + '"><i class="fdsw fd-' + g + '"></i>' + esc(T('fdGroup')[g]) + ' <b>' + WW.int(st.n[g]) + '</b></button>').join('') + '</div>' +
+    '<div class="fdn">' + esc(T('fdIso')) + ' · <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/foundations' + (lang === 'en' ? '.en' : '') + '.md" target="_blank" rel="noopener">' + esc(T('fdDoc')) + '</a></div>';
+  el.querySelectorAll('.fdchip').forEach(b => { b.onclick = () => { S.fdOnly = S.fdOnly === b.dataset.g ? null : b.dataset.g; fdLegendKey = ''; renderFdLegend(); updateClusters(0, true); syncURL(); }; });
 }
 
 /* ================= side panel: milestones, farms, profile ================= */
@@ -1381,12 +1464,12 @@ function renderFarmResults(force) {
   if (panelTab !== 'farms' || !farmsReady) return;
   const box = $('g-farmList').querySelector('.fres'); if (!box) return;
   const list = fsResults(), on = fsActive(), yr = Math.floor(S.year + 1e-6);
-  const key = [fsCache.key, SQ.limit, yr, S.pipe, S.layer, liveOn(), portsReady].join('|');
+  const key = [fsCache.key, SQ.limit, yr, S.pipe, S.layer, S.fdOnly, liveOn(), portsReady].join('|');
   if (!force && key === farmRendered) return; farmRendered = key;
   const mw = list.reduce((s, f) => s + f.mw, 0), scope = S.region === 'WORLD' ? L('全球', 'worldwide') : scopeName();
   let html = '<div class="gnote fshead">' + esc((on ? T('fsCount') : T('fsAll'))(WW.int(list.length), fmtMW(mw))) + ' · ' + esc(T('fsScope')(scope)) + (on ? '<br>' + esc(T('fsMapOnly')) : '') + '</div>';
   if (on && list.length) {
-    const hidden = list.filter(f => !farmActive(f, S.year) || !layerOk(f.type)).length;
+    const hidden = list.filter(f => !farmActive(f, S.year) || !showFarm(f)).length;
     const fix = S.year < Y1 - 0.02 || (!S.pipe && list.some(f => f.pipe)) || S.layer !== 'both';
     if (hidden) html += '<div class="gnote fshide">' + esc(T('fsHidden')(yr, WW.int(hidden))) + (fix ? ' <button type="button" class="fslatest">' + esc(T('fsToLatest')) + '</button>' : '') + '</div>';
   }
@@ -1397,7 +1480,7 @@ function renderFarmResults(force) {
   }
   box.innerHTML = html;
   const lb = box.querySelector('.fslatest');
-  if (lb) lb.onclick = () => { if (list.some(f => f.pipe) && !S.pipe) togglePipe(true); if (S.layer !== 'both') { S.layer = 'both'; $('g-layerSel').value = 'both'; updateBars(true); farmLayerDirty = true; } S.year = Y1; syncYearUI(); syncURL(); renderFarmResults(true); };
+  if (lb) lb.onclick = () => { if (list.some(f => f.pipe) && !S.pipe) togglePipe(true); if (S.layer !== 'both') { S.layer = 'both'; S.fdOnly = null; $('g-layerSel').value = 'both'; layerChanged(); updateBars(true); farmLayerDirty = true; } S.year = Y1; syncYearUI(); syncURL(); renderFarmResults(true); };
   box.querySelectorAll('[data-port]').forEach(b => b.onclick = () => { const p = PORTS.find(x => x.id === b.dataset.port); if (p) selectPort(p); });
   const ap = box.querySelector('.fsallports'); if (ap) ap.onclick = () => { PT_UI.q = SQ.q; setPanelTab('ports'); };
   list.slice(0, SQ.limit).forEach(f => box.appendChild(farmRow(f)));
@@ -1625,9 +1708,10 @@ function renderProfile() {
     box.innerHTML = `<h4>${esc(scopeName())}</h4><div class="sub">${y} · ${T('worldCap')}</div>
       <div class="big">${WW.int(on[yi] + off[yi])}<small>MW</small></div>${sparkSVG(on, off, yi)}
       ${rowsHTML([[T('profOnOff'), `${WW.int(on[yi])} / ${WW.int(off[yi])}`], ...top.map((c, k) => [`#${k + 1} ${esc(cname(c))}`, WW.int(c.on[yi] + c.off[yi])])])}
-      ${pipeBlock(S.region)}
+      ${fdBox(S.region)}${pipeBlock(S.region)}
       <div class="gnote" style="margin-top:8px">${L('在「範圍」選一個國家，可看該國概況、風場與規劃中專案。', 'Pick a country in “Focus” to see its profile, farms and pipeline.')}</div>`;
     const ps0 = box.querySelector('[data-act="pipe"]'); if (ps0) ps0.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
+    wireFdLink(box);
     return;
   }
   const c = byIso[S.region];
@@ -1645,7 +1729,7 @@ function renderProfile() {
     const fr = [[T('profFarms'), L(`${op.length} 座 · ${fmtMW(op.reduce((s, f) => s + farmMwAt(f, S.year), 0))}`, `${op.length} · ${fmtMW(op.reduce((s, f) => s + farmMwAt(f, S.year), 0))}`)]];
     if (big) fr.push([T('profLargest'), `<a href="#" data-farm="${esc(big.name)}">${esc(fname(big))}</a> · ${fmtMW(big.mw)}`]);
     if (early) fr.push([T('profEarliest'), `<a href="#" data-farm="${esc(early.name)}">${esc(fname(early))}</a> · ${early.year}`]);
-    farmsHTML = rowsHTML(fr) + coverageBox(op.reduce((a, f) => a + farmMwAt(f, S.year), 0), tot);
+    farmsHTML = rowsHTML(fr) + coverageBox(op.reduce((a, f) => a + farmMwAt(f, S.year), 0), tot) + fdBox(c.iso);
   } else if (!farmsReady) farmsHTML = '<div class="gnote" style="margin-top:8px">' + T('farmsLoading') + '</div>';
   const note = NOTE[c.iso] ? `<div class="blurb">${esc(NOTE[c.iso][lang === 'en' ? 1 : 0])}</div>` : '';
   let live = intlProfileBox(c.iso);
@@ -1660,6 +1744,23 @@ function renderProfile() {
   box.querySelector('[data-act="tour"]').onclick = () => tourStart();
   box.querySelector('[data-act="farms"]').onclick = () => setPanelTab('farms');
   const ps1 = box.querySelector('[data-act="pipe"]'); if (ps1) ps1.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
+  wireFdLink(box);
+}
+/* 國家概況：營運中離岸風場依水下基礎分組的容量長條（相鄰色塊之間留 2px 間隙；確切數字在圖例） */
+function fdBox(region) {
+  if (!farmsReady || !FD) return '';
+  const st = fdStats(region, S.year);
+  if (!st.tot) return '';
+  const gs = FD_GROUPS.filter(g => st.n[g]);
+  return '<div class="pipeh">' + esc(T('fdProf')) + '</div><div class="pbar fdbar" role="img" aria-label="' + esc(gs.map(g => T('fdGroup')[g] + ' ' + fmtMW(st.mw[g])).join(', ')) + '">' +
+    gs.map(g => '<i class="fd-' + g + '" style="flex:' + Math.max(st.mw[g], st.totMw * 0.004) + '"></i>').join('') + '</div>' +
+    '<div class="pleg">' + gs.map(g => '<span><i class="gsw fd-' + g + '"></i>' + esc(T('fdGroup')[g]) + ' <b>' + st.n[g] + '</b></span>').join('') + '</div>' +
+    '<div class="gnote" style="margin-top:4px">' + esc(T('fdCov')(WW.int(st.known), WW.int(st.tot), fdPct(st.knownMw, st.totMw))) +
+    (S.layer !== 'fd' ? ' · <a href="#" data-act="fdlayer">' + esc(T('lFd')) + ' →</a>' : '') + '</div>';
+}
+function wireFdLink(box) {
+  const a = box.querySelector('[data-act="fdlayer"]');
+  if (a) a.onclick = e => { e.preventDefault(); const sel = $('g-layerSel'); sel.value = 'fd'; sel.onchange({ target: sel }); renderProfile(); };
 }
 /* 逐場資料覆蓋率：已逐場標示的營運中容量 ÷ 國家年底統計；差額明白列出，不補虛構風場 */
 function coverageBox(mapped, national) {
@@ -2071,6 +2172,16 @@ function reportURL(it) {
   const title = '資料錯誤 Data error: ' + it.name + (c ? ' (' + c.name + ')' : '');
   return REPO_URL + '/issues/new?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body);
 }
+/* 風場卡片的水下基礎列：有逐場紀錄就一律顯示（附出處）；沒有紀錄的只在水下基礎圖層顯示「型式不詳」 */
+function fdHTML(f) {
+  if (!f || f.pipe || f.pseudo || f.type === 'onshore' || !FD || (!f.fd && S.layer !== 'fd')) return '';
+  const r = f.fd, note = r && (lang === 'zh' ? r.zh : r.en);
+  const src = r ? (r.o || []).map(id => '<a href="' + esc(FD.meta.ospar.url) + '" target="_blank" rel="noopener" title="' + esc(FD.meta.ospar.title) + '">OSPAR ' + esc(id) + '</a>')
+    .concat(r.u ? ['<a href="' + esc(r.u) + '" target="_blank" rel="noopener" title="' + esc(T('fdSecond')) + '">' + esc(hostOf(r.u)) + '</a>'] : []) : [];
+  return '<div class="ffd"><i class="fdsw fd-' + fdGroup(f) + '"></i><b>' + esc(T('fdLabel')) + '</b>' + esc(L('：', ': ') + fdText(f)) +
+    (src.length ? '<span class="fds">' + src.join('') + '</span>' : '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') +
+    (!r && f.type !== 'floating' ? '<div class="gnote">' + esc(T('fdStep')) + '</div>' : '') + '</div>';
+}
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
 const srcLabel = u => { try { const x = new URL(u), path = decodeURIComponent(x.pathname).replace(/\/$/, ''); return hostOf(u) + (path.length > 38 ? path.slice(0, 36) + '…' : path); } catch (e) { return u; } };
 async function copyText(s) {
@@ -2142,6 +2253,7 @@ function renderCard(it) {
     '<div class="kick">' + tag + (yrs !== '' ? esc(String(yrs)) + ' · ' : '') + esc(cn) + '</div>' +
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
     (spec ? '<div class="spec">' + spec + '</div>' : '') +
+    (real ? fdHTML(f) : '') +
     (real ? '<div class="fstat">' + rankHTML(f) + '</div><div class="fphw">' + phaseHTML(f) + '</div>' : '') +
     (desc ? '<p class="desc">' + esc(desc) + '</p>' : '') +
     (noteOf(f) ? '<p class="fnote">' + esc(noteOf(f)) + '</p>' : '') +
@@ -2150,7 +2262,7 @@ function renderCard(it) {
     '<p class="wx">' + T('wikiLoading') + '</p><div class="links xl">' + links + '</div>' + rel +
     (full ? '<div class="factions"><button type="button" class="fcopy">🔗 ' + esc(T(it.kind === 'ms' ? 'copyLinkMs' : it.kind === 'port' ? 'copyLinkPort' : 'copyLink')) + '</button>' +
       '<a class="freport" href="' + esc(reportURL(it)) + '" target="_blank" rel="noopener" title="' + esc(T('reportT')) + '">⚑ ' + esc(T('report')) + '</a></div>' : '');
-  card.classList.add('show');
+  card.classList.add('show'); $('g-mapPane').classList.add('carded');
   if (!same) card.scrollTop = 0;
   cardYearKey = real ? cardYearKeyOf(f) : '';
   card.querySelectorAll('[data-rel]').forEach(a => a.onclick = e => {
@@ -2181,7 +2293,7 @@ function renderCard(it) {
     if (w.thumb) { const ph = card.querySelector('.gph'), img = ph.querySelector('img'); img.onload = () => { ph.hidden = false; }; img.onerror = () => { ph.hidden = true; }; img.src = w.thumb; }
   });
 }
-function closeCard() { $('g-infoCard').classList.remove('show'); cardItem = null; focusPort = null; if (!TOUR) focusFarm = null; updateClusters(0, true); syncURL(); }
+function closeCard() { $('g-infoCard').classList.remove('show'); $('g-mapPane').classList.remove('carded'); cardItem = null; focusPort = null; if (!TOUR) focusFarm = null; updateClusters(0, true); syncURL(); }
 function selectFarm(f) {
   setPlaying(false);
   if (f.pipe) { if (!S.pipe) togglePipe(true); S.year = Y1; syncYearUI(); }
@@ -2294,6 +2406,7 @@ function tipFarm(f, w) {
     '<b>' + esc(fname(f)) + '</b>' + (f.zh && lang === 'zh' ? '<br><span style="color:var(--ink-2)">' + esc(f.name) + '</span>' : '') +
     '<br><i class="gsw" style="background:' + col + '"></i>' + T('type')[f.type] + ' · ' + esc(String(when)) +
     '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
+    (S.layer === 'fd' && !f.pipe && f.type !== 'onshore' ? '<br><i class="fdsw fd-' + fdGroup(f) + '"></i>' + esc(T('fdLabel') + L('：', ': ') + fdText(f)) : '') +
     (noteOf(f) ? '<div class="tnote">' + esc(noteOf(f).length > 140 ? noteOf(f).slice(0, 140) + '…' : noteOf(f)) + '</div>' : '') +
     (f.nStack ? '<div class="tnote">' + T('tipStack') + '</div>' : '') +
     liveTip(f) + '<div class="hint2">' + T('clickFarm') + '</div>';
@@ -2394,6 +2507,7 @@ function showSources() {
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
     '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2025 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '</ul>' +
     '<h4>' + (zh ? '離岸風電港口' : 'Offshore wind ports') + '</h4><ul><li>' + (zh ? '2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。' : 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.') + '</li></ul>' +
+    '<h4>' + (zh ? '水下基礎型式' : 'Foundation types') + '</h4><ul><li>' + (zh ? 'OSPAR Offshore Renewable Energy Developments 2024（CC0，資料時間 2024-01-01）：北海與東北大西洋逐場的基礎型式；逐筆比對本站風場。OSPAR 與建成紀錄不符或沒寫具體型式的（德國每一座、英國 Hornsea One 等），改以德文維基百科或建造新聞為準，卡片列出每座的出處。逐步收集中，其他海域暫列「型式不詳」；逐場清單見 GitHub 的 docs/foundations.md。' : 'OSPAR Offshore Renewable Energy Developments 2024 (CC0, data as of 1 Jan 2024): foundation type per farm for the North Sea and NE Atlantic, matched to this site’s farms one by one. Where OSPAR differs from what was built or gives no specific type (every German farm, the UK’s Hornsea One and a few others), German Wikipedia or construction news is used instead, and each farm card lists its sources. Collected step by step; other seas show “type unknown” for now. The farm-by-farm list is docs/foundations.en.md on GitHub.') + '</li></ul>' +
     '<h4>' + (zh ? '備註（離岸）' : 'Notes (offshore)') + '</h4><ul>' + li(n.offshore) + '</ul>' +
     '<h4>' + (zh ? '備註（早期）' : 'Notes (early)') + '</h4><ul>' + li(n.early) + '</ul>' +
     '<h4>' + (zh ? '備註（風場）' : 'Notes (farms)') + '</h4><ul>' + li(n.farms) + '</ul>' +
@@ -2427,6 +2541,7 @@ function stateParams() {
   if (S.view !== 'map') p.v = S.view;
   if (S.mode !== 'globe') p.mode = S.mode;
   if (S.layer !== 'both') p.layer = S.layer;
+  if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
   if (cardItem && cardItem.kind === 'ms') p.ms = cardItem.m.name;
   if (focusPort && cardItem && cardItem.kind === 'port') p.port = focusPort.id;
@@ -2452,7 +2567,8 @@ function applyParams(p, fromFarms) {
   if (p.base && ['relief', 'sat', 'plain'].includes(p.base)) setBase(p.base);
   if (p.mode === 'flat' || p.mode === 'globe') setMode(p.mode);
   if (p.v && ['map', 'split', 'bars'].includes(p.v)) setView(p.v);
-  if (p.layer && ['both', 'on', 'off'].includes(p.layer)) { S.layer = p.layer; $('g-layerSel').value = p.layer; updateBars(true); farmLayerDirty = true; }
+  if (p.layer && ['both', 'on', 'off', 'fd'].includes(p.layer)) { S.layer = p.layer; $('g-layerSel').value = p.layer; layerChanged(); updateBars(true); farmLayerDirty = true; }
+  S.fdOnly = S.layer === 'fd' && FD_GROUPS.includes(p.fdg) ? p.fdg : null;
   if (p.pipe != null) togglePipe(p.pipe !== '0');
   if (p.r && !fromFarms) setRegion(p.r);
   if (p.y && !isNaN(+p.y)) { S.year = clamp(+p.y, Y0, Y1); syncYearUI(); }
@@ -2534,7 +2650,7 @@ function wireUI() {
   $('g-slider').oninput = () => { if (TOUR) tourPause(true); S.year = parseFloat($('g-slider').value); syncYearUI(); };
   $('g-slider').onchange = () => syncURL();
   $('g-speedSel').onchange = e => { S.speed = parseFloat(e.target.value); };
-  $('g-layerSel').onchange = e => { S.layer = e.target.value; updateBars(true); updateClusters(0, true); farmLayerDirty = true; renderPipeList(true); syncURL(); };
+  $('g-layerSel').onchange = e => { S.layer = e.target.value; if (S.layer !== 'fd') S.fdOnly = null; layerChanged(); updateBars(true); updateClusters(0, true); farmLayerDirty = true; renderPipeList(true); if (cardItem && cardItem.kind === 'farm') renderCard(cardItem); syncURL(); };
   $('g-densSel').onchange = e => { S.density = +e.target.value; };
   $('g-regionSel').onchange = e => { if (TOUR) tourEnd(false); closeCard(); setRegion(e.target.value); };
   $('g-baseSel').onchange = e => setBase(e.target.value);

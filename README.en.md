@@ -17,6 +17,7 @@ See [CHANGELOG.en.md](./CHANGELOG.en.md) for versions and changes (the site foot
 [ROADMAP.en.md](./ROADMAP.en.md) and [TODO.en.md](./TODO.en.md) for planned work and known limitations,
 [docs/data-coverage.en.md](./docs/data-coverage.en.md) for farm-level coverage by country and the items still to
 verify, [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) for every farm record removed or corrected and why,
+[docs/foundations.en.md](./docs/foundations.en.md) for the foundation type of each offshore farm,
 and [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) for which other countries publish live
 wind generation data.
 
@@ -66,6 +67,13 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     manufacturing, cables, floating assembly and O&M (compiled by hand in Sep 2026, each with sources); small dots at
     world zoom, icons and names when zoomed in. Port cards list the roles, the wind farms served (click to switch)
     and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
+  - **Foundation layer** (“Offshore: foundations” in the Show menu): colours operating offshore farms by foundation
+    type — monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile
+    cap, mixed); farms not yet checked are “type unknown”. The legend counts each group in scope and the share of capacity
+    with a known type, and a click on a group shows only that group; farm cards give the exact type and sources, and country
+    profiles get a capacity bar. The data is collected step by step: step 1 is the North Sea and NE Atlantic within OSPAR
+    (Sep 2026, 99 farms; where OSPAR differs from what was built or gives no specific type, German Wikipedia or construction
+    news is used). Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
   - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
     nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
@@ -121,13 +129,18 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/wind_farms.json` — ~23,000 farm-level records (operating, pipeline, retired)
 - `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
 - `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
+- `data/global/foundations.json` — foundation types of offshore farms (built by `tools/build_foundations.py` from the
+  per-farm table in `tools/farm_foundations.py`)
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
-  pipeline projects and Japanese farm list compiled in 2026, and the merge log
+  pipeline projects and Japanese farm list compiled in 2026, the merge log, and the wind records of OSPAR Offshore
+  Renewables 2024 (CC0, used for foundation types)
 - `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
   `tools/build_standalone.py` builds the single-file edition, `tools/coverage_report.py` the data coverage report,
-  `tools/qa_farms.py` checks farm coordinates and `tools/qa_ports.py` checks the ports data
+  `tools/qa_farms.py` checks farm coordinates, `tools/qa_ports.py` checks the ports data and
+  `tools/build_foundations.py` builds the foundation data and the farm-by-farm list
 - `standalone/windfarmTaiwan-standalone.html` — the single-file edition (generated; do not edit by hand)
-- `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`) and the
+- `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
+  farm-by-farm foundation list (`foundations.en.md`) and the
   assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
 - `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing) for future
   contributors and AI agents
@@ -234,6 +247,7 @@ python tools/qa_farms.py        # sanity check: lists farms located outside thei
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
 python tools/qa_ports.py        # ports check: fields, inside the country or within 15 km of its coast, sources, farm names
+python tools/build_foundations.py # foundations: checks the per-farm table (farm names, OSPAR values, second sources), writes foundations.json and docs/foundations*.md
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
 # 5. Single-file edition (Actions also rebuilds it after pushes to main)
@@ -268,6 +282,9 @@ python tools/build_standalone.py
   Simplified Chinese and zone codes are compared too (the same offshore farm in Jiangsu and elsewhere is no
   longer listed twice); farms sharing a province or country centre as a placeholder are fanned out on the map
   and labelled. Every record, with its reason and source, is in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
+- While matching the OSPAR offshore data in Sep 2026, two more duplicates were removed: GEM's whole-farm “C-Power”
+  record in Belgium (which repeated Thornton Bank phases I–III) and a second Saint-Brieuc record in France placed
+  about 170 km away
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total
