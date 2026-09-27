@@ -18,9 +18,9 @@ const I18N = {
     region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', pipe: '規劃中', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
-    fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式（細分型式之後補齊）', other: '重力式、高樁承台、圍堰式、岩錨式、混合', unk: '還沒查證的固定式離岸風場' },
+    fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、圍堰式、岩錨式、混合', unk: '還沒查證的固定式離岸風場' },
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
-    fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
+    fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdFlBy: '浮動式細分', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
     fdStep: '逐步收集中：歐洲已完成，其他地區還沒查證的暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
     hint: '拖曳旋轉 · 滾輪縮放（可一路放大到風場） · 點國家或風場直接飛過去 · 空白鍵播放/暫停',
     hintTouch: '單指旋轉 · 雙指縮放 · 點國家或風場直接飛過去',
@@ -78,9 +78,9 @@ const I18N = {
     region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', pipe: 'Pipeline', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
-    fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating (sub-types to follow)', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
+    fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
-    fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
+    fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdFlBy: 'Floating by type', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
     fdStep: 'Collected step by step: Europe is done; farms elsewhere not yet checked show as type unknown', fdProf: 'Foundations (operating offshore farms, by capacity)',
     hint: 'Drag to rotate · scroll to zoom (down to farms) · click a country or farm to fly there · Space = play/pause',
     hintTouch: 'One finger to rotate · pinch to zoom · tap a country or farm to fly there',
@@ -1327,14 +1327,16 @@ function updateHUD() {
 }
 /* 水下基礎圖例：範圍內、此刻營運中的離岸風場依型式分組的座數，已知型式的座數與容量占比；點一組只看這一組 */
 let fdLegendKey = '';
+const FL_SUBS = ['spar', 'semi', 'barge', 'tlp'];
 function fdStats(region, y) {
-  const n = {}, mw = {}; FD_GROUPS.forEach(g => { n[g] = 0; mw[g] = 0; });
+  const n = {}, mw = {}, fls = {}; FD_GROUPS.forEach(g => { n[g] = 0; mw[g] = 0; });
   (farmsReady ? D.farms : []).forEach(f => {
     if (f.pipe || f.type === 'onshore' || !inScope(f.iso, region) || !farmActive(f, y)) return;
     const g = fdGroup(f); n[g]++; mw[g] += farmMwAt(f, y);
+    if (g === 'fl') { const k = f.fd && FL_SUBS.includes(f.fd.s) ? f.fd.s : '?'; fls[k] = (fls[k] || 0) + 1; }   // 浮動式的細分型式
   });
   const tot = FD_GROUPS.reduce((a, g) => a + n[g], 0), totMw = FD_GROUPS.reduce((a, g) => a + mw[g], 0);
-  return { n, mw, tot, totMw, known: tot - n.unk, knownMw: totMw - mw.unk };
+  return { n, mw, fls, tot, totMw, known: tot - n.unk, knownMw: totMw - mw.unk };
 }
 function fdPct(a, b) { const x = b ? a / b * 100 : 0; return a >= b ? '100%' : x > 0 && x < 1 ? '<1%' : Math.min(99, Math.floor(x)) + '%'; }
 function renderFdLegend() {
@@ -1760,6 +1762,8 @@ function fdBox(region) {
   return '<div class="pipeh">' + esc(T('fdProf')) + '</div><div class="pbar fdbar" role="img" aria-label="' + esc(gs.map(g => T('fdGroup')[g] + ' ' + fmtMW(st.mw[g])).join(', ')) + '">' +
     gs.map(g => '<i class="fd-' + g + '" style="flex:' + Math.max(st.mw[g], st.totMw * 0.004) + '"></i>').join('') + '</div>' +
     '<div class="pleg">' + gs.map(g => '<span><i class="gsw fd-' + g + '"></i>' + esc(T('fdGroup')[g]) + ' <b>' + st.n[g] + '</b></span>').join('') + '</div>' +
+    (st.n.fl ? '<div class="gnote" style="margin-top:4px">' + esc(T('fdFlBy') + L('：', ': ') + FL_SUBS.concat('?').filter(k => st.fls[k])
+      .map(k => (k === '?' ? T('fdFloatSub') : fdSubName(k)) + ' ' + st.fls[k]).join(' · ')) + '</div>' : '') +
     '<div class="gnote" style="margin-top:4px">' + esc(T('fdCov')(WW.int(st.known), WW.int(st.tot), fdPct(st.knownMw, st.totMw))) +
     (S.layer !== 'fd' ? ' · <a href="#" data-act="fdlayer">' + esc(T('lFd')) + ' →</a>' : '') + '</div>';
 }

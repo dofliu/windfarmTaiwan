@@ -8,7 +8,7 @@ The globe’s Display menu has an “Offshore: foundations” layer that colours
 
 1. **North Sea and NE Atlantic (OSPAR coverage)**: done (Sep 2026).
 2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): done (Sep 2026).
-3. Sub-types of floating farms.
+3. **Sub-types of floating farms** (worldwide): in progress.
 4. Taiwan, Japan, Korea and the USA.
 5. China and Vietnam: to be decided after the first four steps.
 

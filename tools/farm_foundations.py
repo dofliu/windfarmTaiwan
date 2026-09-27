@@ -19,6 +19,8 @@ Hornsea One 西區也與建成紀錄不符。
 第 2 步（2026-09，F2）：歐洲其他風場，包括 OSPAR 範圍以外的波羅的海、地中海與艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場。
 每一座都附出處（開發商、施工廠商、產業新聞、政府文件或維基百科，原文逐筆核對過）。OSPAR 對 2024 年以後完工的風場只有
 核准階段的設計（Current Status 是 authorised 等，不是 operational 或 decommissioned），設計可能改變，所以這種紀錄一定要再附施工紀錄，建置會檢查。
+第 3 步（2026-09，F3）：全球的浮動式風場補上細分型式（單柱式、半潛式、駁船式、張力腳），逐座查技術供應商與開發商資料。
+浮動式的列一定要有細分型式；同一筆紀錄含不同型式的機組時（例：福島的示範機組），以中英文說明代替，建置會檢查。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
 
@@ -60,6 +62,14 @@ def F(iso, name, t, ospar=(), url=None, sub=None, parts=None, zh='', en='', step
 def F2(*a, **k):
     """第 2 步加入的列"""
     return F(*a, step=2, **k)
+
+
+def F3(*a, **k):
+    """第 3 步加入的列（浮動式）"""
+    return F(*a, step=3, **k)
+
+
+FLOAT_SUBS = ('spar', 'semi', 'barge', 'tlp')      # 浮動式的細分型式（sb 吸力桶是固定式套管用的）
 
 
 GER = ('OSPAR 只寫「任一種」，改以德文維基百科（附建造紀錄）為準', 'OSPAR says “any of these”, so German Wikipedia (with construction records) is used')
