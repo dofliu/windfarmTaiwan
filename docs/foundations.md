@@ -109,7 +109,7 @@
 | 台電離岸風電一期（Taipower Offshore Phase 1 (Changhua)） | 109 | 2021 | 套管式 | [jandenul.com](https://www.jandenul.com/our-projects/offshore-windfarm-changhua-taiwan) | 21 座四腳套管配轉接段，各以 4 支預打的基樁灌漿固定（共 84 支） |
 | 台電離岸風電二期（Taipower Offshore Phase 2） | 294 | 2026 | 套管式 | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 座四腳套管配轉接段，以 124 支預打基樁灌漿固定 |
 | 允能雲林離岸風場（Yunlin） | 640 | 2025 | 單樁 | [yunlin-offshore.com](https://www.yunlin-offshore.com/en/technology) | 80 座直徑 8 m 的單樁配轉接段（另有 3 座 2021–2023 年發生溜樁的單樁已移除，不計在內） |
-| 中能離岸風場（Zhong Neng） | 298 | 2025 | 套管式 | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/) | 31 座套管（世鎧精密製造），共 93 支國產基樁 |
+| 中能離岸風場（Zhong Neng） | 294 | 2025 | 套管式 | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/) | 31 座套管（世鎧精密製造），共 93 支國產基樁 |
 
 ### 德國
 

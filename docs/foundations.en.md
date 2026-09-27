@@ -270,7 +270,7 @@ Total: type known for 167 of 364 farms, 42.3% of their capacity (floating farms 
 | Taipower Offshore Phase 1 (Changhua) | 109 | 2021 | Jacket | [jandenul.com](https://www.jandenul.com/our-projects/offshore-windfarm-changhua-taiwan) | 21 four-legged jackets with transition pieces, each grouted onto four pre-installed pin piles (84 in total) |
 | Taipower Offshore Phase 2 | 294 | 2026 | Jacket | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 four-legged jackets with transition pieces, grouted onto 124 pre-installed pin piles |
 | Yunlin | 640 | 2025 | Monopile | [yunlin-offshore.com](https://www.yunlin-offshore.com/en/technology) | 80 monopiles 8 m across with transition pieces (three earlier ones that suffered pile runs in 2021–2023 were removed and are not counted) |
-| Zhong Neng | 298 | 2025 | Jacket | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/) | 31 jackets (built by Sing Da Marine Structure) on 93 locally made pin piles |
+| Zhong Neng | 294 | 2025 | Jacket | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/) | 31 jackets (built by Sing Da Marine Structure) on 93 locally made pin piles |
 
 ### United Kingdom
 

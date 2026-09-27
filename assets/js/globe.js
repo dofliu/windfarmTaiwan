@@ -2573,6 +2573,7 @@ function syncURL() {
 let pendingParams = null;
 function applyParams(p, fromFarms) {
   if (!p) return;
+  if (TOUR && p.tour !== '1') tourEnd(false);     // 導覽中打開分享連結（或按上一頁）：結束導覽，與點地球、換範圍、搜尋一致
   if (p.base && ['relief', 'sat', 'plain'].includes(p.base)) setBase(p.base);
   if (p.mode === 'flat' || p.mode === 'globe') setMode(p.mode);
   if (p.v && ['map', 'split', 'bars'].includes(p.v)) setView(p.v);

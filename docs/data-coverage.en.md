@@ -7,7 +7,7 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,611 MW at year-end, which is the site’s world total (1,287,611 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 15,200 operating farms, 1,069,134 MW are mapped individually — about **83%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 15,200 operating farms, 1,069,131 MW are mapped individually — about **83%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 51 countries · △ 60–85%: 18 · ✗ below 60%: 8 · ⚠ above 110%: 2 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
 - **Clean-up**: checked record by record in 2026-09; 96 duplicate, never-built or non-existent records were removed and 105 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 7,856 projects, 2,522,911 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
@@ -132,7 +132,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 24 | Portugal (PRT) | 5,605 | 25 | 5,071 | 5,626 | 100% | 0 | 211 | 0 | 62 | ✓ |
 | 25 | Norway (NOR) | 5,158 | 96 | 5,803 | 5,105 | 99% | 53 | 57 | 0 | 17 | ✓ |
 | 26 | Ireland (IRL) | 5,128 | 25 | 4,381 | 4,306 | 84% | 822 | 132 | 175 | 28 | △ |
-| 27 | Taiwan (TWN) | 4,517 | 3,587 | 4,396 | 4,027 | 89% | 490 | 50 | 0 | 6 | ✓ |
+| 27 | Taiwan (TWN) | 4,517 | 3,587 | 4,396 | 4,023 | 89% | 494 | 50 | 0 | 6 | ✓ |
 | 28 | Argentina (ARG) | 4,497 | 0 | 4,970 | 4,648 | 103% | 0 | 44 | 150 | 10 | ✓ |
 | 29 | South Africa (ZAF) | 4,326 | 0 | 4,263 | 3,864 | 89% | 462 | 40 | 0 | 4 | ✓ |
 | 30 | Austria (AUT) | 4,292 | 0 | 3,090 | 2,979 | 69% | 1,313 | 102 | 0 | 8 | △ |

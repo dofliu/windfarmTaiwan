@@ -15,6 +15,16 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.10.1 — 2026-09-27
+
+- Data correction: all 31 turbines at Zhong Neng were installed and grid-connected by August 2024, and commercial operation began
+  with the electricity licence in April 2025; the allocated capacity is 300 MW and the installed capacity 31 × 9.5 MW = 294.5 MW.
+  The Taiwan live page (which gave 2024 as the commercial-operation year; its timeline now adds April 2025) and the globe (which
+  gave 298 MW; the card now notes the allocated and installed capacity) now agree.
+- Fix: opening a shared link (or going back) while the globe's guided tour was running switched the card to the linked farm but
+  left the tour bar in place, and “next” carried on with the tour; the tour now ends first, as it does when you click the globe,
+  change the region or search.
+
 ## v2.10.0 — 2026-09-27
 
 - Foundation data, step 4: Taiwan, Japan, Korea and the USA, 36 farms in all (11 in Taiwan, 11 in Japan, 6 in Korea and

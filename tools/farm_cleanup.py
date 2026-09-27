@@ -547,9 +547,11 @@ RULES = [
     fix('ROU', 'Ruginoasa wind farm', G, '2023 年 11 月完工', 'Completed November 2023',
         'https://balkangreenenergynews.com/ukrainian-billionaire-akhmetov-completes-60-mw-ruginoasa-wind-farm-in-romania/', year=2023),
     # ------------------------------------------------ 台灣、日本、韓國、美國的離岸風場（2026-09 查水下基礎第 4 步時發現）
-    fix('TWN', 'Zhong Neng', C, '31 部風機 2024 年裝完，2025 年 4 月取得電業執照才全場商轉',
-        'All 31 turbines were installed in 2024, but the farm only reached commercial operation when it received its electricity licence in April 2025',
-        'https://www.csc.com.tw/csc/esg/env/env2_1.html', year=2025),
+    fix('TWN', 'Zhong Neng', C,
+        '31 部風機 2024 年 8 月全數安裝併網，2025 年 4 月取得電業執照正式商轉；獲配容量 300 MW，實際裝置 31 部 × 9.5 MW＝294.5 MW',
+        'All 31 turbines were installed and grid-connected by August 2024, and commercial operation began with the electricity licence in '
+        'April 2025; the allocated capacity is 300 MW, while the installed capacity is 31 × 9.5 MW = 294.5 MW',
+        'https://www.csc.com.tw/csc/esg/env/env2_1.html', year=2025, mw=294.5, note=True),
     fix('TWN', 'Taipower Offshore Phase 1 (Changhua)', C, '機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136',
         'The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136',
         'https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html', turbine='21 x Hitachi HTW5.2-127'),

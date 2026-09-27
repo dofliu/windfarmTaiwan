@@ -335,7 +335,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
-| Zhong Neng · 298 MW · 2024 | curated | fixed: year | All 31 turbines were installed in 2024, but the farm only reached commercial operation when it received its electricity licence in April 2025 | [link](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
+| Zhong Neng · 298 MW · 2024 | curated | fixed: year, capacity | All 31 turbines were installed and grid-connected by August 2024, and commercial operation began with the electricity licence in April 2025; the allocated capacity is 300 MW, while the installed capacity is 31 × 9.5 MW = 294.5 MW | [link](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
 | Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | curated | fixed: turbines | The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136 | [link](https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html) |
 
 ## Thailand (THA)
