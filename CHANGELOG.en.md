@@ -15,6 +15,21 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.7.0 — 2026-09-27
+
+- New “Offshore: foundations” layer on the globe (Show menu), colouring operating offshore farms by foundation type:
+  - Monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap,
+    mixed); farms not yet checked are “type unknown”. The colours fold the types into four groups (three hues plus two
+    neutrals, checked for colour-blind readers); farm cards and tooltips give the exact type.
+  - The legend counts each group in scope and the share of capacity with a known type, and a click on a group shows only
+    that group; country profiles get a capacity bar; the view can be shared (`layer=fd`).
+- Foundation data, step 1: 99 farms in the North Sea and NE Atlantic within OSPAR (OSPAR Offshore Renewables 2024, CC0,
+  matched one by one). Where OSPAR differs from what was built or gives no specific type (every German farm, the UK's
+  Hornsea One and a few others), German Wikipedia or construction news is used, and every farm lists its sources; the
+  farm-by-farm list is `docs/foundations.en.md`.
+- Data clean-up: two duplicates found while matching OSPAR were removed (the whole-farm C-Power record in Belgium and a
+  second Saint-Brieuc record in France placed about 170 km away).
+
 ## v2.6.1 — 2026-09-27
 
 - Globe: zoomed in, every farm is still drawn as a single turbine; nearby farms are no longer turned into groups of

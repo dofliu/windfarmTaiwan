@@ -11,7 +11,8 @@
 線上：`https://dofliu.github.io/windfarmTaiwan/`
 
 版本與更新紀錄見 [CHANGELOG.md](./CHANGELOG.md)（網站頁尾會顯示目前版本）；後續規劃與待辦見 [ROADMAP.md](./ROADMAP.md)、[TODO.md](./TODO.md)；各國風場資料覆蓋率與待查證項目見
-[docs/data-coverage.md](./docs/data-coverage.md)，逐筆刪除或修正的風場紀錄與理由見 [docs/data-cleanup.md](./docs/data-cleanup.md)；
+[docs/data-coverage.md](./docs/data-coverage.md)，逐筆刪除或修正的風場紀錄與理由見 [docs/data-cleanup.md](./docs/data-cleanup.md)，離岸風場的水下基礎型式逐場清單見
+[docs/foundations.md](./docs/foundations.md)；
 其他國家即時發電資料的可行性評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)。
 
 **單檔版**：[下載 windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
@@ -45,6 +46,11 @@
   - **港口圖層**（⚓）：離岸風電的組裝出港、水下基礎與風機零組件製造、海纜、浮動式組裝與運維港口 55 個（15 國，2026-09 人工整理，
     每港附出處）；全球視角為小點，拉近才有圖示與名稱。港口卡片列出角色、服務過的風場（可點選切換）與出處，可以搜尋，
     也有「港口」分頁（例：`#/global?port=twn-taichung`）
+  - **水下基礎圖層**（「顯示」選單的「離岸：水下基礎」）：依基礎型式為營運中的離岸風場上色——單樁、鋼構框架（套管、三腳架、三樁）、
+    浮動式、其他固定式（重力式、高樁承台、混合），還沒查證的標「型式不詳」。圖例列出範圍內各組的座數與已知型式的容量占比，
+    點一組可只看這一組；風場卡片寫出確切型式與出處，國家概況有依容量的長條。資料逐步收集：第 1 步是 OSPAR 涵蓋的北海與東北大西洋
+    （2026-09，99 座；OSPAR 與建成紀錄不符或沒寫明的，改以德文維基百科或建造新聞為準），逐場清單見
+    [docs/foundations.md](./docs/foundations.md)（例：`#/global?r=C:Europe&layer=fd`）
   - **風場卡片**：點風場可看維基百科照片與簡介；在國內的地位（依時間軸年份的容量排名與占全國風電裝置容量比例）、
     分期時間軸、附近風場（30 km 內）與同開發商的其他風場（可直接點選切換）；衛星地圖、OpenStreetMap、
     風能資源地圖（Global Wind Atlas）、Wikidata 等連結；「複製此風場連結」與「回報資料錯誤」（開啟預填的 GitHub issue）
@@ -89,11 +95,14 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/wind_farms.json` — 風場層級資料約 2.3 萬筆（營運中、規劃中、已除役）
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
 - `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
-- `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄
+- `data/global/foundations.json` — 離岸風場的水下基礎型式（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 的逐場對照表產生）
+- `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
+  以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
-  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料
+  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
+  `tools/build_foundations.py` 產生水下基礎資料與逐場清單
 - `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
-- `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
+- `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
@@ -173,6 +182,7 @@ python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離岸 15 km 內、出處、「服務過的風場」對得到風場名稱
+python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
 # 5. 單檔版（push 到 main 後 Actions 也會自動重建）
@@ -196,6 +206,8 @@ python tools/build_standalone.py
   從未獲准的挪威 Hordavind 682 MW、與逐場資料重複的中國達坂城等整區彙總、羅馬尼亞放在國土中心卻查無建成紀錄的 15 座），
   修正 52 筆的座標、容量、年份、分期或狀態；比對名稱時先把繁體轉成簡體並比較分區代號（江蘇等地同一座離岸風場不再重複收錄）；
   共用省或國家中心代用座標的風場在地圖上示意排開並註明。逐筆理由與出處見 [docs/data-cleanup.md](./docs/data-cleanup.md)
+- 2026 年 9 月比對 OSPAR 離岸風場資料時，另刪除 2 筆重複：GEM 的比利時「C-Power」整場合計（與 Thornton Bank 一、二、三期重複），
+  以及法國 Saint-Brieuc 座標偏離約 170 km 的第二筆
 - 英文國名：澳洲原被標成同屬 AUS 代碼的「Ashmore and Cartier Is.」，已改正
 
 > 國家概況的「逐場資料覆蓋率」＝已逐場標示的營運中容量 ÷ 國家年底統計（台灣 2025 年約 89%、日本約 87%），差額明白列出，
