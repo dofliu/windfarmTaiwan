@@ -35,6 +35,8 @@ import zlib
 from pathlib import Path
 
 UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+# 有些網站擋瀏覽器樣式的 User-Agent（回 403），美國 SEC 要求自報身分：依序改用這些再試
+UA_FALLBACK = ('curl/8.0', 'windfarmTaiwan-research/1.0 (+https://github.com/dofliu/windfarmTaiwan)')
 CHARSETS = ('utf-8', 'big5', 'gb18030', 'shift_jis', 'euc-jp', 'cp949')     # 標頭與網頁都沒寫編碼時依序嘗試
 
 
@@ -42,7 +44,9 @@ def to_text(b, charset=None):
     """把下載的內容轉成純文字：PDF、Word 檔、HTML（依編碼）"""
     if b[:4] == b'%PDF':
         sys.modules.setdefault('cryptography', None)     # 部分環境的 cryptography 會讓 pypdf 匯入失敗；讀一般 PDF 用不到
+        import logging
         import pypdf
+        logging.getLogger('pypdf').setLevel(logging.ERROR)   # 字型解析的警告與文字比對無關
         t = '\n'.join((p.extract_text() or '') for p in pypdf.PdfReader(io.BytesIO(b)).pages)
         return re.sub(r'(\w)-\n(\w)', r'\1\2', t)     # 行尾斷字
     if b[:2] == b'PK':
@@ -73,8 +77,11 @@ def fetch(url, cache):
     if fn.exists():
         return fn.read_text(encoding='utf-8'), None
     last = None
-    for enc in ('gzip, deflate', 'identity'):      # 有些伺服器不理會 Accept-Encoding，送回 br 等格式時改要求不壓縮
-        req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept-Encoding': enc,
+    tries = [(UA, 'gzip, deflate'), (UA, 'identity')] + [(ua, 'identity') for ua in UA_FALLBACK]
+    for n, (ua, enc) in enumerate(tries * 2):      # 有些伺服器不理會 Accept-Encoding，送回 br 等格式時改要求不壓縮
+        if n == len(tries):
+            time.sleep(3)                         # 偶發的 403／429：整輪失敗後等一下再試一輪
+        req = urllib.request.Request(url, headers={'User-Agent': ua, 'Accept-Encoding': enc,
                                                    'Accept-Language': 'en,zh-TW;q=0.8,ja;q=0.6,ko;q=0.5,de;q=0.4'})
         try:
             r = urllib.request.urlopen(req, timeout=60)
@@ -91,7 +98,9 @@ def fetch(url, cache):
             time.sleep(1)
             return t, None
         except urllib.error.HTTPError as e:
-            return None, f'HTTP {e.code}'
+            last = f'HTTP {e.code}'
+            if e.code not in (403, 406, 429):
+                return None, last
         except Exception as e:     # noqa: BLE001 — 網路錯誤、編碼錯誤都記下來，換下一種方式再試
             last = str(e)[:80]
     return None, last
