@@ -126,10 +126,13 @@ the rules are in `tools/farm_cleanup.py`.
       the capacity (still the 2003 figure of 3 turbines, 7.6 MW)
 - [x] Step 3: floating farms: 19 get a sub-type, 15 of them operating; 20 more rules corrected the data (GEM's BiMEP test-site
       capacity was removed) (Sep 2026, v2.9.0)
-- [ ] Floating units in China not yet in the data (sources in the step-3 research notes; their coordinates still need a source,
-      never guessed): CSSC Haizhuang's Fuyao 6.2 MW (2022, Luodousha off Zhanjiang, running on a micro-grid; whether it reached the
-      public grid is unverified) and Longyuan's Guoneng Gongxiang 4 MW (grid-connected June 2024, off Nanri Island, Fujian);
-      CTG's Sanxia Linghang 16 MW (Yangjiang) and CNOOC's Haiyou Anlan 16 MW tension-leg platform (Lufeng oilfield), which only
+- [ ] Floating units in China not yet in the data (their coordinates still need a source, never guessed): CSSC Haizhuang's Fuyao
+      6.2 MW (2022, Luodousha off Zhanjiang, [National Energy Administration](http://www.nea.gov.cn/2022-06/24/c_1310631921.htm); running
+      on a micro-grid; whether it reached the public grid is unverified) and Longyuan's Guoneng Gongxiang 4 MW three-column
+      semi-submersible (grid-connected June 2024, off Nanri Island, Putian, Fujian; [China Daily](https://fj.chinadaily.com.cn/a/202406/28/WS667e79dba3107cd55d269125.html),
+      [SASAC](http://www.sasac.gov.cn/n2588025/n2588124/c33362365/content.html)); CTG's Sanxia Linghang 16 MW semi-submersible (Yangjiang,
+      [Xinhua](https://www.news.cn/tech/20260503/76ea04db45f242819a7f2b39dc191b94/c.html)) and CNOOC's Haiyou Anlan 16 MW tension-leg
+      platform (Lufeng oilfield, [Xinhua](https://www.news.cn/tech/20260806/18f047cf51d840c489e283b9d1669742/c.html)), which only
       started in 2026, wait for the timeline to reach 2026
 - [ ] Possible double counts, to be verified: Mingyang's OceanX (16.6 MW) sits in the Qingzhou IV farm (500 MW, whose card says
       "incl. OceanX"), and Sanxia Yinling (5.5 MW) in Shapa III (400 MW); no source says whether the big farms' capacities include them
