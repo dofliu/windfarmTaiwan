@@ -26,6 +26,46 @@ wind generation data.
 
 Developed by National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu (國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室)
 
+**Project status (27 Sep 2026, v2.11.1)**: the main features are finished; the project is paused and in maintenance, with no new
+features planned. The automatic Taiwan live-data updates keep running. What to watch while it is paused is under "Maintenance" in
+[DEPLOY.en.md](./DEPLOY.en.md); work to pick up later is at the top of [TODO.en.md](./TODO.en.md).
+
+## Quick start (read this first)
+
+The bar at the top of the site has four pages:
+
+| Page | What it shows |
+|---|---|
+| **Home** | Everything on one page: Taiwan's wind output right now, the world's wind growth 1980–2025, and where Taiwan ranks |
+| **Taiwan live** | How much each of Taiwan's 30 wind farms is generating right now (updated about every 2 hours); click any farm for its details |
+| **Global** | A 3D globe that animates 45 years of wind growth by country and zooms down to single wind farms |
+| **Learn** | 12 illustrated chapters, from the first power-generating turbine in 1888 to Taiwan's offshore wind, with a glossary and "Frequently asked" |
+
+A suggested first visit (about 5 minutes):
+
+1. **Home**: start with the two big numbers at the top — Taiwan's wind output right now and the world's cumulative capacity.
+2. **Taiwan live**: click any farm (for example Greater Changhua or Formosa 2) to open its details: live trend, nearby wind speed,
+   specifications and project history. The tabs at the top switch between Dashboard, Farm grid, Charts and Map.
+3. **Global**: press **▶ Tour** in the toolbar for a guided run through the key moments in wind power, or press play on the timeline
+   to watch every country grow from 1980 to today. Press **🔍 Search** (or the / key) and type a farm name such as "Hornsea" or
+   "Hai Long", then click a result to fly to it. If a result says it is "not on the map for this year", the timeline is still on an
+   earlier year: press "Go to the latest year".
+4. **Learn**: to find out where wind power came from and why it matters, read from the first chapter; every chapter has a button
+   that replays that part of the story on the globe.
+
+Tips:
+
+- **EN / 中文** at the top right switches the language; **Share** makes a live image card with the data time on it. Links can be
+  shared as they are: whoever opens one sees the same view.
+- It works on phones. The globe downloads a few MB the first time, so give it a moment; older devices without 3D graphics get a
+  bar-chart ranking instead.
+- How current the data is: Taiwan live updates about every 2 hours (the header shows Taipower's data time); country totals run to
+  the end of 2025; the farm-by-farm data is GEM's February 2025 release.
+- To use it offline, download the [single-file edition](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
+  and open it from your computer.
+- Found a mistake? Farm cards have "Report a data error" at the bottom, or open an issue on
+  [GitHub](https://github.com/dofliu/windfarmTaiwan/issues).
+
 ## Features
 
 Four pages in the nav bar (hash routes, so every view can be shared as a link):
@@ -192,16 +232,14 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 
 Every document has a Traditional Chinese version (`README.md`, `DEPLOY.md`, `ROADMAP.md`, `TODO.md`, `CHANGELOG.md`, `docs/*.md`).
 
-## Setup (the only steps left for you)
+## Deployment and local preview
 
-1. After pushing, go to **Settings → Pages → Source, select `main` / `(root)`** and save to enable
-   Pages.
-2. On the **Actions** tab, manually run `scrape-taipower-wind` once (Run workflow) to confirm
-   `wind_realtime.json` gets updated.
-3. Open `https://dofliu.github.io/windfarmTaiwan/` — the top-right dot should turn green ("Live").
+- GitHub Pages serves this repo's `main` branch (root) at `https://dofliu.github.io/windfarmTaiwan/`; the three GitHub Actions
+  schedules (Taiwan and international live data, the weekly official backfill, the single-file rebuild) are running and need no
+  further setup.
+- Steps for deploying from scratch to another repo or host are in [DEPLOY.en.md](./DEPLOY.en.md); what to watch while development is
+  paused is under "Maintenance" in DEPLOY.en.md.
 
-> The repo ships with a real seed snapshot, so the site shows live-mode data as soon as Pages is
-> enabled, even before Actions has run.
 > Local preview: run `python3 -m http.server` in the repo root and open `http://localhost:8000/`
 > (opening `index.html` from disk can't load the JSON files over `file://`; to open the site straight
 > from disk, use the single-file edition).
@@ -229,7 +267,7 @@ Learn) into one HTML file of about 6 MB:
 - The schedule runs about every 2 hours; GitHub's cron isn't precise (runs can be late or occasionally
   skipped), which is fine here because the site does not need minute-by-minute data.
 - A repo with 60 days of no activity gets its scheduled workflows auto-disabled; trigger one
-  manually once a month to keep it alive.
+  manually once a month to keep it alive (how to check: "Maintenance" in DEPLOY.en.md).
 - Every update creates a commit, so git history accumulates (harmless functionally). To avoid
   this, switch to a Cloudflare Worker Cron (see `DEPLOY.md`).
 - Third-party services contacted while browsing: cdnjs (Leaflet, map tab only), Esri tiles (only

@@ -20,6 +20,38 @@
 
 開發者：國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）
 
+**專案狀態（2026-09-27，v2.11.1）**：主要功能已完成，專案暫告段落、進入維護期，不再新增功能。台灣即時資料的自動更新照常運作；
+維護要注意的事見 [DEPLOY.md](./DEPLOY.md)「維護」，之後要接續的工作見 [TODO.md](./TODO.md) 最上面。
+
+## 快速上手（第一次來看這裡）
+
+網站上方的導覽列有四個頁面：
+
+| 頁面 | 看什麼 |
+|---|---|
+| **首頁** | 一頁看完：台灣此刻的風電出力、全球 1980–2025 年的風電成長、台灣在全球排第幾 |
+| **台灣即時** | 全台 30 個風場此刻各發多少電（約每 2 小時更新），點任何一座看它的詳情 |
+| **全球發展** | 3D 地球儀：各國風電 45 年的成長動畫，可一路放大到單一風場 |
+| **風電知識** | 12 章圖文，從 1888 年第一部發電風機講到台灣的離岸風電，最後有名詞小辭典與「大家常問」 |
+
+第一次來，建議這樣看（約 5 分鐘）：
+
+1. **首頁**：先看最上面兩個大數字——台灣此刻的風電出力、全球累計裝置容量。
+2. **台灣即時**：點任何一座風場（例：大彰化、海能），會打開它的詳情：即時趨勢、附近風速、規格與開發歷程。
+   上方可切換「儀表／風場牆／數據／地圖」四種看法。
+3. **全球發展**：按工具列的 **▶ 導覽**，自動帶你看一遍風電發展的重要時刻；或按時間軸的播放鍵，看各國從 1980 年長到今天。
+   按 **🔍 搜尋**（或按 / 鍵）輸入風場名稱，例如「Hornsea」或「海龍」，點結果就會飛到那座風場。
+   結果若寫「這一年不在地圖上」，是因為時間軸還停在較早的年份，按「移到最新年份」即可。
+4. **風電知識**：想知道風電怎麼來的、為什麼要發展風電，從第一章讀起；每章都有按鈕可以跳到地球儀重播那一段。
+
+小提醒：
+
+- 右上角 **EN／中文** 切換語言；**分享** 產生附資料時間的即時圖卡。網址可以直接分享，別人打開會看到同一個畫面。
+- 手機也能用。地球儀第一次打開要下載幾 MB 的資料，要等一下；沒有 3D 繪圖能力的舊裝置會自動改用長條排名。
+- 資料新舊：台灣即時約每 2 小時更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底；逐場風場資料是 GEM 2025 年 2 月版。
+- 沒有網路也想看：下載[單檔版](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)，存到電腦直接開啟。
+- 發現資料有錯：風場卡片底部有「回報資料錯誤」，或到 [GitHub](https://github.com/dofliu/windfarmTaiwan/issues) 回報。
+
 ## 功能
 
 導覽列四個頁面（網址以 `#/` 路由，可直接分享）：
@@ -135,13 +167,12 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 
 所有說明文件都有英文版（`README.en.md`、`DEPLOY.en.md`、`ROADMAP.en.md`、`TODO.en.md`、`CHANGELOG.en.md`、`docs/*.en.md`）。
 
-## 啟用步驟（只剩這些要你做）
+## 部署現況與本機預覽
 
-1. 推上來後，到 **Settings → Pages → Source 選 `main` / `(root)`** 存檔，即啟用 Pages。
-2. 到 **Actions** 分頁，手動跑一次 `scrape-taipower-wind`（Run workflow）確認 `wind_realtime.json` 會被更新。
-3. 開 `https://dofliu.github.io/windfarmTaiwan/`，右上角應顯示綠點「即時」。
+- 網站由 GitHub Pages 直接服務本 repo 的 `main`（根目錄），網址 `https://dofliu.github.io/windfarmTaiwan/`；三個 GitHub Actions 排程
+  （台灣與國外即時資料、每週官方回溯、單檔版重建）都在運作，不需要另外設定。
+- 從零部署到另一個 repo 或換成其他主機的步驟見 [DEPLOY.md](./DEPLOY.md)；暫停開發期間的維護重點見 DEPLOY.md「維護」。
 
-> 倉庫已附真實種子資料，所以 Pages 一啟用、即使 Actions 還沒跑，畫面就是即時模式。
 > 本機預覽：在 repo 根目錄執行 `python3 -m http.server`，開 `http://localhost:8000/`（直接雙擊 `index.html` 會因 `file://` 無法讀取 JSON；
 > 想直接雙擊開啟請用單檔版）。
 
@@ -162,7 +193,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 
 - 用 **public repo**：Actions 分鐘數免費無限。
 - 排程約每 2 小時一次；GitHub 排程不保證準時（可能延遲或略過一兩次），本站不需要逐分即時，足夠。
-- repo 連續 60 天無活動，排程會被自動停用；每月手動觸發一次即可維持。
+- repo 連續 60 天無活動，排程會被自動停用；每月手動觸發一次即可維持（檢查方式見 DEPLOY.md「維護」）。
 - 每次更新會 commit 一筆，git 歷史會累積（功能無礙）。若要避免，可改用 Cloudflare Worker Cron（見 `DEPLOY.md`）。
 - 瀏覽時會連到的第三方服務：cdnjs（Leaflet，僅地圖分頁）、Esri 圖磚（僅地球儀放大後）、維基百科 API（風場照片與簡介，查不到或離線時只顯示連結）。
   這些服務失敗時網站其餘功能照常運作。

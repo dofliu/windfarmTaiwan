@@ -5,48 +5,53 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 2026-09-27)
+## In progress (hand-off, 2026-09-27: project paused)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it for the next piece of work in progress and move
 finished items to the topic lists below.
 
-### Foundation types, step 5 (China and Vietnam): under way, 5 farms added from the owner's review
+### Where things stand
 
-- On 27 Sep 2026 (v2.11.0), 4 Chinese farms (Donghai Bridge phase 1, CTG Rudong H6 and H10, Zhangpu Liu'ao phase 2) were added from the
-  “Asia case-by-case review” in the owner's compilation, and 6 clean-up rules corrected the data (duplicates of Donghai Bridge phase 1,
-  Qingzhou 6 and Hollandse Kust Zuid site 4; Qingzhou 6's capacity; Xiangshui's owner; Fuqing Xinghua Bay phase 2). 171 of the 363
-  operating offshore farms (43.3% of capacity) now have a known type.
-- On 27 Sep 2026 (v2.11.1), CGN Rudong H8 was added: mixed, 49 monopiles and 16 all-steel buckets (filed as “composite bucket”), from the
-  owner's review and CGN's foundation-monitoring contract. 172 of the 363 operating offshore farms (43.6% of capacity) now have a known type.
-- **To do**: the quoted passages for these sources (China Three Gorges, Shanghai government and CGN pages; see the F5 rows in
-  `tools/farm_foundations.py` and the last block of `tools/farm_cleanup.py`) have not yet been checked with `tools/check_quotes.py` (that
-  environment had no network access): add the passages and run the check somewhere with network access, and correct or withdraw any that fail.
-- Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say “fixed”: Fuqing Xinghua Bay and
-  Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets appear
-  only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand source is found. The Vietnamese cases only say intertidal / nearshore and were not added.
-- **Upgrade GEM to the 2026-02 release**: requested by the owner on 27 Sep 2026. GEM 2026-02 is only published at
-  `publicgemdata.nyc3.cdn.digitaloceanspaces.com` (wind/2026-02/wind_map_2026-02-05.geojson, per trackers/wind/config.js in GEM's maps repo),
-  which this environment's network policy blocks; GEM's GitHub repo no longer carries the CSV. Allow that host, or have the owner download and
-  upload the file; then make `tools/build_farms.py` read the GeoJSON (mapping its fields to the 2025-02 CSV columns), rebuild, and re-check every
-  clean-up rule (`farm_cleanup.py`, `GEM_KEEP` and `PIPE_*` are written against 2025-02 names).
-- The original step-5 notes below still apply:
+- Since 27 Sep 2026 (v2.11.1) the project is paused: the main features are finished, the owner decided not to add new features, and the
+  project is in maintenance (what is done: "Current status" in [ROADMAP.en.md](./ROADMAP.en.md)).
+- The automatic updates keep running; **check once a month** that the schedule is still going (steps under "Maintenance" in
+  [DEPLOY.en.md](./DEPLOY.en.md)). With no feature work, GitHub disables the schedule after 60 days without activity; the site shows no
+  error, only the last data it got.
+- No code change was left half-done; below is the work to pick up, in order of priority.
 
-- The first four steps are done (Sep 2026, v2.10.0): Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA — 191 rows in
-  the table, and 167 of the 364 operating offshore farms (42.3% of their capacity) have a known type (farm-by-farm list:
-  [docs/foundations.en.md](./docs/foundations.en.md)).
-- Only mainland China (169 operating farms, of which just 3 floating ones have a type) and Vietnam (28 farms, mostly intertidal) are left.
-  They need Chinese and Vietnamese sources, an estimated 50–70 hours (item 2 of [ROADMAP.en.md](./ROADMAP.en.md)): **ask the owner whether
-  to do it**. Until then those farms stay “type unknown”; never guess.
-- If it goes ahead, follow the same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source,
-  checked with `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (add
-  the step-5 wording to `NOTE` in `tools/build_foundations.py`; the report generator already handles 5) → data problems found on the way into
-  `tools/farm_cleanup.py` → rebuild the farm layer (step 3 of “Updating the global data” in the README) and run `qa_farms`,
-  `coverage_report`, `qa_ports` and `build_foundations` → site text (`fdStep` and the sources dialog in `assets/js/globe.js`,
-  `assets/js/learn.js`) → the version number and both changelogs → Playwright at desktop and phone widths, the single-file copy online and
-  offline → delete the notes in `tools/research/` once they are in the table.
-- Watch out for high-rise pile caps (common in China) and suction buckets; the map's four colour groups need no change (`pc` is already in
-  “other fixed-bottom”).
-- The items left to verify from step 4 have moved to “Re-check periodically” below.
+### First things to do when work resumes (in order)
+
+1. **Check the step-5 quotes**: the 5 Chinese foundation rows (the F5 rows in `tools/farm_foundations.py`) and 6 clean-up rules (the last
+   block of `tools/farm_cleanup.py`) added in v2.11.0 / v2.11.1 from the owner's "Global offshore wind farm database, Asia review v2" cite
+   China Three Gorges, Shanghai government and CGN pages whose quoted passages have not been checked with `tools/check_quotes.py` (the working
+   environment could not reach those sites). Add the passages and run the check somewhere with network access; correct or withdraw any that fail.
+2. **Upgrade GEM to the 2026-02 release** (requested by the owner on 27 Sep 2026): GEM 2026-02 is only published as a GeoJSON at
+   `publicgemdata.nyc3.cdn.digitaloceanspaces.com` (wind/2026-02/wind_map_2026-02-05.geojson, per trackers/wind/config.js in GEM's maps repo),
+   which the working environment's network policy blocked; GEM's GitHub repo only has the 2025-02 CSV. Steps: allow that host or have the owner
+   download and upload the file → make `tools/build_farms.py` read the GeoJSON (mapping its fields to the 2025-02 CSV columns) → rebuild the
+   farm layer (step 3 of "Updating the global data" in the README) → deal with every clean-up rule that no longer matches (`farm_cleanup.py`,
+   `GEM_KEEP` and `PIPE_*` are written against 2025-02 names) → `qa_farms`, `coverage_report`, `qa_ports`, `build_foundations` → the version
+   number and both changelogs (a new data-source release: MINOR).
+   After the upgrade also check Korea's Donghae 1 (the owner's workbook, following GEM 2026, says under construction, 2030; this site says
+   pre-construction, 2028) and Jwasari (under construction, 2031; this site says pre-construction).
+3. **Checks that have fallen due**: Greater Changhua 2b & 4 (Wo-4 / Wo-Nan) was planned to be fully operating in Q3 2026, which has now
+   passed; see "Re-check periodically" below.
+4. **The rest of foundation step 5**:
+   - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
+     and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
+     appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
+     source is found (for example CTG completion records the owner may have).
+   - The other Chinese offshore farms (160 of the 168 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
+     intertidal / nearshore, no sub-type) are still "type unknown".
+   - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
+     `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
+     Chinese farms in the docs is computed) → data problems found on the way into `tools/farm_cleanup.py` → rebuild and checks → site text
+     (`fdStep` and the sources dialog in `assets/js/globe.js`, `assets/js/learn.js`) → the version number and both changelogs → Playwright
+     at desktop and phone widths, the single-file copy online and offline → delete the notes in `tools/research/` once they are in the table.
+5. **Two Danish foundation types to verify**: this site follows OSPAR (DK23, DK04) and lists Nissum Bredning Vind and Rønland as
+   gravity-based; the owner's workbook cites Boundary Layer, which says jackets with concrete transition pieces and piled concrete
+   foundations. Boundary Layer is ODbL (share-alike), so use it only as a lead: find a developer or Danish Energy Agency source before
+   changing anything.
 
 ## Re-check periodically (time-sensitive, not code problems)
 
@@ -201,8 +206,8 @@ the rules are in `tools/farm_cleanup.py`.
       record of it generating at sea afterwards; remove it once it is confirmed that it never operated
 - [ ] The UK's Pentland floating farm has two GEM records ("Pentland Floating Offshore wind farm" and "Pentland wind farm", both
       100 MW); whether they are the same project is still to be checked
-- [ ] Step 4: Taiwan, Japan, Korea and the USA (research done, not yet in the table; see “In progress” at the top)
-- [ ] Whether China and Vietnam are worth about 50–70 hours: ask the owner after the first four steps
+- [x] Step 4: Taiwan, Japan, Korea and the USA: 36 farms (Sep 2026, v2.10.0)
+- [ ] Step 5: China and Vietnam (the owner decided on 2026-09-27 to keep collecting step by step): 5 Chinese farms added (v2.11.0, v2.11.1); the rest is item 4 of "First things to do" at the top
 
 ## To assess / waiting for the owner's decision (do not start on your own)
 
@@ -222,9 +227,10 @@ the rules are in `tools/farm_cleanup.py`.
 
 ## Operations
 
-- [ ] If development slows down and the 60-day inactivity rule becomes a risk, add a simple monthly
-      keepalive workflow
-- [ ] `wind_history_archive.json` keeps growing (about 1.8 MB now); keep an eye on repo size and
+- [ ] Check once a month that the schedule is still running and trigger it by hand if needed (steps under "Maintenance" in
+      DEPLOY.en.md): with the project paused there is no feature work, and GitHub disables schedules after 60 days without activity.
+      Alternatively add a simple monthly keepalive workflow (it changes the schedule setup, so ask the owner first)
+- [ ] `wind_history_archive.json` keeps growing (about 3.2 MB in Sep 2026); keep an eye on repo size and
       archive or compress it periodically if needed
 
 ## Deferred — no need to research again (clear reasons in "Directions evaluated and deferred" in ROADMAP.en.md)
