@@ -25,7 +25,7 @@ Hornsea One 西區也與建成紀錄不符。
 產業新聞的出處，引用的原文逐筆核對過（tools/check_quotes.py），不引用 4C Offshore。日本港灣內的風場以 NEDO 的支持構造分類為準
 （NEDO 明寫「ドルフィン」＝ High-Rise Pile Cap 高樁承台）。
 第 5 步（2026-09 起，F5）：中國、越南。先依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」
-補上中國 4 座；出處是該表各列的第一手來源（三峽集團、上海市政府），原文尚未以 tools/check_quotes.py 核對
+補上中國 4 座，之後補中廣核如東 H8（混合，另有中廣核的基礎監測合同佐證）；出處是該表各列的第一手來源（三峽集團、上海市政府、中廣核），原文尚未以 tools/check_quotes.py 核對
 （整理時的工作環境無法連線），列在 TODO 待補。越南各案該表只寫潮間帶／近岸、細分待查，未列入。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
@@ -40,7 +40,7 @@ FR = 'https://fr.wikipedia.org/wiki/'
 # 所以依結構歸成四組：單樁、鋼構框架（套管、三腳、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合）。
 # 圍堰式：近岸淺水處用鋼板樁（或鋼管樁加板樁）圍成一圈、填砂，上面做混凝土基座，等於把陸上風機的基礎做在水中
 # 岩錨式：湖底或海底是岩盤時，以錨桿把基礎固定在岩盤上
-# 複合筒：大直徑鋼筒（頂部為混凝土或鋼構過渡段）以負壓沉入海床，靠筒體與土壤承載；中國江蘇等軟弱海床常用，不打樁
+# 複合筒：大直徑鋼筒（頂部為混凝土或鋼構過渡段，後者中廣核稱「全鋼筒型」）以負壓沉入海床，靠筒體與土壤承載；中國江蘇等軟弱海床常用，不打樁
 TYPES = {
     'mp': ('單樁', 'Monopile', 'mp'),
     'jk': ('套管式', 'Jacket', 'frame'),
@@ -367,6 +367,12 @@ FOUNDATIONS = [
     F5('CHN', "CTG Zhangpu Liu'ao Phase 2", 'jk', url='https://www.ctg.com.cn/sxjt/xwzx55/zhxw23/2024081106434692154/index.html',
        zh='四樁套管；2024 年 6 月 28 部（約 400.2 MW）全容量併網，之後另增 20 MW 樣機',
        en='Four-pile jackets; 28 turbines (about 400.2 MW) fully connected in June 2024, later joined by a 20 MW prototype'),
+    # 中廣核的基礎監測合同列出 49 座單樁與 16 座全鋼筒型，與使用者的逐案覆核相同
+    F5('CHN', 'CGN Rudong H8', 'mx', url='https://ecp.cgnpc.com.cn/view/staticpags/zgh_zbgg/8a488fc36fae46600171bacf23d163d0.html',
+       parts=[['mp', 49], ['bk', 16]],
+       zh='65 部風機：49 座單樁、16 座全鋼筒型（與複合筒同為以負壓沉入的單筒基礎，筒體與過渡段全為鋼製）；2021 年 12 月全容量併網',
+       en='65 turbines: 49 on monopiles and 16 on all-steel buckets (single buckets sunk by suction, like the composite bucket, '
+          'but with a steel transition piece); fully connected in December 2021'),
     # ================================================ 第 4 步（2026-09）：台灣、日本、韓國、美國
     # ------------------------------------------------ Taiwan
     F4('TWN', 'Formosa 1 Phase 1', 'mp',

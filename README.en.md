@@ -80,7 +80,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     sub-type; step 4 covers Taiwan, Japan, Korea and the USA (Sep 2026, 36 farms: every operating farm in Taiwan and the USA,
     9 of the 10 in Japan and 6 of the 7 in Korea), each citing a developer, construction contractor, government document or
     trade press, with farms inside Japanese ports following NEDO's classification of support structures; step 5 (China and
-    Vietnam) is under way: in Sep 2026, 4 Chinese farms (Donghai Bridge phase 1, CTG Rudong H6 and H10, Zhangpu Liu'ao phase 2)
+    Vietnam) is under way: in Sep 2026, 5 Chinese farms (Donghai Bridge phase 1, CTG Rudong H6 and H10, Zhangpu Liu'ao phase 2, CGN Rudong H8)
     were added from the owner's case-by-case review, with a new “composite bucket” type; their quoted passages are still to be
     checked. The rest still read “type unknown”.
     Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)

@@ -10,7 +10,7 @@ The globe’s Display menu has an “Offshore: foundations” layer that colours
 2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): done (Sep 2026).
 3. **Sub-types of floating farms** (worldwide): done (Sep 2026).
 4. **Taiwan, Japan, Korea and the USA**: done (Sep 2026).
-5. **China and Vietnam**: under way: 4 Chinese farms added from the owner’s case-by-case review of Sep 2026; their quoted passages are still to be checked.
+5. **China and Vietnam**: under way: 5 Chinese farms added from the owner’s case-by-case review of Sep 2026; their quoted passages are still to be checked.
 
 This page shows the results of steps 1–4 and the part of step 5 done so far. Offshore farms not yet checked are shown as “type unknown”, never guessed.
 
@@ -21,17 +21,17 @@ This page shows the results of steps 1–4 and the part of step 5 done so far. O
 - **Step 2**: OSPAR does not cover the Baltic or the Mediterranean, and for farms finished after 2024 it only has the consented design, which can change. These farms were checked one by one against developers, construction contractors, trade press, government documents or Wikipedia; every farm cites a source, and each quoted passage was checked against the page. Where OSPAR has a consent-stage record, a construction source is always added (the build checks this).
 - **Step 3**: floating farms worldwide get their sub-type: spar, semi-submersible, barge (including damping-pool hulls) or tension-leg platform, checked one by one against technology providers, developers or trade press, with every quoted passage checked against the page; where one record holds units of different types, the note lists them.
 - **Step 4**: no offshore farm in Taiwan, Japan, Korea or the USA has an OSPAR record, so each was checked one by one against developers, construction contractors, government documents and trade press, with every quoted passage checked against the page (Japanese and Korean pages in their own encodings, PDFs page by page) and 4C Offshore never cited; farms inside Japanese ports follow NEDO’s classification of support structures (NEDO states that a “dolphin” is a High-Rise Pile Cap). Farms whose type could not be found are under “Checked but left out for now” below.
-- **Step 5 (under way)**: 4 Chinese farms were added from the “Asia case-by-case review” in the owner’s compilation of 27 Sep 2026, citing that sheet’s first-hand sources (China Three Gorges, the Shanghai government); their quoted passages have not yet been checked with `tools/check_quotes.py` (the working environment had no network access) and are listed in TODO. The Vietnamese cases there only say intertidal / nearshore, sub-type unconfirmed, so none were added. A new “composite bucket” type joins the “other fixed-bottom” colour group.
+- **Step 5 (under way)**: 5 Chinese farms were added from the “Asia case-by-case review” in the owner’s compilation of 27 Sep 2026, citing that sheet’s first-hand sources (China Three Gorges, the Shanghai government, CGN); their quoted passages have not yet been checked with `tools/check_quotes.py` (the working environment had no network access) and are listed in TODO. The Vietnamese cases there only say intertidal / nearshore, sub-type unconfirmed, so none were added. A new “composite bucket” type joins the “other fixed-bottom” colour group.
 - In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.
 - The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed). Farm cards and this page give the exact type.
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 171 of 363 farms, 43.3% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 172 of 363 farms, 43.6% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| China | 168 | 7 | 2% | 1 | 1 | 3 | 2 |
+| China | 168 | 8 | 2% | 1 | 1 | 3 | 3 |
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
@@ -77,6 +77,7 @@ Total: type known for 171 of 363 farms, 43.3% of their capacity (floating farms 
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
+| CGN Rudong H8 | 300 | 2021 | Mixed: Monopile 49, Composite bucket 16 | [ecp.cgnpc.com.cn](https://ecp.cgnpc.com.cn/view/staticpags/zgh_zbgg/8a488fc36fae46600171bacf23d163d0.html) | 65 turbines: 49 on monopiles and 16 on all-steel buckets (single buckets sunk by suction, like the composite bucket, but with a steel transition piece); fully connected in December 2021 |
 | CTG Rudong H10 | 400 | 2021 | Mixed: Monopile 77, Composite bucket 23 | [eps.ctg.com.cn](https://eps.ctg.com.cn/cms/channel/1ywgg1/19830.htm) | 100 × 4 MW turbines: 77 on monopiles and 23 on composite buckets (fully connected in December 2021) |
 | CTG Rudong H6 | 400 | 2021 | Monopile | [eps.ctg.com.cn](https://eps.ctg.com.cn/cms/channel/1ywgg1/17129.htm) | 100 × 4 MW turbines, all on monopiles (fully connected in December 2021; shares a flexible HVDC link with H10) |
 | CTG Zhangpu Liu'ao Phase 2 | 400 | 2024 | Jacket | [ctg.com.cn](https://www.ctg.com.cn/sxjt/xwzx55/zhxw23/2024081106434692154/index.html) | Four-pile jackets; 28 turbines (about 400.2 MW) fully connected in June 2024, later joined by a 20 MW prototype |

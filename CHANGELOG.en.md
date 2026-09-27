@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.11.1 — 2026-09-27
+
+- Foundations: CGN Rudong H8 added — mixed, 49 monopiles and 16 all-steel buckets (single buckets sunk by suction like the composite
+  bucket, so filed under “composite bucket”). Sources are the owner's case-by-case review and CGN's foundation-monitoring contract; their
+  quoted passages are still to be checked with `tools/check_quotes.py`. Operating offshore farms with a known type: 172 of 363 (43.6% of capacity).
+- Xiangshui and Yangjiang Shapa phases 1–5 still have no as-built count per type (Shapa phase 1's figures appear only in a secondary article, and
+  phases 2–5 only have provisional tender numbers), so they stay “type unknown”; the leads are in `tools/research/`.
+
 ## v2.11.0 — 2026-09-27
 
 - Foundation step 5 (China and Vietnam) begins: from the owner's case-by-case review of 27 Sep 2026 (“Global offshore wind farm
