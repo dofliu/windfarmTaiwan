@@ -79,7 +79,9 @@ CLEAN dup AUS Snowtown I wind farm 99.0 -> Snowtown
 CLEAN dup AUS Yambuk wind farm 30.0 -> Portland (PWEP) Wind Energy Project · Yambuk wind farm
 CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
 CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
+CLEAN dup CHN Guangdong Yangjiang Qingzhou Vi Offshore wind farm 1000.0 -> CTG Yangjiang Qingzhou 6
 CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang Southern Area H5 Offshore wind farm
+CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai Bridge
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
@@ -102,6 +104,7 @@ CLEAN dup NLD Amazon Shell HKN offshore wind farm 759.0 -> Hollandse Kust Noord
 CLEAN dup NLD Binnenjijks wind farm 68.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
 CLEAN dup NLD Borssele Site V wind farm 19.0 -> Borssele V (Two Towers innovation site)
 CLEAN dup NLD Dronten offshore wind farm 17.0 -> Irene Vorrink (Dronten)
+CLEAN dup NLD Hollandse Kust Zuid wind farm · 4 380.0 -> Hollandse Kust Zuid III & IV
 CLEAN dup NLD NOP Agrowind wind farm 195.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
 CLEAN dup NLD Noordoostpolder Buitendijks wind farm 15.0 -> Westermeerwind
 CLEAN dup NLD Noordoostpolder-Westermeerwind Windpark 429.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
@@ -134,8 +137,11 @@ CLEAN fix ALA Långnabba wind farm 40.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Cape Bridgewater wind farm, Cape Nelson South wind farm, Cape Sir William Grant/Cape Nelson North, Codrington wind farm 167.0
 CLEAN fix AUS Snowtown 370.0
 CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
+CLEAN fix CHN CTG Yangjiang Qingzhou 6 500.0
+CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Huadian Yuhuan 2 500.0
+CLEAN fix CHN Longyuan Jiangsu Xiangshui 202.0
 CLEAN fix CHN Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng 16.6
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9

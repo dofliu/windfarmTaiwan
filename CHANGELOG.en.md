@@ -15,6 +15,27 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.11.0 — 2026-09-27
+
+- Foundation step 5 (China and Vietnam) begins: from the owner's case-by-case review of 27 Sep 2026 (“Global offshore wind farm
+  database, Asia review v2”), 4 Chinese farms are added — Donghai Bridge phase 1 (high-rise pile caps), CTG Rudong H6 (monopiles),
+  CTG Rudong H10 (77 monopiles and 23 composite buckets) and Zhangpu Liu'ao phase 2 (four-pile jackets). Operating offshore farms
+  with a known type go from 167 (42.3% of capacity) to 171 (43.3%).
+- New “composite bucket” type (large steel buckets sunk into the seabed by suction, no piling), in the “other fixed-bottom” colour
+  group; the map colours are unchanged (the colour-blind check was re-run with the same result).
+- The sources are that compilation's first-hand documents (China Three Gorges, the Shanghai government); their quoted passages have
+  not yet been checked with `tools/check_quotes.py`, which is recorded in TODO.
+- Data corrections (6 record-level rules; see `docs/data-cleanup.en.md`):
+  - Donghai Bridge phase 1: GEM's “Shanghai Donghai Bridge · 1” is the same farm as the curated record and is merged into it (its
+    102 MW had been counted twice).
+  - CTG Yangjiang Qingzhou 6 is 1,000 MW with 74 turbines, fully connected in December 2024 (it was listed as 500 MW); GEM's
+    separate under-construction Qingzhou 6 record is merged into it.
+  - The 202 MW Xiangshui nearshore farm belongs to China Three Gorges, not Longyuan (name and owner corrected).
+  - Fuqing Xinghua Bay phase 2 is 280 MW with 45 turbines, fully connected in March 2021 (it was listed as 300 MW in 2020).
+  - Hollandse Kust Zuid site 4 (Netherlands) has been operating since 2023 as part of Hollandse Kust Zuid III & IV; the duplicate
+    record listing it as planned is removed.
+- Site wording: the globe's foundation notes and sources dialog and the Learn chapter now say step 5 is under way.
+
 ## v2.10.1 — 2026-09-27
 
 - Data correction: all 31 turbines at Zhong Neng were installed and grid-connected by August 2024, and commercial operation began

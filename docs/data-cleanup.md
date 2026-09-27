@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 201 條：刪除 96 筆（其中營運中 25,623.8 MW），修正 105 筆。
+- 規則 207 條：刪除 99 筆（其中營運中 25,725.8 MW），修正 108 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 7 | 10,856 | 4 |
+| 中國大陸 | 9 | 10,958 | 7 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
@@ -41,7 +41,7 @@
 | 肯亞 | 1 | 310 | 3 |
 | 芬蘭 | 2 | 129 | 0 |
 | 英國 | 6 | 2,628 | 5 |
-| 荷蘭 | 8 | 1,852 | 6 |
+| 荷蘭 | 9 | 1,852 | 6 |
 | 菲律賓 | 2 | 240 | 2 |
 | 葡萄牙 | 3 | 28.9 | 2 |
 | 西班牙 | 1 | 20 | 1 |
@@ -62,6 +62,11 @@
 | Zhejiang Energy Taizhou Yuhuan 1 · 300 MW · 2021 | 精選 | 修正：名稱、中文名、容量、年份、分期、業主 | 玉環披山島西北的離岸風場是華電玉環1號：北區 154 MW（2021 年 12 月）、南區 75 MW（2024 年 6 月）；浙能台州1號（300 MW，臨海外海）是另一座，GEM 已列出 | [連結](https://www.cpnn.com.cn/news/xny/202406/t20240604_1706589.html) |
 | Huadian Yuhuan 2 · 500 MW · 2024 | 精選 | 修正：名稱、中文名、容量、業主 | 開發商是華能（與晶科合作），不是華電；504 MW | [連結](https://m.bjx.com.cn/mnews/20240129/1358593.shtml) |
 | Jiangsu Sheyang South H1 (Longyuan) · 400 MW · 2024 | 精選 | 重複（併入「Jiangsu Sheyang Southern Area H5 Offshore wind farm」） | 射陽南區 H1 屬華能（另有紀錄）；龍源的 400 MW 場址是 H5，即 GEM 這筆 | [連結](https://www.gem.wiki/Jiangsu_Sheyang_Southern_Area_H1_Offshore_wind_farm) |
+| Shanghai Donghai Bridge Offshore wind farm · 1 · 102 MW · 2009 | GEM | 重複（併入「Donghai Bridge」） | 同一座風場：GEM 的中文名就是「東海大橋海上風電項目一期 102.2MW」（34 部 3 MW，2010 年 8 月全數併網）；GEM 座標偏北約 110 km | [連結](https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html) |
+| CTG Yangjiang Qingzhou 6 · 500 MW · 2024 | 精選 | 修正：容量、座標 | 青洲六為 1,000 MW、74 部，2024 年 12 月全容量併網（原本寫 500 MW）；座標改用 GEM 的精確位置 | [連結](https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm) |
+| Guangdong Yangjiang Qingzhou Vi Offshore wind farm · 1,000 MW | GEM | 重複（併入「CTG Yangjiang Qingzhou 6」） | 同一座風場（三峽陽江青洲六，1,000 MW）；GEM 2026-02 版仍列興建中，業主文件顯示 2024 年 12 月已全容量併網 | [連結](https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm) |
+| Longyuan Jiangsu Xiangshui · 202 MW · 2016 | 精選 | 修正：名稱、中文名、業主 | 響水近海風電（202 MW，55 部：37 部 4 MW＋18 部 3 MW，2016 年 10 月全數併網）屬三峽，不是龍源 | [連結](https://tgdc.ctg.com.cn/tgdc/858404/858411/2024080904155459773/index.html) |
+| Fuqing Xinghua Bay Phase 2 · 300 MW · 2020 | 精選 | 修正：容量、年份 | 二期為 280 MW、45 部（含三部 8 MW 以上示範機），2021 年 3 月全容量併網（原本寫 300 MW、2020 年） | [連結](https://eps.ctg.com.cn/cms/channel/1ywgg1/240613529.htm) |
 
 ## 丹麥 (DNK)
 
@@ -371,6 +376,7 @@
 | Windplanblauw offshore wind farm · 132 MW · 2024 | GEM | 修正：座標 | 座標改到艾瑟爾湖中兩排共 24 部風機的位置（原座標在北海，偏西約 82 km）；132 MW 是湖中部分，另有 37 部在陸上 | [連結](https://www.openstreetmap.org/relation/12695731) |
 | Borssele V (Two Towers innovation site) · 19 MW · 2021 | 精選 | 修正：座標 | 座標改到兩部風機的位置（原座標偏東北約 3 km） | [連結](https://www.openstreetmap.org/node/7680250702) |
 | Borssele Site V wind farm · 19 MW · 2021 | GEM | 重複（併入「Borssele V (Two Towers innovation site)」） | 同一座風場（兩部 V164-9.5 MW，2022 年由 Octopus Energy 買下）；GEM 座標偏北約 85 km | [連結](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
+| Hollandse Kust Zuid wind farm · 4 · 380 MW · 2026 | GEM | 重複（併入「Hollandse Kust Zuid III & IV」） | Hollandse Kust Zuid 第 4 區 2023 年已營運（GEM 2026-02 版），就是本站的 Hollandse Kust Zuid III & IV；GEM 2025-02 版仍列為規劃中 | [連結](https://www.gem.wiki/Hollandse_Kust_Zuid_wind_farm) |
 
 ## 菲律賓 (PHL)
 

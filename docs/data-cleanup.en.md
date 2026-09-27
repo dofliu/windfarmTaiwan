@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 201 rules: 96 records removed (25,623.8 MW of them operating), 105 records fixed.
+- 207 rules: 99 records removed (25,725.8 MW of them operating), 108 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 7 | 10,856 | 4 |
+| China | 9 | 10,958 | 7 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -28,7 +28,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Japan | 2 | 30 | 10 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 1 | 310 | 3 |
-| Netherlands | 8 | 1,852 | 6 |
+| Netherlands | 9 | 1,852 | 6 |
 | Norway | 7 | 1,939 | 9 |
 | Philippines | 2 | 240 | 2 |
 | Portugal | 3 | 28.9 | 2 |
@@ -91,6 +91,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Zhejiang Energy Taizhou Yuhuan 1 · 300 MW · 2021 | curated | fixed: name, Chinese name, capacity, year, phases, owner | The offshore farm north-west of Pishan Island off Yuhuan is Huadian Yuhuan 1: north zone 154 MW (December 2021), south zone 75 MW (June 2024); Zhejiang Energy’s Taizhou 1 (300 MW, off Linhai) is a different farm that GEM already lists | [link](https://www.cpnn.com.cn/news/xny/202406/t20240604_1706589.html) |
 | Huadian Yuhuan 2 · 500 MW · 2024 | curated | fixed: name, Chinese name, capacity, owner | Developed by Huaneng (with Jinko), not Huadian; 504 MW | [link](https://m.bjx.com.cn/mnews/20240129/1358593.shtml) |
 | Jiangsu Sheyang South H1 (Longyuan) · 400 MW · 2024 | curated | duplicate of “Jiangsu Sheyang Southern Area H5 Offshore wind farm” | Sheyang South H1 belongs to Huaneng (listed separately); Longyuan’s 400 MW site is H5, which is this GEM record | [link](https://www.gem.wiki/Jiangsu_Sheyang_Southern_Area_H1_Offshore_wind_farm) |
+| Shanghai Donghai Bridge Offshore wind farm · 1 · 102 MW · 2009 | GEM | duplicate of “Donghai Bridge” | Same farm: GEM’s Chinese name is “Donghai Bridge offshore wind project phase 1, 102.2 MW” (34 × 3 MW, all connected by August 2010); the GEM point is about 110 km too far north | [link](https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html) |
+| CTG Yangjiang Qingzhou 6 · 500 MW · 2024 | curated | fixed: capacity, location | Qingzhou 6 is 1,000 MW with 74 turbines, fully connected in December 2024 (it was listed as 500 MW); the point is moved to GEM’s exact location | [link](https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm) |
+| Guangdong Yangjiang Qingzhou Vi Offshore wind farm · 1,000 MW | GEM | duplicate of “CTG Yangjiang Qingzhou 6” | Same farm (CTG Yangjiang Qingzhou 6, 1,000 MW); GEM’s February 2026 release still lists it as under construction, while the owner’s documents show it fully connected in December 2024 | [link](https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm) |
+| Longyuan Jiangsu Xiangshui · 202 MW · 2016 | curated | fixed: name, Chinese name, owner | The Xiangshui nearshore farm (202 MW, 55 turbines: 37 × 4 MW + 18 × 3 MW, all connected in October 2016) belongs to China Three Gorges, not Longyuan | [link](https://tgdc.ctg.com.cn/tgdc/858404/858411/2024080904155459773/index.html) |
+| Fuqing Xinghua Bay Phase 2 · 300 MW · 2020 | curated | fixed: capacity, year | Phase 2 is 280 MW with 45 turbines (including three demonstration units of 8 MW or more), fully connected in March 2021 (it was listed as 300 MW in 2020) | [link](https://eps.ctg.com.cn/cms/channel/1ywgg1/240613529.htm) |
 
 ## Colombia (COL)
 
@@ -213,6 +218,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Windplanblauw offshore wind farm · 132 MW · 2024 | GEM | fixed: location | Point moved to the two rows of 24 turbines in the IJsselmeer (the old one was in the North Sea, about 82 km to the west); the 132 MW is the part in the lake, and 37 more turbines stand on land | [link](https://www.openstreetmap.org/relation/12695731) |
 | Borssele V (Two Towers innovation site) · 19 MW · 2021 | curated | fixed: location | Point moved to the two turbines (the old one was about 3 km to the north-east) | [link](https://www.openstreetmap.org/node/7680250702) |
 | Borssele Site V wind farm · 19 MW · 2021 | GEM | duplicate of “Borssele V (Two Towers innovation site)” | Same farm (two V164-9.5 MW, bought by Octopus Energy in 2022); the GEM point is about 85 km to the north | [link](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
+| Hollandse Kust Zuid wind farm · 4 · 380 MW · 2026 | GEM | duplicate of “Hollandse Kust Zuid III & IV” | Hollandse Kust Zuid site 4 has been operating since 2023 (GEM, February 2026 release) and is part of Hollandse Kust Zuid III & IV here; GEM’s February 2025 release still listed it as a planned project | [link](https://www.gem.wiki/Hollandse_Kust_Zuid_wind_farm) |
 
 ## Norway (NOR)
 
