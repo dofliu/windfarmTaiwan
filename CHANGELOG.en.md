@@ -25,8 +25,11 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   left the tour bar in place, and “next” carried on with the tour; the tour now ends first, as it does when you click the globe,
   change the region or search.
 - Taiwan live page: the timelines of all 30 farms (72 entries) now have English, shown when the site is in English; dates and
-  figures match the Chinese (e.g. 628.88 億元 is written as NT$62.888 billion). The farm notes and spec fields are still in
-  Chinese only.
+  figures match the Chinese (e.g. 628.88 億元 is written as NT$62.888 billion).
+- Taiwan live page: farm notes, developer, site, turbine model, water depth, distance from shore, annual output and homes
+  supplied, plus the group names and filter options for developers, now show in English in the English interface
+  (82 values; annual output in GWh and homes as a count, e.g. 約 11 億度 → about 1,100 GWh). Filtering and grouping still
+  match the original Chinese values. In English, farm titles still show Taipower's unit names (Chinese).
 
 ## v2.10.0 — 2026-09-27
 
