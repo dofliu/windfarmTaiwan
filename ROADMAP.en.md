@@ -128,10 +128,17 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      in 2026, are listed as under construction with a note; duplicates and farms never built were removed). Four floating
      units in China are not yet in the data (see TODO).
   4. Taiwan, Japan, Korea and the USA: developers' websites and EIA documents.
-     **Research done (2026-09-27), not yet in the table**: 42 records give the type of 36 farms (Taiwan 11, Japan 11, Korea 6, USA 8), with
-     sources and quote checks in `tools/research/foundations_step4.json`; the research also found farm records to correct (duplicates,
-     status, years, locations). The plan and the list are under “In progress” at the top of [TODO.en.md](./TODO.en.md).
-  5. China and Vietnam: ask the owner once the first four steps are done.
+     **Done (Sep 2026, v2.10.0)**: 36 farms (Taiwan 11, Japan 11, Korea 6, USA 8), taking operating offshore farms with a known type
+     from 144 (38.2% of capacity) to 167 (42.3%); every operating farm in Taiwan and the USA has a type, as do 9 of the 10 in Japan
+     and 6 of the 7 in Korea. Every farm cites a developer, construction contractor, government document or trade press, with each
+     quoted passage checked against the page (Japanese and Korean pages in their own encodings, PDFs page by page) and 4C Offshore
+     never cited; farms inside Japanese ports follow NEDO's classification of support structures (a “dolphin” is a high-rise pile cap).
+     Greater Changhua 2b & 4 (66 suction-bucket jackets) and the single suction-bucket jacket at the Southwest demonstration are given
+     as a sub-type or in the note. Two farms whose type could not be found (Eurus Akita Port in Japan and the 15 intertidal turbines of
+     Yeonggwang Wind in Korea) are listed as “checked but left out”, with the reason on their cards. The research also produced 24 rules
+     correcting farm records (3 duplicates merged, status and years, capacity, turbines, locations); see
+     [docs/data-cleanup.en.md](./docs/data-cleanup.en.md).
+  5. China and Vietnam: ask the owner once the first four steps are done (**waiting on the owner, 2026-09-27**).
 
 **3. Status of work vessels (installation vessels, "mother ships")** · **verdict: not doing it (owner's decision, 2026-09-27)**
 

@@ -77,7 +77,11 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     Mediterranean, the IJsselmeer and farms finished after OSPAR 2024, each with a construction or other source), so every
     operating offshore farm in Europe except one test site has a known type; step 3 gives floating farms worldwide their
     sub-type (Sep 2026: spar, semi-submersible, barge, tension-leg platform), and country profiles count floating farms by
-    sub-type. Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
+    sub-type; step 4 covers Taiwan, Japan, Korea and the USA (Sep 2026, 36 farms: every operating farm in Taiwan and the USA,
+    9 of the 10 in Japan and 6 of the 7 in Korea), each citing a developer, construction contractor, government document or
+    trade press, with farms inside Japanese ports following NEDO's classification of support structures. Fixed-bottom farms
+    elsewhere, such as in China and Vietnam, still read “type unknown”.
+    Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
   - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
     nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
@@ -301,6 +305,12 @@ python tools/build_standalone.py
   timeline ends in 2025); TetraSpar was decommissioned in 2026; Kincardine is 47.5 MW; GEM's BiMEP test-site capacity, the
   never-built Dounreay Trì, Korea's stopped Bandibuli and 4 duplicates were removed; projects in the 2026 pipeline
   compilation that have since stopped are left out (`PIPE_DROP`)
+- While checking foundations in Taiwan, Japan, Korea and the USA (step 4, Sep 2026), 24 more rules corrected the data:
+  the duplicate records of Sunrise Wind, Kamisu and Jeonnam Offshore Wind 1 were merged into one each; Vineyard Wind 1 and
+  Yeonggwang Nakwol were not fully operating at the end of 2025 (listed as under construction, with a note); the CVOW
+  commercial project now finishes at the end of 2027; Revolution Wind is 704 MW and Empire Wind 810 MW; Setana is out of
+  service and the Kitakyushu demonstrator was removed in 2019; and Kamisu phases 1 and 2 and Eurus Akita Port were moved to
+  where they are
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total

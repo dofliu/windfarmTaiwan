@@ -9,10 +9,10 @@
 1. **北海與東北大西洋（OSPAR 涵蓋範圍）**：已完成（2026-09）。
 2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：已完成（2026-09）。
 3. **浮動式風場的細分型式**（全球）：已完成（2026-09）。
-4. **台灣、日本、韓國、美國**：進行中。
+4. **台灣、日本、韓國、美國**：已完成（2026-09）。
 5. 中國、越南：前四步完成後再決定。
 
-本頁是前三步的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
+本頁是前四步的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
 
 ## 來源與方法
 
@@ -20,12 +20,13 @@
 - OSPAR 不一定是建成後的樣子：德國的紀錄有 10 筆只寫「單樁／三腳／三樁／套管／重力式／其他」任一種，Merkur、Veja Mate、Trianel Borkum II、alpha ventus 與建成紀錄不符；英國 Hornsea One 西區也不符。所以德國每一座都以德文維基百科（附建造紀錄）為準，其他不符的逐筆附第二來源與說明。
 - **第 2 步**：OSPAR 不涵蓋波羅的海與地中海，2024 年以後才完工的風場也只有核准階段的設計（設計可能改變）。這些風場逐座查開發商、施工廠商、產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。
 - **第 3 步**：全球的浮動式風場補上細分型式：單柱式（spar）、半潛式、駁船式（含阻尼池式）、張力腳平台，逐座查技術供應商、開發商或產業新聞，引用的原文逐筆核對過；同一筆紀錄含不同型式的機組時，在說明欄逐部寫出。
+- **第 4 步**：台灣、日本、韓國、美國的離岸風場都沒有 OSPAR 紀錄，逐座查開發商、施工廠商、政府文件或產業新聞，引用的原文逐筆核對過（日文、韓文網頁依網頁編碼比對，PDF 逐頁比對），不引用 4C Offshore；日本港灣內的風場以 NEDO 的支持構造分類為準（NEDO 明寫「ドルフィン」就是 High-Rise Pile Cap 高樁承台）。查不到型式的列在下方「查過但暫不列入」。
 - 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。
 - 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）；風場卡片與本頁寫出確切型式。
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 144／368 座，占容量 38.2%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
+合計：已知型式 167／364 座，占容量 42.3%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -33,15 +34,15 @@
 | 英國 | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | 德國 | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | 荷蘭 | 13 | 13 | 100% | 12 |  |  | 1 |
-| 台灣 | 8 | 0 | 0% |  |  |  |  |
+| 台灣 | 8 | 8 | 100% | 3 | 5 |  |  |
 | 丹麥 | 17 | 16 | 99% | 8 |  |  | 8 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | 越南 | 28 | 0 | 0% |  |  |  |  |
 | 法國 | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
-| 美國 | 4 | 0 | 0% |  |  |  |  |
-| 南韓 | 8 | 1 | <1% |  |  | 1 |  |
-| 日本 | 12 | 2 | 1% |  |  | 2 |  |
+| 南韓 | 7 | 6 | 89% | 1 | 4 | 1 |  |
+| 日本 | 10 | 9 | 98% | 5 | 1 | 2 | 1 |
 | 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
+| 美國 | 3 | 3 | 100% | 2 | 1 |  |  |
 | 挪威 | 3 | 3 | 100% |  |  | 3 |  |
 | 芬蘭 | 1 | 1 | 100% |  |  |  | 1 |
 | 義大利 | 1 | 1 | 100% | 1 |  |  |  |
@@ -82,6 +83,33 @@
 | Tunø Knob | 5.0 | 1995 | 重力式 | [osti.gov](https://www.osti.gov/etdeweb/biblio/630721) | 箱型沉箱重力式基礎 |
 | Vesterhav Nord | 176 | 2024 | 單樁 | [OSPAR DK27](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Vesterhav Syd | 168 | 2024 | 單樁 | [OSPAR DK26](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
+
+### 南韓
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| 濟州翰林海上風電（Jeju Hanlim） | 100 | 2024 | 套管式 | [kgs-m.org](https://www.kgs-m.org/magazine/kgsm/sm-35/pt-post/nd-582) | 18 座套管，採後打樁：先整平玄武岩放置套管，再以反循環（RCD）鑽孔打樁灌漿 |
+| 濟州月汀試驗（Jeju Woljeong test (Doosan)） | 5.0 | 2012 | 套管式 | [cloudcdn.taiwantradeshows.com.tw](https://cloudcdn.taiwantradeshows.com.tw/2019/energytaiwan/download/Wind-Energy-Forum-KR.pdf) | 2 部試驗機各立在鋼製套管上：能源技術研究院說明 2 MW 那座是以短基樁固定的傾斜兩段式套管；斗山 3 MW 那座只有 2019 年的產業簡報寫明型式 |
+| 全南海上風電 1 號（Jeonnam Offshore Wind 1） | 96.0 | 2025 | 單樁 | [epj.co.kr](https://www.epj.co.kr/news/articleView.html?idxno=37579) | 10 座單樁，韓國第一座以單樁為基礎的離岸風場 |
+| 西南海海上風電示範（Southwest Offshore Demonstration (Seonam)） | 60.0 | 2020 | 套管式 | [e2news.com](http://www.e2news.com/news/articleView.html?idxno=101605) | 20 座套管：19 座打樁式（含 2 號機浦項的研發用套管），7 號機是韓電電力研究院的吸力桶套管 |
+| 耽羅海上風電（Tamra (Jeju Hangyeong)） | 30.0 | 2017 | 套管式 | [tamra-owp.co.kr](http://tamra-owp.co.kr/2019/sub0206.php) | 10 座套管，基樁以反循環（RCD）鑽入玄武岩海床後灌漿固定 |
+| 靈光落月海上風電（Yeonggwang Nakwol） | 365 | 2026 | 單樁 | [electimes.com](https://www.electimes.com/news/articleView.html?idxno=368993) | 64 座單樁（GS Entec 製，長 60.2–71.2 m、底部直徑 7.5 m）；韓國第一座改用單樁的大型離岸風場 |
+
+### 台灣
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| 彰芳暨西島離岸風場（Changfang & Xidao） | 589 | 2024 | 套管式 | [offshorewind.biz](https://www.offshorewind.biz/2023/07/17/all-foundations-stand-at-changfang-xidao-wind-farms-offshore-taiwan/) | 62 座三腳套管（世紀風電製造），共 186 支基樁 |
+| 海洋風電一期 (示範)（Formosa 1 Phase 1） | 8.0 | 2017 | 單樁 | [siemensgamesa.com](https://www.siemensgamesa.com/global/en/home/press-releases/siemens-gamesa-awarded-120-mw-expansion-of-taiwans-pioneering-formosa-1-offshore-wind-power-plant.html) | 2 座單樁，2016 年與兩部示範機組一起安裝 |
+| 海洋風電二期（Formosa 1 Phase 2） | 120 | 2019 | 單樁 | [jandenul.com](https://www.jandenul.com/news/all-foundations-formosa-1-phase-2-installed) | 20 座單樁，配灌漿接合的轉接段 |
+| 海能風電 (海洋二期)（Formosa 2） | 376 | 2023 | 套管式 | [jandenul.com](https://www.jandenul.com/news/jan-de-nul-completes-foundation-and-cable-installation-formosa-2-offshore-wind-farm) | 47 座套管，共 188 支基樁（2022 年裝完） |
+| 大彰化東南及西南離岸風場（Greater Changhua 1 & 2a） | 900 | 2024 | 套管式 | [cdn.orsted.com](https://cdn.orsted.com/-/media/www/docs/corp/tw/en-chw-1-and-2a-case-study.pdf) | 111 座套管，每座 3 支基樁（共 333 支）；其中 6 座全部在台灣製造 |
+| 大彰化西南第二階段及西北（Greater Changhua 2b & 4） | 920 | 2026 | 套管式（吸力桶） | [heerema.com](https://heerema.com/news/heerema-sets-down-last-suction-bucket-jacket-at-%C3%B8rsteds-greater-changhua-2a-4) | 66 座全數為吸力桶套管（不打樁）：大彰化西南第二階段 24 座、西北 42 座，是亞太第一座全用吸力桶的風場 |
+| 海龍離岸風場（Hai Long 2 & 3） | 1,044 | 2026 | 套管式 | [cdwe.com.tw](https://www.cdwe.com.tw/news_detail.php?id=151) | 73 座套管，每座 3 支預打基樁（共 219 支），2025 年 8 月裝完 |
+| 台電離岸風電一期（Taipower Offshore Phase 1 (Changhua)） | 109 | 2021 | 套管式 | [jandenul.com](https://www.jandenul.com/our-projects/offshore-windfarm-changhua-taiwan) | 21 座四腳套管配轉接段，各以 4 支預打的基樁灌漿固定（共 84 支） |
+| 台電離岸風電二期（Taipower Offshore Phase 2） | 294 | 2026 | 套管式 | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 座四腳套管配轉接段，以 124 支預打基樁灌漿固定 |
+| 允能雲林離岸風場（Yunlin） | 640 | 2025 | 單樁 | [yunlin-offshore.com](https://www.yunlin-offshore.com/en/technology) | 80 座直徑 8 m 的單樁配轉接段（另有 3 座 2021–2023 年發生溜樁的單樁已移除，不計在內） |
+| 中能離岸風場（Zhong Neng） | 298 | 2025 | 套管式 | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/) | 31 座套管（世鎧精密製造），共 93 支國產基樁 |
 
 ### 德國
 
@@ -142,10 +170,21 @@
 
 | 風場 | MW | 年份 | 型式 | 來源 | 說明 |
 |---|---:|---:|---|---|---|
+| 秋田港洋上風力（Akita Port） | 54.6 | 2023 | 單樁 | [kajima.co.jp](https://www.kajima.co.jp/news/press/202003/26c1-j.htm) | 13 座單樁配轉接段（鹿島與住友電工統包） |
+| 銚子沖洋上風力実証（Choshi Offshore Demonstration (NEDO/TEPCO)） | 2.4 | 2019 | 重力式 | [kajima.co.jp](https://www.kajima.co.jp/news/press/201302/27c1-j.htm) | 預力混凝土沉箱重力式基礎（2,400 噸），半潛拖運到場後灌入銅爐碴壓艙，合計約 5,400 噸 |
 | 福島浮体式洋上風力実証（Fukushima FORWARD floating demo） | 14.0 | 2013 | 浮動式 | [fukushima-forward.jp](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) | 兩部半潛式（2 MW、7 MW V 型）與一部單柱式（5 MW），型式不同，所以不標單一細分型式 |
 | 五島洋上風場（Goto City Offshore floating project） | 16.8 | 2026 | 浮動式（單柱式） | [toda.co.jp](https://www.toda.co.jp/news/2026/20260105_006181.html) | 8 座混合式單柱浮台（上段鋼、下段混凝土） |
 | 五島崎山浮体式洋上風力（Goto Sakiyama floating demonstration） | 2.0 | 2016 | 浮動式（單柱式） | [toda.co.jp](https://www.toda.co.jp/business/ecology/haenkaze/about/facility.html) | 戶田建設的混合式單柱浮台「はえんかぜ」 |
 | 北九州響灘浮体式実証（Hibiki floating demo (NEDO)） | 3.0 | 2019 | 浮動式（駁船式） | [nedo.go.jp](https://www.nedo.go.jp/news/press/AA5_101117.html) | 鋼製駁船式浮台，搭載兩葉片 3 MW 風機 |
+| 石狩湾新港洋上風力（Ishikari Bay New Port） | 99.9 | 2024 | 套管式 | [eng.nipponsteel.com](https://www.eng.nipponsteel.com/news/detail/20220909/) | 14 座四腳套管，固定在預打的鋼管樁上（海床軟弱，是日本第一座套管式離岸風場） |
+| 神栖洋上風力一期（Kamisu Phase 1 (Wind Power Ibaraki)） | 14.0 | 2010 | 單樁 | [jcmanet.or.jp](https://jcmanet.or.jp/bunken/kikanshi/2011/12/014.pdf) | 7 座直徑 3.5 m、長 24.5 m 的單樁，配灌漿接合的套管接頭，自岸上以履帶式吊車打設 |
+| 神栖洋上風力二期（Kamisu Phase 2） | 16.0 | 2013 | 單樁 | [jepoc.or.jp](https://www.jepoc.or.jp/magazine/magazine.php?_w=magazine&_x=kikan_detail&kikan_m_id=17&kikan_n_id=444) | 8 座單樁；因鄰近 275 kV 輸電線，改以自升式平台船打樁 |
+| 北九州響灘洋上風力（Kitakyushu Hibikinada） | 220 | 2026 | 套管式 | [hibikiwindenergy.co.jp](https://hibikiwindenergy.co.jp/news/2026/0601.html) | 25 座套管，分 4 樁與 8 樁兩型、共 144 支樁，依海床分別用全套管、RS-plus 與打擊三種工法（水深 8–30 m） |
+| 北九州沖洋上風力実証（Kitakyushu Offshore Demonstration (NEDO/J-Power)） | 2.0 | 2013 | 重力式 | [nedo.go.jp](https://www.nedo.go.jp/content/100890005.pdf) | J-POWER 的「ハイブリッド重力式」：拋石基床上放預鑄混凝土底版，上面架內填混凝土的鋼製套管；2019 年 9 月撤除風機與上部結構，底版留作研究設施 |
+| 能代港洋上風力（Noshiro Port） | 84.0 | 2022 | 單樁 | [kajima.co.jp](https://www.kajima.co.jp/news/press/202003/26c1-j.htm) | 20 座單樁配轉接段（鹿島與住友電工統包） |
+| 入善洋上風力発電所（Nyuzen Offshore Wind Farm） | 7.5 | 2023 | 單樁 | [shimz.co.jp](https://www.shimz.co.jp/works/jp_ene_202308_nyuzen.html) | 3 座直徑 5.5 m、長 48.1–51.6 m 的單樁，不加轉接段（日本首例），清水建設設計施工 |
+| 酒田港セミ洋上風力（Sakata Port semi-offshore） | 10.0 | 2004 | 高樁承台 | [nedo.go.jp](https://www.nedo.go.jp/content/100890000.pdf) | NEDO 稱「ドルフィン」，即高樁承台：8 支直樁（長 27 m、直徑 1 m）上加直徑 12 m、厚 2.5 m 的八角形混凝土承台；2023 年撤除 |
+| 瀬棚港セミ洋上風力（Setana semi-offshore） | 1.2 | 2004 | 高樁承台 | [nedo.go.jp](https://www.nedo.go.jp/content/100889997.pdf) | NEDO 稱「ドルフィン」，即高樁承台：4 支直樁（長 27 m、直徑 1.1 m）上加寬約 10 m、厚 2 m 的混凝土承台 |
 
 ### 比利時
 
@@ -187,6 +226,19 @@
 | Lillgrund | 110 | 2007 | 重力式 | [osti.gov](https://www.osti.gov/etdeweb/servlets/purl/979747) | 鋼筋混凝土重力式基礎，內填壓艙物 |
 | Utgrunden I | 10.5 | 2000 | 單樁 | [offshorewind.biz](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) | 7 座單樁（2018 年拆除） |
 | Vindpark Vänern (Gässlingegrund) | 30.0 | 2010 | 岩錨式 | [evwind.aeeolica.org](https://evwind.aeeolica.org/2010/05/24/the-first-vanern-offshore-wind-farm-inaugurated/5723) | 錨定在湖底岩盤上的基礎（維納恩湖） |
+
+### 美國
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| Block Island | 30.0 | 2016 | 套管式 | [windpowerengineering.com](https://www.windpowerengineering.com/historic-milestone-for-u-s-offshore-wind-block-island-wind-farm-installs-steel-in-the-water/) | 5 座四腳套管（各約 400 噸），以穿過套管腳打入的基樁固定；美國第一座離岸風場 |
+| Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,587 | 2027 | 單樁 | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 座單樁（最大直徑 9.5 m、1,538 噸），2024–2025 年安裝（3 座海上變電站另以基樁固定） |
+| Coastal Virginia Offshore Wind (CVOW) Pilot | 12.0 | 2020 | 單樁 | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 2 座單樁（877 噸、直徑 7.8 m）配轉接段 |
+| Empire wind farm | 810 | 2027 | 單樁 | [empirewind.com](https://www.empirewind.com/offshore-installation/) | 54 座單樁（Sif 製）配轉接段，2025 年夏秋安裝（海上變電站立在套管上） |
+| Revolution Wind | 704 | 2026 | 單樁 | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us) | 65 座加大型（XXL）風機單樁，2024 年 5 月至 2025 年第 2 季安裝（2 座海上變電站另有更大的單樁） |
+| South Fork Wind | 132 | 2024 | 單樁 | [offshorewind.biz](https://www.offshorewind.biz/2023/08/10/all-monopiles-up-for-new-yorks-first-offshore-wind-farm/) | 12 座風機單樁，2023 年 6–8 月安裝（海上變電站另立在第 13 座單樁上） |
+| Sunrise Wind | 924 | 2027 | 單樁 | [orsted.com](https://orsted.com/en/media/news/2026/01/sunrise-wind-llc-to-file-preliminary-injunction-ag-1474210611) | 84 座風機單樁（2025 年年中開始安裝，2026 年 8 月已裝好 77 座）；海上變流站另為一座構造 |
+| Vineyard Wind 1 | 806 | 2026 | 單樁 | [deme-group.com](https://www.deme-group.com/news/offshore-works-kick-vineyard-wind-farm-us-installation-first-foundation) | 62 座風機單樁配轉接段，2023 年 6 月起安裝（海上變電站另有單樁） |
 
 ### 義大利
 
@@ -290,3 +342,5 @@
 |---|---|---|
 | 南韓 · Ulsan Dongbu floating demo (Vindmøllen 750 kW) | — | 計畫中的 750 kW 半潛式試驗機；2019 年 11 月仍因許可未發而沒有安裝，查不到之後在海上發電的紀錄，待查證 |
 | 丹麥 · Frederikshavn | DK03 | 試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列 |
+| 日本 · Eurus Akita Port semi-offshore | — | JWPA 另計為「セミ洋上」的 1 部 3 MW：ユーラス秋田港ウインドファーム（6 部 3 MW，2015 年 2 月運轉）中立在水中的那一部；查不到業主、施工廠商、NEDO、國土交通省或 JWPA 的文件寫出它的基礎型式 |
+| 南韓 · Yeonggwang Wind offshore wind farm | — | 靈光風電陸海混合風場（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW，退潮時周圍是灘地；查不到開發商、施工廠商或政府文件寫出這 15 部的基礎型式 |

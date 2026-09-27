@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 177 rules: 94 records removed (25,593.8 MW of them operating), 83 records fixed.
+- 201 rules: 96 records removed (25,623.8 MW of them operating), 105 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -25,7 +25,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Germany | 0 | 0 | 3 |
 | Iran | 2 | 62 | 2 |
 | Ireland | 0 | 0 | 1 |
-| Japan | 1 | 0 | 2 |
+| Japan | 2 | 30 | 10 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 1 | 310 | 3 |
 | Netherlands | 8 | 1,852 | 6 |
@@ -35,13 +35,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Romania | 16 | 2,439 | 10 |
 | Senegal | 0 | 0 | 2 |
 | South Africa | 2 | 159 | 2 |
-| South Korea | 2 | 61.5 | 0 |
+| South Korea | 3 | 61.5 | 7 |
 | Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
+| Taiwan | 0 | 0 | 2 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 1 | 135 | 1 |
 | United Kingdom | 6 | 2,628 | 5 |
-| United States of America | 6 | 666.8 | 1 |
+| United States of America | 6 | 666.8 | 6 |
 | Uruguay | 1 | 141.6 | 1 |
 | Vietnam | 11 | 1,454 | 4 |
 | Åland | 0 | 0 | 1 |
@@ -169,6 +170,15 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Fukushima FORWARD floating demo · 14 MW · 2013 | curated | fixed: phases | Three floating units started in November 2013 (2 MW, semi-submersible), December 2015 (7 MW, V-shaped semi-submersible) and February 2017 (5 MW, spar); the 7 MW unit was stopped in 2018 and removed in 2020, and removal of the other two began in February 2021 | [link](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) |
 | Goto City Offshore floating project · 16.8 MW · 2026 | curated | fixed: Chinese name | Commercial operation began on 5 January 2026 (eight 2.1 MW units, Goto Offshore Wind Farm); the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://www.toda.co.jp/news/2026/20260105_006181.html) |
 | Kyushu floating wind farm · 1,000 MW | GEM | duplicate of “Kyushu - GIP floating wind farm” | The same planned project (Skyborn, 1 GW, off the Goto Islands); GEM lists it twice | [link](https://www.gem.wiki/Kyushu_floating_wind_farm) |
+| Kamis Offshore wind farm · 30 MW · 2010 | GEM | removed | GEM bundles Kamisu Phase 1 (14 MW, 2010) and Phase 2 (16 MW, 2013) into one record; both phases are listed separately here | [link](https://www.gem.wiki/Kamis_Offshore_wind_farm) |
+| Kamisu Phase 1 (Wind Power Ibaraki) · 14 MW · 2010 | curated | fixed: location | Phase 1 stands off Minamihama (city of Kamisu); the old point was about 1.5–2 km inland, so it is moved to the turbine positions in OpenStreetMap (approximate) | [link](https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html) |
+| Kamisu Phase 2 · 16 MW · 2013 | curated | fixed: location | Phase 2 stands off Kitahama, north of Phase 1 (the old point was inland and south of Phase 1, the wrong way round); it is moved to the turbine positions in OpenStreetMap (approximate) | [link](https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html) |
+| Setana semi-offshore · 1.2 MW · 2004 | curated | fixed: end year | Out of service after breakdowns and ageing (the exact date it stopped is not verified; the decision to remove it was already reported in July 2025); in April 2026 the town of Setana decided to remove it in the 2027 financial year | [link](https://www.hokkaido-np.co.jp/article/1305209/) |
+| Setana semi-offshore · 1.2 MW · 2004 | curated | fixed: location | Point moved to the turbines inside Setana port, behind the east outer breakwater (OpenStreetMap, approximate; the old one was about 1 km to the north-east) | [link](https://www.khi.co.jp/pressrelease/detail/c3040209-1.html) |
+| Kitakyushu Offshore Demonstration (NEDO/J-Power) · 2 MW · 2013 | curated | fixed: end year | The turbine and substructure were removed in September 2019 (work from a jack-up vessel began that October), not in 2023; the gravity base was kept as a J-Power research facility | [link](https://www.jpower.co.jp/oshirase/2019/10/oshirase191001.html) |
+| Kitakyushu Hibikinada · 220 MW · 2026 | curated | fixed: turbines | Commercial operation began on 2 March 2026 (25 × 9.6 MW turbines, output capped at 220 MW); the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://hibikiwindenergy.co.jp/news/2026/0301.html) |
+| Eurus Akita Port semi-offshore · 3 MW · 2015 | curated | fixed: location | This single turbine belongs to Eurus Akita Port Wind Farm on the Mukaihama shore of Akita City; the old point fell on the Akita Port offshore wind farm, so it is moved to an approximate point at Mukaihama | [link](https://www.fuji-gab-mesh.co.jp/zisseki/zissekidetail/tikutei24.html) |
+| Hokkaido Ishikari Bay Offshore wind farm · 1,000 MW | GEM | fixed: status | Not under construction: Marubeni’s Ishikari Bay project has only filed a planning-stage environmental consideration document (February 2021), and the sea area has not yet been designated a promotion zone | [link](https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html) |
 
 ## Jordan (JOR)
 
@@ -297,6 +307,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Yeongyang · 61.5 MW · 2015 | curated | duplicate of “Yeong Yang (Macquarie Group) wind farm” | Same farm (41 × 1.5 MW on Maengdongsan, built 2008–2009); the curated record had the wrong year (2015), point (county seat) and owner, so the GEM record is kept | [link](https://www.epj.co.kr/news/articleView.html?idxno=4315) |
 | Firefly (Bandibuli) floating offshore wind farm · 750 MW · 2028 | GEM | removed | Equinor stopped the project in May 2026 | [link](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
+| Jeonnam (SK E&C) wind farm · 1 · 99 MW · 2025 | GEM | duplicate of “Jeonnam Shinan 1 / others” | Same farm: Jeonnam Offshore Wind 1 (96 MW, SK Innovation E&S and CIP), about 9 km north-west of Jaeun-do in Sinan County | [link](https://cop.dk/jeonnam-1-offshore-wind-project-begins-commercial-operations/) |
+| Jeonnam Shinan 1 / others · 96 MW · 2025 | curated | fixed: name, Chinese name, turbines | Its name is Jeonnam Offshore Wind 1; the turbines are 10 Siemens Gamesa SG 10.0-193 DD derated to 9.6 MW, in full operation since 16 May 2025 | [link](https://www.offshorewind.biz/2025/05/21/largest-privately-led-offshore-wind-farm-in-south-korea-enters-commercial-operation/) |
+| Jeonnam Offshore Wind 1 · 96 MW · 2025 | curated | fixed: location | Point moved to the water about 9 km north-west of Jaeun-do (approximate; the old one was about 19 km to the south-east) | [link](https://cop.dk/jeonnam-1-offshore-wind-project-begins-commercial-operations/) |
+| Yeonggwang Nakwol · 364.8 MW · 2025 | curated | fixed: status, year, turbines | Partial commercial operation began in December 2025 (only 7 turbines were up at the end of the year); by August 2026 all 64 monopiles were in, 47 turbines stood and 33 were in commercial operation, with full operation planned for December 2026. The turbines are Vensys 5.7 MW (they were listed as Doosan) | [link](https://www.mt.co.kr/industry/2026/08/24/2026082407272061046) |
+| Jeju Woljeong test (Doosan) · 5 MW · 2012 | curated | fixed: turbines | The second unit is an STX Heavy Industries 2 MW turbine (KIER, 2011–12), not a 2015 Hyosung; it has been idle since June 2016, and the Netherlands Enterprise Agency wrote in 2021 that the test site was not operational (its present state is unverified) | [link](https://www.epj.co.kr/news/articleView.html?idxno=37661) |
+| Tamra (Jeju Hallim/Hangyeong) · 30 MW · 2017 | curated | fixed: name | Tamra stands off Hangyeong-myeon on Jeju (the waters between Dumo-ri and Geumdeung-ri), not off Hallim, where a separate farm lies | [link](http://tamra-owp.co.kr/2019/sub0201.php) |
+| Jwasari Offshore wind farm · 224 MW · 2025 | GEM | fixed: status, year, capacity | Still at the environmental-impact-assessment stage (a public hearing on the draft was held in March 2025); the plan is now 360 MW (24 × 15 MW) | [link](https://www.hansannews.com/news/articleView.html?idxno=95554) |
+| Yeonggwang Wind offshore wind farm · 35 MW · 2018 | GEM | fixed: capacity, turbines, location | The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); GEM’s point is the company’s registered address, so the location can only be treated as approximate | [link](https://m.etnews.com/20200221000242) |
 
 ## Spain (ESP)
 
@@ -312,6 +330,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Utgrunden I · 10.5 MW · 2000 | curated | fixed: end year | Dismantled by Vattenfall in 2018 | [link](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) |
 | Bockstigen · 2.8 MW · 1998 | curated | fixed: capacity, phases | In 2018 refurbished Vestas V47 (660 kW) nacelles and blades went onto the original towers and foundations, raising the capacity from 2.8 to 3.3 MW | [link](https://www.offshorewind.biz/2018/12/05/swedish-old-timer-gains-momentum/) |
 | Vindpark Vänern (Gässlingegrund) · 30 MW · 2010 | curated | fixed: location | Point moved to the 10 turbines on Gässlingegrund in Lake Vänern (the old one was about 27 km to the south) | [link](https://www.openstreetmap.org/relation/14399986) |
+
+## Taiwan (TWN)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Zhong Neng · 298 MW · 2024 | curated | fixed: year | All 31 turbines were installed in 2024, but the farm only reached commercial operation when it received its electricity licence in April 2025 | [link](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
+| Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | curated | fixed: turbines | The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136 | [link](https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html) |
 
 ## Thailand (THA)
 
@@ -354,6 +379,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Story County · 300 MW · 2008 | curated | fixed: location, phases | Two phases (150 MW each in 2008 and 2009); point moved to the actual site north of Colo | [link](https://en.wikipedia.org/wiki/Story_County_Wind_Farm) |
 | Prairie Winds SD1 · 162 MW · 2011 | WRI GPPD | duplicate of “Crow Lake wind farm” | PrairieWinds SD1 is the Basin Electric subsidiary that owns the Crow Lake farm (162 MW, 2011): same farm | [link](https://renewablesnow.com/news/basin-electrics-162-mw-crow-lake-wind-project-starts-operation-in-south-dakota-17914/) |
 | Windy Point wind farm (United States) · 136.3 MW · 2009 | GEM | duplicate of “Windy Point / Windy Flats” | Phase I of Windy Point (136.3 MW, 2009); the curated 400 MW record covers Phase I and Windy Flats | [link](https://en.wikipedia.org/wiki/Windy_Point/Windy_Flats) |
+| Sunrise wind farm (United States) · 924 MW · 2026 | GEM | fixed: name, location | The same farm as “Sunrise Wind” in the 2026 compilation (Ørsted, 924 MW, BOEM lease OCS-A 0487): the GEM point actually falls inside Revolution Wind’s lease area, so it is moved to the centre of OCS-A 0487 (approximate) and takes the project’s name, which merges the compilation record into it instead of leaving two | [link](https://www.boem.gov/renewable-energy/state-activities/sunrise-wind) |
+| Vineyard Wind 1 · 806 MW · 2025 | curated | fixed: status, year | The last turbine was only installed on 13 March 2026 (the developer’s January 2026 court filing says 44 of the 62 turbines were operating at the end of 2025, about 572 MW), so it is listed as under construction with 2026 as its year | [link](https://www.wbur.org/news/2026/03/14/vineyard-wind-construction-complete-massachusetts-offshore-wind) |
+| Coastal Virginia Offshore Wind (CVOW) Commercial Project · 2,587 MW · 2026 | GEM | fixed: turbines | Completion has moved to the end of 2027: 31 of the 176 turbines were installed by August 2026, and the first ones have been generating about 450 MW since March 2026 (the compilation’s expected year is corrected to 2027 as well, see PIPE_FIX) | [link](https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027) |
+| Revolution Wind · 715 MW · 2025 | GEM | fixed: capacity | The developers give 704 MW (400 MW for Rhode Island plus 304 MW for Connecticut); 65 × 11 MW of nameplate would be 715 MW | [link](https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind) |
+| Empire wind farm · 816 MW · 2026 | GEM | fixed: capacity | The developer gives 810 MW (54 Vestas V236-15 MW turbines) | [link](https://www.empirewind.com/project/) |
 
 ## Uruguay (URY)
 
@@ -393,6 +423,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Project | Reason | Source link |
 |---|---|---|
 | Firefly (Bandibuli) (KOR) | Equinor stopped the project in May 2026 | [link](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
+
+## Fields changed since the 2026 pipeline compilation
+
+| Project | Change | Reason | Source link |
+|---|---|---|---|
+| Coastal Virginia Offshore Wind (CVOW) (USA) | expected=2027 | Expected completion moved from 2026 to 2027: in August 2026 the developer said the final turbines would only be installed by the end of 2027 (31 of the 176 were in place then) | [link](https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027) |
 
 ## GEM projects kept apart
 

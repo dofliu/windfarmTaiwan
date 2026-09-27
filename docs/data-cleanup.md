@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 177 條：刪除 94 筆（其中營運中 25,593.8 MW），修正 83 筆。
+- 規則 201 條：刪除 96 筆（其中營運中 25,623.8 MW），修正 105 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -17,7 +17,8 @@
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
-| 南韓 | 2 | 61.5 | 0 |
+| 南韓 | 3 | 61.5 | 7 |
+| 台灣 | 0 | 0 | 2 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 1 | 135 | 1 |
 | 塞內加爾 | 0 | 0 | 2 |
@@ -27,7 +28,7 @@
 | 德國 | 0 | 0 | 3 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 9 |
-| 日本 | 1 | 0 | 2 |
+| 日本 | 2 | 30 | 10 |
 | 比利時 | 1 | 325 | 0 |
 | 法國 | 4 | 496 | 5 |
 | 泰國 | 1 | 600 | 1 |
@@ -36,7 +37,7 @@
 | 瑞典 | 0 | 0 | 3 |
 | 約旦 | 1 | 117 | 0 |
 | 羅馬尼亞 | 16 | 2,439 | 10 |
-| 美國 | 6 | 666.8 | 1 |
+| 美國 | 6 | 666.8 | 6 |
 | 肯亞 | 1 | 310 | 3 |
 | 芬蘭 | 2 | 129 | 0 |
 | 英國 | 6 | 2,628 | 5 |
@@ -99,6 +100,21 @@
 |---|---|---|---|---|
 | Yeongyang · 61.5 MW · 2015 | 精選 | 重複（併入「Yeong Yang (Macquarie Group) wind farm」） | 同一座風場（孟洞山 41 × 1.5 MW，2008–2009 年完工）；精選紀錄的年份（2015）、座標（郡中心）與業主都誤植，保留 GEM 這筆 | [連結](https://www.epj.co.kr/news/articleView.html?idxno=4315) |
 | Firefly (Bandibuli) floating offshore wind farm · 750 MW · 2028 | GEM | 刪除 | Equinor 於 2026 年 5 月停止開發 | [連結](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
+| Jeonnam (SK E&C) wind farm · 1 · 99 MW · 2025 | GEM | 重複（併入「Jeonnam Shinan 1 / others」） | 同一座風場：全南海上風電 1 號（96 MW，SK Innovation E&S 與 CIP），在新安郡自恩島西北約 9 km | [連結](https://cop.dk/jeonnam-1-offshore-wind-project-begins-commercial-operations/) |
+| Jeonnam Shinan 1 / others · 96 MW · 2025 | 精選 | 修正：名稱、中文名、機組 | 正式名稱為全南海上風電 1 號；機組是 10 部西門子歌美颯 SG 10.0-193 DD（降額為 9.6 MW），2025 年 5 月 16 日起全面運轉 | [連結](https://www.offshorewind.biz/2025/05/21/largest-privately-led-offshore-wind-farm-in-south-korea-enters-commercial-operation/) |
+| Jeonnam Offshore Wind 1 · 96 MW · 2025 | 精選 | 修正：座標 | 座標改到自恩島西北約 9 km 的海域（概略位置；原座標偏東南約 19 km） | [連結](https://cop.dk/jeonnam-1-offshore-wind-project-begins-commercial-operations/) |
+| Yeonggwang Nakwol · 364.8 MW · 2025 | 精選 | 修正：狀態、年份、機組 | 2025 年 12 月起部分商轉（年底只裝好 7 部風機）；2026 年 8 月 64 座單樁完成、47 部豎立、33 部商轉，預定 2026 年 12 月全面商轉。機組是 Vensys 5.7 MW（原本寫斗山） | [連結](https://www.mt.co.kr/industry/2026/08/24/2026082407272061046) |
+| Jeju Woljeong test (Doosan) · 5 MW · 2012 | 精選 | 修正：機組 | 第二部是 STX 重工 2 MW（能源技術研究院，2011–12 年），不是 2015 年的曉星；該部 2016 年 6 月起停機，荷蘭 RVO 2021 年說試驗場沒有運轉（現況待查證） | [連結](https://www.epj.co.kr/news/articleView.html?idxno=37661) |
+| Tamra (Jeju Hallim/Hangyeong) · 30 MW · 2017 | 精選 | 修正：名稱 | 耽羅海上風電在濟州翰京面（Hangyeong-myeon）海域，不在翰林（翰林另有一座風場） | [連結](http://tamra-owp.co.kr/2019/sub0201.php) |
+| Jwasari Offshore wind farm · 224 MW · 2025 | GEM | 修正：狀態、年份、容量 | 還在環評階段（2025 年 3 月舉行環評初稿公聽會），規劃已改為 360 MW（24 部 15 MW） | [連結](https://www.hansannews.com/news/articleView.html?idxno=95554) |
+| Yeonggwang Wind offshore wind farm · 35 MW · 2018 | GEM | 修正：容量、機組、座標 | 靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；GEM 的座標是公司登記地址，位置只能當概略值 | [連結](https://m.etnews.com/20200221000242) |
+
+## 台灣 (TWN)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Zhong Neng · 298 MW · 2024 | 精選 | 修正：年份 | 31 部風機 2024 年裝完，2025 年 4 月取得電業執照才全場商轉 | [連結](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
+| Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | 精選 | 修正：機組 | 機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136 | [連結](https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html) |
 
 ## 哥倫比亞 (COL)
 
@@ -188,6 +204,15 @@
 | Fukushima FORWARD floating demo · 14 MW · 2013 | 精選 | 修正：分期 | 三部浮動式機組：2013 年 11 月 2 MW（半潛式）、2015 年 12 月 7 MW（V 型半潛式）、2017 年 2 月 5 MW（單柱式）開始運轉；7 MW 於 2018 年決定停機、2020 年撤除，其餘兩部 2021 年 2 月起撤除 | [連結](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) |
 | Goto City Offshore floating project · 16.8 MW · 2026 | 精選 | 修正：中文名 | 2026 年 1 月 5 日開始商轉（8 部 2.1 MW，五島洋上風場）；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://www.toda.co.jp/news/2026/20260105_006181.html) |
 | Kyushu floating wind farm · 1,000 MW | GEM | 重複（併入「Kyushu - GIP floating wind farm」） | 同一個規劃案（Skyborn，1 GW，五島外海）；GEM 有兩筆 | [連結](https://www.gem.wiki/Kyushu_floating_wind_farm) |
+| Kamis Offshore wind farm · 30 MW · 2010 | GEM | 刪除 | GEM 把神栖一期（2010 年 14 MW）與二期（2013 年 16 MW）合成一筆，本站兩期各有紀錄 | [連結](https://www.gem.wiki/Kamis_Offshore_wind_farm) |
+| Kamisu Phase 1 (Wind Power Ibaraki) · 14 MW · 2010 | 精選 | 修正：座標 | 一期在南濱外海（神栖市資料）；原座標在內陸約 1.5–2 km，改用 OpenStreetMap 的風機位置（概略位置） | [連結](https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html) |
+| Kamisu Phase 2 · 16 MW · 2013 | 精選 | 修正：座標 | 二期在北濱外海、位於一期北邊（原座標在一期南邊的內陸，南北顛倒）；改用 OpenStreetMap 的風機位置（概略位置） | [連結](https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html) |
+| Setana semi-offshore · 1.2 MW · 2004 | 精選 | 修正：除役年 | 因故障與老化停機（確切停機時間待查證，2025 年 7 月已報導決定撤除）；瀨棚町 2026 年 4 月決定 2027 年度撤除 | [連結](https://www.hokkaido-np.co.jp/article/1305209/) |
+| Setana semi-offshore · 1.2 MW · 2004 | 精選 | 修正：座標 | 座標改到瀨棚港東外防波堤內側的風機位置（OpenStreetMap，概略位置；原座標偏東北約 1 km） | [連結](https://www.khi.co.jp/pressrelease/detail/c3040209-1.html) |
+| Kitakyushu Offshore Demonstration (NEDO/J-Power) · 2 MW · 2013 | 精選 | 修正：除役年 | 2019 年 9 月撤除風機與上部結構（10 月起以 SEP 船施工），不是 2023 年；重力式底版留作 J-POWER 的研究設施 | [連結](https://www.jpower.co.jp/oshirase/2019/10/oshirase191001.html) |
+| Kitakyushu Hibikinada · 220 MW · 2026 | 精選 | 修正：機組 | 2026 年 3 月 2 日開始商業運轉（25 部 9.6 MW，併網上限 220 MW）；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://hibikiwindenergy.co.jp/news/2026/0301.html) |
+| Eurus Akita Port semi-offshore · 3 MW · 2015 | 精選 | 修正：座標 | 這 1 部屬ユーラス秋田港ウインドファーム，在秋田市向濱；原座標落在秋田港洋上風場上，改為向濱的概略位置 | [連結](https://www.fuji-gab-mesh.co.jp/zisseki/zissekidetail/tikutei24.html) |
+| Hokkaido Ishikari Bay Offshore wind farm · 1,000 MW | GEM | 修正：狀態 | 不是興建中：丸紅的石狩灣專案只有 2021 年 2 月的計畫階段環境配慮書，海域尚未指定為促進區域 | [連結](https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html) |
 
 ## 比利時 (BEL)
 
@@ -290,6 +315,11 @@
 | Story County · 300 MW · 2008 | 精選 | 修正：座標、分期 | 補上兩期（2008、2009 年各 150 MW），座標改到 Colo 以北的實際場址 | [連結](https://en.wikipedia.org/wiki/Story_County_Wind_Farm) |
 | Prairie Winds SD1 · 162 MW · 2011 | WRI GPPD | 重複（併入「Crow Lake wind farm」） | PrairieWinds SD1 是 Basin Electric 持有 Crow Lake 風場（162 MW，2011）的子公司，同一座 | [連結](https://renewablesnow.com/news/basin-electrics-162-mw-crow-lake-wind-project-starts-operation-in-south-dakota-17914/) |
 | Windy Point wind farm (United States) · 136.3 MW · 2009 | GEM | 重複（併入「Windy Point / Windy Flats」） | Windy Point 第一期（136.3 MW，2009）；精選紀錄（400 MW）已含第一期與 Windy Flats | [連結](https://en.wikipedia.org/wiki/Windy_Point/Windy_Flats) |
+| Sunrise wind farm (United States) · 924 MW · 2026 | GEM | 修正：名稱、座標 | 與 2026 整理清單的「Sunrise Wind」是同一座（Ørsted，924 MW，BOEM 租約 OCS-A 0487）：GEM 的座標其實落在 Revolution Wind 的租約區內，改到 OCS-A 0487 的中心（概略位置）並改用專案名稱，清單那筆就會併進來、不再重複 | [連結](https://www.boem.gov/renewable-energy/state-activities/sunrise-wind) |
+| Vineyard Wind 1 · 806 MW · 2025 | 精選 | 修正：狀態、年份 | 最後一部風機 2026 年 3 月 13 日才裝好（開發商 2026 年 1 月的訴狀說 2025 年底 62 部中只有 44 部運轉、約 572 MW）；依本站慣例改列興建中、年份 2026 | [連結](https://www.wbur.org/news/2026/03/14/vineyard-wind-construction-complete-massachusetts-offshore-wind) |
+| Coastal Virginia Offshore Wind (CVOW) Commercial Project · 2,587 MW · 2026 | GEM | 修正：機組 | 完工時間延到 2027 年底：2026 年 8 月時 176 部風機裝好 31 部，2026 年 3 月起首批運轉約 450 MW（清單的預計完工年也一併改為 2027，見 PIPE_FIX） | [連結](https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027) |
+| Revolution Wind · 715 MW · 2025 | GEM | 修正：容量 | 開發商的容量是 704 MW（羅德島 400 MW＋康乃狄克 304 MW）；65 部 × 11 MW 的銘牌合計為 715 MW | [連結](https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind) |
+| Empire wind farm · 816 MW · 2026 | GEM | 修正：容量 | 開發商的容量是 810 MW（54 部 Vestas V236-15 MW） | [連結](https://www.empirewind.com/project/) |
 
 ## 肯亞 (KEN)
 
@@ -393,6 +423,12 @@
 | 專案 | 理由 | 出處 |
 |---|---|---|
 | Firefly (Bandibuli) (KOR) | Equinor 於 2026 年 5 月停止開發 | [連結](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
+
+## 規劃中專案清單（2026 整理）之後才變動的欄位
+
+| 專案 | 修正 | 理由 | 出處 |
+|---|---|---|---|
+| Coastal Virginia Offshore Wind (CVOW) (USA) | expected=2027 | 預計完工年由 2026 改為 2027：2026 年 8 月開發商表示最後一批風機要到 2027 年底才裝完（當時 176 部裝好 31 部） | [連結](https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027) |
 
 ## 不當成重複的 GEM 專案
 

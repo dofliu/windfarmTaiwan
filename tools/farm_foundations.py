@@ -21,6 +21,9 @@ Hornsea One 西區也與建成紀錄不符。
 核准階段的設計（Current Status 是 authorised 等，不是 operational 或 decommissioned），設計可能改變，所以這種紀錄一定要再附施工紀錄，建置會檢查。
 第 3 步（2026-09，F3）：全球的浮動式風場補上細分型式（單柱式、半潛式、駁船式、張力腳），逐座查技術供應商與開發商資料。
 浮動式的列一定要有細分型式；同一筆紀錄含不同型式的機組時（例：福島的示範機組），以中英文說明代替，建置會檢查。
+第 4 步（2026-09，F4）：台灣、日本、韓國、美國的離岸風場。這些海域沒有 OSPAR 紀錄，每一座都附開發商、施工廠商、政府文件或
+產業新聞的出處，引用的原文逐筆核對過（tools/check_quotes.py），不引用 4C Offshore。日本港灣內的風場以 NEDO 的支持構造分類為準
+（NEDO 明寫「ドルフィン」＝ High-Rise Pile Cap 高樁承台）。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
 
@@ -339,6 +342,115 @@ FOUNDATIONS = [
     F3('JPN', 'Fukushima FORWARD floating demo', 'fl', url='https://www.fukushima-forward.jp/reference/pdf/study086.pdf',
        zh='兩部半潛式（2 MW、7 MW V 型）與一部單柱式（5 MW），型式不同，所以不標單一細分型式',
        en='Two semi-submersibles (2 MW and a V-shaped 7 MW) and one spar (5 MW); the types differ, so no single sub-type is given'),
+    # ================================================ 第 4 步（2026-09）：台灣、日本、韓國、美國
+    # ------------------------------------------------ Taiwan
+    F4('TWN', 'Formosa 1 Phase 1', 'mp',
+       url='https://www.siemensgamesa.com/global/en/home/press-releases/siemens-gamesa-awarded-120-mw-expansion-of-taiwans-pioneering-formosa-1-offshore-wind-power-plant.html',
+       zh='2 座單樁，2016 年與兩部示範機組一起安裝', en='2 monopiles, installed in 2016 together with the two demonstration turbines'),
+    F4('TWN', 'Formosa 1 Phase 2', 'mp', url='https://www.jandenul.com/news/all-foundations-formosa-1-phase-2-installed',
+       zh='20 座單樁，配灌漿接合的轉接段', en='20 monopiles with grouted transition pieces'),
+    F4('TWN', 'Taipower Offshore Phase 1 (Changhua)', 'jk', url='https://www.jandenul.com/our-projects/offshore-windfarm-changhua-taiwan',
+       zh='21 座四腳套管配轉接段，各以 4 支預打的基樁灌漿固定（共 84 支）',
+       en='21 four-legged jackets with transition pieces, each grouted onto four pre-installed pin piles (84 in total)'),
+    F4('TWN', 'Formosa 2', 'jk', url='https://www.jandenul.com/news/jan-de-nul-completes-foundation-and-cable-installation-formosa-2-offshore-wind-farm',
+       zh='47 座套管，共 188 支基樁（2022 年裝完）', en='47 jackets on 188 pin piles (installed in 2022)'),
+    F4('TWN', 'Greater Changhua 1 & 2a', 'jk', url='https://cdn.orsted.com/-/media/www/docs/corp/tw/en-chw-1-and-2a-case-study.pdf',
+       zh='111 座套管，每座 3 支基樁（共 333 支）；其中 6 座全部在台灣製造',
+       en='111 jackets, each on three pin piles (333 in total); six of them were built entirely in Taiwan'),
+    F4('TWN', 'Changfang & Xidao', 'jk', url='https://www.offshorewind.biz/2023/07/17/all-foundations-stand-at-changfang-xidao-wind-farms-offshore-taiwan/',
+       zh='62 座三腳套管（世紀風電製造），共 186 支基樁', en='62 three-legged jackets (built by Century Wind Power) on 186 pin piles'),
+    F4('TWN', 'Zhong Neng', 'jk', url='https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/',
+       zh='31 座套管（世鎧精密製造），共 93 支國產基樁', en='31 jackets (built by Sing Da Marine Structure) on 93 locally made pin piles'),
+    F4('TWN', 'Yunlin', 'mp', url='https://www.yunlin-offshore.com/en/technology',
+       zh='80 座直徑 8 m 的單樁配轉接段（另有 3 座 2021–2023 年發生溜樁的單樁已移除，不計在內）',
+       en='80 monopiles 8 m across with transition pieces (three earlier ones that suffered pile runs in 2021–2023 were removed and are not counted)'),
+    F4('TWN', 'Hai Long 2 & 3', 'jk', url='https://www.cdwe.com.tw/news_detail.php?id=151',
+       zh='73 座套管，每座 3 支預打基樁（共 219 支），2025 年 8 月裝完',
+       en='73 jackets, each on three pre-installed pin piles (219 in total), completed in August 2025'),
+    F4('TWN', 'Greater Changhua 2b & 4', 'jk',
+       url='https://heerema.com/news/heerema-sets-down-last-suction-bucket-jacket-at-%C3%B8rsteds-greater-changhua-2a-4', sub='sb',
+       zh='66 座全數為吸力桶套管（不打樁）：大彰化西南第二階段 24 座、西北 42 座，是亞太第一座全用吸力桶的風場',
+       en='All 66 are suction-bucket jackets (no piling): 24 at Greater Changhua 2b and 42 at Greater Changhua 4, the first such farm in the Asia-Pacific'),
+    F4('TWN', 'Taipower Offshore Phase 2', 'jk', url='https://tpc-offshorewind-p2.tw/foundation',
+       zh='31 座四腳套管配轉接段，以 124 支預打基樁灌漿固定', en='31 four-legged jackets with transition pieces, grouted onto 124 pre-installed pin piles'),
+    # ------------------------------------------------ Japan（港灣內的風場以 NEDO 的支持構造分類為準）
+    F4('JPN', 'Setana semi-offshore', 'pc', url='https://www.nedo.go.jp/content/100889997.pdf',
+       zh='NEDO 稱「ドルフィン」，即高樁承台：4 支直樁（長 27 m、直徑 1.1 m）上加寬約 10 m、厚 2 m 的混凝土承台',
+       en='NEDO calls it a “dolphin”, that is a high-rise pile cap: four vertical piles (27 m long, 1.1 m across) under a concrete cap about 10 m wide and 2 m thick'),
+    F4('JPN', 'Sakata Port semi-offshore', 'pc', url='https://www.nedo.go.jp/content/100890000.pdf',
+       zh='NEDO 稱「ドルフィン」，即高樁承台：8 支直樁（長 27 m、直徑 1 m）上加直徑 12 m、厚 2.5 m 的八角形混凝土承台；2023 年撤除',
+       en='NEDO calls it a “dolphin”, that is a high-rise pile cap: eight vertical piles (27 m long, 1 m across) under an octagonal concrete cap 12 m across and 2.5 m thick; removed in 2023'),
+    F4('JPN', 'Kamisu Phase 1 (Wind Power Ibaraki)', 'mp', url='https://jcmanet.or.jp/bunken/kikanshi/2011/12/014.pdf',
+       zh='7 座直徑 3.5 m、長 24.5 m 的單樁，配灌漿接合的套管接頭，自岸上以履帶式吊車打設',
+       en='7 monopiles 3.5 m across and 24.5 m long with grouted joint sleeves, driven from the shore with a crawler crane'),
+    F4('JPN', 'Kamisu Phase 2', 'mp',
+       url='https://www.jepoc.or.jp/magazine/magazine.php?_w=magazine&_x=kikan_detail&kikan_m_id=17&kikan_n_id=444',
+       zh='8 座單樁；因鄰近 275 kV 輸電線，改以自升式平台船打樁', en='8 monopiles; driven from a jack-up vessel because of the 275 kV lines nearby'),
+    F4('JPN', 'Choshi Offshore Demonstration (NEDO/TEPCO)', 'gb', url='https://www.kajima.co.jp/news/press/201302/27c1-j.htm',
+       zh='預力混凝土沉箱重力式基礎（2,400 噸），半潛拖運到場後灌入銅爐碴壓艙，合計約 5,400 噸',
+       en='A prestressed-concrete caisson gravity base (2,400 t), towed out half-submerged and then filled with copper-slag ballast, 5,400 t in all'),
+    F4('JPN', 'Kitakyushu Offshore Demonstration (NEDO/J-Power)', 'gb', url='https://www.nedo.go.jp/content/100890005.pdf',
+       zh='J-POWER 的「ハイブリッド重力式」：拋石基床上放預鑄混凝土底版，上面架內填混凝土的鋼製套管；2019 年 9 月撤除風機與上部結構，底版留作研究設施',
+       en='J-Power’s “hybrid gravity” foundation: a precast concrete base slab on a rubble mound carrying a steel jacket filled with concrete; the turbine and substructure were removed in September 2019 and the base was kept as a research facility'),
+    F4('JPN', 'Noshiro Port', 'mp', url='https://www.kajima.co.jp/news/press/202003/26c1-j.htm',
+       zh='20 座單樁配轉接段（鹿島與住友電工統包）', en='20 monopiles with transition pieces (Kajima and Sumitomo Electric EPCI)'),
+    F4('JPN', 'Akita Port', 'mp', url='https://www.kajima.co.jp/news/press/202003/26c1-j.htm',
+       zh='13 座單樁配轉接段（鹿島與住友電工統包）', en='13 monopiles with transition pieces (Kajima and Sumitomo Electric EPCI)'),
+    F4('JPN', 'Nyuzen Offshore Wind Farm', 'mp', url='https://www.shimz.co.jp/works/jp_ene_202308_nyuzen.html',
+       zh='3 座直徑 5.5 m、長 48.1–51.6 m 的單樁，不加轉接段（日本首例），清水建設設計施工',
+       en='3 monopiles 5.5 m across and 48.1–51.6 m long with no transition piece (a first in Japan), designed and built by Shimizu'),
+    F4('JPN', 'Ishikari Bay New Port', 'jk', url='https://www.eng.nipponsteel.com/news/detail/20220909/',
+       zh='14 座四腳套管，固定在預打的鋼管樁上（海床軟弱，是日本第一座套管式離岸風場）',
+       en='14 four-legged jackets fixed to pre-driven steel pipe piles (chosen for the soft seabed; Japan’s first jacket-founded offshore farm)'),
+    F4('JPN', 'Kitakyushu Hibikinada', 'jk', url='https://hibikiwindenergy.co.jp/news/2026/0601.html',
+       zh='25 座套管，分 4 樁與 8 樁兩型、共 144 支樁，依海床分別用全套管、RS-plus 與打擊三種工法（水深 8–30 m）',
+       en='25 jackets in two variants (4-pile and 8-pile), 144 piles in all, installed by three methods (all-casing, RS-plus and driving) to suit the seabed, in 8–30 m of water'),
+    # ------------------------------------------------ South Korea
+    F4('KOR', 'Jeju Woljeong test (Doosan)', 'jk',
+       url='https://cloudcdn.taiwantradeshows.com.tw/2019/energytaiwan/download/Wind-Energy-Forum-KR.pdf',
+       zh='2 部試驗機各立在鋼製套管上：能源技術研究院說明 2 MW 那座是以短基樁固定的傾斜兩段式套管；斗山 3 MW 那座只有 2019 年的產業簡報寫明型式',
+       en='Both test turbines stand on steel jackets: KIER describes the 2 MW unit’s inclined two-stage jacket held by short pin piles, while for Doosan’s 3 MW unit only a 2019 industry presentation states the type'),
+    F4('KOR', 'Tamra (Jeju Hangyeong)', 'jk', url='http://tamra-owp.co.kr/2019/sub0206.php',
+       zh='10 座套管，基樁以反循環（RCD）鑽入玄武岩海床後灌漿固定',
+       en='10 jackets whose pin piles were drilled into the basalt seabed with reverse-circulation drilling (RCD) and grouted'),
+    F4('KOR', 'Southwest Offshore Demonstration (Seonam)', 'jk', url='http://www.e2news.com/news/articleView.html?idxno=101605',
+       zh='20 座套管：19 座打樁式（含 2 號機浦項的研發用套管），7 號機是韓電電力研究院的吸力桶套管',
+       en='20 jackets: 19 piled (including POSCO’s R&D jacket under turbine 2) and one suction-bucket jacket by KEPCO’s research institute under turbine 7'),
+    F4('KOR', 'Jeju Hanlim', 'jk', url='https://www.kgs-m.org/magazine/kgsm/sm-35/pt-post/nd-582',
+       zh='18 座套管，採後打樁：先整平玄武岩放置套管，再以反循環（RCD）鑽孔打樁灌漿',
+       en='18 jackets, post-piled: set on pre-drilled, levelled basalt and then fixed with RCD-drilled, grouted pin piles'),
+    F4('KOR', 'Yeonggwang Nakwol', 'mp', url='https://www.electimes.com/news/articleView.html?idxno=368993',
+       zh='64 座單樁（GS Entec 製，長 60.2–71.2 m、底部直徑 7.5 m）；韓國第一座改用單樁的大型離岸風場',
+       en='64 monopiles (made by GS Entec, 60.2–71.2 m long and 7.5 m across at the base); the first large Korean farm to choose monopiles instead of jackets'),
+    F4('KOR', 'Jeonnam Offshore Wind 1', 'mp', url='https://www.epj.co.kr/news/articleView.html?idxno=37579',
+       zh='10 座單樁，韓國第一座以單樁為基礎的離岸風場', en='10 monopiles; the first monopile-founded offshore wind farm in Korea'),
+    # ------------------------------------------------ United States
+    F4('USA', 'Block Island', 'jk',
+       url='https://www.windpowerengineering.com/historic-milestone-for-u-s-offshore-wind-block-island-wind-farm-installs-steel-in-the-water/',
+       zh='5 座四腳套管（各約 400 噸），以穿過套管腳打入的基樁固定；美國第一座離岸風場',
+       en='5 four-legged jackets (about 400 t each) fixed by pin piles driven through the legs; the first offshore wind farm in the USA'),
+    F4('USA', 'Coastal Virginia Offshore Wind (CVOW) Pilot', 'mp',
+       url='https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/',
+       zh='2 座單樁（877 噸、直徑 7.8 m）配轉接段', en='2 monopiles (877 t, 7.8 m across) with transition pieces'),
+    F4('USA', 'South Fork Wind', 'mp', url='https://www.offshorewind.biz/2023/08/10/all-monopiles-up-for-new-yorks-first-offshore-wind-farm/',
+       zh='12 座風機單樁，2023 年 6–8 月安裝（海上變電站另立在第 13 座單樁上）',
+       en='12 turbine monopiles installed between June and August 2023 (a 13th carries the offshore substation)'),
+    F4('USA', 'Vineyard Wind 1', 'mp', url='https://www.deme-group.com/news/offshore-works-kick-vineyard-wind-farm-us-installation-first-foundation',
+       zh='62 座風機單樁配轉接段，2023 年 6 月起安裝（海上變電站另有單樁）',
+       en='62 turbine monopiles with transition pieces, installed from June 2023 (the offshore substation stands on its own monopile)'),
+    F4('USA', 'Coastal Virginia Offshore Wind (CVOW) Commercial Project', 'mp',
+       url='https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/',
+       zh='176 座單樁（最大直徑 9.5 m、1,538 噸），2024–2025 年安裝（3 座海上變電站另以基樁固定）',
+       en='176 monopiles (up to 9.5 m across and 1,538 t), installed in 2024–2025 (the three offshore substations stand on pin piles)'),
+    F4('USA', 'Revolution Wind', 'mp', url='https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us',
+       zh='65 座加大型（XXL）風機單樁，2024 年 5 月至 2025 年第 2 季安裝（2 座海上變電站另有更大的單樁）',
+       en='65 XXL turbine monopiles installed between May 2024 and Q2 2025 (two larger monopiles carry the offshore substations)'),
+    F4('USA', 'Empire wind farm', 'mp', url='https://www.empirewind.com/offshore-installation/',
+       zh='54 座單樁（Sif 製）配轉接段，2025 年夏秋安裝（海上變電站立在套管上）',
+       en='54 monopiles (made by Sif) with transition pieces, installed in summer and autumn 2025 (the offshore substation stands on a jacket)'),
+    F4('USA', 'Sunrise Wind', 'mp', url='https://orsted.com/en/media/news/2026/01/sunrise-wind-llc-to-file-preliminary-injunction-ag-1474210611',
+       zh='84 座風機單樁（2025 年年中開始安裝，2026 年 8 月已裝好 77 座）；海上變流站另為一座構造',
+       en='84 turbine monopiles (installation started in mid-2025; 77 were in place by August 2026); the offshore converter station is a separate structure'),
 ]
 
 # OSPAR 有紀錄、但這一步刻意不列的風場（理由寫在報告裡，之後的步驟再查）
@@ -353,4 +465,16 @@ EXCLUDED = [
      'A test site: the Danish Energy Agency records 3 turbines at sea from 2003 (7.6 MW); after the harbour was extended two now stand on land '
      'and only one 2.3 MW turbine is left at sea, but it does not say which; the turbines had different foundations (one V90 on a trial '
      'suction bucket), and OSPAR’s “all monopiles” and 14 MW do not match, so it is left out'),
+    # 第 4 步（2026-09）
+    ('JPN', 'Eurus Akita Port semi-offshore', [],
+     'JWPA 另計為「セミ洋上」的 1 部 3 MW：ユーラス秋田港ウインドファーム（6 部 3 MW，2015 年 2 月運轉）中立在水中的那一部；'
+     '查不到業主、施工廠商、NEDO、國土交通省或 JWPA 的文件寫出它的基礎型式',
+     'The single 3 MW unit that JWPA counts as “semi-offshore”: the one turbine standing in the water at Eurus Akita Port Wind Farm '
+     '(six 3 MW turbines, operating since February 2015); no document from the owner, the contractors, NEDO, MLIT or JWPA was found '
+     'that gives its foundation type'),
+    ('KOR', 'Yeonggwang Wind offshore wind farm', [],
+     '靈光風電陸海混合風場（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW，退潮時周圍是灘地；'
+     '查不到開發商、施工廠商或政府文件寫出這 15 部的基礎型式',
+     'The 15 × 2.3 MW turbines of the Yeonggwang Wind onshore-and-offshore complex (35 turbines, 79.6 MW) that stand in the intertidal '
+     'zone, dry at low tide; no developer, contractor or government statement of their foundation type was found'),
 ]
