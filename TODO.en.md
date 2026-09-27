@@ -5,6 +5,72 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
+## In progress (hand-off, 2026-09-27)
+
+Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it for the next piece of work in progress and move
+finished items to the topic lists below.
+
+### Foundation types, step 4 (Taiwan, Japan, Korea and the USA): research done, not yet in the table
+
+- Research notes: `tools/research/foundations_step4.json`, 42 records (Taiwan 11, Japan 14, Korea 9, USA 8), each matching one farm in
+  `wind_farms.json` by its exact name. Fields: `type` (mp monopile, jk jacket, pc high-rise pile cap, gb gravity-based, mixed, unknown),
+  `suction_bucket`, `count` (number of foundations), `detail_en`, `sources` (sources with quoted passages), `issues` (status, year, capacity,
+  location and other data problems) and `issue_sources` (the passages quoted in the issues).
+  `check` is the result of `tools/check_quotes.py`: 186 of 189 sources and 103 of 107 issue quotes are OK; every failure is a US SEC page (it
+  blocks automated requests with HTTP 403); apart from Vineyard Wind 1's commercial operation date (24 April 2026), those facts have other sources too. Use only OK sources; re-run with
+  `python3 tools/check_quotes.py tools/research/foundations_step4.json` (it checks `sources` and `issue_sources`).
+- Types found (36 farms; the other records are 2 duplicates and 4 with no source or not yet built):
+  - Taiwan 11: monopile 3 (Formosa 1 Phases 1 and 2, Yunlin); piled jacket 7 (Taipower Offshore Phases 1 and 2, Formosa 2, Greater
+    Changhua 1 & 2a, Changfang & Xidao, Zhong Neng, Hai Long); suction-bucket jacket 1 (Greater Changhua 2b & 4, all 66, with `sub='sb'`).
+  - Japan 11: monopile 5 (Kamisu Phases 1 and 2, Noshiro Port, Akita Port, Nyuzen); jacket 2 (Ishikari Bay New Port, Kitakyushu
+    Hibikinada); high-rise pile cap 2 (Setana, Sakata Port; NEDO calls them “dolphins”); gravity-based 2 (Choshi; the Kitakyushu
+    demonstrator used a “hybrid gravity” base, a jacket on a concrete base slab).
+  - Korea 6: piled jacket 3 (the two Woljeong test turbines, Tamra, Hanlim); monopile 2 (Jeonnam Offshore Wind 1, Yeonggwang Nakwol); the
+    20 Southwest demonstration foundations are all jackets (19 piled, 1 on suction buckets; say so in the note).
+  - USA 8: Block Island is on piled jackets; the CVOW pilot and commercial project, South Fork, Vineyard Wind 1, Revolution Wind, Empire
+    Wind 1 and Sunrise Wind are on monopiles.
+  - No source for the type, so list them in `EXCLUDED` with the reason: Eurus Akita Port in Japan (the 1 of its 6 turbines that stands in the
+    water) and the 15 intertidal turbines of Yeonggwang Wind in Korea (GEM's “Yeonggwang Wind offshore”). GEM's 1 GW Hokkaido Ishikari Bay
+    and Korea's Jwasari are not built yet; only their status changes.
+- Japan's “semi-offshore”: JWPA lists Setana, Kamisu Phases 1 and 2 and the one Eurus Akita Port turbine, which can be reached from land, as
+  semi-offshore (セミ洋上), outside its full-scale offshore figures. Each stands in the water on its own foundation (not on a breakwater),
+  so this site keeps them offshore.
+- Rules to add to `tools/farm_cleanup.py` (sources in the research notes' `issues`):
+  - Taiwan: Zhong Neng's year 2024 → 2025 (electricity licence in April 2025); Taipower Offshore Phase 1 turbines HTW5.2-136 → HTW5.2-127.
+  - Japan: GEM's “Kamis Offshore wind farm” is Kamisu Phases 1 and 2 together; remove it. Phase 1 is at Minamihama and Phase 2 at Kitahama,
+    and both points are on land and the wrong way round (use the turbine positions from OpenStreetMap, marked approximate). Setana is out of
+    service after breakdowns and ageing, and the town has decided to remove it in FY2027 (when it stopped is still to be checked); its point
+    moves about 1 km south-west. The Kitakyushu demonstrator was removed in autumn 2019, not 2023. Kitakyushu Hibikinada began commercial
+    operation on 2 March 2026 with 25 × 9.6 MW turbines (output capped at 220 MW); by convention it stays under construction with a note on
+    its card. Eurus Akita Port's point is on the Akita Port offshore farm (it is actually on the Mukaihama coast). GEM's 1 GW Hokkaido
+    Ishikari Bay is not under construction (only a planning-stage environmental document exists).
+  - Korea: GEM's “Jeonnam (SK E&C) wind farm · 1” and “Jeonnam Shinan 1 / others” are the same farm (Jeonnam Offshore Wind 1, 96 MW,
+    10 Siemens Gamesa 9.6 MW turbines, in commercial operation since 16 May 2025); fix its name, turbines and location too. Yeonggwang
+    Nakwol was only partly running at the end of 2025 (full operation planned for December 2026), and its turbines are Vensys 5.7 MW.
+    Woljeong's second turbine is an STX 2 MW (2011–12, not a 2015 Hyosung), idle since June 2016, and the Netherlands' RVO said in 2021 that
+    the test site was not operating (current state to be checked). Tamra is in Hangyeong, not Hallim (name). GEM's Jwasari was still at the
+    environmental-assessment stage in 2025 (now planned at 360 MW). Yeonggwang Wind's 15 turbines are in the intertidal zone, and GEM's point
+    is the company's address.
+  - USA: Sunrise Wind has two records (remove GEM's, whose point is actually inside Revolution Wind's lease; move the other to about 40.99,
+    -71.06, the centre of BOEM's lease area, with year 2027). Vineyard Wind 1 had 44 of its 62 turbines running at the end of 2025 (about
+    572 MW) and was completed in March 2026, so by convention it becomes under construction, year 2026, with a note. CVOW's commercial
+    project now finishes at the end of 2027. Revolution Wind is 704 MW according to the developer; Empire Wind 1 is 810 MW.
+- Next steps:
+  1. Add the rows to `tools/farm_foundations.py` with `F4(...)` (`F4`, the build's `NOTE[4]` and the report's step-4 wording are ready).
+  2. The clean-up rules above; rebuild the farm layer (step 3 of “Updating the global data” in the README) and run `qa_farms`,
+     `coverage_report`, `qa_ports` and `build_foundations`.
+  3. Site text: `fdStep` (both languages) and the sources dialog in `assets/js/globe.js`, and the “Foundation types” part of
+     `assets/js/learn.js`, now saying that step 4 is done and that elsewhere, such as China and Vietnam, fixed-bottom farms show “type
+     unknown”.
+  4. v2.10.0, both changelogs, README/ROADMAP/TODO; Playwright at desktop and phone widths, the single-file copy online and offline; delete
+     `tools/research/foundations_step4.json` once it is in the table.
+- Watch (no data change yet): Hai Long (Northland says commercial operation in 2027, the developer says completion and grid connection by
+  the end of 2026), Taipower Offshore Phase 2 (the Minister of Economic Affairs expects grid connection in the first half of 2027), Greater
+  Changhua 2b & 4 (full commercial operation planned for late Q3 2026). Still to be checked: whether Formosa 1 Phase 1 has SWT-4.0-120 or
+  -130 turbines; whether Choshi still runs after 2025; a possible Doosan 3 MW turbine on a suction bucket at Gunsan, Korea (2017; RVO lists
+  it as a test turbine installed on land).
+- Once step 4 is in the table, ask the owner whether to do step 5 (China and Vietnam, about 50–70 hours).
+
 ## Re-check periodically (time-sensitive, not code problems)
 
 - [ ] Taipower Offshore Phase 2: completion is currently given as "2027"; check progress reports then
@@ -140,7 +206,7 @@ the rules are in `tools/farm_cleanup.py`.
       record of it generating at sea afterwards; remove it once it is confirmed that it never operated
 - [ ] The UK's Pentland floating farm has two GEM records ("Pentland Floating Offshore wind farm" and "Pentland wind farm", both
       100 MW); whether they are the same project is still to be checked
-- [ ] Step 4: Taiwan, Japan, Korea and the USA
+- [ ] Step 4: Taiwan, Japan, Korea and the USA (research done, not yet in the table; see “In progress” at the top)
 - [ ] Whether China and Vietnam are worth about 50–70 hours: ask the owner after the first four steps
 
 ## To assess / waiting for the owner's decision (do not start on your own)

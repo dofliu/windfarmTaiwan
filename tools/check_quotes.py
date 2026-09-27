@@ -5,14 +5,16 @@
 這支程式逐筆抓出處網頁，確認那段原文真的在頁面上：
   python3 tools/check_quotes.py research.json             # 印出每個出處的結果
   python3 tools/check_quotes.py research.json --write     # 另把結果寫回 JSON（每個出處加上 "check"）
-research.json 是一個陣列，每筆 {"farm": "...", "sources": [{"url": "...", "quote": "..."}, ...]}（其他欄位不動）。
+research.json 是一個陣列，每筆 {"farm": "...", "sources": [{"url": "...", "quote": "..."}, ...]}（其他欄位不動）；
+另有 "issue_sources"（資料問題的出處，同樣格式）時一併核對。
 結果：OK（原文完整出現）、OK(parts)（以「…」分段的引文每段都在）、OK(nospace)（中日韓文去掉空白後相符）、
 PARTIAL（只對到部分片段，要人工確認）、MISSING（沒找到）、ERR（抓不到網頁）。PARTIAL、MISSING、ERR 都不能直接採用。
 網頁依 HTTP 標頭或網頁宣告的編碼解碼（Big5、GBK、Shift_JIS、EUC-JP、EUC-KR 等），PDF 需要 pypdf，Word 檔直接讀。
 抓過的網頁存在暫存資料夾（--cache 可指定），重跑時不再下載。
 
 For every source cited while researching foundation types or farm fixes, fetch the page and confirm the quoted passage is
-on it. Input: a JSON array of {"farm": ..., "sources": [{"url": ..., "quote": ...}]}. Results: OK, OK(parts) (every part
+on it. Input: a JSON array of {"farm": ..., "sources": [{"url": ..., "quote": ...}]} ("issue_sources", the sources for data problems,
+are checked too when present). Results: OK, OK(parts) (every part
 of a quote split by "…" is there), OK(nospace) (matches once whitespace is removed, for CJK text), PARTIAL (only some
 fragments match; check by hand), MISSING, ERR (page could not be fetched). Only OK results may be used as they are.
 Pages are decoded with the charset from the HTTP header or the page itself; PDFs need pypdf. Fetched pages are cached.
@@ -151,7 +153,7 @@ def main():
     data = json.loads(Path(a.json).read_text(encoding='utf-8'))
     bad = 0
     for item in data:
-        for s in item.get('sources', []):
+        for s in item.get('sources', []) + item.get('issue_sources', []):
             page, err = fetch(s['url'], a.cache)
             st = ('ERR ' + err) if err else check(page, s.get('quote', ''))
             s['check'] = st
