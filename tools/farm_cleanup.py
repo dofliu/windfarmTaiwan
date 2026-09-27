@@ -10,6 +10,8 @@
           改了座標就不再標「概略位置」（approx=True 則仍標）；補上年份或改成規劃中就不再標「年份不詳」；
           改了容量而舊分期加總對不上時清掉分期
 GEM_KEEP 列出不可被當成重複的 GEM 專案（例：與精選風場名稱相近、實為另一座）。
+PIPE_DROP 列出 2026 整理的規劃中專案清單（data/global/sources/pipeline_curated.json）裡已經停止、不再收錄的專案；
+對不到清單裡的專案時建置會中止。
 每條規則都附中英文理由與來源連結（url=None 表示依資料本身比對：同名、同容量、同地點），
 build_farms.py 會把套用結果寫成 docs/data-cleanup.md 與 docs/data-cleanup.en.md。
 """
@@ -373,6 +375,68 @@ RULES = [
     fix('ALA', 'Långnabba wind farm', G, '在奧蘭 Eckerö 南端的陸地上（只有輸電海纜在海底），不是離岸風場',
         'On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm',
         'https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/', type=0),
+    # ------------------------------------------------ 浮動式風場（2026-09 查水下基礎第 3 步時發現）
+    drop('ESP', 'Biscay Marine Energy Platform wind farm', G,
+         'BiMEP 測試場的併網容量（四條 5 MW 海纜），不是一座風場；測試場唯一裝過的風機 DemoSATH 已另列',
+         'The BiMEP test site’s grid capacity (four 5 MW export cables), not a wind farm; the only wind turbine ever installed there, '
+         'DemoSATH, is listed separately', 'https://www.bimep.com/en/bimep-area/technical-characteristics/'),
+    dup('FRA', 'EFGL wind farm', G, ('Les Éoliennes Flottantes du Golfe du Lion (EFGL)', C), '同一座風場（Leucate 外海，30 MW）',
+        'Same farm (off Leucate, 30 MW)', 'https://www.gem.wiki/EFGL_wind_farm'),
+    fix('FRA', 'Les Éoliennes Flottantes du Golfe du Lion (EFGL)', C,
+        '2026 年 5 月開始發電、7 月全面運轉，業主是 Ocean Winds 與 Banque des Territoires；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
+        'First power in May 2026 and full power in July 2026; owned by Ocean Winds with Banque des Territoires; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now',
+        'https://www.offshorewind.biz/2026/07/10/floating-wind-farm-offshore-france-reaches-full-power/',
+        st=1, year=2026, owner='Ocean Winds; Banque des Territoires', note=True),
+    dup('FRA', 'Eolmed Floating wind farm', G, ('EolMed (Gruissan)', C), '同一座風場（Gruissan 外海，30 MW）',
+        'Same farm (off Gruissan, 30 MW)', 'https://www.gem.wiki/Eolmed_Floating_wind_farm'),
+    fix('FRA', 'EolMed (Gruissan)', C, '2026 年 4 月開始發電、5 月全面運轉；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
+        'First power in April 2026 and full capacity in May 2026; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now', 'https://www.bw-ideol.com/en/eolmed-project', st=1, year=2026, note=True),
+    dup('FRA', 'Golfe De Fos wind farm', G, ('Provence Grand Large', C),
+        '同一座風場：GEM 的 25.2 MW（3 部 8.4 MW）就是福斯灣外海的 Provence Grand Large', 'Same farm: GEM’s 25.2 MW (3 × 8.4 MW) is Provence Grand '
+        'Large in the Gulf of Fos', 'https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/'),
+    fix('FRA', 'Provence Grand Large', C, '機組是西門子歌美颯的 8.4 MW 風機，不是 Vestas', 'The turbines are Siemens Gamesa 8.4 MW, not Vestas',
+        'https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/',
+        turbine='3 x Siemens Gamesa 8.4 MW (SBM tension-leg)'),
+    drop('GBR', 'Dounreay Trì  Floating Wind Demonstration', G,
+         '從未興建：這個兩部風機的示範案已經中止，同一場址後來改由 Pentland 浮動式風場開發（另列）',
+         'Never built: this two-turbine demonstrator was discontinued, and the site was later taken up by the Pentland floating wind farm '
+         '(listed separately)', 'https://www.offshorewind.biz/2021/06/18/cip-revives-floating-wind-project-offshore-scotland/'),
+    fix('GBR', 'Kincardine', C, '現在是 5 部 9.5 MW（47.5 MW）；2018–2020 年曾有 1 部 2 MW 試驗機（原 WindFloat 1），2020 年移走',
+        'Now 5 × 9.5 MW (47.5 MW); a 2 MW trial unit (the former WindFloat 1) ran from 2018 to 2020 and was then removed',
+        'https://marine.gov.scot/sites/default/files/250403_-_kincardine_offshore_windfarm_-_project_environmental_monitoring_programme_-_revision_c10.pdf',
+        mw=47.5, turbine='5 x MHI Vestas V164-9.5 MW', note=True),
+    fix('NOR', 'TetraSpar Demonstrator (METCentre)', C, '2026 年夏天除役，拖回港口', 'Decommissioned in summer 2026 and brought back to port',
+        'https://www.rwe.com/en/our-energy/discover-renewables/floating-offshore-wind/tetraspar/', end=2026, note=True),
+    fix('PRT', 'WindFloat 1 (Aguçadoura demo)', C, '座標改到阿古薩杜拉外海約 5 km（概略位置；原座標偏西約 13 km）',
+        'Point moved to about 5 km off Aguçadoura (approximate; the old one was about 13 km further west)',
+        'https://www.principlepower.com/projects/windfloat1', lat=41.43, lon=-8.84, approx=True),
+    fix('PRT', 'WindFloat Atlantic', C, '業主改為專案出資方 Ocean Winds、東京瓦斯與 Repsol；原欄位是比對錯的公司名',
+        'Owner set to the project sponsors Ocean Winds, Tokyo Gas and Repsol; the field held a wrongly matched company name',
+        'https://www.principlepower.com/projects/windfloat-atlantic', owner='Ocean Winds; Tokyo Gas; Repsol'),
+    fix('CHN', "Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng", C,
+        '「OceanX」與「明陽天成號」是同一座浮台（一座浮台上兩部 8.3 MW 風機，共 16.6 MW），名稱合為一個',
+        '“OceanX” and “Mingyang Tiancheng” are the same floater (two 8.3 MW turbines on one platform, 16.6 MW), so the names are merged',
+        'https://www.ditan.com/industry/energy/4497.html', rename='Mingyang OceanX (Tiancheng) floating'),
+    fix('CHN', 'Haiyou Guanlan (CNOOC floating)', C, '裝機容量 7.25 MW', 'Installed capacity 7.25 MW',
+        'http://finance.people.com.cn/n1/2023/0520/c1004-32690779.html', mw=7.25),
+    fix('JPN', 'Fukushima FORWARD floating demo', C,
+        '三部浮動式機組：2013 年 11 月 2 MW（半潛式）、2015 年 12 月 7 MW（V 型半潛式）、2017 年 2 月 5 MW（單柱式）開始運轉；'
+        '7 MW 於 2018 年決定停機、2020 年撤除，其餘兩部 2021 年 2 月起撤除',
+        'Three floating units started in November 2013 (2 MW, semi-submersible), December 2015 (7 MW, V-shaped semi-submersible) and '
+        'February 2017 (5 MW, spar); the 7 MW unit was stopped in 2018 and removed in 2020, and removal of the other two began in February 2021',
+        'https://www.fukushima-forward.jp/reference/pdf/study086.pdf', ph=[[2013, 2], [2015, 7], [2017, 5]], note=True),
+    fix('JPN', 'Goto City Offshore floating project', C, '2026 年 1 月 5 日開始商轉（8 部 2.1 MW，五島洋上風場）' + '；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
+        'Commercial operation began on 5 January 2026 (eight 2.1 MW units, Goto Offshore Wind Farm)' + '; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now',
+        'https://www.toda.co.jp/news/2026/20260105_006181.html', zhname='五島洋上風場', note=True),
+    dup('JPN', 'Kyushu floating wind farm', G, ('Kyushu - GIP floating wind farm', G), '同一個規劃案（Skyborn，1 GW，五島外海）；GEM 有兩筆',
+        'The same planned project (Skyborn, 1 GW, off the Goto Islands); GEM lists it twice', 'https://www.gem.wiki/Kyushu_floating_wind_farm'),
+    fix('PHL', 'Claveria floating offshore wind farm', G, '浮動式（GEM 的專案頁已改列為浮動式）', 'Floating (GEM’s project page now lists it as floating)',
+        'https://www.gem.wiki/Claveria_(Domhain)_wind_farm', type=2),
+    drop('KOR', 'Firefly (Bandibuli) floating offshore wind farm', G, 'Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
+         'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
+    fix('ESP', 'Timanfaya Floating Offshore wind farm', G, '浮動式：開發商 Capital Energy 的專案採浮動式技術（GEM 誤列為固定式）',
+        'Floating: the developer, Capital Energy, uses floating technology for it (GEM lists it as fixed-bottom)',
+        'https://www.evwind.es/2023/02/17/capital-energy-will-invest-2500-million-in-four-wind-farms-in-the-canary-islands-three-of-them-offshore/90273', type=2),
     # ------------------------------------------------ Thailand, Philippines, Iran
     drop('THA', 'Jhimpir Power (Energy Absolute) wind farm', G,
          '不存在：Jhimpir 在巴基斯坦，Energy Absolute 在泰國沒有 600 MW 風場（它在猜也蓬的 Hanuman 各場另有紀錄）',
@@ -500,11 +564,17 @@ GEM_KEEP = {
          'https://www.nbd.com.cn/articles/2021-11-03/1978454.html'),
 }
 
+# 2026 整理的規劃中專案清單裡、之後已停止開發的專案（國別, 清單上的名稱）→（中文理由, English, 出處）
+PIPE_DROP = {
+    ('KOR', 'Firefly (Bandibuli)'): ('Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
+                                     'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
+}
+
 FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'type': 7, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
-LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'type': '陸域／離岸', 'st': '狀態',
+LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'type': '類型', 'st': '狀態',
             'end': '除役年', 'owner': '業主', 'turbine': '機組', 'ph': '分期'}
 LABEL_EN = {'rename': 'name', 'zhname': 'Chinese name', 'lat': 'location', 'lon': 'location', 'mw': 'capacity', 'year': 'year',
-            'type': 'onshore/offshore', 'st': 'status', 'end': 'end year', 'owner': 'owner', 'turbine': 'turbines', 'ph': 'phases'}
+            'type': 'type', 'st': 'status', 'end': 'end year', 'owner': 'owner', 'turbine': 'turbines', 'ph': 'phases'}
 
 
 def apply(rows, rules=RULES):
@@ -624,6 +694,11 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
                 link = f"[{'連結' if zh else 'link'}]({c['url']})" if c['url'] else ('資料比對' if zh else 'data comparison')
                 L.append(f"| {rec} | {src} | {act} | {c['zh'] if zh else c['en']} | {link} |")
             L.append('')
+        L += ['## ' + ('規劃中專案清單（2026 整理）裡不收錄的專案' if zh else 'Projects left out of the 2026 pipeline compilation'), '',
+              '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']
+        for (iso, name), (rz, re_, url) in PIPE_DROP.items():
+            L.append(f"| {name} ({iso}) | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
+        L.append('')
         L += ['## ' + ('不當成重複的 GEM 專案' if zh else 'GEM projects kept apart'), '',
               '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']
         for (iso, name), (rz, re_, url) in GEM_KEEP.items():

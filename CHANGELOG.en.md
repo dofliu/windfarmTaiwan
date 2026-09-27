@@ -15,6 +15,29 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.9.0 — 2026-09-27
+
+- Foundation data, step 3: floating farms worldwide get their sub-type — spar, semi-submersible, barge or tension-leg platform
+  (19 floating farms in the table, including retired and under-construction ones):
+  - The 15 operating floating farms (260.8 MW): 5 spar, 5 semi-submersible, 3 barge and 1 tension-leg platform; Korea's
+    Ulsan 750 kW pilot has no record of generating at sea, and its card says it is to be verified.
+  - Every farm cites a technology provider, developer, government document or trade press, and each quoted passage was
+    checked against the page (Chinese and Japanese pages in their own encodings); Fukushima's three demonstrators had
+    different types, so its note lists each one.
+  - Country profiles count floating farms by sub-type, and the legend's floating chip lists the four sub-types.
+- Data corrections (20 record-level rules; reasons and sources in `docs/data-cleanup.en.md`):
+  - EFGL and EolMed (France) only started generating in April–July 2026, and the Goto Offshore Wind Farm (Japan) began
+    commercial operation in January 2026: the timeline on this site ends in 2025, so they are listed as under construction
+    for now, with a note on their cards.
+  - The TetraSpar demonstrator was decommissioned in summer 2026; Kincardine's 2 MW trial unit left in 2020, so it is 47.5 MW;
+    Haiyou Guanlan is 7.25 MW; the Fukushima demonstrators are phased in 2013, 2015 and 2017.
+  - 7 records removed: GEM's BiMEP test-site capacity, the never-built Dounreay Trì, Korea's Bandibuli (stopped by Equinor),
+    and 4 duplicates (EFGL, EolMed, Golfe de Fos = Provence Grand Large, Kyushu).
+  - Pipeline: Claveria (Philippines) and Timanfaya (Spain) are floating projects; projects in the Sep 2026 pipeline
+    compilation that have since stopped are left out.
+  - Also: Provence Grand Large has Siemens Gamesa turbines; WindFloat Atlantic's owners are corrected; WindFloat 1 is moved
+    off Aguçadoura; Mingyang's OceanX and Tiancheng are one floater and now one record.
+
 ## v2.8.0 — 2026-09-27
 
 - Foundation data, step 2: 41 more farms, so every operating offshore farm in Europe except one test site now has a known type

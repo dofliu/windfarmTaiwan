@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 157 rules: 87 records removed (25,573.8 MW of them operating), 70 records fixed.
+- 177 rules: 94 records removed (25,593.8 MW of them operating), 83 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,29 +16,31 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 7 | 10,856 | 2 |
+| China | 7 | 10,856 | 4 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
 | Finland | 2 | 129 | 0 |
-| France | 1 | 496 | 2 |
+| France | 4 | 496 | 5 |
 | Germany | 0 | 0 | 3 |
 | Iran | 2 | 62 | 2 |
 | Ireland | 0 | 0 | 1 |
+| Japan | 1 | 0 | 2 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 1 | 310 | 3 |
 | Netherlands | 8 | 1,852 | 6 |
-| Norway | 7 | 1,939 | 8 |
-| Philippines | 2 | 240 | 1 |
-| Portugal | 3 | 28.9 | 0 |
+| Norway | 7 | 1,939 | 9 |
+| Philippines | 2 | 240 | 2 |
+| Portugal | 3 | 28.9 | 2 |
 | Romania | 16 | 2,439 | 10 |
 | Senegal | 0 | 0 | 2 |
 | South Africa | 2 | 159 | 2 |
-| South Korea | 1 | 61.5 | 0 |
+| South Korea | 2 | 61.5 | 0 |
+| Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 1 | 135 | 1 |
-| United Kingdom | 5 | 2,628 | 4 |
+| United Kingdom | 6 | 2,628 | 5 |
 | United States of America | 6 | 666.8 | 1 |
 | Uruguay | 1 | 141.6 | 1 |
 | Vietnam | 11 | 1,454 | 4 |
@@ -77,6 +79,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
+| Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng · 16.6 MW · 2024 | curated | fixed: name | “OceanX” and “Mingyang Tiancheng” are the same floater (two 8.3 MW turbines on one platform, 16.6 MW), so the names are merged | [link](https://www.ditan.com/industry/energy/4497.html) |
+| Haiyou Guanlan (CNOOC floating) · 7.2 MW · 2023 | curated | fixed: capacity | Installed capacity 7.25 MW | [link](http://finance.people.com.cn/n1/2023/0520/c1004-32690779.html) |
 | Guangdong Yangjiang Shaba (Three Gorges) Offshore wind farm · 1,706 MW · 2021 | GEM | removed | GEM lumps phases 1–5 of CTG’s Yangjiang Shapa into one record (1,706 MW); the curated data lists each phase | data comparison |
 | Dabancheng · 2,500 MW · 1989 | curated | removed | A rough total for the whole area; marked 2,500 MW in 1989; GEM lists 28 farms of the same name within 80 km (3,661 MW), each with its own commissioning year | data comparison |
 | Yumen Changma · 1,000 MW · 2009 | curated | removed | A rough total for the whole area; GEM lists 23 farms of the same name within 80 km (2,679 MW), each with its own commissioning year | data comparison |
@@ -128,6 +132,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Saint-Brieuc wind farm · 496 MW · 2024 | GEM | duplicate of “Saint-Brieuc” | Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away | [link](https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm) |
 | Îles d'Yeu et de Noirmoutier · 496 MW · 2025 | curated | fixed: capacity, turbines, phases | Built as 61 × 8 MW = 488 MW (it was listed as 62 turbines and 496 MW); first power in June 2025, 408 MW connected by the end of 2025, complete in April 2026 | [link](https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees) |
 | Calvados (Courseulles-sur-Mer) · 450 MW · 2025 | curated | fixed: status, year | Under construction: about two years behind the original plan, EDF expects commissioning at the end of 2027 (it was wrongly listed as operating in 2025) | [link](https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705) |
+| EFGL wind farm · 30 MW · 2025 | GEM | duplicate of “Les Éoliennes Flottantes du Golfe du Lion (EFGL)” | Same farm (off Leucate, 30 MW) | [link](https://www.gem.wiki/EFGL_wind_farm) |
+| Les Éoliennes Flottantes du Golfe du Lion (EFGL) · 30 MW · 2025 | curated | fixed: status, year, owner | First power in May 2026 and full power in July 2026; owned by Ocean Winds with Banque des Territoires; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://www.offshorewind.biz/2026/07/10/floating-wind-farm-offshore-france-reaches-full-power/) |
+| Eolmed Floating wind farm · 30 MW · 2025 | GEM | duplicate of “EolMed (Gruissan)” | Same farm (off Gruissan, 30 MW) | [link](https://www.gem.wiki/Eolmed_Floating_wind_farm) |
+| EolMed (Gruissan) · 30 MW · 2025 | curated | fixed: status, year | First power in April 2026 and full capacity in May 2026; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://www.bw-ideol.com/en/eolmed-project) |
+| Golfe De Fos wind farm · 25.2 MW | GEM | duplicate of “Provence Grand Large” | Same farm: GEM’s 25.2 MW (3 × 8.4 MW) is Provence Grand Large in the Gulf of Fos | [link](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
+| Provence Grand Large · 25 MW · 2024 | curated | fixed: turbines | The turbines are Siemens Gamesa 8.4 MW, not Vestas | [link](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
 
 ## Germany (DEU)
 
@@ -151,6 +161,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Arklow Bank Phase 1 · 25.2 MW · 2004 | curated | fixed: end year | The last three turbines were shut down for safety reasons in May 2024 and it has not generated since; in September 2026 the operator said it would apply to dismantle it | [link](https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/) |
+
+## Japan (JPN)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Fukushima FORWARD floating demo · 14 MW · 2013 | curated | fixed: phases | Three floating units started in November 2013 (2 MW, semi-submersible), December 2015 (7 MW, V-shaped semi-submersible) and February 2017 (5 MW, spar); the 7 MW unit was stopped in 2018 and removed in 2020, and removal of the other two began in February 2021 | [link](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) |
+| Goto City Offshore floating project · 16.8 MW · 2026 | curated | fixed: Chinese name | Commercial operation began on 5 January 2026 (eight 2.1 MW units, Goto Offshore Wind Farm); the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://www.toda.co.jp/news/2026/20260105_006181.html) |
+| Kyushu floating wind farm · 1,000 MW | GEM | duplicate of “Kyushu - GIP floating wind farm” | The same planned project (Skyborn, 1 GW, off the Goto Islands); GEM lists it twice | [link](https://www.gem.wiki/Kyushu_floating_wind_farm) |
 
 ## Jordan (JOR)
 
@@ -205,11 +223,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Kvitsoy Wind Turbine Demonstration Area · 10 MW · 2021 | GEM | removed | Licensed but never built: NVE lists the licence as withdrawn, with no date of first operation | [link](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/5/query?where=saksid+in+(192,193,194)&outFields=saksid,anleggnavn,kommune,stadium,sakskategori,status,forsteidriftdato,effekt_mw&returnGeometry=false&f=json) |
 | Rennesoy Wind Turbine Demonstration Area · 10 MW · 2010 | GEM | removed | Licensed (NVE, 2010) but never built: NVE’s layer of built wind plants shows only Tysvær, Gismarvik, Zephyros, Utsira and Storøy in this area | [link](https://kart.nve.no/enterprise/rest/services/Vindkraft2/MapServer/0/query?where=1%3D1&geometry=4.8,58.9,5.8,59.4&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=saksid,anleggnavn,kommune,status,effekt_mw&returnGeometry=false&f=json) |
 | Marine Energy Test Centre wind farm · 20 MW · 2009 | GEM | removed | The licensed capacity of the METCentre test site (10 MW floating plus 10 MW bottom-fixed), not a wind farm: the only turbines are the floating Hywind Demo (Zefyros) and TetraSpar, both listed separately; the bottom-fixed part was never built | [link](https://www.norwegianoffshorewind.no/about/initiatives/met-centre/) |
+| TetraSpar Demonstrator (METCentre) · 3.6 MW · 2021 | curated | fixed: end year | Decommissioned in summer 2026 and brought back to port | [link](https://www.rwe.com/en/our-energy/discover-renewables/floating-offshore-wind/tetraspar/) |
 
 ## Philippines (PHL)
 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
+| Claveria floating offshore wind farm · 1,600 MW | GEM | fixed: type | Floating (GEM’s project page now lists it as floating) | [link](https://www.gem.wiki/Claveria_(Domhain)_wind_farm) |
 | Pagudpud wind farm · 160 MW · 2023 | GEM | duplicate of “Balaoi & Caunayan” | Bayog Wind Power is ACEN’s project company for this 160 MW farm: same farm | [link](https://business.inquirer.net/323245/acen-shells-out-p3b-to-partly-fund-phs-biggest-windmill-farm) |
 | Pagudpu wind farm · 80 MW · 2023 | GEM | duplicate of “Balaoi & Caunayan” | Same farm (GEM lists its first 80 MW stage separately) | [link](https://www.gem.wiki/Pagudpu_wind_farm) |
 | Bangui Bay · 33 MW · 2005 | curated | fixed: capacity, phases | Three phases: 24.75 MW (2005), 8.25 MW (2008), 18.9 MW (2014) | [link](https://en.wikipedia.org/wiki/Wind_power_in_the_Philippines) |
@@ -221,6 +241,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Alto Do Talefe wind farm · 14 MW · 2005 | GEM | duplicate of “Alto do Talefe” | Same farm; it is in Cinfães (Serra de Montemuro) and the GEM point was placed in Braga | [link](https://www.openstreetmap.org/relation/14053337) |
 | Chaminé wind farm · 6.9 MW · 2004 | GEM | duplicate of “Chaminé” | Same farm; the approximate GEM point is Setúbal city, the farm is in Sines | [link](https://www.thewindpower.net/windfarm_en_2570_chamine.php) |
 | Felgar wind farm · 8 MW · 2007 | GEM | duplicate of “Felgar” | Same farm; the approximate GEM point is Bragança city, the farm is in Torre de Moncorvo | [link](https://www.thewindpower.net/windfarm_en_2641_felgar.php) |
+| WindFloat 1 (Aguçadoura demo) · 2 MW · 2011 | curated | fixed: location | Point moved to about 5 km off Aguçadoura (approximate; the old one was about 13 km further west) | [link](https://www.principlepower.com/projects/windfloat1) |
+| WindFloat Atlantic · 25.2 MW · 2020 | curated | fixed: owner | Owner set to the project sponsors Ocean Winds, Tokyo Gas and Repsol; the field held a wrongly matched company name | [link](https://www.principlepower.com/projects/windfloat-atlantic) |
 
 ## Romania (ROU)
 
@@ -274,6 +296,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Yeongyang · 61.5 MW · 2015 | curated | duplicate of “Yeong Yang (Macquarie Group) wind farm” | Same farm (41 × 1.5 MW on Maengdongsan, built 2008–2009); the curated record had the wrong year (2015), point (county seat) and owner, so the GEM record is kept | [link](https://www.epj.co.kr/news/articleView.html?idxno=4315) |
+| Firefly (Bandibuli) floating offshore wind farm · 750 MW · 2028 | GEM | removed | Equinor stopped the project in May 2026 | [link](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
+
+## Spain (ESP)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Biscay Marine Energy Platform wind farm · 20 MW · 2015 | GEM | removed | The BiMEP test site’s grid capacity (four 5 MW export cables), not a wind farm; the only wind turbine ever installed there, DemoSATH, is listed separately | [link](https://www.bimep.com/en/bimep-area/technical-characteristics/) |
+| Timanfaya Floating Offshore wind farm · 50 MW | GEM | fixed: type | Floating: the developer, Capital Energy, uses floating technology for it (GEM lists it as fixed-bottom) | [link](https://www.evwind.es/2023/02/17/capital-energy-will-invest-2500-million-in-four-wind-farms-in-the-canary-islands-three-of-them-offshore/90273) |
 
 ## Sweden (SWE)
 
@@ -310,6 +340,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Sofia wind farm · 1,400 MW | GEM | duplicate of “Sofia” | Same farm (RWE, 1.4 GW); the GEM point is a placeholder for the whole Dogger Bank area | [link](https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/) |
 | Dogger Bank A · 1,200 MW · 2025 | curated | fixed: owner | Owner set to the Equinor, SSE Renewables and Vårgrønn joint venture; the field held Dogger Bank South’s owners | [link](https://www.equinor.com/news/202310-dogger-bank) |
 | Dogger Bank A · 1,200 MW · 2025 | curated | fixed: year, phases | Connected year by year (WindEurope annual statistics): one turbine (13 MW) in 2023, 63 MW in 2024 and 66 turbines (834 MW) in 2025; all 95 turbines were in place by February 2026 and the rest is still being commissioned | [link](https://proceedings.windeurope.org/biplatform/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa01LIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8aebcd72a09f63bec00d2131e13a2a48069695a4/WindEurope-European-Stats-2025.pdf) |
+| Dounreay Trì  Floating Wind Demonstration · 10 MW | GEM | removed | Never built: this two-turbine demonstrator was discontinued, and the site was later taken up by the Pentland floating wind farm (listed separately) | [link](https://www.offshorewind.biz/2021/06/18/cip-revives-floating-wind-project-offshore-scotland/) |
+| Kincardine · 49.5 MW · 2021 | curated | fixed: capacity, turbines | Now 5 × 9.5 MW (47.5 MW); a 2 MW trial unit (the former WindFloat 1) ran from 2018 to 2020 and was then removed | [link](https://marine.gov.scot/sites/default/files/250403_-_kincardine_offshore_windfarm_-_project_environmental_monitoring_programme_-_revision_c10.pdf) |
 
 ## United States of America (USA)
 
@@ -354,7 +386,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
-| Långnabba wind farm · 40 MW · 2022 | GEM | fixed: onshore/offshore | On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm | [link](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
+| Långnabba wind farm · 40 MW · 2022 | GEM | fixed: type | On land at the southern tip of Eckerö, Åland (only the export cable runs under the sea); not an offshore farm | [link](https://www.hbl.fi/2023-07-16/det-behovs-en-alanning-pa-varje-vindkraftverk-nu-har-alands-mr-vindkraft-fastnat-for-gront-vate/) |
+
+## Projects left out of the 2026 pipeline compilation
+
+| Project | Reason | Source link |
+|---|---|---|
+| Firefly (Bandibuli) (KOR) | Equinor stopped the project in May 2026 | [link](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
 
 ## GEM projects kept apart
 

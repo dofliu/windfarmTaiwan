@@ -22,7 +22,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from farm_foundations import ASOF, EXCLUDED, FOUNDATIONS, OSPAR_URL, SUBS, TYPES  # noqa: E402
+from farm_foundations import ASOF, EXCLUDED, FLOAT_SUBS, FOUNDATIONS, OSPAR_URL, SUBS, TYPES  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 FARMS = ROOT / 'data/global/wind_farms.json'
@@ -57,6 +57,7 @@ def main():
     ospar = {r['ID']: r for r in csv.DictReader(OSPAR_CSV.open(encoding='utf-8'))}
     countries = {c['iso']: c for c in json.loads((ROOT / 'data/global/wind_global.json').read_text(encoding='utf-8'))['countries']}
     errors, seen, out = [], set(), {}
+    STEP = max(r['step'] for r in FOUNDATIONS)          # 對照表已做到第幾步
     for rule in FOUNDATIONS:
         tag = f"{rule['iso']} {rule['name']}"
         f = farms.get(rule['name'])
@@ -76,6 +77,10 @@ def main():
             errors.append(f'{tag}: floating farms must be "fl" and fixed-bottom farms must not be')
         if rule['sub'] and rule['sub'] not in SUBS:
             errors.append(f'{tag}: unknown sub-type {rule["sub"]!r}')
+        if STEP >= 3 and t == 'fl' and rule['sub'] not in FLOAT_SUBS and not (rule['zh'] and rule['en']):   # 第 3 步起
+            errors.append(f'{tag}: a floating farm needs a floating sub-type ({"/".join(FLOAT_SUBS)}) or a zh/en note explaining why not')
+        if t != 'fl' and rule['sub'] in FLOAT_SUBS:
+            errors.append(f'{tag}: {rule["sub"]!r} is a floating sub-type')
         if (t == 'mx') != bool(rule['parts']):
             errors.append(f'{tag}: mixed farms (and only they) list their parts')
         for p in rule['parts'] or []:
@@ -155,6 +160,9 @@ NOTE = {   # 依對照表已完成到第幾步
     2: ['逐步收集中：第 1、2 步為歐洲（北海、東北大西洋、波羅的海、地中海等，2026-09）；其他地區的離岸風場暫列「型式不詳」',
         'Collected step by step: steps 1 and 2 cover Europe (North Sea, NE Atlantic, Baltic, Mediterranean and others; Sep 2026); '
         'offshore farms elsewhere are shown as “type unknown” for now'],
+    3: ['逐步收集中：第 1、2 步為歐洲，第 3 步為全球浮動式風場的細分型式（2026-09）；其他地區的固定式離岸風場暫列「型式不詳」',
+        'Collected step by step: steps 1 and 2 cover Europe and step 3 the sub-types of floating farms worldwide (Sep 2026); '
+        'fixed-bottom offshore farms elsewhere are shown as “type unknown” for now'],
 }
 
 
@@ -196,7 +204,8 @@ def write_docs(rows, out, ospar, countries):
                   '地球儀的「顯示」選單有「離岸：水下基礎」圖層，依基礎型式為離岸風場上色。資料一步一步收集：',
                   '', '1. **北海與東北大西洋（OSPAR 涵蓋範圍）**：已完成（2026-09）。',
                   '2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：' + ('已完成（2026-09）。' if done >= 2 else '進行中。'),
-                  '3. 浮動式風場的細分型式。', '4. 台灣、日本、韓國、美國。', '5. 中國、越南：前四步完成後再決定。', '',
+                  '3. **浮動式風場的細分型式**（全球）：' + ('已完成（2026-09）。' if done >= 3 else '進行中。'),
+                  '4. 台灣、日本、韓國、美國。', '5. 中國、越南：前四步完成後再決定。', '',
                   '本頁是' + {1: '第 1 步', 2: '前兩步', 3: '前三步', 4: '前四步', 5: '前五步'}[done] + '的結果。還沒查到的離岸風場標「型式不詳」，不臆測。', '',
                   '## 來源與方法', '',
                   f'- **OSPAR Offshore Renewable Energy Developments 2024**（[ODIMS]({OSPAR_URL})，CC0，資料時間 2024-01-01）是唯一逐場列出基礎型式的開放資料。'
@@ -205,11 +214,14 @@ def write_docs(rows, out, ospar, countries):
                   '與建成紀錄不符；英國 Hornsea One 西區也不符。所以德國每一座都以德文維基百科（附建造紀錄）為準，其他不符的逐筆附第二來源與說明。',
                   *(['- **第 2 步**：OSPAR 不涵蓋波羅的海與地中海，2024 年以後才完工的風場也只有核准階段的設計（設計可能改變）。這些風場逐座查開發商、施工廠商、'
                      '產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。'] if done >= 2 else []),
+                  *(['- **第 3 步**：全球的浮動式風場補上細分型式：單柱式（spar）、半潛式、駁船式（含阻尼池式）、張力腳平台，逐座查技術供應商、開發商或產業新聞，'
+                     '引用的原文逐筆核對過；同一筆紀錄含不同型式的機組時，在說明欄逐部寫出。'] if done >= 3 else []),
                   '- 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。',
                   '- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）；'
                   '風場卡片與本頁寫出確切型式。', '',
                   '## 各國進度（營運中的離岸風場）', '',
-                  f'合計：已知型式 {tot[2]}／{tot[0]} 座，占容量 {tot[3] / tot[1] * 100:.1f}%（浮動式風場本來就知道是浮動式，細分型式在第 3 步補）。', '',
+                  f'合計：已知型式 {tot[2]}／{tot[0]} 座，占容量 {tot[3] / tot[1] * 100:.1f}%（浮動式風場本來就知道是浮動式，'
+                  + ('細分型式見下方「浮動式風場」）。' if done >= 3 else '細分型式在第 3 步補）。'), '',
                   '| 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |', '|---|---:|---:|---:|---:|---:|---:|---:|']
         else:
             L += ['# Offshore wind foundation types', '', 'English (this page) ｜ [中文](foundations.md)', '',
@@ -218,7 +230,8 @@ def write_docs(rows, out, ospar, countries):
                   'The data is collected step by step:', '',
                   '1. **North Sea and NE Atlantic (OSPAR coverage)**: done (Sep 2026).',
                   '2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): ' + ('done (Sep 2026).' if done >= 2 else 'in progress.'),
-                  '3. Sub-types of floating farms.', '4. Taiwan, Japan, Korea and the USA.', '5. China and Vietnam: to be decided after the first four steps.', '',
+                  '3. **Sub-types of floating farms** (worldwide): ' + ('done (Sep 2026).' if done >= 3 else 'in progress.'),
+                  '4. Taiwan, Japan, Korea and the USA.', '5. China and Vietnam: to be decided after the first four steps.', '',
                   'This page shows the results of ' + ('step 1' if done == 1 else f'steps 1–{done}') + '. Offshore farms not yet checked are shown as “type unknown”, never guessed.', '',
                   '## Sources and method', '',
                   f'- **OSPAR Offshore Renewable Energy Developments 2024** ([ODIMS]({OSPAR_URL}), CC0, data as of 1 Jan 2024) is the only open dataset '
@@ -231,11 +244,15 @@ def write_docs(rows, out, ospar, countries):
                      'can change. These farms were checked one by one against developers, construction contractors, trade press, government documents or Wikipedia; '
                      'every farm cites a source, and each quoted passage was checked against the page. Where OSPAR has a consent-stage record, a construction source '
                      'is always added (the build checks this).'] if done >= 2 else []),
+                  *(['- **Step 3**: floating farms worldwide get their sub-type: spar, semi-submersible, barge (including damping-pool hulls) or '
+                     'tension-leg platform, checked one by one against technology providers, developers or trade press, with every quoted passage '
+                     'checked against the page; where one record holds units of different types, the note lists them.'] if done >= 3 else []),
                   '- In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.',
                   '- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame '
                   '(jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, mixed). Farm cards and this page give the exact type.', '',
                   '## Progress by country (operating offshore farms)', '',
-                  f'Total: type known for {tot[2]} of {tot[0]} farms, {tot[3] / tot[1] * 100:.1f}% of their capacity (floating farms are known to be floating; their sub-types come in step 3).', '',
+                  f'Total: type known for {tot[2]} of {tot[0]} farms, {tot[3] / tot[1] * 100:.1f}% of their capacity (floating farms are known to be floating; '
+                  + ('their sub-types are under “Floating farms” below).' if done >= 3 else 'their sub-types come in step 3).'), '',
                   '| Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |', '|---|---:|---:|---:|---:|---:|---:|---:|']
         for iso in sorted(per, key=lambda i: -per[i][1]):
             p = per[iso]
@@ -243,6 +260,14 @@ def write_docs(rows, out, ospar, countries):
                 continue
             g = p[4]
             L.append(f'| {cname(iso)} | {p[0]} | {p[2]} | {pct(p[3], p[1]) if p[2] < p[0] else "100%"} | {g["mp"] or ""} | {g["frame"] or ""} | {g["fl"] or ""} | {g["other"] or ""} |')
+        if done >= 3:
+            fl_ops = [r for r in ops if r[7] == 2]
+            sc = Counter((out.get(r[0]) or {}).get('s') or '?' for r in fl_ops)
+            order = [k for k in FLOAT_SUBS if sc.get(k)] + (['?'] if sc.get('?') else [])
+            label = lambda k: (('細分型式不詳或混合' if zh else 'sub-type unknown or mixed') if k == '?' else SUBS[k][0 if zh else 1])
+            L += ['', '## ' + ('浮動式風場（營運中）' if zh else 'Floating farms (operating)'), '',
+                  (f'共 {len(fl_ops)} 座、{sum(r[5] for r in fl_ops):,.1f} MW：' if zh else f'{len(fl_ops)} farms, {sum(r[5] for r in fl_ops):,.1f} MW: ')
+                  + ('、' if zh else ', ').join(f'{label(k)} {sc[k]}' for k in order) + ('。' if zh else '.')]
         L += ['', '## ' + ('逐場清單' if zh else 'Farm by farm'), '']
         grouped = defaultdict(list)
         for name, rec in out.items():

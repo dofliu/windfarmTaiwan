@@ -8,23 +8,24 @@
 
 1. **北海與東北大西洋（OSPAR 涵蓋範圍）**：已完成（2026-09）。
 2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：已完成（2026-09）。
-3. 浮動式風場的細分型式。
+3. **浮動式風場的細分型式**（全球）：已完成（2026-09）。
 4. 台灣、日本、韓國、美國。
 5. 中國、越南：前四步完成後再決定。
 
-本頁是前兩步的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
+本頁是前三步的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
 
 ## 來源與方法
 
 - **OSPAR Offshore Renewable Energy Developments 2024**（[ODIMS](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/)，CC0，資料時間 2024-01-01）是唯一逐場列出基礎型式的開放資料。取其中「營運中」的風機紀錄，逐筆比對本站風場的名稱、位置（OSPAR 範圍圖）與容量；`data/global/sources/ospar_offshore_renewables_2024.csv` 是取出的原始值。
 - OSPAR 不一定是建成後的樣子：德國的紀錄有 10 筆只寫「單樁／三腳／三樁／套管／重力式／其他」任一種，Merkur、Veja Mate、Trianel Borkum II、alpha ventus 與建成紀錄不符；英國 Hornsea One 西區也不符。所以德國每一座都以德文維基百科（附建造紀錄）為準，其他不符的逐筆附第二來源與說明。
 - **第 2 步**：OSPAR 不涵蓋波羅的海與地中海，2024 年以後才完工的風場也只有核准階段的設計（設計可能改變）。這些風場逐座查開發商、施工廠商、產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。
+- **第 3 步**：全球的浮動式風場補上細分型式：單柱式（spar）、半潛式、駁船式（含阻尼池式）、張力腳平台，逐座查技術供應商、開發商或產業新聞，引用的原文逐筆核對過；同一筆紀錄含不同型式的機組時，在說明欄逐部寫出。
 - 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。
 - 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、混合）；風場卡片與本頁寫出確切型式。
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 147／371 座，占容量 38.3%（浮動式風場本來就知道是浮動式，細分型式在第 3 步補）。
+合計：已知型式 144／368 座，占容量 38.2%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -35,8 +36,8 @@
 | 台灣 | 8 | 0 | 0% |  |  |  |  |
 | 丹麥 | 17 | 16 | 99% | 8 |  |  | 8 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
-| 法國 | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | 越南 | 28 | 0 | 0% |  |  |  |  |
+| 法國 | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
 | 美國 | 4 | 0 | 0% |  |  |  |  |
 | 南韓 | 8 | 1 | <1% |  |  | 1 |  |
 | 日本 | 12 | 2 | 1% |  |  | 2 |  |
@@ -44,10 +45,22 @@
 | 挪威 | 3 | 3 | 100% |  |  | 3 |  |
 | 芬蘭 | 1 | 1 | 100% |  |  |  | 1 |
 | 義大利 | 1 | 1 | 100% | 1 |  |  |  |
-| 西班牙 | 3 | 3 | 100% |  |  | 2 | 1 |
 | 葡萄牙 | 1 | 1 | 100% |  |  | 1 |  |
+| 西班牙 | 2 | 2 | 100% |  |  | 1 | 1 |
+
+## 浮動式風場（營運中）
+
+共 15 座、260.8 MW：單柱式 5、半潛式 5、駁船式 3、張力腳 1、細分型式不詳或混合 1。
 
 ## 逐場清單
+
+### 中國大陸
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| 海油觀瀾號（Haiyou Guanlan (CNOOC floating)） | 7.2 | 2023 | 浮動式（半潛式） | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/) | 半潛式；供電給文昌油田群，不接公用電網 |
+| 明陽天成號浮式（Mingyang OceanX (Tiancheng) floating） | 16.6 | 2024 | 浮動式（半潛式） | [mlit.go.jp](https://www.mlit.go.jp/kowan/content/001869831.pdf) | 一座浮台上兩部 8.3 MW 風機，浮台由浮筒與混凝土構件組成（日本國土交通省的調查列為半潛式） |
+| 三峽引領號（Yangjiang Shapa 'Sanxia Yinling' floating） | 5.5 | 2021 | 浮動式（半潛式） | [sasac.gov.cn](http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html) | 半潛式平台 |
 
 ### 丹麥
 
@@ -123,7 +136,16 @@
 |---|---:|---:|---|---|---|
 | Hywind Demo (Karmøy) | 2.3 | 2009 | 浮動式（單柱式） | [OSPAR NO001](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind) | 2019 年起改名 Unitech Zefyros（OSPAR 用此名） |
 | Hywind Tampen | 88.0 | 2023 | 浮動式（單柱式） | [OSPAR NO010](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Hywind_Tampen) | 混凝土單柱式浮台 |
-| TetraSpar Demonstrator (METCentre) | 3.6 | 2021 | 浮動式 | [OSPAR NO018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」 |  |
+| TetraSpar Demonstrator (METCentre) | 3.6 | 2021 | 浮動式（單柱式） | [OSPAR NO018](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」<br>[stiesdaloffshore.com](https://stiesdaloffshore.com/projects/the-tetraspar-full-scale-demonstration-project/) | Stiesdal 的 Tetra 浮台，採單柱式配置（下方懸吊壓艙）；2026 年除役（細分型式於第 3 步補上） |
+
+### 日本
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| 福島浮体式洋上風力実証（Fukushima FORWARD floating demo） | 14.0 | 2013 | 浮動式 | [fukushima-forward.jp](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) | 兩部半潛式（2 MW、7 MW V 型）與一部單柱式（5 MW），型式不同，所以不標單一細分型式 |
+| 五島洋上風場（Goto City Offshore floating project） | 16.8 | 2026 | 浮動式（單柱式） | [toda.co.jp](https://www.toda.co.jp/news/2026/20260105_006181.html) | 8 座混合式單柱浮台（上段鋼、下段混凝土） |
+| 五島崎山浮体式洋上風力（Goto Sakiyama floating demonstration） | 2.0 | 2016 | 浮動式（單柱式） | [toda.co.jp](https://www.toda.co.jp/business/ecology/haenkaze/about/facility.html) | 戶田建設的混合式單柱浮台「はえんかぜ」 |
+| 北九州響灘浮体式実証（Hibiki floating demo (NEDO)） | 3.0 | 2019 | 浮動式（駁船式） | [nedo.go.jp](https://www.nedo.go.jp/news/press/AA5_101117.html) | 鋼製駁船式浮台，搭載兩葉片 3 MW 風機 |
 
 ### 比利時
 
@@ -147,8 +169,11 @@
 | 風場 | MW | 年份 | 型式 | 來源 | 說明 |
 |---|---:|---:|---|---|---|
 | Calvados (Courseulles-sur-Mer) | 450 | 2027 | 單樁 | [OSPAR FR01](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[meretmarine.com](https://www.meretmarine.com/fr/energies-marines/parc-eolien-du-calvados-le-seaway-strashnov-est-arrive-au-havre-pour-installer-des-monopieux) | 64 座單樁（興建中） |
+| EolMed (Gruissan) | 30.0 | 2026 | 浮動式（駁船式） | [bw-ideol.com](https://www.bw-ideol.com/en/eolmed-project) | BW Ideol 的阻尼池式駁船（鋼造） |
+| Floatgen (SEM-REV) | 2.0 | 2018 | 浮動式（駁船式） | [bw-ideol.com](https://www.bw-ideol.com/en/floatgen-demonstrator) | BW Ideol 的阻尼池式駁船 |
 | Fécamp | 497 | 2024 | 重力式 | [OSPAR FR04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravitation」<br>[fr.wikipedia.org](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_F%C3%A9camp) | 71 座混凝土重力式基礎（每座約 5,000 噸） |
-| Provence Grand Large | 25.0 | 2024 | 浮動式 | [OSPAR FR11](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」 |  |
+| Les Éoliennes Flottantes du Golfe du Lion (EFGL) | 30.0 | 2026 | 浮動式（半潛式） | [principlepower.com](https://www.principlepower.com/projects/efgl) | Principle Power 的 WindFloat 半潛式平台 |
+| Provence Grand Large | 25.0 | 2024 | 浮動式（張力腳） | [OSPAR FR11](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「other」<br>[edf.fr](https://www.edf.fr/en/the-edf-group/dedicated-sections/journalists/all-press-releases/provence-grand-large-full-commissioning-of-the-first-french-floating-offshore-wind-farm) | SBM Offshore 與 IFPEN 開發的張力腳平台（細分型式於第 3 步補上） |
 | Saint-Brieuc | 496 | 2024 | 套管式 | [OSPAR FR02](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「jacket」 |  |
 | Saint-Nazaire (Banc de Guérande) | 480 | 2022 | 單樁 | [OSPAR FR03](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[fr.wikipedia.org](https://fr.wikipedia.org/wiki/Parc_%C3%A9olien_en_mer_de_Saint-Nazaire) |  |
 | Îles d'Yeu et de Noirmoutier | 488 | 2025 | 單樁 | [OSPAR FR06](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[deme-group.com](https://www.deme-group.com/news/all-foundations-installed-iles-dyeu-and-noirmoutier-offshore-wind-farm) | 61 座鑽孔植入的單樁 |
@@ -197,8 +222,10 @@
 | Hornsea One | 1,218 | 2019 | 單樁 | [OSPAR UK043](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[OSPAR UK044](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「jacket」<br>[OSPAR UK045](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[offshorewind.biz](https://www.offshorewind.biz/2019/04/26/hornsea-one-foundations-all-in-place/) | 174 座全為單樁（2019 年 4 月完工）；OSPAR 把西區列為套管，與建成紀錄不符（DONG 2015 年曾規劃三分之一用吸力桶基礎） |
 | Hornsea Two | 1,386 | 2022 | 單樁 | [OSPAR UK046](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」<br>[OSPAR UK046A](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「—」<br>[OSPAR UK046B](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「—」 |  |
 | Humber Gateway | 219 | 2015 | 單樁 | [OSPAR UK049](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
+| Hywind Scotland | 30.0 | 2017 | 浮動式（單柱式） | [equinor.com](https://www.equinor.com/energy/hywind-scotland) | Equinor 的單柱式浮台 |
 | Kentish Flats | 90.0 | 2005 | 單樁 | [OSPAR UK057](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Kentish Flats Extension | 49.5 | 2015 | 單樁 | [OSPAR UK056](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
+| Kincardine | 47.5 | 2021 | 浮動式（半潛式） | [principlepower.com](https://www.principlepower.com/projects/kincardine-offshore-wind-farm) | Principle Power 的 WindFloat 半潛式平台 |
 | Levenmouth Demonstration (Methil) | 7.0 | 2013 | 套管式 | [OSPAR UK064](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「jacket」 |  |
 | Lincs | 270 | 2013 | 單樁 | [OSPAR UK059](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | London Array | 630 | 2013 | 單樁 | [OSPAR UK060](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
@@ -243,14 +270,23 @@
 | Windpark Fryslân | 383 | 2021 | 單樁 | [offshorewind.biz](https://www.offshorewind.biz/2020/11/09/windpark-fryslan-monopiles-halfway-there/) | 89 座單樁（艾瑟爾湖） |
 | Windplanblauw offshore wind farm | 132 | 2024 | 圍堰式 | [windpowernl.com](https://windpowernl.com/2024/08/30/festive-opening-of-dutch-on-and-nearshore-wind-project-windplanblauw/) | 湖中 24 部風機：每座以 22 支鋼管樁（間以板樁）圍成一圈、填砂，上面是直徑約 20 m 的混凝土基座 |
 
+### 葡萄牙
+
+| 風場 | MW | 年份 | 型式 | 來源 | 說明 |
+|---|---:|---:|---|---|---|
+| WindFloat 1 (Aguçadoura demo) | 2.0 | 2011 | 浮動式（半潛式） | [principlepower.com](https://www.principlepower.com/projects/windfloat1) | 第一部裝在半潛式平台上的浮動式風機（2011–2016 年；之後移到蘇格蘭 Kincardine 再運轉到 2020 年） |
+| WindFloat Atlantic | 25.2 | 2020 | 浮動式（半潛式） | [principlepower.com](https://www.principlepower.com/projects/windfloat-atlantic) | Principle Power 的 WindFloat 半潛式平台 |
+
 ### 西班牙
 
 | 風場 | MW | 年份 | 型式 | 來源 | 說明 |
 |---|---:|---:|---|---|---|
+| DemoSATH (BiMEP) | 2.0 | 2023 | 浮動式（駁船式） | [saitec-offshore.com](https://saitec-offshore.com/en/sath/) | Saitec 的 SATH 混凝土駁船 |
 | Elican / Elisa (Gran Canaria) | 5.0 | 2019 | 重力式 | [cordis.europa.eu](https://cordis.europa.eu/project/id/691919) | 重力式基礎配伸縮式塔架，可自行安裝的原型機 |
 
 ## 查過但暫不列入的風場
 
 | 風場 | OSPAR | 理由 |
 |---|---|---|
+| 南韓 · Ulsan Dongbu floating demo (Vindmøllen 750 kW) | — | 計畫中的 750 kW 半潛式試驗機；2019 年 11 月仍因許可未發而沒有安裝，查不到之後在海上發電的紀錄，待查證 |
 | 丹麥 · Frederikshavn | DK03 | 試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列 |

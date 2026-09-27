@@ -19,6 +19,8 @@ Hornsea One 西區也與建成紀錄不符。
 第 2 步（2026-09，F2）：歐洲其他風場，包括 OSPAR 範圍以外的波羅的海、地中海與艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場。
 每一座都附出處（開發商、施工廠商、產業新聞、政府文件或維基百科，原文逐筆核對過）。OSPAR 對 2024 年以後完工的風場只有
 核准階段的設計（Current Status 是 authorised 等，不是 operational 或 decommissioned），設計可能改變，所以這種紀錄一定要再附施工紀錄，建置會檢查。
+第 3 步（2026-09，F3）：全球的浮動式風場補上細分型式（單柱式、半潛式、駁船式、張力腳），逐座查技術供應商與開發商資料。
+浮動式的列一定要有細分型式；同一筆紀錄含不同型式的機組時（例：福島的示範機組），以中英文說明代替，建置會檢查。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
 
@@ -62,6 +64,14 @@ def F2(*a, **k):
     return F(*a, step=2, **k)
 
 
+def F3(*a, **k):
+    """第 3 步加入的列（浮動式）"""
+    return F(*a, step=3, **k)
+
+
+FLOAT_SUBS = ('spar', 'semi', 'barge', 'tlp')      # 浮動式的細分型式（sb 吸力桶是固定式套管用的）
+
+
 GER = ('OSPAR 只寫「任一種」，改以德文維基百科（附建造紀錄）為準', 'OSPAR says “any of these”, so German Wikipedia (with construction records) is used')
 
 FOUNDATIONS = [
@@ -95,7 +105,9 @@ FOUNDATIONS = [
     F('FRA', 'Saint-Brieuc', 'jk', ['FR02']),
     F('FRA', 'Fécamp', 'gb', ['FR04'], FR + 'Parc_%C3%A9olien_en_mer_de_F%C3%A9camp',
       zh='71 座混凝土重力式基礎（每座約 5,000 噸）', en='71 concrete gravity bases (about 5,000 t each)'),
-    F('FRA', 'Provence Grand Large', 'fl', ['FR11']),
+    F('FRA', 'Provence Grand Large', 'fl', ['FR11'], 'https://www.edf.fr/en/the-edf-group/dedicated-sections/journalists/all-press-releases/provence-grand-large-full-commissioning-of-the-first-french-floating-offshore-wind-farm',
+      sub='tlp', zh='SBM Offshore 與 IFPEN 開發的張力腳平台（細分型式於第 3 步補上）',
+      en='Tension-leg platforms developed by SBM Offshore and IFPEN (sub-type added in step 3)'),
     # ------------------------------------------------ Germany（北海；每一座以德文維基百科為準）
     F('DEU', 'alpha ventus', 'mx', ['DE001'], DE + 'Offshore-Windpark_alpha_ventus', parts=[['tp', 6], ['jk', 6]],
       zh='6 部三腳架、6 部套管；OSPAR 誤列為「單樁／套管」', en='6 tripods and 6 jackets; OSPAR wrongly lists “monopile/jacket”'),
@@ -142,7 +154,9 @@ FOUNDATIONS = [
     F('NOR', 'Hywind Demo (Karmøy)', 'fl', ['NO001'], EN + 'Hywind', sub='spar',
       zh='2019 年起改名 Unitech Zefyros（OSPAR 用此名）', en='Renamed Unitech Zefyros in 2019 (the name OSPAR uses)'),
     F('NOR', 'Hywind Tampen', 'fl', ['NO010'], EN + 'Hywind_Tampen', sub='spar', zh='混凝土單柱式浮台', en='Concrete spar buoys'),
-    F('NOR', 'TetraSpar Demonstrator (METCentre)', 'fl', ['NO018']),
+    F('NOR', 'TetraSpar Demonstrator (METCentre)', 'fl', ['NO018'], 'https://stiesdaloffshore.com/projects/the-tetraspar-full-scale-demonstration-project/',
+      sub='spar', zh='Stiesdal 的 Tetra 浮台，採單柱式配置（下方懸吊壓艙）；2026 年除役（細分型式於第 3 步補上）',
+      en='Stiesdal’s Tetra floater in a spar configuration (with a suspended keel); decommissioned in 2026 (sub-type added in step 3)'),
     # ------------------------------------------------ United Kingdom
     F('GBR', 'Barrow', 'mp', ['UK002']),
     F('GBR', 'Beatrice', 'jk', ['UK003']),
@@ -282,10 +296,52 @@ FOUNDATIONS = [
        zh='10 座單樁；地中海第一座離岸風場', en='10 monopiles; the first offshore wind farm in the Mediterranean'),
     F2('ESP', 'Elican / Elisa (Gran Canaria)', 'gb', url='https://cordis.europa.eu/project/id/691919',
        zh='重力式基礎配伸縮式塔架，可自行安裝的原型機', en='A gravity-based foundation with a telescopic tower; a self-installing prototype'),
+
+    # ================================================ 第 3 步（2026-09）：浮動式風場的細分型式
+    # ------------------------------------------------ Europe
+    F3('GBR', 'Hywind Scotland', 'fl', url='https://www.equinor.com/energy/hywind-scotland', sub='spar',
+       zh='Equinor 的單柱式浮台', en='Equinor’s spar floaters'),
+    F3('GBR', 'Kincardine', 'fl', url='https://www.principlepower.com/projects/kincardine-offshore-wind-farm', sub='semi',
+       zh='Principle Power 的 WindFloat 半潛式平台', en='Principle Power’s WindFloat semi-submersibles'),
+    F3('PRT', 'WindFloat Atlantic', 'fl', url='https://www.principlepower.com/projects/windfloat-atlantic', sub='semi',
+       zh='Principle Power 的 WindFloat 半潛式平台', en='Principle Power’s WindFloat semi-submersibles'),
+    F3('PRT', 'WindFloat 1 (Aguçadoura demo)', 'fl', url='https://www.principlepower.com/projects/windfloat1', sub='semi',
+       zh='第一部裝在半潛式平台上的浮動式風機（2011–2016 年；之後移到蘇格蘭 Kincardine 再運轉到 2020 年）',
+       en='The first floating turbine on a semi-submersible (2011–2016; later moved to Kincardine in Scotland, where it ran until 2020)'),
+    F3('FRA', 'Floatgen (SEM-REV)', 'fl', url='https://www.bw-ideol.com/en/floatgen-demonstrator', sub='barge',
+       zh='BW Ideol 的阻尼池式駁船', en='BW Ideol’s Damping Pool barge'),
+    F3('FRA', 'EolMed (Gruissan)', 'fl', url='https://www.bw-ideol.com/en/eolmed-project', sub='barge',
+       zh='BW Ideol 的阻尼池式駁船（鋼造）', en='BW Ideol’s Damping Pool barges (steel)'),
+    F3('FRA', 'Les Éoliennes Flottantes du Golfe du Lion (EFGL)', 'fl', url='https://www.principlepower.com/projects/efgl', sub='semi',
+       zh='Principle Power 的 WindFloat 半潛式平台', en='Principle Power’s WindFloat semi-submersibles'),
+    F3('ESP', 'DemoSATH (BiMEP)', 'fl', url='https://saitec-offshore.com/en/sath/', sub='barge',
+       zh='Saitec 的 SATH 混凝土駁船', en='Saitec’s SATH concrete barge'),
+    # ------------------------------------------------ Asia
+    F3('CHN', 'Mingyang OceanX (Tiancheng) floating', 'fl', url='https://www.mlit.go.jp/kowan/content/001869831.pdf', sub='semi',
+       zh='一座浮台上兩部 8.3 MW 風機，浮台由浮筒與混凝土構件組成（日本國土交通省的調查列為半潛式）',
+       en='Two 8.3 MW turbines on one floater of buoys and concrete members (listed as a semi-submersible in a survey by Japan’s MLIT)'),
+    F3('CHN', 'Haiyou Guanlan (CNOOC floating)', 'fl', url='https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/',
+       sub='semi', zh='半潛式；供電給文昌油田群，不接公用電網', en='Semi-submersible; it supplies the Wenchang oilfield grid, not the public grid'),
+    F3('CHN', "Yangjiang Shapa 'Sanxia Yinling' floating", 'fl',
+       url='http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html', sub='semi',
+       zh='半潛式平台', en='Semi-submersible platform'),
+    F3('JPN', 'Hibiki floating demo (NEDO)', 'fl', url='https://www.nedo.go.jp/news/press/AA5_101117.html', sub='barge',
+       zh='鋼製駁船式浮台，搭載兩葉片 3 MW 風機', en='A steel barge floater carrying a two-bladed 3 MW turbine'),
+    F3('JPN', 'Goto Sakiyama floating demonstration', 'fl', url='https://www.toda.co.jp/business/ecology/haenkaze/about/facility.html', sub='spar',
+       zh='戶田建設的混合式單柱浮台「はえんかぜ」', en='Toda’s hybrid spar “Haenkaze”'),
+    F3('JPN', 'Goto City Offshore floating project', 'fl', url='https://www.toda.co.jp/news/2026/20260105_006181.html', sub='spar',
+       zh='8 座混合式單柱浮台（上段鋼、下段混凝土）', en='8 hybrid spars (steel upper part, concrete lower part)'),
+    F3('JPN', 'Fukushima FORWARD floating demo', 'fl', url='https://www.fukushima-forward.jp/reference/pdf/study086.pdf',
+       zh='兩部半潛式（2 MW、7 MW V 型）與一部單柱式（5 MW），型式不同，所以不標單一細分型式',
+       en='Two semi-submersibles (2 MW and a V-shaped 7 MW) and one spar (5 MW); the types differ, so no single sub-type is given'),
 ]
 
 # OSPAR 有紀錄、但這一步刻意不列的風場（理由寫在報告裡，之後的步驟再查）
 EXCLUDED = [
+    ('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', [],
+     '計畫中的 750 kW 半潛式試驗機；2019 年 11 月仍因許可未發而沒有安裝，查不到之後在海上發電的紀錄，待查證',
+     'A planned 750 kW semi-submersible pilot; in November 2019 it was still not installed because permits were withheld, and there is '
+     'no record of it generating at sea afterwards; to be verified'),
     ('DNK', 'Frederikshavn', ['DK03'],
      '試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；'
      '各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列',
