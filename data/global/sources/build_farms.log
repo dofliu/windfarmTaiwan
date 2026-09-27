@@ -34,6 +34,7 @@ ADD  TWN pre-construction Huanyang Offshore wind farm 440.0 y2028
 ADD  TWN pre-construction Kouhu wind farm 71.0 y0
 ADD  TWN pre-construction Mei Sen wind farm 240.0 y2028
 ADD  TWN pre-construction Taichung Fengmiao Floating wind farm 1100.0 y2027
+CLEAN drop BEL C-Power Offshore Wind Project 325.0
 CLEAN drop CHN Dabancheng 2500.0
 CLEAN drop CHN Guangdong Yangjiang Shaba (Three Gorges) Offshore wind farm 1706.0
 CLEAN drop CHN Minqin Hongshagang 1300.0
@@ -74,6 +75,7 @@ CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang South
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
+CLEAN dup FRA Saint-Brieuc wind farm 496.0 -> Saint-Brieuc
 CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough

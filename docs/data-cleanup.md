@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 129 條：刪除 77 筆（其中營運中 24,471.8 MW），修正 52 筆。
+- 規則 131 條：刪除 79 筆（其中營運中 25,292.8 MW），修正 52 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -24,6 +24,8 @@
 | 多明尼加 | 1 | 50 | 6 |
 | 巴西 | 1 | 150 | 0 |
 | 挪威 | 3 | 1,889 | 8 |
+| 比利時 | 1 | 325 | 0 |
+| 法國 | 1 | 496 | 0 |
 | 泰國 | 1 | 600 | 1 |
 | 澳洲 | 3 | 193 | 3 |
 | 烏拉圭 | 1 | 141.6 | 1 |
@@ -144,6 +146,18 @@
 | Svaheia wind farm · 25 MW | GEM | 修正：年份、容量 | 補上商轉年 2018（25.2 MW） | [連結](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Gismarvik wind farm · 12.6 MW | GEM | 修正：年份、容量 | 補上商轉年 2021（12.6 MW） | [連結](https://no.wikipedia.org/wiki/Liste_over_vindkraftverk_i_Norge) |
 | Havøygavlen wind farm · 38 MW | GEM | 修正：年份、容量 | 2020–21 年汰換為 9 部 V117（另保留 1 部 2010 年的 3 MW 測試機），合計 41.4 MW | [連結](https://finnmarkkraft.no/prosjekter/havoygavlen-vindpark) |
+
+## 比利時 (BEL)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| C-Power Offshore Wind Project · 325 MW · 2009 | GEM | 刪除 | Thorntonbank 風場（營運商 C-Power）的整場合計；三期已由精選的 Thornton Bank I、II、III 逐期列出（30 + 184.5 + 110.7 MW） | [連結](https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm) |
+
+## 法國 (FRA)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Saint-Brieuc wind farm · 496 MW · 2024 | GEM | 重複（併入「Saint-Brieuc」） | 同一座風場（496 MW，2024 年）；GEM 座標在布雷斯特外海，偏離約 170 km | [連結](https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm) |
 
 ## 泰國 (THA)
 
