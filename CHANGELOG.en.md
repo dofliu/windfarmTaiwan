@@ -15,7 +15,16 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
-## v2.12.1 — 2026-09-28
+## v2.12.2 — 2026-09-28
+
+- Fix the phone layout of the Taiwan live dashboard: the two-column farm-card grid used `1fr`, whose minimum width follows the content, so below
+  640 px the page was laid out about 514 px wide, part of the farm drawer sat off-screen and its close button could not be reached. Now
+  `minmax(0,1fr)`; no horizontal overflow at 320–414 px.
+- Full functional check (28 Sep 2026): all data checks and build scripts pass and the generated files match the repository; Playwright walked
+  Home, the four Taiwan-live views, the 12 Learn chapters, every globe view / layer / tab / tour / deep link, phone width, and both single-file
+  copies online and offline, finding no functional problem other than the one above.
+
+
 
 - Events: 29 more incidents compiled from web searches (WIND-060 to 088, 88 events in total): Taipower Taichung Port in Typhoon Jangmi 2008,
   Soudelor 2015 (7 collapses) and Megi 2016; Miyakojima in Typhoon Maemi 2003, Awaji 2018; Hornslet 2008 overspeed, Ardrossan 2011 fire,
