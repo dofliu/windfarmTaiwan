@@ -109,8 +109,8 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     manufacturing, cables, floating assembly and O&M (compiled by hand in Sep 2026, each with sources); small dots at
     world zoom, icons and names when zoomed in. Port cards list the roles, the wind farms served (click to switch)
     and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
-  - **Events layer** (⚑): 59 major events and incidents verified by hand on 28 Sep 2026 (36 milestones, 21 incidents /
-    failures, 2 policy & society), each with a primary source from a regulator or the owner; an event appears once the
+  - **Events layer** (⚑): 88 major events and incidents (36 milestones, 50 incidents / failures, 2 policy & society; the first 59
+    verified by hand on 28 Sep 2026, a second batch of 29 incidents compiled from web searches, passages still to be checked), each with a primary source from a regulator or the owner; an event appears once the
     timeline reaches its year (2026 events show at the latest year), red = incident / failure, white = milestone,
     purple = policy & society. Events with coordinates are marked on the globe, events linked to a farm but without
     coordinates are placed at the farm, and the rest appear only in the Events tab. The event card shows the summary,
@@ -191,7 +191,7 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
 - `data/global/foundations.json` — foundation types of offshore farms (built by `tools/build_foundations.py` from the
   per-farm table in `tools/farm_foundations.py`)
-- `data/global/events.json` — 59 major events and incidents (built by `tools/build_events.py` from
+- `data/global/events.json` — 88 major events and incidents (built by `tools/build_events.py` from
   `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
   the build script, which checks that every event has English text and that farm names match the farm layer)
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the

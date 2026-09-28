@@ -1735,7 +1735,7 @@ function selectEvent(e) {
   if (!S.events) toggleEvents(true);
   if (!evShown(e)) { S.year = clamp(e.year + 0.5, Y0, Y1); syncYearUI(); }
   if (byIso[e.iso] && S.region !== e.iso) setRegion(e.iso, true);
-  focusEvent = e; evFocus(e, true);
+  focusEvent = e; if (!evFocus(e, true)) flyToRegion(false);          // 沒有座標也對不到風場：至少飛到該國
   renderCard(eventItem(e));
   syncURL();
 }

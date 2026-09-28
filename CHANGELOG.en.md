@@ -15,7 +15,22 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
-## v2.12.0 — 2026-09-28
+## v2.12.1 — 2026-09-28
+
+- Events: 29 more incidents compiled from web searches (WIND-060 to 088, 88 events in total): Taipower Taichung Port in Typhoon Jangmi 2008,
+  Soudelor 2015 (7 collapses) and Megi 2016; Miyakojima in Typhoon Maemi 2003, Awaji 2018; Hornslet 2008 overspeed, Ardrossan 2011 fire,
+  Lemnhult 2015, Aldermyrberget 2020, Haltern AV9 2021 and Herkentrup 2025 collapses; Fenner 2009, Chatham-Kent 2018, Maverick 2022 and
+  Frontier II 2025 collapses; Screggagh 2015; the Øyfjellet 2024 rotor fall and Odal 2024 blade loss; Hwasun Geumseongsan 2025; Delta 6 2019,
+  Rei dos Ventos 2021 and Santo Agostinho 2023 in Brazil; the Harvest II and Juniper Canyon fires of 2019; the Jiuquan 2011 grid disconnection;
+  Wenchang in Typhoon Yagi 2024; the Hai Long substation CO2 leak of 2024 (3 dead); the He Dreiht 2026 blade failure; the Desert Hot Springs
+  2020 fatal fall. This batch was compiled where only search-result summaries could be read: each row says so in its verification status and
+  the quoted passages are still to be checked with `tools/check_quotes.py` (see TODO).
+- The Taipower Mailiao turbine fire (WIND-057) is now linked to Yunmai (Mailiao) in the farm layer (Taipower's only Mailiao farm, Vestas V80
+  2 MW ×23), so clicking it flies to the farm and draws its turbines.
+- Clicking an event with no coordinates and no linked farm now flies to its country (the camera used to stay put). Event-to-farm links went
+  from 53 to 75.
+
+
 
 - New Events layer and tab: 59 major events and incidents verified by hand on 28 Sep 2026 (36 milestones, 21 incidents / failures, 2 policy & society),
   each with a primary source from a regulator or the owner; an event appears once the timeline reaches its year, and 2026 events show at the latest year.
