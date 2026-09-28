@@ -465,7 +465,7 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
   .hh .minis{grid-template-columns:repeat(3,1fr);gap:6px}
   .hh .mini{padding:8px}
   .hh .mini .v{font-size:16px}
-  .fgrid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .fgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
   .fcard{gap:8px;padding:10px}
   .fcard .tw{flex-basis:32px;width:32px}
   .turb{width:32px;height:52px}
