@@ -80,7 +80,7 @@
   - **港口圖層**（⚓）：離岸風電的組裝出港、水下基礎與風機零組件製造、海纜、浮動式組裝與運維港口 55 個（15 國，2026-09 人工整理，
     每港附出處）；全球視角為小點，拉近才有圖示與名稱。港口卡片列出角色、服務過的風場（可點選切換）與出處，可以搜尋，
     也有「港口」分頁（例：`#/global?port=twn-taichung`）
-  - **事件圖層**（⚑）：2026-09-28 人工查證的重大事件與事故 59 筆（發展里程碑 36、事故／故障 21、政策與社會 2），每筆附主管機關或
+  - **事件圖層**（⚑）：2026-09-28 人工查證的重大事件與事故 88 筆（發展里程碑 36、事故／故障 50、政策與社會 2；2026-09-28 第二批 29 筆故障事件依網路搜尋整理，原文待核對），每筆附主管機關或
     業主的一手來源；時間軸到達事件年份才出現（2026 年的在最新年份顯示），紅＝事故／故障、白＝里程碑、紫＝政策與社會。有座標的標在地球儀上，
     沒有座標但對得到風場的用風場位置，其餘只列在「事件」分頁。事件卡片列出摘要、容量口徑、傷亡（只寫官方確認的）、各項註記、相關風場、出處與
     照片頁面（只記錄網址與權利狀態，本站不轉載）；風場卡片列出該場的相關事件。可搜尋、依類型篩選（例：`#/global?ev=WIND-040`）；
@@ -140,7 +140,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
 - `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 的逐場對照表產生）
-- `data/global/events.json` — 重大事件與事故 59 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
+- `data/global/events.json` — 重大事件與事故 88 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
   英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
   以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）

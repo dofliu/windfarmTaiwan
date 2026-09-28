@@ -31,7 +31,7 @@ FARMS_JSON = ROOT / "data/global/wind_farms.json"
 
 # ---------------------------------------------------------------- 國家 · countries (CSV 的中文國名 → ISO3)
 ISO = {"美國": "USA", "丹麥": "DNK", "中國": "CHN", "英國": "GBR", "荷蘭": "NLD", "日本": "JPN", "摩洛哥": "MAR", "澳洲": "AUS",
-       "南韓": "KOR", "肯亞": "KEN", "台灣": "TWN", "巴西": "BRA", "沙烏地阿拉伯": "SAU", "挪威": "NOR", "加拿大": "CAN", "法國": "FRA"}
+       "南韓": "KOR", "肯亞": "KEN", "台灣": "TWN", "巴西": "BRA", "沙烏地阿拉伯": "SAU", "挪威": "NOR", "加拿大": "CAN", "法國": "FRA", "瑞典": "SWE", "德國": "DEU"}
 CONT = {"北美洲": "NA", "歐洲": "EU", "亞洲": "AS", "非洲": "AF", "大洋洲": "OC", "南美洲": "SA"}
 
 # ---------------------------------------------------------------- 分類 · categories (事件類型 → 代碼；子類、階段等固定詞的英文)
@@ -41,12 +41,14 @@ SITE = {"陸域": "on", "離岸": "off"}
 PREC = {"日": "d", "月": "m", "年": "y"}
 SUB_EN = {
     "啟用／建置": "Commissioning / construction", "設備事故": "Equipment accident", "電網／系統事件": "Grid / system event",
-    "塔架／基礎失效": "Tower / foundation failure", "原住民族權利／司法": "Indigenous rights / court ruling", "轉子脫落": "Rotor detachment",
+    "塔架／基礎失效": "Tower / foundation failure", "塔架倒塌／基礎失效": "Tower collapse / foundation failure", "原住民族權利／司法": "Indigenous rights / court ruling", "轉子脫落": "Rotor detachment",
     "塔架倒塌": "Tower collapse", "浮體製造瑕疵／延後商轉": "Floater manufacturing defect / delayed start", "潤滑油洩漏／復發": "Lubricant leak (recurring)",
     "大型開發取消": "Major project cancelled", "葉片受損": "Blade damage", "葉片斷裂／碎片漂流": "Blade failure / debris drift",
     "葉片斷裂": "Blade failure", "工作者高處墜落／重傷": "Worker fall from height / serious injury", "吊裝工程死亡": "Lifting-work fatality",
     "塔架焊縫疲勞／倒塔": "Tower weld fatigue / collapse", "輸出海纜受損／工期延後": "Export cable damage / schedule delay",
     "塔架折彎／老舊機組": "Tower buckling (ageing turbine)", "維修火災／人員死亡": "Maintenance fire / fatalities", "風機火災": "Turbine fire",
+    "颱風／塔架倒塌": "Typhoon / tower collapse", "機艙火災": "Nacelle fire", "塔架倒塌／飛車": "Tower collapse / overspeed", "塔架倒塌／葉片缺陷": "Tower collapse / blade defect",
+    "風機火災與倒塌": "Turbine fire and collapse", "風機火災／野火": "Turbine fire / wildfire", "氣體外洩／窒息": "Gas release / asphyxiation", "工作者高處墜落／死亡": "Worker fall from height / fatality",
 }
 STAGE_EN = {
     "建成": "built", "已退役": "retired", "營運": "operating", "營運維修": "operation & maintenance", "跨案場系統事故": "multi-site system incident",
@@ -56,8 +58,10 @@ STAGE_EN = {
     "施工／部分送電": "construction / partial power", "首發電／分期建設": "first power / staged build-out", "營運／故障": "operating / failure",
     "施工／修復": "construction / repair", "營運／事故": "operating / incident", "試運轉／部分營運": "commissioning / partly operating",
     "工程完成／待全面商轉": "construction complete / awaiting full operation", "首發電／持續施工": "first power / construction continuing",
+    "停機（電源關閉）": "stopped (power switched off)", "試運轉": "commissioning",
 }
-VERIFY_EN = {"主管機關／業主一手資料": "primary source (regulator / owner)", "業主公告索引核對，細節待補": "checked against the owner's notice index; details pending"}
+VERIFY_EN = {"主管機關／業主一手資料": "primary source (regulator / owner)", "業主公告索引核對，細節待補": "checked against the owner's notice index; details pending",
+             "搜尋結果摘要核對（原文待 check_quotes 核對）": "checked against search-result summaries (quoted passages still to be verified with check_quotes)"}
 ORG_EN = {
     "上海市政府": "Shanghai Municipal Government", "美國 OSHA": "US OSHA", "荷蘭國會官方答覆／NOS": "Dutch parliamentary answer / NOS", "日本經產省 METI": "Japan METI",
     "韓國南東發電 KOEN": "Korea South-East Power (KOEN)", "BKW（投資方）": "BKW (investor)", "挪威國家人權機構 NIM": "Norwegian National Human Rights Institution (NIM)",
@@ -66,6 +70,18 @@ ORG_EN = {
     "Ørsted 募資公開說明書": "Ørsted rights-issue prospectus", "戶田建設／日本經產省": "Toda Corporation / Japan METI", "韓國氣候能源環境部": "Korea Ministry of Climate, Energy and Environment",
     "韓國勞動部／氣候能源環境部": "Korea Ministry of Employment and Labor / Ministry of Climate, Energy and Environment", "台灣經濟部能源署": "Taiwan Energy Administration, MOEA",
     "Ørsted Taiwan／經濟部能源署": "Ørsted Taiwan / Energy Administration, MOEA", "Chubu Electric／戶田建設": "Chubu Electric / Toda Corporation",
+    "自由時報／華藝線上圖書館（鑑定論文）": "Liberty Times / Airiti Library (forensic paper)", "自由時報／公視新聞網／中央社": "Liberty Times / PTS News / CNA", "TVBS 新聞": "TVBS News",
+    "沖繩電力（調查結果）／東京大學石原研究室論文": "Okinawa Electric Power (investigation results) / Ishihara Lab, University of Tokyo", "日本經濟新聞／神戶新聞": "Nikkei / Kobe Shimbun",
+    "WindAction 轉載最終調查報告／維基百科": "final investigation report (via WindAction) / Wikipedia", "Renewables Now（引用 SHK 調查）／Recharge": "Renewables Now (citing the SHK investigation) / Recharge",
+    "Nordex 聲明／Windpower Monthly": "Nordex statement / Windpower Monthly", "Øyfjellet Wind 公告／Windpower Monthly": "Øyfjellet Wind announcement / Windpower Monthly",
+    "Reuters（經 MarketScreener）／Windpower Monthly": "Reuters (via MarketScreener) / Windpower Monthly", "首爾新聞／Newsis": "Seoul Shinmun / Newsis",
+    "Bloomberg／Renewables Now": "Bloomberg / Renewables Now", "Click Petróleo e Gás／Recharge": "Click Petróleo e Gás / Recharge", "Recharge／Windpower Monthly": "Recharge / Windpower Monthly",
+    "E&T（IET）／Nordex 調查報告（UNECE 存檔）": "E&T (IET) / Nordex investigation report (archived by UNECE)", "WBCK（地方媒體）／Huron Daily Tribune（經 wind-watch 轉載）": "WBCK (local media) / Huron Daily Tribune (via wind-watch)",
+    "Seattle Times／Yakima Herald": "Seattle Times / Yakima Herald", "北極星風力發電網（轉載國家電監會通報）／中國新聞網": "Bjx.com.cn (reposting the SERC notice) / China News Service",
+    "羊城晚報／界面新聞": "Yangcheng Evening News / Jiemian News", "勞動部職業安全衛生署／工商時報": "Occupational Safety and Health Administration (Taiwan) / Commercial Times",
+    "Windpower Monthly／Recharge（引用 EnBW、Vestas 聲明）": "Windpower Monthly / Recharge (citing EnBW and Vestas statements)", "NBC Palm Springs／KESQ": "NBC Palm Springs / KESQ",
+    "Windpower Monthly／Recharge": "Windpower Monthly / Recharge", "Windpower Monthly／The Well News": "Windpower Monthly / The Well News", "Enid News／KFOR": "Enid News / KFOR",
+    "North American Windpower／Windpower Monthly": "North American Windpower / Windpower Monthly", "CBC News": "CBC News", "Recharge／reNEWS": "Recharge / reNEWS",
 }
 PHOTO_KIND_EN = {
     "未確認有對應照片": "no matching photo confirmed", "歷史風場照片／頁面示意": "historic farm photo / page illustration", "風場照片／官方報導頁": "farm photo on the owner's news page",
@@ -101,6 +117,9 @@ RIGHTS_EN = {
 }
 
 # ---------------------------------------------------------------- 事件與風場的對應 · event → farms (exact names in wind_farms.json)
+# 2026-09-28 第二批（WIND-060 起）是在無法開啟網頁、只能讀搜尋結果摘要的環境整理的：每筆的核驗狀態寫明「搜尋結果摘要核對」，
+# 出處網址與原文待 tools/check_quotes.py 核對（見 TODO）。The second batch (from WIND-060) was compiled where pages could not be opened,
+# only search-result summaries: each row says so in its verification status, and the quoted passages are still to be checked with check_quotes.py.
 FARMS = {
     "WIND-002": ["Vindeby"], "WIND-003": ["Horns Rev 1"], "WIND-004": ["Donghai Bridge"], "WIND-005": ["Endeavor wind farm · 1, 2"],
     "WIND-006": ["London Array"], "WIND-007": ["Piet De Wit wind farm · 1"], "WIND-009": ["Tarfaya"], "WIND-011": ["Block Island"],
@@ -115,10 +134,20 @@ FARMS = {
     "WIND-042": ["Viking"], "WIND-043": ["Vineyard Wind 1"], "WIND-044": ["MacIntyre"], "WIND-046": ["CTG Yangjiang Qingzhou 6"],
     "WIND-047": ["Heilongjiang Tonghe (Guoneng) wind farm"], "WIND-048": ["Heilongjiang Tonghe (Guoneng) wind farm"], "WIND-049": ["Provence Grand Large"],
     "WIND-050": ["Greater Changhua 2b & 4"], "WIND-051": ["Yunlin"], "WIND-052": ["Goto City Offshore floating project"], "WIND-053": ["Yeongdeok"],
-    "WIND-054": ["Kitakyushu Hibikinada"], "WIND-055": ["Revolution Wind"], "WIND-056": ["Yeongdeok"], "WIND-058": ["Greater Changhua 2b & 4"], "WIND-059": ["Greater Changhua 2b & 4"],
+    "WIND-054": ["Kitakyushu Hibikinada"], "WIND-055": ["Revolution Wind"], "WIND-056": ["Yeongdeok"], "WIND-057": ["Yunmai (Mailiao)"], "WIND-058": ["Greater Changhua 2b & 4"], "WIND-059": ["Greater Changhua 2b & 4"],
+    # 2026-09-28 第二批（搜尋整理的故障事件） · second batch (incidents compiled from searches)
+    "WIND-060": ["Taichung Port"], "WIND-061": ["Taichung Port", "Shimen"], "WIND-062": ["Taichung Port"], "WIND-066": ["Ardrossan wind farm"], "WIND-067": ["Lemnhult wind farm"],
+    "WIND-069": ["Fenner Wind Power Project"], "WIND-070": ["Raleigh wind farm"], "WIND-071": ["Aldermyrberget wind farm"], "WIND-072": ["Øyfjellet"], "WIND-073": ["Herkentrup wind farm"],
+    "WIND-074": ["Frontier Windpower I & II"], "WIND-075": ["Maverick Wind Project"], "WIND-076": ["Odal wind farm"], "WIND-077": ["Geumseongsan wind power plant"], "WIND-078": ["Santo Agostinho"],
+    "WIND-079": ["Rei dos Ventos 1"], "WIND-081": ["Screggagh wind farm"], "WIND-082": ["Harvest (Exelon) wind farm"], "WIND-083": ["Juniper Canyon wind farm"], "WIND-086": ["Hai Long 2 & 3"],
+    "WIND-087": ["EnBW He Dreiht"],
     # 對不到的 · unmatched (left out on purpose): WIND-001 Crotched Mountain (not in the farm layer), WIND-008 Kunimidake (the 2013 farm is not
     # in the layer; the listed entry is a later project), WIND-010 (grid-wide), WIND-034 Ocean Wind (cancelled, not in the layer), WIND-045 Rokewood
-    # (official site name pending per the source), WIND-057 Taipower Mailiao (no unambiguous match).
+    # (official site name pending per the source). WIND-057 Taipower Mailiao = Yunmai (Mailiao): Taipower's only Mailiao farm, Vestas V80 2 MW ×23
+    # (second batch of 7 commissioned 2010/2011, matching the "2010-05-27, 2 MW Vestas, unit 17" in the official notice).
+    # Second batch unmatched: WIND-063 Miyakojima 2003 (the 2007/2008 records are later, different turbines), WIND-064 Awaji park turbine (single
+    # municipal turbine, not in the layer), WIND-065 Hornslet (not in the layer), WIND-068 Haltern AV9 (the layer's Haltern Ennenberg is a different
+    # park), WIND-080 Delta 6 (not in the layer), WIND-084 Jiuquan (grid-wide), WIND-085 Wenchang repowering (cannot confirm which record), WIND-088 (farm not named).
 }
 
 # ---------------------------------------------------------------- 英文 · English text per event: title, summary, area, then optional notes
@@ -272,6 +301,68 @@ EN = {
                  "a": "off Changhua", "p": "Greater Changhua 2b & 4", "cap": "allocated / project 920 MW; nameplate 66 × 14 = 924 MW", "fd": "jacket", "st": "offshore construction started 2025-02", "cod": "completion ceremony 2026-09-01; full commercial operation to be confirmed", "own": "Ørsted, Cathay Life and partners",
                  "coord": "GEM 2026-02 reference point of Greater Changhua 4; the combined project does not mark the centre of 2b", "note": "The Chinese notice speaks of completion / O&M; the English notice says final commissioning is pending, so full commercial operation is not recorded."},
 }
+
+EN.update({
+    "WIND-060": {"t": "Typhoon Jangmi snaps the tower of Taichung Port turbine No. 2", "s": "The tower fractured at the joint between the lower and middle sections; the upper sections collapsed and the nacelle and three blades were badly damaged. The forensic analysis blamed fractured joint bolts; the 10-minute mean wind speed at collapse was 56 m/s.",
+                 "a": "Taichung Port (next to the Gaomei wetland)", "p": "Taipower Taichung Port wind power station", "cap": "18 turbines at the station; one in this event", "own": "Taiwan Power Company", "note": "Taiwan's first tower-fracture incident; no casualties were reported, so left blank."},
+    "WIND-061": {"t": "Typhoon Soudelor topples seven Taipower turbines", "s": "Six turbines at the Gaomei wetland by Taichung Port and one at Shimen snapped in half and many blades were damaged; all were uncertified trial models from the 2003 first-phase tender. Taipower estimated the loss at about NT$560 million and set up an investigation team.",
+                 "a": "Taichung Port and Shimen, New Taipei", "p": "Taipower Taichung Port and Shimen wind farms (first-phase turbines)", "cap": "7 collapsed; Taipower also spoke of 8 damaged units", "own": "Taiwan Power Company", "note": "Taipower said the design lacked a keep-alive power supply for typhoons, so the blades ran out of control when power was lost; the root cause follows Taipower's investigation."},
+    "WIND-062": {"t": "Typhoon Megi snaps a blade at Taichung Port turbine No. 12", "s": "A blade broke off in gusts of Beaufort 17; Taipower said the wind-speed sensor had failed and the unit did not shut down above 25 m/s, with a loss of about NT$13.8 million.",
+                 "a": "Taichung Port (next to the Gaomei wetland)", "p": "Taipower Taichung Port wind power station", "cap": "single-unit event", "own": "Taiwan Power Company"},
+    "WIND-063": {"t": "Typhoon Maemi topples three turbines on Miyakojima", "s": "With a peak gust of 74.1 m/s, units 3 and 5 of the Hirara demonstration site buckled above the tower door, unit 1 at Nanamata in Gusukube collapsed through foundation failure, and two more units lost blades and one a nacelle.",
+                 "a": "Miyakojima, Okinawa Prefecture", "p": "Okinawa Electric Power Miyakojima wind demonstration facilities", "cap": "3 collapsed, 2 with broken blades, 1 with nacelle damage", "own": "Okinawa Electric Power", "coord": "approximate position of Miyakojima, not a turbine location", "note": "Wind analysis estimated peak gusts of 90 m/s at the sites."},
+    "WIND-064": {"t": "Typhoon No. 20 topples a park turbine in Awaji", "s": "The turbine's main power had been switched off since the previous year, so the safety function that pitches the blades in strong wind could not work; the city's investigation committee reported to the national government in April 2019 and dismantling began in January 2021.",
+                 "a": "Hokudan Earthquake Memorial Park, Awaji, Hyogo Prefecture", "p": "Hokudan Earthquake Memorial Park turbine", "own": "Awaji City (park operator)", "note": "The collapse happened during the night of 23–24 August; 23 August is used."},
+    "WIND-065": {"t": "Brake failure sends a turbine into overspeed, disintegration and collapse (filmed)", "s": "The 600 kW Nordtank turbine had its brake repaired that morning; in the afternoon the brake failed again, the rotor ran away in strong wind, the blades disintegrated under centrifugal force and one struck the tower, which broke. Nobody was hurt.",
+                 "a": "Hornslet, eastern Jutland", "p": "Hornslet Nordtank NTK 600", "cap": "single 600 kW unit", "cod": "inaugurated 1996-12-23", "own": "Syddjurs Municipality", "coord": "approximate position of the town of Hornslet, not the turbine"},
+    "WIND-066": {"t": "Nacelle of a parked turbine catches fire in a storm", "s": "Although shut down in extreme storm winds, the turbine caught fire; the nacelle burned out and burning debris scattered downwind. Owner Infinis and Vestas disagreed on the initial cause (loss of yaw control versus brake drag); nobody was hurt.",
+                 "a": "Ardrossan, North Ayrshire, Scotland", "p": "Ardrossan Wind Farm", "cap": "12 turbines at the farm; single-unit event", "own": "Infinis", "cas": "reports say nobody was hurt", "note": "Vestas later modified all turbines at the site so the parking brake is applied only during maintenance."},
+    "WIND-067": {"t": "Vestas V112 tower collapses; the other 31 turbines shut down as a precaution", "s": "The 3 MW turbine commissioned in 2013 collapsed with nobody hurt; Sweden's accident investigation authority SHK found fatigue and corrosion at the joint between the bottom and second tower sections, caused by too little bolt pre-tension: bolts, tower sections and tools were not protected from rain and snow during installation, tools were poorly maintained and the assembler had no training.",
+                 "a": "Lemnhult, Vetlanda", "p": "Lemnhult Wind Farm", "cap": "32 × 3 MW; one unit in this event", "cod": "2013", "own": "Stena Renewable", "cas": "reports say nobody was hurt", "note": "The site had loose and broken bolts before the accident, which the operator did not report."},
+    "WIND-068": {"t": "Nordex N149 on a hybrid tower collapses six months after commissioning", "s": "The N149/4.0-4.5 on a 164 m hybrid tower collapsed almost completely, the nacelle and blades falling to the ground with nobody hurt; Nordex shut down 22 further turbines of the same configuration and a year later concluded that weak points in the pre-stressed concrete tower section caused the collapse.",
+                 "a": "Haltern am See, North Rhine-Westphalia", "p": "Haltern AV9 wind park", "cap": "9 MW park; one unit in this event", "st": "installed 2021-01", "cod": "commissioned 2021-03-11", "own": "Nordex (manufacturer)", "cas": "Nordex stated nobody was hurt"},
+    "WIND-069": {"t": "Turbine 18 collapses without warning; the whole farm is shut down for investigation", "s": "The 187-tonne turbine fell in a field with nobody hurt; owner Enel ruled out shoddy construction and material defects but never published the final report.",
+                 "a": "Fenner, Madison County, New York", "p": "Fenner Wind Farm", "cap": "20 × 1.5 MW; one unit in this event", "cod": "2001", "own": "Enel North America", "cas": "reports say nobody was hurt", "note": "The root cause was not published, so none is recorded."},
+    "WIND-070": {"t": "Turbine snaps in half; all 51 turbines shut down", "s": "Nobody was hurt; owner TerraForm Power later attributed the collapse to a single faulty blade, and the whole farm returned to service on 2018-03-29.",
+                 "a": "Raleigh Township, Chatham-Kent, Ontario", "p": "Raleigh Wind (TerraForm Power)", "cap": "78 MW farm; one unit in this event", "cod": "2011", "own": "TerraForm Power", "cas": "reports say nobody was hurt"},
+    "WIND-071": {"t": "Vestas V150 collapses during commissioning; Vestas stops 150 turbines of the type", "s": "The turbine collapsed during the night of 21–22 November while ramping up for full commissioning, with nobody hurt; the investigation found a bonding failure on blade-root inserts caused by a manufacturing issue at a single supplier, and Vestas took about 150 V150s with the same blade configuration out of service as a precaution.",
+                 "a": "Aldermyrberget, Skellefteå", "p": "Aldermyrberget Wind Farm", "cap": "72 MW farm; one unit in this event", "own": "wpd", "cas": "reports say nobody was hurt"},
+    "WIND-072": {"t": "Whole rotor of turbine 18 falls to the ground during repairs", "s": "After a technical problem in June 2023 the gearbox was removed and the rotor moved out of position during the delay; before a special tool could be fitted, high wind brought the rotor down. The area had long been cordoned off and nobody was hurt; the operator calls it an isolated incident.",
+                 "a": "Øyfjellet, Vefsn, Nordland", "p": "Øyfjellet Wind", "cap": "72 × 5.X MW; one unit in this event", "cod": "2022", "own": "Øyfjellet Wind (developed by Eolus)", "cas": "operator notice: area cordoned off, no risk to safety"},
+    "WIND-073": {"t": "Upper tower and nacelle of a Nordex N149 installed in 2023 fall to the ground", "s": "The upper tower segment with nacelle, hub and blades fell; material damage only, nobody hurt. A Nordex expert team is investigating with the customer.",
+                 "a": "Herkentrup, Coesfeld, North Rhine-Westphalia", "p": "Herkentrup wind park", "cap": "13.5 MW park; one unit in this event", "st": "installed 2023", "own": "Nordex (manufacturer)", "cas": "Nordex said nobody was hurt", "note": "No root cause published by the verification date."},
+    "WIND-074": {"t": "A Nordex turbine collapses on a calm morning", "s": "The fire department was called at 7:23 a.m.; the 490 ft turbine came down in almost no wind and was heard four miles away. Nobody was hurt, no fire started, the other 73 turbines kept running and the cause is unknown.",
+                 "a": "Kildare, Kay County, Oklahoma", "p": "Frontier Windpower II", "cap": "74 Nordex N149/4.X (4.8 MW) at the farm; one unit in this event", "st": "installed 2020", "cod": "operating since 2021-03", "cas": "fire department said nobody was hurt", "note": "No root cause published."},
+    "WIND-075": {"t": "GE turbine collapses less than a year after entering service", "s": "A resident heard a thud in the evening and found the turbine down; firefighters responded at 6:45 p.m. and nobody was hurt. Owner Invenergy referred questions to the offtaker PSO and no cause was published.",
+                 "a": "near Ames, Oklahoma", "p": "Maverick Wind Farm", "cap": "288 MW farm; one unit in this event", "cod": "2021", "own": "Invenergy", "cas": "reports say nobody was hurt"},
+    "WIND-076": {"t": "22-tonne blade falls off a Siemens Gamesa 5.0-145; the whole farm stops", "s": "The 72 m, roughly 22-tonne blade fell late at night with nobody hurt; 15 of the farm's 34 turbines had already been stopped for blade damage linked to a production problem, and the whole farm was shut down for investigation with its restart delayed.",
+                 "a": "Odal, Innlandet", "p": "Odal Vind", "cap": "34 × 5 MW (4.X platform); one unit in this event", "cod": "2022", "own": "Odal Vind", "cas": "the owner said nobody was hurt", "note": "The blade fell late on Wednesday 10 April; reported on 11 April."},
+    "WIND-077": {"t": "4.7 MW turbine tower folds like a straw", "s": "At 2:50 a.m. without strong wind the 127 m turbine folded; manufacturer Siemens Gamesa's investigation found a structural crack of undetermined origin in the glass-fibre blade that grew under repeated stress until the blade broke and struck the tower. The turbine was removed by the end of the year.",
+                 "a": "Mt Geumseong, Hwasun County, South Jeolla", "p": "Geumseongsan wind farm", "cap": "11 × 4.7 MW; one unit in this event", "cod": "2023", "note": "The investigation was led by the manufacturer and its result only reached the press in February 2026."},
+    "WIND-078": {"t": "Blade breaks on a new Siemens Gamesa 5.X turbine; the whole farm stops", "s": "One blade of a recently commissioned 6.2 MW turbine still in testing broke and the farm was shut down for investigation; Siemens Gamesa had warned that year of blade and main-bearing quality problems on its 4.X and 5.X platforms.",
+                 "a": "Santo Agostinho, Rio Grande do Norte", "p": "Santo Agostinho (Engie Brasil)", "cap": "434 MW farm; one unit in this event", "own": "Engie Brasil Energia"},
+    "WIND-079": {"t": "One turbine burns and part of another falls from its tower", "s": "GE confirmed two Alstom-built turbines were affected, one by fire and one whose upper structure fell, with nobody hurt; AES Brasil and GE investigated the root cause (sabotage was suspected at one point).",
+                 "a": "Rei dos Ventos, Rio Grande do Norte", "p": "Rei dos Ventos (AES Brasil)", "cap": "two units affected", "own": "AES Brasil", "cas": "reports say nobody was hurt", "note": "Linked to the Rei dos Ventos 1 record in the farm layer (same complex); the exact day was not reported, so month precision is used."},
+    "WIND-080": {"t": "GE turbine collapses; one worker injured", "s": "A GE turbine at the 54 MW farm, operating only since December 2018, collapsed while three GE employees were on site; one was injured and treated. It was GE's fifth collapse in the Americas that year.",
+                 "a": "Paulino Neves, Maranhão", "p": "Delta 6 (Omega Geração)", "cap": "54 MW farm; one unit in this event", "cod": "2018-12", "own": "Omega Geração", "cas": "reports: 1 injured"},
+    "WIND-081": {"t": "Nordex N80 rotor runs away in moderate wind and the turbine collapses", "s": "With winds of only about 10–12 m/s the blades still ran out of control and the 100 m turbine collapsed, heard seven miles away; nobody was on site and nobody was hurt. Nordex's interim investigation found a unique fault in the blade control system.",
+                 "a": "Fintona, County Tyrone, Northern Ireland", "p": "Screggagh Wind Farm", "cap": "8 × 2.5 MW; one unit in this event", "cod": "2011", "cas": "reports say nobody was hurt"},
+    "WIND-082": {"t": "Nacelle fire that firefighters could not reach was left to burn out", "s": "Firefighters had no equipment able to reach the nacelle and could only watch for spread on the ground; the operator shut down 32 surrounding turbines as a precaution.",
+                 "a": "Oliver Township, Huron County, Michigan", "p": "Harvest Wind II (Exelon)", "cap": "single-unit event", "cod": "2012", "own": "Exelon Generation", "note": "No cause published. Linked to the combined Harvest (Exelon) record in the farm layer."},
+    "WIND-083": {"t": "Turbine fire starts the Juniper wildfire", "s": "Smoke and fire from the nacelle at 1:40 p.m.; burning parts falling from 300 ft ignited grass and juniper, and gusty winds in canyon terrain spread the fire over 250–500 acres, threatening 39 structures with about 200 people fighting it.",
+                 "a": "near Bickleton, Klickitat County, Washington", "p": "Juniper Canyon Wind (Avangrid)", "cap": "151.2 MW farm; one unit in this event", "cod": "2011", "own": "Avangrid Renewables"},
+    "WIND-084": {"t": "598 turbines at the Jiuquan wind base disconnect from the grid", "s": "A three-phase short circuit at a 35 kV cable terminal in the Qiaoxi No. 1 wind farm caused a voltage dip; most turbines lacked low-voltage ride-through and 598 turbines at 16 wind farms disconnected, losing 840 MW of output. The electricity regulator called it the most serious wind-related grid event in years and it drove revised grid-connection standards.",
+                 "a": "Jiuquan wind base, Gansu (Qiaoxi No. 1 and 15 other farms)", "p": "Jiuquan wind base (multi-site)", "cap": "840 MW of output lost", "note": "A multi-farm grid event with no single farm coordinate."},
+    "WIND-085": {"t": "Super Typhoon Yagi snaps five or six 6.25 MW typhoon-class turbines under construction", "s": "The typhoon made landfall only about 7 km from the site with estimated peak winds above 83 m/s, beyond the national standard; the turbines were still under construction and not yet powered or grid-connected, so their typhoon strategy could not run. 13 of 16 planned turbines were installed and 5–6 were snapped, each costing about RMB 10 million.",
+                 "a": "Mulan Bay, Wenchang, Hainan", "p": "Huaneng Wenchang wind farm repowering project", "cap": "16 × 6.25 MW planned; 5–6 damaged", "own": "Huaneng Hainan Power Generation", "note": "Landfall was on 6 September; reported on 8 September. Operating turbines at Xuwen, Zhanjiang were undamaged in the same typhoon."},
+    "WIND-086": {"t": "CO2 fire-suppression cylinders leak at the onshore substation; three workers die", "s": "56 carbon-dioxide fire-suppression cylinders discharged accidentally and 17 people were taken to hospital; the labour safety authority recorded an asphyxiation accident affecting 7 workers (3 dead, 4 injured), found the protective measures inadequate, fined NT$300,000 and ordered work stopped. The three critically injured workers died on 26 August, 6 September and 7 September.",
+                 "a": "Hai Long onshore substation, Changhua Coastal Industrial Park", "p": "Hai Long Offshore Wind (onshore substation)", "cap": "Hai Long 2 & 3 total 1,044 MW; the accident was at the onshore substation", "own": "Hai Long Offshore Wind (Teco as construction contractor)", "cas": "OSHA Taiwan: 3 dead, 4 injured (7 workers asphyxiated); more were hospitalised for observation",
+                 "coord": "The accident site is the onshore substation; the map places it at the wind farm.", "note": "Deaths follow later reports up to 7 September; the root cause follows the OSHA and judicial investigations."},
+    "WIND-087": {"t": "Blade of a Vestas V236-15 MW being installed breaks and falls into the sea", "s": "EnBW said a blade failure was detected on one turbine on 22 July, nobody was hurt and the authorities were informed immediately; the blade was later found floating and recovered with the federal police. Some work was paused as a precaution, blades from the same production site were barred, and the inauguration moved from September to December.",
+                 "a": "He Dreiht, North Sea", "p": "EnBW He Dreiht", "cap": "64 × 15 MW; one unit in this event", "own": "EnBW", "cas": "EnBW said nobody was hurt", "note": "EnBW regards it as a one-off; Vestas and the owner are running a root-cause investigation, not published by the verification date."},
+    "WIND-088": {"t": "Worker dies in a fall of more than 100 ft inside a tower", "s": "At 11:15 a.m. a 52-year-old worker fell more than 100 ft inside a turbine tower and was pronounced dead at the scene; Cal/OSHA was notified by the employer and opened an investigation.",
+                 "a": "near Desert Hot Springs, California", "p": "Desert Hot Springs wind facility (Site Constructors work)", "cas": "Cal/OSHA was notified of 1 death", "note": "Reports do not name the wind farm; not linked to the farm layer."},
+})
 
 
 def num(s):

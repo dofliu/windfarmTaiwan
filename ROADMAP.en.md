@@ -16,7 +16,7 @@ live-data updates keep running (maintenance: "Maintenance" in [DEPLOY.en.md](./D
   23,000 farms, search and filters, pipeline, ports, foundation and events layers, country profiles, tour) and Learn (12 chapters); the
   whole site is bilingual, with a single-file edition that opens offline and a public single-file "Global wind map" for the general
   public (the globe with the three basic layers only, v2.12.0, 28 Sep 2026).
-- 59 major events and incidents (the owner's verified list of 28 Sep 2026, each with a primary source; [docs/events.en.md](./docs/events.en.md)).
+- 88 major events and incidents (the owner's 59 verified rows of 28 Sep 2026 plus 29 incidents compiled from web searches, each with sources; [docs/events.en.md](./docs/events.en.md)).
 - Live output for about 150 farms in Australia and Canada.
 - Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 207 record-level farm
   clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)); offshore foundation types, steps 1–4 done and 5 farms of
