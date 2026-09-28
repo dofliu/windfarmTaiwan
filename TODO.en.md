@@ -62,7 +62,9 @@ finished items to the topic lists below.
       version and both changelogs. The build checks that every event has English text and that farm names match.
 - [ ] **Second batch (WIND-060 to 088, 29 incidents compiled from web searches on 2026-09-28): quoted passages still to be checked.** The
       environment could only read search-result summaries, not open pages, so each row's verification status says "checked against search-result
-      summaries". In a connected environment open every source, copy a passage into a `tools/research/` JSON, run `python3 tools/check_quotes.py`,
+      summaries". The check file is ready: `tools/research/events_batch2_2026-09.json` (29 events, 56 sources, each with a candidate passage);
+      in a connected environment run `python3 tools/check_quotes.py tools/research/events_batch2_2026-09.json --write` (tried on 2026-09-28 in the
+      cloud environment: every domain was blocked by the network policy, all ERR),
       and rewrite or withdraw any row that does not check out; checked rows go back to "primary source" or "press report checked". Check the ones
       with casualties first: WIND-086 Hai Long CO2 (OSHA Taiwan page), WIND-088 Desert Hot Springs, WIND-080 Delta 6.
 - [ ] 13 events not yet linked to a farm: WIND-001 Crotched Mountain, WIND-008 Kunimidake (the layer only has the 2027 project), WIND-010 and
