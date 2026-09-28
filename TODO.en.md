@@ -17,6 +17,8 @@ finished items to the topic lists below.
 - The automatic updates keep running; the `keepalive` workflow re-enables the schedules every month so GitHub does not disable them after
   60 days without activity. Still **check once a month** that the data time and Actions look right (steps under "Maintenance" in
   [DEPLOY.en.md](./DEPLOY.en.md)): when fetching fails the site shows no error, only the last data it got.
+- On 28 Sep 2026 (v2.12.0) the Events layer (59 major events and incidents from the owner's verified list) and the public
+  single-file "Global wind map" (`standalone/windfarmTaiwan-globe.html`) were added; follow-ups are under "Major events & incidents" below.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)
@@ -53,12 +55,30 @@ finished items to the topic lists below.
    foundations. Boundary Layer is ODbL (share-alike), so use it only as a lead: find a developer or Danish Energy Agency source before
    changing anything.
 
+## Major events & incidents (data/global/sources/events_2026-09.csv → tools/build_events.py, 2026-09-28)
+
+- [ ] Adding an event: add a row to the CSV (same columns) → add the English title, summary, area and notes to `EN` in
+      `tools/build_events.py` and any matching farm to `FARMS` (exact name from `wind_farms.json`) → `python3 tools/build_events.py` →
+      version and both changelogs. The build checks that every event has English text and that farm names match.
+- [ ] Six events not yet linked to a farm: WIND-001 Crotched Mountain (not in the farm layer), WIND-008 Kunimidake (the layer only has the
+      2027 project), WIND-010 (grid-wide event, no single farm), WIND-034 Ocean Wind 1/2 (cancelled, not in the layer), WIND-045 Rokewood
+      (the source gives no official site name), WIND-057 Taipower Mailiao (no unambiguous record). Add to `FARMS` when found; never guess.
+- [ ] 25 events have no coordinates: those linked to a farm are placed at the farm (the card says so), the rest appear only in the Events tab;
+      add coordinates to the CSV only from a primary source.
+- [ ] Photos are recorded as page URLs with their rights status only (the CSV says each needs the rights holder's permission); obtain
+      permission before showing any of them on the site.
+- [ ] Casualties and root causes are recorded only when officially confirmed: the Noshiro Port oil leak (WIND-031), the February Yeongdeok
+      tower buckling (WIND-053), the Mailiao fire (WIND-057) and the Greater Changhua 4 fire (WIND-058) still await official findings; update the CSV when they are published.
+- [ ] The timeline ends at 2025, so 2026 events show at the latest year; once `wind_global.json` extends past 2026 the `evShown` special case in `globe.js` can go.
+
 ## Re-check periodically (time-sensitive, not code problems)
 
 - [ ] Taipower Offshore Phase 2: completion is currently given as "2027"; check progress reports then
       (or every quarter) and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed
 - [ ] Greater Changhua 2b & 4 (Ørsted, 920 MW): full commercial operation is planned for Q3 2026; check
-      whether it happened on time and update `tl` (both languages) and `cod` of `id:"wo4"` / `id:"wonan"`
+      whether it happened on time and update `tl` (both languages) and `cod` of `id:"wo4"` / `id:"wonan"` (events list WIND-059: completion
+      ceremony on 2026-09-01, the English notice says final commissioning is pending; WIND-050: the 2b export cable was damaged in 2025-08;
+      WIND-058: one 14 MW unit of phase 4 caught fire on 2026-08-08)
 - [ ] Hai Long (Hai Long B): full commercial operation may have slipped from 2026 to 2027; keep
       following the latest reports and update `id:"longB"`
 - [ ] Left to verify from foundation step 4 (Sep 2026): when Setana stopped generating (the town decided in April 2026 to

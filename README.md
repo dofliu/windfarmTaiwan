@@ -17,6 +17,8 @@
 
 **單檔版**：[下載 windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
 （約 6 MB），存到電腦後直接用瀏覽器開啟即可，不需架站；詳見下方「單檔版」。
+**全球風電地圖公開版**（給一般人）：[下載 windfarmTaiwan-globe.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-globe.html)
+（約 6 MB），只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層，離線也能開。
 
 開發者：國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）
 
@@ -78,6 +80,11 @@
   - **港口圖層**（⚓）：離岸風電的組裝出港、水下基礎與風機零組件製造、海纜、浮動式組裝與運維港口 55 個（15 國，2026-09 人工整理，
     每港附出處）；全球視角為小點，拉近才有圖示與名稱。港口卡片列出角色、服務過的風場（可點選切換）與出處，可以搜尋，
     也有「港口」分頁（例：`#/global?port=twn-taichung`）
+  - **事件圖層**（⚑）：2026-09-28 人工查證的重大事件與事故 59 筆（發展里程碑 36、事故／故障 21、政策與社會 2），每筆附主管機關或
+    業主的一手來源；時間軸到達事件年份才出現（2026 年的在最新年份顯示），紅＝事故／故障、白＝里程碑、紫＝政策與社會。有座標的標在地球儀上，
+    沒有座標但對得到風場的用風場位置，其餘只列在「事件」分頁。事件卡片列出摘要、容量口徑、傷亡（只寫官方確認的）、各項註記、相關風場、出處與
+    照片頁面（只記錄網址與權利狀態，本站不轉載）；風場卡片列出該場的相關事件。可搜尋、依類型篩選（例：`#/global?ev=WIND-040`）；
+    逐筆清單見 [docs/events.md](./docs/events.md)
   - **水下基礎圖層**（「顯示」選單的「離岸：水下基礎」）：依基礎型式為營運中的離岸風場上色——單樁、鋼構框架（套管、三腳架、三樁）、
     浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合），還沒查證的標「型式不詳」。圖例列出範圍內各組的座數與已知型式的容量占比，
     點一組可只看這一組；風場卡片寫出確切型式與出處，國家概況有依容量的長條。資料逐步收集：第 1 步是 OSPAR 涵蓋的北海與東北大西洋
@@ -133,6 +140,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
 - `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 的逐場對照表產生）
+- `data/global/events.json` — 重大事件與事故 59 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
+  英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
   以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
@@ -140,7 +149,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上；
   `tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
 - `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
-- `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
+- `standalone/windfarmTaiwan-globe.html` — 全球風電地圖公開版：只有地球儀與三個基本圖層（`tools/build_globe_lite.py` 產生，勿手動修改）
+- `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）、重大事件與事故清單（`events.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
@@ -189,6 +199,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建；
   本機也可以執行 `python3 tools/build_standalone.py`（`WW.VERSION` 在兩份 CHANGELOG 沒有對應段落時會中止）。
   頁尾標示版本號、建置時間與 commit。分享按鈕在單檔版一律分享正式網站的網址。
+- **全球風電地圖公開版** `standalone/windfarmTaiwan-globe.html`（`python3 tools/build_globe_lite.py`，Actions 同時重建）：給一般人的精簡版，
+  只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層（各國逐年容量、風場搜尋、規劃分頁、地形／衛星底圖、深連結都在），不載入港口、水下基礎、
+  事件、里程碑導覽與任何即時資料，也沒有首頁、台灣即時與風電知識；頁尾連到完整網站。離線時只是沒有 Esri 高解析圖磚與維基百科簡介。
 
 ## 注意事項
 
@@ -223,8 +236,11 @@ python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離�
 python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源；OSPAR 只有核准階段設計的要附施工紀錄），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
-# 5. 單檔版（push 到 main 後 Actions 也會自動重建）
+# 5. 單檔版與全球風電地圖公開版（push 到 main 後 Actions 也會自動重建）
 python tools/build_standalone.py
+python tools/build_globe_lite.py
+# 6. 重大事件與事故（改了 data/global/sources/events_2026-09.csv 或 tools/build_events.py 的英文與風場對應後）
+python tools/build_events.py
 ```
 
 ### 本站對資料的修正（皆記錄在資料檔與網站「資料來源」中）

@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '2.11.1';
+WW.VERSION = '2.12.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -117,7 +117,8 @@ WW.DATA = {
   farms: 'data/global/wind_farms.json',
   borders: 'data/global/world_borders.json',
   ports: 'data/global/ports.json',
-  foundations: 'data/global/foundations.json'
+  foundations: 'data/global/foundations.json',
+  events: 'data/global/events.json'
 };
 /* 全球資料集＋衍生查詢（首頁、知識頁、地球儀共用） */
 WW.globalData = () => WW.getJSON(WW.DATA.global).then(D => {
@@ -141,7 +142,7 @@ WW.parseHash = h => {
   const parts = (path || '').split('/').filter(Boolean);
   const params = {};
   if (qs) qs.split('&').forEach(kv => { const [k, v] = kv.split('='); if (k) params[decodeURIComponent(k)] = v == null ? '' : decodeURIComponent(v.replace(/\+/g, ' ')); });
-  const page = PAGES[parts[0]] ? parts[0] : 'home';
+  const page = PAGES[parts[0]] ? parts[0] : (EMB && EMB.lite && PAGES.global ? 'global' : 'home');   // 單檔公開版只有地球儀
   return { page, sub: parts[1] || null, params, raw: s };
 };
 WW.route = null;
