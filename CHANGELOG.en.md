@@ -15,6 +15,21 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.12.0 — 2026-09-28
+
+- New Events layer and tab: 59 major events and incidents verified by hand on 28 Sep 2026 (36 milestones, 21 incidents / failures, 2 policy & society),
+  each with a primary source from a regulator or the owner; an event appears once the timeline reaches its year, and 2026 events show at the latest year.
+  The 34 with coordinates are marked on the globe (red = incident / failure, white = milestone, purple = policy & society), events without coordinates
+  but linked to a farm are placed at the farm, and the rest appear only in the tab. The event card shows the summary, capacity basis, casualties
+  (officially confirmed only), notes, related farms, sources and the photo page (URL and rights status only; nothing is reproduced); farm cards list
+  their related events. Searchable, filterable by type, deep link `?ev=WIND-0xx`. Source `data/global/sources/events_2026-09.csv`;
+  `tools/build_events.py` writes `data/global/events.json` and `docs/events*.md` (English titles, summaries and notes live in the build script;
+  event-to-farm links are listed one by one and checked against the farm layer at build time).
+- New public single-file "Global wind map" `standalone/windfarmTaiwan-globe.html` (`tools/build_globe_lite.py`): just the 3D globe with the
+  onshore, offshore and pipeline layers, for the general public to download and open offline; no ports, foundations, events, milestone tour or live data.
+  Download links added to the footer and the Sources dialog; the `build-standalone` workflow rebuilds it too.
+- The full single-file copy now embeds the events data.
+
 ## v2.11.1 — 2026-09-27
 
 - Foundations: CGN Rudong H8 added — mixed, 49 monopiles and 16 all-steel buckets (single buckets sunk by suction like the composite

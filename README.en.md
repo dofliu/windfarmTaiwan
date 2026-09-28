@@ -23,6 +23,8 @@ wind generation data.
 
 **Single-file edition**: [download windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
 (about 6 MB), save it and open it in any browser — no web server needed. See "Single-file edition" below.
+**Public global wind map** (for everyone): [download windfarmTaiwan-globe.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-globe.html)
+(about 6 MB), just the 3D globe with the onshore, offshore and pipeline layers; works offline.
 
 Developed by National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu (國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室)
 
@@ -107,6 +109,14 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     manufacturing, cables, floating assembly and O&M (compiled by hand in Sep 2026, each with sources); small dots at
     world zoom, icons and names when zoomed in. Port cards list the roles, the wind farms served (click to switch)
     and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
+  - **Events layer** (⚑): 59 major events and incidents verified by hand on 28 Sep 2026 (36 milestones, 21 incidents /
+    failures, 2 policy & society), each with a primary source from a regulator or the owner; an event appears once the
+    timeline reaches its year (2026 events show at the latest year), red = incident / failure, white = milestone,
+    purple = policy & society. Events with coordinates are marked on the globe, events linked to a farm but without
+    coordinates are placed at the farm, and the rest appear only in the Events tab. The event card shows the summary,
+    capacity basis, casualties (officially confirmed only), notes, related farms, sources and the photo page (URL and
+    rights status only; nothing is reproduced); farm cards list their related events. Searchable and filterable by
+    type (e.g. `#/global?ev=WIND-040`); the full list is [docs/events.en.md](./docs/events.en.md)
   - **Foundation layer** (“Offshore: foundations” in the Show menu): colours operating offshore farms by foundation
     type — monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile
     cap, cofferdam, rock-anchored, composite bucket, mixed); farms not yet checked are “type unknown”. The legend counts each group in scope and
@@ -181,6 +191,9 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
 - `data/global/foundations.json` — foundation types of offshore farms (built by `tools/build_foundations.py` from the
   per-farm table in `tools/farm_foundations.py`)
+- `data/global/events.json` — 59 major events and incidents (built by `tools/build_events.py` from
+  `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
+  the build script, which checks that every event has English text and that farm names match the farm layer)
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, the merge log, and the wind records of OSPAR Offshore
   Renewables 2024 (CC0, used for foundation types)
@@ -191,8 +204,10 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   passages quoted during research really are on their source pages; `tools/research/` holds research notes not yet written into
   the tables (each source with its quoted passage and check result)
 - `standalone/windfarmTaiwan-standalone.html` — the single-file edition (generated; do not edit by hand)
+- `standalone/windfarmTaiwan-globe.html` — the public global wind map: the globe with the three basic layers only
+  (built by `tools/build_globe_lite.py`; do not edit by hand)
 - `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
-  farm-by-farm foundation list (`foundations.en.md`) and the
+  farm-by-farm foundation list (`foundations.en.md`), the events list (`events.en.md`) and the
   assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
 - `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing) for future
   contributors and AI agents
@@ -261,6 +276,11 @@ Learn) into one HTML file of about 6 MB:
   automatically through GitHub Actions; locally, run `python3 tools/build_standalone.py` (it stops if
   `WW.VERSION` has no entry in both changelogs). The footer shows the version, build time and commit.
   In the single-file edition the Share button always shares the live site's URL.
+- **Public global wind map** `standalone/windfarmTaiwan-globe.html` (`python3 tools/build_globe_lite.py`, also rebuilt by
+  Actions): a slimmed-down copy for the general public with just the 3D globe and the onshore, offshore and pipeline
+  layers (country series, farm search, the Pipeline tab, relief / satellite basemaps and deep links included); it loads
+  no ports, foundations, events, milestone tour or live data and has no Home, Taiwan live or Learn pages; the footer
+  links to the full site. Offline it only lacks the Esri detail tiles and Wikipedia summaries.
 
 ## Notes
 
@@ -301,8 +321,11 @@ python tools/qa_ports.py        # ports check: fields, inside the country or wit
 python tools/build_foundations.py # foundations: checks the per-farm table (farm names, OSPAR values, second sources; a construction source where OSPAR only has the consented design), writes foundations.json and docs/foundations*.md
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
-# 5. Single-file edition (Actions also rebuilds it after pushes to main)
+# 5. Single-file edition and the public global wind map (Actions also rebuilds them after pushes to main)
 python tools/build_standalone.py
+python tools/build_globe_lite.py
+# 6. Major events & incidents (after editing data/global/sources/events_2026-09.csv or the English / farm links in tools/build_events.py)
+python tools/build_events.py
 ```
 
 ### Corrections this site made to the data (all recorded in the data files and the site's "Sources")

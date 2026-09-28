@@ -1,7 +1,7 @@
 /* 風電風情 · globe.css — 全球風電 3D 地球儀（改寫自 wind-history-map v3；所有規則限定在 #globe 內） */
 #globe{--gpanel:rgba(10,18,32,.88);--gline:rgba(255,255,255,.09);--ginkm:#7d8ca3;
   --on:#B8892F;--on-b:#e3b458;--off:#3B8FE0;--off-b:#6fb3ff;--fl:#1f9e8a;--fl-b:#9be8d8;--acc:#f0c86a;
-  --p1:#e3eaf5;--p2:#9fb0c9;--p3:#6a7c97;--port:#ff8a5b;
+  --p1:#e3eaf5;--p2:#9fb0c9;--p3:#6a7c97;--port:#ff8a5b;--ev-inc:#ff6b7a;--ev-ms:#eef3fb;--ev-pol:#c9a8ff;
   --fd-mp:#3987e5;--fd-frame:#d95926;--fd-fl:#199e70;--fd-other:#dfe3ea;--fd-unk:#a7adb6;
   position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;color:var(--ink);background:#070d18;font-size:13px}
 #globe button,#globe select,#globe input{font-family:inherit;font-size:12.5px;color:var(--ink);background:rgba(255,255,255,.06);border:1px solid var(--gline);border-radius:8px;padding:6px 10px;cursor:pointer}
@@ -319,3 +319,26 @@
   #g-bottom .ggrp>label{display:none}
   #g-slider{order:5;flex:1 1 100%;min-width:0}
 }
+
+/* 重大事件與事故：DOM 標記（紅＝事故／故障，白＝里程碑，紫＝政策與社會）、清單列、標籤 · events layer */
+#g-events{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#g-events .emk{position:absolute;left:0;top:0;width:20px;height:20px;padding:0;display:grid;place-items:center;border-radius:4px;transform-origin:center;border:1.5px solid rgba(255,255,255,.8);font-size:12px;font-weight:900;line-height:1;pointer-events:auto;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.6);will-change:transform;font-family:inherit}
+#g-events .emk.inc{background:var(--ev-inc);color:#2a0509;border-radius:50%}
+#g-events .emk.ms{background:var(--ev-ms);color:#14213a}
+#g-events .emk.pol{background:var(--ev-pol);color:#2a1050;border-radius:50% 50% 4px 4px}
+#g-events .emk:hover{filter:brightness(1.12)}
+#g-events .emk.far{width:8px;height:8px;font-size:0;border-width:1px}
+#g-events .emk.sel{width:26px;height:26px;font-size:15px;border-color:#fff;box-shadow:0 0 0 3px rgba(255,107,122,.4),0 1px 6px rgba(0,0,0,.7)}
+#globe .msItem.ev{border-left-color:var(--ev-ms)}
+#globe .msItem.ev.inc{border-left-color:var(--ev-inc)}
+#globe .msItem.ev.pol{border-left-color:var(--ev-pol)}
+#globe .msItem.ev .y{color:var(--ink-2);font-size:11px;font-variant-numeric:tabular-nums}
+#globe .gtag.ev{color:var(--ev-ms);border-color:var(--ev-ms)}
+#globe .gtag.ev.inc{color:var(--ev-inc);border-color:var(--ev-inc)}
+#globe .gtag.ev.pol{color:var(--ev-pol);border-color:var(--ev-pol)}
+#globe .lbl.ev{color:var(--ev-ms)}
+#globe .lbl.ev.inc{color:#ffb3bb}
+#globe .lbl.ev.inc b{color:var(--ev-inc)}
+#globe .lbl.ev.pol{color:var(--ev-pol)}
+#g-infoCard .fnote.evcas{color:#ffb3bb;font-weight:700}
+#g-infoCard .evrel .msItem{margin-top:4px}
