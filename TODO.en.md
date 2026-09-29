@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 2026-09-27: project paused)
+## In progress (hand-off, 2026-09-29: events layer concluded, project stays in maintenance)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it for the next piece of work in progress and move
 finished items to the topic lists below.
@@ -17,8 +17,13 @@ finished items to the topic lists below.
 - The automatic updates keep running; the `keepalive` workflow re-enables the schedules every month so GitHub does not disable them after
   60 days without activity. Still **check once a month** that the data time and Actions look right (steps under "Maintenance" in
   [DEPLOY.en.md](./DEPLOY.en.md)): when fetching fails the site shows no error, only the last data it got.
-- On 28 Sep 2026 (v2.12.0) the Events layer (59 major events and incidents from the owner's verified list) and the public
-  single-file "Global wind map" (`standalone/windfarmTaiwan-globe.html`) were added; follow-ups are under "Major events & incidents" below.
+- **The events layer is concluded (28–29 Sep 2026, v2.12.0–v2.12.4)**: the Events layer was added from the owner's verified list (59 events),
+  then a second batch of 29 events found by web search (WIND-060–088, 88 in all); every source of the second batch was checked with
+  `tools/check_quotes.py` and the records corrected from the results (unverifiable figures removed; only the Maverick turbine make and the
+  Screggagh wind speed remain marked "to be verified" in the CSV notes). The public single-file "Global wind map"
+  (`standalone/windfarmTaiwan-globe.html`), the Mailiao event's farm link, fly-to-country for events without coordinates and the phone-width
+  farm-card fix were added in the same series, and the whole site was tested. What remains is routine follow-up (linking farms, adding
+  coordinates, photo rights, waiting for official findings), listed under "Major events & incidents" below; it is not work in progress.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)
