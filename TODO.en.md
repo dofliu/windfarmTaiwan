@@ -60,15 +60,12 @@ finished items to the topic lists below.
 - [ ] Adding an event: add a row to the CSV (same columns) → add the English title, summary, area and notes to `EN` in
       `tools/build_events.py` and any matching farm to `FARMS` (exact name from `wind_farms.json`) → `python3 tools/build_events.py` →
       version and both changelogs. The build checks that every event has English text and that farm names match.
-- [ ] **Second batch (WIND-060 to 088, 29 incidents compiled from web searches on 2026-09-28): quoted passages still to be checked.** The
-      environment could only read search-result summaries, not open pages, so each row's verification status says "checked against search-result
-      summaries". The check file is ready: `tools/research/events_batch2_2026-09.json` (29 events, 56 sources, each with a candidate passage);
-      in a connected environment run `python3 tools/check_quotes.py tools/research/events_batch2_2026-09.json --write` (tried on 2026-09-28 in the
-      cloud environment: every domain was blocked by the network policy, all ERR),
-      and rewrite or withdraw any row that does not check out; checked rows go back to "primary source" or "press report checked". Check the ones
-      with casualties first: WIND-086 Hai Long CO2 (OSHA Taiwan page), WIND-088 Desert Hot Springs, WIND-080 Delta 6.
-- [ ] 13 events not yet linked to a farm: WIND-001 Crotched Mountain, WIND-008 Kunimidake (the layer only has the 2027 project), WIND-010 and
-      WIND-084 (grid-wide events), WIND-034 Ocean Wind 1/2 (cancelled), WIND-045 Rokewood (no official site name in the source), WIND-063
+- [x] Second batch (WIND-060 to 088) checked source by source with `check_quotes.py` on 2026-09-29 (all 54 sources OK; corrections in
+      CHANGELOG v2.12.3). Still unchecked and kept only in the notes: the 24 December collapse date at Lemnhult and the exact day at Delta 6
+      (paywalled Recharge / Windpower Monthly), the Maverick farm name and GE turbine (KFOR, 403), the Screggagh root cause (E&T, 403); find
+      openable sources if needed.
+- [ ] 14 events not yet linked to a farm: WIND-001 Crotched Mountain, WIND-008 Kunimidake (the layer only has the 2027 project), WIND-010 and
+      WIND-084 (grid-wide events), WIND-079 Rei dos Ventos (park 3; the layer only has park 1), WIND-034 Ocean Wind 1/2 (cancelled), WIND-045 Rokewood (no official site name in the source), WIND-063
       Miyakojima 2003 (the layer's two records are a later batch from 2007/2008), WIND-064 the Awaji park turbine, WIND-065 Hornslet, WIND-068
       Haltern AV9 (the layer's Haltern Ennenberg is a different park), WIND-080 Delta 6, WIND-085 Wenchang (cannot confirm which record),
       WIND-088 (the reports do not name the farm). Add to `FARMS` when found; never guess.

@@ -61,7 +61,8 @@ STAGE_EN = {
     "停機（電源關閉）": "stopped (power switched off)", "試運轉": "commissioning",
 }
 VERIFY_EN = {"主管機關／業主一手資料": "primary source (regulator / owner)", "業主公告索引核對，細節待補": "checked against the owner's notice index; details pending",
-             "搜尋結果摘要核對（原文待 check_quotes 核對）": "checked against search-result summaries (quoted passages still to be verified with check_quotes)"}
+             "搜尋結果摘要核對（原文待 check_quotes 核對）": "checked against search-result summaries (quoted passages still to be verified with check_quotes)",
+             "媒體報導核對（出處原文已以 check_quotes 核對）": "press reports (quoted passages checked with check_quotes)"}
 ORG_EN = {
     "上海市政府": "Shanghai Municipal Government", "美國 OSHA": "US OSHA", "荷蘭國會官方答覆／NOS": "Dutch parliamentary answer / NOS", "日本經產省 METI": "Japan METI",
     "韓國南東發電 KOEN": "Korea South-East Power (KOEN)", "BKW（投資方）": "BKW (investor)", "挪威國家人權機構 NIM": "Norwegian National Human Rights Institution (NIM)",
@@ -82,6 +83,12 @@ ORG_EN = {
     "Windpower Monthly／Recharge（引用 EnBW、Vestas 聲明）": "Windpower Monthly / Recharge (citing EnBW and Vestas statements)", "NBC Palm Springs／KESQ": "NBC Palm Springs / KESQ",
     "Windpower Monthly／Recharge": "Windpower Monthly / Recharge", "Windpower Monthly／The Well News": "Windpower Monthly / The Well News", "Enid News／KFOR": "Enid News / KFOR",
     "North American Windpower／Windpower Monthly": "North American Windpower / Windpower Monthly", "CBC News": "CBC News", "Recharge／reNEWS": "Recharge / reNEWS",
+    "沖繩電力（調查結果）": "Okinawa Electric Power (investigation results)", "Electronics Weekly（引述 New Scientist 對調查報告的報導）": "Electronics Weekly (citing New Scientist's report on the investigation)",
+    "EnergyWatch（引述瑞典事故調查局 SHK）／Recharge": "EnergyWatch (citing the Swedish Accident Investigation Authority, SHK) / Recharge",
+    "Insurance Journal（Bloomberg）／Windpower Monthly／Recharge": "Insurance Journal (Bloomberg) / Windpower Monthly / Recharge", "RenewEconomy／The Well News": "RenewEconomy / The Well News",
+    "Enid News／Windpower Monthly": "Enid News / Windpower Monthly", "Bloomberg Línea／eixos": "Bloomberg Línea / eixos",
+    "Click Petróleo e Gás（引述 GE 與 AES Brasil 聲明）": "Click Petróleo e Gás (citing the GE and AES Brasil statements)", "NS Energy／Power Technology": "NS Energy / Power Technology",
+    "中國新聞網（新華網，引述國家電監會）": "China News Service (Xinhua, citing the State Electricity Regulatory Commission)", "界面新聞": "Jiemian News",
 }
 PHOTO_KIND_EN = {
     "未確認有對應照片": "no matching photo confirmed", "歷史風場照片／頁面示意": "historic farm photo / page illustration", "風場照片／官方報導頁": "farm photo on the owner's news page",
@@ -117,9 +124,10 @@ RIGHTS_EN = {
 }
 
 # ---------------------------------------------------------------- 事件與風場的對應 · event → farms (exact names in wind_farms.json)
-# 2026-09-28 第二批（WIND-060 起）是在無法開啟網頁、只能讀搜尋結果摘要的環境整理的：每筆的核驗狀態寫明「搜尋結果摘要核對」，
-# 出處網址與原文待 tools/check_quotes.py 核對（見 TODO）。The second batch (from WIND-060) was compiled where pages could not be opened,
-# only search-result summaries: each row says so in its verification status, and the quoted passages are still to be checked with check_quotes.py.
+# 2026-09-28 第二批（WIND-060 起）先依搜尋結果摘要整理，2026-09-29 逐筆以 tools/check_quotes.py 核對出處原文（54 個出處全部 OK），
+# 對不上的改寫或換來源（Rei dos Ventos 是第 3 園區、Fenner 是 Enron 1.5 MW、酒泉損失出力與文昌受損部數等未核對的數字刪除）。
+# The second batch (from WIND-060) was first compiled from search-result summaries and then checked source by source with check_quotes.py on
+# 2026-09-29 (all 54 sources OK); rows that did not check out were rewritten or given other sources.
 FARMS = {
     "WIND-002": ["Vindeby"], "WIND-003": ["Horns Rev 1"], "WIND-004": ["Donghai Bridge"], "WIND-005": ["Endeavor wind farm · 1, 2"],
     "WIND-006": ["London Array"], "WIND-007": ["Piet De Wit wind farm · 1"], "WIND-009": ["Tarfaya"], "WIND-011": ["Block Island"],
@@ -139,13 +147,13 @@ FARMS = {
     "WIND-060": ["Taichung Port"], "WIND-061": ["Taichung Port", "Shimen"], "WIND-062": ["Taichung Port"], "WIND-066": ["Ardrossan wind farm"], "WIND-067": ["Lemnhult wind farm"],
     "WIND-069": ["Fenner Wind Power Project"], "WIND-070": ["Raleigh wind farm"], "WIND-071": ["Aldermyrberget wind farm"], "WIND-072": ["Øyfjellet"], "WIND-073": ["Herkentrup wind farm"],
     "WIND-074": ["Frontier Windpower I & II"], "WIND-075": ["Maverick Wind Project"], "WIND-076": ["Odal wind farm"], "WIND-077": ["Geumseongsan wind power plant"], "WIND-078": ["Santo Agostinho"],
-    "WIND-079": ["Rei dos Ventos 1"], "WIND-081": ["Screggagh wind farm"], "WIND-082": ["Harvest (Exelon) wind farm"], "WIND-083": ["Juniper Canyon wind farm"], "WIND-086": ["Hai Long 2 & 3"],
+"WIND-081": ["Screggagh wind farm"], "WIND-082": ["Harvest (Exelon) wind farm"], "WIND-083": ["Juniper Canyon wind farm"], "WIND-086": ["Hai Long 2 & 3"],
     "WIND-087": ["EnBW He Dreiht"],
     # 對不到的 · unmatched (left out on purpose): WIND-001 Crotched Mountain (not in the farm layer), WIND-008 Kunimidake (the 2013 farm is not
     # in the layer; the listed entry is a later project), WIND-010 (grid-wide), WIND-034 Ocean Wind (cancelled, not in the layer), WIND-045 Rokewood
     # (official site name pending per the source). WIND-057 Taipower Mailiao = Yunmai (Mailiao): Taipower's only Mailiao farm, Vestas V80 2 MW ×23
     # (second batch of 7 commissioned 2010/2011, matching the "2010-05-27, 2 MW Vestas, unit 17" in the official notice).
-    # Second batch unmatched: WIND-063 Miyakojima 2003 (the 2007/2008 records are later, different turbines), WIND-064 Awaji park turbine (single
+    # Second batch unmatched: WIND-079 Rei dos Ventos (the incident was at park 3; the layer only has Rei dos Ventos 1), WIND-063 Miyakojima 2003 (the 2007/2008 records are later, different turbines), WIND-064 Awaji park turbine (single
     # municipal turbine, not in the layer), WIND-065 Hornslet (not in the layer), WIND-068 Haltern AV9 (the layer's Haltern Ennenberg is a different
     # park), WIND-080 Delta 6 (not in the layer), WIND-084 Jiuquan (grid-wide), WIND-085 Wenchang repowering (cannot confirm which record), WIND-088 (farm not named).
 }
@@ -362,6 +370,37 @@ EN.update({
                  "a": "He Dreiht, North Sea", "p": "EnBW He Dreiht", "cap": "64 × 15 MW; one unit in this event", "own": "EnBW", "cas": "EnBW said nobody was hurt", "note": "EnBW regards it as a one-off; Vestas and the owner are running a root-cause investigation, not published by the verification date."},
     "WIND-088": {"t": "Worker dies in a fall of more than 100 ft inside a tower", "s": "At 11:15 a.m. a 52-year-old worker fell more than 100 ft inside a turbine tower and was pronounced dead at the scene; Cal/OSHA was notified by the employer and opened an investigation.",
                  "a": "near Desert Hot Springs, California", "p": "Desert Hot Springs wind facility (Site Constructors work)", "cas": "Cal/OSHA was notified of 1 death", "note": "Reports do not name the wind farm; not linked to the farm layer."},
+})
+
+EN.update({
+    "WIND-060": dict(EN["WIND-060"], cas="Liberty Times: fortunately no casualties", note="Taiwan's first tower-fracture incident."),
+    "WIND-066": dict(EN["WIND-066"], s="In an extreme storm (winds of 176 km/h) the blades of the parked, locked turbine T8 ground against the brake pads, the heat set the nacelle on fire and burning debris scattered downwind; nobody was hurt and the UK HSE investigated.",
+                     note="Vestas later changed the parking-brake logic on all turbines at the site so it is applied only during maintenance (Wikipedia and others; not separately checked)."),
+    "WIND-067": dict(EN["WIND-067"], s="The 3 MW turbine commissioned in 2013 collapsed, the first such incident for a Vestas MW-class machine; the Swedish Accident Investigation Authority (SHK) found the tower bolts were not sufficiently tightened by an electrician who had neither experience nor the right training, and that it was not the only flawed turbine.",
+                     note="The collapse date of 24 December follows the Recharge report (full text paywalled, not checked); Recharge published it on 2015-12-29."),
+    "WIND-069": dict(EN["WIND-069"], tb="Enron Wind 1.5 MW (predecessor of the GE 1.5)"),
+    "WIND-071": dict(EN["WIND-071"], cap="17 × 4.2 MW at the farm; one unit in this event",
+                     s="The 230 m tall V150 collapsed over the weekend (the night of 21–22 November) while ramping up for commissioning, with nobody hurt; the investigation found a bonding failure on blade-root inserts caused by a manufacturing issue at a single supplier, and Vestas took about 150 V150s with the same blade configuration out of service as a precaution."),
+    "WIND-074": dict(EN["WIND-074"], note="No root cause published; the offtaker told The Well News the turbine belongs to Deriva Energy."),
+    "WIND-075": dict(EN["WIND-075"], note="The farm name Maverick and the GE turbine follow the KFOR report (HTTP 403 here, not checked)."),
+    "WIND-077": dict(EN["WIND-077"], cas="Seoul Shinmun: nobody was nearby, no casualties"),
+    "WIND-079": dict(EN["WIND-079"], p="Rei dos Ventos 3 (AES Brasil)", t="One turbine burns and the upper part of another falls from its tower",
+                     s="On Sunday 7 February one turbine caught fire with black smoke, and on Monday the 8th the upper part of another fell from the top of its tower; GE said nobody was injured and is investigating the root cause with the owner and the authorities, and the turbines at the Rei dos Ventos 3 park were switched off. The turbines were built by Alstom, whose energy division merged with GE.",
+                     cas="GE statement: nobody was injured", note="The farm layer only has a record for Rei dos Ventos 1; the incident was at park 3, so no link."),
+    "WIND-080": dict(EN["WIND-080"], note="The exact day is in the paywalled Recharge and Windpower Monthly articles (not checked), so month precision is used; Windpower Monthly published on 2019-09-06."),
+    "WIND-081": dict(EN["WIND-081"], s="The roughly £2 million, 100 m (328 ft) Nordex N80 collapsed and debris scattered across a wide area; nobody was on site and nobody was hurt, and the remaining seven turbines were shut down for investigation.",
+                     note="E&T (IET) reported on 2015-02-13 that Nordex's interim investigation found a unique fault in the blade control system and that winds were only about 10–12 m/s (HTTP 403 here, not checked)."),
+    "WIND-082": dict(EN["WIND-082"], s="The nacelle caught fire with black smoke shortly after 5 p.m. on Monday (ABC 12: reported around 5:30 p.m.); firefighters had no equipment able to reach the nacelle; owner Exelon said there were no injuries to the public or employees, and no cause was published.",
+                     cas="Exelon: no injuries to the public or employees", note="Linked to the combined Harvest (Exelon) record in the farm layer."),
+    "WIND-083": dict(EN["WIND-083"], s="Smoke and fire from the nacelle at 1:40 p.m.; burning parts falling from about 300 ft ignited grass and juniper and the fire spread over about 250 acres (early estimates near 500), 39 residences were threatened under a Level 3 evacuation order and about 201 firefighters responded; the farm is operated by Avangrid."),
+    "WIND-084": dict(EN["WIND-084"], s="A cable-terminal fault at the Qiaoxi No. 1 wind farm of CPI Jiuquan caused 598 turbines at 16 wind farms to disconnect; the State Electricity Regulatory Commission called it the most serious wind-related grid event in years.",
+                     cap="", note="A multi-farm grid event with no single farm coordinate; the lost output and low-voltage ride-through explanations appear in other reports that were not checked, so they are left out."),
+    "WIND-085": dict(EN["WIND-085"], t="Super Typhoon Yagi snaps 6.25 MW typhoon-class turbines under construction",
+                     s="The typhoon made landfall at Wengtian, Wenchang around 16:20 on 6 September, only about 7 km from the site, with winds possibly above 83 m/s, beyond the national standard; the Huaneng Wenchang repowering project planned 16 turbines of 6.25 MW and had installed 13, still under construction and not yet powered or grid-connected, so the yaw system could not adjust the load angle and several turbines were snapped.",
+                     cap="16 × 6.25 MW planned, 13 installed; the number damaged is not in the checked source"),
+    "WIND-086": dict(EN["WIND-086"], s="While workers were flushing the pipework of the CO2 fire-suppression system, cylinders discharged suddenly and high-pressure gas leaked into the cylinder room and the corridor; the labour safety authority recorded an asphyxiation accident affecting 7 workers (3 dead, 4 injured), ordered part of the site stopped and said fines would be published separately; contractor Teco said about 17 workers inhaled the gas and were taken to hospital, and the site was stopped for a full safety review.",
+                     cas="OSHA Taiwan: 3 dead, 4 injured (7 workers asphyxiated); Teco: about 17 workers inhaled gas and were hospitalised",
+                     note="The root cause follows the OSHA and judicial investigations; the dates on which the three critically injured workers died appear in later reports that were not checked, so they are left out."),
 })
 
 

@@ -15,7 +15,18 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
-## v2.12.2 — 2026-09-28
+## v2.12.3 — 2026-09-29
+
+- Second batch of events (WIND-060 to 088) checked source by source: all 54 sources pass `tools/check_quotes.py`; verification status is now
+  "press reports (quoted passages checked)", with Okinawa Electric, the Nordex statement, the Øyfjellet Wind notice and OSHA Taiwan as primary
+  sources. Corrections from the check: the Rei dos Ventos incident was at park 3 (the link to park 1 in the farm layer is removed, date now
+  2021-02-07); the Fenner turbine was an Enron 1.5 MW (predecessor of the GE 1.5); Ardrossan, Lemnhult, Santo Agostinho, Screggagh, Frontier II,
+  Jiuquan and Wenchang now cite checkable sources and their summaries follow the source text; unverified figures removed (Jiuquan's 840 MW of lost
+  output and the low-voltage ride-through explanation, 5–6 damaged turbines at Wenchang, 32 turbines stopped at Harvest II, the 56 cylinders,
+  NT$300,000 fine and the dates of death at Hai Long); Delta 6 now at month precision; "no casualties" added for Taichung Port 2008, Hwasun 2025
+  and Harvest II 2019. Event-to-farm links 75 → 74.
+
+
 
 - Fix the phone layout of the Taiwan live dashboard: the two-column farm-card grid used `1fr`, whose minimum width follows the content, so below
   640 px the page was laid out about 514 px wide, part of the farm drawer sat off-screen and its close button could not be reached. Now

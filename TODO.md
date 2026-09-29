@@ -46,12 +46,10 @@
 
 - [ ] 新增事件：在 CSV 加一列（欄位同現有）→ 在 `tools/build_events.py` 的 `EN` 補英文標題、摘要、地點與各項附註，`FARMS` 補對得到的風場
       （名稱與 `wind_farms.json` 完全一致）→ `python3 tools/build_events.py` → 版本號與兩份 CHANGELOG。建置會檢查每筆都有英文、風場名稱對得到。
-- [ ] **第二批（WIND-060 至 088，2026-09-28 依網路搜尋整理的 29 筆故障事件）出處原文待核對**：整理時的環境只能讀搜尋結果摘要、開不了網頁，
-      每筆的「核驗狀態」寫明「搜尋結果摘要核對」。核對檔已備好：`tools/research/events_batch2_2026-09.json`（29 筆、56 個出處，每個附候選原文片段），
-      在能連線的環境跑 `python3 tools/check_quotes.py tools/research/events_batch2_2026-09.json --write`（2026-09-28 在雲端環境試跑：所有網域都被網路政策擋掉，全部 ERR），
-      對不上就改寫或撤回該筆；核對過的改回「主管機關／業主一手資料」或「媒體報導核對」。優先核對有傷亡的：WIND-086 海龍 CO2（職安署頁）、
-      WIND-088 Desert Hot Springs、WIND-080 Delta 6。
-- [ ] 還沒對到風場的 13 筆：WIND-001 Crotched Mountain、WIND-008 国見岳（風場層只有 2027 年的新案）、WIND-010 與 WIND-084（跨案場電網事件）、
+- [x] 第二批（WIND-060 至 088）出處原文已於 2026-09-29 逐筆以 `check_quotes.py` 核對（54 個出處全部 OK，更正見 CHANGELOG v2.12.3）。
+      仍未核對、只寫在註記裡的：Lemnhult 倒塌日 12 月 24 日與 Delta 6 的確切日期（Recharge／Windpower Monthly 付費全文）、Maverick 的風場名與 GE 機組（KFOR，403）、
+      Screggagh 的根因（E&T，403）；有需要再找可開啟的出處。
+- [ ] 還沒對到風場的 14 筆：WIND-001 Crotched Mountain、WIND-008 国見岳（風場層只有 2027 年的新案）、WIND-010 與 WIND-084（跨案場電網事件）、WIND-079 Rei dos Ventos（事故在第 3 園區，風場層只有第 1 園區）、
       WIND-034 Ocean Wind 1／2（已取消）、WIND-045 Rokewood（來源未寫正式案場名）、WIND-063 宮古島 2003（風場層的兩筆是 2007／2008 的另一批機組）、
       WIND-064 淡路市公園風車、WIND-065 Hornslet、WIND-068 Haltern AV9（風場層的 Haltern Ennenberg 是另一座）、WIND-080 Delta 6、
       WIND-085 文昌（無法確認是風場層的哪一筆）、WIND-088（報導未寫風場名）。查到就補 `FARMS`，不要猜。
