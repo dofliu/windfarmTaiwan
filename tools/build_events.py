@@ -89,6 +89,9 @@ ORG_EN = {
     "Enid News／Windpower Monthly": "Enid News / Windpower Monthly", "Bloomberg Línea／eixos": "Bloomberg Línea / eixos",
     "Click Petróleo e Gás（引述 GE 與 AES Brasil 聲明）": "Click Petróleo e Gás (citing the GE and AES Brasil statements)", "NS Energy／Power Technology": "NS Energy / Power Technology",
     "中國新聞網（新華網，引述國家電監會）": "China News Service (Xinhua, citing the State Electricity Regulatory Commission)", "界面新聞": "Jiemian News",
+    "EnergyWatch（引述瑞典事故調查局 SHK）／WindAction（SHK 報告頁）": "EnergyWatch (citing the Swedish Accident Investigation Authority, SHK) / WindAction (SHK report page)",
+    "Recharge（經 Wind Watch 轉載，引述 GE 聲明）／Windpower Monthly": "Recharge (via Wind Watch, citing the GE statement) / Windpower Monthly",
+    "Enid News & Eagle（經 Wind Watch 轉載）／Windpower Monthly": "Enid News & Eagle (via Wind Watch) / Windpower Monthly", "NS Energy／The Irish News": "NS Energy / The Irish News",
 }
 PHOTO_KIND_EN = {
     "未確認有對應照片": "no matching photo confirmed", "歷史風場照片／頁面示意": "historic farm photo / page illustration", "風場照片／官方報導頁": "farm photo on the owner's news page",
@@ -401,6 +404,15 @@ EN.update({
     "WIND-086": dict(EN["WIND-086"], s="While workers were flushing the pipework of the CO2 fire-suppression system, cylinders discharged suddenly and high-pressure gas leaked into the cylinder room and the corridor; the labour safety authority recorded an asphyxiation accident affecting 7 workers (3 dead, 4 injured), ordered part of the site stopped and said fines would be published separately; contractor Teco said about 17 workers inhaled the gas and were taken to hospital, and the site was stopped for a full safety review.",
                      cas="OSHA Taiwan: 3 dead, 4 injured (7 workers asphyxiated); Teco: about 17 workers inhaled gas and were hospitalised",
                      note="The root cause follows the OSHA and judicial investigations; the dates on which the three critically injured workers died appear in later reports that were not checked, so they are left out."),
+})
+
+EN.update({
+    "WIND-067": dict(EN["WIND-067"], note="Collapse date 24 December: Stena Renewable said the machine failed during the morning of the 24th (reNEWS 2015-12-28, via Wind Watch), and the SHK report page also gives 24 December 2015."),
+    "WIND-080": dict(EN["WIND-080"], s="GE statement: on 3 September a GE turbine collapsed at the Delta 6 wind park at Paulino Neves, Maranhão; three GE employees were on site and one was injured and treated. It was GE's fifth collapse in the Americas that year, at a farm operating only since December 2018.", note=""),
+    "WIND-075": dict(EN["WIND-075"], tb=None, s="On the evening of Monday 20 June a resident heard a thud and found the turbine down; the fire department responded at 6:45 p.m. and there was no fire. The turbine belongs to the Maverick wind farm (3 miles east and 1.5 miles south of Ames); owner Invenergy referred questions to the offtaker PSO, which said nobody was injured, and no cause was published.",
+                     cas="PSO: no injuries reported", note="The GE make appears only in KFOR and similar reports (HTTP 403 here, not checked), so it is left out."),
+    "WIND-081": dict(EN["WIND-081"], s="The roughly £2 million, 100 m (328 ft) Nordex N80 collapsed in ordinary winds with witnesses saying the blades were spinning out of control, and debris scattered across a wide area; nobody was on site and nobody was hurt, and the remaining seven turbines were shut down. The owner said Nordex's interim investigation found a unique fault in the blade control system, never seen before in the Nordex fleet and applicable only to turbines of the same generation.",
+                     note="E&T reported winds of about 9–10 m/s at the time (HTTP 403 here, not checked)."),
 })
 
 

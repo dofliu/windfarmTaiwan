@@ -14,7 +14,13 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
-## v2.12.3 — 2026-09-29
+## v2.12.4 — 2026-09-29
+
+- 事件：上一版註記裡四個「未核對」的細節都找到可開啟的出處並以 `check_quotes.py` 核對通過——Lemnhult 倒塌日 2015-12-24（Stena Renewable 經 reNEWS、
+  瑞典事故調查局 SHK 報告頁）；Delta 6 倒塌日 2019-09-03（GE 聲明，經 Recharge），改回日精度；Maverick 風場名與 Invenergy／PSO 說法（Enid News & Eagle）、
+  補上「無人受傷」，機組廠牌仍未核對故不寫；Screggagh 根因為葉片控制系統的獨特故障（The Irish News、業主聲明）。
+
+
 
 - 事件第二批（WIND-060 至 088）出處原文逐筆核對完成：54 個出處全部以 `tools/check_quotes.py` 核對 OK，核驗狀態改為「媒體報導核對（出處原文已以
   check_quotes 核對）」，其中沖繩電力、Nordex 聲明、Øyfjellet Wind 公告、職安署為「主管機關／業主一手資料」。核對後的資料更正：
