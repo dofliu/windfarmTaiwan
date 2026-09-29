@@ -1,0 +1,204 @@
+[
+  {
+    "_note": "事件圖層第二批（WIND-060 至 088，2026-09-28 依網路搜尋整理）的出處核對檔。每個出處的 quote 是整理時從搜尋結果摘要抄下的候選原文（以「…」分段，每段都要在頁面上）；整理時的環境開不了網頁，所以還沒核對。跑法：python3 tools/check_quotes.py tools/research/events_batch2_2026-09.json --write ；只有 OK／OK(parts)／OK(nospace) 才算核對通過，PARTIAL／MISSING 要開頁面人工比對後改寫 quote 或撤回該筆，ERR 表示抓不到。核對通過的，把 data/global/sources/events_2026-09.csv 該列的「核驗狀態」改成「主管機關／業主一手資料」或「媒體報導核對」，重跑 python3 tools/build_events.py，然後刪掉本檔（CLAUDE.md 第 4 節）。Quote-check file for the second batch of events; quotes are candidates copied from search-result summaries and have not been checked yet. Run check_quotes.py, keep only OK results, update the CSV verification status, rebuild, then delete this file.",
+    "farm": "WIND-060 台中港 2 號風機塔架斷裂（2008-09-28 薔蜜）",
+    "sources": [
+      {"url": "https://news.ltn.com.tw/news/life/breakingnews/134281", "quote": "薔蜜…台中港…風力發電機…吹倒"},
+      {"url": "https://www.airitilibrary.com/Article/Detail/22190953-201003-201607150022-201607150022-1-17", "quote": "風力發電機塔架受颱風侵襲倒塌致災原因之探討…FORENSIC INVESTIGATION OF A COLLAPSED WIND TURBINE TOWER"}
+    ]
+  },
+  {
+    "farm": "WIND-061 蘇迪勒吹倒台電 7 部風機（2015-08-08）",
+    "sources": [
+      {"url": "https://news.ltn.com.tw/news/life/breakingnews/1406741", "quote": "8座風力發電機組…蘇迪勒…5.6億"},
+      {"url": "https://news.pts.org.tw/article/303813", "quote": "7座風力發電機倒塌…試驗機型"}
+    ]
+  },
+  {
+    "farm": "WIND-062 梅姬吹斷台中港 12 號機葉片（2016-09-27）",
+    "sources": [
+      {"url": "https://news.tvbs.com.tw/life/676702", "quote": "梅姬…17級…葉片"}
+    ]
+  },
+  {
+    "farm": "WIND-063 宮古島 3 部風機倒塌（2003-09-11 颱風梅米）",
+    "sources": [
+      {"url": "https://www.okiden.co.jp/shared/pdf/news_release/2004/04113001.pdf", "quote": "台風14号…宮古島…風力発電設備…倒壊"},
+      {"url": "https://windeng.t.u-tokyo.ac.jp/ishihara/paper/2004-8.pdf", "quote": "台風14号…マエミー…宮古島…倒壊"}
+    ]
+  },
+  {
+    "farm": "WIND-064 淡路市北淡震災記念公園風車倒塌（2018-08-23）",
+    "sources": [
+      {"url": "https://www.nikkei.com/article/DGXMZO41748430W9A220C1AC1000/", "quote": "風車倒壊…電源オフ…台風20号"},
+      {"url": "https://www.kobe-np.co.jp/news/awaji/202101/0014031343.shtml", "quote": "倒壊の風車、撤去開始…淡路市"}
+    ]
+  },
+  {
+    "farm": "WIND-065 Hornslet Nordtank 飛車解體倒塌（2008-02-22）",
+    "sources": [
+      {"url": "https://www.windaction.org/posts/20929", "quote": "Final report on investigation of a catastrophic turbine failures…February 22"},
+      {"url": "https://en.wikipedia.org/wiki/Hornslet_wind-turbine_collapse", "quote": "22 February 2008…Nordtank NTK 600-180/43…44.5 metres"}
+    ]
+  },
+  {
+    "farm": "WIND-066 Ardrossan 風機風暴中起火（2011-12-08）",
+    "sources": [
+      {"url": "https://www.bloomberg.com/news/articles/2011-12-09/guy-hands-owned-company-says-wind-turbine-caught-fire-in-storms", "quote": "Infinis…caught fire…Ardrossan"}
+    ]
+  },
+  {
+    "farm": "WIND-067 Lemnhult Vestas V112 倒塌（2015-12-24）",
+    "sources": [
+      {"url": "https://renewablesnow.com/news/tower-bolts-failure-led-to-2015-collapse-of-vestas-turbine-in-sweden-559782/", "quote": "pre-tension force…rain and snow…training"},
+      {"url": "https://www.rechargenews.com/wind/vestas-probes-3mw-wind-turbine-collapse-in-sweden/1-1-868110", "quote": "24 December…Lemnhult…Stena Renewable…31 turbines"}
+    ]
+  },
+  {
+    "farm": "WIND-068 Haltern AV9 Nordex N149 倒塌（2021-09-29）",
+    "sources": [
+      {"url": "https://www.nordex-online.com/en/2021/10/statement-on-the-collapse-of-a-wind-turbine-in-haltern-av9-wind-park-germany/", "quote": "29 September 2021…N149/4.0-4.5…164…11 March…Nobody was injured…22 turbines"},
+      {"url": "https://www.windpowermonthly.com/article/1799884/nordex-investigation-finds-cause-collapsed-turbine-germany", "quote": "pre-stressed concrete…hybrid tower…Haltern"}
+    ]
+  },
+  {
+    "farm": "WIND-069 Fenner 18 號風機倒塌（2009-12-27）",
+    "sources": [
+      {"url": "https://nawindpower.com/investigation-continues-into-turbine-failure-at-fenner-wind-farm", "quote": "Fenner…collapse…Enel"},
+      {"url": "https://www.windpowermonthly.com/article/978707/turbine-collapse-causes-new-york-wind-farm-shut-down", "quote": "Fenner…shut down…187"}
+    ]
+  },
+  {
+    "farm": "WIND-070 Chatham-Kent Raleigh 風機折斷（2018-01-19）",
+    "sources": [
+      {"url": "https://www.cbc.ca/news/canada/windsor/wind-turbine-blade-collapse-chatham-kent-terraform-1.4602264", "quote": "faulty blade…TerraForm…March 29"},
+      {"url": "https://www.cbc.ca/news/canada/windsor/turbines-shut-down-chatham-1.4499041", "quote": "shut down all 51…No injuries"}
+    ]
+  },
+  {
+    "farm": "WIND-071 Aldermyrberget Vestas V150 倒塌（2020-11-22）",
+    "sources": [
+      {"url": "https://www.windpowermonthly.com/article/1704659/vestas-halts-150-turbines-following-blade-investigation-updated", "quote": "blade-root inserts…single supplier…150"},
+      {"url": "https://www.rechargenews.com/wind/wind-turbine-maker-vestas-halts-batch-of-v150s-after-sweden-collapse-probe/2-1-945232", "quote": "Aldermyrberget…Skellefte…21 and 22 November"}
+    ]
+  },
+  {
+    "farm": "WIND-072 Øyfjellet 18 號機轉子落地（2024-01-27）",
+    "sources": [
+      {"url": "https://oyfjelletvind.no/en/announcement-technical-problems/", "quote": "On January 27, the rotor became loose and fell off the turbine…turbine number 18…June…cordoned off"},
+      {"url": "https://www.windpowermonthly.com/article/1860247/rotor-falls-off-nordex-wind-turbine-norway-during-maintenance-work", "quote": "Øyfjellet…rotor…Nordex"}
+    ]
+  },
+  {
+    "farm": "WIND-073 Herkentrup Nordex N149 上段塔架落地（2025-10-27）",
+    "sources": [
+      {"url": "https://www.rechargenews.com/wind/black-out-forest-nordex-turbine-collapses-almost-completely-at-german-wind-farm/2-1-1075806", "quote": "Herkentrup…N149…no injuries"},
+      {"url": "https://www.renews.biz/onshore-wind/nordex-probes-german-turbine-collapse/", "quote": "October 27…upper tower segment…Herkentrup"}
+    ]
+  },
+  {
+    "farm": "WIND-074 Frontier Windpower II Kildare 風機倒塌（2025-02-25）",
+    "sources": [
+      {"url": "https://www.windpowermonthly.com/article/1908269/turbine-collapses-wind-farm-oklahoma", "quote": "Kildare…Nordex…74"},
+      {"url": "https://www.thewellnews.com/in-the-states/officials-still-puzzled-by-mystery-wind-turbine-collapse/", "quote": "7:23…Kildare…no one had been injured"}
+    ]
+  },
+  {
+    "farm": "WIND-075 Maverick Ames 風機倒塌（2022-06-20）",
+    "sources": [
+      {"url": "https://www.enidnews.com/news/local_news/wind-turbine-collapses-near-ames/article_4c60b35e-f1a2-11ec-88a7-8f33fbe24434.html", "quote": "Maverick…Ames…6:45"},
+      {"url": "https://kfor.com/news/local/wind-turbine-collapses-near-ames/", "quote": "Ames…Invenergy…Public Service Company of Oklahoma"}
+    ]
+  },
+  {
+    "farm": "WIND-076 Odal 22 噸葉片脫落（2024-04-10）",
+    "sources": [
+      {"url": "https://www.marketscreener.com/quote/stock/SIEMENS-AG-56358595/news/Siemens-Gamesa-wind-turbine-loses-22-tonne-blade-in-Norway-46411859/", "quote": "72-metre…22 tonnes…5.0-145…We now need to investigate the cause of this incident"},
+      {"url": "https://www.windpowermonthly.com/article/1879064/norwegian-wind-farm-delays-restart-siemens-gamesa-turbine-breakage", "quote": "Odal…restart…Siemens Gamesa"}
+    ]
+  },
+  {
+    "farm": "WIND-077 和順金城山 4.7 MW 風機折彎（2025-04-21）",
+    "sources": [
+      {"url": "https://www.seoul.co.kr/news/society/2026/02/10/20260210500384", "quote": "4월 21일…2시 50분…금성산…4.7…블레이드"},
+      {"url": "https://www.newsis.com/view/NISX20260210_0003509313", "quote": "화순…블레이드 파열"}
+    ]
+  },
+  {
+    "farm": "WIND-078 Santo Agostinho Siemens Gamesa 5.X 葉片斷裂（2023-07-05）",
+    "sources": [
+      {"url": "https://www.bloomberg.com/news/articles/2023-07-06/siemens-energy-wind-turbine-breaks-in-brazil-adding-to-scrutiny", "quote": "Santo Agostinho…Engie…5.X"},
+      {"url": "https://renewablesnow.com/news/siemens-gamesa-turbine-collapses-at-434-mw-wind-park-in-brazil-report-828053/", "quote": "434…Santo Agostinho…6.2"}
+    ]
+  },
+  {
+    "farm": "WIND-079 Rei dos Ventos 起火與墜落（2021-02）",
+    "sources": [
+      {"url": "https://en.clickpetroleoegas.com.br/general-electric-e-aes-brasil-investigam-incendio-e-queda-de-turbinas-em-parque-eolico-no-rn/", "quote": "Rei dos Ventos…two wind turbines…fire…Alstom"},
+      {"url": "https://www.rechargenews.com/wind/brazil-wind-turbine-collapse-is-ges-fourth-in-americas-this-year/2-1-643014", "quote": "Rei dos Ventos…AES…GE"}
+    ]
+  },
+  {
+    "farm": "WIND-080 Delta 6 GE 風機倒塌、1 人受傷（2019-09-03）",
+    "sources": [
+      {"url": "https://www.rechargenews.com/wind/worker-hurt-after-fifth-ge-wind-turbine-collapse-this-year/2-1-667257", "quote": "Delta 6…Paulino Neves…three GE employees…injured…fifth"},
+      {"url": "https://www.windpowermonthly.com/article/1595902/worker-injured-ge-turbine-collapse", "quote": "Delta 6…Omega…injured"}
+    ]
+  },
+  {
+    "farm": "WIND-081 Screggagh Nordex N80 倒塌（2015-01-02）",
+    "sources": [
+      {"url": "https://eandt.theiet.org/2015/02/13/system-fault-led-screggagh-wind-turbine-collapse", "quote": "unique fault…blade control system…Screggagh"},
+      {"url": "https://unece.org/DAM/env/pp/compliance/MoP5decisions/V.9n_United_Kingdom/frCommC68_V9n_att1_Screggagh_report_redacted_12.01.2016.pdf", "quote": "Screggagh…N80…2 January 2015"}
+    ]
+  },
+  {
+    "farm": "WIND-082 Harvest Wind II 機艙火災（2019-04-01）",
+    "sources": [
+      {"url": "https://wbckfm.com/wind-turbine-fire-michigan/", "quote": "Elkton…turbine…fire"},
+      {"url": "https://www.wind-watch.org/news/2019/04/03/turbine-update-no-reason-yet-why-it-caught-fire/", "quote": "Oliver Township…Exelon…32"}
+    ]
+  },
+  {
+    "farm": "WIND-083 Juniper Canyon 風機起火引發 Juniper Fire（2019-07-20）",
+    "sources": [
+      {"url": "https://www.seattletimes.com/seattle-news/juniper-fire-in-klickitat-county-burns-more-than-500-acres-threatens-homes-wind-farm/", "quote": "Juniper…Klickitat…wind turbine"},
+      {"url": "https://www.yakimaherald.com/news/local/juniper-fire-in-klickitat-county-burns-more-than-240-acres-threatens-homes-wind-farm/article_fa6fe487-8e86-539d-a6b2-5ee73420f849.html", "quote": "1:40 p.m.…Bickleton…Avangrid…39 structures"}
+    ]
+  },
+  {
+    "farm": "WIND-084 酒泉 598 部風機脫網（2011-02-24）",
+    "sources": [
+      {"url": "https://news.bjx.com.cn/html/20110410/277475.shtml", "quote": "桥西第一风电场…598台…84万千瓦"},
+      {"url": "https://www.chinanews.com.cn/ny/2011/06-07/3093352.shtml", "quote": "2月24日…酒泉…598台…脱网"}
+    ]
+  },
+  {
+    "farm": "WIND-085 文昌颱風摩羯吹斷施工中風機（2024-09-06）",
+    "sources": [
+      {"url": "https://news.ycwb.com/2024-09/08/content_52915459.htm", "quote": "摩羯…文昌…风机…吹断"},
+      {"url": "https://m.jiemian.com/article/11690459.html", "quote": "6.25MW…16台…13台…未并网"}
+    ]
+  },
+  {
+    "farm": "WIND-086 海龍降壓站 CO2 外洩 3 死（2024-08-20）",
+    "sources": [
+      {"url": "https://www.osha.gov.tw/48110/48417/162283/162286/178420/?cprint=pt", "quote": "海龍離岸風電…二氧化碳…7名勞工…3死…30萬…停工"},
+      {"url": "https://www.ctee.com.tw/news/20240821701083-430503", "quote": "海龍離岸風電…東元…停工"}
+    ]
+  },
+  {
+    "farm": "WIND-087 He Dreiht Vestas V236 葉片斷裂落海（2026-07-22）",
+    "sources": [
+      {"url": "https://www.windpowermonthly.com/article/1965966/vestas-blade-breaks-german-north-sea-wind-farm", "quote": "On 22 July, a blade failure was detected on one of the wind turbines at the He Dreiht offshore wind farm"},
+      {"url": "https://www.rechargenews.com/offshore-wind/vestas-blade-break-disrupts-north-sea-offshore-wind-farm-construction/2-1-2026511", "quote": "Together with the customer, we have initiated a root cause investigation of the incident…He Dreiht"}
+    ]
+  },
+  {
+    "farm": "WIND-088 Desert Hot Springs 塔筒內墜落死亡（2020-12-30）",
+    "sources": [
+      {"url": "https://www.nbcpalmsprings.com/2021/01/04/person-dies-in-100-foot-fall-near-desert-hot-springs", "quote": "52-year-old…Calexico…fell more than 100 feet inside the tower of a wind turbine…Site Constructors"},
+      {"url": "https://kesq.com/news/2021/01/04/man-killed-in-100-ft-wind-turbine-fall-near-desert-hot-springs-identified/", "quote": "Desert Hot Springs…wind turbine…Cal/OSHA"}
+    ]
+  }
+]

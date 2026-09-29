@@ -47,7 +47,8 @@
 - [ ] 新增事件：在 CSV 加一列（欄位同現有）→ 在 `tools/build_events.py` 的 `EN` 補英文標題、摘要、地點與各項附註，`FARMS` 補對得到的風場
       （名稱與 `wind_farms.json` 完全一致）→ `python3 tools/build_events.py` → 版本號與兩份 CHANGELOG。建置會檢查每筆都有英文、風場名稱對得到。
 - [ ] **第二批（WIND-060 至 088，2026-09-28 依網路搜尋整理的 29 筆故障事件）出處原文待核對**：整理時的環境只能讀搜尋結果摘要、開不了網頁，
-      每筆的「核驗狀態」寫明「搜尋結果摘要核對」。在能連線的環境逐筆開出處、抄一段原文寫成 `tools/research/` 的 JSON，跑 `python3 tools/check_quotes.py`，
+      每筆的「核驗狀態」寫明「搜尋結果摘要核對」。核對檔已備好：`tools/research/events_batch2_2026-09.json`（29 筆、56 個出處，每個附候選原文片段），
+      在能連線的環境跑 `python3 tools/check_quotes.py tools/research/events_batch2_2026-09.json --write`（2026-09-28 在雲端環境試跑：所有網域都被網路政策擋掉，全部 ERR），
       對不上就改寫或撤回該筆；核對過的改回「主管機關／業主一手資料」或「媒體報導核對」。優先核對有傷亡的：WIND-086 海龍 CO2（職安署頁）、
       WIND-088 Desert Hot Springs、WIND-080 Delta 6。
 - [ ] 還沒對到風場的 13 筆：WIND-001 Crotched Mountain、WIND-008 国見岳（風場層只有 2027 年的新案）、WIND-010 與 WIND-084（跨案場電網事件）、
