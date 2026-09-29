@@ -61,9 +61,9 @@ finished items to the topic lists below.
       `tools/build_events.py` and any matching farm to `FARMS` (exact name from `wind_farms.json`) → `python3 tools/build_events.py` →
       version and both changelogs. The build checks that every event has English text and that farm names match.
 - [x] Second batch (WIND-060 to 088) checked source by source with `check_quotes.py` on 2026-09-29 (all 54 sources OK; corrections in
-      CHANGELOG v2.12.3). Still unchecked and kept only in the notes: the 24 December collapse date at Lemnhult and the exact day at Delta 6
-      (paywalled Recharge / Windpower Monthly), the Maverick farm name and GE turbine (KFOR, 403), the Screggagh root cause (E&T, 403); find
-      openable sources if needed.
+      CHANGELOG v2.12.3). The four details that were only in the notes (Lemnhult date, Delta 6 date, Maverick farm name, Screggagh root cause)
+      were checked against openable sources in v2.12.4; still unchecked and kept only in the notes: the Maverick turbine make (GE, KFOR 403)
+      and the Screggagh wind speed of 9–10 m/s (E&T 403).
 - [ ] 14 events not yet linked to a farm: WIND-001 Crotched Mountain, WIND-008 Kunimidake (the layer only has the 2027 project), WIND-010 and
       WIND-084 (grid-wide events), WIND-079 Rei dos Ventos (park 3; the layer only has park 1), WIND-034 Ocean Wind 1/2 (cancelled), WIND-045 Rokewood (no official site name in the source), WIND-063
       Miyakojima 2003 (the layer's two records are a later batch from 2007/2008), WIND-064 the Awaji park turbine, WIND-065 Hornslet, WIND-068

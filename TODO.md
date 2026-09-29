@@ -47,8 +47,8 @@
 - [ ] 新增事件：在 CSV 加一列（欄位同現有）→ 在 `tools/build_events.py` 的 `EN` 補英文標題、摘要、地點與各項附註，`FARMS` 補對得到的風場
       （名稱與 `wind_farms.json` 完全一致）→ `python3 tools/build_events.py` → 版本號與兩份 CHANGELOG。建置會檢查每筆都有英文、風場名稱對得到。
 - [x] 第二批（WIND-060 至 088）出處原文已於 2026-09-29 逐筆以 `check_quotes.py` 核對（54 個出處全部 OK，更正見 CHANGELOG v2.12.3）。
-      仍未核對、只寫在註記裡的：Lemnhult 倒塌日 12 月 24 日與 Delta 6 的確切日期（Recharge／Windpower Monthly 付費全文）、Maverick 的風場名與 GE 機組（KFOR，403）、
-      Screggagh 的根因（E&T，403）；有需要再找可開啟的出處。
+      原本只寫在註記裡的四個細節（Lemnhult 倒塌日、Delta 6 日期、Maverick 風場名、Screggagh 根因）已於 v2.12.4 找到可開啟的出處核對通過；
+      仍未核對的只剩 Maverick 的機組廠牌（GE，KFOR 403）與 Screggagh 事發風速 9–10 m/s（E&T 403），只寫在註記。
 - [ ] 還沒對到風場的 14 筆：WIND-001 Crotched Mountain、WIND-008 国見岳（風場層只有 2027 年的新案）、WIND-010 與 WIND-084（跨案場電網事件）、WIND-079 Rei dos Ventos（事故在第 3 園區，風場層只有第 1 園區）、
       WIND-034 Ocean Wind 1／2（已取消）、WIND-045 Rokewood（來源未寫正式案場名）、WIND-063 宮古島 2003（風場層的兩筆是 2007／2008 的另一批機組）、
       WIND-064 淡路市公園風車、WIND-065 Hornslet、WIND-068 Haltern AV9（風場層的 Haltern Ennenberg 是另一座）、WIND-080 Delta 6、

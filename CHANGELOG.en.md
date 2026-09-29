@@ -15,7 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
-## v2.12.3 — 2026-09-29
+## v2.12.4 — 2026-09-29
+
+- Events: the four details marked "not checked" in the previous version now have openable sources that pass `check_quotes.py`: the Lemnhult
+  collapse date 2015-12-24 (Stena Renewable via reNEWS, and the SHK report page); the Delta 6 collapse date 2019-09-03 (GE statement via
+  Recharge), back to day precision; the Maverick farm name and the Invenergy / PSO statements (Enid News & Eagle) with "no injuries" added,
+  while the turbine make stays unverified and is left out; the Screggagh root cause, a unique fault in the blade control system (The Irish
+  News and the owner's statement).
+
+
 
 - Second batch of events (WIND-060 to 088) checked source by source: all 54 sources pass `tools/check_quotes.py`; verification status is now
   "press reports (quoted passages checked)", with Okinawa Electric, the Nordex statement, the Øyfjellet Wind notice and OSHA Taiwan as primary
