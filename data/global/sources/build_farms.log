@@ -77,7 +77,9 @@ CLEAN dup AUS Snowtown I wind farm 99.0 -> Snowtown
 CLEAN dup AUS Studland Bay wind farm 75.0 -> Woolnorth (Bluff Point / Studland Bay)
 CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
 CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
+CLEAN dup CHN Guangdong Yangjiang Qingzhou V Offshore wind farm 1000.0 -> CTG Yangjiang Qingzhou 5
 CLEAN dup CHN Guangdong Yangjiang Qingzhou VI Offshore wind farm 1000.0 -> CTG Yangjiang Qingzhou 6
+CLEAN dup CHN Guangdong Yangjiang Qingzhou VII Offshore wind farm 1000.0 -> CTG Yangjiang Qingzhou 7
 CLEAN dup CHN Hainan CZ2 Demonstration Offshore wind farm 600.0 -> Shenergy Hainan CZ2 (Dongfang)
 CLEAN dup CHN Hainan CZ3 Demonstration Offshore wind farm 600.0 -> Datang Danzhou CZ3
 CLEAN dup CHN Hainan Danzhou CZ3 (Datang) Offshore wind farm 600.0 -> Datang Danzhou CZ3
@@ -139,10 +141,14 @@ CLEAN fix ALA Långnabba wind farm 40.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm 48.0
 CLEAN fix AUS Snowtown 370.0
 CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
+CLEAN fix CHN CGN Fanshi I 1000.0
 CLEAN fix CHN CGN Huizhou Gangkou I 400.0
 CLEAN fix CHN CGN Yangjiang Qingzhou 1&2 1000.0
+CLEAN fix CHN CTG Yangjiang Qingzhou 5 500.0
 CLEAN fix CHN CTG Yangjiang Qingzhou 6 500.0
+CLEAN fix CHN CTG Yangjiang Qingzhou 7 1000.0
 CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
+CLEAN fix CHN Guangdong Energy Fanshi II / Yangjiang 1000.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Huadian Yuhuan 2 500.0
 CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0

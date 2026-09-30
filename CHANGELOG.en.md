@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.13.3 — 2026-09-30
+
+- Time check on the Yangjiang deep-water sites (quotes checked with `check_quotes.py`): CTG's Qingzhou 5 and 7 (163 turbines, 2,000 MW together)
+  connected their first 5 turbines only on 27 September 2026 and are due in December 2026, so they go from "operating" back to "under construction
+  (2026)", Qingzhou 5's capacity is corrected from 500 to 1,000 MW and GEM's two Qingzhou V / VII records are merged; CGN's Fanshi I and II
+  (2,000 MW, 131 turbines) reached full capacity on 24 September 2026 (was 2025), and Fanshi II belongs to CGN, not Guangdong Energy, so it is
+  renamed "CGN Fanshi II". China's operating offshore capacity drops by 2,000 MW, and the share of operating offshore capacity worldwide with a
+  known foundation type moves from 49.4% to 50.1%.
+
 ## v2.13.2 — 2026-09-30
 
 - Foundation step 5 (China), third batch: 5 farms added, every quoted passage checked with `check_quotes.py` — SPIC Binhai North H2 (100 monopiles without

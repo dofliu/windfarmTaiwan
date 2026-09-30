@@ -58,6 +58,8 @@ finished items to the topic lists below.
 3. **Time-sensitive checks (one round done on 30 Sep 2026)**: Greater Changhua 2b & 4 was completed on 1 Sep 2026 and is in final
    commissioning, not yet fully operating; Hai Long stays at 2027 per Northland's Q2 report; Taipower phase 2 has Taipower installing the
    turbines itself, aiming for grid connection by the end of 2026. Next checks are under "Re-check periodically" below.
+   Second round (v2.13.3): CTG's Qingzhou 5 and 7 connected their first turbines only on 27 Sep 2026 and go back to under construction
+   (due Dec 2026); CGN's Fanshi I and II reached full capacity on 24 Sep 2026.
 4. **The rest of foundation step 5**:
    - A second batch of 6 farms was added on 30 Sep 2026 (v2.13.1); 160 of China's 174 operating offshore farms are still "type unknown".
      Leads found but not yet usable: Shenquan II, 50 monopiles (the NetEase "monopile installation completed" article does not open; the
@@ -117,6 +119,9 @@ finished items to the topic lists below.
 
 ## Re-check periodically (time-sensitive, not code problems)
 
+- [ ] CTG Yangjiang Qingzhou 5 and 7 (1,000 MW each, 163 turbines together): first 5 turbines connected on 27 Sep 2026, and Yangjiang's
+      2025 key-project list gives December 2026 for commissioning; once fully connected, change `st=1, year=2026` in the two rules in
+      `tools/farm_cleanup.py` to operating (CTG's own site is unreachable; the Yangjiang city government or China News Service report it).
 - [ ] Taipower Offshore Phase 2: on 30 Jul 2026 Taipower took over turbine installation under the contract and agreed terms with Vestas,
       30 turbines to go, grid connection targeted for year-end (CNA); completion is still given as "2027". Check at year-end whether it
       connected and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed

@@ -27,11 +27,11 @@ This page shows the results of steps 1–4 and the part of step 5 done so far. O
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 183 of 365 farms, 49.4% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 183 of 363 farms, 50.1% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| China | 171 | 19 | 14% | 7 | 4 | 3 | 5 |
+| China | 169 | 19 | 14% | 7 | 4 | 3 | 5 |
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
@@ -77,7 +77,7 @@ Total: type known for 183 of 365 farms, 49.4% of their capacity (floating farms 
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
-| CGN Fanshi I | 1,000 | 2025 | Jacket | [yjrb.com.cn](https://www.yjrb.com.cn/content/c211953.html) | 73 turbines (22 × 13.6 MW and 51 × 14 MW) on four-pile jackets in 40–48 m of water (Yangjiang Daily construction report on the four jacket piles at position 32) |
+| CGN Fanshi I | 1,000 | 2026 | Jacket | [yjrb.com.cn](https://www.yjrb.com.cn/content/c211953.html) | 73 turbines (22 × 13.6 MW and 51 × 14 MW) on four-pile jackets in 40–48 m of water (Yangjiang Daily construction report on the four jacket piles at position 32) |
 | CGN Rudong H8 | 300 | 2021 | Mixed: Monopile 49, Composite bucket 16 | [ecp.cgnpc.com.cn](https://ecp.cgnpc.com.cn/view/staticpags/zgh_zbgg/8a488fc36fae46600171bacf23d163d0.html) | 65 turbines: 49 on monopiles and 16 on all-steel buckets (single buckets sunk by suction, like the composite bucket, but with a steel transition piece); fully connected in December 2021 |
 | CGN Shanwei Houhu | 500 | 2021 | Mixed: Monopile 82, Jacket 9 | [chinanews.com](https://www.chinanews.com/m/cj/2021/11-25/9616090.shtml) | 91 × 5.5 MW: 82 monopiles, 8 four-pile jackets and 1 suction-bucket jacket (China News Service, November 2021, on full grid connection) |
 | CR Power Lianjiang Waihai | 700 | 2025 | Mixed: Monopile 7, Jacket 32 | [chinapower.com.cn](http://www.chinapower.com.cn/flfd/xmjz/20240429/244321.html) | 39 × 18 MW turbines: 7 on monopiles (10 m in diameter) and 32 on jackets (China Power, April 2024, on the tower supply) |

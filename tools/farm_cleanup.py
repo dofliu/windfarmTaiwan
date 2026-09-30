@@ -721,6 +721,30 @@ RULES = [
         '港口風場分兩期共 100 萬瓩、104 部：一期 25 萬瓩 2021 年 12 月 28 日全容量併網，二期 75 萬瓩 2023 年 12 月 12 日投產（新華社）；原只寫 400 MW',
         'The Gangkou farm has two phases totalling 1,000 MW and 104 turbines: phase 1 (250 MW) fully connected on 28 December 2021, phase 2 (750 MW) commissioned on 12 December 2023 (Xinhua); was 400 MW',
         'http://www.news.cn/fortune/2023-12/13/c_1130023531.htm', rename='CGN Huizhou Gangkou I & II', zhname='中廣核惠州港口一、二', mw=1000, year=2021, ph=[[2021, 250], [2023, 750]]),
+    # ------------------------------------------------ 2026-09-30 陽江深水場址時效核對（出處原文已以 check_quotes 核對）
+    fix('CHN', 'CTG Yangjiang Qingzhou 5', C,
+        '青洲五是 1,000 MW（原寫 500）、2021 年 11 月開工、預計 2026 年 12 月投產（陽江市 2025 年重點建設項目）；青洲五、七共 163 部、2,000 MW，'
+        '2026 年 9 月 27 日才首批 5 部併網（陽江市政府），改為興建中',
+        'Qingzhou 5 is 1,000 MW (was 500), started November 2021 and is due in December 2026 (Yangjiang’s 2025 key-project list); Qingzhou 5 and 7 '
+        'together have 163 turbines and 2,000 MW and connected their first 5 turbines only on 27 September 2026 (Yangjiang city government), so it goes back to under construction',
+        'https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html', mw=1000, st=1, year=2026),
+    fix('CHN', 'CTG Yangjiang Qingzhou 7', C,
+        '青洲七 1,000 MW，2021 年 11 月開工、預計 2026 年 12 月投產；與青洲五共 163 部，2026 年 9 月 27 日首批 5 部併網，改為興建中（原寫 2025 年營運）',
+        'Qingzhou 7 (1,000 MW) started November 2021 and is due in December 2026; with Qingzhou 5 it has 163 turbines, the first 5 connected on 27 September 2026, '
+        'so it goes back to under construction (was operating since 2025)',
+        'https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html', st=1, year=2026),
+    dup('CHN', 'Guangdong Yangjiang Qingzhou V Offshore wind farm', G, ('CTG Yangjiang Qingzhou 5', C),
+        '同一座風場（三峽陽江青洲五，1,000 MW）', 'Same farm (CTG Yangjiang Qingzhou 5, 1,000 MW)', 'https://www.gdshe.org/article/24026.html'),
+    dup('CHN', 'Guangdong Yangjiang Qingzhou VII Offshore wind farm', G, ('CTG Yangjiang Qingzhou 7', C),
+        '同一座風場（三峽陽江青洲七，1,000 MW）', 'Same farm (CTG Yangjiang Qingzhou 7, 1,000 MW)', 'https://www.gdshe.org/article/24026.html'),
+    fix('CHN', 'CGN Fanshi I', C,
+        '中廣核帆石一、二共 200 萬瓩、131 部，2026 年 9 月 24 日全容量投運（中新網）；原寫 2025 年',
+        'CGN’s Fanshi I and II (2,000 MW, 131 turbines) reached full capacity on 24 September 2026 (China News Service); was 2025',
+        'https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml', year=2026),
+    fix('CHN', 'Guangdong Energy Fanshi II / Yangjiang', C,
+        '帆石二是中廣核的風場（63 部 16 MW，陽江市 2025 年重點建設項目），不是粵電；與帆石一同於 2026 年 9 月 24 日全容量投運（原寫 2025 年）',
+        'Fanshi II is CGN’s farm (63 × 16 MW, Yangjiang’s 2025 key-project list), not Guangdong Energy’s; it reached full capacity with Fanshi I on 24 September 2026 (was 2025)',
+        'https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml', rename='CGN Fanshi II', zhname='中廣核陽江帆石二', owner='CGN New Energy', year=2026),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
