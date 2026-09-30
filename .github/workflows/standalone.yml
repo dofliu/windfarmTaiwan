@@ -1,8 +1,12 @@
 name: build-standalone
 
-# 單檔版 HTML（standalone/windfarmTaiwan-standalone.html）與全球風電地圖公開版（standalone/windfarmTaiwan-globe.html）：網站程式、index.html 或全球資料有變更時自動重建並 commit。
+# 單檔版 HTML（windfarmTaiwan-standalone.html）與全球風電地圖公開版（windfarmTaiwan-globe.html）：網站程式、index.html 或全球資料有變更時
+# 自動重建，上傳到 GitHub Release「standalone」（固定標籤，每次覆蓋同名檔案），不再 commit 進 repo——兩個檔各約 6 MB，進 git 會讓歷史每次多 12 MB。
+# 下載網址固定為 https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<檔名>。
 # 即時資料約每 2 小時更新，不觸發重建——單檔版連網時會直接向正式網站抓最新的即時資料。
-# Single-file HTML: rebuilt and committed whenever the site code, index.html or the global data change.
+# Single-file HTML: rebuilt whenever the site code, index.html or the global data change, and uploaded to the GitHub Release
+# tagged "standalone" (fixed tag, assets overwritten each time) instead of being committed — each file is about 6 MB.
+# Download URL: https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<file>.
 # The live-data commits (about every 2 hours) do not trigger it; the single-file copy fetches live data from the site when online.
 on:
   push:
@@ -25,6 +29,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: standalone
     steps:
       - uses: actions/checkout@v7
 
@@ -37,16 +44,19 @@ jobs:
           python tools/build_standalone.py
           python tools/build_globe_lite.py
 
-      - name: Commit if changed
+      - name: Upload to the "standalone" release
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add standalone/windfarmTaiwan-standalone.html standalone/windfarmTaiwan-globe.html
-          git diff --staged --quiet && { echo "no change"; exit 0; }
-          git commit -m "chore: rebuild single-file HTML $(date -u +%FT%TZ)"
-          # 可能與排程的資料 commit 同時推送：先 rebase 再推，最多重試 4 次
-          for i in 1 2 3 4; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
-            sleep $((i * 10))
-          done
-          exit 1
+          VER=$(python -c "import re,pathlib;print(re.search(r\"WW\.VERSION = '([^']+)'\", pathlib.Path('assets/js/core.js').read_text()).group(1))")
+          NOTES="單檔版 HTML（下載後直接用瀏覽器開啟，離線也能用）與全球風電地圖公開版（只有地球儀，給一般人）。網站程式或全球資料變更時自動重建，永遠是最新版；檔案版本見頁尾。
+          Single-file HTML (download and open in any browser, works offline) and the public global wind map (globe only). Rebuilt automatically whenever the site code or global data change, so this release is always current; the version is in the footer.
+
+          網站版本 · Site version: v${VER} · commit ${GITHUB_SHA}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --title "單檔版 · Single-file HTML" --notes "$NOTES"
+          else
+            gh release create "$TAG" --title "單檔版 · Single-file HTML" --notes "$NOTES" --latest=false --target "$GITHUB_SHA"
+          fi
+          gh release upload "$TAG" standalone/windfarmTaiwan-standalone.html standalone/windfarmTaiwan-globe.html --clobber
+          # 把標籤移到這次建置的 commit（下載網址只看標籤名稱，不受影響）· move the tag to this commit (URLs only use the tag name)
+          git tag -f "$TAG" "$GITHUB_SHA"
+          git push -f origin "refs/tags/$TAG"

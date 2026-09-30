@@ -2,7 +2,7 @@
 """產生單檔版 HTML：把整個網站（首頁、台灣即時、全球 3D 地球儀、風電知識）打包成一個可下載、
 直接用瀏覽器開啟的檔案。
 
-    python3 tools/build_standalone.py            # 輸出 standalone/windfarmTaiwan-standalone.html
+    python3 tools/build_standalone.py            # 輸出 standalone/windfarmTaiwan-standalone.html（不進 git；Actions 上傳到 Release「standalone」）
 
 內嵌的內容：
     - site.css 與五個頁面程式（直接執行）
@@ -48,12 +48,6 @@ def json_block(p):
     obj = json.loads(read(p))
     # JSON 字串外不會有 '<'；字串內的 '<' 改寫成 \u003c，內容不變，也不可能提早結束 <script>
     return json.dumps(obj, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
-
-
-def rewrite(text):
-    """下載連結指向正式網站（單檔版本身沒有旁邊的 standalone/ 資料夾）。"""
-    return (text.replace('href="standalone/windfarmTaiwan-standalone.html" download', f'href="{SITE}standalone/windfarmTaiwan-standalone.html"')
-            .replace('href="standalone/windfarmTaiwan-globe.html" download', f'href="{SITE}standalone/windfarmTaiwan-globe.html"'))
 
 
 def site_version():
@@ -124,7 +118,7 @@ def main():
     #    再把五個頁面程式改為內嵌（body 結尾、DOMContentLoaded 前執行，與 defer 相同）
     blocks = []
     for p in LAZY:
-        blocks.append(f'<script type="text/plain" data-emb="{p}">' + script_safe(rewrite(read(p)), p) + "</script>")
+        blocks.append(f'<script type="text/plain" data-emb="{p}">' + script_safe(read(p), p) + "</script>")
     for p in DATA + LIVE:
         blocks.append(f'<script type="application/json" data-emb="{p}">' + json_block(p) + "</script>")
     first = f'<script src="{PAGE_SCRIPTS[0]}" defer></script>'
@@ -133,10 +127,9 @@ def main():
     for p in PAGE_SCRIPTS:
         tag = f'<script src="{p}" defer></script>'
         assert html.count(tag) == 1, f"{tag} not found"
-        html = html.replace(tag, "<script>\n" + script_safe(rewrite(read(p)), p) + "\n</script>")
+        html = html.replace(tag, "<script>\n" + script_safe(read(p), p) + "\n</script>")
 
     # 3) 下載連結指向正式網站（內嵌的程式在上一步已處理）
-    html = rewrite(html)
 
     # 4) 頁尾標示單檔版與建置時間
     note = (f'<br><span data-l="zh">單檔版 · 建置於 {built}（{sha}）· 連網時自動抓取最新即時資料，離線時顯示建置當下的快照 · '

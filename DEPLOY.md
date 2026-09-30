@@ -20,7 +20,8 @@ windfarmTaiwan/
 │  └─ img/globe/                    # 地形／衛星底圖
 ├─ data/global/                     # 全球資料：國家逐年容量、風場層、國界（由 tools/ 產生，非排程）
 ├─ tools/                           # 全球資料、底圖、單檔版與覆蓋率報告的產生程式
-├─ standalone/                      # 單檔版 HTML（tools/build_standalone.py 產生，可下載後離線開啟）
+├─ standalone/                      # 本機建置單檔版 HTML 的輸出位置（不進 git；正式檔案在 GitHub Release「standalone」）
+├─ data/archive/                    # 台電官方回溯長期存檔，依月分檔 wind_history_archive_YYYY-MM.json
 ├─ docs/                            # 資料覆蓋率報告、資料清理紀錄、水下基礎逐場清單、即時資料來源評估（中英文各一份）
 ├─ data/live/                       # 澳洲、加拿大即時出力（intl_realtime.json，排程更新）與機組對照（units.json）
 ├─ taipower_wind_scraper.py         # 約每 2 小時：風力即時 + 電力供需即時
@@ -28,13 +29,12 @@ windfarmTaiwan/
 ├─ backfill_history.py             # 每週一：官方回溯歷史回填
 ├─ wind_realtime.json               # 風力即時資料（Actions 自動更新）
 ├─ wind_history.json                # 風力滾動 7 天歷史
-├─ wind_history_archive.json        # 風力長期存檔（不修剪）
 ├─ wind_archive_daily.json          # 長期存檔的每日摘要（前端長期趨勢圖讀這個）
 ├─ grid_status.json                 # 電力供需即時報表
 └─ .github/workflows/
    ├─ scrape.yml                    # 約每 2 小時執行 taipower_wind_scraper.py 與 intl_wind_scraper.py
    ├─ backfill.yml                  # 每週一執行 backfill_history.py
-   ├─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML
+   ├─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML 並上傳到 Release「standalone」
    └─ keepalive.yml                 # 每月 1 日重新啟用各排程，避免 60 天無活動被停用
 ```
 
@@ -59,7 +59,7 @@ windfarmTaiwan/
 - **60 天自動停用**：repo 連續 60 天無活動，排程 workflow 會被自動停用；而且用預設 `GITHUB_TOKEN` 的 bot commit 在某些情況不被算作「活動」。對策：本 repo 的 `keepalive.yml` 每月 1 日以 GitHub API（`PUT /repos/{owner}/{repo}/actions/workflows/{workflow}/enable`，權限 `actions: write`）
   重新啟用 `scrape.yml`、`backfill.yml` 與它自己，重設計時、不產生 commit。它自己也是排程，所以要一直在跑；萬一整個 repo 的排程都已被停用，
   要到 Actions 分頁手動按 **Enable workflow**。
-- **commit 會累積**：約每 2 小時一次 commit，一年約四千多筆 git 歷史。功能無礙，但 repo 會變肥；`wind_history_archive.json` 也會隨每週回填持續成長（2026-09 約 3.2 MB）。可接受，或定期 squash，或改用方案 B。
+- **commit 會累積**：約每 2 小時一次 commit，一年約四千多筆 git 歷史。功能無礙，但 repo 會變肥；長期存檔已依月分檔（`data/archive/`），每週回填只改寫當月檔（每月約 0.6 MB），單檔版也改放 Release 不進 git，剩下的主要是即時資料的小 commit。可接受，或定期 squash，或改用方案 B。
 - **電力供需即時來源會被 WAF 擋**：`grid_status.json` 的主要來源從 GitHub Actions 執行會回 403（詳見 `ROADMAP.md`「已知限制」），落到每日備援；若要真正即時，需要換到非雲端 CI 的執行環境（見方案 C）。
 - Actions runner 在海外（Azure），抓台電公開 opendata 端點沒問題（伺服器端抓取不受 CORS 限制）。
 
@@ -69,7 +69,7 @@ windfarmTaiwan/
 
 - `scrape-taipower-wind`：約每 2 小時抓台電即時風力、電力供需與澳洲、加拿大的即時出力，有變動就 commit。
 - `backfill-taipower-wind-history`：每週一（台北週二清晨）累積台電官方回溯存檔。
-- `build-standalone`：`main` 的網站程式或全球資料有變更時重建單檔版。排程更新的即時資料不會觸發重建，
+- `build-standalone`：`main` 的網站程式或全球資料有變更時重建單檔版並上傳到 GitHub Release「standalone」（固定標籤，覆蓋同名檔案；不 commit）。排程更新的即時資料不會觸發重建，
   所以單檔版的「離線快照」停在最後一次重建的時間。
 - `keepalive`：每月 1 日 04:41 UTC 以 GitHub API 重新啟用上面兩個排程與它自己，避免連續 60 天無活動被 GitHub 停用；不產生 commit。
 

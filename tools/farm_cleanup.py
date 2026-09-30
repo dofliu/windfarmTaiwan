@@ -660,27 +660,28 @@ RULES = [
     fix('USA', 'Empire wind farm', G, '開發商的容量是 810 MW（54 部 Vestas V236-15 MW）',
         'The developer gives 810 MW (54 Vestas V236-15 MW turbines)', 'https://www.empirewind.com/project/', mw=810),
     # ------------------------------------------------ 2026-09-27 依使用者整理的《全球離岸風場資料庫｜亞洲查核版 v2》逐案覆核
-    # 出處為該表各列的第一手來源；原文尚未以 tools/check_quotes.py 核對（整理時的工作環境無法連線），見 TODO
+    # 2026-09-30 以 tools/check_quotes.py 核對：三峽集團網域在核對環境連不上，改用能核對的出處（上海市政府、中科院廣州能源所、新浪財經補貼公示、
+    # 福建省工信廳、GEM wiki）；核不到的細節已從理由裡拿掉（見 TODO）
     dup('CHN', 'Shanghai Donghai Bridge Offshore wind farm · 1', G, ('Donghai Bridge', C),
-        '同一座風場：GEM 的中文名就是「東海大橋海上風電項目一期 102.2MW」（34 部 3 MW，2010 年 8 月全數併網）；GEM 座標偏北約 110 km',
-        'Same farm: GEM’s Chinese name is “Donghai Bridge offshore wind project phase 1, 102.2 MW” (34 × 3 MW, all connected by August 2010); '
+        '同一座風場：GEM 的中文名就是「東海大橋海上風電項目一期 102.2MW」（34 部 3 MW，上海市政府：2010 年 6 月 8 日全部風機併網）；GEM 座標偏北約 110 km',
+        'Same farm: GEM’s Chinese name is “Donghai Bridge offshore wind project phase 1, 102.2 MW” (34 × 3 MW; Shanghai government: all turbines connected on 8 June 2010); '
         'the GEM point is about 110 km too far north',
         'https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html'),
-    fix('CHN', 'CTG Yangjiang Qingzhou 6', C, '青洲六為 1,000 MW、74 部，2024 年 12 月全容量併網（原本寫 500 MW）；座標改用 GEM 的精確位置',
-        'Qingzhou 6 is 1,000 MW with 74 turbines, fully connected in December 2024 (it was listed as 500 MW); the point is moved to GEM’s exact location',
-        'https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm', mw=1000, lat=20.991, lon=111.496),
+    fix('CHN', 'CTG Yangjiang Qingzhou 6', C, '青洲六為 1,000 MW、74 部，2024 年 12 月 27 日全容量併網（補貼公示；原本寫 500 MW）；座標改用 GEM 的精確位置',
+        'Qingzhou 6 is 1,000 MW with 74 turbines, fully connected on 27 December 2024 (subsidy notice; it was listed as 500 MW); the point is moved to GEM’s exact location',
+        'https://finance.sina.com.cn/roll/2025-12-19/doc-inhcipui7654969.shtml', mw=1000, lat=20.991, lon=111.496),
     dup('CHN', 'Guangdong Yangjiang Qingzhou Vi Offshore wind farm', G, ('CTG Yangjiang Qingzhou 6', C),
-        '同一座風場（三峽陽江青洲六，1,000 MW）；GEM 2026-02 版仍列興建中，業主文件顯示 2024 年 12 月已全容量併網',
-        'Same farm (CTG Yangjiang Qingzhou 6, 1,000 MW); GEM’s February 2026 release still lists it as under construction, while the owner’s '
-        'documents show it fully connected in December 2024',
-        'https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm'),
-    fix('CHN', 'Longyuan Jiangsu Xiangshui', C, '響水近海風電（202 MW，55 部：37 部 4 MW＋18 部 3 MW，2016 年 10 月全數併網）屬三峽，不是龍源',
-        'The Xiangshui nearshore farm (202 MW, 55 turbines: 37 × 4 MW + 18 × 3 MW, all connected in October 2016) belongs to China Three Gorges, not Longyuan',
-        'https://tgdc.ctg.com.cn/tgdc/858404/858411/2024080904155459773/index.html',
+        '同一座風場（三峽陽江青洲六，1,000 MW）；GEM 2026-02 版仍列興建中，補貼公示寫 2024 年 12 月 27 日全容量併網',
+        'Same farm (CTG Yangjiang Qingzhou 6, 1,000 MW); GEM’s February 2026 release still lists it as under construction, while the subsidy '
+        'notice gives full grid connection on 27 December 2024',
+        'https://finance.sina.com.cn/roll/2025-12-19/doc-inhcipui7654969.shtml'),
+    fix('CHN', 'Longyuan Jiangsu Xiangshui', C, '響水近海風電（202 MW，2016 年 10 月 17 日全數併網）是三峽集團的第一座離岸風場，不是龍源',
+        'The Xiangshui nearshore farm (202 MW, all turbines connected on 17 October 2016) is China Three Gorges’ first offshore wind farm, not Longyuan’s',
+        'http://newenergy.giec.cas.cn/fn/cydt/201804/t20180426_736984.html',
         rename='CTG Jiangsu Xiangshui', zhname='三峽江蘇響水近海風電', owner='China Three Gorges Renewables (Group) Co Ltd'),
-    fix('CHN', 'Fuqing Xinghua Bay Phase 2', C, '二期為 280 MW、45 部（含三部 8 MW 以上示範機），2021 年 3 月全容量併網（原本寫 300 MW、2020 年）',
-        'Phase 2 is 280 MW with 45 turbines (including three demonstration units of 8 MW or more), fully connected in March 2021 (it was listed as 300 MW in 2020)',
-        'https://eps.ctg.com.cn/cms/channel/1ywgg1/240613529.htm', mw=280, year=2021),
+    fix('CHN', 'Fuqing Xinghua Bay Phase 2', C, '二期為 280 MW、45 部（2021 年安裝，全為國產機組，含國內首部 10 MW 示範機），2021 年全容量併網（原本寫 300 MW、2020 年）',
+        'Phase 2 is 280 MW with 45 turbines (installed in 2021, all Chinese-built, including China’s first 10 MW demonstration unit), fully connected in 2021 (it was listed as 300 MW in 2020)',
+        'https://gxt.fujian.gov.cn/zwgk/xw/jxyw/202412/t20241211_6590606.htm', mw=280, year=2021),
     dup('NLD', 'Hollandse Kust Zuid wind farm · 4', G, ('Hollandse Kust Zuid III & IV', C),
         'Hollandse Kust Zuid 第 4 區 2023 年已營運（GEM 2026-02 版），就是本站的 Hollandse Kust Zuid III & IV；GEM 2025-02 版仍列為規劃中',
         'Hollandse Kust Zuid site 4 has been operating since 2023 (GEM, February 2026 release) and is part of Hollandse Kust Zuid III & IV here; '

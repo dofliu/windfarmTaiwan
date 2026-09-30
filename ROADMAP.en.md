@@ -267,7 +267,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   with the live wind output.
 - **The 37331 backfill is a quarterly file, not a daily one**: it was expected to fill gaps in the
   7-day trend window, but the data lag 4–5 months, so it can never fill recent gaps. It is now a
-  long-term archive (`wind_history_archive.json` / `wind_archive_daily.json`) for monthly, quarterly and
+  long-term archive (monthly files in `data/archive/` / `wind_archive_daily.json`) for monthly, quarterly and
   yearly trends; gaps in the recent trend still depend on the scraper's own sampling.
 - **Development timelines were deepened for 15 offshore farms only**: individual onshore farms and
   aggregate items such as "other Taipower-owned / other purchased wind" have no verifiable public
@@ -286,8 +286,8 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   - Greater Changhua 2b & 4 (Ørsted, one 920 MW project): full operation planned for Q3 2026; check
     whether it happened on time
 - **Git history keeps growing**: `scrape.yml` commits about every 2 hours, over four thousand commits a
-  year. It works, but the repo grows; `wind_history_archive.json` is already about 3.2 MB (Sep 2026) and grows with each
-  weekly backfill.
+  year. It works, but the repo grows; the long-term archive is split by month (`data/archive/`, about 3.1 MB in total in Sep 2026) so the weekly
+  backfill only rewrites the current month, and since v2.12.6 the single-file builds go to a Release instead of git.
 
 ### Global (3D globe)
 
