@@ -2849,6 +2849,8 @@ function wireUI() {
   if (LITE) setPanelTab('farms');
   $('g-msToggle').onclick = e => { const p = $('g-msPanel'); p.classList.toggle('collapsed'); e.currentTarget.textContent = p.classList.contains('collapsed') ? '+' : '–'; };
   if (window.innerWidth < 700) { $('g-msPanel').classList.add('collapsed'); $('g-msToggle').textContent = '+'; }
+  // 手機精簡版：速度與顯示選單搬到（可橫向捲動的）工具列，播放列只留播放鍵、年份與滑桿 · phone: move the two selects into the toolbar
+  if (window.innerWidth <= 640) { const top = $('g-top'), src = $('g-btnSources'); ['g-speedSel', 'g-layerSel'].forEach(id => top.insertBefore($(id).parentNode, src)); }
   $('g-play').onclick = () => setPlaying(!S.playing);
   $('g-slider').oninput = () => { if (TOUR) tourPause(true); S.year = parseFloat($('g-slider').value); syncYearUI(); };
   $('g-slider').onchange = () => syncURL();
