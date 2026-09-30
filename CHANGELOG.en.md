@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.12.5 — 2026-09-30
+
+- Compact phone layout (widths up to 640px): the header is one row (logo only for the brand, the share button becomes an icon, the live
+  status is only the green dot next to "Taiwan live"); the globe hides the big year in the corner (the play bar already shows it), folds
+  the statistics into one strip, moves the attribution to a single line at the bottom, shrinks the toolbar and tab strip, moves the speed
+  and display selects into the horizontally scrolling toolbar so the play bar keeps only play, year and slider, and tightens the farm and
+  event cards. The Taiwan live sub-bar keeps only its four tabs and the map legend becomes a horizontal strip at the bottom. On a 390×844
+  phone the visible globe grows from about 51% to about 80% of the screen height.
+
 ## v2.12.4 — 2026-09-29
 
 - Events: the four details marked "not checked" in the previous version now have openable sources that pass `check_quotes.py`: the Lemnhult

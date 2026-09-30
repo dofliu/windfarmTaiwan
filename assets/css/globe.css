@@ -320,6 +320,45 @@
   #g-slider{order:5;flex:1 1 100%;min-width:0}
 }
 
+/* 手機精簡版（≤640px）：把畫面讓給地球——頁首一列、工具列縮小、大年份藏起來（播放列已有年份）、統計壓成一條、
+   出處列單行、分頁列與播放列各一列；速度與顯示選單由 globe.js 移到工具列。 · Compact phone layout */
+@media (max-width:640px){
+  #globe{font-size:12px}
+  #globe button,#globe select,#globe input{font-size:11.5px;padding:4px 7px;border-radius:7px}
+  #globe .gseg button{padding:4px 7px}
+  #globe select{padding-right:18px;background-position:calc(100% - 9px) 50%,calc(100% - 5px) 50%}
+  #g-top{padding:4px 6px;gap:4px}
+  #g-top .gsp{display:none}
+  #g-yearBig{display:none}
+  #g-worldStat{left:4px;top:4px;font-size:10.5px;line-height:1.3;padding:3px 6px;border-radius:7px;max-width:calc(100% - 8px)}
+  #g-worldStat b{font-size:12px}
+  #g-worldStat>div{display:inline}
+  #g-worldStat>div+div::before{content:' · ';color:var(--ginkm)}
+  #g-worldStat>div[style*="margin-top"]{display:block;margin-top:0!important}
+  #g-worldStat>div[style*="margin-top"]::before,#g-worldStat>div.pl::before{content:none}
+  #g-worldStat .gsw{width:8px;height:8px}
+  #g-attr{top:auto;bottom:2px;right:4px;left:4px;max-width:none;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:right;opacity:.8}
+  #g-mapPane:has(#g-msPanel:not(.collapsed)) #g-attr,#g-mapPane:has(#g-infoCard.show) #g-attr{display:none}
+  #g-msPanel{left:4px;right:4px;bottom:14px;padding:6px 8px;gap:6px;border-radius:10px;max-height:48%}
+  #g-msPanel .ph{margin:-6px -8px 0;padding:6px 8px 4px;top:-6px}
+  #g-msPanel .ph .gseg button{padding:3px 6px;font-size:11px}
+  #g-msPanel .ph>button{padding:1px 7px}
+  #g-infoCard{left:4px;right:4px;bottom:4px;max-height:56%;border-radius:12px}
+  #g-infoCard .cb{padding:9px 10px 8px}
+  #g-infoCard .gph{margin:-9px -10px 8px}
+  #g-infoCard .gph img{max-height:140px;border-radius:12px 12px 0 0}
+  #g-infoCard h3{font-size:14.5px}
+  #g-fdLegend{bottom:60px}
+  #g-bottom{padding:4px 6px;gap:6px;flex-wrap:nowrap}
+  #g-play{width:32px;height:28px;font-size:13px}
+  #g-yearNow{font-size:15px;min-width:40px}
+  #g-slider{order:0;flex:1 1 auto;min-width:0}
+  #g-slider::-webkit-slider-thumb{width:16px;height:16px}
+  #g-stage.split{grid-template-rows:55% 45%}
+  #g-barHead h2{font-size:13px}
+  #g-barPane .gin{padding:8px}
+}
+
 /* 重大事件與事故：DOM 標記（紅＝事故／故障，白＝里程碑，紫＝政策與社會）、清單列、標籤 · events layer */
 #g-events{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 #g-events .emk{position:absolute;left:0;top:0;width:20px;height:20px;padding:0;display:grid;place-items:center;border-radius:4px;transform-origin:center;border:1.5px solid rgba(255,255,255,.8);font-size:12px;font-weight:900;line-height:1;pointer-events:auto;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.6);will-change:transform;font-family:inherit}
