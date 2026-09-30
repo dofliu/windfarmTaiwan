@@ -67,11 +67,20 @@ finished items to the topic lists below.
      70 monopiles + 8 four-pile jackets (secondary technical analysis only); Guoxin Dafeng 850 MW monopiles (only a geotechnical
      consultancy's project page); no foundation type found for Peninsula South U or Bozhong A / B; Xuwen 600 MW only has a "20 monopiles
      driven" record.
+   - A third batch of 5 farms was added on 30 Sep 2026 (v2.13.2); 152 of China's 171 operating offshore farms are still "type unknown". Leads found
+     but not yet usable (quotes checked, in `tools/research/cn_step5c_2026-09.json`): CGN Nanpeng Island, 73 turbines mostly on four-pile jackets but
+     with one 8.7 m monopile driven too (Nanfang Plus), counts per type unknown; Huaneng Cangnan 4, 77 turbines, 466 steel piles and six piles at
+     the first position (Hangzhou.com.cn) but also 2,400 t monopiles (Cangnan News), so a mix of high-rise pile caps and monopiles, where "48 caps
+     + 29 monopiles" appears only in a search summary with no page found; Changle Waihai C, 57 turbines on 41 three-bucket suction jackets plus
+     four-pile jackets (Wison), the jacket count unknown (the CCCC First Harbor page loads dynamically); Huadian Yuhuan 1, 10 monopiles in the
+     south section (tender notice), the 22 northern turbines unknown; Rudong H4 / H7 (100 steel piles each), Binhai South H3 (75), Bozhong G
+     (7.5 m monopiles) and Yuhuan 2 (the MSA notice says monopile driving) all have their monopile reports only on unreachable sites (BJX,
+     in-en.com, hynyw.com, MSA); Huizhou Gangkou phase 2 is on deep-water four-pile jackets, the 40 turbines of phase 1 unknown.
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
      appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
      source is found (for example CTG completion records the owner may have).
-   - The other Chinese offshore farms (160 of the 174 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (152 of the 171 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of

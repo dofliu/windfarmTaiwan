@@ -10,7 +10,7 @@ The globe’s Display menu has an “Offshore: foundations” layer that colours
 2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): done (Sep 2026).
 3. **Sub-types of floating farms** (worldwide): done (Sep 2026).
 4. **Taiwan, Japan, Korea and the USA**: done (Sep 2026).
-5. **China and Vietnam**: under way: 11 Chinese farms added from the owner’s case-by-case review of Sep 2026; their quoted passages are still to be checked.
+5. **China and Vietnam**: under way: 16 Chinese farms added from the owner’s case-by-case review of Sep 2026; their quoted passages are still to be checked.
 
 This page shows the results of steps 1–4 and the part of step 5 done so far. Offshore farms not yet checked are shown as “type unknown”, never guessed.
 
@@ -21,17 +21,17 @@ This page shows the results of steps 1–4 and the part of step 5 done so far. O
 - **Step 2**: OSPAR does not cover the Baltic or the Mediterranean, and for farms finished after 2024 it only has the consented design, which can change. These farms were checked one by one against developers, construction contractors, trade press, government documents or Wikipedia; every farm cites a source, and each quoted passage was checked against the page. Where OSPAR has a consent-stage record, a construction source is always added (the build checks this).
 - **Step 3**: floating farms worldwide get their sub-type: spar, semi-submersible, barge (including damping-pool hulls) or tension-leg platform, checked one by one against technology providers, developers or trade press, with every quoted passage checked against the page; where one record holds units of different types, the note lists them.
 - **Step 4**: no offshore farm in Taiwan, Japan, Korea or the USA has an OSPAR record, so each was checked one by one against developers, construction contractors, government documents and trade press, with every quoted passage checked against the page (Japanese and Korean pages in their own encodings, PDFs page by page) and 4C Offshore never cited; farms inside Japanese ports follow NEDO’s classification of support structures (NEDO states that a “dolphin” is a High-Rise Pile Cap). Farms whose type could not be found are under “Checked but left out for now” below.
-- **Step 5 (under way)**: 11 Chinese farms were added from the “Asia case-by-case review” in the owner’s compilation of 27 Sep 2026, citing that sheet’s first-hand sources (China Three Gorges, the Shanghai government, CGN); their quoted passages have not yet been checked with `tools/check_quotes.py` (the working environment had no network access) and are listed in TODO. The Vietnamese cases there only say intertidal / nearshore, sub-type unconfirmed, so none were added. A new “composite bucket” type joins the “other fixed-bottom” colour group.
+- **Step 5 (under way)**: 16 Chinese farms were added from the “Asia case-by-case review” in the owner’s compilation of 27 Sep 2026, citing that sheet’s first-hand sources (China Three Gorges, the Shanghai government, CGN); their quoted passages have not yet been checked with `tools/check_quotes.py` (the working environment had no network access) and are listed in TODO. The Vietnamese cases there only say intertidal / nearshore, sub-type unconfirmed, so none were added. A new “composite bucket” type joins the “other fixed-bottom” colour group.
 - In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.
 - The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed). Farm cards and this page give the exact type.
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 178 of 368 farms, 46.3% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 183 of 365 farms, 49.4% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| China | 174 | 14 | 9% | 3 | 3 | 3 | 5 |
+| China | 171 | 19 | 14% | 7 | 4 | 3 | 5 |
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
@@ -77,6 +77,7 @@ Total: type known for 178 of 368 farms, 46.3% of their capacity (floating farms 
 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
+| CGN Fanshi I | 1,000 | 2025 | Jacket | [yjrb.com.cn](https://www.yjrb.com.cn/content/c211953.html) | 73 turbines (22 × 13.6 MW and 51 × 14 MW) on four-pile jackets in 40–48 m of water (Yangjiang Daily construction report on the four jacket piles at position 32) |
 | CGN Rudong H8 | 300 | 2021 | Mixed: Monopile 49, Composite bucket 16 | [ecp.cgnpc.com.cn](https://ecp.cgnpc.com.cn/view/staticpags/zgh_zbgg/8a488fc36fae46600171bacf23d163d0.html) | 65 turbines: 49 on monopiles and 16 on all-steel buckets (single buckets sunk by suction, like the composite bucket, but with a steel transition piece); fully connected in December 2021 |
 | CGN Shanwei Houhu | 500 | 2021 | Mixed: Monopile 82, Jacket 9 | [chinanews.com](https://www.chinanews.com/m/cj/2021/11-25/9616090.shtml) | 91 × 5.5 MW: 82 monopiles, 8 four-pile jackets and 1 suction-bucket jacket (China News Service, November 2021, on full grid connection) |
 | CR Power Lianjiang Waihai | 700 | 2025 | Mixed: Monopile 7, Jacket 32 | [chinapower.com.cn](http://www.chinapower.com.cn/flfd/xmjz/20240429/244321.html) | 39 × 18 MW turbines: 7 on monopiles (10 m in diameter) and 32 on jackets (China Power, April 2024, on the tower supply) |
@@ -88,7 +89,11 @@ Total: type known for 178 of 368 farms, 46.3% of their capacity (floating farms 
 | Guangdong Energy Yangjiang Qingzhou 1&2 | 1,000 | 2024 | Jacket | [ccedia.com](https://www.ccedia.com/gas_detail/c-_detailId=1632992535936905216.html) | All 92 × 11 MW turbines on jackets (35–43 m of water; the construction lot covers 92 jackets and their pin piles, and China Energy News notes a deep-water jacket with a new transition piece); fully connected on 12 December 2023 |
 | Guangxi Fangchenggang A | 700 | 2024 | Jacket | [sasac.gov.cn](http://www.sasac.gov.cn/n2588025/n2588129/c32426404/content.html) | All 83 × 8.5 MW turbines on three-pile rock-socketed jackets: rock seabed, the steel piles are drilled into the rock and grouted and the three jacket legs set into them (SASAC, Xinhua); China’s first offshore farm with rock-socketed foundations throughout |
 | Haiyou Guanlan (CNOOC floating) | 7.2 | 2023 | Floating (semi-submersible) | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/) | Semi-submersible; it supplies the Wenchang oilfield grid, not the public grid |
+| Huarun Cangnan 1 / CR Power | 400 | 2022 | Monopile | [cpem.org.cn](https://www.cpem.org.cn/list68/64746.html) | All 49 turbines (6.25 and 10 MW) on monopiles: the design of 29 monopiles plus 48 high-rise pile caps was changed to monopiles throughout (CR Power construction account, CPEM reprint); fully connected on 28 December 2022 |
+| Jiangsu Qidong H1+H2 | 503 | 2021 | Monopile | [ne21.com](https://www.ne21.com/news/show-163136.html) | 84 turbines across H1 and H2, one monopile each (84 piles by CCCC First Harbor, the 64th driven in June 2021; Nantong government release) |
 | Mingyang OceanX (Tiancheng) floating | 16.6 | 2024 | Floating (semi-submersible) | [mlit.go.jp](https://www.mlit.go.jp/kowan/content/001869831.pdf) | Two 8.3 MW turbines on one floater of buoys and concrete members (listed as a semi-submersible in a survey by Japan’s MLIT) |
+| SPIC Binhai North H2 | 400 | 2018 | Monopile | [jsea.org.cn](http://www.jsea.org.cn/end.asp?id=1674) | All 100 × 4 MW turbines on large-diameter monopiles without a transition piece (piled May 2017 to March 2018; Jiangsu Society for Electrical Engineering, on Huadian Heavy Industry’s method) |
+| Shandong Bozhong B2 | 502 | 2023 | Monopile | [cpem.org.cn](http://www.cpem.org.cn/list68/44814.html) | All 59 × 8.5 MW turbines on monopiles (first pile October 2022: 7.2 m in diameter, 82 m long, 967 t; CPEM reprint of the China Energy report, whose June 2023 full-connection release gives 59 turbines) |
 | Shenergy Hainan CZ2 (Dongfang) | 600 | 2024 | Monopile | [finance.sina.com.cn](https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml) | 67 × 9 MW turbines, each on a monopile (Hainan Daily construction report, May 2024: 95.7 m long, 8.8 m in diameter, 1,639 t) |
 | Yangjiang Shapa 'Sanxia Yinling' floating | 5.5 | 2021 | Floating (semi-submersible) | [sasac.gov.cn](http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html) | Semi-submersible platform |
 

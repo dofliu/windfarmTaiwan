@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 207 rules: 99 records removed (30,071.7 MW of them operating), 108 records fixed.
+- 213 rules: 102 records removed (31,371.7 MW of them operating), 111 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 12 | 12,758 | 8 |
+| China | 15 | 14,058 | 11 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -102,6 +102,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Hainan CZ2 Demonstration Offshore wind farm · 600 MW · 2025 | GEM | duplicate of “Shenergy Hainan CZ2 (Dongfang)” | Same farm (Shenergy’s Hainan CZ2 demonstration farm, 67 × 9 MW) | [link](https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml) |
 | Hainan Danzhou CZ3 (Datang) Offshore wind farm · 600 MW · 2025 | GEM | duplicate of “Datang Danzhou CZ3” | Phase 2 (600 MW) of Datang’s 1,200 MW Danzhou project (120 × 10 MW); the curated record covers both phases | [link](http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm) |
 | Hainan CZ3 Demonstration Offshore wind farm · 600 MW · 2025 | GEM | duplicate of “Datang Danzhou CZ3” | Phase 1 (600 MW) of the same project; the curated record covers both phases | [link](http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm) |
+| Huarun Cangnan 1 / CR Power · 400 MW · 2023 | curated | fixed: year | Fully connected on 28 December 2022 (was 2023); 49 turbines of 6.25 / 10 MW | [link](https://www.cpem.org.cn/list68/64746.html) |
+| Zhejiang Energy Cangnan 1 · 400 MW · 2022 | curated | duplicate of “Huarun Cangnan 1 / CR Power” | Cangnan 1 is CR Power’s farm (Zhejiang Energy has no Cangnan 1) and duplicates “Huarun Cangnan 1 / CR Power” | [link](https://www.cpem.org.cn/list68/64746.html) |
+| Shandong Bozhong (Yankuang GroupOffshore) wind farm · 500 MW · 2022 | GEM | duplicate of “Shandong Energy Bozhong A” | Same farm (Shandong Energy’s Bozhong site A: 501 MW, 60 × 8.35 MW, 2022) | [link](https://sdb.nea.gov.cn/dtyw/hyxx/202309/t20230919_112577.html) |
+| Shandong Energy Bozhong G · 850 MW · 2024 | curated | fixed: capacity, year, Chinese name | Phase 1 is 400.4 MW (35 × 10 MW plus 4 × 12.6 MW), fully connected on 31 May 2025; was 850 MW and 2024 | [link](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
+| Shandong Bozhong G Offshore wind farm · 400 MW · 2025 | GEM | duplicate of “Shandong Energy Bozhong G” | Phase 1 of the same project (GEM: 400 MW, 2025) | [link](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
+| CGN Huizhou Gangkou I · 400 MW · 2022 | curated | fixed: name, Chinese name, capacity, year, phases | The Gangkou farm has two phases totalling 1,000 MW and 104 turbines: phase 1 (250 MW) fully connected on 28 December 2021, phase 2 (750 MW) commissioned on 12 December 2023 (Xinhua); was 400 MW | [link](http://www.news.cn/fortune/2023-12/13/c_1130023531.htm) |
 
 ## Colombia (COL)
 

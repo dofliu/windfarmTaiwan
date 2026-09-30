@@ -393,6 +393,22 @@ FOUNDATIONS = [
     F5('CHN', 'Guangdong Energy Yangjiang Qingzhou 1&2', 'jk', url='https://www.ccedia.com/gas_detail/c-_detailId=1632992535936905216.html',
        zh='92 部 11 MW 全部為套管（水深 35–43 m；施工標段為 92 座套管與基礎鋼管樁，中國能源新聞網另提「新型過渡段結構的深水區導管架基礎」）；2023 年 12 月 12 日全容量併網',
        en='All 92 × 11 MW turbines on jackets (35–43 m of water; the construction lot covers 92 jackets and their pin piles, and China Energy News notes a deep-water jacket with a new transition piece); fully connected on 12 December 2023'),
+    # 2026-09-30 第三批（出處原文皆以 check_quotes 核對）· third batch, every quote checked
+    F5('CHN', 'SPIC Binhai North H2', 'mp', url='http://www.jsea.org.cn/end.asp?id=1674',
+       zh='100 部 4 MW 全部為大直徑無過渡段單樁（2017 年 5 月至 2018 年 3 月沉樁；江蘇省電機工程學會的華電重工工法介紹）',
+       en='All 100 × 4 MW turbines on large-diameter monopiles without a transition piece (piled May 2017 to March 2018; Jiangsu Society for Electrical Engineering, on Huadian Heavy Industry’s method)'),
+    F5('CHN', 'Shandong Bozhong B2', 'mp', url='http://www.cpem.org.cn/list68/44814.html',
+       zh='59 部 8.5 MW 全部為單樁（2022 年 10 月首樁直徑 7.2 m、長 82 m、重 967 t；CPEM 轉載國家能源集團報導，國家能源集團 2023 年 6 月全容量併網報導寫 59 部）',
+       en='All 59 × 8.5 MW turbines on monopiles (first pile October 2022: 7.2 m in diameter, 82 m long, 967 t; CPEM reprint of the China Energy report, whose June 2023 full-connection release gives 59 turbines)'),
+    F5('CHN', 'Huarun Cangnan 1 / CR Power', 'mp', url='https://www.cpem.org.cn/list68/64746.html',
+       zh='49 部（6.25 與 10 MW）全部為單樁：原設計 29 座單樁＋48 座高樁承台，改為全場單樁（華潤電力建設紀實，CPEM 轉載）；2022 年 12 月 28 日全容量併網',
+       en='All 49 turbines (6.25 and 10 MW) on monopiles: the design of 29 monopiles plus 48 high-rise pile caps was changed to monopiles throughout (CR Power construction account, CPEM reprint); fully connected on 28 December 2022'),
+    F5('CHN', 'Jiangsu Qidong H1+H2', 'mp', url='https://www.ne21.com/news/show-163136.html',
+       zh='H1、H2 共 84 部風機各一根單樁（中交一航局承建 84 根，2021 年 6 月打到第 64 根；南通發布）',
+       en='84 turbines across H1 and H2, one monopile each (84 piles by CCCC First Harbor, the 64th driven in June 2021; Nantong government release)'),
+    F5('CHN', 'CGN Fanshi I', 'jk', url='https://www.yjrb.com.cn/content/c211953.html',
+       zh='73 部（22 部 13.6 MW＋51 部 14 MW）用四樁套管，水深 40–48 m（陽江日報的施工報導，32 號機位四根套管樁）',
+       en='73 turbines (22 × 13.6 MW and 51 × 14 MW) on four-pile jackets in 40–48 m of water (Yangjiang Daily construction report on the four jacket piles at position 32)'),
     # ================================================ 第 4 步（2026-09）：台灣、日本、韓國、美國
     # ------------------------------------------------ Taiwan
     F4('TWN', 'Formosa 1 Phase 1', 'mp',

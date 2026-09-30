@@ -82,7 +82,10 @@ CLEAN dup CHN Hainan CZ2 Demonstration Offshore wind farm 600.0 -> Shenergy Hain
 CLEAN dup CHN Hainan CZ3 Demonstration Offshore wind farm 600.0 -> Datang Danzhou CZ3
 CLEAN dup CHN Hainan Danzhou CZ3 (Datang) Offshore wind farm 600.0 -> Datang Danzhou CZ3
 CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang Southern Area H5 Offshore wind farm
+CLEAN dup CHN Shandong Bozhong (Yankuang GroupOffshore) wind farm 500.0 -> Shandong Energy Bozhong A
+CLEAN dup CHN Shandong Bozhong G Offshore wind farm 400.0 -> Shandong Energy Bozhong G
 CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai Bridge
+CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup EGY Amunet wind farm 502.0 -> Amunet (AMEA Power) Red Sea
@@ -136,13 +139,16 @@ CLEAN fix ALA Långnabba wind farm 40.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm 48.0
 CLEAN fix AUS Snowtown 370.0
 CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
+CLEAN fix CHN CGN Huizhou Gangkou I 400.0
 CLEAN fix CHN CGN Yangjiang Qingzhou 1&2 1000.0
 CLEAN fix CHN CTG Yangjiang Qingzhou 6 500.0
 CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Huadian Yuhuan 2 500.0
+CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0
 CLEAN fix CHN Longyuan Jiangsu Xiangshui 202.0
 CLEAN fix CHN Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng 16.6
+CLEAN fix CHN Shandong Energy Bozhong G 850.0
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
