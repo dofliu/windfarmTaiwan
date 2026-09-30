@@ -142,7 +142,7 @@ FARMS = {
     "WIND-030": ["Hywind Tampen"], "WIND-031": ["Noshiro Port"], "WIND-032": ["Hollandse Kust Zuid I & II", "Hollandse Kust Zuid III & IV"],
     "WIND-033": ["Seagreen Phase 1"], "WIND-035": ["South Fork Wind"], "WIND-036": ["Greater Changhua 1 & 2a"], "WIND-037": ["Dogger Bank A"],
     "WIND-038": ["Changfang & Xidao"], "WIND-039": ["CTG Zhangpu Liu'ao Phase 2"], "WIND-040": ["Vineyard Wind 1"], "WIND-041": ["Dogger Bank A"],
-    "WIND-042": ["Viking"], "WIND-043": ["Vineyard Wind 1"], "WIND-044": ["MacIntyre"], "WIND-046": ["CTG Yangjiang Qingzhou 6"],
+    "WIND-042": ["Viking"], "WIND-043": ["Vineyard Wind 1"], "WIND-044": ["MacIntyre precinct wind farm"], "WIND-046": ["CTG Yangjiang Qingzhou 6"],
     "WIND-047": ["Heilongjiang Tonghe (Guoneng) wind farm"], "WIND-048": ["Heilongjiang Tonghe (Guoneng) wind farm"], "WIND-049": ["Provence Grand Large"],
     "WIND-050": ["Greater Changhua 2b & 4"], "WIND-051": ["Yunlin"], "WIND-052": ["Goto City Offshore floating project"], "WIND-053": ["Yeongdeok"],
     "WIND-054": ["Kitakyushu Hibikinada"], "WIND-055": ["Revolution Wind"], "WIND-056": ["Yeongdeok"], "WIND-057": ["Yunmai (Mailiao)"], "WIND-058": ["Greater Changhua 2b & 4"], "WIND-059": ["Greater Changhua 2b & 4"],

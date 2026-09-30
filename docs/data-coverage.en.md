@@ -7,70 +7,65 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,611 MW at year-end, which is the site’s world total (1,287,611 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 15,199 operating farms, 1,069,509 MW are mapped individually — about **83%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
-- **Coverage bands**: ✓ 85% or more: 51 countries · △ 60–85%: 18 · ✗ below 60%: 8 · ⚠ above 110%: 2 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 99 duplicate, never-built or non-existent records were removed and 108 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 7,854 projects, 2,521,531 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Farm level**: 16,027 operating farms, 1,185,987 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Coverage bands**: ✓ 85% or more: 53 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
+- **Clean-up**: checked record by record in 2026-09; 96 duplicate, never-built or non-existent records were removed and 107 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,590 projects, 2,722,310 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
-- **China**: national 640,626 MW, mapped 497,438 MW (78%), gap 143,188 MW.
-- **Germany**: national 77,873 MW, mapped 50,845 MW (65%), gap 27,028 MW.
-- **India**: national 54,511 MW, mapped 39,986 MW (73%), gap 14,525 MW.
-- **Sweden**: national 17,381 MW, mapped 13,642 MW (78%), gap 3,739 MW.
-- **Italy**: national 13,568 MW, mapped 10,262 MW (76%), gap 3,306 MW.
-- **Spain**: national 33,301 MW, mapped 30,392 MW (91%), gap 2,910 MW.
+- **China**: national 640,626 MW, mapped 589,210 MW (92%), gap 51,416 MW.
+- **Germany**: national 77,873 MW, mapped 53,313 MW (68%), gap 24,560 MW.
+- **India**: national 54,511 MW, mapped 42,278 MW (78%), gap 12,233 MW.
+- **Italy**: national 13,568 MW, mapped 10,504 MW (77%), gap 3,064 MW.
 - **Denmark**: national 7,547 MW, mapped 5,015 MW (66%), gap 2,532 MW.
-- **Brazil**: national 34,866 MW, mapped 32,706 MW (94%), gap 2,160 MW.
-- **Belgium**: national 5,851 MW, mapped 3,833 MW (66%), gap 2,018 MW.
-- **Poland**: national 10,602 MW, mapped 8,707 MW (82%), gap 1,895 MW.
-- **Lithuania**: national 2,510 MW, mapped 914 MW (36%), gap 1,596 MW.
-- **Finland**: national 9,383 MW, mapped 7,809 MW (83%), gap 1,574 MW.
+- **Belgium**: national 5,851 MW, mapped 3,972 MW (68%), gap 1,879 MW.
+- **Spain**: national 33,301 MW, mapped 31,436 MW (94%), gap 1,865 MW.
+- **Poland**: national 10,602 MW, mapped 9,024 MW (85%), gap 1,578 MW.
+- **United Kingdom**: national 33,088 MW, mapped 31,731 MW (96%), gap 1,357 MW.
+- **Austria**: national 4,292 MW, mapped 3,055 MW (71%), gap 1,237 MW.
+- **Lithuania**: national 2,510 MW, mapped 1,308 MW (52%), gap 1,202 MW.
+- **Netherlands**: national 11,782 MW, mapped 10,675 MW (91%), gap 1,107 MW.
 
 ## Items to verify
 
 1. **Farm sum above the national figure (⚠)**: possible duplicates across sources, phases counted twice, retired farms still listed as operating, or a narrower national scope.
+   - Ethiopia: 122% (613 / 504 MW)
+   - Morocco: 120% (2,950 / 2,452 MW)
    - Philippines: 116% (603 / 518 MW) — the farm list checks out (DOE’s 2020 list, 443 MW, plus the 160 MW Pagudpud farm completed in 2024–25); IRENA’s figure may not yet fully count Pagudpud
    - Iran: 116% (439 / 378 MW) — the Manjil complex duplicates are merged; whether Tizbaad (99 MW) and Aqkand (50 MW) are in operation still needs checking against SATBA data
-2. **Unknown commissioning year**: 45,671 MW of operating farms have no start year in GEM, so the map can only show them from 2025 and earlier years look sparser at farm level. Largest by country:
-   China 18,266 MW, India 10,588 MW, Spain 3,450 MW, France 3,295 MW, Italy 2,206 MW, Turkey 1,868 MW, United States of America 867 MW, Germany 852 MW, Netherlands 772 MW, Poland 718 MW
-3. **Expected year already passed but still in the pipeline**: 583 projects, 100,963 MW — they may have started operating, slipped or been cancelled. The 10 largest:
-   - Xinjiang - Chongqing Transmission Line  wind farms · Chongqqing Energy Santanghu, Huadian (CHN) · 5,510 MW · construction · expected 2025
-   - Guangdong Shanwei Jieshi Offshore wind farm (CHN) · 3,000 MW · pre-construction · expected 2025
-   - PNE Binh Dinh offshore wind farm (VNM) · 2,100 MW · pre-construction · expected 2025
-   - Inner Mongolia Hinggan League(Goldwind) Green Hydrogen wind farm (CHN) · 2,000 MW · construction · expected 2025
-   - Donghae White Heron wind farm (KOR) · 1,500 MW · pre-construction · expected 2025
-   - Hainan CZ3 Demonstration Offshore wind farm (CHN) · 1,200 MW · construction · expected 2025
-   - Sepon wind farm (LAO) · 1,200 MW · pre-construction · expected 2025
-   - Guangdong Shantou Zhongpeng Area 1 Offshore wind farm (CHN) · 1,000 MW · pre-construction · expected 2025
-   - Inner Mongolia Hangjin Banner Renewable Energy Complex wind farm (CHN) · 1,000 MW · announced · expected 2025
-   - Inner Mongolia Hinggan League (China Guangdong Nuclear) Green Hydrogen wind farm · 1 (CHN) · 1,000 MW · pre-construction · expected 2025
-4. **Coordinates**: 4,592 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 11 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
+   - Chile: 112% (6,583 / 5,883 MW)
+2. **Unknown commissioning year**: 48,084 MW of operating farms have no start year in GEM, so the map can only show them from 2025 and earlier years look sparser at farm level. Largest by country:
+   China 20,521 MW, India 10,869 MW, Spain 3,671 MW, France 3,371 MW, Italy 2,195 MW, Turkey 2,194 MW, Germany 852 MW, Brazil 760 MW, Poland 718 MW, Netherlands 716 MW
+3. **Expected year already passed but still in the pipeline**: 2 projects, 630 MW — they may have started operating, slipped or been cancelled. The 10 largest:
+   - Monsoon Wind (Sekong/Attapeu) (LAO) · 600 MW · construction · expected 2025
+   - BPP Vĩnh Châu wind farm (VNM) · 30 MW · construction · expected 2025
+4. **Coordinates**: 5,017 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 18 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
    **Suspected duplicates A (same or similar name)**: 1 pairs, smaller side 14 MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:
    - JPN · Enshu Kakegawa Wind Farm (2026 compilation, 16 MW, 2011) ↔ Kakegawa wind farm (GEM, 14 MW, 2020) · 2.3 km
-   **Suspected duplicates B (different names, same capacity, close by)**: 9 pairs, smaller side 1,562 MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check.
-   **Shared coordinates**: 135 points each hold 3 or more operating farms (1,338 farms, 105,306 MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:
-   - CHN (43.244, 114.325) · 88 farms · 10,052 MW · Inner Mongolia Huolinhe Circulating Economy Demonstration wind farm, Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm, Inner Mongolia - Shandong Power Export Urad Rear Banner 2 wind farm…
-   - CHN (36.0, 119.0) · 86 farms · 6,891 MW · Shandong Qingdao Baoshan wind farm, Shandong Muping Wanggezhuang wind farm, Shandong Binzhou Yangxin (Datang) wind farm…
-   - CHN (37.0, 112.0) · 67 farms · 5,952 MW · Shanxi Fanshi County Yunwuyu wind farm, Shanxi Jingle (Longyuan) wind farm, Shanxi Pinglu Dashantai wind farm · 3…
-   - CHN (38.0, 102.0) · 29 farms · 5,680 MW · Gansu Qingyang Huanxian (Huaneng) Wind/Solar Demonstration Project wind farm · Area A1, Area A2, Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm…
-   - CHN (34.0, 114.0) · 65 farms · 5,349 MW · Henan Neihuang (China Resources) wind farm, Henan Huaxian Zaocun wind farm, Henan Tangyin wind farm…
-5. **Pipeline versions differ**: projects come from GEM Feb 2025 but country totals from GEM 2026-02; update the project list when the next GEM release is out. Top-15 countries:
-   - China: projects 544,001 MW · GEM total 743,588 MW
-   - United States of America: projects 101,810 MW · GEM total 89,440 MW
-   - Germany: projects 33,540 MW · GEM total 18,119 MW
-   - India: projects 19,646 MW · GEM total 51,063 MW
-   - Brazil: projects 278,322 MW · GEM total 277,866 MW
-   - Spain: projects 41,117 MW · GEM total 56,471 MW
-   - United Kingdom: projects 107,397 MW · GEM total 88,436 MW
-   - France: projects 19,510 MW · GEM total 22,138 MW
-   - Canada: projects 17,134 MW · GEM total 17,852 MW
-   - Sweden: projects 134,499 MW · GEM total 85,597 MW
-   - Turkey: projects 2,603 MW · GEM total 2,062 MW
-   - Australia: projects 256,013 MW · GEM total 250,313 MW
-   - Italy: projects 46,407 MW · GEM total 52,018 MW
-   - Netherlands: projects 19,988 MW · GEM total 19,115 MW
-   - Poland: projects 25,141 MW · GEM total 20,749 MW
+   **Suspected duplicates B (different names, same capacity, close by)**: 10 pairs, smaller side 1,414 MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check.
+   **Shared coordinates**: 130 points each hold 3 or more operating farms (1,310 farms, 106,042 MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:
+   - CHN (43.244, 114.325) · 88 farms · 10,251 MW · Inner Mongolia Huolinhe Circulating Economy Demonstration wind farm · 1,2,3, 4, 5, Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm, Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (Huaneng) wind farm…
+   - CHN (36.0, 119.0) · 86 farms · 6,891 MW · Shandong Qingdao Baoshan wind farm, Shandong Muping Wanggezhuang wind farm, Shandong Juancheng Zuoying wind farm…
+   - CHN (37.0, 112.0) · 67 farms · 5,952 MW · Shanxi Fanshi County Yunwuyu wind farm, Shanxi Yuanqu (State Power Investment) wind farm, Shanxi Pinglu Dashantai wind farm · 3…
+   - CHN (38.0, 102.0) · 29 farms · 5,680 MW · Gansu - Shandong Power Export Huanxian (Huaneng) Wind/Solar Demonstration Project wind farm · Area A1, Area A2, Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm…
+   - CHN (34.0, 114.0) · 65 farms · 5,349 MW · Henan Neihuang (China Resources) wind farm, Henan Huaxian Zaocun wind farm, Henan Tangyin wind farm · 1, 2…
+5. **Pipeline totals**: projects and country totals are both from GEM 2026-02; the differences are mostly the Sep 2026 compiled list added here, projects removed by the clean-up rules, and phases GEM gives no capacity for. Top-15 countries:
+   - China: projects 742,207 MW · GEM total 743,588 MW
+   - United States of America: projects 89,451 MW · GEM total 89,440 MW
+   - Germany: projects 37,467 MW · GEM total 18,119 MW
+   - India: projects 51,063 MW · GEM total 51,063 MW
+   - Brazil: projects 277,884 MW · GEM total 277,866 MW
+   - Spain: projects 56,501 MW · GEM total 56,471 MW
+   - United Kingdom: projects 100,173 MW · GEM total 88,436 MW
+   - France: projects 23,285 MW · GEM total 22,138 MW
+   - Canada: projects 17,852 MW · GEM total 17,852 MW
+   - Sweden: projects 85,605 MW · GEM total 85,597 MW
+   - Turkey: projects 2,090 MW · GEM total 2,062 MW
+   - Australia: projects 250,313 MW · GEM total 250,313 MW
+   - Italy: projects 52,268 MW · GEM total 52,018 MW
+   - Netherlands: projects 23,910 MW · GEM total 19,115 MW
+   - Poland: projects 22,035 MW · GEM total 20,749 MW
 6. **The national figures themselves**: apart from Taiwan and Japan, which were checked against official sources, countries use the IRENA series; refresh it when IRENA publishes each year (around March) and spot-check the top ten against official statistics (e.g. China NEA, US EIA, Germany BNetzA).
    Countries whose national figure differs from GEM 2026-02 ‘operating’ by more than 15% (national above 300 MW; GEM only tracks projects of 10 MW and above, so a lower GEM figure is expected where small farms are common — a higher one is worth checking):
    - China: national 640,626 MW · GEM 542,758 MW (-15%)
@@ -98,7 +93,7 @@ English ｜ [中文](data-coverage.md)
    - Iran: national 378 MW · GEM 502 MW (+33%)
    - Dominican Rep.: national 482 MW · GEM 603 MW (+25%)
 7. **Places with farms but no national series** (not in the table):
-   ESH 753 MW, LKA 225 MW, BIH 219 MW, MMR 210 MW, BOL 135 MW, KOS 135 MW, MRT 130 MW, MNE 118 MW, GTM 106 MW, CMR 100 MW, MKD 73 MW, ECU 66 MW, BGD 60 MW, DJI 59 MW, ALA 54 MW, SLV 54 MW, AGO 50 MW, AZE 50 MW, OMN 50 MW, CUW 47 MW, GLP 41 MW, MUS 39 MW, NCL 38 MW, ABW 30 MW, CPV 26 MW, GEO 21 MW, MTQ 14 MW, BES 11 MW, DZA 10 MW, FJI 10 MW, KWT 10 MW, NGA 10 MW, REU 7 MW, SYC 6 MW, VUT 3 MW, NFK 2 MW, KNA 2 MW, TON 1 MW, BRB 1 MW
+   LAO 850 MW, ESH 813 MW, BIH 244 MW, LKA 225 MW, MMR 210 MW, BOL 135 MW, KOS 135 MW, MRT 130 MW, MNE 118 MW, GTM 106 MW, CMR 100 MW, MKD 73 MW, CUW 70 MW, ECU 66 MW, BGD 60 MW, DJI 59 MW, NCL 58 MW, ALA 54 MW, SLV 54 MW, OMN 50 MW, AZE 50 MW, AGO 50 MW, GLP 41 MW, MUS 39 MW, CPV 39 MW, ABW 30 MW, REU 27 MW, GEO 21 MW, MDG 16 MW, MTQ 14 MW, BES 11 MW, NGA 10 MW, FJI 10 MW, DZA 10 MW, KWT 10 MW, SYC 6 MW, VUT 3 MW, NFK 2 MW, KNA 2 MW, TON 1 MW, BRB 1 MW
 
 ## By country (sorted by national capacity)
 
@@ -106,69 +101,69 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 
 | # | Country | National MW | of which offshore | GEM operating MW | Mapped MW | Coverage | Gap MW | Farms | Year-unknown MW | Approx. coords | Flag |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 497,438 | 78% | 143,188 | 4,670 | 18,266 | 2,486 | △ |
-| 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 160,853 | 102% | 0 | 1,213 | 867 | 3 | ✓ |
-| 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 50,845 | 65% | 27,028 | 1,809 | 852 | 138 | △ |
-| 4 | India (IND) | 54,511 | 0 | 38,937 | 39,986 | 73% | 14,525 | 610 | 10,588 | 552 | △ |
-| 5 | Brazil (BRA) | 34,866 | 0 | 35,718 | 32,706 | 94% | 2,160 | 294 | 33 | 4 | ✓ |
-| 6 | Spain (ESP) | 33,301 | 7 | 31,007 | 30,392 | 91% | 2,910 | 854 | 3,450 | 240 | ✓ |
-| 7 | United Kingdom (GBR) | 33,088 | 16,071 | 28,965 | 31,532 | 95% | 1,556 | 692 | 0 | 7 | ✓ |
-| 8 | France (FRA) | 25,655 | 1,500 | 25,610 | 25,372 | 99% | 283 | 1,223 | 3,295 | 306 | ✓ |
-| 9 | Canada (CAN) | 18,153 | 0 | 17,709 | 16,917 | 93% | 1,236 | 193 | 83 | 5 | ✓ |
-| 10 | Sweden (SWE) | 17,381 | 191 | 16,574 | 13,642 | 78% | 3,739 | 238 | 18 | 0 | △ |
-| 11 | Turkey (TUR) | 14,781 | 0 | 13,784 | 13,224 | 89% | 1,557 | 268 | 1,868 | 12 | ✓ |
-| 12 | Australia (AUS) | 14,529 | 0 | 14,252 | 15,111 | 104% | 0 | 104 | 167 | 3 | ✓ |
-| 13 | Italy (ITA) | 13,568 | 30 | 10,440 | 10,262 | 76% | 3,306 | 333 | 2,206 | 142 | △ |
-| 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,487 | 89% | 1,295 | 156 | 772 | 47 | ✓ |
-| 15 | Poland (POL) | 10,602 | 0 | 8,962 | 8,707 | 82% | 1,895 | 232 | 718 | 109 | △ |
-| 16 | Finland (FIN) | 9,383 | 71 | 8,551 | 7,809 | 83% | 1,574 | 136 | 54 | 19 | △ |
+| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 589,210 | 92% | 51,416 | 5,167 | 20,521 | 2,883 | ✓ |
+| 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 166,147 | 105% | 0 | 1,237 | 0 | 9 | ✓ |
+| 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 53,313 | 68% | 24,560 | 1,879 | 852 | 177 | △ |
+| 4 | India (IND) | 54,511 | 0 | 38,937 | 42,278 | 78% | 12,233 | 630 | 10,869 | 568 | △ |
+| 5 | Brazil (BRA) | 34,866 | 0 | 35,718 | 34,291 | 98% | 575 | 295 | 760 | 3 | ✓ |
+| 6 | Spain (ESP) | 33,301 | 7 | 31,007 | 31,436 | 94% | 1,865 | 872 | 3,671 | 253 | ✓ |
+| 7 | United Kingdom (GBR) | 33,088 | 16,071 | 28,965 | 31,731 | 96% | 1,357 | 740 | 2 | 0 | ✓ |
+| 8 | France (FRA) | 25,655 | 1,500 | 25,610 | 25,896 | 101% | 0 | 1,248 | 3,371 | 321 | ✓ |
+| 9 | Canada (CAN) | 18,153 | 0 | 17,709 | 17,755 | 98% | 398 | 197 | 0 | 6 | ✓ |
+| 10 | Sweden (SWE) | 17,381 | 191 | 16,574 | 16,554 | 95% | 827 | 259 | 97 | 0 | ✓ |
+| 11 | Turkey (TUR) | 14,781 | 0 | 13,784 | 14,067 | 95% | 714 | 278 | 2,194 | 13 | ✓ |
+| 12 | Australia (AUS) | 14,529 | 0 | 14,252 | 15,165 | 104% | 0 | 107 | 18 | 3 | ✓ |
+| 13 | Italy (ITA) | 13,568 | 30 | 10,440 | 10,504 | 77% | 3,064 | 338 | 2,195 | 146 | △ |
+| 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,675 | 91% | 1,107 | 160 | 716 | 49 | ✓ |
+| 15 | Poland (POL) | 10,602 | 0 | 8,962 | 9,024 | 85% | 1,578 | 239 | 718 | 115 | ✓ |
+| 16 | Finland (FIN) | 9,383 | 71 | 8,551 | 9,012 | 96% | 371 | 143 | 0 | 1 | ✓ |
 | 17 | Denmark (DNK) | 7,547 | 2,687 | 5,003 | 5,015 | 66% | 2,532 | 119 | 80 | 4 | △ |
-| 18 | Mexico (MEX) | 7,512 | 0 | 8,425 | 8,124 | 108% | 0 | 54 | 644 | 19 | ✓ |
-| 19 | Japan (JPN) | 6,434 | 288 | 5,383 | 5,598 | 87% | 837 | 274 | 54 | 147 | ✓ |
-| 20 | Vietnam (VNM) | 6,239 | 1,000 | 7,081 | 5,709 | 92% | 530 | 79 | 46 | 45 | ✓ |
-| 21 | Chile (CHL) | 5,883 | 0 | 6,300 | 5,402 | 92% | 481 | 55 | 136 | 18 | ✓ |
-| 22 | Belgium (BEL) | 5,851 | 2,263 | 3,966 | 3,833 | 66% | 2,018 | 97 | 267 | 6 | △ |
-| 23 | Greece (GRC) | 5,706 | 0 | 4,706 | 5,529 | 97% | 177 | 356 | 6 | 0 | ✓ |
-| 24 | Portugal (PRT) | 5,605 | 25 | 5,071 | 5,626 | 100% | 0 | 211 | 0 | 62 | ✓ |
-| 25 | Norway (NOR) | 5,158 | 96 | 5,803 | 5,105 | 99% | 53 | 57 | 0 | 17 | ✓ |
-| 26 | Ireland (IRL) | 5,128 | 25 | 4,381 | 4,306 | 84% | 822 | 132 | 175 | 28 | △ |
-| 27 | Taiwan (TWN) | 4,517 | 3,587 | 4,396 | 4,023 | 89% | 494 | 50 | 0 | 6 | ✓ |
-| 28 | Argentina (ARG) | 4,497 | 0 | 4,970 | 4,648 | 103% | 0 | 44 | 150 | 10 | ✓ |
-| 29 | South Africa (ZAF) | 4,326 | 0 | 4,263 | 3,864 | 89% | 462 | 40 | 0 | 4 | ✓ |
-| 30 | Austria (AUT) | 4,292 | 0 | 3,090 | 2,979 | 69% | 1,313 | 102 | 0 | 8 | △ |
-| 31 | Romania (ROU) | 3,283 | 0 | 5,484 | 2,704 | 82% | 579 | 42 | 123 | 26 | △ |
-| 32 | Egypt (EGY) | 3,028 | 0 | 3,045 | 2,987 | 99% | 41 | 8 | 0 | 0 | ✓ |
-| 33 | Russia (RUS) | 2,880 | 0 | 2,605 | 2,453 | 85% | 427 | 25 | 0 | 0 | ✓ |
-| 34 | Lithuania (LTU) | 2,510 | 0 | 1,308 | 914 | 36% | 1,596 | 21 | 50 | 7 | ✗ |
-| 35 | Morocco (MAR) | 2,452 | 0 | 1,627 | 2,680 | 109% | 0 | 17 | 0 | 1 | ✓ |
+| 18 | Mexico (MEX) | 7,512 | 0 | 8,425 | 8,214 | 109% | 0 | 55 | 644 | 19 | ✓ |
+| 19 | Japan (JPN) | 6,434 | 288 | 5,383 | 5,788 | 90% | 646 | 276 | 54 | 149 | ✓ |
+| 20 | Vietnam (VNM) | 6,239 | 1,000 | 7,081 | 5,668 | 91% | 571 | 82 | 96 | 43 | ✓ |
+| 21 | Chile (CHL) | 5,883 | 0 | 6,300 | 6,583 | 112% | 0 | 58 | 136 | 15 | ⚠ |
+| 22 | Belgium (BEL) | 5,851 | 2,263 | 3,966 | 3,972 | 68% | 1,879 | 103 | 71 | 11 | △ |
+| 23 | Greece (GRC) | 5,706 | 0 | 4,706 | 5,733 | 100% | 0 | 375 | 0 | 0 | ✓ |
+| 24 | Portugal (PRT) | 5,605 | 25 | 5,071 | 5,717 | 102% | 0 | 211 | 0 | 2 | ✓ |
+| 25 | Norway (NOR) | 5,158 | 96 | 5,803 | 5,204 | 101% | 0 | 58 | 0 | 17 | ✓ |
+| 26 | Ireland (IRL) | 5,128 | 25 | 4,381 | 4,497 | 88% | 631 | 135 | 66 | 29 | ✓ |
+| 27 | Taiwan (TWN) | 4,517 | 3,587 | 4,396 | 4,037 | 89% | 480 | 50 | 0 | 6 | ✓ |
+| 28 | Argentina (ARG) | 4,497 | 0 | 4,970 | 4,931 | 110% | 0 | 47 | 150 | 9 | ✓ |
+| 29 | South Africa (ZAF) | 4,326 | 0 | 4,263 | 4,381 | 101% | 0 | 44 | 0 | 7 | ✓ |
+| 30 | Austria (AUT) | 4,292 | 0 | 3,090 | 3,055 | 71% | 1,237 | 105 | 0 | 9 | △ |
+| 31 | Romania (ROU) | 3,283 | 0 | 5,484 | 2,752 | 84% | 531 | 43 | 123 | 27 | △ |
+| 32 | Egypt (EGY) | 3,028 | 0 | 3,045 | 3,057 | 101% | 0 | 8 | 0 | 1 | ✓ |
+| 33 | Russia (RUS) | 2,880 | 0 | 2,605 | 2,605 | 90% | 275 | 26 | 0 | 1 | ✓ |
+| 34 | Lithuania (LTU) | 2,510 | 0 | 1,308 | 1,308 | 52% | 1,202 | 23 | 50 | 9 | ✗ |
+| 35 | Morocco (MAR) | 2,452 | 0 | 1,627 | 2,950 | 120% | 0 | 18 | 0 | 2 | ⚠ |
 | 36 | South Korea (KOR) | 2,451 | 312 | 1,649 | 1,536 | 63% | 915 | 43 | 0 | 23 | △ |
-| 37 | Kazakhstan (KAZ) | 1,909 | 0 | 1,418 | 1,225 | 64% | 684 | 22 | 0 | 13 | △ |
+| 37 | Kazakhstan (KAZ) | 1,909 | 0 | 1,418 | 1,430 | 75% | 479 | 24 | 0 | 15 | △ |
 | 38 | Pakistan (PAK) | 1,845 | 0 | 1,941 | 1,941 | 105% | 0 | 33 | 0 | 3 | ✓ |
-| 39 | Ukraine (UKR) | 1,761 | 0 | 560 | 977 | 55% | 784 | 18 | 18 | 8 | ✗ |
-| 40 | Uzbekistan (UZB) | 1,652 | 0 | 1,600 | 1,500 | 91% | 152 | 3 | 0 | 0 | ✓ |
+| 39 | Ukraine (UKR) | 1,761 | 0 | 560 | 1,017 | 58% | 744 | 19 | 18 | 8 | ✗ |
+| 40 | Uzbekistan (UZB) | 1,652 | 0 | 1,600 | 1,600 | 97% | 52 | 4 | 0 | 0 | ✓ |
 | 41 | Thailand (THA) | 1,544 | 0 | 2,137 | 1,548 | 100% | 0 | 27 | 20 | 8 | ✓ |
 | 42 | Uruguay (URY) | 1,516 | 0 | 1,526 | 1,527 | 101% | 0 | 29 | 70 | 10 | ✓ |
-| 43 | Croatia (HRV) | 1,375 | 0 | 1,095 | 954 | 69% | 421 | 24 | 105 | 1 | △ |
-| 44 | Peru (PER) | 1,340 | 0 | 1,448 | 1,448 | 108% | 0 | 11 | 0 | 2 | ✓ |
+| 43 | Croatia (HRV) | 1,375 | 0 | 1,095 | 1,095 | 80% | 280 | 26 | 105 | 3 | △ |
+| 44 | Peru (PER) | 1,340 | 0 | 1,448 | 1,448 | 108% | 0 | 11 | 0 | 1 | ✓ |
 | 45 | New Zealand (NZL) | 1,265 | 0 | 1,233 | 1,233 | 97% | 32 | 12 | 0 | 0 | ✓ |
-| 46 | Serbia (SRB) | 803 | 0 | 604 | 510 | 63% | 293 | 7 | 10 | 1 | △ |
+| 46 | Serbia (SRB) | 803 | 0 | 604 | 604 | 75% | 199 | 8 | 10 | 2 | △ |
 | 47 | Bulgaria (BGR) | 706 | 0 | 608 | 608 | 86% | 98 | 17 | 0 | 6 | ✓ |
 | 48 | Estonia (EST) | 705 | 0 | 688 | 695 | 99% | 10 | 15 | 0 | 2 | ✓ |
 | 49 | Jordan (JOR) | 631 | 0 | 621 | 621 | 98% | 10 | 8 | 0 | 0 | ✓ |
-| 50 | Philippines (PHL) | 518 | 0 | 592 | 603 | 116% | 0 | 8 | 0 | 1 | ⚠ |
-| 51 | Ethiopia (ETH) | 504 | 0 | 664 | 513 | 102% | 0 | 3 | 0 | 1 | ✓ |
+| 50 | Philippines (PHL) | 518 | 0 | 592 | 603 | 116% | 0 | 8 | 0 | 0 | ⚠ |
+| 51 | Ethiopia (ETH) | 504 | 0 | 664 | 613 | 122% | 0 | 4 | 0 | 2 | ⚠ |
 | 52 | Dominican Rep. (DOM) | 482 | 0 | 603 | 431 | 89% | 51 | 7 | 0 | 1 | ✓ |
-| 53 | Costa Rica (CRI) | 437 | 0 | 427 | 415 | 95% | 22 | 18 | 100 | 7 | ✓ |
+| 53 | Costa Rica (CRI) | 437 | 0 | 427 | 442 | 101% | 0 | 19 | 100 | 8 | ✓ |
 | 54 | Kenya (KEN) | 436 | 0 | 632 | 472 | 108% | 0 | 4 | 0 | 1 | ✓ |
 | 55 | Saudi Arabia (SAU) | 400 | 0 | 400 | 400 | 100% | 0 | 1 | 0 | 0 | ✓ |
 | 56 | Iran (IRN) | 378 | 0 | 502 | 439 | 116% | 0 | 8 | 92 | 2 | ⚠ |
-| 57 | Czechia (CZE) | 369 | 0 | 151 | 140 | 38% | 229 | 7 | 0 | 5 | ✗ |
-| 58 | Israel (ISR) | 347 | 0 | 331 | 352 | 101% | 0 | 4 | 22 | 2 | ✓ |
+| 57 | Czechia (CZE) | 369 | 0 | 151 | 151 | 41% | 218 | 8 | 0 | 4 | ✗ |
+| 58 | Israel (ISR) | 347 | 0 | 331 | 352 | 101% | 0 | 4 | 22 | 0 | ✓ |
 | 59 | Panama (PAN) | 336 | 0 | 336 | 336 | 100% | 0 | 2 | 0 | 0 | ✓ |
 | 60 | Hungary (HUN) | 325 | 0 | 319 | 319 | 98% | 6 | 11 | 0 | 3 | ✓ |
 | 61 | Tunisia (TUN) | 245 | 0 | 253 | 253 | 103% | 0 | 3 | 188 | 0 | ✓ |
 | 62 | Honduras (HND) | 242 | 0 | 235 | 235 | 97% | 7 | 3 | 0 | 0 | ✓ |
-| 63 | Luxembourg (LUX) | 232 | 0 | 132 | 116 | 50% | 116 | 7 | 62 | 3 | ✗ |
+| 63 | Luxembourg (LUX) | 232 | 0 | 132 | 132 | 57% | 100 | 8 | 0 | 1 | ✗ |
 | 64 | Nicaragua (NIC) | 186 | 0 | 189 | 189 | 102% | 0 | 4 | 0 | 1 | ✓ |
 | 65 | Cyprus (CYP) | 170 | 0 | 156 | 156 | 92% | 14 | 5 | 0 | 0 | ✓ |
 | 66 | Senegal (SEN) | 159 | 0 | 208 | 159 | 100% | 0 | 1 | 0 | 0 | ✓ |
@@ -176,11 +171,11 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 68 | Indonesia (IDN) | 152 | 0 | 157 | 157 | 103% | 0 | 3 | 0 | 1 | ✓ |
 | 69 | Latvia (LVA) | 133 | 0 | 100 | 100 | 75% | 33 | 3 | 0 | 0 | △ |
 | 70 | Puerto Rico (PRI) | 128 | 0 | 127 | 127 | 99% | 1 | 2 | 0 | 0 | ✓ |
-| 71 | Switzerland (CHE) | 111 | 0 | 55 | 55 | 50% | 56 | 3 | 12 | 1 | ✗ |
+| 71 | Switzerland (CHE) | 111 | 0 | 55 | 55 | 50% | 56 | 3 | 0 | 1 | ✗ |
 | 72 | United Arab Emirates (ARE) | 110 | 0 | 99 | 99 | 90% | 11 | 3 | 0 | 0 | ✓ |
 | 73 | Jamaica (JAM) | 102 | 0 | 99 | 99 | 97% | 3 | 2 | 0 | 0 | ✓ |
 | 74 | Faroe Islands (FRO) | 68 | 0 | 37 | 37 | 54% | 31 | 2 | 0 | 0 | ✗ |
-| 75 | Colombia (COL) | 34 | 0 | 92 | 32 | 94% | 2 | 2 | 0 | 2 | ✓ |
+| 75 | Colombia (COL) | 34 | 0 | 92 | 32 | 94% | 2 | 2 | 0 | 1 | ✓ |
 | 76 | Cuba (CUB) | 16 | 0 | 0 | 11 | 70% | 5 | 2 | 0 | 1 | △ |
 | 77 | Namibia (NAM) | 6 | 0 | 0 | 6 | 100% | 0 | 1 | 6 | 1 | ✓ |
 | 78 | Iceland (ISL) | 4 | 0 | 0 | 0 | 0% | 4 | 0 | 0 | 0 | ✗ |

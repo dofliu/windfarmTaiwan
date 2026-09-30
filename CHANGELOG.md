@@ -14,6 +14,23 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v2.13.0 — 2026-09-30
+
+- 風場層升級到 Global Energy Monitor 全球風電追蹤 2026-02 版（GEM 公開資料桶的 GeoJSON；2025-02 版是 CSV）：`tools/build_farms.py` 讀 GeoJSON 時把欄位換回
+  CSV 的名稱，2026-02 沒有的除役年由 `data/global/sources/gem_retired_years_2025-02.json`（2025-02 版的值）補上；GEM 沒填型式的專案改依名稱判斷離岸／浮動式。
+  風場由 23,391 筆增為 25,975 筆（營運中 16,133、規劃中 9,590、已除役 252）；「預計商轉年已過仍列規劃中」由 583 案降為 2 案，
+  逐案規劃總量與各國總量終於是同一版 GEM。
+- 清理規則逐條對照新版：GEM 已自行修正的 13 條刪除（Yambuk 重複、Portland 合併、Criterion／Chaminé／Felgar 的 GPPD 舊紀錄、Pohjoinen、
+  Saint-Brieuc、Golfe de Fos、Claveria、Pagudpu、Phuoc、檳椥 5、HKZ 第 4 區），4 條改用新名稱（Dounreay Trì、Pagudpud (ACEN)、全南 SK E&C、青洲六 VI），
+  Portland 依 GEM 新的分筆改寫；新增 8 條合併規則（MacIntyre、Studland Bay、Kingman、Triton Knoll、Gökçedağ、Kipeto／Kajiado、Amunet、
+  Gabal El Zeit，出處為 GEM 專案頁的別名，已以 `check_quotes.py` 核對）。紅海 Red Sea Wind Energy 650 MW 已於 2025-07-02 全面商轉，
+  自規劃清單移除；Sørmarkfjellet（挪威）GEM 列為封存，依業主 Aneo 的復運公告仍列營運中（`STATUS_FIX`）。
+- 台灣：海龍 GEM 新拆出的第 3 期（興建中）併入精選的「海龍 2 & 3」；環洋對應 GEM 改名後的紀錄；海鼎一、德帥在 GEM 2026-02 分別列為取消與已移除，
+  大彰化東北列為取消，本站暫依 2026 年 9 月整理的清單保留（見 TODO）；韓國東海 1 號依 GEM 改為興建中、預計 2030 年。
+- 事件 WIND-044 對應改為 GEM 的「MacIntyre precinct wind farm」；港口頭頓的 Baltica 2 改對 GEM 新名稱「Baltica II Offshore wind farm」。
+- 建置：`farm_cleanup.py` 新增 `CLEANUP_LENIENT=1`（升級 GEM 版本時先建置、看新名稱再改規則）；覆蓋率報告的「規劃中總量」一節改為依版本是否相同措辭；
+  README 的資料更新步驟、ROADMAP、地球儀與風電知識的資料來源文字都改為 2026-02。
+
 ## v2.12.6 — 2026-09-30
 
 - 資料：第 5 步（中國）五座水下基礎與六條清理規則的出處原文以 `check_quotes.py` 核對。三峽集團自家網域在核對環境連不上，改用能核對的出處

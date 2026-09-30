@@ -15,6 +15,26 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.13.0 — 2026-09-30
+
+- The farm layer moves to Global Energy Monitor's Global Wind Power Tracker, February 2026 release (a GeoJSON in GEM's public bucket; the 2025-02
+  release was a CSV): `tools/build_farms.py` maps the GeoJSON fields back to the CSV names, fills the retired years the 2026-02 file lacks from
+  `data/global/sources/gem_retired_years_2025-02.json` (the 2025-02 values), and infers offshore / floating from the project name when GEM gives no type.
+  Farms grow from 23,391 to 25,975 records (16,133 operating, 9,590 pipeline, 252 retired); "expected year passed but still in the pipeline"
+  drops from 583 projects to 2, and the project-level pipeline and the country totals are finally the same GEM release.
+- The clean-up rules were checked one by one against the new release: 13 that GEM has fixed itself are deleted (the Yambuk duplicate, the
+  Portland merge, the old GPPD records for Criterion / Chaminé / Felgar, Pohjoinen, Saint-Brieuc, Golfe de Fos, Claveria, Pagudpu, Phuoc,
+  Bến Tre 5, HKZ site 4), 4 take GEM's new names (Dounreay Trì, Pagudpud (ACEN), Jeonnam SK E&C, Qingzhou VI), Portland follows GEM's new split;
+  8 merge rules are added (MacIntyre, Studland Bay, Kingman, Triton Knoll, Gökçedağ, Kipeto / Kajiado, Amunet, Gabal El Zeit, sourced from the
+  other names on GEM's project pages and checked with `check_quotes.py`). Red Sea Wind Energy (650 MW) reached full commercial operation on
+  2 July 2025 and leaves the pipeline list; Sørmarkfjellet (Norway), mothballed in GEM, stays operating per owner Aneo's restart notice (`STATUS_FIX`).
+- Taiwan: Hai Long phase 3 (under construction, newly split out by GEM) merges into the curated "Hai Long 2 & 3"; Huanyang maps to GEM's renamed
+  record; Haiding 1 and DeShuai are cancelled / removed in GEM 2026-02 and Greater Changhua Northeast is cancelled, but the site keeps the Sep 2026
+  compiled list for now (see TODO); Korea's Donghae 1 follows GEM to under construction, expected 2030.
+- Event WIND-044 now links to GEM's "MacIntyre precinct wind farm"; the Vung Tau port links Baltica 2 under GEM's new name "Baltica II Offshore wind farm".
+- Build: `farm_cleanup.py` gains `CLEANUP_LENIENT=1` (build first when upgrading GEM, then rewrite the rules); the coverage report's pipeline-totals
+  section now words itself by whether the releases match; the README update steps, ROADMAP and the sources text in the globe and Learn pages say 2026-02.
+
 ## v2.12.6 — 2026-09-30
 
 - Data: the quoted passages behind the five step-5 (China) foundation rows and six clean-up rules were checked with `check_quotes.py`. China Three

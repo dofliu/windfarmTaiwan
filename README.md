@@ -50,7 +50,7 @@
 
 - 右上角 **EN／中文** 切換語言；**分享** 產生附資料時間的即時圖卡。網址可以直接分享，別人打開會看到同一個畫面。
 - 手機也能用。地球儀第一次打開要下載幾 MB 的資料，要等一下；沒有 3D 繪圖能力的舊裝置會自動改用長條排名。
-- 資料新舊：台灣即時約每 2 小時更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底；逐場風場資料是 GEM 2025 年 2 月版。
+- 資料新舊：台灣即時約每 2 小時更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底；逐場風場資料是 GEM 2026 年 2 月版。
 - 沒有網路也想看：下載[單檔版](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)，存到電腦直接開啟。
 - 發現資料有錯：風場卡片底部有「回報資料錯誤」，或到 [GitHub](https://github.com/dofliu/windfarmTaiwan/issues) 回報。
 
@@ -66,7 +66,7 @@
   - 右上角「分享」產生含資料時間徽章的即時圖卡
 - **全球發展** `#/global` — 3D 地球儀（three.js，只在進入此頁才載入，離開即停止繪圖）：
   - 各國陸域／離岸**年底累計裝置容量**逐年動畫，長條圖排名一律以 **MW** 顯示；可切換地圖／地圖＋長條／長條排名、3D 地球／2.5D 平面
-  - **風場層**：合併附件精選風場與 Global Energy Monitor 全球風電追蹤（2025-02），營運中約 1.5 萬座；
+  - **風場層**：合併附件精選風場與 Global Energy Monitor 全球風電追蹤（2026-02），營運中約 1.6 萬座；
     選一個國家就畫出該國全部風場，每座風場以一支風機代表（放大後也一樣）；點選風場時才依機組數量畫出它的全部風機
   - **規劃中圖層**（虛線環）：興建中／前期開發／已宣布約 7,850 案，越亮越接近完工；可用「規劃中」按鈕開關。
     「規劃」分頁依狀態與預計商轉年列出範圍內所有專案，並附 GEM 2026-02 各國開發管線總量；點選專案時以半透明風機顯示預定配置
@@ -227,8 +227,9 @@ python tools/extract_curated_extras.py wind-history-map.html data/global/sources
 curl -LO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
 python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world_borders.json
 # 3. 風場層（精選風場 × GEM 全球風電追蹤）
-curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
-python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
+curl -LO https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson   # GEM 公開資料桶（約 55 MB）
+python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
+#   對不到新版名稱的清理規則會讓建置中止；升級 GEM 版本時可先 CLEANUP_LENIENT=1 建置、看新名稱，再逐條改寫 tools/farm_cleanup.py
 #    （會套用 tools/farm_cleanup.py 的逐筆清理規則，並輸出 docs/data-cleanup.md 與 .en.md）
 python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
@@ -315,7 +316,7 @@ python tools/build_events.py
 - 台灣國家序列：[經濟部能源署《2025 能源統計手冊》表 3-6](https://ea01.moeaea.gov.tw/a0303/02/attachments/handbook/2025/docs/3-06.%E5%86%8D%E7%94%9F%E8%83%BD%E6%BA%90%E7%99%BC%E9%9B%BB%E8%A3%9D%E7%BD%AE%E5%AE%B9%E9%87%8F(114).pdf)；
   日本國家序列：[JWPA 年末累積導入量](https://jwpa.jp/information/12660/)
 - 風場層：附件「全球風電發展觀察地圖」精選風場（台灣、日本經逐場稽核）、WRI Global Power Plant Database v1.3（CC BY 4.0）、
-  Global Energy Monitor「[Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/)」2025 年 2 月版（CC BY 4.0）、
+  Global Energy Monitor「[Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/)」2026 年 2 月版（CC BY 4.0）、
   2026 年 9 月整理的規劃中重點專案與日本風場清單（NEDO、windfarm.work、營運商資料）
 - 開發管線各國總量：GEM Global Wind Power Tracker 2026 年 2 月版
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）

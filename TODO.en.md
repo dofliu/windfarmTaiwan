@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 2026-09-30: maintenance; the next big item is the GEM 2026-02 upgrade)
+## In progress (hand-off, 2026-09-30: GEM 2026-02 upgrade done, project stays in maintenance)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it for the next piece of work in progress and move
 finished items to the topic lists below.
@@ -28,6 +28,10 @@ finished items to the topic lists below.
   rules are checked (checkable sources replace the unreachable CTG domains; Rudong H6 and H10 remain, see item 1 below); the Greater Changhua
   2b & 4, Hai Long and Taipower phase 2 timelines follow the July–September 2026 reports; the long-term archive is split by month and the
   single-file builds go to a Release.
+- 30 Sep 2026 (v2.13.0): the farm layer moved to GEM 2026-02 (GeoJSON), 25,975 records; the clean-up rules were checked one by one against
+  the new release (13 deleted, 4 renamed, 8 merge rules added); "expected year passed but still in the pipeline" fell from 583 projects to 2,
+  and the project-level pipeline and the country totals are the same release. Differences found during the upgrade and kept as the site's
+  own list for now are item 2 below.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)
@@ -37,15 +41,20 @@ finished items to the topic lists below.
    TLS connection to eps/www.ctg.com.cn is cut and the MSA page returns 403 (30 Sep 2026). Run `tools/check_quotes.py` on them from a network
    that can reach them. Also only on CTG pages: "280 MW, fully connected March 2021" for Xinghua Bay phase 2 and the later 20 MW prototype at
    Liu'ao phase 2 (both already dropped from the notes).
-2. **Upgrade GEM to the 2026-02 release** (requested by the owner on 27 Sep 2026): GEM 2026-02 is only published as a GeoJSON at
-   `publicgemdata.nyc3.cdn.digitaloceanspaces.com` (wind/2026-02/wind_map_2026-02-05.geojson, per trackers/wind/config.js in GEM's maps repo),
-   which the working environment's network policy blocked; GEM's GitHub repo only has the 2025-02 CSV. Steps: allow that host or have the owner
-   download and upload the file → make `tools/build_farms.py` read the GeoJSON (mapping its fields to the 2025-02 CSV columns) → rebuild the
-   farm layer (step 3 of "Updating the global data" in the README) → deal with every clean-up rule that no longer matches (`farm_cleanup.py`,
-   `GEM_KEEP` and `PIPE_*` are written against 2025-02 names) → `qa_farms`, `coverage_report`, `qa_ports`, `build_foundations` → the version
-   number and both changelogs (a new data-source release: MINOR).
-   After the upgrade also check Korea's Donghae 1 (the owner's workbook, following GEM 2026, says under construction, 2030; this site says
-   pre-construction, 2028) and Jwasari (under construction, 2031; this site says pre-construction).
+2. **Differences left to verify after the GEM 2026-02 upgrade** (30 Sep 2026; the site keeps the Sep 2026 compiled list or its earlier
+   checks where GEM 2026-02 says otherwise):
+   - Taiwan: Haiding 1 (GEM lists Formosa 3 phase 1, 360 MW, as cancelled; the list says 500 MW, 2029), DeShuai (GEM 2025-02's Mei Sen is
+     gone), Greater Changhua Northeast (cancelled in GEM; the list says 600 MW, 2030); whether YouDe (list: 1,000 MW, 2029) is the same
+     project as GEM's "Datian Youde Offshore wind farm" (達天又德, wpd, 700 MW, 2029) — merge once a source is found.
+   - China: GEM's Qingzhou V and VII (1,000 MW each, under construction, no owner) very likely duplicate the curated CTG Qingzhou 5
+     (500 MW, 2024) and 7 (1,000 MW, 2025); a primary source (subsidy notice or CTG announcement) is needed for merge rules.
+   - Korea: Donghae 1 now follows GEM (under construction, 2030, as in the owner's workbook); Jwasari is under construction, 2031 in GEM,
+     but the site keeps pre-construction per the March 2025 EIA hearing report (rule in `farm_cleanup.py`) until construction is evidenced.
+   - Norway's Sørmarkfjellet (130 MW): mothballed in GEM, kept operating by `STATUS_FIX` per owner Aneo's restart notice; its two 2025 blade
+     failures could go into the events layer.
+   - Japan's Enshu Kakegawa / Kakegawa "suspected duplicate A" is still to confirm.
+   - Next GEM release: build with `CLEANUP_LENIENT=1` first to see the new names, then rewrite the rules one by one; 2026-02 has no retired
+     year, and `sources/gem_retired_years_2025-02.json` only covers phases retired by 2025-02.
 3. **Time-sensitive checks (one round done on 30 Sep 2026)**: Greater Changhua 2b & 4 was completed on 1 Sep 2026 and is in final
    commissioning, not yet fully operating; Hai Long stays at 2027 per Northland's Q2 report; Taipower phase 2 has Taipower installing the
    turbines itself, aiming for grid connection by the end of 2026. Next checks are under "Re-check periodically" below.
@@ -149,13 +158,13 @@ and 52 fixed. The reason and source for each are in [docs/data-cleanup.en.md](./
 the rules are in `tools/farm_cleanup.py`.
 
 - [x] The 9 "suspected duplicates A": done (only Japan's Enshu Kakegawa / Kakegawa is left to confirm)
-- [x] The 12 countries whose farm sum was above 110% of the national figure: the Philippines (Pagudpud
-      was completed in 2024–25 and IRENA may not count it yet) and Iran remain
+- [x] The 12 countries whose farm sum was above 110% of the national figure: after GEM 2026-02 there are 5 — Chile, Morocco and Ethiopia
+      (farms connected in 2025 that IRENA's 2025 figures do not count yet), the Philippines (Pagudpud) and Iran
 - [x] Duplicates found while adding live data: Whitla (Alberta), Snowtown, Bluff Point (Tasmania) and
       Yambuk (Victoria)
 - [x] Shared coordinate points: the map fans the farms out around the point and their cards say the
       position is schematic (`flags` 4)
-- [ ] 135 shared coordinate points remain (1,338 operating farms, mostly province-centre placeholders in
+- [ ] 130 shared coordinate points remain (1,310 operating farms, mostly province-centre placeholders in
       China): add real coordinates from a newer GEM release or local data
 - [ ] Items the clean-up could not find or confirm: whether Iran's Tizbaad (99 MW) and Aqkand (50 MW) are
       operating (SATBA data); China's curated "CGN Taizhou 1" (300 MW; no CGN offshore project in Taizhou
@@ -165,20 +174,20 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Farms missing from the data (found while checking): Hanuman 10 in Thailand (80 MW), Lạc Hòa 2
       (123.6 MW) and the other 105.5 MW of Chơ Long in Vietnam, Pantelimon in Romania (123 MW), Carreto in
       Colombia (9.6 MW, 2025)
-- [ ] 11 "suspected duplicates B" remain (different names, same capacity, close by), e.g. Solano / Shiloh
+- [ ] 10 "suspected duplicates B" remain (different names, same capacity, close by), e.g. Solano / Shiloh
       and Big Smile / Dempsey Ridge in the US, Dreiberg / Druiberg in Germany: confirm pair by pair
-- [ ] 587 pipeline projects whose expected year has already passed (101 GW): update their status from a
-      newer GEM release or the news
-- [ ] 46 GW of operating farms have no commissioning year (mostly in China and India), so the map can
+- [x] 587 pipeline projects whose expected year had already passed (101 GW): only 2 remain after GEM 2026-02 (Monsoon in Laos, 600 MW,
+      and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
+- [ ] 48 GW of operating farms have no commissioning year (mostly in China and India), so the map can
       only show them from 2025: add years where they can be found
-- [ ] Large countries with low coverage (China 144 GW short, Germany 27 GW, India 15 GW): assess filling
+- [ ] Large countries with low coverage (after GEM 2026-02: China 98 GW short, Germany 27 GW, India 16 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
 - [x] Duplicate farm records: the US Sunrise Wind appeared both as GEM's "Sunrise wind farm (United States)" and as "Sunrise Wind" from the 2026 compilation (both 924 MW, under construction); merged into one record in foundation step 4, at the centre of BOEM lease OCS-A 0487 (Sep 2026, v2.10.0)
 - [x] Two Dutch duplicates (found while matching foundations): Borssele V and GEM's “Borssele Site V”, and Irene Vorrink and
       GEM's “Dronten”, were checked and merged (Sep 2026, v2.8.0)
-- [ ] Dogger Bank pipeline projects: GEM's “Dogger Bank wind farm · D” (1,320 MW, pre-construction in GEM) now shows as under
-      construction, expected 2027, with the note “first power 2025”. Those are the 2026 compilation's figures for Dogger Bank B,
-      which was matched to phase D; check and fix it in the next pipeline update
+- [x] Dogger Bank pipeline projects: GEM 2026-02 lists phases B and C together as one record under construction (2026), so the list's B and C
+      are in `PIPE_DROP`; D and the two Dogger Bank South projects are mapped explicitly (`PIPE_SAME`), and the matcher now lets only the
+      first list project update a given GEM record (v2.13.0)
 - [ ] France's 2025 offshore capacity (1,500 MW in `wind_global.json`, the same as 2024) may be too low: the SDES Q2 2026 wind dashboard implies about 2.0 GW at end-2025; to be verified
 - [ ] Offshore farm sums above the national series, to be verified: China's operating offshore farms add up to 58.9 GW against a 2025 national figure of 48.4 GW; Vietnam's 28 "offshore" farms (mostly intertidal) add up to 2.0 GW against 1.0 GW. Possibly farms counted at full capacity while still connecting in phases, or duplicates
 

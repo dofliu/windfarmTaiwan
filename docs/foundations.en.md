@@ -27,19 +27,19 @@ This page shows the results of steps 1–4 and the part of step 5 done so far. O
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 172 of 363 farms, 43.6% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 172 of 371 farms, 41.6% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| China | 168 | 8 | 2% | 1 | 1 | 3 | 3 |
+| China | 177 | 8 | 2% | 1 | 1 | 3 | 3 |
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
 | Taiwan | 8 | 8 | 100% | 3 | 5 |  |  |
 | Denmark | 17 | 16 | 99% | 8 |  |  | 8 |
 | Belgium | 12 | 12 | 100% | 8 | 3 |  | 1 |
-| Vietnam | 28 | 0 | 0% |  |  |  |  |
 | France | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
+| Vietnam | 27 | 0 | 0% |  |  |  |  |
 | South Korea | 7 | 6 | 89% | 1 | 4 | 1 |  |
 | Japan | 10 | 9 | 98% | 5 | 1 | 2 | 1 |
 | Sweden | 4 | 4 | 100% | 1 |  |  | 3 |
@@ -334,7 +334,7 @@ Total: type known for 172 of 363 farms, 43.6% of their capacity (floating farms 
 | Farm | MW | Year | Type | Sources | Note |
 |---|---:|---:|---|---|---|
 | Block Island | 30.0 | 2016 | Jacket | [windpowerengineering.com](https://www.windpowerengineering.com/historic-milestone-for-u-s-offshore-wind-block-island-wind-farm-installs-steel-in-the-water/) | 5 four-legged jackets (about 400 t each) fixed by pin piles driven through the legs; the first offshore wind farm in the USA |
-| Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,587 | 2027 | Monopile | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 monopiles (up to 9.5 m across and 1,538 t), installed in 2024–2025 (the three offshore substations stand on pin piles) |
+| Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,640 | 2027 | Monopile | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 monopiles (up to 9.5 m across and 1,538 t), installed in 2024–2025 (the three offshore substations stand on pin piles) |
 | Coastal Virginia Offshore Wind (CVOW) Pilot | 12.0 | 2020 | Monopile | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 2 monopiles (877 t, 7.8 m across) with transition pieces |
 | Empire wind farm | 810 | 2027 | Monopile | [empirewind.com](https://www.empirewind.com/offshore-installation/) | 54 monopiles (made by Sif) with transition pieces, installed in summer and autumn 2025 (the offshore substation stands on a jacket) |
 | Revolution Wind | 704 | 2026 | Monopile | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us) | 65 XXL turbine monopiles installed between May 2024 and Q2 2025 (two larger monopiles carry the offshore substations) |
