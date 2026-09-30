@@ -27,19 +27,19 @@
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 172／363 座，占容量 43.6%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
+合計：已知型式 172／371 座，占容量 41.6%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 中國大陸 | 168 | 8 | 2% | 1 | 1 | 3 | 3 |
+| 中國大陸 | 177 | 8 | 2% | 1 | 1 | 3 | 3 |
 | 英國 | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | 德國 | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | 荷蘭 | 13 | 13 | 100% | 12 |  |  | 1 |
 | 台灣 | 8 | 8 | 100% | 3 | 5 |  |  |
 | 丹麥 | 17 | 16 | 99% | 8 |  |  | 8 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
-| 越南 | 28 | 0 | 0% |  |  |  |  |
 | 法國 | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
+| 越南 | 27 | 0 | 0% |  |  |  |  |
 | 南韓 | 7 | 6 | 89% | 1 | 4 | 1 |  |
 | 日本 | 10 | 9 | 98% | 5 | 1 | 2 | 1 |
 | 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
@@ -238,7 +238,7 @@
 | 風場 | MW | 年份 | 型式 | 來源 | 說明 |
 |---|---:|---:|---|---|---|
 | Block Island | 30.0 | 2016 | 套管式 | [windpowerengineering.com](https://www.windpowerengineering.com/historic-milestone-for-u-s-offshore-wind-block-island-wind-farm-installs-steel-in-the-water/) | 5 座四腳套管（各約 400 噸），以穿過套管腳打入的基樁固定；美國第一座離岸風場 |
-| Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,587 | 2027 | 單樁 | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 座單樁（最大直徑 9.5 m、1,538 噸），2024–2025 年安裝（3 座海上變電站另以基樁固定） |
+| Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,640 | 2027 | 單樁 | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 座單樁（最大直徑 9.5 m、1,538 噸），2024–2025 年安裝（3 座海上變電站另以基樁固定） |
 | Coastal Virginia Offshore Wind (CVOW) Pilot | 12.0 | 2020 | 單樁 | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 2 座單樁（877 噸、直徑 7.8 m）配轉接段 |
 | Empire wind farm | 810 | 2027 | 單樁 | [empirewind.com](https://www.empirewind.com/offshore-installation/) | 54 座單樁（Sif 製）配轉接段，2025 年夏秋安裝（海上變電站立在套管上） |
 | Revolution Wind | 704 | 2026 | 單樁 | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us) | 65 座加大型（XXL）風機單樁，2024 年 5 月至 2025 年第 2 季安裝（2 座海上變電站另有更大的單樁） |

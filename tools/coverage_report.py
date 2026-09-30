@@ -270,8 +270,13 @@ def report(lang):
                f"   **Shared coordinates**: {len(stacks)} points each hold 3 or more operating farms ({sum(len(v) for v in stacks):,} farms, {fmt(sum(f['mw'] for v in stacks for f in v))} MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:"))
     for v in stacks[:5]:
         s.append(f"   - {v[0]['iso']} ({v[0]['lat']}, {v[0]['lon']}) · {len(v)} {L('座', 'farms')} · {fmt(sum(f['mw'] for f in v))} MW · " + ", ".join(f["name"] for f in sorted(v, key=lambda f: -f["mw"])[:3]) + ("…" if len(v) > 3 else ""))
-    s.append(L(f"5. **規劃中總量版本不一**：逐案資料為 GEM 2025-02，各國總量為 GEM {pt.get('release', '')}，兩者相差一年，下一版 GEM 逐案資料釋出後應一併更新。前 15 大國家的對照：",
-               f"5. **Pipeline versions differ**: projects come from GEM Feb 2025 but country totals from GEM {pt.get('release', '')}; update the project list when the next GEM release is out. Top-15 countries:"))
+    gem_rel = F.get('meta', {}).get('gem_release', '')
+    if gem_rel == pt.get('release', ''):
+        s.append(L(f"5. **規劃中總量對照**：逐案資料與各國總量同為 GEM {gem_rel}；差額多為本站另收的 2026 年整理清單、被清理規則移除的專案，以及 GEM 未給容量的分期。前 15 大國家的對照：",
+                   f"5. **Pipeline totals**: projects and country totals are both from GEM {gem_rel}; the differences are mostly the Sep 2026 compiled list added here, projects removed by the clean-up rules, and phases GEM gives no capacity for. Top-15 countries:"))
+    else:
+        s.append(L(f"5. **規劃中總量版本不一**：逐案資料為 GEM {gem_rel}，各國總量為 GEM {pt.get('release', '')}，下一版 GEM 逐案資料釋出後應一併更新。前 15 大國家的對照：",
+                   f"5. **Pipeline versions differ**: projects come from GEM {gem_rel} but country totals from GEM {pt.get('release', '')}; update the project list when the next GEM release is out. Top-15 countries:"))
     for r, gp in pipe_cmp:
         s.append(L(f"   - {r['zh']}：逐案 {fmt(r['pipe_mw'])} MW · GEM 總量 {fmt(gp)} MW",
                    f"   - {r['en']}: projects {fmt(r['pipe_mw'])} MW · GEM total {fmt(gp)} MW"))

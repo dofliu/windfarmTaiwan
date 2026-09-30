@@ -62,7 +62,7 @@ Tips:
 - It works on phones. The globe downloads a few MB the first time, so give it a moment; older devices without 3D graphics get a
   bar-chart ranking instead.
 - How current the data is: Taiwan live updates about every 2 hours (the header shows Taipower's data time); country totals run to
-  the end of 2025; the farm-by-farm data is GEM's February 2025 release.
+  the end of 2025; the farm-by-farm data is GEM's February 2026 release.
 - To use it offline, download the [single-file edition](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)
   and open it from your computer.
 - Found a mistake? Farm cards have "Report a data error" at the bottom, or open an issue on
@@ -311,8 +311,9 @@ python tools/extract_curated_extras.py wind-history-map.html data/global/sources
 curl -LO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
 python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world_borders.json
 # 3. Farm layer (curated farms × GEM Global Wind Power Tracker)
-curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
-python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
+curl -LO https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson   # GEM public data bucket (about 55 MB)
+python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
+#   clean-up rules that no longer match the new names stop the build; when upgrading the GEM release, build once with CLEANUP_LENIENT=1 to see the new names, then rewrite the rules in tools/farm_cleanup.py
 #    (applies the record-level clean-up rules in tools/farm_cleanup.py and writes docs/data-cleanup.md and .en.md)
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
@@ -433,7 +434,7 @@ python tools/build_events.py
 - Farm layer: the curated farms from the "Global wind power development map" (Taiwan/Japan audited), WRI
   Global Power Plant Database v1.3 (CC BY 4.0), Global Energy Monitor's
   [Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/),
-  February 2025 release (CC BY 4.0), and the pipeline projects and Japanese farm list compiled in Sep 2026
+  February 2026 release (CC BY 4.0), and the pipeline projects and Japanese farm list compiled in Sep 2026
   (NEDO, windfarm.work, operator pages)
 - Pipeline country totals: GEM Global Wind Power Tracker, February 2026 release
 - Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue

@@ -16,6 +16,8 @@ PIPE_FIX 列出清單整理後才變動的欄位（例：預計完工年延後�
 build_farms.py 會把套用結果寫成 docs/data-cleanup.md 與 docs/data-cleanup.en.md。
 """
 import json
+import os
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -79,9 +81,6 @@ def cn_agg(name, zh, en):
     return drop('CHN', name, C, '整區的概略彙總，' + zh + '，各有自己的商轉年', 'A rough total for the whole area; ' + en + ', each with its own commissioning year')
 
 
-PORTLAND_ALL = ('Portland (PWEP) Wind Energy Project · Cape Bridgewater wind farm, Cape Nelson South wind farm, '
-                'Cape Sir William Grant/Cape Nelson North, Codrington wind farm')
-
 RULES = [
     # ------------------------------------------------ Australia
     dup('AUS', 'Snowtown I wind farm', G, ('Snowtown', C),
@@ -94,14 +93,11 @@ RULES = [
     fix('AUS', 'Woolnorth (Bluff Point / Studland Bay)', C, '補上分期：Bluff Point 2002 年 10.5 MW、2004 年 54.3 MW，Studland Bay 2007 年 75 MW',
         'Phases: Bluff Point 10.5 MW (2002) and 54.3 MW (2004), Studland Bay 75 MW (2007)', WOOLNORTH,
         mw=139.8, ph=[[2002, 10.5], [2004, 54.3], [2007, 75]]),
-    dup('AUS', 'Yambuk wind farm', G, ('Portland (PWEP) Wind Energy Project · Yambuk wind farm', G),
-        'GEM 重複收錄；Yambuk（30 MW）是 Portland 風電計畫第一期，2007 年商轉',
-        'Listed twice in GEM; Yambuk (30 MW) is stage 1 of the Portland Wind Project, commissioned in 2007', PORTLAND),
-    fix('AUS', PORTLAND_ALL, G, '扣除另有精選紀錄的 Codrington（18.2 MW，2001）：Cape Bridgewater 58 MW（2008）、Cape Nelson South 44 MW（2009）、'
-        'Cape Sir William Grant 47 MW（2015）',
-        'Codrington (18.2 MW, 2001) has its own curated record and is taken out: Cape Bridgewater 58 MW (2008), '
-        'Cape Nelson South 44 MW (2009), Cape Sir William Grant 47 MW (2015)', PORTLAND,
-        rename=PORTLAND_ALL.replace(', Codrington wind farm', ''), mw=149, year=2008, ph=[[2008, 58], [2009, 44], [2015, 47]]),
+    # GEM 2026-02 把 Portland 計畫依座標分成兩筆：西邊三個場址（149 MW）與東邊的 Codrington＋Yambuk；Codrington 另有精選紀錄
+    fix('AUS', 'Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm', G,
+        '扣除另有精選紀錄的 Codrington（18.2 MW，2001）：只留 Yambuk 30 MW（2007 年，Portland 風電計畫第四個場址）',
+        'Codrington (18.2 MW, 2001) has its own curated record and is taken out, leaving Yambuk 30 MW (2007, the fourth site of the Portland Wind Project)',
+        PORTLAND, rename='Portland (PWEP) Wind Energy Project · Yambuk wind farm', mw=30, year=2007, ph=[[2007, 30]]),
     # ------------------------------------------------ Canada
     dup('CAN', 'Whitla wind farm', G, ('Whitla', C),
         '同一座風場；GEM 座標在班夫附近，偏離約 300 km（實際位於 Forty Mile 郡）',
@@ -112,8 +108,6 @@ RULES = [
         'WRI GPPD 舊資料；GEM 有同一座風場（已於 2022 年除役）', 'Old WRI GPPD record; GEM has the same farm (retired in 2022)'),
     dup('USA', 'Snyder Wind Farm', P, ('Snyder wind farm', G),
         'WRI GPPD 舊資料；GEM 有同一座風場（已於 2021 年除役）', 'Old WRI GPPD record; GEM has the same farm (retired in 2021)'),
-    dup('USA', 'Criterion', P, ('Criterion wind farm · 1', G),
-        'WRI GPPD 舊資料；GEM 有同一座風場（2023 年除役，正在汰換）', 'Old WRI GPPD record; GEM has the same farm (retired in 2023, being repowered)'),
     dup('USA', 'FPL Energy Story Wind LLC', P, ('Story County', C),
         'Story County 第二期（150 MW，2009）；精選的 Story County（300 MW）已含兩期',
         'Phase II of Story County (150 MW, 2009); the curated 300 MW record covers both phases', STORY),
@@ -242,11 +236,6 @@ RULES = [
     # ------------------------------------------------ Portugal
     dup('PRT', 'Alto Do Talefe wind farm', G, ('Alto do Talefe', P), '同一座風場；實際位於 Cinfães（Montemuro 山），GEM 座標誤放在布拉加',
         'Same farm; it is in Cinfães (Serra de Montemuro) and the GEM point was placed in Braga', 'https://www.openstreetmap.org/relation/14053337'),
-    dup('PRT', 'Chaminé wind farm', G, ('Chaminé', P), '同一座風場；GEM 的概略座標是塞圖巴爾市，實際在錫尼什',
-        'Same farm; the approximate GEM point is Setúbal city, the farm is in Sines', 'https://www.thewindpower.net/windfarm_en_2570_chamine.php'),
-    dup('PRT', 'Felgar wind farm', G, ('Felgar', P), '同一座風場；GEM 的概略座標是布拉干薩市，實際在 Torre de Moncorvo',
-        'Same farm; the approximate GEM point is Bragança city, the farm is in Torre de Moncorvo',
-        'https://www.thewindpower.net/windfarm_en_2641_felgar.php'),
     # ------------------------------------------------ United Kingdom, Denmark, Finland, Turkey
     dup('GBR', 'Westermost Rough A wind farm', G, ('Westermost Rough', C), '同一座風場；GEM 座標在林肯郡外海，偏離約 80 km',
         'Same farm; the GEM point is off Lincolnshire, about 80 km away', 'https://en.wikipedia.org/wiki/Westermost_Rough_Wind_Farm'),
@@ -261,8 +250,6 @@ RULES = [
     fix('DNK', 'Vesterhav Nord', C, '座標改到 Thyborøn 與 Ferring Sø 之間的外海（原座標偏南約 20 km）',
         'Point moved offshore between Thyborøn and Ferring Sø (the old one was about 20 km too far south)',
         'https://powerplants.vattenfall.com/vesterhav-nord/', lat=56.61, approx=True),
-    drop('FIN', 'Pohjoinen wind farm', G, '就是挪威的 Sørfjord 風場（同為 99 MW、2020 年、Fortum 持股、座標相同，挪威那筆已列出），國別被誤植為芬蘭',
-         'This is Norway’s Sørfjord farm (same 99 MW, 2020, Fortum-owned, identical coordinates; listed under Norway) filed under Finland'),
     dup('FIN', 'Kemi Ajos', C, ('Ajos Retrofit wind farm', G),
         '同一場址；GEM 有完整沿革（2008 年的原機組 27 MW 到 2016 年，之後汰換為 43 MW），保留 GEM 的兩筆',
         'Same site; GEM has the fuller history (the original 27 MW from 2008 to 2016, then repowered to 43 MW), so its two records are kept'),
@@ -276,9 +263,6 @@ RULES = [
          'Thorntonbank 風場（營運商 C-Power）的整場合計；三期已由精選的 Thornton Bank I、II、III 逐期列出（30 + 184.5 + 110.7 MW）',
          'The whole-farm total for Thorntonbank (operated by C-Power); its three phases are already listed as the curated '
          'Thornton Bank I, II and III (30 + 184.5 + 110.7 MW)', 'https://en.wikipedia.org/wiki/Thorntonbank_Wind_Farm'),
-    dup('FRA', 'Saint-Brieuc wind farm', G, ('Saint-Brieuc', C), '同一座風場（496 MW，2024 年）；GEM 座標在布雷斯特外海，偏離約 170 km',
-        'Same farm (496 MW, 2024); the GEM point is off Brest, about 170 km away',
-        'https://en.wikipedia.org/wiki/Saint-Brieuc_Offshore_Wind_Farm'),
     # ------------------------------------------------ 歐洲離岸風場（2026-09 查水下基礎第 2 步時發現）
     fix('DEU', 'Borkum Riffgrund 3', C, '座標改到建成風場範圍的中心（原座標偏東南約 18 km，落在 Borkum Riffgrund 1、2 旁）',
         'Point moved to the centre of the built array (the old one was about 18 km to the south-east, next to Borkum Riffgrund 1 and 2)',
@@ -391,13 +375,10 @@ RULES = [
         'Same farm (off Gruissan, 30 MW)', 'https://www.gem.wiki/Eolmed_Floating_wind_farm'),
     fix('FRA', 'EolMed (Gruissan)', C, '2026 年 4 月開始發電、5 月全面運轉；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
         'First power in April 2026 and full capacity in May 2026; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now', 'https://www.bw-ideol.com/en/eolmed-project', st=1, year=2026, note=True),
-    dup('FRA', 'Golfe De Fos wind farm', G, ('Provence Grand Large', C),
-        '同一座風場：GEM 的 25.2 MW（3 部 8.4 MW）就是福斯灣外海的 Provence Grand Large', 'Same farm: GEM’s 25.2 MW (3 × 8.4 MW) is Provence Grand '
-        'Large in the Gulf of Fos', 'https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/'),
     fix('FRA', 'Provence Grand Large', C, '機組是西門子歌美颯的 8.4 MW 風機，不是 Vestas', 'The turbines are Siemens Gamesa 8.4 MW, not Vestas',
         'https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/',
         turbine='3 x Siemens Gamesa 8.4 MW (SBM tension-leg)'),
-    drop('GBR', 'Dounreay Trì  Floating Wind Demonstration', G,
+    drop('GBR', 'Dounreay Tr‚àö¬®  Floating Wind Demonstration', G,   # GEM 2026-02 的名稱編碼壞掉（原為 Dounreay Trì）· mojibake in GEM 2026-02
          '從未興建：這個兩部風機的示範案已經中止，同一場址後來改由 Pentland 浮動式風場開發（另列）',
          'Never built: this two-turbine demonstrator was discontinued, and the site was later taken up by the Pentland floating wind farm '
          '(listed separately)', 'https://www.offshorewind.biz/2021/06/18/cip-revives-floating-wind-project-offshore-scotland/'),
@@ -430,8 +411,6 @@ RULES = [
         'https://www.toda.co.jp/news/2026/20260105_006181.html', zhname='五島洋上風場', note=True),
     dup('JPN', 'Kyushu floating wind farm', G, ('Kyushu - GIP floating wind farm', G), '同一個規劃案（Skyborn，1 GW，五島外海）；GEM 有兩筆',
         'The same planned project (Skyborn, 1 GW, off the Goto Islands); GEM lists it twice', 'https://www.gem.wiki/Kyushu_floating_wind_farm'),
-    fix('PHL', 'Claveria floating offshore wind farm', G, '浮動式（GEM 的專案頁已改列為浮動式）', 'Floating (GEM’s project page now lists it as floating)',
-        'https://www.gem.wiki/Claveria_(Domhain)_wind_farm', type=2),
     drop('KOR', 'Firefly (Bandibuli) floating offshore wind farm', G, 'Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
          'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
     fix('ESP', 'Timanfaya Floating Offshore wind farm', G, '浮動式：開發商 Capital Energy 的專案採浮動式技術（GEM 誤列為固定式）',
@@ -445,11 +424,9 @@ RULES = [
     fix('THA', 'Subyai (Chaiyaphum)', C, 'EGCO 的 Chaiyaphum 風場：80 MW（32 × 2.5 MW），2016 年 12 月商轉；業主名稱原本拼錯',
         'EGCO’s Chaiyaphum Wind Farm: 80 MW (32 × 2.5 MW), commercial operation December 2016; the owner name was misspelt',
         'https://www.bangkokpost.com/business/1163661/egco-kicks-off-latest-wind-farm', mw=80, owner='EGCO'),
-    dup('PHL', 'Pagudpud wind farm', G, ('Balaoi & Caunayan', C), 'Bayog Wind Power 是 ACEN 這座 160 MW 風場的專案公司，同一座',
+    dup('PHL', 'Pagudpud (ACEN) Wind Power Project', G, ('Balaoi & Caunayan', C), 'Bayog Wind Power 是 ACEN 這座 160 MW 風場的專案公司，同一座',
         'Bayog Wind Power is ACEN’s project company for this 160 MW farm: same farm',
         'https://business.inquirer.net/323245/acen-shells-out-p3b-to-partly-fund-phs-biggest-windmill-farm'),
-    dup('PHL', 'Pagudpu wind farm', G, ('Balaoi & Caunayan', C), '同一座（GEM 把第一階段 80 MW 另列一筆）',
-        'Same farm (GEM lists its first 80 MW stage separately)', 'https://www.gem.wiki/Pagudpu_wind_farm'),
     fix('PHL', 'Bangui Bay', C, '三期：2005 年 24.75 MW、2008 年 8.25 MW、2014 年 18.9 MW', 'Three phases: 24.75 MW (2005), 8.25 MW (2008), 18.9 MW (2014)',
         'https://en.wikipedia.org/wiki/Wind_power_in_the_Philippines', mw=51.9, ph=[[2005, 24.75], [2008, 8.25], [2014, 18.9]]),
     dup('IRN', 'Siahpoush (Manjil) wind farm', G, ('Manjil wind farm', G),
@@ -475,16 +452,11 @@ RULES = [
     fix('VNM', 'BPP Vĩnh Châu wind farm', G, '2021 年動工，商轉日一再延後（預計 2025 年），尚未見商轉公告',
         'Construction began in 2021; commercial operation kept slipping (expected 2025) and has not been announced',
         'https://www.banpu.com/news/whyvietnam/', st=1, year=2025),
-    dup('VNM', 'Phuoc wind farm', G, ('Phuoc Minh Revn wind farm', G), '應是同一座 Phước Minh 風場（27.2 MW，2021）',
-        'Most likely the same Phước Minh farm (27.2 MW, 2021)', MOIT),
     dup('VNM', 'Dong Hai 1 Phase 2 (Bac Lieu, Bac Phuong)', C, ('Dong Hai 1 Offshore wind farm', G),
         '薄遼的東海1號（兩期各 50 MW）就是 GEM 這筆', 'Đông Hải 1 in Bạc Liêu (two 50 MW phases) is this GEM record', MOIT),
     fix('VNM', 'Dong Hai 1 Phase 1 (Tra Vinh, Trungnam)', C, '茶榮的東海1號是獨立的風場，不是薄遼東海1號的一期',
         'The Trà Vinh Đông Hải 1 is a separate farm, not a phase of the Bạc Liêu one', MOIT,
         rename='Dong Hai 1 – Tra Vinh (Trungnam)', zhname='東海1號（茶榮）'),
-    drop('VNM', 'Bến Tre 5 Thạnh Hải Offshore wind farm', G, '120 MW 是四期（各 30 MW）的全部規劃；只證實一、二期完工，已以精選紀錄列出',
-         '120 MW is all four planned 30 MW phases; only phases 1 and 2 are confirmed built, and they are listed as curated records',
-         'https://dongkhoi.baovinhlong.vn/tinh-hinh-van-hanh-cac-nha-may-dien-gio-tren-dia-ban-tinh-ben-tre-07092022-a105006.html'),
     dup('VNM', 'Binh Dai 1 Phase 1 (TTC/Gulf, Ben Tre)', C, ('Bến Tre 10 Bình Đại 1 Offshore wind farm', G),
         '平大1號的一部分；GEM 這筆含全部三期（128 MW）', 'Part of Bình Đại 1; the GEM record covers all three phases (128 MW)',
         'https://www.ptsc.com.vn/en-US/news/ptsc-news-1/operating-news/pps-provides-services-at-binh-dai-wind-power-plant-ben-tre'),
@@ -597,7 +569,7 @@ RULES = [
         'Not under construction: Marubeni’s Ishikari Bay project has only filed a planning-stage environmental consideration document '
         '(February 2021), and the sea area has not yet been designated a promotion zone',
         'https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html', st=3),
-    dup('KOR', 'Jeonnam (SK E&C) wind farm · 1', G, ('Jeonnam Shinan 1 / others', C),
+    dup('KOR', 'Jeonnam (SK E&C) wind farm', G, ('Jeonnam Shinan 1 / others', C),
         '同一座風場：全南海上風電 1 號（96 MW，SK Innovation E&S 與 CIP），在新安郡自恩島西北約 9 km',
         'Same farm: Jeonnam Offshore Wind 1 (96 MW, SK Innovation E&S and CIP), about 9 km north-west of Jaeun-do in Sinan County',
         'https://cop.dk/jeonnam-1-offshore-wind-project-begins-commercial-operations/'),
@@ -670,7 +642,7 @@ RULES = [
     fix('CHN', 'CTG Yangjiang Qingzhou 6', C, '青洲六為 1,000 MW、74 部，2024 年 12 月 27 日全容量併網（補貼公示；原本寫 500 MW）；座標改用 GEM 的精確位置',
         'Qingzhou 6 is 1,000 MW with 74 turbines, fully connected on 27 December 2024 (subsidy notice; it was listed as 500 MW); the point is moved to GEM’s exact location',
         'https://finance.sina.com.cn/roll/2025-12-19/doc-inhcipui7654969.shtml', mw=1000, lat=20.991, lon=111.496),
-    dup('CHN', 'Guangdong Yangjiang Qingzhou Vi Offshore wind farm', G, ('CTG Yangjiang Qingzhou 6', C),
+    dup('CHN', 'Guangdong Yangjiang Qingzhou VI Offshore wind farm', G, ('CTG Yangjiang Qingzhou 6', C),
         '同一座風場（三峽陽江青洲六，1,000 MW）；GEM 2026-02 版仍列興建中，補貼公示寫 2024 年 12 月 27 日全容量併網',
         'Same farm (CTG Yangjiang Qingzhou 6, 1,000 MW); GEM’s February 2026 release still lists it as under construction, while the subsidy '
         'notice gives full grid connection on 27 December 2024',
@@ -682,11 +654,35 @@ RULES = [
     fix('CHN', 'Fuqing Xinghua Bay Phase 2', C, '二期為 280 MW、45 部（2021 年安裝，全為國產機組，含國內首部 10 MW 示範機），2021 年全容量併網（原本寫 300 MW、2020 年）',
         'Phase 2 is 280 MW with 45 turbines (installed in 2021, all Chinese-built, including China’s first 10 MW demonstration unit), fully connected in 2021 (it was listed as 300 MW in 2020)',
         'https://gxt.fujian.gov.cn/zwgk/xw/jxyw/202412/t20241211_6590606.htm', mw=280, year=2021),
-    dup('NLD', 'Hollandse Kust Zuid wind farm · 4', G, ('Hollandse Kust Zuid III & IV', C),
-        'Hollandse Kust Zuid 第 4 區 2023 年已營運（GEM 2026-02 版），就是本站的 Hollandse Kust Zuid III & IV；GEM 2025-02 版仍列為規劃中',
-        'Hollandse Kust Zuid site 4 has been operating since 2023 (GEM, February 2026 release) and is part of Hollandse Kust Zuid III & IV here; '
-        'GEM’s February 2025 release still listed it as a planned project',
-        'https://www.gem.wiki/Hollandse_Kust_Zuid_wind_farm'),
+    # ------------------------------------------------ 2026-09-30 升級 GEM 2026-02 時發現的重複（GEM 新收錄、座標與精選紀錄相距太遠而沒有自動合併；出處為 GEM 專案頁的別名與規格）
+    dup('AUS', 'MacIntyre', C, ('MacIntyre precinct wind farm', G),
+        '同一座風場（923 MW，2024 年）；GEM 的座標在 Karara 附近的實際場址，精選紀錄的座標偏東約 40 km，改留 GEM 這筆',
+        'Same farm (923 MW, 2024); the GEM point is at the actual site near Karara, the curated point about 40 km east, so the GEM record is kept',
+        'https://www.gem.wiki/MacIntyre_precinct_wind_farm'),
+    dup('AUS', 'Studland Bay wind farm', G, ('Woolnorth (Bluff Point / Studland Bay)', C),
+        'GEM 專案頁的別名就是 Woolnorth：75 MW（2007 年）已含在精選的 Woolnorth 紀錄的分期裡',
+        'GEM’s project page lists Woolnorth as its other name: the 75 MW (2007) is already a phase of the curated Woolnorth record',
+        'https://www.gem.wiki/Studland_Bay_wind_farm'),
+    dup('USA', 'Kingman Wind', P, ('Kingman Wind Energy Center', G),
+        'WRI GPPD 舊資料；GEM 專案頁的別名就是 Kingman Wind（214.8 MW，2016 年）', 'Old WRI GPPD record; GEM’s page lists Kingman Wind as its other name (214.8 MW, 2016)',
+        'https://www.gem.wiki/Kingman_Wind_Energy_Center'),
+    dup('GBR', 'Triton Knoll (Innogy) wind farm', G, ('Triton Knoll', C),
+        '同一座風場（857 MW）；GEM 寫 2022 年，本站依全數風機 2021 年發電列 2021 年', 'Same farm (857 MW); GEM gives 2022, this site keeps 2021 when all turbines were generating',
+        'https://www.gem.wiki/Triton_Knoll_(Innogy)_wind_farm'),
+    dup('TUR', 'Gökçedağ wind farm', G, ('Gökçedağ (Osmaniye)', C),
+        '同一座風場（奧斯曼尼耶，135 MW，Zorlu 集團的 Rotor Elektrik）；GEM 沒有商轉年', 'Same farm (Osmaniye, 135 MW, Zorlu’s Rotor Elektrik); GEM gives no commissioning year',
+        'https://www.gem.wiki/G%C3%B6k%C3%A7eda%C4%9F_wind_farm'),
+    dup('KEN', 'Kajiado wind farm', G, ('Kipeto', C),
+        'GEM 專案頁的別名就是 Kipeto Project（100 MW，2021 年）', 'GEM’s project page lists Kipeto Project as its other name (100 MW, 2021)',
+        'https://www.gem.wiki/Kajiado_wind_farm'),
+    dup('EGY', 'Amunet wind farm', G, ('Amunet (AMEA Power) Red Sea', C),
+        '同一座風場（AMEA Power，紅海 Ras Ghareb）；GEM 寫 502 MW、2025 年全數商轉，本站依首批併網列 2024 年',
+        'Same farm (AMEA Power, Ras Ghareb on the Red Sea); GEM gives 502 MW and 2025 for full operation, this site keeps 2024 for first power',
+        'https://www.gem.wiki/Amunet_wind_farm'),
+    dup('EGY', 'Gulf Of Ziet Wind Complex', G, ('Gabal El Zeit (I-III)', C),
+        'GEM 專案頁的別名就是 Gabal El-Zayt（NREA 三期共 580 MW）；GEM 的座標落在庫塞爾附近，偏南約 250 km',
+        'GEM’s page lists Gabal El-Zayt as its other name (the three NREA phases, 580 MW in all); the GEM point near Al Qusair is about 250 km too far south',
+        'https://www.gem.wiki/Gulf_Of_Ziet_Wind_Complex'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -705,10 +701,20 @@ GEM_KEEP = {
          'https://www.nbd.com.cn/articles/2021-11-03/1978454.html'),
 }
 
-# 2026 整理的規劃中專案清單裡、之後已停止開發的專案（國別, 清單上的名稱）→（中文理由, English, 出處）
+# 2026 整理的規劃中專案清單裡、之後已停止開發或已完工商轉（GEM 已列營運中）的專案（國別, 清單上的名稱）→（中文理由, English, 出處）
 PIPE_DROP = {
     ('KOR', 'Firefly (Bandibuli)'): ('Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
                                      'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
+    ('EGY', 'Red Sea Wind Energy (Ras Ghareb)'): ('已於 2025 年 7 月 2 日全面商轉（650 MW，比原訂第三季提前）；GEM 2026-02 以「Ras Ghareb wind farm」第 2、3 期列為營運中，不再當規劃案',
+                                               'In full commercial operation since 2 July 2025 (650 MW, ahead of the Q3 target); GEM 2026-02 lists it as operating phases 2 and 3 of “Ras Ghareb wind farm”, so it is no longer a pipeline project',
+                                               'https://orascom.com/updates/engie-orascom-construction-ttc-eurus-consortium-starts-full-commercial-operations-of-650-mw-wind-farm-in-egypt-ahead-of-schedule/'),
+    ('GBR', 'Dogger Bank B'): ('GEM 2026-02 已把 B、C 兩期（1,235＋1,218 MW）合成一筆「Dogger Bank wind farm · B, C」列為興建中（2026），清單不再需要；'
+                              '2025-02 版時清單的這筆會誤對到 Dogger Bank South',
+                              'GEM 2026-02 lists phases B and C (1,235 + 1,218 MW) together as “Dogger Bank wind farm · B, C”, under construction (2026), so the '
+                              'list entry is no longer needed; with the 2025-02 release it was matched to Dogger Bank South by mistake',
+                              'https://www.gem.wiki/Dogger_Bank_wind_farm'),
+    ('GBR', 'Dogger Bank C'): ('同上：GEM 2026-02 的「Dogger Bank wind farm · B, C」已含 C 期', 'As above: GEM 2026-02’s “Dogger Bank wind farm · B, C” already covers phase C',
+                              'https://www.gem.wiki/Dogger_Bank_wind_farm'),
 }
 
 # 2026 整理清單之後才變動的欄位（國別, 清單上的名稱）→（要改的欄位, 中文理由, English, 出處）；在比對清單前套用
@@ -771,7 +777,13 @@ def apply(rows, rules=RULES):
             r[15] = [c['zh'], c['en']]
         log.append((c, before, list(r)))
     if errors:
-        raise SystemExit("farm_cleanup: rules no longer match the data (recheck them against the new release):\n  " + "\n  ".join(errors))
+        # 升級 GEM 版本時可設 CLEANUP_LENIENT=1 先建置、看新資料的紀錄名稱，再逐條改寫規則；平常一定中止
+        # (set CLEANUP_LENIENT=1 only while upgrading the GEM release, to build first and then rewrite the rules one by one)
+        msg = "farm_cleanup: rules no longer match the data (recheck them against the new release):\n  " + "\n  ".join(errors)
+        if os.environ.get('CLEANUP_LENIENT'):
+            print(msg + "\n  (CLEANUP_LENIENT: continuing without these rules)", file=sys.stderr)
+        else:
+            raise SystemExit(msg)
     return [r for r in rows if id(r) not in gone], log
 
 

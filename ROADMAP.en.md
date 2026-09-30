@@ -292,7 +292,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 ### Global (3D globe)
 
 - **The global data is a yearly snapshot and does not update itself**: country capacity runs to the end
-  of 2025; the farm layer is GEM's Global Wind Power Tracker, February 2025 release. Updating means
+  of 2025; the farm layer is GEM's Global Wind Power Tracker, February 2026 release. Updating means
   running `tools/` by hand (see "Updating the global data" in the README); there is no schedule.
 - **The two parallel versions have been merged into this site** (Sep 2026): the "Global wind power
   development map" wind-history-map (2026 edition) and the "Global wind development atlas v3, Taiwan/Japan
@@ -312,11 +312,8 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   appear at full size in its commissioning year and sums can exceed the national figure; the national
   figures are the official statistics. Making farms appear stage by stage needs stage-by-stage grid
   connection data (see the ideas below).
-- **GEM versions differ**: farms and pipeline projects are GEM's February 2025 release (the public map
-  file), while the country pipeline totals are GEM's February 2026 release. The 2026 project-level data is
-  only published as a GeoJSON in GEM's DigitalOcean space (see "GEM's 2026 farm data" below); aligning them
-  means changing how `tools/build_farms.py` reads its input, rebuilding and re-checking the clean-up rules
-  (steps at the top of TODO).
+- **GEM versions now agree** (30 Sep 2026, v2.13.0): farms, pipeline projects and the country pipeline totals are all GEM's February 2026
+  release.
 - **1980–1999 is mostly estimated**: most countries' early yearly figures are interpolated from a few
   years of statistics; use them for trends only.
 - **GEM coordinates are often approximate**: errors that the project names make obvious have been fixed
@@ -347,12 +344,11 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   reports): local measurements would be more convincing than the international studies the information
   pages cite now, but the data are mostly PDF reports — unstructured and not machine-readable. Revisit
   when a structured source exists.
-- **GEM's 2026 farm data**: GEM's public map repo (GlobalEnergyMonitor/maps) only has the February 2025 CSV (on its `main`
-  branch, still downloadable from the old URL; the default branch no longer carries it). The February 2026 release is a GeoJSON at
-  `publicgemdata.nyc3.cdn.digitaloceanspaces.com/wind/2026-02/wind_map_2026-02-05.geojson` (per `trackers/wind/config.js`
-  in GEM's maps repo), a host the Sep 2026 development environment's network policy blocked, so it has not been adopted yet.
-  Upgrading means making `tools/build_farms.py` read the GeoJSON (mapping its fields to the 2025-02 CSV columns) and re-checking
-  `farm_cleanup.py`, `GEM_KEEP` and `PIPE_*` against the new names.
+- **GEM's 2026 farm data is in use** (30 Sep 2026, v2.13.0): the GeoJSON in GEM's public bucket,
+  `publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson` (different field names from the 2025-02 CSV and no
+  retired year; `tools/build_farms.py` maps the fields back to the CSV names and fills the retired years from
+  `data/global/sources/gem_retired_years_2025-02.json`). For the next GEM release, build once with `CLEANUP_LENIENT=1` and rewrite the
+  clean-up rules that no longer match, one by one.
 - **The WAF block on the live supply/demand report**: retrying with a real browser User-Agent and
   Referer still returned 403, so the block is at the IP-range level, not about headers. Fixing it needs
   a different execution environment (see TODO); a code change alone cannot solve it.

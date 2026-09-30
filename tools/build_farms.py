@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """合併風場層級資料 → data/global/wind_farms.json（3D 地球儀用）。
 
-    curl -LO https://raw.githubusercontent.com/GlobalEnergyMonitor/maps/main/trackers/wind/compilation_output/Wind-map-file-2025-02-04.csv
-    python tools/build_farms.py data/global/sources/farms_attachment.json Wind-map-file-2025-02-04.csv data/global/wind_farms.json
+    curl -LO https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson
+    python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
+    （也接受 2025-02 版的 CSV：Wind-map-file-2025-02-04.csv，GEM maps repo 的 main 分支）
 
 來源：
   1. 附件「全球風電發展觀察地圖」的精選風場（curated：中文名、機型、查證過的年份）＋ WRI GPPD 風場
-  2. Global Energy Monitor「Global Wind Power Tracker」2025-02 版公開地圖檔（CC BY 4.0，
+  2. Global Energy Monitor「Global Wind Power Tracker」2026-02 版公開地圖檔（GeoJSON，GEM 公開資料桶 interim_maps/；CC BY 4.0，
+     欄位對照 2025-02 版 CSV：project-id→gem-location-id、unit-id→gem-phase-id、unit-name→phase-name、tech-type→installation-type、
+     subnational→state/province；2026-02 版沒有除役年，退役分期的除役年由 sources/gem_retired_years_2025-02.json（2025-02 版 CSV）補上，
      https://globalenergymonitor.org/projects/global-wind-power-tracker/ ）
      —— 涵蓋各國 10 MW 以上陸域風場與所有離岸風場，含營運中、興建中、前期開發、已宣布與已除役。
 
@@ -190,13 +193,51 @@ def matches(f, name, zh, lat, lon, mw, pipeline=False, year=0, sea=None):
 # 台灣在地知識的明確判定（GEM 名稱 → 精選風場名稱；None＝一定保留為獨立風場）
 TW_SAME = {'Hsinyuan wind farm': 'Yunlin Lunbei',                     # 新源崙背 25 MW = wpd 雲林崙背
            'Greater Changhua Northwest wind farm': 'Greater Changhua 2b & 4',
+           'Hai Long Offshore wind farm': 'Hai Long 2 & 3',              # GEM 2026-02 把 2A、2B（營運中）與 3（興建中）分成兩筆，都是精選的海龍 2 & 3
            'Yunlin Taixi wind farm': 'Yunlin Taixi'}                     # 台電台西（精選資料為估計值）
 TW_KEEP = {'Chuangwei wind farm', 'Changbin (TCC) wind farm', 'Starwind wind farm', 'Changwang wind farm',
            'Changyuan wind farm', 'Beiyuan wind farm', 'Tung Kang wind farm', 'Anwei Dajia wind farm'}
 
 
 # ---------------------------------------------------------------- GEM
-rows = [r for r in csv.DictReader(GEM.open(encoding='utf-8')) if r['status'] in ST]
+GEM_REL = '2026-02'                                                   # 逐案資料的 GEM 版本（寫進 meta 與說明文字）
+RETIRED_YEARS = OUT.parent / 'sources' / 'gem_retired_years_2025-02.json'   # 2026-02 版 GeoJSON 沒有除役年：以 2025-02 版 CSV 的值補上
+
+
+def load_gem(path):
+    """讀 GEM 公開地圖檔：2025-02 的 CSV 直接讀；2026-02 起的 GeoJSON 把屬性換成 CSV 的欄位名稱，之後的程式不用改。"""
+    if path.suffix.lower() == '.csv':
+        return list(csv.DictReader(path.open(encoding='utf-8')))
+    rows = []
+    for ft in json.loads(path.read_text(encoding='utf-8'))['features']:
+        p = ft['properties']
+        lon, lat = ft['geometry']['coordinates']
+        cap = p.get('capacity')
+        rows.append({'gem-location-id': p['project-id'], 'gem-phase-id': p['unit-id'], 'country/area': p['country-area1'],
+                     'phase-name': p.get('unit-name') or '', 'project-name': p['name'],
+                     'project-name-in-local-language-/-script': p.get('name-noneng') or '', 'other-name(s)': p.get('name-other') or '',
+                     'capacity-(mw)': '' if cap in (None, '') else str(cap), 'status': p['status'], 'start-year': str(p.get('start-year') or ''),
+                     'retired-year': '', 'location-accuracy': p.get('location-accuracy') or '', 'owner': p.get('owner') or '',
+                     'lat': str(lat), 'lng': str(lon), 'state/province': p.get('subnational') or '', 'operator': p.get('operator') or '',
+                     'installation-type': p.get('tech-type') or '', 'region': '', 'url': p.get('url') or '',
+                     'owner-name-in-local-language-/-script': p.get('owner-noneng') or '',
+                     'operator-name-in-local-language-/-script': p.get('operator-noneng') or ''})
+    ry = json.loads(RETIRED_YEARS.read_text(encoding='utf-8'))['years']
+    for r in rows:
+        if r['status'] == 'retired' and r['gem-phase-id'] in ry:
+            r['retired-year'] = str(ry[r['gem-phase-id']])
+    return rows
+
+
+# GEM 狀態的已知錯誤（分期 id → 狀態）：Sørmarkfjellet（挪威，130 MW，2021）2025 年兩次葉片斷裂後暫停、經風險評估已逐步復運，
+# GEM 2026-02 列為 mothballed（封存）；依業主 Aneo 的公告視為營運中。
+# https://www.mynewsdesk.com/no/aneo/pressreleases/undersoekelser-er-i-gang-og-driften-startes-gradvis-i-soermarkfjellet-vindpark-3377839
+STATUS_FIX = {'G100000919573': 'operating'}
+rows = load_gem(GEM)
+for r in rows:
+    if r['gem-phase-id'] in STATUS_FIX:
+        r['status'] = STATUS_FIX[r['gem-phase-id']]
+rows = [r for r in rows if r['status'] in ST]
 for r in rows:
     if r['gem-phase-id'] in COORD_FIX:
         r['lat'], r['lng'] = map(str, COORD_FIX[r['gem-phase-id']])
@@ -209,6 +250,8 @@ def gem_type(ph):
     w = defaultdict(float)
     for r in ph:
         it = r['installation-type'].lower()
+        if it in ('', 'unknown'):                       # GEM 沒填型式時看專案名稱（例：Barlavento Offshore Floating、Dong Hai 1 Offshore）
+            it = r['project-name'].lower()
         w['floating' if 'floating' in it else 'offshore' if 'offshore' in it else 'onshore'] += float(r['capacity-(mw)'] or 0)
     return max(w, key=w.get)
 
@@ -399,12 +442,21 @@ for r in allrows:
     by_iso[r[2]].append(r)
 base_iso = {k: list(v) for k, v in by_iso.items()}      # 比對只看合併前的資料，新增的專案不互相比對
 EXTRA = CUR.parent
-# 台灣規劃案的明確對應（2026 清單名稱 → GEM 2025-02 名稱；GEM 的在地名稱可佐證，例如「渢妙 1 號；3-1 期」「德能英華威德帥」
-#「海鼎一風場」）。對應到的 GEM 紀錄改用清單的名稱、中文名、容量、狀態與預計年份；None＝GEM 沒有、一定新增。
-TW_PIPE_SAME = {'Fengmiao 1': 'Taichung Fengmiao Floating wind farm', 'Haiding 1 (Formosa 3)': 'Formosa 3 offshore wind farm · 1, 2',
-                'DeShuai': 'Mei Sen wind farm', 'Formosa 4': 'Formosa 4 offshore wind farm',
-                'Formosa 6': 'Formosa 6 Haiguang Offshore wind farm', 'Huanyang': 'Huanyang Offshore wind farm',
+# 台灣規劃案的明確對應（2026 清單名稱 → GEM 2026-02 名稱；GEM 的在地名稱可佐證，例如「渢妙 1 號；3-1 期」「環洋離岸風力發電計畫」）。
+# 對應到的 GEM 紀錄改用清單的名稱、中文名、容量、狀態與預計年份；None＝GEM 沒有、一定新增。
+# GEM 2026-02 與清單不一致、暫以清單為準的（見 TODO）：海鼎一（GEM 的 Formosa 3 第 1 期 360 MW 列為取消）、德帥（GEM 2025-02 的 Mei Sen 已移除）、
+# 大彰化東北（GEM 列為取消）；佑德與 GEM 的「Datian Youde」（達天又德，wpd，700 MW）是否同一案待查證，先各自保留。
+# 渢妙：GEM 把 1 號（500 MW，2027）與 2 號（600 MW，2030）合成一筆前期開發，對應到「Fengmiao 1」後改用清單的容量與年份，渢妙二另以清單新增。
+TW_PIPE_SAME = {'Fengmiao 1': 'Taichung Fengmiao Floating wind farm', 'Haiding 1 (Formosa 3)': None,
+                'DeShuai': None, 'Formosa 4': 'Formosa 4 offshore wind farm',
+                'Formosa 6': 'Formosa 6 Haiguang Offshore wind farm', 'Huanyang': 'Huanyang  Wei Lan Hai Changhua Offshore wind farm',
                 'Fengmiao 2': None, 'YouDe': None, 'Greater Changhua Northeast': None}
+# 其他國家的明確對應（GEM 一個場址的多個分期與清單的多個專案交錯時，自動比對會對錯；None＝GEM 沒有、一定新增）
+PIPE_SAME = {
+    'GBR': {'Dogger Bank D': 'Dogger Bank wind farm · D',                                  # 1,320 MW，GEM 前期開發、沒有預計年
+            'Dogger Bank South East': 'Dogger Bank South offshore wind farm · 1',          # GEM 第 1 期在東側（54.50, 2.56）
+            'Dogger Bank South West': None},                                              # GEM 第 2 期（54.62, 1.88）被自動比對當成 Dogger Bank A 的重複而捨棄，改由清單新增
+}
 TW_PIPE_NOTE_ZH = {'Fengmiao 1': '區塊開發 3.1 期；2024 年完成融資；座標為概略位置',
                    'Formosa 4': '區塊開發 3.1 期；2024 年取得許可、2025 年 12 月簽訂企業購電合約，尚未做最終投資決定',
                    'Huanyang': '區塊開發 3.1 期；座標為概略位置', 'YouDe': '區塊開發 3.2 期（2024 年）；座標為概略位置',
@@ -412,7 +464,7 @@ TW_PIPE_NOTE_ZH = {'Fengmiao 1': '區塊開發 3.1 期；2024 年完成融資；
                    'Greater Changhua Northeast': '區塊開發 3.2 期；場址與福爾摩沙 6 號重疊；座標為概略位置',
                    'Haiding 1 (Formosa 3)': '區塊開發 3.2 期；座標為概略位置', 'DeShuai': '區塊開發 3.2 期；座標為概略位置'}
 pipe_upd = pipe_add = 0
-pipe_seen, pipe_fixed = set(), set()
+pipe_seen, pipe_fixed, pipe_hit = set(), set(), set()
 pc = json.loads((EXTRA / 'pipeline_curated.json').read_text(encoding='utf-8')) if (EXTRA / 'pipeline_curated.json').exists() else {'projects': []}
 for p in pc['projects']:
     if (p['iso'], p['name']) in PIPE_DROP:          # 清單整理後才停止開發的專案（理由見 tools/farm_cleanup.py 的 PIPE_DROP）
@@ -424,9 +476,12 @@ for p in pc['projects']:
     if p['iso'] not in ISO.values() and p['iso'] not in by_iso:
         continue
     note = [TW_PIPE_NOTE_ZH.get(p['name'], '') if p['iso'] == 'TWN' else '', p.get('note', '')] if p.get('note') else 0
-    if p['iso'] == 'TWN' and p['name'] in TW_PIPE_SAME:
-        tgt = TW_PIPE_SAME[p['name']]
-        r = next((x for x in base_iso['TWN'] if x[0] == tgt), None) if tgt else None
+    same = TW_PIPE_SAME if p['iso'] == 'TWN' else PIPE_SAME.get(p['iso'], {})
+    if p['name'] in same:
+        tgt = same[p['name']]
+        r = next((x for x in base_iso[p['iso']] if x[0] == tgt), None) if tgt else None
+        if tgt and r is None:                        # GEM 改名時要跟著改對照表，不能默默當成新專案加進去
+            raise SystemExit(f"pipeline mapping: GEM record '{tgt}' for {p['iso']} '{p['name']}' not found (renamed in this GEM release?)")
         sc = 3 if r is not None else 0
         if r is not None:                            # 改用清單名稱；原 GEM 專案頁保留為來源連結
             r[16] = 'https://www.gem.wiki/' + urllib.parse.quote(re.sub(r' · .*$', '', r[0]).replace(' ', '_'))
@@ -434,7 +489,10 @@ for p in pc['projects']:
     else:
         pool = [x for x in base_iso.get(p['iso'], []) if x[8] in (1, 2, 3) or squash(x[0]) == squash(p['name'])]
         r, sc = find_same(p, pool)
+    if r is not None and sc >= 2 and id(r) in pipe_hit:   # 同一筆 GEM 紀錄只讓第一個對到的清單專案更新；其餘視為 GEM 沒有的專案另加（例：Dogger Bank 南區的兩案）
+        r, sc = None, 0
     if r is not None and sc >= 2:
+        pipe_hit.add(id(r))
         if r[8] in (1, 2, 3):
             if p['status'] == 'construction':
                 r[8] = 1
@@ -515,8 +573,8 @@ for f in jc['farms']:
         if (sc == 3 and r[13] == 2 and r[8] in (1, 2, 3) and 2024 <= f['year'] <= 2025 and not f.get('end')
                 and 0.7 <= mwr <= 1.4):
             r[8], r[6] = 0, f['year']
-            r[15] = [f"依 2026 年整理的日本風場清單，{f['year']} 年已運轉（GEM 2025-02 仍列為規劃中）。",
-                     f"Operating by {f['year']} per the 2026 Japanese farm list (GEM Feb 2025 still listed it as a pipeline project)."]
+            r[15] = [f"依 2026 年整理的日本風場清單，{f['year']} 年已運轉（GEM {GEM_REL} 仍列為規劃中）。",
+                     f"Operating by {f['year']} per the 2026 Japanese farm list (GEM {GEM_REL} still listed it as a pipeline project)."]
             jp_upg += 1
             log.append(f"JP-UPG {f['name']} -> {r[0]} y{f['year']}")
         continue
@@ -547,10 +605,10 @@ meta = {
     "status": ["operating", "construction", "pre-construction", "announced", "retired"],
     "types": ["onshore", "offshore", "floating"],
     "sources": ["curated (wind-history-map v3; TW/JP audited)", "WRI Global Power Plant Database v1.3 (CC BY 4.0)",
-                "Global Energy Monitor, Global Wind Power Tracker, February 2025 release (CC BY 4.0)",
+                "Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0)",
                 "2026 compilation (wind-history-map, Sep 2026): curated pipeline projects; Japanese farms from NEDO "
                 "prefecture lists and windfarm.work / operator sites"],
-    "gem_release": "2025-02",
+    "gem_release": GEM_REL,
     "pipeline_curated_asof": pc.get('asOf'),
     "cleanup": cleanup_summary(clean_log),
 }

@@ -1,7 +1,7 @@
 /* 風電風情 · globe.js — 全球風電發展 3D 地球儀 1980–2025（three.js r128）
    改寫自使用者提供的「全球風電發展觀察地圖」(wind-history-map v3)：
    · 資料抽成 data/global/*.json；本檔與 three.js 只在進入「全球發展」頁時才載入，離開頁面即停止繪圖迴圈
-   · 風場層改用 InstancedMesh，可同時繪製上萬座風場（GEM 全球風電追蹤 2025-02 ＋ 附件精選風場）
+   · 風場層改用 InstancedMesh，可同時繪製上萬座風場（GEM 全球風電追蹤 2026-02 ＋ 附件精選風場）
    · 新增：規劃中圖層（興建中／前期開發／已宣布）、國家概況、地貌底圖（地形／衛星／簡潔）與
      放大後的 Esri 圖磚細節、台灣風場連動台電即時出力、全程 MW 單位、深連結（?y=&r=&ms=&f=…）
    · 無 WebGL 時自動退回長條圖排名模式 */
@@ -49,7 +49,7 @@ const I18N = {
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量',
     pipeTab: '規劃', pipeHead: '規劃中與興建中專案', gemTotals: 'GEM 2026-02 開發管線（各國總量）',
-    pipeCaveat: '狀態與時程會變動，座標多為概略位置。逐案資料：GEM 2025-02＋2026 年 9 月整理的清單（台灣第三階段區塊開發、歐洲大型離岸案等）；各國總量：GEM 2026-02。',
+    pipeCaveat: '狀態與時程會變動，座標多為概略位置。逐案資料與各國總量：GEM 2026-02，另加 2026 年 9 月整理的清單（台灣第三階段區塊開發、歐洲大型離岸案等）。',
     pipeLegendT: '規劃中（虛線環）', pipeInData: (n, mw) => `資料中逐案 ${n} 案 · ${mw}`, pipeSee: '看規劃清單 →',
     coverage: '逐場資料覆蓋率', covMapped: '已逐場標示', covGap: '差額（未逐場標示）', covOver: '風場加總高於國家統計（口徑不同）',
     lnkSrc: '來源', tbd: '時程未定', auditSrc: '官方統計稽核',
@@ -2703,7 +2703,7 @@ function showSources() {
     '<h4>' + (zh ? '總容量 2000–2025' : 'Total capacity 2000–2025') + '</h4><ul><li>Our World in Data — Installed wind energy capacity (IRENA Renewable Capacity Statistics): <a href="https://ourworldindata.org/grapher/cumulative-installed-wind-energy-capacity-gigawatts" target="_blank" rel="noopener">ourworldindata.org</a></li></ul>' +
     '<h4>' + (zh ? '離岸容量 1991–2025' : 'Offshore capacity 1991–2025') + '</h4><ul>' + li(src.offshore) + '</ul>' +
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
-    '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2025 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '</ul>' +
+    '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '</ul>' +
     (LITE ? '' : '<h4>' + (zh ? '離岸風電港口' : 'Offshore wind ports') + '</h4><ul><li>' + (zh ? '2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。' : 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.') + '</li></ul>' +
     '<h4>' + (zh ? '水下基礎型式' : 'Foundation types') + '</h4><ul><li>' + (zh ? 'OSPAR Offshore Renewable Energy Developments 2024（CC0，資料時間 2024-01-01）：北海與東北大西洋逐場的基礎型式；逐筆比對本站風場。OSPAR 與建成紀錄不符或沒寫具體型式的（德國每一座、英國 Hornsea One 等），改以德文維基百科或建造新聞為準。歐洲其他風場（波羅的海、地中海、艾瑟爾湖）與 2024 年以後才完工的風場，逐座查開發商、施工廠商、產業新聞或維基百科；全球浮動式風場的細分型式（單柱式、半潛式、駁船式、張力腳）逐座查技術供應商與開發商資料。台灣、日本、韓國、美國逐座查開發商、施工廠商、政府文件或產業新聞（日本港灣內的風場以 NEDO 的支持構造分類為準，「ドルフィン」即高樁承台）。卡片列出每座的出處。中國已依使用者的逐案覆核補上 4 座（第 5 步進行中，出處原文待核對）。逐步收集中，中國、越南等其他地區大多仍暫列「型式不詳」；逐場清單見 GitHub 的 docs/foundations.md。' : 'OSPAR Offshore Renewable Energy Developments 2024 (CC0, data as of 1 Jan 2024): foundation type per farm for the North Sea and NE Atlantic, matched to this site’s farms one by one. Where OSPAR differs from what was built or gives no specific type (every German farm, the UK’s Hornsea One and a few others), German Wikipedia or construction news is used instead. The rest of Europe (the Baltic, the Mediterranean, the IJsselmeer) and farms finished after 2024 were checked one by one against developers, construction contractors, trade press or Wikipedia, and floating farms worldwide got their sub-type (spar, semi-submersible, barge, tension-leg) from technology providers and developers. Taiwan, Japan, Korea and the USA were checked the same way against developers, contractors, government documents and trade press (farms inside Japanese ports follow NEDO’s classification of support structures, where a “dolphin” is a high-rise pile cap). Each farm card lists its sources. Four Chinese farms were added from the owner’s case-by-case review (step 5 is under way; their quoted passages are still to be checked). Collected step by step; most fixed-bottom farms elsewhere, such as in China and Vietnam, still show “type unknown”. The farm-by-farm list is docs/foundations.en.md on GitHub.') + '</li></ul>' +
     '<h4>' + (zh ? '重大事件與事故' : 'Major events & incidents') + '</h4><ul><li>' + (zh ? '2026 年 9 月 28 日人工查證的清單（' + (EVENTS.length || 59) + ' 筆）：每筆附主管機關或業主的一手來源（能源署、BSEE、OSHA、METI、韓國氣候能源環境部、AEMO、各業主新聞稿等）；傷亡人數與根因只寫官方已確認的，未確認的留空；照片只記錄頁面網址與權利狀態，本站不轉載。逐筆清單見 GitHub 的 docs/events.md。' : 'A list verified by hand on 28 Sep 2026 (' + (EVENTS.length || 59) + ' events): each with a primary source from a regulator or the owner (Energy Administration, BSEE, OSHA, METI, Korea’s climate and energy ministry, AEMO, owners’ press releases and others); casualties and root causes are recorded only when officially confirmed; photos are recorded as page URLs with their rights status and are not reproduced here. The full list is docs/events.en.md on GitHub.') + '</li></ul>') +
@@ -2712,7 +2712,7 @@ function showSources() {
     '<h4>' + (zh ? '備註（風場）' : 'Notes (farms)') + '</h4><ul>' + li(n.farms) + '</ul>' +
     '<h4>' + (zh ? '台灣、日本官方統計稽核' : 'Taiwan & Japan official-statistics audit') + '</h4><ul>' + li(src.audit) + li(n.audit) + '</ul>' +
     '<h4>' + (zh ? '規劃中專案' : 'Pipeline projects') + '</h4><ul>' +
-      '<li>' + (zh ? '逐案：GEM 全球風電追蹤 2025-02（興建中、前期開發、已宣布）；2026 年 9 月人工整理的 177 個重點專案（' : 'Projects: GEM Global Wind Power Tracker, Feb 2025 (construction, pre-construction, announced); 177 key projects curated in Sep 2026 (') +
+      '<li>' + (zh ? '逐案：GEM 全球風電追蹤 2026-02（興建中、前期開發、已宣布）；2026 年 9 月人工整理的 177 個重點專案（' : 'Projects: GEM Global Wind Power Tracker, Feb 2026 (construction, pre-construction, announced); 177 key projects curated in Sep 2026 (') +
       esc(D.pipelineCuratedAsOf || '2026') + (zh ? '），用來更新狀態與預計商轉年，GEM 沒有的才新增；「暫緩」不收錄。' : '), used to update status and expected commissioning year and to add projects GEM lacks; on-hold projects are left out.') + '</li>' +
       (D.pipelineTotals ? '<li>' + (zh ? '各國總量：' : 'Country totals: ') + esc(D.pipelineTotals.source) + ' · ' + esc(D.pipelineTotals.release) + ' — <a href="' + esc(D.pipelineTotals.url) + '" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' : '') +
       '<li>' + (zh ? '日本另補 NEDO 各縣風場清單（1 MW 以上，至 2018 年 3 月）與 windfarm.work／營運商資料中 GEM 未收錄的小型風場，並據以修正 GEM 錯置的座標。' : 'Japan adds small farms missing from GEM from the NEDO prefecture lists (≥1 MW, to March 2018) and windfarm.work / operator pages, which were also used to correct misplaced GEM coordinates.') + '</li></ul>' +
