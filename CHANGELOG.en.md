@@ -15,6 +15,19 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.13.1 — 2026-09-30
+
+- Foundation step 5 (China), second batch: 6 farms added, every quoted passage checked with `check_quotes.py` — CTG Dafeng H8-1 (98 monopiles, China News Service),
+  Guangxi Fangchenggang A (83 three-pile rock-socketed jackets, SASAC and Xinhua), CR Power Lianjiang Waihai (7 monopiles + 32 jackets, China Power),
+  Shenergy Hainan CZ2 (67 monopiles, Hainan Daily via Sina), CGN Shanwei Houhu (82 monopiles + 8 four-pile jackets + 1 suction-bucket jacket, China News
+  Service) and Guangdong Energy Yangjiang Qingzhou 1 & 2 (92 jackets, CCEDIA and China Energy News). 14 of China's 174 operating offshore farms are now
+  classified, and the share of operating offshore capacity worldwide with a known type rises from 41.6% to 46.3%.
+- Data corrections: Qingzhou 1 & 2 belong to Guangdong Energy Group (Yudean), not CGN, and are renamed "Guangdong Energy Yangjiang Qingzhou 1&2"; the GEM
+  duplicates of Hainan CZ2 (one record) and Datang Danzhou CZ3 (phases 1 and 2, two records) are merged into the curated records, removing 1,800 MW of
+  double-counted operating offshore capacity in China.
+- Leads found but not yet usable are in TODO: Shenquan II (the report of 50 monopiles could not be opened), Xiangshan 1 phase 2 (36 monopiles + 160 group
+  piles), Danzhou CZ3 (25 suction-bucket jackets, the rest unknown) and Jiazi I (planned 70 monopiles + 8 jackets).
+
 ## v2.13.0 — 2026-09-30
 
 - The farm layer moves to Global Energy Monitor's Global Wind Power Tracker, February 2026 release (a GeoJSON in GEM's public bucket; the 2025-02
