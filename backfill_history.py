@@ -6,7 +6,7 @@
 用途：抓取政府資料開放平臺資料集 37331「台灣電力公司_各機組過去發電量」
       (各機組過去每 10 分鐘淨發電量·瞬間值)，取出風力機組：
       1. 回填 wind_history.json(滾動 7 天窗)中官方資料涵蓋到的缺漏點
-      2. 累積 wind_history_archive.json(長期存檔，不修剪)
+      2. 累積 data/archive/wind_history_archive_YYYY-MM.json(長期存檔，依月分檔，不修剪)
 
 重要·資料時效與涵蓋範圍(2026-07 實測)：
   1. 時效：37331 的資源(d006010/001.json)是「季度回溯檔」——2026-07-14
@@ -59,7 +59,9 @@ META_APIS = [
     f"https://data.nat.gov.tw/api/v2/rest/dataset/{DATASET_ID}",
 ]
 HISTORY_DAYS = 7        # 滾動視窗(天)，與 scraper 一致
-ARCHIVE = HISTORY.with_name("wind_history_archive.json")  # 長期存檔(官方回溯，不修剪)
+ARCHIVE_DIR = HISTORY.parent / "data" / "archive"          # 長期存檔(官方回溯，不修剪)：依月分檔 wind_history_archive_YYYY-MM.json，
+                                                           # 每週回填只改寫當月檔，git 歷史不必每次多存整份存檔
+ARCHIVE_LEGACY = HISTORY.with_name("wind_history_archive.json")   # 2026-09 以前的單一大檔：第一次執行時拆成月檔後刪除
 DAILY = HISTORY.with_name("wind_archive_daily.json")      # 每日摘要(供前端長期趨勢圖，檔案小)
 SIBLING_PROBES = 4      # 資源網址若為 .../001.json，額外探測 002~00N(官方可能分檔存季度)
 
@@ -278,26 +280,67 @@ def load_history(path=None):
     return {}, []
 
 
+def archive_path(month):
+    """月檔路徑：month 為 "YYYY-MM"(點位時間 t 的前 7 字)"""
+    return ARCHIVE_DIR / f"wind_history_archive_{month}.json"
+
+
+def write_archive_month(month, points, dry_run):
+    if dry_run:
+        return
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    points.sort(key=lambda p: p.get("t") or "")
+    archive_path(month).write_text(json.dumps(
+        {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
+         "source": f"data.gov.tw dataset {DATASET_ID}", "interval_min": 10, "month": month,
+         "points": points},
+        ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def migrate_legacy_archive(dry_run):
+    """2026-09 以前的單一存檔 wind_history_archive.json：拆成月檔(只補月檔裡沒有的點)後刪除。回傳搬移筆數。"""
+    if not ARCHIVE_LEGACY.exists():
+        return 0
+    _, points = load_history(ARCHIVE_LEGACY)
+    moved = 0
+    for month in sorted({(p.get("t") or "")[:7] for p in points if p.get("t")}):
+        _, cur = load_history(archive_path(month))
+        have = {p.get("t") for p in cur}
+        add = [p for p in points if (p.get("t") or "")[:7] == month and p.get("t") not in have]
+        if add:
+            write_archive_month(month, cur + add, dry_run)
+            moved += len(add)
+    if not dry_run:
+        ARCHIVE_LEGACY.unlink()
+    return moved
+
+
 def update_archive(by_ts, dry_run):
-    """長期存檔：只補缺、排序、不修剪。點位精簡為 {t, farms, total}(無歷史風速)。
+    """長期存檔：只補缺、排序、不修剪，依月分檔。點位精簡為 {t, farms, total}(無歷史風速)。
     檔案以緊湊 JSON 寫出(資料量大，縮排會倍增體積)。回傳(新增筆數, 總筆數)。"""
-    _, points = load_history(ARCHIVE)
-    existing = {p.get("t") for p in points}
-    added = 0
+    migrate_legacy_archive(dry_run)
+    by_month = {}
     for ts, units in by_ts.items():
-        if ts in existing:
-            continue
-        points.append({"t": ts, "farms": map_to_farms(units),
-                       "total": round(sum(u["output"] for u in units), 2)})
-        added += 1
-    if added and not dry_run:
-        points.sort(key=lambda p: p.get("t") or "")
-        ARCHIVE.write_text(json.dumps(
-            {"updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
-             "source": f"data.gov.tw dataset {DATASET_ID}", "interval_min": 10,
-             "points": points},
-            ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    return added, len(points)
+        by_month.setdefault(ts[:7], []).append((ts, units))
+    added = 0
+    for month, items in sorted(by_month.items()):
+        _, points = load_history(archive_path(month))
+        existing = {p.get("t") for p in points}
+        n = 0
+        for ts, units in items:
+            if ts in existing:
+                continue
+            points.append({"t": ts, "farms": map_to_farms(units),
+                           "total": round(sum(u["output"] for u in units), 2)})
+            n += 1
+        if n:
+            write_archive_month(month, points, dry_run)
+        added += n
+    total = 0
+    if ARCHIVE_DIR.exists():
+        for f in ARCHIVE_DIR.glob("wind_history_archive_*.json"):
+            total += len(load_history(f)[1])
+    return added, total
 
 
 def write_daily_digest(by_ts, dry_run):
@@ -416,7 +459,7 @@ def main():
     n_days, n_new = write_daily_digest(by_ts, args.dry_run)
 
     print(f"[OK] 滾動 {args.days} 天窗({HISTORY.name})：{before} → {len(points)}(補入窗內 {added} 筆)")
-    print(f"[OK] 長期存檔({ARCHIVE.name})：新增 {arch_added} 筆，累計 {arch_total} 筆")
+    print(f"[OK] 長期存檔({ARCHIVE_DIR.relative_to(HISTORY.parent)}/ 月檔)：新增 {arch_added} 筆，累計 {arch_total} 筆")
     print(f"[OK] 每日摘要({DAILY.name})：共 {n_days} 天(本次官方資料涵蓋 {n_new} 天)")
 
     if args.dry_run:

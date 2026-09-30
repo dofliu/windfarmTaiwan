@@ -20,7 +20,8 @@ windfarmTaiwan/
 │  └─ img/globe/                    # relief / satellite basemaps
 ├─ data/global/                     # global data: country capacity by year, farm layer, borders (built by tools/, not scheduled)
 ├─ tools/                           # generators for the global data, basemaps, the single-file HTML and the coverage report
-├─ standalone/                      # single-file HTML (built by tools/build_standalone.py; download and open offline)
+├─ standalone/                      # where the single-file HTML is written locally (not in git; the official files are in the GitHub Release "standalone")
+├─ data/archive/                    # long-term archive of Taipower's official retrospective data, one file per month
 ├─ docs/                            # data coverage report, data clean-up log, per-farm foundation list, live-data source assessment (one Chinese and one English copy each)
 ├─ data/live/                       # live output in Australia and Canada (intl_realtime.json, scheduled) and the unit mapping (units.json)
 ├─ taipower_wind_scraper.py         # about every 2 hours: live wind + live supply/demand
@@ -28,13 +29,12 @@ windfarmTaiwan/
 ├─ backfill_history.py              # every Monday: official retrospective history backfill
 ├─ wind_realtime.json               # live wind data (auto-updated by Actions)
 ├─ wind_history.json                # rolling 7-day wind history
-├─ wind_history_archive.json        # long-term wind archive (never trimmed)
 ├─ wind_archive_daily.json          # daily digest of the archive (read by the long-term trend chart)
 ├─ grid_status.json                 # live power supply/demand report
 └─ .github/workflows/
    ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py about every 2 hours
    ├─ backfill.yml                  # runs backfill_history.py every Monday
-   ├─ standalone.yml                # rebuilds the single-file HTML when site code or global data change
+   ├─ standalone.yml                # rebuilds the single-file HTML when site code or global data change and uploads it to the "standalone" Release
    └─ keepalive.yml                 # on the 1st of each month, re-enables the schedules so they are not disabled after 60 days
 ```
 
@@ -71,8 +71,9 @@ To set up a new project from scratch (instead of using this repo directly):
   which resets the timer without making a commit. It is itself scheduled, so it has to keep running; if every schedule in the
   repo has already been disabled, press **Enable workflow** on the Actions tab by hand.
 - **Commits pile up**: one commit about every 2 hours means over four thousand a year. It works fine, but
-  the repo grows; `wind_history_archive.json` also keeps growing with each weekly backfill (about
-  3.2 MB in Sep 2026). Accept it, squash history now and then, or switch to option B.
+  the repo grows. The long-term archive is now split by month (`data/archive/`), so the weekly backfill only
+  rewrites the current month (about 0.6 MB), and the single-file builds go to a Release instead of git; what remains
+  is the small live-data commits. Accept it, squash history now and then, or switch to option B.
 - **The live supply/demand source is blocked by a WAF**: the primary source for `grid_status.json`
   returns 403 from GitHub Actions (see "Known limitations" in `ROADMAP.en.md`), so the daily fallback
   is used. Truly live figures need a non-cloud-CI host (see option C).
@@ -86,7 +87,7 @@ The project has been paused since 27 Sep 2026 (v2.11.1). All of the following ru
 - `scrape-taipower-wind`: about every 2 hours, fetches Taipower's live wind output, the supply/demand report and live output in
   Australia and Canada, and commits any change.
 - `backfill-taipower-wind-history`: every Monday (early Tuesday in Taipei), adds to Taipower's official retrospective archive.
-- `build-standalone`: rebuilds the single-file edition when site code or global data change on `main`. Scheduled live-data commits
+- `build-standalone`: rebuilds the single-file edition when site code or global data change on `main` and uploads it to the GitHub Release "standalone" (a fixed tag whose files are overwritten; nothing is committed). Scheduled live-data commits
   do not trigger it, so the single-file edition's offline snapshot stays at the time of its last rebuild.
 - `keepalive`: at 04:41 UTC on the 1st of each month, re-enables the two schedules above and itself through the GitHub API, so
   GitHub does not disable them after 60 days without activity; it makes no commits.

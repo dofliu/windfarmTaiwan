@@ -15,9 +15,9 @@
 [docs/foundations.md](./docs/foundations.md)；
 其他國家即時發電資料的可行性評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)。
 
-**單檔版**：[下載 windfarmTaiwan-standalone.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)
+**單檔版**：[下載 windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)
 （約 6 MB），存到電腦後直接用瀏覽器開啟即可，不需架站；詳見下方「單檔版」。
-**全球風電地圖公開版**（給一般人）：[下載 windfarmTaiwan-globe.html](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-globe.html)
+**全球風電地圖公開版**（給一般人）：[下載 windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html)
 （約 6 MB），只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層，離線也能開。
 
 開發者：國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）
@@ -51,7 +51,7 @@
 - 右上角 **EN／中文** 切換語言；**分享** 產生附資料時間的即時圖卡。網址可以直接分享，別人打開會看到同一個畫面。
 - 手機也能用。地球儀第一次打開要下載幾 MB 的資料，要等一下；沒有 3D 繪圖能力的舊裝置會自動改用長條排名。
 - 資料新舊：台灣即時約每 2 小時更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底；逐場風場資料是 GEM 2025 年 2 月版。
-- 沒有網路也想看：下載[單檔版](https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html)，存到電腦直接開啟。
+- 沒有網路也想看：下載[單檔版](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)，存到電腦直接開啟。
 - 發現資料有錯：風場卡片底部有「回報資料錯誤」，或到 [GitHub](https://github.com/dofliu/windfarmTaiwan/issues) 回報。
 
 ## 功能
@@ -113,10 +113,10 @@
 ```
 GitHub Actions (每 2 小時 cron)  ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
                                  ── intl_wind_scraper.py    ──► data/live/intl_realtime.json（澳洲、加拿大）──────────────────┤
-GitHub Actions (每週一 cron)     ── backfill_history.py      ──► wind_history_archive.json / wind_archive_daily.json ──────┤
+GitHub Actions (每週一 cron)     ── backfill_history.py      ──► data/archive/月檔 / wind_archive_daily.json ─────────────┤
                                                                                                                             ├─► commit 回 repo
 tools/*.py（手動、低頻：資料改版時才跑） ──► data/global/*.json、assets/img/globe/*.jpg ───────────────────────────────────┤
-GitHub Actions（push 到 main 且改到網站程式或全球資料）── tools/build_standalone.py ──► standalone/*.html ─────────────────┤
+GitHub Actions（push 到 main 且改到網站程式或全球資料）── tools/build_standalone.py ──► Release「standalone」的兩個 HTML ────┤
 GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄──────────────────────────────────────────────────────┘
 瀏覽器讀 index.html → 依頁面延遲載入模組與資料（同網域，無 CORS）
 ```
@@ -148,8 +148,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
   `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上；
   `tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
-- `standalone/windfarmTaiwan-standalone.html` — 單檔版（自動產生，勿手動修改）
-- `standalone/windfarmTaiwan-globe.html` — 全球風電地圖公開版：只有地球儀與三個基本圖層（`tools/build_globe_lite.py` 產生，勿手動修改）
+- `standalone/`（不進 git）— 本機執行建置程式的輸出位置；正式的單檔版與全球風電地圖公開版由 Actions 建好後上傳到 GitHub Release「standalone」
+- `data/archive/wind_history_archive_YYYY-MM.json` — 台電官方回溯的長期存檔，依月分檔（`backfill_history.py` 產生）
 - `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）、重大事件與事故清單（`events.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
@@ -164,13 +164,13 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   故實務上大多落到政府開放資料備援（每日更新，實測落後約 6 週），前端會誠實標示「非即時，截至 YYYY-MM-DD」，
   不與即時風力出力並列。欄位無法辨識或兩個來源皆失敗時不寫檔，前端該區塊自動隱藏，不顯示臆測值。
 - `backfill_history.py` — 每週一執行：抓政府開放資料集 [37331「各機組過去發電量」](https://data.gov.tw/dataset/37331)，
-  累積長期存檔 `wind_history_archive.json`（官方每 10 分鐘回溯值，不修剪）與每日摘要 `wind_archive_daily.json`
+  累積長期存檔 `data/archive/wind_history_archive_YYYY-MM.json`（官方每 10 分鐘回溯值，依月分檔、不修剪，每週只改寫當月檔）與每日摘要 `wind_archive_daily.json`
   （前端「數據 → 長期趨勢」讀這個，含逐機組明細）。
   **時效注意**：37331 為季度回溯檔，落後約 4–5 個月，補不到近 7 天趨勢窗的缺口，主要價值是長期趨勢分析。
   **口徑注意**：37331 只含台電**自有**風力機組，不含民營購電，與即時資料的全系統數值不可混用比較。
 - `.github/workflows/scrape.yml` — 約每 2 小時自動執行 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
-- `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版並 commit
+- `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 12 MB）
 - `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）
 - `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
 - `ROADMAP.md` / `TODO.md` — 已知限制、後續規劃與待辦事項
@@ -189,17 +189,18 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 
 ## 單檔版（下載後直接開啟）
 
-`standalone/windfarmTaiwan-standalone.html` 把整個網站（首頁、台灣即時、全球 3D 地球儀、風電知識）打包成一個約 6 MB 的 HTML：
+`windfarmTaiwan-standalone.html` 把整個網站（首頁、台灣即時、全球 3D 地球儀、風電知識）打包成一個約 6 MB 的 HTML，
+放在 GitHub Release「[standalone](https://github.com/dofliu/windfarmTaiwan/releases/tag/standalone)」（固定標籤，每次重建覆蓋）：
 
 - **下載**：網站頁尾或「風電知識 → 資料來源與方法 → 關於本站」的「下載單檔版 HTML」，
-  或直接開 `https://dofliu.github.io/windfarmTaiwan/standalone/windfarmTaiwan-standalone.html` 另存。
+  或直接開 `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html` 另存。
 - **連網時**：台灣即時資料直接向正式網站抓最新的（約每 2 小時更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
 - **離線時**：全球資料、約 2.3 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
   並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網。
-- **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建；
+- **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建並上傳到 Release（檔案不進 git）；
   本機也可以執行 `python3 tools/build_standalone.py`（`WW.VERSION` 在兩份 CHANGELOG 沒有對應段落時會中止）。
   頁尾標示版本號、建置時間與 commit。分享按鈕在單檔版一律分享正式網站的網址。
-- **全球風電地圖公開版** `standalone/windfarmTaiwan-globe.html`（`python3 tools/build_globe_lite.py`，Actions 同時重建）：給一般人的精簡版，
+- **全球風電地圖公開版** `windfarmTaiwan-globe.html`（`python3 tools/build_globe_lite.py`，Actions 同時重建並上傳）：給一般人的精簡版，
   只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層（各國逐年容量、風場搜尋、規劃分頁、地形／衛星底圖、深連結都在），不載入港口、水下基礎、
   事件、里程碑導覽與任何即時資料，也沒有首頁、台灣即時與風電知識；頁尾連到完整網站。離線時只是沒有 Esri 高解析圖磚與維基百科簡介。
 
@@ -236,7 +237,7 @@ python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離�
 python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源；OSPAR 只有核准階段設計的要附施工紀錄），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
-# 5. 單檔版與全球風電地圖公開版（push 到 main 後 Actions 也會自動重建）
+# 5. 單檔版與全球風電地圖公開版（輸出到 standalone/，不進 git；push 到 main 後 Actions 會自動重建並上傳到 Release）
 python tools/build_standalone.py
 python tools/build_globe_lite.py
 # 6. 重大事件與事故（改了 data/global/sources/events_2026-09.csv 或 tools/build_events.py 的英文與風場對應後）

@@ -15,6 +15,24 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.12.6 — 2026-09-30
+
+- Data: the quoted passages behind the five step-5 (China) foundation rows and six clean-up rules were checked with `check_quotes.py`. China Three
+  Gorges' own domains cannot be reached from the checking environment, so checkable sources are used instead (Shanghai government, CAS Guangzhou
+  Institute of Energy Conversion, a subsidy notice via Sina Finance, the Fujian industry department, The Paper, GEM wiki): Donghai Bridge's
+  full-connection date becomes 8 June 2010 (was August); Qingzhou 6 now says 27 December 2024; the Xiangshui turbine split (37 + 18), "March 2021"
+  for Xinghua Bay phase 2 and the 20 MW prototype at Liu'ao phase 2 are dropped from the notes as unverifiable; Rudong H6 and H10 keep the CTG
+  pages as their source until they can be checked (see TODO).
+- Taiwan live: Greater Changhua 2b & 4 (wo4, wonan) get the 1 Sep 2026 completion ceremony, final commissioning and full commercial operation
+  pending approvals (planned for Q3); Hai Long gets Northland's Q2 2026 report (71 of 73 turbines installed, 59 generating, commercial operation
+  still 2027, NT$55 billion of incremental financing); Taipower offshore phase 2 gets Taipower's July 2026 takeover of turbine installation, 30
+  turbines to go, grid connection targeted for year-end.
+- Repository size: the long-term archive of Taipower's official retrospective data is now split by month into
+  `data/archive/wind_history_archive_YYYY-MM.json` (the existing 21,744 points went into five files, Dec 2025 to Apr 2026), so the weekly backfill
+  only rewrites the current month; the single-file edition and the public global wind map are no longer committed but uploaded by the
+  `build-standalone` workflow to the GitHub Release "standalone", and the download links in the footer, the globe's sources dialog and the READMEs
+  now point at `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/…`.
+
 ## v2.12.5 — 2026-09-30
 
 - Compact phone layout (widths up to 640px): the header is one row (logo only for the brand, the share button becomes an icon, the live

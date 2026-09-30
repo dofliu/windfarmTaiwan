@@ -62,11 +62,11 @@
 | Zhejiang Energy Taizhou Yuhuan 1 · 300 MW · 2021 | 精選 | 修正：名稱、中文名、容量、年份、分期、業主 | 玉環披山島西北的離岸風場是華電玉環1號：北區 154 MW（2021 年 12 月）、南區 75 MW（2024 年 6 月）；浙能台州1號（300 MW，臨海外海）是另一座，GEM 已列出 | [連結](https://www.cpnn.com.cn/news/xny/202406/t20240604_1706589.html) |
 | Huadian Yuhuan 2 · 500 MW · 2024 | 精選 | 修正：名稱、中文名、容量、業主 | 開發商是華能（與晶科合作），不是華電；504 MW | [連結](https://m.bjx.com.cn/mnews/20240129/1358593.shtml) |
 | Jiangsu Sheyang South H1 (Longyuan) · 400 MW · 2024 | 精選 | 重複（併入「Jiangsu Sheyang Southern Area H5 Offshore wind farm」） | 射陽南區 H1 屬華能（另有紀錄）；龍源的 400 MW 場址是 H5，即 GEM 這筆 | [連結](https://www.gem.wiki/Jiangsu_Sheyang_Southern_Area_H1_Offshore_wind_farm) |
-| Shanghai Donghai Bridge Offshore wind farm · 1 · 102 MW · 2009 | GEM | 重複（併入「Donghai Bridge」） | 同一座風場：GEM 的中文名就是「東海大橋海上風電項目一期 102.2MW」（34 部 3 MW，2010 年 8 月全數併網）；GEM 座標偏北約 110 km | [連結](https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html) |
-| CTG Yangjiang Qingzhou 6 · 500 MW · 2024 | 精選 | 修正：容量、座標 | 青洲六為 1,000 MW、74 部，2024 年 12 月全容量併網（原本寫 500 MW）；座標改用 GEM 的精確位置 | [連結](https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm) |
-| Guangdong Yangjiang Qingzhou Vi Offshore wind farm · 1,000 MW | GEM | 重複（併入「CTG Yangjiang Qingzhou 6」） | 同一座風場（三峽陽江青洲六，1,000 MW）；GEM 2026-02 版仍列興建中，業主文件顯示 2024 年 12 月已全容量併網 | [連結](https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm) |
-| Longyuan Jiangsu Xiangshui · 202 MW · 2016 | 精選 | 修正：名稱、中文名、業主 | 響水近海風電（202 MW，55 部：37 部 4 MW＋18 部 3 MW，2016 年 10 月全數併網）屬三峽，不是龍源 | [連結](https://tgdc.ctg.com.cn/tgdc/858404/858411/2024080904155459773/index.html) |
-| Fuqing Xinghua Bay Phase 2 · 300 MW · 2020 | 精選 | 修正：容量、年份 | 二期為 280 MW、45 部（含三部 8 MW 以上示範機），2021 年 3 月全容量併網（原本寫 300 MW、2020 年） | [連結](https://eps.ctg.com.cn/cms/channel/1ywgg1/240613529.htm) |
+| Shanghai Donghai Bridge Offshore wind farm · 1 · 102 MW · 2009 | GEM | 重複（併入「Donghai Bridge」） | 同一座風場：GEM 的中文名就是「東海大橋海上風電項目一期 102.2MW」（34 部 3 MW，上海市政府：2010 年 6 月 8 日全部風機併網）；GEM 座標偏北約 110 km | [連結](https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html) |
+| CTG Yangjiang Qingzhou 6 · 500 MW · 2024 | 精選 | 修正：容量、座標 | 青洲六為 1,000 MW、74 部，2024 年 12 月 27 日全容量併網（補貼公示；原本寫 500 MW）；座標改用 GEM 的精確位置 | [連結](https://finance.sina.com.cn/roll/2025-12-19/doc-inhcipui7654969.shtml) |
+| Guangdong Yangjiang Qingzhou Vi Offshore wind farm · 1,000 MW | GEM | 重複（併入「CTG Yangjiang Qingzhou 6」） | 同一座風場（三峽陽江青洲六，1,000 MW）；GEM 2026-02 版仍列興建中，補貼公示寫 2024 年 12 月 27 日全容量併網 | [連結](https://finance.sina.com.cn/roll/2025-12-19/doc-inhcipui7654969.shtml) |
+| Longyuan Jiangsu Xiangshui · 202 MW · 2016 | 精選 | 修正：名稱、中文名、業主 | 響水近海風電（202 MW，2016 年 10 月 17 日全數併網）是三峽集團的第一座離岸風場，不是龍源 | [連結](http://newenergy.giec.cas.cn/fn/cydt/201804/t20180426_736984.html) |
+| Fuqing Xinghua Bay Phase 2 · 300 MW · 2020 | 精選 | 修正：容量、年份 | 二期為 280 MW、45 部（2021 年安裝，全為國產機組，含國內首部 10 MW 示範機），2021 年全容量併網（原本寫 300 MW、2020 年） | [連結](https://gxt.fujian.gov.cn/zwgk/xw/jxyw/202412/t20241211_6590606.htm) |
 
 ## 丹麥 (DNK)
 

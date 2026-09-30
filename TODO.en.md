@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 2026-09-29: events layer concluded, project stays in maintenance)
+## In progress (hand-off, 2026-09-30: maintenance; the next big item is the GEM 2026-02 upgrade)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it for the next piece of work in progress and move
 finished items to the topic lists below.
@@ -24,14 +24,19 @@ finished items to the topic lists below.
   (`standalone/windfarmTaiwan-globe.html`), the Mailiao event's farm link, fly-to-country for events without coordinates and the phone-width
   farm-card fix were added in the same series, and the whole site was tested. What remains is routine follow-up (linking farms, adding
   coordinates, photo rights, waiting for official findings), listed under "Major events & incidents" below; it is not work in progress.
+- 30 Sep 2026 (v2.12.5–v2.12.6): compact phone layout; the quoted passages behind the five step-5 Chinese foundation rows and six clean-up
+  rules are checked (checkable sources replace the unreachable CTG domains; Rudong H6 and H10 remain, see item 1 below); the Greater Changhua
+  2b & 4, Hai Long and Taipower phase 2 timelines follow the July–September 2026 reports; the long-term archive is split by month and the
+  single-file builds go to a Release.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)
 
-1. **Check the step-5 quotes**: the 5 Chinese foundation rows (the F5 rows in `tools/farm_foundations.py`) and 6 clean-up rules (the last
-   block of `tools/farm_cleanup.py`) added in v2.11.0 / v2.11.1 from the owner's "Global offshore wind farm database, Asia review v2" cite
-   China Three Gorges, Shanghai government and CGN pages whose quoted passages have not been checked with `tools/check_quotes.py` (the working
-   environment could not reach those sites). Add the passages and run the check somewhere with network access; correct or withdraw any that fail.
+1. **The two step-5 rows that still cannot be checked**: the sources for Rudong H6 (100 turbines, all monopiles) and H10 (77 monopiles +
+   23 all-steel single-column buckets) are only CTG's own pages and a Maritime Safety Administration notice; from the checking environment the
+   TLS connection to eps/www.ctg.com.cn is cut and the MSA page returns 403 (30 Sep 2026). Run `tools/check_quotes.py` on them from a network
+   that can reach them. Also only on CTG pages: "280 MW, fully connected March 2021" for Xinghua Bay phase 2 and the later 20 MW prototype at
+   Liu'ao phase 2 (both already dropped from the notes).
 2. **Upgrade GEM to the 2026-02 release** (requested by the owner on 27 Sep 2026): GEM 2026-02 is only published as a GeoJSON at
    `publicgemdata.nyc3.cdn.digitaloceanspaces.com` (wind/2026-02/wind_map_2026-02-05.geojson, per trackers/wind/config.js in GEM's maps repo),
    which the working environment's network policy blocked; GEM's GitHub repo only has the 2025-02 CSV. Steps: allow that host or have the owner
@@ -41,8 +46,9 @@ finished items to the topic lists below.
    number and both changelogs (a new data-source release: MINOR).
    After the upgrade also check Korea's Donghae 1 (the owner's workbook, following GEM 2026, says under construction, 2030; this site says
    pre-construction, 2028) and Jwasari (under construction, 2031; this site says pre-construction).
-3. **Checks that have fallen due**: Greater Changhua 2b & 4 (Wo-4 / Wo-Nan) was planned to be fully operating in Q3 2026, which has now
-   passed; see "Re-check periodically" below.
+3. **Time-sensitive checks (one round done on 30 Sep 2026)**: Greater Changhua 2b & 4 was completed on 1 Sep 2026 and is in final
+   commissioning, not yet fully operating; Hai Long stays at 2027 per Northland's Q2 report; Taipower phase 2 has Taipower installing the
+   turbines itself, aiming for grid connection by the end of 2026. Next checks are under "Re-check periodically" below.
 4. **The rest of foundation step 5**:
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
@@ -85,14 +91,16 @@ finished items to the topic lists below.
 
 ## Re-check periodically (time-sensitive, not code problems)
 
-- [ ] Taipower Offshore Phase 2: completion is currently given as "2027"; check progress reports then
-      (or every quarter) and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed
-- [ ] Greater Changhua 2b & 4 (Ørsted, 920 MW): full commercial operation is planned for Q3 2026; check
-      whether it happened on time and update `tl` (both languages) and `cod` of `id:"wo4"` / `id:"wonan"` (events list WIND-059: completion
+- [ ] Taipower Offshore Phase 2: on 30 Jul 2026 Taipower took over turbine installation under the contract and agreed terms with Vestas,
+      30 turbines to go, grid connection targeted for year-end (CNA); completion is still given as "2027". Check at year-end whether it
+      connected and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed
+- [ ] Greater Changhua 2b & 4 (Ørsted, 920 MW): completion ceremony on 1 Sep 2026, now in O&M with final commissioning and testing under
+      way, full commercial operation once approvals are in (cnyes); when Ørsted announces it, set the last `tl` row of `id:"wo4"` / `id:"wonan"`
+      to done and `cod` to the month (events list WIND-059: completion
       ceremony on 2026-09-01, the English notice says final commissioning is pending; WIND-050: the 2b export cable was damaged in 2025-08;
       WIND-058: one 14 MW unit of phase 4 caught fire on 2026-08-08)
-- [ ] Hai Long (Hai Long B): full commercial operation may have slipped from 2026 to 2027; keep
-      following the latest reports and update `id:"longB"`
+- [ ] Hai Long (Hai Long B): Northland's Q2 2026 report (12 Aug 2026): 71 of 73 turbines installed, 59 generating, commercial operation
+      in 2027; follow the Q3/Q4 reports and the commercial-operation announcement and update `id:"longB"`
 - [ ] Left to verify from foundation step 4 (Sep 2026): when Setana stopped generating (the town decided in April 2026 to
       remove it in FY2027); whether Formosa 1 Phase 1 has SWT-4.0-120 or -130 turbines; whether Choshi still runs after
       2025; the present state of the Jeju Woljeong test site (its 2 MW unit has been idle since June 2016); and a possible
@@ -262,8 +270,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Monthly keepalive workflow (`.github/workflows/keepalive.yml`, Sep 2026): re-enables the schedules through the GitHub API on the
       1st of each month so they are not disabled after 60 days without activity
 - [ ] Check once a month that the data time and Actions look right, and trigger a run by hand if needed (steps under "Maintenance" in DEPLOY.en.md)
-- [ ] `wind_history_archive.json` keeps growing (about 3.2 MB in Sep 2026); keep an eye on repo size and
-      archive or compress it periodically if needed
+- [x] The long-term archive was split into monthly files on 30 Sep 2026 (`data/archive/wind_history_archive_YYYY-MM.json`), so the weekly
+      backfill only rewrites the current month; the single-file builds now go to a Release instead of git
 
 ## Deferred — no need to research again (clear reasons in "Directions evaluated and deferred" in ROADMAP.en.md)
 

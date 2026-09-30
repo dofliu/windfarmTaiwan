@@ -354,19 +354,20 @@ FOUNDATIONS = [
        en='Two semi-submersibles (2 MW and a V-shaped 7 MW) and one spar (5 MW); the types differ, so no single sub-type is given'),
 
     # ================================================ 第 5 步（2026-09 起）：中國、越南
-    # 依使用者 2026-09-27 的「亞洲逐案覆核」；原文待以 check_quotes 核對（見 TODO）
-    F5('CHN', 'Donghai Bridge', 'pc', url='https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html',
-       zh='34 部 3 MW 風機立在高樁混凝土承台上（2010 年 8 月全數併網），中國第一座大型離岸風場',
-       en='34 × 3 MW turbines on high-rise pile caps with concrete caps (all connected by August 2010); China’s first large offshore wind farm'),
+    # 依使用者 2026-09-27 的「亞洲逐案覆核」。2026-09-30 以 check_quotes 核對：上海市政府、福建省工信廳、澎湃、新浪財經（補貼公示）、
+    # 中廣核的頁面 OK；三峽集團自家網域（eps／tgdc／www.ctg.com.cn、ctgne.com）在核對環境連不上，如東 H6、H10 兩列仍以三峽網頁為出處（見 TODO）
+    F5('CHN', 'Donghai Bridge', 'pc', url='https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_437507.html',
+       zh='34 部 3 MW 風機立在高樁混凝土承台上（上海市政府：2010 年 6 月 8 日全部風機併網），中國第一座大型離岸風場',
+       en='34 × 3 MW turbines on high-rise pile caps with concrete caps (Shanghai government: all turbines connected on 8 June 2010); China’s first large offshore wind farm'),
     F5('CHN', 'CTG Rudong H6', 'mp', url='https://eps.ctg.com.cn/cms/channel/1ywgg1/17129.htm',
        zh='100 部 4 MW 風機，全部為單樁（2021 年 12 月全容量併網；與 H10 共用柔性直流送出）',
        en='100 × 4 MW turbines, all on monopiles (fully connected in December 2021; shares a flexible HVDC link with H10)'),
     F5('CHN', 'CTG Rudong H10', 'mx', url='https://eps.ctg.com.cn/cms/channel/1ywgg1/19830.htm', parts=[['mp', 77], ['bk', 23]],
        zh='100 部 4 MW 風機：77 座單樁、23 座複合筒（2021 年 12 月全容量併網）',
        en='100 × 4 MW turbines: 77 on monopiles and 23 on composite buckets (fully connected in December 2021)'),
-    F5('CHN', "CTG Zhangpu Liu'ao Phase 2", 'jk', url='https://www.ctg.com.cn/sxjt/xwzx55/zhxw23/2024081106434692154/index.html',
-       zh='四樁套管；2024 年 6 月 28 部（約 400.2 MW）全容量併網，之後另增 20 MW 樣機',
-       en='Four-pile jackets; 28 turbines (about 400.2 MW) fully connected in June 2024, later joined by a 20 MW prototype'),
+    F5('CHN', "CTG Zhangpu Liu'ao Phase 2", 'jk', url='https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202405/t20240523_6453562.htm',
+       zh='四樁套管（福建省工信廳：機位水深逾 46 m，設計團隊採「4 樁導管架」）；28 部 13 MW 以上機組（含 6 部 16 MW），2024 年 6 月全容量併網（澎湃新聞）',
+       en='Four-pile jackets (Fujian industry department: over 46 m of water, the design team chose a four-pile jacket); 28 turbines of 13 MW and above (six of 16 MW), fully connected in June 2024 (The Paper)'),
     # 中廣核的基礎監測合同列出 49 座單樁與 16 座全鋼筒型，與使用者的逐案覆核相同
     F5('CHN', 'CGN Rudong H8', 'mx', url='https://ecp.cgnpc.com.cn/view/staticpags/zgh_zbgg/8a488fc36fae46600171bacf23d163d0.html',
        parts=[['mp', 49], ['bk', 16]],

@@ -63,8 +63,8 @@
 | 中廣核如東H8（CGN Rudong H8） | 300 | 2021 | 混合：單樁 49、複合筒 16 | [ecp.cgnpc.com.cn](https://ecp.cgnpc.com.cn/view/staticpags/zgh_zbgg/8a488fc36fae46600171bacf23d163d0.html) | 65 部風機：49 座單樁、16 座全鋼筒型（與複合筒同為以負壓沉入的單筒基礎，筒體與過渡段全為鋼製）；2021 年 12 月全容量併網 |
 | 三峽如東H10（CTG Rudong H10） | 400 | 2021 | 混合：單樁 77、複合筒 23 | [eps.ctg.com.cn](https://eps.ctg.com.cn/cms/channel/1ywgg1/19830.htm) | 100 部 4 MW 風機：77 座單樁、23 座複合筒（2021 年 12 月全容量併網） |
 | 三峽如東H6（CTG Rudong H6） | 400 | 2021 | 單樁 | [eps.ctg.com.cn](https://eps.ctg.com.cn/cms/channel/1ywgg1/17129.htm) | 100 部 4 MW 風機，全部為單樁（2021 年 12 月全容量併網；與 H10 共用柔性直流送出） |
-| 三峽漳浦六鰲二期（CTG Zhangpu Liu'ao Phase 2） | 400 | 2024 | 套管式 | [ctg.com.cn](https://www.ctg.com.cn/sxjt/xwzx55/zhxw23/2024081106434692154/index.html) | 四樁套管；2024 年 6 月 28 部（約 400.2 MW）全容量併網，之後另增 20 MW 樣機 |
-| 東海大橋海上風電場（Donghai Bridge） | 102 | 2010 | 高樁承台 | [shanghai.gov.cn](https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_667816.html) | 34 部 3 MW 風機立在高樁混凝土承台上（2010 年 8 月全數併網），中國第一座大型離岸風場 |
+| 三峽漳浦六鰲二期（CTG Zhangpu Liu'ao Phase 2） | 400 | 2024 | 套管式 | [gxt.fj.gov.cn](https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202405/t20240523_6453562.htm) | 四樁套管（福建省工信廳：機位水深逾 46 m，設計團隊採「4 樁導管架」）；28 部 13 MW 以上機組（含 6 部 16 MW），2024 年 6 月全容量併網（澎湃新聞） |
+| 東海大橋海上風電場（Donghai Bridge） | 102 | 2010 | 高樁承台 | [shanghai.gov.cn](https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_437507.html) | 34 部 3 MW 風機立在高樁混凝土承台上（上海市政府：2010 年 6 月 8 日全部風機併網），中國第一座大型離岸風場 |
 | 海油觀瀾號（Haiyou Guanlan (CNOOC floating)） | 7.2 | 2023 | 浮動式（半潛式） | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/) | 半潛式；供電給文昌油田群，不接公用電網 |
 | 明陽天成號浮式（Mingyang OceanX (Tiancheng) floating） | 16.6 | 2024 | 浮動式（半潛式） | [mlit.go.jp](https://www.mlit.go.jp/kowan/content/001869831.pdf) | 一座浮台上兩部 8.3 MW 風機，浮台由浮筒與混凝土構件組成（日本國土交通省的調查列為半潛式） |
 | 三峽引領號（Yangjiang Shapa 'Sanxia Yinling' floating） | 5.5 | 2021 | 浮動式（半潛式） | [sasac.gov.cn](http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html) | 半潛式平台 |
