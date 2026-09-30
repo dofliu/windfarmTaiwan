@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 203 rules: 96 records removed (28,271.7 MW of them operating), 107 records fixed.
+- 207 rules: 99 records removed (30,071.7 MW of them operating), 108 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 9 | 10,958 | 7 |
+| China | 12 | 12,758 | 8 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -98,6 +98,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Guangdong Yangjiang Qingzhou VI Offshore wind farm · 1,000 MW | GEM | duplicate of “CTG Yangjiang Qingzhou 6” | Same farm (CTG Yangjiang Qingzhou 6, 1,000 MW); GEM’s February 2026 release still lists it as under construction, while the subsidy notice gives full grid connection on 27 December 2024 | [link](https://finance.sina.com.cn/roll/2025-12-19/doc-inhcipui7654969.shtml) |
 | Longyuan Jiangsu Xiangshui · 202 MW · 2016 | curated | fixed: name, Chinese name, owner | The Xiangshui nearshore farm (202 MW, all turbines connected on 17 October 2016) is China Three Gorges’ first offshore wind farm, not Longyuan’s | [link](http://newenergy.giec.cas.cn/fn/cydt/201804/t20180426_736984.html) |
 | Fuqing Xinghua Bay Phase 2 · 300 MW · 2020 | curated | fixed: capacity, year | Phase 2 is 280 MW with 45 turbines (installed in 2021, all Chinese-built, including China’s first 10 MW demonstration unit), fully connected in 2021 (it was listed as 300 MW in 2020) | [link](https://gxt.fujian.gov.cn/zwgk/xw/jxyw/202412/t20241211_6590606.htm) |
+| CGN Yangjiang Qingzhou 1&2 · 1,000 MW · 2024 | curated | fixed: name, Chinese name, owner | Qingzhou 1 & 2 belong to Guangdong Energy Group (Yudean), not CGN: Qingzhou 1 (400 MW, 37 turbines) plus Qingzhou 2 (600 MW, 55 turbines), 92 × 11 MW in all, fully connected on 12 December 2023 | [link](https://cpnn.com.cn/news/hy/202312/t20231212_1659356.html) |
+| Hainan CZ2 Demonstration Offshore wind farm · 600 MW · 2025 | GEM | duplicate of “Shenergy Hainan CZ2 (Dongfang)” | Same farm (Shenergy’s Hainan CZ2 demonstration farm, 67 × 9 MW) | [link](https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml) |
+| Hainan Danzhou CZ3 (Datang) Offshore wind farm · 600 MW · 2025 | GEM | duplicate of “Datang Danzhou CZ3” | Phase 2 (600 MW) of Datang’s 1,200 MW Danzhou project (120 × 10 MW); the curated record covers both phases | [link](http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm) |
+| Hainan CZ3 Demonstration Offshore wind farm · 600 MW · 2025 | GEM | duplicate of “Datang Danzhou CZ3” | Phase 1 (600 MW) of the same project; the curated record covers both phases | [link](http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm) |
 
 ## Colombia (COL)
 

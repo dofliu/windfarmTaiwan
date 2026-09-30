@@ -683,6 +683,21 @@ RULES = [
         'GEM 專案頁的別名就是 Gabal El-Zayt（NREA 三期共 580 MW）；GEM 的座標落在庫塞爾附近，偏南約 250 km',
         'GEM’s page lists Gabal El-Zayt as its other name (the three NREA phases, 580 MW in all); the GEM point near Al Qusair is about 250 km too far south',
         'https://www.gem.wiki/Gulf_Of_Ziet_Wind_Complex'),
+    # ------------------------------------------------ 2026-09-30 查中國水下基礎第二批時發現（出處原文已以 check_quotes 核對）
+    fix('CHN', 'CGN Yangjiang Qingzhou 1&2', C,
+        '青洲一、二是廣東能源集團（粵電）的風場，不是中廣核：青洲一 400 MW（37 部）＋青洲二 600 MW（55 部）共 92 部 11 MW，2023 年 12 月 12 日全容量併網',
+        'Qingzhou 1 & 2 belong to Guangdong Energy Group (Yudean), not CGN: Qingzhou 1 (400 MW, 37 turbines) plus Qingzhou 2 (600 MW, 55 turbines), 92 × 11 MW in all, fully connected on 12 December 2023',
+        'https://cpnn.com.cn/news/hy/202312/t20231212_1659356.html', rename='Guangdong Energy Yangjiang Qingzhou 1&2', zhname='粵電陽江青洲一、二',
+        owner='Guangdong Energy Group (Yudean)'),
+    dup('CHN', 'Hainan CZ2 Demonstration Offshore wind farm', G, ('Shenergy Hainan CZ2 (Dongfang)', C),
+        '同一座風場（申能海南 CZ2 示範風場，67 部 9 MW）', 'Same farm (Shenergy’s Hainan CZ2 demonstration farm, 67 × 9 MW)',
+        'https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml'),
+    dup('CHN', 'Hainan Danzhou CZ3 (Datang) Offshore wind farm', G, ('Datang Danzhou CZ3', C),
+        '大唐儋州 120 萬瓩（120 部 10 MW）的二期 60 萬瓩；精選紀錄已含兩期', 'Phase 2 (600 MW) of Datang’s 1,200 MW Danzhou project (120 × 10 MW); the curated record covers both phases',
+        'http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm'),
+    dup('CHN', 'Hainan CZ3 Demonstration Offshore wind farm', G, ('Datang Danzhou CZ3', C),
+        '同一案的一期 60 萬瓩；精選紀錄已含兩期', 'Phase 1 (600 MW) of the same project; the curated record covers both phases',
+        'http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）

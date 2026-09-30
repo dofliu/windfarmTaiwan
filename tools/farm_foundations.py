@@ -374,6 +374,25 @@ FOUNDATIONS = [
        zh='65 部風機：49 座單樁、16 座全鋼筒型（與複合筒同為以負壓沉入的單筒基礎，筒體與過渡段全為鋼製）；2021 年 12 月全容量併網',
        en='65 turbines: 49 on monopiles and 16 on all-steel buckets (single buckets sunk by suction, like the composite bucket, '
           'but with a steel transition piece); fully connected in December 2021'),
+    # 2026-09-30 第二批（出處原文皆以 check_quotes 核對）· second batch, every quote checked
+    F5('CHN', 'CTG Dafeng H8-1 (800 MW)', 'mp', url='https://www.js.chinanews.com.cn/news/2025/0916/230110.html',
+       zh='98 部風機全部為單樁（樁徑 7–9 m、最長 97 m、最重 1,713 t，中新網 2025 年 9 月）；2025 年 12 月 15 日全容量併網',
+       en='All 98 turbines on monopiles (7–9 m in diameter, up to 97 m long and 1,713 t; China News Service, September 2025); fully connected on 15 December 2025'),
+    F5('CHN', 'Guangxi Fangchenggang A', 'jk', url='http://www.sasac.gov.cn/n2588025/n2588129/c32426404/content.html',
+       zh='83 部 8.5 MW 全部為三樁嵌岩套管：岩基海床，鋼管樁鑽孔嵌岩後灌漿，套管三腳插入樁內（國資委、新華網）；中國第一座全場採嵌岩基礎的離岸風場',
+       en='All 83 × 8.5 MW turbines on three-pile rock-socketed jackets: rock seabed, the steel piles are drilled into the rock and grouted and the three jacket legs set into them (SASAC, Xinhua); China’s first offshore farm with rock-socketed foundations throughout'),
+    F5('CHN', 'CR Power Lianjiang Waihai', 'mx', url='http://www.chinapower.com.cn/flfd/xmjz/20240429/244321.html', parts=[['mp', 7], ['jk', 32]],
+       zh='39 部 18 MW 機組：7 座單樁（直徑 10 m）、32 座套管（中國電力網 2024 年 4 月的塔筒供貨報導）',
+       en='39 × 18 MW turbines: 7 on monopiles (10 m in diameter) and 32 on jackets (China Power, April 2024, on the tower supply)'),
+    F5('CHN', 'Shenergy Hainan CZ2 (Dongfang)', 'mp', url='https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml',
+       zh='67 部 9 MW 風機各立在一根單樁上（海南日報 2024 年 5 月的施工報導，單樁長 95.7 m、直徑 8.8 m、重 1,639 t）',
+       en='67 × 9 MW turbines, each on a monopile (Hainan Daily construction report, May 2024: 95.7 m long, 8.8 m in diameter, 1,639 t)'),
+    F5('CHN', 'CGN Shanwei Houhu', 'mx', url='https://www.chinanews.com/m/cj/2021/11-25/9616090.shtml', parts=[['mp', 82], ['jk', 9]],
+       zh='91 部 5.5 MW：82 座單樁、8 座四樁套管、1 座吸力筒套管（中新網 2021 年 11 月全數併網報導）',
+       en='91 × 5.5 MW: 82 monopiles, 8 four-pile jackets and 1 suction-bucket jacket (China News Service, November 2021, on full grid connection)'),
+    F5('CHN', 'Guangdong Energy Yangjiang Qingzhou 1&2', 'jk', url='https://www.ccedia.com/gas_detail/c-_detailId=1632992535936905216.html',
+       zh='92 部 11 MW 全部為套管（水深 35–43 m；施工標段為 92 座套管與基礎鋼管樁，中國能源新聞網另提「新型過渡段結構的深水區導管架基礎」）；2023 年 12 月 12 日全容量併網',
+       en='All 92 × 11 MW turbines on jackets (35–43 m of water; the construction lot covers 92 jackets and their pin piles, and China Energy News notes a deep-water jacket with a new transition piece); fully connected on 12 December 2023'),
     # ================================================ 第 4 步（2026-09）：台灣、日本、韓國、美國
     # ------------------------------------------------ Taiwan
     F4('TWN', 'Formosa 1 Phase 1', 'mp',

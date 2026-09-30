@@ -59,11 +59,19 @@ finished items to the topic lists below.
    commissioning, not yet fully operating; Hai Long stays at 2027 per Northland's Q2 report; Taipower phase 2 has Taipower installing the
    turbines itself, aiming for grid connection by the end of 2026. Next checks are under "Re-check periodically" below.
 4. **The rest of foundation step 5**:
+   - A second batch of 6 farms was added on 30 Sep 2026 (v2.13.1); 160 of China's 174 operating offshore farms are still "type unknown".
+     Leads found but not yet usable: Shenquan II, 50 monopiles (the NetEase "monopile installation completed" article does not open; the
+     SASAC and NDRC pages only say "heaviest monopile driven"); Xiangshan 1 phase 2, 36 monopiles + 160 group piles (China Cable Net), with
+     the type of phase 1's 41 turbines / 206 piles not found, and GEM's "Zhejiang Xiangshan 1" record covering both phases duplicates the
+     curated "Guodian Xiangshan 1 Phase 2"; Datang Danzhou CZ3, 25 suction-bucket jackets (the other 95 unknown); CGN Jiazi I, planned
+     70 monopiles + 8 four-pile jackets (secondary technical analysis only); Guoxin Dafeng 850 MW monopiles (only a geotechnical
+     consultancy's project page); no foundation type found for Peninsula South U or Bozhong A / B; Xuwen 600 MW only has a "20 monopiles
+     driven" record.
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
      appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
      source is found (for example CTG completion records the owner may have).
-   - The other Chinese offshore farms (160 of the 168 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (160 of the 174 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
