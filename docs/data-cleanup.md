@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 207 條：刪除 99 筆（其中營運中 30,071.7 MW），修正 108 筆。
+- 規則 213 條：刪除 102 筆（其中營運中 31,371.7 MW），修正 111 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 12 | 12,758 | 8 |
+| 中國大陸 | 15 | 14,058 | 11 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
@@ -72,6 +72,12 @@
 | Hainan CZ2 Demonstration Offshore wind farm · 600 MW · 2025 | GEM | 重複（併入「Shenergy Hainan CZ2 (Dongfang)」） | 同一座風場（申能海南 CZ2 示範風場，67 部 9 MW） | [連結](https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml) |
 | Hainan Danzhou CZ3 (Datang) Offshore wind farm · 600 MW · 2025 | GEM | 重複（併入「Datang Danzhou CZ3」） | 大唐儋州 120 萬瓩（120 部 10 MW）的二期 60 萬瓩；精選紀錄已含兩期 | [連結](http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm) |
 | Hainan CZ3 Demonstration Offshore wind farm · 600 MW · 2025 | GEM | 重複（併入「Datang Danzhou CZ3」） | 同一案的一期 60 萬瓩；精選紀錄已含兩期 | [連結](http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm) |
+| Huarun Cangnan 1 / CR Power · 400 MW · 2023 | 精選 | 修正：年份 | 2022 年 12 月 28 日全容量併網（原寫 2023）；49 部 6.25／10 MW 機組 | [連結](https://www.cpem.org.cn/list68/64746.html) |
+| Zhejiang Energy Cangnan 1 · 400 MW · 2022 | 精選 | 重複（併入「Huarun Cangnan 1 / CR Power」） | 蒼南 1 號是華潤電力的風場（浙能沒有蒼南 1 號），與「華潤電力蒼南1號」重複 | [連結](https://www.cpem.org.cn/list68/64746.html) |
+| Shandong Bozhong (Yankuang GroupOffshore) wind farm · 500 MW · 2022 | GEM | 重複（併入「Shandong Energy Bozhong A」） | 同一座風場（山東能源渤中 A 場址：501 MW、60 部 8.35 MW，2022 年） | [連結](https://sdb.nea.gov.cn/dtyw/hyxx/202309/t20230919_112577.html) |
+| Shandong Energy Bozhong G · 850 MW · 2024 | 精選 | 修正：容量、年份、中文名 | 一期 400.4 MW（35 部 10 MW＋4 部 12.6 MW）2025 年 5 月 31 日全容量併網；原寫 850 MW、2024 年 | [連結](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
+| Shandong Bozhong G Offshore wind farm · 400 MW · 2025 | GEM | 重複（併入「Shandong Energy Bozhong G」） | 同一案的一期（GEM 記為 400 MW、2025） | [連結](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
+| CGN Huizhou Gangkou I · 400 MW · 2022 | 精選 | 修正：名稱、中文名、容量、年份、分期 | 港口風場分兩期共 100 萬瓩、104 部：一期 25 萬瓩 2021 年 12 月 28 日全容量併網，二期 75 萬瓩 2023 年 12 月 12 日投產（新華社）；原只寫 400 MW | [連結](http://www.news.cn/fortune/2023-12/13/c_1130023531.htm) |
 
 ## 丹麥 (DNK)
 

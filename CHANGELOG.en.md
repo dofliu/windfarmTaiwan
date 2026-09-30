@@ -15,6 +15,24 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.13.2 — 2026-09-30
+
+- Foundation step 5 (China), third batch: 5 farms added, every quoted passage checked with `check_quotes.py` — SPIC Binhai North H2 (100 monopiles without
+  transition piece, Jiangsu Society for Electrical Engineering), Guohua Bozhong B2 (59 monopiles, CPEM reprint of the China Energy report), CR Power
+  Cangnan 1 (49 monopiles; the 48 high-rise pile caps in the original design were changed to monopiles; CR Power construction account), Qidong H1 + H2
+  (84 monopiles, Nantong government release) and CGN Yangjiang Fanshi I (73 four-pile jackets, Yangjiang Daily). 19 of China's 171 operating offshore
+  farms are now classified, and the share of operating offshore capacity worldwide with a known type rises from 46.3% to 49.4%.
+- Data corrections: CR Power Cangnan 1 was fully connected on 28 December 2022 (was 2023) and "Zhejiang Energy Cangnan 1" is a duplicate record of the
+  same farm, now merged; Shandong Energy Bozhong A had a GEM duplicate, merged; the curated Bozhong G record said 850 MW and 2024 and now records phase 1
+  (400.4 MW, connected May 2025), with GEM's phase-1 record merged into it; CGN's Huizhou Gangkou farm has two phases totalling 1,000 MW and 104 turbines
+  (phase 1 250 MW in 2021, phase 2 750 MW in 2023), was recorded as 400 MW only, and is renamed "CGN Huizhou Gangkou I & II" (event WIND-026 links to
+  the new name). China's operating offshore farms go from 174 to 171 records.
+- Leads found but not yet usable are in TODO: Nanpeng Island (mostly four-pile jackets plus one 8.7 m monopile, counts unknown), Huaneng Cangnan 4
+  (a mix of six-pile high-rise pile caps and monopiles; "48 caps + 29 monopiles" appears only in a search summary), Changle Waihai C (41 suction-bucket
+  jackets plus four-pile jackets, the latter uncounted), Huadian Yuhuan 1 (10 monopiles in the south section, north unknown), Rudong H4 / H7, Binhai
+  South H3, Bozhong G and Yuhuan 2 (the monopile reports are all on unreachable sites) and Huizhou Gangkou phase 1 (phase 2 is on deep-water jackets,
+  phase 1 unknown).
+
 ## v2.13.1 — 2026-09-30
 
 - Foundation step 5 (China), second batch: 6 farms added, every quoted passage checked with `check_quotes.py` — CTG Dafeng H8-1 (98 monopiles, China News Service),

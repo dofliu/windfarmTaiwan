@@ -137,7 +137,7 @@ FARMS = {
     "WIND-012": ["Hywind Scotland"], "WIND-013": ["Tamra (Jeju Hangyeong)"], "WIND-014": ["Lake Turkana"], "WIND-015": ["Hornsea One"],
     "WIND-016": ["Formosa 1 Phase 2"], "WIND-017": ["Lagoa dos Ventos"], "WIND-018": ["Dumat Al Jandal"], "WIND-019": ["Storheia (Fosen)", "Roan (Fosen)"],
     "WIND-020": ["Kent Hills wind farm · 1, 2"], "WIND-021": ["Storheia (Fosen)", "Roan (Fosen)"], "WIND-022": ["Saint-Nazaire (Banc de Guérande)"],
-    "WIND-023": ["Anholt"], "WIND-024": ["Hornsea Two"], "WIND-025": ["Hinggan (Xing'an) League base"], "WIND-026": ["CGN Huizhou Gangkou I"],
+    "WIND-023": ["Anholt"], "WIND-024": ["Hornsea Two"], "WIND-025": ["Hinggan (Xing'an) League base"], "WIND-026": ["CGN Huizhou Gangkou I & II"],
     "WIND-027": ["Akita Port", "Noshiro Port"], "WIND-028": ["Rokkasho-Mura wind farm"], "WIND-029": ["Goto City Offshore floating project"],
     "WIND-030": ["Hywind Tampen"], "WIND-031": ["Noshiro Port"], "WIND-032": ["Hollandse Kust Zuid I & II", "Hollandse Kust Zuid III & IV"],
     "WIND-033": ["Seagreen Phase 1"], "WIND-035": ["South Fork Wind"], "WIND-036": ["Greater Changhua 1 & 2a"], "WIND-037": ["Dogger Bank A"],
