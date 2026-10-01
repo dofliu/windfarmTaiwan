@@ -1,0 +1,41 @@
+[
+  {
+    "farm": "Xuwen 300 MW expansion (lead)",
+    "sources": [
+      {
+        "url": "http://www.cpem.org.cn/list68/84452.html",
+        "quote": "该项目风机基础全部采用单桩基础，单桩钢管桩最大桩径为9.7米，桩长84米，最大桩重达1636吨"
+      },
+      {
+        "url": "http://www.cpem.org.cn/list68/84452.html",
+        "quote": "总装机容量为300兆瓦，布置25台单机容量12兆瓦的风电机组"
+      }
+    ]
+  },
+  {
+    "farm": "Huaneng Peninsula North BW (lead: tender design only)",
+    "sources": [
+      {
+        "url": "http://www.cpem.org.cn/list99/56313.html",
+        "quote": "总装机容量510MW"
+      },
+      {
+        "url": "http://www.cpem.org.cn/list99/56313.html",
+        "quote": "本阶段暂时预留9个机位做导管架基础设计，剩余机位做单桩基础设计"
+      }
+    ]
+  },
+  {
+    "farm": "Mingyang Yangjiang Qingzhou 4 (lead)",
+    "sources": [
+      {
+        "url": "http://gd.people.com.cn/n2/2023/0614/c123932-40456428-2.html",
+        "quote": "广州打捞局承建了本项目中18台12MW导管架基础及配套钢管桩沉桩施工和18台MySE12-242机型风力发电机组安装"
+      },
+      {
+        "url": "https://chinacable.com/news/details/6061",
+        "quote": "龙源振华接揽其中的25台11MW风机基础及风电机组安装工作，总装机容量为500MW"
+      }
+    ]
+  }
+]

@@ -15,6 +15,30 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.13.4 — 2026-10-01
+
+- Foundation step 5 (China), fourth batch: 5 farms added, every quoted passage checked with `check_quotes.py` — Huaneng Peninsula North L (42 four-pile
+  jackets in 52–56 m of water; SASAC, People's Daily), Shandong Haiwei Peninsula South U (53 monopiles; Longyuan Zhenhua via Century New Energy),
+  Huaneng Cangnan 2 (36 monopiles; Beijing News, CPEM), Huaneng Lingao CZ1 (60 monopiles; China Power) and Guodian Xiangshan 1 (phase 1: 23 pile
+  caps + 18 monopiles; phase 2: 36 monopiles + 160 group piles, i.e. 20 pile caps; China Energy, Xiangshan government). 24 of China's 167 operating
+  offshore farms are now classified, and the share of operating offshore capacity worldwide with a known type rises from 50.1% to 53.3%.
+- Data corrections: Huaneng Peninsula North L (504 MW) was fully connected on 7 April 2026 and goes from under construction to operating; the
+  1,000 MW aggregate "Shandong Energy Bohai / Peninsula North N2 / L" is dropped (its three projects have records of their own); Huaneng Peninsula
+  North BW is corrected to 510 MW and its GEM duplicate merged; the curated Guodian Xiangshan 1 phase 2 record is merged into GEM's Xiangshan 1
+  record, which already carries both phases. China's operating offshore farms go from 169 to 167 records.
+- Leads found but not yet usable are in TODO: the Xuwen 300 MW expansion (25 monopiles; the original 600 MW still has only a partial record),
+  Mingyang Qingzhou 4 (18 jackets, the other 25 turbines unknown) and Peninsula North BW (the tender reserved 9 positions for jackets and the rest
+  for monopiles, but there is no construction record).
+
+## v2.13.3 — 2026-09-30
+
+- Time check on the Yangjiang deep-water sites (quotes checked with `check_quotes.py`): CTG's Qingzhou 5 and 7 (163 turbines, 2,000 MW together)
+  connected their first 5 turbines only on 27 September 2026 and are due in December 2026, so they go from "operating" back to "under construction
+  (2026)", Qingzhou 5's capacity is corrected from 500 to 1,000 MW and GEM's two Qingzhou V / VII records are merged; CGN's Fanshi I and II
+  (2,000 MW, 131 turbines) reached full capacity on 24 September 2026 (was 2025), and Fanshi II belongs to CGN, not Guangdong Energy, so it is
+  renamed "CGN Fanshi II". China's operating offshore capacity drops by 2,000 MW, and the share of operating offshore capacity worldwide with a
+  known foundation type moves from 49.4% to 50.1%.
+
 ## v2.13.2 — 2026-09-30
 
 - Foundation step 5 (China), third batch: 5 farms added, every quoted passage checked with `check_quotes.py` — SPIC Binhai North H2 (100 monopiles without

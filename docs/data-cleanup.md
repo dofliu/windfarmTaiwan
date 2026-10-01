@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 213 條：刪除 102 筆（其中營運中 31,371.7 MW），修正 111 筆。
+- 規則 224 條：刪除 107 筆（其中營運中 33,381.7 MW），修正 117 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 15 | 14,058 | 11 |
+| 中國大陸 | 20 | 16,068 | 17 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
@@ -78,6 +78,17 @@
 | Shandong Energy Bozhong G · 850 MW · 2024 | 精選 | 修正：容量、年份、中文名 | 一期 400.4 MW（35 部 10 MW＋4 部 12.6 MW）2025 年 5 月 31 日全容量併網；原寫 850 MW、2024 年 | [連結](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
 | Shandong Bozhong G Offshore wind farm · 400 MW · 2025 | GEM | 重複（併入「Shandong Energy Bozhong G」） | 同一案的一期（GEM 記為 400 MW、2025） | [連結](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
 | CGN Huizhou Gangkou I · 400 MW · 2022 | 精選 | 修正：名稱、中文名、容量、年份、分期 | 港口風場分兩期共 100 萬瓩、104 部：一期 25 萬瓩 2021 年 12 月 28 日全容量併網，二期 75 萬瓩 2023 年 12 月 12 日投產（新華社）；原只寫 400 MW | [連結](http://www.news.cn/fortune/2023-12/13/c_1130023531.htm) |
+| CTG Yangjiang Qingzhou 5 · 500 MW · 2024 | 精選 | 修正：容量、狀態、年份 | 青洲五是 1,000 MW（原寫 500）、2021 年 11 月開工、預計 2026 年 12 月投產（陽江市 2025 年重點建設項目）；青洲五、七共 163 部、2,000 MW，2026 年 9 月 27 日才首批 5 部併網（陽江市政府），改為興建中 | [連結](https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html) |
+| CTG Yangjiang Qingzhou 7 · 1,000 MW · 2025 | 精選 | 修正：狀態、年份 | 青洲七 1,000 MW，2021 年 11 月開工、預計 2026 年 12 月投產；與青洲五共 163 部，2026 年 9 月 27 日首批 5 部併網，改為興建中（原寫 2025 年營運） | [連結](https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html) |
+| Guangdong Yangjiang Qingzhou V Offshore wind farm · 1,000 MW | GEM | 重複（併入「CTG Yangjiang Qingzhou 5」） | 同一座風場（三峽陽江青洲五，1,000 MW） | [連結](https://www.gdshe.org/article/24026.html) |
+| Guangdong Yangjiang Qingzhou VII Offshore wind farm · 1,000 MW | GEM | 重複（併入「CTG Yangjiang Qingzhou 7」） | 同一座風場（三峽陽江青洲七，1,000 MW） | [連結](https://www.gdshe.org/article/24026.html) |
+| CGN Fanshi I · 1,000 MW · 2025 | 精選 | 修正：年份 | 中廣核帆石一、二共 200 萬瓩、131 部，2026 年 9 月 24 日全容量投運（中新網）；原寫 2025 年 | [連結](https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml) |
+| Guangdong Energy Fanshi II / Yangjiang · 1,000 MW · 2025 | 精選 | 修正：名稱、中文名、業主、年份 | 帆石二是中廣核的風場（63 部 16 MW，陽江市 2025 年重點建設項目），不是粵電；與帆石一同於 2026 年 9 月 24 日全容量投運（原寫 2025 年） | [連結](https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml) |
+| Shandong Huaneng Offshore L Area wind farm · 504 MW | GEM | 修正：狀態、年份 | 華能半島北 L 場址（504 MW、42 部 12 MW）2026 年 4 月 7 日全容量併網（國資委）；GEM 2026-02 版仍列興建中 | [連結](http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html) |
+| Shandong Energy Bohai / Peninsula North N2 / L · 1,000 MW · 2025 | 精選 | 刪除 | 三案合併的彙總：半島北 L（華能，504 MW，2026 年 4 月併網）與半島北 N2（上海電氣，900 MW，興建中）已各有 GEM 紀錄，山東能源渤海即渤中 G 一期（已有精選紀錄） | [連結](http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html) |
+| Huaneng Peninsula North BW · 500 MW · 2024 | 精選 | 修正：容量 | 華能半島北 BW 是 510 MW（60 部 8.5 MW；原寫 500） | [連結](http://www.cpem.org.cn/list99/56313.html) |
+| Shandong Bandaobei BW Offshore wind farm · 510 MW · 2024 | GEM | 重複（併入「Huaneng Peninsula North BW」） | 同一座風場（華能山東半島北 BW，510 MW，2024 年） | [連結](http://www.cpem.org.cn/list99/56313.html) |
+| Guodian Xiangshan 1 Phase 2 · 500 MW · 2025 | 精選 | 重複（併入「Zhejiang Xiangshan 1 Offshore wind farm」） | 國電象山 1 號二期（504 MW、56 部 9 MW，2024 年 1 月主體完工）；GEM 的象山 1 號一筆已含一期 254 MW 與二期 504 MW 兩期 | [連結](http://mm.chinapower.com.cn/flfd/hsfd/20240102/230553.html) |
 
 ## 丹麥 (DNK)
 

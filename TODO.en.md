@@ -58,6 +58,8 @@ finished items to the topic lists below.
 3. **Time-sensitive checks (one round done on 30 Sep 2026)**: Greater Changhua 2b & 4 was completed on 1 Sep 2026 and is in final
    commissioning, not yet fully operating; Hai Long stays at 2027 per Northland's Q2 report; Taipower phase 2 has Taipower installing the
    turbines itself, aiming for grid connection by the end of 2026. Next checks are under "Re-check periodically" below.
+   Second round (v2.13.3): CTG's Qingzhou 5 and 7 connected their first turbines only on 27 Sep 2026 and go back to under construction
+   (due Dec 2026); CGN's Fanshi I and II reached full capacity on 24 Sep 2026.
 4. **The rest of foundation step 5**:
    - A second batch of 6 farms was added on 30 Sep 2026 (v2.13.1); 160 of China's 174 operating offshore farms are still "type unknown".
      Leads found but not yet usable: Shenquan II, 50 monopiles (the NetEase "monopile installation completed" article does not open; the
@@ -76,11 +78,18 @@ finished items to the topic lists below.
      south section (tender notice), the 22 northern turbines unknown; Rudong H4 / H7 (100 steel piles each), Binhai South H3 (75), Bozhong G
      (7.5 m monopiles) and Yuhuan 2 (the MSA notice says monopile driving) all have their monopile reports only on unreachable sites (BJX,
      in-en.com, hynyw.com, MSA); Huizhou Gangkou phase 2 is on deep-water four-pile jackets, the 40 turbines of phase 1 unknown.
+   - A fourth batch of 5 farms was added on 1 Oct 2026 (v2.13.4); 143 of China's 167 operating offshore farms are still "type unknown". The
+     Xiangshan 1 lead from batch 2 is resolved (phase 1: 23 pile caps + 18 monopiles; phase 2: 36 monopiles + 20 pile caps). Leads found but
+     not yet usable (quotes checked, in `tools/research/cn_step5d_2026-10.json`): the Xuwen 300 MW expansion has all 25 turbines on monopiles
+     (CPEM, from the Guangdong design institute), but GEM's single Xuwen record (906 MW) includes the original 600 MW, which still only has a
+     "20 monopiles driven" record; Mingyang Qingzhou 4 has 18 turbines on four-pile jackets by Guangzhou Salvage (People's Daily) and the
+     type of Longyuan Zhenhua's 25 is unknown; Huaneng Peninsula North BW's tender "reserved 9 positions for jackets, the rest monopiles"
+     (CPEM) with no construction record; the EIA of Guoneng Peninsula South U2 phase 2 says monopiles, but it is still under construction.
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
      appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
      source is found (for example CTG completion records the owner may have).
-   - The other Chinese offshore farms (152 of the 171 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (143 of the 167 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
@@ -117,6 +126,9 @@ finished items to the topic lists below.
 
 ## Re-check periodically (time-sensitive, not code problems)
 
+- [ ] CTG Yangjiang Qingzhou 5 and 7 (1,000 MW each, 163 turbines together): first 5 turbines connected on 27 Sep 2026, and Yangjiang's
+      2025 key-project list gives December 2026 for commissioning; once fully connected, change `st=1, year=2026` in the two rules in
+      `tools/farm_cleanup.py` to operating (CTG's own site is unreachable; the Yangjiang city government or China News Service report it).
 - [ ] Taipower Offshore Phase 2: on 30 Jul 2026 Taipower took over turbine installation under the contract and agreed terms with Vestas,
       30 turbines to go, grid connection targeted for year-end (CNA); completion is still given as "2027". Check at year-end whether it
       connected and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed

@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 213 rules: 102 records removed (31,371.7 MW of them operating), 111 records fixed.
+- 224 rules: 107 records removed (33,381.7 MW of them operating), 117 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 15 | 14,058 | 11 |
+| China | 20 | 16,068 | 17 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -108,6 +108,17 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Shandong Energy Bozhong G · 850 MW · 2024 | curated | fixed: capacity, year, Chinese name | Phase 1 is 400.4 MW (35 × 10 MW plus 4 × 12.6 MW), fully connected on 31 May 2025; was 850 MW and 2024 | [link](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
 | Shandong Bozhong G Offshore wind farm · 400 MW · 2025 | GEM | duplicate of “Shandong Energy Bozhong G” | Phase 1 of the same project (GEM: 400 MW, 2025) | [link](https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml) |
 | CGN Huizhou Gangkou I · 400 MW · 2022 | curated | fixed: name, Chinese name, capacity, year, phases | The Gangkou farm has two phases totalling 1,000 MW and 104 turbines: phase 1 (250 MW) fully connected on 28 December 2021, phase 2 (750 MW) commissioned on 12 December 2023 (Xinhua); was 400 MW | [link](http://www.news.cn/fortune/2023-12/13/c_1130023531.htm) |
+| CTG Yangjiang Qingzhou 5 · 500 MW · 2024 | curated | fixed: capacity, status, year | Qingzhou 5 is 1,000 MW (was 500), started November 2021 and is due in December 2026 (Yangjiang’s 2025 key-project list); Qingzhou 5 and 7 together have 163 turbines and 2,000 MW and connected their first 5 turbines only on 27 September 2026 (Yangjiang city government), so it goes back to under construction | [link](https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html) |
+| CTG Yangjiang Qingzhou 7 · 1,000 MW · 2025 | curated | fixed: status, year | Qingzhou 7 (1,000 MW) started November 2021 and is due in December 2026; with Qingzhou 5 it has 163 turbines, the first 5 connected on 27 September 2026, so it goes back to under construction (was operating since 2025) | [link](https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html) |
+| Guangdong Yangjiang Qingzhou V Offshore wind farm · 1,000 MW | GEM | duplicate of “CTG Yangjiang Qingzhou 5” | Same farm (CTG Yangjiang Qingzhou 5, 1,000 MW) | [link](https://www.gdshe.org/article/24026.html) |
+| Guangdong Yangjiang Qingzhou VII Offshore wind farm · 1,000 MW | GEM | duplicate of “CTG Yangjiang Qingzhou 7” | Same farm (CTG Yangjiang Qingzhou 7, 1,000 MW) | [link](https://www.gdshe.org/article/24026.html) |
+| CGN Fanshi I · 1,000 MW · 2025 | curated | fixed: year | CGN’s Fanshi I and II (2,000 MW, 131 turbines) reached full capacity on 24 September 2026 (China News Service); was 2025 | [link](https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml) |
+| Guangdong Energy Fanshi II / Yangjiang · 1,000 MW · 2025 | curated | fixed: name, Chinese name, owner, year | Fanshi II is CGN’s farm (63 × 16 MW, Yangjiang’s 2025 key-project list), not Guangdong Energy’s; it reached full capacity with Fanshi I on 24 September 2026 (was 2025) | [link](https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml) |
+| Shandong Huaneng Offshore L Area wind farm · 504 MW | GEM | fixed: status, year | Huaneng’s Peninsula North site L (504 MW, 42 × 12 MW) was fully connected on 7 April 2026 (SASAC); GEM’s February 2026 release still lists it as under construction | [link](http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html) |
+| Shandong Energy Bohai / Peninsula North N2 / L · 1,000 MW · 2025 | curated | removed | An aggregate of three projects that now have records of their own: Peninsula North L (Huaneng, 504 MW, connected April 2026) and N2 (Shanghai Electric, 900 MW, under construction) from GEM, and Shandong Energy’s Bohai farm, which is Bozhong G phase 1 (curated) | [link](http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html) |
+| Huaneng Peninsula North BW · 500 MW · 2024 | curated | fixed: capacity | Huaneng’s Peninsula North BW is 510 MW (60 × 8.5 MW; was 500) | [link](http://www.cpem.org.cn/list99/56313.html) |
+| Shandong Bandaobei BW Offshore wind farm · 510 MW · 2024 | GEM | duplicate of “Huaneng Peninsula North BW” | Same farm (Huaneng Shandong Peninsula North BW, 510 MW, 2024) | [link](http://www.cpem.org.cn/list99/56313.html) |
+| Guodian Xiangshan 1 Phase 2 · 500 MW · 2025 | curated | duplicate of “Zhejiang Xiangshan 1 Offshore wind farm” | Guodian Xiangshan 1 phase 2 (504 MW, 56 × 9 MW, main works finished January 2024); GEM’s Xiangshan 1 record already carries both phase 1 (254 MW) and phase 2 (504 MW) | [link](http://mm.chinapower.com.cn/flfd/hsfd/20240102/230553.html) |
 
 ## Colombia (COL)
 
