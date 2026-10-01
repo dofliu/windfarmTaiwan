@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 224 條：刪除 107 筆（其中營運中 33,381.7 MW），修正 117 筆。
+- 規則 237 條：刪除 116 筆（其中營運中 35,573.7 MW），修正 121 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 20 | 16,068 | 17 |
+| 中國大陸 | 26 | 18,170 | 20 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
@@ -46,7 +46,7 @@
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 9 | 1,307 | 4 |
+| 越南 | 12 | 1,397 | 5 |
 
 ## 中國大陸 (CHN)
 
@@ -89,6 +89,15 @@
 | Huaneng Peninsula North BW · 500 MW · 2024 | 精選 | 修正：容量 | 華能半島北 BW 是 510 MW（60 部 8.5 MW；原寫 500） | [連結](http://www.cpem.org.cn/list99/56313.html) |
 | Shandong Bandaobei BW Offshore wind farm · 510 MW · 2024 | GEM | 重複（併入「Huaneng Peninsula North BW」） | 同一座風場（華能山東半島北 BW，510 MW，2024 年） | [連結](http://www.cpem.org.cn/list99/56313.html) |
 | Guodian Xiangshan 1 Phase 2 · 500 MW · 2025 | 精選 | 重複（併入「Zhejiang Xiangshan 1 Offshore wind farm」） | 國電象山 1 號二期（504 MW、56 部 9 MW，2024 年 1 月主體完工）；GEM 的象山 1 號一筆已含一期 254 MW 與二期 504 MW 兩期 | [連結](http://mm.chinapower.com.cn/flfd/hsfd/20240102/230553.html) |
+| CR Power Cangnan 2 / Wenzhou · 500 MW · 2024 | 精選 | 重複（併入「Zhejiang Cangnan 2 Offshore wind farm」） | 蒼南 2 號是華能的風場（36 部 8.5 MW、300 MW），不是華潤；這筆 500 MW 是蒼南 2 號與「溫州洞頭」等合併的彙總，GEM 已有蒼南 2 號本身的紀錄 | [連結](https://new.qq.com/rain/a/20230419A060DE00) |
+| Guangxi Qinzhou / Fangchenggang B · 500 MW · 2025 | 精選 | 重複（併入「Guangxi Fangchenggang A」） | 廣西目前建成的只有防城港示範項目 A 場址（700 MW、83 部，2025 年 2 月 7 日全容量投產）；這筆「欽州／防城港 B」500 MW 是規劃場址，與 A 場址重複 | [連結](http://www.gx.xinhua.org/20250208/489586cf99ff4ed8908866faa90a118f/c.html) |
+| Zhuanghe V / Liaoning 2025 · 500 MW · 2025 | 精選 | 修正：名稱、中文名、容量、業主 | 莊河場址 V 是 250 MW（24 部 9 MW＋4 部 8.5 MW，招商局太平灣與三峽能源），2025 年 4 月主體完工；原寫 500 MW、名稱混入「遼寧 2025」 | [連結](https://finance.sina.com.cn/jjxw/2025-04-13/doc-inesycqi0944554.shtml) |
+| Jiangsu Sheyang Southern Area H5 Offshore wind farm · 400 MW · 2024 | GEM | 修正：狀態、年份 | 龍源射陽 100 萬瓩案一期（H4、H5，35 部 8.5 MW、297.5 MW）2026 年 4 月 30 日才開始製作單樁，仍在興建；GEM 列為 2024 年營運 | [連結](https://hykzsxny.jstec.com.cn/news/202612828050571160) |
+| Huaneng Zhuanghe IV1 · 250 MW · 2021 | 精選 | 重複（併入「Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm」） | 同一座風場（華能莊河 Ⅳ1，350 MW、51 部，2021 年 12 月 29 日全容量併網）；GEM 的容量正確 | [連結](https://www.chinanews.com/ny/2021/12-29/9640309.shtml) |
+| Zhejiang Putuo 6 Offshore wind farm · 252 MW · 2019 | GEM | 重複（併入「Guodian Zhoushan Putuo 6#2」） | 同一座風場（國電電力舟山普陀 6 號 2 區，252 MW、63 部西門子 4 MW，2019 年） | [連結](https://www.ceic.com/gjnyjtww/chnyxfc/202006/e5a14799afc44f2a890f4e1784673ac0.shtml) |
+| Shanghai Lingang Demonstration Phase 1 · 102 MW · 2016 | 精選 | 修正：年份、機組 | 臨港一期示範 25 部 4 MW（上海電氣 W4000）2018 年 5 月開工、2019 年完工，晚於二期；原寫 2016 年、3.6 MW 機組 | [連結](https://www.fegroup.com.cn/ydkg/xwzx79/gsxw10/577818/index.html) |
+| Guangdong Energy Zhanjiang Xuwen · 300 MW · 2021 | 精選 | 重複（併入「Guangdong Zhanjiang Xuwen Offshore wind farm」） | 湛江徐聞 600 MW（94 部 6.45 MW，2021 年 11 月 26 日全容量併網）是國家電投的風場，這筆「粵電徐聞 300 MW」只是其中一半；GEM 的徐聞一筆已含 600 MW 原場與 300 MW 增容 | [連結](https://www.ne21.com/news/show-166655.html) |
+| Shandong Changyi Laizhouwan Offshore wind farm · 300 MW · 2022 | GEM | 重複（併入「CTG Changyi」） | 同一座風場（三峽昌邑萊州灣一期／海洋牧場融合示範，300 MW、50 部 6 MW，2022 年） | [連結](http://www.sasac.gov.cn/n2588025/n2588124/c26784560/content.html) |
 
 ## 丹麥 (DNK)
 
@@ -446,6 +455,10 @@
 | Tan An 1 Phase 1 (Ca Mau) · 30 MW · 2021 | 精選 | 重複（併入「Tân An 1 offshore wind farm」） | 同一座風場 | [連結](https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/84-du-an-dien-gio-kip-van-hanh-thuong-mai-voi-tong-cong-suat-hon-3.980-mw.html) |
 | Tân An 1 offshore wind farm · 115 MW · 2021 | GEM | 修正：容量、分期 | 只有第一期 25 MW 商轉（2021）；後續各期到 2024 年仍未併網 | [連結](https://thanhnien.vn/ca-mau-kiem-tra-phat-hien-thieu-sot-o-2-nha-may-dien-gio-18524042817170935.htm) |
 | Hiệp Thành wind farm · 65 MW · 2023 | GEM | 重複（併入「Hiep Thanh (Tra Vinh)」） | 同一座風場（茶榮省沿海的 Hiệp Thạnh；GEM 列為陸域） | 資料比對 |
+| Thanh Hải No. 5 Offshore wind farm · 127 MW · 2021 | GEM | 修正：業主、容量 | 檳椥 5 號（成海）風場是新環球檳椥公司的案子，不是越南電力公司；全案 28 部、120 MW（EVN 落成報導） | [連結](https://www.evn.com.vn/d6/news/Khanh-thanh-Nha-may-dien-gio-so-5-Thanh-Hai-Ben-Tre-100-668-55952.aspx) |
+| Ben Tre 5 Thanh Hai 1 · 30 MW · 2021 | 精選 | 重複（併入「Thanh Hải No. 5 Offshore wind farm」） | 5 號風場一期（成海 1，7 部 30 MW）；GEM 的一筆已含全案 | [連結](https://lethycorp.com/du-an-da-thi-cong/dien-gio-so-5.html) |
+| Ben Tre 5 Thanh Hai 2 · 30 MW · 2022 | 精選 | 重複（併入「Thanh Hải No. 5 Offshore wind farm」） | 5 號風場二期（成海 2–4，21 部 90 MW）的一部分；GEM 的一筆已含全案 | [連結](https://lethycorp.com/du-an-da-thi-cong/dien-gio-so-5.html) |
+| VPL 1 nearshore wind power plant · 30 MW · 2021 | GEM | 重複（併入「VPL Ben Tre (Nexif Ben Tre 1)」） | 同一座風場（Nexif 的 VPL 檳椥一期，30 MW，平大縣） | [連結](https://www.phanvu.vn/en-US/vpl-ben-tre-wind-power-plant-p1) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 
