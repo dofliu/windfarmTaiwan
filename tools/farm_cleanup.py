@@ -745,6 +745,23 @@ RULES = [
         '帆石二是中廣核的風場（63 部 16 MW，陽江市 2025 年重點建設項目），不是粵電；與帆石一同於 2026 年 9 月 24 日全容量投運（原寫 2025 年）',
         'Fanshi II is CGN’s farm (63 × 16 MW, Yangjiang’s 2025 key-project list), not Guangdong Energy’s; it reached full capacity with Fanshi I on 24 September 2026 (was 2025)',
         'https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml', rename='CGN Fanshi II', zhname='中廣核陽江帆石二', owner='CGN New Energy', year=2026),
+    # ------------------------------------------------ 2026-10-01 查中國水下基礎第四批時發現（出處原文已以 check_quotes 核對）
+    fix('CHN', 'Shandong Huaneng Offshore L Area wind farm', G,
+        '華能半島北 L 場址（504 MW、42 部 12 MW）2026 年 4 月 7 日全容量併網（國資委）；GEM 2026-02 版仍列興建中',
+        'Huaneng’s Peninsula North site L (504 MW, 42 × 12 MW) was fully connected on 7 April 2026 (SASAC); GEM’s February 2026 release still lists it as under construction',
+        'http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html', st=0, year=2026),
+    drop('CHN', 'Shandong Energy Bohai / Peninsula North N2 / L', C,
+        '三案合併的彙總：半島北 L（華能，504 MW，2026 年 4 月併網）與半島北 N2（上海電氣，900 MW，興建中）已各有 GEM 紀錄，山東能源渤海即渤中 G 一期（已有精選紀錄）',
+        'An aggregate of three projects that now have records of their own: Peninsula North L (Huaneng, 504 MW, connected April 2026) and N2 (Shanghai Electric, 900 MW, under construction) from GEM, and Shandong Energy’s Bohai farm, which is Bozhong G phase 1 (curated)',
+        'http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html'),
+    fix('CHN', 'Huaneng Peninsula North BW', C, '華能半島北 BW 是 510 MW（60 部 8.5 MW；原寫 500）', 'Huaneng’s Peninsula North BW is 510 MW (60 × 8.5 MW; was 500)',
+        'http://www.cpem.org.cn/list99/56313.html', mw=510),
+    dup('CHN', 'Shandong Bandaobei BW Offshore wind farm', G, ('Huaneng Peninsula North BW', C),
+        '同一座風場（華能山東半島北 BW，510 MW，2024 年）', 'Same farm (Huaneng Shandong Peninsula North BW, 510 MW, 2024)', 'http://www.cpem.org.cn/list99/56313.html'),
+    dup('CHN', 'Guodian Xiangshan 1 Phase 2', C, ('Zhejiang Xiangshan 1 Offshore wind farm', G),
+        '國電象山 1 號二期（504 MW、56 部 9 MW，2024 年 1 月主體完工）；GEM 的象山 1 號一筆已含一期 254 MW 與二期 504 MW 兩期',
+        'Guodian Xiangshan 1 phase 2 (504 MW, 56 × 9 MW, main works finished January 2024); GEM’s Xiangshan 1 record already carries both phase 1 (254 MW) and phase 2 (504 MW)',
+        'http://mm.chinapower.com.cn/flfd/hsfd/20240102/230553.html'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）

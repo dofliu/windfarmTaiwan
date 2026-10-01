@@ -409,6 +409,22 @@ FOUNDATIONS = [
     F5('CHN', 'CGN Fanshi I', 'jk', url='https://www.yjrb.com.cn/content/c211953.html',
        zh='73 部（22 部 13.6 MW＋51 部 14 MW）用四樁套管，水深 40–48 m（陽江日報的施工報導，32 號機位四根套管樁）',
        en='73 turbines (22 × 13.6 MW and 51 × 14 MW) on four-pile jackets in 40–48 m of water (Yangjiang Daily construction report on the four jacket piles at position 32)'),
+    # 2026-10-01 第四批（出處原文皆以 check_quotes 核對）· fourth batch, every quote checked
+    F5('CHN', 'Shandong Huaneng Offshore L Area wind farm', 'jk', url='http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html',
+       zh='42 部 12 MW 全部用四樁套管（最高 83.9 m），水深 52–56 m、離岸約 70 km，中國水深最深的商轉離岸風場；2026 年 4 月 7 日全容量併網（國資委、人民日報）',
+       en='All 42 × 12 MW turbines on four-pile jackets (up to 83.9 m tall) in 52–56 m of water about 70 km offshore, China’s deepest operating offshore farm; fully connected on 7 April 2026 (SASAC, People’s Daily)'),
+    F5('CHN', 'Shandong Haiwei Peninsula South U', 'mp', url='https://www.ne21.com/news/show-201133.html',
+       zh='53 座單樁（龍源振華 2024 年 9 月全部沉樁完成；53 部 8.5 MW）',
+       en='53 monopiles (all driven by Longyuan Zhenhua by September 2024; 53 × 8.5 MW)'),
+    F5('CHN', 'Zhejiang Cangnan 2 Offshore wind farm', 'mp', url='https://news.qq.com/rain/a/20230419A0355R00',
+       zh='華能蒼南 2 號 36 部 8.5 MW 全部為單樁（新京報 2023 年 4 月「國內在建最大單樁風電項目」報導；最長樁 118 m、2,328 t，CPEM）',
+       en='Huaneng’s Cangnan 2: all 36 × 8.5 MW turbines on monopiles (Beijing News, April 2023, “China’s largest monopile wind project under construction”; longest pile 118 m and 2,328 t, CPEM)'),
+    F5('CHN', 'Huaneng Lingao CZ1', 'mp', url='http://mm.chinapower.com.cn/flfd/xmjz/20241118/267592.html',
+       zh='60 部 10 MW 全部為單樁（直徑 8.25–9.6 m、長 82–109 m、重 1,191–1,938 t；2024 年 11 月 17 日全部沉樁完成，中國電力網）',
+       en='All 60 × 10 MW turbines on monopiles (8.25–9.6 m in diameter, 82–109 m long, 1,191–1,938 t; all driven by 17 November 2024, China Power)'),
+    F5('CHN', 'Zhejiang Xiangshan 1 Offshore wind farm', 'mx', url='https://www.ceic.com/gjnyjtww/chnyxfc/202101/e0582b74a0ef45c88a70e33ecc70a6ff.shtml', parts=[['pc', 43], ['mp', 54]],
+       zh='一期 41 部 6.2 MW：23 座高樁承台＋18 座單樁（國家能源集團）；二期 56 部 9 MW：36 座單樁＋160 根群樁（象山發布經中國線纜網），即 20 座高樁承台；兩期合計 43 座承台、54 座單樁',
+       en='Phase 1, 41 × 6.2 MW: 23 high-rise pile caps and 18 monopiles (China Energy); phase 2, 56 × 9 MW: 36 monopiles plus 160 group piles (Xiangshan government via China Cable), i.e. 20 pile caps; 43 caps and 54 monopiles in all'),
     # ================================================ 第 4 步（2026-09）：台灣、日本、韓國、美國
     # ------------------------------------------------ Taiwan
     F4('TWN', 'Formosa 1 Phase 1', 'mp',
