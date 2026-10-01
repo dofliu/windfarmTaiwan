@@ -1362,29 +1362,6 @@
   ]
  },
  {
-  "farm": "CGN Rudong Demonstration",
-  "type": "mp",
-  "parts": null,
-  "turbines": 38,
-  "note_zh": "38台、152MW，2016-09全場投運；採可拆卸穩樁平台浮吊沉樁，首個深水區無過渡段單樁（央廣網 2016-09-08；中國電器工業協會轉新華網 2016-09-14）；來源未明說38座全為單樁。",
-  "note_en": "38 turbines, 152 MW, fully in service Sep 2016; built with a detachable pile-guide platform and floating-crane driving as the first deep-water monopiles without transition piece (CNR, 8 Sep 2016; CEEIA via Xinhua, 14 Sep 2016); the sources do not state outright that all 38 are monopiles.",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "http://china.cnr.cn/gdgg/20160908/t20160908_523123451.shtml",
-    "quote": "共安装38台风电机组，总装机容量为15.2万千瓦"
-   },
-   {
-    "url": "http://china.cnr.cn/gdgg/20160908/t20160908_523123451.shtml",
-    "quote": "实现了首个深水区无过渡段单桩、稳桩平台工艺，成功解决了单桩垂直度需控制在千分之三以内的世界难题"
-   },
-   {
-    "url": "https://www.ceeia.com/FDHYXW/d/201609/67311.html",
-    "quote": "实现了首个深水区无过渡段单桩、稳桩平台工艺"
-   }
-  ]
- },
- {
   "farm": "Longyuan Rudong Intertidal 150 MW Demo",
   "type": "mx",
   "parts": [
@@ -2171,6 +2148,220 @@
    {
     "url": "https://www.ne21.com/news/show-134369.html",
     "quote": "规划总装机容量300MW，拟安装75台单机容量4MW的风电机组"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Rudong",
+  "type": "unknown",
+  "parts": null,
+  "turbines": 70,
+  "note_zh": "如東八仙角300MW（70台：4MW、4.2MW、5MW三種機型；2017年9月全部投運）；基礎型式查無施工紀錄，僅見業主公司2024年申請「海上風機單樁基礎抗沖刷」專利，不足以證明全場單樁。來源：中國能源網 2019、金融界 2025。",
+  "note_en": "Rudong Baxianjiao 300 MW (70 turbines of 4, 4.2 and 5 MW; fully commissioned Sept 2017). No construction record of the foundation type found; only a 2024 patent by the farm company on monopile scour protection, which is not proof that the whole farm is on monopiles. Sources: china5e 2019, jrj 2025.",
+  "anomalies": "資料庫寫 70x Sewind/Siemens 4.0-4.3 MW，實為 12台遠景4MW＋38台上海電氣西門子4MW＋20台中國海裝5MW（百度搜尋摘要／china5e：三種機型）。",
+  "sources": [
+   {
+    "url": "https://www.china5e.com/news/news-1053335-1.html",
+    "quote": "如东八仙角海上风电项目位于江苏省南通市如东海域，总装机容量30万千瓦，共有70台风机，总投资53亿元。"
+   },
+   {
+    "url": "https://www.china5e.com/news/news-1053335-1.html",
+    "quote": "70台海上风机包括4MW、4.2MW和5MW三种机型，其中，20台5MW风机由中国船舶重工集团海装风电股份有限公司（下称“中国海装”）提供"
+   },
+   {
+    "url": "https://m.jrj.com.cn/madapter/finance/2025/09/09184053026338.shtml",
+    "quote": "华能国际电力江苏能源开发有限公司清洁能源分公司申请一项名为“一种海上风电单桩基础桩监测装置”的专利"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Yangjiang Shapa Phase 1",
+  "type": "mx",
+  "parts": [
+   [
+    "mp",
+    null
+   ],
+   [
+    "jk",
+    null
+   ],
+   [
+    "sb",
+    null
+   ]
+  ],
+  "turbines": 55,
+  "note_zh": "一期300MW、55台明陽5.5MW（2021年6月全容量並網）。核准變更後基礎改為單樁、四樁導管架、單柱複合筒、吸力桶導管架四種；中新網證實沙扒項目使用吸力筒導管架、單柱複合筒、芯柱式嵌岩導管架、大直徑四樁導管架等為國內首次。各型式座數未查得。來源：搜狐（核准變更）2024、中新網／科技日報 2021-07-19、陽西縣政府 2021-07-26。",
+  "note_en": "Phase 1: 300 MW, 55 Mingyang 5.5 MW (full capacity June 2021). After the approval change the foundations are monopiles, four-pile jackets, single-column composite buckets and suction-bucket jackets; chinanews confirms suction-bucket jackets, composite buckets, rock-socketed core-column jackets and large-diameter four-pile jackets were used at Shapa, each a first in China. Counts per type not found. Sources: sohu (approval change) 2024, chinanews/S&T Daily 2021-07-19, Yangxi county 2021-07-26.",
+  "anomalies": "資料庫年份2019偏早：陽西縣政府稱一期2021年6月已全部投運；三峽新能源陽江發電有限公司為業主（資料庫業主欄空白）。",
+  "sources": [
+   {
+    "url": "https://www.sohu.com/a/789824114_121779604",
+    "quote": "调整后风机基础采用的桩型分别为单桩基础、四桩导管架基础、单柱复合筒基础和吸力桶导管架基础。单桩基础桩径 8.4m；四桩导管架基础桩径 2.4m，根开 22m；单桩复合筒基础桩径 36m；吸力桶导管架基础桩径 13m，根开 30m。"
+   },
+   {
+    "url": "https://www.chinanews.com.cn/m/sh/2021/07-19/9522993.shtml",
+    "quote": "三峡沙扒项目创新使用多种施工技术和基础形式，其中吸力筒导管架、单柱复合筒、芯柱式嵌岩导管架、大直径四桩导管架等多个基础形式均为国内首次使用"
+   },
+   {
+    "url": "http://www.yangxi.gov.cn/xw/yxxw/content/post_548949.html",
+    "quote": "作为最早开工建设的三峡沙扒一期30万千瓦项目，规划安装55台5.5兆瓦风机，目前，已全部投入运营发电。"
+   }
+  ]
+ },
+ {
+  "farm": "Tangshan Laoting Putidao",
+  "type": "mx",
+  "parts": [
+   [
+    "pc",
+    15
+   ],
+   [
+    "mp",
+    null
+   ]
+  ],
+  "turbines": 75,
+  "note_zh": "75台4MW（西門子SWT-4.0-130）。中交三航局負責15台高樁混凝土（承台）基礎及75台風機安裝；華電重工簽訂「單樁風機基礎施工合同」（北極星，無法抓取），華西海工2018年11月在此完成首個單樁基礎施工，2018年8月首根單樁33#沉樁；試驗風場6台樣機為承台（北極星 2016，無法抓取）。單樁座數未查得（推測60）。來源：中交三航局（百家號）2023、華西海工大事記、中國電器工業協會 2017。",
+  "note_en": "75 x 4 MW (Siemens SWT-4.0-130). CCCC Third Harbour built 15 high-pile concrete cap foundations and installed all 75 turbines; Huadian Heavy signed a 'monopile foundation construction contract' (bjx, not fetchable), Huaxi Offshore drove its first monopile here in Nov 2018, first monopile 33# in Aug 2018; the 6 pilot turbines are on caps (bjx 2016, not fetchable). Monopile count not verified (presumably 60). Sources: CCCC Third Harbour (baijiahao) 2023, Huaxi Offshore history, CEEIA 2017.",
+  "anomalies": "資料庫機型「Goldwind/Envision 4-5 MW」有誤，為75台西門子SWT-4.0-130；業主河北建投（新天綠色能源母公司）。",
+  "sources": [
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1755608206977396947&wfr=spider&for=pc",
+    "quote": "三航局负责15台高桩混凝土基础的土建及金属结构安装工程和75台单机容量为4.0兆瓦风机机组的安装，风电场装机总容量为300兆瓦。"
+   },
+   {
+    "url": "https://www.hxoes.com/history.html",
+    "quote": "2018年11月 华西5000在唐山乐亭菩提岛海上风电场项目中完成公司首个海上风电单桩基础施工，标志公司正式进军海上风电行业。"
+   },
+   {
+    "url": "https://www.ceeia.com/XWZX/d/201705/69430.html",
+    "quote": "该工程装机容量为 300 兆瓦，选用了 75 台 4 兆瓦海上风电机组（拟装 75 台西门子 SWT-4.0-130 型风力发电机组）"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Jiangsu Dafeng 300 MW",
+  "type": "mx",
+  "parts": [
+   [
+    "mp",
+    null
+   ],
+   [
+    "sb",
+    null
+   ]
+  ],
+  "turbines": 73,
+  "note_zh": "三峽新能源江蘇大豐300MW：73台風機（含6.45MW試驗機），2019年11月全容量並網；以大直徑單樁為主（2018年12月完成當時國內最大直徑7–8m單樁），另有複合筒基礎與風機一體化施工（澎湃圖說）。複合筒座數未查得。來源：三峽新能源（澎湃號）2019-11-15、界面新聞 2017。",
+  "note_en": "CTG New Energy Jiangsu Dafeng 300 MW: 73 turbines (incl. a 6.45 MW test unit), full capacity Nov 2019; mainly large-diameter monopiles (China's largest 7–8 m monopile at the time, Dec 2018), plus composite-bucket foundations installed integrally with the turbine (thepaper photo captions). Composite-bucket count not found. Sources: CTG New Energy via thepaper 2019-11-15, Jiemian 2017.",
+  "anomalies": "資料庫業主「Huaneng Jiangsu Clean Energy」有誤，應為三峽新能源；年份應為2019（2019-11全容量並網）；73台（金風6.45MW等），非資料庫所寫 Goldwind/Mingyang/Sewind 5-6 MW mix（待查）。",
+  "sources": [
+   {
+    "url": "https://www.thepaper.cn/newsDetail_forward_4965158",
+    "quote": "项目总装机容量30万千瓦，共安装73台风力发电机组，并配套建设一座220千伏海上升压站和一座陆上集控中心。"
+   },
+   {
+    "url": "https://www.thepaper.cn/newsDetail_forward_4965158",
+    "quote": "复合筒基础及风机一体化施工 单桩基础立桩 沉桩完成"
+   },
+   {
+    "url": "https://www.jiemian.com/article/1314196.html",
+    "quote": "对于大丰海上风电项目，三峡新能源公司计划应用8米以上大直径单桩基础，规模化安装国内大功率海上型风电机组"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Dalian Zhuanghe III",
+  "type": "unknown",
+  "parts": null,
+  "turbines": null,
+  "note_zh": "莊河Ⅲ（300MW）為三峽新能源的場址（大連市海洋發展局用海公示；三峽上海院設計），不是華能；華能在莊河的是Ⅱ（300MW）與Ⅳ1（350MW）。華能莊河Ⅱ有全球首台海冰區吸力筒導管架基礎（27號機位）；莊河Ⅲ基礎型式未查得。來源：華能集團（搜狐）2021-01-06、華東院 2024。",
+  "note_en": "Zhuanghe III (300 MW) is a CTG New Energy site (Dalian marine bureau sea-use notice; designed by CTG's Shanghai institute), not Huaneng's; Huaneng's Zhuanghe sites are II (300 MW) and IV1 (350 MW). Huaneng Zhuanghe II has the world's first suction-bucket jacket in a sea-ice area (unit 27); the foundation type of Zhuanghe III was not found. Sources: Huaneng via sohu 2021-01-06, HDEC 2024.",
+  "anomalies": "名稱／業主可能錯置：莊河Ⅲ 300MW 屬三峽新能源（hyfz.dl.gov.cn「三峡新能源大连市庄河Ⅲ(300MW)海上风电场项目用海」，頁面抓不到內文）；華能的是莊河Ⅱ 300MW（2021年全容量）。請核對資料庫是否另有三峽莊河Ⅲ一筆而重複。",
+  "sources": [
+   {
+    "url": "https://www.sohu.com/a/442804269_680494",
+    "quote": "27号风机基础顺利完成安装工序，标志着 全球首台海冰地区吸力筒导管架风机基础及国内首台吸力筒风机基础成功实施"
+   },
+   {
+    "url": "https://www.hdec.com/content/details_463_299.html",
+    "quote": "其中，Ⅱ风场装机容量300兆瓦，是我国北方首个以EPC总承包方式建设的大型海上风电工程；Ⅳ1风场装机容量350兆瓦，安装26台7.5兆瓦、25台6.2兆瓦风力发电机组。"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Rudong H3",
+  "type": "unknown",
+  "parts": null,
+  "turbines": 80,
+  "note_zh": "華能盛東如東H3為400MW、80台中國海裝5MW（2021年6月29日全場吊裝完成，2021年全面建成），由中交三航局與中鐵大橋局承建；基礎型式未查得。來源：中國海裝 2021-07-16、如東發布（ne21 轉載）2021-07-15。",
+  "note_en": "Huaneng Shengdong Rudong H3 is 400 MW with 80 CSSC Haizhuang 5 MW turbines (all installed 29 Jun 2021, completed 2021), built by CCCC Third Harbour and China Railway Major Bridge; foundation type not found. Sources: CSSC Haizhuang 2021-07-16, Rudong Fabu via ne21 2021-07-15.",
+  "anomalies": "資料庫300MW／Goldwind-Mingyang 5.5-6.45MW有誤：實為400MW、80台中國海裝H171-5MW。",
+  "sources": [
+   {
+    "url": "http://www.hzwindpower.com/zongbuxinwen/20210716151715.html",
+    "quote": "中国海装华能如东 H3 项目位于江苏如东县近海省管区东侧的牛角沙，场区中心离岸距离约 39km ，总装机容量为 400MW"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-163755.html",
+    "quote": "华能盛东如东H3海上风电场项目80台5兆瓦风电机组全部安装完成"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Qidong H3",
+  "type": "unknown",
+  "parts": null,
+  "turbines": 50,
+  "note_zh": "啟東H3#為江蘇啟東802MW海上風電項目（H1、H2、H3三個獨立核准場址，134台）之一，H3標段由中鐵建港航局承建，50台6種機型、300MW，2021年12月25日全容量並網；業主為江蘇華威風力發電有限公司（中國電建華東院EPC），不是華能（華能的是啟東H4# 308MW）。基礎型式未查得。來源：人民網江蘇 2021-10-30、新華網 2021-12-25。",
+  "note_en": "Qidong H3 is one of three separately approved sites (H1, H2, H3; 134 turbines) of the 802 MW Jiangsu Qidong project; the H3 lot, built by CRCC Harbour, has 50 turbines of six models (300 MW), full capacity 25 Dec 2021; owner Jiangsu Huawei Wind Power (EPC by POWERCHINA Huadong), not Huaneng (Huaneng's is Qidong H4, 308 MW). Foundation type not found. Sources: people.cn Jiangsu 2021-10-30, Xinhua 2021-12-25.",
+  "anomalies": "業主不是華能，為江蘇華威風力發電有限公司（啟東802MW項目），資料庫「Qidong Huaerrui」疑誤；全容量並網2021-12-25。",
+  "sources": [
+   {
+    "url": "http://js.people.com.cn/n2/2021/1030/c360301-34982430.html",
+    "quote": "其中由中国铁建港航局承建的H3标段共布置50台6种不同规格的风力发电机组，装机规模达到300兆瓦。"
+   }
+  ]
+ },
+ {
+  "farm": "Guoxin Sheyang H1",
+  "type": "unknown",
+  "parts": null,
+  "turbines": null,
+  "note_zh": "查無「國信射陽H1」：射陽海上南區H1#30萬千瓦為華能的項目（2018-12核准，2020-11吊裝完成），江蘇國信的海上風場在大豐（H1#/H2#等，85萬千瓦，2025年起建）。疑為華能射陽H1的重複或名稱錯置。來源：中國縣域經濟報（百家號）2020-11-05、東合南岩土 2025。",
+  "note_en": "No 'Guoxin Sheyang H1' exists: Sheyang South H1 (300 MW) is Huaneng's (approved Dec 2018, installed Nov 2020), while Jiangsu Guoxin's offshore sites are at Dafeng (H1#/H2# etc., 850 MW, under construction from 2025). Probably a duplicate or mislabel of Huaneng Sheyang H1. Sources: China County Economy News (baijiahao) 2020-11-05, geoseu 2025.",
+  "anomalies": "疑為重複／錯置：射陽H1為華能（見 Huaneng Sheyang H1 / Yancheng），國信無射陽H1。",
+  "sources": [
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1682496439824355289&wfr=spider&for=pc",
+    "quote": "华能射阳海上南区H1#30万千瓦风电项目67台风机全部完成吊装，这也标志着射阳县第一个海上风电项目、华能集团在射阳第一个海上风电项目即将并网发电。"
+   },
+   {
+    "url": "https://www.geoseu.cn/yanjiuyuan/5153.html",
+    "quote": "包含大丰H1#、H2#等4个场区的59台8.5MW风机单桩基础"
+   }
+  ]
+ },
+ {
+  "farm": "Longyuan Sheyang H2",
+  "type": "unknown",
+  "parts": null,
+  "turbines": 67,
+  "note_zh": "龍源射陽海上南區H2#300MW：67台遠景EN-148/4.5MW，2019年12月龍源振華完成首根單樁（北極星，無法抓取），2021年4月12日全容量並網。單樁全數完成的可引用紀錄未找到。來源：中國風電新聞網（新浪財經）2025-02-07、射陽新聞網。",
+  "note_en": "Longyuan Sheyang South H2 300 MW: 67 Envision EN-148/4.5 MW; first monopile by Longyuan Zhenhua in Dec 2019 (bjx, not fetchable); full capacity 12 Apr 2021. No quotable record that all foundations are monopiles. Sources: China Wind News via Sina 2025-02-07, Sheyang News.",
+  "anomalies": "資料庫機型「Goldwind 6.45 MW」有誤：67台遠景4.5MW。",
+  "sources": [
+   {
+    "url": "https://finance.sina.com.cn/roll/2025-02-07/doc-ineiqkks1306604.shtml",
+    "quote": "持续优化的远景能源EN-148/4.5MW智能风机"
+   },
+   {
+    "url": "https://www.sheyangnews.com/article/articlecontent.html?key=61cd03d9fcd93115c68b4568&fk=6459a7bdfbf345e9398b4567&name=0",
+    "quote": "今年4月12日，龙源射阳H2#海上风电项目的全容量并网，助力盐城市成为长三角地区首个新能源装机容量突破千万千瓦的城市。"
    }
   ]
  }
