@@ -105,6 +105,7 @@
 | Tunø Knob | 5.0 | 1995 | 重力式 | [osti.gov](https://www.osti.gov/etdeweb/biblio/630721) | 箱型沉箱重力式基礎 |
 | Vesterhav Nord | 176 | 2024 | 單樁 | [OSPAR DK27](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Vesterhav Syd | 168 | 2024 | 單樁 | [OSPAR DK26](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
+| Vindeby | 5.0 | 1991 | 重力式 | [windpowermonthly.com](https://www.windpowermonthly.com/article/1427436/dong-begins-vindeby-decommissioning-pictures) | 世界第一座離岸風場：11 部 450 kW 坐在混凝土重力式基礎上（Ørsted 稱基礎以燈塔基礎為本，澆灌後浮運到場填砂）；2017 年 9 月拆除完畢 |
 
 ### 南韓
 
@@ -248,6 +249,7 @@
 | Lillgrund | 110 | 2007 | 重力式 | [osti.gov](https://www.osti.gov/etdeweb/servlets/purl/979747) | 鋼筋混凝土重力式基礎，內填壓艙物 |
 | Utgrunden I | 10.5 | 2000 | 單樁 | [offshorewind.biz](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) | 7 座單樁（2018 年拆除） |
 | Vindpark Vänern (Gässlingegrund) | 30.0 | 2010 | 岩錨式 | [evwind.aeeolica.org](https://evwind.aeeolica.org/2010/05/24/the-first-vanern-offshore-wind-farm-inaugurated/5723) | 錨定在湖底岩盤上的基礎（維納恩湖） |
+| Yttre Stengrund | 10.0 | 2001 | 單樁 | [windpowermonthly.com](https://www.windpowermonthly.com/article/1375616/yttre-stengrund-decommissioning-begins) | 5 部 2 MW 立在單樁上；2015 年 11 月除役，單樁切至海床面（Windpower Monthly） |
 
 ### 美國
 
@@ -280,6 +282,7 @@
 |---|---:|---:|---|---|---|
 | Barrow | 90.0 | 2006 | 單樁 | [OSPAR UK002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Beatrice | 588 | 2019 | 套管式 | [OSPAR UK003](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「jacket」 |  |
+| Beatrice Demonstrator | 10.0 | 2007 | 套管式 | [en.wikipedia.org](https://en.wikipedia.org/wiki/Beatrice_Wind_Farm) | 2 部 5 MW 示範機立在四腳套管上（每座用四根 1.8 m 樁固定，水深約 45 m，2007 年）；油田 2015 年停產，示範機預定 2024 至 2027 年間除役 |
 | Blyth Offshore | 4.0 | 2000 | 單樁 | [OSPAR UK007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Blyth Offshore Demonstrator | 41.5 | 2017 | 重力式 | [OSPAR UK005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravity-based」 |  |
 | Burbo Bank | 90.0 | 2007 | 單樁 | [OSPAR UK013](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
@@ -338,6 +341,7 @@
 | Hollandse Kust Zuid I & II | 759 | 2023 | 單樁 | [OSPAR NL007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Hollandse Kust Zuid III & IV | 770 | 2023 | 單樁 | [OSPAR NL007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Irene Vorrink (Dronten) | 16.8 | 1996 | 單樁 | [windpowernl.com](https://windpowernl.com/2022/02/28/vattenfall-starts-decommissioning-of-one-of-the-oldest-operational-dutch-wind-farms/) | 28 座鋼製單樁，立在堤外的水中（2022 年拆除） |
+| Lely (Medemblik) | 2.0 | 1994 | 單樁 | [offshorewind.biz](https://www.offshorewind.biz/2016/12/07/lely-wind-farm-fully-decommissioned-video/) | 荷蘭第一座離岸風場：4 部 500 kW 各立在一根單樁上（樁長 26 m、直徑 3.2–3.7 m）；2016 年底以振動錘整根拔除 |
 | Luchterduinen | 129 | 2015 | 單樁 | [OSPAR NL003](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Prinses Amalia | 120 | 2008 | 單樁 | [OSPAR NL002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「monopile」 |  |
 | Westermeerwind | 144 | 2016 | 單樁 | [offshore-energy.biz](https://www.offshore-energy.biz/westermeerwind-foundations-in-place/) | 48 座單樁（艾瑟爾湖） |

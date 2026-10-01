@@ -122,6 +122,7 @@ Total: type known for 188 of 361 farms, 53.3% of their capacity (floating farms 
 | Tunø Knob | 5.0 | 1995 | Gravity-based | [osti.gov](https://www.osti.gov/etdeweb/biblio/630721) | Box-caisson gravity foundations |
 | Vesterhav Nord | 176 | 2024 | Monopile | [OSPAR DK27](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Vesterhav Syd | 168 | 2024 | Monopile | [OSPAR DK26](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
+| Vindeby | 5.0 | 1991 | Gravity-based | [windpowermonthly.com](https://www.windpowermonthly.com/article/1427436/dong-begins-vindeby-decommissioning-pictures) | The world’s first offshore wind farm: 11 × 450 kW on concrete gravity-base foundations (Ørsted says they were modelled on a lighthouse foundation, floated out and filled with sand); removal completed in September 2017 |
 
 ### Finland
 
@@ -229,6 +230,7 @@ Total: type known for 188 of 361 farms, 53.3% of their capacity (floating farms 
 | Hollandse Kust Zuid I & II | 759 | 2023 | Monopile | [OSPAR NL007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Hollandse Kust Zuid III & IV | 770 | 2023 | Monopile | [OSPAR NL007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Irene Vorrink (Dronten) | 16.8 | 1996 | Monopile | [windpowernl.com](https://windpowernl.com/2022/02/28/vattenfall-starts-decommissioning-of-one-of-the-oldest-operational-dutch-wind-farms/) | 28 steel monopiles in the water off the dike (dismantled in 2022) |
+| Lely (Medemblik) | 2.0 | 1994 | Monopile | [offshorewind.biz](https://www.offshorewind.biz/2016/12/07/lely-wind-farm-fully-decommissioned-video/) | The Netherlands’ first offshore wind farm: 4 × 500 kW, each on a monopile (26 m long, 3.2–3.7 m in diameter); the piles were vibrated out whole at the end of 2016 |
 | Luchterduinen | 129 | 2015 | Monopile | [OSPAR NL003](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Prinses Amalia | 120 | 2008 | Monopile | [OSPAR NL002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Westermeerwind | 144 | 2016 | Monopile | [offshore-energy.biz](https://www.offshore-energy.biz/westermeerwind-foundations-in-place/) | 48 monopiles (IJsselmeer) |
@@ -277,6 +279,7 @@ Total: type known for 188 of 361 farms, 53.3% of their capacity (floating farms 
 | Lillgrund | 110 | 2007 | Gravity-based | [osti.gov](https://www.osti.gov/etdeweb/servlets/purl/979747) | Reinforced-concrete gravity bases filled with ballast |
 | Utgrunden I | 10.5 | 2000 | Monopile | [offshorewind.biz](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) | 7 monopiles (dismantled in 2018) |
 | Vindpark Vänern (Gässlingegrund) | 30.0 | 2010 | Rock-anchored | [evwind.aeeolica.org](https://evwind.aeeolica.org/2010/05/24/the-first-vanern-offshore-wind-farm-inaugurated/5723) | Anchored to the bedrock of the lake bed (Lake Vänern) |
+| Yttre Stengrund | 10.0 | 2001 | Monopile | [windpowermonthly.com](https://www.windpowermonthly.com/article/1375616/yttre-stengrund-decommissioning-begins) | 5 × 2 MW on monopiles; decommissioned in November 2015 with the monopiles cut down to seabed level (Windpower Monthly) |
 
 ### Taiwan
 
@@ -300,6 +303,7 @@ Total: type known for 188 of 361 farms, 53.3% of their capacity (floating farms 
 |---|---:|---:|---|---|---|
 | Barrow | 90.0 | 2006 | Monopile | [OSPAR UK002](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Beatrice | 588 | 2019 | Jacket | [OSPAR UK003](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “jacket” |  |
+| Beatrice Demonstrator | 10.0 | 2007 | Jacket | [en.wikipedia.org](https://en.wikipedia.org/wiki/Beatrice_Wind_Farm) | The two 5 MW demonstrator turbines stand on four-leg jackets (each fixed by four 1.8 m piles in about 45 m of water, 2007); the oil field closed in 2015 and the demonstrator is to be decommissioned between 2024 and 2027 |
 | Blyth Offshore | 4.0 | 2000 | Monopile | [OSPAR UK007](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
 | Blyth Offshore Demonstrator | 41.5 | 2017 | Gravity-based | [OSPAR UK005](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “gravity-based” |  |
 | Burbo Bank | 90.0 | 2007 | Monopile | [OSPAR UK013](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) “monopile” |  |
