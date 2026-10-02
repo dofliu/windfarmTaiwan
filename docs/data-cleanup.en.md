@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 224 rules: 107 records removed (33,381.7 MW of them operating), 117 records fixed.
+- 237 rules: 116 records removed (35,573.7 MW of them operating), 121 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 20 | 16,068 | 17 |
+| China | 26 | 18,170 | 20 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -45,7 +45,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | United Kingdom | 7 | 3,485 | 5 |
 | United States of America | 6 | 811.6 | 6 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 9 | 1,307 | 4 |
+| Vietnam | 12 | 1,397 | 5 |
 | Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
@@ -119,6 +119,15 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Huaneng Peninsula North BW · 500 MW · 2024 | curated | fixed: capacity | Huaneng’s Peninsula North BW is 510 MW (60 × 8.5 MW; was 500) | [link](http://www.cpem.org.cn/list99/56313.html) |
 | Shandong Bandaobei BW Offshore wind farm · 510 MW · 2024 | GEM | duplicate of “Huaneng Peninsula North BW” | Same farm (Huaneng Shandong Peninsula North BW, 510 MW, 2024) | [link](http://www.cpem.org.cn/list99/56313.html) |
 | Guodian Xiangshan 1 Phase 2 · 500 MW · 2025 | curated | duplicate of “Zhejiang Xiangshan 1 Offshore wind farm” | Guodian Xiangshan 1 phase 2 (504 MW, 56 × 9 MW, main works finished January 2024); GEM’s Xiangshan 1 record already carries both phase 1 (254 MW) and phase 2 (504 MW) | [link](http://mm.chinapower.com.cn/flfd/hsfd/20240102/230553.html) |
+| CR Power Cangnan 2 / Wenzhou · 500 MW · 2024 | curated | duplicate of “Zhejiang Cangnan 2 Offshore wind farm” | Cangnan 2 is Huaneng’s farm (36 × 8.5 MW, 300 MW), not CR Power’s; this 500 MW row is an aggregate of Cangnan 2 with “Wenzhou Dongtou” and GEM already carries Cangnan 2 itself | [link](https://new.qq.com/rain/a/20230419A060DE00) |
+| Guangxi Qinzhou / Fangchenggang B · 500 MW · 2025 | curated | duplicate of “Guangxi Fangchenggang A” | Guangxi’s only completed offshore farm is site A of the Fangchenggang demonstration project (700 MW, 83 turbines, full capacity on 7 February 2025); this “Qinzhou / Fangchenggang B” 500 MW row is a planned site that duplicates it | [link](http://www.gx.xinhua.org/20250208/489586cf99ff4ed8908866faa90a118f/c.html) |
+| Zhuanghe V / Liaoning 2025 · 500 MW · 2025 | curated | fixed: name, Chinese name, capacity, owner | Zhuanghe site V is 250 MW (24 × 9 MW plus 4 × 8.5 MW, China Merchants Taipingwan and CTG Renewables), main works finished April 2025; was 500 MW with “Liaoning 2025” in the name | [link](https://finance.sina.com.cn/jjxw/2025-04-13/doc-inesycqi0944554.shtml) |
+| Jiangsu Sheyang Southern Area H5 Offshore wind farm · 400 MW · 2024 | GEM | fixed: status, year | Phase 1 of Longyuan’s 1,000 MW Sheyang project (H4 and H5, 35 × 8.5 MW, 297.5 MW) only started fabricating its monopiles on 30 April 2026 and is still under construction; GEM lists it as operating since 2024 | [link](https://hykzsxny.jstec.com.cn/news/202612828050571160) |
+| Huaneng Zhuanghe IV1 · 250 MW · 2021 | curated | duplicate of “Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm” | Same farm (Huaneng Zhuanghe IV-1, 350 MW, 51 turbines, fully connected on 29 December 2021); GEM’s capacity is the right one | [link](https://www.chinanews.com/ny/2021/12-29/9640309.shtml) |
+| Zhejiang Putuo 6 Offshore wind farm · 252 MW · 2019 | GEM | duplicate of “Guodian Zhoushan Putuo 6#2” | Same farm (Guodian Power’s Zhoushan Putuo 6 zone 2, 252 MW, 63 × Siemens 4 MW, 2019) | [link](https://www.ceic.com/gjnyjtww/chnyxfc/202006/e5a14799afc44f2a890f4e1784673ac0.shtml) |
+| Shanghai Lingang Demonstration Phase 1 · 102 MW · 2016 | curated | fixed: year, turbines | Lingang phase 1 (25 × 4 MW Shanghai Electric W4000) started in May 2018 and finished in 2019, after phase 2; was 2016 with 3.6 MW turbines | [link](https://www.fegroup.com.cn/ydkg/xwzx79/gsxw10/577818/index.html) |
+| Guangdong Energy Zhanjiang Xuwen · 300 MW · 2021 | curated | duplicate of “Guangdong Zhanjiang Xuwen Offshore wind farm” | The Zhanjiang Xuwen 600 MW farm (94 × 6.45 MW, fully connected on 26 November 2021) is SPIC’s; this “Guangdong Energy Xuwen 300 MW” row is half of it, and GEM’s Xuwen record already carries the 600 MW farm plus the 300 MW extension | [link](https://www.ne21.com/news/show-166655.html) |
+| Shandong Changyi Laizhouwan Offshore wind farm · 300 MW · 2022 | GEM | duplicate of “CTG Changyi” | Same farm (CTG’s Changyi Laizhou Bay phase 1 / marine-ranch demonstration, 300 MW, 50 × 6 MW, 2022) | [link](http://www.sasac.gov.cn/n2588025/n2588124/c26784560/content.html) |
 
 ## Colombia (COL)
 
@@ -440,6 +449,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Tan An 1 Phase 1 (Ca Mau) · 30 MW · 2021 | curated | duplicate of “Tân An 1 offshore wind farm” | Same farm | [link](https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/84-du-an-dien-gio-kip-van-hanh-thuong-mai-voi-tong-cong-suat-hon-3.980-mw.html) |
 | Tân An 1 offshore wind farm · 115 MW · 2021 | GEM | fixed: capacity, phases | Only phase 1 (25 MW, 2021) is in operation; the later phases were still not grid-connected in 2024 | [link](https://thanhnien.vn/ca-mau-kiem-tra-phat-hien-thieu-sot-o-2-nha-may-dien-gio-18524042817170935.htm) |
 | Hiệp Thành wind farm · 65 MW · 2023 | GEM | duplicate of “Hiep Thanh (Tra Vinh)” | Same farm (Hiệp Thạnh on the Trà Vinh coast; GEM lists it as onshore) | data comparison |
+| Thanh Hải No. 5 Offshore wind farm · 127 MW · 2021 | GEM | fixed: owner, capacity | The Ben Tre No. 5 (Thanh Hai) farm belongs to Tan Hoan Cau Ben Tre, not EVN; 28 turbines and 120 MW in all (EVN inauguration report) | [link](https://www.evn.com.vn/d6/news/Khanh-thanh-Nha-may-dien-gio-so-5-Thanh-Hai-Ben-Tre-100-668-55952.aspx) |
+| Ben Tre 5 Thanh Hai 1 · 30 MW · 2021 | curated | duplicate of “Thanh Hải No. 5 Offshore wind farm” | Phase 1 of the No. 5 farm (Thanh Hai 1, 7 turbines, 30 MW); GEM’s record covers the whole project | [link](https://lethycorp.com/du-an-da-thi-cong/dien-gio-so-5.html) |
+| Ben Tre 5 Thanh Hai 2 · 30 MW · 2022 | curated | duplicate of “Thanh Hải No. 5 Offshore wind farm” | Part of phase 2 of the No. 5 farm (Thanh Hai 2–4, 21 turbines, 90 MW); GEM’s record covers the whole project | [link](https://lethycorp.com/du-an-da-thi-cong/dien-gio-so-5.html) |
+| VPL 1 nearshore wind power plant · 30 MW · 2021 | GEM | duplicate of “VPL Ben Tre (Nexif Ben Tre 1)” | Same farm (Nexif’s VPL Ben Tre phase 1, 30 MW, Binh Dai district) | [link](https://www.phanvu.vn/en-US/vpl-ben-tre-wind-power-plant-p1) |
 
 ## Åland (ALA)
 

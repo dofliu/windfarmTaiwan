@@ -15,6 +15,26 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.13.5 — 2026-10-01
+
+- Foundation step 5, full sweep: every operating offshore farm still without a type (143 in China, 27 in Vietnam, 4 early European pilots) was
+  researched in nine groups by sub-agents and every quoted passage re-checked with `check_quotes.py`; only farms whose construction or completion
+  records name the type were written in, 51 in all — 34 in China (e.g. Huizhou Gangkou I & II 104 jackets, Guoxin Dafeng 100 monopiles, Bozhong A
+  60 monopiles, Nanpeng Island 41 jackets + 32 monopiles, CTG Shapa 2 and Guangdong Energy Shaba all jacket types, Changle Waihai A 37 jackets,
+  Haitan Strait 46 rock-socketed pile caps, Jinwan 55 monopiles, Shengsi 5/6 45 pile caps, Putuo 6 63 pile caps, Donghai Bridge II and Lingang
+  phase 1 pile caps, Binhai North H1 and Binhai South H3 monopiles, Jiaxing 1 37 caps + 37 monopiles, Daishan 4 54 caps, Zhuanghe V
+  monopile-friction-bucket, Zhuanghe IV-1 monopiles), 13 in Vietnam (mostly prestressed-concrete pile caps; Ben Tre Binh Dai 1 and Tra Vinh V1-2
+  on monopiles) and 4 in Europe (Vindeby gravity base, Beatrice demonstrator jackets, Lely and Yttre Stengrund monopiles, all decommissioned).
+  The share of operating offshore capacity worldwide with a known type rises from 53.3% to 66.5% (235 of 351 farms); 58 of China's 160 and 13 of
+  Vietnam's 24 operating offshore farms are now classified.
+- Data corrections (13 rules): duplicate records of Huaneng Cangnan 2, Guangxi Fangchenggang A, Zhuanghe IV-1, Putuo 6, Changyi Laizhou Bay,
+  Xuwen, the two Ben Tre No. 5 phases and VPL Ben Tre merged; Zhuanghe V corrected to 250 MW and renamed; Sheyang South H5 back to under
+  construction (its monopiles were only started in April 2026); Lingang phase 1 corrected to 2019 and 25 × 4 MW; Ben Tre No. 5's owner corrected
+  to Tan Hoan Cau Ben Tre, 120 MW.
+- Types known only from tenders or EIAs, farms with only one bid section found, mixed farms without per-type counts, and the data anomalies found
+  on the way (overlapping Peninsula South U records, Yuetuo and Xiangyun islands still under construction, no completion record for Xiapu A or
+  "CGN Taizhou 1", several wrong owners and years) are listed in TODO, with the quotes kept in `tools/research/cn_vn_step5e_2026-10.json`.
+
 ## v2.13.4 — 2026-10-01
 
 - Foundation step 5 (China), fourth batch: 5 farms added, every quoted passage checked with `check_quotes.py` — Huaneng Peninsula North L (42 four-pile

@@ -85,11 +85,37 @@ finished items to the topic lists below.
      "20 monopiles driven" record; Mingyang Qingzhou 4 has 18 turbines on four-pile jackets by Guangzhou Salvage (People's Daily) and the
      type of Longyuan Zhenhua's 25 is unknown; Huaneng Peninsula North BW's tender "reserved 9 positions for jackets, the rest monopiles"
      (CPEM) with no construction record; the EIA of Guoneng Peninsula South U2 phase 2 says monopiles, but it is still under construction.
+   - Full sweep on 1 Oct 2026 (v2.13.5): every remaining farm was researched once and 51 were written in; 102 of China's 160 and 11 of
+     Vietnam's 24 operating offshore farms are still "type unknown". The leads not written in (quotes checked, in
+     `tools/research/cn_vn_step5e_2026-10.json`, each with note and anomalies) fall into three groups:
+     (a) tender / EIA or a single bid section only: Peninsula South U1 / U2 (EIA says monopiles), Peninsula North BW (tender: 9 jackets, rest
+         monopiles), Shenquan I and II (one section on monopiles each), Jiazi I (30 monopile positions plus a jacket section), Changle Waihai C
+         (49 suction-bucket jackets planned), Qingzhou 3 (jacket report only on the unreachable imarine site), Qingzhou 4 (18 jackets), Changyi
+         (25 monopiles), Taizhou 1 (section B: 19 monopiles + 1 pile-bucket), Jiaxing 2 (section I: 11 monopiles + 14 caps), Dafeng H8-2, Rudong
+         H5, Zhuhai Guishan (phase 1: 34 jackets, phase 2 unknown), Yuhuan 1 (south: 10 monopiles), Ca Mau (only block A's caps confirmed), VPL;
+     (b) mixed farms without per-type counts: Cangnan 4 (six-pile caps and monopiles, "48 + 29" unconfirmed), Shengsi 2, Pinghai Bay 2 and 3,
+         Pingtan Dalian (7 types), Xiangshui (2 suction buckets), Shapa phases 1 and 4, Zhuanghe II (monopiles + suction-bucket jackets), Laoting
+         Putidao (15 caps + monopiles), CTG Dafeng 300 MW (monopiles + composite buckets), Nanri Island, the two Longyuan Rudong demos, SinoHydro
+         Rudong intertidal, Danzhou CZ3 (25 suction-bucket jackets);
+     (c) nothing found: Qingzhou 6, Fanshi II, Yuhuan 2, Bozhong G, Bozhong B1, Peninsula South V, Peninsula South 3 / 4, Rudong H4 / H7, Rudong
+         Baxianjiao, Rudong H3, Qidong H3, Sheyang H2, Guoxin Rudong H2, Dafeng H4 / H6 / H7 / H12, Laizhou wind-fishery, Jiangjiasha H2,
+         Zhugensha H2, Xinghua Bay phase 2, Pingtan Changjiang'ao, the Zhoushan sites other than Daishan 4, Fengxian, Dongtai V, Rudong H15 / H14,
+         Nan'ao Lemen, Shapa phases 3 / 5, Changle B, Liu'ao phase 1, Jiazi II, Nangang, Lingang phase 2, Pinghai Bay phase 1, and in Vietnam
+         Bac Lieu phases 1–3, Hiep Thanh, Tan Phu Dong 2, V1-1, Soc Trang 1, Ben Tre V1-3 and Tan An 1.
+   - Data anomalies found on the way (to be checked in a dedicated round; sources in the same file's anomalies): the Peninsula South U site —
+     "CGN Peninsula South U1" belongs to SPIC and is 900 MW, "Guoneng Peninsula South U2 / Laizhou" is 600 MW, GEM's 1,503.5 MW record merges
+     both owners, and "Shandong Haiwei Peninsula South U" may be U1 phase 2; Yuetuo 1, Xiangyun Island and Sheyang H5 are still under
+     construction or in EIA; Xiapu A, "CGN Taizhou 1", Guoxin Sheyang H1, Guodian Rudong H1 and CTG Dafeng H10 match no farm; "Datang Pingtan
+     Waihai" is Datang's Changjiang'ao (Pingtan Waihai is CTG's 111 MW); "Datang Zhuanghe II" and "Huaneng Zhuanghe III" have their owners swapped
+     (II is Huaneng's, III is CTG's); Xuwen East (Huaneng / Mingyang) is not built; Huilai Shibeishan is onshore and Guohua Kenli is offshore
+     solar; "Zhoushan Liuheng / others" is a placeholder aggregate; Tianjin Nangang is 2018 with 18 × 5 MW; Binhai South H3 is 2020; Shapa phase 1
+     is 2021; Yuhuan 1 reached full capacity in 2024; Vietnam: owners of Thanh Hai No. 5 and Hoa Binh, Hoa Binh's turbines are Vestas, and
+     Xinshun looks like a misplaced duplicate of Tan Thuan.
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
      appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
      source is found (for example CTG completion records the owner may have).
-   - The other Chinese offshore farms (143 of the 167 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (102 of the 160 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of

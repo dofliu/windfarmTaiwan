@@ -78,19 +78,25 @@ CLEAN dup AUS Snowtown I wind farm 99.0 -> Snowtown
 CLEAN dup AUS Studland Bay wind farm 75.0 -> Woolnorth (Bluff Point / Studland Bay)
 CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
 CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
+CLEAN dup CHN CR Power Cangnan 2 / Wenzhou 500.0 -> Zhejiang Cangnan 2 Offshore wind farm
+CLEAN dup CHN Guangdong Energy Zhanjiang Xuwen 300.0 -> Guangdong Zhanjiang Xuwen Offshore wind farm
 CLEAN dup CHN Guangdong Yangjiang Qingzhou V Offshore wind farm 1000.0 -> CTG Yangjiang Qingzhou 5
 CLEAN dup CHN Guangdong Yangjiang Qingzhou VI Offshore wind farm 1000.0 -> CTG Yangjiang Qingzhou 6
 CLEAN dup CHN Guangdong Yangjiang Qingzhou VII Offshore wind farm 1000.0 -> CTG Yangjiang Qingzhou 7
+CLEAN dup CHN Guangxi Qinzhou / Fangchenggang B 500.0 -> Guangxi Fangchenggang A
 CLEAN dup CHN Guodian Xiangshan 1 Phase 2 500.0 -> Zhejiang Xiangshan 1 Offshore wind farm
 CLEAN dup CHN Hainan CZ2 Demonstration Offshore wind farm 600.0 -> Shenergy Hainan CZ2 (Dongfang)
 CLEAN dup CHN Hainan CZ3 Demonstration Offshore wind farm 600.0 -> Datang Danzhou CZ3
 CLEAN dup CHN Hainan Danzhou CZ3 (Datang) Offshore wind farm 600.0 -> Datang Danzhou CZ3
+CLEAN dup CHN Huaneng Zhuanghe IV1 250.0 -> Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm
 CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang Southern Area H5 Offshore wind farm
 CLEAN dup CHN Shandong Bandaobei BW Offshore wind farm 510.0 -> Huaneng Peninsula North BW
 CLEAN dup CHN Shandong Bozhong (Yankuang GroupOffshore) wind farm 500.0 -> Shandong Energy Bozhong A
 CLEAN dup CHN Shandong Bozhong G Offshore wind farm 400.0 -> Shandong Energy Bozhong G
+CLEAN dup CHN Shandong Changyi Laizhouwan Offshore wind farm 300.0 -> CTG Changyi
 CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai Bridge
 CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
+CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putuo 6#2
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup EGY Amunet wind farm 502.0 -> Amunet (AMEA Power) Red Sea
@@ -131,6 +137,8 @@ CLEAN dup USA Kingman Wind 214.8 -> Kingman Wind Energy Center
 CLEAN dup USA Prairie Winds SD1 162.0 -> Crow Lake wind farm
 CLEAN dup USA Snyder Wind Farm 63.0 -> Snyder wind farm
 CLEAN dup USA Windy Point wind farm (United States) 136.3 -> Windy Point / Windy Flats
+CLEAN dup VNM Ben Tre 5 Thanh Hai 1 30.0 -> Thanh Hải No. 5 Offshore wind farm
+CLEAN dup VNM Ben Tre 5 Thanh Hai 2 30.0 -> Thanh Hải No. 5 Offshore wind farm
 CLEAN dup VNM Binh Dai 1 Phase 1 (TTC/Gulf, Ben Tre) 30.0 -> Bến Tre 10 Bình Đại 1 Offshore wind farm
 CLEAN dup VNM Binh Dai 1 Phase 2 30.0 -> Bến Tre 10 Bình Đại 1 Offshore wind farm
 CLEAN dup VNM Dong Hai 1 Phase 2 (Bac Lieu, Bac Phuong) 50.0 -> Dong Hai 1 Offshore wind farm
@@ -138,6 +146,7 @@ CLEAN dup VNM Hiệp Thành wind farm 65.0 -> Hiep Thanh (Tra Vinh)
 CLEAN dup VNM Tan An 1 Phase 1 (Ca Mau) 30.0 -> Tân An 1 offshore wind farm
 CLEAN dup VNM Thuận Bắc Trungnam wind farm 152.0 -> Trung Nam Ninh Thuận
 CLEAN dup VNM Tân Phú Đông 2 nearshore wind power plant 50.0 -> Tan Phu Dong 2 (Tien Giang, GEC)
+CLEAN dup VNM VPL 1 nearshore wind power plant 30.0 -> VPL Ben Tre (Nexif Ben Tre 1)
 CLEAN dup ZAF Amakhala Emoyeni wind farm 134.0 -> Amakhala Emoyeni
 CLEAN dup ZAF Waainek wind farm 25.0 -> Waainek Wind Farm
 CLEAN fix ALA Långnabba wind farm 40.0
@@ -156,11 +165,14 @@ CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Huadian Yuhuan 2 500.0
 CLEAN fix CHN Huaneng Peninsula North BW 500.0
 CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0
+CLEAN fix CHN Jiangsu Sheyang Southern Area H5 Offshore wind farm 400.0
 CLEAN fix CHN Longyuan Jiangsu Xiangshui 202.0
 CLEAN fix CHN Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng 16.6
 CLEAN fix CHN Shandong Energy Bozhong G 850.0
 CLEAN fix CHN Shandong Huaneng Offshore L Area wind farm 504.0
+CLEAN fix CHN Shanghai Lingang Demonstration Phase 1 102.0
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
+CLEAN fix CHN Zhuanghe V / Liaoning 2025 500.0
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
 CLEAN fix DEU Borkum Riffgrund 3 913.0
@@ -254,6 +266,7 @@ CLEAN fix USA Vineyard Wind 1 806.0
 CLEAN fix VNM BPP Vĩnh Châu wind farm 30.0
 CLEAN fix VNM Cư An wind farm 200.0
 CLEAN fix VNM Dong Hai 1 Phase 1 (Tra Vinh, Trungnam) 100.0
+CLEAN fix VNM Thanh Hải No. 5 Offshore wind farm 127.0
 CLEAN fix VNM Tân An 1 offshore wind farm 115.0
 CLEAN fix ZAF Amakhala Emoyeni 134.0
 CLEAN fix ZAF Waainek Wind Farm 23.0
