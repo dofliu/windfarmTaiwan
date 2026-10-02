@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '2.15.0';
+WW.VERSION = '2.16.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -119,6 +119,46 @@ WW.DATA = {
   ports: 'data/global/ports.json',
   foundations: 'data/global/foundations.json',
   events: 'data/global/events.json'
+};
+/* 水下基礎剖面示意：依型式（mp/jk/tp/tl/gb/pc/cf/bk/ra/fl＋浮動式細分）畫在 x=cx、海面 SEA、海床 BED 的座標系裡，回傳 SVG 片段與塔底高度。
+   地球儀的風場卡片與風電知識頁的型式圖共用（示意、非等比例） */
+WW.FD_SVG_COL = { sea: 'rgba(59,143,224,.28)', seaLine: '#6fb3ff', bed: '#7a6650', tower: '#dfe6f0', tp: '#f2c230', steel: '#9aa3ad', conc: '#c9c3b6', hull: '#e3e8ee', txt: 'currentColor', moor: '#9aa3ad' };
+WW.fdDraw = function (t, sub, cx, SEA, BED, SVG_COL) {
+  SVG_COL = SVG_COL || WW.FD_SVG_COL;
+  const P = [];
+  const line = (x1, y1, x2, y2, c, w) => '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + c + '" stroke-width="' + (w || 2) + '" stroke-linecap="round"/>';
+  const rect = (x, y, w, h, c, rx) => '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + c + '"' + (rx ? ' rx="' + rx + '"' : '') + '/>';
+  const poly = (pts, c) => '<polygon points="' + pts.join(' ') + '" fill="' + c + '"/>';
+  const moor = (x0, y0, x1) => '<path d="M' + x0 + ' ' + y0 + ' Q ' + ((x0 + x1) / 2) + ' ' + (BED + 2) + ' ' + x1 + ' ' + BED + '" fill="none" stroke="' + SVG_COL.moor + '" stroke-width="1" stroke-dasharray="3 2"/>';
+  let top = SEA - 12;                                          // 塔底的高度（海面以上）
+  if (t === 'mp') { P.push(rect(cx - 5, SEA - 12, 10, BED - SEA + 20, SVG_COL.steel), rect(cx - 7, SEA - 28, 14, 20, SVG_COL.tp, 1.5), line(cx - 11, SEA - 28, cx + 11, SEA - 28, SVG_COL.tp, 2)); top = SEA - 28; }
+  else if (t === 'jk') { [-1, 1].forEach(d => P.push(line(cx + d * 8, SEA - 24, cx + d * 26, BED, SVG_COL.steel, 2.2), rect(cx + d * 26 - 3, BED, 6, 14, SVG_COL.steel)));
+    [SEA - 6, SEA + 22, SEA + 48].forEach((y, j) => { const w = 9 + j * 6; P.push(line(cx - w, y, cx + w, y + 20, SVG_COL.steel, 1.2), line(cx + w, y, cx - w, y + 20, SVG_COL.steel, 1.2)); });
+    P.push(rect(cx - 11, SEA - 34, 22, 12, SVG_COL.tp, 1.5)); top = SEA - 34; }
+  else if (t === 'tp') { P.push(rect(cx - 5, SEA - 30, 10, BED - SEA + 10, SVG_COL.steel)); [-1, 1].forEach(d => P.push(line(cx, SEA + 14, cx + d * 26, BED, SVG_COL.steel, 2), rect(cx + d * 26 - 3, BED - 2, 6, 16, SVG_COL.steel)));
+    P.push(rect(cx - 7, SEA - 30, 14, 14, SVG_COL.tp, 1.5)); top = SEA - 30; }
+  else if (t === 'tl') { [-1, 0, 1].forEach(d => P.push(rect(cx + d * 16 - 3, SEA - 26, 6, BED - SEA + 40, SVG_COL.steel))); P.push(rect(cx - 22, SEA - 34, 44, 10, SVG_COL.tp, 1.5)); top = SEA - 34; }
+  else if (t === 'gb') { P.push(poly([(cx - 30) + ',' + BED, (cx + 30) + ',' + BED, (cx + 10) + ',' + (SEA + 8), (cx - 10) + ',' + (SEA + 8)], SVG_COL.conc), rect(cx - 7, SEA - 14, 14, 24, SVG_COL.conc)); top = SEA - 14; }
+  else if (t === 'pc') { [-2, -1, 0, 1, 2].forEach(d => P.push(line(cx + d * 10, SEA + 2, cx + d * 13, BED + 10, SVG_COL.steel, 2.2))); P.push(rect(cx - 24, SEA - 14, 48, 18, SVG_COL.conc, 2)); top = SEA - 14; }
+  else if (t === 'cf' || t === 'bk') { P.push(rect(cx - 22, t === 'cf' ? SEA + 10 : BED - 18, 44, t === 'cf' ? BED - SEA - 10 : 18, t === 'cf' ? SVG_COL.steel : SVG_COL.conc, 2), rect(cx - 5, SEA - 10, 10, BED - SEA, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); top = SEA - 26; }
+  else if (t === 'ra') { P.push(rect(cx - 16, BED - 6, 32, 8, SVG_COL.conc), rect(cx - 5, SEA - 10, 10, BED - SEA + 4, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); [-1, 1].forEach(d => P.push(line(cx + d * 8, BED, cx + d * 14, BED + 14, SVG_COL.steel, 2))); top = SEA - 26; }
+  else if (t === 'fl') {
+    if (sub === 'spar') { P.push(rect(cx - 8, SEA - 14, 16, 60, SVG_COL.hull, 3), rect(cx - 8, SEA + 30, 16, 16, SVG_COL.steel, 3)); P.push(moor(cx - 6, SEA + 36, cx - 40), moor(cx + 6, SEA + 36, cx + 40)); top = SEA - 14; }
+    else if (sub === 'barge') { P.push(rect(cx - 36, SEA - 8, 72, 14, SVG_COL.hull, 2)); P.push(moor(cx - 30, SEA + 6, cx - 48), moor(cx + 30, SEA + 6, cx + 48)); top = SEA - 8; }
+    else if (sub === 'tlp') { P.push(rect(cx - 24, SEA - 10, 48, 12, SVG_COL.hull, 2)); [-1, 1].forEach(d => P.push(rect(cx + d * 20 - 5, SEA - 4, 10, 20, SVG_COL.hull, 2), line(cx + d * 20, SEA + 16, cx + d * 20, BED, SVG_COL.moor, 1.2), rect(cx + d * 20 - 5, BED - 2, 10, 6, SVG_COL.steel))); top = SEA - 10; }
+    else { [-1, 1].forEach(d => P.push(rect(cx + d * 26 - 6, SEA - 16, 12, 30, SVG_COL.hull, 2))); P.push(rect(cx - 32, SEA + 2, 64, 8, SVG_COL.hull, 2), rect(cx - 6, SEA - 16, 12, 30, SVG_COL.hull, 2)); P.push(moor(cx - 30, SEA + 10, cx - 52), moor(cx + 30, SEA + 10, cx + 52)); top = SEA - 16; }
+  }
+  return { svg: P.join(''), top };
+};
+/* 剖面示意圖上的風機：塔（塔底在 top）、機艙、三片葉輪與掃風圓；sc 為縮放（並排多座時用 0.8） */
+WW.fdTurbine = function (cx, top, sc, SVG_COL) {
+  SVG_COL = SVG_COL || WW.FD_SVG_COL; sc = sc || 1;
+  const hub = top - 54 * sc, rr = 20 * sc, P = [];
+  P.push('<polygon points="' + [(cx - 3.2) + ',' + top, (cx + 3.2) + ',' + top, (cx + 1.6) + ',' + hub, (cx - 1.6) + ',' + hub].join(' ') + '" fill="' + SVG_COL.tower + '"/>');
+  P.push('<rect x="' + (cx - 4) + '" y="' + (hub - 3) + '" width="9" height="6" rx="1" fill="' + SVG_COL.tower + '"/>');
+  [90, 210, 330].forEach(a => { const ra = a * Math.PI / 180; P.push('<line x1="' + cx + '" y1="' + hub + '" x2="' + (cx + Math.cos(ra) * rr) + '" y2="' + (hub - Math.sin(ra) * rr) + '" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>'); });
+  P.push('<circle cx="' + cx + '" cy="' + hub + '" r="' + rr + '" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 3"/>');
+  return P.join('');
 };
 /* 全球資料集＋衍生查詢（首頁、知識頁、地球儀共用） */
 WW.globalData = () => WW.getJSON(WW.DATA.global).then(D => {

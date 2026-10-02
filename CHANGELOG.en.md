@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.16.0 — 2026-10-02
+
+- The Learn section gains chapter 7, "Standing in the sea: foundation types": bilingual text on fixed foundations (monopile, jacket, tripod, tripile,
+  gravity base, high-rise pile cap, suction bucket), the transition piece and floating platforms (spar, semi-submersible, barge, tension-leg), with a
+  schematic gallery of 11 types (drawn by the same code as the globe's farm card), a share chart of operating offshore farms by foundation group
+  (farms and capacity) and a stacked chart of offshore capacity added worldwide each year by type, both computed live from the site's data, plus a
+  link to the globe's Foundations layer. Former chapters 7–12 become 8–13; cross-references and the "12 chapters" wording are updated everywhere.
+- Globe: selecting a port now draws light-blue arcs from the quay to every farm in the card's "wind farms served" list that matches the farm data
+  (arc height follows distance; redrawn in globe and flat mode), removed when the card closes; the port card notes this.
+- The cross-section drawing moved to `core.js` (`WW.fdDraw`, `WW.fdTurbine`), shared by the farm card and the Learn page.
+
 ## v2.15.0 — 2026-10-02
 
 - The foundation block of the globe's Overview tab gains a stacked bar chart "Offshore capacity added per year (by foundation type)": from the
