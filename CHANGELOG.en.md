@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.13.6 — 2026-10-02
+
+- The globe's "Data sources & notes" dialog gains a "Data inventory" block computed live from the loaded data: farm records by status and type with
+  operating capacity, the number of countries and year range of the national statistics, the offshore farms with a known foundation type and their
+  share of capacity, port and event counts, and the live-output sources; nothing is hard-coded, so it follows the data.
+
 ## v2.13.5 — 2026-10-01
 
 - Foundation step 5, full sweep: every operating offshore farm still without a type (143 in China, 27 in Vietnam, 4 early European pilots) was
