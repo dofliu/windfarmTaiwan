@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.14.0 — 2026-10-02
+
+- Close-up turbines on the globe now carry a base drawn to the farm's foundation type: monopile, jacket, tripod, tripile, gravity base,
+  high-rise pile cap, caisson/bucket and rock anchor, with floating farms split into spar, semi-submersible, barge and tension-leg; steel is
+  grey, concrete off-white, floating hulls white and the transition piece above the waterline always yellow. Mixed farms distribute the types
+  across the turbine positions by count; farms without a known type look as before.
+- The farm card's foundation block gains a schematic cross-section (sea level, seabed, turbine and foundation; mixed farms show up to three
+  types side by side with counts), bilingual and marked as not to scale.
+
 ## v2.13.6 — 2026-10-02
 
 - The globe's "Data sources & notes" dialog gains a "Data inventory" block computed live from the loaded data: farm records by status and type with

@@ -143,6 +143,8 @@
 #globe .ffd b{color:var(--ink);font-weight:600}
 #globe .ffd .fds a{margin-left:8px;font-size:11px;color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
 #globe .ffd .gnote{margin-top:2px}
+#globe .ffd .fdsvg{display:block;width:100%;max-width:320px;height:auto;margin:7px 0 2px;border-radius:7px;background:rgba(10,20,40,.55);box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+#globe .ffd .fdnote{font-size:11px;opacity:.75}
 #globe .pbar.fdbar i{height:10px}
 #globe .livebox .lrow{margin-top:6px}
 #globe .livebox .lic{margin-top:6px;font-size:10px;line-height:1.4;opacity:.8}
