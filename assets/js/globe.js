@@ -2689,6 +2689,32 @@ function applyI18n() {
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
 }
+/* 資料統計：從已載入的資料即時計算，不寫死數字（資料來源視窗用） */
+function dataStats(zh) {
+  const n = v => WW.int(v), li = [];
+  if (D && D.countries && D.years) li.push(zh ? '國家年度統計：' + n(D.countries.length) + ' 國，' + D.years[0] + '–' + D.years[D.years.length - 1] + ' 年，陸域與離岸分開'
+                                           : 'Country statistics: ' + n(D.countries.length) + ' countries, ' + D.years[0] + '–' + D.years[D.years.length - 1] + ', onshore and offshore separately');
+  if (farmsReady && D.farms) {
+    const F = D.farms, isos = new Set(F.map(f => f.iso)), op = F.filter(f => f.st === 0 && !f.end);
+    const c = (arr, fn) => arr.filter(fn).length, mw = arr => n(Math.round(arr.reduce((a, f) => a + (f.mw || 0), 0)));
+    li.push(zh ? '風場逐筆資料：' + n(F.length) + ' 座、' + n(isos.size) + ' 國——營運中 ' + n(op.length) + ' 座（陸域 ' + n(c(op, f => f.type === 'onshore')) + '、離岸 ' + n(c(op, f => f.type === 'offshore')) + '、浮動式 ' + n(c(op, f => f.type === 'floating')) + '，合計 ' + mw(op) + ' MW）、興建中 ' + n(c(F, f => f.st === 1)) + '、前期開發與已宣布 ' + n(c(F, f => f.st === 2 || f.st === 3)) + '、已除役 ' + n(c(F, f => f.st === 4 || f.end))
+               : 'Farm-level records: ' + n(F.length) + ' farms in ' + n(isos.size) + ' countries — ' + n(op.length) + ' operating (' + n(c(op, f => f.type === 'onshore')) + ' onshore, ' + n(c(op, f => f.type === 'offshore')) + ' offshore, ' + n(c(op, f => f.type === 'floating')) + ' floating; ' + mw(op) + ' MW), ' + n(c(F, f => f.st === 1)) + ' under construction, ' + n(c(F, f => f.st === 2 || f.st === 3)) + ' in pre-construction or announced, ' + n(c(F, f => f.st === 4 || f.end)) + ' retired');
+    if (FD && FD.farms) {
+      const off = op.filter(f => f.type !== 'onshore'), known = off.filter(f => FD.farms[f.name]);
+      li.push(zh ? '水下基礎型式：' + n(Object.keys(FD.farms).length) + ' 座離岸風場已查明（營運中離岸風場 ' + n(off.length) + ' 座中 ' + n(known.length) + ' 座，占容量 ' + Math.round(100 * known.reduce((a, f) => a + (f.mw || 0), 0) / Math.max(1, off.reduce((a, f) => a + (f.mw || 0), 0))) + '%）'
+                 : 'Foundation types: ' + n(Object.keys(FD.farms).length) + ' offshore farms classified (' + n(known.length) + ' of the ' + n(off.length) + ' operating offshore farms, ' + Math.round(100 * known.reduce((a, f) => a + (f.mw || 0), 0) / Math.max(1, off.reduce((a, f) => a + (f.mw || 0), 0))) + '% of their capacity)');
+    }
+  }
+  if (!LITE && PORTS.length) li.push(zh ? '離岸風電港口：' + n(PORTS.length) + ' 座、' + n(new Set(PORTS.map(p => p.iso)).size) + ' 國，' + n(PORTS.reduce((a, p) => a + (p.farms || []).length, 0)) + ' 條「服務過的風場」連結，每港附出處'
+                                       : 'Offshore wind ports: ' + n(PORTS.length) + ' ports in ' + n(new Set(PORTS.map(p => p.iso)).size) + ' countries with ' + n(PORTS.reduce((a, p) => a + (p.farms || []).length, 0)) + ' farm links, each port sourced');
+  if (EVENTS.length) li.push(zh ? '重大事件與事故：' + n(EVENTS.length) + ' 筆，每筆附主管機關、業者或媒體出處'
+                                : 'Major events and incidents: ' + n(EVENTS.length) + ' entries, each with a regulator, operator or press source');
+  if (!LITE) li.push(zh ? '即時出力：台灣台電逐機組（每 10 分鐘，另存歷史存檔）；澳洲 AEMO、亞伯達 AESO、安大略 IESO 三個電網的逐機組與電網總量'
+                        : 'Live output: Taipower unit by unit (every 10 minutes, with a history archive); unit-level and grid totals from AEMO (Australia), AESO (Alberta) and IESO (Ontario)');
+  if (!li.length) return '';
+  return '<h4>' + (zh ? '資料統計（依目前載入的資料即時計算）' : 'Data inventory (computed from the data now loaded)') + '</h4><ul><li>' + li.join('</li><li>') + '</li></ul>';
+}
+
 function showSources() {
   const src = D.sources, n = D.notes;
   const li = arr => (arr || []).map(s => '<li>' + (/^https?:/.test(s) ? '<a href="' + esc(s.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(s) + '</a>' : esc(s)) + '</li>').join('');
@@ -2696,6 +2722,7 @@ function showSources() {
   $('g-modalBody').innerHTML = '<h2>' + T('srcTitle') + '</h2>' +
     (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，每座風場以一支風機代表；點選某座風場時，才依它的機組數量與間距畫出全部風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，點選專案時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片與簡介於瀏覽時即時查詢維基百科，離線時不會顯示。</p>'
         : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, each shown as a single turbine; clicking a farm draws all of its turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and clicking a project shows its planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos and summaries are looked up live from Wikipedia.</p>') +
+    dataStats(zh) +
     '<h4>' + (zh ? '本站修正' : 'Corrections by this site') + '</h4><ul>' + li((D.meta && D.meta.edits) || []) +
     '<li>' + (zh ? '2026 年 9 月逐筆查證：刪除重複、從未建成或查無此場的風場紀錄，修正座標、容量、年份、分期或狀態；共用省或國家中心代用座標的風場在地圖上示意排開（卡片註明「位置示意」）。逐筆理由見'
       : 'Checked record by record in Sep 2026: duplicate, never-built or non-existent farm records were removed and locations, capacities, years, phases or statuses fixed; farms sharing a province or country centre as a placeholder are fanned out on the map (their cards say the position is schematic). Every record is in the') +
