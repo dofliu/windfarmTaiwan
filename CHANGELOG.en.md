@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.15.0 — 2026-10-02
+
+- The foundation block of the globe's Overview tab gains a stacked bar chart "Offshore capacity added per year (by foundation type)": from the
+  commissioning year of the first offshore farm in scope to the year on the timeline, each year stacked into monopile, steel frame, floating,
+  other fixed and type unknown; phased farms count by phase and decommissioned farms still count in their year. Hovering a bar lists that year's
+  capacity by group, and the timeline year is outlined in gold. Available for the world, each continent and each country, recomputed as the
+  timeline moves.
+
 ## v2.14.0 — 2026-10-02
 
 - Close-up turbines on the globe now carry a base drawn to the farm's foundation type: monopile, jacket, tripod, tripile, gravity base,

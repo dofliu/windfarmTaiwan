@@ -34,7 +34,7 @@ finished items to the topic lists below.
   own list for now are item 2 below.
 - 2 Oct 2026 (v2.13.6, v2.14.0): the sources dialog gained a data inventory; first step of the visual upgrade: close-up turbines carry a base drawn
   to the foundation type (yellow transition piece) and the farm card shows a schematic cross-section. Follow-ups agreed with the owner, one PR
-  each: (1) a stacked chart of capacity added per year by foundation type in the country overview; (2) a foundation chapter in the Learn section
+  each: (1) a stacked chart of offshore capacity added per year by foundation type in the Overview tab — **done (v2.15.0)**; (2) a foundation chapter in the Learn section
   and port-to-farm arcs; (3) a dedicated check of the data anomalies found in the step-5 sweep (item 4 below); (4) water-depth and tower-height
   fields, after which the cross-section and close-up use real values.
 - No code change was left half-done; below is the work to pick up, in order of priority.

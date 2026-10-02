@@ -22,6 +22,7 @@ const I18N = {
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
     fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdFlBy: '浮動式細分', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
     fdStep: '逐步收集中：歐洲、全球浮動式風場與台灣、日本、韓國、美國已完成；中國、越南進行中，大多暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
+    fdYears: '各年新增離岸容量（依水下基礎型式）', fdYearsNote: '以商轉年計，分期風場依各期；已除役的也算入當年新增',
     hint: '拖曳旋轉 · 滾輪縮放（可一路放大到風場） · 點國家或風場直接飛過去 · 空白鍵播放/暫停',
     hintTouch: '單指旋轉 · 雙指縮放 · 點國家或風場直接飛過去',
     barTitle: '累計裝置容量排名（MW）', onshore: '陸域', offshore: '離岸', total: '合計',
@@ -89,6 +90,7 @@ const I18N = {
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
     fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdFlBy: 'Floating by type', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
     fdStep: 'Collected step by step: Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA are done; China and Vietnam are under way, and most farms there show as type unknown', fdProf: 'Foundations (operating offshore farms, by capacity)',
+    fdYears: 'Offshore capacity added per year (by foundation type)', fdYearsNote: 'By commissioning year, phased farms by phase; decommissioned farms still count in their year',
     hint: 'Drag to rotate · scroll to zoom (down to farms) · click a country or farm to fly there · Space = play/pause',
     hintTouch: 'One finger to rotate · pinch to zoom · tap a country or farm to fly there',
     barTitle: 'Cumulative capacity ranking (MW)', onshore: 'Onshore', offshore: 'Offshore', total: 'Total',
@@ -2005,6 +2007,42 @@ function renderProfile() {
   const ps1 = box.querySelector('[data-act="pipe"]'); if (ps1) ps1.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
   wireFdLink(box);
 }
+/* 國家概況：各年新增離岸容量依水下基礎分組的堆疊長條（SVG；每根長條有 <title> 列出該年各組容量；時間軸所在年以金色框標示） */
+function fdYearAdds(region, yEnd) {
+  const by = new Map();                                           // year -> { group -> MW }
+  (farmsReady ? D.farms : []).forEach(f => {
+    if (f.pipe || f.type === 'onshore' || !f.year || f.year > yEnd || !inScope(f.iso, region)) return;
+    const g = fdGroup(f), last = Math.min(yEnd, f.end ? f.end - 1 : yEnd);
+    for (let y = f.year; y <= last; y++) {
+      const add = y === f.year ? farmMwAt(f, y) : farmMwAt(f, y) - farmMwAt(f, y - 1);
+      if (add <= 0) continue;
+      if (!by.has(y)) by.set(y, {}); const o = by.get(y); o[g] = (o[g] || 0) + add;
+    }
+  });
+  return by;
+}
+function fdYearChart(region) {
+  const yEnd = Math.floor(S.year), by = fdYearAdds(region, yEnd);
+  if (by.size < 2) return '';
+  const y0 = Math.min(...by.keys()), years = []; for (let y = y0; y <= yEnd; y++) years.push(y);
+  const W = 280, H = 76, PAD_T = 12, PAD_B = 12, bw = W / years.length, gap = bw > 6 ? 1.5 : 0.5;
+  const tot = y => Object.values(by.get(y) || {}).reduce((a, v) => a + v, 0), max = Math.max(1, ...years.map(tot));
+  const Y = v => PAD_T + (H - PAD_T - PAD_B) * (1 - v / max), col = { mp: 'var(--fd-mp)', frame: 'var(--fd-frame)', fl: 'var(--fd-fl)', other: 'var(--fd-other)', unk: 'var(--fd-unk)' };
+  const P = [];
+  years.forEach((y, i) => {
+    const o = by.get(y), x = i * bw + gap / 2, w = Math.max(1, bw - gap);
+    const tip = y + ' · ' + fmtMW(tot(y)) + (o ? '\n' + FD_GROUPS.filter(g => o[g]).map(g => T('fdGroup')[g] + ' ' + fmtMW(o[g])).join('\n') : '');
+    let acc = 0, rects = '';
+    if (o) FD_GROUPS.forEach(g => { if (!o[g]) return; const y1 = Y(acc), y2 = Y(acc + o[g]); acc += o[g]; rects += '<rect x="' + x.toFixed(1) + '" y="' + y2.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + Math.max(0.6, y1 - y2).toFixed(1) + '" fill="' + col[g] + '"/>'; });
+    P.push('<g' + (y === yEnd ? ' class="cur"' : '') + '><title>' + esc(tip) + '</title><rect x="' + x.toFixed(1) + '" y="' + PAD_T + '" width="' + w.toFixed(1) + '" height="' + (H - PAD_T - PAD_B) + '" fill="transparent"/>' + rects +
+      (y === yEnd ? '<rect x="' + (x - 0.75).toFixed(1) + '" y="' + (Y(tot(y)) - 1).toFixed(1) + '" width="' + (w + 1.5).toFixed(1) + '" height="' + (H - PAD_B - Y(tot(y)) + 1).toFixed(1) + '" fill="none" stroke="#f0c86a" stroke-width="1.2"/>' : '') + '</g>');
+  });
+  const step = years.length > 24 ? 10 : years.length > 12 ? 5 : years.length > 6 ? 2 : 1;
+  years.forEach((y, i) => { if (y % step === 0 || (i === 0 && (step - y % step) * bw >= 24)) P.push('<text x="' + (i * bw + bw / 2 < 12 ? 1 : i * bw + bw / 2).toFixed(1) + '" y="' + (H - 2) + '" text-anchor="' + (i * bw + bw / 2 < 12 ? 'start' : 'middle') + '" font-size="8.5" fill="currentColor" opacity=".75">' + y + '</text>'); });   // 第一年與下一個整數年太近時省略；貼左緣的靠左對齊
+  P.push('<text x="1" y="9" font-size="8.5" fill="currentColor" opacity=".75">' + esc(fmtMW(max)) + '</text>');
+  return '<div class="pipeh">' + esc(T('fdYears')) + '</div><svg class="fdyears" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('fdYears')) + '">' + P.join('') + '</svg>' +
+    '<div class="gnote" style="margin-top:2px">' + esc(T('fdYearsNote')) + '</div>';
+}
 /* 國家概況：營運中離岸風場依水下基礎分組的容量長條（相鄰色塊之間留 2px 間隙；確切數字在圖例） */
 function fdBox(region) {
   if (!farmsReady || !FD) return '';
@@ -2014,6 +2052,7 @@ function fdBox(region) {
   return '<div class="pipeh">' + esc(T('fdProf')) + '</div><div class="pbar fdbar" role="img" aria-label="' + esc(gs.map(g => T('fdGroup')[g] + ' ' + fmtMW(st.mw[g])).join(', ')) + '">' +
     gs.map(g => '<i class="fd-' + g + '" style="flex:' + Math.max(st.mw[g], st.totMw * 0.004) + '"></i>').join('') + '</div>' +
     '<div class="pleg">' + gs.map(g => '<span><i class="gsw fd-' + g + '"></i>' + esc(T('fdGroup')[g]) + ' <b>' + st.n[g] + '</b></span>').join('') + '</div>' +
+    fdYearChart(region) +
     (st.n.fl ? '<div class="gnote" style="margin-top:4px">' + esc(T('fdFlBy') + L('：', ': ') + FL_SUBS.concat('?').filter(k => st.fls[k])
       .map(k => (k === '?' ? T('fdFloatSub') : fdSubName(k)) + ' ' + st.fls[k]).join(' · ')) + '</div>' : '') +
     '<div class="gnote" style="margin-top:4px">' + esc(T('fdCov')(WW.int(st.known), WW.int(st.tot), fdPct(st.knownMw, st.totMw))) +
