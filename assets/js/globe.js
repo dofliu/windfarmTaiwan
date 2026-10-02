@@ -911,11 +911,12 @@ function makeCluster(f) {
   P.forEach((p, i) => { _p3.set(p[0], 0, p[1]); _m4.compose(_p3, _q, _s); tower.setMatrixAt(i, _m4); nac.setMatrixAt(i, _m4); });
   [tower, nac, rotor].forEach(m => { m.userData.farm = f; m.instanceMatrix.needsUpdate = true; });
   const g = new THREE.Group(); g.add(tower, nac, rotor);
+  const bases = addBases(g, f, P, h);                                // 離岸：依水下基礎型式畫基座段（示意）
   let rad = 0; P.forEach(p => { rad = Math.max(rad, Math.hypot(p[0], p[1])); }); rad += sp.spacing * KM * 0.8;
   const disc = new THREE.Mesh(discGeo, clusterMats[kind].disc), ring = new THREE.Mesh(f.pipe ? thinDashGeo : thinRingGeo, clusterMats[kind].ring);
   disc.scale.set(rad / 0.75, 1, rad / 0.75); ring.scale.set(rad, 1, rad); disc.position.y = ring.position.y = h * 0.02;
   disc.userData.farm = f; g.add(disc, ring);
-  g.userData = { f, P, h, tower, nac, rotor, disc, ring, ringMat: ring.material, live: false, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
+  g.userData = { f, P, h, tower, nac, rotor, bases, disc, ring, ringMat: ring.material, live: false, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
   const q = new THREE.Quaternion(); posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q));
   clusterRoot.add(g); return g;
 }
@@ -929,7 +930,80 @@ function fdMats(g) {
   }
   return k;
 }
-function removeCluster(f) { const g = clusters.get(f); if (!g) return; clusterRoot.remove(g); [g.userData.tower, g.userData.nac, g.userData.rotor].forEach(m => m.dispose && m.dispose()); clusters.delete(f); }
+/* ---------------- 近景的基座段：依水下基礎型式畫出水面以上看得到的部分（示意，尺寸以塔高為 1） ----------------
+   單樁＝灰樁身＋黃色過渡段（TP）與工作平台；套管＝四腿格構＋黃色過渡段；三腳架＝中柱＋三斜撐；三樁＝三根直樁＋連接架；
+   重力式＝混凝土錐台；高樁承台＝群樁＋混凝土承台；圍堰式／複合筒＝寬筒；浮動式依細分型式畫半潛式三立柱、單柱式、駁船式或張力腳平台；
+   混合型依各型式座數分配到機位；型式不詳不畫基座。水面以下不畫（地球面就是海面）。 */
+const BASE_COL = { tp: 0xf2c230, steel: 0x9aa3ad, conc: 0xc9c3b6, hull: 0xe3e8ee };
+const baseGeoCache = {};
+let baseMats = null;
+function legGeo(x0, z0, y0, x1, z1, y1, r) {           // 從 (x0,y0,z0) 到 (x1,y1,z1) 的細圓柱
+  const a = new THREE.Vector3(x0, y0, z0), b = new THREE.Vector3(x1, y1, z1), d = b.clone().sub(a), len = d.length();
+  const g = new THREE.CylinderGeometry(r, r, len, 6); g.translate(0, len / 2, 0);
+  const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize());
+  return [g, new THREE.Matrix4().compose(a, q, new THREE.Vector3(1, 1, 1))];
+}
+const M = (x, y, z) => new THREE.Matrix4().makeTranslation(x, y, z);
+function baseParts(key) {
+  if (baseGeoCache[key]) return baseGeoCache[key];
+  if (!baseMats) baseMats = { tp: new THREE.MeshPhongMaterial({ color: BASE_COL.tp }), steel: new THREE.MeshPhongMaterial({ color: BASE_COL.steel }),
+    conc: new THREE.MeshPhongMaterial({ color: BASE_COL.conc }), hull: new THREE.MeshPhongMaterial({ color: BASE_COL.hull }) };
+  const [t, sub] = key.split(':'), parts = [];
+  const tpRing = (r, y0, y1) => [new THREE.CylinderGeometry(r, r, y1 - y0, 10), M(0, (y0 + y1) / 2, 0)];
+  const platform = (r, y) => [new THREE.CylinderGeometry(r, r, 0.012, 12), M(0, y, 0)];
+  const legs = (n, spread0, spread1, y1, r) => [...Array(n)].map((_, i) => { const a = i * Math.PI * 2 / n + Math.PI / 4; return legGeo(Math.cos(a) * spread0, Math.sin(a) * spread0, 0, Math.cos(a) * spread1, Math.sin(a) * spread1, y1, r); });
+  if (t === 'mp') { parts.push(['steel', [tpRing(0.062, -0.02, 0.03)]]); parts.push(['tp', [tpRing(0.07, 0.03, 0.15), platform(0.105, 0.15)]]); }
+  else if (t === 'jk') { parts.push(['steel', [...legs(4, 0.19, 0.085, 0.24, 0.012), ...[0, 1, 2, 3].map(i => { const a = i * Math.PI / 2 + Math.PI / 4, b = a + Math.PI / 2, s = 0.145; return legGeo(Math.cos(a) * s, Math.sin(a) * s, 0.1, Math.cos(b) * s, Math.sin(b) * s, 0.1, 0.007); })]]);
+    parts.push(['tp', [[new THREE.BoxGeometry(0.19, 0.06, 0.19), M(0, 0.27, 0)], tpRing(0.065, 0.24, 0.3)]]); }
+  else if (t === 'tp') { parts.push(['steel', [tpRing(0.05, -0.02, 0.22), ...legs(3, 0.2, 0.05, 0.16, 0.014), ...[0, 1, 2].map(i => { const a = i * Math.PI * 2 / 3 + Math.PI / 4; return legGeo(Math.cos(a) * 0.2, Math.sin(a) * 0.2, 0, Math.cos(a) * 0.2, Math.sin(a) * 0.2, 0.06, 0.02); })]]);
+    parts.push(['tp', [tpRing(0.06, 0.22, 0.3), platform(0.09, 0.3)]]); }
+  else if (t === 'tl') { parts.push(['steel', [...legs(3, 0.12, 0.12, 0.2, 0.028)]]); parts.push(['tp', [[new THREE.CylinderGeometry(0.17, 0.17, 0.05, 3), M(0, 0.225, 0)], tpRing(0.06, 0.22, 0.3)]]); }
+  else if (t === 'gb') { parts.push(['conc', [[new THREE.CylinderGeometry(0.075, 0.2, 0.16, 14), M(0, 0.08, 0)], platform(0.1, 0.16)]]); }
+  else if (t === 'pc') { parts.push(['conc', [[new THREE.CylinderGeometry(0.17, 0.17, 0.07, 14), M(0, 0.1, 0)]]]); parts.push(['steel', [...legs(6, 0.12, 0.12, 0.07, 0.016)]]); }
+  else if (t === 'cf' || t === 'bk') { parts.push([t === 'cf' ? 'steel' : 'conc', [[new THREE.CylinderGeometry(0.16, 0.16, 0.1, 14), M(0, 0.05, 0)]]]); parts.push(['tp', [tpRing(0.065, 0.1, 0.2), platform(0.1, 0.2)]]); }
+  else if (t === 'ra') { parts.push(['steel', [tpRing(0.08, 0, 0.06)]]); parts.push(['tp', [tpRing(0.065, 0.06, 0.15), platform(0.1, 0.15)]]); }
+  else if (t === 'fl') {
+    if (sub === 'spar') parts.push(['hull', [tpRing(0.075, -0.04, 0.14), platform(0.1, 0.14)]]);
+    else if (sub === 'barge') parts.push(['hull', [[new THREE.BoxGeometry(0.5, 0.07, 0.5), M(0, 0.035, 0)], [new THREE.BoxGeometry(0.42, 0.02, 0.42), M(0, 0.08, 0)]]]);
+    else if (sub === 'tlp') { parts.push(['hull', [[new THREE.BoxGeometry(0.3, 0.07, 0.3), M(0, 0.1, 0)], ...[0, 1, 2, 3].map(i => { const a = i * Math.PI / 2 + Math.PI / 4; return [new THREE.CylinderGeometry(0.04, 0.04, 0.14, 10), M(Math.cos(a) * 0.19, 0.04, Math.sin(a) * 0.19)]; })]]); }
+    else { // 半潛式（細分型式不詳的浮動式也用這個）
+      parts.push(['hull', [...[0, 1, 2].map(i => { const a = i * Math.PI * 2 / 3 + Math.PI / 2; return [new THREE.CylinderGeometry(0.055, 0.055, 0.17, 12), M(Math.cos(a) * 0.22, 0.045, Math.sin(a) * 0.22)]; }),
+        ...[0, 1, 2].map(i => { const a = i * Math.PI * 2 / 3 + Math.PI / 2, b = a + Math.PI * 2 / 3, r = 0.22; return legGeo(Math.cos(a) * r, Math.sin(a) * r, 0.02, Math.cos(b) * r, Math.sin(b) * r, 0.02, 0.022); }),
+        ...[0, 1, 2].map(i => { const a = i * Math.PI * 2 / 3 + Math.PI / 2, r = 0.22; return legGeo(Math.cos(a) * r, Math.sin(a) * r, 0.1, 0, 0, 0.1, 0.014); })]]);
+    }
+  }
+  const out = parts.map(([mat, geos]) => ({ geo: mergeGeos(geos), mat: baseMats[mat] }));
+  baseGeoCache[key] = out; return out;
+}
+/* 每個機位的基座型式鍵（'mp'、'jk'、'fl:semi'…）；混合型依各型式座數由內而外分配；型式不詳回傳 null */
+function baseKeys(f, n) {
+  if (f.type === 'onshore' || f.pipe) return null;
+  const r = f.fd;
+  if (!r) return f.type === 'floating' ? Array(n).fill('fl:') : null;
+  if (r.t === 'mx' && r.p && r.p.length) {
+    const tot = r.p.reduce((a, p) => a + (p[1] || 0), 0) || 1, keys = [];
+    r.p.forEach((p, i) => { const k = Math.round(n * (p[1] || 0) / tot); for (let j = 0; j < k && keys.length < n; j++) keys.push(p[0] === 'fl' ? 'fl:' + (r.s || '') : p[0]); });
+    while (keys.length < n) keys.push(r.p[r.p.length - 1][0]);
+    return keys;
+  }
+  if (r.t === 'mx') return null;
+  return Array(n).fill(r.t === 'fl' || f.type === 'floating' ? 'fl:' + (r.s || '') : r.t);
+}
+/* 在風機群底下加基座段：依型式分組各建一個 InstancedMesh，矩陣與塔架相同 */
+function addBases(g, f, P, h) {
+  const keys = baseKeys(f, P.length); if (!keys) return [];
+  const byKey = new Map(); keys.forEach((k, i) => { if (!byKey.has(k)) byKey.set(k, []); byKey.get(k).push(i); });
+  const meshes = []; _q.identity(); _s.set(h, h, h);
+  byKey.forEach((idx, key) => {
+    baseParts(key).forEach(part => {
+      const m = new THREE.InstancedMesh(part.geo, part.mat, idx.length);
+      idx.forEach((i, j) => { _p3.set(P[i][0], 0, P[i][1]); _m4.compose(_p3, _q, _s); m.setMatrixAt(j, _m4); });
+      m.instanceMatrix.needsUpdate = true; m.userData.farm = f; g.add(m); meshes.push(m);
+    });
+  });
+  return meshes;
+}
+function removeCluster(f) { const g = clusters.get(f); if (!g) return; clusterRoot.remove(g); [g.userData.tower, g.userData.nac, g.userData.rotor, ...(g.userData.bases || [])].forEach(m => m.dispose && m.dispose()); clusters.delete(f); }
 function layoutClusters() { const q = new THREE.Quaternion(); clusters.forEach((g, f) => { posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q)); }); }
 let lastClusterT = 0, focusFarm = null, nearFarms = [];
 /* 拉近時每座風場仍以一支風機代表；只有使用者點選（或導覽停留）的風場才依機組數量畫出所有風機（2026-09 使用者決定）。
@@ -2368,7 +2442,60 @@ function fdHTML(f) {
     .concat(r.u ? ['<a href="' + esc(r.u) + '" target="_blank" rel="noopener" title="' + esc(T(r.o ? 'fdSecond' : 'fdSrc')) + '">' + esc(hostOf(r.u)) + '</a>'] : []) : [];
   return '<div class="ffd"><i class="fdsw fd-' + fdGroup(f) + '"></i><b>' + esc(T('fdLabel')) + '</b>' + esc(L('：', ': ') + fdText(f)) +
     (src.length ? '<span class="fds">' + src.join('') + '</span>' : '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') +
-    (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') + '</div>';
+    (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') + fdSVG(f) + '</div>';
+}
+/* 風場卡片的剖面示意圖：海面、海床、風機與水下基礎型式（示意，非等比例；水深與塔高尚無欄位） */
+const SVG_COL = { sea: 'rgba(59,143,224,.28)', seaLine: '#6fb3ff', bed: '#7a6650', tower: '#dfe6f0', tp: '#f2c230', steel: '#9aa3ad', conc: '#c9c3b6', hull: '#e3e8ee', txt: 'currentColor', moor: '#9aa3ad' };
+function fdSVG(f) {
+  const r = f.fd, zh = lang === 'zh';
+  const typeKey = t => (t === 'fl' || f.type === 'floating') ? 'fl:' + ((r && r.s) || '') : t;
+  let items;                                                     // [{key, label, n}]
+  if (!r) items = f.type === 'floating' ? [{ key: 'fl:' }] : null;
+  else if (r.t === 'mx') items = (r.p || []).slice(0, 3).map(p => ({ key: typeKey(p[0]), n: p[1], label: fdTypeName(p[0]) }));
+  else items = [{ key: typeKey(r.t) }];
+  if (!items || !items.length) return '';
+  const W = 320, H = 168, SEA = 86, BED = 148, k = items.length, slot = W / k;
+  const L_ = (a, b) => zh ? a : b, P = [];
+  P.push('<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="rgba(255,255,255,.04)"/>');
+  P.push('<rect x="0" y="' + SEA + '" width="' + W + '" height="' + (BED - SEA) + '" fill="' + SVG_COL.sea + '"/>');
+  P.push('<rect x="0" y="' + BED + '" width="' + W + '" height="' + (H - BED) + '" fill="' + SVG_COL.bed + '"/>');
+  P.push('<line x1="0" y1="' + SEA + '" x2="' + W + '" y2="' + SEA + '" stroke="' + SVG_COL.seaLine + '" stroke-width="1" stroke-dasharray="4 3"/>');
+  P.push('<text x="4" y="' + (SEA - 4) + '" font-size="9" fill="' + SVG_COL.txt + '" opacity=".75">' + L_('海面', 'sea level') + '</text>');
+  P.push('<text x="4" y="' + (k > 1 ? BED + 9 : H - 4) + '" font-size="9" fill="' + SVG_COL.txt + '" opacity=".75">' + L_('海床', 'seabed') + '</text>');   // 混合型：底排留給各型式的標籤
+  const line = (x1, y1, x2, y2, c, w) => '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + c + '" stroke-width="' + (w || 2) + '" stroke-linecap="round"/>';
+  const rect = (x, y, w, h, c, rx) => '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + c + '"' + (rx ? ' rx="' + rx + '"' : '') + '/>';
+  const poly = (pts, c) => '<polygon points="' + pts.join(' ') + '" fill="' + c + '"/>';
+  const moor = (x0, y0, x1) => '<path d="M' + x0 + ' ' + y0 + ' Q ' + ((x0 + x1) / 2) + ' ' + (BED + 2) + ' ' + x1 + ' ' + BED + '" fill="none" stroke="' + SVG_COL.moor + '" stroke-width="1" stroke-dasharray="3 2"/>';
+  items.forEach((it, i) => {
+    const cx = slot * (i + 0.5), [t, sub] = it.key.split(':'), sc = k === 1 ? 1 : 0.8;
+    let top = SEA - 12;                                          // 塔底的高度（海面以上）
+    if (t === 'mp') { P.push(rect(cx - 5, SEA - 12, 10, BED - SEA + 20, SVG_COL.steel), rect(cx - 7, SEA - 28, 14, 20, SVG_COL.tp, 1.5), line(cx - 11, SEA - 28, cx + 11, SEA - 28, SVG_COL.tp, 2)); top = SEA - 28; }
+    else if (t === 'jk') { [-1, 1].forEach(d => P.push(line(cx + d * 8, SEA - 24, cx + d * 26, BED, SVG_COL.steel, 2.2), rect(cx + d * 26 - 3, BED, 6, 14, SVG_COL.steel)));
+      [SEA - 6, SEA + 22, SEA + 48].forEach((y, j) => { const w = 9 + j * 6; P.push(line(cx - w, y, cx + w, y + 20, SVG_COL.steel, 1.2), line(cx + w, y, cx - w, y + 20, SVG_COL.steel, 1.2)); });
+      P.push(rect(cx - 11, SEA - 34, 22, 12, SVG_COL.tp, 1.5)); top = SEA - 34; }
+    else if (t === 'tp') { P.push(rect(cx - 5, SEA - 30, 10, BED - SEA + 10, SVG_COL.steel)); [-1, 1].forEach(d => P.push(line(cx, SEA + 14, cx + d * 26, BED, SVG_COL.steel, 2), rect(cx + d * 26 - 3, BED - 2, 6, 16, SVG_COL.steel)));
+      P.push(rect(cx - 7, SEA - 30, 14, 14, SVG_COL.tp, 1.5)); top = SEA - 30; }
+    else if (t === 'tl') { [-1, 0, 1].forEach(d => P.push(rect(cx + d * 16 - 3, SEA - 26, 6, BED - SEA + 40, SVG_COL.steel))); P.push(rect(cx - 22, SEA - 34, 44, 10, SVG_COL.tp, 1.5)); top = SEA - 34; }
+    else if (t === 'gb') { P.push(poly([(cx - 30) + ',' + BED, (cx + 30) + ',' + BED, (cx + 10) + ',' + (SEA + 8), (cx - 10) + ',' + (SEA + 8)], SVG_COL.conc), rect(cx - 7, SEA - 14, 14, 24, SVG_COL.conc)); top = SEA - 14; }
+    else if (t === 'pc') { [-2, -1, 0, 1, 2].forEach(d => P.push(line(cx + d * 10, SEA + 2, cx + d * 13, BED + 10, SVG_COL.steel, 2.2))); P.push(rect(cx - 24, SEA - 14, 48, 18, SVG_COL.conc, 2)); top = SEA - 14; }
+    else if (t === 'cf' || t === 'bk') { P.push(rect(cx - 22, t === 'cf' ? SEA + 10 : BED - 18, 44, t === 'cf' ? BED - SEA - 10 : 18, t === 'cf' ? SVG_COL.steel : SVG_COL.conc, 2), rect(cx - 5, SEA - 10, 10, BED - SEA, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); top = SEA - 26; }
+    else if (t === 'ra') { P.push(rect(cx - 16, BED - 6, 32, 8, SVG_COL.conc), rect(cx - 5, SEA - 10, 10, BED - SEA + 4, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); [-1, 1].forEach(d => P.push(line(cx + d * 8, BED, cx + d * 14, BED + 14, SVG_COL.steel, 2))); top = SEA - 26; }
+    else if (t === 'fl') {
+      if (sub === 'spar') { P.push(rect(cx - 8, SEA - 14, 16, 60, SVG_COL.hull, 3), rect(cx - 8, SEA + 30, 16, 16, SVG_COL.steel, 3)); P.push(moor(cx - 6, SEA + 36, cx - 40), moor(cx + 6, SEA + 36, cx + 40)); top = SEA - 14; }
+      else if (sub === 'barge') { P.push(rect(cx - 36, SEA - 8, 72, 14, SVG_COL.hull, 2)); P.push(moor(cx - 30, SEA + 6, cx - 48), moor(cx + 30, SEA + 6, cx + 48)); top = SEA - 8; }
+      else if (sub === 'tlp') { P.push(rect(cx - 24, SEA - 10, 48, 12, SVG_COL.hull, 2)); [-1, 1].forEach(d => P.push(rect(cx + d * 20 - 5, SEA - 4, 10, 20, SVG_COL.hull, 2), line(cx + d * 20, SEA + 16, cx + d * 20, BED, SVG_COL.moor, 1.2), rect(cx + d * 20 - 5, BED - 2, 10, 6, SVG_COL.steel))); top = SEA - 10; }
+      else { [-1, 1].forEach(d => P.push(rect(cx + d * 26 - 6, SEA - 16, 12, 30, SVG_COL.hull, 2))); P.push(rect(cx - 32, SEA + 2, 64, 8, SVG_COL.hull, 2), rect(cx - 6, SEA - 16, 12, 30, SVG_COL.hull, 2)); P.push(moor(cx - 30, SEA + 10, cx - 52), moor(cx + 30, SEA + 10, cx + 52)); top = SEA - 16; }
+    }
+    // 風機：塔、機艙、葉輪（三葉）
+    const hub = top - 54 * sc, rr = 20 * sc;
+    P.push(poly([(cx - 3.2) + ',' + top, (cx + 3.2) + ',' + top, (cx + 1.6) + ',' + hub, (cx - 1.6) + ',' + hub], SVG_COL.tower));
+    P.push(rect(cx - 4, hub - 3, 9, 6, SVG_COL.tower, 1));
+    [90, 210, 330].forEach(a => { const ra = a * Math.PI / 180; P.push(line(cx, hub, cx + Math.cos(ra) * rr, hub - Math.sin(ra) * rr, '#ffffff', 1.8)); });
+    P.push('<circle cx="' + cx + '" cy="' + hub + '" r="' + rr + '" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 3"/>');
+    if (k > 1) P.push('<text x="' + cx + '" y="' + (H - 4) + '" text-anchor="middle" font-size="9" fill="' + SVG_COL.txt + '" opacity=".9">' + esc((it.label || '') + (it.n ? ' × ' + it.n : '')) + '</text>');
+  });
+  return '<svg class="fdsvg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('fdLabel') + ': ' + fdText(f)) + '">' + P.join('') + '</svg>' +
+    '<div class="gnote fdnote">' + L_('剖面示意圖，非等比例；近景的風機基座也依此型式繪製。', 'Schematic cross-section, not to scale; the close-up turbines carry the same base type.') + '</div>';
 }
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
 const srcLabel = u => { try { const x = new URL(u), path = decodeURIComponent(x.pathname).replace(/\/$/, ''); return hostOf(u) + (path.length > 38 ? path.slice(0, 36) + '…' : path); } catch (e) { return u; } };
