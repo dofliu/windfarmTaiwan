@@ -21,7 +21,8 @@ const I18N = {
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
     fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdFlBy: '浮動式細分', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
-    fdStep: '逐步收集中：歐洲、全球浮動式風場與台灣、日本、韓國、美國已完成；中國、越南進行中，大多暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）', portArcs: '地圖上以淺藍弧線連到這些風場',
+    fdStep: '逐步收集中：歐洲、全球浮動式風場與台灣、日本、韓國、美國已完成；中國、越南進行中，大多暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
+    dimDepth: '水深', dimHub: '輪轂高度', dimTower: '塔高', dimRotor: '葉輪直徑', fdScaled: '依該場的水深、輪轂高度與葉輪直徑等比例繪製；近景風機的塔與葉輪比例也依此。', fdPartScaled: '有數值的部分（{v}）按比例，其餘為示意。', fdDimSrc: '尺寸出處', portArcs: '地圖上以淺藍弧線連到這些風場',
     fdYears: '各年新增離岸容量（依水下基礎型式）', fdYearsNote: '以商轉年計，分期風場依各期；已除役的也算入當年新增',
     hint: '拖曳旋轉 · 滾輪縮放（可一路放大到風場） · 點國家或風場直接飛過去 · 空白鍵播放/暫停',
     hintTouch: '單指旋轉 · 雙指縮放 · 點國家或風場直接飛過去',
@@ -89,7 +90,8 @@ const I18N = {
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
     fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdFlBy: 'Floating by type', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
-    fdStep: 'Collected step by step: Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA are done; China and Vietnam are under way, and most farms there show as type unknown', fdProf: 'Foundations (operating offshore farms, by capacity)', portArcs: 'Light-blue arcs on the map link the port to these farms',
+    fdStep: 'Collected step by step: Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA are done; China and Vietnam are under way, and most farms there show as type unknown', fdProf: 'Foundations (operating offshore farms, by capacity)',
+    dimDepth: 'Water depth', dimHub: 'Hub height', dimTower: 'Tower height', dimRotor: 'Rotor diameter', fdScaled: 'Drawn to scale from this farm’s water depth, hub height and rotor diameter; the close-up turbines use the same tower-to-rotor ratio.', fdPartScaled: 'Known values ({v}) to scale, the rest schematic.', fdDimSrc: 'dimension source', portArcs: 'Light-blue arcs on the map link the port to these farms',
     fdYears: 'Offshore capacity added per year (by foundation type)', fdYearsNote: 'By commissioning year, phased farms by phase; decommissioned farms still count in their year',
     hint: 'Drag to rotate · scroll to zoom (down to farms) · click a country or farm to fly there · Space = play/pause',
     hintTouch: 'One finger to rotate · pinch to zoom · tap a country or farm to fly there',
@@ -918,7 +920,8 @@ function makeCluster(f) {
   const disc = new THREE.Mesh(discGeo, clusterMats[kind].disc), ring = new THREE.Mesh(f.pipe ? thinDashGeo : thinRingGeo, clusterMats[kind].ring);
   disc.scale.set(rad / 0.75, 1, rad / 0.75); ring.scale.set(rad, 1, rad); disc.position.y = ring.position.y = h * 0.02;
   disc.userData.farm = f; g.add(disc, ring);
-  g.userData = { f, P, h, tower, nac, rotor, bases, disc, ring, ringMat: ring.material, live: false, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
+  const dmc = fdDims(f), rs = dmc && dmc.hub && dmc.rotor ? h * clamp((dmc.rotor / 2) / dmc.hub / 0.54, 0.6, 1.9) : h;   // 有輪轂高度與葉輪直徑：葉輪依實際比例（預設葉輪半徑＝0.54 塔高）
+  g.userData = { f, P, h, rs, tower, nac, rotor, bases, disc, ring, ringMat: ring.material, live: false, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
   const q = new THREE.Quaternion(); posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q));
   clusterRoot.add(g); return g;
 }
@@ -1039,7 +1042,7 @@ function animateClusters(dt) {
     const lv = liveOn() && liveFor(f);
     if (!!lv !== u.live) { u.live = !!lv; u.ring.material = lv ? clusterMats.liveRing : u.ringMat; }   // 有即時資料：外圈改為即時綠
     u.ang += dt * 1.6 * (lv ? spinOf(lv) : f.pipe ? 0 : 1);   // 近看的風機群：轉速依此刻出力（興建中但已併網發電者也會轉）
-    _s.set(u.h, u.h, u.h);
+    _s.set(u.rs, u.rs, u.rs);
     for (let i = 0; i < built; i++) { _p3.set(u.P[i][0], u.h, u.P[i][1] + 0.12 * u.h); _q.setFromAxisAngle(_zAxis, u.ang + u.phase[i]); _m4.compose(_p3, _q, _s); u.rotor.setMatrixAt(i, _m4); }
     u.rotor.instanceMatrix.needsUpdate = true;
   });
@@ -2506,9 +2509,29 @@ function fdHTML(f) {
     .concat(r.u ? ['<a href="' + esc(r.u) + '" target="_blank" rel="noopener" title="' + esc(T(r.o ? 'fdSecond' : 'fdSrc')) + '">' + esc(hostOf(r.u)) + '</a>'] : []) : [];
   return '<div class="ffd"><i class="fdsw fd-' + fdGroup(f) + '"></i><b>' + esc(T('fdLabel')) + '</b>' + esc(L('：', ': ') + fdText(f)) +
     (src.length ? '<span class="fds">' + src.join('') + '</span>' : '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') +
-    (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') + fdSVG(f) + '</div>';
+    (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') +
+    (fdDimText(f) ? '<div class="fdim">' + esc(fdDimText(f)) + (r.du ? '<span class="fds"><a href="' + esc(r.du) + '" target="_blank" rel="noopener" title="' + esc(T('fdDimSrc')) + '">' + esc(hostOf(r.du)) + '</a></span>' : '') + (r.dz ? '<div class="gnote">' + esc(lang === 'zh' ? r.dz : r.de) + '</div>' : '') + '</div>' : '') +
+    fdSVG(f) + '</div>';
 }
-/* 風場卡片的剖面示意圖：海面、海床、風機與水下基礎型式（示意，非等比例；水深與塔高尚無欄位） */
+/* 風場的尺寸（公尺）：水深取範圍上限、輪轂高度取範圍平均；沒有值的回傳 null */
+function fdDims(f) {
+  const r = f && f.fd; if (!r) return null;
+  const avg = v => Array.isArray(v) ? (v[0] + v[1]) / 2 : v;
+  const o = { depth: r.d ? r.d[1] : null, depthRange: r.d || null, hub: r.h != null ? avg(r.h) : null, hubRange: r.h, rotor: r.r || null, tower: r.hk === 'tower', url: r.du || null };
+  return (o.depth != null || o.hub != null || o.rotor != null) ? o : null;
+}
+const fmtRange = v => Array.isArray(v) ? (v[0] == null ? '≤' + fmtNum(v[1]) : v[0] === v[1] ? fmtNum(v[0]) : fmtNum(v[0]) + '–' + fmtNum(v[1])) : fmtNum(v);   // [null, max]＝來源只寫最大水深
+const fmtNum = v => (Math.round(v * 10) / 10).toLocaleString('en-US');
+function fdDimText(f) {                                             // 「水深 15–20 m · 輪轂高度 90 m · 葉輪直徑 120 m」
+  const d = fdDims(f); if (!d) return '';
+  const parts = [];
+  if (d.depthRange) parts.push(T('dimDepth') + ' ' + fmtRange(d.depthRange) + ' m');
+  if (d.hub != null) parts.push(T(d.tower ? 'dimTower' : 'dimHub') + ' ' + fmtRange(d.hubRange) + ' m');
+  if (d.rotor) parts.push(T('dimRotor') + ' ' + fmtNum(d.rotor) + ' m');
+  return parts.join(' · ');
+}
+/* 風場卡片的剖面圖：海面、海床、風機與水下基礎型式。有水深、輪轂高度、葉輪直徑的風場依實際數值等比例畫（三者缺的用示意值補位），
+   沒有的維持示意圖（非等比例） */
 const SVG_COL = WW.FD_SVG_COL;
 function fdSVG(f) {
   const r = f.fd, zh = lang === 'zh';
@@ -2518,7 +2541,13 @@ function fdSVG(f) {
   else if (r.t === 'mx') items = (r.p || []).slice(0, 3).map(p => ({ key: typeKey(p[0]), n: p[1], label: fdTypeName(p[0]) }));
   else items = [{ key: typeKey(r.t) }];
   if (!items || !items.length) return '';
-  const W = 320, H = 168, SEA = 86, BED = 148, k = items.length, slot = W / k;
+  const dm = fdDims(f), scaled = !!dm, k = items.length, W = 320;
+  // 等比例：以公尺換算像素；缺的量用示意值補位（水深 25、輪轂 90、葉輪 130 m），並確保海床帶至少 28 px 讓基礎畫得出來
+  const depthM = dm && dm.depth != null ? dm.depth : 25, hubM = dm && dm.hub != null ? dm.hub : 90, rotM = dm && dm.rotor ? dm.rotor : 130;
+  const H = scaled ? 200 : 168, PAD_T = 8, PAD_B = 20;
+  const px = scaled ? (H - PAD_T - PAD_B) / (hubM + rotM / 2 + Math.max(depthM, 8)) : 0;
+  const SEA = scaled ? Math.round(PAD_T + (hubM + rotM / 2) * px) : 86, BED = scaled ? Math.min(H - PAD_B + 6, SEA + Math.max(28, Math.round(depthM * px))) : 148, slot = W / k;
+  const geom = scaled ? { hubY: Math.round(SEA - hubM * px), rr: Math.max(6, rotM / 2 * px) } : null;
   const L_ = (a, b) => zh ? a : b, P = [];
   P.push('<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="rgba(255,255,255,.04)"/>');
   P.push('<rect x="0" y="' + SEA + '" width="' + W + '" height="' + (BED - SEA) + '" fill="' + SVG_COL.sea + '"/>');
@@ -2529,11 +2558,20 @@ function fdSVG(f) {
   items.forEach((it, i) => {
     const cx = slot * (i + 0.5), [t, sub] = it.key.split(':'), sc = k === 1 ? 1 : 0.8;
     const sh = WW.fdDraw(t, sub, cx, SEA, BED, SVG_COL); P.push(sh.svg); const top = sh.top;   // 基礎本體（與風電知識頁共用 core.js 的繪製）
-    P.push(WW.fdTurbine(cx, top, sc, SVG_COL));                  // 風機：塔、機艙、葉輪
+    P.push(WW.fdTurbine(cx, top, sc, SVG_COL, geom && { hubY: Math.min(geom.hubY, top - 10), rr: geom.rr }));   // 風機：塔、機艙、葉輪（等比例時依實際高度）
     if (k > 1) P.push('<text x="' + cx + '" y="' + (H - 4) + '" text-anchor="middle" font-size="9" fill="' + SVG_COL.txt + '" opacity=".9">' + esc((it.label || '') + (it.n ? ' × ' + it.n : '')) + '</text>');
   });
-  return '<svg class="fdsvg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('fdLabel') + ': ' + fdText(f)) + '">' + P.join('') + '</svg>' +
-    '<div class="gnote fdnote">' + L_('剖面示意圖，非等比例；近景的風機基座也依此型式繪製。', 'Schematic cross-section, not to scale; the close-up turbines carry the same base type.') + '</div>';
+  let note = L_('剖面示意圖，非等比例；近景的風機基座也依此型式繪製。', 'Schematic cross-section, not to scale; the close-up turbines carry the same base type.');
+  if (scaled) {                                                  // 標示實際數值；三個都有才算完整等比例
+    const txt = (x, y, t, anchor) => '<text x="' + x + '" y="' + y + '" font-size="9" fill="' + SVG_COL.txt + '" opacity=".85"' + (anchor ? ' text-anchor="' + anchor + '"' : '') + '>' + esc(t) + '</text>';
+    if (dm.depthRange) P.push(txt(W - 4, BED - 4, T('dimDepth') + ' ' + fmtRange(dm.depthRange) + ' m', 'end'));
+    if (dm.hub != null) P.push(txt(W - 4, Math.max(PAD_T + 9, geom.hubY + 3), T(dm.tower ? 'dimTower' : 'dimHub') + ' ' + fmtRange(dm.hubRange) + ' m', 'end'));
+    if (dm.rotor) P.push(txt(W - 4, Math.max(PAD_T + 9, geom.hubY - geom.rr + 3), T('dimRotor') + ' ' + fmtNum(dm.rotor) + ' m', 'end'));
+    const have = [dm.depthRange && T('dimDepth'), dm.hub != null && T(dm.tower ? 'dimTower' : 'dimHub'), dm.rotor && T('dimRotor')].filter(Boolean);
+    note = have.length === 3 ? T('fdScaled') : T('fdPartScaled').replace('{v}', have.join(L_('、', ', ')));
+  }
+  return '<svg class="fdsvg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('fdLabel') + ': ' + fdText(f) + (scaled ? ' · ' + fdDimText(f) : '')) + '">' + P.join('') + '</svg>' +
+    '<div class="gnote fdnote">' + note + '</div>';
 }
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
 const srcLabel = u => { try { const x = new URL(u), path = decodeURIComponent(x.pathname).replace(/\/$/, ''); return hostOf(u) + (path.length > 38 ? path.slice(0, 36) + '…' : path); } catch (e) { return u; } };
@@ -2866,8 +2904,8 @@ function dataStats(zh) {
                : 'Farm-level records: ' + n(F.length) + ' farms in ' + n(isos.size) + ' countries — ' + n(op.length) + ' operating (' + n(c(op, f => f.type === 'onshore')) + ' onshore, ' + n(c(op, f => f.type === 'offshore')) + ' offshore, ' + n(c(op, f => f.type === 'floating')) + ' floating; ' + mw(op) + ' MW), ' + n(c(F, f => f.st === 1)) + ' under construction, ' + n(c(F, f => f.st === 2 || f.st === 3)) + ' in pre-construction or announced, ' + n(c(F, f => f.st === 4 || f.end)) + ' retired');
     if (FD && FD.farms) {
       const off = op.filter(f => f.type !== 'onshore'), known = off.filter(f => FD.farms[f.name]);
-      li.push(zh ? '水下基礎型式：' + n(Object.keys(FD.farms).length) + ' 座離岸風場已查明（營運中離岸風場 ' + n(off.length) + ' 座中 ' + n(known.length) + ' 座，占容量 ' + Math.round(100 * known.reduce((a, f) => a + (f.mw || 0), 0) / Math.max(1, off.reduce((a, f) => a + (f.mw || 0), 0))) + '%）'
-                 : 'Foundation types: ' + n(Object.keys(FD.farms).length) + ' offshore farms classified (' + n(known.length) + ' of the ' + n(off.length) + ' operating offshore farms, ' + Math.round(100 * known.reduce((a, f) => a + (f.mw || 0), 0) / Math.max(1, off.reduce((a, f) => a + (f.mw || 0), 0))) + '% of their capacity)');
+      li.push(zh ? '水下基礎型式：' + n(Object.keys(FD.farms).length) + ' 座離岸風場已查明（營運中離岸風場 ' + n(off.length) + ' 座中 ' + n(known.length) + ' 座，占容量 ' + Math.round(100 * known.reduce((a, f) => a + (f.mw || 0), 0) / Math.max(1, off.reduce((a, f) => a + (f.mw || 0), 0))) + '%；' + n(Object.values(FD.farms).filter(x => x.d || x.h || x.r).length) + ' 座另有水深、輪轂高度或葉輪直徑）'
+                 : 'Foundation types: ' + n(Object.keys(FD.farms).length) + ' offshore farms classified (' + n(known.length) + ' of the ' + n(off.length) + ' operating offshore farms, ' + Math.round(100 * known.reduce((a, f) => a + (f.mw || 0), 0) / Math.max(1, off.reduce((a, f) => a + (f.mw || 0), 0))) + '% of their capacity; ' + n(Object.values(FD.farms).filter(x => x.d || x.h || x.r).length) + ' of them also carry water depth, hub height or rotor diameter)');
     }
   }
   if (!LITE && PORTS.length) li.push(zh ? '離岸風電港口：' + n(PORTS.length) + ' 座、' + n(new Set(PORTS.map(p => p.iso)).size) + ' 國，' + n(PORTS.reduce((a, p) => a + (p.farms || []).length, 0)) + ' 條「服務過的風場」連結，每港附出處'
