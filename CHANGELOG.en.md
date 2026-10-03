@@ -15,6 +15,19 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.17.6 — 2026-10-03
+
+- Turbine models checked (quotes verified with `check_quotes.py`):
+  - Wailuo phase 1's MySE5.5-155 has a 158 m rotor (Mingyang's spec sheet and a broker report); “155” is only the model name;
+  - Zhong Neng has 31 V174-9.5 (Vestas's 2022 order and 2024 completion releases); the V164-9.5 on the Taiwan offshore wind association page is wrong;
+  - Provence Grand Large becomes SWT-8.0-154 (run at 8.4 MW, 75 m blades), with the rotor changed from 167 m to 154 m.
+- Data correction: Fuqing Haitan Strait follows its as-built marine environmental acceptance report: 299.2 MW with 21 Haizhuang 6.2 MW, 3 × 5 MW
+  and 22 Mingyang 7.0 MW (was Goldwind, 300 MW), depth 1.6–20.5 m, hub 97–101 m and rotor 158 m (the earlier 90 m tower and 171 m rotor are dropped).
+- Fifth dimension round: Neart na Gaoithe hub 119–125 m (pre-construction layout plan), Xiangshan 1 (depth 9–15 m, hub 131 m, rotor 225 m for the
+  main WD225 type) and Shengsi 5 & 6 depth 12.5–14.5 m. 234 of the 236 operating offshore farms now have at least one dimension; 168 have all three.
+- `tools/check_quotes.py`: no longer fails to cache PDF text containing surrogate characters, and retries with the next User-Agent when it only
+  gets a short firewall challenge page.
+
 ## v2.17.5 — 2026-10-03
 
 - More dimension data (fourth round, quotes verified with `check_quotes.py`) for 10 operating offshore farms: Peninsula North L (hub

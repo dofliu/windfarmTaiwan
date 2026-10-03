@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 329 rules: 136 records removed (42,468.2 MW of them operating), 193 records fixed.
+- 330 rules: 136 records removed (42,468.2 MW of them operating), 194 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 45 | 24,974.5 | 76 |
+| China | 45 | 24,974.5 | 77 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -203,6 +203,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Zhejiang Daishan 4 Offshore wind farm · 234 MW · 2021 | GEM | fixed: Chinese name, turbines | Turbines: 36 Envision EN148-4.5 (32 + 4) and 18 XEMC XE140-4.0 (Power Technology) | [link](https://www.power-technology.com/marketdata/daishan-no-4-offshore-wind-farm-china/) |
 | CGN Rudong H8 · 300 MW · 2021 | curated | fixed: turbines | CGN Rudong H8 has 40 CSSC Haizhuang H171-5.0 plus 25 Shanghai Electric SWT-4.0-146 turbines, not Mingyang 5.5 MW (Power Technology project profile) | [link](https://www.power-technology.com/marketdata/power-plant-profile-cgn-jiangsu-rudong-h8-offshore-wind-power-project-china/) |
 | Guoneng Dafeng H5 · 200 MW · 2021 | curated | fixed: capacity, turbines | Guoneng Dafeng H5 is 206.4 MW with 32 Goldwind GW184-6.45 turbines (Dafeng district government, Dec 2024); the row said 200 MW and Goldwind 5–6 MW class | [link](https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html) |
+| Fuqing Haitan Strait · 300 MW · 2021 | curated | fixed: capacity, turbines | As-built marine environmental acceptance report: 46 turbines, 21 Haizhuang 6.2 MW, 3 × 5 MW and 22 Mingyang 7.0 MW, 299.2 MW in total; the row said Goldwind 6.45–8 MW and 300 MW | [link](https://www.cti-cert.com/upload/files/202511071148308464.pdf) |
 
 ## Colombia (COL)
 
@@ -254,7 +255,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Les Éoliennes Flottantes du Golfe du Lion (EFGL) · 30 MW · 2025 | curated | fixed: status, year, owner | First power in May 2026 and full power in July 2026; owned by Ocean Winds with Banque des Territoires; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://www.offshorewind.biz/2026/07/10/floating-wind-farm-offshore-france-reaches-full-power/) |
 | Eolmed Floating wind farm · 30 MW | GEM | duplicate of “EolMed (Gruissan)” | Same farm (off Gruissan, 30 MW) | [link](https://www.gem.wiki/Eolmed_Floating_wind_farm) |
 | EolMed (Gruissan) · 30 MW · 2025 | curated | fixed: status, year | First power in April 2026 and full capacity in May 2026; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://www.bw-ideol.com/en/eolmed-project) |
-| Provence Grand Large · 25 MW · 2024 | curated | fixed: turbines | The turbines are Siemens Gamesa 8.4 MW, not Vestas | [link](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
+| Provence Grand Large · 25 MW · 2024 | curated | fixed: turbines | The turbines are Siemens Gamesa SWT-8.0-154 (run at 8.4 MW, 75 m blades), not Vestas; the RTE project dossier names the SWT-8.0-154 and SBM reports the three floating units installed | [link](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
 
 ## Germany (DEU)
 
