@@ -23,6 +23,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from farm_foundations import ASOF, EXCLUDED, FLOAT_SUBS, FOUNDATIONS, OSPAR_URL, SUBS, TYPES  # noqa: E402
+from farm_dimensions import DIMENSIONS, DIMS_ASOF  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 FARMS = ROOT / 'data/global/wind_farms.json'
@@ -119,6 +120,44 @@ def main():
         if rule['zh']:
             rec['zh'], rec['en'] = rule['zh'], rule['en']
         out[rule['name']] = rec
+    # 尺寸（水深、輪轂高度、葉輪直徑）：只接受已在對照表裡的風場，數值要合理，每列要有出處
+    seen_d, dims_n = set(), 0
+    for d in DIMENSIONS:
+        tag = f"dims {d['iso']} {d['name']}"
+        if d['name'] not in out:
+            errors.append(f'{tag}: not in the foundation table (add the foundation row first)'); continue
+        if farms[d['name']][2] != d['iso']:
+            errors.append(f'{tag}: country is {farms[d["name"]][2]} in wind_farms.json')
+        if d['name'] in seen_d:
+            errors.append(f'{tag}: listed twice')
+        seen_d.add(d['name'])
+        if not d['url']:
+            errors.append(f'{tag}: needs a source url')
+        dep, hub, rot = d['depth'], d['hub'], d['rotor']
+        if dep is not None and not (isinstance(dep, list) and len(dep) == 2 and all(isinstance(v, (int, float)) for v in dep) and 0 <= dep[0] <= dep[1] <= 400):
+            errors.append(f'{tag}: depth must be [min, max] in metres (0–400), got {dep!r}')
+        hv = hub if isinstance(hub, list) else ([hub, hub] if hub is not None else None)
+        if hv is not None and not (len(hv) == 2 and all(isinstance(v, (int, float)) for v in hv) and 15 <= hv[0] <= hv[1] <= 250):
+            errors.append(f'{tag}: hub height must be a value or [min, max] in metres (15–250), got {hub!r}')
+        if rot is not None and not (isinstance(rot, (int, float)) and 20 <= rot <= 350):
+            errors.append(f'{tag}: rotor diameter must be in metres (20–350), got {rot!r}')
+        if d['hub_kind'] not in ('hub', 'tower'):
+            errors.append(f'{tag}: hub_kind must be hub or tower')
+        if dep is None and hub is None and rot is None:
+            errors.append(f'{tag}: no values'); continue
+        rec = out[d['name']]
+        if dep is not None:
+            rec['d'] = dep
+        if hub is not None:
+            rec['h'] = hub
+            if d['hub_kind'] == 'tower':
+                rec['hk'] = 'tower'
+        if rot is not None:
+            rec['r'] = rot
+        rec['du'] = d['url']
+        if d['zh'] or d['en']:
+            rec['dz'], rec['de'] = d['zh'], d['en']
+        dims_n += 1
     excluded = {}
     for iso, name, ids, zh, en in EXCLUDED:
         if name not in farms:
@@ -141,6 +180,7 @@ def main():
         'types': {k: list(v) for k, v in TYPES.items()}, 'subs': {k: list(v) for k, v in SUBS.items()},
         'ospar': {'title': 'OSPAR Offshore Renewable Energy Developments 2024', 'url': OSPAR_URL, 'licence': 'CC0 1.0', 'asof': '2024-01-01'},
         'note': NOTE[max(r['step'] for r in FOUNDATIONS)],
+        'dims': {'asof': DIMS_ASOF, 'n': dims_n},
     }
     # x：查過但找不到可引用出處、刻意不列的風場與理由（風場卡片會顯示）
     OUT.write_text(json.dumps({'meta': meta, 'farms': out, 'x': excluded}, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
@@ -234,6 +274,7 @@ def write_docs(rows, out, ospar, countries):
                      '出處為該表各列的第一手來源（三峽集團、上海市政府、中廣核）；這批原文尚未以 `tools/check_quotes.py` 核對（整理時的工作環境無法連線），'
                      '列在 TODO 待補。越南各案該表只寫潮間帶／近岸、細分待查，未列入。新增「複合筒」型式，歸在「其他固定式」色組。'] if done >= 5 else []),
                   '- 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。',
+                  f'- **水深、輪轂高度、葉輪直徑**（{DIMS_ASOF} 起，`tools/farm_dimensions.py`）：逐座查維基百科（含英文維基百科各國離岸風場清單的「Depth range」欄）、開發商、風機廠商、政府文件或產業新聞，引用的原文逐筆核對過；查不到的留空，不用典型值推估。下表的「水深／輪轂／葉輪」欄即為這些值；地球儀的風場卡片剖面圖與近景風機依這些值等比例繪製。',
                   '- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合）；'
                   '風場卡片與本頁寫出確切型式。', '',
                   '## 各國進度（營運中的離岸風場）', '',
@@ -276,6 +317,7 @@ def write_docs(rows, out, ospar, countries):
                      'in TODO. The Vietnamese cases there only say intertidal / nearshore, sub-type unconfirmed, so none were added. A new '
                      '“composite bucket” type joins the “other fixed-bottom” colour group.'] if done >= 5 else []),
                   '- In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.',
+                  f'- **Water depth, hub height and rotor diameter** (from {DIMS_ASOF}, `tools/farm_dimensions.py`): checked farm by farm against Wikipedia (including the “Depth range” column of the English Wikipedia lists of offshore wind farms by country), developers, turbine makers, government documents or trade press, with every quoted passage verified; unknown values are left blank, never filled with typical values. The “Depth / Hub / Rotor” columns below hold these values, and the globe’s farm-card cross-section and close-up turbines are drawn to scale from them.',
                   '- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame '
                   '(jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed). Farm cards and this page give the exact type.', '',
                   '## Progress by country (operating offshore farms)', '',
@@ -301,8 +343,8 @@ def write_docs(rows, out, ospar, countries):
         for name, rec in out.items():
             grouped[by_name[name][2]].append((name, rec))
         for iso in sorted(grouped, key=cname):
-            L += ['### ' + cname(iso), '', '| ' + ('風場 | MW | 年份 | 型式 | 來源 | 說明' if zh else 'Farm | MW | Year | Type | Sources | Note') + ' |',
-                  '|---|---:|---:|---|---|---|']
+            L += ['### ' + cname(iso), '', '| ' + ('風場 | MW | 年份 | 型式 | 水深 m | 輪轂 m | 葉輪 m | 來源 | 說明' if zh else 'Farm | MW | Year | Type | Depth m | Hub m | Rotor m | Sources | Note') + ' |',
+                  '|---|---:|---:|---|---:|---:|---:|---|---|']
             for name, rec in sorted(grouped[iso], key=lambda x: x[0]):
                 r = by_name[name]
                 label = (r[1] + '（' + name + '）') if zh and r[1] else name
@@ -317,8 +359,14 @@ def write_docs(rows, out, ospar, countries):
                 if rec.get('u'):
                     src.append(f'[{host(rec["u"])}]({rec["u"]})')
                 note = rec.get('zh' if zh else 'en', '')
+                if rec.get('du') and rec['du'] != rec.get('u'):
+                    src.append(f'[{host(rec["du"])}]({rec["du"]})')
+                if rec.get('dz' if zh else 'de'):
+                    note = (note + ('；' if zh else '; ') if note else '') + rec['dz' if zh else 'de']
+                rng = lambda v: ('' if v is None else (f'{v[0]:g}–{v[1]:g}' if isinstance(v, list) and v[0] != v[1] else f'{(v[0] if isinstance(v, list) else v):g}'))
+                dep_s, hub_s, rot_s = rng(rec.get('d')), rng(rec.get('h')) + (('（塔高）' if zh else ' (tower)') if rec.get('hk') == 'tower' and rec.get('h') is not None else ''), rng(rec.get('r'))
                 year = r[6] or ('不詳' if zh else 'n/a')
-                L.append(f'| {label} | {_fmt(r[5])} | {year} | {typ} | {"<br>".join(src)} | {note} |')
+                L.append(f'| {label} | {_fmt(r[5])} | {year} | {typ} | {dep_s} | {hub_s} | {rot_s} | {"<br>".join(src)} | {note} |')
             L.append('')
         L += ['## ' + ('查過但暫不列入的風場' if zh else 'Checked but left out for now'), '',
               '| ' + ('風場 | OSPAR | 理由' if zh else 'Farm | OSPAR | Reason') + ' |', '|---|---|---|']

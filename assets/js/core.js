@@ -151,9 +151,9 @@ WW.fdDraw = function (t, sub, cx, SEA, BED, SVG_COL) {
   return { svg: P.join(''), top };
 };
 /* 剖面示意圖上的風機：塔（塔底在 top）、機艙、三片葉輪與掃風圓；sc 為縮放（並排多座時用 0.8） */
-WW.fdTurbine = function (cx, top, sc, SVG_COL) {
+WW.fdTurbine = function (cx, top, sc, SVG_COL, geom) {         // geom：{hubY, rr} 以像素直接指定輪轂高度與葉輪半徑（等比例圖用）
   SVG_COL = SVG_COL || WW.FD_SVG_COL; sc = sc || 1;
-  const hub = top - 54 * sc, rr = 20 * sc, P = [];
+  const hub = geom && geom.hubY != null ? geom.hubY : top - 54 * sc, rr = geom && geom.rr ? geom.rr : 20 * sc, P = [];
   P.push('<polygon points="' + [(cx - 3.2) + ',' + top, (cx + 3.2) + ',' + top, (cx + 1.6) + ',' + hub, (cx - 1.6) + ',' + hub].join(' ') + '" fill="' + SVG_COL.tower + '"/>');
   P.push('<rect x="' + (cx - 4) + '" y="' + (hub - 3) + '" width="9" height="6" rx="1" fill="' + SVG_COL.tower + '"/>');
   [90, 210, 330].forEach(a => { const ra = a * Math.PI / 180; P.push('<line x1="' + cx + '" y1="' + hub + '" x2="' + (cx + Math.cos(ra) * rr) + '" y2="' + (hub - Math.sin(ra) * rr) + '" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>'); });
