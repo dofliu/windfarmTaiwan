@@ -65,18 +65,15 @@ finished items to the topic lists below.
    TLS connection to eps/www.ctg.com.cn is cut and the MSA page returns 403 (30 Sep 2026). Run `tools/check_quotes.py` on them from a network
    that can reach them. Also only on CTG pages: "280 MW, fully connected March 2021" for Xinghua Bay phase 2 and the later 20 MW prototype at
    Liu'ao phase 2 (both already dropped from the notes).
-2. **Differences left to verify after the GEM 2026-02 upgrade** (30 Sep 2026; the site keeps the Sep 2026 compiled list or its earlier
-   checks where GEM 2026-02 says otherwise):
-   - Taiwan: Haiding 1 (GEM lists Formosa 3 phase 1, 360 MW, as cancelled; the list says 500 MW, 2029), DeShuai (GEM 2025-02's Mei Sen is
-     gone), Greater Changhua Northeast (cancelled in GEM; the list says 600 MW, 2030); whether YouDe (list: 1,000 MW, 2029) is the same
-     project as GEM's "Datian Youde Offshore wind farm" (達天又德, wpd, 700 MW, 2029) — merge once a source is found.
-   - China: GEM's Qingzhou V and VII (1,000 MW each, under construction, no owner) very likely duplicate the curated CTG Qingzhou 5
-     (500 MW, 2024) and 7 (1,000 MW, 2025); a primary source (subsidy notice or CTG announcement) is needed for merge rules.
-   - Korea: Donghae 1 now follows GEM (under construction, 2030, as in the owner's workbook); Jwasari is under construction, 2031 in GEM,
-     but the site keeps pre-construction per the March 2025 EIA hearing report (rule in `farm_cleanup.py`) until construction is evidenced.
-   - Norway's Sørmarkfjellet (130 MW): mothballed in GEM, kept operating by `STATUS_FIX` per owner Aneo's restart notice; its two 2025 blade
-     failures could go into the events layer.
-   - Japan's Enshu Kakegawa / Kakegawa "suspected duplicate A" is still to confirm.
+2. **Differences from GEM 2026-02**: checked one by one on 3 Oct 2026 (v2.17.7) and written into `farm_cleanup.py`; still to follow:
+   - Taiwan: Youde (Shinfox, 700 MW) — in August 2026 the Energy Administration said its termination was being processed — and Huanyang
+     (EDF's Wei Lan Hai Changhua), also in termination, move to `PIPE_DROP` once that is final; Youde keeps GEM's point (near the Changhua
+     coast; the site is about 38 km offshore) until a site coordinate is found. Haiding 3 (GEM's Formosa 3 · 3, 720 MW, announced) still
+     lists JERA as owner; to check.
+   - Korea: Jwasari still has no construction start or auction award; waiting for construction evidence. Its point now sits on Jwasari-do
+     off Tongyeong (approximate) until a site coordinate is found.
+   - Norway's Sørmarkfjellet: whether every turbine was back in service in 2026, and the cause of the March 2025 blade failure, have not
+     been published by the owner.
    - Next GEM release: build with `CLEANUP_LENIENT=1` first to see the new names, then rewrite the rules one by one; 2026-02 has no retired
      year, and `sources/gem_retired_years_2025-02.json` only covers phases retired by 2025-02.
 3. **Time-sensitive checks (one round done on 30 Sep 2026)**: Greater Changhua 2b & 4 was completed on 1 Sep 2026 and is in final

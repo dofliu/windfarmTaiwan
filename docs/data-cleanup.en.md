@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 330 rules: 136 records removed (42,468.2 MW of them operating), 194 records fixed.
+- 334 rules: 137 records removed (42,468.2 MW of them operating), 197 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -26,7 +26,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Germany | 0 | 0 | 3 |
 | Iran | 2 | 62 | 2 |
 | Ireland | 0 | 0 | 1 |
-| Japan | 2 | 30 | 10 |
+| Japan | 2 | 30 | 11 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
 | Netherlands | 8 | 1,852 | 6 |
@@ -39,7 +39,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | South Korea | 3 | 157.5 | 9 |
 | Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
-| Taiwan | 0 | 0 | 2 |
+| Taiwan | 1 | 0 | 4 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 2 | 270 | 1 |
 | United Kingdom | 7 | 3,485 | 5 |
@@ -296,6 +296,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Kitakyushu Hibikinada · 220 MW · 2026 | curated | fixed: turbines | Commercial operation began on 2 March 2026 (25 × 9.6 MW turbines, output capped at 220 MW); the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now | [link](https://hibikiwindenergy.co.jp/news/2026/0301.html) |
 | Eurus Akita Port semi-offshore · 3 MW · 2015 | curated | fixed: location | This single turbine belongs to Eurus Akita Port Wind Farm on the Mukaihama shore of Akita City; the old point fell on the Akita Port offshore wind farm, so it is moved to an approximate point at Mukaihama | [link](https://www.fuji-gab-mesh.co.jp/zisseki/zissekidetail/tikutei24.html) |
 | Hokkaido Ishikari Bay Offshore wind farm · 1,000 MW | GEM | fixed: status | Not under construction: Marubeni’s Ishikari Bay project has only filed a planning-stage environmental consideration document (February 2021), and the sea area has not yet been designated a promotion zone | [link](https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html) |
+| Kakegawa wind farm · 14 MW · 2020 | GEM | fixed: capacity, turbines | Shizuoka EIA notice: the Kakegawa wind project was changed to 6 turbines of the 2,300 kW class, 13,800 kW (Japan Wind Development, in operation from 2020) | [link](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 
 ## Jordan (JOR)
 
@@ -427,7 +428,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Yeonggwang Nakwol · 364.8 MW · 2025 | curated | fixed: status, year, turbines | Partial commercial operation began in December 2025 (only 7 turbines were up at the end of the year); by August 2026 all 64 monopiles were in, 47 turbines stood and 33 were in commercial operation, with full operation planned for December 2026. The turbines are Vensys 5.7 MW (they were listed as Doosan) | [link](https://www.mt.co.kr/industry/2026/08/24/2026082407272061046) |
 | Jeju Woljeong test (Doosan) · 5 MW · 2012 | curated | fixed: turbines | The second unit is an STX Heavy Industries 2 MW turbine (KIER, 2011–12), not a 2015 Hyosung; it has been idle since June 2016, and the Netherlands Enterprise Agency wrote in 2021 that the test site was not operational (its present state is unverified) | [link](https://www.epj.co.kr/news/articleView.html?idxno=37661) |
 | Tamra (Jeju Hallim/Hangyeong) · 30 MW · 2017 | curated | fixed: name | Tamra stands off Hangyeong-myeon on Jeju (the waters between Dumo-ri and Geumdeung-ri), not off Hallim, where a separate farm lies | [link](http://tamra-owp.co.kr/2019/sub0201.php) |
-| Jwasari Offshore wind farm · 360 MW · 2031 | GEM | fixed: status, year, capacity | Still at the environmental-impact-assessment stage (a public hearing on the draft was held in March 2025); the plan is now 360 MW (24 × 15 MW) | [link](https://www.hansannews.com/news/articleView.html?idxno=95554) |
+| Jwasari Offshore wind farm · 360 MW · 2031 | GEM | fixed: status, year, capacity, location | Still at the environmental-impact-assessment stage (a public hearing on the draft was held in March 2025); the plan is now 360 MW (24 × 15 MW). As of September 2026 there is no construction start or auction award (the draft EIA plans construction from March 2028 to September 2031), so GEM’s “under construction” is not used. The site is in the waters around Jwasari-do, Yokji-myeon, Tongyeong (South Gyeongsang), not off Yeosu in South Jeolla: the point moves to Jwasari-do (approximate) | [link](https://www.hansannews.com/news/articleView.html?idxno=95554) |
 | Yeonggwang Wind offshore wind farm · 35 MW · 2018 | GEM | fixed: capacity, turbines, location | The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); GEM’s point is the company’s registered address, so the location can only be treated as approximate | [link](https://m.etnews.com/20200221000242) |
 | YEP wind farm · 76 MW · 2017 | GEM | fixed: name, Chinese name, year, turbines | Hanwha’s Yeongyang farm: 76 MW, 22 turbines of the 3.45 MW class, finished in 2020 (eToday, January 2021: “completed last year”); GEM says 2017 | [link](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | fixed: Chinese name, year, turbines | Yeongyang No. 2: 42 MW, 10 turbines of the 4.2 MW class, in commercial operation from May 2023 (GEM’s 2022 is the test run) | [link](https://www.fnnews.com/news/202309241852426048) |
@@ -453,6 +454,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Zhong Neng · 298 MW · 2024 | curated | fixed: year, capacity | All 31 turbines were installed and grid-connected by August 2024, and commercial operation began with the electricity licence in April 2025; the allocated capacity is 300 MW, while the installed capacity is 31 × 9.5 MW = 294.5 MW | [link](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
 | Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | curated | fixed: turbines | The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136 | [link](https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html) |
+| Formosa 3 offshore wind farm · 2 · 600 MW · 2027 | GEM | removed | This is Haiding 2 (600 MW in Round 3.1); its contract was terminated after Corio withdrew, and in 2026 the Energy Administration added the terminated sites Haixia 1, Haixia 2 and Haiding 2 to the Round 3.3 expansion capacity; GEM’s Chinese name wrongly says Haiding 1 | [link](https://www.cna.com.tw/news/afe/202609300338.aspx) |
+| Formosa 3 offshore wind farm · 3 · 720 MW | GEM | fixed: Chinese name | This is Haiding 3 (the third Formosa 3 site, which received no capacity in Round 3.1 or 3.2); GEM’s Chinese name says Haiding 1 | [link](https://www.gem.wiki/Formosa_3_offshore_wind_farm) |
+| Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | fixed: owner | Youde was allocated 700 MW in Round 3.2 for 2029, developed by Shinfox; GEM’s owner wpd and the “Datian” half are out of date (Datian got only 165 MW in Round 3.1, did not sign and was cancelled in 2023). In August 2026 the Energy Administration said the developer had not paid the rest of its performance bond and the termination was being processed | [link](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 
 ## Thailand (THA)
 
@@ -557,6 +561,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Project | Reason | Source link |
 |---|---|---|
+| Haiding 1 (Formosa 3) (TWN) | Allocated 360 MW in Round 3.2 (for 2028); by May 2025 the ministry had revoked its development rights (Corio and TotalEnergies’ Formosa 3) | [link](https://www.ctee.com.tw/news/20250525700516-430104) |
+| DeShuai (TWN) | Allocated 240 MW in Round 3.2 (for 2028, Enervest / InfraVest); by May 2025 the ministry had revoked its development rights | [link](https://www.ctee.com.tw/news/20250525700516-430104) |
+| Greater Changhua Northeast (TWN) | Ranked third in Round 3.2 but dropped because its site overlaps Haiguang (Formosa 6), so it never got a development right (Ørsted bid Dadu 1 in Round 3.3 instead) | [link](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Firefly (Bandibuli) (KOR) | Equinor stopped the project in May 2026 | [link](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
 | Red Sea Wind Energy (Ras Ghareb) (EGY) | In full commercial operation since 2 July 2025 (650 MW, ahead of the Q3 target); GEM 2026-02 lists it as operating phases 2 and 3 of “Ras Ghareb wind farm”, so it is no longer a pipeline project | [link](https://orascom.com/updates/engie-orascom-construction-ttc-eurus-consortium-starts-full-commercial-operations-of-650-mw-wind-farm-in-egypt-ahead-of-schedule/) |
 | Dogger Bank B (GBR) | GEM 2026-02 lists phases B and C (1,235 + 1,218 MW) together as “Dogger Bank wind farm · B, C”, under construction (2026), so the list entry is no longer needed; with the 2025-02 release it was matched to Dogger Bank South by mistake | [link](https://www.gem.wiki/Dogger_Bank_wind_farm) |
@@ -566,12 +573,16 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Project | Change | Reason | Source link |
 |---|---|---|---|
+| YouDe (TWN) | mw=700.0, zh=又德, note=Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed | Name corrected to Youde (又德) and capacity from 1,000 MW to the 700 MW allocated in Round 3.2; the same project as GEM’s “Datian Youde”, now one record | [link](https://www.cna.com.tw/news/afe/202408050303.aspx) |
+| Fengmiao 2 (TWN) | mw=600.0 | Capacity from 500 MW to the 600 MW allocated in Round 3.2 | [link](https://www.cna.com.tw/news/afe/202408050303.aspx) |
+| Huanyang (TWN) | note=Round 3.1; the Energy Administration said in 2026 that the termination was in process | The Energy Administration said in 2026 that Huanyang (EDF’s Wei Lan Hai Changhua) is in the termination process; it will be removed once that is final | [link](https://www.nownews.com/news/6859530) |
 | Coastal Virginia Offshore Wind (CVOW) (USA) | expected=2027 | Expected completion moved from 2026 to 2027: in August 2026 the developer said the final turbines would only be installed by the end of 2027 (31 of the 176 were in place then) | [link](https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027) |
 
 ## GEM projects kept apart
 
 | Project | Reason | Source link |
 |---|---|---|
+| Kakegawa wind farm (JPN) | Japan Wind Development’s Kakegawa wind farm (6 × 2,300 kW, 13.8 MW, 2020) and Kuroshio Wind Power’s Enshu Kakegawa (7 Enercon units, 2011) are two neighbouring farms | [link](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 | Gansu Minqin Hongshagang 1 wind farm (CHN) | Minqin Hongshagang No. 1 (CGN, 400 MW) is a separate farm in the Hongshagang base; the old build merged it into the area-wide aggregate “Minqin Hongshagang”, which was later removed, so the farm vanished | [link](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
 | YEP wind farm (KOR) | Hanwha’s Yeongyang farm (76 MW, 22 × 3.45 MW) is not Macquarie’s 2008 Yeongyang farm; the old build merged it into the curated “Yeongyang”, later removed as a duplicate | [link](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation (KOR) | Yeongyang No. 2 (GS E&R 70%, Korea Midland Power 30%, 42 MW) is a new farm of 2023; the old build merged it into the curated “Yeongyang”, later removed as a duplicate | [link](https://www.fnnews.com/news/202309241852426048) |

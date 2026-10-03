@@ -601,10 +601,14 @@ RULES = [
     fix('KOR', 'Tamra (Jeju Hallim/Hangyeong)', C, '耽羅海上風電在濟州翰京面（Hangyeong-myeon）海域，不在翰林（翰林另有一座風場）',
         'Tamra stands off Hangyeong-myeon on Jeju (the waters between Dumo-ri and Geumdeung-ri), not off Hallim, where a separate farm lies',
         'http://tamra-owp.co.kr/2019/sub0201.php', rename='Tamra (Jeju Hangyeong)'),
-    fix('KOR', 'Jwasari Offshore wind farm', G, '還在環評階段（2025 年 3 月舉行環評初稿公聽會），規劃已改為 360 MW（24 部 15 MW）',
+    fix('KOR', 'Jwasari Offshore wind farm', G, '還在環評階段（2025 年 3 月舉行環評初稿公聽會），規劃已改為 360 MW（24 部 15 MW）；'
+        '2026 年 9 月查證時仍無開工或競標得標紀錄（環評初稿的工期是 2028 年 3 月至 2031 年 9 月），不採 GEM 的「興建中」。'
+        '場址在慶尚南道統營市欲知面左沙里島一帶海域，不在全羅南道麗水外海：座標改為左沙里島（概略位置）',
         'Still at the environmental-impact-assessment stage (a public hearing on the draft was held in March 2025); the plan is now '
-        '360 MW (24 × 15 MW)',
-        'https://www.hansannews.com/news/articleView.html?idxno=95554', st=2, year=0, mw=360),
+        '360 MW (24 × 15 MW). As of September 2026 there is no construction start or auction award (the draft EIA plans construction '
+        'from March 2028 to September 2031), so GEM’s “under construction” is not used. The site is in the waters around Jwasari-do, '
+        'Yokji-myeon, Tongyeong (South Gyeongsang), not off Yeosu in South Jeolla: the point moves to Jwasari-do (approximate)',
+        'https://www.hansannews.com/news/articleView.html?idxno=95554', st=2, year=0, mw=360, lat=34.561, lon=128.346, approx=True),
     fix('KOR', 'Yeonggwang Wind offshore wind farm', G,
         '靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；GEM 的座標是公司登記地址，位置只能當概略值',
         'The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); '
@@ -1200,6 +1204,23 @@ RULES = [
         '竣工海洋環保驗收報告：46 部，海裝 6.2 MW 21 部、5 MW 3 部、明陽 7.0 MW 22 部，總裝機 299.2 MW；原寫金風 6.45–8 MW、300 MW',
         'As-built marine environmental acceptance report: 46 turbines, 21 Haizhuang 6.2 MW, 3 × 5 MW and 22 Mingyang 7.0 MW, 299.2 MW in total; the row said Goldwind 6.45–8 MW and 300 MW',
         'https://www.cti-cert.com/upload/files/202511071148308464.pdf', mw=299.2, turbine='21x CSSC Haizhuang 6.2 MW + 3x 5 MW + 22x Mingyang 7.0 MW'),
+    # ------------------------------------------------ 2026-10-03 GEM 2026-02 待查證差異（出處原文已以 check_quotes 核對）
+    fix('JPN', 'Kakegawa wind farm', G, '靜岡縣環評：掛川風力發電事業變更為 6 部 2,300 kW 級、13,800 kW（日本風力開發，2020 年運轉）',
+        'Shizuoka EIA notice: the Kakegawa wind project was changed to 6 turbines of the 2,300 kW class, 13,800 kW (Japan Wind Development, in operation from 2020)',
+        'https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html', mw=13.8, turbine='6 x 2.3 MW class'),
+    drop('TWN', 'Formosa 3 offshore wind farm · 2', G,
+        '這是海鼎二（3.1 期獲配 600 MW），Corio 退出後已解約，能源署 2026 年把海峽一、海峽二與海鼎二的解約場址納入 3.3 期擴充容量；GEM 的中文名誤寫為海鼎一',
+        'This is Haiding 2 (600 MW in Round 3.1); its contract was terminated after Corio withdrew, and in 2026 the Energy Administration added the terminated sites Haixia 1, Haixia 2 and Haiding 2 to the Round 3.3 expansion capacity; GEM’s Chinese name wrongly says Haiding 1',
+        'https://www.cna.com.tw/news/afe/202609300338.aspx'),
+    fix('TWN', 'Formosa 3 offshore wind farm · 3', G, '這是海鼎三（Formosa 3 的第三座風場，未在 3.1、3.2 期獲配容量）；GEM 的中文名寫成海鼎一',
+        'This is Haiding 3 (the third Formosa 3 site, which received no capacity in Round 3.1 or 3.2); GEM’s Chinese name says Haiding 1',
+        'https://www.gem.wiki/Formosa_3_offshore_wind_farm', zhname='海鼎三'),
+    fix('TWN', 'Datian Youde Offshore wind farm', G,
+        '又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。'
+        '2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約',
+        'Youde was allocated 700 MW in Round 3.2 for 2029, developed by Shinfox; GEM’s owner wpd and the “Datian” half are out of date (Datian got only 165 MW in Round 3.1, '
+        'did not sign and was cancelled in 2023). In August 2026 the Energy Administration said the developer had not paid the rest of its performance bond and the termination was being processed',
+        'https://news.cts.com.tw/cna/money/202608/202608243070944.html', owner='Shinfox Energy'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1213,6 +1234,10 @@ ORPHAN_OK = {
 }
 
 GEM_KEEP = {
+    ('JPN', 'Kakegawa wind farm'):
+        ('日本風力開發的掛川風力發電所（6 部 2,300 kW、13.8 MW，2020 年）與黑潮風力發電的遠州掛川風力發電所（7 部 Enercon，2011 年）是相鄰的兩座風場',
+         'Japan Wind Development’s Kakegawa wind farm (6 × 2,300 kW, 13.8 MW, 2020) and Kuroshio Wind Power’s Enshu Kakegawa (7 Enercon units, 2011) are two neighbouring farms',
+         'https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html'),
     ('CHN', 'Gansu Minqin Hongshagang 1 wind farm'):
         ('民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失',
          'Minqin Hongshagang No. 1 (CGN, 400 MW) is a separate farm in the Hongshagang base; the old build merged it into the area-wide aggregate “Minqin Hongshagang”, which was later removed, so the farm vanished',
@@ -1249,6 +1274,15 @@ GEM_KEEP = {
 
 # 2026 整理的規劃中專案清單裡、之後已停止開發或已完工商轉（GEM 已列營運中）的專案（國別, 清單上的名稱）→（中文理由, English, 出處）
 PIPE_DROP = {
+    ('TWN', 'Haiding 1 (Formosa 3)'): ('3.2 期獲配 360 MW（預計 2028 年），2025 年 5 月前經濟部已解除開發權（Corio 與 TotalEnergies 的 Formosa 3）',
+                                       'Allocated 360 MW in Round 3.2 (for 2028); by May 2025 the ministry had revoked its development rights (Corio and TotalEnergies’ Formosa 3)',
+                                       'https://www.ctee.com.tw/news/20250525700516-430104'),
+    ('TWN', 'DeShuai'): ('3.2 期獲配 240 MW（預計 2028 年，德能英華威集團），2025 年 5 月前經濟部已解除開發權',
+                         'Allocated 240 MW in Round 3.2 (for 2028, Enervest / InfraVest); by May 2025 the ministry had revoked its development rights',
+                         'https://www.ctee.com.tw/news/20250525700516-430104'),
+    ('TWN', 'Greater Changhua Northeast'): ('3.2 期原排第 3，因與海廣風場高度重疊而未獲配容量，從未取得開發權（沃旭在 3.3 期改以大肚一號投標）',
+                                            'Ranked third in Round 3.2 but dropped because its site overlaps Haiguang (Formosa 6), so it never got a development right (Ørsted bid Dadu 1 in Round 3.3 instead)',
+                                            'https://www.cna.com.tw/news/afe/202408050303.aspx'),
     ('KOR', 'Firefly (Bandibuli)'): ('Equinor 於 2026 年 5 月停止開發', 'Equinor stopped the project in May 2026',
                                      'https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en'),
     ('EGY', 'Red Sea Wind Energy (Ras Ghareb)'): ('已於 2025 年 7 月 2 日全面商轉（650 MW，比原訂第三季提前）；GEM 2026-02 以「Ras Ghareb wind farm」第 2、3 期列為營運中，不再當規劃案',
@@ -1265,6 +1299,18 @@ PIPE_DROP = {
 
 # 2026 整理清單之後才變動的欄位（國別, 清單上的名稱）→（要改的欄位, 中文理由, English, 出處）；在比對清單前套用
 PIPE_FIX = {
+    ('TWN', 'YouDe'): (
+        {'mw': 700.0, 'zh': '又德', 'note': 'Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed'},
+        '名稱改為又德、容量由 1,000 MW 改為 3.2 期獲配的 700 MW；與 GEM 的「Datian Youde」是同一案，合成一筆',
+        'Name corrected to Youde (又德) and capacity from 1,000 MW to the 700 MW allocated in Round 3.2; the same project as GEM’s “Datian Youde”, now one record',
+        'https://www.cna.com.tw/news/afe/202408050303.aspx'),
+    ('TWN', 'Fengmiao 2'): (
+        {'mw': 600.0},
+        '容量由 500 MW 改為 3.2 期獲配的 600 MW', 'Capacity from 500 MW to the 600 MW allocated in Round 3.2', 'https://www.cna.com.tw/news/afe/202408050303.aspx'),
+    ('TWN', 'Huanyang'): (
+        {'note': 'Round 3.1; the Energy Administration said in 2026 that the termination was in process'},
+        '能源署 2026 年表示蔚藍海彰化（環洋）已在解約程序中，正式解約後再移除', 'The Energy Administration said in 2026 that Huanyang (EDF’s Wei Lan Hai Changhua) is in the termination process; it will be removed once that is final',
+        'https://www.nownews.com/news/6859530'),
     ('USA', 'Coastal Virginia Offshore Wind (CVOW)'): (
         {'expected': 2027},
         '預計完工年由 2026 改為 2027：2026 年 8 月開發商表示最後一批風機要到 2027 年底才裝完（當時 176 部裝好 31 部）',

@@ -74,6 +74,7 @@ CLEAN drop ROU Monsson Serbotesti wind farm 150.0
 CLEAN drop ROU Pestera Sorgenia wind farm 50.0
 CLEAN drop ROU Windkraft Sfanta Elena wind farm 84.0
 CLEAN drop THA Jhimpir Power (Energy Absolute) wind farm 600.0
+CLEAN drop TWN Formosa 3 offshore wind farm · 2 600.0
 CLEAN drop VNM Chu Pu wind farm 200.0
 CLEAN drop VNM Chu Se wind farm 700.0
 CLEAN dup AUS Bluff Point wind farm 64.0 -> Woolnorth (Bluff Point / Studland Bay)
@@ -280,6 +281,7 @@ CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
 CLEAN fix JPN Goto City Offshore floating project 16.8
 CLEAN fix JPN Hokkaido Ishikari Bay Offshore wind farm 1000.0
+CLEAN fix JPN Kakegawa wind farm 14.0
 CLEAN fix JPN Kamisu Phase 1 (Wind Power Ibaraki) 14.0
 CLEAN fix JPN Kamisu Phase 2 16.0
 CLEAN fix JPN Kitakyushu Hibikinada 220.0
@@ -333,6 +335,8 @@ CLEAN fix SWE Utgrunden I 10.5
 CLEAN fix SWE Vindpark Vänern (Gässlingegrund) 30.0
 CLEAN fix THA Subyai (Chaiyaphum) 90.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
+CLEAN fix TWN Datian Youde Offshore wind farm 700.0
+CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
 CLEAN fix TWN Taipower Offshore Phase 1 (Changhua) 109.2
 CLEAN fix TWN Zhong Neng 298.0
 CLEAN fix URY Pampa (Tacuarembó) 141.6
@@ -947,15 +951,17 @@ PIPE-ADD JPN Aomori Sea of Japan South st2 y2030
 PIPE-ADD JPN Choshi (re-tender) st2 y2032
 PIPE-ADD JPN Enoshima-Saikai st2 y2029
 PIPE-ADD JPN Noshiro-Mitane-Oga (re-tender) st2 y2032
-PIPE-ADD TWN DeShuai st2 y2029
 PIPE-ADD TWN Fengmiao 2 st2 y2029
-PIPE-ADD TWN Greater Changhua Northeast st2 y2030
-PIPE-ADD TWN Haiding 1 (Formosa 3) st2 y2029
-PIPE-ADD TWN YouDe st2 y2029
 PIPE-DROP EGY Red Sea Wind Energy (Ras Ghareb)
 PIPE-DROP GBR Dogger Bank B
 PIPE-DROP GBR Dogger Bank C
 PIPE-DROP KOR Firefly (Bandibuli)
+PIPE-DROP TWN DeShuai
+PIPE-DROP TWN Greater Changhua Northeast
+PIPE-DROP TWN Haiding 1 (Formosa 3)
+PIPE-FIX TWN Fengmiao 2 {'mw': 600.0}
+PIPE-FIX TWN Huanyang {'note': 'Round 3.1; the Energy Administration said in 2026 that the termination was in process'}
+PIPE-FIX TWN YouDe {'mw': 700.0, 'zh': '又德', 'note': 'Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed'}
 PIPE-FIX USA Coastal Virginia Offshore Wind (CVOW) {'expected': 2027}
 PIPE-UPD JPN Akita Yurihonjo (re-tender) -> Yurihonjo (Mitsubishi) Offshore wind farm st2 y2032
 PIPE-UPD JPN Happo-Noshiro -> Happou Noshiro offshore wind farm st3 y2029
@@ -966,3 +972,4 @@ PIPE-UPD TWN Fengmiao 1 -> Fengmiao 1 st1 y2027
 PIPE-UPD TWN Formosa 4 -> Formosa 4 st2 y2028
 PIPE-UPD TWN Formosa 6 -> Formosa 6 st2 y2029
 PIPE-UPD TWN Huanyang -> Huanyang st2 y2028
+PIPE-UPD TWN YouDe -> YouDe st2 y2029

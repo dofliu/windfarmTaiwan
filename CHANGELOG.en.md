@@ -15,6 +15,22 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.17.7 — 2026-10-03
+
+- The differences from GEM 2026-02 checked one by one (quotes verified with `check_quotes.py`):
+  - Taiwan's Round 3.2 (Energy Administration, Aug 2024): Haiding 1 (360 MW) and DeShuai (240 MW) lost their development rights by May 2025,
+    and Greater Changhua Northeast was dropped for overlapping Haiguang, so the three are removed; YouDe is corrected to Youde, 700 MW, and
+    merged with GEM's “Datian Youde” (owner Shinfox, with a note that termination was being processed in August 2026); Fengmiao 2 becomes
+    the 600 MW allocated; Huanyang gets a note that it is in termination.
+  - GEM's “Formosa 3 · 2” is Round 3.1's Haiding 2 (600 MW), since terminated, and is removed; “Formosa 3 · 3” gets the Chinese name 海鼎三 (Haiding 3).
+  - Korea's Jwasari still has no construction start and stays in pre-construction; the site is off Jwasari-do near Tongyeong, not off
+    Yeosu, so its point is moved (approximate).
+  - Japan's Kakegawa (Japan Wind Development, 6 × 2,300 kW, 13.8 MW, 2020) and Enshu Kakegawa (Kuroshio Wind Power, 2011) are two farms;
+    listed in `GEM_KEEP`, and the coverage report no longer flags them as a suspected duplicate.
+  - Norway's Sørmarkfjellet stays operating; the events layer gains its three 2025 blade incidents (a blade falling after a storm cut
+    power in January, a blade failure that stopped the whole park in March, icing damage in December; Aneo notices), 91 events in all.
+- The Qingzhou 5 and 7 duplicates with GEM had already been merged by clean-up rules; removed from TODO.
+
 ## v2.17.6 — 2026-10-03
 
 - Turbine models checked (quotes verified with `check_quotes.py`):

@@ -462,13 +462,12 @@ base_iso = {k: list(v) for k, v in by_iso.items()}      # 比對只看合併前�
 EXTRA = CUR.parent
 # 台灣規劃案的明確對應（2026 清單名稱 → GEM 2026-02 名稱；GEM 的在地名稱可佐證，例如「渢妙 1 號；3-1 期」「環洋離岸風力發電計畫」）。
 # 對應到的 GEM 紀錄改用清單的名稱、中文名、容量、狀態與預計年份；None＝GEM 沒有、一定新增。
-# GEM 2026-02 與清單不一致、暫以清單為準的（見 TODO）：海鼎一（GEM 的 Formosa 3 第 1 期 360 MW 列為取消）、德帥（GEM 2025-02 的 Mei Sen 已移除）、
-# 大彰化東北（GEM 列為取消）；佑德與 GEM 的「Datian Youde」（達天又德，wpd，700 MW）是否同一案待查證，先各自保留。
+# 3.2 期（2024-08）的結果與之後的變動（海鼎一、德帥被解除開發權，大彰化東北未獲配）寫在 farm_cleanup 的 PIPE_DROP／PIPE_FIX；
+# 又德（清單 YouDe）就是 GEM 的「Datian Youde」（達天又德，達天半邊 2023 年已取消），對應後改用清單的名稱與容量。
 # 渢妙：GEM 把 1 號（500 MW，2027）與 2 號（600 MW，2030）合成一筆前期開發，對應到「Fengmiao 1」後改用清單的容量與年份，渢妙二另以清單新增。
-TW_PIPE_SAME = {'Fengmiao 1': 'Taichung Fengmiao Floating wind farm', 'Haiding 1 (Formosa 3)': None,
-                'DeShuai': None, 'Formosa 4': 'Formosa 4 offshore wind farm',
+TW_PIPE_SAME = {'Fengmiao 1': 'Taichung Fengmiao Floating wind farm', 'Formosa 4': 'Formosa 4 offshore wind farm',
                 'Formosa 6': 'Formosa 6 Haiguang Offshore wind farm', 'Huanyang': 'Huanyang  Wei Lan Hai Changhua Offshore wind farm',
-                'Fengmiao 2': None, 'YouDe': None, 'Greater Changhua Northeast': None}
+                'Fengmiao 2': None, 'YouDe': 'Datian Youde Offshore wind farm'}
 # 其他國家的明確對應（GEM 一個場址的多個分期與清單的多個專案交錯時，自動比對會對錯；None＝GEM 沒有、一定新增）
 PIPE_SAME = {
     'GBR': {'Dogger Bank D': 'Dogger Bank wind farm · D',                                  # 1,320 MW，GEM 前期開發、沒有預計年
@@ -477,10 +476,9 @@ PIPE_SAME = {
 }
 TW_PIPE_NOTE_ZH = {'Fengmiao 1': '區塊開發 3.1 期；2024 年完成融資；座標為概略位置',
                    'Formosa 4': '區塊開發 3.1 期；2024 年取得許可、2025 年 12 月簽訂企業購電合約，尚未做最終投資決定',
-                   'Huanyang': '區塊開發 3.1 期；座標為概略位置', 'YouDe': '區塊開發 3.2 期（2024 年）；座標為概略位置',
-                   'Formosa 6': '區塊開發 3.2 期；座標為概略位置', 'Fengmiao 2': '區塊開發 3.2 期；座標為概略位置',
-                   'Greater Changhua Northeast': '區塊開發 3.2 期；場址與福爾摩沙 6 號重疊；座標為概略位置',
-                   'Haiding 1 (Formosa 3)': '區塊開發 3.2 期；座標為概略位置', 'DeShuai': '區塊開發 3.2 期；座標為概略位置'}
+                   'Huanyang': '區塊開發 3.1 期；能源署 2026 年表示已在解約程序中',
+                   'YouDe': '區塊開發 3.2 期（2024 年，700 MW）；2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約',
+                   'Formosa 6': '區塊開發 3.2 期；座標為概略位置', 'Fengmiao 2': '區塊開發 3.2 期；座標為概略位置'}
 pipe_upd = pipe_add = 0
 pipe_seen, pipe_fixed, pipe_hit = set(), set(), set()
 pc = json.loads((EXTRA / 'pipeline_curated.json').read_text(encoding='utf-8')) if (EXTRA / 'pipeline_curated.json').exists() else {'projects': []}
