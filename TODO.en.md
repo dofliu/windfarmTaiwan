@@ -37,12 +37,19 @@ finished items to the topic lists below.
   each: (1) a stacked chart of offshore capacity added per year by foundation type in the Overview tab — **done (v2.15.0)**; (2) a foundation chapter in the Learn section
   and port-to-farm arcs — **done (v2.16.0)**; (3) a check of the data anomalies found in the step-5 sweep — **done (v2.16.1; open items under item 4)**; (4) water-depth, hub-height and rotor-diameter
   fields with the cross-section and close-up drawn to scale — **done (v2.17.0)**.
-  Still missing after the second round: 7 farms with none of the three (Guohua Rudong H14, CTG Dafeng H8-1, Xiangshan 1, Shengsi 5/6, Dongtai
-  Zhugensha H1, and Vietnam's Tan Phu Dong 1 and Ben Tre 10) and 77 without a hub height (mostly China; in the UK, Kentish Flats Extension, East
-  Anglia ONE, Hornsea Two, Dogger Bank A and Neart na Gaoithe only have consent limits or overall heights, and Borkum Riffgrund 3 only its permit's
-  142 m). Found but deliberately not used: CNOOC Guanlan's 83 m (the column on the floater), Peninsula North L's 151/252 m (EIA design values),
-  Shapa phase 2's "112 m above the sea" (unclear which height), and Provence Grand Large's 100 m hub (the source names an SWT-8.0-154, which fits
-  neither the database's SG 8.0-167 nor the 174 m tip height; to be checked). Sources worth another try: the Qingzhou 2 EIA PDF (gdee.gd.gov.cn, no
+  Still missing after the third round (v2.17.2): of the 236 operating offshore farms, 229 have at least one value (depth 209, hub height 166,
+  rotor diameter 216, all three 159). Seven have none: Guohua Rudong H14, Xiangshan 1, Shengsi 5/6, Dongtai Zhugensha H1, GCL Rudong H13 (just
+  restored), and Vietnam's Tan Phu Dong 1 and Ben Tre 10; 70 lack a hub height. Nothing quotable after three rounds: Vietnam's intertidal farms,
+  most Chinese farms of 2019–2021, and in Europe Kentish Flats Extension, East Anglia ONE, Hornsea Two, Neart na Gaoithe and Borssele III–V.
+  Found but deliberately not used: consent limits or EIA design values (Peninsula North L, Qingzhou 1 & 2, the register value for Borkum
+  Riffgrund 3), the column on a floater (CNOOC Guanlan: 83 m or 105 m), heights of unclear meaning (Shapa phase 2's 112 m, Dogger Bank A
+  derived from a 260 m overall height), phase-1-only values (Xiangshan 1) and conflicting values (Provence Grand Large: the source names an
+  SWT-8.0-154, the database an SG 8.0-167).
+  Data doubts from the third round: Guohua Rudong H14 looks like a misplaced copy of Luneng's H14 (200 MW, 50 × 4 MW); "CGN Jiaxing 2 (Zhoushan
+  Daishan 4)" is really 234 MW, 18 × 4 + 36 × 4.5 MW; CGN Rudong H8 uses 40 Haizhuang H171-5MW plus 25 × 4 MW; Guoneng Dafeng H5 is 206.4 MW,
+  32 × GW184-6.45.
+  Onshore farms the build may have swallowed the same way Pingtan Waihai and Rudong H13 were (to be checked): Gansu Minqin Hongshagang 1 (GEM
+  400 MW), and Korea's YEP (76 MW) and Yeongyang 2nd (42 MW).
   response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).
   The turbine-field errors the sub-agents found are now clean-up rules (v2.17.1, 12 records). Still open: Wailuo phase 1 is MySE5.5-155 in the
   database but official reports give a 158 m rotor (model to be checked); Zhong Neng phase 1 is V164-9.5 on the association's page but V174-9.5 in
@@ -119,9 +126,8 @@ finished items to the topic lists below.
          Bac Lieu phases 1–3, Hiep Thanh, Tan Phu Dong 2, V1-1, Soc Trang 1, Ben Tre V1-3 and Tan An 1.
    - Anomaly check (3 Oct 2026, v2.16.1): all 72 anomalies were re-checked and written as 70 clean-up rules (4 removed, 14 merged, 52 corrected;
      see the 2026-10-03 block of `docs/data-cleanup.en.md`). Still open for a next round: the status of CGN's Xiangshan Tuci 280 MW (EIA in 2022,
-     still tendering storage EPC in 2025, no construction or grid report found); missing records for CTG's Pingtan Waihai 111 MW (11 × 8–16 MW,
-     full capacity Sep 2023, SASAC/CPEM have the text), GCL's Rudong H13 (150 MW, 30 × 5 MW, 2021) and Longyuan's "Guoneng Gongxiang" floating
-     platform off Nanri Island (June 2024); GEM's "Shandong Bohai B1" says 500 MW but the Bozhong B1 tender was 100 MW; the curated "CGN Jiaxing 2
+     still tendering storage EPC in 2025, no construction or grid report found); (CTG's Pingtan Waihai, GCL's Rudong H13 and Longyuan's
+     Guoneng Gongxiang were added in v2.17.2); GEM's "Shandong Bohai B1" says 500 MW but the Bozhong B1 tender was 100 MW; the curated "CGN Jiaxing 2
      (Zhoushan Daishan 4)" 300 MW does not match Daishan 4's 234 MW; the curated "Guohua Rudong H14" 300 MW matches no Rudong site (Luneng's H14
      is 200 MW); "Jiangsu Dafeng H10 (Guoxin)" may overlap the curated "Guoxin Dafeng 850 MW"; the Chinese name of "Zhoushan Liuheng / Zhejiang
      others" includes Jiaxing 2 and may double-count it; "Shandong Haiwei Peninsula South U" may be U1 phase 2; the year of Binhai South H3
@@ -315,7 +321,7 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Floating units in China not yet in the data (their coordinates still need a source, never guessed): CSSC Haizhuang's Fuyao
       6.2 MW (2022, Luodousha off Zhanjiang, [National Energy Administration](http://www.nea.gov.cn/2022-06/24/c_1310631921.htm); running
       on a micro-grid; whether it reached the public grid is unverified) and Longyuan's Guoneng Gongxiang 4 MW three-column
-      semi-submersible (grid-connected June 2024, off Nanri Island, Putian, Fujian; [China Daily](https://fj.chinadaily.com.cn/a/202406/28/WS667e79dba3107cd55d269125.html),
+      semi-submersible (added in v2.17.2 at an approximate location; grid-connected June 2024, off Nanri Island, Putian, Fujian; [China Daily](https://fj.chinadaily.com.cn/a/202406/28/WS667e79dba3107cd55d269125.html),
       [SASAC](http://www.sasac.gov.cn/n2588025/n2588124/c33362365/content.html)); CTG's Sanxia Linghang 16 MW semi-submersible (Yangjiang,
       [Xinhua](https://www.news.cn/tech/20260503/76ea04db45f242819a7f2b39dc191b94/c.html)) and CNOOC's Haiyou Anlan 16 MW tension-leg
       platform (Lufeng oilfield, [Xinhua](https://www.news.cn/tech/20260806/18f047cf51d840c489e283b9d1669742/c.html)), which only

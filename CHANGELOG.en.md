@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.17.2 — 2026-10-03
+
+- Three offshore farms restored. **CTG Pingtan Waihai** (111 MW, eleven 8–16 MW test turbines, fully connected September 2023, jackets on suction
+  buckets) and **GCL Rudong H13** (150 MW, 30 Haizhuang 5 MW turbines, November 2021, monopiles) were already in GEM, but the build merged them into
+  other curated records and they vanished; they are now in `GEM_KEEP`, with clean-up rules filling their fields. **Guoneng Gongxiang** (the Nanri Island
+  floating wind-and-fish-farming platform, a 4 MW three-column semi-submersible, June 2024) is added as a curated record at an approximate location.
+  All three carry a foundation type; Pingtan Waihai and Guoneng Gongxiang also get water depth and rotor diameter.
+- Third round of dimension research: 17 farms gain values, including the two restored ones (hub height +10, depth +5, rotor diameter +5); 229 of the 236 operating offshore farms now have at
+  least one value (hub height 166, all three 159). Every quote is verified with `check_quotes.py`; consent limits, EIA design values, phase-only and
+  conflicting figures are not used.
+
 ## v2.17.1 — 2026-10-03
 
 - Data corrections: 12 turbine-field errors found while researching farm dimensions are written as clean-up rules (quotes verified with
