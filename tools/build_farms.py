@@ -40,7 +40,7 @@ import csv, difflib, json, math, re, sys, unicodedata, urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
-from farm_cleanup import GEM_KEEP, PIPE_DROP, PIPE_FIX, apply as cleanup, summary as cleanup_summary, write_docs as cleanup_docs
+from farm_cleanup import GEM_KEEP, ORPHAN_OK, PIPE_DROP, PIPE_FIX, apply as cleanup, summary as cleanup_summary, write_docs as cleanup_docs
 
 CUR, GEM, OUT = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
 
@@ -318,6 +318,7 @@ for f in cur:
 keep_cur = lambda f: f.get('src') != 'GPPD' and id(f) not in superseded
 
 gem_out, dropped, gppd_hit, log = [], 0, set(), []
+absorbed = defaultdict(list)   # (國別, 精選名稱) → 被當成重複併進這筆精選紀錄的 GEM 紀錄
 for x in groups_all:
     iso, name, zh, st, g, lat, lon, mw = x['iso'], x['name'], x['zh'], x['st'], x['g'], x['lat'], x['lon'], x['mw']
     yrs = [int(r['start-year']) for r in g if r['start-year']]
@@ -345,6 +346,7 @@ for x in groups_all:
             o = owner_of(g)
             if o: best['owner'] = o
         dropped += 1
+        absorbed[(iso, best['name'])].append((name, st, mw))
         log.append(f"DROP {iso} {st} {name} {mw} ~ {best['name']} {best['mw']}")
         continue
     if st == 'operating':   # WRI GPPD 舊資料若與 GEM 營運中風場相同，以 GEM 為準
@@ -386,6 +388,22 @@ allrows = cur_out + gem_out
 allrows, clean_log = cleanup(allrows)
 for c, before, after in clean_log:
     log.append(f"CLEAN {c['act']} {c['iso']} {before[0]} {before[5]}" + (f" -> {c['keep'][0]}" if c['keep'] else ''))
+# 被併進精選紀錄的 GEM 紀錄，若那筆精選紀錄之後被清理規則刪掉，就會整座消失（2026-10 補回平潭外海、如東 H13、民勤紅沙崗 1 號、
+# 英陽兩座時發現）。這種情形一律中止，除非該 GEM 紀錄列在 GEM_KEEP（保留）或 ORPHAN_OK（確認已由別的紀錄涵蓋）
+orphans = []
+for c, before, after in clean_log:
+    if c['act'] in ('dup', 'drop') and c['src'] == 0:
+        for name, st, mw in absorbed.get((c['iso'], before[0]), []):
+            if (c['iso'], name) not in ORPHAN_OK:
+                orphans.append(f"{c['iso']} {st} “{name}” {mw} MW (merged into curated “{before[0]}”, which the clean-up {c['act']}s)")
+for (iso, name) in ORPHAN_OK:
+    if not any(n == name for (i, _), lst in absorbed.items() if i == iso for n, _, _ in lst):
+        orphans.append(f"ORPHAN_OK {iso} “{name}” no longer absorbed by any curated record: re-check and remove the entry")
+if orphans:
+    print('ERROR: GEM records would vanish with a removed curated record; add them to GEM_KEEP or ORPHAN_OK in tools/farm_cleanup.py:')
+    for o in orphans:
+        print('  ' + o)
+    sys.exit(1)
 
 
 # ---------------------------------------------------------------- 2026 年整理的補充清單（另一平行開發版本）

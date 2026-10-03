@@ -288,8 +288,10 @@ CLEAN fix KOR Jeonnam Offshore Wind 1 96.0
 CLEAN fix KOR Jeonnam Shinan 1 / others 96.0
 CLEAN fix KOR Jwasari Offshore wind farm 360.0
 CLEAN fix KOR Tamra (Jeju Hallim/Hangyeong) 30.0
+CLEAN fix KOR YEP wind farm 76.0
 CLEAN fix KOR Yeonggwang Nakwol 364.8
 CLEAN fix KOR Yeonggwang Wind offshore wind farm 35.0
+CLEAN fix KOR Yeongyang 2nd wind power generation 42.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
 CLEAN fix NLD Irene Vorrink (Dronten) 16.8
@@ -447,7 +449,6 @@ DROP CHN operating Fujian Putian Nanridao Offshore wind farm 400.0 ~ Longyuan Pu
 DROP CHN operating Fujian Putian Pinghaiwan Offshore wind farm 814.0 ~ Putian Pinghai Bay Phase 3 308.0
 DROP CHN operating Fujian Shicheng Offshore wind farm 196.0 ~ Putian Shicheng 200.0
 DROP CHN operating Fujian Zhangpu Liu'ao Offshore wind farm 400.0 ~ CTG Zhangpu Liu'ao Phase 2 400.0
-DROP CHN operating Gansu Minqin Hongshagang 1 wind farm 400.0 ~ Minqin Hongshagang 1300.0
 DROP CHN operating Guangdong Huizhou Gangkou 1 Offshore wind farm 250.0 ~ CGN Huizhou Gangkou I 400.0
 DROP CHN operating Guangdong Huizhou Gangkou 2 Offshore wind farm 750.0 ~ CGN Huizhou Gangkou I 400.0
 DROP CHN operating Guangdong Jieyang Shenquan 1 Offshore wind farm 406.5 ~ SPIC Jieyang Shenquan I 400.0
@@ -718,9 +719,7 @@ DROP KOR operating Jeju Hanlim wind farm 100.0 ~ Jeju Hanlim 100.0
 DROP KOR operating Jeju Island wind farm 30.0 ~ Gasiri (Jeju) 30.0
 DROP KOR operating Southwest Offshore wind farm 60.0 ~ Southwest Offshore Demonstration (Seonam) 60.0
 DROP KOR operating Tamra Offshore wind farm 30.0 ~ Tamra (Jeju Hallim/Hangyeong) 30.0
-DROP KOR operating YEP wind farm 76.0 ~ Yeongyang 61.5
 DROP KOR operating Yeongdeok wind farm 40.0 ~ Yeongdeok 39.6
-DROP KOR operating Yeongyang 2nd wind power generation 42.0 ~ Yeongyang 61.5
 DROP MAR operating Al Koudia wind farm 120.0 ~ Koudia Al Baida 50.0
 DROP MAR operating Midelt wind farm 210.0 ~ Midelt 210.0
 DROP MEX operating El Mezquite wind farm 252.0 ~ El Mezquite 250.0

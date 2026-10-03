@@ -15,6 +15,16 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.17.3 — 2026-10-03
+
+- Three onshore farms that the build had merged away are restored: **Gansu Minqin Hongshagang No. 1** (CGN, 400 MW), **Yeongyang (Hanwha)**
+  (76 MW, 22 turbines of the 3.45 MW class, finished in 2020; GEM says 2017) and **Yeongyang No. 2** (GS E&R and Korea Midland Power, 42 MW, 10 turbines
+  of the 4.2 MW class, commercial operation from May 2023; GEM says 2022). All three are in `GEM_KEEP`, with quotes verified by `check_quotes.py`;
+  South Korea's farm-level coverage rises from 63% to 67%.
+- The build gains a check: when a GEM record was merged into a curated record that a clean-up rule later removes, the build stops until the record
+  is listed in `GEM_KEEP` (kept) or the new `ORPHAN_OK` (confirmed to be covered by another record: Sheyang South H1, Cangnan 1, the Mori area total),
+  so no farm can silently vanish again; CLAUDE.md describes the rule.
+
 ## v2.17.2 — 2026-10-03
 
 - Three offshore farms restored. **CTG Pingtan Waihai** (111 MW, eleven 8–16 MW test turbines, fully connected September 2023, jackets on suction

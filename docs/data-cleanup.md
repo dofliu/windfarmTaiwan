@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 321 條：刪除 134 筆（其中營運中 41,868.2 MW），修正 187 筆。
+- 規則 323 條：刪除 134 筆（其中營運中 41,868.2 MW），修正 189 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -17,7 +17,7 @@
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
-| 南韓 | 3 | 157.5 | 7 |
+| 南韓 | 3 | 157.5 | 9 |
 | 台灣 | 0 | 0 | 2 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
@@ -214,6 +214,8 @@
 | Tamra (Jeju Hallim/Hangyeong) · 30 MW · 2017 | 精選 | 修正：名稱 | 耽羅海上風電在濟州翰京面（Hangyeong-myeon）海域，不在翰林（翰林另有一座風場） | [連結](http://tamra-owp.co.kr/2019/sub0201.php) |
 | Jwasari Offshore wind farm · 360 MW · 2031 | GEM | 修正：狀態、年份、容量 | 還在環評階段（2025 年 3 月舉行環評初稿公聽會），規劃已改為 360 MW（24 部 15 MW） | [連結](https://www.hansannews.com/news/articleView.html?idxno=95554) |
 | Yeonggwang Wind offshore wind farm · 35 MW · 2018 | GEM | 修正：容量、機組、座標 | 靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；GEM 的座標是公司登記地址，位置只能當概略值 | [連結](https://m.etnews.com/20200221000242) |
+| YEP wind farm · 76 MW · 2017 | GEM | 修正：名稱、中文名、年份、機組 | 韓華建設的英陽風場 76 MW、22 部 3.45 MW 級，2020 年完工（易投資日報 2021 年 1 月：「去年完工」）；GEM 寫 2017 年 | [連結](https://www.etoday.co.kr/news/view/1988572) |
+| Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | 修正：中文名、年份、機組 | 英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉） | [連結](https://www.fnnews.com/news/202309241852426048) |
 
 ## 台灣 (TWN)
 
@@ -563,6 +565,9 @@
 
 | 專案 | 理由 | 出處 |
 |---|---|---|
+| Gansu Minqin Hongshagang 1 wind farm (CHN) | 民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失 | [連結](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
+| YEP wind farm (KOR) | 韓華建設的英陽風場（76 MW、22 部 3.45 MW）與 2008 年 Macquarie 的英陽風場不同；舊建置把它併進後來判為重複刪除的精選「Yeongyang」 | [連結](https://www.etoday.co.kr/news/view/1988572) |
+| Yeongyang 2nd wind power generation (KOR) | 英陽第二風場（GS E&R 70%、韓國中部發電 30%，42 MW）是 2023 年的新風場；舊建置把它併進後來判為重複刪除的精選「Yeongyang」 | [連結](https://www.fnnews.com/news/202309241852426048) |
 | Fujian Pingtan Waihai Offshore wind farm (CHN) | 三峽平潭外海（111 MW、11 部試驗機組，2023 年 9 月全容量併網）與大唐平潭長江澳是不同的風場；舊建置把它併進後來被刪除的「Datang Pingtan Waihai」，整座消失 | [連結](http://www.sasac.gov.cn/n2588025/n2588124/c28906372/content.html) |
 | Jiangsu Rudong H13 (Xiexin) Offshore wind farm (CHN) | 協鑫如東 H13（150 MW、30 部海裝 5 MW，2021 年 11 月全容量併網）與華能如東是不同的風場；舊建置把它誤併進「Huaneng Rudong」 | [連結](https://www.163.com/dy/article/GQ0GC2VI05345ASA.html) |
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm (CHN) | 粵電陽江沙扒（300 MW，2021 年 12 月全容量併網）與三峽陽江沙扒是不同的風場 | [連結](https://m.bjx.com.cn/mnews/20211206/1191794.shtml) |
