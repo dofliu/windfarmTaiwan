@@ -37,17 +37,25 @@ finished items to the topic lists below.
   each: (1) a stacked chart of offshore capacity added per year by foundation type in the Overview tab — **done (v2.15.0)**; (2) a foundation chapter in the Learn section
   and port-to-farm arcs — **done (v2.16.0)**; (3) a check of the data anomalies found in the step-5 sweep — **done (v2.16.1; open items under item 4)**; (4) water-depth, hub-height and rotor-diameter
   fields with the cross-section and close-up drawn to scale — **done (v2.17.0)**.
-  Still missing after the third round (v2.17.2): of the 236 operating offshore farms, 229 have at least one value (depth 209, hub height 166,
-  rotor diameter 216, all three 159). Seven have none: Guohua Rudong H14, Xiangshan 1, Shengsi 5/6, Dongtai Zhugensha H1, GCL Rudong H13 (just
-  restored), and Vietnam's Tan Phu Dong 1 and Ben Tre 10; 70 lack a hub height. Nothing quotable after three rounds: Vietnam's intertidal farms,
-  most Chinese farms of 2019–2021, and in Europe Kentish Flats Extension, East Anglia ONE, Hornsea Two, Neart na Gaoithe and Borssele III–V.
-  Found but deliberately not used: consent limits or EIA design values (Peninsula North L, Qingzhou 1 & 2, the register value for Borkum
-  Riffgrund 3), the column on a floater (CNOOC Guanlan: 83 m or 105 m), heights of unclear meaning (Shapa phase 2's 112 m, Dogger Bank A
-  derived from a 260 m overall height), phase-1-only values (Xiangshan 1) and conflicting values (Provence Grand Large: the source names an
-  SWT-8.0-154, the database an SG 8.0-167).
+  Still missing after the fourth round (v2.17.5): of the 236 operating offshore farms, 232 have at least one value (depth 210, hub height 172,
+  rotor diameter 221, all three 165). Four have none: Xiangshan 1, Shengsi 5/6, Dongtai Zhugensha H1 and Vietnam's Ben Tre 10; 64 lack a hub height.
+  Nothing quotable after four rounds: Vietnam's intertidal farms (no depth at all), most Chinese farms of 2019–2021, in Europe Lynn and Inner
+  Dowsing, Kentish Flats Extension, East Anglia ONE, Hornsea Two, Dogger Bank A, Neart na Gaoithe and Borssele III–V, and the hub heights of
+  Taiwan's Greater Changhua 1 & 2a and Changfang & Xidao.
+  Found but deliberately not used: consent limits or design ranges (Kentish Flats Extension 85 m, the CVOW pilot's 104–111 m), the column on a
+  floater (CNOOC Guanlan: 83 m or 105 m), heights of unclear meaning (Shapa phase 2's 112 m, Zhuhai Jinwan's 100.63 m nacelle lift height, Dogger
+  Bank A's 260 m overall height only, Neart na Gaoithe's 208 m or 204 m tip height with no stated datum, Blyth's approximate 105 m from consent),
+  values for one phase or some units only (Xiangshan 1 phase 2's WD225, Huizhou Gangkou phase 2's 8.5 MW units at 135.9 m, a MySE14-260 source for
+  Fanshi I that does not name the farm), conflicting values (Provence Grand Large: the source names an SWT-8.0-154, the database an SG 8.0-167)
+  and values in the wrong field (Tethys' "Hub Height 200 m" for Hornsea Two is the tip height; Chinese Wikipedia's "hub height 167 m" for
+  Greater Changhua is the rotor diameter).
+  Leads from the fourth round worth retrying: the Fuqing Haitan Strait completion environmental acceptance report (cti-cert.com, firewalled; depth
+  1.6–20.5 m), the 127 m hub of the first 10 MW unit at CR Cangnan 1 (ccshj6.com, 504), a 93 m hub for Rudong H8's Shanghai Electric units
+  (chinawindnews.com, now a JS shell only), and Soc Trang 7's hub 96.5 m above the foundation (sigma.net.vn, consistent with the stored 105 m tower).
   The four data doubts from the third round (Guohua Rudong H14, Jiaxing 2 / Daishan 4, Rudong H8, Dafeng H5) were corrected in v2.17.4.
   The onshore farms the build had merged away (Minqin Hongshagang 1 and the two Korean Yeongyang farms) were restored in v2.17.3, and the build
   now checks for such cases (`ORPHAN_OK`).
+  Sources worth retrying (third round): the Qingzhou 2 EIA PDF (gdee.gd.gov.cn, server gave no
   response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).
   The turbine-field errors the sub-agents found are now clean-up rules (v2.17.1, 12 records). Still open: Wailuo phase 1 is MySE5.5-155 in the
   database but official reports give a 158 m rotor (model to be checked); Zhong Neng phase 1 is V164-9.5 on the association's page but V174-9.5 in

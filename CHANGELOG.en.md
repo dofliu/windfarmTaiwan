@@ -15,6 +15,16 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.17.5 — 2026-10-03
+
+- More dimension data (fourth round, quotes verified with `check_quotes.py`) for 10 operating offshore farms: Peninsula North L (hub
+  146.34 m, rotor 252 m, as-built figures from the sea-use adjustment report), Cangnan 2 (hub 136 m, rotor 226 m), Qingzhou 1 & 2 (hub about
+  160 m), Rudong H14 (rotor 146 m), GCL Rudong H13 (rotor 171 m), Borkum Riffgrund 3 (hub 142.4 m), Walney Extension (hub about 111/113 m, tip
+  height minus rotor radius), Korea's Southwest demonstration (depth 10–11 m), Sweden's Bockstigen (hub 41.5 m) and Vietnam's Tan Phu Dong 1
+  (rotor 150 m).
+- Data correction: Tan Phu Dong 1's turbines change from “Envision” to 24 Vestas V150-4.2.
+- 232 of the 236 operating offshore farms now have at least one dimension; 165 have all three.
+
 ## v2.17.4 — 2026-10-03
 
 - Data corrections (the four doubts from the third dimension round, quotes verified with `check_quotes.py`):
