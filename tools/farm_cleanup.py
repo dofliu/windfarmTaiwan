@@ -377,9 +377,11 @@ RULES = [
         'Same farm (off Gruissan, 30 MW)', 'https://www.gem.wiki/Eolmed_Floating_wind_farm'),
     fix('FRA', 'EolMed (Gruissan)', C, '2026 年 4 月開始發電、5 月全面運轉；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
         'First power in April 2026 and full capacity in May 2026; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now', 'https://www.bw-ideol.com/en/eolmed-project', st=1, year=2026, note=True),
-    fix('FRA', 'Provence Grand Large', C, '機組是西門子歌美颯的 8.4 MW 風機，不是 Vestas', 'The turbines are Siemens Gamesa 8.4 MW, not Vestas',
+    fix('FRA', 'Provence Grand Large', C,
+        '機組是西門子歌美颯 SWT-8.0-154（以 8.4 MW 運轉，葉片 75 m），不是 Vestas；RTE 專案文件寫明選用 SWT-8.0-154，SBM 寫 3 座浮動機組安裝完成',
+        'The turbines are Siemens Gamesa SWT-8.0-154 (run at 8.4 MW, 75 m blades), not Vestas; the RTE project dossier names the SWT-8.0-154 and SBM reports the three floating units installed',
         'https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/',
-        turbine='3 x Siemens Gamesa 8.4 MW (SBM tension-leg)'),
+        turbine='3 x Siemens Gamesa SWT-8.0-154 at 8.4 MW (SBM tension-leg)'),
     drop('GBR', 'Dounreay Tr‚àö¬®  Floating Wind Demonstration', G,   # GEM 2026-02 的名稱編碼壞掉（原為 Dounreay Trì）· mojibake in GEM 2026-02
          '從未興建：這個兩部風機的示範案已經中止，同一場址後來改由 Pentland 浮動式風場開發（另列）',
          'Never built: this two-turbine demonstrator was discontinued, and the site was later taken up by the Pentland floating wind farm '
