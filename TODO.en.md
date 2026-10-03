@@ -37,8 +37,17 @@ finished items to the topic lists below.
   each: (1) a stacked chart of offshore capacity added per year by foundation type in the Overview tab — **done (v2.15.0)**; (2) a foundation chapter in the Learn section
   and port-to-farm arcs — **done (v2.16.0)**; (3) a check of the data anomalies found in the step-5 sweep — **done (v2.16.1; open items under item 4)**; (4) water-depth, hub-height and rotor-diameter
   fields with the cross-section and close-up drawn to scale — **done (v2.17.0)**.
-  Still missing: 23 farms with none of the three (mostly China: Rudong H6/H8, Guohua Rudong H14, Huaneng Sheyang H1, Fuqing Haitan Strait, Zhuhai Jinwan, Xiangshan 1, Cangnan 2, Shengsi 5/6, Dongtai Zhugensha H1, CTG Dafeng H8-1, plus Vietnam's Hoa Binh, VPL, Tan Phu Dong and others) and 100 without a hub height (leads from the sub-agents such as Hornsea One/Two, East Anglia ONE, Kincardine, Dogger Bank A, Gangkou II 135.9 m, Fangchenggang 128 m, Peninsula North L 151/252 m and Kaskasi 107.5 m exist only in search snippets, with no page to quote); the WebSearch quota ran out during the check, so a next round is needed.
-  Data doubts the sub-agents raised: Dongtai IV (H2) is 63 × Shanghai Electric 4.0 + 12 × Envision 4.2 MW, Huaneng Dafeng phase 1 is Envision 4.2 + Haizhuang 5 MW (and its SPIC owner field is doubtful), "Longyuan Dafeng H3" is SPIC's Dafeng H3, Wailuo phase 1 has a 158 m rotor, Hoa Binh 1 phase 2 and Hoa Binh 2 use Vestas turbines.
+  Still missing after the second round: 7 farms with none of the three (Guohua Rudong H14, CTG Dafeng H8-1, Xiangshan 1, Shengsi 5/6, Dongtai
+  Zhugensha H1, and Vietnam's Tan Phu Dong 1 and Ben Tre 10) and 77 without a hub height (mostly China; in the UK, Kentish Flats Extension, East
+  Anglia ONE, Hornsea Two, Dogger Bank A and Neart na Gaoithe only have consent limits or overall heights, and Borkum Riffgrund 3 only its permit's
+  142 m). Found but deliberately not used: CNOOC Guanlan's 83 m (the column on the floater), Peninsula North L's 151/252 m (EIA design values),
+  Shapa phase 2's "112 m above the sea" (unclear which height), and Provence Grand Large's 100 m hub (the source names an SWT-8.0-154, which fits
+  neither the database's SG 8.0-167 nor the 174 m tip height; to be checked). Sources worth another try: the Qingzhou 2 EIA PDF (gdee.gd.gov.cn, no
+  response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).
+  Turbine-field errors the sub-agents found (clean-up rules still to write): Dongtai IV (H2) is 63 × SWT-4.0-130 + 12 × EN136-4.2, Huaneng Dafeng phase
+  1 is EN136-4.2 + H151-5.0, Sheyang H1 is 67 × EN148-4.5, "Longyuan Dafeng H3" is SPIC's Dafeng H3 (EN136-4.2), Vietnam's Hoa Binh 1/2 are Vestas
+  V150-4.2, Tan Thuan and Dong Hai 1 (Tra Vinh) are SG 5.0-145, V1-2 Truong Long Hoa is GW155-4.5 and V1-3 is V150-4.2; Wailuo phase 1 has a 158 m
+  rotor; Zhong Neng phase 1 is V164-9.5 on the association's page but V174-9.5 in Vestas's release.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)

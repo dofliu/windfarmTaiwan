@@ -18,9 +18,9 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 ## v2.17.0 — 2026-10-03
 
 - Offshore farms gain three new fields, **water depth, hub height (or tower height) and rotor diameter**: a farm-by-farm table in
-  `tools/farm_dimensions.py` (eight sub-agents in parallel, every quoted passage verified with `check_quotes.py`), merged at build time into
-  `foundations.json` and `docs/foundations*.md` (three new columns). Of the 233 operating offshore farms with a known foundation type, 210 now have at
-  least one value (depth 192, hub height 133, rotor diameter 179; all three 118); unknown values stay blank, never filled with typical values.
+  `tools/farm_dimensions.py` (two rounds, thirteen sub-agents, every quoted passage verified with `check_quotes.py`; where a source gives only tip height and rotor diameter, the hub height is derived from both and says so), merged at build time into
+  `foundations.json` and `docs/foundations*.md` (three new columns). Of the 233 operating offshore farms with a known foundation type, 226 now have at
+  least one value (depth 204, hub height 156, rotor diameter 211; all three 149); unknown values stay blank, never filled with typical values.
 - The farm card's cross-section is now drawn to scale from these values (metres to pixels, with depth, hub height and rotor diameter labelled;
   missing quantities use schematic placeholders and say so), the card gains a "water depth · hub height · rotor diameter" line with its source, and
   the close-up turbines use the real hub-to-rotor ratio. A source that only gives a maximum depth shows as "≤ 35 m".
