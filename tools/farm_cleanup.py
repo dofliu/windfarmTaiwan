@@ -10,6 +10,8 @@
           改了座標就不再標「概略位置」（approx=True 則仍標）；補上年份或改成規劃中就不再標「年份不詳」；
           改了容量而舊分期加總對不上時清掉分期
 GEM_KEEP 列出不可被當成重複的 GEM 專案（例：與精選風場名稱相近、實為另一座）。
+ORPHAN_OK 列出被併進某筆精選紀錄、而那筆精選紀錄之後被 dup／drop 刪掉的 GEM 專案中，確認已由別的紀錄涵蓋、可以不保留的；
+建置時遇到不在 GEM_KEEP 也不在 ORPHAN_OK 的這種專案會中止（否則整座風場會消失）。
 PIPE_DROP 列出 2026 整理的規劃中專案清單（data/global/sources/pipeline_curated.json）裡已經停止、不再收錄的專案；
 PIPE_FIX 列出清單整理後才變動的欄位（例：預計完工年延後），套用在清單比對之前。兩者對不到清單裡的專案時建置會中止。
 每條規則都附中英文理由與來源連結（url=None 表示依資料本身比對：同名、同容量、同地點），
@@ -1155,10 +1157,40 @@ RULES = [
         'GCL Rudong H13: 150 MW, 30 Haizhuang 5 MW turbines, fully connected on 29 November 2021 (GEM says 152 MW)',
         'https://www.163.com/dy/article/GQ0GC2VI05345ASA.html', rename='Xiexin (GCL) Rudong H13', zhname='協鑫如東H13', mw=150, year=2021,
         turbine='30x CSSC Haizhuang H171-5.0'),
+    # ------------------------------------------------ 2026-10-03 補回被誤併的陸域風場（列在 GEM_KEEP；出處原文已以 check_quotes 核對）
+    fix('KOR', 'YEP wind farm', G,
+        '韓華建設的英陽風場 76 MW、22 部 3.45 MW 級，2020 年完工（易投資日報 2021 年 1 月：「去年完工」）；GEM 寫 2017 年',
+        'Hanwha’s Yeongyang farm: 76 MW, 22 turbines of the 3.45 MW class, finished in 2020 (eToday, January 2021: “completed last year”); GEM says 2017',
+        'https://www.etoday.co.kr/news/view/1988572', rename='Yeongyang (Hanwha)', zhname='英陽風場（韓華）', year=2020, turbine='22x 3.45 MW class'),
+    fix('KOR', 'Yeongyang 2nd wind power generation', G,
+        '英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉）',
+        'Yeongyang No. 2: 42 MW, 10 turbines of the 4.2 MW class, in commercial operation from May 2023 (GEM’s 2022 is the test run)',
+        'https://www.fnnews.com/news/202309241852426048', zhname='英陽第二風場', year=2023, turbine='10x 4.2 MW class'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
+ORPHAN_OK = {
+    ('CHN', 'Jiangsu Sheyang Southern Area H1 Offshore wind farm'):
+        ('射陽南區 H1 由精選的「Huaneng Sheyang H1 / Yancheng」（300 MW）代表', 'Sheyang South H1 is represented by the curated “Huaneng Sheyang H1 / Yancheng” (300 MW)'),
+    ('CHN', 'Zhejiang Cangnan 1 Offshore wind farm'):
+        ('蒼南 1 號由精選的「Huarun Cangnan 1 / CR Power」（400 MW）代表', 'Cangnan 1 is represented by the curated “Huarun Cangnan 1 / CR Power” (400 MW)'),
+    ('CHN', 'Xinjiang Mori 2500 MW wind farm complex'):
+        ('莫里 2,500 MW 是整區彙總，GEM 另逐場列出同地名的各座風場', 'The Mori 2,500 MW complex is an area total; GEM also lists the individual Mori farms'),
+}
+
 GEM_KEEP = {
+    ('CHN', 'Gansu Minqin Hongshagang 1 wind farm'):
+        ('民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失',
+         'Minqin Hongshagang No. 1 (CGN, 400 MW) is a separate farm in the Hongshagang base; the old build merged it into the area-wide aggregate “Minqin Hongshagang”, which was later removed, so the farm vanished',
+         'https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm'),
+    ('KOR', 'YEP wind farm'):
+        ('韓華建設的英陽風場（76 MW、22 部 3.45 MW）與 2008 年 Macquarie 的英陽風場不同；舊建置把它併進後來判為重複刪除的精選「Yeongyang」',
+         'Hanwha’s Yeongyang farm (76 MW, 22 × 3.45 MW) is not Macquarie’s 2008 Yeongyang farm; the old build merged it into the curated “Yeongyang”, later removed as a duplicate',
+         'https://www.etoday.co.kr/news/view/1988572'),
+    ('KOR', 'Yeongyang 2nd wind power generation'):
+        ('英陽第二風場（GS E&R 70%、韓國中部發電 30%，42 MW）是 2023 年的新風場；舊建置把它併進後來判為重複刪除的精選「Yeongyang」',
+         'Yeongyang No. 2 (GS E&R 70%, Korea Midland Power 30%, 42 MW) is a new farm of 2023; the old build merged it into the curated “Yeongyang”, later removed as a duplicate',
+         'https://www.fnnews.com/news/202309241852426048'),
     ('CHN', 'Fujian Pingtan Waihai Offshore wind farm'):
         ('三峽平潭外海（111 MW、11 部試驗機組，2023 年 9 月全容量併網）與大唐平潭長江澳是不同的風場；舊建置把它併進後來被刪除的「Datang Pingtan Waihai」，整座消失',
          'CTG’s Pingtan Waihai (111 MW, 11 test turbines, fully connected September 2023) is a different farm from Datang’s Changjiang’ao; the old build merged it into “Datang Pingtan Waihai”, which was later removed, so the farm vanished',

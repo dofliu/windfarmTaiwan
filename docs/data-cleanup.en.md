@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 321 rules: 134 records removed (41,868.2 MW of them operating), 187 records fixed.
+- 323 rules: 134 records removed (41,868.2 MW of them operating), 189 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -36,7 +36,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Romania | 16 | 2,439 | 10 |
 | Senegal | 0 | 0 | 2 |
 | South Africa | 2 | 159 | 2 |
-| South Korea | 3 | 157.5 | 7 |
+| South Korea | 3 | 157.5 | 9 |
 | Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
 | Taiwan | 0 | 0 | 2 |
@@ -423,6 +423,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Tamra (Jeju Hallim/Hangyeong) · 30 MW · 2017 | curated | fixed: name | Tamra stands off Hangyeong-myeon on Jeju (the waters between Dumo-ri and Geumdeung-ri), not off Hallim, where a separate farm lies | [link](http://tamra-owp.co.kr/2019/sub0201.php) |
 | Jwasari Offshore wind farm · 360 MW · 2031 | GEM | fixed: status, year, capacity | Still at the environmental-impact-assessment stage (a public hearing on the draft was held in March 2025); the plan is now 360 MW (24 × 15 MW) | [link](https://www.hansannews.com/news/articleView.html?idxno=95554) |
 | Yeonggwang Wind offshore wind farm · 35 MW · 2018 | GEM | fixed: capacity, turbines, location | The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); GEM’s point is the company’s registered address, so the location can only be treated as approximate | [link](https://m.etnews.com/20200221000242) |
+| YEP wind farm · 76 MW · 2017 | GEM | fixed: name, Chinese name, year, turbines | Hanwha’s Yeongyang farm: 76 MW, 22 turbines of the 3.45 MW class, finished in 2020 (eToday, January 2021: “completed last year”); GEM says 2017 | [link](https://www.etoday.co.kr/news/view/1988572) |
+| Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | fixed: Chinese name, year, turbines | Yeongyang No. 2: 42 MW, 10 turbines of the 4.2 MW class, in commercial operation from May 2023 (GEM’s 2022 is the test run) | [link](https://www.fnnews.com/news/202309241852426048) |
 
 ## Spain (ESP)
 
@@ -563,6 +565,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Project | Reason | Source link |
 |---|---|---|
+| Gansu Minqin Hongshagang 1 wind farm (CHN) | Minqin Hongshagang No. 1 (CGN, 400 MW) is a separate farm in the Hongshagang base; the old build merged it into the area-wide aggregate “Minqin Hongshagang”, which was later removed, so the farm vanished | [link](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
+| YEP wind farm (KOR) | Hanwha’s Yeongyang farm (76 MW, 22 × 3.45 MW) is not Macquarie’s 2008 Yeongyang farm; the old build merged it into the curated “Yeongyang”, later removed as a duplicate | [link](https://www.etoday.co.kr/news/view/1988572) |
+| Yeongyang 2nd wind power generation (KOR) | Yeongyang No. 2 (GS E&R 70%, Korea Midland Power 30%, 42 MW) is a new farm of 2023; the old build merged it into the curated “Yeongyang”, later removed as a duplicate | [link](https://www.fnnews.com/news/202309241852426048) |
 | Fujian Pingtan Waihai Offshore wind farm (CHN) | CTG’s Pingtan Waihai (111 MW, 11 test turbines, fully connected September 2023) is a different farm from Datang’s Changjiang’ao; the old build merged it into “Datang Pingtan Waihai”, which was later removed, so the farm vanished | [link](http://www.sasac.gov.cn/n2588025/n2588124/c28906372/content.html) |
 | Jiangsu Rudong H13 (Xiexin) Offshore wind farm (CHN) | GCL’s Rudong H13 (150 MW, 30 Haizhuang 5 MW turbines, fully connected November 2021) is a different farm from Huaneng Rudong; the old build merged it into “Huaneng Rudong” by mistake | [link](https://www.163.com/dy/article/GQ0GC2VI05345ASA.html) |
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm (CHN) | Guangdong Energy’s Yangjiang Shaba (300 MW, fully connected December 2021) is a different farm from CTG’s Yangjiang Shapa | [link](https://m.bjx.com.cn/mnews/20211206/1191794.shtml) |

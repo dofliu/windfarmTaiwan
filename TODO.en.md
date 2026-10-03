@@ -48,8 +48,8 @@ finished items to the topic lists below.
   Data doubts from the third round: Guohua Rudong H14 looks like a misplaced copy of Luneng's H14 (200 MW, 50 × 4 MW); "CGN Jiaxing 2 (Zhoushan
   Daishan 4)" is really 234 MW, 18 × 4 + 36 × 4.5 MW; CGN Rudong H8 uses 40 Haizhuang H171-5MW plus 25 × 4 MW; Guoneng Dafeng H5 is 206.4 MW,
   32 × GW184-6.45.
-  Onshore farms the build may have swallowed the same way Pingtan Waihai and Rudong H13 were (to be checked): Gansu Minqin Hongshagang 1 (GEM
-  400 MW), and Korea's YEP (76 MW) and Yeongyang 2nd (42 MW).
+  The onshore farms the build had merged away (Minqin Hongshagang 1 and the two Korean Yeongyang farms) were restored in v2.17.3, and the build
+  now checks for such cases (`ORPHAN_OK`).
   response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).
   The turbine-field errors the sub-agents found are now clean-up rules (v2.17.1, 12 records). Still open: Wailuo phase 1 is MySE5.5-155 in the
   database but official reports give a 158 m rotor (model to be checked); Zhong Neng phase 1 is V164-9.5 on the association's page but V174-9.5 in

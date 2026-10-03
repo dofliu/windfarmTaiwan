@@ -53,11 +53,14 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 風場的逐筆修正（重複、從未建成、錯置、數字錯誤）寫在 `tools/farm_cleanup.py`：每條規則用（國別, 名稱, 來源）指定剛好一筆，
   附中英文理由與出處連結，建置時輸出 `docs/data-cleanup*.md`。規則對不到資料時建置會中止，要逐條重新查證，不要直接刪掉規則了事。
   確認是不同風場、但名稱相近會被當成重複的 GEM 專案，列在同一檔的 `GEM_KEEP`；2026 年整理的規劃中專案清單裡、之後已停止的專案列在 `PIPE_DROP`。
+  GEM 專案被併進某筆精選紀錄、而那筆精選紀錄之後被 dup／drop 刪掉時，建置會中止（否則整座風場會消失）：是另一座就列 `GEM_KEEP`，確認已由別的紀錄涵蓋才列 `ORPHAN_OK`。
   Record-level farm fixes (duplicates, never built, misplaced, wrong figures) live in `tools/farm_cleanup.py`: each rule names
   exactly one record by (country, name, source) with bilingual reasons and a source link, and the build writes `docs/data-cleanup*.md`.
   If a rule stops matching, the build stops: re-check it rather than just deleting it. GEM projects that are confirmed to be
   different farms but have look-alike names go in `GEM_KEEP` in the same file, and projects in the 2026 pipeline compilation that have
   since stopped go in `PIPE_DROP`.
+  If a GEM project was merged into a curated record that a dup/drop rule later removes, the build stops (otherwise the farm would
+  vanish): list it in `GEM_KEEP` if it is a separate farm, or in `ORPHAN_OK` only when another record is confirmed to cover it.
 
 - 港口資料 `data/global/ports.json` 是人工整理、每港附出處：座標標在碼頭或港池（`coordNote` 說明是哪裡），「服務過的風場」只列有出處佐證的，
   名稱要與 `wind_farms.json` 完全一致；角色已結束的港口標 `former`。改完跑 `python3 tools/qa_ports.py`。查不到的港口不要猜，列在 TODO。
