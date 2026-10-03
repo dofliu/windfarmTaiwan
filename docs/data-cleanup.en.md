@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 323 rules: 134 records removed (41,868.2 MW of them operating), 189 records fixed.
+- 328 rules: 136 records removed (42,468.2 MW of them operating), 192 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 43 | 24,374.5 | 73 |
+| China | 45 | 24,974.5 | 76 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -198,6 +198,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Longyuan Dafeng H3 (Huaneng Dafeng) · 300 MW · 2018 | curated | fixed: name, Chinese name, owner, turbines | Dafeng H3 is SPIC’s farm (developed by China Power Investment), with 72 Envision EN136-4.2 turbines; neither “Longyuan” nor “Huaneng Dafeng” in the old name is right (Power Technology project profile) | [link](https://www.power-technology.com/marketdata/spic-jigansu-dafeng-h3-offshore-wind-farm-china/) |
 | Fujian Pingtan Waihai Offshore wind farm · 111 MW · 2023 | GEM | fixed: name, Chinese name, capacity, year, location, turbines, owner | CTG Pingtan Waihai: 111 MW, eleven 8–16 MW test turbines (4×8, 5×10, 1×13, 1×16 MW), in service September 2023, built by Pingtan Haixia Power; coordinates moved to the centre of the 11 turbine positions in Fujian’s sea-use approval (GEM’s point is approximate) | [link](http://zrzyt.fj.gov.cn/zwgk/gsgg/202404/P020240429531356048270.pdf) |
 | Jiangsu Rudong H13 (Xiexin) Offshore wind farm · 152 MW · 2021 | GEM | fixed: name, Chinese name, capacity, year, turbines | GCL Rudong H13: 150 MW, 30 Haizhuang 5 MW turbines, fully connected on 29 November 2021 (GEM says 152 MW) | [link](https://www.163.com/dy/article/GQ0GC2VI05345ASA.html) |
+| Guohua Rudong H14 · 300 MW · 2021 | curated | duplicate of “Jiangsu Rudong H14 (Guangheng) Offshore wind farm” | Rudong H14 is Luneng New Energy’s 200 MW farm (50 × 4 MW; Nantong Fabu, Aug 2020), already in GEM; the curated “Guohua Rudong H14” (300 MW, Goldwind 6.45 MW) is misplaced and no Guohua farm at Rudong H14 exists | [link](https://news.96189.com/w/2008/ebbbbcec80b94ed8a6b9441a968e997c.html) |
+| CGN Jiaxing 2 (Zhoushan Daishan 4) · 300 MW · 2021 | curated | duplicate of “Zhejiang Daishan 4 Offshore wind farm” | CGN’s Daishan 4 is 234 MW with 54 turbines (Envision 4.5 MW and XEMC 4 MW), already in GEM; the curated row’s 300 MW, Mingyang 5.5 MW and “Jiaxing 2” name are all wrong (Jiaxing 2 is a different farm) | [link](https://www.power-technology.com/marketdata/daishan-no-4-offshore-wind-farm-china/) |
+| Zhejiang Daishan 4 Offshore wind farm · 234 MW · 2021 | GEM | fixed: Chinese name, turbines | Turbines: 36 Envision EN148-4.5 (32 + 4) and 18 XEMC XE140-4.0 (Power Technology) | [link](https://www.power-technology.com/marketdata/daishan-no-4-offshore-wind-farm-china/) |
+| CGN Rudong H8 · 300 MW · 2021 | curated | fixed: turbines | CGN Rudong H8 has 40 CSSC Haizhuang H171-5.0 plus 25 Shanghai Electric SWT-4.0-146 turbines, not Mingyang 5.5 MW (Power Technology project profile) | [link](https://www.power-technology.com/marketdata/power-plant-profile-cgn-jiangsu-rudong-h8-offshore-wind-power-project-china/) |
+| Guoneng Dafeng H5 · 200 MW · 2021 | curated | fixed: capacity, turbines | Guoneng Dafeng H5 is 206.4 MW with 32 Goldwind GW184-6.45 turbines (Dafeng district government, Dec 2024); the row said 200 MW and Goldwind 5–6 MW class | [link](https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html) |
 
 ## Colombia (COL)
 

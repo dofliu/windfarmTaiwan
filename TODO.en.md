@@ -45,9 +45,7 @@ finished items to the topic lists below.
   Riffgrund 3), the column on a floater (CNOOC Guanlan: 83 m or 105 m), heights of unclear meaning (Shapa phase 2's 112 m, Dogger Bank A
   derived from a 260 m overall height), phase-1-only values (Xiangshan 1) and conflicting values (Provence Grand Large: the source names an
   SWT-8.0-154, the database an SG 8.0-167).
-  Data doubts from the third round: Guohua Rudong H14 looks like a misplaced copy of Luneng's H14 (200 MW, 50 × 4 MW); "CGN Jiaxing 2 (Zhoushan
-  Daishan 4)" is really 234 MW, 18 × 4 + 36 × 4.5 MW; CGN Rudong H8 uses 40 Haizhuang H171-5MW plus 25 × 4 MW; Guoneng Dafeng H5 is 206.4 MW,
-  32 × GW184-6.45.
+  The four data doubts from the third round (Guohua Rudong H14, Jiaxing 2 / Daishan 4, Rudong H8, Dafeng H5) were corrected in v2.17.4.
   The onshore farms the build had merged away (Minqin Hongshagang 1 and the two Korean Yeongyang farms) were restored in v2.17.3, and the build
   now checks for such cases (`ORPHAN_OK`).
   response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).

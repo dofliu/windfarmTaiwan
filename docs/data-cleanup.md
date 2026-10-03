@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 323 條：刪除 134 筆（其中營運中 41,868.2 MW），修正 189 筆。
+- 規則 328 條：刪除 136 筆（其中營運中 42,468.2 MW），修正 192 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 43 | 24,374.5 | 73 |
+| 中國大陸 | 45 | 24,974.5 | 76 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
@@ -168,6 +168,11 @@
 | Longyuan Dafeng H3 (Huaneng Dafeng) · 300 MW · 2018 | 精選 | 修正：名稱、中文名、業主、機組 | 大豐 H3 是國家電投（原中電投）的風場，72 部遠景 EN136-4.2；舊名稱裡的「龍源」「華能大豐」都不對（Power Technology 專案頁） | [連結](https://www.power-technology.com/marketdata/spic-jigansu-dafeng-h3-offshore-wind-farm-china/) |
 | Fujian Pingtan Waihai Offshore wind farm · 111 MW · 2023 | GEM | 修正：名稱、中文名、容量、年份、座標、機組、業主 | 三峽平潭外海：111 MW、11 部 8–16 MW 試驗機組（4×8、5×10、1×13、1×16 MW），2023 年 9 月建成投產，建設單位平潭海峽發電；座標改用福建省海域使用核准的 11 個機位中心（GEM 點位為概略位置） | [連結](http://zrzyt.fj.gov.cn/zwgk/gsgg/202404/P020240429531356048270.pdf) |
 | Jiangsu Rudong H13 (Xiexin) Offshore wind farm · 152 MW · 2021 | GEM | 修正：名稱、中文名、容量、年份、機組 | 協鑫如東 H13：裝機 15 萬瓩、30 部海裝 5 MW，2021 年 11 月 29 日全容量併網（GEM 寫 152 MW） | [連結](https://www.163.com/dy/article/GQ0GC2VI05345ASA.html) |
+| Guohua Rudong H14 · 300 MW · 2021 | 精選 | 重複（併入「Jiangsu Rudong H14 (Guangheng) Offshore wind farm」） | 如東 H14 是魯能新能源的 200 MW 風場（50 部 4 MW，南通發布 2020-08），GEM 已有這筆；精選的「國華如東 H14」300 MW、金風 6.45 MW 是錯置，查無國華在如東 H14 的風場 | [連結](https://news.96189.com/w/2008/ebbbbcec80b94ed8a6b9441a968e997c.html) |
+| CGN Jiaxing 2 (Zhoushan Daishan 4) · 300 MW · 2021 | 精選 | 重複（併入「Zhejiang Daishan 4 Offshore wind farm」） | 中廣核岱山 4 號是 234 MW、54 部（遠景 4.5 MW 與湘電 4 MW），GEM 已有這筆；精選紀錄的 300 MW、明陽 5.5 MW 與「嘉興 2」名稱都不對（嘉興 2 號是另一座風場） | [連結](https://www.power-technology.com/marketdata/daishan-no-4-offshore-wind-farm-china/) |
+| Zhejiang Daishan 4 Offshore wind farm · 234 MW · 2021 | GEM | 修正：中文名、機組 | 機組：36 部遠景 EN148-4.5（一期 32＋4）與 18 部湘電 XE140-4.0（Power Technology） | [連結](https://www.power-technology.com/marketdata/daishan-no-4-offshore-wind-farm-china/) |
+| CGN Rudong H8 · 300 MW · 2021 | 精選 | 修正：機組 | 中廣核如東 H8 是 40 部中國海裝 H171-5.0 加 25 部上海電氣 SWT-4.0-146，不是明陽 5.5 MW（Power Technology 專案頁） | [連結](https://www.power-technology.com/marketdata/power-plant-profile-cgn-jiangsu-rudong-h8-offshore-wind-power-project-china/) |
+| Guoneng Dafeng H5 · 200 MW · 2021 | 精選 | 修正：容量、機組 | 國能大豐 H5 總裝機 206.4 MW、32 部金風 GW184-6.45（大豐區政府 2024-12）；原寫 200 MW、金風 5–6 MW 級 | [連結](https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html) |
 
 ## 丹麥 (DNK)
 
