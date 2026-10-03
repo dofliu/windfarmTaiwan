@@ -146,7 +146,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     output; country profiles show each grid's total and a 48-hour trend. With the timeline at the latest
     year, farms with live data get a green ring and their rotors spin with their current output
   - Devices without WebGL fall back to the bar race automatically
-- **Learn** `#/learn` — 12 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore,
+- **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations,
   floating wind, ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a
   glossary and full source list; every chart is drawn from the same global dataset and every chapter
   links to the globe to replay that part of the story

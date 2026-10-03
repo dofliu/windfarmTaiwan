@@ -1,4 +1,4 @@
-/* 風電風情 · learn.js — 風電知識 12 章：章節導覽、以全球資料集繪製的圖表、里程碑卡片、資料來源 */
+/* 風電風情 · learn.js — 風電知識 13 章：章節導覽、以全球資料集繪製的圖表、里程碑卡片、資料來源 */
 (function () {
 'use strict';
 const WW = window.WW;
@@ -96,7 +96,7 @@ function charts() {
   const offR = C.slice().sort((a, b) => b.off[i] - a.off[i]).filter(c => c.off[i] > 0);
   WW.chart.hbar(mount('offtop'), {
     title: L(`離岸風電累計容量前 10 名（${D.Y1}，MW）`, `Top 10 offshore wind countries (${D.Y1}, MW)`),
-    subtitle: L('台灣以亮色標示；台灣與中國含部分併網中的容量（見第 12 章口徑說明）', 'Taiwan highlighted; Taiwan and China include partially connected capacity (see chapter 12)'),
+    subtitle: L('台灣以亮色標示；台灣與中國含部分併網中的容量（見第 13 章口徑說明）', 'Taiwan highlighted; Taiwan and China include partially connected capacity (see chapter 13)'),
     series: [{ name: L('離岸', 'Offshore'), color: COL.off }], emphasis: true, muted: COL.muted,
     rows: offR.slice(0, 10).map((c, k) => ({ label: WW.cname(c), rank: k + 1, parts: [c.off[i]], highlight: c.iso === 'TWN', onClick: () => WW.go(WW.hashFor('global', null, { r: c.iso, layer: 'off' })) })),
     valueFmt: v => WW.int(v) + ' MW', source: src,
@@ -132,7 +132,7 @@ function charts() {
     series: [{ name: L('陸域', 'Onshore'), color: COL.on, values: tw.on.slice(t0) }, { name: L('離岸', 'Offshore'), color: COL.off, values: tw.off.slice(t0) }],
     yFmt: v => WW.int(v) + ' MW', annotations: [{ x: 2017, label: L('第一部離岸風機', 'first offshore turbines') }, { x: 2021, label: L('台電離岸一期', 'Taipower Phase 1') }],
     height: 300, table: { head: [L('年', 'Year'), L('陸域 MW', 'Onshore MW'), L('離岸 MW', 'Offshore MW'), L('合計 MW', 'Total MW')], rows: Y.slice(t0).map((y, k) => [String(y), WW.int(tw.on[t0 + k]), WW.int(tw.off[t0 + k]), WW.int(tw.on[t0 + k] + tw.off[t0 + k])]).reverse() },
-    source: L('資料：IRENA（總量）、WFO／GWEC（離岸），台灣 2022–2025 陸域／離岸拆分經本站修正（第 12 章）', 'Data: IRENA (totals), WFO/GWEC (offshore); Taiwan 2022–2025 split corrected by this site (chapter 12)')
+    source: L('資料：IRENA（總量）、WFO／GWEC（離岸），台灣 2022–2025 陸域／離岸拆分經本站修正（第 13 章）', 'Data: IRENA (totals), WFO/GWEC (offshore); Taiwan 2022–2025 split corrected by this site (chapter 13)')
   });
 
   // 8. 迷思：季節互補（示意）
@@ -168,6 +168,88 @@ function charts() {
     source: L('資料：美國魚類及野生動物署等國際研究估計；風機那一條短到幾乎看不見——這正是重點。', 'Data: US Fish & Wildlife Service and other studies; the turbine bar is almost invisible — that is the point.'),
     table: { head: [L('原因', 'Cause'), L('每年', 'Per year')], rows: [[L('家貓', 'Cats'), '2,400,000,000'], [L('建築玻璃', 'Buildings'), '599,000,000'], [L('風機', 'Turbines'), '234,000']] }
   });
+}
+
+/* ---------- 第 7 章：水下基礎型式（型式圖、營運中離岸風場的分組占比、各年新增依分組；資料：wind_farms.json＋foundations.json） ---------- */
+let FDD = null;                                                  // { farms:[{name,iso,mw,year,type,st,end,yu,ph}], FD }
+const FD_GROUPS = ['mp', 'frame', 'fl', 'other', 'unk'];
+const FD_COL = { mp: '#3987e5', frame: '#d95926', fl: '#199e70', other: '#dfe3ea', unk: '#a7adb6' };
+const fdGroupName = g => ({ mp: L('單樁', 'Monopile'), frame: L('鋼構框架', 'Steel frame'), fl: L('浮動式', 'Floating'), other: L('其他固定式', 'Other fixed'), unk: L('型式不詳', 'Type unknown') })[g];
+function loadFD() {
+  if (FDD) return Promise.resolve(FDD);
+  return Promise.all([WW.getJSON(WW.DATA.farms), WW.getJSON(WW.DATA.foundations)]).then(([J, FD]) => {
+    const TY = ['onshore', 'offshore', 'floating'];
+    const farms = J.rows.map(r => ({ name: r[0], iso: r[2], mw: r[5], year: (r[12] & 2) ? D.Y1 : r[6], yu: !!(r[12] & 2), type: TY[r[7]] || 'onshore', st: r[8], end: r[9] || (r[8] === 4 ? r[6] + 20 : 0), ph: r[14] || null }))
+      .filter(f => f.type !== 'onshore' && !(f.st >= 1 && f.st <= 3));
+    farms.forEach(f => { const r = FD.farms[f.name]; f.fd = r || null; f.g = r ? ((FD.meta.types[r.t] || [0, 0, 'unk'])[2]) : (f.type === 'floating' ? 'fl' : 'unk'); });
+    FDD = { farms, FD }; return FDD;
+  });
+}
+const BUILD = 0.6;
+function fdMwAt(f, y) { if (!f.ph) return f.mw; let s = 0; for (const p of f.ph) { if (!p[0] || p[0] - BUILD <= y) s += p[1]; } return s || f.ph[0][1]; }
+function paintFoundations() {
+  const gal = mount('fdgal'); if (!gal) return;
+  // 型式圖：九種固定式與浮動式並排（與地球儀風場卡片同一套繪製）
+  const types = [['mp', '', L('單樁', 'Monopile')], ['jk', '', L('套管式', 'Jacket')], ['tp', '', L('三腳架', 'Tripod')], ['tl', '', L('三樁', 'Tripile')], ['gb', '', L('重力式', 'Gravity base')], ['pc', '', L('高樁承台', 'Pile cap')], ['bk', '', L('吸力桶', 'Suction bucket')],
+    ['fl', 'spar', L('單柱式', 'Spar')], ['fl', 'semi', L('半潛式', 'Semi-sub')], ['fl', 'barge', L('駁船式', 'Barge')], ['fl', 'tlp', L('張力腳', 'TLP')]];
+  WW.chart.figure(gal, {
+    title: L('水下基礎型式一覽（示意，非等比例）', 'Foundation types at a glance (schematic, not to scale)'),
+    subtitle: L('灰：鋼構 · 米白：混凝土 · 白：浮體 · 黃：過渡段（TP）· 虛線：繫泊纜', 'Grey: steel · off-white: concrete · white: floating hull · yellow: transition piece (TP) · dashed: mooring lines'),
+    table: { head: [L('型式', 'Type'), L('說明', 'Description')], rows: types.map(t => [t[2], L({ mp: '單根鋼管打入海床', jk: '三或四支腳的鋼構架', tp: '三支斜撐接中央鋼管', tl: '三根鋼樁撐住過渡段', gb: '靠自重的混凝土基座', pc: '多支斜樁上的混凝土承台', bk: '抽水吸入海床的倒扣鋼桶', fl: { spar: '細長吃水深的浮筒', semi: '三到四個浮筒的平台', barge: '方形淺吃水浮體', tlp: '以繃緊纜繩下拉的平台' }[t[1]] }[t[0]],
+      { mp: 'One steel tube driven into the seabed', jk: 'Three- or four-legged steel lattice', tp: 'Three braces to a central tube', tl: 'Three piles carrying the transition piece', gb: 'Concrete base held by its weight', pc: 'Concrete cap on a ring of raked piles', bk: 'Upturned steel can sucked into the seabed', fl: { spar: 'Slender deep-draught buoy', semi: 'Platform on three or four columns', barge: 'Square shallow-draught hull', tlp: 'Platform pulled down by taut tethers' }[t[1]] }[t[0]])]) },
+    render(plot, W) {
+      const perRow = W < 560 ? 4 : W < 760 ? 6 : 11, rows = Math.ceil(types.length / perRow), slot = W / perRow, RH = 172, SEAo = 76, BEDo = 134, H = rows * RH;   // 海床帶要容得下樁腳（最深到海床下 14）
+      const C = WW.FD_SVG_COL; let g = '';
+      for (let r = 0; r < rows; r++) {
+        const y0 = r * RH;
+        g += `<rect x="0" y="${y0 + SEAo}" width="${W}" height="${BEDo - SEAo}" fill="${C.sea}"/><rect x="0" y="${y0 + BEDo}" width="${W}" height="${RH - BEDo - 14}" fill="${C.bed}"/><line x1="0" x2="${W}" y1="${y0 + SEAo}" y2="${y0 + SEAo}" stroke="${C.seaLine}" stroke-dasharray="4 3"/>`;
+      }
+      types.forEach((t, i) => {
+        const r = Math.floor(i / perRow), cx = (i % perRow) * slot + slot / 2, y0 = r * RH;
+        const sh = WW.fdDraw(t[0], t[1], cx, y0 + SEAo, y0 + BEDo, C);
+        g += `<g>${sh.svg}${WW.fdTurbine(cx, sh.top, 0.8, C)}<text class="dl2" x="${cx}" y="${y0 + RH - 3}" text-anchor="middle">${WW.esc(t[2])}</text></g>`;
+      });
+      const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      s.setAttribute('viewBox', `0 0 ${W} ${H}`); s.setAttribute('width', W); s.setAttribute('height', H); s.setAttribute('role', 'img'); s.setAttribute('aria-label', types.map(t => t[2]).join(', '));
+      s.innerHTML = g; plot.appendChild(s);
+    }
+  });
+  loadFD().then(({ farms }) => {
+    const Y1 = D.Y1, op = farms.filter(f => f.year <= Y1 && !(f.end && Y1 >= f.end));
+    const n = {}, mw = {}; FD_GROUPS.forEach(g => { n[g] = 0; mw[g] = 0; });
+    op.forEach(f => { n[f.g]++; mw[f.g] += fdMwAt(f, Y1); });
+    const tot = op.length, totMw = FD_GROUPS.reduce((a, g) => a + mw[g], 0), known = tot - n.unk, knownMw = totMw - mw.unk;
+    const fact = L(`${Y1} 年底營運中的離岸風場 ${WW.int(tot)} 座，已查明型式 ${WW.int(known)} 座，占容量 ${(knownMw / totMw * 100).toFixed(0)}%；其餘多在中國與越南，仍列「型式不詳」。`,
+      `of the ${WW.int(tot)} offshore farms operating at the end of ${Y1}, the type is known for ${WW.int(known)}, ${(knownMw / totMw * 100).toFixed(0)}% of capacity; most of the rest are in China and Vietnam and still show as "type unknown".`);
+    const f1 = $('ln-fdfact'), f2 = $('ln-fdfact-en'); if (f1) f1.textContent = fact; if (f2) f2.textContent = fact;
+    // 分組占比（座數與容量兩列）
+    const gs = FD_GROUPS.filter(g => n[g]);
+    WW.chart.hbar(mount('fdshare'), {
+      title: L(`營運中離岸風場的水下基礎（${Y1} 年底）`, `Foundations of operating offshore farms (end of ${Y1})`),
+      subtitle: L('上列依座數、下列依容量，各組占比（%）；顏色與地球儀的「水下基礎」圖層相同', 'Top row by number of farms, bottom row by capacity, as shares (%); colours match the globe’s Foundations layer'),
+      series: gs.map(g => ({ name: fdGroupName(g), color: FD_COL[g] })),
+      rows: [{ label: L('座數', 'Farms'), parts: gs.map(g => n[g] / tot * 100), valueLabel: WW.int(tot) + L(' 座', '') }, { label: L('容量', 'Capacity'), parts: gs.map(g => mw[g] / totMw * 100), valueLabel: gw(totMw) }],
+      valueFmt: v => v.toFixed(0) + '%', max: 100, rowH: 34, height: 140,
+      source: L('資料：本站逐場查證（docs/foundations.md）；浮動式含細分型式待查者', 'Data: this site’s farm-by-farm check (docs/foundations.en.md); floating includes farms whose sub-type is still to be checked'),
+      table: { head: [L('分組', 'Group'), L('座數', 'Farms'), L('容量 MW', 'Capacity MW')], rows: gs.map(g => [fdGroupName(g), WW.int(n[g]), WW.int(mw[g])]) }
+    });
+    // 各年新增離岸容量依分組（含已除役；年份不明者不計）
+    const y0 = Math.min(...farms.filter(f => !f.yu && f.year > 0).map(f => f.year).concat([Y1])), X = [];   // 含已除役（Vindeby 1991） for (let y = y0; y <= Y1; y++) X.push(y);
+    const add = {}; FD_GROUPS.forEach(g => { add[g] = X.map(() => 0); });
+    farms.filter(f => !f.yu && f.year >= y0 && f.year <= Y1).forEach(f => {
+      const last = Math.min(Y1, f.end ? f.end - 1 : Y1);
+      for (let y = f.year; y <= last; y++) { const v = y === f.year ? fdMwAt(f, y) : fdMwAt(f, y) - fdMwAt(f, y - 1); if (v > 0) add[f.g][y - y0] += v; }
+    });
+    WW.chart.line(mount('fdyears'), {
+      title: L(`全球各年新增離岸容量，依水下基礎型式 ${y0}–${Y1}`, `Offshore capacity added worldwide each year by foundation type, ${y0}–${Y1}`),
+      subtitle: L('堆疊面積，單位 MW；以商轉年計，分期風場依各期，已除役的仍算入當年新增', 'Stacked areas in MW, by commissioning year; phased farms by phase, decommissioned farms still count in their year'),
+      x: X, stacked: true, totalLabel: L('合計', 'Total'),
+      series: FD_GROUPS.map(g => ({ name: fdGroupName(g), color: FD_COL[g], values: add[g] })),
+      yFmt: v => WW.int(v), tipFmt: v => WW.int(v) + ' MW', height: 280,
+      source: L('資料：本站風場層（GEM 2026-02＋人工整理）與逐場查證的基礎型式；2010 年代前半的「型式不詳」多為中國早期潮間帶風場', 'Data: this site’s farm layer (GEM Feb 2026 plus curated records) and its farm-by-farm foundation check; most "type unknown" capacity before the mid-2010s is early Chinese intertidal farms'),
+      table: { head: [L('年', 'Year')].concat(FD_GROUPS.map(fdGroupName)), rows: X.map((y, i) => [String(y)].concat(FD_GROUPS.map(g => WW.int(add[g][i])))).reverse() }
+    });
+  }).catch(e => { console.error(e); const h = mount('fdshare'); if (h) h.innerHTML = `<div class="note">${L('水下基礎資料載入失敗。', 'Foundation data could not be loaded.')}</div>`; });
 }
 
 /* ---------- 風機大小等比例圖（葉輪直徑，旁邊放台北 101 當比例尺） ---------- */
@@ -263,7 +345,7 @@ function scrollToCh(ch) {
 }
 function renderAll() {
   if (!D) return;
-  paintFacts(); paintMilestones(); charts(); paintSources(); rendered = true;
+  paintFacts(); paintMilestones(); charts(); paintFoundations(); paintSources(); rendered = true;
 }
 WW.registerPage('learn', {
   enter(r) {

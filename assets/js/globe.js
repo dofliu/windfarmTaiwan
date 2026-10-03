@@ -21,7 +21,7 @@ const I18N = {
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
     fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdFlBy: '浮動式細分', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
-    fdStep: '逐步收集中：歐洲、全球浮動式風場與台灣、日本、韓國、美國已完成；中國、越南進行中，大多暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
+    fdStep: '逐步收集中：歐洲、全球浮動式風場與台灣、日本、韓國、美國已完成；中國、越南進行中，大多暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）', portArcs: '地圖上以淺藍弧線連到這些風場',
     fdYears: '各年新增離岸容量（依水下基礎型式）', fdYearsNote: '以商轉年計，分期風場依各期；已除役的也算入當年新增',
     hint: '拖曳旋轉 · 滾輪縮放（可一路放大到風場） · 點國家或風場直接飛過去 · 空白鍵播放/暫停',
     hintTouch: '單指旋轉 · 雙指縮放 · 點國家或風場直接飛過去',
@@ -89,7 +89,7 @@ const I18N = {
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
     fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdFlBy: 'Floating by type', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
-    fdStep: 'Collected step by step: Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA are done; China and Vietnam are under way, and most farms there show as type unknown', fdProf: 'Foundations (operating offshore farms, by capacity)',
+    fdStep: 'Collected step by step: Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA are done; China and Vietnam are under way, and most farms there show as type unknown', fdProf: 'Foundations (operating offshore farms, by capacity)', portArcs: 'Light-blue arcs on the map link the port to these farms',
     fdYears: 'Offshore capacity added per year (by foundation type)', fdYearsNote: 'By commissioning year, phased farms by phase; decommissioned farms still count in their year',
     hint: 'Drag to rotate · scroll to zoom (down to farms) · click a country or farm to fly there · Space = play/pause',
     hintTouch: 'One finger to rotate · pinch to zoom · tap a country or farm to fly there',
@@ -1283,6 +1283,7 @@ function frame(now) {
 
   updateClusters(now, false);
   animateClusters(dt);
+  updatePortArcs();
   rebuildFarmInstances(now, false);
   const deep = alt < CL_ALT;
 
@@ -1688,6 +1689,30 @@ function selectPort(p) {
   flyToLonLat(p.lon, p.lat, 1.3);
   renderCard(portItem(p));
   syncURL();
+}
+/* 港口 → 服務過的風場：選取港口時從碼頭畫弧線到每座對得到資料的風場（弧高依距離；球面與平面都重畫）。
+   弧線掛在 surfaceRoot 底下，跟著放大與投影切換；港口取消選取或港口層關閉時移除 */
+let portArcs = null, portArcsKey = '';
+function updatePortArcs() {
+  const p = focusPort && S.ports && S.view !== 'bars' && farmsReady ? focusPort : null;
+  const key = p ? [p.id, S.modeT.toFixed(3), lang].join('|') : '';
+  if (key === portArcsKey) return; portArcsKey = key;
+  if (portArcs) { surfaceRoot.remove(portArcs); portArcs.geometry.dispose(); portArcs.material.dispose(); portArcs = null; }
+  if (!p) return;
+  const farms = (p.farms || []).map(farmNamed).filter(Boolean); if (!farms.length) return;
+  const pts = [], a = new THREE.Vector3(), N = 28;
+  farms.forEach(f => {
+    const dLon = f.lon - p.lon, dLat = f.lat - p.lat, dist = Math.sqrt(dLon * dLon * Math.cos(p.lat * D2R) ** 2 + dLat * dLat);   // 度
+    const hMax = clamp(dist * 0.12, 0.02, 0.8);
+    for (let i = 0; i <= N; i++) {
+      const t = i / N; posAt(p.lon + dLon * t, p.lat + dLat * t, Math.sin(t * Math.PI) * hMax, a);
+      if (i > 0 && i < N) pts.push(a.x, a.y, a.z);                 // 每個中間點出現兩次（線段的終點與下一段起點）
+      pts.push(a.x, a.y, a.z);
+    }
+  });
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  portArcs = new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: 0x7fd3ff, transparent: true, opacity: 0.85 }));
+  portArcs.renderOrder = 5; surfaceRoot.add(portArcs);
 }
 let farmByName = null;
 function farmNamed(n) {
@@ -2484,7 +2509,7 @@ function fdHTML(f) {
     (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') + fdSVG(f) + '</div>';
 }
 /* 風場卡片的剖面示意圖：海面、海床、風機與水下基礎型式（示意，非等比例；水深與塔高尚無欄位） */
-const SVG_COL = { sea: 'rgba(59,143,224,.28)', seaLine: '#6fb3ff', bed: '#7a6650', tower: '#dfe6f0', tp: '#f2c230', steel: '#9aa3ad', conc: '#c9c3b6', hull: '#e3e8ee', txt: 'currentColor', moor: '#9aa3ad' };
+const SVG_COL = WW.FD_SVG_COL;
 function fdSVG(f) {
   const r = f.fd, zh = lang === 'zh';
   const typeKey = t => (t === 'fl' || f.type === 'floating') ? 'fl:' + ((r && r.s) || '') : t;
@@ -2501,36 +2526,10 @@ function fdSVG(f) {
   P.push('<line x1="0" y1="' + SEA + '" x2="' + W + '" y2="' + SEA + '" stroke="' + SVG_COL.seaLine + '" stroke-width="1" stroke-dasharray="4 3"/>');
   P.push('<text x="4" y="' + (SEA - 4) + '" font-size="9" fill="' + SVG_COL.txt + '" opacity=".75">' + L_('海面', 'sea level') + '</text>');
   P.push('<text x="4" y="' + (k > 1 ? BED + 9 : H - 4) + '" font-size="9" fill="' + SVG_COL.txt + '" opacity=".75">' + L_('海床', 'seabed') + '</text>');   // 混合型：底排留給各型式的標籤
-  const line = (x1, y1, x2, y2, c, w) => '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + c + '" stroke-width="' + (w || 2) + '" stroke-linecap="round"/>';
-  const rect = (x, y, w, h, c, rx) => '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + c + '"' + (rx ? ' rx="' + rx + '"' : '') + '/>';
-  const poly = (pts, c) => '<polygon points="' + pts.join(' ') + '" fill="' + c + '"/>';
-  const moor = (x0, y0, x1) => '<path d="M' + x0 + ' ' + y0 + ' Q ' + ((x0 + x1) / 2) + ' ' + (BED + 2) + ' ' + x1 + ' ' + BED + '" fill="none" stroke="' + SVG_COL.moor + '" stroke-width="1" stroke-dasharray="3 2"/>';
   items.forEach((it, i) => {
     const cx = slot * (i + 0.5), [t, sub] = it.key.split(':'), sc = k === 1 ? 1 : 0.8;
-    let top = SEA - 12;                                          // 塔底的高度（海面以上）
-    if (t === 'mp') { P.push(rect(cx - 5, SEA - 12, 10, BED - SEA + 20, SVG_COL.steel), rect(cx - 7, SEA - 28, 14, 20, SVG_COL.tp, 1.5), line(cx - 11, SEA - 28, cx + 11, SEA - 28, SVG_COL.tp, 2)); top = SEA - 28; }
-    else if (t === 'jk') { [-1, 1].forEach(d => P.push(line(cx + d * 8, SEA - 24, cx + d * 26, BED, SVG_COL.steel, 2.2), rect(cx + d * 26 - 3, BED, 6, 14, SVG_COL.steel)));
-      [SEA - 6, SEA + 22, SEA + 48].forEach((y, j) => { const w = 9 + j * 6; P.push(line(cx - w, y, cx + w, y + 20, SVG_COL.steel, 1.2), line(cx + w, y, cx - w, y + 20, SVG_COL.steel, 1.2)); });
-      P.push(rect(cx - 11, SEA - 34, 22, 12, SVG_COL.tp, 1.5)); top = SEA - 34; }
-    else if (t === 'tp') { P.push(rect(cx - 5, SEA - 30, 10, BED - SEA + 10, SVG_COL.steel)); [-1, 1].forEach(d => P.push(line(cx, SEA + 14, cx + d * 26, BED, SVG_COL.steel, 2), rect(cx + d * 26 - 3, BED - 2, 6, 16, SVG_COL.steel)));
-      P.push(rect(cx - 7, SEA - 30, 14, 14, SVG_COL.tp, 1.5)); top = SEA - 30; }
-    else if (t === 'tl') { [-1, 0, 1].forEach(d => P.push(rect(cx + d * 16 - 3, SEA - 26, 6, BED - SEA + 40, SVG_COL.steel))); P.push(rect(cx - 22, SEA - 34, 44, 10, SVG_COL.tp, 1.5)); top = SEA - 34; }
-    else if (t === 'gb') { P.push(poly([(cx - 30) + ',' + BED, (cx + 30) + ',' + BED, (cx + 10) + ',' + (SEA + 8), (cx - 10) + ',' + (SEA + 8)], SVG_COL.conc), rect(cx - 7, SEA - 14, 14, 24, SVG_COL.conc)); top = SEA - 14; }
-    else if (t === 'pc') { [-2, -1, 0, 1, 2].forEach(d => P.push(line(cx + d * 10, SEA + 2, cx + d * 13, BED + 10, SVG_COL.steel, 2.2))); P.push(rect(cx - 24, SEA - 14, 48, 18, SVG_COL.conc, 2)); top = SEA - 14; }
-    else if (t === 'cf' || t === 'bk') { P.push(rect(cx - 22, t === 'cf' ? SEA + 10 : BED - 18, 44, t === 'cf' ? BED - SEA - 10 : 18, t === 'cf' ? SVG_COL.steel : SVG_COL.conc, 2), rect(cx - 5, SEA - 10, 10, BED - SEA, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); top = SEA - 26; }
-    else if (t === 'ra') { P.push(rect(cx - 16, BED - 6, 32, 8, SVG_COL.conc), rect(cx - 5, SEA - 10, 10, BED - SEA + 4, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); [-1, 1].forEach(d => P.push(line(cx + d * 8, BED, cx + d * 14, BED + 14, SVG_COL.steel, 2))); top = SEA - 26; }
-    else if (t === 'fl') {
-      if (sub === 'spar') { P.push(rect(cx - 8, SEA - 14, 16, 60, SVG_COL.hull, 3), rect(cx - 8, SEA + 30, 16, 16, SVG_COL.steel, 3)); P.push(moor(cx - 6, SEA + 36, cx - 40), moor(cx + 6, SEA + 36, cx + 40)); top = SEA - 14; }
-      else if (sub === 'barge') { P.push(rect(cx - 36, SEA - 8, 72, 14, SVG_COL.hull, 2)); P.push(moor(cx - 30, SEA + 6, cx - 48), moor(cx + 30, SEA + 6, cx + 48)); top = SEA - 8; }
-      else if (sub === 'tlp') { P.push(rect(cx - 24, SEA - 10, 48, 12, SVG_COL.hull, 2)); [-1, 1].forEach(d => P.push(rect(cx + d * 20 - 5, SEA - 4, 10, 20, SVG_COL.hull, 2), line(cx + d * 20, SEA + 16, cx + d * 20, BED, SVG_COL.moor, 1.2), rect(cx + d * 20 - 5, BED - 2, 10, 6, SVG_COL.steel))); top = SEA - 10; }
-      else { [-1, 1].forEach(d => P.push(rect(cx + d * 26 - 6, SEA - 16, 12, 30, SVG_COL.hull, 2))); P.push(rect(cx - 32, SEA + 2, 64, 8, SVG_COL.hull, 2), rect(cx - 6, SEA - 16, 12, 30, SVG_COL.hull, 2)); P.push(moor(cx - 30, SEA + 10, cx - 52), moor(cx + 30, SEA + 10, cx + 52)); top = SEA - 16; }
-    }
-    // 風機：塔、機艙、葉輪（三葉）
-    const hub = top - 54 * sc, rr = 20 * sc;
-    P.push(poly([(cx - 3.2) + ',' + top, (cx + 3.2) + ',' + top, (cx + 1.6) + ',' + hub, (cx - 1.6) + ',' + hub], SVG_COL.tower));
-    P.push(rect(cx - 4, hub - 3, 9, 6, SVG_COL.tower, 1));
-    [90, 210, 330].forEach(a => { const ra = a * Math.PI / 180; P.push(line(cx, hub, cx + Math.cos(ra) * rr, hub - Math.sin(ra) * rr, '#ffffff', 1.8)); });
-    P.push('<circle cx="' + cx + '" cy="' + hub + '" r="' + rr + '" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 3"/>');
+    const sh = WW.fdDraw(t, sub, cx, SEA, BED, SVG_COL); P.push(sh.svg); const top = sh.top;   // 基礎本體（與風電知識頁共用 core.js 的繪製）
+    P.push(WW.fdTurbine(cx, top, sc, SVG_COL));                  // 風機：塔、機艙、葉輪
     if (k > 1) P.push('<text x="' + cx + '" y="' + (H - 4) + '" text-anchor="middle" font-size="9" fill="' + SVG_COL.txt + '" opacity=".9">' + esc((it.label || '') + (it.n ? ' × ' + it.n : '')) + '</text>');
   });
   return '<svg class="fdsvg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('fdLabel') + ': ' + fdText(f)) + '">' + P.join('') + '</svg>' +
@@ -2599,7 +2598,7 @@ function renderCard(it) {
   if (it.kind === 'event' && full) rel += evCardExtra(it);
   if (it.kind === 'port' && full) {                  // 港口：服務過的風場（對得到資料的可點選），其他專案列文字
     const served = (it.p.farms || []).map(farmNamed).filter(Boolean), other = (it.p.farmsOther || []).join(lang === 'zh' ? '、' : ', ');
-    if (served.length) rel += relSection('pserved', T('portFarms'), served, { iso: it.p.iso }, false, other ? T('portOther') + other : '');
+    if (served.length) rel += relSection('pserved', T('portFarms'), served, { iso: it.p.iso }, false, (other ? T('portOther') + other + ' · ' : '') + T('portArcs'));
     else if (other) rel += '<p class="gnote fnear0">' + esc(T('portFarms') + L('：', ': ') + other) + '</p>';
     const src = it.p.src || [];                     // 出處可能很多：收成可展開的編號清單（網站＋路徑），不塞在連結列
     if (src.length) rel += '<details class="frel" data-k="psrc"' + (WW.store.get('ww_card_psrc', '1') === '1' ? ' open' : '') + '><summary>' + esc(T('portSrcT')) + '<span class="cnt">' + src.length + '</span></summary><ol class="psrc">' +
@@ -3104,7 +3103,7 @@ WW.globe = {
     });
   },
   leave() { active = false; clearTimeout(urlT); clearInterval(intlTimer); intlTimer = null; stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
-  api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, flyToLonLat, curAlt, FL, clusters, get TOUR() { return TOUR; },
+  api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, flyToLonLat, curAlt, FL, clusters, get portArcs() { return portArcs; }, get TOUR() { return TOUR; },
     cam: () => { const f = focusLonLat(); return { lon: +f.lon.toFixed(3), lat: +f.lat.toFixed(3), alt: +curAlt().toFixed(1), frames: S.frames || 0, rotate: S.rotate }; },
     patchState: () => ({ info: patchInfo, tiles: tileAttrOn, visible: !!(patch && patch.visible), cache: tileCache.size, ok: [...tileCache.values()].filter(t => t.ok).length }) })
 };
