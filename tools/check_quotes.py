@@ -83,7 +83,7 @@ def fetch(url, cache):
     fn = Path(cache) / (hashlib.md5(url.encode()).hexdigest() + '.txt')
     if fn.exists():
         return fn.read_text(encoding='utf-8'), None
-    last = None
+    last = short = None
     tries = [(UA, 'gzip, deflate'), (UA, 'identity')] + [(ua, 'identity') for ua in UA_FALLBACK]
     for n, (ua, enc) in enumerate(tries * 2):      # 有些伺服器不理會 Accept-Encoding，送回 br 等格式時改要求不壓縮
         if n == len(tries):
@@ -101,6 +101,10 @@ def fetch(url, cache):
             elif ce not in ('', 'identity'):
                 raise ValueError('content encoding ' + ce)
             t = to_text(b, r.headers.get_content_charset())
+            t = t.encode('utf-8', 'surrogatepass').decode('utf-8', 'replace')   # PDF 抽出的文字可能含代理字元，寫快取會失敗
+            if len(t.strip()) < 1000 and n < len(tries) - 1:
+                short = short or t     # 防火牆的驗證頁很短：先留著，換下一種 User-Agent 再試
+                continue
             fn.write_text(t, encoding='utf-8')
             time.sleep(1)
             return t, None
@@ -110,6 +114,9 @@ def fetch(url, cache):
                 return None, last
         except Exception as e:     # noqa: BLE001 — 網路錯誤、編碼錯誤都記下來，換下一種方式再試
             last = str(e)[:80]
+    if short:                      # 每種方式都只拿到很短的頁面：就用它（可能本來就是短頁）
+        fn.write_text(short, encoding='utf-8')
+        return short, None
     return None, last
 
 

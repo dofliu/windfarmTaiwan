@@ -377,9 +377,11 @@ RULES = [
         'Same farm (off Gruissan, 30 MW)', 'https://www.gem.wiki/Eolmed_Floating_wind_farm'),
     fix('FRA', 'EolMed (Gruissan)', C, '2026 年 4 月開始發電、5 月全面運轉；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中',
         'First power in April 2026 and full capacity in May 2026; the timeline on this site ends in 2025, when it was still under construction, so it is listed as under construction for now', 'https://www.bw-ideol.com/en/eolmed-project', st=1, year=2026, note=True),
-    fix('FRA', 'Provence Grand Large', C, '機組是西門子歌美颯的 8.4 MW 風機，不是 Vestas', 'The turbines are Siemens Gamesa 8.4 MW, not Vestas',
+    fix('FRA', 'Provence Grand Large', C,
+        '機組是西門子歌美颯 SWT-8.0-154（以 8.4 MW 運轉，葉片 75 m），不是 Vestas；RTE 專案文件寫明選用 SWT-8.0-154，SBM 寫 3 座浮動機組安裝完成',
+        'The turbines are Siemens Gamesa SWT-8.0-154 (run at 8.4 MW, 75 m blades), not Vestas; the RTE project dossier names the SWT-8.0-154 and SBM reports the three floating units installed',
         'https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/',
-        turbine='3 x Siemens Gamesa 8.4 MW (SBM tension-leg)'),
+        turbine='3 x Siemens Gamesa SWT-8.0-154 at 8.4 MW (SBM tension-leg)'),
     drop('GBR', 'Dounreay Tr‚àö¬®  Floating Wind Demonstration', G,   # GEM 2026-02 的名稱編碼壞掉（原為 Dounreay Trì）· mojibake in GEM 2026-02
          '從未興建：這個兩部風機的示範案已經中止，同一場址後來改由 Pentland 浮動式風場開發（另列）',
          'Never built: this two-turbine demonstrator was discontinued, and the site was later taken up by the Pentland floating wind farm '
@@ -1193,6 +1195,11 @@ RULES = [
         '新富東 1 號是 24 部 Vestas V150-4.2 MW，不是遠景（物流承包商 Infinity Logistics 專案頁）',
         'Tan Phu Dong 1 has 24 Vestas V150-4.2 MW turbines, not Envision (project page of the logistics contractor Infinity Logistics)',
         'https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/', turbine='24x Vestas V150-4.2'),
+    # ------------------------------------------------ 2026-10-03 尺寸第五輪查到的資料疑點（出處原文已以 check_quotes 核對）
+    fix('CHN', 'Fuqing Haitan Strait', C,
+        '竣工海洋環保驗收報告：46 部，海裝 6.2 MW 21 部、5 MW 3 部、明陽 7.0 MW 22 部，總裝機 299.2 MW；原寫金風 6.45–8 MW、300 MW',
+        'As-built marine environmental acceptance report: 46 turbines, 21 Haizhuang 6.2 MW, 3 × 5 MW and 22 Mingyang 7.0 MW, 299.2 MW in total; the row said Goldwind 6.45–8 MW and 300 MW',
+        'https://www.cti-cert.com/upload/files/202511071148308464.pdf', mw=299.2, turbine='21x CSSC Haizhuang 6.2 MW + 3x 5 MW + 22x Mingyang 7.0 MW'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
