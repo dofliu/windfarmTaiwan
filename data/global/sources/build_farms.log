@@ -190,12 +190,14 @@ CLEAN fix CHN Datang Zhuanghe II 300.0
 CLEAN fix CHN Fujian Pingtan Changjiang'Ao Offshore wind farm 295.0
 CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
 CLEAN fix CHN Guangdong Energy Fanshi II / Yangjiang 1000.0
+CLEAN fix CHN Guohua Dongtai IV (H2) 300.0
 CLEAN fix CHN Guoneng Bozhong B1 / Bozhong B 500.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Hebei Construction Investment Xiangyun Island 250.0
 CLEAN fix CHN Huadian Yangjiang Qingzhou 3 500.6
 CLEAN fix CHN Huadian Yuhuan 2 500.0
 CLEAN fix CHN Huaneng Cangnan 4 400.0
+CLEAN fix CHN Huaneng Dafeng 300.0
 CLEAN fix CHN Huaneng Dalian Zhuanghe III 300.0
 CLEAN fix CHN Huaneng Peninsula North BW 500.0
 CLEAN fix CHN Huaneng Peninsula North BW 510
@@ -204,12 +206,14 @@ CLEAN fix CHN Huaneng Qidong H3 300.0
 CLEAN fix CHN Huaneng Rudong 300.0
 CLEAN fix CHN Huaneng Rudong H3 300.0
 CLEAN fix CHN Huaneng Shantou Lemen 245.0
+CLEAN fix CHN Huaneng Sheyang H1 / Yancheng 300.0
 CLEAN fix CHN Huaneng Zhanjiang Xuwen East 400.0
 CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0
 CLEAN fix CHN Jiangsu Rudong H14 (Guangheng) Offshore wind farm 200.0
 CLEAN fix CHN Jiangsu Rudong H5 (Yunshan) Offshore wind farm 300.0
 CLEAN fix CHN Jiangsu Sheyang Southern Area H5 Offshore wind farm 400.0
 CLEAN fix CHN Jiangsu Xiangshui C1 Offshore wind farm 12.0
+CLEAN fix CHN Longyuan Dafeng H3 (Huaneng Dafeng) 300.0
 CLEAN fix CHN Longyuan Dafeng H7 200.0
 CLEAN fix CHN Longyuan Jiangsu Xiangshui 202.0
 CLEAN fix CHN Longyuan Rudong Intertidal 150 MW Demo 150.0
@@ -334,10 +338,18 @@ CLEAN fix VNM Bac Lieu Phase 3 142.0
 CLEAN fix VNM Cà Mau wind farm 352.0
 CLEAN fix VNM Cư An wind farm 200.0
 CLEAN fix VNM Dong Hai 1 Phase 1 (Tra Vinh, Trungnam) 100.0
+CLEAN fix VNM Dong Hai 1 – Tra Vinh (Trungnam) 100.0
+CLEAN fix VNM Hoa Binh 1 Phase 1 50.0
+CLEAN fix VNM Hoa Binh 1 Phase 2 50.0
+CLEAN fix VNM Hoa Binh 2 50.0
 CLEAN fix VNM Soc Trang 1 Phase 1 (Cong Ly) 30.0
+CLEAN fix VNM Tan Thuan (PECC2) Phase 1+2 75.0
+CLEAN fix VNM Thanh Hải No. 5 Offshore wind farm 120
 CLEAN fix VNM Thanh Hải No. 5 Offshore wind farm 127.0
 CLEAN fix VNM Tân An 1 offshore wind farm 115.0
+CLEAN fix VNM V1-2 Truong Long Hoa (Tra Vinh) 48.0
 CLEAN fix VNM V1-3 Ben Tre (BTRE) 30.0
+CLEAN fix VNM V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) 48.0
 CLEAN fix ZAF Amakhala Emoyeni 134.0
 CLEAN fix ZAF Waainek Wind Farm 23.0
 DROP ARG operating Antonio Moran wind farm 18.0 ~ Antonio Morán (Comodoro Rivadavia) 16.6

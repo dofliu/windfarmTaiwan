@@ -655,7 +655,7 @@ FOUNDATIONS = [
     F5('CHN', 'CGN Jiaxing 2 (Zhoushan Daishan 4)', 'pc', url='https://baijiahao.baidu.com/s?id=1671060059350234305&wfr=spider&for=pc',
        zh='中廣核浙江岱山4#為234MW、54台（西區18台4MW、東區36台4.5MW），全場採高樁承台基礎（八樁，鋼管樁直徑1.6m；一期50台承台2020年7月澆築完成，西區144根樁2019年5月31日沉樁完成），2020年12月25日54台全容量投產。來源：全國能源信息平台（百家號）2020-07-02、浙江日報（百家號）2019-06-06、人民網浙江 2020-12-28、讀特 2020-12-25。',
        en='CGN Zhejiang Daishan 4 is 234 MW, 54 turbines (18 x 4 MW west, 36 x 4.5 MW east), all on high-pile cap foundations (8 piles of 1.6 m; 50 caps of phase 1 poured by Jul 2020, 144 west-zone piles driven by 31 May 2019); 54 turbines at full capacity 25 Dec 2020. Sources: National Energy Information Platform (baijiahao) 2020-07-02, Zhejiang Daily (baijiahao) 2019-06-06, people.cn Zhejiang 2020-12-28, dutenews 2020-12-25.'),
-    F5('CHN', 'Longyuan Dafeng H3 (Huaneng Dafeng)', 'mp', url='http://www.hhi.com.cn/webfront/webpage/web/contentPage/id/d9cce3cb2d854c7aa1568d2539cbf481',
+    F5('CHN', 'SPIC Dafeng H3', 'mp', url='http://www.hhi.com.cn/webfront/webpage/web/contentPage/id/d9cce3cb2d854c7aa1568d2539cbf481',
        zh='大豐H3#300MW（302.4MW，72台4.2MW）由華電重工承建，合同即為「單樁與海上升壓站基礎施工」；2018年9月已完成65根單樁，同年10月22日全部72根單樁完成（東方風力發電網／北極星，無法抓取）；2018年12月20日全容量投產。來源：華電科工官網 2018-09-19、國家電投江蘇公司（ne21 轉載）2022-01-18。',
        en='Dafeng H3 300 MW (302.4 MW, 72 x 4.2 MW), built by Huadian Heavy Industry under a contract for ’monopile and offshore substation foundation construction’; 65 monopiles done by Sept 2018, all 72 reported done on 22 Oct 2018 (eastwp/bjx, not fetchable); full capacity 20 Dec 2018. Sources: HHI 2018-09-19, SPIC Jiangsu via ne21 2022-01-18.'),
     F5('CHN', 'Guohua Dongtai IV (H2)', 'mp', url='https://baijiahao.baidu.com/s?id=1639399792956561145&wfr=spider&for=pc',
