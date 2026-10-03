@@ -10,7 +10,7 @@
 2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：已完成（2026-09）。
 3. **浮動式風場的細分型式**（全球）：已完成（2026-09）。
 4. **台灣、日本、韓國、美國**：已完成（2026-09）。
-5. **中國、越南**：進行中：已依使用者 2026-09 的逐案覆核補上中國 55 座，出處原文待核對。
+5. **中國、越南**：進行中：已依使用者 2026-09 的逐案覆核補上中國 58 座，出處原文待核對。
 
 本頁是前四步與第 5 步已完成部分的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
 
@@ -21,18 +21,18 @@
 - **第 2 步**：OSPAR 不涵蓋波羅的海與地中海，2024 年以後才完工的風場也只有核准階段的設計（設計可能改變）。這些風場逐座查開發商、施工廠商、產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。
 - **第 3 步**：全球的浮動式風場補上細分型式：單柱式（spar）、半潛式、駁船式（含阻尼池式）、張力腳平台，逐座查技術供應商、開發商或產業新聞，引用的原文逐筆核對過；同一筆紀錄含不同型式的機組時，在說明欄逐部寫出。
 - **第 4 步**：台灣、日本、韓國、美國的離岸風場都沒有 OSPAR 紀錄，逐座查開發商、施工廠商、政府文件或產業新聞，引用的原文逐筆核對過（日文、韓文網頁依網頁編碼比對，PDF 逐頁比對），不引用 4C Offshore；日本港灣內的風場以 NEDO 的支持構造分類為準（NEDO 明寫「ドルフィン」就是 High-Rise Pile Cap 高樁承台）。查不到型式的列在下方「查過但暫不列入」。
-- **第 5 步（進行中）**：依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」補上中國 55 座，出處為該表各列的第一手來源（三峽集團、上海市政府、中廣核）；這批原文尚未以 `tools/check_quotes.py` 核對（整理時的工作環境無法連線），列在 TODO 待補。越南各案該表只寫潮間帶／近岸、細分待查，未列入。新增「複合筒」型式，歸在「其他固定式」色組。
+- **第 5 步（進行中）**：依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」補上中國 58 座，出處為該表各列的第一手來源（三峽集團、上海市政府、中廣核）；這批原文尚未以 `tools/check_quotes.py` 核對（整理時的工作環境無法連線），列在 TODO 待補。越南各案該表只寫潮間帶／近岸、細分待查，未列入。新增「複合筒」型式，歸在「其他固定式」色組。
 - 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。
 - **水深、輪轂高度、葉輪直徑**（2026-10 起，`tools/farm_dimensions.py`）：逐座查維基百科（含英文維基百科各國離岸風場清單的「Depth range」欄）、開發商、風機廠商、政府文件或產業新聞，引用的原文逐筆核對過；查不到的留空，不用典型值推估。下表的「水深／輪轂／葉輪」欄即為這些值；地球儀的風場卡片剖面圖與近景風機依這些值等比例繪製。
 - 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合）；風場卡片與本頁寫出確切型式。
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 235／329 座，占容量 71.0%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
+合計：已知型式 238／332 座，占容量 71.1%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 中國大陸 | 140 | 58 | 45% | 30 | 10 | 3 | 15 |
+| 中國大陸 | 143 | 61 | 45% | 31 | 11 | 4 | 15 |
 | 英國 | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | 德國 | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | 荷蘭 | 13 | 13 | 100% | 12 |  |  | 1 |
@@ -53,7 +53,7 @@
 
 ## 浮動式風場（營運中）
 
-共 15 座、260.8 MW：單柱式 5、半潛式 5、駁船式 3、張力腳 1、細分型式不詳或混合 1。
+共 16 座、264.8 MW：單柱式 5、半潛式 6、駁船式 3、張力腳 1、細分型式不詳或混合 1。
 
 ## 逐場清單
 
@@ -71,6 +71,7 @@
 | 華潤連江外海（CR Power Lianjiang Waihai） | 700 | 2025 | 混合：單樁 7、套管式 32 | 38–46 | 160 | 260 | [chinapower.com.cn](http://www.chinapower.com.cn/flfd/xmjz/20240429/244321.html)<br>[news.fznews.com.cn](https://news.fznews.com.cn/lianjiang/20240801/L22C0U0Z66.shtml)<br>[dew.dongfang.com](https://dew.dongfang.com/info/1240/1750.htm) | 39 部 18 MW 機組：7 座單樁（直徑 10 m）、32 座套管（中國電力網 2024 年 4 月的塔筒供貨報導）；水深38–46 m（福州新聞網）；39台東方電氣18 MW 直驅機組，輪轂中心160 m、葉輪260 m（東方風電下線新聞）；國資委產品頁另載風輪258 m。 |
 | 三峽大豐H8-1（CTG Dafeng H8-1 (800 MW)） | 800 | 2025 | 單樁 |  |  |  | [js.chinanews.com.cn](https://www.js.chinanews.com.cn/news/2025/0916/230110.html) | 98 部風機全部為單樁（樁徑 7–9 m、最長 97 m、最重 1,713 t，中新網 2025 年 9 月）；2025 年 12 月 15 日全容量併網 |
 | 三峽長樂外海A區（CTG Fujian Changle Waihai A） | 300 | 2021 | 套管式 | ≤44 |  |  | [thepaper.cn](https://www.thepaper.cn/newsDetail_forward_9187135) | 37座風機全部為四樁導管架（套管）基礎：中鐵大橋局2020年9月安裝國內首台深水四樁導管架，泰勝藍島承製A區10MW四樁導管架，全場風機基礎鋼管樁直徑僅3.0–3.5 m（導管架樁），未見單樁；37台＝6.7MW×14＋8MW×13＋10MW×10（澎湃新聞2020-09-15、世紀新能源網2020-11-20、2021-05）。；澎湃（中鐵大橋局）：最大水深44 m（只有最大值）；37台：6.7 MW×14、8 MW×13、10 MW×10，無統一輪轂／葉輪。 |
+| 三峽平潭外海（CTG Pingtan Waihai） | 111 | 2023 | 套管式（吸力桶） | 37–43 | 114–154 | 252 | [zrzyt.fj.gov.cn](http://zrzyt.fj.gov.cn/zwgk/gsgg/202404/P020240429531356048270.pdf)<br>[sasac.gov.cn](http://www.sasac.gov.cn/n2588025/n2588124/c28906372/content.html) | 11 部試驗機組全用三樁導管架－吸力筒基礎（2022 年由四樁導管架改設計；福建省自然資源廳變更報告書）；變更報告書：輪轂高 114／118／130／154 m、葉輪直徑 175／185／211／252 m（依 8、10、13、16 MW 機型），海圖水深 37–38 m；國資委寫理論水深 40–43 m；葉輪直徑取最大機型 |
 | 三峽如東H10（CTG Rudong H10） | 400 | 2021 | 混合：單樁 77、複合筒 23 | 14–22 |  | 146 | [eps.ctg.com.cn](https://eps.ctg.com.cn/cms/channel/1ywgg1/19830.htm)<br>[ne21.com](https://www.ne21.com/news/show-133175.html)<br>[power-technology.com](https://www.power-technology.com/data-insights/power-plant-profile-three-gorges-new-energy-jiangsu-rudong-h10-offshore-wind-power-project-china/) | 100 部 4 MW 風機：77 座單樁、23 座複合筒（2021 年 12 月全容量併網）；世紀新能源網（招標公告）：H10場區水深14–22 m，100台4.0 MW；機型與輪轂未找到；Power Technology：100台 SWT-4.0-146，葉輪146米；輪轂高度查無。 |
 | 三峽如東H6（CTG Rudong H6） | 400 | 2021 | 單樁 | 9–20 |  | 146 | [eps.ctg.com.cn](https://eps.ctg.com.cn/cms/channel/1ywgg1/17129.htm)<br>[nsenergybusiness.com](https://www.nsenergybusiness.com/projects/jiangsu-rudong-h6-h10-offshore-wind-power-project/)<br>[power-technology.com](https://www.power-technology.com/marketdata/three-gorges-new-energy-jiangsu-rudong-h6-offshore-wind-farm-project-china/) | 100 部 4 MW 風機，全部為單樁（2021 年 12 月全容量併網；與 H10 共用柔性直流送出）；NS Energy：如東H6、H10 共用描述，葉輪直徑146米，水深9–20米（兩場合計範圍）；Power Technology：H6 為100台 SWT-4.0-146；輪轂高度查無。 |
 | 三峽陽江沙扒二期（CTG Yangjiang Shapa Phase 2） | 400 | 2021 | 套管式 | 28–32 |  | 180 | [ne21.com](https://www.ne21.com/news/show-166702.html)<br>[power-technology.com](https://www.power-technology.com/data-insights/power-plant-profile-ctgne-yangjiang-shapa-phase-2-china/) | 三峽陽江沙扒二期400 MW（62台6.45MW，水深28–32 m），2021-11-27全部機組投產。基礎為導管架：項目設計四樁非嵌岩導管架、芯柱式嵌岩三樁導管架、植入式嵌岩導管架多種型式（三峽新能源2020-08-31），投產報導稱完成國內首個大直徑非嵌岩四樁導管架與芯柱嵌岩三樁導管架施工（三峽能源珠江公司2021-11-29，世紀新能源網轉載）。各型式座數未查到。；世紀新能源網：場區水深28–32 m，62台6.45 MW；未找到寫明MySE6.45-180機型的出處，葉輪留空；陽西縣政府：二期風機立於海面高達112米、葉輪直徑171米；Power Technology：31台明陽 MySE6.45-180＋31台金風 GW171/6450，葉輪171–180米；葉輪直徑取較大機型 |
@@ -91,6 +92,7 @@
 | 國華東台四期H2（Guohua Dongtai IV (H2)） | 300 | 2019 | 單樁 |  |  | 130 | [baijiahao.baidu.com](https://baijiahao.baidu.com/s?id=1639399792956561145&wfr=spider&for=pc)<br>[power-technology.com](https://www.power-technology.com/data-insights/power-plant-profile-dongtai-iv-china/) | 302.4MW，63台上海電氣4.0MW＋12台遠景4.2MW，共75台；2019年7月16日「16號單樁沉樁結束，單樁基礎施工宣告完成」，百度摘要稱工程含73台單樁基礎及75台風機安裝（其餘2台基礎型式未查明）；16號機位為全球首次單樁基礎整機吊裝；2019年12月全部並網。來源：東台市委宣傳部（幸福東台）2019-07-18、澎湃／國家能源集團 2019-12、三航新能源（搜狐）2018-12。；中交三航局（搜狐）：場址為潮間帶、露灘淺灘深溝並存、水深變化大，無數值；且該文稱63台上海電氣4.0 MW＋12台遠景4.2 MW，與資料庫「75x Goldwind GW154-4.0」不符，待查；Power Technology：一期63台上海電氣 SWT 4.0-130（葉輪130米）＋12台遠景 EN136-4.2，取主要機型130米；與資料庫「75台金風GW154」不符，待查證；水深、輪轂查無。 |
 | 國華如東H14（Guohua Rudong H14） | 300 | 2021 | 單樁 |  |  |  | [news.96189.com](https://news.96189.com/w/2008/ebbbbcec80b94ed8a6b9441a968e997c.html) | 如東H14為魯能新能源（中國綠發）200MW、50台4MW上海電氣機組，50根單樁基礎於2020年8月全部完工（亞洲首次大直徑單樁浮運沉樁），2020年12月全場並網。來源：南通發布（96189）2020-08-29、電力科技網 2020-07-31、新華網 2023-08-17。 |
 | 國能大豐H5（Guoneng Dafeng H5） | 200 | 2021 | 單樁 | 15–20 |  |  | [ne21.com](https://www.ne21.com/news/show-155282.html)<br>[ne21.com](https://www.ne21.com/news/show-132313.html) | 32台GW184-6.45MW、206.4MW，風機基礎全部採無過渡段單樁（華電重工／世紀新能源網 2021-01-05；大豐區政府 2024-12）；2021年12月全容量併網（江蘇省國資委 2022-04）。；世紀新能源網（風機採購招標）：水深15–20 m、離岸67 km；實際安裝32台6.45 MW，機型／輪轂／葉輪未找到。 |
+| 國能共享號（南日島風漁融合浮式平台）（Guoneng Gongxiang (Longyuan Nanri floating)） | 4.0 | 2024 | 浮動式（半潛式） | 35 |  | 130 | [sasac.gov.cn](http://www.sasac.gov.cn/n2588020/n2877938/n2879597/n30275940/c31096925/content.html)<br>[fujian.gov.cn](https://www.fujian.gov.cn/zwgk/ztzl/sxzygwzxsgzx/sdjj/hyjj/202501/t20250126_6709463.htm)<br>[paper.people.com.cn](http://paper.people.com.cn/rmrbhwb/html/2024-07/05/content_26067553.htm) | 三立柱半潛式平台（立柱間距 70 m、吃水 14 m），9 套吸力錨＋錨鏈繫泊，平台下方為養殖網箱；福建省政府：離岸 30 km、水深 35 m；人民日報海外版：葉輪直徑 130 m |
 | 國信大豐85萬千瓦海上風電（Guoxin Dafeng 850 MW） | 850 | 2025 | 單樁 | 1–42 |  | 226.5 | [ddx.gubit.cn](http://ddx.gubit.cn/fenxi/002608/202510081600.html)<br>[finance.sina.com.cn](https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml)<br>[ceec.net.cn](https://www.ceec.net.cn/art/2025/4/9/art_52770_2534921.html) | 100×8.5 MW，「風機基礎全部採用大直徑單樁結構」，2025年完成100根單樁基礎施工，2025-12-29全部風機併網（查股網／交匯點2025-10-08、國資委2026）。；場區水深1–42 m（新浪轉江蘇國信）；100台8.5 MW，葉輪226.5 m（中國能建）；輪轂高度未查得。 |
 | 海油觀瀾號（Haiyou Guanlan (CNOOC floating)） | 7.2 | 2023 | 浮動式（半潛式） | 120 |  | 158 | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/)<br>[gov.cn](https://www.gov.cn/yaowen/liebiao/202305/content_6875353.htm)<br>[cpem.org.cn](https://www.cpem.org.cn/list68/94573.html) | 半潛式；供電給文昌油田群，不接公用電網；水深120 m（中國政府網）；葉輪158 m（CPEM 轉中國海油）；浮體上方塔柱約83 m，非海平面起算的輪轂高度，故留空。 |
 | 華能大豐海上風電（Huaneng Dafeng） | 300 | 2019 | 單樁 | 3.3–12.8 |  | 136 | [baijiahao.baidu.com](https://baijiahao.baidu.com/s?id=1642946831276885180&wfr=spider&for=pc)<br>[power-technology.com](https://power-technology.com/marketdata/huaneng-dafeng-phase-i-offshore-wind-farm-china) | 華能江蘇大豐300MW（毛竹沙海域，離岸55km）分標段施工：中天海洋工程標段共沉樁31根（5MW級單樁，2019年8月完成）；中交一航局Ⅰ標段33根鋼管樁、34台風機（2019年8月20日沉樁完成，9月29日最後一台吊裝並網）。兩標段皆為單樁／鋼管樁，但全場機組總數與是否尚有其他標段未查得。來源：中天科技（百家號）2019、中交一航局（澎湃）2019。；中天海洋工程（百家號）：毛竹沙海域灘面高程−3.3～−12.8 m、離岸55 km；澎湃報導一期為40餘台遠景4.2 MW＋20台海裝5 MW，與資料庫「75x Goldwind 4.0 MW」不符，待查；Power Technology：48台遠景 EN136-4.2＋20台中船海裝 H151-5.0，取主要機型136米（資料庫寫金風4MW，待查證）；輪轂高度查無。 |
@@ -113,6 +115,7 @@
 | 上海金山海上风电场一期（Shanghai Jinshan Offshore wind farm） | 306 | 2025 | 單樁 | 7.8–10.5 |  |  | [cweea.com.cn](https://www.cweea.com.cn/xwdt/html/40620.html)<br>[fgw.sh.gov.cn](https://fgw.sh.gov.cn/fgw_ny/20220111/76c8e2f464f24e579488b30d7b1588cd.html) | 36 根單樁基礎、36 台 8.5 MW（中交三航局施工內容，風能產業網 2025）；2025-09-23 全容量併網（人民網上海 2025-09-25）。；水深7.8–10.5 m（上海市發改委競配方案）；36台8.5 MW；輪轂高度與葉輪直徑未查得。 |
 | 上海臨港海上風電一期（Shanghai Lingang Demonstration Phase 1） | 102 | 2019 | 高樁承台 | 5–7 | 90 | 136 | [fegroup.com.cn](https://www.fegroup.com.cn/ydkg/xwzx79/gsxw10/577818/index.html)<br>[cuti.sjtu.edu.cn](https://cuti.sjtu.edu.cn/Data/View/478) | 一期示範項目 25 台 4MW（上海電氣 W4000）全部採用高樁承台：遠東集團 2019 年報導「從沉樁、承台澆築到完成全部 25 台風機安裝」，2018 年 5 月 8 日開工、主體 238 天完成。；上海交大海科院：平均水深5–7 m；遠東集團：25台4 MW（W4000-136-90），葉輪136 m、輪轂90 m。 |
 | 申能海南CZ2（Shenergy Hainan CZ2 (Dongfang)） | 600 | 2024 | 單樁 | 15–25 |  |  | [finance.sina.com.cn](https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml)<br>[news.hndaily.cn](https://news.hndaily.cn/html/2025-02/16/content_58464_18264153.htm) | 67 部 9 MW 風機各立在一根單樁上（海南日報 2024 年 5 月的施工報導，單樁長 95.7 m、直徑 8.8 m、重 1,639 t）；水深15–25 m，一期67台9 MW（海南日報）；輪轂高度與葉輪直徑未查得。 |
+| 協鑫如東H13（Xiexin (GCL) Rudong H13） | 150 | 2021 | 單樁 |  |  |  | [sohu.com](https://www.sohu.com/a/494582778_121123888) | 中交三航局施工：30 部 5 MW 風機的單樁基礎與一座 220 kV 海上升壓站 |
 | 三峽引領號（Yangjiang Shapa 'Sanxia Yinling' floating） | 5.5 | 2021 | 浮動式（半潛式） | 28–32 | 107 | 158 | [sasac.gov.cn](http://www.sasac.gov.cn/n4470048/n22624391/n26705666/n26705673/n26705740/c26786615/content.html)<br>[gelonghui.com](https://www.gelonghui.com/p/516730)<br>[cpem.org.cn](https://www.cpem.org.cn/list68/94573.html) | 半潛式平台；機位水深約30 m（國資委），場址28–32 m（平安證券／格隆匯）；輪轂中心距海平面約107 m、葉輪158 m（CPEM 轉載三峽資料）。 |
 | 苍南 2 号二期海上风电项目（Zhejiang Cangnan 2 Offshore wind farm） | 301 | 2023 | 單樁 | 20–29 |  |  | [news.qq.com](https://news.qq.com/rain/a/20230419A0355R00)<br>[wzcn.zjzwfw.gov.cn](http://wzcn.zjzwfw.gov.cn/art/2021/9/14/art_1460374_8815.html) | 華能蒼南 2 號 36 部 8.5 MW 全部為單樁（新京報 2023 年 4 月「國內在建最大單樁風電項目」報導；最長樁 118 m、2,328 t，CPEM）；環評公示：苍南2號場區水深約20–29米（一期30萬kW） |
 | 浙能嘉興1號（Zhejiang Energy Jiaxing 1） | 300 | 2021 | 混合：高樁承台 37、單樁 37 | 8–12 | 90–115 | 148 | [news.qq.com](https://news.qq.com/rain/a/20211121A08Z6200)<br>[sasac.gov.cn](http://www.sasac.gov.cn/n2588025/n2588129/c21444804/content.html)<br>[sohu.com](https://www.sohu.com/a/304386267_100091571)<br>[power-technology.com](https://www.power-technology.com/data-insights/power-plant-profile-jiaxing-no-1-offshore-wind-farm-china/) | 301.2MW、74台：37台採多樁（8根1.6m鋼樁的高樁承台）基礎、37台採單樁基礎，共333根樁；2019年10月7日開始打樁，2021年10月29日74台吊裝完成，2021年11月21日全容量並網。來源：錢江晚報／潮新聞（騰訊）2021-11-21、浙江在線 2021-11-22、浙江省國資委（國資委網）2021-11-23。；錢江晚報（騰訊）：平均水深「10多米」（無確切範圍）、輪轂高度90–115 m、葉輪直徑140多–180多 m（74台多機型）；7 MW試驗機輪轂115 m、風輪186 m（國資委）；搜狐（升壓站招標公告）：場區水深8～12米；Power Technology：38台哈電 XE148-4000＋34台 SWT-4.0-146＋1台 H171，取主要機型148米。 |
