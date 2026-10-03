@@ -44,10 +44,9 @@ finished items to the topic lists below.
   Shapa phase 2's "112 m above the sea" (unclear which height), and Provence Grand Large's 100 m hub (the source names an SWT-8.0-154, which fits
   neither the database's SG 8.0-167 nor the 174 m tip height; to be checked). Sources worth another try: the Qingzhou 2 EIA PDF (gdee.gd.gov.cn, no
   response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).
-  Turbine-field errors the sub-agents found (clean-up rules still to write): Dongtai IV (H2) is 63 × SWT-4.0-130 + 12 × EN136-4.2, Huaneng Dafeng phase
-  1 is EN136-4.2 + H151-5.0, Sheyang H1 is 67 × EN148-4.5, "Longyuan Dafeng H3" is SPIC's Dafeng H3 (EN136-4.2), Vietnam's Hoa Binh 1/2 are Vestas
-  V150-4.2, Tan Thuan and Dong Hai 1 (Tra Vinh) are SG 5.0-145, V1-2 Truong Long Hoa is GW155-4.5 and V1-3 is V150-4.2; Wailuo phase 1 has a 158 m
-  rotor; Zhong Neng phase 1 is V164-9.5 on the association's page but V174-9.5 in Vestas's release.
+  The turbine-field errors the sub-agents found are now clean-up rules (v2.17.1, 12 records). Still open: Wailuo phase 1 is MySE5.5-155 in the
+  database but official reports give a 158 m rotor (model to be checked); Zhong Neng phase 1 is V164-9.5 on the association's page but V174-9.5 in
+  Vestas's release (the database uses V174); the model at Provence Grand Large (SG 8.0-167 or SWT-8.0-154) is to be checked.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)

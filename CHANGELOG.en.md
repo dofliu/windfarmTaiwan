@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.17.1 — 2026-10-03
+
+- Data corrections: 12 turbine-field errors found while researching farm dimensions are written as clean-up rules (quotes verified with
+  `check_quotes.py`). China: Dongtai IV becomes 63 Shanghai Electric SWT-4.0-130 plus 12 Envision EN136-4.2, Huaneng Dafeng phase I becomes 48 Envision
+  EN136-4.2 plus 20 Haizhuang H151-5.0 (owner Huaneng Renewables), Sheyang South H1 becomes 67 Envision EN148-4.5, and “Longyuan Dafeng H3 (Huaneng
+  Dafeng)” is renamed SPIC Dafeng H3 (72 Envision EN136-4.2). Vietnam: Hoa Binh 1 phases 1–2 and Hoa Binh 2 become Vestas V150-4.2, Tan Thuan Siemens
+  Gamesa SG 5.0-145, Tra Vinh V1-2 Goldwind GW155-4.5, V1-3 Vestas V150-4.2, Tra Vinh Dong Hai 1 SG 5.0-145, and Thanh Hai No. 5 gains its 28 turbines
+  and the SG 4.5-145 of phases 1–2.
+
 ## v2.17.0 — 2026-10-03
 
 - Offshore farms gain three new fields, **water depth, hub height (or tower height) and rotor diameter**: a farm-by-farm table in

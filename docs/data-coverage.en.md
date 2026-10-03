@@ -9,7 +9,7 @@ English ｜ [中文](data-coverage.md)
 - **Country level**: 79 countries total 1,287,611 MW at year-end, which is the site’s world total (1,287,611 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
 - **Farm level**: 15,982 operating farms, 1,167,547 MW are mapped individually — about **91%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 53 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 134 duplicate, never-built or non-existent records were removed and 173 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Clean-up**: checked record by record in 2026-09; 134 duplicate, never-built or non-existent records were removed and 185 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 9,594 projects, 2,723,401 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)

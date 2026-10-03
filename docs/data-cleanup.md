@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 307 條：刪除 134 筆（其中營運中 41,868.2 MW），修正 173 筆。
+- 規則 319 條：刪除 134 筆（其中營運中 41,868.2 MW），修正 185 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 43 | 24,374.5 | 67 |
+| 中國大陸 | 43 | 24,374.5 | 71 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
@@ -46,7 +46,7 @@
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 13 | 1,487 | 10 |
+| 越南 | 13 | 1,487 | 18 |
 
 ## 中國大陸 (CHN)
 
@@ -162,6 +162,10 @@
 | Longyuan Sheyang H2 · 300 MW · 2021 | 精選 | 修正：機組 | 龍源射陽H2採用遠景EN-148/4.5MW機組（新浪財經轉中國風電新聞網2025-02-07），2021-04-12全容量併網（射陽新聞網）；資料庫「Goldwind 6.45 MW」有誤。67台之數未能在可核對原文中證實，機型欄不寫台數。 | [連結](https://finance.sina.com.cn/roll/2025-02-07/doc-ineiqkks1306604.shtml) |
 | Datang Danzhou CZ3 · 1,200 MW · 2025 | 精選 | 修正：分期、機組 | 儋州 120 萬瓩案分兩場址：一場址 60 部 10 MW（600 MW）2025 年投運，二場址 60 部 10 MW 於 2025 年 12 月 16 日才開工、預計 2026 年底全容量；原本把 1,200 MW 全算在 2025 年，機型欄的「明陽／東方 10–16 MW」也不符（兩場址都是東方電氣 10 MW） | [連結](https://hain.chinadaily.com.cn/a/202512/17/WS6942ab30a310942cc4997350.html) |
 | Huaneng Peninsula North BW · 510 MW · 2024 | 精選 | 修正：機組 | 半島北 BW 的機組是 60 部 8.5 MW（大眾新聞 2024 年 9 月；原寫「金風 8–12 MW」，混入半島北 L 場址的 42 部 12 MW） | [連結](https://m.dzplus.dzng.com/share/general/0/NEWS1723611XKUKXREOUNYBW) |
+| Guohua Dongtai IV (H2) · 300 MW · 2019 | 精選 | 修正：機組 | 東台四期是 63 部上海電氣 SWT-4.0-130（一期）加 12 部遠景 EN136-4.2（二期），不是 75 部金風 GW154-4.0（Power Technology 專案頁） | [連結](https://www.power-technology.com/data-insights/power-plant-profile-dongtai-iv-china/) |
+| Huaneng Dafeng · 300 MW · 2019 | 精選 | 修正：機組、業主 | 華能大豐一期是 48 部遠景 EN136-4.2 加 20 部中國海裝 H151-5.0，業主為華能新能源（持股 100%）；原寫 75 部金風 4 MW、業主國家電投江蘇（Power Technology 專案頁） | [連結](https://power-technology.com/marketdata/huaneng-dafeng-phase-i-offshore-wind-farm-china) |
+| Huaneng Sheyang H1 / Yancheng · 300 MW · 2021 | 精選 | 修正：機組 | 射陽南區 H1 是 67 部遠景 EN148-4.5，不是「6–8 MW 級」（Power Technology 專案頁） | [連結](https://www.power-technology.com/data-insights/power-plant-profile-sheyang-south-area-h1-wind-farm-china/) |
+| Longyuan Dafeng H3 (Huaneng Dafeng) · 300 MW · 2018 | 精選 | 修正：名稱、中文名、業主、機組 | 大豐 H3 是國家電投（原中電投）的風場，72 部遠景 EN136-4.2；舊名稱裡的「龍源」「華能大豐」都不對（Power Technology 專案頁） | [連結](https://www.power-technology.com/marketdata/spic-jigansu-dafeng-h3-offshore-wind-farm-china/) |
 
 ## 丹麥 (DNK)
 
@@ -529,6 +533,14 @@
 | Soc Trang 1 Phase 1 (Cong Ly) · 30 MW · 2021 | 精選 | 修正：業主、機組 | 越通社 2018-01-30 開工報導：朔莊公理風電廠由 Công ty Cổ phần Super Wind Energy Công Lý Sóc Trăng 投資（業主），一期 15 座、每座 2 MW、共 30 MW。 | [連結](https://www.vietnamplus.vn/khoi-cong-xay-dung-nha-may-dien-gio-dau-tien-tai-soc-trang-post486569.vnp) |
 | V1-3 Ben Tre (BTRE) · 30 MW · 2021 | 精選 | 修正：業主、機組 | 越南能源雜誌 2021-11-29 落成報導：檳椥 V1-3 風電廠由 Công ty cổ phần Năng lượng tái tạo Bến Tre（檳椥再生能源股份公司）投資，7 座 Vestas 4.2 MW 機組。 | [連結](https://nangluongvietnam.vn/khanh-thanh-nha-may-dien-gio-v1-3-ben-tre-27881.html) |
 | Bac Lieu Phase 1 · 16 MW · 2013 | 精選 | 修正：業主 | 越南維基（引投資報、青年報）：薄寮風電廠三期皆由 Công ty TNHH Xây dựng - Thương mại và Du lịch Công Lý（公理建設貿易旅遊公司）投資，與資料庫二期業主相同；一期 10 座、16 MW 於 2012 年 10 月裝完。 | [連結](https://vi.wikipedia.org/wiki/Nh%C3%A0_m%C3%A1y_%C4%91i%E1%BB%87n_gi%C3%B3_B%E1%BA%A1c_Li%C3%AAu) |
+| Hoa Binh 1 Phase 1 · 50 MW · 2021 | 精選 | 修正：機組 | 和平 1 號一期是 13 部 Vestas V150-4.2，不是金風（offshoreWIND.biz 2020-01） | [連結](https://www.offshorewind.biz/2020/01/02/vestas-secures-third-intertidal-turbine-order-in-vietnam/) |
+| Hoa Binh 1 Phase 2 · 50 MW · 2021 | 精選 | 修正：機組 | 和平 1 號二期同樣是 13 部 Vestas V150-4.2，不是金風（Vestas 新聞稿 2020） | [連結](https://www.vestas.com/en/media/company-news/2020/vestas-surpasses-1-gw-of-order-intake-in-vietnam--winni-c3167101) |
+| Hoa Binh 2 · 50 MW · 2021 | 精選 | 修正：機組 | 和平 1、2 號合計 39 部 Vestas V150 4.2 MW（吊裝商明煌），不是金風 | [連結](https://minhhoangcrane.com.vn/project/dien-gio-hoa-binh/) |
+| Tan Thuan (PECC2) Phase 1+2 · 75 MW · 2021 | 精選 | 修正：機組 | 新順風場 75 MW、海上 18 座，用西門子歌美颯 SG 5.0-145，不是遠景 4.2 MW（西門子歌美颯新聞稿 2020-07；投資報落成報導） | [連結](https://www.siemensgamesa.com/global/en/home/press-releases/200715-siemens-gamesa-press-release-vietnam-nearshore-project.html) |
+| V1-2 Truong Long Hoa (Tra Vinh) · 48 MW · 2021 | 精選 | 修正：機組 | 茶榮 V1-2 是 12 部金風 GW155-4.5，不是遠景（offshoreWIND.biz 2021-09） | [連結](https://www.offshorewind.biz/2021/09/01/all-wind-turbines-up-at-tra-vinh-v1-2-nearshore-wind-farm/) |
+| V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) · 48 MW · 2021 | 精選 | 修正：機組 | 茶榮 V1-3 是 12 部 Vestas V150-4.2（以 4.0 MW 運轉），不是西門子歌美颯（offshoreWIND.biz 2020-06） | [連結](https://www.offshorewind.biz/2020/06/17/vestas-wins-another-epc-intertidal-contract-in-vietnam/) |
+| Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | 精選 | 修正：機組 | 茶榮東海 1 號是 25 部西門子歌美颯 SG 5.0-145（每部以 4 MW 運轉），不是 SG 4.0-145（offshoreWIND.biz 2021-02；中南集團專案頁） | [連結](https://www.offshorewind.biz/2021/02/03/siemens-gamesa-lands-its-largest-nearshore-project-in-vietnam/) |
+| Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | 修正：機組 | 成海全案 28 部（EVN），其中第 1、2 期為西門子歌美颯 SG 4.5-145（Power Technology）；其餘各期的機型查不到 | [連結](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 

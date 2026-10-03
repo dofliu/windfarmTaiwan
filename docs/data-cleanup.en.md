@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 307 rules: 134 records removed (41,868.2 MW of them operating), 173 records fixed.
+- 319 rules: 134 records removed (41,868.2 MW of them operating), 185 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 43 | 24,374.5 | 67 |
+| China | 43 | 24,374.5 | 71 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -45,7 +45,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | United Kingdom | 7 | 3,485 | 5 |
 | United States of America | 6 | 811.6 | 6 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 13 | 1,487 | 10 |
+| Vietnam | 13 | 1,487 | 18 |
 | Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
@@ -192,6 +192,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Longyuan Sheyang H2 · 300 MW · 2021 | curated | fixed: turbines | Longyuan Sheyang H2 uses Envision EN-148/4.5 MW turbines (Sina Finance reprint of China Wind Power News, 7 Feb 2025) and reached full capacity on 12 Apr 2021 (Sheyang News); the database's 'Goldwind 6.45 MW' is wrong. The 67-unit count could not be confirmed in checkable text, so no count is given. | [link](https://finance.sina.com.cn/roll/2025-02-07/doc-ineiqkks1306604.shtml) |
 | Datang Danzhou CZ3 · 1,200 MW · 2025 | curated | fixed: phases, turbines | The 1,200 MW Danzhou project has two sites: site 1 (60 × 10 MW, 600 MW) came on line in 2025, while site 2 (60 × 10 MW) only broke ground on 16 December 2025 and is due at full capacity by the end of 2026; the row counted all 1,200 MW in 2025 and the turbine field (“Mingyang/Dongfang 10–16 MW”) was wrong (both sites use Dongfang 10 MW units) | [link](https://hain.chinadaily.com.cn/a/202512/17/WS6942ab30a310942cc4997350.html) |
 | Huaneng Peninsula North BW · 510 MW · 2024 | curated | fixed: turbines | Peninsula North BW uses 60 × 8.5 MW turbines (Dazhong News, September 2024); the row said “Goldwind 8–12 MW”, mixing in the 42 × 12 MW units of the Peninsula North L site | [link](https://m.dzplus.dzng.com/share/general/0/NEWS1723611XKUKXREOUNYBW) |
+| Guohua Dongtai IV (H2) · 300 MW · 2019 | curated | fixed: turbines | Dongtai IV is 63 Shanghai Electric SWT-4.0-130 (phase I) plus 12 Envision EN136-4.2 (phase II), not 75 Goldwind GW154-4.0 (Power Technology project profile) | [link](https://www.power-technology.com/data-insights/power-plant-profile-dongtai-iv-china/) |
+| Huaneng Dafeng · 300 MW · 2019 | curated | fixed: turbines, owner | Huaneng Dafeng phase I is 48 Envision EN136-4.2 plus 20 CSSC Haizhuang H151-5.0, owned 100% by Huaneng Renewables; the row said 75 Goldwind 4 MW and SPIC Jiangsu (Power Technology project profile) | [link](https://power-technology.com/marketdata/huaneng-dafeng-phase-i-offshore-wind-farm-china) |
+| Huaneng Sheyang H1 / Yancheng · 300 MW · 2021 | curated | fixed: turbines | Sheyang South H1 has 67 Envision EN148-4.5 turbines, not a “6–8 MW class” (Power Technology project profile) | [link](https://www.power-technology.com/data-insights/power-plant-profile-sheyang-south-area-h1-wind-farm-china/) |
+| Longyuan Dafeng H3 (Huaneng Dafeng) · 300 MW · 2018 | curated | fixed: name, Chinese name, owner, turbines | Dafeng H3 is SPIC’s farm (developed by China Power Investment), with 72 Envision EN136-4.2 turbines; neither “Longyuan” nor “Huaneng Dafeng” in the old name is right (Power Technology project profile) | [link](https://www.power-technology.com/marketdata/spic-jigansu-dafeng-h3-offshore-wind-farm-china/) |
 
 ## Colombia (COL)
 
@@ -523,6 +527,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Soc Trang 1 Phase 1 (Cong Ly) · 30 MW · 2021 | curated | fixed: owner, turbines | VietnamPlus (2018-01-30 groundbreaking): the Cong Ly Soc Trang wind plant is invested by Super Wind Energy Cong Ly Soc Trang JSC, phase 1 having 15 turbines of 2 MW each (30 MW). | [link](https://www.vietnamplus.vn/khoi-cong-xay-dung-nha-may-dien-gio-dau-tien-tai-soc-trang-post486569.vnp) |
 | V1-3 Ben Tre (BTRE) · 30 MW · 2021 | curated | fixed: owner, turbines | Nang Luong Viet Nam (2021-11-29 inauguration): the V1-3 Ben Tre plant is invested by Ben Tre Renewable Energy JSC and has 7 Vestas 4.2 MW turbines. | [link](https://nangluongvietnam.vn/khanh-thanh-nha-may-dien-gio-v1-3-ben-tre-27881.html) |
 | Bac Lieu Phase 1 · 16 MW · 2013 | curated | fixed: owner | Vietnamese Wikipedia (citing Dau Tu and Thanh Nien): all phases of the Bac Lieu plant are invested by Cong Ly Construction - Trading - Tourism Co Ltd, the same owner the database lists for phase 2; phase 1 (10 turbines, 16 MW) was installed by October 2012. | [link](https://vi.wikipedia.org/wiki/Nh%C3%A0_m%C3%A1y_%C4%91i%E1%BB%87n_gi%C3%B3_B%E1%BA%A1c_Li%C3%AAu) |
+| Hoa Binh 1 Phase 1 · 50 MW · 2021 | curated | fixed: turbines | Hoa Binh 1 phase 1 uses 13 Vestas V150-4.2, not Goldwind (offshoreWIND.biz, Jan 2020) | [link](https://www.offshorewind.biz/2020/01/02/vestas-secures-third-intertidal-turbine-order-in-vietnam/) |
+| Hoa Binh 1 Phase 2 · 50 MW · 2021 | curated | fixed: turbines | Hoa Binh 1 phase 2 also uses 13 Vestas V150-4.2, not Goldwind (Vestas press release, 2020) | [link](https://www.vestas.com/en/media/company-news/2020/vestas-surpasses-1-gw-of-order-intake-in-vietnam--winni-c3167101) |
+| Hoa Binh 2 · 50 MW · 2021 | curated | fixed: turbines | Hoa Binh 1 and 2 together have 39 Vestas V150 4.2 MW turbines (crane contractor Minh Hoang), not Goldwind | [link](https://minhhoangcrane.com.vn/project/dien-gio-hoa-binh/) |
+| Tan Thuan (PECC2) Phase 1+2 · 75 MW · 2021 | curated | fixed: turbines | Tan Thuan (75 MW, 18 turbines at sea) uses Siemens Gamesa SG 5.0-145, not Envision 4.2 MW (Siemens Gamesa press release, July 2020; Bao Dau Tu inauguration report) | [link](https://www.siemensgamesa.com/global/en/home/press-releases/200715-siemens-gamesa-press-release-vietnam-nearshore-project.html) |
+| V1-2 Truong Long Hoa (Tra Vinh) · 48 MW · 2021 | curated | fixed: turbines | Tra Vinh V1-2 has 12 Goldwind GW155-4.5 turbines, not Envision (offshoreWIND.biz, Sep 2021) | [link](https://www.offshorewind.biz/2021/09/01/all-wind-turbines-up-at-tra-vinh-v1-2-nearshore-wind-farm/) |
+| V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) · 48 MW · 2021 | curated | fixed: turbines | Tra Vinh V1-3 has 12 Vestas V150-4.2 turbines run in 4.0 MW mode, not Siemens Gamesa (offshoreWIND.biz, June 2020) | [link](https://www.offshorewind.biz/2020/06/17/vestas-wins-another-epc-intertidal-contract-in-vietnam/) |
+| Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | curated | fixed: turbines | Tra Vinh Dong Hai 1 has 25 Siemens Gamesa SG 5.0-145 turbines rated at 4 MW each, not SG 4.0-145 (offshoreWIND.biz, Feb 2021; Trungnam project page) | [link](https://www.offshorewind.biz/2021/02/03/siemens-gamesa-lands-its-largest-nearshore-project-in-vietnam/) |
+| Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | fixed: turbines | Thanh Hai has 28 turbines in all (EVN); phases 1 and 2 use Siemens Gamesa SG 4.5-145 (Power Technology); the model of the other phases is not found | [link](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
 
 ## Åland (ALA)
 
