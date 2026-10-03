@@ -188,6 +188,7 @@ CLEAN fix CHN Datang Danzhou CZ3 1200.0
 CLEAN fix CHN Datang Nan'ao Lemen I 245.0
 CLEAN fix CHN Datang Zhuanghe II 300.0
 CLEAN fix CHN Fujian Pingtan Changjiang'Ao Offshore wind farm 295.0
+CLEAN fix CHN Fujian Pingtan Waihai Offshore wind farm 111.0
 CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
 CLEAN fix CHN Guangdong Energy Fanshi II / Yangjiang 1000.0
 CLEAN fix CHN Guohua Dongtai IV (H2) 300.0
@@ -209,6 +210,7 @@ CLEAN fix CHN Huaneng Shantou Lemen 245.0
 CLEAN fix CHN Huaneng Sheyang H1 / Yancheng 300.0
 CLEAN fix CHN Huaneng Zhanjiang Xuwen East 400.0
 CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0
+CLEAN fix CHN Jiangsu Rudong H13 (Xiexin) Offshore wind farm 152.0
 CLEAN fix CHN Jiangsu Rudong H14 (Guangheng) Offshore wind farm 200.0
 CLEAN fix CHN Jiangsu Rudong H5 (Yunshan) Offshore wind farm 300.0
 CLEAN fix CHN Jiangsu Sheyang Southern Area H5 Offshore wind farm 400.0
@@ -441,7 +443,6 @@ DROP CHN operating Fujian Changle offshore wind farm 496.0 ~ Changle Waihai C 49
 DROP CHN operating Fujian Fuqing Haitan Straits Offshore wind farm 299.0 ~ Fuqing Haitan Strait 300.0
 DROP CHN operating Fujian Fuqing Xinghuawan Experimental Offshore wind farm 77.0 ~ Fuqing Xinghua Bay Phase 1 (demo) 77.4
 DROP CHN operating Fujian Fuqing Xinghuawan Offshore wind farm 280.0 ~ Fuqing Xinghua Bay Phase 2 300.0
-DROP CHN operating Fujian Pingtan Waihai Offshore wind farm 111.0 ~ Datang Pingtan Waihai 300.0
 DROP CHN operating Fujian Putian Nanridao Offshore wind farm 400.0 ~ Longyuan Putian Nanri Island 400.0
 DROP CHN operating Fujian Putian Pinghaiwan Offshore wind farm 814.0 ~ Putian Pinghai Bay Phase 3 308.0
 DROP CHN operating Fujian Shicheng Offshore wind farm 196.0 ~ Putian Shicheng 200.0
@@ -498,7 +499,6 @@ DROP CHN operating Jiangsu Rudong (Sinohydro) Intertidal Zone Demonstration Offs
 DROP CHN operating Jiangsu Rudong Baxianjiao Offshore wind farm 302.0 ~ Huaneng Rudong 300.0
 DROP CHN operating Jiangsu Rudong C4 Offshore wind farm 200.0 ~ Longyuan Rudong Intertidal Expansion 200.0
 DROP CHN operating Jiangsu Rudong H10 (Three Gorges) Offshore wind farm 400.0 ~ CTG Rudong H10 400.0
-DROP CHN operating Jiangsu Rudong H13 (Xiexin) Offshore wind farm 152.0 ~ Huaneng Rudong 300.0
 DROP CHN operating Jiangsu Rudong H15 (Xiexin) Offshore wind farm 200.0 ~ Zhongtian Rudong H15 200.0
 DROP CHN operating Jiangsu Rudong H3 (Huaneng) Offshore wind farm 500.0 ~ Huaneng Rudong H3 300.0
 DROP CHN operating Jiangsu Rudong H4 (State Power Investment Corporation) Offshore wind farm 400.0 ~ SPIC Rudong H4 400.0

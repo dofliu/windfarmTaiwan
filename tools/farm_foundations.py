@@ -670,6 +670,15 @@ FOUNDATIONS = [
     F5('CHN', 'CGN Rudong Demonstration', 'mp', url='http://china.cnr.cn/gdgg/20160908/t20160908_523123451.shtml',
        zh='38台、152MW，2016-09全場投運；採可拆卸穩樁平台浮吊沉樁，首個深水區無過渡段單樁（央廣網 2016-09-08；中國電器工業協會轉新華網 2016-09-14）；來源未明說38座全為單樁。',
        en='38 turbines, 152 MW, fully in service Sep 2016; built with a detachable pile-guide platform and floating-crane driving as the first deep-water monopiles without transition piece (CNR, 8 Sep 2016; CEEIA via Xinhua, 14 Sep 2016); the sources do not state outright that all 38 are monopiles.'),
+    # ------------------------------------------------ 2026-10-03 補回的三座（出處原文已以 check_quotes 核對）
+    F5('CHN', 'CTG Pingtan Waihai', 'jk', url='http://zrzyt.fj.gov.cn/zwgk/gsgg/202404/P020240429531356048270.pdf', sub='sb',
+       zh='11 部試驗機組全用三樁導管架－吸力筒基礎（2022 年由四樁導管架改設計；福建省自然資源廳變更報告書）',
+       en='All 11 test turbines stand on three-leg jackets on suction buckets (redesigned in 2022 from four-leg piled jackets; Fujian Department of Natural Resources change report)'),
+    F5('CHN', 'Xiexin (GCL) Rudong H13', 'mp', url='https://www.sohu.com/a/494582778_121123888',
+       zh='中交三航局施工：30 部 5 MW 風機的單樁基礎與一座 220 kV 海上升壓站', en='Built by CCCC Third Harbor: monopiles for the 30 × 5 MW turbines and a 220 kV offshore substation'),
+    F5('CHN', 'Guoneng Gongxiang (Longyuan Nanri floating)', 'fl', url='http://www.sasac.gov.cn/n2588020/n2877938/n2879597/n30275940/c31096925/content.html', sub='semi',
+       zh='三立柱半潛式平台（立柱間距 70 m、吃水 14 m），9 套吸力錨＋錨鏈繫泊，平台下方為養殖網箱',
+       en='Three-column semi-submersible (70 m between columns, 14 m draught) moored by nine suction anchors with chains, with a fish cage below the platform'),
     # ------------------------------------------------ 歐洲早期示範風場（已除役；出處原文以 check_quotes 核對）· early European pilots, decommissioned
     F('DNK', 'Vindeby', 'gb', url='https://www.windpowermonthly.com/article/1427436/dong-begins-vindeby-decommissioning-pictures',
       zh='世界第一座離岸風場：11 部 450 kW 坐在混凝土重力式基礎上（Ørsted 稱基礎以燈塔基礎為本，澆灌後浮運到場填砂）；2017 年 9 月拆除完畢',

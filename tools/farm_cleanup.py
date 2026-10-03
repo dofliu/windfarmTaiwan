@@ -1143,10 +1143,30 @@ RULES = [
         '成海全案 28 部（EVN），其中第 1、2 期為西門子歌美颯 SG 4.5-145（Power Technology）；其餘各期的機型查不到',
         'Thanh Hai has 28 turbines in all (EVN); phases 1 and 2 use Siemens Gamesa SG 4.5-145 (Power Technology); the model of the other phases is not found',
         'https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/', turbine='28 turbines; phases 1–2 Siemens Gamesa SG 4.5-145'),
+    # ------------------------------------------------ 2026-10-03 補回被誤併的 GEM 風場（列在 GEM_KEEP；出處原文已以 check_quotes 核對）
+    fix('CHN', 'Fujian Pingtan Waihai Offshore wind farm', G,
+        '三峽平潭外海：111 MW、11 部 8–16 MW 試驗機組（4×8、5×10、1×13、1×16 MW），2023 年 9 月建成投產，建設單位平潭海峽發電；座標改用福建省海域使用核准的 11 個機位中心（GEM 點位為概略位置）',
+        'CTG Pingtan Waihai: 111 MW, eleven 8–16 MW test turbines (4×8, 5×10, 1×13, 1×16 MW), in service September 2023, built by Pingtan Haixia Power; coordinates moved to the centre of the 11 turbine positions in Fujian’s sea-use approval (GEM’s point is approximate)',
+        'http://zrzyt.fj.gov.cn/zwgk/gsgg/202404/P020240429531356048270.pdf', rename='CTG Pingtan Waihai', zhname='三峽平潭外海', mw=111, year=2023,
+        lat=25.73, lon=119.972, turbine='11 test turbines: 4x 8 MW, 5x 10 MW, 1x Dongfang 13 MW, 1x Goldwind 16 MW',
+        owner='Pingtan Haixia Power Generation Co Ltd (China Three Gorges)'),
+    fix('CHN', 'Jiangsu Rudong H13 (Xiexin) Offshore wind farm', G,
+        '協鑫如東 H13：裝機 15 萬瓩、30 部海裝 5 MW，2021 年 11 月 29 日全容量併網（GEM 寫 152 MW）',
+        'GCL Rudong H13: 150 MW, 30 Haizhuang 5 MW turbines, fully connected on 29 November 2021 (GEM says 152 MW)',
+        'https://www.163.com/dy/article/GQ0GC2VI05345ASA.html', rename='Xiexin (GCL) Rudong H13', zhname='協鑫如東H13', mw=150, year=2021,
+        turbine='30x CSSC Haizhuang H171-5.0'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
 GEM_KEEP = {
+    ('CHN', 'Fujian Pingtan Waihai Offshore wind farm'):
+        ('三峽平潭外海（111 MW、11 部試驗機組，2023 年 9 月全容量併網）與大唐平潭長江澳是不同的風場；舊建置把它併進後來被刪除的「Datang Pingtan Waihai」，整座消失',
+         'CTG’s Pingtan Waihai (111 MW, 11 test turbines, fully connected September 2023) is a different farm from Datang’s Changjiang’ao; the old build merged it into “Datang Pingtan Waihai”, which was later removed, so the farm vanished',
+         'http://www.sasac.gov.cn/n2588025/n2588124/c28906372/content.html'),
+    ('CHN', 'Jiangsu Rudong H13 (Xiexin) Offshore wind farm'):
+        ('協鑫如東 H13（150 MW、30 部海裝 5 MW，2021 年 11 月全容量併網）與華能如東是不同的風場；舊建置把它誤併進「Huaneng Rudong」',
+         'GCL’s Rudong H13 (150 MW, 30 Haizhuang 5 MW turbines, fully connected November 2021) is a different farm from Huaneng Rudong; the old build merged it into “Huaneng Rudong” by mistake',
+         'https://www.163.com/dy/article/GQ0GC2VI05345ASA.html'),
     ('CHN', 'Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm'):
         ('粵電陽江沙扒（300 MW，2021 年 12 月全容量併網）與三峽陽江沙扒是不同的風場',
          'Guangdong Energy’s Yangjiang Shaba (300 MW, fully connected December 2021) is a different farm from CTG’s Yangjiang Shapa',

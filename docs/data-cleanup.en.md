@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 319 rules: 134 records removed (41,868.2 MW of them operating), 185 records fixed.
+- 321 rules: 134 records removed (41,868.2 MW of them operating), 187 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 43 | 24,374.5 | 71 |
+| China | 43 | 24,374.5 | 73 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -196,6 +196,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Huaneng Dafeng · 300 MW · 2019 | curated | fixed: turbines, owner | Huaneng Dafeng phase I is 48 Envision EN136-4.2 plus 20 CSSC Haizhuang H151-5.0, owned 100% by Huaneng Renewables; the row said 75 Goldwind 4 MW and SPIC Jiangsu (Power Technology project profile) | [link](https://power-technology.com/marketdata/huaneng-dafeng-phase-i-offshore-wind-farm-china) |
 | Huaneng Sheyang H1 / Yancheng · 300 MW · 2021 | curated | fixed: turbines | Sheyang South H1 has 67 Envision EN148-4.5 turbines, not a “6–8 MW class” (Power Technology project profile) | [link](https://www.power-technology.com/data-insights/power-plant-profile-sheyang-south-area-h1-wind-farm-china/) |
 | Longyuan Dafeng H3 (Huaneng Dafeng) · 300 MW · 2018 | curated | fixed: name, Chinese name, owner, turbines | Dafeng H3 is SPIC’s farm (developed by China Power Investment), with 72 Envision EN136-4.2 turbines; neither “Longyuan” nor “Huaneng Dafeng” in the old name is right (Power Technology project profile) | [link](https://www.power-technology.com/marketdata/spic-jigansu-dafeng-h3-offshore-wind-farm-china/) |
+| Fujian Pingtan Waihai Offshore wind farm · 111 MW · 2023 | GEM | fixed: name, Chinese name, capacity, year, location, turbines, owner | CTG Pingtan Waihai: 111 MW, eleven 8–16 MW test turbines (4×8, 5×10, 1×13, 1×16 MW), in service September 2023, built by Pingtan Haixia Power; coordinates moved to the centre of the 11 turbine positions in Fujian’s sea-use approval (GEM’s point is approximate) | [link](http://zrzyt.fj.gov.cn/zwgk/gsgg/202404/P020240429531356048270.pdf) |
+| Jiangsu Rudong H13 (Xiexin) Offshore wind farm · 152 MW · 2021 | GEM | fixed: name, Chinese name, capacity, year, turbines | GCL Rudong H13: 150 MW, 30 Haizhuang 5 MW turbines, fully connected on 29 November 2021 (GEM says 152 MW) | [link](https://www.163.com/dy/article/GQ0GC2VI05345ASA.html) |
 
 ## Colombia (COL)
 
@@ -561,6 +563,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Project | Reason | Source link |
 |---|---|---|
+| Fujian Pingtan Waihai Offshore wind farm (CHN) | CTG’s Pingtan Waihai (111 MW, 11 test turbines, fully connected September 2023) is a different farm from Datang’s Changjiang’ao; the old build merged it into “Datang Pingtan Waihai”, which was later removed, so the farm vanished | [link](http://www.sasac.gov.cn/n2588025/n2588124/c28906372/content.html) |
+| Jiangsu Rudong H13 (Xiexin) Offshore wind farm (CHN) | GCL’s Rudong H13 (150 MW, 30 Haizhuang 5 MW turbines, fully connected November 2021) is a different farm from Huaneng Rudong; the old build merged it into “Huaneng Rudong” by mistake | [link](https://www.163.com/dy/article/GQ0GC2VI05345ASA.html) |
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm (CHN) | Guangdong Energy’s Yangjiang Shaba (300 MW, fully connected December 2021) is a different farm from CTG’s Yangjiang Shapa | [link](https://m.bjx.com.cn/mnews/20211206/1191794.shtml) |
 | Guangdong Yangjiang Nanpengdao (China Energy Conservation) Offshore wind farm (CHN) | CECEP’s Yangjiang Nanpeng Island (300 MW, fully connected November 2021) is a different farm from CGN’s Nanpeng Island | [link](https://wind.in-en.com/html/wind-2412533.shtml) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm (CHN) | Zhugensha H2 (302 MW, Zhejiang New Energy and CNOOC) is a different farm from Guohua’s Dongtai IV (H2) | [link](https://www.nbd.com.cn/articles/2021-11-03/1978454.html) |
