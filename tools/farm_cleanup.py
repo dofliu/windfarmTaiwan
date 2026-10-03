@@ -1166,6 +1166,28 @@ RULES = [
         '英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉）',
         'Yeongyang No. 2: 42 MW, 10 turbines of the 4.2 MW class, in commercial operation from May 2023 (GEM’s 2022 is the test run)',
         'https://www.fnnews.com/news/202309241852426048', zhname='英陽第二風場', year=2023, turbine='10x 4.2 MW class'),
+    # ------------------------------------------------ 2026-10-03 尺寸第三輪查到的資料疑點（出處原文已以 check_quotes 核對）
+    dup('CHN', 'Guohua Rudong H14', C, ('Jiangsu Rudong H14 (Guangheng) Offshore wind farm', G),
+        '如東 H14 是魯能新能源的 200 MW 風場（50 部 4 MW，南通發布 2020-08），GEM 已有這筆；精選的「國華如東 H14」300 MW、金風 6.45 MW 是錯置，查無國華在如東 H14 的風場',
+        'Rudong H14 is Luneng New Energy’s 200 MW farm (50 × 4 MW; Nantong Fabu, Aug 2020), already in GEM; the curated “Guohua Rudong H14” (300 MW, Goldwind 6.45 MW) is misplaced and no Guohua farm at Rudong H14 exists',
+        'https://news.96189.com/w/2008/ebbbbcec80b94ed8a6b9441a968e997c.html'),
+    dup('CHN', 'CGN Jiaxing 2 (Zhoushan Daishan 4)', C, ('Zhejiang Daishan 4 Offshore wind farm', G),
+        '中廣核岱山 4 號是 234 MW、54 部（遠景 4.5 MW 與湘電 4 MW），GEM 已有這筆；精選紀錄的 300 MW、明陽 5.5 MW 與「嘉興 2」名稱都不對（嘉興 2 號是另一座風場）',
+        'CGN’s Daishan 4 is 234 MW with 54 turbines (Envision 4.5 MW and XEMC 4 MW), already in GEM; the curated row’s 300 MW, Mingyang 5.5 MW and “Jiaxing 2” name are all wrong (Jiaxing 2 is a different farm)',
+        'https://www.power-technology.com/marketdata/daishan-no-4-offshore-wind-farm-china/'),
+    fix('CHN', 'Zhejiang Daishan 4 Offshore wind farm', G,
+        '機組：36 部遠景 EN148-4.5（一期 32＋4）與 18 部湘電 XE140-4.0（Power Technology）',
+        'Turbines: 36 Envision EN148-4.5 (32 + 4) and 18 XEMC XE140-4.0 (Power Technology)',
+        'https://www.power-technology.com/marketdata/daishan-no-4-offshore-wind-farm-china/', zhname='中廣核岱山4號', turbine='36x Envision EN148-4.5 + 18x XEMC XE140-4.0'),
+    fix('CHN', 'CGN Rudong H8', C,
+        '中廣核如東 H8 是 40 部中國海裝 H171-5.0 加 25 部上海電氣 SWT-4.0-146，不是明陽 5.5 MW（Power Technology 專案頁）',
+        'CGN Rudong H8 has 40 CSSC Haizhuang H171-5.0 plus 25 Shanghai Electric SWT-4.0-146 turbines, not Mingyang 5.5 MW (Power Technology project profile)',
+        'https://www.power-technology.com/marketdata/power-plant-profile-cgn-jiangsu-rudong-h8-offshore-wind-power-project-china/',
+        turbine='40x CSSC Haizhuang H171-5.0 + 25x Shanghai Electric SWT-4.0-146'),
+    fix('CHN', 'Guoneng Dafeng H5', C,
+        '國能大豐 H5 總裝機 206.4 MW、32 部金風 GW184-6.45（大豐區政府 2024-12）；原寫 200 MW、金風 5–6 MW 級',
+        'Guoneng Dafeng H5 is 206.4 MW with 32 Goldwind GW184-6.45 turbines (Dafeng district government, Dec 2024); the row said 200 MW and Goldwind 5–6 MW class',
+        'https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html', mw=206.4, turbine='32x Goldwind GW184-6.45'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）

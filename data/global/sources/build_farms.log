@@ -82,6 +82,7 @@ CLEAN dup AUS Snowtown I wind farm 99.0 -> Snowtown
 CLEAN dup AUS Studland Bay wind farm 75.0 -> Woolnorth (Bluff Point / Studland Bay)
 CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
 CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
+CLEAN dup CHN CGN Jiaxing 2 (Zhoushan Daishan 4) 300.0 -> Zhejiang Daishan 4 Offshore wind farm
 CLEAN dup CHN CGN Taizhou 1 300.0 -> Zhejiang Taizhou 1 Offshore wind farm
 CLEAN dup CHN CR Power Cangnan 2 / Wenzhou 500.0 -> Zhejiang Cangnan 2 Offshore wind farm
 CLEAN dup CHN Datang Pingtan Waihai 300.0 -> Fujian Pingtan Changjiang'Ao Offshore wind farm
@@ -93,6 +94,7 @@ CLEAN dup CHN Guangdong Yangjiang Qingzhou VII Offshore wind farm 1000.0 -> CTG 
 CLEAN dup CHN Guangxi Qinzhou / Fangchenggang B 500.0 -> Guangxi Fangchenggang A
 CLEAN dup CHN Guodian Xiangshan 1 Phase 2 500.0 -> Zhejiang Xiangshan 1 Offshore wind farm
 CLEAN dup CHN Guohua Dongtai V (H5) 200.0 -> Jiangsu Dongtai Zhugensha H1 Offshore wind farm
+CLEAN dup CHN Guohua Rudong H14 300.0 -> Jiangsu Rudong H14 (Guangheng) Offshore wind farm
 CLEAN dup CHN Guoneng Peninsula South U2 / Laizhou 500.0 -> Shandong Bandaonan U2 (Guohua) Offshore wind farm
 CLEAN dup CHN Guoxin Sheyang H1 300.0 -> Huaneng Sheyang H1 / Yancheng
 CLEAN dup CHN Hainan CZ2 Demonstration Offshore wind farm 600.0 -> Shenergy Hainan CZ2 (Dongfang)
@@ -174,6 +176,7 @@ CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
 CLEAN fix CHN CGN Fanshi I 1000.0
 CLEAN fix CHN CGN Huizhou Gangkou I 400.0
 CLEAN fix CHN CGN Peninsula South U1 500.0
+CLEAN fix CHN CGN Rudong H8 300.0
 CLEAN fix CHN CGN Yangjiang Qingzhou 1&2 1000.0
 CLEAN fix CHN CTG Dafeng H8-2 300.0
 CLEAN fix CHN CTG Jiangsu Dafeng 300 MW 300.0
@@ -193,6 +196,7 @@ CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
 CLEAN fix CHN Guangdong Energy Fanshi II / Yangjiang 1000.0
 CLEAN fix CHN Guohua Dongtai IV (H2) 300.0
 CLEAN fix CHN Guoneng Bozhong B1 / Bozhong B 500.0
+CLEAN fix CHN Guoneng Dafeng H5 200.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Hebei Construction Investment Xiangyun Island 250.0
 CLEAN fix CHN Huadian Yangjiang Qingzhou 3 500.6
@@ -237,6 +241,7 @@ CLEAN fix CHN SinoHydro Rudong Intertidal 100.0
 CLEAN fix CHN Tangshan Laoting Putidao 300.0
 CLEAN fix CHN Tangshan Laoting Yuetuo Island Phase 1 304.0
 CLEAN fix CHN Tianjin Nangang 90.0
+CLEAN fix CHN Zhejiang Daishan 4 Offshore wind farm 234.0
 CLEAN fix CHN Zhejiang Daishan 4 Offshore wind farm 234.0
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
 CLEAN fix CHN Zhejiang Jiaxing 2 Offshore wind farm 300.0

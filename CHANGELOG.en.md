@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.17.4 — 2026-10-03
+
+- Data corrections (the four doubts from the third dimension round, quotes verified with `check_quotes.py`):
+  - the curated “Guohua Rudong H14” (300 MW, Goldwind 6.45 MW) is a misplaced copy of Luneng's Rudong H14 and is merged into GEM's Luneng H14
+    (200 MW, 50 × 4 MW);
+  - the curated “CGN Jiaxing 2 (Zhoushan Daishan 4)” (300 MW) is merged into GEM's CGN Daishan 4 (234 MW), which gains its turbines (36 Envision
+    EN148-4.5 plus 18 XEMC XE140-4.0);
+  - CGN Rudong H8 becomes 40 Haizhuang H171-5.0 plus 25 Shanghai Electric SWT-4.0-146; Guoneng Dafeng H5 becomes 206.4 MW with 32 Goldwind GW184-6.45.
+  The foundation and dimension data of the two merged curated records move to the records that are kept. 330 operating offshore farms; known
+  foundation types cover 71.4% of their capacity.
+
 ## v2.17.3 — 2026-10-03
 
 - Three onshore farms that the build had merged away are restored: **Gansu Minqin Hongshagang No. 1** (CGN, 400 MW), **Yeongyang (Hanwha)**
