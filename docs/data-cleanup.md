@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 328 條：刪除 136 筆（其中營運中 42,468.2 MW），修正 192 筆。
+- 規則 329 條：刪除 136 筆（其中營運中 42,468.2 MW），修正 193 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -46,7 +46,7 @@
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 13 | 1,487 | 18 |
+| 越南 | 13 | 1,487 | 19 |
 
 ## 中國大陸 (CHN)
 
@@ -550,6 +550,7 @@
 | V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) · 48 MW · 2021 | 精選 | 修正：機組 | 茶榮 V1-3 是 12 部 Vestas V150-4.2（以 4.0 MW 運轉），不是西門子歌美颯（offshoreWIND.biz 2020-06） | [連結](https://www.offshorewind.biz/2020/06/17/vestas-wins-another-epc-intertidal-contract-in-vietnam/) |
 | Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | 精選 | 修正：機組 | 茶榮東海 1 號是 25 部西門子歌美颯 SG 5.0-145（每部以 4 MW 運轉），不是 SG 4.0-145（offshoreWIND.biz 2021-02；中南集團專案頁） | [連結](https://www.offshorewind.biz/2021/02/03/siemens-gamesa-lands-its-largest-nearshore-project-in-vietnam/) |
 | Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | 修正：機組 | 成海全案 28 部（EVN），其中第 1、2 期為西門子歌美颯 SG 4.5-145（Power Technology）；其餘各期的機型查不到 | [連結](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
+| Tan Phu Dong 1 (Tien Giang, GEC) · 100 MW · 2023 | 精選 | 修正：機組 | 新富東 1 號是 24 部 Vestas V150-4.2 MW，不是遠景（物流承包商 Infinity Logistics 專案頁） | [連結](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 

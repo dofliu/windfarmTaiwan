@@ -1188,6 +1188,11 @@ RULES = [
         '國能大豐 H5 總裝機 206.4 MW、32 部金風 GW184-6.45（大豐區政府 2024-12）；原寫 200 MW、金風 5–6 MW 級',
         'Guoneng Dafeng H5 is 206.4 MW with 32 Goldwind GW184-6.45 turbines (Dafeng district government, Dec 2024); the row said 200 MW and Goldwind 5–6 MW class',
         'https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html', mw=206.4, turbine='32x Goldwind GW184-6.45'),
+    # ------------------------------------------------ 2026-10-03 尺寸第四輪查到的資料疑點（出處原文已以 check_quotes 核對）
+    fix('VNM', 'Tan Phu Dong 1 (Tien Giang, GEC)', C,
+        '新富東 1 號是 24 部 Vestas V150-4.2 MW，不是遠景（物流承包商 Infinity Logistics 專案頁）',
+        'Tan Phu Dong 1 has 24 Vestas V150-4.2 MW turbines, not Envision (project page of the logistics contractor Infinity Logistics)',
+        'https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/', turbine='24x Vestas V150-4.2'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）

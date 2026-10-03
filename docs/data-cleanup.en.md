@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 328 rules: 136 records removed (42,468.2 MW of them operating), 192 records fixed.
+- 329 rules: 136 records removed (42,468.2 MW of them operating), 193 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -45,7 +45,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | United Kingdom | 7 | 3,485 | 5 |
 | United States of America | 6 | 811.6 | 6 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 13 | 1,487 | 18 |
+| Vietnam | 13 | 1,487 | 19 |
 | Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
@@ -544,6 +544,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) · 48 MW · 2021 | curated | fixed: turbines | Tra Vinh V1-3 has 12 Vestas V150-4.2 turbines run in 4.0 MW mode, not Siemens Gamesa (offshoreWIND.biz, June 2020) | [link](https://www.offshorewind.biz/2020/06/17/vestas-wins-another-epc-intertidal-contract-in-vietnam/) |
 | Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | curated | fixed: turbines | Tra Vinh Dong Hai 1 has 25 Siemens Gamesa SG 5.0-145 turbines rated at 4 MW each, not SG 4.0-145 (offshoreWIND.biz, Feb 2021; Trungnam project page) | [link](https://www.offshorewind.biz/2021/02/03/siemens-gamesa-lands-its-largest-nearshore-project-in-vietnam/) |
 | Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | fixed: turbines | Thanh Hai has 28 turbines in all (EVN); phases 1 and 2 use Siemens Gamesa SG 4.5-145 (Power Technology); the model of the other phases is not found | [link](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
+| Tan Phu Dong 1 (Tien Giang, GEC) · 100 MW · 2023 | curated | fixed: turbines | Tan Phu Dong 1 has 24 Vestas V150-4.2 MW turbines, not Envision (project page of the logistics contractor Infinity Logistics) | [link](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) |
 
 ## Åland (ALA)
 
