@@ -7,14 +7,14 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,611 MW at year-end, which is the site’s world total (1,287,611 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 16,004 operating farms, 1,174,689 MW are mapped individually — about **91%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 15,982 operating farms, 1,167,547 MW are mapped individually — about **91%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 53 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 116 duplicate, never-built or non-existent records were removed and 121 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,590 projects, 2,722,206 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Clean-up**: checked record by record in 2026-09; 134 duplicate, never-built or non-existent records were removed and 173 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,594 projects, 2,723,401 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
-- **China**: national 640,626 MW, mapped 578,009 MW (90%), gap 62,617 MW.
+- **China**: national 640,626 MW, mapped 571,101 MW (89%), gap 69,525 MW.
 - **Germany**: national 77,873 MW, mapped 53,313 MW (68%), gap 24,560 MW.
 - **India**: national 54,511 MW, mapped 42,278 MW (78%), gap 12,233 MW.
 - **Italy**: national 13,568 MW, mapped 10,504 MW (77%), gap 3,064 MW.
@@ -40,7 +40,7 @@ English ｜ [中文](data-coverage.md)
 3. **Expected year already passed but still in the pipeline**: 2 projects, 630 MW — they may have started operating, slipped or been cancelled. The 10 largest:
    - Monsoon Wind (Sekong/Attapeu) (LAO) · 600 MW · construction · expected 2025
    - BPP Vĩnh Châu wind farm (VNM) · 30 MW · construction · expected 2025
-4. **Coordinates**: 5,009 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 18 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
+4. **Coordinates**: 5,001 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 18 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
    **Suspected duplicates A (same or similar name)**: 1 pairs, smaller side 14 MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:
    - JPN · Enshu Kakegawa Wind Farm (2026 compilation, 16 MW, 2011) ↔ Kakegawa wind farm (GEM, 14 MW, 2020) · 2.3 km
    **Suspected duplicates B (different names, same capacity, close by)**: 10 pairs, smaller side 1,414 MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check.
@@ -51,7 +51,7 @@ English ｜ [中文](data-coverage.md)
    - CHN (38.0, 102.0) · 29 farms · 5,680 MW · Gansu - Shandong Power Export Huanxian (Huaneng) Wind/Solar Demonstration Project wind farm · Area A1, Area A2, Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm…
    - CHN (34.0, 114.0) · 65 farms · 5,349 MW · Henan Neihuang (China Resources) wind farm, Henan Huaxian Zaocun wind farm, Henan Tangyin wind farm · 1, 2…
 5. **Pipeline totals**: projects and country totals are both from GEM 2026-02; the differences are mostly the Sep 2026 compiled list added here, projects removed by the clean-up rules, and phases GEM gives no capacity for. Top-15 countries:
-   - China: projects 742,103 MW · GEM total 743,588 MW
+   - China: projects 743,157 MW · GEM total 743,588 MW
    - United States of America: projects 89,451 MW · GEM total 89,440 MW
    - Germany: projects 37,467 MW · GEM total 18,119 MW
    - India: projects 51,063 MW · GEM total 51,063 MW
@@ -101,7 +101,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 
 | # | Country | National MW | of which offshore | GEM operating MW | Mapped MW | Coverage | Gap MW | Farms | Year-unknown MW | Approx. coords | Flag |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 578,009 | 90% | 62,617 | 5,147 | 20,521 | 2,876 | ✓ |
+| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 571,101 | 89% | 69,525 | 5,127 | 20,521 | 2,869 | ✓ |
 | 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 166,147 | 105% | 0 | 1,237 | 0 | 9 | ✓ |
 | 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 53,313 | 68% | 24,560 | 1,879 | 852 | 177 | △ |
 | 4 | India (IND) | 54,511 | 0 | 38,937 | 42,278 | 78% | 12,233 | 630 | 10,869 | 568 | △ |
@@ -120,7 +120,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 17 | Denmark (DNK) | 7,547 | 2,687 | 5,003 | 5,015 | 66% | 2,532 | 119 | 80 | 4 | △ |
 | 18 | Mexico (MEX) | 7,512 | 0 | 8,425 | 8,214 | 109% | 0 | 55 | 644 | 19 | ✓ |
 | 19 | Japan (JPN) | 6,434 | 288 | 5,383 | 5,788 | 90% | 646 | 276 | 54 | 149 | ✓ |
-| 20 | Vietnam (VNM) | 6,239 | 1,000 | 7,081 | 5,571 | 89% | 668 | 79 | 96 | 42 | ✓ |
+| 20 | Vietnam (VNM) | 6,239 | 1,000 | 7,081 | 5,337 | 86% | 902 | 77 | 96 | 41 | ✓ |
 | 21 | Chile (CHL) | 5,883 | 0 | 6,300 | 6,583 | 112% | 0 | 58 | 136 | 15 | ⚠ |
 | 22 | Belgium (BEL) | 5,851 | 2,263 | 3,966 | 3,972 | 68% | 1,879 | 103 | 71 | 11 | △ |
 | 23 | Greece (GRC) | 5,706 | 0 | 4,706 | 5,733 | 100% | 0 | 375 | 0 | 0 | ✓ |

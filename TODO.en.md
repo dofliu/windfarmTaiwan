@@ -35,7 +35,7 @@ finished items to the topic lists below.
 - 2 Oct 2026 (v2.13.6, v2.14.0): the sources dialog gained a data inventory; first step of the visual upgrade: close-up turbines carry a base drawn
   to the foundation type (yellow transition piece) and the farm card shows a schematic cross-section. Follow-ups agreed with the owner, one PR
   each: (1) a stacked chart of offshore capacity added per year by foundation type in the Overview tab — **done (v2.15.0)**; (2) a foundation chapter in the Learn section
-  and port-to-farm arcs — **done (v2.16.0)**; (3) a dedicated check of the data anomalies found in the step-5 sweep (item 4 below); (4) water-depth and tower-height
+  and port-to-farm arcs — **done (v2.16.0)**; (3) a check of the data anomalies found in the step-5 sweep — **done (v2.16.1; open items under item 4)**; (4) water-depth and tower-height
   fields, after which the cross-section and close-up use real values.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
@@ -107,20 +107,21 @@ finished items to the topic lists below.
          Zhugensha H2, Xinghua Bay phase 2, Pingtan Changjiang'ao, the Zhoushan sites other than Daishan 4, Fengxian, Dongtai V, Rudong H15 / H14,
          Nan'ao Lemen, Shapa phases 3 / 5, Changle B, Liu'ao phase 1, Jiazi II, Nangang, Lingang phase 2, Pinghai Bay phase 1, and in Vietnam
          Bac Lieu phases 1–3, Hiep Thanh, Tan Phu Dong 2, V1-1, Soc Trang 1, Ben Tre V1-3 and Tan An 1.
-   - Data anomalies found on the way (to be checked in a dedicated round; sources in the same file's anomalies): the Peninsula South U site —
-     "CGN Peninsula South U1" belongs to SPIC and is 900 MW, "Guoneng Peninsula South U2 / Laizhou" is 600 MW, GEM's 1,503.5 MW record merges
-     both owners, and "Shandong Haiwei Peninsula South U" may be U1 phase 2; Yuetuo 1, Xiangyun Island and Sheyang H5 are still under
-     construction or in EIA; Xiapu A, "CGN Taizhou 1", Guoxin Sheyang H1, Guodian Rudong H1 and CTG Dafeng H10 match no farm; "Datang Pingtan
-     Waihai" is Datang's Changjiang'ao (Pingtan Waihai is CTG's 111 MW); "Datang Zhuanghe II" and "Huaneng Zhuanghe III" have their owners swapped
-     (II is Huaneng's, III is CTG's); Xuwen East (Huaneng / Mingyang) is not built; Huilai Shibeishan is onshore and Guohua Kenli is offshore
-     solar; "Zhoushan Liuheng / others" is a placeholder aggregate; Tianjin Nangang is 2018 with 18 × 5 MW; Binhai South H3 is 2020; Shapa phase 1
-     is 2021; Yuhuan 1 reached full capacity in 2024; Vietnam: owners of Thanh Hai No. 5 and Hoa Binh, Hoa Binh's turbines are Vestas, and
-     Xinshun looks like a misplaced duplicate of Tan Thuan.
+   - Anomaly check (3 Oct 2026, v2.16.1): all 72 anomalies were re-checked and written as 70 clean-up rules (4 removed, 14 merged, 52 corrected;
+     see the 2026-10-03 block of `docs/data-cleanup.en.md`). Still open for a next round: the status of CGN's Xiangshan Tuci 280 MW (EIA in 2022,
+     still tendering storage EPC in 2025, no construction or grid report found); missing records for CTG's Pingtan Waihai 111 MW (11 × 8–16 MW,
+     full capacity Sep 2023, SASAC/CPEM have the text), GCL's Rudong H13 (150 MW, 30 × 5 MW, 2021) and Longyuan's "Guoneng Gongxiang" floating
+     platform off Nanri Island (June 2024); GEM's "Shandong Bohai B1" says 500 MW but the Bozhong B1 tender was 100 MW; the curated "CGN Jiaxing 2
+     (Zhoushan Daishan 4)" 300 MW does not match Daishan 4's 234 MW; the curated "Guohua Rudong H14" 300 MW matches no Rudong site (Luneng's H14
+     is 200 MW); "Jiangsu Dafeng H10 (Guoxin)" may overlap the curated "Guoxin Dafeng 850 MW"; the Chinese name of "Zhoushan Liuheng / Zhejiang
+     others" includes Jiaxing 2 and may double-count it; "Shandong Haiwei Peninsula South U" may be U1 phase 2; the year of Binhai South H3
+     (2020?); Vietnam: whether Tan An 1's 2021–2025 phase (45 MW) is operating, and Hoa Binh's owner and turbines (Vestas). Peninsula South U2 is
+     now represented by GEM's 603.5 MW under-construction record; its 36 connected phase-1 turbines could become a phase.
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
      appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
      source is found (for example CTG completion records the owner may have).
-   - The other Chinese offshore farms (102 of the 160 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (82 of the 140 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of

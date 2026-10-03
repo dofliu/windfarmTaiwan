@@ -15,6 +15,20 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.16.1 — 2026-10-03
+
+- Data corrections: the 72 anomalies in Chinese and Vietnamese offshore farm records noted during the step-5 sweep were re-checked one by one
+  (five sub-agents in parallel, every quoted passage verified with `check_quotes.py`) and written as 70 clean-up rules: 4 records that are not
+  offshore wind farms or do not exist were removed (the Guohua Kenli offshore solar plant, the Guangdong coastal test base and Dongying Dongfang test
+  pad, Guodian Rudong H1), 14 duplicates merged (the Peninsula South U aggregate and U2, Peninsula South 4 and V, Dafeng H11 and H10, Dongtai V,
+  Rudong H1-2, Shibeishan, Taizhou 1, Xiapu A, Pingtan Waihai, Guoxin Sheyang H1, Xinshun) and 52 records corrected in capacity, year, owner,
+  turbines or status — for example Peninsula South U1 becomes SPIC's 900 MW, Bozhong B becomes Shandong Energy's, the Zhuanghe II/III owners are
+  swapped back, Qidong H3 becomes Jiangsu Huawei's, Shantou Lemen is rewritten as Huaneng Lemen (II) 594 MW, Xuwen East 3, Yuetuo Island, Xiangyun
+  Island and Bac Lieu 3 go back to under construction, Danzhou CZ3 and Shenquan I get phases, Rudong H3 becomes 400 MW and Tianjin Nangang 2018.
+  The share of operating offshore capacity with a known foundation type rises from 66.5% to 71.0%.
+- Items still open (status of CGN Xiangshan Tuci, CTG Pingtan Waihai 111 MW and GCL Rudong H13 to be added, the capacity of Shandong Bohai B1 and
+  others) are listed under item 4 of the TODO.
+
 ## v2.16.0 — 2026-10-02
 
 - The Learn section gains chapter 7, "Standing in the sea: foundation types": bilingual text on fixed foundations (monopile, jacket, tripod, tripile,
