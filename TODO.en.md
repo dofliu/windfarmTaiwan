@@ -35,8 +35,10 @@ finished items to the topic lists below.
 - 2 Oct 2026 (v2.13.6, v2.14.0): the sources dialog gained a data inventory; first step of the visual upgrade: close-up turbines carry a base drawn
   to the foundation type (yellow transition piece) and the farm card shows a schematic cross-section. Follow-ups agreed with the owner, one PR
   each: (1) a stacked chart of offshore capacity added per year by foundation type in the Overview tab — **done (v2.15.0)**; (2) a foundation chapter in the Learn section
-  and port-to-farm arcs — **done (v2.16.0)**; (3) a check of the data anomalies found in the step-5 sweep — **done (v2.16.1; open items under item 4)**; (4) water-depth and tower-height
-  fields, after which the cross-section and close-up use real values.
+  and port-to-farm arcs — **done (v2.16.0)**; (3) a check of the data anomalies found in the step-5 sweep — **done (v2.16.1; open items under item 4)**; (4) water-depth, hub-height and rotor-diameter
+  fields with the cross-section and close-up drawn to scale — **done (v2.17.0)**.
+  Still missing: 23 farms with none of the three (mostly China: Rudong H6/H8, Guohua Rudong H14, Huaneng Sheyang H1, Fuqing Haitan Strait, Zhuhai Jinwan, Xiangshan 1, Cangnan 2, Shengsi 5/6, Dongtai Zhugensha H1, CTG Dafeng H8-1, plus Vietnam's Hoa Binh, VPL, Tan Phu Dong and others) and 100 without a hub height (leads from the sub-agents such as Hornsea One/Two, East Anglia ONE, Kincardine, Dogger Bank A, Gangkou II 135.9 m, Fangchenggang 128 m, Peninsula North L 151/252 m and Kaskasi 107.5 m exist only in search snippets, with no page to quote); the WebSearch quota ran out during the check, so a next round is needed.
+  Data doubts the sub-agents raised: Dongtai IV (H2) is 63 × Shanghai Electric 4.0 + 12 × Envision 4.2 MW, Huaneng Dafeng phase 1 is Envision 4.2 + Haizhuang 5 MW (and its SPIC owner field is doubtful), "Longyuan Dafeng H3" is SPIC's Dafeng H3, Wailuo phase 1 has a 158 m rotor, Hoa Binh 1 phase 2 and Hoa Binh 2 use Vestas turbines.
 - No code change was left half-done; below is the work to pick up, in order of priority.
 
 ### First things to do when work resumes (in order)

@@ -134,8 +134,9 @@ def main():
         if not d['url']:
             errors.append(f'{tag}: needs a source url')
         dep, hub, rot = d['depth'], d['hub'], d['rotor']
-        if dep is not None and not (isinstance(dep, list) and len(dep) == 2 and all(isinstance(v, (int, float)) for v in dep) and 0 <= dep[0] <= dep[1] <= 400):
-            errors.append(f'{tag}: depth must be [min, max] in metres (0–400), got {dep!r}')
+        if dep is not None and not (isinstance(dep, list) and len(dep) == 2 and isinstance(dep[1], (int, float)) and (dep[0] is None or isinstance(dep[0], (int, float)))
+                                    and 0 <= (dep[0] if dep[0] is not None else 0) <= dep[1] <= 400):
+            errors.append(f'{tag}: depth must be [min, max] in metres (0–400; min may be None), got {dep!r}')
         hv = hub if isinstance(hub, list) else ([hub, hub] if hub is not None else None)
         if hv is not None and not (len(hv) == 2 and all(isinstance(v, (int, float)) for v in hv) and 15 <= hv[0] <= hv[1] <= 250):
             errors.append(f'{tag}: hub height must be a value or [min, max] in metres (15–250), got {hub!r}')
@@ -154,7 +155,9 @@ def main():
                 rec['hk'] = 'tower'
         if rot is not None:
             rec['r'] = rot
-        rec['du'] = d['url']
+        rec['du'] = d['url'][0]
+        if len(d['url']) > 1:
+            rec['dus'] = d['url'][1:]
         if d['zh'] or d['en']:
             rec['dz'], rec['de'] = d['zh'], d['en']
         dims_n += 1
@@ -359,11 +362,12 @@ def write_docs(rows, out, ospar, countries):
                 if rec.get('u'):
                     src.append(f'[{host(rec["u"])}]({rec["u"]})')
                 note = rec.get('zh' if zh else 'en', '')
-                if rec.get('du') and rec['du'] != rec.get('u'):
-                    src.append(f'[{host(rec["du"])}]({rec["du"]})')
+                for u in [rec.get('du')] + rec.get('dus', []):
+                    if u and u != rec.get('u'):
+                        src.append(f'[{host(u)}]({u})')
                 if rec.get('dz' if zh else 'de'):
                     note = (note + ('；' if zh else '; ') if note else '') + rec['dz' if zh else 'de']
-                rng = lambda v: ('' if v is None else (f'{v[0]:g}–{v[1]:g}' if isinstance(v, list) and v[0] != v[1] else f'{(v[0] if isinstance(v, list) else v):g}'))
+                rng = lambda v: ('' if v is None else (('≤' + f'{v[1]:g}') if isinstance(v, list) and v[0] is None else f'{v[0]:g}–{v[1]:g}' if isinstance(v, list) and v[0] != v[1] else f'{(v[0] if isinstance(v, list) else v):g}'))
                 dep_s, hub_s, rot_s = rng(rec.get('d')), rng(rec.get('h')) + (('（塔高）' if zh else ' (tower)') if rec.get('hk') == 'tower' and rec.get('h') is not None else ''), rng(rec.get('r'))
                 year = r[6] or ('不詳' if zh else 'n/a')
                 L.append(f'| {label} | {_fmt(r[5])} | {year} | {typ} | {dep_s} | {hub_s} | {rot_s} | {"<br>".join(src)} | {note} |')

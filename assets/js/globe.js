@@ -2520,7 +2520,7 @@ function fdDims(f) {
   const o = { depth: r.d ? r.d[1] : null, depthRange: r.d || null, hub: r.h != null ? avg(r.h) : null, hubRange: r.h, rotor: r.r || null, tower: r.hk === 'tower', url: r.du || null };
   return (o.depth != null || o.hub != null || o.rotor != null) ? o : null;
 }
-const fmtRange = v => Array.isArray(v) ? (v[0] === v[1] ? fmtNum(v[0]) : fmtNum(v[0]) + '–' + fmtNum(v[1])) : fmtNum(v);
+const fmtRange = v => Array.isArray(v) ? (v[0] == null ? '≤' + fmtNum(v[1]) : v[0] === v[1] ? fmtNum(v[0]) : fmtNum(v[0]) + '–' + fmtNum(v[1])) : fmtNum(v);   // [null, max]＝來源只寫最大水深
 const fmtNum = v => (Math.round(v * 10) / 10).toLocaleString('en-US');
 function fdDimText(f) {                                             // 「水深 15–20 m · 輪轂高度 90 m · 葉輪直徑 120 m」
   const d = fdDims(f); if (!d) return '';
