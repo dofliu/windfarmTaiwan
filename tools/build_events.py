@@ -152,6 +152,8 @@ FARMS = {
     "WIND-074": ["Frontier Windpower I & II"], "WIND-075": ["Maverick Wind Project"], "WIND-076": ["Odal wind farm"], "WIND-077": ["Geumseongsan wind power plant"], "WIND-078": ["Santo Agostinho"],
 "WIND-081": ["Screggagh wind farm"], "WIND-082": ["Harvest (Exelon) wind farm"], "WIND-083": ["Juniper Canyon wind farm"], "WIND-086": ["Hai Long 2 & 3"],
     "WIND-087": ["EnBW He Dreiht"],
+    # 2026-10-03 第三批（Sørmarkfjellet 2025 年三次葉片事件，Aneo 公告） · third batch (Sørmarkfjellet blade incidents in 2025, Aneo notices)
+    "WIND-089": ["Sormarkfjellet wind farm"], "WIND-090": ["Sormarkfjellet wind farm"], "WIND-091": ["Sormarkfjellet wind farm"],
     # 對不到的 · unmatched (left out on purpose): WIND-001 Crotched Mountain (not in the farm layer), WIND-008 Kunimidake (the 2013 farm is not
     # in the layer; the listed entry is a later project), WIND-010 (grid-wide), WIND-034 Ocean Wind (cancelled, not in the layer), WIND-045 Rokewood
     # (official site name pending per the source). WIND-057 Taipower Mailiao = Yunmai (Mailiao): Taipower's only Mailiao farm, Vestas V80 2 MW ×23
@@ -413,6 +415,23 @@ EN.update({
                      cas="PSO: no injuries reported", note="The GE make appears only in KFOR and similar reports (HTTP 403 here, not checked), so it is left out."),
     "WIND-081": dict(EN["WIND-081"], s="The roughly £2 million, 100 m (328 ft) Nordex N80 collapsed in ordinary winds with witnesses saying the blades were spinning out of control, and debris scattered across a wide area; nobody was on site and nobody was hurt, and the remaining seven turbines were shut down. The owner said Nordex's interim investigation found a unique fault in the blade control system, never seen before in the Nordex fleet and applicable only to turbines of the same generation.",
                      note="E&T reported winds of about 9–10 m/s at the time (HTTP 403 here, not checked)."),
+})
+
+
+EN.update({
+    "WIND-089": {"t": "Two turbines badly damaged after a storm cut their power; one blade falls in two parts",
+                 "s": "On 17 January a violent storm in Trøndelag cut power to the substation, leaving the turbines uncontrolled, and two turbines each had one blade badly damaged; on 20 January part of one of these blades fell, and on 3 February another large part of the same blade fell, landing around the turbine and on the slope towards Krokvatnet. Each blade is 57.5 m long and weighs about 14 t.",
+                 "a": "Sørmarkfjellet, Trøndelag", "p": "Sørmarkfjellet wind farm", "cod": "2021", "cap": "31 × 4.2 MW; two units in this event", "own": "Aneo",
+                 "cas": "The owner's notices do not mention injuries; to be verified", "note": "Krokvatnet is a local drinking-water lake."},
+    "WIND-090": {"t": "Another blade breaks off in ordinary weather; the whole park is shut down",
+                 "s": "On the afternoon of 15 March several alarms went off and an inspection confirmed that a blade on another turbine was badly damaged and partly fallen; the next day a second blade on the same turbine was found damaged. The weather was not extreme, and Aneo stopped production at the whole park. After a risk assessment a staged restart with inspection of every blade began on 27 March, and clean-up began on 26 May.",
+                 "a": "Sørmarkfjellet, Trøndelag", "p": "Sørmarkfjellet wind farm", "cod": "2021", "cap": "31 × 4.2 MW; one unit in this event, whole park stopped", "own": "Aneo",
+                 "cas": "The owner's notices do not mention injuries; to be verified",
+                 "note": "GEM's February 2026 release lists the park as mothballed because of this; the owner reports a staged restart, so this site keeps it as operating. The owner had not published a cause by the verification date."},
+    "WIND-091": {"t": "Heavy icing damages several turbines; the park is closed to access",
+                 "s": "A sudden change in the weather in mid-December brought unusually heavy icing; vibration alarms went off on five turbines and several turbines had smaller and larger damage. The park was closed to access and the damaged blades were temporarily reinforced and repaired (Aneo press release, 19 December 2025).",
+                 "a": "Sørmarkfjellet, Trøndelag", "p": "Sørmarkfjellet wind farm", "cod": "2021", "cap": "31 × 4.2 MW; alarms on five units", "own": "Aneo",
+                 "cas": "The owner's notices do not mention injuries; to be verified", "note": "No later notice found on whether every turbine was back in service in 2026."},
 })
 
 

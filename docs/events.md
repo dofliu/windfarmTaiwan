@@ -6,7 +6,7 @@
 資料為 2026-09-28 人工查證的清單：每筆附主管機關或業主的一手來源；傷亡人數與根因只寫官方已確認的，未確認的留空；
 照片只記錄頁面網址與權利狀態，網站不下載或內嵌照片。事件日期依來源精度記錄為日、月或年。
 
-- 事件 88 筆：發展里程碑 36、事故／故障 50、政策與社會 2；有座標的 36 筆會標在地球儀上，其餘只列在「事件」分頁。
+- 事件 91 筆：發展里程碑 36、事故／故障 53、政策與社會 2；有座標的 36 筆會標在地球儀上，其餘只列在「事件」分頁。
 - 官方確認的死亡人數合計 11 人（只計清單內有一手來源的事件，不是全球統計）。
 - 對應風場為 `data/global/wind_farms.json` 裡的名稱（風場卡片會列出相關事件）；對不到的不猜。
 
@@ -85,12 +85,15 @@
 | WIND-046 | 2024-12 | CHN | 發展里程碑 · 啟用／建置 | **1,000 MW 深水離岸風場全容量併網** — 74 部海上風機；業主 2026 採購資料確認 2024 年 12 月全容量併網。 | CTG Yangjiang Qingzhou 6 | — | [中國三峽集團採購平台](https://eps.ctg.com.cn/cms/channel/2ywgg1/240639607.htm) |
 | WIND-047 | 2024-12-25 | CHN | 事故／故障 · 塔架焊縫疲勞／倒塔 | **14 號機倒塔壓損線路塔** — 官方調查認定環焊縫初始焊接缺陷及疲勞裂紋導致塔架失效；現場無傷亡。 | Heilongjiang Tonghe (Guoneng) wind farm | 死亡 0, 受傷 0 | [中國國家能源局東北監管局](https://dbj.nea.gov.cn/dtyw/tzgg/202602/t20260228_296938.html) |
 | WIND-048 | 2025-01-09 | CHN | 事故／故障 · 塔架焊縫疲勞／倒塔 | **同風場 17 號機再倒塔** — 相隔 15 天第二起，官方認定塔筒焊縫缺陷與交變載荷疲勞開裂；無人員傷亡。 | Heilongjiang Tonghe (Guoneng) wind farm | 死亡 0, 受傷 0 | [中國國家能源局東北監管局](https://dbj.nea.gov.cn/dtyw/tzgg/202602/t20260228_296938.html) |
+| WIND-089 | 2025-01-20 | NOR | 事故／故障 · 葉片斷裂 | **暴風斷電後兩部風機葉片重損，其中一片分兩次斷落** — 1 月 17 日特倫德拉格強烈暴風使變電站斷電，風機無法控制，兩部風機各有一片葉片嚴重受損；1 月 20 日其中一片的部分斷落，2 月 3 日同一片又掉落一大段，碎片落在風機周圍與往 Krokvatnet 的山坡。葉片長 57.5 m、重約 14 噸。 | Sormarkfjellet wind farm | — | [Aneo](https://www.aneo.com/aktuelt/sormarkfjellet-vindpark-skade-pa-turbinblad-som-delvis-har-falt-ned) |
 | WIND-074 | 2025-02-25 | USA | 事故／故障 · 塔架倒塌 | **無風清晨一部 Nordex 風機倒塌** — 清晨 7 時 23 分消防隊接獲通報，490 英尺高的風機在幾乎無風的天氣倒塌，4 英里外可聞；無人受傷、無火災，其餘 73 部照常運轉，原因不明。 | Frontier Windpower I & II | 死亡 0, 受傷 0 | [RenewEconomy／The Well News](https://reneweconomy.com.au/wind-turbine-collapses-on-calm-day-in-oklahoma-another-is-struck-by-lightning/) |
+| WIND-090 | 2025-03-15 | NOR | 事故／故障 · 葉片斷裂 | **天候不極端下又一部風機葉片斷落，全場停機** — 3 月 15 日下午監控系統多項警報，目視確認另一部風機的一片葉片嚴重受損、部分掉落，隔天發現同機第二片葉片也受損；當時天候並不極端，Aneo 停止全場發電。經風險評估後 3 月 27 日起分階段復運並逐片檢查所有葉片，5 月 26 日開始清理。 | Sormarkfjellet wind farm | — | [Aneo](https://www.aneo.com/aktuelt/sormarkfjellet-vindpark-skade-pa-turbinblad-som-delvis-har-falt-ned) |
 | WIND-077 | 2025-04-21 | KOR | 事故／故障 · 塔架倒塌／葉片缺陷 | **4.7 MW 風機塔架如吸管般折彎倒塌** — 凌晨 2 時 50 分無強風下 127 m 風機折彎；製造商 Siemens Gamesa 調查認定玻璃纖維葉片有難以歸因的結構裂縫，反覆應力使裂縫擴大、葉片斷裂後擊中塔架。已於年底拆除。 | Geumseongsan wind power plant | 死亡 0, 受傷 0 | [首爾新聞／Newsis](https://www.seoul.co.kr/news/society/2026/02/10/20260210500384) |
 | WIND-049 | 2025-06-05 | FRA | 發展里程碑 · 啟用／建置 | **法國首座浮動風場全面商轉** — 3 部浮動風機，計畫輸出約 25 MW。 | Provence Grand Large | — | [EDF Renewables](https://edf-renouvelables.com/en/provence-grand-large-mise-en-service-complete/) |
 | WIND-050 | 2025-08 | TWN | 事故／故障 · 輸出海纜受損／工期延後 | **輸出海纜受損推遲專案時程** — Ørsted 2025 年 8 月得知 2b 輸出纜線受損；受影響分期 337 MW，合併 2b+4 為 920 MW。 | Greater Changhua 2b & 4 | — | [Ørsted 募資公開說明書](https://cdn.orsted.com/-/media/rights-issue/orsted-as-prospectus.pdf?hash=62C2F4234D6F343C90EED5FC1F8B5055&rev=214874e3916b4d0ebfbad3185a826766) |
 | WIND-051 | 2025-08-21 | TWN | 發展里程碑 · 啟用／建置 | **640 MW、80 部風機正式全面商轉** — 2025 年 1 月全數併網，8 月完成電業執照及合約要求後正式宣布商轉。 | Yunlin | — | [Yunlin Offshore Wind Farm](https://www.yunlin-offshore.com/tw/newsroom__article/9afB549C45bF) |
 | WIND-073 | 2025-10-27 | DEU | 事故／故障 · 塔架倒塌 | **2023 年安裝的 Nordex N149 上段塔架連同機艙落地** — 上段塔架含機艙、輪轂與葉片墜落，僅財物損失、無人受傷；Nordex 專家小組與業主調查原因。 | Herkentrup wind farm | 死亡 0, 受傷 0 | [Recharge／reNEWS](https://www.rechargenews.com/wind/black-out-forest-nordex-turbine-collapses-almost-completely-at-german-wind-farm/2-1-1075806) |
+| WIND-091 | 2025-12 | NOR | 事故／故障 · 葉片受損 | **嚴重結冰造成多部風機損傷，風場封閉** — 12 月中旬突然變天、結冰特別嚴重，五部風機觸發震動警報，多部風機有大小不等的損傷；風場封閉禁止通行，受損葉片暫時補強與修理（Aneo 2025-12-19 新聞稿）。 | Sormarkfjellet wind farm | — | [Aneo／Flatanger-Nytt](https://www.aneo.com/aktuelt/s%C3%B8rmarkfjellet-vindpark-stengt-for-ferdsel) |
 | WIND-052 | 2026-01-05 | JPN | 發展里程碑 · 啟用／建置 | **日本首座商業浮動式風場營運** — 8 部 2.1 MW，共 16.8 MW，混合鋼與混凝土 SPAR 浮體。 | Goto City Offshore floating project | — | [戶田建設／日本經產省](https://www.toda.co.jp/news/2026/20260105_006181.html) |
 | WIND-053 | 2026-02-02 | KOR | 事故／故障 · 塔架折彎／老舊機組 | **21 號機塔架折彎引發特別安全檢查** — 政府宣布 2 月 2 日塔架折彎事故，對老舊風機展開特別安全檢查；後續 3 月另有 19 號機火災。 | Yeongdeok | — | [韓國氣候能源環境部](https://me.go.kr/home/web/board/read.do?boardCategoryId=&boardId=1840360&boardMasterId=939&decorator=&maxIndexPages=10&maxPageItems=10&menuId=10598&orgCd=&pagerOffset=160&searchKey=&searchValue=) |
 | WIND-054 | 2026-03-02 | JPN | 發展里程碑 · 啟用／建置 | **日本大型港灣離岸風場商轉** — 25 部 9.6 MW，機組額定總和 240 MW；電廠最大輸出 220 MW。 | Kitakyushu Hibikinada | — | [Hibiki Wind Energy／J-POWER](https://hibikiwindenergy.co.jp/news/2026/0301.html) |

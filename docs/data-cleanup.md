@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 330 條：刪除 136 筆（其中營運中 42,468.2 MW），修正 194 筆。
+- 規則 334 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 197 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -18,7 +18,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 3 | 157.5 | 9 |
-| 台灣 | 0 | 0 | 2 |
+| 台灣 | 1 | 0 | 4 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
 | 埃及 | 2 | 1,082 | 0 |
@@ -29,7 +29,7 @@
 | 德國 | 0 | 0 | 3 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 9 |
-| 日本 | 2 | 30 | 10 |
+| 日本 | 2 | 30 | 11 |
 | 比利時 | 1 | 325 | 0 |
 | 法國 | 2 | 0 | 5 |
 | 泰國 | 1 | 600 | 1 |
@@ -218,7 +218,7 @@
 | Yeonggwang Nakwol · 364.8 MW · 2025 | 精選 | 修正：狀態、年份、機組 | 2025 年 12 月起部分商轉（年底只裝好 7 部風機）；2026 年 8 月 64 座單樁完成、47 部豎立、33 部商轉，預定 2026 年 12 月全面商轉。機組是 Vensys 5.7 MW（原本寫斗山） | [連結](https://www.mt.co.kr/industry/2026/08/24/2026082407272061046) |
 | Jeju Woljeong test (Doosan) · 5 MW · 2012 | 精選 | 修正：機組 | 第二部是 STX 重工 2 MW（能源技術研究院，2011–12 年），不是 2015 年的曉星；該部 2016 年 6 月起停機，荷蘭 RVO 2021 年說試驗場沒有運轉（現況待查證） | [連結](https://www.epj.co.kr/news/articleView.html?idxno=37661) |
 | Tamra (Jeju Hallim/Hangyeong) · 30 MW · 2017 | 精選 | 修正：名稱 | 耽羅海上風電在濟州翰京面（Hangyeong-myeon）海域，不在翰林（翰林另有一座風場） | [連結](http://tamra-owp.co.kr/2019/sub0201.php) |
-| Jwasari Offshore wind farm · 360 MW · 2031 | GEM | 修正：狀態、年份、容量 | 還在環評階段（2025 年 3 月舉行環評初稿公聽會），規劃已改為 360 MW（24 部 15 MW） | [連結](https://www.hansannews.com/news/articleView.html?idxno=95554) |
+| Jwasari Offshore wind farm · 360 MW · 2031 | GEM | 修正：狀態、年份、容量、座標 | 還在環評階段（2025 年 3 月舉行環評初稿公聽會），規劃已改為 360 MW（24 部 15 MW）；2026 年 9 月查證時仍無開工或競標得標紀錄（環評初稿的工期是 2028 年 3 月至 2031 年 9 月），不採 GEM 的「興建中」。場址在慶尚南道統營市欲知面左沙里島一帶海域，不在全羅南道麗水外海：座標改為左沙里島（概略位置） | [連結](https://www.hansannews.com/news/articleView.html?idxno=95554) |
 | Yeonggwang Wind offshore wind farm · 35 MW · 2018 | GEM | 修正：容量、機組、座標 | 靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；GEM 的座標是公司登記地址，位置只能當概略值 | [連結](https://m.etnews.com/20200221000242) |
 | YEP wind farm · 76 MW · 2017 | GEM | 修正：名稱、中文名、年份、機組 | 韓華建設的英陽風場 76 MW、22 部 3.45 MW 級，2020 年完工（易投資日報 2021 年 1 月：「去年完工」）；GEM 寫 2017 年 | [連結](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | 修正：中文名、年份、機組 | 英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉） | [連結](https://www.fnnews.com/news/202309241852426048) |
@@ -229,6 +229,9 @@
 |---|---|---|---|---|
 | Zhong Neng · 298 MW · 2024 | 精選 | 修正：年份、容量 | 31 部風機 2024 年 8 月全數安裝併網，2025 年 4 月取得電業執照正式商轉；獲配容量 300 MW，實際裝置 31 部 × 9.5 MW＝294.5 MW | [連結](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
 | Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | 精選 | 修正：機組 | 機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136 | [連結](https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html) |
+| Formosa 3 offshore wind farm · 2 · 600 MW · 2027 | GEM | 刪除 | 這是海鼎二（3.1 期獲配 600 MW），Corio 退出後已解約，能源署 2026 年把海峽一、海峽二與海鼎二的解約場址納入 3.3 期擴充容量；GEM 的中文名誤寫為海鼎一 | [連結](https://www.cna.com.tw/news/afe/202609300338.aspx) |
+| Formosa 3 offshore wind farm · 3 · 720 MW | GEM | 修正：中文名 | 這是海鼎三（Formosa 3 的第三座風場，未在 3.1、3.2 期獲配容量）；GEM 的中文名寫成海鼎一 | [連結](https://www.gem.wiki/Formosa_3_offshore_wind_farm) |
+| Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | 修正：業主 | 又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約 | [連結](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 
 ## 哥倫比亞 (COL)
 
@@ -335,6 +338,7 @@
 | Kitakyushu Hibikinada · 220 MW · 2026 | 精選 | 修正：機組 | 2026 年 3 月 2 日開始商業運轉（25 部 9.6 MW，併網上限 220 MW）；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://hibikiwindenergy.co.jp/news/2026/0301.html) |
 | Eurus Akita Port semi-offshore · 3 MW · 2015 | 精選 | 修正：座標 | 這 1 部屬ユーラス秋田港ウインドファーム，在秋田市向濱；原座標落在秋田港洋上風場上，改為向濱的概略位置 | [連結](https://www.fuji-gab-mesh.co.jp/zisseki/zissekidetail/tikutei24.html) |
 | Hokkaido Ishikari Bay Offshore wind farm · 1,000 MW | GEM | 修正：狀態 | 不是興建中：丸紅的石狩灣專案只有 2021 年 2 月的計畫階段環境配慮書，海域尚未指定為促進區域 | [連結](https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html) |
+| Kakegawa wind farm · 14 MW · 2020 | GEM | 修正：容量、機組 | 靜岡縣環評：掛川風力發電事業變更為 6 部 2,300 kW 級、13,800 kW（日本風力開發，2020 年運轉） | [連結](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 
 ## 比利時 (BEL)
 
@@ -557,6 +561,9 @@
 
 | 專案 | 理由 | 出處 |
 |---|---|---|
+| Haiding 1 (Formosa 3) (TWN) | 3.2 期獲配 360 MW（預計 2028 年），2025 年 5 月前經濟部已解除開發權（Corio 與 TotalEnergies 的 Formosa 3） | [連結](https://www.ctee.com.tw/news/20250525700516-430104) |
+| DeShuai (TWN) | 3.2 期獲配 240 MW（預計 2028 年，德能英華威集團），2025 年 5 月前經濟部已解除開發權 | [連結](https://www.ctee.com.tw/news/20250525700516-430104) |
+| Greater Changhua Northeast (TWN) | 3.2 期原排第 3，因與海廣風場高度重疊而未獲配容量，從未取得開發權（沃旭在 3.3 期改以大肚一號投標） | [連結](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Firefly (Bandibuli) (KOR) | Equinor 於 2026 年 5 月停止開發 | [連結](https://www.equinor.co.kr/en/news/important-notice-on-bandibuli-project_en) |
 | Red Sea Wind Energy (Ras Ghareb) (EGY) | 已於 2025 年 7 月 2 日全面商轉（650 MW，比原訂第三季提前）；GEM 2026-02 以「Ras Ghareb wind farm」第 2、3 期列為營運中，不再當規劃案 | [連結](https://orascom.com/updates/engie-orascom-construction-ttc-eurus-consortium-starts-full-commercial-operations-of-650-mw-wind-farm-in-egypt-ahead-of-schedule/) |
 | Dogger Bank B (GBR) | GEM 2026-02 已把 B、C 兩期（1,235＋1,218 MW）合成一筆「Dogger Bank wind farm · B, C」列為興建中（2026），清單不再需要；2025-02 版時清單的這筆會誤對到 Dogger Bank South | [連結](https://www.gem.wiki/Dogger_Bank_wind_farm) |
@@ -566,12 +573,16 @@
 
 | 專案 | 修正 | 理由 | 出處 |
 |---|---|---|---|
+| YouDe (TWN) | mw=700.0, zh=又德, note=Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed | 名稱改為又德、容量由 1,000 MW 改為 3.2 期獲配的 700 MW；與 GEM 的「Datian Youde」是同一案，合成一筆 | [連結](https://www.cna.com.tw/news/afe/202408050303.aspx) |
+| Fengmiao 2 (TWN) | mw=600.0 | 容量由 500 MW 改為 3.2 期獲配的 600 MW | [連結](https://www.cna.com.tw/news/afe/202408050303.aspx) |
+| Huanyang (TWN) | note=Round 3.1; the Energy Administration said in 2026 that the termination was in process | 能源署 2026 年表示蔚藍海彰化（環洋）已在解約程序中，正式解約後再移除 | [連結](https://www.nownews.com/news/6859530) |
 | Coastal Virginia Offshore Wind (CVOW) (USA) | expected=2027 | 預計完工年由 2026 改為 2027：2026 年 8 月開發商表示最後一批風機要到 2027 年底才裝完（當時 176 部裝好 31 部） | [連結](https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027) |
 
 ## 不當成重複的 GEM 專案
 
 | 專案 | 理由 | 出處 |
 |---|---|---|
+| Kakegawa wind farm (JPN) | 日本風力開發的掛川風力發電所（6 部 2,300 kW、13.8 MW，2020 年）與黑潮風力發電的遠州掛川風力發電所（7 部 Enercon，2011 年）是相鄰的兩座風場 | [連結](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 | Gansu Minqin Hongshagang 1 wind farm (CHN) | 民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失 | [連結](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
 | YEP wind farm (KOR) | 韓華建設的英陽風場（76 MW、22 部 3.45 MW）與 2008 年 Macquarie 的英陽風場不同；舊建置把它併進後來判為重複刪除的精選「Yeongyang」 | [連結](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation (KOR) | 英陽第二風場（GS E&R 70%、韓國中部發電 30%，42 MW）是 2023 年的新風場；舊建置把它併進後來判為重複刪除的精選「Yeongyang」 | [連結](https://www.fnnews.com/news/202309241852426048) |
