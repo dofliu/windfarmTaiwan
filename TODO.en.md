@@ -268,8 +268,7 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Dogger Bank pipeline projects: GEM 2026-02 lists phases B and C together as one record under construction (2026), so the list's B and C
       are in `PIPE_DROP`; D and the two Dogger Bank South projects are mapped explicitly (`PIPE_SAME`), and the matcher now lets only the
       first list project update a given GEM record (v2.13.0)
-- [ ] France's 2025 offshore capacity (1,500 MW in `wind_global.json`) is too low: the SDES Q2 2026 wind dashboard confirms 2,008 MW at end-2025 (Yeu-Noirmoutier, 500 MW, fully connected in 2025; 1,508 MW at end-2024).
-      The 2026 point already uses the SDES offshore figure (v2.18.0); before correcting the 2025 series, decide whether onshore should change too (the site's onshore follows IRENA; SDES gives 23,992 MW onshore at end-2025), then edit `tools/extract_global_data.py`
+- [x] France 2025 onshore and offshore now use the SDES grid-connected capacity at end-2025, 23,992 / 2,008 MW (v2.19.0; the owner decided on 2026-10-04 to change both; `FRA_SDES` in `tools/extract_global_data.py`)
 - [ ] Offshore farm sums above the national series, to be verified: China's operating offshore farms add up to 58.9 GW against a 2025 national figure of 48.4 GW; Vietnam's 28 "offshore" farms (mostly intertidal) add up to 2.0 GW against 1.0 GW. Possibly farms counted at full capacity while still connecting in phases, or duplicates
 
 ## Ports data (data/global/ports.json, compiled by hand in Sep 2026)

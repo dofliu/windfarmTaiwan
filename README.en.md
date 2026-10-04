@@ -204,6 +204,10 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   estimated yearly output on farm cards); built by `tools/build_country_stats.py`
 - `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
+- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap, downloaded by
+  `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
+  Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
+  non-US farm is selected
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, the merge log, and the wind records of OSPAR Offshore
   Renewables 2024 (CC0, used for foundation types)
@@ -342,6 +346,9 @@ python tools/build_country_stats.py
 # 8. Position and specs of every US turbine (USWTDB, updated quarterly; re-run after rebuilding the farm layer, renamed farms stop matching)
 curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
 python tools/build_turbines.py uswtdb_V9_1_20260928.csv
+# 9. Turbine positions in other countries (OpenStreetMap, ODbL; the download takes 1–2 hours and retries when the public Overpass servers are busy; re-run the matching after rebuilding the farm layer)
+python tools/fetch_osm_turbines.py osm_wind/
+python tools/build_turbines_osm.py osm_wind/
 ```
 
 ### Corrections this site made to the data (all recorded in the data files and the site's "Sources")
@@ -351,6 +358,9 @@ python tools/build_turbines.py uswtdb_V9_1_20260928.csv
   offshore farms still being connected as onshore (e.g. 2,064 MW onshore in 2023, while the onshore fleet is ~0.9 GW)
 - Japan 2011–2025 now follows JWPA year-end statistics (end-2025: 6,434.2 MW; offshore = full offshore +
   semi-offshore); the original used IRENA (6,249 MW)
+- France 2025 onshore/offshore now follows the grid-connected capacity at end-2025 in the SDES wind dashboard (Q2 2026 issue),
+  23,992 / 2,008 MW; the original used IRENA onshore 24,155 and offshore 1,500 MW (missing Yeu-Noirmoutier, 500 MW, fully
+  connected in 2025)
 - Taiwan and Japan farms were audited one by one: large offshore farms connected in stages count from their
   full-completion year (Yunlin 2025, Greater Changhua 1&2a and Changfang & Xidao 2024), and those not fully
   operating at end-2025 are under construction (Hai Long 2&3, Greater Changhua 2b&4, Taipower Offshore Phase 2,
@@ -358,6 +368,9 @@ python tools/build_turbines.py uswtdb_V9_1_20260928.csv
   100 small farms missing from GEM (NEDO prefecture lists, windfarm.work) and 22 corrected GEM coordinates
 - Formosa 1 Phase 1 and Formosa 2 years aligned with their actual grid connection / commercial dates
 - Borders rebuilt from Natural Earth 1:50m (the original lacked the mainland Australia polygon);
+- France 2025 onshore/offshore now follows the grid-connected capacity at end-2025 in the SDES wind dashboard (Q2 2026 issue),
+  23,992 / 2,008 MW; the original used IRENA onshore 24,155 and offshore 1,500 MW (missing Yeu-Noirmoutier, 500 MW, fully
+  connected in 2025)
   Crimea shown as part of Ukraine per UN General Assembly resolution 68/262, matching the country
   GEM assigns to Crimean wind farms
 - GEM phases more than 25 km apart under one location are shown as separate points instead of an

@@ -149,6 +149,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/country_stats.json` — 地球儀時間軸的「最新可得」年份（2026：8 國官方數字，逐國出處寫在 `tools/latest_wind.py`）與各國風電平均容量因數
   （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
 - `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；約 970 座風場、6 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
+- `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
+  **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
   以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
@@ -255,6 +257,9 @@ python tools/build_country_stats.py
 # 8. 美國每部風機的位置與規格（USWTDB 每季更新；重建風場層後也要重跑，名稱改了會對不到）
 curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
 python tools/build_turbines.py uswtdb_V9_1_20260928.csv
+# 9. 其他國家的風機位置（OpenStreetMap，ODbL；下載約需 1–2 小時，Overpass 公用伺服器忙時會自動重試；重建風場層後也要重跑對應）
+python tools/fetch_osm_turbines.py osm_wind/
+python tools/build_turbines_osm.py osm_wind/
 ```
 
 ### 本站對資料的修正（皆記錄在資料檔與網站「資料來源」中）
@@ -262,11 +267,15 @@ python tools/build_turbines.py uswtdb_V9_1_20260928.csv
 - 台灣 2005–2025 年陸域／離岸改採經濟部能源署《2025 能源統計手冊》表 3-6 官方年表（2025 年底陸域 930.3、離岸 3,586.9 MW）。
   原資料把分批併網中的離岸風場算成陸域（例如 2023 年陸域 2,064 MW，實際約 0.9 GW）
 - 日本 2011–2025 年改採日本風力發電協會（JWPA）年末累積導入量（2025 年底 6,434.2 MW；洋上＝本格洋上＋セミ洋上），原資料為 IRENA（6,249 MW）
+- 法國 2025 年陸域／離岸改採統計處 SDES 風電儀表板（2026 年第二季）的 2025 年底併網容量 23,992／2,008 MW；原資料為 IRENA 陸域 24,155、離岸 1,500 MW
+  （漏了 2025 年全部併網的 Yeu-Noirmoutier 500 MW）
 - 台灣、日本風場逐場稽核：分批併網的大型離岸風場以全場完工年計入（允能雲林 2025、大彰化 1&2a 與彰芳暨西島 2024），
   2025 年底尚未全場商轉者列為興建中（海龍 2&3、大彰化 2b&4、台電離岸二期、北九州響灘、五島浮體式）；日本另補 5 座セミ洋上／港灣風場、
   標記已除役的實證機，並補上 GEM 未收錄的 100 座小型風場（NEDO 各縣清單、windfarm.work），修正 22 筆 GEM 錯置的座標
 - 海洋風電一期、海能風電（Formosa 2）年份對齊實際併網／商轉時間
 - 國界改以 Natural Earth 1:50m 重建（原資料缺澳洲本土多邊形）；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭，
+- 法國 2025 年陸域／離岸改採統計處 SDES 風電儀表板（2026 年第二季）的 2025 年底併網容量 23,992／2,008 MW；原資料為 IRENA 陸域 24,155、離岸 1,500 MW
+  （漏了 2025 年全部併網的 Yeu-Noirmoutier 500 MW）
   與風場資料（GEM 將克里米亞風場列於烏克蘭）一致
 - GEM 同一場址下相距 25 km 以上的分期分開標示，不取平均座標（原本會把跨州專案平均到錯誤位置）；
   3 筆可由專案名稱確認的座標錯誤已修正（宮城加美、珠洲第 1、珠洲第 2 期），1 筆國別與座標不符的 WRI GPPD 舊資料已排除
