@@ -1242,6 +1242,50 @@ RULES = [
         '容量 315 MW（21 部風機），不是 300 MW；2026 年 6 月才開始安裝風機，預計年底完工、2027 年全面運轉',
         'Capacity 315 MW (21 turbines), not 300 MW; turbine installation only began in June 2026, with completion expected by year-end and full commissioning in 2027',
         'https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/', mw=315),
+    # 2026-10-04 再核對「預計 2026 年完工」的興建中離岸風場（出處原文以 check_quotes.py 核對）
+    fix('NLD', 'Ecowende Offshore wind farm', G,
+        'Ecowende（Hollandse Kust West 第 VI 區）52 部 Vestas V236-15.0、760 MW，2026 年 7 月首度送電、預定 2026 年底全面運轉；'
+        '座標改為 Hollandse Kust West 風場區（原座標在海岸線上，概略位置）。容量、狀態與年份由 2026 年整理的規劃中清單帶入（見 build_farms.py 的 PIPE_SAME）',
+        'Ecowende (Hollandse Kust West site VI), 52 Vestas V236-15.0, 760 MW, first power July 2026, full operation planned for the end of 2026; '
+        'moved to the Hollandse Kust West zone (the old point was on the coastline; approximate). Capacity, status and year come from the 2026 pipeline compilation (PIPE_SAME in build_farms.py)',
+        'https://windpowernl.com/2026/07/06/ecowendes-hollandse-kust-west-offshore-wind-farm-delivers-first-power-to-dutch-grid/',
+        turbine='52x Vestas V236-15.0', lat=52.68, lon=3.77, approx=True),
+    fix('CHN', 'Shenergy Hainan CZ2 (Dongfang)', C,
+        '申能海南 CZ2 一期 67 部 9 MW 於 2025-03-24 全容量併網（2024 年只是首批併網），年份 2024→2025；場址在儋州市北面海域、中心離岸約 27 km，'
+        '不在東方外海，座標改到儋州北面（概略位置），名稱的「Dongfang」改為「Danzhou」',
+        'Shenergy Hainan CZ2 phase 1 (67 × 9 MW) reached full grid connection on 2025-03-24 (2024 was only the first units), so the year changes from 2024 to 2025; '
+        'the site lies off northern Danzhou, about 27 km offshore, not off Dongfang, so the point moves north of Danzhou (approximate) and “Dongfang” in the name becomes “Danzhou”',
+        'https://www.ne21.com/news/show-210615.html', rename='Shenergy Hainan CZ2 (Danzhou)', year=2025, lat=19.965, lon=109.42, approx=True),
+    fix('CHN', 'Hainan CZ2 Demonstration Offshore wind farm · 2', G,
+        '這是 CZ2 二期：全案 120 萬千瓦、一期 60 萬千瓦已營運，二期 2026-04-30 才打下首樁，完工年份未公布；GEM 的中文名寫成一期',
+        'This is CZ2 phase 2: the project totals 1,200 MW and phase 1 (600 MW) is operating; phase 2 drove its first pile only on 2026-04-30 and no completion year has been published; GEM’s Chinese name says phase 1',
+        'https://www.hi.chinanews.com.cn/hnnew/2026-05-02/739814.html', zhname='申能海南CZ2海上風電示範項目（二期）', year=0),
+    fix('CHN', 'Hainan CZ7 Demonstration Offshore wind farm · 1', G,
+        '這是 CZ7 一期（CZ7-1，600 MW，擬裝 60 部 10 MW 明陽機組），不是二期；2026 年只查到陸上集控中心與送出線路施工，未見海上施工，完工年份未公布',
+        'This is CZ7 phase 1 (CZ7-1, 600 MW, 60 × 10 MW Mingyang turbines planned), not phase 2; in 2026 only the onshore control centre and grid connection are being built, '
+        'with no offshore works found and no completion year published',
+        'https://finance.sina.com.cn/roll/2025-07-23/doc-infhncvn1132725.shtml', zhname='中海油海南CZ7海上示範風電場一期（CZ7-1）', year=0),
+    fix('CHN', 'Hainan CZ9 Demonstration Offshore wind farm · 1', G,
+        '明陽東方 CZ9 一期 600 MW：2022-11-30 舉行開工儀式，但到 2026-10 查不到海上沉樁或吊裝，2026 年 7 月明陽仍把 CZ9 寫成規劃中的場址；2026 年完工的根據不足，年份改為不詳',
+        'Mingyang Dongfang CZ9 phase 1, 600 MW: a groundbreaking ceremony was held on 2022-11-30, but by October 2026 no offshore piling or turbine installation can be found, '
+        'and in July 2026 Mingyang still described CZ9 as a planned site; there is no basis for 2026 completion, so the year is set to unknown',
+        'https://www.ewindpower.cn/news/show-htm-itemid-33855.html', year=0),
+    fix('CHN', 'Guangdong Xuwen Donger Offshore wind farm', G,
+        '中核集團湛江徐聞東二：300 MW、21 部 14.3 MW；2026-09-04 才打下首根鋼管樁（原計畫 2025 年底全容量併網已延誤），完工年份未公布',
+        'CNNC’s Zhanjiang Xuwen Donger: 300 MW, 21 × 14.3 MW; the first monopile was driven only on 2026-09-04 (the original plan of full connection by end-2025 has slipped), '
+        'and no completion year has been published',
+        'https://www.21jingji.com/article/20260906/herald/6b02ac88b4840ed91205ffeb9430edf6.html',
+        year=0, turbine='21x 14.3 MW', owner='China National Nuclear Corporation (CNNC)', zhname='湛江徐聞東二海上風電項目'),
+    fix('CHN', 'Guangdong Three Gorges Pilot Floating Offshore wind farm', G,
+        '這是三峽「領航號」單機 16 MW 浮動式平台，2026-05-02 在陽江青洲海域完成安裝、6 月敷設 66 kV 動態海纜，接入青洲五、七的集電網路；查不到本身已併網的報導，維持興建中',
+        'This is CTG’s “Three Gorges Lead” (Sanxia Linghang), a single 16 MW floating platform, installed off Yangjiang (Qingzhou) on 2026-05-02 with its 66 kV dynamic cable '
+        'laid in June into the Qingzhou 5/7 array; no report of its own grid connection was found, so it stays under construction',
+        'https://www.ithome.com/0/946/070.htm', zhname='三峽領航號', turbine='1x 16 MW floating'),
+    fix('VNM', 'Đông Thành 1 - Thái Hòa offshore wind farm · 1', G,
+        '東城 1（80 MW）2026 年 3 月永隆省工商廳仍在請上級對投資主張表示意見，查不到施工報導（GEM 的「施工中」只根據 2024 年的付費資料庫頁面）；改為施工前、年份不詳',
+        'Đông Thành 1 (80 MW): in March 2026 the Vĩnh Long trade department was still seeking opinions on its investment approval, and no construction report can be found '
+        '(GEM’s “construction” rests on a 2024 paid-database page); set to pre-construction, year unknown',
+        'https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm', st=2, year=0),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1320,6 +1364,12 @@ PIPE_DROP = {
 
 # 2026 整理清單之後才變動的欄位（國別, 清單上的名稱）→（要改的欄位, 中文理由, English, 出處）；在比對清單前套用
 PIPE_FIX = {
+    ('GBR', 'East Anglia TWO'): (
+        {'expected': 2028, 'mw': 960.0},
+        '預計運轉年由 2029 改為 2028、容量由 963 改為 960 MW：64 部單樁與轉接段 2026 年下半年才開始製造，預計 2027 年海上施工、2028 年運轉',
+        'Expected operation moved from 2029 to 2028 and capacity from 963 to 960 MW: fabrication of the 64 monopiles and transition pieces only starts in H2 2026, '
+        'with offshore construction expected in 2027 and operation in 2028',
+        'https://www.nsenergybusiness.com/projects/east-anglia-two-offshore-wind-farm/'),
     ('TWN', 'YouDe'): (
         {'mw': 700.0, 'zh': '又德', 'note': 'Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed'},
         '名稱改為又德、容量由 1,000 MW 改為 3.2 期獲配的 700 MW；與 GEM 的「Datian Youde」是同一案，合成一筆',

@@ -384,7 +384,7 @@ FOUNDATIONS = [
     F5('CHN', 'CR Power Lianjiang Waihai', 'mx', url='http://www.chinapower.com.cn/flfd/xmjz/20240429/244321.html', parts=[['mp', 7], ['jk', 32]],
        zh='39 部 18 MW 機組：7 座單樁（直徑 10 m）、32 座套管（中國電力網 2024 年 4 月的塔筒供貨報導）',
        en='39 × 18 MW turbines: 7 on monopiles (10 m in diameter) and 32 on jackets (China Power, April 2024, on the tower supply)'),
-    F5('CHN', 'Shenergy Hainan CZ2 (Dongfang)', 'mp', url='https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml',
+    F5('CHN', 'Shenergy Hainan CZ2 (Danzhou)', 'mp', url='https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml',
        zh='67 部 9 MW 風機各立在一根單樁上（海南日報 2024 年 5 月的施工報導，單樁長 95.7 m、直徑 8.8 m、重 1,639 t）',
        en='67 × 9 MW turbines, each on a monopile (Hainan Daily construction report, May 2024: 95.7 m long, 8.8 m in diameter, 1,639 t)'),
     F5('CHN', 'CGN Shanwei Houhu', 'mx', url='https://www.chinanews.com/m/cj/2021/11-25/9616090.shtml', parts=[['mp', 82], ['jk', 9]],

@@ -29,11 +29,13 @@ and move finished items to the topic lists below.
   refreshed quarterly); 967 US farms draw their real USWTDB turbine positions; farm cards add distance to shore and estimated yearly output;
   four offshore farms completed in 2026 are now operating. The multi-energy mock-ups discussed the same day are deferred (ROADMAP,
   "Directions evaluated and deferred").
+- 4 Oct 2026 (v2.19.2): a second check of offshore farms under construction "expected in 2026" (East Anglia TWO/THREE and Ecowende pinned in the
+  pipeline matching, Hainan CZ2's year and position corrected and more; see the CHANGELOG).
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
 - Current figures: 242 of 334 operating offshore farms have a known foundation type (71.4% of capacity); dimensions for 234 farms,
-  all three for 168; 339 clean-up rules.
+  all three for 168; 347 clean-up rules.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -202,7 +204,10 @@ and move finished items to the topic lists below.
       Vineyard Wind 1 (commercial operation declared 2026-04-24 but 36 turbines still idle in June, so kept under construction under the
       whole-farm rule), Greater Changhua 2b&4 (final commissioning), Revolution Wind (last turbine installed in September, COD expected this year),
       Yeonggwang Nakwol, Sofia (HVDC link in testing), Dieppe-Le Tréport, Qingzhou 5 and 7; Windanker due to finish by year-end and be fully
-      commissioned in 2027. The CVOW commercial project, Sunrise Wind and Empire Wind are due in 2027
+      commissioned in 2027; also Baltic Power and Bac Lieu 3 (its Q2 2026 target has passed). The CVOW commercial project, Sunrise Wind and Empire
+      Wind are due in 2027. Re-checked on 2026-10-04 (v2.19.2): none of the above is in full commercial operation yet; CTG's 16 MW Three Gorges
+      Lead is installed, grid connection unconfirmed; Hainan CZ7 phase 1, CZ9 phase 1 and Xuwen Donger now have an unknown completion year, to be
+      filled in when announced
 - [ ] Once a quarter, run the `backfill-taipower-wind-history` workflow as a dry run to see whether
       dataset 37331 has moved to a more recent quarter (if the publisher improves timeliness, the
       7-day backfill logic is already in place and takes effect automatically)

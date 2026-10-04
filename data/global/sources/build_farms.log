@@ -196,9 +196,14 @@ CLEAN fix CHN Fujian Pingtan Waihai Offshore wind farm 111.0
 CLEAN fix CHN Fuqing Haitan Strait 300.0
 CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
 CLEAN fix CHN Guangdong Energy Fanshi II / Yangjiang 1000.0
+CLEAN fix CHN Guangdong Three Gorges Pilot Floating Offshore wind farm 16.0
+CLEAN fix CHN Guangdong Xuwen Donger Offshore wind farm 300.0
 CLEAN fix CHN Guohua Dongtai IV (H2) 300.0
 CLEAN fix CHN Guoneng Bozhong B1 / Bozhong B 500.0
 CLEAN fix CHN Guoneng Dafeng H5 200.0
+CLEAN fix CHN Hainan CZ2 Demonstration Offshore wind farm · 2 600.0
+CLEAN fix CHN Hainan CZ7 Demonstration Offshore wind farm · 1 600.0
+CLEAN fix CHN Hainan CZ9 Demonstration Offshore wind farm · 1 600.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Hebei Construction Investment Xiangyun Island 250.0
 CLEAN fix CHN Huadian Yangjiang Qingzhou 3 500.6
@@ -239,6 +244,7 @@ CLEAN fix CHN Shandong Huaneng Offshore L Area wind farm 504.0
 CLEAN fix CHN Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project 303.0
 CLEAN fix CHN Shanghai Fengxian 200.0
 CLEAN fix CHN Shanghai Lingang Demonstration Phase 1 102.0
+CLEAN fix CHN Shenergy Hainan CZ2 (Dongfang) 600.0
 CLEAN fix CHN SinoHydro Rudong Intertidal 100.0
 CLEAN fix CHN Tangshan Laoting Putidao 300.0
 CLEAN fix CHN Tangshan Laoting Yuetuo Island Phase 1 304.0
@@ -303,6 +309,7 @@ CLEAN fix KOR Yeonggwang Nakwol 364.8
 CLEAN fix KOR Yeonggwang Wind offshore wind farm 35.0
 CLEAN fix KOR Yeongyang 2nd wind power generation 42.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
+CLEAN fix NLD Ecowende Offshore wind farm 780.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
 CLEAN fix NLD Irene Vorrink (Dronten) 16.8
 CLEAN fix NLD Noordoostpolder (incl. Westermeerwind nearshore) 429.0
@@ -370,6 +377,7 @@ CLEAN fix VNM Tân An 1 offshore wind farm 115.0
 CLEAN fix VNM V1-2 Truong Long Hoa (Tra Vinh) 48.0
 CLEAN fix VNM V1-3 Ben Tre (BTRE) 30.0
 CLEAN fix VNM V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) 48.0
+CLEAN fix VNM Đông Thành 1 - Thái Hòa offshore wind farm · 1 80.0
 CLEAN fix ZAF Amakhala Emoyeni 134.0
 CLEAN fix ZAF Waainek Wind Farm 23.0
 DROP ARG operating Antonio Moran wind farm 18.0 ~ Antonio Morán (Comodoro Rivadavia) 16.6
@@ -964,6 +972,7 @@ PIPE-DROP KOR Firefly (Bandibuli)
 PIPE-DROP TWN DeShuai
 PIPE-DROP TWN Greater Changhua Northeast
 PIPE-DROP TWN Haiding 1 (Formosa 3)
+PIPE-FIX GBR East Anglia TWO {'expected': 2028, 'mw': 960.0}
 PIPE-FIX TWN Fengmiao 2 {'mw': 600.0}
 PIPE-FIX TWN Huanyang {'note': 'Round 3.1; the Energy Administration said in 2026 that the termination was in process'}
 PIPE-FIX TWN YouDe {'mw': 700.0, 'zh': '又德', 'note': 'Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed'}

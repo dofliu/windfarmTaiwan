@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 339 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 202 筆。
+- 規則 347 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 210 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 45 | 24,974.5 | 77 |
+| 中國大陸 | 45 | 24,974.5 | 83 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
@@ -43,11 +43,11 @@
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 0 |
 | 英國 | 7 | 3,485 | 6 |
-| 荷蘭 | 8 | 1,852 | 6 |
+| 荷蘭 | 8 | 1,852 | 7 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 13 | 1,487 | 19 |
+| 越南 | 13 | 1,487 | 20 |
 
 ## 中國大陸 (CHN)
 
@@ -175,6 +175,12 @@
 | CGN Rudong H8 · 300 MW · 2021 | 精選 | 修正：機組 | 中廣核如東 H8 是 40 部中國海裝 H171-5.0 加 25 部上海電氣 SWT-4.0-146，不是明陽 5.5 MW（Power Technology 專案頁） | [連結](https://www.power-technology.com/marketdata/power-plant-profile-cgn-jiangsu-rudong-h8-offshore-wind-power-project-china/) |
 | Guoneng Dafeng H5 · 200 MW · 2021 | 精選 | 修正：容量、機組 | 國能大豐 H5 總裝機 206.4 MW、32 部金風 GW184-6.45（大豐區政府 2024-12）；原寫 200 MW、金風 5–6 MW 級 | [連結](https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html) |
 | Fuqing Haitan Strait · 300 MW · 2021 | 精選 | 修正：容量、機組 | 竣工海洋環保驗收報告：46 部，海裝 6.2 MW 21 部、5 MW 3 部、明陽 7.0 MW 22 部，總裝機 299.2 MW；原寫金風 6.45–8 MW、300 MW | [連結](https://www.cti-cert.com/upload/files/202511071148308464.pdf) |
+| Shenergy Hainan CZ2 (Dongfang) · 600 MW · 2024 | 精選 | 修正：名稱、年份、座標 | 申能海南 CZ2 一期 67 部 9 MW 於 2025-03-24 全容量併網（2024 年只是首批併網），年份 2024→2025；場址在儋州市北面海域、中心離岸約 27 km，不在東方外海，座標改到儋州北面（概略位置），名稱的「Dongfang」改為「Danzhou」 | [連結](https://www.ne21.com/news/show-210615.html) |
+| Hainan CZ2 Demonstration Offshore wind farm · 2 · 600 MW · 2026 | GEM | 修正：中文名、年份 | 這是 CZ2 二期：全案 120 萬千瓦、一期 60 萬千瓦已營運，二期 2026-04-30 才打下首樁，完工年份未公布；GEM 的中文名寫成一期 | [連結](https://www.hi.chinanews.com.cn/hnnew/2026-05-02/739814.html) |
+| Hainan CZ7 Demonstration Offshore wind farm · 1 · 600 MW · 2026 | GEM | 修正：中文名、年份 | 這是 CZ7 一期（CZ7-1，600 MW，擬裝 60 部 10 MW 明陽機組），不是二期；2026 年只查到陸上集控中心與送出線路施工，未見海上施工，完工年份未公布 | [連結](https://finance.sina.com.cn/roll/2025-07-23/doc-infhncvn1132725.shtml) |
+| Hainan CZ9 Demonstration Offshore wind farm · 1 · 600 MW · 2026 | GEM | 修正：年份 | 明陽東方 CZ9 一期 600 MW：2022-11-30 舉行開工儀式，但到 2026-10 查不到海上沉樁或吊裝，2026 年 7 月明陽仍把 CZ9 寫成規劃中的場址；2026 年完工的根據不足，年份改為不詳 | [連結](https://www.ewindpower.cn/news/show-htm-itemid-33855.html) |
+| Guangdong Xuwen Donger Offshore wind farm · 300 MW · 2026 | GEM | 修正：年份、機組、業主、中文名 | 中核集團湛江徐聞東二：300 MW、21 部 14.3 MW；2026-09-04 才打下首根鋼管樁（原計畫 2025 年底全容量併網已延誤），完工年份未公布 | [連結](https://www.21jingji.com/article/20260906/herald/6b02ac88b4840ed91205ffeb9430edf6.html) |
+| Guangdong Three Gorges Pilot Floating Offshore wind farm · 16 MW · 2026 | GEM | 修正：中文名、機組 | 這是三峽「領航號」單機 16 MW 浮動式平台，2026-05-02 在陽江青洲海域完成安裝、6 月敷設 66 kV 動態海纜，接入青洲五、七的集電網路；查不到本身已併網的報導，維持興建中 | [連結](https://www.ithome.com/0/946/070.htm) |
 
 ## 丹麥 (DNK)
 
@@ -508,6 +514,7 @@
 | Windplanblauw offshore wind farm · 132 MW · 2024 | GEM | 修正：座標 | 座標改到艾瑟爾湖中兩排共 24 部風機的位置（原座標在北海，偏西約 82 km）；132 MW 是湖中部分，另有 37 部在陸上 | [連結](https://www.openstreetmap.org/relation/12695731) |
 | Borssele V (Two Towers innovation site) · 19 MW · 2021 | 精選 | 修正：座標 | 座標改到兩部風機的位置（原座標偏東北約 3 km） | [連結](https://www.openstreetmap.org/node/7680250702) |
 | Borssele Site V wind farm · 19 MW · 2021 | GEM | 重複（併入「Borssele V (Two Towers innovation site)」） | 同一座風場（兩部 V164-9.5 MW，2022 年由 Octopus Energy 買下）；GEM 座標偏北約 85 km | [連結](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
+| Ecowende Offshore wind farm · 780 MW · 2026 | GEM | 修正：機組、座標 | Ecowende（Hollandse Kust West 第 VI 區）52 部 Vestas V236-15.0、760 MW，2026 年 7 月首度送電、預定 2026 年底全面運轉；座標改為 Hollandse Kust West 風場區（原座標在海岸線上，概略位置）。容量、狀態與年份由 2026 年整理的規劃中清單帶入（見 build_farms.py 的 PIPE_SAME） | [連結](https://windpowernl.com/2026/07/06/ecowendes-hollandse-kust-west-offshore-wind-farm-delivers-first-power-to-dutch-grid/) |
 
 ## 菲律賓 (PHL)
 
@@ -567,6 +574,7 @@
 | Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | 精選 | 修正：機組 | 茶榮東海 1 號是 25 部西門子歌美颯 SG 5.0-145（每部以 4 MW 運轉），不是 SG 4.0-145（offshoreWIND.biz 2021-02；中南集團專案頁） | [連結](https://www.offshorewind.biz/2021/02/03/siemens-gamesa-lands-its-largest-nearshore-project-in-vietnam/) |
 | Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | 修正：機組 | 成海全案 28 部（EVN），其中第 1、2 期為西門子歌美颯 SG 4.5-145（Power Technology）；其餘各期的機型查不到 | [連結](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
 | Tan Phu Dong 1 (Tien Giang, GEC) · 100 MW · 2023 | 精選 | 修正：機組 | 新富東 1 號是 24 部 Vestas V150-4.2 MW，不是遠景（物流承包商 Infinity Logistics 專案頁） | [連結](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) |
+| Đông Thành 1 - Thái Hòa offshore wind farm · 1 · 80 MW · 2026 | GEM | 修正：狀態、年份 | 東城 1（80 MW）2026 年 3 月永隆省工商廳仍在請上級對投資主張表示意見，查不到施工報導（GEM 的「施工中」只根據 2024 年的付費資料庫頁面）；改為施工前、年份不詳 | [連結](https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 
@@ -584,6 +592,7 @@
 
 | 專案 | 修正 | 理由 | 出處 |
 |---|---|---|---|
+| East Anglia TWO (GBR) | expected=2028, mw=960.0 | 預計運轉年由 2029 改為 2028、容量由 963 改為 960 MW：64 部單樁與轉接段 2026 年下半年才開始製造，預計 2027 年海上施工、2028 年運轉 | [連結](https://www.nsenergybusiness.com/projects/east-anglia-two-offshore-wind-farm/) |
 | YouDe (TWN) | mw=700.0, zh=又德, note=Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed | 名稱改為又德、容量由 1,000 MW 改為 3.2 期獲配的 700 MW；與 GEM 的「Datian Youde」是同一案，合成一筆 | [連結](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Fengmiao 2 (TWN) | mw=600.0 | 容量由 500 MW 改為 3.2 期獲配的 600 MW | [連結](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Huanyang (TWN) | note=Round 3.1; the Energy Administration said in 2026 that the termination was in process | 能源署 2026 年表示蔚藍海彰化（環洋）已在解約程序中，正式解約後再移除 | [連結](https://www.nownews.com/news/6859530) |
