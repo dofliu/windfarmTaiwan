@@ -21,6 +21,10 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   1,500 MW, which left out Yeu-Noirmoutier, 500 MW, fully connected in 2025; the owner decided on 2026-10-04 to change both); the world
   total at end-2025 becomes 1,287,956 MW (about 1,288 GW), with about 158 GW added in 2025. France's 2026 point now uses the SDES figures
   directly (same series).
+- Farms outside the US now draw their real turbine positions from OpenStreetMap (the owner agreed on 2026-10-04 to share alike under
+  the ODbL): `tools/fetch_osm_turbines.py` downloads them and `tools/build_turbines_osm.py` matches them to the site's farms by OSM
+  wind-plant areas (name, capacity) or spatial groups (plausible unit size), conservatively; the resulting `data/global/turbines_osm.json`
+  is shared under the ODbL, with "© OpenStreetMap contributors" on the card and in the sources dialog.
 
 ## v2.18.0 — 2026-10-04
 

@@ -56,6 +56,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 美國每部風機的位置（`data/global/turbines.json`）由 `tools/build_turbines.py` 從 USWTDB 產生；對應規則寧可少配（名稱、30 km、容量 ±15%），重建風場層後要重跑。
   US turbine positions (`data/global/turbines.json`) are built from USWTDB by `tools/build_turbines.py` (conservative matching by name, 30 km and
   capacity ±15%); re-run it after rebuilding the farm layer.
+- 其他國家的風機位置（`data/global/turbines_osm.json`）來自 OpenStreetMap，以 ODbL 分享：檔案的 meta、README、卡片與「資料來源」都要標示「© OpenStreetMap 貢獻者」，
+  不要把它併進其他授權的資料檔。對應規則在 `tools/build_turbines_osm.py`（風場範圍的名稱與容量，或空間群聚加單機容量檢查），寧可少配。
+  Turbine positions elsewhere (`data/global/turbines_osm.json`) come from OpenStreetMap and are shared under the ODbL: keep "© OpenStreetMap
+  contributors" in the file's meta, the README, the card and the sources dialog, and never merge it into a file under another licence.
+  Matching rules live in `tools/build_turbines_osm.py` (plant name and capacity, or spatial groups with a unit-size check), conservative.
 - 數字寫進網站或文件前先對照原始資料；查不到的不要臆測，寫明「待查證」。
   Check numbers against the original source before publishing them; if something cannot be verified, say so instead of guessing.
 - 風場的逐筆修正（重複、從未建成、錯置、數字錯誤）寫在 `tools/farm_cleanup.py`：每條規則用（國別, 名稱, 來源）指定剛好一筆，

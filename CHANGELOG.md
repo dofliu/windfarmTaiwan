@@ -19,6 +19,9 @@ v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 - 法國 2025 年改用統計處 SDES 的 2025 年底併網容量：陸域 23,992、離岸 2,008 MW（原為 IRENA 的 24,155 與 1,500 MW，漏了 2025 年全部併網的
   Yeu-Noirmoutier 500 MW；2026-10-04 使用者決定陸域、離岸一起調）；全球 2025 年底改為 1,287,956 MW（約 1,288 GW），2025 年新增約 158 GW。
   時間軸 2026 年的法國改為直接用 SDES 的數字（同一數列）。
+- 美國以外的風場改畫 OpenStreetMap 的實際機位（2026-10-04 使用者同意以 ODbL 相同方式分享）：`tools/fetch_osm_turbines.py` 下載、
+  `tools/build_turbines_osm.py` 依 OSM 的風場範圍（名稱、容量）或空間群聚（單機容量要合理）對到本站風場，寧可少配；
+  產生的 `data/global/turbines_osm.json` 以 ODbL 分享，卡片與「資料來源」標示「© OpenStreetMap 貢獻者」。
 
 ## v2.18.0 — 2026-10-04
 

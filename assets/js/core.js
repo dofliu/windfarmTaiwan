@@ -120,7 +120,8 @@ WW.DATA = {
   foundations: 'data/global/foundations.json',
   events: 'data/global/events.json',
   stats: 'data/global/country_stats.json',
-  turbines: 'data/global/turbines.json'
+  turbines: 'data/global/turbines.json',
+  turbinesOsm: 'data/global/turbines_osm.json'
 };
 /* 水下基礎剖面示意：依型式（mp/jk/tp/tl/gb/pc/cf/bk/ra/fl＋浮動式細分）畫在 x=cx、海面 SEA、海床 BED 的座標系裡，回傳 SVG 片段與塔底高度。
    地球儀的風場卡片與風電知識頁的型式圖共用（示意、非等比例） */
