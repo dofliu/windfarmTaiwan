@@ -1487,7 +1487,7 @@ function updateHUD() {
     else {
       const st = farmStats();
       if (st.total || st.pn) {
-        html += '<div style="margin-top:4px;color:var(--acc)">' + T('farmLayer') + '：' + L(`已出現 ${st.n} / ${st.total} 座 · ${fmtMW(st.mw)}`, `${st.n} of ${st.total} shown · ${fmtMW(st.mw)}`) + '</div>';
+        html += '<div style="margin-top:4px;color:var(--acc)">' + T('farmLayer') + L('：', ': ') + L(`已出現 ${st.n} / ${st.total} 座 · ${fmtMW(st.mw)}`, `${st.n} of ${st.total} shown · ${fmtMW(st.mw)}`) + '</div>';
         if (S.pipe && st.pn) html += '<div class="pl">' + (S.year >= Y1 - 0.02 ? L(`規劃中 ${st.pn} 案 · ${fmtMW(st.pmw)}（虛線環）`, `Pipeline: ${st.pn} projects · ${fmtMW(st.pmw)} (dashed rings)`) : T('pipeNote')) + '</div>';
       } else html += '<div style="margin-top:4px;color:var(--ginkm)">' + T('farmNone') + '</div>';
     }

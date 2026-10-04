@@ -1,0 +1,180 @@
+[
+ {
+  "farm": "Vineyard Wind 1",
+  "iso": "USA",
+  "status_oct2026": "unclear",
+  "full_cod": null,
+  "mw_confirmed": 806,
+  "note_zh": "62 部風機 2026 年 3 月 13 日全部裝完；開發商宣布 2026 年 4 月 24 日達到商轉日（購電合約生效），但同時表示風機未達滿載、需 GE Vernova 繼續修改；6 月法院文件指 62 部中 36 部未運轉。9 月雙方和解，聲明只說風機「能夠發電」。是否已全場正常運轉無法查證，建議暫列興建中或待查證。",
+  "note_en": "All 62 turbines were installed by 13 March 2026; the developer declared its commercial operation date on 24 April 2026 (PPAs activated) while saying the turbines were not performing at full capacity and GE Vernova had more work to do; in June court filings 36 of 62 turbines were not spinning. The September settlement only says the turbines are 'capable of producing power'. Full whole-farm operation cannot be verified; keep under construction or mark unverified.",
+  "sources": [
+   {
+    "url": "https://newbedfordlight.org/offshore-wind-tracker-whats-happening-to-massachusetts-projects/",
+    "quote": "Vineyard Wind finished project installation on March 13 when it installed the last three blades on the 62nd turbine.",
+    "check": "OK"
+   },
+   {
+    "url": "https://newbedfordlight.org/judge-rules-again-for-vineyard-wind-in-its-dispute-with-ge-vernova/",
+    "quote": "Vineyard Wind announced it reached its commercial operation date on April 24. Vineyard Wind says the turbines are not performing at full capacity and that GE Vernova needs to do more work on them to fix that.",
+    "check": "OK"
+   },
+   {
+    "url": "https://newbedfordlight.org/judge-rules-again-for-vineyard-wind-in-its-dispute-with-ge-vernova/",
+    "quote": "36 of the 62 turbines are not spinning, with fewer operating since the previous hearing",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.nhpr.org/2026-09-17/vineyard-wind-ge-vernova-settle-dispute-over-wind-farm",
+    "quote": "The statement announcing the settlement says Vineyard Wind’s turbines are “capable of producing power, providing reliable, affordable energy to more than 400,000 homes and businesses while bolstering grid stability",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Revolution Wind",
+  "iso": "USA",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "mw_confirmed": 704,
+  "note_zh": "2026 年 3 月開始送電，9 月 18 日 65 部風機才全部裝完，開發商預計今年稍後商轉；仍為興建中。",
+  "note_en": "First power in March 2026; all 65 turbines were installed only by 18 September 2026 and commercial operation is expected later this year; still under construction.",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind",
+    "quote": "Ørsted and Skyborn Renewables have completed the installation of all 65 wind turbines at the 704 MW Revolution Wind offshore wind farm in the US.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind",
+    "quote": "Revolution Wind continues to progress toward an anticipated commercial operation date later this year",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Yeonggwang Nakwol",
+  "iso": "KOR",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "mw_confirmed": 364.8,
+  "note_zh": "2026 年 6 月初綜合進度 83.6%，64 部風機只組裝 27 部、15 部送電，目標年內竣工；仍為興建中。",
+  "note_en": "In early June 2026 overall progress was 83.6%, with 27 of 64 turbines assembled and 15 delivering power; completion targeted within 2026; still under construction.",
+  "sources": [
+   {
+    "url": "https://www.bloter.net/news/articleView.html?idxno=664933",
+    "quote": "2024년 3월 첫삽을 뜬 낙월해상풍력사업은 올해 4월 이후 빠르게 공정이 진행되며 이달 초 기준 종합 공정률 83.6%를 달성했다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.bloter.net/news/articleView.html?idxno=664933",
+    "quote": "거대한 상부터빈 역시 64기 중 27기의 조립을 마쳤으며, 이 중 전기안전공사의 사용전검사를 통과한 15기는 이미 청정전력을 송전하고 있다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://v.daum.net/v/Gbx8jZrRw0",
+    "quote": "전체 64기 364.8㎿ 규모 풍력 장치가 설치될 예정인 가운데",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Sofia",
+  "iso": "GBR",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "mw_confirmed": 1400,
+  "note_zh": "100 部 14 MW 風機 2026 年 6 月 10 日裝完，高壓直流系統仍在測試，風機尚未接上；開發商時程為 2026 年底全部試運轉完成；仍為興建中。",
+  "note_en": "All 100 x 14 MW turbines were installed by 10 June 2026 but the HVDC system was still being tested before turbines could be connected; the developer's timeline puts full commissioning in late 2026; still under construction.",
+  "sources": [
+   {
+    "url": "https://www.rwe.com/en/press/rwe-ag/2026-06-11-rwe-completes-installation-of-all-turbines-at-sofia-offshore-wind-farm/",
+    "quote": "The final installation was completed successfully on 10 June 2026. On site, testing and commissioning of the HVDC (High Voltgage Direct Current) distribution system is also continuing before the turbines will be connected to the HVDC",
+    "check": "OK"
+   },
+   {
+    "url": "https://sofiawindfarm.com/offshore-construction/",
+    "quote": "Late 2026 All 100 turbines fully commissioned. Offshore converter platform fully commissioned. Sofia is fully operational.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Dieppe-Le Treport wind farm",
+  "iso": "FRA",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "mw_confirmed": 496,
+  "note_zh": "2026 年 9 月 11 日 62 部只裝 31 部、夏季 5 部投入運轉，預計年底全部投運；仍為興建中。",
+  "note_en": "On 11 September 2026 only 31 of 62 turbines were installed and 5 had entered service over the summer; full commissioning is expected by year-end; still under construction.",
+  "sources": [
+   {
+    "url": "https://www.meretmarine.com/fr/energies-marines/dieppe-le-treport-la-moitie-des-eoliennes-installees",
+    "quote": "installant 31 des 62 éoliennes. Cinq ont été mises en service durant l’été , après une série de tests, alors que la mise en service complète du parc normand est attendue d’ici la fin de l’année.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.meretmarine.com/fr/energies-marines/dieppe-le-treport-la-moitie-des-eoliennes-installees",
+    "quote": "Le parc normand de 496 MW doit être entièrement mis en service d’ici la fin de l’année.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Greater Changhua 2b & 4",
+  "iso": "TWN",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "mw_confirmed": 920,
+  "note_zh": "2026 年 9 月 1 日舉行完工儀式，但風場仍在最終試運轉與測試，完成主管機關及台電許可後才全面商轉（沃旭預計 2026 年第三季末）；截至 10 月初查不到全面商轉的公告，暫列興建中。",
+  "note_en": "Completion ceremony on 1 September 2026, but the farm was still in final commissioning and testing; full commercial operation follows regulatory and Taipower approvals (Ørsted expected late Q3 2026). No announcement of full commercial operation found by early October; keep under construction for now.",
+  "sources": [
+   {
+    "url": "https://www.cna.com.tw/news/afe/202609010301.aspx",
+    "quote": "沃旭表示，風場正進行最終試運轉與測試作業，在完成主管機關及台電相關許可申請後，將達成全面商轉。",
+    "check": "OK"
+   },
+   {
+    "url": "https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521",
+    "quote": "The Greater Changhua 2b and 4 project is expected to enter full commercial operation in late Q3 2026 upon completion of the remaining commissioning activities",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Yangjiang Qingzhou 5",
+  "iso": "CHN",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "mw_confirmed": 1000,
+  "note_zh": "青洲五、七共 163 部、200 萬瓩，2026 年 9 月 27 日首批 5 部才併網；仍為興建中（與現有 farm_cleanup 規則一致）。",
+  "note_en": "Qingzhou 5 and 7 (163 turbines, 2,000 MW) connected their first 5 turbines only on 27 September 2026; still under construction (consistent with the existing farm_cleanup rule).",
+  "sources": [
+   {
+    "url": "https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html",
+    "quote": "9月27日，随着首批5台机组叶片缓缓转动，三峡阳江青洲五、七海上风电场首批机组成功并网发电。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html",
+    "quote": "三峡阳江青洲五、七海上风电场离岸约70公里、作业水深约50米，总装机容量200万千瓦，布设163台12至16兆瓦大容量海上风电机组。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Yangjiang Qingzhou 7",
+  "iso": "CHN",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "mw_confirmed": 1000,
+  "note_zh": "同青洲五：2026 年 9 月 27 日首批 5 部併網，仍為興建中。",
+  "note_en": "As for Qingzhou 5: first 5 turbines connected on 27 September 2026; still under construction.",
+  "sources": [
+   {
+    "url": "https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html",
+    "quote": "9月27日，随着首批5台机组叶片缓缓转动，三峡阳江青洲五、七海上风电场首批机组成功并网发电。",
+    "check": "OK"
+   }
+  ]
+ }
+]

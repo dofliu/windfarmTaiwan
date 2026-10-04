@@ -256,6 +256,7 @@ CLEAN fix COL WESP 01 wind farm 12.0
 CLEAN fix DEU Borkum Riffgrund 3 913.0
 CLEAN fix DEU Hohe See 497.0
 CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
+CLEAN fix DEU Windanker wind farm 300.0
 CLEAN fix DNK Vesterhav Nord 176.4
 CLEAN fix DOM Granadillos wind farm 50.0
 CLEAN fix DOM La Isabela wind farm 50.0
@@ -271,6 +272,7 @@ CLEAN fix FRA Provence Grand Large 25.0
 CLEAN fix FRA Îles d'Yeu et de Noirmoutier 496.0
 CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank A 1200.0
+CLEAN fix GBR Dogger Bank wind farm · B, C 2400.0
 CLEAN fix GBR Kincardine 49.5
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
@@ -316,6 +318,7 @@ CLEAN fix NOR Svaheia wind farm 25.0
 CLEAN fix NOR TetraSpar Demonstrator (METCentre) 3.6
 CLEAN fix NOR Tysvaer wind farm 47.0
 CLEAN fix PHL Bangui Bay 33.0
+CLEAN fix POL Baltic Power Offshore wind farm 1200.0
 CLEAN fix PRT WindFloat 1 (Aguçadoura demo) 2.0
 CLEAN fix PRT WindFloat Atlantic 25.2
 CLEAN fix ROU Alpha Wind Nord wind farm 81.0
@@ -337,7 +340,9 @@ CLEAN fix THA Subyai (Chaiyaphum) 90.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
 CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
+CLEAN fix TWN Hai Long 2 & 3 1044.0
 CLEAN fix TWN Taipower Offshore Phase 1 (Changhua) 109.2
+CLEAN fix TWN Taipower Offshore Phase 2 294.0
 CLEAN fix TWN Zhong Neng 298.0
 CLEAN fix URY Pampa (Tacuarembó) 141.6
 CLEAN fix USA Coastal Virginia Offshore Wind (CVOW) Commercial Project 2640.0

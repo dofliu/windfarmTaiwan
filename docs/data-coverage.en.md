@@ -9,8 +9,8 @@ English ｜ [中文](data-coverage.md)
 - **Country level**: 79 countries total 1,287,611 MW at year-end, which is the site’s world total (1,287,611 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
 - **Farm level**: 15,986 operating farms, 1,167,735 MW are mapped individually — about **91%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 53 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 197 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,589 projects, 2,720,301 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 202 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,585 projects, 2,719,959 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
@@ -52,19 +52,19 @@ English ｜ [中文](data-coverage.md)
 5. **Pipeline totals**: projects and country totals are both from GEM 2026-02; the differences are mostly the Sep 2026 compiled list added here, projects removed by the clean-up rules, and phases GEM gives no capacity for. Top-15 countries:
    - China: projects 743,157 MW · GEM total 743,588 MW
    - United States of America: projects 89,451 MW · GEM total 89,440 MW
-   - Germany: projects 37,467 MW · GEM total 18,119 MW
+   - Germany: projects 37,482 MW · GEM total 18,119 MW
    - India: projects 51,063 MW · GEM total 51,063 MW
    - Brazil: projects 277,884 MW · GEM total 277,866 MW
    - Spain: projects 56,501 MW · GEM total 56,471 MW
    - United Kingdom: projects 100,173 MW · GEM total 88,436 MW
-   - France: projects 23,285 MW · GEM total 22,138 MW
+   - France: projects 23,225 MW · GEM total 22,138 MW
    - Canada: projects 17,852 MW · GEM total 17,852 MW
    - Sweden: projects 85,605 MW · GEM total 85,597 MW
    - Turkey: projects 2,090 MW · GEM total 2,062 MW
    - Australia: projects 250,313 MW · GEM total 250,313 MW
    - Italy: projects 52,268 MW · GEM total 52,018 MW
    - Netherlands: projects 23,910 MW · GEM total 19,115 MW
-   - Poland: projects 22,035 MW · GEM total 20,749 MW
+   - Poland: projects 21,975 MW · GEM total 20,749 MW
 6. **The national figures themselves**: apart from Taiwan and Japan, which were checked against official sources, countries use the IRENA series; refresh it when IRENA publishes each year (around March) and spot-check the top ten against official statistics (e.g. China NEA, US EIA, Germany BNetzA).
    Countries whose national figure differs from GEM 2026-02 ‘operating’ by more than 15% (national above 300 MW; GEM only tracks projects of 10 MW and above, so a lower GEM figure is expected where small farms are common — a higher one is worth checking):
    - China: national 640,626 MW · GEM 542,758 MW (-15%)

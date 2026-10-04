@@ -28,6 +28,9 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   2026-09-28 release) are matched to the site's records (name, 30 km, capacity ±15%; unmatched farms keep the estimated layout). The selected
   farm's close-up uses the real positions, hub height and rotor diameter, and the card lists the turbine count and model
   (`tools/build_turbines.py`; loaded only when a US farm is selected).
+- Farm-by-farm check for 2026 (quotes checked with `check_quotes.py`): Kitakyushu Hibikinada (March), the Goto floating farm (January),
+  EFGL (July) and EolMed (May) reached full commercial operation and are now operating in 2026; Hai Long, Taipower Offshore Phase 2 and
+  Dogger Bank B/C move to 2027; Baltic Power corrected to 1,140 MW and Windanker to 315 MW.
 - Farm cards add the distance to shore (computed from the Natural Earth 1:50m coastline) and an estimated yearly output (capacity × the
   country's 2023–2025 average wind capacity factor from Ember, CC BY 4.0; labelled as an estimate).
 - Docs: the 2026-10-04 discussion of other energy sources (solar, nuclear, fossil, etc.), its mock-ups and the conclusion — back to wind for
