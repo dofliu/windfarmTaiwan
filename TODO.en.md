@@ -334,9 +334,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Extend the timeline to "2026 (latest available)": 8 countries have official 2026 figures, the others carry 2025 forward, clearly marked; start once the approach is agreed (see item 1 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
 - [ ] Whether to give `grid_status` (supply/demand) a long-term archive and trend chart, following the
       wind data's "live → 7 days → 90 days" layers
-- [ ] Whether to expand to all energy sources (genary already contains hydro, solar, thermal and
-      nuclear units; the scraper currently keeps only the wind rows) — a major decision about the site's
-      scope; confirm the direction before any work
+- [x] Whether to expand to other energy sources: discussed with three mock-ups on 2026-10-04; the owner decided to stay with wind
+      for now and discuss it again later (conclusions and decisions to keep are in "Directions evaluated and deferred" in ROADMAP.en.md)
 - [ ] Whether to try to get past the WAF 403 on the live supply/demand source (needs a different
       execution environment, e.g. a self-hosted runner or a non-cloud-CI host; changing code alone
       cannot fix it)
@@ -361,3 +360,5 @@ the rules are in `tools/farm_cleanup.py`.
   machine-readable yet)
 - Work-vessel status: live AIS positions and Taiwan International Ports Corporation port calls (the owner
   decided on 2026-09-27 not to do it)
+- Other energy sources (solar, nuclear, fossil, hydro, etc.) and an energy-transition comparison (mock-ups made on
+  2026-10-04; the owner decided to defer it and discuss again later)

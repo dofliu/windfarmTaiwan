@@ -340,6 +340,23 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 
 ## Directions evaluated and deferred (with reasons, to avoid repeating the research)
 
+- **Other energy sources (solar, nuclear, fossil, hydro, etc.) and an energy-transition comparison**: discussed on 2026-10-04
+  with three mock-ups (in the conversation only, not in the repo): (1) a flat "energy transition" page with a glyph chart of one
+  column per year (wind at the base in colour, other sources grey), one year's fleet, and a before/after view around events
+  (Taiwan, Japan, Germany); (2) an "other sources (background)" layer on the 3D globe, with other plants as grey glyphs lower than the
+  turbines while wind farms stay coloured and spinning; (3) a second version where each source can be selected on its own or together,
+  each with its own 3D model (solar arrays sized by capacity, cooling towers, halls and stacks, dams, etc.), country glyph groups
+  (one unit for every source, e.g. 20 GW per glyph) or columns from far away, and "Map + bars" showing a country's or continent's
+  amounts, shares and yearly changes for 2000–2025.
+  The owner's conclusion (2026-10-04): it became cluttered and took the focus away from the turbines, so **back to wind for now;
+  discuss again later**. Decisions to keep if this restarts: wind first, other sources as a background that can be switched off (off
+  by default on the site); dataset-level citation only for other sources, no record-by-record checks; no population layer for now;
+  show the changes observed around events without claiming causes.
+  Data: individual plants from the GEM trackers (public bucket `interim_maps/`: gcpt, gogpt, gnpt, ght, gspt, ggpt, gbpt; CC BY 4.0;
+  the map files carry retirement years only for coal and no years at all for nuclear; about 80,000 solar records with a size threshold
+  and no rooftop solar); national and continental capacity and generation from Ember's yearly electricity data (CC BY 4.0, 2000–2025,
+  geothermal folded into "other renewables"). Note: per Ember, wind was only about 4% of Taiwan's 2025 generation, so with other
+  sources switched on wind all but disappears; a comparison belongs on its own tab, and other plants on the globe should be off by default.
 - **Work-vessel status (live AIS positions and Taiwan International Ports Corporation port calls)**: evaluated in Sep 2026; the owner decided on 2026-09-27 not to do it. The free real-time source needs a key, has no redistribution terms and barely reaches Taiwan's waters, and port calls only show which port a vessel is in. Details are in item 3 of "Owner's new plans (Sep 2026)" above.
 - **Energy Administration monthly/annual statistics API**
   ([ea01.moeaea.gov.tw](https://ea01.moeaea.gov.tw/a0303/02/database/api/)): too coarse (monthly data)
@@ -370,6 +387,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   thermal and nuclear units (the scraper already fetches them and keeps only the wind rows). A
   "live monitor for all sources" would only be a frontend job, but it is a major scope decision — confirm
   with the owner first instead of turning this into a whole-grid monitoring site on your own.
+  Discussed with mock-ups on 2026-10-04; the owner decided to defer it (see "Directions evaluated and deferred").
 - **Onshore farm timelines**: if more verifiable public information becomes available for onshore farms
   (e.g. local government releases, the EIA tracking system), fill them in the same way as the 15
   offshore farms.
