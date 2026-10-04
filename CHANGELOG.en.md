@@ -15,6 +15,23 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.22.0 — 2026-10-05
+
+- Germany now uses the Federal Network Agency's Market Master Data Register MaStR (© Bundesnetzagentur | Marktstammdatenregister, Data
+  licence Germany – attribution 2.0; full export of 4 Oct 2026):
+  - The 32,204 operating turbines (82.6 GW) are grouped by farm name and location and matched to 1,709 of the site's German farms; these
+    and the added farms, 6,489 in all, now draw MaStR's real turbine positions in the close-up, with turbine count, model, hub height and rotor
+    diameter on the card (`data/global/turbines_de.json`, replacing OpenStreetMap).
+  - 4,780 onshore farms GEM lacks are added (23.7 GW, 1 MW and up; phases from each turbine's commissioning year). Germany's farm-level
+    coverage rises from 68% (53,313 MW) to 95% (74,366 MW).
+  - Avoiding duplicates: groups sharing a name with a site record, or close to a site farm of similar capacity, are never added; the build
+    checks that site onshore + added (66.2 GW) stays under MaStR onshore (71.1 GW). Four German pairs remain in the coverage report's
+    "suspected duplicates A" for manual checking (for example two places called Nortorf).
+  - New tools: `tools/fetch_mastr.py` range-fetches only the wind file (about 10 MB) from the 3 GB export; `tools/build_mastr.py` groups,
+    matches and writes the output.
+- The farm-layer description in Learn's "Sources & method" had mismatched figures between languages (the English said Feb 2025 and 15,000
+  farms); both are corrected.
+
 ## v2.21.0 — 2026-10-05
 
 - A new "Wind speed" basemap on the globe (basemap menu): Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0) mean wind speed at

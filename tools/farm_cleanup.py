@@ -25,8 +25,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 C, P, G, N = 0, 1, 2, 3
-SRC_ZH = ['精選', 'WRI GPPD', 'GEM', '2026 整理清單']
-SRC_EN = ['curated', 'WRI GPPD', 'GEM', '2026 compilation']
+SRC_ZH = ['精選', 'WRI GPPD', 'GEM', '2026 整理清單', 'MaStR']
+SRC_EN = ['curated', 'WRI GPPD', 'GEM', '2026 compilation', 'MaStR']
 ASOF = '2026-09'
 
 # ---------------------------------------------------------------- 來源連結

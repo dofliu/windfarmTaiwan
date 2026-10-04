@@ -262,7 +262,7 @@ def report(lang):
         s.append(f"   - {nm} ({f['iso']}) · {fmt(f['mw'])} MW · {ST[f['st']]} · {L('預計', 'expected')} {f['year']}")
     s.append(L(f"4. **座標**：{sum(r['approx'] for r in rows):,} 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 {qa_n if qa_n is not None else '?'} 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各）。",
                f"4. **Coordinates**: {sum(r['approx'] for r in rows):,} operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists {qa_n if qa_n is not None else '?'} farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico)."))
-    SRC = ({0: '精選', 1: 'WRI GPPD', 2: 'GEM', 3: '2026 整理'} if zh else {0: 'curated', 1: 'WRI GPPD', 2: 'GEM', 3: '2026 compilation'})
+    SRC = ({0: '精選', 1: 'WRI GPPD', 2: 'GEM', 3: '2026 整理', 4: 'MaStR'} if zh else {0: 'curated', 1: 'WRI GPPD', 2: 'GEM', 3: '2026 compilation', 4: 'MaStR'})
     s.append(L(f"   **疑似重複 A（名稱相同或相似）**：{len(dupA)} 組、較小一方合計 {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupA))} MW——來源不同、名稱相同或高度相似、相距 50 km 內，很可能是同一座風場被收了兩次，應優先處理：",
                f"   **Suspected duplicates A (same or similar name)**: {len(dupA)} pairs, smaller side {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupA))} MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:"))
     for x, y, d in dupA[:12]:
