@@ -37,7 +37,7 @@ const I18N = {
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
     farmsLoading: '風場資料載入中…',
     dens: ['關閉', '精簡', '標準', '詳細'],
-    tbLabel: '機組', tbModels: n => '等 ' + n + ' 種機型', tbNote: '近景依 USWTDB 的實際機位與尺寸繪製', tbSrcT: '美國風機資料庫 USWTDB（美國地質調查所、勞倫斯柏克萊國家實驗室，公有領域）', tbOsmNote: '近景依 OpenStreetMap 志工標示的機位繪製；機組數是標示的風機數，可能與實際略有出入', tbOsmCr: '© OpenStreetMap 貢獻者', tbOsmT: 'OpenStreetMap 資料，開放資料庫授權 ODbL',
+    tbLabel: '機組', tbModels: n => '等 ' + n + ' 種機型', tbNote: '近景依 USWTDB 的實際機位與尺寸繪製', tbSrcT: '美國風機資料庫 USWTDB（美國地質調查所、勞倫斯柏克萊國家實驗室，公有領域）', tbOsmNote: '近景依 OpenStreetMap 志工標示的機位繪製；機組數是標示的風機數，可能與實際略有出入', tbOsmCr: '© OpenStreetMap 貢獻者', tbOsmT: 'OpenStreetMap 資料，開放資料庫授權 ODbL', tbDeNote: '近景依德國聯邦網路局「市場主資料登錄」（MaStR）的機位與尺寸繪製', tbDeCr: '© Bundesnetzagentur | MaStR', tbDeT: '德國聯邦網路局 市場主資料登錄（Marktstammdatenregister），Datenlizenz Deutschland – Namensnennung 2.0',
     coastLabel: '離岸距離', coastNote: '到最近海岸線的直線距離，依 Natural Earth 1:50m 海岸線估算（不含小島）',
     actLabel: '實際年發電量', actCf: '容量因數', actNote: (mw, src) => '淨發電量取自' + src + '；容量因數以機組額定容量 ' + mw + ' MW 計，只列全年運轉的年份', actSrc: { USA: ['美國能源資訊署 EIA-923', 'EIA-923', '美國能源資訊署 EIA-923 各電廠逐月淨發電量（公有領域）'], TWN: ['台電開放資料「自建之各類再生能源發電量」（只有台電自有的風場）', '台電開放資料', '台灣電力公司 自建之各類再生能源發電量（政府資料開放平臺 17140，政府資料開放授權條款）'] },
     genLabel: '估計年發電量', genNote: (cn, cf, y) => '容量 × ' + cn + ' ' + y + ' 年風電平均容量因數 ' + cf + '%（Ember）；是估計，不是實測', genOff: '；離岸風場的容量因數通常高於全國平均',
@@ -113,7 +113,7 @@ const I18N = {
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
     farmsLoading: 'Loading farm data…',
     dens: ['Off', 'Minimal', 'Standard', 'Detailed'],
-    tbLabel: 'Turbines', tbModels: n => n + ' models', tbNote: 'The close-up uses the real turbine positions and sizes from USWTDB', tbSrcT: 'U.S. Wind Turbine Database (USGS / Lawrence Berkeley National Laboratory, public domain)', tbOsmNote: 'The close-up uses turbine positions mapped by OpenStreetMap volunteers; the count is the number of mapped turbines and may differ slightly from the real one', tbOsmCr: '© OpenStreetMap contributors', tbOsmT: 'OpenStreetMap data, Open Database License (ODbL)',
+    tbLabel: 'Turbines', tbModels: n => n + ' models', tbNote: 'The close-up uses the real turbine positions and sizes from USWTDB', tbSrcT: 'U.S. Wind Turbine Database (USGS / Lawrence Berkeley National Laboratory, public domain)', tbOsmNote: 'The close-up uses turbine positions mapped by OpenStreetMap volunteers; the count is the number of mapped turbines and may differ slightly from the real one', tbOsmCr: '© OpenStreetMap contributors', tbOsmT: 'OpenStreetMap data, Open Database License (ODbL)', tbDeNote: 'The close-up uses the turbine positions and sizes in the Federal Network Agency\'s Market Master Data Register (MaStR)', tbDeCr: '© Bundesnetzagentur | MaStR', tbDeT: 'German Federal Network Agency, Marktstammdatenregister; Data licence Germany – attribution – 2.0',
     coastLabel: 'Distance to shore', coastNote: 'Straight line to the nearest coastline, estimated from the Natural Earth 1:50m coastline (small islands not included)',
     actLabel: 'Actual yearly output', actCf: 'capacity factor', actNote: (mw, src) => 'Net generation from ' + src + '; capacity factor on the ' + mw + ' MW turbine rating, full years only', actSrc: { USA: ['the U.S. EIA (Form EIA-923)', 'EIA-923', 'U.S. Energy Information Administration, Form EIA-923 monthly net generation by plant (public domain)'], TWN: ['Taipower open data on its own renewable stations (Taipower-owned farms only)', 'Taipower open data', 'Taiwan Power Company, generation of its own renewable stations (data.gov.tw 17140, Open Government Data License)'] },
     genLabel: 'Estimated yearly output', genNote: (cn, cf, y) => 'capacity × the ' + y + ' average wind capacity factor of ' + cn + ', ' + cf + '% (Ember); an estimate, not a measurement', genOff: '; offshore farms usually run above the national average',
@@ -931,25 +931,28 @@ function animateFarmKind(L2, dt, farmScale) {
 }
 
 /* ---------------- 每部風機的實際位置與尺寸（第一次點到該區的風場才載入）：
-   美國＝USWTDB（tools/build_turbines.py → turbines.json，公有領域）；其他國家＝OpenStreetMap（tools/build_turbines_osm.py → turbines_osm.json，ODbL） ---------------- */
-let TB = null, tbP = null, TBO = null, tboP = null;
+   美國＝USWTDB（tools/build_turbines.py → turbines.json，公有領域）；德國＝MaStR（tools/build_mastr.py → turbines_de.json，dl-de/by-2-0）；
+   其他國家＝OpenStreetMap（tools/build_turbines_osm.py → turbines_osm.json，ODbL） ---------------- */
+let TB = null, TBO = null, TBD = null;
+const tbLoad = {}, TB_FILES = { us: 'turbines', osm: 'turbinesOsm', de: 'turbinesDe' };
 const tbOf = f => {
   if (!f || f.pseudo || f.pipe) return null;
   if (f.iso === 'USA') return TB ? TB.farms[f.name] || null : null;
-  return TBO ? TBO.farms[f.iso + '|' + f.name] || null : null;
+  const k = f.iso + '|' + f.name;
+  return (f.iso === 'DEU' && TBD && TBD.farms[k]) || (TBO ? TBO.farms[k] || null : null);   // 德國：MaStR 優先，其次 OSM
 };
 function needTurbines(f) {
   if (!f || f.pseudo || f.pipe) return;
-  const us = f.iso === 'USA';
-  if (us ? (TB || tbP) : (TBO || tboP)) return;
-  const done = j => {
-    if (us) { TB = j; Object.values(j.farms).forEach(v => v.src = 'us'); } else { TBO = j; Object.values(j.farms).forEach(v => v.src = 'osm'); }
-    D.farms.forEach(x => { if ((x.iso === 'USA') === us && tbOf(x)) { x._spec = null; removeCluster(x); } });
-    updateClusters(0, true);
-    if (cardItem && cardItem.kind === 'farm' && tbOf(cardItem.f)) renderCard(cardItem);
-  };
-  const p = WW.getJSON(us ? WW.DATA.turbines : WW.DATA.turbinesOsm).then(done).catch(e => { console.warn(e); if (us) tbP = null; else tboP = null; });
-  if (us) tbP = p; else tboP = p;
+  (f.iso === 'USA' ? ['us'] : f.iso === 'DEU' ? ['de', 'osm'] : ['osm']).forEach(kind => {
+    if (tbLoad[kind]) return;
+    tbLoad[kind] = WW.getJSON(WW.DATA[TB_FILES[kind]]).then(j => {
+      Object.values(j.farms).forEach(v => v.src = kind);
+      if (kind === 'us') TB = j; else if (kind === 'de') TBD = j; else TBO = j;
+      D.farms.forEach(x => { if (tbOf(x) && tbOf(x).src === kind) { x._spec = null; removeCluster(x); } });
+      updateClusters(0, true);
+      if (cardItem && cardItem.kind === 'farm' && tbOf(cardItem.f)) renderCard(cardItem);
+    }).catch(e => { console.warn(e); tbLoad[kind] = null; });
+  });
 }
 /* 實際年發電量（tools/build_generation.py → generation.json；美國＝EIA-923）：第一次打開風場卡片時才載入 */
 let GEN = null, genP = null;
@@ -2596,7 +2599,7 @@ function reportURL(it) {
     rows.push('狀態 Status: ' + both(Z.st[f.st], E.st[f.st]) + ' · ' + both(Z.type[f.type], E.type[f.type]) + ' · ' + (f.yu ? '年份不詳 year unknown' : (f.pipe ? '預計 expected ' : '') + (f.year || '—') + (f.end ? '–' + f.end : '')));
     if (f.owner) rows.push('業主 Owner: ' + f.owner);
     if (f.turbine) rows.push('機型 Turbines: ' + f.turbine);
-    rows.push('資料集 Dataset: ' + (['精選清單 curated list', 'GPPD (WRI)', 'GEM Global Wind Power Tracker', '2026 年整理清單 2026 compilation'][f.src] || '—'));
+    rows.push('資料集 Dataset: ' + (['精選清單 curated list', 'GPPD (WRI)', 'GEM Global Wind Power Tracker', '2026 年整理清單 2026 compilation', '德國 MaStR (Bundesnetzagentur)'][f.src] || '—'));
   } else if (it.kind === 'ms') rows.push('年份 Year: ' + it.m.year);
   else if (it.kind === 'event') { rows.push('日期 Date: ' + it.e.date); rows.push('出處 Sources: ' + it.e.src.join(' ')); }
   else if (it.kind === 'port') {
@@ -2633,8 +2636,9 @@ function factsHTML(f) {
     const txt = [tb.n + ' ' + T('units'), tb.m ? tb.m + (tb.mn > 1 ? L('（', ' (') + T('tbModels')(tb.mn) + L('）', ')') : '') : null,
       tb.hh && !(dm && dm.hub != null) ? T('dimHub') + ' ' + rng(tb.hh) + ' m' : null, tb.rd && !(dm && dm.rotor) ? T('dimRotor') + ' ' + rng(tb.rd) + ' m' : null].filter(Boolean).join(' · ');
     const link = tb.src === 'us' ? '<span class="fds"><a href="' + esc(TB.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbSrcT') + ' ' + (TB.meta.version || '')) + '">USWTDB</a></span>'
+      : tb.src === 'de' ? '<span class="fds"><a href="' + esc(TBD.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbDeT')) + '">' + esc(T('tbDeCr')) + '</a></span>'
       : '<span class="fds"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" title="' + esc(T('tbOsmT')) + '">' + esc(T('tbOsmCr')) + '</a></span>';
-    rows.push(row(T('tbLabel'), txt, tb.src === 'us' ? T('tbNote') : T('tbOsmNote'), link));
+    rows.push(row(T('tbLabel'), txt, tb.src === 'us' ? T('tbNote') : tb.src === 'de' ? T('tbDeNote') : T('tbOsmNote'), link));
   }
   const ck = f.type !== 'onshore' && !f.nStack ? coastKm(f) : null;
   if (ck != null) rows.push(row(T('coastLabel'), L('約 ', 'about ') + (ck < 10 ? ck.toFixed(1) : Math.round(ck)) + ' km', T('coastNote')));
@@ -3059,6 +3063,7 @@ function dataStats(zh) {
                      : LT.year + ' (latest available): official figures for ' + n(LT.n) + ' countries (' + C.filter(c => c.lt).map(c => cname(c) + ' ' + c.lt.asof).join(', ') + '); the rest carry end-' + DATA_Y);
   if (TB) li.push(zh ? '每部風機的位置與規格：美國 ' + n(TB.meta.farms) + ' 座風場、' + n(TB.meta.turbines) + ' 部（USWTDB ' + (TB.meta.version || '') + '）' : 'Turbine positions and specs: ' + n(TB.meta.turbines) + ' turbines in ' + n(TB.meta.farms) + ' US farms (USWTDB ' + (TB.meta.version || '') + ')');
   if (GEN) li.push(zh ? '實際年發電量：美國 ' + n(GEN.meta.by_iso.USA || 0) + ' 座風場（EIA-923）、台灣 ' + n(GEN.meta.by_iso.TWN || 0) + ' 座台電風場（台電開放資料）' : 'Actual yearly output: ' + n(GEN.meta.by_iso.USA || 0) + ' US farms (EIA-923) and ' + n(GEN.meta.by_iso.TWN || 0) + ' Taipower farms in Taiwan (Taipower open data)');
+  if (TBD) li.push(zh ? '德國每部風機的位置與規格：' + n(TBD.meta.farms) + ' 座風場、' + n(TBD.meta.turbines) + ' 部（MaStR）' : 'German turbine positions and specs: ' + n(TBD.meta.turbines) + ' turbines in ' + n(TBD.meta.farms) + ' farms (MaStR)');
   if (TBO) li.push(zh ? '其他國家的風機位置：' + n(TBO.meta.farms) + ' 座風場、' + n(TBO.meta.turbines) + ' 部（© OpenStreetMap 貢獻者，ODbL）' : 'Turbine positions elsewhere: ' + n(TBO.meta.turbines) + ' turbines in ' + n(TBO.meta.farms) + ' farms (© OpenStreetMap contributors, ODbL)');
   if (farmsReady && D.farms) {
     const F = D.farms, isos = new Set(F.map(f => f.iso)), op = F.filter(f => f.st === 0 && !f.end);
@@ -3100,6 +3105,7 @@ function showSources() {
     '<h4>' + (zh ? '風場卡片的實際年發電量' : 'Actual yearly output on farm cards') + '</h4><ul><li><a href="https://www.eia.gov/electricity/data/eia923/" target="_blank" rel="noopener">U.S. Energy Information Administration, Form EIA-923</a>' + (zh ? '（各電廠逐月淨發電量，公有領域）：依 USWTDB 每部風機的 EIA 電廠代碼接到本站的美國風場；電廠跨好幾座風場的不用，只列所有機組全年運轉的年份，容量因數以 USWTDB 機組額定容量計（tools/build_generation.py）。' : ' (monthly net generation by plant, public domain): linked to the site\'s US farms through the EIA plant code USWTDB gives each turbine; plants spread over several farms are left out, only years with every turbine in service all year are shown, and the capacity factor uses the USWTDB turbine ratings (tools/build_generation.py).') + '</li><li><a href="https://data.gov.tw/dataset/17140" target="_blank" rel="noopener">' + (zh ? '台灣電力公司「自建之各類再生能源發電量」' : 'Taiwan Power Company, generation of its own renewable stations') + '</a>' + (zh ? '（政府資料開放平臺 17140，各發電站逐月淨發電量，政府資料開放授權條款）：只有台電自有的風場；台電公布的裝置容量要與本站紀錄相差 15% 以內才用，只列 12 個月都有數字的年份。民營風場沒有逐場的官方發電量，仍顯示估計值。' : ' (data.gov.tw 17140, monthly net generation by station, Open Government Data License): Taipower-owned farms only, used when Taipower\'s stated capacity is within 15% of the site\'s record, full years only. Private farms have no official per-farm figures and keep the estimate.') + '</li></ul>' +
     '<h4>' + (zh ? '風場卡片的估計年發電量' : 'Estimated yearly output on farm cards') + '</h4><ul><li>' + (zh ? '容量 × 該國 2023–2025 年風電平均容量因數，取自 ' : 'Capacity × the country\'s 2023–2025 average wind capacity factor, from ') + '<a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '；是估計，不是實測。' : '; an estimate, not a measurement.') + '</li></ul>' +
     '<h4>' + (zh ? '其他國家的風機位置' : 'Turbine positions in other countries') + '</h4><ul><li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap ' + (zh ? '貢獻者' : 'contributors') + '</a>' + (zh ? '，開放資料庫授權（ODbL）；由 tools/build_turbines_osm.py 依 OSM 的風場範圍（名稱、容量）或空間群聚（單機容量要合理）對到本站的風場，衍生的 data/global/turbines_osm.json 同樣以 ODbL 分享。' : ', Open Database License (ODbL); matched to the site\'s farms by OSM wind-plant areas (name, capacity) or by spatial groups (plausible unit size) in tools/build_turbines_osm.py; the derived data/global/turbines_osm.json is likewise shared under the ODbL.') + '</li></ul>' +
+    '<h4>' + (zh ? '德國的風場與風機' : 'German farms and turbines') + '</h4><ul><li><a href="https://www.marktstammdatenregister.de/MaStR/Datendownload" target="_blank" rel="noopener">© Bundesnetzagentur | Marktstammdatenregister (MaStR)</a>' + (zh ? '，Datenlizenz Deutschland – Namensnennung – Version 2.0：每部營運中風機的座標、機型、輪轂高度、葉輪直徑與商轉日。依風場名稱與位置分群後，對到本站已有的德國風場（近景改畫實際機位），其餘 1 MW 以上、附近沒有可能相同之本站紀錄的陸域風場加進風場層（tools/build_mastr.py）。' : ', Data licence Germany – attribution – version 2.0: position, model, hub height, rotor diameter and commissioning date of every operating turbine. Grouped by wind-farm name and location, matched to the site\'s German farms (whose close-ups now use the real positions); onshore groups of 1 MW or more with no possibly identical site record nearby are added to the farm layer (tools/build_mastr.py).') + '</li></ul>' +
     '<h4>' + (zh ? '美國每部風機的位置與規格' : 'US turbine positions and specs') + '</h4><ul><li><a href="https://energy.usgs.gov/uswtdb/" target="_blank" rel="noopener">U.S. Wind Turbine Database (USWTDB)</a>' + (zh ? '，美國地質調查所、勞倫斯柏克萊國家實驗室與美國潔淨電力協會，公有領域；由 tools/build_turbines.py 依名稱、距離與容量（±15%）對到本站的風場，對不上的維持推算的排列。' : ', USGS, Lawrence Berkeley National Laboratory and American Clean Power Association, public domain; matched to the site\'s farms by name, distance and capacity (±15%) in tools/build_turbines.py; unmatched farms keep the estimated layout.') + '</li></ul>' +
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
     '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '</ul>' +

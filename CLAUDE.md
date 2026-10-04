@@ -61,6 +61,13 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Actual yearly output (`data/global/generation.json`) is built by `tools/build_generation.py`: US farms from EIA-923 through the EIA plant code USWTDB gives
   each turbine (plants spread over several farms and partial years are left out); in Taiwan only Taipower-owned farms (open data 17140/17141, stations
   mapped in `TW_STATIONS`, skipped when capacities differ by more than 15%). Private farms have no official per-farm figures; never pass certificates or estimates off as measured output.
+- 德國（`tools/build_mastr.py`，MaStR，Datenlizenz Deutschland – Namensnennung 2.0，標示「© Bundesnetzagentur | Marktstammdatenregister」）：每部風機依風場名稱與位置分群，
+  對到本站德國風場（名稱、距離、容量 ±20%）就寫進 `turbines_de.json`；其餘 1 MW 以上的陸域群在附近沒有可能相同的本站紀錄時，才列進 `sources/mastr_parks_DEU.json`
+  由 `build_farms.py` 加進風場層（來源代碼 4）。建置會檢查「本站陸域＋新增」不超過 MaStR 陸域容量的 102%，超過表示重複，要找出原因，不要放寬門檻了事。
+  Germany (`tools/build_mastr.py`, MaStR, Data licence Germany – attribution 2.0, credit "© Bundesnetzagentur | Marktstammdatenregister"): turbines are grouped
+  by farm name and location; groups matched to a site farm (name, distance, capacity ±20%) go to `turbines_de.json`; other onshore groups of 1 MW+ with no
+  possibly identical site record nearby go to `sources/mastr_parks_DEU.json`, added by `build_farms.py` as source code 4. The build stops if site onshore +
+  added exceeds 102% of the MaStR onshore total (duplicates): find the cause rather than loosening the thresholds.
 - 其他國家的風機位置（`data/global/turbines_osm.json`）來自 OpenStreetMap，以 ODbL 分享：檔案的 meta、README、卡片與「資料來源」都要標示「© OpenStreetMap 貢獻者」，
   不要把它併進其他授權的資料檔。對應規則在 `tools/build_turbines_osm.py`（風場範圍的名稱與容量，或空間群聚加單機容量檢查），寧可少配。
   Turbine positions elsewhere (`data/global/turbines_osm.json`) come from OpenStreetMap and are shared under the ODbL: keep "© OpenStreetMap

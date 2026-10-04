@@ -30,8 +30,9 @@ and move finished items to the topic lists below.
   four offshore farms completed in 2026 are now operating. The multi-energy mock-ups discussed the same day are deferred (ROADMAP,
   "Directions evaluated and deferred").
 - 4 Oct 2026 (v2.20.0): "Actual yearly output" on farm cards: 876 US farms (EIA-923) and 13 Taipower farms in Taiwan (Taipower open data).
-- 5 Oct 2026 (v2.21.0): a "Wind speed" basemap on the globe (Global Wind Atlas, `tools/build_wind_resource.py`). Next: Germany's MaStR
-  (v2.22.0; the owner has agreed to use it).
+- 5 Oct 2026 (v2.21.0): a "Wind speed" basemap on the globe (Global Wind Atlas, `tools/build_wind_resource.py`). 
+- 5 Oct 2026 (v2.22.0): Germany's MaStR: 6,489 farms draw real turbine positions and 4,780 onshore farms (23.7 GW) are added; German
+  farm-level coverage 68% → 95%. All three items (actual output, wind speed basemap, MaStR) are done.
 - 4 Oct 2026 (v2.19.2): a second check of offshore farms under construction "expected in 2026" (East Anglia TWO/THREE and Ecowende pinned in the
   pipeline matching, Hainan CZ2's year and position corrected and more; see the CHANGELOG).
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
@@ -270,7 +271,9 @@ the rules are in `tools/farm_cleanup.py`.
       and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
 - [ ] 48 GW of operating farms have no commissioning year (mostly in China and India), so the map can
       only show them from 2025: add years where they can be found
-- [ ] Large countries with low coverage (after GEM 2026-02: China 98 GW short, Germany 27 GW, India 16 GW): assess filling
+- [x] Germany filled from MaStR (v2.22.0): farm-level coverage 68% → 95%; four German pairs remain in the coverage report's "suspected
+      duplicates A" for manual checking (Flomborn/Stetten, two Nortorfs, Kaiser-Wilhelm-Koog)
+- [ ] Large countries with low coverage (after GEM 2026-02: China 98 GW short, India 16 GW): assess filling
       the gap from national registries (see phase 1 in the ROADMAP)
 - [x] Duplicate farm records: the US Sunrise Wind appeared both as GEM's "Sunrise wind farm (United States)" and as "Sunrise Wind" from the 2026 compilation (both 924 MW, under construction); merged into one record in foundation step 4, at the centre of BOEM lease OCS-A 0487 (Sep 2026, v2.10.0)
 - [x] Two Dutch duplicates (found while matching foundations): Borssele V and GEM's “Borssele Site V”, and Irene Vorrink and
@@ -323,7 +326,7 @@ the rules are in `tools/farm_cleanup.py`.
       Taichung Power Plant 2.0 vs 8.0, Yongxing 9.2 vs 16.8, Taixi 9.2 vs 16.8, Longmen 9.0 vs 6.9 MW; Zhongtun has no data) need their phases
       sorted out first; private farms have no official per-farm figures (T-REC certificate volumes are not total output and must not be used);
       Taipower Offshore Phase 1's card shows about 1.6 km to shore (its point is approximate; the real site coordinates are to be verified)
-- [ ] The rest of farm details v2: other national registers (Germany MaStR, Danish turbine register, UK REPD) could fill positions
+- [ ] The rest of farm details v2: other national registers (Danish turbine register, UK REPD; Germany's MaStR done in v2.22.0) could fill positions
       OSM lacks (OSM maps few turbines in China); a common turbine-model table
       (only about 14% of capacity has a model string, so limited value); per-farm actual output elsewhere (UK REPD / Ofgem, Australia AEMO and others)
 

@@ -608,6 +608,13 @@ if set(PIPE_FIX) - pipe_fixed:
     raise SystemExit(f"farm_cleanup.PIPE_FIX entries not found in pipeline_curated.json: {sorted(set(PIPE_FIX) - pipe_fixed)}")
 print(f"curated pipeline: updated {pipe_upd} GEM projects, added {pipe_add}; Japan list: added {jp_add} farms, "
       f"upgraded {jp_upg} to operating, fixed {jp_fix} GEM coordinates")
+# 德國：MaStR 裡本站還沒收錄的陸域風場（tools/build_mastr.py 產生，來源代碼 4；已排除與本站紀錄可能相同的）
+mp = EXTRA / 'mastr_parks_DEU.json'
+mastr = json.loads(mp.read_text(encoding='utf-8')) if mp.exists() else {'parks': [], 'meta': {}}
+for p in mastr['parks']:
+    row = [p['name'], '', 'DEU', p['lat'], p['lon'], p['mw'], p['year'], 0, 0, 0, '', p['turbine'], 0 if p['year'] else 2, 4, p['ph'] or 0, 0, 0]
+    allrows.append(row); by_iso['DEU'].append(row)
+print(f"MaStR (Germany): added {len(mastr['parks'])} farms, {sum(p['mw'] for p in mastr['parks']):,.0f} MW")
 # 共用座標：同一國同一點上有 3 筆以上的紀錄（多為省或國家中心的代用座標）→ flags 4
 stack = defaultdict(list)
 for r in allrows:
@@ -627,7 +634,8 @@ meta = {
     "sources": ["curated (wind-history-map v3; TW/JP audited)", "WRI Global Power Plant Database v1.3 (CC BY 4.0)",
                 "Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0)",
                 "2026 compilation (wind-history-map, Sep 2026): curated pipeline projects; Japanese farms from NEDO "
-                "prefecture lists and windfarm.work / operator sites"],
+                "prefecture lists and windfarm.work / operator sites",
+                "Bundesnetzagentur, Marktstammdatenregister (MaStR), Datenlizenz Deutschland – Namensnennung – Version 2.0: German onshore farms not in the other sources (tools/build_mastr.py)"],
     "gem_release": GEM_REL,
     "pipeline_curated_asof": pc.get('asOf'),
     "cleanup": cleanup_summary(clean_log),

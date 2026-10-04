@@ -66,7 +66,7 @@
   - 右上角「分享」產生含資料時間徽章的即時圖卡
 - **全球發展** `#/global` — 3D 地球儀（three.js，只在進入此頁才載入，離開即停止繪圖）：
   - 各國陸域／離岸**年底累計裝置容量**逐年動畫，長條圖排名一律以 **MW** 顯示；可切換地圖／地圖＋長條／長條排名、3D 地球／2.5D 平面
-  - **風場層**：合併附件精選風場與 Global Energy Monitor 全球風電追蹤（2026-02），營運中約 1.6 萬座；
+  - **風場層**：合併附件精選風場、Global Energy Monitor 全球風電追蹤（2026-02）與德國 MaStR，營運中約 2.1 萬座；
     選一個國家就畫出該國全部風場，每座風場以一支風機代表（放大後也一樣）；點選風場時才依機組數量畫出它的全部風機
   - **規劃中圖層**（虛線環）：興建中／前期開發／已宣布約 7,850 案，越亮越接近完工；可用「規劃中」按鈕開關。
     「規劃」分頁依狀態與預計商轉年列出範圍內所有專案，並附 GEM 2026-02 各國開發管線總量；點選專案時以半透明風機顯示預定配置
@@ -141,7 +141,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `assets/vendor/` — three.js r128 與 OrbitControls（MIT，原樣內附）
 - `assets/img/globe/` — 地形／衛星底圖（4096×2048 與 2048×1024 兩種尺寸）
 - `data/global/wind_global.json` — 國家逐年陸域／離岸容量 1980–2025、全球總量、里程碑、來源與註記（約 70 KB）
-- `data/global/wind_farms.json` — 風場層級資料約 2.3 萬筆（營運中、規劃中、已除役）
+- `data/global/wind_farms.json` — 風場層級資料約 3.1 萬筆（營運中、規劃中、已除役）
+- `data/global/turbines_de.json` — 德國每部風機的位置與規格（MaStR；約 6,500 座風場），由 `tools/build_mastr.py` 產生；
+  **以 Datenlizenz Deutschland – Namensnennung 2.0 分享（© Bundesnetzagentur | Marktstammdatenregister）**；`data/global/sources/mastr_parks_DEU.json` 是要加進風場層的德國風場
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
 - `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
@@ -238,7 +240,9 @@ python tools/extract_curated_extras.py wind-history-map.html data/global/sources
 # 2. 國界（Natural Earth 1:50m）
 curl -LO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
 python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world_borders.json
-# 3. 風場層（精選風場 × GEM 全球風電追蹤）
+# 3. 風場層（精選風場 × GEM 全球風電追蹤 × 德國 MaStR）
+#    德國：先從 MaStR 全國匯出檔分段取出風機檔（約 10 MB），對到本站風場、列出要新增的風場（只拿非 MaStR 的紀錄比對）
+python tools/fetch_mastr.py mastr/ && python tools/build_mastr.py mastr/EinheitenWind.xml mastr/Katalogwerte.xml
 curl -LO https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson   # GEM 公開資料桶（約 55 MB）
 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 #   對不到新版名稱的清理規則會讓建置中止；升級 GEM 版本時可先 CLEANUP_LENIENT=1 建置、看新名稱，再逐條改寫 tools/farm_cleanup.py
@@ -347,7 +351,8 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   日本國家序列：[JWPA 年末累積導入量](https://jwpa.jp/information/12660/)
 - 風場層：附件「全球風電發展觀察地圖」精選風場（台灣、日本經逐場稽核）、WRI Global Power Plant Database v1.3（CC BY 4.0）、
   Global Energy Monitor「[Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/)」2026 年 2 月版（CC BY 4.0）、
-  2026 年 9 月整理的規劃中重點專案與日本風場清單（NEDO、windfarm.work、營運商資料）
+  2026 年 9 月整理的規劃中重點專案與日本風場清單（NEDO、windfarm.work、營運商資料）、德國聯邦網路局「市場主資料登錄」MaStR
+  （© Bundesnetzagentur | Marktstammdatenregister，Datenlizenz Deutschland – Namensnennung – Version 2.0；德國每部風機與 GEM 沒收錄的陸域風場）
 - 開發管線各國總量：GEM Global Wind Power Tracker 2026 年 2 月版
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
 - 平均風速底圖：Global Wind Atlas 3（DTU 丹麥技術大學、世界銀行集團，CC BY 4.0）

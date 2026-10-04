@@ -11,7 +11,7 @@
      有好幾座 → 依最近的風場座標分開，每一份都要通過 3 的檢查，有一份不通過就整群不用。
   3. 檢查：OSM 有一半以上的風機寫了單機容量 → 加總要在風場容量 ±20% 內；本站有機組數 → ±15% 內；
      都沒有 → 容量 ÷ 部數（單機容量）要落在該年代陸域／離岸機組的合理範圍內。
-只對營運中、沒有除役年的風場；共用代用座標的紀錄（flags 4）不對。OSM 是 ODbL 授權，輸出檔也以 ODbL 分享（見 meta.license）。
+只對營運中、沒有除役年的風場；共用代用座標的紀錄（flags 4）與德國已有 MaStR 機位的風場不對。OSM 是 ODbL 授權，輸出檔也以 ODbL 分享（見 meta.license）。
 
 The US uses USWTDB (tools/build_turbines.py); other countries use OpenStreetMap. Most OSM turbines carry no name, so matching is
 conservative and in two steps: (1) named OSM wind plants matched to a farm by name (Latin words or CJK character pairs), centre
@@ -20,8 +20,8 @@ plant; (2) the remaining turbines are grouped (2 km links); a group with exactly
 10 km for approximate coordinates) goes to that farm, and a group with several is split by nearest farm point, every share passing
 the check or the whole group is dropped. The check: when half or more of the turbines state a rating, their sum must be within ±20%
 of the farm's capacity; when the site knows the turbine count, within ±15%; otherwise capacity ÷ count must be a plausible unit size
-for the era and onshore/offshore. Only operating farms without a retirement year; records on a shared placeholder point (flags 4)
-are skipped. OpenStreetMap data is ODbL, and so is the output (see meta.license).
+for the era and onshore/offshore. Only operating farms without a retirement year; records on a shared placeholder point (flags 4) and German
+farms with MaStR positions are skipped. OpenStreetMap data is ODbL, and so is the output (see meta.license).
 """
 import collections
 import json
@@ -162,7 +162,9 @@ def main(osm_dir):
     fj = json.loads(FARMS.read_text(encoding='utf-8'))
     cols = fj['meta']['cols']
     farms = [dict(zip(cols, r)) for r in fj['rows']]
-    cand = [f for f in farms if f['st'] == 0 and not f['end'] and f['iso'] != 'USA' and not (f['flags'] & 4)]
+    de = ROOT / 'data/global/turbines_de.json'                          # 德國有 MaStR 機位的風場不用 OSM（tools/build_mastr.py）
+    mastr = set(json.loads(de.read_text(encoding='utf-8'))['farms']) if de.exists() else set()
+    cand = [f for f in farms if f['st'] == 0 and not f['end'] and f['iso'] != 'USA' and not (f['flags'] & 4) and 'DEU|' + f['name'] not in mastr]
 
     turbines, plants, base = {}, {}, None
     for fp in sorted(Path(osm_dir).glob('tile_*.json')):

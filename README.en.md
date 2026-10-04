@@ -87,7 +87,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - Year-by-year animation of each country's onshore/offshore **year-end cumulative capacity**; the
     ranking bars are always in **MW**; map / map + bars / bar race views, 3D globe or 2.5D map
   - **Farm layer**: curated farms merged with the Global Energy Monitor Global Wind Power Tracker
-    (Feb 2025), about 15,000 operating farms; selecting a country draws all of its farms, each shown as a
+    (Feb 2026) and Germany's MaStR, about 21,000 operating farms; selecting a country draws all of its farms, each shown as a
     single turbine at any zoom; clicking a farm draws all of its turbines based on its unit count
   - **Pipeline layer** (dashed rings): about 7,850 projects under construction, in pre-construction or
     announced — brighter means closer to completion; toggle with the "Pipeline" button. The Pipeline tab lists
@@ -192,7 +192,9 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `assets/img/globe/` — relief / satellite basemaps (4096×2048 and 2048×1024)
 - `data/global/wind_global.json` — per-country onshore/offshore capacity 1980–2025, world totals,
   milestones, sources and notes (~70 KB)
-- `data/global/wind_farms.json` — ~23,000 farm-level records (operating, pipeline, retired)
+- `data/global/wind_farms.json` — ~31,000 farm-level records (operating, pipeline, retired)
+- `data/global/turbines_de.json` — position and specs of every German turbine (MaStR; about 6,500 farms), built by `tools/build_mastr.py`;
+  **shared under the Data licence Germany – attribution – 2.0 (© Bundesnetzagentur | Marktstammdatenregister)**; `data/global/sources/mastr_parks_DEU.json` lists the German farms added to the farm layer
 - `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
 - `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
 - `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
@@ -328,7 +330,9 @@ python tools/extract_curated_extras.py wind-history-map.html data/global/sources
 # 2. Borders (Natural Earth 1:50m)
 curl -LO https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
 python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world_borders.json
-# 3. Farm layer (curated farms × GEM Global Wind Power Tracker)
+# 3. Farm layer (curated farms × GEM Global Wind Power Tracker × Germany's MaStR)
+#    Germany: range-fetch the wind file (about 10 MB) from the MaStR bulk export, match it to the site's farms and list the farms to add (matched against non-MaStR records only)
+python tools/fetch_mastr.py mastr/ && python tools/build_mastr.py mastr/EinheitenWind.xml mastr/Katalogwerte.xml
 curl -LO https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson   # GEM public data bucket (about 55 MB)
 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 #   clean-up rules that no longer match the new names stop the build; when upgrading the GEM release, build once with CLEANUP_LENIENT=1 to see the new names, then rewrite the rules in tools/farm_cleanup.py
@@ -472,8 +476,9 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Farm layer: the curated farms from the "Global wind power development map" (Taiwan/Japan audited), WRI
   Global Power Plant Database v1.3 (CC BY 4.0), Global Energy Monitor's
   [Global Wind Power Tracker](https://globalenergymonitor.org/projects/global-wind-power-tracker/),
-  February 2026 release (CC BY 4.0), and the pipeline projects and Japanese farm list compiled in Sep 2026
-  (NEDO, windfarm.work, operator pages)
+  February 2026 release (CC BY 4.0), the pipeline projects and Japanese farm list compiled in Sep 2026
+  (NEDO, windfarm.work, operator pages), and the German Federal Network Agency's Market Master Data Register MaStR
+  (© Bundesnetzagentur | Marktstammdatenregister, Data licence Germany – attribution – version 2.0; every German turbine and onshore farms GEM lacks)
 - Pipeline country totals: GEM Global Wind Power Tracker, February 2026 release
 - Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
   Marble Next Generation (public domain)
