@@ -3,13 +3,13 @@
 
   python3 tools/fetch_osm_turbines.py osm_wind/          # 依 10°×10° 分區查 Overpass API（只查本站有美國以外營運中風場的格子），每區存一個 JSON（已下載的區跳過，同時查四區）
 
-查詢：風機＝power=generator＋generator:source=wind 的節點；風場範圍＝power=plant＋plant:source=wind 的 way／relation（含邊界幾何）。
+查詢：風機＝power=generator＋generator:source=wind 的節點；風場範圍＝power=plant＋plant:source=wind 的 way／relation（含邊界幾何與成員：OSM 的風場多半是 type=site 的 relation，成員就是各部風機）。
 下載的原始檔不進 git；tools/build_turbines_osm.py 讀這個資料夾，把風機對到本站的風場。OpenStreetMap 資料是 ODbL 授權：
 由它衍生的 data/global/turbines_osm.json 也以 ODbL 分享，並標示「© OpenStreetMap 貢獻者」。
 Overpass 公用伺服器常忙碌（504、連線中斷）：每區重試，依序換伺服器。
 
 Queries: turbines = nodes tagged power=generator + generator:source=wind; farm areas = ways/relations tagged power=plant +
-plant:source=wind (with geometry). One JSON per 10°×10° tile, only tiles holding an operating non-US farm of the site (tiles already downloaded are skipped, four at a time); the raw files stay out of
+plant:source=wind (with geometry and members: most OSM wind farms are type=site relations whose members are the turbines). One JSON per 10°×10° tile, only tiles holding an operating non-US farm of the site (tiles already downloaded are skipped, four at a time); the raw files stay out of
 git. tools/build_turbines_osm.py reads the folder. OpenStreetMap data is ODbL: the derived data/global/turbines_osm.json is shared
 under the ODbL with "© OpenStreetMap contributors". Public Overpass servers are often busy, so each tile is retried across servers.
 """
@@ -31,7 +31,7 @@ node["power"="generator"]["generator:source"="wind"]({s},{w},{n},{e});
 out;"""
 Q_PLANT = """[out:json][timeout:600];
 (nwr["power"="plant"]["plant:source"="wind"]({s},{w},{n},{e}););
-out tags geom;"""
+out geom;"""
 
 
 def fetch(q):
