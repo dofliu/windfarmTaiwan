@@ -149,7 +149,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/country_stats.json` — 地球儀時間軸的「最新可得」年份（2026：8 國官方數字，逐國出處寫在 `tools/latest_wind.py`）與各國風電平均容量因數
   （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
 - `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；約 970 座風場、6 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
-- `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
+- `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,900 座風場、14.7 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
   **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
   以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）
@@ -257,7 +257,7 @@ python tools/build_country_stats.py
 # 8. 美國每部風機的位置與規格（USWTDB 每季更新；重建風場層後也要重跑，名稱改了會對不到）
 curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
 python tools/build_turbines.py uswtdb_V9_1_20260928.csv
-# 9. 其他國家的風機位置（OpenStreetMap，ODbL；下載約需 1–2 小時，Overpass 公用伺服器忙時會自動重試；重建風場層後也要重跑對應）
+# 9. 其他國家的風機位置（OpenStreetMap，ODbL；下載約需 2–4 小時，Overpass 公用伺服器忙時會自動重試，失敗的區重跑時補；重建風場層後也要重跑對應）
 python tools/fetch_osm_turbines.py osm_wind/
 python tools/build_turbines_osm.py osm_wind/
 ```

@@ -204,7 +204,8 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   estimated yearly output on farm cards); built by `tools/build_country_stats.py`
 - `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
-- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap, downloaded by
+- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,900 farms, 147,000
+  turbines), downloaded by
   `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
   Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
   non-US farm is selected
@@ -346,7 +347,7 @@ python tools/build_country_stats.py
 # 8. Position and specs of every US turbine (USWTDB, updated quarterly; re-run after rebuilding the farm layer, renamed farms stop matching)
 curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
 python tools/build_turbines.py uswtdb_V9_1_20260928.csv
-# 9. Turbine positions in other countries (OpenStreetMap, ODbL; the download takes 1–2 hours and retries when the public Overpass servers are busy; re-run the matching after rebuilding the farm layer)
+# 9. Turbine positions in other countries (OpenStreetMap, ODbL; the download takes 2–4 hours and retries when the public Overpass servers are busy, re-run to fill failed tiles; re-run the matching after rebuilding the farm layer)
 python tools/fetch_osm_turbines.py osm_wind/
 python tools/build_turbines_osm.py osm_wind/
 ```
