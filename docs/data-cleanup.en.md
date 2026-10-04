@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 347 rules: 137 records removed (42,468.2 MW of them operating), 210 records fixed.
+- 356 rules: 137 records removed (42,468.2 MW of them operating), 219 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -23,7 +23,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 0 |
 | France | 2 | 0 | 5 |
-| Germany | 0 | 0 | 4 |
+| Germany | 0 | 0 | 5 |
 | Iran | 2 | 62 | 2 |
 | Ireland | 0 | 0 | 1 |
 | Japan | 2 | 30 | 11 |
@@ -40,7 +40,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | South Korea | 3 | 157.5 | 9 |
 | Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
-| Taiwan | 1 | 0 | 6 |
+| Taiwan | 1 | 0 | 14 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 2 | 270 | 1 |
 | United Kingdom | 7 | 3,485 | 6 |
@@ -272,6 +272,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Hohe See · 497 MW · 2019 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 9 km to the east) | [link](https://www.openstreetmap.org/way/344491479) |
 | Hooksiel (BARD test turbine) · 5 MW · 2008 | curated | fixed: end year | Dismantled in May 2016, after about four years out of service | [link](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
 | Windanker wind farm · 300 MW · 2026 | GEM | fixed: capacity | Capacity 315 MW (21 turbines), not 300 MW; turbine installation only began in June 2026, with completion expected by year-end and full commissioning in 2027 | [link](https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/) |
+| Flomborn-Stetten wind farm · 15 MW · 2013 | GEM | fixed: location | BVT Group’s Flomborn/Stetten farm is MaStR’s “BVT Windpark Flomborn/Stetten”: 5 × 3,075 kW, connected in December 2013 (SEE970097431950, SEE972537071986, SEE986793983570, SEE978061015458, SEE997638951548), at Flomborn, Alzey-Worms district; GEM’s point is about 25 km to the north-east, so it moves to the centre of these five | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## Iran (IRN)
 
@@ -474,6 +475,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | fixed: owner | Youde was allocated 700 MW in Round 3.2 for 2029, developed by Shinfox; GEM’s owner wpd and the “Datian” half are out of date (Datian got only 165 MW in Round 3.1, did not sign and was cancelled in 2023). In August 2026 the Energy Administration said the developer had not paid the rest of its performance bond and the termination was being processed | [link](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 | Hai Long 2 & 3 · 1,044 MW · 2026 | curated | fixed: year | Northland's Q2 2026 report: 71 of 73 turbines installed and 59 generating; commercial operation of the whole project expected in 2027 | [link](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Taipower Offshore Phase 2 · 294 MW · 2026 | curated | fixed: year | In June 2026 the economy minister said over 90% was done with only turbine installation left, aiming to finish by year-end and connect in H1 2027; in October Taipower said it had taken over the vessels and aims to finish by year-end | [link](https://www.cna.com.tw/news/afe/202606170184.aspx) |
+| Taoyuan Luzhu · 33.6 MW · 2025 | curated | fixed: capacity, year, turbines | Taipower’s station list and the Energy Administration’s wind single window list only the 8 Enercon E44 (0.9 MW) at Luzhu, 7.2 MW in all, with no 33.6 MW new-build or repowering plan; completed and connected on 2 February 2015 (Wikipedia). The previous 33.6 MW and 2025 were estimates | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Power Plant · 8 MW · 2005 | curated | fixed: capacity, turbines | Taipower’s station list and the Energy Administration’s single window show a single Zephyros Z72 (2 MW) left; in 2016 Taipower said the turbines inside the plant were blocked by China Steel/Dragon Steel buildings and moved 2 to the Taichung Port row (replacing units destroyed by Typhoon Soudelor in 2015). The original count and start year are unverified | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Port · 36 MW · 2006 | curated | fixed: capacity, turbines | Taipower’s station list: Taichung Port has 13 Zephyros Z72 (26 MW) + 3 Enercon E82 E4 (9 MW), 16 turbines and 35 MW; the Energy Administration’s single window also gives 16 turbines and 35 MW | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Wanggong · 20 MW · 2011 | curated | fixed: capacity, turbines | Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW) | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yongxing (Fangyuan) · 16.8 MW · 2024 | curated | fixed: capacity, turbines | Taipower’s station list: Changhua Yongxing has 4 Enercon E70, 9.2 MW in all (the previous 16.8 MW with 4.2 MW turbines was an estimate); start year unverified | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yunlin Taixi · 16.8 MW · 2024 | curated | fixed: capacity, turbines | Taipower’s station list: Yunlin Taixi has 4 Enercon E70 E4, 9.2 MW in all, connected on 24 October 2024 and in trial operation (the previous 16.8 MW was an estimate) | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Longmen · 6.9 MW · 2023 | curated | fixed: capacity, turbines | Taipower’s station list and the Energy Administration’s single window: Penghu Longmen has 3 Enercon E82 E4, 9 MW in all (the previous 6.9 MW was an estimate) | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Zhongtun · 4.8 MW · 2001 | curated | fixed: status, end year | Zhongtun’s 8 turbines were over 20 years old with no spare parts and Taipower began decommissioning them in 2023; the renewal plan passed its EIA in August 2024 but was shelved after local opposition, and all 8 turbines had been dismantled by November 2025 (Liberty Times, 15 Nov 2025) | [link](https://news.ltn.com.tw/news/life/breakingnews/5246753) |
 
 ## Thailand (THA)
 
@@ -611,3 +620,15 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm (CHN) | Guangdong Energy’s Yangjiang Shaba (300 MW, fully connected December 2021) is a different farm from CTG’s Yangjiang Shapa | [link](https://m.bjx.com.cn/mnews/20211206/1191794.shtml) |
 | Guangdong Yangjiang Nanpengdao (China Energy Conservation) Offshore wind farm (CHN) | CECEP’s Yangjiang Nanpeng Island (300 MW, fully connected November 2021) is a different farm from CGN’s Nanpeng Island | [link](https://wind.in-en.com/html/wind-2412533.shtml) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm (CHN) | Zhugensha H2 (302 MW, Zhejiang New Energy and CNOOC) is a different farm from Guohua’s Dongtai IV (H2) | [link](https://www.nbd.com.cn/articles/2021-11-03/1978454.html) |
+
+## Checked, not duplicates (left out of the coverage report)
+
+| Farm | Reason | Source link |
+|---|---|---|
+| Windpark Nortorf (DEU) | MaStR’s “Windpark Nortorf” (2 Nordex N163, 2025) is at Nortorf/Ellerdorf in Rendsburg-Eckernförde district; GEM’s “Nortorf 2” (13 MW, 2022) is the other Nortorf, 44 km away in Steinburg district, matched to MaStR’s “Windpark Nortorf 2” (2 × 6.6 MW): two places with the same name | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| BWP Kaiser-Wilhelm-Koog II (DEU) | MaStR’s “BWP Kaiser-Wilhelm-Koog II” is a single Enercon E58 (1,000 kW) from 2004, not the 1987 Westküste test field in the curated record | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Flomborn (DEU) | MaStR’s “Windpark Flomborn” has 5 × 3,075 kW connected December 2012 – February 2013, a separate neighbour of the “BVT Windpark Flomborn/Stetten” (5 units, December 2013) that GEM’s “Flomborn-Stetten” matches | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Stetten (DEU) | MaStR’s “Windpark Stetten” (Stetten, Donnersbergkreis, 2012–2015) is a different set of turbines from the five BVT units (December 2013) that GEM’s “Flomborn-Stetten” matches | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Heßloch (DEU) | MaStR’s “Windpark Heßloch” is 3 Senvion 3.4M104 from 2014–2015; GEM’s “Dittelsheim-Heßloch” matches the 4 Enercon E-82 from 2013: same area, different phase | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Welsow (DEU) | MaStR’s “Windpark Welsow” is 2 Enercon E138 from 2021; GEM’s “Kerkow-Welsow” matches the 2 Nordex N149 from 2023: same area, different phase | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Gnannenweiler (DEU) | MaStR’s “Gnannenweiler” is 2 Enercon E138 from 2021; GEM’s “Gnannenweiler Windnetz” matches the Enercon E82 from 2009: same area, different phase | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

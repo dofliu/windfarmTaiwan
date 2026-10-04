@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 347 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 210 筆。
+- 規則 356 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 219 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -18,7 +18,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 3 | 157.5 | 9 |
-| 台灣 | 1 | 0 | 6 |
+| 台灣 | 1 | 0 | 14 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
 | 埃及 | 2 | 1,082 | 0 |
@@ -26,7 +26,7 @@
 | 多明尼加 | 1 | 50 | 6 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 1 | 150 | 0 |
-| 德國 | 0 | 0 | 4 |
+| 德國 | 0 | 0 | 5 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 9 |
 | 日本 | 2 | 30 | 11 |
@@ -241,6 +241,14 @@
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | 修正：業主 | 又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約 | [連結](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 | Hai Long 2 & 3 · 1,044 MW · 2026 | 精選 | 修正：年份 | Northland 2026 年第二季報告：73 部已裝 71 部、59 部發電，全案商轉預計 2027 年 | [連結](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Taipower Offshore Phase 2 · 294 MW · 2026 | 精選 | 修正：年份 | 2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工 | [連結](https://www.cna.com.tw/news/afe/202606170184.aspx) |
+| Taoyuan Luzhu · 33.6 MW · 2025 | 精選 | 修正：容量、年份、機組 | 台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Power Plant · 8 MW · 2005 | 精選 | 修正：容量、機組 | 台電發電站清單與能源署單一窗口都只剩 1 部 Zephyros Z72（2 MW）；台電 2016 年表示廠內風機受中龍鋼鐵等建物擋風，2 部移到台中港區（補 2015 年蘇迪勒颱風吹毀的機組）。原始機組數與商轉年待查證 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Port · 36 MW · 2006 | 精選 | 修正：容量、機組 | 台電發電站清單：台中港區 13 部 Zephyros Z72（26 MW）＋3 部 Enercon E82 E4（9 MW），共 16 部 35 MW；能源署單一窗口同為 16 部 35 MW | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Wanggong · 20 MW · 2011 | 精選 | 修正：容量、機組 | 台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yongxing (Fangyuan) · 16.8 MW · 2024 | 精選 | 修正：容量、機組 | 台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；商轉年待查證 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yunlin Taixi · 16.8 MW · 2024 | 精選 | 修正：容量、機組 | 台電發電站清單：雲林台西 4 部 Enercon E70 E4，共 9.2 MW，113 年（2024 年）10 月 24 日併聯、試運轉中（原本的 16.8 MW 是估計值） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Longmen · 6.9 MW · 2023 | 精選 | 修正：容量、機組 | 台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Zhongtun · 4.8 MW · 2001 | 精選 | 修正：狀態、除役年 | 中屯 8 部風機運轉逾 20 年、無備品，台電 2023 年起辦理除役更新；更新計畫 2024 年 8 月通過環評但因地方反對暫緩，8 部風機 2025 年 11 月前拆除完成（自由時報 2025-11-15） | [連結](https://news.ltn.com.tw/news/life/breakingnews/5246753) |
 
 ## 哥倫比亞 (COL)
 
@@ -304,6 +312,7 @@
 | Hohe See · 497 MW · 2019 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東約 9 km） | [連結](https://www.openstreetmap.org/way/344491479) |
 | Hooksiel (BARD test turbine) · 5 MW · 2008 | 精選 | 修正：除役年 | 2016 年 5 月拆除（當時已停機約四年） | [連結](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
 | Windanker wind farm · 300 MW · 2026 | GEM | 修正：容量 | 容量 315 MW（21 部風機），不是 300 MW；2026 年 6 月才開始安裝風機，預計年底完工、2027 年全面運轉 | [連結](https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/) |
+| Flomborn-Stetten wind farm · 15 MW · 2013 | GEM | 修正：座標 | BVT 集團的 Flomborn／Stetten 風場就是 MaStR 的「BVT Windpark Flomborn/Stetten」：5 部 3,075 kW、2013 年 12 月併網（SEE970097431950、SEE972537071986、SEE986793983570、SEE978061015458、SEE997638951548），位於 Alzey-Worms 縣 Flomborn；GEM 的座標在東北方約 25 km 外，改到這 5 部的中心 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## 愛爾蘭 (IRL)
 
@@ -611,3 +620,15 @@
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm (CHN) | 粵電陽江沙扒（300 MW，2021 年 12 月全容量併網）與三峽陽江沙扒是不同的風場 | [連結](https://m.bjx.com.cn/mnews/20211206/1191794.shtml) |
 | Guangdong Yangjiang Nanpengdao (China Energy Conservation) Offshore wind farm (CHN) | 中節能陽江南鵬島（300 MW，2021 年 11 月全容量併網）與中廣核南鵬島是不同的風場 | [連結](https://wind.in-en.com/html/wind-2412533.shtml) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm (CHN) | 竹根沙 H2（302 MW，浙江新能與中海油）與國華東台四期 H2 是不同的風場 | [連結](https://www.nbd.com.cn/articles/2021-11-03/1978454.html) |
+
+## 已查證不是重複（覆蓋率報告不再列）
+
+| 風場 | 理由 | 出處 |
+|---|---|---|
+| Windpark Nortorf (DEU) | MaStR 的「Windpark Nortorf」（2 部 Nordex N163，2025 年）在 Rendsburg-Eckernförde 縣的 Nortorf／Ellerdorf；GEM 的「Nortorf 2」（13 MW，2022 年）是 44 km 外 Steinburg 縣的 Nortorf，已對到 MaStR 的「Windpark Nortorf 2」（2 部 6.6 MW）：兩個同名的地方 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| BWP Kaiser-Wilhelm-Koog II (DEU) | MaStR 的「BWP Kaiser-Wilhelm-Koog II」是 2004 年的一部 Enercon E58（1,000 kW），與精選紀錄裡 1987 年的 Westküste 試驗風場不是同一批機組 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Flomborn (DEU) | MaStR 的「Windpark Flomborn」是 5 部 3,075 kW（2012-12 至 2013-02 併網），與 GEM「Flomborn-Stetten」對到的「BVT Windpark Flomborn/Stetten」（5 部，2013-12）是相鄰的另一座 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Stetten (DEU) | MaStR 的「Windpark Stetten」（Donnersbergkreis 的 Stetten，2012–2015 年）與 GEM「Flomborn-Stetten」對到的 BVT 那 5 部（2013-12）是不同機組 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Heßloch (DEU) | MaStR 的「Windpark Heßloch」是 2014–2015 年的 3 部 Senvion 3.4M104；GEM「Dittelsheim-Heßloch」已對到 2013 年的 4 部 Enercon E-82：同地點不同期 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Welsow (DEU) | MaStR 的「Windpark Welsow」是 2021 年的 2 部 Enercon E138；GEM「Kerkow-Welsow」已對到 2023 年的 2 部 Nordex N149：同地點不同期 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Gnannenweiler (DEU) | MaStR 的「Gnannenweiler」是 2021 年的 2 部 Enercon E138；GEM「Gnannenweiler Windnetz」已對到 2009 年的 Enercon E82：同地點不同期 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

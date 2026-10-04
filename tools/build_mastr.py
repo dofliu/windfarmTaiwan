@@ -16,7 +16,7 @@ Datenlizenz Deutschland – Namensnennung – Version 2.0（dl-de/by-2-0），�
    拿到的容量在 ±20% 內時也當成它的機位。其餘 1 MW 以上的陸域群＝本站還沒收錄的風場（寧可少加；更小的多為單部舊機或小型風機）。
    → data/global/sources/mastr_parks_DEU.json：由 tools/build_farms.py 加進風場層（來源代碼 4＝MaStR），分期依各機組的商轉年。
    離岸風場本站都已收錄，不從這裡加。
-沒配成的群與風場再配一輪（最多三輪）；與還沒配成的本站風場名稱相同的群可能是它的一部分，也不另加；3 km 內有同名本站風場的群（容量對不上）也不加。
+沒配成的群與風場再配一輪（最多三輪）；與還沒配成的本站風場名稱相同的群可能是它的一部分，也不另加；3 km 內有同名的本站風場、而它還沒配成或它配到的群名稱沒有比這群更吻合時也不加（例：Flomborn-Stetten 配到「BVT Windpark Flomborn/Stetten」後，旁邊的「Windpark Flomborn」才會加）。
 檢查：本站德國營運中的陸域容量＋新增的，不能超過 MaStR 陸域營運容量的 102%（超過表示重複）。
 重建流程：fetch_mastr.py → build_mastr.py（只拿非 MaStR 來源的紀錄比對，結果穩定）→ build_farms.py → 其餘照 README。
 
@@ -26,7 +26,7 @@ than 5 km apart is split; unnamed units link within 1.5 km). Groups are matched 
 one farm per group, several groups per farm, the combination closest to the farm's capacity, within ±20%; otherwise a single group within 3 km with capacity ±20%) and give
 those farms their real turbines (turbines_de.json). Each still-unmatched site farm (largest first) then reserves the nearest
 unmatched groups within 8 km up to about its capacity (at most +30%); those are not added, and become its turbines when they sum to ±20%.
-The remaining onshore groups of 1 MW or more become new farms (sources/mastr_parks_DEU.json, source code 4 in build_farms.py). Groups sharing a name with an unmatched site farm, or with any site farm within 3 km, are never added either. Check: site + added onshore
+The remaining onshore groups of 1 MW or more become new farms (sources/mastr_parks_DEU.json, source code 4 in build_farms.py). Groups sharing a name with an unmatched site farm are never added, nor are groups within 3 km of a same-name site farm that is unmatched or whose matched groups do not share more name words. Check: site + added onshore
 capacity must stay within 102% of the MaStR onshore total.
 """
 import collections
@@ -264,8 +264,10 @@ def main(xml_path, cat_path):
     for gi, g in enumerate(groups):
         if gi in used or gi in held or gi in named_open or g['sea'] or g['mw'] < MIN_MW:
             continue
-        if g['w'] and any(fw[fi] & g['w'] and km(f['lat'], f['lon'], g['lat'], g['lon']) <= NEAR_KM for fi, f in enumerate(site)):
-            close += 1                                                  # 3 km 內有同名的本站風場（容量對不上）：寧可不加
+        if g['w'] and any(fw[fi] & g['w'] and km(f['lat'], f['lon'], g['lat'], g['lon']) <= NEAR_KM
+                          and (fi not in assigned or len(fw[fi] & g['w']) >= max(len(fw[fi] & groups[x]['w']) for x in assigned[fi]))
+                          for fi, f in enumerate(site)):
+            close += 1        # 3 km 內有同名的本站風場，而它還沒配成、或它配到的群名稱沒有比這群更吻合：可能是同一座，寧可不加
             continue
         gem = collections.Counter(u['gem'] for u in g['us']).most_common(1)[0][0]
         base = clean(g['name']) or ('Windenergieanlagen ' + gem if gem else 'Windenergieanlagen')

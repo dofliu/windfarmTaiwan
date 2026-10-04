@@ -147,8 +147,8 @@ def toks(f):
     return {t for t in re.findall(r"[a-z0-9]+", (f["name"] or "").lower().replace("ö", "o").replace("ü", "u")) if t not in GENERIC}
 OPS = [f for f in ALL if active(f, Y)]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from farm_cleanup import GEM_KEEP          # 已查證是不同風場的 GEM 專案（名稱相近），不列為疑似重複
-NOT_DUP = {(iso, n) for iso, n in GEM_KEEP}
+from farm_cleanup import GEM_KEEP, NOT_DUP as NOT_DUP_OK   # 已查證是不同風場的組合（名稱相近），不列為疑似重複
+NOT_DUP = {(iso, n) for iso, n in GEM_KEEP} | set(NOT_DUP_OK)
 cell = defaultdict(list)
 for f in OPS:
     cell[(f["iso"], math.floor(f["lat"] * 2), math.floor(f["lon"] * 2))].append(f)       # 0.5° 格

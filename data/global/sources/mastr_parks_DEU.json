@@ -3,8 +3,8 @@
 "source": "Bundesnetzagentur, Marktstammdatenregister (MaStR), Gesamtdatenexport: EinheitenWind",
 "url": "https://www.marktstammdatenregister.de/MaStR/Datendownload",
 "license": "Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0); © Bundesnetzagentur | Marktstammdatenregister",
-"farms": 4780,
-"mw": 23712,
+"farms": 4861,
+"mw": 24282,
 "mastr_mw": 82643,
 "site_mw": 53313
 },
@@ -289,6 +289,17 @@
 "n": 7
 },
 {
+"name": "WP Diepholzer Bruch",
+"lat": 52.5565,
+"lon": 8.4203,
+"mw": 48.74,
+"year": 2025,
+"ph": 0,
+"turbine": "",
+"gem": "Diepholz",
+"n": 9
+},
+{
 "name": "Windpark Ottendorf-Kohlenhausen-Oersdorf",
 "lat": 53.3873,
 "lon": 9.3858,
@@ -371,6 +382,17 @@
 "n": 13
 },
 {
+"name": "WP Bösel-West",
+"lat": 52.9313,
+"lon": 11.1634,
+"mw": 40.8,
+"year": 2025,
+"ph": 0,
+"turbine": "6 x Nordex Germany Nordex N163/6.X  NH 164 m",
+"gem": "Lüchow (Wendland)",
+"n": 6
+},
+{
 "name": "WP Neuschoo (Ochtersum)",
 "lat": 53.6161,
 "lon": 7.4898,
@@ -389,6 +411,17 @@
 "turbine": "",
 "gem": "Ochtersum",
 "n": 15
+},
+{
+"name": "Beeskow Repowering",
+"lat": 52.2091,
+"lon": 14.2454,
+"mw": 38.92,
+"year": 2025,
+"ph": 0,
+"turbine": "7 x ENERCON E-160 EP 5 E3",
+"gem": "Beeskow",
+"n": 7
 },
 {
 "name": "Windpark Georgsdorf",
@@ -684,6 +717,17 @@
 "ph": 0,
 "turbine": "",
 "gem": "Hofgeismar",
+"n": 5
+},
+{
+"name": "Windpark Neuengörs Repowering",
+"lat": 53.9086,
+"lon": 10.401,
+"mw": 34.0,
+"year": 2025,
+"ph": 0,
+"turbine": "",
+"gem": "Neuengörs",
 "n": 5
 },
 {
@@ -1302,6 +1346,30 @@
 "n": 9
 },
 {
+"name": "Larrelter Polder",
+"lat": 53.338,
+"lon": 7.1509,
+"mw": 25.5,
+"year": 2004,
+"ph": [
+[
+2004,
+6.0
+],
+[
+2005,
+12.0
+],
+[
+2009,
+7.5
+]
+],
+"turbine": "",
+"gem": "Emden",
+"n": 4
+},
+{
 "name": "Marner Neuenkoogsdeich Repowering",
 "lat": 53.925,
 "lon": 9.003,
@@ -1693,6 +1761,26 @@
 "n": 4
 },
 {
+"name": "WestfalenWind Etteln",
+"lat": 51.6297,
+"lon": 8.8121,
+"mw": 22.24,
+"year": 2023,
+"ph": [
+[
+2023,
+5.56
+],
+[
+2025,
+16.68
+]
+],
+"turbine": "",
+"gem": "Borchen",
+"n": 4
+},
+{
 "name": "Wolpertswende",
 "lat": 47.9017,
 "lon": 9.6582,
@@ -1863,6 +1951,17 @@
 "turbine": "",
 "gem": "Wasbek",
 "n": 5
+},
+{
+"name": "WestfalenWIND Etteln",
+"lat": 51.6284,
+"lon": 8.8001,
+"mw": 21.0,
+"year": 2018,
+"ph": 0,
+"turbine": "7 x ENERCON E-115",
+"gem": "Borchen",
+"n": 7
 },
 {
 "name": "Windpark Teschendorf",
@@ -3000,6 +3099,17 @@
 "n": 8
 },
 {
+"name": "WP Kerkow",
+"lat": 53.0595,
+"lon": 13.983,
+"mw": 16.0,
+"year": 2017,
+"ph": 0,
+"turbine": "5 x Senvion 3.2M",
+"gem": "Angermünde",
+"n": 5
+},
+{
 "name": "WP SW",
 "lat": 53.7886,
 "lon": 9.1576,
@@ -3945,6 +4055,37 @@
 "n": 2
 },
 {
+"name": "Windpark Vierlinden II",
+"lat": 52.5473,
+"lon": 14.3284,
+"mw": 13.6,
+"year": 2025,
+"ph": 0,
+"turbine": "2 x Nordex Germany N163-6.8 MW TCS 164B-03",
+"gem": "Vierlinden",
+"n": 2
+},
+{
+"name": "Windpark Geilenkirchen-Beeck",
+"lat": 50.976,
+"lon": 6.2092,
+"mw": 13.51,
+"year": 2013,
+"ph": [
+[
+2013,
+10.11
+],
+[
+2015,
+3.4
+]
+],
+"turbine": "4 x Senvion REpower 3.4M 104",
+"gem": "Geilenkirchen",
+"n": 4
+},
+{
 "name": "BWG Bahrenhof",
 "lat": 54.7685,
 "lon": 8.7475,
@@ -4341,6 +4482,17 @@
 "ph": 0,
 "turbine": "3 x Vestas V150",
 "gem": "Achim",
+"n": 3
+},
+{
+"name": "Schöppingen-Ramsberg",
+"lat": 52.1069,
+"lon": 7.1583,
+"mw": 12.6,
+"year": 2019,
+"ph": 0,
+"turbine": "3 x ENERCON E-141 EP4",
+"gem": "Schöppingen",
 "n": 3
 },
 {
@@ -4907,6 +5059,26 @@
 "turbine": "4 x ENERCON E-115",
 "gem": "Friesoythe",
 "n": 4
+},
+{
+"name": "Kerken-Poelyck",
+"lat": 51.4784,
+"lon": 6.3722,
+"mw": 12.0,
+"year": 2021,
+"ph": [
+[
+2021,
+8.0
+],
+[
+2022,
+4.0
+]
+],
+"turbine": "3 x ENERCON E-126 EP3",
+"gem": "Kerken",
+"n": 3
 },
 {
 "name": "Minfeld R",
@@ -6126,6 +6298,17 @@
 "n": 2
 },
 {
+"name": "WP Groß Buchwald Erweiterung",
+"lat": 54.1488,
+"lon": 10.1045,
+"mw": 11.0,
+"year": 2025,
+"ph": 0,
+"turbine": "2 x GE Wind Energy GE 5.5-158",
+"gem": "Groß Buchwald",
+"n": 2
+},
+{
 "name": "Windpark Ascheberg Herbern",
 "lat": 51.7238,
 "lon": 7.709,
@@ -6608,6 +6791,26 @@
 "turbine": "",
 "gem": "Erlau",
 "n": 5
+},
+{
+"name": "Windpark Heßloch",
+"lat": 49.7488,
+"lon": 8.2678,
+"mw": 10.11,
+"year": 2014,
+"ph": [
+[
+2014,
+3.37
+],
+[
+2015,
+6.74
+]
+],
+"turbine": "3 x Senvion Repower 3.4M104",
+"gem": "Dittelsheim-Heßloch",
+"n": 3
 },
 {
 "name": "Windpark Jüchen",
@@ -8608,6 +8811,26 @@
 "n": 3
 },
 {
+"name": "Nortorf",
+"lat": 53.9004,
+"lon": 9.3035,
+"mw": 9.0,
+"year": 2014,
+"ph": [
+[
+2014,
+3.0
+],
+[
+2018,
+6.0
+]
+],
+"turbine": "3 x Amperax Energie A3000",
+"gem": "Nortorf",
+"n": 3
+},
+{
 "name": "PR3_DIT_095",
 "lat": 53.9802,
 "lon": 9.0779,
@@ -8877,6 +9100,17 @@
 "turbine": "3 x Nordex Energy N131/3000",
 "gem": "Bergheim",
 "n": 3
+},
+{
+"name": "Windpark Haltern AV 9",
+"lat": 51.7439,
+"lon": 7.0938,
+"mw": 9.0,
+"year": 2021,
+"ph": 0,
+"turbine": "2 x Nordex Energy N149/4.0-4.5 TCS164",
+"gem": "Dorsten",
+"n": 2
 },
 {
 "name": "Windpark Halvesbostel",
@@ -9402,6 +9636,26 @@
 "n": 6
 },
 {
+"name": "Windpark Aldenhoven",
+"lat": 50.9121,
+"lon": 6.2764,
+"mw": 8.7,
+"year": 2003,
+"ph": [
+[
+2003,
+3.0
+],
+[
+2024,
+5.7
+]
+],
+"turbine": "",
+"gem": "Aldenhoven",
+"n": 3
+},
+{
 "name": "Windpark Ruhne-Waltringen",
 "lat": 51.5124,
 "lon": 7.9363,
@@ -9785,6 +10039,17 @@
 "n": 2
 },
 {
+"name": "Gnannenweiler",
+"lat": 48.6854,
+"lon": 10.0057,
+"mw": 8.4,
+"year": 2021,
+"ph": 0,
+"turbine": "",
+"gem": "Steinheim am Albuch",
+"n": 2
+},
+{
 "name": "Großefehn",
 "lat": 53.3564,
 "lon": 7.6969,
@@ -10092,6 +10357,17 @@
 "ph": 0,
 "turbine": "2 x Siemens Wind Power SWT-DD-130",
 "gem": "Ober-Ramstadt",
+"n": 2
+},
+{
+"name": "Windpark Welsow",
+"lat": 53.0556,
+"lon": 13.9836,
+"mw": 8.4,
+"year": 2021,
+"ph": 0,
+"turbine": "2 x ENERCON Enercon E138 EP 3",
+"gem": "Angermünde",
 "n": 2
 },
 {
@@ -11562,6 +11838,17 @@
 "n": 3
 },
 {
+"name": "Kessin",
+"lat": 53.7273,
+"lon": 13.3291,
+"mw": 7.58,
+"year": 2013,
+"ph": 0,
+"turbine": "1 x ENERCON E-126 7.58MW",
+"gem": "Grapzow",
+"n": 1
+},
+{
 "name": "Magdeburg",
 "lat": 52.1996,
 "lon": 11.6814,
@@ -11993,6 +12280,26 @@
 "n": 3
 },
 {
+"name": "WP Oyle",
+"lat": 52.6489,
+"lon": 9.1111,
+"mw": 7.4,
+"year": 2002,
+"ph": [
+[
+2002,
+5.4
+],
+[
+2007,
+2.0
+]
+],
+"turbine": "",
+"gem": "Marklohe",
+"n": 4
+},
+{
 "name": "Windpark Friedewald",
 "lat": 50.8957,
 "lon": 9.8517,
@@ -12286,6 +12593,17 @@
 "n": 9
 },
 {
+"name": "Melbeck",
+"lat": 53.1894,
+"lon": 10.3821,
+"mw": 7.2,
+"year": 2003,
+"ph": 0,
+"turbine": "",
+"gem": "Barnstedt",
+"n": 4
+},
+{
 "name": "Oncken-Steen",
 "lat": 53.3202,
 "lon": 7.4085,
@@ -12555,6 +12873,17 @@
 "turbine": "",
 "gem": "Wolkenstein",
 "n": 2
+},
+{
+"name": "Windpark Kirchhain",
+"lat": 50.8563,
+"lon": 8.9529,
+"mw": 7.2,
+"year": 2015,
+"ph": 0,
+"turbine": "3 x Nordex Energy N117",
+"gem": "Kirchhain",
+"n": 3
 },
 {
 "name": "Windpark Laichingen",
@@ -14741,6 +15070,17 @@
 "n": 2
 },
 {
+"name": "Gescher Büren",
+"lat": 51.9947,
+"lon": 7.0495,
+"mw": 6.5,
+"year": 2019,
+"ph": 0,
+"turbine": "",
+"gem": "Gescher",
+"n": 2
+},
+{
 "name": "Kaiser-Wilhelm-Koog",
 "lat": 53.9459,
 "lon": 8.9342,
@@ -15061,6 +15401,17 @@
 "n": 2
 },
 {
+"name": "Stieglund Repowering",
+"lat": 54.6439,
+"lon": 9.2192,
+"mw": 6.34,
+"year": 2015,
+"ph": 0,
+"turbine": "2 x Senvion 3.2M114",
+"gem": "Janneby",
+"n": 2
+},
+{
 "name": "WP Ganderkesee-Lemwerder",
 "lat": 53.124,
 "lon": 8.5743,
@@ -15169,6 +15520,26 @@
 "n": 3
 },
 {
+"name": "Windpark Rieden",
+"lat": 50.4026,
+"lon": 7.1664,
+"mw": 6.3,
+"year": 2011,
+"ph": [
+[
+2011,
+4.0
+],
+[
+2012,
+2.3
+]
+],
+"turbine": "",
+"gem": "Kirchwald",
+"n": 3
+},
+{
 "name": "Krähenberg",
 "lat": 49.3349,
 "lon": 7.4891,
@@ -15209,6 +15580,26 @@
 "turbine": "1 x Vestas V162 - 6.2",
 "gem": "Dorsten",
 "n": 1
+},
+{
+"name": "Ennenberg",
+"lat": 51.728,
+"lon": 7.1366,
+"mw": 6.2,
+"year": 2014,
+"ph": [
+[
+2014,
+3.2
+],
+[
+2015,
+3.0
+]
+],
+"turbine": "",
+"gem": "Dorsten",
+"n": 2
 },
 {
 "name": "WEA 1 (Heringsdorf)",
@@ -15264,6 +15655,17 @@
 "turbine": "2 x Vestas V 112",
 "gem": "Wilhelmsdorf",
 "n": 2
+},
+{
+"name": "CEE Windpark Bennigsen",
+"lat": 52.2202,
+"lon": 9.6708,
+"mw": 6.15,
+"year": 2011,
+"ph": 0,
+"turbine": "3 x Senvion MM92",
+"gem": "Ronnenberg",
+"n": 3
 },
 {
 "name": "Groß Trebbow",
@@ -15330,6 +15732,17 @@
 "turbine": "2 x Vestas V112-3.0 MW (mit Stahlrohr-Turm)",
 "gem": "Bad Laasphe",
 "n": 2
+},
+{
+"name": "Schönfeld",
+"lat": 53.1353,
+"lon": 11.8266,
+"mw": 6.15,
+"year": 2013,
+"ph": 0,
+"turbine": "3 x Senvion MM82",
+"gem": "Perleberg",
+"n": 3
 },
 {
 "name": "WEA 1-3",
@@ -16481,6 +16894,17 @@
 "n": 3
 },
 {
+"name": "Redekin-Wulkow",
+"lat": 52.4749,
+"lon": 12.1003,
+"mw": 6.0,
+"year": 2011,
+"ph": 0,
+"turbine": "3 x Vestas V90",
+"gem": "Jerichow",
+"n": 3
+},
+{
 "name": "Reichenbach II",
 "lat": 51.1452,
 "lon": 14.7742,
@@ -17008,6 +17432,17 @@
 "turbine": "4 x GE Wind Energy GE B1500",
 "gem": "Krefeld",
 "n": 4
+},
+{
+"name": "WP Larrelter Polder",
+"lat": 53.3368,
+"lon": 7.1422,
+"mw": 6.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x ENERCON E-112",
+"gem": "Emden",
+"n": 1
 },
 {
 "name": "WP Lindendorf",
@@ -20068,6 +20503,17 @@
 "n": 4
 },
 {
+"name": "Friedland II",
+"lat": 53.6869,
+"lon": 13.5197,
+"mw": 5.2,
+"year": 1999,
+"ph": 0,
+"turbine": "4 x Nordex Energy N60",
+"gem": "Friedland",
+"n": 4
+},
+{
 "name": "Großrössen",
 "lat": 51.6328,
 "lon": 13.2164,
@@ -22828,6 +23274,30 @@
 "n": 3
 },
 {
+"name": "Steinlah",
+"lat": 52.0638,
+"lon": 10.3264,
+"mw": 4.5,
+"year": 1997,
+"ph": [
+[
+1997,
+1.5
+],
+[
+2001,
+1.5
+],
+[
+2002,
+1.5
+]
+],
+"turbine": "3 x ENERCON E-66/15.66",
+"gem": "Haverlah",
+"n": 3
+},
+{
 "name": "Südergellersen II",
 "lat": 53.1982,
 "lon": 10.287,
@@ -24201,6 +24671,17 @@
 "ph": 0,
 "turbine": "1 x ENERCON E-138 EP3 E2",
 "gem": "Ense",
+"n": 1
+},
+{
+"name": "Gescher TP Nord",
+"lat": 51.9328,
+"lon": 7.0208,
+"mw": 4.2,
+"year": 2019,
+"ph": 0,
+"turbine": "1 x ENERCON E-141 EP4",
+"gem": "Gescher",
 "n": 1
 },
 {
@@ -25823,6 +26304,17 @@
 "n": 2
 },
 {
+"name": "E82/108 Ahaus",
+"lat": 52.0517,
+"lon": 6.9863,
+"mw": 4.0,
+"year": 2009,
+"ph": 0,
+"turbine": "2 x ENERCON Enercon E82/1",
+"gem": "Ahaus",
+"n": 2
+},
+{
 "name": "ENERCON Windpark Waltershausen",
 "lat": 50.9167,
 "lon": 10.5679,
@@ -26007,6 +26499,17 @@
 "ph": 0,
 "turbine": "",
 "gem": "Bad Lauterberg im Harz",
+"n": 2
+},
+{
+"name": "Lamsborn- Martinshöhe",
+"lat": 49.3561,
+"lon": 7.4383,
+"mw": 4.0,
+"year": 2007,
+"ph": 0,
+"turbine": "2 x Senvion MM92",
+"gem": "Lambsborn",
 "n": 2
 },
 {
@@ -27273,6 +27776,17 @@
 "n": 2
 },
 {
+"name": "Windpark Offenbach a.d.Q",
+"lat": 49.1683,
+"lon": 8.2058,
+"mw": 4.0,
+"year": 2008,
+"ph": 0,
+"turbine": "2 x Vestas V90",
+"gem": "Offenbach an der Queich",
+"n": 2
+},
+{
 "name": "Windpark Penzlin",
 "lat": 53.4984,
 "lon": 13.057,
@@ -27359,6 +27873,17 @@
 "n": 2
 },
 {
+"name": "Windpark Schönfeld",
+"lat": 53.1305,
+"lon": 11.8182,
+"mw": 4.0,
+"year": 2006,
+"ph": 0,
+"turbine": "2 x ENERCON E-66/20.70-3",
+"gem": "Perleberg",
+"n": 2
+},
+{
 "name": "Windpark Sebbel",
 "lat": 51.7335,
 "lon": 7.263,
@@ -27381,6 +27906,26 @@
 "n": 5
 },
 {
+"name": "Windpark Söllenthin",
+"lat": 52.9455,
+"lon": 12.1709,
+"mw": 4.0,
+"year": 2013,
+"ph": [
+[
+2013,
+2.0
+],
+[
+2014,
+2.0
+]
+],
+"turbine": "",
+"gem": "Plattenburg",
+"n": 2
+},
+{
 "name": "Windpark Uelzen",
 "lat": 53.006,
 "lon": 10.493,
@@ -27401,6 +27946,17 @@
 "turbine": "2 x ENERCON E-82 2.0 MW",
 "gem": "Wilhermsdorf",
 "n": 2
+},
+{
+"name": "Windpark Viersen Nr. 18",
+"lat": 51.2441,
+"lon": 6.2953,
+"mw": 4.0,
+"year": 2001,
+"ph": 0,
+"turbine": "4 x NEG Micon NM60/1000",
+"gem": "Viersen",
+"n": 4
 },
 {
 "name": "Windpark Walshausen",
@@ -27607,6 +28163,17 @@
 "ph": 0,
 "turbine": "",
 "gem": "Kalefeld",
+"n": 3
+},
+{
+"name": "Windpark Hochfeld",
+"lat": 53.8849,
+"lon": 9.3707,
+"mw": 3.9,
+"year": 2001,
+"ph": 0,
+"turbine": "3 x Nordex Energy N-60",
+"gem": "Beidenfleth",
 "n": 3
 },
 {
@@ -28496,6 +29063,17 @@
 "turbine": "1 x Vestas V136-3.45/3.6 MW",
 "gem": "Dörentrup",
 "n": 1
+},
+{
+"name": "Windpark Hude",
+"lat": 53.0607,
+"lon": 8.3902,
+"mw": 3.6,
+"year": 2002,
+"ph": 0,
+"turbine": "2 x ENERCON E-66",
+"gem": "Hude (Oldb)",
+"n": 2
 },
 {
 "name": "Windpark Langerwehe",
@@ -30200,6 +30778,17 @@
 "n": 2
 },
 {
+"name": "Windpark Hundewick",
+"lat": 51.9659,
+"lon": 6.9194,
+"mw": 3.3,
+"year": 2017,
+"ph": 0,
+"turbine": "1 x Vestas V126-3.3MW",
+"gem": "Stadtlohn",
+"n": 1
+},
+{
 "name": "Windpark Ketelsbüttel Lieth",
 "lat": 54.1472,
 "lon": 9.0392,
@@ -30440,6 +31029,17 @@
 "n": 4
 },
 {
+"name": "WP Landin 1",
+"lat": 53.075,
+"lon": 14.1033,
+"mw": 3.2,
+"year": 2018,
+"ph": 0,
+"turbine": "1 x Senvion 3.2M",
+"gem": "Mark Landin",
+"n": 1
+},
+{
 "name": "WP Sillerup Repowering",
 "lat": 54.6917,
 "lon": 9.1679,
@@ -30644,6 +31244,17 @@
 "ph": 0,
 "turbine": "1 x Senvion 3,2 M",
 "gem": "Jerrishoe",
+"n": 1
+},
+{
+"name": "Haltern Hawig",
+"lat": 51.7289,
+"lon": 7.0956,
+"mw": 3.17,
+"year": 2017,
+"ph": 0,
+"turbine": "1 x Senvion 3.2M114",
+"gem": "Dorsten",
 "n": 1
 },
 {
@@ -32422,6 +33033,17 @@
 "n": 1
 },
 {
+"name": "Bürgerwindpark Felsberg",
+"lat": 51.1228,
+"lon": 9.4966,
+"mw": 3.0,
+"year": 2017,
+"ph": 0,
+"turbine": "1 x Nordex Energy N131-3,0 MW",
+"gem": "Edermünde",
+"n": 1
+},
+{
 "name": "Bürgerwindrad im Lustholz",
 "lat": 48.5495,
 "lon": 11.5603,
@@ -33376,6 +33998,17 @@
 "n": 1
 },
 {
+"name": "WP Bornstedt",
+"lat": 51.4635,
+"lon": 11.4692,
+"mw": 3.0,
+"year": 2006,
+"ph": 0,
+"turbine": "",
+"gem": "Bornstedt",
+"n": 2
+},
+{
 "name": "WP Braunersgrün",
 "lat": 50.086,
 "lon": 12.0876,
@@ -34180,6 +34813,17 @@
 "n": 1
 },
 {
+"name": "Windpark Bornstedt",
+"lat": 51.4537,
+"lon": 11.4652,
+"mw": 3.0,
+"year": 2007,
+"ph": 0,
+"turbine": "2 x Fuhrländer AG MD 77",
+"gem": "Wallhausen",
+"n": 2
+},
+{
 "name": "Windpark Böhmenkirch",
 "lat": 48.6976,
 "lon": 9.9477,
@@ -34620,6 +35264,17 @@
 "ph": 0,
 "turbine": "1 x Senvion 3.0M122",
 "gem": "Scheßlitz",
+"n": 1
+},
+{
+"name": "WP Landin 2",
+"lat": 53.0724,
+"lon": 14.1022,
+"mw": 2.97,
+"year": 2016,
+"ph": 0,
+"turbine": "1 x Senvion 3.0M",
+"gem": "Mark Landin",
 "n": 1
 },
 {
@@ -36040,6 +36695,17 @@
 "n": 1
 },
 {
+"name": "Windpark Klosterwald",
+"lat": 49.492,
+"lon": 10.0697,
+"mw": 2.53,
+"year": 2015,
+"ph": 0,
+"turbine": "1 x GE Wind Energy GE-2.5-120",
+"gem": "Creglingen",
+"n": 1
+},
+{
 "name": "Sünna Windpark",
 "lat": 50.8171,
 "lon": 10.0032,
@@ -37135,6 +37801,17 @@
 "n": 1
 },
 {
+"name": "WKA Meckel I",
+"lat": 49.8766,
+"lon": 6.5071,
+"mw": 2.4,
+"year": 2015,
+"ph": 0,
+"turbine": "1 x Nordex Energy Nordex N117/2400",
+"gem": "Meckel",
+"n": 1
+},
+{
 "name": "WP Baesweiler",
 "lat": 50.9032,
 "lon": 6.2029,
@@ -38180,6 +38857,17 @@
 "ph": 0,
 "turbine": "1 x ENERCON E-92",
 "gem": "Herford",
+"n": 1
+},
+{
+"name": "Windpark Blaue Warte IV",
+"lat": 51.7923,
+"lon": 11.5061,
+"mw": 2.35,
+"year": 2017,
+"ph": 0,
+"turbine": "1 x ENERCON E92",
+"gem": "Alsleben (Saale)",
 "n": 1
 },
 {
@@ -39514,6 +40202,17 @@
 "n": 1
 },
 {
+"name": "Meckel",
+"lat": 49.8811,
+"lon": 6.5202,
+"mw": 2.3,
+"year": 2014,
+"ph": 0,
+"turbine": "1 x ENERCON E-82 E2",
+"gem": "Meckel",
+"n": 1
+},
+{
 "name": "Mohr Mühle",
 "lat": 54.0036,
 "lon": 8.9348,
@@ -40262,6 +40961,17 @@
 "n": 1
 },
 {
+"name": "WKA Rodheim",
+"lat": 49.5872,
+"lon": 10.167,
+"mw": 2.3,
+"year": 2011,
+"ph": 0,
+"turbine": "1 x ENERCON E-82 E2",
+"gem": "Oberickelsheim",
+"n": 1
+},
+{
 "name": "WKA Scheid",
 "lat": 50.3703,
 "lon": 6.4184,
@@ -40292,6 +41002,17 @@
 "ph": 0,
 "turbine": "1 x ENERCON E82",
 "gem": "Nideggen",
+"n": 1
+},
+{
+"name": "WKA W.-Deichhausen",
+"lat": 54.1882,
+"lon": 8.9348,
+"mw": 2.3,
+"year": 2011,
+"ph": 0,
+"turbine": "1 x ENERCON E 70",
+"gem": "Wesselburener Deichhausen",
 "n": 1
 },
 {
@@ -42098,6 +42819,17 @@
 "n": 2
 },
 {
+"name": "WP Bredow",
+"lat": 52.5761,
+"lon": 12.9248,
+"mw": 2.1,
+"year": 2000,
+"ph": 0,
+"turbine": "",
+"gem": "Brieselang",
+"n": 2
+},
+{
 "name": "WP Körrenzig",
 "lat": 51.0157,
 "lon": 6.2978,
@@ -42258,6 +42990,17 @@
 "ph": 0,
 "turbine": "1 x REpower Systems SE MM92",
 "gem": "Eggebek",
+"n": 1
+},
+{
+"name": "Haltern",
+"lat": 51.731,
+"lon": 7.1321,
+"mw": 2.05,
+"year": 2014,
+"ph": 0,
+"turbine": "1 x Senvion Senvion MM92",
+"gem": "Haltern am See",
 "n": 1
 },
 {
@@ -42520,6 +43263,17 @@
 "ph": 0,
 "turbine": "1 x Senvion REpower Systems MM82",
 "gem": "Kalletal",
+"n": 1
+},
+{
+"name": "WP Jülich II",
+"lat": 50.9321,
+"lon": 6.2684,
+"mw": 2.05,
+"year": 2011,
+"ph": 0,
+"turbine": "1 x REpower Systems SE MM 92",
+"gem": "Jülich",
 "n": 1
 },
 {
@@ -43214,6 +43968,17 @@
 "n": 1
 },
 {
+"name": "Beeskow-Birkholz",
+"lat": 52.1913,
+"lon": 14.2082,
+"mw": 2.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x Vestas V80/2000",
+"gem": "Rietz-Neuendorf",
+"n": 1
+},
+{
 "name": "Berghülen",
 "lat": 48.4458,
 "lon": 9.7465,
@@ -43454,6 +44219,17 @@
 "n": 1
 },
 {
+"name": "E70/113 Ahaus",
+"lat": 52.0493,
+"lon": 6.9885,
+"mw": 2.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x ENERCON Enercon E70/E4",
+"gem": "Ahaus",
+"n": 1
+},
+{
 "name": "E82 Vohren",
 "lat": 51.9305,
 "lon": 8.0251,
@@ -43560,6 +44336,17 @@
 "turbine": "2 x ENERCON E58",
 "gem": "Emmerich am Rhein",
 "n": 2
+},
+{
+"name": "Emsdetten E 82",
+"lat": 52.2169,
+"lon": 7.5589,
+"mw": 2.0,
+"year": 2010,
+"ph": 0,
+"turbine": "1 x ENERCON E-82 E2",
+"gem": "Emsdetten",
+"n": 1
 },
 {
 "name": "Emsdetten-Veltrup Wind Partner 16",
@@ -43936,6 +44723,17 @@
 "n": 1
 },
 {
+"name": "Harpstedt-Ippener",
+"lat": 53.0131,
+"lon": 8.6264,
+"mw": 2.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x Vestas V-80",
+"gem": "Groß Ippener",
+"n": 1
+},
+{
 "name": "He.E82",
 "lat": 52.5961,
 "lon": 8.5096,
@@ -44109,6 +44907,17 @@
 "ph": 0,
 "turbine": "1 x Vestas V90-2.0 MW",
 "gem": "Idesheim",
+"n": 1
+},
+{
+"name": "Idesheim Meckel",
+"lat": 49.8789,
+"lon": 6.511,
+"mw": 2.0,
+"year": 2010,
+"ph": 0,
+"turbine": "1 x Vestas V90-2.0MW",
+"gem": "Meckel",
 "n": 1
 },
 {
@@ -46409,6 +47218,50 @@
 "n": 1
 },
 {
+"name": "WP Werder 18887",
+"lat": 52.5072,
+"lon": 13.9651,
+"mw": 2.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x Vestas V80",
+"gem": "Rehfelde",
+"n": 1
+},
+{
+"name": "WP Werder 18888",
+"lat": 52.5064,
+"lon": 13.9708,
+"mw": 2.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x Vestas V80",
+"gem": "Rehfelde",
+"n": 1
+},
+{
+"name": "WP Werder 18889",
+"lat": 52.5135,
+"lon": 13.9663,
+"mw": 2.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x Vestas V80",
+"gem": "Rehfelde",
+"n": 1
+},
+{
+"name": "WP Werder 18890",
+"lat": 52.5123,
+"lon": 13.9718,
+"mw": 2.0,
+"year": 2004,
+"ph": 0,
+"turbine": "1 x Vestas V80",
+"gem": "Rehfelde",
+"n": 1
+},
+{
 "name": "WP Willich V17496",
 "lat": 51.2601,
 "lon": 6.5897,
@@ -47126,6 +47979,17 @@
 "n": 1
 },
 {
+"name": "Windpark Fuchstal",
+"lat": 47.9064,
+"lon": 10.8293,
+"mw": 2.0,
+"year": 2003,
+"ph": 0,
+"turbine": "1 x Vestas",
+"gem": "Denklingen",
+"n": 1
+},
+{
 "name": "Windpark Geitelde 3",
 "lat": 52.2177,
 "lon": 10.4585,
@@ -47273,6 +48137,17 @@
 "ph": 0,
 "turbine": "1 x Vestas Vestas V80 2MW",
 "gem": "Jengen",
+"n": 1
+},
+{
+"name": "Windpark Jänickendorder Heide",
+"lat": 52.0122,
+"lon": 13.1951,
+"mw": 2.0,
+"year": 2006,
+"ph": 0,
+"turbine": "1 x ENERCON E-70 E4",
+"gem": "Jüterbog",
 "n": 1
 },
 {
@@ -47778,6 +48653,17 @@
 "n": 1
 },
 {
+"name": "Windpark Weibern",
+"lat": 50.4,
+"lon": 7.1569,
+"mw": 2.0,
+"year": 2011,
+"ph": 0,
+"turbine": "1 x ENERCON E-82",
+"gem": "Weibern",
+"n": 1
+},
+{
 "name": "Windpark Welver Merklingsen Ost",
 "lat": 51.5709,
 "lon": 8.0141,
@@ -47883,6 +48769,17 @@
 "ph": 0,
 "turbine": "1 x ENERCON E-82 E2",
 "gem": "Bergtheim",
+"n": 1
+},
+{
+"name": "Windparkt Söllenthin",
+"lat": 52.9458,
+"lon": 12.1714,
+"mw": 2.0,
+"year": 2013,
+"ph": 0,
+"turbine": "1 x Vestas V 90-2.0_Grid Streamer",
+"gem": "Plattenburg",
 "n": 1
 },
 {
@@ -48419,6 +49316,17 @@
 "turbine": "3 x Jacobs Energie 43/600",
 "gem": "Drahnsdorf",
 "n": 3
+},
+{
+"name": "Dörnthal / Voigtsdorf",
+"lat": 50.7357,
+"lon": 13.3814,
+"mw": 1.8,
+"year": 2001,
+"ph": 0,
+"turbine": "1 x ENERCON E-66-18.70",
+"gem": "Olbernhau",
+"n": 1
 },
 {
 "name": "E-66",
@@ -49033,6 +49941,26 @@
 "n": 1
 },
 {
+"name": "Süd-Ost",
+"lat": 51.7208,
+"lon": 8.8749,
+"mw": 1.8,
+"year": 1994,
+"ph": [
+[
+1994,
+0.6
+],
+[
+1996,
+1.2
+]
+],
+"turbine": "",
+"gem": "Paderborn",
+"n": 3
+},
+{
 "name": "Tacke",
 "lat": 53.5424,
 "lon": 13.2215,
@@ -49566,6 +50494,17 @@
 "turbine": "1 x ENERCON E-66",
 "gem": "Bad Zwischenahn",
 "n": 1
+},
+{
+"name": "Windpark Bevern",
+"lat": 53.4241,
+"lon": 9.168,
+"mw": 1.8,
+"year": 2006,
+"ph": 0,
+"turbine": "",
+"gem": "Bremervörde",
+"n": 2
 },
 {
 "name": "Windpark BiJö",
@@ -51070,6 +52009,17 @@
 "ph": 0,
 "turbine": "1 x Senvion MD 70",
 "gem": "Beseritz",
+"n": 1
+},
+{
+"name": "Brauerschwend",
+"lat": 50.6893,
+"lon": 9.3563,
+"mw": 1.5,
+"year": 2007,
+"ph": 0,
+"turbine": "1 x Fuhrländer AG FL-MD 77",
+"gem": "Schwalmtal",
 "n": 1
 },
 {
@@ -53324,6 +54274,17 @@
 "n": 1
 },
 {
+"name": "WP Brauerschwend",
+"lat": 50.6893,
+"lon": 9.3563,
+"mw": 1.5,
+"year": 2007,
+"ph": 0,
+"turbine": "1 x Fuhrländer AG FL-MD 77 Rerferenzertrag: 19797725 kWh/5a",
+"gem": "Schwalmtal",
+"n": 1
+},
+{
 "name": "WP Dargelin",
 "lat": 54.0073,
 "lon": 13.347,
@@ -55214,6 +56175,17 @@
 "n": 1
 },
 {
+"name": "Friedland",
+"lat": 53.6838,
+"lon": 13.5231,
+"mw": 1.3,
+"year": 2000,
+"ph": 0,
+"turbine": "1 x Nordex Energy N60",
+"gem": "Friedland",
+"n": 1
+},
+{
 "name": "Goldenstedt",
 "lat": 52.8246,
 "lon": 8.4113,
@@ -56766,6 +57738,26 @@
 "n": 2
 },
 {
+"name": "WP Friedland I",
+"lat": 53.6875,
+"lon": 13.5207,
+"mw": 1.2,
+"year": 1999,
+"ph": [
+[
+1999,
+0.6
+],
+[
+2002,
+0.6
+]
+],
+"turbine": "",
+"gem": "Friedland",
+"n": 2
+},
+{
 "name": "WP Gilserberg Sebbeterode",
 "lat": 50.9527,
 "lon": 9.0813,
@@ -57123,6 +58115,17 @@
 "ph": 0,
 "turbine": "2 x ENERCON Enercon E -40/644",
 "gem": "Bad Driburg",
+"n": 2
+},
+{
+"name": "Windpark Bredow",
+"lat": 52.5724,
+"lon": 12.9245,
+"mw": 1.2,
+"year": 2000,
+"ph": 0,
+"turbine": "",
+"gem": "Brieselang",
 "n": 2
 },
 {
@@ -58118,6 +59121,17 @@
 "n": 1
 },
 {
+"name": "HVL-Bredow",
+"lat": 52.5776,
+"lon": 12.9105,
+"mw": 1.0,
+"year": 1999,
+"ph": 0,
+"turbine": "2 x ENERCON E-40",
+"gem": "Brieselang",
+"n": 2
+},
+{
 "name": "Hardenberg",
 "lat": 51.0993,
 "lon": 7.7164,
@@ -58430,6 +59444,17 @@
 "ph": 0,
 "turbine": "1 x Nordex Energy N 54 Mk3",
 "gem": "Eschweiler",
+"n": 1
+},
+{
+"name": "Nec-Micon 1000 Vreden",
+"lat": 52.0672,
+"lon": 6.847,
+"mw": 1.0,
+"year": 2002,
+"ph": 0,
+"turbine": "1 x NEG Micon NM 60",
+"gem": "Vreden",
 "n": 1
 },
 {

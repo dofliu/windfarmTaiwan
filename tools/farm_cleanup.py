@@ -1286,6 +1286,42 @@ RULES = [
         'Đông Thành 1 (80 MW): in March 2026 the Vĩnh Long trade department was still seeking opinions on its investment approval, and no construction report can be found '
         '(GEM’s “construction” rests on a 2024 paid-database page); set to pre-construction, year unknown',
         'https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm', st=2, year=0),
+    # 2026-10-05 台電自有風場對照台電「風力發電站資料」（政府資料開放平臺 17141，2026 年版）與能源署風力發電單一服務窗口（出處原文以 check_quotes.py 核對）
+    fix('TWN', 'Taoyuan Luzhu', C,
+        '台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值',
+        'Taipower’s station list and the Energy Administration’s wind single window list only the 8 Enercon E44 (0.9 MW) at Luzhu, 7.2 MW in all, with no 33.6 MW new-build or repowering plan; completed and connected on 2 February 2015 (Wikipedia). The previous 33.6 MW and 2025 were estimates',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=7.2, year=2015, turbine='Enercon E-44 0.9 MW x8', note=True),
+    fix('TWN', 'Taichung Power Plant', C,
+        '台電發電站清單與能源署單一窗口都只剩 1 部 Zephyros Z72（2 MW）；台電 2016 年表示廠內風機受中龍鋼鐵等建物擋風，2 部移到台中港區（補 2015 年蘇迪勒颱風吹毀的機組）。原始機組數與商轉年待查證',
+        'Taipower’s station list and the Energy Administration’s single window show a single Zephyros Z72 (2 MW) left; in 2016 Taipower said the turbines inside the plant were blocked by China Steel/Dragon Steel buildings and moved 2 to the Taichung Port row (replacing units destroyed by Typhoon Soudelor in 2015). The original count and start year are unverified',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=2.0, turbine='Zephyros Z72 2.0 MW x1', note=True),
+    fix('TWN', 'Taichung Port', C,
+        '台電發電站清單：台中港區 13 部 Zephyros Z72（26 MW）＋3 部 Enercon E82 E4（9 MW），共 16 部 35 MW；能源署單一窗口同為 16 部 35 MW',
+        'Taipower’s station list: Taichung Port has 13 Zephyros Z72 (26 MW) + 3 Enercon E82 E4 (9 MW), 16 turbines and 35 MW; the Energy Administration’s single window also gives 16 turbines and 35 MW',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=35.0, turbine='Zephyros Z72 2.0 MW x13 + Enercon E-82 E4 3.0 MW x3'),
+    fix('TWN', 'Wanggong', C, '台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW）',
+        'Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW)',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=23.0, turbine='Enercon E-70 2.3 MW x10'),
+    fix('TWN', 'Yongxing (Fangyuan)', C, '台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；商轉年待查證',
+        'Taipower’s station list: Changhua Yongxing has 4 Enercon E70, 9.2 MW in all (the previous 16.8 MW with 4.2 MW turbines was an estimate); start year unverified',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=9.2, turbine='Enercon E-70 2.3 MW x4'),
+    fix('TWN', 'Yunlin Taixi', C, '台電發電站清單：雲林台西 4 部 Enercon E70 E4，共 9.2 MW，113 年（2024 年）10 月 24 日併聯、試運轉中（原本的 16.8 MW 是估計值）',
+        'Taipower’s station list: Yunlin Taixi has 4 Enercon E70 E4, 9.2 MW in all, connected on 24 October 2024 and in trial operation (the previous 16.8 MW was an estimate)',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=9.2, turbine='Enercon E-70 E4 2.3 MW x4'),
+    fix('TWN', 'Penghu Longmen', C, '台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值）',
+        'Taipower’s station list and the Energy Administration’s single window: Penghu Longmen has 3 Enercon E82 E4, 9 MW in all (the previous 6.9 MW was an estimate)',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=9.0, turbine='Enercon E-82 E4 3.0 MW x3'),
+    fix('TWN', 'Penghu Zhongtun', C,
+        '中屯 8 部風機運轉逾 20 年、無備品，台電 2023 年起辦理除役更新；更新計畫 2024 年 8 月通過環評但因地方反對暫緩，8 部風機 2025 年 11 月前拆除完成（自由時報 2025-11-15）',
+        'Zhongtun’s 8 turbines were over 20 years old with no spare parts and Taipower began decommissioning them in 2023; the renewal plan passed its EIA in August 2024 but was shelved after local opposition, and all 8 turbines had been dismantled by November 2025 (Liberty Times, 15 Nov 2025)',
+        'https://news.ltn.com.tw/news/life/breakingnews/5246753', st=4, end=2025),
+    # 2026-10-05 德國 MaStR 對照時查到的錯置（MaStR 機組編號可在 marktstammdatenregister.de 查詢）
+    fix('DEU', 'Flomborn-Stetten wind farm', G,
+        'BVT 集團的 Flomborn／Stetten 風場就是 MaStR 的「BVT Windpark Flomborn/Stetten」：5 部 3,075 kW、2013 年 12 月併網（SEE970097431950、SEE972537071986、'
+        'SEE986793983570、SEE978061015458、SEE997638951548），位於 Alzey-Worms 縣 Flomborn；GEM 的座標在東北方約 25 km 外，改到這 5 部的中心',
+        'BVT Group’s Flomborn/Stetten farm is MaStR’s “BVT Windpark Flomborn/Stetten”: 5 × 3,075 kW, connected in December 2013 (SEE970097431950, SEE972537071986, '
+        'SEE986793983570, SEE978061015458, SEE997638951548), at Flomborn, Alzey-Worms district; GEM’s point is about 25 km to the north-east, so it moves to the centre of these five',
+        'https://www.marktstammdatenregister.de/MaStR/Datendownload', lat=49.690, lon=8.111),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1296,6 +1332,40 @@ ORPHAN_OK = {
         ('蒼南 1 號由精選的「Huarun Cangnan 1 / CR Power」（400 MW）代表', 'Cangnan 1 is represented by the curated “Huarun Cangnan 1 / CR Power” (400 MW)'),
     ('CHN', 'Xinjiang Mori 2500 MW wind farm complex'):
         ('莫里 2,500 MW 是整區彙總，GEM 另逐場列出同地名的各座風場', 'The Mori 2,500 MW complex is an area total; GEM also lists the individual Mori farms'),
+}
+
+# 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
+NOT_DUP = {
+    ('DEU', 'Windpark Nortorf'):
+        ('MaStR 的「Windpark Nortorf」（2 部 Nordex N163，2025 年）在 Rendsburg-Eckernförde 縣的 Nortorf／Ellerdorf；GEM 的「Nortorf 2」（13 MW，2022 年）是 44 km 外 Steinburg 縣的 Nortorf，'
+         '已對到 MaStR 的「Windpark Nortorf 2」（2 部 6.6 MW）：兩個同名的地方',
+         'MaStR’s “Windpark Nortorf” (2 Nordex N163, 2025) is at Nortorf/Ellerdorf in Rendsburg-Eckernförde district; GEM’s “Nortorf 2” (13 MW, 2022) is the other Nortorf, '
+         '44 km away in Steinburg district, matched to MaStR’s “Windpark Nortorf 2” (2 × 6.6 MW): two places with the same name',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'BWP Kaiser-Wilhelm-Koog II'):
+        ('MaStR 的「BWP Kaiser-Wilhelm-Koog II」是 2004 年的一部 Enercon E58（1,000 kW），與精選紀錄裡 1987 年的 Westküste 試驗風場不是同一批機組',
+         'MaStR’s “BWP Kaiser-Wilhelm-Koog II” is a single Enercon E58 (1,000 kW) from 2004, not the 1987 Westküste test field in the curated record',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Flomborn'):
+        ('MaStR 的「Windpark Flomborn」是 5 部 3,075 kW（2012-12 至 2013-02 併網），與 GEM「Flomborn-Stetten」對到的「BVT Windpark Flomborn/Stetten」（5 部，2013-12）是相鄰的另一座',
+         'MaStR’s “Windpark Flomborn” has 5 × 3,075 kW connected December 2012 – February 2013, a separate neighbour of the “BVT Windpark Flomborn/Stetten” (5 units, December 2013) that GEM’s “Flomborn-Stetten” matches',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Stetten'):
+        ('MaStR 的「Windpark Stetten」（Donnersbergkreis 的 Stetten，2012–2015 年）與 GEM「Flomborn-Stetten」對到的 BVT 那 5 部（2013-12）是不同機組',
+         'MaStR’s “Windpark Stetten” (Stetten, Donnersbergkreis, 2012–2015) is a different set of turbines from the five BVT units (December 2013) that GEM’s “Flomborn-Stetten” matches',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Heßloch'):
+        ('MaStR 的「Windpark Heßloch」是 2014–2015 年的 3 部 Senvion 3.4M104；GEM「Dittelsheim-Heßloch」已對到 2013 年的 4 部 Enercon E-82：同地點不同期',
+         'MaStR’s “Windpark Heßloch” is 3 Senvion 3.4M104 from 2014–2015; GEM’s “Dittelsheim-Heßloch” matches the 4 Enercon E-82 from 2013: same area, different phase',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Welsow'):
+        ('MaStR 的「Windpark Welsow」是 2021 年的 2 部 Enercon E138；GEM「Kerkow-Welsow」已對到 2023 年的 2 部 Nordex N149：同地點不同期',
+         'MaStR’s “Windpark Welsow” is 2 Enercon E138 from 2021; GEM’s “Kerkow-Welsow” matches the 2 Nordex N149 from 2023: same area, different phase',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Gnannenweiler'):
+        ('MaStR 的「Gnannenweiler」是 2021 年的 2 部 Enercon E138；GEM「Gnannenweiler Windnetz」已對到 2009 年的 Enercon E82：同地點不同期',
+         'MaStR’s “Gnannenweiler” is 2 Enercon E138 from 2021; GEM’s “Gnannenweiler Windnetz” matches the Enercon E82 from 2009: same area, different phase',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
 }
 
 GEM_KEEP = {
@@ -1534,6 +1604,11 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
         L += ['## ' + ('不當成重複的 GEM 專案' if zh else 'GEM projects kept apart'), '',
               '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']
         for (iso, name), (rz, re_, url) in GEM_KEEP.items():
+            L.append(f"| {name} ({iso}) | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
+        L.append('')
+        L += ['## ' + ('已查證不是重複（覆蓋率報告不再列）' if zh else 'Checked, not duplicates (left out of the coverage report)'), '',
+              '| ' + ('風場 | 理由 | 出處' if zh else 'Farm | Reason | Source link') + ' |', '|---|---|---|']
+        for (iso, name), (rz, re_, url) in NOT_DUP.items():
             L.append(f"| {name} ({iso}) | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
         L.append('')
         (out_dir / ('data-cleanup.md' if zh else 'data-cleanup.en.md')).write_text('\n'.join(L), encoding='utf-8')

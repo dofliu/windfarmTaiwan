@@ -260,6 +260,7 @@ CLEAN fix CHN Zhuanghe V / Liaoning 2025 500.0
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
 CLEAN fix DEU Borkum Riffgrund 3 913.0
+CLEAN fix DEU Flomborn-Stetten wind farm 15.0
 CLEAN fix DEU Hohe See 497.0
 CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
 CLEAN fix DEU Windanker wind farm 300.0
@@ -348,8 +349,16 @@ CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
 CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
 CLEAN fix TWN Hai Long 2 & 3 1044.0
+CLEAN fix TWN Penghu Longmen 6.9
+CLEAN fix TWN Penghu Zhongtun 4.8
+CLEAN fix TWN Taichung Port 36.0
+CLEAN fix TWN Taichung Power Plant 8.0
 CLEAN fix TWN Taipower Offshore Phase 1 (Changhua) 109.2
 CLEAN fix TWN Taipower Offshore Phase 2 294.0
+CLEAN fix TWN Taoyuan Luzhu 33.6
+CLEAN fix TWN Wanggong 20.0
+CLEAN fix TWN Yongxing (Fangyuan) 16.8
+CLEAN fix TWN Yunlin Taixi 16.8
 CLEAN fix TWN Zhong Neng 298.0
 CLEAN fix URY Pampa (Tacuarembó) 141.6
 CLEAN fix USA Coastal Virginia Offshore Wind (CVOW) Commercial Project 2640.0
