@@ -94,7 +94,8 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     every project in scope by status and expected commissioning year, next to GEM's February 2026 country
     totals, and clicking a project shows its planned layout as translucent turbines
   - **Terrain basemaps**: relief (Natural Earth shaded relief + ocean bottom) / satellite (NASA Blue
-    Marble) / plain; zooming in adds Esri hillshade or imagery tiles automatically
+    Marble) / plain / mean wind speed (Global Wind Atlas at 100 m, binned at 1 m/s with a legend); zooming in adds Esri hillshade or
+    imagery tiles automatically (except on the wind speed basemap)
   - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
     pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
     milestones, and a searchable farm list
@@ -339,6 +340,8 @@ python tools/qa_ports.py        # ports check: fields, inside the country or wit
 python tools/build_foundations.py # foundations: checks the per-farm table (farm names, OSPAR values, second sources; a construction source where OSPAR only has the consented design), writes foundations.json and docs/foundations*.md
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
+#    Wind speed basemap (needs rasterio; reads only the overview of the Global Wind Atlas cloud GeoTIFF, not the whole 14 GB file; needs relief_4k.jpg first)
+python tools/build_wind_resource.py
 # 5. Single-file edition and the public global wind map (written to standalone/, not in git; Actions rebuilds and uploads them after pushes to main)
 python tools/build_standalone.py
 python tools/build_globe_lite.py
@@ -474,6 +477,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Pipeline country totals: GEM Global Wind Power Tracker, February 2026 release
 - Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
   Marble Next Generation (public domain)
+- Wind speed basemap: Global Wind Atlas 3 (DTU Wind Energy / World Bank Group, CC BY 4.0)
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
   (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
 - Farm photos and summaries: looked up live from Wikipedia / Wikimedia Commons (per-image licences)

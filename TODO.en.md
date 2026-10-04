@@ -30,7 +30,8 @@ and move finished items to the topic lists below.
   four offshore farms completed in 2026 are now operating. The multi-energy mock-ups discussed the same day are deferred (ROADMAP,
   "Directions evaluated and deferred").
 - 4 Oct 2026 (v2.20.0): "Actual yearly output" on farm cards: 876 US farms (EIA-923) and 13 Taipower farms in Taiwan (Taipower open data).
-  Next: the wind resource layer (v2.21.0), then Germany's MaStR (v2.22.0; the owner has agreed to use it).
+- 5 Oct 2026 (v2.21.0): a "Wind speed" basemap on the globe (Global Wind Atlas, `tools/build_wind_resource.py`). Next: Germany's MaStR
+  (v2.22.0; the owner has agreed to use it).
 - 4 Oct 2026 (v2.19.2): a second check of offshore farms under construction "expected in 2026" (East Anglia TWO/THREE and Ecowende pinned in the
   pipeline matching, Hainan CZ2's year and position corrected and more; see the CHANGELOG).
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with

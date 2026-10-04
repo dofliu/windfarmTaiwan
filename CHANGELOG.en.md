@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.21.0 — 2026-10-05
+
+- A new "Wind speed" basemap on the globe (basemap menu): Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0) mean wind speed at
+  100 m over land and up to about 200 km offshore, in eight 1 m/s classes with a legend, showing why farms cluster in the Taiwan Strait,
+  the North Sea, Patagonia and so on.
+  - One hue (violet), dark = calm and light = windy, kept clear of the gold (onshore), blue (offshore) and teal (floating) farm markers.
+  - New `tools/build_wind_resource.py` reads only the 1/32 overview (about 9 km) of the cloud GeoTIFF and writes `wind_2k.jpg`,
+    `wind_4k.jpg` and the legend's `wind_resource.json`; both single-file copies embed the 2k image. This basemap adds no Esri tiles when zoomed in.
+
 ## v2.20.0 — 2026-10-04
 
 - Farm cards gain "Actual yearly output": farms with official per-farm figures now show their measured yearly net generation and capacity
