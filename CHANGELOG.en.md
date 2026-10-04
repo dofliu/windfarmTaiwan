@@ -15,6 +15,19 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.19.1 — 2026-10-04
+
+- OpenStreetMap turbine positions now cover the whole world (v2.19.0 had only test data around Taiwan): 6,886 operating farms outside
+  the US, with 147,012 turbines, now draw their real positions (357 GW of the 902 GW operating in those countries; 61% without China,
+  where OSM maps few turbines); OSM data as of 2026-10-04. 3,561 farms are matched by OSM wind-plant areas (name and capacity), 3,325 by
+  spatial groups; the rest keep the computed layout. Spot checks: London Array 175, Hornsea One 174, Gemini 150, Horns Rev 1 80 and
+  Yunlin 80 turbines, the actual counts.
+- Matching fixes: most OSM wind farms are type=site relations whose members are the turbines, so the download now includes the members
+  (it fetched tags only, so plant areas found no turbines); a plant whose stated capacity matches but which maps only some turbines (an
+  implausible unit size) is no longer used.
+- The download fetches four tiles at a time, splits a tile that keeps failing into four smaller boxes, and leaves a failed tile for the
+  next run instead of stopping.
+
 ## v2.19.0 — 2026-10-04
 
 - France 2025 now uses the SDES grid-connected capacity at end-2025: onshore 23,992 and offshore 2,008 MW (previously IRENA's 24,155 and

@@ -28,8 +28,10 @@ and move finished items to the topic lists below.
 - 2026-10-04 (v2.18.0): the globe's timeline gains a "2026 (latest available)" point (official figures for 8 countries in `tools/latest_wind.py`,
   refreshed quarterly); 967 US farms draw their real USWTDB turbine positions; farm cards add distance to shore and estimated yearly output;
   four offshore farms completed in 2026 are now operating. The multi-energy mock-ups discussed the same day are deferred (ROADMAP,
-  "Directions evaluated and deferred"). Waiting for the owner: whether to use OpenStreetMap (ODbL, share-alike) for turbine positions
-  elsewhere, and how to correct France's 2025 offshore series (see "Data quality").
+  "Directions evaluated and deferred").
+- 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
+  147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
+  matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
 - Current figures: 242 of 334 operating offshore farms have a known foundation type (71.4% of capacity); dimensions for 234 farms,
   all three for 168; 339 clean-up rules.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
@@ -307,8 +309,9 @@ the rules are in `tools/farm_cleanup.py`.
       `assets/js/live.js` holds [full name, short name]; add both when adding a farm
 - [x] Farm details v2, first step (v2.18.0): estimated yearly output (Ember national capacity factors), distance to shore (computed from the
       coastline), turbine count, model and size for US farms (USWTDB), with the close-up drawing the real turbine positions
-- [ ] The rest of farm details v2: other national registers (Germany MaStR, Danish turbine register, UK REPD) and their turbine positions;
-      OpenStreetMap turbine positions are ODbL (share-alike), so the owner must decide whether to use them; a common turbine-model table
+- [x] Turbine positions in other countries (v2.19.1): OpenStreetMap (ODbL) matched to 6,886 farms and 147,012 turbines
+- [ ] The rest of farm details v2: other national registers (Germany MaStR, Danish turbine register, UK REPD) could fill positions
+      OSM lacks (OSM maps few turbines in China); a common turbine-model table
       (only about 14% of capacity has a model string, so limited value); actual yearly output (EIA-923, Taiwan dataset 37331)
 
 ## Offshore foundation types (collected step by step, owner's decision of 2026-09-27; see item 2 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)

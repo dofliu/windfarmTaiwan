@@ -6,7 +6,7 @@
 
 美國用 USWTDB（tools/build_turbines.py），其他國家用 OpenStreetMap。OSM 的風機多半沒有名稱，所以分兩步、寧可少配：
   1. 風場範圍：OSM 有名稱的風場（power=plant＋plant:source=wind）與本站風場名稱相符（英文字詞或中日韓文的字元組）、
-     中心相距 30 km 內，且容量相符（OSM 有寫容量時 ±15%，沒寫時看單機容量是否合理，見 3）→ 範圍內的風機歸給這座風場。
+     中心相距 30 km 內，且容量相符（OSM 有寫容量時 ±15%，而且單機容量不離譜；沒寫時用 3 的檢查）→ 範圍內的風機歸給這座風場。
   2. 空間群聚：其餘風機以 2 km 相連成群；一群附近（最近的風機 5 km 內，概略座標的風場 10 km）只有一座本站風場 → 整群歸給它；
      有好幾座 → 依最近的風場座標分開，每一份都要通過 3 的檢查，有一份不通過就整群不用。
   3. 檢查：OSM 有一半以上的風機寫了單機容量 → 加總要在風場容量 ±20% 內；本站有機組數 → ±15% 內；
@@ -15,7 +15,7 @@
 
 The US uses USWTDB (tools/build_turbines.py); other countries use OpenStreetMap. Most OSM turbines carry no name, so matching is
 conservative and in two steps: (1) named OSM wind plants matched to a farm by name (Latin words or CJK character pairs), centre
-within 30 km and capacity (±15% when OSM states it, otherwise the plausibility check below) give the farm the turbines inside the
+within 30 km and capacity (±15% when OSM states it, with a loose unit-size check; otherwise the plausibility check below) give the farm the turbines inside the
 plant; (2) the remaining turbines are grouped (2 km links); a group with exactly one site farm nearby (nearest turbine within 5 km,
 10 km for approximate coordinates) goes to that farm, and a group with several is split by nearest farm point, every share passing
 the check or the whole group is dropped. The check: when half or more of the turbines state a rating, their sum must be within ±20%
@@ -242,7 +242,9 @@ def main(osm_dir):
         pts = sorted({t for p, _ in hits for t in p} - used)
         caps = [c for _, c in hits]
         f = cand[i]
-        ok = abs(sum(caps) - f['mw']) <= 0.15 * f['mw'] if all(caps) else plausible(f, [turbines[t] for t in pts])
+        lo, hi = unit_range(f)                   # OSM 容量相符但只畫了部分風機時，單機容量會不合理 · stated capacity matches but only some turbines are mapped
+        ok = (abs(sum(caps) - f['mw']) <= 0.15 * f['mw'] and pts and 0.7 * lo <= f['mw'] / len(pts) <= 1.3 * hi) if all(caps) \
+            else plausible(f, [turbines[t] for t in pts])
         if pts and ok:
             assigned[i] = pts
             used.update(pts)
