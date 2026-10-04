@@ -149,6 +149,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/country_stats.json` — 地球儀時間軸的「最新可得」年份（2026：8 國官方數字，逐國出處寫在 `tools/latest_wind.py`）與各國風電平均容量因數
   （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
 - `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；約 970 座風場、6 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
+- `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 876 座：EIA-923，公有領域；台灣 13 座台電自有風場：台電開放資料 17140），
+  由 `tools/build_generation.py` 產生，第一次打開風場卡片時才載入
 - `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,900 座風場、14.7 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
   **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
@@ -260,6 +262,10 @@ python tools/build_turbines.py uswtdb_V9_1_20260928.csv
 # 9. 其他國家的風機位置（OpenStreetMap，ODbL；下載約需 2–4 小時，Overpass 公用伺服器忙時會自動重試，失敗的區重跑時補；重建風場層後也要重跑對應）
 python tools/fetch_osm_turbines.py osm_wind/
 python tools/build_turbines_osm.py osm_wind/
+# 10. 實際年發電量（美國 EIA-923 每年約 9 月出前一年的最終值，舊年份在 archive/xls/；台灣兩個 CSV 從台電開放資料重新下載後覆蓋；先跑第 8 步）
+curl -LO https://www.eia.gov/electricity/data/eia923/xls/f923_2025.zip   # 2023、2024 年在 .../eia923/archive/xls/
+python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip \
+  data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv
 ```
 
 ### 本站對資料的修正（皆記錄在資料檔與網站「資料來源」中）

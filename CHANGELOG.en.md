@@ -15,6 +15,18 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.20.0 — 2026-10-04
+
+- Farm cards gain "Actual yearly output": farms with official per-farm figures now show their measured yearly net generation and capacity
+  factor (the others keep the estimate).
+  - 876 US farms: U.S. EIA Form EIA-923 (2023–2025, public domain). USWTDB gives each turbine its EIA plant code, so plants link straight to
+    the site's farms; plants spread over several farms (21) are left out, only years with every turbine in service all year are shown, and
+    the capacity factor uses the USWTDB turbine ratings.
+  - 13 Taipower-owned farms in Taiwan (including Offshore Phase 1: 306 GWh in 2025, capacity factor 31.9%): Taipower open data on the
+    generation of its own renewable stations (17140, from 2024) and its wind stations (17141); 7 stations whose stated capacity differs from
+    the site's record by 15% or more (Datan, Luzhu, Yongxing and others) are left out for now. Private farms have no official per-farm figures.
+  - New `tools/build_generation.py`; `turbines.json` now carries each farm's EIA plant codes.
+
 ## v2.19.2 — 2026-10-04
 
 - Second check of offshore farms under construction "expected in 2026" (quotes checked with `check_quotes.py`; rules in `tools/farm_cleanup.py`):
