@@ -186,8 +186,7 @@
 - [x] 重複的風場紀錄：美國 Sunrise Wind 同時有 GEM 的「Sunrise wind farm (United States)」與 2026 年整理清單的「Sunrise Wind」（同為 924 MW、興建中）：已在水下基礎第 4 步合併為一筆，座標改到 BOEM 租約區 OCS-A 0487 的中心（2026-09，v2.10.0）
 - [x] 荷蘭的兩組重複（比對水下基礎時發現）：Borssele V 與 GEM 的「Borssele Site V」、Irene Vorrink 與 GEM 的「Dronten」已查證合併（2026-09，v2.8.0）
 - [x] Dogger Bank 規劃中專案：GEM 2026-02 把 B、C 兩期合成一筆興建中（2026）的紀錄，清單的 B、C 已列入 `PIPE_DROP`；比對程式改為同一筆 GEM 紀錄只讓第一個對到的清單專案更新（v2.13.0）
-- [ ] 法國 2025 年離岸容量（`wind_global.json` 為 1,500 MW）偏低：SDES 2026 年第 2 季風電儀表板確認 2025 年底為 2,008 MW（Yeu-Noirmoutier 500 MW 在 2025 年全部併網；2024 年底 1,508 MW）。
-      2026 年點已直接用 SDES 的離岸數字（v2.18.0）；2025 年數列要更正時，先決定陸域要不要跟著調（本站陸域＝IRENA 的口徑，SDES 2025 年底陸域為 23,992 MW），再改 `tools/extract_global_data.py`
+- [x] 法國 2025 年陸域與離岸改用 SDES 的 2025 年底併網容量 23,992／2,008 MW（v2.19.0，2026-10-04 使用者決定一起調；`tools/extract_global_data.py` 的 `FRA_SDES`）
 - [ ] 離岸逐場加總高於國家數列，待查證：中國營運中離岸風場加總 58.9 GW，國家數列 2025 年為 48.4 GW；越南 28 座「離岸」（多為潮間帶）加總 2.0 GW，國家數列為 1.0 GW。可能是分批併網卻以全場容量計入，或有重複
 
 ## 港口資料（data/global/ports.json，2026-09 人工整理）

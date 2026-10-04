@@ -6,7 +6,7 @@ English ｜ [中文](data-coverage.md)
 
 ## Summary
 
-- **Country level**: 79 countries total 1,287,611 MW at year-end, which is the site’s world total (1,287,611 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
+- **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
 - **Farm level**: 15,986 operating farms, 1,167,735 MW are mapped individually — about **91%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 53 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
 - **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 202 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
@@ -107,7 +107,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 5 | Brazil (BRA) | 34,866 | 0 | 35,718 | 34,291 | 98% | 575 | 295 | 760 | 3 | ✓ |
 | 6 | Spain (ESP) | 33,301 | 7 | 31,007 | 31,436 | 94% | 1,865 | 872 | 3,671 | 253 | ✓ |
 | 7 | United Kingdom (GBR) | 33,088 | 16,071 | 28,965 | 31,731 | 96% | 1,357 | 740 | 2 | 0 | ✓ |
-| 8 | France (FRA) | 25,655 | 1,500 | 25,610 | 25,896 | 101% | 0 | 1,248 | 3,371 | 321 | ✓ |
+| 8 | France (FRA) | 26,000 | 2,008 | 25,610 | 25,896 | 100% | 104 | 1,248 | 3,371 | 321 | ✓ |
 | 9 | Canada (CAN) | 18,153 | 0 | 17,709 | 17,755 | 98% | 398 | 197 | 0 | 6 | ✓ |
 | 10 | Sweden (SWE) | 17,381 | 191 | 16,574 | 16,554 | 95% | 827 | 259 | 97 | 0 | ✓ |
 | 11 | Turkey (TUR) | 14,781 | 0 | 13,784 | 14,067 | 95% | 714 | 278 | 2,194 | 13 | ✓ |

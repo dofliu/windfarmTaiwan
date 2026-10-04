@@ -49,6 +49,10 @@ TWN_OFFICIAL = {
 TWN_EARLY = {2000: (2.6, 0), 2001: (5.0, 0), 2002: (8.5, 0), 2003: (8.5, 0), 2004: (8.5, 0)}
 # JWPA 年末累積導入量（MW）：陸上／洋上（本格洋上＋セミ洋上）。總量 2019 3,923・2020 4,439・2021 4,581・
 # 2022 4,802・2023 5,213.4・2024 5,840.4・2025 6,434.2 已與 JWPA 公告核對
+# 法國統計處 SDES《Tableau de bord : éolien》2026 年第二季：2025 年 12 月 31 日併網容量 陸域／離岸（MW）。本站 2025 年原為 IRENA 陸域 24,155、
+# 離岸 1,500（沒算到 2025 年全部併網的 Yeu-Noirmoutier 500 MW）；2026-10-04 使用者決定陸域與離岸都改用 SDES
+SDES_URL = "https://www.statistiques.developpement-durable.gouv.fr/tableau-de-bord-eolien-deuxieme-trimestre-2026"
+FRA_SDES = {2025: (23992, 2008)}
 JWPA_URL = "https://jwpa.jp/information/12660/"
 JPN_JWPA = {
     2011: (2530.0, 25), 2012: (2588.0, 25), 2013: (2612.0, 50), 2014: (2742.0, 50), 2015: (2983.0, 53),
@@ -70,11 +74,13 @@ def set_series(iso, table):
 set_series("TWN", TWN_EARLY)
 set_series("TWN", TWN_OFFICIAL)
 set_series("JPN", JPN_JWPA)
+set_series("FRA", FRA_SDES)
 EDITS.append("TWN 2005–2025 onshore/offshore = MOEA Energy Administration, Energy Statistics Handbook 2025, Table 3-6 "
              "(official annual table; 2025: 930.3 / 3,586.9 MW). The original map derived onshore as IRENA total minus "
              "a differently scoped offshore series, which put 2,064 MW 'onshore' in 2023.")
 EDITS.append("JPN 2011–2025 = JWPA year-end cumulative installed capacity (2025: 6,434.2 MW); offshore = JWPA full "
              "offshore + semi-offshore/port sites (2025: 253.4 + 34.2 MW). The original map used IRENA (2025: 6,249 MW).")
+EDITS.append("FRA 2025 onshore/offshore = SDES (French Ministry statistics) wind dashboard, Q2 2026 issue, grid-connected capacity at 31 Dec 2025: 23,992 / 2,008 MW. The original series had offshore 1,500 MW (Yeu-Noirmoutier, 500 MW, fully connected in 2025, was missing) and IRENA onshore 24,155 MW.")
 
 # ---------------------------------------------------------------- 風場：稽核狀態、中英註記
 NOTE_ZH = {

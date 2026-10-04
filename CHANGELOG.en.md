@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.19.0 — 2026-10-04
+
+- France 2025 now uses the SDES grid-connected capacity at end-2025: onshore 23,992 and offshore 2,008 MW (previously IRENA's 24,155 and
+  1,500 MW, which left out Yeu-Noirmoutier, 500 MW, fully connected in 2025; the owner decided on 2026-10-04 to change both); the world
+  total at end-2025 becomes 1,287,956 MW (about 1,288 GW), with about 158 GW added in 2025. France's 2026 point now uses the SDES figures
+  directly (same series).
+
 ## v2.18.0 — 2026-10-04
 
 - The globe's timeline extends to "2026 (latest available)": 8 countries use this year's official figures — Taiwan (Energy Administration

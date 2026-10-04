@@ -358,6 +358,9 @@ python tools/build_turbines.py uswtdb_V9_1_20260928.csv
   100 small farms missing from GEM (NEDO prefecture lists, windfarm.work) and 22 corrected GEM coordinates
 - Formosa 1 Phase 1 and Formosa 2 years aligned with their actual grid connection / commercial dates
 - Borders rebuilt from Natural Earth 1:50m (the original lacked the mainland Australia polygon);
+- France 2025 onshore/offshore now follows the grid-connected capacity at end-2025 in the SDES wind dashboard (Q2 2026 issue),
+  23,992 / 2,008 MW; the original used IRENA onshore 24,155 and offshore 1,500 MW (missing Yeu-Noirmoutier, 500 MW, fully
+  connected in 2025)
   Crimea shown as part of Ukraine per UN General Assembly resolution 68/262, matching the country
   GEM assigns to Crimean wind farms
 - GEM phases more than 25 km apart under one location are shown as separate points instead of an
