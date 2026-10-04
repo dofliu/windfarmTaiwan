@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 339 rules: 137 records removed (42,468.2 MW of them operating), 202 records fixed.
+- 347 rules: 137 records removed (42,468.2 MW of them operating), 210 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 45 | 24,974.5 | 77 |
+| China | 45 | 24,974.5 | 83 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -29,7 +29,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Japan | 2 | 30 | 11 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
-| Netherlands | 8 | 1,852 | 6 |
+| Netherlands | 8 | 1,852 | 7 |
 | Norway | 7 | 1,939 | 9 |
 | Philippines | 1 | 160 | 1 |
 | Poland | 0 | 0 | 1 |
@@ -46,7 +46,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | United Kingdom | 7 | 3,485 | 6 |
 | United States of America | 6 | 811.6 | 6 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 13 | 1,487 | 19 |
+| Vietnam | 13 | 1,487 | 20 |
 | Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
@@ -205,6 +205,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | CGN Rudong H8 · 300 MW · 2021 | curated | fixed: turbines | CGN Rudong H8 has 40 CSSC Haizhuang H171-5.0 plus 25 Shanghai Electric SWT-4.0-146 turbines, not Mingyang 5.5 MW (Power Technology project profile) | [link](https://www.power-technology.com/marketdata/power-plant-profile-cgn-jiangsu-rudong-h8-offshore-wind-power-project-china/) |
 | Guoneng Dafeng H5 · 200 MW · 2021 | curated | fixed: capacity, turbines | Guoneng Dafeng H5 is 206.4 MW with 32 Goldwind GW184-6.45 turbines (Dafeng district government, Dec 2024); the row said 200 MW and Goldwind 5–6 MW class | [link](https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html) |
 | Fuqing Haitan Strait · 300 MW · 2021 | curated | fixed: capacity, turbines | As-built marine environmental acceptance report: 46 turbines, 21 Haizhuang 6.2 MW, 3 × 5 MW and 22 Mingyang 7.0 MW, 299.2 MW in total; the row said Goldwind 6.45–8 MW and 300 MW | [link](https://www.cti-cert.com/upload/files/202511071148308464.pdf) |
+| Shenergy Hainan CZ2 (Dongfang) · 600 MW · 2024 | curated | fixed: name, year, location | Shenergy Hainan CZ2 phase 1 (67 × 9 MW) reached full grid connection on 2025-03-24 (2024 was only the first units), so the year changes from 2024 to 2025; the site lies off northern Danzhou, about 27 km offshore, not off Dongfang, so the point moves north of Danzhou (approximate) and “Dongfang” in the name becomes “Danzhou” | [link](https://www.ne21.com/news/show-210615.html) |
+| Hainan CZ2 Demonstration Offshore wind farm · 2 · 600 MW · 2026 | GEM | fixed: Chinese name, year | This is CZ2 phase 2: the project totals 1,200 MW and phase 1 (600 MW) is operating; phase 2 drove its first pile only on 2026-04-30 and no completion year has been published; GEM’s Chinese name says phase 1 | [link](https://www.hi.chinanews.com.cn/hnnew/2026-05-02/739814.html) |
+| Hainan CZ7 Demonstration Offshore wind farm · 1 · 600 MW · 2026 | GEM | fixed: Chinese name, year | This is CZ7 phase 1 (CZ7-1, 600 MW, 60 × 10 MW Mingyang turbines planned), not phase 2; in 2026 only the onshore control centre and grid connection are being built, with no offshore works found and no completion year published | [link](https://finance.sina.com.cn/roll/2025-07-23/doc-infhncvn1132725.shtml) |
+| Hainan CZ9 Demonstration Offshore wind farm · 1 · 600 MW · 2026 | GEM | fixed: year | Mingyang Dongfang CZ9 phase 1, 600 MW: a groundbreaking ceremony was held on 2022-11-30, but by October 2026 no offshore piling or turbine installation can be found, and in July 2026 Mingyang still described CZ9 as a planned site; there is no basis for 2026 completion, so the year is set to unknown | [link](https://www.ewindpower.cn/news/show-htm-itemid-33855.html) |
+| Guangdong Xuwen Donger Offshore wind farm · 300 MW · 2026 | GEM | fixed: year, turbines, owner, Chinese name | CNNC’s Zhanjiang Xuwen Donger: 300 MW, 21 × 14.3 MW; the first monopile was driven only on 2026-09-04 (the original plan of full connection by end-2025 has slipped), and no completion year has been published | [link](https://www.21jingji.com/article/20260906/herald/6b02ac88b4840ed91205ffeb9430edf6.html) |
+| Guangdong Three Gorges Pilot Floating Offshore wind farm · 16 MW · 2026 | GEM | fixed: Chinese name, turbines | This is CTG’s “Three Gorges Lead” (Sanxia Linghang), a single 16 MW floating platform, installed off Yangjiang (Qingzhou) on 2026-05-02 with its 66 kV dynamic cable laid in June into the Qingzhou 5/7 array; no report of its own grid connection was found, so it stays under construction | [link](https://www.ithome.com/0/946/070.htm) |
 
 ## Colombia (COL)
 
@@ -334,6 +340,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Windplanblauw offshore wind farm · 132 MW · 2024 | GEM | fixed: location | Point moved to the two rows of 24 turbines in the IJsselmeer (the old one was in the North Sea, about 82 km to the west); the 132 MW is the part in the lake, and 37 more turbines stand on land | [link](https://www.openstreetmap.org/relation/12695731) |
 | Borssele V (Two Towers innovation site) · 19 MW · 2021 | curated | fixed: location | Point moved to the two turbines (the old one was about 3 km to the north-east) | [link](https://www.openstreetmap.org/node/7680250702) |
 | Borssele Site V wind farm · 19 MW · 2021 | GEM | duplicate of “Borssele V (Two Towers innovation site)” | Same farm (two V164-9.5 MW, bought by Octopus Energy in 2022); the GEM point is about 85 km to the north | [link](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
+| Ecowende Offshore wind farm · 780 MW · 2026 | GEM | fixed: turbines, location | Ecowende (Hollandse Kust West site VI), 52 Vestas V236-15.0, 760 MW, first power July 2026, full operation planned for the end of 2026; moved to the Hollandse Kust West zone (the old point was on the coastline; approximate). Capacity, status and year come from the 2026 pipeline compilation (PIPE_SAME in build_farms.py) | [link](https://windpowernl.com/2026/07/06/ecowendes-hollandse-kust-west-offshore-wind-farm-delivers-first-power-to-dutch-grid/) |
 
 ## Norway (NOR)
 
@@ -561,6 +568,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | curated | fixed: turbines | Tra Vinh Dong Hai 1 has 25 Siemens Gamesa SG 5.0-145 turbines rated at 4 MW each, not SG 4.0-145 (offshoreWIND.biz, Feb 2021; Trungnam project page) | [link](https://www.offshorewind.biz/2021/02/03/siemens-gamesa-lands-its-largest-nearshore-project-in-vietnam/) |
 | Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | fixed: turbines | Thanh Hai has 28 turbines in all (EVN); phases 1 and 2 use Siemens Gamesa SG 4.5-145 (Power Technology); the model of the other phases is not found | [link](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
 | Tan Phu Dong 1 (Tien Giang, GEC) · 100 MW · 2023 | curated | fixed: turbines | Tan Phu Dong 1 has 24 Vestas V150-4.2 MW turbines, not Envision (project page of the logistics contractor Infinity Logistics) | [link](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) |
+| Đông Thành 1 - Thái Hòa offshore wind farm · 1 · 80 MW · 2026 | GEM | fixed: status, year | Đông Thành 1 (80 MW): in March 2026 the Vĩnh Long trade department was still seeking opinions on its investment approval, and no construction report can be found (GEM’s “construction” rests on a 2024 paid-database page); set to pre-construction, year unknown | [link](https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm) |
 
 ## Åland (ALA)
 
@@ -584,6 +592,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Project | Change | Reason | Source link |
 |---|---|---|---|
+| East Anglia TWO (GBR) | expected=2028, mw=960.0 | Expected operation moved from 2029 to 2028 and capacity from 963 to 960 MW: fabrication of the 64 monopiles and transition pieces only starts in H2 2026, with offshore construction expected in 2027 and operation in 2028 | [link](https://www.nsenergybusiness.com/projects/east-anglia-two-offshore-wind-farm/) |
 | YouDe (TWN) | mw=700.0, zh=又德, note=Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed | Name corrected to Youde (又德) and capacity from 1,000 MW to the 700 MW allocated in Round 3.2; the same project as GEM’s “Datian Youde”, now one record | [link](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Fengmiao 2 (TWN) | mw=600.0 | Capacity from 500 MW to the 600 MW allocated in Round 3.2 | [link](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Huanyang (TWN) | note=Round 3.1; the Energy Administration said in 2026 that the termination was in process | The Energy Administration said in 2026 that Huanyang (EDF’s Wei Lan Hai Changhua) is in the termination process; it will be removed once that is final | [link](https://www.nownews.com/news/6859530) |

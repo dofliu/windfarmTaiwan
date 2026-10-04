@@ -7,7 +7,7 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (4 Oct 2026, v2.19.1): maintenance, data checks and strengthening the wind content
+## Current status (4 Oct 2026, v2.19.2): maintenance, data checks and strengthening the wind content
 
 The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks and
 visual upgrades (one PR each). The automatic Taiwan live-data updates keep running (maintenance: "Maintenance" in

@@ -472,7 +472,11 @@ TW_PIPE_SAME = {'Fengmiao 1': 'Taichung Fengmiao Floating wind farm', 'Formosa 4
 PIPE_SAME = {
     'GBR': {'Dogger Bank D': 'Dogger Bank wind farm · D',                                  # 1,320 MW，GEM 前期開發、沒有預計年
             'Dogger Bank South East': 'Dogger Bank South offshore wind farm · 1',          # GEM 第 1 期在東側（54.50, 2.56）
-            'Dogger Bank South West': None},                                              # GEM 第 2 期（54.62, 1.88）被自動比對當成 Dogger Bank A 的重複而捨棄，改由清單新增
+            'Dogger Bank South West': None,                                               # GEM 第 2 期（54.62, 1.88）被自動比對當成 Dogger Bank A 的重複而捨棄，改由清單新增
+            # GEM 的 EA2、EA3 與清單的 East Anglia TWO、THREE 自動比對時交錯（THREE 的「興建中、2026」被寫到 EA2 上）
+            'East Anglia TWO': 'East Anglia wind farm · EA2', 'East Anglia THREE': 'East Anglia wind farm · EA3'},
+    # Ecowende 是 Hollandse Kust West 第 VI 區；自動比對時被寫到 GEM 的第 VIII 區（2022 年才加的場址，尚未招標）
+    'NLD': {'Hollandse Kust West VI (Ecowende)': 'Ecowende Offshore wind farm'},
 }
 TW_PIPE_NOTE_ZH = {'Fengmiao 1': '區塊開發 3.1 期；2024 年完成融資；座標為概略位置',
                    'Formosa 4': '區塊開發 3.1 期；2024 年取得許可、2025 年 12 月簽訂企業購電合約，尚未做最終投資決定',

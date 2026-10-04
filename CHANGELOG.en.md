@@ -15,6 +15,21 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.19.2 — 2026-10-04
+
+- Second check of offshore farms under construction "expected in 2026" (quotes checked with `check_quotes.py`; rules in `tools/farm_cleanup.py`):
+  - Two automatic matches between the pipeline compilation and GEM were crossed and are now pinned (`PIPE_SAME` in `build_farms.py`): East Anglia
+    THREE's "under construction, 2026" had been written onto East Anglia TWO, which is now pre-construction, 960 MW, expected 2028; Ecowende
+    (Hollandse Kust West site VI, 760 MW) had been written onto site VIII, which has not been tendered yet and is back to announced, while
+    Ecowende is under construction and moved into the wind-farm zone.
+  - Hainan CZ2: Shenergy's CZ2 phase 1 reached full connection only in March 2025 (year 2024 → 2025) and lies off northern Danzhou (the name now says
+    "Danzhou"; with the corrected point OpenStreetMap matches 66 turbines); GEM's 600 MW record is phase 2, which started construction in April 2026.
+  - Completion year unknown instead of 2026, as nothing supports it: Hainan CZ7 phase 1 (GEM's Chinese name said phase 2), CZ9 phase 1 and Zhanjiang
+    Xuwen Donger (first pile in September 2026); Vietnam's Đông Thành 1 is still awaiting investment approval and is now pre-construction.
+  - CTG's 16 MW floating "Three Gorges Lead" was installed in May 2026; its grid connection is unconfirmed, so it stays under construction.
+  - Greater Changhua 2b&4, Vineyard Wind 1, Baltic Power, Qingzhou 5 and 7, Bac Lieu 3 and others still had no full commercial operation by 4 October
+    and stay under construction (watch list in `tools/research/farms_2026_status.json`).
+
 ## v2.19.1 — 2026-10-04
 
 - OpenStreetMap turbine positions now cover the whole world (v2.19.0 had only test data around Taiwan): 6,886 operating farms outside

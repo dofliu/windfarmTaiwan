@@ -4,31 +4,38 @@
   "iso": "USA",
   "status_oct2026": "unclear",
   "full_cod": null,
+  "expected_year": 2026,
   "mw_confirmed": 806,
-  "note_zh": "62 部風機 2026 年 3 月 13 日全部裝完；開發商宣布 2026 年 4 月 24 日達到商轉日（購電合約生效），但同時表示風機未達滿載、需 GE Vernova 繼續修改；6 月法院文件指 62 部中 36 部未運轉。9 月雙方和解，聲明只說風機「能夠發電」。是否已全場正常運轉無法查證，建議暫列興建中或待查證。",
-  "note_en": "All 62 turbines were installed by 13 March 2026; the developer declared its commercial operation date on 24 April 2026 (PPAs activated) while saying the turbines were not performing at full capacity and GE Vernova had more work to do; in June court filings 36 of 62 turbines were not spinning. The September settlement only says the turbines are 'capable of producing power'. Full whole-farm operation cannot be verified; keep under construction or mark unverified.",
+  "note_zh": "最後一部風機 2026 年 3 月 13 日完成安裝。2026 年 4 月底達到購售電合約的商轉門檻、州長 4 月 27 日宣布與麻州電力公司的合約生效（商轉日 4 月 24 日見於 Unitil 的 SEC 季報，網頁無法抓取，待查證），但當時 62 部中只有 55 部能發電、且未全部滿載。2026 年 9 月 16–17 日與 GE Vernova 和解時，開發商只說「所有風機都能發電」，當地媒體指出不清楚是否已全部完成試運轉。查不到明確「全部 62 部全面商轉／滿載」的來源，列為不明；無論如何開始商業運轉的年份都是 2026。",
+  "note_en": "The last turbine was installed on 13 March 2026. The contract commissioning threshold was reached and the power contracts with the Massachusetts utilities took effect in late April 2026, announced by the governor on 27 April (a 24 April commercial operation date appears in a Unitil SEC 10-Q that could not be fetched, so it is unverified), but at that point only 55 of the 62 turbines could generate and not all at full capacity. When the GE Vernova dispute was settled on 16–17 September 2026 the developer said only that all turbines are capable of producing power, and local press noted it was unclear whether they were fully commissioned. No source states that all 62 turbines are fully commissioned, so this is left unclear; either way commercial operation began in 2026.",
   "sources": [
    {
-    "url": "https://newbedfordlight.org/offshore-wind-tracker-whats-happening-to-massachusetts-projects/",
-    "quote": "Vineyard Wind finished project installation on March 13 when it installed the last three blades on the 62nd turbine.",
+    "url": "https://www.mvtimes.com/2026/04/27/stable-price-for-vineyard-wind-energy-now-in-effect/",
+    "quote": "it is not confirmed that every turbine is commissioned or that Vineyard Wind has reached full commercial operation. As of April 16, only 55 of 62 turbines were able to generate power",
     "check": "OK"
    },
    {
-    "url": "https://newbedfordlight.org/judge-rules-again-for-vineyard-wind-in-its-dispute-with-ge-vernova/",
-    "quote": "Vineyard Wind announced it reached its commercial operation date on April 24. Vineyard Wind says the turbines are not performing at full capacity and that GE Vernova needs to do more work on them to fix that.",
+    "url": "https://www.wgbh.org/news/local/2026-04-29/negotiated-prices-for-electricity-from-vineyard-wind-take-effect",
+    "quote": "But with all 62 turbines now installed, Healey announced Monday that Vineyard Wind’s contracts with power companies have been activated.",
     "check": "OK"
    },
    {
-    "url": "https://newbedfordlight.org/judge-rules-again-for-vineyard-wind-in-its-dispute-with-ge-vernova/",
-    "quote": "36 of the 62 turbines are not spinning, with fewer operating since the previous hearing",
+    "url": "https://newbedfordlight.org/vineyard-wind-ge-vernova-reach-settlement-over-contract/",
+    "quote": "Vineyard Wind said “all turbines are capable of producing power,” though it is not clear whether that means they are fully commissioned.",
     "check": "OK"
    },
    {
-    "url": "https://www.nhpr.org/2026-09-17/vineyard-wind-ge-vernova-settle-dispute-over-wind-farm",
-    "quote": "The statement announcing the settlement says Vineyard Wind’s turbines are “capable of producing power, providing reliable, affordable energy to more than 400,000 homes and businesses while bolstering grid stability",
+    "url": "https://finance.yahoo.com/energy/articles/ge-vernova-vineyard-wind-settle-024435837.html",
+    "quote": "The roughly $4.5-billion Vineyard Wind 1 development consists of 62 turbines with total capacity of about 806 MW. The companies said Wednesday that all of the turbines are now capable of producing",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.vermontpublic.org/2026-09-17/vineyard-wind-ge-vernova-settle-dispute-over-wind-farm",
+    "quote": "Superior Court Judge Peter Krupp ruled that the project needs GE’s expertise and “proprietary know-how” to bring the turbines up to capacity.",
     "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
  },
  {
   "farm": "Revolution Wind",
@@ -49,7 +56,8 @@
     "quote": "Revolution Wind continues to progress toward an anticipated commercial operation date later this year",
     "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
  },
  {
   "farm": "Yeonggwang Nakwol",
@@ -75,7 +83,8 @@
     "quote": "전체 64기 364.8㎿ 규모 풍력 장치가 설치될 예정인 가운데",
     "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
  },
  {
   "farm": "Sofia",
@@ -96,7 +105,8 @@
     "quote": "Late 2026 All 100 turbines fully commissioned. Offshore converter platform fully commissioned. Sofia is fully operational.",
     "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
  },
  {
   "farm": "Dieppe-Le Treport wind farm",
@@ -117,64 +127,162 @@
     "quote": "Le parc normand de 496 MW doit être entièrement mis en service d’ici la fin de l’année.",
     "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
  },
  {
   "farm": "Greater Changhua 2b & 4",
   "iso": "TWN",
   "status_oct2026": "construction",
   "full_cod": null,
+  "expected_year": 2026,
   "mw_confirmed": 920,
-  "note_zh": "2026 年 9 月 1 日舉行完工儀式，但風場仍在最終試運轉與測試，完成主管機關及台電許可後才全面商轉（沃旭預計 2026 年第三季末）；截至 10 月初查不到全面商轉的公告，暫列興建中。",
-  "note_en": "Completion ceremony on 1 September 2026, but the farm was still in final commissioning and testing; full commercial operation follows regulatory and Taipower approvals (Ørsted expected late Q3 2026). No announcement of full commercial operation found by early October; keep under construction for now.",
+  "note_zh": "沃旭 2026 年 9 月 1 日舉行大彰化西南第二階段（337 MW）及西北（583 MW）離岸風場完工典禮，共 920 MW、66 部 14 MW 風機；同時說明風場仍在進行最終試轉與測試，完成主管機關及台電許可後才全面商轉，預計 2026 年第三季末。截至 2026 年 10 月 4 日，查不到沃旭、能源署、台電或媒體宣布已全面商轉的消息，暫列興建（最終試運轉）中、預計 2026 年。",
+  "note_en": "Ørsted held the completion ceremony for Greater Changhua 2b (337 MW) and 4 (583 MW), 920 MW and 66 x 14 MW turbines, on 1 September 2026, saying the farms were still in final commissioning and testing and would enter full commercial operation once the regulator's and Taipower's approvals were complete, expected in late Q3 2026. As of 4 October 2026 no announcement of full commercial operation by Ørsted, the Energy Administration, Taipower or the press could be found, so it stays under construction (final commissioning), expected 2026.",
   "sources": [
    {
-    "url": "https://www.cna.com.tw/news/afe/202609010301.aspx",
-    "quote": "沃旭表示，風場正進行最終試運轉與測試作業，在完成主管機關及台電相關許可申請後，將達成全面商轉。",
+    "url": "https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521",
+    "quote": "Ørsted celebrated the completion of major construction works for the 920 MW Greater Changhua 2b and 4 offshore wind farms.",
     "check": "OK"
    },
    {
     "url": "https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521",
     "quote": "The Greater Changhua 2b and 4 project is expected to enter full commercial operation in late Q3 2026 upon completion of the remaining commissioning activities",
     "check": "OK"
+   },
+   {
+    "url": "https://news.cnyes.com/news/id/6594322",
+    "quote": "大彰化西南第二階段與西北離岸風場正在進行最終試轉與測試作業，完成主管機關及台電相關許可申請後，將全面商轉。",
+    "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
  },
  {
   "farm": "CTG Yangjiang Qingzhou 5",
   "iso": "CHN",
   "status_oct2026": "construction",
   "full_cod": null,
+  "expected_year": null,
   "mw_confirmed": 1000,
-  "note_zh": "青洲五、七共 163 部、200 萬瓩，2026 年 9 月 27 日首批 5 部才併網；仍為興建中（與現有 farm_cleanup 規則一致）。",
-  "note_en": "Qingzhou 5 and 7 (163 turbines, 2,000 MW) connected their first 5 turbines only on 27 September 2026; still under construction (consistent with the existing farm_cleanup rule).",
+  "note_zh": "青洲五、七合計 200 萬瓩、163 部 12–16 MW 機組，風機 2025-05 起吊裝、14 個月內全部裝完；±500 kV 柔直送出工程與首批 5 部機組 2026-09-27 併網。至 2026-10-04 查不到全容量併網的報導，仍為施工中（併網調試中），全容量併網日期未公布。",
+  "note_en": "Qingzhou 5 and 7 together: 2,000 MW, 163 turbines of 12–16 MW; turbine installation began in May 2025 and all 163 were installed within 14 months. The ±500 kV HVDC export and the first 5 turbines were connected on 27 Sep 2026. No full-capacity connection is reported as of 4 Oct 2026, so it remains under construction (commissioning); no full-connection date has been published.",
   "sources": [
-   {
-    "url": "https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html",
-    "quote": "9月27日，随着首批5台机组叶片缓缓转动，三峡阳江青洲五、七海上风电场首批机组成功并网发电。",
-    "check": "OK"
-   },
    {
     "url": "https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html",
     "quote": "三峡阳江青洲五、七海上风电场离岸约70公里、作业水深约50米，总装机容量200万千瓦，布设163台12至16兆瓦大容量海上风电机组。",
     "check": "OK"
+   },
+   {
+    "url": "https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html",
+    "quote": "此次首批机组成功并网，为三峡阳江青洲五、七海上风电场全容量投产奠定坚实基础。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.21jingji.com/article/20260928/herald/a49863edd2c8c9aa30fe8ef01f65e910.html",
+    "quote": "随着位于广东阳江海域的5台风电机组叶片缓缓转动，三峡阳江青洲五、七期海上风电项目首批机组成功并网，世界电压等级最高、输送容量最大的海上风电柔性直流送出工程同步投入运行",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.oedigital.com/news/543359-china-three-gorges-links-first-qingzhou-v-and-vii-wind-turbines-to-grid",
+    "quote": "Installation of the project's first turbine began in May 2025, with all 163 turbines installed within 14 months.",
+    "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
  },
  {
   "farm": "CTG Yangjiang Qingzhou 7",
   "iso": "CHN",
   "status_oct2026": "construction",
   "full_cod": null,
+  "expected_year": null,
   "mw_confirmed": 1000,
-  "note_zh": "同青洲五：2026 年 9 月 27 日首批 5 部併網，仍為興建中。",
-  "note_en": "As for Qingzhou 5: first 5 turbines connected on 27 September 2026; still under construction.",
+  "note_zh": "同青洲五：163 部機組已全部安裝，2026-09-27 首批 5 部併網、柔直送出投運；至 2026-10-04 未見全容量併網報導，仍為施工中。",
+  "note_en": "As for Qingzhou 5: all 163 turbines installed, first 5 connected and the HVDC export energised on 27 Sep 2026; no full-capacity connection reported as of 4 Oct 2026, so still under construction.",
   "sources": [
    {
     "url": "https://www.yangjiang.gov.cn/yj/ywdt/bmzx/content/post_984170.html",
-    "quote": "9月27日，随着首批5台机组叶片缓缓转动，三峡阳江青洲五、七海上风电场首批机组成功并网发电。",
+    "quote": "此次首批机组成功并网，为三峡阳江青洲五、七海上风电场全容量投产奠定坚实基础。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.oedigital.com/news/543359-china-three-gorges-links-first-qingzhou-v-and-vii-wind-turbines-to-grid",
+    "quote": "Installation of the project's first turbine began in May 2025, with all 163 turbines installed within 14 months.",
     "check": "OK"
    }
-  ]
+  ],
+  "checked": "2026-10-04"
+ },
+ {
+  "farm": "Baltic Power Offshore wind farm",
+  "iso": "POL",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "expected_year": 2026,
+  "mw_confirmed": 1140,
+  "note_zh": "波蘭第一座離岸風場 Baltic Power（ORLEN 51%、Northland Power 49%），76 部 Vestas V236-15.0、1,140 MW。2026 年 7 月首度併網送電；Northland 2026 年第二季法說會時 76 部中裝好 61 部、15 部發電，預定 2026 年內全面商轉。截至 2026 年 10 月 4 日查不到全部風機安裝完成或全面商轉的公告，仍列興建中、預計 2026 年。",
+  "note_en": "Baltic Power, Poland's first offshore wind farm (ORLEN 51%, Northland Power 49%), has 76 Vestas V236-15.0 turbines, 1,140 MW. First power reached the grid in July 2026; at Northland's Q2 2026 earnings call 61 of 76 turbines were installed and 15 generating, with full commercial operation expected later in 2026. As of 4 October 2026 no announcement of completed installation or full commercial operation could be found, so it stays under construction, expected 2026.",
+  "sources": [
+   {
+    "url": "https://balticpower.pl/about-the-project/",
+    "quote": "but its target generation capacity resulting from the selected turbine technology will be 1140 MW.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.renewableenergymagazine.com/wind/baltic-power-sends-first-offshore-wind-power-20260710",
+    "quote": "the project remains on track for commercial operations in the second half of 2026, with costs aligned with original expectations.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.benzinga.com/news/26/09/62020207/transcript-northland-power-q2-2026-earnings-conference-call",
+    "quote": "Today, 61 out of 76 turbines are installed and 15 are generating power. The project is on track for commercial operations later this year with costs aligned to original expectations.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.benzinga.com/news/26/09/62020207/transcript-northland-power-q2-2026-earnings-conference-call",
+    "quote": "At Baltic Power, as Christine mentioned, we achieved first power in early July and expect to achieve full commercial operations later this year.",
+    "check": "OK"
+   },
+   {
+    "url": "https://balticpower.pl/en/",
+    "quote": "More than 50 out of the 76 turbines are already installed at the offshore wind farm, and the installation campaign is scheduled to be completed later this",
+    "check": "OK"
+   }
+  ],
+  "checked": "2026-10-04"
+ },
+ {
+  "farm": "Bac Lieu Phase 3",
+  "iso": "VNM",
+  "status_oct2026": "construction",
+  "full_cod": null,
+  "expected_year": 2026,
+  "mw_confirmed": 141,
+  "note_zh": "薄寮三期 141 MW、47 部機組。2026-03-18 金甌省工商廳報告：220 kV 變電站與線路已運轉、47 部中 33 部完成、海上海纜完工，35 kV 線路尚差約 250 m；業主目標 2026 年第 2 季送電運轉，但 13 戶仍未同意施工。之後查不到全部送電或商轉（COD）的報導，維持施工中；第 2 季目標已過，完工時間待查證。",
+  "note_en": "Bac Lieu phase 3: 141 MW, 47 turbines. On 18 Mar 2026 the Ca Mau Department of Industry and Trade reported the 220 kV substation and line in operation, 33 of 47 turbines finished and the offshore cables complete, with about 250 m of 35 kV line left; the investor targeted energisation and operation in Q2 2026, but 13 households had not yet agreed to the works. No later report of full energisation or commercial operation (COD) can be found, so it stays under construction; the Q2 target has passed and the completion date is to be verified.",
+  "sources": [
+   {
+    "url": "https://www.vietnamplus.vn/ca-mau-day-nhanh-tien-do-dien-gio-bac-lieu-giai-doan-3-post1099626.vnp",
+    "quote": "Dự án Nhà máy điện gió Bạc Liêu giai đoạn 3 có tổng công suất 141MW, gồm 47 trụ tuabin gió, 1,8km cáp ngầm trên bờ và 4,5km đường dây 35kV trên không.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.vietnamplus.vn/ca-mau-day-nhanh-tien-do-dien-gio-bac-lieu-giai-doan-3-post1099626.vnp",
+    "quote": "trạm biến áp và đường dây 220kV đã đưa vào vận hành; 33/47 trụ tuabin đã hoàn thiện; hệ thống cáp ngầm ngoài biển đã thi công xong.",
+    "check": "OK"
+   },
+   {
+    "url": "https://thesaigontimes.vn/ca-mau-go-vuong-mat-bang-thuc-tien-do-dien-gio-bac-lieu-giai-doan-3/",
+    "quote": "nhằm đảm bảo mục tiêu đóng điện, vận hành trong quý 2-2026.",
+    "check": "OK"
+   },
+   {
+    "url": "https://thesaigontimes.vn/ca-mau-go-vuong-mat-bang-thuc-tien-do-dien-gio-bac-lieu-giai-doan-3/",
+    "quote": "13 hộ dân dù nhận bồi thường vẫn chưa đồng thuận thi công, ảnh hưởng tiến độ vận hành mục tiêu trong quý 2-2026",
+    "check": "OK"
+   }
+  ],
+  "checked": "2026-10-04"
  }
 ]
