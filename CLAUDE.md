@@ -82,10 +82,22 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 查證（水下基礎、風場更正）時每個出處都附一段原文，寫成 `[{"farm": ..., "sources": [{"url": ..., "quote": ...}]}]` 的 JSON，
   用 `python3 tools/check_quotes.py 檔案.json` 逐筆核對原文真的在網頁上（中日韓文網頁依編碼比對，PDF 需要 pypdf），只採用 OK 的結果；
   不引用 4C Offshore（付費、禁止轉載）。還沒寫進對照表的查證紀錄放在 `tools/research/`，寫進去之後刪掉。
+  找可引用的原文時用 `python3 tools/grab_page.py URL 關鍵字…` 印出含關鍵字的片段（與核對用同一套下載與轉文字），只引用它印出的連續文字；
+  搜尋結果的摘要不能當引文。
+- 離岸風場尺寸（水深、輪轂高度、葉輪直徑）寫在 `tools/farm_dimensions.py`（每列附出處與中英文說明），由 `tools/build_foundations.py` 一起輸出。
+  只採用建成值：核准上限、環評設計值、吊裝或機艙高度、只屬一期或部分機組的值都不用（寫進說明或 TODO）；葉尖高減葉輪半徑推算時兩個數字要在同一段原文、
+  基準是海平面。同場不同機型時輪轂高度可寫範圍，葉輪直徑取最大機型。
   When researching (foundation types, farm fixes), give every source a quoted passage in a JSON list of
   `{"farm": ..., "sources": [{"url": ..., "quote": ...}]}` and run `python3 tools/check_quotes.py file.json` to confirm each quote is on
   its page (CJK pages are decoded by their charset; PDFs need pypdf); use only OK results. Never cite 4C Offshore (paid, no
   redistribution). Research notes not yet written into the tables live in `tools/research/`; delete them once they are.
+  To find a quotable passage, `python3 tools/grab_page.py URL keyword…` prints the passages around the keywords (same fetching and
+  text extraction as the check); quote only a continuous passage it prints. Search-result snippets are never quotes.
+- Offshore dimensions (water depth, hub height, rotor diameter) live in `tools/farm_dimensions.py` (each row with sources and bilingual
+  notes) and are written out by `tools/build_foundations.py`. Use only as-built values: no consent limits, EIA design values, lifting or
+  nacelle heights, or values for only one phase or some units (put them in the note or TODO); a hub height derived as tip height minus
+  rotor radius needs both numbers in the same quoted passage, measured from sea level. With mixed turbines, give the hub height as a
+  range and the rotor diameter of the largest model.
 
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。

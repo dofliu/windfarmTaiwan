@@ -5,58 +5,32 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 2026-09-30: GEM 2026-02 upgrade done, project stays in maintenance)
+## In progress (hand-off, 2026-10-04: v2.17.7, data checks wrapped up; the next conversation starts here)
 
-Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it for the next piece of work in progress and move
-finished items to the topic lists below.
+Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
+and move finished items to the topic lists below.
 
 ### Where things stand
 
-- Since 27 Sep 2026 (v2.11.1) the project is paused: the main features are finished, the owner decided not to add new features, and the
-  project is in maintenance (what is done: "Current status" in [ROADMAP.en.md](./ROADMAP.en.md)).
-- The automatic updates keep running; the `keepalive` workflow re-enables the schedules every month so GitHub does not disable them after
-  60 days without activity. Still **check once a month** that the data time and Actions look right (steps under "Maintenance" in
-  [DEPLOY.en.md](./DEPLOY.en.md)): when fetching fails the site shows no error, only the last data it got.
-- **The events layer is concluded (28–29 Sep 2026, v2.12.0–v2.12.4)**: the Events layer was added from the owner's verified list (59 events),
-  then a second batch of 29 events found by web search (WIND-060–088, 88 in all); every source of the second batch was checked with
-  `tools/check_quotes.py` and the records corrected from the results (unverifiable figures removed; only the Maverick turbine make and the
-  Screggagh wind speed remain marked "to be verified" in the CSV notes). The public single-file "Global wind map"
-  (`standalone/windfarmTaiwan-globe.html`), the Mailiao event's farm link, fly-to-country for events without coordinates and the phone-width
-  farm-card fix were added in the same series, and the whole site was tested. What remains is routine follow-up (linking farms, adding
-  coordinates, photo rights, waiting for official findings), listed under "Major events & incidents" below; it is not work in progress.
-- 30 Sep 2026 (v2.12.5–v2.12.6): compact phone layout; the quoted passages behind the five step-5 Chinese foundation rows and six clean-up
-  rules are checked (checkable sources replace the unreachable CTG domains; Rudong H6 and H10 remain, see item 1 below); the Greater Changhua
-  2b & 4, Hai Long and Taipower phase 2 timelines follow the July–September 2026 reports; the long-term archive is split by month and the
-  single-file builds go to a Release.
-- 30 Sep 2026 (v2.13.0): the farm layer moved to GEM 2026-02 (GeoJSON), 25,975 records; the clean-up rules were checked one by one against
-  the new release (13 deleted, 4 renamed, 8 merge rules added); "expected year passed but still in the pipeline" fell from 583 projects to 2,
-  and the project-level pipeline and the country totals are the same release. Differences found during the upgrade and kept as the site's
-  own list for now are item 2 below.
-- 2 Oct 2026 (v2.13.6, v2.14.0): the sources dialog gained a data inventory; first step of the visual upgrade: close-up turbines carry a base drawn
-  to the foundation type (yellow transition piece) and the farm card shows a schematic cross-section. Follow-ups agreed with the owner, one PR
-  each: (1) a stacked chart of offshore capacity added per year by foundation type in the Overview tab — **done (v2.15.0)**; (2) a foundation chapter in the Learn section
-  and port-to-farm arcs — **done (v2.16.0)**; (3) a check of the data anomalies found in the step-5 sweep — **done (v2.16.1; open items under item 4)**; (4) water-depth, hub-height and rotor-diameter
-  fields with the cross-section and close-up drawn to scale — **done (v2.17.0)**.
-  Still missing after the fifth round (v2.17.6): of the 236 operating offshore farms, 234 have at least one value (depth 213, hub height 174,
-  rotor diameter 222, all three 168). Two have none: Dongtai Zhugensha H1 (Guohua Dongtai phase 5, 50 × 4 MW) and Vietnam's Ben Tre 10; 62 lack a hub height.
-  Nothing quotable after five rounds: Vietnam's intertidal farms (no depth at all), most Chinese farms of 2019–2021, in Europe Lynn and Inner
-  Dowsing, Kentish Flats Extension, East Anglia ONE, Hornsea Two, Dogger Bank A and Borssele III–V, the hub heights of Taiwan's Greater Changhua
-  1 & 2a and Changfang & Xidao, and the hub height of Rudong H8's main H171-5.0 type.
-  Found but deliberately not used: consent limits or design ranges (Kentish Flats Extension 85 m, East Anglia ONE ≤ 120 m, the CVOW pilot's
-  104–111 m), the column on a floater (CNOOC Guanlan: 83 m or 105 m), heights of unclear meaning (Shapa phase 2's 112 m, Zhuhai Jinwan's 100.63 m
-  nacelle lift height, only overall or tip heights for Dogger Bank A and Hornsea Two, Blyth's approximate 105 m from consent), values for some units
-  only (Huizhou Gangkou phase 2's 8.5 MW units at 135.9 m, Rudong H8's Shanghai Electric 4 MW units at 93 m, CR Cangnan 1's 10 MW units at 127 m
-  (ccshj6.com unreachable), a MySE14-260 source for Fanshi I that does not name the farm) and values in the wrong field (Tethys' "Hub Height 200 m"
-  for Hornsea Two is the tip height; Chinese Wikipedia's "hub height 167 m" for Greater Changhua is the rotor diameter).
-  Leads worth retrying: Soc Trang 7's hub 96.5 m above the foundation (sigma.net.vn, consistent with the stored 105 m tower); the Qingzhou 2 EIA PDF
-  (gdee.gd.gov.cn, no response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).
-  Data doubts corrected: the four from the third round (Guohua Rudong H14, Jiaxing 2 / Daishan 4, Rudong H8, Dafeng H5; v2.17.4), Tan Phu Dong 1's
-  turbines from the fourth (v2.17.5) and Fuqing Haitan Strait's turbines and capacity from the fifth (v2.17.6). The onshore farms the build had
-  merged away were restored in v2.17.3, and the build now checks for such cases (`ORPHAN_OK`).
-  The three open turbine models were settled in v2.17.6: Wailuo phase 1's MySE5.5-155 has a 158 m rotor (the model name is not the diameter);
-  Zhong Neng is V174-9.5 (the association page's V164 is wrong); Provence Grand Large is SWT-8.0-154 (run at 8.4 MW, 75 m blades; the source is
-  RTE's 2020 project dossier, and construction-stage reports only say 8.4 MW).
-- No code change was left half-done; below is the work to pick up, in order of priority.
+- The project is in maintenance (since 27 Sep 2026); automatic updates keep running and the `keepalive` workflow re-enables the
+  schedules every month. A **monthly check** of the data times and Actions is still advised (steps under "Maintenance" in
+  [DEPLOY.en.md](./DEPLOY.en.md)): when a fetch fails the site shows no error, it just keeps showing the last data.
+- Work done at the owner's request from 28 Sep to 4 Oct 2026 (one PR each; details in [CHANGELOG.en.md](./CHANGELOG.en.md)):
+  - v2.12.x: the events layer (91 events now), the public single-file "Global wind map", a compact phone layout.
+  - v2.13.x: the farm layer upgraded to GEM 2026-02 (about 26,000 records), with every clean-up rule re-checked; foundation step 5
+    (China and Vietnam) in batches.
+  - v2.14.0–v2.17.0 visual upgrades: close-up turbines on their foundation type, the farm-card cross-section, a chart of new offshore
+    capacity per year by foundation type, Learn chapter 7 on foundations, arcs from ports to the farms served, and water depth / hub
+    height / rotor diameter fields with the cross-section and close-up drawn to scale.
+  - v2.16.1–v2.17.7 data checks: one round of anomaly checks, turbine-field fixes, farms lost to wrong merges restored with a build
+    check (`ORPHAN_OK`), five rounds of dimension research, the Wailuo 1 / Zhong Neng / Provence Grand Large turbine models settled,
+    and the GEM 2026-02 differences checked one by one (Taiwan Round 3.2, Jwasari, Kakegawa, Sørmarkfjellet).
+- Current figures: 238 of 330 operating offshore farms have a known foundation type (71.4% of capacity); dimensions for 234 of 236
+  farms, all three for 168; 334 clean-up rules.
+- How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
+  larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
+  conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
+- No code change is left half-done. The next conversation can pick an item from "First things to do" below, or the owner can name new work.
 
 ### First things to do when work resumes (in order)
 
@@ -147,6 +121,27 @@ finished items to the topic lists below.
    gravity-based; the owner's workbook cites Boundary Layer, which says jackets with concrete transition pieces and piled concrete
    foundations. Boundary Layer is ODbL (share-alike), so use it only as a lead: find a developer or Danish Energy Agency source before
    changing anything.
+
+6. **Dimension gaps** (after the fifth round, v2.17.6; the values found but not used, and why, are kept here to avoid re-checking):
+   Of the 236 operating offshore farms, 234 have at least one value (depth 213, hub height 174,
+   rotor diameter 222, all three 168). Two have none: Dongtai Zhugensha H1 (Guohua Dongtai phase 5, 50 × 4 MW) and Vietnam's Ben Tre 10; 62 lack a hub height.
+   Nothing quotable after five rounds: Vietnam's intertidal farms (no depth at all), most Chinese farms of 2019–2021, in Europe Lynn and Inner
+   Dowsing, Kentish Flats Extension, East Anglia ONE, Hornsea Two, Dogger Bank A and Borssele III–V, the hub heights of Taiwan's Greater Changhua
+   1 & 2a and Changfang & Xidao, and the hub height of Rudong H8's main H171-5.0 type.
+   Found but deliberately not used: consent limits or design ranges (Kentish Flats Extension 85 m, East Anglia ONE ≤ 120 m, the CVOW pilot's
+   104–111 m), the column on a floater (CNOOC Guanlan: 83 m or 105 m), heights of unclear meaning (Shapa phase 2's 112 m, Zhuhai Jinwan's 100.63 m
+   nacelle lift height, only overall or tip heights for Dogger Bank A and Hornsea Two, Blyth's approximate 105 m from consent), values for some units
+   only (Huizhou Gangkou phase 2's 8.5 MW units at 135.9 m, Rudong H8's Shanghai Electric 4 MW units at 93 m, CR Cangnan 1's 10 MW units at 127 m
+   (ccshj6.com unreachable), a MySE14-260 source for Fanshi I that does not name the farm) and values in the wrong field (Tethys' "Hub Height 200 m"
+   for Hornsea Two is the tip height; Chinese Wikipedia's "hub height 167 m" for Greater Changhua is the rotor diameter).
+   Leads worth retrying: Soc Trang 7's hub 96.5 m above the foundation (sigma.net.vn, consistent with the stored 105 m tower); the Qingzhou 2 EIA PDF
+   (gdee.gd.gov.cn, no response), Nanpengdao (eworldship, SSL error), the Walney Extension scoping report (502).
+   Data doubts corrected: the four from the third round (Guohua Rudong H14, Jiaxing 2 / Daishan 4, Rudong H8, Dafeng H5; v2.17.4), Tan Phu Dong 1's
+   turbines from the fourth (v2.17.5) and Fuqing Haitan Strait's turbines and capacity from the fifth (v2.17.6). The onshore farms the build had
+   merged away were restored in v2.17.3, and the build now checks for such cases (`ORPHAN_OK`).
+   The three open turbine models were settled in v2.17.6: Wailuo phase 1's MySE5.5-155 has a 158 m rotor (the model name is not the diameter);
+   Zhong Neng is V174-9.5 (the association page's V164 is wrong); Provence Grand Large is SWT-8.0-154 (run at 8.4 MW, 75 m blades; the source is
+   RTE's 2020 project dossier, and construction-stage reports only say 8.4 MW).
 
 ## Major events & incidents (data/global/sources/events_2026-09.csv → tools/build_events.py, 2026-09-28)
 
