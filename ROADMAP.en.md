@@ -7,20 +7,27 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (27 Sep 2026, v2.11.1): project paused
+## Current status (4 Oct 2026, v2.17.7): maintenance, data checks and visual refinements
 
-The main features are finished; the owner decided not to add new features, and the project is in maintenance. The automatic Taiwan
-live-data updates keep running (maintenance: "Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)). What is done:
+The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks and
+visual upgrades (one PR each). The automatic Taiwan live-data updates keep running (maintenance: "Maintenance" in
+[DEPLOY.en.md](./DEPLOY.en.md)). What is done:
 
 - Four pages: Home, Taiwan live (dashboard, farm grid, charts, map, farm details, share cards), Global (3D globe 1980–2025, about
-  23,000 farms, search and filters, pipeline, ports, foundation and events layers, country profiles, tour) and Learn (12 chapters); the
-  whole site is bilingual, with a single-file edition that opens offline and a public single-file "Global wind map" for the general
-  public (the globe with the three basic layers only, v2.12.0, 28 Sep 2026).
-- 88 major events and incidents (the owner's 59 verified rows of 28 Sep 2026 plus 29 incidents compiled from web searches, each with sources; [docs/events.en.md](./docs/events.en.md)).
+  26,000 farms (GEM 2026-02), search and filters, pipeline, ports, foundation and events layers, country profiles, tour) and Learn
+  (13 chapters); the whole site is bilingual, with a single-file edition that opens offline and a public single-file "Global wind map"
+  for the general public (the globe with the three basic layers only, v2.12.0).
+- Visual upgrades (v2.14.0–v2.17.0): close-up turbines drawn on their foundation type with the transition piece; the farm card's
+  cross-section and the close-up drawn to scale from real water depth, hub height and rotor diameter; a country-profile chart of new
+  offshore capacity per year by foundation type; Learn chapter 7 on foundations; arcs from ports to the farms they served.
+- 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
+  [docs/events.en.md](./docs/events.en.md)).
 - Live output for about 150 farms in Australia and Canada.
-- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 207 record-level farm
-  clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)); offshore foundation types, steps 1–4 done and 5 farms of
-  step 5 (China and Vietnam) added (172 of 363 operating offshore farms have a known type, 43.6% of capacity).
+- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 334 record-level farm
+  clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)), with a build check for farms lost to a wrong merge
+  (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (238 of 330 operating offshore
+  farms have a known type, 71.4% of capacity); dimensions for 234 of 236 farms (five rounds, every figure with a quoted source checked
+  by `tools/check_quotes.py`); the differences between GEM 2026-02 and the site's list checked one by one (v2.17.7).
 
 The phased plans and ideas below are kept but not scheduled; when work resumes, read the hand-off at the top of
 [TODO.en.md](./TODO.en.md) first, then re-rank the priorities by the "Principles".

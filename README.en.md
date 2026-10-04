@@ -107,7 +107,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     view can be shared (e.g. `#/global?fty=fl&fst=op`, operating floating farms worldwide)
   - **Ports layer** (⚓): 55 offshore wind ports in 15 countries for marshalling, foundation and turbine-component
     manufacturing, cables, floating assembly and O&M (compiled by hand in Sep 2026, each with sources); small dots at
-    world zoom, icons and names when zoomed in. Port cards list the roles, the wind farms served (click to switch)
+    world zoom, icons and names when zoomed in, and arcs to the farms served when a port is selected (v2.16.0). Port cards list the roles, the wind farms served (click to switch)
     and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
   - **Events layer** (⚑): 91 major events and incidents (36 milestones, 53 incidents / failures, 2 policy & society; the first 59
     verified by hand on 28 Sep 2026, a second batch of 29 incidents compiled from web searches, passages still to be checked, and a third batch of 3 from owner notices on 3 Oct 2026), each with a primary source from a regulator or the owner; an event appears once the
@@ -130,10 +130,15 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     sub-type; step 4 covers Taiwan, Japan, Korea and the USA (Sep 2026, 36 farms: every operating farm in Taiwan and the USA,
     9 of the 10 in Japan and 6 of the 7 in Korea), each citing a developer, construction contractor, government document or
     trade press, with farms inside Japanese ports following NEDO's classification of support structures; step 5 (China and
-    Vietnam) is under way: in Sep 2026, 5 Chinese farms (Donghai Bridge phase 1, CTG Rudong H6 and H10, Zhangpu Liu'ao phase 2, CGN Rudong H8)
-    were added from the owner's case-by-case review, with a new “composite bucket” type; their quoted passages are still to be
-    checked. The rest still read “type unknown”.
+    Vietnam) is under way: from September to October 2026 Chinese and Vietnamese farms were added batch by batch (with a new
+    “composite bucket” type), every quoted passage verified with `tools/check_quotes.py`. As of 4 Oct 2026 (v2.17.7), 238 of the 330
+    operating offshore farms have a known type, 71.4% of capacity; the rest still read “type unknown”. Country profiles also have a
+    chart of new offshore capacity per year by foundation type (v2.15.0).
     Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
+  - **Dimensions and cross-section** (from v2.17.0): operating offshore farms carry water depth, hub height and rotor diameter
+    (`tools/farm_dimensions.py`, each row with a quoted source), and the farm card's cross-section and the close-up turbine are
+    drawn to scale from them; of the 236 operating offshore farms with a foundation type, 234 have at least one value and 168 have
+    all three. Consent limits, EIA design values and values for only one phase or some units are not used (reasons in TODO).
   - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
     nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
@@ -189,8 +194,8 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/wind_farms.json` — ~23,000 farm-level records (operating, pipeline, retired)
 - `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
 - `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
-- `data/global/foundations.json` — foundation types of offshore farms (built by `tools/build_foundations.py` from the
-  per-farm table in `tools/farm_foundations.py`)
+- `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
+  per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
 - `data/global/events.json` — 91 major events and incidents (built by `tools/build_events.py` from
   `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
   the build script, which checks that every event has English text and that farm names match the farm layer)
