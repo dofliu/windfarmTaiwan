@@ -7,7 +7,7 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (4 Oct 2026, v2.17.7): maintenance, data checks and visual refinements
+## Current status (4 Oct 2026, v2.18.0): maintenance, data checks and strengthening the wind content
 
 The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks and
 visual upgrades (one PR each). The automatic Taiwan live-data updates keep running (maintenance: "Maintenance" in
@@ -20,6 +20,8 @@ visual upgrades (one PR each). The automatic Taiwan live-data updates keep runni
 - Visual upgrades (v2.14.0–v2.17.0): close-up turbines drawn on their foundation type with the transition piece; the farm card's
   cross-section and the close-up drawn to scale from real water depth, hub height and rotor diameter; a country-profile chart of new
   offshore capacity per year by foundation type; Learn chapter 7 on foundations; arcs from ports to the farms they served.
+- v2.18.0: a "2026 (latest available)" point on the timeline (official figures for 8 countries, the rest carry end-2025, marked); US farm
+  close-ups draw the real USWTDB turbine positions; farm cards add distance to shore and estimated yearly output.
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
   [docs/events.en.md](./docs/events.en.md)).
 - Live output for about 150 farms in Australia and Canada.
@@ -77,7 +79,7 @@ The phased plans and ideas below are kept but not scheduled; when work resumes, 
 
 Compiled 26 Sep 2026; data availability was checked the same day (anything not verified is marked as such).
 
-**1. Extend the timeline into 2026 (latest available data)** · medium
+**1. Extend the timeline into 2026 (latest available data)** · medium · **done (Oct 2026, v2.18.0)**: official figures for 8 countries in `tools/latest_wind.py`; the others carry end-2025, shown hatched
 
 - Goal: one more point after end-2025. Call it "2026 (latest available)" rather than "September 2026": each
   country's latest official figure ends in a different month, and in September 2026 no source has September data
@@ -340,6 +342,23 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 
 ## Directions evaluated and deferred (with reasons, to avoid repeating the research)
 
+- **Other energy sources (solar, nuclear, fossil, hydro, etc.) and an energy-transition comparison**: discussed on 2026-10-04
+  with three mock-ups (in the conversation only, not in the repo): (1) a flat "energy transition" page with a glyph chart of one
+  column per year (wind at the base in colour, other sources grey), one year's fleet, and a before/after view around events
+  (Taiwan, Japan, Germany); (2) an "other sources (background)" layer on the 3D globe, with other plants as grey glyphs lower than the
+  turbines while wind farms stay coloured and spinning; (3) a second version where each source can be selected on its own or together,
+  each with its own 3D model (solar arrays sized by capacity, cooling towers, halls and stacks, dams, etc.), country glyph groups
+  (one unit for every source, e.g. 20 GW per glyph) or columns from far away, and "Map + bars" showing a country's or continent's
+  amounts, shares and yearly changes for 2000–2025.
+  The owner's conclusion (2026-10-04): it became cluttered and took the focus away from the turbines, so **back to wind for now;
+  discuss again later**. Decisions to keep if this restarts: wind first, other sources as a background that can be switched off (off
+  by default on the site); dataset-level citation only for other sources, no record-by-record checks; no population layer for now;
+  show the changes observed around events without claiming causes.
+  Data: individual plants from the GEM trackers (public bucket `interim_maps/`: gcpt, gogpt, gnpt, ght, gspt, ggpt, gbpt; CC BY 4.0;
+  the map files carry retirement years only for coal and no years at all for nuclear; about 80,000 solar records with a size threshold
+  and no rooftop solar); national and continental capacity and generation from Ember's yearly electricity data (CC BY 4.0, 2000–2025,
+  geothermal folded into "other renewables"). Note: per Ember, wind was only about 4% of Taiwan's 2025 generation, so with other
+  sources switched on wind all but disappears; a comparison belongs on its own tab, and other plants on the globe should be off by default.
 - **Work-vessel status (live AIS positions and Taiwan International Ports Corporation port calls)**: evaluated in Sep 2026; the owner decided on 2026-09-27 not to do it. The free real-time source needs a key, has no redistribution terms and barely reaches Taiwan's waters, and port calls only show which port a vessel is in. Details are in item 3 of "Owner's new plans (Sep 2026)" above.
 - **Energy Administration monthly/annual statistics API**
   ([ea01.moeaea.gov.tw](https://ea01.moeaea.gov.tw/a0303/02/database/api/)): too coarse (monthly data)
@@ -370,6 +389,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   thermal and nuclear units (the scraper already fetches them and keeps only the wind rows). A
   "live monitor for all sources" would only be a frontend job, but it is a major scope decision — confirm
   with the owner first instead of turning this into a whole-grid monitoring site on your own.
+  Discussed with mock-ups on 2026-10-04; the owner decided to defer it (see "Directions evaluated and deferred").
 - **Onshore farm timelines**: if more verifiable public information becomes available for onshore farms
   (e.g. local government releases, the EIA tracking system), fill them in the same way as the 15
   offshore farms.

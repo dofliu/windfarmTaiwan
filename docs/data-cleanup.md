@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 334 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 197 筆。
+- 規則 339 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 202 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -18,7 +18,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 3 | 157.5 | 9 |
-| 台灣 | 1 | 0 | 4 |
+| 台灣 | 1 | 0 | 6 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
 | 埃及 | 2 | 1,082 | 0 |
@@ -26,12 +26,13 @@
 | 多明尼加 | 1 | 50 | 6 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 1 | 150 | 0 |
-| 德國 | 0 | 0 | 3 |
+| 德國 | 0 | 0 | 4 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 9 |
 | 日本 | 2 | 30 | 11 |
 | 比利時 | 1 | 325 | 0 |
 | 法國 | 2 | 0 | 5 |
+| 波蘭 | 0 | 0 | 1 |
 | 泰國 | 1 | 600 | 1 |
 | 澳洲 | 4 | 1,161 | 3 |
 | 烏拉圭 | 1 | 141.6 | 1 |
@@ -41,7 +42,7 @@
 | 美國 | 6 | 811.6 | 6 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 0 |
-| 英國 | 7 | 3,485 | 5 |
+| 英國 | 7 | 3,485 | 6 |
 | 荷蘭 | 8 | 1,852 | 6 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
@@ -232,6 +233,8 @@
 | Formosa 3 offshore wind farm · 2 · 600 MW · 2027 | GEM | 刪除 | 這是海鼎二（3.1 期獲配 600 MW），Corio 退出後已解約，能源署 2026 年把海峽一、海峽二與海鼎二的解約場址納入 3.3 期擴充容量；GEM 的中文名誤寫為海鼎一 | [連結](https://www.cna.com.tw/news/afe/202609300338.aspx) |
 | Formosa 3 offshore wind farm · 3 · 720 MW | GEM | 修正：中文名 | 這是海鼎三（Formosa 3 的第三座風場，未在 3.1、3.2 期獲配容量）；GEM 的中文名寫成海鼎一 | [連結](https://www.gem.wiki/Formosa_3_offshore_wind_farm) |
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | 修正：業主 | 又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約 | [連結](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
+| Hai Long 2 & 3 · 1,044 MW · 2026 | 精選 | 修正：年份 | Northland 2026 年第二季報告：73 部已裝 71 部、59 部發電，全案商轉預計 2027 年 | [連結](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
+| Taipower Offshore Phase 2 · 294 MW · 2026 | 精選 | 修正：年份 | 2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工 | [連結](https://www.cna.com.tw/news/afe/202606170184.aspx) |
 
 ## 哥倫比亞 (COL)
 
@@ -294,6 +297,7 @@
 | Borkum Riffgrund 3 · 913 MW · 2025 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東南約 18 km，落在 Borkum Riffgrund 1、2 旁） | [連結](https://www.openstreetmap.org/way/1271257138) |
 | Hohe See · 497 MW · 2019 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東約 9 km） | [連結](https://www.openstreetmap.org/way/344491479) |
 | Hooksiel (BARD test turbine) · 5 MW · 2008 | 精選 | 修正：除役年 | 2016 年 5 月拆除（當時已停機約四年） | [連結](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
+| Windanker wind farm · 300 MW · 2026 | GEM | 修正：容量 | 容量 315 MW（21 部風機），不是 300 MW；2026 年 6 月才開始安裝風機，預計年底完工、2027 年全面運轉 | [連結](https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/) |
 
 ## 愛爾蘭 (IRL)
 
@@ -327,7 +331,7 @@
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
 | Fukushima FORWARD floating demo · 14 MW · 2013 | 精選 | 修正：分期 | 三部浮動式機組：2013 年 11 月 2 MW（半潛式）、2015 年 12 月 7 MW（V 型半潛式）、2017 年 2 月 5 MW（單柱式）開始運轉；7 MW 於 2018 年決定停機、2020 年撤除，其餘兩部 2021 年 2 月起撤除 | [連結](https://www.fukushima-forward.jp/reference/pdf/study086.pdf) |
-| Goto City Offshore floating project · 16.8 MW · 2026 | 精選 | 修正：中文名 | 2026 年 1 月 5 日開始商轉（8 部 2.1 MW，五島洋上風場）；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://www.toda.co.jp/news/2026/20260105_006181.html) |
+| Goto City Offshore floating project · 16.8 MW · 2026 | 精選 | 修正：中文名、狀態、年份 | 2026 年 1 月 5 日開始商轉（8 部 2.1 MW，五島洋上風場）；時間軸「2026（最新可得）」起列為營運中 | [連結](https://www.toda.co.jp/news/2026/20260105_006181.html) |
 | Kyushu floating wind farm · 1,000 MW | GEM | 重複（併入「Kyushu - GIP floating wind farm」） | 同一個規劃案（Skyborn，1 GW，五島外海）；GEM 有兩筆 | [連結](https://www.gem.wiki/Kyushu_floating_wind_farm) |
 | Kamis Offshore wind farm · 30 MW · 2010 | GEM | 刪除 | GEM 把神栖一期（2010 年 14 MW）與二期（2013 年 16 MW）合成一筆，本站兩期各有紀錄 | [連結](https://www.gem.wiki/Kamis_Offshore_wind_farm) |
 | Kamisu Phase 1 (Wind Power Ibaraki) · 14 MW · 2010 | 精選 | 修正：座標 | 一期在南濱外海（神栖市資料）；原座標在內陸約 1.5–2 km，改用 OpenStreetMap 的風機位置（概略位置） | [連結](https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html) |
@@ -335,7 +339,7 @@
 | Setana semi-offshore · 1.2 MW · 2004 | 精選 | 修正：除役年 | 因故障與老化停機（確切停機時間待查證，2025 年 7 月已報導決定撤除）；瀨棚町 2026 年 4 月決定 2027 年度撤除 | [連結](https://www.hokkaido-np.co.jp/article/1305209/) |
 | Setana semi-offshore · 1.2 MW · 2004 | 精選 | 修正：座標 | 座標改到瀨棚港東外防波堤內側的風機位置（OpenStreetMap，概略位置；原座標偏東北約 1 km） | [連結](https://www.khi.co.jp/pressrelease/detail/c3040209-1.html) |
 | Kitakyushu Offshore Demonstration (NEDO/J-Power) · 2 MW · 2013 | 精選 | 修正：除役年 | 2019 年 9 月撤除風機與上部結構（10 月起以 SEP 船施工），不是 2023 年；重力式底版留作 J-POWER 的研究設施 | [連結](https://www.jpower.co.jp/oshirase/2019/10/oshirase191001.html) |
-| Kitakyushu Hibikinada · 220 MW · 2026 | 精選 | 修正：機組 | 2026 年 3 月 2 日開始商業運轉（25 部 9.6 MW，併網上限 220 MW）；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://hibikiwindenergy.co.jp/news/2026/0301.html) |
+| Kitakyushu Hibikinada · 220 MW · 2026 | 精選 | 修正：機組、狀態、年份 | 2026 年 3 月 2 日開始商業運轉（25 部 9.6 MW，併網上限 220 MW）；時間軸「2026（最新可得）」起列為營運中 | [連結](https://www.jpower.co.jp/english/news_release/pdf/news260302e.pdf) |
 | Eurus Akita Port semi-offshore · 3 MW · 2015 | 精選 | 修正：座標 | 這 1 部屬ユーラス秋田港ウインドファーム，在秋田市向濱；原座標落在秋田港洋上風場上，改為向濱的概略位置 | [連結](https://www.fuji-gab-mesh.co.jp/zisseki/zissekidetail/tikutei24.html) |
 | Hokkaido Ishikari Bay Offshore wind farm · 1,000 MW | GEM | 修正：狀態 | 不是興建中：丸紅的石狩灣專案只有 2021 年 2 月的計畫階段環境配慮書，海域尚未指定為促進區域 | [連結](https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html) |
 | Kakegawa wind farm · 14 MW · 2020 | GEM | 修正：容量、機組 | 靜岡縣環評：掛川風力發電事業變更為 6 部 2,300 kW 級、13,800 kW（日本風力開發，2020 年運轉） | [連結](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
@@ -353,10 +357,16 @@
 | Îles d'Yeu et de Noirmoutier · 496 MW · 2025 | 精選 | 修正：容量、機組、分期 | 實際為 61 部 × 8 MW＝488 MW（原本寫 62 部、496 MW）；2025 年 6 月開始發電，年底已併網 408 MW，2026 年 4 月全部完工 | [連結](https://www.meretmarine.com/fr/energies-marines/parc-de-yeu-noirmoutier-toutes-les-eoliennes-ont-ete-installees) |
 | Calvados (Courseulles-sur-Mer) · 450 MW · 2025 | 精選 | 修正：狀態、年份 | 興建中：比原計畫延後約兩年，EDF 預計 2027 年底商轉（原本誤列為 2025 年營運中） | [連結](https://www.connaissancedesenergies.org/afp/en-normandie-la-mise-en-service-du-parc-eolien-calvados-reportee-de-2-ans-250705) |
 | EFGL wind farm · 30 MW · 2026 | GEM | 重複（併入「Les Éoliennes Flottantes du Golfe du Lion (EFGL)」） | 同一座風場（Leucate 外海，30 MW） | [連結](https://www.gem.wiki/EFGL_wind_farm) |
-| Les Éoliennes Flottantes du Golfe du Lion (EFGL) · 30 MW · 2025 | 精選 | 修正：狀態、年份、業主 | 2026 年 5 月開始發電、7 月全面運轉，業主是 Ocean Winds 與 Banque des Territoires；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://www.offshorewind.biz/2026/07/10/floating-wind-farm-offshore-france-reaches-full-power/) |
+| Les Éoliennes Flottantes du Golfe du Lion (EFGL) · 30 MW · 2025 | 精選 | 修正：狀態、年份、業主 | 2026 年 5 月開始發電、7 月全面運轉，業主是 Ocean Winds 與 Banque des Territoires；時間軸「2026（最新可得）」起列為營運中 | [連結](https://www.renewableenergymagazine.com/wind/ocean-winds-reaches-full-power-from-first-20260717) |
 | Eolmed Floating wind farm · 30 MW | GEM | 重複（併入「EolMed (Gruissan)」） | 同一座風場（Gruissan 外海，30 MW） | [連結](https://www.gem.wiki/Eolmed_Floating_wind_farm) |
-| EolMed (Gruissan) · 30 MW · 2025 | 精選 | 修正：狀態、年份 | 2026 年 4 月開始發電、5 月全面運轉；本站時間軸目前到 2025 年，2025 年底還在興建，所以先列為興建中 | [連結](https://www.bw-ideol.com/en/eolmed-project) |
+| EolMed (Gruissan) · 30 MW · 2025 | 精選 | 修正：狀態、年份 | 2026 年 4 月開始發電、5 月全面運轉；時間軸「2026（最新可得）」起列為營運中 | [連結](https://www.bw-ideol.com/en/eolmed-project) |
 | Provence Grand Large · 25 MW · 2024 | 精選 | 修正：機組 | 機組是西門子歌美颯 SWT-8.0-154（以 8.4 MW 運轉，葉片 75 m），不是 Vestas；RTE 專案文件寫明選用 SWT-8.0-154，SBM 寫 3 座浮動機組安裝完成 | [連結](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
+
+## 波蘭 (POL)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Baltic Power Offshore wind farm · 1,200 MW · 2026 | GEM | 修正：容量 | 76 部 15 MW 風機、共 1,140 MW（Northland 寫約 1.1 GW），不是 1,200 MW；2026 年 7 月首度發電，第二季末 76 部已裝 61 部，預計 2026 年下半年商轉 | [連結](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 
 ## 泰國 (THA)
 
@@ -478,6 +488,7 @@
 | Dounreay Tr‚àö¬®  Floating Wind Demonstration · 10 MW | GEM | 刪除 | 從未興建：這個兩部風機的示範案已經中止，同一場址後來改由 Pentland 浮動式風場開發（另列） | [連結](https://www.offshorewind.biz/2021/06/18/cip-revives-floating-wind-project-offshore-scotland/) |
 | Kincardine · 49.5 MW · 2021 | 精選 | 修正：容量、機組 | 現在是 5 部 9.5 MW（47.5 MW）；2018–2020 年曾有 1 部 2 MW 試驗機（原 WindFloat 1），2020 年移走 | [連結](https://marine.gov.scot/sites/default/files/250403_-_kincardine_offshore_windfarm_-_project_environmental_monitoring_programme_-_revision_c10.pdf) |
 | Triton Knoll (Innogy) wind farm · 857 MW · 2022 | GEM | 重複（併入「Triton Knoll」） | 同一座風場（857 MW）；GEM 寫 2022 年，本站依全數風機 2021 年發電列 2021 年 | [連結](https://www.gem.wiki/Triton_Knoll_(Innogy)_wind_farm) |
+| Dogger Bank wind farm · B, C · 2,400 MW · 2026 | GEM | 修正：年份 | B 期 2026 年 6 月才裝了 20 部，風機安裝持續到約 2027 年第二季，C 期在 B 期之後 | [連結](https://www.offshorewind.biz/2026/06/09/20-turbines-installed-at-dogger-bank-b-offshore-wind-farm/) |
 
 ## 荷蘭 (NLD)
 

@@ -28,7 +28,7 @@ This page shows the results of steps 1–4 and the part of step 5 done so far. O
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 238 of 330 farms, 71.4% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 242 of 334 farms, 71.4% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -39,10 +39,10 @@ Total: type known for 238 of 330 farms, 71.4% of their capacity (floating farms 
 | Taiwan | 8 | 8 | 100% | 3 | 5 |  |  |
 | Denmark | 17 | 16 | 99% | 8 |  |  | 8 |
 | Belgium | 12 | 12 | 100% | 8 | 3 |  | 1 |
-| France | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
+| France | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | Vietnam | 22 | 13 | 56% | 2 |  |  | 11 |
+| Japan | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
 | South Korea | 7 | 6 | 89% | 1 | 4 | 1 |  |
-| Japan | 10 | 9 | 98% | 5 | 1 | 2 | 1 |
 | Sweden | 4 | 4 | 100% | 1 |  |  | 3 |
 | United States of America | 3 | 3 | 100% | 2 | 1 |  |  |
 | Norway | 3 | 3 | 100% |  |  | 3 |  |
@@ -53,7 +53,7 @@ Total: type known for 238 of 330 farms, 71.4% of their capacity (floating farms 
 
 ## Floating farms (operating)
 
-16 farms, 264.8 MW: spar 5, semi-submersible 6, barge 3, tension-leg platform 1, sub-type unknown or mixed 1.
+19 farms, 341.6 MW: spar 6, semi-submersible 7, barge 4, tension-leg platform 1, sub-type unknown or mixed 1.
 
 ## Farm by farm
 
@@ -329,9 +329,9 @@ Total: type known for 238 of 330 farms, 71.4% of their capacity (floating farms 
 | Formosa 2 | 376 | 2023 | Jacket | 35–55 | 116.4 | 167 | [jandenul.com](https://www.jandenul.com/news/jan-de-nul-completes-foundation-and-cable-installation-formosa-2-offshore-wind-farm)<br>[sites.google.com](https://sites.google.com/view/t-wind-marine-association/%E8%87%BA%E7%81%A3%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%A0%B4%E8%B3%87%E8%A8%8A/%E6%B5%B7%E8%83%BD%E9%A2%A8%E5%A0%B4)<br>[power-technology.com](https://www.power-technology.com/projects/formosa-2-offshore-wind-farm/) | 47 jackets on 188 pin piles (installed in 2022); Association page: 35–55 m water depth, 47 x SG 8.0-167 DD; Jan De Nul also gives up to 55 m; no quotable hub-height source; SG 8.0-167 DD hub height 116.4 m; source power-technology. |
 | Greater Changhua 1 & 2a | 900 | 2024 | Jacket | 23.8–44.1 |  | 167 | [cdn.orsted.com](https://cdn.orsted.com/-/media/www/docs/corp/tw/en-chw-1-and-2a-case-study.pdf)<br>[power-technology.com](https://www.power-technology.com/projects/greater-changhua-offshore-wind-farms/) | 111 jackets, each on three pin piles (333 in total); six of them were built entirely in Taiwan; Ørsted case study: 23.8–44.1 m water depth, 111 x SG 8.0-167 DD; no quotable source for hub height. |
 | Greater Changhua 2b & 4 | 920 | 2026 | Jacket (suction bucket) |  |  |  | [heerema.com](https://heerema.com/news/heerema-sets-down-last-suction-bucket-jacket-at-%C3%B8rsteds-greater-changhua-2a-4) | All 66 are suction-bucket jackets (no piling): 24 at Greater Changhua 2b and 42 at Greater Changhua 4, the first such farm in the Asia-Pacific |
-| Hai Long 2 & 3 | 1,044 | 2026 | Jacket |  |  |  | [cdwe.com.tw](https://www.cdwe.com.tw/news_detail.php?id=151) | 73 jackets, each on three pre-installed pin piles (219 in total), completed in August 2025 |
+| Hai Long 2 & 3 | 1,044 | 2027 | Jacket |  |  |  | [cdwe.com.tw](https://www.cdwe.com.tw/news_detail.php?id=151) | 73 jackets, each on three pre-installed pin piles (219 in total), completed in August 2025 |
 | Taipower Offshore Phase 1 (Changhua) | 109 | 2021 | Jacket | 17–28 | 90 | 127 | [jandenul.com](https://www.jandenul.com/our-projects/offshore-windfarm-changhua-taiwan)<br>[sites.google.com](https://sites.google.com/view/t-wind-marine-association/%E8%87%BA%E7%81%A3%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%A0%B4%E8%B3%87%E8%A8%8A/%E5%8F%B0%E9%9B%BB%E4%B8%80%E6%9C%9F%E9%A2%A8%E5%A0%B4)<br>[zh.wikipedia.org](https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E9%9B%BB%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%8A%9B%E7%99%BC%E9%9B%BB%E5%A0%B4) | 21 four-legged jackets with transition pieces, each grouted onto four pre-installed pin piles (84 in total); Taiwan offshore foundation/marine association: 17–28 m water depth, 21 x HTW5.2-127; Chinese Wikipedia: phase-1 hub 90 m. |
-| Taipower Offshore Phase 2 | 294 | 2026 | Jacket |  |  |  | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 four-legged jackets with transition pieces, grouted onto 124 pre-installed pin piles |
+| Taipower Offshore Phase 2 | 294 | 2027 | Jacket |  |  |  | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 four-legged jackets with transition pieces, grouted onto 124 pre-installed pin piles |
 | Yunlin | 640 | 2025 | Monopile | 7–35 | 87 | 167 | [yunlin-offshore.com](https://www.yunlin-offshore.com/en/technology)<br>[skybornrenewables.com](https://www.skybornrenewables.com/markets/taiwan/yunlin_offshore) | 80 monopiles 8 m across with transition pieces (three earlier ones that suffered pile runs in 2021–2023 were removed and are not counted); Yunlin project site: 80 x SG 8.0-167 DD, rotor 167 m, hub 87 m; water depth not found; Water depth 7–35 m; source Skyborn (developer). |
 | Zhong Neng | 294 | 2025 | Jacket | 20–36 | 110 | 174 | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/)<br>[sites.google.com](https://sites.google.com/view/t-wind-marine-association/%E8%87%BA%E7%81%A3%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%A0%B4%E8%B3%87%E8%A8%8A/%E4%B8%AD%E8%83%BD%E9%A2%A8%E5%A0%B4)<br>[prnewswire.com](https://www.prnewswire.com/apac/zh/news-releases/vestas---302239253.html)<br>[zh.wikipedia.org](https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E8%83%BD%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%8A%9B%E7%99%BC%E9%9B%BB%E5%A0%B4)<br>[en.prnasia.com](https://en.prnasia.com/releases/apac/vestas-wins-295-mw-order-for-the-zhong-neng-offshore-wind-project-off-the-coast-of-taiwan-356824.shtml) | 31 jackets (built by Sing Da Marine Structure) on 93 locally made pin piles; Association page: 20–36 m water depth; Vestas’s 2022 order release and 2024 completion release both give 31 x V174-9.5 MW (the association page’s V164-9.5 is wrong); Zhong Neng hub height 110 m (Chinese Wikipedia infobox). |
 

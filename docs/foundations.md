@@ -28,7 +28,7 @@
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 238／330 座，占容量 71.4%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
+合計：已知型式 242／334 座，占容量 71.4%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -39,10 +39,10 @@
 | 台灣 | 8 | 8 | 100% | 3 | 5 |  |  |
 | 丹麥 | 17 | 16 | 99% | 8 |  |  | 8 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
-| 法國 | 6 | 6 | 100% | 2 | 1 | 2 | 1 |
+| 法國 | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | 越南 | 22 | 13 | 56% | 2 |  |  | 11 |
+| 日本 | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
 | 南韓 | 7 | 6 | 89% | 1 | 4 | 1 |  |
-| 日本 | 10 | 9 | 98% | 5 | 1 | 2 | 1 |
 | 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
 | 美國 | 3 | 3 | 100% | 2 | 1 |  |  |
 | 挪威 | 3 | 3 | 100% |  |  | 3 |  |
@@ -53,7 +53,7 @@
 
 ## 浮動式風場（營運中）
 
-共 16 座、264.8 MW：單柱式 5、半潛式 6、駁船式 3、張力腳 1、細分型式不詳或混合 1。
+共 19 座、341.6 MW：單柱式 6、半潛式 7、駁船式 4、張力腳 1、細分型式不詳或混合 1。
 
 ## 逐場清單
 
@@ -166,9 +166,9 @@
 | 海能風電 (海洋二期)（Formosa 2） | 376 | 2023 | 套管式 | 35–55 | 116.4 | 167 | [jandenul.com](https://www.jandenul.com/news/jan-de-nul-completes-foundation-and-cable-installation-formosa-2-offshore-wind-farm)<br>[sites.google.com](https://sites.google.com/view/t-wind-marine-association/%E8%87%BA%E7%81%A3%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%A0%B4%E8%B3%87%E8%A8%8A/%E6%B5%B7%E8%83%BD%E9%A2%A8%E5%A0%B4)<br>[power-technology.com](https://www.power-technology.com/projects/formosa-2-offshore-wind-farm/) | 47 座套管，共 188 支基樁（2022 年裝完）；協會資料：水深 35～55 m、47×SG 8.0-167 DD；Jan De Nul 亦稱最深 55 m；輪轂高度未取得可引用原文；SG 8.0-167 DD 輪轂高 116.4 m；來源 power-technology。 |
 | 大彰化東南及西南離岸風場（Greater Changhua 1 & 2a） | 900 | 2024 | 套管式 | 23.8–44.1 |  | 167 | [cdn.orsted.com](https://cdn.orsted.com/-/media/www/docs/corp/tw/en-chw-1-and-2a-case-study.pdf)<br>[power-technology.com](https://www.power-technology.com/projects/greater-changhua-offshore-wind-farms/) | 111 座套管，每座 3 支基樁（共 333 支）；其中 6 座全部在台灣製造；沃旭案例研究：水深 23.8～44.1 m、111×SG 8.0-167 DD；輪轂高度未取得可引用原文。 |
 | 大彰化西南第二階段及西北（Greater Changhua 2b & 4） | 920 | 2026 | 套管式（吸力桶） |  |  |  | [heerema.com](https://heerema.com/news/heerema-sets-down-last-suction-bucket-jacket-at-%C3%B8rsteds-greater-changhua-2a-4) | 66 座全數為吸力桶套管（不打樁）：大彰化西南第二階段 24 座、西北 42 座，是亞太第一座全用吸力桶的風場 |
-| 海龍離岸風場（Hai Long 2 & 3） | 1,044 | 2026 | 套管式 |  |  |  | [cdwe.com.tw](https://www.cdwe.com.tw/news_detail.php?id=151) | 73 座套管，每座 3 支預打基樁（共 219 支），2025 年 8 月裝完 |
+| 海龍離岸風場（Hai Long 2 & 3） | 1,044 | 2027 | 套管式 |  |  |  | [cdwe.com.tw](https://www.cdwe.com.tw/news_detail.php?id=151) | 73 座套管，每座 3 支預打基樁（共 219 支），2025 年 8 月裝完 |
 | 台電離岸風電一期（Taipower Offshore Phase 1 (Changhua)） | 109 | 2021 | 套管式 | 17–28 | 90 | 127 | [jandenul.com](https://www.jandenul.com/our-projects/offshore-windfarm-changhua-taiwan)<br>[sites.google.com](https://sites.google.com/view/t-wind-marine-association/%E8%87%BA%E7%81%A3%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%A0%B4%E8%B3%87%E8%A8%8A/%E5%8F%B0%E9%9B%BB%E4%B8%80%E6%9C%9F%E9%A2%A8%E5%A0%B4)<br>[zh.wikipedia.org](https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E9%9B%BB%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%8A%9B%E7%99%BC%E9%9B%BB%E5%A0%B4) | 21 座四腳套管配轉接段，各以 4 支預打的基樁灌漿固定（共 84 支）；臺灣離岸風機基礎暨海事工程協會：水深 17～28 m、21×HTW5.2-127；中文維基：第一期輪轂 90 m。 |
-| 台電離岸風電二期（Taipower Offshore Phase 2） | 294 | 2026 | 套管式 |  |  |  | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 座四腳套管配轉接段，以 124 支預打基樁灌漿固定 |
+| 台電離岸風電二期（Taipower Offshore Phase 2） | 294 | 2027 | 套管式 |  |  |  | [tpc-offshorewind-p2.tw](https://tpc-offshorewind-p2.tw/foundation) | 31 座四腳套管配轉接段，以 124 支預打基樁灌漿固定 |
 | 允能雲林離岸風場（Yunlin） | 640 | 2025 | 單樁 | 7–35 | 87 | 167 | [yunlin-offshore.com](https://www.yunlin-offshore.com/en/technology)<br>[skybornrenewables.com](https://www.skybornrenewables.com/markets/taiwan/yunlin_offshore) | 80 座直徑 8 m 的單樁配轉接段（另有 3 座 2021–2023 年發生溜樁的單樁已移除，不計在內）；允能官網：80×SG 8.0-167 DD，葉輪 167 m、輪轂 87 m；水深未查到；水深 7–35 m；來源 Skyborn（開發商）。 |
 | 中能離岸風場（Zhong Neng） | 294 | 2025 | 套管式 | 20–36 | 110 | 174 | [offshorewind.biz](https://www.offshorewind.biz/2024/03/04/all-foundations-in-at-zhong-neng-wind-farm-offshore-taiwan/)<br>[sites.google.com](https://sites.google.com/view/t-wind-marine-association/%E8%87%BA%E7%81%A3%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%A0%B4%E8%B3%87%E8%A8%8A/%E4%B8%AD%E8%83%BD%E9%A2%A8%E5%A0%B4)<br>[prnewswire.com](https://www.prnewswire.com/apac/zh/news-releases/vestas---302239253.html)<br>[zh.wikipedia.org](https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E8%83%BD%E9%9B%A2%E5%B2%B8%E9%A2%A8%E5%8A%9B%E7%99%BC%E9%9B%BB%E5%A0%B4)<br>[en.prnasia.com](https://en.prnasia.com/releases/apac/vestas-wins-295-mw-order-for-the-zhong-neng-offshore-wind-project-off-the-coast-of-taiwan-356824.shtml) | 31 座套管（世鎧精密製造），共 93 支國產基樁；協會資料：水深 20～36 m；Vestas 2022 年訂單新聞稿與 2024 年完工新聞稿都寫 31 座 V174-9.5 MW（協會頁寫的 V164-9.5 有誤）；中能風場輪轂高度 110 公尺（中文維基百科資訊框）。 |
 

@@ -48,6 +48,14 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   After rebuilding the farm layer, run the coordinate check and regenerate the coverage report.
 - 國家統計：台灣＝能源署《能源統計手冊》表 3-6（`TWN_OFFICIAL`），日本＝JWPA 年末累積導入量（`JPN_JWPA`），其他國家＝IRENA（經 Our World in Data）。
   National figures: Taiwan from the Energy Administration handbook, Japan from JWPA, other countries from IRENA via Our World in Data.
+- 時間軸在 2025 年之後的「最新可得」年份寫在 `tools/latest_wind.py`：每國一列，附出處、資料月份與中英文說明；與本站 2025 年口徑不同的來源用「本站 2025 年＋該來源今年的增量」（標示估計），
+  只有本站 2025 年已知有誤或與來源同一數列時才直接用來源的數字。改完跑 `python3 tools/build_country_stats.py`。新的一年有完整年度統計後，把年度數字併進 `wind_global.json`，再把這張表換成下一年。
+  The "latest available" year after 2025 lives in `tools/latest_wind.py` (one row per country with source, data month and bilingual note);
+  sources with a different scope from the site's 2025 figure add their growth to it (shown as an estimate), and a source's own figure is
+  used only when the site's 2025 value is known to be wrong or comes from the same series. Run `python3 tools/build_country_stats.py` after editing.
+- 美國每部風機的位置（`data/global/turbines.json`）由 `tools/build_turbines.py` 從 USWTDB 產生；對應規則寧可少配（名稱、30 km、容量 ±15%），重建風場層後要重跑。
+  US turbine positions (`data/global/turbines.json`) are built from USWTDB by `tools/build_turbines.py` (conservative matching by name, 30 km and
+  capacity ±15%); re-run it after rebuilding the farm layer.
 - 數字寫進網站或文件前先對照原始資料；查不到的不要臆測，寫明「待查證」。
   Check numbers against the original source before publishing them; if something cannot be verified, say so instead of guessing.
 - 風場的逐筆修正（重複、從未建成、錯置、數字錯誤）寫在 `tools/farm_cleanup.py`：每條規則用（國別, 名稱, 來源）指定剛好一筆，

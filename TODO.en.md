@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 2026-10-04: v2.17.7, data checks wrapped up; the next conversation starts here)
+## In progress (hand-off, 2026-10-04: v2.18.0, timeline extended to 2026, real US turbine layouts, farm card additions; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -25,8 +25,13 @@ and move finished items to the topic lists below.
   - v2.16.1–v2.17.7 data checks: one round of anomaly checks, turbine-field fixes, farms lost to wrong merges restored with a build
     check (`ORPHAN_OK`), five rounds of dimension research, the Wailuo 1 / Zhong Neng / Provence Grand Large turbine models settled,
     and the GEM 2026-02 differences checked one by one (Taiwan Round 3.2, Jwasari, Kakegawa, Sørmarkfjellet).
-- Current figures: 238 of 330 operating offshore farms have a known foundation type (71.4% of capacity); dimensions for 234 of 236
-  farms, all three for 168; 334 clean-up rules.
+- 2026-10-04 (v2.18.0): the globe's timeline gains a "2026 (latest available)" point (official figures for 8 countries in `tools/latest_wind.py`,
+  refreshed quarterly); 967 US farms draw their real USWTDB turbine positions; farm cards add distance to shore and estimated yearly output;
+  four offshore farms completed in 2026 are now operating. The multi-energy mock-ups discussed the same day are deferred (ROADMAP,
+  "Directions evaluated and deferred"). Waiting for the owner: whether to use OpenStreetMap (ODbL, share-alike) for turbine positions
+  elsewhere, and how to correct France's 2025 offshore series (see "Data quality").
+- Current figures: 242 of 334 operating offshore farms have a known foundation type (71.4% of capacity); dimensions for 234 farms,
+  all three for 168; 339 clean-up rules.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -188,10 +193,14 @@ and move finished items to the topic lists below.
 - [ ] Points that are still approximate (Sep 2026): Jeonnam Offshore Wind 1 (about 9 km north-west of Jaeun-do), the 15
       intertidal turbines of Yeonggwang Wind (GEM's point is the company address), Kamisu Phases 1 and 2 and Eurus Akita
       Port (moved to the turbine positions in OpenStreetMap), and Sunrise Wind (the centre of its BOEM lease area)
-- [ ] When the timeline reaches 2026, update the status and year of each farm: Kitakyushu Hibikinada (operating from March
-      2026), Yeonggwang Nakwol (planned for December 2026), Vineyard Wind 1 (completed March 2026, commercial operation
-      April 2026 but below full capacity) and Revolution Wind (commercial operation expected during 2026); the CVOW
-      commercial project, Sunrise Wind and Empire Wind are due in 2027
+- [x] Farm-by-farm check for the "2026 (latest available)" point (v2.18.0): Kitakyushu Hibikinada, Goto, EFGL and EolMed now operating
+      in 2026; Hai Long, Taipower Phase 2 and Dogger Bank B/C moved to 2027; Baltic Power corrected to 1,140 MW and Windanker to 315 MW
+      (rules in `tools/farm_cleanup.py`)
+- [ ] Still under construction; watch for full commercial operation (research notes with checked quotes in `tools/research/farms_2026_status.json`):
+      Vineyard Wind 1 (commercial operation declared 2026-04-24 but 36 turbines still idle in June, so kept under construction under the
+      whole-farm rule), Greater Changhua 2b&4 (final commissioning), Revolution Wind (last turbine installed in September, COD expected this year),
+      Yeonggwang Nakwol, Sofia (HVDC link in testing), Dieppe-Le Tréport, Qingzhou 5 and 7; Windanker due to finish by year-end and be fully
+      commissioned in 2027. The CVOW commercial project, Sunrise Wind and Empire Wind are due in 2027
 - [ ] Once a quarter, run the `backfill-taipower-wind-history` workflow as a dry run to see whether
       dataset 37331 has moved to a more recent quarter (if the publisher improves timeliness, the
       7-day backfill logic is already in place and takes effect automatically)
@@ -259,7 +268,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Dogger Bank pipeline projects: GEM 2026-02 lists phases B and C together as one record under construction (2026), so the list's B and C
       are in `PIPE_DROP`; D and the two Dogger Bank South projects are mapped explicitly (`PIPE_SAME`), and the matcher now lets only the
       first list project update a given GEM record (v2.13.0)
-- [ ] France's 2025 offshore capacity (1,500 MW in `wind_global.json`, the same as 2024) may be too low: the SDES Q2 2026 wind dashboard implies about 2.0 GW at end-2025; to be verified
+- [ ] France's 2025 offshore capacity (1,500 MW in `wind_global.json`) is too low: the SDES Q2 2026 wind dashboard confirms 2,008 MW at end-2025 (Yeu-Noirmoutier, 500 MW, fully connected in 2025; 1,508 MW at end-2024).
+      The 2026 point already uses the SDES offshore figure (v2.18.0); before correcting the 2025 series, decide whether onshore should change too (the site's onshore follows IRENA; SDES gives 23,992 MW onshore at end-2025), then edit `tools/extract_global_data.py`
 - [ ] Offshore farm sums above the national series, to be verified: China's operating offshore farms add up to 58.9 GW against a 2025 national figure of 48.4 GW; Vietnam's 28 "offshore" farms (mostly intertidal) add up to 2.0 GW against 1.0 GW. Possibly farms counted at full capacity while still connecting in phases, or duplicates
 
 ## Ports data (data/global/ports.json, compiled by hand in Sep 2026)
@@ -296,8 +306,11 @@ the rules are in `tools/farm_cleanup.py`.
       Chinese string to English; add the English when adding or changing a Chinese value
 - [x] English farm names on the Taiwan live page in the English interface (Sep 2026, v2.10.2): `NAME_EN` in
       `assets/js/live.js` holds [full name, short name]; add both when adding a farm
-- [ ] Farm details v2 (needs new data): estimated annual generation, links to national registers, turbine
-      spec cards and so on — see group B of "What farm details could add" in ROADMAP.en.md
+- [x] Farm details v2, first step (v2.18.0): estimated yearly output (Ember national capacity factors), distance to shore (computed from the
+      coastline), turbine count, model and size for US farms (USWTDB), with the close-up drawing the real turbine positions
+- [ ] The rest of farm details v2: other national registers (Germany MaStR, Danish turbine register, UK REPD) and their turbine positions;
+      OpenStreetMap turbine positions are ODbL (share-alike), so the owner must decide whether to use them; a common turbine-model table
+      (only about 14% of capacity has a model string, so limited value); actual yearly output (EIA-923, Taiwan dataset 37331)
 
 ## Offshore foundation types (collected step by step, owner's decision of 2026-09-27; see item 2 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
 
@@ -331,12 +344,13 @@ the rules are in `tools/farm_cleanup.py`.
 
 ## To assess / waiting for the owner's decision (do not start on your own)
 
-- [ ] Extend the timeline to "2026 (latest available)": 8 countries have official 2026 figures, the others carry 2025 forward, clearly marked; start once the approach is agreed (see item 1 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
+- [x] Extend the timeline to "2026 (latest available)" (v2.18.0): official figures for 8 countries (`tools/latest_wind.py`); the others carry end-2025, shown hatched.
+      Refresh the table quarterly (Taiwan EA monthly table, US EIA-860M monthly; China quarterly briefings; Germany WindGuard half-year reports;
+      France SDES and UK DESNZ quarterly); in early 2027 merge the full 2026 statistics into `wind_global.json` and move the table to 2027
 - [ ] Whether to give `grid_status` (supply/demand) a long-term archive and trend chart, following the
       wind data's "live → 7 days → 90 days" layers
-- [ ] Whether to expand to all energy sources (genary already contains hydro, solar, thermal and
-      nuclear units; the scraper currently keeps only the wind rows) — a major decision about the site's
-      scope; confirm the direction before any work
+- [x] Whether to expand to other energy sources: discussed with three mock-ups on 2026-10-04; the owner decided to stay with wind
+      for now and discuss it again later (conclusions and decisions to keep are in "Directions evaluated and deferred" in ROADMAP.en.md)
 - [ ] Whether to try to get past the WAF 403 on the live supply/demand source (needs a different
       execution environment, e.g. a self-hosted runner or a non-cloud-CI host; changing code alone
       cannot fix it)
@@ -361,3 +375,5 @@ the rules are in `tools/farm_cleanup.py`.
   machine-readable yet)
 - Work-vessel status: live AIS positions and Taiwan International Ports Corporation port calls (the owner
   decided on 2026-09-27 not to do it)
+- Other energy sources (solar, nuclear, fossil, hydro, etc.) and an energy-transition comparison (mock-ups made on
+  2026-10-04; the owner decided to defer it and discuss again later)

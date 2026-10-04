@@ -29,7 +29,7 @@ from build_standalone import IMAGES, LAZY, PRELUDE, ROOT, SITE, git_sha, json_bl
 
 OUT = ROOT / "standalone" / "windfarmTaiwan-globe.html"
 SCRIPTS = ["assets/js/core.js"]
-DATA = ["data/global/wind_global.json", "data/global/wind_farms.json", "data/global/world_borders.json"]
+DATA = ["data/global/wind_global.json", "data/global/wind_farms.json", "data/global/world_borders.json", "data/global/country_stats.json", "data/global/turbines.json"]
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="zh-Hant">
