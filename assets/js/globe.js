@@ -45,6 +45,7 @@ const I18N = {
     wikiLoading: '正在查詢維基百科…', wikiNone: '找不到對應的維基百科條目，可用下方連結搜尋。', wikiOffline: '目前無法連線維基百科（離線或網路受限），可用下方連結查詢。',
     lnkWiki: '維基百科', lnkMap: '衛星地圖', lnkPhoto: '搜尋照片', lnkGem: 'GEM 專案頁', photoCredit: '圖片：Wikipedia / Wikimedia Commons',
     whyFirstOff: c => c + '第一座離岸風場', whyFirstOn: c => c + '資料中最早的陸域風場', whyRecOff: c => '併網時為' + c + '規模最大的離岸風場', whyRecOn: c => '併網時為' + c + '規模最大的陸域風場', whyTop: c => c + '規模最大的風場之一',
+    tourAuto: '自動導覽（目前範圍）', tourStory: { tw: '台灣離岸之路' }, tourStoryT: { tw: '從 2017 年兩部示範機到兩座 GW 級風場：台灣離岸風電十年' },
     tourEnd: '導覽結束', decom: '已除役', yearUnknown: '商轉年份不詳', posStack: '位置示意：與另外 {n} 筆共用同一座標（多為省或國家中心的代用點），地圖上以該點為中心排開，不是實際位置。', posApprox: '座標為概略位置（資料來源標示）。', tipStack: '位置示意（共用代用座標）', expected: '預計', pipeNote: '規劃中專案拉到最新年份才會顯示',
     liveNow: '此刻即時出力', liveLegend: '綠色外圈：有即時資料的風場，葉片轉速依此刻出力', liveSee: '看即時詳情', availability: '可用率', open: '開啟', more: '顯示更多', search: '搜尋風場名稱',
     fAll: '全部', fOp: '營運中', fPipe: '規劃中', sortMw: '依容量', sortYear: '依年份',
@@ -121,6 +122,7 @@ const I18N = {
     wikiLoading: 'Looking up Wikipedia…', wikiNone: 'No matching Wikipedia article found — try the links below.', wikiOffline: 'Wikipedia is unreachable right now (offline or blocked) — try the links below.',
     lnkWiki: 'Wikipedia', lnkMap: 'Satellite map', lnkPhoto: 'Search photos', lnkGem: 'GEM project page', photoCredit: 'Image: Wikipedia / Wikimedia Commons',
     whyFirstOff: c => 'First offshore wind farm in ' + c, whyFirstOn: c => 'Earliest onshore wind farm in the dataset for ' + c, whyRecOff: c => 'Largest offshore wind farm in ' + c + ' when commissioned', whyRecOn: c => 'Largest onshore wind farm in ' + c + ' when commissioned', whyTop: c => 'One of the largest wind farms in ' + c,
+    tourAuto: 'Auto tour (current focus)', tourStory: { tw: 'Taiwan\'s road to offshore wind' }, tourStoryT: { tw: 'From two demonstration turbines in 2017 to gigawatt-scale farms: ten years of offshore wind in Taiwan' },
     tourEnd: 'Tour finished', decom: 'decommissioned', yearUnknown: 'start year unknown', posStack: 'Schematic position: shares one point with {n} other records (usually a province or country centre used as a placeholder), so they are fanned out around it on the map; this is not the real location.', posApprox: 'Approximate location (as marked by the source).', tipStack: 'Schematic position (shared placeholder point)', expected: 'expected', pipeNote: 'Pipeline projects appear at the latest year',
     liveNow: 'Live output now', liveLegend: 'Green ring: farms with live data; rotors spin with their current output', liveSee: 'Live details', availability: 'availability', open: 'Open', more: 'Show more', search: 'Search farms',
     fAll: 'All', fOp: 'Operating', fPipe: 'Pipeline', sortMw: 'By size', sortYear: 'By year',
@@ -187,7 +189,7 @@ host.innerHTML = `
   <button id="g-btnEvents" type="button" aria-pressed="true" data-gi="btnEvents"></button>
   <span class="gsp"></span>
   <button id="g-btnRotate" type="button" aria-pressed="false" data-gi="rotate"></button>
-  <button id="g-btnTour" type="button" data-gi="tour"></button>
+  <span class="gtourwrap"><button id="g-btnTour" type="button" data-gi="tour" aria-haspopup="true"></button><span id="g-tourMenu" hidden></span></span>
   <div class="ggrp"><label for="g-densSel" data-gi="labels"></label><select id="g-densSel"><option value="0"></option><option value="1" selected></option><option value="2"></option><option value="3"></option></select></div>
   <button id="g-btnSources" type="button" data-gi="sources"></button>
 </div>
@@ -2812,10 +2814,11 @@ function renderCard(it) {
     '<div class="gph" hidden><img alt=""><span class="cr">' + T('photoCredit') + '</span></div>' +
     '<div class="kick">' + tag + (yrs !== '' ? esc(String(yrs)) + ' · ' : '') + esc(cn) + '</div>' +
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
+    (it.story && desc ? '<p class="desc story"><b>' + esc(T('tourStory')[it.story]) + (TOUR ? ' · ' + (TOUR.i + 1) + ' / ' + TOUR.stops.length : '') + '</b>' + esc(desc) + '</p>' : '') +
     (spec ? '<div class="spec">' + spec + '</div>' : '') +
     (real ? fdHTML(f) + factsHTML(f) : '') +
     (real ? '<div class="fstat">' + rankHTML(f) + '</div><div class="fphw">' + phaseHTML(f) + '</div>' : '') +
-    (desc ? '<p class="desc">' + esc(desc) + '</p>' : '') +
+    (desc && !it.story ? '<p class="desc">' + esc(desc) + '</p>' : '') +
     (noteOf(f) ? '<p class="fnote">' + esc(noteOf(f)) + '</p>' : '') +
     (posNote(f) ? '<p class="fnote pos">' + esc(posNote(f)) + '</p>' : '') +
     '<div class="lvslot">' + (f ? liveBoxFor(f) : (it.farm ? liveBoxFor(it.farm) : '')) + '</div>' +
@@ -2873,7 +2876,7 @@ function openStop(st) {
   focusFarm = st.farm || st.f || null;
   const tf = (st.farm && !st.farm.pseudo) ? st.farm : st;
   flyToLonLat(tf.lon, tf.lat, stopAlt(st));
-  renderCard(st.kind === 'ms' ? st : farmItem(st.f, st.why));
+  renderCard(st.kind === 'ms' ? st : Object.assign(farmItem(st.f, st.why), { story: st.story || null }));
 }
 function stopAlt(st) { const f = st.farm || st.f; return f ? farmAlt(f) * 1.25 : 0.5; }
 
@@ -2904,11 +2907,62 @@ function buildTourStops(region) {
   const cap = region === 'WORLD' ? 60 : 20;
   return stops.slice(0, cap);
 }
-function tourStart() {
-  if (!farmsReady) { notice(T('farmsLoading'), 2000); pendingParams = Object.assign(pendingParams || {}, { tour: '1' }); return; }
-  const stops = buildTourStops(S.region);
+/* 故事導覽：每一站指定一座風場（名稱與 wind_farms.json 完全一致），說明只用本站已查證的資料（風場紀錄、里程碑、事件圖層、實際年發電量、
+   tools/latest_wind.py 與 tools/farm_cleanup.py 的出處）；風場改名時要一起改，找不到的站會略過並在主控台警告 */
+const STORIES = {
+  tw: { region: 'TWN', dwell: 11, stops: [
+    ['Formosa 1 Phase 1', '2017 年，海洋風電在苗栗竹南外海立起 2 部 Siemens 4 MW 示範機，是台灣第一批離岸風機。',
+      'In 2017 Formosa 1 put up two Siemens 4 MW demonstration turbines off Zhunan, Miaoli: Taiwan\'s first offshore wind turbines.'],
+    ['Formosa 1 Phase 2', '2019 年再增 20 部 6 MW，海洋風電成為台灣第一座商業離岸風場（2020 年 1 月正式商轉），也是台灣離岸風電計畫的起點。',
+      'Twenty 6 MW turbines followed in 2019, making Formosa 1 Taiwan\'s first commercial offshore wind farm (commercial operation in January 2020) and the starting point of the national programme.'],
+    ['Taipower Offshore Phase 1 (Changhua)', '台電第一座離岸風場：21 部日立 5.2 MW、109.2 MW，位在彰化芳苑外海 7.2–8.7 km，2021 年完工；2025 年淨發電 306 GWh、容量因數 31.9%（台電開放資料）。',
+      'Taipower\'s first offshore farm: 21 Hitachi 5.2 MW turbines, 109.2 MW, 7.2–8.7 km off Fangyuan, Changhua, completed in 2021; net generation of 306 GWh in 2025, a capacity factor of 31.9% (Taipower open data).'],
+    ['Formosa 2', '海能風電 47 部 8 MW、376 MW：2022 年 7 月首度併網、2023 年 9 月全數商轉，台灣從示範計畫邁向公用事業規模。',
+      'Formosa 2, 47 × 8 MW and 376 MW: first power in July 2022 and full commercial operation in September 2023, taking Taiwan from demonstration projects to utility scale.'],
+    ['Greater Changhua 1 & 2a', '沃旭大彰化東南及西南第一階段 900 MW、111 部機組，2024 年 4 月全面併網；距彰化外海約 35–60 km，完工時是台灣最大的離岸風場。',
+      'Ørsted\'s Greater Changhua 1 & 2a, 900 MW with 111 turbines, fully connected in April 2024; 35–60 km off Changhua, it was Taiwan\'s largest offshore farm when completed.'],
+    ['Changfang & Xidao', '彰芳暨西島 62 部 Vestas 9.5 MW，2024 年 5 月建置完成。',
+      'Changfang & Xidao, 62 Vestas 9.5 MW turbines, construction completed in May 2024.'],
+    ['Yunlin', '允能雲林 80 部 8 MW、640 MW，2025 年 8 月 21 日全面商轉。',
+      'Yunlin, 80 × 8 MW and 640 MW, in full commercial operation from 21 August 2025.'],
+    ['Zhong Neng', '中能 31 部 Vestas 9.5 MW、294.5 MW，2025 年完工。',
+      'Zhong Neng, 31 Vestas 9.5 MW turbines and 294.5 MW, completed in 2025.'],
+    ['Greater Changhua 2b & 4', '大彰化西南第二階段與西北 920 MW、66 部 14 MW 機組：2026 年 9 月 1 日完工典禮、進入最後試運轉（8 月有一部 14 MW 機組起火）。',
+      'Greater Changhua 2b & 4, 920 MW with 66 × 14 MW turbines: completion ceremony on 1 September 2026 and final commissioning under way (one 14 MW turbine caught fire in August).'],
+    ['Hai Long 2 & 3', '海龍 73 部 14 MW、1,044 MW：2026 年第二季已裝 71 部、59 部發電，預計 2027 年全面商轉。',
+      'Hai Long, 73 × 14 MW and 1,044 MW: by Q2 2026, 71 installed and 59 generating; full commercial operation expected in 2027.'],
+    ['Taipower Offshore Phase 2', '台電離岸二期 31 部 Vestas 9.5 MW：2026 年由台電接管風機安裝，目標 2027 年上半年併聯。到 2026 年 8 月，台灣離岸風電累計 4,984.9 MW（能源署月報表）。',
+      'Taipower Offshore Phase 2, 31 Vestas 9.5 MW turbines: Taipower took over turbine installation in 2026, aiming to connect in H1 2027. By August 2026 Taiwan had 4,984.9 MW of offshore wind (Energy Administration monthly statistics).'],
+  ] },
+};
+function storyStops(key) {
+  const sd = STORIES[key], out = [];
+  sd.stops.forEach(([name, zh, en]) => {
+    const f = D.farms.find(x => x.iso === sd.region && x.name === name);
+    if (!f) { console.warn('story stop not found:', name); return; }
+    out.push({ kind: 'farm', f, name: f.name, zh: f.zh, lat: f.lat, lon: f.lon, year: f.year, type: f.type, iso: f.iso, why: lang === 'zh' ? zh : en, story: key });
+  });
+  return out;
+}
+function tourMenu(show) {
+  const m = $('g-tourMenu'); if (!m) return;
+  if (show === undefined) show = m.hidden;
+  if (show) m.innerHTML = '<button type="button" data-k="">' + esc(T('tourAuto')) + '</button>' +
+    Object.keys(STORIES).map(k => '<button type="button" data-k="' + k + '" title="' + esc(T('tourStoryT')[k]) + '">★ ' + esc(T('tourStory')[k]) + '</button>').join('');
+  m.hidden = !show;
+  if (show) {                       // 工具列在手機上可橫向捲動（會裁掉下拉選單）：選單用固定定位、貼在按鈕下方
+    const r = $('g-btnTour').getBoundingClientRect();
+    m.style.top = Math.round(r.bottom + 4) + 'px';
+    m.style.left = Math.round(Math.max(8, Math.min(r.left, innerWidth - m.offsetWidth - 8))) + 'px';
+  }
+  if (show) m.querySelectorAll('button').forEach(b => { b.onclick = () => { m.hidden = true; tourStart(b.dataset.k || null); }; });
+}
+function tourStart(story) {
+  if (!farmsReady) { notice(T('farmsLoading'), 2000); pendingParams = Object.assign(pendingParams || {}, { tour: story || '1' }); return; }
+  if (story && STORIES[story]) { setRegion(STORIES[story].region, true); if (!S.pipe) togglePipe(true); }
+  const stops = story && STORIES[story] ? storyStops(story) : buildTourStops(S.region);
   if (!stops.length) return;
-  TOUR = { stops, i: -1, phase: 'fly', t: 0, flyDur: 1, dwell: 9, paused: false, region: S.region };
+  TOUR = { stops, i: -1, phase: 'fly', t: 0, flyDur: 1, dwell: story && STORIES[story] ? STORIES[story].dwell : 9, paused: false, region: S.region, story: story || null };
   setPlaying(false);
   host.classList.add('touring');
   $('g-btnTour').classList.add('active');
@@ -2925,7 +2979,7 @@ function tourShowStop(i, keepYear) {
   const tf = (st.farm && !st.farm.pseudo) ? st.farm : st;
   TOUR.flyDur = flyToLonLat(tf.lon, tf.lat, stopAlt(st)) || 1.5;
   TOUR.phase = 'fly'; TOUR.t = 0;
-  renderCard(st.kind === 'ms' ? st : farmItem(st.f, st.why));
+  renderCard(st.kind === 'ms' ? st : Object.assign(farmItem(st.f, st.why), { story: st.story || null }));
   tourPause(false);
   $('g-tourBar').querySelector('.cnt').textContent = (i + 1) + ' / ' + TOUR.stops.length;
 }
@@ -3169,7 +3223,7 @@ function syncURL() {
 let pendingParams = null;
 function applyParams(p, fromFarms) {
   if (!p) return;
-  if (TOUR && p.tour !== '1') tourEnd(false);     // 導覽中打開分享連結（或按上一頁）：結束導覽，與點地球、換範圍、搜尋一致
+  if (TOUR && p.tour !== '1' && !STORIES[p.tour]) tourEnd(false);     // 導覽中打開分享連結（或按上一頁）：結束導覽，與點地球、換範圍、搜尋一致
   if (p.base && ['relief', 'sat', 'plain', 'wind'].includes(p.base)) setBase(p.base);
   if (p.mode === 'flat' || p.mode === 'globe') setMode(p.mode);
   if (p.v && ['map', 'split', 'bars'].includes(p.v)) setView(p.v);
@@ -3202,7 +3256,7 @@ function applyParams(p, fromFarms) {
   if (p.port) { if (!portsReady) pendingPort = p.port; else { const pt = PORTS.find(x => x.id === p.port); if (pt) selectPort(pt); } }
   if (p.ev) { if (!eventsReady) pendingEvent = p.ev; else { const e = EVENTS.find(x => x.id === p.ev); if (e) selectEvent(e); } }
   if (p.play === '1') { if (!p.y) S.year = Y0; setPlaying(true); }
-  if (p.tour === '1') { if (farmsReady) tourStart(); else pendingParams = Object.assign(pendingParams || {}, { tour: '1' }); }
+  if (p.tour === '1' || STORIES[p.tour]) { const k = STORIES[p.tour] ? p.tour : null; if (farmsReady) tourStart(k); else pendingParams = Object.assign(pendingParams || {}, { tour: p.tour }); }
 }
 
 /* ================= UI wiring ================= */
@@ -3249,7 +3303,8 @@ function wireUI() {
   tb.querySelector('.tnext').onclick = () => TOUR && tourShowStop(TOUR.i + 1);
   tb.querySelector('.tp').onclick = () => TOUR && tourPause(!TOUR.paused);
   tb.querySelector('.tx').onclick = () => { tourEnd(false); closeCard(); };
-  $('g-btnTour').onclick = () => { if (TOUR) { tourEnd(false); closeCard(); } else tourStart(); };
+  $('g-btnTour').onclick = e => { e.stopPropagation(); if (TOUR) { tourEnd(false); closeCard(); } else tourMenu(); };
+  document.addEventListener('click', e => { const m = $('g-tourMenu'); if (m && !m.hidden && !m.contains(e.target)) m.hidden = true; });
   $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe'); $('g-tabPorts').onclick = () => setPanelTab('ports'); $('g-tabEvents').onclick = () => setPanelTab('events');
   if (LITE) setPanelTab('farms');
   $('g-msToggle').onclick = e => { const p = $('g-msPanel'); p.classList.toggle('collapsed'); e.currentTarget.textContent = p.classList.contains('collapsed') ? '+' : '–'; };

@@ -257,6 +257,12 @@
 #globe #g-infoCard .factions .flink{flex:1 1 100%;cursor:text;font-size:11px}
 #g-tourBar{display:none;align-items:center;gap:6px;padding:8px 12px;border-top:1px solid var(--gline);position:sticky;bottom:0;background:rgba(10,17,30,.97)}
 #globe.touring #g-tourBar{display:flex}
+#globe .gtourwrap{position:relative;display:inline-flex}
+#g-tourMenu{position:fixed;z-index:60;display:flex;flex-direction:column;gap:4px;padding:6px;min-width:190px;background:rgba(10,17,30,.97);border:1px solid var(--gline);border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+#g-tourMenu[hidden]{display:none}
+#g-infoCard .desc.story{border-left:3px solid var(--acc);background:rgba(240,200,106,.08);padding:7px 10px;border-radius:0 8px 8px 0;margin:8px 0;color:var(--ink);line-height:1.6}
+#g-infoCard .desc.story b{display:block;font-size:11px;color:var(--acc);margin-bottom:2px}
+#globe #g-tourMenu button{text-align:left;white-space:nowrap}
 #globe.touring #g-msPanel{display:none}
 #g-tourBar button{padding:4px 9px}
 #g-tourBar .cnt{font-size:12px;color:var(--ink-2);min-width:52px;text-align:center}

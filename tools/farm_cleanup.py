@@ -1292,13 +1292,21 @@ RULES = [
         'Taipower’s station list and the Energy Administration’s wind single window list only the 8 Enercon E44 (0.9 MW) at Luzhu, 7.2 MW in all, with no 33.6 MW new-build or repowering plan; completed and connected on 2 February 2015 (Wikipedia). The previous 33.6 MW and 2025 were estimates',
         'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=7.2, year=2015, turbine='Enercon E-44 0.9 MW x8', note=True),
     fix('TWN', 'Taichung Power Plant', C,
-        '台電發電站清單與能源署單一窗口都只剩 1 部 Zephyros Z72（2 MW）；台電 2016 年表示廠內風機受中龍鋼鐵等建物擋風，2 部移到台中港區（補 2015 年蘇迪勒颱風吹毀的機組）。原始機組數與商轉年待查證',
-        'Taipower’s station list and the Energy Administration’s single window show a single Zephyros Z72 (2 MW) left; in 2016 Taipower said the turbines inside the plant were blocked by China Steel/Dragon Steel buildings and moved 2 to the Taichung Port row (replacing units destroyed by Typhoon Soudelor in 2015). The original count and start year are unverified',
-        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=2.0, turbine='Zephyros Z72 2.0 MW x1', note=True),
+        '台中電廠原有 4 部 Zephyros Z72；2008 年薔蜜颱風吹倒台中港區一部後，從電廠移 1 部（P01）去補，電廠剩 3 部；2016 年台電因中龍鋼鐵等建物擋風，'
+        '再移 2 部到高美濕地第 1 排補蘇迪勒颱風（2015）吹毀的機組，電廠只剩 1 部（2 MW）。台電 2026 年發電站清單與能源署單一窗口都是 1 部',
+        'Taichung Power Plant originally had 4 Zephyros Z72; after Typhoon Jangmi toppled one at Taichung Port in 2008, one (P01) was moved there, leaving 3; in 2016, '
+        'with the plant’s turbines blocked by China Steel/Dragon Steel buildings, Taipower moved 2 more to the front row at Gaomei Wetland to replace units destroyed by '
+        'Typhoon Soudelor (2015), leaving 1 (2 MW). Taipower’s 2026 station list and the Energy Administration’s single window both show 1 turbine',
+        'https://news.ltn.com.tw/news/life/breakingnews/1618036', mw=2.0, turbine='Zephyros Z72 2.0 MW x1', note=True),
     fix('TWN', 'Taichung Port', C,
-        '台電發電站清單：台中港區 13 部 Zephyros Z72（26 MW）＋3 部 Enercon E82 E4（9 MW），共 16 部 35 MW；能源署單一窗口同為 16 部 35 MW',
-        'Taipower’s station list: Taichung Port has 13 Zephyros Z72 (26 MW) + 3 Enercon E82 E4 (9 MW), 16 turbines and 35 MW; the Energy Administration’s single window also gives 16 turbines and 35 MW',
-        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=35.0, turbine='Zephyros Z72 2.0 MW x13 + Enercon E-82 E4 3.0 MW x3'),
+        '高美濕地旁原有 18 部 Zephyros Z72（前排 10、後排 8）。2008 年薔蜜颱風吹斷 2 號機，由台中電廠移 1 部補上；2015 年蘇迪勒颱風吹倒 6 部（前後排各 3 部），'
+        '台電 2016 年從台中電廠移 2 部補前排、後排的空缺另行新購；2016 年梅姬颱風又吹斷 12 號機葉片。台電 2026 年發電站清單：Z72 剩 13 部（共少了 7 部），'
+        '另有 3 部 Enercon E82 E4，共 16 部 35 MW（能源署單一窗口同）',
+        'Gaomei Wetland originally had 18 Zephyros Z72 (10 in the front row, 8 behind). Typhoon Jangmi broke unit 2 in 2008 and a turbine from Taichung Power Plant '
+        'replaced it; Typhoon Soudelor toppled 6 in 2015 (3 in each row), and in 2016 Taipower moved 2 from the power plant to the front row and planned new turbines '
+        'for the back row; Typhoon Megi broke unit 12’s blades in 2016. Taipower’s 2026 station list: 13 Z72 remain (7 fewer in all) plus 3 Enercon E82 E4, '
+        '16 turbines and 35 MW (the Energy Administration’s single window agrees)',
+        'https://news.ltn.com.tw/news/life/breakingnews/1618036', mw=35.0, turbine='Zephyros Z72 2.0 MW x13 + Enercon E-82 E4 3.0 MW x3', note=True),
     fix('TWN', 'Wanggong', C, '台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW）',
         'Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW)',
         'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=23.0, turbine='Enercon E-70 2.3 MW x10'),

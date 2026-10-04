@@ -15,6 +15,20 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.23.0 — 2026-10-05
+
+- A story tour on the globe, "Taiwan's road to offshore wind": "▶ Tour" in the toolbar now opens a menu; pick "★ Taiwan's road to offshore
+  wind" (or open `#/global?tour=tw`) and the globe switches to Taiwan, shows planned projects and flies through 11 offshore farms, from
+  Formosa 1's two demonstration turbines in 2017 through Formosa 1 Phase 2, Taipower Offshore Phase 1, Formosa 2, Greater Changhua 1 & 2a,
+  Changfang & Xidao, Yunlin, Zhong Neng, Greater Changhua 2b & 4 and Hai Long 2 & 3 to Taipower Offshore Phase 2. Each stop's card carries a
+  bilingual narration under its title ("Taiwan's road to offshore wind · stop n / 11"); figures come from the site's data and the Energy
+  Administration's monthly report (4,984.9 MW in total by August 2026). The original milestone tour is renamed "Auto tour (current focus)".
+- The cards of Taipower's Taichung Power Plant and Taichung Port (Gaomei Wetland) farms now tell how their turbines moved (Liberty Times
+  2016 report, events WIND-060/061/062, Taipower's 2026 station list): Typhoon Jangmi toppled one at the port in 2008 and one turbine (P01)
+  was moved from the power plant to replace it, leaving 3 there; Typhoon Soudelor toppled 6 at the port in 2015; in 2016 Taipower moved
+  2 more from the power plant to the front row, leaving 1; Typhoon Megi broke unit 12's blades later in 2016. The port's Z72s went from
+  18 to today's 13 (7 fewer in all), alongside 3 Enercon E82s.
+
 ## v2.22.1 — 2026-10-05
 
 - Taipower-owned farms corrected against Taipower's wind station list (data.gov.tw 17141) and the Energy Administration's wind single window
