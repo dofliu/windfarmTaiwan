@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 348 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 211 筆。
+- 規則 356 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 219 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -18,7 +18,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 3 | 157.5 | 9 |
-| 台灣 | 1 | 0 | 6 |
+| 台灣 | 1 | 0 | 14 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
 | 埃及 | 2 | 1,082 | 0 |
@@ -241,6 +241,14 @@
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | 修正：業主 | 又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約 | [連結](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 | Hai Long 2 & 3 · 1,044 MW · 2026 | 精選 | 修正：年份 | Northland 2026 年第二季報告：73 部已裝 71 部、59 部發電，全案商轉預計 2027 年 | [連結](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Taipower Offshore Phase 2 · 294 MW · 2026 | 精選 | 修正：年份 | 2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工 | [連結](https://www.cna.com.tw/news/afe/202606170184.aspx) |
+| Taoyuan Luzhu · 33.6 MW · 2025 | 精選 | 修正：容量、年份、機組 | 台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Power Plant · 8 MW · 2005 | 精選 | 修正：容量、機組 | 台電發電站清單與能源署單一窗口都只剩 1 部 Zephyros Z72（2 MW）；台電 2016 年表示廠內風機受中龍鋼鐵等建物擋風，2 部移到台中港區（補 2015 年蘇迪勒颱風吹毀的機組）。原始機組數與商轉年待查證 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Port · 36 MW · 2006 | 精選 | 修正：容量、機組 | 台電發電站清單：台中港區 13 部 Zephyros Z72（26 MW）＋3 部 Enercon E82 E4（9 MW），共 16 部 35 MW；能源署單一窗口同為 16 部 35 MW | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Wanggong · 20 MW · 2011 | 精選 | 修正：容量、機組 | 台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yongxing (Fangyuan) · 16.8 MW · 2024 | 精選 | 修正：容量、機組 | 台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；商轉年待查證 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yunlin Taixi · 16.8 MW · 2024 | 精選 | 修正：容量、機組 | 台電發電站清單：雲林台西 4 部 Enercon E70 E4，共 9.2 MW，113 年（2024 年）10 月 24 日併聯、試運轉中（原本的 16.8 MW 是估計值） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Longmen · 6.9 MW · 2023 | 精選 | 修正：容量、機組 | 台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Zhongtun · 4.8 MW · 2001 | 精選 | 修正：狀態、除役年 | 中屯 8 部風機運轉逾 20 年、無備品，台電 2023 年起辦理除役更新；更新計畫 2024 年 8 月通過環評但因地方反對暫緩，8 部風機 2025 年 11 月前拆除完成（自由時報 2025-11-15） | [連結](https://news.ltn.com.tw/news/life/breakingnews/5246753) |
 
 ## 哥倫比亞 (COL)
 

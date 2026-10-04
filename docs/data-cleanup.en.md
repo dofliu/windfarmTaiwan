@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 348 rules: 137 records removed (42,468.2 MW of them operating), 211 records fixed.
+- 356 rules: 137 records removed (42,468.2 MW of them operating), 219 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -40,7 +40,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | South Korea | 3 | 157.5 | 9 |
 | Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
-| Taiwan | 1 | 0 | 6 |
+| Taiwan | 1 | 0 | 14 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 2 | 270 | 1 |
 | United Kingdom | 7 | 3,485 | 6 |
@@ -475,6 +475,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | fixed: owner | Youde was allocated 700 MW in Round 3.2 for 2029, developed by Shinfox; GEM’s owner wpd and the “Datian” half are out of date (Datian got only 165 MW in Round 3.1, did not sign and was cancelled in 2023). In August 2026 the Energy Administration said the developer had not paid the rest of its performance bond and the termination was being processed | [link](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 | Hai Long 2 & 3 · 1,044 MW · 2026 | curated | fixed: year | Northland's Q2 2026 report: 71 of 73 turbines installed and 59 generating; commercial operation of the whole project expected in 2027 | [link](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Taipower Offshore Phase 2 · 294 MW · 2026 | curated | fixed: year | In June 2026 the economy minister said over 90% was done with only turbine installation left, aiming to finish by year-end and connect in H1 2027; in October Taipower said it had taken over the vessels and aims to finish by year-end | [link](https://www.cna.com.tw/news/afe/202606170184.aspx) |
+| Taoyuan Luzhu · 33.6 MW · 2025 | curated | fixed: capacity, year, turbines | Taipower’s station list and the Energy Administration’s wind single window list only the 8 Enercon E44 (0.9 MW) at Luzhu, 7.2 MW in all, with no 33.6 MW new-build or repowering plan; completed and connected on 2 February 2015 (Wikipedia). The previous 33.6 MW and 2025 were estimates | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Power Plant · 8 MW · 2005 | curated | fixed: capacity, turbines | Taipower’s station list and the Energy Administration’s single window show a single Zephyros Z72 (2 MW) left; in 2016 Taipower said the turbines inside the plant were blocked by China Steel/Dragon Steel buildings and moved 2 to the Taichung Port row (replacing units destroyed by Typhoon Soudelor in 2015). The original count and start year are unverified | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Taichung Port · 36 MW · 2006 | curated | fixed: capacity, turbines | Taipower’s station list: Taichung Port has 13 Zephyros Z72 (26 MW) + 3 Enercon E82 E4 (9 MW), 16 turbines and 35 MW; the Energy Administration’s single window also gives 16 turbines and 35 MW | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Wanggong · 20 MW · 2011 | curated | fixed: capacity, turbines | Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW) | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yongxing (Fangyuan) · 16.8 MW · 2024 | curated | fixed: capacity, turbines | Taipower’s station list: Changhua Yongxing has 4 Enercon E70, 9.2 MW in all (the previous 16.8 MW with 4.2 MW turbines was an estimate); start year unverified | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Yunlin Taixi · 16.8 MW · 2024 | curated | fixed: capacity, turbines | Taipower’s station list: Yunlin Taixi has 4 Enercon E70 E4, 9.2 MW in all, connected on 24 October 2024 and in trial operation (the previous 16.8 MW was an estimate) | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Longmen · 6.9 MW · 2023 | curated | fixed: capacity, turbines | Taipower’s station list and the Energy Administration’s single window: Penghu Longmen has 3 Enercon E82 E4, 9 MW in all (the previous 6.9 MW was an estimate) | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Zhongtun · 4.8 MW · 2001 | curated | fixed: status, end year | Zhongtun’s 8 turbines were over 20 years old with no spare parts and Taipower began decommissioning them in 2023; the renewal plan passed its EIA in August 2024 but was shelved after local opposition, and all 8 turbines had been dismantled by November 2025 (Liberty Times, 15 Nov 2025) | [link](https://news.ltn.com.tw/news/life/breakingnews/5246753) |
 
 ## Thailand (THA)
 

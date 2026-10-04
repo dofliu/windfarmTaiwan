@@ -15,6 +15,20 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.22.1 — 2026-10-05
+
+- Taipower-owned farms corrected against Taipower's wind station list (data.gov.tw 17141) and the Energy Administration's wind single window
+  (quotes checked with `check_quotes.py`): Luzhu from an estimated 33.6 MW / 2025 to 8 Enercon E44, 7.2 MW, 2015; one Z72 (2 MW) left at
+  Taichung Power Plant (2 were moved to Taichung Port in 2016); Taichung Port 13 Z72 + 3 E82 E4, 35 MW; Wanggong 10 Enercon E70, 23 MW;
+  Yongxing and Taixi 4 E70 each, 9.2 MW; Longmen 3 E82 E4, 9 MW; Penghu Zhongtun's 8 turbines were dismantled by November 2025 and it is now
+  retired. With the capacities matching, Taipower farms with actual yearly output on their cards rise from 13 to 18. Datan's two official
+  figures disagree and Offshore Phase 1 has no official coordinates, so both stay as they are and are listed in TODO.
+- Germany's suspected MaStR duplicates resolved: GEM's Flomborn-Stetten was about 25 km off and moves to MaStR's BVT farm; the same-name rule
+  for new farms now skips a group only when the site farm's own matched groups do not share more name words, letting real neighbours
+  (Windpark Flomborn, Stetten and others) in; the other 7 pairs (two Nortorfs, Heßloch, Welsow, Gnannenweiler and others) are confirmed as
+  different farms and listed in a new `NOT_DUP` list (reasons in `docs/data-cleanup.en.md`), bringing the coverage report's suspected
+  duplicates A to zero. German farm-level coverage is 96%.
+
 ## v2.22.0 — 2026-10-05
 
 - Germany now uses the Federal Network Agency's Market Master Data Register MaStR (© Bundesnetzagentur | Marktstammdatenregister, Data
