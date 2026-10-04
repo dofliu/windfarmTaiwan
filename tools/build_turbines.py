@@ -60,6 +60,12 @@ def km(lat1, lon1, lat2, lon2):
     return 12742 * math.asin(math.sqrt(h))
 
 
+def eia_of(t):
+    """USWTDB 的 EIA 電廠代碼（沒有時是空字串、NA 或負數）"""
+    v = num(t.get('eia_id'))
+    return int(v) if v and v > 0 else 0
+
+
 def num(v):
     try:
         return float(v)
@@ -131,6 +137,8 @@ def main(csv_path):
             'm': model or None, 'mn': len(models), 'hh': [min(hh), max(hh)] if hh else None, 'rd': [min(rd), max(rd)] if rd else None,
             'kw': round(sum(num(t['t_cap']) or 0 for t in ts)), 'y': [min(yrs), max(yrs)] if yrs else None,
             'pr': sorted({k[0] for k in ks}),
+            # EIA 電廠代碼與這座風場裡屬於它的機組數（tools/build_generation.py 用來接 EIA-923 發電量）
+            'eia': sorted([int(i), c] for i, c in collections.Counter(eia_of(t) for t in ts).items() if i),
         }
     meta = {
         'source': 'U.S. Wind Turbine Database (USWTDB), USGS / Lawrence Berkeley National Laboratory / American Clean Power Association',

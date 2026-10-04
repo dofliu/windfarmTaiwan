@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '2.19.2';
+WW.VERSION = '2.20.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -120,6 +120,7 @@ WW.DATA = {
   foundations: 'data/global/foundations.json',
   events: 'data/global/events.json',
   stats: 'data/global/country_stats.json',
+  generation: 'data/global/generation.json',
   turbines: 'data/global/turbines.json',
   turbinesOsm: 'data/global/turbines_osm.json'
 };

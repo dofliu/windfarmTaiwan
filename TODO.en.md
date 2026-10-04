@@ -29,6 +29,8 @@ and move finished items to the topic lists below.
   refreshed quarterly); 967 US farms draw their real USWTDB turbine positions; farm cards add distance to shore and estimated yearly output;
   four offshore farms completed in 2026 are now operating. The multi-energy mock-ups discussed the same day are deferred (ROADMAP,
   "Directions evaluated and deferred").
+- 4 Oct 2026 (v2.20.0): "Actual yearly output" on farm cards: 876 US farms (EIA-923) and 13 Taipower farms in Taiwan (Taipower open data).
+  Next: the wind resource layer (v2.21.0), then Germany's MaStR (v2.22.0; the owner has agreed to use it).
 - 4 Oct 2026 (v2.19.2): a second check of offshore farms under construction "expected in 2026" (East Anglia TWO/THREE and Ecowende pinned in the
   pipeline matching, Hainan CZ2's year and position corrected and more; see the CHANGELOG).
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
@@ -315,9 +317,14 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Farm details v2, first step (v2.18.0): estimated yearly output (Ember national capacity factors), distance to shore (computed from the
       coastline), turbine count, model and size for US farms (USWTDB), with the close-up drawing the real turbine positions
 - [x] Turbine positions in other countries (v2.19.1): OpenStreetMap (ODbL) matched to 6,886 farms and 147,012 turbines
+- [x] Actual yearly output (v2.20.0): US from EIA-923, Taipower-owned farms in Taiwan from Taipower open data 17140
+- [ ] Actual output still missing: 7 Taipower stations whose capacity does not match the site's record (Datan 15.1 vs 12.5, Luzhu 7.2 vs 33.6,
+      Taichung Power Plant 2.0 vs 8.0, Yongxing 9.2 vs 16.8, Taixi 9.2 vs 16.8, Longmen 9.0 vs 6.9 MW; Zhongtun has no data) need their phases
+      sorted out first; private farms have no official per-farm figures (T-REC certificate volumes are not total output and must not be used);
+      Taipower Offshore Phase 1's card shows about 1.6 km to shore (its point is approximate; the real site coordinates are to be verified)
 - [ ] The rest of farm details v2: other national registers (Germany MaStR, Danish turbine register, UK REPD) could fill positions
       OSM lacks (OSM maps few turbines in China); a common turbine-model table
-      (only about 14% of capacity has a model string, so limited value); actual yearly output (EIA-923, Taiwan dataset 37331)
+      (only about 14% of capacity has a model string, so limited value); per-farm actual output elsewhere (UK REPD / Ofgem, Australia AEMO and others)
 
 ## Offshore foundation types (collected step by step, owner's decision of 2026-09-27; see item 2 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
 

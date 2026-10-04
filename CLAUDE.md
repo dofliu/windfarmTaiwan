@@ -56,6 +56,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 美國每部風機的位置（`data/global/turbines.json`）由 `tools/build_turbines.py` 從 USWTDB 產生；對應規則寧可少配（名稱、30 km、容量 ±15%），重建風場層後要重跑。
   US turbine positions (`data/global/turbines.json`) are built from USWTDB by `tools/build_turbines.py` (conservative matching by name, 30 km and
   capacity ±15%); re-run it after rebuilding the farm layer.
+- 實際年發電量（`data/global/generation.json`）由 `tools/build_generation.py` 產生：美國用 EIA-923，經 USWTDB 每部風機的 EIA 電廠代碼接到風場（電廠跨好幾座風場的不用、只列全年運轉的年份）；
+  台灣只有台電自有風場（台電開放資料 17140／17141，發電站對應寫在 `TW_STATIONS`，容量差 15% 以上不用）。民營風場沒有逐場官方數字，不要用憑證量或推估值充當實測。
+  Actual yearly output (`data/global/generation.json`) is built by `tools/build_generation.py`: US farms from EIA-923 through the EIA plant code USWTDB gives
+  each turbine (plants spread over several farms and partial years are left out); in Taiwan only Taipower-owned farms (open data 17140/17141, stations
+  mapped in `TW_STATIONS`, skipped when capacities differ by more than 15%). Private farms have no official per-farm figures; never pass certificates or estimates off as measured output.
 - 其他國家的風機位置（`data/global/turbines_osm.json`）來自 OpenStreetMap，以 ODbL 分享：檔案的 meta、README、卡片與「資料來源」都要標示「© OpenStreetMap 貢獻者」，
   不要把它併進其他授權的資料檔。對應規則在 `tools/build_turbines_osm.py`（風場範圍的名稱與容量，或空間群聚加單機容量檢查），寧可少配。
   Turbine positions elsewhere (`data/global/turbines_osm.json`) come from OpenStreetMap and are shared under the ODbL: keep "© OpenStreetMap
