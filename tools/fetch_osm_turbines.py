@@ -59,7 +59,13 @@ def main(out_dir):
     print(len(tiles), 'tiles', flush=True)
 
     def one(job):
-        i, (s, w) = job
+        try:
+            get(*job)
+        except (RuntimeError, ValueError) as e:                          # 這一區先跳過，重跑時再補 · skip; a re-run fills it in
+            print(f'FAILED {job[1]}: {e}', flush=True)
+
+    def get(i, tile):
+        s, w = tile
         f = out / f'tile_{s}_{w}.json'
         if f.exists():
             return
@@ -77,9 +83,12 @@ def main(out_dir):
 
     with ThreadPoolExecutor(WORKERS) as ex:
         list(ex.map(one, enumerate(tiles)))
+    missing = [t for t in tiles if not (out / f'tile_{t[0]}_{t[1]}.json').exists()]
+    print(f'{len(tiles) - len(missing)}/{len(tiles)} tiles done' + (f'; run again for {len(missing)} failed' if missing else ''), flush=True)
+    return not missing
 
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         sys.exit(__doc__)
-    main(sys.argv[1])
+    sys.exit(0 if main(sys.argv[1]) else 1)
