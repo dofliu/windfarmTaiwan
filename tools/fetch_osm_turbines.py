@@ -48,6 +48,34 @@ def fetch(q):
     raise RuntimeError(f'Overpass failed: {last}')
 
 
+def box_elements(s, w, step, split=2):
+    """一個方塊的風機與風場範圍；太密而一直失敗時切成四塊再查（最多切兩層）· a box's elements; a box that keeps failing is split in four (two levels at most)"""
+    box = dict(s=s, w=w, n=s + step, e=w + step)
+    try:
+        el = []
+        for line in fetch(Q_TURB.format(**box)).splitlines():          # 風機：精簡的 CSV（id、緯度、經度、幾個規格欄）
+            c = line.split('\t')
+            if len(c) >= 3 and c[0].isdigit():
+                el.append({'type': 'node', 'id': int(c[0]), 'lat': float(c[1]), 'lon': float(c[2]),
+                           'tags': dict({'power': 'generator'}, **{t: v for t, v in zip(TAGS, c[3:]) if v})})
+        d = json.loads(fetch(Q_PLANT.format(**box)))                     # 風場範圍：含邊界幾何
+        return el + d.get('elements', []), d.get('osm3s', {}).get('timestamp_osm_base')
+    except (RuntimeError, ValueError):
+        if not split:
+            raise
+    h = step / 2
+    seen, el, base = set(), [], None
+    for ds in (0, h):
+        for dw in (0, h):
+            part, b = box_elements(s + ds, w + dw, h, split - 1)
+            base = base or b
+            for e in part:                                               # 跨塊的風場範圍只留一份 · plants spanning boxes once
+                if (e['type'], e['id']) not in seen:
+                    seen.add((e['type'], e['id']))
+                    el.append(e)
+    return el, base
+
+
 def main(out_dir):
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -69,16 +97,8 @@ def main(out_dir):
         f = out / f'tile_{s}_{w}.json'
         if f.exists():
             return
-        box = dict(s=s, w=w, n=s + STEP, e=w + STEP)
-        el = []
-        for line in fetch(Q_TURB.format(**box)).splitlines():          # 風機：精簡的 CSV（id、緯度、經度、幾個規格欄）
-            c = line.split('\t')
-            if len(c) >= 3 and c[0].isdigit():
-                el.append({'type': 'node', 'id': int(c[0]), 'lat': float(c[1]), 'lon': float(c[2]),
-                           'tags': dict({'power': 'generator'}, **{t: v for t, v in zip(TAGS, c[3:]) if v})})
-        d = json.loads(fetch(Q_PLANT.format(**box)))                     # 風場範圍：含邊界幾何
-        el += d.get('elements', [])
-        f.write_text(json.dumps({'osm_base': d.get('osm3s', {}).get('timestamp_osm_base'), 'elements': el}, ensure_ascii=False), encoding='utf-8')
+        el, base = box_elements(s, w, STEP)
+        f.write_text(json.dumps({'osm_base': base, 'elements': el}, ensure_ascii=False), encoding='utf-8')
         print(f'{i + 1}/{len(tiles)} {s},{w}: {len(el)} elements', flush=True)
 
     with ThreadPoolExecutor(WORKERS) as ex:
