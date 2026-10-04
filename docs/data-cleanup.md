@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 347 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 210 筆。
+- 規則 348 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 211 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -26,7 +26,7 @@
 | 多明尼加 | 1 | 50 | 6 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 1 | 150 | 0 |
-| 德國 | 0 | 0 | 4 |
+| 德國 | 0 | 0 | 5 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 9 |
 | 日本 | 2 | 30 | 11 |
@@ -304,6 +304,7 @@
 | Hohe See · 497 MW · 2019 | 精選 | 修正：座標 | 座標改到建成風場範圍的中心（原座標偏東約 9 km） | [連結](https://www.openstreetmap.org/way/344491479) |
 | Hooksiel (BARD test turbine) · 5 MW · 2008 | 精選 | 修正：除役年 | 2016 年 5 月拆除（當時已停機約四年） | [連結](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
 | Windanker wind farm · 300 MW · 2026 | GEM | 修正：容量 | 容量 315 MW（21 部風機），不是 300 MW；2026 年 6 月才開始安裝風機，預計年底完工、2027 年全面運轉 | [連結](https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/) |
+| Flomborn-Stetten wind farm · 15 MW · 2013 | GEM | 修正：座標 | BVT 集團的 Flomborn／Stetten 風場就是 MaStR 的「BVT Windpark Flomborn/Stetten」：5 部 3,075 kW、2013 年 12 月併網（SEE970097431950、SEE972537071986、SEE986793983570、SEE978061015458、SEE997638951548），位於 Alzey-Worms 縣 Flomborn；GEM 的座標在東北方約 25 km 外，改到這 5 部的中心 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## 愛爾蘭 (IRL)
 
@@ -611,3 +612,15 @@
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm (CHN) | 粵電陽江沙扒（300 MW，2021 年 12 月全容量併網）與三峽陽江沙扒是不同的風場 | [連結](https://m.bjx.com.cn/mnews/20211206/1191794.shtml) |
 | Guangdong Yangjiang Nanpengdao (China Energy Conservation) Offshore wind farm (CHN) | 中節能陽江南鵬島（300 MW，2021 年 11 月全容量併網）與中廣核南鵬島是不同的風場 | [連結](https://wind.in-en.com/html/wind-2412533.shtml) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm (CHN) | 竹根沙 H2（302 MW，浙江新能與中海油）與國華東台四期 H2 是不同的風場 | [連結](https://www.nbd.com.cn/articles/2021-11-03/1978454.html) |
+
+## 已查證不是重複（覆蓋率報告不再列）
+
+| 風場 | 理由 | 出處 |
+|---|---|---|
+| Windpark Nortorf (DEU) | MaStR 的「Windpark Nortorf」（2 部 Nordex N163，2025 年）在 Rendsburg-Eckernförde 縣的 Nortorf／Ellerdorf；GEM 的「Nortorf 2」（13 MW，2022 年）是 44 km 外 Steinburg 縣的 Nortorf，已對到 MaStR 的「Windpark Nortorf 2」（2 部 6.6 MW）：兩個同名的地方 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| BWP Kaiser-Wilhelm-Koog II (DEU) | MaStR 的「BWP Kaiser-Wilhelm-Koog II」是 2004 年的一部 Enercon E58（1,000 kW），與精選紀錄裡 1987 年的 Westküste 試驗風場不是同一批機組 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Flomborn (DEU) | MaStR 的「Windpark Flomborn」是 5 部 3,075 kW（2012-12 至 2013-02 併網），與 GEM「Flomborn-Stetten」對到的「BVT Windpark Flomborn/Stetten」（5 部，2013-12）是相鄰的另一座 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Stetten (DEU) | MaStR 的「Windpark Stetten」（Donnersbergkreis 的 Stetten，2012–2015 年）與 GEM「Flomborn-Stetten」對到的 BVT 那 5 部（2013-12）是不同機組 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Heßloch (DEU) | MaStR 的「Windpark Heßloch」是 2014–2015 年的 3 部 Senvion 3.4M104；GEM「Dittelsheim-Heßloch」已對到 2013 年的 4 部 Enercon E-82：同地點不同期 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Welsow (DEU) | MaStR 的「Windpark Welsow」是 2021 年的 2 部 Enercon E138；GEM「Kerkow-Welsow」已對到 2023 年的 2 部 Nordex N149：同地點不同期 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Gnannenweiler (DEU) | MaStR 的「Gnannenweiler」是 2021 年的 2 部 Enercon E138；GEM「Gnannenweiler Windnetz」已對到 2009 年的 Enercon E82：同地點不同期 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

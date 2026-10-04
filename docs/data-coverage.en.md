@@ -7,17 +7,17 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,606 operating farms, 1,188,788 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 20,687 operating farms, 1,189,358 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 54 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 210 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 211 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 9,585 projects, 2,719,971 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
 - **China**: national 640,626 MW, mapped 571,171 MW (89%), gap 69,455 MW.
 - **India**: national 54,511 MW, mapped 42,278 MW (78%), gap 12,233 MW.
-- **Germany**: national 77,873 MW, mapped 74,366 MW (95%), gap 3,507 MW.
 - **Italy**: national 13,568 MW, mapped 10,504 MW (77%), gap 3,064 MW.
+- **Germany**: national 77,873 MW, mapped 74,936 MW (96%), gap 2,937 MW.
 - **Denmark**: national 7,547 MW, mapped 5,015 MW (66%), gap 2,532 MW.
 - **Belgium**: national 5,851 MW, mapped 3,972 MW (68%), gap 1,879 MW.
 - **Spain**: national 33,301 MW, mapped 31,436 MW (94%), gap 1,865 MW.
@@ -41,12 +41,8 @@ English ｜ [中文](data-coverage.md)
    - Monsoon Wind (Sekong/Attapeu) (LAO) · 600 MW · construction · expected 2025
    - BPP Vĩnh Châu wind farm (VNM) · 30 MW · construction · expected 2025
 4. **Coordinates**: 5,004 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 19 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
-   **Suspected duplicates A (same or similar name)**: 4 pairs, smaller side 40 MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:
-   - DEU · Windpark Flomborn (MaStR, 15 MW, 2012) ↔ Flomborn-Stetten wind farm (GEM, 15 MW, 2013) · 24.2 km
-   - DEU · Windpark Stetten (MaStR, 13 MW, 2012) ↔ Flomborn-Stetten wind farm (GEM, 15 MW, 2013) · 25.6 km
-   - DEU · Windpark Nortorf (MaStR, 11 MW, 2025) ↔ Nortorf 2 wind farm (GEM, 13 MW, 2022) · 44.1 km
-   - DEU · BWP Kaiser-Wilhelm-Koog II (MaStR, 1 MW, 2004) ↔ Windpark Westküste (Kaiser-Wilhelm-Koog) (curated, 1 MW, 1987) · 3.7 km
-   **Suspected duplicates B (different names, same capacity, close by)**: 40 pairs, smaller side 1,845 MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check.
+   **Suspected duplicates A (same or similar name)**: 0 pairs, smaller side 0 MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:
+   **Suspected duplicates B (different names, same capacity, close by)**: 41 pairs, smaller side 1,884 MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check.
    **Shared coordinates**: 132 points each hold 3 or more operating farms (1,316 farms, 106,058 MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:
    - CHN (43.244, 114.325) · 88 farms · 10,251 MW · Inner Mongolia Huolinhe Circulating Economy Demonstration wind farm · 1,2,3, 4, 5, Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm, Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (Huaneng) wind farm…
    - CHN (36.0, 119.0) · 86 farms · 6,891 MW · Shandong Qingdao Baoshan wind farm, Shandong Muping Wanggezhuang wind farm, Shandong Juancheng Zuoying wind farm…
@@ -106,7 +102,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 571,171 | 89% | 69,455 | 5,129 | 20,521 | 2,870 | ✓ |
 | 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 166,147 | 105% | 0 | 1,237 | 0 | 9 | ✓ |
-| 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 74,366 | 95% | 3,507 | 6,499 | 852 | 177 | ✓ |
+| 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 74,936 | 96% | 2,937 | 6,580 | 852 | 177 | ✓ |
 | 4 | India (IND) | 54,511 | 0 | 38,937 | 42,278 | 78% | 12,233 | 630 | 10,869 | 568 | △ |
 | 5 | Brazil (BRA) | 34,866 | 0 | 35,718 | 34,291 | 98% | 575 | 295 | 760 | 3 | ✓ |
 | 6 | Spain (ESP) | 33,301 | 7 | 31,007 | 31,436 | 94% | 1,865 | 872 | 3,671 | 253 | ✓ |

@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 347 rules: 137 records removed (42,468.2 MW of them operating), 210 records fixed.
+- 348 rules: 137 records removed (42,468.2 MW of them operating), 211 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -23,7 +23,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 0 |
 | France | 2 | 0 | 5 |
-| Germany | 0 | 0 | 4 |
+| Germany | 0 | 0 | 5 |
 | Iran | 2 | 62 | 2 |
 | Ireland | 0 | 0 | 1 |
 | Japan | 2 | 30 | 11 |
@@ -272,6 +272,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Hohe See · 497 MW · 2019 | curated | fixed: location | Point moved to the centre of the built array (the old one was about 9 km to the east) | [link](https://www.openstreetmap.org/way/344491479) |
 | Hooksiel (BARD test turbine) · 5 MW · 2008 | curated | fixed: end year | Dismantled in May 2016, after about four years out of service | [link](https://www.thb.info/rubriken/offshore-windenergie/detail/news/ein-pionier-windrad-verlaesst-hooksiel.html) |
 | Windanker wind farm · 300 MW · 2026 | GEM | fixed: capacity | Capacity 315 MW (21 turbines), not 300 MW; turbine installation only began in June 2026, with completion expected by year-end and full commissioning in 2027 | [link](https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/) |
+| Flomborn-Stetten wind farm · 15 MW · 2013 | GEM | fixed: location | BVT Group’s Flomborn/Stetten farm is MaStR’s “BVT Windpark Flomborn/Stetten”: 5 × 3,075 kW, connected in December 2013 (SEE970097431950, SEE972537071986, SEE986793983570, SEE978061015458, SEE997638951548), at Flomborn, Alzey-Worms district; GEM’s point is about 25 km to the north-east, so it moves to the centre of these five | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## Iran (IRN)
 
@@ -611,3 +612,15 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm (CHN) | Guangdong Energy’s Yangjiang Shaba (300 MW, fully connected December 2021) is a different farm from CTG’s Yangjiang Shapa | [link](https://m.bjx.com.cn/mnews/20211206/1191794.shtml) |
 | Guangdong Yangjiang Nanpengdao (China Energy Conservation) Offshore wind farm (CHN) | CECEP’s Yangjiang Nanpeng Island (300 MW, fully connected November 2021) is a different farm from CGN’s Nanpeng Island | [link](https://wind.in-en.com/html/wind-2412533.shtml) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm (CHN) | Zhugensha H2 (302 MW, Zhejiang New Energy and CNOOC) is a different farm from Guohua’s Dongtai IV (H2) | [link](https://www.nbd.com.cn/articles/2021-11-03/1978454.html) |
+
+## Checked, not duplicates (left out of the coverage report)
+
+| Farm | Reason | Source link |
+|---|---|---|
+| Windpark Nortorf (DEU) | MaStR’s “Windpark Nortorf” (2 Nordex N163, 2025) is at Nortorf/Ellerdorf in Rendsburg-Eckernförde district; GEM’s “Nortorf 2” (13 MW, 2022) is the other Nortorf, 44 km away in Steinburg district, matched to MaStR’s “Windpark Nortorf 2” (2 × 6.6 MW): two places with the same name | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| BWP Kaiser-Wilhelm-Koog II (DEU) | MaStR’s “BWP Kaiser-Wilhelm-Koog II” is a single Enercon E58 (1,000 kW) from 2004, not the 1987 Westküste test field in the curated record | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Flomborn (DEU) | MaStR’s “Windpark Flomborn” has 5 × 3,075 kW connected December 2012 – February 2013, a separate neighbour of the “BVT Windpark Flomborn/Stetten” (5 units, December 2013) that GEM’s “Flomborn-Stetten” matches | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Stetten (DEU) | MaStR’s “Windpark Stetten” (Stetten, Donnersbergkreis, 2012–2015) is a different set of turbines from the five BVT units (December 2013) that GEM’s “Flomborn-Stetten” matches | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Heßloch (DEU) | MaStR’s “Windpark Heßloch” is 3 Senvion 3.4M104 from 2014–2015; GEM’s “Dittelsheim-Heßloch” matches the 4 Enercon E-82 from 2013: same area, different phase | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Welsow (DEU) | MaStR’s “Windpark Welsow” is 2 Enercon E138 from 2021; GEM’s “Kerkow-Welsow” matches the 2 Nordex N149 from 2023: same area, different phase | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Gnannenweiler (DEU) | MaStR’s “Gnannenweiler” is 2 Enercon E138 from 2021; GEM’s “Gnannenweiler Windnetz” matches the Enercon E82 from 2009: same area, different phase | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

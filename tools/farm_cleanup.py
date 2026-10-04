@@ -1286,6 +1286,13 @@ RULES = [
         'Đông Thành 1 (80 MW): in March 2026 the Vĩnh Long trade department was still seeking opinions on its investment approval, and no construction report can be found '
         '(GEM’s “construction” rests on a 2024 paid-database page); set to pre-construction, year unknown',
         'https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm', st=2, year=0),
+    # 2026-10-05 德國 MaStR 對照時查到的錯置（MaStR 機組編號可在 marktstammdatenregister.de 查詢）
+    fix('DEU', 'Flomborn-Stetten wind farm', G,
+        'BVT 集團的 Flomborn／Stetten 風場就是 MaStR 的「BVT Windpark Flomborn/Stetten」：5 部 3,075 kW、2013 年 12 月併網（SEE970097431950、SEE972537071986、'
+        'SEE986793983570、SEE978061015458、SEE997638951548），位於 Alzey-Worms 縣 Flomborn；GEM 的座標在東北方約 25 km 外，改到這 5 部的中心',
+        'BVT Group’s Flomborn/Stetten farm is MaStR’s “BVT Windpark Flomborn/Stetten”: 5 × 3,075 kW, connected in December 2013 (SEE970097431950, SEE972537071986, '
+        'SEE986793983570, SEE978061015458, SEE997638951548), at Flomborn, Alzey-Worms district; GEM’s point is about 25 km to the north-east, so it moves to the centre of these five',
+        'https://www.marktstammdatenregister.de/MaStR/Datendownload', lat=49.690, lon=8.111),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1296,6 +1303,40 @@ ORPHAN_OK = {
         ('蒼南 1 號由精選的「Huarun Cangnan 1 / CR Power」（400 MW）代表', 'Cangnan 1 is represented by the curated “Huarun Cangnan 1 / CR Power” (400 MW)'),
     ('CHN', 'Xinjiang Mori 2500 MW wind farm complex'):
         ('莫里 2,500 MW 是整區彙總，GEM 另逐場列出同地名的各座風場', 'The Mori 2,500 MW complex is an area total; GEM also lists the individual Mori farms'),
+}
+
+# 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
+NOT_DUP = {
+    ('DEU', 'Windpark Nortorf'):
+        ('MaStR 的「Windpark Nortorf」（2 部 Nordex N163，2025 年）在 Rendsburg-Eckernförde 縣的 Nortorf／Ellerdorf；GEM 的「Nortorf 2」（13 MW，2022 年）是 44 km 外 Steinburg 縣的 Nortorf，'
+         '已對到 MaStR 的「Windpark Nortorf 2」（2 部 6.6 MW）：兩個同名的地方',
+         'MaStR’s “Windpark Nortorf” (2 Nordex N163, 2025) is at Nortorf/Ellerdorf in Rendsburg-Eckernförde district; GEM’s “Nortorf 2” (13 MW, 2022) is the other Nortorf, '
+         '44 km away in Steinburg district, matched to MaStR’s “Windpark Nortorf 2” (2 × 6.6 MW): two places with the same name',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'BWP Kaiser-Wilhelm-Koog II'):
+        ('MaStR 的「BWP Kaiser-Wilhelm-Koog II」是 2004 年的一部 Enercon E58（1,000 kW），與精選紀錄裡 1987 年的 Westküste 試驗風場不是同一批機組',
+         'MaStR’s “BWP Kaiser-Wilhelm-Koog II” is a single Enercon E58 (1,000 kW) from 2004, not the 1987 Westküste test field in the curated record',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Flomborn'):
+        ('MaStR 的「Windpark Flomborn」是 5 部 3,075 kW（2012-12 至 2013-02 併網），與 GEM「Flomborn-Stetten」對到的「BVT Windpark Flomborn/Stetten」（5 部，2013-12）是相鄰的另一座',
+         'MaStR’s “Windpark Flomborn” has 5 × 3,075 kW connected December 2012 – February 2013, a separate neighbour of the “BVT Windpark Flomborn/Stetten” (5 units, December 2013) that GEM’s “Flomborn-Stetten” matches',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Stetten'):
+        ('MaStR 的「Windpark Stetten」（Donnersbergkreis 的 Stetten，2012–2015 年）與 GEM「Flomborn-Stetten」對到的 BVT 那 5 部（2013-12）是不同機組',
+         'MaStR’s “Windpark Stetten” (Stetten, Donnersbergkreis, 2012–2015) is a different set of turbines from the five BVT units (December 2013) that GEM’s “Flomborn-Stetten” matches',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Heßloch'):
+        ('MaStR 的「Windpark Heßloch」是 2014–2015 年的 3 部 Senvion 3.4M104；GEM「Dittelsheim-Heßloch」已對到 2013 年的 4 部 Enercon E-82：同地點不同期',
+         'MaStR’s “Windpark Heßloch” is 3 Senvion 3.4M104 from 2014–2015; GEM’s “Dittelsheim-Heßloch” matches the 4 Enercon E-82 from 2013: same area, different phase',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Welsow'):
+        ('MaStR 的「Windpark Welsow」是 2021 年的 2 部 Enercon E138；GEM「Kerkow-Welsow」已對到 2023 年的 2 部 Nordex N149：同地點不同期',
+         'MaStR’s “Windpark Welsow” is 2 Enercon E138 from 2021; GEM’s “Kerkow-Welsow” matches the 2 Nordex N149 from 2023: same area, different phase',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Gnannenweiler'):
+        ('MaStR 的「Gnannenweiler」是 2021 年的 2 部 Enercon E138；GEM「Gnannenweiler Windnetz」已對到 2009 年的 Enercon E82：同地點不同期',
+         'MaStR’s “Gnannenweiler” is 2 Enercon E138 from 2021; GEM’s “Gnannenweiler Windnetz” matches the Enercon E82 from 2009: same area, different phase',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
 }
 
 GEM_KEEP = {
@@ -1534,6 +1575,11 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
         L += ['## ' + ('不當成重複的 GEM 專案' if zh else 'GEM projects kept apart'), '',
               '| ' + ('專案 | 理由 | 出處' if zh else 'Project | Reason | Source link') + ' |', '|---|---|---|']
         for (iso, name), (rz, re_, url) in GEM_KEEP.items():
+            L.append(f"| {name} ({iso}) | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
+        L.append('')
+        L += ['## ' + ('已查證不是重複（覆蓋率報告不再列）' if zh else 'Checked, not duplicates (left out of the coverage report)'), '',
+              '| ' + ('風場 | 理由 | 出處' if zh else 'Farm | Reason | Source link') + ' |', '|---|---|---|']
+        for (iso, name), (rz, re_, url) in NOT_DUP.items():
             L.append(f"| {name} ({iso}) | {rz if zh else re_} | [{'連結' if zh else 'link'}]({url}) |")
         L.append('')
         (out_dir / ('data-cleanup.md' if zh else 'data-cleanup.en.md')).write_text('\n'.join(L), encoding='utf-8')
