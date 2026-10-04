@@ -7,7 +7,7 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (4 Oct 2026, v2.20.0): maintenance, data checks and strengthening the wind content
+## Current status (5 Oct 2026, v2.21.0): maintenance, data checks and strengthening the wind content
 
 The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks and
 visual upgrades (one PR each). The automatic Taiwan live-data updates keep running (maintenance: "Maintenance" in
@@ -22,6 +22,7 @@ visual upgrades (one PR each). The automatic Taiwan live-data updates keep runni
   offshore capacity per year by foundation type; Learn chapter 7 on foundations; arcs from ports to the farms they served.
 - v2.18.0: a "2026 (latest available)" point on the timeline (official figures for 8 countries, the rest carry end-2025, marked); US farm
   close-ups draw the real USWTDB turbine positions; farm cards add distance to shore and estimated yearly output.
+- v2.21.0: a mean wind speed basemap on the globe (Global Wind Atlas at 100 m).
 - v2.20.0: actual yearly output and capacity factor on farm cards (US from EIA-923, Taipower-owned farms in Taiwan).
 - v2.19.x: France 2025 from SDES; close-ups of 6,886 farms outside the US draw their real OpenStreetMap turbine positions (ODbL).
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
@@ -71,7 +72,7 @@ The phased plans and ideas below are kept but not scheduled; when work resumes, 
 
 | Item | What | Effort |
 |---|---|---|
-| Wind resource layer | Global Wind Atlas mean wind speed at 100 m (CC BY 4.0) on the globe — why farms are built where they are | medium |
+| Wind resource layer | **Done (Oct 2026, v2.21.0)**: Global Wind Atlas mean wind speed at 100 m (CC BY 4.0) as the globe's "Wind speed" basemap, in 1 m/s classes with a legend | medium |
 | The wind right now | Wind from numerical forecasts such as NOAA GFS (public domain) drawn as flowing particles, refreshed every 6 hours by a scheduled job | large |
 | Offshore zones and sea areas | Taiwan's offshore wind zones, Japan's promotion zones, the North Sea countries' sea areas, exclusive economic zones (Marine Regions, CC BY) | medium |
 | Story tours | Chapter-style tours such as Taiwan's offshore journey, China's rise, North Sea offshore and floating wind, linked with the Learn pages | medium |

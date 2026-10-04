@@ -70,7 +70,8 @@
     選一個國家就畫出該國全部風場，每座風場以一支風機代表（放大後也一樣）；點選風場時才依機組數量畫出它的全部風機
   - **規劃中圖層**（虛線環）：興建中／前期開發／已宣布約 7,850 案，越亮越接近完工；可用「規劃中」按鈕開關。
     「規劃」分頁依狀態與預計商轉年列出範圍內所有專案，並附 GEM 2026-02 各國開發管線總量；點選專案時以半透明風機顯示預定配置
-  - **地貌底圖**：地形（Natural Earth 陰影地形＋海底地形）／衛星（NASA Blue Marble）／簡潔；放大後自動疊上 Esri 山影或衛星影像圖磚
+  - **地貌底圖**：地形（Natural Earth 陰影地形＋海底地形）／衛星（NASA Blue Marble）／簡潔／平均風速（Global Wind Atlas 離地 100 m，依 1 m/s 分級並附圖例）；
+    放大後自動疊上 Esri 山影或衛星影像圖磚（平均風速底圖除外）
   - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
     里程碑、可搜尋的風場清單
   - 導覽模式、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
@@ -249,6 +250,8 @@ python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離�
 python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源；OSPAR 只有核准階段設計的要附施工紀錄），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe
+#    平均風速底圖（需 rasterio；直接讀 Global Wind Atlas 雲端 GeoTIFF 的縮圖層，不用下載整個 14 GB 檔；要先有 relief_4k.jpg）
+python tools/build_wind_resource.py
 # 5. 單檔版與全球風電地圖公開版（輸出到 standalone/，不進 git；push 到 main 後 Actions 會自動重建並上傳到 Release）
 python tools/build_standalone.py
 python tools/build_globe_lite.py
@@ -347,6 +350,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   2026 年 9 月整理的規劃中重點專案與日本風場清單（NEDO、windfarm.work、營運商資料）
 - 開發管線各國總量：GEM Global Wind Power Tracker 2026 年 2 月版
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
+- 平均風速底圖：Global Wind Atlas 3（DTU 丹麥技術大學、世界銀行集團，CC BY 4.0）
 - 放大後的圖磚：Esri World Imagery（Esri, Vantor, Earthstar Geographics）、Esri World Hillshade（Esri, USGS, NASA 等），依 Esri 使用條款顯示出處
 - 風場照片與簡介：瀏覽時即時查詢 Wikipedia／Wikimedia Commons（各圖授權依原頁面）
 - 程式庫：three.js r128（MIT）、Leaflet 1.9.4（BSD-2）

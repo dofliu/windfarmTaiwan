@@ -15,7 +15,7 @@ const host = $('globe');
 const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
-    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', pipe: '規劃中', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
+    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
@@ -51,6 +51,7 @@ const I18N = {
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
+    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
     attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
@@ -90,7 +91,7 @@ const I18N = {
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
-    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', pipe: 'Pipeline', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
+    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
@@ -126,6 +127,7 @@ const I18N = {
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
+    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
     attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
@@ -179,7 +181,7 @@ host.innerHTML = `
   <div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div>
   <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
-  <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option></select></div>
+  <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
   <button id="g-btnPorts" type="button" aria-pressed="true" data-gi="btnPorts"></button>
   <button id="g-btnEvents" type="button" aria-pressed="true" data-gi="btnEvents"></button>
@@ -206,7 +208,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-portList" hidden></div>
       <div class="gpbody" id="g-evList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -244,7 +246,7 @@ const isTouch = matchMedia('(pointer: coarse)').matches;
 let D = null, YEARS, Y0, Y1, C, byIso = {}, DATA_Y, LT = null;     // DATA_Y：年度統計的最後一年；LT：之後的「最新可得」年份
 const S = { year: 1980, playing: false, speed: 1, mode: 'globe', view: 'map', region: 'WORLD', layer: 'both', rotate: false, density: 1, lastT: 0, modeT: 0,
   pipe: WW.store.get('ww_globe_pipe', '1') === '1', base: WW.store.get('ww_globe_base', 'relief') };
-if (!['relief', 'sat', 'plain'].includes(S.base)) S.base = 'relief';
+if (!['relief', 'sat', 'plain', 'wind'].includes(S.base)) S.base = 'relief';
 let active = false, running = false, farmsReady = false, firstEnter = true;
 
 function valAt(arr, y) {
@@ -434,11 +436,12 @@ function drawBaseTexture() {   // 向量繪製的陸地遮罩（「簡潔」底�
   RINGS.forEach(r => { g.beginPath(); for (let i = 0; i < r.length; i += 2) { const x = (r[i] + 180) / 360 * TW, y = (90 - r[i + 1]) / 180 * TH; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); } g.closePath(); g.fill(); });
   landTex.needsUpdate = true;
 }
-/* 底圖：地形（Natural Earth 陰影地形上色）／衛星（NASA Blue Marble）／簡潔（向量） */
-const BASE_URL = { relief: 'assets/img/globe/relief_', sat: 'assets/img/globe/sat_' };
+/* 底圖：地形（Natural Earth 陰影地形上色）／衛星（NASA Blue Marble）／簡潔（向量）／平均風速（Global Wind Atlas，tools/build_wind_resource.py） */
+const BASE_URL = { relief: 'assets/img/globe/relief_', sat: 'assets/img/globe/sat_', wind: 'assets/img/globe/wind_' };
 const baseTex = {}, baseImg = {};
 function setBase(b, silent) {
   S.base = b; WW.store.set('ww_globe_base', b); $('g-baseSel').value = b;
+  renderWindLegend();
   const apply = tex => { globe.material.map = tex; plane.material.map = tex; globe.material.needsUpdate = true; plane.material.needsUpdate = true; patchInfo = null; updateAttr(); };
   if (b === 'plain') { apply(landTex); return; }
   if (baseTex[b]) { apply(baseTex[b]); return; }
@@ -450,9 +453,21 @@ function setBase(b, silent) {
   img.src = WW.asset(src);
   apply(landTex);   // 載入前先用向量底圖
 }
+/* 平均風速圖例：分級與顏色讀 wind_resource.json（與底圖由同一支程式產生） */
+let WR = null, wrP = null;
+function renderWindLegend() {
+  const el = $('g-windLegend'); if (!el) return;
+  if (S.base !== 'wind') { el.hidden = true; return; }
+  if (!WR) { if (!wrP) wrP = WW.getJSON(WW.DATA.windResource).then(j => { WR = j; renderWindLegend(); }).catch(e => { console.warn(e); wrP = null; }); return; }
+  const e = WR.edges, lab = i => i === 0 ? '<' + e[0] : i === e.length ? '≥' + e[e.length - 1] : e[i - 1] + '–' + e[i];
+  el.innerHTML = '<div class="wlh"><b>' + esc(T('windLegT')) + '</b> (m/s)</div><div class="wlbar">' +
+    WR.colors.map((c, i) => '<span title="' + esc(lab(i) + ' m/s') + '"><i style="background:' + c + '"></i><em>' + esc(lab(i)) + '</em></span>').join('') + '</div>' +
+    '<div class="wln"><a href="' + esc(WR.url) + '" target="_blank" rel="noopener">' + esc(T('windLegSrc')) + '</a></div>';
+  el.hidden = false;
+}
 function updateAttr() {
   const tiles = patch && patch.visible && S.base !== 'plain' && tileAttrOn;
-  const parts = [T('credit') + ' · v' + WW.VERSION, S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : T('attrPlain')];
+  const parts = [T('credit') + ' · v' + WW.VERSION, S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : S.base === 'wind' ? T('attrWind') : T('attrPlain')];
   if (tiles) parts.push(S.base === 'sat' ? T('attrTileSat') : T('attrTileRelief'));
   $('g-attr').textContent = parts.join(' · ');
 }
@@ -598,7 +613,7 @@ function drawPatch(lon0, lat0, lonSpan, latSpan) {
   }
   patchTex.needsUpdate = true;
   tileAttrOn = false;
-  if (S.base === 'plain' || latSpan > 30) { updateAttr(); return; }
+  if (S.base === 'plain' || S.base === 'wind' || latSpan > 30) { updateAttr(); return; }   // 風速底圖沒有對應的高解析圖磚
   // 圖磚：地形＝World_Hillshade 以色彩增值疊在深色地形上（海面不變）；衛星＝World_Imagery 再略為壓暗
   let z = Math.floor(Math.log2(PW / lonSpan * 360 / 256)) - (isTouch ? 1 : 0);
   z = clamp(z, 3, S.base === 'sat' ? 17 : 15);
@@ -3031,6 +3046,7 @@ function applyI18n() {
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
+  renderWindLegend();
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
 }
@@ -3105,7 +3121,7 @@ function showSources() {
       '<li>' + (zh ? '亞伯達：AESO Current Supply Demand 報表（約 1 分鐘）。© 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved；非商業與教育用途，數值未修改。' : 'Alberta: AESO Current Supply Demand report (about 1 minute). © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; non-commercial, educational use, values unmodified.') + '</li>' +
       '<li>' + (zh ? '安大略：IESO Generators Output and Capability 報表（每小時）。' : 'Ontario: IESO Generators Output and Capability report (hourly). ') + 'Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO\'s website (www.ieso.ca).</li>' +
       '<li>' + (zh ? '機組與風場的對照以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對；對不到的機組只計入電網總量。綠色外圈只在時間軸位於最新年份時顯示。' : 'Units are matched to farms using AEMO’s registration list and IESO’s “Transmission-Connected Generation” page, checked by hand; unmatched units only count toward the grid total. Green rings only show when the timeline is at the latest year.') + '</li></ul>') +
-    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain)</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>' +
+    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain) · ' + (zh ? '平均風速：' : 'Wind speed: ') + '<a href="https://globalwindatlas.info/" target="_blank" rel="noopener">Global Wind Atlas 3</a> (DTU Wind Energy / World Bank Group, CC BY 4.0)' + (zh ? '，離地 100 m 年平均風速，取 1/32 縮圖層（約 9 km）依 1 m/s 分級（tools/build_wind_resource.py）' : ', mean wind speed at 100 m, 1/32 overview (about 9 km) binned at 1 m/s (tools/build_wind_resource.py)') + '</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>' +
     '<h4>' + (zh ? '開發者與版權' : 'Developer & copyright') + '</h4><p>國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室<br>National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu<br>' +
     (zh ? '網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用。' : 'Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source listed above.') +
     '<br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a> · <a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html">' + (zh ? '下載單檔版 HTML' : 'Download the single-file HTML') + '</a> · <a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html">' + (zh ? '下載全球風電地圖公開版（只有地球儀）' : 'Download the public global wind map (globe only)') + '</a>' +
@@ -3148,7 +3164,7 @@ let pendingParams = null;
 function applyParams(p, fromFarms) {
   if (!p) return;
   if (TOUR && p.tour !== '1') tourEnd(false);     // 導覽中打開分享連結（或按上一頁）：結束導覽，與點地球、換範圍、搜尋一致
-  if (p.base && ['relief', 'sat', 'plain'].includes(p.base)) setBase(p.base);
+  if (p.base && ['relief', 'sat', 'plain', 'wind'].includes(p.base)) setBase(p.base);
   if (p.mode === 'flat' || p.mode === 'globe') setMode(p.mode);
   if (p.v && ['map', 'split', 'bars'].includes(p.v)) setView(p.v);
   if (p.layer && ['both', 'on', 'off', 'fd'].includes(p.layer)) { S.layer = p.layer; $('g-layerSel').value = p.layer; layerChanged(); updateBars(true); farmLayerDirty = true; }
