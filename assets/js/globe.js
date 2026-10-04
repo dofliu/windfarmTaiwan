@@ -39,6 +39,7 @@ const I18N = {
     dens: ['關閉', '精簡', '標準', '詳細'],
     tbLabel: '機組', tbModels: n => '等 ' + n + ' 種機型', tbNote: '近景依 USWTDB 的實際機位與尺寸繪製', tbSrcT: '美國風機資料庫 USWTDB（美國地質調查所、勞倫斯柏克萊國家實驗室，公有領域）', tbOsmNote: '近景依 OpenStreetMap 志工標示的機位繪製；機組數是標示的風機數，可能與實際略有出入', tbOsmCr: '© OpenStreetMap 貢獻者', tbOsmT: 'OpenStreetMap 資料，開放資料庫授權 ODbL',
     coastLabel: '離岸距離', coastNote: '到最近海岸線的直線距離，依 Natural Earth 1:50m 海岸線估算（不含小島）',
+    actLabel: '實際年發電量', actCf: '容量因數', actNote: (mw, src) => '淨發電量取自' + src + '；容量因數以機組額定容量 ' + mw + ' MW 計，只列全年運轉的年份', actUS: '美國能源資訊署 EIA-923', actSrcT: '美國能源資訊署 EIA-923 各電廠逐月淨發電量（公有領域）',
     genLabel: '估計年發電量', genNote: (cn, cf, y) => '容量 × ' + cn + ' ' + y + ' 年風電平均容量因數 ' + cf + '%（Ember）；是估計，不是實測', genOff: '；離岸風場的容量因數通常高於全國平均',
     totalCap: '容量', units: '部', clickMore: '點擊：拉近並查看照片與連結', clickFarm: '點擊：拉近、畫出全部風機，並查看照片與連結',
     wikiLoading: '正在查詢維基百科…', wikiNone: '找不到對應的維基百科條目，可用下方連結搜尋。', wikiOffline: '目前無法連線維基百科（離線或網路受限），可用下方連結查詢。',
@@ -113,6 +114,7 @@ const I18N = {
     dens: ['Off', 'Minimal', 'Standard', 'Detailed'],
     tbLabel: 'Turbines', tbModels: n => n + ' models', tbNote: 'The close-up uses the real turbine positions and sizes from USWTDB', tbSrcT: 'U.S. Wind Turbine Database (USGS / Lawrence Berkeley National Laboratory, public domain)', tbOsmNote: 'The close-up uses turbine positions mapped by OpenStreetMap volunteers; the count is the number of mapped turbines and may differ slightly from the real one', tbOsmCr: '© OpenStreetMap contributors', tbOsmT: 'OpenStreetMap data, Open Database License (ODbL)',
     coastLabel: 'Distance to shore', coastNote: 'Straight line to the nearest coastline, estimated from the Natural Earth 1:50m coastline (small islands not included)',
+    actLabel: 'Actual yearly output', actCf: 'capacity factor', actNote: (mw, src) => 'net generation from ' + src + '; capacity factor on the ' + mw + ' MW turbine rating, full years only', actUS: 'the U.S. EIA (Form EIA-923)', actSrcT: 'U.S. Energy Information Administration, Form EIA-923 monthly net generation by plant (public domain)',
     genLabel: 'Estimated yearly output', genNote: (cn, cf, y) => 'capacity × the ' + y + ' average wind capacity factor of ' + cn + ', ' + cf + '% (Ember); an estimate, not a measurement', genOff: '; offshore farms usually run above the national average',
     totalCap: 'Capacity', units: 'units', clickMore: 'Click to zoom in and see photo & links', clickFarm: 'Click to zoom in, draw all its turbines and see photo & links',
     wikiLoading: 'Looking up Wikipedia…', wikiNone: 'No matching Wikipedia article found — try the links below.', wikiOffline: 'Wikipedia is unreachable right now (offline or blocked) — try the links below.',
@@ -933,6 +935,14 @@ function needTurbines(f) {
   };
   const p = WW.getJSON(us ? WW.DATA.turbines : WW.DATA.turbinesOsm).then(done).catch(e => { console.warn(e); if (us) tbP = null; else tboP = null; });
   if (us) tbP = p; else tboP = p;
+}
+/* 實際年發電量（tools/build_generation.py → generation.json；美國＝EIA-923）：第一次打開風場卡片時才載入 */
+let GEN = null, genP = null;
+const genOf = f => GEN && f && !f.pipe && !f.pseudo ? GEN.farms[f.iso + '|' + f.name] || null : null;
+function needGen() {
+  if (GEN || genP) return;
+  genP = WW.getJSON(WW.DATA.generation).then(j => { GEN = j; if (cardItem && cardItem.kind === 'farm' && genOf(cardItem.f)) renderCard(cardItem); })
+    .catch(e => { console.warn(e); genP = null; });
 }
 function tbKm(tb) {                                                 // 各機位相對中心的 [東, 北]（公里）
   if (tb._km) return tb._km;
@@ -2598,7 +2608,7 @@ function fdHTML(f) {
     (fdDimText(f) ? '<div class="fdim">' + esc(fdDimText(f)) + (r.du ? '<span class="fds"><a href="' + esc(r.du) + '" target="_blank" rel="noopener" title="' + esc(T('fdDimSrc')) + '">' + esc(hostOf(r.du)) + '</a></span>' : '') + (r.dz ? '<div class="gnote">' + esc(lang === 'zh' ? r.dz : r.de) + '</div>' : '') + '</div>' : '') +
     fdSVG(f) + '</div>';
 }
-/* 風場卡片的補充列：USWTDB 的機組與尺寸（美國）、離岸距離（由海岸線計算）、估計年發電量（容量 × 該國風電平均容量因數） */
+/* 風場卡片的補充列：USWTDB 的機組與尺寸（美國）、離岸距離（由海岸線計算）、實際年發電量（EIA-923）或估計年發電量（容量 × 該國風電平均容量因數） */
 function factsHTML(f) {
   if (!f || f.pipe || f.pseudo) return '';
   const rows = [], row = (label, text, note, link) => '<div class="ffact"><b>' + esc(label) + '</b>' + esc(L('：', ': ') + text) + (link || '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') + '</div>';
@@ -2613,8 +2623,13 @@ function factsHTML(f) {
   }
   const ck = f.type !== 'onshore' && !f.nStack ? coastKm(f) : null;
   if (ck != null) rows.push(row(T('coastLabel'), L('約 ', 'about ') + (ck < 10 ? ck.toFixed(1) : Math.round(ck)) + ' km', T('coastNote')));
-  const cf = STATS && STATS.cf && STATS.cf[f.iso];
-  if (cf && f.st === 0 && !(f.end && S.year >= f.end)) {
+  const ag = genOf(f), cf = STATS && STATS.cf && STATS.cf[f.iso];
+  if (ag) {                                                        // 實測值：最近一年＋各年
+    const ys = Object.keys(ag.y).sort(), last = ys[ys.length - 1], fy = y => fmtGWh(ag.y[y][0]) + L('（', ' (') + T('actCf') + ' ' + ag.y[y][1].toFixed(1) + '%' + L('）', ')');
+    const link = '<span class="fds"><a href="' + esc(GEN.meta.url[f.iso] || '') + '" target="_blank" rel="noopener" title="' + esc(T('actSrcT')) + '">EIA-923</a></span>';
+    rows.push(row(T('actLabel'), last + L(' 年 ', ': ') + fy(last),
+      (ys.length > 1 ? ys.slice(0, -1).map(y => y + L(' 年 ', ': ') + fy(y)).join(L('；', '; ')) + L('。', '. ') : '') + T('actNote')(fmtNum(ag.mw), T('actUS')), link));
+  } else if (cf && f.st === 0 && !(f.end && S.year >= f.end)) {
     const gwh = f.mw * cf.cf * 8.76, c = byIso[f.iso];
     rows.push(row(T('genLabel'), L('約 ', 'about ') + fmtGWh(gwh), T('genNote')(c ? cname(c) : f.iso, (cf.cf * 100).toFixed(1), cf.y[0] + '–' + cf.y[1]) + (f.type !== 'onshore' ? T('genOff') : '')));
   }
@@ -2737,7 +2752,7 @@ function renderCard(it) {
   } else {
     title = fname(f); if (lang === 'zh' && f.zh) sub = f.name;
     tag = '<span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + (f.pipe ? '<span class="gtag ' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off') + '">' + T('type')[f.type] + '</span>' : '');
-    needTurbines(f);
+    needTurbines(f); needGen();
     const sp = turbSpec(f);
     const phases = f.ph && f.ph.length < 2 ? ' · ' + f.ph.map(p => (p[0] || '?') + ': ' + WW.int(p[1])).join(', ') + ' MW' : '';   // 兩期以上另畫分期時間軸
     spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(f.owner) : '');
@@ -3026,6 +3041,7 @@ function dataStats(zh) {
   if (LT) li.push(zh ? LT.year + ' 年（最新可得）：' + n(LT.n) + ' 國有今年官方數字（' + C.filter(c => c.lt).map(c => cname(c) + ' ' + c.lt.asof).join('、') + '），其他國家沿用 ' + DATA_Y + ' 年底'
                      : LT.year + ' (latest available): official figures for ' + n(LT.n) + ' countries (' + C.filter(c => c.lt).map(c => cname(c) + ' ' + c.lt.asof).join(', ') + '); the rest carry end-' + DATA_Y);
   if (TB) li.push(zh ? '每部風機的位置與規格：美國 ' + n(TB.meta.farms) + ' 座風場、' + n(TB.meta.turbines) + ' 部（USWTDB ' + (TB.meta.version || '') + '）' : 'Turbine positions and specs: ' + n(TB.meta.turbines) + ' turbines in ' + n(TB.meta.farms) + ' US farms (USWTDB ' + (TB.meta.version || '') + ')');
+  if (GEN) li.push(zh ? '實際年發電量：' + n(GEN.meta.farms) + ' 座美國風場（EIA-923，' + GEN.meta.years[0] + '–' + GEN.meta.years[GEN.meta.years.length - 1] + ' 年）' : 'Actual yearly output: ' + n(GEN.meta.farms) + ' US farms (EIA-923, ' + GEN.meta.years[0] + '–' + GEN.meta.years[GEN.meta.years.length - 1] + ')');
   if (TBO) li.push(zh ? '其他國家的風機位置：' + n(TBO.meta.farms) + ' 座風場、' + n(TBO.meta.turbines) + ' 部（© OpenStreetMap 貢獻者，ODbL）' : 'Turbine positions elsewhere: ' + n(TBO.meta.turbines) + ' turbines in ' + n(TBO.meta.farms) + ' farms (© OpenStreetMap contributors, ODbL)');
   if (farmsReady && D.farms) {
     const F = D.farms, isos = new Set(F.map(f => f.iso)), op = F.filter(f => f.st === 0 && !f.end);
@@ -3064,6 +3080,7 @@ function showSources() {
     '<h4>' + (zh ? '離岸容量 1991–2025' : 'Offshore capacity 1991–2025') + '</h4><ul>' + li(src.offshore) + '</ul>' +
     (LT ? '<h4>' + LT.year + (zh ? ' 年（最新可得）' : ' (latest available)') + '</h4><ul>' + C.filter(c => c.lt).map(c => '<li>' + esc(cname(c)) + (zh ? '（截至 ' : ' (as of ') + esc(c.lt.asof) + (zh ? '）：' : '): ') + '<a href="' + esc(c.lt.url) + '" target="_blank" rel="noopener">' + esc(c.lt.src[zh ? 0 : 1]) + '</a>' + (c.lt.est ? esc(zh ? '；本站 ' + DATA_Y + ' 年底數字＋該來源今年的增量（估計）' : '; the site\'s end-' + DATA_Y + ' figure + this source\'s growth this year (estimate)') : '') + '</li>').join('') +
       '<li>' + esc(zh ? '其他國家沿用 ' + DATA_Y + ' 年底數字（長條圖以斜線標示）。數字與出處寫在 tools/latest_wind.py。' : 'Other countries carry their end-' + DATA_Y + ' figure (hatched bars). Figures and sources are in tools/latest_wind.py.') + '</li></ul>' : '') +
+    '<h4>' + (zh ? '風場卡片的實際年發電量' : 'Actual yearly output on farm cards') + '</h4><ul><li><a href="https://www.eia.gov/electricity/data/eia923/" target="_blank" rel="noopener">U.S. Energy Information Administration, Form EIA-923</a>' + (zh ? '（各電廠逐月淨發電量，公有領域）：依 USWTDB 每部風機的 EIA 電廠代碼接到本站的美國風場；電廠跨好幾座風場的不用，只列所有機組全年運轉的年份，容量因數以 USWTDB 機組額定容量計（tools/build_generation.py）。' : ' (monthly net generation by plant, public domain): linked to the site\'s US farms through the EIA plant code USWTDB gives each turbine; plants spread over several farms are left out, only years with every turbine in service all year are shown, and the capacity factor uses the USWTDB turbine ratings (tools/build_generation.py).') + '</li></ul>' +
     '<h4>' + (zh ? '風場卡片的估計年發電量' : 'Estimated yearly output on farm cards') + '</h4><ul><li>' + (zh ? '容量 × 該國 2023–2025 年風電平均容量因數，取自 ' : 'Capacity × the country\'s 2023–2025 average wind capacity factor, from ') + '<a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '；是估計，不是實測。' : '; an estimate, not a measurement.') + '</li></ul>' +
     '<h4>' + (zh ? '其他國家的風機位置' : 'Turbine positions in other countries') + '</h4><ul><li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap ' + (zh ? '貢獻者' : 'contributors') + '</a>' + (zh ? '，開放資料庫授權（ODbL）；由 tools/build_turbines_osm.py 依 OSM 的風場範圍（名稱、容量）或空間群聚（單機容量要合理）對到本站的風場，衍生的 data/global/turbines_osm.json 同樣以 ODbL 分享。' : ', Open Database License (ODbL); matched to the site\'s farms by OSM wind-plant areas (name, capacity) or by spatial groups (plausible unit size) in tools/build_turbines_osm.py; the derived data/global/turbines_osm.json is likewise shared under the ODbL.') + '</li></ul>' +
     '<h4>' + (zh ? '美國每部風機的位置與規格' : 'US turbine positions and specs') + '</h4><ul><li><a href="https://energy.usgs.gov/uswtdb/" target="_blank" rel="noopener">U.S. Wind Turbine Database (USWTDB)</a>' + (zh ? '，美國地質調查所、勞倫斯柏克萊國家實驗室與美國潔淨電力協會，公有領域；由 tools/build_turbines.py 依名稱、距離與容量（±15%）對到本站的風場，對不上的維持推算的排列。' : ', USGS, Lawrence Berkeley National Laboratory and American Clean Power Association, public domain; matched to the site\'s farms by name, distance and capacity (±15%) in tools/build_turbines.py; unmatched farms keep the estimated layout.') + '</li></ul>' +

@@ -120,6 +120,7 @@ WW.DATA = {
   foundations: 'data/global/foundations.json',
   events: 'data/global/events.json',
   stats: 'data/global/country_stats.json',
+  generation: 'data/global/generation.json',
   turbines: 'data/global/turbines.json',
   turbinesOsm: 'data/global/turbines_osm.json'
 };
