@@ -15,6 +15,24 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.18.0 — 2026-10-04
+
+- The globe's timeline extends to "2026 (latest available)": 8 countries use this year's official figures — Taiwan (Energy Administration
+  monthly table 4-02, August), the US (EIA-860M, August), China (NEA H1 briefing, June), India (MNRE, August), Brazil (ANEEL, August),
+  Germany (WindGuard half-year reports, June), France (SDES Q2, June) and the UK (DESNZ Energy Trends 6.1, June) — while the others carry
+  their end-2025 figure and are hatched in the bar chart; the country profile and the sources dialog give each country's source and data
+  month. Sources with a different scope from the site's 2025 figure add their growth to it, marked as an estimate (figures and notes in
+  `tools/latest_wind.py`). France's offshore uses the SDES figure of 2,316 MW directly: the site's 2025 value of 1,500 MW leaves out
+  Yeu-Noirmoutier, fully connected in 2025 (noted in TODO).
+- US wind farms now show their real turbine layout: 967 farms and 60,547 turbines from the U.S. Wind Turbine Database (USWTDB, public domain,
+  2026-09-28 release) are matched to the site's records (name, 30 km, capacity ±15%; unmatched farms keep the estimated layout). The selected
+  farm's close-up uses the real positions, hub height and rotor diameter, and the card lists the turbine count and model
+  (`tools/build_turbines.py`; loaded only when a US farm is selected).
+- Farm cards add the distance to shore (computed from the Natural Earth 1:50m coastline) and an estimated yearly output (capacity × the
+  country's 2023–2025 average wind capacity factor from Ember, CC BY 4.0; labelled as an estimate).
+- Docs: the 2026-10-04 discussion of other energy sources (solar, nuclear, fossil, etc.), its mock-ups and the conclusion — back to wind for
+  now, discuss again later — are recorded under "Directions evaluated and deferred" in ROADMAP.
+
 ## v2.17.7 — 2026-10-03
 
 - The differences from GEM 2026-02 checked one by one (quotes verified with `check_quotes.py`):

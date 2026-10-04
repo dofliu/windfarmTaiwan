@@ -77,7 +77,7 @@ The phased plans and ideas below are kept but not scheduled; when work resumes, 
 
 Compiled 26 Sep 2026; data availability was checked the same day (anything not verified is marked as such).
 
-**1. Extend the timeline into 2026 (latest available data)** · medium
+**1. Extend the timeline into 2026 (latest available data)** · medium · **done (Oct 2026, v2.18.0)**: official figures for 8 countries in `tools/latest_wind.py`; the others carry end-2025, shown hatched
 
 - Goal: one more point after end-2025. Call it "2026 (latest available)" rather than "September 2026": each
   country's latest official figure ends in a different month, and in September 2026 no source has September data

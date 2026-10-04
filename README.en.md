@@ -199,6 +199,11 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/events.json` — 91 major events and incidents (built by `tools/build_events.py` from
   `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
   the build script, which checks that every event has English text and that farm names match the farm layer)
+- `data/global/country_stats.json` — the "latest available" point on the globe's timeline (2026: official figures for 8 countries,
+  sourced country by country in `tools/latest_wind.py`) and each country's average wind capacity factor (Ember, for the
+  estimated yearly output on farm cards); built by `tools/build_country_stats.py`
+- `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
+  turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, the merge log, and the wind records of OSPAR Offshore
   Renewables 2024 (CC0, used for foundation types)
@@ -332,6 +337,11 @@ python tools/build_standalone.py
 python tools/build_globe_lite.py
 # 6. Major events & incidents (after editing data/global/sources/events_2026-09.csv or the English / farm links in tools/build_events.py)
 python tools/build_events.py
+# 7. The timeline's "latest available" year and national capacity factors (after editing tools/latest_wind.py or updating data/global/sources/ember_wind_2020-2025.csv)
+python tools/build_country_stats.py
+# 8. Position and specs of every US turbine (USWTDB, updated quarterly; re-run after rebuilding the farm layer, renamed farms stop matching)
+curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
+python tools/build_turbines.py uswtdb_V9_1_20260928.csv
 ```
 
 ### Corrections this site made to the data (all recorded in the data files and the site's "Sources")

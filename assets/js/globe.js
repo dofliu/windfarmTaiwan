@@ -1,4 +1,4 @@
-/* 風電風情 · globe.js — 全球風電發展 3D 地球儀 1980–2025（three.js r128）
+/* 風電風情 · globe.js — 全球風電發展 3D 地球儀 1980–2025＋最新可得年份（three.js r128）
    改寫自使用者提供的「全球風電發展觀察地圖」(wind-history-map v3)：
    · 資料抽成 data/global/*.json；本檔與 three.js 只在進入「全球發展」頁時才載入，離開頁面即停止繪圖迴圈
    · 風場層改用 InstancedMesh，可同時繪製上萬座風場（GEM 全球風電追蹤 2026-02 ＋ 附件精選風場）
@@ -37,11 +37,14 @@ const I18N = {
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
     farmsLoading: '風場資料載入中…',
     dens: ['關閉', '精簡', '標準', '詳細'],
+    tbLabel: '機組', tbModels: n => '等 ' + n + ' 種機型', tbNote: '近景依 USWTDB 的實際機位與尺寸繪製', tbSrcT: '美國風機資料庫 USWTDB（美國地質調查所、勞倫斯柏克萊國家實驗室，公有領域）',
+    coastLabel: '離岸距離', coastNote: '到最近海岸線的直線距離，依 Natural Earth 1:50m 海岸線估算（不含小島）',
+    genLabel: '估計年發電量', genNote: (cn, cf, y) => '容量 × ' + cn + ' ' + y + ' 年風電平均容量因數 ' + cf + '%（Ember）；是估計，不是實測', genOff: '；離岸風場的容量因數通常高於全國平均',
     totalCap: '容量', units: '部', clickMore: '點擊：拉近並查看照片與連結', clickFarm: '點擊：拉近、畫出全部風機，並查看照片與連結',
     wikiLoading: '正在查詢維基百科…', wikiNone: '找不到對應的維基百科條目，可用下方連結搜尋。', wikiOffline: '目前無法連線維基百科（離線或網路受限），可用下方連結查詢。',
     lnkWiki: '維基百科', lnkMap: '衛星地圖', lnkPhoto: '搜尋照片', lnkGem: 'GEM 專案頁', photoCredit: '圖片：Wikipedia / Wikimedia Commons',
     whyFirstOff: c => c + '第一座離岸風場', whyFirstOn: c => c + '資料中最早的陸域風場', whyRecOff: c => '併網時為' + c + '規模最大的離岸風場', whyRecOn: c => '併網時為' + c + '規模最大的陸域風場', whyTop: c => c + '規模最大的風場之一',
-    tourEnd: '導覽結束', decom: '已除役', yearUnknown: '商轉年份不詳', posStack: '位置示意：與另外 {n} 筆共用同一座標（多為省或國家中心的代用點），地圖上以該點為中心排開，不是實際位置。', posApprox: '座標為概略位置（資料來源標示）。', tipStack: '位置示意（共用代用座標）', expected: '預計', pipeNote: '規劃中專案為 GEM 2025 年 2 月資料，拉到 2025 年才會顯示',
+    tourEnd: '導覽結束', decom: '已除役', yearUnknown: '商轉年份不詳', posStack: '位置示意：與另外 {n} 筆共用同一座標（多為省或國家中心的代用點），地圖上以該點為中心排開，不是實際位置。', posApprox: '座標為概略位置（資料來源標示）。', tipStack: '位置示意（共用代用座標）', expected: '預計', pipeNote: '規劃中專案拉到最新年份才會顯示',
     liveNow: '此刻即時出力', liveLegend: '綠色外圈：有即時資料的風場，葉片轉速依此刻出力', liveSee: '看即時詳情', availability: '可用率', open: '開啟', more: '顯示更多', search: '搜尋風場名稱',
     fAll: '全部', fOp: '營運中', fPipe: '規劃中', sortMw: '依容量', sortYear: '依年份',
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
@@ -49,7 +52,9 @@ const I18N = {
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
     attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
-    worldCap: '年底累計裝置容量',
+    worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
+    ltWorld: (n, m) => n + ' 國已有今年官方數字（截至 ' + m + '），其他國家沿用去年底',
+    ltOk: (m, s) => '截至 ' + m + ' · ' + s, ltCarry: y => '尚無今年官方數字，沿用 ' + y + ' 年底', ltEst: '＝本站去年底數字＋該來源今年的增量（估計）', ltHatch: '斜線＝沿用去年底',
     pipeTab: '規劃', pipeHead: '規劃中與興建中專案', gemTotals: 'GEM 2026-02 開發管線（各國總量）',
     pipeCaveat: '狀態與時程會變動，座標多為概略位置。逐案資料與各國總量：GEM 2026-02，另加 2026 年 9 月整理的清單（台灣第三階段區塊開發、歐洲大型離岸案等）。',
     pipeLegendT: '規劃中（虛線環）', pipeInData: (n, mw) => `資料中逐案 ${n} 案 · ${mw}`, pipeSee: '看規劃清單 →',
@@ -106,11 +111,14 @@ const I18N = {
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
     farmsLoading: 'Loading farm data…',
     dens: ['Off', 'Minimal', 'Standard', 'Detailed'],
+    tbLabel: 'Turbines', tbModels: n => n + ' models', tbNote: 'The close-up uses the real turbine positions and sizes from USWTDB', tbSrcT: 'U.S. Wind Turbine Database (USGS / Lawrence Berkeley National Laboratory, public domain)',
+    coastLabel: 'Distance to shore', coastNote: 'Straight line to the nearest coastline, estimated from the Natural Earth 1:50m coastline (small islands not included)',
+    genLabel: 'Estimated yearly output', genNote: (cn, cf, y) => 'capacity × the ' + y + ' average wind capacity factor of ' + cn + ', ' + cf + '% (Ember); an estimate, not a measurement', genOff: '; offshore farms usually run above the national average',
     totalCap: 'Capacity', units: 'units', clickMore: 'Click to zoom in and see photo & links', clickFarm: 'Click to zoom in, draw all its turbines and see photo & links',
     wikiLoading: 'Looking up Wikipedia…', wikiNone: 'No matching Wikipedia article found — try the links below.', wikiOffline: 'Wikipedia is unreachable right now (offline or blocked) — try the links below.',
     lnkWiki: 'Wikipedia', lnkMap: 'Satellite map', lnkPhoto: 'Search photos', lnkGem: 'GEM project page', photoCredit: 'Image: Wikipedia / Wikimedia Commons',
     whyFirstOff: c => 'First offshore wind farm in ' + c, whyFirstOn: c => 'Earliest onshore wind farm in the dataset for ' + c, whyRecOff: c => 'Largest offshore wind farm in ' + c + ' when commissioned', whyRecOn: c => 'Largest onshore wind farm in ' + c + ' when commissioned', whyTop: c => 'One of the largest wind farms in ' + c,
-    tourEnd: 'Tour finished', decom: 'decommissioned', yearUnknown: 'start year unknown', posStack: 'Schematic position: shares one point with {n} other records (usually a province or country centre used as a placeholder), so they are fanned out around it on the map; this is not the real location.', posApprox: 'Approximate location (as marked by the source).', tipStack: 'Schematic position (shared placeholder point)', expected: 'expected', pipeNote: 'Pipeline projects are GEM data as of Feb 2025 — move to 2025 to see them',
+    tourEnd: 'Tour finished', decom: 'decommissioned', yearUnknown: 'start year unknown', posStack: 'Schematic position: shares one point with {n} other records (usually a province or country centre used as a placeholder), so they are fanned out around it on the map; this is not the real location.', posApprox: 'Approximate location (as marked by the source).', tipStack: 'Schematic position (shared placeholder point)', expected: 'expected', pipeNote: 'Pipeline projects appear at the latest year',
     liveNow: 'Live output now', liveLegend: 'Green ring: farms with live data; rotors spin with their current output', liveSee: 'Live details', availability: 'availability', open: 'Open', more: 'Show more', search: 'Search farms',
     fAll: 'All', fOp: 'Operating', fPipe: 'Pipeline', sortMw: 'By size', sortYear: 'By year',
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
@@ -118,7 +126,9 @@ const I18N = {
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
     attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
-    worldCap: 'Year-end cumulative installed capacity',
+    worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
+    ltWorld: (n, m) => n + ' countries have official figures for this year (up to ' + m + '); the rest carry last year-end',
+    ltOk: (m, s) => 'as of ' + m + ' · ' + s, ltCarry: y => 'no official figure yet this year; carries end-' + y, ltEst: ' = the site\'s last year-end figure + this source\'s growth this year (estimate)', ltHatch: 'hatched = carries last year-end',
     pipeTab: 'Pipeline', pipeHead: 'Projects in the pipeline', gemTotals: 'GEM pipeline, Feb 2026 (country totals)',
     pipeCaveat: 'Status and timing change often; coordinates are mostly approximate. Projects: GEM Feb 2025 + a list curated in Sep 2026 (Taiwan Round 3, large European offshore, etc.); country totals: GEM Feb 2026.',
     pipeLegendT: 'Pipeline (dashed rings)', pipeInData: (n, mw) => `${n} projects in the data · ${mw}`, pipeSee: 'Pipeline list →',
@@ -209,7 +219,7 @@ host.innerHTML = `
 <div id="g-bottom">
   <button id="g-play" type="button">▶</button>
   <div id="g-yearNow">1980</div>
-  <input type="range" id="g-slider" min="1980" max="2025" step="0.02" value="1980">
+  <input type="range" id="g-slider" min="1980" max="2026" step="0.02" value="1980">
   <div class="ggrp"><label for="g-speedSel" data-gi="speed"></label><select id="g-speedSel"><option value="0.1"></option><option value="0.2"></option><option value="0.333"></option><option value="0.5"></option><option value="1" selected></option><option value="2"></option><option value="4"></option></select></div>
   <div class="ggrp"><label for="g-layerSel" data-gi="layer"></label><select id="g-layerSel"><option value="both" data-gi="lBoth"></option><option value="on" data-gi="lOn"></option><option value="off" data-gi="lOff"></option><option value="fd" data-gi="lFd"></option></select></div>
 </div>
@@ -229,7 +239,7 @@ const cname = c => lang === 'zh' ? c.zh : c.name;
 const fname = f => (lang === 'zh' && f.zh) ? f.zh : f.name;
 const isTouch = matchMedia('(pointer: coarse)').matches;
 
-let D = null, YEARS, Y0, Y1, C, byIso = {};
+let D = null, YEARS, Y0, Y1, C, byIso = {}, DATA_Y, LT = null;     // DATA_Y：年度統計的最後一年；LT：之後的「最新可得」年份
 const S = { year: 1980, playing: false, speed: 1, mode: 'globe', view: 'map', region: 'WORLD', layer: 'both', rotate: false, density: 1, lastT: 0, modeT: 0,
   pipe: WW.store.get('ww_globe_pipe', '1') === '1', base: WW.store.get('ww_globe_base', 'relief') };
 if (!['relief', 'sat', 'plain'].includes(S.base)) S.base = 'relief';
@@ -240,6 +250,13 @@ function valAt(arr, y) {
   if (i <= 0) return arr[0] * clamp(y - Y0 + 1, 0, 1);
   if (i >= arr.length - 1) return arr[arr.length - 1];
   return arr[i] + (arr[i + 1] - arr[i]) * (y - Math.floor(y));
+}
+const atLT = () => !!LT && Math.floor(S.year + 1e-6) >= LT.year;        // 時間軸在「最新可得」年份
+const carried = c => atLT() && !c.lt;                                   // 這一國還沒有今年的官方數字
+function ltLine(c) {                                                    // 國家：今年數字的來源或「沿用去年底」
+  if (!atLT()) return '';
+  if (!c) return T('ltWorld')(LT.n, LT.range);
+  return c.lt ? T('ltOk')(c.lt.asof, c.lt.src[lang === 'zh' ? 0 : 1]) : T('ltCarry')(DATA_Y);
 }
 function capOf(c, y) {
   const on = valAt(c.on, y), off = valAt(c.off, y);
@@ -271,8 +288,21 @@ const stCls = f => f.st === 1 ? 'p1' : f.st === 2 ? 'p2' : f.st === 3 ? 'p3' : f
 
 /* ================= boot ================= */
 let THREEOK = true;
-const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders)]).then(([G, B]) => {
+let STATS = null;                                                 // data/global/country_stats.json：各國容量因數（tools/build_country_stats.py）
+const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJSON(WW.DATA.stats).catch(() => null)]).then(([G, B, ST]) => {
+  STATS = ST;
   D = Object.assign({}, G, { borders: B.borders, ringIso: B.ringIso, farms: [] });
+  DATA_Y = G.years[G.years.length - 1];
+  // 「最新可得」年份（country_stats.json 的 latest）：有今年官方數字的國家用它，其他國家沿用去年底（c.lt＝null）。
+  // 首頁也用同一份 wind_global.json：這裡複製陣列與國家物件，不改到共用的資料
+  LT = ST && ST.latest && ST.latest.year === DATA_Y + 1 ? ST.latest : null;
+  if (LT) {
+    D.years = G.years.concat([LT.year]);
+    D.countries = G.countries.map(c => { const u = LT.countries[c.iso] || null, k = c.on.length - 1;
+      return Object.assign({}, c, { on: c.on.concat([u ? u.on : c.on[k]]), off: c.off.concat([u ? u.off : c.off[k]]), lt: u }); });
+    const ms = Object.values(LT.countries).map(u => u.asof).sort();
+    LT.n = ms.length; LT.range = ms.length ? (ms[0] === ms[ms.length - 1] ? ms[0] : ms[0] + '–' + ms[ms.length - 1].slice(5)) : '';
+  }
   YEARS = D.years; Y0 = YEARS[0]; Y1 = YEARS[YEARS.length - 1]; C = D.countries;
   C.forEach(c => { byIso[c.iso] = c; });
   S.year = Y0;
@@ -296,7 +326,7 @@ function expandFarms(J) {
   D.farms = J.rows.map(r => {
     const f = { name: r[0], zh: r[1] || null, iso: r[2], lat: r[3], lon: r[4], mw: r[5], year: r[6], type: TY[r[7]] || 'onshore', st: r[8],
       end: r[9] || null, owner: r[10] || null, turbine: r[11] || null, flags: r[12], src: r[13], ph: r[14] || null, note: r[15] || null, url: r[16] || null };
-    if (f.flags & 2) { f.yu = true; f.year = Y1; }
+    if (f.flags & 2) { f.yu = true; f.year = DATA_Y; }
     if (f.st >= 1 && f.st <= 3) f.pipe = true;
     if (f.st === 4 && !f.end) f.end = f.year + 20;
     return f;
@@ -446,6 +476,15 @@ function quatAt(lon, lat, out) {
   if (S.modeT <= 0) return out.copy(_qg);
   if (S.modeT >= 1) return out.identity();
   return out.copy(_qg).slerp(_qid, S.modeT);
+}
+/* 風機群本地座標（x, z）裡「往東」與「往北」的方向：地球儀上依 quatAt 的旋轉而定，平面模式是 +x 與 −z */
+const _qe = new THREE.Quaternion(), _ve = new THREE.Vector3(), _vn = new THREE.Vector3(), _vc = new THREE.Vector3();
+function localEN(lon, lat) {
+  if (S.modeT >= 1) return { e: [1, 0], n: [0, -1] };
+  globePos(lon, lat, 0, _vc); _qe.setFromUnitVectors(UP, _ve.copy(_vc).normalize()).invert();
+  globePos(lon + 0.01, lat, 0, _ve).sub(_vc).normalize().applyQuaternion(_qe);
+  globePos(lon, lat + 0.01, 0, _vn).sub(_vc).normalize().applyQuaternion(_qe);
+  return { e: [_ve.x, _ve.z], n: [_vn.x, _vn.z] };
 }
 function xyzToLonLat(p) {
   if (S.mode === 'flat') return { lon: p.x / FS, lat: -p.z / FS };
@@ -874,6 +913,25 @@ function animateFarmKind(L2, dt, farmScale) {
   if (L2.rotor) L2.rotor.instanceMatrix.needsUpdate = true;
 }
 
+/* ---------------- 每部風機的實際位置與尺寸：美國 USWTDB（tools/build_turbines.py 產生 turbines.json；第一次點到美國風場才載入） ---------------- */
+let TB = null, tbP = null;
+const tbOf = f => TB && f && !f.pseudo && !f.pipe && f.iso === 'USA' ? TB.farms[f.name] || null : null;
+function needTurbines(f) {
+  if (TB || tbP || !f || f.iso !== 'USA' || f.pseudo || f.pipe) return;
+  tbP = WW.getJSON(WW.DATA.turbines).then(j => {
+    TB = j;
+    (farmsByIso.USA || []).forEach(x => { if (TB.farms[x.name]) { x._spec = null; removeCluster(x); } });
+    updateClusters(0, true);
+    if (cardItem && cardItem.kind === 'farm' && tbOf(cardItem.f)) renderCard(cardItem);
+  }).catch(e => { console.warn(e); tbP = null; });
+}
+function tbKm(tb) {                                                 // 各機位相對中心的 [東, 北]（公里）
+  if (tb._km) return tb._km;
+  const kx = 111.32 * Math.cos(tb.c[1] * D2R) * 1e-5, ky = 110.574e-5, out = [];
+  for (let i = 0; i < tb.p.length; i += 2) out.push([tb.p[i] * kx, tb.p[i + 1] * ky]);
+  return (tb._km = out);
+}
+const clusterLL = f => { const tb = tbOf(f); return tb ? { lon: tb.c[0], lat: tb.c[1] } : f; };
 /* ---------------- turbine clusters (close-range view of real farm layouts) ---------------- */
 let clusterMats;
 function defaultUnit(type, y) {
@@ -883,6 +941,16 @@ function defaultUnit(type, y) {
 const clamp1 = clamp;
 function turbSpec(f) {
   if (f._spec) return f._spec;
+  const tb = tbOf(f);
+  if (tb) {                                                        // 有實際機位：機組數、間距與範圍都用實測值
+    const P = tbKm(tb), n = P.length, nn = [];
+    let ext = 0;
+    P.forEach((p, i) => { let d = Infinity; P.forEach((q, j) => { if (i !== j) { const v = Math.hypot(p[0] - q[0], p[1] - q[1]); if (v < d) d = v; } }); if (d < Infinity) nn.push(d); ext = Math.max(ext, Math.hypot(p[0], p[1])); });
+    nn.sort((a, b) => a - b);
+    const spacing = Math.max(0.15, nn.length ? nn[nn.length >> 1] : 0.5);
+    f._spec = { n, unit: tb.kw / 1000 / n, extent: Math.max(0.6, ext * 2), spacing, hKm: n <= 3 ? 1.1 : clamp(spacing * 0.85, 0.3, 2.6), real: true };
+    return f._spec;
+  }
   const t = f.turbine || ''; let n = null, unit = null, m;
   if ((m = t.match(/(\d+)\s*[x×]\s/)) || (m = t.match(/(?:MW|\s)\s*[x×]\s*(\d+)\b/)) || (m = t.match(/(\d+)\s*(?:turbines|units|部)/i))) n = +m[1];
   if ((m = t.match(/(\d+(?:\.\d+)?)\s*MW/i))) unit = +m[1];
@@ -904,11 +972,15 @@ function seeded(str) { let h = 2166136261; for (const ch of str) { h ^= ch.charC
 const clusters = new Map();
 function makeCluster(f) {
   const sp = turbSpec(f), kind = f.pipe ? 'p' + f.st : S.layer === 'fd' && f.type !== 'onshore' ? fdMats(fdGroup(f)) : f.type === 'onshore' ? 'on' : 'off', mats = clusterMats[kind];
-  const rnd = seeded(f.name + f.lat);
-  const r = Math.ceil(Math.sqrt(sp.n)) + 2, pts = [];
-  for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) { const x = i + (j & 1) * 0.5, z = j * 0.866; pts.push([x, z, x * x + z * z]); }
-  pts.sort((a, b) => a[2] - b[2]);
-  const P = pts.slice(0, sp.n).map(p => [(p[0] + (rnd() - 0.5) * 0.25) * sp.spacing * KM, (p[1] + (rnd() - 0.5) * 0.25) * sp.spacing * KM]);
+  const rnd = seeded(f.name + f.lat), tb = tbOf(f), cl = clusterLL(f);
+  let P;
+  if (tb) { const en = localEN(cl.lon, cl.lat); P = tbKm(tb).map(([e, n]) => [(e * en.e[0] + n * en.n[0]) * KM, (e * en.e[1] + n * en.n[1]) * KM]); }   // 實際機位
+  else {                                                           // 推算：依機組數排成六角格，略加擾動
+    const r = Math.ceil(Math.sqrt(sp.n)) + 2, pts = [];
+    for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) { const x = i + (j & 1) * 0.5, z = j * 0.866; pts.push([x, z, x * x + z * z]); }
+    pts.sort((a, b) => a[2] - b[2]);
+    P = pts.slice(0, sp.n).map(p => [(p[0] + (rnd() - 0.5) * 0.25) * sp.spacing * KM, (p[1] + (rnd() - 0.5) * 0.25) * sp.spacing * KM]);
+  }
   const h = sp.hKm * KM;
   const tower = new THREE.InstancedMesh(towerGeo, mats.tower, sp.n), nac = new THREE.InstancedMesh(nacGeo, mats.nac, sp.n), rotor = new THREE.InstancedMesh(rotorGeo, mats.blade, sp.n);
   _q.identity(); _s.set(h, h, h);
@@ -920,9 +992,10 @@ function makeCluster(f) {
   const disc = new THREE.Mesh(discGeo, clusterMats[kind].disc), ring = new THREE.Mesh(f.pipe ? thinDashGeo : thinRingGeo, clusterMats[kind].ring);
   disc.scale.set(rad / 0.75, 1, rad / 0.75); ring.scale.set(rad, 1, rad); disc.position.y = ring.position.y = h * 0.02;
   disc.userData.farm = f; g.add(disc, ring);
-  const dmc = fdDims(f), rs = dmc && dmc.hub && dmc.rotor ? h * clamp((dmc.rotor / 2) / dmc.hub / 0.54, 0.6, 1.9) : h;   // 有輪轂高度與葉輪直徑：葉輪依實際比例（預設葉輪半徑＝0.54 塔高）
+  const dmc = fdDims(f), hr = dmc && dmc.hub && dmc.rotor ? [dmc.hub, dmc.rotor] : tb && tb.hh && tb.rd ? [(tb.hh[0] + tb.hh[1]) / 2, (tb.rd[0] + tb.rd[1]) / 2] : null;
+  const rs = hr ? h * clamp((hr[1] / 2) / hr[0] / 0.54, 0.6, 1.9) : h;   // 有輪轂高度與葉輪直徑：葉輪依實際比例（預設葉輪半徑＝0.54 塔高）
   g.userData = { f, P, h, rs, tower, nac, rotor, bases, disc, ring, ringMat: ring.material, live: false, phase: P.map(() => rnd() * 6.28), ang: 0, count: -1 };
-  const q = new THREE.Quaternion(); posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q));
+  const q = new THREE.Quaternion(); posAt(cl.lon, cl.lat, 0, g.position); g.quaternion.copy(quatAt(cl.lon, cl.lat, q));
   clusterRoot.add(g); return g;
 }
 /* 水下基礎圖層的風機群材質（依型式組別，第一次用到才建） */
@@ -1009,7 +1082,7 @@ function addBases(g, f, P, h) {
   return meshes;
 }
 function removeCluster(f) { const g = clusters.get(f); if (!g) return; clusterRoot.remove(g); [g.userData.tower, g.userData.nac, g.userData.rotor, ...(g.userData.bases || [])].forEach(m => m.dispose && m.dispose()); clusters.delete(f); }
-function layoutClusters() { const q = new THREE.Quaternion(); clusters.forEach((g, f) => { posAt(f.lon, f.lat, 0, g.position); g.quaternion.copy(quatAt(f.lon, f.lat, q)); }); }
+function layoutClusters() { const q = new THREE.Quaternion(); clusters.forEach((g, f) => { const c = clusterLL(f); posAt(c.lon, c.lat, 0, g.position); g.quaternion.copy(quatAt(c.lon, c.lat, q)); }); }
 let lastClusterT = 0, focusFarm = null, nearFarms = [];
 /* 拉近時每座風場仍以一支風機代表；只有使用者點選（或導覽停留）的風場才依機組數量畫出所有風機（2026-09 使用者決定）。
    視野中心附近的風場另外記下來補名稱標籤：風場層的標籤只從容量前 120 大取，拉近時附近的小風場也要有名字 */
@@ -1420,8 +1493,9 @@ function updateHUD() {
     }
   }
   if (farmsReady && fsActive()) html += '<div style="margin-top:4px;color:var(--acc)">' + esc(T('fsHud')(WW.int(fsResults().length))) + '</div>';
+  if (atLT()) html += '<div class="ltn">' + esc(ltLine(byIso[S.region] || null)) + '</div>';
   const key = yr + '|' + html;
-  if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
+  if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = atLT() ? T('ltYear')(yr) + L(' · ', ' · ') + T('ltCap') : L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
   if (panelTab === 'farms') renderFarmResults(false);
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
   const ll = $('g-liveLegend'), showLl = liveSeen && liveOn() && !!renderer && S.view !== 'bars' && farmsReady && S.layer !== 'fd';
@@ -1994,7 +2068,7 @@ function renderProfile() {
     const list = C.filter(inRegion);
     const on = YEARS.map((_, k) => list.reduce((s, c) => s + c.on[k], 0)), off = YEARS.map((_, k) => list.reduce((s, c) => s + c.off[k], 0));
     const top = list.slice().sort((a, b) => (b.on[yi] + b.off[yi]) - (a.on[yi] + a.off[yi])).slice(0, 5);
-    box.innerHTML = `<h4>${esc(scopeName())}</h4><div class="sub">${y} · ${T('worldCap')}</div>
+    box.innerHTML = `<h4>${esc(scopeName())}</h4><div class="sub">${y === (LT && LT.year) ? esc(T('ltYear')(y)) + ' · ' + esc(T('ltCap')) : y + ' · ' + T('worldCap')}</div>${y === (LT && LT.year) ? '<div class="ltbox">' + esc(ltLine(null)) + L('：', ': ') + C.filter(x => x.lt && inRegion(x)).map(x => esc(cname(x)) + ' ' + esc(x.lt.asof)).join(L('、', ', ')) + '</div>' : ''}
       <div class="big">${WW.int(on[yi] + off[yi])}<small>MW</small></div>${sparkSVG(on, off, yi)}
       ${rowsHTML([[T('profOnOff'), `${WW.int(on[yi])} / ${WW.int(off[yi])}`], ...top.map((c, k) => [`#${k + 1} ${esc(cname(c))}`, WW.int(c.on[yi] + c.off[yi])])])}
       ${fdBox(S.region)}${pipeBlock(S.region)}
@@ -2026,8 +2100,9 @@ function renderProfile() {
     const Tt = WW.live.totals();
     live = `<div class="livebox">🌬 ${T('liveNow')}：<b>${WW.int(Tt.total)} MW</b>（${WW.live.isLive() ? L('台電', 'Taipower') + ' ' + WW.live.fmtSrc(WW.live.srcTime()) : L('模擬', 'simulated')}）· ${T('availability')} ${(Tt.ratio * 100).toFixed(1)}%</div>`;
   }
-  box.innerHTML = `<h4>${esc(cname(c))}</h4><div class="sub">${esc(T('cont')[c.cont] || c.cont)} · ${y}</div>
-    <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${rowsHTML(rows)}${auditBox(c.iso)}${live}${note}${farmsHTML}${pipeBlock(c.iso)}
+  const ltBox = y === (LT && LT.year) ? `<div class="ltbox">${c.lt ? `${esc(T('ltOk')(c.lt.asof, ''))}<a href="${esc(c.lt.url)}" target="_blank" rel="noopener">${esc(c.lt.src[lang === 'zh' ? 0 : 1])}</a>${c.lt.est ? esc(T('ltEst')) : ''}<div class="gnote">${esc(c.lt.note[lang === 'zh' ? 0 : 1])}</div>` : esc(T('ltCarry')(DATA_Y))}</div>` : '';
+  box.innerHTML = `<h4>${esc(cname(c))}</h4><div class="sub">${esc(T('cont')[c.cont] || c.cont)} · ${y === (LT && LT.year) ? esc(T('ltYear')(y)) : y}</div>
+    <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${ltBox}${rowsHTML(rows)}${auditBox(c.iso)}${live}${note}${farmsHTML}${pipeBlock(c.iso)}
     <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button>${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
   box.querySelectorAll('[data-farm]').forEach(a => a.onclick = e => { e.preventDefault(); const f = D.farms.find(x => x.name === a.dataset.farm && x.iso === c.iso); if (f) selectFarm(f); });
   box.querySelector('[data-act="tour"]').onclick = () => tourStart();
@@ -2127,7 +2202,7 @@ function updateBars(force) {
   const all = scoped.map(c => ({ c, cap: capOf(c, S.year) })).filter(r => r.cap.tot > 0.5).sort((a, b) => b.cap.tot - a.cap.tot);
   all.forEach((r, i) => r.rank = i + 1);
   const NB = clamp(Math.floor((barsEl.clientHeight - 22) / 19) - 2, 5, NBAR);   // 窄螢幕自動減少列數
-  $('g-barScope').textContent = (S.region.startsWith('C:') ? T('inRegion') : T('top15'))(NB);
+  $('g-barScope').textContent = (S.region.startsWith('C:') ? T('inRegion') : T('top15'))(NB) + (atLT() ? ' · ' + T('ltHatch') : '');
   const rows = all.slice(0, NB);
   const extra = iso => { if (!rows.some(r => r.c.iso === iso)) { const r = all.find(r => r.c.iso === iso); if (r) rows.push(r); } };
   if (byIso[S.region]) extra(S.region);
@@ -2155,6 +2230,7 @@ function updateBars(force) {
     el.querySelector('.val').textContent = fmtMW(r.cap.tot);
     el.classList.toggle('sel', S.region === r.c.iso);
     el.classList.toggle('tw', r.c.iso === 'TWN');
+    el.classList.toggle('carry', carried(r.c));
     const slot = i < NB ? i : NB + 0.4 + (i - NB);
     requestAnimationFrame(() => { el.style.transform = 'translateY(' + (AX + slot * rowH) + 'px)'; el.style.opacity = 1; });
   });
@@ -2513,6 +2589,43 @@ function fdHTML(f) {
     (fdDimText(f) ? '<div class="fdim">' + esc(fdDimText(f)) + (r.du ? '<span class="fds"><a href="' + esc(r.du) + '" target="_blank" rel="noopener" title="' + esc(T('fdDimSrc')) + '">' + esc(hostOf(r.du)) + '</a></span>' : '') + (r.dz ? '<div class="gnote">' + esc(lang === 'zh' ? r.dz : r.de) + '</div>' : '') + '</div>' : '') +
     fdSVG(f) + '</div>';
 }
+/* 風場卡片的補充列：USWTDB 的機組與尺寸（美國）、離岸距離（由海岸線計算）、估計年發電量（容量 × 該國風電平均容量因數） */
+function factsHTML(f) {
+  if (!f || f.pipe || f.pseudo) return '';
+  const rows = [], row = (label, text, note, link) => '<div class="ffact"><b>' + esc(label) + '</b>' + esc(L('：', ': ') + text) + (link || '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') + '</div>';
+  const tb = tbOf(f);
+  if (tb) {
+    const rng = v => v[0] === v[1] ? fmtNum(v[0]) : fmtNum(v[0]) + '–' + fmtNum(v[1]), dm = fdDims(f);   // 已有查證過的尺寸（水下基礎列）就不重複列 USWTDB 的
+    const txt = [tb.n + ' ' + T('units'), tb.m ? tb.m + (tb.mn > 1 ? L('（', ' (') + T('tbModels')(tb.mn) + L('）', ')') : '') : null,
+      tb.hh && !(dm && dm.hub != null) ? T('dimHub') + ' ' + rng(tb.hh) + ' m' : null, tb.rd && !(dm && dm.rotor) ? T('dimRotor') + ' ' + rng(tb.rd) + ' m' : null].filter(Boolean).join(' · ');
+    rows.push(row(T('tbLabel'), txt, T('tbNote'), '<span class="fds"><a href="' + esc(TB.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbSrcT') + ' ' + (TB.meta.version || '')) + '">USWTDB</a></span>'));
+  }
+  const ck = f.type !== 'onshore' && !f.nStack ? coastKm(f) : null;
+  if (ck != null) rows.push(row(T('coastLabel'), L('約 ', 'about ') + (ck < 10 ? ck.toFixed(1) : Math.round(ck)) + ' km', T('coastNote')));
+  const cf = STATS && STATS.cf && STATS.cf[f.iso];
+  if (cf && f.st === 0 && !(f.end && S.year >= f.end)) {
+    const gwh = f.mw * cf.cf * 8.76, c = byIso[f.iso];
+    rows.push(row(T('genLabel'), L('約 ', 'about ') + fmtGWh(gwh), T('genNote')(c ? cname(c) : f.iso, (cf.cf * 100).toFixed(1), cf.y[0] + '–' + cf.y[1]) + (f.type !== 'onshore' ? T('genOff') : '')));
+  }
+  return rows.length ? '<div class="ffacts">' + rows.join('') + '</div>' : '';
+}
+const fmtGWh = v => v >= 1000 ? (v / 1000).toLocaleString('en-US', { maximumFractionDigits: v >= 10000 ? 0 : 1 }) + ' TWh' : (v >= 100 ? Math.round(v) : v >= 10 ? v.toFixed(1) : v.toFixed(2)) + ' GWh';
+/* 到最近海岸線的距離（公里）：Natural Earth 1:50m 國界多邊形的邊（沿海的邊就是海岸線），只看附近 4 度內的多邊形 */
+function coastKm(f) {
+  if (f._coast !== undefined) return f._coast;
+  const lat = f.lat, lon = f.lon, kx = 111.32 * Math.cos(lat * D2R), ky = 110.574;
+  let best = Infinity;
+  for (let k = 0; k < RINGS.length; k++) {
+    const bx = ringBox[k]; if (bx[2] < lon - 4 || bx[0] > lon + 4 || bx[3] < lat - 4 || bx[1] > lat + 4) continue;
+    const r = RINGS[k];
+    for (let i = 0; i < r.length - 2; i += 2) {
+      const ax = (r[i] - lon) * kx, ay = (r[i + 1] - lat) * ky, bx_ = (r[i + 2] - lon) * kx, by = (r[i + 3] - lat) * ky;
+      const dx = bx_ - ax, dy = by - ay, l2 = dx * dx + dy * dy, t = l2 ? clamp(-(ax * dx + ay * dy) / l2, 0, 1) : 0;
+      const d = Math.hypot(ax + t * dx, ay + t * dy); if (d < best) best = d;
+    }
+  }
+  return (f._coast = best < Infinity && best < 400 ? best : null);
+}
 /* 風場的尺寸（公尺）：水深取範圍上限、輪轂高度取範圍平均；沒有值的回傳 null */
 function fdDims(f) {
   const r = f && f.fd; if (!r) return null;
@@ -2613,9 +2726,10 @@ function renderCard(it) {
   } else {
     title = fname(f); if (lang === 'zh' && f.zh) sub = f.name;
     tag = '<span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + (f.pipe ? '<span class="gtag ' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off') + '">' + T('type')[f.type] + '</span>' : '');
+    needTurbines(f);
     const sp = turbSpec(f);
     const phases = f.ph && f.ph.length < 2 ? ' · ' + f.ph.map(p => (p[0] || '?') + ': ' + WW.int(p[1])).join(', ') + ' MW' : '';   // 兩期以上另畫分期時間軸
-    spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(f.owner) : '');
+    spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(f.owner) : '');
     desc = it.why || '';
   }
   const yrs = it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : ''));
@@ -2653,7 +2767,7 @@ function renderCard(it) {
     '<div class="kick">' + tag + (yrs !== '' ? esc(String(yrs)) + ' · ' : '') + esc(cn) + '</div>' +
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
     (spec ? '<div class="spec">' + spec + '</div>' : '') +
-    (real ? fdHTML(f) : '') +
+    (real ? fdHTML(f) + factsHTML(f) : '') +
     (real ? '<div class="fstat">' + rankHTML(f) + '</div><div class="fphw">' + phaseHTML(f) + '</div>' : '') +
     (desc ? '<p class="desc">' + esc(desc) + '</p>' : '') +
     (noteOf(f) ? '<p class="fnote">' + esc(noteOf(f)) + '</p>' : '') +
@@ -2793,7 +2907,8 @@ function tourEnd(finished) {
 let tipPane = null, hoverKey = null, hoverTimer = null;
 function tipCountry(c) {
   const on = valAt(c.on, S.year), off = valAt(c.off, S.year);
-  return '<b>' + esc(cname(c)) + '</b> · ' + Math.floor(S.year) + '<br><i class="gsw" style="background:var(--on)"></i>' + T('onshore') + ' ' + fmtMW(on) + '<br><i class="gsw" style="background:var(--off)"></i>' + T('offshore') + ' ' + fmtMW(off) + '<br>' + T('total') + ' <b>' + fmtMW(on + off) + '</b>';
+  return '<b>' + esc(cname(c)) + '</b> · ' + Math.floor(S.year) + '<br><i class="gsw" style="background:var(--on)"></i>' + T('onshore') + ' ' + fmtMW(on) + '<br><i class="gsw" style="background:var(--off)"></i>' + T('offshore') + ' ' + fmtMW(off) + '<br>' + T('total') + ' <b>' + fmtMW(on + off) + '</b>' +
+    (atLT() ? '<br><span style="color:var(--ginkm)">' + esc(ltLine(c)) + '</span>' : '');
 }
 function liveTip(f) {
   const x = liveOn() && liveFor(f); if (!x) return '';
@@ -2806,7 +2921,7 @@ function tipFarm(f, w) {
   return (w && w.thumb ? '<img class="tph" src="' + esc(w.thumb) + '" alt="">' : '') +
     '<b>' + esc(fname(f)) + '</b>' + (f.zh && lang === 'zh' ? '<br><span style="color:var(--ink-2)">' + esc(f.name) + '</span>' : '') +
     '<br><i class="gsw" style="background:' + col + '"></i>' + T('type')[f.type] + ' · ' + esc(String(when)) +
-    '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ~' + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
+    '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
     (S.layer === 'fd' && !f.pipe && f.type !== 'onshore' ? '<br><i class="fdsw fd-' + fdGroup(f) + '"></i>' + esc(T('fdLabel') + L('：', ': ') + fdText(f)) : '') +
     (noteOf(f) ? '<div class="tnote">' + esc(noteOf(f).length > 140 ? noteOf(f).slice(0, 140) + '…' : noteOf(f)) + '</div>' : '') +
     (f.nStack ? '<div class="tnote">' + T('tipStack') + '</div>' : '') +
@@ -2897,6 +3012,9 @@ function dataStats(zh) {
   const n = v => WW.int(v), li = [];
   if (D && D.countries && D.years) li.push(zh ? '國家年度統計：' + n(D.countries.length) + ' 國，' + D.years[0] + '–' + D.years[D.years.length - 1] + ' 年，陸域與離岸分開'
                                            : 'Country statistics: ' + n(D.countries.length) + ' countries, ' + D.years[0] + '–' + D.years[D.years.length - 1] + ', onshore and offshore separately');
+  if (LT) li.push(zh ? LT.year + ' 年（最新可得）：' + n(LT.n) + ' 國有今年官方數字（' + C.filter(c => c.lt).map(c => cname(c) + ' ' + c.lt.asof).join('、') + '），其他國家沿用 ' + DATA_Y + ' 年底'
+                     : LT.year + ' (latest available): official figures for ' + n(LT.n) + ' countries (' + C.filter(c => c.lt).map(c => cname(c) + ' ' + c.lt.asof).join(', ') + '); the rest carry end-' + DATA_Y);
+  if (TB) li.push(zh ? '每部風機的位置與規格：美國 ' + n(TB.meta.farms) + ' 座風場、' + n(TB.meta.turbines) + ' 部（USWTDB ' + (TB.meta.version || '') + '）' : 'Turbine positions and specs: ' + n(TB.meta.turbines) + ' turbines in ' + n(TB.meta.farms) + ' US farms (USWTDB ' + (TB.meta.version || '') + ')');
   if (farmsReady && D.farms) {
     const F = D.farms, isos = new Set(F.map(f => f.iso)), op = F.filter(f => f.st === 0 && !f.end);
     const c = (arr, fn) => arr.filter(fn).length, mw = arr => n(Math.round(arr.reduce((a, f) => a + (f.mw || 0), 0)));
@@ -2932,6 +3050,10 @@ function showSources() {
     ' <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/data-cleanup' + (zh ? '' : '.en') + '.md" target="_blank" rel="noopener">' + (zh ? '資料清理紀錄' : 'clean-up log') + '</a>' + (zh ? '。' : '.') + '</li><li>' + (zh ? '國界改以 Natural Earth 1:50m 重建（原資料缺澳洲本土；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭）；風場與 GEM 全球風電追蹤（2025-02，CC BY 4.0）合併並加入規劃中專案；GEM 同一場址相距 25 km 以上的分期分開標示，3 筆明顯的座標錯誤已修正。' : 'Borders rebuilt from Natural Earth 1:50m (the original lacked mainland Australia; Crimea shown as part of Ukraine per UN GA resolution 68/262); farms merged with the GEM Global Wind Power Tracker (Feb 2025, CC BY 4.0), adding pipeline projects; GEM phases more than 25 km apart are shown separately and three obvious coordinate errors were corrected.') + '</li></ul>' +
     '<h4>' + (zh ? '總容量 2000–2025' : 'Total capacity 2000–2025') + '</h4><ul><li>Our World in Data — Installed wind energy capacity (IRENA Renewable Capacity Statistics): <a href="https://ourworldindata.org/grapher/cumulative-installed-wind-energy-capacity-gigawatts" target="_blank" rel="noopener">ourworldindata.org</a></li></ul>' +
     '<h4>' + (zh ? '離岸容量 1991–2025' : 'Offshore capacity 1991–2025') + '</h4><ul>' + li(src.offshore) + '</ul>' +
+    (LT ? '<h4>' + LT.year + (zh ? ' 年（最新可得）' : ' (latest available)') + '</h4><ul>' + C.filter(c => c.lt).map(c => '<li>' + esc(cname(c)) + (zh ? '（截至 ' : ' (as of ') + esc(c.lt.asof) + (zh ? '）：' : '): ') + '<a href="' + esc(c.lt.url) + '" target="_blank" rel="noopener">' + esc(c.lt.src[zh ? 0 : 1]) + '</a>' + (c.lt.est ? esc(zh ? '；本站 ' + DATA_Y + ' 年底數字＋該來源今年的增量（估計）' : '; the site\'s end-' + DATA_Y + ' figure + this source\'s growth this year (estimate)') : '') + '</li>').join('') +
+      '<li>' + esc(zh ? '其他國家沿用 ' + DATA_Y + ' 年底數字（長條圖以斜線標示）。數字與出處寫在 tools/latest_wind.py。' : 'Other countries carry their end-' + DATA_Y + ' figure (hatched bars). Figures and sources are in tools/latest_wind.py.') + '</li></ul>' : '') +
+    '<h4>' + (zh ? '風場卡片的估計年發電量' : 'Estimated yearly output on farm cards') + '</h4><ul><li>' + (zh ? '容量 × 該國 2023–2025 年風電平均容量因數，取自 ' : 'Capacity × the country\'s 2023–2025 average wind capacity factor, from ') + '<a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '；是估計，不是實測。' : '; an estimate, not a measurement.') + '</li></ul>' +
+    '<h4>' + (zh ? '美國每部風機的位置與規格' : 'US turbine positions and specs') + '</h4><ul><li><a href="https://energy.usgs.gov/uswtdb/" target="_blank" rel="noopener">U.S. Wind Turbine Database (USWTDB)</a>' + (zh ? '，美國地質調查所、勞倫斯柏克萊國家實驗室與美國潔淨電力協會，公有領域；由 tools/build_turbines.py 依名稱、距離與容量（±15%）對到本站的風場，對不上的維持推算的排列。' : ', USGS, Lawrence Berkeley National Laboratory and American Clean Power Association, public domain; matched to the site\'s farms by name, distance and capacity (±15%) in tools/build_turbines.py; unmatched farms keep the estimated layout.') + '</li></ul>' +
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
     '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '</ul>' +
     (LITE ? '' : '<h4>' + (zh ? '離岸風電港口' : 'Offshore wind ports') + '</h4><ul><li>' + (zh ? '2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。' : 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.') + '</li></ul>' +

@@ -146,6 +146,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
 - `data/global/events.json` — 重大事件與事故 91 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
   英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
+- `data/global/country_stats.json` — 地球儀時間軸的「最新可得」年份（2026：8 國官方數字，逐國出處寫在 `tools/latest_wind.py`）與各國風電平均容量因數
+  （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
+- `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；約 970 座風場、6 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
   以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
@@ -247,6 +250,11 @@ python tools/build_standalone.py
 python tools/build_globe_lite.py
 # 6. 重大事件與事故（改了 data/global/sources/events_2026-09.csv 或 tools/build_events.py 的英文與風場對應後）
 python tools/build_events.py
+# 7. 時間軸「最新可得」年份與各國容量因數（改了 tools/latest_wind.py，或更新 data/global/sources/ember_wind_2020-2025.csv 後）
+python tools/build_country_stats.py
+# 8. 美國每部風機的位置與規格（USWTDB 每季更新；重建風場層後也要重跑，名稱改了會對不到）
+curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
+python tools/build_turbines.py uswtdb_V9_1_20260928.csv
 ```
 
 ### 本站對資料的修正（皆記錄在資料檔與網站「資料來源」中）
