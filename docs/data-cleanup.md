@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 356 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 219 筆。
+- 規則 359 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 222 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -17,8 +17,8 @@
 | 伊朗 | 2 | 62 | 2 |
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
-| 南韓 | 3 | 157.5 | 9 |
-| 台灣 | 1 | 0 | 14 |
+| 南韓 | 3 | 157.5 | 10 |
+| 台灣 | 1 | 0 | 15 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
 | 埃及 | 2 | 1,082 | 0 |
@@ -42,7 +42,7 @@
 | 美國 | 6 | 811.6 | 6 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 0 |
-| 英國 | 7 | 3,485 | 6 |
+| 英國 | 7 | 3,485 | 7 |
 | 荷蘭 | 8 | 1,852 | 7 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
@@ -180,7 +180,7 @@
 | Hainan CZ7 Demonstration Offshore wind farm · 1 · 600 MW · 2026 | GEM | 修正：中文名、年份 | 這是 CZ7 一期（CZ7-1，600 MW，擬裝 60 部 10 MW 明陽機組），不是二期；2026 年只查到陸上集控中心與送出線路施工，未見海上施工，完工年份未公布 | [連結](https://finance.sina.com.cn/roll/2025-07-23/doc-infhncvn1132725.shtml) |
 | Hainan CZ9 Demonstration Offshore wind farm · 1 · 600 MW · 2026 | GEM | 修正：年份 | 明陽東方 CZ9 一期 600 MW：2022-11-30 舉行開工儀式，但到 2026-10 查不到海上沉樁或吊裝，2026 年 7 月明陽仍把 CZ9 寫成規劃中的場址；2026 年完工的根據不足，年份改為不詳 | [連結](https://www.ewindpower.cn/news/show-htm-itemid-33855.html) |
 | Guangdong Xuwen Donger Offshore wind farm · 300 MW · 2026 | GEM | 修正：年份、機組、業主、中文名 | 中核集團湛江徐聞東二：300 MW、21 部 14.3 MW；2026-09-04 才打下首根鋼管樁（原計畫 2025 年底全容量併網已延誤），完工年份未公布 | [連結](https://www.21jingji.com/article/20260906/herald/6b02ac88b4840ed91205ffeb9430edf6.html) |
-| Guangdong Three Gorges Pilot Floating Offshore wind farm · 16 MW · 2026 | GEM | 修正：中文名、機組 | 這是三峽「領航號」單機 16 MW 浮動式平台，2026-05-02 在陽江青洲海域完成安裝、6 月敷設 66 kV 動態海纜，接入青洲五、七的集電網路；查不到本身已併網的報導，維持興建中 | [連結](https://www.ithome.com/0/946/070.htm) |
+| Guangdong Three Gorges Pilot Floating Offshore wind farm · 16 MW · 2026 | GEM | 修正：中文名、機組、座標 | 這是三峽「領航號」單機 16 MW 浮動式平台，2026-05-02 在陽江青洲海域完成安裝、6 月敷設 66 kV 動態海纜，接入青洲五、七的集電網路；查不到本身已併網的報導，維持興建中。GEM 的座標在沙扒鎮外海幾公里，但國家能源局寫「離岸超70公里、水深超50米」：改放在本站青洲五、七兩點之間（概略位置，沒有官方座標） | [連結](https://www.nea.gov.cn/20260508/6077d3ffe9cb4855b009df84347bfe80/c.html) |
 
 ## 丹麥 (DNK)
 
@@ -229,13 +229,14 @@
 | Yeonggwang Wind offshore wind farm · 35 MW · 2018 | GEM | 修正：容量、機組、座標 | 靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；GEM 的座標是公司登記地址，位置只能當概略值 | [連結](https://m.etnews.com/20200221000242) |
 | YEP wind farm · 76 MW · 2017 | GEM | 修正：名稱、中文名、年份、機組 | 韓華建設的英陽風場 76 MW、22 部 3.45 MW 級，2020 年完工（易投資日報 2021 年 1 月：「去年完工」）；GEM 寫 2017 年 | [連結](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | 修正：中文名、年份、機組 | 英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉） | [連結](https://www.fnnews.com/news/202309241852426048) |
+| Ulsan Dongbu floating demo (Vindmøllen 750 kW) · 0.8 MW · 2020 | 精選 | 修正：狀態、年份 | 蔚山 750 kW 浮動式示範機：2019 年 11 月蔚州郡四度退回細部設計審查，原訂當月完成安裝、隔年 3 月實證的計畫受阻；之後查不到安裝或發電的報導，原本「2020 年營運中」沒有根據，改為施工前、年份不詳（確認從未運轉後再刪除） | [連結](https://www.ksilbo.co.kr/news/articleView.html?idxno=735360) |
 
 ## 台灣 (TWN)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
 | Zhong Neng · 298 MW · 2024 | 精選 | 修正：年份、容量 | 31 部風機 2024 年 8 月全數安裝併網，2025 年 4 月取得電業執照正式商轉；獲配容量 300 MW，實際裝置 31 部 × 9.5 MW＝294.5 MW | [連結](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
-| Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | 精選 | 修正：機組 | 機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136 | [連結](https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html) |
+| Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | 精選 | 修正：機組、座標 | 機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136。位置：台電只寫「芳苑外海 7.2–8.7 km」，改用 OpenStreetMap 標出的 21 部風機的中心（23.986 N、120.242 E，© OpenStreetMap 貢獻者）；原座標 24.05 N、120.35 E 在海岸邊，與官方的離岸距離不符 | [連結](https://www.openstreetmap.org/relation/15992407) |
 | Formosa 3 offshore wind farm · 2 · 600 MW · 2027 | GEM | 刪除 | 這是海鼎二（3.1 期獲配 600 MW），Corio 退出後已解約，能源署 2026 年把海峽一、海峽二與海鼎二的解約場址納入 3.3 期擴充容量；GEM 的中文名誤寫為海鼎一 | [連結](https://www.cna.com.tw/news/afe/202609300338.aspx) |
 | Formosa 3 offshore wind farm · 3 · 720 MW | GEM | 修正：中文名 | 這是海鼎三（Formosa 3 的第三座風場，未在 3.1、3.2 期獲配容量）；GEM 的中文名寫成海鼎一 | [連結](https://www.gem.wiki/Formosa_3_offshore_wind_farm) |
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | 修正：業主 | 又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約 | [連結](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
@@ -245,9 +246,10 @@
 | Taichung Power Plant · 8 MW · 2005 | 精選 | 修正：容量、機組 | 台中電廠原有 4 部 Zephyros Z72；2008 年薔蜜颱風吹倒台中港區一部後，從電廠移 1 部（P01）去補，電廠剩 3 部；2016 年台電因中龍鋼鐵等建物擋風，再移 2 部到高美濕地第 1 排補蘇迪勒颱風（2015）吹毀的機組，電廠只剩 1 部（2 MW）。台電 2026 年發電站清單與能源署單一窗口都是 1 部 | [連結](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
 | Taichung Port · 36 MW · 2006 | 精選 | 修正：容量、機組 | 高美濕地旁原有 18 部 Zephyros Z72（前排 10、後排 8）。2008 年薔蜜颱風吹斷 2 號機，由台中電廠移 1 部補上；2015 年蘇迪勒颱風吹倒 6 部（前後排各 3 部），台電 2016 年從台中電廠移 2 部補前排、後排的空缺另行新購；2016 年梅姬颱風又吹斷 12 號機葉片。台電 2026 年發電站清單：Z72 剩 13 部（共少了 7 部），另有 3 部 Enercon E82 E4，共 16 部 35 MW（能源署單一窗口同） | [連結](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
 | Wanggong · 20 MW · 2011 | 精選 | 修正：容量、機組 | 台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
-| Yongxing (Fangyuan) · 16.8 MW · 2024 | 精選 | 修正：容量、機組 | 台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；商轉年待查證 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Datan (Tatan) · 12.5 MW · 2005 | 精選 | 修正：容量、機組 | 大潭：2005 年 6 月 3 部 GE 1.5se 商轉，2011 年 7 月擴建 3 部 Vestas V80 2 MW 與 2 部 Enercon E70 2.3 MW（共 8 部 15.1 MW）；#3（GE 1.5se）2025 年 6 月 20 日變更電業執照除役，剩 7 部 13.6 MW（台電簡明月報、能源署單一窗口；台電發電站清單的 15.1 MW 是除役前的數字） | [連結](https://www.taipower.com.tw/media/1f4ew1jr/11508%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |
+| Yongxing (Fangyuan) · 16.8 MW · 2024 | 精選 | 修正：容量、機組、年份 | 台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；台電簡明月報：2019 年 10 月併聯試運轉，2020 年 12 月 28 日商轉（原本寫 2024 年） | [連結](https://www.taipower.com.tw/media/yizfvrbn/10912%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |
 | Yunlin Taixi · 16.8 MW · 2024 | 精選 | 修正：容量、機組 | 台電發電站清單：雲林台西 4 部 Enercon E70 E4，共 9.2 MW，113 年（2024 年）10 月 24 日併聯、試運轉中（原本的 16.8 MW 是估計值） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
-| Penghu Longmen · 6.9 MW · 2023 | 精選 | 修正：容量、機組 | 台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
+| Penghu Longmen · 6.9 MW · 2023 | 精選 | 修正：容量、機組、年份 | 台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值）；3 部風機 2019 年完工，台電簡明月報寫 2022 年 6 月 1 日併聯、試運轉到 2024 年 8 月（原本寫 2023 年，改用併聯發電的 2022 年） | [連結](https://www.taipower.com.tw/media/11zda1gx/11308%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |
 | Penghu Zhongtun · 4.8 MW · 2001 | 精選 | 修正：狀態、除役年 | 中屯 8 部風機運轉逾 20 年、無備品，台電 2023 年起辦理除役更新；更新計畫 2024 年 8 月通過環評但因地方反對暫緩，8 部風機 2025 年 11 月前拆除完成（自由時報 2025-11-15） | [連結](https://news.ltn.com.tw/news/life/breakingnews/5246753) |
 
 ## 哥倫比亞 (COL)
@@ -504,6 +506,7 @@
 | Kincardine · 49.5 MW · 2021 | 精選 | 修正：容量、機組 | 現在是 5 部 9.5 MW（47.5 MW）；2018–2020 年曾有 1 部 2 MW 試驗機（原 WindFloat 1），2020 年移走 | [連結](https://marine.gov.scot/sites/default/files/250403_-_kincardine_offshore_windfarm_-_project_environmental_monitoring_programme_-_revision_c10.pdf) |
 | Triton Knoll (Innogy) wind farm · 857 MW · 2022 | GEM | 重複（併入「Triton Knoll」） | 同一座風場（857 MW）；GEM 寫 2022 年，本站依全數風機 2021 年發電列 2021 年 | [連結](https://www.gem.wiki/Triton_Knoll_(Innogy)_wind_farm) |
 | Dogger Bank wind farm · B, C · 2,400 MW · 2026 | GEM | 修正：年份 | B 期 2026 年 6 月才裝了 20 部，風機安裝持續到約 2027 年第二季，C 期在 B 期之後 | [連結](https://www.offshorewind.biz/2026/06/09/20-turbines-installed-at-dogger-bank-b-offshore-wind-farm/) |
+| Pentland wind farm · 100 MW | GEM | 修正：年份、座標 | Pentland 浮動式風場（GEM 另一筆「Pentland Floating Offshore wind farm」是同一案，GEM 的頁面互列為別名）：2023-06-29 取得蘇格蘭海洋局 Section 36 許可，2026 年 1 月在第 7 輪差價合約得標，預計 2027 年最終投資決定、2030 年商轉，尚未施工；位置改用 GEM 另一筆在 Dounreay 外海約 7.5 km 的點（原座標在 Thurso 陸上，概略位置） | [連結](https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/) |
 
 ## 荷蘭 (NLD)
 

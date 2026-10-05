@@ -281,6 +281,7 @@ CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank wind farm · B, C 2400.0
 CLEAN fix GBR Kincardine 49.5
+CLEAN fix GBR Pentland wind farm 100.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
@@ -305,6 +306,7 @@ CLEAN fix KOR Jeonnam Offshore Wind 1 96.0
 CLEAN fix KOR Jeonnam Shinan 1 / others 96.0
 CLEAN fix KOR Jwasari Offshore wind farm 360.0
 CLEAN fix KOR Tamra (Jeju Hallim/Hangyeong) 30.0
+CLEAN fix KOR Ulsan Dongbu floating demo (Vindmøllen 750 kW) 0.8
 CLEAN fix KOR YEP wind farm 76.0
 CLEAN fix KOR Yeonggwang Nakwol 364.8
 CLEAN fix KOR Yeonggwang Wind offshore wind farm 35.0
@@ -346,6 +348,7 @@ CLEAN fix SWE Utgrunden I 10.5
 CLEAN fix SWE Vindpark Vänern (Gässlingegrund) 30.0
 CLEAN fix THA Subyai (Chaiyaphum) 90.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
+CLEAN fix TWN Datan (Tatan) 12.5
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
 CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
 CLEAN fix TWN Hai Long 2 & 3 1044.0

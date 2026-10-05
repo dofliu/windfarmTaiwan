@@ -7,10 +7,10 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,686 operating farms, 1,189,310 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 20,685 operating farms, 1,189,310 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 54 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 219 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,585 projects, 2,719,971 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 222 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,586 projects, 2,719,972 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
@@ -126,7 +126,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 24 | Portugal (PRT) | 5,605 | 25 | 5,071 | 5,717 | 102% | 0 | 211 | 0 | 2 | ✓ |
 | 25 | Norway (NOR) | 5,158 | 96 | 5,803 | 5,204 | 101% | 0 | 58 | 0 | 17 | ✓ |
 | 26 | Ireland (IRL) | 5,128 | 25 | 4,381 | 4,497 | 88% | 631 | 135 | 66 | 29 | ✓ |
-| 27 | Taiwan (TWN) | 4,517 | 3,587 | 4,396 | 3,989 | 88% | 529 | 49 | 0 | 6 | ✓ |
+| 27 | Taiwan (TWN) | 4,517 | 3,587 | 4,396 | 3,990 | 88% | 528 | 49 | 0 | 6 | ✓ |
 | 28 | Argentina (ARG) | 4,497 | 0 | 4,970 | 4,931 | 110% | 0 | 47 | 150 | 9 | ✓ |
 | 29 | South Africa (ZAF) | 4,326 | 0 | 4,263 | 4,381 | 101% | 0 | 44 | 0 | 7 | ✓ |
 | 30 | Austria (AUT) | 4,292 | 0 | 3,090 | 3,055 | 71% | 1,237 | 105 | 0 | 9 | △ |
@@ -135,7 +135,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 33 | Russia (RUS) | 2,880 | 0 | 2,605 | 2,605 | 90% | 275 | 26 | 0 | 1 | ✓ |
 | 34 | Lithuania (LTU) | 2,510 | 0 | 1,308 | 1,308 | 52% | 1,202 | 23 | 50 | 9 | ✗ |
 | 35 | Morocco (MAR) | 2,452 | 0 | 1,627 | 2,950 | 120% | 0 | 18 | 0 | 2 | ⚠ |
-| 36 | South Korea (KOR) | 2,451 | 312 | 1,649 | 1,654 | 67% | 797 | 45 | 0 | 25 | △ |
+| 36 | South Korea (KOR) | 2,451 | 312 | 1,649 | 1,653 | 67% | 798 | 44 | 0 | 25 | △ |
 | 37 | Kazakhstan (KAZ) | 1,909 | 0 | 1,418 | 1,430 | 75% | 479 | 24 | 0 | 15 | △ |
 | 38 | Pakistan (PAK) | 1,845 | 0 | 1,941 | 1,941 | 105% | 0 | 33 | 0 | 3 | ✓ |
 | 39 | Ukraine (UKR) | 1,761 | 0 | 560 | 1,017 | 58% | 744 | 19 | 18 | 8 | ✗ |
