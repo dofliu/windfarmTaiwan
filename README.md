@@ -74,6 +74,8 @@
     放大後自動疊上 Esri 山影或衛星影像圖磚（平均風速底圖除外）
   - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
     里程碑、可搜尋的風場清單
+  - **發電表現**（工具列「📊 發電表現」、台灣與美國的國家概況、風場卡片的「看排名」；網址 `out=TWN.cf`）：台灣（台電自有 19 座）與美國（EIA-923 約 860 座）
+    逐場實測年發電量的**總發電量排名**、**容量因數排名**，以及**同機型比較**（同一型號在不同風場的容量因數，每點一座風場）；民營風場沒有官方逐場數字，不列入
   - **此刻的風**（工具列按鈕，預設關閉；網址 `flow=1`）：NOAA GFS 最新一次預報的離地 10 m 風場畫成流動的粒子，每 6 小時更新；是此刻的天氣，不隨時間軸變動
   - 導覽模式與四個故事導覽（`#/global?tour=tw`／`eu`／`cn`／`fl`）、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
   - **全球風場搜尋與篩選**：工具列「🔍 搜尋」或按 / 鍵，依名稱、中文名、開發商、機型、國名搜尋全部約 2.3 萬座風場，
@@ -153,7 +155,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `data/global/country_stats.json` — 地球儀時間軸的「最新可得」年份（2026：8 國官方數字，逐國出處寫在 `tools/latest_wind.py`）與各國風電平均容量因數
   （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
 - `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；約 970 座風場、6 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
-- `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 876 座：EIA-923，公有領域；台灣 13 座台電自有風場：台電開放資料 17140），
+- `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 876 座：EIA-923，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；風場只有一種機型時附機型，給「發電表現」的同機型比較），
   由 `tools/build_generation.py` 產生，第一次打開風場卡片時才載入
 - `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,900 座風場、14.7 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
   **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入

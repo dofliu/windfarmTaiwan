@@ -75,6 +75,15 @@ const I18N = {
     copyLink: '複製此風場連結', copyLinkMs: '複製此里程碑連結', copied: '已複製連結 ✓', copyFail: '無法自動複製，請手動複製下方連結',
     report: '回報資料錯誤', reportT: '在 GitHub 開一則 issue（需登入），已預填名稱、座標與連結',
     btnSearch: '🔍 搜尋', btnPorts: '⚓ 港口', portsTab: '港口',
+    btnOut: '📊 發電表現', outTitle: '風場發電表現：實測年發電量與容量因數', outGen: '總發電量', outCf: '容量因數', outModel: '同機型比較', outYear: '年份',
+    outHigh: '高→低', outLow: '低→高', outByN: '依座數', outByMed: '依中位數', outPh: '找風場、機型…', outMed: '中位數', outMedM: '虛線＝該機型的中位數',
+    outSum: (y, n, g, m) => `${y} 年 · ${n} 座風場有實測年發電量 · 合計 ${g} · 容量因數中位數 ${m}%`,
+    outCov: (iso, y, n, mw, k, kmw, p) => iso === 'TWN' ? `本站台灣 ${y} 年底運轉中的風場 ${n} 座、${mw}；有逐場官方年發電量的只有台電自有的 ${k} 座、${kmw}（約 ${p}%）。民營風場（包括台電離岸一期以外的離岸風場）沒有逐場的官方年發電量，不列入；它們此刻的出力可在台灣即時頁看。`
+      : `本站美國 ${y} 年底運轉中的風場 ${n} 座、${mw}；有完整年度 EIA-923 實測的 ${k} 座、${kmw}（約 ${p}%）。EIA 電廠跨好幾座風場、或當年有機組新增或改裝的不列入。`,
+    outNote: { gen: () => '年發電量＝當年的淨發電量。風場越大通常發得越多；要比每 1 MW 的發電效率，請看「容量因數」。', cf: () => '容量因數＝年發電量 ÷（額定容量 × 8,760 小時）。主要反映風場所在地的風況，也受停機、限電與機型影響。虛線是中位數。',
+      model: iso => '只列整座風場只有一種機型、而且這一年有兩座以上風場有實測數字的機型；每個點是一座風場，點一下飛到那座風場，按 ▾ 列出各場數字。' + (iso === 'TWN' ? '台灣的機型取自本站風場紀錄，台電發電站容量與紀錄相差 3% 以上（可能含其他機組）的不列入，例如彰工；混合機型的台中港、大潭也不列入。' : '機型取自 USWTDB（同一型號、同一單機容量）。') + '同一機型的差異主要來自風況、輪轂高度與停機／限電，不只是機型本身。' },
+    outGrp: (n, m, lo, hi) => `${n} 座 · 中位數 ${m}% · ${lo}–${hi}%`, outExpand: '列出各風場', outNoModel: '這一年沒有兩座以上風場使用同一機型的資料。',
+    outRank: (y, a, n, b) => `${y} 年容量因數第 ${a}／${n} 名、年發電量第 ${b} 名`, outSee: '看排名 →', outCountry: '📊 發電表現排名',
     fsPh: '搜尋風場、開發商、機型、國家或港口…', fsSt: '狀態', fsTy: '類型', fsMin: '容量', fsYear: '年份', fsSort: '排序', fsAny: '不限', fsName: '名稱',
     fsClear: '清除篩選', fsWorld: '改搜全球', fsScope: s => `範圍：${s}`, fsCount: (n, mw) => `符合 ${n} 座 · ${mw}`, fsAll: (n, mw) => `共 ${n} 座 · ${mw}`,
     fsMapOnly: '地圖只顯示符合條件的風場', fsHidden: (y, n) => `時間軸在 ${y} 年：其中 ${n} 座這一年不在地圖上（尚未完工、已除役，或是規劃中而未開啟「規劃中」）`, fsToLatest: '移到最新年份',
@@ -153,6 +162,15 @@ const I18N = {
     copyLink: 'Copy link to this farm', copyLinkMs: 'Copy link to this milestone', copied: 'Link copied ✓', copyFail: 'Could not copy automatically — copy the link below',
     report: 'Report a data error', reportT: 'Opens a GitHub issue (sign-in needed) pre-filled with the name, coordinates and link',
     btnSearch: '🔍 Search', btnPorts: '⚓ Ports', portsTab: 'Ports',
+    btnOut: '📊 Output', outTitle: 'Wind farm output: measured yearly generation and capacity factor', outGen: 'Total output', outCf: 'Capacity factor', outModel: 'Same turbine model', outYear: 'Year',
+    outHigh: 'High → low', outLow: 'Low → high', outByN: 'By farm count', outByMed: 'By median', outPh: 'Find a farm or model…', outMed: 'Median', outMedM: 'Dashed line = median for the model',
+    outSum: (y, n, g, m) => `${y} · ${n} farms with measured yearly output · ${g} in total · median capacity factor ${m}%`,
+    outCov: (iso, y, n, mw, k, kmw, p) => iso === 'TWN' ? `The site lists ${n} farms (${mw}) operating in Taiwan at the end of ${y}; only the ${k} Taipower-owned farms (${kmw}, about ${p}%) have official per-farm yearly output. Private farms (including every offshore farm except Taipower Offshore Phase 1) have no official per-farm figures and are not ranked; their output right now is on the Taiwan live page.`
+      : `The site lists ${n} US farms (${mw}) operating at the end of ${y}; ${k} of them (${kmw}, about ${p}%) have a full year of measured EIA-923 output. EIA plants spread over several farms, and years with turbines added or retrofitted, are left out.`,
+    outNote: { gen: () => 'Yearly output = net generation in that year. Larger farms usually produce more; to compare output per MW, see "Capacity factor".', cf: () => 'Capacity factor = yearly output ÷ (rated capacity × 8,760 hours). It mostly reflects the wind at the site, and also downtime, curtailment and the turbine. The dashed line is the median.',
+      model: iso => 'Only models that are the sole model of a whole farm, used by two or more farms with measured output in that year. Each dot is a farm: click it to fly there, or press ▾ to list the farms. ' + (iso === 'TWN' ? 'Taiwanese models come from the site\'s farm records; farms whose Taipower station capacity differs from the record by 3% or more (it may include other machines), such as Changgong, are left out, as are the mixed-model Taichung Port and Datan. ' : 'Models come from USWTDB (same model and unit rating). ') + 'Differences within a model mostly come from the wind, hub height and downtime or curtailment, not the machine alone.' },
+    outGrp: (n, m, lo, hi) => `${n} farms · median ${m}% · ${lo}–${hi}%`, outExpand: 'List the farms', outNoModel: 'No turbine model is used by two or more farms with data in this year.',
+    outRank: (y, a, n, b) => `${y}: capacity factor #${a} of ${n}, output #${b}`, outSee: 'See rankings →', outCountry: '📊 Output rankings',
     fsPh: 'Search farms, developers, turbines, countries or ports…', fsSt: 'Status', fsTy: 'Type', fsMin: 'Size', fsYear: 'Year', fsSort: 'Sort', fsAny: 'Any', fsName: 'Name',
     fsClear: 'Clear filters', fsWorld: 'Search worldwide', fsScope: s => `Scope: ${s}`, fsCount: (n, mw) => `${n} matching · ${mw}`, fsAll: (n, mw) => `${n} farms · ${mw}`,
     fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
@@ -185,6 +203,7 @@ host.innerHTML = `
   <div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div>
   <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
+  <button id="g-btnOut" type="button" data-gi="btnOut" aria-haspopup="dialog"></button>
   <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
   <button id="g-btnFlow" type="button" aria-pressed="false" data-gi="flow"></button>
@@ -358,7 +377,7 @@ function expandFarms(J) {
   D.farms.forEach(f => { (farmsByIso[f.iso] = farmsByIso[f.iso] || []).push(f); });
   farmsReady = true;
   farmLayerDirty = true;
-  renderFarmList(true); renderProfile(); renderPipeList(true);
+  renderFarmList(true); renderProfile(); renderPipeList(true); renderOutput();
   if (pendingParams) { const p = pendingParams; pendingParams = null; applyParams(p, true); }
   if (cardItem && cardItem.kind === 'port') renderCard(cardItem);     // 港口卡片比風場資料先開：補上服務過的風場
   applyFoundations();
@@ -2154,10 +2173,11 @@ function renderProfile() {
   const ltBox = y === (LT && LT.year) ? `<div class="ltbox">${c.lt ? `${esc(T('ltOk')(c.lt.asof, ''))}<a href="${esc(c.lt.url)}" target="_blank" rel="noopener">${esc(c.lt.src[lang === 'zh' ? 0 : 1])}</a>${c.lt.est ? esc(T('ltEst')) : ''}<div class="gnote">${esc(c.lt.note[lang === 'zh' ? 0 : 1])}</div>` : esc(T('ltCarry')(DATA_Y))}</div>` : '';
   box.innerHTML = `<h4>${esc(cname(c))}</h4><div class="sub">${esc(T('cont')[c.cont] || c.cont)} · ${y === (LT && LT.year) ? esc(T('ltYear')(y)) : y}</div>
     <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${ltBox}${rowsHTML(rows)}${auditBox(c.iso)}${live}${note}${farmsHTML}${pipeBlock(c.iso)}
-    <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button>${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
+    <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button>${OUT_ISO.includes(c.iso) ? `<button type="button" data-act="out">${T('outCountry')}</button>` : ''}${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
   box.querySelectorAll('[data-farm]').forEach(a => a.onclick = e => { e.preventDefault(); const f = D.farms.find(x => x.name === a.dataset.farm && x.iso === c.iso); if (f) selectFarm(f); });
   box.querySelector('[data-act="tour"]').onclick = () => tourStart();
   box.querySelector('[data-act="farms"]').onclick = () => setPanelTab('farms');
+  const ob = box.querySelector('[data-act="out"]'); if (ob) ob.onclick = () => openOutput({ iso: c.iso });
   const ps1 = box.querySelector('[data-act="pipe"]'); if (ps1) ps1.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
   wireFdLink(box);
 }
@@ -2714,8 +2734,10 @@ function factsHTML(f) {
     const ys = Object.keys(ag.y).sort(), last = ys[ys.length - 1], fy = y => fmtGWh(ag.y[y][0]) + L('（', ' (') + T('actCf') + ' ' + ag.y[y][1].toFixed(1) + '%' + L('）', ')');
     const src = T('actSrc')[f.iso] || ['', '', ''];
     const link = '<span class="fds"><a href="' + esc(GEN.meta.url[f.iso] || '') + '" target="_blank" rel="noopener" title="' + esc(src[2]) + '">' + esc(src[1]) + '</a></span>';
+    const rk = outRankOf(f);
     rows.push(row(T('actLabel'), last + L(' 年 ', ': ') + fy(last),
-      (ys.length > 1 ? ys.slice(0, -1).map(y => y + L(' 年 ', ': ') + fy(y)).join(L('；', '; ')) + L('。', '. ') : '') + T('actNote')(fmtNum(ag.mw), src[0]), link));
+      (ys.length > 1 ? ys.slice(0, -1).map(y => y + L(' 年 ', ': ') + fy(y)).join(L('；', '; ')) + L('。', '. ') : '') + T('actNote')(fmtNum(ag.mw), src[0]) +
+      (rk ? L('。', '. ') + T('outRank')(rk.y, rk.cf, rk.n, rk.gen) : ''), link + (rk ? ' <button type="button" class="fout">' + esc(T('outSee')) + '</button>' : '')));
   } else if (cf && f.st === 0 && !(f.end && S.year >= f.end)) {
     const gwh = f.mw * cf.cf * 8.76, c = byIso[f.iso];
     rows.push(row(T('genLabel'), L('約 ', 'about ') + fmtGWh(gwh), T('genNote')(c ? cname(c) : f.iso, (cf.cf * 100).toFixed(1), cf.y[0] + '–' + cf.y[1]) + (f.type !== 'onshore' ? T('genOff') : '')));
@@ -2900,6 +2922,7 @@ function renderCard(it) {
   card.querySelectorAll('details.frel').forEach(d => d.addEventListener('toggle', () => WW.store.set('ww_card_' + d.dataset.k, d.open ? '1' : '0')));
   wireEvRows(card);
   card.querySelectorAll('.frmore').forEach(b => b.onclick = () => { b.previousElementSibling.classList.remove('clip'); b.remove(); });
+  const fo = card.querySelector('.fout'); if (fo && f) fo.onclick = () => openOutput({ iso: f.iso, view: 'cf', hl: f.iso + '|' + f.name });
   const cp = card.querySelector('.fcopy');
   if (cp) cp.onclick = async () => {
     const url = itemLink(it);
@@ -3370,6 +3393,7 @@ function applyI18n() {
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
   renderWindLegend();
+  renderOutput();
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
 }
@@ -3409,6 +3433,7 @@ function showSources() {
   const src = D.sources, n = D.notes;
   const li = arr => (arr || []).map(s => '<li>' + (/^https?:/.test(s) ? '<a href="' + esc(s.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(s) + '</a>' : esc(s)) + '</li>').join('');
   const zh = lang === 'zh';
+  $('g-modal').querySelector('.box').classList.remove('wide');
   $('g-modalBody').innerHTML = '<h2>' + T('srcTitle') + '</h2>' +
     (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，每座風場以一支風機代表；點選某座風場時，才依它的機組數量與間距畫出全部風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，點選專案時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片優先用人工核對過的 Wikimedia Commons 照片（tools/farm_photos.py，逐張看過、出自該風場的 Commons 分類，卡片寫出作者與授權）；沒有的話才用維基百科條目圖片，而且要在 Commons 上屬於風電相關分類才顯示。簡介於瀏覽時即時查詢維基百科，離線時照片與簡介都不會顯示。</p>'
         : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, each shown as a single turbine; clicking a farm draws all of its turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and clicking a project shows its planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos come first from hand-checked Wikimedia Commons photos (tools/farm_photos.py: each looked at, taken from the farm\'s own Commons category, with author and licence on the card); otherwise a Wikipedia article image is used only if Commons files it under a wind-power category. Summaries are looked up live from Wikipedia; offline, neither is shown.</p>') +
@@ -3455,6 +3480,164 @@ function showSources() {
   $('g-modalClose').focus();
 }
 
+/* ================= 發電表現：實測年發電量與容量因數的排名、同機型比較 =================
+   只用 generation.json 的實測值（美國＝EIA-923，台灣＝台電自有風場）；國家平均推估的值不排名。
+   同機型：整座風場只有一種機型（build_generation.py 寫的 m 欄），而且同一年有兩座以上風場有數字的機型。 */
+const OUT_ISO = ['TWN', 'USA'], OUT_VIEWS = ['gen', 'cf', 'model'];
+const OUT = { iso: 'TWN', view: 'cf', year: null, desc: true, msort: 'n', q: '', all: false, open: null, hl: null };
+const OUT_LIMIT = 50;
+const outShown = () => $('g-modal').classList.contains('show') && !!$('g-modalBody').querySelector('.oout');
+const median = a => { const s = a.slice().sort((x, y) => x - y), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : 0; };
+const fmtG = v => (v >= 100 ? WW.int(v) : v >= 10 ? v.toFixed(1) : v.toFixed(2)) + ' GWh';     // 排名裡同一欄維持 GWh，不混用 TWh
+const tcls = t => t === 'offshore' ? 'off' : t === 'floating' ? 'fl' : 'on';
+function outFarm(k) {
+  const i = k.indexOf('|'), iso = k.slice(0, i), name = k.slice(i + 1);
+  return (farmsByIso[iso] || []).find(f => f.name === name && !f.pipe) || null;
+}
+function outYears(iso) {
+  return [...new Set(Object.keys(GEN.farms).filter(k => k.startsWith(iso + '|')).flatMap(k => Object.keys(GEN.farms[k].y)))].sort();
+}
+function outRows(iso, y) {
+  return Object.keys(GEN.farms).filter(k => k.startsWith(iso + '|') && GEN.farms[k].y[y]).map(k => {
+    const v = GEN.farms[k], f = outFarm(k);
+    return { k, v, f, gwh: v.y[y][0], cf: v.y[y][1], name: f ? fname(f) : k.slice(iso.length + 1), type: f ? f.type : 'onshore' };
+  });
+}
+/* 某國某年：全部風場的一列名次（容量因數或年發電量），給風場卡片用 */
+function outRankOf(f) {
+  if (!GEN || !f || !OUT_ISO.includes(f.iso)) return null;
+  const k = f.iso + '|' + f.name, g = GEN.farms[k]; if (!g) return null;
+  const ys = Object.keys(g.y).sort(), y = ys[ys.length - 1], rows = outRows(f.iso, y);
+  return { y, n: rows.length, cf: rows.filter(r => r.cf > g.y[y][1]).length + 1, gen: rows.filter(r => r.gwh > g.y[y][0]).length + 1 };
+}
+function openOutput(o) {
+  Object.assign(OUT, { q: '', all: false, open: null, hl: null }, o || {});
+  if (!OUT_ISO.includes(OUT.iso)) OUT.iso = 'TWN';
+  if (!OUT_VIEWS.includes(OUT.view)) OUT.view = 'cf';
+  if (OUT.hl) OUT.all = true;                                    // 從風場卡片來：列出全部，捲到那一列
+  $('g-modal').querySelector('.box').classList.add('wide');
+  $('g-modalBody').innerHTML = '<div class="oout"></div>';
+  $('g-modal').classList.add('show');
+  renderOutput();
+  $('g-modalClose').focus();
+  const sel = $('g-modalBody').querySelector('.orow.sel'); if (sel) sel.scrollIntoView({ block: 'center' });
+  syncURL();
+}
+function renderOutput() {
+  if (!outShown()) return;
+  const el = $('g-modalBody').querySelector('.oout');
+  if (!GEN || !farmsReady) {
+    el.innerHTML = '<h2>' + esc(T('outTitle')) + '</h2><div class="gnote">' + esc(T('farmsLoading')) + '</div>';
+    if (!GEN) { needGen(); if (genP) genP.then(renderOutput); }
+    return;                                                       // 風場資料載入後由 loadFarms 再呼叫一次
+  }
+  const iso = OUT.iso, ys = outYears(iso);
+  if (!ys.includes(String(OUT.year))) OUT.year = ys[ys.length - 1];
+  const y = OUT.year, rows = outRows(iso, y);
+  const seg = (name, items, cur) => '<span class="gseg" role="group">' + items.map(([v, lab]) => `<button type="button" data-${name}="${v}" aria-pressed="${v === cur}"${v === cur ? ' class="active"' : ''}>${esc(lab)}</button>`).join('') + '</span>';
+  const src = T('actSrc')[iso];
+  const med = median(rows.map(r => r.cf)), tot = rows.reduce((s, r) => s + r.gwh, 0);
+  el.innerHTML = '<h2>' + esc(T('outTitle')) + '</h2><div class="otop">' +
+    seg('iso', OUT_ISO.map(c => [c, byIso[c] ? cname(byIso[c]) : c]), iso) +
+    seg('view', [['gen', T('outGen')], ['cf', T('outCf')], ['model', T('outModel')]], OUT.view) +
+    '<label class="oyl">' + esc(T('outYear')) + ' <select class="oyear">' + ys.map(v => `<option${v === y ? ' selected' : ''}>${v}</option>`).join('') + '</select></label>' +
+    (OUT.view === 'model' ? seg('msort', [['n', T('outByN')], ['med', T('outByMed')]], OUT.msort) : seg('dir', [['1', T('outHigh')], ['0', T('outLow')]], OUT.desc ? '1' : '0')) +
+    (OUT.view !== 'model' && rows.length > 20 ? `<input type="search" class="oq" placeholder="${esc(T('outPh'))}" aria-label="${esc(T('outPh'))}" value="${esc(OUT.q)}" autocomplete="off">` : '') + '</div>' +
+    `<div class="osum">${esc(T('outSum')(y, WW.int(rows.length), fmtGWh(tot), med.toFixed(1)))} · <a href="${esc(GEN.meta.url[iso] || '')}" target="_blank" rel="noopener" title="${esc(src[2])}">${esc(src[1])}</a></div>` +
+    `<div class="ocov">${esc(outCoverage(iso, +y, rows))}</div><div class="olist"></div>` +
+    `<div class="onote">${esc(T('outNote')[OUT.view](iso))}</div><div class="otip" role="tooltip"></div>`;
+  fillOutList(el, rows, med);
+  el.querySelectorAll('[data-iso]').forEach(b => b.onclick = () => { OUT.iso = b.dataset.iso; OUT.q = ''; OUT.all = false; OUT.open = null; renderOutput(); syncURL(); });
+  el.querySelectorAll('[data-view]').forEach(b => b.onclick = () => { OUT.view = b.dataset.view; OUT.all = false; renderOutput(); syncURL(); });
+  el.querySelectorAll('[data-dir]').forEach(b => b.onclick = () => { OUT.desc = b.dataset.dir === '1'; renderOutput(); });
+  el.querySelectorAll('[data-msort]').forEach(b => b.onclick = () => { OUT.msort = b.dataset.msort; renderOutput(); });
+  el.querySelector('.oyear').onchange = e => { OUT.year = e.target.value; renderOutput(); };
+  const q = el.querySelector('.oq'); if (q) q.oninput = () => { OUT.q = q.value.slice(0, 60); fillOutList(el, rows, med); };
+}
+function outCoverage(iso, y, rows) {
+  const op = (farmsByIso[iso] || []).filter(f => !f.pipe && !AGG_RE.test(f.name) && farmActive(f, y + 0.99));
+  const opMw = op.reduce((s, f) => s + farmMwAt(f, y + 0.99), 0), haveMw = rows.reduce((s, r) => s + r.v.mw, 0);
+  return T('outCov')(iso, y, WW.int(op.length), fmtMW(opMw), WW.int(rows.length), fmtMW(haveMw), opMw ? Math.round(haveMw / opMw * 100) : 0);
+}
+function outSub(r) {
+  return [fmtMW(r.v.mw), r.v.m || null, r.v.hh ? T('dimHub') + ' ' + r.v.hh + ' m' : null].filter(Boolean).join(' · ');
+}
+function outRow(r, key, mx, med) {
+  const w = mx ? r[key] / mx * 100 : 0;
+  return `<button type="button" class="orow${r.k === OUT.hl ? ' sel' : ''}" data-k="${esc(r.k)}"><span class="ork">#${r.rank}</span>` +
+    `<span class="onm"><b>${esc(r.name)}</b><small>${esc(outSub(r))}</small></span>` +
+    `<span class="obar"><i class="${tcls(r.type)}" style="width:${w.toFixed(1)}%"></i>${med != null ? `<s style="left:${(med / mx * 100).toFixed(1)}%"></s>` : ''}</span>` +
+    `<span class="oval">${key === 'gwh' ? fmtG(r.gwh) : r.cf.toFixed(1) + '%'}<small>${key === 'gwh' ? T('actCf') + ' ' + r.cf.toFixed(1) + '%' : fmtG(r.gwh)}</small></span></button>`;
+}
+function fillOutList(el, rows, med) {
+  const box = el.querySelector('.olist');
+  const types = new Set(rows.map(r => tcls(r.type)));
+  const legend = '<div class="olegend">' + (types.size > 1 ? [...types].map(t => `<span><i class="osw ${t}"></i>${esc(T(t === 'on' ? 'onshore' : t === 'off' ? 'offshore' : 'floating'))}</span>`).join('') : '') +
+    (OUT.view === 'cf' ? `<span><i class="omed"></i>${esc(T('outMed'))} ${med.toFixed(1)}%</span>` : OUT.view === 'model' ? `<span><i class="omed"></i>${esc(T('outMedM'))}</span>` : '') + '</div>';
+  if (OUT.view === 'model') { box.innerHTML = legend + outModels(rows, med); wireOutList(el); return; }
+  const key = OUT.view === 'gen' ? 'gwh' : 'cf';
+  const list = rows.slice().sort((a, b) => b[key] - a[key]);
+  list.forEach((r, i) => { r.rank = i + 1; });
+  if (!OUT.desc) list.reverse();
+  const toks = fold(OUT.q).split(/\s+/).filter(Boolean);
+  const hit = toks.length ? list.filter(r => { const s = fold(r.name + ' ' + r.k + ' ' + (r.v.m || '')); return toks.every(t => s.includes(t)); }) : list;
+  const lim = OUT.all || toks.length ? hit : hit.slice(0, OUT_LIMIT);
+  const mx = Math.max(...rows.map(r => r[key]));
+  box.innerHTML = legend + (hit.length ? lim.map(r => outRow(r, key, mx, key === 'cf' ? med : null)).join('') : '<div class="gnote">' + esc(T('fsNone')) + '</div>') +
+    (lim.length < hit.length ? `<button type="button" class="omore">${esc(T('relMore')(hit.length))}</button>` : '');
+  wireOutList(el);
+}
+function outModels(rows, med) {
+  const by = new Map();
+  rows.forEach(r => { if (r.v.m) { if (!by.has(r.v.m)) by.set(r.v.m, []); by.get(r.v.m).push(r); } });
+  const gs = [...by].filter(([, a]) => a.length >= 2).map(([m, a]) => ({ m, a: a.sort((x, z) => z.cf - x.cf), med: median(a.map(r => r.cf)) }));
+  if (!gs.length) return '<div class="gnote">' + esc(T('outNoModel')) + '</div>';
+  gs.sort(OUT.msort === 'med' ? (a, b) => b.med - a.med || b.a.length - a.a.length : (a, b) => b.a.length - a.a.length || b.med - a.med);
+  const mx = Math.ceil(Math.max(...rows.map(r => r.cf)) / 10) * 10, X = v => (v / mx * 100).toFixed(1) + '%';
+  const ticks = []; for (let v = 0; v <= mx; v += 10) ticks.push(`<span style="left:${X(v)}">${v}%</span>`);
+  const dots = g => {                                             // 數值相近的點錯開成三排，避免整個疊住
+    const lanes = [-1e9, -1e9, -1e9];
+    return g.a.slice().sort((p, q) => p.cf - q.cf).map(r => {
+      const x = r.cf / mx * 100; let li = lanes.findIndex(v => x - v >= 2.2); if (li < 0) li = lanes.indexOf(Math.min(...lanes)); lanes[li] = x;
+      return `<button type="button" class="odot ${tcls(r.type)}" data-k="${esc(r.k)}" style="left:${x.toFixed(1)}%;top:${25 + li * 25}%" aria-label="${esc(r.name + ' ' + r.cf.toFixed(1) + '%')}"></button>`;
+    }).join('') + `<s style="left:${X(g.med)}"></s>`;
+  };
+  return `<div class="oaxis"><span></span><span class="oticks">${ticks.join('')}</span><span></span></div>` + gs.map(g => {
+    const open = OUT.open === g.m, lo = g.a[g.a.length - 1].cf, hi = g.a[0].cf, hh = g.a.map(r => r.v.hh).filter(Boolean);
+    const sub = T('outGrp')(g.a.length, g.med.toFixed(1), lo.toFixed(1), hi.toFixed(1)) + (hh.length ? ' · ' + T('dimHub') + ' ' + (Math.min(...hh) === Math.max(...hh) ? hh[0] : Math.min(...hh) + '–' + Math.max(...hh)) + ' m' : '');
+    const gmx = Math.max(...g.a.map(r => r.cf));
+    g.a.forEach((r, i) => { r.rank = i + 1; });
+    return `<div class="omod${open ? ' open' : ''}" data-m="${esc(g.m)}"><div class="omh"><span class="onm"><b>${esc(g.m)}</b><small>${esc(sub)}</small></span>` +
+      `<span class="odots">${dots(g)}</span><button type="button" class="oexp" aria-expanded="${open}" aria-label="${esc(T('outExpand'))}">${open ? '▴' : '▾'}</button></div>` +
+      (open ? '<div class="omb">' + g.a.map(r => outRow(r, 'cf', gmx, g.med)).join('') + '</div>' : '') + '</div>';
+  }).join('');
+}
+function wireOutList(el) {
+  const go = k => { const f = outFarm(k); if (!f) return; $('g-modal').classList.remove('show'); selectFarm(f); };
+  el.querySelectorAll('.orow').forEach(b => b.onclick = () => go(b.dataset.k));
+  const more = el.querySelector('.omore'); if (more) more.onclick = () => { OUT.all = true; fillOutList(el, outRows(OUT.iso, OUT.year), median(outRows(OUT.iso, OUT.year).map(r => r.cf))); };
+  el.querySelectorAll('.omh').forEach(h => h.onclick = e => {
+    if (e.target.closest('.odot')) return;
+    const m = h.parentNode.dataset.m; OUT.open = OUT.open === m ? null : m;
+    const rows = outRows(OUT.iso, OUT.year); fillOutList(el, rows, median(rows.map(r => r.cf)));
+    const g = el.querySelector('.omod.open'); if (g) g.scrollIntoView({ block: 'nearest' });
+  });
+  const tip = el.querySelector('.otip');
+  el.querySelectorAll('.odot').forEach(d => {
+    d.onclick = e => { e.stopPropagation(); go(d.dataset.k); };
+    const show = () => {
+      const g = GEN.farms[d.dataset.k], f = outFarm(d.dataset.k), yv = g.y[OUT.year];
+      tip.innerHTML = '<b>' + esc(f ? fname(f) : d.dataset.k) + '</b> · ' + yv[1].toFixed(1) + '% · ' + esc(fmtG(yv[0])) + '<br><small>' + esc(fmtMW(g.mw) + (g.hh ? ' · ' + T('dimHub') + ' ' + g.hh + ' m' : '')) + '</small>';
+      const a = d.getBoundingClientRect(), b = el.getBoundingClientRect();
+      tip.style.display = 'block';
+      tip.style.left = clamp(a.left + a.width / 2 - b.left - tip.offsetWidth / 2, 0, b.width - tip.offsetWidth) + 'px';
+      tip.style.top = (a.top - b.top - tip.offsetHeight - 6) + 'px';
+    };
+    d.onpointerenter = show; d.onfocus = show;
+    d.onpointerleave = d.onblur = () => { tip.style.display = 'none'; };
+  });
+}
+
 /* ================= URL state (shareable deep links) ================= */
 let urlT = 0;
 function stateParams() {
@@ -3465,6 +3648,7 @@ function stateParams() {
   if (S.mode !== 'globe') p.mode = S.mode;
   if (S.layer !== 'both') p.layer = S.layer;
   if (S.flow) p.flow = '1';
+  if (outShown()) p.out = OUT.iso + '.' + OUT.view;
   if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
   if (cardItem && cardItem.kind === 'ms') p.ms = cardItem.m.name;
@@ -3522,6 +3706,7 @@ function applyParams(p, fromFarms) {
   }
   if (p.port) { if (!portsReady) pendingPort = p.port; else { const pt = PORTS.find(x => x.id === p.port); if (pt) selectPort(pt); } }
   if (p.ev) { if (!eventsReady) pendingEvent = p.ev; else { const e = EVENTS.find(x => x.id === p.ev); if (e) selectEvent(e); } }
+  if (p.out) { const [oi, ov] = String(p.out).split('.'); openOutput({ iso: oi, view: ov }); }
   if (p.play === '1') { if (!p.y) S.year = Y0; setPlaying(true); }
   if (p.tour === '1' || STORIES[p.tour]) { const k = STORIES[p.tour] ? p.tour : null; if (farmsReady) tourStart(k); else pendingParams = Object.assign(pendingParams || {}, { tour: p.tour }); }
 }
@@ -3587,6 +3772,7 @@ function wireUI() {
   $('g-regionSel').onchange = e => { if (TOUR) tourEnd(false); closeCard(); setRegion(e.target.value); };
   $('g-baseSel').onchange = e => setBase(e.target.value);
   $('g-btnFlow').onclick = () => toggleFlow();
+  $('g-btnOut').onclick = () => openOutput({ iso: OUT_ISO.includes(S.region) ? S.region : OUT.iso });
   $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
   $('g-btnPorts').onclick = () => { togglePorts(); if (S.ports) setPanelTab('ports'); };
@@ -3598,12 +3784,12 @@ function wireUI() {
   document.querySelectorAll('#g-modeSeg button').forEach(b => b.onclick = () => setMode(b.dataset.mode));
   $('g-btnRotate').onclick = e => { S.rotate = !S.rotate; e.currentTarget.classList.toggle('active', S.rotate); e.currentTarget.setAttribute('aria-pressed', S.rotate ? 'true' : 'false'); };
   $('g-btnSources').onclick = showSources;
-  $('g-modalClose').onclick = () => $('g-modal').classList.remove('show');
-  $('g-modal').onclick = e => { if (e.target.id === 'g-modal') e.target.classList.remove('show'); };
+  $('g-modalClose').onclick = () => { $('g-modal').classList.remove('show'); syncURL(); };
+  $('g-modal').onclick = e => { if (e.target.id === 'g-modal') { e.target.classList.remove('show'); syncURL(); } };
   window.addEventListener('keydown', e => {
     if (!active || e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關來源說明，再關資訊卡／導覽
-      if ($('g-modal').classList.contains('show')) { $('g-modal').classList.remove('show'); $('g-btnSources').focus(); return; }
+      if ($('g-modal').classList.contains('show')) { const wasOut = outShown(); $('g-modal').classList.remove('show'); $('g-' + (wasOut ? 'btnOut' : 'btnSources')).focus(); syncURL(); return; }
       if (TOUR) tourEnd(false); if (cardItem) closeCard(); return;
     }
     const tg = e.target.tagName;
