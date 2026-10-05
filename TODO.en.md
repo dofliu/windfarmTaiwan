@@ -33,6 +33,9 @@ and move finished items to the topic lists below.
 - 5 Oct 2026 (v2.21.0): a "Wind speed" basemap on the globe (Global Wind Atlas, `tools/build_wind_resource.py`). 
 - 5 Oct 2026 (v2.22.1): clean-up checks: Germany's suspected duplicates cleared, Taipower-owned farms corrected from Taipower's station list
   (Zhongtun dismantled); Datan and Offshore Phase 1's coordinates remain unverified (see "Farm details").
+- 5 Oct 2026 (v2.24.1–v2.24.3): Taiwan's availability fix, farm-grid project labels, a round of checks on unverified data (Datan, Yongxing,
+  Longmen, Taipower Offshore Phase 1's position, Pentland, Ulsan, Linghang, new Haiyou Anlan). A sample of "Wind now" (NOAA GFS flow particles)
+  was shown to the owner, awaiting a decision; the prototype exists only in this session's local git stash (not pushed) and must be rewritten if the container is recycled; doing it properly needs a 6-hourly schedule and eccodes.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
   chapters); card photos now come from hand-checked Commons photos (`tools/farm_photos.py`, 40 farms and 18 milestones), and Wikipedia article
   images are shown only when filed under wind power. Important farms still without a photo are listed under "Farm details".
@@ -266,7 +269,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] 130 shared coordinate points remain (1,310 operating farms, mostly province-centre placeholders in
       China): add real coordinates from a newer GEM release or local data
 - [ ] Items the clean-up could not find or confirm: whether Iran's Tizbaad (99 MW) and Aqkand (50 MW) are
-      operating (SATBA data); China's curated "CGN Taizhou 1" (300 MW; no CGN offshore project in Taizhou
+      operating (SATBA data; checked again in Oct 2026: IRNA, Tehran Times, MAPNA and SATBA could not be reached from here, Aqkand is "operational"
+      on thewindpower.net but "permitting" in GlobalData, and Tizbaad has only a 2018 report of completion "in 2019"); China's curated "CGN Taizhou 1" (300 MW; no CGN offshore project in Taizhou
       was found) and "Guoxin Sheyang H1" (300 MW; Sheyang H1 is Huaneng's), and GEM's Sheyang South H5
       (400 MW, possibly not yet operating); Vietnam's Song An (46.2 MW, no commissioning found); the
       repowering history of Kemi Ajos in Finland; why the Dominican Republic is about 50 MW below IRENA
@@ -332,12 +336,12 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Actual yearly output (v2.20.0): US from EIA-923, Taipower-owned farms in Taiwan from Taipower open data 17140
 - [x] Taipower-owned farms checked against Taipower's station list (v2.22.1): Luzhu 7.2 MW / 2015, one turbine left at Taichung Power Plant,
       Taichung Port 35 MW, Wanggong 23 MW, Yongxing and Taixi 9.2 MW, Longmen 9 MW corrected, Zhongtun dismantled in 2025; actual output now for 18 stations
-- [ ] Still open for Taipower data: Datan's two official figures disagree (Taipower's list says 15.1 MW, with Datan 1 as 2 GE 1.5se yet 4,500 kW; the
-      Energy Administration's single window says 7 turbines, 13.6 MW), so it stays as is until settled; start years of Taichung Power Plant,
-      Yongxing and Longmen are unverified; private farms have no official per-farm figures (T-REC certificate volumes are not total output);
-      Taipower Offshore Phase 1's coordinates are unverified: Taipower only says "7.2–8.7 km off Fangyuan" and unofficial positions disagree
-      (Wikipedia 23.998 N 120.283 E; thewindpower.net marks its point as imprecise; GEM's comes from 4C Offshore and cannot be used), which is
-      why its card shows about 1.6 km to shore
+- [x] Taipower data checked (v2.24.3, from Taipower's monthly reports): Datan's unit #3 was decommissioned in June 2025, leaving 7 turbines and 13.6 MW
+      (the station list's 15.1 MW predates it); Yongxing in commercial operation from 28 December 2020; Longmen connected on 1 June 2022; Taipower
+      Offshore Phase 1 now sits at the centre of its 21 turbines mapped in OpenStreetMap (23.986 N, 120.242 E)
+- [ ] Still open for Taipower data: the start year of Taichung Power Plant's turbines (Taipower's monthly reports only go back to 2019, and the
+      Taichung Port turbines are dated both end-2005 and 2007) is unverified; look for Taipower's 2005–2007 annual reports or monthly magazine;
+      private farms have no official per-farm figures (T-REC certificate volumes are not total output)
 - [ ] Important farms still without a checked photo (nothing usable on Commons in Oct 2026; `tools/farm_photos.py`): Greater Changhua 1 & 2a and
       2b & 4, Changfang & Xidao, Zhong Neng, Yunlin, Hai Long, Taipower Offshore Phase 2; Vindeby, Hornsea One/Two, Dogger Bank, Moray West,
       Seagreen, Hollandse Kust Zuid, Gemini, Borssele; Yangjiang Shapa, Yinling, the Fukushima demonstration, Hywind Tampen, Kincardine,
@@ -365,16 +369,18 @@ the rules are in `tools/farm_cleanup.py`.
       6.2 MW (2022, Luodousha off Zhanjiang, [National Energy Administration](http://www.nea.gov.cn/2022-06/24/c_1310631921.htm); running
       on a micro-grid; whether it reached the public grid is unverified) and Longyuan's Guoneng Gongxiang 4 MW three-column
       semi-submersible (added in v2.17.2 at an approximate location; grid-connected June 2024, off Nanri Island, Putian, Fujian; [China Daily](https://fj.chinadaily.com.cn/a/202406/28/WS667e79dba3107cd55d269125.html),
-      [SASAC](http://www.sasac.gov.cn/n2588025/n2588124/c33362365/content.html)); CTG's Sanxia Linghang 16 MW semi-submersible (Yangjiang,
-      [Xinhua](https://www.news.cn/tech/20260503/76ea04db45f242819a7f2b39dc191b94/c.html)) and CNOOC's Haiyou Anlan 16 MW tension-leg
-      platform (Lufeng oilfield, [Xinhua](https://www.news.cn/tech/20260806/18f047cf51d840c489e283b9d1669742/c.html)), which only
-      started in 2026, wait for the timeline to reach 2026
-- [ ] Possible double counts, to be verified: Mingyang's OceanX (16.6 MW) sits in the Qingzhou IV farm (500 MW, whose card says
-      "incl. OceanX"), and Sanxia Yinling (5.5 MW) in Shapa III (400 MW); no source says whether the big farms' capacities include them
-- [ ] Korea's Ulsan 750 kW floating pilot: in November 2019 it was still not installed because permits were withheld, and there is no
-      record of it generating at sea afterwards; remove it once it is confirmed that it never operated
-- [ ] The UK's Pentland floating farm has two GEM records ("Pentland Floating Offshore wind farm" and "Pentland wind farm", both
-      100 MW); whether they are the same project is still to be checked
+      [SASAC](http://www.sasac.gov.cn/n2588025/n2588124/c33362365/content.html)); CTG's Sanxia Linghang 16 MW semi-submersible was installed on 2026-05-02
+      but no grid connection has been reported by October 2026, so it stays under construction (moved to its area more than 70 km offshore,
+      near Qingzhou 5 and 7, approximate); CNOOC's Haiyou Anlan 16 MW tension-leg platform was added in v2.24.3
+- [x] Mingyang's OceanX is not double-counted (checked in v2.24.3): Qingzhou IV's 500 MW is 44 fixed-bottom turbines, and OceanX started
+      separately on 2024-12-11
+- [ ] CTG Shapa: CTG gives 5 phases, 1.7 GW and 269 turbines for the whole project, while the site's five phases add up to 1.8 GW (about
+      100 MW more); tender listings name "Shapa V 300 MW" while the site has 400 MW. Change it only with a second first-hand source; whether
+      Sanxia Yinling (5.5 MW) is inside Shapa III's 400 MW is still unknown
+- [ ] Korea's Ulsan 750 kW floating pilot: set to pre-construction with the year unknown in v2.24.3 (permits blocked in November 2019, no
+      later record of installation or generation); check the KETEP/NTIS final report and remove it once it is confirmed never to have operated
+- [x] The UK's Pentland: GEM's two records are the same project (the current data has only "Pentland wind farm"); v2.24.3 sets 2030 as the
+      planned year and moves it off Dounreay; if a later GEM release brings back the other record, merge it with a dup rule
 - [x] Step 4: Taiwan, Japan, Korea and the USA: 36 farms (Sep 2026, v2.10.0)
 - [ ] Step 5: China and Vietnam (the owner decided on 2026-09-27 to keep collecting step by step): 5 Chinese farms added (v2.11.0, v2.11.1); the rest is item 4 of "First things to do" at the top
 

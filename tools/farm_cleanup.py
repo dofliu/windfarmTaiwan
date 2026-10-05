@@ -528,9 +528,11 @@ RULES = [
         'All 31 turbines were installed and grid-connected by August 2024, and commercial operation began with the electricity licence in '
         'April 2025; the allocated capacity is 300 MW, while the installed capacity is 31 × 9.5 MW = 294.5 MW',
         'https://www.csc.com.tw/csc/esg/env/env2_1.html', year=2025, mw=294.5, note=True),
-    fix('TWN', 'Taipower Offshore Phase 1 (Changhua)', C, '機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136',
-        'The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136',
-        'https://www.hitachihyoron.com/rev/archive/2019/r2019_02/01/index.html', turbine='21 x Hitachi HTW5.2-127'),
+    fix('TWN', 'Taipower Offshore Phase 1 (Changhua)', C, '機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136。位置：台電只寫「芳苑外海 7.2–8.7 km」，'
+        '改用 OpenStreetMap 標出的 21 部風機的中心（23.986 N、120.242 E，© OpenStreetMap 貢獻者）；原座標 24.05 N、120.35 E 在海岸邊，與官方的離岸距離不符',
+        'The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136. Position: Taipower only says “7.2–8.7 km off Fangyuan”, so the centre of the 21 turbines '
+        'mapped in OpenStreetMap is used (23.986 N, 120.242 E, © OpenStreetMap contributors); the old point, 24.05 N 120.35 E, was at the coast and did not fit the official distance',
+        'https://www.openstreetmap.org/relation/15992407', turbine='21 x Hitachi HTW5.2-127', lat=23.986, lon=120.242, note=True),
     drop('JPN', 'Kamis Offshore wind farm', G, 'GEM 把神栖一期（2010 年 14 MW）與二期（2013 年 16 MW）合成一筆，本站兩期各有紀錄',
          'GEM bundles Kamisu Phase 1 (14 MW, 2010) and Phase 2 (16 MW, 2013) into one record; both phases are listed separately here',
          'https://www.gem.wiki/Kamis_Offshore_wind_farm'),
@@ -1298,7 +1300,7 @@ RULES = [
         'Marine Scotland granted Section 36 consent on 2023-06-29, it won a Contract for Difference in Allocation Round 7 in January 2026, with a final investment decision '
         'expected in 2027 and operation in 2030; not yet under construction. Moved to GEM’s other point about 7.5 km off Dounreay (the old point was on land at Thurso; approximate)',
         'https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/', year=2030,
-        owner='Highland Wind Ltd (majority Copenhagen Infrastructure Partners)', lat=58.633, lon=-3.815, approx=True),
+        lat=58.633, lon=-3.815, approx=True),
     fix('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', C,
         '蔚山 750 kW 浮動式示範機：2019 年 11 月蔚州郡四度退回細部設計審查，原訂當月完成安裝、隔年 3 月實證的計畫受阻；之後查不到安裝或發電的報導，'
         '原本「2020 年營運中」沒有根據，改為施工前、年份不詳（確認從未運轉後再刪除）',
@@ -1330,15 +1332,26 @@ RULES = [
     fix('TWN', 'Wanggong', C, '台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW）',
         'Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW)',
         'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=23.0, turbine='Enercon E-70 2.3 MW x10'),
-    fix('TWN', 'Yongxing (Fangyuan)', C, '台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；商轉年待查證',
-        'Taipower’s station list: Changhua Yongxing has 4 Enercon E70, 9.2 MW in all (the previous 16.8 MW with 4.2 MW turbines was an estimate); start year unverified',
-        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=9.2, turbine='Enercon E-70 2.3 MW x4'),
+    fix('TWN', 'Datan (Tatan)', C, '大潭：2005 年 6 月 3 部 GE 1.5se 商轉，2011 年 7 月擴建 3 部 Vestas V80 2 MW 與 2 部 Enercon E70 2.3 MW（共 8 部 15.1 MW）；'
+        '#3（GE 1.5se）2025 年 6 月 20 日變更電業執照除役，剩 7 部 13.6 MW（台電簡明月報、能源署單一窗口；台電發電站清單的 15.1 MW 是除役前的數字）',
+        'Datan: 3 GE 1.5se entered service in June 2005, and a July 2011 expansion added 3 Vestas V80 2 MW and 2 Enercon E70 2.3 MW (8 units, 15.1 MW); unit #3 (a GE 1.5se) '
+        'was decommissioned with its licence amended on 20 June 2025, leaving 7 units and 13.6 MW (Taipower’s monthly reports, the Energy Administration’s single window; '
+        'the 15.1 MW in Taipower’s station list predates the decommissioning)',
+        'https://www.taipower.com.tw/media/1f4ew1jr/11508%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf', mw=13.6, turbine='GE 1.5se x2 + Vestas V80 2.0 MW x3 + Enercon E-70 2.3 MW x2', note=True),
+    fix('TWN', 'Yongxing (Fangyuan)', C, '台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；台電簡明月報：2019 年 10 月併聯試運轉，'
+        '2020 年 12 月 28 日商轉（原本寫 2024 年）',
+        'Taipower’s station list: Changhua Yongxing has 4 Enercon E70, 9.2 MW in all (the previous 16.8 MW with 4.2 MW turbines was an estimate); Taipower’s monthly reports: '
+        'connected for trial operation in October 2019, in commercial operation from 28 December 2020 (previously 2024)',
+        'https://www.taipower.com.tw/media/yizfvrbn/10912%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf', mw=9.2, turbine='Enercon E-70 2.3 MW x4', year=2020),
     fix('TWN', 'Yunlin Taixi', C, '台電發電站清單：雲林台西 4 部 Enercon E70 E4，共 9.2 MW，113 年（2024 年）10 月 24 日併聯、試運轉中（原本的 16.8 MW 是估計值）',
         'Taipower’s station list: Yunlin Taixi has 4 Enercon E70 E4, 9.2 MW in all, connected on 24 October 2024 and in trial operation (the previous 16.8 MW was an estimate)',
         'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=9.2, turbine='Enercon E-70 E4 2.3 MW x4'),
-    fix('TWN', 'Penghu Longmen', C, '台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值）',
-        'Taipower’s station list and the Energy Administration’s single window: Penghu Longmen has 3 Enercon E82 E4, 9 MW in all (the previous 6.9 MW was an estimate)',
-        'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=9.0, turbine='Enercon E-82 E4 3.0 MW x3'),
+    fix('TWN', 'Penghu Longmen', C, '台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值）；3 部風機 2019 年完工，'
+        '台電簡明月報寫 2022 年 6 月 1 日併聯、試運轉到 2024 年 8 月（原本寫 2023 年，改用併聯發電的 2022 年）',
+        'Taipower’s station list and the Energy Administration’s single window: Penghu Longmen has 3 Enercon E82 E4, 9 MW in all (the previous 6.9 MW was an estimate); '
+        'the 3 turbines were finished in 2019, and Taipower’s monthly reports give grid connection on 1 June 2022 with trial operation until August 2024 '
+        '(previously 2023; now the 2022 connection year)',
+        'https://www.taipower.com.tw/media/11zda1gx/11308%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf', mw=9.0, turbine='Enercon E-82 E4 3.0 MW x3', year=2022, note=True),
     fix('TWN', 'Penghu Zhongtun', C,
         '中屯 8 部風機運轉逾 20 年、無備品，台電 2023 年起辦理除役更新；更新計畫 2024 年 8 月通過環評但因地方反對暫緩，8 部風機 2025 年 11 月前拆除完成（自由時報 2025-11-15）',
         'Zhongtun’s 8 turbines were over 20 years old with no spare parts and Taipower began decommissioning them in 2023; the renewal plan passed its EIA in August 2024 but was shelved after local opposition, and all 8 turbines had been dismantled by November 2025 (Liberty Times, 15 Nov 2025)',

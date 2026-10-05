@@ -15,6 +15,26 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.24.3 — 2026-10-05
+
+- A round of checks on the items TODO listed as unverified (quotes checked with `check_quotes.py`, rules in `tools/farm_cleanup.py`):
+  - Taiwan (Taipower's monthly reports): Datan's unit #3 was decommissioned in June 2025, leaving 7 turbines and 13.6 MW (was 12.5 MW; the
+    15.1 MW in Taipower's station list predates the decommissioning), and its card tells the 2005 start, 2011 expansion and decommissioning;
+    Yongxing in commercial operation from 28 December 2020 (was 2024); Longmen connected on 1 June 2022 (was 2023); Taipower Offshore Phase 1
+    moves to the centre of its 21 turbines mapped in OpenStreetMap (23.986 N, 120.242 E; the old point was at the coast), and its close-up now
+    draws the real turbine positions.
+  - The UK's Pentland floating wind farm: GEM's two records are the same project, consented and awarded a Contract for Difference in January
+    2026, aiming to operate in 2030; the old point was on land and moves off Dounreay (approximate).
+  - Korea's Ulsan 750 kW floating demonstrator: permits were blocked in 2019 and no later installation or generation can be found, so
+    "operating since 2020" becomes pre-construction with the year unknown.
+  - CTG's 16 MW Sanxia Linghang: the National Energy Administration puts it more than 70 km offshore, so it moves from just off Shapa town to
+    near Qingzhou 5 and 7 (approximate); still under construction (no grid connection reported).
+  - New: CNOOC's Haiyou Anlan, a 16 MW tension-leg floating platform connected to the Lufeng oilfield grid in August 2026 (approximate
+    position), also in the foundations layer.
+  - Mingyang's OceanX is confirmed not double-counted; Taichung Power Plant's start year, Iran's two farms and CTG Shapa's phases adding up
+    to about 100 MW too much still lack a first-hand source and stay in TODO.
+- Taipower-owned farms with actual yearly output rise from 18 to 19 (Datan's capacity now matches Taipower's data).
+
 ## v2.24.2 — 2026-10-05
 
 - The Taiwan live farm grid now shows which farm each Taipower grid-connection name belongs to: Wo1 and Wo2 = Greater Changhua 1 & 2a (900 MW

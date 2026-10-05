@@ -32,7 +32,7 @@ Total: type known for 242 of 334 farms, 71.4% of their capacity (floating farms 
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| China | 141 | 61 | 45% | 31 | 11 | 4 | 15 |
+| China | 142 | 62 | 45% | 31 | 11 | 5 | 15 |
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
@@ -42,7 +42,7 @@ Total: type known for 242 of 334 farms, 71.4% of their capacity (floating farms 
 | France | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | Vietnam | 22 | 13 | 56% | 2 |  |  | 11 |
 | Japan | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
-| South Korea | 7 | 6 | 89% | 1 | 4 | 1 |  |
+| South Korea | 6 | 5 | 89% | 1 | 4 |  |  |
 | Sweden | 4 | 4 | 100% | 1 |  |  | 3 |
 | United States of America | 3 | 3 | 100% | 2 | 1 |  |  |
 | Norway | 3 | 3 | 100% |  |  | 3 |  |
@@ -53,7 +53,7 @@ Total: type known for 242 of 334 farms, 71.4% of their capacity (floating farms 
 
 ## Floating farms (operating)
 
-19 farms, 341.6 MW: spar 6, semi-submersible 7, barge 4, tension-leg platform 1, sub-type unknown or mixed 1.
+19 farms, 356.8 MW: spar 6, semi-submersible 7, barge 4, tension-leg platform 2.
 
 ## Farm by farm
 
@@ -109,6 +109,7 @@ Total: type known for 242 of 334 farms, 71.4% of their capacity (floating farms 
 | Guoneng Dafeng H5 | 206 | 2021 | Monopile | 15–20 |  | 184 | [ne21.com](https://www.ne21.com/news/show-155282.html)<br>[ne21.com](https://www.ne21.com/news/show-132313.html)<br>[dafeng.gov.cn](https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html) | 32 x GW184-6.45 MW, 206.4 MW; all turbine foundations are monopiles without transition piece (Huadian Heavy Industries via ne21.com, 5 Jan 2021; Dafeng district government, Dec 2024); full grid connection Dec 2021 (Jiangsu SASAC, Apr 2022).; ne21 (turbine tender): depth 15–20 m, 67 km offshore; 32 x 6.45 MW installed, model/hub/rotor not found; Dafeng district government: 32 Goldwind GW184-6.45MW turbines (184 m rotor per model name). |
 | Guoneng Gongxiang (Longyuan Nanri floating) | 4.0 | 2024 | Floating (semi-submersible) | 35 |  | 130 | [sasac.gov.cn](http://www.sasac.gov.cn/n2588020/n2877938/n2879597/n30275940/c31096925/content.html)<br>[fujian.gov.cn](https://www.fujian.gov.cn/zwgk/ztzl/sxzygwzxsgzx/sdjj/hyjj/202501/t20250126_6709463.htm)<br>[paper.people.com.cn](http://paper.people.com.cn/rmrbhwb/html/2024-07/05/content_26067553.htm) | Three-column semi-submersible (70 m between columns, 14 m draught) moored by nine suction anchors with chains, with a fish cage below the platform; Fujian government: 30 km offshore in 35 m of water; People’s Daily overseas edition: 130 m rotor |
 | Guoxin Dafeng 850 MW | 850 | 2025 | Monopile | 1–42 |  | 226.5 | [ddx.gubit.cn](http://ddx.gubit.cn/fenxi/002608/202510081600.html)<br>[finance.sina.com.cn](https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml)<br>[ceec.net.cn](https://www.ceec.net.cn/art/2025/4/9/art_52770_2534921.html) | 100 x 8.5 MW; ’all turbine foundations use large-diameter monopiles’, all 100 monopiles driven in 2025 and all turbines grid-connected by 2025-12-29 (gubit/Jiaohuidian 2025-10-08, SASAC 2026).; Site water depth 1-42 m (Sina citing Jiangsu Guoxin); 100 x 8.5 MW with 226.5 m rotor (China Energy Engineering); hub height not found. |
+| Haiyou Anlan (CNOOC floating) | 16.0 | 2026 | Floating (tension-leg platform) |  |  |  | [news.cn](https://www.news.cn/tech/20260806/18f047cf51d840c489e283b9d1669742/c.html) | Tension-leg platform (Xinhua: “the first 16 MW tension-leg deep-sea floating wind platform”); it supplies the Lufeng oilfield, not the public grid |
 | Haiyou Guanlan (CNOOC floating) | 7.2 | 2023 | Floating (semi-submersible) | 120 |  | 158 | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/)<br>[gov.cn](https://www.gov.cn/yaowen/liebiao/202305/content_6875353.htm)<br>[cpem.org.cn](https://www.cpem.org.cn/list68/94573.html) | Semi-submersible; it supplies the Wenchang oilfield grid, not the public grid; Water depth 120 m (gov.cn); rotor 158 m (CPEM citing CNOOC); the tower column above the floater is about 83 m, not a hub height above sea level, so left blank. |
 | Huaneng Dafeng | 300 | 2019 | Monopile | 3.3–12.8 |  | 136 | [baijiahao.baidu.com](https://baijiahao.baidu.com/s?id=1642946831276885180&wfr=spider&for=pc)<br>[power-technology.com](https://power-technology.com/marketdata/huaneng-dafeng-phase-i-offshore-wind-farm-china) | Huaneng Jiangsu Dafeng 300 MW (Maozhusha, 55 km offshore) was built in lots: Zhongtian Marine drove 31 piles (5 MW-class monopiles, done Aug 2019); CCCC First Harbour’s Lot I had 33 steel piles and 34 turbines (piling done 20 Aug 2019, last turbine 29 Sep 2019). Both lots are monopiles, but the total turbine count and whether other lots exist could not be verified. Sources: Zhongtian (baijiahao) 2019, CCCC FHEC via thepaper 2019.; Zhongtian Marine Engineering (Baijiahao): Maozhusha site flat elevation −3.3 to −12.8 m, 55 km offshore; The Paper says phase 1 is 40-odd Envision 4.2 MW + 20 CSIC 5 MW, conflicting with the database's '75x Goldwind 4.0 MW' - to be checked; Power Technology: 48 x Envision EN136-4.2 + 20 x CSSC Haizhuang H151-5.0; main model 136 m (database says Goldwind 4 MW, to be checked); hub not found. |
 | Huaneng Guanyun | 300 | 2021 | Monopile |  |  | 184 | [jsnews.jschina.com.cn](https://jsnews.jschina.com.cn/lyg/a/201910/t20191016_2407402.shtml)<br>[cs.com.cn](https://www.cs.com.cn/xgjj/dlczq/hngj2014/07/02/202207/t20220728_6287639.html) | Phase 1: 300 MW, 48 turbines (46 x 6.45 MW + 2 x 3 MW) on monopiles (10 monopiles driven by Oct 2019); all 48 installed 29 Jun 2021, full capacity 30 Jul 2021. A record of all monopiles completed was not fetched. Sources: jschina 2019-10-16, CWEEA 2021-07-05, Huaneng Power Intl via cs.com.cn 2021.; cs.com.cn (Huaneng release): 48 units, main model 6.45 MW with rotor 184 m (Goldwind GW184-6.45); depth and hub not found. |

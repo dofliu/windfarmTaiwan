@@ -32,7 +32,7 @@
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 中國大陸 | 141 | 61 | 45% | 31 | 11 | 4 | 15 |
+| 中國大陸 | 142 | 62 | 45% | 31 | 11 | 5 | 15 |
 | 英國 | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | 德國 | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | 荷蘭 | 13 | 13 | 100% | 12 |  |  | 1 |
@@ -42,7 +42,7 @@
 | 法國 | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
 | 越南 | 22 | 13 | 56% | 2 |  |  | 11 |
 | 日本 | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
-| 南韓 | 7 | 6 | 89% | 1 | 4 | 1 |  |
+| 南韓 | 6 | 5 | 89% | 1 | 4 |  |  |
 | 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
 | 美國 | 3 | 3 | 100% | 2 | 1 |  |  |
 | 挪威 | 3 | 3 | 100% |  |  | 3 |  |
@@ -53,7 +53,7 @@
 
 ## 浮動式風場（營運中）
 
-共 19 座、341.6 MW：單柱式 6、半潛式 7、駁船式 4、張力腳 1、細分型式不詳或混合 1。
+共 19 座、356.8 MW：單柱式 6、半潛式 7、駁船式 4、張力腳 2。
 
 ## 逐場清單
 
@@ -92,6 +92,7 @@
 | 國能大豐H5（Guoneng Dafeng H5） | 206 | 2021 | 單樁 | 15–20 |  | 184 | [ne21.com](https://www.ne21.com/news/show-155282.html)<br>[ne21.com](https://www.ne21.com/news/show-132313.html)<br>[dafeng.gov.cn](https://www.dafeng.gov.cn/art/2024/12/13/art_45256_4270868.html) | 32台GW184-6.45MW、206.4MW，風機基礎全部採無過渡段單樁（華電重工／世紀新能源網 2021-01-05；大豐區政府 2024-12）；2021年12月全容量併網（江蘇省國資委 2022-04）。；世紀新能源網（風機採購招標）：水深15–20 m、離岸67 km；實際安裝32台6.45 MW，機型／輪轂／葉輪未找到；大豐區政府：32台金風 GW184-6.45MW 機組（機型名稱葉輪直徑 184 m）。 |
 | 國能共享號（南日島風漁融合浮式平台）（Guoneng Gongxiang (Longyuan Nanri floating)） | 4.0 | 2024 | 浮動式（半潛式） | 35 |  | 130 | [sasac.gov.cn](http://www.sasac.gov.cn/n2588020/n2877938/n2879597/n30275940/c31096925/content.html)<br>[fujian.gov.cn](https://www.fujian.gov.cn/zwgk/ztzl/sxzygwzxsgzx/sdjj/hyjj/202501/t20250126_6709463.htm)<br>[paper.people.com.cn](http://paper.people.com.cn/rmrbhwb/html/2024-07/05/content_26067553.htm) | 三立柱半潛式平台（立柱間距 70 m、吃水 14 m），9 套吸力錨＋錨鏈繫泊，平台下方為養殖網箱；福建省政府：離岸 30 km、水深 35 m；人民日報海外版：葉輪直徑 130 m |
 | 國信大豐85萬千瓦海上風電（Guoxin Dafeng 850 MW） | 850 | 2025 | 單樁 | 1–42 |  | 226.5 | [ddx.gubit.cn](http://ddx.gubit.cn/fenxi/002608/202510081600.html)<br>[finance.sina.com.cn](https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml)<br>[ceec.net.cn](https://www.ceec.net.cn/art/2025/4/9/art_52770_2534921.html) | 100×8.5 MW，「風機基礎全部採用大直徑單樁結構」，2025年完成100根單樁基礎施工，2025-12-29全部風機併網（查股網／交匯點2025-10-08、國資委2026）。；場區水深1–42 m（新浪轉江蘇國信）；100台8.5 MW，葉輪226.5 m（中國能建）；輪轂高度未查得。 |
+| 海油安瀾號（Haiyou Anlan (CNOOC floating)） | 16.0 | 2026 | 浮動式（張力腳） |  |  |  | [news.cn](https://www.news.cn/tech/20260806/18f047cf51d840c489e283b9d1669742/c.html) | 張力腿式平台（新華社：「首座16兆瓦張力腿深遠海浮式風電平台」）；供電給陸豐油田，不接公用電網 |
 | 海油觀瀾號（Haiyou Guanlan (CNOOC floating)） | 7.2 | 2023 | 浮動式（半潛式） | 120 |  | 158 | [offshorewind.biz](https://www.offshorewind.biz/2023/05/22/china-connects-deepwater-floating-wind-platform-to-wenchang-oil-field/)<br>[gov.cn](https://www.gov.cn/yaowen/liebiao/202305/content_6875353.htm)<br>[cpem.org.cn](https://www.cpem.org.cn/list68/94573.html) | 半潛式；供電給文昌油田群，不接公用電網；水深120 m（中國政府網）；葉輪158 m（CPEM 轉中國海油）；浮體上方塔柱約83 m，非海平面起算的輪轂高度，故留空。 |
 | 華能大豐海上風電（Huaneng Dafeng） | 300 | 2019 | 單樁 | 3.3–12.8 |  | 136 | [baijiahao.baidu.com](https://baijiahao.baidu.com/s?id=1642946831276885180&wfr=spider&for=pc)<br>[power-technology.com](https://power-technology.com/marketdata/huaneng-dafeng-phase-i-offshore-wind-farm-china) | 華能江蘇大豐300MW（毛竹沙海域，離岸55km）分標段施工：中天海洋工程標段共沉樁31根（5MW級單樁，2019年8月完成）；中交一航局Ⅰ標段33根鋼管樁、34台風機（2019年8月20日沉樁完成，9月29日最後一台吊裝並網）。兩標段皆為單樁／鋼管樁，但全場機組總數與是否尚有其他標段未查得。來源：中天科技（百家號）2019、中交一航局（澎湃）2019。；中天海洋工程（百家號）：毛竹沙海域灘面高程−3.3～−12.8 m、離岸55 km；澎湃報導一期為40餘台遠景4.2 MW＋20台海裝5 MW，與資料庫「75x Goldwind 4.0 MW」不符，待查；Power Technology：48台遠景 EN136-4.2＋20台中船海裝 H151-5.0，取主要機型136米（資料庫寫金風4MW，待查證）；輪轂高度查無。 |
 | 華能灌雲海上風電（Huaneng Guanyun） | 300 | 2021 | 單樁 |  |  | 184 | [jsnews.jschina.com.cn](https://jsnews.jschina.com.cn/lyg/a/201910/t20191016_2407402.shtml)<br>[cs.com.cn](https://www.cs.com.cn/xgjj/dlczq/hngj2014/07/02/202207/t20220728_6287639.html) | 一期300MW、48台（46台6.45MW＋2台3MW），風機基礎為單樁（2019年10月已完成10根單樁沉樁），2021年6月29日48台全部吊裝，2021年7月30日全容量並網。單樁全數完成的紀錄未抓到。來源：中國江蘇網 2019-10-16、風能產業網（CWEEA）2021-07-05、華能國際（中證網）2021。；中證網（華能稿）：48台、主力機型6.45 MW、葉輪直徑184 m（金風GW184-6.45）；水深與輪轂未找到。 |
