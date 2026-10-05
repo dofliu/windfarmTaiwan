@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.24.1 — 2026-10-05
+
+- Fixed Taiwan's overall availability going above 100% (for example 113.7% at 13:40 on 5 Oct 2026): Greater Changhua 2b & 4 (Wo4, Wonan) and
+  Hai Long A and B are still commissioning, so Taipower's live data carries their output (about 1,157 MW at the time) but no listed capacity;
+  their output was counted in the numerator with no capacity in the denominator. Availability now uses only units with a listed capacity
+  (about 83.6% at the time) and notes "excl. ○ MW from units in testing"; total output still includes them. Affects the Taiwan live
+  dashboard, the home page and the globe's Taiwan profile.
+
 ## v2.24.0 — 2026-10-05
 
 - Three more story tours (the "▶ Tour" menu, or `#/global?tour=eu` / `cn` / `fl`), 11 stops each with bilingual narration, all figures taken

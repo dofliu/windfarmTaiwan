@@ -329,9 +329,11 @@ function paint(){paintKPIs();paintHero();paintGrid();paintImpact();paintGroups()
   if(curView==="wall")paintWall();if(curView==="charts")paintChart();updateMarkers();notify();}
 
 /* ---------------- 儀表：KPI ---------------- */
+// 可用率＝有列容量的機組出力 ÷ 其容量。試運轉機組（台電未列容量）也在發電，但沒有分母，算進去會超過 100%，另列 testOut
 function totals(){
   const total=FARMS.reduce((s,f)=>s+(RT[f.id]||0),0),cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
-  return{total,cap,ratio:cap>0?total/cap:0,op:FARMS.filter(f=>!f.pending).length,gen:FARMS.filter(f=>(RT[f.id]||0)>0.1).length,
+  const capOut=FARMS.reduce((s,f)=>s+(f.cap>0?(RT[f.id]||0):0),0);
+  return{total,cap,capOut,testOut:total-capOut,ratio:cap>0?capOut/cap:0,op:FARMS.filter(f=>!f.pending).length,gen:FARMS.filter(f=>(RT[f.id]||0)>0.1).length,
     pending:FARMS.filter(f=>f.pending).length};
 }
 function paintKPIs(){
@@ -341,7 +343,7 @@ function paintKPIs(){
   el.innerHTML=
     stat("hero",t("windTotal"),WW.int(T.total),"MW",LIVE?(EN()?`Taipower data ${fmtSrc(srcTime)} · refreshed about every 2 h`:`台電資料 ${fmtSrc(srcTime)} · 本站約每 2 小時更新`):(EN()?"Simulated from a Taipower snapshot":"以台電快照模擬浮動"))+
     stat("",t("totalCap"),WW.int(T.cap),"MW",EN()?`+ ${T.pending} units testing (capacity not yet listed)`:`另有 ${T.pending} 個試運轉機組未列容量`)+
-    stat("",t("overallAvail"),(T.ratio*100).toFixed(1),"%","",T.ratio*100)+
+    stat("",t("overallAvail"),(T.ratio*100).toFixed(1),"%",T.testOut>0.5?(EN()?`excl. ${WW.int(T.testOut)} MW from units in testing`:`不含試運轉機組的 ${WW.int(T.testOut)} MW`):"",T.ratio*100)+
     stat("",t("co2hr"),WW.int(co2),t("tonHr"),EN()?"output × 0.495 kg/kWh":"出力 × 0.495 kg/度")+
     stat("",t("unitsFarms"),T.gen,`／${FARMS.length}`,EN()?"generating > 0.1 MW now":"此刻出力 > 0.1 MW");
 }
