@@ -176,7 +176,9 @@
 #g-infoCard .cb{padding:12px 14px 10px}
 #g-infoCard .gph{margin:-12px -14px 10px;position:relative}
 #g-infoCard .gph img{display:block;width:100%;max-height:200px;object-fit:cover;border-radius:14px 14px 0 0}
-#g-infoCard .gph .cr{position:absolute;right:6px;bottom:4px;font-size:9.5px;color:#fff;text-shadow:0 1px 3px #000;opacity:.85}
+#g-infoCard .gph .cr{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 4px;font-size:9.5px;line-height:1.35;text-align:right;color:#fff;text-shadow:0 1px 3px #000;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+#g-infoCard .gph .cr a{color:#fff;text-decoration:none}
+#g-infoCard .gph .cr a:hover{text-decoration:underline}
 #g-infoCard .kick{font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding-right:30px}
 #g-infoCard h3{margin:4px 0 0;font-size:16px;line-height:1.3;font-weight:800}
 #g-infoCard .csub{color:var(--ink-2);font-size:12px}
