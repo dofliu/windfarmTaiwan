@@ -100,6 +100,9 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
     pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
     milestones, and a searchable farm list
+  - **Output** (the "📊 Output" toolbar button, the Taiwan and US country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
+    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms) and the US (about 860 farms
+    from EIA-923), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm); private farms have no official per-farm figures and are not ranked
   - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
     refreshed every 6 hours; it is today's weather and does not follow the timeline
   - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
@@ -212,7 +215,7 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
 - `data/global/generation.json` — actual yearly output and capacity factor of farms (876 in the US from EIA-923, public domain;
-  13 Taipower-owned farms in Taiwan from Taipower open data 17140), built by `tools/build_generation.py` and loaded when a farm card first opens
+  19 Taipower-owned farms in Taiwan from Taipower open data 17140; the turbine model when a farm has only one, for the Output dialog's same-model comparison), built by `tools/build_generation.py` and loaded when a farm card first opens
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,900 farms, 147,000
   turbines), downloaded by
   `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the

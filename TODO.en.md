@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 5 Oct 2026: v2.25.0, "Wind now" and a round of data checks; the next conversation starts here)
+## In progress (hand-off, 5 Oct 2026: v2.26.0, the Output dialog; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -35,6 +35,9 @@ and move finished items to the topic lists below.
   (Zhongtun dismantled); Datan and Offshore Phase 1's coordinates remain unverified (see "Farm details").
 - 5 Oct 2026 (v2.24.1–v2.24.3): Taiwan's availability fix, farm-grid project labels, a round of checks on unverified data (Datan, Yongxing,
   Longmen, Taipower Offshore Phase 1's position, Pentland, Ulsan, Linghang, new Haiyou Anlan).
+- 5 Oct 2026 (v2.26.0): the globe's "📊 Output" dialog: total output and capacity factor rankings and a same-model comparison of measured per-farm output
+  for Taiwan (19 Taipower-owned farms) and the US (EIA-923); `generation.json` gained a model field `m`. Private farms have no official per-farm yearly output and are
+  left out; comparing them later could use daily averages accumulated from the live data (labelled as sampled values; ask the owner first).
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn

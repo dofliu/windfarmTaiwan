@@ -15,6 +15,21 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.26.0 — 2026-10-05
+
+- New "📊 Output" dialog on the globe: measured yearly output of individual farms in Taiwan and the US, three ways —
+  - **Total output** and **capacity factor rankings** (choose the year, high → low or low → high, search for a farm; the capacity
+    factor ranking marks the median).
+  - **Same turbine model**: one model's capacity factor across farms, a dot per farm, with ▾ to list the farms (76 models in the
+    US in 2025; three in Taiwan: Vestas V80, Enercon E-70 and E-44).
+  - Measured values only: EIA-923 in the US and the 19 Taipower-owned farms in Taiwan (Taipower open data). Private farms have no
+    official per-farm yearly output and are not ranked; the dialog says what share of the site's operating farms that year has figures.
+  - Opened from the toolbar, the Taiwan and US country profiles, and "See rankings" next to a farm card's actual yearly output (the card
+    also gives the farm's rank); `out=TWN.cf` and `out=USA.model` links can be shared.
+- `generation.json` now carries the turbine model: in the US from USWTDB, only when the whole farm has one model and unit rating (with
+  hub height and rotor diameter); in Taiwan from the site's farm record, only when it names a single model and Taipower's station capacity
+  is within 3% of the record (`tools/build_generation.py`).
+
 ## v2.25.1 — 2026-10-05
 
 - "Wind now" particles are thinner and flow at half the speed with shorter trails; the canvas texture is uploaded to the GPU every other

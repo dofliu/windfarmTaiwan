@@ -428,3 +428,58 @@
 #globe .lbl.ev.pol{color:var(--ev-pol)}
 #g-infoCard .fnote.evcas{color:#ffb3bb;font-weight:700}
 #g-infoCard .evrel .msItem{margin-top:4px}
+/* 發電表現（實測年發電量與容量因數的排名、同機型比較） */
+#g-modal .box.wide{width:min(940px,94%)}
+#g-modal .oout{position:relative}
+#g-modal .oout .otop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 10px}
+#g-modal .oout .oyl{font-size:12px;color:var(--ginkm);display:flex;align-items:center;gap:4px}
+#g-modal .oout .oq{flex:1 1 150px;min-width:120px;background:rgba(255,255,255,.06);border:1px solid var(--gline);border-radius:8px;color:inherit;padding:4px 9px;font:inherit;font-size:12.5px}
+#g-modal .oout .osum{font-size:12.5px;color:#d7e0ec}
+#g-modal .oout .ocov{font-size:11.5px;color:var(--ginkm);margin:2px 0 6px;line-height:1.5}
+#g-modal .oout .olegend{display:flex;flex-wrap:wrap;gap:14px;font-size:11.5px;color:var(--ginkm);margin:6px 0 4px;min-height:4px}
+#g-modal .oout .olegend span{display:inline-flex;align-items:center;gap:5px}
+#g-modal .oout .osw{display:inline-block;width:12px;height:8px;border-radius:2px;background:var(--on)}
+#g-modal .oout .omed{display:inline-block;width:0;height:12px;border-left:1.5px dashed #eaf1f8;opacity:.7}
+#g-modal .oout .orow{white-space:normal;border-radius:0;display:grid;grid-template-columns:38px minmax(0,1.25fr) minmax(70px,1.5fr) 82px;grid-template-areas:"rk nm bar val";gap:10px;align-items:center;width:100%;background:none;border:0;border-top:1px solid var(--gline);color:inherit;font:inherit;text-align:left;padding:5px 6px;cursor:pointer}
+#g-modal .oout .orow:hover,#g-modal .oout .orow:focus-visible{background:rgba(255,255,255,.05)}
+#g-modal .oout .orow.sel{background:rgba(240,200,106,.14);box-shadow:inset 3px 0 0 var(--acc)}
+#g-modal .oout .ork{color:var(--ginkm);font-variant-numeric:tabular-nums;font-size:12px}
+#g-modal .oout .onm{min-width:0}
+#g-modal .oout .orow .ork{grid-area:rk}#g-modal .oout .orow .onm{grid-area:nm}
+#g-modal .oout .onm b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#g-modal .oout .onm small{display:block;color:var(--ginkm);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#g-modal .oout .orow .obar{grid-area:bar}#g-modal .oout .orow .oval{grid-area:val}
+#g-modal .oout .obar{position:relative;height:10px}
+#g-modal .oout .obar i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;background:var(--on);min-width:2px}
+#g-modal .oout i.off,#g-modal .oout .osw.off,#g-modal .oout .odot.off{background:var(--off)}
+#g-modal .oout i.fl,#g-modal .oout .osw.fl,#g-modal .oout .odot.fl{background:var(--fl)}
+#g-modal .oout .obar s,#g-modal .oout .odots s{position:absolute;top:-4px;bottom:-4px;width:0;border-left:1.5px dashed #eaf1f8;opacity:.7;pointer-events:none}
+#g-modal .oout .oval{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+#g-modal .oout .oval small{display:block;font-weight:400;color:var(--ginkm);font-size:11px;white-space:nowrap}
+#g-modal .oout .omore{margin:8px 0 0;width:100%}
+#g-modal .oout .oaxis,#g-modal .oout .omh{display:grid;grid-template-columns:minmax(0,1fr) minmax(140px,1.7fr) 30px;gap:12px;align-items:center}
+#g-modal .oout .oaxis{font-size:10.5px;color:var(--ginkm);margin-top:4px}
+#g-modal .oout .oticks{position:relative;height:16px}
+#g-modal .oout .oticks span{position:absolute;top:0;transform:translateX(-50%)}
+#g-modal .oout .oticks span:first-child{transform:none}
+#g-modal .oout .oticks span:last-child{transform:translateX(-100%)}
+#g-modal .oout .omh{padding:6px 6px;border-top:1px solid var(--gline);cursor:pointer}
+#g-modal .oout .omh:hover{background:rgba(255,255,255,.04)}
+#g-modal .oout .odots{position:relative;height:34px;background:linear-gradient(var(--gline),var(--gline)) 0 50%/100% 1px no-repeat}
+#g-modal .oout .odot{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:2px solid #101a2d;padding:0;background:var(--on);cursor:pointer}
+#g-modal .oout .odot:hover,#g-modal .oout .odot:focus-visible{transform:scale(1.35);z-index:2;outline:none;border-color:#eaf1f8}
+#g-modal .oout .oexp{font-size:12px;background:rgba(255,255,255,.05);border:1px solid var(--gline);color:inherit;border-radius:6px;width:28px;height:24px;cursor:pointer;padding:0}
+#g-modal .oout .omb{padding:0 0 8px 14px;border-left:2px solid var(--gline);margin-left:4px}
+#g-modal .oout .omod.open>.omh{background:rgba(255,255,255,.04)}
+#g-modal .oout .otip{position:absolute;z-index:5;pointer-events:none;background:#0b1424;border:1px solid var(--gline);border-radius:6px;padding:4px 8px;font-size:11.5px;line-height:1.45;white-space:nowrap;display:none;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+#g-modal .oout .otip small{color:var(--ginkm)}
+#g-modal .oout .onote{font-size:11.5px;color:var(--ginkm);margin-top:12px;line-height:1.55}
+#g-infoCard .fout{font:inherit;font-size:11px;color:var(--off-b);background:none;border:1px solid var(--gline);border-radius:99px;padding:1px 8px;cursor:pointer;margin-left:4px}
+@media (max-width:640px){
+  #g-modal .box.wide{width:96%;padding:14px 12px}
+  #g-modal .oout .orow{grid-template-columns:30px minmax(0,1fr) 74px;grid-template-areas:"rk nm val" "rk bar bar";row-gap:4px}
+  #g-modal .oout .oaxis,#g-modal .oout .omh{grid-template-columns:minmax(0,1fr) 30px;grid-template-areas:"nm exp" "dots dots";row-gap:4px}
+  #g-modal .oout .omh .onm{grid-area:nm}#g-modal .oout .omh .oexp{grid-area:exp}#g-modal .oout .omh .odots{grid-area:dots}
+  #g-modal .oout .oaxis span:first-child,#g-modal .oout .oaxis span:last-child{display:none}
+  #g-modal .oout .oaxis{grid-template-columns:1fr}
+}

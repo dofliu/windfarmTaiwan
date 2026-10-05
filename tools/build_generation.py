@@ -14,6 +14,9 @@ EIA-923 年度檔的網址：https://www.eia.gov/electricity/data/eia923/（最�
 台灣：台電「自建之各類再生能源發電量」（政府資料開放平臺 17140，各發電站逐月淨發電量，2024 年起）與
 「風力發電站資料」（17141，各站裝置容量），存在 data/global/sources/（下載：service.taipower.com.tw/data/opendata/apply/file/d693001/001.csv、d693002/001.csv），政府資料開放授權條款第 1 版。只有台電自有的發電站，民營風場沒有逐場的官方數字。
 發電站與本站風場的對應寫在 TW_STATIONS，台電公布的裝置容量要在本站容量 ±15% 內才用（對不上多半是本站的紀錄只含其中幾期）；只用 12 個月都有數字的年份。
+機型（給「發電表現」的同機型比較用，m 欄）：寧可不寫——美國取該風場 EIA 電廠在 USWTDB 的所有機組，只有一種製造商＋型號（且單機容量相同）時才寫，
+並附輪轂高度與葉輪直徑；台灣取本站風場紀錄的 turbine 欄，只有一種機型（沒有「+」、寫得出製造商）、而且台電發電站容量與本站紀錄相差 3% 以內
+（相差較多時發電站可能還含其他機組）才寫。
 風場資料或 USWTDB 重建後要重跑（先跑 tools/build_turbines.py）。
 
 US: EIA-923 (U.S. Energy Information Administration, monthly net generation by plant, public domain). USWTDB gives every turbine its
@@ -25,6 +28,10 @@ tools/build_turbines.py first).
 Taiwan: Taipower's own stations only (open data 17140, monthly net generation by station from 2024; 17141, station capacity; Taiwan
 Open Government Data Licence v1). Stations map to site farms in TW_STATIONS and are used only when Taipower's capacity is within
 ±15% of the site's record; only years with all 12 months reported. Private farms have no official per-farm figures.
+Turbine model (field m, for the same-model comparison in the Output dialog), conservative: in the US, from every USWTDB turbine of the
+farm's EIA plants, written only when they share one manufacturer + model and unit rating (with hub height and rotor diameter); in Taiwan,
+from the site record's turbine field, only when it names a single model with its manufacturer and Taipower's station capacity is within
+3% of the site record (a larger gap means the station may include other machines).
 """
 import collections
 import csv
@@ -78,6 +85,16 @@ def eia923_wind(zip_path):
     return dict(out), year
 
 
+def tw_model(turbine):
+    """「Vestas V80 2.0 MW x40 (23 in 2007, 17 in 2011)」→「Vestas V80 2.0 MW」；混合機型、沒寫製造商的 → None"""
+    t = (turbine or '').strip()
+    if not t or '+' in t:
+        return None
+    t = re.sub(r'^\d+\s*[x×]\s*', '', t)                    # 「21 x Hitachi HTW5.2-127」
+    t = re.sub(r'\s*[x×]\s*\d+.*$', '', t).strip()           # 「… x40 (…)」
+    return t if re.match(r'[A-Za-z]', t) else None
+
+
 def tw_station(name):
     """「觀園風力發電站/Guanyuan …」→「觀園風力」"""
     return re.sub(r'(發電站)?\s*/?\s*[A-Za-z].*$', '', name).strip()
@@ -112,6 +129,9 @@ def taiwan(gen_csv, cap_csv, farms):
                     ys[y] = [round(v / 1000, 1), round(cf * 100, 1)]
         if ys:
             out['TWN|' + name] = {'y': dict(sorted(ys.items())), 'mw': round(kw / 1000, 1), 'st': st}
+            m = tw_model(f.get('turbine'))
+            if m and abs(kw / 1000 - f['mw']) <= 0.03 * f['mw']:
+                out['TWN|' + name]['m'] = m
     print(f'Taiwan: {len(out)} Taipower stations; capacity mismatch skipped: ' + '; '.join(skipped), flush=True)
     return out
 
@@ -122,6 +142,7 @@ def main(uswtdb_csv, *files):
     tb = json.loads(TURB.read_text(encoding='utf-8'))
     rows = list(csv.DictReader(open(uswtdb_csv, encoding='utf-8')))
     plant_n, plant_kw, plant_start = collections.Counter(), collections.defaultdict(float), collections.defaultdict(int)
+    plant_tb = collections.defaultdict(list)                    # 機型：(製造商 型號, 單機 kW, 輪轂高度, 葉輪直徑)
     for r in rows:
         e = num(r['eia_id'])
         if not e or e <= 0:
@@ -129,6 +150,7 @@ def main(uswtdb_csv, *files):
         e = int(e)
         plant_n[e] += 1
         plant_kw[e] += num(r['t_cap']) or 0
+        plant_tb[e].append((' '.join(x for x in (r['t_manu'], r['t_model']) if x and x != 'missing'), num(r['t_cap']), num(r['t_hh']), num(r['t_rd'])))
         # 最後一部機組的商轉年或改裝年：這一年以前（含）都不是完整的一年
         plant_start[e] = max(plant_start[e], int(num(r['p_year']) or 0), int(num(r['t_retro_yr']) or 0))
     gen = {}
@@ -160,6 +182,10 @@ def main(uswtdb_csv, *files):
                 skipped_cf += 1
         if ys:
             out['USA|' + name] = {'y': ys, 'mw': round(mw, 1), 'eia': ids}
+            tbs = [t for i in ids for t in plant_tb[i]]
+            if len({(t[0], t[1]) for t in tbs}) == 1 and ' ' in tbs[0][0] and tbs[0][1]:     # 一種型號、一種單機容量
+                hh = sorted(t[2] for t in tbs if t[2] and t[2] > 0)
+                out['USA|' + name].update(m=tbs[0][0], hh=round(hh[len(hh) // 2]) if hh else None, rd=round(tbs[0][3]) if tbs[0][3] and tbs[0][3] > 0 else None)
     fj = json.loads((ROOT / 'data/global/wind_farms.json').read_text(encoding='utf-8'))
     farms = [dict(zip(fj['meta']['cols'], r)) for r in fj['rows']]
     if tw:
@@ -173,7 +199,8 @@ def main(uswtdb_csv, *files):
         'license': {'USA': 'Public domain (U.S. Government work)', 'TWN': 'Open Government Data License, version 1.0 (Taiwan)'},
         'farms': len(out), 'by_iso': dict(collections.Counter(k.split('|')[0] for k in out)), 'years': years,
         'note': 'Keys are "ISO|farm name". y = {year: [net generation GWh, capacity factor %]}; mw = rated capacity used for the capacity factor; '
-                'only full years (all turbines in service before the year) of plants wholly inside one farm.',
+                'only full years (all turbines in service before the year) of plants wholly inside one farm. m = turbine model, only when the farm has a single model '
+                '(US: USWTDB manufacturer + model; hh = median hub height m, rd = rotor diameter m; Taiwan: site record, station capacity within 3%).',
     }
     OUT.write_text(json.dumps({'meta': meta, 'farms': dict(sorted(out.items()))}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f'{len(out):,} farms with generation; skipped {skipped_shared} farms sharing an EIA plant, {skipped_cf} farm-years outside '
