@@ -4,12 +4,12 @@
   python3 tools/build_photos.py
 
 照片清單在 tools/farm_photos.py（人工逐張看過，見那個檔的說明）。這支程式向 Wikimedia Commons 查每張照片的縮圖網址、作者與授權，
-並檢查：照片存在、授權是 CC0／公有領域／CC BY／CC BY-SA、照片確實在表上寫的那個 Commons 分類裡、風場名稱與 wind_farms.json 完全一致、
+並檢查：照片存在、授權是 CC0／公有領域／CC BY／CC BY-SA／Attribution（只要求標示來源）、照片確實在表上寫的那個 Commons 分類裡、風場名稱與 wind_farms.json 完全一致、
 里程碑名稱與 wind_global.json 一致、事件代碼在 events.json 裡。任何一項不符就中止。
 照片不下載進 repo，網頁直接載入 Commons 的縮圖（離線時不顯示），卡片寫出作者、授權並連到 Commons 的檔案頁。
 
 The photo list lives in tools/farm_photos.py (each photo looked at by hand). This script asks Wikimedia Commons for each file's
-thumbnail URL, author and licence, and stops unless the file exists, is CC0 / public domain / CC BY / CC BY-SA, sits in the
+thumbnail URL, author and licence, and stops unless the file exists, is CC0 / public domain / CC BY / CC BY-SA / Attribution, sits in the
 Commons category the table names, and the farm, milestone or event matches the site's data exactly. Photos are not copied into
 the repo: the page loads the Commons thumbnail (hidden offline) and the card credits the author and licence with a link to the file page.
 """
@@ -30,7 +30,8 @@ ROOT = Path(__file__).resolve().parent.parent
 API = 'https://commons.wikimedia.org/w/api.php'
 UA = {'User-Agent': 'windfarmTaiwan/photos (github.com/dofliu/windfarmTaiwan)'}
 WIDTH = 500                                           # Wikimedia 的標準縮圖寬度之一（卡片最寬約 360 px，高解析螢幕夠用）
-FREE = re.compile(r'^(CC0|Public domain|PD\b|CC BY(-SA)? \d(\.\d)?)', re.I)
+# 自由授權：CC0、公有領域、CC BY／BY-SA，以及 Commons 的 {{Attribution}}（只要求標示來源；台灣政府開放資料、台電網站照片多用這個）
+FREE = re.compile(r'^(CC0|Public domain|PD\b|CC BY(-SA)? \d(\.\d)?|Attribution$)', re.I)
 
 
 def api(**params):
