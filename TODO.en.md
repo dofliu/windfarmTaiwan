@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 2026-10-04: v2.18.0, timeline extended to 2026, real US turbine layouts, farm card additions; the next conversation starts here)
+## In progress (hand-off, 5 Oct 2026: v2.23.0, the story tour "Taiwan's road to offshore wind"; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -33,6 +33,9 @@ and move finished items to the topic lists below.
 - 5 Oct 2026 (v2.21.0): a "Wind speed" basemap on the globe (Global Wind Atlas, `tools/build_wind_resource.py`). 
 - 5 Oct 2026 (v2.22.1): clean-up checks: Germany's suspected duplicates cleared, Taipower-owned farms corrected from Taipower's station list
   (Zhongtun dismantled); Datan and Offshore Phase 1's coordinates remain unverified (see "Farm details").
+- 5 Oct 2026 (v2.23.0): the first story tour, "Taiwan's road to offshore wind" (`STORIES` in `globe.js`, 11 stops with bilingual
+  narration); the Taichung Power Plant and Taichung Port cards tell how their turbines moved. Other chapters (China's rise, North Sea
+  offshore, floating wind) are in ROADMAP phase 3.
 - 5 Oct 2026 (v2.22.0): Germany's MaStR: 6,489 farms draw real turbine positions and 4,780 onshore farms (23.7 GW) are added; German
   farm-level coverage 68% → 95%. All three items (actual output, wind speed basemap, MaStR) are done.
 - 4 Oct 2026 (v2.19.2): a second check of offshore farms under construction "expected in 2026" (East Anglia TWO/THREE and Ecowende pinned in the
