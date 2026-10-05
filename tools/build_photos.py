@@ -97,7 +97,7 @@ def main():
         if cat not in cats:
             errors.append(f'{key}: {f} is not in {cat}')
         by = meta.get('Artist') or meta.get('Credit') or ''
-        out[kind][key] = {'src': ii['thumburl'], 'page': ii['descriptionurl'], 'by': by[:120], 'lic': lic,
+        out[kind][key] = {'src': ii['thumburl'].split('?')[0], 'page': ii['descriptionurl'], 'by': by[:120], 'lic': lic,
                           'licUrl': meta.get('LicenseUrl') or None, 'w': ii.get('thumbwidth'), 'h': ii.get('thumbheight')}
     if errors:
         sys.exit('photos: ' + str(len(errors)) + ' problem(s)\n  ' + '\n  '.join(errors))

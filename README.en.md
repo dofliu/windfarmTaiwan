@@ -48,8 +48,8 @@ A suggested first visit (about 5 minutes):
 1. **Home**: start with the two big numbers at the top — Taiwan's wind output right now and the world's cumulative capacity.
 2. **Taiwan live**: click any farm (for example Greater Changhua or Formosa 2) to open its details: live trend, nearby wind speed,
    specifications and project history. The tabs at the top switch between Dashboard, Farm grid, Charts and Map.
-3. **Global**: press **▶ Tour** in the toolbar and pick "Auto tour" for a guided run through the key moments in wind power, or "★ Taiwan's
-   road to offshore wind" for a narrated trip through 11 Taiwanese offshore farms, or press play on the timeline
+3. **Global**: press **▶ Tour** in the toolbar and pick "Auto tour" for a guided run through the key moments in wind power, or one of four narrated story
+   tours (Taiwan's road to offshore wind, Europe offshore, China's rise, Floating wind), or press play on the timeline
    to watch every country grow from 1980 to today. Press **🔍 Search** (or the / key) and type a farm name such as "Hornsea" or
    "Hai Long", then click a result to fly to it. If a result says it is "not on the map for this year", the timeline is still on an
    earlier year: press "Go to the latest year".
@@ -100,7 +100,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
     pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
     milestones, and a searchable farm list
-  - Guided tour, the story tour "Taiwan's road to offshore wind" (`#/global?tour=tw`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
+  - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
     `#/global?f=Hai%20Long%202%20%26%203`)
   - **Global farm search and filters**: "🔍 Search" in the toolbar or the / key searches all ~23,000 farms by name,
     Chinese name, developer, turbine model or country, with filters for status, type (onshore/offshore/floating),

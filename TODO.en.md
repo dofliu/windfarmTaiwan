@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 5 Oct 2026: v2.23.0, the story tour "Taiwan's road to offshore wind"; the next conversation starts here)
+## In progress (hand-off, 5 Oct 2026: v2.24.0, four story tours and hand-checked farm photos; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -33,6 +33,9 @@ and move finished items to the topic lists below.
 - 5 Oct 2026 (v2.21.0): a "Wind speed" basemap on the globe (Global Wind Atlas, `tools/build_wind_resource.py`). 
 - 5 Oct 2026 (v2.22.1): clean-up checks: Germany's suspected duplicates cleared, Taipower-owned farms corrected from Taipower's station list
   (Zhongtun dismantled); Datan and Offshore Phase 1's coordinates remain unverified (see "Farm details").
+- 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
+  chapters); card photos now come from hand-checked Commons photos (`tools/farm_photos.py`, 40 farms and 18 milestones), and Wikipedia article
+  images are shown only when filed under wind power. Important farms still without a photo are listed under "Farm details".
 - 5 Oct 2026 (v2.23.0): the first story tour, "Taiwan's road to offshore wind" (`STORIES` in `globe.js`, 11 stops with bilingual
   narration); the Taichung Power Plant and Taichung Port cards tell how their turbines moved. Other chapters (China's rise, North Sea
   offshore, floating wind) are in ROADMAP phase 3.
@@ -335,6 +338,12 @@ the rules are in `tools/farm_cleanup.py`.
       Taipower Offshore Phase 1's coordinates are unverified: Taipower only says "7.2–8.7 km off Fangyuan" and unofficial positions disagree
       (Wikipedia 23.998 N 120.283 E; thewindpower.net marks its point as imprecise; GEM's comes from 4C Offshore and cannot be used), which is
       why its card shows about 1.6 km to shore
+- [ ] Important farms still without a checked photo (nothing usable on Commons in Oct 2026; `tools/farm_photos.py`): Greater Changhua 1 & 2a and
+      2b & 4, Changfang & Xidao, Zhong Neng, Yunlin, Hai Long, Taipower Offshore Phase 2; Vindeby, Hornsea One/Two, Dogger Bank, Moray West,
+      Seagreen, Hollandse Kust Zuid, Gemini, Borssele; Yangjiang Shapa, Yinling, the Fukushima demonstration, Hywind Tampen, Kincardine,
+      Provence Grand Large, Goto; milestones V66 prototype, V236, Vineyard Wind 1, Mingyang 20 MW, Dongfang 26 MW. Add them when Commons gets
+      new photos or an owner offers one under a free licence (look at each one). Event photos: Commons has no freely licensed photos of turbine
+      damage from Typhoons Jangmi, Soudelor, Megi and others.
 - [ ] The rest of farm details v2: other national registers (Danish turbine register, UK REPD; Germany's MaStR done in v2.22.0) could fill positions
       OSM lacks (OSM maps few turbines in China); a common turbine-model table
       (only about 14% of capacity has a model string, so limited value); per-farm actual output elsewhere (UK REPD / Ofgem, Australia AEMO and others)

@@ -26,6 +26,14 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   - "Floating wind": Hywind Demo, WindFloat 1, the Fukushima demonstration, Hywind Scotland, Floatgen, WindFloat Atlantic, Kincardine,
     Yinling, Hywind Tampen, Provence Grand Large, Goto.
   - Story stops can now be milestones; the Learn chapters on Asia, offshore, floating wind and Taiwan gain buttons that open the matching tour.
+- Card photos now come from hand-checked Wikimedia Commons photos (new `tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`):
+  - 40 farms (21 in Taiwan, including Formosa 1 phases 1 and 2, Taipower Offshore Phase 1, Formosa 2, Taichung Port at the Gaomei Wetland and
+    Taichung Power Plant; plus European, Chinese and floating farms) and 18 milestones, each looked at by hand, taken from the farm's Commons
+    category or named as that farm, under CC0 / public domain / CC BY / CC BY-SA / Attribution; the card credits author and licence with a link to the Commons file page.
+  - For farms without a checked photo, a Wikipedia article image is shown only if Commons files it under a wind-power category (it was often
+    local scenery, a map or a county montage).
+  - Event cards use a related farm's photo, labelled as not taken at the time of the event; Commons has no freely licensed photos of the events themselves (toppled turbines and so on).
+  - Changhua's offshore farms (Greater Changhua, Changfang & Xidao, Zhong Neng), Yunlin, Hai Long and Taipower Offshore Phase 2 have no usable photo on Commons yet; listed in TODO.
 - Corrected the last stop of "Taiwan's road to offshore wind": Taipower took over Offshore Phase 2's turbine installation in July 2026 and aims
   to connect it by the end of the year (CNA), not in the first half of 2027.
 - Taiwan's offshore farms under construction re-checked: no new commercial-operation announcements for Greater Changhua 2b & 4, Hai Long or
