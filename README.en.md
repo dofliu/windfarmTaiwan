@@ -141,7 +141,8 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     (`tools/farm_dimensions.py`, each row with a quoted source), and the farm card's cross-section and the close-up turbine are
     drawn to scale from them; of the 236 operating offshore farms with a foundation type, 234 have at least one value and 168 have
     all three. Consent limits, EIA design values and values for only one phase or some units are not used (reasons in TODO).
-  - **Farm cards**: click a farm for its Wikipedia photo and summary; its standing within the country
+  - **Farm cards**: click a farm for a photo (hand-checked Wikimedia Commons photos first, with author and licence; otherwise a
+    Wikipedia article image only when it shows wind turbines) and its Wikipedia summary; its standing within the country
     (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
     nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
     satellite map, OpenStreetMap, a wind resource map (Global Wind Atlas) and Wikidata; "Copy link to this
@@ -486,7 +487,8 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Wind speed basemap: Global Wind Atlas 3 (DTU Wind Energy / World Bank Group, CC BY 4.0)
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
   (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
-- Farm photos and summaries: looked up live from Wikipedia / Wikimedia Commons (per-image licences)
+- Farm photos: hand-checked Wikimedia Commons photos (`tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`, each
+  photo's author and licence shown on the card); other farms and summaries are looked up live from Wikipedia / Wikimedia Commons (per-image licences)
 - Libraries: three.js r128 (MIT), Leaflet 1.9.4 (BSD-2)
 
 Turbine counts, coordinates, and developer info are compiled from public sources; coordinates are

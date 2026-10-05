@@ -15,6 +15,22 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.24.0 — 2026-10-05
+
+- Three more story tours (the "▶ Tour" menu, or `#/global?tour=eu` / `cn` / `fl`), 11 stops each with bilingual narration, all figures taken
+  from the site's farm records, milestones, events layer and national series:
+  - "Europe offshore: from Vindeby to gigawatts": Vindeby (1991), Middelgrunden, Horns Rev 1, alpha ventus, London Array, Hornsea One,
+    Hornsea Two, Hollandse Kust Zuid, Seagreen, Dogger Bank A, Moray West.
+  - "China's rise": Dabancheng, Huitengxile, Jiuquan, Donghai Bridge, the Rudong tidal flats, Yangjiang Shapa (the 2021 rush), Hinggan
+    League, Zhangpu Liu'ao Phase 2, Qingzhou 6, Mingyang 20 MW, Dongfang 26 MW.
+  - "Floating wind": Hywind Demo, WindFloat 1, the Fukushima demonstration, Hywind Scotland, Floatgen, WindFloat Atlantic, Kincardine,
+    Yinling, Hywind Tampen, Provence Grand Large, Goto.
+  - Story stops can now be milestones; the Learn chapters on Asia, offshore, floating wind and Taiwan gain buttons that open the matching tour.
+- Corrected the last stop of "Taiwan's road to offshore wind": Taipower took over Offshore Phase 2's turbine installation in July 2026 and aims
+  to connect it by the end of the year (CNA), not in the first half of 2027.
+- Taiwan's offshore farms under construction re-checked: no new commercial-operation announcements for Greater Changhua 2b & 4, Hai Long or
+  Taipower Offshore Phase 2, so the data is unchanged.
+
 ## v2.23.0 — 2026-10-05
 
 - A story tour on the globe, "Taiwan's road to offshore wind": "▶ Tour" in the toolbar now opens a menu; pick "★ Taiwan's road to offshore

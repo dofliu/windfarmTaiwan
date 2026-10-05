@@ -87,6 +87,14 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   If a GEM project was merged into a curated record that a dup/drop rule later removes, the build stops (otherwise the farm would
   vanish): list it in `GEM_KEEP` if it is a separate farm, or in `ORPHAN_OK` only when another record is confirmed to cover it.
 
+- 卡片照片寫在 `tools/farm_photos.py`：每張都要人工看過（看得到該風場或里程碑風機的風機，不是地圖、標誌、典禮或遠景），出自該風場自己的 Wikimedia Commons 分類，
+  授權是 CC0／公有領域／CC BY／CC BY-SA；改完跑 `python3 tools/build_photos.py`（檢查名稱、分類與授權，輸出 `data/global/photos.json`），卡片會寫出作者與授權。
+  事件只放拍到該事件本身的照片。找候選用 `python3 tools/find_photos.py 名稱 --save 目錄`。照片不存進 repo，網頁直接載入 Commons 縮圖。
+  Card photos live in `tools/farm_photos.py`: each one looked at by hand (it shows the farm's or milestone machine's turbines, not a map,
+  logo, ceremony or distant view), taken from the farm's own Wikimedia Commons category, under CC0 / public domain / CC BY / CC BY-SA.
+  Run `python3 tools/build_photos.py` after editing (it checks names, categories and licences and writes `data/global/photos.json`); the card
+  credits author and licence. Event photos must show the event itself. Photos are not stored in the repo; the page loads Commons thumbnails.
+
 - 港口資料 `data/global/ports.json` 是人工整理、每港附出處：座標標在碼頭或港池（`coordNote` 說明是哪裡），「服務過的風場」只列有出處佐證的，
   名稱要與 `wind_farms.json` 完全一致；角色已結束的港口標 `former`。改完跑 `python3 tools/qa_ports.py`。查不到的港口不要猜，列在 TODO。
   Ports (`data/global/ports.json`) are curated by hand with sources for every port: coordinates mark the quay or harbour basin

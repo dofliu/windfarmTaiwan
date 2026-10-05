@@ -14,6 +14,16 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v2.24.0 — 2026-10-05
+
+- 故事導覽再加三章（工具列「▶ 導覽」選單，或網址 `#/global?tour=eu`／`cn`／`fl`），每章 11 站、每站中英文旁白，數字都取自本站的風場紀錄、里程碑、事件圖層與國家數列：
+  - 「歐洲離岸：從 Vindeby 到 GW 級」：Vindeby（1991）、Middelgrunden、Horns Rev 1、alpha ventus、London Array、Hornsea One、Hornsea Two、Hollandse Kust Zuid、Seagreen、Dogger Bank A、Moray West。
+  - 「中國崛起」：達坂城、輝騰錫勒、酒泉、東海大橋、如東潮間帶、陽江沙扒（2021 年搶裝）、興安盟、漳浦六鰲二期、青洲六、明陽 20 MW、東方電氣 26 MW。
+  - 「浮動式風電」：Hywind Demo、WindFloat 1、福島實證、Hywind Scotland、Floatgen、WindFloat Atlantic、Kincardine、引領號、Hywind Tampen、Provence Grand Large、五島。
+  - 故事站點可以是里程碑；風電知識的亞洲、離岸、浮動式、台灣各章加上開啟對應故事導覽的按鈕。
+- 「台灣離岸之路」最後一站更正：台電 2026 年 7 月接管離岸二期風機安裝，目標是年底前完成併網（中央社），原本寫 2027 年上半年併聯。
+- 台灣 2026 年興建中離岸風場再核對：沃四風、海龍、台電二期都還沒有新的商轉公告，資料不變。
+
 ## v2.23.0 — 2026-10-05
 
 - 地球儀新增故事導覽「台灣離岸之路」：工具列「▶ 導覽」打開選單，選「★ 台灣離岸之路」（或網址 `#/global?tour=tw`），

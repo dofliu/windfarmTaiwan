@@ -43,9 +43,10 @@ const I18N = {
     genLabel: '估計年發電量', genNote: (cn, cf, y) => '容量 × ' + cn + ' ' + y + ' 年風電平均容量因數 ' + cf + '%（Ember）；是估計，不是實測', genOff: '；離岸風場的容量因數通常高於全國平均',
     totalCap: '容量', units: '部', clickMore: '點擊：拉近並查看照片與連結', clickFarm: '點擊：拉近、畫出全部風機，並查看照片與連結',
     wikiLoading: '正在查詢維基百科…', wikiNone: '找不到對應的維基百科條目，可用下方連結搜尋。', wikiOffline: '目前無法連線維基百科（離線或網路受限），可用下方連結查詢。',
-    lnkWiki: '維基百科', lnkMap: '衛星地圖', lnkPhoto: '搜尋照片', lnkGem: 'GEM 專案頁', photoCredit: '圖片：Wikipedia / Wikimedia Commons',
+    lnkWiki: '維基百科', lnkMap: '衛星地圖', lnkPhoto: '搜尋照片', lnkGem: 'GEM 專案頁', photoBy: '照片：', photoWiki: '維基百科條目圖片', photoFarmOnly: n => '風場照片（' + n + '，不是事件當時）',
     whyFirstOff: c => c + '第一座離岸風場', whyFirstOn: c => c + '資料中最早的陸域風場', whyRecOff: c => '併網時為' + c + '規模最大的離岸風場', whyRecOn: c => '併網時為' + c + '規模最大的陸域風場', whyTop: c => c + '規模最大的風場之一',
-    tourAuto: '自動導覽（目前範圍）', tourStory: { tw: '台灣離岸之路' }, tourStoryT: { tw: '從 2017 年兩部示範機到兩座 GW 級風場：台灣離岸風電十年' },
+    tourAuto: '自動導覽（目前範圍）', tourStory: { tw: '台灣離岸之路', eu: '歐洲離岸：從 Vindeby 到 GW 級', cn: '中國崛起', fl: '浮動式風電' },
+    tourStoryT: { tw: '從 2017 年兩部示範機到兩座 GW 級風場：台灣離岸風電十年', eu: '1991 年 11 部 450 kW 到單場 1.3 GW：歐洲怎麼把離岸風電做大', cn: '從新疆達坂城到全球一半的風電：中國三十年', fl: '從一部示範機到浮動式風場：把風機帶到深海' },
     tourEnd: '導覽結束', decom: '已除役', yearUnknown: '商轉年份不詳', posStack: '位置示意：與另外 {n} 筆共用同一座標（多為省或國家中心的代用點），地圖上以該點為中心排開，不是實際位置。', posApprox: '座標為概略位置（資料來源標示）。', tipStack: '位置示意（共用代用座標）', expected: '預計', pipeNote: '規劃中專案拉到最新年份才會顯示',
     liveNow: '此刻即時出力', liveLegend: '綠色外圈：有即時資料的風場，葉片轉速依此刻出力', liveSee: '看即時詳情', availability: '可用率', open: '開啟', more: '顯示更多', search: '搜尋風場名稱',
     fAll: '全部', fOp: '營運中', fPipe: '規劃中', sortMw: '依容量', sortYear: '依年份',
@@ -120,9 +121,10 @@ const I18N = {
     genLabel: 'Estimated yearly output', genNote: (cn, cf, y) => 'capacity × the ' + y + ' average wind capacity factor of ' + cn + ', ' + cf + '% (Ember); an estimate, not a measurement', genOff: '; offshore farms usually run above the national average',
     totalCap: 'Capacity', units: 'units', clickMore: 'Click to zoom in and see photo & links', clickFarm: 'Click to zoom in, draw all its turbines and see photo & links',
     wikiLoading: 'Looking up Wikipedia…', wikiNone: 'No matching Wikipedia article found — try the links below.', wikiOffline: 'Wikipedia is unreachable right now (offline or blocked) — try the links below.',
-    lnkWiki: 'Wikipedia', lnkMap: 'Satellite map', lnkPhoto: 'Search photos', lnkGem: 'GEM project page', photoCredit: 'Image: Wikipedia / Wikimedia Commons',
+    lnkWiki: 'Wikipedia', lnkMap: 'Satellite map', lnkPhoto: 'Search photos', lnkGem: 'GEM project page', photoBy: 'Photo: ', photoWiki: 'Wikipedia article image', photoFarmOnly: n => 'Photo of the farm (' + n + '), not of the event',
     whyFirstOff: c => 'First offshore wind farm in ' + c, whyFirstOn: c => 'Earliest onshore wind farm in the dataset for ' + c, whyRecOff: c => 'Largest offshore wind farm in ' + c + ' when commissioned', whyRecOn: c => 'Largest onshore wind farm in ' + c + ' when commissioned', whyTop: c => 'One of the largest wind farms in ' + c,
-    tourAuto: 'Auto tour (current focus)', tourStory: { tw: 'Taiwan\'s road to offshore wind' }, tourStoryT: { tw: 'From two demonstration turbines in 2017 to gigawatt-scale farms: ten years of offshore wind in Taiwan' },
+    tourAuto: 'Auto tour (current focus)', tourStory: { tw: 'Taiwan\'s road to offshore wind', eu: 'Europe offshore: from Vindeby to gigawatts', cn: 'China\'s rise', fl: 'Floating wind' },
+    tourStoryT: { tw: 'From two demonstration turbines in 2017 to gigawatt-scale farms: ten years of offshore wind in Taiwan', eu: 'From eleven 450 kW turbines in 1991 to 1.3 GW in one farm: how Europe scaled up offshore wind', cn: 'From Dabancheng to half the world\'s wind power: China in thirty years', fl: 'From one demonstrator to floating farms: taking turbines into deep water' },
     tourEnd: 'Tour finished', decom: 'decommissioned', yearUnknown: 'start year unknown', posStack: 'Schematic position: shares one point with {n} other records (usually a province or country centre used as a placeholder), so they are fanned out around it on the map; this is not the real location.', posApprox: 'Approximate location (as marked by the source).', tipStack: 'Schematic position (shared placeholder point)', expected: 'expected', pipeNote: 'Pipeline projects appear at the latest year',
     liveNow: 'Live output now', liveLegend: 'Green ring: farms with live data; rotors spin with their current output', liveSee: 'Live details', availability: 'availability', open: 'Open', more: 'Show more', search: 'Search farms',
     fAll: 'All', fOp: 'Operating', fPipe: 'Pipeline', sortMw: 'By size', sortYear: 'By year',
@@ -2296,12 +2298,12 @@ async function wikiSearch(hostName, q) {
   const clean = q.replace(/\(.*?\)|（.*?）/g, ' ').replace(/\s+/g, ' ').trim();
   const sq = hostName === 'en' && !/wind|turbine|farm|park/i.test(clean) ? clean + ' wind' : clean;
   const url = 'https://' + hostName + '.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrlimit=4&gsrsearch=' + encodeURIComponent(sq) +
-    '&prop=pageimages%7Cextracts%7Cinfo%7Cpageprops&ppprop=wikibase_item&piprop=thumbnail&pithumbsize=520&exintro=1&explaintext=1&exsentences=3&inprop=url&redirects=1' + (hostName === 'zh' ? '&variant=zh-tw' : '');
+    '&prop=pageimages%7Cextracts%7Cinfo%7Cpageprops&ppprop=wikibase_item&piprop=thumbnail%7Cname&pithumbsize=520&exintro=1&explaintext=1&exsentences=3&inprop=url&redirects=1' + (hostName === 'zh' ? '&variant=zh-tw' : '');
   const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 6000);
   try {
     const res = await fetch(url, { signal: ctl.signal }); const j = await res.json();
     const pages = Object.values((j.query && j.query.pages) || {}).sort((a, b) => a.index - b.index);
-    for (const p of pages) { if (titleMatch(clean, p.title)) return { title: p.title, url: hostName === 'zh' ? 'https://zh.wikipedia.org/zh-tw/' + encodeURIComponent(p.title.replace(/ /g, '_')) : (p.fullurl || ('https://en.wikipedia.org/wiki/' + encodeURIComponent(p.title))), extract: p.extract || '', thumb: p.thumbnail && p.thumbnail.source, host: hostName, qid: p.pageprops && p.pageprops.wikibase_item }; }
+    for (const p of pages) { if (titleMatch(clean, p.title)) return { title: p.title, url: hostName === 'zh' ? 'https://zh.wikipedia.org/zh-tw/' + encodeURIComponent(p.title.replace(/ /g, '_')) : (p.fullurl || ('https://en.wikipedia.org/wiki/' + encodeURIComponent(p.title))), extract: p.extract || '', thumb: p.thumbnail && p.thumbnail.source, file: p.pageimage || null, host: hostName, qid: p.pageprops && p.pageprops.wikibase_item }; }
   } finally { clearTimeout(to); }
   return null;
 }
@@ -2314,6 +2316,59 @@ function wikiLookup(it) {
   if (lang !== 'zh' && it.zh) tries.push(['zh', it.zh]);
   wikiCache[key] = (async () => { let net = false; for (const [h, q] of tries) { try { const r = await wikiSearch(h, q); if (r) return r; } catch (e) { net = true; } } if (net) delete wikiCache[key]; return net ? 'ERR' : null; })();
   return wikiCache[key];
+}
+
+/* ================= 照片：人工核對的 Commons 照片優先，其次是看得出是風機的維基百科條目圖片 =================
+   photos.json 由 tools/build_photos.py 產生（tools/farm_photos.py 的照片都逐張看過、出自該風場的 Commons 分類）。
+   沒有核對過的照片時，維基百科條目圖片要在 Commons 上屬於跟風電有關的分類才顯示：很多條目的圖片是當地風景、地圖或標誌，寧可不放。 */
+let PHOTOS = null, photosP = null;
+function loadPhotos() {
+  if (!photosP) photosP = WW.getJSON(WW.DATA.photos).then(j => { PHOTOS = j; }).catch(() => { PHOTOS = { farms: {}, ms: {}, events: {} }; });
+  return photosP;
+}
+function photoOf(it) {
+  if (!PHOTOS || !it) return null;
+  const pf = f => f && !f.pseudo ? PHOTOS.farms[f.iso + '|' + f.name] : null;
+  if (it.kind === 'farm') return pf(it.f) || null;
+  if (it.kind === 'ms') return PHOTOS.ms[it.name] || null;
+  if (it.kind === 'event') {
+    if (PHOTOS.events[it.e.id]) return PHOTOS.events[it.e.id];
+    for (const n of it.e.farms || []) { const f = farmNamed(n), p = pf(f); if (p) return Object.assign({ farmOnly: fname(f) }, p); }
+  }
+  return null;
+}
+const WIND_CAT = /wind|turbin|windkraft|windpark|vindkraft|vindm|[ée]olien|e[óo]lic|風力|风力|風電|风电|風車|风车|風場|风场|風力発電/i;
+const NOT_PHOTO = /\bmaps?\b|locator|location|logo|diagram|chart|graph|\.svg\b|\.pdf\b/i;
+const commonsCache = {};
+function wikiPhoto(file) {
+  if (!file) return Promise.resolve(null);
+  if (!commonsCache[file]) commonsCache[file] = fetch('https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*&prop=categories%7Cimageinfo&clshow=!hidden&cllimit=50' +
+    '&iiprop=url%7Cextmetadata&iiurlwidth=500&iiextmetadatafilter=Artist%7CLicenseShortName&titles=' + encodeURIComponent('File:' + file)).then(r => r.json()).then(j => {
+    const p = j.query && j.query.pages && j.query.pages[0];
+    if (!p || p.missing || !p.imageinfo) return null;           // 維基百科本地的檔案（多為合理使用）不用
+    const cats = (p.categories || []).map(c => c.title).join(' | ');
+    if (!WIND_CAT.test(cats) || NOT_PHOTO.test(file + ' | ' + cats)) return null;
+    const ii = p.imageinfo[0], m = ii.extmetadata || {};
+    const txt = v => v && v.value ? String(v.value).replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim().slice(0, 120) : '';
+    return { src: ii.thumburl, page: ii.descriptionurl, by: txt(m.Artist), lic: txt(m.LicenseShortName), wiki: true };
+  }).catch(() => null);
+  return commonsCache[file];
+}
+/* 卡片與滑鼠提示共用：先查核對過的照片，沒有再查維基百科條目圖片（港口、事件不查維基百科） */
+function itemPhoto(it) {
+  return loadPhotos().then(() => {
+    const p = photoOf(it);
+    if (p || it.kind === 'port' || it.kind === 'event') return p;
+    return wikiLookup(it).then(w => w && w !== 'ERR' && w.file ? wikiPhoto(w.file) : null);
+  });
+}
+function setCardPhoto(card, p) {
+  const ph = card.querySelector('.gph'); if (!ph || !p || !p.src) return;
+  const img = ph.querySelector('img'), cr = ph.querySelector('.cr');
+  cr.innerHTML = (p.farmOnly ? esc(T('photoFarmOnly')(p.farmOnly)) + ' · ' : '') + '<a href="' + esc(p.page) + '" target="_blank" rel="noopener">' + esc(T('photoBy')) +
+    esc(p.by || 'Wikimedia Commons') + (p.lic ? ' · ' + esc(p.lic) : '') + (p.wiki ? ' · ' + esc(T('photoWiki')) : '') + '</a>';
+  img.onload = () => { ph.hidden = false; }; img.onerror = () => { ph.hidden = true; };
+  img.src = p.src;
 }
 
 /* ================= items (farm / milestone) and info card ================= */
@@ -2759,7 +2814,7 @@ function renderCard(it) {
     const m = it.m; title = m.name;
     tag = '<span class="gtag ' + stCls({ type: it.type }) + '">' + T('type')[it.type] + '</span>';
     spec = [m.mw ? T('turbine') + ' ' + (m.mw < 1 ? (m.mw * 1000).toFixed(0) + ' kW' : m.mw + ' MW') : null, m.farm ? T('farm') + ' ' + WW.int(m.farm) + ' MW' : null, m.rotor ? T('rotor') + ' ' + m.rotor + ' m' : null, m.maker ? esc(m.maker) : null].filter(Boolean).join(' · ');
-    desc = lang === 'zh' ? m.zh : m.en;
+    desc = it.why || (lang === 'zh' ? m.zh : m.en);
   } else if (it.kind === 'event') {
     const e = it.e; title = evTitle(e);
     tag = evCatTag(e) + '<span class="gtag ' + (e.site === 'on' ? 'on' : 'off') + '">' + esc(evL(e.sub)) + '</span>';
@@ -2811,7 +2866,7 @@ function renderCard(it) {
     rel += evFarmSection(f);
   }
   card.querySelector('.cb').innerHTML =
-    '<div class="gph" hidden><img alt=""><span class="cr">' + T('photoCredit') + '</span></div>' +
+    '<div class="gph" hidden><img alt=""><span class="cr"></span></div>' +
     '<div class="kick">' + tag + (yrs !== '' ? esc(String(yrs)) + ' · ' : '') + esc(cn) + '</div>' +
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
     (it.story && desc ? '<p class="desc story"><b>' + esc(T('tourStory')[it.story]) + (TOUR ? ' · ' + (TOUR.i + 1) + ' / ' + TOUR.stops.length : '') + '</b>' + esc(desc) + '</p>' : '') +
@@ -2845,6 +2900,7 @@ function renderCard(it) {
     inp.value = url; inp.focus(); inp.select();
   };
   const myIt = it;
+  itemPhoto(it).then(p => { if (cardItem === myIt) setCardPhoto(card, p); });
   if (it.kind === 'port' || it.kind === 'event') { card.querySelector('.wx').remove(); return; }      // 港口、事件：維基百科比對容易誤配，改列出處
   wikiLookup(it).then(w => {
     if (cardItem !== myIt) return;
@@ -2854,7 +2910,6 @@ function renderCard(it) {
     const a = document.createElement('a'); a.href = w.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = T('lnkWiki') + ' · ' + w.title;
     card.querySelector('.links.xl').prepend(a);                   // 不是即時框裡的 .links
     const wd = card.querySelector('.links.xl .wd'); if (wd && w.qid) wd.href = 'https://www.wikidata.org/wiki/' + w.qid;   // 找到維基百科條目：直接連到它的 Wikidata 項目
-    if (w.thumb) { const ph = card.querySelector('.gph'), img = ph.querySelector('img'); img.onload = () => { ph.hidden = false; }; img.onerror = () => { ph.hidden = true; }; img.src = w.thumb; }
   });
 }
 function closeCard() { $('g-infoCard').classList.remove('show'); $('g-mapPane').classList.remove('carded'); cardItem = null; focusPort = null; focusEvent = null; if (!TOUR) focusFarm = null; updateClusters(0, true); syncURL(); }
@@ -2931,16 +2986,95 @@ const STORIES = {
       'Greater Changhua 2b & 4, 920 MW with 66 × 14 MW turbines: completion ceremony on 1 September 2026 and final commissioning under way (one 14 MW turbine caught fire in August).'],
     ['Hai Long 2 & 3', '海龍 73 部 14 MW、1,044 MW：2026 年第二季已裝 71 部、59 部發電，預計 2027 年全面商轉。',
       'Hai Long, 73 × 14 MW and 1,044 MW: by Q2 2026, 71 installed and 59 generating; full commercial operation expected in 2027.'],
-    ['Taipower Offshore Phase 2', '台電離岸二期 31 部 Vestas 9.5 MW：2026 年由台電接管風機安裝，目標 2027 年上半年併聯。到 2026 年 8 月，台灣離岸風電累計 4,984.9 MW（能源署月報表）。',
-      'Taipower Offshore Phase 2, 31 Vestas 9.5 MW turbines: Taipower took over turbine installation in 2026, aiming to connect in H1 2027. By August 2026 Taiwan had 4,984.9 MW of offshore wind (Energy Administration monthly statistics).'],
+    ['Taipower Offshore Phase 2', '台電離岸二期 31 部 Vestas 9.5 MW：2026 年 7 月台電依契約接管風機安裝，30 座待裝，以年底前完成併網為目標（中央社）。到 2026 年 8 月，台灣離岸風電累計 4,984.9 MW（能源署月報表）。',
+      'Taipower Offshore Phase 2, 31 Vestas 9.5 MW turbines: in July 2026 Taipower took over turbine installation under the contract, with 30 still to install and grid connection targeted by the end of the year (CNA). By August 2026 Taiwan had 4,984.9 MW of offshore wind (Energy Administration monthly statistics).'],
+  ] },
+  /* 第 4 欄是國別（與本章 region 不同時）；'ms' 表示這一站是里程碑（名稱與 wind_global.json 一致） */
+  eu: { region: 'C:Europe', dwell: 11, stops: [
+    ['Vindeby', '1991 年，丹麥 Lolland 外海 11 部 Bonus 450 kW 風機（約 5 MW）組成世界第一座離岸風場，運轉到 2017 年退役。',
+      'In 1991 eleven Bonus 450 kW turbines (about 5 MW) off Lolland, Denmark, formed the world\'s first offshore wind farm; it ran until it was decommissioned in 2017.', 'DNK'],
+    ['Middelgrunden', '2000 年，哥本哈根外海弧形排列的 20 部 2 MW 風機（40 MW）：建成時是全球最大的離岸風場，也是社區共同持有的典範。',
+      'In 2000 twenty 2 MW turbines in a curved row off Copenhagen (40 MW) became the world\'s largest offshore wind farm and a landmark of community co-ownership.', 'DNK'],
+    ['Horns Rev 1', '2002 年，北海的 80 部 Vestas V80 2 MW（160 MW）：第一座大型離岸風場，也是第一座真正處於外海環境的風場。',
+      'In 2002 eighty Vestas V80 2 MW turbines in the North Sea (160 MW) made Horns Rev 1 the first large-scale offshore wind farm and the first in true open-sea conditions.', 'DNK'],
+    ['alpha ventus', '2010 年，德國北海的 alpha ventus：6 部 Areva Multibrid M5000 與 6 部 REpower 5M，共 60 MW，同一座風場裡用了兩種 5 MW 機型。',
+      'In 2010 Germany\'s alpha ventus in the North Sea combined six Areva Multibrid M5000 and six REpower 5M turbines, 60 MW with two different 5 MW models in one farm.', 'DEU'],
+    ['London Array', '2013 年 7 月正式啟用的 London Array：175 部 Siemens 3.6 MW、630 MW，2013 至 2017 年間是全球最大的離岸風場。',
+      'London Array, officially opened in July 2013: 175 Siemens 3.6 MW turbines and 630 MW, the world\'s largest offshore wind farm from 2013 to 2017.', 'GBR'],
+    ['Hornsea One', '2019 年 Hornsea One 投運：174 部 Siemens Gamesa 7 MW、1,218 MW，單一風場首度跨過 1 GW。',
+      'Hornsea One was commissioned in 2019: 174 Siemens Gamesa 7 MW turbines and 1,218 MW, the first single wind farm past 1 GW.', 'GBR'],
+    ['Hornsea Two', '2022 年 8 月 Hornsea Two 全面營運：165 部 Siemens Gamesa 8 MW 級、約 1.3 GW，宣布時是全球最大的營運中離岸風場。',
+      'Hornsea Two became fully operational in August 2022: 165 Siemens Gamesa 8 MW-class turbines and about 1.3 GW, the world\'s largest operating offshore wind farm when announced.', 'GBR'],
+    ['Hollandse Kust Zuid I & II', '荷蘭 Hollandse Kust Zuid 2018 年以零補貼得標，2023 年 9 月揭幕：I–IV 期共 139 部 Siemens Gamesa 11 MW、約 1.5 GW，第一座不靠價格補貼興建的離岸風場。',
+      'The Netherlands\' Hollandse Kust Zuid was won without subsidy in 2018 and inaugurated in September 2023: 139 Siemens Gamesa 11 MW turbines across phases I–IV, about 1.5 GW, the first offshore wind farm built without price support.', 'NLD'],
+    ['Seagreen Phase 1', '2023 年 10 月全面營運的 Seagreen：114 部 Vestas V164-10 MW、1,075 MW，最深的基礎在水深 58.7 m，是固定式基礎最深的大型離岸風場。',
+      'Seagreen, fully operational in October 2023: 114 Vestas V164-10 MW turbines and 1,075 MW, with its deepest foundation in 58.7 m of water, the deepest large fixed-bottom offshore wind farm.', 'GBR'],
+    ['Dogger Bank A', '2023 年 10 月，Dogger Bank A 的 GE Haliade-X 13 MW 首度發電：95 部、1,200 MW；Dogger Bank A、B、C 三期合計 3.6 GW。',
+      'Dogger Bank A delivered first power from GE Haliade-X 13 MW turbines in October 2023: 95 units and 1,200 MW; phases A, B and C total 3.6 GW.', 'GBR'],
+    ['Moray West', '2025 年完工的 Moray West：60 部 Siemens Gamesa 14 MW、882 MW，單機容量約是 1991 年 Vindeby 的 31 倍。2025 年底，英國離岸累計 16.1 GW、德國 9.9 GW、荷蘭 5.4 GW、丹麥 2.7 GW（本站國家數列）。',
+      'Moray West, completed in 2025: 60 Siemens Gamesa 14 MW turbines and 882 MW, each about 31 times Vindeby\'s 1991 units. At the end of 2025 the UK had 16.1 GW offshore, Germany 9.9 GW, the Netherlands 5.4 GW and Denmark 2.7 GW (the site\'s national series).', 'GBR'],
+  ] },
+  cn: { region: 'CHN', dwell: 11, stops: [
+    ['Dabancheng wind farm, Xinjiang', '新疆達坂城：中國第一座大型風場（2000 年超過 100 MW），也是中國先驅風機製造商金風科技的發源地。2000 年中國風電累計 341 MW（本站國家數列）。',
+      'Dabancheng, Xinjiang: China\'s first large wind farm (over 100 MW by 2000) and the birthplace of Goldwind, China\'s pioneering turbine maker. China had 341 MW of wind power in 2000 (the site\'s national series).', 'ms'],
+    ['Inner Mongolia Chayouzhong Banner Huitengxile (Huadian) wind farm', '內蒙古輝騰錫勒草原：華電 121 MW 風場 2006 年商轉。這一年中國風電累計從 1.06 GW 增加到 2.07 GW，此後連年快速成長。',
+      'The Huitengxile grassland in Inner Mongolia: Huadian\'s 121 MW farm started in 2006, the year China\'s wind capacity doubled from 1.06 GW to 2.07 GW and began years of rapid growth.'],
+    ['Gansu Guazhou / Jiuquan wind base', '甘肅戈壁的酒泉風電基地自 2009 年起建，成為全球最大的陸域風電基地（本站紀錄 10,450 MW）；2011 年 2 月一次電纜頭故障讓 16 個風場、598 部風機脫網，併網成了下一個課題。',
+      'The Jiuquan base in the Gansu Gobi, begun in 2009, became the world\'s largest onshore wind complex (10,450 MW in the site\'s records); in February 2011 one cable-terminal fault disconnected 598 turbines at 16 farms, making grid integration the next challenge.'],
+    ['Donghai Bridge', '2010 年 6 月 8 日，上海東海大橋旁 34 部華銳 3 MW 機組全數併網（102 MW），中國第一座商業離岸風場。',
+      'On 8 June 2010 all thirty-four Sinovel 3 MW turbines beside Shanghai\'s Donghai Bridge were connected (102 MW): China\'s first commercial offshore wind farm.'],
+    ['Longyuan Rudong Intertidal 150 MW Demo', '江蘇如東的潮間帶：龍源 150 MW 示範風場 2012 年完工，混用華銳 3 MW、Siemens 2.38 MW 與金風 2.5 MW 三種機組。',
+      'The Rudong tidal flats in Jiangsu: Longyuan\'s 150 MW intertidal demonstration farm was completed in 2012 with three turbine types, Sinovel 3 MW, Siemens 2.38 MW and Goldwind 2.5 MW.'],
+    ['CTG Yangjiang Shapa Phase 1', '2021 年是中國離岸風電的搶裝年：離岸累計從 10.0 GW 增加到 26.4 GW，一年新增約 16.4 GW。廣東陽江沙扒一到五期（共 1.8 GW）都在這一年完工。',
+      '2021 was China\'s offshore rush year: offshore capacity rose from 10.0 GW to 26.4 GW, about 16.4 GW in one year. All five Shapa phases off Yangjiang, Guangdong (1.8 GW together) were completed that year.'],
+    ['Hinggan (Xing\'an) League base', '內蒙古興安盟 3,000 MW 陸域風電基地：中廣核稱 2023 年投入運作，當時是中國最大的營運中陸域風電基地。',
+      'The 3,000 MW onshore base in Hinggan League, Inner Mongolia: CGN says it entered operation in 2023, then China\'s largest operating onshore wind base.'],
+    ['CTG Zhangpu Liu\'ao Phase 2', '2024 年 6 月，福建漳浦六鰲二期全容量併網：28 部、400.2 MW，其中 6 部 16 MW，是第一個批量使用 16 MW 級機組的風場。',
+      'In June 2024 Zhangpu Liu\'ao Phase 2 in Fujian reached full-capacity connection: 28 turbines and 400.2 MW, six of them 16 MW, the first farm to use 16 MW-class turbines in volume.'],
+    ['CTG Yangjiang Qingzhou 6', '2024 年 12 月，廣東陽江青洲六全容量併網：74 部海上風機、1,000 MW 的深水離岸風場。',
+      'In December 2024 Qingzhou 6 off Yangjiang, Guangdong, reached full-capacity connection: a 1,000 MW deep-water offshore farm with 74 turbines.'],
+    ['Mingyang MySE 18.X-20 MW, Hainan', '明陽智能 18–20 MW 平台、260–292 m 葉輪，2024 年在海南安裝，當時是史上功率最大的風力機。',
+      'Mingyang\'s 18–20 MW platform with a 260–292 m rotor, installed in Hainan in 2024, was the most powerful wind turbine ever built at the time.', 'ms'],
+    ['Dongfang 26 MW offshore turbine, Fujian', '東方電氣 26 MW、310 m 葉輪的風機 2025 年安裝測試，單機容量突破 25 MW。2025 年底，中國風電累計 640.6 GW（離岸 48.4 GW），約占全球 1,288 GW 的一半（本站國家數列）。',
+      'Dongfang Electric\'s 26 MW turbine with a 310 m rotor was installed for testing in 2025, taking a single turbine past 25 MW. At the end of 2025 China had 640.6 GW of wind power (48.4 GW offshore), about half of the world\'s 1,288 GW (the site\'s national series).', 'ms'],
+  ] },
+  fl: { region: 'WORLD', dwell: 11, stops: [
+    ['Hywind Demo (Karmøy)', '2009 年，挪威 Karmøy 外海 220 m 水深的單柱浮筒上，Siemens 2.3 MW 成為全球第一部全尺寸浮動式風力機，證明浮動式風電技術可行。',
+      'In 2009 a Siemens 2.3 MW turbine on a spar buoy in 220 m of water off Karmøy, Norway, became the world\'s first full-scale floating wind turbine, proving floating wind was technically feasible.', 'NOR'],
+    ['WindFloat 1 (Aguçadoura demo)', '2011 年，葡萄牙 Aguçadoura 外海的 WindFloat 1：一部 Vestas V80 2 MW 裝在半潛式浮台上。',
+      'In 2011 WindFloat 1 off Aguçadoura, Portugal, put a Vestas V80 2 MW turbine on a semi-submersible platform.', 'PRT'],
+    ['Fukushima FORWARD floating demo', '日本福島外海的浮動式實證（2013 年起）：先後裝了日立 2 MW、三菱重工 7 MW、日立 5 MW 三部風機，現已除役。',
+      'The floating demonstration off Fukushima, Japan (from 2013) installed a Hitachi 2 MW, an MHI 7 MW and a Hitachi 5 MW turbine in turn; it has since been decommissioned.', 'JPN'],
+    ['Hywind Scotland', '2017 年 10 月，蘇格蘭 Peterhead 外海 5 部 6 MW 單柱式浮動風機開始發電：全球第一座商業浮動式風場。',
+      'In October 2017 five 6 MW spar-type floating turbines off Peterhead, Scotland, started generating: the world\'s first commercial floating wind farm.', 'GBR'],
+    ['Floatgen (SEM-REV)', '法國 SEM-REV 試驗場的 Floatgen（2018 年）：一部 Vestas V80 2 MW 裝在駁船式浮台上。',
+      'Floatgen at France\'s SEM-REV test site (2018): a Vestas V80 2 MW turbine on a barge-type floater.', 'FRA'],
+    ['WindFloat Atlantic', '2020 年，葡萄牙 WindFloat Atlantic：3 部 MHI Vestas V164-8.4 MW 裝在半潛式浮台上，共 25.2 MW。',
+      'WindFloat Atlantic, Portugal, 2020: three MHI Vestas V164-8.4 MW turbines on semi-submersible floaters, 25.2 MW.', 'PRT'],
+    ['Kincardine', '2021 年，蘇格蘭 Kincardine：5 部 MHI Vestas V164-9.5 MW 半潛式浮動風機，共 47.5 MW。',
+      'Kincardine, Scotland, 2021: five MHI Vestas V164-9.5 MW turbines on semi-submersible floaters, 47.5 MW.', 'GBR'],
+    ['Yangjiang Shapa \'Sanxia Yinling\' floating', '中國三峽「引領號」（2021 年）：明陽 5.5 MW 半潛式浮動風機，裝在廣東陽江的沙扒風場。',
+      'China Three Gorges\' "Yinling" (2021): a Mingyang 5.5 MW turbine on a semi-submersible floater at the Shapa wind farm off Yangjiang, Guangdong.', 'CHN'],
+    ['Hywind Tampen', '2023 年 8 月揭幕的 Hywind Tampen：11 部 8.6 MW 單柱式浮動風機、88 MW，直接供電給北海的油氣平台。',
+      'Hywind Tampen, opened in August 2023: eleven 8.6 MW spar-type floating turbines and 88 MW, supplying offshore oil and gas platforms in the North Sea.', 'NOR'],
+    ['Provence Grand Large', '法國 Provence Grand Large：3 部 8.4 MW 風機裝在張力腳式浮台上，2025 年 6 月全面商轉，是法國第一座浮動式風場。',
+      'Provence Grand Large: three 8.4 MW turbines on tension-leg platforms, in full commercial operation from June 2025, France\'s first floating wind farm.', 'FRA'],
+    ['Goto City Offshore floating project', '2026 年 1 月，長崎五島的浮動式風場開始營運：8 部日立 2.1 MW、16.8 MW，鋼與混凝土混合的單柱式浮體（浮體製造缺陷讓商轉從 2024 年延到 2026 年），是日本第一座商業浮動式風場。',
+      'In January 2026 the floating farm off Goto, Nagasaki, started operating: eight Hitachi 2.1 MW turbines and 16.8 MW on hybrid steel-concrete spar floaters (floater defects pushed commercial operation from 2024 to 2026), Japan\'s first commercial floating wind farm.', 'JPN'],
   ] },
 };
 function storyStops(key) {
   const sd = STORIES[key], out = [];
-  sd.stops.forEach(([name, zh, en]) => {
-    const f = D.farms.find(x => x.iso === sd.region && x.name === name);
+  sd.stops.forEach(([name, zh, en, iso]) => {
+    const why = lang === 'zh' ? zh : en;
+    if (iso === 'ms') {
+      const m = D.milestones.find(x => x.name === name);
+      if (!m) { console.warn('story stop not found:', name); return; }
+      out.push(Object.assign(msStop(m), { why, story: key })); return;
+    }
+    const f = D.farms.find(x => x.iso === (iso || sd.region) && x.name === name);
     if (!f) { console.warn('story stop not found:', name); return; }
-    out.push({ kind: 'farm', f, name: f.name, zh: f.zh, lat: f.lat, lon: f.lon, year: f.year, type: f.type, iso: f.iso, why: lang === 'zh' ? zh : en, story: key });
+    out.push({ kind: 'farm', f, name: f.name, zh: f.zh, lat: f.lat, lon: f.lon, year: f.year, type: f.type, iso: f.iso, why, story: key });
   });
   return out;
 }
@@ -3014,11 +3148,11 @@ function liveTip(f) {
   const x = liveOn() && liveFor(f); if (!x) return '';
   return '<div class="tlive">● ' + T('liveNow') + ' <b>' + WW.num(x.mw, x.mw < 100 ? 1 : 0) + ' MW</b>' + (x.cap ? ' · ' + (x.mw / x.cap * 100).toFixed(0) + '%' : '') + '</div>';
 }
-function tipFarm(f, w) {
+function tipFarm(f, p) {
   const sp = turbSpec(f);
   const col = f.pipe ? 'var(--p' + f.st + ')' : 'var(--' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'fl' : 'off') + ')';
   const when = f.pipe ? T('st')[f.st] + (f.year ? ' · ' + T('expected') + ' ' + f.year : '') : (f.yu ? T('yearUnknown') : f.year + (f.end ? '–' + f.end : ''));
-  return (w && w.thumb ? '<img class="tph" src="' + esc(w.thumb) + '" alt="">' : '') +
+  return (p && p.src ? '<img class="tph" src="' + esc(p.src) + '" alt="">' : '') +
     '<b>' + esc(fname(f)) + '</b>' + (f.zh && lang === 'zh' ? '<br><span style="color:var(--ink-2)">' + esc(f.name) + '</span>' : '') +
     '<br><i class="gsw" style="background:' + col + '"></i>' + T('type')[f.type] + ' · ' + esc(String(when)) +
     '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
@@ -3145,8 +3279,8 @@ function showSources() {
   const li = arr => (arr || []).map(s => '<li>' + (/^https?:/.test(s) ? '<a href="' + esc(s.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(s) + '</a>' : esc(s)) + '</li>').join('');
   const zh = lang === 'zh';
   $('g-modalBody').innerHTML = '<h2>' + T('srcTitle') + '</h2>' +
-    (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，每座風場以一支風機代表；點選某座風場時，才依它的機組數量與間距畫出全部風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，點選專案時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片與簡介於瀏覽時即時查詢維基百科，離線時不會顯示。</p>'
-        : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, each shown as a single turbine; clicking a farm draws all of its turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and clicking a project shows its planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos and summaries are looked up live from Wikipedia.</p>') +
+    (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，每座風場以一支風機代表；點選某座風場時，才依它的機組數量與間距畫出全部風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，點選專案時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片優先用人工核對過的 Wikimedia Commons 照片（tools/farm_photos.py，逐張看過、出自該風場的 Commons 分類，卡片寫出作者與授權）；沒有的話才用維基百科條目圖片，而且要在 Commons 上屬於風電相關分類才顯示。簡介於瀏覽時即時查詢維基百科，離線時照片與簡介都不會顯示。</p>'
+        : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, each shown as a single turbine; clicking a farm draws all of its turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and clicking a project shows its planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos come first from hand-checked Wikimedia Commons photos (tools/farm_photos.py: each looked at, taken from the farm's own Commons category, with author and licence on the card); otherwise a Wikipedia article image is used only if Commons files it under a wind-power category. Summaries are looked up live from Wikipedia; offline, neither is shown.</p>') +
     dataStats(zh) +
     '<h4>' + (zh ? '本站修正' : 'Corrections by this site') + '</h4><ul>' + li((D.meta && D.meta.edits) || []) +
     '<li>' + (zh ? '2026 年 9 月逐筆查證：刪除重複、從未建成或查無此場的風場紀錄，修正座標、容量、年份、分期或狀態；共用省或國家中心代用座標的風場在地圖上示意排開（卡片註明「位置示意」）。逐筆理由見'
@@ -3181,7 +3315,7 @@ function showSources() {
       '<li>' + (zh ? '亞伯達：AESO Current Supply Demand 報表（約 1 分鐘）。© 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved；非商業與教育用途，數值未修改。' : 'Alberta: AESO Current Supply Demand report (about 1 minute). © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; non-commercial, educational use, values unmodified.') + '</li>' +
       '<li>' + (zh ? '安大略：IESO Generators Output and Capability 報表（每小時）。' : 'Ontario: IESO Generators Output and Capability report (hourly). ') + 'Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO\'s website (www.ieso.ca).</li>' +
       '<li>' + (zh ? '機組與風場的對照以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對；對不到的機組只計入電網總量。綠色外圈只在時間軸位於最新年份時顯示。' : 'Units are matched to farms using AEMO’s registration list and IESO’s “Transmission-Connected Generation” page, checked by hand; unmatched units only count toward the grid total. Green rings only show when the timeline is at the latest year.') + '</li></ul>') +
-    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain) · ' + (zh ? '平均風速：' : 'Wind speed: ') + '<a href="https://globalwindatlas.info/" target="_blank" rel="noopener">Global Wind Atlas 3</a> (DTU Wind Energy / World Bank Group, CC BY 4.0)' + (zh ? '，離地 100 m 年平均風速，取 1/32 縮圖層（約 9 km）依 1 m/s 分級（tools/build_wind_resource.py）' : ', mean wind speed at 100 m, 1/32 overview (about 9 km) binned at 1 m/s (tools/build_wind_resource.py)') + '</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikipedia / Wikimedia Commons (live lookup, per-image licences)</li></ul>' +
+    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain) · ' + (zh ? '平均風速：' : 'Wind speed: ') + '<a href="https://globalwindatlas.info/" target="_blank" rel="noopener">Global Wind Atlas 3</a> (DTU Wind Energy / World Bank Group, CC BY 4.0)' + (zh ? '，離地 100 m 年平均風速，取 1/32 縮圖層（約 9 km）依 1 m/s 分級（tools/build_wind_resource.py）' : ', mean wind speed at 100 m, 1/32 overview (about 9 km) binned at 1 m/s (tools/build_wind_resource.py)') + '</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikimedia Commons ' + (zh ? '照片（各張作者與授權寫在卡片上，連到原檔案頁）' : 'photos (author and licence of each on the card, linked to the file page)') + ' · Wikipedia (live lookup)</li></ul>' +
     '<h4>' + (zh ? '開發者與版權' : 'Developer & copyright') + '</h4><p>國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室<br>National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu<br>' +
     (zh ? '網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用。' : 'Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source listed above.') +
     '<br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a> · <a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html">' + (zh ? '下載單檔版 HTML' : 'Download the single-file HTML') + '</a> · <a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html">' + (zh ? '下載全球風電地圖公開版（只有地球儀）' : 'Download the public global wind map (globe only)') + '</a>' +
@@ -3275,7 +3409,7 @@ function wireUI() {
     if (h.farm) {
       showTip(ev, tipFarm(h.farm), pane);
       const f = h.farm;
-      hoverTimer = setTimeout(() => { wikiLookup(farmItem(f)).then(w => { if (hoverKey === key && w && w !== 'ERR' && w.thumb) { $('g-tip').innerHTML = tipFarm(f, w); } }); }, 350);
+      hoverTimer = setTimeout(() => { itemPhoto(farmItem(f)).then(p => { if (hoverKey === key && p) { $('g-tip').innerHTML = tipFarm(f, p); } }); }, 350);
     } else if (h.ms) showTip(ev, tipMs(h.ms), pane);
     else showTip(ev, tipCountry(h.country), pane);
   });

@@ -100,7 +100,7 @@
   - **尺寸與剖面示意**（v2.17.0 起）：營運中離岸風場加上水深、輪轂高度、葉輪直徑三個欄位（`tools/farm_dimensions.py`，每列附出處原文），
     風場卡片的剖面示意圖與近景風機依實際數值按比例畫；236 座有基礎型式的營運中離岸風場中 234 座至少有一項、168 座三項齊全。
     核准上限、環評設計值、只屬一期或部分機組的值都不採用（理由見 TODO）。
-  - **風場卡片**：點風場可看維基百科照片與簡介；在國內的地位（依時間軸年份的容量排名與占全國風電裝置容量比例）、
+  - **風場卡片**：點風場可看照片（優先用人工核對過的 Wikimedia Commons 照片，附作者與授權；沒有時才用看得出是風機的維基百科條目圖片）與維基百科簡介；在國內的地位（依時間軸年份的容量排名與占全國風電裝置容量比例）、
     分期時間軸、附近風場（30 km 內）與同開發商的其他風場（可直接點選切換）；衛星地圖、OpenStreetMap、
     風能資源地圖（Global Wind Atlas）、Wikidata 等連結；「複製此風場連結」與「回報資料錯誤」（開啟預填的 GitHub issue）
   - 台灣風場與即時資料連動：點台灣風場可看到台電此刻的出力並跳到即時詳情
@@ -357,7 +357,8 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
 - 平均風速底圖：Global Wind Atlas 3（DTU 丹麥技術大學、世界銀行集團，CC BY 4.0）
 - 放大後的圖磚：Esri World Imagery（Esri, Vantor, Earthstar Geographics）、Esri World Hillshade（Esri, USGS, NASA 等），依 Esri 使用條款顯示出處
-- 風場照片與簡介：瀏覽時即時查詢 Wikipedia／Wikimedia Commons（各圖授權依原頁面）
+- 風場照片：人工核對的 Wikimedia Commons 照片（`tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`，每張的作者與授權寫在卡片上）；
+  其餘風場與簡介瀏覽時即時查詢 Wikipedia／Wikimedia Commons（各圖授權依原頁面）
 - 程式庫：three.js r128（MIT）、Leaflet 1.9.4（BSD-2）
 
 風機數量、座標、開發商等專案資訊為公開資料整理，座標為概略位置。
