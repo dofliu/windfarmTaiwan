@@ -36,7 +36,7 @@ and move finished items to the topic lists below.
 - 5 Oct 2026 (v2.24.1–v2.24.3): Taiwan's availability fix, farm-grid project labels, a round of checks on unverified data (Datan, Yongxing,
   Longmen, Taipower Offshore Phase 1's position, Pentland, Ulsan, Linghang, new Haiyou Anlan).
 - 5 Oct 2026 (v2.26.0): the globe's "📊 Output" dialog: total output and capacity factor rankings and a same-model comparison of measured per-farm output
-  for Taiwan (19 Taipower-owned farms) and the US (EIA-923); `generation.json` gained a model field `m`. Private farms have no official per-farm yearly output and are
+  for Taiwan (19 Taipower-owned farms) and the US (EIA-923); `generation.json` gained a model field `m`; v2.26.1 puts US capacity factors on the EIA-860M nameplate capacity (the USWTDB sum inflated them when USWTDB lacked turbines). Private farms have no official per-farm yearly output and are
   left out; comparing them later could use daily averages accumulated from the live data (labelled as sampled values; ask the owner first).
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.

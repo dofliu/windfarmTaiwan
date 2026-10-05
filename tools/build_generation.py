@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """風場的實際年發電量 · Actual yearly generation of wind farms → data/global/generation.json
 
-  python3 tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip \
+  python3 tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip august_generator2026.xlsx \
       data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv
 
 美國：EIA-923（美國能源資訊署，各電廠逐月淨發電量，公有領域）。USWTDB 每部風機都附 EIA 電廠代碼（tools/build_turbines.py 寫進
@@ -9,8 +9,12 @@ turbines.json 的 eia 欄），所以本站風場→USWTDB 機組→EIA 電廠�
   1. 一座 EIA 電廠的機組必須全部在同一座本站風場裡（電廠跨好幾座風場時，發電量分不開，不用）。
   2. 某一年只有在這些電廠的機組全部在前一年以前商轉、沒有在當年改裝（USWTDB 的 p_year、t_retro_yr）時才採用，
      避免把部分年度當成全年。
-  3. 容量因數＝淨發電量 ÷（USWTDB 機組額定容量加總 × 8,760 小時），不在 5–65% 之間的年份不用（多為資料錯誤或停機）。
-EIA-923 年度檔的網址：https://www.eia.gov/electricity/data/eia923/（最新年在 xls/，較舊的在 archive/xls/）。
+  3. 容量因數＝淨發電量 ÷（EIA-860M 登記的風力機組裝置容量 × 8,760 小時）：分子分母都是 EIA 同一座電廠的數字。
+     USWTDB 有時少收一部分機組（例：Salt Fork 收 64 部、128 MW，EIA 登記 174 MW），用 USWTDB 加總當分母會把容量因數算高；
+     USWTDB 與 EIA 的容量相差 10% 以上表示風場與電廠對不乾淨，整座不用。當年有機組商轉或除役（EIA-860M 的商轉年、除役年）的年份不用。
+     不在 5–65% 之間的年份也不用（多為資料錯誤或停機）。
+EIA-923 年度檔的網址：https://www.eia.gov/electricity/data/eia923/（最新年在 xls/，較舊的在 archive/xls/）；
+EIA-860M（各機組的裝置容量、商轉與除役年月，每月更新）：https://www.eia.gov/electricity/data/eia860m/（例：xls/august_generator2026.xlsx）。
 台灣：台電「自建之各類再生能源發電量」（政府資料開放平臺 17140，各發電站逐月淨發電量，2024 年起）與
 「風力發電站資料」（17141，各站裝置容量），存在 data/global/sources/（下載：service.taipower.com.tw/data/opendata/apply/file/d693001/001.csv、d693002/001.csv），政府資料開放授權條款第 1 版。只有台電自有的發電站，民營風場沒有逐場的官方數字。
 發電站與本站風場的對應寫在 TW_STATIONS，台電公布的裝置容量要在本站容量 ±15% 內才用（對不上多半是本站的紀錄只含其中幾期）；只用 12 個月都有數字的年份。
@@ -22,8 +26,11 @@ EIA-923 年度檔的網址：https://www.eia.gov/electricity/data/eia923/（最�
 US: EIA-923 (U.S. Energy Information Administration, monthly net generation by plant, public domain). USWTDB gives every turbine its
 EIA plant code (written by tools/build_turbines.py as the "eia" field of turbines.json), so site farm → USWTDB turbines → EIA plant
 links directly. Conservative: an EIA plant is used only when all of its turbines are in one site farm; a year is used only when every
-turbine of those plants started before that year and was not retrofitted in it; capacity factor = net generation / (summed USWTDB
-turbine ratings × 8,760 h), and years outside 5–65% are dropped. Re-run after rebuilding the farm layer or USWTDB (run
+turbine of those plants started before that year and was not retrofitted in it; capacity factor = net generation / (EIA-860M nameplate
+capacity of the plants' wind generators × 8,760 h), so numerator and denominator are the same agency's figures for the same plant
+(USWTDB sometimes lacks part of a plant, e.g. Salt Fork: 64 turbines, 128 MW in USWTDB, 174 MW at EIA, which inflated the factor). Farms
+whose USWTDB and EIA capacities differ by 10% or more are dropped, as are years in which a generator entered service or retired, and
+years outside 5–65%. Re-run after rebuilding the farm layer or USWTDB (run
 tools/build_turbines.py first).
 Taiwan: Taipower's own stations only (open data 17140, monthly net generation by station from 2024; 17141, station capacity; Taiwan
 Open Government Data Licence v1). Stations map to site farms in TW_STATIONS and are used only when Taipower's capacity is within
@@ -85,6 +92,24 @@ def eia923_wind(zip_path):
     return dict(out), year
 
 
+def eia860m_wind(xlsx):
+    """{EIA 電廠代碼: [(裝置容量 MW, 商轉年, 除役年或 0)]}（只取能源代碼 WND；營運中與已除役兩張表）"""
+    wb = openpyxl.load_workbook(xlsx, read_only=True)
+    out = collections.defaultdict(list)
+    for sheet, retired in (('Operating', False), ('Retired', True)):
+        head = None
+        for r in wb[sheet].iter_rows(values_only=True):
+            if head is None:
+                if r and r[0] == 'Entity ID':
+                    head = {k: i for i, k in enumerate(r)}
+                continue
+            if not r or r[head['Energy Source Code']] != 'WND' or num(r[head['Plant ID']]) is None:
+                continue
+            out[int(num(r[head['Plant ID']]))].append((num(r[head['Nameplate Capacity (MW)']]) or 0, int(num(r[head['Operating Year']]) or 0),
+                                                        int(num(r[head['Retirement Year']]) or 0) if retired else 0))
+    return out
+
+
 def tw_model(turbine):
     """「Vestas V80 2.0 MW x40 (23 in 2007, 17 in 2011)」→「Vestas V80 2.0 MW」；混合機型、沒寫製造商的 → None"""
     t = (turbine or '').strip()
@@ -138,6 +163,7 @@ def taiwan(gen_csv, cap_csv, farms):
 
 def main(uswtdb_csv, *files):
     zips = [z for z in files if z.endswith('.zip')]
+    e860 = eia860m_wind(next(x for x in files if x.endswith('.xlsx') and 'generator' in x))
     tw = [c for c in files if c.endswith('.csv')]
     tb = json.loads(TURB.read_text(encoding='utf-8'))
     rows = list(csv.DictReader(open(uswtdb_csv, encoding='utf-8')))
@@ -160,7 +186,7 @@ def main(uswtdb_csv, *files):
         print(f'EIA-923 {y}: {len(g):,} wind plants, {sum(g.values()) / 1e6:,.1f} TWh', flush=True)
     years = sorted(gen)
 
-    out, skipped_shared, skipped_cf = {}, 0, 0
+    out, skipped_shared, skipped_cf, skipped_cap = {}, 0, 0, 0
     for name, v in tb['farms'].items():
         ids = [i for i, c in v.get('eia') or []]
         if not ids:
@@ -168,20 +194,28 @@ def main(uswtdb_csv, *files):
         if any(plant_n[i] != c for i, c in v['eia']):        # 電廠有機組在別的風場（或沒對到的專案）
             skipped_shared += 1
             continue
-        mw = sum(plant_kw[i] for i in ids) / 1000
+        mw_tb = sum(plant_kw[i] for i in ids) / 1000
+        units = [u for i in ids for u in e860.get(i, [])]
         start = max(plant_start[i] for i in ids)
-        ys = {}
+        ys, mw = {}, None
         for y in years:
             if y <= start or not all(i in gen[y] for i in ids):
                 continue
+            if any(oy == y or ry == y for _, oy, ry in units):          # 當年有機組商轉或除役：不是完整一年
+                continue
+            cap = sum(m for m, oy, ry in units if oy < y and (not ry or ry > y))
+            if not cap or abs(mw_tb - cap) >= 0.10 * cap:             # 風場的 USWTDB 機組與 EIA 電廠對不乾淨
+                skipped_cap += 1
+                continue
+            mw = cap
             mwh = sum(gen[y][i] for i in ids)
-            cf = mwh / (mw * 8760) if mw else 0
+            cf = mwh / (cap * 8760)
             if CF_MIN <= cf <= CF_MAX:
                 ys[y] = [round(mwh / 1000, 1), round(cf * 100, 1)]    # [GWh, 容量因數 %]
             else:
                 skipped_cf += 1
         if ys:
-            out['USA|' + name] = {'y': ys, 'mw': round(mw, 1), 'eia': ids}
+            out['USA|' + name] = {'y': ys, 'mw': round(mw, 1), 'eia': ids}   # mw＝最近一年的 EIA 登記容量
             tbs = [t for i in ids for t in plant_tb[i]]
             if len({(t[0], t[1]) for t in tbs}) == 1 and ' ' in tbs[0][0] and tbs[0][1]:     # 一種型號、一種單機容量
                 hh = sorted(t[2] for t in tbs if t[2] and t[2] > 0)
@@ -193,17 +227,20 @@ def main(uswtdb_csv, *files):
         cap_csv = next(c for c in tw if '17141' in c or 'd693002' in c)
         out.update(taiwan(gen_csv, cap_csv, farms))
     meta = {
-        'source': {'USA': 'U.S. Energy Information Administration, Form EIA-923 (net generation by plant), years ' + ', '.join(map(str, years)),
+        'source': {'USA': 'U.S. Energy Information Administration, Form EIA-923 (net generation by plant), years ' + ', '.join(map(str, years)) +
+                          '; capacity from EIA-860M (Preliminary Monthly Electric Generator Inventory)',
                    'TWN': 'Taiwan Power Company, net generation of its own renewable stations (data.gov.tw 17140) and station capacity (17141)'},
         'url': {'USA': 'https://www.eia.gov/electricity/data/eia923/', 'TWN': TW_URL},
         'license': {'USA': 'Public domain (U.S. Government work)', 'TWN': 'Open Government Data License, version 1.0 (Taiwan)'},
         'farms': len(out), 'by_iso': dict(collections.Counter(k.split('|')[0] for k in out)), 'years': years,
-        'note': 'Keys are "ISO|farm name". y = {year: [net generation GWh, capacity factor %]}; mw = rated capacity used for the capacity factor; '
+        'note': 'Keys are "ISO|farm name". y = {year: [net generation GWh, capacity factor %]}; mw = capacity used for the capacity factor '
+                '(US: EIA-860M nameplate of the plants\' wind generators in the latest year; Taiwan: Taipower station capacity); '
                 'only full years (all turbines in service before the year) of plants wholly inside one farm. m = turbine model, only when the farm has a single model '
                 '(US: USWTDB manufacturer + model; hh = median hub height m, rd = rotor diameter m; Taiwan: site record, station capacity within 3%).',
     }
     OUT.write_text(json.dumps({'meta': meta, 'farms': dict(sorted(out.items()))}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-    print(f'{len(out):,} farms with generation; skipped {skipped_shared} farms sharing an EIA plant, {skipped_cf} farm-years outside '
+    print(f'{len(out):,} farms with generation; skipped {skipped_shared} farms sharing an EIA plant, {skipped_cap} farm-years whose USWTDB and '
+          f'EIA-860M capacities differ by 10%+, {skipped_cf} farm-years outside '
           f'{CF_MIN:.0%}–{CF_MAX:.0%}; {OUT.stat().st_size / 1e3:.0f} kB')
 
 
