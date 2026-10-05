@@ -34,6 +34,7 @@ windfarmTaiwan/
 └─ .github/workflows/
    ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py about every 2 hours
    ├─ backfill.yml                  # runs backfill_history.py every Monday
+   ├─ wind-now.yml                  # runs tools/fetch_gfs_wind.py every 6 hours (the globe's "Wind now", NOAA GFS)
    ├─ standalone.yml                # rebuilds the single-file HTML when site code or global data change and uploads it to the "standalone" Release
    └─ keepalive.yml                 # on the 1st of each month, re-enables the schedules so they are not disabled after 60 days
 ```
@@ -47,7 +48,7 @@ To set up a new project from scratch (instead of using this repo directly):
    that, but a high-frequency schedule would exceed it).
 2. Put `index.html`, `assets/`, `data/`, `taipower_wind_scraper.py`, `intl_wind_scraper.py` and
    `backfill_history.py` in the repo root (`tools/` is only needed to update the global data).
-3. Put `.github/workflows/scrape.yml`, `backfill.yml`, `standalone.yml` and `keepalive.yml` in place.
+3. Put `.github/workflows/scrape.yml`, `backfill.yml`, `wind-now.yml`, `standalone.yml` and `keepalive.yml` in place.
 4. Make sure `DATA_ENDPOINT` and the other constants at the top of `assets/js/live.js` point to
    relative paths on the same origin (e.g. `./wind_realtime.json`). No change is needed if you fork
    or clone this repo.
@@ -66,7 +67,7 @@ To set up a new project from scratch (instead of using this repo directly):
   The site does not need minute-by-minute data, so this is acceptable.
 - **Disabled after 60 days**: if a repo has no activity for 60 days, its scheduled workflows are
   disabled automatically, and bot commits made with the default `GITHUB_TOKEN` do not always count as
-  activity. This repo's `keepalive.yml` handles it: on the 1st of each month it re-enables `scrape.yml`, `backfill.yml` and
+  activity. This repo's `keepalive.yml` handles it: on the 1st of each month it re-enables `scrape.yml`, `backfill.yml`, `wind-now.yml` and
   itself through the GitHub API (`PUT /repos/{owner}/{repo}/actions/workflows/{workflow}/enable`, permission `actions: write`),
   which resets the timer without making a commit. It is itself scheduled, so it has to keep running; if every schedule in the
   repo has already been disabled, press **Enable workflow** on the Actions tab by hand.
@@ -87,9 +88,10 @@ The project has been paused since 27 Sep 2026 (v2.11.1). All of the following ru
 - `scrape-taipower-wind`: about every 2 hours, fetches Taipower's live wind output, the supply/demand report and live output in
   Australia and Canada, and commits any change.
 - `backfill-taipower-wind-history`: every Monday (early Tuesday in Taipei), adds to Taipower's official retrospective archive.
+- `wind-now`: every 6 hours (05:37, 11:37, 17:37, 23:37 UTC) fetches the newest NOAA GFS 10 m wind field (public domain; needs `eccodes` to read GRIB2), writes `data/live/wind_now.webp` (about 50 KB) and `wind_now.json` and commits them; the globe's "Wind now" reads them.
 - `build-standalone`: rebuilds the single-file edition when site code or global data change on `main` and uploads it to the GitHub Release "standalone" (a fixed tag whose files are overwritten; nothing is committed). Scheduled live-data commits
   do not trigger it, so the single-file edition's offline snapshot stays at the time of its last rebuild.
-- `keepalive`: at 04:41 UTC on the 1st of each month, re-enables the two schedules above and itself through the GitHub API, so
+- `keepalive`: at 04:41 UTC on the 1st of each month, re-enables the three schedules above and itself through the GitHub API, so
   GitHub does not disable them after 60 days without activity; it makes no commits.
 
 **Check once a month (about 5 minutes)**: `keepalive` takes care of the 60-day rule, so this check is mainly for problems with the

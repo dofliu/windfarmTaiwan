@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 5 Oct 2026: v2.24.0, four story tours and hand-checked farm photos; the next conversation starts here)
+## In progress (hand-off, 5 Oct 2026: v2.25.0, "Wind now" and a round of data checks; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -34,8 +34,9 @@ and move finished items to the topic lists below.
 - 5 Oct 2026 (v2.22.1): clean-up checks: Germany's suspected duplicates cleared, Taipower-owned farms corrected from Taipower's station list
   (Zhongtun dismantled); Datan and Offshore Phase 1's coordinates remain unverified (see "Farm details").
 - 5 Oct 2026 (v2.24.1–v2.24.3): Taiwan's availability fix, farm-grid project labels, a round of checks on unverified data (Datan, Yongxing,
-  Longmen, Taipower Offshore Phase 1's position, Pentland, Ulsan, Linghang, new Haiyou Anlan). A sample of "Wind now" (NOAA GFS flow particles)
-  was shown to the owner, awaiting a decision; the prototype exists only in this session's local git stash (not pushed) and must be rewritten if the container is recycled; doing it properly needs a 6-hourly schedule and eccodes.
+  Longmen, Taipower Offshore Phase 1's position, Pentland, Ulsan, Linghang, new Haiyou Anlan).
+- 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
+  schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
   chapters); card photos now come from hand-checked Commons photos (`tools/farm_photos.py`, 40 farms and 18 milestones), and Wikipedia article
   images are shown only when filed under wind power. Important farms still without a photo are listed under "Farm details".

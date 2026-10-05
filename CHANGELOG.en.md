@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.25.0 — 2026-10-05
+
+- New on the globe: "Wind now" (toolbar button, off by default; `flow=1` in the URL), the newest NOAA/NCEP Global Forecast System (GFS)
+  10 m wind field (public domain, 1°) drawn as flowing particles, brighter where the wind is stronger; zoomed in, only the visible area is
+  drawn so the resolution goes up. The legend gives the data time (Taiwan time); it is today's weather and does not follow the timeline,
+  and the legend says so when the timeline is on a past year. On the satellite basemap the particles turn pale blue-violet so they do not
+  disappear into clouds and snow.
+- New schedule `wind-now` (`.github/workflows/wind-now.yml`, every 6 hours): `tools/fetch_gfs_wind.py` takes only the 10 m U and V fields
+  from NOAA NOMADS and writes `data/live/wind_now.webp` (about 50 KB, lossless, 0.5 m/s steps) and `wind_now.json`; `keepalive` re-enables it
+  too. The single-file edition embeds the wind field from its build time (with the data time shown); the public globe copy has no button for it.
+
 ## v2.24.3 — 2026-10-05
 
 - A round of checks on the items TODO listed as unverified (quotes checked with `check_quotes.py`, rules in `tools/farm_cleanup.py`):

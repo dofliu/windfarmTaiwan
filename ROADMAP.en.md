@@ -74,7 +74,7 @@ The phased plans and ideas below are kept but not scheduled; when work resumes, 
 | Item | What | Effort |
 |---|---|---|
 | Wind resource layer | **Done (Oct 2026, v2.21.0)**: Global Wind Atlas mean wind speed at 100 m (CC BY 4.0) as the globe's "Wind speed" basemap, in 1 m/s classes with a legend | medium |
-| The wind right now | Wind from numerical forecasts such as NOAA GFS (public domain) drawn as flowing particles, refreshed every 6 hours by a scheduled job | large |
+| The wind right now | **Done (Oct 2026, v2.25.0)**: NOAA GFS (public domain) 10 m wind drawn as flowing particles, refreshed every 6 hours by a schedule, off by default | large |
 | Offshore zones and sea areas | Taiwan's offshore wind zones, Japan's promotion zones, the North Sea countries' sea areas, exclusive economic zones (Marine Regions, CC BY) | medium |
 | Story tours | Chapter-style tours such as Taiwan's offshore journey, China's rise, North Sea offshore and floating wind, linked with the Learn pages. **Done (Oct 2026)**: Taiwan's road to offshore wind (v2.23.0), Europe offshore, China's rise and Floating wind (v2.24.0), 11 stops each with bilingual narration and buttons in the matching Learn chapters | medium |
 | Interactive teaching | Interactive charts for the power curve (wind speed → output), capacity factor, wake effects and falling costs (IRENA); a classroom mode | medium |

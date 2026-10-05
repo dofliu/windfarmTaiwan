@@ -24,7 +24,7 @@ jobs:
         run: |
           set -euo pipefail
           # 有 schedule 的 workflow（standalone.yml 只在 push 時執行，不會被停用）
-          for wf in scrape.yml backfill.yml keepalive.yml; do
+          for wf in scrape.yml backfill.yml wind-now.yml keepalive.yml; do
             gh api --method PUT "repos/$REPO/actions/workflows/$wf/enable"
             echo "enabled $wf"
           done

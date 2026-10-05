@@ -1,0 +1,42 @@
+name: wind-now
+
+# 放置位置：.github/workflows/wind-now.yml
+# 地球儀「此刻的風」：抓 NOAA GFS 最新一次預報的離地 10 m 風場（公有領域），寫成 data/live/wind_now.webp ＋ wind_now.json 後 commit。
+# GFS 每 6 小時一次（00/06/12/18 UTC），約 3.5–5 小時後公布；在公布後的時段、錯開整點執行（UTC）。
+on:
+  schedule:
+    - cron: "37 5,11,17,23 * * *"
+  workflow_dispatch: {}       # 允許在 Actions 頁面手動觸發
+
+permissions:
+  contents: write             # 需要寫入權限才能把資料 commit 回 repo
+
+concurrency:
+  group: scrape-wind          # 與台電即時資料的排程共用，避免同時 push
+  cancel-in-progress: false
+
+jobs:
+  wind-now:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install eccodes numpy pillow
+
+      - name: Fetch GFS 10 m wind
+        run: python tools/fetch_gfs_wind.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/live/wind_now.json data/live/wind_now.webp
+          git diff --staged --quiet && exit 0
+          git commit -m "chore: update wind now $(date -u +%FT%TZ)"
+          git pull --rebase origin main
+          git push
