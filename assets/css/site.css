@@ -232,6 +232,7 @@ body[data-page="global"] .sitefoot{display:none}
 .wtile{position:relative;overflow:hidden;border:1px solid var(--line);border-left-width:4px;border-radius:11px;background:var(--surface-1);padding:8px 12px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:3px;text-align:left;min-height:0;transition:transform .15s,background .15s}
 .wtile:hover{transform:translateY(-2px);background:var(--surface-2)}
 .wtile .wn{font-size:12.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:24px;line-height:1.15}
+.wtile .wn .wp{font-style:normal;font-weight:600;font-size:10.5px;color:var(--ink-3);margin-left:6px}
 .wtile .wv{font-size:clamp(16px,2vw,24px);font-weight:800;line-height:1}
 .wtile .wv small{font-size:11px;color:var(--ink-2);margin-left:2px}
 .wtile .ws{font-size:11px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.1}

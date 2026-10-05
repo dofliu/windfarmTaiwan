@@ -155,6 +155,13 @@ const GLOBE_FARM={guanyuan:"Dayuan Guanyuan",taichungport:"Taichung Port",wanggo
   wo4:"Greater Changhua 2b & 4",wonan:"Greater Changhua 2b & 4",fang1:"Changfang & Xidao",fang2:"Changfang & Xidao",yunhu:"Yunlin",yunxi:"Yunlin",
   zhongneng:"Zhong Neng",longA:"Hai Long 2 & 3",longB:"Hai Long 2 & 3"};
 
+/* 台電即時資料以併網點簡稱命名（沃一風、芳二風、龍A風…），同一座風場分成好幾個併網點：風場牆標出所屬的風場，免得找不到「大彰化」 */
+const PROJ={wo1:["大彰化東南及西南一階","Greater Changhua 1 & 2a"],wo2:["大彰化東南及西南一階","Greater Changhua 1 & 2a"],
+  wo4:["大彰化西南二階及西北","Greater Changhua 2b & 4"],wonan:["大彰化西南二階及西北","Greater Changhua 2b & 4"],
+  fang1:["彰芳暨西島","Changfang & Xidao"],fang2:["彰芳暨西島","Changfang & Xidao"],yunhu:["允能","Yunlin"],yunxi:["允能","Yunlin"],
+  longA:["海龍二、三號","Hai Long 2 & 3"],longB:["海龍二、三號","Hai Long 2 & 3"]};
+const projOf=f=>PROJ[f.id]?PROJ[f.id][EN()?1:0]:"";
+
 const t=WW.t;
 WW.addI18n({
   loading:{zh:"載入中…",en:"Loading…"},
@@ -685,7 +692,7 @@ function wallTile(f){
   const st=has?`${Math.round(ratioOf(f)*100)}%${w?"":" "+t("s_ratio")}${wtxt}`:((f.pending?t("b_dev"):"—")+wtxt);
   return `<button type="button" class="wtile" data-id="${f.id}" aria-label="${esc(nm(f))}" style="border-left-color:${hexColor(f)}">
     <span class="wric">${rotorSVG(f)}</span>
-    <span class="wn">${esc(sn(f))}</span>
+    <span class="wn">${esc(sn(f))}${projOf(f)?`<i class="wp">${esc(projOf(f))}</i>`:""}</span>
     <span class="wv">${(RT[f.id]||0).toFixed(1)}<small>MW</small></span>
     <span class="ws">${st}</span></button>`;
 }

@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.24.2 — 2026-10-05
+
+- The Taiwan live farm grid now shows which farm each Taipower grid-connection name belongs to: Wo1 and Wo2 = Greater Changhua 1 & 2a (900 MW
+  together; the globe card's live output is their sum), Wo4 and Wonan = Greater Changhua 2b & 4, Fang1 and Fang2 = Changfang & Xidao, Yunxi and
+  Yunhu = Yunlin, Long A and Long B = Hai Long 2 & 3. The grid used to show only Taipower's short names, so "Greater Changhua" was nowhere to be seen.
+
 ## v2.24.1 — 2026-10-05
 
 - Fixed Taiwan's overall availability going above 100% (for example 113.7% at 13:40 on 5 Oct 2026): Greater Changhua 2b & 4 (Wo4, Wonan) and
