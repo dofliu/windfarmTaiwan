@@ -1277,15 +1277,35 @@ RULES = [
         'https://www.21jingji.com/article/20260906/herald/6b02ac88b4840ed91205ffeb9430edf6.html',
         year=0, turbine='21x 14.3 MW', owner='China National Nuclear Corporation (CNNC)', zhname='湛江徐聞東二海上風電項目'),
     fix('CHN', 'Guangdong Three Gorges Pilot Floating Offshore wind farm', G,
-        '這是三峽「領航號」單機 16 MW 浮動式平台，2026-05-02 在陽江青洲海域完成安裝、6 月敷設 66 kV 動態海纜，接入青洲五、七的集電網路；查不到本身已併網的報導，維持興建中',
+        '這是三峽「領航號」單機 16 MW 浮動式平台，2026-05-02 在陽江青洲海域完成安裝、6 月敷設 66 kV 動態海纜，接入青洲五、七的集電網路；查不到本身已併網的報導，維持興建中。'
+        'GEM 的座標在沙扒鎮外海幾公里，但國家能源局寫「離岸超70公里、水深超50米」：改放在本站青洲五、七兩點之間（概略位置，沒有官方座標）',
         'This is CTG’s “Three Gorges Lead” (Sanxia Linghang), a single 16 MW floating platform, installed off Yangjiang (Qingzhou) on 2026-05-02 with its 66 kV dynamic cable '
-        'laid in June into the Qingzhou 5/7 array; no report of its own grid connection was found, so it stays under construction',
-        'https://www.ithome.com/0/946/070.htm', zhname='三峽領航號', turbine='1x 16 MW floating'),
+        'laid in June into the Qingzhou 5/7 array; no report of its own grid connection was found, so it stays under construction. '
+        'GEM’s point is a few km off Shapa town, but the National Energy Administration says it lies “more than 70 km offshore in over 50 m of water”: '
+        'moved between the site’s Qingzhou 5 and 7 points (approximate; no official coordinates)',
+        'https://www.nea.gov.cn/20260508/6077d3ffe9cb4855b009df84347bfe80/c.html', zhname='三峽領航號', turbine='1x 16 MW floating',
+        lat=20.80, lon=111.95, approx=True),
     fix('VNM', 'Đông Thành 1 - Thái Hòa offshore wind farm · 1', G,
         '東城 1（80 MW）2026 年 3 月永隆省工商廳仍在請上級對投資主張表示意見，查不到施工報導（GEM 的「施工中」只根據 2024 年的付費資料庫頁面）；改為施工前、年份不詳',
         'Đông Thành 1 (80 MW): in March 2026 the Vĩnh Long trade department was still seeking opinions on its investment approval, and no construction report can be found '
         '(GEM’s “construction” rests on a 2024 paid-database page); set to pre-construction, year unknown',
         'https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm', st=2, year=0),
+    # 2026-10-05 待查證項目核對（出處原文以 check_quotes.py 核對）
+    fix('GBR', 'Pentland wind farm', G,
+        'Pentland 浮動式風場（GEM 另一筆「Pentland Floating Offshore wind farm」是同一案，GEM 的頁面互列為別名）：2023-06-29 取得蘇格蘭海洋局 Section 36 許可，'
+        '2026 年 1 月在第 7 輪差價合約得標，預計 2027 年最終投資決定、2030 年商轉，尚未施工；位置改用 GEM 另一筆在 Dounreay 外海約 7.5 km 的點（原座標在 Thurso 陸上，概略位置）',
+        'Pentland floating wind farm (GEM’s other record, “Pentland Floating Offshore wind farm”, is the same project; the two GEM pages list each other as other names): '
+        'Marine Scotland granted Section 36 consent on 2023-06-29, it won a Contract for Difference in Allocation Round 7 in January 2026, with a final investment decision '
+        'expected in 2027 and operation in 2030; not yet under construction. Moved to GEM’s other point about 7.5 km off Dounreay (the old point was on land at Thurso; approximate)',
+        'https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/', year=2030,
+        owner='Highland Wind Ltd (majority Copenhagen Infrastructure Partners)', lat=58.633, lon=-3.815, approx=True),
+    fix('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', C,
+        '蔚山 750 kW 浮動式示範機：2019 年 11 月蔚州郡四度退回細部設計審查，原訂當月完成安裝、隔年 3 月實證的計畫受阻；之後查不到安裝或發電的報導，'
+        '原本「2020 年營運中」沒有根據，改為施工前、年份不詳（確認從未運轉後再刪除）',
+        'Ulsan 750 kW floating demonstrator: in November 2019 Ulju County had rejected its detailed design four times, derailing the plan to install that month and '
+        'test until March 2020; no later report of installation or generation can be found, so the “operating since 2020” entry has no support and is set to '
+        'pre-construction with the year unknown (to be removed once it is confirmed never to have operated)',
+        'https://www.ksilbo.co.kr/news/articleView.html?idxno=735360', st=2, year=0, note=True),
     # 2026-10-05 台電自有風場對照台電「風力發電站資料」（政府資料開放平臺 17141，2026 年版）與能源署風力發電單一服務窗口（出處原文以 check_quotes.py 核對）
     fix('TWN', 'Taoyuan Luzhu', C,
         '台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值',
