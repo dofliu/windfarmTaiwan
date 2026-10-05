@@ -2139,7 +2139,7 @@ function renderProfile() {
   let live = intlProfileBox(c.iso);
   if (c.iso === 'TWN' && WW.live) {
     const Tt = WW.live.totals();
-    live = `<div class="livebox">🌬 ${T('liveNow')}：<b>${WW.int(Tt.total)} MW</b>（${WW.live.isLive() ? L('台電', 'Taipower') + ' ' + WW.live.fmtSrc(WW.live.srcTime()) : L('模擬', 'simulated')}）· ${T('availability')} ${(Tt.ratio * 100).toFixed(1)}%</div>`;
+    live = `<div class="livebox">🌬 ${T('liveNow')}：<b>${WW.int(Tt.total)} MW</b>（${WW.live.isLive() ? L('台電', 'Taipower') + ' ' + WW.live.fmtSrc(WW.live.srcTime()) : L('模擬', 'simulated')}）· ${T('availability')} ${(Tt.ratio * 100).toFixed(1)}%${Tt.testOut > 0.5 ? L('（不含試運轉機組的 ', ' (excl. ') + WW.int(Tt.testOut) + L(' MW）', ' MW from units in testing)') : ''}</div>`;
   }
   const ltBox = y === (LT && LT.year) ? `<div class="ltbox">${c.lt ? `${esc(T('ltOk')(c.lt.asof, ''))}<a href="${esc(c.lt.url)}" target="_blank" rel="noopener">${esc(c.lt.src[lang === 'zh' ? 0 : 1])}</a>${c.lt.est ? esc(T('ltEst')) : ''}<div class="gnote">${esc(c.lt.note[lang === 'zh' ? 0 : 1])}</div>` : esc(T('ltCarry')(DATA_Y))}</div>` : '';
   box.innerHTML = `<h4>${esc(cname(c))}</h4><div class="sub">${esc(T('cont')[c.cont] || c.cont)} · ${y === (LT && LT.year) ? esc(T('ltYear')(y)) : y}</div>
