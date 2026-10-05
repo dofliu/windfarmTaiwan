@@ -74,6 +74,7 @@
     放大後自動疊上 Esri 山影或衛星影像圖磚（平均風速底圖除外）
   - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
     里程碑、可搜尋的風場清單
+  - **此刻的風**（工具列按鈕，預設關閉；網址 `flow=1`）：NOAA GFS 最新一次預報的離地 10 m 風場畫成流動的粒子，每 6 小時更新；是此刻的天氣，不隨時間軸變動
   - 導覽模式與四個故事導覽（`#/global?tour=tw`／`eu`／`cn`／`fl`）、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
   - **全球風場搜尋與篩選**：工具列「🔍 搜尋」或按 / 鍵，依名稱、中文名、開發商、機型、國名搜尋全部約 2.3 萬座風場，
     依狀態、類型（陸域／離岸／浮動式）、容量、年份篩選；範圍跟著「範圍」選單（全世界、洲或國家）。有條件時地圖只顯示符合的風場
@@ -184,6 +185,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   **口徑注意**：37331 只含台電**自有**風力機組，不含民營購電，與即時資料的全系統數值不可混用比較。
 - `.github/workflows/scrape.yml` — 約每 2 小時自動執行 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
+- `.github/workflows/wind-now.yml` — 每 6 小時抓 NOAA GFS 離地 10 m 風場（`tools/fetch_gfs_wind.py`），地球儀「此刻的風」用
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 12 MB）
 - `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）
 - `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
@@ -357,6 +359,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
 - 平均風速底圖：Global Wind Atlas 3（DTU 丹麥技術大學、世界銀行集團，CC BY 4.0）
 - 放大後的圖磚：Esri World Imagery（Esri, Vantor, Earthstar Geographics）、Esri World Hillshade（Esri, USGS, NASA 等），依 Esri 使用條款顯示出處
+- 此刻的風：NOAA／NCEP 全球預報系統 GFS 離地 10 m 風場（公有領域），每 6 小時由排程更新
 - 風場照片：人工核對的 Wikimedia Commons 照片（`tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`，每張的作者與授權寫在卡片上）；
   其餘風場與簡介瀏覽時即時查詢 Wikipedia／Wikimedia Commons（各圖授權依原頁面）
 - 程式庫：three.js r128（MIT）、Leaflet 1.9.4（BSD-2）

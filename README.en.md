@@ -100,6 +100,8 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
     pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
     milestones, and a searchable farm list
+  - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
+    refreshed every 6 hours; it is today's weather and does not follow the timeline
   - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
     `#/global?f=Hai%20Long%202%20%26%203`)
   - **Global farm search and filters**: "🔍 Search" in the toolbar or the / key searches all ~23,000 farms by name,
@@ -262,6 +264,7 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `.github/workflows/scrape.yml` — runs the scraper about every 2 hours and commits
 - `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly;
   can also be triggered manually (with a dry-run option)
+- `.github/workflows/wind-now.yml` — fetches the NOAA GFS 10 m wind field every 6 hours (`tools/fetch_gfs_wind.py`) for the globe's "Wind now"
 - `.github/workflows/standalone.yml` — rebuilds the single-file edition when site code or global data change and uploads it to the "standalone" Release (no commit, so git history does not grow by 12 MB each time)
 - `.github/workflows/keepalive.yml` — on the 1st of each month, re-enables the scheduled workflows through the GitHub API so they are not disabled after 60 days without activity (no commits)
 - `DEPLOY.en.md` — detailed deployment options (GitHub Pages / Cloudflare Worker / self-hosted)
@@ -487,6 +490,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Wind speed basemap: Global Wind Atlas 3 (DTU Wind Energy / World Bank Group, CC BY 4.0)
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
   (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
+- Wind now: NOAA/NCEP Global Forecast System (GFS) 10 m wind (public domain), refreshed every 6 hours by a schedule
 - Farm photos: hand-checked Wikimedia Commons photos (`tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`, each
   photo's author and licence shown on the card); other farms and summaries are looked up live from Wikipedia / Wikimedia Commons (per-image licences)
 - Libraries: three.js r128 (MIT), Leaflet 1.9.4 (BSD-2)

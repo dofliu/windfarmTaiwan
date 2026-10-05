@@ -15,7 +15,7 @@ const host = $('globe');
 const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
-    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
+    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
@@ -53,7 +53,7 @@ const I18N = {
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
-    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
+    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', flowLegSub: '離地 10 m，越亮風越強', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
     attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
@@ -93,7 +93,7 @@ const I18N = {
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
-    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
+    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
@@ -131,7 +131,7 @@ const I18N = {
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
-    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
+    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', flowLegSub: '10 m above ground; brighter = stronger', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
     attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
@@ -187,6 +187,7 @@ host.innerHTML = `
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
   <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
+  <button id="g-btnFlow" type="button" aria-pressed="false" data-gi="flow"></button>
   <button id="g-btnPorts" type="button" aria-pressed="true" data-gi="btnPorts"></button>
   <button id="g-btnEvents" type="button" aria-pressed="true" data-gi="btnEvents"></button>
   <span class="gsp"></span>
@@ -212,7 +213,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-portList" hidden></div>
       <div class="gpbody" id="g-evList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -322,7 +323,7 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJ
 /* 單檔公開版：藏起進階功能的按鈕與分頁，里程碑清空（地圖上的星號與導覽都不出現），圖層選單去掉水下基礎 */
 function liteSetup() {
   D.milestones = [];
-  ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
+  ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
   const fd = $('g-layerSel').querySelector('option[value="fd"]'); if (fd) fd.remove();
   panelTab = 'farms';
 }
@@ -461,6 +462,7 @@ function setBase(b, silent) {
 let WR = null, wrP = null;
 function renderWindLegend() {
   const el = $('g-windLegend'); if (!el) return;
+  if (S.flow) renderFlowLegend();
   if (S.base !== 'wind') { el.hidden = true; return; }
   if (!WR) { if (!wrP) wrP = WW.getJSON(WW.DATA.windResource).then(j => { WR = j; renderWindLegend(); }).catch(e => { console.warn(e); wrP = null; }); return; }
   const e = WR.edges, lab = i => i === 0 ? '<' + e[0] : i === e.length ? '≥' + e[e.length - 1] : e[i - 1] + '–' + e[i];
@@ -472,6 +474,7 @@ function renderWindLegend() {
 function updateAttr() {
   const tiles = patch && patch.visible && S.base !== 'plain' && tileAttrOn;
   const parts = [T('credit') + ' · v' + WW.VERSION, S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : S.base === 'wind' ? T('attrWind') : T('attrPlain')];
+  if (S.flow) parts.push(L('風：NOAA GFS', 'Wind: NOAA GFS'));
   if (tiles) parts.push(S.base === 'sat' ? T('attrTileSat') : T('attrTileRelief'));
   $('g-attr').textContent = parts.join(' · ');
 }
@@ -1357,6 +1360,7 @@ function frame(now) {
 
   if (S.playing) { S.year += dt * S.speed; if (S.year >= Y1) { S.year = Y1; setPlaying(false); } syncYearUI(); }
   if (TOUR) tourTick(dt);
+  if (S.flow) flowTick(dt, now);
   if (!renderer) { updateHUD(); if (now - (S.lastBar || 0) > 90) { S.lastBar = now; updateBars(false); } return; }
 
   if (modeAnim) { modeAnim.t += dt; const k = Math.min(1, modeAnim.t / modeAnim.dur); const e = k < 0.5 ? 2 * k * k : -1 + (4 - 2 * k) * k;
@@ -3212,13 +3216,132 @@ function groundAt(ev) {
 }
 
 /* ================= year / view / misc controls ================= */
-function syncYearUI() { const sl = $('g-slider'); sl.value = S.year; sl.style.setProperty('--p', ((S.year - Y0) / (Y1 - Y0) * 100) + '%'); $('g-yearNow').textContent = Math.floor(S.year); renderMilestones(false); refreshCardYear(); if (panelTab === 'events') renderEventResults(); }
+function syncYearUI() { if (S.flow) renderFlowLegend(); const sl = $('g-slider'); sl.value = S.year; sl.style.setProperty('--p', ((S.year - Y0) / (Y1 - Y0) * 100) + '%'); $('g-yearNow').textContent = Math.floor(S.year); renderMilestones(false); refreshCardYear(); if (panelTab === 'events') renderEventResults(); }
 function setPlaying(p) { if (p && S.year >= Y1) S.year = Y0; if (p && TOUR) tourEnd(false); S.playing = p; $('g-play').textContent = p ? '❚❚' : '▶'; $('g-play').setAttribute('aria-label', p ? T('pause') : T('play')); if (!p) syncURL(); }
 function setView(v) {
   if (!renderer) v = 'bars';
   S.view = v; const st = $('g-stage'); st.className = v === 'map' ? 'mapOnly' : v === 'bars' ? 'barOnly' : 'split';
   document.querySelectorAll('#g-viewSeg button').forEach(b => b.classList.toggle('active', b.dataset.view === v));
   setTimeout(() => { resize(); updateBars(true); }, 30);
+  syncURL();
+}
+/* ================= 此刻的風：NOAA GFS 離地 10 m 風場（公有領域，tools/fetch_gfs_wind.py → data/live/wind_now.png）畫成流動的粒子 =================
+   粒子畫在一張等距圓柱的畫布上，當成半透明貼圖蓋在地球（或 2.5D 平面）上；每格依雙線性內插取 U、V，往風吹的方向移動，舊軌跡逐格淡出。 */
+let FLOW = null;
+function flowLoad() {
+  if (FLOW && FLOW.p) return FLOW.p;
+  FLOW = FLOW || {};
+  const metaP = WW.standalone ? Promise.resolve(WW.standalone.json(WW.DATA.windNow)) : WW.getLiveJSON(WW.DATA.windNow);   // 單檔版：用建置當下內嵌的那一份，與內嵌的圖一致
+  FLOW.p = metaP.then(meta => new Promise((ok, no) => {
+    const img = new Image(); img.onload = () => ok([meta, img]); img.onerror = no;
+    img.src = WW.standalone ? WW.asset(WW.DATA.windNowImg) : WW.DATA.windNowImg + '?v=' + encodeURIComponent(meta.run);
+  })).then(([meta, img]) => {
+    const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+    const g = c.getContext('2d'); g.drawImage(img, 0, 0); const px = g.getImageData(0, 0, img.width, img.height).data;
+    const n = img.width * img.height, U = new Float32Array(n), V = new Float32Array(n), k = meta.scale;
+    for (let i = 0; i < n; i++) { U[i] = px[i * 4] * k + meta.min; V[i] = px[i * 4 + 1] * k + meta.min; }
+    Object.assign(FLOW, { meta, U, V, w: img.width, h: img.height });
+    flowSetup();
+  });
+  return FLOW.p;
+}
+function flowAt(lon, lat) {                          // 雙線性內插（m/s）；經度環繞
+  const F = FLOW, x = (lon - F.meta.lon0) / F.meta.step, y = (F.meta.lat0 - lat) / F.meta.step;
+  const x0 = Math.floor(x), y0 = Math.max(0, Math.min(F.h - 2, Math.floor(y))), fx = x - x0, fy = y - y0;
+  const a = ((x0 % F.w) + F.w) % F.w, b = (a + 1) % F.w, i00 = y0 * F.w + a, i10 = y0 * F.w + b, i01 = i00 + F.w, i11 = i10 + F.w;
+  const L = (A) => (A[i00] * (1 - fx) + A[i10] * fx) * (1 - fy) + (A[i01] * (1 - fx) + A[i11] * fx) * fy;
+  return [L(F.U), L(F.V)];
+}
+function flowSetup() {
+  const F = FLOW;
+  F.cv = document.createElement('canvas'); F.cv.width = 2048; F.cv.height = 1024; F.g = F.cv.getContext('2d');
+  F.tex = new THREE.CanvasTexture(F.cv); F.tex.generateMipmaps = false; F.tex.minFilter = THREE.LinearFilter;   // 不用 mipmap：畫布可以不是 2 的次方
+  F.mat = new THREE.MeshBasicMaterial({ map: F.tex, transparent: true, depthWrite: false });
+  F.lon = new Float32Array(9000); F.lat = new Float32Array(9000); F.age = new Float32Array(9000);
+  F.win = null;
+}
+/* 視窗：拉遠時整個地球；拉近時只畫看得到的範圍（與高解析圖磚同一套算法、放大 1.6 倍留邊），畫布解析度才夠 */
+function flowWindow(now) {
+  const F = FLOW, flat = S.modeT > 0.5, alt = curAlt();
+  let w;
+  if (alt > (flat ? 160 : 110)) w = { lon0: -180, lat0: -90, lonSpan: 360, latSpan: 180, full: true };
+  else {
+    const fc = focusLonLat(), latSpan = clamp(alt * 0.6 * 6.5 * 1.15, 2, 120), lonSpan = Math.min(360, latSpan / Math.max(0.25, Math.cos(fc.lat * D2R)));
+    w = { lon0: fc.lon - lonSpan / 2, lat0: clamp(fc.lat - latSpan / 2, -89.5, 89.5 - latSpan), lonSpan, latSpan, clon: fc.lon, clat: fc.lat };
+  }
+  const o = F.win;
+  if (o && o.flat === flat && (w.full ? o.full : !o.full && Math.abs(w.clat - o.clat) < o.latSpan * 0.15 && Math.abs(w.clon - o.clon) < o.lonSpan * 0.15
+      && w.latSpan / o.latSpan > 0.7 && w.latSpan / o.latSpan < 1.4)) return;
+  if (o && now - (F.winT || 0) < 250) return;
+  F.winT = now; w.flat = flat; F.win = w;
+  let geo;
+  if (!flat) geo = new THREE.SphereGeometry(R * 1.002, w.full ? 160 : 72, w.full ? 100 : 72, (w.lon0 + 180) * D2R, w.lonSpan * D2R, (90 - (w.lat0 + w.latSpan)) * D2R, w.latSpan * D2R);
+  else { geo = new THREE.PlaneGeometry(w.lonSpan * FS, w.latSpan * FS); geo.rotateX(-Math.PI / 2); geo.translate((w.lon0 + w.lonSpan / 2) * FS, 0.03, -(w.lat0 + w.latSpan / 2) * FS); }
+  if (!F.mesh) { F.mesh = new THREE.Mesh(geo, F.mat); F.mesh.renderOrder = 2; scene.add(F.mesh); } else { F.mesh.geometry.dispose(); F.mesh.geometry = geo; }
+  F.n = w.full ? 9000 : 3500;
+  const side = Math.min(2048, Math.round(innerHeight * 1.6 / 64) * 64);       // 拉近時用方形畫布（經緯跨度相近），大小約為畫面的 1.6 倍
+  F.cv.width = w.full ? 2048 : side; F.cv.height = w.full ? 1024 : side;
+  F.g = F.cv.getContext('2d'); F.g.clearRect(0, 0, F.cv.width, F.cv.height);
+  for (let i = 0; i < F.n; i++) flowSpawn(i, true);
+}
+function flowSpawn(i, first) {                        // 依面積均勻撒在視窗裡（高緯度不擠在一起）
+  const F = FLOW, w = F.win, s0 = Math.sin(Math.max(-85, w.lat0) * D2R), s1 = Math.sin(Math.min(85, w.lat0 + w.latSpan) * D2R);
+  F.lon[i] = w.lon0 + Math.random() * w.lonSpan; F.lat[i] = Math.asin(s0 + Math.random() * (s1 - s0)) / D2R;
+  F.age[i] = first ? Math.random() * 80 : 0;
+}
+function flowVisible() {
+  if (!FLOW || !FLOW.mesh) return;
+  FLOW.mesh.visible = !!S.flow && !modeAnim;
+}
+function flowTick(dt, now) {
+  const F = FLOW; if (!S.flow || !F || !F.g) return;
+  flowWindow(now); flowVisible();
+  if (modeAnim) return;
+  const g = F.g, w = F.win, CW = F.cv.width, CH = F.cv.height, sx = CW / w.lonSpan, sy = CH / w.latSpan, top = w.lat0 + w.latSpan;
+  g.globalCompositeOperation = 'destination-in'; g.fillStyle = 'rgba(0,0,0,0.92)'; g.fillRect(0, 0, CW, CH);   // 舊軌跡淡出
+  g.globalCompositeOperation = 'source-over'; g.lineWidth = w.full ? 1.1 : 1.3; g.lineCap = 'round';
+  const step = 0.012 * Math.min(2, dt * 60) * (w.full ? clamp(curAlt() / 110, 1, 3) : clamp(w.latSpan / 60, 0.08, 1));   // 示意速度：畫面上看起來的速度大致固定   // 示意速度：拉近時放慢，畫面上的速度大致一樣
+  const BANDS = S.base === 'sat'                    // 衛星底圖有白色雲雪：改用帶藍紫的顏色才看得出來
+    ? [[3, 'rgba(150,170,255,0.45)'], [7, 'rgba(165,185,255,0.7)'], [12, 'rgba(190,205,255,0.85)'], [99, 'rgba(215,225,255,0.95)']]
+    : [[3, 'rgba(225,225,245,0.35)'], [7, 'rgba(235,235,250,0.6)'], [12, 'rgba(245,245,255,0.8)'], [99, 'rgba(255,255,255,0.95)']];
+  const paths = BANDS.map(() => []);
+  const X = lon => { let d = (lon - w.lon0) % 360; if (d < 0) d += 360; return d * sx; };
+  for (let i = 0; i < F.n; i++) {
+    if (F.age[i]++ > 90) { flowSpawn(i); continue; }
+    const lo = F.lon[i], la = F.lat[i], [u, v] = flowAt(lo, la), sp = Math.hypot(u, v);
+    let nlo = lo + u * step / Math.max(0.2, Math.cos(la * D2R)), nla = la + v * step;
+    if (nla > 85 || nla < -85 || nla < w.lat0 || nla > top) { flowSpawn(i); continue; }
+    if (nlo > 180) nlo -= 360; else if (nlo < -180) nlo += 360;
+    F.lon[i] = nlo; F.lat[i] = nla;
+    const x0 = X(lo), x1 = X(nlo);
+    if (Math.abs(x1 - x0) > CW / 2) continue;   // 跨過畫布邊緣（換日線）：這一格不畫
+    if (!w.full && x1 > CW) { flowSpawn(i); continue; }
+    let b = 0; while (sp > BANDS[b][0]) b++;
+    paths[b].push(x0, (top - la) * sy, x1, (top - nla) * sy);
+  }
+  paths.forEach((p, b) => { g.strokeStyle = BANDS[b][1]; g.beginPath(); for (let k = 0; k < p.length; k += 4) { g.moveTo(p[k], p[k + 1]); g.lineTo(p[k + 2], p[k + 3]); } g.stroke(); });
+  F.tex.needsUpdate = true;
+}
+function renderFlowLegend() {
+  const el = $('g-flowLegend'); if (!el) return;
+  if (!S.flow || !FLOW || !FLOW.meta) { el.hidden = true; return; }
+  const d = new Date(FLOW.meta.run.replace('Z', ':00Z')), tw = new Date(d.getTime() + 8 * 3600e3);
+  const when = (tw.getUTCMonth() + 1) + '/' + tw.getUTCDate() + ' ' + String(tw.getUTCHours()).padStart(2, '0') + ':00';
+  const sw = [['<3', 0.35], ['3–7', 0.6], ['7–12', 0.8], ['≥12', 0.95]];
+  el.innerHTML = '<div class="wlh"><b>' + esc(T('flowLegT')) + '</b> · ' + esc(T('flowLegSub')) + '</div><div class="wlbar">' +
+    sw.map(([l, a]) => '<span><i style="background:rgba(240,240,255,' + a + ')"></i><em>' + l + ' m/s</em></span>').join('') + '</div>' +
+    '<div class="wln">' + esc(T('flowTime')(when)) + ' · <a href="' + esc(FLOW.meta.url) + '" target="_blank" rel="noopener">' + esc(T('flowSrc')) + '</a></div>' +
+    (Math.floor(S.year) < Y1 ? '<div class="wln fly">' + esc(T('flowYearNote')(Math.floor(S.year))) + '</div>' : '');
+  el.classList.toggle('below', S.base === 'wind');
+  el.hidden = false;
+}
+function toggleFlow(on) {
+  S.flow = on != null ? on : !S.flow;
+  const b = $('g-btnFlow'); b.classList.toggle('active', S.flow); b.setAttribute('aria-pressed', S.flow ? 'true' : 'false');
+  updateAttr();
+  if (S.flow) flowLoad().then(() => { flowVisible(); renderFlowLegend(); })
+    .catch(e => { console.error(e); FLOW = null; notice(L('此刻的風載入失敗（離線或資料暫時無法取得）', 'Wind now failed to load (offline or data unavailable)')); S.flow = false; b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+  else { flowVisible(); renderFlowLegend(); }
   syncURL();
 }
 function togglePipe(on) {
@@ -3315,7 +3438,7 @@ function showSources() {
       '<li>' + (zh ? '亞伯達：AESO Current Supply Demand 報表（約 1 分鐘）。© 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved；非商業與教育用途，數值未修改。' : 'Alberta: AESO Current Supply Demand report (about 1 minute). © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; non-commercial, educational use, values unmodified.') + '</li>' +
       '<li>' + (zh ? '安大略：IESO Generators Output and Capability 報表（每小時）。' : 'Ontario: IESO Generators Output and Capability report (hourly). ') + 'Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO\'s website (www.ieso.ca).</li>' +
       '<li>' + (zh ? '機組與風場的對照以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對；對不到的機組只計入電網總量。綠色外圈只在時間軸位於最新年份時顯示。' : 'Units are matched to farms using AEMO’s registration list and IESO’s “Transmission-Connected Generation” page, checked by hand; unmatched units only count toward the grid total. Green rings only show when the timeline is at the latest year.') + '</li></ul>') +
-    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain) · ' + (zh ? '平均風速：' : 'Wind speed: ') + '<a href="https://globalwindatlas.info/" target="_blank" rel="noopener">Global Wind Atlas 3</a> (DTU Wind Energy / World Bank Group, CC BY 4.0)' + (zh ? '，離地 100 m 年平均風速，取 1/32 縮圖層（約 9 km）依 1 m/s 分級（tools/build_wind_resource.py）' : ', mean wind speed at 100 m, 1/32 overview (about 9 km) binned at 1 m/s (tools/build_wind_resource.py)') + '</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikimedia Commons ' + (zh ? '照片（各張作者與授權寫在卡片上，連到原檔案頁）' : 'photos (author and licence of each on the card, linked to the file page)') + ' · Wikipedia (live lookup)</li></ul>' +
+    '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain) · ' + (zh ? '平均風速：' : 'Wind speed: ') + '<a href="https://globalwindatlas.info/" target="_blank" rel="noopener">Global Wind Atlas 3</a> (DTU Wind Energy / World Bank Group, CC BY 4.0)' + (zh ? '，離地 100 m 年平均風速，取 1/32 縮圖層（約 9 km）依 1 m/s 分級（tools/build_wind_resource.py）' : ', mean wind speed at 100 m, 1/32 overview (about 9 km) binned at 1 m/s (tools/build_wind_resource.py)') + '</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikimedia Commons ' + (zh ? '照片（各張作者與授權寫在卡片上，連到原檔案頁）' : 'photos (author and licence of each on the card, linked to the file page)') + ' · Wikipedia (live lookup)</li><li>' + (zh ? '此刻的風：' : 'Wind now: ') + '<a href="https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast" target="_blank" rel="noopener">NOAA/NCEP Global Forecast System (GFS)</a>' + (zh ? '（公有領域）離地 10 m 風場，1° 解析度，取最新一次預報的分析場，排程每 6 小時更新（tools/fetch_gfs_wind.py）；粒子的移動速度是示意，亮度對應風速' : ' (public domain) 10 m wind at 1°, the analysis of the newest cycle, refreshed every 6 hours by a schedule (tools/fetch_gfs_wind.py); particle speed is illustrative, brightness follows wind speed') + '</li></ul>' +
     '<h4>' + (zh ? '開發者與版權' : 'Developer & copyright') + '</h4><p>國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室<br>National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu<br>' +
     (zh ? '網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用。' : 'Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source listed above.') +
     '<br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a> · <a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html">' + (zh ? '下載單檔版 HTML' : 'Download the single-file HTML') + '</a> · <a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html">' + (zh ? '下載全球風電地圖公開版（只有地球儀）' : 'Download the public global wind map (globe only)') + '</a>' +
@@ -3333,6 +3456,7 @@ function stateParams() {
   if (S.view !== 'map') p.v = S.view;
   if (S.mode !== 'globe') p.mode = S.mode;
   if (S.layer !== 'both') p.layer = S.layer;
+  if (S.flow) p.flow = '1';
   if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
   if (cardItem && cardItem.kind === 'ms') p.ms = cardItem.m.name;
@@ -3364,6 +3488,7 @@ function applyParams(p, fromFarms) {
   if (p.layer && ['both', 'on', 'off', 'fd'].includes(p.layer)) { S.layer = p.layer; $('g-layerSel').value = p.layer; layerChanged(); updateBars(true); farmLayerDirty = true; }
   S.fdOnly = S.layer === 'fd' && FD_GROUPS.includes(p.fdg) ? p.fdg : null;
   if (p.pipe != null) togglePipe(p.pipe !== '0');
+  if (p.flow != null && (p.flow === '1') !== !!S.flow) toggleFlow(p.flow === '1');
   if (p.r && !fromFarms) setRegion(p.r);
   if (p.y && !isNaN(+p.y)) { S.year = clamp(+p.y, Y0, Y1); syncYearUI(); }
   else if (!fromFarms && p.play !== '1') { S.year = Y1; syncYearUI(); }     // 連結省略 y ＝ 最新年份（見 stateParams）
@@ -3453,6 +3578,7 @@ function wireUI() {
   $('g-densSel').onchange = e => { S.density = +e.target.value; };
   $('g-regionSel').onchange = e => { if (TOUR) tourEnd(false); closeCard(); setRegion(e.target.value); };
   $('g-baseSel').onchange = e => setBase(e.target.value);
+  $('g-btnFlow').onclick = () => toggleFlow();
   $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
   $('g-btnPorts').onclick = () => { togglePorts(); if (S.ports) setPanelTab('ports'); };

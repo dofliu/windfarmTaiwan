@@ -132,6 +132,12 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   rotor radius needs both numbers in the same quoted passage, measured from sea level. With mixed turbines, give the hub height as a
   range and the rotor diameter of the largest model.
 
+- 「此刻的風」：`tools/fetch_gfs_wind.py`（排程 `wind-now`，每 6 小時）從 NOAA NOMADS 取 GFS 離地 10 m 的 U、V，寫成 `data/live/wind_now.webp`＋`wind_now.json`；
+  檔案要維持小（約 50 KB，每次都會 commit），不要提高解析度或加欄位前先估算 repo 一年的增量。它是此刻的天氣，不隨時間軸變動，圖例要寫出資料時間。
+  "Wind now": `tools/fetch_gfs_wind.py` (the 6-hourly `wind-now` schedule) takes GFS 10 m U and V from NOAA NOMADS and writes
+  `data/live/wind_now.webp` + `wind_now.json`; keep the file small (about 50 KB, committed every time) and estimate the yearly repo growth
+  before raising the resolution or adding fields. It is today's weather, not tied to the timeline, and the legend must show the data time.
+
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。
   各來源的授權標示（AEMO 來源、AESO 與 IESO 的版權聲明）顯示在資料旁，不要刪。
