@@ -15,6 +15,16 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.26.1 — 2026-10-05
+
+- US capacity factors now use the nameplate capacity registered in EIA-860M as the denominator. They used the summed USWTDB turbine ratings,
+  but USWTDB sometimes lacks part of a plant (Salt Fork: 64 turbines, 128 MW in USWTDB, 174 MW at the EIA) while the generation is the whole
+  plant's, so the factor came out too high (Salt Fork showed 60.6%). Farms whose USWTDB and EIA capacities differ by 10% or more (farm and
+  plant do not line up cleanly) are no longer listed, taking the US farms with measured output from 876 to 833, and years in which a generator
+  entered service or retired are left out. After the fix the 2025 US median is 32.1% and the capacity-weighted average 34.0% (Lawrence Berkeley
+  National Laboratory, Land-Based Wind Market Report 2024 edition: a US fleet-wide 33.5% in 2023); 12 farms are at 50% or more, mostly in the Great Plains
+  wind belt (South Dakota, Iowa, Minnesota, Oklahoma) and at South Point, Hawaii. Taiwan's figures are unchanged.
+
 ## v2.26.0 — 2026-10-05
 
 - New "📊 Output" dialog on the globe: measured yearly output of individual farms in Taiwan and the US, three ways —

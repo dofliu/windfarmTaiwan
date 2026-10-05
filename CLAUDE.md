@@ -56,11 +56,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 美國每部風機的位置（`data/global/turbines.json`）由 `tools/build_turbines.py` 從 USWTDB 產生；對應規則寧可少配（名稱、30 km、容量 ±15%），重建風場層後要重跑。
   US turbine positions (`data/global/turbines.json`) are built from USWTDB by `tools/build_turbines.py` (conservative matching by name, 30 km and
   capacity ±15%); re-run it after rebuilding the farm layer.
-- 實際年發電量（`data/global/generation.json`）由 `tools/build_generation.py` 產生：美國用 EIA-923，經 USWTDB 每部風機的 EIA 電廠代碼接到風場（電廠跨好幾座風場的不用、只列全年運轉的年份）；
+- 實際年發電量（`data/global/generation.json`）由 `tools/build_generation.py` 產生：美國用 EIA-923，經 USWTDB 每部風機的 EIA 電廠代碼接到風場（電廠跨好幾座風場的不用、只列全年運轉的年份），容量因數的分母用 EIA-860M 登記的裝置容量（不用 USWTDB 加總：USWTDB 常少收機組，會把容量因數算高），USWTDB 與 EIA 容量相差 10% 以上的不用；
   台灣只有台電自有風場（台電開放資料 17140／17141，發電站對應寫在 `TW_STATIONS`，容量差 15% 以上不用）。民營風場沒有逐場官方數字，不要用憑證量或推估值充當實測。
   地球儀「發電表現」（排名與同機型比較）只用這個檔的實測值，不排名國家平均推估的值；同機型比較用的機型欄（`m`）寧可不寫：整座風場只有一種型號才寫（台灣另要求發電站容量與紀錄相差 3% 以內）。
   Actual yearly output (`data/global/generation.json`) is built by `tools/build_generation.py`: US farms from EIA-923 through the EIA plant code USWTDB gives
-  each turbine (plants spread over several farms and partial years are left out); in Taiwan only Taipower-owned farms (open data 17140/17141, stations
+  each turbine (plants spread over several farms and partial years are left out), with the capacity factor on the EIA-860M nameplate capacity (not the USWTDB sum: USWTDB often lacks turbines, inflating the factor), dropping farms whose USWTDB and EIA capacities differ by 10% or more; in Taiwan only Taipower-owned farms (open data 17140/17141, stations
   mapped in `TW_STATIONS`, skipped when capacities differ by more than 15%). Private farms have no official per-farm figures; never pass certificates or estimates off as measured output.
   The globe's Output dialog (rankings and same-model comparison) uses only these measured values, never the country-average estimates; the model field (`m`)
   is written only when a whole farm has one model (in Taiwan also only when the station capacity is within 3% of the record).

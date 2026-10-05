@@ -101,7 +101,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
     milestones, and a searchable farm list
   - **Output** (the "📊 Output" toolbar button, the Taiwan and US country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
-    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms) and the US (about 860 farms
+    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms) and the US (about 830 farms
     from EIA-923), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm); private farms have no official per-farm figures and are not ranked
   - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
     refreshed every 6 hours; it is today's weather and does not follow the timeline
@@ -214,7 +214,7 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   estimated yearly output on farm cards); built by `tools/build_country_stats.py`
 - `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
-- `data/global/generation.json` — actual yearly output and capacity factor of farms (876 in the US from EIA-923, public domain;
+- `data/global/generation.json` — actual yearly output and capacity factor of farms (833 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
   19 Taipower-owned farms in Taiwan from Taipower open data 17140; the turbine model when a farm has only one, for the Output dialog's same-model comparison), built by `tools/build_generation.py` and loaded when a farm card first opens
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,900 farms, 147,000
   turbines), downloaded by
@@ -369,7 +369,8 @@ python tools/fetch_osm_turbines.py osm_wind/
 python tools/build_turbines_osm.py osm_wind/
 # 10. Actual yearly output (EIA-923 publishes the previous year's final data around September, older years under archive/xls/; replace the two Taiwan CSVs with fresh downloads from Taipower open data; run step 8 first)
 curl -LO https://www.eia.gov/electricity/data/eia923/xls/f923_2025.zip   # 2023 and 2024 are under .../eia923/archive/xls/
-python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip \
+curl -LO https://www.eia.gov/electricity/data/eia860m/xls/august_generator2026.xlsx   # EIA-860M: generator capacity and in-service/retirement years (take the latest month)
+python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip august_generator2026.xlsx \
   data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv
 ```
 
