@@ -53,7 +53,7 @@ const I18N = {
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
-    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', flowLegSub: '離地 10 m，越亮風越強', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
+    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m，越亮風越強', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
     attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
@@ -131,7 +131,7 @@ const I18N = {
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
-    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', flowLegSub: '10 m above ground; brighter = stronger', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
+    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground; brighter = stronger', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
     attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
@@ -1314,6 +1314,10 @@ function setRegion(r, noFly) {
   setPanelTab(panelTab === 'pipe' || panelTab === 'farms' || panelTab === 'ports' || panelTab === 'events' ? panelTab : (LITE ? 'farms' : byIso[r] ? 'prof' : 'ms'));
   if (!noFly) flyToRegion(false);
   updateBars(true); renderMilestones(true); renderProfile();
+  if (farmsReady && byIso[r] && !TOUR) {          // 這一年該國還沒有風場（時間軸停在早期）：提醒，免得以為資料不見了
+    const yr = Math.floor(S.year), all = D.farms.filter(f => f.iso === r && !f.pipe);
+    if (all.length && !all.some(f => f.year <= S.year && (!f.end || f.end > S.year))) notice(T('regionEmpty')(yr), 4000);
+  }
   syncURL();
 }
 let panelTab = 'ms';
@@ -1360,7 +1364,9 @@ function frame(now) {
 
   if (S.playing) { S.year += dt * S.speed; if (S.year >= Y1) { S.year = Y1; setPlaying(false); } syncYearUI(); }
   if (TOUR) tourTick(dt);
-  if (S.flow) flowTick(dt, now);
+  if (S.flow && (S.frames & 1)) {             // 隔一格更新一次：畫布貼圖每次都要整張上傳到顯示卡，減半負擔
+    try { flowTick(dt * 2, now); } catch (e) { console.error(e); toggleFlow(false); }   // 出錯就關掉，不拖累風場層的繪製
+  }
   if (!renderer) { updateHUD(); if (now - (S.lastBar || 0) > 90) { S.lastBar = now; updateBars(false); } return; }
 
   if (modeAnim) { modeAnim.t += dt; const k = Math.min(1, modeAnim.t / modeAnim.dur); const e = k < 0.5 ? 2 * k * k : -1 + (4 - 2 * k) * k;
@@ -3100,7 +3106,7 @@ function tourStart(story) {
   if (story && STORIES[story]) { setRegion(STORIES[story].region, true); if (!S.pipe) togglePipe(true); }
   const stops = story && STORIES[story] ? storyStops(story) : buildTourStops(S.region);
   if (!stops.length) return;
-  TOUR = { stops, i: -1, phase: 'fly', t: 0, flyDur: 1, dwell: story && STORIES[story] ? STORIES[story].dwell : 9, paused: false, region: S.region, story: story || null };
+  TOUR = { stops, i: -1, phase: 'fly', t: 0, flyDur: 1, dwell: story && STORIES[story] ? STORIES[story].dwell : 9, paused: false, region: S.region, story: story || null, y0: S.year };
   setPlaying(false);
   host.classList.add('touring');
   $('g-btnTour').classList.add('active');
@@ -3136,7 +3142,9 @@ function tourTick(dt) {
 }
 function tourPause(p) { if (!TOUR) return; TOUR.paused = p; $('g-tourBar').querySelector('.tp').textContent = p ? '▶' : '❚❚'; }
 function tourEnd(finished) {
+  const y0 = TOUR && TOUR.y0;
   TOUR = null; host.classList.remove('touring'); $('g-btnTour').classList.remove('active');
+  if (y0 != null && !S.playing) { S.year = y0; syncYearUI(); farmLayerDirty = true; }   // 時間軸回到導覽前的年份（不然會停在最後一站，例如 1991 年）
   if (finished) { closeCard(); flyToRegion(false); notice(T('tourEnd'), 2500); }
   else if (cardItem) renderCard(cardItem);     // 中途離開導覽：卡片補上完整內容
 }
@@ -3279,7 +3287,7 @@ function flowWindow(now) {
   else { geo = new THREE.PlaneGeometry(w.lonSpan * FS, w.latSpan * FS); geo.rotateX(-Math.PI / 2); geo.translate((w.lon0 + w.lonSpan / 2) * FS, 0.03, -(w.lat0 + w.latSpan / 2) * FS); }
   if (!F.mesh) { F.mesh = new THREE.Mesh(geo, F.mat); F.mesh.renderOrder = 2; scene.add(F.mesh); } else { F.mesh.geometry.dispose(); F.mesh.geometry = geo; }
   F.n = w.full ? 9000 : 3500;
-  const side = Math.min(2048, Math.round(innerHeight * 1.6 / 64) * 64);       // 拉近時用方形畫布（經緯跨度相近），大小約為畫面的 1.6 倍
+  const side = Math.min(2048, Math.round(innerHeight * Math.min(2, devicePixelRatio || 1) * 1.3 / 64) * 64);       // 拉近時用方形畫布（經緯跨度相近），大小約為畫面的 1.6 倍
   F.cv.width = w.full ? 2048 : side; F.cv.height = w.full ? 1024 : side;
   F.g = F.cv.getContext('2d'); F.g.clearRect(0, 0, F.cv.width, F.cv.height);
   for (let i = 0; i < F.n; i++) flowSpawn(i, true);
@@ -3287,7 +3295,7 @@ function flowWindow(now) {
 function flowSpawn(i, first) {                        // 依面積均勻撒在視窗裡（高緯度不擠在一起）
   const F = FLOW, w = F.win, s0 = Math.sin(Math.max(-85, w.lat0) * D2R), s1 = Math.sin(Math.min(85, w.lat0 + w.latSpan) * D2R);
   F.lon[i] = w.lon0 + Math.random() * w.lonSpan; F.lat[i] = Math.asin(s0 + Math.random() * (s1 - s0)) / D2R;
-  F.age[i] = first ? Math.random() * 80 : 0;
+  F.age[i] = first ? Math.random() * 170 : 0;
 }
 function flowVisible() {
   if (!FLOW || !FLOW.mesh) return;
@@ -3298,16 +3306,16 @@ function flowTick(dt, now) {
   flowWindow(now); flowVisible();
   if (modeAnim) return;
   const g = F.g, w = F.win, CW = F.cv.width, CH = F.cv.height, sx = CW / w.lonSpan, sy = CH / w.latSpan, top = w.lat0 + w.latSpan;
-  g.globalCompositeOperation = 'destination-in'; g.fillStyle = 'rgba(0,0,0,0.92)'; g.fillRect(0, 0, CW, CH);   // 舊軌跡淡出
-  g.globalCompositeOperation = 'source-over'; g.lineWidth = w.full ? 1.1 : 1.3; g.lineCap = 'round';
-  const step = 0.012 * Math.min(2, dt * 60) * (w.full ? clamp(curAlt() / 110, 1, 3) : clamp(w.latSpan / 60, 0.08, 1));   // 示意速度：畫面上看起來的速度大致固定   // 示意速度：拉近時放慢，畫面上的速度大致一樣
+  g.globalCompositeOperation = 'destination-in'; g.fillStyle = 'rgba(0,0,0,0.88)'; g.fillRect(0, 0, CW, CH);   // 舊軌跡淡出
+  g.globalCompositeOperation = 'source-over'; g.lineWidth = w.full ? 0.8 : 1.0; g.lineCap = 'round';
+  const step = 0.006 * Math.min(4, dt * 60) * (w.full ? clamp(curAlt() / 110, 1, 3) : clamp(w.latSpan / 60, 0.08, 1));   // 示意速度：畫面上看起來的速度大致固定   // 示意速度：拉近時放慢，畫面上的速度大致一樣
   const BANDS = S.base === 'sat'                    // 衛星底圖有白色雲雪：改用帶藍紫的顏色才看得出來
     ? [[3, 'rgba(150,170,255,0.45)'], [7, 'rgba(165,185,255,0.7)'], [12, 'rgba(190,205,255,0.85)'], [99, 'rgba(215,225,255,0.95)']]
     : [[3, 'rgba(225,225,245,0.35)'], [7, 'rgba(235,235,250,0.6)'], [12, 'rgba(245,245,255,0.8)'], [99, 'rgba(255,255,255,0.95)']];
   const paths = BANDS.map(() => []);
   const X = lon => { let d = (lon - w.lon0) % 360; if (d < 0) d += 360; return d * sx; };
   for (let i = 0; i < F.n; i++) {
-    if (F.age[i]++ > 90) { flowSpawn(i); continue; }
+    if ((F.age[i] += 2) > 180) { flowSpawn(i); continue; }
     const lo = F.lon[i], la = F.lat[i], [u, v] = flowAt(lo, la), sp = Math.hypot(u, v);
     let nlo = lo + u * step / Math.max(0.2, Math.cos(la * D2R)), nla = la + v * step;
     if (nla > 85 || nla < -85 || nla < w.lat0 || nla > top) { flowSpawn(i); continue; }

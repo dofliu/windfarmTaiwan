@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.25.1 — 2026-10-05
+
+- "Wind now" particles are thinner and flow at half the speed with shorter trails; the canvas texture is uploaded to the GPU every other
+  frame (half the load), and the particle animation switches itself off if it fails instead of holding up the farm layer.
+- After a tour ends (finished or left midway) the timeline returns to the year it was on before the tour; it used to stay on the last
+  stop's year (Europe offshore could stop at Vindeby in 1991), so farms seemed to vanish when switching to another country.
+- When switching the focus to a country that had no operating farms in the timeline's year, a notice says to move the timeline to the latest year.
+
 ## v2.25.0 — 2026-10-05
 
 - New on the globe: "Wind now" (toolbar button, off by default; `flow=1` in the URL), the newest NOAA/NCEP Global Forecast System (GFS)
