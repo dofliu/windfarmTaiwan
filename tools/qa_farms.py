@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """風場座標健檢：列出不在自己國界內（陸域 > 40 km、離岸 > 400 km）的風場。
 
-    python tools/qa_farms.py [data/global/wind_farms.json] [data/global/world_borders.json]
+    python tools/qa_farms.py [data/global/wind_farms.json] [data/global/world_borders.json] [--max N]
+
+--max N：超過 N 筆時結束碼為 1（GitHub Actions 的 pr-check 用；新增的合理例外要一起調高 N）。
+--max N exits with 1 when more than N farms are outside their country (used by the pr-check workflow; raise N with any new legitimate exception).
 
 每次重建 wind_farms.json 後跑一次。常見的「合理例外」：
   · 國界 1:50m 不含的小島（澎湖、嵊泗等）
@@ -13,8 +16,14 @@ import json, math, sys
 from collections import defaultdict
 from pathlib import Path
 
-FARMS = Path(sys.argv[1] if len(sys.argv) > 1 else 'data/global/wind_farms.json')
-BORDERS = Path(sys.argv[2] if len(sys.argv) > 2 else 'data/global/world_borders.json')
+ARGS = sys.argv[1:]
+MAX = None
+if '--max' in ARGS:
+    i = ARGS.index('--max')
+    MAX = int(ARGS[i + 1])
+    del ARGS[i:i + 2]
+FARMS = Path(ARGS[0] if len(ARGS) > 0 else 'data/global/wind_farms.json')
+BORDERS = Path(ARGS[1] if len(ARGS) > 1 else 'data/global/world_borders.json')
 B = json.loads(BORDERS.read_text(encoding='utf-8'))
 J = json.loads(FARMS.read_text(encoding='utf-8'))
 
@@ -63,3 +72,6 @@ print('ISO codes without a border polygon:', ', '.join(sorted(no_border)) or '-'
 print(len(bad), 'farms outside their country (km from border, iso, located in, name, lat, lon, MW, type, status, src):')
 for b in sorted(bad, reverse=True):
     print(' ', b)
+if MAX is not None and len(bad) > MAX:
+    print(f'::error::{len(bad)} farms are outside their country, more than the {MAX} known exceptions · 不在國界內的風場超過已知的 {MAX} 筆')
+    sys.exit(1)
