@@ -46,7 +46,10 @@ MANUAL = {
     ("AEMO", "GPWFEST1"): "Golden Plains (Stage 1)", ("AEMO", "GPWFEST2"): "Golden Plains (Stage 1)",
     ("AEMO", "GPWFEST3"): "Golden Plains (Stage 1)",       # Golden Plains 東區＝第一期 756 MW
     ("AEMO", "GPWFWST1"): None, ("AEMO", "GPWFWST2"): None,   # Golden Plains 西區（第二期）：資料中是興建中的整體專案列
-    ("AEMO", "ELAINWF1"): None, ("AEMO", "YAWWF1"): None,     # 資料中沒有這兩座風場
+    ("AEMO", "YENDWF1"): "Lal Lal", ("AEMO", "ELAINWF1"): "Lal Lal",   # Lal Lal 分 Yendon（38 部）與 Elaine（22 部）兩區（英文維基 Lal Lal Wind Farm）
+    ("AEMO", "CROOKWF2"): "Crookwell II wind farm",           # Crookwell 2（不是 1998 年的 Crookwell 1，4.8 MW）
+    ("AEMO", "CROOKWF3"): "Crookwell II wind farm",           # GEM 的 Crookwell II 紀錄第二期（2024 年 58 MW）就是 Crookwell 3
+    ("AEMO", "YAWWF1"): None,                                 # 資料中沒有 Yawong
     # 加拿大亞伯達
     ("AESO", "TAB1"): "Taber wind farm",
     ("AESO", "SCR2"): "Magrath wind farm",

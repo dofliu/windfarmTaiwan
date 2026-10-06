@@ -7,9 +7,9 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,680 operating farms, 1,188,070 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 20,680 operating farms, 1,188,143 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 56 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 3 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 142 duplicate, never-built or non-existent records were removed and 236 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Clean-up**: checked record by record in 2026-09; 142 duplicate, never-built or non-existent records were removed and 239 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 9,586 projects, 2,719,460 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
@@ -109,7 +109,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 9 | Canada (CAN) | 18,153 | 0 | 17,709 | 17,755 | 98% | 398 | 197 | 0 | 6 | ✓ |
 | 10 | Sweden (SWE) | 17,381 | 191 | 16,574 | 16,554 | 95% | 827 | 259 | 97 | 0 | ✓ |
 | 11 | Turkey (TUR) | 14,781 | 0 | 13,784 | 14,067 | 95% | 714 | 278 | 2,194 | 13 | ✓ |
-| 12 | Australia (AUS) | 14,529 | 0 | 14,252 | 15,165 | 104% | 0 | 107 | 18 | 3 | ✓ |
+| 12 | Australia (AUS) | 14,529 | 0 | 14,252 | 15,238 | 105% | 0 | 107 | 18 | 3 | ✓ |
 | 13 | Italy (ITA) | 13,568 | 30 | 10,440 | 10,504 | 77% | 3,064 | 338 | 2,195 | 146 | △ |
 | 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,675 | 91% | 1,107 | 160 | 716 | 49 | ✓ |
 | 15 | Poland (POL) | 10,602 | 0 | 8,962 | 9,024 | 85% | 1,578 | 239 | 718 | 115 | ✓ |

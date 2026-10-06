@@ -30,6 +30,7 @@ farm's start year, which marks an older neighbour), and are written only when th
 capacity is within ±15% of the site record. Models are grouped by make + rotor diameter + unit rating (the register spells one model
 several ways); a farm gets a model only when all its turbines fall in one group with one spelling.
 """
+import calendar
 import collections
 import datetime as dt
 import math
@@ -148,7 +149,7 @@ def units(turbines, parks):
             e = year_kwh(u['kwh'], y)
             if e is None or not full_year(u['ts'], y) or not u['kw']:
                 continue
-            cf = e / (u['kw'] * 8760)
+            cf = e / (u['kw'] * (8784 if calendar.isleap(y) else 8760))
             if CF_MIN <= cf <= CF_MAX:
                 ys[y] = [round(e / 1e6, 2), round(cf * 100, 1)]          # [GWh, 容量因數 %]
         u['y'] = ys
@@ -255,7 +256,7 @@ def dk_generation(vind_xlsx, park_xlsx, farms):
         for y in YEARS:
             if all(y in u['y'] for u in ul):                       # 歸到這座風場的每個單位那一年都要有數字
                 e = sum(u['y'][y][0] for u in ul)
-                ys[str(y)] = [round(e, 1), round(e * 1e6 / (kw * 8760) * 100, 1)]
+                ys[str(y)] = [round(e, 1), round(e * 1e6 / (kw * (8784 if calendar.isleap(y) else 8760)) * 100, 1)]
         if not ys:
             continue
         tall = [t for u in ul for t in u['ts'] if not t['off']]

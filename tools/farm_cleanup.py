@@ -1478,6 +1478,17 @@ RULES = [
         'Huadian. Approved in November 2024 for 114 MW and 7 turbines; the September 2026 EPC tender is for at most 102 MW and 6 turbines, with the first turbine on '
         'the grid by October 2027 and all by December 2027',
         'https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/zdjsxmpzhss/202412/t20241202_6587050.htm', owner='Zhongmin Energy Co Ltd [100%]', mw=102, year=2027, note=True),
+    # 2026-10-06 澳洲 AEMO 實測發電量對照時查到的錯誤（AEMO 登記容量與紀錄不符；出處原文以 check_quotes.py 核對）
+    fix('AUS', 'Rye Park', C, 'Rye Park 是 66 部 Vestas V162-6.2（以 6.0 MW 模式運轉），共 396 MW（Vestas 2021 年訂單新聞稿；AEMO 登記容量同），不是 327 MW',
+        'Rye Park has 66 Vestas V162-6.2 turbines run in 6.0 MW mode, 396 MW in all (Vestas order release, 2021; AEMO’s registered capacity agrees), not 327 MW',
+        'https://vestas.com/en/media/company-news/2021/vestas-wins-396-mw-enventus-order-for-wind-project-in-a-c3407249', mw=396,
+        turbine='Vestas V162-6.2 (6.0 MW mode) x66'),
+    fix('AUS', 'Cullerin Range wind farm', G, 'Cullerin Range 是 8 部 Senvion MM82 2 MW 加 7 部 MM92 2.05 MW，共 30 MW（英文維基；AEMO 登記容量 30 MW），不是 26 MW',
+        'Cullerin Range has 8 Senvion MM82 2 MW and 7 MM92 2.05 MW turbines, 30 MW in all (English Wikipedia; AEMO registered capacity 30 MW), not 26 MW',
+        'https://en.wikipedia.org/wiki/Cullerin_Range_Wind_Farm', mw=30.0, turbine='Senvion MM82 2.0 MW x8 + MM92 2.05 MW x7'),
+    fix('AUS', 'Lal Lal', C, 'Lal Lal 的 60 部是 Vestas V136-3.45 平台、每部 3.8 MW（共 228 MW，英文維基），原寫「V136 3.6」與容量不符',
+        'Lal Lal’s 60 turbines are Vestas V136-3.45 machines rated 3.8 MW each (228 MW in all, English Wikipedia); the row said “V136 3.6”, which does not add up to its capacity',
+        'https://en.wikipedia.org/wiki/Lal_Lal_Wind_Farm', turbine='Vestas V136-3.45 (3.8 MW) x60'),
     # 2026-10-05 德國 MaStR 對照時查到的錯置（MaStR 機組編號可在 marktstammdatenregister.de 查詢）
     fix('DEU', 'Flomborn-Stetten wind farm', G,
         'BVT 集團的 Flomborn／Stetten 風場就是 MaStR 的「BVT Windpark Flomborn/Stetten」：5 部 3,075 kW、2013 年 12 月併網（SEE970097431950、SEE972537071986、'

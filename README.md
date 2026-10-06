@@ -74,7 +74,7 @@
     放大後自動疊上 Esri 山影或衛星影像圖磚（平均風速底圖除外）
   - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
     里程碑、可搜尋的風場清單
-  - **發電表現**（工具列「📊 發電表現」、台灣、美國與丹麥的國家概況、風場卡片的「看排名」；網址 `out=TWN.cf`）：台灣（台電自有 19 座）、美國（EIA-923 約 830 座）與丹麥（丹麥能源署風機登記檔，54 座）
+  - **發電表現**（工具列「📊 發電表現」、台灣、美國、澳洲與丹麥的國家概況、風場卡片的「看排名」；網址 `out=TWN.cf`）：台灣（台電自有 19 座）、美國（EIA-923 約 830 座）、澳洲（AEMO 每 5 分鐘實測出力，62 座）與丹麥（丹麥能源署風機登記檔，54 座）
     逐場實測年發電量的**總發電量排名**、**容量因數排名**，以及**同機型比較**（同一型號在不同風場的容量因數，每點一座風場）；
     丹麥另有「**丹麥・單部風機**」（網址 `out=DKT.cf`）：單獨計量的約 1,800 部風機逐部排名，同機型比較改畫分布，點一部風機飛到它的位置；
     另有「**台灣・即時取樣**」（網址 `out=TWS.cf`，台灣即時頁「數據」分頁也有入口）：用每 2 小時一次的台電即時資料取樣，比較含民營風場在內各併網點的平均出力與容量因數（近 30／90 天或全部），
@@ -159,7 +159,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
 - `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；約 970 座風場、6 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
 - `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 833 座：EIA-923，容量以 EIA-860M 登記的裝置容量計，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；風場只有一種機型時附機型，給「發電表現」的同機型比較；
-  丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場），由 `tools/build_generation.py`（丹麥的規則在 `tools/dk_output.py`）產生，第一次打開風場卡片時才載入
+  丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場；澳洲 62 座：AEMO 每個機組每 5 分鐘的 SCADA 實測出力加總，經即時出力的機組對照接到本站風場），
+  由 `tools/build_generation.py`（丹麥的規則在 `tools/dk_output.py`，澳洲在 `tools/au_output.py`）產生，第一次打開風場卡片時才載入；
+  澳洲的來源彙整檔是 `data/global/sources/aemo_wind_monthly.json`（`python3 tools/au_output.py fetch` 下載 AEMO 月檔後產生）
 - `data/global/turbine_output.json` — 丹麥單獨計量的約 1,800 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
 - `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部，德國改用 MaStR），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
@@ -197,6 +199,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - `.github/workflows/wind-now.yml` — 每 6 小時抓 NOAA GFS 離地 10 m 風場（`tools/fetch_gfs_wind.py`），地球儀「此刻的風」用
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 12 MB）
 - `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）
+- `.github/workflows/pr-check.yml` — 每個 PR 的自動檢查：Playwright 冒煙測試（全站各頁桌機與手機、兩個單檔版連網與離線，`tools/smoke_test.js`）、語法、座標健檢、
+  由程式產生的文件是否已更新、改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）；本機可跑 `node tools/smoke_test.js http://localhost:8000/ --standalone`
 - `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
 - `ROADMAP.md` / `TODO.md` — 已知限制、後續規劃與待辦事項
 - `CHANGELOG.md` — 版本與更新紀錄（版本號是 `assets/js/core.js` 的 `WW.VERSION`）
@@ -283,6 +287,7 @@ python tools/build_turbines_osm.py osm_wind/
 # 10. 實際年發電量（美國 EIA-923 每年約 9 月出前一年的最終值，舊年份在 archive/xls/；台灣兩個 CSV 從台電開放資料重新下載後覆蓋；先跑第 8 步）
 curl -LO https://www.eia.gov/electricity/data/eia923/xls/f923_2025.zip   # 2023、2024 年在 .../eia923/archive/xls/
 curl -LO https://www.eia.gov/electricity/data/eia860m/xls/august_generator2026.xlsx   # EIA-860M：各機組的裝置容量與商轉、除役年（取最新一個月）
+#     澳洲：python tools/au_output.py fetch 2022-01 2025-12（AEMO MMSDM 月檔，每月約 30 MB、約 20 分鐘；新的一年把迄月往後延）
 #     丹麥（選用）：從丹麥能源署 https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren 下載「Vinddata」與「Parkproduktion」兩個 Excel（約每 2 個月更新），接在最後
 python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip august_generator2026.xlsx \
   data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv vinddata.xlsx parkproduktion.xlsx
@@ -373,7 +378,9 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 此刻的風：NOAA／NCEP 全球預報系統 GFS 離地 10 m 風場（公有領域），每 6 小時由排程更新
 - 風場實測年發電量（「發電表現」與風場卡片）：美國能源資訊署 EIA-923、EIA-860M（公有領域）；台灣電力公司「自建之各類再生能源發電量」與「風力發電站資料」
   （政府資料開放平臺 17140、17141，政府資料開放授權條款）；丹麥能源署 [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren)
-  （Vinddata、Parkproduktion，2026 年 10 月取用；依[能源署資料使用條款](https://dataforsyningen.dk/asset/PDF/rettigheder_vilkaar/Energistyrelsen%20-%20Vilk%C3%A5r%20for%20brug%20af%20data.pdf)標示機關、資料集與取用時間）
+  （Vinddata、Parkproduktion，2026 年 10 月取用；依[能源署資料使用條款](https://dataforsyningen.dk/asset/PDF/rettigheder_vilkaar/Energistyrelsen%20-%20Vilk%C3%A5r%20for%20brug%20af%20data.pdf)標示機關、資料集與取用時間）；
+  澳洲能源市場營運機構 [AEMO, MMS Data Model](https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/)（DISPATCH_UNIT_SCADA、DUDETAIL 月檔；資料來源：Australian Energy Market Operator，
+  依 [AEMO 版權許可](https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions)標示）
 - 風場照片：人工核對的 Wikimedia Commons 照片（`tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`，每張的作者與授權寫在卡片上）；
   其餘風場與簡介瀏覽時即時查詢 Wikipedia／Wikimedia Commons（各圖授權依原頁面）
 - 程式庫：three.js r128（MIT）、Leaflet 1.9.4（BSD-2）

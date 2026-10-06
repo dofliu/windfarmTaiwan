@@ -15,6 +15,31 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.28.0 — 2026-10-06
+
+- The Output dialog adds Australia: measured yearly output and capacity factors of 62 farms from the MMS Data Model monthly archive of the
+  Australian Energy Market Operator (AEMO) — each unit's 5-minute SCADA output summed, 2023–2025, credited under AEMO's copyright permissions.
+  - Units are linked to the site's farms through the same mapping as the live output; units shared between farms are left out, as are farms whose AEMO
+    registered capacity differs from the site record by 15% or more.
+  - New farms often connect in stages and are held to part of their output by AEMO for six months to a year, so a year is left out when the farm was not yet
+    generating in January of the year before, its registered capacity changed, or under 98% of the 5-minute data is present.
+  - 2025: 60 farms and 10,030 MW (about 66% of the site's operating Australian capacity), median capacity factor 30.6%; for example Woolnorth 39.3%,
+    Stockyard Hill 39.1%, Hornsdale 38.5% and Rye Park 35.1%. Measured output includes curtailment and self-curtailment at negative prices (Macarthur was
+    almost idle in June and July 2024 and reached 13.3% for the year).
+  - Check: Macarthur's 2022 and 2023 output is within 0.01% of the yearly figures English Wikipedia compiles from AEMO data.
+  - New tool `tools/au_output.py` (downloads and aggregates the AEMO monthly files into `data/global/sources/aemo_wind_monthly.json`). Australia's country
+    profile gains the "Output rankings" button.
+- Capacity factors in every country now divide by the hours in the year: 2024 (a leap year) uses 8,784 hours, so the 2024 factors of the US, Taiwan and
+  Denmark drop slightly (about 0.1 percentage points).
+- Data corrections found against AEMO's registered capacities (every quote checked): Rye Park 327 → 396 MW (66 Vestas V162-6.2 run in 6.0 MW mode);
+  Cullerin Range 26 → 30 MW; Lal Lal's model corrected to Vestas V136-3.45 (3.8 MW each).
+- The unit mapping for live output in Australia and Canada was rebuilt: Lal Lal's Yendon and Elaine sections and Crookwell 2 and 3 now map to the right farms
+  (Crookwell 2 and 3 had been counted on the 4.8 MW Crookwell 1 of 1998), and a few mappings broken by farm renames (Goyder South, MacIntyre, Wambo,
+  Forty Mile, Paintearth) work again.
+- Automatic checks on every pull request (GitHub Actions `pr-check`): a Playwright smoke test walks every page at desktop and phone widths and opens both
+  single-file copies over `file://` online and offline, plus syntax, farm coordinates, generated documents being up to date, and the version and both
+  changelogs when the site changes (`tools/smoke_test.js`, `tools/check_version.py`, `qa_farms.py --max`).
+
 ## v2.27.0 — 2026-10-06
 
 - The Output dialog gains "Taiwan · live samples": Taipower's live data (each unit's instantaneous output every 10 minutes), sampled every 2 hours and

@@ -36,7 +36,8 @@ windfarmTaiwan/
    ├─ backfill.yml                  # runs backfill_history.py every Monday
    ├─ wind-now.yml                  # runs tools/fetch_gfs_wind.py every 6 hours (the globe's "Wind now", NOAA GFS)
    ├─ standalone.yml                # rebuilds the single-file HTML when site code or global data change and uploads it to the "standalone" Release
-   └─ keepalive.yml                 # on the 1st of each month, re-enables the schedules so they are not disabled after 60 days
+   ├─ keepalive.yml                 # on the 1st of each month, re-enables the schedules so they are not disabled after 60 days
+   └─ pr-check.yml                  # checks on every PR: Playwright smoke test, syntax, coordinates, generated documents, version (optional)
 ```
 
 To set up a new project from scratch (instead of using this repo directly):
@@ -48,7 +49,7 @@ To set up a new project from scratch (instead of using this repo directly):
    that, but a high-frequency schedule would exceed it).
 2. Put `index.html`, `assets/`, `data/`, `taipower_wind_scraper.py`, `intl_wind_scraper.py` and
    `backfill_history.py` in the repo root (`tools/` is only needed to update the global data).
-3. Put `.github/workflows/scrape.yml`, `backfill.yml`, `wind-now.yml`, `standalone.yml` and `keepalive.yml` in place.
+3. Put `.github/workflows/scrape.yml`, `backfill.yml`, `wind-now.yml`, `standalone.yml` and `keepalive.yml` in place (`pr-check.yml` only checks pull requests and is optional).
 4. Make sure `DATA_ENDPOINT` and the other constants at the top of `assets/js/live.js` point to
    relative paths on the same origin (e.g. `./wind_realtime.json`). No change is needed if you fork
    or clone this repo.
@@ -99,7 +100,7 @@ data sources (for example Taipower changing its format).
 
 1. Open the site and look at the data time in the header ("Live · Taipower MM/DD HH:MM"). If it has not moved for more than half a
    day, the schedule has stopped or fetching is failing; the site shows no error, it just keeps showing the last data it got.
-2. On GitHub's **Actions** tab, check that the latest run of each of the four workflows is green (`keepalive` runs monthly). If a
+2. On GitHub's **Actions** tab, check that the latest run of each scheduled workflow is green (`keepalive` runs monthly; `pr-check` only runs when there is a pull request). If a
    workflow says "This scheduled workflow is disabled…" (GitHub disables schedules after 60 days without activity), press **Enable workflow**.
 3. If the data time has stopped, press **Run workflow** on `scrape-taipower-wind` to run it by hand and check that `wind_realtime.json`
    gets a new commit; if it fails, read the run log.

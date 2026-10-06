@@ -1,0 +1,92 @@
+name: pr-check
+
+# 每個 PR 的自動檢查（規則見 CLAUDE.md 第 4、5、7 節）：
+#   data  ：Python／JavaScript／JSON 語法；風場座標健檢（不在國界內的不能比已知例外多）；由程式產生的文件
+#           （docs/data-coverage*、docs/foundations*、data/global/foundations.*）重跑後要與 PR 裡的一致；改到網站時版本號與兩份 CHANGELOG。
+#   smoke ：Playwright（Chromium）以桌機與手機寬度走過全站各頁，並以 file:// 開啟兩個單檔版（連網、離線各一次），見 tools/smoke_test.js。
+# 失敗時 smoke 會上傳各頁截圖（Actions 頁面的 Artifacts）。
+# Checks on every pull request (rules in CLAUDE.md §4, §5, §7):
+#   data:  Python/JavaScript/JSON syntax; the farm coordinate check (no more farms outside their country than the known exceptions);
+#          generated documents must match the PR after regenerating; version and both changelogs when the site changes.
+#   smoke: Playwright (Chromium) walks every page at desktop and phone widths and opens both single-file copies over file://, online
+#          and offline (tools/smoke_test.js). On failure the page screenshots are uploaded as an artifact.
+on:
+  pull_request:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-check-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  data:
+    name: Data, generated documents and version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Syntax (Python, JavaScript, JSON)
+        run: |
+          python -m py_compile *.py tools/*.py
+          for f in assets/js/*.js tools/*.js; do node --check "$f"; done
+          python -c "import json,pathlib; [json.loads(p.read_text(encoding='utf-8')) for p in pathlib.Path('data').rglob('*.json')]; print('JSON ok')"
+
+      - name: Farm coordinates (tools/qa_farms.py)
+        run: python tools/qa_farms.py --max 19
+
+      - name: Generated documents are up to date
+        run: |
+          python tools/coverage_report.py
+          python tools/build_foundations.py
+          if ! git diff --quiet -- docs data/global; then
+            git diff --stat -- docs data/global
+            echo "::error::Generated files differ from the PR: run tools/coverage_report.py and tools/build_foundations.py and commit the result · 由程式產生的文件與 PR 不一致，請重跑並 commit"
+            exit 1
+          fi
+
+      - name: Version and changelogs (tools/check_version.py)
+        if: github.event_name == 'pull_request'
+        run: python tools/check_version.py "origin/${{ github.base_ref }}"
+
+  smoke:
+    name: Pages and single-file copies (Playwright)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright (Chromium)
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Build the single-file copies
+        run: |
+          python tools/build_standalone.py
+          python tools/build_globe_lite.py
+
+      - name: Smoke test (tools/smoke_test.js)
+        run: |
+          python -m http.server 8000 >/dev/null 2>&1 &
+          sleep 2
+          node tools/smoke_test.js http://localhost:8000/ --standalone --shots shots
+
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-screenshots
+          path: shots/
+          retention-days: 7
