@@ -100,9 +100,13 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
     pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
     milestones, and a searchable farm list
-  - **Output** (the "📊 Output" toolbar button, the Taiwan and US country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
-    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms) and the US (about 830 farms
-    from EIA-923), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm); private farms have no official per-farm figures and are not ranked
+  - **Output** (the "📊 Output" toolbar button, the Taiwan, US and Danish country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
+    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms), the US (about 830 farms
+    from EIA-923) and Denmark (54 farms from the Danish Energy Agency's turbine register), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm);
+    "**Denmark · single turbines**" (`out=DKT.cf`) ranks about 1,800 individually metered turbines, draws each model as a distribution and flies to a turbine when clicked; plus
+    "**Taiwan · live samples**" (`out=TWS.cf`, also linked from the Taiwan live page's Charts tab): average output and capacity factor of every grid unit,
+    private farms included, from Taipower's live data sampled every 2 hours (last 30 or 90 days, or everything), an estimate from samples, not official yearly
+    generation, never mixed into the official ranking; farm cards also show the last 90 days of samples
   - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
     refreshed every 6 hours; it is today's weather and does not follow the timeline
   - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
@@ -215,9 +219,12 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
 - `data/global/generation.json` — actual yearly output and capacity factor of farms (833 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
-  19 Taipower-owned farms in Taiwan from Taipower open data 17140; the turbine model when a farm has only one, for the Output dialog's same-model comparison), built by `tools/build_generation.py` and loaded when a farm card first opens
-- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,900 farms, 147,000
-  turbines), downloaded by
+  19 Taipower-owned farms in Taiwan from Taipower open data 17140; 54 Danish farms from the Danish Energy Agency's turbine register, matched by location; the turbine model when a farm has only one, for the Output dialog's same-model comparison),
+  built by `tools/build_generation.py` (the Danish rules are in `tools/dk_output.py`) and loaded when a farm card first opens
+- `data/global/turbine_output.json` — position, specs and measured yearly output of about 1,800 individually metered Danish turbines (Danish Energy Agency;
+  production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
+- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
+  turbines; Germany now uses MaStR), downloaded by
   `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
   Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
   non-US farm is selected
@@ -232,6 +239,9 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   the tables (each source with its quoted passage and check result)
 - `standalone/` (not in git) — where the build scripts write locally; the official single-file edition and public global wind map are built by Actions and uploaded to the GitHub Release "standalone"
 - `data/archive/wind_history_archive_YYYY-MM.json` — the long-term archive of Taipower's official retrospective data, one file per month (written by `backfill_history.py`)
+- `data/archive/farm_daily.json` — daily samples of every grid unit (private farms included) in Taipower's live data, from June 2026 (added by the scraper
+  on every run; `tools/build_farm_daily.py` backfills it from the git history), used by the Output dialog's Taiwan live samples and farm cards; one line per day,
+  fields described in the file's meta
   (built by `tools/build_globe_lite.py`; do not edit by hand)
 - `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
   farm-by-farm foundation list (`foundations.en.md`), the events list (`events.en.md`) and the
@@ -265,8 +275,8 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   **Scope caveat**: 37331 covers only Taipower-**owned** wind units, excluding IPP (independent
   power producer) purchases; its totals aren't comparable to the live system-wide figure.
 - `.github/workflows/scrape.yml` — runs the scraper about every 2 hours and commits
-- `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly;
-  can also be triggered manually (with a dry-run option)
+- `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly and fills daily-sample gaps from the last three weeks of
+  git history; can also be triggered manually (with a dry-run option)
 - `.github/workflows/wind-now.yml` — fetches the NOAA GFS 10 m wind field every 6 hours (`tools/fetch_gfs_wind.py`) for the globe's "Wind now"
 - `.github/workflows/standalone.yml` — rebuilds the single-file edition when site code or global data change and uploads it to the "standalone" Release (no commit, so git history does not grow by 12 MB each time)
 - `.github/workflows/keepalive.yml` — on the 1st of each month, re-enables the scheduled workflows through the GitHub API so they are not disabled after 60 days without activity (no commits)
@@ -370,8 +380,9 @@ python tools/build_turbines_osm.py osm_wind/
 # 10. Actual yearly output (EIA-923 publishes the previous year's final data around September, older years under archive/xls/; replace the two Taiwan CSVs with fresh downloads from Taipower open data; run step 8 first)
 curl -LO https://www.eia.gov/electricity/data/eia923/xls/f923_2025.zip   # 2023 and 2024 are under .../eia923/archive/xls/
 curl -LO https://www.eia.gov/electricity/data/eia860m/xls/august_generator2026.xlsx   # EIA-860M: generator capacity and in-service/retirement years (take the latest month)
+#     Denmark (optional): download the "Vinddata" and "Parkproduktion" workbooks from the Danish Energy Agency, https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren (updated about every 2 months), and add them last
 python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip august_generator2026.xlsx \
-  data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv
+  data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv vinddata.xlsx parkproduktion.xlsx
 ```
 
 ### Corrections this site made to the data (all recorded in the data files and the site's "Sources")
@@ -495,6 +506,10 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
   (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
 - Wind now: NOAA/NCEP Global Forecast System (GFS) 10 m wind (public domain), refreshed every 6 hours by a schedule
+- Measured yearly output (the Output dialog and farm cards): U.S. Energy Information Administration Form EIA-923 and EIA-860M (public domain); Taiwan Power Company,
+  generation of its own renewable stations and wind station list (data.gov.tw 17140 and 17141, Open Government Data License); Danish Energy Agency,
+  [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) (Vinddata and Parkproduktion, retrieved October 2026; credited with the agency,
+  the dataset and the retrieval date as the [agency's terms of use](https://dataforsyningen.dk/asset/PDF/rettigheder_vilkaar/Energistyrelsen%20-%20Vilk%C3%A5r%20for%20brug%20af%20data.pdf) require)
 - Farm photos: hand-checked Wikimedia Commons photos (`tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`, each
   photo's author and licence shown on the card); other farms and summaries are looked up live from Wikipedia / Wikimedia Commons (per-image licences)
 - Libraries: three.js r128 (MIT), Leaflet 1.9.4 (BSD-2)

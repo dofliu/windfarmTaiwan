@@ -66,6 +66,10 @@ GRID_FALLBACK_META_APIS = [
 ]
 GRID_OUTPUT = Path(__file__).with_name("grid_status.json")
 HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
+# 每日取樣累積(含民營風場，長期保存不修剪)：每次抓到的快照依台電資料時間累加到當日，
+# 供「發電表現」比較各併網點的平均出力與容量因數。民營風場沒有逐場的官方年發電量，這是唯一的逐場來源；
+# 它是每 2 小時一次的瞬間值取樣，不是官方發電量統計(前端要標示)。tools/build_farm_daily.py 可從 git 歷史回補。
+FARM_DAILY = Path(__file__).with_name("data") / "archive" / "farm_daily.json"
 HISTORY_DAYS = 7         # 滾動視窗：保留最近 7 天(backfill_history.py 回填後密度為每 10 分一筆)
 MAX_POINTS = 1200        # 安全上限(7 天 × 每 10 分 144 筆 = 1008，留餘裕)，防檔案異常膨脹
 
@@ -406,6 +410,91 @@ def fetch_grid_status():
     return _fetch_grid_primary() or _fetch_grid_fallback()
 
 
+def unit_key(name):
+    """台電機組名稱 → 本站併網點代碼(與 map_to_farms 同一套對應)；對不到的保留原名，前綴 u:，不臆測。"""
+    fid = NAME_MAP_EXACT.get(name)
+    if fid is None:
+        for k, v in NAME_MAP_EXACT.items():
+            if k in name:
+                fid = v
+                break
+    return fid or "u:" + name
+
+
+def load_farm_daily(path=FARM_DAILY):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"days": {}, "names": {}}
+
+
+def add_daily_sample(store, wind_units, source_time):
+    """把一次快照加進每日累積。同一台電資料時間(source_time)只算一次；回傳是否有加入。
+
+    每個併網點每天一列 [取樣數, 出力加總 MW, 有裝置容量的取樣數, 其出力加總 MW, 其裝置容量加總 MW]：
+    平均出力＝出力加總÷取樣數；容量因數＝有裝置容量時的出力加總÷裝置容量加總(試運轉、未列裝置容量的時段不計)。"""
+    try:
+        t = dt.datetime.fromisoformat(str(source_time).strip())
+    except ValueError:
+        return False
+    if t.tzinfo:
+        t = t.astimezone(TZ).replace(tzinfo=None)
+    day, slot = t.strftime("%Y-%m-%d"), t.strftime("%H:%M")
+    d = store.setdefault("days", {}).setdefault(day, {"t": [], "u": {}})
+    if slot in d["t"]:
+        return False
+    agg = {}
+    for u in wind_units or []:
+        if u.get("output") is None or not u.get("name"):
+            continue
+        k = unit_key(u["name"])
+        store.setdefault("names", {})[k] = u.get("raw_name") or u["name"]
+        a = agg.setdefault(k, [0.0, 0.0, True])
+        a[0] += u["output"]
+        if u.get("capacity") is None:
+            a[2] = False
+        else:
+            a[1] += u["capacity"]
+    if not agg:
+        return False
+    for k, (out, cap, known) in agg.items():
+        r = d["u"].setdefault(k, [0, 0.0, 0, 0.0, 0.0])
+        r[0] += 1
+        r[1] = round(r[1] + out, 2)
+        if known and cap > 0:
+            r[2] += 1
+            r[3] = round(r[3] + out, 2)
+            r[4] = round(r[4] + cap, 2)
+    d["t"] = sorted(d["t"] + [slot])
+    return True
+
+
+def save_farm_daily(store, path=FARM_DAILY):
+    """一天一行，diff 好讀；meta 說明欄位與口徑。"""
+    store["meta"] = {
+        "source": "Taiwan Power Company real-time generation by unit (data.gov.tw dataset 8931, genary opendata), sampled by taipower_wind_scraper.py",
+        "license": "Open Government Data License, version 1.0 (Taiwan)",
+        "method": "Each scrape (about every 2 hours) adds Taipower's instantaneous net output of every wind unit to its Taipei date; "
+                  "a data time (source_time) is counted once. u[key] = [samples, sum of output MW, samples with listed capacity, "
+                  "sum of output MW in those samples, sum of listed capacity MW in those samples]. Average output = sum/samples; "
+                  "capacity factor = output sum / capacity sum over samples with a listed capacity (units in testing, listed as '-', are excluded). "
+                  "Sampled instantaneous values, not official energy statistics.",
+        "keys": "Unit keys follow NAME_MAP_EXACT in taipower_wind_scraper.py (same as wind_realtime.json farms); 'u:<name>' = not mapped yet. "
+                "names = the latest Taipower name of each key.",
+        "updated": dt.datetime.now(TZ).isoformat(timespec="seconds"),
+    }
+    days = store.get("days", {})
+    lines = ['{"meta":' + json.dumps(store["meta"], ensure_ascii=False) + ',',
+             '"names":' + json.dumps(dict(sorted(store.get("names", {}).items())), ensure_ascii=False) + ',',
+             '"days":{']
+    keys = sorted(days)
+    for i, k in enumerate(keys):
+        lines.append(json.dumps(k) + ':' + json.dumps(days[k], ensure_ascii=False, separators=(",", ":")) + (',' if i < len(keys) - 1 else ''))
+    lines.append('}}')
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text('\n'.join(lines) + '\n', encoding="utf-8")
+
+
 def map_to_farms(wind_units):
     """名稱明確對應者才填入(完全比對優先，再退化包含比對)；其餘不臆測。"""
     farms = {}
@@ -589,6 +678,12 @@ def main():
 
     OUTPUT.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     n = update_history(farms, total, upd, out["updated"], farm_wind)
+    try:                                # 每日取樣累積：失敗不影響即時資料
+        store = load_farm_daily()
+        if add_daily_sample(store, wind_units, upd or out["updated"]):
+            save_farm_daily(store)
+    except Exception as e:
+        print(f"[WARN] 每日取樣累積失敗（不影響即時資料）：{e}", file=sys.stderr)
     print(f"[OK] {out['updated']}  風力總出力 {total} MW  "
           f"(風力機組 {len(wind_units)} 列，對應 {len(farms)} 座風場) → {OUTPUT.name}"
           f"  · 歷史累積 {n} 筆 → {HISTORY.name}")

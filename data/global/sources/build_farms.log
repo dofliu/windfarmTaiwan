@@ -86,6 +86,7 @@ CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
 CLEAN dup CHN CGN Jiaxing 2 (Zhoushan Daishan 4) 300.0 -> Zhejiang Daishan 4 Offshore wind farm
 CLEAN dup CHN CGN Taizhou 1 300.0 -> Zhejiang Taizhou 1 Offshore wind farm
 CLEAN dup CHN CR Power Cangnan 2 / Wenzhou 500.0 -> Zhejiang Cangnan 2 Offshore wind farm
+CLEAN dup CHN Changle Waihai B 400.0 -> Fujian Changle 'Outer Ocean' Area B Offshore wind farm
 CLEAN dup CHN Datang Pingtan Waihai 300.0 -> Fujian Pingtan Changjiang'Ao Offshore wind farm
 CLEAN dup CHN Guangdong Energy Zhanjiang Xuwen 300.0 -> Guangdong Zhanjiang Xuwen Offshore wind farm
 CLEAN dup CHN Guangdong Huilai Shibeishan Offshore wind farm 100.0 -> Guangdong Huilai Shibeishan wind farm
@@ -100,6 +101,7 @@ CLEAN dup CHN Guoneng Peninsula South U2 / Laizhou 500.0 -> Shandong Bandaonan U
 CLEAN dup CHN Guoxin Sheyang H1 300.0 -> Huaneng Sheyang H1 / Yancheng
 CLEAN dup CHN Hainan CZ2 Demonstration Offshore wind farm 600.0 -> Shenergy Hainan CZ2 (Dongfang)
 CLEAN dup CHN Hainan CZ3 Demonstration Offshore wind farm 600.0 -> Datang Danzhou CZ3
+CLEAN dup CHN Hainan CZ3 Demonstration Offshore wind farm · 2 600.0 -> Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2
 CLEAN dup CHN Hainan Danzhou CZ3 (Datang) Offshore wind farm 600.0 -> Datang Danzhou CZ3
 CLEAN dup CHN Huaneng Zhuanghe IV1 250.0 -> Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm
 CLEAN dup CHN Jiangsu Dafeng H10 (Three Gorges) Offshore wind farm 155.0 -> Jiangsu Dafeng H10 (Guoxin) Offshore wind farm
@@ -137,6 +139,9 @@ CLEAN dup KEN Kajiado wind farm 100.0 -> Kipeto
 CLEAN dup KEN Lake Turkana 310.0 -> Lake Turkana
 CLEAN dup KOR Jeonnam (SK E&C) wind farm 96.0 -> Jeonnam Shinan 1 / others
 CLEAN dup KOR Yeongyang 61.5 -> Yeong Yang (Macquarie Group) wind farm
+CLEAN dup MAR Akhfenir wind farm 202.0 -> Akhfennir I-II
+CLEAN dup MAR Tangier wind farm 140.0 -> Tanger I (Dhar Saadane / Beni Mejmel)
+CLEAN dup MAR Tarfaya wind farm 300.0 -> Tarfaya
 CLEAN dup NLD Amazon Shell HKN offshore wind farm 759.0 -> Hollandse Kust Noord
 CLEAN dup NLD Binnenjijks wind farm 68.0 -> Noordoostpolder (incl. Westermeerwind nearshore)
 CLEAN dup NLD Borssele Site V wind farm 19.0 -> Borssele V (Two Towers innovation site)
@@ -187,10 +192,12 @@ CLEAN fix CHN CTG Yangjiang Qingzhou 7 1000.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 1 300.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 3 400.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 4 300.0
+CLEAN fix CHN CTG Yangjiang Shapa Phase 5 400.0
 CLEAN fix CHN Changle Waihai C 498.0
 CLEAN fix CHN Datang Danzhou CZ3 1200.0
 CLEAN fix CHN Datang Nan'ao Lemen I 245.0
 CLEAN fix CHN Datang Zhuanghe II 300.0
+CLEAN fix CHN Fujian Changle 'Outer Ocean' Area B Offshore wind farm 114.0
 CLEAN fix CHN Fujian Pingtan Changjiang'Ao Offshore wind farm 295.0
 CLEAN fix CHN Fujian Pingtan Waihai Offshore wind farm 111.0
 CLEAN fix CHN Fuqing Haitan Strait 300.0
@@ -204,6 +211,7 @@ CLEAN fix CHN Guoneng Dafeng H5 200.0
 CLEAN fix CHN Hainan CZ2 Demonstration Offshore wind farm · 2 600.0
 CLEAN fix CHN Hainan CZ7 Demonstration Offshore wind farm · 1 600.0
 CLEAN fix CHN Hainan CZ9 Demonstration Offshore wind farm · 1 600.0
+CLEAN fix CHN Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2 600.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Hebei Construction Investment Xiangyun Island 250.0
 CLEAN fix CHN Huadian Yangjiang Qingzhou 3 500.6
@@ -212,6 +220,7 @@ CLEAN fix CHN Huaneng Cangnan 4 400.0
 CLEAN fix CHN Huaneng Dafeng 300.0
 CLEAN fix CHN Huaneng Dalian Zhuanghe III 300.0
 CLEAN fix CHN Huaneng Peninsula North BW 500.0
+CLEAN fix CHN Huaneng Peninsula North BW 510
 CLEAN fix CHN Huaneng Peninsula North BW 510
 CLEAN fix CHN Huaneng Peninsula South 4 301.6
 CLEAN fix CHN Huaneng Qidong H3 300.0
@@ -287,6 +296,7 @@ CLEAN fix GBR Sofia 1400.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0
+CLEAN fix IRN Tizbaad wind farm 100.0
 CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
 CLEAN fix JPN Goto City Offshore floating project 16.8
@@ -311,6 +321,8 @@ CLEAN fix KOR YEP wind farm 76.0
 CLEAN fix KOR Yeonggwang Nakwol 364.8
 CLEAN fix KOR Yeonggwang Wind offshore wind farm 35.0
 CLEAN fix KOR Yeongyang 2nd wind power generation 42.0
+CLEAN fix MAR Akhfennir I-II 200.0
+CLEAN fix MAR Tarfaya 301.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
 CLEAN fix NLD Ecowende Offshore wind farm 780.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
@@ -351,13 +363,20 @@ CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix TWN Datan (Tatan) 12.5
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
 CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
+CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
+CLEAN fix TWN Greater Changhua 2b & 4 920.0
+CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Hai Long 2 & 3 1044.0
 CLEAN fix TWN Penghu Longmen 6.9
 CLEAN fix TWN Penghu Zhongtun 4.8
+CLEAN fix TWN Taichung Port 35.0
 CLEAN fix TWN Taichung Port 36.0
+CLEAN fix TWN Taichung Power Plant 2.0
 CLEAN fix TWN Taichung Power Plant 8.0
 CLEAN fix TWN Taipower Offshore Phase 1 (Changhua) 109.2
 CLEAN fix TWN Taipower Offshore Phase 2 294.0
+CLEAN fix TWN Taipower Offshore Phase 2 294.0
+CLEAN fix TWN Taipower Offshore Phase 2 294.5
 CLEAN fix TWN Taoyuan Luzhu 33.6
 CLEAN fix TWN Wanggong 20.0
 CLEAN fix TWN Yongxing (Fangyuan) 16.8

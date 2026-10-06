@@ -40,6 +40,7 @@ WOOLNORTH = 'https://en.wikipedia.org/wiki/Woolnorth_Wind_Farm'
 SNOWTOWN = 'https://en.wikipedia.org/wiki/Snowtown_Wind_Farm'
 STORY = 'https://en.wikipedia.org/wiki/Story_County_Wind_Farm'
 MANJIL = 'https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm'
+CY_TAICHUNG = 'https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/46805'     # 監察院 2010 年台中電廠及台中港區風機採購案調查報告
 
 
 def R(act, iso, name, src, zh, en, url, keep=None, **fix):
@@ -441,6 +442,37 @@ RULES = [
         'The Manjil complex totals 92.2 MW, built in phases from 1995 and completed in 2015', MANJIL, mw=92.2, note=True),
     fix('IRN', 'Binalood wind farm', G, '2008 年啟用（43 × 660 kW）', 'Online in 2008 (43 × 660 kW)',
         'https://en.wikipedia.org/wiki/Binalood_Wind_Farm', year=2008),
+    # 2026-10-06 查證（出處原文以 check_quotes.py 核對；伊朗官方網站在核對環境連不上，改用轉載與官方數字）
+    fix('IRN', 'Tizbaad wind farm', G,
+        '查無運轉證據：伊朗再生能源署（SATBA）2025 年 11 月底分省資料，整個禮薩呼羅珊省（含 28 MW 的 Binalood）風電只有 51.30 MW，容不下 Khaf 縣 100 MW 的 Tizbaad；'
+        '2020 年 10 月全國風電僅 302.82 MW；2024 年 6 月 50 MW 的 Mil Nader 仍被稱為伊朗東部目前最大的風場。GEM 的「2019 年營運中」只根據開發商網站。'
+        '改為施工前、年份不詳（確認從未興建後再刪除）',
+        'No evidence it operates: SATBA’s provincial data for late November 2025 give only 51.30 MW of wind in all of Razavi Khorasan (which includes the 28 MW Binalood farm), '
+        'leaving no room for a 100 MW Tizbaad farm in Khaf County; national wind capacity was 302.82 MW in October 2020; in June 2024 the 50 MW Mil Nader farm was still called '
+        'the largest wind farm in eastern Iran. GEM’s “operating since 2019” rests only on the developer’s website. Set to pre-construction with the year unknown '
+        '(to be removed once it is confirmed never to have been built)',
+        'https://www.ice.it/it/news/notizie-dal-mondo/297574', st=2, year=0, note=True),
+    # ------------------------------------------------ Morocco（2026-10-06：逐場加總為國家統計的 120%，三筆 GEM 紀錄與精選重複；出處原文以 check_quotes 核對）
+    dup('MAR', 'Tarfaya wind farm', G, ('Tarfaya', C),
+        '同一座塔爾法亞風場（300／301 MW、2014 年）：GEM 把它放在北部的得土安省，但這座風場在南部、距塔爾法亞 20 km，131 部 2.3 MW、共 301 MW（英文維基）',
+        'The same Tarfaya wind farm (300/301 MW, 2014): GEM places it in Tetouan Province in the north, but the farm lies 20 km from Tarfaya in the south, '
+        'with 131 × 2.3 MW and 301 MW (English Wikipedia)',
+        'https://en.wikipedia.org/wiki/Tarfaya_Wind_Farm'),
+    fix('MAR', 'Tarfaya', C, '業主是 ENGIE 與 Nareva 各半的合資公司（Tarec）；併入的 GEM 紀錄寫 ONEE，屬於它誤放在得土安的資料',
+        'Owned and operated by a 50:50 joint venture of ENGIE and Nareva Holding (Tarec); the merged GEM record’s owner, ONEE, came with its misplaced Tetouan entry',
+        'https://en.wikipedia.org/wiki/Tarfaya_Wind_Farm', owner='Tarfaya Energy Company (Tarec): ENGIE [50%]; Nareva Holding [50%]'),
+    dup('MAR', 'Tangier wind farm', G, ('Tanger I (Dhar Saadane / Beni Mejmel)', C),
+        '同一座丹吉爾一號風場（140 MW）：GEM 的別名就是 Parc Eolien De Tanger I，分期為 Dhar Saadane 與 Bni Majmel',
+        'The same Tangier I farm (140 MW): GEM’s alternative name is Parc Eolien De Tanger I, with the Dhar Saadane and Bni Majmel phases',
+        'https://www.gem.wiki/Tangier_wind_farm'),
+    dup('MAR', 'Akhfenir wind farm', G, ('Akhfennir I-II', C),
+        '同一座阿赫費尼爾風場（Akhfennir I、II，約 200 MW，在塔爾法亞省）',
+        'The same Akhfenir farm (Akhfennir I and II, about 200 MW, in Tarfaya Province)',
+        'https://www.gem.wiki/Akhfenir_wind_farm'),
+    fix('MAR', 'Akhfennir I-II', C,
+        '座標改到 GEM 的精確位置（塔爾法亞省阿赫費尼爾）；原座標偏西北約 17 km，近景對不到 OpenStreetMap 標出的風機',
+        'Point moved to GEM’s exact location (Akhfenir, Tarfaya Province); the old one was about 17 km to the north-west, so the close-up could not pick up the turbines mapped in OpenStreetMap',
+        'https://www.gem.wiki/Akhfenir_wind_farm', lat=27.954, lon=-11.998),
     # ------------------------------------------------ Vietnam
     dup('VNM', 'Tân Phú Đông 2 nearshore wind power plant', G, ('Tan Phu Dong 2 (Tien Giang, GEC)', C), '同一座風場', 'Same farm', MOIT),
     dup('VNM', 'Thuận Bắc Trungnam wind farm', G, ('Trung Nam Ninh Thuận', C), '同一座風場（Trung Nam，151.95 MW）；分期移到精選紀錄',
@@ -703,11 +735,13 @@ RULES = [
         '同一座風場（申能海南 CZ2 示範風場，67 部 9 MW）', 'Same farm (Shenergy’s Hainan CZ2 demonstration farm, 67 × 9 MW)',
         'https://finance.sina.com.cn/jjxw/2024-05-26/doc-inawpazx5145233.shtml'),
     dup('CHN', 'Hainan Danzhou CZ3 (Datang) Offshore wind farm', G, ('Datang Danzhou CZ3', C),
-        '大唐儋州 120 萬瓩（120 部 10 MW）的二期 60 萬瓩；精選紀錄已含兩期', 'Phase 2 (600 MW) of Datang’s 1,200 MW Danzhou project (120 × 10 MW); the curated record covers both phases',
-        'http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm'),
+        'GEM 大唐儋州 120 萬瓩案的第 1 期（一場址 60 萬瓩，2025 年營運）；與精選紀錄（一場址）同一座。第 2 期（二場址）是另一筆「· 2」',
+        'Phase 1 of GEM’s Datang Danzhou 1,200 MW project (site 1, 600 MW, operating 2025); same farm as the curated site-1 record. Phase 2 (site 2) is the separate “· 2” record',
+        'https://www.gem.wiki/Hainan_Danzhou_CZ3_(Datang)_Offshore_wind_farm'),
     dup('CHN', 'Hainan CZ3 Demonstration Offshore wind farm', G, ('Datang Danzhou CZ3', C),
-        '同一案的一期 60 萬瓩；精選紀錄已含兩期', 'Phase 1 (600 MW) of the same project; the curated record covers both phases',
-        'http://paper.people.com.cn/zgnyb/html/2024-02/05/content_26043679.htm'),
+        'GEM 把同一案又收了一次（大唐 CZ3 海上風場示範項目）；這筆是它的第 1 期，即一場址 60 萬瓩',
+        'GEM carries the same project a second time (Datang CZ3 demonstration project); this is its phase 1, i.e. site 1 (600 MW)',
+        'https://www.gem.wiki/Hainan_CZ3_Demonstration_Offshore_wind_farm'),
     # ------------------------------------------------ 2026-09-30 查中國水下基礎第三批時發現（出處原文已以 check_quotes 核對）
     fix('CHN', 'Huarun Cangnan 1 / CR Power', C,
         '2022 年 12 月 28 日全容量併網（原寫 2023）；49 部 6.25／10 MW 機組',
@@ -1038,6 +1072,13 @@ RULES = [
         '中新網四川 2024-09-10：三峽新能源陽江陽西沙扒四期項目現場，東方電氣研製供貨的 43 台 7 MW 海上風機在颱風「摩羯」期間正常運轉（43×7 ≈ 300 MW），機型非明陽 6.45 MW。',
         "China News Sichuan (2024-09-10): at CTG's Yangxi Shapa phase 4 site, the 43 Dongfang Electric 7 MW offshore turbines ran normally through typhoon Yagi (43 x 7 = about 300 MW); the turbines are not Mingyang 6.45 MW.",
         'https://www.sc.chinanews.com.cn/cjbd/2024-09-10/215587.html', turbine='43x Dongfang 7 MW'),
+    fix('CHN', 'CTG Yangjiang Shapa Phase 5', C,
+        '沙扒五期是 300 MW（47 部明陽 MySE6.45-180，303.15 MW）：陽江市發改局 2020-04-30 核准變更公示、廣東省生態環境廳粵環審〔2020〕85 號、明陽中標公告（三期 I 標＋五期共 78 部、50 萬千瓦）'
+        '與三峽能源上市公告書都寫 300MW；本站原本的 400 MW 就是五期加總比三峽「全案 170 萬千瓦、269 部」多出約 100 MW 的原因',
+        'Shapa phase 5 is 300 MW (47 Mingyang MySE6.45-180, 303.15 MW): the Yangjiang DRC approval-change notice (30 Apr 2020), the Guangdong ecology department’s EIA approval '
+        '粤环审〔2020〕85号, Mingyang’s award notice (phase 3 lot I plus phase 5: 78 units, 500 MW) and CTG New Energy’s listing announcement all give 300 MW; the site’s 400 MW '
+        'is why the five phases added up to about 100 MW more than CTG’s 1.7 GW and 269 turbines',
+        'http://www.yangjiang.gov.cn/yjfgw/gkmlpt/content/0/453/post_453906.html', mw=300, turbine='47x Mingyang MySE6.45-180'),
     fix('CHN', 'Datang Zhuanghe II', C,
         '莊河海上風電場址 II（300 MW）業主為華能遼寧清潔能源有限責任公司（2019 年核准時為中船重工，世紀新能源網轉中國電力新聞網 2020-09-14），安裝 60 台海裝 H171-5.0MW（大連天健網 2019-06-26），非大唐、非金風；國資委報導其與 IV1 場址同於 2021 年底全容量並網。',
         'Zhuanghe offshore site II (300 MW) is owned by Huaneng Liaoning Clean Energy (originally approved under CSIC in 2019; ne21 via China Electric Power News 2020-09-14) with 60 CSIC Haizhuang H171-5.0MW turbines (Dalian Tianjian 2019-06-26), not Datang or Goldwind; SASAC reports it reached full capacity together with site IV1 at the end of 2021.',
@@ -1095,9 +1136,16 @@ RULES = [
         "Longyuan Sheyang H2 uses Envision EN-148/4.5 MW turbines (Sina Finance reprint of China Wind Power News, 7 Feb 2025) and reached full capacity on 12 Apr 2021 (Sheyang News); the database's 'Goldwind 6.45 MW' is wrong. The 67-unit count could not be confirmed in checkable text, so no count is given.",
         'https://finance.sina.com.cn/roll/2025-02-07/doc-ineiqkks1306604.shtml', turbine='Envision EN-148/4.5 MW'),
     fix('CHN', 'Datang Danzhou CZ3', C,
-        '儋州 120 萬瓩案分兩場址：一場址 60 部 10 MW（600 MW）2025 年投運，二場址 60 部 10 MW 於 2025 年 12 月 16 日才開工、預計 2026 年底全容量；原本把 1,200 MW 全算在 2025 年，機型欄的「明陽／東方 10–16 MW」也不符（兩場址都是東方電氣 10 MW）',
-        'The 1,200 MW Danzhou project has two sites: site 1 (60 × 10 MW, 600 MW) came on line in 2025, while site 2 (60 × 10 MW) only broke ground on 16 December 2025 and is due at full capacity by the end of 2026; the row counted all 1,200 MW in 2025 and the turbine field (“Mingyang/Dongfang 10–16 MW”) was wrong (both sites use Dongfang 10 MW units)',
-        'https://hain.chinadaily.com.cn/a/202512/17/WS6942ab30a310942cc4997350.html', ph=[[2025, 600], [2026, 600]], turbine='120x Dongfang 10 MW (site 1 operating, site 2 under construction)'),
+        '這筆只算儋州 120 萬瓩案的一場址：60 部 10 MW（600 MW，主機全部產自洋浦海上風電產業園），大唐稱 2024 年底併網發電、2026 年的產業報導寫 2025 年第一季併網發電，'
+        '2025 年 6 月 30 日通過海洋環保竣工驗收；二場址（60 萬瓩，明陽 10 MW）2025 年 12 月 16 日才開工、2026 年 10 月仍在海上施工，改由「Datang Danzhou CZ3 (site 2)」'
+        '一筆表示（原本把二場址算成 2026 年營運中，機型欄也寫成兩場址都是東方電氣）。座標改到儋州西北外海（GEM 概略位置；場址離岸約 34 公里），原座標在昌江縣海岸附近，偏西南約 75 公里',
+        'This record now covers only site 1 of the 1,200 MW Danzhou project: 60 × 10 MW (600 MW; all nacelles made at the Yangpu offshore wind industrial park). Datang says '
+        'it was connected at the end of 2024 and a 2026 trade report says in Q1 2025; it passed its marine-environment completion acceptance on 30 June 2025. Site 2 (600 MW, Mingyang 10 MW) only broke ground '
+        'on 16 December 2025 and was still under offshore construction in October 2026; it is the separate record “Datang Danzhou CZ3 (site 2)” (this row counted it as '
+        'operating from 2026, and its turbine field gave Dongfang units for both sites). Point moved to the site north-west of Danzhou, about 34 km offshore (GEM, approximate); '
+        'the old one was near the Changjiang county coast, about 75 km to the south-west',
+        'https://m.sohu.com/a/1040969549_121194771', rename='Datang Danzhou CZ3 (site 1)', zhname='大唐儋州CZ3（一場址）', mw=600,
+        turbine='60x 10 MW', lat=20.101, lon=109.143, approx=True, note=True),
     fix('CHN', 'Huaneng Peninsula North BW', C,
         '半島北 BW 的機組是 60 部 8.5 MW（大眾新聞 2024 年 9 月；原寫「金風 8–12 MW」，混入半島北 L 場址的 42 部 12 MW）',
         'Peninsula North BW uses 60 × 8.5 MW turbines (Dazhong News, September 2024); the row said “Goldwind 8–12 MW”, mixing in the 42 × 12 MW units of the Peninsula North L site',
@@ -1232,6 +1280,31 @@ RULES = [
         '2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工',
         'In June 2026 the economy minister said over 90% was done with only turbine installation left, aiming to finish by year-end and connect in H1 2027; in October Taipower said it had taken over the vessels and aims to finish by year-end',
         'https://www.cna.com.tw/news/afe/202606170184.aspx', year=2027),
+    # 2026-10-06 時效核對（出處原文以 check_quotes.py 核對）
+    fix('TWN', 'Greater Changhua 2b & 4', C,
+        '2b（337.1 MW，台電即時資料的「沃南風」）2026-09-18 起列入台電裝置容量（試運轉結束）；4（583 MW，「沃四風」）至 2026-10-06 仍標示註10（試運轉、暫不計入裝置容量），全案尚未全面商轉',
+        '2b (337.1 MW, “沃南風” in Taipower’s live data) has been counted in Taipower’s installed capacity since 18 Sep 2026 (trial operation over); 4 (583 MW, “沃四風”) still carried note 10 '
+        '(trial operation, not yet counted) on 6 Oct 2026, so the whole project is not yet in full commercial operation',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json', note=True),
+    fix('TWN', 'Greater Changhua 2b & 4', C,
+        '沃旭：583 MW 的大彰化西北（4）由沃旭與國泰人壽各持有 50%；原寫沃旭 100%',
+        'Ørsted: the 583 MW Greater Changhua 4 is co-owned by Ørsted (50%) and Cathay Life (50%); the record said Ørsted 100%',
+        'https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521', owner='Ørsted [2b 100%, 4 50%]; Cathay Life Insurance [4 50%]'),
+    fix('TWN', 'Taipower Offshore Phase 2', C,
+        '31 部 9.5 MW 風機、共 294.5 MW；原寫 294 MW',
+        '31 turbines of 9.5 MW, 294.5 MW in total; the record said 294 MW',
+        'https://technews.tw/2022/11/03/taipower-offshore-wind2/', mw=294.5),
+    fix('TWN', 'Taipower Offshore Phase 2', C,
+        '31 座水下基礎與海纜都已完工；台電船機 2026-09-28 出海裝機（原訂 9/25），31 部風機已裝 1 部，台電力拚年底前完工、2027 年上半年併聯',
+        'All 31 foundations and the cables are in; Taipower’s vessel sailed on 28 Sep 2026 to install turbines (planned for 25 Sep) with 1 of 31 installed, '
+        'and Taipower aims to finish by year-end and connect in H1 2027',
+        'https://www.cna.com.tw/news/afe/202610020045.aspx', note=True),
+    fix('TWN', 'Formosa 3 offshore wind farm · 3', G,
+        'JERA 2023 年把海鼎（Formosa 3）的持股全數轉給 Corio，Corio 再與道達爾能源合作，海鼎三由兩家各持有約一半；GEM 的業主 JERA 是舊資料。'
+        'Macquarie 2026 年結束 Corio 平台，海鼎三之後由誰持有待查證',
+        'JERA transferred all its Formosa 3 shares to Corio in 2023, and Corio then partnered with TotalEnergies, the two holding about half of Haiding 3 each; GEM’s owner JERA is out of date. '
+        'Macquarie wound up the Corio platform in 2026; who holds Haiding 3 now is unverified',
+        'https://totalenergies.com/newsroom/totalenergies-and-corio-join-forces-develop-offshore-wind-taiwan/?lang=eng', owner='Corio Generation; TotalEnergies'),
     fix('GBR', 'Dogger Bank wind farm · B, C', G,
         'B 期 2026 年 6 月才裝了 20 部，風機安裝持續到約 2027 年第二季，C 期在 B 期之後',
         'Only 20 turbines of phase B were in by June 2026 and installation runs to about Q2 2027, with phase C after B',
@@ -1329,6 +1402,19 @@ RULES = [
         'for the back row; Typhoon Megi broke unit 12’s blades in 2016. Taipower’s 2026 station list: 13 Z72 remain (7 fewer in all) plus 3 Enercon E82 E4, '
         '16 turbines and 35 MW (the Energy Administration’s single window agrees)',
         'https://news.ltn.com.tw/news/life/breakingnews/1618036', mw=35.0, turbine='Zephyros Z72 2.0 MW x13 + Enercon E-82 E4 3.0 MW x3', note=True),
+    # 2026-10-06 商轉年查證（監察院 2010 年調查報告，出處原文以 check_quotes.py 核對）
+    fix('TWN', 'Taichung Power Plant', C,
+        '監察院 2010 年調查報告（台電「風力發電第一期計畫臺中電廠及臺中港區風力發電機組及附屬設備採購帶安裝案」）：臺中電廠 4 部機組於 95 年（2006 年）6 月 1 日開始商業運轉；'
+        '95 年 1 月已在做 24 小時負載測試，95 年 10 月首次 500 小時定檢時各機已運轉 1,197–2,169 小時；發電業執照 96 年 4 月 20 日核發。年份由 2005 改為 2006',
+        'Control Yuan investigation report (2010) on Taipower’s Taichung Power Plant and Taichung Port wind procurement: the plant’s four units entered commercial operation on '
+        '1 June 2006; they were in 24-hour load tests in January 2006 and had run 1,197–2,169 hours by the first 500-hour inspection in October 2006; the generation licence '
+        'was issued on 20 April 2007. Year changed from 2005 to 2006',
+        CY_TAICHUNG, year=2006),
+    fix('TWN', 'Taichung Port', C,
+        '同一份監察院調查報告：台中港區 18 部 Zephyros Z72 自 96 年（2007 年）1 月 5 日起陸續商業運轉，97 年（2008 年）7 月 19 日全數商轉（96 年 5 月仍有 11 部未商轉）。年份由 2006 改為 2007',
+        'Same Control Yuan report: the 18 Zephyros Z72 at Taichung Port entered commercial operation one by one from 5 January 2007, all of them by 19 July 2008 '
+        '(11 were still not in commercial operation in May 2007). Year changed from 2006 to 2007',
+        CY_TAICHUNG, year=2007),
     fix('TWN', 'Wanggong', C, '台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW）',
         'Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW)',
         'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=23.0, turbine='Enercon E-70 2.3 MW x10'),
@@ -1356,6 +1442,42 @@ RULES = [
         '中屯 8 部風機運轉逾 20 年、無備品，台電 2023 年起辦理除役更新；更新計畫 2024 年 8 月通過環評但因地方反對暫緩，8 部風機 2025 年 11 月前拆除完成（自由時報 2025-11-15）',
         'Zhongtun’s 8 turbines were over 20 years old with no spare parts and Taipower began decommissioning them in 2023; the renewal plan passed its EIA in August 2024 but was shelved after local opposition, and all 8 turbines had been dismantled by November 2025 (Liberty Times, 15 Nov 2025)',
         'https://news.ltn.com.tw/news/life/breakingnews/5246753', st=4, end=2025),
+    # 2026-10-06 中國三筆「營運中」離岸風場重查（出處原文以 check_quotes.py 核對）
+    fix('CHN', 'Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2', G,
+        '大唐儋州 120 萬瓩案的二場址：60 部明陽 10 MW（2025 年 12 月得標），2025 年 12 月 16 日開工；220 kV 送出海纜 2026 年 6 月才招標（工期 8 月 1 日至 10 月 15 日），'
+        '10 月 2 日洋浦海事局仍為風機與基礎施工標段二增派施工船，查無任何機組併網的報導；大唐目標 2026 年底全容量併網（標段二合約工期到 2027 年 5 月）。GEM 2026-02 版列規劃中，改為興建中',
+        'Site 2 of Datang’s 1,200 MW Danzhou project: 60 Mingyang 10 MW turbines (awarded December 2025), construction started on 16 December 2025. The 220 kV export cable '
+        'was only tendered in June 2026 (works 1 August to 15 October 2026), and on 2 October 2026 the Yangpu maritime authority added a work vessel for turbine-and-foundation '
+        'lot 2; no turbine has been reported on the grid. Datang aims for full grid connection by the end of 2026 (the lot-2 contract runs to May 2027). GEM’s February 2026 '
+        'release lists it as pre-construction; set to under construction',
+        'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=78b6e0e798a44247b72f4720f2d6169b&channelId=5eb2863167464a6faaa1fca5bff0a2a9',
+        rename='Datang Danzhou CZ3 (site 2)', zhname='大唐儋州CZ3（二場址）', st=1, turbine='60x Mingyang 10 MW', note=True),
+    dup('CHN', 'Hainan CZ3 Demonstration Offshore wind farm · 2', G, ('Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2', G),
+        'GEM 第二次收錄的大唐 CZ3 案的第 2 期（600 MW、規劃中，誤標陸域；中文名沿用整案的「一期（一廠址）」）。全案只有兩個場址，'
+        '營運中的一場址已是精選紀錄，這筆規劃中的 600 MW 與二場址重複',
+        'Phase 2 of GEM’s second entry for the same Datang CZ3 project (600 MW, pre-construction, wrongly typed onshore; its Chinese name repeats the project’s '
+        '“phase 1 (site 1)”). The project has only two sites: the operating site 1 is the curated record, so this pre-construction 600 MW repeats site 2',
+        'https://www.gem.wiki/Hainan_CZ3_Demonstration_Offshore_wind_farm'),
+    fix('CHN', 'Huaneng Peninsula North BW', C,
+        '座標改到龍口桑島西北外海（GEM 的精確位置；龍口市 2022 年公示：場址中心離岸約 18 km）；原座標在威海北方外海，偏東約 140 km。'
+        '營運狀態無誤：2023 年 8 月開工、2024 年全容量併網',
+        'Point moved to the site north-west of Sangdao island off Longkou (GEM’s exact point; the 2022 Longkou notice puts the site centre about 18 km offshore); '
+        'the old one was in the sea north of Weihai, about 140 km to the east. The operating status is right: construction started in August 2023 and it reached full capacity in 2024',
+        'https://www.gem.wiki/Shandong_Bandaobei_BW_Offshore_wind_farm', lat=37.779, lon=120.435),
+    dup('CHN', 'Changle Waihai B', C, ("Fujian Changle 'Outer Ocean' Area B Offshore wind farm", G),
+        '長樂外海 B 區沒有建成的風場：唯一的 B 區案是中閩能源的「長樂 B 區（調整）」，2023 年競爭配置才選定業主、2024 年 11 月 30 日核准（114 MW、7 部），'
+        '2026 年 9 月才招 EPC（不超過 102 MW、6 部，計畫 2027 年 12 月前全部併網）。這筆 400 MW、2022 年營運中有誤，GEM 已有該案的規劃中紀錄',
+        'Changle offshore area B has no built farm: the only area-B project is Zhongmin Energy’s “Changle B (adjusted)”, whose developer was picked in a 2023 '
+        'competitive allocation and which was approved on 30 November 2024 (114 MW, 7 turbines); its EPC contract was only tendered in September 2026 (at most '
+        '102 MW and 6 turbines, all on the grid by December 2027). This 400 MW record operating since 2022 is wrong; GEM already has the project as pre-construction',
+        'https://baijiahao.baidu.com/s?id=1875652994034298464&wfr=spider&for=pc'),
+    fix('CHN', "Fujian Changle 'Outer Ocean' Area B Offshore wind farm", G,
+        '業主是中閩能源（福建投資集團旗下；專案公司福建福州閩投海上風電由中閩能源持股 100%），不是華電；2024 年 11 月核准 114 MW、7 部，'
+        '2026 年 9 月 EPC 招標為不超過 102 MW、6 部，計畫 2027 年 10 月前首部、12 月前全部併網',
+        'The developer is Zhongmin Energy (part of Fujian Investment & Development Group; the project company Fujian Fuzhou Mintou Offshore Wind is 100% Zhongmin), not '
+        'Huadian. Approved in November 2024 for 114 MW and 7 turbines; the September 2026 EPC tender is for at most 102 MW and 6 turbines, with the first turbine on '
+        'the grid by October 2027 and all by December 2027',
+        'https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/zdjsxmpzhss/202412/t20241202_6587050.htm', owner='Zhongmin Energy Co Ltd [100%]', mw=102, year=2027, note=True),
     # 2026-10-05 德國 MaStR 對照時查到的錯置（MaStR 機組編號可在 marktstammdatenregister.de 查詢）
     fix('DEU', 'Flomborn-Stetten wind farm', G,
         'BVT 集團的 Flomborn／Stetten 風場就是 MaStR 的「BVT Windpark Flomborn/Stetten」：5 部 3,075 kW、2013 年 12 月併網（SEE970097431950、SEE972537071986、'

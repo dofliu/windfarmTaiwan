@@ -2,7 +2,8 @@
 """風場的實際年發電量 · Actual yearly generation of wind farms → data/global/generation.json
 
   python3 tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip august_generator2026.xlsx \
-      data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv
+      data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv \
+      vinddata.xlsx parkproduktion.xlsx          # 丹麥（選用；見 tools/dk_output.py）
 
 美國：EIA-923（美國能源資訊署，各電廠逐月淨發電量，公有領域）。USWTDB 每部風機都附 EIA 電廠代碼（tools/build_turbines.py 寫進
 turbines.json 的 eia 欄），所以本站風場→USWTDB 機組→EIA 電廠可以直接接上。寧可少配：
@@ -21,6 +22,8 @@ EIA-860M（各機組的裝置容量、商轉與除役年月，每月更新）：
 機型（給「發電表現」的同機型比較用，m 欄）：寧可不寫——美國取該風場 EIA 電廠在 USWTDB 的所有機組，只有一種製造商＋型號（且單機容量相同）時才寫，
 並附輪轂高度與葉輪直徑；台灣取本站風場紀錄的 turbine 欄，只有一種機型（沒有「+」、寫得出製造商）、而且台電發電站容量與本站紀錄相差 3% 以內
 （相差較多時發電站可能還含其他機組）才寫。
+丹麥（選用）：丹麥能源署（Energistyrelsen）風機登記檔「Vinddata」與「Parkproduktion」，規則見 tools/dk_output.py：整場計量的風場與有自己發電量的
+單機依位置歸到本站風場（容量 ±15%），風場寫進本檔；有自己發電量的單部風機另寫 data/global/turbine_output.json。只有公司持有的風機有公布發電量。
 風場資料或 USWTDB 重建後要重跑（先跑 tools/build_turbines.py）。
 
 US: EIA-923 (U.S. Energy Information Administration, monthly net generation by plant, public domain). USWTDB gives every turbine its
@@ -39,10 +42,15 @@ Turbine model (field m, for the same-model comparison in the Output dialog), con
 farm's EIA plants, written only when they share one manufacturer + model and unit rating (with hub height and rotor diameter); in Taiwan,
 from the site record's turbine field, only when it names a single model with its manufacturer and Taipower's station capacity is within
 3% of the site record (a larger gap means the station may include other machines).
+Denmark (optional): the Danish Energy Agency's turbine register workbooks "Vinddata" and "Parkproduktion", rules in tools/dk_output.py:
+farms metered as a whole and individually metered turbines are matched to site farms by location (capacity within ±15%) and written
+here; individually metered turbines also go to data/global/turbine_output.json. Only company-owned turbines have published production.
 """
 import collections
 import csv
+import datetime as dt
 import json
+import os
 import re
 import sys
 import zipfile
@@ -53,6 +61,8 @@ import openpyxl
 ROOT = Path(__file__).resolve().parent.parent
 TURB = ROOT / 'data/global/turbines.json'
 OUT = ROOT / 'data/global/generation.json'
+TOUT = ROOT / 'data/global/turbine_output.json'               # 單部風機的實測年發電量（目前只有丹麥）
+DA_MONTHS = ('januar', 'februar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december')
 CF_MIN, CF_MAX = 0.05, 0.65
 TW_URL = 'https://data.gov.tw/dataset/17140'
 # 台電發電站（17140／17141 的中文名稱前段）→ 本站風場名稱
@@ -161,9 +171,19 @@ def taiwan(gen_csv, cap_csv, farms):
     return out
 
 
+def first_sheet(xlsx):
+    try:
+        return openpyxl.load_workbook(xlsx, read_only=True).sheetnames[0]
+    except Exception:
+        return ''
+
+
 def main(uswtdb_csv, *files):
     zips = [z for z in files if z.endswith('.zip')]
-    e860 = eia860m_wind(next(x for x in files if x.endswith('.xlsx') and 'generator' in x))
+    xl = {x: first_sheet(x) for x in files if x.endswith('.xlsx')}
+    e860 = eia860m_wind(next(x for x, sh in xl.items() if sh == 'Operating'))
+    dkv = next((x for x, sh in xl.items() if sh.startswith('Vinddata')), None)          # 丹麥：Vinddatasæt
+    dkp = next((x for x, sh in xl.items() if sh.startswith('Vindmølleparker')), None)   # 丹麥：Vindmølleparkers produktion
     tw = [c for c in files if c.endswith('.csv')]
     tb = json.loads(TURB.read_text(encoding='utf-8'))
     rows = list(csv.DictReader(open(uswtdb_csv, encoding='utf-8')))
@@ -226,17 +246,49 @@ def main(uswtdb_csv, *files):
         gen_csv = next(c for c in tw if '17140' in c or 'd693001' in c)
         cap_csv = next(c for c in tw if '17141' in c or 'd693002' in c)
         out.update(taiwan(gen_csv, cap_csv, farms))
+    dk_meta = None
+    if dkv and dkp:
+        from dk_output import SRC as DK_SRC, dk_generation
+        dk_gen, singles, st = dk_generation(dkv, dkp, farms)
+        out.update(dk_gen)
+        got = dt.date.fromtimestamp(os.path.getmtime(dkv)).strftime('%Y-%m')     # 取用月份＝下載的檔案時間（能源署條款要求標示取用時間）
+        dk_meta = dict(DK_SRC, retrieved=got, through=st['through'])
+        print(f'Denmark: {st["turbines"]} turbines, {st["parks"]} metered parks, monthly data through {st["through"]}, retrieved {got}; '
+              f'{st["farms"]} site farms written, {len(st["skipped"])} skipped on capacity; {st["singles"]} single turbines with measured years', flush=True)
+        mkeys = sorted({s['mk'] for s in singles if s['mk']})
+        models = [next(s['m'] for s in singles if s['mk'] == k) for k in mkeys]
+        munis = sorted({s['muni'] for s in singles if s['muni']})
+        mi, ui = {m: i for i, m in enumerate(mkeys)}, {m: i for i, m in enumerate(munis)}
+        TOUT.write_text(json.dumps({
+            'meta': {'source': DK_SRC['name'], 'url': DK_SRC['url'], 'terms': DK_SRC['terms'], 'retrieved': got, 'through': st['through'],
+                     'credit': 'Energistyrelsen, Stamdataregister for vindkraftanlæg (Vinddata og Parkproduktion), hentet ' + DA_MONTHS[int(got[5:]) - 1] + ' ' + got[:4],
+                     'note': 'Single turbines with their own metered production (company-owned; the Danish Energy Agency does not publish production of '
+                             'privately owned turbines, and farms metered as a whole are in generation.json). rows = [lat, lon, kW, rotor m, hub m, '
+                             'model group index or -1, offshore 0/1, municipality index, year connected, {year: [GWh, capacity factor %]}]; full years only, 5–65%. '
+                             'Model groups = make + rotor diameter + unit rating (mkeys), named by the most common spelling in the register (models).',
+                     'years': sorted({y for s in singles for y in s['y']}), 'built': __import__('time').strftime('%Y-%m-%d'),
+                     'tool': 'tools/build_generation.py + tools/dk_output.py'},
+            'DNK': {'models': models, 'mkeys': mkeys, 'munis': munis,
+                    'rows': [[s['ll'][0], s['ll'][1], s['kw'], s['rd'], s['hh'], mi.get(s['mk'], -1), 1 if s['sea'] else 0, ui.get(s['muni'], -1),
+                              s['yr'], s['y']] for s in singles]}},
+            ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+        print(f'{TOUT.relative_to(ROOT)}: {len(singles)} turbines, {TOUT.stat().st_size / 1e3:.0f} kB', flush=True)
     meta = {
         'source': {'USA': 'U.S. Energy Information Administration, Form EIA-923 (net generation by plant), years ' + ', '.join(map(str, years)) +
                           '; capacity from EIA-860M (Preliminary Monthly Electric Generator Inventory)',
-                   'TWN': 'Taiwan Power Company, net generation of its own renewable stations (data.gov.tw 17140) and station capacity (17141)'},
-        'url': {'USA': 'https://www.eia.gov/electricity/data/eia923/', 'TWN': TW_URL},
-        'license': {'USA': 'Public domain (U.S. Government work)', 'TWN': 'Open Government Data License, version 1.0 (Taiwan)'},
-        'farms': len(out), 'by_iso': dict(collections.Counter(k.split('|')[0] for k in out)), 'years': years,
+                   'TWN': 'Taiwan Power Company, net generation of its own renewable stations (data.gov.tw 17140) and station capacity (17141)',
+                   **({'DNK': dk_meta['name'] + ', retrieved ' + dk_meta['retrieved'] + ', monthly data through ' + str(dk_meta['through'])} if dk_meta else {})},
+        'url': {'USA': 'https://www.eia.gov/electricity/data/eia923/', 'TWN': TW_URL, **({'DNK': dk_meta['url']} if dk_meta else {})},
+        'license': {'USA': 'Public domain (U.S. Government work)', 'TWN': 'Open Government Data License, version 1.0 (Taiwan)',
+                    **({'DNK': "Danish Energy Agency data terms (free reuse; credit Energistyrelsen, the dataset and the retrieval date): " + dk_meta['terms']} if dk_meta else {})},
+        **({'retrieved': {'DNK': dk_meta['retrieved']}, 'through': {'DNK': dk_meta['through']}} if dk_meta else {}),
+        'farms': len(out), 'by_iso': dict(collections.Counter(k.split('|')[0] for k in out)), 'years': sorted({int(y) for v in out.values() for y in v['y']}),
         'note': 'Keys are "ISO|farm name". y = {year: [net generation GWh, capacity factor %]}; mw = capacity used for the capacity factor '
-                '(US: EIA-860M nameplate of the plants\' wind generators in the latest year; Taiwan: Taipower station capacity); '
+                '(US: EIA-860M nameplate of the plants\' wind generators in the latest year; Taiwan: Taipower station capacity; '
+                'Denmark: registered capacity of the turbines whose production the Danish Energy Agency publishes, matched to the farm); '
                 'only full years (all turbines in service before the year) of plants wholly inside one farm. m = turbine model, only when the farm has a single model '
-                '(US: USWTDB manufacturer + model; hh = median hub height m, rd = rotor diameter m; Taiwan: site record, station capacity within 3%).',
+                '(US: USWTDB manufacturer + model; hh = median hub height m, rd = rotor diameter m; Taiwan: site record, station capacity within 3%; '
+                'Denmark: Energistyrelsen register, mk = make|rotor m|unit kW used to group the same model).',
     }
     OUT.write_text(json.dumps({'meta': meta, 'farms': dict(sorted(out.items()))}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f'{len(out):,} farms with generation; skipped {skipped_shared} farms sharing an EIA plant, {skipped_cap} farm-years whose USWTDB and '

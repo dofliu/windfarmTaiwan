@@ -468,6 +468,9 @@
 #g-modal .oout .odots{position:relative;height:34px;background:linear-gradient(var(--gline),var(--gline)) 0 50%/100% 1px no-repeat}
 #g-modal .oout .odot{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:2px solid #101a2d;padding:0;background:var(--on);cursor:pointer}
 #g-modal .oout .odot:hover,#g-modal .oout .odot:focus-visible{transform:scale(1.35);z-index:2;outline:none;border-color:#eaf1f8}
+#g-modal .oout .odots.oh{background:linear-gradient(var(--gline),var(--gline)) 0 100%/100% 1px no-repeat}
+#g-modal .oout .ohist{position:absolute;bottom:0;border-radius:2px 2px 0 0;background:var(--on);min-width:2px}
+#g-modal .oout .ohist:hover{filter:brightness(1.3)}
 #g-modal .oout .oexp{font-size:12px;background:rgba(255,255,255,.05);border:1px solid var(--gline);color:inherit;border-radius:6px;width:28px;height:24px;cursor:pointer;padding:0}
 #g-modal .oout .omb{padding:0 0 8px 14px;border-left:2px solid var(--gline);margin-left:4px}
 #g-modal .oout .omod.open>.omh{background:rgba(255,255,255,.04)}

@@ -1,0 +1,198 @@
+[
+ {
+  "farm": "CTG Dalian Zhuanghe III",
+  "type": "lead (partial: 55 of ~73)",
+  "note_en": "CCCC Third Harbour batch 1 = 55 turbines: 42 monopiles + 6 rock-socketed monopiles + 7 high-rise pile caps; the remaining ~18 (turbines installed by Longyuan Zhenhua) not found",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-132679.html",
+    "quote": "负责第一批次55台风电机组基础及安装任务，主要包括42台单桩非嵌岩式、6台单桩嵌岩式和7台高桩承台式结构",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-135820.html",
+    "quote": "本工程布置2台单机容量3MW风电机组、50台单机容量3.3MW风电机组、21台单机容量6.45MW风电机组，装机规模为300MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Peninsula South U1",
+  "type": "lead (phase 1 only)",
+  "note_en": "Phase 1 (53 × 8.5 MW) monopiles per a 2025 quality-award citation; phase 2 (53) type not found",
+  "sources": [
+   {
+    "url": "https://www.163.com/dy/article/K7QMU0850514R9KE.html",
+    "quote": "本项目风机基础单桩最大桩重1450吨，垂直度控制难度大",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.spic.com.cn/xtdt1/202409/t20240911_324230.html",
+    "quote": "全场106台8.5兆瓦风电机组，共用一座1000兆瓦的220千伏海上升压站和陆上集控中心",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Datang Danzhou CZ3",
+  "type": "lead + anomaly",
+  "note_en": "Site 1 (60 × 10 MW): 25 suction-bucket jackets (~42%); lot 1 used a monopile upending method for super-large piles (type of the other 35 implied, not stated). Record is 1200 MW operating, but site 2 only broke ground Dec 2025 and also exists as 'Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2'",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-199925.html",
+    "quote": "该项目共设计吸力桶导管架基础25台，由桁架式导管架结构和四个吸力桶组成，约占总基础桩数量42%",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.163.com/dy/article/JF47HIJJ0514R9OJ.html",
+    "quote": "采用自主研发的三绳单船单桩翻桩工艺和自主设计的多功能吊具及远程遥控脱销卸扣",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-222962.html",
+    "quote": "项目团队将创新采用三种基础桩型",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CGN Fanshi II",
+  "type": "lead + anomaly",
+  "note_en": "Lot II four-leg jackets shipped May 2026; same article says 63 × 16.2 MW and production planned for Dec 2026 (record shows operating 2026)",
+  "sources": [
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1865040879894946605&wfr=spider&for=pc",
+    "quote": "本次发运的Ⅱ标段导管架为项目核心基础设备，单座高约80米、重约2000吨，采用四腿式桁架结构",
+    "check": "OK"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1865040879894946605&wfr=spider&for=pc",
+    "quote": "阳江帆石二项目计划2026年12月投产",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Yuhuan 2",
+  "type": "lead",
+  "note_en": "ZPMC fabricates 16 of the turbine jackets (31 turbines in all); no installation record for the whole farm",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-193794.html",
+    "quote": "公司承接其中16套风机基础导管架及基础钢管桩的生产制造工作",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Jiangsu Rudong H2 (Guoxin) Offshore wind farm",
+  "type": "lead (lot II only)",
+  "note_en": "Lot II: 30 × 5 MW on monopiles (Longyuan Zhenhua, first pile Sept 2020); lot I (40) not found",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-135467.html",
+    "quote": "龙源振华公司承接30台5.0MW单桩基础施工及风电机组安装工作",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Longyuan Sheyang H2",
+  "type": "lead (34 of 67)",
+  "note_en": "Longyuan Zhenhua: 34 × 4.5 MW monopiles; the other 33 not found",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-132865.html",
+    "quote": "龙源振华公司共承接34台4.5MW风机单桩基础施工及风电机组安装工作",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Longyuan Dafeng H7",
+  "type": "lead (40 of 80)",
+  "note_en": "Longyuan Zhenhua drove 40 foundation piles for 40 turbines (one per turbine); the other 40 not found",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-131361.html",
+    "quote": "圆满完成了40根基础沉桩，40台风机吊装施工任务",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Rudong H3",
+  "type": "lead (no type)",
+  "note_en": "Two lots of 40 × 5 MW (CCCC Third Harbour lot II, CRBBG); type not stated",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-131439.html",
+    "quote": "主要建设内容为40台单机容量为5.0兆瓦风电机组基础施工、设备安装及海上升压站施工等",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Cangnan 4",
+  "type": "lead (mixed, counts unknown)",
+  "note_en": "First position is a six-pile cap; a 2026 MSA notice (msa.gov.cn, unreachable) concerns monopile scour protection, so caps and monopiles both exist; the 466-pile plan (77 × 6 + 4) predates a design change",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-158556.html",
+    "quote": "该工程首个承台由六根长度达133.5米钢桩作为支撑",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-185712.html",
+    "quote": "5.机组全容量并网时间：2022年8月30日",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Huadian Yuhuan 1",
+  "type": "mx",
+  "parts": [
+   [
+    "pc",
+    22
+   ],
+   [
+    "mp",
+    10
+   ]
+  ],
+  "turbines": 32,
+  "evidence": "medium (north zone strong; south zone from a self-media summary plus the monopile tenders)",
+  "note_zh": "北區 22 部 7 MW（2021 年 12 月投運）為高樁承台：華電重工寫「採用高樁承台基礎結構型式的玉環項目」139 天完成 176 根鋼管樁沉樁（每座 8 根），2021 年 2 月一期 176 根鋼樁沉樁完成；南區 10 部 7.5 MW（2024 年 6 月併網）為單樁（自媒體「好事發生」：「與北區不同，南區風機基礎採用了更為經濟的單樁基礎」；華電另有南區單樁供貨與沉樁招標）；南區的出處較弱",
+  "note_en": "North zone, 22 × 7 MW (in service December 2021), on high-rise pile caps: Huadian Heavy Industries describes the Yuhuan project “with high-rise pile cap foundations” and 176 steel piles driven in 139 days (8 per cap), all 176 finished in February 2021; south zone, 10 × 7.5 MW (connected June 2024), on monopiles (a self-media summary: “unlike the north zone, the south zone uses the more economical monopile”; Huadian also tendered south-zone monopile supply and piling); the south-zone source is weaker",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-200359.html",
+    "quote": "面对采用高桩承台基础结构型式的玉环项目，仅用139天就完成了176根钢管桩的沉桩工作",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-157301.html",
+    "quote": "2月19日10时38分，随着打桩锤最后一锤的完美定格，华电玉环1号海上风电场项目一期工程176根钢桩沉桩圆满完成。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-195622.html",
+    "quote": "该项目分南北两区建设，其中北区22台7兆瓦风机已于2021年12月投运；南区布置10台7.5兆瓦风机，装机容量规划75兆瓦。",
+    "check": "OK"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1822723006600317442&wfr=spider&for=pc",
+    "quote": "与北区不同，南区风机基础采用了更为经济的单桩基础。",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.dlztb.com/xmxx/202309/28086.html",
+    "quote": "单桩基础及附属构件供货（南区10套）",
+    "check": "OK"
+   }
+  ],
+  "note": "Not written into tools/farm_foundations.py: the north zone (22 high-rise pile caps) is well documented, but the south zone (10 monopiles) rests on a self-media summary and a monopile supply tender. Needs a construction or acceptance record for the south zone."
+ }
+]

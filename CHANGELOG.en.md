@@ -15,6 +15,60 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.27.0 — 2026-10-06
+
+- The Output dialog gains "Taiwan · live samples": Taipower's live data (each unit's instantaneous output every 10 minutes), sampled every 2 hours and
+  accumulated, compares the average output, capacity factor and same-model performance of every grid unit **including private farms** (last 30 or 90 days, or everything).
+  - Sample archive `data/archive/farm_daily.json`: added to by the scraper on every run (each Taipower data time counts once); `tools/build_farm_daily.py`
+    restored the 1,290 samples since June 2026 from the git history, and the weekly backfill run fills any missed snapshots from the last three weeks of history.
+  - Validation: for July 2026, the sampled capacity factors of Taipower's 7 own farms are within 0–2 percentage points of the official monthly generation
+    (dataset 17140; e.g. Offshore Phase 1 16.5% vs 16.9%).
+  - The dialog always says these are estimates from samples, not official yearly generation, and that summer is the low-wind season; they are kept apart
+    from the official yearly data. Units in testing, units with too few samples and Taipower's multi-farm rows are not ranked.
+  - Same-model comparison: SG 8.0-167 DD (Greater Changhua 1 & 2a's two units, Formosa 2, Yunlin's two units), V174-9.5, E-70 2.3, V80 and more.
+- Taiwanese farm cards gain a "Live samples (last 90 days)" row (average output and capacity factor, with "See rankings").
+- The Taiwan live page's Charts tab links to "Capacity factor rankings (live samples)"; the dialog title is now "Wind farm output".
+- The Output dialog adds Denmark, from the Danish Energy Agency's (Energistyrelsen) turbine register, Stamdataregister for vindkraftanlæg (monthly metered
+  production, updated about every two months; published for company-owned turbines only):
+  - "Denmark · farms": farms metered as a whole and individually metered turbines are matched to the site's Danish farms by location and used when the
+    capacity is within 15% of the record; older turbines nearby, connected more than a year before the farm, are left out so they cannot make up the numbers.
+    54 farms (51 in 2025, 3,359 MW, about 67% of the site's operating Danish capacity); in 2025, for example, Vesterhav Nord 45.1%, Anholt 43.2%,
+    Horns Rev 3 42.9% and Kriegers Flak 39.1%. Farm cards show the measured output and rank.
+  - "Denmark · single turbines" (`out=DKT.cf`): 1,848 individually metered turbines (1,776 in 2025, median capacity factor 18.5%) ranked one by one; the
+    same-model comparison groups by make + rotor diameter + unit rating (the register spells one model several ways) and draws large groups as a distribution;
+    clicking a turbine flies to it, and its card lists the specs and each year's output.
+  - Credited with the agency, the dataset and the retrieval date as the agency's terms require (the build writes the retrieval month into the data files).
+    New tool `tools/dk_output.py`; single turbines are in `data/global/turbine_output.json`.
+- The Output dialog's data sets are now picked from a drop-down (Taiwan official, Taiwan live samples, US, Denmark farms, Denmark single turbines).
+- Taiwan offshore status check (6 Oct 2026, every quote checked against its source): Greater Changhua 2b (Wo-Nan, 337.1 MW) has been counted in Taipower's
+  installed capacity since 18 Sep 2026, and the live page now counts it too; Greater Changhua 4 is still in trial operation, so the project is not yet fully
+  operating; Ørsted and Cathay Life each own 50% of 4. Taipower Offshore Phase 2 is corrected to 294.5 MW (31 × 9.5 MW); its installation vessel sailed on
+  28 Sep with 1 of 31 turbines in place. Haiding 3's owner is now Corio and TotalEnergies (JERA left in 2023). None of the "latest available" national sources
+  has a newer release.
+- The Taiwan live page now takes installed capacity and the "in testing" status from Taipower's live data (including its note-10 flag), so units are counted
+  automatically when their trial operation ends; four farm notes gain their English text (the English page showed them in Chinese).
+- Data corrections: Taichung Power Plant's turbines started in 2006 (not 2005) and Taichung Port's in 2007 (not 2006), per the Control Yuan's 2010 investigation
+  report; Iran's Tizbaad (100 MW) has no evidence of operation and becomes pre-construction with the year unknown (Iran's farm total drops from 116% to 90% of
+  the national figure); CTG Yangjiang Shapa phase 5 is 300 MW, not 400 (47 Mingyang MySE6.45-180), so the six Shapa records add up to CTG's 1,705.5 MW and
+  269 turbines.
+- Foundations: 15 more Chinese farms from construction, completion or completion-acceptance records (every quote checked), for example Lemen II, Shenquan I
+  and II, Qingzhou 3 and 4, Peninsula South V, Rudong H4 and H7 and Shengsi 2 (31 pile caps + 32 monopiles); Changle Waihai A's note now says it has
+  jackets of two kinds (four-pile and suction-bucket). Operating offshore farms with a known type: 257 of 333, 78.7% of the capacity (was 242 and 71.5%);
+  77 of China's 141.
+- More data corrections (every quote checked against its source):
+  - Three Chinese offshore records listed as operating were re-checked. Datang Danzhou CZ3 has only site 1 (600 MW) in operation (2025); site 2 (600 MW,
+    Mingyang 10 MW) only broke ground on 16 Dec 2025 and was still under offshore construction in October 2026, so the record is split in two with site 2
+    under construction, and GEM's duplicate of site 2 is removed. Changle Waihai B was never built (the record had 400 MW operating since 2022): the only
+    area-B project is Zhongmin Energy's "Changle B (adjusted)", whose EPC contract was only tendered in September 2026, so GEM's pre-construction record
+    (102 MW, expected 2027) now stands for it. Huaneng Peninsula North BW really is operating; its point moves from the sea north of Weihai to north-west of
+    Sangdao island off Longkou (it was about 140 km too far east). China's operating offshore capacity drops by 1,000 MW (by 400 MW for 2025).
+  - Morocco's farm total drops from 120% to 94% of the national figure: GEM's Tarfaya (placed in Tetouan Province in the north), Tangier and Akhfenir
+    records duplicated the site's own and are removed; Tarfaya's owner is now Tarec, a 50:50 venture of ENGIE and Nareva, and Akhfennir moves to GEM's
+    exact point (it was about 17 km to the north-west).
+- Card photos for 24 more farms (Commons photos, each looked at): Gwynt y Môr, Burbo Bank, Robin Rigg, Sheringham Shoal, Nysted, Rødsand II, Belwind,
+  Arkona, Jaisalmer, Roscoe, Lillgrund, Egmond aan Zee, Prinses Amalia, Thanet, Kentish Flats, Scroby Sands, North Hoyle, Rampion, Whitelee,
+  Fântânele-Cogealac, Tafila, Tarfaya, Jeffreys Bay and Shepherds Flat, 64 in all.
+
 ## v2.26.1 — 2026-10-05
 
 - US capacity factors now use the nameplate capacity registered in EIA-860M as the denominator. They used the summed USWTDB turbine ratings,
