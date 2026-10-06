@@ -147,13 +147,13 @@
    "cap": 452.0
   },
   "CROOKWF2": {
-   "farm": "Crookwell wind farm",
+   "farm": "Crookwell II wind farm",
    "name": "Crookwell 2 Wind Farm",
    "region": "NSW1",
    "cap": 96.04
   },
   "CROOKWF3": {
-   "farm": "Crookwell wind farm · 3",
+   "farm": "Crookwell II wind farm",
    "name": "Crookwell 3 Wind Farm",
    "region": "NSW1",
    "cap": 57.0
@@ -207,7 +207,7 @@
    "cap": 121.0
   },
   "ELAINWF1": {
-   "farm": null,
+   "farm": "Lal Lal",
    "name": "Elaine Wind Farm",
    "region": "VIC1",
    "cap": 83.6
@@ -267,7 +267,7 @@
    "cap": 209.0
   },
   "GSWF1B1": {
-   "farm": "Goyder South wind farm · 1B",
+   "farm": "Goyder South wind farm",
    "name": "Goyder South Wind Farm 1B",
    "region": "SA1",
    "cap": 203.0
@@ -393,7 +393,7 @@
    "cap": 420.0
   },
   "MCINTYR1": {
-   "farm": "MacIntyre",
+   "farm": "MacIntyre precinct wind farm",
    "name": "MacIntyre Wind Farm",
    "region": "QLD1",
    "cap": 923.0
@@ -573,14 +573,20 @@
    "region": "VIC1",
    "cap": 21.0
   },
+  "UWF1": {
+   "farm": "Uungula wind farm",
+   "name": "Uungula Wind Farm",
+   "region": "NSW1",
+   "cap": 414.0
+  },
   "WAMBOWF1": {
-   "farm": "Wambo Wind Farm Project · 1",
+   "farm": "Wambo Wind Farm Project",
    "name": "Wambo Wind Farm 1",
    "region": "QLD1",
    "cap": 252.0
   },
   "WAMBOWF2": {
-   "farm": "Wambo Wind Farm Project · 2",
+   "farm": "Wambo Wind Farm Project",
    "name": "Wambo Wind Farm 2",
    "region": "QLD1",
    "cap": 254.0
@@ -658,7 +664,7 @@
    "cap": 7.2
   },
   "YENDWF1": {
-   "farm": "Yendon wind farm",
+   "farm": "Lal Lal",
    "name": "Yendon Wind Farm",
    "region": "VIC1",
    "cap": 144.4
@@ -756,7 +762,7 @@
    "cap": 266.0
   },
   "FMG1": {
-   "farm": "Forty Mile wind farm · Granlea",
+   "farm": "Forty Mile wind farm",
    "name": "Forty Mile Granlea",
    "cap": 220.0
   },
@@ -831,7 +837,7 @@
    "cap": 46.0
   },
   "PAW1": {
-   "farm": "Paintearth wind farm",
+   "farm": "Paintearth Wind Project",
    "name": "Paintearth Wind Project",
    "cap": 198.0
   },
@@ -925,7 +931,7 @@
   "AMARANTH": {
    "farm": "Melancthon EcoPower Centre",
    "name": "AMARANTH",
-   "cap": 126.0
+   "cap": 159.0
   },
   "AMHERST ISLAND": {
    "farm": "Amherst Island wind farm",

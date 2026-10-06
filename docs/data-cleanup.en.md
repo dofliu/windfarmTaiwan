@@ -6,13 +6,13 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 378 rules: 142 records removed (43,510.2 MW of them operating), 236 records fixed.
+- 381 rules: 142 records removed (43,510.2 MW of them operating), 239 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
 | Country | Removed | Operating MW | Fixed |
 |---|---:|---:|---:|
-| Australia | 4 | 1,161 | 3 |
+| Australia | 4 | 1,161 | 6 |
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
@@ -61,6 +61,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm · 48 MW · 2001 | GEM | fixed: name, capacity, year, phases | Codrington (18.2 MW, 2001) has its own curated record and is taken out, leaving Yambuk 30 MW (2007, the fourth site of the Portland Wind Project) | [link](https://en.wikipedia.org/wiki/Portland_Wind_Project) |
 | MacIntyre · 923 MW · 2024 | curated | duplicate of “MacIntyre precinct wind farm” | Same farm (923 MW, 2024); the GEM point is at the actual site near Karara, the curated point about 40 km east, so the GEM record is kept | [link](https://www.gem.wiki/MacIntyre_precinct_wind_farm) |
 | Studland Bay wind farm · 75 MW · 2007 | GEM | duplicate of “Woolnorth (Bluff Point / Studland Bay)” | GEM’s project page lists Woolnorth as its other name: the 75 MW (2007) is already a phase of the curated Woolnorth record | [link](https://www.gem.wiki/Studland_Bay_wind_farm) |
+| Rye Park · 327 MW · 2024 | curated | fixed: capacity, turbines | Rye Park has 66 Vestas V162-6.2 turbines run in 6.0 MW mode, 396 MW in all (Vestas order release, 2021; AEMO’s registered capacity agrees), not 327 MW | [link](https://vestas.com/en/media/company-news/2021/vestas-wins-396-mw-enventus-order-for-wind-project-in-a-c3407249) |
+| Cullerin Range wind farm · 26 MW · 2009 | GEM | fixed: capacity, turbines | Cullerin Range has 8 Senvion MM82 2 MW and 7 MM92 2.05 MW turbines, 30 MW in all (English Wikipedia; AEMO registered capacity 30 MW), not 26 MW | [link](https://en.wikipedia.org/wiki/Cullerin_Range_Wind_Farm) |
+| Lal Lal · 228 MW · 2021 | curated | fixed: turbines | Lal Lal’s 60 turbines are Vestas V136-3.45 machines rated 3.8 MW each (228 MW in all, English Wikipedia); the row said “V136 3.6”, which does not add up to its capacity | [link](https://en.wikipedia.org/wiki/Lal_Lal_Wind_Farm) |
 
 ## Belgium (BEL)
 

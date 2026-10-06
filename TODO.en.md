@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 6 Oct 2026: v2.27.0, Taiwan live samples and Danish measured output; the next conversation starts here)
+## In progress (hand-off, 6 Oct 2026: v2.28.0, PR checks and Australian measured output; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -52,6 +52,15 @@ and move finished items to the topic lists below.
 - 6 Oct 2026 (v2.27.0, same release): a round of data checks (every quote checked with `check_quotes.py`): three Chinese offshore records listed as
   operating — Danzhou CZ3 split into sites 1 and 2 (site 2 under construction), Changle Waihai B never built (GEM's pre-construction record now stands
   for it), Peninsula North BW's point corrected; three GEM duplicates in Morocco (farm total 120% → 94%); card photos for 24 more farms (64 in all).
+- 6 Oct 2026 (v2.28.0): two items the owner approved:
+  1. PR checks in `.github/workflows/pr-check.yml`: `tools/smoke_test.js` (Playwright over every page at desktop and phone widths, both single-file copies
+     online and offline), syntax, `qa_farms.py --max 19`, generated documents being up to date, and `tools/check_version.py` (a site change must raise the
+     version and add to both changelogs). Raise `--max` together with any new legitimate coordinate exception.
+  2. Australia in the Output dialog: `tools/au_output.py fetch` downloads AEMO's MMSDM monthly files (2022-01 to 2025-12, about 1.4 GB, 20 minutes) into
+     `data/global/sources/aemo_wind_monthly.json` (109 kB, committed), which `build_generation.py` reads; 62 farms (60 in 2025, about 66% of the site's
+     operating Australian capacity). Capacity factors everywhere now use the hours in the year (8,784 in 2024). Early in 2027, fetch through 2026-12 and
+     rebuild `generation.json`. Rye Park and Cullerin Range capacities and Lal Lal's model were corrected on the way, and `data/live/units.json` was rebuilt
+     (Lal Lal and Crookwell mappings).
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
@@ -68,7 +77,7 @@ and move finished items to the topic lists below.
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
 - Current figures: 257 of 333 operating offshore farms have a known foundation type (78.7% of capacity); dimensions for 234 farms,
-  all three for 168; 378 clean-up rules; card photos for 64 farms.
+  all three for 168; 381 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -386,7 +395,7 @@ the rules are in `tools/farm_cleanup.py`.
       from 2017, before any turbines stood, so do not use them.
 - [ ] The rest of farm details v2: other national registers (Danish turbine register, UK REPD; Germany's MaStR done in v2.22.0) could fill positions
       OSM lacks (OSM maps few turbines in China); a common turbine-model table
-      (only about 14% of capacity has a model string, so limited value); per-farm actual output elsewhere (UK REPD / Ofgem, Australia AEMO and others)
+      (only about 14% of capacity has a model string, so limited value); per-farm actual output elsewhere (UK REPD / Ofgem and others; Australia's AEMO done in v2.28.0)
 
 ## Offshore foundation types (collected step by step, owner's decision of 2026-09-27; see item 2 of "Owner's new plans (Sep 2026)" in ROADMAP.en.md)
 
@@ -445,6 +454,10 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Monthly keepalive workflow (`.github/workflows/keepalive.yml`, Sep 2026): re-enables the schedules through the GitHub API on the
       1st of each month so they are not disabled after 60 days without activity
 - [ ] Check once a month that the data time and Actions look right, and trigger a run by hand if needed (steps under "Maintenance" in DEPLOY.en.md)
+- [x] PR checks (`.github/workflows/pr-check.yml`, v2.28.0): smoke test, syntax, coordinates, generated documents, version and changelogs
+- [ ] To verify for Australian measured output: Gullen Range is 165 MW on the site but AEMO registers 275 MW over two units (GULLRWF2, 110 MW, was added in
+      2020 and no source says which stage it is); Moorabool North and South share one unit, so their output cannot be split and is left out; the Crookwell II
+      record includes Crookwell 3 (2024), so its first year with both parts generating all year is 2026
 - [x] The long-term archive was split into monthly files on 30 Sep 2026 (`data/archive/wind_history_archive_YYYY-MM.json`), so the weekly
       backfill only rewrites the current month; the single-file builds now go to a Release instead of git
 

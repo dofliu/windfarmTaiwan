@@ -36,7 +36,8 @@ windfarmTaiwan/
    ├─ backfill.yml                  # 每週一執行 backfill_history.py
    ├─ wind-now.yml                  # 每 6 小時執行 tools/fetch_gfs_wind.py（地球儀「此刻的風」，NOAA GFS）
    ├─ standalone.yml                # 網站程式或全球資料有變更時重建單檔版 HTML 並上傳到 Release「standalone」
-   └─ keepalive.yml                 # 每月 1 日重新啟用各排程，避免 60 天無活動被停用
+   ├─ keepalive.yml                 # 每月 1 日重新啟用各排程，避免 60 天無活動被停用
+   └─ pr-check.yml                  # 每個 PR 的自動檢查：Playwright 冒煙測試、語法、座標健檢、產生的文件、版本號（選用）
 ```
 
 若要從零建立新專案（而非直接使用本 repo），步驟如下：
@@ -45,7 +46,7 @@ windfarmTaiwan/
 
 1. 建一個 **public** repo（公開 repo 的 Actions 分鐘數無限、免費；私有 repo 每月只有 2000 分鐘；目前約每 2 小時跑一次、每月約 360 次，量不大，但改成高頻排程就會超量）。
 2. 把 `index.html`、`assets/`、`data/`、`taipower_wind_scraper.py`、`intl_wind_scraper.py`、`backfill_history.py` 放進 repo 根目錄（`tools/` 只在更新全球資料時需要）。
-3. 把 `.github/workflows/scrape.yml`、`backfill.yml`、`wind-now.yml`、`standalone.yml` 與 `keepalive.yml` 放進對應位置。
+3. 把 `.github/workflows/scrape.yml`、`backfill.yml`、`wind-now.yml`、`standalone.yml` 與 `keepalive.yml` 放進對應位置（`pr-check.yml` 只檢查 PR，可不放）。
 4. 確認 `assets/js/live.js` 開頭的 `DATA_ENDPOINT` 等常數指向相對路徑（同網域，例如 `./wind_realtime.json`），
    若是直接 fork/clone 本 repo 則不需修改。
 5. Settings → Pages → Source 選 `main` branch、`/ (root)`，存檔。
@@ -79,7 +80,7 @@ windfarmTaiwan/
 
 1. 開網站，看頁首「即時 · 台電 MM/DD HH:MM」的資料時間。超過半天沒有前進，表示排程停了或抓取失敗；
    網站不會顯示錯誤，只會一直顯示最後一次抓到的資料。
-2. 到 GitHub 的 **Actions** 分頁，看四個 workflow 最近一次是不是綠色（`keepalive` 每月一次）。若有 workflow 顯示
+2. 到 GitHub 的 **Actions** 分頁，看各排程 workflow 最近一次是不是綠色（`keepalive` 每月一次；`pr-check` 只在有 PR 時執行）。若有 workflow 顯示
    「This scheduled workflow is disabled…」（連續 60 天沒有活動會被 GitHub 自動停用），按 **Enable workflow**。
 3. 資料時間停住時，在 `scrape-taipower-wind` 按 **Run workflow** 手動跑一次，確認 `wind_realtime.json` 有新的 commit，失敗就看執行紀錄。
 

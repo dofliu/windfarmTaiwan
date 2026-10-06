@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 378 條：刪除 142 筆（其中營運中 43,510.2 MW），修正 236 筆。
+- 規則 381 條：刪除 142 筆（其中營運中 43,510.2 MW），修正 239 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -35,7 +35,7 @@
 | 法國 | 2 | 0 | 5 |
 | 波蘭 | 0 | 0 | 1 |
 | 泰國 | 1 | 600 | 1 |
-| 澳洲 | 4 | 1,161 | 3 |
+| 澳洲 | 4 | 1,161 | 6 |
 | 烏拉圭 | 1 | 141.6 | 1 |
 | 瑞典 | 0 | 0 | 3 |
 | 約旦 | 1 | 117 | 0 |
@@ -428,6 +428,9 @@
 | Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm · 48 MW · 2001 | GEM | 修正：名稱、容量、年份、分期 | 扣除另有精選紀錄的 Codrington（18.2 MW，2001）：只留 Yambuk 30 MW（2007 年，Portland 風電計畫第四個場址） | [連結](https://en.wikipedia.org/wiki/Portland_Wind_Project) |
 | MacIntyre · 923 MW · 2024 | 精選 | 重複（併入「MacIntyre precinct wind farm」） | 同一座風場（923 MW，2024 年）；GEM 的座標在 Karara 附近的實際場址，精選紀錄的座標偏東約 40 km，改留 GEM 這筆 | [連結](https://www.gem.wiki/MacIntyre_precinct_wind_farm) |
 | Studland Bay wind farm · 75 MW · 2007 | GEM | 重複（併入「Woolnorth (Bluff Point / Studland Bay)」） | GEM 專案頁的別名就是 Woolnorth：75 MW（2007 年）已含在精選的 Woolnorth 紀錄的分期裡 | [連結](https://www.gem.wiki/Studland_Bay_wind_farm) |
+| Rye Park · 327 MW · 2024 | 精選 | 修正：容量、機組 | Rye Park 是 66 部 Vestas V162-6.2（以 6.0 MW 模式運轉），共 396 MW（Vestas 2021 年訂單新聞稿；AEMO 登記容量同），不是 327 MW | [連結](https://vestas.com/en/media/company-news/2021/vestas-wins-396-mw-enventus-order-for-wind-project-in-a-c3407249) |
+| Cullerin Range wind farm · 26 MW · 2009 | GEM | 修正：容量、機組 | Cullerin Range 是 8 部 Senvion MM82 2 MW 加 7 部 MM92 2.05 MW，共 30 MW（英文維基；AEMO 登記容量 30 MW），不是 26 MW | [連結](https://en.wikipedia.org/wiki/Cullerin_Range_Wind_Farm) |
+| Lal Lal · 228 MW · 2021 | 精選 | 修正：機組 | Lal Lal 的 60 部是 Vestas V136-3.45 平台、每部 3.8 MW（共 228 MW，英文維基），原寫「V136 3.6」與容量不符 | [連結](https://en.wikipedia.org/wiki/Lal_Lal_Wind_Farm) |
 
 ## 烏拉圭 (URY)
 

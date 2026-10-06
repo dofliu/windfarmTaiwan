@@ -176,7 +176,10 @@ CLEAN dup VNM Xinshun offshore wind farm 90.0 -> Tan Thuan (PECC2) Phase 1+2
 CLEAN dup ZAF Amakhala Emoyeni wind farm 134.0 -> Amakhala Emoyeni
 CLEAN dup ZAF Waainek wind farm 25.0 -> Waainek Wind Farm
 CLEAN fix ALA Långnabba wind farm 40.0
+CLEAN fix AUS Cullerin Range wind farm 26.0
+CLEAN fix AUS Lal Lal 228.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm 48.0
+CLEAN fix AUS Rye Park 327.0
 CLEAN fix AUS Snowtown 370.0
 CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
 CLEAN fix CHN CGN Fanshi I 1000.0

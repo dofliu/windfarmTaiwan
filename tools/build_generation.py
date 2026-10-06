@@ -4,13 +4,14 @@
   python3 tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip august_generator2026.xlsx \
       data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv \
       vinddata.xlsx parkproduktion.xlsx          # 丹麥（選用；見 tools/dk_output.py）
+  澳洲：自動讀 data/global/sources/aemo_wind_monthly.json（由 tools/au_output.py fetch 下載彙整；規則見 tools/au_output.py）
 
 美國：EIA-923（美國能源資訊署，各電廠逐月淨發電量，公有領域）。USWTDB 每部風機都附 EIA 電廠代碼（tools/build_turbines.py 寫進
 turbines.json 的 eia 欄），所以本站風場→USWTDB 機組→EIA 電廠可以直接接上。寧可少配：
   1. 一座 EIA 電廠的機組必須全部在同一座本站風場裡（電廠跨好幾座風場時，發電量分不開，不用）。
   2. 某一年只有在這些電廠的機組全部在前一年以前商轉、沒有在當年改裝（USWTDB 的 p_year、t_retro_yr）時才採用，
      避免把部分年度當成全年。
-  3. 容量因數＝淨發電量 ÷（EIA-860M 登記的風力機組裝置容量 × 8,760 小時）：分子分母都是 EIA 同一座電廠的數字。
+  3. 容量因數＝淨發電量 ÷（EIA-860M 登記的風力機組裝置容量 × 當年時數：8,760，閏年 8,784）：分子分母都是 EIA 同一座電廠的數字。
      USWTDB 有時少收一部分機組（例：Salt Fork 收 64 部、128 MW，EIA 登記 174 MW），用 USWTDB 加總當分母會把容量因數算高；
      USWTDB 與 EIA 的容量相差 10% 以上表示風場與電廠對不乾淨，整座不用。當年有機組商轉或除役（EIA-860M 的商轉年、除役年）的年份不用。
      不在 5–65% 之間的年份也不用（多為資料錯誤或停機）。
@@ -24,13 +25,15 @@ EIA-860M（各機組的裝置容量、商轉與除役年月，每月更新）：
 （相差較多時發電站可能還含其他機組）才寫。
 丹麥（選用）：丹麥能源署（Energistyrelsen）風機登記檔「Vinddata」與「Parkproduktion」，規則見 tools/dk_output.py：整場計量的風場與有自己發電量的
 單機依位置歸到本站風場（容量 ±15%），風場寫進本檔；有自己發電量的單部風機另寫 data/global/turbine_output.json。只有公司持有的風機有公布發電量。
+澳洲：AEMO 每個機組每 5 分鐘的 SCADA 實測出力（MMSDM 月檔）加總成年發電量，經 data/live/units.json 的機組對照接到本站風場；
+前一年 1 月以前就在發電、當年登記容量沒變、資料筆數 98% 以上的年份才用，容量因數以 AEMO 登記容量計（與本站紀錄相差 15% 以內）。規則見 tools/au_output.py。
 風場資料或 USWTDB 重建後要重跑（先跑 tools/build_turbines.py）。
 
 US: EIA-923 (U.S. Energy Information Administration, monthly net generation by plant, public domain). USWTDB gives every turbine its
 EIA plant code (written by tools/build_turbines.py as the "eia" field of turbines.json), so site farm → USWTDB turbines → EIA plant
 links directly. Conservative: an EIA plant is used only when all of its turbines are in one site farm; a year is used only when every
 turbine of those plants started before that year and was not retrofitted in it; capacity factor = net generation / (EIA-860M nameplate
-capacity of the plants' wind generators × 8,760 h), so numerator and denominator are the same agency's figures for the same plant
+capacity of the plants' wind generators × the hours in the year, 8,760 or 8,784), so numerator and denominator are the same agency's figures for the same plant
 (USWTDB sometimes lacks part of a plant, e.g. Salt Fork: 64 turbines, 128 MW in USWTDB, 174 MW at EIA, which inflated the factor). Farms
 whose USWTDB and EIA capacities differ by 10% or more are dropped, as are years in which a generator entered service or retired, and
 years outside 5–65%. Re-run after rebuilding the farm layer or USWTDB (run
@@ -45,7 +48,12 @@ from the site record's turbine field, only when it names a single model with its
 Denmark (optional): the Danish Energy Agency's turbine register workbooks "Vinddata" and "Parkproduktion", rules in tools/dk_output.py:
 farms metered as a whole and individually metered turbines are matched to site farms by location (capacity within ±15%) and written
 here; individually metered turbines also go to data/global/turbine_output.json. Only company-owned turbines have published production.
+Australia: AEMO's 5-minute SCADA output per unit (MMSDM monthly archive), summed into yearly output and linked to site farms through the
+unit mapping in data/live/units.json, read automatically from data/global/sources/aemo_wind_monthly.json (built by tools/au_output.py
+fetch); only years in which every unit was generating by January of the year before, kept its registered capacity and has 98% of the
+intervals, with the capacity factor on AEMO's registered capacity (within 15% of the site record). Rules in tools/au_output.py.
 """
+import calendar
 import collections
 import csv
 import datetime as dt
@@ -64,6 +72,11 @@ OUT = ROOT / 'data/global/generation.json'
 TOUT = ROOT / 'data/global/turbine_output.json'               # 單部風機的實測年發電量（目前只有丹麥）
 DA_MONTHS = ('januar', 'februar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december')
 CF_MIN, CF_MAX = 0.05, 0.65
+
+
+def hours(y):
+    """當年時數（閏年 8,784）· hours in the year"""
+    return 8784 if calendar.isleap(y) else 8760
 TW_URL = 'https://data.gov.tw/dataset/17140'
 # 台電發電站（17140／17141 的中文名稱前段）→ 本站風場名稱
 TW_STATIONS = {'石門風力': 'Shimen', '林口風力': 'Linkou', '蘆竹風力': 'Taoyuan Luzhu', '觀園風力': 'Dayuan Guanyuan', '大潭風力': 'Datan (Tatan)',
@@ -159,7 +172,7 @@ def taiwan(gen_csv, cap_csv, farms):
         ys = {}
         for (s2, y), v in mwh.items():
             if s2 == st and len(months[(s2, y)]) == 12 and y > (f['year'] or 0):
-                cf = v / (kw / 1000 * 8760)
+                cf = v / (kw / 1000 * hours(y))
                 if CF_MIN <= cf <= CF_MAX:
                     ys[y] = [round(v / 1000, 1), round(cf * 100, 1)]
         if ys:
@@ -229,7 +242,7 @@ def main(uswtdb_csv, *files):
                 continue
             mw = cap
             mwh = sum(gen[y][i] for i in ids)
-            cf = mwh / (cap * 8760)
+            cf = mwh / (cap * hours(y))
             if CF_MIN <= cf <= CF_MAX:
                 ys[y] = [round(mwh / 1000, 1), round(cf * 100, 1)]    # [GWh, 容量因數 %]
             else:
@@ -273,19 +286,30 @@ def main(uswtdb_csv, *files):
                               s['yr'], s['y']] for s in singles]}},
             ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
         print(f'{TOUT.relative_to(ROOT)}: {len(singles)} turbines, {TOUT.stat().st_size / 1e3:.0f} kB', flush=True)
+    from au_output import SRC as AU_SRC, au_generation
+    au_gen, au_st = au_generation(farms, tw_model)
+    out.update(au_gen)
+    if au_st:
+        print(f'Australia: {au_st["duids"]} AEMO wind units, months {au_st["months"][0]}–{au_st["months"][1]}, retrieved {au_st["retrieved"]}; '
+              f'{au_st["farms"]} site farms written; farm-years left out: ' + ', '.join(f'{k} {v}' for k, v in sorted(au_st['why'].items())), flush=True)
     meta = {
         'source': {'USA': 'U.S. Energy Information Administration, Form EIA-923 (net generation by plant), years ' + ', '.join(map(str, years)) +
                           '; capacity from EIA-860M (Preliminary Monthly Electric Generator Inventory)',
                    'TWN': 'Taiwan Power Company, net generation of its own renewable stations (data.gov.tw 17140) and station capacity (17141)',
-                   **({'DNK': dk_meta['name'] + ', retrieved ' + dk_meta['retrieved'] + ', monthly data through ' + str(dk_meta['through'])} if dk_meta else {})},
-        'url': {'USA': 'https://www.eia.gov/electricity/data/eia923/', 'TWN': TW_URL, **({'DNK': dk_meta['url']} if dk_meta else {})},
+                   **({'DNK': dk_meta['name'] + ', retrieved ' + dk_meta['retrieved'] + ', monthly data through ' + str(dk_meta['through'])} if dk_meta else {}),
+                   **({'AUS': AU_SRC['name'] + ', ' + au_st['months'][0] + ' to ' + au_st['months'][1] + ', retrieved ' + au_st['retrieved']} if au_st else {})},
+        'url': {'USA': 'https://www.eia.gov/electricity/data/eia923/', 'TWN': TW_URL, **({'DNK': dk_meta['url']} if dk_meta else {}),
+                **({'AUS': AU_SRC['url']} if au_st else {})},
         'license': {'USA': 'Public domain (U.S. Government work)', 'TWN': 'Open Government Data License, version 1.0 (Taiwan)',
-                    **({'DNK': "Danish Energy Agency data terms (free reuse; credit Energistyrelsen, the dataset and the retrieval date): " + dk_meta['terms']} if dk_meta else {})},
+                    **({'DNK': "Danish Energy Agency data terms (free reuse; credit Energistyrelsen, the dataset and the retrieval date): " + dk_meta['terms']} if dk_meta else {}),
+                    **({'AUS': 'AEMO Copyright Permissions (any purpose, with attribution of AEMO and the material): ' + AU_SRC['terms']} if au_st else {})},
         **({'retrieved': {'DNK': dk_meta['retrieved']}, 'through': {'DNK': dk_meta['through']}} if dk_meta else {}),
         'farms': len(out), 'by_iso': dict(collections.Counter(k.split('|')[0] for k in out)), 'years': sorted({int(y) for v in out.values() for y in v['y']}),
         'note': 'Keys are "ISO|farm name". y = {year: [net generation GWh, capacity factor %]}; mw = capacity used for the capacity factor '
                 '(US: EIA-860M nameplate of the plants\' wind generators in the latest year; Taiwan: Taipower station capacity; '
-                'Denmark: registered capacity of the turbines whose production the Danish Energy Agency publishes, matched to the farm); '
+                'Denmark: registered capacity of the turbines whose production the Danish Energy Agency publishes, matched to the farm; '
+                'Australia: AEMO registered capacity of the farm\'s units, output = 5-minute SCADA MW summed, incl. curtailment); '
+                'capacity factor = output / (capacity x hours in the year, 8,784 in leap years); '
                 'only full years (all turbines in service before the year) of plants wholly inside one farm. m = turbine model, only when the farm has a single model '
                 '(US: USWTDB manufacturer + model; hh = median hub height m, rd = rotor diameter m; Taiwan: site record, station capacity within 3%; '
                 'Denmark: Energistyrelsen register, mk = make|rotor m|unit kW used to group the same model).',

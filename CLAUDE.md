@@ -79,6 +79,16 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Production is published for company-owned turbines only (none for private persons, sole proprietors or partnerships): never present part of a farm as the whole farm or loosen the
   matching to fill gaps. The agency's terms require crediting "Energistyrelsen", the dataset name (Stamdataregister for vindkraftanlæg) and the retrieval date on the site and in the
   README; the build writes the retrieval month from the downloaded file's time into the data files and the site reads it from there, so never hard-code it.
+- 澳洲實測發電量（`tools/au_output.py`）：`python3 tools/au_output.py fetch 起月 迄月` 下載 AEMO MMSDM 月檔（每個機組每 5 分鐘的 SCADA 出力、登記容量），彙整成
+  `data/global/sources/aemo_wind_monthly.json`（進 git），`build_generation.py` 自動讀取。機組經 `data/live/units.json`（與即時出力同一份對照）接到本站風場；一個機組分給好幾座風場的不用，
+  前一年 1 月時還沒發電、當年登記容量有變動、5 分鐘資料不到 98% 的年份不用，容量因數以 AEMO 登記容量計、與本站紀錄相差 15% 以上的不用。實測值含限電，介面要寫明；
+  依 AEMO 版權許可，資料旁要標示 AEMO 與資料集（MMS Data Model）。重建風場層或 `units.json` 後重跑 `build_generation.py`；新的一年加抓 12 個月再重建。
+  所有國家的容量因數分母都用當年時數（閏年 8,784）。
+  Australian measured output (`tools/au_output.py`): `python3 tools/au_output.py fetch FIRST LAST` downloads AEMO's MMSDM monthly files (each unit's 5-minute SCADA output and
+  registered capacity) into `data/global/sources/aemo_wind_monthly.json` (committed), which `build_generation.py` reads. Units reach site farms through `data/live/units.json` (the
+  live mapping); units shared between farms are left out, as are years before which the farm was not generating by January of the previous year, years with a registered-capacity change
+  or under 98% of the 5-minute data, and farms whose AEMO registered capacity is 15% or more off the record. Measured output includes curtailment, and the UI must say so; AEMO's
+  copyright permissions require crediting AEMO and the dataset (MMS Data Model) next to the data. Capacity factors in every country use the hours in the year (8,784 in leap years).
 - 德國（`tools/build_mastr.py`，MaStR，Datenlizenz Deutschland – Namensnennung 2.0，標示「© Bundesnetzagentur | Marktstammdatenregister」）：每部風機依風場名稱與位置分群，
   對到本站德國風場（名稱、距離、容量 ±20%）就寫進 `turbines_de.json`；其餘 1 MW 以上的陸域群在附近沒有可能相同的本站紀錄時，才列進 `sources/mastr_parks_DEU.json`
   由 `build_farms.py` 加進風場層（來源代碼 4）。建置會檢查「本站陸域＋新增」不超過 MaStR 陸域容量的 102%，超過表示重複，要找出原因，不要放寬門檻了事。
@@ -170,6 +180,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 用 Playwright（Chromium，參數 `--use-gl=swiftshader --enable-webgl --ignore-gpu-blocklist`）走過首頁、台灣即時
   （儀表／風場牆／數據／地圖）、全球地球儀、風電知識，桌機與手機寬度都要沒有錯誤。
   Walk through every page with Playwright on desktop and phone widths and check for errors.
+- 冒煙測試寫成 `tools/smoke_test.js`（`node tools/smoke_test.js http://localhost:8000/ --standalone`，先開本機預覽並建好兩個單檔版）；GitHub Actions `pr-check`
+  （`.github/workflows/pr-check.yml`）在每個 PR 跑它，另外檢查語法、`qa_farms.py --max`（不在國界內的風場不能比已知例外多）、由程式產生的文件是否已更新，
+  以及改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）。新增合理的座標例外時把 workflow 裡的 `--max` 一起調高。
+  The smoke test is `tools/smoke_test.js`; the `pr-check` workflow runs it on every PR together with syntax checks, `qa_farms.py --max` (no more farms outside their
+  country than the known exceptions), a check that generated documents are up to date, and the version/changelog check (`tools/check_version.py`) when the site changes.
 - 單檔版以 `file://` 開啟，連網與離線（封鎖所有 http/https 請求）各測一次：離線時即時資料應標示「離線快照」。
   Open the single-file copy over `file://` both online and offline; offline, the live data must be labelled as an offline snapshot.
 
