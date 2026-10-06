@@ -15,6 +15,20 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.27.0 — 2026-10-06
+
+- The Output dialog gains "Taiwan · live samples": Taipower's live data (each unit's instantaneous output every 10 minutes), sampled every 2 hours and
+  accumulated, compares the average output, capacity factor and same-model performance of every grid unit **including private farms** (last 30 or 90 days, or everything).
+  - Sample archive `data/archive/farm_daily.json`: added to by the scraper on every run (each Taipower data time counts once); `tools/build_farm_daily.py`
+    restored the 1,290 samples since June 2026 from the git history, and the weekly backfill run fills any missed snapshots from the last three weeks of history.
+  - Validation: for July 2026, the sampled capacity factors of Taipower's 7 own farms are within 0–2 percentage points of the official monthly generation
+    (dataset 17140; e.g. Offshore Phase 1 16.5% vs 16.9%).
+  - The dialog always says these are estimates from samples, not official yearly generation, and that summer is the low-wind season; they are kept apart
+    from the official yearly data. Units in testing, units with too few samples and Taipower's multi-farm rows are not ranked.
+  - Same-model comparison: SG 8.0-167 DD (Greater Changhua 1 & 2a's two units, Formosa 2, Yunlin's two units), V174-9.5, E-70 2.3, V80 and more.
+- Taiwanese farm cards gain a "Live samples (last 90 days)" row (average output and capacity factor, with "See rankings").
+- The Taiwan live page's Charts tab links to "Capacity factor rankings (live samples)"; the dialog title is now "Wind farm output".
+
 ## v2.26.1 — 2026-10-05
 
 - US capacity factors now use the nameplate capacity registered in EIA-860M as the denominator. They used the summed USWTDB turbine ratings,

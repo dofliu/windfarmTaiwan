@@ -102,7 +102,10 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     milestones, and a searchable farm list
   - **Output** (the "📊 Output" toolbar button, the Taiwan and US country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
     **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms) and the US (about 830 farms
-    from EIA-923), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm); private farms have no official per-farm figures and are not ranked
+    from EIA-923), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm); plus
+    "**Taiwan · live samples**" (`out=TWS.cf`, also linked from the Taiwan live page's Charts tab): average output and capacity factor of every grid unit,
+    private farms included, from Taipower's live data sampled every 2 hours (last 30 or 90 days, or everything), an estimate from samples, not official yearly
+    generation, never mixed into the official ranking; farm cards also show the last 90 days of samples
   - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
     refreshed every 6 hours; it is today's weather and does not follow the timeline
   - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
@@ -232,6 +235,9 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   the tables (each source with its quoted passage and check result)
 - `standalone/` (not in git) — where the build scripts write locally; the official single-file edition and public global wind map are built by Actions and uploaded to the GitHub Release "standalone"
 - `data/archive/wind_history_archive_YYYY-MM.json` — the long-term archive of Taipower's official retrospective data, one file per month (written by `backfill_history.py`)
+- `data/archive/farm_daily.json` — daily samples of every grid unit (private farms included) in Taipower's live data, from June 2026 (added by the scraper
+  on every run; `tools/build_farm_daily.py` backfills it from the git history), used by the Output dialog's Taiwan live samples and farm cards; one line per day,
+  fields described in the file's meta
   (built by `tools/build_globe_lite.py`; do not edit by hand)
 - `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
   farm-by-farm foundation list (`foundations.en.md`), the events list (`events.en.md`) and the
@@ -265,8 +271,8 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   **Scope caveat**: 37331 covers only Taipower-**owned** wind units, excluding IPP (independent
   power producer) purchases; its totals aren't comparable to the live system-wide figure.
 - `.github/workflows/scrape.yml` — runs the scraper about every 2 hours and commits
-- `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly;
-  can also be triggered manually (with a dry-run option)
+- `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly and fills daily-sample gaps from the last three weeks of
+  git history; can also be triggered manually (with a dry-run option)
 - `.github/workflows/wind-now.yml` — fetches the NOAA GFS 10 m wind field every 6 hours (`tools/fetch_gfs_wind.py`) for the globe's "Wind now"
 - `.github/workflows/standalone.yml` — rebuilds the single-file edition when site code or global data change and uploads it to the "standalone" Release (no commit, so git history does not grow by 12 MB each time)
 - `.github/workflows/keepalive.yml` — on the 1st of each month, re-enables the scheduled workflows through the GitHub API so they are not disabled after 60 days without activity (no commits)

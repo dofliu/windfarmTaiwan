@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0          # 完整歷史：每日取樣累積要從 git 歷史回補漏記的快照
 
       - uses: actions/setup-python@v6
         with:
@@ -39,6 +41,12 @@ jobs:
         env:
           BACKFILL_URL: ${{ secrets.BACKFILL_URL }}
         run: python backfill_history.py ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+
+      - name: Backfill daily samples from git history
+        # data/archive/farm_daily.json：抓取程式每次都會累積，這裡從最近三週的 git 歷史補上漏記的快照（同一資料時間不會重算）
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        continue-on-error: true
+        run: python tools/build_farm_daily.py --since "21 days ago"
 
       - name: Commit if changed
         run: |

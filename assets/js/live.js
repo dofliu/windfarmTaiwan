@@ -1077,7 +1077,10 @@ WW.live={
   onUpdate(fn){subs.push(fn);},
   openDrawer,
   /* 全球資料集的風場名稱 → 對應的即時機組（例：大彰化 1&2a → 沃一風＋沃二風） */
-  unitsForGlobalFarm(name){return FARMS.filter(f=>GLOBE_FARM[f.id]===name);}
+  unitsForGlobalFarm(name){return FARMS.filter(f=>GLOBE_FARM[f.id]===name);},
+  /* 併網點代碼 → 目前語言的名稱與所屬風場（地球儀「發電表現」的即時取樣用） */
+  unitName(id){const f=FARMS.find(x=>x.id===id);return f?nm(f):null;},
+  unitProj(id){return PROJ[id]?PROJ[id][EN()?1:0]:"";}
 };
 
 buildFilterSelects();

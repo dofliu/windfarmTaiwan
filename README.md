@@ -75,7 +75,9 @@
   - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
     里程碑、可搜尋的風場清單
   - **發電表現**（工具列「📊 發電表現」、台灣與美國的國家概況、風場卡片的「看排名」；網址 `out=TWN.cf`）：台灣（台電自有 19 座）與美國（EIA-923 約 830 座）
-    逐場實測年發電量的**總發電量排名**、**容量因數排名**，以及**同機型比較**（同一型號在不同風場的容量因數，每點一座風場）；民營風場沒有官方逐場數字，不列入
+    逐場實測年發電量的**總發電量排名**、**容量因數排名**，以及**同機型比較**（同一型號在不同風場的容量因數，每點一座風場）；
+    另有「**台灣・即時取樣**」（網址 `out=TWS.cf`，台灣即時頁「數據」分頁也有入口）：用每 2 小時一次的台電即時資料取樣，比較含民營風場在內各併網點的平均出力與容量因數（近 30／90 天或全部），
+    是取樣估計、不是官方年發電量，兩種資料不混排；風場卡片也列出近 90 天的取樣結果
   - **此刻的風**（工具列按鈕，預設關閉；網址 `flow=1`）：NOAA GFS 最新一次預報的離地 10 m 風場畫成流動的粒子，每 6 小時更新；是此刻的天氣，不隨時間軸變動
   - 導覽模式與四個故事導覽（`#/global?tour=tw`／`eu`／`cn`／`fl`）、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
   - **全球風場搜尋與篩選**：工具列「🔍 搜尋」或按 / 鍵，依名稱、中文名、開發商、機型、國名搜尋全部約 2.3 萬座風場，
@@ -167,6 +169,8 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   `tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
 - `standalone/`（不進 git）— 本機執行建置程式的輸出位置；正式的單檔版與全球風電地圖公開版由 Actions 建好後上傳到 GitHub Release「standalone」
 - `data/archive/wind_history_archive_YYYY-MM.json` — 台電官方回溯的長期存檔，依月分檔（`backfill_history.py` 產生）
+- `data/archive/farm_daily.json` — 台電即時資料各併網點（含民營）的每日取樣累積（2026-06 起，抓取程式每次累加；`tools/build_farm_daily.py` 可從 git 歷史回補），
+  「發電表現」的台灣即時取樣與風場卡片用；一天一行，欄位說明在檔案的 meta
 - `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）、重大事件與事故清單（`events.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
@@ -186,7 +190,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   **時效注意**：37331 為季度回溯檔，落後約 4–5 個月，補不到近 7 天趨勢窗的缺口，主要價值是長期趨勢分析。
   **口徑注意**：37331 只含台電**自有**風力機組，不含民營購電，與即時資料的全系統數值不可混用比較。
 - `.github/workflows/scrape.yml` — 約每 2 小時自動執行 scraper 並 commit
-- `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔；可手動觸發（含 dry_run 選項）
+- `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔，並從最近三週的 git 歷史補上每日取樣漏記的快照；可手動觸發（含 dry_run 選項）
 - `.github/workflows/wind-now.yml` — 每 6 小時抓 NOAA GFS 離地 10 m 風場（`tools/fetch_gfs_wind.py`），地球儀「此刻的風」用
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 12 MB）
 - `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）

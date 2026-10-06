@@ -75,7 +75,7 @@ const I18N = {
     copyLink: '複製此風場連結', copyLinkMs: '複製此里程碑連結', copied: '已複製連結 ✓', copyFail: '無法自動複製，請手動複製下方連結',
     report: '回報資料錯誤', reportT: '在 GitHub 開一則 issue（需登入），已預填名稱、座標與連結',
     btnSearch: '🔍 搜尋', btnPorts: '⚓ 港口', portsTab: '港口',
-    btnOut: '📊 發電表現', outTitle: '風場發電表現：實測年發電量與容量因數', outGen: '總發電量', outCf: '容量因數', outModel: '同機型比較', outYear: '年份',
+    btnOut: '📊 發電表現', outTitle: '風場發電表現', outGen: '總發電量', outCf: '容量因數', outModel: '同機型比較', outYear: '年份',
     outHigh: '高→低', outLow: '低→高', outByN: '依座數', outByMed: '依中位數', outPh: '找風場、機型…', outMed: '中位數', outMedM: '虛線＝該機型的中位數',
     outSum: (y, n, g, m) => `${y} 年 · ${n} 座風場有實測年發電量 · 合計 ${g} · 容量因數中位數 ${m}%`,
     outCov: (iso, y, n, mw, k, kmw, p) => iso === 'TWN' ? `本站台灣 ${y} 年底運轉中的風場 ${n} 座、${mw}；有逐場官方年發電量的只有台電自有的 ${k} 座、${kmw}（約 ${p}%）。民營風場（包括台電離岸一期以外的離岸風場）沒有逐場的官方年發電量，不列入；它們此刻的出力可在台灣即時頁看。`
@@ -84,6 +84,19 @@ const I18N = {
       model: iso => '只列整座風場只有一種機型、而且這一年有兩座以上風場有實測數字的機型；每個點是一座風場，點一下飛到那座風場，按 ▾ 列出各場數字。' + (iso === 'TWN' ? '台灣的機型取自本站風場紀錄，台電發電站容量與紀錄相差 3% 以上（可能含其他機組）的不列入，例如彰工；混合機型的台中港、大潭也不列入。' : '機型取自 USWTDB（同一型號、同一單機容量）。') + '同一機型的差異主要來自風況、輪轂高度與停機／限電，不只是機型本身。' },
     outGrp: (n, m, lo, hi) => `${n} 座 · 中位數 ${m}% · ${lo}–${hi}%`, outExpand: '列出各風場', outNoModel: '這一年沒有兩座以上風場使用同一機型的資料。',
     outRank: (y, a, n, b) => `${y} 年容量因數第 ${a}／${n} 名、年發電量第 ${b} 名`, outSee: '看排名 →', outCountry: '📊 發電表現排名',
+    outIso: { TWN: '台灣・官方年資料', TWS: '台灣・即時取樣', USA: '美國' }, outGenS: '平均出力', outPer: '期間',
+    outPerOpt: (v, first) => v === 'all' ? `全部（${first} 起）` : `近 ${v} 天`,
+    outSumS: (a, b, n, k, m) => `${a} 至 ${b} · ${n} 次取樣 · ${k} 個併網點 · 容量因數中位數 ${m}%`,
+    outSrcS: ['台電即時資料', '台灣電力公司 各機組發電量即時資訊（政府資料開放平臺 8931，政府資料開放授權條款）'],
+    outCovS: sk => '以台電即時資料的併網點為單位（例如大彰化 1&2a 分成沃一風、沃二風），含民營風場。抓取程式約每 2 小時記下一次各併網點的瞬間出力；平均出力是這些取樣的平均，容量因數只計台電已列出裝置容量的時段。以 2026 年 7 月比對，台電自有 7 座風場的取樣容量因數與官方月發電量相差 0–2 個百分點。' +
+      (sk.length ? '試運轉中或取樣不足、不列入：' + sk.join('、') + '。' : '') + '台電的「其它台電自有」「其它購電風力」是多座風場的彙總，不列入。',
+    outSampErr: '即時取樣資料無法載入。',
+    outNoteS: { gen: () => '平均出力＝期間內各次取樣的出力平均（MW），是瞬間值的取樣估計，不是官方發電量。規模越大通常越高；要比效率請看「容量因數」。',
+      cf: () => '取樣容量因數＝取樣出力加總 ÷ 同時段裝置容量加總，只反映所選期間：台灣的風季是冬季東北季風，夏季（約 5–9 月）的容量因數會遠低於全年。虛線是中位數。',
+      model: () => '只列所屬風場只有一種機型、而且有兩個以上併網點有數字的機型；同一座風場的併網點（如沃一風、沃二風）會一起出現。每個點是一個併網點，點一下飛到所屬風場。差異主要來自風況、位置與停機，不只是機型。' },
+    outSmp: n => `${n} 次取樣`, outGrpS: (n, m, lo, hi) => `${n} 個併網點 · 中位數 ${m}% · ${lo}–${hi}%`,
+    sampLabel: '即時取樣（近 90 天）', sampVal: (o, c) => `平均出力 ${o} · 容量因數 ${c}%`,
+    sampNote: (a, b, u, part) => `${a} 至 ${b}，台電即時資料每 2 小時取樣（${u}）；是取樣估計、不是官方年發電量，夏季為風力淡季。` + (part ? '部分併網點試運轉中，只計已列出裝置容量者。' : ''),
     fsPh: '搜尋風場、開發商、機型、國家或港口…', fsSt: '狀態', fsTy: '類型', fsMin: '容量', fsYear: '年份', fsSort: '排序', fsAny: '不限', fsName: '名稱',
     fsClear: '清除篩選', fsWorld: '改搜全球', fsScope: s => `範圍：${s}`, fsCount: (n, mw) => `符合 ${n} 座 · ${mw}`, fsAll: (n, mw) => `共 ${n} 座 · ${mw}`,
     fsMapOnly: '地圖只顯示符合條件的風場', fsHidden: (y, n) => `時間軸在 ${y} 年：其中 ${n} 座這一年不在地圖上（尚未完工、已除役，或是規劃中而未開啟「規劃中」）`, fsToLatest: '移到最新年份',
@@ -162,7 +175,7 @@ const I18N = {
     copyLink: 'Copy link to this farm', copyLinkMs: 'Copy link to this milestone', copied: 'Link copied ✓', copyFail: 'Could not copy automatically — copy the link below',
     report: 'Report a data error', reportT: 'Opens a GitHub issue (sign-in needed) pre-filled with the name, coordinates and link',
     btnSearch: '🔍 Search', btnPorts: '⚓ Ports', portsTab: 'Ports',
-    btnOut: '📊 Output', outTitle: 'Wind farm output: measured yearly generation and capacity factor', outGen: 'Total output', outCf: 'Capacity factor', outModel: 'Same turbine model', outYear: 'Year',
+    btnOut: '📊 Output', outTitle: 'Wind farm output', outGen: 'Total output', outCf: 'Capacity factor', outModel: 'Same turbine model', outYear: 'Year',
     outHigh: 'High → low', outLow: 'Low → high', outByN: 'By farm count', outByMed: 'By median', outPh: 'Find a farm or model…', outMed: 'Median', outMedM: 'Dashed line = median for the model',
     outSum: (y, n, g, m) => `${y} · ${n} farms with measured yearly output · ${g} in total · median capacity factor ${m}%`,
     outCov: (iso, y, n, mw, k, kmw, p) => iso === 'TWN' ? `The site lists ${n} farms (${mw}) operating in Taiwan at the end of ${y}; only the ${k} Taipower-owned farms (${kmw}, about ${p}%) have official per-farm yearly output. Private farms (including every offshore farm except Taipower Offshore Phase 1) have no official per-farm figures and are not ranked; their output right now is on the Taiwan live page.`
@@ -171,6 +184,19 @@ const I18N = {
       model: iso => 'Only models that are the sole model of a whole farm, used by two or more farms with measured output in that year. Each dot is a farm: click it to fly there, or press ▾ to list the farms. ' + (iso === 'TWN' ? 'Taiwanese models come from the site\'s farm records; farms whose Taipower station capacity differs from the record by 3% or more (it may include other machines), such as Changgong, are left out, as are the mixed-model Taichung Port and Datan. ' : 'Models come from USWTDB (same model and unit rating). ') + 'Differences within a model mostly come from the wind, hub height and downtime or curtailment, not the machine alone.' },
     outGrp: (n, m, lo, hi) => `${n} farms · median ${m}% · ${lo}–${hi}%`, outExpand: 'List the farms', outNoModel: 'No turbine model is used by two or more farms with data in this year.',
     outRank: (y, a, n, b) => `${y}: capacity factor #${a} of ${n}, output #${b}`, outSee: 'See rankings →', outCountry: '📊 Output rankings',
+    outIso: { TWN: 'Taiwan · official yearly', TWS: 'Taiwan · live samples', USA: 'United States' }, outGenS: 'Average output', outPer: 'Period',
+    outPerOpt: (v, first) => v === 'all' ? `All (since ${first})` : `Last ${v} days`,
+    outSumS: (a, b, n, k, m) => `${a} to ${b} · ${n} samples · ${k} grid units · median capacity factor ${m}%`,
+    outSrcS: ['Taipower live data', 'Taiwan Power Company, real-time generation by unit (data.gov.tw 8931, Open Government Data License)'],
+    outCovS: sk => 'Grid units as named in Taipower\'s live data (Greater Changhua 1 & 2a, for example, is split into two units), private farms included. The scraper records each unit\'s instantaneous output about every 2 hours; average output is the mean of these samples, and the capacity factor counts only times when Taipower lists the unit\'s capacity. Checked against July 2026, the sampled capacity factors of Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.' +
+      (sk.length ? ' Not ranked (in testing or too few samples): ' + sk.join(', ') + '.' : '') + ' Taipower\'s "other Taipower-owned" and "other purchased wind" rows combine several farms and are left out.',
+    outSampErr: 'The live sample archive could not be loaded.',
+    outNoteS: { gen: () => 'Average output = mean of the sampled outputs over the period (MW): an estimate from instantaneous values, not official generation. Larger units usually score higher; to compare efficiency, see "Capacity factor".',
+      cf: () => 'Sampled capacity factor = sum of sampled output ÷ sum of listed capacity at the same times. It reflects only the chosen period: Taiwan\'s windy season is the winter monsoon, so summer (about May–September) values are far below the yearly figure. The dashed line is the median.',
+      model: () => 'Only models that are the sole model of the unit\'s farm, with two or more units reporting; units of one farm appear side by side. Each dot is a grid unit; click it to fly to its farm. Differences mostly come from the wind, location and downtime, not the machine alone.' },
+    outSmp: n => `${n} samples`, outGrpS: (n, m, lo, hi) => `${n} units · median ${m}% · ${lo}–${hi}%`,
+    sampLabel: 'Live samples (last 90 days)', sampVal: (o, c) => `average output ${o} · capacity factor ${c}%`,
+    sampNote: (a, b, u, part) => `${a} to ${b}, Taipower live data sampled every 2 hours (${u}); an estimate from samples, not official yearly generation, and summer is the low-wind season.` + (part ? ' Some units are still in testing; only units with a listed capacity count.' : ''),
     fsPh: 'Search farms, developers, turbines, countries or ports…', fsSt: 'Status', fsTy: 'Type', fsMin: 'Size', fsYear: 'Year', fsSort: 'Sort', fsAny: 'Any', fsName: 'Name',
     fsClear: 'Clear filters', fsWorld: 'Search worldwide', fsScope: s => `Scope: ${s}`, fsCount: (n, mw) => `${n} matching · ${mw}`, fsAll: (n, mw) => `${n} farms · ${mw}`,
     fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
@@ -2742,6 +2768,13 @@ function factsHTML(f) {
     const gwh = f.mw * cf.cf * 8.76, c = byIso[f.iso];
     rows.push(row(T('genLabel'), L('約 ', 'about ') + fmtGWh(gwh), T('genNote')(c ? cname(c) : f.iso, (cf.cf * 100).toFixed(1), cf.y[0] + '–' + cf.y[1]) + (f.type !== 'onshore' ? T('genOff') : '')));
   }
+  if (f.iso === 'TWN' && !LITE && WW.live && WW.live.unitsForGlobalFarm(f.name).length) {   // 台灣即時取樣（含民營）
+    if (!SAMP) needSamp();
+    const sp = sampOfFarm(f);
+    if (sp) rows.push(row(T('sampLabel'), T('sampVal')(fmtMWv(sp.out), sp.cf.toFixed(1)),
+      T('sampNote')(sp.from, sp.to, sp.units.map(k => WW.live.unitName(k)).join(L('、', ', ')), sp.part),
+      ' <button type="button" class="fout" data-out="TWS" data-k="' + esc(sp.units[0]) + '">' + esc(T('outSee')) + '</button>'));
+  }
   return rows.length ? '<div class="ffacts">' + rows.join('') + '</div>' : '';
 }
 const fmtGWh = v => v >= 1000 ? (v / 1000).toLocaleString('en-US', { maximumFractionDigits: v >= 10000 ? 0 : 1 }) + ' TWh' : (v >= 100 ? Math.round(v) : v >= 10 ? v.toFixed(1) : v.toFixed(2)) + ' GWh';
@@ -2922,7 +2955,7 @@ function renderCard(it) {
   card.querySelectorAll('details.frel').forEach(d => d.addEventListener('toggle', () => WW.store.set('ww_card_' + d.dataset.k, d.open ? '1' : '0')));
   wireEvRows(card);
   card.querySelectorAll('.frmore').forEach(b => b.onclick = () => { b.previousElementSibling.classList.remove('clip'); b.remove(); });
-  const fo = card.querySelector('.fout'); if (fo && f) fo.onclick = () => openOutput({ iso: f.iso, view: 'cf', hl: f.iso + '|' + f.name });
+  card.querySelectorAll('.fout').forEach(b => { if (f) b.onclick = () => b.dataset.out === 'TWS' ? openOutput({ iso: 'TWS', view: 'cf', per: '90', hl: b.dataset.k }) : openOutput({ iso: f.iso, view: 'cf', hl: f.iso + '|' + f.name }); });
   const cp = card.querySelector('.fcopy');
   if (cp) cp.onclick = async () => {
     const url = itemLink(it);
@@ -3446,7 +3479,9 @@ function showSources() {
     '<h4>' + (zh ? '離岸容量 1991–2025' : 'Offshore capacity 1991–2025') + '</h4><ul>' + li(src.offshore) + '</ul>' +
     (LT ? '<h4>' + LT.year + (zh ? ' 年（最新可得）' : ' (latest available)') + '</h4><ul>' + C.filter(c => c.lt).map(c => '<li>' + esc(cname(c)) + (zh ? '（截至 ' : ' (as of ') + esc(c.lt.asof) + (zh ? '）：' : '): ') + '<a href="' + esc(c.lt.url) + '" target="_blank" rel="noopener">' + esc(c.lt.src[zh ? 0 : 1]) + '</a>' + (c.lt.est ? esc(zh ? '；本站 ' + DATA_Y + ' 年底數字＋該來源今年的增量（估計）' : '; the site\'s end-' + DATA_Y + ' figure + this source\'s growth this year (estimate)') : '') + '</li>').join('') +
       '<li>' + esc(zh ? '其他國家沿用 ' + DATA_Y + ' 年底數字（長條圖以斜線標示）。數字與出處寫在 tools/latest_wind.py。' : 'Other countries carry their end-' + DATA_Y + ' figure (hatched bars). Figures and sources are in tools/latest_wind.py.') + '</li></ul>' : '') +
-    '<h4>' + (zh ? '風場卡片的實際年發電量' : 'Actual yearly output on farm cards') + '</h4><ul><li><a href="https://www.eia.gov/electricity/data/eia923/" target="_blank" rel="noopener">U.S. Energy Information Administration, Form EIA-923</a>' + (zh ? '（各電廠逐月淨發電量，公有領域）：依 USWTDB 每部風機的 EIA 電廠代碼接到本站的美國風場；電廠跨好幾座風場的不用，只列所有機組全年運轉的年份；容量因數以 EIA-860M 登記的裝置容量計，USWTDB 與 EIA 的容量相差 10% 以上（風場與電廠對不乾淨）的不用（tools/build_generation.py）。' : ' (monthly net generation by plant, public domain): linked to the site\'s US farms through the EIA plant code USWTDB gives each turbine; plants spread over several farms are left out, only years with every turbine in service all year are shown; the capacity factor uses the nameplate capacity in EIA-860M, and farms whose USWTDB and EIA capacities differ by 10% or more (farm and plant do not line up cleanly) are left out (tools/build_generation.py).') + '</li><li><a href="https://data.gov.tw/dataset/17140" target="_blank" rel="noopener">' + (zh ? '台灣電力公司「自建之各類再生能源發電量」' : 'Taiwan Power Company, generation of its own renewable stations') + '</a>' + (zh ? '（政府資料開放平臺 17140，各發電站逐月淨發電量，政府資料開放授權條款）：只有台電自有的風場；台電公布的裝置容量要與本站紀錄相差 15% 以內才用，只列 12 個月都有數字的年份。民營風場沒有逐場的官方發電量，仍顯示估計值。' : ' (data.gov.tw 17140, monthly net generation by station, Open Government Data License): Taipower-owned farms only, used when Taipower\'s stated capacity is within 15% of the site\'s record, full years only. Private farms have no official per-farm figures and keep the estimate.') + '</li></ul>' +
+    '<h4>' + (zh ? '風場卡片的實際年發電量' : 'Actual yearly output on farm cards') + '</h4><ul><li><a href="https://www.eia.gov/electricity/data/eia923/" target="_blank" rel="noopener">U.S. Energy Information Administration, Form EIA-923</a>' + (zh ? '（各電廠逐月淨發電量，公有領域）：依 USWTDB 每部風機的 EIA 電廠代碼接到本站的美國風場；電廠跨好幾座風場的不用，只列所有機組全年運轉的年份；容量因數以 EIA-860M 登記的裝置容量計，USWTDB 與 EIA 的容量相差 10% 以上（風場與電廠對不乾淨）的不用（tools/build_generation.py）。' : ' (monthly net generation by plant, public domain): linked to the site\'s US farms through the EIA plant code USWTDB gives each turbine; plants spread over several farms are left out, only years with every turbine in service all year are shown; the capacity factor uses the nameplate capacity in EIA-860M, and farms whose USWTDB and EIA capacities differ by 10% or more (farm and plant do not line up cleanly) are left out (tools/build_generation.py).') + '</li><li><a href="https://data.gov.tw/dataset/17140" target="_blank" rel="noopener">' + (zh ? '台灣電力公司「自建之各類再生能源發電量」' : 'Taiwan Power Company, generation of its own renewable stations') + '</a>' + (zh ? '（政府資料開放平臺 17140，各發電站逐月淨發電量，政府資料開放授權條款）：只有台電自有的風場；台電公布的裝置容量要與本站紀錄相差 15% 以內才用，只列 12 個月都有數字的年份。民營風場沒有逐場的官方發電量，仍顯示估計值。' : ' (data.gov.tw 17140, monthly net generation by station, Open Government Data License): Taipower-owned farms only, used when Taipower\'s stated capacity is within 15% of the site\'s record, full years only. Private farms have no official per-farm figures and keep the estimate.') + '</li><li>' +
+      (zh ? '台灣即時取樣（發電表現「台灣・即時取樣」與風場卡片）：抓取程式約每 2 小時記下台電即時資料（資料集 8931）各併網點的瞬間出力，累積成 data/archive/farm_daily.json（2026-06 起，含民營風場；tools/build_farm_daily.py 可從 git 歷史回補）。平均出力是取樣平均，容量因數只計已列裝置容量的時段；是取樣估計，不是官方發電量。以 2026 年 7 月比對，台電自有 7 座風場與官方月發電量相差 0–2 個百分點。'
+        : 'Taiwan live samples (the Output dialog\'s "Taiwan · live samples" and farm cards): the scraper records the instantaneous output of every grid unit in Taipower\'s live data (dataset 8931) about every 2 hours into data/archive/farm_daily.json (from June 2026, private farms included; tools/build_farm_daily.py backfills it from the git history). Average output is the mean of the samples and the capacity factor counts only times with a listed capacity: an estimate from samples, not official generation. Against July 2026, Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.') + '</li></ul>' +
     '<h4>' + (zh ? '風場卡片的估計年發電量' : 'Estimated yearly output on farm cards') + '</h4><ul><li>' + (zh ? '容量 × 該國 2023–2025 年風電平均容量因數，取自 ' : 'Capacity × the country\'s 2023–2025 average wind capacity factor, from ') + '<a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '；是估計，不是實測。' : '; an estimate, not a measurement.') + '</li></ul>' +
     '<h4>' + (zh ? '其他國家的風機位置' : 'Turbine positions in other countries') + '</h4><ul><li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap ' + (zh ? '貢獻者' : 'contributors') + '</a>' + (zh ? '，開放資料庫授權（ODbL）；由 tools/build_turbines_osm.py 依 OSM 的風場範圍（名稱、容量）或空間群聚（單機容量要合理）對到本站的風場，衍生的 data/global/turbines_osm.json 同樣以 ODbL 分享。' : ', Open Database License (ODbL); matched to the site\'s farms by OSM wind-plant areas (name, capacity) or by spatial groups (plausible unit size) in tools/build_turbines_osm.py; the derived data/global/turbines_osm.json is likewise shared under the ODbL.') + '</li></ul>' +
     '<h4>' + (zh ? '德國的風場與風機' : 'German farms and turbines') + '</h4><ul><li><a href="https://www.marktstammdatenregister.de/MaStR/Datendownload" target="_blank" rel="noopener">© Bundesnetzagentur | Marktstammdatenregister (MaStR)</a>' + (zh ? '，Datenlizenz Deutschland – Namensnennung – Version 2.0：每部營運中風機的座標、機型、輪轂高度、葉輪直徑與商轉日。依風場名稱與位置分群後，對到本站已有的德國風場（近景改畫實際機位），其餘 1 MW 以上、附近沒有可能相同之本站紀錄的陸域風場加進風場層（tools/build_mastr.py）。' : ', Data licence Germany – attribution – version 2.0: position, model, hub height, rotor diameter and commissioning date of every operating turbine. Grouped by wind-farm name and location, matched to the site\'s German farms (whose close-ups now use the real positions); onshore groups of 1 MW or more with no possibly identical site record nearby are added to the farm layer (tools/build_mastr.py).') + '</li></ul>' +
@@ -3481,15 +3516,22 @@ function showSources() {
 }
 
 /* ================= 發電表現：實測年發電量與容量因數的排名、同機型比較 =================
-   只用 generation.json 的實測值（美國＝EIA-923，台灣＝台電自有風場）；國家平均推估的值不排名。
-   同機型：整座風場只有一種機型（build_generation.py 寫的 m 欄），而且同一年有兩座以上風場有數字的機型。 */
-const OUT_ISO = ['TWN', 'USA'], OUT_VIEWS = ['gen', 'cf', 'model'];
-const OUT = { iso: 'TWN', view: 'cf', year: null, desc: true, msort: 'n', q: '', all: false, open: null, hl: null };
+   兩種資料，不混在同一張排名裡：
+   · 官方年資料：generation.json（美國＝EIA-923，台灣＝台電自有風場）；國家平均推估的值不排名。
+   · 台灣即時取樣：data/archive/farm_daily.json（抓取程式每 2 小時一次記下台電各併網點的瞬間出力，含民營風場）。
+     是取樣估計、不是官方發電量；以台電併網點為單位（沃一風、沃二風…），所屬風場由 live.js 的 GLOBE_FARM 對到地球儀。
+   同機型：整座風場只有一種機型（官方年資料用 build_generation.py 寫的 m 欄；即時取樣取地球儀風場紀錄的機型，
+   併網點容量超過風場紀錄 3% 以上時不列機型），而且有兩個以上單位有數字的機型。 */
+const OUT_ISO = LITE ? ['TWN', 'USA'] : ['TWN', 'TWS', 'USA'], OUT_VIEWS = ['gen', 'cf', 'model'], OUT_PER = ['30', '90', 'all'];
+const OUT = { iso: 'TWN', view: 'cf', year: null, per: '90', desc: true, msort: 'n', q: '', all: false, open: null, hl: null };
 const OUT_LIMIT = 50;
 const outShown = () => $('g-modal').classList.contains('show') && !!$('g-modalBody').querySelector('.oout');
 const median = a => { const s = a.slice().sort((x, y) => x - y), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : 0; };
 const fmtG = v => (v >= 100 ? WW.int(v) : v >= 10 ? v.toFixed(1) : v.toFixed(2)) + ' GWh';     // 排名裡同一欄維持 GWh，不混用 TWh
+const fmtMWv = v => (v >= 100 ? WW.int(v) : v.toFixed(1)) + ' MW';
 const tcls = t => t === 'offshore' ? 'off' : t === 'floating' ? 'fl' : 'on';
+const isSamp = () => OUT.iso === 'TWS';
+let outRowMap = {};                                               // 目前清單的 key → 列（點列飛到風場、點的提示用）
 function outFarm(k) {
   const i = k.indexOf('|'), iso = k.slice(0, i), name = k.slice(i + 1);
   return (farmsByIso[iso] || []).find(f => f.name === name && !f.pipe) || null;
@@ -3503,6 +3545,57 @@ function outRows(iso, y) {
     return { k, v, f, gwh: v.y[y][0], cf: v.y[y][1], name: f ? fname(f) : k.slice(iso.length + 1), type: f ? f.type : 'onshore' };
   });
 }
+/* ---- 台灣即時取樣（farm_daily.json）---- */
+let SAMP = null, sampP = null;
+function needSamp() {
+  if (SAMP || sampP || LITE) return sampP;
+  sampP = WW.getLiveJSON(WW.DATA.farmDaily).then(j => { SAMP = j; }, e => { console.warn(e); SAMP = { days: {}, err: true }; })
+    .then(() => { renderOutput(); if (cardItem && cardItem.kind === 'farm' && cardItem.iso === 'TWN') renderCard(cardItem); });
+  return sampP;
+}
+const SAMP_SKIP = new Set(['tpc-other-on', 'ppa-other-on']);    // 台電把好幾座風場合成一列的彙總，不是單一風場
+const SAMP_MIN = 60;                                             // 有裝置容量的取樣少於 60 次（約 5 天）不排名
+function sampDays(per) {
+  const ds = Object.keys(SAMP.days).sort(); if (per === 'all' || !ds.length) return ds;
+  const from = new Date(Date.parse(ds[ds.length - 1] + 'T00:00:00Z') - (+per - 1) * 864e5).toISOString().slice(0, 10);
+  return ds.filter(d => d >= from);
+}
+function unitModel(f, cap) {                                      // 與 tools/build_generation.py 的 tw_model 同一規則
+  const t = String((f && f.turbine) || '').trim();
+  if (!t || t.includes('+') || (cap && f.mw && cap > f.mw * 1.03)) return null;
+  const m = t.replace(/^\d+\s*[x×]\s*/, '').replace(/\s*[x×]\s*\d+.*$/, '').trim();
+  return /^[A-Za-z]/.test(m) ? m : null;
+}
+function sampAgg(ds) {
+  const acc = {};
+  ds.forEach(d => { const u = SAMP.days[d].u; for (const k in u) { const a = acc[k] || (acc[k] = [0, 0, 0, 0, 0]); for (let i = 0; i < 5; i++) a[i] += u[k][i]; } });
+  return acc;
+}
+function sampRows(per) {
+  const ds = sampDays(per), acc = sampAgg(ds), L = WW.live, rows = [], skipped = [];
+  for (const k in acc) {
+    const a = acc[k];
+    if (SAMP_SKIP.has(k)) continue;
+    const name = (L && L.unitName(k)) || (SAMP.names && SAMP.names[k]) || k.replace(/^u:/, '');
+    if (a[2] < SAMP_MIN || !a[4]) { skipped.push(name); continue; }
+    const gname = L && L.GLOBE_FARM[k], f = gname ? (farmsByIso.TWN || []).find(x => x.name === gname && !x.pipe) || null : null;
+    const lf = L && L.FARMS.find(x => x.id === k), cap = a[4] / a[2];
+    rows.push({ k, f, name, type: f ? f.type : lf && /^off/.test(lf.grp) ? 'offshore' : 'onshore', gwh: a[1] / a[0], cf: a[3] / a[4] * 100, n: a[0],
+      v: { mw: cap, m: unitModel(f, cap), proj: L ? L.unitProj(k) : '' } });
+  }
+  return { rows, skipped, days: ds, samples: ds.reduce((s, d) => s + SAMP.days[d].t.length, 0) };
+}
+/* 地球儀風場 → 即時取樣（近 90 天，合併該風場的各併網點）；給風場卡片用 */
+function sampOfFarm(f) {
+  if (!SAMP || SAMP.err || !WW.live || !f || f.iso !== 'TWN') return null;
+  const units = WW.live.unitsForGlobalFarm(f.name).map(u => u.id); if (!units.length) return null;
+  const ds = sampDays('90'), acc = sampAgg(ds), have = units.filter(k => acc[k] && acc[k][2] >= SAMP_MIN && acc[k][4]);
+  if (!have.length) return null;
+  const out = have.reduce((s, k) => s + acc[k][1] / acc[k][0], 0), cf = have.reduce((s, k) => s + acc[k][3], 0) / have.reduce((s, k) => s + acc[k][4], 0) * 100;
+  const all = sampRows('90').rows, rank = all.filter(r => r.cf > cf).length + 1;
+  return { out, cf, from: ds[0], to: ds[ds.length - 1], units: have, part: have.length < units.length, rank, n: all.length };
+}
+const curRows = () => isSamp() ? sampRows(OUT.per).rows : outRows(OUT.iso, OUT.year);
 /* 某國某年：全部風場的一列名次（容量因數或年發電量），給風場卡片用 */
 function outRankOf(f) {
   if (!GEN || !f || !OUT_ISO.includes(f.iso)) return null;
@@ -3514,6 +3607,7 @@ function openOutput(o) {
   Object.assign(OUT, { q: '', all: false, open: null, hl: null }, o || {});
   if (!OUT_ISO.includes(OUT.iso)) OUT.iso = 'TWN';
   if (!OUT_VIEWS.includes(OUT.view)) OUT.view = 'cf';
+  if (!OUT_PER.includes(OUT.per)) OUT.per = '90';
   if (OUT.hl) OUT.all = true;                                    // 從風場卡片來：列出全部，捲到那一列
   $('g-modal').querySelector('.box').classList.add('wide');
   $('g-modalBody').innerHTML = '<div class="oout"></div>';
@@ -3526,32 +3620,47 @@ function openOutput(o) {
 function renderOutput() {
   if (!outShown()) return;
   const el = $('g-modalBody').querySelector('.oout');
+  const wait = () => { el.innerHTML = '<h2>' + esc(T('outTitle')) + '</h2><div class="gnote">' + esc(T('farmsLoading')) + '</div>'; };
   if (!GEN || !farmsReady) {
-    el.innerHTML = '<h2>' + esc(T('outTitle')) + '</h2><div class="gnote">' + esc(T('farmsLoading')) + '</div>';
+    wait();
     if (!GEN) { needGen(); if (genP) genP.then(renderOutput); }
     return;                                                       // 風場資料載入後由 loadFarms 再呼叫一次
   }
-  const iso = OUT.iso, ys = outYears(iso);
-  if (!ys.includes(String(OUT.year))) OUT.year = ys[ys.length - 1];
-  const y = OUT.year, rows = outRows(iso, y);
+  if (isSamp() && !SAMP) { wait(); needSamp(); return; }
+  const iso = OUT.iso, samp = isSamp();
   const seg = (name, items, cur) => '<span class="gseg" role="group">' + items.map(([v, lab]) => `<button type="button" data-${name}="${v}" aria-pressed="${v === cur}"${v === cur ? ' class="active"' : ''}>${esc(lab)}</button>`).join('') + '</span>';
-  const src = T('actSrc')[iso];
-  const med = median(rows.map(r => r.cf)), tot = rows.reduce((s, r) => s + r.gwh, 0);
+  let rows, sum, cov, pick;
+  if (samp) {
+    const S = SAMP.err ? null : sampRows(OUT.per);
+    rows = S ? S.rows : [];
+    const first = Object.keys(SAMP.days).sort()[0] || '';
+    pick = '<label class="oyl">' + esc(T('outPer')) + ' <select class="oper">' + OUT_PER.map(v => `<option value="${v}"${v === OUT.per ? ' selected' : ''}>${esc(T('outPerOpt')(v, first))}</option>`).join('') + '</select></label>';
+    sum = S && rows.length ? `<div class="osum">${esc(T('outSumS')(S.days[0], S.days[S.days.length - 1], WW.int(S.samples), rows.length, median(rows.map(r => r.cf)).toFixed(1)))} · <a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener" title="${esc(T('outSrcS')[1])}">${esc(T('outSrcS')[0])}</a></div>` : '';
+    cov = S ? T('outCovS')(S.skipped) : T('outSampErr');
+  } else {
+    const ys = outYears(iso);
+    if (!ys.includes(String(OUT.year))) OUT.year = ys[ys.length - 1];
+    rows = outRows(iso, OUT.year);
+    const src = T('actSrc')[iso], tot = rows.reduce((s, r) => s + r.gwh, 0);
+    pick = '<label class="oyl">' + esc(T('outYear')) + ' <select class="oyear">' + ys.map(v => `<option${v === OUT.year ? ' selected' : ''}>${v}</option>`).join('') + '</select></label>';
+    sum = `<div class="osum">${esc(T('outSum')(OUT.year, WW.int(rows.length), fmtGWh(tot), median(rows.map(r => r.cf)).toFixed(1)))} · <a href="${esc(GEN.meta.url[iso] || '')}" target="_blank" rel="noopener" title="${esc(src[2])}">${esc(src[1])}</a></div>`;
+    cov = outCoverage(iso, +OUT.year, rows);
+  }
+  const med = median(rows.map(r => r.cf));
   el.innerHTML = '<h2>' + esc(T('outTitle')) + '</h2><div class="otop">' +
-    seg('iso', OUT_ISO.map(c => [c, byIso[c] ? cname(byIso[c]) : c]), iso) +
-    seg('view', [['gen', T('outGen')], ['cf', T('outCf')], ['model', T('outModel')]], OUT.view) +
-    '<label class="oyl">' + esc(T('outYear')) + ' <select class="oyear">' + ys.map(v => `<option${v === y ? ' selected' : ''}>${v}</option>`).join('') + '</select></label>' +
+    seg('iso', OUT_ISO.map(c => [c, T('outIso')[c] || (byIso[c] ? cname(byIso[c]) : c)]), iso) +
+    seg('view', [['gen', T(samp ? 'outGenS' : 'outGen')], ['cf', T('outCf')], ['model', T('outModel')]], OUT.view) + pick +
     (OUT.view === 'model' ? seg('msort', [['n', T('outByN')], ['med', T('outByMed')]], OUT.msort) : seg('dir', [['1', T('outHigh')], ['0', T('outLow')]], OUT.desc ? '1' : '0')) +
     (OUT.view !== 'model' && rows.length > 20 ? `<input type="search" class="oq" placeholder="${esc(T('outPh'))}" aria-label="${esc(T('outPh'))}" value="${esc(OUT.q)}" autocomplete="off">` : '') + '</div>' +
-    `<div class="osum">${esc(T('outSum')(y, WW.int(rows.length), fmtGWh(tot), med.toFixed(1)))} · <a href="${esc(GEN.meta.url[iso] || '')}" target="_blank" rel="noopener" title="${esc(src[2])}">${esc(src[1])}</a></div>` +
-    `<div class="ocov">${esc(outCoverage(iso, +y, rows))}</div><div class="olist"></div>` +
-    `<div class="onote">${esc(T('outNote')[OUT.view](iso))}</div><div class="otip" role="tooltip"></div>`;
+    sum + `<div class="ocov">${esc(cov)}</div><div class="olist"></div>` +
+    `<div class="onote">${esc((samp ? T('outNoteS') : T('outNote'))[OUT.view](iso))}</div><div class="otip" role="tooltip"></div>`;
   fillOutList(el, rows, med);
   el.querySelectorAll('[data-iso]').forEach(b => b.onclick = () => { OUT.iso = b.dataset.iso; OUT.q = ''; OUT.all = false; OUT.open = null; renderOutput(); syncURL(); });
   el.querySelectorAll('[data-view]').forEach(b => b.onclick = () => { OUT.view = b.dataset.view; OUT.all = false; renderOutput(); syncURL(); });
   el.querySelectorAll('[data-dir]').forEach(b => b.onclick = () => { OUT.desc = b.dataset.dir === '1'; renderOutput(); });
   el.querySelectorAll('[data-msort]').forEach(b => b.onclick = () => { OUT.msort = b.dataset.msort; renderOutput(); });
-  el.querySelector('.oyear').onchange = e => { OUT.year = e.target.value; renderOutput(); };
+  const ys = el.querySelector('.oyear'); if (ys) ys.onchange = e => { OUT.year = e.target.value; renderOutput(); };
+  const ps = el.querySelector('.oper'); if (ps) ps.onchange = e => { OUT.per = e.target.value; renderOutput(); syncURL(); };
   const q = el.querySelector('.oq'); if (q) q.oninput = () => { OUT.q = q.value.slice(0, 60); fillOutList(el, rows, med); };
 }
 function outCoverage(iso, y, rows) {
@@ -3560,17 +3669,20 @@ function outCoverage(iso, y, rows) {
   return T('outCov')(iso, y, WW.int(op.length), fmtMW(opMw), WW.int(rows.length), fmtMW(haveMw), opMw ? Math.round(haveMw / opMw * 100) : 0);
 }
 function outSub(r) {
-  return [fmtMW(r.v.mw), r.v.m || null, r.v.hh ? T('dimHub') + ' ' + r.v.hh + ' m' : null].filter(Boolean).join(' · ');
+  return [r.v.proj || null, fmtMW(r.v.mw), r.v.m || null, r.v.hh ? T('dimHub') + ' ' + r.v.hh + ' m' : null, r.n ? T('outSmp')(WW.int(r.n)) : null].filter(Boolean).join(' · ');
 }
+const outGenTxt = r => isSamp() ? fmtMWv(r.gwh) : fmtG(r.gwh);
 function outRow(r, key, mx, med) {
   const w = mx ? r[key] / mx * 100 : 0;
   return `<button type="button" class="orow${r.k === OUT.hl ? ' sel' : ''}" data-k="${esc(r.k)}"><span class="ork">#${r.rank}</span>` +
     `<span class="onm"><b>${esc(r.name)}</b><small>${esc(outSub(r))}</small></span>` +
     `<span class="obar"><i class="${tcls(r.type)}" style="width:${w.toFixed(1)}%"></i>${med != null ? `<s style="left:${(med / mx * 100).toFixed(1)}%"></s>` : ''}</span>` +
-    `<span class="oval">${key === 'gwh' ? fmtG(r.gwh) : r.cf.toFixed(1) + '%'}<small>${key === 'gwh' ? T('actCf') + ' ' + r.cf.toFixed(1) + '%' : fmtG(r.gwh)}</small></span></button>`;
+    `<span class="oval">${key === 'gwh' ? outGenTxt(r) : r.cf.toFixed(1) + '%'}<small>${key === 'gwh' ? T('actCf') + ' ' + r.cf.toFixed(1) + '%' : outGenTxt(r)}</small></span></button>`;
 }
 function fillOutList(el, rows, med) {
   const box = el.querySelector('.olist');
+  outRowMap = {}; rows.forEach(r => { outRowMap[r.k] = r; });
+  if (!rows.length) { box.innerHTML = '<div class="gnote">' + esc(T('fsNone')) + '</div>'; return; }
   const types = new Set(rows.map(r => tcls(r.type)));
   const legend = '<div class="olegend">' + (types.size > 1 ? [...types].map(t => `<span><i class="osw ${t}"></i>${esc(T(t === 'on' ? 'onshore' : t === 'off' ? 'offshore' : 'floating'))}</span>`).join('') : '') +
     (OUT.view === 'cf' ? `<span><i class="omed"></i>${esc(T('outMed'))} ${med.toFixed(1)}%</span>` : OUT.view === 'model' ? `<span><i class="omed"></i>${esc(T('outMedM'))}</span>` : '') + '</div>';
@@ -3580,7 +3692,7 @@ function fillOutList(el, rows, med) {
   list.forEach((r, i) => { r.rank = i + 1; });
   if (!OUT.desc) list.reverse();
   const toks = fold(OUT.q).split(/\s+/).filter(Boolean);
-  const hit = toks.length ? list.filter(r => { const s = fold(r.name + ' ' + r.k + ' ' + (r.v.m || '')); return toks.every(t => s.includes(t)); }) : list;
+  const hit = toks.length ? list.filter(r => { const s = fold(r.name + ' ' + r.k + ' ' + (r.v.m || '') + ' ' + (r.v.proj || '')); return toks.every(t => s.includes(t)); }) : list;
   const lim = OUT.all || toks.length ? hit : hit.slice(0, OUT_LIMIT);
   const mx = Math.max(...rows.map(r => r[key]));
   box.innerHTML = legend + (hit.length ? lim.map(r => outRow(r, key, mx, key === 'cf' ? med : null)).join('') : '<div class="gnote">' + esc(T('fsNone')) + '</div>') +
@@ -3593,7 +3705,7 @@ function outModels(rows, med) {
   const gs = [...by].filter(([, a]) => a.length >= 2).map(([m, a]) => ({ m, a: a.sort((x, z) => z.cf - x.cf), med: median(a.map(r => r.cf)) }));
   if (!gs.length) return '<div class="gnote">' + esc(T('outNoModel')) + '</div>';
   gs.sort(OUT.msort === 'med' ? (a, b) => b.med - a.med || b.a.length - a.a.length : (a, b) => b.a.length - a.a.length || b.med - a.med);
-  const mx = Math.ceil(Math.max(...rows.map(r => r.cf)) / 10) * 10, X = v => (v / mx * 100).toFixed(1) + '%';
+  const mx = Math.max(10, Math.ceil(Math.max(...rows.map(r => r.cf)) / 10) * 10), X = v => (v / mx * 100).toFixed(1) + '%';
   const ticks = []; for (let v = 0; v <= mx; v += 10) ticks.push(`<span style="left:${X(v)}">${v}%</span>`);
   const dots = g => {                                             // 數值相近的點錯開成三排，避免整個疊住
     const lanes = [-1e9, -1e9, -1e9];
@@ -3604,7 +3716,7 @@ function outModels(rows, med) {
   };
   return `<div class="oaxis"><span></span><span class="oticks">${ticks.join('')}</span><span></span></div>` + gs.map(g => {
     const open = OUT.open === g.m, lo = g.a[g.a.length - 1].cf, hi = g.a[0].cf, hh = g.a.map(r => r.v.hh).filter(Boolean);
-    const sub = T('outGrp')(g.a.length, g.med.toFixed(1), lo.toFixed(1), hi.toFixed(1)) + (hh.length ? ' · ' + T('dimHub') + ' ' + (Math.min(...hh) === Math.max(...hh) ? hh[0] : Math.min(...hh) + '–' + Math.max(...hh)) + ' m' : '');
+    const sub = T(isSamp() ? 'outGrpS' : 'outGrp')(g.a.length, g.med.toFixed(1), lo.toFixed(1), hi.toFixed(1)) + (hh.length ? ' · ' + T('dimHub') + ' ' + (Math.min(...hh) === Math.max(...hh) ? hh[0] : Math.min(...hh) + '–' + Math.max(...hh)) + ' m' : '');
     const gmx = Math.max(...g.a.map(r => r.cf));
     g.a.forEach((r, i) => { r.rank = i + 1; });
     return `<div class="omod${open ? ' open' : ''}" data-m="${esc(g.m)}"><div class="omh"><span class="onm"><b>${esc(g.m)}</b><small>${esc(sub)}</small></span>` +
@@ -3613,21 +3725,22 @@ function outModels(rows, med) {
   }).join('');
 }
 function wireOutList(el) {
-  const go = k => { const f = outFarm(k); if (!f) return; $('g-modal').classList.remove('show'); selectFarm(f); };
+  const go = k => { const r = outRowMap[k], f = r && r.f; if (!f) return; $('g-modal').classList.remove('show'); selectFarm(f); };
   el.querySelectorAll('.orow').forEach(b => b.onclick = () => go(b.dataset.k));
-  const more = el.querySelector('.omore'); if (more) more.onclick = () => { OUT.all = true; fillOutList(el, outRows(OUT.iso, OUT.year), median(outRows(OUT.iso, OUT.year).map(r => r.cf))); };
+  const refill = () => { const rows = curRows(); fillOutList(el, rows, median(rows.map(r => r.cf))); };
+  const more = el.querySelector('.omore'); if (more) more.onclick = () => { OUT.all = true; refill(); };
   el.querySelectorAll('.omh').forEach(h => h.onclick = e => {
     if (e.target.closest('.odot')) return;
     const m = h.parentNode.dataset.m; OUT.open = OUT.open === m ? null : m;
-    const rows = outRows(OUT.iso, OUT.year); fillOutList(el, rows, median(rows.map(r => r.cf)));
+    refill();
     const g = el.querySelector('.omod.open'); if (g) g.scrollIntoView({ block: 'nearest' });
   });
   const tip = el.querySelector('.otip');
   el.querySelectorAll('.odot').forEach(d => {
     d.onclick = e => { e.stopPropagation(); go(d.dataset.k); };
     const show = () => {
-      const g = GEN.farms[d.dataset.k], f = outFarm(d.dataset.k), yv = g.y[OUT.year];
-      tip.innerHTML = '<b>' + esc(f ? fname(f) : d.dataset.k) + '</b> · ' + yv[1].toFixed(1) + '% · ' + esc(fmtG(yv[0])) + '<br><small>' + esc(fmtMW(g.mw) + (g.hh ? ' · ' + T('dimHub') + ' ' + g.hh + ' m' : '')) + '</small>';
+      const r = outRowMap[d.dataset.k]; if (!r) return;
+      tip.innerHTML = '<b>' + esc(r.name) + '</b> · ' + r.cf.toFixed(1) + '% · ' + esc(outGenTxt(r)) + '<br><small>' + esc([r.v.proj || null, fmtMW(r.v.mw), r.v.hh ? T('dimHub') + ' ' + r.v.hh + ' m' : null].filter(Boolean).join(' · ')) + '</small>';
       const a = d.getBoundingClientRect(), b = el.getBoundingClientRect();
       tip.style.display = 'block';
       tip.style.left = clamp(a.left + a.width / 2 - b.left - tip.offsetWidth / 2, 0, b.width - tip.offsetWidth) + 'px';
@@ -3648,7 +3761,7 @@ function stateParams() {
   if (S.mode !== 'globe') p.mode = S.mode;
   if (S.layer !== 'both') p.layer = S.layer;
   if (S.flow) p.flow = '1';
-  if (outShown()) p.out = OUT.iso + '.' + OUT.view;
+  if (outShown()) { p.out = OUT.iso + '.' + OUT.view; if (isSamp() && OUT.per !== '90') p.op = OUT.per; }
   if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
   if (cardItem && cardItem.kind === 'ms') p.ms = cardItem.m.name;
@@ -3706,7 +3819,7 @@ function applyParams(p, fromFarms) {
   }
   if (p.port) { if (!portsReady) pendingPort = p.port; else { const pt = PORTS.find(x => x.id === p.port); if (pt) selectPort(pt); } }
   if (p.ev) { if (!eventsReady) pendingEvent = p.ev; else { const e = EVENTS.find(x => x.id === p.ev); if (e) selectEvent(e); } }
-  if (p.out) { const [oi, ov] = String(p.out).split('.'); openOutput({ iso: oi, view: ov }); }
+  if (p.out) { const [oi, ov] = String(p.out).split('.'); openOutput({ iso: oi, view: ov, per: OUT_PER.includes(p.op) ? p.op : '90' }); }
   if (p.play === '1') { if (!p.y) S.year = Y0; setPlaying(true); }
   if (p.tour === '1' || STORIES[p.tour]) { const k = STORIES[p.tour] ? p.tour : null; if (farmsReady) tourStart(k); else pendingParams = Object.assign(pendingParams || {}, { tour: p.tour }); }
 }
