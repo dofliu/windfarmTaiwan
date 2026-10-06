@@ -15,6 +15,20 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.29.0 — 2026-10-07
+
+- The globe has a new "Sea zones" layer (the toolbar's "Sea zones" button, off by default; URL parameter `zones=1`):
+  - Exclusive economic zone boundaries from the Flanders Marine Institute's (VLIZ) Marine Regions Maritime Boundaries v12 (CC BY 4.0), drawn three
+    ways by the kind of line — agreed by treaty or ruling (solid), median lines and 200 NM limits (faint), unsettled or disputed (dashed) — 1,389 lines
+    simplified for display (about 2 km), without baselines. The legend and the sources dialog say the lines have no legal value and imply no position on any disputed area.
+  - Taiwan's offshore wind potential sites: Energy Administration open data 36681 (the 36 sites published in 2015, Open Government Data License v1); 35 are drawn,
+    3,062 km² in all, labelled with number, county and area up close. The file lists vertices in no guaranteed order, so each site is checked against its
+    published area; the Hsinchu County site (22.2 km²) has six vertex orders that match its area, so its shape cannot be determined and it is left out.
+  - New tool `tools/build_offshore_zones.py`; the raw potential-site file is kept in `data/global/sources/`. Marine Regions' raw data is not kept in the repo (it asks
+    users not to offer its data for download elsewhere).
+- The promo video tooling is now in the repo: `tools/promo/` (globe capture, designed scenes, storyboards and the assembly steps; see its README). The videos
+  and intermediate files stay out of git.
+
 ## v2.28.0 — 2026-10-06
 
 - The Output dialog adds Australia: measured yearly output and capacity factors of 62 farms from the MMS Data Model monthly archive of the

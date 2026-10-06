@@ -14,7 +14,7 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`, `docs/foundations*.md`) are written in both languages by their generator; do not edit them by hand.
 - 網站介面文字也一律雙語：HTML 用 `data-l="zh"`／`data-l="en"`，JS 用 `WW.L(zh, en)` 或各模組的 i18n 字典。
   All UI text is bilingual as well: `data-l="zh"` / `data-l="en"` in HTML, `WW.L(zh, en)` or the module's i18n table in JS.
-- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/data-coverage、docs/data-cleanup、docs/foundations、docs/live-data-sources。
+- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/data-coverage、docs/data-cleanup、docs/foundations、docs/live-data-sources、tools/promo/README。
   `CLAUDE.md` 本身以中英並列寫在同一個檔。This file itself keeps both languages side by side.
 
 ## 2. 版權與開發者 · Copyright and developer
@@ -166,6 +166,16 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   `data/live/wind_now.webp` + `wind_now.json`; keep the file small (about 50 KB, committed every time) and estimate the yearly repo growth
   before raising the resolution or adding fields. It is today's weather, not tied to the timeline, and the legend must show the data time.
 
+- 「海域」圖層（`data/global/offshore_zones.json`）由 `tools/build_offshore_zones.py` 產生：專屬經濟區界線取自 Marine Regions Maritime Boundaries 第 12 版
+  （CC BY 4.0，標示 Flanders Marine Institute），只留簡化過的顯示用線、不存原始檔（Marine Regions 請使用者不要在別處提供原始資料下載），介面要寫明界線不具法律效力、
+  不代表本站對爭議海域的立場；台灣離岸風電潛力場址取自能源署開放資料 36681（政府資料開放授權條款第 1 版，原始檔在 `data/global/sources/`）。
+  潛力場址檔只列頂點、順序不一定沿邊界，每處都要用公告面積核對，順序無法唯一確定的不畫、理由寫進輸出檔（目前新竹縣場址），不要猜。
+  The "Sea zones" layer (`data/global/offshore_zones.json`) is built by `tools/build_offshore_zones.py`: EEZ boundaries from Marine Regions' Maritime Boundaries v12
+  (CC BY 4.0, credit Flanders Marine Institute), kept only as simplified display lines with no raw copy (Marine Regions asks users not to offer its data for download
+  elsewhere), and the page must say the lines have no legal value and imply no position on disputed areas; Taiwan's offshore wind potential sites from Energy
+  Administration open data 36681 (Open Government Data License v1, raw file in `data/global/sources/`). The site file lists vertices in no guaranteed order, so each
+  site is checked against its published area; a site whose order cannot be determined uniquely is left out with the reason in the output (currently Hsinchu County). Never guess.
+
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。
   各來源的授權標示（AEMO 來源、AESO 與 IESO 的版權聲明）顯示在資料旁，不要刪。
@@ -193,6 +203,9 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 網站聚焦風電。擴展成多能源別、改變部署方式或加入需要帳號／金鑰的資料源等決定，動工前先問使用者。
   The site is about wind power. Ask the owner before widening the scope (other energy sources, a different
   deployment, data sources that need accounts or API keys).
+- 宣傳影片的製作程式在 `tools/promo/`（說明見其 README）：目前影片不寫「開源」、不放網址（使用者 2026-10 的決定）；成品與中間檔不進 git。
+  The promo video tooling lives in `tools/promo/` (see its README): for now the video does not say "open source" and shows no URL (the owner's
+  decision, Oct 2026); the videos and intermediate files stay out of git.
 
 ## 7. 版本 · Versioning
 

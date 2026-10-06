@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 6 Oct 2026: v2.28.0, PR checks and Australian measured output; the next conversation starts here)
+## In progress (hand-off, 7 Oct 2026: v2.29.0, sea zones layer, promo video tooling, foundation and hub height research; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -61,6 +61,15 @@ and move finished items to the topic lists below.
      operating Australian capacity). Capacity factors everywhere now use the hours in the year (8,784 in 2024). Early in 2027, fetch through 2026-12 and
      rebuild `generation.json`. Rye Park and Cullerin Range capacities and Lal Lal's model were corrected on the way, and `data/live/units.json` was rebuilt
      (Lal Lal and Crookwell mappings).
+- 7 Oct 2026 (v2.29.0): three items the owner asked for:
+  1. The globe's "Sea zones" layer (`tools/build_offshore_zones.py` → `data/global/offshore_zones.json`): Marine Regions v12 EEZ boundaries (agreed /
+     median and outer limits / unsettled) and 35 of Taiwan's offshore wind potential sites from Energy Administration open data 36681. The Hsinchu County
+     site (22.2 km²) has six vertex orders matching its published area and is left out; add it once a site map turns up (for example the agency's notice).
+     Japan's promotion zones and the North Sea areas are not done yet (ROADMAP phase 3).
+  2. The promo video tooling is in `tools/promo/` (README in both languages); the video does not say "open source" and shows no URL. Update the figures
+     on the captions before rebuilding.
+  3. Research on foundation types (64 Chinese and 9 Vietnamese farms unknown) and hub heights (82 offshore farms missing): split among sub-agents,
+     results being checked; update the figures in this section once they are in the tables.
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
