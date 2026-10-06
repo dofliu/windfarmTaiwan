@@ -40,6 +40,17 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   - Credited with the agency, the dataset and the retrieval date as the agency's terms require (the build writes the retrieval month into the data files).
     New tool `tools/dk_output.py`; single turbines are in `data/global/turbine_output.json`.
 - The Output dialog's data sets are now picked from a drop-down (Taiwan official, Taiwan live samples, US, Denmark farms, Denmark single turbines).
+- Taiwan offshore status check (6 Oct 2026, every quote checked against its source): Greater Changhua 2b (Wo-Nan, 337.1 MW) has been counted in Taipower's
+  installed capacity since 18 Sep 2026, and the live page now counts it too; Greater Changhua 4 is still in trial operation, so the project is not yet fully
+  operating; Ørsted and Cathay Life each own 50% of 4. Taipower Offshore Phase 2 is corrected to 294.5 MW (31 × 9.5 MW); its installation vessel sailed on
+  28 Sep with 1 of 31 turbines in place. Haiding 3's owner is now Corio and TotalEnergies (JERA left in 2023). None of the "latest available" national sources
+  has a newer release.
+- The Taiwan live page now takes installed capacity and the "in testing" status from Taipower's live data (including its note-10 flag), so units are counted
+  automatically when their trial operation ends; four farm notes gain their English text (the English page showed them in Chinese).
+- Data corrections: Taichung Power Plant's turbines started in 2006 (not 2005) and Taichung Port's in 2007 (not 2006), per the Control Yuan's 2010 investigation
+  report; Iran's Tizbaad (100 MW) has no evidence of operation and becomes pre-construction with the year unknown (Iran's farm total drops from 116% to 90% of
+  the national figure); CTG Yangjiang Shapa phase 5 is 300 MW, not 400 (47 Mingyang MySE6.45-180), so the six Shapa records add up to CTG's 1,705.5 MW and
+  269 turbines.
 
 ## v2.26.1 — 2026-10-05
 

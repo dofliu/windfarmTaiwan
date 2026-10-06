@@ -162,7 +162,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場），由 `tools/build_generation.py`（丹麥的規則在 `tools/dk_output.py`）產生，第一次打開風場卡片時才載入
 - `data/global/turbine_output.json` — 丹麥單獨計量的約 1,800 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
-- `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,900 座風場、14.7 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
+- `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部，德國改用 MaStR），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
   **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
   以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）

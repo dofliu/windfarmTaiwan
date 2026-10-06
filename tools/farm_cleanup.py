@@ -40,6 +40,7 @@ WOOLNORTH = 'https://en.wikipedia.org/wiki/Woolnorth_Wind_Farm'
 SNOWTOWN = 'https://en.wikipedia.org/wiki/Snowtown_Wind_Farm'
 STORY = 'https://en.wikipedia.org/wiki/Story_County_Wind_Farm'
 MANJIL = 'https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm'
+CY_TAICHUNG = 'https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/46805'     # 監察院 2010 年台中電廠及台中港區風機採購案調查報告
 
 
 def R(act, iso, name, src, zh, en, url, keep=None, **fix):
@@ -441,6 +442,16 @@ RULES = [
         'The Manjil complex totals 92.2 MW, built in phases from 1995 and completed in 2015', MANJIL, mw=92.2, note=True),
     fix('IRN', 'Binalood wind farm', G, '2008 年啟用（43 × 660 kW）', 'Online in 2008 (43 × 660 kW)',
         'https://en.wikipedia.org/wiki/Binalood_Wind_Farm', year=2008),
+    # 2026-10-06 查證（出處原文以 check_quotes.py 核對；伊朗官方網站在核對環境連不上，改用轉載與官方數字）
+    fix('IRN', 'Tizbaad wind farm', G,
+        '查無運轉證據：伊朗再生能源署（SATBA）2025 年 11 月底分省資料，整個禮薩呼羅珊省（含 28 MW 的 Binalood）風電只有 51.30 MW，容不下 Khaf 縣 100 MW 的 Tizbaad；'
+        '2020 年 10 月全國風電僅 302.82 MW；2024 年 6 月 50 MW 的 Mil Nader 仍被稱為伊朗東部目前最大的風場。GEM 的「2019 年營運中」只根據開發商網站。'
+        '改為施工前、年份不詳（確認從未興建後再刪除）',
+        'No evidence it operates: SATBA’s provincial data for late November 2025 give only 51.30 MW of wind in all of Razavi Khorasan (which includes the 28 MW Binalood farm), '
+        'leaving no room for a 100 MW Tizbaad farm in Khaf County; national wind capacity was 302.82 MW in October 2020; in June 2024 the 50 MW Mil Nader farm was still called '
+        'the largest wind farm in eastern Iran. GEM’s “operating since 2019” rests only on the developer’s website. Set to pre-construction with the year unknown '
+        '(to be removed once it is confirmed never to have been built)',
+        'https://www.ice.it/it/news/notizie-dal-mondo/297574', st=2, year=0, note=True),
     # ------------------------------------------------ Vietnam
     dup('VNM', 'Tân Phú Đông 2 nearshore wind power plant', G, ('Tan Phu Dong 2 (Tien Giang, GEC)', C), '同一座風場', 'Same farm', MOIT),
     dup('VNM', 'Thuận Bắc Trungnam wind farm', G, ('Trung Nam Ninh Thuận', C), '同一座風場（Trung Nam，151.95 MW）；分期移到精選紀錄',
@@ -1038,6 +1049,13 @@ RULES = [
         '中新網四川 2024-09-10：三峽新能源陽江陽西沙扒四期項目現場，東方電氣研製供貨的 43 台 7 MW 海上風機在颱風「摩羯」期間正常運轉（43×7 ≈ 300 MW），機型非明陽 6.45 MW。',
         "China News Sichuan (2024-09-10): at CTG's Yangxi Shapa phase 4 site, the 43 Dongfang Electric 7 MW offshore turbines ran normally through typhoon Yagi (43 x 7 = about 300 MW); the turbines are not Mingyang 6.45 MW.",
         'https://www.sc.chinanews.com.cn/cjbd/2024-09-10/215587.html', turbine='43x Dongfang 7 MW'),
+    fix('CHN', 'CTG Yangjiang Shapa Phase 5', C,
+        '沙扒五期是 300 MW（47 部明陽 MySE6.45-180，303.15 MW）：陽江市發改局 2020-04-30 核准變更公示、廣東省生態環境廳粵環審〔2020〕85 號、明陽中標公告（三期 I 標＋五期共 78 部、50 萬千瓦）'
+        '與三峽能源上市公告書都寫 300MW；本站原本的 400 MW 就是五期加總比三峽「全案 170 萬千瓦、269 部」多出約 100 MW 的原因',
+        'Shapa phase 5 is 300 MW (47 Mingyang MySE6.45-180, 303.15 MW): the Yangjiang DRC approval-change notice (30 Apr 2020), the Guangdong ecology department’s EIA approval '
+        '粤环审〔2020〕85号, Mingyang’s award notice (phase 3 lot I plus phase 5: 78 units, 500 MW) and CTG New Energy’s listing announcement all give 300 MW; the site’s 400 MW '
+        'is why the five phases added up to about 100 MW more than CTG’s 1.7 GW and 269 turbines',
+        'http://www.yangjiang.gov.cn/yjfgw/gkmlpt/content/0/453/post_453906.html', mw=300, turbine='47x Mingyang MySE6.45-180'),
     fix('CHN', 'Datang Zhuanghe II', C,
         '莊河海上風電場址 II（300 MW）業主為華能遼寧清潔能源有限責任公司（2019 年核准時為中船重工，世紀新能源網轉中國電力新聞網 2020-09-14），安裝 60 台海裝 H171-5.0MW（大連天健網 2019-06-26），非大唐、非金風；國資委報導其與 IV1 場址同於 2021 年底全容量並網。',
         'Zhuanghe offshore site II (300 MW) is owned by Huaneng Liaoning Clean Energy (originally approved under CSIC in 2019; ne21 via China Electric Power News 2020-09-14) with 60 CSIC Haizhuang H171-5.0MW turbines (Dalian Tianjian 2019-06-26), not Datang or Goldwind; SASAC reports it reached full capacity together with site IV1 at the end of 2021.',
@@ -1232,6 +1250,31 @@ RULES = [
         '2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工',
         'In June 2026 the economy minister said over 90% was done with only turbine installation left, aiming to finish by year-end and connect in H1 2027; in October Taipower said it had taken over the vessels and aims to finish by year-end',
         'https://www.cna.com.tw/news/afe/202606170184.aspx', year=2027),
+    # 2026-10-06 時效核對（出處原文以 check_quotes.py 核對）
+    fix('TWN', 'Greater Changhua 2b & 4', C,
+        '2b（337.1 MW，台電即時資料的「沃南風」）2026-09-18 起列入台電裝置容量（試運轉結束）；4（583 MW，「沃四風」）至 2026-10-06 仍標示註10（試運轉、暫不計入裝置容量），全案尚未全面商轉',
+        '2b (337.1 MW, “沃南風” in Taipower’s live data) has been counted in Taipower’s installed capacity since 18 Sep 2026 (trial operation over); 4 (583 MW, “沃四風”) still carried note 10 '
+        '(trial operation, not yet counted) on 6 Oct 2026, so the whole project is not yet in full commercial operation',
+        'https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json', note=True),
+    fix('TWN', 'Greater Changhua 2b & 4', C,
+        '沃旭：583 MW 的大彰化西北（4）由沃旭與國泰人壽各持有 50%；原寫沃旭 100%',
+        'Ørsted: the 583 MW Greater Changhua 4 is co-owned by Ørsted (50%) and Cathay Life (50%); the record said Ørsted 100%',
+        'https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521', owner='Ørsted [2b 100%, 4 50%]; Cathay Life Insurance [4 50%]'),
+    fix('TWN', 'Taipower Offshore Phase 2', C,
+        '31 部 9.5 MW 風機、共 294.5 MW；原寫 294 MW',
+        '31 turbines of 9.5 MW, 294.5 MW in total; the record said 294 MW',
+        'https://technews.tw/2022/11/03/taipower-offshore-wind2/', mw=294.5),
+    fix('TWN', 'Taipower Offshore Phase 2', C,
+        '31 座水下基礎與海纜都已完工；台電船機 2026-09-28 出海裝機（原訂 9/25），31 部風機已裝 1 部，台電力拚年底前完工、2027 年上半年併聯',
+        'All 31 foundations and the cables are in; Taipower’s vessel sailed on 28 Sep 2026 to install turbines (planned for 25 Sep) with 1 of 31 installed, '
+        'and Taipower aims to finish by year-end and connect in H1 2027',
+        'https://www.cna.com.tw/news/afe/202610020045.aspx', note=True),
+    fix('TWN', 'Formosa 3 offshore wind farm · 3', G,
+        'JERA 2023 年把海鼎（Formosa 3）的持股全數轉給 Corio，Corio 再與道達爾能源合作，海鼎三由兩家各持有約一半；GEM 的業主 JERA 是舊資料。'
+        'Macquarie 2026 年結束 Corio 平台，海鼎三之後由誰持有待查證',
+        'JERA transferred all its Formosa 3 shares to Corio in 2023, and Corio then partnered with TotalEnergies, the two holding about half of Haiding 3 each; GEM’s owner JERA is out of date. '
+        'Macquarie wound up the Corio platform in 2026; who holds Haiding 3 now is unverified',
+        'https://totalenergies.com/newsroom/totalenergies-and-corio-join-forces-develop-offshore-wind-taiwan/?lang=eng', owner='Corio Generation; TotalEnergies'),
     fix('GBR', 'Dogger Bank wind farm · B, C', G,
         'B 期 2026 年 6 月才裝了 20 部，風機安裝持續到約 2027 年第二季，C 期在 B 期之後',
         'Only 20 turbines of phase B were in by June 2026 and installation runs to about Q2 2027, with phase C after B',
@@ -1329,6 +1372,19 @@ RULES = [
         'for the back row; Typhoon Megi broke unit 12’s blades in 2016. Taipower’s 2026 station list: 13 Z72 remain (7 fewer in all) plus 3 Enercon E82 E4, '
         '16 turbines and 35 MW (the Energy Administration’s single window agrees)',
         'https://news.ltn.com.tw/news/life/breakingnews/1618036', mw=35.0, turbine='Zephyros Z72 2.0 MW x13 + Enercon E-82 E4 3.0 MW x3', note=True),
+    # 2026-10-06 商轉年查證（監察院 2010 年調查報告，出處原文以 check_quotes.py 核對）
+    fix('TWN', 'Taichung Power Plant', C,
+        '監察院 2010 年調查報告（台電「風力發電第一期計畫臺中電廠及臺中港區風力發電機組及附屬設備採購帶安裝案」）：臺中電廠 4 部機組於 95 年（2006 年）6 月 1 日開始商業運轉；'
+        '95 年 1 月已在做 24 小時負載測試，95 年 10 月首次 500 小時定檢時各機已運轉 1,197–2,169 小時；發電業執照 96 年 4 月 20 日核發。年份由 2005 改為 2006',
+        'Control Yuan investigation report (2010) on Taipower’s Taichung Power Plant and Taichung Port wind procurement: the plant’s four units entered commercial operation on '
+        '1 June 2006; they were in 24-hour load tests in January 2006 and had run 1,197–2,169 hours by the first 500-hour inspection in October 2006; the generation licence '
+        'was issued on 20 April 2007. Year changed from 2005 to 2006',
+        CY_TAICHUNG, year=2006),
+    fix('TWN', 'Taichung Port', C,
+        '同一份監察院調查報告：台中港區 18 部 Zephyros Z72 自 96 年（2007 年）1 月 5 日起陸續商業運轉，97 年（2008 年）7 月 19 日全數商轉（96 年 5 月仍有 11 部未商轉）。年份由 2006 改為 2007',
+        'Same Control Yuan report: the 18 Zephyros Z72 at Taichung Port entered commercial operation one by one from 5 January 2007, all of them by 19 July 2008 '
+        '(11 were still not in commercial operation in May 2007). Year changed from 2006 to 2007',
+        CY_TAICHUNG, year=2007),
     fix('TWN', 'Wanggong', C, '台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW）',
         'Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW)',
         'https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv', mw=23.0, turbine='Enercon E-70 2.3 MW x10'),

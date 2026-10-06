@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 359 rules: 137 records removed (42,468.2 MW of them operating), 222 records fixed.
+- 368 rules: 137 records removed (42,468.2 MW of them operating), 231 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 45 | 24,974.5 | 83 |
+| China | 45 | 24,974.5 | 84 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -24,7 +24,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Finland | 1 | 30 | 0 |
 | France | 2 | 0 | 5 |
 | Germany | 0 | 0 | 5 |
-| Iran | 2 | 62 | 2 |
+| Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Japan | 2 | 30 | 11 |
 | Jordan | 1 | 117 | 0 |
@@ -40,7 +40,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | South Korea | 3 | 157.5 | 10 |
 | Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
-| Taiwan | 1 | 0 | 15 |
+| Taiwan | 1 | 0 | 22 |
 | Thailand | 1 | 600 | 1 |
 | Turkey | 2 | 270 | 1 |
 | United Kingdom | 7 | 3,485 | 7 |
@@ -177,6 +177,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Tianjin Nangang · 90 MW · 2021 | curated | fixed: year, turbines | SASAC (2018-06-28, PowerChina release): the Tianjin Nangang offshore project was grid-connected on 27 Jun 2018, Phase 1 installing 18 x 5 MW (90 MW), invested by PowerChina's new-energy subsidiary. Change the year from 2021 to 2018 and the turbine field from 'Sewind 6 MW' to 18 x 5 MW. | [link](http://www.sasac.gov.cn/n2588025/n2588124/c9178300/content.html) |
 | Jiangsu Xiangshui C1 Offshore wind farm · 12 MW · 2015 | GEM | fixed: capacity, year | Yancheng ocean bureau hearing notice (2014-11-27): the CTG Xiangshui test project has 5 turbines totalling 12.5 MW (not 12) on the Chengang tidal flats; CTG's own retrospective (Sina, 2026) says the 5 intertidal test turbines were installed in 2011, the 2014 hearing being a later sea-use formality, so the year is set to 2011. | [link](http://www.yancheng.gov.cn/art/2014/11/27/art_13184_1456250.html) |
 | CTG Yangjiang Shapa Phase 4 · 300 MW · 2021 | curated | fixed: turbines | China News Sichuan (2024-09-10): at CTG's Yangxi Shapa phase 4 site, the 43 Dongfang Electric 7 MW offshore turbines ran normally through typhoon Yagi (43 x 7 = about 300 MW); the turbines are not Mingyang 6.45 MW. | [link](https://www.sc.chinanews.com.cn/cjbd/2024-09-10/215587.html) |
+| CTG Yangjiang Shapa Phase 5 · 400 MW · 2021 | curated | fixed: capacity, turbines | Shapa phase 5 is 300 MW (47 Mingyang MySE6.45-180, 303.15 MW): the Yangjiang DRC approval-change notice (30 Apr 2020), the Guangdong ecology department’s EIA approval 粤环审〔2020〕85号, Mingyang’s award notice (phase 3 lot I plus phase 5: 78 units, 500 MW) and CTG New Energy’s listing announcement all give 300 MW; the site’s 400 MW is why the five phases added up to about 100 MW more than CTG’s 1.7 GW and 269 turbines | [link](http://www.yangjiang.gov.cn/yjfgw/gkmlpt/content/0/453/post_453906.html) |
 | Datang Zhuanghe II · 300 MW · 2021 | curated | fixed: owner, turbines, name, Chinese name | Zhuanghe offshore site II (300 MW) is owned by Huaneng Liaoning Clean Energy (originally approved under CSIC in 2019; ne21 via China Electric Power News 2020-09-14) with 60 CSIC Haizhuang H171-5.0MW turbines (Dalian Tianjian 2019-06-26), not Datang or Goldwind; SASAC reports it reached full capacity together with site IV1 at the end of 2021. | [link](https://www.ne21.com/news/show-135438.html) |
 | CTG Dafeng H8-2 · 300 MW · 2022 | curated | fixed: year | China News (2021-12-30): CTG's 300 MW Jiangsu Dafeng H8-2 offshore project reached full-capacity grid connection on 23 December 2021, so the year is 2021, not 2022. | [link](https://www.chinanews.com.cn/cj/2021/12-30/9640759.shtml) |
 | SPIC Peninsula South V · 300 MW · 2023 | curated | fixed: capacity, year, turbines, owner | ne21 via China Development Net (2023-02-16): SPIC Shandong Peninsula South site V totals 500 MW (not 300) with 70 x 7 MW plus 1 x 10 MW turbines, built by SPIC's Shandong branch; construction started 2022-05-20 and full-capacity grid connection came on 2022-12-09, so the year is 2022. | [link](https://www.ne21.com/news/show-176154.html) |
@@ -282,6 +283,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Harzvil wind farm · 14 MW | GEM | duplicate of “Manjil wind farm” | The Harzevil site of the Manjil complex | [link](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Manjil wind farm · 93 MW | GEM | fixed: capacity | The Manjil complex totals 92.2 MW, built in phases from 1995 and completed in 2015 | [link](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Binalood wind farm · 28 MW · 2017 | GEM | fixed: year | Online in 2008 (43 × 660 kW) | [link](https://en.wikipedia.org/wiki/Binalood_Wind_Farm) |
+| Tizbaad wind farm · 100 MW · 2019 | GEM | fixed: status, year | No evidence it operates: SATBA’s provincial data for late November 2025 give only 51.30 MW of wind in all of Razavi Khorasan (which includes the 28 MW Binalood farm), leaving no room for a 100 MW Tizbaad farm in Khaf County; national wind capacity was 302.82 MW in October 2020; in June 2024 the 50 MW Mil Nader farm was still called the largest wind farm in eastern Iran. GEM’s “operating since 2019” rests only on the developer’s website. Set to pre-construction with the year unknown (to be removed once it is confirmed never to have been built) | [link](https://www.ice.it/it/news/notizie-dal-mondo/297574) |
 
 ## Ireland (IRL)
 
@@ -476,9 +478,16 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | fixed: owner | Youde was allocated 700 MW in Round 3.2 for 2029, developed by Shinfox; GEM’s owner wpd and the “Datian” half are out of date (Datian got only 165 MW in Round 3.1, did not sign and was cancelled in 2023). In August 2026 the Energy Administration said the developer had not paid the rest of its performance bond and the termination was being processed | [link](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 | Hai Long 2 & 3 · 1,044 MW · 2026 | curated | fixed: year | Northland's Q2 2026 report: 71 of 73 turbines installed and 59 generating; commercial operation of the whole project expected in 2027 | [link](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Taipower Offshore Phase 2 · 294 MW · 2026 | curated | fixed: year | In June 2026 the economy minister said over 90% was done with only turbine installation left, aiming to finish by year-end and connect in H1 2027; in October Taipower said it had taken over the vessels and aims to finish by year-end | [link](https://www.cna.com.tw/news/afe/202606170184.aspx) |
+| Greater Changhua 2b & 4 · 920 MW · 2026 | curated | fixed:  | 2b (337.1 MW, “沃南風” in Taipower’s live data) has been counted in Taipower’s installed capacity since 18 Sep 2026 (trial operation over); 4 (583 MW, “沃四風”) still carried note 10 (trial operation, not yet counted) on 6 Oct 2026, so the whole project is not yet in full commercial operation | [link](https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json) |
+| Greater Changhua 2b & 4 · 920 MW · 2026 | curated | fixed: owner | Ørsted: the 583 MW Greater Changhua 4 is co-owned by Ørsted (50%) and Cathay Life (50%); the record said Ørsted 100% | [link](https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521) |
+| Taipower Offshore Phase 2 · 294 MW · 2027 | curated | fixed: capacity | 31 turbines of 9.5 MW, 294.5 MW in total; the record said 294 MW | [link](https://technews.tw/2022/11/03/taipower-offshore-wind2/) |
+| Taipower Offshore Phase 2 · 294.5 MW · 2027 | curated | fixed:  | All 31 foundations and the cables are in; Taipower’s vessel sailed on 28 Sep 2026 to install turbines (planned for 25 Sep) with 1 of 31 installed, and Taipower aims to finish by year-end and connect in H1 2027 | [link](https://www.cna.com.tw/news/afe/202610020045.aspx) |
+| Formosa 3 offshore wind farm · 3 · 720 MW | GEM | fixed: owner | JERA transferred all its Formosa 3 shares to Corio in 2023, and Corio then partnered with TotalEnergies, the two holding about half of Haiding 3 each; GEM’s owner JERA is out of date. Macquarie wound up the Corio platform in 2026; who holds Haiding 3 now is unverified | [link](https://totalenergies.com/newsroom/totalenergies-and-corio-join-forces-develop-offshore-wind-taiwan/?lang=eng) |
 | Taoyuan Luzhu · 33.6 MW · 2025 | curated | fixed: capacity, year, turbines | Taipower’s station list and the Energy Administration’s wind single window list only the 8 Enercon E44 (0.9 MW) at Luzhu, 7.2 MW in all, with no 33.6 MW new-build or repowering plan; completed and connected on 2 February 2015 (Wikipedia). The previous 33.6 MW and 2025 were estimates | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
 | Taichung Power Plant · 8 MW · 2005 | curated | fixed: capacity, turbines | Taichung Power Plant originally had 4 Zephyros Z72; after Typhoon Jangmi toppled one at Taichung Port in 2008, one (P01) was moved there, leaving 3; in 2016, with the plant’s turbines blocked by China Steel/Dragon Steel buildings, Taipower moved 2 more to the front row at Gaomei Wetland to replace units destroyed by Typhoon Soudelor (2015), leaving 1 (2 MW). Taipower’s 2026 station list and the Energy Administration’s single window both show 1 turbine | [link](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
 | Taichung Port · 36 MW · 2006 | curated | fixed: capacity, turbines | Gaomei Wetland originally had 18 Zephyros Z72 (10 in the front row, 8 behind). Typhoon Jangmi broke unit 2 in 2008 and a turbine from Taichung Power Plant replaced it; Typhoon Soudelor toppled 6 in 2015 (3 in each row), and in 2016 Taipower moved 2 from the power plant to the front row and planned new turbines for the back row; Typhoon Megi broke unit 12’s blades in 2016. Taipower’s 2026 station list: 13 Z72 remain (7 fewer in all) plus 3 Enercon E82 E4, 16 turbines and 35 MW (the Energy Administration’s single window agrees) | [link](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
+| Taichung Power Plant · 2 MW · 2005 | curated | fixed: year | Control Yuan investigation report (2010) on Taipower’s Taichung Power Plant and Taichung Port wind procurement: the plant’s four units entered commercial operation on 1 June 2006; they were in 24-hour load tests in January 2006 and had run 1,197–2,169 hours by the first 500-hour inspection in October 2006; the generation licence was issued on 20 April 2007. Year changed from 2005 to 2006 | [link](https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/46805) |
+| Taichung Port · 35 MW · 2006 | curated | fixed: year | Same Control Yuan report: the 18 Zephyros Z72 at Taichung Port entered commercial operation one by one from 5 January 2007, all of them by 19 July 2008 (11 were still not in commercial operation in May 2007). Year changed from 2006 to 2007 | [link](https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/46805) |
 | Wanggong · 20 MW · 2011 | curated | fixed: capacity, turbines | Taipower’s station list: Changhua Wanggong has 10 Enercon E70, 23 MW in all (not 10 Vestas V80 and 20 MW) | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
 | Datan (Tatan) · 12.5 MW · 2005 | curated | fixed: capacity, turbines | Datan: 3 GE 1.5se entered service in June 2005, and a July 2011 expansion added 3 Vestas V80 2 MW and 2 Enercon E70 2.3 MW (8 units, 15.1 MW); unit #3 (a GE 1.5se) was decommissioned with its licence amended on 20 June 2025, leaving 7 units and 13.6 MW (Taipower’s monthly reports, the Energy Administration’s single window; the 15.1 MW in Taipower’s station list predates the decommissioning) | [link](https://www.taipower.com.tw/media/1f4ew1jr/11508%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |
 | Yongxing (Fangyuan) · 16.8 MW · 2024 | curated | fixed: capacity, turbines, year | Taipower’s station list: Changhua Yongxing has 4 Enercon E70, 9.2 MW in all (the previous 16.8 MW with 4.2 MW turbines was an estimate); Taipower’s monthly reports: connected for trial operation in October 2019, in commercial operation from 28 December 2020 (previously 2024) | [link](https://www.taipower.com.tw/media/yizfvrbn/10912%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |

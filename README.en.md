@@ -223,8 +223,8 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   built by `tools/build_generation.py` (the Danish rules are in `tools/dk_output.py`) and loaded when a farm card first opens
 - `data/global/turbine_output.json` — position, specs and measured yearly output of about 1,800 individually metered Danish turbines (Danish Energy Agency;
   production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
-- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,900 farms, 147,000
-  turbines), downloaded by
+- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
+  turbines; Germany now uses MaStR), downloaded by
   `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
   Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
   non-US farm is selected

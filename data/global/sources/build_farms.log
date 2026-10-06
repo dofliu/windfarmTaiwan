@@ -187,6 +187,7 @@ CLEAN fix CHN CTG Yangjiang Qingzhou 7 1000.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 1 300.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 3 400.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 4 300.0
+CLEAN fix CHN CTG Yangjiang Shapa Phase 5 400.0
 CLEAN fix CHN Changle Waihai C 498.0
 CLEAN fix CHN Datang Danzhou CZ3 1200.0
 CLEAN fix CHN Datang Nan'ao Lemen I 245.0
@@ -287,6 +288,7 @@ CLEAN fix GBR Sofia 1400.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0
+CLEAN fix IRN Tizbaad wind farm 100.0
 CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
 CLEAN fix JPN Goto City Offshore floating project 16.8
@@ -351,13 +353,20 @@ CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix TWN Datan (Tatan) 12.5
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
 CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
+CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
+CLEAN fix TWN Greater Changhua 2b & 4 920.0
+CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Hai Long 2 & 3 1044.0
 CLEAN fix TWN Penghu Longmen 6.9
 CLEAN fix TWN Penghu Zhongtun 4.8
+CLEAN fix TWN Taichung Port 35.0
 CLEAN fix TWN Taichung Port 36.0
+CLEAN fix TWN Taichung Power Plant 2.0
 CLEAN fix TWN Taichung Power Plant 8.0
 CLEAN fix TWN Taipower Offshore Phase 1 (Changhua) 109.2
 CLEAN fix TWN Taipower Offshore Phase 2 294.0
+CLEAN fix TWN Taipower Offshore Phase 2 294.0
+CLEAN fix TWN Taipower Offshore Phase 2 294.5
 CLEAN fix TWN Taoyuan Luzhu 33.6
 CLEAN fix TWN Wanggong 20.0
 CLEAN fix TWN Yongxing (Fangyuan) 16.8

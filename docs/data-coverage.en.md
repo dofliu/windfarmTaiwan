@@ -7,14 +7,14 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,685 operating farms, 1,189,310 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
-- **Coverage bands**: ✓ 85% or more: 54 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 5 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 222 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,586 projects, 2,719,972 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Farm level**: 20,684 operating farms, 1,189,110 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Coverage bands**: ✓ 85% or more: 55 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 4 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
+- **Clean-up**: checked record by record in 2026-09; 137 duplicate, never-built or non-existent records were removed and 231 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,587 projects, 2,720,072 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
-- **China**: national 640,626 MW, mapped 571,171 MW (89%), gap 69,455 MW.
+- **China**: national 640,626 MW, mapped 571,071 MW (89%), gap 69,555 MW.
 - **India**: national 54,511 MW, mapped 42,278 MW (78%), gap 12,233 MW.
 - **Italy**: national 13,568 MW, mapped 10,504 MW (77%), gap 3,064 MW.
 - **Germany**: national 77,873 MW, mapped 74,936 MW (96%), gap 2,937 MW.
@@ -33,7 +33,6 @@ English ｜ [中文](data-coverage.md)
    - Ethiopia: 122% (613 / 504 MW)
    - Morocco: 120% (2,950 / 2,452 MW)
    - Philippines: 116% (603 / 518 MW) — the farm list checks out (DOE’s 2020 list, 443 MW, plus the 160 MW Pagudpud farm completed in 2024–25); IRENA’s figure may not yet fully count Pagudpud
-   - Iran: 116% (439 / 378 MW) — the Manjil complex duplicates are merged; whether Tizbaad (99 MW) and Aqkand (50 MW) are in operation still needs checking against SATBA data
    - Chile: 112% (6,583 / 5,883 MW)
 2. **Unknown commissioning year**: 48,084 MW of operating farms have no start year in GEM, so the map can only show them from 2025 and earlier years look sparser at farm level. Largest by country:
    China 20,521 MW, India 10,869 MW, Spain 3,671 MW, France 3,371 MW, Italy 2,195 MW, Turkey 2,194 MW, Germany 852 MW, Brazil 760 MW, Poland 718 MW, Netherlands 716 MW
@@ -100,7 +99,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 
 | # | Country | National MW | of which offshore | GEM operating MW | Mapped MW | Coverage | Gap MW | Farms | Year-unknown MW | Approx. coords | Flag |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 571,171 | 89% | 69,455 | 5,129 | 20,521 | 2,870 | ✓ |
+| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 571,071 | 89% | 69,555 | 5,129 | 20,521 | 2,870 | ✓ |
 | 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 166,147 | 105% | 0 | 1,237 | 0 | 9 | ✓ |
 | 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 74,936 | 96% | 2,937 | 6,580 | 852 | 177 | ✓ |
 | 4 | India (IND) | 54,511 | 0 | 38,937 | 42,278 | 78% | 12,233 | 630 | 10,869 | 568 | △ |
@@ -155,7 +154,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 53 | Costa Rica (CRI) | 437 | 0 | 427 | 442 | 101% | 0 | 19 | 100 | 8 | ✓ |
 | 54 | Kenya (KEN) | 436 | 0 | 632 | 472 | 108% | 0 | 4 | 0 | 1 | ✓ |
 | 55 | Saudi Arabia (SAU) | 400 | 0 | 400 | 400 | 100% | 0 | 1 | 0 | 0 | ✓ |
-| 56 | Iran (IRN) | 378 | 0 | 502 | 439 | 116% | 0 | 8 | 92 | 2 | ⚠ |
+| 56 | Iran (IRN) | 378 | 0 | 502 | 339 | 90% | 39 | 7 | 92 | 2 | ✓ |
 | 57 | Czechia (CZE) | 369 | 0 | 151 | 151 | 41% | 218 | 8 | 0 | 4 | ✗ |
 | 58 | Israel (ISR) | 347 | 0 | 331 | 352 | 101% | 0 | 4 | 22 | 0 | ✓ |
 | 59 | Panama (PAN) | 336 | 0 | 336 | 336 | 100% | 0 | 2 | 0 | 0 | ✓ |

@@ -71,8 +71,8 @@ const FARMS=[
  {id:"offshore2",tp:"離岸二期",name:"台電離岸二期",grp:"off-tpc",cap:null,snap:0.9,lat:24.15,lng:120.19,pending:true,
   dev:"台灣電力公司（富崴能源統包）",site:"彰化鹿港外海",model:"9.5 MW 級",unit:"9.5 MW",depth:"37–49 m",dist:"鹿港外海",turbines:31,planned:294.5,
   cod:"預計 2027",annual:"逾 10 億度",homes:"約 27 萬戶",
-  tl:[["2018","取得開發資格","done","Development rights awarded"],["2020/06","富崴能源決標，628.88 億元統包＋運維","done","Turnkey contract plus O&M awarded to 富崴能源 for NT$62.888 billion"],["2026/07","富崴與 Vestas 的風機安裝合約終止，台電依約接管風機安裝並與 Vestas 議約；31 座水下基礎與海纜完工、整體進度逾九成、30 座風機待裝，目標年底併網","done","After the Fenwei–Vestas installation contract ended, Taipower took over turbine installation under the contract and agreed terms with Vestas; 31 foundations and the cables are done, overall progress above 90%, 30 turbines still to install, aiming for grid connection by year-end"],["2027","規劃全數機組併聯商轉（經濟部長 2026-06：盼年底裝完、2027 上半年併聯）","","All turbines planned to be connected and in commercial operation (economics minister, June 2026: installation done by year-end, grid connection in H1 2027)"]],
-  note:"富崴能源受通膨與船期延誤影響代墊款增加，經濟部已核准價金調整；母公司森崴下市後，台電於 2026 年 7 月依契約接管風機安裝（中央社 2026-07-30）；完工時程較原規劃延後至 2027 年上半年。"},
+  tl:[["2018","取得開發資格","done","Development rights awarded"],["2020/06","富崴能源決標，628.88 億元統包＋運維","done","Turnkey contract plus O&M awarded to 富崴能源 for NT$62.888 billion"],["2026/07","富崴與 Vestas 的風機安裝合約終止，台電依約接管風機安裝並與 Vestas 議約；31 座水下基礎與海纜完工、整體進度逾九成、30 座風機待裝，目標年底併網","done","After the Fenwei–Vestas installation contract ended, Taipower took over turbine installation under the contract and agreed terms with Vestas; 31 foundations and the cables are done, overall progress above 90%, 30 turbines still to install, aiming for grid connection by year-end"],["2026/09","台電船機 9 月 28 日出海裝機（原訂 9/25，富崴阻撓核准證書而延後）；31 部已裝 1 部，力拚年底完工；富崴 9 月董事會通過破產聲請","done","Taipower's vessel sailed on 28 Sep to install turbines (planned for 25 Sep; delayed when Fuwei objected to the certificate of approval); 1 of 31 turbines installed, aiming to finish by year-end; Fuwei's board approved a bankruptcy petition in September"],["2027","規劃全數機組併聯商轉（經濟部長 2026-06：盼年底裝完、2027 上半年併聯）","","All turbines planned to be connected and in commercial operation (economics minister, June 2026: installation done by year-end, grid connection in H1 2027)"]],
+  note:"富崴能源受通膨與船期延誤影響代墊款增加，經濟部已核准價金調整；母公司森崴下市後，台電於 2026 年 7 月依契約接管風機安裝（中央社 2026-07-30）；9 月 28 日工作船出海，31 部已裝 1 部，台電力拚年底完工（聯合報、中央社 2026-10）。"},
 
  // ===== 離岸風力 · 購電 =====
  {id:"formosa1",tp:"海洋竹南",name:"海洋風場 Formosa 1",grp:"off-ppa",cap:128.0,snap:96.2,lat:24.71,lng:120.85,
@@ -97,12 +97,12 @@ const FARMS=[
   dev:"沃旭能源 Ørsted",site:"彰化外海",model:"Siemens Gamesa SG 14-236 DD",unit:"14 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",planned:"—",
   cod:"2026 完工，試轉中",annual:"—",homes:"—",
   tl:[["2023/03","920 MW 計畫（2b&4）最終投資決定（FID）","done","Final investment decision (FID) on the 920 MW project (2b & 4)"],["2025/02","啟動 920 MW 海上建置工程","done","Offshore construction of the 920 MW project begins"],["2025/07","首座風機併網，全球首座專供台積電之離岸風場","done","First turbine connected — the world's first offshore wind farm supplying TSMC alone"],["2026/09","920 MW 工程完工典禮，邁入運維階段；最後試轉與測試中，取得主管機關與台電許可後全面商轉","done","Completion ceremony for the 920 MW project, entering the O&M phase; final commissioning and testing under way, full commercial operation once the regulator's and Taipower's approvals are in"],["2026","全面商轉（原規劃第三季，已進入第四季仍在試轉）","","Full commercial operation (planned for Q3; still commissioning as Q4 begins)"]],
-  note:"台電 genary 仍標示「-（註10）」。與沃南風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程；2026-09-01 完工典禮（鉅亨網）。"},
- {id:"wonan",tp:"沃南風",name:"大彰化西南二階（沃南風）",grp:"off-ppa",cap:null,snap:0.0,lat:23.93,lng:119.97,pending:true,
+  note:"台電 genary 仍標示「-（註10）」（2026-10-06）。與沃南風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程；2026-09-01 完工典禮（鉅亨網）；沃旭與國泰人壽各持有 50%。"},
+ {id:"wonan",tp:"沃南風",name:"大彰化西南二階（沃南風）",grp:"off-ppa",cap:337.1,snap:286.1,lat:23.93,lng:119.97,
   dev:"沃旭能源 Ørsted",site:"彰化外海",model:"Siemens Gamesa SG 14-236 DD",unit:"14 MW",depth:"30–45 m",dist:"35–60 km",turbines:"—",planned:"—",
-  cod:"2026 完工，試轉中",annual:"—",homes:"—",
-  tl:[["2020/07","台積電與沃旭簽署 20 年購售電合約，承購 920 MW 全部發電量","done","TSMC and Ørsted sign a 20-year power purchase agreement for the entire output of the 920 MW"],["2023/03","920 MW 計畫（2b&4）最終投資決定（FID）","done","Final investment decision (FID) on the 920 MW project (2b & 4)"],["2026/01","66 座風機全數安裝完成","done","All 66 turbines installed"],["2026/09","920 MW 工程完工典禮，邁入運維階段；最後試轉與測試中，取得主管機關與台電許可後全面商轉","done","Completion ceremony for the 920 MW project, entering the O&M phase; final commissioning and testing under way, full commercial operation once the regulator's and Taipower's approvals are in"],["2026","全面商轉（原規劃第三季，已進入第四季仍在試轉）","","Full commercial operation (planned for Q3; still commissioning as Q4 begins)"]],
-  note:"台電 genary 仍標示「-（註10）」。與沃四風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程；全球首座專為單一企業（台積電）供電之離岸風場計畫；2026-09-01 完工典禮（鉅亨網）。"},
+  cod:"2026/09 列入台電裝置容量",annual:"—",homes:"—",
+  tl:[["2020/07","台積電與沃旭簽署 20 年購售電合約，承購 920 MW 全部發電量","done","TSMC and Ørsted sign a 20-year power purchase agreement for the entire output of the 920 MW"],["2023/03","920 MW 計畫（2b&4）最終投資決定（FID）","done","Final investment decision (FID) on the 920 MW project (2b & 4)"],["2026/01","66 座風機全數安裝完成","done","All 66 turbines installed"],["2026/09","920 MW 工程完工典禮，邁入運維階段；最後試轉與測試中，取得主管機關與台電許可後全面商轉","done","Completion ceremony for the 920 MW project, entering the O&M phase; final commissioning and testing under way, full commercial operation once the regulator's and Taipower's approvals are in"],["2026/09","9 月 18 日起台電將沃南風 337.1 MW 列入裝置容量（試運轉結束）","done","Since 18 Sep Taipower has counted Wo-Nan's 337.1 MW in installed capacity (trial operation over)"],["2026","920 MW 全案全面商轉（沃四風仍在試轉）","","Full commercial operation of the whole 920 MW (Wo-4 still commissioning)"]],
+  note:"2026-09-18 起台電將沃南風 337.1 MW 列入裝置容量（試運轉結束）。與沃四風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點；全球首座專為單一企業（台積電）供電之離岸風場計畫；2026-09-01 完工典禮（鉅亨網）。"},
  {id:"fang1",tp:"芳一風",name:"彰芳一期（芳一風）",grp:"off-ppa",cap:96.0,snap:62.2,lat:24.09,lng:120.16,
   dev:"哥本哈根基礎建設基金 CIP",site:"彰化外海",model:"Vestas V174-9.5MW",unit:"9.5 MW",depth:"30–40 m",dist:"30–45 km",turbines:"—",
   cod:"2022–2023",annual:"—",homes:"—",
@@ -258,10 +258,18 @@ function simOutput(f){
 }
 function refresh(){if(LIVE)return;            // 即時模式：不跑模擬，保留台電真實值不被覆蓋
   FARMS.forEach(f=>RT[f.id]=simOutput(f));lastUpdate=new Date();paint();}
+// 台電即時資料的裝置容量與「註10」（試運轉、暫不計入裝置容量）為準：機組結束試運轉或改容量時不必改程式（FARMS 的靜態值只在模擬與離線時用）
+function syncCaps(units){
+  const by={};units.forEach(u=>{if(u&&u.name)by[u.name]=u;});
+  FARMS.forEach(f=>{const u=by[f.tp];if(!u)return;
+    if(/註10/.test(u.raw_name||"")){f.pending=true;f.cap=null;}
+    else if(typeof u.capacity==="number"&&u.capacity>0){f.cap=u.capacity;delete f.pending;}});
+}
 async function tryLive(){
   if(!DATA_ENDPOINT){setFeed(false);return;}
   try{const j=await WW.getLiveJSON(DATA_ENDPOINT);
     if(j&&j.farms){FARMS.forEach(f=>{if(j.farms[f.id]!=null)RT[f.id]=j.farms[f.id]});
+      if(Array.isArray(j.raw_wind_units))syncCaps(j.raw_wind_units);
       srcTime=j.source_time||null;sysTotal=(typeof j.system_total_mw==="number")?j.system_total_mw:null;
       WIND=(j.farm_wind&&typeof j.farm_wind==="object")?j.farm_wind:{};
       lastUpdate=j.updated?new Date(j.updated):new Date();setFeed(true);paint();return;}
@@ -586,19 +594,19 @@ const ZH_EN={
   "民營風場（購電）。座標為概略位置，待校正。":"Private farm (Taipower buys its power). The location is approximate and still to be corrected.",
   "台電 genary 標示為「-（註10）」，尚未列裝置容量／商轉。座標為概略位置。":"Taipower's genary data marks it “- (note 10)”: no installed capacity or commercial operation listed yet. The location is approximate.",
   "此為多座民營風場彙總，非單一風場；座標僅示意。":"A total of several private farms, not a single farm; the location is only indicative.",
-  "富崴能源受通膨與船期延誤影響代墊款增加，經濟部已核准價金調整，工程未受母公司下市影響；完工時程較原規劃延後至 2027 年上半年。":"Inflation and vessel delays increased the costs fronted by the contractor 富崴能源; the Ministry of Economic Affairs has approved a price adjustment, and the works are not affected by its parent company's delisting. Completion has slipped from the original plan to the first half of 2027.",
+  "富崴能源受通膨與船期延誤影響代墊款增加，經濟部已核准價金調整；母公司森崴下市後，台電於 2026 年 7 月依契約接管風機安裝（中央社 2026-07-30）；9 月 28 日工作船出海，31 部已裝 1 部，台電力拚年底完工（聯合報、中央社 2026-10）。":"Inflation and vessel delays raised the costs fronted by the contractor Fuwei Energy, and the economy ministry approved a price adjustment; after its parent Shinfox was delisted, Taipower took over turbine installation under the contract in July 2026 (CNA, 30 Jul 2026). The installation vessel sailed on 28 Sep with 1 of 31 turbines in place, and Taipower aims to finish by year-end (UDN, CNA, Oct 2026).",
+  "2026-09-18 起台電將沃南風 337.1 MW 列入裝置容量（試運轉結束）。與沃四風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點；全球首座專為單一企業（台積電）供電之離岸風場計畫；2026-09-01 完工典禮（鉅亨網）。":"Since 18 Sep 2026 Taipower has counted Wo-Nan's 337.1 MW in installed capacity (trial operation over). It and Wo-4 are separate grid metering points of the same 920 MW project (Greater Changhua 2b & 4); the world's first offshore wind project built to supply a single company (TSMC); completion ceremony on 1 Sep 2026 (cnyes).",
+  "台電 genary 仍標示「-（註10）」（2026-10-06）。與沃南風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程；2026-09-01 完工典禮（鉅亨網）；沃旭與國泰人壽各持有 50%。":"Taipower's genary data still marked it “- (note 10)” on 6 Oct 2026. It and Wo-Nan are separate grid metering points of the same 920 MW project (Greater Changhua 2b & 4) on the same schedule; completion ceremony on 1 Sep 2026 (cnyes); Ørsted and Cathay Life each own 50%.",
+  "台電 genary 仍標示「-（註10）」。海龍二號及三號計畫併網點之一；原規劃 2026 年商轉，Northland 2026 年 8 月 12 日第二季報告寫 2027 年。":"Taipower's genary data still marks it “- (note 10)”. One of the grid connection points of the Hai Long 2 and 3 projects; commercial operation was planned for 2026, and Northland's Q2 report of 12 Aug 2026 says 2027.",
   "台灣離岸風電起點。":"Where offshore wind in Taiwan began.",
   "大彰化東南及西南第一階段（沃旭）併網點之一；與沃二風合計 900 MW。":"One of the grid connection points of Greater Changhua 1 & 2a (Ørsted); 900 MW together with Wo-2.",
   "大彰化東南及西南第一階段（沃旭）併網點之一；與沃一風合計 900 MW。":"One of the grid connection points of Greater Changhua 1 & 2a (Ørsted); 900 MW together with Wo-1.",
-  "台電 genary 仍標示「-（註10）」。與沃南風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程。":"Taipower's genary data still marks it “- (note 10)”. It and Wo-Nan are separate grid metering points of the same 920 MW project (Greater Changhua 2b & 4), on one shared schedule.",
-  "台電 genary 仍標示「-（註10）」。與沃四風為同一 920 MW 計畫（大彰化 2b&4）之不同並網計量點，共用同一開發時程；全球首座專為單一企業（台積電）供電之離岸風場計畫。":"Taipower's genary data still marks it “- (note 10)”. It and Wo-4 are separate grid metering points of the same 920 MW project (Greater Changhua 2b & 4), on one shared schedule; the world's first offshore wind project built to supply a single company (TSMC).",
   "彰芳暨西島計畫（CIP）一期；與芳二風合計約 595 MW。":"Phase 1 of the Changfang & Xidao project (CIP); about 595 MW together with Fang-2.",
   "彰芳暨西島計畫（CIP）二期含西島；與芳一風合計約 595 MW。":"Phase 2 of the Changfang & Xidao project (CIP), including Xidao; about 595 MW together with Fang-1.",
   "允能風場（達德 wpd）併網點之一；與允西合計 640 MW。":"One of the grid connection points of the Yunneng farm (wpd); 640 MW together with Yunxi.",
   "允能風場（達德 wpd）併網點之一；快照時段出力達 210 MW，為當下全台風電主力。":"One of the grid connection points of the Yunneng farm (wpd); it produced 210 MW in the snapshot period, the largest share of Taiwan's wind power at that moment.",
   "中鋼集團主導，帶動國產化供應鏈。獲配容量 300 MW，實際裝置 31 部 × 9.5 MW＝294.5 MW。":"Led by the China Steel group, driving the local supply chain. Allocated capacity 300 MW; installed 31 × 9.5 MW = 294.5 MW.",
   "台電 genary 仍標示「-（註10）」。海龍二號及三號計畫（約 1 GW）併網點之一。":"Taipower's genary data still marks it “- (note 10)”. One of the grid connection points of the Hai Long 2 and 3 projects (about 1 GW).",
-  "台電 genary 仍標示「-（註10）」。海龍二號及三號計畫併網點之一；原規劃 2026 年商轉，最新報導顯示已順延。":"Taipower's genary data still marks it “- (note 10)”. One of the grid connection points of the Hai Long 2 and 3 projects; commercial operation was planned for 2026, and the latest reports say it has slipped.",
   "台電":"Taipower",
   "沃旭 Ørsted":"Ørsted",
   "達德 wpd":"wpd",

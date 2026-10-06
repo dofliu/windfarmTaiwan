@@ -81,17 +81,21 @@ and move finished items to the topic lists below.
 2. **Differences from GEM 2026-02**: checked one by one on 3 Oct 2026 (v2.17.7) and written into `farm_cleanup.py`; still to follow:
    - Taiwan: Youde (Shinfox, 700 MW) — in August 2026 the Energy Administration said its termination was being processed — and Huanyang
      (EDF's Wei Lan Hai Changhua), also in termination, move to `PIPE_DROP` once that is final; Youde keeps GEM's point (near the Changhua
-     coast; the site is about 38 km offshore) until a site coordinate is found. Haiding 3 (GEM's Formosa 3 · 3, 720 MW, announced) still
-     lists JERA as owner; to check.
+     coast; the site is about 38 km offshore) until a site coordinate is found. Haiding 3 (GEM's Formosa 3 · 3, 720 MW, announced) now lists
+     Corio and TotalEnergies (JERA left in 2023); who holds it after Macquarie wound Corio up in 2026 is unverified.
    - Korea: Jwasari still has no construction start or auction award; waiting for construction evidence. Its point now sits on Jwasari-do
      off Tongyeong (approximate) until a site coordinate is found.
    - Norway's Sørmarkfjellet: whether every turbine was back in service in 2026, and the cause of the March 2025 blade failure, have not
      been published by the owner.
    - Next GEM release: build with `CLEANUP_LENIENT=1` first to see the new names, then rewrite the rules one by one; 2026-02 has no retired
      year, and `sources/gem_retired_years_2025-02.json` only covers phases retired by 2025-02.
-3. **Time-sensitive checks (one round done on 30 Sep 2026)**: Greater Changhua 2b & 4 was completed on 1 Sep 2026 and is in final
-   commissioning, not yet fully operating; Hai Long stays at 2027 per Northland's Q2 report; Taipower phase 2 has Taipower installing the
-   turbines itself, aiming for grid connection by the end of 2026. Next checks are under "Re-check periodically" below.
+3. **Time-sensitive checks (another round on 6 Oct 2026)**: Greater Changhua 2b (Wo-Nan, 337.1 MW) has been counted in Taipower's installed
+   capacity since 18 Sep 2026, while 4 (Wo-4) still carries note 10, so the project is not yet fully operating; Hai Long stays at 2027 per
+   Northland's Q2 report; Taipower phase 2's vessel sailed on 28 Sep with 1 of 31 turbines installed, Taipower aiming to finish by year-end;
+   Youde and Huanyang are still in termination (not final, so they stay in `PIPE_FIX`). None of the eight "latest available" sources has a newer
+   release, so `tools/latest_wind.py` is unchanged (next: Taiwan's September data in late October, China's Q3 in late October, the US EIA-860M on
+   23 October, India and Brazil in mid-October). The live page now takes capacity and the testing flag from Taipower's live data (`syncCaps` in
+   `live.js`), so Wo-4 and Hai Long will be counted automatically when their trial operation ends. Next checks are under "Re-check periodically" below.
    Second round (v2.13.3): CTG's Qingzhou 5 and 7 connected their first turbines only on 27 Sep 2026 and go back to under construction
    (due Dec 2026); CGN's Fanshi I and II reached full capacity on 24 Sep 2026.
 4. **The rest of foundation step 5**:
@@ -213,9 +217,10 @@ and move finished items to the topic lists below.
 - [ ] Taipower Offshore Phase 2: on 30 Jul 2026 Taipower took over turbine installation under the contract and agreed terms with Vestas,
       30 turbines to go, grid connection targeted for year-end (CNA); completion is still given as "2027". Check at year-end whether it
       connected and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed
-- [ ] Greater Changhua 2b & 4 (Ørsted, 920 MW): completion ceremony on 1 Sep 2026, now in O&M with final commissioning and testing under
-      way, full commercial operation once approvals are in (cnyes); when Ørsted announces it, set the last `tl` row of `id:"wo4"` / `id:"wonan"`
-      to done and `cod` to the month (events list WIND-059: completion
+- [ ] Greater Changhua 2b & 4 (Ørsted, 920 MW): completion ceremony on 1 Sep 2026, now in O&M; Wo-Nan (2b) has been counted in Taipower's
+      installed capacity since 18 Sep 2026 (updated in v2.27.0) while Wo-4 is still in trial operation; when Ørsted announces full commercial
+      operation, set the last `tl` row of `id:"wo4"` / `id:"wonan"` to done, `cod` to the month, and the globe's "Greater Changhua 2b & 4" to
+      operating (events list WIND-059: completion
       ceremony on 2026-09-01, the English notice says final commissioning is pending; WIND-050: the 2b export cable was damaged in 2025-08;
       WIND-058: one 14 MW unit of phase 4 caught fire on 2026-08-08)
 - [ ] Hai Long (Hai Long B): Northland's Q2 2026 report (12 Aug 2026): 71 of 73 turbines installed, 59 generating, commercial operation
@@ -283,9 +288,7 @@ the rules are in `tools/farm_cleanup.py`.
       position is schematic (`flags` 4)
 - [ ] 130 shared coordinate points remain (1,310 operating farms, mostly province-centre placeholders in
       China): add real coordinates from a newer GEM release or local data
-- [ ] Items the clean-up could not find or confirm: whether Iran's Tizbaad (99 MW) and Aqkand (50 MW) are
-      operating (SATBA data; checked again in Oct 2026: IRNA, Tehran Times, MAPNA and SATBA could not be reached from here, Aqkand is "operational"
-      on thewindpower.net but "permitting" in GlobalData, and Tizbaad has only a 2018 report of completion "in 2019"); China's curated "CGN Taizhou 1" (300 MW; no CGN offshore project in Taizhou
+- [ ] Items the clean-up could not find or confirm: China's curated "CGN Taizhou 1" (300 MW; no CGN offshore project in Taizhou
       was found) and "Guoxin Sheyang H1" (300 MW; Sheyang H1 is Huaneng's), and GEM's Sheyang South H5
       (400 MW, possibly not yet operating); Vietnam's Song An (46.2 MW, no commissioning found); the
       repowering history of Kemi Ajos in Finland; why the Dominican Republic is about 50 MW below IRENA
@@ -354,9 +357,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Taipower data checked (v2.24.3, from Taipower's monthly reports): Datan's unit #3 was decommissioned in June 2025, leaving 7 turbines and 13.6 MW
       (the station list's 15.1 MW predates it); Yongxing in commercial operation from 28 December 2020; Longmen connected on 1 June 2022; Taipower
       Offshore Phase 1 now sits at the centre of its 21 turbines mapped in OpenStreetMap (23.986 N, 120.242 E)
-- [ ] Still open for Taipower data: the start year of Taichung Power Plant's turbines (Taipower's monthly reports only go back to 2019, and the
-      Taichung Port turbines are dated both end-2005 and 2007) is unverified; look for Taipower's 2005–2007 annual reports or monthly magazine;
-      private farms have no official per-farm figures (T-REC certificate volumes are not total output)
+- [ ] Still open for Taipower data: private farms have no official per-farm figures (T-REC certificate volumes are not total output). (The start
+      years of Taichung Power Plant, 2006, and Taichung Port, 2007, were corrected from the Control Yuan's 2010 investigation report in v2.27.0.)
 - [ ] Important farms still without a checked photo (nothing usable on Commons in Oct 2026; `tools/farm_photos.py`): Greater Changhua 1 & 2a and
       2b & 4, Changfang & Xidao, Zhong Neng, Yunlin, Hai Long, Taipower Offshore Phase 2; Vindeby, Hornsea One/Two, Dogger Bank, Moray West,
       Seagreen, Hollandse Kust Zuid, Gemini, Borssele; Yangjiang Shapa, Yinling, the Fukushima demonstration, Hywind Tampen, Kincardine,
@@ -389,11 +391,14 @@ the rules are in `tools/farm_cleanup.py`.
       near Qingzhou 5 and 7, approximate); CNOOC's Haiyou Anlan 16 MW tension-leg platform was added in v2.24.3
 - [x] Mingyang's OceanX is not double-counted (checked in v2.24.3): Qingzhou IV's 500 MW is 44 fixed-bottom turbines, and OceanX started
       separately on 2024-12-11
-- [ ] CTG Shapa: CTG gives 5 phases, 1.7 GW and 269 turbines for the whole project, while the site's five phases add up to 1.8 GW (about
-      100 MW more); tender listings name "Shapa V 300 MW" while the site has 400 MW. Change it only with a second first-hand source; whether
-      Sanxia Yinling (5.5 MW) is inside Shapa III's 400 MW is still unknown
+- [ ] CTG Shapa: phase 5 is now 300 MW (v2.27.0) per the Yangjiang development and reform bureau, the Guangdong EIA approval, Mingyang's award
+      notice and CTG's listing announcement, and the six records add up to exactly CTG's 1,705.5 MW and 269 turbines. Left: 171 units of 6.45 MW
+      were designed and 170 built, and which phase lost one is unknown (under 1 MW); lot II of phases 2 and 3 went to Goldwind, so their
+      Mingyang-only turbine fields are incomplete (phase 2's split per lot is unknown)
 - [ ] Korea's Ulsan 750 kW floating pilot: set to pre-construction with the year unknown in v2.24.3 (permits blocked in November 2019, no
-      later record of installation or generation); check the KETEP/NTIS final report and remove it once it is confirmed never to have operated
+      later record of installation or generation); checked again in Oct 2026: NTIS lists the project for 2016–2019 but has no final report, and
+      thewindpower.net says dismantled (no date or source). Try KETEP's final report, Ulju County's water-surface permits or the University of Ulsan,
+      and remove it once it is confirmed never to have operated
 - [x] The UK's Pentland: GEM's two records are the same project (the current data has only "Pentland wind farm"); v2.24.3 sets 2030 as the
       planned year and moves it off Dounreay; if a later GEM release brings back the other record, merge it with a dup rule
 - [x] Step 4: Taiwan, Japan, Korea and the USA: 36 farms (Sep 2026, v2.10.0)

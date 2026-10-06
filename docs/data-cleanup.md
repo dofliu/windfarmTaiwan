@@ -6,19 +6,19 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 359 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 222 筆。
+- 規則 368 條：刪除 137 筆（其中營運中 42,468.2 MW），修正 231 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 45 | 24,974.5 | 83 |
+| 中國大陸 | 45 | 24,974.5 | 84 |
 | 丹麥 | 1 | 180 | 1 |
-| 伊朗 | 2 | 62 | 2 |
+| 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 3 | 157.5 | 10 |
-| 台灣 | 1 | 0 | 15 |
+| 台灣 | 1 | 0 | 22 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
 | 埃及 | 2 | 1,082 | 0 |
@@ -147,6 +147,7 @@
 | Tianjin Nangang · 90 MW · 2021 | 精選 | 修正：年份、機組 | 國資委 2018-06-28（中國電建稿）：天津南港海上風電項目 2018 年 6 月 27 日按期併網，一期首批安裝 18 台 5 MW、90 MW，由中國電建集團所屬新能源公司投資。資料庫年份 2021 改 2018，機型「Sewind 6 MW」改為 18×5 MW。 | [連結](http://www.sasac.gov.cn/n2588025/n2588124/c9178300/content.html) |
 | Jiangsu Xiangshui C1 Offshore wind farm · 12 MW · 2015 | GEM | 修正：容量、年份 | 鹽城市海洋與漁業局 2014-11-27 聽證公告：三峽響水試驗風機項目在陳港鎮沿海灘塗共 5 台、總裝機 12.5 MW（非 12）；三峽集團回顧（新浪 2026）稱 5 台潮間帶試驗機組於 2011 年安裝，2014 年聽證為補辦海域手續，故年份改 2011。 | [連結](http://www.yancheng.gov.cn/art/2014/11/27/art_13184_1456250.html) |
 | CTG Yangjiang Shapa Phase 4 · 300 MW · 2021 | 精選 | 修正：機組 | 中新網四川 2024-09-10：三峽新能源陽江陽西沙扒四期項目現場，東方電氣研製供貨的 43 台 7 MW 海上風機在颱風「摩羯」期間正常運轉（43×7 ≈ 300 MW），機型非明陽 6.45 MW。 | [連結](https://www.sc.chinanews.com.cn/cjbd/2024-09-10/215587.html) |
+| CTG Yangjiang Shapa Phase 5 · 400 MW · 2021 | 精選 | 修正：容量、機組 | 沙扒五期是 300 MW（47 部明陽 MySE6.45-180，303.15 MW）：陽江市發改局 2020-04-30 核准變更公示、廣東省生態環境廳粵環審〔2020〕85 號、明陽中標公告（三期 I 標＋五期共 78 部、50 萬千瓦）與三峽能源上市公告書都寫 300MW；本站原本的 400 MW 就是五期加總比三峽「全案 170 萬千瓦、269 部」多出約 100 MW 的原因 | [連結](http://www.yangjiang.gov.cn/yjfgw/gkmlpt/content/0/453/post_453906.html) |
 | Datang Zhuanghe II · 300 MW · 2021 | 精選 | 修正：業主、機組、名稱、中文名 | 莊河海上風電場址 II（300 MW）業主為華能遼寧清潔能源有限責任公司（2019 年核准時為中船重工，世紀新能源網轉中國電力新聞網 2020-09-14），安裝 60 台海裝 H171-5.0MW（大連天健網 2019-06-26），非大唐、非金風；國資委報導其與 IV1 場址同於 2021 年底全容量並網。 | [連結](https://www.ne21.com/news/show-135438.html) |
 | CTG Dafeng H8-2 · 300 MW · 2022 | 精選 | 修正：年份 | 中新網 2021-12-30：三峽能源江蘇大豐 30 萬千瓦 H8-2 海上風電項目於 2021-12-23 成功全容量並網發電，年份應為 2021 而非 2022。 | [連結](https://www.chinanews.com.cn/cj/2021/12-30/9640759.shtml) |
 | SPIC Peninsula South V · 300 MW · 2023 | 精選 | 修正：容量、年份、機組、業主 | 世紀新能源網轉中國發展網 2023-02-16：國家電投山東半島南 V 場址總裝機 500 MW（非 300），70 台 7 MW＋1 台 10 MW，由國家電投山東分公司投資建設，2022-05-20 開工、2022-12-09 全容量並網（當年開工當年全容量），年份應為 2022。 | [連結](https://www.ne21.com/news/show-176154.html) |
@@ -197,6 +198,7 @@
 | Harzvil wind farm · 14 MW | GEM | 重複（併入「Manjil wind farm」） | Manjil 風場群中的 Harzevil 區 | [連結](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Manjil wind farm · 93 MW | GEM | 修正：容量 | Manjil 風場群合計 92.2 MW，1995 年起分期興建、2015 年完工 | [連結](https://en.wikipedia.org/wiki/Manjil_and_Rudbar_Wind_Farm) |
 | Binalood wind farm · 28 MW · 2017 | GEM | 修正：年份 | 2008 年啟用（43 × 660 kW） | [連結](https://en.wikipedia.org/wiki/Binalood_Wind_Farm) |
+| Tizbaad wind farm · 100 MW · 2019 | GEM | 修正：狀態、年份 | 查無運轉證據：伊朗再生能源署（SATBA）2025 年 11 月底分省資料，整個禮薩呼羅珊省（含 28 MW 的 Binalood）風電只有 51.30 MW，容不下 Khaf 縣 100 MW 的 Tizbaad；2020 年 10 月全國風電僅 302.82 MW；2024 年 6 月 50 MW 的 Mil Nader 仍被稱為伊朗東部目前最大的風場。GEM 的「2019 年營運中」只根據開發商網站。改為施工前、年份不詳（確認從未興建後再刪除） | [連結](https://www.ice.it/it/news/notizie-dal-mondo/297574) |
 
 ## 加拿大 (CAN)
 
@@ -242,9 +244,16 @@
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | 修正：業主 | 又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約 | [連結](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 | Hai Long 2 & 3 · 1,044 MW · 2026 | 精選 | 修正：年份 | Northland 2026 年第二季報告：73 部已裝 71 部、59 部發電，全案商轉預計 2027 年 | [連結](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Taipower Offshore Phase 2 · 294 MW · 2026 | 精選 | 修正：年份 | 2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工 | [連結](https://www.cna.com.tw/news/afe/202606170184.aspx) |
+| Greater Changhua 2b & 4 · 920 MW · 2026 | 精選 | 修正： | 2b（337.1 MW，台電即時資料的「沃南風」）2026-09-18 起列入台電裝置容量（試運轉結束）；4（583 MW，「沃四風」）至 2026-10-06 仍標示註10（試運轉、暫不計入裝置容量），全案尚未全面商轉 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json) |
+| Greater Changhua 2b & 4 · 920 MW · 2026 | 精選 | 修正：業主 | 沃旭：583 MW 的大彰化西北（4）由沃旭與國泰人壽各持有 50%；原寫沃旭 100% | [連結](https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521) |
+| Taipower Offshore Phase 2 · 294 MW · 2027 | 精選 | 修正：容量 | 31 部 9.5 MW 風機、共 294.5 MW；原寫 294 MW | [連結](https://technews.tw/2022/11/03/taipower-offshore-wind2/) |
+| Taipower Offshore Phase 2 · 294.5 MW · 2027 | 精選 | 修正： | 31 座水下基礎與海纜都已完工；台電船機 2026-09-28 出海裝機（原訂 9/25），31 部風機已裝 1 部，台電力拚年底前完工、2027 年上半年併聯 | [連結](https://www.cna.com.tw/news/afe/202610020045.aspx) |
+| Formosa 3 offshore wind farm · 3 · 720 MW | GEM | 修正：業主 | JERA 2023 年把海鼎（Formosa 3）的持股全數轉給 Corio，Corio 再與道達爾能源合作，海鼎三由兩家各持有約一半；GEM 的業主 JERA 是舊資料。Macquarie 2026 年結束 Corio 平台，海鼎三之後由誰持有待查證 | [連結](https://totalenergies.com/newsroom/totalenergies-and-corio-join-forces-develop-offshore-wind-taiwan/?lang=eng) |
 | Taoyuan Luzhu · 33.6 MW · 2025 | 精選 | 修正：容量、年份、機組 | 台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
 | Taichung Power Plant · 8 MW · 2005 | 精選 | 修正：容量、機組 | 台中電廠原有 4 部 Zephyros Z72；2008 年薔蜜颱風吹倒台中港區一部後，從電廠移 1 部（P01）去補，電廠剩 3 部；2016 年台電因中龍鋼鐵等建物擋風，再移 2 部到高美濕地第 1 排補蘇迪勒颱風（2015）吹毀的機組，電廠只剩 1 部（2 MW）。台電 2026 年發電站清單與能源署單一窗口都是 1 部 | [連結](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
 | Taichung Port · 36 MW · 2006 | 精選 | 修正：容量、機組 | 高美濕地旁原有 18 部 Zephyros Z72（前排 10、後排 8）。2008 年薔蜜颱風吹斷 2 號機，由台中電廠移 1 部補上；2015 年蘇迪勒颱風吹倒 6 部（前後排各 3 部），台電 2016 年從台中電廠移 2 部補前排、後排的空缺另行新購；2016 年梅姬颱風又吹斷 12 號機葉片。台電 2026 年發電站清單：Z72 剩 13 部（共少了 7 部），另有 3 部 Enercon E82 E4，共 16 部 35 MW（能源署單一窗口同） | [連結](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
+| Taichung Power Plant · 2 MW · 2005 | 精選 | 修正：年份 | 監察院 2010 年調查報告（台電「風力發電第一期計畫臺中電廠及臺中港區風力發電機組及附屬設備採購帶安裝案」）：臺中電廠 4 部機組於 95 年（2006 年）6 月 1 日開始商業運轉；95 年 1 月已在做 24 小時負載測試，95 年 10 月首次 500 小時定檢時各機已運轉 1,197–2,169 小時；發電業執照 96 年 4 月 20 日核發。年份由 2005 改為 2006 | [連結](https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/46805) |
+| Taichung Port · 35 MW · 2006 | 精選 | 修正：年份 | 同一份監察院調查報告：台中港區 18 部 Zephyros Z72 自 96 年（2007 年）1 月 5 日起陸續商業運轉，97 年（2008 年）7 月 19 日全數商轉（96 年 5 月仍有 11 部未商轉）。年份由 2006 改為 2007 | [連結](https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/46805) |
 | Wanggong · 20 MW · 2011 | 精選 | 修正：容量、機組 | 台電發電站清單：彰化王功 10 部 Enercon E70，共 23 MW（不是 10 部 Vestas V80、20 MW） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
 | Datan (Tatan) · 12.5 MW · 2005 | 精選 | 修正：容量、機組 | 大潭：2005 年 6 月 3 部 GE 1.5se 商轉，2011 年 7 月擴建 3 部 Vestas V80 2 MW 與 2 部 Enercon E70 2.3 MW（共 8 部 15.1 MW）；#3（GE 1.5se）2025 年 6 月 20 日變更電業執照除役，剩 7 部 13.6 MW（台電簡明月報、能源署單一窗口；台電發電站清單的 15.1 MW 是除役前的數字） | [連結](https://www.taipower.com.tw/media/1f4ew1jr/11508%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |
 | Yongxing (Fangyuan) · 16.8 MW · 2024 | 精選 | 修正：容量、機組、年份 | 台電發電站清單：彰化永興 4 部 Enercon E70，共 9.2 MW（原本的 16.8 MW、4.2 MW 機組是估計值）；台電簡明月報：2019 年 10 月併聯試運轉，2020 年 12 月 28 日商轉（原本寫 2024 年） | [連結](https://www.taipower.com.tw/media/yizfvrbn/10912%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |
