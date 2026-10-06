@@ -205,52 +205,6 @@
   ]
  },
  {
-  "farm": "SPIC Jieyang Shenquan II",
-  "type": "mp",
-  "parts": null,
-  "turbines": 50,
-  "note_zh": "502 MW；Ⅰ標段11 MW機組用大直徑單樁（35#單樁長112.68 m、重2407.5 t、徑10.4 m，2022-06-01首樁沉樁），導管架只用於海上升壓站；Ⅱ標段8 MW機組基礎型式與總座數未查到（新華網／新浪2022-06-06、搜狐／羊城晚報2022-06-04、中國日報2022-07-04）。",
-  "note_en": "502 MW; lot I 11 MW turbines sit on large-diameter monopiles (pile 35#: 112.68 m, 2,407.5 t, 10.4 m diameter, first pile driven 2022-06-01); the jacket is only for the offshore substation. The foundation type of the lot II 8 MW turbines and the total count were not found (Xinhua/Sina 2022-06-06, Sohu/Yangcheng Evening News 2022-06-04, China Daily 2022-07-04).",
-  "anomalies": "資料庫機組數50座待查證。",
-  "sources": [
-   {
-    "url": "https://finance.sina.com.cn/roll/2022-06-06/doc-imizirau6804568.shtml",
-    "quote": "其中在造的35#单桩桩长112.68米，桩重2407.5吨，最大桩径10.4米，是目前国内重量最重，桩径最大的单桩"
-   },
-   {
-    "url": "https://www.sohu.com/a/554099381_120046696",
-    "quote": "同时该项目Ⅰ标段国内首根11MW风机首桩于6月1日完成沉桩作业"
-   },
-   {
-    "url": "https://finance.sina.com.cn/roll/2022-06-06/doc-imizirau6804568.shtml",
-    "quote": "项目总装机容量502MW"
-   },
-   {
-    "url": "https://gd.chinadaily.com.cn/a/202207/04/WS62c25c6da3101c3ee7adda82.html",
-    "quote": "晚上集中整理单桩、导管架、升压站制造实时进度"
-   }
-  ]
- },
- {
-  "farm": "Huadian Yangjiang Qingzhou 3",
-  "type": "jk",
-  "parts": null,
-  "turbines": 67,
-  "note_zh": "67座（37×6.8＋30×8.3 MW），2020-11開工、2021-12全部67台併網（陽江市生態環境局2023-07-12）；龍船風電網2021-04/07報導風機基礎為四樁導管架（30#機位四樁導管架吊裝、一標段首個四樁導管架沉樁），但該站回403無法抓取引文，型式待補可核對來源。",
-  "note_en": "67 turbines (37 x 6.8 + 30 x 8.3 MW); offshore works from 2020-11, all 67 connected by 2021-12 (Yangjiang Ecology & Environment Bureau 2023-07-12). Longchuan Wind (wind.imarine.cn) reported four-leg jacket foundations in Apr/Jul 2021 (jacket lifted at position 30#, first four-leg jacket piled in lot I) but that site returns 403, so the type still needs a quotable source.",
-  "anomalies": "資料庫年份2022：67台於2021-12全部併網，2022-01進入調試。",
-  "sources": [
-   {
-    "url": "https://www.yangjiang.gov.cn/yj/zwgk/zdlyxxgk/hjbh/jsxmjghbysxx/content/post_719318.html",
-    "quote": "本项目装机容量为500MW，布置37台6.8MW的风电机组和30台8.3MW的风电机组"
-   },
-   {
-    "url": "https://www.yangjiang.gov.cn/yj/zwgk/zdlyxxgk/hjbh/jsxmjghbysxx/content/post_719318.html",
-    "quote": "本项目于2020年11月2日开始海上风场主体工程建设，于2021年12月全部67台风机并网完成"
-   }
-  ]
- },
- {
   "farm": "Guoneng Bozhong B1 / Bozhong B",
   "type": "unknown",
   "parts": null,
@@ -266,21 +220,6 @@
    {
     "url": "https://sd.zhiliaobiaoxun.com/article/38400617",
     "quote": "首批 4 套单桩交货时间为 2024 年 10 月 30 日"
-   }
-  ]
- },
- {
-  "farm": "Mingyang Yangjiang Qingzhou 4",
-  "type": "jk",
-  "parts": null,
-  "turbines": 44,
-  "note_zh": "44座固定式（25×MySE11-230＋19×MySE12-242，500 MW），水深45–47 m，2024-02-01全容量併網（搜狐／龍船風電網2024-02-01）；中信重工2022-01中標「導管架基礎及基礎鋼管樁製作」、亨通藍德2023-05完成Ⅰ標段導管架基礎沉樁（和訊／雪球頁面無法抓取正文），導管架型式無可核對引文，待補。",
-  "note_en": "44 fixed turbines (25 x MySE11-230 + 19 x MySE12-242, 500 MW), water depth 45-47 m, full grid connection 2024-02-01 (Sohu/Longchuan 2024-02-01). CITIC Heavy won the 'jacket foundation and foundation pile fabrication' contract in Jan 2022 and Hengtong Blue completed lot I jacket piling in May 2023 (Hexun/Xueqiu pages returned no text), so the jacket type lacks a quotable source.",
-  "anomalies": "資料庫年份2023、機型「8.3-11 MW incl. OceanX demo」：實為44×11/12 MW固定式，2024-02-01全容量併網；OceanX（明陽天成號）為另行安裝的浮式示範，不在44座內。",
-  "sources": [
-   {
-    "url": "https://www.sohu.com/a/755731064_121194771",
-    "quote": "水深45~47米，中心离岸约69千米，是目前已建成国内离岸距离最远、水深最深的近海深水区海上风电项目。该项目总装机容量500MW，采用明阳自主研发的44台固定式风力发电机组，其中MySE11-230机组25台、MySE12-242机组19台"
    }
   ]
  },
@@ -412,38 +351,6 @@
   ]
  },
  {
-  "farm": "Changle Waihai C",
-  "type": "mx",
-  "parts": [
-   [
-    "sb",
-    49
-   ],
-   [
-    "jk",
-    8
-   ]
-  ],
-  "turbines": 57,
-  "note_zh": "三峽長樂外海海上風電場C區496–498 MW（57台：37台8MW＋20台10MW）。紫金股份／馬尾造船2021-03-05稱全場計畫布置49台吸力式導管架基礎，為國內首個大批量外海深水吸力式導管架風場；其餘8台的型式（推測為樁基導管架）未找到施工出處。首台10MW機組2021-10-20併網（世紀新能源網）。",
-  "note_en": "CTG Changle Waihai area C, 496–498 MW (57 turbines: 37 x 8 MW + 20 x 10 MW). Zijin/Mawei Shipbuilding (ne21 2021-03-05) say the farm planned 49 suction-bucket jacket foundations, the first large-batch deep-water suction jacket farm in China; the type of the remaining 8 (presumably piled jackets) has no construction source. First 10 MW unit grid-connected 2021-10-20 (ne21).",
-  "anomalies": "資料庫業主欄「海峽發電49%、福建福能」疑誤，本場為三峽（三峽能源福建）開發；57台=37×8MW+20×10MW（含東方風電10MW 200MW標段）。",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-157980.html",
-    "quote": "项目总投资为111.9亿元，共计划布置49台吸力式导管架风机基础，是目前国内首个规模化的8MW商用机型海上风电场，也是国内首个大批量外海深水吸力式导管架基础海上风电场"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-157980.html",
-    "quote": "首套长乐外海C区海上风电场吸力式导管架风机基础从闽江口内港区顺利驶往长乐外海C区海上风电场，标志着福建省内首个吸力式风机基础施工工艺的海上风电场顺利投入建设"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-166032.html",
-    "quote": "福建长乐外海海上风电场C区项目位于距离长乐海岸线30-40千米海域，项目总装机容量200MW，共安装20台东方风电10MW抗台风型海上风电机组"
-   }
-  ]
- },
- {
   "farm": "Shandong Energy Bozhong G",
   "type": "unknown",
   "parts": null,
@@ -482,36 +389,6 @@
   ]
  },
  {
-  "farm": "SPIC Rudong H4",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 100,
-  "note_zh": "國家電投江蘇如東H4# 400 MW，100台4MW（世紀新能源網2021-05「新振浮7」升壓站吊裝報導），2021年底併網。基礎型式未查到出處（搜尋額度用盡）；江蘇近海同類專案多為單樁，待查證。",
-  "note_en": "SPIC Jiangsu Rudong H4#, 400 MW, 100 x 4 MW (ne21 May 2021 report on substation lift by Xinzhenfu 7), grid-connected end of 2021. No source found for the foundation type (search budget exhausted); comparable Jiangsu nearshore farms are mostly monopiles – to be verified.",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-159217.html",
-    "quote": "江苏如东H4#、H7#海上风电项目装机规模均为400MW，分别布置100台单机容量4MW的风力发电机组，规划海域面积共计130平方公里，各配套建设一座220kV海上升压站和陆上集控中心"
-   }
-  ]
- },
- {
-  "farm": "SPIC Rudong H7",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 100,
-  "note_zh": "國家電投江蘇如東H7# 400 MW，100台4MW（世紀新能源網2021-05），2021年底併網。基礎型式未查到出處（搜尋額度用盡）。",
-  "note_en": "SPIC Jiangsu Rudong H7#, 400 MW, 100 x 4 MW (ne21 May 2021), grid-connected end of 2021. No source found for the foundation type (search budget exhausted).",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-159217.html",
-    "quote": "江苏如东H4#、H7#海上风电项目装机规模均为400MW，分别布置100台单机容量4MW的风力发电机组"
-   }
-  ]
- },
- {
   "farm": "CTG Yangjiang Shapa Phase 3",
   "type": "unknown",
   "parts": null,
@@ -546,33 +423,6 @@
    {
     "url": "https://www.ne21.com/news/show-167345.html",
     "quote": "三峡阳江沙扒海上风电场项目位于广东省阳江市阳西县沙扒镇南面海域，规划总装机容量170万千瓦，分为五期建设，总投资约350亿元"
-   }
-  ]
- },
- {
-  "farm": "SPIC Jieyang Shenquan I",
-  "type": "mp",
-  "parts": null,
-  "turbines": 66,
-  "note_zh": "國家電投揭陽神泉一400 MW分兩期：一期315 MW（16台7MW＋37台5.5MW，2021年底併網），二期91 MW（13台上海電氣7MW，2022-04-25首樁）。一期Ⅰ標段16台7MW由華電重工以大直徑單樁施工（2022-01），二期首樁為單樁（綠動南粵2022-04-28，世紀新能源網轉載）；一期Ⅱ標段37台5.5MW型式未查到。",
-  "note_en": "SPIC Jieyang Shenquan I, 400 MW in two phases: phase 1 315 MW (16 x 7 MW + 37 x 5.5 MW, grid-connected end 2021) and phase 2 91 MW (13 x Shanghai Electric 7 MW, first pile 2022-04-25). Lot I of phase 1 (16 x 7 MW) built by Huadian Heavy on large-diameter monopiles (Jan 2022); the first phase-2 foundation is a monopile (Green South Guangdong 2022-04-28 via ne21); the type of lot II (37 x 5.5 MW) was not found.",
-  "anomalies": "資料庫機型「上海電氣8 MW級」有誤，實為7 MW與5.5 MW；2021年只併網315 MW，餘91 MW二期2022年施工。",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-166728.html",
-    "quote": "共布置16台7MW风电机组和37台5.5MW风电机组，装机规模为315MW。华电重工承建本项目Ⅰ标段16台7MW风机EPC建设任务"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-166728.html",
-    "quote": "率先成功应用半潜式重吊船完成大直径单桩沉桩作业，最小垂直度达到0.17‰，高质量完成了基础施工"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-169882.html",
-    "quote": "国家电投揭阳神泉一（二期）海上风电场项目#26单桩基础沉桩作业圆满完成"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-169882.html",
-    "quote": "该项目位于广东省揭阳市惠来县神泉镇南面海域，总建设容量91MW，拟布置13台上海电气7MW风机"
    }
   ]
  },
@@ -638,34 +488,6 @@
    {
     "url": "https://www.cpem.org.cn/list68/103205.html",
     "quote": "明阳巴斯夫湛江徐闻东三海上风电示范项目位于广东省湛江市徐闻县锦和镇以东海域，总装机容量500MW，拟建设单机容量为10MW风机50台，配套建设一座220kV海上升压站。"
-   }
-  ]
- },
- {
-  "farm": "Zhejiang Shengsi 2 Offshore wind farm",
-  "type": "mx",
-  "parts": [
-   [
-    "pc",
-    31
-   ]
-  ],
-  "turbines": 63,
-  "note_zh": "分兩標：中交三航局標段 31 個機位（30 台高樁承台＋1 台首樁機位混凝土承台，2021-08-07 全部澆築完成，中國混凝土網轉中交三航局）；中鐵大橋局標段 32 台風機 2021-11-14 安裝完成（浙江在線），其基礎型式未查得。",
-  "note_en": "Two lots: CCCC Third Harbour's 31 positions are high-pile caps (30 high-pile caps plus one concrete cap at the first-pile position, all poured by 2021-08-07; hunningtu.com citing CCCC-3H); China Railway Major Bridge's 32 turbines were installed by 2021-11-14 (zjol.com.cn) but their foundation type was not found.",
-  "anomalies": "核准為 67×6.25 MW，實際兩標合計 63 台（31＋32）；業主寫國家電投浙江，但工程名稱為「浙能」嵊泗2號。",
-  "sources": [
-   {
-    "url": "https://www.hunningtu.com/h-nd-5670.html",
-    "quote": "该项目共31个机位风电机组基础，包括30台风机高桩承台、1台首桩机位的混凝土承台。"
-   },
-   {
-    "url": "https://zjnews.zjol.com.cn/zjnews/zsnews/202111/t20211116_23365286.shtml",
-    "quote": "11月14日8时58分，随着11号机位风机叶轮与机舱完成精准对接，由中铁大桥局负责施工的浙能嵊泗2号海上风电场工程32台风机全部安装完成，为实现年底并网发电目标奠定了坚实基础。"
-   },
-   {
-    "url": "https://zjnews.zjol.com.cn/zjnews/zsnews/202111/t20211116_23365286.shtml",
-    "quote": "该工程拟建设67台6.25兆瓦的风电机组，总装机容量为400兆瓦。"
    }
   ]
  },
@@ -834,21 +656,6 @@
   ]
  },
  {
-  "farm": "Jiangsu Dongtai Zhugensha H2 Offshore wind farm",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 67,
-  "note_zh": "302 MW，50 台 4.0 MW＋17 台 6.0 MW（風能產業網轉華東院 2020-09-28）；基礎型式未查得。",
-  "note_en": "302 MW, 50 x 4.0 MW + 17 x 6.0 MW (cweea.com.cn citing HDEC, 2020-09-28); foundation type not found.",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.cweea.com.cn/xwdt/html/31056.html",
-    "quote": "江苏竹根沙（H2#）项目风电场总装机容量302MW，其中包括50台4.0MW和17台6.0MW风机机组。"
-   }
-  ]
- },
- {
   "farm": "Shandong Bandaonan 4 Offshore wind farm",
   "type": "unknown",
   "parts": null,
@@ -868,48 +675,6 @@
    {
     "url": "https://u.shm.com.cn/2021-12/28/content_5249298.html",
     "quote": "继12月10日山东首个海上风电项目——华能山东半岛南4号海上风电项目成功全容量并网后，12月16日13时58分，国家电投半岛南3号海上风电项目又实现全容量并网发电。"
-   }
-  ]
- },
- {
-  "farm": "Huaneng Peninsula South 4",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 58,
-  "note_zh": "華能山東半島南4號 301.6 MW，58 台 5.2 MW，2021-12-10 全容量併網（世紀新能源網 2021-04-06；水母網 2021-12-28）；出處只寫「鋼管樁」，基礎型式未查得。",
-  "note_en": "Huaneng Shandong Peninsula South 4, 301.6 MW, 58 x 5.2 MW, fully grid-connected 2021-12-10 (ne21.com 2021-04-06; shm.com.cn 2021-12-28); sources only say 'steel pipe pile', so the type was not found.",
-  "anomalies": "與同清單另一筆（Shandong Bandaonan 4 / Huaneng Peninsula South 4）為同一風場的重複紀錄。",
-  "sources": [
-   {
-    "url": "https://m.ne21.com/news/show-159357.html",
-    "quote": "项目总投资55．45亿元，总装机容量301．6兆瓦，将建设58台单机容量5．2兆瓦风电机组。"
-   },
-   {
-    "url": "https://m.ne21.com/news/show-159357.html",
-    "quote": "已成功打下山东省海上风电第一根钢管桩"
-   },
-   {
-    "url": "https://u.shm.com.cn/2021-12/28/content_5249298.html",
-    "quote": "继12月10日山东首个海上风电项目——华能山东半岛南4号海上风电项目成功全容量并网后，12月16日13时58分，国家电投半岛南3号海上风电项目又实现全容量并网发电。"
-   }
-  ]
- },
- {
-  "farm": "SPIC Peninsula South 3",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 58,
-  "note_zh": "301.6 MW，58 台 5.2 MW，2021-12-16 全容量併網（央廣網 2024-01-01；水母網 2021-12-28）；基礎型式未查得。",
-  "note_en": "301.6 MW, 58 x 5.2 MW, fully grid-connected 2021-12-16 (cnr.cn 2024-01-01; shm.com.cn 2021-12-28); foundation type not found.",
-  "anomalies": "業主欄空白：國家電投山東能源發展有限公司。",
-  "sources": [
-   {
-    "url": "https://www.cnr.cn/sd/tysd/20240101/t20240101_526543670.shtml",
-    "quote": "装机规模301.6兆瓦，建设58台单机容量5.2兆瓦风电机组，配套建设1座220千伏海上升压站和陆上集控中心。"
-   },
-   {
-    "url": "https://u.shm.com.cn/2021-12/28/content_5249298.html",
-    "quote": "12月16日13时58分，国家电投半岛南3号海上风电项目又实现全容量并网发电。"
    }
   ]
  },
@@ -1111,25 +876,6 @@
   ]
  },
  {
-  "farm": "Zhejiang Daishan 4 Offshore wind farm",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 50,
-  "note_zh": "中廣核岱山4# 234MW：50 台風機（中廣核新能源稿，世紀新能源網 2020-12-10；人民網 2021-05-17 寫 54 台），2021-05 併網；基礎型式未查到。",
-  "note_en": "CGN Daishan 4, 234 MW: 50 turbines (CGN New Energy via ne21.com, 2020-12-10; People's Daily Zhejiang 2021-05-17 says 54), grid-connected May 2021; foundation type not found.",
-  "anomalies": "年份：全場 2021-05-16 併網（資料庫 2020）。座數兩來源不一（50／54）。",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-135972.html",
-    "quote": "中广核岱山4#海上风电项目位于舟山市岱山岛西北侧海域，总容量234MW，该项目安装50台风机。"
-   },
-   {
-    "url": "http://zj.people.com.cn/n2/2021/0517/c370990-34728482.html",
-    "quote": "此次正式并网的岱山4号海上风电场共设风力发电机组54台，总装机规模234兆瓦"
-   }
-  ]
- },
- {
   "farm": "Huadian Yuhuan 1",
   "type": "mp",
   "parts": null,
@@ -1180,25 +926,6 @@
    {
     "url": "http://www.ntoc-china.com/?m=home&c=View&a=index&aid=354",
     "quote": "该项目位于如东县环港外滩，风机基础采用单桩和多桩导管架二种基础形式。"
-   }
-  ]
- },
- {
-  "farm": "Shanghai Fengxian",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 32,
-  "note_zh": "32台6.45MW機組、總裝機206.4MW，2021-12-28全容量併網（國家能源局電力可靠性中心 2022-01；界面新聞 2021-12）；基礎型式查無可引用原文。",
-  "note_en": "32 x 6.45 MW turbines, 206.4 MW in total, full grid connection on 28 Dec 2021 (NEA reliability centre, Jan 2022; Jiemian, Dec 2021); no quotable source found for the foundation type.",
-  "anomalies": "實際容量206.4 MW（資料庫200 MW）；機型為6.45 MW（Sewind 5-6 MW class）。",
-  "sources": [
-   {
-    "url": "https://prpq.nea.gov.cn/gczl/6856.html",
-    "quote": "本项目位于上海杭州湾北部海域，总装机容量206.4兆瓦，由32台6.45兆瓦的风机组成，配套建设一座海上升压站。"
-   },
-   {
-    "url": "https://www.jiemian.com/article/6885766.html",
-    "quote": "在建中的上海奉贤海上风电工程，近日已完成全部32台风机的吊装，标志着整个项目的主体工程已经大功告成。"
    }
   ]
  },
@@ -1286,21 +1013,6 @@
    {
     "url": "https://fzggw.jiangsu.gov.cn/art/2018/11/30/art_59371_372.html",
     "quote": "协鑫如东H1-2#海上风电场项目"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Rudong H14 (Guangheng) Offshore wind farm",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 50,
-  "note_zh": "魯能新能源如東H14#規劃50台4MW、200MW，2020年底投運（網易／如東 2020）；基礎型式查無可引用原文。",
-  "note_en": "Luneng New Energy Rudong H14#: 50 x 4 MW planned, 200 MW, in service end-2020 (NetEase/Rudong, 2020); no quotable source for the foundation type.",
-  "anomalies": "來源寫業主為魯能新能源（資料庫寫國家電投江蘇）。",
-  "sources": [
-   {
-    "url": "https://www.163.com/dy/article/FRSQG2A805509P99.html",
-    "quote": "规划布置50台4兆瓦风电机组，总装机容量200兆瓦，同时配套建设1座220千伏海上升压站"
    }
   ]
  },
@@ -2026,25 +1738,6 @@
   ]
  },
  {
-  "farm": "SPIC Peninsula South V",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 71,
-  "note_zh": "半島南V場址實為500MW（70台7MW＋1台10MW，71台），2023-02全容量並網，水深18–28 m，施工採沉樁作業（世紀新能源網轉中國發展網2023-02-16）；基礎型式未明載，待查證。",
-  "note_en": "Peninsula South site V is actually 500 MW (70×7 MW + 1×10 MW = 71 turbines), fully connected Feb 2023 in 18–28 m water, built by pile driving (ne21 repost of China Development Net 2023-02-16); foundation type not stated, unverified.",
-  "anomalies": "容量應為500MW（非300），機型7MW/10MW（非Goldwind 8MW級），全容量並網2023-02。",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-176154.html",
-    "quote": "总装机规模500兆瓦，共安装70台单机容量7兆瓦风电机组及1台单机容量10兆瓦风电机组"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-176154.html",
-    "quote": "同步展开4个沉桩作业面、7个吊装作业面"
-   }
-  ]
- },
- {
   "farm": "Shandong Changyi Laizhouwan Offshore wind farm",
   "type": "mp",
   "parts": [
@@ -2065,38 +1758,6 @@
    {
     "url": "https://www.ne21.com/news/show-171560.html",
     "quote": "截至7月10日，该项目已完成15个机位的基础沉桩施工工作及首台风机的吊装工作"
-   }
-  ]
- },
- {
-  "farm": "Zhejiang Jiaxing 2 Offshore wind farm",
-  "type": "mx",
-  "parts": [
-   [
-    "mp",
-    36
-   ],
-   [
-    "pc",
-    14
-   ]
-  ],
-  "turbines": 50,
-  "note_zh": "50台6MW，單樁與高樁承台混用：I標段（中交三航局）25座＝11座單樁＋14座高樁承台，I標段11根單樁2020-11-15沉樁完成（世紀新能源網2020-11-18）；II標段（中鐵大橋局）25座為單樁，全場36單樁＋14承台（龍船風電網／微信轉載，無法機器核對）。",
-  "note_en": "50×6 MW on a mix of monopiles and high-pile caps: lot I (CCCC Third Harbor) 25 positions = 11 monopiles + 14 high-pile caps, its 11 monopiles driven by 2020-11-15 (ne21 2020-11-18); lot II (CRBBG) 25 monopiles, giving 36 monopiles + 14 caps in all (imarine/WeChat reposts, not machine-checkable).",
-  "anomalies": "全容量並網約2021年底（資料年份2021可）。",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-135810.html",
-    "quote": "中交三航局承建的华能嘉兴2号海上风电场项目（标段I）的所有单桩基础沉桩工作顺利完成"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-135810.html",
-    "quote": "风电场装机容量为300MW，共布置50台6.0MW风力"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-135840.html",
-    "quote": "润邦海洋负责11台海上风电机组基础桩的产品建造，重量均超过1,200吨"
    }
   ]
  },

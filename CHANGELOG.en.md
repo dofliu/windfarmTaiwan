@@ -51,6 +51,12 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   report; Iran's Tizbaad (100 MW) has no evidence of operation and becomes pre-construction with the year unknown (Iran's farm total drops from 116% to 90% of
   the national figure); CTG Yangjiang Shapa phase 5 is 300 MW, not 400 (47 Mingyang MySE6.45-180), so the six Shapa records add up to CTG's 1,705.5 MW and
   269 turbines.
+- Foundations: 15 more Chinese farms from construction, completion or completion-acceptance records (every quote checked), for example Lemen II, Shenquan I
+  and II, Qingzhou 3 and 4, Peninsula South V, Rudong H4 and H7 and Shengsi 2 (31 pile caps + 32 monopiles); Changle Waihai A's note now says it has
+  jackets of two kinds (four-pile and suction-bucket). Operating offshore farms with a known type: 257 of 334, 77.9% of the capacity (was 242 and 71.5%);
+  77 of China's 142.
+- Card photos for 10 more farms (Commons photos, each looked at): Gwynt y Môr, Burbo Bank, Robin Rigg, Sheringham Shoal, Nysted, Rødsand II, Belwind,
+  Arkona, Jaisalmer and Roscoe, 50 in all.
 
 ## v2.26.1 — 2026-10-05
 

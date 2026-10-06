@@ -64,8 +64,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 242 of 334 operating offshore farms have a known foundation type (71.4% of capacity); dimensions for 234 farms,
-  all three for 168; 347 clean-up rules.
+- Current figures: 257 of 334 operating offshore farms have a known foundation type (77.9% of capacity); dimensions for 234 farms,
+  all three for 168; 368 clean-up rules; card photos for 50 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -153,7 +153,14 @@ and move finished items to the topic lists below.
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
      appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
      source is found (for example CTG completion records the owner may have).
-   - The other Chinese offshore farms (82 of the 140 operating) and Vietnam (28 farms, mostly intertidal; the owner's workbook only says
+   - Fifth batch on 6 Oct 2026 (v2.27.0): 15 farms from construction, completion or completion-acceptance records (quotes checked): Lemen II,
+     Shenquan I and II, Qingzhou 3 and 4, Peninsula South 3, 4 and V, Rudong H4 and H7, Shengsi 2, Zhugensha H2, Jiaxing 2, Fengxian and
+     Changle Waihai C; Changle Waihai A's note now says it has jackets of two kinds (four-pile and suction-bucket). Leads not yet written are in
+     `tools/research/cn_leads_2026-10b.json` (Huadian Yuhuan 1's south zone has only a self-media summary and a tender, Zhuanghe III only 55 units,
+     Peninsula South U1 phase 2, Huaneng Yuhuan 2, Rudong H2 and H3, Sheyang H2, Dafeng H7, Cangnan 4, Danzhou CZ3). Most promising: a Zhuanghe city
+     page (dlzh.gov.cn, unreachable from here) reportedly gives Huaneng Zhuanghe II as 40 monopiles + 20 suction-bucket jackets; check it from another network.
+     A good source type: search "<farm> 竣工环境保护验收调查报告" (completion acceptance reports published by local governments state the as-built type).
+   - The other Chinese offshore farms (65 of the 142 operating) and Vietnam (9 of 22, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
