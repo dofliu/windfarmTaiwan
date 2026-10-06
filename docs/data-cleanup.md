@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 381 條：刪除 142 筆（其中營運中 43,510.2 MW），修正 239 筆。
+- 規則 388 條：刪除 144 筆（其中營運中 44,360.2 MW），修正 244 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 47 | 25,374.5 | 87 |
+| 中國大陸 | 49 | 26,224.5 | 90 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -48,7 +48,7 @@
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 13 | 1,487 | 20 |
+| 越南 | 13 | 1,487 | 22 |
 
 ## 中國大陸 (CHN)
 
@@ -188,6 +188,11 @@
 | Huaneng Peninsula North BW · 510 MW · 2024 | 精選 | 修正：座標 | 座標改到龍口桑島西北外海（GEM 的精確位置；龍口市 2022 年公示：場址中心離岸約 18 km）；原座標在威海北方外海，偏東約 140 km。營運狀態無誤：2023 年 8 月開工、2024 年全容量併網 | [連結](https://www.gem.wiki/Shandong_Bandaobei_BW_Offshore_wind_farm) |
 | Changle Waihai B · 400 MW · 2022 | 精選 | 重複（併入「Fujian Changle 'Outer Ocean' Area B Offshore wind farm」） | 長樂外海 B 區沒有建成的風場：唯一的 B 區案是中閩能源的「長樂 B 區（調整）」，2023 年競爭配置才選定業主、2024 年 11 月 30 日核准（114 MW、7 部），2026 年 9 月才招 EPC（不超過 102 MW、6 部，計畫 2027 年 12 月前全部併網）。這筆 400 MW、2022 年營運中有誤，GEM 已有該案的規劃中紀錄 | [連結](https://baijiahao.baidu.com/s?id=1875652994034298464&wfr=spider&for=pc) |
 | Fujian Changle 'Outer Ocean' Area B Offshore wind farm · 114 MW | GEM | 修正：業主、容量、年份 | 業主是中閩能源（福建投資集團旗下；專案公司福建福州閩投海上風電由中閩能源持股 100%），不是華電；2024 年 11 月核准 114 MW、7 部，2026 年 9 月 EPC 招標為不超過 102 MW、6 部，計畫 2027 年 10 月前首部、12 月前全部併網 | [連結](https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/zdjsxmpzhss/202412/t20241202_6587050.htm) |
+| Shandong Haiwei Peninsula South U · 450 MW · 2025 | 精選 | 重複（併入「CGN Peninsula South U1」） | 「山東海衛半島南 U 場址 450MW 海上風電項目」就是國家電投半島南 U 場址項目二期（53 部 8.5 MW、450.5 MW，乳山南側海域，世紀新能源網 2024-09）；精選紀錄「SPIC Peninsula South U1」已含兩期 900 MW（一期 2023-11-17 投運、二期 2024-10-26 全容量併網，中國電器工業協會 2024-10-31），本筆重複，年份 2025 也不對 | [連結](https://www.ne21.com/news/show-201133.html) |
+| Zhangpu Liu'ao Phase 1 · 400 MW · 2022 | 精選 | 重複（併入「CTG Zhangpu Liu'ao Phase 2」） | 福能持股 35%、三峽 65% 的海峽發電在六鰲只有一個項目：2018 年券商報告寫「漳州六鰲 D 區項目（40.2 萬千瓦）」，2024 年中閩能源回覆上交所（引福能年報）寫成「漳浦六鰲二期 40.2 萬千瓦」，即 2023-02-04 開工（「閩南地區首個海上風電項目」）、2024-06-27 全容量併網的三峽漳浦六鰲二期；本筆「一期、2022 年營運」是 GEM 的 D 區併進精選紀錄後誤標，與二期重複 | [連結](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
+| Zhuanghe I · 200 MW · 2021 | 精選 | 修正：容量、業主、機組 | 莊河場址 I 是大唐集團的 100 MW 項目：19 部明陽 MySE5.2-166（19 × 5.2 = 98.8 MW），EPC 於 2021 年由中國能建北方建投與上海院聯合體得標（世紀新能源網）；原寫 200 MW、業主空白、「4-6 MW class」都不對。併網年份沒有可引用的出處，2021 年待查證 | [連結](https://www.ne21.com/news/show-157836.html) |
+| Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm · 350 MW · 2021 | GEM | 修正：業主、機組 | 華能莊河 IV1（350 MW）：中新網寫 II、IV1 兩場共 650 MW、60 部 5 MW＋26 部 7.5 MW＋25 部 6.2 MW，II 場是 60 部 5 MW，所以 IV1 為 26 × 7.5＋25 × 6.2 = 350 MW，2021-12-29 全容量併網，由華能遼寧清潔能源建設運維；補上業主與機組 | [連結](https://www.chinanews.com/ny/2021/12-29/9640309.shtml) |
+| Shanghai Fengxian Haiwan Expansion Offshore wind farm · 15 MW · 2012 | GEM | 修正：容量、業主 | 財政部 2013-03 可再生能源電價附加補助目錄：「上海新能源環保工程公司奉賢海灣風電場擴容 14.75MW 發電工程」，容量 14.75 MW；是海堤上的陸域還是海上沒有可引用的出處，型別待查證 | [連結](http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf) |
 
 ## 丹麥 (DNK)
 
@@ -615,6 +620,8 @@
 | Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | 修正：機組 | 成海全案 28 部（EVN），其中第 1、2 期為西門子歌美颯 SG 4.5-145（Power Technology）；其餘各期的機型查不到 | [連結](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
 | Tan Phu Dong 1 (Tien Giang, GEC) · 100 MW · 2023 | 精選 | 修正：機組 | 新富東 1 號是 24 部 Vestas V150-4.2 MW，不是遠景（物流承包商 Infinity Logistics 專案頁） | [連結](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) |
 | Đông Thành 1 - Thái Hòa offshore wind farm · 1 · 80 MW · 2026 | GEM | 修正：狀態、年份 | 東城 1（80 MW）2026 年 3 月永隆省工商廳仍在請上級對投資主張表示意見，查不到施工報導（GEM 的「施工中」只根據 2024 年的付費資料庫頁面）；改為施工前、年份不詳 | [連結](https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm) |
+| V1-1 Truong Long Hoa (Tra Vinh) · 48 MW · 2021 | 精選 | 修正：業主、機組 | 茶榮 V1-1 就是「韓國－茶榮」風場一期（48 MW）：2019-04-24 由茶榮 1 號風電公司在長隆和社 V1-1 位置動工，主要出資者 Climate Investor One 與韓國 Samtan（vietnamfinance）；Vestas 統包 12 部 V150-4.2 MW（offshoreWIND.biz 2021-09）。Sermsang 是 V1-2 的投資人，原寫的業主與「12x Envision 4 MW」都不對 | [連結](https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm) |
+| Hiep Thanh (Tra Vinh) · 78 MW · 2022 | 精選 | 修正：業主、機組 | 協成風場（78 MW）是 18 部西門子歌美颯 SG 5.0-145、每部以 4.3 MW 運轉（offshoreWIND.biz 2020-07 與 2021-08），不是遠景；開發商 EcoTech Tra Vinh Renewables，投資人 Janakuasa、Ecotech Vietnam、Climate Investor One 與 ST International | [連結](https://www.offshorewind.biz/2020/07/23/siemens-gamesa-lands-biggest-nearshore-contract-in-vietnam/) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 

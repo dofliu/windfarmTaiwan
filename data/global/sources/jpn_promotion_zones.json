@@ -1,0 +1,933 @@
+{
+ "meta": {
+  "source": "資源エネルギー庁「洋上風力発電関連制度：促進区域の指定」各区域の指定の公告（Agency for Natural Resources and Energy, designation notices of promotion zones under the Act on Promoting the Utilization of Sea Areas for Offshore Renewable Energy）",
+  "page": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/kassei_sangyou.html",
+  "license": "公共データ利用規約（第1.0版）· Public Data License v1.0 (PDL1.0)",
+  "note": "Vertices transcribed from each designation notice (公告), checked against the draft notice (指定の案) and quoted with tools/check_quotes.py (2026-10). Coordinates are in the Japanese geodetic datum (JGD2011, within 1 m of WGS84). boundary=closed: the points form the zone; boundary=shore: the zone is bounded by the line(s) through the points and the shore (陸岸), so only the published lines are given. Published areas (area_ha, from the tender guidelines or council documents in area_source) exclude port, fishery port and coastal protection areas, which have no published coordinates.",
+  "retrieved": "2026-10"
+ },
+ "zones": [
+  {
+   "name": "長崎県五島市沖",
+   "name_en": "Off Goto City, Nagasaki Prefecture",
+   "pref": "長崎県 Nagasaki",
+   "designated": "2019-12-27",
+   "area_ha": 2726.5,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/nagasaki_goto_kouboshishin.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/nagasaki_goto_pub.pdf",
+   "boundary": "closed",
+   "lines": [
+    [
+     [
+      128.875278,
+      32.666667
+     ],
+     [
+      128.888333,
+      32.668611
+     ],
+     [
+      128.893056,
+      32.668611
+     ],
+     [
+      128.895556,
+      32.667222
+     ],
+     [
+      128.900556,
+      32.668889
+     ],
+     [
+      128.931667,
+      32.670278
+     ],
+     [
+      128.933889,
+      32.671667
+     ],
+     [
+      128.9525,
+      32.663889
+     ],
+     [
+      128.972778,
+      32.644444
+     ],
+     [
+      129.018056,
+      32.644444
+     ],
+     [
+      129.018056,
+      32.680556
+     ],
+     [
+      128.927222,
+      32.680278
+     ],
+     [
+      128.9275,
+      32.674167
+     ],
+     [
+      128.927778,
+      32.673611
+     ],
+     [
+      128.899444,
+      32.6725
+     ],
+     [
+      128.896111,
+      32.671111
+     ],
+     [
+      128.895556,
+      32.671389
+     ],
+     [
+      128.894444,
+      32.671389
+     ],
+     [
+      128.891944,
+      32.672222
+     ],
+     [
+      128.888056,
+      32.672222
+     ],
+     [
+      128.884722,
+      32.671667
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N32°40′00″ E128°52′31″",
+    "(2) N32°40′07″ E128°53′18″",
+    "(3) N32°40′07″ E128°53′35″",
+    "(4) N32°40′02″ E128°53′44″",
+    "(5) N32°40′08″ E128°54′02″",
+    "(6) N32°40′13″ E128°55′54″",
+    "(7) N32°40′18″ E128°56′02″",
+    "(8) N32°39′50″ E128°57′09″",
+    "(9) N32°38′40″ E128°58′22″",
+    "(10) N32°38′40″ E129°01′05″",
+    "(11) N32°40′50″ E129°01′05″",
+    "(12) N32°40′49″ E128°55′38″",
+    "(13) N32°40′27″ E128°55′39″",
+    "(14) N32°40′25″ E128°55′40″",
+    "(15) N32°40′21″ E128°53′58″",
+    "(16) N32°40′16″ E128°53′46″",
+    "(17) N32°40′17″ E128°53′44″",
+    "(18) N32°40′17″ E128°53′40″",
+    "(19) N32°40′20″ E128°53′31″",
+    "(20) N32°40′20″ E128°53′17″",
+    "(21) N32°40′18″ E128°53′05″"
+   ]
+  },
+  {
+   "name": "秋田県能代市、三種町及び男鹿市沖",
+   "name_en": "Off Noshiro City, Mitane Town and Oga City, Akita Prefecture",
+   "pref": "秋田県 Akita",
+   "designated": "2020-07-21",
+   "area_ha": 6268.8,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/akita_noshiro_kouboshishin.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/akita_noshiro_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      139.994444,
+      40.176111
+     ],
+     [
+      139.955556,
+      40.179444
+     ],
+     [
+      139.934722,
+      40.1575
+     ],
+     [
+      139.9275,
+      40.133056
+     ],
+     [
+      139.902778,
+      40.086944
+     ],
+     [
+      139.867778,
+      40.044722
+     ],
+     [
+      139.881667,
+      40.048611
+     ],
+     [
+      139.910833,
+      40.045556
+     ],
+     [
+      139.923056,
+      40.038889
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N40°10′34″ E139°59′40″",
+    "(2) N40°10′46″ E139°57′20″",
+    "(3) N40°09′27″ E139°56′05″",
+    "(4) N40°07′59″ E139°55′39″",
+    "(5) N40°05′13″ E139°54′10″",
+    "(6) N40°02′41″ E139°52′04″",
+    "(7) N40°02′55″ E139°52′54″",
+    "(8) N40°02′44″ E139°54′39″",
+    "(9) N40°02′20″ E139°55′23″"
+   ]
+  },
+  {
+   "name": "秋田県由利本荘市沖（北側）",
+   "name_en": "Off Yurihonjo City (North), Akita Prefecture",
+   "pref": "秋田県 Akita",
+   "designated": "2020-07-21",
+   "area_ha": 6479.3,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/akita_yuri_kouboshishin.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/akita_yuri_north_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      140.061667,
+      39.597778
+     ],
+     [
+      140.013889,
+      39.597778
+     ],
+     [
+      140.001389,
+      39.518611
+     ],
+     [
+      139.981111,
+      39.456944
+     ],
+     [
+      140.034444,
+      39.451389
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N39°35′52″ E140°03′42″",
+    "(2) N39°35′52″ E140°00′50″",
+    "(3) N39°31′07″ E140°00′05″",
+    "(4) N39°27′25″ E139°58′52″",
+    "(5) N39°27′05″ E140°02′04″"
+   ]
+  },
+  {
+   "name": "秋田県由利本荘市沖（南側）",
+   "name_en": "Off Yurihonjo City (South), Akita Prefecture",
+   "pref": "秋田県 Akita",
+   "designated": "2020-07-21",
+   "area_ha": 6561.1,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/akita_yuri_kouboshishin.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/akita_yuri_south_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      140.034444,
+      39.451389
+     ],
+     [
+      139.981111,
+      39.456944
+     ],
+     [
+      139.938056,
+      39.326111
+     ],
+     [
+      139.984444,
+      39.311944
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N39°27′05″ E140°02′04″",
+    "(2) N39°27′25″ E139°58′52″",
+    "(3) N39°19′34″ E139°56′17″",
+    "(4) N39°18′43″ E139°59′04″"
+   ]
+  },
+  {
+   "name": "千葉県銚子市沖",
+   "name_en": "Off Choshi City, Chiba Prefecture",
+   "pref": "千葉県 Chiba",
+   "designated": "2020-07-21",
+   "area_ha": 3948.7,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/chiba_choshi_kouboshishin.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/chiba_choshi_pub.pdf",
+   "boundary": "closed",
+   "lines": [
+    [
+     [
+      140.836111,
+      35.710833
+     ],
+     [
+      140.770278,
+      35.6875
+     ],
+     [
+      140.793333,
+      35.661389
+     ],
+     [
+      140.776667,
+      35.658333
+     ],
+     [
+      140.795,
+      35.611944
+     ],
+     [
+      140.836111,
+      35.636389
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N35°42′39″ E140°50′10″",
+    "(2) N35°41′15″ E140°46′13″",
+    "(3) N35°39′41″ E140°47′36″",
+    "(4) N35°39′30″ E140°46′36″",
+    "(5) N35°36′43″ E140°47′42″",
+    "(6) N35°38′11″ E140°50′10″"
+   ]
+  },
+  {
+   "name": "秋田県八峰町及び能代市沖",
+   "name_en": "Off Happo Town and Noshiro City, Akita Prefecture",
+   "pref": "秋田県 Akita",
+   "designated": "2021-09-13",
+   "area_ha": 3239.4,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/2R_kouboshishin_20231212_202509kaitei.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/akita_happou_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      140.022778,
+      40.297222
+     ],
+     [
+      140.008889,
+      40.297778
+     ],
+     [
+      139.985278,
+      40.307778
+     ],
+     [
+      139.9775,
+      40.316389
+     ],
+     [
+      139.968889,
+      40.264167
+     ],
+     [
+      139.948056,
+      40.203333
+     ],
+     [
+      139.998611,
+      40.195556
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N40°17′50″ E140°01′22″",
+    "(2) N40°17′52″ E140°00′32″",
+    "(3) N40°18′28″ E139°59′07″",
+    "(4) N40°18′59″ E139°58′39″",
+    "(5) N40°15′51″ E139°58′08″",
+    "(6) N40°12′12″ E139°56′53″",
+    "(7) N40°11′44″ E139°59′55″"
+   ]
+  },
+  {
+   "name": "秋田県男鹿市、潟上市及び秋田市沖",
+   "name_en": "Off Oga City, Katagami City and Akita City, Akita Prefecture",
+   "pref": "秋田県 Akita",
+   "designated": "2022-09-30",
+   "area_ha": 5315.3,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/2R_kouboshishin_20231212_202509kaitei.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/akita_oga_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      139.922222,
+      39.900833
+     ],
+     [
+      139.905278,
+      39.867222
+     ],
+     [
+      139.937222,
+      39.853611
+     ],
+     [
+      139.970833,
+      39.813056
+     ],
+     [
+      139.997778,
+      39.800278
+     ],
+     [
+      140.015833,
+      39.793056
+     ],
+     [
+      140.038333,
+      39.796111
+     ]
+    ],
+    [
+     [
+      139.944444,
+      39.893056
+     ],
+     [
+      139.94,
+      39.888611
+     ],
+     [
+      139.946111,
+      39.886111
+     ],
+     [
+      139.950833,
+      39.890278
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N39°54′03″ E139°55′20″",
+    "(2) N39°52′02″ E139°54′19″",
+    "(3) N39°51′13″ E139°56′14″",
+    "(4) N39°48′47″ E139°58′15″",
+    "(5) N39°48′01″ E139°59′52″",
+    "(6) N39°47′35″ E140°00′57″",
+    "(7) N39°47′46″ E140°02′18″",
+    "(8) N39°53′35″ E139°56′40″",
+    "(9) N39°53′19″ E139°56′24″",
+    "(10) N39°53′10″ E139°56′46″",
+    "(11) N39°53′25″ E139°57′03″"
+   ]
+  },
+  {
+   "name": "新潟県村上市及び胎内市沖",
+   "name_en": "Off Murakami City and Tainai City, Niigata Prefecture",
+   "pref": "新潟県 Niigata",
+   "designated": "2022-09-30",
+   "area_ha": 9188.1,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/2R_kouboshishin_20231212_202509kaitei.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/niigata_murakami_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      139.421944,
+      38.166944
+     ],
+     [
+      139.411389,
+      38.173889
+     ],
+     [
+      139.408333,
+      38.186111
+     ],
+     [
+      139.377222,
+      38.219167
+     ],
+     [
+      139.375833,
+      38.206667
+     ],
+     [
+      139.345278,
+      38.1625
+     ],
+     [
+      139.314722,
+      38.126111
+     ],
+     [
+      139.295556,
+      38.106389
+     ],
+     [
+      139.268333,
+      38.082222
+     ],
+     [
+      139.315833,
+      38.048056
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N38°10′01″ E139°25′19″",
+    "(2) N38°10′26″ E139°24′41″",
+    "(3) N38°11′10″ E139°24′30″",
+    "(4) N38°13′09″ E139°22′38″",
+    "(5) N38°12′24″ E139°22′33″",
+    "(6) N38°09′45″ E139°20′43″",
+    "(7) N38°07′34″ E139°18′53″",
+    "(8) N38°06′23″ E139°17′44″",
+    "(9) N38°04′56″ E139°16′06″",
+    "(10) N38°02′53″ E139°18′57″"
+   ]
+  },
+  {
+   "name": "長崎県西海市江島沖",
+   "name_en": "Off Enoshima, Saikai City, Nagasaki Prefecture",
+   "pref": "長崎県 Nagasaki",
+   "designated": "2022-09-30",
+   "area_ha": 3983.8,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/2R_kouboshishin_20231212_202509kaitei.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/nagasaki_saikaishi_pub.pdf",
+   "boundary": "closed",
+   "lines": [
+    [
+     [
+      129.332222,
+      33.050556
+     ],
+     [
+      129.303056,
+      33.031944
+     ],
+     [
+      129.300556,
+      32.996389
+     ],
+     [
+      129.343333,
+      32.958333
+     ],
+     [
+      129.353889,
+      32.9675
+     ],
+     [
+      129.373611,
+      33.0025
+     ],
+     [
+      129.363333,
+      33.021111
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N33°03′02″ E129°19′56″",
+    "(2) N33°01′55″ E129°18′11″",
+    "(3) N32°59′47″ E129°18′02″",
+    "(4) N32°57′30″ E129°20′36″",
+    "(5) N32°58′03″ E129°21′14″",
+    "(6) N33°00′09″ E129°22′25″",
+    "(7) N33°01′16″ E129°21′48″"
+   ]
+  },
+  {
+   "name": "青森県沖日本海（南側）",
+   "name_en": "Sea of Japan off Aomori Prefecture (South)",
+   "pref": "青森県 Aomori",
+   "designated": "2023-10-03",
+   "area_ha": 10375.6,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/3R_kouboshishin_20240119_202509kaitei.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/aomori_minami_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      140.304167,
+      40.916389
+     ],
+     [
+      140.291667,
+      40.919722
+     ],
+     [
+      140.274444,
+      40.929167
+     ],
+     [
+      140.268056,
+      40.935833
+     ],
+     [
+      140.2225,
+      40.914167
+     ],
+     [
+      140.214444,
+      40.8825
+     ],
+     [
+      140.211667,
+      40.871111
+     ],
+     [
+      140.203611,
+      40.857778
+     ],
+     [
+      140.191111,
+      40.835833
+     ],
+     [
+      140.178056,
+      40.819167
+     ],
+     [
+      140.165833,
+      40.808056
+     ],
+     [
+      140.153333,
+      40.793611
+     ],
+     [
+      140.138056,
+      40.783056
+     ],
+     [
+      140.124167,
+      40.7775
+     ],
+     [
+      140.145556,
+      40.751111
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N40°54′59″ E140°18′15″",
+    "(2) N40°55′11″ E140°17′30″",
+    "(3) N40°55′45″ E140°16′28″",
+    "(4) N40°56′09″ E140°16′05″",
+    "(5) N40°54′51″ E140°13′21″",
+    "(6) N40°52′57″ E140°12′52″",
+    "(7) N40°52′16″ E140°12′42″",
+    "(8) N40°51′28″ E140°12′13″",
+    "(9) N40°50′09″ E140°11′28″",
+    "(10) N40°49′09″ E140°10′41″",
+    "(11) N40°48′29″ E140°09′57″",
+    "(12) N40°47′37″ E140°09′12″",
+    "(13) N40°46′59″ E140°08′17″",
+    "(14) N40°46′39″ E140°07′27″",
+    "(15) N40°45′04″ E140°08′44″"
+   ]
+  },
+  {
+   "name": "山形県遊佐町沖",
+   "name_en": "Off Yuza Town, Yamagata Prefecture",
+   "pref": "山形県 Yamagata",
+   "designated": "2023-10-03",
+   "area_ha": 4131.1,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/sentei/3R_kouboshishin_20240119_202509kaitei.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/yamagata_yuza_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      139.872778,
+      39.059444
+     ],
+     [
+      139.858889,
+      39.064167
+     ],
+     [
+      139.813056,
+      39.075
+     ],
+     [
+      139.788611,
+      39.003056
+     ],
+     [
+      139.829167,
+      38.989444
+     ],
+     [
+      139.842778,
+      38.985278
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N39°03′34″ E139°52′22″",
+    "(2) N39°03′51″ E139°51′32″",
+    "(3) N39°04′30″ E139°48′47″",
+    "(4) N39°00′11″ E139°47′19″",
+    "(5) N38°59′22″ E139°49′45″",
+    "(6) N38°59′07″ E139°50′34″"
+   ]
+  },
+  {
+   "name": "北海道檜山沖",
+   "name_en": "Off Hiyama, Hokkaido",
+   "pref": "北海道 Hokkaido",
+   "designated": "2025-07-30",
+   "area_ha": 32159.9,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/kyougi/hokkaido_hiyama/04_docs05.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/hokkaido_hiyama_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      139.83,
+      42.603333
+     ],
+     [
+      139.793333,
+      42.603333
+     ],
+     [
+      139.793056,
+      42.577222
+     ],
+     [
+      139.809167,
+      42.501389
+     ],
+     [
+      139.813056,
+      42.449722
+     ],
+     [
+      139.781667,
+      42.3825
+     ],
+     [
+      139.744722,
+      42.356944
+     ],
+     [
+      139.733889,
+      42.315556
+     ],
+     [
+      139.77,
+      42.209167
+     ],
+     [
+      139.846944,
+      42.192222
+     ],
+     [
+      139.893056,
+      42.120278
+     ],
+     [
+      139.908611,
+      42.111667
+     ],
+     [
+      140.005,
+      42.093889
+     ],
+     [
+      140.039722,
+      42.048056
+     ],
+     [
+      140.075,
+      42.061944
+     ]
+    ],
+    [
+     [
+      140.134722,
+      41.952778
+     ],
+     [
+      140.097778,
+      41.946667
+     ],
+     [
+      140.105833,
+      41.916389
+     ],
+     [
+      140.075556,
+      41.86
+     ],
+     [
+      140.074722,
+      41.833056
+     ],
+     [
+      140.046389,
+      41.825
+     ],
+     [
+      140.033611,
+      41.809722
+     ],
+     [
+      140.036389,
+      41.776389
+     ],
+     [
+      139.975833,
+      41.701944
+     ],
+     [
+      139.959722,
+      41.640833
+     ],
+     [
+      140.000278,
+      41.641389
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N42°36′12″ E139°49′48″",
+    "(2) N42°36′12″ E139°47′36″",
+    "(3) N42°34′38″ E139°47′35″",
+    "(4) N42°30′05″ E139°48′33″",
+    "(5) N42°26′59″ E139°48′47″",
+    "(6) N42°22′57″ E139°46′54″",
+    "(7) N42°21′25″ E139°44′41″",
+    "(8) N42°18′56″ E139°44′02″",
+    "(9) N42°12′33″ E139°46′12″",
+    "(10) N42°11′32″ E139°50′49″",
+    "(11) N42°07′13″ E139°53′35″",
+    "(12) N42°06′42″ E139°54′31″",
+    "(13) N42°05′38″ E140°00′18″",
+    "(14) N42°02′53″ E140°02′23″",
+    "(15) N42°03′43″ E140°04′30″",
+    "(16) N41°57′10″ E140°08′05″",
+    "(17) N41°56′48″ E140°05′52″",
+    "(18) N41°54′59″ E140°06′21″",
+    "(19) N41°51′36″ E140°04′32″",
+    "(20) N41°49′59″ E140°04′29″",
+    "(21) N41°49′30″ E140°02′47″",
+    "(22) N41°48′35″ E140°02′01″",
+    "(23) N41°46′35″ E140°02′11″",
+    "(24) N41°42′07″ E139°58′33″",
+    "(25) N41°38′27″ E139°57′35″",
+    "(26) N41°38′29″ E140°00′01″"
+   ]
+  },
+  {
+   "name": "北海道松前沖",
+   "name_en": "Off Matsumae, Hokkaido",
+   "pref": "北海道 Hokkaido",
+   "designated": "2025-07-30",
+   "area_ha": 3710.4,
+   "area_source": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/kyougi/hokkaido_matsumae/03_data05.pdf",
+   "notice": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/dl/public/hokkaido_matsumae_pub.pdf",
+   "boundary": "shore",
+   "lines": [
+    [
+     [
+      139.995278,
+      41.628056
+     ],
+     [
+      139.984444,
+      41.630278
+     ],
+     [
+      139.973889,
+      41.63
+     ],
+     [
+      139.964722,
+      41.610278
+     ],
+     [
+      139.964444,
+      41.590278
+     ],
+     [
+      139.966389,
+      41.584722
+     ],
+     [
+      139.966389,
+      41.565278
+     ],
+     [
+      139.970278,
+      41.556111
+     ],
+     [
+      139.978333,
+      41.529722
+     ],
+     [
+      139.994167,
+      41.501667
+     ],
+     [
+      140.012222,
+      41.4575
+     ],
+     [
+      140.022778,
+      41.438611
+     ],
+     [
+      140.044167,
+      41.425278
+     ],
+     [
+      140.057222,
+      41.415278
+     ],
+     [
+      140.070833,
+      41.432778
+     ]
+    ]
+   ],
+   "dms": [
+    "(1) N41°37′41″ E139°59′43″",
+    "(2) N41°37′49″ E139°59′04″",
+    "(3) N41°37′48″ E139°58′26″",
+    "(4) N41°36′37″ E139°57′53″",
+    "(5) N41°35′25″ E139°57′52″",
+    "(6) N41°35′05″ E139°57′59″",
+    "(7) N41°33′55″ E139°57′59″",
+    "(8) N41°33′22″ E139°58′13″",
+    "(9) N41°31′47″ E139°58′42″",
+    "(10) N41°30′06″ E139°59′39″",
+    "(11) N41°27′27″ E140°00′44″",
+    "(12) N41°26′19″ E140°01′22″",
+    "(13) N41°25′31″ E140°02′39″",
+    "(14) N41°24′55″ E140°03′26″",
+    "(15) N41°25′58″ E140°04′15″"
+   ]
+  }
+ ]
+}

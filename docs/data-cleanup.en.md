@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 381 rules: 142 records removed (43,510.2 MW of them operating), 239 records fixed.
+- 388 rules: 144 records removed (44,360.2 MW of them operating), 244 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 47 | 25,374.5 | 87 |
+| China | 49 | 26,224.5 | 90 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -47,7 +47,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | United Kingdom | 7 | 3,485 | 7 |
 | United States of America | 6 | 811.6 | 6 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 13 | 1,487 | 20 |
+| Vietnam | 13 | 1,487 | 22 |
 | Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
@@ -221,6 +221,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Huaneng Peninsula North BW · 510 MW · 2024 | curated | fixed: location | Point moved to the site north-west of Sangdao island off Longkou (GEM’s exact point; the 2022 Longkou notice puts the site centre about 18 km offshore); the old one was in the sea north of Weihai, about 140 km to the east. The operating status is right: construction started in August 2023 and it reached full capacity in 2024 | [link](https://www.gem.wiki/Shandong_Bandaobei_BW_Offshore_wind_farm) |
 | Changle Waihai B · 400 MW · 2022 | curated | duplicate of “Fujian Changle 'Outer Ocean' Area B Offshore wind farm” | Changle offshore area B has no built farm: the only area-B project is Zhongmin Energy’s “Changle B (adjusted)”, whose developer was picked in a 2023 competitive allocation and which was approved on 30 November 2024 (114 MW, 7 turbines); its EPC contract was only tendered in September 2026 (at most 102 MW and 6 turbines, all on the grid by December 2027). This 400 MW record operating since 2022 is wrong; GEM already has the project as pre-construction | [link](https://baijiahao.baidu.com/s?id=1875652994034298464&wfr=spider&for=pc) |
 | Fujian Changle 'Outer Ocean' Area B Offshore wind farm · 114 MW | GEM | fixed: owner, capacity, year | The developer is Zhongmin Energy (part of Fujian Investment & Development Group; the project company Fujian Fuzhou Mintou Offshore Wind is 100% Zhongmin), not Huadian. Approved in November 2024 for 114 MW and 7 turbines; the September 2026 EPC tender is for at most 102 MW and 6 turbines, with the first turbine on the grid by October 2027 and all by December 2027 | [link](https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/zdjsxmpzhss/202412/t20241202_6587050.htm) |
+| Shandong Haiwei Peninsula South U · 450 MW · 2025 | curated | duplicate of “CGN Peninsula South U1” | "Shandong Haiwei Peninsula South U site 450 MW" is phase 2 of SPIC's Peninsula South U site (53 × 8.5 MW, 450.5 MW, south of Rushan; ne21, Sept 2024); the curated "SPIC Peninsula South U1" already holds both phases, 900 MW (phase 1 in operation 17 Nov 2023, phase 2 fully connected 26 Oct 2024; CEEIA, 31 Oct 2024), so this record is a duplicate, and its year 2025 is wrong too | [link](https://www.ne21.com/news/show-201133.html) |
+| Zhangpu Liu'ao Phase 1 · 400 MW · 2022 | curated | duplicate of “CTG Zhangpu Liu'ao Phase 2” | Straits Power (Funeng 35%, CTG 65%) has a single Liu'ao project: a 2018 broker report calls it 'Zhangzhou Liu'ao area D (402 MW)' and Zhongmin Energy's 2024 reply to the stock exchange (citing Funeng's annual report) calls it 'Zhangpu Liu'ao phase 2, 402 MW' — CTG's phase 2, started 4 Feb 2023 as 'the first offshore wind project in southern Fujian' and fully connected 27 Jun 2024; this 'phase 1, operating 2022' record is GEM's area D mislabelled, a duplicate of phase 2 | [link](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
+| Zhuanghe I · 200 MW · 2021 | curated | fixed: capacity, owner, turbines | Zhuanghe site I is China Datang's 100 MW project: 19 MingYang MySE5.2-166 (19 × 5.2 = 98.8 MW), EPC awarded in 2021 to a CEEC Northern Construction / SHIDI consortium (ne21); the stored 200 MW, blank owner and '4-6 MW class' were wrong. No quotable grid-connection date was found, so the year 2021 is unverified | [link](https://www.ne21.com/news/show-157836.html) |
+| Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm · 350 MW · 2021 | GEM | fixed: owner, turbines | Huaneng Zhuanghe IV-1 (350 MW): China News gives sites II and IV-1 together as 650 MW with 60 × 5 MW + 26 × 7.5 MW + 25 × 6.2 MW; site II is 60 × 5 MW, so IV-1 is 26 × 7.5 + 25 × 6.2 = 350 MW, fully connected 29 Dec 2021, built and run by Huaneng Liaoning Clean Energy; owner and turbines filled in | [link](https://www.chinanews.com/ny/2021/12-29/9640309.shtml) |
+| Shanghai Fengxian Haiwan Expansion Offshore wind farm · 15 MW · 2012 | GEM | fixed: capacity, owner | The Ministry of Finance renewable-energy subsidy catalogue (March 2013) lists 'Shanghai New Energy & Environmental Protection Engineering Co – Fengxian Haiwan wind farm expansion 14.75 MW'; whether it stands on the sea wall (onshore) or offshore has no quotable source, so the type is unverified | [link](http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf) |
 
 ## Colombia (COL)
 
@@ -609,6 +614,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | fixed: turbines | Thanh Hai has 28 turbines in all (EVN); phases 1 and 2 use Siemens Gamesa SG 4.5-145 (Power Technology); the model of the other phases is not found | [link](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) |
 | Tan Phu Dong 1 (Tien Giang, GEC) · 100 MW · 2023 | curated | fixed: turbines | Tan Phu Dong 1 has 24 Vestas V150-4.2 MW turbines, not Envision (project page of the logistics contractor Infinity Logistics) | [link](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) |
 | Đông Thành 1 - Thái Hòa offshore wind farm · 1 · 80 MW · 2026 | GEM | fixed: status, year | Đông Thành 1 (80 MW): in March 2026 the Vĩnh Long trade department was still seeking opinions on its investment approval, and no construction report can be found (GEM’s “construction” rests on a 2024 paid-database page); set to pre-construction, year unknown | [link](https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm) |
+| V1-1 Truong Long Hoa (Tra Vinh) · 48 MW · 2021 | curated | fixed: owner, turbines | Tra Vinh V1-1 is the Korea–Tra Vinh wind farm phase 1 (48 MW): Tra Vinh Wind Power Co. No. 1 broke ground at site V1-1 in Truong Long Hoa on 24 Apr 2019, with Climate Investor One and Korea's Samtan as the main investors (vietnamfinance); Vestas supplied 12 V150-4.2 MW turnkey (offshoreWIND.biz, Sept 2021). Sermsang invests in V1-2, so the stored owner and '12x Envision 4 MW' were wrong | [link](https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm) |
+| Hiep Thanh (Tra Vinh) · 78 MW · 2022 | curated | fixed: owner, turbines | Hiep Thanh (78 MW) has 18 Siemens Gamesa SG 5.0-145 turbines run at 4.3 MW each (offshoreWIND.biz, July 2020 and Aug 2021), not Envision; developer EcoTech Tra Vinh Renewables, with investors Janakuasa, Ecotech Vietnam, Climate Investor One and ST International | [link](https://www.offshorewind.biz/2020/07/23/siemens-gamesa-lands-biggest-nearshore-contract-in-vietnam/) |
 
 ## Åland (ALA)
 

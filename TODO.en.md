@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 7 Oct 2026: v2.29.0, sea zones layer, promo video tooling, foundation and hub height research; the next conversation starts here)
+## In progress (hand-off, 7 Oct 2026: v2.30.0, national offshore wind areas, the Hsinchu site, farm record fixes, hub height round 7; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -63,9 +63,7 @@ and move finished items to the topic lists below.
      (Lal Lal and Crookwell mappings).
 - 7 Oct 2026 (v2.29.0): three items the owner asked for:
   1. The globe's "Sea zones" layer (`tools/build_offshore_zones.py` → `data/global/offshore_zones.json`): Marine Regions v12 EEZ boundaries (agreed /
-     median and outer limits / unsettled) and 35 of Taiwan's offshore wind potential sites from Energy Administration open data 36681. The Hsinchu County
-     site (22.2 km²) has six vertex orders matching its published area and is left out; add it once a site map turns up (for example the agency's notice).
-     Japan's promotion zones and the North Sea areas are not done yet (ROADMAP phase 3).
+     median and outer limits / unsettled) and Taiwan's offshore wind potential sites from Energy Administration open data 36681 (all 36 drawn since v2.30.0).
   2. The promo video tooling is in `tools/promo/` (README in both languages); the video does not say "open source" and shows no URL. Update the figures
      on the captions before rebuilding.
   3. Foundation and hub height research (three sub-agents in parallel, every quote checked with `check_quotes.py`): all 64 unknown Chinese and
@@ -74,6 +72,29 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 7 Oct 2026 (v2.30.0): three follow-ups to the previous release:
+  1. "Sea zones" adds national offshore wind areas: Japan's 13 promotion zones (`data/global/sources/jpn_promotion_zones.json`, vertices transcribed from each
+     designation notice; zones bounded by the shore are drawn as the published lines only) and official open layers of six North Sea countries (Netherlands,
+     Germany FEP 2025, Belgium, Denmark's maritime spatial plan, Scotland's Crown Estate Scotland, Norway's NVE; `AREA_SOURCES`, downloaded by the build).
+     The Crown Estate layer for England, Wales and Northern Ireland (Wind Site Agreements) has a custom, revocable licence that bars use on a site offering
+     "the same or similar services"; the owner decided on 7 Oct 2026 to leave it out. Japan's EEZ "募集区域" (in force from April
+     2026) had no published coordinates by October 2026; the 9 promising zones have names only. Germany's FEP is revised yearly: switch to a 2026 WFS when there is
+     one; the Danish Energy Agency's own offshore wind layer (with names) blocks automated downloads.
+  2. The Hsinchu County site is, in file order, an outer ring with a hole, so all 36 sites are drawn; Taichung 1 is now drawn in file order as two parts (the
+     reordered shape was wrong).
+  3. Farm record fixes (the 2026-10-07 block of `farm_cleanup.py`): two duplicates removed (Haiwei Peninsula South U = U1 phase 2; Zhangpu Liu'ao Phase 1 = CTG's
+     Liu'ao Phase 2, with GEM's area D in `ORPHAN_OK`); Zhuanghe I, Zhuanghe IV-1, the Fengxian Haiwan expansion, Vietnam's V1-1 and Hiep Thanh corrected. After the
+     rebuild the OpenStreetMap matching dropped the Zhuanghe IV-1 and Zhuanghe V groups (counts no longer fit; fewer matches rather than wrong ones).
+     Hub height round 7: 38 of the 100 Chinese farms without a hub height were searched; written: Shengsi 2, Huaneng Guanyun, Shanwei Houhu (rotor corrected to
+     158 m) and Peninsula South U1's depth. Nine more (Lemen I hub 105 m, Fanshi II, Bozhong B, Changyi, Laizhou, the Rudong intertidal demo, Xiangshui, Jiazi II,
+     Yuhuan 1) have verified depth or rotor values but no foundation type yet (the build only accepts farms in the foundation table); they are in
+     `tools/research/cn_dims_2026-10d.json`, ready to write once a type is found. Data doubts found this round (to verify): Xiangshan Tuci may not be built (a
+     2022–23 change report says "approved 2019, not yet built"); Putian Shicheng is 26 × 7 + 3 × 6 MW (Pinghai Bay area F); turbine fields that disagree with
+     sources: Huaneng Cangnan 4 (Envision 5.2 MW), Jiazi II (50 × 8 MW), Huaneng Guanyun (46 × 6.45 + 2 × 3 MW), CTG Changyi (50 × 6 MW), Bozhong G (35 × 10 +
+     4 × 12.6 MW), Fanshi II (33 × 18 + 25 × 16.2 MW); Tianjin Nangang uses Gamesa G132-5.0 (an onshore model: check it is offshore); CTG Dafeng H8-1 (800 MW)
+     spans sites H8-1, H9, H15 and H17; Jiangjiasha H1 · 1 and H2 sit at GEM's rough point in the Yangtze estuary (correct position unknown); GEM's Liu'ao area E
+     (404 MW) point is about 130 km south of Liu'ao and its under-construction status has no source; Zhuanghe IV-2 may be built (the gap in Zhuanghe's 1,500 MW
+     built) but no direct source; whether the Fengxian Haiwan expansion stands on the sea wall or offshore is unverified.
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
@@ -89,8 +110,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 260 of 333 operating offshore farms have a known foundation type (79.9% of capacity); dimensions for 241 farms,
-  all three for 170; 381 clean-up rules; card photos for 64 farms.
+- Current figures: 259 of 331 operating offshore farms have a known foundation type (80.2% of capacity); dimensions for 242 farms,
+  all three for 170; 388 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -196,12 +217,8 @@ and move finished items to the topic lists below.
      10 south-zone monopiles only a tender and self-media), Longyuan Rudong 150 MW demo phase 1 (38 units: 17 monopiles + 21 multi-pile jackets; phase 2's
      20 unknown), Putian Shicheng (lot II: 19 pile caps of 29), Taizhou 1 (lot B: 19 monopiles + 1 pile-bucket), Changyi (25 monopiles), Danzhou CZ3 site 1
      (25 suction-bucket jackets) and Zhuanghe III (55 of 73).
-     Data problems (to handle at the next farm-layer rebuild, re-checking each): "Shandong Haiwei Peninsula South U" is confirmed to be phase 2 of
-     Peninsula South U1 (ne21 quote), so 450 MW is counted twice; Zhangpu Liu'ao Phase 1 "operating since 2022, 400 MW" is doubtful, since Liu'ao
-     Phase 2, started Feb 2023, was called "the first offshore wind project in southern Fujian" (Fujian MIIT, SASAC); Zhuanghe I is 200 MW here but
-     Datang's site I is 100 MW; Jiangjiasha H1 · 2's point is not near Jiangjiasha; Fengxian Haiwan Expansion's point is on land; Vietnam's V1-1
-     should be 12 Vestas V150-4.2 (stored as Envision) and Hiep Thanh 18 Siemens Gamesa 4.3 MW.
-   - The other Chinese offshore farms (62 of the 141 operating) and Vietnam (8 of 22, mostly intertidal; the owner's workbook only says
+     The data problems noted in this round were checked and fixed in v2.30.0 (see the v2.30.0 entry under "In progress").
+   - The other Chinese offshore farms (61 of the 139 operating) and Vietnam (8 of 22, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
@@ -474,6 +491,9 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Live wind data from more countries (assessment in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)):
       Australia NEM, Alberta and Ontario were added in Sep 2026; the UK (estimates), the Dutch NED and ENTSO-E
       (free key, stored as a GitHub secret) are still to be decided
+- [x] Whether the "Sea zones" layer should include The Crown Estate's offshore wind lease areas for England, Wales and Northern Ireland: the owner decided on 7 Oct 2026 to leave them out (Wind Site
+      Agreements, downloadable without an account; its custom The Crown Estate Open Data Licence is revocable and bars use on a site offering "the same or
+      similar services" to its portal; credit "Contains data provided by The Crown Estate…")
 - [ ] The priority order of the phases under "Next steps" in the ROADMAP
 
 ## Operations
