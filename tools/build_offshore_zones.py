@@ -203,9 +203,115 @@ def tw_sites():
     return out, skipped
 
 
-def main(eez_path=None):
+# ------------------------------------------------ 北海周邊國家的離岸風電規劃區 · offshore wind areas around the North Sea
+# 每國一個官方開放圖層（不需帳號），下載後只留風電區、簡化，授權與標示寫進 meta。英格蘭、威爾斯、北愛爾蘭（The Crown Estate）的授權
+# 有額外限制（可撤回、不得用於提供類似服務的網站），使用者決定前不放。
+# One official open layer per country (no account needed); only the wind areas are kept, simplified, with licence and credit in meta.
+# England, Wales and Northern Ireland (The Crown Estate) are left out until the owner decides on its licence, which adds restrictions.
+NS_TOL = 0.002          # 約 200 m · about 200 m
+AREA_SOURCES = [
+    dict(c='NLD', zh='荷蘭：已指定的離岸風電區', en='Netherlands: designated wind energy areas',
+         url='https://geo.rijkswaterstaat.nl/services/ogc/gdr/windenergiegebieden/ows?service=WFS&version=2.0.0&request=GetFeature'
+             '&typeNames=windenergiegebieden:aangewezen_windgebieden&outputFormat=application/json&srsName=EPSG:4326',
+         page='https://data.overheid.nl/en/dataset/46780-aangewezen-windgebieden-nwp', license='CC0 1.0',
+         credit='Rijkswaterstaat, Aangewezen windgebieden (Programma Noordzee 2022–2027)', by='Rijkswaterstaat', lic='CC0',
+         name=lambda p: (p.get('opmerking') or '').strip() or p['windgebied']),
+    dict(c='DEU', zh='德國：離岸風電區域發展計畫（FEP 2025）的區域', en='Germany: areas of the Site Development Plan (FEP 2025)',
+         url='https://gdi.bsh.de/mapservice_gs/Site_Development_Plan_2025/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature'
+             '&TYPENAMES=Site_Development_Plan_2025:Area&OUTPUTFORMAT=application/json&SRSNAME=EPSG:4326',
+         page='https://gdi.bsh.de/en/mapservice/Site-Development-Plan-in-the-German-Maritime-Area-2025-WFS',
+         license='GeoNutzV (Nutzungsbestimmungen für die Bereitstellung von Geodaten des Bundes)', credit='Quelle: © BSH 2025 (Flächenentwicklungsplan 2025), vereinfacht', by='© BSH 2025', lic='GeoNutzV',
+         keep=lambda p: p.get('status') == 'planned', name=lambda p: p['name_fep'],
+         note='Areas under review (status "under Review") are left out; the plan covers the EEZ only, not the 12 NM territorial sea.'),
+    dict(c='BEL', zh='比利時：海洋空間計畫 2026–2034 的再生能源區', en='Belgium: renewable energy zones of the 2026–2034 marine spatial plan',
+         url='https://spatial.naturalsciences.be/geoserver/imsp26/ows?service=WFS&version=2.0.0&request=GetFeature'
+             '&typeNames=imsp26:bmsp_energy_cables_pipelines_zone&outputFormat=application/json&srsName=EPSG:4326',
+         page='https://doi.org/10.24417/bmdc.be:dataset:3121', license='CC BY 4.0',
+         credit='RBINS, Belgian Marine Data Centre: 2026 Belgian MSP – Energy, cable and pipeline zones (doi:10.24417/bmdc.be:dataset:3121), simplified', by='RBINS / BMDC', lic='CC BY 4.0',
+         keep=lambda p: 'renewable energy zone' in (p.get('resource_title_en') or '').lower(),
+         name=lambda p: p['resource_title_en'].replace('Princess Elisabeth renewable energy zone: ', 'Princess Elisabeth ')
+                                              .replace('Renewable energy zone: ', '')),
+    dict(c='DNK', zh='丹麥：海洋空間計畫的再生能源發展區（含能源島）', en='Denmark: renewable energy development zones of the maritime spatial plan',
+         url='https://havplan.dk/geoserver/havplan/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=havplan:Danmarks_havplan_af_28_juni_2024'
+             "&outputFormat=application/json&srsName=EPSG:25832&CQL_FILTER=zone_type%20IN%20('Ev','Ei')",
+         crs='EPSG:25832', page='https://havplan.dk/', license='CC BY 4.0',
+         credit='Søfartsstyrelsen (Danish Maritime Authority), Danmarks Havplan af 28. juni 2024, simplified', by='Søfartsstyrelsen', lic='CC BY 4.0',
+         name=lambda p: p['feature_ref_id'],
+         note='Zones Ev (renewable energy) and Ei (renewable energy and energy islands), all Danish waters; the plan names zones by number only. '
+              'Requested in EPSG:25832 (the service rounds EPSG:4326 output to whole degrees) and converted.'),
+    dict(c='GBR', zh='英國蘇格蘭：Crown Estate Scotland 的離岸風電租約區', en='Scotland: Crown Estate Scotland offshore wind lease and option areas',
+         url='https://services3.arcgis.com/nGV4jiurzcahJ9LV/ArcGIS/rest/services/Offshore_Wind_Crown_Estate_Scotland/FeatureServer/0/query'
+             '?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+         page='https://www.arcgis.com/home/item.html?id=b9c7d514362f40ceb3fe299b47aeb8b3', license='Open Government Licence v3.0',
+         credit='Contains public sector information licensed under the Open Government Licence v3.0, from Crown Estate Scotland', by='Crown Estate Scotland', lic='OGL v3.0',
+         keep=lambda p: p.get('Property_Classification') == 'Wind Farm', name=lambda p: ' '.join(p['Property_Description'].split()),
+         note='Seabed lease and option areas of individual projects (existing farms, ScotWind and INTOG), not plan-level zones. England, Wales and '
+              'Northern Ireland (The Crown Estate) are not included: its open data licence adds restrictions, pending the owner\'s decision.'),
+    dict(c='NOR', zh='挪威：已開放申請的離岸風電區', en='Norway: areas opened for offshore wind',
+         url='https://kart.nve.no/enterprise/rest/services/Mapservices/HavvindOnline/MapServer/17/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+         page='https://kart.nve.no/enterprise/rest/services/Mapservices/HavvindOnline/MapServer', license='NLOD 2.0',
+         credit='Contains data under the Norwegian licence for Open Government data (NLOD) distributed by NVE, simplified', by='NVE', lic='NLOD 2.0',
+         name=lambda p: p['havvindomr']),
+]
+
+
+def fetch_json(url, cache, key):
+    f = Path(cache) / f'{key}.json' if cache else None
+    if f and f.exists():
+        return json.loads(f.read_text(encoding='utf-8'))
+    for attempt in range(3):          # 伺服器偶爾直接斷線，重試兩次 · servers sometimes drop the connection; retry twice
+        print(f'downloading {key} …', flush=True)
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'windfarmTaiwan'}), timeout=300) as r:
+                raw = r.read()
+            break
+        except OSError as e:
+            if attempt == 2:
+                raise
+            print(f'  {e}; retrying', flush=True)
+            time.sleep(5)
+    if f:
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_bytes(raw)
+    return json.loads(raw)
+
+
+def rings_of(geom):
+    polys = geom['coordinates'] if geom['type'] == 'MultiPolygon' else [geom['coordinates']]
+    return [ring for poly in polys for ring in poly]
+
+
+def ns_areas(cache=None):
+    from pyproj import Geod
+    geod = Geod(ellps='WGS84')
+    out, meta = [], {}
+    for src in AREA_SOURCES:
+        d = fetch_json(src['url'], cache, src['c'])
+        tr = Transformer.from_crs(src['crs'], 'EPSG:4326', always_xy=True) if src.get('crs') else None
+        n = 0
+        for f in d['features']:
+            p = f['properties']
+            if src.get('keep') and not src['keep'](p):
+                continue
+            polys, km2 = [], 0.0
+            for ring in rings_of(f['geometry']):
+                pts = [tuple(tr.transform(x, y)) if tr else (x, y) for x, y in (c[:2] for c in ring)]
+                km2 += geod.polygon_area_perimeter([x for x, y in pts], [y for x, y in pts])[0] / 1e6
+                s = dp(pts, NS_TOL)
+                if len(s) >= 4:
+                    polys.append([v for x, y in s for v in (round(x, 4), round(y, 4))])
+            if polys:
+                out.append({'c': src['c'], 'n': src['name'](p), 'km2': round(abs(km2), 1), 'polys': polys})
+                n += 1
+        meta[src['c']] = {k: src[k] for k in ('zh', 'en', 'page', 'license', 'credit', 'by', 'lic', 'note') if src.get(k)}
+        print(f'  {src["c"]}: {n} areas', flush=True)
+    return out, meta
+
+
+def main(eez_path=None, cache=None):
     eez = eez_lines(eez_path)
     tw, skipped = tw_sites()
+    areas, area_meta = ns_areas(cache)
     meta = {
         'eez': {'source': 'Flanders Marine Institute (2023). Maritime Boundaries Geodatabase: Maritime Boundaries and Exclusive Economic Zones (200NM), '
                           'version 12 (eez_boundaries). Available online at https://www.marineregions.org/',
@@ -219,11 +325,16 @@ def main(eez_path=None):
                'note': 'The 36 potential sites published in 2015 (TWD97 TM2 vertices converted to WGS84); each polygon is checked against the '
                        'published area, and sites whose vertex order cannot be determined are left out (see skipped).',
                'skipped': skipped},
+        'areas': area_meta,
         'built': time.strftime('%Y-%m-%d'), 'tool': 'tools/build_offshore_zones.py',
     }
-    OUT.write_text(json.dumps({'meta': meta, 'eez': eez, 'tw': tw}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    OUT.write_text(json.dumps({'meta': meta, 'eez': eez, 'tw': tw, 'areas': areas}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f'{OUT.relative_to(ROOT)}: {OUT.stat().st_size / 1e3:.0f} kB')
 
 
 if __name__ == '__main__':
-    main(sys.argv[1] if len(sys.argv) > 1 else None)
+    args = sys.argv[1:]
+    cache = None
+    if '--cache' in args:
+        i = args.index('--cache'); cache = args[i + 1]; del args[i:i + 2]
+    main(args[0] if args else None, cache)

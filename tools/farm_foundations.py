@@ -416,15 +416,12 @@ FOUNDATIONS = [
     F5('CHN', 'Shandong Huaneng Offshore L Area wind farm', 'jk', url='http://wap.sasac.gov.cn/n2588025/n2588124/c35402269/content.html',
        zh='42 部 12 MW 全部用四樁套管（最高 83.9 m），水深 52–56 m、離岸約 70 km，中國水深最深的商轉離岸風場；2026 年 4 月 7 日全容量併網（國資委、人民日報）',
        en='All 42 × 12 MW turbines on four-pile jackets (up to 83.9 m tall) in 52–56 m of water about 70 km offshore, China’s deepest operating offshore farm; fully connected on 7 April 2026 (SASAC, People’s Daily)'),
-    F5('CHN', 'Shandong Haiwei Peninsula South U', 'mp', url='https://www.ne21.com/news/show-201133.html',
-       zh='53 座單樁（龍源振華 2024 年 9 月全部沉樁完成；53 部 8.5 MW）',
-       en='53 monopiles (all driven by Longyuan Zhenhua by September 2024; 53 × 8.5 MW)'),
     F5('CHN', 'SPIC Peninsula South U1', 'mp', url='https://www.163.com/dy/article/K7QMU0850514R9KE.html',
        zh='106 部 8.5 MW 全部為單樁：一期 450 MW（53 部，2023 年 11 月併網）獲 2025 年度中國電力優質工程，得獎說明寫「風機基礎單樁最大樁重 1450 噸」（網易轉載）；'
-          '二期 53 部由龍源振華 2024 年 9 月全部沉樁完成（世紀新能源網）。二期在本站另有一筆「Shandong Haiwei Peninsula South U」，兩筆重複，待重建風場層時處理（見 TODO）。',
+          '二期 53 部由龍源振華 2024 年 9 月全部沉樁完成（世紀新能源網；原本另列為「Shandong Haiwei Peninsula South U」的重複紀錄已於 2026-10 刪除）。',
        en='All 106 × 8.5 MW on monopiles: phase 1 (450 MW, 53 units, connected Nov 2023) won a 2025 China Electric Power Quality Project award whose citation gives '
-          '"turbine foundation monopiles up to 1,450 t" (via 163.com); all 53 monopiles of phase 2 were driven by Longyuan Zhenhua in Sept 2024 (ne21). Phase 2 is also the '
-          'separate record "Shandong Haiwei Peninsula South U"; the duplicate is left for the next farm-layer rebuild (see TODO).'),
+          '"turbine foundation monopiles up to 1,450 t" (via 163.com); all 53 monopiles of phase 2 were driven by Longyuan Zhenhua in Sept 2024 (ne21; the duplicate record '
+          '"Shandong Haiwei Peninsula South U" for phase 2 was removed in Oct 2026).'),
     F5('CHN', 'Zhejiang Cangnan 2 Offshore wind farm', 'mp', url='https://news.qq.com/rain/a/20230419A0355R00',
        zh='華能蒼南 2 號 36 部 8.5 MW 全部為單樁（新京報 2023 年 4 月「國內在建最大單樁風電項目」報導；最長樁 118 m、2,328 t，CPEM）',
        en='Huaneng’s Cangnan 2: all 36 × 8.5 MW turbines on monopiles (Beijing News, April 2023, “China’s largest monopile wind project under construction”; longest pile 118 m and 2,328 t, CPEM)'),

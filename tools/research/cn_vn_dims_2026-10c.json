@@ -202,26 +202,6 @@
   ]
  },
  {
-  "farm": "Zhangpu Liu'ao Phase 1",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "status": "none",
-  "note_zh": "查不到，且疑為資料異常：2023 年 2 月開工的六鰲二期被稱為「閩南地區首個海上風電項目」（福建日報經省工信廳；三峽集團經國資委），表示 2022 年以前沒有已建成的六鰲一期；GEM 也把 D 區 402 MW 列為興建中。本站「2022 年、400 MW 營運中」的一期紀錄待查證，可能未建或與二期重複。",
-  "note_en": "Not found, and probably a data error: Liu’ao phase 2, started Feb 2023, was \"the first offshore wind project in southern Fujian\" (Fujian Daily via the provincial MIIT; CTG via SASAC), so no Liu’ao phase 1 was operating in 2022; GEM also lists phase D (402 MW) as under construction. The site’s \"phase 1, 400 MW, operating 2022\" record needs checking — likely unbuilt or a duplicate of phase 2.",
-  "sources": [
-   {
-    "url": "https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm",
-    "quote": "4日，闽南地区首个海上风电项目——三峡集团福建漳浦六鳌海上风电场二期项目开工建设。"
-   },
-   {
-    "url": "http://www.sasac.gov.cn/n2588025/n2588124/c27239818/content.html",
-    "quote": "漳浦六鳌海上风电场二期项目位于漳浦六鳌半岛东南侧外海海域，场址面积约22.9平方千米，是闽南外海首个风电场项目"
-   }
-  ]
- },
- {
   "farm": "CGN Shanwei Jiazi II",
   "kind": "foundation",
   "type": "unknown",

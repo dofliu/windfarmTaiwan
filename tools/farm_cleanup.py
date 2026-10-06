@@ -1496,6 +1496,54 @@ RULES = [
         'BVT Group’s Flomborn/Stetten farm is MaStR’s “BVT Windpark Flomborn/Stetten”: 5 × 3,075 kW, connected in December 2013 (SEE970097431950, SEE972537071986, '
         'SEE986793983570, SEE978061015458, SEE997638951548), at Flomborn, Alzey-Worms district; GEM’s point is about 25 km to the north-east, so it moves to the centre of these five',
         'https://www.marktstammdatenregister.de/MaStR/Datendownload', lat=49.690, lon=8.111),
+    # ------------------------------------------------ 2026-10-07 上一輪記下的資料疑點逐筆查證（出處原文以 check_quotes.py 核對）
+    dup('CHN', 'Shandong Haiwei Peninsula South U', C, ('CGN Peninsula South U1', C),
+        '「山東海衛半島南 U 場址 450MW 海上風電項目」就是國家電投半島南 U 場址項目二期（53 部 8.5 MW、450.5 MW，乳山南側海域，世紀新能源網 2024-09）；'
+        '精選紀錄「SPIC Peninsula South U1」已含兩期 900 MW（一期 2023-11-17 投運、二期 2024-10-26 全容量併網，中國電器工業協會 2024-10-31），本筆重複，年份 2025 也不對',
+        '"Shandong Haiwei Peninsula South U site 450 MW" is phase 2 of SPIC\'s Peninsula South U site (53 × 8.5 MW, 450.5 MW, south of Rushan; ne21, Sept 2024); '
+        'the curated "SPIC Peninsula South U1" already holds both phases, 900 MW (phase 1 in operation 17 Nov 2023, phase 2 fully connected 26 Oct 2024; CEEIA, 31 Oct 2024), '
+        'so this record is a duplicate, and its year 2025 is wrong too',
+        'https://www.ne21.com/news/show-201133.html'),
+    dup('CHN', "Zhangpu Liu'ao Phase 1", C, ("CTG Zhangpu Liu'ao Phase 2", C),
+        '福能持股 35%、三峽 65% 的海峽發電在六鰲只有一個項目：2018 年券商報告寫「漳州六鰲 D 區項目（40.2 萬千瓦）」，2024 年中閩能源回覆上交所（引福能年報）'
+        '寫成「漳浦六鰲二期 40.2 萬千瓦」，即 2023-02-04 開工（「閩南地區首個海上風電項目」）、2024-06-27 全容量併網的三峽漳浦六鰲二期；本筆「一期、2022 年營運」'
+        '是 GEM 的 D 區併進精選紀錄後誤標，與二期重複',
+        "Straits Power (Funeng 35%, CTG 65%) has a single Liu'ao project: a 2018 broker report calls it 'Zhangzhou Liu'ao area D (402 MW)' and Zhongmin Energy's 2024 reply "
+        "to the stock exchange (citing Funeng's annual report) calls it 'Zhangpu Liu'ao phase 2, 402 MW' — CTG's phase 2, started 4 Feb 2023 as 'the first offshore wind "
+        "project in southern Fujian' and fully connected 27 Jun 2024; this 'phase 1, operating 2022' record is GEM's area D mislabelled, a duplicate of phase 2",
+        'https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf'),
+    fix('CHN', 'Zhuanghe I', C,
+        '莊河場址 I 是大唐集團的 100 MW 項目：19 部明陽 MySE5.2-166（19 × 5.2 = 98.8 MW），EPC 於 2021 年由中國能建北方建投與上海院聯合體得標（世紀新能源網）；'
+        '原寫 200 MW、業主空白、「4-6 MW class」都不對。併網年份沒有可引用的出處，2021 年待查證',
+        "Zhuanghe site I is China Datang's 100 MW project: 19 MingYang MySE5.2-166 (19 × 5.2 = 98.8 MW), EPC awarded in 2021 to a CEEC Northern Construction / SHIDI consortium (ne21); "
+        "the stored 200 MW, blank owner and '4-6 MW class' were wrong. No quotable grid-connection date was found, so the year 2021 is unverified",
+        'https://www.ne21.com/news/show-157836.html', mw=98.8, owner='China Datang Corporation', turbine='19x MingYang MySE5.2-166'),
+    fix('CHN', 'Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm', G,
+        '華能莊河 IV1（350 MW）：中新網寫 II、IV1 兩場共 650 MW、60 部 5 MW＋26 部 7.5 MW＋25 部 6.2 MW，II 場是 60 部 5 MW，所以 IV1 為 26 × 7.5＋25 × 6.2 = 350 MW，'
+        '2021-12-29 全容量併網，由華能遼寧清潔能源建設運維；補上業主與機組',
+        'Huaneng Zhuanghe IV-1 (350 MW): China News gives sites II and IV-1 together as 650 MW with 60 × 5 MW + 26 × 7.5 MW + 25 × 6.2 MW; site II is 60 × 5 MW, so IV-1 is '
+        '26 × 7.5 + 25 × 6.2 = 350 MW, fully connected 29 Dec 2021, built and run by Huaneng Liaoning Clean Energy; owner and turbines filled in',
+        'https://www.chinanews.com/ny/2021/12-29/9640309.shtml', owner='Huaneng Liaoning Clean Energy Co Ltd', turbine='26x 7.5 MW + 25x 6.2 MW'),
+    fix('CHN', 'Shanghai Fengxian Haiwan Expansion Offshore wind farm', G,
+        '財政部 2013-03 可再生能源電價附加補助目錄：「上海新能源環保工程公司奉賢海灣風電場擴容 14.75MW 發電工程」，容量 14.75 MW；是海堤上的陸域還是海上沒有可引用的出處，型別待查證',
+        "The Ministry of Finance renewable-energy subsidy catalogue (March 2013) lists 'Shanghai New Energy & Environmental Protection Engineering Co – Fengxian Haiwan wind farm "
+        "expansion 14.75 MW'; whether it stands on the sea wall (onshore) or offshore has no quotable source, so the type is unverified",
+        'http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf', mw=14.75, owner='Shanghai New Energy and Environmental Protection Engineering Co Ltd'),
+    fix('VNM', 'V1-1 Truong Long Hoa (Tra Vinh)', C,
+        '茶榮 V1-1 就是「韓國－茶榮」風場一期（48 MW）：2019-04-24 由茶榮 1 號風電公司在長隆和社 V1-1 位置動工，主要出資者 Climate Investor One 與韓國 Samtan（vietnamfinance）；'
+        'Vestas 統包 12 部 V150-4.2 MW（offshoreWIND.biz 2021-09）。Sermsang 是 V1-2 的投資人，原寫的業主與「12x Envision 4 MW」都不對',
+        "Tra Vinh V1-1 is the Korea–Tra Vinh wind farm phase 1 (48 MW): Tra Vinh Wind Power Co. No. 1 broke ground at site V1-1 in Truong Long Hoa on 24 Apr 2019, with Climate "
+        "Investor One and Korea's Samtan as the main investors (vietnamfinance); Vestas supplied 12 V150-4.2 MW turnkey (offshoreWIND.biz, Sept 2021). Sermsang invests in V1-2, "
+        "so the stored owner and '12x Envision 4 MW' were wrong",
+        'https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm',
+        owner='Tra Vinh Wind Power Co Ltd No. 1 (Climate Investor One; Samtan)', turbine='12x Vestas V150-4.2'),
+    fix('VNM', 'Hiep Thanh (Tra Vinh)', C,
+        '協成風場（78 MW）是 18 部西門子歌美颯 SG 5.0-145、每部以 4.3 MW 運轉（offshoreWIND.biz 2020-07 與 2021-08），不是遠景；開發商 EcoTech Tra Vinh Renewables，'
+        '投資人 Janakuasa、Ecotech Vietnam、Climate Investor One 與 ST International',
+        'Hiep Thanh (78 MW) has 18 Siemens Gamesa SG 5.0-145 turbines run at 4.3 MW each (offshoreWIND.biz, July 2020 and Aug 2021), not Envision; developer EcoTech Tra Vinh '
+        'Renewables, with investors Janakuasa, Ecotech Vietnam, Climate Investor One and ST International',
+        'https://www.offshorewind.biz/2020/07/23/siemens-gamesa-lands-biggest-nearshore-contract-in-vietnam/',
+        owner='EcoTech Tra Vinh Renewables JSC (Janakuasa; Ecotech Vietnam; Climate Investor One; ST International)', turbine='18x Siemens Gamesa SG 5.0-145 (4.3 MW rating)'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1506,6 +1554,9 @@ ORPHAN_OK = {
         ('蒼南 1 號由精選的「Huarun Cangnan 1 / CR Power」（400 MW）代表', 'Cangnan 1 is represented by the curated “Huarun Cangnan 1 / CR Power” (400 MW)'),
     ('CHN', 'Xinjiang Mori 2500 MW wind farm complex'):
         ('莫里 2,500 MW 是整區彙總，GEM 另逐場列出同地名的各座風場', 'The Mori 2,500 MW complex is an area total; GEM also lists the individual Mori farms'),
+    ('CHN', "Fujian Zhangpu Liu'Ao Offshore wind farm"):
+        ('GEM 的六鰲 D 區（402 MW）就是三峽漳浦六鰲二期，由精選的「CTG Zhangpu Liu\'ao Phase 2」（400 MW，2024 年）代表（中國證券報 2024-06 中閩能源回覆上交所）',
+         "GEM's Liu'ao area D (402 MW) is CTG's Zhangpu Liu'ao phase 2, represented by the curated “CTG Zhangpu Liu'ao Phase 2” (400 MW, 2024; Zhongmin Energy's reply to the SSE, China Securities Journal, June 2024)"),
 }
 
 # 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
