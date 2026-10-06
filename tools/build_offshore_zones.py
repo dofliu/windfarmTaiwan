@@ -14,8 +14,8 @@ Marine Regions 請使用者不要在別處提供原始資料下載，所以這�
 2015 年公告的 36 處），存在 data/global/sources/twn_offshore_potential_sites_36681.csv。檔案只列各點的 TWD97 二度分帶座標，
 點的順序不一定沿著邊界，所以每一處都用公告面積核對：
   1. 檔案順序圍成的多邊形（不自我相交）面積與公告相差 3% 以內 → 用檔案順序；
-  2. 否則（10 點以內）試所有順序，只有一種不自我相交、面積相差 1% 以內時才用；
-  3. 否則試著從中間切成兩塊（各自依檔案順序），兩塊面積和相差 1% 以內才用；
+  2. 否則試著依檔案順序從中間切成兩個環：兩塊面積和、或外環扣掉完全在其內的內環（挖空）的面積與公告相差 1% 以內才用；
+  3. 否則（10 點以內）試所有順序，只有一種不自我相交、面積相差 1% 以內時才用；
   4. 都不行就不畫，理由寫進輸出檔的 meta（不猜）。
 
 EEZ: the eez_boundaries layer of the Flanders Marine Institute's (VLIZ) Maritime Boundaries Geodatabase v12 (2023), CC BY 4.0, downloaded
@@ -25,8 +25,9 @@ court ruling, joint regime; median lines and outer limits; unsettled or disputed
 The lines have no legal value and imply no position on any disputed area.
 Taiwan potential sites: Energy Administration open data 36681 (Open Government Data Licence v1; the 36 sites published in 2015), saved in
 data/global/sources/. The file lists TWD97 TM2 vertices in no guaranteed order, so each site is checked against its published area:
-file order if it forms a simple polygon within 3%; otherwise a vertex order only when it is the unique simple polygon within 1%
-(up to 10 vertices); otherwise two parts split in file order whose areas add up within 1%; otherwise the site is left out with the reason.
+file order if it forms a simple polygon within 3%; otherwise two rings split in file order, either two parts whose areas add up or an outer
+ring minus a hole lying wholly inside it, within 1%; otherwise a vertex order only when it is the unique simple polygon within 1% (up to 10
+vertices); otherwise the site is left out with the reason.
 """
 import csv
 import collections
@@ -130,10 +131,37 @@ def simple(p):
     return True
 
 
+def inside(pt, poly):
+    x, y = pt
+    c = False
+    for i in range(len(poly)):
+        (x1, y1), (x2, y2) = poly[i], poly[(i + 1) % len(poly)]
+        if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+            c = not c
+    return c
+
+
+def file_order_parts(pts, A):
+    """依檔案順序切成兩個環：兩塊相加，或外環扣掉完全在裡面的內環（挖空），面積相差 1% 以內
+    two rings in file order: two parts whose areas add up, or an outer ring minus a hole lying wholly inside it, within 1%"""
+    for k in range(3, len(pts) - 2):
+        a, b = pts[:k], pts[k:]
+        if not (simple(a) and simple(b)):
+            continue
+        if abs(area(a) + area(b) - A) <= 0.01 * A:
+            return [a, b], f'two parts ({k} + {len(pts) - k} vertices)'
+        if all(inside(q, a) for q in b) and abs(area(a) - area(b) - A) <= 0.01 * A:
+            return [a, b], f'outer ring ({k} vertices) with a hole ({len(pts) - k} vertices)'
+    return None, None
+
+
 def site_polys(pts, A):
     """回傳（多邊形清單, 方法）或（None, 理由）· returns (polygons, method) or (None, reason)"""
     if simple(pts) and abs(area(pts) - A) <= 0.03 * A:
         return [pts], 'file order'
+    polys, how = file_order_parts(pts, A)
+    if polys:
+        return polys, how
     if len(pts) <= 10:
         hits = []
         for perm in itertools.permutations(range(1, len(pts))):
@@ -146,10 +174,6 @@ def site_polys(pts, A):
             return hits, 'unique vertex order matching the published area'
         if len(hits) > 1:
             return None, f'{len(hits)} vertex orders match the published area; order cannot be determined'
-    for k in range(3, len(pts) - 2):
-        a, b = pts[:k], pts[k:]
-        if simple(a) and simple(b) and abs(area(a) + area(b) - A) <= 0.01 * A:
-            return [a, b], f'two parts ({k} + {len(pts) - k} vertices)'
     return None, 'no vertex order or split matches the published area'
 
 
