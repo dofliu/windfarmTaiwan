@@ -1389,21 +1389,6 @@
   ]
  },
  {
-  "farm": "Hiep Thanh (Tra Vinh)",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 18,
-  "note_zh": "協成 78 MW、18 座（Ecotech／PECC3 開工資料）：只查到時程與投資資訊，未找到基礎型式出處。",
-  "note_en": "Hiep Thanh 78 MW, 18 turbines (Ecotech / PECC3 ground-breaking material): only schedule and investment information found; no foundation-type source.",
-  "anomalies": "18 座取自搜尋摘要，未抓到原文。",
-  "sources": [
-   {
-    "url": "https://ecoinvest.vn/vi/trang-du-an/du-an-nha-may-dien-gio-hiep-thanh-78mw.html",
-    "quote": "Tháng 3-6/2021: Hoàn thành móng trụ gió đầu tiên."
-   }
-  ]
- },
- {
   "farm": "Tan Phu Dong 2 (Tien Giang, GEC)",
   "type": "unknown",
   "parts": null,

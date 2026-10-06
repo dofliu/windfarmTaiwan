@@ -26,6 +26,11 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
     published area; the Hsinchu County site (22.2 km²) has six vertex orders that match its area, so its shape cannot be determined and it is left out.
   - New tool `tools/build_offshore_zones.py`; the raw potential-site file is kept in `data/global/sources/`. Marine Regions' raw data is not kept in the repo (it asks
     users not to offer its data for download elsewhere).
+- Offshore farm research (every quote checked with `check_quotes.py`):
+  - Foundations: Hiep Thanh in Vietnam, 18 monopiles (14 of Vietnam's 22 operating offshore farms now known).
+  - Dimensions: SPIC Peninsula South V (completion acceptance report: hub 117–130 m, rotor 225 m, depth 18–28 m) and Haiyou Anlan (hub about 150 m,
+    rotor 260 m, depth 136 m), plus rotor diameter or depth for EFGL, EolMed, Goto, Kitakyushu Hibikinada and Huaneng Peninsula South 4. Planned values
+    and values for only some units (Kentish Flats Extension, Seonam, Shenquan II and others) are not used.
 - The promo video tooling is now in the repo: `tools/promo/` (globe capture, designed scenes, storyboards and the assembly steps; see its README). The videos
   and intermediate files stay out of git.
 
