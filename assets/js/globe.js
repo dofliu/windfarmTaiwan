@@ -3472,7 +3472,7 @@ function buildZones() {
   const groups = [[], [], []]; ZONES.eez.forEach(([g, r]) => groups[g].push(r));
   const sites = [], close = p => p.concat(p.slice(0, 2));      // 補上閉合的最後一段
   ZONES.tw.forEach(t => t.polys.forEach(p => sites.push(close(p))));
-  (ZONES.areas || []).forEach(a => a.polys.forEach(p => sites.push(close(p))));
+  (ZONES.areas || []).forEach(a => a.polys.forEach(p => sites.push(a.open ? p : close(p))));     // open：以陸岸為界，只畫公告的連線
   const make = flat => { const g = new THREE.Group();
     g.add(zoneLines(flat, groups[0], ZONE_HEX.eez, 0.85), zoneLines(flat, groups[1], ZONE_HEX.eez, 0.45), zoneLines(flat, groups[2], ZONE_HEX.eez, 0.9, true),
       zoneLines(flat, sites, ZONE_HEX.site, 0.95));
@@ -3496,7 +3496,7 @@ function zoneLabels(alt, cands) {
   });
   (ZONES.areas || []).forEach((a, i) => {
     const pos = posAt(a._c[0], a._c[1], 0, new THREE.Vector3()).applyMatrix4(surfaceRoot.matrixWorld);
-    cands.push({ cat: 'z', pri: 3e7 + a.km2 * 1e3, pos, name: a.n, val: (byIso[a.c] ? cname(byIso[a.c]) : a.c) + ' · ' + T('zArea') + ' · ' + Math.round(a.km2).toLocaleString() + ' km²', cls: 'zone', key: 'za' + i });
+    cands.push({ cat: 'z', pri: 3e7 + a.km2 * 1e3, pos, name: lang === 'en' && a.en ? a.en : a.n, val: (byIso[a.c] ? cname(byIso[a.c]) : a.c) + ' · ' + T('zArea') + ' · ' + Math.round(a.km2).toLocaleString() + ' km²', cls: 'zone', key: 'za' + i });
   });
 }
 function renderZoneLegend() {
@@ -3514,11 +3514,12 @@ function renderZoneLegend() {
 }
 /* 「資料來源」視窗裡各國離岸風電規劃區的出處（與 tools/build_offshore_zones.py 的 AREA_SOURCES 一致） */
 const ZONE_AREA_SRC = [
+  ['JPN', 'https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/kassei_sangyou.html', '出典：資源エネルギー庁ウェブサイトの促進区域指定の公告を加工して作成', 'PDL1.0', '再生能源海域利用法的促進區域（13 處，點位取自各區指定的公告）；以「點位連線與陸岸」為界的 10 處只畫公告的連線、不自行補海岸線，公告面積不含港區、漁港與海岸保全區', 'promotion zones under the Act on Promoting the Utilization of Sea Areas (13, points from each designation notice); the 10 zones bounded by "the lines through the points and the shore" are drawn as the published lines only, without a self-made coastline, and published areas exclude port, fishery port and coastal protection areas'],
   ['NLD', 'https://data.overheid.nl/en/dataset/46780-aangewezen-windgebieden-nwp', 'Rijkswaterstaat, Aangewezen windgebieden (Programma Noordzee 2022–2027)', 'CC0 1.0', '已指定的離岸風電區', 'designated wind energy areas'],
   ['DEU', 'https://gdi.bsh.de/en/mapservice/Site-Development-Plan-in-the-German-Maritime-Area-2025-WFS', 'Quelle: © BSH 2025 (Flächenentwicklungsplan 2025), vereinfacht', 'GeoNutzV', '離岸風電區域發展計畫（FEP 2025）的區域，只限專屬經濟區、不含審查中的區域', 'areas of the Site Development Plan (FEP 2025), EEZ only, areas under review left out'],
   ['BEL', 'https://doi.org/10.24417/bmdc.be:dataset:3121', 'RBINS, Belgian Marine Data Centre: 2026 Belgian MSP – Energy, cable and pipeline zones (doi:10.24417/bmdc.be:dataset:3121)', 'CC BY 4.0', '海洋空間計畫 2026–2034 的再生能源區（含伊莉莎白公主區）', 'renewable energy zones of the 2026–2034 marine spatial plan (including the Princess Elisabeth Zone)'],
   ['DNK', 'https://havplan.dk/', 'Søfartsstyrelsen (Danish Maritime Authority), Danmarks Havplan af 28. juni 2024', 'CC BY 4.0', '海洋空間計畫的再生能源發展區（Ev）與能源島區（Ei），只有編號沒有名稱', 'renewable energy (Ev) and energy island (Ei) development zones of the maritime spatial plan, numbered only'],
-  ['GBR', 'https://www.arcgis.com/home/item.html?id=b9c7d514362f40ceb3fe299b47aeb8b3', 'Contains public sector information licensed under the Open Government Licence v3.0, from Crown Estate Scotland', 'OGL v3.0', '蘇格蘭：各風場的海床租約與選擇權範圍（不是計畫層級的區域）；英格蘭、威爾斯與北愛爾蘭的 The Crown Estate 資料授權另有限制，暫不收錄', 'Scotland: seabed lease and option areas of individual projects (not plan-level zones); England, Wales and Northern Ireland (The Crown Estate) are not included because its licence adds restrictions'],
+  ['GBR', 'https://www.arcgis.com/home/item.html?id=b9c7d514362f40ceb3fe299b47aeb8b3', 'Contains public sector information licensed under the Open Government Licence v3.0, from Crown Estate Scotland', 'OGL v3.0', '只有蘇格蘭（各風場的海床租約與選擇權範圍，不是計畫層級的區域）；英格蘭、威爾斯與北愛爾蘭的 The Crown Estate 資料授權另有限制，暫不收錄', 'Scotland only (seabed lease and option areas of individual projects, not plan-level zones); England, Wales and Northern Ireland (The Crown Estate) are not included because its licence adds restrictions'],
   ['NOR', 'https://kart.nve.no/enterprise/rest/services/Mapservices/HavvindOnline/MapServer', 'Contains data under the Norwegian licence for Open Government data (NLOD) distributed by NVE', 'NLOD 2.0', '已開放申請的離岸風電區（Utsira Nord、Sørlige Nordsjø II）', 'areas opened for offshore wind (Utsira Nord, Sørlige Nordsjø II)'],
 ];
 function zoneAreaSources(zh) {

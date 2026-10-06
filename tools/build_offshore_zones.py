@@ -281,6 +281,40 @@ def rings_of(geom):
     return [ring for poly in polys for ring in poly]
 
 
+JP_SRC = ROOT / 'data/global/sources/jpn_promotion_zones.json'
+
+
+def jp_zones():
+    """日本的促進區域：依官方公告的點位（data/global/sources/jpn_promotion_zones.json）。點位圍成的直接閉合；以「點位連線與陸岸」為界的
+    只畫公告的連線、不自行補海岸線（open）。閉合的用公告面積核對：港區、漁港與海岸保全區不在公告面積內，點位圍成的面積可比公告大 10% 以內、小 1% 以內。
+    Japan's promotion zones from the official notices. Closed zones are drawn closed; zones bounded by "the lines through the points and the shore"
+    are drawn as the published lines only (open), without a self-made coastline. Closed zones are checked against the published area (which excludes ports,
+    fishery ports and coastal protection areas): the drawn area may be up to 10% larger or 1% smaller."""
+    from pyproj import Geod
+    geod = Geod(ellps='WGS84')
+    d = json.loads(JP_SRC.read_text(encoding='utf-8'))
+    out = []
+    for z in d['zones']:
+        closed = z['boundary'] == 'closed'
+        if closed:
+            ring = z['lines'][0]
+            km2 = abs(geod.polygon_area_perimeter([x for x, y in ring], [y for x, y in ring])[0]) / 1e6
+            A = z['area_ha'] / 100            # 公告面積扣掉港區等，只會比點位圍成的小 · exclusions only make the published area smaller
+            if not -0.01 * A <= km2 - A <= 0.10 * A:
+                raise SystemExit(f'{z["name"]}: computed {km2:.2f} km² vs published {z["area_ha"] / 100:.2f} km²')
+        a = {'c': 'JPN', 'n': z['name'], 'en': z['name_en'], 'km2': round(z['area_ha'] / 100, 1),
+             'polys': [[v for x, y in line for v in (round(x, 5), round(y, 5))] for line in z['lines']]}
+        if not closed:
+            a['open'] = 1
+        out.append(a)
+    meta = {'zh': '日本：再生能源海域利用法的促進區域', 'en': 'Japan: promotion zones under the Act on Promoting the Utilization of Sea Areas',
+            'page': d['meta']['page'], 'license': d['meta']['license'], 'by': '資源エネルギー庁', 'lic': 'PDL1.0',
+            'credit': '出典：資源エネルギー庁ウェブサイト（' + d['meta']['page'] + '）の促進区域指定の公告を加工して作成',
+            'note': 'Zones bounded by the shore are drawn as the published lines only; published areas exclude port, fishery port and coastal protection areas.'}
+    print(f'  JPN: {len(out)} promotion zones', flush=True)
+    return out, meta
+
+
 def ns_areas(cache=None):
     from pyproj import Geod
     geod = Geod(ellps='WGS84')
@@ -311,7 +345,9 @@ def ns_areas(cache=None):
 def main(eez_path=None, cache=None):
     eez = eez_lines(eez_path)
     tw, skipped = tw_sites()
-    areas, area_meta = ns_areas(cache)
+    jp, jp_meta = jp_zones()
+    ns, area_meta = ns_areas(cache)
+    areas, area_meta = jp + ns, {'JPN': jp_meta, **area_meta}
     meta = {
         'eez': {'source': 'Flanders Marine Institute (2023). Maritime Boundaries Geodatabase: Maritime Boundaries and Exclusive Economic Zones (200NM), '
                           'version 12 (eez_boundaries). Available online at https://www.marineregions.org/',

@@ -15,6 +15,33 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.0 — 2026-10-07
+
+- The globe's "Sea zones" layer adds national offshore wind areas (pink outlines like Taiwan's potential sites; names and areas show up close):
+  - Japan: the 13 promotion zones under the Act on Promoting the Utilization of Sea Areas (designation notices of the Agency for Natural Resources and Energy,
+    Public Data License PDL1.0). The 3 zones enclosed by their points are drawn closed; the 10 bounded by "the lines through the points and the shore" are drawn as
+    the published lines only, without a self-made coastline. Vertices are transcribed from the notices' degrees, minutes and seconds and checked point by point
+    against the draft notices.
+  - Around the North Sea: the Netherlands' designated wind areas (Rijkswaterstaat, CC0), Germany's Site Development Plan FEP 2025 (© BSH, GeoNutzV), Belgium's
+    renewable energy zones of the 2026–2034 marine spatial plan (RBINS/BMDC, CC BY 4.0), Denmark's renewable energy and energy island zones of its maritime spatial
+    plan (Søfartsstyrelsen, CC BY 4.0), Crown Estate Scotland's wind farm lease areas (OGL v3.0) and Norway's opened offshore wind areas (NVE, NLOD). All are
+    official open layers needing no account, cut to the wind areas and simplified to about 200 m. England, Wales and Northern Ireland (The Crown Estate) are not
+    included for now because its licence adds restrictions.
+  - The legend and the sources dialog list each country's source and licence.
+- All 36 Taiwanese potential sites are now drawn: the Hsinchu County site is, in file order, an outer ring with a hole (22.17 km², published 22.2 km²); Taichung 1
+  is now drawn in file order as two parts (36.82 km², published 36.8 km²; the reordered shape with a long spike drawn before was wrong). The build tries the
+  file-order readings first and reorders vertices only as a last resort.
+- Farm record fixes (every quote checked with `check_quotes.py`; farm layer, foundations and OpenStreetMap turbine matching rebuilt):
+  - Two duplicates removed: "Shandong Haiwei Peninsula South U" is phase 2 of SPIC Peninsula South U1 (450 MW counted twice), and "Zhangpu Liu'ao Phase 1" was
+    really CTG's Zhangpu Liu'ao Phase 2 (area D, fully connected in 2024); no phase 1 was operating in 2022.
+  - Zhuanghe I 200 → 98.8 MW (Datang, 19 MingYang MySE5.2-166); Zhuanghe IV-1 gains owner and turbines; Fengxian Haiwan expansion 15 → 14.75 MW; Vietnam's
+    Tra Vinh V1-1 owner and turbines (12 Vestas V150-4.2, not Envision) and Hiep Thanh's turbines (18 Siemens Gamesa SG 5.0-145 run at 4.3 MW).
+  - The OpenStreetMap turbine groups matched to Zhuanghe IV-1 and Zhuanghe V no longer fit the corrected turbine counts and are no longer drawn (fewer matches
+    rather than wrong ones).
+- Dimensions: Shengsi 2 hub 104 m and depth 9.2–12.2 m, Huaneng Guanyun hub 92–105.5 m (from the CGN Shengsi 7 EIA, which uses these two built farms as
+  comparisons), CGN Shanwei Houhu hub 105 m and rotor corrected to 158 m (post-construction sea-use adjustment report), SPIC Peninsula South U1 depth 25–31 m.
+  Nine more farms have verified depth or rotor values but no foundation type yet; they are kept in `tools/research/`.
+
 ## v2.29.0 — 2026-10-07
 
 - The globe has a new "Sea zones" layer (the toolbar's "Sea zones" button, off by default; URL parameter `zones=1`):

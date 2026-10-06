@@ -110,8 +110,9 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
     refreshed every 6 hours; it is today's weather and does not follow the timeline
   - **Sea zones** (toolbar button, off by default; `zones=1` in the URL): exclusive economic zone boundaries (Marine Regions, drawn three ways: agreed or ruled,
-    median lines and 200 NM limits, unsettled or disputed) and Taiwan's offshore wind potential sites (the 36 sites the Energy Administration published in 2015,
-    35 drawn, numbered with their area when zoomed in); the lines have no legal value and imply no position on disputed waters
+    median lines and 200 NM limits, unsettled or disputed) and national offshore wind areas: Taiwan's potential sites (the 36 sites the Energy
+    Administration published in 2015), Japan's promotion zones (13) and the planned or leased areas of the North Sea countries (Netherlands, Germany, Belgium,
+    Denmark, Scotland, Norway), named with their area when zoomed in; the lines have no legal value and imply no position on disputed waters
   - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
     `#/global?f=Hai%20Long%202%20%26%203`)
   - **Global farm search and filters**: "🔍 Search" in the toolbar or the / key searches all ~23,000 farms by name,
@@ -229,9 +230,11 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   the Australian source aggregate is `data/global/sources/aemo_wind_monthly.json` (made by `python3 tools/au_output.py fetch` from AEMO's monthly files)
 - `data/global/turbine_output.json` — position, specs and measured yearly output of about 1,800 individually metered Danish turbines (Danish Energy Agency;
   production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
-- `data/global/offshore_zones.json` — the sea-zones layer: EEZ boundaries (Marine Regions v12, CC BY 4.0, simplified to about 2 km for display) and Taiwan's offshore
-  wind potential sites (Energy Administration open data 36681), built by `tools/build_offshore_zones.py` (the site coordinates are kept in
-  `data/global/sources/twn_offshore_potential_sites_36681.csv`) and loaded when "Sea zones" is turned on
+- `data/global/offshore_zones.json` — the sea-zones layer: EEZ boundaries (Marine Regions v12, CC BY 4.0, simplified to about 2 km for display) Taiwan's offshore
+  wind potential sites (Energy Administration open data 36681), Japan's promotion zones and the North Sea countries' offshore wind areas, built by
+  `tools/build_offshore_zones.py` (the Taiwanese site coordinates are kept in `data/global/sources/twn_offshore_potential_sites_36681.csv`, the Japanese
+  notices' vertices in `data/global/sources/jpn_promotion_zones.json`, and the North Sea layers are downloaded from official open services by the build) and loaded
+  when "Sea zones" is turned on
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
   turbines; Germany now uses MaStR), downloaded by
   `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
@@ -519,7 +522,14 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Wind speed basemap: Global Wind Atlas 3 (DTU Wind Energy / World Bank Group, CC BY 4.0)
 - Sea zones: EEZ boundaries from the Flanders Marine Institute (VLIZ) [Marine Regions](https://www.marineregions.org/) Maritime Boundaries Geodatabase v12
   (2023, CC BY 4.0, simplified, no legal value); Taiwan's offshore wind potential sites from the Energy Administration's
-  [potential sites dataset](https://data.gov.tw/dataset/36681) (Open Government Data License)
+  [potential sites dataset](https://data.gov.tw/dataset/36681) (Open Government Data License);
+  Japan's promotion zones: 出典：[資源エネルギー庁ウェブサイト](https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/kassei_sangyou.html)の促進区域指定の公告を加工して作成 (Public Data License PDL1.0);
+  North Sea offshore wind areas (all simplified): Netherlands [Rijkswaterstaat, Aangewezen windgebieden](https://data.overheid.nl/en/dataset/46780-aangewezen-windgebieden-nwp) (CC0),
+  Germany [Quelle: © BSH 2025 (Flächenentwicklungsplan 2025), vereinfacht](https://gdi.bsh.de/en/mapservice/Site-Development-Plan-in-the-German-Maritime-Area-2025-WFS) (GeoNutzV),
+  Belgium [RBINS, Belgian Marine Data Centre: 2026 Belgian MSP – Energy, cable and pipeline zones](https://doi.org/10.24417/bmdc.be:dataset:3121) (CC BY 4.0),
+  Denmark [Søfartsstyrelsen, Danmarks Havplan af 28. juni 2024](https://havplan.dk/) (CC BY 4.0),
+  Scotland [Contains public sector information licensed under the Open Government Licence v3.0, from Crown Estate Scotland](https://www.arcgis.com/home/item.html?id=b9c7d514362f40ceb3fe299b47aeb8b3),
+  Norway [Contains data under the Norwegian licence for Open Government data (NLOD) distributed by NVE](https://kart.nve.no/enterprise/rest/services/Mapservices/HavvindOnline/MapServer)
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
   (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
 - Wind now: NOAA/NCEP Global Forecast System (GFS) 10 m wind (public domain), refreshed every 6 hours by a schedule

@@ -80,8 +80,8 @@
     另有「**台灣・即時取樣**」（網址 `out=TWS.cf`，台灣即時頁「數據」分頁也有入口）：用每 2 小時一次的台電即時資料取樣，比較含民營風場在內各併網點的平均出力與容量因數（近 30／90 天或全部），
     是取樣估計、不是官方年發電量，兩種資料不混排；風場卡片也列出近 90 天的取樣結果
   - **此刻的風**（工具列按鈕，預設關閉；網址 `flow=1`）：NOAA GFS 最新一次預報的離地 10 m 風場畫成流動的粒子，每 6 小時更新；是此刻的天氣，不隨時間軸變動
-  - **海域**（工具列按鈕，預設關閉；網址 `zones=1`）：專屬經濟區界線（Marine Regions，協議或判決、中線與 200 浬外界、未定或有爭議分三種畫法）與台灣離岸風電潛力場址（能源署 2015 年公告的 36 處，畫出 35 處，拉近時標出編號與面積）；
-    界線不具法律效力，也不代表本站對爭議海域的立場
+  - **海域**（工具列按鈕，預設關閉；網址 `zones=1`）：專屬經濟區界線（Marine Regions，協議或判決、中線與 200 浬外界、未定或有爭議分三種畫法）與各國離岸風電規劃區：台灣潛力場址（能源署 2015 年公告的 36 處）、日本促進區域（13 處）、
+    北海周邊國家（荷蘭、德國、比利時、丹麥、蘇格蘭、挪威）的規劃區或租約區，拉近時標出名稱與面積；界線不具法律效力，也不代表本站對爭議海域的立場
   - 導覽模式與四個故事導覽（`#/global?tour=tw`／`eu`／`cn`／`fl`）、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
   - **全球風場搜尋與篩選**：工具列「🔍 搜尋」或按 / 鍵，依名稱、中文名、開發商、機型、國名搜尋全部約 2.3 萬座風場，
     依狀態、類型（陸域／離岸／浮動式）、容量、年份篩選；範圍跟著「範圍」選單（全世界、洲或國家）。有條件時地圖只顯示符合的風場
@@ -166,8 +166,9 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   澳洲的來源彙整檔是 `data/global/sources/aemo_wind_monthly.json`（`python3 tools/au_output.py fetch` 下載 AEMO 月檔後產生）
 - `data/global/turbine_output.json` — 丹麥單獨計量的約 1,800 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
-- `data/global/offshore_zones.json` — 海域圖層：專屬經濟區界線（Marine Regions 第 12 版，CC BY 4.0，簡化到約 2 km 供顯示）與台灣離岸風電潛力場址（能源署開放資料 36681），
-  由 `tools/build_offshore_zones.py` 產生（潛力場址原始座標存在 `data/global/sources/twn_offshore_potential_sites_36681.csv`），開啟「海域」時才載入
+- `data/global/offshore_zones.json` — 海域圖層：專屬經濟區界線（Marine Regions 第 12 版，CC BY 4.0，簡化到約 2 km 供顯示）、台灣離岸風電潛力場址（能源署開放資料 36681）、
+  日本促進區域與北海周邊國家的離岸風電規劃區，由 `tools/build_offshore_zones.py` 產生（潛力場址原始座標存在 `data/global/sources/twn_offshore_potential_sites_36681.csv`，
+  日本促進區域的公告點位存在 `data/global/sources/jpn_promotion_zones.json`，北海各國由建置程式從官方開放圖層下載），開啟「海域」時才載入
 - `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部，德國改用 MaStR），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
   **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
@@ -380,7 +381,14 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
 - 平均風速底圖：Global Wind Atlas 3（DTU 丹麥技術大學、世界銀行集團，CC BY 4.0）
 - 海域：專屬經濟區界線取自 Flanders Marine Institute（VLIZ）[Marine Regions](https://www.marineregions.org/) Maritime Boundaries Geodatabase 第 12 版（2023，CC BY 4.0，已簡化，不具法律效力）；
-  台灣離岸風電潛力場址取自經濟部能源署[台灣離岸風電潛力場址地理資訊](https://data.gov.tw/dataset/36681)（政府資料開放授權條款）
+  台灣離岸風電潛力場址取自經濟部能源署[台灣離岸風電潛力場址地理資訊](https://data.gov.tw/dataset/36681)（政府資料開放授權條款）；
+  日本促進區域：出典：[資源エネルギー庁ウェブサイト](https://www.enecho.meti.go.jp/category/saving_and_new/saiene/yojo_furyoku/kassei_sangyou.html)の促進区域指定の公告を加工して作成（公共データ利用規約 PDL1.0）；
+  北海周邊國家的規劃區（皆已簡化）：荷蘭 [Rijkswaterstaat, Aangewezen windgebieden](https://data.overheid.nl/en/dataset/46780-aangewezen-windgebieden-nwp)（CC0）、
+  德國 [Quelle: © BSH 2025 (Flächenentwicklungsplan 2025), vereinfacht](https://gdi.bsh.de/en/mapservice/Site-Development-Plan-in-the-German-Maritime-Area-2025-WFS)（GeoNutzV）、
+  比利時 [RBINS, Belgian Marine Data Centre: 2026 Belgian MSP – Energy, cable and pipeline zones](https://doi.org/10.24417/bmdc.be:dataset:3121)（CC BY 4.0）、
+  丹麥 [Søfartsstyrelsen, Danmarks Havplan af 28. juni 2024](https://havplan.dk/)（CC BY 4.0）、
+  蘇格蘭 [Contains public sector information licensed under the Open Government Licence v3.0, from Crown Estate Scotland](https://www.arcgis.com/home/item.html?id=b9c7d514362f40ceb3fe299b47aeb8b3)、
+  挪威 [Contains data under the Norwegian licence for Open Government data (NLOD) distributed by NVE](https://kart.nve.no/enterprise/rest/services/Mapservices/HavvindOnline/MapServer)
 - 放大後的圖磚：Esri World Imagery（Esri, Vantor, Earthstar Geographics）、Esri World Hillshade（Esri, USGS, NASA 等），依 Esri 使用條款顯示出處
 - 此刻的風：NOAA／NCEP 全球預報系統 GFS 離地 10 m 風場（公有領域），每 6 小時由排程更新
 - 風場實測年發電量（「發電表現」與風場卡片）：美國能源資訊署 EIA-923、EIA-860M（公有領域）；台灣電力公司「自建之各類再生能源發電量」與「風力發電站資料」

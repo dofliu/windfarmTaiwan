@@ -169,12 +169,21 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 「海域」圖層（`data/global/offshore_zones.json`）由 `tools/build_offshore_zones.py` 產生：專屬經濟區界線取自 Marine Regions Maritime Boundaries 第 12 版
   （CC BY 4.0，標示 Flanders Marine Institute），只留簡化過的顯示用線、不存原始檔（Marine Regions 請使用者不要在別處提供原始資料下載），介面要寫明界線不具法律效力、
   不代表本站對爭議海域的立場；台灣離岸風電潛力場址取自能源署開放資料 36681（政府資料開放授權條款第 1 版，原始檔在 `data/global/sources/`）。
-  潛力場址檔只列頂點、順序不一定沿邊界，每處都要用公告面積核對，順序無法唯一確定的不畫、理由寫進輸出檔（目前新竹縣場址），不要猜。
+  潛力場址檔只列頂點、順序不一定沿邊界，每處都要用公告面積核對（先照檔案順序，再試依檔案順序分成兩塊或外框加挖空，最後才試重排），順序無法唯一確定的不畫、理由寫進輸出檔，不要猜。
+  各國離岸風電規劃區（同一個圖層）：日本促進區域的點位抄自各區指定的公告，存在 `data/global/sources/jpn_promotion_zones.json`（每點附原文的度分秒，引文以 `check_quotes.py` 核對），
+  以「點位連線與陸岸」為界的只畫公告的連線、不自行補海岸線；北海周邊國家（荷蘭、德國、比利時、丹麥、蘇格蘭、挪威）由建置程式從各國官方開放圖層下載（不需帳號），
+  授權與標示寫在 `AREA_SOURCES`，網站的圖例與「資料來源」都要列出。英格蘭、威爾斯與北愛爾蘭的 The Crown Estate 授權另有限制，使用者決定前不放。
   The "Sea zones" layer (`data/global/offshore_zones.json`) is built by `tools/build_offshore_zones.py`: EEZ boundaries from Marine Regions' Maritime Boundaries v12
   (CC BY 4.0, credit Flanders Marine Institute), kept only as simplified display lines with no raw copy (Marine Regions asks users not to offer its data for download
   elsewhere), and the page must say the lines have no legal value and imply no position on disputed areas; Taiwan's offshore wind potential sites from Energy
   Administration open data 36681 (Open Government Data License v1, raw file in `data/global/sources/`). The site file lists vertices in no guaranteed order, so each
-  site is checked against its published area; a site whose order cannot be determined uniquely is left out with the reason in the output (currently Hsinchu County). Never guess.
+  site is checked against its published area (file order first, then two rings in file order — two parts or an outer ring with a hole — and only then a
+  reordering); a site whose order cannot be determined uniquely is left out with the reason in the output. Never guess.
+  National offshore wind areas share the layer: Japan's promotion zones are transcribed from each designation notice into
+  `data/global/sources/jpn_promotion_zones.json` (with the original DMS text, quotes checked with `check_quotes.py`), and zones bounded by "the lines through the
+  points and the shore" are drawn as the published lines only, without a self-made coastline; the North Sea countries (Netherlands, Germany, Belgium, Denmark,
+  Scotland, Norway) are downloaded by the build from official open layers (no account needed), with licence and credit in `AREA_SOURCES`, all of which the legend
+  and the sources dialog must show. England, Wales and Northern Ireland (The Crown Estate, whose licence adds restrictions) stay out until the owner decides.
 
 - 澳洲、加拿大即時資料：`intl_wind_scraper.py`（排程，只用標準函式庫）讀 `data/live/units.json`；機組對照由
   `tools/build_live_units.py` 產生，人工核對的對照寫在它的 `MANUAL`，並附來源說明。對不到的機組不要猜，留在電網總量。
