@@ -28,6 +28,18 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   - Same-model comparison: SG 8.0-167 DD (Greater Changhua 1 & 2a's two units, Formosa 2, Yunlin's two units), V174-9.5, E-70 2.3, V80 and more.
 - Taiwanese farm cards gain a "Live samples (last 90 days)" row (average output and capacity factor, with "See rankings").
 - The Taiwan live page's Charts tab links to "Capacity factor rankings (live samples)"; the dialog title is now "Wind farm output".
+- The Output dialog adds Denmark, from the Danish Energy Agency's (Energistyrelsen) turbine register, Stamdataregister for vindkraftanlæg (monthly metered
+  production, updated about every two months; published for company-owned turbines only):
+  - "Denmark · farms": farms metered as a whole and individually metered turbines are matched to the site's Danish farms by location and used when the
+    capacity is within 15% of the record; older turbines nearby, connected more than a year before the farm, are left out so they cannot make up the numbers.
+    54 farms (51 in 2025, 3,359 MW, about 67% of the site's operating Danish capacity); in 2025, for example, Vesterhav Nord 45.1%, Anholt 43.2%,
+    Horns Rev 3 42.9% and Kriegers Flak 39.1%. Farm cards show the measured output and rank.
+  - "Denmark · single turbines" (`out=DKT.cf`): 1,848 individually metered turbines (1,776 in 2025, median capacity factor 18.5%) ranked one by one; the
+    same-model comparison groups by make + rotor diameter + unit rating (the register spells one model several ways) and draws large groups as a distribution;
+    clicking a turbine flies to it, and its card lists the specs and each year's output.
+  - Credited with the agency, the dataset and the retrieval date as the agency's terms require (the build writes the retrieval month into the data files).
+    New tool `tools/dk_output.py`; single turbines are in `data/global/turbine_output.json`.
+- The Output dialog's data sets are now picked from a drop-down (Taiwan official, Taiwan live samples, US, Denmark farms, Denmark single turbines).
 
 ## v2.26.1 — 2026-10-05
 

@@ -100,9 +100,10 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
   - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
     pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
     milestones, and a searchable farm list
-  - **Output** (the "📊 Output" toolbar button, the Taiwan and US country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
-    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms) and the US (about 830 farms
-    from EIA-923), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm); plus
+  - **Output** (the "📊 Output" toolbar button, the Taiwan, US and Danish country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
+    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms), the US (about 830 farms
+    from EIA-923) and Denmark (54 farms from the Danish Energy Agency's turbine register), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm);
+    "**Denmark · single turbines**" (`out=DKT.cf`) ranks about 1,800 individually metered turbines, draws each model as a distribution and flies to a turbine when clicked; plus
     "**Taiwan · live samples**" (`out=TWS.cf`, also linked from the Taiwan live page's Charts tab): average output and capacity factor of every grid unit,
     private farms included, from Taipower's live data sampled every 2 hours (last 30 or 90 days, or everything), an estimate from samples, not official yearly
     generation, never mixed into the official ranking; farm cards also show the last 90 days of samples
@@ -218,7 +219,10 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
 - `data/global/generation.json` — actual yearly output and capacity factor of farms (833 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
-  19 Taipower-owned farms in Taiwan from Taipower open data 17140; the turbine model when a farm has only one, for the Output dialog's same-model comparison), built by `tools/build_generation.py` and loaded when a farm card first opens
+  19 Taipower-owned farms in Taiwan from Taipower open data 17140; 54 Danish farms from the Danish Energy Agency's turbine register, matched by location; the turbine model when a farm has only one, for the Output dialog's same-model comparison),
+  built by `tools/build_generation.py` (the Danish rules are in `tools/dk_output.py`) and loaded when a farm card first opens
+- `data/global/turbine_output.json` — position, specs and measured yearly output of about 1,800 individually metered Danish turbines (Danish Energy Agency;
+  production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,900 farms, 147,000
   turbines), downloaded by
   `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
@@ -376,8 +380,9 @@ python tools/build_turbines_osm.py osm_wind/
 # 10. Actual yearly output (EIA-923 publishes the previous year's final data around September, older years under archive/xls/; replace the two Taiwan CSVs with fresh downloads from Taipower open data; run step 8 first)
 curl -LO https://www.eia.gov/electricity/data/eia923/xls/f923_2025.zip   # 2023 and 2024 are under .../eia923/archive/xls/
 curl -LO https://www.eia.gov/electricity/data/eia860m/xls/august_generator2026.xlsx   # EIA-860M: generator capacity and in-service/retirement years (take the latest month)
+#     Denmark (optional): download the "Vinddata" and "Parkproduktion" workbooks from the Danish Energy Agency, https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren (updated about every 2 months), and add them last
 python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_2024.zip f923_2025.zip august_generator2026.xlsx \
-  data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv
+  data/global/sources/taipower_renewable_generation_17140.csv data/global/sources/taipower_wind_stations_17141.csv vinddata.xlsx parkproduktion.xlsx
 ```
 
 ### Corrections this site made to the data (all recorded in the data files and the site's "Sources")
@@ -501,6 +506,10 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
   (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
 - Wind now: NOAA/NCEP Global Forecast System (GFS) 10 m wind (public domain), refreshed every 6 hours by a schedule
+- Measured yearly output (the Output dialog and farm cards): U.S. Energy Information Administration Form EIA-923 and EIA-860M (public domain); Taiwan Power Company,
+  generation of its own renewable stations and wind station list (data.gov.tw 17140 and 17141, Open Government Data License); Danish Energy Agency,
+  [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) (Vinddata and Parkproduktion, retrieved October 2026; credited with the agency,
+  the dataset and the retrieval date as the [agency's terms of use](https://dataforsyningen.dk/asset/PDF/rettigheder_vilkaar/Energistyrelsen%20-%20Vilk%C3%A5r%20for%20brug%20af%20data.pdf) require)
 - Farm photos: hand-checked Wikimedia Commons photos (`tools/farm_photos.py` → `tools/build_photos.py` → `data/global/photos.json`, each
   photo's author and licence shown on the card); other farms and summaries are looked up live from Wikipedia / Wikimedia Commons (per-image licences)
 - Libraries: three.js r128 (MIT), Leaflet 1.9.4 (BSD-2)

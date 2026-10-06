@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 6 Oct 2026: v2.27.0, Taiwan live samples; the next conversation starts here)
+## In progress (hand-off, 6 Oct 2026: v2.27.0, Taiwan live samples and Danish measured output; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -43,6 +43,12 @@ and move finished items to the topic lists below.
   same-model performance of every grid unit including private farms; farm cards and the Taiwan live page's Charts tab link to it. Against July 2026,
   Taipower's 7 own farms are within 0–2 percentage points of the official monthly generation. Re-check each month against the new 17140 data;
   after a year of samples, consider a "last 365 days" or per-year option.
+- 6 Oct 2026 (v2.27.0, same release): with the owner's approval, Danish measured output: `tools/dk_output.py` (called by `build_generation.py`) reads the
+  Danish Energy Agency's turbine register workbooks "Vinddata" and "Parkproduktion"; 54 farms go into `generation.json` and 1,848 individually metered turbines
+  into `data/global/turbine_output.json`. The Output dialog gains "Denmark · farms" and "Denmark · single turbines", and single turbines have their own card.
+  Matching leaves out older turbines nearby, connected more than a year before the farm (11 onshore farms had reached the capacity threshold only with them).
+  The agency updates about every two months (the current files run to Aug 2026); full-year 2026 figures need the early-2027 files. To refresh, download the
+  new files and add them last to the `build_generation.py` arguments; the retrieval month updates itself.
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn

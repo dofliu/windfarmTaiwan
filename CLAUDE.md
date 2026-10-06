@@ -69,6 +69,16 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Taiwan also has "live samples": `data/archive/farm_daily.json` is added to by `taipower_wind_scraper.py` on every run (instantaneous output of every grid unit
   in Taipower's live data, private farms included; a data time counts once), and `tools/build_farm_daily.py` backfills it from the git history. These are
   estimates from samples: always label them as samples with the period and the seasonality, never mix them into the official ranking, and never turn them into yearly generation presented as measured.
+- 丹麥實測發電量（`tools/dk_output.py`，由 `build_generation.py` 呼叫；丹麥能源署風機登記檔「Vinddata」＋「Parkproduktion」，約每 2 個月更新）：整場計量的風場與單獨計量的風機依位置歸到本站丹麥風場
+  （陸域 3 km、離岸 12 km 內，併網年不早於風場商轉年的前一年），容量與本站紀錄相差 15% 以內才寫進 `generation.json`；單獨計量的風機另寫 `data/global/turbine_output.json`。
+  能源署只公布公司持有風機的發電量（個人、獨資與合夥持有的沒有），不要把部分機組的數字當成整座風場，也不要放寬配對門檻湊數。
+  依能源署資料使用條款，網站與 README 要標示「Energistyrelsen」、資料集名稱（Stamdataregister for vindkraftanlæg）與取用時間；取用月份由建置程式依下載檔的時間寫進資料檔，網站從那裡讀，不要寫死。
+  Danish measured output (`tools/dk_output.py`, called by `build_generation.py`; the agency's "Vinddata" + "Parkproduktion" workbooks, updated about every two months): farms metered
+  as a whole and individually metered turbines are matched to the site's Danish farms by location (within 3 km onshore or 12 km offshore, connected no earlier than the year before
+  the farm's start) and written to `generation.json` only when the capacity is within 15% of the record; individually metered turbines also go to `data/global/turbine_output.json`.
+  Production is published for company-owned turbines only (none for private persons, sole proprietors or partnerships): never present part of a farm as the whole farm or loosen the
+  matching to fill gaps. The agency's terms require crediting "Energistyrelsen", the dataset name (Stamdataregister for vindkraftanlæg) and the retrieval date on the site and in the
+  README; the build writes the retrieval month from the downloaded file's time into the data files and the site reads it from there, so never hard-code it.
 - 德國（`tools/build_mastr.py`，MaStR，Datenlizenz Deutschland – Namensnennung 2.0，標示「© Bundesnetzagentur | Marktstammdatenregister」）：每部風機依風場名稱與位置分群，
   對到本站德國風場（名稱、距離、容量 ±20%）就寫進 `turbines_de.json`；其餘 1 MW 以上的陸域群在附近沒有可能相同的本站紀錄時，才列進 `sources/mastr_parks_DEU.json`
   由 `build_farms.py` 加進風場層（來源代碼 4）。建置會檢查「本站陸域＋新增」不超過 MaStR 陸域容量的 102%，超過表示重複，要找出原因，不要放寬門檻了事。

@@ -121,6 +121,7 @@ WW.DATA = {
   events: 'data/global/events.json',
   stats: 'data/global/country_stats.json',
   generation: 'data/global/generation.json',
+  turbineOutput: 'data/global/turbine_output.json',
   farmDaily: 'data/archive/farm_daily.json',
   photos: 'data/global/photos.json',
   windNow: 'data/live/wind_now.json',

@@ -28,7 +28,7 @@ SITE = "https://dofliu.github.io/windfarmTaiwan/"
 
 PAGE_SCRIPTS = ["assets/js/core.js", "assets/js/charts.js", "assets/js/live.js", "assets/js/home.js", "assets/js/learn.js"]
 LAZY = ["assets/css/globe.css", "assets/vendor/three-r128.min.js", "assets/vendor/OrbitControls-r128.js", "assets/js/globe.js"]
-DATA = ["data/global/wind_global.json", "data/global/wind_farms.json", "data/global/world_borders.json", "data/global/ports.json", "data/global/foundations.json", "data/global/events.json", "data/global/country_stats.json", "data/global/turbines.json", "data/global/turbines_osm.json", "data/global/generation.json", "data/global/photos.json", "data/live/wind_now.json", "data/global/wind_resource.json", "data/global/turbines_de.json"]
+DATA = ["data/global/wind_global.json", "data/global/wind_farms.json", "data/global/world_borders.json", "data/global/ports.json", "data/global/foundations.json", "data/global/events.json", "data/global/country_stats.json", "data/global/turbines.json", "data/global/turbines_osm.json", "data/global/generation.json", "data/global/turbine_output.json", "data/global/photos.json", "data/live/wind_now.json", "data/global/wind_resource.json", "data/global/turbines_de.json"]
 LIVE = ["wind_realtime.json", "wind_history.json", "grid_status.json", "wind_archive_daily.json", "data/live/intl_realtime.json", "data/archive/farm_daily.json"]
 IMAGES = ["assets/img/globe/relief_2k.jpg", "assets/img/globe/sat_2k.jpg", "assets/img/globe/wind_2k.jpg", "data/live/wind_now.webp"]
 
