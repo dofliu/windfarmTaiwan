@@ -17,23 +17,6 @@
   ]
  },
  {
-  "farm": "SPIC Peninsula South U1",
-  "type": "lead (phase 1 only)",
-  "note_en": "Phase 1 (53 × 8.5 MW) monopiles per a 2025 quality-award citation; phase 2 (53) type not found",
-  "sources": [
-   {
-    "url": "https://www.163.com/dy/article/K7QMU0850514R9KE.html",
-    "quote": "本项目风机基础单桩最大桩重1450吨，垂直度控制难度大",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.spic.com.cn/xtdt1/202409/t20240911_324230.html",
-    "quote": "全场106台8.5兆瓦风电机组，共用一座1000兆瓦的220千伏海上升压站和陆上集控中心",
-    "check": "OK"
-   }
-  ]
- },
- {
   "farm": "Datang Danzhou CZ3",
   "type": "lead + anomaly",
   "note_en": "Site 1 (60 × 10 MW): 25 suction-bucket jackets (~42%); lot 1 used a monopile upending method for super-large piles (type of the other 35 implied, not stated). Record is 1200 MW operating, but site 2 only broke ground Dec 2025 and also exists as 'Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2'",

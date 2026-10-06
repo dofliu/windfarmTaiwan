@@ -68,8 +68,12 @@ and move finished items to the topic lists below.
      Japan's promotion zones and the North Sea areas are not done yet (ROADMAP phase 3).
   2. The promo video tooling is in `tools/promo/` (README in both languages); the video does not say "open source" and shows no URL. Update the figures
      on the captions before rebuilding.
-  3. Research on foundation types (64 Chinese and 9 Vietnamese farms unknown) and hub heights (82 offshore farms missing): split among sub-agents,
-     results being checked; update the figures in this section once they are in the tables.
+  3. Foundation and hub height research (three sub-agents in parallel, every quote checked with `check_quotes.py`): all 64 unknown Chinese and
+     9 Vietnamese farms were searched again and 3 written (SPIC Peninsula South U1 all monopiles, Shanghai Lingang Phase 2 all high-rise pile caps,
+     Hiep Thanh in Vietnam all monopiles); the rest only have leads (single lots, tender designs, no per-type counts), kept with the data problems in
+     `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
+     The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
+     `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
@@ -85,8 +89,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 257 of 333 operating offshore farms have a known foundation type (78.7% of capacity); dimensions for 234 farms,
-  all three for 168; 381 clean-up rules; card photos for 64 farms.
+- Current figures: 260 of 333 operating offshore farms have a known foundation type (79.9% of capacity); dimensions for 241 farms,
+  all three for 170; 381 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -173,7 +177,7 @@ and move finished items to the topic lists below.
      Guoneng Gongxiang were added in v2.17.2); GEM's "Shandong Bohai B1" says 500 MW but the Bozhong B1 tender was 100 MW; the curated "CGN Jiaxing 2
      (Zhoushan Daishan 4)" 300 MW does not match Daishan 4's 234 MW; the curated "Guohua Rudong H14" 300 MW matches no Rudong site (Luneng's H14
      is 200 MW); "Jiangsu Dafeng H10 (Guoxin)" may overlap the curated "Guoxin Dafeng 850 MW"; the Chinese name of "Zhoushan Liuheng / Zhejiang
-     others" includes Jiaxing 2 and may double-count it; "Shandong Haiwei Peninsula South U" may be U1 phase 2; the year of Binhai South H3
+     others" includes Jiaxing 2 and may double-count it; "Shandong Haiwei Peninsula South U" is confirmed as U1 phase 2 (see the sixth round below); the year of Binhai South H3
      (2020?); Vietnam: whether Tan An 1's 2021–2025 phase (45 MW) is operating, and Hoa Binh's owner and turbines (Vestas). Peninsula South U2 is
      now represented by GEM's 603.5 MW under-construction record; its 36 connected phase-1 turbines could become a phase.
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
@@ -187,7 +191,17 @@ and move finished items to the topic lists below.
      Peninsula South U1 phase 2, Huaneng Yuhuan 2, Rudong H2 and H3, Sheyang H2, Dafeng H7, Cangnan 4, and Danzhou CZ3 — now split into sites 1 and 2, with 25 suction-bucket jackets among site 1's 60). Most promising: a Zhuanghe city
      page (dlzh.gov.cn, unreachable from here) reportedly gives Huaneng Zhuanghe II as 40 monopiles + 20 suction-bucket jackets; check it from another network.
      A good source type: search "<farm> 竣工环境保护验收调查报告" (completion acceptance reports published by local governments state the as-built type).
-   - The other Chinese offshore farms (64 of the 141 operating) and Vietnam (9 of 22, mostly intertidal; the owner's workbook only says
+   - Sixth round on 7 Oct 2026 (v2.29.0): all 64 + 9 searched again, 3 written (Peninsula South U1, Lingang Phase 2, Hiep Thanh). Leads are in
+     `tools/research/cn_vn_dims_2026-10c.json`; the closest to writable: Huadian Yuhuan 1 (22 pile caps in the north zone have a construction record; the
+     10 south-zone monopiles only a tender and self-media), Longyuan Rudong 150 MW demo phase 1 (38 units: 17 monopiles + 21 multi-pile jackets; phase 2's
+     20 unknown), Putian Shicheng (lot II: 19 pile caps of 29), Taizhou 1 (lot B: 19 monopiles + 1 pile-bucket), Changyi (25 monopiles), Danzhou CZ3 site 1
+     (25 suction-bucket jackets) and Zhuanghe III (55 of 73).
+     Data problems (to handle at the next farm-layer rebuild, re-checking each): "Shandong Haiwei Peninsula South U" is confirmed to be phase 2 of
+     Peninsula South U1 (ne21 quote), so 450 MW is counted twice; Zhangpu Liu'ao Phase 1 "operating since 2022, 400 MW" is doubtful, since Liu'ao
+     Phase 2, started Feb 2023, was called "the first offshore wind project in southern Fujian" (Fujian MIIT, SASAC); Zhuanghe I is 200 MW here but
+     Datang's site I is 100 MW; Jiangjiasha H1 · 2's point is not near Jiangjiasha; Fengxian Haiwan Expansion's point is on land; Vietnam's V1-1
+     should be 12 Vestas V150-4.2 (stored as Envision) and Hiep Thanh 18 Siemens Gamesa 4.3 MW.
+   - The other Chinese offshore farms (62 of the 141 operating) and Vietnam (8 of 22, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
@@ -200,8 +214,12 @@ and move finished items to the topic lists below.
    changing anything.
 
 6. **Dimension gaps** (after the fifth round, v2.17.6; the values found but not used, and why, are kept here to avoid re-checking):
-   Of the 236 operating offshore farms, 234 have at least one value (depth 213, hub height 174,
-   rotor diameter 222, all three 168). Two have none: Dongtai Zhugensha H1 (Guohua Dongtai phase 5, 50 × 4 MW) and Vietnam's Ben Tre 10; 62 lack a hub height.
+   241 operating offshore farms have at least one value (depth 217, hub height 176, rotor diameter 229, all three 170; after the sixth round, v2.29.0).
+   Two have none: Dongtai Zhugensha H1 (Guohua Dongtai phase 5, 50 × 4 MW) and Vietnam's Ben Tre 10; 80 lack a hub height.
+   Found in the sixth round but not used: Kentish Flats Extension 83.6 m (the configuration it "will have" at the 2014 investment decision, not an
+   as-built record), Seonam (MOTIR's 2015 plan values, 80/90 m), Shenquan II (about 128 m for the 11 MW units, only 34 of 50), Provence Grand Large
+   (only a 174 m tip height and 75 m blades; blade length is not the radius). Unreachable: Iberdrola's East Anglia ONE PDF (403) and the Rudong
+   H6/H10/H4 completion acceptance files (Nantong Ecology and Environment Bureau, 403).
    Nothing quotable after five rounds: Vietnam's intertidal farms (no depth at all), most Chinese farms of 2019–2021, in Europe Lynn and Inner
    Dowsing, Kentish Flats Extension, East Anglia ONE, Hornsea Two, Dogger Bank A and Borssele III–V, the hub heights of Taiwan's Greater Changhua
    1 & 2a and Changfang & Xidao, and the hub height of Rudong H8's main H171-5.0 type.
