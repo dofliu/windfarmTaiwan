@@ -15,7 +15,7 @@ const host = $('globe');
 const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
-    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
+    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
@@ -53,7 +53,7 @@ const I18N = {
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
-    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m，越亮風越強', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
+    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', zoneLegT: '海域', zEezA: '專屬經濟區界線：協議或判決', zEezM: '中線與 200 浬外界', zEezU: '未定或有爭議（虛線）', zSites: '台灣離岸風電潛力場址（2015 年公告）', zSite: '潛力場址', zNote: '界線取自 Marine Regions（CC BY 4.0），已簡化，不具法律效力，也不代表本站對任何爭議海域的立場', zSkip: '新竹縣場址的點位順序無法確定，未畫出', zSrcE: 'Marine Regions', zSrcT: '能源署開放資料', zErr: '海域圖層載入失敗（離線或資料暫時無法取得）', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m，越亮風越強', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
     attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
@@ -129,7 +129,7 @@ const I18N = {
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
-    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
+    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
@@ -167,7 +167,7 @@ const I18N = {
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
-    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground; brighter = stronger', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
+    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', zoneLegT: 'Sea zones', zEezA: 'EEZ boundaries: agreed or ruled', zEezM: 'Median lines and 200 NM limits', zEezU: 'Unsettled or disputed (dashed)', zSites: 'Taiwan offshore wind potential sites (2015)', zSite: 'Potential site', zNote: 'Boundaries from Marine Regions (CC BY 4.0), simplified; they have no legal value and imply no position on any disputed area', zSkip: 'The Hsinchu County site is not drawn: its vertex order cannot be determined', zSrcE: 'Marine Regions', zSrcT: 'Energy Administration open data', zErr: 'Sea zones failed to load (offline or data unavailable)', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground; brighter = stronger', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
     attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
@@ -261,6 +261,7 @@ host.innerHTML = `
   <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
   <button id="g-btnFlow" type="button" aria-pressed="false" data-gi="flow"></button>
+  <button id="g-btnZones" type="button" aria-pressed="false" data-gi="zones"></button>
   <button id="g-btnPorts" type="button" aria-pressed="true" data-gi="btnPorts"></button>
   <button id="g-btnEvents" type="button" aria-pressed="true" data-gi="btnEvents"></button>
   <span class="gsp"></span>
@@ -286,7 +287,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-portList" hidden></div>
       <div class="gpbody" id="g-evList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -396,7 +397,7 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJ
 /* 單檔公開版：藏起進階功能的按鈕與分頁，里程碑清空（地圖上的星號與導覽都不出現），圖層選單去掉水下基礎 */
 function liteSetup() {
   D.milestones = [];
-  ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
+  ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-btnZones', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
   const fd = $('g-layerSel').querySelector('option[value="fd"]'); if (fd) fd.remove();
   panelTab = 'farms';
 }
@@ -548,6 +549,7 @@ function updateAttr() {
   const tiles = patch && patch.visible && S.base !== 'plain' && tileAttrOn;
   const parts = [T('credit') + ' · v' + WW.VERSION, S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : S.base === 'wind' ? T('attrWind') : T('attrPlain')];
   if (S.flow) parts.push(L('風：NOAA GFS', 'Wind: NOAA GFS'));
+  if (S.zones) parts.push(L('海域：Marine Regions（CC BY 4.0）、能源署', 'Sea zones: Marine Regions (CC BY 4.0), Energy Administration'));
   if (tiles) parts.push(S.base === 'sat' ? T('attrTileSat') : T('attrTileRelief'));
   $('g-attr').textContent = parts.join(' · ');
 }
@@ -1362,7 +1364,7 @@ function setMode(m) {
 }
 function applyModeT() {
   const flat = S.modeT > 0.5;
-  globe.visible = !flat; atmo.visible = !flat; bordersG.visible = !flat; plane.visible = flat; bordersF.visible = flat;
+  globe.visible = !flat; atmo.visible = !flat; bordersG.visible = !flat; plane.visible = flat; bordersF.visible = flat; zonesVisible();
   globe.scale.setScalar(Math.max(0.001, 1 - Math.min(1, S.modeT * 2) * 0.999)); plane.scale.setScalar(clamp((S.modeT - 0.5) * 2, 0.001, 1));
   layoutAnchors();
 }
@@ -1418,7 +1420,7 @@ function facing(worldPos) {
   return _pp.copy(camera.position).sub(worldPos).dot(_n) > 0;
 }
 function textW(s, px) { let w = 0; for (const ch of s) w += /[⺀-鿿豈-￯]/.test(ch) ? px * 1.02 : px * 0.57; return w; }
-const DENS = [{ c: 0, f: 0, m: 0, n: 0, p: 0, e: 0 }, { c: 7, f: 5, m: 1, n: 3, p: 3, e: 2 }, { c: 12, f: 11, m: 3, n: 5, p: 6, e: 4 }, { c: 22, f: 24, m: 5, n: 8, p: 12, e: 8 }];
+const DENS = [{ c: 0, f: 0, m: 0, n: 0, p: 0, e: 0, z: 0 }, { c: 7, f: 5, m: 1, n: 3, p: 3, e: 2, z: 6 }, { c: 12, f: 11, m: 3, n: 5, p: 6, e: 4, z: 12 }, { c: 22, f: 24, m: 5, n: 8, p: 12, e: 8, z: 24 }];
 function upAt(p) { return S.modeT > 0.5 ? UP : _u.copy(p).normalize(); }
 
 /* ================= main loop ================= */
@@ -1473,9 +1475,11 @@ function frame(now) {
     if (S.mode === 'globe') {
       const s = r => (R + r) / R;
       if (patch) patch.scale.setScalar(s(lift)); bordersG.scale.setScalar(s(lift * 1.7)); if (hiLines) hiLines.scale.setScalar(s(lift * 1.9));
+      if (ZONE_G) ZONE_G.g.scale.setScalar(s(lift * 1.8));
       surfaceRoot.scale.setScalar(s(lift * 1.3)); surfaceRoot.position.set(0, 0, 0);
     } else {
       if (patch) { patch.scale.setScalar(1); patch.position.y = lift; } bordersF.position.y = lift * 1.7; if (hiLines) { hiLines.scale.setScalar(1); hiLines.position.y = lift * 1.9; }
+      if (ZONE_G) ZONE_G.f.position.y = lift * 1.8;
       surfaceRoot.scale.setScalar(1); surfaceRoot.position.y = lift * 1.3;
     }
   } else { surfaceRoot.scale.setScalar(1); surfaceRoot.position.set(0, 0, 0); if (hiLines) { hiLines.scale.setScalar(1); hiLines.position.set(0, 0, 0); } }
@@ -1559,14 +1563,14 @@ function frame(now) {
     if (isTour || age < 1.5) { g.getWorldPosition(tmpV); cands.push({ cat: 'm', pri: isTour ? 2e9 : 1e8, pos: tmpV.clone().addScaledVector(upAt(tmpV), 3.4 * pinK * surfaceRoot.scale.x), name: '★ ' + m.name, val: m.year + (m.farm ? ' · ' + fmtMW(m.farm) : m.mw ? ' · ' + T('turbine') + ' ' + (m.mw < 1 ? WW.int(m.mw * 1000) + ' kW' : m.mw + ' MW') : ''), cls: 'ms', key: 'm' + m.name }); }
   });
 
-  updatePorts(alt, cands); updateEvents(alt, cands);
+  updatePorts(alt, cands); updateEvents(alt, cands); zoneLabels(alt, cands);
   let li = 0;
   if (S.density > 0 || TOUR) {
     const rects = [];
     const pr = $('g-mapPane').getBoundingClientRect();
     ['g-yearBig', 'g-worldStat', 'g-msPanel', 'g-infoCard'].forEach(id => { const el = $(id); if (!el || el.offsetParent === null) return; const b = el.getBoundingClientRect(); if (b.width) rects.push([b.left - pr.left, b.top - pr.top, b.right - pr.left, b.bottom - pr.top]); });
-    const used = { c: 0, f: 0, m: 0, n: 0, p: 0, e: 0 };
-    const lim = S.density > 0 ? dens : { c: 0, f: 0, m: 1, n: 0, p: 0, e: 0 };
+    const used = { c: 0, f: 0, m: 0, n: 0, p: 0, e: 0, z: 0 };
+    const lim = S.density > 0 ? dens : { c: 0, f: 0, m: 1, n: 0, p: 0, e: 0, z: 0 };
     cands.sort((a, b) => b.pri - a.pri);
     for (const cd of cands) {
       if (used[cd.cat] >= lim[cd.cat] && cd.pri < 1e9) continue;
@@ -3324,6 +3328,7 @@ function setView(v) {
   S.view = v; const st = $('g-stage'); st.className = v === 'map' ? 'mapOnly' : v === 'bars' ? 'barOnly' : 'split';
   document.querySelectorAll('#g-viewSeg button').forEach(b => b.classList.toggle('active', b.dataset.view === v));
   setTimeout(() => { resize(); updateBars(true); }, 30);
+  zonesVisible(); renderZoneLegend();
   syncURL();
 }
 /* ================= 此刻的風：NOAA GFS 離地 10 m 風場（公有領域，tools/fetch_gfs_wind.py → data/live/wind_now.png）畫成流動的粒子 =================
@@ -3445,6 +3450,67 @@ function toggleFlow(on) {
   else { flowVisible(); renderFlowLegend(); }
   syncURL();
 }
+/* ================= 海域圖層：專屬經濟區界線（Marine Regions）＋台灣離岸風電潛力場址（能源署）=================
+   tools/build_offshore_zones.py → data/global/offshore_zones.json。線跟國界一樣畫成球面、平面兩份，依投影切換，並跟國界一起抬高；
+   預設關閉，網址 zones=1。單檔公開版不提供。顏色依 dataviz 色盲檢查：界線藍、潛力場址玫瑰紅（另有編號標籤）。 */
+let ZONES = null, zonesP = null, ZONE_G = null;
+const ZONE_HEX = { eez: 0x3a9fd8, site: 0xd06a9a };
+function zonesLoad() {
+  if (!zonesP) zonesP = WW.getJSON(WW.DATA.zones).then(j => { ZONES = j; buildZones(); }).catch(e => { zonesP = null; throw e; });
+  return zonesP;
+}
+function zoneLines(flat, rings, color, opacity, dash) {
+  const pts = [], a = new THREE.Vector3(), b = new THREE.Vector3(), P = flat ? flatPos : globePos;
+  rings.forEach(r => { for (let i = 0; i < r.length - 2; i += 2) { P(r[i], r[i + 1], 0, a); P(r[i + 2], r[i + 3], 0, b); pts.push(a.x, a.y, a.z, b.x, b.y, b.z); } });
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = dash ? new THREE.LineDashedMaterial({ color, transparent: true, opacity, dashSize: 0.3, gapSize: 0.22 })
+    : new THREE.LineBasicMaterial({ color, transparent: true, opacity });
+  const m = new THREE.LineSegments(geo, mat); if (dash) m.computeLineDistances(); m.renderOrder = 4;
+  return m;
+}
+function buildZones() {
+  const groups = [[], [], []]; ZONES.eez.forEach(([g, r]) => groups[g].push(r));
+  const sites = []; ZONES.tw.forEach(t => t.polys.forEach(p => sites.push(p.concat(p.slice(0, 2)))));      // 補上閉合的最後一段
+  const make = flat => { const g = new THREE.Group();
+    g.add(zoneLines(flat, groups[0], ZONE_HEX.eez, 0.85), zoneLines(flat, groups[1], ZONE_HEX.eez, 0.45), zoneLines(flat, groups[2], ZONE_HEX.eez, 0.9, true),
+      zoneLines(flat, sites, ZONE_HEX.site, 0.95));
+    return g; };
+  ZONE_G = { g: make(false), f: make(true) }; scene.add(ZONE_G.g, ZONE_G.f);
+  ZONES.tw.forEach(t => { const p = t.polys[0]; let x = 0, y = 0; for (let i = 0; i < p.length; i += 2) { x += p[i]; y += p[i + 1]; } t._c = [x / (p.length / 2), y / (p.length / 2)]; });
+  zonesVisible();
+}
+function zonesVisible() {
+  if (!ZONE_G) return;
+  const flat = S.modeT > 0.5, on = !!S.zones && S.view !== 'bars';
+  ZONE_G.g.visible = on && !flat; ZONE_G.f.visible = on && flat;
+}
+/* 拉近到台灣附近時，潛力場址標出編號與名稱（跟其他標籤一起排版，數量依「標籤」設定） */
+function zoneLabels(alt, cands) {
+  if (!S.zones || !ZONES || S.view === 'bars' || TOUR || alt > 20) return;
+  ZONES.tw.forEach(t => {
+    const pos = posAt(t._c[0], t._c[1], 0, new THREE.Vector3()).applyMatrix4(surfaceRoot.matrixWorld);
+    cands.push({ cat: 'z', pri: 3e7 + t.area * 1e3, pos, name: T('zSite') + ' #' + t.n, val: (lang === 'zh' ? t.zh : t.en) + ' · ' + t.area + ' km²', cls: 'zone', key: 'z' + t.n });
+  });
+}
+function renderZoneLegend() {
+  const el = $('g-zoneLegend'); if (!el) return;
+  if (!S.zones || !ZONES || S.view === 'bars') { el.hidden = true; return; }
+  const sw = (cls, txt) => '<div class="zl"><i class="' + cls + '"></i><span>' + esc(txt) + '</span></div>';
+  el.innerHTML = '<div class="wlh"><b>' + esc(T('zoneLegT')) + '</b></div>' + sw('za', T('zEezA')) + sw('zm', T('zEezM')) + sw('zu', T('zEezU')) + sw('zs', T('zSites')) +
+    '<div class="wln zn">' + esc(T('zNote')) + (ZONES.meta.tw.skipped.length ? L('；', '; ') + esc(T('zSkip')) : '') + L('。', '.') + '</div>' +
+    '<div class="wln"><a href="' + esc(ZONES.meta.eez.url) + '" target="_blank" rel="noopener">' + esc(T('zSrcE')) + '</a> · <a href="' + esc(ZONES.meta.tw.url) + '" target="_blank" rel="noopener">' + esc(T('zSrcT')) + '</a></div>';
+  el.onclick = e => { if (e.target.tagName !== 'A') el.classList.toggle('open'); };   // 手機上說明預設收起，點一下展開
+  el.hidden = false;
+}
+function toggleZones(on) {
+  S.zones = on != null ? on : !S.zones;
+  const b = $('g-btnZones'); b.classList.toggle('active', S.zones); b.setAttribute('aria-pressed', S.zones ? 'true' : 'false');
+  updateAttr();
+  if (S.zones) zonesLoad().then(() => { zonesVisible(); renderZoneLegend(); })
+    .catch(e => { console.error(e); notice(T('zErr')); S.zones = false; b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); updateAttr(); });
+  else { zonesVisible(); renderZoneLegend(); }
+  syncURL();
+}
 function togglePipe(on) {
   S.pipe = on != null ? on : !S.pipe; WW.store.set('ww_globe_pipe', S.pipe ? '1' : '0');
   const b = $('g-btnPipe'); b.classList.toggle('active', S.pipe); b.setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
@@ -3462,7 +3528,7 @@ function applyI18n() {
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
-  renderWindLegend();
+  renderWindLegend(); renderZoneLegend();
   renderOutput();
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
@@ -3536,7 +3602,7 @@ function showSources() {
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
     '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '</ul>' +
     (LITE ? '' : '<h4>' + (zh ? '離岸風電港口' : 'Offshore wind ports') + '</h4><ul><li>' + (zh ? '2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。' : 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.') + '</li></ul>' +
-    '<h4>' + (zh ? '水下基礎型式' : 'Foundation types') + '</h4><ul><li>' + (zh ? 'OSPAR Offshore Renewable Energy Developments 2024（CC0，資料時間 2024-01-01）：北海與東北大西洋逐場的基礎型式；逐筆比對本站風場。OSPAR 與建成紀錄不符或沒寫具體型式的（德國每一座、英國 Hornsea One 等），改以德文維基百科或建造新聞為準。歐洲其他風場（波羅的海、地中海、艾瑟爾湖）與 2024 年以後才完工的風場，逐座查開發商、施工廠商、產業新聞或維基百科；全球浮動式風場的細分型式（單柱式、半潛式、駁船式、張力腳）逐座查技術供應商與開發商資料。台灣、日本、韓國、美國逐座查開發商、施工廠商、政府文件或產業新聞（日本港灣內的風場以 NEDO 的支持構造分類為準，「ドルフィン」即高樁承台）。卡片列出每座的出處。中國與越南逐座查開發商、施工廠商、地方政府（含竣工環保驗收報告）或產業新聞，出處原文逐筆核對：2026 年 10 月中國營運中的離岸風場 141 座已查明 77 座（約占容量 60%）、越南 22 座查明 13 座，其餘仍暫列「型式不詳」；逐場清單見 GitHub 的 docs/foundations.md。' : 'OSPAR Offshore Renewable Energy Developments 2024 (CC0, data as of 1 Jan 2024): foundation type per farm for the North Sea and NE Atlantic, matched to this site’s farms one by one. Where OSPAR differs from what was built or gives no specific type (every German farm, the UK’s Hornsea One and a few others), German Wikipedia or construction news is used instead. The rest of Europe (the Baltic, the Mediterranean, the IJsselmeer) and farms finished after 2024 were checked one by one against developers, construction contractors, trade press or Wikipedia, and floating farms worldwide got their sub-type (spar, semi-submersible, barge, tension-leg) from technology providers and developers. Taiwan, Japan, Korea and the USA were checked the same way against developers, contractors, government documents and trade press (farms inside Japanese ports follow NEDO’s classification of support structures, where a “dolphin” is a high-rise pile cap). Each farm card lists its sources. China and Vietnam are checked farm by farm against developers, construction contractors, local governments (including completion environmental acceptance reports) or trade press, with every quoted passage verified: as of October 2026, 77 of China’s 141 operating offshore farms are known (about 60% of the capacity) and 13 of Vietnam’s 22; the rest still show “type unknown”. The farm-by-farm list is docs/foundations.en.md on GitHub.') + '</li></ul>' +
+    '<h4>' + (zh ? '水下基礎型式' : 'Foundation types') + '</h4><ul><li>' + (zh ? 'OSPAR Offshore Renewable Energy Developments 2024（CC0，資料時間 2024-01-01）：北海與東北大西洋逐場的基礎型式；逐筆比對本站風場。OSPAR 與建成紀錄不符或沒寫具體型式的（德國每一座、英國 Hornsea One 等），改以德文維基百科或建造新聞為準。歐洲其他風場（波羅的海、地中海、艾瑟爾湖）與 2024 年以後才完工的風場，逐座查開發商、施工廠商、產業新聞或維基百科；全球浮動式風場的細分型式（單柱式、半潛式、駁船式、張力腳）逐座查技術供應商與開發商資料。台灣、日本、韓國、美國逐座查開發商、施工廠商、政府文件或產業新聞（日本港灣內的風場以 NEDO 的支持構造分類為準，「ドルフィン」即高樁承台）。卡片列出每座的出處。中國與越南逐座查開發商、施工廠商、地方政府（含竣工環保驗收報告）或產業新聞，出處原文逐筆核對：2026 年 10 月中國營運中的離岸風場 141 座已查明 79 座（約占容量 62%）、越南 22 座查明 14 座，其餘仍暫列「型式不詳」；逐場清單見 GitHub 的 docs/foundations.md。' : 'OSPAR Offshore Renewable Energy Developments 2024 (CC0, data as of 1 Jan 2024): foundation type per farm for the North Sea and NE Atlantic, matched to this site’s farms one by one. Where OSPAR differs from what was built or gives no specific type (every German farm, the UK’s Hornsea One and a few others), German Wikipedia or construction news is used instead. The rest of Europe (the Baltic, the Mediterranean, the IJsselmeer) and farms finished after 2024 were checked one by one against developers, construction contractors, trade press or Wikipedia, and floating farms worldwide got their sub-type (spar, semi-submersible, barge, tension-leg) from technology providers and developers. Taiwan, Japan, Korea and the USA were checked the same way against developers, contractors, government documents and trade press (farms inside Japanese ports follow NEDO’s classification of support structures, where a “dolphin” is a high-rise pile cap). Each farm card lists its sources. China and Vietnam are checked farm by farm against developers, construction contractors, local governments (including completion environmental acceptance reports) or trade press, with every quoted passage verified: as of October 2026, 79 of China’s 141 operating offshore farms are known (about 62% of the capacity) and 14 of Vietnam’s 22; the rest still show “type unknown”. The farm-by-farm list is docs/foundations.en.md on GitHub.') + '</li></ul>' +
     '<h4>' + (zh ? '重大事件與事故' : 'Major events & incidents') + '</h4><ul><li>' + (zh ? '2026 年 9 月 28 日人工查證的清單（' + (EVENTS.length || 59) + ' 筆）：每筆附主管機關或業主的一手來源（能源署、BSEE、OSHA、METI、韓國氣候能源環境部、AEMO、各業主新聞稿等）；傷亡人數與根因只寫官方已確認的，未確認的留空；照片只記錄頁面網址與權利狀態，本站不轉載。逐筆清單見 GitHub 的 docs/events.md。' : 'A list verified by hand on 28 Sep 2026 (' + (EVENTS.length || 59) + ' events): each with a primary source from a regulator or the owner (Energy Administration, BSEE, OSHA, METI, Korea’s climate and energy ministry, AEMO, owners’ press releases and others); casualties and root causes are recorded only when officially confirmed; photos are recorded as page URLs with their rights status and are not reproduced here. The full list is docs/events.en.md on GitHub.') + '</li></ul>') +
     '<h4>' + (zh ? '備註（離岸）' : 'Notes (offshore)') + '</h4><ul>' + li(n.offshore) + '</ul>' +
     '<h4>' + (zh ? '備註（早期）' : 'Notes (early)') + '</h4><ul>' + li(n.early) + '</ul>' +
@@ -3553,6 +3619,12 @@ function showSources() {
       '<li>' + (zh ? '亞伯達：AESO Current Supply Demand 報表（約 1 分鐘）。© 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved；非商業與教育用途，數值未修改。' : 'Alberta: AESO Current Supply Demand report (about 1 minute). © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; non-commercial, educational use, values unmodified.') + '</li>' +
       '<li>' + (zh ? '安大略：IESO Generators Output and Capability 報表（每小時）。' : 'Ontario: IESO Generators Output and Capability report (hourly). ') + 'Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO\'s website (www.ieso.ca).</li>' +
       '<li>' + (zh ? '機組與風場的對照以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對；對不到的機組只計入電網總量。綠色外圈只在時間軸位於最新年份時顯示。' : 'Units are matched to farms using AEMO’s registration list and IESO’s “Transmission-Connected Generation” page, checked by hand; unmatched units only count toward the grid total. Green rings only show when the timeline is at the latest year.') + '</li></ul>') +
+    '<h4>' + (zh ? '海域（工具列「海域」）' : 'Sea zones (toolbar “Sea zones”)') + '</h4><ul><li><a href="https://www.marineregions.org/" target="_blank" rel="noopener">Flanders Marine Institute (VLIZ), Marine Regions: Maritime Boundaries Geodatabase v12 (2023)</a>' +
+      (zh ? '（CC BY 4.0）的專屬經濟區界線：不畫基線，依類型分成協議或判決、中線與 200 浬外界、未定或有爭議（虛線）三種，簡化到約 2 km 供地圖顯示（tools/build_offshore_zones.py）。界線不具法律效力，也不代表本站對任何爭議海域的立場；完整資料請到 marineregions.org。'
+        : ' (CC BY 4.0), exclusive economic zone boundaries: baselines left out, grouped as agreed or ruled, median lines and 200 NM limits, and unsettled or disputed (dashed), simplified to about 2 km for display (tools/build_offshore_zones.py). The lines have no legal value and imply no position on any disputed area; for the data itself, see marineregions.org.') +
+      '</li><li><a href="https://data.gov.tw/dataset/36681" target="_blank" rel="noopener">' + (zh ? '經濟部能源署「台灣離岸風電潛力場址地理資訊」' : 'Energy Administration, Taiwan offshore wind potential sites') + '</a>' +
+      (zh ? '（政府資料開放平臺 36681，政府資料開放授權條款）：2015 年公告的 36 處潛力場址，TWD97 座標轉成經緯度；每一處都用公告面積核對點位順序，新竹縣場址有 6 種順序都符合，無法確定，所以沒有畫出。'
+        : ' (data.gov.tw 36681, Open Government Data License): the 36 potential sites published in 2015, TWD97 coordinates converted to latitude and longitude; each site\'s vertex order is checked against its published area, and the Hsinchu County site is not drawn because six orders fit equally well.') + '</li></ul>' +
     '<h4>' + (zh ? '底圖與元件' : 'Basemaps & libraries') + '</h4><ul><li>Natural Earth 1:50m Admin-0 & Gray Earth shaded relief (public domain) · NASA Blue Marble Next Generation with topography & bathymetry (public domain) · ' + (zh ? '平均風速：' : 'Wind speed: ') + '<a href="https://globalwindatlas.info/" target="_blank" rel="noopener">Global Wind Atlas 3</a> (DTU Wind Energy / World Bank Group, CC BY 4.0)' + (zh ? '，離地 100 m 年平均風速，取 1/32 縮圖層（約 9 km）依 1 m/s 分級（tools/build_wind_resource.py）' : ', mean wind speed at 100 m, 1/32 overview (about 9 km) binned at 1 m/s (tools/build_wind_resource.py)') + '</li><li>Esri World Imagery (Esri, Vantor, Earthstar Geographics) · Esri World Hillshade (Esri, USGS, NASA et al.) — zoomed-in detail</li><li>three.js r128 (MIT) · Wikimedia Commons ' + (zh ? '照片（各張作者與授權寫在卡片上，連到原檔案頁）' : 'photos (author and licence of each on the card, linked to the file page)') + ' · Wikipedia (live lookup)</li><li>' + (zh ? '此刻的風：' : 'Wind now: ') + '<a href="https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast" target="_blank" rel="noopener">NOAA/NCEP Global Forecast System (GFS)</a>' + (zh ? '（公有領域）離地 10 m 風場，1° 解析度，取最新一次預報的分析場，排程每 6 小時更新（tools/fetch_gfs_wind.py）；粒子的移動速度是示意，亮度對應風速' : ' (public domain) 10 m wind at 1°, the analysis of the newest cycle, refreshed every 6 hours by a schedule (tools/fetch_gfs_wind.py); particle speed is illustrative, brightness follows wind speed') + '</li></ul>' +
     '<h4>' + (zh ? '開發者與版權' : 'Developer & copyright') + '</h4><p>國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室<br>National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu<br>' +
     (zh ? '網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用。' : 'Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source listed above.') +
@@ -3887,6 +3959,7 @@ function stateParams() {
   if (S.mode !== 'globe') p.mode = S.mode;
   if (S.layer !== 'both') p.layer = S.layer;
   if (S.flow) p.flow = '1';
+  if (S.zones) p.zones = '1';
   if (outShown()) { p.out = OUT.iso + '.' + OUT.view; if (isSamp() && OUT.per !== '90') p.op = OUT.per; }
   if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
@@ -3920,6 +3993,7 @@ function applyParams(p, fromFarms) {
   S.fdOnly = S.layer === 'fd' && FD_GROUPS.includes(p.fdg) ? p.fdg : null;
   if (p.pipe != null) togglePipe(p.pipe !== '0');
   if (p.flow != null && (p.flow === '1') !== !!S.flow) toggleFlow(p.flow === '1');
+  if ((p.zones === '1') !== !!S.zones && !LITE) toggleZones(p.zones === '1');
   if (p.r && !fromFarms) setRegion(p.r);
   if (p.y && !isNaN(+p.y)) { S.year = clamp(+p.y, Y0, Y1); syncYearUI(); }
   else if (!fromFarms && p.play !== '1') { S.year = Y1; syncYearUI(); }     // 連結省略 y ＝ 最新年份（見 stateParams）
@@ -4011,6 +4085,7 @@ function wireUI() {
   $('g-regionSel').onchange = e => { if (TOUR) tourEnd(false); closeCard(); setRegion(e.target.value); };
   $('g-baseSel').onchange = e => setBase(e.target.value);
   $('g-btnFlow').onclick = () => toggleFlow();
+  $('g-btnZones').onclick = () => toggleZones();
   $('g-btnOut').onclick = () => openOutput({ iso: OUT_ISO.includes(S.region) ? S.region : OUT.iso });
   $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');

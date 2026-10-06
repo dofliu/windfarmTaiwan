@@ -141,6 +141,18 @@
 #g-flowLegend .wln{font-size:10px}
 #g-flowLegend .wln a{color:var(--ginkm)}
 #g-flowLegend .fly{color:var(--acc)}
+/* 海域圖層圖例（左下，其他圖例上方；右下會被側欄蓋住）：界線藍、潛力場址玫瑰紅（dataviz 色盲檢查）；未定界線用虛線區分，不只靠透明度 */
+#g-zoneLegend{position:absolute;left:16px;bottom:88px;display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--ink-2);background:rgba(7,13,24,.84);border:1px solid var(--gline);border-radius:10px;padding:7px 10px;max-width:min(310px,calc(100% - 24px));z-index:3}
+#g-zoneLegend[hidden]{display:none}
+#g-zoneLegend .wlh b{color:var(--ink)}
+#g-zoneLegend .zl{display:flex;align-items:center;gap:8px}
+#g-zoneLegend .zl i{flex:0 0 24px;height:0;border-top:2px solid #3a9fd8}
+#g-zoneLegend .zl i.zm{opacity:.5}
+#g-zoneLegend .zl i.zu{border-top-style:dashed}
+#g-zoneLegend .zl i.zs{border-top-color:#d06a9a}
+#g-zoneLegend .wln{font-size:10px;line-height:1.45}
+#g-zoneLegend .wln a{color:var(--ginkm)}
+#globe .lbl.zone{color:#f3b6d2}
 #g-windLegend .wlh b{color:var(--ink)}
 #g-windLegend .wlbar{display:flex;gap:2px}
 #g-windLegend .wlbar span{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:30px}
@@ -346,6 +358,7 @@
   #g-msPanel{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:46%}
   #g-mapPane:has(#g-infoCard.show) #g-msPanel{display:none}
   #g-attr{bottom:auto;top:6px;right:8px;max-width:60%}
+  #g-zoneLegend{bottom:auto;top:80px;left:8px;max-width:min(260px,calc(100% - 16px))}
   #g-yearBig{font-size:40px;left:10px;top:8px}
   #g-worldStat{left:4px;top:72px;font-size:11.5px;padding:4px 8px}
   #g-infoCard{left:8px;right:8px;width:auto;bottom:8px;max-height:58%}
@@ -365,6 +378,9 @@
 /* 手機精簡版（≤640px）：把畫面讓給地球——頁首一列、工具列縮小、大年份藏起來（播放列已有年份）、統計壓成一條、
    出處列單行、分頁列與播放列各一列；速度與顯示選單由 globe.js 移到工具列。 · Compact phone layout */
 @media (max-width:640px){
+  #g-zoneLegend{cursor:pointer;font-size:10.5px;padding:5px 8px}
+  #g-zoneLegend .wln.zn{display:none}
+  #g-zoneLegend.open .wln.zn{display:block}
   #globe{font-size:12px}
   #g-windLegend{top:auto;bottom:54px;padding:4px 7px;gap:2px}
   #g-flowLegend{top:auto;bottom:54px;padding:4px 7px;gap:2px}

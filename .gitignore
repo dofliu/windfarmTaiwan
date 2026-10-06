@@ -2,3 +2,10 @@ __pycache__/
 *.pyc
 .DS_Store
 standalone/
+# 宣傳影片的中間檔與成品（見 tools/promo/README.md）· promo video intermediates and outputs
+tools/promo/work/
+tools/promo/work_en/
+tools/promo/assets/
+tools/promo/s[0-9]*.html
+tools/promo/*.mp4
+tools/promo/*.log*

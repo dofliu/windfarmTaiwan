@@ -1,0 +1,97 @@
+{
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "xfade": 0.6,
+ "scenes": [
+  {
+   "file": "s01_open_en.html",
+   "duration": 9,
+   "transition": "fade"
+  },
+  {
+   "file": "s02_why_en.html",
+   "duration": 8,
+   "transition": "circleopen"
+  },
+  {
+   "file": "s03_timeline.html",
+   "duration": 16,
+   "transition": "smoothleft"
+  },
+  {
+   "file": "s04_bars.html",
+   "duration": 9,
+   "transition": "fade"
+  },
+  {
+   "file": "s05_taiwan.html",
+   "duration": 14,
+   "transition": "smoothup"
+  },
+  {
+   "file": "s06_turbines.html",
+   "duration": 11,
+   "transition": "fade"
+  },
+  {
+   "file": "s07_foundations.html",
+   "duration": 12,
+   "transition": "smoothleft"
+  },
+  {
+   "file": "s08_profile.html",
+   "duration": 9,
+   "transition": "circleopen"
+  },
+  {
+   "file": "s09_china.html",
+   "duration": 12,
+   "transition": "fade"
+  },
+  {
+   "file": "s10_milestones.html",
+   "duration": 12,
+   "transition": "smoothup"
+  },
+  {
+   "file": "s11_events.html",
+   "duration": 11,
+   "transition": "fade"
+  },
+  {
+   "file": "s12_ports.html",
+   "duration": 9,
+   "transition": "smoothleft"
+  },
+  {
+   "file": "s13_windnow.html",
+   "duration": 11,
+   "transition": "circleopen"
+  },
+  {
+   "file": "s14_output.html",
+   "duration": 11,
+   "transition": "fadeblack"
+  },
+  {
+   "file": "s15_claim_en.html",
+   "duration": 9,
+   "transition": "fade"
+  },
+  {
+   "file": "s16_scale_en.html",
+   "duration": 9,
+   "transition": "smoothup"
+  },
+  {
+   "file": "s17_portable_en.html",
+   "duration": 8,
+   "transition": "fade"
+  },
+  {
+   "file": "s18_cta_en.html",
+   "duration": 10
+  }
+ ]
+}

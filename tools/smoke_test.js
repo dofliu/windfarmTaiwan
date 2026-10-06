@@ -55,6 +55,10 @@ const ROUTES = [
     const n = document.querySelectorAll('#g-modal.show .oout .orow').length;
     return n > 10 ? '' : 'Output dialog (Australia): ' + n + ' rows';
   }],
+  ['#/global?r=TWN&zones=1', 15000, () => {
+    const l = document.querySelector('#g-zoneLegend');
+    return l && !l.hidden ? '' : 'sea zones: legend missing';
+  }],
   ['#/learn', 3500],
   ['#/learn/sources', 3500],
 ];

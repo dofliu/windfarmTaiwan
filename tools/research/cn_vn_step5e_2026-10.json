@@ -255,29 +255,6 @@
   ]
  },
  {
-  "farm": "CGN Peninsula South U1",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 106,
-  "note_zh": "國家電投山東半島南U1場址90萬千瓦（106台8.5MW，一期53台2023-11-17投運、二期53台2024-10-26全容量併網；經濟導報／齊魯網2024-10、中國電器工業協會2024-10-31）。報導只提「完成全部基礎沉桩作業」，未寫明基礎型式；國能U2二期環評（設計）稱U場址一期「風機基礎擬定為單樁基礎」，屬設計線索非施工證據。",
-  "note_en": "SPIC Shandong Peninsula South U1 site, 900 MW (106 x 8.5 MW; phase 1 of 53 units in service 2023-11-17, phase 2 of 53 units fully grid-connected 2024-10-26; Economic Herald/iqilu Oct 2024, CEEIA 2024-10-31). Reports only say all foundation piling was completed; no foundation type is stated. The Guohua U2 phase-2 EIA (design stage) says the U site phase-1 foundations were planned as monopiles – a design clue, not construction evidence.",
-  "anomalies": "業主應為國家電投（SPIC）山東能源，不是中廣核；容量為900 MW（兩期各450 MW），資料庫寫500 MW；一期2023年、二期2024年。可能與資料庫其他「半島南U」紀錄重複。",
-  "sources": [
-   {
-    "url": "https://news.qq.com/rain/a/20241028A054SE00",
-    "quote": "二期450MW项目于2023年3月31日取得核准，今年9月5日完成全部基础沉桩作业，9月9日完成首批17台风机并网发电，10月26日完成末批36台风机并网发电，实现项目全容量投运"
-   },
-   {
-    "url": "https://www.ceeia.com/XWZX/d/202410/1e56e39e98c44482a46066bc95bcdb07.html",
-    "quote": "国家电投山东半岛南U1场址90万千瓦海上风电项目位于山东省乳山市南侧海域，用海面积143平方公里。项目按照“整体设计、集约节约、创新引领”原则，分两期建设，安装106台8.5兆瓦机组"
-   },
-   {
-    "url": "https://qxb-img-osscache.qixin.com/qianlima/%E5%A8%81%E6%B5%B7%E5%B8%82%E7%94%9F%E6%80%81%E7%8E%AF%E5%A2%83%E5%B1%80%E5%85%B3%E4%BA%8E%E5%9B%BD%E5%AE%B6%E8%83%BD%E6%BA%90%E9%9B%86%E5%9B%A2%E5%9B%BD%E5%8D%8E%E5%8D%8A%E5%B2%9B%E5%8D%97U2%E5%9C%BA%E5%9D%80%E6%B5%B7%E4%B8%8A%E9%A3%8E%E7%94%B5%E4%BA%8C%E6%9C%9F%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E5%BD%B1%E5%93%8D%E8%AF%84%E4%BB%B7%E6%96%87%E4%BB%B6%E5%8F%97%E7%90%86%E6%83%85%E5%86%B5%E7%9A%84%E5%85%AC%E7%A4%BA-%E5%9B%BD%E5%AE%B6%E8%83%BD%E6%BA%90%E9%9B%86%E5%9B%A2%E5%9B%BD%E5%8D%8E%E5%8D%8A%E5%B2%9B%E5%8D%97U2%E5%9C%BA%E5%9D%80%E6%B5%B7%E4%B8%8A%E9%A3%8E%E7%94%B5%E4%BA%8C%E6%9C%9F%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E5%BD%B1%E5%93%8D%E6%8A%A5%E5%91%8A%E4%B9%A6%EF%BC%88%E5%85%AC%E7%A4%BA%E7%A8%BF%EF%BC%89.pdf",
-    "quote": "拟安 装 53 台单机容量为 8.5MW 的风电机组。风机基础拟定为单桩基础"
-   }
-  ]
- },
- {
   "farm": "Guoneng Peninsula South U2 / Laizhou",
   "type": "unknown",
   "parts": null,
@@ -1117,21 +1094,6 @@
   ]
  },
  {
-  "farm": "Shanghai Lingang Demonstration Phase 2",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 28,
-  "note_zh": "二期 28 台 3.6MW、2016 年底併網（搜尋摘要），2015 年 3 月曾招標「風機基礎試樁」（風能產業網），但查無說明已建成基礎型式的施工紀錄。",
-  "note_en": "Phase 2 has 28 x 3.6 MW units, grid-connected end of 2016 (search snippet); a 'turbine foundation test pile' tender was issued in March 2015 (CWEEA), but no construction source states the as-built foundation type.",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.cweea.com.cn/xwdt/html/16949.html",
-    "quote": "受上海临港海上风力发电有限公司委托对上海临港海上风电二期风机基础试桩进行公开招标。现邀请合格的投标人前来投标。"
-   }
-  ]
- },
- {
   "farm": "SinoHydro Rudong Intertidal",
   "type": "mx",
   "parts": [
@@ -1385,21 +1347,6 @@
    {
     "url": "https://vi.wikipedia.org/wiki/Nh%C3%A0_m%C3%A1y_%C4%91i%E1%BB%87n_gi%C3%B3_B%E1%BA%A1c_Li%C3%AAu",
     "quote": "vùng có điều kiện địa chất công trình phức tạp với chiều dày lớp đất yếu lớn. Công ty nghiên cứu thiết kế móng trụ turbine là Công ty CP tư vấn thiết kế XD Giao thông thủy (TEDI WECCO)"
-   }
-  ]
- },
- {
-  "farm": "Hiep Thanh (Tra Vinh)",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 18,
-  "note_zh": "協成 78 MW、18 座（Ecotech／PECC3 開工資料）：只查到時程與投資資訊，未找到基礎型式出處。",
-  "note_en": "Hiep Thanh 78 MW, 18 turbines (Ecotech / PECC3 ground-breaking material): only schedule and investment information found; no foundation-type source.",
-  "anomalies": "18 座取自搜尋摘要，未抓到原文。",
-  "sources": [
-   {
-    "url": "https://ecoinvest.vn/vi/trang-du-an/du-an-nha-may-dien-gio-hiep-thanh-78mw.html",
-    "quote": "Tháng 3-6/2021: Hoàn thành móng trụ gió đầu tiên."
    }
   ]
  },

@@ -419,6 +419,12 @@ FOUNDATIONS = [
     F5('CHN', 'Shandong Haiwei Peninsula South U', 'mp', url='https://www.ne21.com/news/show-201133.html',
        zh='53 座單樁（龍源振華 2024 年 9 月全部沉樁完成；53 部 8.5 MW）',
        en='53 monopiles (all driven by Longyuan Zhenhua by September 2024; 53 × 8.5 MW)'),
+    F5('CHN', 'SPIC Peninsula South U1', 'mp', url='https://www.163.com/dy/article/K7QMU0850514R9KE.html',
+       zh='106 部 8.5 MW 全部為單樁：一期 450 MW（53 部，2023 年 11 月併網）獲 2025 年度中國電力優質工程，得獎說明寫「風機基礎單樁最大樁重 1450 噸」（網易轉載）；'
+          '二期 53 部由龍源振華 2024 年 9 月全部沉樁完成（世紀新能源網）。二期在本站另有一筆「Shandong Haiwei Peninsula South U」，兩筆重複，待重建風場層時處理（見 TODO）。',
+       en='All 106 × 8.5 MW on monopiles: phase 1 (450 MW, 53 units, connected Nov 2023) won a 2025 China Electric Power Quality Project award whose citation gives '
+          '"turbine foundation monopiles up to 1,450 t" (via 163.com); all 53 monopiles of phase 2 were driven by Longyuan Zhenhua in Sept 2024 (ne21). Phase 2 is also the '
+          'separate record "Shandong Haiwei Peninsula South U"; the duplicate is left for the next farm-layer rebuild (see TODO).'),
     F5('CHN', 'Zhejiang Cangnan 2 Offshore wind farm', 'mp', url='https://news.qq.com/rain/a/20230419A0355R00',
        zh='華能蒼南 2 號 36 部 8.5 MW 全部為單樁（新京報 2023 年 4 月「國內在建最大單樁風電項目」報導；最長樁 118 m、2,328 t，CPEM）',
        en='Huaneng’s Cangnan 2: all 36 × 8.5 MW turbines on monopiles (Beijing News, April 2023, “China’s largest monopile wind project under construction”; longest pile 118 m and 2,328 t, CPEM)'),
@@ -586,6 +592,9 @@ FOUNDATIONS = [
     F5('CHN', 'Shanghai Lingang Demonstration Phase 1', 'pc', url='https://www.fegroup.com.cn/ydkg/xwzx79/gsxw10/577818/index.html',
        zh='一期示範項目 25 台 4MW（上海電氣 W4000）全部採用高樁承台：遠東集團 2019 年報導「從沉樁、承台澆築到完成全部 25 台風機安裝」，2018 年 5 月 8 日開工、主體 238 天完成。',
        en='The 25 x 4 MW (Sewind W4000) Phase 1 demonstration project used high-pile concrete caps: Far East Group (2019) reports ’from pile driving and cap pouring to installing all 25 turbines’ in 238 days after the 8 May 2018 start.'),
+    F5('CHN', 'Shanghai Lingang Demonstration Phase 2', 'pc', url='https://www.cnssce.org/38/201806/2127.html',
+       zh='二期 28 部 3.6 MW（100.8 MW）的風機基礎為高樁混凝土承台，每座 8 根斜鋼管樁沿直徑 10 m 圓周布置（施工單位中交三航局科研院 2018 年承台混凝土控裂論文，上海市土木工程學會）。',
+       en='The 28 × 3.6 MW (100.8 MW) Phase 2 turbines stand on high-rise concrete pile caps, each on eight raked steel piles spaced around a 10 m circle (2018 crack-control paper by the contractor, CCCC Third Harbour’s research institute, Shanghai Society of Civil Engineering).'),
     F5('CHN', 'SPIC Binhai North H1', 'mp', url='https://www.ceeia.com/QYDT/d/201711/71378.html',
        zh='25 台西門子 4MW 全部採用 6m 以上超大直徑無過渡段單樁（國內首次），2015 年 10 月 3 日開工、2016 年 6 月 6 日整體投運（中國電器工業協會 2017 年 11 月，轉載國家優質工程金獎報導）。',
        en='All 25 Siemens 4 MW units stand on >6 m diameter transition-piece-free monopiles (a first in China); construction 3 Oct 2015 to full operation 6 Jun 2016 (CEEIA, Nov 2017, on the National Quality Engineering Gold Award).'),
@@ -610,6 +619,9 @@ FOUNDATIONS = [
     F5('VNM', 'Tan Thuan (PECC2) Phase 1+2', 'pc', url='https://www.phanvu.vn/truyen-thong/tin-hoat-dong/dien-gio-tan-thuan-chao-mung-25-nam-ngay-thanh-lap-phan-vu',
        zh='金甌新順 75 MW、18 座（PECC2 EPC，2021-10-30 COD）：潘武集團承做全部 18 座的混凝土樁打設與承台，2021-05 樁全部完成，即混凝土群樁＋承台。',
        en='Tan Thuan 75 MW, 18 turbines (PECC2 EPC, COD 30 Oct 2021): Phan Vu supplied and drove the concrete piles and finished the caps for all 18 foundations, piling complete May 2021, i.e. concrete pile group with cap.'),
+    F5('VNM', 'Hiep Thanh (Tra Vinh)', 'mp', url='https://offshorewind.biz/2021/08/27/all-foundations-installed-at-vietnams-hiep-thanh-and-tra-vinh-v1-2-nearshore-wind-farms',
+       zh='協成 18 部西門子歌美颯 4.3 MW：廣州打撈局 2021 年 8 月完成協成與茶榮 V1-2 兩場「全部單樁基礎」的安裝（offshoreWIND.biz 2021-08-27）。',
+       en='Hiep Thanh, 18 Siemens Gamesa 4.3 MW: Guangzhou Salvage Bureau finished installing "all monopile foundations" at Hiep Thanh and Tra Vinh V1-2 in August 2021 (offshoreWIND.biz, 27 Aug 2021).'),
     F5('VNM', 'Hoa Binh 1 Phase 1', 'pc', url='https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html',
        zh='方英集團和平1號一期 13 座 Vestas（2021-07-02 送電）：PLC 與 Vinaincon 均記載和平1、2 風機基礎為 PHC D500C／D800C 預應力離心混凝土樁，即群樁＋承台。',
        en='Phuong Anh’s Hoa Binh 1 phase 1, 13 Vestas turbines (energised 2 Jul 2021): PLC and Vinaincon both record PHC D500C/D800C prestressed spun concrete piles for the Hoa Binh 1 & 2 turbine foundations, i.e. pile group with cap.'),

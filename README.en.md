@@ -109,6 +109,9 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link):
     generation, never mixed into the official ranking; farm cards also show the last 90 days of samples
   - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
     refreshed every 6 hours; it is today's weather and does not follow the timeline
+  - **Sea zones** (toolbar button, off by default; `zones=1` in the URL): exclusive economic zone boundaries (Marine Regions, drawn three ways: agreed or ruled,
+    median lines and 200 NM limits, unsettled or disputed) and Taiwan's offshore wind potential sites (the 36 sites the Energy Administration published in 2015,
+    35 drawn, numbered with their area when zoomed in); the lines have no legal value and imply no position on disputed waters
   - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
     `#/global?f=Hai%20Long%202%20%26%203`)
   - **Global farm search and filters**: "🔍 Search" in the toolbar or the / key searches all ~23,000 farms by name,
@@ -226,6 +229,9 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   the Australian source aggregate is `data/global/sources/aemo_wind_monthly.json` (made by `python3 tools/au_output.py fetch` from AEMO's monthly files)
 - `data/global/turbine_output.json` — position, specs and measured yearly output of about 1,800 individually metered Danish turbines (Danish Energy Agency;
   production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
+- `data/global/offshore_zones.json` — the sea-zones layer: EEZ boundaries (Marine Regions v12, CC BY 4.0, simplified to about 2 km for display) and Taiwan's offshore
+  wind potential sites (Energy Administration open data 36681), built by `tools/build_offshore_zones.py` (the site coordinates are kept in
+  `data/global/sources/twn_offshore_potential_sites_36681.csv`) and loaded when "Sea zones" is turned on
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
   turbines; Germany now uses MaStR), downloaded by
   `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
@@ -234,6 +240,7 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, the merge log, and the wind records of OSPAR Offshore
   Renewables 2024 (CC0, used for foundation types)
+- `tools/promo/` — scripts for the promo video of the 3D globe (globe recording, designed scenes, storyboards; the videos stay out of git, see [tools/promo/README.en.md](./tools/promo/README.en.md))
 - `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
   `tools/build_standalone.py` builds the single-file edition, `tools/coverage_report.py` the data coverage report,
   `tools/qa_farms.py` checks farm coordinates, `tools/qa_ports.py` checks the ports data,
@@ -510,6 +517,9 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
   Marble Next Generation (public domain)
 - Wind speed basemap: Global Wind Atlas 3 (DTU Wind Energy / World Bank Group, CC BY 4.0)
+- Sea zones: EEZ boundaries from the Flanders Marine Institute (VLIZ) [Marine Regions](https://www.marineregions.org/) Maritime Boundaries Geodatabase v12
+  (2023, CC BY 4.0, simplified, no legal value); Taiwan's offshore wind potential sites from the Energy Administration's
+  [potential sites dataset](https://data.gov.tw/dataset/36681) (Open Government Data License)
 - Zoomed-in tiles: Esri World Imagery (Esri, Vantor, Earthstar Geographics) and Esri World Hillshade
   (Esri, USGS, NASA et al.), attributed on screen per Esri's terms
 - Wind now: NOAA/NCEP Global Forecast System (GFS) 10 m wind (public domain), refreshed every 6 hours by a schedule
