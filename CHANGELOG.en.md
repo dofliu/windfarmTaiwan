@@ -53,10 +53,21 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
   269 turbines.
 - Foundations: 15 more Chinese farms from construction, completion or completion-acceptance records (every quote checked), for example Lemen II, Shenquan I
   and II, Qingzhou 3 and 4, Peninsula South V, Rudong H4 and H7 and Shengsi 2 (31 pile caps + 32 monopiles); Changle Waihai A's note now says it has
-  jackets of two kinds (four-pile and suction-bucket). Operating offshore farms with a known type: 257 of 334, 77.9% of the capacity (was 242 and 71.5%);
-  77 of China's 142.
-- Card photos for 10 more farms (Commons photos, each looked at): Gwynt y Môr, Burbo Bank, Robin Rigg, Sheringham Shoal, Nysted, Rødsand II, Belwind,
-  Arkona, Jaisalmer and Roscoe, 50 in all.
+  jackets of two kinds (four-pile and suction-bucket). Operating offshore farms with a known type: 257 of 333, 78.7% of the capacity (was 242 and 71.5%);
+  77 of China's 141.
+- More data corrections (every quote checked against its source):
+  - Three Chinese offshore records listed as operating were re-checked. Datang Danzhou CZ3 has only site 1 (600 MW) in operation (2025); site 2 (600 MW,
+    Mingyang 10 MW) only broke ground on 16 Dec 2025 and was still under offshore construction in October 2026, so the record is split in two with site 2
+    under construction, and GEM's duplicate of site 2 is removed. Changle Waihai B was never built (the record had 400 MW operating since 2022): the only
+    area-B project is Zhongmin Energy's "Changle B (adjusted)", whose EPC contract was only tendered in September 2026, so GEM's pre-construction record
+    (102 MW, expected 2027) now stands for it. Huaneng Peninsula North BW really is operating; its point moves from the sea north of Weihai to north-west of
+    Sangdao island off Longkou (it was about 140 km too far east). China's operating offshore capacity drops by 1,000 MW (by 400 MW for 2025).
+  - Morocco's farm total drops from 120% to 94% of the national figure: GEM's Tarfaya (placed in Tetouan Province in the north), Tangier and Akhfenir
+    records duplicated the site's own and are removed; Tarfaya's owner is now Tarec, a 50:50 venture of ENGIE and Nareva, and Akhfennir moves to GEM's
+    exact point (it was about 17 km to the north-west).
+- Card photos for 24 more farms (Commons photos, each looked at): Gwynt y Môr, Burbo Bank, Robin Rigg, Sheringham Shoal, Nysted, Rødsand II, Belwind,
+  Arkona, Jaisalmer, Roscoe, Lillgrund, Egmond aan Zee, Prinses Amalia, Thanet, Kentish Flats, Scroby Sands, North Hoyle, Rampion, Whitelee,
+  Fântânele-Cogealac, Tafila, Tarfaya, Jeffreys Bay and Shepherds Flat, 64 in all.
 
 ## v2.26.1 — 2026-10-05
 

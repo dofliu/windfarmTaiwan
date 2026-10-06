@@ -37,8 +37,11 @@ v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 - 資料更正：台中電廠風機商轉年 2005 → 2006、台中港區 2006 → 2007（監察院 2010 年調查報告）；伊朗 Tizbaad（100 MW）查無運轉證據，改為施工前、年份不詳
   （伊朗逐場加總由國家統計的 116% 降為 90%）；三峽陽江沙扒五期 400 → 300 MW（47 部明陽 MySE6.45-180），沙扒六筆加總與三峽公布的 1,705.5 MW、269 部相符。
 - 水下基礎：中國再補 15 座（施工、完工或竣工環保驗收紀錄，出處原文逐筆核對），例如勒門二、神泉一與二、青洲三、四、半島南 V、如東 H4／H7、嵊泗 2 號（31 承台＋32 單樁）；
-  長樂外海 A 的說明更正為四樁與吸力式兩種套管。全球營運中離岸風場已知型式 257／334 座、占容量 77.9%（原 242 座、71.5%），中國 142 座中查明 77 座。
-- 卡片照片再補 10 座風場（逐張看過的 Commons 照片）：Gwynt y Môr、Burbo Bank、Robin Rigg、Sheringham Shoal、Nysted、Rødsand II、Belwind、Arkona、Jaisalmer、Roscoe，共 50 座。
+  長樂外海 A 的說明更正為四樁與吸力式兩種套管。全球營運中離岸風場已知型式 257／333 座、占容量 78.7%（原 242 座、71.5%），中國 141 座中查明 77 座。
+- 資料更正（續，出處原文逐筆核對）：
+  - 中國三筆列為營運中的離岸風場重查：大唐儋州 CZ3 只有一場址 600 MW 營運（2025 年），二場址 600 MW（明陽 10 MW）2025 年 12 月 16 日才開工、2026 年 10 月仍在海上施工，拆成兩筆、二場址列興建中，GEM 重複收錄的二場址一併刪除；長樂外海 B 區從未建成（原本 400 MW、2022 年營運中），唯一的 B 區案是中閩能源的「長樂 B 區（調整）」，2026 年 9 月才招 EPC，改由 GEM 的規劃中紀錄代表（102 MW、預計 2027 年）；華能半島北 BW 確實營運中，座標從威海北方外海改到龍口桑島西北（原本偏東約 140 km）。中國營運中離岸容量少 1,000 MW（2025 年少 400 MW）。
+  - 摩洛哥逐場加總由國家統計的 120% 降為 94%：GEM 的 Tarfaya（被放在北部的得土安省）、Tangier、Akhfenir 三筆與本站紀錄重複，刪除；Tarfaya 業主改為 ENGIE 與 Nareva 各半的 Tarec，Akhfennir 座標改到 GEM 的精確位置（原本偏西北約 17 km）。
+- 卡片照片再補 24 座風場（逐張看過的 Commons 照片）：Gwynt y Môr、Burbo Bank、Robin Rigg、Sheringham Shoal、Nysted、Rødsand II、Belwind、Arkona、Jaisalmer、Roscoe、Lillgrund、Egmond aan Zee、Prinses Amalia、Thanet、Kentish Flats、Scroby Sands、North Hoyle、Rampion、Whitelee、Fântânele-Cogealac、Tafila、Tarfaya、Jeffreys Bay、Shepherds Flat，共 64 座。
 
 ## v2.26.1 — 2026-10-05
 

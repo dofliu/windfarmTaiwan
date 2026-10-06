@@ -49,6 +49,9 @@ and move finished items to the topic lists below.
   Matching leaves out older turbines nearby, connected more than a year before the farm (11 onshore farms had reached the capacity threshold only with them).
   The agency updates about every two months (the current files run to Aug 2026); full-year 2026 figures need the early-2027 files. To refresh, download the
   new files and add them last to the `build_generation.py` arguments; the retrieval month updates itself.
+- 6 Oct 2026 (v2.27.0, same release): a round of data checks (every quote checked with `check_quotes.py`): three Chinese offshore records listed as
+  operating — Danzhou CZ3 split into sites 1 and 2 (site 2 under construction), Changle Waihai B never built (GEM's pre-construction record now stands
+  for it), Peninsula North BW's point corrected; three GEM duplicates in Morocco (farm total 120% → 94%); card photos for 24 more farms (64 in all).
 - 5 Oct 2026 (v2.25.0): after seeing a sample the owner approved "Wind now" (off by default): `tools/fetch_gfs_wind.py` plus the `wind-now`
   schedule (every 6 hours, about 50 KB each). After merging, run `wind-now` once by hand on the Actions tab to check the schedule.
 - 5 Oct 2026 (v2.24.0): three more story tours, "Europe offshore", "China's rise" and "Floating wind" (with buttons in the matching Learn
@@ -64,8 +67,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 257 of 334 operating offshore farms have a known foundation type (77.9% of capacity); dimensions for 234 farms,
-  all three for 168; 368 clean-up rules; card photos for 50 farms.
+- Current figures: 257 of 333 operating offshore farms have a known foundation type (78.7% of capacity); dimensions for 234 farms,
+  all three for 168; 378 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -83,6 +86,12 @@ and move finished items to the topic lists below.
      (EDF's Wei Lan Hai Changhua), also in termination, move to `PIPE_DROP` once that is final; Youde keeps GEM's point (near the Changhua
      coast; the site is about 38 km offshore) until a site coordinate is found. Haiding 3 (GEM's Formosa 3 · 3, 720 MW, announced) now lists
      Corio and TotalEnergies (JERA left in 2023); who holds it after Macquarie wound Corio up in 2026 is unverified.
+   - China: Datang aims to connect all of Danzhou CZ3 site 2 (60 Mingyang 10 MW) by the end of 2026; set it to operating when the grid connection
+     is reported ("Datang Danzhou CZ3 (site 2)" in `farm_cleanup.py`). A group of 57 turbines mapped in OpenStreetMap off Changle (centre about
+     25.846 N, 120.006 E) used to match Changle Waihai B and matches no farm now that B is gone; it has as many turbines as Changle Waihai C, whose
+     point (25.75 N, 120.0 E) may be about 7 km too far south — move it once a source is found. GEM's "Changle Outer Ocean Area I" (314 MW, under
+     construction and pre-construction) is merged automatically into CTG Changle Waihai A at build time; it may be a separate project, unverified.
+   - Morocco: English Wikipedia gives Akhfennir's start as 2013 and GEM 2014; the site keeps 2013 until verified.
    - Korea: Jwasari still has no construction start or auction award; waiting for construction evidence. Its point now sits on Jwasari-do
      off Tongyeong (approximate) until a site coordinate is found.
    - Norway's Sørmarkfjellet: whether every turbine was back in service in 2026, and the cause of the March 2025 blade failure, have not
@@ -157,10 +166,10 @@ and move finished items to the topic lists below.
      Shenquan I and II, Qingzhou 3 and 4, Peninsula South 3, 4 and V, Rudong H4 and H7, Shengsi 2, Zhugensha H2, Jiaxing 2, Fengxian and
      Changle Waihai C; Changle Waihai A's note now says it has jackets of two kinds (four-pile and suction-bucket). Leads not yet written are in
      `tools/research/cn_leads_2026-10b.json` (Huadian Yuhuan 1's south zone has only a self-media summary and a tender, Zhuanghe III only 55 units,
-     Peninsula South U1 phase 2, Huaneng Yuhuan 2, Rudong H2 and H3, Sheyang H2, Dafeng H7, Cangnan 4, Danzhou CZ3). Most promising: a Zhuanghe city
+     Peninsula South U1 phase 2, Huaneng Yuhuan 2, Rudong H2 and H3, Sheyang H2, Dafeng H7, Cangnan 4, and Danzhou CZ3 — now split into sites 1 and 2, with 25 suction-bucket jackets among site 1's 60). Most promising: a Zhuanghe city
      page (dlzh.gov.cn, unreachable from here) reportedly gives Huaneng Zhuanghe II as 40 monopiles + 20 suction-bucket jackets; check it from another network.
      A good source type: search "<farm> 竣工环境保护验收调查报告" (completion acceptance reports published by local governments state the as-built type).
-   - The other Chinese offshore farms (65 of the 142 operating) and Vietnam (9 of 22, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (64 of the 141 operating) and Vietnam (9 of 22, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
@@ -372,6 +381,9 @@ the rules are in `tools/farm_cleanup.py`.
       Provence Grand Large, Goto; milestones V66 prototype, V236, Vineyard Wind 1, Mingyang 20 MW, Dongfang 26 MW. Add them when Commons gets
       new photos or an owner offers one under a free licence (look at each one). Event photos: Commons has no freely licensed photos of turbine
       damage from Typhoons Jangmi, Soudelor, Megi and others.
+      Searched again on 6 Oct 2026 with nothing usable: Greater Gabbard, Triton Knoll, Kriegers Flak, Horns Rev 2/3, Lincs (cannot tell which farm),
+      Lake Turkana (the photo is a portrait), Northwind and Macarthur (no Commons category for the farm); the photos in the Hornsea category date
+      from 2017, before any turbines stood, so do not use them.
 - [ ] The rest of farm details v2: other national registers (Danish turbine register, UK REPD; Germany's MaStR done in v2.22.0) could fill positions
       OSM lacks (OSM maps few turbines in China); a common turbine-model table
       (only about 14% of capacity has a model string, so limited value); per-farm actual output elsewhere (UK REPD / Ofgem, Australia AEMO and others)
