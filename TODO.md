@@ -53,7 +53,7 @@
 - 2026-10-07（v2.30.0）：接著上一版做的三項：
   1. 「海域」圖層加上各國離岸風電規劃區：日本促進區域 13 處（`data/global/sources/jpn_promotion_zones.json`，點位抄自各區指定的公告；以陸岸為界的只畫公告連線）、
      北海周邊 6 國官方開放圖層（荷蘭、德國 FEP 2025、比利時、丹麥海洋空間計畫、蘇格蘭 Crown Estate Scotland、挪威 NVE，`AREA_SOURCES`，建置時下載）。
-     **待使用者決定**：英格蘭、威爾斯與北愛爾蘭的 The Crown Estate 圖層（Wind Site Agreements，可免帳號下載）授權是自訂、可撤回，且不得用於「提供相同或類似服務」的網站，暫不收錄。
+     英格蘭、威爾斯與北愛爾蘭的 The Crown Estate 圖層（Wind Site Agreements）授權是自訂、可撤回，且不得用於「提供相同或類似服務」的網站，使用者 2026-10-07 決定不收錄。
      日本 EEZ 的「募集區域」（2026-04 起施行）到 2026-10 還沒有公告座標；有望區域 9 處只有名稱。德國 FEP 每年改版，有 2026 版的 WFS 時換新；丹麥能源署自己的離岸風電圖層（含名稱）下載頁擋自動下載。
   2. 新竹縣場址依檔案順序是外框加挖空，36 處全畫；台中市 1 號改依檔案順序畫成兩塊（原本重排的形狀有誤）。
   3. 風場資料更正（`farm_cleanup.py` 2026-10-07 段）：刪除兩筆重複（海衛半島南 U＝U1 二期；漳浦六鰲一期＝三峽六鰲二期，GEM 的 D 區列 `ORPHAN_OK`），
@@ -331,7 +331,7 @@
       不是單純改程式碼能解決）
 - [ ] 其他國家的即時風電資料（評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)）：澳洲 NEM、加拿大亞伯達與安大略
       已於 2026-09 接入；英國（估計值）、荷蘭 NED 與 ENTSO-E（需免費金鑰，存成 GitHub Secrets）待決定
-- [ ] 「海域」圖層是否收錄英格蘭、威爾斯與北愛爾蘭的 The Crown Estate 離岸風電租約區（Wind Site Agreements，免帳號可下載；授權是自訂的 The Crown Estate Open Data Licence，
+- [x] 「海域」圖層是否收錄英格蘭、威爾斯與北愛爾蘭的 The Crown Estate 離岸風電租約區：2026-10-07 使用者決定不收錄（Wind Site Agreements，免帳號可下載；授權是自訂的 The Crown Estate Open Data Licence，
       可撤回、不得用於提供與其入口網站「相同或類似服務」的網站，標示「Contains data provided by The Crown Estate…」）
 - [ ] ROADMAP「下一步規劃」各階段的優先順序
 

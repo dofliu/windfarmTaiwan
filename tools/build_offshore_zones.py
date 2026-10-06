@@ -205,9 +205,9 @@ def tw_sites():
 
 # ------------------------------------------------ 北海周邊國家的離岸風電規劃區 · offshore wind areas around the North Sea
 # 每國一個官方開放圖層（不需帳號），下載後只留風電區、簡化，授權與標示寫進 meta。英格蘭、威爾斯、北愛爾蘭（The Crown Estate）的授權
-# 有額外限制（可撤回、不得用於提供類似服務的網站），使用者決定前不放。
+# 有額外限制（可撤回、不得用於提供類似服務的網站），使用者 2026-10-07 決定不收錄。
 # One official open layer per country (no account needed); only the wind areas are kept, simplified, with licence and credit in meta.
-# England, Wales and Northern Ireland (The Crown Estate) are left out until the owner decides on its licence, which adds restrictions.
+# England, Wales and Northern Ireland (The Crown Estate) are left out by the owner's decision (7 Oct 2026): its licence adds restrictions.
 NS_TOL = 0.002          # 約 200 m · about 200 m
 AREA_SOURCES = [
     dict(c='NLD', zh='荷蘭：已指定的離岸風電區', en='Netherlands: designated wind energy areas',
@@ -246,7 +246,7 @@ AREA_SOURCES = [
          credit='Contains public sector information licensed under the Open Government Licence v3.0, from Crown Estate Scotland', by='Crown Estate Scotland', lic='OGL v3.0',
          keep=lambda p: p.get('Property_Classification') == 'Wind Farm', name=lambda p: ' '.join(p['Property_Description'].split()),
          note='Seabed lease and option areas of individual projects (existing farms, ScotWind and INTOG), not plan-level zones. England, Wales and '
-              'Northern Ireland (The Crown Estate) are not included: its open data licence adds restrictions, pending the owner\'s decision.'),
+              'Northern Ireland (The Crown Estate) are not included: its open data licence adds restrictions.'),
     dict(c='NOR', zh='挪威：已開放申請的離岸風電區', en='Norway: areas opened for offshore wind',
          url='https://kart.nve.no/enterprise/rest/services/Mapservices/HavvindOnline/MapServer/17/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
          page='https://kart.nve.no/enterprise/rest/services/Mapservices/HavvindOnline/MapServer', license='NLOD 2.0',

@@ -26,7 +26,7 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
     renewable energy zones of the 2026–2034 marine spatial plan (RBINS/BMDC, CC BY 4.0), Denmark's renewable energy and energy island zones of its maritime spatial
     plan (Søfartsstyrelsen, CC BY 4.0), Crown Estate Scotland's wind farm lease areas (OGL v3.0) and Norway's opened offshore wind areas (NVE, NLOD). All are
     official open layers needing no account, cut to the wind areas and simplified to about 200 m. England, Wales and Northern Ireland (The Crown Estate) are not
-    included for now because its licence adds restrictions.
+    included because its licence adds restrictions (revocable, and barred on sites offering similar services).
   - The legend and the sources dialog list each country's source and licence.
 - All 36 Taiwanese potential sites are now drawn: the Hsinchu County site is, in file order, an outer ring with a hole (22.17 km², published 22.2 km²); Taichung 1
   is now drawn in file order as two parts (36.82 km², published 36.8 km²; the reordered shape with a long spike drawn before was wrong). The build tries the

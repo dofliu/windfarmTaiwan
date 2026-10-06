@@ -76,8 +76,8 @@ and move finished items to the topic lists below.
   1. "Sea zones" adds national offshore wind areas: Japan's 13 promotion zones (`data/global/sources/jpn_promotion_zones.json`, vertices transcribed from each
      designation notice; zones bounded by the shore are drawn as the published lines only) and official open layers of six North Sea countries (Netherlands,
      Germany FEP 2025, Belgium, Denmark's maritime spatial plan, Scotland's Crown Estate Scotland, Norway's NVE; `AREA_SOURCES`, downloaded by the build).
-     **Owner decision pending**: The Crown Estate layer for England, Wales and Northern Ireland (Wind Site Agreements, downloadable without an account) has a custom,
-     revocable licence that bars use on a site offering "the same or similar services", so it is left out for now. Japan's EEZ "募集区域" (in force from April
+     The Crown Estate layer for England, Wales and Northern Ireland (Wind Site Agreements) has a custom, revocable licence that bars use on a site offering
+     "the same or similar services"; the owner decided on 7 Oct 2026 to leave it out. Japan's EEZ "募集区域" (in force from April
      2026) had no published coordinates by October 2026; the 9 promising zones have names only. Germany's FEP is revised yearly: switch to a 2026 WFS when there is
      one; the Danish Energy Agency's own offshore wind layer (with names) blocks automated downloads.
   2. The Hsinchu County site is, in file order, an outer ring with a hole, so all 36 sites are drawn; Taichung 1 is now drawn in file order as two parts (the
@@ -491,7 +491,7 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Live wind data from more countries (assessment in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)):
       Australia NEM, Alberta and Ontario were added in Sep 2026; the UK (estimates), the Dutch NED and ENTSO-E
       (free key, stored as a GitHub secret) are still to be decided
-- [ ] Whether the "Sea zones" layer should include The Crown Estate's offshore wind lease areas for England, Wales and Northern Ireland (Wind Site
+- [x] Whether the "Sea zones" layer should include The Crown Estate's offshore wind lease areas for England, Wales and Northern Ireland: the owner decided on 7 Oct 2026 to leave them out (Wind Site
       Agreements, downloadable without an account; its custom The Crown Estate Open Data Licence is revocable and bars use on a site offering "the same or
       similar services" to its portal; credit "Contains data provided by The Crown Estate…")
 - [ ] The priority order of the phases under "Next steps" in the ROADMAP
