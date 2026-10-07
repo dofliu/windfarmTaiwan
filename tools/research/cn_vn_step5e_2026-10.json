@@ -366,29 +366,6 @@
   ]
  },
  {
-  "farm": "CTG Yangjiang Shapa Phase 3",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "note_zh": "三峽陽江沙扒三期400 MW於2021年底前建成（CPEM轉載研報），三四五期共用一座百萬千瓦級升壓站；含全球首台抗颱風漂浮式機組「三峽引領號」（半潛式）。固定式機組基礎型式與座數未查到；中交三航局2021-02-25稱「三峽陽西沙扒海上風電基礎一標」完成全部29台單樁沉樁，但未寫明屬哪一期（線索）。",
-  "note_en": "CTG Yangjiang Shapa phase 3, 400 MW, built before end of 2021 (research report via CPEM); phases 3–5 share one GW-class substation; includes the world's first typhoon-resistant floating unit 'Sanxia Yinling' (semi-submersible). Foundation types/counts of the fixed units not found; CCCC Third Harbour (2021-02-25) reported all 29 monopiles of the 'Shapa foundation lot I' driven, but did not say which phase (clue only).",
-  "anomalies": "資料庫機型欄把漂浮式「三峽引領號」（5.5 MW）計入三期；該機組應以浮動式（半潛式）另記。",
-  "sources": [
-   {
-    "url": "https://www.cpem.org.cn/list99/51783.html",
-    "quote": "对比三峡广东阳江阳西沙扒三期 400MW 海上风电项目，该项目已于 2021年底前建成并网"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-157562.html",
-    "quote": "至此中交三航局圆满完成该项目全部29台单桩沉桩施工任务"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-169132.html",
-    "quote": "全球首台抗台风型漂浮式海上风电机组的“世界之最”"
-   }
-  ]
- },
- {
   "farm": "CGN Shanwei Jiazi II",
   "type": "unknown",
   "parts": null,
@@ -1686,42 +1663,6 @@
    {
     "url": "https://m.jrj.com.cn/madapter/finance/2025/09/09184053026338.shtml",
     "quote": "华能国际电力江苏能源开发有限公司清洁能源分公司申请一项名为“一种海上风电单桩基础桩监测装置”的专利"
-   }
-  ]
- },
- {
-  "farm": "CTG Yangjiang Shapa Phase 1",
-  "type": "mx",
-  "parts": [
-   [
-    "mp",
-    null
-   ],
-   [
-    "jk",
-    null
-   ],
-   [
-    "sb",
-    null
-   ]
-  ],
-  "turbines": 55,
-  "note_zh": "一期300MW、55台明陽5.5MW（2021年6月全容量並網）。核准變更後基礎改為單樁、四樁導管架、單柱複合筒、吸力桶導管架四種；中新網證實沙扒項目使用吸力筒導管架、單柱複合筒、芯柱式嵌岩導管架、大直徑四樁導管架等為國內首次。各型式座數未查得。來源：搜狐（核准變更）2024、中新網／科技日報 2021-07-19、陽西縣政府 2021-07-26。",
-  "note_en": "Phase 1: 300 MW, 55 Mingyang 5.5 MW (full capacity June 2021). After the approval change the foundations are monopiles, four-pile jackets, single-column composite buckets and suction-bucket jackets; chinanews confirms suction-bucket jackets, composite buckets, rock-socketed core-column jackets and large-diameter four-pile jackets were used at Shapa, each a first in China. Counts per type not found. Sources: sohu (approval change) 2024, chinanews/S&T Daily 2021-07-19, Yangxi county 2021-07-26.",
-  "anomalies": "資料庫年份2019偏早：陽西縣政府稱一期2021年6月已全部投運；三峽新能源陽江發電有限公司為業主（資料庫業主欄空白）。",
-  "sources": [
-   {
-    "url": "https://www.sohu.com/a/789824114_121779604",
-    "quote": "调整后风机基础采用的桩型分别为单桩基础、四桩导管架基础、单柱复合筒基础和吸力桶导管架基础。单桩基础桩径 8.4m；四桩导管架基础桩径 2.4m，根开 22m；单桩复合筒基础桩径 36m；吸力桶导管架基础桩径 13m，根开 30m。"
-   },
-   {
-    "url": "https://www.chinanews.com.cn/m/sh/2021/07-19/9522993.shtml",
-    "quote": "三峡沙扒项目创新使用多种施工技术和基础形式，其中吸力筒导管架、单柱复合筒、芯柱式嵌岩导管架、大直径四桩导管架等多个基础形式均为国内首次使用"
-   },
-   {
-    "url": "http://www.yangxi.gov.cn/xw/yxxw/content/post_548949.html",
-    "quote": "作为最早开工建设的三峡沙扒一期30万千瓦项目，规划安装55台5.5兆瓦风机，目前，已全部投入运营发电。"
    }
   ]
  },

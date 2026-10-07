@@ -186,22 +186,6 @@
   ]
  },
  {
-  "farm": "CTG Yangjiang Shapa Phase 3",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "status": "lead",
-  "note_zh": "線索：中交三航局「沙扒基礎一標」29 根單樁全部沉樁（2021-02），未寫屬哪一期；三期各型式座數未查到。",
-  "note_en": "Lead: CCCC Third Harbor drove all 29 monopiles of \"Shapa foundation lot 1\" (Feb 2021) without saying which phase; per-type counts for phase 3 not found.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-157562.html",
-    "quote": "至此中交三航局圆满完成该项目全部29台单桩沉桩施工任务"
-   }
-  ]
- },
- {
   "farm": "CGN Shanwei Jiazi II",
   "kind": "foundation",
   "type": "unknown",
@@ -366,30 +350,6 @@
    {
     "url": "https://www.china5e.com/news/news-1053335-1.html",
     "quote": "70台海上风机包括4MW、4.2MW和5MW三种机型"
-   }
-  ]
- },
- {
-  "farm": "CTG Yangjiang Shapa Phase 1",
-  "kind": "foundation",
-  "type": "mx",
-  "parts": null,
-  "turbines": 55,
-  "status": "lead",
-  "note_zh": "線索（座數互相矛盾）：Sika 的施工案例（2025-09 版）寫 55 部 5.5 MW 中 10 座套管、36 座單樁、8 座吸力式、1 座浮動式；投資分析文（搜狐 2024）寫核准變更後為單樁、四樁導管架、單柱複合筒、吸力桶導管架四種，先前轉載的「39 單樁＋10 導管架＋3＋3 吸力桶」在原頁找不到。Sika 的「1 座浮動式」若是三峽引領號，本站另有一筆，會重複；吸力式 8 座也未區分複合筒與吸力桶導管架。",
-  "note_en": "Lead (conflicting counts): Sika’s case study (Sept 2025 edition) gives 10 jackets, 36 monopiles, 8 suction-bucket and 1 floating among the 55 × 5.5 MW units; an investment write-up (Sohu 2024) lists monopiles, four-pile jackets, mono-column composite buckets and suction-bucket jackets after the approval change, and the earlier \"39 + 10 + 3 + 3\" split is not on that page. If Sika’s floating unit is Sanxia Yinling, the site records it separately (overlap), and the 8 \"suction-bucket\" units do not separate composite buckets from bucket jackets.",
-  "sources": [
-   {
-    "url": "https://offshore.sika.com/dam/dms/corporate/n/glo-grouting-3-gorges-yangjiang-offshore-windfarm-china.pdf",
-    "quote": "This wind farm comprises 55 units of 5.5 MW wind turbines and a 220-kV substation, of which 10 are jacket structures requiring grouting, as well as the substation jacket."
-   },
-   {
-    "url": "https://offshore.sika.com/dam/dms/corporate/n/glo-grouting-3-gorges-yangjiang-offshore-windfarm-china.pdf",
-    "quote": "Other types of foundations in this project are monopiles (36 nos.), suction-bucket (8 nos.) and 1 floating foundation."
-   },
-   {
-    "url": "https://www.sohu.com/a/789824114_121779604",
-    "quote": "调整后风机基础采用的桩型分别为单桩基础、四桩导管架基础、单柱复合筒基础和吸力桶导管架基础。"
    }
   ]
  },
@@ -823,35 +783,6 @@
   ]
  },
  {
-  "farm": "Putian Shicheng",
-  "kind": "foundation",
-  "type": "mx",
-  "parts": [
-   [
-    "pc",
-    19
-   ]
-  ],
-  "turbines": 29,
-  "status": "lead",
-  "note_zh": "石城 200 MW 共 29 部（26×7 MW＋3×6 MW，福建省自然資源廳 2024-05）；Ⅱ標段（中交一航局）19 部為高樁承台（2021-03 第 15 座承台澆注完成，共 19 台）；與平海灣 F 區合稱的三川項目另創「Ⅲ型單柱最大直徑嵌岩樁」紀錄，其餘 10 部（首批標段）型式未逐座查到。",
-  "note_en": "Shicheng 200 MW has 29 turbines (26 × 7 MW + 3 × 6 MW; Fujian natural-resources department, May 2024); lot II (CCCC First Harbour) is 19 high-rise pile caps (15th of 19 caps poured in March 2021); the Sanchuan project (Shicheng + Pinghai Bay F) also set a record for the largest-diameter ‘type III’ rock-socketed monopile, but the type of the other 10 Shicheng positions (first lot) is not confirmed.",
-  "sources": [
-   {
-    "url": "https://www.ccccyhj.com/article/96/detail-3233.html",
-    "quote": "福建莆田石城海上风电场项目 Ⅱ 标段风机基础施工工程第 15 座承台浇注完成（共 19 台）。至此，项目部承建的高桩承台项目中施工速度最快的一座承台浇注完成。"
-   },
-   {
-    "url": "https://zrzyt.fujian.gov.cn/zwgk/xwdt/zrzyyw/202405/t20240509_6445881.htm",
-    "quote": "建设规模200兆瓦，年上网电量62190万兆瓦时，其中,安装单机容量7兆瓦风力发电机组26台，6兆瓦风力发电机组3台。"
-   },
-   {
-    "url": "http://www.sasac.gov.cn/n2588025/n2588129/c19781959/content.html",
-    "quote": "风机基础施工创造了国内海上风电Ⅲ型单柱最大直径嵌岩桩施工纪录"
-   }
-  ]
- },
- {
   "farm": "Zhuanghe I",
   "kind": "foundation",
   "type": "unknown",
@@ -1085,34 +1016,6 @@
    {
     "url": "http://www.yancheng.gov.cn/art/2014/11/27/art_13184_1456250.html",
     "quote": "江苏响水中国三峡12.5MW试验风机项目位于响水县陈港镇沿海滩涂地区，共安装5台风电机组，总装机容量12.5MW，离岸距离0.5~3km"
-   }
-  ]
- },
- {
-  "farm": "V1-1 Truong Long Hoa (Tra Vinh)",
-  "kind": "foundation",
-  "type": "pc",
-  "parts": null,
-  "turbines": 12,
-  "status": "lead",
-  "note_zh": "茶榮 V1-1 即「韓國－茶榮一期」（Tra Vinh Wind Power，CIO 與 Samtan/STI 持有）：Vestas 統包（含土建 BoP）12 部 V150-4.2 MW；2020-01 簽約新聞寫風機「裝在架高於海面、以多樁支撐的強化基座上，並以引橋連到岸上」＝高樁承台。這是簽約時的設計描述，施工紀錄只寫 Khang Duc 承做土建、未寫型式，故列線索。資料異常：資料庫的「12x Envision 4 MW」與業主 Sermsang 有誤，應為 12 部 Vestas V150-4.2 MW、業主 Tra Vinh Wind Power Co。",
-  "note_en": "Tra Vinh V1-1 is \"Korea–Tra Vinh phase 1\" (Tra Vinh Wind Power, owned by CIO and Samtan/STI): Vestas turnkey EPC incl. civil BoP, 12 V150-4.2 MW; the Jan 2020 contract news says the turbines \"will be installed on reinforced onshore gravity foundations that are raised above sea level on multi-pile structures\", i.e. high-rise pile caps. This is the contract-stage design; construction reports (Khang Duc, civil BoP) do not name the type, hence a lead. Data issue: the stored \"12x Envision 4 MW\" and owner Sermsang are wrong; it is 12 Vestas V150-4.2 MW owned by Tra Vinh Wind Power Co.",
-  "sources": [
-   {
-    "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
-    "quote": "The turbines will be installed on reinforced onshore gravity foundations that are raised above sea level on multi-pile structures and connected to shore with link bridges"
-   },
-   {
-    "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
-    "quote": "Vestas will provide a full turn-key solution with delivery, installation and commissioning of 12 V150-4.2 MW wind turbines, as well as the civil and electrical balance of plant."
-   },
-   {
-    "url": "https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm",
-    "quote": "Located off the coast of Vietnam in the Tra Vinh province, the Tra Vinh V1-1 intertidal wind farm has been under construction since 2019."
-   },
-   {
-    "url": "https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm",
-    "quote": "Vestas has installed eight out of twelve V150-4.2 MW turbines at the 48 MW Korea- Tra Vinh (Phase 1) nearshore wind farm in Vietnam."
    }
   ]
  },

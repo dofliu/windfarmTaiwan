@@ -1623,10 +1623,11 @@ RULES = [
         'Guangdong Energy Yangjiang Shaba has 46 MingYang MySE6.45-180 + 1 MySE5.5-155 (position 21) built (supplementary sea-use report, June 2023); the turbine field was empty',
         'http://www.yangjiang.gov.cn/yjzrzy/attachment/0/43/43288/710896.pdf', turbine='46x Mingyang MySE6.45-180 + 1x MySE5.5-155'),
     fix('CHN', 'CTG Yangjiang Shapa Phase 3', C,
-        '沙扒三期建成 61 台 6.45 MW 固定式（明陽 MySE6.45-180 與金風 GW171/6450）＋1 台 5.5 MW 漂浮式 MySE5.5-155（海域使用補充論證報告書，2023-09；2021-12-16 建設完成）',
+        '沙扒三期建成 61 台 6.45 MW 固定式（明陽 MySE6.45-180 與金風 GW171/6450）＋1 台 5.5 MW 漂浮式 MySE5.5-155（海域使用補充論證報告書，2023-09；2021-12-16 建設完成）；'
+        '漂浮式那台已有自己的紀錄「三峽引領號」，這筆只算 61 台固定式（393.45 MW，原寫 400 MW）',
         'Shapa phase 3 has 61 fixed 6.45 MW turbines (MingYang MySE6.45-180 and Goldwind GW171/6450) + 1 floating 5.5 MW MySE5.5-155 (supplementary sea-use report, Sept 2023; '
-        'completed 16 Dec 2021)',
-        'http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf', turbine='61x 6.45 MW (MySE6.45-180, GW171/6450) + 1x MySE5.5-155 floating'),
+        'completed 16 Dec 2021); the floating unit has its own record ("Sanxia Yinling"), so this one counts the 61 fixed turbines only (393.45 MW; was 400 MW)',
+        'http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf', turbine='61x 6.45 MW (MySE6.45-180, GW171/6450)', mw=393.45),
     fix('CHN', 'Huaneng Dalian Zhuanghe III', C,
         '三峽莊河 III 布置 2 台 3 MW、50 台 3.3 MW、21 台 6.45 MW，裝機規模 300 MW（世紀新能源網轉龍源振華，2020-11）；原寫「金風／上海電氣 4–6 MW」',
         'CTG Zhuanghe III has 2 × 3 MW, 50 × 3.3 MW and 21 × 6.45 MW, 300 MW in all (ne21 citing Longyuan Zhenhua, Nov 2020); it was stored as "Goldwind/Sewind 4–6 MW"',
