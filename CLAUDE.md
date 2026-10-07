@@ -92,10 +92,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   or under 98% of the 5-minute data, and farms whose AEMO registered capacity is 15% or more off the record. Measured output includes curtailment, and the UI must say so; AEMO's
   copyright permissions require crediting AEMO and the dataset (MMS Data Model) next to the data. Capacity factors in every country use the hours in the year (8,784 in leap years).
 - 德國（`tools/build_mastr.py`，MaStR，Datenlizenz Deutschland – Namensnennung 2.0，標示「© Bundesnetzagentur | Marktstammdatenregister」）：每部風機依風場名稱與位置分群，
-  對到本站德國風場（名稱、距離、容量 ±20%）就寫進 `turbines_de.json`；其餘 1 MW 以上的陸域群在附近沒有可能相同的本站紀錄時，才列進 `sources/mastr_parks_DEU.json`
+  對到本站德國風場（名稱、距離、容量 ±20%，配到的機組年份與風場商轉年不符時依年份改配；名稱比對會配錯、已人工核對的寫在 `MANUAL`，附出處）就寫進 `turbines_de.json`；其餘 1 MW 以上的陸域群在附近沒有可能相同的本站紀錄時，才列進 `sources/mastr_parks_DEU.json`
   由 `build_farms.py` 加進風場層（來源代碼 4）。建置會檢查「本站陸域＋新增」不超過 MaStR 陸域容量的 102%，超過表示重複，要找出原因，不要放寬門檻了事。
   Germany (`tools/build_mastr.py`, MaStR, Data licence Germany – attribution 2.0, credit "© Bundesnetzagentur | Marktstammdatenregister"): turbines are grouped
-  by farm name and location; groups matched to a site farm (name, distance, capacity ±20%) go to `turbines_de.json`; other onshore groups of 1 MW+ with no
+  by farm name and location; groups matched to a site farm (name, distance, capacity ±20%; re-matched by start year when the units' years do not fit the farm, and hand-checked matches with sources in `MANUAL`) go to `turbines_de.json`; other onshore groups of 1 MW+ with no
   possibly identical site record nearby go to `sources/mastr_parks_DEU.json`, added by `build_farms.py` as source code 4. The build stops if site onshore +
   added exceeds 102% of the MaStR onshore total (duplicates): find the cause rather than loosening the thresholds.
 - 其他國家的風機位置（`data/global/turbines_osm.json`）來自 OpenStreetMap，以 ODbL 分享：檔案的 meta、README、卡片與「資料來源」都要標示「© OpenStreetMap 貢獻者」，

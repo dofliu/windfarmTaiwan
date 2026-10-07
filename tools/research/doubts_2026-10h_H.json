@@ -1,50 +1,5 @@
 [
  {
-  "item": "7. Peninsula South U2 (Guohua) status and phases",
-  "farm": "Shandong Bandaonan U2 (Guohua) Offshore wind farm",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "lead",
-  "proposal": "(lead) if accepted: fix('CHN', 'Shandong Bandaonan U2 (Guohua) Offshore wind farm', G, …, 'https://www.ceic.com/gjnyjtww/chnjcxw/202509/92abff82688f4920bbcb5f96176c7f2b.shtml', st=0, year=2024, turbine='71x Envision EN226-8.5')",
-  "note_zh": "U2 是國家能源集團國華投資的場址（不是國家電投）：603.5 MW、71 部遠景 EN226-8.5 MW，一期 306 MW（36 部）、二期 297.5 MW（35 部）。正反證據：(1) 2024-10-26 國家電投 U1 二期併網時，中國電器工業協會等寫「山東半島南 U 場址海上風電項目（150 萬千瓦，含 U2 60 萬千瓦）實現全容量併網」；(2) 國家能源集團 2025-09-02：U2 60 萬千瓦「安裝 71 台」、2025-08-28 全容量登記 CCER；但 (3) 中證鵬元 2025-06 評級報告把 U2 一期、二期都列在「截至 2024 年末公司主要在建、擬建項目」（2025 年各只剩 0.74、0.63 億元投資）；(4) 山東 2025 年海洋強省重點項目名單仍有 U2 二期。查不到 U2 自己的全容量併網日期，維持線索；若主對話接受 U 場址整體併網的說法，可改營運中 2024 年。",
-  "note_en": "U2 is CHN Energy Guohua’s site (not SPIC): 603.5 MW, 71 Envision EN226-8.5 MW, phase 1 306 MW (36 units), phase 2 297.5 MW (35). For: (1) when SPIC’s U1 phase 2 connected on 26 Oct 2024, CEEIA and others wrote that “the Peninsula South U-site project (1,500 MW incl. U2’s 600 MW) reached full capacity”; (2) CHN Energy, 2 Sept 2025: U2 600 MW “has 71 turbines installed” and was registered for its full capacity under CCER on 28 Aug 2025. Against: (3) the June 2025 CSCI Pengyuan rating report lists U2 phases 1 and 2 among the company’s “projects under construction or planned at end-2024” (only CNY 74 m and 63 m left for 2025); (4) Shandong’s 2025 marine key-project list still includes U2 phase 2. No U2-specific full-connection date found, so a lead; if the main session accepts the U-site statement, set operating 2024.",
-  "why": "No U2-specific grid-connection report; ceic/cpnn give only CCER registration; carbontree.com.cn (U2 phase-1 emission-reduction notice) fails TLS verification; cpnn.com.cn connection drops.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-181663.html",
-    "quote": "规划装机容量603.5兆瓦，布置71台EN226-8.5兆瓦风电机组"
-   },
-   {
-    "url": "https://www.ceeia.com/XWZX/d/202410/1e56e39e98c44482a46066bc95bcdb07.html",
-    "quote": "山东半岛南U场址海上风电项目总装机容量为150万千瓦，其中，国家电投山东能源投资建设的U1场址90万千瓦，国家能源集团投资建设的U2场址60万千瓦"
-   },
-   {
-    "url": "https://www.ceeia.com/XWZX/d/202410/1e56e39e98c44482a46066bc95bcdb07.html",
-    "quote": "这标志着我国单体最大的平价海上风电项目——山东半岛南U场址海上风电项目实现全容量并网"
-   },
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202509/92abff82688f4920bbcb5f96176c7f2b.shtml",
-    "quote": "安装71台单机容量8.5兆瓦风力发电机组，总装机容量为603.5兆瓦"
-   },
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202509/92abff82688f4920bbcb5f96176c7f2b.shtml",
-    "quote": "8月28日，国华投资最大海上风电项目——山东半岛南U2海上60万千瓦风电项目实现全容量登记CCER"
-   },
-   {
-    "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3275527&priority=0&mode=save",
-    "quote": "国投山东半岛南 U2 场址一期海上风电项目 30.60 35.96 0.74 国投山东半岛南 U2 场址二期海上风电项目 29.75 35.96 0.63"
-   },
-   {
-    "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3275527&priority=0&mode=save",
-    "quote": "表4 截至 2024 年末公司主要在建、拟建项目情况"
-   },
-   {
-    "url": "https://m.163.com/dy/article/JRGNUCTV0514C30V.html?clickfrom=subscribe",
-    "quote": "4、国家能源集团国华半岛南U2场址海上风电二期项目 ：位于山东省威海市乳山市海域"
-   }
-  ]
- },
- {
   "item": "11. Datang Danzhou CZ3 site 2 full connection?",
   "farm": "Datang Danzhou CZ3 (site 2)",
   "src_code": 2,

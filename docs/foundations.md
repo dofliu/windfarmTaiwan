@@ -28,11 +28,11 @@
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 272／329 座，占容量 84.4%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
+合計：已知型式 272／331 座，占容量 83.8%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 中國大陸 | 140 | 91 | 69% | 46 | 14 | 5 | 26 |
+| 中國大陸 | 141 | 91 | 68% | 46 | 14 | 5 | 26 |
 | 英國 | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | 德國 | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | 荷蘭 | 13 | 13 | 100% | 12 |  |  | 1 |
@@ -40,7 +40,7 @@
 | 丹麥 | 17 | 16 | 99% | 8 | 1 |  | 7 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | 法國 | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
-| 越南 | 19 | 14 | 77% | 3 |  |  | 11 |
+| 越南 | 20 | 14 | 74% | 3 |  |  | 11 |
 | 日本 | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
 | 南韓 | 6 | 5 | 89% | 1 | 4 |  |  |
 | 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
@@ -167,7 +167,7 @@
 | Nissum Bredning Vind | 28.0 | 2018 | 套管式 | 1–6 | 97 | 154 | [OSPAR DK23](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravity-based」<br>[m.aarsleff.dk](https://m.aarsleff.dk/img/8088/0/0/Download/253-nissum-bredning-dk)<br>[ens.dk](https://ens.dk/media/2920/download)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_offshore_wind_farms_in_Denmark) | 4 座三腳鋼套管，各以 3 支直徑 1.45 m、長 75 m 的打入斜樁固定，上加約 1,200 噸的混凝土轉接段（安裝商 Aarsleff）；西門子稱為「重力式套管」，OSPAR 寫重力式應是因為沉重的混凝土轉接段；能源署文件附錄：SWT-7.0-154 輪轂高度平均海面以上 97.0 m（LAT 以上 97.3 m）、葉輪 154 m；水深查無可引用出處；水深取自英文維基百科的國家離岸風場清單 |
 | Nysted (Rødsand I) | 166 | 2003 | 重力式 | 7.5–12.5 | 69 | 82.4 | [m.aarsleff.com](https://m.aarsleff.com/img/7435/0/0/Download/057-r%C3%B8dsand-uk)<br>[cerc.co.uk](https://www.cerc.co.uk/environmental-software/assets/data/doc_validation/CERC_FLOWSTAR_Energy_Nysted.pdf) | 壓艙的混凝土沉箱；2022 年一部風機倒塌拆除、一部停用，其餘 70 部繼續運轉；Aarsleff：基礎坐落水深 7.5–12.5 m；CERC 驗證報告：Bonus 2.3 MW 輪轂 69 m、直徑 82.4 m。 |
 | Rødsand II | 207 | 2010 | 重力式 | 7.5–12.5 | 68.5 | 93 | [m.aarsleff.com](https://m.aarsleff.com/img/6885/0/0/Download/180-r%C3%B8dsand-2-uk)<br>[power-technology.com](https://www.power-technology.com/projects/rodsand/) | 混凝土沉箱重力式基礎（與 Nysted 相同）；Aarsleff：基礎底面高程 −7.5 至 −12.5 m；Power Technology：輪轂 68.5 m、葉輪 93 m（SWT-2.3-93）。 |
-| Rønland | 17.2 | 2003 | 重力式 | 0–2 | 80 | 80 | [OSPAR DK04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravity-based」<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/R%C3%B8nland_Offshore_Wind_Farm)<br>[ens.dk](https://ens.dk/media/7495/download) | 英文維基：最大水深 2 m（近岸）；能源署文件（Harboøre Tange ApS）：4 座 Bonus 2.3 MW 輪轂 80 m、葉輪 80 m、葉尖 120 m；Vestas V80 的 4 座輪轂高度未查到。 |
+| Rønland | 9.2 | 2003 | 高樁承台 | 0–2 | 80 | 80 | [OSPAR DK04](https://odims.ospar.org/en/submissions/ospar_offshore_renewables_2024_01/) 「gravity-based」<br>[hmis-roenland.dk](http://www.hmis-roenland.dk/r%C3%B8nland-vindm%C3%B8llepark)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/R%C3%B8nland_Offshore_Wind_Farm)<br>[ens.dk](https://ens.dk/media/7495/download) | 每部風機的混凝土基礎都由 48 支長達 48 m 的打入式混凝土樁支撐（每座 1,000 噸混凝土），立在專為風場堆築的 2.3 km 碎石低堤上（業主合作社 Harboøre Møllelaug；能源署 2024 年文件也寫打樁到約 50 m 的混凝土基礎）；OSPAR 寫重力式不對；英文維基：最大水深 2 m（近岸）；能源署文件（Harboøre Tange ApS）：4 座 Bonus 2.3 MW 輪轂 80 m、葉輪 80 m、葉尖 120 m；Vestas V80 的 4 座輪轂高度未查到。 |
 | Samsø | 23.0 | 2003 | 單樁 | 10–13 | 61.2 | 82.4 | [ens.dk](https://ens.dk/media/2563/download)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_offshore_wind_farms_in_Denmark) | 10 座單樁，配混凝土轉接段；能源署文件：Bonus 2.3MW 葉輪 82.4 m、輪轂 61.2 m（2017 年更換的第 7 號機為 SWP 2.3-93，輪轂 66.5 m）；水深查無可引用出處（維基清單 10–13 m 未能核對）；水深取自英文維基百科的國家離岸風場清單 |
 | Sprogø | 21.0 | 2009 | 重力式 | 6–17 | 70 | 90 | [boskalis.com](https://boskalis.com/about-us/projects/offshore-wind-farm-sprogo)<br>[a1consult.dk](https://a1consult.dk/referencer/sprogoe-havvindmoeller/) | 混凝土重力式基礎（每座最重約 1,900 噸）；A1 Consult 專案頁：7 座混凝土基礎於 6–17 m 水深、Vestas V90-3.0 輪轂 70 m。 |
 | Tunø Knob | 5.0 | 1995 | 重力式 | 3–6 | 45（塔高） | 39 | [osti.gov](https://www.osti.gov/etdeweb/biblio/630721)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Tun%C3%B8_Knob_Offshore_Wind_Farm) | 箱型沉箱重力式基礎；英文維基：水深 3–6 m（infobox 最大 7 m）、風機高 45 m（未註明是輪轂高，暫記為塔高）、葉輪 39 m（Vestas V39-500）。 |
@@ -441,7 +441,7 @@
 | 和平1號一期（Hoa Binh 1 Phase 1） | 50.0 | 2021 | 高樁承台 |  |  | 150 | [plc-corp.vn](https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html)<br>[offshorewind.biz](https://www.offshorewind.biz/2020/01/02/vestas-secures-third-intertidal-turbine-order-in-vietnam/) | 方英集團和平1號一期 13 座 Vestas（2021-07-02 送電）：PLC 與 Vinaincon 均記載和平1、2 風機基礎為 PHC D500C／D800C 預應力離心混凝土樁，即群樁＋承台。；僅查到 PLC 施工頁：Hòa Bình 1、2 採 63～76 m 的 PHC D800 樁；水深、輪轂、葉輪皆未查到；Vestas 供應 13 部 V150-4.2 MW，葉輪 150 m；資料庫機型「Goldwind」有誤。來源 offshoreWIND.biz。 |
 | 和平1號二期（Hoa Binh 1 Phase 2） | 50.0 | 2021 | 高樁承台 |  |  | 150 | [plc-corp.vn](https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html)<br>[vestas.com](https://www.vestas.com/en/media/company-news/2020/vestas-surpasses-1-gw-of-order-intake-in-vietnam--winni-c3167101) | 和平1號二期 13 座（和平1號二期＋和平2號共 26 座，2021-08-05 送電；業主方英集團）：基礎同一期，PHC 預應力混凝土樁群＋承台。；二期同樣 13 部 Vestas V150-4.2 MW，葉輪 150 m；資料庫機型「Goldwind」有誤。來源 Vestas 新聞稿。 |
 | 和平2號（Hoa Binh 2） | 50.0 | 2021 | 高樁承台 |  |  | 150 | [plc-corp.vn](https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html)<br>[minhhoangcrane.com.vn](https://minhhoangcrane.com.vn/project/dien-gio-hoa-binh/)<br>[baodautu.vn](https://baodautu.vn/tap-doan-phuong-anh-ky-tich-to-hop-dien-gio-tren-bien-lon-nhat-viet-nam-d158640.html) | 和平2號 13 座（2021-09-15 送電，和平1、2 共 39 座；業主方英集團）：PHC 預應力混凝土樁群＋承台。；和平1號與和平2號合計 39 部機組（Đầu tư 報），吊裝商明煌寫兩案共 39 部 Vestas V150 4.2MW，故葉輪 150 m；資料庫機型「Goldwind」有誤。 |
-| 朔莊7號一期（Soc Trang 7 Phase 1） | 30.0 | 2021 | 高樁承台 |  | 105（塔高） | 150 | [baoxaydung.vn](https://baoxaydung.vn/ngam-canh-dong-dien-gio-tren-bien-soc-trang-192240422101537121.htm)<br>[nsenergybusiness.com](https://www.nsenergybusiness.com/contracts/vestas-intertidal-wind-project-vietnam/) | 春球朔莊7號一期 7 座 4.2 MW（2021-10 運轉）：建設報 2024-04 寫「多樁基礎，每座由 40 支混凝土樁組成」，即混凝土群樁＋承台。；Báo Xây dựng：每部 4.2 MW、高 105 m（塔高）、7 部建於海上；水深與葉輪未查到；7 部 Vestas V150-4.2 MW，葉輪 150 m；來源 NS Energy。 |
+| 朔莊7號一期（Soc Trang 7 Phase 1） | 29.4 | 2021 | 高樁承台 |  | 105（塔高） | 150 | [baoxaydung.vn](https://baoxaydung.vn/ngam-canh-dong-dien-gio-tren-bien-soc-trang-192240422101537121.htm)<br>[nsenergybusiness.com](https://www.nsenergybusiness.com/contracts/vestas-intertidal-wind-project-vietnam/) | 春球朔莊7號一期 7 座 4.2 MW（2021-10 運轉）：建設報 2024-04 寫「多樁基礎，每座由 40 支混凝土樁組成」，即混凝土群樁＋承台。；Báo Xây dựng：每部 4.2 MW、高 105 m（塔高）、7 部建於海上；水深與葉輪未查到；7 部 Vestas V150-4.2 MW，葉輪 150 m；來源 NS Energy。 |
 | 新富東1號（Tan Phu Dong 1 (Tien Giang, GEC)） | 100 | 2023 | 高樁承台 |  |  | 150 | [lethycorp.com](https://lethycorp.com/en/du-an-da-thi-cong/tan-phu-dong-1-html)<br>[infinitylog.com.vn](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) | GEC 新富東1號 24 座（PC1 EPC，2022-10 裝完最後一座）：黎蒂建設承做 PHC D800 樁打設，建設雜誌 2022-05 報導 24 座基礎供應混凝土，即 PHC 群樁＋承台。；物流承包商 Infinity Logistics 專案頁：24 部 Vestas V150-4.2 MW，葉輪 150 m；水深與輪轂高度未查到。 |
 | 新順風場（Tan Thuan (PECC2) Phase 1+2） | 75.0 | 2021 | 高樁承台 |  |  | 145 | [phanvu.vn](https://www.phanvu.vn/truyen-thong/tin-hoat-dong/dien-gio-tan-thuan-chao-mung-25-nam-ngay-thanh-lap-phan-vu)<br>[baodautu.vn](https://baodautu.vn/ca-mau-khanh-thanh-du-an-dien-gio-tan-thuan-von-dau-tu-tren-3800-ty-dong-d164756.html)<br>[siemensgamesa.com](https://www.siemensgamesa.com/global/en/home/press-releases/200715-siemens-gamesa-press-release-vietnam-nearshore-project.html) | 金甌新順 75 MW、18 座（PECC2 EPC，2021-10-30 COD）：潘武集團承做全部 18 座的混凝土樁打設與承台，2021-05 樁全部完成，即混凝土群樁＋承台。；Báo Đầu tư：18 部風機位於海上，最遠離岸 5.3 km；水深、輪轂、葉輪未查到；西門子歌美颯 SG 5.0-145，葉輪 145 m；資料庫機型「Envision」有誤。來源 Siemens Gamesa 新聞稿。 |
 | Thanh Hải No. 5 Offshore wind farm | 120 | 不詳 | 高樁承台 |  |  | 145 | [evn.com.vn](https://www.evn.com.vn/d6/news/Khanh-thanh-Nha-may-dien-gio-so-5-Thanh-Hai-Ben-Tre-100-668-55952.aspx)<br>[power-technology.com](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) | 新環球檳椥（Tân Hoàn Cầu Bến Tre）5號風場：成海1–4 共 28 座、120 MW（EVN 2022-07）；黎蒂建設負責「打設 D800 預應力混凝土樁並完成基礎」，一期 7 座、二期 21 座，即 PHC 群樁＋承台。；一、二期（共 14 部）為西門子歌美颯 SG 4.5-145，葉輪 145 m；全案 28 部，其餘機組機型未見出處。來源 GlobalData/power-technology。 |
@@ -454,7 +454,6 @@
 
 | 風場 | OSPAR | 理由 |
 |---|---|---|
-| 南韓 · Ulsan Dongbu floating demo (Vindmøllen 750 kW) | — | 計畫中的 750 kW 半潛式試驗機；2019 年 11 月仍因許可未發而沒有安裝，查不到之後在海上發電的紀錄，待查證 |
-| 丹麥 · Frederikshavn | DK03 | 試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列 |
+| 丹麥 · Frederikshavn | DK03 | 試驗場：2003 年在海上設 3 部，港口擴建後只剩 Nordex N90/2300 一部在海上（丹麥能源署、OpenStreetMap）；Nordex 2003 年只寫「以板樁與樁固定在海床上的重型基礎」，型式無法歸類，OSPAR 寫全為單樁、14 MW 也對不上，先不列 |
 | 日本 · Eurus Akita Port semi-offshore | — | JWPA 另計為「セミ洋上」的 1 部 3 MW：ユーラス秋田港ウインドファーム（6 部 3 MW，2015 年 2 月運轉）中立在水中的那一部；查不到業主、施工廠商、NEDO、國土交通省或 JWPA 的文件寫出它的基礎型式 |
 | 南韓 · Yeonggwang Wind offshore wind farm | — | 靈光風電陸海混合風場（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW，退潮時周圍是灘地；查不到開發商、施工廠商或政府文件寫出這 15 部的基礎型式 |

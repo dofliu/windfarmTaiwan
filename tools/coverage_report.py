@@ -202,6 +202,8 @@ OVER_NOTE = {
             "the farm list checks out (DOE’s 2020 list, 443 MW, plus the 160 MW Pagudpud farm completed in 2024–25); IRENA’s figure may not yet fully count Pagudpud"),
     "IRN": ("Manjil 風場群的重複已合併；Tizbaad（99 MW）與 Aqkand（50 MW）的商轉狀態還需要以 SATBA 資料查證",
             "the Manjil complex duplicates are merged; whether Tizbaad (99 MW) and Aqkand (50 MW) are in operation still needs checking against SATBA data"),
+    "COL": ("逐場資料已查證：除 Guajira I（20 MW）與 WESP 01（12 MW）外，Celsia 的 Carreto（9.6 MW）2025 年 6 月投入運轉；IRENA 的數字 2022–2025 年都是 34 MW，還沒計入 Carreto",
+            "the farm list checks out: besides Guajira I (20 MW) and WESP 01 (12 MW), Celsia’s Carreto (9.6 MW) entered operation in June 2025; IRENA’s figure stays at 34 MW for 2022–2025 and does not yet count Carreto"),
 }
 
 

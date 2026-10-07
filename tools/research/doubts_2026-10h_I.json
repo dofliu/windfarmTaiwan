@@ -1,26 +1,5 @@
 [
  {
-  "item": "7c. Duyên Hải (V1-4) — operating since Mar 2026, record probably GEM “Duyên Hai wind farm · 1”",
-  "farm": "Duyên Hai wind farm · 1",
-  "src_code": 2,
-  "iso": "VNM",
-  "status": "lead",
-  "proposal": "(lead) fix('VNM', 'Duyên Hai wind farm · 1', G, '永隆省（原茶榮）Duyên Hải（V1-4）48 MW 風電廠 2026-03-16 起 10 部全部正式運轉（人民報）；EVN 2025-04 轉型期表列「Duyên Hải (V1-4) 48 MW」', 'The 48 MW Duyen Hai (V1-4) plant in Vinh Long (formerly Tra Vinh) has had all 10 turbines in official operation since 16 Mar 2026 (Nhan Dan); EVN’s Apr 2025 transitional tracker lists “Duyen Hai (V1-4) 48 MW”', 'https://nhandan.vn/post-952529.html', st=0, year=2026)",
-  "note_zh": "人民報 2026-03：Duyên Hải（V1-4）10／10 部 2026-03-16 正式運轉；EVN 2025-04-30 表：Duyên Hải（V1-4）48 MW，當時未送 COD。資料庫中容量與名稱相符的只有 GEM「Duyên Hai wind farm · 1」（48 MW、陸域、興建中、業主 Asian Energy／Uniso），但沒有出處把兩者連起來，也不確定 V1-4 是潮間帶還是陸域（V1-x 多為長隆和社潮間帶），列為線索。另：GEM「Dong Hai V1-4 Offshore wind farm」是「東海 1 號第 4 期」，不是這座。",
-  "note_en": "Nhan Dan (Mar 2026): Duyen Hai (V1-4) had all 10 of 10 turbines in official operation from 16 Mar 2026; EVN’s 30 Apr 2025 tracker: Duyen Hai (V1-4) 48 MW, no COD dossier yet. The only record matching name and capacity is GEM’s “Duyên Hai wind farm · 1” (48 MW, onshore, construction, owners Asian Energy/Uniso), but no source links the two and it is unclear whether V1-4 is intertidal (most V1-x sites are in the Truong Long Hoa intertidal zone) or onshore; lead only. GEM’s “Dong Hai V1-4 Offshore wind farm” is “Dong Hai 1 phase 4”, a different project.",
-  "why": "No source ties GEM’s “Duyên Hai wind farm · 1” to Duyen Hai V1-4; type (intertidal vs onshore) unknown.",
-  "sources": [
-   {
-    "url": "https://nhandan.vn/post-952529.html",
-    "quote": "Đặc biệt, nhà máy điện gió Duyên Hải (V1-4) vừa chính thức vận hành toàn bộ 10/10 tua-bin vào ngày 16/3/2026"
-   },
-   {
-    "url": "https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf",
-    "quote": "NMĐ gió Duyên Hải (V1-4) Gió 48 Chưa gửi hồ sơ COD"
-   }
-  ]
- },
- {
   "item": "10b. Taiwan: 又德 and 環洋 formally terminated?",
   "farm": "YouDe; Huanyang (pipeline_curated, PIPE_FIX)",
   "src_code": 3,
@@ -165,48 +144,6 @@
   ]
  },
  {
-  "item": "13b. Taiwan: Formosa 1 Phase 1 SWT-4.0-120 or -130",
-  "farm": "Formosa 1 Phase 1",
-  "src_code": 0,
-  "iso": "TWN",
-  "status": "lead",
-  "proposal": "(lead) no change: the manufacturer contradicts itself. Keep “2x Siemens SWT-4.0-120” until an as-built source (e.g. Swancor/Formosa 1 annual report, EIA completion report) settles it.",
-  "note_zh": "西門子 2015-09 簽約時（Evertiq 轉載）寫「SWT-4.0-120 機型」；西門子歌美颯 2018-04 二期得標新聞稿卻寫一期「裝了最早的兩部 SWT-4.0-130」；Power Technology 專案頁寫 SWT-4.0-120、葉輪 120 m、葉片 58.5 m。2018 年的說法是事後陳述已裝機組，但與 2015 年訂單與其他資料矛盾，無法判定；沒有找到業主或主管機關的建成文件。",
-  "note_en": "Siemens’ contract news (Sep 2015, via Evertiq) says “the SWT-4.0-120 model”; Siemens Gamesa’s Phase 2 award release (Apr 2018) says “the first two SWT-4.0-130 turbines were installed for Phase 1”; Power Technology’s project page gives SWT-4.0-120 with a 120 m rotor and 58.5 m blades. The 2018 statement describes turbines already installed but contradicts the 2015 order and other sources; undecidable without an owner or regulator as-built document.",
-  "why": "Conflicting manufacturer statements; thewindpower and the SGRE 2018 newsroom URL return 404.",
-  "sources": [
-   {
-    "url": "https://evertiq.com/news/37650",
-    "quote": "The Siemens wind turbines – the SWT-4.0-120 model – will be installed on monopile foundation to cater to the specific site seabed conditions."
-   },
-   {
-    "url": "https://www.powermag.com/press-releases/siemens-gamesa-awarded-120-mw-expansion-of-taiwans-pioneering-formosa-1-offshore-wind-power-plant/",
-    "quote": "This foundation has already proven its suitability in the local sea bed conditions when the first two SWT-4.0-130 turbines were installed for Phase 1."
-   },
-   {
-    "url": "https://www.power-technology.com/projects/formosa-1-offshore-wind-farm/",
-    "quote": "During the demonstration phase, the wind farm was equipped with two Siemens SWT-4.0-120 wind turbines, each with a rated capacity of 4MW."
-   }
-  ]
- },
- {
-  "item": "13c. Japan: Choshi offshore still operating in 2025",
-  "farm": "Choshi Offshore Demonstration (NEDO/TEPCO)",
-  "src_code": 0,
-  "iso": "JPN",
-  "status": "lead",
-  "proposal": "(no change) Confirmed operating at end-2024 (JWPA list); no 2025-specific source found, and nothing reports a shutdown or removal.",
-  "note_zh": "JWPA 2024 年底「本格洋上風力」清單（7 處、253.4 MW）列有銚子沖 2.4 MW（2019 年 1 月起）；JWPA 2025 年底報告說 2025 年沒有新的洋上風場，搜尋摘要的 2025 年底洋上 253.4 MW 與 2024 年底相同，但 2025 年的逐場清單在 PDF（403 無法讀）。TEPCO 網站（tepco.co.jp）回 403。沒有任何停機或撤除的報導，維持營運中。",
-  "note_en": "JWPA’s end-2024 list of “full offshore” wind (7 sites, 253.4 MW) includes Choshi 2.4 MW (from Jan 2019); JWPA’s end-2025 report says no new offshore farm started in 2025, and the 253.4 MW offshore figure quoted for end-2025 equals end-2024, but the 2025 per-site list is in a PDF that returns 403. tepco.co.jp returns 403. No report of a shutdown or removal; keep operating.",
-  "why": "JWPA 2025 graph PDF and tepco.co.jp blocked (403).",
-  "sources": [
-   {
-    "url": "https://jwpa.jp/information/11062/",
-    "quote": "なお、2024年12月末時点で、本格洋上風力発電（陸上からの直接アクセスができず船を要するもの）は以下の通りです。 形式 発電所名 運転開始年月 基数 出力 浮体式 崎山沖２MW浮体式洋上風力発電所 2016年 4月 1基 2.0MW 着床式 銚子沖洋上風力発電所 2019年 1月 1基 2.4MW"
-   }
-  ]
- },
- {
   "item": "13d. Korea: Jeju Woljeong test site status",
   "farm": "Jeju Woljeong test (Doosan)",
   "src_code": 0,
@@ -217,42 +154,5 @@
   "note_en": "Korean searches (월정 실증 철거 / 가동 중단 / 운전) found no status report after 2016; only a 2014 paper mentions the two 2 and 3 MW demonstration turbines at Woljeong.",
   "why": "No post-2016 source on the Doosan 3 MW unit; KIER/Doosan pages not found.",
   "sources": []
- },
- {
-  "item": "14b. Denmark: Rønland foundation (report only; table row)",
-  "farm": "Rønland",
-  "src_code": 0,
-  "iso": "DNK",
-  "status": "lead",
-  "proposal": "Probably change F('DNK', 'Rønland', 'gb', ['DK04']) to 'pc' with a note, e.g. url='https://ens.dk/media/7495/download', zh='業主 2024 年向丹麥能源署的延壽申請：風機立在打樁到約 50 m 深的混凝土基礎上，排在一道低矮的花崗岩堤上（能源署的評估寫「點狀基礎」）；不是 OSPAR 所寫的重力式', en='The owners’ 2024 life-extension application to the Danish Energy Agency: the turbines stand on concrete foundations piled down to about 50 m, set along a low granite dam (the agency’s assessment says “point foundations”); not gravity-based as OSPAR says' — the main session should decide whether ‘pc’ (high-rise pile cap) fits a pile-supported concrete base on a low dam.",
-  "note_zh": "丹麥能源署網站公開的文件：(1) 南側 4 部（Bonus 2.3 MW）業主 2024-10-30 的延壽申請：「風機立在混凝土基礎上，基礎打樁到約 50 m 深」，風機以一道從 Thyborøn 港延伸到最南一部的石堤相連；(2) 能源署委託的 Natura 2000 評估：8 部「立在點狀基礎上」、「風機建在一道與風機同時建造的低矮堤上，堤以花崗岩碎石堆成、部分在水下」；(3) 能源署 2025 年延壽許可。所以不是重力式，而是有樁的混凝土基礎；本站型式表沒有「低承台」，最接近的是 pc。注意：說明只直接講南側 4 部；北側 4 部（Vestas）同在一條線上，評估說 8 部都是點狀基礎，且因 Thyborøn 港擴建將被圍填。使用者工作簿（Boundary Layer）說的「打樁混凝土基礎」與此相符。順帶：南側 4 部輪轂 80 m、葉輪 80 m（業主申請書），北側未知，不符合尺寸表「全場」要求。",
-  "note_en": "Documents published on the Danish Energy Agency site: (1) the owners’ life-extension application for the southern 4 turbines (Bonus 2.3 MW, 30 Oct 2024): “the turbines stand on concrete foundations piled down to about 50 m”, linked by a stone dam running from Thyborøn harbour to the southernmost turbine; (2) the agency’s Natura 2000 screening: all 8 turbines “stand on point foundations” and “are built on a low dam, built at the same time as the turbines, made of granite chippings and partly under water”; (3) the agency’s 2025 extension permit. So not gravity-based but a piled concrete base; the type table has no “low pile cap”, and pc is the closest. Note: the application speaks directly only of the southern 4; the northern 4 (Vestas) stand in the same line, the screening calls all 8 point foundations, and they will be enclosed by the Thyborøn port expansion. The user workbook’s (Boundary Layer) “piled concrete foundations” agrees. Aside: the southern 4 have an 80 m hub and 80 m rotor (owners’ application); the northern ones are unknown, so this fails the whole-farm rule for dimensions.",
-  "why": "Type mapping (pile-supported concrete base on a low dam vs high-rise pile cap) is a judgement for the main session; northern 4 turbines not described separately.",
-  "sources": [
-   {
-    "url": "https://ens.dk/media/7495/download",
-    "quote": "Ansøgning om forlængelse af produktionstilladelse for 4 stk. 2,3 MW havvindmøller ved Rønland i Limfjordens vestlige del."
-   },
-   {
-    "url": "https://ens.dk/media/7495/download",
-    "quote": "Møllerne er placeret på fundamenter af beton, som er piloteret ned til ca. 50 m dybde."
-   },
-   {
-    "url": "https://ens.dk/media/7497/download",
-    "quote": "Rønland Havvindmøllepark består af i alt 8 møller opstillet på punktfundamenter i lige linje østnordøst for Rønland i Nissum Bredning."
-   },
-   {
-    "url": "https://ens.dk/media/7497/download",
-    "quote": "Møllerne er anlagt på en lav dæmning, som blev etableret samtidig med møllerne. Dæmningen er opbygget af granitskærver og er delvist dækket af vand."
-   },
-   {
-    "url": "https://ens.dk/media/7497/download",
-    "quote": "De fire nordligste møller inddæmmes i forbindelse med Thyborøn Havneudvidelse og indgår derfor ikke i denne ansøgning om levetidsforlængelse."
-   },
-   {
-    "url": "https://ens.dk/media/7498/download",
-    "quote": "Energistyrelsen meddelte den 19. juli 2002 etableringstilladelse til etablering af otte møller på havet ved Rønland."
-   }
-  ]
  }
 ]

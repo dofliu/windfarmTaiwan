@@ -1,0 +1,174 @@
+[
+ {
+  "item": "3. Sørmarkfjellet: status in 2026 / blade-failure cause",
+  "farm": "Sormarkfjellet wind farm",
+  "src_code": 2,
+  "iso": "NOR",
+  "status": "none",
+  "proposal": "No status change (temporary closure). Optional data fill (write): fix('NOR', 'Sormarkfjellet wind farm', G, '31 部 Vestas V117、每部 4.2 MW（業主 Aneo 專案頁）', '31 Vestas V117 turbines of 4.2 MW each (owner Aneo’s project page)', 'https://www.aneo.com/en/projects/sormarkfjellet-wind-farm', turbine='31x Vestas V117-4.2 MW')",
+  "note_zh": "Aneo 網站到 2026-10 仍只有 2025-12-19 的新聞稿（嚴重結冰造成多部風機葉片受損、修理中、另行通知前封閉）；專案頁仍寫「營運中」（2021 年、130 MW、31 部 V117 4.2 MW）。2026 年沒有找到重新開放的公告或事故原因報告（Aneo 中英文新聞頁、Namdalsavisa、Flatangernytt、TU 都查過）。紀錄維持營運中；可順便補上機型。",
+  "note_en": "As of Oct 2026 Aneo’s site still has only the 19 Dec 2025 release (heavy icing damaged blades on several turbines; repairs under way; closed until further notice); the project page still says ‘in operation’ (2021, 130 MW, 31 Vestas V117 of 4.2 MW). No 2026 reopening notice or published root cause was found (Aneo news in Norwegian and English, Namdalsavisa, Flatangernytt, TU). The record stays operating; the turbine model can be filled in.",
+  "why": "No 2026 owner update or published cause; beta.aneo.com TLS error; Flatangernytt and Namdalsavisa paywalled.",
+  "sources": [
+   {
+    "url": "https://www.aneo.com/en/news/sormarkfjellet-wind-park-closed-for-access",
+    "quote": "Until further notice, we will keep the wind farm closed to access."
+   },
+   {
+    "url": "https://www.aneo.com/en/projects/sormarkfjellet-wind-farm",
+    "quote": "There are 31 Vestas V117 turbines installed, each with 4.2 MW."
+   }
+  ]
+ },
+ {
+  "item": "8. Gullen Range: wind capacity and GULLRWF2",
+  "farm": "Gullen Range wind farm",
+  "src_code": 2,
+  "iso": "AUS",
+  "status": "write",
+  "proposal": "fix('AUS', 'Gullen Range wind farm', G, '73 部 Goldwind（56 部 GW100-2.5MW＋17 部 GW82-1.5MW），165.5 MW，2014 年 12 月全部運轉', '73 Goldwind turbines (56 GW100-2.5MW + 17 GW82-1.5MW), 165.5 MW, fully operational in December 2014', 'https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf', mw=165.5, turbine='56x Goldwind GW100-2.5MW + 17x Goldwind GW82-1.5MW'). LEAD (not a write): GULLRWF2 (110 MW) is very probably Biala Wind Farm, which feeds through the Gullen Range substation; if the main session accepts the evidence, map GULLRWF2 to 'Biala wind farm' in build_live_units.py MANUAL instead of Gullen Range.",
+  "note_zh": "Gullen Range 本身：業主 2024 年環境報告寫 73 部（56 部 GW100-2.5MW、17 部 GW82-1.5MW）、最大 165.5 MW，2014 年 12 月全面運轉；所以是 165.5 MW。GULLRWF2：AEMO 2020-21 邊際損失係數報告在 2020 年 7 月新增「Gullen Range 2 Wind Farm」(GULLRWF2, NGUR3G) 連接點，與 Gullen Range 1、Gullen Range 太陽光電同在 NGUR 節點；AEMO 名單裡沒有任何叫 Biala 的機組。Biala 風場（BJCE、約 110 MW、31 部，2020 年首度發電）以 12 km 地下電纜接到 Gullen Range 變電所，變電所 2020 年為它擴建。容量（110 MW）、時間（2020）、接點都對得上，幾乎可以確定 GULLRWF2＝Biala，但沒有文件直接寫出這個對應，依規則先列線索。本站另有 Biala 紀錄（111 MW），所以 Gullen Range 的實測發電量不應把 GULLRWF2 算進去。",
+  "note_en": "Gullen Range itself: the owner’s 2024 environmental report gives 73 turbines (56 GW100-2.5MW, 17 GW82-1.5MW), up to 165.5 MW, fully operational in December 2014; so 165.5 MW. GULLRWF2: AEMO’s 2020-21 loss-factor report added a ‘Gullen Range 2 Wind Farm’ (GULLRWF2, NGUR3G) connection point in July 2020, at the same NGUR node as Gullen Range 1 and the Gullen Range solar farm, and AEMO lists no unit named Biala. Biala Wind Farm (BJCE, about 110 MW, 31 turbines, first power in 2020) connects by a 12 km underground cable to the Gullen Range substation, which was extended for it in 2020. Capacity (110 MW), timing (2020) and connection all match, so GULLRWF2 is almost certainly Biala, but no document states the mapping, so under the rules it stays a lead. The site has a separate Biala record (111 MW), so Gullen Range’s measured output should not include GULLRWF2.",
+  "why": "No document names Biala as GULLRWF2 (AEMO registration list is xlsx; OpenElectricity API needs a key). planningportal.nsw PDFs are AES-encrypted.",
+  "sources": [
+   {
+    "url": "https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf",
+    "quote": "The wind farm became fully operational in December 2014 and includes the following project elements: • 73 wind turbines o 56 GW100-2.5MW – (100-metre rotor diameter) o 17 GW82-1.5MW – (82-metre rotor diameter)"
+   },
+   {
+    "url": "https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf",
+    "quote": "GRWF is operated as a manned electricity generator providing up to 165.5MW of renewable power at full capacity into the 330kV network owned by TransGrid."
+   },
+   {
+    "url": "https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf",
+    "quote": "The substation was extended in 2020 to accommodate electricity from the Biala Wind Farm."
+   },
+   {
+    "url": "https://bialawindfarm.com/the-project/about-the-project/",
+    "quote": "Biala Wind Farm is connected to the existing Gullen Range Wind and Solar Farm substation/switchyard via an underground Transmission Line."
+   },
+   {
+    "url": "https://bialawindfarm.com/the-project/about-the-project/",
+    "quote": "The wind farm has an installed capacity of approximately 110MW"
+   },
+   {
+    "url": "https://bialawindfarm.com/the-project/about-the-project/",
+    "quote": "Construction of the wind farm in August 2019 and with the first clean power generated in 2020."
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/security_and_reliability/loss_factors_and_regional_boundaries/2020-21/marginal-loss-factors-for-the-2020-21-financial-year.pdf",
+    "quote": "Gullen Range 1 Wind Farm 330 GULLRWF1 NGUR1G NGUR 0.9708 0.9694 Gullen Range 2 Wind Farm 330 GULLRWF2 NGUR3G NGUR 0.9708 0.9694"
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/security_and_reliability/loss_factors_and_regional_boundaries/2020-21/marginal-loss-factors-for-the-2020-21-financial-year.pdf",
+    "quote": "July 2020 including the following new and revised connection points: • NSW Generation: Gullen Range 1 Wind Farm, Gullen Range 2 Wind Farm, Gullen Range Solar Farm"
+   }
+  ]
+ },
+ {
+  "item": "9a. Vineyard Wind 1: full commercial operation?",
+  "farm": "Vineyard Wind 1",
+  "src_code": 0,
+  "iso": "USA",
+  "status": "lead",
+  "proposal": "(no change) keep st=1, year=2026.",
+  "note_zh": "到 2026-10 為止，最新的是 9 月與 GE Vernova 和解時開發商說「所有風機都能發電」，當地媒體指出不清楚是否已全部完成試運轉；Unitil 的 SEC 季報（4/24 部分容量商轉、預計第三季達到全容量）在 sec.gov 讀不到（403）。查不到全部 62 部全面商轉的公告。",
+  "note_en": "As of Oct 2026 the latest is the developer’s statement at the September GE Vernova settlement that ‘all turbines are capable of producing power’, with local press noting it is unclear whether they are fully commissioned; Unitil’s SEC 10-Q (commercial operation on 24 April at less than full capacity, full capacity expected in Q3) cannot be read on sec.gov (403). No announcement of full commercial operation of all 62 turbines was found.",
+  "why": "No full-COD source; sec.gov 403.",
+  "sources": [
+   {
+    "url": "https://newbedfordlight.org/vineyard-wind-ge-vernova-reach-settlement-over-contract/",
+    "quote": "Vineyard Wind said “all turbines are capable of producing power,” though it is not clear whether that means they are fully commissioned."
+   }
+  ]
+ },
+ {
+  "item": "9c. Sofia: full operation?",
+  "farm": "Sofia",
+  "src_code": 0,
+  "iso": "GBR",
+  "status": "lead",
+  "proposal": "(no change) keep st=1, year=2026.",
+  "note_zh": "開發商時程：2026 年中首度發電、2026 年底 100 部全部試運轉完成、全面運轉；2026-06-10 裝完最後一部，之後沒有全面運轉的公告。",
+  "note_en": "Developer timeline: first power mid-2026 and all 100 turbines fully commissioned, fully operational, in late 2026; the last turbine went in on 10 June 2026 and no full-operation announcement has followed.",
+  "why": "No full-operation announcement.",
+  "sources": [
+   {
+    "url": "https://sofiawindfarm.com/offshore-construction/",
+    "quote": "Late 2026 All 100 turbines fully commissioned. Offshore converter platform fully commissioned. Sofia is fully operational."
+   }
+  ]
+ },
+ {
+  "item": "9d. Dieppe-Le Tréport: full operation?",
+  "farm": "Dieppe-Le Treport wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change) keep st=1, year=2026.",
+  "note_zh": "2026-09-11 時 62 部只裝了 31 部、夏季 5 部投入運轉，預計年底前全部投運。",
+  "note_en": "On 11 Sep 2026 only 31 of 62 turbines were installed and 5 had entered service over the summer; full commissioning expected by year-end.",
+  "why": "Under construction.",
+  "sources": [
+   {
+    "url": "https://www.meretmarine.com/fr/energies-marines/dieppe-le-treport-la-moitie-des-eoliennes-installees",
+    "quote": "installant 31 des 62 éoliennes. Cinq ont été mises en service durant l’été , après une série de tests, alors que la mise en service complète du parc normand est attendue d’ici la fin de l’année."
+   }
+  ]
+ },
+ {
+  "item": "9e. Baltic Power: full operation?",
+  "farm": "Baltic Power Offshore wind farm",
+  "src_code": 2,
+  "iso": "POL",
+  "status": "lead",
+  "proposal": "(no change) keep st=1, year=2026.",
+  "note_zh": "Northland 2026-10-07：76 部全部裝好、三分之一以上在發電，正在試運轉，預計 2026 年商轉。",
+  "note_en": "Northland, 7 Oct 2026: all 76 turbines installed, over one-third generating, commissioning under way, commercial operation expected in 2026.",
+  "why": "Not yet in commercial operation.",
+  "sources": [
+   {
+    "url": "https://investingnews.com/northland-s-baltic-power-offshore-wind-project-completes-installation-of-all-76-turbines/",
+    "quote": "All 76 turbines are now installed, with over one-third currently generating power."
+   }
+  ]
+ },
+ {
+  "item": "9g. Sunrise Wind: array position",
+  "farm": "Sunrise Wind",
+  "src_code": 2,
+  "iso": "USA",
+  "status": "none",
+  "proposal": "(no change) keep the BOEM lease-centre point 40.99, -71.06 (approx).",
+  "note_zh": "OSM 有 84 個 SG 11.0-200 DD 節點，中心約 40.999, -71.083（與租約中心只差約 2 km），但節點註明是「暫定機位（USCG 內部參考）」、沒有風場名稱或營運者，不符合座標規則；沒找到其他公開的機位座標。",
+  "note_en": "OSM has 84 SG 11.0-200 DD nodes centred at about 40.999, -71.083 (about 2 km from the lease centre), but they are tagged ‘Provisional WTG placement - USCG (internal reference)’ with no farm name or operator, so they fail the coordinate rule; no other published array coordinates were found.",
+  "why": "No citable as-built array coordinates.",
+  "sources": [
+   {
+    "url": "https://www.openstreetmap.org/node/13103434039",
+    "quote": "Location: 41.0247766 , -71.2101240 Tags description Provisional WTG placement - USCG (internal reference)"
+   }
+  ]
+ },
+ {
+  "item": "10c. Erbes-Büdesheim (GEM) vs Windpark Offenheim (MaStR)",
+  "farm": "Erbes-Büdesheim wind farm / Windpark Offenheim",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(none yet) Probably the same farm, but GEM’s year (2012), owner (KGAL) and exact point (3 km NE, among the juwi Senvion turbines) disagree; not enough to write a dup.",
+  "note_zh": "Offenheim 那群是 5 部 Vestas V112（3,075 kW）、15.375 MW，營運公司叫「ERG Wind Erbes Büdesheim GmbH & Co. KG, Standort Offenheim」（約 2013 年起），容量與 GEM 的 15 MW 相符、名稱也用 Erbes-Büdesheim；但 GEM 寫 2012 年、營運者 KGAL，座標 49.757, 8.056 落在 Erbes-Büdesheim 村北的 juwi Senvion 3.4M104 群（Bornheim／Mockenberg／Wingertsberg，2012 年）裡，turbines_de.json 也把這筆對到那群 Senvion。只有資料庫級來源（wind-turbine.com、thewindpower）把 15.375 MW 與 Erbes-Büdesheim 連起來，KGAL 的來源讀不到（fieldfisher 403）。待查。",
+  "note_en": "The Offenheim group is 5 Vestas V112 (3,075 kW), 15.375 MW, run by a company called ‘ERG Wind Erbes Büdesheim GmbH & Co. KG, Standort Offenheim’ (from about 2013); capacity matches GEM’s 15 MW and the name uses Erbes-Büdesheim. But GEM says 2012 and operator KGAL, and its point 49.757, 8.056 lies among juwi’s Senvion 3.4M104 group north of the village (Bornheim/Mockenberg/Wingertsberg, 2012), to which turbines_de.json also matched this record. Only database-level sources (wind-turbine.com, thewindpower) tie 15.375 MW to Erbes-Büdesheim, and the KGAL source is unreadable (fieldfisher 403). Open.",
+  "why": "No primary source linking GEM’s KGAL 2012 farm to either group; fieldfisher.com 403.",
+  "sources": [
+   {
+    "url": "https://wind-turbine.com/anlagenbetreiber/erg-wind-erbes-buedesheim-gmbh-co-kg-standort-offenheim?langswitch=de",
+    "quote": "ERG Wind Erbes Büdesheim GmbH & Co. KG, Standort Offenheim Hamburg, Deutschland 15.375 kW Installierte Gesamtleistung ~ 2013 Tätigkeitsbeginn"
+   },
+   {
+    "url": "https://www.gem.wiki/Erbes-B%C3%BCdesheim_wind_farm",
+    "quote": "Operating [ 1 ] 2012 [ 1 ] 15 MW [ 2 ] Onshore [ 1 ] KGAL Group [ 2 ]"
+   }
+  ]
+ }
+]
