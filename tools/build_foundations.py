@@ -197,6 +197,7 @@ def main():
 
 NAMES = {'ALA': ('奧蘭', 'Åland')}     # wind_global.json 沒有國家資料的地區
 N5 = sum(1 for r in FOUNDATIONS if r['step'] == 5 and r['iso'] == 'CHN')   # 第 5 步已補的中國風場數
+N5V = sum(1 for r in FOUNDATIONS if r['step'] == 5 and r['iso'] == 'VNM')  # 第 5 步已補的越南風場數
 NOTE = {   # 依對照表已完成到第幾步
     1: ['逐步收集中：第 1 步為 OSPAR 涵蓋的北海與東北大西洋（2026-09）；其他海域的離岸風場暫列「型式不詳」',
         'Collected step by step: step 1 covers the North Sea and NE Atlantic within OSPAR (Sep 2026); '
@@ -212,10 +213,10 @@ NOTE = {   # 依對照表已完成到第幾步
         'Collected step by step: steps 1 and 2 cover Europe, step 3 the sub-types of floating farms worldwide and step 4 Taiwan, Japan, '
         'Korea and the USA (Sep 2026); fixed-bottom offshore farms elsewhere, such as in China and Vietnam, are shown as “type unknown” for now'],
     5: ['逐步收集中：第 1、2 步為歐洲，第 3 步為全球浮動式風場的細分型式，第 4 步為台灣、日本、韓國、美國；第 5 步（中國、越南）進行中，'
-        f'已依使用者的逐案覆核補上中國 {N5} 座（2026-09）；其他仍暫列「型式不詳」',
+        f'已補上中國 {N5} 筆、越南 {N5V} 筆（2026-09 起，出處原文逐筆核對）；其他仍暫列「型式不詳」',
         'Collected step by step: steps 1 and 2 cover Europe, step 3 the sub-types of floating farms worldwide and step 4 Taiwan, Japan, '
-        f'Korea and the USA; step 5 (China and Vietnam) is under way, with {N5} Chinese farms added from the owner’s case-by-case review '
-        '(Sep 2026); the rest are shown as “type unknown” for now'],
+        f'Korea and the USA; step 5 (China and Vietnam) is under way, with {N5} Chinese and {N5V} Vietnamese records added so far '
+        '(from Sep 2026, every quoted source checked); the rest are shown as “type unknown” for now'],
 }
 
 
@@ -259,7 +260,7 @@ def write_docs(rows, out, ospar, countries):
                   '2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：' + ('已完成（2026-09）。' if done >= 2 else '進行中。'),
                   '3. **浮動式風場的細分型式**（全球）：' + ('已完成（2026-09）。' if done >= 3 else '進行中。'),
                   '4. **台灣、日本、韓國、美國**：' + ('已完成（2026-09）。' if done >= 4 else '進行中。'),
-                  '5. **中國、越南**：' + (f'進行中：已依使用者 2026-09 的逐案覆核補上中國 {N5} 座，出處原文待核對。' if done >= 5 else '前四步完成後再決定。'), '',
+                  '5. **中國、越南**：' + (f'進行中：已補上中國 {N5} 筆、越南 {N5V} 筆（2026-09 起）。' if done >= 5 else '前四步完成後再決定。'), '',
                   '本頁是' + {1: '第 1 步', 2: '前兩步', 3: '前三步', 4: '前四步', 5: '前四步與第 5 步已完成部分'}[done] + '的結果。還沒查到的離岸風場標「型式不詳」，不臆測。', '',
                   '## 來源與方法', '',
                   f'- **OSPAR Offshore Renewable Energy Developments 2024**（[ODIMS]({OSPAR_URL})，CC0，資料時間 2024-01-01）是唯一逐場列出基礎型式的開放資料。'
@@ -273,9 +274,9 @@ def write_docs(rows, out, ospar, countries):
                   *(['- **第 4 步**：台灣、日本、韓國、美國的離岸風場都沒有 OSPAR 紀錄，逐座查開發商、施工廠商、政府文件或產業新聞，'
                      '引用的原文逐筆核對過（日文、韓文網頁依網頁編碼比對，PDF 逐頁比對），不引用 4C Offshore；日本港灣內的風場以 NEDO 的'
                      '支持構造分類為準（NEDO 明寫「ドルフィン」就是 High-Rise Pile Cap 高樁承台）。查不到型式的列在下方「查過但暫不列入」。'] if done >= 4 else []),
-                  *([f'- **第 5 步（進行中）**：依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」補上中國 {N5} 座，'
-                     '出處為該表各列的第一手來源（三峽集團、上海市政府、中廣核）；這批原文尚未以 `tools/check_quotes.py` 核對（整理時的工作環境無法連線），'
-                     '列在 TODO 待補。越南各案該表只寫潮間帶／近岸、細分待查，未列入。新增「複合筒」型式，歸在「其他固定式」色組。'] if done >= 5 else []),
+                  *([f'- **第 5 步（進行中）**：中國 {N5} 筆、越南 {N5V} 筆。最早幾筆依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」，'
+                     '之後逐座查開發商、施工廠商、地方政府公開的海域使用論證報告與竣工環保驗收、產業新聞；引用的原文都以 `tools/check_quotes.py` 核對過，'
+                     '只有如東 H6、H10 兩列的出處是三峽集團自家網頁（核對環境連不上，列在 TODO）。新增「複合筒」型式，歸在「其他固定式」色組。'] if done >= 5 else []),
                   '- 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。',
                   f'- **水深、輪轂高度、葉輪直徑**（{DIMS_ASOF} 起，`tools/farm_dimensions.py`）：逐座查維基百科（含英文維基百科各國離岸風場清單的「Depth range」欄）、開發商、風機廠商、政府文件或產業新聞，引用的原文逐筆核對過；查不到的留空，不用典型值推估。下表的「水深／輪轂／葉輪」欄即為這些值；地球儀的風場卡片剖面圖與近景風機依這些值等比例繪製。',
                   '- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合）；'
@@ -293,7 +294,7 @@ def write_docs(rows, out, ospar, countries):
                   '2. **The rest of Europe** (the Baltic, the Mediterranean and the IJsselmeer, plus farms finished after OSPAR 2024): ' + ('done (Sep 2026).' if done >= 2 else 'in progress.'),
                   '3. **Sub-types of floating farms** (worldwide): ' + ('done (Sep 2026).' if done >= 3 else 'in progress.'),
                   '4. **Taiwan, Japan, Korea and the USA**: ' + ('done (Sep 2026).' if done >= 4 else 'in progress.'),
-                  '5. **China and Vietnam**: ' + (f'under way: {N5} Chinese farms added from the owner’s case-by-case review of Sep 2026; their quoted passages are still to be checked.' if done >= 5 else 'to be decided after the first four steps.'), '',
+                  '5. **China and Vietnam**: ' + (f'under way: {N5} Chinese and {N5V} Vietnamese records added so far (from Sep 2026).' if done >= 5 else 'to be decided after the first four steps.'), '',
                   'This page shows the results of ' + ('step 1' if done == 1 else 'steps 1–4 and the part of step 5 done so far' if done == 5 else f'steps 1–{done}') + '. Offshore farms not yet checked are shown as “type unknown”, never guessed.', '',
                   '## Sources and method', '',
                   f'- **OSPAR Offshore Renewable Energy Developments 2024** ([ODIMS]({OSPAR_URL}), CC0, data as of 1 Jan 2024) is the only open dataset '
@@ -314,11 +315,11 @@ def write_docs(rows, out, ospar, countries):
                      '(Japanese and Korean pages in their own encodings, PDFs page by page) and 4C Offshore never cited; farms inside Japanese ports '
                      'follow NEDO’s classification of support structures (NEDO states that a “dolphin” is a High-Rise Pile Cap). Farms whose type '
                      'could not be found are under “Checked but left out for now” below.'] if done >= 4 else []),
-                  *([f'- **Step 5 (under way)**: {N5} Chinese farms were added from the “Asia case-by-case review” in the owner’s compilation of '
-                     '27 Sep 2026, citing that sheet’s first-hand sources (China Three Gorges, the Shanghai government, CGN); their quoted passages '
-                     'have not yet been checked with `tools/check_quotes.py` (the working environment had no network access) and are listed '
-                     'in TODO. The Vietnamese cases there only say intertidal / nearshore, sub-type unconfirmed, so none were added. A new '
-                     '“composite bucket” type joins the “other fixed-bottom” colour group.'] if done >= 5 else []),
+                  *([f'- **Step 5 (under way)**: {N5} Chinese and {N5V} Vietnamese records. The first few come from the “Asia case-by-case review” in the owner’s '
+                     'compilation of 27 Sep 2026; the rest were checked farm by farm against developers, construction contractors, sea-use assessment '
+                     'reports and completion environmental acceptances published by local governments, and trade press. Every quoted passage was checked '
+                     'with `tools/check_quotes.py`, except the rows for Rudong H6 and H10, whose sources are China Three Gorges’ own pages (unreachable '
+                     'from the checking environment; listed in TODO). A new “composite bucket” type joins the “other fixed-bottom” colour group.'] if done >= 5 else []),
                   '- In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.',
                   f'- **Water depth, hub height and rotor diameter** (from {DIMS_ASOF}, `tools/farm_dimensions.py`): checked farm by farm against Wikipedia (including the “Depth range” column of the English Wikipedia lists of offshore wind farms by country), developers, turbine makers, government documents or trade press, with every quoted passage verified; unknown values are left blank, never filled with typical values. The “Depth / Hub / Rotor” columns below hold these values, and the globe’s farm-card cross-section and close-up turbines are drawn to scale from them.',
                   '- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame '

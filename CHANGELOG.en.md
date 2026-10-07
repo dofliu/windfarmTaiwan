@@ -15,6 +15,21 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.2 — 2026-10-07
+
+- New user guide, [docs/user-guide.en.md](./docs/user-guide.en.md) (Chinese: `user-guide.md`): every page, the globe's toolbar, side panel, farm cards, layers,
+  Output, tours, URL parameters, the single-file copies, phones, data freshness and FAQ. The site footer and "Learn → Sources & method → About this site"
+  now link to it.
+- Both READMEs tidied: a documents table at the top (Chinese and English link for every document), updated figures (about 31,000 farm records, about 9,600
+  pipeline projects, single-file edition about 13 MB / public map about 12 MB, six workflows), and the feature list turned into a summary that links to the
+  guide; the "Corrections" list no longer repeats the France item that had split the Crimea sentence; the sources now credit the 2026 latest-available figures,
+  Ember, USWTDB, OpenStreetMap, OSPAR, events and ports.
+- ROADMAP, TODO, DEPLOY and CLAUDE.md brought up to date (ROADMAP's done items and the Taiwan offshore time checks, document lists, maintenance notes).
+- Fixed: the Learn intro said "twelve chapters", now thirteen; the globe's English pipeline caveat gave the farm data as GEM Feb 2025, now Feb 2026.
+- The foundations legend and farm-by-farm list said "78 Chinese farms from the owner's case-by-case review, quotes still to be checked"; they now give the
+  actual state: step 5 has 78 Chinese and 14 Vietnamese records, every quoted passage checked with `check_quotes.py` except the two rows for Rudong H6 and
+  H10, whose source is China Three Gorges' own site, unreachable from the checking environment.
+
 ## v2.30.1 — 2026-10-07
 
 - Foundation types (every quote checked with `check_quotes.py`): Datang Nan'ao Lemen I is all monopiles (post-construction sea-use report and completion

@@ -21,8 +21,8 @@ windfarmTaiwan/
 ├─ data/global/                     # global data: country capacity by year, farm layer, borders (built by tools/, not scheduled)
 ├─ tools/                           # generators for the global data, basemaps, the single-file HTML and the coverage report
 ├─ standalone/                      # where the single-file HTML is written locally (not in git; the official files are in the GitHub Release "standalone")
-├─ data/archive/                    # long-term archive of Taipower's official retrospective data, one file per month
-├─ docs/                            # data coverage report, data clean-up log, per-farm foundation list, live-data source assessment (one Chinese and one English copy each)
+├─ data/archive/                    # long-term archive of Taipower's official retrospective data (one file per month) and daily samples of every grid unit (farm_daily.json)
+├─ docs/                            # user guide, data coverage report, data clean-up log, per-farm foundation list, events list, live-data source assessment (one Chinese and one English copy each)
 ├─ data/live/                       # live output in Australia and Canada (intl_realtime.json, scheduled) and the unit mapping (units.json)
 ├─ taipower_wind_scraper.py         # about every 2 hours: live wind + live supply/demand
 ├─ intl_wind_scraper.py             # about every 2 hours: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
@@ -82,9 +82,9 @@ To set up a new project from scratch (instead of using this repo directly):
 - The Actions runners are overseas (Azure); fetching Taipower's public open-data endpoints works
   fine (server-side fetches are not subject to CORS).
 
-### Maintenance (while development is paused)
+### Maintenance
 
-The project has been paused since 27 Sep 2026 (v2.11.1). All of the following runs by itself:
+The project has been in maintenance since 27 Sep 2026 (v2.11.1), with improvements made since as the owner asks (see the CHANGELOG). All of the following runs by itself:
 
 - `scrape-taipower-wind`: about every 2 hours, fetches Taipower's live wind output, the supply/demand report and live output in
   Australia and Canada, and commits any change.

@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 7 Oct 2026: v2.30.1, foundation and hub height research, turbine field and status fixes; the next conversation starts here)
+## In progress (hand-off, 7 Oct 2026: v2.30.2, project documents and the user guide; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,19 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 7 Oct 2026 (v2.30.2): the owner asked for the project documents to be brought up to date:
+  1. Both READMEs rewritten: a documents table at the top (Chinese and English link for every document), figures updated to v2.30.x (about 31,000 farm
+     records, about 9,600 pipeline projects, single-file copies of about 13 / 12 MB, six workflows), the feature list turned into a summary that links to the
+     user guide, the "Corrections" list fixed (a repeated France item had split the Crimea sentence), and the sources now credit the 2026 latest-available
+     figures, Ember, USWTDB, OpenStreetMap, OSPAR, events and ports.
+  2. A new user guide, `docs/user-guide.md` / `.en.md`: every page, the toolbar, side panel, farm cards, layers, Output, tours, URL parameters, the
+     single-file copies, phones, data freshness and FAQ; linked from the site footer and "About this site". CLAUDE.md section 1 now says to update the guide
+     in the same PR whenever something users see is added or changed.
+  3. ROADMAP's "Current status" updated to v2.30.x, with the done state of step 5 and of farm-detail group B and the Taiwan offshore time checks; DEPLOY's
+     docs / archive lines and "Maintenance"; the document list in CLAUDE.md (with events listed as generated).
+  4. Also fixed: the Learn intro said "twelve chapters" (now 13); the globe's English pipeline caveat said GEM Feb 2025 (now 2026-02); the foundations
+     document and the globe legend said "78 Chinese farms from the owner's review, quotes still to be checked", now the actual state (78 Chinese and 14
+     Vietnamese records, all quotes checked except Rudong H6 and H10).
 - 7 Oct 2026 (v2.30.1): the three follow-ups to v2.30.0 (three sub-agents in parallel, every quote checked with `check_quotes.py`):
   1. Foundations: Lemen I (monopiles), the Longyuan Rudong intertidal demo (37 monopiles + 21 multi-pile jackets), Shapa phase 4 (7 monopiles + 36 jackets) and
      phase 5 (11 pile caps + 23 jackets + 13 composite buckets). The best source type is the "supplementary sea-use reports" the Yangjiang natural resources bureau
@@ -248,8 +261,8 @@ and move finished items to the topic lists below.
    changing anything.
 
 6. **Dimension gaps** (after the fifth round, v2.17.6; the values found but not used, and why, are kept here to avoid re-checking):
-   241 operating offshore farms have at least one value (depth 217, hub height 176, rotor diameter 229, all three 170; after the sixth round, v2.29.0).
-   Two have none: Dongtai Zhugensha H1 (Guohua Dongtai phase 5, 50 × 4 MW) and Vietnam's Ben Tre 10; 80 lack a hub height.
+   247 operating offshore farms have at least one value (depth 223, hub height 181, rotor diameter 232, all three 173; after the eighth round, v2.30.1).
+   Of the 274 operating farms with a foundation record, 27 have none of the three (13 in China) and 93 lack a hub height (51 in China, 12 in Vietnam, 9 in the UK).
    Found in the sixth round but not used: Kentish Flats Extension 83.6 m (the configuration it "will have" at the 2014 investment decision, not an
    as-built record), Seonam (MOTIR's 2015 plan values, 80/90 m), Shenquan II (about 128 m for the 11 MW units, only 34 of 50), Provence Grand Large
    (only a 174 m tip height and 75 m blades; blade length is not the radius). Unreachable: Iberdrola's East Anglia ONE PDF (403) and the Rudong

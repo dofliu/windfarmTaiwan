@@ -10,11 +10,13 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Every document has a Traditional Chinese `X.md` and an English `X.en.md`, cross-linked on the first lines.
 - 修改文件時兩個版本在同一個 commit 一起更新，數字、步驟、連結要一致；新增文件時兩個版本一起新增。
   Change both versions in the same commit, keeping numbers, steps and links identical; add new documents in both languages.
-- 由程式產生的文件（例：`docs/data-coverage*.md`、`docs/data-cleanup*.md`、`docs/foundations*.md`）由產生程式同時輸出兩種語言，不要手動改。
-  Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`, `docs/foundations*.md`) are written in both languages by their generator; do not edit them by hand.
+- 由程式產生的文件（例：`docs/data-coverage*.md`、`docs/data-cleanup*.md`、`docs/foundations*.md`、`docs/events*.md`）由產生程式同時輸出兩種語言，不要手動改。
+  Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`, `docs/foundations*.md`, `docs/events*.md`) are written in both languages by their generator; do not edit them by hand.
 - 網站介面文字也一律雙語：HTML 用 `data-l="zh"`／`data-l="en"`，JS 用 `WW.L(zh, en)` 或各模組的 i18n 字典。
   All UI text is bilingual as well: `data-l="zh"` / `data-l="en"` in HTML, `WW.L(zh, en)` or the module's i18n table in JS.
-- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/data-coverage、docs/data-cleanup、docs/foundations、docs/live-data-sources、tools/promo/README。
+- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/user-guide（使用說明）、docs/data-coverage、docs/data-cleanup、docs/foundations、docs/events、docs/live-data-sources、tools/promo/README。
+- 網站新增或改變使用者看得到的功能（頁面、工具列按鈕、圖層、網址參數）時，同一個 PR 更新 `docs/user-guide.md` 與 `.en.md`；README 的「功能」只寫摘要並連到使用說明。
+  When a PR adds or changes something users see (pages, toolbar buttons, layers, URL parameters), update `docs/user-guide.md` and `.en.md` in the same PR; the README's feature list stays a summary that links to the guide.
   `CLAUDE.md` 本身以中英並列寫在同一個檔。This file itself keeps both languages side by side.
 
 ## 2. 版權與開發者 · Copyright and developer

@@ -174,7 +174,7 @@ const I18N = {
     ltWorld: (n, m) => n + ' countries have official figures for this year (up to ' + m + '); the rest carry last year-end',
     ltOk: (m, s) => 'as of ' + m + ' · ' + s, ltCarry: y => 'no official figure yet this year; carries end-' + y, ltEst: ' = the site\'s last year-end figure + this source\'s growth this year (estimate)', ltHatch: 'hatched = carries last year-end',
     pipeTab: 'Pipeline', pipeHead: 'Projects in the pipeline', gemTotals: 'GEM pipeline, Feb 2026 (country totals)',
-    pipeCaveat: 'Status and timing change often; coordinates are mostly approximate. Projects: GEM Feb 2025 + a list curated in Sep 2026 (Taiwan Round 3, large European offshore, etc.); country totals: GEM Feb 2026.',
+    pipeCaveat: 'Status and timing change often; coordinates are mostly approximate. Projects and country totals: GEM Feb 2026, plus a list curated in Sep 2026 (Taiwan Round 3 zones, large European offshore projects, etc.).',
     pipeLegendT: 'Pipeline (dashed rings)', pipeInData: (n, mw) => `${n} projects in the data · ${mw}`, pipeSee: 'Pipeline list →',
     coverage: 'Farm-level coverage', covMapped: 'Mapped', covGap: 'Gap (not mapped)', covOver: 'Farm sum exceeds the national total (different scope)',
     lnkSrc: 'Source', tbd: 'timing TBD', auditSrc: 'Official statistics audit',

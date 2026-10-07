@@ -21,8 +21,8 @@ windfarmTaiwan/
 ├─ data/global/                     # 全球資料：國家逐年容量、風場層、國界（由 tools/ 產生，非排程）
 ├─ tools/                           # 全球資料、底圖、單檔版與覆蓋率報告的產生程式
 ├─ standalone/                      # 本機建置單檔版 HTML 的輸出位置（不進 git；正式檔案在 GitHub Release「standalone」）
-├─ data/archive/                    # 台電官方回溯長期存檔，依月分檔 wind_history_archive_YYYY-MM.json
-├─ docs/                            # 資料覆蓋率報告、資料清理紀錄、水下基礎逐場清單、即時資料來源評估（中英文各一份）
+├─ data/archive/                    # 台電官方回溯長期存檔（依月分檔 wind_history_archive_YYYY-MM.json）與各併網點的每日取樣 farm_daily.json
+├─ docs/                            # 使用說明、資料覆蓋率報告、資料清理紀錄、水下基礎逐場清單、事件清單、即時資料來源評估（中英文各一份）
 ├─ data/live/                       # 澳洲、加拿大即時出力（intl_realtime.json，排程更新）與機組對照（units.json）
 ├─ taipower_wind_scraper.py         # 約每 2 小時：風力即時 + 電力供需即時
 ├─ intl_wind_scraper.py             # 約每 2 小時：澳洲東部電網、亞伯達、安大略的風場即時出力 → data/live/
@@ -65,9 +65,9 @@ windfarmTaiwan/
 - **電力供需即時來源會被 WAF 擋**：`grid_status.json` 的主要來源從 GitHub Actions 執行會回 403（詳見 `ROADMAP.md`「已知限制」），落到每日備援；若要真正即時，需要換到非雲端 CI 的執行環境（見方案 C）。
 - Actions runner 在海外（Azure），抓台電公開 opendata 端點沒問題（伺服器端抓取不受 CORS 限制）。
 
-### 維護（暫停開發期間）
+### 維護
 
-2026-09-27（v2.11.1）起專案暫告段落。以下都是自動進行的，不需要人手：
+2026-09-27（v2.11.1）起專案進入維護期，之後依使用者的要求逐項補強（見 CHANGELOG）。以下都是自動進行的，不需要人手：
 
 - `scrape-taipower-wind`：約每 2 小時抓台電即時風力、電力供需與澳洲、加拿大的即時出力，有變動就 commit。
 - `backfill-taipower-wind-history`：每週一（台北週二清晨）累積台電官方回溯存檔。
