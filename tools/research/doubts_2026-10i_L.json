@@ -1,0 +1,401 @@
+[
+ {
+  "item": "1a. Taiwan: YouDe (又德) termination final?",
+  "farm": "YouDe",
+  "src_code": 3,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "No change yet (keep PIPE_FIX[('TWN', 'YouDe')]). Ready entry once a completed termination is published: PIPE_DROP[('TWN', 'YouDe')] = ('3.2 期獲配 700 MW（預計 2029 年）；森崴能源未繳足履約保證金，經濟部解約', 'Allocated 700 MW in Round 3.2 (for 2029); Shinfox did not pay the rest of its performance bond and the ministry terminated the contract', '<termination notice or report URL>')",
+  "note_zh": "8 月 24 日能源署表示正在簽報解約；9 月 13 日經濟日報仍寫「又德風場解約程序未完成」（風睿能源的海興風場與又德場址重疊，所以是否參加 3-3 期要看又德解約）；9 月 26 日中央社報導 3-3 期的擴充容量只列已解約的海峽一、海峽二、海鼎二。到 10 月 7 日查不到解約完成的公告或報導，維持 PIPE_FIX。",
+  "note_en": "The Energy Administration said on 24 Aug 2026 that the termination was being processed; on 13 Sep 2026 the Economic Daily News still wrote that Youde's termination procedure is not complete (SRE's Haixing site overlaps Youde, so its Round 3.3 bid depends on it); on 26 Sep 2026 CNA reported that the Round 3.3 expansion capacity covers only the already terminated Haixia 1, Haixia 2 and Haiding 2. No notice or report of a completed termination was found up to 7 Oct 2026, so it stays in PIPE_FIX.",
+  "why": "No Energy Administration / MOEA notice or press report of a completed termination after 24 Aug 2026; latest dated status is 13 Sep 2026 (not complete).",
+  "sources": [
+   {
+    "url": "https://udn.com/news/story/7238/9752007",
+    "quote": "2026-09-13 18:54 經濟日報／ 記者 江睿智 ／台北即時報導"
+   },
+   {
+    "url": "https://udn.com/news/story/7238/9752007",
+    "quote": "海興風場所在場址與正在進行解約程序的又德風場重疊，又德風場解約程序未完成，是否會參與3-3期競標，仍有待觀察。"
+   },
+   {
+    "url": "https://www.cna.com.tw/news/afe/202609260023.aspx",
+    "quote": "在場址資源方面，針對過往解約的海峽一、海峽二及海鼎二等3座風場，能源署也將其納入3-3期作為擴充容量。"
+   },
+   {
+    "url": "https://news.cts.com.tw/cna/money/202608/202608243070944.html",
+    "quote": "經濟部能源署今天說明，截至本月業者仍未完成剩餘履約保證金繳納，目前正在簽報解約作業。"
+   }
+  ]
+ },
+ {
+  "item": "1b. Taiwan: Huanyang (環洋／蔚藍海彰化) termination final?",
+  "farm": "Huanyang",
+  "src_code": 3,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "No change yet (keep PIPE_FIX[('TWN', 'Huanyang')]). Ready entry once final: PIPE_DROP[('TWN', 'Huanyang')] = ('EDF 2026 年 2 月向能源署提出終止行政契約、撤出台灣；能源署表示將重新招標', 'EDF filed to terminate the administrative contract in Feb 2026 and left Taiwan; the Energy Administration will re-tender the site', 'https://money.udn.com/money/story/5612/9452773')",
+  "note_zh": "EDF 2026 年 2 月提出終止行政契約；能源署 7 月 23 日仍說「已在解約程序當中」。9 月 26 日中央社報導 3-3 期擴充容量仍只有已解約的海峽一、海峽二、海鼎二，沒有蔚藍海彰化。到 10 月 7 日查不到解約完成的消息。",
+  "note_en": "EDF filed in February 2026 to end the administrative contract; on 23 Jul 2026 the Energy Administration still said it was in the termination process. CNA (26 Sep 2026): the Round 3.3 expansion capacity still lists only the already terminated Haixia 1, Haixia 2 and Haiding 2, not Wei Lan Hai Changhua. No report of a completed termination up to 7 Oct 2026.",
+  "why": "No published completion of the termination after 23 Jul 2026.",
+  "sources": [
+   {
+    "url": "https://www.nownews.com/news/6859530",
+    "quote": "能源署說明，解約場址包括海峽一、海峽二和海鼎二，這3座風場都已經確定會納入擴充容量範圍內；至於蔚藍海彰化風場已在解約程序當中，又德風場先前也傳出無法執行，考量到收件截止日是9月30日，仍以這3座風場為主。"
+   },
+   {
+    "url": "https://www.cna.com.tw/news/afe/202609260023.aspx",
+    "quote": "離岸風電3-3期選商9/30截止收件 強制國產化退場迎新局 2026/9/26 09:13"
+   },
+   {
+    "url": "https://www.cna.com.tw/news/afe/202609260023.aspx",
+    "quote": "在場址資源方面，針對過往解約的海峽一、海峽二及海鼎二等3座風場，能源署也將其納入3-3期作為擴充容量。"
+   },
+   {
+    "url": "https://money.udn.com/money/story/5612/9452773",
+    "quote": "台灣離岸風電區塊開發3-1期5座簽約風場之一的法商EDF蔚藍海彰化離岸風電計畫，已在今年2月向能源署提出公文終止行政契約，目前剩少數員工在台灣負責收尾。"
+   }
+  ]
+ },
+ {
+  "item": "1c. Taiwan: YouDe site coordinates",
+  "farm": "YouDe",
+  "src_code": 3,
+  "iso": "TWN",
+  "status": "none",
+  "proposal": "(none) keep GEM's approximate point.",
+  "note_zh": "環境部環評書件系統（eiadoc.moenv.gov.tw）從查證環境連不上（連線被重設）；行政院公報的達天／又德環評審查結論只列相關計畫，沒有座標；3.2 期公告只有容量與開發商。查不到有座標的出處。",
+  "note_en": "The MOENV EIA document system (eiadoc.moenv.gov.tw) resets the connection from the checking environment; the Executive Yuan Gazette EIA conclusions for Datian/Youde list neighbouring projects but no coordinates; the Round 3.2 announcements give only capacity and developer. No source with coordinates found.",
+  "why": "Needs the Youde EIA (環境影響說明書) site map with coordinates; eiadoc.moenv.gov.tw blocked (connection reset).",
+  "sources": []
+ },
+ {
+  "item": "2. Formosa 1 Phase 1: SWT-4.0-120 or -130",
+  "farm": "Formosa 1 Phase 1",
+  "src_code": 0,
+  "iso": "TWN",
+  "status": "write",
+  "proposal": "fix('TWN', 'Formosa 1 Phase 1', C, '機組是西門子 SWT-4.0-120（葉輪直徑 120 m）：營運商沃旭 2019 年簡報列「4MW Siemens SWT 4.0-120」，西門子歌美颯 2018 年 1 月簡報的已安裝實績（統計至 2017 年 11 月）也列「Formosa: 2x SWT-4.0-120」；西門子歌美颯 2018 年 4 月新聞稿寫的 SWT-4.0-130 與這兩份不符，不採用', 'The turbines are Siemens SWT-4.0-120 (120 m rotor): the operator Ørsted’s 2019 presentation lists “4MW Siemens SWT 4.0-120”, and Siemens Gamesa’s January 2018 presentation of installed projects (installed by November 2017) lists “Formosa: 2x SWT-4.0-120”; the SWT-4.0-130 in Siemens Gamesa’s April 2018 press release contradicts both and is not used', 'https://www.asiawind.org/wp-content/uploads/2019/10/01-ORSTED-ULRIK-LANGE.pdf', turbine='2x Siemens SWT-4.0-120')",
+  "note_zh": "營運商沃旭（Formosa 1 的營運商）2019 年 Asia Offshore Wind Day 簡報：一期 2 部、機型 4MW Siemens SWT 4.0-120；西門子歌美颯 2018 年 1 月簡報的已安裝實績表（註明統計至 2017 年 11 月已安裝）：Taiwan Formosa 2x SWT-4.0-120 2017。兩份都是建成後的說明（營運商與製造商的實績清單），與 2015 年訂單一致；只有 2018 年 4 月的新聞稿寫 -130。欄位值不變，只是補上出處。",
+  "note_en": "The operator Ørsted’s 2019 Asia Offshore Wind Day slides: phase 1 has 2 WTGs, model 4MW Siemens SWT 4.0-120; Siemens Gamesa’s January 2018 slides list installed projects (footnote: installed by November 2017) with “Taiwan … Formosa: 2x SWT-4.0-120 2017”. Both describe the built turbines (operator and manufacturer installed-base list) and agree with the 2015 order; only the April 2018 press release says -130. The field value stays the same; the rule documents the source.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.asiawind.org/wp-content/uploads/2019/10/01-ORSTED-ULRIK-LANGE.pdf",
+    "quote": "Number of WTGs 2 WTGs 20 WTGs WTG model 4MW Siemens SWT 4.0-120 6MW Siemens SWT-6.0-154"
+   },
+   {
+    "url": "https://www.asiawind.org/wp-content/uploads/2018/01/21-SIEMENS-NIELS-STEENBERG.pdf",
+    "quote": "Taiwan Project Year Formosa: 2x SWT-4.0-120 2017"
+   },
+   {
+    "url": "https://www.asiawind.org/wp-content/uploads/2018/01/21-SIEMENS-NIELS-STEENBERG.pdf",
+    "quote": "Our offshore business 1) Installed by November 2017"
+   }
+  ]
+ },
+ {
+  "item": "3a. Greater Changhua 2b & 4 full commercial operation?",
+  "farm": "Greater Changhua 2b & 4",
+  "src_code": 0,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "No change (stay st=1, 2026). Re-check after Ørsted's Q3 interim report / a COD announcement.",
+  "note_zh": "沃旭 9 月 1 日說預計 2026 年第三季末全面商轉；到 10 月 7 日查不到全面商轉公告（大彰化二號股權出售也要等商轉才交割，沒有交割消息）。repo 內 10 月 7 日 16:40 的台電即時資料快照仍為「沃四風(註10)」（試運轉）。",
+  "note_en": "Ørsted said on 1 Sep 2026 that full commercial operation was expected in late Q3 2026; no full-COD announcement was found by 7 Oct 2026 (nor the closing of the Greater Changhua 2 stake sale, which is tied to COD). The repo's Taipower live snapshot of 7 Oct 2026 16:40 still shows “沃四風(註10)” (trial operation).",
+  "why": "No full commercial operation announcement yet; Taipower open data host refused the connection from here (the repo snapshot wind_realtime.json was used only as a lead).",
+  "sources": [
+   {
+    "url": "https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521",
+    "quote": "r full commercial operation in late Q3 2026 upon completion of the remaining commissioning activities and fulfilment of customary contractual and regulatory requirements."
+   }
+  ]
+ },
+ {
+  "item": "3b. Taipower Offshore Phase 2: all 31 installed/connected?",
+  "farm": "Taipower Offshore Phase 2",
+  "src_code": 0,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "No change (stay st=1, 2027).",
+  "note_zh": "台電 10 月 2 日：工作船已出海安裝，力拚年底前完工；沒有新的安裝部數。repo 內 10 月 7 日台電即時資料快照的「離岸二期(註10)」出力 0.9 MW，仍在試運轉。",
+  "note_en": "Taipower (2 Oct 2026): the vessel is at sea installing turbines and aims to finish by year-end; no newer count of installed units. The repo's 7 Oct 2026 Taipower live snapshot shows “離岸二期(註10)” at 0.9 MW, still in trial operation.",
+  "why": "Not all 31 installed; latest dated status 2 Oct 2026.",
+  "sources": [
+   {
+    "url": "https://www.cna.com.tw/news/afe/202610020045.aspx",
+    "quote": "台電：離岸一期可用率攀升 二期依約接管船機拚年底完工 2026/10/2 10:08"
+   },
+   {
+    "url": "https://www.cna.com.tw/news/afe/202610020045.aspx",
+    "quote": "台電強調，目前正努力推進離岸二期工程，工作船已出海進行安裝，力拚年底前完工。"
+   }
+  ]
+ },
+ {
+  "item": "3c. Hai Long 2 & 3: Northland Q3 2026 status",
+  "farm": "Hai Long 2 & 3",
+  "src_code": 0,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "No change (stay st=1, 2027).",
+  "note_zh": "Northland 第三季報告尚未發布（第二季報告 8 月 12 日：73 部裝 71 部、59 部發電，2027 年商轉）。repo 內 10 月 7 日台電即時資料快照的龍A風、龍B風、龍三風都還標註10。",
+  "note_en": "Northland's Q3 2026 report is not out yet (Q2 report, 12 Aug 2026: 71 of 73 installed, 59 generating, commercial operations in 2027). In the repo's 7 Oct 2026 Taipower live snapshot 龍A風, 龍B風 and 龍三風 all still carry note 10.",
+  "why": "Q3 report not yet published (Northland reported Q2 on 12 Aug; Q3 expected around mid-November).",
+  "sources": [
+   {
+    "url": "https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/",
+    "quote": "with 71 of 73 turbines installed and 59 generating power. The project continues its wind turbine installation and commissioning campaign and is on track for commercial operations in 2027"
+   }
+  ]
+ },
+ {
+  "item": "4. Setana semi-offshore: when did it stop generating?",
+  "farm": "Setana semi-offshore",
+  "src_code": 0,
+  "iso": "JPN",
+  "status": "lead",
+  "proposal": "(lead; ready once the town's xlsx table can be checked or a citable copy is found) fix('JPN', 'Setana semi-offshore', C, '町營風力發電事業的經營比較分析表：年發電量 2022 年度 3,321 MWh、2023 年度 694 MWh（2 號機無法修復、1 號機限制出力）、2024 年度只有 3 MWh（兩部都幾乎沒有運轉）；FIT 2023 年 12 月 31 日結束、售電契約 2025 年 3 月 31 日結束。2027 年度撤除，北海道電力將移設到江差町的訓練設施', 'The town’s public-enterprise analysis tables: 3,321 MWh in FY2022, 694 MWh in FY2023 (unit 2 beyond repair, unit 1 output-limited) and only 3 MWh in FY2024 (both units barely running); the FIT ended on 31 Dec 2023 and the power-sales contract on 31 Mar 2025. It will be removed in FY2027 and moved by Hokkaido Electric to a training facility in Esashi', 'https://www.town.setana.lg.jp/92728c1fe546b41d39b2a3d2786eda47.xlsx', end=2024, note=True)",
+  "note_zh": "せたな町公布的「經營比較分析表」（電氣事業・風力發電事業，xlsx）：令和 6 年度（2024 年 4 月–2025 年 3 月）年發電量 3 MWh（令和 2–5 年度依序 2,277、3,375、3,321、694 MWh），分析欄寫 1、2 號機都幾乎沒有運轉、因沒有發電 FIT 收入比率為 0；FIT 適用終了日 2023-12-31，售電契約終了日 2025-03-31；令和 5 年度表寫 2 號機無法修復、只有 1 號機在限制出力下運轉。所以實際上 2024 年度起停止發電（end=2024 較合適；若以售電契約結束算則是 2025）。另：北海道新聞 2026-07-07 報導北海道電力決定把風海鳥移設到江差町的洋上風力訓練設施；町公所網頁確認 2004 年 4 月 1 日正式運轉。xlsx 無法用 check_quotes.py 核對，所以只列為線索。",
+  "note_en": "Setana town's published public-enterprise analysis tables (electricity business, wind; xlsx): FY2024 (Apr 2024–Mar 2025) generation 3 MWh (FY2020–2023: 2,277, 3,375, 3,321 and 694 MWh); the analysis says units 1 and 2 were hardly running and the FIT revenue ratio is 0 because it is not generating; FIT end date 31 Dec 2023, power-sales contract end 31 Mar 2025; the FY2023 table says unit 2 cannot be restored and only unit 1 ran, output-limited. So it effectively stopped generating from FY2024 (end=2024 fits better; 2025 if the end of the sales contract is used). Also: Hokkaido Shimbun (7 Jul 2026) reports that Hokkaido Electric decided to move Kazamidori to an offshore-wind training facility in Esashi; the town page confirms full operation from 1 Apr 2004. The xlsx files cannot be checked by check_quotes.py, so this stays a lead.",
+  "why": "The decisive official source is an .xlsx (https://www.town.setana.lg.jp/92728c1fe546b41d39b2a3d2786eda47.xlsx ; FY2023: https://www.town.setana.lg.jp/681357dc3d06b67c78aa5e5c7782d6ea.xlsx; also in Hokkaido's zip https://www.pref.hokkaido.lg.jp/ss/scs/250716.html). check_quotes.py reads HTML/PDF/docx only, so no OK quote; cells: データ sheet row 6 cols 32–36 = 2277, 3375, 3321, 694, 3 (風力 年間発電電力量 R02–R06); 料金契約終了年月日 '令和７年３月31日'; ＦＩＴ・ＦＩＰ適用終了年月日 '令和５年12月31日'.",
+  "sources": [
+   {
+    "url": "https://www.town.setana.lg.jp/kazamidori/article27.html",
+    "quote": "そして、いよいよ平成16年4月1日より本格稼動が始まりました。"
+   },
+   {
+    "url": "https://www.hokkaido-np.co.jp/article/1334624/",
+    "quote": "北海道電力は、2027年度内の撤去が決まっている檜山管内せたな町の洋上風力発電施設「風海鳥（かざみどり）」を、同管内江差町に整備予定の洋上風力発電の訓練施設に移設することを決めた。"
+   },
+   {
+    "url": "https://www.hokkaido-np.co.jp/article/1334624/",
+    "quote": "2026年7月7日 17:34"
+   }
+  ]
+ },
+ {
+  "item": "5. Choshi Offshore Demonstration: still operating 2025–2026?",
+  "farm": "Choshi Offshore Demonstration (NEDO/TEPCO)",
+  "src_code": 0,
+  "iso": "JPN",
+  "status": "write",
+  "proposal": "fix('JPN', 'Choshi Offshore Demonstration (NEDO/TEPCO)', C, '仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km）', 'Still operating (September 2026: the demonstration turbine was never removed and has run commercially since 2019); the point moves to the turbine position published by TEPCO Renewable Power (35°40′54″ N, 140°49′13″ E, WGS; the old point was about 3 km to the north-east)', 'https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf', lat=35.682, lon=140.82)",
+  "note_zh": "WIND JOURNAL（2026-09-28，東電 RP 銚子市沖環評的報導）：東電 RP 沒有撤除實證風車，轉為商用資產 2019 年開始商轉，至今仍持續運轉。東電 RP 2021 年資料（國土交通省網站）列出風車座標 北緯35度40分54秒、東經140度49分13秒（世界測地系）＝ 35.682、140.820；原紀錄 35.7、140.85 偏約 3 km。狀態不用改，只改座標。",
+  "note_en": "WIND JOURNAL (28 Sep 2026, on TEPCO RP's Choshi EIA): TEPCO RP did not remove the demonstration turbine, turned it into a commercial asset from 2019, and it is still running. TEPCO RP's 2021 slides (on the MLIT site) give the turbine at 35°40′54″N 140°49′13″E (WGS) = 35.682, 140.820; the record's 35.7, 140.85 is about 3 km off. Status unchanged; only the point changes.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://windjournal.jp/128181/",
+    "quote": "東電RPはこの実証風車を撤去せず、商用資産に転換して19年に商業運転を開始し、いまも継続して稼働している。"
+   },
+   {
+    "url": "https://windjournal.jp/128181/",
+    "quote": "2026/09/28 東京電力リニューアブルエナジー（東電RP）が、8月21日から千葉県銚子市沖の洋上風力発電事業で計画段階環境配慮書の縦覧を開始した。"
+   },
+   {
+    "url": "https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf",
+    "quote": "風車 ：北緯35度40分54秒，東経140度49分13秒（世界測地系）"
+   },
+   {
+    "url": "https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf",
+    "quote": "現在は実証研究期間を終え、2019年1月1日より商用運転を開始。"
+   }
+  ]
+ },
+ {
+  "item": "6a. Kamisu Phase 1 and 2 positions",
+  "farm": "Kamisu Phase 1 (Wind Power Ibaraki); Kamisu Phase 2",
+  "src_code": 0,
+  "iso": "JPN",
+  "status": "lead",
+  "proposal": "No change (keep the approximate points). Possible but not recommended: Phase 1 → centre of the 7 nodes 2018075181…2018077815 (35.882, 140.736, approx); Phase 2 → centre of the 6 nodes named 第2 (35.911, 140.715, approx). Both are within ~200 m of the current points.",
+  "note_zh": "OpenStreetMap 有以風場命名的風機：「ウィンド・パワーかみす洋上風力発電所」8 個節點（含業者標籤）、「ウィンド・パワーかみす第1洋上風力発電所」1 個、「第2洋上風力発電所」6 個，合計 15 個，與神栖市資料的一期 7 部、二期 8 部對不上（多 1 個一期名、少 2 個二期名；35.890 N 的節點與 35.903 N 的「第1」節點看來應屬二期）。目前的概略點已在兩期風機列的中段（相差約 200 m），標籤不一致，不改。",
+  "note_en": "OpenStreetMap has turbines named for the farms: 8 nodes “ウィンド・パワーかみす洋上風力発電所” (with the operator tag), 1 node “…第1洋上風力発電所” and 6 nodes “…第2洋上風力発電所”, 15 in all, which does not match Kamisu city's 7 (phase 1) + 8 (phase 2): the node at 35.890 N and the “第1” node at 35.903 N appear to belong to phase 2. The current approximate points already sit in the middle of each row (within ~200 m); with inconsistent tags, no change.",
+  "why": "OSM phase names inconsistent with the official turbine counts; no official coordinates found.",
+  "sources": [
+   {
+    "url": "https://www.openstreetmap.org/node/2018075181",
+    "quote": "Location: 35.8765177 , 140.7404158 Tags generator:source wind name ウィンド・パワーかみす洋上風力発電所 operator 株式会社 ウィンド・パワー・いばらき power generator"
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/4772029537",
+    "quote": "Location: 35.9160909 , 140.7117101 Tags generator:source wind name ウィンド・パワーかみす第2洋上風力発電所 power generator"
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/4771947744",
+    "quote": "Location: 35.9027351 , 140.7213141 Tags generator:source wind name ウィンド・パワーかみす第1洋上風力発電所 power generator"
+   },
+   {
+    "url": "https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html",
+    "quote": "ウィンド・パワーかみす第2洋上風力発電所 基数等：2,000キロワット×8基 稼働：2013年3月 設置場所：北浜洋上"
+   },
+   {
+    "url": "https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html",
+    "quote": "ウィンド・パワーかみす第1洋上風力発電所 基数等：2,000キロワット×7基 稼働：2010年3月"
+   }
+  ]
+ },
+ {
+  "item": "6b. Eurus Akita Port semi-offshore: which turbine is in the water",
+  "farm": "Eurus Akita Port semi-offshore",
+  "src_code": 0,
+  "iso": "JPN",
+  "status": "none",
+  "proposal": "(none) keep the approximate Mukaihama point.",
+  "note_zh": "JWPA 只說ユーラス秋田港ウインドファーム有 1 部 3 MW 列為セミ洋上。OpenStreetMap 向濱沿岸的風機節點都沒有風場名稱或業者（只有一個「向浜風力発電所」），無法指出是哪一部；東北地方整備局的秋田港風車地圖 PDF 回 403，秋田市風力一覽 PDF 回 404。",
+  "note_en": "JWPA only says one 3 MW unit of Eurus Akita Port Wind Farm counts as semi-offshore. The OpenStreetMap turbine nodes along Mukaihama carry no farm name or operator (one is named 向浜風力発電所), so the unit cannot be identified; the Tohoku Regional Development Bureau's Akita port windmill map PDF returns 403 and Akita city's wind list PDF 404.",
+  "why": "No source identifies the in-water unit with coordinates; pa.thr.mlit.go.jp 403.",
+  "sources": [
+   {
+    "url": "https://jwpa.jp/information/9782/",
+    "quote": "セミ洋上 ユーラス秋田港ウインドファーム 2015年2月 1基 3.0MW"
+   }
+  ]
+ },
+ {
+  "item": "7. Korea: Jeju Woljeong test still operating?",
+  "farm": "Jeju Woljeong test (Doosan)",
+  "src_code": 0,
+  "iso": "KOR",
+  "status": "lead",
+  "proposal": "No change (keep the existing note: present state unverified).",
+  "note_zh": "電力專刊《일렉트릭파워》2025-12-23：月汀海上風電（斗山 3 MW、STX 2 MW 各 1 部）「目前由能源技術研究院負責運營」；2021 年 KIER 轉載的報導也說研究院仍在運營。但沒有發電量或兩部機組是否能發電的資料（荷蘭 RVO 2021 年說試驗場沒有運轉），無法改成確定。",
+  "note_en": "Electric Power Journal (23 Dec 2025): the Woljeong offshore wind site (one Doosan 3 MW and one STX 2 MW) is “currently operated by KIER”; a 2021 article republished by KIER also says KIER runs it. No generation figures or statement on whether the units actually generate (the Netherlands' RVO said in 2021 the site was not operational), so it cannot be settled.",
+  "why": "No source on generation after 2016 for either unit.",
+  "sources": [
+   {
+    "url": "https://www.epj.co.kr/news/articleView.html?idxno=37661",
+    "quote": "실증용으로 추진된 월정해상풍력에는 두산에너빌리티 3MW 풍력터빈과 STX중공업 2MW 풍력터빈이 각각 1기씩 설치됐다. 현재 에너지기술연구원에서 운영을 맡고 있다."
+   },
+   {
+    "url": "https://www.epj.co.kr/news/articleView.html?idxno=37661",
+    "quote": "박윤석 기자 승인 2025.12.23 05:51"
+   }
+  ]
+ },
+ {
+  "item": "8. Korea: Ulsan 750 kW floating demo ever installed?",
+  "farm": "Ulsan Dongbu floating demo (Vindmøllen 750 kW)",
+  "src_code": 0,
+  "iso": "KOR",
+  "status": "write",
+  "proposal": "drop('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', C, '蔚山 750 kW 浮動式示範機從未在海上安裝：2019 年 11 月蔚州郡四度退回細部設計、無法下海；2025 年政府的風電研發企畫報告說 750 kW 浮動式實證「曾嘗試」、因取得實證海域困難而受阻，2025 年 9 月 KISTEP 報告說韓國沒有浮動式離岸風電的運送安裝實例', 'The Ulsan 750 kW floating demonstrator was never installed at sea: in November 2019 Ulju County had rejected its detailed design four times; the government’s 2025 wind R&D planning report says a 750 kW floating demonstration was “attempted” and held back by the difficulty of securing a test site, and a KISTEP report of September 2025 says Korea has no case of transporting and installing floating offshore wind', 'https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1')  (replaces the existing fix(..., st=2, year=0, note=True) on this record)",
+  "note_zh": "慶尚日報 2019-11-05：原訂 10 月進入實證的 750 kW 浮動式試驗機停擺，蔚州郡四度退回實施設計。KISTEP 2019 年預備可行性報告：「建設前階段」、尚未下海且不含併網。韓國能源技術評估院 2025 年度風電研發企畫報告：「國內曾嘗試 750 kW 級浮動式實證……因實證地點取得問題而進行困難」。KISTEP 2025-09-26 議題報告（KRISO 作者）：「國內浮動式離岸風電沒有運送、安裝實例」。之後也查不到任何下海、發電的報導。結論：從未在海上建成，建議刪除。",
+  "note_en": "Kyongsang Ilbo (5 Nov 2019): the 750 kW floating pilot that should have entered sea trials in October was stalled after Ulju County rejected the detailed design four times. KISTEP's 2019 feasibility report: “pre-construction”, not yet at sea and without grid connection. KETEP's 2025 wind R&D planning report: a 750 kW floating demonstration “was attempted” in Korea and has had difficulty because of securing a test site. KISTEP issue paper of 26 Sep 2025 (KRISO author): Korea has no case of transport and installation of floating offshore wind. No report of deployment or generation exists. Conclusion: never built at sea; drop.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.ksilbo.co.kr/news/articleView.html?idxno=735360",
+    "quote": "5일 울산시에 따르면 지난 10월 실증화 단계에 진행했어야 할 ‘750㎾급 부유식 해상풍력발전 시험용 파일럿 플랜트 개발 프로젝트’가 멈춰있다."
+   },
+   {
+    "url": "https://www.ksilbo.co.kr/news/articleView.html?idxno=735360",
+    "quote": "기자명 최창환 승인 2019.11.05 21:12"
+   },
+   {
+    "url": "https://www.kistep.re.kr/boardDownload.es?bid=0002&list_no=25504&seq=10723",
+    "quote": "7 울산 750kw 부유식 실증 750kw 건설 전 단계"
+   },
+   {
+    "url": "https://grant-documents.thevc.kr/246940_9.+%5B%EA%B3%B5%EA%B0%9C%EC%9A%A9%5D+2025%EB%85%84%EB%8F%84+%EC%97%90%EB%84%88%EC%A7%80%EA%B8%B0%EC%88%A0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85+%EC%8B%A0%EA%B7%9C%EA%B3%BC%EC%A0%9C+%EA%B8%B0%ED%9A%8D%EB%B3%B4%EA%B3%A0%EC%84%9C_%EC%8B%A0%EC%9E%AC%EC%83%9D%EC%97%90%EB%84%88%EC%A7%80%ED%95%B5%EC%8B%AC%EA%B8%B0%EC%88%A0%EA%B0%9C%EB%B0%9C(%ED%92%8D%EB%A0%A5).pdf",
+    "quote": "국내에서는 750kW급부유식해상풍력실증이시도되었고메가와트급 - 29 - 부유식 해상풍력 실증이 시도되고 있으나 실증지 확보 문제로 진행에 어려움을겪어왔음"
+   },
+   {
+    "url": "https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1",
+    "quote": "국내 부유식 해상풍력의 이송･설치 사례가 없어 기술력이 저조하고 운송선 및 설치선 등의 인프라도 부족하여"
+   },
+   {
+    "url": "https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1",
+    "quote": "No.295 2025.9.26."
+   }
+  ]
+ },
+ {
+  "item": "9. Korea: Gunsan KEPRI Doosan 3 MW on suction bucket",
+  "farm": "(no record)",
+  "src_code": null,
+  "iso": "KOR",
+  "status": "missing",
+  "proposal": "(missing) A real offshore demonstrator with no record: KEPCO Research Institute (KEPRI) Gunsan Port suction-bucket demonstrator, 1 x Doosan WinDS3000 3 MW (rotor 134 m per GlobalData) on a tripod suction-bucket foundation in the sea at Gunsan Port, installed October 2016. No citable coordinates and no source on current operation.",
+  "note_zh": "電力專刊《일렉트릭파워》（2021-08-09，KEPRI 副院長訪談）：電力研究院 2016 年 10 月在群山港成功以吸力式桶型基礎設置 3 MW 級離岸風機 1 部；基礎由 에드벡트 設計製造，「群山外海的 3 MW 離岸風機」。GlobalData（power-technology）：Gunsan Port – KEPRI Suction Bucket Demonstrator，3 MW 離岸，2016 年商轉，斗山 1 部 WinD3000/134。所以是在海上（港內水域），不是陸上；荷蘭 RVO 說裝在陸上不對。資料裡沒有任何紀錄涵蓋它（群山附近只有 GEM 的 Gogunsan 陸域規劃案）。OSM 在 35.972 N、126.515 E 與 35.969 N、126.515 E 有兩個業者為「한국전력공사 전력연구원」、附航標燈的風機節點，但標 1.5 MW、2017-07 起，與「1 部 3 MW、2016-10」不符，未採用為座標。現況（是否仍運轉）查不到。",
+  "note_en": "Electric Power Journal (9 Aug 2021, interview with KEPRI's deputy head): KEPRI installed one 3 MW-class offshore turbine on its suction-bucket foundation at Gunsan Port in October 2016; the foundation was designed and built by Advect, the firm that built “the 3 MW offshore turbine off Gunsan”. GlobalData (power-technology): Gunsan Port – KEPRI Suction Bucket Demonstrator, 3 MW offshore, commissioned 2016, one Doosan WinD3000/134. So it stands in the sea (port waters), not on land as RVO put it. No record covers it (the only nearby record is GEM's onshore pipeline Gogunsan). OSM has two KEPRI-operated turbine nodes with navigation lights at 35.972 N 126.515 E and 35.969 N 126.515 E, but tagged 1.5 MW each from July 2017, which does not match one 3 MW unit from October 2016, so they are not used for a position. Current operating status unknown.",
+  "why": "No citable coordinates (OSM nodes unnamed and inconsistent) and no source on whether it still runs; cyber.kepco.co.kr newsletter fails TLS (SSLV3 handshake) and mdpi.com returns 403.",
+  "sources": [
+   {
+    "url": "https://www.epj.co.kr/news/articleView.html?idxno=28418",
+    "quote": "이 기술을 적용해 지난 2016년 10월 군산항에서 성공적으로 3MW급 해상풍력기 1기가 설치했다."
+   },
+   {
+    "url": "https://www.epj.co.kr/news/articleView.html?idxno=28418",
+    "quote": "하부기초는 군산 앞바다에 3MW 해상풍력기를 설치시공을 보유한 에드벡트에서 설계와 제작을 담당했으며"
+   },
+   {
+    "url": "https://www.epj.co.kr/news/articleView.html?idxno=28418",
+    "quote": "승인 2021.08.09 09:58"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-gunsan-port-kepri-suction-bucket-demonstrator-south-korea/",
+    "quote": "Gunsan Port – KEPRI Suction Bucket Demonstrator is a 3MW offshore wind power project. The project is located in Yellow Sea, North Jeolla, South Korea."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-gunsan-port-kepri-suction-bucket-demonstrator-south-korea/",
+    "quote": "The company provided 1 unit of WinD3000/134 turbine with 3MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "item": "10. Korea: Jwasari construction start in 2026?",
+  "farm": "Jwasari Offshore wind farm",
+  "src_code": 2,
+  "iso": "KOR",
+  "status": "lead",
+  "proposal": "No change: the existing fix (st=2, year=0) stays.",
+  "note_zh": "2026 上半年固定價格標案（6 月 30 日公布）五個得標案沒有左沙里；下半年標案依 6 月公布的中長期路線圖預計 9 月左右公告，結果尚未公布。5 月釜山日報：現代建設 2021 年 6 月取得左沙里島一帶 40.9 km² 的電力事業許可，漁民仍強烈反對。到 10 月 7 日查不到開工報導。",
+  "note_en": "The five winners of the H1 2026 fixed-price auction (30 Jun 2026) do not include Jwasari; the H2 2026 auction was to be announced around September under the June roadmap and has no results yet. Busan Ilbo (May 2026): Hyundai E&C holds the 2021 electricity-business licence for 40.9 km² around Jwasari-do and fishermen still oppose it. No construction start found by 7 Oct 2026.",
+  "why": "No construction start or auction award found.",
+  "sources": [
+   {
+    "url": "https://news.mtn.co.kr/news-detail/2026063016022261586",
+    "quote": "이번 입찰에는 고정식과 부유식, 공공주도형을 합쳐 9개 사업, 총 3656메가와트(MW)가 참여했다. 이 가운데 5개 사업, 1786MW가 낙찰됐다."
+   },
+   {
+    "url": "https://v.daum.net/v/20260507144934611",
+    "quote": "2021년 6월엔 현대건설(주)이 동쪽 해상(좌사리도 일원) 40.9㎢에 8MW급 발전기 24기를 꽂겠다며 허가를 득했다."
+   }
+  ]
+ },
+ {
+  "item": "11a. Korea: Jeonnam Offshore Wind 1 position",
+  "farm": "Jeonnam Offshore Wind 1",
+  "src_code": 0,
+  "iso": "KOR",
+  "status": "none",
+  "proposal": "(none) keep the approximate point (rule name for this record: 'Jeonnam Shinan 1 / others', C).",
+  "note_zh": "OpenStreetMap 在該海域沒有任何風機或風場圖徵（只有自恩島陸上的浦項能源與居民風場）；新聞只說自恩島西北約 9 km、水深 10–20 m；查不到環評或航行警告的座標。",
+  "note_en": "OpenStreetMap has no turbine or wind-farm feature in those waters (only the onshore POSCO Energy and residents' farms on Jaeun-do); news gives only “about 9 km north-west of Jaeun-do, 10–20 m deep”; no EIA or navigational-warning coordinates found.",
+  "why": "No source with coordinates (MOF/KHOA notices or EIA not found; 4C excluded).",
+  "sources": []
+ },
+ {
+  "item": "11b. Korea: Yeonggwang Wind intertidal 15 units position",
+  "farm": "Yeonggwang Wind offshore wind farm",
+  "src_code": 2,
+  "iso": "KOR",
+  "status": "write",
+  "proposal": "Replace the existing fix('KOR', 'Yeonggwang Wind offshore wind farm', G, ...) with: fix('KOR', 'Yeonggwang Wind offshore wind farm', G, '靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；座標改為 OpenStreetMap 風場關係「영광 해상풍력」（relation 17551812，15 部營運者영광풍력발전的 2.3 MW 風機）的中心，北緯 35.259°、東經 126.326°（© OpenStreetMap 貢獻者）；GEM 原座標是公司登記地址', 'The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); the point moves to the centre of the OpenStreetMap wind-farm relation “영광 해상풍력” (relation 17551812: 15 turbines of 2.3 MW operated by 영광풍력발전), 35.259 N, 126.326 E (© OpenStreetMap contributors); GEM’s point was the company’s registered address', 'https://www.openstreetmap.org/relation/17551812', mw=34.5, turbine='15 x Unison U113 2.3 MW', lat=35.259, lon=126.326, note=True)",
+  "note_zh": "OpenStreetMap relation 17551812：name「영광 해상풍력」、site=wind_farm、start_date 2018-09-01、成員 15 個，全是營運者「영광풍력발전」、2.3 MW 的風機節點（另外 20 部 2.255 MW 的 영광풍력발전 風機不在這個關係裡），正好對應 etnews 說的潮間帶 15 部 2.3 MW。15 部範圍北緯 35.242–35.280°、東經 126.320–126.333°，中心 35.259、126.326；原 GEM 點（公司地址，35.279、126.336）偏北約 2.3 km。",
+  "note_en": "OpenStreetMap relation 17551812: name “영광 해상풍력” (Yeonggwang offshore wind), site=wind_farm, start_date 2018-09-01, 15 members, all turbine nodes of 2.3 MW operated by 영광풍력발전 (the company's 20 turbines of 2.255 MW are not in it), matching the 15 intertidal 2.3 MW units in the etnews source. The 15 span 35.242–35.280 N, 126.320–126.333 E; centre 35.259, 126.326; GEM's point (the company address, 35.279, 126.336) is about 2.3 km north.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.openstreetmap.org/relation/17551812",
+    "quote": "Tags name 영광 해상풍력 site wind_farm start_date 2018-09-01 type site Members 15 members"
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/9626395924",
+    "quote": "generator:output:electricity 2.3 MW generator:source wind operator 영광풍력발전 power generator ref 1-1 start_date 2018-09-01 Part of 1 relation 영광 해상풍력"
+   }
+  ]
+ }
+]

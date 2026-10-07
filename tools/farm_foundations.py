@@ -822,10 +822,6 @@ FOUNDATIONS = [
 
 # OSPAR 有紀錄、但這一步刻意不列的風場（理由寫在報告裡，之後的步驟再查）
 EXCLUDED = [
-    ('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', [],
-     '計畫中的 750 kW 半潛式試驗機；2019 年 11 月仍因許可未發而沒有安裝，查不到之後在海上發電的紀錄，待查證',
-     'A planned 750 kW semi-submersible pilot; in November 2019 it was still not installed because permits were withheld, and there is '
-     'no record of it generating at sea afterwards; to be verified'),
     ('DNK', 'Frederikshavn', ['DK03'],
      '試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；'
      '各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列',

@@ -649,10 +649,12 @@ RULES = [
         'Yokji-myeon, Tongyeong (South Gyeongsang), not off Yeosu in South Jeolla: the point moves to Jwasari-do (approximate)',
         'https://www.hansannews.com/news/articleView.html?idxno=95554', st=2, year=0, mw=360, lat=34.561, lon=128.346, approx=True),
     fix('KOR', 'Yeonggwang Wind offshore wind farm', G,
-        '靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；GEM 的座標是公司登記地址，位置只能當概略值',
-        'The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); '
-        'GEM’s point is the company’s registered address, so the location can only be treated as approximate',
-        'https://m.etnews.com/20200221000242', mw=34.5, turbine='15 x Unison U113 2.3 MW', lat=35.279, lon=126.336, approx=True, note=True),
+        '靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW（電子新聞 2020-02）；座標改為 OpenStreetMap 風場關係「영광 해상풍력」'
+        '（relation 17551812：營運者영광풍력발전的 15 部 2.3 MW）的中心，北緯 35.259°、東經 126.326°（© OpenStreetMap 貢獻者）；GEM 原座標是公司登記地址',
+        'The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW; Electronic Times, Feb 2020); '
+        'the point moves to the centre of the OpenStreetMap wind-farm relation “영광 해상풍력” (relation 17551812: 15 turbines of 2.3 MW operated by 영광풍력발전), '
+        '35.259 N, 126.326 E (© OpenStreetMap contributors); GEM’s point was the company’s registered address',
+        'https://www.openstreetmap.org/relation/17551812', mw=34.5, turbine='15 x Unison U113 2.3 MW', lat=35.259, lon=126.326, note=True),
     fix('USA', 'Sunrise wind farm (United States)', G,
         '與 2026 整理清單的「Sunrise Wind」是同一座（Ørsted，924 MW，BOEM 租約 OCS-A 0487）：GEM 的座標其實落在 Revolution Wind 的租約區內，'
         '改到 OCS-A 0487 的中心（概略位置）並改用專案名稱，清單那筆就會併進來、不再重複',
@@ -1373,13 +1375,7 @@ RULES = [
         'expected in 2027 and operation in 2030; not yet under construction. Moved to GEM’s other point about 7.5 km off Dounreay (the old point was on land at Thurso; approximate)',
         'https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/', year=2030,
         lat=58.633, lon=-3.815, approx=True),
-    fix('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', C,
-        '蔚山 750 kW 浮動式示範機：2019 年 11 月蔚州郡四度退回細部設計審查，原訂當月完成安裝、隔年 3 月實證的計畫受阻；之後查不到安裝或發電的報導，'
-        '原本「2020 年營運中」沒有根據，改為施工前、年份不詳（確認從未運轉後再刪除）',
-        'Ulsan 750 kW floating demonstrator: in November 2019 Ulju County had rejected its detailed design four times, derailing the plan to install that month and '
-        'test until March 2020; no later report of installation or generation can be found, so the “operating since 2020” entry has no support and is set to '
-        'pre-construction with the year unknown (to be removed once it is confirmed never to have operated)',
-        'https://www.ksilbo.co.kr/news/articleView.html?idxno=735360', st=2, year=0, note=True),
+    drop('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', C, '蔚山 750 kW 浮動式示範機從未在海上安裝：2019 年 11 月蔚州郡四度退回細部設計、無法下海；2025 年政府的風電研發企畫報告說 750 kW 浮動式實證「曾嘗試」、因取得實證海域困難而受阻，2025 年 9 月 KISTEP 報告說韓國沒有浮動式離岸風電的運送安裝實例', 'The Ulsan 750 kW floating demonstrator was never installed at sea: in November 2019 Ulju County had rejected its detailed design four times; the government’s 2025 wind R&D planning report says a 750 kW floating demonstration was “attempted” and held back by the difficulty of securing a test site, and a KISTEP report of September 2025 says Korea has no case of transporting and installing floating offshore wind', 'https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1'),
     # 2026-10-05 台電自有風場對照台電「風力發電站資料」（政府資料開放平臺 17141，2026 年版）與能源署風力發電單一服務窗口（出處原文以 check_quotes.py 核對）
     fix('TWN', 'Taoyuan Luzhu', C,
         '台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值',
@@ -1711,6 +1707,9 @@ RULES = [
     fix('VNM', 'Hiep Thanh (Tra Vinh)', C, '協成 2021 年 FIT 期限前只有 12.8 MW 通過 COD（工貿部，部分），其餘 64.5 MW 是轉型期專案，2023 年才 COD（EVN 2023-08-18 表），全場完成年由 2022 改為 2023', 'Only 12.8 MW of Hiep Thanh reached COD before the 2021 FIT deadline (MOIT, partial); the other 64.5 MW was a transitional project at COD only in 2023 (EVN tracker of 18 Aug 2023), so the farm is complete from 2023, not 2022', 'https://www.evn.com.vn/userfile/User/honghoa/files/18082023_CapnhatCODduanNLTTchuyentiep.pdf', year=2023, ph=[[2021, 12.8], [2023, 64.5]]),
     fix('MAR', 'Akhfennir I-II', C, '阿赫費尼爾一期（101.87 MW、61 部 Alstom ECO 74）2013 年投入運轉：Nareva 執行長 2013-02 說 1 月起已有風機運轉、6 月全部投運；晨報 2014 寫「2013 年起運轉」，GlobalData 寫 2013 年 6 月投運；GEM 的 2014 不對。二期為 56 部 GE 1.7-100（GE 2014-09 合約）；原機型欄「Siemens Gamesa」不對', 'Akhfennir I (101.87 MW, 61 Alstom ECO 74) went into service in 2013: Nareva’s CEO said in Feb 2013 that turbines had been turning since January with full commissioning due in June; Le Matin (2014) says “operational since 2013” and GlobalData gives June 2013; GEM’s 2014 is wrong. Phase II has 56 GE 1.7-100 (GE contract, Sep 2014); the stored “Siemens Gamesa” is wrong', 'https://lematin.ma/express/2014/energie-eolienne_tarfaya-abrite-le-premier-parc-en-afrique/200878.html', ph=[[2013, 102], [2016, 100]], turbine='61x Alstom ECO 74 (1.67 MW) + 56x GE 1.7-100'),
     drop('TWN', 'Formosa 3 offshore wind farm · 3', G, '海鼎（Formosa 3）計畫已終止：Corio 2025 年決定退出台灣，經濟部 2025 年 5 月前解除海鼎一（3.2 期）開發權，海鼎二（3.1 期）也已解約、2026 年併入 3.3 期擴充容量；Infralogic 2026-02：與道達爾能源共有的 Formosa 3 開發權 2025 年已取消，Corio 本身 2026-04-01 起不存在。海鼎三從未獲配容量，已無開發商', 'The Formosa 3 (Haiding) project has ended: Corio decided in 2025 to leave Taiwan, the ministry revoked Haiding 1’s Round 3.2 rights by May 2025, and Haiding 2 (Round 3.1) was terminated and added to the Round 3.3 expansion capacity in 2026; Infralogic (Feb 2026): the development rights of Formosa 3, co-owned with TotalEnergies, were cancelled in 2025, and Corio itself ceased to exist on 1 April 2026. Haiding 3 never received capacity and no longer has a developer', 'https://ionanalytics.com/insights/infralogic/macquarie-winds-down-offshore-platform-corio/'),
+    # ------------------------------------------------ 2026-10-07 第六批（第十二輪資料疑點；出處原文以 check_quotes.py 核對）
+    fix('JPN', 'Choshi Offshore Demonstration (NEDO/TEPCO)', C, '仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km）', 'Still operating (September 2026: the demonstration turbine was never removed and has run commercially since 2019); the point moves to the turbine position published by TEPCO Renewable Power (35°40′54″ N, 140°49′13″ E, WGS; the old point was about 3 km to the north-east)', 'https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf', lat=35.682, lon=140.82),
+    fix('TWN', 'Formosa 1 Phase 1', C, '機組是西門子 SWT-4.0-120（葉輪直徑 120 m）：營運商沃旭 2019 年簡報列「4MW Siemens SWT 4.0-120」，西門子歌美颯 2018 年 1 月簡報的已安裝實績（統計至 2017 年 11 月）也列「Formosa: 2x SWT-4.0-120」；西門子歌美颯 2018 年 4 月新聞稿寫的 SWT-4.0-130 與這兩份不符，不採用', 'The turbines are Siemens SWT-4.0-120 (120 m rotor): the operator Ørsted’s 2019 presentation lists “4MW Siemens SWT 4.0-120”, and Siemens Gamesa’s January 2018 presentation of installed projects (installed by November 2017) lists “Formosa: 2x SWT-4.0-120”; the SWT-4.0-130 in Siemens Gamesa’s April 2018 press release contradicts both and is not used', 'https://www.asiawind.org/wp-content/uploads/2019/10/01-ORSTED-ULRIK-LANGE.pdf', turbine='2x Siemens SWT-4.0-120'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
