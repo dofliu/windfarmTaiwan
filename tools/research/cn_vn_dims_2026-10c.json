@@ -290,38 +290,6 @@
   ]
  },
  {
-  "farm": "Jiangsu Dafeng H6 Offshore (Longyuan) wind farm",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 47,
-  "status": "lead",
-  "note_zh": "線索：H4、H6 合稱龍源大豐二期（94 部 6.45 MW，各 47 部），「單月沉樁 22 台」以機位計，指向單樁，但沒有出處明寫型式（國家能源集團 2021-12）。",
-  "note_en": "Lead: H4 and H6 form Longyuan Dafeng phase 2 (94 × 6.45 MW, 47 each); \"22 units piled in a month\" counts per position and points to monopiles, but no source states the type (CHN Energy, Dec 2021).",
-  "sources": [
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "期间创造了单月沉桩22台，吊装28台等行业记录"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Dafeng H4 Offshore (Longyuan) wind farm",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 47,
-  "status": "lead",
-  "note_zh": "同大豐 H6：大豐二期 94 部、「單月沉樁 22 台」，型式未明寫。",
-  "note_en": "Same as Dafeng H6: Dafeng phase 2 (94 units), \"22 units piled in a month\", type not stated.",
-  "sources": [
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "共安装94台6.45兆瓦大容量海上风机，配套设置两座220千伏海上升压站和一座陆上集控中心"
-   }
-  ]
- },
- {
   "farm": "Jiangsu Jiangjiasha H2 Offshore wind farm",
   "kind": "foundation",
   "type": "unknown",
@@ -426,22 +394,6 @@
    {
     "url": "https://m.163.com/dy/article/FJH2NK3T05345ASA.html",
     "quote": "经过1133锤的敲击，23小时的连续奋战，顺利达到设计标高。"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Sheyang H2",
-  "kind": "foundation",
-  "type": "mp",
-  "parts": null,
-  "turbines": 67,
-  "status": "lead",
-  "note_zh": "線索：龍源振華承建其中 34 部 4.5 MW 的單樁基礎（世紀新能源網）；其餘 33 部未查到。",
-  "note_en": "Lead: Longyuan Zhenhua built monopile foundations for 34 of the 4.5 MW turbines (ne21); the other 33 not found.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-132865.html",
-    "quote": "龙源振华公司共承接34台4.5MW风机单桩基础施工及风电机组安装工作"
    }
   ]
  },
@@ -758,31 +710,6 @@
   ]
  },
  {
-  "farm": "Longyuan Dafeng H7",
-  "kind": "foundation",
-  "type": "mp",
-  "parts": [
-   [
-    "mp",
-    40
-   ]
-  ],
-  "turbines": 80,
-  "status": "lead",
-  "note_zh": "80 部金風 GW130-2.5 MW（2019 年投產）；龍源振華完成其中 40 根基礎沉樁與 40 部風機吊裝（一機一樁，即單樁），另 40 部的施工紀錄未找到。",
-  "note_en": "80 × Goldwind GW130-2.5 MW (in service 2019); Longyuan Zhenhua drove 40 foundation piles and installed 40 turbines (one pile per turbine, i.e. monopiles); the other 40 have no construction record found.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-131361.html",
-    "quote": "圆满完成了40根基础沉桩，40台风机吊装施工任务"
-   },
-   {
-    "url": "https://www.china5e.com/news/news-1061980-1.html",
-    "quote": "风场选用80台新疆金风科技股份有限公司（下称“金风科技”）GW130-2.5MW机组，项目容量共计20万千瓦。"
-   }
-  ]
- },
- {
   "farm": "Zhuanghe I",
   "kind": "foundation",
   "type": "unknown",
@@ -795,26 +722,6 @@
    {
     "url": "https://www.ne21.com/news/show-157836.html",
     "quote": "该项目位于辽宁省大连市庄河海域，规划装机容量100兆瓦，将安装19台5.2兆瓦风机。风机基础将创新性地采用导管架吸力筒基础型式施工"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Dafeng H12 Offshore (Longyuan) wind farm",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "status": "none",
-  "note_zh": "龍源大豐 H12 200 MW 位於東沙沙洲北側近海～潮間帶，2016 年開工、2017-06 吊裝世界首座分體式海上升壓站；機組數（搜尋摘要 80×2.5 MW）與基礎型式都沒有可引用的原文。",
-  "note_en": "Longyuan Dafeng H12 (200 MW), nearshore/intertidal north of Dongsha shoal, started 2016, world’s first split offshore substation installed June 2017; no quotable source for the turbine count (a search summary says 80 × 2.5 MW) or the foundation type.",
-  "sources": [
-   {
-    "url": "https://www.oaso.net/N/Wind/_Arp9Wqn0mE28yRo.html",
-    "quote": "龙源江苏大丰(H12)200MW海上风电项目位于大丰区外侧东沙沙洲北部海域，风电场区域为近海~潮间带地形"
-   },
-   {
-    "url": "https://m.thepaper.cn/baijiahao_13374721",
-    "quote": "2017年6月27日，世界首座分体式220千伏海上升压站在龙源江苏大丰（H12）20万千瓦海上风电项目场区成功吊装。"
    }
   ]
  },
@@ -884,22 +791,6 @@
    {
     "url": "https://www.cs.com.cn/ssgs/gsxw/202005/t20200512_6055758.html",
     "quote": "大丰海上风电位于江苏盐城市大丰区毛竹沙海域，中心离岸距离约55千米。二期项目安装23台4.5兆瓦的远景风电机组"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Sheyang Southern Area H2-1 Offshore wind farm",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "status": "none",
-  "note_zh": "查無 H2-1# 100 MW 本身的施工紀錄；應是龍源射陽 H2 南區 40 萬千瓦的一個分區（可能與同區其他紀錄重複）。龍源振華承建 34 部 4.5 MW 單樁的紀錄屬射陽 H2（300 MW）。",
-  "note_en": "No construction record for the H2-1# 100 MW block itself; it seems to be one block of Longyuan’s Sheyang H2 South 400 MW project (possible duplicate). Longyuan Zhenhua’s 34 × 4.5 MW monopiles belong to Sheyang H2 (300 MW).",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-208116.html",
-    "quote": "曾连续获得国家优质电力工程奖与国家优质工程奖的国家能源集团龙源电力射阳海上H2南区40万千瓦风电项目（简称：龙源射阳海上H2南区项目），在2023年TBA（全场时间可利用率）达到99%以上的基础上再接再厉"
    }
   ]
  },

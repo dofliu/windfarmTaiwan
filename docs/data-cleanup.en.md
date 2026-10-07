@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 410 rules: 148 records removed (44,360.2 MW of them operating), 262 records fixed.
+- 414 rules: 148 records removed (44,360.2 MW of them operating), 266 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 53 | 26,224.5 | 107 |
+| China | 53 | 26,224.5 | 111 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -247,6 +247,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Guangdong Zhanjiang Xuwen Offshore wind farm · 906 MW · 2022 | GEM | fixed: turbines | SPIC’s original Xuwen farm is 600 MW in two lots of 47 turbines (ne21, Nov 2021); the 300 MW extension is 25 × 12 MW, fully connected on 17 Dec 2024 (SPIC), matching this record’s 300 MW phase in 2024; the turbine field was empty | [link](http://www.spic.com.cn/xtdt1/202412/t20241218_324623.html) |
 | Jiangsu Dongtai Zhugensha H1 Offshore wind farm · 200 MW · 2021 | GEM | fixed: turbines | Guohua Dongtai phase V (Zhugensha H1#) has 50 Shanghai Electric 4.0-146 turbines (China Energy News, first turbine installed June 2020); the turbine field was empty | [link](https://paper.people.com.cn/zgnyb/html/2020-06/22/content_1993858.htm) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm · 302 MW · 2021 | GEM | fixed: turbines | Zhugensha H2# is 302 MW with 50 × 4.0 MW and 17 × 6.0 MW turbines (CWEEA citing the EPC contractor, Sept 2020); the turbine field was empty | [link](https://www.cweea.com.cn/xwdt/html/31056.html) |
+| Jiangsu Dafeng H4 Offshore (Longyuan) wind farm · 303 MW · 2021 | GEM | fixed: turbines | Dafeng H4 was built with 47 × 6.45 MW turbines (Longyuan Yancheng tender notice, Nov 2025); the turbine field was empty | [link](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251129/c09f1385-66c8-4ffb-b075-750f71961119.html) |
+| Jiangsu Dafeng H6 Offshore (Longyuan) wind farm · 303 MW · 2021 | GEM | fixed: turbines | Dafeng H6 has 47 × 6.45 MW turbines (Longyuan Yancheng tender notice, Nov 2025); the turbine field was empty | [link](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251129/c09f1385-66c8-4ffb-b075-750f71961119.html) |
+| Jiangsu Dafeng H12 Offshore (Longyuan) wind farm · 200 MW · 2018 | GEM | fixed: turbines | Dafeng H12 has 80 turbines (Longyuan tender notice, Oct 2020), Goldwind GW109/2500 (China5e overview during construction in 2017: 55 intertidal, 25 in deeper water); the turbine field was empty | [link](https://www.china5e.com/news/news-1004814-1.html) |
+| Jiangsu Sheyang Southern Area H2-1 Offshore wind farm · 104 MW · 2021 | GEM | fixed: turbines | Sheyang South H2-1# has 23 turbines (Sheyang Longyuan tender notice, Jan 2022), and the Sheyang offshore farm has 90 × 4.5 MW in all (67 + 23, Jiangsu Offshore Longyuan, Aug 2025); the turbine field was empty | [link](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220126/a64913cb-cf9d-4f39-8a5f-8d3af8011429.html) |
 
 ## Colombia (COL)
 

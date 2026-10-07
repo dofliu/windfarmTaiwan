@@ -29,7 +29,9 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
     high-rise pile caps), hubs 110 m / 111–112.5 m, from the post-construction supplementary reports published by the Yangjiang natural resources bureau; all 29 Putian Shicheng
     turbines stand on high-rise pile caps (two construction lots of 10 + 19).
   - The Shapa phase 3 record counted its floating unit too (400 MW), but that unit has its own record ("Sanxia Yinling"); it now counts the 61 fixed turbines only (393.45 MW).
-  - Operating offshore farms: foundation type known for 267 of 332, 82.1% of capacity; dimensions for 267, hub height for 193, all three for 182.
+  - Northern China: operation and maintenance tenders on CHN Energy's tender site state the foundations of Longyuan's Jiangsu farms: Sheyang H2 and H2-1 and Dafeng H4, H6 and H7
+    are all monopiles, and Dafeng H12 has 40 monopiles + 40 jackets; also their depths and the turbine fields of Dafeng H4, H6 and H12 and Sheyang H2-1.
+  - Operating offshore farms: foundation type known for 273 of 332, 83.6% of capacity (91 of China's 140, 15 of Vietnam's 22); dimensions for 272, hub height for 193, all three for 182.
 
 ## v2.30.3 — 2026-10-07
 

@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 410 條：刪除 148 筆（其中營運中 44,360.2 MW），修正 262 筆。
+- 規則 414 條：刪除 148 筆（其中營運中 44,360.2 MW），修正 266 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 53 | 26,224.5 | 107 |
+| 中國大陸 | 53 | 26,224.5 | 111 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -214,6 +214,10 @@
 | Guangdong Zhanjiang Xuwen Offshore wind farm · 906 MW · 2022 | GEM | 修正：機組 | 國家電投徐聞原場 60 萬千瓦、南北兩個標段各 47 台（世紀新能源網，2021-11）；300 MW 增容為 25 台 12 MW，2024 年 12 月 17 日全容量併網（國家電投），與這筆紀錄的分期（2024 年 300 MW）相符；原本機型欄空白 | [連結](http://www.spic.com.cn/xtdt1/202412/t20241218_324623.html) |
 | Jiangsu Dongtai Zhugensha H1 Offshore wind farm · 200 MW · 2021 | GEM | 修正：機組 | 國華東台五期（竹根沙 H1#）裝 50 台上海電氣 4.0-146（中國能源報，2020-06 首台吊裝）；原本機型欄空白 | [連結](https://paper.people.com.cn/zgnyb/html/2020-06/22/content_1993858.htm) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm · 302 MW · 2021 | GEM | 修正：機組 | 竹根沙 H2# 總裝機 302 MW，含 50 台 4.0 MW 與 17 台 6.0 MW（中國可再生能源學會風能專委會轉 EPC 承包商，2020-09）；原本機型欄空白 | [連結](https://www.cweea.com.cn/xwdt/html/31056.html) |
+| Jiangsu Dafeng H4 Offshore (Longyuan) wind farm · 303 MW · 2021 | GEM | 修正：機組 | 大豐 H4 竣工為 47 台 6.45 MW（龍源鹽城新能源 2025-11 招標公告）；原本機型欄空白 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251129/c09f1385-66c8-4ffb-b075-750f71961119.html) |
+| Jiangsu Dafeng H6 Offshore (Longyuan) wind farm · 303 MW · 2021 | GEM | 修正：機組 | 大豐 H6 為 47 台 6.45 MW（龍源鹽城新能源 2025-11 招標公告）；原本機型欄空白 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251129/c09f1385-66c8-4ffb-b075-750f71961119.html) |
+| Jiangsu Dafeng H12 Offshore (Longyuan) wind farm · 200 MW · 2018 | GEM | 修正：機組 | 大豐 H12 共 80 台（龍源 2020-10 招標公告），為金風 GW109/2500（中國能源網 2017 年施工中的概況，55 台在潮間帶、25 台在深水區）；原本機型欄空白 | [連結](https://www.china5e.com/news/news-1004814-1.html) |
+| Jiangsu Sheyang Southern Area H2-1 Offshore wind farm · 104 MW · 2021 | GEM | 修正：機組 | 射陽南區 H2-1# 共 23 台（射陽龍源 2022-01 招標公告），海上射陽風電場共 90 台 4.5 MW（67＋23，江蘇海上龍源 2025-08）；原本機型欄空白 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220126/a64913cb-cf9d-4f39-8a5f-8d3af8011429.html) |
 
 ## 丹麥 (DNK)
 

@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 7 Oct 2026: v2.30.3, hub heights round 9 and data fixes; the next conversation starts here)
+## In progress (hand-off, 7 Oct 2026: v2.30.4, research round 10: foundations and dimensions; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,22 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 7 Oct 2026 (v2.30.4): research round 10 (the owner decided not to register with the CCER registry and asked to check other farms instead; four sub-agents in parallel,
+  quotes checked with `check_quotes.py`):
+  1. The 30 farms outside China without a hub height: 13 written (hubs for Vindeby, Blyth, Utgrunden I, Yttre Stengrund, Arklow phase 1, Hooksiel, the Beatrice demonstrator and Setana;
+     depths or rotors for Kitakyushu Hibikinada, Lely, Irene Vorrink, TetraSpar and WindFloat 1). The Hooksiel and Arklow hubs come from reports during construction and the maker's project
+     sheet, and Yttre Stengrund and Irene Vorrink from the EU's CA-OWEE database; the card notes say so, and they can be removed if the owner finds them too loose. The large farms (Hornsea Two,
+     Dogger Bank A, East Anglia ONE, Borssele, Taiwan's Greater Changhua and Changfang-Xidao) still have no as-built hub height (`tools/research/dims_2026-10g_D.json`).
+  2. Vietnam: V1-1's foundation (pile groups with caps) and rotor, V1-3's depth, Hiep Thanh's rotor, and Tan Phu Dong 2's turbine field (other leads in `tools/research/vn_2026-10g_E.json`;
+     the status of Ca Mau and Soc Trang 1 and Binh Dai's turbine mix are still to be verified).
+  3. Northern China: CHN Energy's tender site (chnenergybidding.com.cn) has operation and maintenance tenders that state each farm's foundations: Sheyang H2, H2-1 and Dafeng H4, H6 and H7
+     are all monopiles, and Dafeng H12 has 40 monopiles + 40 jackets; also 5 depths and 4 turbine fields. Other leads in `tools/research/cn_fd_2026-10g_F1.json` (Zhuanghe I/II/III, Laizhou,
+     Changyi, Bozhong B's 130 m hub and more); Peninsula North BW only started construction in Aug 2024 and was fully connected by June 2025, so its year is to be verified.
+  4. Southern China: Shapa phase 1 (39 monopiles + 13 jackets + 3 composite buckets) and phase 3 (22 monopiles + 27 jackets + 12 high-rise pile caps) with dimensions, and Putian Shicheng on high-rise
+     pile caps throughout; the Shapa 3 record no longer double-counts the floating "Sanxia Yinling" unit. Close leads: Jiazi II (designed all monopiles), Fanshi II (designed all four-pile jackets,
+     no construction record for lot I), Qidong H3 (monopiles inferred from pile counts, not adopted); data doubts: Pinghai Bay area F has no record of its own, Pinghai Bay phase 3's turbine field,
+     units missing from Zhuhai Guishan, and the "Zhoushan Liuheng / Zhejiang others" aggregate overlapping Jiaxing 2 (`tools/research/cn_fd_2026-10g_F2.json`).
+  5. The OSM count fix from the previous version carries on; new `ne21.com` pages now return 403 (the quotes already checked are in the check cache).
 - 7 Oct 2026 (v2.30.3): hub heights, round 9: all 51 operating Chinese offshore farms with a foundation type but no hub height were checked again (three sub-agents in parallel for
   Jiangsu, Guangdong / Hainan / Shandong and the other regions; every quote checked with `check_quotes.py`):
   1. Written: Huaneng Peninsula South 4 (completion environmental acceptance opinion published by the Yantai ecology bureau: hub 102 m, depth about 30 m), SPIC Peninsula South 3 (same: hub 99 m),
@@ -157,8 +173,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 263 of 332 operating offshore farms have a known foundation type (81.1% of capacity); dimensions for 251 farms,
-  all three for 174; 409 clean-up rules; card photos for 64 farms.
+- Current figures: 273 of 332 operating offshore farms have a known foundation type (83.6% of capacity); dimensions for 272 farms,
+  all three for 182; 414 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -278,8 +294,8 @@ and move finished items to the topic lists below.
    changing anything.
 
 6. **Dimension gaps** (after the fifth round, v2.17.6; the values found but not used, and why, are kept here to avoid re-checking):
-   251 operating offshore farms have at least one value (depth 227, hub height 183, rotor diameter 233, all three 174; after the ninth round, v2.30.3).
-   Of the 274 operating farms with a foundation record, 23 have none of the three (9 in China) and 91 lack a hub height (49 in China, 12 in Vietnam, 9 in the UK).
+   272 operating offshore farms have at least one value (depth 247, hub height 193, rotor diameter 245, all three 182; after the tenth round, v2.30.4).
+   Of the 284 operating farms with a foundation record, 12 have none of the three (11 in China) and 91 lack a hub height (56 in China, 13 in Vietnam, 7 in the UK).
    Found in the sixth round but not used: Kentish Flats Extension 83.6 m (the configuration it "will have" at the 2014 investment decision, not an
    as-built record), Seonam (MOTIR's 2015 plan values, 80/90 m), Shenquan II (about 128 m for the 11 MW units, only 34 of 50), Provence Grand Large
    (only a 174 m tip height and 75 m blades; blade length is not the radius). Unreachable: Iberdrola's East Anglia ONE PDF (403) and the Rudong
