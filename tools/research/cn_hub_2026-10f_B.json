@@ -1,0 +1,360 @@
+[
+ {
+  "farm": "CGN Fanshi I",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "《中廣核陽江帆石一海上風電場項目用海調整海域使用補充論證報告書》（公示稿，陽江市自然資源局 2025-04-15 公示）：表 2.2.1-2「調整後風機主要設備特性表」為金風 GWH252-13.6MW（22 台，輪轂高度 151.2 m）與明陽 MySE14-260（51 台，輪轂高度 155.7 m），風輪直徑分別為 252 m、258 m。但報告當時只完成部分樁基礎施工（風機尚未安裝），屬施工階段數值，列線索；建成後的來源未找到。",
+  "note_en": "Fanshi I sea-use adjustment supplementary report (public version, Yangjiang natural resources bureau notice of 15 Apr 2025): table 2.2.1-2 'main equipment after adjustment' lists Goldwind GWH252-13.6MW (22 units, hub height 151.2 m) and Mingyang MySE14-260 (51 units, hub height 155.7 m), with rotors of 252 m and 258 m. At the time only some foundation piles had been driven (no turbines installed), so these are construction-stage values: lead. No as-built source found.",
+  "why": "Construction-stage report (Apr 2025: 'only part of the pile foundations built'); would give hub [151.2, 155.7] and rotor 258 if an as-built source confirms the models and heights.",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf",
+    "quote": "表 2.2.1-2 调整后风机主要设备特性表 项目 单位 WTG01 WTG02 机型 GWH252-13.6MW MySE14-260 机组认证 型式认证 型式认证 额定功率 kw 13600 14000 功率调节方式 变速变桨 变速变桨 轮毂高度 m 151.2 155.7"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf",
+    "quote": "本项目规划场址范围内布置 22 台 13.6MW 和 51 台 14MW 的风机，13.6MW 与 14M 风轮直径分别为 252m、258m。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf",
+    "quote": "第 T+26 个月之后全部 73 台风机投产发电。目前已 进行部分桩基础施工。"
+   },
+   {
+    "url": "https://www.163.com/dy/article/JOMJCKE10514C30V.html",
+    "quote": "项目规划装机容量为1000兆瓦，拟布置22台13.6兆瓦风电机组和51台14.0兆瓦风电机组"
+   }
+  ],
+  "issues": "The record's turbine field 'Mingyang 11-16 MW' does not match the models in the Apr 2025 adjustment report (22 x Goldwind GWH252-13.6MW + 51 x Mingyang MySE14-260); construction-stage source, so worth confirming before changing.",
+  "issue_sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf",
+    "quote": "机型 GWH252-13.6MW MySE14-260"
+   }
+  ]
+ },
+ {
+  "farm": "CGN Huizhou Gangkou I & II",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "未找到可用的建成輪轂高度；港口一期與二期 PA、PB 的建成後海域使用補充論證報告書都放在惠州市自然資源局網站，但該網站整個工作階段都回 503。",
+  "note_en": "No usable as-built hub height. Post-construction supplementary sea-use reports for phase I and phase II PA/PB are on the Huizhou natural resources bureau site, which returned 503 for the whole session.",
+  "why": "Leads to retry: (1) phase I supplementary sea-use report (Mar 2024), http://land.huizhou.gov.cn/attachment/0/247/247999/5227969.pdf; (2) phase II PA/PB supplementary sea-use report, notices http://land.huizhou.gov.cn/ywly/hygl/content/post_5411191.html (Dec 2024) and post_5716217.html (re-publicity). Both hosts (land.huizhou.gov.cn, www.huizhou.gov.cn, huidong.gov.cn) returned 503 from here and also to WebFetch. Completion environmental acceptance reports for PA and PB were publicised (listed on xunbiaobao.baidu.com and guangdong.zhaobiao.cn), but the original host was not found and the listings are JS-only or blocked (HTTP 521). The farm mixes phase I units with phase II 8.5/12/14 MW units, so a full hub range needs every model.",
+  "sources": []
+ },
+ {
+  "farm": "CTG Yangjiang Shapa Phase 2",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "除了上輪已排除的「輪轂高度（推薦）」111／109 m 之外，同一份補充論證報告書的其他段落只有測風塔 100 m 的風資源描述；沒有找到其他建成輪轂高度的出處。",
+  "note_en": "Apart from the already rejected 'hub height (recommended)' 111/109 m, the same supplementary report only mentions the 100 m met-mast height in its wind resource text; no other as-built hub source was found.",
+  "why": "Searched for Mingyang / Goldwind / CTG news naming the Shapa 2 units' hub height; nothing found.",
+  "sources": []
+ },
+ {
+  "farm": "CTG Yangjiang Shapa Phase 5",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "沙扒五期補充論證報告書（2023-09）只寫最終中標機型的葉輪直徑、輪轂高度「與可研階段有差異」，沒有數值，也沒寫機型；沙扒三期、四期報告書提到五期處也沒有機型資料。",
+  "note_en": "The Shapa 5 supplementary report (Sept 2023) only says the final model's rotor and hub 'differ from the feasibility study', without figures or a model name; the Shapa 3 and 4 reports mention phase 5 without turbine data.",
+  "why": "Final model of Shapa 5 not identified; no Dongfang / Mingyang / Goldwind news naming Shapa 5 found.",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58160/731643.pdf",
+    "quote": "同时，本项目单机容量不变，最终中标机型相关技术参数如风机的叶轮直径、 轮毂高度等与可研阶段有差异"
+   }
+  ]
+ },
+ {
+  "farm": "Guangdong Energy Zhuhai Jinwan",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "未找到建成輪轂高度。珠海市生態環境局 2022-10-19 受理了金灣海上風電場的竣工驗收（www.zhssthjj.com:8081），但該網站拒絕連線；zhuhai.gov.cn 也連不上。",
+  "note_en": "No as-built hub height found. The Zhuhai ecology bureau accepted the farm's completion acceptance application on 19 Oct 2022 (www.zhssthjj.com:8081), but that host refuses connections; zhuhai.gov.cn is unreachable too.",
+  "why": "Blocked: www.zhssthjj.com:8081 (ECONNREFUSED, also via WebFetch), www.zhuhai.gov.cn and www.jinwan.gov.cn (no response). Lead to retry: http://www.zhssthjj.com:8081/Shouli_ys.aspx?YWCode=Y202200004&type=3.",
+  "sources": []
+ },
+ {
+  "farm": "Guangdong Yangjiang Nanpengdao (China Energy Conservation) Offshore wind farm",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "《中節能陽江南鵬島海上風電項目海域使用補充論證報告書》（公示稿，2023-10，陽江市自然資源局）：2021 年底已建成，機型 MySE5.5-155，「風機機型、葉片直徑、輪轂高度等均未發生變化」，但機型參數表標「略」，沒有寫出數值。鳥類段落寫葉片旋轉範圍「離地面 23~177m」（可推得輪轂 100 m、葉輪 154 m），但這不是明寫的輪轂高度，同報告較早的公示版又寫 30~180 m，不採用。",
+  "note_en": "CECEP Yangjiang Nanpengdao supplementary sea-use report (public version, Oct 2023, Yangjiang natural resources bureau): built by end-2021, model MySE5.5-155, and 'model, blade diameter and hub height unchanged', but the parameter table is withheld ('略'). The bird section gives a blade sweep of '23~177 m above the surface' (implying a 100 m hub and 154 m rotor), but that is not a stated hub height, and the earlier public version of the same report says 30~180 m, so not used.",
+  "why": "No stated as-built hub height or rotor; the only figures are an implied sweep range that conflicts between the two versions of the report, and the wind-resource section's 100 m hub from the 2018 micrositing report (design).",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/attachment/0/48/48248/739029.pdf",
+    "quote": "至2021 年底，本项目已建设完成。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/attachment/0/48/48248/739029.pdf",
+    "quote": "所以本项目调整前后的风机选型保持一致，风机机型MySE5.5-155，单机 容量为5.5MW，参数及特性，参数及特性见表2.3.2-1。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/attachment/0/48/48248/739029.pdf",
+    "quote": "同时，风机叶片旋转的范围在离地面23~177m 之 间，是鸟类飞行通过风机的高风险区域"
+   }
+  ]
+ },
+ {
+  "farm": "Guangdong Zhanjiang Xuwen Offshore wind farm",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "未找到建成輪轂高度。增容項目的水土保持設施驗收報告（徐聞縣，2026-01）仍只寫「風電場預裝輪轂高度 105m」的風資源設計值；原 600 MW（94 台 6.45 MW）的機型與輪轂未查到。",
+  "note_en": "No as-built hub height. The expansion's soil-conservation acceptance report (Xuwen county, Jan 2026) still only has the wind-resource design value 'pre-set hub height 105 m'; the model and hub of the original 600 MW (94 x 6.45 MW) were not found.",
+  "why": "Design value only, and only for the 300 MW expansion; the original farm's 2025 sea-use change notice on xuwen.gov.cn only attaches maps.",
+  "sources": [
+   {
+    "url": "http://www.xuwen.gov.cn/zjxwswj/attachment/0/272/272017/2144156.pdf",
+    "quote": "风电场预装轮毂高度 105m 平均 风速 7.72m/s"
+   }
+  ],
+  "issues": "The record (906 MW, year 2022) merges the original 600 MW farm (94 x 6.45 MW, full grid Nov 2021) with the 300 MW expansion (25 x 12 MW), which reached full grid connection only on 17 Dec 2024 (SPIC). Consider splitting the record or changing the year/turbine field.",
+  "issue_sources": [
+   {
+    "url": "http://www.spic.com.cn/xtdt1/202412/t20241218_324623.html",
+    "quote": "12月17日，广东公司广东湛江徐闻海上风电场300兆瓦增容项目全容量并网发电，成为广东省2024年度首个全容量并网发电的海上风电项目。"
+   },
+   {
+    "url": "http://www.spic.com.cn/xtdt1/202412/t20241218_324623.html",
+    "quote": "项目总投资超30亿元，装机容量30万千瓦，建设25台单机容量12兆瓦的风电机组"
+   }
+  ]
+ },
+ {
+  "farm": "Haiyou Guanlan (CNOOC floating)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "未找到從海平面起算的輪轂高度；新聞只寫整體高度超過 200 m、浮體高約 35 m。",
+  "note_en": "No hub height above sea level found; news only gives an overall height above 200 m and a floater about 35 m high.",
+  "why": "Searched CNOOC / Offshore Oil Engineering / SASAC releases and English coverage; none gives the hub height.",
+  "sources": []
+ },
+ {
+  "farm": "Huadian Yangjiang Qingzhou 3",
+  "status": "write",
+  "hub": [
+   110,
+   115
+  ],
+  "hub_kind": "hub",
+  "depth": [
+   41,
+   46
+  ],
+  "rotor": 178,
+  "note_zh": "《華電陽江青洲三海上風電場項目海域使用補充論證報告書》（公示稿，國家海洋局南海調查技術中心 2022-12 編製，陽江市自然資源局 2023-01 公示）：因「批建不一致」須對實際施工的用海單元重新論證（2023-03 青洲四報告書寫近海深水區僅青洲三已建設完成）；中標並建成的機型為明陽 MySE6.8-158 37 台（預裝輪轂高度 110 m、風輪直徑 158 m）與 MySE8.3-180 30 台（預裝輪轂高度 115 m、風輪直徑 178 m），輪轂寫範圍、葉輪取最大機型 178 m；場址水深 41–46 m。注意：數值在機型選擇段落，同段留有「預計明年交貨」等招標階段文字，用語與沙扒四期已採用的「預裝輪轂高度」相同。",
+  "note_en": "Huadian Yangjiang Qingzhou 3 supplementary sea-use report (public version, prepared Dec 2022 by the SOA South China Sea survey centre, published by the Yangjiang natural resources bureau Jan 2023): written to re-demonstrate the actually built sea-use units after an 'approved vs built' mismatch (the Mar 2023 Qingzhou 4 report says Qingzhou 3 is the only completed farm in the deep-water zone); the tendered and installed models are 37 Mingyang MySE6.8-158 (pre-set hub height 110 m, rotor 158 m) and 30 MySE8.3-180 (pre-set hub height 115 m, rotor 178 m), so hub 110–115 m and rotor 178 m (largest model); site depth 41–46 m. Caveat: the figures sit in the model-selection paragraph, which still carries tender-stage wording ('type certificate expected before next year's first delivery'); the term is the same 'pre-set hub height' accepted for Shapa phase 4.",
+  "why": "Judgement call: post-construction report and installed models, but the passage was written at the tender stage. Downgrade to lead if 'pre-set hub height' outside an as-built adjusted table is not acceptable.",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/37/37632/675527.pdf",
+    "quote": "本阶段经过主机招标，目前已选定明阳智慧 MySE6.8-158 型与 MySE8.3-180 型风力发电机组为本项目的中标机型，共 67 台，其中 6.8MW 机型 37 台，8.3MW 机型 30 台。 6.8MW 风机预装轮毂高度为 110m，风轮直径 158m，而 8.3MW 风机预装轮 毂高度为 115m，风轮直径 178m。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/37/37632/675527.pdf",
+    "quote": "本项目场址面积 81.03km2，风机外围包络海域面积约 66.83km2，风场场址 水深在 41m~46m 之间，距离陆地最近距离约 55km。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/37/37632/675527.pdf",
+    "quote": "本项目经过《华电阳江青洲三海上风电场项目 批建评估报告书》对批建不一致的影响评估后，需要对实际施工的用海单元进行 二次论证以进行权证的变更。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/40/40198/694084.pdf",
+    "quote": "近海深水区仅华电阳江青洲三海上风电场项目已 建设完成，其余风电场项 目目前处于办理用海手续阶段。"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Peninsula South 4",
+  "status": "write",
+  "hub": 102,
+  "hub_kind": "hub",
+  "depth": [
+   30,
+   30
+  ],
+  "rotor": 161,
+  "note_zh": "《華能山東半島南4號海上風電項目（不含海洋牧場部分）竣工環境保護驗收意見》（煙台市生態環境局 2022-05-31 驗收會，煙台市生態環境局網站公開）：58 台 5.2 MW 風機，葉輪直徑 161 m、輪轂高度 102 m（調整情況對照表：環評階段 105 m，驗收階段 102 m）；場區中心離岸約 30 km、水深約 30 m（約數）。",
+  "note_en": "Completion environmental acceptance opinion for Huaneng Shandong Peninsula South 4 (excluding the marine ranch; Yantai ecology bureau meeting of 31 May 2022, published on the bureau's site): 58 x 5.2 MW, rotor 161 m, hub height 102 m (change table: 105 m at EIA stage, 102 m at acceptance); site centre about 30 km offshore in about 30 m of water (approximate).",
+  "sources": [
+   {
+    "url": "https://hbj.yantai.gov.cn/attach/0/7ad2fb78d43e449dbfff2da033c33771.pdf",
+    "quote": "场区中心距离岸线约 30km，水深约 30m"
+   },
+   {
+    "url": "https://hbj.yantai.gov.cn/attach/0/7ad2fb78d43e449dbfff2da033c33771.pdf",
+    "quote": "项目总投资 538769万元，装机容量 301.6兆瓦，安装 58 台 5.2 兆瓦风电机组，叶轮直径 161m，轮毂高度 102m"
+   },
+   {
+    "url": "https://hbj.yantai.gov.cn/attach/0/7ad2fb78d43e449dbfff2da033c33771.pdf",
+    "quote": "本项目调整情况对照表 内容 环评阶段 验收阶段 变更情况 … 安装 58 台单机容量为 5.2MW 的风电机组，总装 机规模 301.6MW，风电机组叶轮直径 161m，轮 毂高度 102m。年上网电量为 85342 万 kWh ，年 等效满负荷小时数为 2829.64h 根据经济性考虑，对风 机叶片轮毂高度进行优 化"
+   },
+   {
+    "url": "https://hbj.yantai.gov.cn/attach/0/7ad2fb78d43e449dbfff2da033c33771.pdf",
+    "quote": "本项目于 2020 年 1 月正式开工建设，2021 年 12 月调试运 行"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Shantou Lemen (II)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "建成後的《華能汕頭勒門（二）海上風電場項目用海調整海域使用補充論證報告書》（汕頭市自然資源局 2024-09 評審前公示）只以百度網盤連結公開，無法讀取；其他新聞未寫輪轂高度。",
+  "note_en": "The post-construction 'sea-use adjustment' supplementary report for Lemen II (Shantou natural resources bureau, pre-review notice Sept 2024) is published only as a Baidu Netdisk link, which cannot be read; news reports give no hub height.",
+  "why": "Report only on pan.baidu.com (needs an account/client). The Dec 2024 pre-use notice lists coordinates only. Installation news (imarine 403, eastwp 502, cpem) gives no hub height.",
+  "sources": [
+   {
+    "url": "https://www.shantou.gov.cn/stszrj/gkmlpt/content/2/2370/post_2370833.html",
+    "quote": "公示时间：2024年9月18日至2024年9月30日。共10个工作日。 公示链接： https://pan.baidu.com/s/1l4UhuJyaS-tVsqAt2iP7oA"
+   },
+   {
+    "url": "https://www.shantou.gov.cn/stszrj/gkmlpt/content/2/2396/post_2396087.html",
+    "quote": "于2022年-2023年在汕头市东部、南澳县南部海域的勒门列岛附近建设了华能汕头勒门（二）海上风电场项目。建设期间因风机基础变化、施工等原因导致项目用海调整"
+   }
+  ]
+ },
+ {
+  "farm": "Mingyang Yangjiang Qingzhou 4",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "《明陽陽江青洲四海上風電場項目海域使用補充論證報告書》（公示稿，陽江市自然資源局 2023-03）：「11MW、12MW 風機機型不變，風機輪轂高度分別為 140m、140m」，但當時青洲四尚在施工（同報告寫近海深水區僅青洲三已建成），屬施工階段數值；同句的葉片運行高度 28.5~251.5 m、22~258 m 與 230／242 m 葉輪對不上；機型參數表標「涉密，不公開」。",
+  "note_en": "Mingyang Yangjiang Qingzhou 4 supplementary sea-use report (public version, Yangjiang natural resources bureau, Mar 2023): '11 MW and 12 MW models unchanged, hub heights 140 m and 140 m', but the farm was still under construction (the same report says only Qingzhou 3 was completed in the deep-water zone), so construction-stage values; the blade sweep heights in the same sentence (28.5~251.5 m, 22~258 m) do not fit 230/242 m rotors; the parameter tables are withheld as confidential.",
+  "why": "Pre-completion report; the farm reached full grid connection only in early 2024. No as-built hub source found.",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/40/40198/694084.pdf",
+    "quote": "项目调整后 11MW、12MW 风机机型不变，风机轮毂高度分别为 140m、 140m，叶片运行影响高度分别为 28.5~251.5m、22~258m"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/40/40198/694084.pdf",
+    "quote": "近海深水区仅华电阳江青洲三海上风电场项目已 建设完成，其余风电场项 目目前处于办理用海手续阶段。"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Jieyang Shenquan I",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "神泉一為 29 台上海電氣 7 MW＋37 台明陽 5.5 MW；揭陽市自然資源局公示的《（第二次調整）海域使用補充論證報告書》連結已失效（404），7 MW 機組的輪轂高度未查到。",
+  "note_en": "Shenquan I has 29 Shanghai Electric 7 MW + 37 Mingyang 5.5 MW units; the Jieyang bureau's '(second adjustment) supplementary sea-use report' link is dead (404), and the 7 MW units' hub height was not found.",
+  "why": "http://www.jieyang.gov.cn/attachment/0/145/145008/905825.pdf and its notice page now return 404; no Wayback copy. Completion acceptance notice (jynews.net) has no hub data.",
+  "sources": [
+   {
+    "url": "https://www.jynews.net/newsWeb/toDetail?desId=186681",
+    "quote": "（1）风场布置29台上海电气7MW风力发电机组和37台明阳5.5MW风力发电机组。"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Jieyang Shenquan II",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "神泉二為 34 台上海電氣 EW11.0-208＋16 台 8 MW；8 MW 機組的機型與輪轂高度未查到。",
+  "note_en": "Shenquan II has 34 Shanghai Electric EW11.0-208 + 16 x 8 MW units; the 8 MW model and its hub height were not found.",
+  "why": "A completion acceptance report for the 350 MW + expansion was publicised (listing on xunbiaobao.baidu.com, JS-only); original host not found.",
+  "sources": [
+   {
+    "url": "http://www.huilai.gov.cn/hlxw/content/post_699308.html",
+    "quote": "该项目装机规模502MW，拟安装34台11MW和16台8MW风电机组。其中选用的11MW风机为上海电气Petrel海燕平台EW11.0-208机组"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Peninsula South 3",
+  "status": "write",
+  "hub": 99,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "《國家電投山東半島南3號海上風電項目竣工環境保護驗收意見》（煙台市生態環境局 2022-05-20 驗收會，煙台市生態環境局網站公開）：2021-12-16 完成全部 58 台 5.2 MW 風機；調整情況對照表「風機：環評階段輪轂高度 105 m、驗收階段輪轂高度 99 m」。葉輪直徑驗收意見沒寫（環評以遠景 5.2MW-161 為例，屬設計值，不採用）；水深環評寫 28–31 m 與 28–33 m 不一致，未填。（本場在山東海陽，不在湛江。）",
+  "note_en": "Completion environmental acceptance opinion for SPIC Shandong Peninsula South 3 (Yantai ecology bureau meeting of 20 May 2022, published on the bureau's site): all 58 x 5.2 MW turbines completed on 16 Dec 2021; the change table gives 'turbines: hub height 105 m at EIA stage, 99 m at acceptance'. The acceptance opinion gives no rotor (the EIA's Envision 5.2MW-161 example is a design value, not used); the EIA's depths (28–31 m and 28–33 m) disagree, so left blank. (The farm is off Haiyang, Shandong, not Zhanjiang.)",
+  "sources": [
+   {
+    "url": "https://hbj.yantai.gov.cn/attach/0/c302d7559d63477bbef4d97ba7faa4c6.pdf",
+    "quote": "本项目调整情况对照表 工程 组成 调整内容 环评阶段 验收阶段 变化情况及调整原因说明 … 风机 轮毂高度105m 轮毂高度99m 根据经济性考虑， 对风机叶 片轮毂高度进行优化， 未对 环境造成不利影响"
+   },
+   {
+    "url": "https://hbj.yantai.gov.cn/attach/0/c302d7559d63477bbef4d97ba7faa4c6.pdf",
+    "quote": "2021 年 12 月 16 日完成全部 58 台风机建设"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Peninsula South U1",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "U1 共 106 台 8.5 MW，其中明陽 MySE8.5-230 為 79 台（明陽集團），一期 53 台輪轂約 130 m（山東省能源局）；二期另有 27 台非明陽機組，機型與輪轂未查到，故不填。",
+  "note_en": "U1 has 106 x 8.5 MW, of which 79 are Mingyang MySE8.5-230 (Mingyang group); phase 1's 53 units have a hub of about 130 m (Shandong Energy Administration); phase 2 also has 27 non-Mingyang units whose model and hub were not found, so nothing written.",
+  "why": "Phase 2 (Shandong Haiwei Peninsula South U site 450 MW) completion acceptance not found; the only acceptance found (sdepci.com, 2026-05) is for the 220 kV line.",
+  "sources": [
+   {
+    "url": "http://nyj.shandong.gov.cn/art/2023/3/2/art_253733_10296377.html",
+    "quote": "一期采用明阳智能MySE8.5-230型号机组，轮毂中心高度距海平面约130米"
+   },
+   {
+    "url": "https://mytfsolar.com/cn/sys-nd/172.html",
+    "quote": "U1场址 安装 了 79台明阳集团提供的MySE8.5-230新型半直驱机组"
+   }
+  ]
+ },
+ {
+  "farm": "Shenergy Hainan CZ2 (Danzhou)",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "申能官方帳號「申之能」（東方財富轉載，2024-09）：首台吊裝的 B38 機位「風機吊裝的輪轂中心高度 131 米，葉輪直徑 230 米」。只是一台機組、用語是吊裝時的輪轂中心高度，機型名稱與其餘 66 台是否同型未查到（GEM 寫一期 IA 為 58 台 8.5 MW，與 67 台 9 MW 不符），暫列線索。",
+  "note_en": "Shenergy's own account (via East Money, Sept 2024): the first unit installed, at position B38, has 'a hub centre height of 131 m at installation and a 230 m rotor'. One unit only, worded as the hub centre height during lifting, with no model name and no confirmation that the other 66 units are the same (GEM lists phase IA as 58 x 8.5 MW, conflicting with 67 x 9 MW), so a lead.",
+  "why": "Single first unit; lifting wording; model and fleet uniformity not confirmed. cweea (China Electric Equipment association) gives average depth 20 m (record already has 15–25 m).",
+  "sources": [
+   {
+    "url": "https://caifuhao.eastmoney.com/news/20240918214253083123450",
+    "quote": "此次风机吊装点位为B38，风机吊装的轮毂中心高度131米，叶轮直径230米，叶片长112米"
+   },
+   {
+    "url": "https://www.cweea.com.cn/xwdt/html/38901.html",
+    "quote": "该项目场址位于海南省儋州市北面海域，平均水深20米，中心离岸距离约27公里"
+   }
+  ]
+ }
+]
