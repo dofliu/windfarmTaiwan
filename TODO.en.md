@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 7 Oct 2026: v2.30.5, research round 11: farm data doubts; the next conversation starts here)
+## In progress (hand-off, 7 Oct 2026: v2.30.6, research round 12: the remaining doubts in TODO; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,35 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 7 Oct 2026 (v2.30.6): research round 12: the doubts left in TODO (four sub-agents in parallel for China, Vietnam and Thailand, Taiwan/Japan/Korea,
+  and Europe/the Americas/Oceania; every quote checked with `check_quotes.py`; results in `tools/research/doubts_2026-10i_J/K/L/M.json`, with written entries
+  removed and only leads kept). Clean-up rules 446 → 478 (the 7 Oct 2026 "sixth batch" block of `farm_cleanup.py`):
+  1. German MaStR matching (`tools/build_mastr.py`): a start-year check (a farm whose matched units mostly started more than a year from its own start, with a
+     weak match, moves to a group within 3 km that shares a name or municipality word and fits the year and capacity) and a hand-checked `MANUAL` table with
+     sources. Gremersdorf, Borchen-Etteln, Dobberkau, Gägelow, Großenwiehe, Ruhlsdorf, Oederquart and Streumen now carry their own turbines, and the units they
+     were wrongly given become added farms. The "suspected duplicates B" were checked pair by pair: 18 records confirmed as different farms went into `NOT_DUP`;
+     most of the rest are neighbouring sister farms in China.
+  2. Restored or corrected after wrong merges: Shiloh (USA) now has all four phases, 505 MW (phases III and IV were missing); Pantelimon in Romania (123 MW,
+     `GEM_KEEP`); Esperanza in the Dominican Republic (49.5 MW, 2025). Duplicates removed: Dreiberg = Druiberg (Germany), Dempsey Ridge = Big Smile (USA),
+     and the two Esperanza records.
+  3. Status: Peninsula South U2 operating from 2024 (Weihai and Shandong reports: the whole U site, U2 included, 177 turbines, fully connected on 26 Oct 2024);
+     Vietnam's Duyen Hai (V1-4) operating from 2026, offshore; the other 105.5 MW of Cho Long built but not in commercial operation (under construction);
+     Carreto (Colombia) operating from 2025; Windanker expected in 2027; Korea's Ulsan 750 kW floating pilot never went to sea and is removed.
+  4. Positions: Xiangshan Tuci (38 turbine positions from the Ningbo MSA, 300 MW), Pinghai Bay area F and Putian Shicheng (turbine centres in Fujian's sea-use
+     approvals), Choshi (TEPCO RP's published turbine position), Yeonggwang Wind's 15 intertidal turbines (OpenStreetMap wind-farm relation), Revolution Wind
+     (65 OSM turbines), Druiberg, Frederikshavn and Rønland.
+  5. Denmark: Rønland now has only its four southern turbines (9.2 MW) at sea, on piled concrete caps (pc, owners' cooperative); Frederikshavn has only its
+     Nordex N90 at sea (2.3 MW).
+  6. Turbine and capacity fields: Changle Waihai C, Shapa phase 2, Binh Dai (Goldwind for phases 2–3), Soc Trang No. 7 (29.4 MW), Gullen Range (165.5 MW),
+     Ajos/Kemi, Larimar, Gohlocher Wald (6 MW), Oederquart (22.4 MW), Streumen (13.2 MW) and Sørmarkfjellet; Formosa 1 phase 1 is confirmed as SWT-4.0-120
+     (Ørsted and Siemens Gamesa material).
+  7. Coverage: Dominican Republic 89% → 100%, Romania 84% → 88%; Colombia shows 122% (IRENA does not yet count Carreto; the report says so). The US turbine
+     positions and measured output were rebuilt (Shiloh and Big Smile now match USWTDB/EIA).
+  8. Still leads (see the topic lists): the Fengxian Haiwan expansion (Shanghai lists the same owner's repowering as onshore, but not the expansion itself),
+     Liu'ao area E's position, Changle's 118 m hub (search snippets point to area A, nothing quotable), Setana's stop year (the town's FY2024 table gives 3 MWh,
+     in an xlsx the checker cannot read), the Youde and Huanyang terminations, no records for Hanuman 10 (Thailand, 80 MW) and TDC's Lac Hoa 1 (Vietnam, 30 MW),
+     no record for the Gunsan suction-bucket 3 MW test turbine (at sea since 2016), GULLRWF2 is very probably Biala, and Erbes-Büdesheim may be MaStR's Offenheim.
+  Farm sums: China's operating offshore records are 141 and 47.2 GW (44.7 GW with years up to 2025) against a 2025 national figure of 48.4 GW; Vietnam's are 20 and 1.26 GW.
 - 7 Oct 2026 (v2.30.5): research round 11: the farm data doubts in TODO (three sub-agents in parallel for Fujian / Zhejiang / Shanghai, Jiangsu / Guangdong / Shandong,
   and Vietnam and other countries; every quote checked with `check_quotes.py`; results in `tools/research/doubts_2026-10h_G/H/I.json`). Clean-up rules 414 → 446
   (the two 7 Oct 2026 "fifth batch" blocks of `farm_cleanup.py`):
@@ -198,8 +227,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 272 of 329 operating offshore farms have a known foundation type (84.4% of capacity); dimensions for 272 farms,
-  all three for 182; 446 clean-up rules; card photos for 64 farms.
+- Current figures: 272 of 331 operating offshore farms have a known foundation type (83.8% of capacity); dimensions for 272 farms,
+  all three for 182; 478 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -216,14 +245,15 @@ and move finished items to the topic lists below.
    - Taiwan: Youde (Shinfox, 700 MW) — in August 2026 the Energy Administration said its termination was being processed — and Huanyang
      (EDF's Wei Lan Hai Changhua), also in termination, move to `PIPE_DROP` once that is final; Youde keeps GEM's point (near the Changhua
      coast; the site is about 38 km offshore) until a site coordinate is found. Haiding 3 (GEM's Formosa 3 · 3) was removed in v2.30.5
-     (Formosa 3's development rights cancelled in 2025, Corio wound up in April 2026). As of Oct 2026 neither the Youde nor the Huanyang termination has been announced as final.
+     (Formosa 3's development rights cancelled in 2025, Corio wound up in April 2026). As of Oct 2026 neither the Youde nor the Huanyang termination has been announced as final (CNA, 26 Sep: the Round 3.3 expansion capacity only takes in the terminated Haixia 1, Haixia 2 and Haiding 2).
    - China: Datang aims to connect all of Danzhou CZ3 site 2 (60 Mingyang 10 MW) by the end of 2026; set it to operating when the grid connection
-     is reported ("Datang Danzhou CZ3 (site 2)" in `farm_cleanup.py`). The points of Changle Waihai A and C and
-     GEM's Changle area I were dealt with in v2.30.5 (see above).
+     is reported ("Datang Danzhou CZ3 (site 2)" in `farm_cleanup.py`); it was still in offshore construction in Oct 2026. Sheyang South H5 (400 MW) only
+     lifted its offshore substation in June 2026; Xuwen Donger drove its first pile in Sept 2026; Qingzhou 5 and 7 had only the first 5 units connected in
+     Sept 2026 (Yangjiang describes 12–16 MW units, so the turbine fields need checking).
    - Korea: Jwasari still has no construction start or auction award (none of the five winners of the H1 2026 fixed-price auction); waiting for construction evidence. Its point now sits on Jwasari-do
      off Tongyeong (approximate) until a site coordinate is found.
    - Norway's Sørmarkfjellet: the owner has not published the cause of the March 2025 blade failure; the farm closed again on 19 Dec 2025 after
-     heavy icing damaged blades, with no update in 2026.
+     heavy icing damaged blades, with no reopening notice by Oct 2026 (a temporary stop does not change the status).
    - Next GEM release: build with `CLEANUP_LENIENT=1` first to see the new names, then rewrite the rules one by one; 2026-02 has no retired
      year, and `sources/gem_retired_years_2025-02.json` only covers phases retired by 2025-02.
 3. **Time-sensitive checks (another round on 6 Oct 2026)**: Greater Changhua 2b (Wo-Nan, 337.1 MW) has been counted in Taipower's installed
@@ -278,10 +308,9 @@ and move finished items to the topic lists below.
          Nan'ao Lemen, Shapa phases 3 / 5, Changle B, Liu'ao phase 1, Jiazi II, Nangang, Lingang phase 2, Pinghai Bay phase 1, and in Vietnam
          Bac Lieu phases 1–3, Hiep Thanh, Tan Phu Dong 2, V1-1, Soc Trang 1, Ben Tre V1-3 and Tan An 1.
    - Anomaly check (3 Oct 2026, v2.16.1): all 72 anomalies were re-checked and written as 70 clean-up rules (4 removed, 14 merged, 52 corrected;
-     see the 2026-10-03 block of `docs/data-cleanup.en.md`). Still open for a next round: the curated "CGN Jiaxing 2
-     (Zhoushan Daishan 4)" 300 MW does not match Daishan 4's 234 MW; the curated "Guohua Rudong H14" 300 MW matches no Rudong site (Luneng's H14
-     is 200 MW); Peninsula South U2 is represented by GEM's 603.5 MW under-construction record. (Xiangshan Tuci, Bozhong B1, Dafeng H10, the
-     Zhoushan Liuheng aggregate, Binhai South H3, Tan An 1 and Hoa Binh 1/2 were settled in v2.30.5.)
+     see the 2026-10-03 block of `docs/data-cleanup.en.md`). The curated "CGN Jiaxing 2 (Zhoushan Daishan 4)" and "Guohua Rudong H14" were
+     merged into GEM's Daishan 4 and Rudong H14 by the 2026-10-04 rules; Xiangshan Tuci, Bozhong B1, Dafeng H10, the Zhoushan Liuheng aggregate,
+     Binhai South H3, Tan An 1 and Hoa Binh 1/2 were settled in v2.30.5 and Peninsula South U2 in v2.30.6.
    - Mixed farms still without per-type counts: Xiangshui and Yangjiang Shapa phases 1–5; farms that only say "fixed": Fuqing Xinghua Bay
      and Qingzhou 6. Leads are in `tools/research/cn_mixed_2026-09.json` (Shapa phase 1's 39 monopiles / 10 jackets / 3 + 3 suction buckets
      appear only in a secondary article and are unchecked; phases 2–5 only have provisional tender numbers); add them once a first-hand
@@ -299,17 +328,14 @@ and move finished items to the topic lists below.
      20 unknown), Putian Shicheng (lot II: 19 pile caps of 29), Taizhou 1 (lot B: 19 monopiles + 1 pile-bucket), Changyi (25 monopiles), Danzhou CZ3 site 1
      (25 suction-bucket jackets) and Zhuanghe III (55 of 73).
      The data problems noted in this round were checked and fixed in v2.30.0 (see the v2.30.0 entry under "In progress").
-   - The other Chinese offshore farms (49 of the 140 operating) and Vietnam (5 of 19, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (50 of the 141 operating) and Vietnam (6 of 20, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
      Chinese farms in the docs is computed) → data problems found on the way into `tools/farm_cleanup.py` → rebuild and checks → site text
      (`fdStep` and the sources dialog in `assets/js/globe.js`, `assets/js/learn.js`) → the version number and both changelogs → Playwright
      at desktop and phone widths, the single-file copy online and offline → delete the notes in `tools/research/` once they are in the table.
-5. **Rønland's foundation type**: Nissum Bredning Vind became jacket in v2.30.5. This site follows OSPAR (DK04) and lists Rønland as gravity-based;
-   the owners' 2024 life-extension application to the Danish Energy Agency says the four southern (Bonus) turbines stand on concrete foundations piled
-   to about 50 m, and the agency's assessment puts all eight on point foundations along a low granite dam, without saying whether the four northern
-   (Vestas) ones are piled. Change it (probably to pc) once the northern four are described.
+5. **Two Danish foundation types**: settled (Nissum Bredning Vind on jackets, v2.30.5; Rønland on caps over 48 driven concrete piles each, v2.30.6).
 
 6. **Dimension gaps** (after the fifth round, v2.17.6; the values found but not used, and why, are kept here to avoid re-checking):
    272 operating offshore farms have at least one value (depth 247, hub height 193, rotor diameter 245, all three 182; after the tenth round, v2.30.4).
@@ -375,14 +401,16 @@ and move finished items to the topic lists below.
       WIND-058: one 14 MW unit of phase 4 caught fire on 2026-08-08)
 - [ ] Hai Long (Hai Long B): Northland's Q2 2026 report (12 Aug 2026): 71 of 73 turbines installed, 59 generating, commercial operation
       in 2027; follow the Q3/Q4 reports and the commercial-operation announcement and update `id:"longB"`
-- [ ] Left to verify from foundation step 4 (Sep 2026): when Setana stopped generating (the town decided in April 2026 to
-      remove it in FY2027; in Aug 2023 it said one of the two units was broken and the FIT ended in Dec 2023, so `end=2025` has no
-      direct source); whether Formosa 1 Phase 1 has SWT-4.0-120 or -130 turbines (Siemens' 2015 order says -120, a 2018 release -130);
-      whether Choshi still runs after 2025 (JWPA still lists it at the end of 2024); the present state of the Jeju Woljeong test site (its 2 MW unit has been idle since June 2016); and a possible
-      Doosan 3 MW turbine on a suction bucket at Gunsan, Korea (2017; RVO lists it as a test turbine installed on land)
-- [ ] Points that are still approximate (Sep 2026): Jeonnam Offshore Wind 1 (about 9 km north-west of Jaeun-do), the 15
-      intertidal turbines of Yeonggwang Wind (GEM's point is the company address), Kamisu Phases 1 and 2 and Eurus Akita
-      Port (moved to the turbine positions in OpenStreetMap), and Sunrise Wind (the centre of its BOEM lease area)
+- [ ] Left to verify from foundation step 4 (Sep 2026): when Setana stopped generating (the town's FY2024 public-enterprise tables give 3,321 MWh (FY2022),
+      694 MWh (FY2023) and 3 MWh (FY2024), with the power-sales contract ending on 2025-03-31; the tables are xlsx files `check_quotes.py` cannot read, so
+      `end=2025` stays; in July 2026 Hokkaido Electric was reported to be moving the turbines to a training facility in Esashi); the present state of the Jeju
+      Woljeong test site (no output reported after 2016); KEPCO Research Institute's Doosan 3 MW test turbine on a suction bucket at Gunsan port (installed at sea
+      in October 2016; RVO's "on land" is wrong) has no record and no citable position. (Formosa 1 Phase 1 is confirmed as SWT-4.0-120, and Choshi is still
+      running and now uses TEPCO RP's published position, v2.30.6)
+- [ ] Points that are still approximate (Sep 2026): Jeonnam Offshore Wind 1 (about 9 km north-west of Jaeun-do), Kamisu Phases 1 and 2 (the OSM
+      turbine names do not match the official counts), Eurus Akita Port (no source says which unit stands in the water) and Sunrise Wind (the centre
+      of its BOEM lease area; the 84 OSM points are "provisional WTG placement" without a farm name). Yeonggwang Wind's 15 intertidal turbines now use
+      the OSM wind-farm relation (v2.30.6)
 - [x] Farm-by-farm check for the "2026 (latest available)" point (v2.18.0): Kitakyushu Hibikinada, Goto, EFGL and EolMed now operating
       in 2026; Hai Long, Taipower Phase 2 and Dogger Bank B/C moved to 2027; Baltic Power corrected to 1,140 MW and Windanker to 315 MW
       (rules in `tools/farm_cleanup.py`)
@@ -393,7 +421,10 @@ and move finished items to the topic lists below.
       commissioned in 2027; also Baltic Power and Bac Lieu 3 (its Q2 2026 target has passed). The CVOW commercial project, Sunrise Wind and Empire
       Wind are due in 2027. Re-checked on 2026-10-04 (v2.19.2): none of the above is in full commercial operation yet; CTG's 16 MW Three Gorges
       Lead is installed, grid connection unconfirmed; Hainan CZ7 phase 1, CZ9 phase 1 and Xuwen Donger now have an unknown completion year, to be
-      filled in when announced
+      filled in when announced. Re-checked on 2026-10-07 (v2.30.6): Vineyard Wind 1 said in September that "all turbines are capable of producing power"
+      but has announced no full COD; Revolution Wind expects COD later this year; Baltic Power has all 76 turbines installed and over a third generating;
+      Dieppe-Le Tréport had 31 of 62 installed in September; Sofia expects the end of the year; Bac Lieu 3 and Soc Trang 1 (Cong Ly) were promised for
+      Aug–Sep by the owner and still had no announcement in October. All stay under construction; Windanker's year is now 2027
 - [ ] Once a quarter, run the `backfill-taipower-wind-history` workflow as a dry run to see whether
       dataset 37331 has moved to a more recent quarter (if the publisher improves timeliness, the
       7-day backfill logic is already in place and takes effect automatically)
@@ -439,15 +470,18 @@ the rules are in `tools/farm_cleanup.py`.
       position is schematic (`flags` 4)
 - [ ] 130 shared coordinate points remain (1,310 operating farms, mostly province-centre placeholders in
       China): add real coordinates from a newer GEM release or local data
-- [ ] Items the clean-up could not find or confirm: China's curated "CGN Taizhou 1" (300 MW; no CGN offshore project in Taizhou
-      was found) and "Guoxin Sheyang H1" (300 MW; Sheyang H1 is Huaneng's), and GEM's Sheyang South H5
-      (400 MW, possibly not yet operating); Vietnam's Song An (46.2 MW, no commissioning found); the
-      repowering history of Kemi Ajos in Finland; why the Dominican Republic is about 50 MW below IRENA
-- [ ] Farms missing from the data (found while checking): Hanuman 10 in Thailand (80 MW), Lạc Hòa 2
-      (123.6 MW) and the other 105.5 MW of Chơ Long in Vietnam, Pantelimon in Romania (123 MW), Carreto in
-      Colombia (9.6 MW, 2025)
-- [ ] 10 "suspected duplicates B" remain (different names, same capacity, close by), e.g. Solano / Shiloh
-      and Big Smile / Dempsey Ridge in the US, Dreiberg / Druiberg in Germany: confirm pair by pair
+- [ ] Items the clean-up could not find or confirm: Vietnam's Song An (46.2 MW) is operating, but its COD fell between Nov 2023 and May 2024 and the date
+      is not published (year left blank); Erbes-Büdesheim (GEM: 2012, KGAL) and MaStR's "Windpark Offenheim" (15.38 MW, operator ERG Wind Erbes Büdesheim)
+      may be the same farm, but GEM's year, owner and point do not fit; GEM's "Dong Hai V1-4" is phase 4 of Dong Hai 1 in Ca Mau (50 MW) yet its point
+      is off Tra Vinh, to be checked (CGN Taizhou 1 and Guoxin Sheyang H1 were handled by the 2026-10-04 rules; the Kemi Ajos history and the Dominican
+      gap were settled in v2.30.6)
+- [ ] Farms missing from the data (found while checking; no citable coordinates, so not added yet): Hanuman 10 in Thailand (80 MW, 32 Siemens
+      Gamesa 2.5 MW, COD 13 Apr 2019, Bamnet Narong district, Chaiyaphum), TDC's Lac Hoa 1 in Vietnam (Soc Trang No. 5: 25 of its 30 MW at COD in
+      2021, the other 5 MW still not filed in Apr 2025), the 3 MW test turbine at Gunsan port in Korea, and China's 6.2 MW "Fuyao" floating unit (below).
+      (Lac Hoa 2, Cho Long, Pantelimon and Carreto were handled in v2.30.6)
+- [ ] "Suspected duplicates B" (different names, same capacity, close by): 19 remain after the pair-by-pair check in v2.30.6, mostly neighbouring
+      sister farms in China; outside China, Germany still has Erbes-Büdesheim / Offenheim, Lütjenholm / WPL, Schülp and Büttler Balje / Bürgerwindpark
+      Norddeich and Lichtenau / Asseln (the MaStR units do not quite fit in year or position); settle them from owner or municipal sources
 - [x] 587 pipeline projects whose expected year had already passed (101 GW): only 2 remain after GEM 2026-02 (Monsoon in Laos, 600 MW,
       and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
 - [ ] 48 GW of operating farms have no commissioning year (mostly in China and India), so the map can
@@ -463,7 +497,7 @@ the rules are in `tools/farm_cleanup.py`.
       are in `PIPE_DROP`; D and the two Dogger Bank South projects are mapped explicitly (`PIPE_SAME`), and the matcher now lets only the
       first list project update a given GEM record (v2.13.0)
 - [x] France 2025 onshore and offshore now use the SDES grid-connected capacity at end-2025, 23,992 / 2,008 MW (v2.19.0; the owner decided on 2026-10-04 to change both; `FRA_SDES` in `tools/extract_global_data.py`)
-- [x] Offshore farm sums above the national series: after v2.30.5 removed duplicates and aggregates and moved unfinished farms to under construction, China's 140 operating offshore records add up to 46.6 GW (44.1 GW with years up to 2025), below the 2025 national figure of 48.4 GW; Vietnam's 19 add up to 1.2 GW against about 1.0 GW, and the gap cannot be attributed farm by farm (IRENA does not publish how it classifies intertidal farms).
+- [x] Offshore farm sums above the national series (in v2.30.6 China has 141 records and 47.2 GW, Vietnam 20 and 1.26 GW): after v2.30.5 removed duplicates and aggregates and moved unfinished farms to under construction, China's 140 operating offshore records add up to 46.6 GW (44.1 GW with years up to 2025), below the 2025 national figure of 48.4 GW; Vietnam's 19 add up to 1.2 GW against about 1.0 GW, and the gap cannot be attributed farm by farm (IRENA does not publish how it classifies intertidal farms).
 
 ## Ports data (data/global/ports.json, compiled by hand in Sep 2026)
 
@@ -531,9 +565,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Step 2: the rest of Europe (the Baltic, the Mediterranean, the IJsselmeer) plus farms finished after OSPAR 2024: 41 farms,
       each with a source whose quoted passage was checked; Hohe See and Belwind's Haliade demonstrator, left over from step 1,
       now have sources too; 26 more rules corrected farm records (Sep 2026, v2.8.0)
-- [ ] The Frederikshavn test site in Denmark: the Danish Energy Agency says only one 2.3 MW turbine is left at sea after the
-      harbour was extended, but not which one (the turbines had different foundations); once known, add it to the table and fix
-      the capacity (still the 2003 figure of 3 turbines, 7.6 MW)
+- [x] The Frederikshavn test site in Denmark: only the Nordex N90/2300 is left at sea; capacity set to 2.3 MW and the point moved to it (v2.30.6); its
+      foundation is only described as "a heavy-duty foundation tied to the seabed by means of planking and piles", so it stays in `EXCLUDED`
 - [x] Step 3: floating farms: 19 get a sub-type, 15 of them operating; 20 more rules corrected the data (GEM's BiMEP test-site
       capacity was removed) (Sep 2026, v2.9.0)
 - [ ] Floating units in China not yet in the data (their coordinates still need a source, never guessed): CSSC Haizhuang's Fuyao
@@ -547,12 +580,10 @@ the rules are in `tools/farm_cleanup.py`.
       separately on 2024-12-11
 - [ ] CTG Shapa: phase 5 is now 300 MW (v2.27.0) per the Yangjiang development and reform bureau, the Guangdong EIA approval, Mingyang's award
       notice and CTG's listing announcement, and the six records add up to exactly CTG's 1,705.5 MW and 269 turbines. Left: 171 units of 6.45 MW
-      were designed and 170 built, and which phase lost one is unknown (under 1 MW); lot II of phases 2 and 3 went to Goldwind, so their
-      Mingyang-only turbine fields are incomplete (phase 2's split per lot is unknown)
-- [ ] Korea's Ulsan 750 kW floating pilot: set to pre-construction with the year unknown in v2.24.3 (permits blocked in November 2019, no
-      later record of installation or generation); checked again in Oct 2026: NTIS lists the project for 2016–2019 but has no final report, and
-      thewindpower.net says dismantled (no date or source). Try KETEP's final report, Ulju County's water-surface permits or the University of Ulsan,
-      and remove it once it is confirmed never to have operated
+      were designed and 170 built; the missing one is in phase 3 (replaced by the floating "Sanxia Yinling"); phase 2's 62 units are of two models,
+      Mingyang MySE6.45-180 and Goldwind GW171/6450 (v2.30.6), split unknown
+- [x] Korea's Ulsan 750 kW floating pilot: never went to sea (Ulju County rejected its design four times; KISTEP said in 2025 that Korea has no case of
+      transporting and installing floating offshore wind), removed in v2.30.6
 - [x] The UK's Pentland: GEM's two records are the same project (the current data has only "Pentland wind farm"); v2.24.3 sets 2030 as the
       planned year and moves it off Dounreay; if a later GEM release brings back the other record, merge it with a dup rule
 - [x] Step 4: Taiwan, Japan, Korea and the USA: 36 farms (Sep 2026, v2.10.0)
@@ -584,8 +615,9 @@ the rules are in `tools/farm_cleanup.py`.
       1st of each month so they are not disabled after 60 days without activity
 - [ ] Check once a month that the data time and Actions look right, and trigger a run by hand if needed (steps under "Maintenance" in DEPLOY.en.md)
 - [x] PR checks (`.github/workflows/pr-check.yml`, v2.28.0): smoke test, syntax, coordinates, generated documents, version and changelogs
-- [ ] To verify for Australian measured output: Gullen Range is 165 MW on the site but AEMO registers 275 MW over two units (GULLRWF2, 110 MW, was added in
-      2020 and no source says which stage it is); Moorabool North and South share one unit, so their output cannot be split and is left out; the Crookwell II
+- [ ] To verify for Australian measured output: Gullen Range is 165.5 MW on the site (73 Goldwind turbines) but AEMO registers 275 MW over two units; GULLRWF2
+      (110 MW, 2020) is very probably the Biala farm (about 110 MW, first power 2020), which connects through the Gullen Range substation, but no document states
+      the mapping, so `units.json` is unchanged; Moorabool North and South share one unit, so their output cannot be split and is left out; the Crookwell II
       record includes Crookwell 3 (2024), so its first year with both parts generating all year is 2026
 - [x] The long-term archive was split into monthly files on 30 Sep 2026 (`data/archive/wind_history_archive_YYYY-MM.json`), so the weekly
       backfill only rewrites the current month; the single-file builds now go to a Release instead of git

@@ -209,6 +209,7 @@ CLEAN fix CHN CGN Peninsula South U1 500.0
 CLEAN fix CHN CGN Rudong H8 300.0
 CLEAN fix CHN CGN Shanwei Jiazi II 400.0
 CLEAN fix CHN CGN Xiangshan 1 Phase 1 (Tuci) 280.0
+CLEAN fix CHN CGN Xiangshan Tuci 280.0
 CLEAN fix CHN CGN Yangjiang Qingzhou 1&2 1000.0
 CLEAN fix CHN CTG Changyi 300.0
 CLEAN fix CHN CTG Dafeng H8-2 300.0
@@ -219,10 +220,12 @@ CLEAN fix CHN CTG Yangjiang Qingzhou 5 500.0
 CLEAN fix CHN CTG Yangjiang Qingzhou 6 500.0
 CLEAN fix CHN CTG Yangjiang Qingzhou 7 1000.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 1 300.0
+CLEAN fix CHN CTG Yangjiang Shapa Phase 2 400.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 3 400.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 3 400.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 4 300.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 5 400.0
+CLEAN fix CHN Changle Waihai C 496
 CLEAN fix CHN Changle Waihai C 496
 CLEAN fix CHN Changle Waihai C 498.0
 CLEAN fix CHN Datang Danzhou CZ3 1200.0
@@ -295,16 +298,19 @@ CLEAN fix CHN Longyuan Rudong Intertidal 150 MW Demo 150.0
 CLEAN fix CHN Longyuan Sheyang H2 300.0
 CLEAN fix CHN Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng 16.6
 CLEAN fix CHN Mingyang Yangjiang Qingzhou 4 500.0
+CLEAN fix CHN Putian Pinghai Bay Area F (Sanchuan) 200
 CLEAN fix CHN Putian Pinghai Bay Phase 2 246.0
 CLEAN fix CHN Putian Pinghai Bay Phase 2 246.0
 CLEAN fix CHN Putian Pinghai Bay Phase 3 308.0
 CLEAN fix CHN Putian Pinghai Bay Phase 3 308.0
+CLEAN fix CHN Putian Shicheng 200.0
 CLEAN fix CHN Putian Shicheng 200.0
 CLEAN fix CHN SPIC Binhai South H3 300.0
 CLEAN fix CHN SPIC Jieyang Shenquan I 400.0
 CLEAN fix CHN SPIC Jieyang Shenquan II 502.0
 CLEAN fix CHN SPIC Peninsula South 3 301.5
 CLEAN fix CHN SPIC Peninsula South V 300.0
+CLEAN fix CHN Shandong Bandaonan U2 (Guohua) Offshore wind farm 603.5
 CLEAN fix CHN Shandong Bohai B1 offshore wind farm 500.0
 CLEAN fix CHN Shandong Energy Bozhong G 400.4
 CLEAN fix CHN Shandong Energy Bozhong G 850.0

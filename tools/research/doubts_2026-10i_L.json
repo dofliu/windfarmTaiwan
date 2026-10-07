@@ -70,31 +70,6 @@
   "sources": []
  },
  {
-  "item": "2. Formosa 1 Phase 1: SWT-4.0-120 or -130",
-  "farm": "Formosa 1 Phase 1",
-  "src_code": 0,
-  "iso": "TWN",
-  "status": "write",
-  "proposal": "fix('TWN', 'Formosa 1 Phase 1', C, '機組是西門子 SWT-4.0-120（葉輪直徑 120 m）：營運商沃旭 2019 年簡報列「4MW Siemens SWT 4.0-120」，西門子歌美颯 2018 年 1 月簡報的已安裝實績（統計至 2017 年 11 月）也列「Formosa: 2x SWT-4.0-120」；西門子歌美颯 2018 年 4 月新聞稿寫的 SWT-4.0-130 與這兩份不符，不採用', 'The turbines are Siemens SWT-4.0-120 (120 m rotor): the operator Ørsted’s 2019 presentation lists “4MW Siemens SWT 4.0-120”, and Siemens Gamesa’s January 2018 presentation of installed projects (installed by November 2017) lists “Formosa: 2x SWT-4.0-120”; the SWT-4.0-130 in Siemens Gamesa’s April 2018 press release contradicts both and is not used', 'https://www.asiawind.org/wp-content/uploads/2019/10/01-ORSTED-ULRIK-LANGE.pdf', turbine='2x Siemens SWT-4.0-120')",
-  "note_zh": "營運商沃旭（Formosa 1 的營運商）2019 年 Asia Offshore Wind Day 簡報：一期 2 部、機型 4MW Siemens SWT 4.0-120；西門子歌美颯 2018 年 1 月簡報的已安裝實績表（註明統計至 2017 年 11 月已安裝）：Taiwan Formosa 2x SWT-4.0-120 2017。兩份都是建成後的說明（營運商與製造商的實績清單），與 2015 年訂單一致；只有 2018 年 4 月的新聞稿寫 -130。欄位值不變，只是補上出處。",
-  "note_en": "The operator Ørsted’s 2019 Asia Offshore Wind Day slides: phase 1 has 2 WTGs, model 4MW Siemens SWT 4.0-120; Siemens Gamesa’s January 2018 slides list installed projects (footnote: installed by November 2017) with “Taiwan … Formosa: 2x SWT-4.0-120 2017”. Both describe the built turbines (operator and manufacturer installed-base list) and agree with the 2015 order; only the April 2018 press release says -130. The field value stays the same; the rule documents the source.",
-  "why": "",
-  "sources": [
-   {
-    "url": "https://www.asiawind.org/wp-content/uploads/2019/10/01-ORSTED-ULRIK-LANGE.pdf",
-    "quote": "Number of WTGs 2 WTGs 20 WTGs WTG model 4MW Siemens SWT 4.0-120 6MW Siemens SWT-6.0-154"
-   },
-   {
-    "url": "https://www.asiawind.org/wp-content/uploads/2018/01/21-SIEMENS-NIELS-STEENBERG.pdf",
-    "quote": "Taiwan Project Year Formosa: 2x SWT-4.0-120 2017"
-   },
-   {
-    "url": "https://www.asiawind.org/wp-content/uploads/2018/01/21-SIEMENS-NIELS-STEENBERG.pdf",
-    "quote": "Our offshore business 1) Installed by November 2017"
-   }
-  ]
- },
- {
   "item": "3a. Greater Changhua 2b & 4 full commercial operation?",
   "farm": "Greater Changhua 2b & 4",
   "src_code": 0,
@@ -175,35 +150,6 @@
   ]
  },
  {
-  "item": "5. Choshi Offshore Demonstration: still operating 2025–2026?",
-  "farm": "Choshi Offshore Demonstration (NEDO/TEPCO)",
-  "src_code": 0,
-  "iso": "JPN",
-  "status": "write",
-  "proposal": "fix('JPN', 'Choshi Offshore Demonstration (NEDO/TEPCO)', C, '仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km）', 'Still operating (September 2026: the demonstration turbine was never removed and has run commercially since 2019); the point moves to the turbine position published by TEPCO Renewable Power (35°40′54″ N, 140°49′13″ E, WGS; the old point was about 3 km to the north-east)', 'https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf', lat=35.682, lon=140.82)",
-  "note_zh": "WIND JOURNAL（2026-09-28，東電 RP 銚子市沖環評的報導）：東電 RP 沒有撤除實證風車，轉為商用資產 2019 年開始商轉，至今仍持續運轉。東電 RP 2021 年資料（國土交通省網站）列出風車座標 北緯35度40分54秒、東經140度49分13秒（世界測地系）＝ 35.682、140.820；原紀錄 35.7、140.85 偏約 3 km。狀態不用改，只改座標。",
-  "note_en": "WIND JOURNAL (28 Sep 2026, on TEPCO RP's Choshi EIA): TEPCO RP did not remove the demonstration turbine, turned it into a commercial asset from 2019, and it is still running. TEPCO RP's 2021 slides (on the MLIT site) give the turbine at 35°40′54″N 140°49′13″E (WGS) = 35.682, 140.820; the record's 35.7, 140.85 is about 3 km off. Status unchanged; only the point changes.",
-  "why": "",
-  "sources": [
-   {
-    "url": "https://windjournal.jp/128181/",
-    "quote": "東電RPはこの実証風車を撤去せず、商用資産に転換して19年に商業運転を開始し、いまも継続して稼働している。"
-   },
-   {
-    "url": "https://windjournal.jp/128181/",
-    "quote": "2026/09/28 東京電力リニューアブルエナジー（東電RP）が、8月21日から千葉県銚子市沖の洋上風力発電事業で計画段階環境配慮書の縦覧を開始した。"
-   },
-   {
-    "url": "https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf",
-    "quote": "風車 ：北緯35度40分54秒，東経140度49分13秒（世界測地系）"
-   },
-   {
-    "url": "https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf",
-    "quote": "現在は実証研究期間を終え、2019年1月1日より商用運転を開始。"
-   }
-  ]
- },
- {
   "item": "6a. Kamisu Phase 1 and 2 positions",
   "farm": "Kamisu Phase 1 (Wind Power Ibaraki); Kamisu Phase 2",
   "src_code": 0,
@@ -275,43 +221,6 @@
   ]
  },
  {
-  "item": "8. Korea: Ulsan 750 kW floating demo ever installed?",
-  "farm": "Ulsan Dongbu floating demo (Vindmøllen 750 kW)",
-  "src_code": 0,
-  "iso": "KOR",
-  "status": "write",
-  "proposal": "drop('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', C, '蔚山 750 kW 浮動式示範機從未在海上安裝：2019 年 11 月蔚州郡四度退回細部設計、無法下海；2025 年政府的風電研發企畫報告說 750 kW 浮動式實證「曾嘗試」、因取得實證海域困難而受阻，2025 年 9 月 KISTEP 報告說韓國沒有浮動式離岸風電的運送安裝實例', 'The Ulsan 750 kW floating demonstrator was never installed at sea: in November 2019 Ulju County had rejected its detailed design four times; the government’s 2025 wind R&D planning report says a 750 kW floating demonstration was “attempted” and held back by the difficulty of securing a test site, and a KISTEP report of September 2025 says Korea has no case of transporting and installing floating offshore wind', 'https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1')  (replaces the existing fix(..., st=2, year=0, note=True) on this record)",
-  "note_zh": "慶尚日報 2019-11-05：原訂 10 月進入實證的 750 kW 浮動式試驗機停擺，蔚州郡四度退回實施設計。KISTEP 2019 年預備可行性報告：「建設前階段」、尚未下海且不含併網。韓國能源技術評估院 2025 年度風電研發企畫報告：「國內曾嘗試 750 kW 級浮動式實證……因實證地點取得問題而進行困難」。KISTEP 2025-09-26 議題報告（KRISO 作者）：「國內浮動式離岸風電沒有運送、安裝實例」。之後也查不到任何下海、發電的報導。結論：從未在海上建成，建議刪除。",
-  "note_en": "Kyongsang Ilbo (5 Nov 2019): the 750 kW floating pilot that should have entered sea trials in October was stalled after Ulju County rejected the detailed design four times. KISTEP's 2019 feasibility report: “pre-construction”, not yet at sea and without grid connection. KETEP's 2025 wind R&D planning report: a 750 kW floating demonstration “was attempted” in Korea and has had difficulty because of securing a test site. KISTEP issue paper of 26 Sep 2025 (KRISO author): Korea has no case of transport and installation of floating offshore wind. No report of deployment or generation exists. Conclusion: never built at sea; drop.",
-  "why": "",
-  "sources": [
-   {
-    "url": "https://www.ksilbo.co.kr/news/articleView.html?idxno=735360",
-    "quote": "5일 울산시에 따르면 지난 10월 실증화 단계에 진행했어야 할 ‘750㎾급 부유식 해상풍력발전 시험용 파일럿 플랜트 개발 프로젝트’가 멈춰있다."
-   },
-   {
-    "url": "https://www.ksilbo.co.kr/news/articleView.html?idxno=735360",
-    "quote": "기자명 최창환 승인 2019.11.05 21:12"
-   },
-   {
-    "url": "https://www.kistep.re.kr/boardDownload.es?bid=0002&list_no=25504&seq=10723",
-    "quote": "7 울산 750kw 부유식 실증 750kw 건설 전 단계"
-   },
-   {
-    "url": "https://grant-documents.thevc.kr/246940_9.+%5B%EA%B3%B5%EA%B0%9C%EC%9A%A9%5D+2025%EB%85%84%EB%8F%84+%EC%97%90%EB%84%88%EC%A7%80%EA%B8%B0%EC%88%A0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85+%EC%8B%A0%EA%B7%9C%EA%B3%BC%EC%A0%9C+%EA%B8%B0%ED%9A%8D%EB%B3%B4%EA%B3%A0%EC%84%9C_%EC%8B%A0%EC%9E%AC%EC%83%9D%EC%97%90%EB%84%88%EC%A7%80%ED%95%B5%EC%8B%AC%EA%B8%B0%EC%88%A0%EA%B0%9C%EB%B0%9C(%ED%92%8D%EB%A0%A5).pdf",
-    "quote": "국내에서는 750kW급부유식해상풍력실증이시도되었고메가와트급 - 29 - 부유식 해상풍력 실증이 시도되고 있으나 실증지 확보 문제로 진행에 어려움을겪어왔음"
-   },
-   {
-    "url": "https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1",
-    "quote": "국내 부유식 해상풍력의 이송･설치 사례가 없어 기술력이 저조하고 운송선 및 설치선 등의 인프라도 부족하여"
-   },
-   {
-    "url": "https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1",
-    "quote": "No.295 2025.9.26."
-   }
-  ]
- },
- {
   "item": "9. Korea: Gunsan KEPRI Doosan 3 MW on suction bucket",
   "farm": "(no record)",
   "src_code": null,
@@ -376,26 +285,5 @@
   "note_en": "OpenStreetMap has no turbine or wind-farm feature in those waters (only the onshore POSCO Energy and residents' farms on Jaeun-do); news gives only “about 9 km north-west of Jaeun-do, 10–20 m deep”; no EIA or navigational-warning coordinates found.",
   "why": "No source with coordinates (MOF/KHOA notices or EIA not found; 4C excluded).",
   "sources": []
- },
- {
-  "item": "11b. Korea: Yeonggwang Wind intertidal 15 units position",
-  "farm": "Yeonggwang Wind offshore wind farm",
-  "src_code": 2,
-  "iso": "KOR",
-  "status": "write",
-  "proposal": "Replace the existing fix('KOR', 'Yeonggwang Wind offshore wind farm', G, ...) with: fix('KOR', 'Yeonggwang Wind offshore wind farm', G, '靈光風電（35 部、79.6 MW）中立在潮間帶的 15 部 2.3 MW＝34.5 MW；座標改為 OpenStreetMap 風場關係「영광 해상풍력」（relation 17551812，15 部營運者영광풍력발전的 2.3 MW 風機）的中心，北緯 35.259°、東經 126.326°（© OpenStreetMap 貢獻者）；GEM 原座標是公司登記地址', 'The 15 × 2.3 MW turbines (34.5 MW) that stand in the intertidal zone of the Yeonggwang Wind complex (35 turbines, 79.6 MW); the point moves to the centre of the OpenStreetMap wind-farm relation “영광 해상풍력” (relation 17551812: 15 turbines of 2.3 MW operated by 영광풍력발전), 35.259 N, 126.326 E (© OpenStreetMap contributors); GEM’s point was the company’s registered address', 'https://www.openstreetmap.org/relation/17551812', mw=34.5, turbine='15 x Unison U113 2.3 MW', lat=35.259, lon=126.326, note=True)",
-  "note_zh": "OpenStreetMap relation 17551812：name「영광 해상풍력」、site=wind_farm、start_date 2018-09-01、成員 15 個，全是營運者「영광풍력발전」、2.3 MW 的風機節點（另外 20 部 2.255 MW 的 영광풍력발전 風機不在這個關係裡），正好對應 etnews 說的潮間帶 15 部 2.3 MW。15 部範圍北緯 35.242–35.280°、東經 126.320–126.333°，中心 35.259、126.326；原 GEM 點（公司地址，35.279、126.336）偏北約 2.3 km。",
-  "note_en": "OpenStreetMap relation 17551812: name “영광 해상풍력” (Yeonggwang offshore wind), site=wind_farm, start_date 2018-09-01, 15 members, all turbine nodes of 2.3 MW operated by 영광풍력발전 (the company's 20 turbines of 2.255 MW are not in it), matching the 15 intertidal 2.3 MW units in the etnews source. The 15 span 35.242–35.280 N, 126.320–126.333 E; centre 35.259, 126.326; GEM's point (the company address, 35.279, 126.336) is about 2.3 km north.",
-  "why": "",
-  "sources": [
-   {
-    "url": "https://www.openstreetmap.org/relation/17551812",
-    "quote": "Tags name 영광 해상풍력 site wind_farm start_date 2018-09-01 type site Members 15 members"
-   },
-   {
-    "url": "https://www.openstreetmap.org/node/9626395924",
-    "quote": "generator:output:electricity 2.3 MW generator:source wind operator 영광풍력발전 power generator ref 1-1 start_date 2018-09-01 Part of 1 relation 영광 해상풍력"
-   }
-  ]
  }
 ]

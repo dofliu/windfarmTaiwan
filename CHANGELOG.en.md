@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.6 — 2026-10-07
+
+- Research round 12: the doubts left in TODO (every quote checked with `check_quotes.py`; clean-up rules 446 → 478, see the 7 Oct 2026 "sixth batch" block of the [clean-up log](docs/data-cleanup.en.md)):
+  - German MaStR matching gets a start-year check and a hand-checked table: 8 farms including Gremersdorf, Borchen-Etteln, Oederquart and Streumen now carry their own turbines, and the units they were wrongly given become added farms; the "suspected duplicates" were checked pair by pair, and 18 records confirmed as different farms are no longer flagged.
+  - Restored after wrong merges: Shiloh (USA) with all four phases, 505 MW (phases III and IV were missing), Pantelimon (Romania) and Esperanza (Dominican Republic; its farm-level total goes from 89% to 100%); duplicates removed: Dreiberg (Germany) and Dempsey Ridge (USA).
+  - Status: Peninsula South U2 (China) operating from 2024, Duyen Hai V1-4 (Vietnam) from 2026 and Carreto (Colombia) from 2025; the other 105.5 MW of Cho Long (Vietnam) is built but not yet in commercial operation; Korea's Ulsan 750 kW floating pilot never went to sea and is removed.
+  - Positions: Xiangshan Tuci, Pinghai Bay area F and Putian Shicheng from turbine coordinates in maritime notices and sea-use approvals; Choshi, Yeonggwang Wind's intertidal turbines, Revolution Wind and others moved to their actual turbines.
+  - Denmark: Rønland now has only its four southern turbines at sea (9.2 MW), and its foundation changes from gravity-based to piled concrete caps; Frederikshavn has a single turbine left at sea.
+  - Turbine and capacity fields corrected for about 15 farms (Changle Waihai C, Shapa phase 2, Binh Dai, Soc Trang No. 7, Gullen Range, Gohlocher Wald and others); Formosa 1 phase 1 is confirmed as SWT-4.0-120.
+  - US turbine positions, measured output and OpenStreetMap turbine matches were rebuilt with the farm layer (Shiloh and Big Smile now match USWTDB and EIA). 272 of the 331 operating offshore farms have a known foundation type (83.8% of capacity).
+
 ## v2.30.5 — 2026-10-07
 
 - Research round 11: the farm data doubts listed in TODO (every quote checked with `check_quotes.py`; clean-up rules 414 → 446, see the 7 Oct 2026 "fifth batch" blocks of the [clean-up log](docs/data-cleanup.en.md)):

@@ -1,73 +1,5 @@
 [
  {
-  "item": "1. Duyên Hai wind farm · 1 = REE's Duyên Hải (V1-4) 48 MW; type; GEM Dong Hai V1-4",
-  "farm": "Duyên Hai wind farm · 1",
-  "src_code": 2,
-  "iso": "VNM",
-  "status": "write",
-  "proposal": "fix('VNM', 'Duyên Hai wind farm · 1', G, 'GEM 這筆的別名就是「Duyen Hai Wind Power Plant (V1-4)／NMĐ gió Duyên Hải (V1-4)」，狀態引用的西貢經濟時報 2025-09 報導的是 REE 子公司 Duyên Hải 風電公司在 Đông Hải 等三個社的 48 MW 電廠；業主 Asian Energy／Uniso 是 2018 年已被茶榮省終止的舊案。人民報：Duyên Hải（V1-4）10／10 部 2026-03-16 起全部正式運轉（券商摘要：2026-03-16 商轉）；KB 證券 2025 年第三季報告稱為離岸（潮間帶）專案、10 座離岸風機塔已裝完。改為運轉中、2026、離岸，業主改為 REE 的 Duyen Hai Wind Power JSC；機組數各來源不一（10 或 8 部），機型未查到', 'GEM’s own page gives this record’s other name as “Duyen Hai Wind Power Plant (V1-4) / NMĐ gió Duyên Hải (V1-4)”, and its status source (Saigon Times, Sep 2025) describes the 48 MW plant of REE’s subsidiary Duyen Hai Wind Power JSC in Dong Hai and two neighbouring communes; the listed owners Asian Energy / Uniso belong to an older project that Tra Vinh terminated in 2018. Nhan Dan: all 10 of 10 turbines of Duyen Hai (V1-4) in official operation from 16 Mar 2026 (a broker summary gives COD on 16 Mar 2026); KB Securities (3Q 2025) calls it an offshore (intertidal) project whose 10 offshore turbine towers were installed. Set to operating, 2026, offshore, owner REE’s Duyen Hai Wind Power JSC; the turbine count differs between sources (10 or 8) and the model was not found', 'https://nhandan.vn/post-952529.html', st=0, year=2026, type=1, owner='Duyen Hai Wind Power JSC (REE Corp)', note=True)",
-  "note_zh": "GEM「Duyên Hai wind farm · 1」的別名寫明是 V1-4（NMĐ gió Duyên Hải (V1-4)），位置 Đông Hải；它的「施工中」引用的是 2025 年 REE 電廠的報導，但業主欄沿用 2018 年被茶榮省終止的 Asian Energy／Uniso 舊案（48.3 MW、21 部 2.3 MW 陸域）。REE 子公司 Duyên Hải 風電股份公司在 V1-4 位置建 48 MW（工商雜誌 2024），VIB 融資新聞寫在 Đông Hải、Long Thành、Ngũ Lạc 三社；人民報 2026-03：10／10 部 2026-03-16 起全部正式運轉；券商摘要（elibook）寫 2026-03-16 商轉；KB 證券寫離岸專案、10 座離岸風機塔裝完。所以這筆就是 REE 的 Duyên Hải（V1-4），2026 年全場運轉，型別依券商報告改離岸（潮間帶）。西貢經濟時報寫 8 部 6 MW，與人民報、KB 的 10 部不合，機組欄不寫。座標沒有可引用的出處（Overpass 連不上），保留 GEM 概略點。另：GEM「Dong Hai V1-4 Offshore wind farm」（50 MW、規劃）的越文名是「Đông Hải 1 Giai đoạn 4」，與金甌省 2026-08 動工的東海 1 號第 4 期（Miền Tây 風電公司、50 MW）同名同容量，不是 REE 這座；但它的座標在茶榮外海（來源是不能引用的 4C），值得另查。",
-  "note_en": "GEM’s “Duyên Hai wind farm · 1” is named on its own page as V1-4 (NMĐ gió Duyên Hải (V1-4)) in Dong Hai; its “construction” status cites a 2025 report on REE’s plant, while the owner field carries the Asian Energy / Uniso project (48.3 MW, 21 × 2.3 MW onshore) that Tra Vinh terminated in 2018. REE’s subsidiary Duyen Hai Wind Power JSC built 48 MW at location V1-4 (Tap chi Cong Thuong, 2024), in Dong Hai, Long Thanh and Ngu Lac communes (VIB financing news); Nhan Dan (Mar 2026): all 10 of 10 turbines in official operation from 16 Mar 2026; a broker summary (elibook) gives COD on 16 Mar 2026; KB Securities calls it an offshore project with 10 offshore turbine towers installed. So the record is REE’s Duyen Hai (V1-4), fully operating in 2026, offshore (intertidal) per the broker report. The Saigon Times says 8 × 6 MW, which conflicts with the 10 turbines of Nhan Dan and KBS, so no turbine field. No citable coordinates (Overpass unreachable); keep GEM’s approximate point. Also: GEM’s “Dong Hai V1-4 Offshore wind farm” (50 MW, announced) has the Vietnamese name “Đông Hải 1 Giai đoạn 4”, matching the 50 MW Dong Hai 1 phase 4 in Ca Mau (Mien Tay Wind Power JSC, launched Aug 2026), not REE’s plant; its point lies off Tra Vinh (from a 4C entry we cannot cite) and is worth a separate check.",
-  "why": "Type rests on broker reports (KBSV, elibook), not an official source; turbine count/model unresolved; no citable coordinates.",
-  "sources": [
-   {
-    "url": "https://www.gem.wiki/Duy%C3%AAn_Hai_wind_farm",
-    "quote": "Other names: Duyen Hai Wind Power Plant (V1-4) Duyên Hai wind farm (NMĐ gió Duyên Hải (V1-4)) is an announced wind farm in Đông Hải, Duyên Hải, Tra Vinh province, Vietnam.",
-    "check": "OK"
-   },
-   {
-    "url": "https://nhandan.vn/post-952529.html",
-    "quote": "Đặc biệt, nhà máy điện gió Duyên Hải (V1-4) vừa chính thức vận hành toàn bộ 10/10 tua-bin vào ngày 16/3/2026",
-    "check": "OK"
-   },
-   {
-    "url": "https://elibook.vn/2026/05/17/ree-du-an-dien-gio-duyen-hai-da-cod-thang-3-2026-bu-dap-cho-su-yeu-di-cua-thuy-dien-loi-nhuan-du-bao-tang-truong-17-trong-nam-2026/",
-    "quote": "Nhà máy điện gió Duyên Hải (48 MW) đã chính thức đi vào vận hành thương mại từ ngày 16/03/2026.",
-    "check": "OK"
-   },
-   {
-    "url": "https://tapchicongthuong.vn/co-dien-lanh--ree--thi-cong-du-an-dien-gio-48-mw--muon-lam-them-344-mw-nua-tai-tra-vinh-128129.htm",
-    "quote": "Công ty Điện gió Duyên Hải, công ty con của Cơ Điện Lạnh , hiện đang triển khai thi công Dự án Nhà máy điện gió Duyên Hải Trà Vinh tại vị trí V1-4 với công suất 48 MW.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.kbsec.com.vn/pic/Service/KBSV_REE_3Q25Update_Eng.pdf",
-    "quote": "According to the EPC contractor of the 48MW Duyen Hai offshore wind project, REE has completed installing 10 offshore wind turbine towers",
-    "check": "OK"
-   },
-   {
-    "url": "https://bizhub.vietnamnews.vn/vib-funds-rees-wind-power-project-to-accelerate-green-energy-transition-in-vinh-long-post380588.html",
-    "quote": "The Duyên Hải Wind Power Plant, situated across Đông Hải, Long Thành and Ngũ Lạc communes in Vĩnh Long Province, is set to have a designed capacity of 48 MW.",
-    "check": "OK"
-   },
-   {
-    "url": "https://thesaigontimes.vn/giai-phong-mat-bang-dien-gio-duyen-hai-moi-70/",
-    "quote": "Nhà máy điện gió Duyên Hải nằm ở các xã Đông Hải, Long Khánh và Ngũ Lạc, huyện Duyên Hải, tỉnh Trà Vinh (cũ).",
-    "check": "OK"
-   },
-   {
-    "url": "https://vietnamenergy.vn/withdrawing-the-duyen-hai-wind-power-project-tra-vinh-province-21306.html",
-    "quote": "request the termination of development of Duyen Hai wind power project (in Dong Hai commune, Duyen Hai district, Tra Vinh province) with the reason of \"delayed progress\".",
-    "check": "OK"
-   },
-   {
-    "url": "https://vietnamenergy.vn/withdrawing-the-duyen-hai-wind-power-project-tra-vinh-province-21306.html",
-    "quote": "Duyen Hai wind power project with a capacity of 48.3 MW and annual average power output of 135,200 MWh, invested by Asian Energy Corporation and Uniso Group (Korea).",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.gem.wiki/Dong_Hai_V1-4_Offshore_wind_farm",
-    "quote": "Dong Hai V1-4 Offshore wind farm (Nhà máy điện gió Đông Hải 1 Giai đoạn 4) is an announced wind farm in Vietnam.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp",
-    "quote": "Nhà máy điện gió Đông Hải 1 - giai đoạn 4 do Công ty cổ phần Điện gió Miền Tây làm chủ đầu tư, có công suất 50MW, tổng vốn đầu tư 1.800 tỷ đồng",
-    "check": "OK"
-   }
-  ]
- },
- {
   "item": "2. Thanh Hải No. 5 — COD of Thạnh Hải 2 (rest), 3, 4; turbines of 3–4",
   "farm": "Thanh Hải No. 5 Offshore wind farm",
   "src_code": 2,
@@ -157,39 +89,6 @@
   ]
  },
  {
-  "item": "5. Bến Tre 10 Bình Đại 1 — turbines of phases 2–3 (Goldwind)",
-  "farm": "Bến Tre 10 Bình Đại 1 Offshore wind farm",
-  "src_code": 2,
-  "iso": "VNM",
-  "status": "write",
-  "proposal": "fix('VNM', 'Bến Tre 10 Bình Đại 1 Offshore wind farm', G, '平大二、三期（平大 2、3 號，各 49 MW）的 24 部機組是金風：海事保證檢驗商 AqualisBraemar LOC 受中國電建華東院委任負責二、三期，報導寫明「二、三期安裝 24 部金風機組」（施工階段的合約資訊，與 GlobalData 一致；GlobalData 另寫平大 3 號為 12 部 4.1 MW，屬資料庫值）。一期 7 部為西門子歌美颯 5.0 系列（工商雜誌）。金風型號未查到', 'The 24 turbines of Binh Dai phases 2–3 (Binh Dai No. 2 and No. 3, 49 MW each) are Goldwind: AqualisBraemar LOC, hired by PowerChina Huadong as marine warranty surveyor for phases 2 and 3, reports that they “include the installation of 24 units of Goldwind turbines” (contract-stage information, consistent with GlobalData, which also gives Binh Dai 3 as 12 × 4.1 MW, a database value). Phase 1 has 7 Siemens Gamesa 5.0-series units (Tap chi Cong Thuong). The Goldwind model was not found', 'https://oceannews.com/news/energy/aqualisbraemar-loc-hired-on-next-phases-of-vietnam-offshore-wind-project/', turbine='7x Siemens Gamesa (5.0 series) + 24x Goldwind')",
-  "note_zh": "Ocean News（AqualisBraemar LOC 受託平大二、三期海事保證）明寫二、三期安裝 24 部金風機組，連起了 GlobalData「Mekong Wind Farm Phase II = 金風 24 部」與平大這個名字。金風型號（約 4.1 MW 級）沒有原文；機組欄只寫廠牌。屬合約／施工階段資訊，沒有相反的出處。",
-  "note_en": "Ocean News (AqualisBraemar LOC hired as marine warranty surveyor on Binh Dai phases 2 and 3) states that phases 2 and 3 include 24 Goldwind turbines, tying GlobalData’s “Mekong Wind Farm Phase II = 24 Goldwind” to Binh Dai by name. The Goldwind model (about 4.1 MW class) has no quotable source; the field names the maker only. Contract/construction-stage information with nothing contradicting it.",
-  "why": "Goldwind model not found (GlobalData’s 12 × 4.1 MW for Binh Dai 3 is a database value).",
-  "sources": [
-   {
-    "url": "https://oceannews.com/news/energy/aqualisbraemar-loc-hired-on-next-phases-of-vietnam-offshore-wind-project/",
-    "quote": "has appointed AqualisBraemar LOC as marine warranty surveyor on phases 2 and 3 on the Binh Dai Wind Farm Development offshore Vietnam. Phases 2 and 3 include the installation of 24 units of Goldwind turbines.",
-    "check": "OK"
-   },
-   {
-    "url": "https://tapchicongthuong.vn/khoi-cong-lap-dat-cac-tru-monopile-dau-tien-cua-viet-nam-tai-du-an-dien-gio-ngoai-khoi-binh-dai-76902.htm",
-    "quote": "Giai đoạn đầu của dự án Nhà máy điện gió Bình Đại đã lựa chọn tua bin gió hàng đầu thuộc series 5.0 của hãng sản xuất tua bin Siemens Gamesa",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-binh-dai-3-wind-farm-vietnam/",
-    "quote": "The wind power project consists of 12 turbines, each with 4.1MW nameplate capacity.",
-    "check": "OK"
-   },
-   {
-    "url": "https://power-technology.com/?p=251914",
-    "quote": "Mekong Wind Farm (Mekong Wind Farm Phase II) will be equipped with Goldwind Science & Technology turbines. The phase consists 24 turbines.",
-    "check": "OK"
-   }
-  ]
- },
- {
   "item": "6. Song An wind farm (46.2 MW, Gia Lai) — COD and year",
   "farm": "Song An wind farm",
   "src_code": 2,
@@ -261,54 +160,6 @@
   ]
  },
  {
-  "item": "8a. Lạc Hòa 2 (123.6 MW) — covered by GEM “Lạc Hòa wind farm”?",
-  "farm": "Lạc Hòa wind farm",
-  "src_code": 2,
-  "iso": "VNM",
-  "status": "write",
-  "proposal": "fix('VNM', 'Lạc Hòa wind farm', G, 'GEM 這筆含兩座：二期 124 MW 就是 Lạc Hòa 2（EVN：40 部中 38 部、123.6 MW 於 2023-08-18 前通過 COD），一期 30 MW 是 UPC／AC Energy 的 Lạc Hòa 風電廠（和東社、6 部 V150-3.8＋2 部 V150-3.6，業主公告 2023-12-30 商轉；GEM 的 2025 年是引用 2025-02 的進度表）。兩部分都在 2023 年，分期改為同一年', 'This GEM record holds two plants: phase 2 (124 MW) is Lac Hoa 2 (EVN: 38 of 40 turbines, 123.6 MW, at COD by 18 Aug 2023) and phase 1 (30 MW) is UPC / AC Energy’s Lac Hoa plant (Hoa Dong commune, 6 V150-3.8 + 2 V150-3.6, in commercial operation from 30 Dec 2023 per the owner; GEM’s 2025 came from a Feb 2025 tracker). Both parts date from 2023', 'https://diengiolachoa.com/en/', ph=[[2023, 124], [2023, 30]])",
-  "note_zh": "Lạc Hòa 2 不是缺漏：GEM「Lạc Hòa wind farm」的別名就是「Lac Hoa 2 Wind Power Plant (Phase 2), Lac Hoa Soc Trang Wind Farm (Phase 1)」，二期 124 MW＝Lạc Hòa 2（130 MW 中 123.6 MW、38／40 部在 2023-08 COD；2025-04 仍只有 123.6 MW）。一期 30 MW＝UPC／AC Energy 的 Lạc Hòa（Phong Điện Lạc Hòa 公司，和東社第 20 號場址），業主網站寫 2023-12-30 商轉（EVN 2023-11 表仍未送件、2024-05 表已 COD，吻合），所以 GEM 的 2025 不對，全筆 2023。另一個發現：TDC（永州再生能源公司）的「5 號風場／Lạc Hòa 1」（樂和社與第 2 坊海岸灘地，30 MW，2021-10 只有 25 MW 通過 COD，2022-04 落成；其餘 5 MW 到 2025-04 仍未送件）在資料裡似乎沒有紀錄，見 8a-2。附帶：GEM「Hòa Đông wind farm」（30 MW、2022）在 EVN 表上 2023-11 仍未送件、2024-05 已 COD，2022 年可能不對（未深查）。",
-  "note_en": "Lac Hoa 2 is not missing: GEM’s “Lạc Hòa wind farm” lists the other names “Lac Hoa 2 Wind Power Plant (Phase 2), Lac Hoa Soc Trang Wind Farm (Phase 1)”; phase 2 (124 MW) = Lac Hoa 2 (123.6 of 130 MW, 38/40 turbines, at COD in Aug 2023; still 123.6 MW in Apr 2025). Phase 1 (30 MW) = UPC / AC Energy’s Lac Hoa (Wind Power Lac Hoa Co, position 20 in Hoa Dong commune), whose site gives COD on 30 Dec 2023 (EVN: not filed in Nov 2023, at COD by May 2024 — consistent), so GEM’s 2025 is wrong and the whole record dates from 2023. Another finding: TDC’s (Vinh Chau Renewable Energy JSC) “wind farm No. 5 / Lac Hoa 1” (coastal flats of Lac Hoa commune and ward 2, 30 MW, only 25 MW at COD in Oct 2021, inaugurated Apr 2022; the remaining 5 MW still not filed in Apr 2025) seems to have no record — see 8a-2. Side note: GEM’s “Hòa Đông wind farm” (30 MW, 2022) was still not filed in EVN’s Nov 2023 table and at COD by May 2024, so its 2022 may be wrong (not researched further).",
-  "why": "",
-  "sources": [
-   {
-    "url": "https://www.gem.wiki/L%E1%BA%A1c_H%C3%B2a_wind_farm",
-    "quote": "Other names: Lac Hoa 2 Wind Power Plant (Phase 2), Lac Hoa Soc Trang Wind Farm (Phase 1)",
-    "check": "OK"
-   },
-   {
-    "url": "https://tapchicongthuong.vn/2-nha-may-dien-gio-chuyen-tiep-tai-soc-trang-gia-lai-hoan-thanh-cod-109345.htm",
-    "quote": "gồm 38/40 turbine nhà máy Điện gió Lạc Hòa 2 tại Sóc Trăng (123,6MW)",
-    "check": "OK"
-   },
-   {
-    "url": "https://diengiolachoa.com/en/",
-    "quote": "On 30 December 2023, Lac Hoa Wind Power Plant which is situated in Vinh Chau town, Soc Trang province, Viet Nam has been officially in commercial operation (COD).",
-    "check": "OK"
-   },
-   {
-    "url": "https://diengiolachoa.com/en/",
-    "quote": "is located at Position 20 as provided in Soc Trang Wind Power Development Plan, in Hoa Dong commune, Vinh Chau town, Soc Trang Province",
-    "check": "OK"
-   },
-   {
-    "url": "https://diengiolachoa.com/en/",
-    "quote": "The project with a capacity of 30MW includes 6 turbines of the V150-3.8 MW model and 2 turbines of the V150-3.6 MW model.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.evn.com.vn/userfile/User/honghoa/files/10112023_CapnhatCODduanNLTTchuyentiep.pdf",
-    "quote": "53 NMĐ gió Lạc Hòa Gió 30 Chưa gửi hồ sơ COD",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.evn.com.vn/userfile/User/honghoa/files/23524_CapnhatCODduanNLTTchuyentiep.pdf",
-    "quote": "54 NMĐ gió Lạc Hòa Gió 30 x x 30 26.537 11.545.699",
-    "check": "OK"
-   }
-  ]
- },
- {
   "item": "8a-2. TDC’s Lạc Hòa 1 (wind farm No. 5, 30 MW) — no record found",
   "farm": "(none)",
   "src_code": null,
@@ -347,44 +198,6 @@
   ]
  },
  {
-  "item": "8b. Chơ Long (Gia Lai) — is the 105.5 MW built?",
-  "farm": "Chơ Long wind farm · 2",
-  "src_code": 2,
-  "iso": "VNM",
-  "status": "write",
-  "proposal": "fix('VNM', 'Chơ Long wind farm · 2', G, '朱龍（Chơ Long）風電廠共 155 MW（Phong Điện Chơ Long 股份公司，原 Krông Chro 縣）：2021 年已建成，但只有 49.5 MW 在 FIT 期限前通過 COD；其餘 105.5 MW 因電能品質（諧波）試驗問題，到 2026-08 仍未商轉（嘉萊省 2026-08-04 向 EVN 陳情）。不是「規劃中」，改為興建中（已建成、未商轉）', 'Cho Long wind plant is 155 MW in all (Cho Long Wind Power JSC, former Krong Chro district): it was built in 2021, but only 49.5 MW reached COD before the FIT deadline; the remaining 105.5 MW was still not in commercial operation in Aug 2026 because of power-quality (harmonics) test issues (Gia Lai’s request to EVN on 4 Aug 2026). Not “pre-construction”: set to under construction (built, not commissioned)', 'https://www.tinnhanhchungkhoan.vn/gia-lai-tiep-tuc-kien-nghi-go-vuong-2-du-an-dien-gio-chua-van-hanh-thuong-mai-post395316.html', st=1, owner='Cho Long Wind Power JSC (Phong Dien Cho Long)', note=True)\nfix('VNM', 'Chơ Long wind farm', G, '朱龍風電廠的 49.5 MW 在 2021-10-31 前通過 COD（EVN 名單「部分」，全廠 155 MW）', 'The 49.5 MW part of Cho Long reached COD by 31 Oct 2021 (EVN list, “partial” of the 155 MW plant)', 'https://evn.com.vn/userfile/User/tcdl/files/Thong-tin-COD-dien-gio-den-het-ngay-31-10-2021_2.pdf', year=2021, owner='Cho Long Wind Power JSC (Phong Dien Cho Long)')",
-  "note_zh": "105.5 MW 已建成（2021 年完工）但沒有商轉：嘉萊省工貿廳說朱龍與 Yang Trung 兩座 2021 年完工至今未商轉，朱龍的試驗已做完但諧波超標未解決，省長 2026-08-04 請 EVN 想辦法讓「剩下的 105.5 MW」商轉；EVN 2025-04 表也是「未送 COD 文件」。所以 GEM 二期不是「規劃中」，改興建中並加註。一期 49.5 MW：EVN 2021 名單「朱龍 49.50 部分」，年份補 2021。",
-  "note_en": "The 105.5 MW was built (completed 2021) but is not in commercial operation: Gia Lai’s trade department says Cho Long and Yang Trung were finished in 2021 and still not commercial; Cho Long’s tests are done but the voltage harmonics exceed the limit, and on 4 Aug 2026 the provincial chairman asked EVN to bring “the remaining 105.5 MW” into commercial operation; EVN’s Apr 2025 tracker also says “COD dossier not submitted”. So GEM’s phase 2 is not pre-construction: set to under construction with a note. Phase 1 (49.5 MW): EVN’s 2021 list “Cho Long 49.50, partial”; add year 2021.",
-  "why": "",
-  "sources": [
-   {
-    "url": "https://www.tinnhanhchungkhoan.vn/gia-lai-tiep-tuc-kien-nghi-go-vuong-2-du-an-dien-gio-chua-van-hanh-thuong-mai-post395316.html",
-    "quote": "trên địa bàn tỉnh có 2 dự án điện gió là Nhà máy điện gió Chơ Long và Nhà máy điện gió Yang Trung đã hoàn thành xây dựng từ năm 2021 nhưng đến nay vẫn chưa được đưa vào vận hành thương mại do còn vướng mắc",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.tinnhanhchungkhoan.vn/gia-lai-tiep-tuc-kien-nghi-go-vuong-2-du-an-dien-gio-chua-van-hanh-thuong-mai-post395316.html",
-    "quote": "để tạo điều kiện sớm đưa phần công suất còn lại 105,5 MW của Dự án Nhà máy điện gió Chơ Long vào vận hành thương mại",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.tinnhanhchungkhoan.vn/gia-lai-tiep-tuc-kien-nghi-go-vuong-2-du-an-dien-gio-chua-van-hanh-thuong-mai-post395316.html",
-    "quote": "Dự án Nhà máy Điện gió Chơ Long do Công ty cổ phần Phong Điện Chơ Long thực hiện tại huyện Krông Chro trước đây có tổng mức đầu tư 6.246 tỷ đồng, công suất 155 MW, quy mô 67,33 ha.",
-    "check": "OK"
-   },
-   {
-    "url": "https://evn.com.vn/userfile/User/tcdl/files/Thong-tin-COD-dien-gio-den-het-ngay-31-10-2021_2.pdf",
-    "quote": "76 NMĐ gió Chơ Long Gia Lai 49,50 Một phần",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf",
-    "quote": "23 NMĐ gió Chơ Long Gió 105,5 Chưa gửi hồ sơ COD",
-    "check": "OK"
-   }
-  ]
- },
- {
   "item": "8c. Hanuman 10 (Thailand, 80 MW, Energy Absolute) — missing",
   "farm": "(none)",
   "src_code": null,
@@ -413,44 +226,6 @@
    {
     "url": "https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf",
     "quote": "5 HNM 10 (Banchuan Development Co., Ltd.) 80 32 Ban Chuan subdistrict, Bamnet Narong district Total 260 103 The Hanuman Wind Project utilises 103 Siemens Gamesa 2.5MW wind turbines with a hub height of 153 meters and rotor diameter of 126 meters.",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "item": "9. Quoc Vinh Soc Trang (G, 30 MW) vs Soc Trang 7 Phase 1 (C, 30 MW) — duplicate?",
-  "farm": "Quoc Vinh Soc Trang wind farm / Soc Trang 7 Phase 1",
-  "src_code": 2,
-  "iso": "VNM",
-  "status": "write",
-  "proposal": "NOT_DUP[('VNM', 'Quoc Vinh Soc Trang wind farm')] = ('朔莊最早的三座風場分屬不同業主：國榮（6 號，陸上 7.5 ha，6 部，朔莊國榮風電公司）與 7 號（海上 3,100 ha 範圍，7 部 4.2 MW，朔莊能源公司與春求公司），2021 年 10 月一起送電；EVN 的 FIT 名單分列國榮 30 MW 與 7 號 29.4 MW', 'Soc Trang’s first three wind farms have different owners: Quoc Vinh (No. 6, 7.5 ha onshore, 6 turbines, Soc Trang Quoc Vinh Wind Power Co) and No. 7 (3,100 ha offshore area, 7 × 4.2 MW, Soc Trang Energy JSC and Xuan Cau Co), energised together in Oct 2021; EVN’s FIT list has Quoc Vinh 30 MW and No. 7 29.4 MW as separate entries', 'https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html')\nfix('VNM', 'Soc Trang 7 Phase 1', C, '7 號風場一期是 7 部 4.2 MW、29.4 MW（EVN 2021 FIT 名單「Số 7 Sóc Trăng 29,40 全部」），業主朔莊能源股份公司與春求公司', 'Wind farm No. 7 phase 1 has 7 × 4.2 MW, 29.4 MW (EVN’s 2021 FIT list: “Số 7 Sóc Trăng 29,40, full”), owned by Soc Trang Energy JSC and Xuan Cau Co Ltd', 'https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html', mw=29.4, turbine='7x 4.2 MW', owner='Soc Trang Energy JSC; Xuan Cau Co Ltd')",
-  "note_zh": "兩座不同：越南能源雜誌 2021-10 把國榮（6 號）與 7 號分列——國榮在陸上 7.5 ha、6 部，業主朔莊國榮風電公司；7 號在 3,100 ha 海域（兩期合計）、7 部 4.2 MW，業主朔莊能源公司與春求公司，兩場以 110 kV 線相連、共用永州 110 kV 變電站。EVN 2021-10-31 FIT 名單也分列「Số 7 Sóc Trăng 29,40」與「Quốc Vinh Sóc Trăng 30,00」。建議列 NOT_DUP，並把 7 號一期改 29.4 MW、7 部 4.2 MW、業主補朔莊能源公司。國榮的 6 部標成「6x5.3 MW」（32 MW）與 30 MW 不合，所以國榮的機組欄不寫。",
-  "note_en": "Two different farms: Nang Luong Viet Nam (Oct 2021) lists Quoc Vinh (No. 6) and No. 7 separately — Quoc Vinh on 7.5 ha onshore with 6 turbines, owner Soc Trang Quoc Vinh Wind Power Co; No. 7 on a 3,100 ha sea area (both phases) with 7 × 4.2 MW, owners Soc Trang Energy JSC and Xuan Cau Co, the two linked by a 110 kV line to the Vinh Chau 110 kV substation. EVN’s FIT list of 31 Oct 2021 also has “Số 7 Sóc Trăng 29,40” and “Quốc Vinh Sóc Trăng 30,00” as separate entries. Add NOT_DUP, and correct No. 7 phase 1 to 29.4 MW, 7 × 4.2 MW, with Soc Trang Energy JSC as owner. Quoc Vinh’s 6 turbines are given as “6x5.3 MW” (32 MW), which does not fit 30 MW, so no turbine field for it.",
-  "why": "",
-  "sources": [
-   {
-    "url": "https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html",
-    "quote": "Quoc Vinh project (the project No.6) – with the first phase capacity of 30 MW, annual average generation of 95 GWh, developed on an onshore area of 7.5 ha, also in Vinh Chau town, invested by Soc Trang Quoc Vinh Wind Power Company Ltd.",
-    "check": "OK"
-   },
-   {
-    "url": "https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html",
-    "quote": "Soc Trang Wind power project No 7 with the first phase capacity of 30 MW annual average generation of 108 GWh, developed on an offshore area of 3,100 ha (for the two phases) in Vinh Chau town, invested by Soc Trang Energy Joint Stock Company and Xuan Cau Company Ltd. with an investment of 1,500 billion VND. The project includes 7 wind turbines by 4.2 MW each",
-    "check": "OK"
-   },
-   {
-    "url": "https://evn.com.vn/userfile/User/tcdl/files/Thong-tin-COD-dien-gio-den-het-ngay-31-10-2021_2.pdf",
-    "quote": "33 NMĐ gió Số 7 Sóc Trăng 29,40 Toàn phần",
-    "check": "OK"
-   },
-   {
-    "url": "https://evn.com.vn/userfile/User/tcdl/files/Thong-tin-COD-dien-gio-den-het-ngay-31-10-2021_2.pdf",
-    "quote": "56 NMĐ gió Quốc Vinh Sóc Trăng Sóc Trăng 30,00 Toàn phần",
-    "check": "OK"
-   },
-   {
-    "url": "https://baodautu.vn/soc-trang-khanh-thanh-nha-may-dien-gio-so-7-d160743.html",
-    "quote": "Nhà máy Điện gió số 7 tại xã Vĩnh Hải, thị xã Vĩnh Châu (Sóc Trăng) có quy mô gần 90 ha khu vực biển và khoảng 3 ha đất",
     "check": "OK"
    }
   ]
