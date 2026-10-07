@@ -1,0 +1,248 @@
+[
+ {
+  "farm": "CGN Rudong Demonstration",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第九輪（江蘇）未找到可引用的建成輪轂高度；21財經、中國電器工業協會、中國風能協會的投運報導都只寫離岸距離、水深與樁長。",
+  "note_en": "Round 9 (Jiangsu): no quotable as-built hub height; the 21jingji, CEEIA and CWEEA commissioning reports give only distance, depth and pile length.",
+  "why": "Searched installation and commissioning news (21jingji, ceeia, cweea), MEE acceptance letters, old CCER PDDs (cdm.ccchina.org.cn: http 412/502, https certificate chain fails here) and the new CCER registry (not listed there). Nothing names the SWT-4.0-120 hub height.",
+  "sources": []
+ },
+ {
+  "farm": "CGN Rudong H8",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：本案已在全國溫室氣體自願減排註冊登記系統登記（中廣核江蘇如東H8#300MW海上風電項目），項目設計文件（PDD）A.3 節是風機技術參數，應含兩種機型的輪轂高度；但檔案下載需要登入，無法核對。主力機型 H171-5.0 的輪轂高度仍未查到。",
+  "note_en": "Lead: the farm is registered in the national CCER registry (CGN Jiangsu Rudong H8# 300 MW); section A.3 of its project design document lists the turbine technical parameters and should give both models' hub heights, but the files need a login. The H171-5.0 hub height is still not found.",
+  "why": "CCER registry ccer.cets.org.cn: the public API lists the project, but /api/file/download/single redirects to /redirectpage and /api/download returns 401 (login needed). CSSC Haizhuang (hzwindpower.com) grid-connection news gives no height. MSA notices for generator/blade replacements (js.msa.gov.cn) give only coordinates. Nantong ecology bureau still 403; hbj.nantong.gov.cn does not resolve here.",
+  "sources": []
+ },
+ {
+  "farm": "CTG Dafeng H8-1 (800 MW)",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：搜尋摘要顯示三峽大豐 800 MW 招標文件寫 H8-1 場址水深 9–18 m、H9 與 H15 7–15 m、H17 0–15 m（全案約 0–18 m），但三峽採購平台、北極星與龍船風電網在此都連不上，無法核對；主力機型 GWH230-8.5 與 GW191-6 的輪轂高度未查到（13.6 MW 單機 142 m 只屬 1 台）。",
+  "note_en": "Lead: search snippets of the CTG Dafeng 800 MW tender give depths of 9–18 m (H8-1), 7–15 m (H9, H15) and 0–15 m (H17), about 0–18 m overall, but the CTG procurement site, bjx and imarine are unreachable here, so unverified; hub heights of the GWH230-8.5 and GW191-6 units not found (the 142 m hub belongs to the single 13.6 MW unit).",
+  "why": "eps.ctg.com.cn and sidri.com (CTG design institute) cut TLS; news.bjx.com.cn WAF challenge; wind.imarine.cn 403; hynyw.com 503. Goldwind, Dafeng district, Xinhua and SASAC reports name only the 13.6 MW unit's hub. Not in the CCER registry.",
+  "sources": [
+   {
+    "url": "http://www.news.cn/fortune/20251216/32d36eb77263486c9f3d2bbcbf4daa0f/c.html",
+    "quote": "项目投运了一台13.6兆瓦风电机组，机组轮毂中心高度142米，单支叶片长123米，叶轮直径252米"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Rudong H10",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：本案已在全國溫室氣體自願減排註冊登記系統登記（項目代碼 A210009，2025-01-26 登記，審定機構中國船級社質量認證）；登記資料的修改說明寫「A.3部分修改风机技术参数」，PDD 應有建成機組的輪轂高度，但下載需要登入。南通市生態環境局的竣工驗收 docx 仍 403。",
+  "note_en": "Lead: registered in the national CCER registry (project code A210009, registered 26 Jan 2025, validated by China Classification Society Certification); the change log says section A.3 'turbine technical parameters' was revised, so the PDD should give the built hub height, but downloads need a login. The Nantong acceptance docx is still 403.",
+  "why": "ccer.cets.org.cn PDD and validation report (files '温室气体自愿减排项目设计文件-三峡新能源江苏如东H10（400MW）风电场项目' and '审定报告') need login; sthjj.nantong.gov.cn 403; hbj.nantong.gov.cn mirror does not resolve here; CTG sites cut TLS.",
+  "sources": []
+ },
+ {
+  "farm": "CTG Rudong H6",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：本案已在全國溫室氣體自願減排註冊登記系統登記並已核證簽發，PDD 與審定報告可能寫有輪轂高度，但下載需要登入；南通市生態環境局的竣工驗收 docx 仍 403。",
+  "note_en": "Lead: registered and credited in the national CCER registry; the PDD and validation report probably give the hub height, but downloads need a login. The Nantong acceptance docx is still 403.",
+  "why": "ccer.cets.org.cn downloads need login; sthjj.nantong.gov.cn 403; hbj.nantong.gov.cn does not resolve; MSA blade-replacement notice for unit 72# (js.msa.gov.cn) gives only coordinates.",
+  "sources": []
+ },
+ {
+  "farm": "Guohua Dongtai IV (H2)",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：本案已在全國溫室氣體自願減排註冊登記系統登記（國家能源集團江蘇東台H2四期300MW海上風電項目），PDD 可能寫有兩種機型的輪轂高度，但下載需要登入。國家能源招標網 2026-04 的消防改造招標確認 63 台上海電氣 4.0 MW＋12 台遠景 4.2 MW。",
+  "note_en": "Lead: registered in the national CCER registry (CHN Energy Jiangsu Dongtai H2 phase IV 300 MW); its PDD probably gives both models' hub heights, but downloads need a login. A CHN Energy tender (Apr 2026) confirms 63 Shanghai Electric 4.0 MW + 12 Envision 4.2 MW units.",
+  "why": "ccer.cets.org.cn downloads need login; hbt.jiangsu.gov.cn (old Jiangsu ecology domain with the 2021-03-24 acceptance publicity) no longer resolves and sthjt.jiangsu.gov.cn returns 404 for that article; the Dongtai X3 cable EIA on jshbgz.cn describes the farm but gives no hub height (and is AES-encrypted, so check_quotes cannot read it).",
+  "issues": "Foundation: the farm is recorded as monopile ('mp'), but the operator's 2026 tender says units 47# and 66# stand on high-rise pile caps (高桩承台) and the rest on monopiles, i.e. 2 of 75 units are not monopiles.",
+  "issue_sources": [
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002001/20260427/5666b061-4080-431f-bdac-89b7a31d373c.html",
+    "quote": "共有上海电气、远景2个厂家2种机型（上海电气4.0MW风机63台、远景4.2MW风机12台），其中47#、66#风机为高桩承台，其他为单桩基础。"
+   }
+  ],
+  "sources": []
+ },
+ {
+  "farm": "Guoneng Dafeng H5",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：本案已在全國溫室氣體自願減排註冊登記系統登記並有核證申請公示中（盐城国能大丰H5#206.4MW海上风电项目），PDD 可能寫有 GW184-6.45 的輪轂高度，但下載需要登入。鹽城市生態環境局 2023-03 的竣工驗收受理公示已從網站移除（404）。",
+  "note_en": "Lead: registered in the national CCER registry with a verification application under publicity (Yancheng Guoneng Dafeng H5# 206.4 MW); its PDD probably gives the GW184-6.45 hub height, but downloads need a login. The Yancheng ecology bureau's March 2023 acceptance notices have been removed from its site (404).",
+  "why": "ccer.cets.org.cn downloads need login; jsychb.yancheng.gov.cn removed articles older than about Oct 2025 (404; its dataproxy list starts 2025-10), so the 2023 acceptance attachments cannot be found; Goldwind product page (112 m 'customisable') is not farm-specific.",
+  "sources": []
+ },
+ {
+  "farm": "Guoxin Dafeng 850 MW",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第九輪：全容量併網（2025-12-29）報導與中國能建、人民網、新浪等都沒有寫輪轂高度。",
+  "note_en": "Round 9: the full-grid-connection reports (29 Dec 2025) from CEEC, People's Daily, Sina and others give no hub height.",
+  "why": "Checked js.people.com.cn, gscn.com.cn, ne21.com, finance.sina.com.cn; mnewenergy.in-en.com 403; the 220 kV transmission EIA on jsychb.yancheng.gov.cn is design-stage and has no hub value. Not in the CCER registry.",
+  "sources": []
+ },
+ {
+  "farm": "Huaneng Dafeng",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第九輪未找到；兩種機型（遠景 EN136-4.2、海裝 H151-5.0）的輪轂高度都沒有可引用的建成出處。",
+  "note_en": "Round 9: nothing found; no quotable as-built hub height for either model (Envision EN136-4.2, CSSC Haizhuang H151-5.0).",
+  "why": "Not in the CCER registry; Yancheng acceptance notices removed (404); Haizhuang and Envision news give no farm-specific height.",
+  "sources": []
+ },
+ {
+  "farm": "Huaneng Sheyang H1 / Yancheng",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：搜尋摘要顯示射陽南區 H1 的招標文件寫「海底高程-13m~-16m」、離岸約 45 km，但出處（國際風力發電網、北極星）在此連不上，無法核對；輪轂高度未查到。",
+  "note_en": "Lead: search snippets of the Sheyang South H1 tender give seabed elevation −13 to −16 m and about 45 km offshore, but the sources (in-en.com, bjx) are unreachable here; hub height not found.",
+  "why": "wind.in-en.com 403; bjx WAF challenge; m.ai8.com.cn connection refused; Sohu article (all 67 turbines installed) and sheyangnews give no depth or hub. Not in the CCER registry.",
+  "sources": []
+ },
+ {
+  "farm": "Jiangsu Dongtai Zhugensha H1 Offshore wind farm",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：《中國能源報》（2020-06-22）寫東台五期（竹根沙H1#）「拟安装50台上海电气4.0-146/95风力发电机组」，型號尾碼 95 依上海電氣命名慣例應是輪轂高度，但這是型號、且是「擬安裝」，不採用；同文「第三支叶片在百米高空与轮毂稳稳对接」是吊裝高度。葉輪 146 m 的明文（國際風力發電網）在此 403。",
+  "note_en": "Lead: China Energy News (22 Jun 2020) says Dongtai phase V (Zhugensha H1#) 'is to install 50 Shanghai Electric 4.0-146/95 turbines'; the /95 suffix is the hub height by Shanghai Electric's naming, but it is a model code in planning wording, so not used; the same article's 'blade docked with the hub at a hundred metres' is an installation height. The page stating the 146 m rotor (in-en.com) is 403 here.",
+  "why": "Hub only implied by a model suffix; m.in-en.com / wind.in-en.com 403; bioffshore.com and offshorecable.com.cn 503. The 2025–2026 EIA of the Zhugensha Z1 offshore-PV project inside this farm (jshbgz.cn) is only on Baidu Pan. Not in the CCER registry.",
+  "issues": "The turbine field is empty; the source gives 50 × Shanghai Electric 4.0-146 (4 MW). It also confirms that Guohua Dongtai phase V is this farm (竹根沙H1#).",
+  "issue_sources": [
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2020-06/22/content_1993858.htm",
+    "quote": "东台五期海上风电场项目位于江苏省管区的竹根沙海域，离岸距离约37千米，风电场东西长约14千米，南北宽约7.5千米，涉海面积30.1平方千米，拟安装50台上海电气4.0-146/95风力发电机组，总装机规模200兆瓦"
+   },
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2020-06/22/content_1993858.htm",
+    "quote": "标志着国家能源集团国华投资东台五期（竹根沙H1#）海上风电场项目首台风机吊装成功"
+   }
+  ],
+  "sources": []
+ },
+ {
+  "farm": "Jiangsu Dongtai Zhugensha H2 Offshore wind farm",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第九輪未找到輪轂高度；上海電氣「4.0-146及6.0-172機組」頁面在此回 521。",
+  "note_en": "Round 9: hub height not found; the Shanghai Electric page on its 4.0-146 and 6.0-172 units returns 521 here.",
+  "why": "shanghai-electric.com 521; Dongtai X3 cable EIA (jshbgz.cn) lists 50 × 4.0 MW + 17 × 6.0 MW for this farm but no hub height, and it is AES-encrypted (check_quotes cannot read it). Not in the CCER registry.",
+  "issues": "The turbine field is empty; CWEEA (Sept 2020, EPC contractor report) gives 50 × 4.0 MW + 17 × 6.0 MW (Shanghai Electric 4.0-146 and 6.0-172 per the maker's page title), 302 MW.",
+  "issue_sources": [
+   {
+    "url": "https://www.cweea.com.cn/xwdt/html/31056.html",
+    "quote": "江苏竹根沙（H2#）项目风电场总装机容量302MW，其中包括50台4.0MW和17台6.0MW风机机组。"
+   }
+  ],
+  "sources": []
+ },
+ {
+  "farm": "Jiangsu Qidong H1+H2",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：北極星（2021-02，首台風機）寫「高92.1米、塔筒最大直徑6米的H2-12號機位」，量的是什麼不明（可能是塔高或輪轂高），且北極星在此連不上；報導又說本案是「風機安裝種類最多」的項目，單一數值不一定涵蓋全部機型。",
+  "note_en": "Lead: bjx (Feb 2021, first turbine) mentions 'the 92.1 m high H2-12 position with a 6 m maximum tower diameter'; what the 92.1 m measures is unclear (tower or hub), bjx is unreachable here, and the project is described as having the most turbine types, so one value may not cover all units.",
+  "why": "news.bjx.com.cn WAF challenge; zhuanlan.zhihu.com 403; news.qq.com 501; ne21 tender gives design-stage depths only. Not in the CCER registry.",
+  "sources": []
+ },
+ {
+  "farm": "Jiangsu Rudong H14 (Guangheng) Offshore wind farm",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：本案已在全國溫室氣體自願減排註冊登記系統登記並已核證（广恒新能源江苏如东H14#200兆瓦海上风电项目），PDD 可能寫有輪轂高度與水深，但下載需要登入。",
+  "note_en": "Lead: registered and verified in the national CCER registry (Guangheng New Energy Jiangsu Rudong H14# 200 MW); its PDD probably gives hub height and depth, but downloads need a login.",
+  "why": "ccer.cets.org.cn downloads need login; Nantong ecology bureau 403; roundup articles (163.com, thepaper) give layout and 50 × 4 MW only.",
+  "sources": []
+ },
+ {
+  "farm": "Longyuan Rudong Intertidal 150 MW Demo",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第九輪未找到三種機型（華銳 3 MW、西門子 2.3 MW、金風 2.5 MW）的建成輪轂高度。",
+  "note_en": "Round 9: no as-built hub height for any of the three models (Sinovel 3 MW, Siemens 2.3 MW, Goldwind 2.5 MW).",
+  "why": "English Wikipedia page gives only max depth 8 m; NEA 2011 article, kepuchina entry and ntoc-china.com pages give no heights; old CCER PDDs on cdm.ccchina.org.cn unreachable (412/502, certificate chain).",
+  "sources": []
+ },
+ {
+  "farm": "SPIC Binhai South H3",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第九輪未找到；國家電投江蘇公司的「兩個百萬千瓦級基地」報導與 CPEM 頁面都沒有輪轂高度（濱海北 H1／H2 的值出自 REIT 資料，不含濱海南 H3）。",
+  "note_en": "Round 9: nothing found; SPIC Jiangsu's 'two gigawatt bases' report and the CPEM page give no hub height (the Binhai North H1/H2 values come from the REIT documents, which do not cover Binhai South H3).",
+  "why": "Not in the CCER registry; Yancheng acceptance notices removed (404); eastwp.net 502 for the first-turbine article.",
+  "sources": []
+ },
+ {
+  "farm": "SPIC Dafeng H3",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "線索：本案已在全國溫室氣體自願減排註冊登記系統登記（国家电投江苏大丰H3#302.4MW海上风电项目），PDD 可能寫有 EN136-4.2 的輪轂高度，但下載需要登入。",
+  "note_en": "Lead: registered in the national CCER registry (SPIC Jiangsu Dafeng H3# 302.4 MW); its PDD probably gives the EN136-4.2 hub height, but downloads need a login.",
+  "why": "ccer.cets.org.cn downloads need login; shanghaipower.com English news 404; shipoe.com 403; China Energy News (2018-08) covers only the substation.",
+  "sources": []
+ },
+ {
+  "farm": "Xiexin (GCL) Rudong H13",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第九輪未找到；中交三航局完工報導只寫升壓站位置泥面高程約 −5.5 m（單點，不是場區水深範圍），輪轂高度未查到。",
+  "note_en": "Round 9: nothing found; the CCCC Third Harbour completion report gives only a mudline of about −5.5 m at the substation (one point, not a site depth range); hub height not found.",
+  "why": "Only H15 (not H13) is in the CCER registry; MSA gearbox/generator replacement notices for H13 units give coordinates only; bjx tender page on fd.bjx.com.cn gives no depth.",
+  "sources": []
+ }
+]

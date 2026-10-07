@@ -38,10 +38,10 @@ visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CH
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
   [docs/events.en.md](./docs/events.en.md)).
 - Live output for about 150 farms in Australia and Canada.
-- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 405 record-level farm
+- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 409 record-level farm
   clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)), with a build check for farms lost to a wrong merge
   (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (263 of 332 operating offshore
-  farms have a known type, 81.1% of capacity); dimensions: at least one value for 247 farms and all three for 173 (eight rounds, every
+  farms have a known type, 81.1% of capacity); dimensions: at least one value for 251 farms and all three for 174 (nine rounds, every
   figure with a quoted source checked by `tools/check_quotes.py`); the differences between GEM 2026-02 and the site's list checked one
   by one (v2.17.7).
 

@@ -15,6 +15,22 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.3 — 2026-10-07
+
+- Hub heights, round 9 (all 51 operating Chinese offshore farms with a foundation type but no hub height checked again; quotes checked with `check_quotes.py`):
+  Huaneng Peninsula South 4 has a 102 m hub in about 30 m of water and SPIC Peninsula South 3 a 99 m hub (completion environmental acceptance opinions published by the
+  Yantai ecology bureau, values at acceptance); Qingzhou 3 has 41–46 m of water and a 178 m rotor (supplementary sea-use report published by the Yangjiang natural resources
+  bureau); SPIC Rudong H4 and H7 average 16 and 19 m of water. Operating offshore farms with dimensions: at least one value for 251, all three for 174. For the other farms
+  only values from construction or for some units were found; they are kept in `tools/research/`.
+- Farm record fixes (farm layer, foundations and OpenStreetMap turbine matching rebuilt):
+  - Guohua Dongtai IV is now 73 monopiles + 2 high-rise pile caps (CHN Energy tender notice, 2026).
+  - Turbine fields: Fanshi I (22 Goldwind GWH252-13.6MW + 51 Mingyang MySE14-260), Zhugensha H1 (50 Shanghai Electric 4.0-146), Zhugensha H2 (50 × 4.0 MW + 17 × 6.0 MW) and
+    Xuwen (94 turbines, 600 MW, plus a 25 × 12 MW extension).
+  - An older rule's text on Xuwen had turned "the north lot of 47 fully connected on 19 Nov 2021" into a whole-farm connection on 26 Nov; corrected from the source.
+- OpenStreetMap turbine matching: mixed-model turbine fields now add up their counts (only the first "N x" was read, so "22x … + 51x …" counted 22). Xiangshui, Pingtan
+  Changjiang'ao and Zhuhai Guishan now match groups of the right size; Rudong H8 and Daishan 4 had matched groups covering only part of the farm (35 of 65 and 36 of 54
+  turbines) and are no longer drawn.
+
 ## v2.30.2 — 2026-10-07
 
 - New user guide, [docs/user-guide.en.md](./docs/user-guide.en.md) (Chinese: `user-guide.md`): every page, the globe's toolbar, side panel, farm cards, layers,

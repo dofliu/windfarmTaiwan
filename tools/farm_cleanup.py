@@ -852,8 +852,8 @@ RULES = [
         '同一座風場（Nexif 的 VPL 檳椥一期，30 MW，平大縣）', 'Same farm (Nexif’s VPL Ben Tre phase 1, 30 MW, Binh Dai district)',
         'https://www.phanvu.vn/en-US/vpl-ben-tre-wind-power-plant-p1'),
     dup('CHN', 'Guangdong Energy Zhanjiang Xuwen', C, ('Guangdong Zhanjiang Xuwen Offshore wind farm', G),
-        '湛江徐聞 600 MW（94 部 6.45 MW，2021 年 11 月 26 日全容量併網）是國家電投的風場，這筆「粵電徐聞 300 MW」只是其中一半；GEM 的徐聞一筆已含 600 MW 原場與 300 MW 增容',
-        'The Zhanjiang Xuwen 600 MW farm (94 × 6.45 MW, fully connected on 26 November 2021) is SPIC’s; this “Guangdong Energy Xuwen 300 MW” row is half of it, and GEM’s Xuwen record already carries the 600 MW farm plus the 300 MW extension',
+        '湛江徐聞 600 MW（南、北兩個標段各 47 台，北區 2021 年 11 月 19 日全容量併網）是國家電投的風場，這筆「粵電徐聞 300 MW」只是其中一半；GEM 的徐聞一筆已含 600 MW 原場與 300 MW 增容',
+        'The Zhanjiang Xuwen 600 MW farm (two lots of 47 turbines; the north lot fully connected on 19 November 2021) is SPIC’s; this “Guangdong Energy Xuwen 300 MW” row is half of it, and GEM’s Xuwen record already carries the 600 MW farm plus the 300 MW extension',
         'https://www.ne21.com/news/show-166655.html'),
     dup('CHN', 'Shandong Changyi Laizhouwan Offshore wind farm', G, ('CTG Changyi', C),
         '同一座風場（三峽昌邑萊州灣一期／海洋牧場融合示範，300 MW、50 部 6 MW，2022 年）', 'Same farm (CTG’s Changyi Laizhou Bay phase 1 / marine-ranch demonstration, 300 MW, 50 × 6 MW, 2022)',
@@ -1631,6 +1631,27 @@ RULES = [
         '三峽莊河 III 布置 2 台 3 MW、50 台 3.3 MW、21 台 6.45 MW，裝機規模 300 MW（世紀新能源網轉龍源振華，2020-11）；原寫「金風／上海電氣 4–6 MW」',
         'CTG Zhuanghe III has 2 × 3 MW, 50 × 3.3 MW and 21 × 6.45 MW, 300 MW in all (ne21 citing Longyuan Zhenhua, Nov 2020); it was stored as "Goldwind/Sewind 4–6 MW"',
         'https://www.ne21.com/news/show-135820.html', turbine='2x 3 MW + 50x 3.3 MW + 21x 6.45 MW'),
+    # ------------------------------------------------ 2026-10-07 第三批（輪轂高度第九輪查到的資料問題；出處原文以 check_quotes.py 核對）
+    fix('CHN', 'CGN Fanshi I', C,
+        '帆石一的機型是 22 台金風 GWH252-13.6MW 與 51 台明陽 MySE14-260（陽江市自然資源局 2025-04 公示的用海調整補充論證報告書「調整後風機主要設備特性表」；'
+        '台數與陽江新聞網的 22 台 13.6 MW＋51 台 14 MW 相同）；原寫「明陽 11–16 MW」',
+        'Fanshi I uses 22 Goldwind GWH252-13.6MW and 51 Mingyang MySE14-260 (the adjusted equipment table of the sea-use adjustment report published by the Yangjiang '
+        'natural resources bureau in Apr 2025; the counts match Yangjiang News’ 22 × 13.6 MW + 51 × 14 MW); it was stored as "Mingyang 11–16 MW"',
+        'http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf', turbine='22x Goldwind GWH252-13.6MW + 51x Mingyang MySE14-260'),
+    fix('CHN', 'Guangdong Zhanjiang Xuwen Offshore wind farm', G,
+        '國家電投徐聞原場 60 萬千瓦、南北兩個標段各 47 台（世紀新能源網，2021-11）；300 MW 增容為 25 台 12 MW，2024 年 12 月 17 日全容量併網（國家電投），'
+        '與這筆紀錄的分期（2024 年 300 MW）相符；原本機型欄空白',
+        'SPIC’s original Xuwen farm is 600 MW in two lots of 47 turbines (ne21, Nov 2021); the 300 MW extension is 25 × 12 MW, fully connected on 17 Dec 2024 (SPIC), '
+        'matching this record’s 300 MW phase in 2024; the turbine field was empty',
+        'http://www.spic.com.cn/xtdt1/202412/t20241218_324623.html', turbine='94x (600 MW) + 25x 12 MW'),
+    fix('CHN', 'Jiangsu Dongtai Zhugensha H1 Offshore wind farm', G,
+        '國華東台五期（竹根沙 H1#）裝 50 台上海電氣 4.0-146（中國能源報，2020-06 首台吊裝）；原本機型欄空白',
+        'Guohua Dongtai phase V (Zhugensha H1#) has 50 Shanghai Electric 4.0-146 turbines (China Energy News, first turbine installed June 2020); the turbine field was empty',
+        'https://paper.people.com.cn/zgnyb/html/2020-06/22/content_1993858.htm', turbine='50x Shanghai Electric 4.0-146'),
+    fix('CHN', 'Jiangsu Dongtai Zhugensha H2 Offshore wind farm', G,
+        '竹根沙 H2# 總裝機 302 MW，含 50 台 4.0 MW 與 17 台 6.0 MW（中國可再生能源學會風能專委會轉 EPC 承包商，2020-09）；原本機型欄空白',
+        'Zhugensha H2# is 302 MW with 50 × 4.0 MW and 17 × 6.0 MW turbines (CWEEA citing the EPC contractor, Sept 2020); the turbine field was empty',
+        'https://www.cweea.com.cn/xwdt/html/31056.html', turbine='50x 4.0 MW + 17x 6.0 MW'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）

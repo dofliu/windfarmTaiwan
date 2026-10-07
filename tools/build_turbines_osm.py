@@ -98,7 +98,10 @@ def unit_range(f):
 
 def turbine_count(f):
     t = f['turbine'] or ''
-    m = re.search(r'(\d+)\s*[x×]\s', t) or re.search(r'(?:MW|\s)\s*[x×]\s*(\d+)\b', t) or re.search(r'(\d+)\s*(?:turbines|units|部)', t, re.I)
+    many = re.findall(r'(\d+)\s*[x×]\s', t)              # 混合機型（例：「22x A + 51x B」）要加總，不能只取第一個
+    if many:
+        return sum(int(n) for n in many)
+    m = re.search(r'(?:MW|\s)\s*[x×]\s*(\d+)\b', t) or re.search(r'(\d+)\s*(?:turbines|units|部)', t, re.I)
     return int(m.group(1)) if m else None
 
 
