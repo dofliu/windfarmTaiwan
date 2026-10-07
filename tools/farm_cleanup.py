@@ -1762,6 +1762,55 @@ NOT_DUP = {
         ('MaStR 的「Gnannenweiler」是 2021 年的 2 部 Enercon E138；GEM「Gnannenweiler Windnetz」已對到 2009 年的 Enercon E82：同地點不同期',
          'MaStR’s “Gnannenweiler” is 2 Enercon E138 from 2021; GEM’s “Gnannenweiler Windnetz” matches the Enercon E82 from 2009: same area, different phase',
          'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    # 2026-10-07：與 MaStR 新增風場容量相同、位置相近，但 MaStR 登記的是不同機組（疑似重複 B 逐組核對）
+    ('DEU', 'Gägelow'):
+        ('MaStR 有兩群都叫「Gägelow」、相距 41 km：GEM 的 Gägelow（2002 年、14 MW）所在處是 8 部 ENERCON E-66（2002 年，14.4 MW）；這筆是 Gägelow 鄉（維斯馬附近）2014–2022 年陸續併網的 6 部（13.8 MW），是另一座',
+         'MaStR has two groups called “Gägelow”, 41 km apart: at GEM’s Gägelow (2002, 14 MW) stand 8 ENERCON E-66 (2002, 14.4 MW); this record is the 6 units in the municipality of Gägelow near Wismar, connected 2014–2022 (13.8 MW), a different farm',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'AW Windenergie Bramsche'):
+        ('MaStR 的「AW Windenergie Bramsche」是 13 部 Senvion 3.0 M122（2016–2017 年併網，40.99 MW）；GEM 的「Kalkriese」（40 MW）在 MaStR 對到的是另外 12 部 Vestas V126（2016 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “AW Windenergie Bramsche” is 13 × Senvion 3.0 M122 (connected 2016–2017, 40.99 MW); GEM’s “Kalkriese” (40 MW) matches 12 other units in MaStR, Vestas V126 (2016): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Neuengörs Repowering'):
+        ('MaStR 的「Windpark Neuengörs Repowering」是 5 部 Nordex SE N163-6.x（2025 年併網，34 MW）；GEM 的「Bebensee」（33 MW）在 MaStR 對到的是另外 5 部 Nordex Germany N163/6.X（2025 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “Windpark Neuengörs Repowering” is 5 × Nordex SE N163-6.x (connected 2025, 34 MW); GEM’s “Bebensee” (33 MW) matches 5 other units in MaStR, Nordex Germany N163/6.X (2025): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Mahlsdorf 2'):
+        ('MaStR 的「Windpark Mahlsdorf 2」是 4 部 Nordex Germany N175-6.8 MW（2025–2026 年併網，27.2 MW）；GEM 的「Illmersdorf」（28.5 MW）在 MaStR 對到的是另外 5 部 Nordex Energy N163-5.7 MW STE（2023–2024 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “Windpark Mahlsdorf 2” is 4 × Nordex Germany N175-6.8 MW (connected 2025–2026, 27.2 MW); GEM’s “Illmersdorf” (28.5 MW) matches 5 other units in MaStR, Nordex Energy N163-5.7 MW STE (2023–2024): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', '4.4-Wind'):
+        ('MaStR 的「4.4-Wind」是 4 部 ENERCON E-115 EP3 E3（2023 年併網，16.8 MW）；GEM 的「Vettenbüttel」（17 MW）在 MaStR 對到的是另外 3 部 Nordex Energy N 149 - 5,7 MW（2022 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “4.4-Wind” is 4 × ENERCON E-115 EP3 E3 (connected 2023, 16.8 MW); GEM’s “Vettenbüttel” (17 MW) matches 3 other units in MaStR, Nordex Energy N 149 - 5,7 MW (2022): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Sillerup Repowering II'):
+        ('MaStR 的「Sillerup Repowering II」是 3 部 Nordex Energy N133/4.8（2023 年併網，13.2 MW）；GEM 的「Jörl-Stieglund」（13 MW）在 MaStR 對到的是另外 3 部 ENERCON E-115 EP3 E3（2024 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “Sillerup Repowering II” is 3 × Nordex Energy N133/4.8 (connected 2023, 13.2 MW); GEM’s “Jörl-Stieglund” (13 MW) matches 3 other units in MaStR, ENERCON E-115 EP3 E3 (2024): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Sollwitt-Pobüll'):
+        ('MaStR 的「Windpark Sollwitt-Pobüll」是 2 部 Siemens Gamesa Renewable Energy SG 6.0 155（2025 年併網，13.2 MW）；GEM 的「Jörl-Stieglund」（13 MW）在 MaStR 對到的是另外 3 部 ENERCON E-115 EP3 E3（2024 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “Windpark Sollwitt-Pobüll” is 2 × Siemens Gamesa Renewable Energy SG 6.0 155 (connected 2025, 13.2 MW); GEM’s “Jörl-Stieglund” (13 MW) matches 3 other units in MaStR, ENERCON E-115 EP3 E3 (2024): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Max Bögl Windpower Winnberg'):
+        ('MaStR 的「Max Bögl Windpower Winnberg」是 4 部 Senvion 3.4M104（2010–2015 年併網，12.51 MW）；GEM 的「Zieger」（12 MW）在 MaStR 對到的是另外 5 部 ENERCON E-82 E2（2011 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “Max Bögl Windpower Winnberg” is 4 × Senvion 3.4M104 (connected 2010–2015, 12.51 MW); GEM’s “Zieger” (12 MW) matches 5 other units in MaStR, ENERCON E-82 E2 (2011): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Baaler Bruch'):
+        ('MaStR 的「Windpark Baaler Bruch」是 5 部 ENERCON E92（2017 年併網，11.65 MW）；GEM 的「Kalbeck」（12 MW）在 MaStR 對到的是另外 4 部 ENERCON E115（2017 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “Windpark Baaler Bruch” is 5 × ENERCON E92 (connected 2017, 11.65 MW); GEM’s “Kalbeck” (12 MW) matches 4 other units in MaStR, ENERCON E115 (2017): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Loehrheide Nord'):
+        ('MaStR 的「Loehrheide Nord」是 2 部 Nordex Energy N149（2024 年併網，11.4 MW）；GEM 的「Stepratherheide」（11 MW）在 MaStR 對到的是另外 2 部 Nordex SE N149（2024 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “Loehrheide Nord” is 2 × Nordex Energy N149 (connected 2024, 11.4 MW); GEM’s “Stepratherheide” (11 MW) matches 2 other units in MaStR, Nordex SE N149 (2024): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'WPGEL'):
+        ('MaStR 的「WPGEL」是 2 部 Nordex SE Nordex Delta4000 N163/5.X（2025 年併網，11.4 MW）；GEM 的「Stepratherheide」（11 MW）在 MaStR 對到的是另外 2 部 Nordex SE N149（2024 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “WPGEL” is 2 × Nordex SE Nordex Delta4000 N163/5.X (connected 2025, 11.4 MW); GEM’s “Stepratherheide” (11 MW) matches 2 other units in MaStR, Nordex SE N149 (2024): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'WP Uhlhorn'):
+        ('MaStR 的「WP Uhlhorn」是 3 部 Vestas V-126（2018 年併網，10.35 MW）；GEM 的「Hengsterholz」（10 MW）在 MaStR 對到的是另外 3 部 Vestas V117-3,45MW（2017 年）：兩批不同的機組，是相鄰的兩座風場',
+         'MaStR’s “WP Uhlhorn” is 3 × Vestas V-126 (connected 2018, 10.35 MW); GEM’s “Hengsterholz” (10 MW) matches 3 other units in MaStR, Vestas V117-3,45MW (2017): two different sets of turbines, i.e. neighbouring farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
 }
 
 GEM_KEEP = {
