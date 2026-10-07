@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 436 條：刪除 153 筆（其中營運中 44,960.2 MW），修正 283 筆。
+- 規則 446 條：刪除 156 筆（其中營運中 44,986 MW），修正 290 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -18,7 +18,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 3 | 157.5 | 10 |
-| 台灣 | 1 | 0 | 22 |
+| 台灣 | 2 | 0 | 20 |
 | 哥倫比亞 | 1 | 8 | 2 |
 | 土耳其 | 2 | 270 | 1 |
 | 埃及 | 2 | 1,082 | 0 |
@@ -29,7 +29,7 @@
 | 德國 | 0 | 0 | 5 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 9 |
-| 摩洛哥 | 3 | 642 | 2 |
+| 摩洛哥 | 3 | 642 | 3 |
 | 日本 | 2 | 30 | 11 |
 | 比利時 | 1 | 325 | 0 |
 | 法國 | 2 | 0 | 5 |
@@ -48,7 +48,7 @@
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 13 | 1,487 | 23 |
+| 越南 | 15 | 1,512.8 | 31 |
 
 ## 中國大陸 (CHN)
 
@@ -298,7 +298,6 @@
 | Zhong Neng · 298 MW · 2024 | 精選 | 修正：年份、容量 | 31 部風機 2024 年 8 月全數安裝併網，2025 年 4 月取得電業執照正式商轉；獲配容量 300 MW，實際裝置 31 部 × 9.5 MW＝294.5 MW | [連結](https://www.csc.com.tw/csc/esg/env/env2_1.html) |
 | Taipower Offshore Phase 1 (Changhua) · 109.2 MW · 2021 | 精選 | 修正：機組、座標 | 機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136。位置：台電只寫「芳苑外海 7.2–8.7 km」，改用 OpenStreetMap 標出的 21 部風機的中心（23.986 N、120.242 E，© OpenStreetMap 貢獻者）；原座標 24.05 N、120.35 E 在海岸邊，與官方的離岸距離不符 | [連結](https://www.openstreetmap.org/relation/15992407) |
 | Formosa 3 offshore wind farm · 2 · 600 MW · 2027 | GEM | 刪除 | 這是海鼎二（3.1 期獲配 600 MW），Corio 退出後已解約，能源署 2026 年把海峽一、海峽二與海鼎二的解約場址納入 3.3 期擴充容量；GEM 的中文名誤寫為海鼎一 | [連結](https://www.cna.com.tw/news/afe/202609300338.aspx) |
-| Formosa 3 offshore wind farm · 3 · 720 MW | GEM | 修正：中文名 | 這是海鼎三（Formosa 3 的第三座風場，未在 3.1、3.2 期獲配容量）；GEM 的中文名寫成海鼎一 | [連結](https://www.gem.wiki/Formosa_3_offshore_wind_farm) |
 | Datian Youde Offshore wind farm · 700 MW · 2029 | GEM | 修正：業主 | 又德在 3.2 期獲配 700 MW、預計 2029 年併網，開發商是森崴能源（Shinfox）；GEM 的業主 wpd 與「達天」是舊資料（達天 3.1 期只獲配 165 MW、未簽約，2023 年取消）。2026 年 8 月能源署表示業者未繳足履約保證金、正在簽報解約 | [連結](https://news.cts.com.tw/cna/money/202608/202608243070944.html) |
 | Hai Long 2 & 3 · 1,044 MW · 2026 | 精選 | 修正：年份 | Northland 2026 年第二季報告：73 部已裝 71 部、59 部發電，全案商轉預計 2027 年 | [連結](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Taipower Offshore Phase 2 · 294 MW · 2026 | 精選 | 修正：年份 | 2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工 | [連結](https://www.cna.com.tw/news/afe/202606170184.aspx) |
@@ -306,7 +305,6 @@
 | Greater Changhua 2b & 4 · 920 MW · 2026 | 精選 | 修正：業主 | 沃旭：583 MW 的大彰化西北（4）由沃旭與國泰人壽各持有 50%；原寫沃旭 100% | [連結](https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521) |
 | Taipower Offshore Phase 2 · 294 MW · 2027 | 精選 | 修正：容量 | 31 部 9.5 MW 風機、共 294.5 MW；原寫 294 MW | [連結](https://technews.tw/2022/11/03/taipower-offshore-wind2/) |
 | Taipower Offshore Phase 2 · 294.5 MW · 2027 | 精選 | 修正： | 31 座水下基礎與海纜都已完工；台電船機 2026-09-28 出海裝機（原訂 9/25），31 部風機已裝 1 部，台電力拚年底前完工、2027 年上半年併聯 | [連結](https://www.cna.com.tw/news/afe/202610020045.aspx) |
-| Formosa 3 offshore wind farm · 3 · 720 MW | GEM | 修正：業主 | JERA 2023 年把海鼎（Formosa 3）的持股全數轉給 Corio，Corio 再與道達爾能源合作，海鼎三由兩家各持有約一半；GEM 的業主 JERA 是舊資料。Macquarie 2026 年結束 Corio 平台，海鼎三之後由誰持有待查證 | [連結](https://totalenergies.com/newsroom/totalenergies-and-corio-join-forces-develop-offshore-wind-taiwan/?lang=eng) |
 | Taoyuan Luzhu · 33.6 MW · 2025 | 精選 | 修正：容量、年份、機組 | 台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值 | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
 | Taichung Power Plant · 8 MW · 2005 | 精選 | 修正：容量、機組 | 台中電廠原有 4 部 Zephyros Z72；2008 年薔蜜颱風吹倒台中港區一部後，從電廠移 1 部（P01）去補，電廠剩 3 部；2016 年台電因中龍鋼鐵等建物擋風，再移 2 部到高美濕地第 1 排補蘇迪勒颱風（2015）吹毀的機組，電廠只剩 1 部（2 MW）。台電 2026 年發電站清單與能源署單一窗口都是 1 部 | [連結](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
 | Taichung Port · 36 MW · 2006 | 精選 | 修正：容量、機組 | 高美濕地旁原有 18 部 Zephyros Z72（前排 10、後排 8）。2008 年薔蜜颱風吹斷 2 號機，由台中電廠移 1 部補上；2015 年蘇迪勒颱風吹倒 6 部（前後排各 3 部），台電 2016 年從台中電廠移 2 部補前排、後排的空缺另行新購；2016 年梅姬颱風又吹斷 12 號機葉片。台電 2026 年發電站清單：Z72 剩 13 部（共少了 7 部），另有 3 部 Enercon E82 E4，共 16 部 35 MW（能源署單一窗口同） | [連結](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
@@ -318,6 +316,7 @@
 | Yunlin Taixi · 16.8 MW · 2024 | 精選 | 修正：容量、機組 | 台電發電站清單：雲林台西 4 部 Enercon E70 E4，共 9.2 MW，113 年（2024 年）10 月 24 日併聯、試運轉中（原本的 16.8 MW 是估計值） | [連結](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
 | Penghu Longmen · 6.9 MW · 2023 | 精選 | 修正：容量、機組、年份 | 台電發電站清單與能源署單一窗口：澎湖龍門 3 部 Enercon E82 E4，共 9 MW（原本的 6.9 MW 是估計值）；3 部風機 2019 年完工，台電簡明月報寫 2022 年 6 月 1 日併聯、試運轉到 2024 年 8 月（原本寫 2023 年，改用併聯發電的 2022 年） | [連結](https://www.taipower.com.tw/media/11zda1gx/11308%E7%B0%A1%E6%98%8E%E6%9C%88%E5%A0%B1.pdf) |
 | Penghu Zhongtun · 4.8 MW · 2001 | 精選 | 修正：狀態、除役年 | 中屯 8 部風機運轉逾 20 年、無備品，台電 2023 年起辦理除役更新；更新計畫 2024 年 8 月通過環評但因地方反對暫緩，8 部風機 2025 年 11 月前拆除完成（自由時報 2025-11-15） | [連結](https://news.ltn.com.tw/news/life/breakingnews/5246753) |
+| Formosa 3 offshore wind farm · 3 · 720 MW | GEM | 刪除 | 海鼎（Formosa 3）計畫已終止：Corio 2025 年決定退出台灣，經濟部 2025 年 5 月前解除海鼎一（3.2 期）開發權，海鼎二（3.1 期）也已解約、2026 年併入 3.3 期擴充容量；Infralogic 2026-02：與道達爾能源共有的 Formosa 3 開發權 2025 年已取消，Corio 本身 2026-04-01 起不存在。海鼎三從未獲配容量，已無開發商 | [連結](https://ionanalytics.com/insights/infralogic/macquarie-winds-down-offshore-platform-corio/) |
 
 ## 哥倫比亞 (COL)
 
@@ -419,6 +418,7 @@
 | Tangier wind farm · 140 MW · 2009 | GEM | 重複（併入「Tanger I (Dhar Saadane / Beni Mejmel)」） | 同一座丹吉爾一號風場（140 MW）：GEM 的別名就是 Parc Eolien De Tanger I，分期為 Dhar Saadane 與 Bni Majmel | [連結](https://www.gem.wiki/Tangier_wind_farm) |
 | Akhfenir wind farm · 202 MW · 2014 | GEM | 重複（併入「Akhfennir I-II」） | 同一座阿赫費尼爾風場（Akhfennir I、II，約 200 MW，在塔爾法亞省） | [連結](https://www.gem.wiki/Akhfenir_wind_farm) |
 | Akhfennir I-II · 200 MW · 2013 | 精選 | 修正：座標 | 座標改到 GEM 的精確位置（塔爾法亞省阿赫費尼爾）；原座標偏西北約 17 km，近景對不到 OpenStreetMap 標出的風機 | [連結](https://www.gem.wiki/Akhfenir_wind_farm) |
+| Akhfennir I-II · 200 MW · 2013 | 精選 | 修正：分期、機組 | 阿赫費尼爾一期（101.87 MW、61 部 Alstom ECO 74）2013 年投入運轉：Nareva 執行長 2013-02 說 1 月起已有風機運轉、6 月全部投運；晨報 2014 寫「2013 年起運轉」，GlobalData 寫 2013 年 6 月投運；GEM 的 2014 不對。二期為 56 部 GE 1.7-100（GE 2014-09 合約）；原機型欄「Siemens Gamesa」不對 | [連結](https://lematin.ma/express/2014/energie-eolienne_tarfaya-abrite-le-premier-parc-en-afrique/200878.html) |
 
 ## 日本 (JPN)
 
@@ -645,16 +645,16 @@
 | Binh Dai 1 Phase 1 (TTC/Gulf, Ben Tre) · 30 MW · 2021 | 精選 | 重複（併入「Bến Tre 10 Bình Đại 1 Offshore wind farm」） | 平大1號的一部分；GEM 這筆含全部三期（128 MW） | [連結](https://www.ptsc.com.vn/en-US/news/ptsc-news-1/operating-news/pps-provides-services-at-binh-dai-wind-power-plant-ben-tre) |
 | Binh Dai 1 Phase 2 · 30 MW · 2022 | 精選 | 重複（併入「Bến Tre 10 Bình Đại 1 Offshore wind farm」） | 平大1號的一部分；GEM 這筆含全部三期（128 MW） | [連結](https://www.ptsc.com.vn/en-US/news/ptsc-news-1/operating-news/pps-provides-services-at-binh-dai-wind-power-plant-ben-tre) |
 | Tan An 1 Phase 1 (Ca Mau) · 30 MW · 2021 | 精選 | 重複（併入「Tân An 1 offshore wind farm」） | 同一座風場 | [連結](https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/84-du-an-dien-gio-kip-van-hanh-thuong-mai-voi-tong-cong-suat-hon-3.980-mw.html) |
-| Tân An 1 offshore wind farm · 115 MW · 2021 | GEM | 修正：容量、分期 | 只有第一期 25 MW 商轉（2021）；後續各期到 2024 年仍未併網 | [連結](https://thanhnien.vn/ca-mau-kiem-tra-phat-hien-thieu-sot-o-2-nha-may-dien-gio-18524042817170935.htm) |
+| Tân An 1 offshore wind farm · 115 MW · 2021 | GEM | 修正：容量、年份、分期 | 新安 1 號三部分都已商轉：一期 25 MW（2021，工貿部 FIT 名單）、2021–2025 期 45 MW（EVN 2023-08-18 表已 COD；金甌工貿廳 2024-04 檢查的運轉中風場也列入）、2021–2025 期另 30 MW 的 7 部（29.4 MW，2025 年 1 月 31 日表仍未送件、2 月 28 日表已 COD）；合計 99.4 MW、2025 年全部完成。取代 2026-09 那條「後續各期到 2024 年仍未併網」的規則（它引用的青年報其實把 45 MW 列為運轉中） | [連結](https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/3/28022025capnhatCODduanNLTTchuyentiep-20250311103857508.pdf) |
 | Hiệp Thành wind farm · 65 MW · 2023 | GEM | 重複（併入「Hiep Thanh (Tra Vinh)」） | 同一座風場（茶榮省沿海的 Hiệp Thạnh；GEM 列為陸域） | 資料比對 |
 | Thanh Hải No. 5 Offshore wind farm · 127 MW · 2021 | GEM | 修正：業主、容量 | 檳椥 5 號（成海）風場是新環球檳椥公司的案子，不是越南電力公司；全案 28 部、120 MW（EVN 落成報導） | [連結](https://www.evn.com.vn/d6/news/Khanh-thanh-Nha-may-dien-gio-so-5-Thanh-Hai-Ben-Tre-100-668-55952.aspx) |
 | Ben Tre 5 Thanh Hai 1 · 30 MW · 2021 | 精選 | 重複（併入「Thanh Hải No. 5 Offshore wind farm」） | 5 號風場一期（成海 1，7 部 30 MW）；GEM 的一筆已含全案 | [連結](https://lethycorp.com/du-an-da-thi-cong/dien-gio-so-5.html) |
 | Ben Tre 5 Thanh Hai 2 · 30 MW · 2022 | 精選 | 重複（併入「Thanh Hải No. 5 Offshore wind farm」） | 5 號風場二期（成海 2–4，21 部 90 MW）的一部分；GEM 的一筆已含全案 | [連結](https://lethycorp.com/du-an-da-thi-cong/dien-gio-so-5.html) |
 | VPL 1 nearshore wind power plant · 30 MW · 2021 | GEM | 重複（併入「VPL Ben Tre (Nexif Ben Tre 1)」） | 同一座風場（Nexif 的 VPL 檳椥一期，30 MW，平大縣） | [連結](https://www.phanvu.vn/en-US/vpl-ben-tre-wind-power-plant-p1) |
 | Xinshun offshore wind farm · 90 MW · 2021 | GEM | 重複（併入「Tan Thuan (PECC2) Phase 1+2」） | GEM 的「Xinshun」只引用 GlobalData 檔案；power-technology 的 GlobalData 檔案寫明該案在金甌省、18 台機組、2021 年 11 月商轉、EPC 為中國能建規劃設計集團，與金甌新順（Tân Thuận，漢語「新順」＝Xinshun）風場一致（18 台、2021 年底商轉、一期 25 MW＋二期 50 MW），座標誤放寧順外海、90 MW 為資料庫容量錯誤，屬重複。 | [連結](https://www.power-technology.com/data-insights/power-plant-profile-xinshun-offshore-wind-power-project-vietnam/) |
-| Cà Mau wind farm · 352 MW · 2023 | GEM | 修正：容量、機組 | 國資委／走出去導航網（2023-04-13）：越南金甌 1 號風電項目總裝機 350 MW（非 352），分 A、B、C、D 四個風場，業主越南建設貿易股份公司（WTO），選用明陽 MySE5.0-166 海上風機，中國電建 2023 年 4 月完工。 | [連結](http://www.sasac.gov.cn/n2588025/n2588124/c19372635/content.html) |
+| Cà Mau wind farm · 352 MW · 2023 | GEM | 修正：容量、機組 | 國資委／走出去導航網（2023-04-13）：越南金甌 1 號風電項目總裝機 350 MW（非 352），分 A、B、C、D 四個風場，業主越南建設貿易股份公司（WTO），選用明陽 MySE5.0-166 海上風機；中國電建 2023 年 4 月完成的是 1A 區全部風機吊裝。 | [連結](http://www.sasac.gov.cn/n2588025/n2588124/c19372635/content.html) |
 | Bac Lieu Phase 3 · 142 MW · 2025 | 精選 | 修正：狀態、年份、容量、機組 | 薄寮三期尚未完工：Mekong ASEAN 2025-04-24 報導 2025 年 4 月才恢復安裝首台機組，容量 141 MW、47 座金風 3 MW 無齒輪箱機組，2025 年內預計僅安裝 99 MW；越通社 2026-03-18 報導 47 座中完成 33 座，目標 2026 年第二季送電運轉，故改為興建中、預計 2026 年。 | [連結](https://mekongasean.vn/tiep-tuc-trien-khai-lap-dat-nha-may-dien-gio-bac-lieu-giai-doan-3-40791.html) |
-| Soc Trang 1 Phase 1 (Cong Ly) · 30 MW · 2021 | 精選 | 修正：業主、機組 | 越通社 2018-01-30 開工報導：朔莊公理風電廠由 Công ty Cổ phần Super Wind Energy Công Lý Sóc Trăng 投資（業主），一期 15 座、每座 2 MW、共 30 MW。 | [連結](https://www.vietnamplus.vn/khoi-cong-xay-dung-nha-may-dien-gio-dau-tien-tai-soc-trang-post486569.vnp) |
+| Soc Trang 1 Phase 1 (Cong Ly) · 30 MW · 2021 | 精選 | 修正：業主 | 越通社 2018-01-30 開工報導：朔莊公理風電廠由 Công ty Cổ phần Super Wind Energy Công Lý Sóc Trăng 投資（業主），一期原規劃 15 座、每座 2 MW、共 30 MW（建成為 10 部 3 MW，見 2026-10-07 第五批之二）。 | [連結](https://www.vietnamplus.vn/khoi-cong-xay-dung-nha-may-dien-gio-dau-tien-tai-soc-trang-post486569.vnp) |
 | V1-3 Ben Tre (BTRE) · 30 MW · 2021 | 精選 | 修正：業主、機組 | 越南能源雜誌 2021-11-29 落成報導：檳椥 V1-3 風電廠由 Công ty cổ phần Năng lượng tái tạo Bến Tre（檳椥再生能源股份公司）投資，7 座 Vestas 4.2 MW 機組。 | [連結](https://nangluongvietnam.vn/khanh-thanh-nha-may-dien-gio-v1-3-ben-tre-27881.html) |
 | Bac Lieu Phase 1 · 16 MW · 2013 | 精選 | 修正：業主 | 越南維基（引投資報、青年報）：薄寮風電廠三期皆由 Công ty TNHH Xây dựng - Thương mại và Du lịch Công Lý（公理建設貿易旅遊公司）投資，與資料庫二期業主相同；一期 10 座、16 MW 於 2012 年 10 月裝完。 | [連結](https://vi.wikipedia.org/wiki/Nh%C3%A0_m%C3%A1y_%C4%91i%E1%BB%87n_gi%C3%B3_B%E1%BA%A1c_Li%C3%AAu) |
 | Hoa Binh 1 Phase 1 · 50 MW · 2021 | 精選 | 修正：機組 | 和平 1 號一期是 13 部 Vestas V150-4.2，不是金風（offshoreWIND.biz 2020-01） | [連結](https://www.offshorewind.biz/2020/01/02/vestas-secures-third-intertidal-turbine-order-in-vietnam/) |
@@ -670,6 +670,16 @@
 | V1-1 Truong Long Hoa (Tra Vinh) · 48 MW · 2021 | 精選 | 修正：業主、機組 | 茶榮 V1-1 就是「韓國－茶榮」風場一期（48 MW）：2019-04-24 由茶榮 1 號風電公司在長隆和社 V1-1 位置動工，主要出資者 Climate Investor One 與韓國 Samtan（vietnamfinance）；Vestas 統包 12 部 V150-4.2 MW（offshoreWIND.biz 2021-09）。Sermsang 是 V1-2 的投資人，原寫的業主與「12x Envision 4 MW」都不對 | [連結](https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm) |
 | Hiep Thanh (Tra Vinh) · 78 MW · 2022 | 精選 | 修正：業主、機組 | 協成風場（78 MW）是 18 部西門子歌美颯 SG 5.0-145、每部以 4.3 MW 運轉（offshoreWIND.biz 2020-07 與 2021-08），不是遠景；開發商 EcoTech Tra Vinh Renewables，投資人 Janakuasa、Ecotech Vietnam、Climate Investor One 與 ST International | [連結](https://www.offshorewind.biz/2020/07/23/siemens-gamesa-lands-biggest-nearshore-contract-in-vietnam/) |
 | Tan Phu Dong 2 (Tien Giang, GEC) · 50 MW · 2021 | 精選 | 修正：機組 | 新富東 2 號裝 12 部 Vestas V150-4.2 MW（Power Technology），不是遠景；EPC 為 PC1 | [連結](https://power-technology.com/?p=174203) |
+| Cà Mau wind farm · 350 MW · 2023 | GEM | 修正：狀態、年份 | 越南電力集團（EVN）2025-04-30 轉型期風場 COD 進度表：金甌 1A（88 MW）、1B（88 MW）、1C（88 MW）、1D（86 MW）四座都「尚未送 COD 文件」；法律報 2023-08 仍列為施工中；中國電建 2023-04 只完成 1A 區全部吊裝。2026-07 金甌省（已併入薄遼）14 座商轉風場共 694.2 MW，正好等於不含金甌 1 號的各場加總。全案尚未商轉，改為興建中、完工年不詳（舊規則「2023 年 4 月完工」實為 1A 區吊裝完成） | [連結](https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf) |
+| Soc Trang 1 Phase 1 (Cong Ly) · 30 MW · 2021 | 精選 | 修正：類型、狀態、年份、機組 | 公理朔莊一期 30 MW 不是 2021 年商轉：2021 年底 FIT 期限前沒有通過 COD，EVN 2025-04-30 的轉型期風場表仍寫「尚未送 COD 文件」；業主母公司 Super Energy 2026-01-06 公布 2025-12-31 起 27 MW 商轉，其餘 3 MW 預計 2026 年第一季。10 部 3 MW（金風 GW155-3.3）中 9 部在陸上、1 部在近岸，改列陸域；全場是否已完成待查證，暫列興建中、預計 2026 | [連結](https://southeastasiainfra.com/super-energy-to-start-operations-on-a-30-mw-wind-power-plant-in-mekong-delta-by-2025/) |
+| Công Lý Sóc Trăng wind farm · 30 MW | GEM | 重複（併入「Soc Trang 1 Phase 1 (Cong Ly)」） | 同一座公理朔莊風電廠一期（30 MW，Super Wind Energy Công Lý Sóc Trăng）；GEM 這筆列為施工中 | [連結](https://www.gem.wiki/C%C3%B4ng_L%C3%BD_S%C3%B3c_Tr%C4%83ng_wind_farm) |
+| Bến Tre 10 Bình Đại 1 Offshore wind farm · 128 MW · 2021 | GEM | 修正：年份、分期、機組 | 平大風場三期 30／49／49 MW：一期 7 部西門子歌美颯（5.0 系列），二、三期 24 部（GlobalData 寫金風，型號未查到）；共 31 部、128 MW（PTSC）。一期 2021 年 FIT 期限前只有 4.2 MW 通過 COD（工貿部），其餘 25.8 MW 與平大 2、3 號各 49 MW 都是轉型期專案，2023 年才通過 COD（EVN 2023-08-18 表），全場完工年改為 2023；GEM 的分期 2021／2022 不對 | [連結](https://www.evn.com.vn/userfile/User/honghoa/files/18082023_CapnhatCODduanNLTTchuyentiep.pdf) |
+| Bình Đại wind farm · 25.8 MW · 2023 | GEM | 重複（併入「Bến Tre 10 Bình Đại 1 Offshore wind farm」） | GEM 這筆 25.8 MW「陸域」只引用 EVN 2023-08 的轉型期 COD 表，就是平大一期（30 MW）在 2021 年只通過 4.2 MW 之後剩下的 25.8 MW，不是另一座風場 | [連結](https://www.gem.wiki/B%C3%ACnh_%C4%90%E1%BA%A1i_wind_farm) |
+| Thanh Hải No. 5 Offshore wind farm · 120 MW · 2021 | GEM | 修正：狀態、年份 | 成海 5 號共 4 座電廠、28 部（EVN 2022-07；打樁承包商 Lê Thy 寫 24 部，以 EVN 為準）。2021 年 FIT 期限前只有成海 1（30 MW）與成海 2 的 4.25 MW 通過 COD（工貿部）；成海 2 其餘 25.75 MW、成海 3、4（各 30 MW）在 EVN 2025-04-30 的轉型期表仍「未送 COD 文件」，全場尚未完成，改為興建中（完工年不詳）。機型：成海 1 為 7 部西門子歌美颯 SG 4.5-145（訂單），成海 2 為 7 部 SG 4.5-145（GlobalData；原訂單為附條件），成海 3、4 未查到 | [連結](https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf) |
+| Hoa Binh 1 Phase 2 · 50 MW · 2021 | 精選 | 修正：業主 | 和平 1 號二期與和平 2 號由方英建設投資貿易公司（Phương Anh 集團）投資（工貿部 2020-07 開工報導）；原本業主空白 | [連結](https://moit.gov.vn/phat-trien-ben-vung/bac-lieu-them-100mw-dien-gio-duoc-khoi-cong-xay-dung.html) |
+| Hoa Binh 2 · 50 MW · 2021 | 精選 | 修正：業主、機組 | 和平 1、2 號共 150 MW、39 部（人民報），和平 1 號兩期各 13 部 V150-4.2，所以和平 2 號是 13 部；業主同為方英 | [連結](https://nhandan.vn/ocop/bac-lieu-tien-phong-phat-trien-dien-gio-ngoai-khoi-post733339.html) |
+| VPL Ben Tre (Nexif Ben Tre 1) · 30 MW · 2021 | 精選 | 修正：容量、年份、分期 | VPL 檳椥 2021 年 FIT 期限前只有 25.2 MW 通過 COD（工貿部，部分），最後 4.2 MW（1 部）是轉型期專案，2023 年才 COD（EVN 2023-08-18 表），全場完成年改為 2023、共 29.4 MW | [連結](https://www.evn.com.vn/userfile/User/honghoa/files/18082023_CapnhatCODduanNLTTchuyentiep.pdf) |
+| Hiep Thanh (Tra Vinh) · 78 MW · 2022 | 精選 | 修正：年份、分期 | 協成 2021 年 FIT 期限前只有 12.8 MW 通過 COD（工貿部，部分），其餘 64.5 MW 是轉型期專案，2023 年才 COD（EVN 2023-08-18 表），全場完成年由 2022 改為 2023 | [連結](https://www.evn.com.vn/userfile/User/honghoa/files/18082023_CapnhatCODduanNLTTchuyentiep.pdf) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 

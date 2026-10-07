@@ -76,6 +76,7 @@ CLEAN drop ROU Pestera Sorgenia wind farm 50.0
 CLEAN drop ROU Windkraft Sfanta Elena wind farm 84.0
 CLEAN drop THA Jhimpir Power (Energy Absolute) wind farm 600.0
 CLEAN drop TWN Formosa 3 offshore wind farm · 2 600.0
+CLEAN drop TWN Formosa 3 offshore wind farm · 3 720.0
 CLEAN drop VNM Chu Pu wind farm 200.0
 CLEAN drop VNM Chu Se wind farm 700.0
 CLEAN dup AUS Bluff Point wind farm 64.0 -> Woolnorth (Bluff Point / Studland Bay)
@@ -177,6 +178,8 @@ CLEAN dup VNM Ben Tre 5 Thanh Hai 1 30.0 -> Thanh Hải No. 5 Offshore wind farm
 CLEAN dup VNM Ben Tre 5 Thanh Hai 2 30.0 -> Thanh Hải No. 5 Offshore wind farm
 CLEAN dup VNM Binh Dai 1 Phase 1 (TTC/Gulf, Ben Tre) 30.0 -> Bến Tre 10 Bình Đại 1 Offshore wind farm
 CLEAN dup VNM Binh Dai 1 Phase 2 30.0 -> Bến Tre 10 Bình Đại 1 Offshore wind farm
+CLEAN dup VNM Bình Đại wind farm 25.8 -> Bến Tre 10 Bình Đại 1 Offshore wind farm
+CLEAN dup VNM Công Lý Sóc Trăng wind farm 30.0 -> Soc Trang 1 Phase 1 (Cong Ly)
 CLEAN dup VNM Dong Hai 1 Phase 2 (Bac Lieu, Bac Phuong) 50.0 -> Dong Hai 1 Offshore wind farm
 CLEAN dup VNM Hiệp Thành wind farm 65.0 -> Hiep Thanh (Tra Vinh)
 CLEAN dup VNM Tan An 1 Phase 1 (Ca Mau) 30.0 -> Tân An 1 offshore wind farm
@@ -377,6 +380,7 @@ CLEAN fix KOR Yeonggwang Nakwol 364.8
 CLEAN fix KOR Yeonggwang Wind offshore wind farm 35.0
 CLEAN fix KOR Yeongyang 2nd wind power generation 42.0
 CLEAN fix MAR Akhfennir I-II 200.0
+CLEAN fix MAR Akhfennir I-II 200.0
 CLEAN fix MAR Tarfaya 301.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
 CLEAN fix NLD Ecowende Offshore wind farm 780.0
@@ -417,8 +421,6 @@ CLEAN fix THA Subyai (Chaiyaphum) 90.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix TWN Datan (Tatan) 12.5
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
-CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
-CLEAN fix TWN Formosa 3 offshore wind farm · 3 720.0
 CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Hai Long 2 & 3 1044.0
@@ -447,18 +449,25 @@ CLEAN fix USA Vineyard Wind 1 806.0
 CLEAN fix VNM BPP Vĩnh Châu wind farm 30.0
 CLEAN fix VNM Bac Lieu Phase 1 16.0
 CLEAN fix VNM Bac Lieu Phase 3 142.0
+CLEAN fix VNM Bến Tre 10 Bình Đại 1 Offshore wind farm 128.0
+CLEAN fix VNM Cà Mau wind farm 350
 CLEAN fix VNM Cà Mau wind farm 352.0
 CLEAN fix VNM Cư An wind farm 200.0
 CLEAN fix VNM Dong Hai 1 Phase 1 (Tra Vinh, Trungnam) 100.0
 CLEAN fix VNM Dong Hai 1 – Tra Vinh (Trungnam) 100.0
 CLEAN fix VNM Hiep Thanh (Tra Vinh) 78.0
+CLEAN fix VNM Hiep Thanh (Tra Vinh) 78.0
 CLEAN fix VNM Hoa Binh 1 Phase 1 50.0
 CLEAN fix VNM Hoa Binh 1 Phase 2 50.0
+CLEAN fix VNM Hoa Binh 1 Phase 2 50.0
 CLEAN fix VNM Hoa Binh 2 50.0
+CLEAN fix VNM Hoa Binh 2 50.0
+CLEAN fix VNM Soc Trang 1 Phase 1 (Cong Ly) 30.0
 CLEAN fix VNM Soc Trang 1 Phase 1 (Cong Ly) 30.0
 CLEAN fix VNM Tan Phu Dong 1 (Tien Giang, GEC) 100.0
 CLEAN fix VNM Tan Phu Dong 2 (Tien Giang, GEC) 50.0
 CLEAN fix VNM Tan Thuan (PECC2) Phase 1+2 75.0
+CLEAN fix VNM Thanh Hải No. 5 Offshore wind farm 120
 CLEAN fix VNM Thanh Hải No. 5 Offshore wind farm 120
 CLEAN fix VNM Thanh Hải No. 5 Offshore wind farm 127.0
 CLEAN fix VNM Tân An 1 offshore wind farm 115.0
@@ -466,6 +475,7 @@ CLEAN fix VNM V1-1 Truong Long Hoa (Tra Vinh) 48.0
 CLEAN fix VNM V1-2 Truong Long Hoa (Tra Vinh) 48.0
 CLEAN fix VNM V1-3 Ben Tre (BTRE) 30.0
 CLEAN fix VNM V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3) 48.0
+CLEAN fix VNM VPL Ben Tre (Nexif Ben Tre 1) 30.0
 CLEAN fix VNM Đông Thành 1 - Thái Hòa offshore wind farm · 1 80.0
 CLEAN fix ZAF Amakhala Emoyeni 134.0
 CLEAN fix ZAF Waainek Wind Farm 23.0

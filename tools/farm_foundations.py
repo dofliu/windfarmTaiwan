@@ -114,7 +114,9 @@ FOUNDATIONS = [
     F('DNK', 'Horns Rev 2', 'mp', ['DK05']),
     F('DNK', 'Horns Rev 3', 'mp', ['DK24']),
     F('DNK', 'Rønland', 'gb', ['DK04']),
-    F('DNK', 'Nissum Bredning Vind', 'gb', ['DK23']),
+    F('DNK', 'Nissum Bredning Vind', 'jk', ['DK23'], 'https://m.aarsleff.dk/img/8088/0/0/Download/253-nissum-bredning-dk',
+      zh='4 座三腳鋼套管，各以 3 支直徑 1.45 m、長 75 m 的打入斜樁固定，上加約 1,200 噸的混凝土轉接段（安裝商 Aarsleff）；西門子稱為「重力式套管」，OSPAR 寫重力式應是因為沉重的混凝土轉接段',
+      en='Four three-legged steel jackets, each held by three driven raked piles 1.45 m across and 75 m long, topped by a concrete transition piece of about 1,200 t (installer Aarsleff); Siemens called it a “gravity jacket”, which is presumably why OSPAR says gravity-based'),
     F('DNK', 'Anholt', 'mp', ['DK14']),
     F('DNK', 'Vesterhav Syd', 'mp', ['DK26']),
     F('DNK', 'Vesterhav Nord', 'mp', ['DK27']),
@@ -806,8 +808,10 @@ FOUNDATIONS = [
       zh='荷蘭第一座離岸風場：4 部 500 kW 各立在一根單樁上（樁長 26 m、直徑 3.2–3.7 m）；2016 年底以振動錘整根拔除',
       en='The Netherlands’ first offshore wind farm: 4 × 500 kW, each on a monopile (26 m long, 3.2–3.7 m in diameter); the piles were vibrated out whole at the end of 2016'),
     F('SWE', 'Yttre Stengrund', 'mp', url='https://www.windpowermonthly.com/article/1375616/yttre-stengrund-decommissioning-begins',
-      zh='5 部 2 MW 立在單樁上；2015 年 11 月除役，單樁切至海床面（Windpower Monthly）',
-      en='5 × 2 MW on monopiles; decommissioned in November 2015 with the monopiles cut down to seabed level (Windpower Monthly)'),
+      zh='5 部 2 MW 立在單樁上；2015 年 11 月除役，單樁切至海床面（Windpower Monthly）。2006 年的潛水調查（Wilhelmsson 等）與瑞典環保署報告也寫鋼製單樁；'
+         'Vattenfall 2016 年新聞稿說「把混凝土基礎切至海床面」，應指單樁裡的灌漿或混凝土填充，不改型式',
+      en='5 × 2 MW on monopiles; decommissioned in November 2015 with the monopiles cut down to seabed level (Windpower Monthly). A 2006 diver survey (Wilhelmsson et al.) '
+         'and a Swedish EPA report also describe steel monopiles; Vattenfall’s 2016 release about cutting “the concrete foundations” presumably means the grout or concrete fill of the piles, so the type is unchanged'),
     F4('USA', 'Empire wind farm', 'mp', url='https://www.empirewind.com/offshore-installation/',
        zh='54 座單樁（Sif 製）配轉接段，2025 年夏秋安裝（海上變電站立在套管上）',
        en='54 monopiles (made by Sif) with transition pieces, installed in summer and autumn 2025 (the offshore substation stands on a jacket)'),

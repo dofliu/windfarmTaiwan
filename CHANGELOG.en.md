@@ -15,6 +15,18 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.5 — 2026-10-07
+
+- Research round 11: the farm data doubts listed in TODO (every quote checked with `check_quotes.py`; clean-up rules 414 → 446, see the 7 Oct 2026 "fifth batch" blocks of the [clean-up log](docs/data-cleanup.en.md)):
+  - Farms that had vanished through wrong merges are back: Datang Binhai 302 MW and Putian Pinghai Bay area F 200 MW; GEM's Changle Outer Ocean area I is a separate project (under construction and pre-construction) and is no longer merged into CTG Changle Waihai A.
+  - Duplicates removed: GEM's four Guoxin Dafeng sites (already in "Guoxin Dafeng 850 MW"), the 600 MW "Zhoushan Liuheng / Zhejiang others" aggregate, and Vietnam's GEM Binh Dai 25.8 MW and Cong Ly Soc Trang; Taiwan's Haiding 3 (Formosa 3's development rights were cancelled).
+  - Back to under construction: Huaneng Yuhuan 2 (508 MW) and, in Vietnam, Ca Mau 1 (350 MW) and Thanh Hai No. 5 (120 MW); Cong Ly Soc Trang phase 1 becomes onshore and under construction; GEM's Bozhong B1 becomes the 100 MW extension.
+  - Years: Xuwen's original farm 2021, Binhai South H3 2020, Zhuhai Guishan 2021, Fangchenggang A 2025, Xiangshan Tuci 2023 (renamed "CGN Xiangshan Tuci"), and Binh Dai, VPL Ben Tre and Hiep Thanh 2023; Tan An 1 is 99.4 MW; Morocco's Akhfennir phases 2013/2016.
+  - Positions: Jiangjiasha H1 and H2 moved to turbine positions from maritime safety notices (they were in the Yangtze estuary), and Changle Waihai A and C to their named OpenStreetMap farm areas.
+  - Turbine fields corrected for about 15 farms (Pinghai Bay phases 2 and 3, Rudong H2, Guoxin Dafeng, Huizhou Gangkou, Binhai South H3, Fangchenggang A, the Pingtan bridge farm, Hoa Binh 2, Akhfennir and others).
+  - Foundations: Denmark's Nissum Bredning Vind changes from gravity-based to jacket (installer Aarsleff's project sheet); 272 of the 329 operating offshore farms now have a known type (84.4% of capacity), 14 of Vietnam's 19.
+- China's operating offshore farms now add up to 46.6 GW instead of 47.2 GW, below the national series; Vietnam's farm-level coverage falls from 86% to 78% (unfinished farms moved to under construction).
+
 ## v2.30.4 — 2026-10-07
 
 - Round 10 of the research (quotes checked with `check_quotes.py`):

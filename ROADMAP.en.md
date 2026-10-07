@@ -38,10 +38,10 @@ visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CH
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
   [docs/events.en.md](./docs/events.en.md)).
 - Live output for about 150 farms in Australia and Canada.
-- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 414 record-level farm
+- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 446 record-level farm
   clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)), with a build check for farms lost to a wrong merge
-  (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (273 of 332 operating offshore
-  farms have a known type, 83.6% of capacity); dimensions: at least one value for 272 farms and all three for 182 (ten rounds, every
+  (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (272 of 329 operating offshore
+  farms have a known type, 84.4% of capacity); dimensions: at least one value for 272 farms and all three for 182 (ten rounds, every
   figure with a quoted source checked by `tools/check_quotes.py`); the differences between GEM 2026-02 and the site's list checked one
   by one (v2.17.7).
 
@@ -187,7 +187,7 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      From 30 Sep 2026 the rest were checked batch by batch (developers, construction contractors, sea-use assessment reports and completion
      environmental acceptances published by local governments, trade press), every quoted passage checked with check_quotes (except the China
      Three Gorges pages for Rudong H6 and H10, unreachable from the checking environment; see TODO). As of 7 Oct 2026 (v2.30.4): 91 of China's 140
-     operating offshore farms are known (about 69% of capacity) and 15 of Vietnam's 22; worldwide 273 of 332 (83.6% of capacity). The remaining
+     operating offshore farms are known (about 69% of capacity) and 14 of Vietnam's 19; worldwide 272 of 329 (84.4% of capacity). The remaining
      leads, and why some farms could not be found, are in TODO.
 
 **3. Status of work vessels (installation vessels, "mother ships")** · **verdict: not doing it (owner's decision, 2026-09-27)**

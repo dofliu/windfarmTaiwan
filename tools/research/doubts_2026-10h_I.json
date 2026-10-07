@@ -1,0 +1,258 @@
+[
+ {
+  "item": "7c. Duyên Hải (V1-4) — operating since Mar 2026, record probably GEM “Duyên Hai wind farm · 1”",
+  "farm": "Duyên Hai wind farm · 1",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "lead",
+  "proposal": "(lead) fix('VNM', 'Duyên Hai wind farm · 1', G, '永隆省（原茶榮）Duyên Hải（V1-4）48 MW 風電廠 2026-03-16 起 10 部全部正式運轉（人民報）；EVN 2025-04 轉型期表列「Duyên Hải (V1-4) 48 MW」', 'The 48 MW Duyen Hai (V1-4) plant in Vinh Long (formerly Tra Vinh) has had all 10 turbines in official operation since 16 Mar 2026 (Nhan Dan); EVN’s Apr 2025 transitional tracker lists “Duyen Hai (V1-4) 48 MW”', 'https://nhandan.vn/post-952529.html', st=0, year=2026)",
+  "note_zh": "人民報 2026-03：Duyên Hải（V1-4）10／10 部 2026-03-16 正式運轉；EVN 2025-04-30 表：Duyên Hải（V1-4）48 MW，當時未送 COD。資料庫中容量與名稱相符的只有 GEM「Duyên Hai wind farm · 1」（48 MW、陸域、興建中、業主 Asian Energy／Uniso），但沒有出處把兩者連起來，也不確定 V1-4 是潮間帶還是陸域（V1-x 多為長隆和社潮間帶），列為線索。另：GEM「Dong Hai V1-4 Offshore wind farm」是「東海 1 號第 4 期」，不是這座。",
+  "note_en": "Nhan Dan (Mar 2026): Duyen Hai (V1-4) had all 10 of 10 turbines in official operation from 16 Mar 2026; EVN’s 30 Apr 2025 tracker: Duyen Hai (V1-4) 48 MW, no COD dossier yet. The only record matching name and capacity is GEM’s “Duyên Hai wind farm · 1” (48 MW, onshore, construction, owners Asian Energy/Uniso), but no source links the two and it is unclear whether V1-4 is intertidal (most V1-x sites are in the Truong Long Hoa intertidal zone) or onshore; lead only. GEM’s “Dong Hai V1-4 Offshore wind farm” is “Dong Hai 1 phase 4”, a different project.",
+  "why": "No source ties GEM’s “Duyên Hai wind farm · 1” to Duyen Hai V1-4; type (intertidal vs onshore) unknown.",
+  "sources": [
+   {
+    "url": "https://nhandan.vn/post-952529.html",
+    "quote": "Đặc biệt, nhà máy điện gió Duyên Hải (V1-4) vừa chính thức vận hành toàn bộ 10/10 tua-bin vào ngày 16/3/2026"
+   },
+   {
+    "url": "https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf",
+    "quote": "NMĐ gió Duyên Hải (V1-4) Gió 48 Chưa gửi hồ sơ COD"
+   }
+  ]
+ },
+ {
+  "item": "10b. Taiwan: 又德 and 環洋 formally terminated?",
+  "farm": "YouDe; Huanyang (pipeline_curated, PIPE_FIX)",
+  "src_code": 3,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "No change yet (keep PIPE_FIX). Not formally terminated as far as published: 又德 — Energy Administration 24 Aug 2026 ‘正在簽報解約作業’; 環洋 — EDF filed to terminate in Feb 2026, EA (20 Apr 2026) respects it and will re-tender, EA (23 Jul 2026) ‘已在解約程序當中’. Ready entries once final: PIPE_DROP[('TWN', 'Huanyang')] = ('EDF 2026 年 2 月向能源署提出終止行政契約、撤出台灣；能源署表示將重新招標', 'EDF filed to terminate the administrative contract in Feb 2026 and left Taiwan; the Energy Administration will re-tender the site', 'https://money.udn.com/money/story/5612/9452773'); PIPE_DROP[('TWN', 'YouDe')] = ('森崴能源未繳足履約保證金，經濟部解約', 'Shinfox did not pay the rest of its performance bond; the ministry terminated the contract', '<termination notice URL>')",
+  "note_zh": "又德：能源署 2026-08-24（中央社）說業者 5/18、6/12 兩次補件仍不符規範，本月最後限期改善仍未完成，「目前正在簽報解約作業」；之後沒有找到正式解約的公告或報導。環洋（蔚藍海彰化）：中央社 2026-04-20：EDF 2 月已向能源署提出公文終止行政契約，能源署尊重並將重新招標；能源署 2026-07-23（NOWnews）仍說「已在解約程序當中」，且 3.3 期擴充容量只納入海峽一、海峽二、海鼎二。所以兩案都還沒有正式解約完成的出處。環洋這邊業者已主動終止、人員遣散，若主對話認為「業者已提出終止」即可視為停止，可直接列 PIPE_DROP。",
+  "note_en": "Youde: the Energy Administration said on 24 Aug 2026 (CNA) that the developer’s two resubmissions (18 May, 12 Jun) still did not meet the bond rules, the final deadline this month passed, and “the termination is being processed”; no later notice or report of a completed termination was found. Huanyang (Wei Lan Hai Changhua): CNA (20 Apr 2026): EDF filed an official letter to terminate the administrative contract in February, and the EA respects that and will re-tender; on 23 Jul 2026 the EA (NOWnews) still said it is “in the termination process”, and the Round 3.3 expansion capacity includes only Haixia 1, Haixia 2 and Haiding 2. So neither has a source for a completed termination. For Huanyang the developer itself ended the contract and laid off staff; if the main session counts that as “stopped”, it can move to PIPE_DROP now.",
+  "why": "No published completion of either termination found as of 7 Oct 2026.",
+  "sources": [
+   {
+    "url": "https://news.cts.com.tw/cna/money/202608/202608243070944.html",
+    "quote": "2026-08-24 20:11:12 / 中央社"
+   },
+   {
+    "url": "https://news.cts.com.tw/cna/money/202608/202608243070944.html",
+    "quote": "經濟部能源署今天說明，截至本月業者仍未完成剩餘履約保證金繳納，目前正在簽報解約作業。"
+   },
+   {
+    "url": "https://money.udn.com/money/story/5612/9452773",
+    "quote": "2026/04/20 14:54:31 中央社 記者曾智怡台北20日電 台灣離岸風電區塊開發3-1期5座簽約風場之一的法商EDF蔚藍海彰化離岸風電計畫，已在今年2月向能源署提出公文終止行政契約，目前剩少數員工在台灣負責收尾。能源署今天表示，尊重個別業者經營規劃，後續將再重新對外招標，確保海域空間有效運用。"
+   },
+   {
+    "url": "https://www.nownews.com/news/6859530",
+    "quote": "記者 鍾泓良 ／台北報導 2026-07-23 17:03:52"
+   },
+   {
+    "url": "https://www.nownews.com/news/6859530",
+    "quote": "能源署說明，解約場址包括海峽一、海峽二和海鼎二，這3座風場都已經確定會納入擴充容量範圍內；至於蔚藍海彰化風場已在解約程序當中，又德風場先前也傳出無法執行，考量到收件截止日是9月30日，仍以這3座風場為主。"
+   }
+  ]
+ },
+ {
+  "item": "10c. Taiwan: official site location for 又德",
+  "farm": "YouDe",
+  "src_code": 3,
+  "iso": "TWN",
+  "status": "none",
+  "proposal": "(none) keep the approximate GEM point.",
+  "note_zh": "沒有找到官方場址座標：環境部環評書件查詢系統的又德文件沒有出現在搜尋結果，能源署 3.2 期公告只列容量與開發商；GEM 的「Datian Youde」點位標為概略。36681 潛力場址檔沒有開發商名稱，無法對應。",
+  "note_en": "No official site coordinates found: the Youde EIA documents did not surface from the MOENV EIA system in searches, and the Round 3.2 announcements give only capacity and developer; GEM’s “Datian Youde” point is marked approximate. The open-data 36681 potential-site file has no developer names, so it cannot be matched.",
+  "why": "eiadoc.moenv.gov.tw search returned nothing quotable; would need the 又德 EIA (環境影響說明書) site map with coordinates.",
+  "sources": []
+ },
+ {
+  "item": "11. Korea: Jwasari (좌사리) construction or auction",
+  "farm": "Jwasari Offshore wind farm",
+  "src_code": 2,
+  "iso": "KOR",
+  "status": "write",
+  "proposal": "(no rule change) The existing fix (st=2, year=0) stays correct: no construction start and no auction award found through Oct 2026.",
+  "note_zh": "2026 上半年固定價格競標（2026-06-30 公布）5 案得標：屈業島 250、韓光 340、海松 3 號 504、金鰲島 160（公共主導）、海蔚 2 號浮動式 532 MW，沒有左沙里。釜山日報 2026-05：現代建設 2021 年 6 月取得左沙里島一帶 40.9 km²、24 部 8 MW 的發電事業許可，當地漁民仍強烈反對，報導未提到開工。結論：仍是前期，維持現有規則。",
+  "note_en": "The H1 2026 fixed-price auction (results 30 Jun 2026) picked five projects: Gureopdo 250, Hanbit 340, Haesong 3 504, Geumodo 160 (public-led) and Haeul 2 floating 532 MW, not Jwasari. Busan Ilbo (May 2026): Hyundai E&C obtained the electricity business licence for 40.9 km² around Jwasari-do with 24 × 8 MW in June 2021, and local fishermen still strongly oppose; no construction start is reported. Still pre-construction; keep the existing rule.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://news.mtn.co.kr/news-detail/2026063016022261586",
+    "quote": "김민우 기자 2026-06-30 16:26:02"
+   },
+   {
+    "url": "https://news.mtn.co.kr/news-detail/2026063016022261586",
+    "quote": "이번 입찰에는 고정식과 부유식, 공공주도형을 합쳐 9개 사업, 총 3656메가와트(MW)가 참여했다. 이 가운데 5개 사업, 1786MW가 낙찰됐다. 고정식 일반시장에서는 굴업도해상풍력(250MW)과 한빛해상풍력(340MW), 해송3해상풍력(504MW) 3곳이 이름을 올렸다. 공공주도형에서는 금오도해상풍력(160MW)이 선정됐다. 부유식 시장에서는 해울이2 부유식해상풍력(532MW)이 최종"
+   },
+   {
+    "url": "https://v.daum.net/v/20260507144934611",
+    "quote": "김민진 2026. 5. 7. 14:49"
+   },
+   {
+    "url": "https://v.daum.net/v/20260507144934611",
+    "quote": "2021년 6월엔 현대건설(주)이 동쪽 해상(좌사리도 일원) 40.9㎢에 8MW급 발전기 24기를 꽂겠다며 허가를 득했다."
+   }
+  ]
+ },
+ {
+  "item": "12. Norway: Sørmarkfjellet return to service and blade-failure cause",
+  "farm": "Sormarkfjellet wind farm",
+  "src_code": 2,
+  "iso": "NOR",
+  "status": "none",
+  "proposal": "(no rule change) Record stays operating 2021. Neither a full return to service in 2026 nor a published cause was found; a new closure followed in Dec 2025.",
+  "note_zh": "Aneo 最後一次說明 2025 年 3 月事故是 3 月 27 日：一月的斷裂原因「尚未完全確定」，3 月的事故原因「現在下結論太早」，風場逐步重啟、逐支人工檢查葉片。之後 Aneo 2025-12-19 新聞稿：前一週因突發嚴重結冰造成多部風機葉片損壞，風場再度封閉、修理中，「另行通知前維持封閉」。Aneo 網站 2026 年沒有 Sørmarkfjellet 的更新，挪威媒體也沒找到。紀錄維持營運中（暫時停機不改狀態）。",
+  "note_en": "Aneo’s last word on the March 2025 failure is the 27 March update: the cause of the January failure “has not been fully determined”, it is “too early to conclude the cause” of the March one, and the farm was being restarted gradually with manual inspection of every blade. Then Aneo’s 19 Dec 2025 release: sudden heavy icing the week before damaged blades on several turbines, the farm was closed again for repairs and stays closed “until further notice”. Aneo’s site has no Sørmarkfjellet update in 2026 and no Norwegian press report was found. The record stays operating (a temporary shutdown does not change the status).",
+  "why": "No 2026 owner update or published root cause.",
+  "sources": [
+   {
+    "url": "https://www.aneo.com/en/news/sormark-mountain-wind-farm-damage-to-turbine-blade-that-has-partially-fallen-off",
+    "quote": "Update March 27: Update from Sørmarkfjellet Wind Farm – Investigations Underway and Operations Gradually Restarting"
+   },
+   {
+    "url": "https://www.aneo.com/en/news/sormark-mountain-wind-farm-damage-to-turbine-blade-that-has-partially-fallen-off",
+    "quote": "Although the final cause of the blade failure in January has not been fully determined, it was reasonable to think it was related to the storm."
+   },
+   {
+    "url": "https://www.aneo.com/en/news/sormark-mountain-wind-farm-damage-to-turbine-blade-that-has-partially-fallen-off",
+    "quote": "the wind farm is being restarted gradually, and a comprehensive inspection process will be carried out on all the blades at Sørmarkfjellet. Technicians will conduct manual inspections of each turbine blade."
+   },
+   {
+    "url": "https://www.aneo.com/en/news/bladhavari-sormarkfjellet-wind-farm",
+    "quote": "It is too early to conclude the cause, but two incidents in the same park make it necessary to implement additional measures."
+   },
+   {
+    "url": "https://www.aneo.com/en/news/sormarkfjellet-wind-park-closed-for-access",
+    "quote": "Press Release Dec 19, 2025 Sørmarkfjellet Wind Farm Last week, Sørmarkfjellet wind farm was closed to access after several vibration alarms had been triggered. There has been a sudden and unexpected change in weather that has caused particularly heavy icing, which has led to damage in the wind farm. Both internal and external resources have carried out inspections, and both minor and more significant damage has been discovered on several turbines. Turbines with damage to the turbine blades have been temporarily reinforced to prevent further damage, and repairs are now underway on the turbines where needed. Further investigations will continue in parallel with the repair work currently underway. Until further notice, we will keep the wind farm closed to access."
+   }
+  ]
+ },
+ {
+  "item": "13a. Japan: when did Setana (瀬棚) stop operating",
+  "farm": "Setana semi-offshore",
+  "src_code": 0,
+  "iso": "JPN",
+  "status": "lead",
+  "proposal": "(lead; possible note update) fix('JPN', 'Setana semi-offshore', C, '2 號機 2018 年 12 月因雷擊斷葉停機（2020 年修理）；2023 年 8 月町公所說 2 部中 1 部故障中、FIT 於 2023 年 12 月結束；最後停機日期仍待查證。2026 年 4 月町公所決定 2027 年度撤除', 'Unit 2 stopped in December 2018 after a lightning-damaged blade (repaired in 2020); in August 2023 the town said one of the two units was broken and the FIT ended in December 2023; the date of the final shutdown is still unverified. In April 2026 the town decided to remove it in FY2027', 'https://hokkaido.env.go.jp/content/000153282.pdf', note=True)",
+  "note_zh": "北海道新聞 2020-08：2 號機因葉片破損自 2018 年 12 月停機、正在修理；せたな町 2023-08-24 環境省媒合會簡報：令和 3 年度（2021）平均容量因數約 34%，「目前 2 部中 1 部故障中」，需決定修理或撤除，FIT 於 2023 年 12 月結束；北海道新聞（2026-04-24）：町公所決定 2027 年度撤除（付費全文看不到停機日）。所以 2021 年仍在發電、2023 年至少 1 部仍可運轉，確切的最後停機時間仍查不到。記錄 end=2025 沒有直接出處；可改說明，或在查到前保留。",
+  "note_en": "Hokkaido Shimbun (Aug 2020): unit 2 had been out of service since December 2018 because of a damaged blade and was under repair; Setana town’s slides for an MOE matching event (24 Aug 2023): average capacity factor about 34% in FY2021, “one of the two units is currently broken” and the town must choose repair or removal, FIT ended December 2023; Hokkaido Shimbun (24 Apr 2026): the town decided to remove it in FY2027 (the paywalled text does not show a stop date). So it generated in FY2021 and at least one unit could run in 2023; the exact final shutdown is still unknown. The record’s end=2025 has no direct source; reword the note or keep it until a date is found.",
+  "why": "Final shutdown date not published in accessible sources; hokkaido-np.co.jp articles paywalled.",
+  "sources": [
+   {
+    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
+    "quote": "令和５年度第 １ 回地域脱炭素マッチング会 令和５年８月２４日 北海道せたな町"
+   },
+   {
+    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
+    "quote": "令和3年度の設備 利用率は年平均で約34％となっている"
+   },
+   {
+    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
+    "quote": "一方、現在２基（600kW×2基1,200kW)のうち１基が故障中であり、町とし て修繕か撤去かの判断が必要となっている"
+   },
+   {
+    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
+    "quote": "日本発の洋上風車（風海鳥）の卒FIT後の利活用（2023年12月にFIT終了）"
+   },
+   {
+    "url": "https://www.hokkaido-np.co.jp/movies/detail/6182515957001/",
+    "quote": "檜山管内せたな町は、ブレード（羽根）の破損で２０１８年１２月から運用を停止している国内初の洋上風車「風海鳥（かざみどり）」２号機を修理している。"
+   },
+   {
+    "url": "https://www.hokkaido-np.co.jp/article/1305209/",
+    "quote": "【せたな】檜山管内せたな町は24日、瀬棚港内にある国内初の洋上風力発電施設「風海鳥（かざみどり）」を撤去する時期について、2027年度とすることを決めた。"
+   }
+  ]
+ },
+ {
+  "item": "13b. Taiwan: Formosa 1 Phase 1 SWT-4.0-120 or -130",
+  "farm": "Formosa 1 Phase 1",
+  "src_code": 0,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "(lead) no change: the manufacturer contradicts itself. Keep “2x Siemens SWT-4.0-120” until an as-built source (e.g. Swancor/Formosa 1 annual report, EIA completion report) settles it.",
+  "note_zh": "西門子 2015-09 簽約時（Evertiq 轉載）寫「SWT-4.0-120 機型」；西門子歌美颯 2018-04 二期得標新聞稿卻寫一期「裝了最早的兩部 SWT-4.0-130」；Power Technology 專案頁寫 SWT-4.0-120、葉輪 120 m、葉片 58.5 m。2018 年的說法是事後陳述已裝機組，但與 2015 年訂單與其他資料矛盾，無法判定；沒有找到業主或主管機關的建成文件。",
+  "note_en": "Siemens’ contract news (Sep 2015, via Evertiq) says “the SWT-4.0-120 model”; Siemens Gamesa’s Phase 2 award release (Apr 2018) says “the first two SWT-4.0-130 turbines were installed for Phase 1”; Power Technology’s project page gives SWT-4.0-120 with a 120 m rotor and 58.5 m blades. The 2018 statement describes turbines already installed but contradicts the 2015 order and other sources; undecidable without an owner or regulator as-built document.",
+  "why": "Conflicting manufacturer statements; thewindpower and the SGRE 2018 newsroom URL return 404.",
+  "sources": [
+   {
+    "url": "https://evertiq.com/news/37650",
+    "quote": "The Siemens wind turbines – the SWT-4.0-120 model – will be installed on monopile foundation to cater to the specific site seabed conditions."
+   },
+   {
+    "url": "https://www.powermag.com/press-releases/siemens-gamesa-awarded-120-mw-expansion-of-taiwans-pioneering-formosa-1-offshore-wind-power-plant/",
+    "quote": "This foundation has already proven its suitability in the local sea bed conditions when the first two SWT-4.0-130 turbines were installed for Phase 1."
+   },
+   {
+    "url": "https://www.power-technology.com/projects/formosa-1-offshore-wind-farm/",
+    "quote": "During the demonstration phase, the wind farm was equipped with two Siemens SWT-4.0-120 wind turbines, each with a rated capacity of 4MW."
+   }
+  ]
+ },
+ {
+  "item": "13c. Japan: Choshi offshore still operating in 2025",
+  "farm": "Choshi Offshore Demonstration (NEDO/TEPCO)",
+  "src_code": 0,
+  "iso": "JPN",
+  "status": "lead",
+  "proposal": "(no change) Confirmed operating at end-2024 (JWPA list); no 2025-specific source found, and nothing reports a shutdown or removal.",
+  "note_zh": "JWPA 2024 年底「本格洋上風力」清單（7 處、253.4 MW）列有銚子沖 2.4 MW（2019 年 1 月起）；JWPA 2025 年底報告說 2025 年沒有新的洋上風場，搜尋摘要的 2025 年底洋上 253.4 MW 與 2024 年底相同，但 2025 年的逐場清單在 PDF（403 無法讀）。TEPCO 網站（tepco.co.jp）回 403。沒有任何停機或撤除的報導，維持營運中。",
+  "note_en": "JWPA’s end-2024 list of “full offshore” wind (7 sites, 253.4 MW) includes Choshi 2.4 MW (from Jan 2019); JWPA’s end-2025 report says no new offshore farm started in 2025, and the 253.4 MW offshore figure quoted for end-2025 equals end-2024, but the 2025 per-site list is in a PDF that returns 403. tepco.co.jp returns 403. No report of a shutdown or removal; keep operating.",
+  "why": "JWPA 2025 graph PDF and tepco.co.jp blocked (403).",
+  "sources": [
+   {
+    "url": "https://jwpa.jp/information/11062/",
+    "quote": "なお、2024年12月末時点で、本格洋上風力発電（陸上からの直接アクセスができず船を要するもの）は以下の通りです。 形式 発電所名 運転開始年月 基数 出力 浮体式 崎山沖２MW浮体式洋上風力発電所 2016年 4月 1基 2.0MW 着床式 銚子沖洋上風力発電所 2019年 1月 1基 2.4MW"
+   }
+  ]
+ },
+ {
+  "item": "13d. Korea: Jeju Woljeong test site status",
+  "farm": "Jeju Woljeong test (Doosan)",
+  "src_code": 0,
+  "iso": "KOR",
+  "status": "none",
+  "proposal": "(none) no change.",
+  "note_zh": "韓文搜尋（월정 실증 철거／가동 중단／운전）沒有找到 2016 年以後的現況報導；只有 2014 年學術文章提到月汀的 2、3 MW 兩部實證機。",
+  "note_en": "Korean searches (월정 실증 철거 / 가동 중단 / 운전) found no status report after 2016; only a 2014 paper mentions the two 2 and 3 MW demonstration turbines at Woljeong.",
+  "why": "No post-2016 source on the Doosan 3 MW unit; KIER/Doosan pages not found.",
+  "sources": []
+ },
+ {
+  "item": "14b. Denmark: Rønland foundation (report only; table row)",
+  "farm": "Rønland",
+  "src_code": 0,
+  "iso": "DNK",
+  "status": "lead",
+  "proposal": "Probably change F('DNK', 'Rønland', 'gb', ['DK04']) to 'pc' with a note, e.g. url='https://ens.dk/media/7495/download', zh='業主 2024 年向丹麥能源署的延壽申請：風機立在打樁到約 50 m 深的混凝土基礎上，排在一道低矮的花崗岩堤上（能源署的評估寫「點狀基礎」）；不是 OSPAR 所寫的重力式', en='The owners’ 2024 life-extension application to the Danish Energy Agency: the turbines stand on concrete foundations piled down to about 50 m, set along a low granite dam (the agency’s assessment says “point foundations”); not gravity-based as OSPAR says' — the main session should decide whether ‘pc’ (high-rise pile cap) fits a pile-supported concrete base on a low dam.",
+  "note_zh": "丹麥能源署網站公開的文件：(1) 南側 4 部（Bonus 2.3 MW）業主 2024-10-30 的延壽申請：「風機立在混凝土基礎上，基礎打樁到約 50 m 深」，風機以一道從 Thyborøn 港延伸到最南一部的石堤相連；(2) 能源署委託的 Natura 2000 評估：8 部「立在點狀基礎上」、「風機建在一道與風機同時建造的低矮堤上，堤以花崗岩碎石堆成、部分在水下」；(3) 能源署 2025 年延壽許可。所以不是重力式，而是有樁的混凝土基礎；本站型式表沒有「低承台」，最接近的是 pc。注意：說明只直接講南側 4 部；北側 4 部（Vestas）同在一條線上，評估說 8 部都是點狀基礎，且因 Thyborøn 港擴建將被圍填。使用者工作簿（Boundary Layer）說的「打樁混凝土基礎」與此相符。順帶：南側 4 部輪轂 80 m、葉輪 80 m（業主申請書），北側未知，不符合尺寸表「全場」要求。",
+  "note_en": "Documents published on the Danish Energy Agency site: (1) the owners’ life-extension application for the southern 4 turbines (Bonus 2.3 MW, 30 Oct 2024): “the turbines stand on concrete foundations piled down to about 50 m”, linked by a stone dam running from Thyborøn harbour to the southernmost turbine; (2) the agency’s Natura 2000 screening: all 8 turbines “stand on point foundations” and “are built on a low dam, built at the same time as the turbines, made of granite chippings and partly under water”; (3) the agency’s 2025 extension permit. So not gravity-based but a piled concrete base; the type table has no “low pile cap”, and pc is the closest. Note: the application speaks directly only of the southern 4; the northern 4 (Vestas) stand in the same line, the screening calls all 8 point foundations, and they will be enclosed by the Thyborøn port expansion. The user workbook’s (Boundary Layer) “piled concrete foundations” agrees. Aside: the southern 4 have an 80 m hub and 80 m rotor (owners’ application); the northern ones are unknown, so this fails the whole-farm rule for dimensions.",
+  "why": "Type mapping (pile-supported concrete base on a low dam vs high-rise pile cap) is a judgement for the main session; northern 4 turbines not described separately.",
+  "sources": [
+   {
+    "url": "https://ens.dk/media/7495/download",
+    "quote": "Ansøgning om forlængelse af produktionstilladelse for 4 stk. 2,3 MW havvindmøller ved Rønland i Limfjordens vestlige del."
+   },
+   {
+    "url": "https://ens.dk/media/7495/download",
+    "quote": "Møllerne er placeret på fundamenter af beton, som er piloteret ned til ca. 50 m dybde."
+   },
+   {
+    "url": "https://ens.dk/media/7497/download",
+    "quote": "Rønland Havvindmøllepark består af i alt 8 møller opstillet på punktfundamenter i lige linje østnordøst for Rønland i Nissum Bredning."
+   },
+   {
+    "url": "https://ens.dk/media/7497/download",
+    "quote": "Møllerne er anlagt på en lav dæmning, som blev etableret samtidig med møllerne. Dæmningen er opbygget af granitskærver og er delvist dækket af vand."
+   },
+   {
+    "url": "https://ens.dk/media/7497/download",
+    "quote": "De fire nordligste møller inddæmmes i forbindelse med Thyborøn Havneudvidelse og indgår derfor ikke i denne ansøgning om levetidsforlængelse."
+   },
+   {
+    "url": "https://ens.dk/media/7498/download",
+    "quote": "Energistyrelsen meddelte den 19. juli 2002 etableringstilladelse til etablering af otte møller på havet ved Rønland."
+   }
+  ]
+ }
+]
