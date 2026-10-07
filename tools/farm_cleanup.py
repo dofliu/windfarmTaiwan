@@ -1317,7 +1317,7 @@ RULES = [
     fix('DEU', 'Windanker wind farm', G,
         '容量 315 MW（21 部風機），不是 300 MW；2026 年 6 月才開始安裝風機，預計年底完工、2027 年全面運轉',
         'Capacity 315 MW (21 turbines), not 300 MW; turbine installation only began in June 2026, with completion expected by year-end and full commissioning in 2027',
-        'https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/', mw=315),
+        'https://www.offshorewind.biz/2026/06/10/windanker-turbine-components-arriving-at-german-port-ahead-of-offshore-installation/', mw=315, year=2027),
     # 2026-10-04 再核對「預計 2026 年完工」的興建中離岸風場（出處原文以 check_quotes.py 核對）
     fix('NLD', 'Ecowende Offshore wind farm', G,
         'Ecowende（Hollandse Kust West 第 VI 區）52 部 Vestas V236-15.0、760 MW，2026 年 7 月首度送電、預定 2026 年底全面運轉；'
@@ -1698,7 +1698,7 @@ RULES = [
     fix('VNM', 'Cà Mau wind farm', G, '越南電力集團（EVN）2025-04-30 轉型期風場 COD 進度表：金甌 1A（88 MW）、1B（88 MW）、1C（88 MW）、1D（86 MW）四座都「尚未送 COD 文件」；法律報 2023-08 仍列為施工中；中國電建 2023-04 只完成 1A 區全部吊裝。2026-07 金甌省（已併入薄遼）14 座商轉風場共 694.2 MW，正好等於不含金甌 1 號的各場加總。全案尚未商轉，改為興建中、完工年不詳（舊規則「2023 年 4 月完工」實為 1A 區吊裝完成）', 'EVN’s COD tracker for transitional projects (30 Apr 2025) lists Ca Mau 1A (88 MW), 1B (88 MW), 1C (88 MW) and 1D (86 MW) all as “COD dossier not yet submitted”; Bao Phap luat (Aug 2023) still listed the cluster as under construction, and PowerChina’s April 2023 milestone was only the hoisting of all turbines in area 1A. In July 2026 the enlarged Ca Mau province (now including Bac Lieu) had 14 commercial wind farms totalling 694.2 MW, exactly the sum of the farms other than Ca Mau 1. The project is not in commercial operation: status set to under construction, completion year unknown (the older rule’s “completed April 2023” was the area-1A hoisting)', 'https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf', st=1, year=0, note=True),
     fix('VNM', 'Soc Trang 1 Phase 1 (Cong Ly)', C, '公理朔莊一期 30 MW 不是 2021 年商轉：2021 年底 FIT 期限前沒有通過 COD，EVN 2025-04-30 的轉型期風場表仍寫「尚未送 COD 文件」；業主母公司 Super Energy 2026-01-06 公布 2025-12-31 起 27 MW 商轉，其餘 3 MW 預計 2026 年第一季。10 部 3 MW（金風 GW155-3.3）中 9 部在陸上、1 部在近岸，改列陸域；全場是否已完成待查證，暫列興建中、預計 2026', 'Cong Ly Soc Trang phase 1 (30 MW) did not start in 2021: it missed the FIT COD deadline, and EVN’s transitional-project tracker of 30 Apr 2025 still says “COD dossier not yet submitted”. Super Energy (the owner’s parent) announced on 6 Jan 2026 that 27 MW reached COD on 31 Dec 2025 with the remaining 3 MW expected in Q1 2026. Of its ten 3 MW turbines (Goldwind GW155-3.3), nine stand on land and one nearshore, so the record becomes onshore; full completion is unverified, so it is shown as under construction, expected 2026', 'https://southeastasiainfra.com/super-energy-to-start-operations-on-a-30-mw-wind-power-plant-in-mekong-delta-by-2025/', type=0, st=1, year=2026, turbine='10x 3 MW (Goldwind GW155-3.3)', note=True),
     dup('VNM', 'Công Lý Sóc Trăng wind farm', G, ('Soc Trang 1 Phase 1 (Cong Ly)', C), '同一座公理朔莊風電廠一期（30 MW，Super Wind Energy Công Lý Sóc Trăng）；GEM 這筆列為施工中', 'The same Cong Ly Soc Trang plant, phase 1 (30 MW, Super Wind Energy Cong Ly Soc Trang); GEM lists it as under construction', 'https://www.gem.wiki/C%C3%B4ng_L%C3%BD_S%C3%B3c_Tr%C4%83ng_wind_farm'),
-    fix('VNM', 'Bến Tre 10 Bình Đại 1 Offshore wind farm', G, '平大風場三期 30／49／49 MW：一期 7 部西門子歌美颯（5.0 系列），二、三期 24 部（GlobalData 寫金風，型號未查到）；共 31 部、128 MW（PTSC）。一期 2021 年 FIT 期限前只有 4.2 MW 通過 COD（工貿部），其餘 25.8 MW 與平大 2、3 號各 49 MW 都是轉型期專案，2023 年才通過 COD（EVN 2023-08-18 表），全場完工年改為 2023；GEM 的分期 2021／2022 不對', 'Binh Dai has three phases of 30, 49 and 49 MW: phase 1 has 7 Siemens Gamesa (5.0 series) turbines and phases 2–3 have 24 units (Goldwind per GlobalData, model not found), 31 turbines and 128 MW in all (PTSC). Only 4.2 MW of phase 1 reached COD before the 2021 FIT deadline (MOIT); the remaining 25.8 MW and the 49 MW Binh Dai No. 2 and No. 3 were transitional projects that reached COD in 2023 (EVN tracker of 18 Aug 2023), so the farm is complete from 2023; GEM’s 2021/2022 phases are wrong', 'https://www.evn.com.vn/userfile/User/honghoa/files/18082023_CapnhatCODduanNLTTchuyentiep.pdf', year=2023, ph=[[2021, 4.2], [2023, 123.8]], turbine='7x Siemens Gamesa + 24x (phases 2–3, models unverified)'),
+    fix('VNM', 'Bến Tre 10 Bình Đại 1 Offshore wind farm', G, '平大風場三期 30／49／49 MW：一期 7 部西門子歌美颯（5.0 系列），二、三期 24 部金風（海事保證檢驗商 AqualisBraemar LOC 的施工階段報導，GlobalData 同；型號未查到）；共 31 部、128 MW（PTSC）。一期 2021 年 FIT 期限前只有 4.2 MW 通過 COD（工貿部），其餘 25.8 MW 與平大 2、3 號各 49 MW 都是轉型期專案，2023 年才通過 COD（EVN 2023-08-18 表），全場完工年改為 2023；GEM 的分期 2021／2022 不對', 'Binh Dai has three phases of 30, 49 and 49 MW: phase 1 has 7 Siemens Gamesa (5.0 series) turbines and phases 2–3 have 24 Goldwind units (contract-stage report by the marine warranty surveyor AqualisBraemar LOC, matching GlobalData; model not found), 31 turbines and 128 MW in all (PTSC). Only 4.2 MW of phase 1 reached COD before the 2021 FIT deadline (MOIT); the remaining 25.8 MW and the 49 MW Binh Dai No. 2 and No. 3 were transitional projects that reached COD in 2023 (EVN tracker of 18 Aug 2023), so the farm is complete from 2023; GEM’s 2021/2022 phases are wrong', 'https://www.evn.com.vn/userfile/User/honghoa/files/18082023_CapnhatCODduanNLTTchuyentiep.pdf', year=2023, ph=[[2021, 4.2], [2023, 123.8]], turbine='7x Siemens Gamesa + 24x Goldwind'),
     dup('VNM', 'Bình Đại wind farm', G, ('Bến Tre 10 Bình Đại 1 Offshore wind farm', G), 'GEM 這筆 25.8 MW「陸域」只引用 EVN 2023-08 的轉型期 COD 表，就是平大一期（30 MW）在 2021 年只通過 4.2 MW 之後剩下的 25.8 MW，不是另一座風場', 'This 25.8 MW “onshore” GEM record cites only EVN’s Aug 2023 transitional COD tracker: it is the 25.8 MW left of Binh Dai phase 1 (30 MW) after 4.2 MW reached COD in 2021, not a separate farm', 'https://www.gem.wiki/B%C3%ACnh_%C4%90%E1%BA%A1i_wind_farm'),
     fix('VNM', 'Thanh Hải No. 5 Offshore wind farm', G, '成海 5 號共 4 座電廠、28 部（EVN 2022-07；打樁承包商 Lê Thy 寫 24 部，以 EVN 為準）。2021 年 FIT 期限前只有成海 1（30 MW）與成海 2 的 4.25 MW 通過 COD（工貿部）；成海 2 其餘 25.75 MW、成海 3、4（各 30 MW）在 EVN 2025-04-30 的轉型期表仍「未送 COD 文件」，全場尚未完成，改為興建中（完工年不詳）。機型：成海 1 為 7 部西門子歌美颯 SG 4.5-145（訂單），成海 2 為 7 部 SG 4.5-145（GlobalData；原訂單為附條件），成海 3、4 未查到', 'Thanh Hai No. 5 is four plants with 28 turbines (EVN, Jul 2022; the piling contractor Le Thy says 24, EVN is preferred). Only Thanh Hai 1 (30 MW) and 4.25 MW of Thanh Hai 2 reached COD before the 2021 FIT deadline (MOIT); the remaining 25.75 MW of Thanh Hai 2 and Thanh Hai 3 and 4 (30 MW each) were still “COD dossier not submitted” in EVN’s transitional tracker of 30 Apr 2025, so the farm is not complete: under construction, completion year unknown. Turbines: Thanh Hai 1 has 7 Siemens Gamesa SG 4.5-145 (order), Thanh Hai 2 7 × SG 4.5-145 (GlobalData; the order was conditional), Thanh Hai 3–4 not found', 'https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf', st=1, year=0, note=True),
     fix('VNM', 'Hoa Binh 1 Phase 2', C, '和平 1 號二期與和平 2 號由方英建設投資貿易公司（Phương Anh 集團）投資（工貿部 2020-07 開工報導）；原本業主空白', 'Hoa Binh 1 phase 2 and Hoa Binh 2 are invested by Phuong Anh Investment, Construction and Trading Co Ltd (Phuong Anh Group) (MOIT, groundbreaking, Jul 2020); the owner was blank', 'https://moit.gov.vn/phat-trien-ben-vung/bac-lieu-them-100mw-dien-gio-duoc-khoi-cong-xay-dung.html', owner='Phuong Anh Investment, Construction and Trading Co Ltd (Phuong Anh Group)'),
@@ -1708,6 +1708,83 @@ RULES = [
     fix('MAR', 'Akhfennir I-II', C, '阿赫費尼爾一期（101.87 MW、61 部 Alstom ECO 74）2013 年投入運轉：Nareva 執行長 2013-02 說 1 月起已有風機運轉、6 月全部投運；晨報 2014 寫「2013 年起運轉」，GlobalData 寫 2013 年 6 月投運；GEM 的 2014 不對。二期為 56 部 GE 1.7-100（GE 2014-09 合約）；原機型欄「Siemens Gamesa」不對', 'Akhfennir I (101.87 MW, 61 Alstom ECO 74) went into service in 2013: Nareva’s CEO said in Feb 2013 that turbines had been turning since January with full commissioning due in June; Le Matin (2014) says “operational since 2013” and GlobalData gives June 2013; GEM’s 2014 is wrong. Phase II has 56 GE 1.7-100 (GE contract, Sep 2014); the stored “Siemens Gamesa” is wrong', 'https://lematin.ma/express/2014/energie-eolienne_tarfaya-abrite-le-premier-parc-en-afrique/200878.html', ph=[[2013, 102], [2016, 100]], turbine='61x Alstom ECO 74 (1.67 MW) + 56x GE 1.7-100'),
     drop('TWN', 'Formosa 3 offshore wind farm · 3', G, '海鼎（Formosa 3）計畫已終止：Corio 2025 年決定退出台灣，經濟部 2025 年 5 月前解除海鼎一（3.2 期）開發權，海鼎二（3.1 期）也已解約、2026 年併入 3.3 期擴充容量；Infralogic 2026-02：與道達爾能源共有的 Formosa 3 開發權 2025 年已取消，Corio 本身 2026-04-01 起不存在。海鼎三從未獲配容量，已無開發商', 'The Formosa 3 (Haiding) project has ended: Corio decided in 2025 to leave Taiwan, the ministry revoked Haiding 1’s Round 3.2 rights by May 2025, and Haiding 2 (Round 3.1) was terminated and added to the Round 3.3 expansion capacity in 2026; Infralogic (Feb 2026): the development rights of Formosa 3, co-owned with TotalEnergies, were cancelled in 2025, and Corio itself ceased to exist on 1 April 2026. Haiding 3 never received capacity and no longer has a developer', 'https://ionanalytics.com/insights/infralogic/macquarie-winds-down-offshore-platform-corio/'),
     # ------------------------------------------------ 2026-10-07 第六批（第十二輪資料疑點；出處原文以 check_quotes.py 核對）
+    fix('VNM', 'Duyên Hai wind farm · 1', G, 'GEM 這筆的別名就是「Duyen Hai Wind Power Plant (V1-4)／NMĐ gió Duyên Hải (V1-4)」，狀態引用的西貢經濟時報 2025-09 報導的是 REE 子公司 Duyên Hải 風電公司在 Đông Hải 等三個社的 48 MW 電廠；業主 Asian Energy／Uniso 是 2018 年已被茶榮省終止的舊案。人民報：Duyên Hải（V1-4）10／10 部 2026-03-16 起全部正式運轉（券商摘要：2026-03-16 商轉）；KB 證券 2025 年第三季報告稱為離岸（潮間帶）專案、10 座離岸風機塔已裝完。改為運轉中、2026、離岸，業主改為 REE 的 Duyen Hai Wind Power JSC；機組數各來源不一（10 或 8 部），機型未查到', 'GEM’s own page gives this record’s other name as “Duyen Hai Wind Power Plant (V1-4) / NMĐ gió Duyên Hải (V1-4)”, and its status source (Saigon Times, Sep 2025) describes the 48 MW plant of REE’s subsidiary Duyen Hai Wind Power JSC in Dong Hai and two neighbouring communes; the listed owners Asian Energy / Uniso belong to an older project that Tra Vinh terminated in 2018. Nhan Dan: all 10 of 10 turbines of Duyen Hai (V1-4) in official operation from 16 Mar 2026 (a broker summary gives COD on 16 Mar 2026); KB Securities (3Q 2025) calls it an offshore (intertidal) project whose 10 offshore turbine towers were installed. Set to operating, 2026, offshore, owner REE’s Duyen Hai Wind Power JSC; the turbine count differs between sources (10 or 8) and the model was not found', 'https://nhandan.vn/post-952529.html', st=0, year=2026, type=1, owner='Duyen Hai Wind Power JSC (REE Corp)', note=True),
+    fix('VNM', 'Lạc Hòa wind farm', G, 'GEM 這筆含兩座：二期 124 MW 就是 Lạc Hòa 2（EVN：40 部中 38 部、123.6 MW 於 2023-08-18 前通過 COD），一期 30 MW 是 UPC／AC Energy 的 Lạc Hòa 風電廠（和東社、6 部 V150-3.8＋2 部 V150-3.6，業主公告 2023-12-30 商轉；GEM 的 2025 年引用 2025-02 的進度表）。兩部分都在 2023 年，不再分期', 'This GEM record holds two plants: phase 2 (124 MW) is Lac Hoa 2 (EVN: 38 of 40 turbines, 123.6 MW, at COD by 18 Aug 2023) and phase 1 (30 MW) is UPC / AC Energy’s Lac Hoa plant (Hoa Dong commune, 6 V150-3.8 + 2 V150-3.6, in commercial operation from 30 Dec 2023 per the owner; GEM’s 2025 came from a Feb 2025 tracker). Both parts date from 2023, so the phases are dropped', 'https://diengiolachoa.com/en/', year=2023, ph=0),
+    fix('VNM', 'Chơ Long wind farm · 2', G, '朱龍（Chơ Long）風電廠共 155 MW（Phong Điện Chơ Long 股份公司，原 Krông Chro 縣）：2021 年已建成，但只有 49.5 MW 在 FIT 期限前通過 COD；其餘 105.5 MW 因電能品質（諧波）試驗問題，到 2026-08 仍未商轉（嘉萊省 2026-08-04 向 EVN 陳情）。不是「規劃中」，改為興建中（已建成、未商轉）', 'Cho Long wind plant is 155 MW in all (Cho Long Wind Power JSC, former Krong Chro district): it was built in 2021, but only 49.5 MW reached COD before the FIT deadline; the remaining 105.5 MW was still not in commercial operation in Aug 2026 because of power-quality (harmonics) test issues (Gia Lai’s request to EVN on 4 Aug 2026). Not “pre-construction”: set to under construction (built, not commissioned)', 'https://www.tinnhanhchungkhoan.vn/gia-lai-tiep-tuc-kien-nghi-go-vuong-2-du-an-dien-gio-chua-van-hanh-thuong-mai-post395316.html', st=1, owner='Cho Long Wind Power JSC (Phong Dien Cho Long)', note=True),
+    fix('VNM', 'Chơ Long wind farm', G, '朱龍風電廠的 49.5 MW 在 2021-10-31 前通過 COD（EVN 名單「部分」，全廠 155 MW）', 'The 49.5 MW part of Cho Long reached COD by 31 Oct 2021 (EVN list, “partial” of the 155 MW plant)', 'https://evn.com.vn/userfile/User/tcdl/files/Thong-tin-COD-dien-gio-den-het-ngay-31-10-2021_2.pdf', year=2021, owner='Cho Long Wind Power JSC (Phong Dien Cho Long)'),
+    fix('VNM', 'Soc Trang 7 Phase 1', C, '7 號風場一期是 7 部 4.2 MW、29.4 MW（EVN 2021 FIT 名單「Số 7 Sóc Trăng 29,40 全部」），業主朔莊能源股份公司與春求公司', 'Wind farm No. 7 phase 1 has 7 × 4.2 MW, 29.4 MW (EVN’s 2021 FIT list: “Số 7 Sóc Trăng 29,40, full”), owned by Soc Trang Energy JSC and Xuan Cau Co Ltd', 'https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html', mw=29.4, turbine='7x 4.2 MW', owner='Soc Trang Energy JSC; Xuan Cau Co Ltd'),
+    fix('DNK', 'Rønland', C,
+        '丹麥能源署：羅恩蘭海上風場現在只有南側 4 部（9.2 MW）；北側 4 部 Vestas V80 因 Thyborøn 港擴建已與陸地相連（2003 年起原為 8 部、17.2 MW）。'
+        '座標改到南側 4 部的中心（OpenStreetMap 關係「Rønland Vindmøllepark」）',
+        'Danish Energy Agency: the Rønland offshore wind farm now consists of the four southern turbines (9.2 MW); the four northern Vestas V80 have become '
+        'land-connected through the Thyborøn port extension (8 turbines and 17.2 MW from 2003). Point moved to the centre of the southern four (OpenStreetMap relation “Rønland Vindmøllepark”)',
+        'https://ens.dk/energikilder/etablerede-havvindmoelleparker', mw=9.2, turbine='4x Bonus/Siemens 2.3 MW', lat=56.657, lon=8.223, note=True),
+    fix('DNK', 'Frederikshavn', C,
+        '丹麥能源署：2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已與陸地相連，海上只剩 1 部 2.3 MW；OpenStreetMap 標為離岸的是 Nordex N90/2300'
+        '（Bonus 2.3 MW 與 Vestas V90 已在陸上），座標改到這部風機',
+        'Danish Energy Agency: 3 turbines (7.6 MW) were put up at sea in 2003; after the harbour extension two are land-connected and only one 2.3 MW turbine is left at sea. '
+        'OpenStreetMap tags the Nordex N90/2300 as the offshore one (the Bonus 2.3 MW and the Vestas V90 now stand on land); point moved to that turbine',
+        'https://ens.dk/energikilder/etablerede-havvindmoelleparker', mw=2.3, turbine='1x Nordex N90/2300', lat=57.442, lon=10.565, note=True),
+    fix('NOR', 'Sormarkfjellet wind farm', G, '31 部 Vestas V117、每部 4.2 MW（業主 Aneo 專案頁）', '31 Vestas V117 turbines of 4.2 MW each (owner Aneo’s project page)',
+        'https://www.aneo.com/en/projects/sormarkfjellet-wind-farm', turbine='31x Vestas V117-4.2 MW'),
+    fix('FIN', 'Ajos Retrofit wind farm', G,
+        'OX2 2017 年 10 月把汰換後的 Ajos 風場交給 IKEA Finland：8 部 Siemens SWT-3.3-130（人工島與防波堤上）＋5 部 SWT-3.2-113（Ajos 島上），共 42.4 MW；新機組 2016–2017 年豎立，取代原本 10 部 WinWinD',
+        'OX2 handed the repowered Ajos farm to IKEA Finland in October 2017: 8 Siemens SWT-3.3-130 (on artificial islands and breakwaters) plus 5 SWT-3.2-113 (on Ajos island), 42.4 MW in all; '
+        'the new turbines went up in 2016–2017, replacing the 10 original WinWinD units',
+        'https://news.cision.com/ox2/r/ox2-hands-over-ajos-wind-farm-to-ikea-finland,c2361999', mw=42.4, year=2017, ph=0, turbine='8x Siemens SWT-3.3-130 + 5x Siemens SWT-3.2-113'),
+    fix('FIN', 'Kemi wind farm', G,
+        'PVO-Innopower 的原 Ajos 風場：10 部 WinWinD WWD-3（3 MW），2007–2008 年建成，共 30 MW（GEM 寫 27 MW）；2016 年起由 OX2 汰換',
+        'PVO-Innopower’s original Ajos farm: 10 WinWinD WWD-3 (3 MW) built in 2007–2008, 30 MW in all (GEM says 27 MW); replaced by OX2 from 2016',
+        'https://fi.wikipedia.org/wiki/Kemin_tuulipuisto', mw=30, turbine='10x WinWinD WWD-3'),
+    fix('DOM', 'Esperanza (Dominican Republic) wind farm', G,
+        'EGE Haina 的 Esperanza 風場 49.5 MW、11 部 Vestas V163-4.5 MW，2025 年開始運轉（2026 年 5 月與光電場一起舉行啟用典禮）；這就是本站逐場加總比 IRENA 少的約 50 MW',
+        'EGE Haina’s Esperanza wind farm: 49.5 MW, 11 Vestas V163-4.5 MW, in operation from 2025 (inaugurated with the solar parks in May 2026); it is the roughly 50 MW the site’s farm total was short of IRENA',
+        'https://www.egehaina.com/Centrales?name=esperanzarenovable', st=0, year=2025, mw=49.5, turbine='11x Vestas V163-4.5 MW', owner='Empresa Generadora de Electricidad Haina SA (EGE Haina)'),
+    dup('DOM', 'Esperanza wind farm (Dominican Republic)', G, ('Esperanza (Dominican Republic) wind farm', G),
+        '同一座風場（GEM 兩筆都是 EGE Haina 的 Esperanza 風場、50 MW；這筆座標只是概略位置）', 'The same farm (both GEM records are EGE Haina’s Esperanza farm, 50 MW; this one’s point is only approximate)',
+        'https://www.egehaina.com/Centrales?name=esperanzarenovable'),
+    fix('DOM', 'Larimar wind farm', G,
+        '兩期：2016 年 3 月 15 部 Vestas V112-3.3（49.5 MW）、14 部 V117-3.45（48.3 MW），共 97.8 MW（EGE Haina）',
+        'Two phases: 15 Vestas V112-3.3 (49.5 MW) inaugurated in March 2016 and 14 V117-3.45 (48.3 MW), 97.8 MW in all (EGE Haina)',
+        'https://www.egehaina.com/Centrales?name=Larimar', mw=97.8, ph=[[2016, 49.5], [2018, 48.3]], turbine='15x Vestas V112-3.3 MW + 14x Vestas V117-3.45 MW'),
+    fix('ROU', 'Crucea Nord', C, 'Crucea Nord（Crucea 鄉，108 MW）由 STEAG 開發，2014 年啟用（Transelectrica 風場清單的整理）', 'Crucea Nord (Crucea commune, 108 MW) was developed by STEAG and commissioned in 2014 (compilation of the Transelectrica list)',
+        'https://onoff.greatnews.ro/producatori-de-energie-eoliana-in-romania-lista-completa-a-centralelor-in-2024/', year=2014),
+    fix('COL', 'Carreto wind farm', G,
+        'Celsia 的 Carreto 風場（大西洋省）9.6 MW、2 部 4.8 MW，2025 年 6 月完工、當月投入運轉（Celsia 2025 年成果：Carreto 風場投入運轉）；GEM 寫 9.9 MW、興建中',
+        'Celsia’s Carreto farm (Atlántico): 9.6 MW, 2 turbines of 4.8 MW, completed in June 2025 and entering operation that month (Celsia’s 2025 results: Carreto entered operation); GEM says 9.9 MW, under construction',
+        'https://www.eltiempo.com/colombia/barranquilla/el-atlantico-entra-a-la-era-de-la-energia-eolica-con-el-primer-parque-de-celsia-en-colombia-3460285', st=0, year=2025, mw=9.6, turbine='2x 4.8 MW'),
+    dup('DEU', 'Dreiberg wind farm', G, ('Windpark Druiberg (Dardesheim)', C),
+        '同一座風場：GEM 的「Dreiberg」是 Dardesheim 的 Druiberg 風場拼錯，GEM 座標（51.990, 10.833）正是德文維基 Windpark Druiberg 的座標',
+        'Same farm: GEM’s “Dreiberg” is a misspelling of the Druiberg farm at Dardesheim, and the GEM point (51.990, 10.833) is German Wikipedia’s coordinate for Windpark Druiberg',
+        'https://de.wikipedia.org/wiki/Windpark_Druiberg'),
+    fix('DEU', 'Windpark Druiberg (Dardesheim)', C, '座標改到 Druiberg 山上的風場（德文維基：北緯 51°59′23″、東經 10°50′0″；原座標是 Dardesheim 鎮）',
+        'Point moved to the farm on the Druiberg (German Wikipedia: 51°59′23″ N, 10°50′0″ E; the old one was Dardesheim town)', 'https://de.wikipedia.org/wiki/Windpark_Druiberg', lat=51.99, lon=10.833),
+    fix('USA', 'Shiloh', C,
+        'Shiloh 共四期 505 MW：I 期 2006 年 4 月 150 MW（100 部 GE 1.5 MW，Iberdrola）、II 期 2009 年 1 月 150 MW（75 部 REpower MM92）、III 期 2011 年 12 月與 IV 期 2012 年 12 月各 102.5 MW'
+        '（各 50 部 REpower 2.05 MW，II–IV 期屬 EDF）。建置把 GEM 四期 504 MW 的紀錄併進這筆 300 MW，III、IV 期因此不見；與 SMUD 的 Solano 是不同風場',
+        'Shiloh has four phases, 505 MW: phase I (April 2006) 150 MW with 100 GE 1.5 MW (Iberdrola); phase II (January 2009) 150 MW with 75 REpower MM92; phases III (December 2011) and IV '
+        '(December 2012) 102.5 MW each with 50 REpower 2.05 MW (II–IV owned by EDF). The build merged GEM’s four-phase 504 MW record into this 300 MW row, so phases III and IV were missing; '
+        'it is a different farm from SMUD’s Solano',
+        'https://en.wikipedia.org/wiki/Shiloh_Wind_Power_Plant', mw=505, ph=[[2006, 150], [2009, 150], [2011, 102.5], [2012, 102.5]],
+        turbine='100x GE 1.5 MW + 75x REpower MM92 + 100x REpower 2.05 MW', owner='Avangrid Renewables (I); EDF Renewables (II–IV)'),
+    dup('USA', 'Dempsey Ridge Wind Farm', P, ('Big Smile wind farm', G),
+        '同一座風場：Acciona 的 Dempsey Ridge 風場 2012 年改名為 Big Smile Wind Farm at Dempsey Ridge（132 MW，奧克拉荷馬州）', 'Same farm: Acciona’s Dempsey Ridge farm was renamed “Big Smile Wind Farm at Dempsey Ridge” in 2012 (132 MW, Oklahoma)',
+        'https://www.windpowerengineering.com/oklahoma-wind-farm-begins-operation-new-name/'),
+    fix('AUS', 'Gullen Range wind farm', G, '73 部金風（56 部 GW100-2.5MW＋17 部 GW82-1.5MW），165.5 MW，2014 年 12 月全部運轉（風場年度環境報告）',
+        '73 Goldwind turbines (56 GW100-2.5MW + 17 GW82-1.5MW), 165.5 MW, fully operational in December 2014 (annual environmental report)',
+        'https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf', mw=165.5, turbine='56x Goldwind GW100-2.5MW + 17x Goldwind GW82-1.5MW'),
+    fix('USA', 'Revolution Wind', G, '座標改到 65 部風機的中心（OpenStreetMap 標為 Revolution Wind LLC 營運的 SG 11.0-200 DD）；原座標在風場西北角外',
+        'Point moved to the centre of the 65 turbines (OpenStreetMap nodes of SG 11.0-200 DD operated by Revolution Wind LLC); the old point was off the north-west corner of the array',
+        'https://www.openstreetmap.org/node/13097062280', lat=41.152, lon=-71.064),
+    fix('DEU', 'Gohlocher Wald wind farm', G, 'Gohlocher Wald 風場在 Lebach，是 2 部 Nordex N131/3000、6 MW（GEM 寫 12 MW）；與 Püttlingen 的 Schwalbach 風場（4 部 E-115、12 MW）是不同風場',
+        'The Gohlocher Wald farm at Lebach has 2 Nordex N131/3000, 6 MW (GEM says 12 MW); it is not the Schwalbach farm at Püttlingen (4 E-115, 12 MW)',
+        'https://www.energy3k.com/wp-gow-erste-kwh/', mw=6, turbine='2x Nordex N131/3000'),
+    fix('DEU', 'Oederquart wind farm', G, 'Bürgerwindpark Oederquart 的 Seeweg 風場：7 部 Enercon E-115 E2（3.2 MW），共 22.4 MW，2019 年併網（GEM 寫 16 MW）',
+        'Bürgerwindpark Oederquart’s Seeweg park: 7 Enercon E-115 E2 (3.2 MW), 22.4 MW in all, connected in 2019 (GEM says 16 MW)',
+        'https://www.investmentcheck.de/produkt/buergerwindpark-oederquart/', mw=22.4, turbine='7x Enercon E-115 E2'),
+    fix('DEU', 'Streumen wind farm', G, 'Streumen/Glaubitz II 汰換案：2016 年、4 部 Vestas V126，13.2 MW（業者 Energieanlagen FB；GEM 也列 Glaubitz RI 為別名）',
+        'The Streumen/Glaubitz II repowering: 2016, 4 Vestas V126, 13.2 MW (Energieanlagen FB; GEM also lists Glaubitz RI as another name)',
+        'https://www.energie-fb.de/referenzen/', mw=13.2, turbine='4x Vestas V126'),
     fix('JPN', 'Choshi Offshore Demonstration (NEDO/TEPCO)', C, '仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km）', 'Still operating (September 2026: the demonstration turbine was never removed and has run commercially since 2019); the point moves to the turbine position published by TEPCO Renewable Power (35°40′54″ N, 140°49′13″ E, WGS; the old point was about 3 km to the north-east)', 'https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf', lat=35.682, lon=140.82),
     fix('TWN', 'Formosa 1 Phase 1', C, '機組是西門子 SWT-4.0-120（葉輪直徑 120 m）：營運商沃旭 2019 年簡報列「4MW Siemens SWT 4.0-120」，西門子歌美颯 2018 年 1 月簡報的已安裝實績（統計至 2017 年 11 月）也列「Formosa: 2x SWT-4.0-120」；西門子歌美颯 2018 年 4 月新聞稿寫的 SWT-4.0-130 與這兩份不符，不採用', 'The turbines are Siemens SWT-4.0-120 (120 m rotor): the operator Ørsted’s 2019 presentation lists “4MW Siemens SWT 4.0-120”, and Siemens Gamesa’s January 2018 presentation of installed projects (installed by November 2017) lists “Formosa: 2x SWT-4.0-120”; the SWT-4.0-130 in Siemens Gamesa’s April 2018 press release contradicts both and is not used', 'https://www.asiawind.org/wp-content/uploads/2019/10/01-ORSTED-ULRIK-LANGE.pdf', turbine='2x Siemens SWT-4.0-120'),
 ]
@@ -1727,6 +1804,31 @@ ORPHAN_OK = {
 
 # 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
 NOT_DUP = {
+    # 2026-10-07 第十二輪：查證後確定是不同風場
+    ('VNM', 'Cửu An wind farm'):
+        ('嘉萊安溪的 Cửu An 與 Song An 是兩座 46.2 MW 風場，共用一座 110 kV 升壓站；Cửu An 2021 年在 FIT 期限前全廠 COD，Song An 是轉型期專案（EVN）',
+         'Cuu An and Song An at An Khe, Gia Lai, are two 46.2 MW farms sharing one 110 kV substation; Cuu An reached full COD before the 2021 FIT deadline, Song An is a transitional project (EVN)',
+         'https://sdic.vn/nha-may-dien-gio-cuu-an-462mw/'),
+    ('VNM', 'Quoc Vinh Soc Trang wind farm'):
+        ('國榮（6 號，陸上 7.5 ha、6 部，朔莊國榮風電公司）與 7 號（海上 3,100 ha 範圍、7 部 4.2 MW，朔莊能源公司與春求公司）是不同業主的兩座；EVN 的 FIT 名單分列國榮 30 MW 與 7 號 29.4 MW',
+         'Quoc Vinh (No. 6, 7.5 ha onshore, 6 turbines, Soc Trang Quoc Vinh Wind Power Co) and No. 7 (3,100 ha offshore area, 7 × 4.2 MW, Soc Trang Energy JSC and Xuan Cau Co) are two farms with different owners; EVN’s FIT list has Quoc Vinh 30 MW and No. 7 29.4 MW as separate entries',
+         'https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html'),
+    ('DEU', 'Streumen'):
+        ('MaStR 在 Streumen 有好幾群：GEM 的 Streumen（Streumen/Glaubitz II 汰換案，4 部 Vestas V126，2016 年）之外，這筆是 2011–2023 年陸續併網的另外 4 部（16.7 MW），是另一批機組',
+         'MaStR has several groups at Streumen: besides GEM’s Streumen (the Streumen/Glaubitz II repowering, 4 Vestas V126, 2016), this record is 4 other units connected 2011–2023 (16.7 MW), a different set of turbines',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('USA', 'Solano Wind Project'):
+        ('Montezuma Hills 有好幾座風場：Shiloh（四期 505 MW，Iberdrola 與 EDF）與 SMUD 的 Solano Wind 是不同電廠（英文維基分列）',
+         'The Montezuma Hills hold several farms: Shiloh (four phases, 505 MW, Iberdrola and EDF) and SMUD’s Solano Wind are different plants (listed separately on English Wikipedia)',
+         'https://en.wikipedia.org/wiki/Shiloh_Wind_Power_Plant'),
+    ('PRT', 'Fonte Da Quelha wind farm'):
+        ('Cinfães 風電計畫包含兩座風場：Fonte da Quelha 與 Alto do Talefe（各 13.5 MW、EDP、2004 年），相距約 10 km，OpenStreetMap 各有一筆風場關係',
+         'The Cinfães wind project consists of two farms, Fonte da Quelha and Alto do Talefe (13.5 MW each, EDP, 2004), about 10 km apart, each with its own OpenStreetMap wind-farm relation',
+         'https://www.edp.com/sites/default/files/document/2025-04/quelha_e_talefe_recape.pdf'),
+    ('DEU', 'Gohlocher Wald wind farm'):
+        ('Gohlocher Wald 在 Lebach（2 部 Nordex N131/3000，2018 年）；MaStR 的「CEE Windpark Schwalbach」在 Püttlingen（4 部 Enercon E-115、12 MW，2018 年）：不同風場',
+         'Gohlocher Wald is at Lebach (2 Nordex N131/3000, 2018); MaStR’s “CEE Windpark Schwalbach” is at Püttlingen (4 Enercon E-115, 12 MW, 2018): different farms',
+         'https://www.energy3k.com/wp-gow-erste-kwh/'),
     ('CHN', 'Putian Pinghai Bay Area F (Sanchuan)'):
         ('平海灣 F 區（三川海上風電，20 萬千瓦，2017 年核准）與平海灣二期（中閩海上風電，246 MW）是不同的項目；F 區 2021 年 7 月與石城風電場一起併網',
          'Pinghai Bay area F (Sanchuan Offshore Wind, 200 MW, approved 2017) is a different project from Pinghai Bay phase 2 (Zhongmin Offshore Wind, 246 MW); area F was connected together with the Shicheng farm in July 2021',
@@ -1855,6 +1957,10 @@ GEM_KEEP = {
         ('長樂外海 I 區是 2021–2023 年後才配置的新場址：I 區（南）2023 年競爭配置由福建投資集團與國投電力聯合體中選、2024-11-30 核准、2025-11 環評公示（16 部 18 MW＋1 部 26 MW，314 MW，離岸 54–61 km）；I 區（北）2024-06 核准給東方電氣的東福新能源（19 部，含 1 部 26 MW 試驗機）。兩案都要等長樂外海集中送出工程，都還沒建成，與 2021 年起營運的三峽長樂外海 A 區（37 部）不是同一座', 'Changle offshore area I is a newer site: I (South) was awarded in the 2023 competitive allocation to the Fujian Investment Group–SDIC Power consortium, approved on 30 Nov 2024 and put to EIA consultation in Nov 2025 (16 x 18 MW + 1 x 26 MW, 314 MW, 54–61 km offshore); I (North) was approved in June 2024 for Dongfang Electric’s Dongfu New Energy (19 turbines incl. a 26 MW test unit). Both wait for the Changle centralised export link and neither is built, so neither is CTG’s Changle area A (37 turbines, operating since 2021)', 'https://www.fuzhou.gov.cn/zgfzzt/shbj/xxgk/spgs/202511/P020251104372076206643.pdf'),
     ('CHN', 'Fujian Putian Pinghaiwan Offshore wind farm'):
         ('莆田平海灣 F 區（三川海上風電，200 MW，2021 年 7 月與石城一起併網）沒有自己的紀錄；GEM 這個場址的 F 期被一起併進精選的平海灣三期而消失', 'Putian Pinghai Bay area F (Sanchuan, 200 MW, connected with Shicheng in July 2021) has no record of its own; GEM’s phase F of this location was merged into the curated Pinghai Bay phase 3 and vanished', 'https://www.court.gov.cn/zixun/xiangqing/497381.html'),
+    ('ROU', 'Pantelimon wind farm'):
+        ('Pantelimon（Constanța 縣 Pantelimon 鄉，123 MW）與 Crucea Nord（Crucea 鄉，108 MW）是不同的風場（Transelectrica 清單分列）；舊建置把它當成 Crucea Nord 的重複而刪掉',
+         'Pantelimon (Pantelimon commune, Constanța, 123 MW) and Crucea Nord (Crucea commune, 108 MW) are different farms (listed separately by Transelectrica); the old build dropped it as a duplicate of Crucea Nord',
+         'https://onoff.greatnews.ro/producatori-de-energie-eoliana-in-romania-lista-completa-a-centralelor-in-2024/'),
 }
 
 # 2026 整理的規劃中專案清單裡、之後已停止開發或已完工商轉（GEM 已列營運中）的專案（國別, 清單上的名稱）→（中文理由, English, 出處）

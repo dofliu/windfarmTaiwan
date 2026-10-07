@@ -52,6 +52,7 @@ CLEAN drop GBR Dounreay Tr‚àö¬®  Floating Wind Demonstration 10.0
 CLEAN drop GBR Hornsea wind farm · 3, 4 5555.0
 CLEAN drop JPN Kamis Offshore wind farm 30.0
 CLEAN drop KOR Firefly (Bandibuli) floating offshore wind farm 750.0
+CLEAN drop KOR Ulsan Dongbu floating demo (Vindmøllen 750 kW) 0.8
 CLEAN drop NLD Beaufort wind farm 350.0
 CLEAN drop NOR Fosen Vind (six farms) 1057.0
 CLEAN drop NOR Hordavind wind farm 682.0
@@ -131,7 +132,9 @@ CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai B
 CLEAN dup CHN Zhangpu Liu'ao Phase 1 400.0 -> CTG Zhangpu Liu'ao Phase 2
 CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
 CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putuo 6#2
+CLEAN dup DEU Dreiberg wind farm 60.0 -> Windpark Druiberg (Dardesheim)
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
+CLEAN dup DOM Esperanza wind farm (Dominican Republic) 50.0 -> Esperanza (Dominican Republic) wind farm
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup EGY Amunet wind farm 502.0 -> Amunet (AMEA Power) Red Sea
 CLEAN dup EGY Gulf Of Ziet Wind Complex 580.0 -> Gabal El Zeit (I-III)
@@ -169,6 +172,7 @@ CLEAN dup TUR Gökçedag wind farm 135.0 -> Gökçedağ (Osmaniye)
 CLEAN dup TUR Gökçedağ wind farm 135.0 -> Gökçedağ (Osmaniye)
 CLEAN dup URY Pampa (Nordex) wind farm 141.6 -> Pampa (Tacuarembó)
 CLEAN dup USA Chanarambie Power Partners  LLC 85.5 -> Chanarambie wind farm
+CLEAN dup USA Dempsey Ridge Wind Farm 132.0 -> Big Smile wind farm
 CLEAN dup USA FPL Energy Story Wind LLC 150.0 -> Story County
 CLEAN dup USA Kingman Wind 214.8 -> Kingman Wind Energy Center
 CLEAN dup USA Prairie Winds SD1 162.0 -> Crow Lake wind farm
@@ -191,6 +195,7 @@ CLEAN dup ZAF Amakhala Emoyeni wind farm 134.0 -> Amakhala Emoyeni
 CLEAN dup ZAF Waainek wind farm 25.0 -> Waainek Wind Farm
 CLEAN fix ALA Långnabba wind farm 40.0
 CLEAN fix AUS Cullerin Range wind farm 26.0
+CLEAN fix AUS Gullen Range wind farm 165.0
 CLEAN fix AUS Lal Lal 228.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm 48.0
 CLEAN fix AUS Rye Park 327.0
@@ -324,21 +329,32 @@ CLEAN fix CHN Zhongtian Rudong H15 200.0
 CLEAN fix CHN Zhuanghe I 200.0
 CLEAN fix CHN Zhuanghe V / Liaoning 2025 500.0
 CLEAN fix CHN Zhuhai Guishan 198.0
+CLEAN fix COL Carreto wind farm 9.9
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
 CLEAN fix DEU Borkum Riffgrund 3 913.0
 CLEAN fix DEU Flomborn-Stetten wind farm 15.0
+CLEAN fix DEU Gohlocher Wald wind farm 12.0
 CLEAN fix DEU Hohe See 497.0
 CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
+CLEAN fix DEU Oederquart wind farm 16.0
+CLEAN fix DEU Streumen wind farm 13.0
 CLEAN fix DEU Windanker wind farm 300.0
+CLEAN fix DEU Windpark Druiberg (Dardesheim) 62.0
+CLEAN fix DNK Frederikshavn 7.6
+CLEAN fix DNK Rønland 17.2
 CLEAN fix DNK Vesterhav Nord 176.4
+CLEAN fix DOM Esperanza (Dominican Republic) wind farm 50.0
 CLEAN fix DOM Granadillos wind farm 50.0
 CLEAN fix DOM La Isabela wind farm 50.0
+CLEAN fix DOM Larimar wind farm 98.0
 CLEAN fix DOM Los Cocos wind farm 87.3
 CLEAN fix DOM Los Guzmancito wind farm 98.0
 CLEAN fix DOM Matafongo wind farm 34.0
 CLEAN fix DOM Puerto Plata-Imbert wind farm 46.0
 CLEAN fix ESP Timanfaya Floating Offshore wind farm 50.0
+CLEAN fix FIN Ajos Retrofit wind farm 43.0
+CLEAN fix FIN Kemi wind farm 27.0
 CLEAN fix FRA Calvados (Courseulles-sur-Mer) 450.0
 CLEAN fix FRA EolMed (Gruissan) 30.0
 CLEAN fix FRA Les Éoliennes Flottantes du Golfe du Lion (EFGL) 30.0
@@ -355,6 +371,7 @@ CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0
 CLEAN fix IRN Tizbaad wind farm 100.0
+CLEAN fix JPN Choshi Offshore Demonstration (NEDO/TEPCO) 2.4
 CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
 CLEAN fix JPN Goto City Offshore floating project 16.8
@@ -374,7 +391,6 @@ CLEAN fix KOR Jeonnam Offshore Wind 1 96.0
 CLEAN fix KOR Jeonnam Shinan 1 / others 96.0
 CLEAN fix KOR Jwasari Offshore wind farm 360.0
 CLEAN fix KOR Tamra (Jeju Hallim/Hangyeong) 30.0
-CLEAN fix KOR Ulsan Dongbu floating demo (Vindmøllen 750 kW) 0.8
 CLEAN fix KOR YEP wind farm 76.0
 CLEAN fix KOR Yeonggwang Nakwol 364.8
 CLEAN fix KOR Yeonggwang Wind offshore wind farm 35.0
@@ -394,6 +410,7 @@ CLEAN fix NOR Haram wind farm 34.0
 CLEAN fix NOR Havøygavlen wind farm 38.0
 CLEAN fix NOR Lutelandet wind farm 51.0
 CLEAN fix NOR Sormarkfjellet wind farm 130.0
+CLEAN fix NOR Sormarkfjellet wind farm 130.2
 CLEAN fix NOR Stokkfjellet wind farm 88.0
 CLEAN fix NOR Svaheia wind farm 25.0
 CLEAN fix NOR TetraSpar Demonstrator (METCentre) 3.6
@@ -409,6 +426,7 @@ CLEAN fix ROU Casimcea Verbund wind farm 200.0
 CLEAN fix ROU Casimcea wind farm · 1 10.0
 CLEAN fix ROU Casimcea wind farm · 2 10.0
 CLEAN fix ROU Corugea wind farm 70.0
+CLEAN fix ROU Crucea Nord 108.0
 CLEAN fix ROU Ruginoasa wind farm 60.0
 CLEAN fix ROU Salbatica wind farm · 2 70.0
 CLEAN fix ROU Ventus Nord-2 wind farm 69.0
@@ -421,6 +439,7 @@ CLEAN fix THA Subyai (Chaiyaphum) 90.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix TWN Datan (Tatan) 12.5
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
+CLEAN fix TWN Formosa 1 Phase 1 8.0
 CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Hai Long 2 & 3 1044.0
@@ -442,7 +461,9 @@ CLEAN fix TWN Zhong Neng 298.0
 CLEAN fix URY Pampa (Tacuarembó) 141.6
 CLEAN fix USA Coastal Virginia Offshore Wind (CVOW) Commercial Project 2640.0
 CLEAN fix USA Empire wind farm 816.0
+CLEAN fix USA Revolution Wind 704
 CLEAN fix USA Revolution Wind 715.0
+CLEAN fix USA Shiloh 300.0
 CLEAN fix USA Story County 300.0
 CLEAN fix USA Sunrise wind farm (United States) 924.0
 CLEAN fix USA Vineyard Wind 1 806.0
@@ -450,11 +471,14 @@ CLEAN fix VNM BPP Vĩnh Châu wind farm 30.0
 CLEAN fix VNM Bac Lieu Phase 1 16.0
 CLEAN fix VNM Bac Lieu Phase 3 142.0
 CLEAN fix VNM Bến Tre 10 Bình Đại 1 Offshore wind farm 128.0
+CLEAN fix VNM Chơ Long wind farm 49.5
+CLEAN fix VNM Chơ Long wind farm · 2 105.5
 CLEAN fix VNM Cà Mau wind farm 350
 CLEAN fix VNM Cà Mau wind farm 352.0
 CLEAN fix VNM Cư An wind farm 200.0
 CLEAN fix VNM Dong Hai 1 Phase 1 (Tra Vinh, Trungnam) 100.0
 CLEAN fix VNM Dong Hai 1 – Tra Vinh (Trungnam) 100.0
+CLEAN fix VNM Duyên Hai wind farm · 1 48.0
 CLEAN fix VNM Hiep Thanh (Tra Vinh) 78.0
 CLEAN fix VNM Hiep Thanh (Tra Vinh) 78.0
 CLEAN fix VNM Hoa Binh 1 Phase 1 50.0
@@ -462,8 +486,10 @@ CLEAN fix VNM Hoa Binh 1 Phase 2 50.0
 CLEAN fix VNM Hoa Binh 1 Phase 2 50.0
 CLEAN fix VNM Hoa Binh 2 50.0
 CLEAN fix VNM Hoa Binh 2 50.0
+CLEAN fix VNM Lạc Hòa wind farm 154.0
 CLEAN fix VNM Soc Trang 1 Phase 1 (Cong Ly) 30.0
 CLEAN fix VNM Soc Trang 1 Phase 1 (Cong Ly) 30.0
+CLEAN fix VNM Soc Trang 7 Phase 1 30.0
 CLEAN fix VNM Tan Phu Dong 1 (Tien Giang, GEC) 100.0
 CLEAN fix VNM Tan Phu Dong 2 (Tien Giang, GEC) 50.0
 CLEAN fix VNM Tan Thuan (PECC2) Phase 1+2 75.0
@@ -889,7 +915,6 @@ DROP PRT operating Windfloat Atlantic Offshore wind farm 25.0 ~ WindFloat Atlant
 DROP ROU operating Crucea North wind farm 108.0 ~ Crucea Nord 108.0
 DROP ROU operating Fântânele wind farm 347.0 ~ Fântânele-Cogealac 600.0
 DROP ROU operating Fântânele – Cogealac wind farm 252.0 ~ Fântânele-Cogealac 600.0
-DROP ROU operating Pantelimon wind farm 123.0 ~ Crucea Nord 108.0
 DROP SAU operating Dumat Al Jandal wind farm 400.0 ~ Dumat Al Jandal 400.0
 DROP SRB operating Cibuk wind farm 158.0 ~ Čibuk 1 158.0
 DROP SRB pre-construction Cibuk wind farm 155.0 ~ Čibuk 1 158.0

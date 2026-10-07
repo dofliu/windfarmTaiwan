@@ -18,6 +18,7 @@ Datenlizenz Deutschland – Namensnennung – Version 2.0（dl-de/by-2-0），�
    → data/global/sources/mastr_parks_DEU.json：由 tools/build_farms.py 加進風場層（來源代碼 4＝MaStR），分期依各機組的商轉年。
    離岸風場本站都已收錄，不從這裡加。
 沒配成的群與風場再配一輪（最多三輪）；與還沒配成的本站風場名稱相同的群可能是它的一部分，也不另加；3 km 內有同名的本站風場、而它還沒配成或它配到的群名稱沒有比這群更吻合時也不加（例：Flomborn-Stetten 配到「BVT Windpark Flomborn/Stetten」後，旁邊的「Windpark Flomborn」才會加）。
+名稱比對會配錯、已人工核對的風場寫在 MANUAL（附出處），最先配。
 檢查：本站德國營運中的陸域容量＋新增的，不能超過 MaStR 陸域營運容量的 102%（超過表示重複）。
 重建流程：fetch_mastr.py → build_mastr.py（只拿非 MaStR 來源的紀錄比對，結果穩定）→ build_farms.py → 其餘照 README。
 
@@ -29,7 +30,7 @@ those farms their real turbines (turbines_de.json). A matched farm whose units m
 (capacity off by 10% or more, or a group over 8 km away), moves to an unmatched group within 3 km that shares a name or municipality word, starts within a year
 and is within 10% of its capacity; its old groups go back to the pool. Each still-unmatched site farm (largest first) then reserves the nearest
 unmatched groups within 8 km up to about its capacity (at most +30%); those are not added, and become its turbines when they sum to ±20%.
-The remaining onshore groups of 1 MW or more become new farms (sources/mastr_parks_DEU.json, source code 4 in build_farms.py). Groups sharing a name with an unmatched site farm are never added, nor are groups within 3 km of a same-name site farm that is unmatched or whose matched groups do not share more name words. Check: site + added onshore
+Hand-checked matches (MANUAL, with sources) go first. The remaining onshore groups of 1 MW or more become new farms (sources/mastr_parks_DEU.json, source code 4 in build_farms.py). Groups sharing a name with an unmatched site farm are never added, nor are groups within 3 km of a same-name site farm that is unmatched or whose matched groups do not share more name words. Check: site + added onshore
 capacity must stay within 102% of the MaStR onshore total.
 """
 import collections
@@ -55,6 +56,16 @@ GENERIC = {'windpark', 'windenergiepark', 'windfeld', 'windfarm', 'wind', 'farm'
            'im', 'in', 'bei', 'von', 'zu', 'repowering', 'erweiterung', 'anlage', 'anlagen', 'windenergieanlage', 'windenergieanlagen',
            'windkraft', 'windkraftanlage', 'windkraftanlagen', 'energie', 'energiepark', 'projekt', 'bürgerwind', 'gbr', 'ug', 'ag', 'ii',
            'iii', 'iv', 'phase', 'bauabschnitt', 'ba', 'teil', 'neu', 'alt'}
+
+
+# 人工核對的配對：本站風場 → MaStR 的風場名稱（NameWindpark，取風場 10 km 內同名的群），附出處。名稱比對會配錯時才用
+# (hand-checked matches: site farm → MaStR wind-farm names (groups of that name within 10 km), with sources; only where name matching goes wrong)
+MANUAL = {
+    'Oederquart wind farm': (['WP SW', 'SW'],    # Bürgerwindpark Oederquart 的 Seeweg 風場：7 部 Enercon E-115 E2，2019 年；MaStR 依鄉鎮分成兩群
+                             'https://www.investmentcheck.de/produkt/buergerwindpark-oederquart/'),
+    'Streumen wind farm': (['Glaubitz RI'],      # Streumen/Glaubitz II 汰換：4 部 Vestas V126，2016 年（GEM 也列 Glaubitz RI 為別名）
+                           'https://www.energie-fb.de/referenzen/'),
+}
 
 
 def km(a_lat, a_lon, b_lat, b_lon):
@@ -201,7 +212,17 @@ def main(xml_path, cat_path):
     #    概略座標的風場（flags 1）放寬到 150 km（GEM 偶有整筆錯置幾十公里的）
     fw = [words(f['name']) for f in site]
     radius = lambda f: FAR_KM if f['flags'] & 1 else MATCH_KM                                  # noqa: E731
-    assigned, used = {}, set()
+    assigned, used, released = {}, set(), set()
+    # 0. 人工核對的配對先配（MANUAL）；同名但沒選上的群之後不因為與這座風場同名而略過
+    for fi, f in enumerate(site):
+        if f['name'] in MANUAL:
+            want = set(MANUAL[f['name']][0])
+            gis = [gi for gi, g in enumerate(groups) if (g['name'] in want or clean(g['name']) in want) and km(f['lat'], f['lon'], g['lat'], g['lon']) <= 10]
+            if not gis:
+                raise SystemExit(f'MANUAL: no MaStR group named {sorted(want)} within 10 km of {f["name"]}')
+            assigned[fi] = gis
+            used.update(gis)
+            released.update(gi for gi, g in enumerate(groups) if gi not in used and fw[fi] & g['w'])
     for _ in range(3):
         cand = collections.defaultdict(list)
         for gi, g in enumerate(groups):
@@ -249,7 +270,7 @@ def main(xml_path, cat_path):
     #     also weak (capacity off by 10% or more, or a group more than 8 km away), moves to an unmatched group within 3 km whose name or
     #     municipality shares a word with the farm's name, that starts within a year of it and is within 10% of its capacity. The old groups
     #     go back to the pool, and are no longer skipped later for sharing the farm's name, since they are known to be other turbines)
-    moved, released = [], set()
+    moved = []
     for fi in sorted(assigned, key=lambda fi: -site[fi]['mw']):
         f = site[fi]
         if not f['year'] or f['flags'] & 2:

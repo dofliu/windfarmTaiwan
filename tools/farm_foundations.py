@@ -113,7 +113,11 @@ FOUNDATIONS = [
     F('DNK', 'Horns Rev 1', 'mp', ['DK02']),
     F('DNK', 'Horns Rev 2', 'mp', ['DK05']),
     F('DNK', 'Horns Rev 3', 'mp', ['DK24']),
-    F('DNK', 'Rønland', 'gb', ['DK04']),
+    F('DNK', 'Rønland', 'pc', ['DK04'], 'http://www.hmis-roenland.dk/r%C3%B8nland-vindm%C3%B8llepark',
+      zh='每部風機的混凝土基礎都由 48 支長達 48 m 的打入式混凝土樁支撐（每座 1,000 噸混凝土），立在專為風場堆築的 2.3 km 碎石低堤上（業主合作社 Harboøre Møllelaug；'
+         '能源署 2024 年文件也寫打樁到約 50 m 的混凝土基礎）；OSPAR 寫重力式不對',
+      en='Each turbine’s concrete foundation stands on 48 driven concrete piles up to 48 m long (1,000 t of concrete each), along a 2.3 km low dam of crushed stone built for the farm '
+         '(owners’ cooperative Harboøre Møllelaug; a 2024 Danish Energy Agency document also gives concrete foundations piled to about 50 m); OSPAR’s gravity-based is wrong'),
     F('DNK', 'Nissum Bredning Vind', 'jk', ['DK23'], 'https://m.aarsleff.dk/img/8088/0/0/Download/253-nissum-bredning-dk',
       zh='4 座三腳鋼套管，各以 3 支直徑 1.45 m、長 75 m 的打入斜樁固定，上加約 1,200 噸的混凝土轉接段（安裝商 Aarsleff）；西門子稱為「重力式套管」，OSPAR 寫重力式應是因為沉重的混凝土轉接段',
       en='Four three-legged steel jackets, each held by three driven raked piles 1.45 m across and 75 m long, topped by a concrete transition piece of about 1,200 t (installer Aarsleff); Siemens called it a “gravity jacket”, which is presumably why OSPAR says gravity-based'),
@@ -823,11 +827,10 @@ FOUNDATIONS = [
 # OSPAR 有紀錄、但這一步刻意不列的風場（理由寫在報告裡，之後的步驟再查）
 EXCLUDED = [
     ('DNK', 'Frederikshavn', ['DK03'],
-     '試驗場：丹麥能源署記載 2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已在陸地上、海上只剩 1 部 2.3 MW，但沒寫是哪一部；'
-     '各機組的基礎不同（其中一部 V90 用吸力桶試驗基礎），OSPAR 寫全為單樁、14 MW 也對不上，先不列',
-     'A test site: the Danish Energy Agency records 3 turbines at sea from 2003 (7.6 MW); after the harbour was extended two now stand on land '
-     'and only one 2.3 MW turbine is left at sea, but it does not say which; the turbines had different foundations (one V90 on a trial '
-     'suction bucket), and OSPAR’s “all monopiles” and 14 MW do not match, so it is left out'),
+     '試驗場：2003 年在海上設 3 部，港口擴建後只剩 Nordex N90/2300 一部在海上（丹麥能源署、OpenStreetMap）；Nordex 2003 年只寫「以板樁與樁固定在海床上的重型基礎」，'
+     '型式無法歸類，OSPAR 寫全為單樁、14 MW 也對不上，先不列',
+     'A test site: 3 turbines at sea from 2003; after the harbour extension only the Nordex N90/2300 is left at sea (Danish Energy Agency, OpenStreetMap). Nordex only said in 2003 that it '
+     'stands on “a heavy-duty foundation tied to the seabed by means of planking and piles”, which fits no type here, and OSPAR’s “all monopiles” and 14 MW do not match, so it is left out'),
     # 第 4 步（2026-09）
     ('JPN', 'Eurus Akita Port semi-offshore', [],
      'JWPA 另計為「セミ洋上」的 1 部 3 MW：ユーラス秋田港ウインドファーム（6 部 3 MW，2015 年 2 月運轉）中立在水中的那一部；'

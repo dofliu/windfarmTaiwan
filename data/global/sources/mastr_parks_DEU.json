@@ -3,10 +3,10 @@
 "source": "Bundesnetzagentur, Marktstammdatenregister (MaStR), Gesamtdatenexport: EinheitenWind",
 "url": "https://www.marktstammdatenregister.de/MaStR/Datendownload",
 "license": "Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0); © Bundesnetzagentur | Marktstammdatenregister",
-"farms": 4866,
-"mw": 24270,
+"farms": 4873,
+"mw": 24311,
 "mastr_mw": 82643,
-"site_mw": 53313
+"site_mw": 53254
 },
 "parks": [
 {
@@ -2053,6 +2053,38 @@
 "n": 3
 },
 {
+"name": "WP Streumen",
+"lat": 51.349,
+"lon": 13.3804,
+"mw": 20.3,
+"year": 2013,
+"ph": [
+[
+2013,
+2.0
+],
+[
+2014,
+2.0
+],
+[
+2015,
+6.1
+],
+[
+2017,
+3.3
+],
+[
+2019,
+6.9
+]
+],
+"turbine": "",
+"gem": "Wülknitz",
+"n": 7
+},
+{
 "name": "WWG",
 "lat": 49.6779,
 "lon": 8.1995,
@@ -2837,6 +2869,26 @@
 "n": 3
 },
 {
+"name": "Streumen",
+"lat": 51.3406,
+"lon": 13.3713,
+"mw": 16.7,
+"year": 2011,
+"ph": [
+[
+2011,
+2.3
+],
+[
+2023,
+14.4
+]
+],
+"turbine": "",
+"gem": "Glaubitz",
+"n": 4
+},
+{
 "name": "Windpark Heldrungen",
 "lat": 51.3187,
 "lon": 11.2532,
@@ -3065,17 +3117,6 @@
 "ph": 0,
 "turbine": "5 x Senvion 3.2M",
 "gem": "Angermünde",
-"n": 5
-},
-{
-"name": "WP SW",
-"lat": 53.7886,
-"lon": 9.1576,
-"mw": 16.0,
-"year": 2019,
-"ph": 0,
-"turbine": "5 x ENERCON E-115",
-"gem": "Balje",
 "n": 5
 },
 {
@@ -4159,17 +4200,6 @@
 "ph": 0,
 "turbine": "4 x Vestas V126-3.3",
 "gem": "Ahrensfelde",
-"n": 4
-},
-{
-"name": "Glaubitz RI",
-"lat": 51.3447,
-"lon": 13.3729,
-"mw": 13.2,
-"year": 2016,
-"ph": 0,
-"turbine": "4 x Vestas V126",
-"gem": "Glaubitz",
 "n": 4
 },
 {
@@ -9126,6 +9156,17 @@
 "n": 3
 },
 {
+"name": "Windpark Bruchwald",
+"lat": 49.4315,
+"lon": 6.8846,
+"mw": 9.0,
+"year": 2020,
+"ph": 0,
+"turbine": "3 x Nordex SE N131",
+"gem": "Lebach",
+"n": 3
+},
+{
 "name": "Windpark Firrel",
 "lat": 53.3205,
 "lon": 7.6581,
@@ -10179,6 +10220,17 @@
 "ph": 0,
 "turbine": "2 x ENERCON E-138 EP3 E2",
 "gem": "Leun",
+"n": 2
+},
+{
+"name": "Oederquart-Schinkel",
+"lat": 53.7929,
+"lon": 9.2911,
+"mw": 8.4,
+"year": 2020,
+"ph": 0,
+"turbine": "2 x ENERCON E-126 EP4",
+"gem": "Balje",
 "n": 2
 },
 {
@@ -12586,6 +12638,17 @@
 "n": 4
 },
 {
+"name": "Glaubitz RII",
+"lat": 51.345,
+"lon": 13.3727,
+"mw": 7.2,
+"year": 2025,
+"ph": 0,
+"turbine": "2 x Vestas V126-3.6 MW",
+"gem": "Glaubitz",
+"n": 2
+},
+{
 "name": "Green City Energy Windpark Altertheim",
 "lat": 49.741,
 "lon": 9.7343,
@@ -14384,6 +14447,17 @@
 "n": 1
 },
 {
+"name": "WP Oederquart-Doesemoor",
+"lat": 53.7887,
+"lon": 9.2769,
+"mw": 6.8,
+"year": 2025,
+"ph": 0,
+"turbine": "1 x Nordex SE N 163/6.x",
+"gem": "Oederquart",
+"n": 1
+},
+{
 "name": "WP Santow/Rolfoshagen",
 "lat": 53.8866,
 "lon": 11.168,
@@ -15290,17 +15364,6 @@
 "turbine": "",
 "gem": "Rodeberg",
 "n": 7
-},
-{
-"name": "SW",
-"lat": 53.794,
-"lon": 9.166,
-"mw": 6.4,
-"year": 2019,
-"ph": 0,
-"turbine": "2 x ENERCON E-115",
-"gem": "Oederquart",
-"n": 2
 },
 {
 "name": "WEW",
@@ -31077,6 +31140,17 @@
 "n": 1
 },
 {
+"name": "Oederquart Erweiterung Repowering",
+"lat": 53.7929,
+"lon": 9.1491,
+"mw": 3.2,
+"year": 2020,
+"ph": 0,
+"turbine": "1 x ENERCON E-115",
+"gem": "Balje",
+"n": 1
+},
+{
 "name": "Recklinghausen Essel",
 "lat": 51.6254,
 "lon": 7.2693,
@@ -45702,6 +45776,28 @@
 "n": 1
 },
 {
+"name": "Streumen I",
+"lat": 51.3382,
+"lon": 13.3787,
+"mw": 2.0,
+"year": 2013,
+"ph": 0,
+"turbine": "1 x Vestas V90",
+"gem": "Wülknitz",
+"n": 1
+},
+{
+"name": "Streumen II",
+"lat": 51.3447,
+"lon": 13.3775,
+"mw": 2.0,
+"year": 2014,
+"ph": 0,
+"turbine": "1 x Vestas V90",
+"gem": "Wülknitz",
+"n": 1
+},
+{
 "name": "Striethof V 20549",
 "lat": 48.8805,
 "lon": 9.831,
@@ -57624,6 +57720,17 @@
 "ph": 0,
 "turbine": "2 x Tacke TW600",
 "gem": "Modautal",
+"n": 2
+},
+{
+"name": "Oederquart",
+"lat": 53.7878,
+"lon": 9.2721,
+"mw": 1.2,
+"year": 1997,
+"ph": 0,
+"turbine": "2 x Vestas V44",
+"gem": "Oederquart",
 "n": 2
 },
 {
