@@ -1,0 +1,367 @@
+[
+ {
+  "item": "1. Pinghai Bay area F has no record of its own",
+  "farm": "Fujian Putian Pinghaiwan Offshore wind farm (GEM phase F; absorbed into curated 'Putian Pinghai Bay Phase 3')",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "missing",
+  "proposal": "GEM_KEEP[('CHN', 'Fujian Putian Pinghaiwan Offshore wind farm')] = ('莆田平海灣 F 區（三川海上風電，200 MW，2021 年 7 月與石城一起併網）沒有自己的紀錄；GEM 這個場址的 F 期被一起併進精選的平海灣三期而消失', 'Putian Pinghai Bay area F (Sanchuan, 200 MW, connected with Shicheng in July 2021) has no record of its own; GEM’s phase F of this location was merged into the curated Pinghai Bay phase 3 and vanished', 'https://www.court.gov.cn/zixun/xiangqing/497381.html')\nfix('CHN', 'Fujian Putian Pinghaiwan Offshore wind farm', G, '莆田平海灣海上風電場 F 區：福建省發改委 2017 年核准 20 萬千瓦（福能股份公告），三川海上風電（福能新能源 51%、海峽發電 39%、廈門華夏 10%）投資；2021 年 7 月與石城風電場一起併網發電（人民法院報 2026-04）。GEM 這個場址另含一至三期（各有精選紀錄），只留 F 區；位置是 GEM 的概略點、機型待查證', 'Putian Pinghai Bay offshore wind farm area F: 200 MW approved by the Fujian DRC in 2017 (Funeng filing), invested by Sanchuan Offshore Wind (Funeng New Energy 51%, Strait Power 39%, Xiamen Huaxia 10%); connected to the grid together with the Shicheng farm in July 2021 (People’s Court Daily, Apr 2026). The GEM location also carries phases 1–3 (each a curated record), so only area F is kept; the point is GEM’s approximate one and the turbine model is unverified', 'https://www.court.gov.cn/zixun/xiangqing/497381.html', rename='Putian Pinghai Bay Area F (Sanchuan)', zhname='莆田平海灣F區（三川）', mw=200, year=2021, ph=0, owner='Fujian Sanchuan Offshore Wind Power Co Ltd (Funeng New Energy 51%; Strait Power 39%; Xiamen Huaxia 10%)', note=True)",
+  "note_zh": "平海灣 F 區確實存在：2017 年福建省發改委核准 20 萬千瓦（福能股份公告，中證網），由三川海上風電投資，2021 年 7 月與石城風電場一起併網發電（人民法院報 2026-04-14，最高法院網轉載）。資料庫沒有它自己的紀錄：GEM 把它列為「Fujian Putian Pinghaiwan Offshore wind farm」的 F 期（210 MW，2021，三川），但同一場址另含一、二、三期，建置把 814 MW 整組併進精選的平海灣三期，F 期因此消失。GEM 另一筆 400 MW 興建中的「Fujian Putian Pinghai Bay offshore wind farm」（海峽發電）是 DE 區（2023-05-31 省發改委核准、50 台 8 MW），不是 F 區；精選的「莆田石城」是另一座（石城村東北側海域，26×7＋3×6 MW）。F 區的座標（GEM 只有概略點，與二期同點）與機型（秀嶼區報導只說三川的首批風機用上海電氣莆田基地的 7 MW）都沒有可引用的出處。",
+  "note_en": "Area F is real: the Fujian DRC approved 200 MW in 2017 (Funeng filing, cs.com.cn), invested by Sanchuan Offshore Wind, and it was connected together with the Shicheng farm in July 2021 (People's Court Daily, 14 Apr 2026, on court.gov.cn). It has no record: GEM lists it as phase F (210 MW, 2021, Sanchuan) of 'Fujian Putian Pinghaiwan Offshore wind farm', whose other phases are phases 1-3, and the build merges the whole 814 MW group into the curated Pinghai Bay phase 3, so phase F vanishes. GEM's separate 400 MW 'Fujian Putian Pinghai Bay offshore wind farm' (construction, Strait Power) is the DE area (approved 31 May 2023, 50 x 8 MW), not F; the curated 'Putian Shicheng' is the separate Shicheng farm. No quotable source for F's coordinates (GEM's point is approximate and copied from phase 2) or turbines (a Xiuyu report only says Sanchuan's first turbines were Shanghai Electric 7 MW units from the Putian plant).",
+  "why": "No record represents area F today. GEM's location 'Fujian Putian Pinghaiwan Offshore wind farm' holds four operating phases (1: 50 MW 2016, 2: 246 MW 2021, 3 (C): 308 MW 2022, F: 210 MW 2021 by Sanchuan); the build merges all 814 MW into the curated 'Putian Pinghai Bay Phase 3' (build_farms.log line 540: DROP ... Pinghaiwan 814.0 ~ Putian Pinghai Bay Phase 3), so phase F disappears. The GEM 400 MW 'Fujian Putian Pinghai Bay offshore wind farm' (construction, Haixia Power) is the DE area, not F, and 'Putian Shicheng' is the separate Shicheng farm. Option for the main session (not a plain fix, because the GEM group also carries phases 1–3): No add rule exists; the only GEM data for F sits inside the 814 MW Pinghaiwan group. putian.gov.cn (503) and hbj.putian.gov.cn (DNS) unreachable; no sea-use coordinates found.",
+  "sources": [
+   {
+    "url": "https://cs.com.cn/ssgs/ggjjd/20150607_66191/201705/t20170503_5267192.html",
+    "quote": "该 项目建设规模为 20 万千瓦，同时建设 1 座 220kV 陆上升压变电站。项目建设工期 36 个月。"
+   },
+   {
+    "url": "https://www.court.gov.cn/zixun/xiangqing/497381.html",
+    "quote": "2021年7月，平海湾F区与石城两大风电场成功并网发电，至案发累计输送绿电64.2亿千瓦时"
+   },
+   {
+    "url": "https://www.gem.wiki/Fujian_Putian_Pinghaiwan_Offshore_wind_farm",
+    "quote": "F Operating [ 9 ] 2021 [ 9 ] 210 MW [ 10 ] Offshore hard mount [ 10 ] Fujian Funeng (Fujian Energy) New Energy Co Ltd [51%]; Haixia (Straits) Power Co Ltd [39%]"
+   },
+   {
+    "url": "https://fdi.swt.fujian.gov.cn/show-18415.html",
+    "quote": "今年5月31日，莆田平海湾海上风电场DE区项目获省发改委批复。该项目位于莆田市秀屿区平海湾湾口外海域，场址中心距离岸线16.5千米，规划面积约38.8平方千米。建设规模为400兆瓦"
+   },
+   {
+    "url": "http://www.xyxc.com/2021-07/30/content_1183361.htm",
+    "quote": "平海湾海上风电场DE区项目由海峡发电公司负责开发建设，拟开发50台8兆瓦大功率海上风机，总装机容量400兆瓦"
+   },
+   {
+    "url": "http://www.xyxc.com/2021-07/30/content_1183361.htm",
+    "quote": "福建三川海上风电项目的首批风机，就选用了上海电气在莆田基地生产的7兆瓦风力发电机组"
+   },
+   {
+    "url": "https://zrzyt.fujian.gov.cn/zwgk/xwdt/zrzyyw/202405/t20240509_6445881.htm",
+    "quote": "该项目位于莆田市秀屿区埭头镇石城村东北侧海域，建设规模200兆瓦"
+   }
+  ]
+ },
+ {
+  "item": "2. Putian Pinghai Bay Phase 2 turbine field",
+  "farm": "Putian Pinghai Bay Phase 2",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Putian Pinghai Bay Phase 2', C, '平海灣二期建成 41 部 6 MW、246 MW（新開發銀行 2024 年評價、秀嶼區 2021-07）；上海電氣以西門子 SWT-6.0-154 拿下二期第一、二批風機採購（界面新聞 2017-10），GlobalData 也寫 41 部上海電氣 SWT-6.0-154。原寫「金風／湘電 5–6.45 MW」沒有出處（機型依採購結果與資料庫，沒有相反的出處）', 'Pinghai Bay phase 2 was built with 41 x 6 MW, 246 MW (New Development Bank evaluation, 2024; Xiuyu district, July 2021); Shanghai Electric won both turbine lots of phase 2 with the Siemens-licensed SWT-6.0-154 (Jiemian, Oct 2017), and GlobalData also lists 41 Shanghai Electric SWT-6.0-154. The stored “Goldwind/XEMC 5–6.45 MW” had no source (model from the award and a database; nothing contradicts it)', 'https://www.ndb.int/wp-content/uploads/2024/09/Evaluation-Lens-Issue-8_China-Putian-Bay-Offshore_CN.pdf', turbine='41x Shanghai Electric SWT-6.0-154')",
+  "note_zh": "二期實建 41 部 6 MW（新開發銀行 2024-08 評價簡訊：實際成果 41 台、246 MW；秀嶼區 2021-07）。上海電氣 2017 年拿下二期第一、二批風機（合計訂購 44 台 6 MW 的 SWT-6.0-154），GlobalData 分 IIA／IIB／IIC 三段共 1＋5＋35＝41 部上海電氣 SWT-6.0-154。機型出自採購結果與資料庫，沒有相反的出處。另：中閩能源 2024 年回覆寫二期「2022 年 2 月全部機組投產」，NDB 寫實際竣工日期為某年 12 月 21 日，年份 2021 維持現有規則。",
+  "note_en": "Phase 2 was built with 41 x 6 MW (NDB evaluation brief, Aug 2024: actual outcome 41 turbines, 246 MW; Xiuyu district, July 2021). Shanghai Electric won both phase-2 turbine lots in 2017 (44 x 6 MW SWT-6.0-154 ordered), and GlobalData lists phases IIA/IIB/IIC with 1 + 5 + 35 = 41 Shanghai Electric SWT-6.0-154. Model from the award and a database; nothing contradicts it. Side note: Zhongmin Energy's 2024 reply says all phase-2 units entered production in Feb 2022, while NDB gives an actual completion date of 21 Dec (2021); the existing rule's 2021 is kept.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.ndb.int/wp-content/uploads/2024/09/Evaluation-Lens-Issue-8_China-Putian-Bay-Offshore_CN.pdf",
+    "quote": "41台风机，项目装机容量246兆瓦。"
+   },
+   {
+    "url": "http://www.xyxc.com/2021-07/30/content_1183361.htm",
+    "quote": "二期项目布局41台6兆瓦大功率风机，总装机容量24.6万千瓦，总投资51亿元"
+   },
+   {
+    "url": "https://www.jiemian.com/article/1696553.html",
+    "quote": "上海电气借助这一拳头产品先后斩获福建莆田平海湾海上风电场二期项目第一批风电机组及附属设备采购项目以及福建莆田平海湾海上风电场二期项目第二批风电机组及附属设备采购项目，合计44台6MW机组，总订单金额超过26亿元。"
+   },
+   {
+    "url": "https://www.jiemian.com/article/1696553.html",
+    "quote": "2016年8月，上海电气成功引入的西门子海上风电旗舰产品SWT-6.0-154（下称海上6MW机组）海上风电机组曾引起轰动。"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-pinghaiwan-china/",
+    "quote": "Pinghaiwan (Pinghaiwan Phase IIC) will be equipped with Shanghai Electric Wind Power Equipment SWT-6.0-154 turbines. The phase consists of 35 turbines with 6MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "item": "2. Putian Pinghai Bay Phase 3 turbine field",
+  "farm": "Putian Pinghai Bay Phase 3",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Putian Pinghai Bay Phase 3', C, '平海灣三期 44 部 7 MW、308 MW（秀嶼區 2021-07）；2019 年兩批風機採購都由上海電氣以 SWT-7.0-154 得標（14＋30＝44 部，世紀新能源網轉北極星），GlobalData 也寫 44 部 SWT-7.0-154。原寫「金風／明陽 6.45–7 MW」沒有出處（機型依得標結果與資料庫，沒有相反的出處）', 'Pinghai Bay phase 3 has 44 x 7 MW, 308 MW (Xiuyu district, July 2021); both 2019 turbine lots went to Shanghai Electric with the SWT-7.0-154 (14 + 30 = 44 units; ne21 citing BJX), and GlobalData also lists 44 SWT-7.0-154. The stored “Goldwind/Mingyang 6.45–7 MW” had no source (model from the award and a database; nothing contradicts it)', 'https://www.ne21.com/news/show-131941.html', turbine='44x Shanghai Electric SWT-7.0-154')",
+  "note_zh": "三期 44 部 7 MW、308 MW（秀嶼區 2021-07）；2019-07 兩批風機採購由上海電氣 SWT-7.0-154 得標（14＋30）；GlobalData 同。沒有找到建成後另寫機型的出處，也沒有相反的出處。",
+  "note_en": "Phase 3 has 44 x 7 MW, 308 MW (Xiuyu district, July 2021); the two July 2019 turbine lots went to Shanghai Electric SWT-7.0-154 (14 + 30); GlobalData agrees. No as-built source names the model, and none contradicts it.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-131941.html",
+    "quote": "第一中标候选人: 上海电气风电集团有限公司 投标机型规格型号: SWT-7.0-154 数量(台)：14"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-131941.html",
+    "quote": "第一中标候选人: 上海电气风电集团有限公司 投标机型规格型号: SWT-7.0-154 数量(台)：30"
+   },
+   {
+    "url": "http://www.xyxc.com/2021-07/30/content_1183361.htm",
+    "quote": "三期项目建设44台7兆瓦大功率风机，总装机容量30.8万千瓦，总投资约62亿元"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-pinghaiwan-china/",
+    "quote": "Pinghaiwan (Pinghaiwan Phase III) will be equipped with Shanghai Electric Wind Power Equipment SWT-7.0-154 turbines. The phase consists of 44 turbines with 7MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "item": "3. Liu'ao area E real location",
+  "farm": "Fujian Zhangpu Liu'Ao Offshore wind farm · E",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "",
+  "note_zh": "查不到六鰲 E 區的官方座標或用海資料。GEM 的 E 區點位（22.7333 N、118.0333 E，標為 exact）出自已下線的業主網站（ffyne.cn，只有 web.archive.org 存檔，從這裡連不上），看起來可能是度分秒抄錯，但不能猜。GEM 引用的六鰲二期竣工環保驗收報告（oss.fjhb.org）TLS 憑證驗證失敗、改用 http 回 403；漳浦縣政府附件 503；環評單位的 PDF 已 404。",
+  "note_en": "No official coordinates or sea-use data for Liu'ao area E were found. GEM's E point (22.7333 N, 118.0333 E, marked exact) comes from a defunct owner site (ffyne.cn, archived only on web.archive.org, unreachable here); it may be a degree typo, but that cannot be assumed. The Liu'ao phase 2 acceptance report GEM cites (oss.fjhb.org) fails TLS verification and returns 403 over http; zhangpu.gov.cn attachments return 503; the EIA consultant's PDFs are 404.",
+  "why": "Blocked: oss.fjhb.org (TLS cert failure; 403 over http), web.archive.org (connection reset), zhangpu.gov.cn (503), wind.in-en.com (403), fcyfxny.com.cn (404). No sea-use pre-review or EIA for area E found.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "E Liu'ao Peninsula, Zhangpu, Zhangzhou, Fujian, China [ 8 ] 22.7333, 118.0333 (exact)"
+   }
+  ]
+ },
+ {
+  "item": "4. Changle Waihai C coordinates",
+  "farm": "Changle Waihai C",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Changle Waihai C', C, 'OpenStreetMap 的風場範圍 way 1455417021 標名「长乐外海风电场C区」（依海事局航行通告 1131/2025 繪製），範圍北緯 25.817–25.891°、東經 119.950–120.049°，內有 53 部 OSM 風機；點位改為範圍中心（北緯 25.854°、東經 119.999°）。原點位 25.75 N、120.0 E 落在 A 區的範圍（way 1343837215）裡', 'OpenStreetMap wind-farm area way 1455417021 is named “长乐外海风电场C区” (drawn from China MSA notice 1131/2025) and spans 25.817–25.891 N, 119.950–120.049 E with 53 OSM turbines inside; the point moves to the centre of that area (25.854 N, 119.999 E). The old point (25.75 N, 120.0 E) lay inside the area-A polygon (way 1343837215)', 'https://www.openstreetmap.org/way/1455417021', lat=25.854, lon=119.999)",
+  "note_zh": "OSM 有標名的風場範圍：way 1455417021「长乐外海风电场C区」（來源：中國海事局航行通告 No. 1131/2025），範圍框北緯 25.817–25.891°、東經 119.950–120.049°，中心 25.854 N、119.999 E；範圍內有 53 部 OSM 風機（中心 25.846 N、120.003 E），就是 TODO 說的那群 57 部（另 4 部在範圍外）。原紀錄的 25.75 N、120.0 E 其實落在 OSM「长乐外海风电场A区」（way 1343837215）範圍內。",
+  "note_en": "A named OSM wind-farm area: way 1455417021 “长乐外海风电场C区” (source: China MSA Notice No. 1131/2025), bounding box 25.817–25.891 N, 119.950–120.049 E, centre 25.854 N, 119.999 E; 53 OSM turbines lie inside (centroid 25.846 N, 120.003 E), i.e. the 57-turbine group in TODO (4 lie just outside). The record's old point 25.75 N, 120.0 E falls inside OSM's “长乐外海风电场A区” (way 1343837215).",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.openstreetmap.org/way/1455417021",
+    "quote": "Tags name 长乐外海风电场C区 plant:method wind_turbine plant:output:electricity yes plant:source wind power plant"
+   },
+   {
+    "url": "https://www.openstreetmap.org/way/1455417021",
+    "quote": "source China MSA Notice No. 1131/2025"
+   }
+  ]
+ },
+ {
+  "item": "4. (found with it) CTG Changle Waihai A coordinates",
+  "farm": "CTG Fujian Changle Waihai A",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'CTG Fujian Changle Waihai A', C, 'OpenStreetMap 的風場範圍 way 1343837215 標名「长乐外海风电场A区」（依海事局航行通告 472/2025 繪製），範圍北緯 25.740–25.800°、東經 119.956–120.023°，內有 31 部 OSM 風機，北接 C 區、南接平潭外海（way 1391515683）；點位改為範圍中心（北緯 25.770°、東經 119.989°），原點位在其西北約 17 km', 'OpenStreetMap wind-farm area way 1343837215 is named “长乐外海风电场A区” (drawn from China MSA notice 472/2025) and spans 25.740–25.800 N, 119.956–120.023 E with 31 OSM turbines inside, between area C to the north and Pingtan Waihai (way 1391515683) to the south; the point moves to the centre of that area (25.770 N, 119.989 E), about 17 km south-east of the old one', 'https://www.openstreetmap.org/way/1343837215', lat=25.770, lon=119.989)",
+  "note_zh": "檢查 C 區時發現 A 區也錯置：OSM way 1343837215「长乐外海风电场A区」範圍框 25.740–25.800 N、119.956–120.023 E（中心 25.770 N、119.989 E），內有 31 部 OSM 風機（A 區 37 部），平潭外海（way 1391515683）緊貼其南側，與平潭外海報告「北側 A 區」、「海纜延長至長樂 A 區海上升壓站」一致。原紀錄 25.85 N、119.85 E 在範圍外約 17 km。另：A 區業主欄「SDIC; Fujian Investment」是建置時從被併入的 GEM 長樂外海 I 區（南）抄來的（見第 5 項），A 區實為三峽與福能合資的福州海峽發電；若採第 5 項的 GEM_KEEP，請一併檢查 A 區業主欄。",
+  "note_en": "Checking C showed A is misplaced too: OSM way 1343837215 “长乐外海风电场A区” spans 25.740–25.800 N, 119.956–120.023 E (centre 25.770 N, 119.989 E) with 31 OSM turbines (A has 37); Pingtan Waihai (way 1391515683) adjoins it to the south, matching the Pingtan Waihai report's 'area A to the north' and its cables run to the 'Changle A offshore substation'. The old point 25.85 N, 119.85 E is about 17 km away. Also: A's owner field 'SDIC; Fujian Investment' was copied by the build from the absorbed GEM Changle Area I (South) (see item 5); A belongs to Fuzhou Straits Power (CTG/Funeng). If item 5's GEM_KEEP is adopted, re-check A's owner field.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.openstreetmap.org/way/1343837215",
+    "quote": "Tags name 长乐外海风电场A区 plant:method wind_turbine plant:output:electricity yes plant:source wind power plant"
+   },
+   {
+    "url": "https://www.openstreetmap.org/way/1343837215",
+    "quote": "source China MSA Notice No. 472/2025"
+   },
+   {
+    "url": "https://zrzyt.fujian.gov.cn/zwgk/gsgg/202404/P020240429531356048270.pdf",
+    "quote": "本项目集电线路拟采用 4 回 35kV 海缆送至 A 区的 220kV 海上升压站的 35kV 开关柜"
+   }
+  ]
+ },
+ {
+  "item": "5. GEM 'Changle Waihai I' merged into CTG Changle Waihai A",
+  "farm": "Fujian Changle 'Outer Ocean' Area I Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "GEM_KEEP[('CHN', \"Fujian Changle 'Outer Ocean' Area I Offshore wind farm\")] = ('長樂外海 I 區是 2021–2023 年後才配置的新場址：I 區（南）2023 年競爭配置由福建投資集團與國投電力聯合體中選、2024-11-30 核准、2025-11 環評公示（16 部 18 MW＋1 部 26 MW，314 MW，離岸 54–61 km）；I 區（北）2024-06 核准給東方電氣的東福新能源（19 部，含 1 部 26 MW 試驗機）。兩案都要等長樂外海集中送出工程，都還沒建成，與 2021 年起營運的三峽長樂外海 A 區（37 部）不是同一座', 'Changle offshore area I is a newer site: I (South) was awarded in the 2023 competitive allocation to the Fujian Investment Group–SDIC Power consortium, approved on 30 Nov 2024 and put to EIA consultation in Nov 2025 (16 x 18 MW + 1 x 26 MW, 314 MW, 54–61 km offshore); I (North) was approved in June 2024 for Dongfang Electric’s Dongfu New Energy (19 turbines incl. a 26 MW test unit). Both wait for the Changle centralised export link and neither is built, so neither is CTG’s Changle area A (37 turbines, operating since 2021)', 'https://www.fuzhou.gov.cn/zgfzzt/shbj/xxgk/spgs/202511/P020251104372076206643.pdf')",
+  "note_zh": "是另一案。長樂外海 I 區（南）：2023-10 福建省發改委同意福建投資集團與國投電力聯合體為中選投資主體，2024-11-30 核准，2025-11 福州市生態環境局公示環評報告書（16 部 18 MW＋1 部 26 MW＝314 MW，離岸約 54–61 km、水深 43–51 m）；I 區（北）：2024-06 省發改委核准東福新能源（東方電氣），不超過 314 MW、19 部。兩案與 D/E、J、K 區共用尚未開工的長樂外海集中統一送出工程（長江證券 2026-07：這批十四五配置項目進度均低於預期）。三峽長樂外海 A 區（300 MW、37 部，已建成）是另一座。GEM 把 I 區（南）列為興建中，但 2025-11 才做環評，沒查到開工紀錄；加入 GEM_KEEP 後若要改狀態，可再加 fix('CHN', \"Fujian Changle 'Outer Ocean' Area I Offshore wind farm · South\", G, ..., st=2)（選用，需主對話判斷）。",
+  "note_en": "A different project. Changle I (South): the Fujian DRC named the Fujian Investment Group–SDIC Power consortium as developer in Oct 2023, approved it on 30 Nov 2024, and the Fuzhou ecology bureau published its EIA report in Nov 2025 (16 x 18 MW + 1 x 26 MW = 314 MW, 54–61 km offshore, 43–51 m deep). I (North): approved by the Fujian DRC in June 2024 for Dongfu New Energy (Dongfang Electric), up to 314 MW, 19 turbines. Both share the not-yet-started Changle centralised export link with areas D/E, J and K (Changjiang Securities, July 2026: progress of these 14th-FYP projects has lagged). CTG's Changle A (300 MW, 37 turbines, built) is a different farm. GEM lists I (South) as under construction, but its EIA was only published in Nov 2025 and no construction record was found; after the GEM_KEEP an optional fix('CHN', \"Fujian Changle 'Outer Ocean' Area I Offshore wind farm · South\", G, ..., st=2) is for the main session to decide.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.fuzhou.gov.cn/zgfzzt/shbj/xxgk/spgs/202511/P020251104372076206643.pdf",
+    "quote": "长乐外海I 区（南）海上风电场项目拟安装16 台18MW 的风电机组和1 台26MW 的风电机组，总装机 规模为314MW。"
+   },
+   {
+    "url": "https://www.fuzhou.gov.cn/zgfzzt/shbj/xxgk/spgs/202511/P020251104372076206643.pdf",
+    "quote": "2023 年10 月20 日，福建省发展和改革委员会（闽发改新能函〔2023〕306 号）同意福建省投资开发集团有限责任公司与国投电力控股股份有限公司联合体"
+   },
+   {
+    "url": "https://www.fuzhou.gov.cn/zgfzzt/shbj/xxgk/spgs/202511/P020251104372076206643.pdf",
+    "quote": "长乐外海I 区（南）海上风电场项目场址位于福州长乐外海，场址离岸距离 约54~61km，理论水深约43~51m。"
+   },
+   {
+    "url": "https://www.fuzhou.gov.cn/zgfzzt/shbj/xxgk/spgs/202511/P020251104372076206643.pdf",
+    "quote": "长乐外海海上风电场A 区项目施 工作业内容主要为37 台风机基础施工及安装工程的建设施工，四桩导管架22 台，吸力式导管架15 台，已建成。"
+   },
+   {
+    "url": "http://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/zdjsxmpzhss/202406/t20240620_6470710.htm",
+    "quote": "项目建设容量不超过314兆瓦，建设内容包括19台海上风电机组（含1台试验型26兆瓦机组）、海缆敷设、施工辅助工程等。项目与长乐海域其他海上风电项目〔包括长乐外海D、E区，长乐外海I区（南），长乐外海J区，长乐外海K区等〕实施集中统一送出"
+   },
+   {
+    "url": "https://fdi.swt.fujian.gov.cn/show-18415.html",
+    "quote": "长乐外海I区（南）项目的优先中选投资主体为福建省投资开发集团有限责任公司与国投电力控股股份有限公司联合体"
+   },
+   {
+    "url": "https://m.gelonghui.com/news/5261557",
+    "quote": "项目系长乐外海D、E 区、长乐外海I 区（北）、长乐外海I 区（南）、长乐外海J 区、长乐外海K 区等5 个海上风电场项目的配套集中统一送出工程，而这批“十四五”分配的福建海上风电项目过去因为各种原因推进进度均低于预期"
+   }
+  ]
+ },
+ {
+  "item": "6. Pingtan bridge distributed offshore project turbine model",
+  "farm": "Fujian Pingtan Straits Road/Railroad Bridge Illumination Project Offshore Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Fujian Pingtan Straits Road/Railroad Bridge Illumination Project Offshore Distributed wind farm', G, '平潭海峽公鐵大橋照明工程分散式海上風電：EPC 中標公告（2020-08-27，永福股份公告，格隆匯轉載）寫明建設 33.5 MW、5 部 GW154-6.7MW（輪轂 103 m）；福州新聞網 2022-01 寫全容量併網、33.5 MW、5 部，與 5 × 6.7 MW 相符。機型依得標公告，沒有相反的出處；容量 34→33.5 MW', 'Pingtan Strait road-rail bridge lighting distributed offshore wind: the EPC award notice (27 Aug 2020, Yongfu filing via Gelonghui) specifies 33.5 MW with 5 GW154-6.7MW units (103 m hub); Fuzhou News (Jan 2022) reports full-capacity connection, 33.5 MW, 5 turbines, consistent with 5 x 6.7 MW. Model from the award notice; nothing contradicts it; capacity 34 → 33.5 MW', 'https://www.usmart.hk/en/news-detail/6704560855457054924', turbine='5x Goldwind GW154-6.7', mw=33.5)",
+  "note_zh": "不只是預中標：2020-08-27 的中標公告（不是 08-24 的候選人公示）寫明 5 部 GW154-6.7MW、輪轂 103 m，2020-10 簽 EPC 合同；福州新聞網 2022-01-20 寫全容量併網後發電已破 400 萬度、33.5 MW、5 部（33.5 ÷ 5 ＝ 6.7 MW）。沒有找到建成後寫機型的報導，也沒有相反的出處。業主北京天潤是金風科技子公司。年份 2021（GEM）未改。",
+  "note_en": "More than a pre-award: the award notice of 27 Aug 2020 (not the 24 Aug candidate notice) names 5 GW154-6.7MW units with a 103 m hub, and the EPC contract was signed in Oct 2020; Fuzhou News (20 Jan 2022) reports over 4 GWh since full-capacity connection, 33.5 MW, 5 turbines (33.5 / 5 = 6.7 MW). No as-built report names the model and none contradicts it. The owner, Beijing Tianrun, is a Goldwind subsidiary. Year 2021 (GEM) unchanged.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.usmart.hk/en/news-detail/6704560855457054924",
+    "quote": "該 項目建設容量 33.5MW ，共建設 5 台 GW154 - 6.7MW (輪轂高度 103m )海上風電機組"
+   },
+   {
+    "url": "https://m.fznews.com.cn/dsxw/20220120/61e8d11edda84.shtml",
+    "quote": "项目总装机容量33.5兆瓦，共布置5台海上风电机组"
+   },
+   {
+    "url": "https://m.fznews.com.cn/dsxw/20220120/61e8d11edda84.shtml",
+    "quote": "大桥照明工程分散式风电项目全容量并网发电以来，发电量已突破400万千瓦时"
+   }
+  ]
+ },
+ {
+  "item": "7. 'Zhoushan Liuheng / Zhejiang others' aggregate",
+  "farm": "Zhoushan Liuheng / Zhejiang others",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "drop('CHN', 'Zhoushan Liuheng / Zhejiang others', C, '沒有出處的彙總（600 MW、「舟山六橫、嘉興 2 號等」、機型 mixed）：六橫島東南側海域的離岸風場就是國電舟山普陀 6 號 2 區（252 MW、63 部西門子 4 MW，國家能源集團 2020-06），已是精選紀錄「Guodian Zhoushan Putuo 6#2」；華能嘉興 2 號（杭州灣嘉興海域，300 MW、50 部 6 MW）也有 GEM 紀錄。這筆把兩座重複計算，其餘「等」查無對應', 'An unsourced aggregate (600 MW, “Zhoushan Liuheng, Jiaxing 2 etc.”, turbines “mixed”): the offshore farm south-east of Liuheng Island is Guodian’s Zhoushan Putuo 6 zone 2 (252 MW, 63 Siemens 4 MW; CHN Energy, June 2020), already the curated “Guodian Zhoushan Putuo 6#2”, and Huaneng Jiaxing 2 (Hangzhou Bay off Jiaxing, 300 MW, 50 x 6 MW) has its GEM record. The row double counts both, and the “etc.” matches nothing', 'https://www.ceic.com/gjnyjtww/chnyxfc/202006/e5a14799afc44f2a890f4e1784673ac0.shtml')",
+  "note_zh": "「舟山六橫」就是六橫島東南側的國電普陀 6 號 2 區（252 MW，已有精選紀錄，GEM 的 Putuo 6 已 dup 進去），「嘉興 2 號」是 GEM 的華能嘉興 2 號（300 MW，2021）。252＋300＝552 MW，這筆 600 MW 幾乎全是重複；查無其他「舟山六橫」離岸風場。建置記錄沒有 GEM 紀錄被併進這筆，刪掉不會產生孤兒。",
+  "note_en": "“Zhoushan Liuheng” is Guodian's Putuo 6 zone 2 south-east of Liuheng Island (252 MW, already curated; GEM's Putuo 6 is dup'ed into it), and “Jiaxing 2” is GEM's Huaneng Jiaxing 2 (300 MW, 2021). 252 + 300 = 552 MW, so the 600 MW row is almost entirely double counting; no other 'Zhoushan Liuheng' offshore farm exists. The build log shows no GEM record merged into this row, so dropping it leaves no orphan.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.ceic.com/gjnyjtww/chnyxfc/202006/e5a14799afc44f2a890f4e1784673ac0.shtml",
+    "quote": "场址位于舟山市六横岛东南侧海域，风电场中心点距离六横岛约11公里，总装机容量25.2万千瓦，共布置63台西门子4兆瓦风机"
+   },
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2017-08/07/content_1796654.htm",
+    "quote": "“六横岛南侧宽阔的可用海域和7.9米/秒的年均风速是建设海上风电场的理想场所。”"
+   },
+   {
+    "url": "https://www.chinaoffshorewind.cn/html/news/affairs/2021/0813/188.html",
+    "quote": "项目位于杭州湾嘉兴市海域，风电场装机容量为300兆瓦，共布置50台6.0兆瓦风力发电机组。"
+   }
+  ]
+ },
+ {
+  "item": "8. Huaneng Yuhuan 2 capacity, turbines and status",
+  "farm": "Huaneng Yuhuan 2 (rule name: 'Huadian Yuhuan 2')",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Huadian Yuhuan 2', C, '華能玉環 2 號核准變更後為 508 MW、31 部（25 部 16 MW＋6 部 18 MW；環評報告書報批稿，風能產業網 2025-04 同），原寫 504 MW、「8–10 MW 級」不對；2025-04 才完成陸上工頻系統倒送電（「向併網發電邁出關鍵一步」），GEM 2026-02 仍列興建中，查無全容量併網報導，改為興建中、年份未定', 'After the approval change Huaneng Yuhuan 2 is 508 MW with 31 turbines (25 x 16 MW + 6 x 18 MW; EIA report, approval version; CWEEA, Apr 2025, agrees), not 504 MW of “8–10 MW class”; its onshore power-frequency system was only back-energised in April 2025 (“a key step towards grid connection”), GEM (Feb 2026) still lists it under construction and no full-connection report was found, so it becomes under construction with no year', 'https://www.cweea.com.cn/xwdt/html/40264.html', mw=508, st=1, year=0, turbine='25x 16 MW + 6x 18 MW (planned)')",
+  "note_zh": "環評報告書（報批稿）：31 部（25 部 16 MW＋6 部 18 MW）、508 MW；同一份報告引用 2023-12 核准變更時寫成「25 台 14 MW」，但 6×18＋25×14＝458 MW 與 508 MW 不符，是筆誤（報告其他各處都寫 16 MW）。人民政協網 2025-01：規劃 508 MW，204 MW 工頻、304 MW 低頻送出（19 部 16 MW 低頻＋6 部 16 MW＋6 部 18 MW 工頻）。504 MW 是 2023 年原核准的 36 部 14 MW。狀態：2025-04 陸上工頻系統倒送電成功、尚未併網；GEM 2026-02 仍為興建中（2025 計畫）；查無全容量併網報導（北極星、龍船風電網被擋）。紀錄的「2024 年營運中」沒有根據。機組廠商：據搜尋結果上海電氣得 25 部 16 MW（北極星 2024-04，頁面抓不到），未寫入。",
+  "note_en": "EIA report (approval version): 31 turbines (25 x 16 MW + 6 x 18 MW), 508 MW; where the same report restates the Dec 2023 approval change it says '25 x 14 MW', but 6x18 + 25x14 = 458 MW, not 508, so that is a typo (the rest of the report says 16 MW). People's CPPCC net (Jan 2025): planned 508 MW, 204 MW exported at power frequency and 304 MW at low frequency (19 x 16 MW low-frequency + 6 x 16 MW + 6 x 18 MW). 504 MW was the original 2023 approval of 36 x 14 MW. Status: onshore system back-energised in April 2025, not yet connected; GEM (Feb 2026) still lists construction (planned 2025); no full-connection report found (BJX and imarine blocked). The record's 'operating since 2024' has no basis. Maker: search results say Shanghai Electric won the 25 x 16 MW lot (BJX, Apr 2024, page not readable), so not written.",
+  "why": "If a 2026 full-connection report turns up, set st=0 with that year.",
+  "sources": [
+   {
+    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3519/site/attach/0/6e56123fb9ab4a9eb94fad0c97f7c7a8.pdf",
+    "quote": "本次评价的工程包括 31 台风机（25 台16MW 和6 台 18MW 风机）"
+   },
+   {
+    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3519/site/attach/0/6e56123fb9ab4a9eb94fad0c97f7c7a8.pdf",
+    "quote": "项目 原拟安装 36 台单机容量为 14MW 风电机组，总装机容量 504MW。"
+   },
+   {
+    "url": "https://www.cweea.com.cn/xwdt/html/40264.html",
+    "quote": "近日，中国能建江苏电建一公司江南电力承建的玉环2号海上风电项目陆上工频系统倒送电一次成功，标志着项目向并网发电迈出关键一步。"
+   },
+   {
+    "url": "https://www.cweea.com.cn/xwdt/html/40264.html",
+    "quote": "项目拟安装6台单机容量18MW风电机组和25台单机容量16MW风电机组，总装机容量508MW"
+   },
+   {
+    "url": "http://www.rmzxw.com.cn/c/2025-01-16/3666204.shtml?n2m=1",
+    "quote": "玉环2号海上风电场位于浙江省台州市玉环海域，规划装机容量508兆瓦，采用工低频混合方式送出，其中204兆瓦采用工频输电方案，304兆瓦采用低频输电方式送至陆上计量站。"
+   },
+   {
+    "url": "https://www.gem.wiki/Zhejiang_Yuhuan_No.2_offshore_wind_farm",
+    "quote": "Construction [ 1 ] 2025 (planned) [ 2 ] 504 MW"
+   }
+  ]
+ },
+ {
+  "item": "9. Shanghai Fengxian Haiwan Expansion: offshore or seawall?",
+  "farm": "Shanghai Fengxian Haiwan Expansion Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "仍無可引用的出處說明是海上還是海堤上。GEM 的型別「Offshore hard mount」與概略座標（30.7841, 121.8092）都引用 UNFCCC CDM 第 5636 號「Shanghai Fengxian Bay Wind Farm Capacity Expansion Project」（小型專案、AMS-I.D.），但 cdm.unfccc.int 被 Incapsula 機器人檢查擋住，讀不到 PDD。線索：GEM 另把同一座「奉賢海灣風電場」的兩個汰換案（一期擴容工程 62.5 MW、改造升級 48 MW）列為陸域，點在奉賢海岸（30.86–30.92 N、121.56–121.57 E），暗示原風場在岸上；但沒有出處直接說擴容的 14.75 MW 在哪裡。狀態維持營運中。",
+  "note_en": "Still no quotable source saying offshore or seawall. GEM's 'Offshore hard mount' type and its approximate point (30.7841, 121.8092) cite UNFCCC CDM project 5636 'Shanghai Fengxian Bay Wind Farm Capacity Expansion Project' (small-scale, AMS-I.D.), but cdm.unfccc.int sits behind an Incapsula bot check and the PDD cannot be read. Lead: GEM lists the two repowering projects of the same 'Fengxian Haiwan wind farm' (phase 1 expansion 62.5 MW, retrofit 48 MW) as onshore, on the Fengxian shore (30.86–30.92 N, 121.56–121.57 E), suggesting the original farm is on land, but nothing states where the 14.75 MW expansion stands. Status stays operating.",
+  "why": "The CDM PDD (cdm.unfccc.int, Incapsula bot wall) is the only document likely to say; no Chinese construction or acceptance record found. swj.sh.gov.cn PDF 404.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Shanghai_Fengxian_Haiwan_Expansion_wind_farm",
+    "quote": "Fengxian District, Shanghai, China [ 2 ] 30.7841, 121.8092 (approximate)"
+   }
+  ]
+ },
+ {
+  "item": "10. CGN Xiangshan 1 Phase 1 (Tuci) vs Guodian Xiangshan 1",
+  "farm": "CGN Xiangshan 1 Phase 1 (Tuci)",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'CGN Xiangshan 1 Phase 1 (Tuci)', C, '這筆是中廣核象山塗茨海上風電場（象山縣東北部海域，點位在塗茨外海，與 GEM 的 Xiangshan Tuci 同點），不是國電象山 1 號一期（鶴浦鎮東南海域、41 部 6.2 MW，已含在 GEM 的象山 1 號）；名稱裡的「Xiangshan 1 Phase 1」是混名。中郵證券 2023-10 研報列「中廣核象山塗茨 280 MW，23 年已併網」（截至 9 月底），寧波日報 2025-07 寫一期已併網；年份 2022→2023。風機由中國海裝供應、8 MW 級；2022 年變更論證報告的設計是 38 部 8 MW（300 MW），建成部數與 280／300 MW 待查證', 'This row is CGN’s Xiangshan Tuci offshore wind farm (sea north-east of Xiangshan county, off Tuci, the same point as GEM’s Xiangshan Tuci), not Guodian’s Xiangshan 1 phase 1 (south-east of Hepu, 41 x 6.2 MW, already in GEM’s Xiangshan 1); “Xiangshan 1 Phase 1” in the name was a mix-up. A China Post Securities report (Oct 2023) lists “CGN Xiangshan Tuci 280 MW, connected in 2023” (by end of September) and Ningbo Daily (July 2025) says phase 1 is connected; year 2022 → 2023. CSSC Haizhuang 8 MW-class turbines; the 2022 sea-use change report designs 38 x 8 MW (300 MW), so the built unit count and 280 vs 300 MW remain unverified', 'https://file.iyanbao.com/pdf/3023a-06643cec-e616-4cde-aed1-4d8ef822d202.pdf', rename='CGN Xiangshan Tuci', year=2023, note=True)",
+  "note_zh": "紀錄描述的是中廣核象山塗茨：點位 29.55 N、121.95 E 在象山縣東北部塗茨外海（變更論證報告：場區離岸約 8.4 km，東距普陀 6 號 5 km；GEM 的 Tuci 點 29.546 N、121.980 E），國電象山 1 號一期則在鶴浦鎮東南海域（約 29.0 N），已含在 GEM「Zhejiang Xiangshan 1」（一期 254 MW＋二期 504 MW）。名稱應去掉「Xiangshan 1 Phase 1」。狀態與年份：中郵證券研報（2023-10-06）把「中廣核浙江象山涂茨 0.28GW」列為截至 9 月底已併網、預計 2023 年全容量併網的項目（表內寫「23 年已併網」）；GEM 也寫 2023。這是券商研報，不是業主公告；查不到業主的全容量併網新聞（cgnne.com 503）。容量：研報 280 MW、論證報告設計 300 MW（38×8），暫不改。新規則 note=True 會取代舊規則的卡片說明（舊說明寫年份待查證），主對話也可改成直接修改舊規則。",
+  "note_en": "The record describes CGN Xiangshan Tuci: its point (29.55 N, 121.95 E) is off Tuci in the sea north-east of Xiangshan county (change report: centre about 8.4 km offshore, Putuo 6 lies 5 km to the east; GEM's Tuci point 29.546 N, 121.980 E), whereas Guodian Xiangshan 1 phase 1 lies south-east of Hepu (about 29.0 N) and is already in GEM's 'Zhejiang Xiangshan 1' (254 MW phase 1 + 504 MW phase 2). The name should lose 'Xiangshan 1 Phase 1'. Status and year: a China Post Securities report (6 Oct 2023) lists 'CGN Zhejiang Xiangshan Tuci 0.28 GW' among projects due for full connection in 2023 that were connected by end of September (its table says 'connected in 2023'); GEM also says 2023. It is a broker report, not an owner announcement; no owner full-connection news found (cgnne.com 503). Capacity: 280 MW in the report vs 300 MW (38 x 8) design, left unchanged. The new rule's note=True replaces the old card note (which says the year is unverified); the main session may instead edit the old rule.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://file.iyanbao.com/pdf/3023a-06643cec-e616-4cde-aed1-4d8ef822d202.pdf",
+    "quote": "其中截止9 月底已 并网包括“中广核浙江象山涂茨 0.28GW”、“国华投资山东渤中 B2 场址 0.5GW”、 “福建平潭外海0.11GW” 三个海风项目"
+   },
+   {
+    "url": "https://file.iyanbao.com/pdf/3023a-06643cec-e616-4cde-aed1-4d8ef822d202.pdf",
+    "quote": "中广核象山涂茨海上风电场 280 浙江 中广核 23 年已并网"
+   },
+   {
+    "url": "http://epaper.cnnb.com.cn/nbrb/pc/content/202507/17/content_225027.html",
+    "quote": "目前，中广核象山涂茨海上风电场一期已并网发电，年上网绿电达8亿千瓦时"
+   },
+   {
+    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3507/site/attach/0/842c786192c540d5a9bf66d6693cfbb5.pdf",
+    "quote": "中广核涂茨海上风电场位于浙江省宁波市象山县东北部海域，向西北 2.7km 为东 屿山岛，东靠牛鼻山水道（即西航路），向东 5km 为普陀 6 号海上风电场。"
+   },
+   {
+    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/1419e3dea92043f6b6ce3eeb297f57bf.shtml",
+    "quote": "项目 位于宁波市象山县鹤浦镇东南海域，总投资约44亿元，安装41台6.2兆瓦风机，接入1座220千伏海上升压站"
+   }
+  ]
+ },
+ {
+  "item": "11. Changle Waihai A/C: zone of the first Dongfang 10 MW unit (118 m hub)",
+  "farm": "Changle Waihai C / CTG Fujian Changle Waihai A",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "仍無法判定。長樂區政府轉人民日報客戶端（2021-08-26）：「海電運維 801」8 月 5 日完成長樂外海首台東方電氣 10 MW 吊裝，輪轂中心高 118 m、風場水深 45 m，但沒寫 A 或 C 區。東方電氣的 10 MW 兩區都有（A 區 10 部、C 區 20 部，offshoreWIND.biz 2021-03），所以不能由機型推。水深 45 m 較接近 C 區，但只是推測，不採用。",
+  "note_en": "Still undecided. Changle district government, from People's Daily app (26 Aug 2021): 'Haidian Yunwei 801' installed the first Dongfang 10 MW unit off Changle on 5 Aug, 118 m hub centre, 45 m water depth, but the zone is not named. Both zones have Dongfang 10 MW units (10 at A, 20 at C; offshoreWIND.biz, Mar 2021), so the model does not decide it. 45 m depth fits C better, but that is inference only and not used.",
+  "why": "No source names the zone of the 5 Aug 2021 installation; wind.imarine.cn (403) and bjx.com.cn (empty) unreadable; ccer.cets.org.cn needs login.",
+  "sources": [
+   {
+    "url": "http://www.fzcl.gov.cn/xjwz/zwgk/zfxxgkzdgz/zdjsxm/jsqk/202108/t20210826_4171849.htm",
+    "quote": "本次吊装的风机为东方电气10MW风电机组，发电机重量达270吨（不含吊具和支架重量），轮毂中心高度达到118米，单只叶片长度90米。同时，项目风场水深45米"
+   },
+   {
+    "url": "https://offshorewind.biz/2021/03/31/first-commercial-double-digit-mw-wind-turbines-head-offshore-china",
+    "quote": "10 turbines will be installed at Changle Waihai Area A, and 20 at Changle Waihai Area C."
+   }
+  ]
+ }
+]

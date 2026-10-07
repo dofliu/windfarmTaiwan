@@ -1,0 +1,553 @@
+[
+ {
+  "item": "1. Jiangjiasha H1 · 1 (Longyuan) position",
+  "farm": "Jiangsu Jiangjiasha H1 Offshore wind farm · 1",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Jiangsu Jiangjiasha H1 Offshore wind farm · 1', G, '龍源海安蔣家沙 300 MW（2018 年建成，75 部遠景 4 MW；世紀新能源網 2025）：江蘇海事局 2022 年航行通告寫 67 號風機中心座標 32°39.011′N、121°07.280′E；座標改到這部風機（概略位置，風場範圍在其周圍），原點 31.773 N、121.105 E 在長江口，偏南約 100 km', 'Longyuan’s Hai’an Jiangjiasha 300 MW farm (built 2018, 75 Envision 4 MW turbines; ne21 2025): a 2022 Jiangsu MSA notice gives the centre of turbine 67 as 32°39.011′N, 121°07.280′E; point moved to that turbine (approximate, the farm lies around it); the old point, 31.773 N 121.105 E, was in the Yangtze estuary about 100 km to the south', 'https://www.js.msa.gov.cn/art/2022/5/27/art_75_1350583.html', lat=32.650, lon=121.121, approx=True, turbine='75x Envision 4 MW')",
+  "note_zh": "江蘇海事局通航通〔2022〕0103 號：「龍源海安蔣家沙 300MW 海上風電場遠景能源 67# 齒輪箱更換」，以 67 號風機中心座標 32°39.011′N／121°07.280′E 為圓心 400 m（建設單位江蘇海上龍源）。換算 32.650 N、121.121 E，是一部風機的官方座標，故標概略位置。機組：世紀新能源網（2025，轉龍源／遠景）寫 2018 年建成、75 台遠景 4 MW；原機型欄空白（屬建成值）。",
+  "note_en": "Jiangsu MSA notice 2022-0103: gearbox replacement on Envision turbine 67 of Longyuan’s Hai’an Jiangjiasha 300 MW farm, works circle of 400 m around the turbine centre 32°39.011′N / 121°07.280′E (developer Jiangsu Offshore Longyuan). That is 32.650 N, 121.121 E: an official position of one turbine, so marked approximate. Turbines: ne21 (2025) says the farm was built in 2018 with 75 Envision 4 MW units (as-built); the turbine field was empty.",
+  "why": "No sea-use corner points found (tzw.nantong.gov.cn reset; msa.gov.cn article.do pages 403). One turbine position is the best official point found.",
+  "sources": [
+   {
+    "url": "https://www.js.msa.gov.cn/art/2022/5/27/art_75_1350583.html",
+    "quote": "现将龙源海安蒋家沙 300MW 海上风电场远景能源 67# 齿轮箱更换作业有关内容通告如下"
+   },
+   {
+    "url": "https://www.js.msa.gov.cn/art/2022/5/27/art_75_1350583.html",
+    "quote": "以远景 67# 风机中心坐标（ 32°39.011′N /121°07.280′E ）为圆心"
+   },
+   {
+    "url": "https://www.js.msa.gov.cn/art/2022/5/27/art_75_1350583.html",
+    "quote": "建设单位：江苏海上龙源风力发电有限公司"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-208116.html",
+    "quote": "2018年建成的龙源江苏蒋家沙300MW海上风电项目，整体建设周期仅19个月，是当年国内建设速度最快的30万千瓦级海上风电场。项目安装的75台远景4MW机组"
+   }
+  ]
+ },
+ {
+  "item": "1. Jiangjiasha H2 (Jiusi) position",
+  "farm": "Jiangsu Jiangjiasha H2 Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Jiangsu Jiangjiasha H2 Offshore wind farm', G, '江蘇海事局 2022 年航行通告：蔣家沙（H2#）300MW 海上風電場 43 號風機座標 32°44′30.44″N、121°14′12.96″E（建設單位九思海上風力發電如東）；同年另一通告的維護作業水域（11 點連線）也在北緯 32.68–32.78°。座標改到 43 號風機（概略位置），原點 31.773 N、121.105 E 在長江口，偏南約 110 km', 'Jiangsu MSA notices (2022): turbine 43 of the Jiangjiasha (H2#) 300 MW farm stands at 32°44′30.44″N, 121°14′12.96″E (developer Jiusi Offshore Wind Rudong); another notice’s maintenance area (11 points) also lies at 32.68–32.78° N. Point moved to turbine 43 (approximate); the old point, 31.773 N 121.105 E, was in the Yangtze estuary about 110 km to the south', 'https://js.msa.gov.cn/art/2022/4/18/art_280_1339155.html', lat=32.742, lon=121.237, approx=True)",
+  "note_zh": "江蘇海事局通航通〔2022〕0058 號：蔣家沙（H2#）300MW 風場 43 號風機葉片更換，以風機座標點 32°44′30.443866″N／121°14′12.963848″E 為中心（建設單位九思海上風力發電如東有限公司）；換算 32.742 N、121.237 E。通航通〔2022〕0077 號（同風場 14 台風機基礎防護）的施工水域為 11 點連線，緯度 32°40′36″–32°46′40″N、經度 120°59′09″–121°16′13″E，與 43 號風機位置一致。機型仍查不到建成值（2020 年規劃 67 台 4.5 MW，見 cn_vn_step5e）。",
+  "note_en": "Jiangsu MSA notice 2022-0058: blade replacement on turbine 43 of the Jiangjiasha (H2#) 300 MW farm, centred on 32°44′30.443866″N / 121°14′12.963848″E (developer Jiusi Offshore Wind Power Rudong); i.e. 32.742 N, 121.237 E. Notice 2022-0077 (scour protection on 14 of the farm’s turbines) defines its works area by 11 points between 32°40′36″ and 32°46′40″ N and 120°59′09″–121°16′13″ E, consistent with turbine 43. As-built turbine model still not found (2020 plan: 67 × 4.5 MW).",
+  "why": "Sea-use approval not found; turbine position from MSA notices is the best official point.",
+  "sources": [
+   {
+    "url": "https://js.msa.gov.cn/art/2022/4/18/art_280_1339155.html",
+    "quote": "现将江苏蒋家沙（ H2# ） 300MW 海上风电场项目 43# 风机叶片更换施工作业有关内容通告如下"
+   },
+   {
+    "url": "https://js.msa.gov.cn/art/2022/4/18/art_280_1339155.html",
+    "quote": "以风机坐标点（ 32 ° 44 ′ 30.443866 ″ N/121 ° 14 ′ 12.96384"
+   },
+   {
+    "url": "https://js.msa.gov.cn/art/2022/4/18/art_280_1339155.html",
+    "quote": "建设单位：九思海上风力发电如东有限公司"
+   },
+   {
+    "url": "https://js.msa.gov.cn/art/2022/4/27/art_75_1345145.html",
+    "quote": "江苏省沿海省管蒋家沙海域，以下 11 点连线围成的范围内区域"
+   },
+   {
+    "url": "https://js.msa.gov.cn/art/2022/4/27/art_75_1345145.html",
+    "quote": "本工程对 江苏蒋家沙 (H2#)300MW 海上风电场 14 台风机进行冲刷坑的保护、海缆更换、处理等维护性施工"
+   }
+  ]
+ },
+ {
+  "item": "2. Guoxin Rudong H2 turbines",
+  "farm": "Jiangsu Rudong H2 (Guoxin) Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Jiangsu Rudong H2 (Guoxin) Offshore wind farm', G, '國信如東 H2#（350 MW）的 70 台中國海裝 H171-5MW 機組 2021 年 12 月 1 日全部並網（中國海裝新聞稿；江蘇省國資委寫共 70 台 5 MW、12 月 1 日全部機組並網）；原機型欄空白', 'All 70 CSSC Haizhuang H171-5MW turbines of Guoxin Rudong H2# (350 MW) were on the grid on 1 Dec 2021 (CSSC Haizhuang release; Jiangsu SASAC gives 70 × 5 MW and all units connected on 1 Dec); the turbine field was empty', 'http://www.hzwindpower.com/zongbuxinwen/20211220092246.html', turbine='70x CSSC Haizhuang H171-5.0')",
+  "note_zh": "建成值：中國海裝（整機廠）2021-12-20：「國信如東 H2# 項目 70 台中國海裝 H171-5MW 機組順利並網」；江蘇省國資委 2021-12-22：共布置 70 台 5 MW、12 月 1 日全部機組並網。與 GlobalData 一致，年份 2021 無誤。",
+  "note_en": "As built: CSSC Haizhuang (the OEM), 20 Dec 2021: \"70 CSSC Haizhuang H171-5MW units of Guoxin Rudong H2# connected\"; Jiangsu SASAC, 22 Dec 2021: 70 × 5 MW, all units connected on 1 Dec. Matches GlobalData; year 2021 is right.",
+  "sources": [
+   {
+    "url": "http://www.hzwindpower.com/zongbuxinwen/20211220092246.html",
+    "quote": "国信如东 H2# 项目 70 台中国海装 H171-5MW 机组顺利并网"
+   },
+   {
+    "url": "http://jsgzw.jiangsu.gov.cn/art/2021/12/22/art_11717_10222771.html",
+    "quote": "共布置了70台5MW风电机组"
+   },
+   {
+    "url": "http://jsgzw.jiangsu.gov.cn/art/2021/12/22/art_11717_10222771.html",
+    "quote": "国信江苏如东H2#海上风电场项目全部机组顺利实现并网发电"
+   }
+  ]
+ },
+ {
+  "item": "3. Guoxin Dafeng 850 MW turbines/status/year",
+  "farm": "Guoxin Dafeng 850 MW",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Guoxin Dafeng 850 MW', C, '國信大豐 85 萬千瓦：四個場址（H1#、H2#、H10#、H16#）共 100 部 8.5 MW，2025 年 12 月 29 日全容量併網（中國能建，2026-01；人民日報 2026-01-06）；2024 年 6 月風機標由金風科技預中標。原寫「明陽／金風 10–16 MW」', 'Guoxin Dafeng 850 MW: four sites (H1#, H2#, H10#, H16#) with 100 × 8.5 MW turbines, fully connected on 29 Dec 2025 (China Energy Engineering, Jan 2026; People’s Daily, 6 Jan 2026); Goldwind was the preferred bidder for the turbines in June 2024. Was “Mingyang/Goldwind 10–16 MW”', 'https://www.ceec.net.cn/art/2026/1/6/art_11019_2537923.html', turbine='100x Goldwind 8.5 MW')",
+  "note_zh": "狀態、年份無誤：2025-06-26 首批併網、2025-12-29 全容量併網（中國能建江蘇院）。機組：人民日報寫共安裝 100 台 8.5 MW（建成值）；廠牌依 2024-06 中標候選人公示（金風科技預中標，中電協），沒有矛盾出處，屬得標資料。注意招標文件原寫 99 台 8.5 MW＋1 台 13 MW 以上試驗機，完工報導是 100 台 8.5 MW，以完工報導為準。業主自稱「8.5MW 機型批量化應用」與此一致。",
+  "note_en": "Status and year are right: first units on 26 Jun 2025, full connection on 29 Dec 2025 (CEEC Jiangsu Institute). Turbines: People’s Daily says 100 × 8.5 MW were installed (as built); the make comes from the June 2024 preferred-bidder notice (Goldwind, via CEEIA), uncontradicted, so it is an award. The tender had asked for 99 × 8.5 MW plus one 13 MW+ test unit; the completion reports say 100 × 8.5 MW, which is used.",
+  "sources": [
+   {
+    "url": "https://www.ceec.net.cn/art/2026/1/6/art_11019_2537923.html",
+    "quote": "12月29日，中国能建江苏院设计的江苏国信大丰85万千瓦海上风电项目实现全容量并网发电。"
+   },
+   {
+    "url": "https://www.ceec.net.cn/art/2026/1/6/art_11019_2537923.html",
+    "quote": "2025年6月26日，本项目首批机组成功并网"
+   },
+   {
+    "url": "http://js.people.com.cn/n2/2026/0106/c360301-41464302.html",
+    "quote": "规划海域面积136平方公里，由4个场址组成。项目共安装100台单机容量8.5兆瓦的风电机组，总装机容量85万千瓦"
+   },
+   {
+    "url": "https://www.ceeia.com/QYDT/d/202406/ad00b4fad55a4081aec2f4c0b283abf1.html",
+    "quote": "江苏国信大丰85万千瓦海上风电项目风力发电机组及附属设备（含塔架）中标候选人公示，中电协副会长单位金风科技预中标"
+   },
+   {
+    "url": "https://www.ceeia.com/QYDT/d/202406/ad00b4fad55a4081aec2f4c0b283abf1.html",
+    "quote": "拟安装99台单机容量8.5MW的海上风力发电机组和1台单机容量13MW及以上的海上试验机型"
+   }
+  ]
+ },
+ {
+  "item": "3. Guoxin Dafeng H1 (GEM) duplicate",
+  "farm": "Jiangsu Dafeng H1 (Guoxin) Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "dup('CHN', 'Jiangsu Dafeng H1 (Guoxin) Offshore wind farm', G, ('Guoxin Dafeng 850 MW', C), '國信大豐 85 萬千瓦（H1#、H2#、H10#、H16# 四個場址，100 部 8.5 MW）2025 年 12 月 29 日全容量併網；精選紀錄「Guoxin Dafeng 850 MW」已是整案，GEM 的四個場址紀錄重複（這筆是 H1#，200 MW）', 'Guoxin’s Dafeng 850 MW project (sites H1#, H2#, H10# and H16#, 100 × 8.5 MW) reached full grid connection on 29 Dec 2025; the curated record “Guoxin Dafeng 850 MW” already covers the whole project, so GEM’s four site records are duplicates (this one is H1#, 200 MW)', 'https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml')",
+  "note_zh": "國信 2025-03 稿：項目包含大豐 H1#、H2#、H10#、H16#，共 100 台 8.5 MW、85 萬千瓦；中標公示列 H1# 200 MW、H2# 300 MW、H10# 150 MW。GEM 這筆 H1#（200 MW、興建中、概略座標）是整案的一部分，已全容量併網，併入精選紀錄。",
+  "note_en": "Guoxin release (Mar 2025): the project comprises Dafeng H1#, H2#, H10# and H16#, 100 × 8.5 MW, 850 MW; the award notice lists H1# 200 MW, H2# 300 MW, H10# 150 MW. GEM’s H1# record (200 MW, under construction, approximate point) is part of that project, now fully connected, so merge it into the curated record.",
+  "sources": [
+   {
+    "url": "https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml",
+    "quote": "项目包含大丰H1#、H2#、H10#和H16#，将安装100台单机容量为8.5MW的风力发电机组，装机容量85万千瓦"
+   },
+   {
+    "url": "https://www.ceeia.com/QYDT/d/202406/ad00b4fad55a4081aec2f4c0b283abf1.html",
+    "quote": "共包含4个海上风电场：大丰H1#（200MW）、大丰H2#（300MW）、大丰H10#（150MW）"
+   },
+   {
+    "url": "https://www.ceec.net.cn/art/2026/1/6/art_11019_2537923.html",
+    "quote": "12月29日，中国能建江苏院设计的江苏国信大丰85万千瓦海上风电项目实现全容量并网发电。"
+   }
+  ]
+ },
+ {
+  "item": "3. Guoxin Dafeng H2 (GEM) duplicate",
+  "farm": "Jiangsu Dafeng H2 (Guoxin) Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "dup('CHN', 'Jiangsu Dafeng H2 (Guoxin) Offshore wind farm', G, ('Guoxin Dafeng 850 MW', C), '國信大豐 85 萬千瓦（H1#、H2#、H10#、H16# 四個場址，100 部 8.5 MW）2025 年 12 月 29 日全容量併網；精選紀錄「Guoxin Dafeng 850 MW」已是整案，GEM 的四個場址紀錄重複（這筆是 H2#，300 MW）', 'Guoxin’s Dafeng 850 MW project (sites H1#, H2#, H10# and H16#, 100 × 8.5 MW) reached full grid connection on 29 Dec 2025; the curated record “Guoxin Dafeng 850 MW” already covers the whole project, so GEM’s four site records are duplicates (this one is H2#, 300 MW)', 'https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml')",
+  "note_zh": "國信 2025-03 稿：項目包含大豐 H1#、H2#、H10#、H16#，共 100 台 8.5 MW、85 萬千瓦；中標公示列 H1# 200 MW、H2# 300 MW、H10# 150 MW。GEM 這筆 H2#（300 MW、興建中、概略座標）是整案的一部分，已全容量併網，併入精選紀錄。",
+  "note_en": "Guoxin release (Mar 2025): the project comprises Dafeng H1#, H2#, H10# and H16#, 100 × 8.5 MW, 850 MW; the award notice lists H1# 200 MW, H2# 300 MW, H10# 150 MW. GEM’s H2# record (300 MW, under construction, approximate point) is part of that project, now fully connected, so merge it into the curated record.",
+  "sources": [
+   {
+    "url": "https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml",
+    "quote": "项目包含大丰H1#、H2#、H10#和H16#，将安装100台单机容量为8.5MW的风力发电机组，装机容量85万千瓦"
+   },
+   {
+    "url": "https://www.ceeia.com/QYDT/d/202406/ad00b4fad55a4081aec2f4c0b283abf1.html",
+    "quote": "共包含4个海上风电场：大丰H1#（200MW）、大丰H2#（300MW）、大丰H10#（150MW）"
+   },
+   {
+    "url": "https://www.ceec.net.cn/art/2026/1/6/art_11019_2537923.html",
+    "quote": "12月29日，中国能建江苏院设计的江苏国信大丰85万千瓦海上风电项目实现全容量并网发电。"
+   }
+  ]
+ },
+ {
+  "item": "3. Guoxin Dafeng H10 (GEM) duplicate",
+  "farm": "Jiangsu Dafeng H10 (Guoxin) Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "dup('CHN', 'Jiangsu Dafeng H10 (Guoxin) Offshore wind farm', G, ('Guoxin Dafeng 850 MW', C), '國信大豐 85 萬千瓦（H1#、H2#、H10#、H16# 四個場址，100 部 8.5 MW）2025 年 12 月 29 日全容量併網；精選紀錄「Guoxin Dafeng 850 MW」已是整案，GEM 的四個場址紀錄重複（這筆是 H10#，150 MW）', 'Guoxin’s Dafeng 850 MW project (sites H1#, H2#, H10# and H16#, 100 × 8.5 MW) reached full grid connection on 29 Dec 2025; the curated record “Guoxin Dafeng 850 MW” already covers the whole project, so GEM’s four site records are duplicates (this one is H10#, 150 MW)', 'https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml')",
+  "note_zh": "國信 2025-03 稿：項目包含大豐 H1#、H2#、H10#、H16#，共 100 台 8.5 MW、85 萬千瓦；中標公示列 H1# 200 MW、H2# 300 MW、H10# 150 MW。GEM 這筆 H10#（150 MW、興建中、概略座標）是整案的一部分，已全容量併網，併入精選紀錄。注意：現有規則已把「Jiangsu Dafeng H10 (Three Gorges)」併進這筆 H10（Guoxin），新規則要排在它後面（依序套用即可）。",
+  "note_en": "Guoxin release (Mar 2025): the project comprises Dafeng H1#, H2#, H10# and H16#, 100 × 8.5 MW, 850 MW; the award notice lists H1# 200 MW, H2# 300 MW, H10# 150 MW. GEM’s H10# record (150 MW, under construction, approximate point) is part of that project, now fully connected, so merge it into the curated record. Note: an existing rule already merges “Jiangsu Dafeng H10 (Three Gorges)” into this H10 (Guoxin) record; put the new rule after it (rules apply in order).",
+  "sources": [
+   {
+    "url": "https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml",
+    "quote": "项目包含大丰H1#、H2#、H10#和H16#，将安装100台单机容量为8.5MW的风力发电机组，装机容量85万千瓦"
+   },
+   {
+    "url": "https://www.ceeia.com/QYDT/d/202406/ad00b4fad55a4081aec2f4c0b283abf1.html",
+    "quote": "共包含4个海上风电场：大丰H1#（200MW）、大丰H2#（300MW）、大丰H10#（150MW）"
+   },
+   {
+    "url": "https://www.ceec.net.cn/art/2026/1/6/art_11019_2537923.html",
+    "quote": "12月29日，中国能建江苏院设计的江苏国信大丰85万千瓦海上风电项目实现全容量并网发电。"
+   }
+  ]
+ },
+ {
+  "item": "3. Guoxin Dafeng H16 (GEM) duplicate",
+  "farm": "Jiangsu Dafeng H16 (Guoxin) Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "dup('CHN', 'Jiangsu Dafeng H16 (Guoxin) Offshore wind farm', G, ('Guoxin Dafeng 850 MW', C), '國信大豐 85 萬千瓦（H1#、H2#、H10#、H16# 四個場址，100 部 8.5 MW）2025 年 12 月 29 日全容量併網；精選紀錄「Guoxin Dafeng 850 MW」已是整案，GEM 的四個場址紀錄重複（這筆是 H16#，200 MW）', 'Guoxin’s Dafeng 850 MW project (sites H1#, H2#, H10# and H16#, 100 × 8.5 MW) reached full grid connection on 29 Dec 2025; the curated record “Guoxin Dafeng 850 MW” already covers the whole project, so GEM’s four site records are duplicates (this one is H16#, 200 MW)', 'https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml')",
+  "note_zh": "國信 2025-03 稿：項目包含大豐 H1#、H2#、H10#、H16#，共 100 台 8.5 MW、85 萬千瓦；中標公示列 H1# 200 MW、H2# 300 MW、H10# 150 MW。GEM 這筆 H16#（200 MW、興建中、概略座標）是整案的一部分，已全容量併網，併入精選紀錄。",
+  "note_en": "Guoxin release (Mar 2025): the project comprises Dafeng H1#, H2#, H10# and H16#, 100 × 8.5 MW, 850 MW; the award notice lists H1# 200 MW, H2# 300 MW, H10# 150 MW. GEM’s H16# record (200 MW, under construction, approximate point) is part of that project, now fully connected, so merge it into the curated record.",
+  "sources": [
+   {
+    "url": "https://finance.sina.com.cn/jjxw/2025-03-13/doc-inepmwyy5251190.shtml",
+    "quote": "项目包含大丰H1#、H2#、H10#和H16#，将安装100台单机容量为8.5MW的风力发电机组，装机容量85万千瓦"
+   },
+   {
+    "url": "https://www.ceeia.com/QYDT/d/202406/ad00b4fad55a4081aec2f4c0b283abf1.html",
+    "quote": "共包含4个海上风电场：大丰H1#（200MW）、大丰H2#（300MW）、大丰H10#（150MW）"
+   },
+   {
+    "url": "https://www.ceec.net.cn/art/2026/1/6/art_11019_2537923.html",
+    "quote": "12月29日，中国能建江苏院设计的江苏国信大丰85万千瓦海上风电项目实现全容量并网发电。"
+   }
+  ]
+ },
+ {
+  "item": "4. SPIC Binhai South H3 full-connection year",
+  "farm": "SPIC Binhai South H3",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'SPIC Binhai South H3', C, '國家電投濱海南 H3（300 MW）2020 年 12 月 31 日全容量併網，裝 75 台上海電氣 W4000-146（電氣風電，2024）；原寫 2019 年，業主欄誤為大唐／國信（來自被自動併入的大唐濱海紀錄）', 'SPIC Binhai South H3 (300 MW) reached full grid connection on 31 Dec 2020 with 75 Shanghai Electric W4000-146 turbines (Shanghai Electric Wind Power, 2024); the row said 2019 and its owner field was Datang/Guoxin (taken from the Datang Binhai record merged into it by the build)', 'http://windpower.cpem.org.cn/contents/31/1370.html', year=2020, turbine='75x Shanghai Electric W4000-146', owner='SPIC Jiangsu Electric Power Co Ltd')",
+  "note_zh": "濱海南 H3：2019-12-28 海上主體開工、2020 年底全容量投產（國家電投江蘇海上風電公司，CPEM 2021）；電氣風電 2024：2020-12-31 全容量併網、75 台 W4000-146。年份改 2020。另發現：建置把 GEM「Jiangsu Binhai (Datang) Offshore wind farm」（大唐國信濱海 302 MW，2019-12-25 全部風機併網，另一座風場）當成這筆的重複自動併掉，大唐濱海因此從資料消失、業主欄也被帶過來；建議把它列進 GEM_KEEP（見下一筆）。",
+  "note_en": "Binhai South H3: offshore works started 28 Dec 2019 and the farm was fully in service at the end of 2020 (SPIC Jiangsu Offshore Wind, CPEM 2021); Shanghai Electric Wind Power (2024): full connection on 31 Dec 2020, 75 × W4000-146. Year to 2020. Also found: the build auto-merged GEM’s “Jiangsu Binhai (Datang) Offshore wind farm” (Datang-Guoxin Binhai 302 MW, all turbines connected 25 Dec 2019, a different farm) into this record, so the Datang farm vanished and its owner was copied here; add it to GEM_KEEP (next entry).",
+  "sources": [
+   {
+    "url": "http://windpower.cpem.org.cn/contents/31/1370.html",
+    "quote": "该项目于2020年12月31日实现全容量并网，电气风电提供75台单机容量4.0MW的W4000-146型风电机组，总装机规模300MW。"
+   },
+   {
+    "url": "https://www.cpem.org.cn/list100/38771.html",
+    "quote": "2018年12月，盐城滨海南H3（30万千瓦）取得核准，2019年12月28日，项目海上主体工程采用施工总承包的方式开工建设，2020年12月底建成投产。"
+   }
+  ]
+ },
+ {
+  "item": "4. Datang Binhai (GEM) wrongly merged into Binhai South H3",
+  "farm": "Jiangsu Binhai (Datang) Offshore wind farm (merged away by the build)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "GEM_KEEP: ('CHN', 'Jiangsu Binhai (Datang) Offshore wind farm'): ('大唐國信濱海 300 MW 海上風電（廢黃河口至扁擔港之間，3 MW 與 3.3 MW 機組）2019 年 12 月 25 日全部風機併網，是與國家電投濱海南 H3（2020 年底投產）不同的風場；舊建置因名稱都有「濱海」而把它併進濱海南 H3，整座消失', 'Datang-Guoxin’s Binhai 300 MW offshore farm (3 MW and 3.3 MW turbines) had all turbines connected on 25 Dec 2019; it is not SPIC’s Binhai South H3 (in service end-2020), into which the build merged it because both names contain “Binhai”, so the farm vanished', 'https://www.ne21.com/news/show-132982.html')",
+  "note_zh": "build_farms.log：「DROP CHN operating Jiangsu Binhai (Datang) Offshore wind farm 302.0 ~ SPIC Binhai South H3 300.0」。大唐濱海 300 MW 是振華重工總承包的另一座風場（二標段 45 台 3.3 MW＋50 台 3 MW），2019-01-17 首批 8 台併網、2019-12-25 全部風機併網；GEM 2026-02 記為 302 MW、2019、營運中（概略座標 34.240 N、120.329 E）。列進 GEM_KEEP 後營運中容量增加 302 MW。",
+  "note_en": "build_farms.log: “DROP CHN operating Jiangsu Binhai (Datang) Offshore wind farm 302.0 ~ SPIC Binhai South H3 300.0”. Datang Binhai 300 MW is a separate farm built under ZPMC’s EPC (lot 2: 45 × 3.3 MW + 50 × 3 MW); first 8 turbines connected 17 Jan 2019, all turbines 25 Dec 2019. GEM 2026-02 has it as 302 MW, 2019, operating (approximate point 34.240 N, 120.329 E). Keeping it adds 302 MW of operating capacity.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-132982.html",
+    "quote": "12月25日，黄海之滨传来了好消息，振华重工首个海上风电系统总承包项目——大唐滨海300兆瓦海上风电项目全部风机并网发电。"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-132982.html",
+    "quote": "2019年1月17日，首批8台风机并网发电。"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-132982.html",
+    "quote": "振华重工参与建设的是大唐滨海300兆瓦海上风电项目二标段，共布置45台3.3兆瓦、50台3兆瓦风机及1座220千伏海上升压站"
+   }
+  ]
+ },
+ {
+  "item": "5. GEM Shandong Bohai B1 (500 MW) capacity/status",
+  "farm": "Shandong Bohai B1 offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Shandong Bohai B1 offshore wind farm', G, '渤中 B 場址規劃 1,000 MW，山東能源負責西側 500 MW：其中 400 MW（47 部 8.5 MW）2022 年底已建成，是精選紀錄「Shandong Energy Bozhong B」；剩下的 100 MW 才是「渤中海上風電基地 B1 項目」（8 部 8.5 MW＋4 部 8 MW，接入已建的 B 場址升壓站），2024 年 10 月招標、2025 年 6 月國資委仍寫「正在建設、將於近期併網」。GEM 的 500 MW 把已建的 400 MW 重算一次，改為 100 MW 的續建案，維持興建中', 'Bozhong site B is planned at 1,000 MW, with Shandong Energy developing the western 500 MW: 400 MW of it (47 × 8.5 MW) was built by end-2022 and is the curated record “Shandong Energy Bozhong B”; only the remaining 100 MW is the “Bozhong offshore wind base B1 project” (8 × 8.5 MW + 4 × 8 MW, connected to the existing site-B substation), tendered in Oct 2024 and still “under construction, to be connected soon” per SASAC in June 2025. GEM’s 500 MW counts the built 400 MW again; reduced to the 100 MW extension, kept under construction', 'https://www.ne21.com/news/show-202646.html', rename='Shandong Energy Bozhong B1 (100 MW extension)', zhname='山東能源渤中B1（續建10萬千瓦）', mw=100, turbine='8x 8.5 MW + 4x 8 MW')",
+  "note_zh": "中國電建 2024-10-22 競談公告（世紀新能源網轉）：B 場址規劃 1000 MW，山東能源負責西側 500 MW，前期已完成 400 MW，本次建設剩餘 100 MW，命名為 B1 項目，8×8.5 MW＋4×8.0 MW。大眾日報 2024-08：「B1 場址續建 10 萬千瓦項目」正在建設；國資委（2025-06 以後）：「正在建設的渤中海上風電 B1 場址 10 萬千瓦風電場將於近期併網」。2026-10 仍查不到全容量併網的報導，故維持興建中（機組依招標，標為計畫值）。附註：東營市政府 2024-11 稱「A、B1、B2 三個場址已建成，規模 140.2 萬千瓦」（50.1＋39.95＋50.15），即「B1 場址」也被用來指已建的 399.5 MW，名稱容易混淆。",
+  "note_en": "PowerChina negotiation notice of 22 Oct 2024 (via ne21): site B is planned at 1,000 MW, Shandong Energy develops the western 500 MW, 400 MW is already built, and the remaining 100 MW is the “B1 project”, 8 × 8.5 MW + 4 × 8.0 MW. Dazhong Daily (Aug 2024): the “B1 site continuation 100 MW” was under construction; SASAC (after June 2025): “the B1 site 100 MW farm under construction will be connected soon”. No full-connection report found as of Oct 2026, so kept under construction (turbines per tender). Note: Dongying (Nov 2024) calls the built sites “A, B1, B2… 1,402 MW” (50.1 + 39.95 + 50.15), so “B1 site” is also used for the built 399.5 MW.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-202646.html",
+    "quote": "渤中海上风电B场址位于山东省东营市北部海域，规划容量1000MW，山东能源负责B场址西侧500MW开发建设，前期已完成山东能源渤中海上风电 B 场址工程项目400MW容量"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-202646.html",
+    "quote": "本次建设剩余容量100MW项目，项目命名为山东能源渤中海上风电基地B1项目（下文简称B1项目），B1项目场址中心离岸距离约19km，水深14m-16m，拟布置8台8.5MW风力发电机组以及4台8.0MW风力发电机组，总装机容量100MW。"
+   },
+   {
+    "url": "http://www.sasac.gov.cn/n2588025/n2588129/c33689209/content.html",
+    "quote": "正在建设的渤中海上风电B1场址10万千瓦风电场将于近期并网"
+   },
+   {
+    "url": "https://m.dzplus.dzng.com/share/general/0/NEWS1659898GBHNRNGXNFQWD",
+    "quote": "这片海域正在建设的是山东能源渤中海上风电项目G场址一期40万千瓦项目、B1场址续建10万千瓦项目和E场址60万千瓦项目"
+   }
+  ]
+ },
+ {
+  "item": "6. Huaneng Peninsula North BW full-connection year",
+  "farm": "Huaneng Peninsula North BW",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "(no rule needed: keep year=2024)",
+  "note_zh": "確切的全容量併網日期仍查不到，但已足以判定年份是 2024：經濟導報 2024-10-21 寫山東「今年年底前」要建成渤中 G 一期、半島南 U1 二期、半島北 BW；煙台水母網 2024-12-18（華能煙台電廠）已把半島北 BW 列為「先後建成投產」的工程；經濟導報 2025-06 也寫已全容量併網。開工時間：山東省商務廳 2024-09 的「已於 8 月開工」很可能是沿用舊文字（另有券商報告寫 2023 年 9 月開工），不影響年份。維持 2024，TODO 的疑點可結案。",
+  "note_en": "The exact full-connection date is still not found, but the year is settled as 2024: Economic Herald (21 Oct 2024) lists Peninsula North BW among the projects to be completed “before the end of this year”; Yantai’s Shuimu (18 Dec 2024, Huaneng Yantai plant) already lists Peninsula North BW among projects “built and put into operation”; the Economic Herald (June 2025) also says it was fully connected. The Shandong Commerce note “construction started in August” (Sept 2024) is probably recycled text (a broker report says construction began in Sept 2023). Keep 2024 and close the doubt.",
+  "sources": [
+   {
+    "url": "https://u.shm.com.cn/2024-12/18/content_5420571.html",
+    "quote": "2020年以来，先后建成投产的半岛南4号海上风电、半岛北BW海上风电等一批优质的电力工程，成为山东电力发展史上的重要里程碑。"
+   },
+   {
+    "url": "https://news.iqilu.com/shandong/shandonggedi/20241021/5731341.shtml",
+    "quote": "今年年底前,山东将建成渤中G一期、半岛南U1二期、半岛北BW等海上风电重点项目,新增海上风电装机规模150万千瓦"
+   },
+   {
+    "url": "https://news.qq.com/rain/a/20250613A068SL00",
+    "quote": "华能集团在山东布局的华能半岛南4号海上风电项目、华能山东半岛北BW场址海上风电项目已实现全容量并网发电"
+   }
+  ]
+ },
+ {
+  "item": "7. Peninsula South U2 (Guohua) status and phases",
+  "farm": "Shandong Bandaonan U2 (Guohua) Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) if accepted: fix('CHN', 'Shandong Bandaonan U2 (Guohua) Offshore wind farm', G, …, 'https://www.ceic.com/gjnyjtww/chnjcxw/202509/92abff82688f4920bbcb5f96176c7f2b.shtml', st=0, year=2024, turbine='71x Envision EN226-8.5')",
+  "note_zh": "U2 是國家能源集團國華投資的場址（不是國家電投）：603.5 MW、71 部遠景 EN226-8.5 MW，一期 306 MW（36 部）、二期 297.5 MW（35 部）。正反證據：(1) 2024-10-26 國家電投 U1 二期併網時，中國電器工業協會等寫「山東半島南 U 場址海上風電項目（150 萬千瓦，含 U2 60 萬千瓦）實現全容量併網」；(2) 國家能源集團 2025-09-02：U2 60 萬千瓦「安裝 71 台」、2025-08-28 全容量登記 CCER；但 (3) 中證鵬元 2025-06 評級報告把 U2 一期、二期都列在「截至 2024 年末公司主要在建、擬建項目」（2025 年各只剩 0.74、0.63 億元投資）；(4) 山東 2025 年海洋強省重點項目名單仍有 U2 二期。查不到 U2 自己的全容量併網日期，維持線索；若主對話接受 U 場址整體併網的說法，可改營運中 2024 年。",
+  "note_en": "U2 is CHN Energy Guohua’s site (not SPIC): 603.5 MW, 71 Envision EN226-8.5 MW, phase 1 306 MW (36 units), phase 2 297.5 MW (35). For: (1) when SPIC’s U1 phase 2 connected on 26 Oct 2024, CEEIA and others wrote that “the Peninsula South U-site project (1,500 MW incl. U2’s 600 MW) reached full capacity”; (2) CHN Energy, 2 Sept 2025: U2 600 MW “has 71 turbines installed” and was registered for its full capacity under CCER on 28 Aug 2025. Against: (3) the June 2025 CSCI Pengyuan rating report lists U2 phases 1 and 2 among the company’s “projects under construction or planned at end-2024” (only CNY 74 m and 63 m left for 2025); (4) Shandong’s 2025 marine key-project list still includes U2 phase 2. No U2-specific full-connection date found, so a lead; if the main session accepts the U-site statement, set operating 2024.",
+  "why": "No U2-specific grid-connection report; ceic/cpnn give only CCER registration; carbontree.com.cn (U2 phase-1 emission-reduction notice) fails TLS verification; cpnn.com.cn connection drops.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-181663.html",
+    "quote": "规划装机容量603.5兆瓦，布置71台EN226-8.5兆瓦风电机组"
+   },
+   {
+    "url": "https://www.ceeia.com/XWZX/d/202410/1e56e39e98c44482a46066bc95bcdb07.html",
+    "quote": "山东半岛南U场址海上风电项目总装机容量为150万千瓦，其中，国家电投山东能源投资建设的U1场址90万千瓦，国家能源集团投资建设的U2场址60万千瓦"
+   },
+   {
+    "url": "https://www.ceeia.com/XWZX/d/202410/1e56e39e98c44482a46066bc95bcdb07.html",
+    "quote": "这标志着我国单体最大的平价海上风电项目——山东半岛南U场址海上风电项目实现全容量并网"
+   },
+   {
+    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202509/92abff82688f4920bbcb5f96176c7f2b.shtml",
+    "quote": "安装71台单机容量8.5兆瓦风力发电机组，总装机容量为603.5兆瓦"
+   },
+   {
+    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202509/92abff82688f4920bbcb5f96176c7f2b.shtml",
+    "quote": "8月28日，国华投资最大海上风电项目——山东半岛南U2海上60万千瓦风电项目实现全容量登记CCER"
+   },
+   {
+    "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3275527&priority=0&mode=save",
+    "quote": "国投山东半岛南 U2 场址一期海上风电项目 30.60 35.96 0.74 国投山东半岛南 U2 场址二期海上风电项目 29.75 35.96 0.63"
+   },
+   {
+    "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3275527&priority=0&mode=save",
+    "quote": "表4 截至 2024 年末公司主要在建、拟建项目情况"
+   },
+   {
+    "url": "https://m.163.com/dy/article/JRGNUCTV0514C30V.html?clickfrom=subscribe",
+    "quote": "4、国家能源集团国华半岛南U2场址海上风电二期项目 ：位于山东省威海市乳山市海域"
+   }
+  ]
+ },
+ {
+  "item": "8. Zhuhai Guishan turbines/total/year",
+  "farm": "Zhuhai Guishan",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Zhuhai Guishan', C, '桂山海上風電場總裝機 198 MW，2021 年 12 月才全容量併網（廣州發展新能源，2023）；一期 120 MW 為 34 部 3 MW 加 3 部 6 MW，「一期後續及二期」2020 年底才開工、2021 年 2 月首台併網。原寫 2018 年（只是首批風機併網）', 'Guishan totals 198 MW and only reached full grid connection in Dec 2021 (Guangzhou Development New Energy, 2023); phase 1 (120 MW) is 34 × 3 MW plus 3 × 6 MW, and the “phase-1 follow-up and phase 2” works began in late 2020, with their first unit connected in Feb 2021. The row said 2018 (when the first turbines connected)', 'https://www.ne21.com/news/show-178370.html', year=2021)",
+  "note_zh": "年份可寫：198 MW 2021 年 12 月全容量併網（股東廣州發展新能源，世紀新能源網 2023）。分期可選擇加 ph=[[2019, 120], [2021, 78]]（廣東小康工程資料庫：一期 120 MW、2019 年 12 月投產；南方日報 2021-04：二期 78 MW、2021 年底前建成），但「一期後續」（一期裡的 3 部 6 MW）是 2020 年底才和二期一起施工，2019 年的 120 MW 未必都已運轉，主對話自行決定。機型欄仍是線索：「15x 5.5 MW」沒有出處；一期為 34×3 MW＋3×6 MW；二期 15 部，其中 3 部為測試樣機，有明陽 6.45 MW；國際風力發電網（403 擋）的「一期後續及二期 88.25 MW、1 部 8.3 MW＋8 部 7 MW＋4 部 6.45 MW、共 13 部，12 月 8 日全容量併網」只見於搜尋摘要，數字也加不起來（90.1 MW），不採用。維基百科另稱 2024 年在二期範圍加建兩部（海事局 2024 筒型基礎專項通告，403），總部數待查證。",
+  "note_en": "Year can be written: 198 MW fully connected in Dec 2021 (shareholder Guangzhou Development New Energy, ne21 2023). Phases optional: ph=[[2019, 120], [2021, 78]] (Guangdong key-project record: phase 1 120 MW in service Dec 2019; Southern Daily Apr 2021: phase 2 78 MW to be finished by end-2021), but the “phase-1 follow-up” (the 3 × 6 MW of phase 1) was built with phase 2 from late 2020, so not all 120 MW was necessarily running in 2019 — main session to decide. Turbine field stays a lead: “15x 5.5 MW” has no source; phase 1 is 34 × 3 MW + 3 × 6 MW; phase 2 has 15 units incl. 3 test units and Mingyang 6.45 MW machines; the in-en report (403) of “follow-up + phase 2 = 88.25 MW, 1 × 8.3 + 8 × 7 + 4 × 6.45 MW, 13 units, full connection on 8 Dec” is only a search snippet and does not add up (90.1 MW), so not used. Wikipedia says two more units were added in phase 2 in 2024 (MSA bucket-foundation notice, 403); total unit count unverified.",
+  "why": "in-en.com 403 and fengdianzhijia.com reset (full-connection report with the 13-unit list); msa.gov.cn article.do 403 (2024 bucket-foundation works).",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-178370.html",
+    "quote": "项目包括桂山岛、东澳岛、大万山岛三个海岛工程及海上风电工程，总装机规模198兆瓦，于2021年12月实现全容量并网。"
+   },
+   {
+    "url": "https://gdxk.southcn.com/zh/zdgcxmzl/content/post_684340.html",
+    "quote": "一期装机为120兆瓦，包括34台3兆瓦和3台6兆瓦风机"
+   },
+   {
+    "url": "https://gdxk.southcn.com/zh/zdgcxmzl/content/post_684340.html",
+    "quote": "2016年9月动工建设，2019年12月投产。"
+   },
+   {
+    "url": "https://news.qq.com/rain/a/20210408A04YXF00",
+    "quote": "项目规划装机容量198兆瓦；其中一期装机容量120兆瓦，截至2021年2月累计发电5.45亿千瓦时；二期装机容量78兆瓦，计划于2021年年底前全部建成投产。"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-157173.html",
+    "quote": "由中国能建广东院牵头总承包建设的珠海桂山海上风电场示范项目一期后续及二期工程首台风机并网发电"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-157173.html",
+    "quote": "桂山二期15台风机中的3台风机还将作为测试样机"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-154743.html",
+    "quote": "从11月25日打下一期后续及二期工程首根桩开始"
+   }
+  ]
+ },
+ {
+  "item": "9. CGN Huizhou Gangkou I & II turbines",
+  "farm": "CGN Huizhou Gangkou I & II",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'CGN Huizhou Gangkou I', C, '港口一 250 MW 為 40 部明陽 MySE6.25-180；港口二 750 MW 為 10 部 8.5 MW、45 部 12 MW、9 部 14 MW（含 PA、PB 兩案），全場共 104 部，2023 年 12 月 12 日全容量併網（新華社；CPEM）；原寫「明陽 6.45–8 MW」', 'Gangkou I (250 MW) has 40 Mingyang MySE6.25-180; Gangkou II (750 MW, projects PA and PB) has 10 × 8.5 MW, 45 × 12 MW and 9 × 14 MW; 104 turbines in all, fully connected on 12 Dec 2023 (Xinhua; CPEM); was “Mingyang 6.45–8 MW”', 'https://www.cpem.org.cn/list40/89386.html', turbine='40x Mingyang MySE6.25-180 + 10x 8.5 MW + 45x 12 MW + 9x 14 MW')",
+  "note_zh": "新華社 2023-12-13：惠州港口 100 萬千瓦分兩期、共安裝 104 台；CPEM 同稿寫港口一 40 台 6.25 MW、港口二 10 台 8.5 MW＋45 台 12 MW＋9 台 14 MW（40＋64＝104，與實裝台數相符，二期配置等於 2023-03 開工時的計畫）。港口一首台為明陽 MySE6.25-180（世紀新能源網 2021）。二期各機型的廠牌未見明文，只寫容量。中國能建 2023-12-18 另寫「港口二 PA」2023-12-12 全容量併網、二期含 PA、PB 兩案；新華社稱全場 12 月 12 日全容量併網，以新華社為準。",
+  "note_en": "Xinhua (13 Dec 2023): the 1,000 MW Gangkou farm was built in two phases with 104 turbines in all; CPEM (same release) gives Gangkou I as 40 × 6.25 MW and Gangkou II as 10 × 8.5 + 45 × 12 + 9 × 14 MW (40 + 64 = 104, matching the installed count; phase 2 equals the March 2023 plan). Gangkou I’s first unit is a Mingyang MySE6.25-180 (ne21, 2021). Makes of the phase-2 models are not stated, so capacities only. CEEC (18 Dec 2023) reports “Gangkou II PA” fully connected on 12 Dec and says phase 2 comprises PA and PB; Xinhua says the whole farm was fully connected on 12 Dec, which is used.",
+  "sources": [
+   {
+    "url": "https://www.cpem.org.cn/list40/89386.html",
+    "quote": "中广核惠州港口一海上风电场项目位于惠州市惠东县港口镇附近海域，规划装机容量250MW，共布置40台单体容量6.25MW的风电机组。"
+   },
+   {
+    "url": "https://www.cpem.org.cn/list40/89386.html",
+    "quote": "总装机容量750MW，布置10台8.5兆瓦风机、45台12兆瓦风机、9台14兆瓦风机"
+   },
+   {
+    "url": "http://www.news.cn/fortune/2023-12/13/c_1130023531.htm",
+    "quote": "中广核惠州港口100万千瓦海上风电场分两期建设，共计安装104台海上风电机组"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-157047.html",
+    "quote": "中广核惠州港口一海上风电项目首台风机，在明阳智能阳江海上风机生产基地正式下线！该风机为MySE6.25-180 海上风力发电机组"
+   },
+   {
+    "url": "https://www.ceec.net.cn/art/2023/12/18/art_11019_2529840.html",
+    "quote": "二期装机容量为75万千瓦，包括PA和PB两个项目"
+   }
+  ]
+ },
+ {
+  "item": "10. Zhanjiang Xuwen 600 MW full-connection date",
+  "farm": "Guangdong Zhanjiang Xuwen Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Guangdong Zhanjiang Xuwen Offshore wind farm', G, '國家電投湛江徐聞 600 MW 原場：北區 47 台 2021 年 11 月 19 日全容量併網，南區最後一台 S56 於 11 月 26 日併網，94 台 6.45 MW 全部併網（湛江日報 2021-11-26）；300 MW 增容（25 台 12 MW）2024 年 12 月 17 日全容量併網。原場原寫 2022 年', 'SPIC’s original 600 MW Zhanjiang Xuwen farm: the north lot (47 units) was fully connected on 19 Nov 2021 and the last south-lot unit, S56, on 26 Nov 2021, putting all 94 × 6.45 MW turbines on the grid (Zhanjiang Daily, 26 Nov 2021); the 300 MW extension (25 × 12 MW) followed on 17 Dec 2024. The original farm was dated 2022', 'https://m.gdzjdaily.com.cn/p/2816813.html', year=2021, ph=[[2021, 606.0], [2024, 300.0]], turbine='94x 6.45 MW + 25x 12 MW')",
+  "note_zh": "湛江日報 2021-11-26：「11 月 26 日 8 時 26 分，隨著南區最後一台風機 S56 機組併網，國家電投湛江徐聞 600MW 海上風電場項目 94 台風機全部併網發電」，共安裝 94 台 6.45 MW；世紀新能源網（國家電投廣東公司 2021-11-25）：北區 47 台 11 月 19 日全容量併網。原場全容量併網日是 2021-11-26，分期第一段改 2021。注意這條規則要排在 2026-10 那條同名 fix 之後（或直接合併進去）。",
+  "note_en": "Zhanjiang Daily (26 Nov 2021): “at 08:26 on 26 Nov, with the last south-lot unit S56 connected, all 94 turbines of SPIC’s Zhanjiang Xuwen 600 MW farm are on the grid”, 94 × 6.45 MW installed; ne21 (SPIC Guangdong, 25 Nov 2021): the 47 north-lot units fully connected on 19 Nov. The original farm’s full-connection date is 26 Nov 2021, so the first phase becomes 2021. Place this rule after (or merge it into) the existing Oct 2026 fix of the same record.",
+  "sources": [
+   {
+    "url": "https://m.gdzjdaily.com.cn/p/2816813.html",
+    "quote": "11月26日8时26分，随着南区最后一台风机S56机组并网，国家电投湛江徐闻600MW海上风电场项目94台风机全部并网发电"
+   },
+   {
+    "url": "https://m.gdzjdaily.com.cn/p/2816813.html",
+    "quote": "共计安装94台6.45兆瓦风电机组、2座220kV海上升压站、1座陆上控制中心。项目分南北区两个标段，装机总容量为60万千瓦。"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-166655.html",
+    "quote": "11月19日14时50分，广东公司湛江徐闻海上风电场项目北区#44F机组顺利并网发电，标志着项目北区47台风机实现全容量并网。"
+   }
+  ]
+ },
+ {
+  "item": "11. Datang Danzhou CZ3 site 2 full connection?",
+  "farm": "Datang Danzhou CZ3 (site 2)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change: still under construction)",
+  "note_zh": "到 2026-10-07 仍查不到二場址任何機組或全容量併網的報導；最新官方紀錄是洋浦海事局 2026-10-02 為二場址「海上風機和基礎施工標段二」增加作業船舶的通告，仍在海上施工。維持興建中，年底再查。",
+  "note_en": "As of 7 Oct 2026 there is still no report of any site-2 unit or of full connection; the latest official record is the Yangpu MSA notice of 2 Oct 2026 adding a vessel to site 2’s “turbine and foundation lot 2”, i.e. still under offshore construction. Keep under construction; check again at year end.",
+  "why": "No grid-connection news after the Dec 2025 start; target is end-2026.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=78b6e0e798a44247b72f4720f2d6169b&channelId=5eb2863167464a6faaa1fca5bff0a2a9",
+    "quote": "关于大唐海南儋州1200MW海上风电项目二场址（600MW）海上风机和基础施工标段二增加作业船舶的通告"
+   },
+   {
+    "url": "https://hain.chinadaily.com.cn/a/202512/17/WS6942ab30a310942cc4997350.html",
+    "quote": "本次开工的二场址规划装机容量60万千瓦，总投资约55亿元，拟安装60台单机容量10兆瓦的风力发电机组"
+   }
+  ]
+ },
+ {
+  "item": "12. National total check (summary)",
+  "farm": "(all operating Chinese offshore records)",
+  "src_code": null,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "see the 12a–12c entries and items 3, 4, 5, 8, 10",
+  "note_zh": "以目前的 wind_farms.json 重算：中國營運中離岸（含浮動式）140 筆、47,189 MW，其中年份 ≤2025 的 44,669 MW；國家數列 2025 年 48,400 MW。TODO 寫的 58.9 GW 是舊建置的數字（之後的清理規則已刪掉多筆彙總與重複），現在逐場加總反而低於國家數列約 3.7 GW。仍會高估的：12a「舟山六橫／浙江其他」600 MW 彙總（與普陀 6 號 2 區、嘉興 2 號重複）、12b 華能玉環 2 號 504 MW（2025 年 4 月才陸上倒送電，卻列 2024 年營運中）；興建中裡的重複：國信大豐 GEM 四筆 850 MW（第 3 項）、GEM 渤中 B1 500 MW 重算已建的 400 MW（第 5 項）。少算的：大唐濱海 302 MW 被建置誤併掉（第 4 項）。年份要往前或往後移的：徐聞原場 2022→2021、濱海南 H3 2019→2020、桂山 2018→2021、防城港 A 2024→2025（12c）。其餘查過、無誤的大型紀錄：三峽大豐 800 MW（2025-12-15 全容量併網）、三峽陽江青洲六（廣州日報：2024-12-26 第 15 回集電線路併網、列為 2024 年已投運；「12-27 全容量併網」只見於搜尋摘要）、三峽漳浦六鰲二期（2024-06-27，搜尋所得，未另引原文）、國信大豐（2025-12-29）。",
+  "note_en": "Recomputed from the current wind_farms.json: 140 operating Chinese offshore records (incl. floating), 47,189 MW, of which 44,669 MW have year ≤ 2025; the national 2025 figure is 48,400 MW. The 58.9 GW in TODO is from an older build (later cleanup rules removed several aggregates and duplicates); the per-farm sum is now about 3.7 GW below the national series. Still overcounting: 12a the 600 MW “Zhoushan Liuheng / Zhejiang others” aggregate (duplicates Putuo 6 zone 2 and Jiaxing 2) and 12b Huaneng Yuhuan 2 (504 MW, listed operating in 2024 although only back-energised onshore in April 2025). Duplicates among records under construction: GEM’s four Guoxin Dafeng sites, 850 MW (item 3), and GEM Bohai B1 500 MW recounting the built 400 MW (item 5). Undercount: Datang Binhai 302 MW wrongly merged away by the build (item 4). Year shifts: Xuwen original farm 2022→2021, Binhai South H3 2019→2020, Guishan 2018→2021, Fangchenggang A 2024→2025 (12c). Large records checked and found right: CTG Dafeng 800 MW (full 15 Dec 2025), CTG Yangjiang Qingzhou 6 (Guangzhou Daily: collector line 15 connected on 26 Dec 2024 and the farm counted among 2024’s commissioned projects; “full connection 27 Dec 2024” seen only in a search snippet), CTG Zhangpu Liu’ao II (27 Jun 2024, from search, not quoted), Guoxin Dafeng (29 Dec 2025).",
+  "why": "Not exhaustive: CR Power Lianjiang Waihai (700 MW, 2025), Shanghai Jinshan (306 MW, 2025) and Zhuanghe V (250 MW, 2025) were not re-checked (no completion report found in a quick search for Lianjiang).",
+  "sources": [
+   {
+    "url": "https://news.dayoo.com/guangdong/202412/27/139996_54767202.htm",
+    "quote": "12月26日，随着阳江青洲六海上风电项目15号集电路线4台风电机组陆续并网，广东海上风电总装机容量达到1198万千瓦，居全国第一。"
+   },
+   {
+    "url": "http://www.news.cn/fortune/20251216/32d36eb77263486c9f3d2bbcbf4daa0f/c.html",
+    "quote": "12月15日，我国离岸距离最远海上风电项目——三峡江苏大丰800兆瓦海上风电项目实现全容量并网"
+   }
+  ]
+ },
+ {
+  "item": "12a. Aggregate “Zhoushan Liuheng / Zhejiang others” duplicates two farms",
+  "farm": "Zhoushan Liuheng / Zhejiang others",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "drop('CHN', 'Zhoushan Liuheng / Zhejiang others', C, '「舟山六橫、嘉興 2 號等」600 MW 是彙總：六橫島東南外海的風場就是國電舟山普陀 6 號 2 區（252 MW，已有精選紀錄），嘉興 2 號（華能 300 MW）也已有 GEM 紀錄，這筆把兩座再算一次', 'The 600 MW “Zhoushan Liuheng, Jiaxing 2 etc.” row is an aggregate: the farm off Liuheng island is Guodian’s Zhoushan Putuo 6 zone 2 (252 MW, already a curated record) and Jiaxing 2 (Huaneng, 300 MW) already has a GEM record, so this row counts both again', 'https://zsxq.zjol.com.cn/hyjjxw/tpxw/201903/t20190330_9793315.shtml')",
+  "note_zh": "這筆精選紀錄 600 MW、2022、機型「mixed」、中文名「舟山六橫、嘉興 2 號等」。浙江在線 2019：國電舟山普陀 6 號海上風電場位於六橫島東南側、25.2 萬千瓦；舟山發布 2017：位於舟山六橫島海域的全省首個海上風電項目即普陀 6 號 2 區。資料裡已有「Guodian Zhoushan Putuo 6#2」（252 MW，2019）與 GEM「Zhejiang Jiaxing 2 Offshore wind farm」（300 MW，2021）。build_farms.log 沒有 GEM 專案併進這筆，刪除不會留下孤兒。刪除後營運中減少 600 MW。",
+  "note_en": "Curated record: 600 MW, 2022, turbines “mixed”, Chinese name “Zhoushan Liuheng, Jiaxing 2 etc.”. Zhejiang Online (2019): Guodian’s Zhoushan Putuo 6 offshore farm lies south-east of Liuheng island, 252 MW; Zhoushan Release (2017): the province’s first offshore farm, off Liuheng island, is Putuo 6 zone 2. The data already have “Guodian Zhoushan Putuo 6#2” (252 MW, 2019) and GEM’s “Zhejiang Jiaxing 2 Offshore wind farm” (300 MW, 2021). build_farms.log shows no GEM project merged into this row, so dropping it leaves no orphan. Removes 600 MW of operating capacity.",
+  "sources": [
+   {
+    "url": "https://zsxq.zjol.com.cn/hyjjxw/tpxw/201903/t20190330_9793315.shtml",
+    "quote": "国电舟山普陀6号海上风电场位于六横岛东南侧离海岸线约12公里处，装机容量25.2万千瓦"
+   },
+   {
+    "url": "https://m.thepaper.cn/newsDetail_forward_1920839",
+    "quote": "位于舟山六横岛海域的全省首个海上风电项目——国电舟山普陀6号海上风电场2区工程的首台机组成功并网发电"
+   }
+  ]
+ },
+ {
+  "item": "12b. Huaneng Yuhuan 2 listed operating 2024 but not on the grid in April 2025",
+  "farm": "Huaneng Yuhuan 2",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) at least the year 2024 is wrong; e.g. fix('CHN', 'Huadian Yuhuan 2', C, '玉環 2 號 2025 年 4 月才完成陸上倒送電、尚未併網，不是 2024 年營運中；改為興建中，查到全容量併網再改回', 'Yuhuan 2 was only back-energised onshore in April 2025 and was not on the grid, so it was not operating in 2024; set to under construction until a full-connection report is found', 'https://www.cweea.com.cn/xwdt/html/40264.html', st=1, year=0)",
+  "note_zh": "中國風能協會 2025-04-09：玉環 2 號「陸上工頻系統倒送電一次成功，標誌著項目向併網發電邁出關鍵一步」，即 2025 年 4 月還沒有機組併網；紀錄卻寫 2024 年營運中、504 MW。之後是否全容量併網查不到（實際規模 508 MW：19 部 16 MW 低頻＋6 部 16 MW＋6 部 18 MW，見 cn_vn_step5e）。注意這筆是由舊規則從精選「Huadian Yuhuan 2」改名來的（farm_cleanup.py 約 523 行），新規則要用改名前的名稱「Huadian Yuhuan 2」。",
+  "note_en": "CWEEA, 9 Apr 2025: Yuhuan 2’s “onshore power-frequency system was back-energised successfully, a key step towards grid connection”, so no unit was on the grid in April 2025, yet the record says operating since 2024 (504 MW). No later full-connection report found (as planned: 508 MW, 19 × 16 MW low-frequency + 6 × 16 MW + 6 × 18 MW). The record was renamed from the curated “Huadian Yuhuan 2” by an older rule (farm_cleanup.py ~line 523), so a new rule must use that pre-rename name.",
+  "why": "No grid-connection report found after April 2025; imarine/bjx unreachable.",
+  "sources": [
+   {
+    "url": "https://www.cweea.com.cn/xwdt/html/40264.html",
+    "quote": "玉环2号海上风电项目陆上工频系统倒送电一次成功，标志着项目向并网发电迈出关键一步。"
+   }
+  ]
+ },
+ {
+  "item": "12c. Guangxi Fangchenggang A full connection is 2025",
+  "farm": "Guangxi Fangchenggang A",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Guangxi Fangchenggang A', C, '防城港海上風電示範項目 A 場址（83 部 8.5 MW、700 MW）2024 年 1 月首批併網，2025 年 2 月初才全容量併網（廣西日報 2025-02-08、國資委）；原寫 2024 年、機型「明陽 8–16 MW」', 'Fangchenggang demonstration site A (83 × 8.5 MW, 700 MW): first units connected in Jan 2024, full grid connection only in early Feb 2025 (Guangxi Daily, 8 Feb 2025; SASAC); the row said 2024 and “Mingyang 8–16 MW”', 'http://www.gx.xinhua.org/20250208/489586cf99ff4ed8908866faa90a118f/c.html', year=2025, turbine='83x 8.5 MW')",
+  "note_zh": "廣西日報（新華網轉，2025-02-08）：「近日，廣西投資集團防城港海上風電示範項目 A 場址全容量並網發電」，開工 545 天全容量並網；國資委：83 台 8.5 MW、70 萬千瓦，2024 年 1 月首批並網。年份改 2025（營運中容量不變，只是時間軸往後一年）。",
+  "note_en": "Guangxi Daily (via Xinhua, 8 Feb 2025): “recently, site A of Guangxi Investment Group’s Fangchenggang offshore wind demonstration project reached full grid connection”, 545 days after the start; SASAC: 83 × 8.5 MW, 700 MW, first units connected in Jan 2024. Year to 2025 (operating total unchanged; one year later on the timeline).",
+  "sources": [
+   {
+    "url": "http://www.gx.xinhua.org/20250208/489586cf99ff4ed8908866faa90a118f/c.html",
+    "quote": "近日，广西投资集团防城港海上风电示范项目A场址全容量并网发电，标志着广西首个海上风电项目正式投产"
+   },
+   {
+    "url": "http://www.sasac.gov.cn/n2588025/n2588129/c32796087/content.html",
+    "quote": "项目建设83台单机容量8.5兆瓦风电机组，装机容量70万千瓦，于2023年3月正式启动，2024年1月首批机组并网发电"
+   }
+  ]
+ }
+]
