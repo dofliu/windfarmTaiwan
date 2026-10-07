@@ -1,0 +1,57 @@
+[
+ {
+  "item": "3. Liu'ao area E real location",
+  "farm": "Fujian Zhangpu Liu'Ao Offshore wind farm · E",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "",
+  "note_zh": "查不到六鰲 E 區的官方座標或用海資料。GEM 的 E 區點位（22.7333 N、118.0333 E，標為 exact）出自已下線的業主網站（ffyne.cn，只有 web.archive.org 存檔，從這裡連不上），看起來可能是度分秒抄錯，但不能猜。GEM 引用的六鰲二期竣工環保驗收報告（oss.fjhb.org）TLS 憑證驗證失敗、改用 http 回 403；漳浦縣政府附件 503；環評單位的 PDF 已 404。",
+  "note_en": "No official coordinates or sea-use data for Liu'ao area E were found. GEM's E point (22.7333 N, 118.0333 E, marked exact) comes from a defunct owner site (ffyne.cn, archived only on web.archive.org, unreachable here); it may be a degree typo, but that cannot be assumed. The Liu'ao phase 2 acceptance report GEM cites (oss.fjhb.org) fails TLS verification and returns 403 over http; zhangpu.gov.cn attachments return 503; the EIA consultant's PDFs are 404.",
+  "why": "Blocked: oss.fjhb.org (TLS cert failure; 403 over http), web.archive.org (connection reset), zhangpu.gov.cn (503), wind.in-en.com (403), fcyfxny.com.cn (404). No sea-use pre-review or EIA for area E found.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "E Liu'ao Peninsula, Zhangpu, Zhangzhou, Fujian, China [ 8 ] 22.7333, 118.0333 (exact)"
+   }
+  ]
+ },
+ {
+  "item": "9. Shanghai Fengxian Haiwan Expansion: offshore or seawall?",
+  "farm": "Shanghai Fengxian Haiwan Expansion Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "仍無可引用的出處說明是海上還是海堤上。GEM 的型別「Offshore hard mount」與概略座標（30.7841, 121.8092）都引用 UNFCCC CDM 第 5636 號「Shanghai Fengxian Bay Wind Farm Capacity Expansion Project」（小型專案、AMS-I.D.），但 cdm.unfccc.int 被 Incapsula 機器人檢查擋住，讀不到 PDD。線索：GEM 另把同一座「奉賢海灣風電場」的兩個汰換案（一期擴容工程 62.5 MW、改造升級 48 MW）列為陸域，點在奉賢海岸（30.86–30.92 N、121.56–121.57 E），暗示原風場在岸上；但沒有出處直接說擴容的 14.75 MW 在哪裡。狀態維持營運中。",
+  "note_en": "Still no quotable source saying offshore or seawall. GEM's 'Offshore hard mount' type and its approximate point (30.7841, 121.8092) cite UNFCCC CDM project 5636 'Shanghai Fengxian Bay Wind Farm Capacity Expansion Project' (small-scale, AMS-I.D.), but cdm.unfccc.int sits behind an Incapsula bot check and the PDD cannot be read. Lead: GEM lists the two repowering projects of the same 'Fengxian Haiwan wind farm' (phase 1 expansion 62.5 MW, retrofit 48 MW) as onshore, on the Fengxian shore (30.86–30.92 N, 121.56–121.57 E), suggesting the original farm is on land, but nothing states where the 14.75 MW expansion stands. Status stays operating.",
+  "why": "The CDM PDD (cdm.unfccc.int, Incapsula bot wall) is the only document likely to say; no Chinese construction or acceptance record found. swj.sh.gov.cn PDF 404.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Shanghai_Fengxian_Haiwan_Expansion_wind_farm",
+    "quote": "Fengxian District, Shanghai, China [ 2 ] 30.7841, 121.8092 (approximate)"
+   }
+  ]
+ },
+ {
+  "item": "11. Changle Waihai A/C: zone of the first Dongfang 10 MW unit (118 m hub)",
+  "farm": "Changle Waihai C / CTG Fujian Changle Waihai A",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "仍無法判定。長樂區政府轉人民日報客戶端（2021-08-26）：「海電運維 801」8 月 5 日完成長樂外海首台東方電氣 10 MW 吊裝，輪轂中心高 118 m、風場水深 45 m，但沒寫 A 或 C 區。東方電氣的 10 MW 兩區都有（A 區 10 部、C 區 20 部，offshoreWIND.biz 2021-03），所以不能由機型推。水深 45 m 較接近 C 區，但只是推測，不採用。",
+  "note_en": "Still undecided. Changle district government, from People's Daily app (26 Aug 2021): 'Haidian Yunwei 801' installed the first Dongfang 10 MW unit off Changle on 5 Aug, 118 m hub centre, 45 m water depth, but the zone is not named. Both zones have Dongfang 10 MW units (10 at A, 20 at C; offshoreWIND.biz, Mar 2021), so the model does not decide it. 45 m depth fits C better, but that is inference only and not used.",
+  "why": "No source names the zone of the 5 Aug 2021 installation; wind.imarine.cn (403) and bjx.com.cn (empty) unreadable; ccer.cets.org.cn needs login.",
+  "sources": [
+   {
+    "url": "http://www.fzcl.gov.cn/xjwz/zwgk/zfxxgkzdgz/zdjsxm/jsqk/202108/t20210826_4171849.htm",
+    "quote": "本次吊装的风机为东方电气10MW风电机组，发电机重量达270吨（不含吊具和支架重量），轮毂中心高度达到118米，单只叶片长度90米。同时，项目风场水深45米"
+   },
+   {
+    "url": "https://offshorewind.biz/2021/03/31/first-commercial-double-digit-mw-wind-turbines-head-offshore-china",
+    "quote": "10 turbines will be installed at Changle Waihai Area A, and 20 at Changle Waihai Area C."
+   }
+  ]
+ }
+]
