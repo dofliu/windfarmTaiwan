@@ -189,6 +189,7 @@ CLEAN fix AUS Rye Park 327.0
 CLEAN fix AUS Snowtown 370.0
 CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
 CLEAN fix CHN CGN Fanshi I 1000.0
+CLEAN fix CHN CGN Fanshi I 1000.0
 CLEAN fix CHN CGN Huizhou Gangkou I 400.0
 CLEAN fix CHN CGN Peninsula South U1 500.0
 CLEAN fix CHN CGN Rudong H8 300.0
@@ -221,6 +222,7 @@ CLEAN fix CHN Guangdong Energy Fanshi II / Yangjiang 1000.0
 CLEAN fix CHN Guangdong Three Gorges Pilot Floating Offshore wind farm 16.0
 CLEAN fix CHN Guangdong Xuwen Donger Offshore wind farm 300.0
 CLEAN fix CHN Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm 300.0
+CLEAN fix CHN Guangdong Zhanjiang Xuwen Offshore wind farm 906.0
 CLEAN fix CHN Guohua Dongtai IV (H2) 300.0
 CLEAN fix CHN Guoneng Bozhong B1 / Bozhong B 500.0
 CLEAN fix CHN Guoneng Dafeng H5 200.0
@@ -248,6 +250,8 @@ CLEAN fix CHN Huaneng Shantou Lemen 245.0
 CLEAN fix CHN Huaneng Sheyang H1 / Yancheng 300.0
 CLEAN fix CHN Huaneng Zhanjiang Xuwen East 400.0
 CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0
+CLEAN fix CHN Jiangsu Dongtai Zhugensha H1 Offshore wind farm 200.0
+CLEAN fix CHN Jiangsu Dongtai Zhugensha H2 Offshore wind farm 302.0
 CLEAN fix CHN Jiangsu Rudong H13 (Xiexin) Offshore wind farm 152.0
 CLEAN fix CHN Jiangsu Rudong H14 (Guangheng) Offshore wind farm 200.0
 CLEAN fix CHN Jiangsu Rudong H5 (Yunshan) Offshore wind farm 300.0

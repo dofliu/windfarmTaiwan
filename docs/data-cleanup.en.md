@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 405 rules: 148 records removed (44,360.2 MW of them operating), 257 records fixed.
+- 409 rules: 148 records removed (44,360.2 MW of them operating), 261 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 53 | 26,224.5 | 103 |
+| China | 53 | 26,224.5 | 107 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -131,7 +131,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Huaneng Zhuanghe IV1 · 250 MW · 2021 | curated | duplicate of “Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm” | Same farm (Huaneng Zhuanghe IV-1, 350 MW, 51 turbines, fully connected on 29 December 2021); GEM’s capacity is the right one | [link](https://www.chinanews.com/ny/2021/12-29/9640309.shtml) |
 | Zhejiang Putuo 6 Offshore wind farm · 252 MW · 2019 | GEM | duplicate of “Guodian Zhoushan Putuo 6#2” | Same farm (Guodian Power’s Zhoushan Putuo 6 zone 2, 252 MW, 63 × Siemens 4 MW, 2019) | [link](https://www.ceic.com/gjnyjtww/chnyxfc/202006/e5a14799afc44f2a890f4e1784673ac0.shtml) |
 | Shanghai Lingang Demonstration Phase 1 · 102 MW · 2016 | curated | fixed: year, turbines | Lingang phase 1 (25 × 4 MW Shanghai Electric W4000) started in May 2018 and finished in 2019, after phase 2; was 2016 with 3.6 MW turbines | [link](https://www.fegroup.com.cn/ydkg/xwzx79/gsxw10/577818/index.html) |
-| Guangdong Energy Zhanjiang Xuwen · 300 MW · 2021 | curated | duplicate of “Guangdong Zhanjiang Xuwen Offshore wind farm” | The Zhanjiang Xuwen 600 MW farm (94 × 6.45 MW, fully connected on 26 November 2021) is SPIC’s; this “Guangdong Energy Xuwen 300 MW” row is half of it, and GEM’s Xuwen record already carries the 600 MW farm plus the 300 MW extension | [link](https://www.ne21.com/news/show-166655.html) |
+| Guangdong Energy Zhanjiang Xuwen · 300 MW · 2021 | curated | duplicate of “Guangdong Zhanjiang Xuwen Offshore wind farm” | The Zhanjiang Xuwen 600 MW farm (two lots of 47 turbines; the north lot fully connected on 19 November 2021) is SPIC’s; this “Guangdong Energy Xuwen 300 MW” row is half of it, and GEM’s Xuwen record already carries the 600 MW farm plus the 300 MW extension | [link](https://www.ne21.com/news/show-166655.html) |
 | Shandong Changyi Laizhouwan Offshore wind farm · 300 MW · 2022 | GEM | duplicate of “CTG Changyi” | Same farm (CTG’s Changyi Laizhou Bay phase 1 / marine-ranch demonstration, 300 MW, 50 × 6 MW, 2022) | [link](http://www.sasac.gov.cn/n2588025/n2588124/c26784560/content.html) |
 | Shandong Peninsula South U Site Offshore Wind Project · 1,503.5 MW · 2023 | GEM | duplicate of “CGN Peninsula South U1” | This GEM record (Chinese name says SPIC U site phase 1) lumps SPIC's U1 (900 MW, 106 x 8.5 MW, fully operational 2024-10-26) and Guohua's U2 (603.5 MW) into 1503.5 MW; U1 is already the curated record 'CGN Peninsula South U1' (corrected separately) and U2 is the GEM record 'Shandong Bandaonan U2 (Guohua) Offshore wind farm', so this one is a duplicate (Tencent/Economic Herald 2024-10-28, Haibao News 2023-11). | [link](https://news.qq.com/rain/a/20241028A054SE00) |
 | Shandong Guohua Kenli Offshore wind farm · 1,000 MW · 2025 | GEM | removed | The Guohua Kenli 1,000 MW project off Dongying (8 km offshore, 2,934 PV platforms, first units connected Nov 2024) is an offshore solar plant, not a wind farm (China Railway Group 2025-02-11); no offshore wind farm of this name exists. | [link](https://www.crecg.com/web/xwzx61/gsyw87/2025021110071850533/index.html) |
@@ -243,6 +243,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm · 300 MW · 2021 | GEM | fixed: turbines | Guangdong Energy Yangjiang Shaba has 46 MingYang MySE6.45-180 + 1 MySE5.5-155 (position 21) built (supplementary sea-use report, June 2023); the turbine field was empty | [link](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/43/43288/710896.pdf) |
 | CTG Yangjiang Shapa Phase 3 · 400 MW · 2021 | curated | fixed: turbines | Shapa phase 3 has 61 fixed 6.45 MW turbines (MingYang MySE6.45-180 and Goldwind GW171/6450) + 1 floating 5.5 MW MySE5.5-155 (supplementary sea-use report, Sept 2023; completed 16 Dec 2021) | [link](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf) |
 | CTG Dalian Zhuanghe III · 300 MW · 2020 | curated | fixed: turbines | CTG Zhuanghe III has 2 × 3 MW, 50 × 3.3 MW and 21 × 6.45 MW, 300 MW in all (ne21 citing Longyuan Zhenhua, Nov 2020); it was stored as "Goldwind/Sewind 4–6 MW" | [link](https://www.ne21.com/news/show-135820.html) |
+| CGN Fanshi I · 1,000 MW · 2026 | curated | fixed: turbines | Fanshi I uses 22 Goldwind GWH252-13.6MW and 51 Mingyang MySE14-260 (the adjusted equipment table of the sea-use adjustment report published by the Yangjiang natural resources bureau in Apr 2025; the counts match Yangjiang News’ 22 × 13.6 MW + 51 × 14 MW); it was stored as "Mingyang 11–16 MW" | [link](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf) |
+| Guangdong Zhanjiang Xuwen Offshore wind farm · 906 MW · 2022 | GEM | fixed: turbines | SPIC’s original Xuwen farm is 600 MW in two lots of 47 turbines (ne21, Nov 2021); the 300 MW extension is 25 × 12 MW, fully connected on 17 Dec 2024 (SPIC), matching this record’s 300 MW phase in 2024; the turbine field was empty | [link](http://www.spic.com.cn/xtdt1/202412/t20241218_324623.html) |
+| Jiangsu Dongtai Zhugensha H1 Offshore wind farm · 200 MW · 2021 | GEM | fixed: turbines | Guohua Dongtai phase V (Zhugensha H1#) has 50 Shanghai Electric 4.0-146 turbines (China Energy News, first turbine installed June 2020); the turbine field was empty | [link](https://paper.people.com.cn/zgnyb/html/2020-06/22/content_1993858.htm) |
+| Jiangsu Dongtai Zhugensha H2 Offshore wind farm · 302 MW · 2021 | GEM | fixed: turbines | Zhugensha H2# is 302 MW with 50 × 4.0 MW and 17 × 6.0 MW turbines (CWEEA citing the EPC contractor, Sept 2020); the turbine field was empty | [link](https://www.cweea.com.cn/xwdt/html/31056.html) |
 
 ## Colombia (COL)
 

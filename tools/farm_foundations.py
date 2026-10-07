@@ -692,9 +692,12 @@ FOUNDATIONS = [
     F5('CHN', 'SPIC Dafeng H3', 'mp', url='http://www.hhi.com.cn/webfront/webpage/web/contentPage/id/d9cce3cb2d854c7aa1568d2539cbf481',
        zh='大豐H3#300MW（302.4MW，72台4.2MW）由華電重工承建，合同即為「單樁與海上升壓站基礎施工」；2018年9月已完成65根單樁，同年10月22日全部72根單樁完成（東方風力發電網／北極星，無法抓取）；2018年12月20日全容量投產。來源：華電科工官網 2018-09-19、國家電投江蘇公司（ne21 轉載）2022-01-18。',
        en='Dafeng H3 300 MW (302.4 MW, 72 x 4.2 MW), built by Huadian Heavy Industry under a contract for ’monopile and offshore substation foundation construction’; 65 monopiles done by Sept 2018, all 72 reported done on 22 Oct 2018 (eastwp/bjx, not fetchable); full capacity 20 Dec 2018. Sources: HHI 2018-09-19, SPIC Jiangsu via ne21 2022-01-18.'),
-    F5('CHN', 'Guohua Dongtai IV (H2)', 'mp', url='https://baijiahao.baidu.com/s?id=1639399792956561145&wfr=spider&for=pc',
-       zh='302.4MW，63台上海電氣4.0MW＋12台遠景4.2MW，共75台；2019年7月16日「16號單樁沉樁結束，單樁基礎施工宣告完成」，百度摘要稱工程含73台單樁基礎及75台風機安裝（其餘2台基礎型式未查明）；16號機位為全球首次單樁基礎整機吊裝；2019年12月全部並網。來源：東台市委宣傳部（幸福東台）2019-07-18、澎湃／國家能源集團 2019-12、三航新能源（搜狐）2018-12。',
-       en='302.4 MW, 63 Shanghai Electric 4.0 MW + 12 Envision 4.2 MW = 75 turbines; on 16 Jul 2019 ’monopile no. 16 completed and monopile foundation works finished’; the Baidu snippet of the same article says the works comprise 73 monopile foundations and 75 turbine installations (type of the other 2 not verified); unit 16 was the world’s first whole-turbine installation on a monopile; all 75 grid-connected Dec 2019. Sources: Dongtai propaganda dept 2019-07-18, thepaper/CHN Energy Dec 2019, CCCC Third Harbour (sohu) Dec 2018.'),
+    F5('CHN', 'Guohua Dongtai IV (H2)', 'mx', url='http://www.chnenergybidding.com.cn/bidweb/001/001002/001002001/20260427/5666b061-4080-431f-bdac-89b7a31d373c.html',
+       parts=[['mp', 73], ['pc', 2]],
+       zh='75 台（上海電氣 4.0 MW 63 台、遠景 4.2 MW 12 台）：國家能源集團 2026-04 的招標公告寫「47#、66# 風機為高樁承台，其他為單樁基礎」，即 73 座單樁＋2 座高樁承台。'
+          '先前的出處：2019-07-16「16 號單樁沉樁結束，單樁基礎施工宣告完成」（東台市委宣傳部）；2019 年 12 月全部併網（澎湃／國家能源集團）。',
+       en='75 turbines (63 Shanghai Electric 4.0 MW and 12 Envision 4.2 MW): CHN Energy’s April 2026 tender notice says units 47# and 66# stand on high-rise pile caps and the rest on monopiles, '
+          'i.e. 73 monopiles + 2 high-rise pile caps. Earlier sources: on 16 Jul 2019 “monopile no. 16 completed and monopile foundation works finished” (Dongtai propaganda dept); all units grid-connected in Dec 2019 (The Paper / CHN Energy).'),
     F5('CHN', 'Huaneng Guanyun', 'mp', url='https://jsnews.jschina.com.cn/lyg/a/201910/t20191016_2407402.shtml',
        zh='一期300MW、48台（46台6.45MW＋2台3MW），風機基礎為單樁（2019年10月已完成10根單樁沉樁），2021年6月29日48台全部吊裝，2021年7月30日全容量並網。單樁全數完成的紀錄未抓到。來源：中國江蘇網 2019-10-16、風能產業網（CWEEA）2021-07-05、華能國際（中證網）2021。',
        en='Phase 1: 300 MW, 48 turbines (46 x 6.45 MW + 2 x 3 MW) on monopiles (10 monopiles driven by Oct 2019); all 48 installed 29 Jun 2021, full capacity 30 Jul 2021. A record of all monopiles completed was not fetched. Sources: jschina 2019-10-16, CWEEA 2021-07-05, Huaneng Power Intl via cs.com.cn 2021.'),
