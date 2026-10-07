@@ -656,6 +656,12 @@ FOUNDATIONS = [
     F5('VNM', 'V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3)', 'pc', url='https://vssmge.org/thiet-ke-va-thi-cong-mong-tru-dien-gio-tai-cac-du-an-cua-fecon/',
        zh='REE 茶榮 V1-3 48 MW：FECON 承做 PHC D800C／D500C 樁與風機基礎，越南土力學會論文列「12 móng cọc PHC（D m = 21,5 m）」，即 PHC 群樁＋承台。',
        en='REE’s Tra Vinh V1-3, 48 MW: FECON drove PHC D800C/D500C piles and built the turbine foundations; the VSSMGE paper lists 12 PHC pile foundations (21.5 m cap diameter), i.e. PHC pile group with cap.'),
+    F5('VNM', 'V1-1 Truong Long Hoa (Tra Vinh)', 'pc', url='https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/',
+       zh='韓國－茶榮一期 12 部 Vestas V150-4.2：Vestas 統包合約寫風機裝在「架高於海面、以多樁支撐」的強化基座上、以引橋連岸，即群樁＋承台；'
+          'VIR 2020-09 寫 12 座風機基礎與 4.2 km 引橋已成形，潘武集團供應 D500／D600／D800 預應力混凝土樁給土建承包商 Khang Đức（投資報落成報導）。',
+       en='Korea–Tra Vinh phase 1, 12 Vestas V150-4.2: Vestas’ turnkey contract says the turbines sit on reinforced foundations "raised above sea level on multi-pile structures" '
+          'and linked to shore by bridges, i.e. a pile group with a cap; VIR (Sept 2020) reports the 12 turbine foundations and a 4.2 km access bridge in place, and Phan Vu supplied '
+          'D500/D600/D800 prestressed concrete piles to the civil contractor Khang Duc (Bao Dau tu inauguration report).'),
     F5('VNM', 'Soc Trang 7 Phase 1', 'pc', url='https://baoxaydung.vn/ngam-canh-dong-dien-gio-tren-bien-soc-trang-192240422101537121.htm',
        zh='春球朔莊7號一期 7 座 4.2 MW（2021-10 運轉）：建設報 2024-04 寫「多樁基礎，每座由 40 支混凝土樁組成」，即混凝土群樁＋承台。',
        en='Xuan Cau’s Soc Trang No. 7 phase 1, 7 × 4.2 MW (operating since Oct 2021): Bao Xay dung (Apr 2024) reports multi-pile foundations with 40 concrete piles per turbine, i.e. concrete pile group with cap.'),

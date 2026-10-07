@@ -1,0 +1,621 @@
+[
+ {
+  "farm": "Hoa Binh 1 Phase 1",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪（越南）未找到可引用的建成輪轂高度或水深：方英集團、Vestas、LOC（海事保證）與薄遼省的報導只寫「淺水近岸」「退潮時船可能坐底」，沒有數字。河內建築大學 2024 年論文另證實和平1號基礎為直徑 22 m 鋼筋混凝土承台、PHC D800 樁長約 52 m（可補強現有 pc 型式）。",
+  "note_en": "Round 10 (Vietnam): no quotable as-built hub height or water depth; Phuong Anh, Vestas, LOC (marine warranty) and Bac Lieu reports only say \"shallow waters close to shore\" and that vessels may sit on the mud at low tide. A 2024 Hanoi Architectural University paper confirms the Hoa Binh 1 foundations are 22 m reinforced-concrete caps on PHC D800 piles about 52 m long (supports the stored pc type).",
+  "why": "Searched baodautu, sggp, moit.gov.vn, viettimes, mekongasean, thesaigontimes, Vestas/NS Energy/offshoreWIND, ABL/LOC press releases, Gold Standard registry (Cloudflare-blocked). No tower/hub height or depth figure for Hoa Binh 1.",
+  "sources": [
+   {
+    "url": "https://vjol.info.vn/index.php/hau/article/download/110552/92712",
+    "quote": "nhà máy Điện gió Hòa Bình 1 gần bờ (50MW): sử dụng móng bê tông cốt thép với đường kính 22m trên hệ cọc PHC D800, cọc được ngàm sâu vào trong đất với chiều dài khoảng 52m"
+   },
+   {
+    "url": "https://abl-group.com/all-media/news/contract-win-to-support-hoa-binh-1-owf-development/",
+    "quote": "Installation of the 13 turbines is tide dependent, with vessels potentially sitting on the mud floor during low tide."
+   }
+  ]
+ },
+ {
+  "farm": "Hoa Binh 1 Phase 2",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到可引用的輪轂高度或水深（與一期同樣只有「淺水近岸」的描述）。",
+  "note_en": "Round 10: no quotable hub height or water depth (only \"shallow waters close to shore\", as for phase 1).",
+  "why": "Same searches as Hoa Binh 1 Phase 1; Phan Vu lists only pile supply (D500/D800) for Hoa Binh 1. No dimension figures.",
+  "sources": []
+ },
+ {
+  "farm": "Hoa Binh 2",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到可引用的輪轂高度或水深；潘武集團頁只列樁的供應。",
+  "note_en": "Round 10: no quotable hub height or water depth; the Phan Vu page lists only pile supply.",
+  "why": "Searched Phuong Anh/baodautu/thesaigontimes/Phan Vu project pages; no dimension figures.",
+  "sources": []
+ },
+ {
+  "farm": "Tan Thuan (PECC2) Phase 1+2",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到可引用的輪轂高度或水深：工商雜誌、投資報、SGGP、越南能源雜誌的落成報導與潘武施工新聞都只寫 18 座、最遠離岸 5.3 km；Siemens Gamesa 新聞稿只寫機型 SG 5.0-145。",
+  "note_en": "Round 10: no quotable hub height or water depth; inauguration reports (Tap chi Cong Thuong, Bao Dau tu, SGGP, Vietnam Energy) and Phan Vu construction news only give 18 turbines, farthest 5.3 km offshore; the Siemens Gamesa release only names the SG 5.0-145.",
+  "why": "No tower/hub or depth figure found; thewindpower.net leaves hub height blank.",
+  "sources": []
+ },
+ {
+  "farm": "V1-2 Truong Long Hoa (Tra Vinh)",
+  "status": "write",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": [
+   6,
+   6
+  ],
+  "rotor": null,
+  "note_zh": "河內建築大學《建築與營造科學》2024 年論文：越南目前唯一採單樁的離岸風場是茶榮 V1-2，位於約 6 m 水深、單樁直徑 5.5 m（論文寫 40 MW，資料庫 48 MW）。輪轂高度未查到；葉輪 155 m 已在表中。",
+  "note_en": "Hanoi Architectural University journal paper (2024): the only offshore wind project in Vietnam using monopiles so far is Tra Vinh V1-2, in about 6 m of water, on 5.5 m monopiles (the paper says 40 MW; the record has 48 MW). Hub height not found; the 155 m rotor is already in the table.",
+  "why": "Depth is a single approximate value (\"khoảng 6m\") from a 2024 academic paper written after construction; the paper also overlooks the other monopile farms (Hiep Thanh, Binh Dai), so the main session may prefer to keep it as a lead. Hub height: TTVN, offshoreWIND, Dien dan Doanh nghiep give none.",
+  "sources": [
+   {
+    "url": "https://vjol.info.vn/index.php/hau/article/download/110552/92712",
+    "quote": "cho đến thời điểm hiện tại chỉ có duy nhất một dự án điện gió ngoài khơi ở độ sâu khoảng 6m sử dụng loại móng này (Nhà máy điện gió V1-2 (40MW) tại tỉnh Trà Vinh sử dụng móng monopile đường kính 5,5m)"
+   },
+   {
+    "url": "https://vjol.info.vn/index.php/hau/article/download/110552/92712",
+    "quote": "Đây là giải pháp được lựa chọn phổ biến nhất trên thế giới ở độ sâu nhỏ hơn 40m nước"
+   }
+  ]
+ },
+ {
+  "farm": "V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3)",
+  "status": "write",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": [
+   3,
+   7
+  ],
+  "rotor": null,
+  "note_zh": "海事保證商 LOC（ABL 集團）2021-03 新聞稿與 offshoreWIND.biz：REE 茶榮3號（12 部 Vestas 4 MW）位於潮間帶，水深 3–7 m（依潮汐與位置），採多樁混凝土承台基礎。輪轂高度未查到；葉輪 150 m 已在表中。",
+  "note_en": "Marine warranty surveyor LOC (ABL Group) release, Mar 2021, and offshoreWIND.biz: REE's Tra Vinh No. 3 (12 Vestas 4 MW) is in the intertidal zone in water depths of 3–7 m depending on tide and location, on multi-pile concrete capping foundations. Hub height not found; the 150 m rotor is already in the table.",
+  "why": "Depth is the site depth stated by the MWS contractor during construction (not a design value of the structure). Hub height not found.",
+  "sources": [
+   {
+    "url": "https://abl-group.com/?p=11256",
+    "quote": "The turbines will be installed in water depths of between 3-7 metres, subject to tidal changes and locations, using multi-pile concrete capping foundations."
+   },
+   {
+    "url": "https://abl-group.com/?p=11256",
+    "quote": "The OWF project is located in Vietnam’s Tra Vinh Province, a coastal inter-tidal area. Construction is being undertaken by the Refrigeration Electrical Engineering Corp"
+   },
+   {
+    "url": "https://www.offshorewind.biz/2021/03/16/loc-secures-more-work-offshore-vietnam/",
+    "quote": "Refrigeration Electrical Engineering Corporation (REE) is constructing the project in the coastal intertidal area of the Tra Vinh Province in water depths of between 3-7 m, subject to tidal changes and locations."
+   }
+  ]
+ },
+ {
+  "farm": "VPL Ben Tre (Nexif Ben Tre 1)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到可引用的輪轂高度或水深；檳椥省的落成報導多為 V1-3 檳椥（塔高 104 m 屬 V1-3，不是 VPL）。",
+  "note_en": "Round 10: no quotable hub height or water depth; Ben Tre inauguration reports with figures (104 m tower) are about V1-3 Ben Tre, not VPL.",
+  "why": "Searched Phan Vu, OEI, Ben Tre/EVN inauguration reports; no VPL-specific dimensions.",
+  "sources": []
+ },
+ {
+  "farm": "Hiep Thanh (Tra Vinh)",
+  "status": "write",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": 145,
+  "note_zh": "Siemens Gamesa 2020-07-23 新聞稿：協成風場（茶榮外海 1–3 km）裝 18 部 SG 5.0-145；Siemens Gamesa 產品頁：SG 5.0-145 葉輪直徑 145 m（本場以 4.3 MW 彈性額定運轉，葉輪不變）。水深與輪轂高度未查到。",
+  "note_en": "Siemens Gamesa release (23 Jul 2020): Hiep Thanh (1–3 km off Tra Vinh) has 18 SG 5.0-145 units; Siemens Gamesa product page: SG 5.0-145 rotor diameter 145 m (the farm runs them at a flexible 4.3 MW rating; the rotor is unchanged). Depth and hub height not found.",
+  "why": "Hub height and water depth not found (offshoreWIND/Waves Group only give 1–3 km from shore).",
+  "sources": [
+   {
+    "url": "https://www.siemensgamesa.com/global/en/home/press-releases/200723-siemens-gamesa-press-release-vietnam-78-mw.html",
+    "quote": "The wind farm will feature 18 units of the SG 5.0-145 turbine, which are among the largest turbines on the Vietnamese market."
+   },
+   {
+    "url": "https://www.siemensgamesa.com/global/en/home/press-releases/200723-siemens-gamesa-press-release-vietnam-78-mw.html",
+    "quote": "The 78-MW Hiep Thanh wind farm will be located 1-3 km off the coast of Tra Vinh Province."
+   },
+   {
+    "url": "https://www.siemensgamesa.com/global/en/home/products-and-services/onshore/wind-turbine-sg-5-0-145.html",
+    "quote": "Rotor diameter 145 m Nominal power 5.0 MW Technology Geared + DFIG"
+   }
+  ]
+ },
+ {
+  "farm": "Tan Phu Dong 1 (Tien Giang, GEC)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到可引用的輪轂高度或水深；潘武集團頁只列供應 D800 樁（客戶 PC1）。",
+  "note_en": "Round 10: no quotable hub height or water depth; the Phan Vu page only lists D800 pile supply (client PC1).",
+  "why": "Searched PC1, Infinity Logistics, Tien Giang reports, vnba; no dimension figures.",
+  "sources": []
+ },
+ {
+  "farm": "Dong Hai 1 Offshore wind farm",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到可引用的輪轂高度或水深；Vestas 與 LOC 只寫「客製化塔架、架高於海面的基礎」。",
+  "note_en": "Round 10: no quotable hub height or water depth; Vestas and LOC only mention \"customised towers placed on reinforced onshore foundations above sea level\".",
+  "why": "Searched Bac Phuong, baodauthau, NS Energy, Windsystems, ABL/LOC; no figures.",
+  "sources": []
+ },
+ {
+  "farm": "Bến Tre 10 Bình Đại 1 Offshore wind farm",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到輪轂高度或水深。機型混合：一期 7 部 Siemens Gamesa（5.0 系列）、二、三期 24 部金風（Power Technology、LOC）；金風機型與兩種機型的輪轂高度都未查到，因此也無法給葉輪最大值。",
+  "note_en": "Round 10: no hub height or depth. Mixed turbines: phase 1 has 7 Siemens Gamesa (5.0 series) and phases 2–3 24 Goldwind units (Power Technology, LOC); the Goldwind model and both hub heights are unknown, so no largest-rotor value either.",
+  "why": "Need the Goldwind model and both hub heights; PTSC/Gulf/Tap chi Cong Thuong give only 31 monopiles of 5.5 m.",
+  "sources": [
+   {
+    "url": "https://power-technology.com/?p=251914",
+    "quote": "Mekong Wind Farm (Mekong Wind Farm Phase II) will be equipped with Goldwind Science & Technology turbines. The phase consists 24 turbines."
+   },
+   {
+    "url": "https://tapchicongthuong.vn/khoi-cong-lap-dat-cac-tru-monopile-dau-tien-cua-viet-nam-tai-du-an-dien-gio-ngoai-khoi-binh-dai-76902.htm",
+    "quote": "oạn đầu của dự án Nhà máy điện gió Bình Đại đã lựa chọn tua bin gió hàng đầu thuộc series 5.0 của hãng sản xuất tua bin Siemens Gamesa"
+   }
+  ],
+  "issues": "turbine field is \"-\": phase 1 has 7 Siemens Gamesa units, phases 2–3 24 Goldwind units (31 total, 128 MW)."
+ },
+ {
+  "farm": "Thanh Hải No. 5 Offshore wind farm",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到輪轂高度或水深。全案 4 座電廠各 7 部、單機 4.2–4.5 MW（SGGP），只有成海1、2 確定為 SG 4.5-145；成海3、4 機型未查到。",
+  "note_en": "Round 10: no hub height or depth. The project is 4 plants of 7 turbines each, 4.2–4.5 MW per unit (SGGP); only Thanh Hai 1–2 are confirmed SG 4.5-145; the Thanh Hai 3–4 models were not found.",
+  "why": "Mixed or unknown models for half of the 28 units; no hub or depth figure in EVN/SGGP/Bao Dau tu/Le Thy.",
+  "sources": [],
+  "issues": "Sources disagree on the turbine count (EVN/SGGP 28, contractor Le Thy 24) and unit sizes (4.2–4.5 MW vs 3.3–4.5 MW); the stored rotor 145 covers only phases 1–2.",
+  "issue_sources": [
+   {
+    "url": "https://www.sggp.org.vn/ben-tre-khanh-thanh-dua-vao-van-hanh-nha-may-dien-gio-so-5-thanh-hai-post642328.html",
+    "quote": "máy điện gió số 5 bao gồm 4 nhà máy với tổng số 28 tua bin, mỗi nhà máy 7 tua bin với công suất mỗi tua bin đạt 4,2-4,5 MW"
+   },
+   {
+    "url": "https://lethycorp.com/du-an-da-thi-cong/dien-gio-so-5.html",
+    "quote": "Dự án Nhà máy Điện gió số 5 Tân Hoàn Cầu, quy mô có công suất 120MW, gồm 24 tuabin gió, mỗi tuabin từ 3,3 MW đến 4,5MW"
+   }
+  ]
+ },
+ {
+  "farm": "Bac Lieu Phase 1",
+  "status": "lead",
+  "hub": 80,
+  "hub_kind": "tower",
+  "depth": [
+   0,
+   2
+  ],
+  "rotor": 82.5,
+  "note_zh": "基礎型式仍未定，尺寸只能列線索。塔高：基礎設計單位 TEDI WECCO、前鋒報與 DTiNews（2012-10）都寫鋼塔高 80 m，但 DTiNews（2012-05）、offshoreWIND 與青年報寫 90 m（可能含基座），互相矛盾。葉輪：GE 2011 新聞稿 1.6-82.5、葉輪 82.5 m。水深：投資報 2013 寫風機離岸約 300 m、漲潮時施工區淹水 1.5–2 m（潮間帶）。",
+  "note_en": "Foundation type still open, so dimensions are leads only. Tower: the foundation designer TEDI WECCO, Tien Phong and DTiNews (Oct 2012) give an 80 m steel tower, but DTiNews (May 2012), offshoreWIND and Tuoi Tre give 90 m (probably including the base) — conflicting. Rotor: GE 2011 release, 1.6-82.5 with an 82.5 m rotor. Depth: Bao Dau tu (2013) says the turbines stand about 300 m from shore and the site floods 1.5–2 m at high tide (intertidal).",
+  "why": "No foundation type yet; tower height 80 vs 90 m conflict (tower, not hub).",
+  "sources": [
+   {
+    "url": "https://tediwecco.vn/portfolio/nha-may-dien-gio-bac-lieu/",
+    "quote": "cấu tạo thép đặc biệt không gỉ, cao 80 m, đường kính 4 m, nặng trên 200 tấn"
+   },
+   {
+    "url": "https://dtinews.dantri.com.vn/print/20121005085109463.htm",
+    "quote": "The turbine is made of titan steel, weighs nearly 210 tones, and measures 80 metres in height and 4 metres in diameter."
+   },
+   {
+    "url": "https://dtinews.dantri.com.vn/print/20120525122908003.htm",
+    "quote": "Each turbine is made of titan steel, weighs 210 tons, and measures 90 meters in height."
+   },
+   {
+    "url": "https://tuoitre.vn/may-phat-dien-bang-suc-gio-tai-bac-lieu-568683.htm",
+    "quote": "Trụ lắp turbine cao 90m, đường kính 4m"
+   },
+   {
+    "url": "https://www.ge.com/news/press-releases/first-wind-farm-vietnams-mekong-delta-will-be-powered-16-megawatts-ge-technology",
+    "quote": "The GE wind turbines chosen for this project feature an 82.5 meter rotor for class III wind conditions, making it a good match for the Bac Lieu site."
+   },
+   {
+    "url": "https://www.ge.com/news/press-releases/first-wind-farm-vietnams-mekong-delta-will-be-powered-16-megawatts-ge-technology",
+    "quote": "to provide 10 of its 1.6-82.5 wind turbines and operations and maintenance services for phase one of the Bac Lieu Wind Farm"
+   },
+   {
+    "url": "https://baodautu.vn/gia-dien-gio-cao-vi-chi-phi-lon-d1498.html",
+    "quote": "các trụ tuabin nằm ven biển, cách bờ khoảng 300 m, chịu ảnh hưởng của thủy triều, nên khi thủy triều cao, khu vực xây dựng ngập 1,5 - 2 m"
+   },
+   {
+    "url": "https://tienphong.vn/Kinh-Te/564801/Nguon-sang-tu-gio-bien-tpp.html",
+    "quote": "Cột turbine làm bằng thép đặc biệt không rỉ, cao 80 m, đường kính 4 m, đặt trên trụ bê tông hình bát giác đường kính khoảng 17 m, xây cách bờ biển từ 300m đến 1.000 m."
+   }
+  ],
+  "foundation": {
+   "t": null,
+   "parts": null,
+   "sub": null,
+   "status": "lead",
+   "note_zh": "前鋒報（一期施工時）：80 m 鋼塔「立在直徑約 17 m 的八角形混凝土墩上」；越文維基與 TEDI WECCO 只寫基礎建於軟土潮間帶。軟土上應有樁，但沒有出處寫明樁或承台，無法分辨高樁承台與重力式，故列線索。",
+   "note_en": "Tien Phong (during phase 1 construction): the 80 m steel tower \"stands on an octagonal concrete pier about 17 m across\"; Vietnamese Wikipedia and TEDI WECCO only say the foundations are on soft intertidal ground. Piles are likely on soft soil, but no source states piles or a pile cap, so pile cap vs gravity cannot be decided; lead.",
+   "sources": [
+    {
+     "url": "https://tienphong.vn/Kinh-Te/564801/Nguon-sang-tu-gio-bien-tpp.html",
+     "quote": "Cột turbine làm bằng thép đặc biệt không rỉ, cao 80 m, đường kính 4 m, đặt trên trụ bê tông hình bát giác đường kính khoảng 17 m, xây cách bờ biển từ 300m đến 1.000 m."
+    }
+   ]
+  }
+ },
+ {
+  "farm": "Bac Lieu Phase 2",
+  "status": "lead",
+  "hub": 80,
+  "hub_kind": "tower",
+  "depth": null,
+  "rotor": 82.5,
+  "note_zh": "基礎型式仍未定，尺寸只能列線索。塔高：DTiNews（2014-02 二期開工）寫新機組高 80 m、投資報寫二期 52 部塔高 80 m（開工時說明），與一期的 80／90 m 矛盾同樣存在。葉輪：GE 2013 新聞稿二期 52 部 1.6-82.5、葉輪 82.5 m。水深未查到（二期離岸到約 1 km）。",
+  "note_en": "Foundation type still open, so dimensions are leads only. Tower: DTiNews (Feb 2014, phase 2 start) gives 80 m for the new turbines and Bao Dau tu gives an 80 m tower for the 52 phase 2 units (stated at the start of works); the 80 vs 90 m conflict of phase 1 applies. Rotor: GE 2013 release, 52 × 1.6-82.5 with an 82.5 m rotor. Depth not found (phase 2 reaches about 1 km offshore).",
+  "why": "No foundation type yet; tower figures are pre-construction descriptions and conflict with the 90 m figures for phase 1.",
+  "sources": [
+   {
+    "url": "https://dtinews.dantri.com.vn/print/20140209210957260.htm",
+    "quote": "Each turbine is made of titan steel, weighs over 200 tones, and measures 80 meters in height and 4 meters in diameter."
+   },
+   {
+    "url": "https://baodautu.vn/dien-gio-bac-lieu-khoi-dong-giai-doan-2-d2914.html",
+    "quote": "giai đoạn 2 gồm 52 tua bin, được sản xuất với cấu tạo thép đặc biệt không gỉ, cao 80m, đường kính 4m, nặng trên 200 tấn"
+   },
+   {
+    "url": "https://www.ge.com/news/press-releases/phase-two-bac-lieu-wind-farm-will-be-powered-52-ge-wind-turbines",
+    "quote": "to provide 52 1.6MW -- 82.5, wind turbines for phase two of the project."
+   },
+   {
+    "url": "https://www.ge.com/news/press-releases/phase-two-bac-lieu-wind-farm-will-be-powered-52-ge-wind-turbines",
+    "quote": "The GE wind turbines chosen for this project feature an 82.5 meter rotor for class III wind conditions, making it a good match for the Bac Lieu site."
+   },
+   {
+    "url": "https://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/",
+    "quote": "HTL was also awarded a contract for the construction of 20 wind turbine foundations for the second phase."
+   }
+  ],
+  "foundation": {
+   "t": null,
+   "parts": null,
+   "sub": null,
+   "status": "lead",
+   "note_zh": "Power Technology 只寫 HTL 承做二期 20 座、Descon 承做 8 座基礎，沒有型式（其餘 24 座承包商也未知）；一期的「八角形混凝土墩」描述可能同樣適用，但未見二期出處。",
+   "note_en": "Power Technology only says HTL built 20 phase-2 foundations and Descon 8, without the type (the contractor for the other 24 is unknown); the phase 1 \"octagonal concrete pier\" description may apply too, but no phase 2 source says so.",
+   "sources": [
+    {
+     "url": "https://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/",
+     "quote": "HTL was also awarded a contract for the construction of 20 wind turbine foundations for the second phase."
+    }
+   ]
+  }
+ },
+ {
+  "farm": "V1-1 Truong Long Hoa (Tra Vinh)",
+  "status": "write",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": 150,
+  "note_zh": "Vestas 2020-01 統包合約：12 部 V150-4.2 MW；Vestas 產品頁：V150-4.2 葉輪直徑 150 m。輪轂高度與水深未查到。（尺寸可寫入的前提是下面的基礎型式被採用。）",
+  "note_en": "Vestas EPC contract (Jan 2020): 12 V150-4.2 MW; Vestas product page: V150-4.2 rotor diameter 150 m. Hub height and depth not found. (Writable only if the foundation below is accepted.)",
+  "why": "Hub height and water depth not found (Vestas, Khang Duc, Waves Group, Bao Dau tu give none).",
+  "sources": [
+   {
+    "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
+    "quote": "Vestas will provide a full turn-key solution with delivery, installation and commissioning of 12 V150-4.2 MW wind turbines"
+   },
+   {
+    "url": "https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW",
+    "quote": "ROTOR Rotor diameter 150m Swept area 17,671m2"
+   },
+   {
+    "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
+    "quote": "The turbines will be installed on reinforced onshore gravity foundations that are raised above sea level on multi-pile structures and connected to shore with link bridges"
+   },
+   {
+    "url": "https://baodautu.vn/khanh-thanh-nha-may-dien-gio-han-quoc---tra-vinh-co-von-dau-tu-2822-ty-dong-d156117.html",
+    "quote": "do Công ty Vestas Asia Pacific và Vestas Technology làm tổng thầu; cùng các nhà thầu Việt Nam: Nhà thầu xây dựng Khang Đức, nhà thầu điện Công ty cổ phần Xây lắp điện 1 (PCC1)."
+   },
+   {
+    "url": "https://www.phanvu.vn/en-US/project/industrial-production/tra-vinh-wind-power-plant",
+    "quote": "Project: Tra Vinh Wind Power Plant Location: Duyen Hai, Tra Vinh Client: Khang Duc Construction & Investment JSC Scope of work: Supplying Pile D500, D600, D800"
+   },
+   {
+    "url": "https://www.vir.com.vn/the-race-to-complete-korea-tra-vinh-wind-farm-81103.html",
+    "quote": "At the end of September 2020, Korea-Tra Vinh Wind Farm has taken shape with 12 turbine foundations and a 4.2km access bridge."
+   }
+  ],
+  "issues": "Owner field lists Climate Investor One / Samtan (correct per Bao Dau tu: CIO, ST International, EU); earlier rounds noted the stored Envision turbine and Sermsang owner were wrong.",
+  "foundation": {
+   "t": "pc",
+   "parts": null,
+   "sub": null,
+   "status": "write",
+   "note_zh": "韓國－茶榮一期 12 座：Vestas 統包合約寫風機「裝在架高於海面、以多樁支撐的強化基座上，並以引橋連岸」；落成報導（投資報）寫土建承包商為 Khang Đức；潘武集團專案頁記載為「Tra Vinh Wind Power Plant」（茶榮風電公司，維嶺）供應 D500／D600／D800 預應力混凝土樁給 Khang Đức；VIR 2020-09 寫已成形 12 座風機基礎與 4.2 km 引橋。即 PHC 群樁＋承台（高樁承台）。",
+   "note_en": "Korea–Tra Vinh phase 1, 12 units: the Vestas EPC contract says the turbines sit on reinforced foundations raised above sea level on multi-pile structures with link bridges; the inauguration report (Bao Dau tu) names Khang Duc as civil contractor; Phan Vu's project page records D500/D600/D800 prestressed concrete piles supplied to Khang Duc for the \"Tra Vinh Wind Power Plant\" (Duyen Hai); VIR (Sep 2020) reports 12 turbine foundations and a 4.2 km access bridge in place. I.e. PHC pile group with a raised cap.",
+   "sources": [
+    {
+     "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
+     "quote": "The turbines will be installed on reinforced onshore gravity foundations that are raised above sea level on multi-pile structures and connected to shore with link bridges"
+    },
+    {
+     "url": "https://baodautu.vn/khanh-thanh-nha-may-dien-gio-han-quoc---tra-vinh-co-von-dau-tu-2822-ty-dong-d156117.html",
+     "quote": "do Công ty Vestas Asia Pacific và Vestas Technology làm tổng thầu; cùng các nhà thầu Việt Nam: Nhà thầu xây dựng Khang Đức, nhà thầu điện Công ty cổ phần Xây lắp điện 1 (PCC1)."
+    },
+    {
+     "url": "https://www.phanvu.vn/en-US/project/industrial-production/tra-vinh-wind-power-plant",
+     "quote": "Project: Tra Vinh Wind Power Plant Location: Duyen Hai, Tra Vinh Client: Khang Duc Construction & Investment JSC Scope of work: Supplying Pile D500, D600, D800"
+    },
+    {
+     "url": "https://www.vir.com.vn/the-race-to-complete-korea-tra-vinh-wind-farm-81103.html",
+     "quote": "At the end of September 2020, Korea-Tra Vinh Wind Farm has taken shape with 12 turbine foundations and a 4.2km access bridge."
+    }
+   ]
+  }
+ },
+ {
+  "farm": "Tan Phu Dong 2 (Tien Giang, GEC)",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": 150,
+  "note_zh": "基礎型式只有線索，尺寸列線索。機型：Power Technology 寫 12 部 Vestas V150-4.2 MW（資料庫「Envision」有誤）；Vestas 產品頁：葉輪 150 m。輪轂高度與水深未查到。",
+  "note_en": "Foundation is only a lead, so dimensions are leads. Turbines: Power Technology gives 12 Vestas V150-4.2 MW (the stored \"Envision\" is wrong); Vestas product page: 150 m rotor. Hub height and depth not found.",
+  "why": "No foundation type yet (lead only).",
+  "sources": [
+   {
+    "url": "https://power-technology.com/?p=174203",
+    "quote": "Vestas Wind Systems was selected as the turbine supplier for the wind power project. The company provided 12 units of V150-4.2 MW turbines."
+   },
+   {
+    "url": "https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW",
+    "quote": "ROTOR Rotor diameter 150m Swept area 17,671m2"
+   },
+   {
+    "url": "https://www.phanvu.vn/en-US/project/industrial-production/tan-phu-dong-wind-power-plant-2",
+    "quote": "Project: Tan Phu Dong Wind Power Plant Location: Tien Giang Client: Power Construction JSC No1 (PPC1) Scope of work: Supplying Pile D800"
+   },
+   {
+    "url": "https://vnba.org.vn/vi/vietcombank-cung-tap-doan-ttc-khanh-thanh-nha-may-dien-gio-tan-phu-dong-2-4804.htm",
+    "quote": "Địa điểm xây dựng 12 trụ turbine gió tại khu vực biển thuộc xã Tân Thành, huyện Gò Công Đông, tỉnh Tiền Giang."
+   },
+   {
+    "url": "https://mekongasean.vn/thach-thuc-va-giai-phap-thi-cong-cap-ngam-cho-dien-gio-gan-bo-va-ngoai-khoi-17151.html",
+    "quote": "Tại công trình Điện gió Tân Phú Đông 2, với 23km cáp biển gần bờ thi công trong 2 tháng"
+   }
+  ],
+  "issues": "turbine field \"Envision\" is wrong: 12 Vestas V150-4.2 MW (Power Technology); EPC PC1, civil works Coteccons.",
+  "issue_sources": [
+   {
+    "url": "https://power-technology.com/?p=174203",
+    "quote": "PC1 Group was selected to render engineering procurement construction services for the wind power project."
+   }
+  ],
+  "foundation": {
+   "t": "pc",
+   "parts": null,
+   "sub": null,
+   "status": "lead",
+   "note_zh": "新富東2號 12 座（越南銀行協會）：潘武集團頁「Tan Phu Dong Wind Power Plant 2」記載供應 D800 樁給 EPC 的 PC1（合約 450 億越盾），陣列以 23 km 海纜連接（PC1），推定為 PHC 群樁＋承台；但該頁專案欄只寫「Tan Phu Dong Wind Power Plant」（未寫 2），且只是樁的供應，沒有寫明風機基礎，故列線索。",
+   "note_en": "Tan Phu Dong 2, 12 turbines (Vietnam Banks Association): Phan Vu's page \"Tan Phu Dong Wind Power Plant 2\" records D800 piles supplied to the EPC contractor PC1 (VND 45 bn), and the array is linked by 23 km of subsea cable (PC1), which points to PHC pile groups with caps; but the page's project line reads only \"Tan Phu Dong Wind Power Plant\" (no \"2\") and it is pile supply, not a stated turbine foundation; lead.",
+   "sources": [
+    {
+     "url": "https://www.phanvu.vn/en-US/project/industrial-production/tan-phu-dong-wind-power-plant-2",
+     "quote": "Project: Tan Phu Dong Wind Power Plant Location: Tien Giang Client: Power Construction JSC No1 (PPC1) Scope of work: Supplying Pile D800"
+    },
+    {
+     "url": "https://vnba.org.vn/vi/vietcombank-cung-tap-doan-ttc-khanh-thanh-nha-may-dien-gio-tan-phu-dong-2-4804.htm",
+     "quote": "Địa điểm xây dựng 12 trụ turbine gió tại khu vực biển thuộc xã Tân Thành, huyện Gò Công Đông, tỉnh Tiền Giang."
+    },
+    {
+     "url": "https://mekongasean.vn/thach-thuc-va-giai-phap-thi-cong-cap-ngam-cho-dien-gio-gan-bo-va-ngoai-khoi-17151.html",
+     "quote": "Tại công trình Điện gió Tân Phú Đông 2, với 23km cáp biển gần bờ thi công trong 2 tháng"
+    }
+   ]
+  }
+ },
+ {
+  "farm": "Soc Trang 1 Phase 1 (Cong Ly)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到基礎型式與尺寸。全球能源監測（GEM）把公理朔莊風場一期列為「施工中」、二、三期擱置，與資料庫的 2021 年運轉不符，狀態待查證。",
+  "note_en": "Round 10: no foundation type or dimensions found. Global Energy Monitor lists Cong Ly Soc Trang phase 1 as \"construction\" and phases 2–3 as shelved, which conflicts with the record's 2021 operation; status to be verified.",
+  "why": "Searched VietnamPlus/vietnamfinance ground-breaking reports, Soc Trang energisation news (Bao Dau tu 2021 lists other farms), PLO; no type, turbine model or completion source.",
+  "sources": [],
+  "issues": "Status: GEM shows phase 1 under construction (phases 2–3 shelved); no source found for its completion. The record says operating since 2021.",
+  "issue_sources": [
+   {
+    "url": "https://www.gem.wiki/C%C3%B4ng_L%C3%BD_S%C3%B3c_Tr%C4%83ng_wind_farm",
+    "quote": "is a wind farm under construction in Vietnam. Project Details Table 1: Phase-level project details for Công Lý Sóc Trăng wind farm Phase name Status Nameplate capacity Type Owner Operator 1 Construction [ 1 ] 30 MW"
+   }
+  ],
+  "foundation": {
+   "t": null,
+   "parts": null,
+   "sub": null,
+   "status": "none",
+   "note_zh": "未找到。",
+   "note_en": "Not found.",
+   "sources": []
+  }
+ },
+ {
+  "farm": "V1-3 Ben Tre (BTRE)",
+  "status": "lead",
+  "hub": 104,
+  "hub_kind": "tower",
+  "depth": null,
+  "rotor": 150,
+  "note_zh": "基礎型式只有線索，尺寸列線索。工商部落成報導：7 部 Vestas 4.2 MW、塔高（trụ tuabin）104 m、葉片長 75 m；offshoreWIND：7 部 V150-4.2 MW；Vestas 產品頁：葉輪 150 m。水深未查到。",
+  "note_en": "Foundation is only a lead, so dimensions are leads. MOIT inauguration report: 7 Vestas 4.2 MW, tower height 104 m, blades 75 m; offshoreWIND: seven V150-4.2 MW; Vestas product page: 150 m rotor. Depth not found.",
+  "why": "No foundation type yet (lead only).",
+  "sources": [
+   {
+    "url": "https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/ben-tre-khanh-thanh-nha-may-dien-gio-30-mw.html",
+    "quote": "Dự án có 7 trụ tuabin gió, công suất 4,2 MW/tuabin; chiều cao trụ tuabin 104 m; cánh quạt dài 75 m, đường kính thân trụ 4,4 m do hãng Vestas - Đan Mạch sản xuất."
+   },
+   {
+    "url": "https://offshorewind.biz/2020/03/27/vestas-notches-fourth-intertidal-wind-turbine-order-in-vietnam",
+    "quote": "The contract includes the supply and supervision of the installation of seven V150-4.2 MW wind turbines that will be installed in shallow waters close to shore."
+   },
+   {
+    "url": "https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW",
+    "quote": "ROTOR Rotor diameter 150m Swept area 17,671m2"
+   },
+   {
+    "url": "https://www.phanvu.vn/en-US/project/industrial-production/ba-tri-wind-power-plant",
+    "quote": "Project: Ba Tri Wind Power Plant Location: Ba Tri, Ben Tre Client: Huy Hoang Transportation & Logistics Corp., Scope of work: Supplying pile D800"
+   },
+   {
+    "url": "https://thitruongtaichinhtiente.vn/bic-va-btre-ky-ket-hop-dong-bao-hiem-du-an-nha-may-dien-gio-ben-tre-v1-3-28321.html",
+    "quote": "được đặt tại huyện Ba Tri, tỉnh Bến Tre. Dự án có công suất giai đoạn 1 dự kiến 30MV."
+   }
+  ],
+  "foundation": {
+   "t": "pc",
+   "parts": null,
+   "sub": null,
+   "status": "lead",
+   "note_zh": "潘武集團頁「Ba Tri Wind Power Plant」（檳椥省巴知縣）記載供應 D800 樁給 Huy Hoàng 運輸物流公司（HTL）；V1-3 檳椥位於巴知縣，是當時該縣唯一完工的風場，但頁面沒寫 V1-3 或業主 BTRE，也只是樁的供應，故只列 PHC 群樁＋承台的線索。",
+   "note_en": "Phan Vu's page \"Ba Tri Wind Power Plant\" (Ba Tri, Ben Tre) records D800 piles supplied to Huy Hoang Transportation & Logistics (HTL); V1-3 Ben Tre is in Ba Tri district and was the district's only completed farm then, but the page names neither V1-3 nor BTRE and is pile supply only, so PHC pile group with cap is just a lead.",
+   "sources": [
+    {
+     "url": "https://www.phanvu.vn/en-US/project/industrial-production/ba-tri-wind-power-plant",
+     "quote": "Project: Ba Tri Wind Power Plant Location: Ba Tri, Ben Tre Client: Huy Hoang Transportation & Logistics Corp., Scope of work: Supplying pile D800"
+    },
+    {
+     "url": "https://thitruongtaichinhtiente.vn/bic-va-btre-ky-ket-hop-dong-bao-hiem-du-an-nha-may-dien-gio-ben-tre-v1-3-28321.html",
+     "quote": "được đặt tại huyện Ba Tri, tỉnh Bến Tre. Dự án có công suất giai đoạn 1 dự kiến 30MV."
+    }
+   ]
+  }
+ },
+ {
+  "farm": "Cà Mau wind farm",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到輪轂高度、水深或寫明的葉輪直徑（明陽 MySE5.0-166）。法律報 2023-08：金甌1號 350 MW（1A–1D）仍在施工，與資料庫 2023 年運轉不符。",
+  "note_en": "Round 10: no hub height, depth or stated rotor diameter (MingYang MySE5.0-166). Bao Phap luat (Aug 2023): Ca Mau 1, 350 MW (1A–1D), still under construction, which conflicts with the record's 2023 operation.",
+  "why": "Searched PowerChina/worldoil, iqilu, SASAC, offshoreWIND, Phan Vu; no dimensions.",
+  "sources": [
+   {
+    "url": "https://news.iqilu.com/china/gedi/2022/0609/5152887.shtml",
+    "quote": "目前A区所有桩基全部施工完成，5台风机基础承台施工完成，另有14个基础正在同步施工"
+   },
+   {
+    "url": "https://news.iqilu.com/china/gedi/2022/0609/5152887.shtml",
+    "quote": "中电建核电公司作为A、C风场的EPC总包方，负责A、C风场全部设计工作、风机采购及桩基、基础施工、风机吊装、海缆采购及施工等工作"
+   },
+   {
+    "url": "https://www.phanvu.vn/en-US/project/industrial-production/viet-nam-ca-mau-1a-1c-off-shore-wind-farm-project-1",
+    "quote": "Location: Ca Mau Client: POWERCHINA NUCLEAR ENGINEERING COMPANY LIMITED Scope of work: Supplying & Pressing pile D800"
+   }
+  ],
+  "issues": "Status: still under construction in Aug 2023 (Bao Phap luat); PowerChina reported only area 1A fully hoisted in Apr 2023.",
+  "issue_sources": [
+   {
+    "url": "https://baophapluat.vn/ca-mau-but-pha-trong-phat-trien-nang-luong-tai-tao-post485019.html",
+    "quote": "Hiện có 6 dự án với tổng công suất 430MW đang triển khai thi công: Cụm Nhà máy điện gió Cà Mau 1 tổng công suất 350MW (gồm 4 nhà máy 1A, 1B, 1C, 1D)"
+   },
+   {
+    "url": "https://www.worldoil.com/news/2023/4/10/powerchina-completes-work-on-largest-offshore-wind-project-in-southeast-asia/",
+    "quote": "announced the completion of the hoisting of all fans in Area 1A of the Ca Mau 1 Wind Power Project"
+   }
+  ],
+  "foundation": {
+   "t": "pc",
+   "parts": null,
+   "sub": null,
+   "status": "lead",
+   "note_zh": "A、C 兩場由中電建核電公司 EPC：齊魯網（人民日報客戶端）2022-06 寫 A 區樁基全部完成、5 座風機承台完成；潘武集團供應並壓入 D800 樁給「金甌 1A&1C」。即 A、C 區為混凝土群樁＋承台；B、D 區型式與各區座數未查到，無法寫成全場型式。",
+   "note_en": "Areas A and C were built by PowerChina Nuclear Engineering: iqilu (People's Daily app), Jun 2022, says all area-A piles were driven and 5 turbine pile caps finished; Phan Vu supplied and pressed D800 piles for \"Ca Mau 1A&1C\". So A and C are concrete pile groups with caps; the type for B and D and the per-area counts were not found, so no whole-farm type.",
+   "sources": [
+    {
+     "url": "https://news.iqilu.com/china/gedi/2022/0609/5152887.shtml",
+     "quote": "目前A区所有桩基全部施工完成，5台风机基础承台施工完成，另有14个基础正在同步施工"
+    },
+    {
+     "url": "https://news.iqilu.com/china/gedi/2022/0609/5152887.shtml",
+     "quote": "中电建核电公司作为A、C风场的EPC总包方，负责A、C风场全部设计工作、风机采购及桩基、基础施工、风机吊装、海缆采购及施工等工作"
+    },
+    {
+     "url": "https://www.phanvu.vn/en-US/project/industrial-production/viet-nam-ca-mau-1a-1c-off-shore-wind-farm-project-1",
+     "quote": "Location: Ca Mau Client: POWERCHINA NUCLEAR ENGINEERING COMPANY LIMITED Scope of work: Supplying & Pressing pile D800"
+    }
+   ]
+  }
+ },
+ {
+  "farm": "Tân An 1 offshore wind farm",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "第十輪未找到基礎型式與尺寸；PLC 頁只寫一期 6 部、風機廠 Windey、PLC 負責港口吊裝。法律報 2023-08：一期 25 MW 已商轉，2021–2025 期 45 MW 已完工未併網（資料庫只有 25 MW）。",
+  "note_en": "Round 10: no foundation type or dimensions; the PLC page only gives 6 phase-1 turbines, OEM Windey, and PLC's port lifting. Bao Phap luat (Aug 2023): phase 1 (25 MW) in commercial operation; the 2021–2025 phase (45 MW) built but not grid-connected (the record has only 25 MW).",
+  "why": "Searched Bao Dau tu ground-breaking, PLC, Thanh Nien, Ca Mau power company news; no foundation or dimension source.",
+  "sources": [],
+  "issues": "Only phase 1 (25 MW) is in the record; a 45 MW 2021–2025 phase was complete but not connected in Aug 2023.",
+  "issue_sources": [
+   {
+    "url": "https://baophapluat.vn/ca-mau-but-pha-trong-phat-trien-nang-luong-tai-tao-post485019.html",
+    "quote": "Có 1 dự án Nhà máy điện gió Tân Ân 1 giai đoạn 2021 - 2025 công suất 45MW tại xã Tân Ân (huyện Ngọc Hiển) đã thi công hoàn thành nhưng chưa hòa lưới."
+   },
+   {
+    "url": "https://plc-corp.vn/nha-may-dien-gio-tan-an.html",
+    "quote": "Giai đoạn 1 của dự án có công suất 25 MW, bao gồm 6 trụ tuabin."
+   }
+  ],
+  "foundation": {
+   "t": null,
+   "parts": null,
+   "sub": null,
+   "status": "none",
+   "note_zh": "未找到。",
+   "note_en": "Not found.",
+   "sources": []
+  }
+ }
+]

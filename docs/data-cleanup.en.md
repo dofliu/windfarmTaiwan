@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 409 rules: 148 records removed (44,360.2 MW of them operating), 261 records fixed.
+- 410 rules: 148 records removed (44,360.2 MW of them operating), 262 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -47,7 +47,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | United Kingdom | 7 | 3,485 | 7 |
 | United States of America | 6 | 811.6 | 6 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 13 | 1,487 | 22 |
+| Vietnam | 13 | 1,487 | 23 |
 | Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
@@ -637,6 +637,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Đông Thành 1 - Thái Hòa offshore wind farm · 1 · 80 MW · 2026 | GEM | fixed: status, year | Đông Thành 1 (80 MW): in March 2026 the Vĩnh Long trade department was still seeking opinions on its investment approval, and no construction report can be found (GEM’s “construction” rests on a 2024 paid-database page); set to pre-construction, year unknown | [link](https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm) |
 | V1-1 Truong Long Hoa (Tra Vinh) · 48 MW · 2021 | curated | fixed: owner, turbines | Tra Vinh V1-1 is the Korea–Tra Vinh wind farm phase 1 (48 MW): Tra Vinh Wind Power Co. No. 1 broke ground at site V1-1 in Truong Long Hoa on 24 Apr 2019, with Climate Investor One and Korea's Samtan as the main investors (vietnamfinance); Vestas supplied 12 V150-4.2 MW turnkey (offshoreWIND.biz, Sept 2021). Sermsang invests in V1-2, so the stored owner and '12x Envision 4 MW' were wrong | [link](https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm) |
 | Hiep Thanh (Tra Vinh) · 78 MW · 2022 | curated | fixed: owner, turbines | Hiep Thanh (78 MW) has 18 Siemens Gamesa SG 5.0-145 turbines run at 4.3 MW each (offshoreWIND.biz, July 2020 and Aug 2021), not Envision; developer EcoTech Tra Vinh Renewables, with investors Janakuasa, Ecotech Vietnam, Climate Investor One and ST International | [link](https://www.offshorewind.biz/2020/07/23/siemens-gamesa-lands-biggest-nearshore-contract-in-vietnam/) |
+| Tan Phu Dong 2 (Tien Giang, GEC) · 50 MW · 2021 | curated | fixed: turbines | Tan Phu Dong 2 has 12 Vestas V150-4.2 MW turbines (Power Technology), not Envision; EPC by PC1 | [link](https://power-technology.com/?p=174203) |
 
 ## Åland (ALA)
 

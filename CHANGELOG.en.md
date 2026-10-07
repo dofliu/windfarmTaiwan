@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.4 — 2026-10-07
+
+- Round 10 of the research (quotes checked with `check_quotes.py`):
+  - Vietnam: Tra Vinh V1-1 (Korea–Tra Vinh phase 1) stands on pile groups with caps (Vestas' turnkey contract and construction reports) with 150 m rotors; V1-3 (REE)
+    is in 3–7 m of water; Hiep Thanh has 145 m rotors. 15 of Vietnam's 22 operating offshore farms are now known, and 264 of all 332 (81.2% of capacity).
+  - Tan Phu Dong 2's turbines corrected to 12 Vestas V150-4.2 (was Envision).
+
 ## v2.30.3 — 2026-10-07
 
 - Hub heights, round 9 (all 51 operating Chinese offshore farms with a foundation type but no hub height checked again; quotes checked with `check_quotes.py`):

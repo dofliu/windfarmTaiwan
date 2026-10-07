@@ -10,7 +10,7 @@
 2. **歐洲其他風場**（波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場）：已完成（2026-09）。
 3. **浮動式風場的細分型式**（全球）：已完成（2026-09）。
 4. **台灣、日本、韓國、美國**：已完成（2026-09）。
-5. **中國、越南**：進行中：已補上中國 78 筆、越南 14 筆（2026-09 起）。
+5. **中國、越南**：進行中：已補上中國 78 筆、越南 15 筆（2026-09 起）。
 
 本頁是前四步與第 5 步已完成部分的結果。還沒查到的離岸風場標「型式不詳」，不臆測。
 
@@ -21,14 +21,14 @@
 - **第 2 步**：OSPAR 不涵蓋波羅的海與地中海，2024 年以後才完工的風場也只有核准階段的設計（設計可能改變）。這些風場逐座查開發商、施工廠商、產業新聞、政府文件或維基百科，每座都附出處，引用的原文逐筆核對過；OSPAR 有核准階段紀錄的，一律再附施工紀錄（建置時檢查）。
 - **第 3 步**：全球的浮動式風場補上細分型式：單柱式（spar）、半潛式、駁船式（含阻尼池式）、張力腳平台，逐座查技術供應商、開發商或產業新聞，引用的原文逐筆核對過；同一筆紀錄含不同型式的機組時，在說明欄逐部寫出。
 - **第 4 步**：台灣、日本、韓國、美國的離岸風場都沒有 OSPAR 紀錄，逐座查開發商、施工廠商、政府文件或產業新聞，引用的原文逐筆核對過（日文、韓文網頁依網頁編碼比對，PDF 逐頁比對），不引用 4C Offshore；日本港灣內的風場以 NEDO 的支持構造分類為準（NEDO 明寫「ドルフィン」就是 High-Rise Pile Cap 高樁承台）。查不到型式的列在下方「查過但暫不列入」。
-- **第 5 步（進行中）**：中國 78 筆、越南 14 筆。最早幾筆依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」，之後逐座查開發商、施工廠商、地方政府公開的海域使用論證報告與竣工環保驗收、產業新聞；引用的原文都以 `tools/check_quotes.py` 核對過，只有如東 H6、H10 兩列的出處是三峽集團自家網頁（核對環境連不上，列在 TODO）。新增「複合筒」型式，歸在「其他固定式」色組。
+- **第 5 步（進行中）**：中國 78 筆、越南 15 筆。最早幾筆依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」，之後逐座查開發商、施工廠商、地方政府公開的海域使用論證報告與竣工環保驗收、產業新聞；引用的原文都以 `tools/check_quotes.py` 核對過，只有如東 H6、H10 兩列的出處是三峽集團自家網頁（核對環境連不上，列在 TODO）。新增「複合筒」型式，歸在「其他固定式」色組。
 - 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。
 - **水深、輪轂高度、葉輪直徑**（2026-10 起，`tools/farm_dimensions.py`）：逐座查維基百科（含英文維基百科各國離岸風場清單的「Depth range」欄）、開發商、風機廠商、政府文件或產業新聞，引用的原文逐筆核對過；查不到的留空，不用典型值推估。下表的「水深／輪轂／葉輪」欄即為這些值；地球儀的風場卡片剖面圖與近景風機依這些值等比例繪製。
 - 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合）；風場卡片與本頁寫出確切型式。
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 263／332 座，占容量 81.1%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
+合計：已知型式 264／332 座，占容量 81.2%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -40,7 +40,7 @@
 | 丹麥 | 17 | 16 | 99% | 8 |  |  | 8 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | 法國 | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
-| 越南 | 22 | 14 | 61% | 3 |  |  | 11 |
+| 越南 | 22 | 15 | 64% | 3 |  |  | 12 |
 | 日本 | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
 | 南韓 | 6 | 5 | 89% | 1 | 4 |  |  |
 | 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
@@ -428,7 +428,7 @@
 | Bến Tre 10 Bình Đại 1 Offshore wind farm | 128 | 2021 | 單樁 |  |  |  | [nangluongvietnam.vn](https://nangluongvietnam.vn/khoi-cong-lap-dat-cac-tru-mong-du-an-dien-gio-ngoai-khoi-binh-dai-25662.html) | Gulf 旗下湄公風電平大風場：2020-11 開工打設單樁（越南首個 monopile 專案）；PTSC PPS 2023 年基礎檢查資料寫全場 31 座、單樁直徑 5.5 m、總容量 128 MW。 |
 | Dong Hai 1 Offshore wind farm | 100 | 2021 | 高樁承台 |  |  | 150 | [plc-corp.vn](https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html)<br>[offshorewind.biz](https://www.offshorewind.biz/2020/07/21/more-vestas-turbines-for-vietnams-largest-intertidal-wind-farm/) | 北方能源薄寮東海1號 26 座 Vestas V150-4.0（一期 13＋二期 13）：PLC 公司說明在薄寮東海1號與和平1、2 打設 63–76 m 超長 PHC D800 樁作風機基礎，即 PHC 群樁＋承台。；Bac Phuong 的東海1號（薄遼）兩期各 13 部 Vestas V150-4.2 MW，共 100 MW，葉輪 150 m；來源 offshoreWIND.biz。 |
 | 東海1號（茶榮）（Dong Hai 1 – Tra Vinh (Trungnam)） | 100 | 2021 | 高樁承台 |  | 105（塔高） | 145 | [bactrungnam-vn.com](https://bactrungnam-vn.com/nha-may-dien-gio-dong-hai-1-v7-1-2/)<br>[baochinhphu.vn](https://baochinhphu.vn/hoan-thanh-25-tru-gio-cua-nha-may-dien-gio-dong-hai-1-102302320.htm)<br>[trungnamgroup.com.vn](https://trungnamgroup.com.vn/dien-gio-dong-hai-1-tra-vinh-1)<br>[offshorewind.biz](https://www.offshorewind.biz/2021/02/03/siemens-gamesa-lands-its-largest-nearshore-project-in-vietnam/) | 中南集團茶榮東海1號 25 座：分包商北中南建設說明基礎為預應力離心混凝土樁（每座 34 支 D1000 或 44 支 D800）加鋼筋混凝土承台，2021-02～07 施工。；政府電子報：75 片葉片於 105 m 高處組裝到塔上（塔高）；Trungnam：25 部 4 MW；水深未查到；25 部西門子歌美颯 SG 5.0-145（資料庫寫 SG 4.0-145），葉輪 145 m；來源 offshoreWIND.biz。施工商 Bac Trung Nam 頁面寫葉輪 150 m，與廠商不符，未採用。水深查不到。 |
-| 協成風場（Hiep Thanh (Tra Vinh)） | 78.0 | 2022 | 單樁 |  |  |  | [offshorewind.biz](https://offshorewind.biz/2021/08/27/all-foundations-installed-at-vietnams-hiep-thanh-and-tra-vinh-v1-2-nearshore-wind-farms) | 協成 18 部西門子歌美颯 4.3 MW：廣州打撈局 2021 年 8 月完成協成與茶榮 V1-2 兩場「全部單樁基礎」的安裝（offshoreWIND.biz 2021-08-27）。 |
+| 協成風場（Hiep Thanh (Tra Vinh)） | 78.0 | 2022 | 單樁 |  |  | 145 | [offshorewind.biz](https://offshorewind.biz/2021/08/27/all-foundations-installed-at-vietnams-hiep-thanh-and-tra-vinh-v1-2-nearshore-wind-farms)<br>[siemensgamesa.com](https://www.siemensgamesa.com/global/en/home/press-releases/200723-siemens-gamesa-press-release-vietnam-78-mw.html)<br>[siemensgamesa.com](https://www.siemensgamesa.com/global/en/home/products-and-services/onshore/wind-turbine-sg-5-0-145.html) | 協成 18 部西門子歌美颯 4.3 MW：廣州打撈局 2021 年 8 月完成協成與茶榮 V1-2 兩場「全部單樁基礎」的安裝（offshoreWIND.biz 2021-08-27）。；Siemens Gamesa 新聞稿（2020-07）：協成風場裝 18 部 SG 5.0-145；產品頁：SG 5.0-145 葉輪直徑 145 m（本場以 4.3 MW 運轉，葉輪不變）。水深與輪轂高度未查到。 |
 | 和平1號一期（Hoa Binh 1 Phase 1） | 50.0 | 2021 | 高樁承台 |  |  | 150 | [plc-corp.vn](https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html)<br>[offshorewind.biz](https://www.offshorewind.biz/2020/01/02/vestas-secures-third-intertidal-turbine-order-in-vietnam/) | 方英集團和平1號一期 13 座 Vestas（2021-07-02 送電）：PLC 與 Vinaincon 均記載和平1、2 風機基礎為 PHC D500C／D800C 預應力離心混凝土樁，即群樁＋承台。；僅查到 PLC 施工頁：Hòa Bình 1、2 採 63～76 m 的 PHC D800 樁；水深、輪轂、葉輪皆未查到；Vestas 供應 13 部 V150-4.2 MW，葉輪 150 m；資料庫機型「Goldwind」有誤。來源 offshoreWIND.biz。 |
 | 和平1號二期（Hoa Binh 1 Phase 2） | 50.0 | 2021 | 高樁承台 |  |  | 150 | [plc-corp.vn](https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html)<br>[vestas.com](https://www.vestas.com/en/media/company-news/2020/vestas-surpasses-1-gw-of-order-intake-in-vietnam--winni-c3167101) | 和平1號二期 13 座（和平1號二期＋和平2號共 26 座，2021-08-05 送電；業主方英集團）：基礎同一期，PHC 預應力混凝土樁群＋承台。；二期同樣 13 部 Vestas V150-4.2 MW，葉輪 150 m；資料庫機型「Goldwind」有誤。來源 Vestas 新聞稿。 |
 | 和平2號（Hoa Binh 2） | 50.0 | 2021 | 高樁承台 |  |  | 150 | [plc-corp.vn](https://plc-corp.vn/cong-ty-thi-cong-dong-coc-tren-bien.html)<br>[minhhoangcrane.com.vn](https://minhhoangcrane.com.vn/project/dien-gio-hoa-binh/)<br>[baodautu.vn](https://baodautu.vn/tap-doan-phuong-anh-ky-tich-to-hop-dien-gio-tren-bien-lon-nhat-viet-nam-d158640.html) | 和平2號 13 座（2021-09-15 送電，和平1、2 共 39 座；業主方英集團）：PHC 預應力混凝土樁群＋承台。；和平1號與和平2號合計 39 部機組（Đầu tư 報），吊裝商明煌寫兩案共 39 部 Vestas V150 4.2MW，故葉輪 150 m；資料庫機型「Goldwind」有誤。 |
@@ -436,8 +436,9 @@
 | 新富東1號（Tan Phu Dong 1 (Tien Giang, GEC)） | 100 | 2023 | 高樁承台 |  |  | 150 | [lethycorp.com](https://lethycorp.com/en/du-an-da-thi-cong/tan-phu-dong-1-html)<br>[infinitylog.com.vn](https://infinitylog.com.vn/projects/tan-phu-dong-i-offshore-wind-farm-project/) | GEC 新富東1號 24 座（PC1 EPC，2022-10 裝完最後一座）：黎蒂建設承做 PHC D800 樁打設，建設雜誌 2022-05 報導 24 座基礎供應混凝土，即 PHC 群樁＋承台。；物流承包商 Infinity Logistics 專案頁：24 部 Vestas V150-4.2 MW，葉輪 150 m；水深與輪轂高度未查到。 |
 | 新順風場（Tan Thuan (PECC2) Phase 1+2） | 75.0 | 2021 | 高樁承台 |  |  | 145 | [phanvu.vn](https://www.phanvu.vn/truyen-thong/tin-hoat-dong/dien-gio-tan-thuan-chao-mung-25-nam-ngay-thanh-lap-phan-vu)<br>[baodautu.vn](https://baodautu.vn/ca-mau-khanh-thanh-du-an-dien-gio-tan-thuan-von-dau-tu-tren-3800-ty-dong-d164756.html)<br>[siemensgamesa.com](https://www.siemensgamesa.com/global/en/home/press-releases/200715-siemens-gamesa-press-release-vietnam-nearshore-project.html) | 金甌新順 75 MW、18 座（PECC2 EPC，2021-10-30 COD）：潘武集團承做全部 18 座的混凝土樁打設與承台，2021-05 樁全部完成，即混凝土群樁＋承台。；Báo Đầu tư：18 部風機位於海上，最遠離岸 5.3 km；水深、輪轂、葉輪未查到；西門子歌美颯 SG 5.0-145，葉輪 145 m；資料庫機型「Envision」有誤。來源 Siemens Gamesa 新聞稿。 |
 | Thanh Hải No. 5 Offshore wind farm | 120 | 2021 | 高樁承台 |  |  | 145 | [evn.com.vn](https://www.evn.com.vn/d6/news/Khanh-thanh-Nha-may-dien-gio-so-5-Thanh-Hai-Ben-Tre-100-668-55952.aspx)<br>[power-technology.com](https://www.power-technology.com/data-insights/power-plant-profile-thanh-hai-offshore-wind-farm-vietnam/) | 新環球檳椥（Tân Hoàn Cầu Bến Tre）5號風場：成海1–4 共 28 座、120 MW（EVN 2022-07）；黎蒂建設負責「打設 D800 預應力混凝土樁並完成基礎」，一期 7 座、二期 21 座，即 PHC 群樁＋承台。；一、二期（共 14 部）為西門子歌美颯 SG 4.5-145，葉輪 145 m；全案 28 部，其餘機組機型未見出處。來源 GlobalData/power-technology。 |
+| 茶榮V1-1（V1-1 Truong Long Hoa (Tra Vinh)） | 48.0 | 2021 | 高樁承台 |  |  | 150 | [energyglobal.com](https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/)<br>[vestas.com](https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW) | 韓國－茶榮一期 12 部 Vestas V150-4.2：Vestas 統包合約寫風機裝在「架高於海面、以多樁支撐」的強化基座上、以引橋連岸，即群樁＋承台；VIR 2020-09 寫 12 座風機基礎與 4.2 km 引橋已成形，潘武集團供應 D500／D600／D800 預應力混凝土樁給土建承包商 Khang Đức（投資報落成報導）。；Vestas 統包合約：12 部 V150-4.2 MW；Vestas 產品頁：V150-4.2 葉輪直徑 150 m。水深與輪轂高度未查到。 |
 | 茶榮V1-2（V1-2 Truong Long Hoa (Tra Vinh)） | 48.0 | 2021 | 單樁 |  |  | 155 | [ttvngroup.vn](https://www.ttvngroup.vn/en/hoa-hoi-solar-power-plant-and-v1-2-wind-power-plant-owned-by-the-joint-venture-of-ttvn-group-and-thailand-partners-awarded-as-2021typical-renweable-energy-project/)<br>[offshorewind.biz](https://www.offshorewind.biz/2021/09/01/all-wind-turbines-up-at-tra-vinh-v1-2-nearshore-wind-farm/) | V1-2 48 MW、12 座：長城越南集團（TTVN）與企業論壇報 2021 年記載採 5.5 m 直徑鋼製單樁（monopile）以法蘭螺栓接塔，12/12 全部完成。；12 部金風 GW155-4.5 MW，葉輪 155 m；資料庫機型「Envision」有誤。來源 offshoreWIND.biz。 |
-| 茶榮V1-3（V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3)） | 48.0 | 2021 | 高樁承台 |  |  | 150 | [vssmge.org](https://vssmge.org/thiet-ke-va-thi-cong-mong-tru-dien-gio-tai-cac-du-an-cua-fecon/)<br>[offshorewind.biz](https://www.offshorewind.biz/2020/06/17/vestas-wins-another-epc-intertidal-contract-in-vietnam/) | REE 茶榮 V1-3 48 MW：FECON 承做 PHC D800C／D500C 樁與風機基礎，越南土力學會論文列「12 móng cọc PHC（D m = 21,5 m）」，即 PHC 群樁＋承台。；Vestas 統包，12 部 V150-4.2 MW（4.0 MW 模式），葉輪 150 m；資料庫機型「Siemens Gamesa」有誤。來源 offshoreWIND.biz。 |
+| 茶榮V1-3（V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3)） | 48.0 | 2021 | 高樁承台 | 3–7 |  | 150 | [vssmge.org](https://vssmge.org/thiet-ke-va-thi-cong-mong-tru-dien-gio-tai-cac-du-an-cua-fecon/)<br>[offshorewind.biz](https://www.offshorewind.biz/2020/06/17/vestas-wins-another-epc-intertidal-contract-in-vietnam/)<br>[abl-group.com](https://abl-group.com/?p=11256)<br>[offshorewind.biz](https://www.offshorewind.biz/2021/03/16/loc-secures-more-work-offshore-vietnam/) | REE 茶榮 V1-3 48 MW：FECON 承做 PHC D800C／D500C 樁與風機基礎，越南土力學會論文列「12 móng cọc PHC（D m = 21,5 m）」，即 PHC 群樁＋承台。；Vestas 統包，12 部 V150-4.2 MW（4.0 MW 模式），葉輪 150 m；資料庫機型「Siemens Gamesa」有誤。來源 offshoreWIND.biz。海事保證商 LOC（ABL 集團，2021-03）：潮間帶，水深 3–7 m（依潮汐與位置）。 |
 | 檳椥VPL（VPL Ben Tre (Nexif Ben Tre 1)） | 30.0 | 2021 | 高樁承台 |  |  | 150 | [phanvu.vn](https://www.phanvu.vn/en-US/vpl-ben-tre-wind-power-plant-p1)<br>[oei.com.vn](https://oei.com.vn/project/ben-tre-vpl-wind-farm-project) | VPL 檳椥一期 30 MW（平大縣淺水區）：潘武集團供應 D800C 離心混凝土樁（客戶陸路3公司），即混凝土群樁＋承台；座數未查到。；Vestas V150-4.2MW（7 部），葉輪 150 m；來源 OEI（安裝駁船承包商）。 |
 
 ## 查過但暫不列入的風場

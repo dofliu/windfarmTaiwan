@@ -1631,6 +1631,10 @@ RULES = [
         '三峽莊河 III 布置 2 台 3 MW、50 台 3.3 MW、21 台 6.45 MW，裝機規模 300 MW（世紀新能源網轉龍源振華，2020-11）；原寫「金風／上海電氣 4–6 MW」',
         'CTG Zhuanghe III has 2 × 3 MW, 50 × 3.3 MW and 21 × 6.45 MW, 300 MW in all (ne21 citing Longyuan Zhenhua, Nov 2020); it was stored as "Goldwind/Sewind 4–6 MW"',
         'https://www.ne21.com/news/show-135820.html', turbine='2x 3 MW + 50x 3.3 MW + 21x 6.45 MW'),
+    # ------------------------------------------------ 2026-10-07 第四批（第十輪查到的資料問題；出處原文以 check_quotes.py 核對）
+    fix('VNM', 'Tan Phu Dong 2 (Tien Giang, GEC)', C,
+        '新富東 2 號裝 12 部 Vestas V150-4.2 MW（Power Technology），不是遠景；EPC 為 PC1', 'Tan Phu Dong 2 has 12 Vestas V150-4.2 MW turbines (Power Technology), not Envision; EPC by PC1',
+        'https://power-technology.com/?p=174203', turbine='12x Vestas V150-4.2'),
     # ------------------------------------------------ 2026-10-07 第三批（輪轂高度第九輪查到的資料問題；出處原文以 check_quotes.py 核對）
     fix('CHN', 'CGN Fanshi I', C,
         '帆石一的機型是 22 台金風 GWH252-13.6MW 與 51 台明陽 MySE14-260（陽江市自然資源局 2025-04 公示的用海調整補充論證報告書「調整後風機主要設備特性表」；'
