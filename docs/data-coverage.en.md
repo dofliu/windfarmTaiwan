@@ -7,14 +7,14 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,678 operating farms, 1,187,192 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 20,679 operating farms, 1,187,392 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 56 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 3 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 144 duplicate, never-built or non-existent records were removed and 244 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,586 projects, 2,719,460 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Clean-up**: checked record by record in 2026-09; 148 duplicate, never-built or non-existent records were removed and 257 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,581 projects, 2,718,460 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
-- **China**: national 640,626 MW, mapped 569,720 MW (89%), gap 70,906 MW.
+- **China**: national 640,626 MW, mapped 569,920 MW (89%), gap 70,706 MW.
 - **India**: national 54,511 MW, mapped 42,278 MW (78%), gap 12,233 MW.
 - **Italy**: national 13,568 MW, mapped 10,504 MW (77%), gap 3,064 MW.
 - **Germany**: national 77,873 MW, mapped 74,936 MW (96%), gap 2,937 MW.
@@ -48,7 +48,7 @@ English ｜ [中文](data-coverage.md)
    - CHN (38.0, 102.0) · 29 farms · 5,680 MW · Gansu - Shandong Power Export Huanxian (Huaneng) Wind/Solar Demonstration Project wind farm · Area A1, Area A2, Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm…
    - CHN (34.0, 114.0) · 65 farms · 5,349 MW · Henan Neihuang (China Resources) wind farm, Henan Huaxian Zaocun wind farm, Henan Tangyin wind farm · 1, 2…
 5. **Pipeline totals**: projects and country totals are both from GEM 2026-02; the differences are mostly the Sep 2026 compiled list added here, projects removed by the clean-up rules, and phases GEM gives no capacity for. Top-15 countries:
-   - China: projects 742,545 MW · GEM total 743,588 MW
+   - China: projects 741,545 MW · GEM total 743,588 MW
    - United States of America: projects 89,451 MW · GEM total 89,440 MW
    - Germany: projects 37,482 MW · GEM total 18,119 MW
    - India: projects 51,063 MW · GEM total 51,063 MW
@@ -98,7 +98,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 
 | # | Country | National MW | of which offshore | GEM operating MW | Mapped MW | Coverage | Gap MW | Farms | Year-unknown MW | Approx. coords | Flag |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 569,720 | 89% | 70,906 | 5,126 | 20,521 | 2,871 | ✓ |
+| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 569,920 | 89% | 70,706 | 5,127 | 20,521 | 2,871 | ✓ |
 | 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 166,147 | 105% | 0 | 1,237 | 0 | 9 | ✓ |
 | 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 74,936 | 96% | 2,937 | 6,580 | 852 | 177 | ✓ |
 | 4 | India (IND) | 54,511 | 0 | 38,937 | 42,278 | 78% | 12,233 | 630 | 10,869 | 568 | △ |

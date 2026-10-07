@@ -1,0 +1,180 @@
+[
+ {
+  "farm": "Huadian Yuhuan 1",
+  "kind": "foundation",
+  "status": "lead",
+  "type": "mx",
+  "parts": [
+   [
+    "pc",
+    22
+   ],
+   [
+    "mp",
+    10
+   ]
+  ],
+  "turbines": 32,
+  "note_zh": "仍是線索（本輪沒有新出處）：北區 22 部 7 MW（2021-12 投運）為高樁承台——華電重工 139 天完成「採用高樁承台基礎結構型式的玉環項目」176 根鋼管樁（每座 8 根），2021-02 一期 176 根全部沉樁；南區 10 部 7.5 MW（2024-06 併網）為單樁，但只有自媒體摘要與「南區 10 套單樁基礎供貨」招標，仍缺南區施工或驗收紀錄。",
+  "note_en": "Still a lead (nothing new this round): the north zone's 22 × 7 MW (in service Dec 2021) are on high-rise pile caps — Huadian Heavy drove the 176 steel piles (8 per cap) of the Yuhuan project “with high-rise pile cap foundations” in 139 days, all done Feb 2021; the south zone's 10 × 7.5 MW (connected June 2024) are on monopiles only per a self-media summary and the tender for ‘monopile supply, south zone, 10 sets’; a south-zone construction or acceptance record is still missing.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-200359.html",
+    "quote": "面对采用高桩承台基础结构型式的玉环项目，仅用139天就完成了176根钢管桩的沉桩工作"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-157301.html",
+    "quote": "2月19日10时38分，随着打桩锤最后一锤的完美定格，华电玉环1号海上风电场项目一期工程176根钢桩沉桩圆满完成。"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-195622.html",
+    "quote": "该项目分南北两区建设，其中北区22台7兆瓦风机已于2021年12月投运；南区布置10台7.5兆瓦风机，装机容量规划75兆瓦。"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1822723006600317442&wfr=spider&for=pc",
+    "quote": "与北区不同，南区风机基础采用了更为经济的单桩基础。"
+   },
+   {
+    "url": "http://www.dlztb.com/xmxx/202309/28086.html",
+    "quote": "单桩基础及附属构件供货（南区10套）"
+   }
+  ]
+ },
+ {
+  "farm": "CGN Shanwei Jiazi II",
+  "kind": "foundation",
+  "status": "lead",
+  "type": "mp",
+  "parts": null,
+  "turbines": 50,
+  "note_zh": "線索：2021-12 用海調整的補充論證報告（汕尾市政府）把原設計 73 部 5.5 MW 四樁導管架改為 50 部 8.0 MW，「風機基礎採用最大樁徑為 10.0 m 的單樁基礎」；2022-06 海上主體開工、2022-12-20 全容量併網，建成 50 部 8.0 MW（中證網），與調整後方案部數相符。但單樁只見於施工前的設計文件，未找到施工或竣工紀錄，故列線索。",
+  "note_en": "Lead: the supplementary sea-use report for the Dec 2021 adjustment (Shanwei government) changed the original 73 × 5.5 MW four-pile-jacket design to 50 × 8.0 MW on monopiles of up to 10.0 m diameter; offshore works began June 2022 and the farm was fully connected on 20 Dec 2022 with 50 × 8.0 MW (CS.com.cn), matching the adjusted plan. The monopiles appear only in the pre-construction design report; no construction or completion record was found.",
+  "sources": [
+   {
+    "url": "https://www.shanwei.gov.cn/attachment/0/27/27643/787473.pdf",
+    "quote": "调整后，单机容量调整至 8.0MW，风机基础采用最大桩径为 10.0m 的单桩 基础"
+   },
+   {
+    "url": "https://www.shanwei.gov.cn/attachment/0/27/27643/787473.pdf",
+    "quote": "项目调整后风机基础结构为单桩基础结构"
+   },
+   {
+    "url": "https://www.cs.com.cn/ssgs/gsxw/202212/t20221221_6314699.html",
+    "quote": "布置78台6.45MW和50台8.0MW海上风电机组，配套建设2座220kV海上升压站及一座500kV陆上升压站。汕尾甲子二项目于2022年6月海上主体开工，仅用时半年实现全容量并网发电"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Changyi",
+  "kind": "foundation",
+  "status": "lead",
+  "type": "mp",
+  "parts": [
+   [
+    "mp",
+    25
+   ]
+  ],
+  "turbines": 50,
+  "note_zh": "仍是線索：50 部 6 MW（國資委 2022-11），中交三航局承建其中 25 部單樁（微信出處，無法機器核對）；另一標段 25 部的型式本輪仍未找到。新華社 2026-06 只寫「基樁已打入海底 50 米」，未寫型式。",
+  "note_en": "Still a lead: 50 × 6 MW (SASAC, Nov 2022); CCCC Third Harbour built monopiles for 25 of them (WeChat source, not machine-checkable); the other lot of 25 still not found this round. Xinhua (Jun 2026) only says the piles reach 50 m into the seabed, without the type.",
+  "sources": [
+   {
+    "url": "http://www.sasac.gov.cn/n2588025/n2588124/c26784560/content.html",
+    "quote": "共布置有50台单机容量6兆瓦的海上风电机组及一座220千伏海上升压站"
+   },
+   {
+    "url": "https://www.news.cn/20260608/89c8b23d2cbb4d8ba9d560e88d62f153/c.html",
+    "quote": "这些风机安装在距离海岸14-18公里的莱州湾海域，水深7-9米，基桩已打入海底50米"
+   }
+  ]
+ },
+ {
+  "farm": "Shandong Energy Bozhong B",
+  "kind": "foundation",
+  "status": "none",
+  "type": "unknown",
+  "parts": null,
+  "turbines": 47,
+  "note_zh": "查不到型式：47 部 8.5 MW，2022-07-11 首樁沉樁（電力網 2023-01-03）；報導未寫基礎型式。同文另有輪轂高度 130 m（尺寸線索，供 farm_dimensions 參考）。東營市政府網站連不上。",
+  "note_en": "Type not found: 47 × 8.5 MW, first pile driven 11 Jul 2022 (chinapower, 3 Jan 2023); no report states the foundation type. The same article gives a 130 m hub height (a dimension lead for farm_dimensions). The Dongying government site could not be reached.",
+  "sources": [
+   {
+    "url": "http://mm.chinapower.com.cn/flfd/xmjz/20230103/182345.html",
+    "quote": "B场址项目总装机规模39.95万千瓦，安装47台8.5兆瓦北方区域单机功率最大风力发电机组，7月11日首桩沉桩，9月8日完成首台风机吊装，轮毂高度130米，叶轮直径230米"
+   }
+  ]
+ },
+ {
+  "farm": "Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project",
+  "kind": "foundation",
+  "status": "none",
+  "type": "unknown",
+  "parts": null,
+  "turbines": 38,
+  "note_zh": "查不到型式：38 部 8 MW，2022-07-24 首根風機基礎鋼管樁沉樁（山東省能源局）；《中國能源報》2025-08 只寫塔筒與鋼管樁由多家企業生產、開兩個打樁作業面，未寫型式。",
+  "note_en": "Type not found: 38 × 8 MW, first turbine-foundation steel pile driven 24 Jul 2022 (Shandong Energy Administration); China Energy News (Aug 2025) only says towers and steel piles came from several makers with two piling spreads, not the type.",
+  "sources": [
+   {
+    "url": "http://nyj.shandong.gov.cn/art/2022/12/21/art_253733_10295458.html",
+    "quote": "7月24日，首根风机基础钢管桩沉桩；9月21日，首台风机吊装；11月25日，首批13台风机并网"
+   },
+   {
+    "url": "https://paper.people.com.cn/zgnyb/pc/content/202508/18/content_30097363.html",
+    "quote": "创新采用“多厂家分产+同厂多址并行”模式，塔筒与钢管桩由多家企业协同生产"
+   }
+  ]
+ },
+ {
+  "farm": "CGN Fanshi II",
+  "kind": "foundation",
+  "status": "lead",
+  "type": "jk",
+  "parts": null,
+  "turbines": 58,
+  "note_zh": "線索：58 部＝33 部 18 MW＋25 部 16.2 MW（國資委）；二標段 25 部金風 GWH266-16.2MW 於 2026-07 完成全場吊裝（金風科技），II 標段風機基礎為四腿桁架式導管架（天順風能 2026-05 發運，百家號轉龍船風電網；同文仍寫舊規劃 63 台 16.2 MW）。一標段 33 部 18 MW 的基礎型式未找到，不能確定全場皆為導管架。",
+  "note_en": "Lead: 58 turbines = 33 × 18 MW + 25 × 16.2 MW (SASAC); lot 2's 25 Goldwind GWH266-16.2MW units were all installed by July 2026 (Goldwind), and the lot-II turbine foundations are four-leg lattice jackets (shipped by Titan Wind, May 2026, Baijiahao via Longchuan; the same article still has the old plan of 63 × 16.2 MW). The foundations of lot 1's 33 × 18 MW units were not found, so an all-jacket farm cannot be confirmed.",
+  "sources": [
+   {
+    "url": "http://www.sasac.gov.cn/n2588025/n2588124/c35451161/content.html",
+    "quote": "共安装33台单机容量18兆瓦和25台单机容量16.2兆瓦的海上风力发电机组"
+   },
+   {
+    "url": "https://stock.10jqka.com.cn/20260729/c678516369.shtml",
+    "quote": "近日，中广核阳江帆石二二标段项目完成全场吊装，25台 金风科技（002202） GWH266-16.2MW机组批量应用于此。"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1865040879894946605&wfr=spider&for=pc",
+    "quote": "本次发运的Ⅱ标段导管架为项目核心基础设备，单座高约80米、重约2000吨，采用四腿式桁架结构"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Jiangsu Xiangshui",
+  "kind": "foundation",
+  "status": "lead",
+  "type": "mx",
+  "parts": null,
+  "turbines": 55,
+  "note_zh": "仍是線索、出處互相矛盾：55 部（37 部 4 MW＋18 部 3 MW），場內有 2 座吸力筒試驗基礎（東合南岩土）；2017-06 世界首座複合筒型基礎連同 3 MW 風機在響水海上風電場一步式安裝（中國能源報），是否屬於這 55 部未寫明；Power Technology 施工前寫「將採用高樁承台」，GlobalData 資料庫頁則寫單樁陣列。各型式座數皆查不到。",
+  "note_en": "Still a lead, with conflicting sources: 55 turbines (37 × 4 MW + 18 × 3 MW) with two suction-bucket test foundations in the farm (geoseu); in June 2017 the world's first composite bucket foundation with a 3 MW turbine was installed in one step at the Xiangshui farm (China Energy News), not stated to be one of the 55; Power Technology said before completion the turbines “will” sit on high-rise pile caps, while a GlobalData profile says monopiles. No per-type counts found.",
+  "sources": [
+   {
+    "url": "https://www.geoseu.cn/yanjiuyuan/5136.html",
+    "quote": "共安装37台单机容量为4MW风电机组和18台单机容量为3MW风电机组。该场址以软土地基为主，并在风电场内运用了两台吸力筒试验基础。"
+   },
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2017-06/26/content_1786482.htm",
+    "quote": "近日，世界首座复合筒型风机基础及3兆瓦风机结构在江苏响水海上风电场一步式安装完成。"
+   },
+   {
+    "url": "https://www.power-technology.com/projects/jiangsu-xiangshui-offshore-wind-farm/",
+    "quote": "The project will include wind turbines rated at 3MW and 4MW and based on high-rise pile cap foundations of 146.5m in height."
+   },
+   {
+    "url": "https://www.energymonitor.ai/?p=104383",
+    "quote": "An array of monopile foundations feature in the phase."
+   }
+  ]
+ }
+]

@@ -15,6 +15,25 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.1 — 2026-10-07
+
+- Foundation types (every quote checked with `check_quotes.py`): Datang Nan'ao Lemen I is all monopiles (post-construction sea-use report and completion
+  acceptance), Longyuan Rudong Intertidal 150 MW Demo has 37 monopiles + 21 multi-pile jackets, CTG Yangjiang Shapa phase 4 has 7 monopiles + 36 jackets and
+  phase 5 has 11 high-rise pile caps + 23 jackets + 13 composite buckets (supplementary sea-use reports published by the Yangjiang natural resources bureau in 2023).
+  82 of China's 140 operating offshore farms are now known (about 64% of capacity); 263 of all 332 operating offshore farms, 81.1% of capacity.
+- Dimensions: hub heights for Lemen I (105 m), Shapa phase 4 (113 m) and Guangdong Energy Yangjiang Shaba (103.6–113 m) from the same reports, plus water depth
+  for the Rudong intertidal demo, Shapa phase 5 and Qingzhou 4; Shapa phase 2 now follows its report (depth 21–26 m, rotor 178 m: MingYang's MySE6.45-180 has a
+  178 m rotor, the model number is not the diameter). Shapa phases 1 and 3 have verified dimensions but no foundation type yet; they wait in `tools/research/`.
+- Farm record fixes (farm layer, foundations and OpenStreetMap turbine matching rebuilt):
+  - Turbine fields corrected from as-built sources: Xiangshan Tuci (CSSC Haizhuang 8 MW class; its stored 2022 is wrong and the real connection year is
+    unverified, which the card says), Huaneng Cangnan 4 (77 Envision 5.2 MW), Jiazi II (50 × 8 MW), Huaneng Guanyun (46 × 6.45 MW + 2 × 3 MW), CTG Changyi (50 × 6 MW),
+    Bozhong G (35 × 10 MW + 4 × 12.6 MW), Fanshi II (33 × 18 MW + 25 × 16.2 MW), Putian Shicheng, Tianjin Nangang, Guangdong Energy Yangjiang Shaba, Shapa phase 3
+    and Zhuanghe III.
+  - GEM's four Dafeng H8-1, H9, H15 and H17 records are the four sites of CTG's Dafeng 800 MW and are removed as duplicates; Zhuanghe IV-2 reached full
+    capacity in Sept 2024 and is now operating; Liu'ao area E has no construction record and moves back to pre-construction.
+  - The OpenStreetMap turbine groups matched to Jiazi II and Shapa phases 3 and 5 no longer fit the corrected turbine counts and are no longer drawn (fewer
+    matches rather than wrong ones).
+
 ## v2.30.0 — 2026-10-07
 
 - The globe's "Sea zones" layer adds national offshore wind areas (pink outlines like Taiwan's potential sites; names and areas show up close):

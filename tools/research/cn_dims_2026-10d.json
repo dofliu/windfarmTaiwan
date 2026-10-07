@@ -1,32 +1,5 @@
 [
  {
-  "farm": "Datang Nan'ao Lemen I",
-  "kind": "dimensions",
-  "status": "verified, waiting for a foundation row",
-  "depth": [
-   18,
-   27
-  ],
-  "hub": 105,
-  "rotor": 154,
-  "note_zh": "《大唐南澳勒門Ⅰ海上風電項目變更海域使用補充論證報告書》（汕頭市政府公開，2026 年；本次論證依「實際建設方案」，項目 2021 年建成）：35 台上海電氣 7 MW 風機，風輪直徑 154 m、輪轂高度 105 m；場址水深 18–27 m（同報告另一處寫 18–25 m，海底高程 −18.0～−25.1 m）。原核准方案寫「風機的高度為 100 m」，與建成值不同，採報告中描述建成機組的 105 m。（尺寸已核對，可寫進 tools/farm_dimensions.py，但這座還沒有水下基礎型式，建置只接受已在基礎對照表的風場。）",
-  "note_en": "Datang Nan'ao Lemen I supplementary sea-use change report (Shantou government, 2026; argued on the actual as-built scheme, project built in 2021): 35 Shanghai Electric 7 MW turbines with a 154 m rotor and 105 m hub height; site depth 18–27 m (another section gives 18–25 m, seabed −18.0 to −25.1 m). The approved scheme gave a 100 m height; the 105 m describing the built turbines is used. (Dimensions verified and ready for tools/farm_dimensions.py, but the farm has no foundation type yet and the build only accepts farms in the foundation table.)",
-  "sources": [
-   {
-    "url": "https://www.shantou.gov.cn/attachment/0/156/156038/2544766.pdf",
-    "quote": "本项目 35 台 7WM 风机采用的上海电气， 其风机直径为154 m， 风机轮毂高 度 105 m"
-   },
-   {
-    "url": "https://www.shantou.gov.cn/attachment/0/156/156038/2544766.pdf",
-    "quote": "本次论证根据实际建设方案， 具体论证内容与已批复的海域使用论证报告的 主要对比见表 1.1-1"
-   },
-   {
-    "url": "https://www.shantou.gov.cn/attachment/0/156/156038/2544766.pdf",
-    "quote": "项目风电场场址水深范围为 18m~27m"
-   }
-  ]
- },
- {
   "farm": "CGN Fanshi II",
   "kind": "dimensions",
   "status": "verified, waiting for a foundation row",
@@ -112,29 +85,6 @@
    {
     "url": "http://nyj.shandong.gov.cn/art/2022/12/21/art_253733_10295458.html",
     "quote": "场址中心距离海岸12公里，水深6.2—8.2米。风电场规划海域面积48平方公里，总投资约30亿元，总装机容量304兆瓦，规划建设38台单机容量8兆瓦风电机组"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Rudong Intertidal 150 MW Demo",
-  "kind": "dimensions",
-  "status": "verified, waiting for a foundation row",
-  "depth": [
-   0,
-   5
-  ],
-  "hub": null,
-  "rotor": 101,
-  "note_zh": "Power Technology（2013，建成後）：如東 150 MW 潮間帶風場離岸 3–8 km，低潮時露灘、高潮時水深最多 5 m；一期 21 台西門子 2.38 MW（葉輪 101 m）＋17 台華銳 3 MW（葉輪 90 m），二期 20 台金風 2.5 MW（葉輪 100 m）；葉輪直徑取最大機型 101 m。輪轂高度未查到。（尺寸已核對，可寫進 tools/farm_dimensions.py，但這座還沒有水下基礎型式，建置只接受已在基礎對照表的風場。）",
-  "note_en": "Power Technology (2013, after completion): the 150 MW Rudong intertidal farm lies 3–8 km offshore, dry at low tide and covered by up to 5 m of water at high tide; phase I has 21 Siemens 2.38 MW (101 m rotor) and 17 Sinovel 3 MW (90 m), phase II 20 Goldwind 2.5 MW (100 m); rotor is the largest model, 101 m. Hub height not found. (Dimensions verified and ready for tools/farm_dimensions.py, but the farm has no foundation type yet and the build only accepts farms in the foundation table.)",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/projects/jiangsu-rudong-offshore-intertidal-wind-farm/",
-    "quote": "The location becomes dry with low tide but is covered by up to five meters of water at high tide."
-   },
-   {
-    "url": "https://www.power-technology.com/projects/jiangsu-rudong-offshore-intertidal-wind-farm/",
-    "quote": "The 100MW phase I is installed with 21 Siemens wind turbines each rated 2.38MW with rotor diameter of 101m and 17 Sinovel wind turbines each rated 3MW with rotor diameter of 90m. The 50MW phase II was installed with 20 Goldwind wind turbines each rated 2.5MW with rotor diameter of 100m."
    }
   ]
  },
@@ -356,6 +306,175 @@
    {
     "url": "https://power-technology.com/?p=215390",
     "quote": "Cangnan 4 Offshore Wind Farm (Cangnan 4 Offshore Wind Farm Phase I) is equipped with Envision Energy. The phase consists turbines with 5.2MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "farm": "CTG Yangjiang Shapa Phase 1",
+  "kind": "dimensions",
+  "status": "verified, waiting for a foundation row",
+  "depth": [
+   27,
+   33
+  ],
+  "hub": 110,
+  "rotor": 158,
+  "note_zh": "《三峽新能源陽西沙扒300MW海上風電場項目海域使用補充論證報告書》（公示稿，陽江市自然資源局 2023-09-07 公示）：項目性質為「已建項目」，調整後已建成 55 台 5.5 MW 風機；表 2.2.1-2「調整後參數」MySE5.5-155 預裝輪轂高度 110 m、風輪直徑 158 m（調整前可研值為 105.7 m／157.738 m，不採用）；場址水深 27–33 m。表中用語為「預裝輪轂高度」，是建成後補充論證所列實際機型參數。（尺寸已核對，這座還沒有水下基礎型式。）",
+  "note_en": "Supplementary sea-use report for CTG Yangxi Shapa 300 MW (public version, Yangjiang Natural Resources Bureau notice of 7 Sep 2023): the project is listed as \"already built\", with 55 x 5.5 MW turbines completed; table 2.2.1-2 \"after adjustment\" gives MySE5.5-155 with a pre-set (\"预装\") hub height of 110 m and rotor 158 m (feasibility values 105.7 m / 157.738 m not used); site depth 27–33 m. (Dimensions verified; the farm has no foundation type yet.)",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
+    "quote": "（4）项目性质：已建项目"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
+    "quote": "调整后，项目已建设完成 55 台 5.5MW 的风电机组，1 座 220kV 海上升压"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
+    "quote": "表 2.2.1-2 调整前后风机主要设备特性对比表 项目 单位 调整前参数 调整后参数 风机型号 MySE5.5-155 MySE5.5-155 设计寿命 年 25 25 额定功率 kW 5500 5500 预装轮毂高度 m 105.7 110 风轮直径 m 157.738 158"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
+    "quote": "风电场的场址中心点距离 沙扒镇南侧海岸最短距离约 28.2 km， 场址水深范围27~33m"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Yangjiang Shapa Phase 3",
+  "kind": "dimensions",
+  "status": "verified, waiting for a foundation row",
+  "depth": [
+   23,
+   32
+  ],
+  "hub": [
+   106,
+   112.5
+  ],
+  "rotor": 178,
+  "note_zh": "《三峽廣東陽江陽西沙扒三期400MW海上風電場項目海域使用補充論證報告書》（公示稿，2023-09）：2020-04-20 開工、2021-12-16 建設完成；調整後 A1 區 46 台 6.45 MW 固定式＋1 台 5.5 MW 漂浮式、A2 區 15 台 6.45 MW，機型為明陽 MySE6.45-180、金風 GW171/6450 與明陽 MySE5.5-155（漂浮式）；表 2.2.1-2 調整後輪轂高度分別為 111、112.5、106 m，風輪直徑 178、171、155 m（表中 MySE6.45-180 的風輪直徑寫 178 m）。只算固定式機組為 111–112.5 m。水深：A1 區 28–32 m、A2 區 23–25 m。（尺寸已核對，這座還沒有水下基礎型式。）",
+  "note_en": "CTG Yangxi Shapa phase 3 supplementary sea-use report (public version, Sep 2023): construction 20 Apr 2020 – completed 16 Dec 2021; as adjusted, A1 has 46 x 6.45 MW fixed + 1 x 5.5 MW floating and A2 15 x 6.45 MW, models Mingyang MySE6.45-180, Goldwind GW171/6450 and Mingyang MySE5.5-155 (floating); table 2.2.1-2 (after adjustment) gives hub heights 111, 112.5 and 106 m and rotors 178, 171 and 155 m (the table lists 178 m for the MySE6.45-180). Fixed units only: 111–112.5 m. Depth: A1 28–32 m, A2 23–25 m. (Dimensions verified; the farm has no foundation type yet.)",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
+    "quote": "其中 A1 区场址中 心距离陆地最近距离约 27km，水深在 28m~32m 之间；A2 区场址中心距离陆地 最近距离约 15km，水深 23m~25m。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
+    "quote": "本项目于 2020 年 4 月 20 日开工，2021 年 12 月 16 日建设完成"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
+    "quote": "调整后项目 A1 区建设 46 台 6.45MW 固定式风机及 1 台 5.5MW 漂浮式风机，A2 区建设 15 台 6.45MW 固 定式风机，机型采用明阳 MySE6.45-180、金风 GW171/6450 及明阳 MySE5.5155 机型"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
+    "quote": "表 2.2.1-2 风机设备特性表 项目 单位 调整前 调整后 风机型号 / 金风 GW6.45MW-174 明阳 MySE6.45-180 金风 GW171/6450 明阳 MySE5.5155 额定功率 kW 6450 6450 6450 5500 轮毂高度 m 109 111 112.5 106 风轮直径 m 174 178 171 155"
+   }
+  ]
+ },
+ {
+  "farm": "CGN Huizhou Gangkou I & II",
+  "kind": "dimensions",
+  "status": "lead",
+  "depth": null,
+  "hub": null,
+  "rotor": null,
+  "note_zh": "廣東省科技廳轉載（2023）：港口二期 75 萬千瓦首台風機為 8.5 MW 機型，「風機輪轂中心距海平面135.9米」；只屬二期的一種機型（二期計畫 10×8.5＋45×12＋9×14 MW），一期 25 萬千瓦未查到，暫不寫。資料問題：紀錄機型「Mingyang 6.45-8 MW」與二期 8.5/12/14 MW 不符；二期 2023-12-12 投產（中證網），年份 2021 只代表一期。",
+  "note_en": "Guangdong S&T Dept (2023): the first phase-II turbine is an 8.5 MW unit with hub centre 135.9 m above sea level; this covers one model of phase II only (phase II plan 10 x 8.5 + 45 x 12 + 9 x 14 MW) and nothing was found for the 250 MW phase I, so nothing written. Data: the record turbine \"Mingyang 6.45-8 MW\" does not match phase II (8.5/12/14 MW); phase II entered service 12 Dec 2023 (cs.com.cn), so year 2021 is phase I only.",
+  "sources": [
+   {
+    "url": "http://gdstc.gd.gov.cn/kjzx_n/gdkj_n/content/post_4196989.html",
+    "quote": "中广核惠州港口二期75万千瓦海上风电项目位于惠州市惠东县港口镇南部海域，水深范围31m—40m，距离陆地最近距离约22km，拟布置10台8.5MW风机、45台12MW风机、9台14MW风机"
+   },
+   {
+    "url": "http://gdstc.gd.gov.cn/kjzx_n/gdkj_n/content/post_4196989.html",
+    "quote": "此次吊装的风机为8.5MW机型，风机轮毂中心距海平面135.9米，叶片长111米。"
+   },
+   {
+    "url": "https://www.cs.com.cn/xwzx/hg/202312/t20231212_6380141.html",
+    "quote": "中广核惠州港口100万千瓦海上风电场分两期建设，共计安装104台海上风电机组，一期25万千瓦项目于2020年12月13日海上主体工程开工，2021年12月28日全容量并网；二期75万千瓦项目于2023年3月15日海上主体工程开工，2023年12月12日正式投产。"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Jieyang Shenquan I",
+  "kind": "dimensions",
+  "status": "lead",
+  "depth": null,
+  "hub": null,
+  "rotor": null,
+  "note_zh": "揭陽新聞網（2021-04-26）：首台吊裝的 37 號機為 5.5 MW，葉輪直徑約 158 m、「輪轂中心高度約106米」；只屬 37 台明陽 5.5 MW，29 台上海電氣 7 MW 未查到，且為約數，暫不寫。",
+  "note_en": "Jieyang news (26 Apr 2021): the first unit (no. 37) is a 5.5 MW turbine with rotor about 158 m and hub centre about 106 m; covers only the 37 Mingyang 5.5 MW units (the 29 Shanghai Electric 7 MW units not found) and is approximate, so not written.",
+  "sources": [
+   {
+    "url": "http://www.jieyang.gov.cn/zgb/jysq/content/post_536589.html",
+    "quote": "本次吊装成功的37号风机机型为5.5MW机组，叶片长度达76.6米，叶轮直径约158米，轮毂中心高度约106米"
+   },
+   {
+    "url": "https://www.shanwei.gov.cn/attachment/0/27/27643/787473.pdf",
+    "quote": "布置 29 台上海电气 7MW 风电机组及 37 台明阳智能 5.5MW 风电机组"
+   }
+  ]
+ },
+ {
+  "farm": "Guangdong Zhanjiang Xuwen Offshore wind farm",
+  "kind": "dimensions",
+  "status": "lead",
+  "depth": null,
+  "hub": null,
+  "rotor": null,
+  "note_zh": "徐聞縣《國家電投廣東湛江徐聞海上風電場300MW增容項目水土保持監測總結報告》（2025-11）：「風電場預裝輪轂高度105m」是風資源段落沿用的設計值，且只屬增容 300 MW（2022-12 開工、2025-09 竣工），不採用。資料問題：紀錄 906 MW／2022 年似把 2025 年才完工的增容項目算進去，請核對。",
+  "note_en": "Xuwen county soil-conservation monitoring summary for the SPIC Xuwen 300 MW expansion (Nov 2025): \"pre-set hub height 105 m\" is a design figure carried in the wind-resource text and covers only the 300 MW expansion (Dec 2022 – Sep 2025); not used. Data: the record (906 MW, 2022) appears to include the expansion completed only in 2025; please check.",
+  "sources": [
+   {
+    "url": "http://www.xuwen.gov.cn/zjxwswj/attachment/0/272/272016/2144156.pdf",
+    "quote": "风电场预装轮毂高度 105m 平均风速 7.72m/s"
+   },
+   {
+    "url": "http://www.xuwen.gov.cn/zjxwswj/attachment/0/272/272016/2144156.pdf",
+    "quote": "项目于 2022 年 12 月开工，2025 年 9 月竣工并投入使用，总工期 34 个月。"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Yuhuan 2",
+  "kind": "dimensions",
+  "status": "lead",
+  "depth": null,
+  "hub": null,
+  "rotor": null,
+  "note_zh": "《玉環2號海上風電項目環境影響報告書（報批稿）》：調整為 6 台 18 MW＋25 台 14 MW、508 MW，場區水深 36–40 m；屬環評設計方案，輪轂高度未採用。資料問題：紀錄機型「8-10 MW class」與環評 14/18 MW 不符，請核對建成機型與是否已全容量併網。",
+  "note_en": "Yuhuan 2 EIA report (approval version): changed to 6 x 18 MW + 25 x 14 MW = 508 MW, site depth 36–40 m; EIA design, so no hub written. Data: the record turbine class \"8-10 MW\" does not match the EIA 14/18 MW; check the built models and completion.",
+  "sources": [
+   {
+    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3519/site/attach/0/6e56123fb9ab4a9eb94fad0c97f7c7a8.pdf",
+    "quote": "现调整为 6 台单机容量为 18MW 风电机组和 25 台单机容量为 14MW 风电机组，总装机容 量 508MW。"
+   },
+   {
+    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3519/site/attach/0/6e56123fb9ab4a9eb94fad0c97f7c7a8.pdf",
+    "quote": "场区中心点离岸距离 34km，水深 36m~40m"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Dalian Zhuanghe III",
+  "kind": "dimensions",
+  "status": "lead",
+  "depth": null,
+  "hub": null,
+  "rotor": null,
+  "note_zh": "世紀新能源網轉龍源振華（2020-11-19）：「海域平均水深15米」（只有平均值，沒有範圍）；機組為 2×3 MW＋50×3.3 MW＋21×6.45 MW＝300 MW 規模。資料問題：紀錄機型「Goldwind/Sewind 4-6 MW」不符。輪轂高度未查到。",
+  "note_en": "ne21.com reposting Longyuan Zhenhua (19 Nov 2020): average sea depth 15 m (average only, no range); turbines 2 x 3 MW + 50 x 3.3 MW + 21 x 6.45 MW (300 MW). Data: the record turbine \"Goldwind/Sewind 4-6 MW\" is wrong. Hub not found.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-135820.html",
+    "quote": "本工程布置2台单机容量3MW风电机组、50台单机容量3.3MW风电机组、21台单机容量6.45MW风电机组，装机规模为300MW。"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-135820.html",
+    "quote": "大连庄河项目海域平均水深15米"
    }
   ]
  }
