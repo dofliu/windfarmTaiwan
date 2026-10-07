@@ -389,21 +389,6 @@
   ]
  },
  {
-  "farm": "CTG Yangjiang Shapa Phase 5",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "note_zh": "三峽陽江沙扒五期400 MW，2021年全容量併網（沙扒五期合計1.7 GW、269台）。基礎型式與座數未查到出處（搜尋額度用盡）。",
-  "note_en": "CTG Yangjiang Shapa phase 5, 400 MW, fully grid-connected in 2021 (the five Shapa phases total 1.7 GW, 269 turbines). No source found for foundation type or counts (search budget exhausted).",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-167345.html",
-    "quote": "三峡阳江沙扒海上风电场项目位于广东省阳江市阳西县沙扒镇南面海域，规划总装机容量170万千瓦，分为五期建设，总投资约350亿元"
-   }
-  ]
- },
- {
   "farm": "CGN Shanwei Jiazi II",
   "type": "unknown",
   "parts": null,
@@ -796,25 +781,6 @@
   ]
  },
  {
-  "farm": "Datang Nan'ao Lemen I",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 35,
-  "note_zh": "大唐南澳勒門Ⅰ：35 台上海電氣 7.0MW，2021-12-31 全容量投產，報導提到「單根鋼管樁 18 小時最快沉樁」（羊城晚報 2021-12-31），暗示單樁但未明寫基礎型式。",
-  "note_en": "Datang Nan'ao Lemen I: 35 Shanghai Electric 7.0 MW turbines, full operation 2021-12-31; the report cites a record of 18 hours for driving a single steel pile (Yangcheng Evening News, 2021-12-31), which suggests monopiles but does not state the foundation type.",
-  "anomalies": "風機為上海電氣 7.0MW，非 Mingyang 6.45–7MW。",
-  "sources": [
-   {
-    "url": "https://ycpai.ycwb.com/ycppad/content/2021-12/31/content_40487673.html",
-    "quote": "装机总容量245 MW，安装35台7.0MW上海电气SWT7.0-154风机"
-   },
-   {
-    "url": "https://ycpai.ycwb.com/ycppad/content/2021-12/31/content_40487673.html",
-    "quote": "创造了单根钢管桩18小时最快沉桩、单台风机48小时最快吊装记录"
-   }
-  ]
- },
- {
   "farm": "Huaneng Shantou Lemen",
   "type": "unknown",
   "parts": null,
@@ -1047,34 +1013,6 @@
    {
     "url": "https://www.dafeng.gov.cn/art/2025/3/11/art_11828_4300040.html",
     "quote": "2021年，该公司离岸最远距离超80千米H8-2风电场在国内首次应用海上高抗技术"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Rudong Intertidal 150 MW Demo",
-  "type": "mx",
-  "parts": [
-   [
-    "mp",
-    null
-   ],
-   [
-    "jk",
-    null
-   ]
-  ],
-  "turbines": 58,
-  "note_zh": "一期17台華銳3MW＋21台西門子2.38MW（2011），二期20台金風2.5MW（2012），風機基礎採單樁與多樁導管架兩種型式（南通海洋水建 2012；國家能源局 2011-10）；各型式座數未查到。",
-  "note_en": "Phase 1: 17 x Sinovel 3 MW + 21 x Siemens 2.38 MW (2011); phase 2: 20 x Goldwind 2.5 MW (2012); foundations are a mix of monopiles and multi-pile jackets (Nantong Ocean Hydraulic Construction, 2012; NEA, Oct 2011); the split per type was not found.",
-  "anomalies": "機型：西門子2.38 MW（資料庫2.3）、華銳3 MW、金風2.5 MW；共58台。",
-  "sources": [
-   {
-    "url": "http://www.ntoc-china.com/?m=home&c=View&a=index&aid=354",
-    "quote": "该项目位于如东县环港外滩，风机基础采用单桩和多桩导管架二种基础形式。其中一期100MW工程选用17台华锐3MW风机和21台西门子2.38MW风机，2011年6月21日工程正式开工建设，同年年底投产发电。二期50MW工程选用20台金风科技2.5MW风机"
-   },
-   {
-    "url": "http://www.nea.gov.cn/2011-10/26/c_131213139.htm",
-    "quote": "在国内首次采用了钢结构多角架、大直径单桩的风机基础型式"
    }
   ]
  },
@@ -1529,37 +1467,6 @@
    {
     "url": "https://www.ne21.com/news/show-199847.html",
     "quote": "B区项目位于宁德市霞浦县四礵列岛南部的外海区域，水深19～23米，场址中心距海岸线约20km。项目规划装机容量为300MW"
-   }
-  ]
- },
- {
-  "farm": "CTG Yangjiang Shapa Phase 4",
-  "type": "mx",
-  "parts": null,
-  "turbines": null,
-  "note_zh": "沙扒五期（170萬kW、269台）被稱為「海上風電基礎博物館」，混用單樁、四樁導管架、吸力筒導管架、單柱複合筒、芯柱式嵌岩導管架等；四期風機基礎由廣東院設計（國內首個大樁徑四樁導管架、三樁芯柱式嵌岩導管架等），三至五期基礎一標為29座單樁（中交三航，2021-02）。四期各型式座數未查到。",
-  "note_en": "The five Shapa phases (1.7 GW, 269 turbines) are called a 'museum of offshore foundations', mixing monopiles, four-pile jackets, suction-bucket jackets, single-column composite buckets and core-pile rock-socketed jackets; phase 4 foundations were designed by GEDI (China's first large-diameter four-pile jacket and three-pile core-socketed jacket), and foundation lot 1 of phases 3–5 comprised 29 monopiles (CCCC Third Harbor, Feb 2021). Per-type counts for phase 4 not found.",
-  "anomalies": "四期機型資料「Mingyang 6.45」待查：招標與施工新聞稱四期為東方電氣（東氣）機組。",
-  "sources": [
-   {
-    "url": "http://www.gedi.ceec.net.cn/art/2021/12/28/art_48850_2511249.html",
-    "quote": "广东院负责一、二期项目勘察设计，四期项目海上风机基础及35千伏集电线缆设计工作"
-   },
-   {
-    "url": "http://www.gedi.ceec.net.cn/art/2021/12/28/art_48850_2511249.html",
-    "quote": "国内首个大桩径四桩导管架风机基础、国内首个三桩芯柱式嵌岩导管架风机基础"
-   },
-   {
-    "url": "https://www.chinanews.com.cn/m/sh/2021/07-19/9522993.shtml",
-    "quote": "吸力筒导管架、单柱复合筒、芯柱式嵌岩导管架、大直径四桩导管架等多个基础形式均为国内首次使用"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-157562.html",
-    "quote": "中交三航局圆满完成该项目全部29台单桩沉桩施工任务"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-197418.html",
-    "quote": "风电场采用了包括高桩承台基础、导管架桩基础、单桩基础、吸力筒基础和漂浮式基础等8种风电机组基础型式"
    }
   ]
  },

@@ -566,6 +566,15 @@ FOUNDATIONS = [
     F5('CHN', 'CGN Yangjiang Nanpeng Island', 'mx', url='https://www.ne21.com/news/show-135824.html', parts=[["jk", 41], ["mp", 32]],
        zh='中廣核陽江南鵬島400 MW（73台5.5MW）：四樁導管架41台、普通大直徑單樁29台、嵌岩單樁3台（合計單樁32台），2020-11-17全部73台基礎完工，2020-12中旬全容量併網（中廣核新能源2020-11-19、陽江廣播電視台2021-01-26，世紀新能源網轉載）。',
        en='CGN Yangjiang Nanpeng Island, 400 MW (73 x 5.5 MW): 41 four-pile jackets, 29 ordinary large-diameter monopiles and 3 rock-socketed monopiles (32 monopiles in total); all 73 foundations finished 2020-11-17, full grid connection mid-December 2020 (CGN New Energy 2020-11-19, Yangjiang TV 2021-01-26, via ne21).'),
+    F5('CHN', 'CTG Yangjiang Shapa Phase 4', 'mx', url='http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58159/731643.pdf', parts=[['mp', 7], ['jk', 36]],
+       zh='43 部東方 7 MW：7 座單樁＋36 座非嵌岩四樁導管架（沙扒四期海域使用補充論證報告書，陽江市自然資源局 2023-09 公示；2020-04 開工、2021-12 建設完成，'
+          '原核准的 6 單樁＋14 單柱複合筒＋27 嵌岩高樁承台已調整）。',
+       en='43 Dongfang 7 MW turbines: 7 monopiles + 36 non-rock-socketed four-pile jackets (Shapa phase 4 supplementary sea-use report, Yangjiang natural resources bureau, '
+          'Sept 2023; built Apr 2020 – Dec 2021; the approved 6 monopiles + 14 composite buckets + 27 rock-socketed pile caps were changed).'),
+    F5('CHN', 'CTG Yangjiang Shapa Phase 5', 'mx', url='http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58160/731643.pdf', parts=[['pc', 11], ['jk', 23], ['bk', 13]],
+       zh='47 部 6.45 MW：高樁承台 11、導管架 23（非嵌岩 14、芯柱式嵌岩 5、吸力桶 4）、單柱複合筒 13（含 4 座需加配重）（沙扒五期海域使用補充論證報告書，陽江市自然資源局 2023-09 公示，已建項目）。',
+       en='47 × 6.45 MW: 11 high-rise pile caps, 23 jackets (14 non-rock-socketed, 5 core-column rock-socketed, 4 suction-bucket) and 13 single-column composite buckets '
+          '(4 of them ballasted) (Shapa phase 5 supplementary sea-use report, Yangjiang natural resources bureau, Sept 2023, built project).'),
     F5('CHN', 'CTG Yangjiang Shapa Phase 2', 'jk', url='https://www.ne21.com/news/show-166702.html',
        zh='三峽陽江沙扒二期400 MW（62台6.45MW，水深28–32 m），2021-11-27全部機組投產。基礎為導管架：項目設計四樁非嵌岩導管架、芯柱式嵌岩三樁導管架、植入式嵌岩導管架多種型式（三峽新能源2020-08-31），投產報導稱完成國內首個大直徑非嵌岩四樁導管架與芯柱嵌岩三樁導管架施工（三峽能源珠江公司2021-11-29，世紀新能源網轉載）。各型式座數未查到。',
        en='CTG Yangjiang Shapa phase 2, 400 MW (62 x 6.45 MW, 28–32 m water depth), all units in operation 2021-11-27. Jacket foundations: the project designed four-pile non-rock-socketed jackets, core-pile rock-socketed three-pile jackets and implanted rock-socketed jackets (CTG New Energy 2020-08-31); the commissioning report cites China’s first large-diameter non-rock-socketed four-pile jackets and core-pile rock-socketed three-pile jackets (CTG Energy Pearl River 2021-11-29, via ne21). Counts per jacket type not found.'),

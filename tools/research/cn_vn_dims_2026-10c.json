@@ -486,42 +486,6 @@
   ]
  },
  {
-  "farm": "CTG Yangjiang Shapa Phase 4",
-  "kind": "foundation",
-  "type": "mx",
-  "parts": null,
-  "turbines": null,
-  "status": "lead",
-  "note_zh": "線索：四期基礎由廣東院設計，含國內首個大樁徑四樁導管架、三樁芯柱式嵌岩導管架（廣東院 2021-12）；各型式座數未查到。",
-  "note_en": "Lead: phase-4 foundations were designed by GEDI, including China’s first large-diameter four-pile jacket and three-pile core-socketed jacket (GEDI, Dec 2021); per-type counts not found.",
-  "sources": [
-   {
-    "url": "http://www.gedi.ceec.net.cn/art/2021/12/28/art_48850_2511249.html",
-    "quote": "广东院负责一、二期项目勘察设计，四期项目海上风机基础及35千伏集电线缆设计工作"
-   },
-   {
-    "url": "http://www.gedi.ceec.net.cn/art/2021/12/28/art_48850_2511249.html",
-    "quote": "国内首个大桩径四桩导管架风机基础、国内首个三桩芯柱式嵌岩导管架风机基础"
-   }
-  ]
- },
- {
-  "farm": "CTG Yangjiang Shapa Phase 5",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "status": "none",
-  "note_zh": "查不到：五期基礎型式與座數沒有出處；廣東省生態環境廳的海洋環評批覆只寫 47 部 6.45 MW（設計階段）。",
-  "note_en": "Not found: no source for phase-5 foundation types or counts; the Guangdong marine EIA approval only gives 47 × 6.45 MW (design stage).",
-  "sources": [
-   {
-    "url": "https://gdee.gd.gov.cn/attachment/0/392/392937/2997710.PDF",
-    "quote": "总装机容量 303.15MW，共布置 47 台 6.45MW 风力发电机组。"
-   }
-  ]
- },
- {
   "farm": "Huaneng Zhuanghe II",
   "kind": "foundation",
   "type": "mx",
@@ -709,26 +673,6 @@
    {
     "url": "https://www.fj.chinanews.com.cn/news/2024/2024-08-14/552232.html",
     "quote": "项目团队创新性地提出了大直径单桩—桶组合基础形式，解决了大直径单桩施工中的稳桩、调平等一系列问题。"
-   }
-  ]
- },
- {
-  "farm": "Datang Nan'ao Lemen I",
-  "kind": "foundation",
-  "type": "mp",
-  "parts": null,
-  "turbines": 35,
-  "status": "lead",
-  "note_zh": "35 部上海電氣 SWT-7.0-154，2021-12-31 全容量投產；報導只提到「單根鋼管樁 18 小時最快沉樁」（羊城晚報），暗示單樁但沒有寫明型式。廣東省生態環境廳 2021 年環評批覆也只寫「樁基」。",
-  "note_en": "35 Shanghai Electric SWT-7.0-154, full operation on 31 Dec 2021; the report only cites an 18-hour record for driving a single steel pile (Yangcheng Evening News), suggesting monopiles without stating the type. The 2021 EIA approval by the Guangdong environment department only says ‘pile foundations’.",
-  "sources": [
-   {
-    "url": "https://ycpai.ycwb.com/ycppad/content/2021-12/31/content_40487673.html",
-    "quote": "装机总容量245 MW，安装35台7.0MW上海电气SWT7.0-154风机"
-   },
-   {
-    "url": "https://ycpai.ycwb.com/ycppad/content/2021-12/31/content_40487673.html",
-    "quote": "创造了单根钢管桩18小时最快沉桩、单台风机48小时最快吊装记录"
    }
   ]
  },
@@ -993,35 +937,6 @@
    {
     "url": "https://www.ne21.com/news/show-197251.html",
     "quote": "目前，剩余11台10MW风电机组正在建设施工。"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Rudong Intertidal 150 MW Demo",
-  "kind": "foundation",
-  "type": "mx",
-  "parts": [
-   [
-    "mp",
-    17
-   ],
-   [
-    "jk",
-    21
-   ]
-  ],
-  "turbines": 58,
-  "status": "lead",
-  "note_zh": "一期 38 部（17 部華銳 3 MW＋21 部西門子 2.38 MW）中 17 部為單樁、21 部為多樁導管架（中國駐新潟總領事館轉載 2011-12-30）；二期 20 部金風 2.5 MW（2012-11 投產）的型式未查到（南通海洋水建只寫全場用單樁與多樁導管架兩種）。",
-  "note_en": "Of the 38 phase-1 turbines (17 Sinovel 3 MW + 21 Siemens 2.38 MW), 17 are on monopiles and 21 on multi-pile jackets (Chinese Consulate in Niigata repost, 30 Dec 2011); the type of the 20 phase-2 Goldwind 2.5 MW units (Nov 2012) is not found (Nantong Ocean Hydraulic only says the farm uses monopiles and multi-pile jackets).",
-  "sources": [
-   {
-    "url": "https://niigata.china-consulate.gov.cn/zgxw/201112/t20111230_9292410.htm",
-    "quote": "截至目前，龙源电力完成了38台风机吊装，其中17台风机基础采用单桩基础形式，21台风机采用多桩导管架基础形式，一期工程99.3兆瓦容量的顺利建成并投产发电"
-   },
-   {
-    "url": "http://www.ntoc-china.com/?m=home&c=View&a=index&aid=354",
-    "quote": "该项目位于如东县环港外滩，风机基础采用单桩和多桩导管架二种基础形式。其中一期100MW工程选用17台华锐3MW风机和21台西门子2.38MW风机，2011年6月21日工程正式开工建设，同年年底投产发电。二期50MW工程选用20台金风科技2.5MW风机"
    }
   ]
  },

@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 402 rules: 148 records removed (44,360.2 MW of them operating), 254 records fixed.
+- 405 rules: 148 records removed (44,360.2 MW of them operating), 257 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 53 | 26,224.5 | 100 |
+| China | 53 | 26,224.5 | 103 |
 | Colombia | 1 | 8 | 2 |
 | Denmark | 1 | 180 | 1 |
 | Dominican Rep. | 1 | 50 | 6 |
@@ -240,6 +240,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Jiangsu Dafeng H17 (Three Gorges) Offshore wind farm · 200 MW | GEM | duplicate of “CTG Dafeng H8-1 (800 MW)” | CTG's Jiangsu Dafeng 800 MW is made up of sites H8-1, H9, H15 and H17 (98 turbines), fully connected on 15 Dec 2025 (Yangtse Evening Post, Sept 2025; Ziniu News, July 2026); GEM's H17 is one of those sites, already covered by the curated record | [link](https://www.yzwb.net/news/jiangsu/202509/t20250916_264564.html) |
 | Liaoning Dalian Zhuanghe 4 Area II Offshore wind farm · 200 MW | GEM | fixed: status, year, turbines | Huaneng Dalian Zhuanghe IV-2 (east of Shicheng Island, 200 MW, 25 × 8.0 MW) connected its last turbine and reached full capacity on 29 Sept 2024 (Liaoning government, 30 Sept 2024); it was listed as under construction | [link](https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024093014452334478/index.shtml) |
 | Fujian Zhangpu Liu'Ao Offshore wind farm · E · 404 MW | GEM | fixed: status | Liu'ao area E (404 MW) has no record of construction: GlobalData (Oct 2024) still lists it as planned, with construction expected from 2025; moved to pre-construction. GEM's point is about 130 km south of Liu'ao; the real position is unverified | [link](https://power-technology.com/?p=213306) |
+| Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm · 300 MW · 2021 | GEM | fixed: turbines | Guangdong Energy Yangjiang Shaba has 46 MingYang MySE6.45-180 + 1 MySE5.5-155 (position 21) built (supplementary sea-use report, June 2023); the turbine field was empty | [link](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/43/43288/710896.pdf) |
+| CTG Yangjiang Shapa Phase 3 · 400 MW · 2021 | curated | fixed: turbines | Shapa phase 3 has 61 fixed 6.45 MW turbines (MingYang MySE6.45-180 and Goldwind GW171/6450) + 1 floating 5.5 MW MySE5.5-155 (supplementary sea-use report, Sept 2023; completed 16 Dec 2021) | [link](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf) |
+| CTG Dalian Zhuanghe III · 300 MW · 2020 | curated | fixed: turbines | CTG Zhuanghe III has 2 × 3 MW, 50 × 3.3 MW and 21 × 6.45 MW, 300 MW in all (ne21 citing Longyuan Zhenhua, Nov 2020); it was stored as "Goldwind/Sewind 4–6 MW" | [link](https://www.ne21.com/news/show-135820.html) |
 
 ## Colombia (COL)
 

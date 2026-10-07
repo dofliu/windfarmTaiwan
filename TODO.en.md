@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 7 Oct 2026: v2.30.0, national offshore wind areas, the Hsinchu site, farm record fixes, hub height round 7; the next conversation starts here)
+## In progress (hand-off, 7 Oct 2026: v2.30.1, foundation and hub height research, turbine field and status fixes; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,23 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 7 Oct 2026 (v2.30.1): the three follow-ups to v2.30.0 (three sub-agents in parallel, every quote checked with `check_quotes.py`):
+  1. Foundations: Lemen I (monopiles), the Longyuan Rudong intertidal demo (37 monopiles + 21 multi-pile jackets), Shapa phase 4 (7 monopiles + 36 jackets) and
+     phase 5 (11 pile caps + 23 jackets + 13 composite buckets). The best source type is the "supplementary sea-use reports" the Yangjiang natural resources bureau
+     published in 2023 (written after construction, with the actual turbines, foundations and hubs). Still leads (`tools/research/cn_fd_2026-10e.json`): Jiazi II
+     (monopiles only in the adjusted design), Changyi (only 25 monopiles known), Fanshi II (only lot II's jackets), Yuhuan 1 (north zone only), Xiangshui
+     (sources disagree), Bozhong B and Laizhou (nothing found).
+  2. Hub heights round 8: 34 of the 75 farms searched; hubs written for Lemen I, Shapa phase 4 and Guangdong Energy Shaba; Shapa phases 1 (110 m) and 3
+     (106–112.5 m) are verified but have no foundation type yet (`tools/research/cn_dims_2026-10d.json`). Shapa phase 2's 111 / 109 m hubs are headed
+     "recommended" and are not used. Nearly all of the 41 farms not reached are in Jiangsu (the Nantong ecology bureau's acceptance files are blocked).
+     MingYang's MySE6.45-180 has a 178 m rotor: the "180 m" of Huizhou Gangkou phase I and Jiazi I came from the model name and should be checked against each farm's reports.
+  3. Data doubts: Xiangshan Tuci is connected (year unverified, the card says so); eight turbine fields corrected; the four Dafeng H8-1/H9/H15/H17 duplicates
+     removed; Zhuanghe IV-2 operating; Liu'ao area E back to pre-construction. Still to verify: the real positions of Jiangjiasha H1 · 1 and H2 (about 32.7° N,
+     no citable exact point), whether the Fengxian Haiwan expansion is on the sea wall or offshore, Liu'ao area E's position, Funeng's Pinghai Bay area F (200 MW,
+     approved 2017) seems to have no record; the turbine fields of Huizhou Gangkou phase II (plan 10 × 8.5 + 45 × 12 + 9 × 14 MW), Pinghai Bay phase 2 (NDB:
+     41 × 6 MW) and phase 3 (44 turbines, 308 MW), Guoxin Dafeng 850 MW (the owner says its first batch use of 8.5 MW), Rudong H2 (GlobalData: 70 CSSC Haizhuang
+     H171-5.0) and the Pingtan bridge distributed farm (5 GW154-6.7 only in a pre-award notice) lack directly quotable sources; Xuwen's 906 MW / 2022 seems to
+     include the 300 MW expansion finished in 2025; Huaneng Yuhuan 2's turbines are only the EIA design (6 × 18 + 25 × 14 MW).
 - 7 Oct 2026 (v2.30.0): three follow-ups to the previous release:
   1. "Sea zones" adds national offshore wind areas: Japan's 13 promotion zones (`data/global/sources/jpn_promotion_zones.json`, vertices transcribed from each
      designation notice; zones bounded by the shore are drawn as the published lines only) and official open layers of six North Sea countries (Netherlands,
@@ -110,8 +127,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 259 of 331 operating offshore farms have a known foundation type (80.2% of capacity); dimensions for 242 farms,
-  all three for 170; 388 clean-up rules; card photos for 64 farms.
+- Current figures: 263 of 332 operating offshore farms have a known foundation type (81.1% of capacity); dimensions for 247 farms,
+  all three for 173; 405 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -218,7 +235,7 @@ and move finished items to the topic lists below.
      20 unknown), Putian Shicheng (lot II: 19 pile caps of 29), Taizhou 1 (lot B: 19 monopiles + 1 pile-bucket), Changyi (25 monopiles), Danzhou CZ3 site 1
      (25 suction-bucket jackets) and Zhuanghe III (55 of 73).
      The data problems noted in this round were checked and fixed in v2.30.0 (see the v2.30.0 entry under "In progress").
-   - The other Chinese offshore farms (61 of the 139 operating) and Vietnam (8 of 22, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (58 of the 140 operating) and Vietnam (8 of 22, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
