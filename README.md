@@ -2,28 +2,43 @@
 
 [English](./README.en.md) ｜ 中文（本頁）
 
-台灣風力發電即時資訊 × 全球風電發展 1980–2025。一個網站兩種尺度：
+台灣風力發電即時資訊 × 全球風電發展 1980–2025（時間軸另有「2026 最新可得」）。一個網站兩種尺度：
 
 - **台灣此刻**：以水庫水情般的「出力量柱」呈現全台 30 個風力機組／風場的即時發電，資料直接對接台電與政府開放資料。
-- **全球 45 年**：3D 地球儀重播 1980–2025 年各國風電成長，可一路放大到單一風場（約 2.3 萬座，含興建中與規劃中專案），
+- **全球 45 年**：3D 地球儀重播 1980 年以來各國風電的成長，可一路放大到單一風場（約 3.1 萬筆風場紀錄：營運中約 2.1 萬座，另有約 9,600 個興建中與規劃中專案），
   並以 13 章「風電知識」說明歷史、技術、各國發展與台灣的位置。
 
 線上：`https://dofliu.github.io/windfarmTaiwan/`
 
-版本與更新紀錄見 [CHANGELOG.md](./CHANGELOG.md)（網站頁尾會顯示目前版本）；後續規劃與待辦見 [ROADMAP.md](./ROADMAP.md)、[TODO.md](./TODO.md)；各國風場資料覆蓋率與待查證項目見
-[docs/data-coverage.md](./docs/data-coverage.md)，逐筆刪除或修正的風場紀錄與理由見 [docs/data-cleanup.md](./docs/data-cleanup.md)，離岸風場的水下基礎型式逐場清單見
-[docs/foundations.md](./docs/foundations.md)；
-其他國家即時發電資料的可行性評估見 [docs/live-data-sources.md](./docs/live-data-sources.md)。
-
-**單檔版**：[下載 windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)
-（約 6 MB），存到電腦後直接用瀏覽器開啟即可，不需架站；詳見下方「單檔版」。
-**全球風電地圖公開版**（給一般人）：[下載 windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html)
-（約 6 MB），只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層，離線也能開。
-
 開發者：國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）
 
-**專案狀態（2026-09-27，v2.11.1）**：主要功能已完成，專案暫告段落、進入維護期，不再新增功能。台灣即時資料的自動更新照常運作；
-維護要注意的事見 [DEPLOY.md](./DEPLOY.md)「維護」，之後要接續的工作見 [TODO.md](./TODO.md) 最上面。
+## 文件
+
+所有文件都有中文與英文兩個版本，內容一致；網站介面也是中英雙語（右上角切換）。
+
+| 文件 | 中文 | English | 內容 |
+|---|---|---|---|
+| 說明（本頁） | [README.md](./README.md) | [README.en.md](./README.en.md) | 功能摘要、架構、檔案、資料更新、來源與授權 |
+| **使用說明** | [docs/user-guide.md](./docs/user-guide.md) | [docs/user-guide.en.md](./docs/user-guide.en.md) | 每一頁、每個按鈕與圖層怎麼用，網址參數，常見問題 |
+| 更新紀錄 | [CHANGELOG.md](./CHANGELOG.md) | [CHANGELOG.en.md](./CHANGELOG.en.md) | 每個版本改了什麼（網站頁尾顯示目前版本） |
+| 路線圖 | [ROADMAP.md](./ROADMAP.md) | [ROADMAP.en.md](./ROADMAP.en.md) | 目前狀態、已知限制、規劃與評估過但暫緩的方向 |
+| 待辦 | [TODO.md](./TODO.md) | [TODO.en.md](./TODO.en.md) | 進行中的工作與交接、具體待辦 |
+| 部署 | [DEPLOY.md](./DEPLOY.md) | [DEPLOY.en.md](./DEPLOY.en.md) | 部署方案與每月維護檢查 |
+| 資料覆蓋率 | [docs/data-coverage.md](./docs/data-coverage.md) | [docs/data-coverage.en.md](./docs/data-coverage.en.md) | 各國逐場資料覆蓋率、疑似重複與待查證項目（程式產生） |
+| 資料清理紀錄 | [docs/data-cleanup.md](./docs/data-cleanup.md) | [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) | 逐筆刪除或更正的風場紀錄與理由（程式產生） |
+| 水下基礎 | [docs/foundations.md](./docs/foundations.md) | [docs/foundations.en.md](./docs/foundations.en.md) | 離岸風場的水下基礎型式與尺寸逐場清單（程式產生） |
+| 重大事件與事故 | [docs/events.md](./docs/events.md) | [docs/events.en.md](./docs/events.en.md) | 事件圖層的逐筆清單（程式產生） |
+| 即時資料來源評估 | [docs/live-data-sources.md](./docs/live-data-sources.md) | [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) | 其他國家即時發電資料的可行性 |
+| 宣傳影片 | [tools/promo/README.md](./tools/promo/README.md) | [tools/promo/README.en.md](./tools/promo/README.en.md) | 地球儀宣傳影片的製作程式 |
+| 專案慣例 | [CLAUDE.md](./CLAUDE.md)（中英並列） | | 給開發者與 AI：文件、資料、測試、版本的規則 |
+
+## 下載（不需架站，離線也能開）
+
+- **單檔版**：[windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)（約 13 MB），整個網站；詳見下方「單檔版」。
+- **全球風電地圖公開版**（給一般人）：[windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html)（約 12 MB），只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層。
+
+**專案狀態（2026-10-07，v2.30.2）**：主要功能已完成，2026-09-27 起進入維護期，之後依使用者的要求逐項補強（每項一個 PR，見 CHANGELOG）。
+台灣與國外即時資料的自動更新照常運作；維護要注意的事見 [DEPLOY.md](./DEPLOY.md)「維護」，之後要接續的工作見 [TODO.md](./TODO.md) 最上面。
 
 ## 快速上手（第一次來看這裡）
 
@@ -33,7 +48,7 @@
 |---|---|
 | **首頁** | 一頁看完：台灣此刻的風電出力、全球 1980–2025 年的風電成長、台灣在全球排第幾 |
 | **台灣即時** | 全台 30 個風場此刻各發多少電（約每 2 小時更新），點任何一座看它的詳情 |
-| **全球發展** | 3D 地球儀：各國風電 45 年的成長動畫，可一路放大到單一風場 |
+| **全球發展** | 3D 地球儀：各國風電的成長動畫，可一路放大到單一風場 |
 | **風電知識** | 13 章圖文，從 1888 年第一部發電風機講到台灣的離岸風電，最後有名詞小辭典與「大家常問」 |
 
 第一次來，建議這樣看（約 5 分鐘）：
@@ -50,145 +65,112 @@
 
 - 右上角 **EN／中文** 切換語言；**分享** 產生附資料時間的即時圖卡。網址可以直接分享，別人打開會看到同一個畫面。
 - 手機也能用。地球儀第一次打開要下載幾 MB 的資料，要等一下；沒有 3D 繪圖能力的舊裝置會自動改用長條排名。
-- 資料新舊：台灣即時約每 2 小時更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底；逐場風場資料是 GEM 2026 年 2 月版。
+- 資料新舊：台灣即時約每 2 小時更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底，另有 8 國的 2026 年最新可得數字；逐場風場資料是 GEM 2026 年 2 月版。
 - 沒有網路也想看：下載[單檔版](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)，存到電腦直接開啟。
 - 發現資料有錯：風場卡片底部有「回報資料錯誤」，或到 [GitHub](https://github.com/dofliu/windfarmTaiwan/issues) 回報。
+- 每個按鈕、圖層與網址參數的完整說明見 **[使用說明](./docs/user-guide.md)**。
 
 ## 功能
 
-導覽列四個頁面（網址以 `#/` 路由，可直接分享）：
+導覽列四個頁面（網址以 `#/` 路由，可直接分享）。以下是摘要，操作細節見[使用說明](./docs/user-guide.md)。
 
-- **首頁** `#/home` — 台灣即時總出力與全球 1980–2025 累計容量並排；台灣在全球的位置；三個關鍵里程碑（點了直接飛到地球儀現場）
-- **台灣即時** `#/live` — 原即時站的全部功能：
-  - 儀表 — 全國風電出力、可用率、電網備轉容量率與風電貢獻、今日發電量估算、分組／篩選的機組量柱
-  - 風場牆 `#/live/wall`、數據 `#/live/charts`（排行／佔比／分布、官方回溯 90 天長期趨勢）、地圖 `#/live/map`（Leaflet 衛星地圖）
-  - 每座風場的抽屜式詳情（即時趨勢、鄰近測站風速、規格、查證過的開發與營運歷程）；可用 `#/live?farm=<id>` 直接開啟
-  - 右上角「分享」產生含資料時間徽章的即時圖卡
+- **首頁** `#/home` — 台灣即時總出力與全球 1980–2025 累計容量並排；台灣在全球的位置；精選里程碑（點了直接飛到地球儀現場）
+- **台灣即時** `#/live` — 全國風電出力、可用率、電網備轉容量率與風電貢獻、今日發電量估算、可排序與篩選的機組量柱；
+  風場牆 `#/live/wall`、數據 `#/live/charts`（排行／出力組成、官方回溯資料的長期趨勢）、地圖 `#/live/map`（Leaflet 衛星地圖）；
+  每座風場的詳情（即時趨勢、鄰近測站風速、規格、查證過的開發與營運歷程，`#/live?farm=<id>`）；「分享」產生含資料時間的即時圖卡
 - **全球發展** `#/global` — 3D 地球儀（three.js，只在進入此頁才載入，離開即停止繪圖）：
-  - 各國陸域／離岸**年底累計裝置容量**逐年動畫，長條圖排名一律以 **MW** 顯示；可切換地圖／地圖＋長條／長條排名、3D 地球／2.5D 平面
-  - **風場層**：合併附件精選風場、Global Energy Monitor 全球風電追蹤（2026-02）與德國 MaStR，營運中約 2.1 萬座；
-    選一個國家就畫出該國全部風場，每座風場以一支風機代表（放大後也一樣）；點選風場時才依機組數量畫出它的全部風機
-  - **規劃中圖層**（虛線環）：興建中／前期開發／已宣布約 7,850 案，越亮越接近完工；可用「規劃中」按鈕開關。
-    「規劃」分頁依狀態與預計商轉年列出範圍內所有專案，並附 GEM 2026-02 各國開發管線總量；點選專案時以半透明風機顯示預定配置
-  - **地貌底圖**：地形（Natural Earth 陰影地形＋海底地形）／衛星（NASA Blue Marble）／簡潔／平均風速（Global Wind Atlas 離地 100 m，依 1 m/s 分級並附圖例）；
-    放大後自動疊上 Esri 山影或衛星影像圖磚（平均風速底圖除外）
-  - 國家概況（歷年曲線、排名、10 年成長、最大／最早風場、逐場資料覆蓋率、規劃中統計、主要國家簡介；台灣、日本附官方統計稽核標記）、
-    里程碑、可搜尋的風場清單
-  - **發電表現**（工具列「📊 發電表現」、台灣、美國、澳洲與丹麥的國家概況、風場卡片的「看排名」；網址 `out=TWN.cf`）：台灣（台電自有 19 座）、美國（EIA-923 約 830 座）、澳洲（AEMO 每 5 分鐘實測出力，62 座）與丹麥（丹麥能源署風機登記檔，54 座）
-    逐場實測年發電量的**總發電量排名**、**容量因數排名**，以及**同機型比較**（同一型號在不同風場的容量因數，每點一座風場）；
-    丹麥另有「**丹麥・單部風機**」（網址 `out=DKT.cf`）：單獨計量的約 1,800 部風機逐部排名，同機型比較改畫分布，點一部風機飛到它的位置；
-    另有「**台灣・即時取樣**」（網址 `out=TWS.cf`，台灣即時頁「數據」分頁也有入口）：用每 2 小時一次的台電即時資料取樣，比較含民營風場在內各併網點的平均出力與容量因數（近 30／90 天或全部），
-    是取樣估計、不是官方年發電量，兩種資料不混排；風場卡片也列出近 90 天的取樣結果
-  - **此刻的風**（工具列按鈕，預設關閉；網址 `flow=1`）：NOAA GFS 最新一次預報的離地 10 m 風場畫成流動的粒子，每 6 小時更新；是此刻的天氣，不隨時間軸變動
-  - **海域**（工具列按鈕，預設關閉；網址 `zones=1`）：專屬經濟區界線（Marine Regions，協議或判決、中線與 200 浬外界、未定或有爭議分三種畫法）與各國離岸風電規劃區：台灣潛力場址（能源署 2015 年公告的 36 處）、日本促進區域（13 處）、
-    北海周邊國家（荷蘭、德國、比利時、丹麥、蘇格蘭、挪威）的規劃區或租約區，拉近時標出名稱與面積；界線不具法律效力，也不代表本站對爭議海域的立場
-  - 導覽模式與四個故事導覽（`#/global?tour=tw`／`eu`／`cn`／`fl`）、深連結（例：`#/global?r=TWN&y=2020`、`#/global?ms=Horns%20Rev%201`、`#/global?f=Hai%20Long%202%20%26%203`）
-  - **全球風場搜尋與篩選**：工具列「🔍 搜尋」或按 / 鍵，依名稱、中文名、開發商、機型、國名搜尋全部約 2.3 萬座風場，
-    依狀態、類型（陸域／離岸／浮動式）、容量、年份篩選；範圍跟著「範圍」選單（全世界、洲或國家）。有條件時地圖只顯示符合的風場
-    （全球視角也看得到），條件寫進網址可以分享（例：`#/global?fty=fl&fst=op` 全球營運中的浮動式風場）
-  - **港口圖層**（⚓）：離岸風電的組裝出港、水下基礎與風機零組件製造、海纜、浮動式組裝與運維港口 55 個（15 國，2026-09 人工整理，
-    每港附出處）；全球視角為小點，拉近才有圖示與名稱，選取港口時畫出到各服務風場的弧線（v2.16.0）。港口卡片列出角色、服務過的風場（可點選切換）與出處，可以搜尋，
-    也有「港口」分頁（例：`#/global?port=twn-taichung`）
-  - **事件圖層**（⚑）：2026-09-28 人工查證的重大事件與事故 91 筆（發展里程碑 36、事故／故障 53、政策與社會 2；2026-09-28 第二批 29 筆故障事件依網路搜尋整理，原文待核對；2026-10-03 第三批 3 筆依業主公告），每筆附主管機關或
-    業主的一手來源；時間軸到達事件年份才出現（2026 年的在最新年份顯示），紅＝事故／故障、白＝里程碑、紫＝政策與社會。有座標的標在地球儀上，
-    沒有座標但對得到風場的用風場位置，其餘只列在「事件」分頁。事件卡片列出摘要、容量口徑、傷亡（只寫官方確認的）、各項註記、相關風場、出處與
-    照片頁面（只記錄網址與權利狀態，本站不轉載）；風場卡片列出該場的相關事件。可搜尋、依類型篩選（例：`#/global?ev=WIND-040`）；
-    逐筆清單見 [docs/events.md](./docs/events.md)
-  - **水下基礎圖層**（「顯示」選單的「離岸：水下基礎」）：依基礎型式為營運中的離岸風場上色——單樁、鋼構框架（套管、三腳架、三樁）、
-    浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合），還沒查證的標「型式不詳」。圖例列出範圍內各組的座數與已知型式的容量占比，
-    點一組可只看這一組；風場卡片寫出確切型式與出處，國家概況有依容量的長條。資料逐步收集：第 1 步是 OSPAR 涵蓋的北海與東北大西洋
-    （2026-09，99 座；OSPAR 與建成紀錄不符或沒寫明的，改以德文維基百科或建造新聞為準）；第 2 步補上歐洲其他風場（2026-09，41 座：
-    波羅的海、地中海、艾瑟爾湖，以及 OSPAR 2024 之後才完工的風場，逐座附施工紀錄等出處），歐洲營運中的離岸風場除一座試驗場外都已知型式；
-    第 3 步為全球浮動式風場補上細分型式（2026-09：單柱式、半潛式、駁船式、張力腳平台），國家概況列出浮動式各細分型式的座數；
-    第 4 步是台灣、日本、韓國、美國（2026-09，36 座：台灣與美國營運中的風場全部有型式，日本 10 座中的 9 座、韓國 7 座中的 6 座），
-    逐座附開發商、施工廠商、政府文件或產業新聞的出處，日本港灣內的風場以 NEDO 的支持構造分類為準；第 5 步（中國、越南）進行中：2026-09 至 10 月逐批補上中國與越南的風場（新增「複合筒」型式），
-    出處原文都以 `tools/check_quotes.py` 核對。到 2026-10-04（v2.17.7）營運中離岸風場 330 座中 238 座已知型式、占容量 71.4%，其他仍標「型式不詳」。
-    國家概況另有「各年新增離岸容量依基礎型式」堆疊圖（v2.15.0）。
-    逐場清單見 [docs/foundations.md](./docs/foundations.md)（例：`#/global?r=C:Europe&layer=fd`）
-  - **尺寸與剖面示意**（v2.17.0 起）：營運中離岸風場加上水深、輪轂高度、葉輪直徑三個欄位（`tools/farm_dimensions.py`，每列附出處原文），
-    風場卡片的剖面示意圖與近景風機依實際數值按比例畫；236 座有基礎型式的營運中離岸風場中 234 座至少有一項、168 座三項齊全。
-    核准上限、環評設計值、只屬一期或部分機組的值都不採用（理由見 TODO）。
-  - **風場卡片**：點風場可看照片（優先用人工核對過的 Wikimedia Commons 照片，附作者與授權；沒有時才用看得出是風機的維基百科條目圖片）與維基百科簡介；在國內的地位（依時間軸年份的容量排名與占全國風電裝置容量比例）、
-    分期時間軸、附近風場（30 km 內）與同開發商的其他風場（可直接點選切換）；衛星地圖、OpenStreetMap、
-    風能資源地圖（Global Wind Atlas）、Wikidata 等連結；「複製此風場連結」與「回報資料錯誤」（開啟預填的 GitHub issue）
-  - 台灣風場與即時資料連動：點台灣風場可看到台電此刻的出力並跳到即時詳情
-  - **澳洲、加拿大即時出力**：澳洲東部電網（AEMO，每 5 分鐘實測）、亞伯達（AESO，約 1 分鐘）與安大略（IESO，每小時）
-    約 150 座風場顯示此刻出力；國家概況有各電網總出力與 48 小時趨勢。時間軸在最新年份時，有即時資料的風場外圈為綠色、
-    葉片轉速依此刻出力
-  - 無 WebGL 的裝置自動改用長條圖排名
+  - 各國陸域／離岸**年底累計裝置容量**逐年動畫（1980–2025，加上 8 國官方數字的「2026（最新可得）」），長條排名一律以 MW 顯示；地圖／地圖＋長條／長條排名，3D 地球／2.5D 平面
+  - **風場層**：合併精選風場、Global Energy Monitor 全球風電追蹤（2026-02）與德國 MaStR；選國家就畫出該國全部風場，點風場時依實際機位（美國 USWTDB、德國 MaStR、其他國家 OpenStreetMap）畫出風機
+  - **規劃中**（虛線環）：約 9,600 個興建中、前期開發與已宣布的專案；「規劃」分頁依狀態與預計商轉年列出，附 GEM 各國開發管線總量
+  - **搜尋與篩選**（🔍 或按 /）：依名稱、中文名、開發商、機型、國名搜尋全部風場，依狀態、類型、容量、年份篩選，條件寫進網址可分享
+  - **國家概況**：歷年曲線、排名、10 年成長、最大與最早的風場、逐場資料覆蓋率、規劃中與水下基礎統計（台灣、日本附官方統計稽核標記）
+  - **風場卡片**：人工核對的照片、維基百科簡介、水下基礎與按比例的剖面示意、離岸距離、實際或估計年發電量、國內排名、分期、附近與同開發商的風場、相關事件、即時出力、
+    外部連結、「複製此風場連結」與「回報資料錯誤」
+  - **📊 發電表現**：台灣（台電自有 19 座）、美國（EIA-923，833 座）、澳洲（AEMO，62 座）與丹麥（54 座風場、約 1,800 部單獨計量的風機）逐場實測年發電量的排名與同機型比較；
+    另有含民營風場的「台灣・即時取樣」（取樣估計，不與官方數字混排）
+  - **圖層**：港口（15 國 55 個，⚓）、重大事件與事故（91 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 332 座中 263 座已知型式、占容量 81.1%，
+    [docs/foundations.md](./docs/foundations.md)）、此刻的風（NOAA GFS，每 6 小時）、海域（專屬經濟區界線、台灣 36 處潛力場址、日本 13 處促進區域、北海周邊 6 國的規劃區）、
+    平均風速底圖（Global Wind Atlas）
+  - **導覽**：自動導覽與四個故事導覽（台灣離岸之路、歐洲離岸、中國崛起、浮動式風電，`#/global?tour=tw`／`eu`／`cn`／`fl`）
+  - **澳洲、加拿大即時出力**：AEMO、AESO、IESO 約 150 座風場；時間軸在最新年份時，有即時資料的風場外圈為綠色、葉片依出力轉動
+  - 無 WebGL 的裝置自動改用長條排名
 - **風電知識** `#/learn` — 13 章：從 1888 年 Brush 風機到 2025 年、陸域與離岸、水下基礎、浮動式、風機大型化、亞洲崛起、台灣的離岸風電、
   為什麼要發展風電、名詞解釋與完整資料來源；圖表皆由同一份全球資料集繪製，每章都能跳到地球儀重播那一段
-
-全站中英雙語（右上角切換，記在瀏覽器）。
 
 ## 架構
 
 ```
-GitHub Actions (每 2 小時 cron)  ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
-                                 ── intl_wind_scraper.py    ──► data/live/intl_realtime.json（澳洲、加拿大）──────────────────┤
-GitHub Actions (每週一 cron)     ── backfill_history.py      ──► data/archive/月檔 / wind_archive_daily.json ─────────────┤
-                                                                                                                            ├─► commit 回 repo
-tools/*.py（手動、低頻：資料改版時才跑） ──► data/global/*.json、assets/img/globe/*.jpg ───────────────────────────────────┤
-GitHub Actions（push 到 main 且改到網站程式或全球資料）── tools/build_standalone.py ──► Release「standalone」的兩個 HTML ────┤
-GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄──────────────────────────────────────────────────────┘
+GitHub Actions（約每 2 小時）── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json / data/archive/farm_daily.json ─┐
+                               ── intl_wind_scraper.py    ──► data/live/intl_realtime.json（澳洲、加拿大）────────────────────────────────────────┤
+GitHub Actions（每週一）       ── backfill_history.py      ──► data/archive/ 月檔 / wind_archive_daily.json ──────────────────────────────────────┤
+GitHub Actions（每 6 小時）    ── tools/fetch_gfs_wind.py  ──► data/live/wind_now.webp / wind_now.json（此刻的風）──────────────────────────────────┤
+                                                                                                                                                  ├─► commit 回 repo
+tools/*.py（手動、低頻：資料改版時才跑） ──► data/global/*.json、assets/img/globe/*.jpg、docs/*（由程式產生的文件）──────────────────────────────┤
+GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄──────────────────────────────────────────────────────────────────────────┘
+GitHub Actions（push 到 main 且改到網站程式或全球資料）── tools/build_standalone.py、build_globe_lite.py ──► Release「standalone」的兩個 HTML（不 commit）
+GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢查（pr-check）
 瀏覽器讀 index.html → 依頁面延遲載入模組與資料（同網域，無 CORS）
 ```
 
 純靜態網站、沒有建置步驟：`index.html` 是外殼，`assets/js/` 各頁模組以 `WW.registerPage()` 向 hash 路由註冊。
-地球儀頁的 three.js（約 600 KB）、底圖與 2.7 MB 的風場資料只在第一次進入 `#/global` 時下載。
+地球儀頁的 three.js（約 600 KB）、底圖與 3.8 MB 的風場資料只在第一次進入 `#/global` 時下載；風機位置、發電量、海域等較大的檔案在用到時才載入。
 
 ## 檔案
 
 - `index.html` — 網站外殼：頂部導覽、四個頁面的版面與雙語文案、抽屜與提示
 - `assets/css/site.css` — 設計系統（深色資料風格、色票、元件、響應式）；`assets/css/globe.css` — 地球儀專用樣式
-- `assets/js/core.js` — 共用核心：雙語、hash 路由、延遲載入、資料快取、數字格式、分享
+- `assets/js/core.js` — 共用核心：雙語、hash 路由、延遲載入、資料快取、數字格式、分享；版本號 `WW.VERSION`
 - `assets/js/live.js` — 台灣即時（`FARMS` 30 個機組／風場的規格與開發歷程、即時／歷史／電網資料讀取、儀表、風場牆、圖表、地圖、抽屜、分享圖卡）
 - `assets/js/charts.js` — 輕量 SVG 圖表（折線、柱狀、橫條、散佈；含提示框與表格檢視）
 - `assets/js/home.js`、`assets/js/learn.js` — 首頁與風電知識頁
 - `assets/js/globe.js` — 3D 地球儀（改寫自「全球風電發展觀察地圖」wind-history-map v3）
 - `assets/vendor/` — three.js r128 與 OrbitControls（MIT，原樣內附）
-- `assets/img/globe/` — 地形／衛星底圖（4096×2048 與 2048×1024 兩種尺寸）
-- `data/global/wind_global.json` — 國家逐年陸域／離岸容量 1980–2025、全球總量、里程碑、來源與註記（約 70 KB）
-- `data/global/wind_farms.json` — 風場層級資料約 3.1 萬筆（營運中、規劃中、已除役）
-- `data/global/turbines_de.json` — 德國每部風機的位置與規格（MaStR；約 6,500 座風場），由 `tools/build_mastr.py` 產生；
-  **以 Datenlizenz Deutschland – Namensnennung 2.0 分享（© Bundesnetzagentur | Marktstammdatenregister）**；`data/global/sources/mastr_parks_DEU.json` 是要加進風場層的德國風場
-- `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
-- `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
-- `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
-- `data/global/events.json` — 重大事件與事故 91 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
-  英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
+- `assets/img/globe/` — 地形／衛星／平均風速底圖（4096×2048 與 2048×1024 兩種尺寸）
+- `data/global/wind_global.json` — 國家逐年陸域／離岸容量 1980–2025、全球總量、里程碑、來源與註記（約 90 KB）
+- `data/global/wind_farms.json` — 風場層級資料約 3.1 萬筆（營運中、規劃中、已除役；151 個國家與地區）
 - `data/global/country_stats.json` — 地球儀時間軸的「最新可得」年份（2026：8 國官方數字，逐國出處寫在 `tools/latest_wind.py`）與各國風電平均容量因數
   （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
-- `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；約 970 座風場、6 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
-- `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 833 座：EIA-923，容量以 EIA-860M 登記的裝置容量計，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；風場只有一種機型時附機型，給「發電表現」的同機型比較；
-  丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場；澳洲 62 座：AEMO 每個機組每 5 分鐘的 SCADA 實測出力加總，經即時出力的機組對照接到本站風場），
+- `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
+- `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；967 座風場、約 6.1 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
+- `data/global/turbines_de.json` — 德國每部風機的位置與規格（MaStR；約 6,600 座風場、2.6 萬部），由 `tools/build_mastr.py` 產生；
+  **以 Datenlizenz Deutschland – Namensnennung 2.0 分享（© Bundesnetzagentur | Marktstammdatenregister）**；`data/global/sources/mastr_parks_DEU.json` 是要加進風場層的德國風場
+- `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
+  **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入（德國以 MaStR 優先）
+- `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 833 座：EIA-923，容量以 EIA-860M 登記的裝置容量計，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；
+  丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場；澳洲 62 座：AEMO 每個機組每 5 分鐘的 SCADA 實測出力加總；風場只有一種機型時附機型，給「發電表現」的同機型比較），
   由 `tools/build_generation.py`（丹麥的規則在 `tools/dk_output.py`，澳洲在 `tools/au_output.py`）產生，第一次打開風場卡片時才載入；
   澳洲的來源彙整檔是 `data/global/sources/aemo_wind_monthly.json`（`python3 tools/au_output.py fetch` 下載 AEMO 月檔後產生）
-- `data/global/turbine_output.json` — 丹麥單獨計量的約 1,800 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
+- `data/global/turbine_output.json` — 丹麥單獨計量的 1,848 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
+- `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
+- `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
+- `data/global/events.json` — 重大事件與事故 91 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
+  英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
+- `data/global/photos.json` — 風場卡片的照片（64 座風場與 18 個里程碑；人工核對的 Wikimedia Commons 照片，由 `tools/build_photos.py` 依 `tools/farm_photos.py` 產生）
 - `data/global/offshore_zones.json` — 海域圖層：專屬經濟區界線（Marine Regions 第 12 版，CC BY 4.0，簡化到約 2 km 供顯示）、台灣離岸風電潛力場址（能源署開放資料 36681）、
   日本促進區域與北海周邊國家的離岸風電規劃區，由 `tools/build_offshore_zones.py` 產生（潛力場址原始座標存在 `data/global/sources/twn_offshore_potential_sites_36681.csv`，
   日本促進區域的公告點位存在 `data/global/sources/jpn_promotion_zones.json`，北海各國由建置程式從官方開放圖層下載），開啟「海域」時才載入
-- `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部，德國改用 MaStR），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
-  **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入
-- `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄，
-  以及 OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）
-- `tools/promo/` — 全球風電 3D 地球儀宣傳影片的製作程式（地球儀實機錄製、設計景、分鏡；成品不進 git，見 [tools/promo/README.md](./tools/promo/README.md)）
-- `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py` 產生單檔版、
-  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
-  `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上；
-  `tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
-- `standalone/`（不進 git）— 本機執行建置程式的輸出位置；正式的單檔版與全球風電地圖公開版由 Actions 建好後上傳到 GitHub Release「standalone」
+- `data/global/wind_resource.json` — 平均風速底圖的分級與圖例（`tools/build_wind_resource.py` 產生）
+- `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄、
+  OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）與其他建置用的原始檔
+- `data/live/` — 澳洲、加拿大即時出力 `intl_realtime.json`、電網機組代碼 → 風場的對照 `units.json`（`tools/build_live_units.py` 產生；安大略依 IESO 公布的設施對照人工核對）、
+  此刻的風 `wind_now.webp`＋`wind_now.json`（排程更新）
 - `data/archive/wind_history_archive_YYYY-MM.json` — 台電官方回溯的長期存檔，依月分檔（`backfill_history.py` 產生）
 - `data/archive/farm_daily.json` — 台電即時資料各併網點（含民營）的每日取樣累積（2026-06 起，抓取程式每次累加；`tools/build_farm_daily.py` 可從 git 歷史回補），
   「發電表現」的台灣即時取樣與風場卡片用；一天一行，欄位說明在檔案的 meta
-- `docs/` — 資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）、重大事件與事故清單（`events.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
-- `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新與測試方式），給之後的開發者與 AI 參考
+- `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py`、`tools/build_globe_lite.py` 產生兩個單檔版、
+  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
+  `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上（`tools/grab_page.py` 找可引用的片段）、
+  `tools/smoke_test.js` 冒煙測試、`tools/check_version.py` 檢查版本號與 CHANGELOG；`tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
+- `tools/promo/` — 全球風電 3D 地球儀宣傳影片的製作程式（地球儀實機錄製、設計景、分鏡；成品不進 git，見 [tools/promo/README.md](./tools/promo/README.md)）
+- `standalone/`（不進 git）— 本機執行建置程式的輸出位置；正式的單檔版與全球風電地圖公開版由 Actions 建好後上傳到 GitHub Release「standalone」
+- `docs/` — 使用說明（`user-guide.md`）、資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）、
+  重大事件與事故清單（`events.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
+- `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新、測試與版本），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
-  滾動累積 7 天歷史 → `wind_history.json`；同時抓電力供需即時報表 → `grid_status.json`
+  滾動累積 7 天歷史 → `wind_history.json`；累加各併網點的每日取樣 → `data/archive/farm_daily.json`；同時抓電力供需即時報表 → `grid_status.json`
 - `intl_wind_scraper.py` — 約每 2 小時執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力 →
   `data/live/intl_realtime.json`（含各電網 48 小時總出力）；任一來源失敗時保留上一次的數值並標示，不影響台灣資料
-- `data/live/units.json` — 電網機組代碼 → 風場的對照表（`tools/build_live_units.py` 產生；安大略依 IESO 公布的設施對照人工核對）
 - `wind_realtime.json` — 即時資料（由 Actions 自動更新）
 - `wind_history.json` — 滾動 7 天歷史（scraper 即時累積，供前端趨勢線）
 - `grid_status.json` — 全國電力供需即時報表（尖峰負載/供電能力/備轉容量率）。
@@ -200,44 +182,39 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
   （前端「數據 → 長期趨勢」讀這個，含逐機組明細）。
   **時效注意**：37331 為季度回溯檔，落後約 4–5 個月，補不到近 7 天趨勢窗的缺口，主要價值是長期趨勢分析。
   **口徑注意**：37331 只含台電**自有**風力機組，不含民營購電，與即時資料的全系統數值不可混用比較。
-- `.github/workflows/scrape.yml` — 約每 2 小時自動執行 scraper 並 commit
+- `.github/workflows/scrape.yml` — 約每 2 小時自動執行兩個 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔，並從最近三週的 git 歷史補上每日取樣漏記的快照；可手動觸發（含 dry_run 選項）
 - `.github/workflows/wind-now.yml` — 每 6 小時抓 NOAA GFS 離地 10 m 風場（`tools/fetch_gfs_wind.py`），地球儀「此刻的風」用
-- `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 12 MB）
+- `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建兩個單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 25 MB）
 - `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）
 - `.github/workflows/pr-check.yml` — 每個 PR 的自動檢查：Playwright 冒煙測試（全站各頁桌機與手機、兩個單檔版連網與離線，`tools/smoke_test.js`）、語法、座標健檢、
   由程式產生的文件是否已更新、改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）；本機可跑 `node tools/smoke_test.js http://localhost:8000/ --standalone`
-- `DEPLOY.md` — 詳細部署方案（GitHub Pages / Cloudflare Worker / 自架主機）
-- `ROADMAP.md` / `TODO.md` — 已知限制、後續規劃與待辦事項
-- `CHANGELOG.md` — 版本與更新紀錄（版本號是 `assets/js/core.js` 的 `WW.VERSION`）
-
-所有說明文件都有英文版（`README.en.md`、`DEPLOY.en.md`、`ROADMAP.en.md`、`TODO.en.md`、`CHANGELOG.en.md`、`docs/*.en.md`）。
 
 ## 部署現況與本機預覽
 
-- 網站由 GitHub Pages 直接服務本 repo 的 `main`（根目錄），網址 `https://dofliu.github.io/windfarmTaiwan/`；四個 GitHub Actions workflow
-  （台灣與國外即時資料、每週官方回溯、單檔版重建、每月保活）都在運作，不需要另外設定。
-- 從零部署到另一個 repo 或換成其他主機的步驟見 [DEPLOY.md](./DEPLOY.md)；暫停開發期間的維護重點見 DEPLOY.md「維護」。
+- 網站由 GitHub Pages 直接服務本 repo 的 `main`（根目錄），網址 `https://dofliu.github.io/windfarmTaiwan/`；六個 GitHub Actions workflow
+  （即時資料、每週官方回溯、此刻的風、單檔版重建、每月保活、PR 自動檢查）都在運作，不需要另外設定。
+- 從零部署到另一個 repo 或換成其他主機的步驟見 [DEPLOY.md](./DEPLOY.md)；每月的維護檢查見 DEPLOY.md「維護」。
 
 > 本機預覽：在 repo 根目錄執行 `python3 -m http.server`，開 `http://localhost:8000/`（直接雙擊 `index.html` 會因 `file://` 無法讀取 JSON；
 > 想直接雙擊開啟請用單檔版）。
 
 ## 單檔版（下載後直接開啟）
 
-`windfarmTaiwan-standalone.html` 把整個網站（首頁、台灣即時、全球 3D 地球儀、風電知識）打包成一個約 6 MB 的 HTML，
+`windfarmTaiwan-standalone.html` 把整個網站（首頁、台灣即時、全球 3D 地球儀、風電知識）打包成一個約 13 MB 的 HTML，
 放在 GitHub Release「[standalone](https://github.com/dofliu/windfarmTaiwan/releases/tag/standalone)」（固定標籤，每次重建覆蓋）：
 
 - **下載**：網站頁尾或「風電知識 → 資料來源與方法 → 關於本站」的「下載單檔版 HTML」，
   或直接開 `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html` 另存。
 - **連網時**：台灣即時資料直接向正式網站抓最新的（約每 2 小時更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
-- **離線時**：全球資料、約 2.3 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
+- **離線時**：全球資料、約 3.1 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
   並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網。
 - **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建並上傳到 Release（檔案不進 git）；
   本機也可以執行 `python3 tools/build_standalone.py`（`WW.VERSION` 在兩份 CHANGELOG 沒有對應段落時會中止）。
   頁尾標示版本號、建置時間與 commit。分享按鈕在單檔版一律分享正式網站的網址。
-- **全球風電地圖公開版** `windfarmTaiwan-globe.html`（`python3 tools/build_globe_lite.py`，Actions 同時重建並上傳）：給一般人的精簡版，
-  只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層（各國逐年容量、風場搜尋、規劃分頁、地形／衛星底圖、深連結都在），不載入港口、水下基礎、
-  事件、里程碑導覽與任何即時資料，也沒有首頁、台灣即時與風電知識；頁尾連到完整網站。離線時只是沒有 Esri 高解析圖磚與維基百科簡介。
+- **全球風電地圖公開版** `windfarmTaiwan-globe.html`（約 12 MB，`python3 tools/build_globe_lite.py`，Actions 同時重建並上傳）：給一般人的精簡版，
+  只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層（各國逐年容量、風場搜尋、規劃分頁、發電表現、地形／衛星底圖、深連結都在），不載入港口、水下基礎、
+  事件、海域、此刻的風、里程碑導覽與任何即時資料，也沒有首頁、台灣即時與風電知識；頁尾連到完整網站。離線時只是沒有 Esri 高解析圖磚與維基百科簡介。
 
 ## 注意事項
 
@@ -245,7 +222,7 @@ GitHub Pages 服務同一 repo：index.html + assets/ + data/ + 上述 JSON ◄�
 - 排程約每 2 小時一次；GitHub 排程不保證準時（可能延遲或略過一兩次），本站不需要逐分即時，足夠。
 - repo 連續 60 天無活動，排程會被自動停用；`keepalive` workflow 每月自動重新啟用各排程來避免（檢查方式見 DEPLOY.md「維護」）。
 - 每次更新會 commit 一筆，git 歷史會累積（功能無礙）。若要避免，可改用 Cloudflare Worker Cron（見 `DEPLOY.md`）。
-- 瀏覽時會連到的第三方服務：cdnjs（Leaflet，僅地圖分頁）、Esri 圖磚（僅地球儀放大後）、維基百科 API（風場照片與簡介，查不到或離線時只顯示連結）。
+- 瀏覽時會連到的第三方服務：cdnjs（Leaflet，僅地圖分頁）、Esri 圖磚（僅地球儀放大後）、維基百科與 Wikimedia Commons（風場照片與簡介，查不到或離線時只顯示連結）。
   這些服務失敗時網站其餘功能照常運作。
 
 ## 全球資料更新
@@ -311,8 +288,6 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   標記已除役的實證機，並補上 GEM 未收錄的 100 座小型風場（NEDO 各縣清單、windfarm.work），修正 22 筆 GEM 錯置的座標
 - 海洋風電一期、海能風電（Formosa 2）年份對齊實際併網／商轉時間
 - 國界改以 Natural Earth 1:50m 重建（原資料缺澳洲本土多邊形）；克里米亞依聯合國大會第 68/262 號決議劃歸烏克蘭，
-- 法國 2025 年陸域／離岸改採統計處 SDES 風電儀表板（2026 年第二季）的 2025 年底併網容量 23,992／2,008 MW；原資料為 IRENA 陸域 24,155、離岸 1,500 MW
-  （漏了 2025 年全部併網的 Yeu-Noirmoutier 500 MW）
   與風場資料（GEM 將克里米亞風場列於烏克蘭）一致
 - GEM 同一場址下相距 25 km 以上的分期分開標示，不取平均座標（原本會把跨州專案平均到錯誤位置）；
   3 筆可由專案名稱確認的座標錯誤已修正（宮城加美、珠洲第 1、珠洲第 2 期），1 筆國別與座標不符的 WRI GPPD 舊資料已排除
@@ -333,6 +308,8 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   Revolution Wind 704 MW、Empire Wind 810 MW；瀨棚停機、北九州沖實證機 2019 年撤除；神栖一、二期與 Eurus 秋田港的座標移到實際位置
 - 2026 年 9 月依使用者整理的逐案覆核（《全球離岸風場資料庫｜亞洲查核版 v2》），另以 6 條規則更正：東海大橋一期與青洲六、Hollandse Kust Zuid 第 4 區的
   重複紀錄合併；青洲六為 1,000 MW；響水近海 202 MW 屬三峽；福清興化灣二期為 280 MW、2021 年全容量併網
+- 2026 年 9 月底起，查證中國、越南離岸風場的水下基礎與尺寸時，陸續以清理規則更正重複、從未建成、狀態、容量、機型與座標
+  （例：三峽大豐 800 MW 的四個場址在 GEM 各有一筆、象山塗茨的併網年、莊河 IV2 已營運）；目前共 405 條規則，逐條理由與出處見 [docs/data-cleanup.md](./docs/data-cleanup.md)
 - 英文國名：澳洲原被標成同屬 AUS 代碼的「Ashmore and Cartier Is.」，已改正
 
 > 國家概況的「逐場資料覆蓋率」＝已逐場標示的營運中容量 ÷ 國家年底統計（台灣 2025 年約 89%、日本約 87%），差額明白列出，
@@ -378,6 +355,12 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   2026 年 9 月整理的規劃中重點專案與日本風場清單（NEDO、windfarm.work、營運商資料）、德國聯邦網路局「市場主資料登錄」MaStR
   （© Bundesnetzagentur | Marktstammdatenregister，Datenlizenz Deutschland – Namensnennung – Version 2.0；德國每部風機與 GEM 沒收錄的陸域風場）
 - 開發管線各國總量：GEM Global Wind Power Tracker 2026 年 2 月版
+- 時間軸「2026（最新可得）」：8 國官方或產業統計（台灣能源署、美國 EIA-860M、中國國家能源局、印度 MNRE、巴西 ANEEL、德國 Deutsche WindGuard、法國 SDES、英國 DESNZ），
+  逐國出處、資料月份與說明寫在 `tools/latest_wind.py`；各國平均容量因數（估計年發電量用）：[Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/)（CC BY 4.0）
+- 風機位置：美國 [USWTDB](https://energy.usgs.gov/uswtdb/)（USGS、LBNL、American Clean Power Association，公有領域）；德國 MaStR（見上）；
+  其他國家 © [OpenStreetMap](https://www.openstreetmap.org/copyright) 貢獻者（ODbL 1.0，衍生的 `data/global/turbines_osm.json` 同樣以 ODbL 分享）
+- 水下基礎：OSPAR Offshore Renewable Energy Developments 2024（CC0）；其他逐場出處（開發商、施工廠商、政府文件、產業新聞）寫在 [docs/foundations.md](./docs/foundations.md)
+- 重大事件與事故、港口：逐筆附主管機關、業主或產業新聞的出處（[docs/events.md](./docs/events.md)、`data/global/ports.json`）
 - 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
 - 平均風速底圖：Global Wind Atlas 3（DTU 丹麥技術大學、世界銀行集團，CC BY 4.0）
 - 海域：專屬經濟區界線取自 Flanders Marine Institute（VLIZ）[Marine Regions](https://www.marineregions.org/) Maritime Boundaries Geodatabase 第 12 版（2023，CC BY 4.0，已簡化，不具法律效力）；

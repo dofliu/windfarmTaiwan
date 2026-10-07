@@ -7,33 +7,43 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (5 Oct 2026, v2.22.1): maintenance, data checks and strengthening the wind content
+## Current status (7 Oct 2026, v2.30.2): maintenance, improvements as the owner asks
 
-The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks and
-visual upgrades (one PR each). The automatic Taiwan live-data updates keep running (maintenance: "Maintenance" in
-[DEPLOY.en.md](./DEPLOY.en.md)). What is done:
+The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks,
+visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CHANGELOG.en.md)). The automatic Taiwan live-data updates keep running
+(maintenance: "Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)). How to use the site: [docs/user-guide.en.md](./docs/user-guide.en.md). What is done:
 
-- Four pages: Home, Taiwan live (dashboard, farm grid, charts, map, farm details, share cards), Global (3D globe 1980–2025, about
-  26,000 farms (GEM 2026-02), search and filters, pipeline, ports, foundation and events layers, country profiles, tour) and Learn
-  (13 chapters); the whole site is bilingual, with a single-file edition that opens offline and a public single-file "Global wind map"
-  for the general public (the globe with the three basic layers only, v2.12.0).
+- Four pages: Home, Taiwan live (dashboard, farm grid, charts, map, farm details, share cards), Global (3D globe 1980–2025 plus
+  "2026 (latest available)", about 31,000 farm records (GEM 2026-02, Germany's MaStR), search and filters, pipeline, ports, foundation,
+  events and sea-zone layers, Output, Wind now, country profiles, the tour and four story tours) and Learn (13 chapters); the whole site
+  is bilingual, with a single-file edition that opens offline and a public single-file "Global wind map" for the general public (the globe
+  with the three basic layers only, v2.12.0).
 - Visual upgrades (v2.14.0–v2.17.0): close-up turbines drawn on their foundation type with the transition piece; the farm card's
   cross-section and the close-up drawn to scale from real water depth, hub height and rotor diameter; a country-profile chart of new
   offshore capacity per year by foundation type; Learn chapter 7 on foundations; arcs from ports to the farms they served.
 - v2.18.0: a "2026 (latest available)" point on the timeline (official figures for 8 countries, the rest carry end-2025, marked); US farm
   close-ups draw the real USWTDB turbine positions; farm cards add distance to shore and estimated yearly output.
-- v2.22.x: Germany from MaStR: real turbine positions and the onshore farms GEM lacks (farm-level coverage 96%); Taipower-owned farms corrected from Taipower's station list.
-- v2.21.0: a mean wind speed basemap on the globe (Global Wind Atlas at 100 m).
+- v2.19.x: France 2025 from SDES; close-ups of farms outside the US draw their real OpenStreetMap turbine positions (ODbL, about 6,100 farms now).
 - v2.20.0: actual yearly output and capacity factor on farm cards (US from EIA-923, Taipower-owned farms in Taiwan).
-- v2.19.x: France 2025 from SDES; close-ups of 6,886 farms outside the US draw their real OpenStreetMap turbine positions (ODbL).
+- v2.21.0: a mean wind speed basemap on the globe (Global Wind Atlas at 100 m).
+- v2.22.x: Germany from MaStR: real turbine positions and the onshore farms GEM lacks (farm-level coverage 96%); Taipower-owned farms corrected from Taipower's station list.
+- v2.23.0–v2.24.x: four story tours (Taiwan's road to offshore wind, Europe offshore, China's rise, Floating wind; 11 stops each with
+  bilingual narration); card photos now hand-checked Wikimedia Commons photos (64 farms so far).
+- v2.25.0: "Wind now": the NOAA GFS 10 m wind field as flowing particles, refreshed every 6 hours by a schedule.
+- v2.26.0–v2.28.0: "Output": rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US
+  (EIA-923, 833 farms), Australia (AEMO, 62 farms) and Denmark (54 farms and 1,848 individually metered turbines), plus "Taiwan · live
+  samples" including private farms (an estimate from samples, never mixed with the official figures); the `pr-check` workflow on every PR.
+- v2.29.0–v2.30.0: the "Sea zones" layer: EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
+  areas of 6 North Sea countries.
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
   [docs/events.en.md](./docs/events.en.md)).
 - Live output for about 150 farms in Australia and Canada.
-- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 334 record-level farm
+- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 405 record-level farm
   clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)), with a build check for farms lost to a wrong merge
-  (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (238 of 330 operating offshore
-  farms have a known type, 71.4% of capacity); dimensions for 234 of 236 farms (five rounds, every figure with a quoted source checked
-  by `tools/check_quotes.py`); the differences between GEM 2026-02 and the site's list checked one by one (v2.17.7).
+  (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (263 of 332 operating offshore
+  farms have a known type, 81.1% of capacity); dimensions: at least one value for 247 farms and all three for 173 (eight rounds, every
+  figure with a quoted source checked by `tools/check_quotes.py`); the differences between GEM 2026-02 and the site's list checked one
+  by one (v2.17.7).
 
 The phased plans and ideas below are kept but not scheduled; when work resumes, read the hand-off at the top of
 [TODO.en.md](./TODO.en.md) first, then re-rank the priorities by the "Principles".
@@ -174,8 +184,11 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
      phase 1 on high-rise pile caps, CTG Rudong H6 on monopiles, Rudong H10 on 77 monopiles and 23 composite buckets, Zhangpu Liu'ao
      phase 2 on four-pile jackets), with a new “composite bucket” type (in the “other fixed-bottom” colour group, no colour change).
      v2.11.1 adds CGN Rudong H8 (49 monopiles and 16 all-steel buckets, also backed by CGN's foundation-monitoring contract).
-     The sources are that sheet's first-hand documents; their quoted passages have not yet been checked with check_quotes. The
-     Vietnamese cases there only say intertidal / nearshore and were not added. The other Chinese farms are still to be checked.
+     From 30 Sep 2026 the rest were checked batch by batch (developers, construction contractors, sea-use assessment reports and completion
+     environmental acceptances published by local governments, trade press), every quoted passage checked with check_quotes (except the China
+     Three Gorges pages for Rudong H6 and H10, unreachable from the checking environment; see TODO). As of 7 Oct 2026 (v2.30.1): 82 of China's 140
+     operating offshore farms are known (about 64% of capacity) and 14 of Vietnam's 22; worldwide 263 of 332 (81.1% of capacity). The remaining
+     leads, and why some farms could not be found, are in TODO.
 
 **3. Status of work vessels (installation vessels, "mother ships")** · **verdict: not doing it (owner's decision, 2026-09-27)**
 
@@ -242,15 +255,18 @@ Taiwan, Australia and Canada also show live output. It could also show:
 **B. Needs new data (phases 2 and 3)**
 
 - Estimated annual generation, equivalent households and avoided CO₂: capacity × the country's
-  average capacity factor (Ember), clearly labelled as an estimate
+  average capacity factor (Ember), clearly labelled as an estimate. **Estimated yearly output done (v2.18.0)**
 - Links and fields from national registries: the US USWTDB (location, model, hub height and rotor
   diameter of every turbine; public domain), Germany's MaStR (every unit), the Danish Energy Agency
-  turbine register, the UK REPD (planning status), Taiwan's EIA document search
+  turbine register, the UK REPD (planning status), Taiwan's EIA document search. **USWTDB (v2.18.0), MaStR (v2.22.0) and the Danish
+  Energy Agency (measured output, v2.27.0) done**
 - A turbine spec card: model → rated power, rotor diameter, hub height (a table of common models)
 - Live and historical output: Taiwan already has it; the UK, Australia and others can be done per farm
   (see phase 2); annual generation and capacity factor (US EIA-923 monthly plant data, Taiwan's
-  dataset 37331, ENTSO-E)
-- Offshore farms: distance to shore, water depth (GEBCO), foundation type
+  dataset 37331, ENTSO-E). **Measured yearly output done**: US EIA-923, Taipower-owned farms, Denmark, Australia's AEMO
+  (the Output dialog, v2.20.0–v2.28.0)
+- Offshore farms: distance to shore, water depth (GEBCO), foundation type. **Done**: distance to shore (v2.18.0), foundation types
+  (being collected step by step), water depth / hub height / rotor diameter (sourced farm by farm, not estimated from GEBCO)
 
 ### Live generation in other countries
 
@@ -293,11 +309,13 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   from the farms, so that was deferred (see "Directions evaluated and deferred").
 - **Time-sensitive farm progress needs re-checking**: the following were the latest known progress
   when written, but the projects are still moving and the dates will change:
-  - Taipower Offshore Phase 2: planned completion moved from 2026 to 2027; still under construction
-  - Hai Long (Hai Long B): the latest official reports suggest full commercial operation may slip from
-    2026 to 2027
-  - Greater Changhua 2b & 4 (Ørsted, one 920 MW project): full operation planned for Q3 2026; check
-    whether it happened on time
+  - Taipower Offshore Phase 2 (checked 6 Oct 2026): all 31 foundations and the cables are in; turbine installation started on 28 Sep 2026,
+    and Taipower aims to finish by year-end and connect in H1 2027
+  - Hai Long 2 & 3: Northland's Q2 2026 report keeps completion in 2027 (listed here as under construction)
+  - Greater Changhua 2b & 4 (Ørsted, one 920 MW project): 2b has been counted in Taipower's installed capacity since 18 Sep 2026; 4 was
+    still in trial operation on 6 Oct 2026, so the project is not yet in full commercial operation
+  - The live page's installed capacity and "in trial operation" follow Taipower's live data automatically (`syncCaps` in `live.js`); the
+    farm layer's status and year are changed by hand in `tools/farm_cleanup.py`
 - **Git history keeps growing**: `scrape.yml` commits about every 2 hours, over four thousand commits a
   year. It works, but the repo grows; the long-term archive is split by month (`data/archive/`, about 3.1 MB in total in Sep 2026) so the weekly
   backfill only rewrites the current month, and since v2.12.6 the single-file builds go to a Release instead of git.
@@ -305,7 +323,8 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 ### Global (3D globe)
 
 - **The global data is a yearly snapshot and does not update itself**: country capacity runs to the end
-  of 2025; the farm layer is GEM's Global Wind Power Tracker, February 2026 release. Updating means
+  of 2025 (plus a "2026 (latest available)" point for 8 countries, kept in `tools/latest_wind.py` and updated by hand every quarter);
+  the farm layer is GEM's Global Wind Power Tracker, February 2026 release. Updating means
   running `tools/` by hand (see "Updating the global data" in the README); there is no schedule.
 - **The two parallel versions have been merged into this site** (Sep 2026): the "Global wind power
   development map" wind-history-map (2026 edition) and the "Global wind development atlas v3, Taiwan/Japan
@@ -406,8 +425,8 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 
 ## Deployment stability
 
-- GitHub disables scheduled workflows in a public repo after 60 days without activity. With the project
-  paused there is no feature work to keep the repo active, and when that happens the site shows no error, only the
+- GitHub disables scheduled workflows in a public repo after 60 days without activity. In a period without development
+  the repo may count as inactive, and when that happens the site shows no error, only the
   last data it got. `keepalive.yml` (added Sep 2026) re-enables the schedules through the GitHub API on the 1st of each
   month, without making commits ("Maintenance" in `DEPLOY.en.md`). For more punctual schedules and no commit pile-up,
   switch to a Cloudflare Worker Cron (option B in `DEPLOY.en.md`).

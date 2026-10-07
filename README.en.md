@@ -2,35 +2,46 @@
 
 [中文](./README.md) ｜ English (this page)
 
-Taiwan's wind power, live — and the world's wind power story, 1980–2025. One site, two scales:
+Taiwan's wind power, live — and the world's wind power story, 1980–2025 (plus a "2026 latest available" point on the timeline). One site, two scales:
 
 - **Taiwan right now**: real-time output for all 30 tracked wind turbine units/farms nationwide, shown
   like a reservoir-level gauge, straight from Taipower and Taiwan government open data.
-- **45 years worldwide**: a 3D globe that replays every country's wind build-out from 1980 to 2025 and
-  zooms down to individual farms (about 23,000, including projects under construction and in the
-  pipeline), plus a 12-chapter "Learn" section on the history, technology, countries and Taiwan's place
-  in it.
+- **45 years worldwide**: a 3D globe that replays every country's wind build-out since 1980 and zooms down to individual farms
+  (about 31,000 farm records: about 21,000 operating farms plus about 9,600 projects under construction or in the pipeline),
+  plus a 13-chapter "Learn" section on the history, technology, countries and Taiwan's place in it.
 
 Live site: `https://dofliu.github.io/windfarmTaiwan/`
 
-See [CHANGELOG.en.md](./CHANGELOG.en.md) for versions and changes (the site footer shows the current version),
-[ROADMAP.en.md](./ROADMAP.en.md) and [TODO.en.md](./TODO.en.md) for planned work and known limitations,
-[docs/data-coverage.en.md](./docs/data-coverage.en.md) for farm-level coverage by country and the items still to
-verify, [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) for every farm record removed or corrected and why,
-[docs/foundations.en.md](./docs/foundations.en.md) for the foundation type of each offshore farm,
-and [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) for which other countries publish live
-wind generation data.
-
-**Single-file edition**: [download windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)
-(about 6 MB), save it and open it in any browser — no web server needed. See "Single-file edition" below.
-**Public global wind map** (for everyone): [download windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html)
-(about 6 MB), just the 3D globe with the onshore, offshore and pipeline layers; works offline.
-
 Developed by National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu (國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室)
 
-**Project status (27 Sep 2026, v2.11.1)**: the main features are finished; the project is paused and in maintenance, with no new
-features planned. The automatic Taiwan live-data updates keep running. What to watch while it is paused is under "Maintenance" in
-[DEPLOY.en.md](./DEPLOY.en.md); work to pick up later is at the top of [TODO.en.md](./TODO.en.md).
+## Documents
+
+Every document comes in Chinese and English with the same content; the site itself is bilingual too (toggle at the top right).
+
+| Document | 中文 | English | What it covers |
+|---|---|---|---|
+| Read me (this page) | [README.md](./README.md) | [README.en.md](./README.en.md) | Features in brief, architecture, files, data updates, sources and licences |
+| **User guide** | [docs/user-guide.md](./docs/user-guide.md) | [docs/user-guide.en.md](./docs/user-guide.en.md) | How to use every page, button and layer, URL parameters, FAQ |
+| Changelog | [CHANGELOG.md](./CHANGELOG.md) | [CHANGELOG.en.md](./CHANGELOG.en.md) | What each version changed (the site footer shows the current version) |
+| Roadmap | [ROADMAP.md](./ROADMAP.md) | [ROADMAP.en.md](./ROADMAP.en.md) | Current status, known limitations, plans and directions evaluated but deferred |
+| To do | [TODO.md](./TODO.md) | [TODO.en.md](./TODO.en.md) | Work in progress, hand-off notes and concrete tasks |
+| Deployment | [DEPLOY.md](./DEPLOY.md) | [DEPLOY.en.md](./DEPLOY.en.md) | Deployment options and the monthly maintenance check |
+| Data coverage | [docs/data-coverage.md](./docs/data-coverage.md) | [docs/data-coverage.en.md](./docs/data-coverage.en.md) | Farm-level coverage by country, suspected duplicates and items to verify (generated) |
+| Data clean-up log | [docs/data-cleanup.md](./docs/data-cleanup.md) | [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) | Every farm record removed or corrected, and why (generated) |
+| Foundations | [docs/foundations.md](./docs/foundations.md) | [docs/foundations.en.md](./docs/foundations.en.md) | Foundation type and dimensions of each offshore farm (generated) |
+| Events and incidents | [docs/events.md](./docs/events.md) | [docs/events.en.md](./docs/events.en.md) | The events layer, row by row (generated) |
+| Live-data sources | [docs/live-data-sources.md](./docs/live-data-sources.md) | [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) | Which other countries publish live wind generation |
+| Promo video | [tools/promo/README.md](./tools/promo/README.md) | [tools/promo/README.en.md](./tools/promo/README.en.md) | Scripts for the globe's promo video |
+| Project conventions | [CLAUDE.md](./CLAUDE.md) (both languages side by side) | | For developers and AI agents: rules for docs, data, testing and versions |
+
+## Downloads (no web server needed, open offline)
+
+- **Single-file edition**: [windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html) (about 13 MB), the whole site; see "Single-file edition" below.
+- **Public global wind map** (for everyone): [windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html) (about 12 MB), just the 3D globe with the onshore, offshore and pipeline layers.
+
+**Project status (7 Oct 2026, v2.30.2)**: the main features are finished; the project has been in maintenance since 27 Sep 2026, with improvements
+made since as the owner asks (one PR each, see the CHANGELOG). The automatic Taiwan and international live-data updates keep running; what to
+watch is under "Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md), and work to pick up next is at the top of [TODO.en.md](./TODO.en.md).
 
 ## Quick start (read this first)
 
@@ -40,8 +51,8 @@ The bar at the top of the site has four pages:
 |---|---|
 | **Home** | Everything on one page: Taiwan's wind output right now, the world's wind growth 1980–2025, and where Taiwan ranks |
 | **Taiwan live** | How much each of Taiwan's 30 wind farms is generating right now (updated about every 2 hours); click any farm for its details |
-| **Global** | A 3D globe that animates 45 years of wind growth by country and zooms down to single wind farms |
-| **Learn** | 12 illustrated chapters, from the first power-generating turbine in 1888 to Taiwan's offshore wind, with a glossary and "Frequently asked" |
+| **Global** | A 3D globe that animates the growth of wind power by country and zooms down to single wind farms |
+| **Learn** | 13 illustrated chapters, from the first power-generating turbine in 1888 to Taiwan's offshore wind, with a glossary and "Frequently asked" |
 
 A suggested first visit (about 5 minutes):
 
@@ -63,140 +74,80 @@ Tips:
 - It works on phones. The globe downloads a few MB the first time, so give it a moment; older devices without 3D graphics get a
   bar-chart ranking instead.
 - How current the data is: Taiwan live updates about every 2 hours (the header shows Taipower's data time); country totals run to
-  the end of 2025; the farm-by-farm data is GEM's February 2026 release.
+  the end of 2025, with the latest 2026 figures for 8 countries; the farm-by-farm data is GEM's February 2026 release.
 - To use it offline, download the [single-file edition](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)
   and open it from your computer.
 - Found a mistake? Farm cards have "Report a data error" at the bottom, or open an issue on
   [GitHub](https://github.com/dofliu/windfarmTaiwan/issues).
+- Every button, layer and URL parameter is explained in the **[user guide](./docs/user-guide.en.md)**.
 
 ## Features
 
-Four pages in the nav bar (hash routes, so every view can be shared as a link):
+Four pages in the nav bar (hash routes, so every view can be shared as a link). This is a summary; the [user guide](./docs/user-guide.en.md) has the details.
 
-- **Home** `#/home` — Taiwan's live total next to global cumulative capacity 1980–2025; where Taiwan
-  ranks; three key milestones (click one to fly there on the globe)
-- **Taiwan live** `#/live` — everything the original live site did:
-  - Dashboard — national wind output, availability, grid operating reserve rate and wind's
-    contribution, today's estimated generation, grouped/filterable unit gauges
-  - Farm wall `#/live/wall`, Charts `#/live/charts` (ranking / share / distribution, 90-day official
-    long-term trend), Map `#/live/map` (Leaflet satellite map)
-  - A detail drawer per farm (live trend, nearby weather-station wind speed, specs, verified
-    development and operation timeline); open one directly with `#/live?farm=<id>`
-  - "Share" generates a live-data card with a prominent date-time badge
-- **Global** `#/global` — a 3D globe (three.js, loaded only when you open this page and paused when
-  you leave it):
-  - Year-by-year animation of each country's onshore/offshore **year-end cumulative capacity**; the
-    ranking bars are always in **MW**; map / map + bars / bar race views, 3D globe or 2.5D map
-  - **Farm layer**: curated farms merged with the Global Energy Monitor Global Wind Power Tracker
-    (Feb 2026) and Germany's MaStR, about 21,000 operating farms; selecting a country draws all of its farms, each shown as a
-    single turbine at any zoom; clicking a farm draws all of its turbines based on its unit count
-  - **Pipeline layer** (dashed rings): about 7,850 projects under construction, in pre-construction or
-    announced — brighter means closer to completion; toggle with the "Pipeline" button. The Pipeline tab lists
-    every project in scope by status and expected commissioning year, next to GEM's February 2026 country
-    totals, and clicking a project shows its planned layout as translucent turbines
-  - **Terrain basemaps**: relief (Natural Earth shaded relief + ocean bottom) / satellite (NASA Blue
-    Marble) / plain / mean wind speed (Global Wind Atlas at 100 m, binned at 1 m/s with a legend); zooming in adds Esri hillshade or
-    imagery tiles automatically (except on the wind speed basemap)
-  - Country profiles (history sparkline, rank, 10-year growth, largest/earliest farm, farm-level coverage,
-    pipeline totals, short notes for major markets; Taiwan and Japan carry an official-statistics audit badge),
-    milestones, and a searchable farm list
-  - **Output** (the "📊 Output" toolbar button, the Taiwan, US, Australian and Danish country profiles, and "See rankings" on farm cards; `out=TWN.cf` in the URL):
-    **total output** and **capacity factor rankings** of measured yearly output for Taiwan (19 Taipower-owned farms), the US (about 830 farms
-    from EIA-923), Australia (62 farms from AEMO's 5-minute measured output) and Denmark (54 farms from the Danish Energy Agency's turbine register), and a **same-model comparison** (one turbine model's capacity factor across farms, a dot per farm);
-    "**Denmark · single turbines**" (`out=DKT.cf`) ranks about 1,800 individually metered turbines, draws each model as a distribution and flies to a turbine when clicked; plus
-    "**Taiwan · live samples**" (`out=TWS.cf`, also linked from the Taiwan live page's Charts tab): average output and capacity factor of every grid unit,
-    private farms included, from Taipower's live data sampled every 2 hours (last 30 or 90 days, or everything), an estimate from samples, not official yearly
-    generation, never mixed into the official ranking; farm cards also show the last 90 days of samples
-  - **Wind now** (toolbar button, off by default; `flow=1` in the URL): the newest NOAA GFS 10 m wind field drawn as flowing particles,
-    refreshed every 6 hours; it is today's weather and does not follow the timeline
-  - **Sea zones** (toolbar button, off by default; `zones=1` in the URL): exclusive economic zone boundaries (Marine Regions, drawn three ways: agreed or ruled,
-    median lines and 200 NM limits, unsettled or disputed) and national offshore wind areas: Taiwan's potential sites (the 36 sites the Energy
-    Administration published in 2015), Japan's promotion zones (13) and the planned or leased areas of the North Sea countries (Netherlands, Germany, Belgium,
-    Denmark, Scotland, Norway), named with their area when zoomed in; the lines have no legal value and imply no position on disputed waters
-  - Guided tour, four story tours (`#/global?tour=tw` / `eu` / `cn` / `fl`) and deep links (e.g. `#/global?r=TWN&y=2020`, `#/global?ms=Horns%20Rev%201`,
-    `#/global?f=Hai%20Long%202%20%26%203`)
-  - **Global farm search and filters**: "🔍 Search" in the toolbar or the / key searches all ~23,000 farms by name,
-    Chinese name, developer, turbine model or country, with filters for status, type (onshore/offshore/floating),
-    size and year; the scope follows the region selector (world, continent or country). While any condition is set,
-    the map shows only the matching farms (visible even at world zoom), and the conditions go into the URL so the
-    view can be shared (e.g. `#/global?fty=fl&fst=op`, operating floating farms worldwide)
-  - **Ports layer** (⚓): 55 offshore wind ports in 15 countries for marshalling, foundation and turbine-component
-    manufacturing, cables, floating assembly and O&M (compiled by hand in Sep 2026, each with sources); small dots at
-    world zoom, icons and names when zoomed in, and arcs to the farms served when a port is selected (v2.16.0). Port cards list the roles, the wind farms served (click to switch)
-    and the sources; ports are searchable and have their own Ports tab (e.g. `#/global?port=twn-taichung`)
-  - **Events layer** (⚑): 91 major events and incidents (36 milestones, 53 incidents / failures, 2 policy & society; the first 59
-    verified by hand on 28 Sep 2026, a second batch of 29 incidents compiled from web searches, passages still to be checked, and a third batch of 3 from owner notices on 3 Oct 2026), each with a primary source from a regulator or the owner; an event appears once the
-    timeline reaches its year (2026 events show at the latest year), red = incident / failure, white = milestone,
-    purple = policy & society. Events with coordinates are marked on the globe, events linked to a farm but without
-    coordinates are placed at the farm, and the rest appear only in the Events tab. The event card shows the summary,
-    capacity basis, casualties (officially confirmed only), notes, related farms, sources and the photo page (URL and
-    rights status only; nothing is reproduced); farm cards list their related events. Searchable and filterable by
-    type (e.g. `#/global?ev=WIND-040`); the full list is [docs/events.en.md](./docs/events.en.md)
-  - **Foundation layer** (“Offshore: foundations” in the Show menu): colours operating offshore farms by foundation
-    type — monopile, steel frame (jacket, tripod, tripile), floating, and other fixed-bottom (gravity-based, high-rise pile
-    cap, cofferdam, rock-anchored, composite bucket, mixed); farms not yet checked are “type unknown”. The legend counts each group in scope and
-    the share of capacity with a known type, and a click on a group shows only that group; farm cards give the exact type and
-    sources, and country profiles get a capacity bar. The data is collected step by step: step 1 is the North Sea and NE
-    Atlantic within OSPAR (Sep 2026, 99 farms; where OSPAR differs from what was built or gives no specific type, German
-    Wikipedia or construction news is used); step 2 adds the rest of Europe (Sep 2026, 41 farms: the Baltic, the
-    Mediterranean, the IJsselmeer and farms finished after OSPAR 2024, each with a construction or other source), so every
-    operating offshore farm in Europe except one test site has a known type; step 3 gives floating farms worldwide their
-    sub-type (Sep 2026: spar, semi-submersible, barge, tension-leg platform), and country profiles count floating farms by
-    sub-type; step 4 covers Taiwan, Japan, Korea and the USA (Sep 2026, 36 farms: every operating farm in Taiwan and the USA,
-    9 of the 10 in Japan and 6 of the 7 in Korea), each citing a developer, construction contractor, government document or
-    trade press, with farms inside Japanese ports following NEDO's classification of support structures; step 5 (China and
-    Vietnam) is under way: from September to October 2026 Chinese and Vietnamese farms were added batch by batch (with a new
-    “composite bucket” type), every quoted passage verified with `tools/check_quotes.py`. As of 4 Oct 2026 (v2.17.7), 238 of the 330
-    operating offshore farms have a known type, 71.4% of capacity; the rest still read “type unknown”. Country profiles also have a
-    chart of new offshore capacity per year by foundation type (v2.15.0).
-    Farm-by-farm list: [docs/foundations.en.md](./docs/foundations.en.md) (e.g. `#/global?r=C:Europe&layer=fd`)
-  - **Dimensions and cross-section** (from v2.17.0): operating offshore farms carry water depth, hub height and rotor diameter
-    (`tools/farm_dimensions.py`, each row with a quoted source), and the farm card's cross-section and the close-up turbine are
-    drawn to scale from them; of the 236 operating offshore farms with a foundation type, 234 have at least one value and 168 have
-    all three. Consent limits, EIA design values and values for only one phase or some units are not used (reasons in TODO).
-  - **Farm cards**: click a farm for a photo (hand-checked Wikimedia Commons photos first, with author and licence; otherwise a
-    Wikipedia article image only when it shows wind turbines) and its Wikipedia summary; its standing within the country
-    (capacity rank and share of national installed wind capacity at the timeline year), a phase timeline,
-    nearby farms (within 30 km) and other farms by the same developer (clickable to switch); links to a
-    satellite map, OpenStreetMap, a wind resource map (Global Wind Atlas) and Wikidata; "Copy link to this
-    farm" and "Report a data error" (opens a pre-filled GitHub issue)
-  - Taiwanese farms are linked to the live data: click one to see Taipower's current output and jump
-    to its live details
-  - **Live output in Australia and Canada**: about 150 farms on Australia's NEM (AEMO, measured every
-    5 minutes), in Alberta (AESO, about a minute old) and in Ontario (IESO, hourly) show their current
-    output; country profiles show each grid's total and a 48-hour trend. With the timeline at the latest
-    year, farms with live data get a green ring and their rotors spin with their current output
+- **Home** `#/home` — Taiwan's live total next to global cumulative capacity 1980–2025; where Taiwan ranks; featured milestones
+  (click one to fly there on the globe)
+- **Taiwan live** `#/live` — national wind output, availability, grid operating reserve rate and wind's contribution, today's estimated
+  generation, sortable and filterable unit gauges; Farm grid `#/live/wall`, Charts `#/live/charts` (ranking / output mix, the long-term
+  trend from official retrospective data), Map `#/live/map` (Leaflet satellite map); a detail panel per farm (live trend, nearby
+  weather-station wind speed, specs, verified development and operation timeline, `#/live?farm=<id>`); "Share" makes a live card with the data time
+- **Global** `#/global` — a 3D globe (three.js, loaded only when you open this page and paused when you leave it):
+  - Year-by-year animation of each country's onshore/offshore **year-end cumulative capacity** (1980–2025, plus a "2026 (latest available)"
+    point from 8 countries' official figures); the ranking bars are always in MW; map / map + bars / bar race, 3D globe or 2.5D map
+  - **Farm layer**: curated farms merged with Global Energy Monitor's Global Wind Power Tracker (Feb 2026) and Germany's MaStR; selecting a
+    country draws all of its farms, and clicking a farm draws its turbines at their real positions (USWTDB in the US, MaStR in Germany,
+    OpenStreetMap elsewhere)
+  - **Pipeline** (dashed rings): about 9,600 projects under construction, in pre-construction or announced; the Pipeline tab lists them by
+    status and expected year, with GEM's country pipeline totals
+  - **Search and filters** (🔍 or the / key): every farm by name, Chinese name, developer, turbine model or country, filtered by status, type,
+    size and year, with the conditions kept in the URL for sharing
+  - **Country profiles**: history curve, rank, 10-year growth, largest and earliest farms, farm-level coverage, pipeline and foundation totals
+    (Taiwan and Japan carry an official-statistics audit badge)
+  - **Farm cards**: hand-checked photos, Wikipedia summary, foundation and a to-scale cross-section, distance to shore, actual or estimated
+    yearly output, national rank, phases, nearby and same-developer farms, related events, live output, external links, "Copy link to this
+    farm" and "Report a data error"
+  - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 833 farms),
+    Australia (AEMO, 62 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
+    private farms (an estimate from samples, never mixed with the official figures)
+  - **Layers**: ports (55 in 15 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
+    foundations (263 of the 332 operating offshore farms have a known type, 81.1% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
+    Wind now (NOAA GFS, every 6 hours), Sea zones (EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
+    areas of 6 North Sea countries) and a mean wind speed basemap (Global Wind Atlas)
+  - **Tours**: an auto tour and four story tours (Taiwan's road to offshore wind, Europe offshore, China's rise, Floating wind;
+    `#/global?tour=tw` / `eu` / `cn` / `fl`)
+  - **Live output in Australia and Canada**: about 150 farms from AEMO, AESO and IESO; with the timeline at the latest year, farms with
+    live data get a green ring and their rotors spin with their current output
   - Devices without WebGL fall back to the bar race automatically
-- **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations,
-  floating wind, ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a
-  glossary and full source list; every chart is drawn from the same global dataset and every chapter
-  links to the globe to replay that part of the story
-
-The whole site is bilingual (toggle top right; remembered in the browser).
+- **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations, floating wind,
+  ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a glossary and full source list; every chart is drawn
+  from the same global dataset and every chapter links to the globe to replay that part of the story
 
 ## Architecture
 
 ```
-GitHub Actions (every 2 hours cron) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json ──┐
-                                    ── intl_wind_scraper.py    ──► data/live/intl_realtime.json (Australia, Canada) ─────────────┤
-GitHub Actions (weekly Monday cron) ── backfill_history.py      ──► data/archive/ monthly files / wind_archive_daily.json ─────┤
-                                                                                                                                 ├─► commit back to repo
-tools/*.py (manual, rare: when source data changes) ──► data/global/*.json, assets/img/globe/*.jpg ─────────────────────────────┤
-GitHub Actions (push to main touching site code or global data) ── tools/build_standalone.py ──► the two HTML files in the "standalone" Release ┤
-GitHub Pages serves this same repo: index.html + assets/ + data/ + the JSON above ◄──────────────────────────────────────────────┘
+GitHub Actions (about every 2 hours) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json / data/archive/farm_daily.json ─┐
+                                     ── intl_wind_scraper.py    ──► data/live/intl_realtime.json (Australia, Canada) ─────────────────────────────────────┤
+GitHub Actions (weekly, Monday)      ── backfill_history.py      ──► data/archive/ monthly files / wind_archive_daily.json ─────────────────────────────────┤
+GitHub Actions (every 6 hours)       ── tools/fetch_gfs_wind.py  ──► data/live/wind_now.webp / wind_now.json (Wind now) ─────────────────────────────────────┤
+                                                                                                                                                              ├─► commit back to repo
+tools/*.py (manual, rare: when source data changes) ──► data/global/*.json, assets/img/globe/*.jpg, docs/* (generated documents) ───────────────────────────┤
+GitHub Pages serves this same repo: index.html + assets/ + data/ + the JSON above ◄──────────────────────────────────────────────────────────────────────────┘
+GitHub Actions (push to main touching site code or global data) ── tools/build_standalone.py, build_globe_lite.py ──► the two HTML files in the "standalone" Release (no commit)
+GitHub Actions (every PR) ── tools/smoke_test.js and more ──► automatic checks (pr-check)
 Browser loads index.html → lazy-loads page modules and data (same origin, no CORS)
 ```
 
 A plain static site with no build step: `index.html` is the shell, and each module in `assets/js/`
 registers its page with the hash router via `WW.registerPage()`. The globe's three.js (~600 KB),
-basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/global` is opened.
+basemaps and the 3.8 MB farm dataset are only downloaded the first time `#/global` is opened; larger files such as turbine positions,
+output and sea zones load only when needed.
 
 ## Files
 
 - `index.html` — site shell: top navigation, the four pages' layout and bilingual copy, drawer, toast
 - `assets/css/site.css` — design system (dark data style, palette, components, responsive);
   `assets/css/globe.css` — globe styles
-- `assets/js/core.js` — shared core: i18n, hash router, lazy loading, data cache, number formats, share
+- `assets/js/core.js` — shared core: i18n, hash router, lazy loading, data cache, number formats, share; the version `WW.VERSION`
 - `assets/js/live.js` — Taiwan live (the `FARMS` list of 30 units/farms with specs and timelines;
   live / history / grid data loading; dashboard, farm wall, charts, map, drawer, share card)
 - `assets/js/charts.js` — lightweight SVG charts (line, columns, bars, scatter; tooltips and table views)
@@ -204,71 +155,71 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
 - `assets/js/globe.js` — the 3D globe (rewritten from the "Global wind power development map",
   wind-history-map v3)
 - `assets/vendor/` — three.js r128 and OrbitControls (MIT, vendored unmodified)
-- `assets/img/globe/` — relief / satellite basemaps (4096×2048 and 2048×1024)
+- `assets/img/globe/` — relief / satellite / wind speed basemaps (4096×2048 and 2048×1024)
 - `data/global/wind_global.json` — per-country onshore/offshore capacity 1980–2025, world totals,
-  milestones, sources and notes (~70 KB)
-- `data/global/wind_farms.json` — ~31,000 farm-level records (operating, pipeline, retired)
-- `data/global/turbines_de.json` — position and specs of every German turbine (MaStR; about 6,500 farms), built by `tools/build_mastr.py`;
-  **shared under the Data licence Germany – attribution – 2.0 (© Bundesnetzagentur | Marktstammdatenregister)**; `data/global/sources/mastr_parks_DEU.json` lists the German farms added to the farm layer
-- `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
-- `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
-- `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
-  per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
-- `data/global/events.json` — 91 major events and incidents (built by `tools/build_events.py` from
-  `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
-  the build script, which checks that every event has English text and that farm names match the farm layer)
+  milestones, sources and notes (~90 KB)
+- `data/global/wind_farms.json` — ~31,000 farm-level records (operating, pipeline, retired; 151 countries and territories)
 - `data/global/country_stats.json` — the "latest available" point on the globe's timeline (2026: official figures for 8 countries,
   sourced country by country in `tools/latest_wind.py`) and each country's average wind capacity factor (Ember, for the
   estimated yearly output on farm cards); built by `tools/build_country_stats.py`
-- `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; about 970 farms, 60,000
+- `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
+- `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; 967 farms, about 61,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
+- `data/global/turbines_de.json` — position and specs of every German turbine (MaStR; about 6,600 farms, 26,000 turbines), built by `tools/build_mastr.py`;
+  **shared under the Data licence Germany – attribution – 2.0 (© Bundesnetzagentur | Marktstammdatenregister)**; `data/global/sources/mastr_parks_DEU.json` lists the German farms added to the farm layer
+- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
+  turbines), downloaded by `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
+  Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
+  non-US farm is selected (Germany prefers MaStR)
 - `data/global/generation.json` — actual yearly output and capacity factor of farms (833 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
   19 Taipower-owned farms in Taiwan from Taipower open data 17140; 54 Danish farms from the Danish Energy Agency's turbine register, matched by location;
-  62 Australian farms from AEMO's 5-minute SCADA output per unit, summed and linked to farms through the live-output unit mapping; the turbine model when a farm has only one,
-  for the Output dialog's same-model comparison),
+  62 Australian farms from AEMO's 5-minute SCADA output per unit; the turbine model when a farm has only one, for the Output dialog's same-model comparison),
   built by `tools/build_generation.py` (the Danish rules are in `tools/dk_output.py`, the Australian ones in `tools/au_output.py`) and loaded when a farm card first opens;
   the Australian source aggregate is `data/global/sources/aemo_wind_monthly.json` (made by `python3 tools/au_output.py fetch` from AEMO's monthly files)
-- `data/global/turbine_output.json` — position, specs and measured yearly output of about 1,800 individually metered Danish turbines (Danish Energy Agency;
+- `data/global/turbine_output.json` — position, specs and measured yearly output of 1,848 individually metered Danish turbines (Danish Energy Agency;
   production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
-- `data/global/offshore_zones.json` — the sea-zones layer: EEZ boundaries (Marine Regions v12, CC BY 4.0, simplified to about 2 km for display) Taiwan's offshore
+- `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
+  per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
+- `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
+- `data/global/events.json` — 91 major events and incidents (built by `tools/build_events.py` from
+  `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
+  the build script, which checks that every event has English text and that farm names match the farm layer)
+- `data/global/photos.json` — farm card photos (64 farms and 18 milestones; hand-checked Wikimedia Commons photos, built by `tools/build_photos.py` from `tools/farm_photos.py`)
+- `data/global/offshore_zones.json` — the sea-zones layer: EEZ boundaries (Marine Regions v12, CC BY 4.0, simplified to about 2 km for display), Taiwan's offshore
   wind potential sites (Energy Administration open data 36681), Japan's promotion zones and the North Sea countries' offshore wind areas, built by
   `tools/build_offshore_zones.py` (the Taiwanese site coordinates are kept in `data/global/sources/twn_offshore_potential_sites_36681.csv`, the Japanese
   notices' vertices in `data/global/sources/jpn_promotion_zones.json`, and the North Sea layers are downloaded from official open services by the build) and loaded
   when "Sea zones" is turned on
-- `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
-  turbines; Germany now uses MaStR), downloaded by
-  `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
-  Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
-  non-US farm is selected
+- `data/global/wind_resource.json` — bands and legend of the wind speed basemap (built by `tools/build_wind_resource.py`)
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
-  pipeline projects and Japanese farm list compiled in 2026, the merge log, and the wind records of OSPAR Offshore
-  Renewables 2024 (CC0, used for foundation types)
-- `tools/promo/` — scripts for the promo video of the 3D globe (globe recording, designed scenes, storyboards; the videos stay out of git, see [tools/promo/README.en.md](./tools/promo/README.en.md))
-- `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
-  `tools/build_standalone.py` builds the single-file edition, `tools/coverage_report.py` the data coverage report,
-  `tools/qa_farms.py` checks farm coordinates, `tools/qa_ports.py` checks the ports data,
-  `tools/build_foundations.py` builds the foundation data and the farm-by-farm list, and `tools/check_quotes.py` confirms that
-  passages quoted during research really are on their source pages; `tools/research/` holds research notes not yet written into
-  the tables (each source with its quoted passage and check result)
-- `standalone/` (not in git) — where the build scripts write locally; the official single-file edition and public global wind map are built by Actions and uploaded to the GitHub Release "standalone"
+  pipeline projects and Japanese farm list compiled in 2026, the merge log, the wind records of OSPAR Offshore
+  Renewables 2024 (CC0, used for foundation types) and other raw build inputs
+- `data/live/` — live output in Australia and Canada `intl_realtime.json`, the grid unit code → farm mapping `units.json` (built by
+  `tools/build_live_units.py`; Ontario checked by hand against IESO's published facility list), and Wind now `wind_now.webp` + `wind_now.json` (scheduled)
 - `data/archive/wind_history_archive_YYYY-MM.json` — the long-term archive of Taipower's official retrospective data, one file per month (written by `backfill_history.py`)
 - `data/archive/farm_daily.json` — daily samples of every grid unit (private farms included) in Taipower's live data, from June 2026 (added by the scraper
   on every run; `tools/build_farm_daily.py` backfills it from the git history), used by the Output dialog's Taiwan live samples and farm cards; one line per day,
   fields described in the file's meta
-  (built by `tools/build_globe_lite.py`; do not edit by hand)
-- `docs/` — the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
+- `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
+  `tools/build_standalone.py` and `tools/build_globe_lite.py` build the two single-file copies, `tools/coverage_report.py` the data coverage report,
+  `tools/qa_farms.py` checks farm coordinates, `tools/qa_ports.py` checks the ports data,
+  `tools/build_foundations.py` builds the foundation data and the farm-by-farm list, `tools/check_quotes.py` confirms that
+  passages quoted during research really are on their source pages (`tools/grab_page.py` finds quotable passages),
+  `tools/smoke_test.js` is the smoke test and `tools/check_version.py` checks the version and changelogs; `tools/research/` holds research notes not yet written into
+  the tables (each source with its quoted passage and check result)
+- `tools/promo/` — scripts for the promo video of the 3D globe (globe recording, designed scenes, storyboards; the videos stay out of git, see [tools/promo/README.en.md](./tools/promo/README.en.md))
+- `standalone/` (not in git) — where the build scripts write locally; the official single-file edition and public global wind map are built by Actions and uploaded to the GitHub Release "standalone"
+- `docs/` — the user guide (`user-guide.en.md`), the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
   farm-by-farm foundation list (`foundations.en.md`), the events list (`events.en.md`) and the
   assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
-- `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing) for future
+- `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing and versions) for future
   contributors and AI agents
+- `taipower_wind_scraper.py` — runs about every 2 hours: fetches Taipower's open data, parses the 30
+  wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`; adds the daily samples of every grid
+  unit → `data/archive/farm_daily.json`; also fetches the real-time supply-demand report → `grid_status.json`
 - `intl_wind_scraper.py` — runs about every 2 hours: fetches each wind farm's live output from Australia's NEM
   (AEMO), Alberta (AESO) and Ontario (IESO) → `data/live/intl_realtime.json` (with each grid's 48-hour
   total); if a source fails, the previous values are kept and flagged, and Taiwan's data is unaffected
-- `data/live/units.json` — grid unit code → farm mapping (built by `tools/build_live_units.py`; Ontario
-  checked by hand against IESO's published facility list)
-- `taipower_wind_scraper.py` — runs about every 2 hours: fetches Taipower's open data, parses the 30
-  wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`;
-  also fetches the real-time supply-demand report → `grid_status.json`
 - `wind_realtime.json` — live data (auto-updated by Actions)
 - `wind_history.json` — rolling 7-day history (accumulated live by the scraper, for trend lines)
 - `grid_status.json` — national power supply-demand report (peak load / supply capacity /
@@ -287,28 +238,23 @@ basemaps and the 2.7 MB farm dataset are only downloaded the first time `#/globa
   can't fill gaps in the live 7-day trend window — its value is long-term trend analysis only.
   **Scope caveat**: 37331 covers only Taipower-**owned** wind units, excluding IPP (independent
   power producer) purchases; its totals aren't comparable to the live system-wide figure.
-- `.github/workflows/scrape.yml` — runs the scraper about every 2 hours and commits
+- `.github/workflows/scrape.yml` — runs both scrapers about every 2 hours and commits
 - `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly and fills daily-sample gaps from the last three weeks of
   git history; can also be triggered manually (with a dry-run option)
 - `.github/workflows/wind-now.yml` — fetches the NOAA GFS 10 m wind field every 6 hours (`tools/fetch_gfs_wind.py`) for the globe's "Wind now"
-- `.github/workflows/standalone.yml` — rebuilds the single-file edition when site code or global data change and uploads it to the "standalone" Release (no commit, so git history does not grow by 12 MB each time)
+- `.github/workflows/standalone.yml` — rebuilds both single-file copies when site code or global data change and uploads them to the "standalone" Release (no commit, so git history does not grow by 25 MB each time)
 - `.github/workflows/keepalive.yml` — on the 1st of each month, re-enables the scheduled workflows through the GitHub API so they are not disabled after 60 days without activity (no commits)
 - `.github/workflows/pr-check.yml` — checks on every pull request: a Playwright smoke test (every page at desktop and phone widths, both single-file copies online and offline,
   `tools/smoke_test.js`), syntax, farm coordinates, generated documents being up to date, and the version and both changelogs when the site changes (`tools/check_version.py`);
   run it locally with `node tools/smoke_test.js http://localhost:8000/ --standalone`
-- `DEPLOY.en.md` — detailed deployment options (GitHub Pages / Cloudflare Worker / self-hosted)
-- `ROADMAP.en.md` / `TODO.en.md` — known limitations, planned work, and open tasks
-- `CHANGELOG.en.md` — versions and changes (the version number is `WW.VERSION` in `assets/js/core.js`)
-
-Every document has a Traditional Chinese version (`README.md`, `DEPLOY.md`, `ROADMAP.md`, `TODO.md`, `CHANGELOG.md`, `docs/*.md`).
 
 ## Deployment and local preview
 
-- GitHub Pages serves this repo's `main` branch (root) at `https://dofliu.github.io/windfarmTaiwan/`; the four GitHub Actions
-  workflows (Taiwan and international live data, the weekly official backfill, the single-file rebuild, the monthly keepalive) are
+- GitHub Pages serves this repo's `main` branch (root) at `https://dofliu.github.io/windfarmTaiwan/`; the six GitHub Actions
+  workflows (live data, the weekly official backfill, Wind now, the single-file rebuild, the monthly keepalive and the PR checks) are
   running and need no further setup.
-- Steps for deploying from scratch to another repo or host are in [DEPLOY.en.md](./DEPLOY.en.md); what to watch while development is
-  paused is under "Maintenance" in DEPLOY.en.md.
+- Steps for deploying from scratch to another repo or host are in [DEPLOY.en.md](./DEPLOY.en.md); the monthly maintenance check is under
+  "Maintenance" in DEPLOY.en.md.
 
 > Local preview: run `python3 -m http.server` in the repo root and open `http://localhost:8000/`
 > (opening `index.html` from disk can't load the JSON files over `file://`; to open the site straight
@@ -317,23 +263,23 @@ Every document has a Traditional Chinese version (`README.md`, `DEPLOY.md`, `ROA
 ## Single-file edition (download and open)
 
 `windfarmTaiwan-standalone.html` packs the whole site (Home, Taiwan live, the 3D globe and
-Learn) into one HTML file of about 6 MB, published in the GitHub Release "[standalone](https://github.com/dofliu/windfarmTaiwan/releases/tag/standalone)" (a fixed tag whose files are overwritten on each rebuild):
+Learn) into one HTML file of about 13 MB, published in the GitHub Release "[standalone](https://github.com/dofliu/windfarmTaiwan/releases/tag/standalone)" (a fixed tag whose files are overwritten on each rebuild):
 
 - **Download**: "Download the single-file HTML" in the site footer or under Learn → Sources & method →
   About this site, or save `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html`.
 - **Online**: Taiwan live data is fetched fresh from the live site (updated about every 2 hours),
   zooming in on the globe loads Esri detail tiles, and farm cards look up Wikipedia.
-- **Offline**: the global data, ~23,000 farm records, borders and the 2k relief/satellite basemaps are
+- **Offline**: the global data, ~31,000 farm records, borders and the 2k relief/satellite basemaps are
   inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled
   "Offline snapshot". The satellite map on the Taiwan live page (Leaflet) needs a connection.
 - **Updates**: pushes to `main` that touch `index.html`, `assets/` or `data/global/*.json` rebuild it
   automatically through GitHub Actions and upload it to the Release (the files are not in git); locally, run `python3 tools/build_standalone.py` (it stops if
   `WW.VERSION` has no entry in both changelogs). The footer shows the version, build time and commit.
   In the single-file edition the Share button always shares the live site's URL.
-- **Public global wind map** `windfarmTaiwan-globe.html` (`python3 tools/build_globe_lite.py`, also rebuilt and uploaded by
+- **Public global wind map** `windfarmTaiwan-globe.html` (about 12 MB, `python3 tools/build_globe_lite.py`, also rebuilt and uploaded by
   Actions): a slimmed-down copy for the general public with just the 3D globe and the onshore, offshore and pipeline
-  layers (country series, farm search, the Pipeline tab, relief / satellite basemaps and deep links included); it loads
-  no ports, foundations, events, milestone tour or live data and has no Home, Taiwan live or Learn pages; the footer
+  layers (country series, farm search, the Pipeline tab, Output, relief / satellite basemaps and deep links included); it loads
+  no ports, foundations, events, sea zones, Wind now, milestone tour or live data and has no Home, Taiwan live or Learn pages; the footer
   links to the full site. Offline it only lacks the Esri detail tiles and Wikipedia summaries.
 
 ## Notes
@@ -344,9 +290,9 @@ Learn) into one HTML file of about 6 MB, published in the GitHub Release "[stand
 - A repo with 60 days of no activity gets its scheduled workflows auto-disabled; the `keepalive`
   workflow re-enables them every month to prevent this (how to check: "Maintenance" in DEPLOY.en.md).
 - Every update creates a commit, so git history accumulates (harmless functionally). To avoid
-  this, switch to a Cloudflare Worker Cron (see `DEPLOY.md`).
+  this, switch to a Cloudflare Worker Cron (see `DEPLOY.en.md`).
 - Third-party services contacted while browsing: cdnjs (Leaflet, map tab only), Esri tiles (only
-  when zoomed in on the globe) and the Wikipedia API (farm photos and summaries; links only when
+  when zoomed in on the globe) and Wikipedia / Wikimedia Commons (farm photos and summaries; links only when
   unavailable). The rest of the site keeps working if any of them fails.
 
 ## Updating the global data
@@ -419,9 +365,6 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   100 small farms missing from GEM (NEDO prefecture lists, windfarm.work) and 22 corrected GEM coordinates
 - Formosa 1 Phase 1 and Formosa 2 years aligned with their actual grid connection / commercial dates
 - Borders rebuilt from Natural Earth 1:50m (the original lacked the mainland Australia polygon);
-- France 2025 onshore/offshore now follows the grid-connected capacity at end-2025 in the SDES wind dashboard (Q2 2026 issue),
-  23,992 / 2,008 MW; the original used IRENA onshore 24,155 and offshore 1,500 MW (missing Yeu-Noirmoutier, 500 MW, fully
-  connected in 2025)
   Crimea shown as part of Ukraine per UN General Assembly resolution 68/262, matching the country
   GEM assigns to Crimean wind farms
 - GEM phases more than 25 km apart under one location are shown as separate points instead of an
@@ -458,6 +401,9 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - From the owner's case-by-case review (Sep 2026), 6 more rules corrected the data: duplicate records of Donghai Bridge
   phase 1, Qingzhou 6 and Hollandse Kust Zuid site 4 were merged; Qingzhou 6 is 1,000 MW; the 202 MW Xiangshui nearshore
   farm belongs to China Three Gorges; Fuqing Xinghua Bay phase 2 is 280 MW, fully connected in 2021
+- From late September 2026, checking the foundations and dimensions of Chinese and Vietnamese offshore farms produced further rules correcting
+  duplicates, never-built farms, status, capacity, turbine models and locations (e.g. GEM's four records for the four sites of CTG Dafeng 800 MW,
+  Xiangshan Tuci's connection year, Zhuanghe IV-2 now operating); 405 rules in all, each with its reason and source in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total
@@ -517,6 +463,14 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   (NEDO, windfarm.work, operator pages), and the German Federal Network Agency's Market Master Data Register MaStR
   (© Bundesnetzagentur | Marktstammdatenregister, Data licence Germany – attribution – version 2.0; every German turbine and onshore farms GEM lacks)
 - Pipeline country totals: GEM Global Wind Power Tracker, February 2026 release
+- The timeline's "2026 (latest available)": official or industry statistics for 8 countries (Taiwan's Energy Administration, US EIA-860M, China's
+  National Energy Administration, India's MNRE, Brazil's ANEEL, Germany's Deutsche WindGuard, France's SDES, the UK's DESNZ), with each country's source,
+  data month and note in `tools/latest_wind.py`; national average capacity factors (for estimated yearly output): [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/) (CC BY 4.0)
+- Turbine positions: the US [USWTDB](https://energy.usgs.gov/uswtdb/) (USGS, LBNL, American Clean Power Association; public domain); Germany's MaStR (above);
+  elsewhere © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (ODbL 1.0; the derived `data/global/turbines_osm.json` is likewise shared under the ODbL)
+- Foundations: OSPAR Offshore Renewable Energy Developments 2024 (CC0); every other farm's sources (developers, construction contractors, government documents,
+  trade press) are in [docs/foundations.en.md](./docs/foundations.en.md)
+- Major events and incidents, ports: each row cites a regulator, owner or trade press source ([docs/events.en.md](./docs/events.en.md), `data/global/ports.json`)
 - Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
   Marble Next Generation (public domain)
 - Wind speed basemap: Global Wind Atlas 3 (DTU Wind Energy / World Bank Group, CC BY 4.0)
