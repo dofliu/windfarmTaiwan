@@ -372,6 +372,19 @@ FOUNDATIONS = [
        zh='四樁套管（福建省工信廳：機位水深逾 46 m，設計團隊採「4 樁導管架」）；28 部 13 MW 以上機組（含 6 部 16 MW），2024 年 6 月全容量併網（澎湃新聞）',
        en='Four-pile jackets (Fujian industry department: over 46 m of water, the design team chose a four-pile jacket); 28 turbines of 13 MW and above (six of 16 MW), fully connected in June 2024 (The Paper)'),
     # 中廣核的基礎監測合同列出 49 座單樁與 16 座全鋼筒型，與使用者的逐案覆核相同
+    F5('CHN', "Datang Nan'ao Lemen I", 'mp', url='https://www.shantou.gov.cn/attachment/0/156/156038/2544766.pdf',
+       zh='35 部上海電氣 7 MW 全部為無過渡段單樁：變更海域使用補充論證報告書（汕頭市政府公開，依「實際建設方案」論證；2021-03-16 海上開工、2021-12-29 全容量併網）'
+          '寫「均採用無過渡段單樁基礎方案」，並引竣工環境保護驗收調查報告：「本工程海上風機採用單樁基礎」。',
+       en='All 35 Shanghai Electric 7 MW turbines stand on monopiles without transition pieces: the supplementary sea-use change report (Shantou government, argued on the '
+          'as-built scheme; offshore works from 16 Mar 2021, full grid connection 29 Dec 2021) says all use transition-piece-free monopiles and cites the completion '
+          'environmental acceptance report: "the offshore turbines of this project use monopile foundations".'),
+    F5('CHN', 'Longyuan Rudong Intertidal 150 MW Demo', 'mx', url='https://niigata.china-consulate.gov.cn/zgxw/201112/t20111230_9292410.htm',
+       parts=[['mp', 37], ['jk', 21]],
+       zh='58 部：21 部西門子 2.38 MW 為多樁導管架，其餘 37 部（一期 17 部華銳 3 MW、二期 20 部金風 2.5 MW）為直徑 5.2 m 單樁。一期竣工時「17 台單樁、21 台多樁導管架」'
+          '（中國駐新潟總領事館轉載，2011-12-30）；二期金風機組為單樁出自 Power Technology 與 Energy Monitor（同一出版集團）；南通海洋水建也寫全場只用單樁與多樁導管架兩種。',
+       en='58 turbines: the 21 Siemens 2.38 MW units on multi-pile jackets and the other 37 (17 Sinovel 3 MW in phase I, 20 Goldwind 2.5 MW in phase II) on 5.2 m monopiles. '
+          'Phase I’s 17 monopiles + 21 multi-pile jackets at completion (Chinese Consulate in Niigata repost, 30 Dec 2011); the phase-II Goldwind monopiles from Power Technology '
+          'and Energy Monitor (same publisher); Nantong Ocean Hydraulic also says the farm used only monopiles and multi-pile jackets.'),
     F5('CHN', 'CGN Rudong H8', 'mx', url='https://ecp.cgnpc.com.cn/view/staticpags/zgh_zbgg/8a488fc36fae46600171bacf23d163d0.html',
        parts=[['mp', 49], ['bk', 16]],
        zh='65 部風機：49 座單樁、16 座全鋼筒型（與複合筒同為以負壓沉入的單筒基礎，筒體與過渡段全為鋼製）；2021 年 12 月全容量併網',

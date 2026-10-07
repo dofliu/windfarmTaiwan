@@ -1,32 +1,5 @@
 [
  {
-  "farm": "Datang Nan'ao Lemen I",
-  "kind": "dimensions",
-  "status": "verified, waiting for a foundation row",
-  "depth": [
-   18,
-   27
-  ],
-  "hub": 105,
-  "rotor": 154,
-  "note_zh": "《大唐南澳勒門Ⅰ海上風電項目變更海域使用補充論證報告書》（汕頭市政府公開，2026 年；本次論證依「實際建設方案」，項目 2021 年建成）：35 台上海電氣 7 MW 風機，風輪直徑 154 m、輪轂高度 105 m；場址水深 18–27 m（同報告另一處寫 18–25 m，海底高程 −18.0～−25.1 m）。原核准方案寫「風機的高度為 100 m」，與建成值不同，採報告中描述建成機組的 105 m。（尺寸已核對，可寫進 tools/farm_dimensions.py，但這座還沒有水下基礎型式，建置只接受已在基礎對照表的風場。）",
-  "note_en": "Datang Nan'ao Lemen I supplementary sea-use change report (Shantou government, 2026; argued on the actual as-built scheme, project built in 2021): 35 Shanghai Electric 7 MW turbines with a 154 m rotor and 105 m hub height; site depth 18–27 m (another section gives 18–25 m, seabed −18.0 to −25.1 m). The approved scheme gave a 100 m height; the 105 m describing the built turbines is used. (Dimensions verified and ready for tools/farm_dimensions.py, but the farm has no foundation type yet and the build only accepts farms in the foundation table.)",
-  "sources": [
-   {
-    "url": "https://www.shantou.gov.cn/attachment/0/156/156038/2544766.pdf",
-    "quote": "本项目 35 台 7WM 风机采用的上海电气， 其风机直径为154 m， 风机轮毂高 度 105 m"
-   },
-   {
-    "url": "https://www.shantou.gov.cn/attachment/0/156/156038/2544766.pdf",
-    "quote": "本次论证根据实际建设方案， 具体论证内容与已批复的海域使用论证报告的 主要对比见表 1.1-1"
-   },
-   {
-    "url": "https://www.shantou.gov.cn/attachment/0/156/156038/2544766.pdf",
-    "quote": "项目风电场场址水深范围为 18m~27m"
-   }
-  ]
- },
- {
   "farm": "CGN Fanshi II",
   "kind": "dimensions",
   "status": "verified, waiting for a foundation row",
@@ -112,29 +85,6 @@
    {
     "url": "http://nyj.shandong.gov.cn/art/2022/12/21/art_253733_10295458.html",
     "quote": "场址中心距离海岸12公里，水深6.2—8.2米。风电场规划海域面积48平方公里，总投资约30亿元，总装机容量304兆瓦，规划建设38台单机容量8兆瓦风电机组"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Rudong Intertidal 150 MW Demo",
-  "kind": "dimensions",
-  "status": "verified, waiting for a foundation row",
-  "depth": [
-   0,
-   5
-  ],
-  "hub": null,
-  "rotor": 101,
-  "note_zh": "Power Technology（2013，建成後）：如東 150 MW 潮間帶風場離岸 3–8 km，低潮時露灘、高潮時水深最多 5 m；一期 21 台西門子 2.38 MW（葉輪 101 m）＋17 台華銳 3 MW（葉輪 90 m），二期 20 台金風 2.5 MW（葉輪 100 m）；葉輪直徑取最大機型 101 m。輪轂高度未查到。（尺寸已核對，可寫進 tools/farm_dimensions.py，但這座還沒有水下基礎型式，建置只接受已在基礎對照表的風場。）",
-  "note_en": "Power Technology (2013, after completion): the 150 MW Rudong intertidal farm lies 3–8 km offshore, dry at low tide and covered by up to 5 m of water at high tide; phase I has 21 Siemens 2.38 MW (101 m rotor) and 17 Sinovel 3 MW (90 m), phase II 20 Goldwind 2.5 MW (100 m); rotor is the largest model, 101 m. Hub height not found. (Dimensions verified and ready for tools/farm_dimensions.py, but the farm has no foundation type yet and the build only accepts farms in the foundation table.)",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/projects/jiangsu-rudong-offshore-intertidal-wind-farm/",
-    "quote": "The location becomes dry with low tide but is covered by up to five meters of water at high tide."
-   },
-   {
-    "url": "https://www.power-technology.com/projects/jiangsu-rudong-offshore-intertidal-wind-farm/",
-    "quote": "The 100MW phase I is installed with 21 Siemens wind turbines each rated 2.38MW with rotor diameter of 101m and 17 Sinovel wind turbines each rated 3MW with rotor diameter of 90m. The 50MW phase II was installed with 20 Goldwind wind turbines each rated 2.5MW with rotor diameter of 100m."
    }
   ]
  },
