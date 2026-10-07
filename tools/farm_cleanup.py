@@ -786,9 +786,12 @@ RULES = [
         'CGN’s Fanshi I and II (2,000 MW, 131 turbines) reached full capacity on 24 September 2026 (China News Service); was 2025',
         'https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml', year=2026),
     fix('CHN', 'Guangdong Energy Fanshi II / Yangjiang', C,
-        '帆石二是中廣核的風場（63 部 16 MW，陽江市 2025 年重點建設項目），不是粵電；與帆石一同於 2026 年 9 月 24 日全容量投運（原寫 2025 年）',
-        'Fanshi II is CGN’s farm (63 × 16 MW, Yangjiang’s 2025 key-project list), not Guangdong Energy’s; it reached full capacity with Fanshi I on 24 September 2026 (was 2025)',
-        'https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml', rename='CGN Fanshi II', zhname='中廣核陽江帆石二', owner='CGN New Energy', year=2026),
+        '帆石二是中廣核的風場，不是粵電；建成 33 部 18 MW＋25 部 16.2 MW（國資委轉中國能建，2026-06；陽江市 2025 年重點項目清單寫的 63 部 16 MW 是早期規劃），'
+        '與帆石一同於 2026 年 9 月 24 日全容量投運（原寫 2025 年）',
+        'Fanshi II is CGN’s farm, not Guangdong Energy’s; as built it has 33 × 18 MW + 25 × 16.2 MW (SASAC citing CEEC, June 2026; the 63 × 16 MW on Yangjiang’s 2025 '
+        'key-project list was the earlier plan), and it reached full capacity with Fanshi I on 24 September 2026 (was 2025)',
+        'https://www.chinanews.com.cn/cj/2026/09-24/10703009.shtml', rename='CGN Fanshi II', zhname='中廣核陽江帆石二', owner='CGN New Energy', year=2026,
+        turbine='33x 18 MW + 25x 16.2 MW'),
     # ------------------------------------------------ 2026-10-01 查中國水下基礎第四批時發現（出處原文已以 check_quotes 核對）
     fix('CHN', 'Shandong Huaneng Offshore L Area wind farm', G,
         '華能半島北 L 場址（504 MW、42 部 12 MW）2026 年 4 月 7 日全容量併網（國資委）；GEM 2026-02 版仍列興建中',
@@ -1544,6 +1547,77 @@ RULES = [
         'Renewables, with investors Janakuasa, Ecotech Vietnam, Climate Investor One and ST International',
         'https://www.offshorewind.biz/2020/07/23/siemens-gamesa-lands-biggest-nearshore-contract-in-vietnam/',
         owner='EcoTech Tra Vinh Renewables JSC (Janakuasa; Ecotech Vietnam; Climate Investor One; ST International)', turbine='18x Siemens Gamesa SG 5.0-145 (4.3 MW rating)'),
+    # ------------------------------------------------ 2026-10-07 第二批資料疑點（機型欄、分場重複、狀態；出處原文以 check_quotes.py 核對）
+    fix('CHN', 'CGN Xiangshan 1 Phase 1 (Tuci)', C,
+        '中廣核象山塗茨一期已併網（寧波日報 2025-07），風機由中國海裝供應（日立能源 2022-07 新聞稿、券商報告），8 MW 級；原寫「明陽 6.45 MW」不對。'
+        '變更海域使用論證報告（2022-08 調整批覆後成稿）寫「目前尚未投產建設」，所以「2022 年」不對，實際全容量併網年份待查證；台數有 35 部（280 MW）與 38 部兩說',
+        "CGN's Xiangshan Tuci phase 1 is connected (Ningbo Daily, July 2025), with CSSC Haizhuang 8 MW-class turbines (Hitachi Energy release, July 2022; broker report), "
+        "not 'Mingyang 6.45 MW'. A sea-use change report written after the August 2022 adjustment approval says it was 'not yet in construction', so 2022 is wrong; the "
+        "year of full connection is unverified, and sources give either 35 turbines (280 MW) or 38",
+        'http://epaper.cnnb.com.cn/nbrb/pc/content/202507/17/content_225027.html', turbine='CSSC Haizhuang 8 MW class', note=True),
+    fix('CHN', 'Huaneng Cangnan 4', C,
+        '華能蒼南 4 號安裝 77 部機組（蒼南新聞網 2022-09），GlobalData 寫為遠景 5.2 MW（77 × 5.2 = 400.4 MW）；原寫「明陽 6.45–8 MW」沒有出處',
+        'Huaneng Cangnan 4 has 77 turbines (Cangnan News, Sept 2022), Envision 5.2 MW according to GlobalData (77 × 5.2 = 400.4 MW); the stored "Mingyang 6.45–8 MW" had no source',
+        'https://www.cnxw.com.cn/system/2022/09/06/014531534.shtml', turbine='77x Envision 5.2 MW'),
+    fix('CHN', 'CGN Shanwei Jiazi II', C,
+        '汕尾甲子 900 MW 全場「78 台 6.45 MW 和 50 台 8.0 MW」，甲子一是 78 台 6.45 MW，所以甲子二為 50 台 8.0 MW（中國證券報 2022-12-21；汕尾市政府補充論證報告同）；原寫 MySE6.45-180',
+        'Shanwei Jiazi (900 MW) has "78 × 6.45 MW and 50 × 8.0 MW"; Jiazi I is the 78 × 6.45 MW, so Jiazi II is 50 × 8.0 MW (China Securities Journal, 21 Dec 2022; the Shanwei '
+        'supplementary report agrees); it was stored as MySE6.45-180',
+        'https://www.cs.com.cn/ssgs/gsxw/202212/t20221221_6314699.html', turbine='50x 8 MW'),
+    fix('CHN', 'Huaneng Guanyun', C,
+        '華能灌雲 2021-07-30 全容量併網、共 48 台（中證網轉華能），中廣核嵊泗 7 號環評的類比表：46 台 6.45 MW＋2 台 3.0 MW；原寫「金風／遠景 4–5 MW」',
+        'Huaneng Guanyun was fully connected on 30 July 2021 with 48 turbines (cs.com.cn citing Huaneng); the comparison table in the CGN Shengsi 7 EIA gives 46 × 6.45 MW + '
+        '2 × 3.0 MW; it was stored as "Goldwind/Envision 4–5 MW"',
+        'https://29634560.s21i.faiusr.com/61/ABUIABA9GAAgpofptwYorvi-iwM.pdf', turbine='46x 6.45 MW + 2x 3 MW'),
+    fix('CHN', 'CTG Changyi', C,
+        '三峽昌邑 300 MW 共 50 台 6 MW，2022 年入冬前全部吊裝（山東省能源局 2022-11；新華社 2026-06 寫 50 座風機、滿發時每台每小時 6,000 度）；原寫「明陽 5.5–6.45 MW」',
+        'CTG Changyi (300 MW) has 50 × 6 MW, all installed before winter 2022 (Shandong Energy Administration, Nov 2022; Xinhua, June 2026: 50 turbines, 6,000 kWh per '
+        'turbine-hour at full output); it was stored as "Mingyang 5.5–6.45 MW"',
+        'http://nyj.shandong.gov.cn/art/2022/11/9/art_253733_10294676.html', turbine='50x 6 MW'),
+    fix('CHN', 'Shandong Energy Bozhong G', C,
+        '渤中 G 場址一期 400.4 MW 一次全容量併網，35 台 10 MW＋4 台 12.6 MW（齊魯網／大眾新聞 2025-05-31）；原寫「明陽／金風 8.5–16 MW」沒有出處',
+        'Bozhong G phase 1 (400.4 MW) was connected in one go with 35 × 10 MW + 4 × 12.6 MW (iqilu / Dazhong News, 31 May 2025); the stored "Mingyang/Goldwind 8.5–16 MW" had no source',
+        'https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml', turbine='35x 10 MW + 4x 12.6 MW'),
+    fix('CHN', 'Putian Shicheng', C,
+        '莆田石城 200 MW 為 26 台 7 MW＋3 台 6 MW（福建省自然資源廳 2024-05），GlobalData 寫上海電氣 SWT-7.0-154 與 SWT-6.0-154、2021-07 商轉；與平海灣 F 區是不同項目（券商報告分列）',
+        'Putian Shicheng (200 MW) has 26 × 7 MW + 3 × 6 MW (Fujian Natural Resources Department, May 2024), Shanghai Electric SWT-7.0-154 and SWT-6.0-154 in commercial '
+        'operation from July 2021 per GlobalData; it is a different project from Pinghai Bay area F (broker reports list both)',
+        'https://zrzyt.fujian.gov.cn/zwgk/xwdt/zrzyyw/202405/t20240509_6445881.htm', turbine='26x Shanghai Electric SWT-7.0-154 + 3x SWT-6.0-154'),
+    fix('CHN', 'Tianjin Nangang', C,
+        '天津南港海上風電一期 18 台 5 MW（國資委轉中國電建 2018-06），GlobalData 寫在渤海、高樁承台基礎、西門子歌美颯 G132-5.0；防波堤上的是另一案',
+        'Tianjin Nangang offshore phase 1 has 18 × 5 MW (SASAC citing PowerChina, June 2018), in the Bohai Sea on high-rise pile caps with Siemens Gamesa G132-5.0 per GlobalData; '
+        'the breakwater project is a separate one',
+        'http://www.sasac.gov.cn/n2588025/n2588124/c9178300/content.html', turbine='18x Siemens Gamesa G132-5.0'),
+    dup('CHN', 'Jiangsu Dafeng H8-1 (Three Gorges) Offshore wind farm', G, ('CTG Dafeng H8-1 (800 MW)', C),
+        '三峽江蘇大豐 800 MW 由 H8-1、H9、H15、H17 四個場址組成、共 98 台，2025-12-15 全容量併網（揚子晚報 2025-09、紫牛新聞 2026-07）；GEM 的 H8-1 是其中一個場址，已由精選紀錄涵蓋',
+        "CTG's Jiangsu Dafeng 800 MW is made up of sites H8-1, H9, H15 and H17 (98 turbines), fully connected on 15 Dec 2025 (Yangtse Evening Post, Sept 2025; Ziniu News, July 2026); "
+        "GEM's H8-1 is one of those sites, already covered by the curated record",
+        'https://www.yzwb.net/news/jiangsu/202509/t20250916_264564.html'),
+    dup('CHN', 'Jiangsu Dafeng H9 (Three Gorges) Offshore wind farm', G, ('CTG Dafeng H8-1 (800 MW)', C),
+        '三峽江蘇大豐 800 MW 由 H8-1、H9、H15、H17 四個場址組成、共 98 台，2025-12-15 全容量併網（揚子晚報 2025-09、紫牛新聞 2026-07）；GEM 的 H9 是其中一個場址，已由精選紀錄涵蓋',
+        "CTG's Jiangsu Dafeng 800 MW is made up of sites H8-1, H9, H15 and H17 (98 turbines), fully connected on 15 Dec 2025 (Yangtse Evening Post, Sept 2025; Ziniu News, July 2026); "
+        "GEM's H9 is one of those sites, already covered by the curated record",
+        'https://www.yzwb.net/news/jiangsu/202509/t20250916_264564.html'),
+    dup('CHN', 'Jiangsu Dafeng H15 (Three Gorges) Offshore wind farm', G, ('CTG Dafeng H8-1 (800 MW)', C),
+        '三峽江蘇大豐 800 MW 由 H8-1、H9、H15、H17 四個場址組成、共 98 台，2025-12-15 全容量併網（揚子晚報 2025-09、紫牛新聞 2026-07）；GEM 的 H15 是其中一個場址，已由精選紀錄涵蓋',
+        "CTG's Jiangsu Dafeng 800 MW is made up of sites H8-1, H9, H15 and H17 (98 turbines), fully connected on 15 Dec 2025 (Yangtse Evening Post, Sept 2025; Ziniu News, July 2026); "
+        "GEM's H15 is one of those sites, already covered by the curated record",
+        'https://www.yzwb.net/news/jiangsu/202509/t20250916_264564.html'),
+    dup('CHN', 'Jiangsu Dafeng H17 (Three Gorges) Offshore wind farm', G, ('CTG Dafeng H8-1 (800 MW)', C),
+        '三峽江蘇大豐 800 MW 由 H8-1、H9、H15、H17 四個場址組成、共 98 台，2025-12-15 全容量併網（揚子晚報 2025-09、紫牛新聞 2026-07）；GEM 的 H17 是其中一個場址，已由精選紀錄涵蓋',
+        "CTG's Jiangsu Dafeng 800 MW is made up of sites H8-1, H9, H15 and H17 (98 turbines), fully connected on 15 Dec 2025 (Yangtse Evening Post, Sept 2025; Ziniu News, July 2026); "
+        "GEM's H17 is one of those sites, already covered by the curated record",
+        'https://www.yzwb.net/news/jiangsu/202509/t20250916_264564.html'),
+    fix('CHN', 'Liaoning Dalian Zhuanghe 4 Area II Offshore wind farm', G,
+        '華能大連莊河 Ⅳ2（石城島東部海域，200 MW、25 台 8.0 MW）2024-09-29 最後一台併網、全容量併網（遼寧省政府網 2024-09-30）；原列興建中',
+        'Huaneng Dalian Zhuanghe IV-2 (east of Shicheng Island, 200 MW, 25 × 8.0 MW) connected its last turbine and reached full capacity on 29 Sept 2024 (Liaoning government, '
+        '30 Sept 2024); it was listed as under construction',
+        'https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024093014452334478/index.shtml', st=0, year=2024, turbine='25x 8 MW'),
+    fix('CHN', "Fujian Zhangpu Liu'Ao Offshore wind farm · E", G,
+        '六鰲 E 區（404 MW）查無開工紀錄：GlobalData（2024-10）仍列規劃中、預計 2025 年開工；改為前期開發。GEM 的點位在六鰲以南約 130 km，確切位置待查證',
+        "Liu'ao area E (404 MW) has no record of construction: GlobalData (Oct 2024) still lists it as planned, with construction expected from 2025; moved to pre-construction. "
+        "GEM's point is about 130 km south of Liu'ao; the real position is unverified",
+        'https://power-technology.com/?p=213306', st=2),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）

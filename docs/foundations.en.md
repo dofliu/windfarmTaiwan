@@ -28,11 +28,11 @@ This page shows the results of steps 1–4 and the part of step 5 done so far. O
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 261 of 331 farms, 80.6% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 261 of 332 farms, 80.5% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| China | 139 | 80 | 62% | 42 | 14 | 5 | 19 |
+| China | 140 | 80 | 62% | 42 | 14 | 5 | 19 |
 | United Kingdom | 44 | 44 | 100% | 33 | 8 | 2 | 1 |
 | Germany | 35 | 35 | 100% | 25 | 5 |  | 5 |
 | Netherlands | 13 | 13 | 100% | 12 |  |  | 1 |
