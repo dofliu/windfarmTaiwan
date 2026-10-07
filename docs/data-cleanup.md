@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 409 條：刪除 148 筆（其中營運中 44,360.2 MW），修正 261 筆。
+- 規則 414 條：刪除 148 筆（其中營運中 44,360.2 MW），修正 266 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 53 | 26,224.5 | 107 |
+| 中國大陸 | 53 | 26,224.5 | 111 |
 | 丹麥 | 1 | 180 | 1 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -48,7 +48,7 @@
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 13 | 1,487 | 22 |
+| 越南 | 13 | 1,487 | 23 |
 
 ## 中國大陸 (CHN)
 
@@ -208,12 +208,16 @@
 | Liaoning Dalian Zhuanghe 4 Area II Offshore wind farm · 200 MW | GEM | 修正：狀態、年份、機組 | 華能大連莊河 Ⅳ2（石城島東部海域，200 MW、25 台 8.0 MW）2024-09-29 最後一台併網、全容量併網（遼寧省政府網 2024-09-30）；原列興建中 | [連結](https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024093014452334478/index.shtml) |
 | Fujian Zhangpu Liu'Ao Offshore wind farm · E · 404 MW | GEM | 修正：狀態 | 六鰲 E 區（404 MW）查無開工紀錄：GlobalData（2024-10）仍列規劃中、預計 2025 年開工；改為前期開發。GEM 的點位在六鰲以南約 130 km，確切位置待查證 | [連結](https://power-technology.com/?p=213306) |
 | Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm · 300 MW · 2021 | GEM | 修正：機組 | 粵電陽江沙扒已建 46 台明陽 MySE6.45-180＋1 台 MySE5.5-155（21 號機位）（海域使用補充論證報告書，2023-06）；原機型欄空白 | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/43/43288/710896.pdf) |
-| CTG Yangjiang Shapa Phase 3 · 400 MW · 2021 | 精選 | 修正：機組 | 沙扒三期建成 61 台 6.45 MW 固定式（明陽 MySE6.45-180 與金風 GW171/6450）＋1 台 5.5 MW 漂浮式 MySE5.5-155（海域使用補充論證報告書，2023-09；2021-12-16 建設完成） | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf) |
+| CTG Yangjiang Shapa Phase 3 · 400 MW · 2021 | 精選 | 修正：機組、容量 | 沙扒三期建成 61 台 6.45 MW 固定式（明陽 MySE6.45-180 與金風 GW171/6450）＋1 台 5.5 MW 漂浮式 MySE5.5-155（海域使用補充論證報告書，2023-09；2021-12-16 建設完成）；漂浮式那台已有自己的紀錄「三峽引領號」，這筆只算 61 台固定式（393.45 MW，原寫 400 MW） | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf) |
 | CTG Dalian Zhuanghe III · 300 MW · 2020 | 精選 | 修正：機組 | 三峽莊河 III 布置 2 台 3 MW、50 台 3.3 MW、21 台 6.45 MW，裝機規模 300 MW（世紀新能源網轉龍源振華，2020-11）；原寫「金風／上海電氣 4–6 MW」 | [連結](https://www.ne21.com/news/show-135820.html) |
 | CGN Fanshi I · 1,000 MW · 2026 | 精選 | 修正：機組 | 帆石一的機型是 22 台金風 GWH252-13.6MW 與 51 台明陽 MySE14-260（陽江市自然資源局 2025-04 公示的用海調整補充論證報告書「調整後風機主要設備特性表」；台數與陽江新聞網的 22 台 13.6 MW＋51 台 14 MW 相同）；原寫「明陽 11–16 MW」 | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf) |
 | Guangdong Zhanjiang Xuwen Offshore wind farm · 906 MW · 2022 | GEM | 修正：機組 | 國家電投徐聞原場 60 萬千瓦、南北兩個標段各 47 台（世紀新能源網，2021-11）；300 MW 增容為 25 台 12 MW，2024 年 12 月 17 日全容量併網（國家電投），與這筆紀錄的分期（2024 年 300 MW）相符；原本機型欄空白 | [連結](http://www.spic.com.cn/xtdt1/202412/t20241218_324623.html) |
 | Jiangsu Dongtai Zhugensha H1 Offshore wind farm · 200 MW · 2021 | GEM | 修正：機組 | 國華東台五期（竹根沙 H1#）裝 50 台上海電氣 4.0-146（中國能源報，2020-06 首台吊裝）；原本機型欄空白 | [連結](https://paper.people.com.cn/zgnyb/html/2020-06/22/content_1993858.htm) |
 | Jiangsu Dongtai Zhugensha H2 Offshore wind farm · 302 MW · 2021 | GEM | 修正：機組 | 竹根沙 H2# 總裝機 302 MW，含 50 台 4.0 MW 與 17 台 6.0 MW（中國可再生能源學會風能專委會轉 EPC 承包商，2020-09）；原本機型欄空白 | [連結](https://www.cweea.com.cn/xwdt/html/31056.html) |
+| Jiangsu Dafeng H4 Offshore (Longyuan) wind farm · 303 MW · 2021 | GEM | 修正：機組 | 大豐 H4 竣工為 47 台 6.45 MW（龍源鹽城新能源 2025-11 招標公告）；原本機型欄空白 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251129/c09f1385-66c8-4ffb-b075-750f71961119.html) |
+| Jiangsu Dafeng H6 Offshore (Longyuan) wind farm · 303 MW · 2021 | GEM | 修正：機組 | 大豐 H6 為 47 台 6.45 MW（龍源鹽城新能源 2025-11 招標公告）；原本機型欄空白 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251129/c09f1385-66c8-4ffb-b075-750f71961119.html) |
+| Jiangsu Dafeng H12 Offshore (Longyuan) wind farm · 200 MW · 2018 | GEM | 修正：機組 | 大豐 H12 共 80 台（龍源 2020-10 招標公告），為金風 GW109/2500（中國能源網 2017 年施工中的概況，55 台在潮間帶、25 台在深水區）；原本機型欄空白 | [連結](https://www.china5e.com/news/news-1004814-1.html) |
+| Jiangsu Sheyang Southern Area H2-1 Offshore wind farm · 104 MW · 2021 | GEM | 修正：機組 | 射陽南區 H2-1# 共 23 台（射陽龍源 2022-01 招標公告），海上射陽風電場共 90 台 4.5 MW（67＋23，江蘇海上龍源 2025-08）；原本機型欄空白 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220126/a64913cb-cf9d-4f39-8a5f-8d3af8011429.html) |
 
 ## 丹麥 (DNK)
 
@@ -643,6 +647,7 @@
 | Đông Thành 1 - Thái Hòa offshore wind farm · 1 · 80 MW · 2026 | GEM | 修正：狀態、年份 | 東城 1（80 MW）2026 年 3 月永隆省工商廳仍在請上級對投資主張表示意見，查不到施工報導（GEM 的「施工中」只根據 2024 年的付費資料庫頁面）；改為施工前、年份不詳 | [連結](https://thuonghieucongluan.com.vn/vinh-long-phat-trien-dien-gio-tro-thanh-nganh-kinh-te-quan-trong-a310538.htm) |
 | V1-1 Truong Long Hoa (Tra Vinh) · 48 MW · 2021 | 精選 | 修正：業主、機組 | 茶榮 V1-1 就是「韓國－茶榮」風場一期（48 MW）：2019-04-24 由茶榮 1 號風電公司在長隆和社 V1-1 位置動工，主要出資者 Climate Investor One 與韓國 Samtan（vietnamfinance）；Vestas 統包 12 部 V150-4.2 MW（offshoreWIND.biz 2021-09）。Sermsang 是 V1-2 的投資人，原寫的業主與「12x Envision 4 MW」都不對 | [連結](https://www.offshorewind.biz/2021/09/01/vestas-nears-finish-line-at-vietnamese-intertidal-wind-farm) |
 | Hiep Thanh (Tra Vinh) · 78 MW · 2022 | 精選 | 修正：業主、機組 | 協成風場（78 MW）是 18 部西門子歌美颯 SG 5.0-145、每部以 4.3 MW 運轉（offshoreWIND.biz 2020-07 與 2021-08），不是遠景；開發商 EcoTech Tra Vinh Renewables，投資人 Janakuasa、Ecotech Vietnam、Climate Investor One 與 ST International | [連結](https://www.offshorewind.biz/2020/07/23/siemens-gamesa-lands-biggest-nearshore-contract-in-vietnam/) |
+| Tan Phu Dong 2 (Tien Giang, GEC) · 50 MW · 2021 | 精選 | 修正：機組 | 新富東 2 號裝 12 部 Vestas V150-4.2 MW（Power Technology），不是遠景；EPC 為 PC1 | [連結](https://power-technology.com/?p=174203) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 

@@ -366,29 +366,6 @@
   ]
  },
  {
-  "farm": "CTG Yangjiang Shapa Phase 3",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "note_zh": "三峽陽江沙扒三期400 MW於2021年底前建成（CPEM轉載研報），三四五期共用一座百萬千瓦級升壓站；含全球首台抗颱風漂浮式機組「三峽引領號」（半潛式）。固定式機組基礎型式與座數未查到；中交三航局2021-02-25稱「三峽陽西沙扒海上風電基礎一標」完成全部29台單樁沉樁，但未寫明屬哪一期（線索）。",
-  "note_en": "CTG Yangjiang Shapa phase 3, 400 MW, built before end of 2021 (research report via CPEM); phases 3–5 share one GW-class substation; includes the world's first typhoon-resistant floating unit 'Sanxia Yinling' (semi-submersible). Foundation types/counts of the fixed units not found; CCCC Third Harbour (2021-02-25) reported all 29 monopiles of the 'Shapa foundation lot I' driven, but did not say which phase (clue only).",
-  "anomalies": "資料庫機型欄把漂浮式「三峽引領號」（5.5 MW）計入三期；該機組應以浮動式（半潛式）另記。",
-  "sources": [
-   {
-    "url": "https://www.cpem.org.cn/list99/51783.html",
-    "quote": "对比三峡广东阳江阳西沙扒三期 400MW 海上风电项目，该项目已于 2021年底前建成并网"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-157562.html",
-    "quote": "至此中交三航局圆满完成该项目全部29台单桩沉桩施工任务"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-169132.html",
-    "quote": "全球首台抗台风型漂浮式海上风电机组的“世界之最”"
-   }
-  ]
- },
- {
   "farm": "CGN Shanwei Jiazi II",
   "type": "unknown",
   "parts": null,
@@ -534,52 +511,6 @@
    {
     "url": "https://caifuhao.eastmoney.com/news/20241218222746771199840",
     "quote": "唐山乐亭月坨岛海上风电场一期 （300MW） 风机单桩基础及其附件制作、运输采购公开招标中标候选人"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Dafeng H6 Offshore (Longyuan) wind farm",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 47,
-  "note_zh": "H4、H6 合稱龍源大丰二期 606.3 MW，共 94 台 6.45 MW（各 47 台），2021-12-24 全容量併網（國家能源集團 2021-12-27）；「單月沉樁 22 台」以機位計樁，指向單樁，但寫明「單樁」的龍船風電網報導（wind.imarine.cn/news/29098）無法抓取（403），故暫列未知。",
-  "note_en": "H4 and H6 together form Longyuan Dafeng phase 2 (606.3 MW, 94 x 6.45 MW, 47 each), fully grid-connected 2021-12-24 (CHN Energy, 2021-12-27). '22 piles driven in a month' counted per position points to monopiles, but the article stating 'monopile' explicitly (wind.imarine.cn/news/29098) could not be fetched (HTTP 403), so left unknown.",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "12月24日，随着最后一台风机叶轮缓缓转起，国家能源集团龙源电力江苏大丰二期60.63万千瓦海上风电项目实现全容量并网发电。"
-   },
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "共安装94台6.45兆瓦大容量海上风机，配套设置两座220千伏海上升压站和一座陆上集控中心"
-   },
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "期间创造了单月沉桩22台，吊装28台等行业记录"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Dafeng H4 Offshore (Longyuan) wind farm",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 47,
-  "note_zh": "H4、H6 合稱龍源大丰二期 606.3 MW，共 94 台 6.45 MW（各 47 台），2021-12-24 全容量併網（國家能源集團 2021-12-27）；「單月沉樁 22 台」以機位計樁，指向單樁，但寫明「單樁」的龍船風電網報導（wind.imarine.cn/news/29098）無法抓取（403），故暫列未知。",
-  "note_en": "H4 and H6 together form Longyuan Dafeng phase 2 (606.3 MW, 94 x 6.45 MW, 47 each), fully grid-connected 2021-12-24 (CHN Energy, 2021-12-27). '22 piles driven in a month' counted per position points to monopiles, but the article stating 'monopile' explicitly (wind.imarine.cn/news/29098) could not be fetched (HTTP 403), so left unknown.",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "12月24日，随着最后一台风机叶轮缓缓转起，国家能源集团龙源电力江苏大丰二期60.63万千瓦海上风电项目实现全容量并网发电。"
-   },
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "共安装94台6.45兆瓦大容量海上风机，配套设置两座220千伏海上升压站和一座陆上集控中心"
-   },
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "期间创造了单月沉桩22台，吊装28台等行业记录"
    }
   ]
  },
@@ -907,29 +838,6 @@
   ]
  },
  {
-  "farm": "Longyuan Dafeng H7",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 80,
-  "note_zh": "龍源大豐H7為80台金風GW130-2.5MW、200MW，2019年6月全部併網（中國能源網 2019-06；中國能源報 2019-08）；基礎型式的原文（東方風力發電網）抓不到。",
-  "note_en": "Longyuan Dafeng H7 is 80 x Goldwind GW130-2.5 MW (200 MW), fully grid-connected in June 2019 (china5e, Jun 2019; China Energy News, Aug 2019); the page describing its foundations (eastwp.net) could not be fetched.",
-  "anomalies": "資料庫寫2021年、金風6.45 MW：實際H7為2019年、80x2.5 MW；2021-12-24全容量併網的是龍源大豐二期（94x6.45 MW、606.3 MW，國家能源集團 2021-12-27），可能混淆。",
-  "sources": [
-   {
-    "url": "https://www.china5e.com/news/news-1061980-1.html",
-    "quote": "风场选用80台新疆金风科技股份有限公司（下称“金风科技”）GW130-2.5MW机组，项目容量共计20万千瓦。"
-   },
-   {
-    "url": "http://paper.people.com.cn/zgnyb/html/2019-08/05/content_1940162.htm",
-    "quote": "大丰（H7）海上风电项目建设80台机组，装机容量共计20万千瓦，年发电量5.2亿千瓦时"
-   },
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/aafe9ed342294764a6fe14a3b08c3b05.shtml",
-    "quote": "共安装94台6.45兆瓦大容量海上风机"
-   }
-  ]
- },
- {
   "farm": "Guodian Rudong H1",
   "type": "unknown",
   "parts": null,
@@ -956,25 +864,6 @@
    {
     "url": "https://fzggw.jiangsu.gov.cn/art/2018/11/30/art_59371_372.html",
     "quote": "协鑫如东H1-2#海上风电场项目"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Dafeng H12 Offshore (Longyuan) wind farm",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 80,
-  "note_zh": "龍源大豐H12 200MW位於大豐東沙沙洲北側近海～潮間帶，2017-06世界首座分體式海上升壓站吊裝（新能源資訊網 2017-06；澎湃 2021）；80台2.5MW依搜狐2017-12摘要，原文抓不到；基礎型式查無可引用原文。",
-  "note_en": "Longyuan Dafeng H12 (200 MW) lies north of Dongsha shoal in nearshore/intertidal waters; the world's first modular offshore substation was installed there in June 2017 (oaso.net, Jun 2017; The Paper, 2021). 80 x 2.5 MW comes from a Sohu (Dec 2017) snippet whose page could not be fetched; no quotable source for the foundation type.",
-  "anomalies": "",
-  "sources": [
-   {
-    "url": "https://www.oaso.net/N/Wind/_Arp9Wqn0mE28yRo.html",
-    "quote": "龙源江苏大丰(H12)200MW海上风电项目位于大丰区外侧东沙沙洲北部海域，风电场区域为近海~潮间带地形"
-   },
-   {
-    "url": "https://m.thepaper.cn/baijiahao_13374721",
-    "quote": "2017年6月27日，世界首座分体式220kV海上升压站在龙源江苏大丰（H12）200MW海上风电项目场区成功吊装"
    }
   ]
  },
@@ -1013,21 +902,6 @@
    {
     "url": "https://www.dafeng.gov.cn/art/2025/3/11/art_11828_4300040.html",
     "quote": "2021年，该公司离岸最远距离超80千米H8-2风电场在国内首次应用海上高抗技术"
-   }
-  ]
- },
- {
-  "farm": "Jiangsu Sheyang Southern Area H2-1 Offshore wind farm",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "note_zh": "查無 H2-1#100MW 單獨的基礎施工紀錄；它應是龍源射陽海上 H2 南區 40 萬千瓦專案（2021 年 10 月全容量併網，遠景 EN-148/4.5MW）的一個分區，搜尋摘要稱該 400MW 專案由龍源振華施工 57 根單樁與 57 台 4.5MW 機組，但原文頁面抓不到，未能核實。",
-  "note_en": "No construction record found for the H2-1 #100MW block itself; it appears to be a sub-block of Longyuan's Sheyang Offshore H2 South 400 MW project (full grid connection Oct 2021, Envision EN-148/4.5MW). A search snippet said that 400 MW project had 57 monopiles / 57 x 4.5 MW units built by Longyuan Zhenhua, but the page could not be fetched, so this is unverified.",
-  "anomalies": "資料庫將 H2-1#100MW 列為獨立風場（104 MW）；原始核准名稱「龙源江苏射阳海上南区H2-1#100MW风电项目」應為 H2 南區 400MW 專案的一個分區，可能與同區其他紀錄重複。 The 104 MW record is probably one block of the 400 MW Sheyang H2 South project; check for duplication with other Sheyang H2 records.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-208116.html",
-    "quote": "曾连续获得国家优质电力工程奖与国家优质工程奖的国家能源集团龙源电力射阳海上H2南区40万千瓦风电项目（简称：龙源射阳海上H2南区项目），在2023年TBA（全场时间可利用率）达到99%以上的基础上再接再厉"
    }
   ]
  },
@@ -1690,42 +1564,6 @@
   ]
  },
  {
-  "farm": "CTG Yangjiang Shapa Phase 1",
-  "type": "mx",
-  "parts": [
-   [
-    "mp",
-    null
-   ],
-   [
-    "jk",
-    null
-   ],
-   [
-    "sb",
-    null
-   ]
-  ],
-  "turbines": 55,
-  "note_zh": "一期300MW、55台明陽5.5MW（2021年6月全容量並網）。核准變更後基礎改為單樁、四樁導管架、單柱複合筒、吸力桶導管架四種；中新網證實沙扒項目使用吸力筒導管架、單柱複合筒、芯柱式嵌岩導管架、大直徑四樁導管架等為國內首次。各型式座數未查得。來源：搜狐（核准變更）2024、中新網／科技日報 2021-07-19、陽西縣政府 2021-07-26。",
-  "note_en": "Phase 1: 300 MW, 55 Mingyang 5.5 MW (full capacity June 2021). After the approval change the foundations are monopiles, four-pile jackets, single-column composite buckets and suction-bucket jackets; chinanews confirms suction-bucket jackets, composite buckets, rock-socketed core-column jackets and large-diameter four-pile jackets were used at Shapa, each a first in China. Counts per type not found. Sources: sohu (approval change) 2024, chinanews/S&T Daily 2021-07-19, Yangxi county 2021-07-26.",
-  "anomalies": "資料庫年份2019偏早：陽西縣政府稱一期2021年6月已全部投運；三峽新能源陽江發電有限公司為業主（資料庫業主欄空白）。",
-  "sources": [
-   {
-    "url": "https://www.sohu.com/a/789824114_121779604",
-    "quote": "调整后风机基础采用的桩型分别为单桩基础、四桩导管架基础、单柱复合筒基础和吸力桶导管架基础。单桩基础桩径 8.4m；四桩导管架基础桩径 2.4m，根开 22m；单桩复合筒基础桩径 36m；吸力桶导管架基础桩径 13m，根开 30m。"
-   },
-   {
-    "url": "https://www.chinanews.com.cn/m/sh/2021/07-19/9522993.shtml",
-    "quote": "三峡沙扒项目创新使用多种施工技术和基础形式，其中吸力筒导管架、单柱复合筒、芯柱式嵌岩导管架、大直径四桩导管架等多个基础形式均为国内首次使用"
-   },
-   {
-    "url": "http://www.yangxi.gov.cn/xw/yxxw/content/post_548949.html",
-    "quote": "作为最早开工建设的三峡沙扒一期30万千瓦项目，规划安装55台5.5兆瓦风机，目前，已全部投入运营发电。"
-   }
-  ]
- },
- {
   "farm": "Tangshan Laoting Putidao",
   "type": "mx",
   "parts": [
@@ -1858,25 +1696,6 @@
    {
     "url": "https://www.geoseu.cn/yanjiuyuan/5153.html",
     "quote": "包含大丰H1#、H2#等4个场区的59台8.5MW风机单桩基础"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Sheyang H2",
-  "type": "unknown",
-  "parts": null,
-  "turbines": 67,
-  "note_zh": "龍源射陽海上南區H2#300MW：67台遠景EN-148/4.5MW，2019年12月龍源振華完成首根單樁（北極星，無法抓取），2021年4月12日全容量並網。單樁全數完成的可引用紀錄未找到。來源：中國風電新聞網（新浪財經）2025-02-07、射陽新聞網。",
-  "note_en": "Longyuan Sheyang South H2 300 MW: 67 Envision EN-148/4.5 MW; first monopile by Longyuan Zhenhua in Dec 2019 (bjx, not fetchable); full capacity 12 Apr 2021. No quotable record that all foundations are monopiles. Sources: China Wind News via Sina 2025-02-07, Sheyang News.",
-  "anomalies": "資料庫機型「Goldwind 6.45 MW」有誤：67台遠景4.5MW。",
-  "sources": [
-   {
-    "url": "https://finance.sina.com.cn/roll/2025-02-07/doc-ineiqkks1306604.shtml",
-    "quote": "持续优化的远景能源EN-148/4.5MW智能风机"
-   },
-   {
-    "url": "https://www.sheyangnews.com/article/articlecontent.html?key=61cd03d9fcd93115c68b4568&fk=6459a7bdfbf345e9398b4567&name=0",
-    "quote": "今年4月12日，龙源射阳H2#海上风电项目的全容量并网，助力盐城市成为长三角地区首个新能源装机容量突破千万千瓦的城市。"
    }
   ]
  }

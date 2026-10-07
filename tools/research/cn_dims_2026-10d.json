@@ -222,22 +222,6 @@
   ]
  },
  {
-  "farm": "Putian Shicheng",
-  "kind": "dimensions",
-  "status": "lead",
-  "depth": null,
-  "hub": null,
-  "rotor": null,
-  "note_zh": "資料問題：福建省自然資源廳 2024-05：莆田石城海上風電場項目用海獲批，200 MW＝26 台 7 MW＋3 台 6 MW。搜尋摘要另顯示莆田市《平海灣海上風電場 F 區項目海域使用補充論證報告書》（2023-10）寫該 F 區 2018-08 開工、2021-08 全部併網、3 台 6 MW＋26 台 7 MW、輪轂高度約 100 m（莆田市政府網站連線被重置，未能核對原文，「約」值也不採用）。資料庫機型欄「Goldwind 6.45 MW」應為 26×7＋3×6 MW，待查。",
-  "note_en": "Data problem: Fujian Natural Resources Dept (May 2024): sea use approved for the Putian Shicheng farm, 200 MW = 26 × 7 MW + 3 × 6 MW. A search summary also indicates that Putian's supplementary sea-use report for Pinghai Bay area F (Oct 2023) says that area started in Aug 2018, was fully connected in Aug 2021 with 3 × 6 MW + 26 × 7 MW, hub height \"about 100 m\" (the Putian site resets connections, so unverified; an \"about\" value would not be used anyway). The database turbine \"Goldwind 6.45 MW\" should probably be 26 × 7 + 3 × 6 MW; to be checked.",
-  "sources": [
-   {
-    "url": "https://zrzyt.fujian.gov.cn/zwgk/xwdt/zrzyyw/202405/t20240509_6445881.htm",
-    "quote": "建设规模200兆瓦，年上网电量62190万兆瓦时，其中,安装单机容量7兆瓦风力发电机组26台，6兆瓦风力发电机组3台"
-   }
-  ]
- },
- {
   "farm": "Tianjin Nangang",
   "kind": "dimensions",
   "status": "lead",
@@ -306,71 +290,6 @@
    {
     "url": "https://power-technology.com/?p=215390",
     "quote": "Cangnan 4 Offshore Wind Farm (Cangnan 4 Offshore Wind Farm Phase I) is equipped with Envision Energy. The phase consists turbines with 5.2MW nameplate capacity."
-   }
-  ]
- },
- {
-  "farm": "CTG Yangjiang Shapa Phase 1",
-  "kind": "dimensions",
-  "status": "verified, waiting for a foundation row",
-  "depth": [
-   27,
-   33
-  ],
-  "hub": 110,
-  "rotor": 158,
-  "note_zh": "《三峽新能源陽西沙扒300MW海上風電場項目海域使用補充論證報告書》（公示稿，陽江市自然資源局 2023-09-07 公示）：項目性質為「已建項目」，調整後已建成 55 台 5.5 MW 風機；表 2.2.1-2「調整後參數」MySE5.5-155 預裝輪轂高度 110 m、風輪直徑 158 m（調整前可研值為 105.7 m／157.738 m，不採用）；場址水深 27–33 m。表中用語為「預裝輪轂高度」，是建成後補充論證所列實際機型參數。（尺寸已核對，這座還沒有水下基礎型式。）",
-  "note_en": "Supplementary sea-use report for CTG Yangxi Shapa 300 MW (public version, Yangjiang Natural Resources Bureau notice of 7 Sep 2023): the project is listed as \"already built\", with 55 x 5.5 MW turbines completed; table 2.2.1-2 \"after adjustment\" gives MySE5.5-155 with a pre-set (\"预装\") hub height of 110 m and rotor 158 m (feasibility values 105.7 m / 157.738 m not used); site depth 27–33 m. (Dimensions verified; the farm has no foundation type yet.)",
-  "sources": [
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
-    "quote": "（4）项目性质：已建项目"
-   },
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
-    "quote": "调整后，项目已建设完成 55 台 5.5MW 的风电机组，1 座 220kV 海上升压"
-   },
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
-    "quote": "表 2.2.1-2 调整前后风机主要设备特性对比表 项目 单位 调整前参数 调整后参数 风机型号 MySE5.5-155 MySE5.5-155 设计寿命 年 25 25 额定功率 kW 5500 5500 预装轮毂高度 m 105.7 110 风轮直径 m 157.738 158"
-   },
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58161/731643.pdf",
-    "quote": "风电场的场址中心点距离 沙扒镇南侧海岸最短距离约 28.2 km， 场址水深范围27~33m"
-   }
-  ]
- },
- {
-  "farm": "CTG Yangjiang Shapa Phase 3",
-  "kind": "dimensions",
-  "status": "verified, waiting for a foundation row",
-  "depth": [
-   23,
-   32
-  ],
-  "hub": [
-   106,
-   112.5
-  ],
-  "rotor": 178,
-  "note_zh": "《三峽廣東陽江陽西沙扒三期400MW海上風電場項目海域使用補充論證報告書》（公示稿，2023-09）：2020-04-20 開工、2021-12-16 建設完成；調整後 A1 區 46 台 6.45 MW 固定式＋1 台 5.5 MW 漂浮式、A2 區 15 台 6.45 MW，機型為明陽 MySE6.45-180、金風 GW171/6450 與明陽 MySE5.5-155（漂浮式）；表 2.2.1-2 調整後輪轂高度分別為 111、112.5、106 m，風輪直徑 178、171、155 m（表中 MySE6.45-180 的風輪直徑寫 178 m）。只算固定式機組為 111–112.5 m。水深：A1 區 28–32 m、A2 區 23–25 m。（尺寸已核對，這座還沒有水下基礎型式。）",
-  "note_en": "CTG Yangxi Shapa phase 3 supplementary sea-use report (public version, Sep 2023): construction 20 Apr 2020 – completed 16 Dec 2021; as adjusted, A1 has 46 x 6.45 MW fixed + 1 x 5.5 MW floating and A2 15 x 6.45 MW, models Mingyang MySE6.45-180, Goldwind GW171/6450 and Mingyang MySE5.5-155 (floating); table 2.2.1-2 (after adjustment) gives hub heights 111, 112.5 and 106 m and rotors 178, 171 and 155 m (the table lists 178 m for the MySE6.45-180). Fixed units only: 111–112.5 m. Depth: A1 28–32 m, A2 23–25 m. (Dimensions verified; the farm has no foundation type yet.)",
-  "sources": [
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
-    "quote": "其中 A1 区场址中 心距离陆地最近距离约 27km，水深在 28m~32m 之间；A2 区场址中心距离陆地 最近距离约 15km，水深 23m~25m。"
-   },
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
-    "quote": "本项目于 2020 年 4 月 20 日开工，2021 年 12 月 16 日建设完成"
-   },
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
-    "quote": "调整后项目 A1 区建设 46 台 6.45MW 固定式风机及 1 台 5.5MW 漂浮式风机，A2 区建设 15 台 6.45MW 固 定式风机，机型采用明阳 MySE6.45-180、金风 GW171/6450 及明阳 MySE5.5155 机型"
-   },
-   {
-    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58158/731643.pdf",
-    "quote": "表 2.2.1-2 风机设备特性表 项目 单位 调整前 调整后 风机型号 / 金风 GW6.45MW-174 明阳 MySE6.45-180 金风 GW171/6450 明阳 MySE5.5155 额定功率 kW 6450 6450 6450 5500 轮毂高度 m 109 111 112.5 106 风轮直径 m 174 178 171 155"
    }
   ]
  },

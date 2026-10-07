@@ -1,0 +1,239 @@
+[
+ {
+  "farm": "EolMed (Gruissan)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "No farm-specific hub height found (offshoreWIND.biz, Energy Global, Vestas order news give only the model and ~60 m depth, already in the table).",
+  "sources": []
+ },
+ {
+  "farm": "Les Éoliennes Flottantes du Golfe du Lion (EFGL)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Installation and grid-connection reports (offshoreWIND.biz Jun/Jul 2025, Connaissance des Énergies) give only the 186 m tip height and ~70 m depth; no hub height.",
+  "sources": []
+ },
+ {
+  "farm": "Provence Grand Large",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Liebherr's installation story says the nacelle was lifted to 'environ 120 mètres de hauteur' in port: a lifting height, not usable. EDF press dossier PDF returned 404. No new as-built hub source.",
+  "sources": []
+ },
+ {
+  "farm": "Blyth Offshore Demonstrator",
+  "status": "lead",
+  "hub": 109.5,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "GHD（業主工程顧問）案例頁：5 部風機、葉尖高於 LAT 191.5 m；若以 V164 葉輪 164 m 推算，輪轂約 109.5 m（LAT 起算），但葉輪直徑不在同一段原文，依規則不能相減，列為線索。",
+  "note_en": "GHD (owner's engineer) case study: five turbines with a tip height of 191.5 m above LAT; with the V164's 164 m rotor the hub would be about 109.5 m above LAT, but the rotor diameter is not in the same passage, so by the rules this stays a lead.",
+  "why": "Tip height and rotor are not in one passage; no direct hub height found. ICE project pages (ice.org.uk) return 403.",
+  "sources": [
+   {
+    "url": "https://www.ghd.com/projects/blyth-offshore-demonstrator-wind-farm",
+    "quote": "a string of five wind turbines with generating capacity of 41.5MW - powering up to an average of 36,000 homes, and with a tip height of 191.5m above LAT."
+   }
+  ]
+ },
+ {
+  "farm": "Dogger Bank A",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only total height (260 m) and blade length (107 m) in news; the Dogger Bank A&B decommissioning programme is a 2020 pre-construction draft (not as-built) and was not used.",
+  "sources": []
+ },
+ {
+  "farm": "East Anglia ONE",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "ScottishPower Renewables document library (scottishpowerrenewables.com) returns 403, so its decommissioning programme could not be read; no other as-built hub source.",
+  "sources": []
+ },
+ {
+  "farm": "Gunfleet Sands 3 Demonstration",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "No farm-specific hub height (Ørsted farm list, Power Technology, offshoreWIND.biz). nawindpower.com resets the connection. IMechE's 2013 piece quotes a generic 154 m rotor for the Siemens 6 MW, which conflicts with the SWT-6.0-120 in the table (Energy Monitor: 120 m); not acted on.",
+  "sources": []
+ },
+ {
+  "farm": "Hornsea Two",
+  "status": "lead",
+  "hub": 120.9,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": 167,
+  "note_zh": "Hornsea Project Two 除役計畫書（Tethys 收錄，施工前版本，寫「預定 2020 年開始海上施工」）：165 部風機、葉輪 167 m、葉尖高於 LAT 204.37 m；同段推得輪轂約 120.9 m（LAT 起算）。屬投資決定後、施工前的設計說明，不是建成紀錄，所以列為線索。",
+  "note_en": "Hornsea Project Two decommissioning programme (on Tethys; pre-construction version saying offshore construction 'is scheduled to commence in 2020'): 165 turbines, 167 m rotor, tip height 204.37 m above LAT; the same passage gives a hub of about 120.9 m above LAT. It is a post-FID, pre-construction design description, not an as-built record, hence a lead.",
+  "why": "Pre-construction document; an as-built source (or a post-construction revision of the decommissioning programme) is still needed.",
+  "sources": [
+   {
+    "url": "https://tethys.pnnl.gov/sites/default/files/publications/HOW02DecommissioningProgramme.pdf",
+    "quote": "165 offshore wind turbines with a rotor diameter of 167 m, a tip height of 204.37 m above LAT and a monopile foundation with a diameter of up to 9.5 m"
+   },
+   {
+    "url": "https://tethys.pnnl.gov/sites/default/files/publications/HOW02DecommissioningProgramme.pdf",
+    "quote": "Offshore construction is scheduled to commence in 2020 and the wind farm is currently scheduled to be fully commissioned in 2022."
+   }
+  ]
+ },
+ {
+  "farm": "Kentish Flats Extension",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only the already-rejected FID-era 83.6 m (Power Technology) found; Power Technology also gives a wrong 120 m rotor for the V112. No as-built source.",
+  "sources": []
+ },
+ {
+  "farm": "Lynn and Inner Dowsing",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "No hub height in en.wikipedia, the Eastern IFCA notice to mariners, GLID site or Modern Power Systems; smulders.com project page 404.",
+  "sources": []
+ },
+ {
+  "farm": "Goto City Offshore floating project",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "五島浮體風場合同會社 2022-02 給國土交通省的事業概要（mlit.go.jp）有一張示意圖，標籤「ロータ直徑／全長／ハブ高さ／喫水／水深」與數字「80／56／172／76／100 m」分開排列，對應關係無法從文字確定（若照順序，ハブ高さ會是 172 m，顯然不對；可能是輪轂 56 m）；而且是浮體出問題、改設計前的資料（完工後全長為 176.1 m），不採用。",
+  "note_en": "Goto Floating Wind Farm LLC's Feb 2022 project outline for MLIT (mlit.go.jp) has a diagram whose labels (rotor diameter / overall length / hub height / draft / water depth) and values (80 / 56 / 172 / 76 / 100 m) are extracted separately, so the pairing cannot be read from the text (taken in order the hub would be 172 m, which is clearly wrong; the hub is probably 56 m); it also predates the floater fault and redesign (the completed units are 176.1 m long), so it is not used.",
+  "why": "Design-stage (2022) diagram with ambiguous label/value order; Toda/Kansai/ENEOS 2026 completion releases give only 176.1 m overall length and 80 m rotor. goto-fowind.co.jp returns 502.",
+  "sources": [
+   {
+    "url": "https://www.mlit.go.jp/kowan/content/001464711.pdf",
+    "quote": "ロータ直径： 全長： ハブ高さ： 喫水： 水深： 80 ｍ 56 ｍ 172 ｍ 76 ｍ 100 ｍ"
+   }
+  ]
+ },
+ {
+  "farm": "Southwest Offshore Demonstration (Seonam)",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "머니투데이（2020-10 現場報導）：風機葉片長 65 m、最高 157 m，葉輪直徑 134.4 m。若以 157 m 減半徑 67.2 m 得輪轂約 90 m，但兩個數字不在同一段、「最高高度」的基準未寫明，且 134 m 葉輪只屬 20 部中的 17 部，不採用。",
+  "note_en": "Money Today (Oct 2020 site report): 65 m blades, maximum height 157 m, rotor diameter 134.4 m. 157 m minus a 67.2 m radius would give a hub of about 90 m, but the two numbers are in different passages, the datum of the 'maximum height' is not stated, and the 134 m rotor covers only 17 of the 20 units, so it is not used.",
+  "why": "Derived value, different passages, partial units; KOWP site and other Korean trade press have no hub height. The 2015 plan values (80/90 m) stay rejected.",
+  "sources": [
+   {
+    "url": "https://www.mt.co.kr/economy/2020/10/25/2020102422573312415",
+    "quote": "서남해 해상풍력 실증단지에서는 풍력발전기에 달린 길이 65m 날개 3개가 바람에 몸을 맡긴 채 돌아가고 있었다. 최고 높이 157m, 남산타워 4층에 달하는 거대한 풍력발전기 20대 앞에 서자"
+   },
+   {
+    "url": "https://www.mt.co.kr/economy/2020/10/25/2020102422573312415",
+    "quote": "서남해 해상풍력 단지 날개 직경은 134.4m로 제주단지에 설치된 발전기보다 43m가 길다."
+   }
+  ]
+ },
+ {
+  "farm": "Borssele III & IV (Blauwwind)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "WindpowerNL's fact page leaves 'Hub height: m' empty; Blauwwind, Shell, Power Technology, GreenStreet give no hub height (GreenStreet: developer depth 15–37 m).",
+  "sources": []
+ },
+ {
+  "farm": "Borssele V (Two Towers innovation site)",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "WindpowerNL fact page leaves hub and tip height empty; Vestas order release and Offshore magazine commissioning news give none.",
+  "sources": []
+ },
+ {
+  "farm": "Changfang & Xidao",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "No as-built hub height found in news or developer pages this round.",
+  "sources": []
+ },
+ {
+  "farm": "Greater Changhua 1 & 2a",
+  "status": "none",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Ørsted case study PDF (only jacket height 70–80 m), cnyes / bnext / chinatimes news give no hub height.",
+  "sources": []
+ },
+ {
+  "farm": "Coastal Virginia Offshore Wind (CVOW) Pilot",
+  "status": "lead",
+  "hub": null,
+  "hub_kind": "hub",
+  "depth": null,
+  "rotor": null,
+  "note_zh": "Tethys 的 CVOW 頁把試驗機與商轉案合在一起寫「Hub Height: 110-149 m」，110 m 可能是試驗機，但沒有分開寫明，不採用。",
+  "note_en": "Tethys's CVOW page lumps the pilot and commercial project together as 'Hub Height: 110-149 m'; 110 m is probably the pilot but is not stated separately, so not used.",
+  "why": "Pilot hub height not stated on its own; news give only ~600 ft to tip.",
+  "sources": [
+   {
+    "url": "https://tethys.pnnl.gov/wind-project-sites/coastal-virginia-offshore-wind-cvow",
+    "quote": "Turbine Model: SWT-6.0-154 pilot, SG 14-222 DD commercial Hub Height: 110-149 m Rotor Diameter: 154-222m"
+   }
+  ]
+ }
+]

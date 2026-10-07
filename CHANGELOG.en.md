@@ -15,6 +15,24 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.4 — 2026-10-07
+
+- Round 10 of the research (quotes checked with `check_quotes.py`):
+  - Vietnam: Tra Vinh V1-1 (Korea–Tra Vinh phase 1) stands on pile groups with caps (Vestas' turnkey contract and construction reports) with 150 m rotors; V1-3 (REE)
+    is in 3–7 m of water; Hiep Thanh has 145 m rotors. 15 of Vietnam's 22 operating offshore farms are now known.
+  - Tan Phu Dong 2's turbines corrected to 12 Vestas V150-4.2 (was Envision).
+  - Dimensions for early and demonstration farms outside China: Vindeby (hub 37.5 m, depth 2.1–5.1 m), Blyth (62 m), Utgrunden I (65 m), Yttre Stengrund (60 m), Arklow Bank phase 1
+    (73.5 m), the Hooksiel BARD test turbine (90 m), the Beatrice demonstrator (88 m above lowest astronomical tide, 45 m of water) and Setana (40 m), plus depths and rotors for
+    Kitakyushu Hibikinada, Lely, Irene Vorrink, TetraSpar and WindFloat 1. The Hooksiel and Arklow hubs come from reports during construction and the maker's project sheet (Arklow
+    also from English Wikipedia), and Yttre Stengrund and Irene Vorrink from the EU's CA-OWEE offshore wind database; the card notes say so.
+  - Southern China: foundations and dimensions for CTG Yangjiang Shapa phase 1 (39 monopiles + 13 jackets + 3 composite buckets) and phase 3 (22 monopiles + 27 jackets + 12
+    high-rise pile caps), hubs 110 m / 111–112.5 m, from the post-construction supplementary reports published by the Yangjiang natural resources bureau; all 29 Putian Shicheng
+    turbines stand on high-rise pile caps (two construction lots of 10 + 19).
+  - The Shapa phase 3 record counted its floating unit too (400 MW), but that unit has its own record ("Sanxia Yinling"); it now counts the 61 fixed turbines only (393.45 MW).
+  - Northern China: operation and maintenance tenders on CHN Energy's tender site state the foundations of Longyuan's Jiangsu farms: Sheyang H2 and H2-1 and Dafeng H4, H6 and H7
+    are all monopiles, and Dafeng H12 has 40 monopiles + 40 jackets; also their depths and the turbine fields of Dafeng H4, H6 and H12 and Sheyang H2-1.
+  - Operating offshore farms: foundation type known for 273 of 332, 83.6% of capacity (91 of China's 140, 15 of Vietnam's 22); dimensions for 272, hub height for 193, all three for 182.
+
 ## v2.30.3 — 2026-10-07
 
 - Hub heights, round 9 (all 51 operating Chinese offshore farms with a foundation type but no hub height checked again; quotes checked with `check_quotes.py`):

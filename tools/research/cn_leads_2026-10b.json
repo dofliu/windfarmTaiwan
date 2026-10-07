@@ -80,30 +80,6 @@
   ]
  },
  {
-  "farm": "Longyuan Sheyang H2",
-  "type": "lead (34 of 67)",
-  "note_en": "Longyuan Zhenhua: 34 × 4.5 MW monopiles; the other 33 not found",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-132865.html",
-    "quote": "龙源振华公司共承接34台4.5MW风机单桩基础施工及风电机组安装工作",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Dafeng H7",
-  "type": "lead (40 of 80)",
-  "note_en": "Longyuan Zhenhua drove 40 foundation piles for 40 turbines (one per turbine); the other 40 not found",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-131361.html",
-    "quote": "圆满完成了40根基础沉桩，40台风机吊装施工任务",
-    "check": "OK"
-   }
-  ]
- },
- {
   "farm": "Huaneng Rudong H3",
   "type": "lead (no type)",
   "note_en": "Two lots of 40 × 5 MW (CCCC Third Harbour lot II, CRBBG); type not stated",
