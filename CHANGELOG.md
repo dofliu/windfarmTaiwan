@@ -20,6 +20,10 @@ v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
   - 越南：茶榮 V1-1（韓國－茶榮一期）水下基礎為群樁＋承台（Vestas 統包合約與施工報導），葉輪 150 m；V1-3（REE）水深 3–7 m；協成葉輪 145 m。
     越南營運中離岸風場 22 座查明 15 座；全部營運中離岸風場 332 座查明 264 座，占容量 81.2%。
   - 新富東 2 號機型更正為 12 部 Vestas V150-4.2（原寫遠景）。
+  - 中國以外的早期與示範風場補上尺寸：Vindeby（輪轂 37.5 m、水深 2.1–5.1 m）、Blyth（62 m）、Utgrunden I（65 m）、Yttre Stengrund（60 m）、Arklow Bank 一期（73.5 m）、
+    Hooksiel BARD 試驗機（90 m）、Beatrice 示範機（最低天文潮以上 88 m、水深 45 m）、瀨棚（40 m），以及北九州響灘、Lely、Irene Vorrink、TetraSpar、WindFloat 1 的水深與葉輪。
+    Hooksiel 與 Arklow 的輪轂取自施工期間的報導與廠商專案說明（Arklow 另有英文維基百科），Yttre Stengrund 與 Irene Vorrink 取自歐盟 CA-OWEE 離岸風場資料庫，卡片說明寫明出處性質。
+    營運中離岸風場的尺寸：265 座至少一項、輪轂高度 191 座、三項齊全 180 座。
 
 ## v2.30.3 — 2026-10-07
 

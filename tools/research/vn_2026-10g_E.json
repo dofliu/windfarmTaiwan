@@ -81,34 +81,6 @@
   ]
  },
  {
-  "farm": "V1-3 Truong Long Hoa 48 MW (REE, Tra Vinh No.3)",
-  "status": "write",
-  "hub": null,
-  "hub_kind": "hub",
-  "depth": [
-   3,
-   7
-  ],
-  "rotor": null,
-  "note_zh": "海事保證商 LOC（ABL 集團）2021-03 新聞稿與 offshoreWIND.biz：REE 茶榮3號（12 部 Vestas 4 MW）位於潮間帶，水深 3–7 m（依潮汐與位置），採多樁混凝土承台基礎。輪轂高度未查到；葉輪 150 m 已在表中。",
-  "note_en": "Marine warranty surveyor LOC (ABL Group) release, Mar 2021, and offshoreWIND.biz: REE's Tra Vinh No. 3 (12 Vestas 4 MW) is in the intertidal zone in water depths of 3–7 m depending on tide and location, on multi-pile concrete capping foundations. Hub height not found; the 150 m rotor is already in the table.",
-  "why": "Depth is the site depth stated by the MWS contractor during construction (not a design value of the structure). Hub height not found.",
-  "sources": [
-   {
-    "url": "https://abl-group.com/?p=11256",
-    "quote": "The turbines will be installed in water depths of between 3-7 metres, subject to tidal changes and locations, using multi-pile concrete capping foundations."
-   },
-   {
-    "url": "https://abl-group.com/?p=11256",
-    "quote": "The OWF project is located in Vietnam’s Tra Vinh Province, a coastal inter-tidal area. Construction is being undertaken by the Refrigeration Electrical Engineering Corp"
-   },
-   {
-    "url": "https://www.offshorewind.biz/2021/03/16/loc-secures-more-work-offshore-vietnam/",
-    "quote": "Refrigeration Electrical Engineering Corporation (REE) is constructing the project in the coastal intertidal area of the Tra Vinh Province in water depths of between 3-7 m, subject to tidal changes and locations."
-   }
-  ]
- },
- {
   "farm": "VPL Ben Tre (Nexif Ben Tre 1)",
   "status": "none",
   "hub": null,
@@ -119,31 +91,6 @@
   "note_en": "Round 10: no quotable hub height or water depth; Ben Tre inauguration reports with figures (104 m tower) are about V1-3 Ben Tre, not VPL.",
   "why": "Searched Phan Vu, OEI, Ben Tre/EVN inauguration reports; no VPL-specific dimensions.",
   "sources": []
- },
- {
-  "farm": "Hiep Thanh (Tra Vinh)",
-  "status": "write",
-  "hub": null,
-  "hub_kind": "hub",
-  "depth": null,
-  "rotor": 145,
-  "note_zh": "Siemens Gamesa 2020-07-23 新聞稿：協成風場（茶榮外海 1–3 km）裝 18 部 SG 5.0-145；Siemens Gamesa 產品頁：SG 5.0-145 葉輪直徑 145 m（本場以 4.3 MW 彈性額定運轉，葉輪不變）。水深與輪轂高度未查到。",
-  "note_en": "Siemens Gamesa release (23 Jul 2020): Hiep Thanh (1–3 km off Tra Vinh) has 18 SG 5.0-145 units; Siemens Gamesa product page: SG 5.0-145 rotor diameter 145 m (the farm runs them at a flexible 4.3 MW rating; the rotor is unchanged). Depth and hub height not found.",
-  "why": "Hub height and water depth not found (offshoreWIND/Waves Group only give 1–3 km from shore).",
-  "sources": [
-   {
-    "url": "https://www.siemensgamesa.com/global/en/home/press-releases/200723-siemens-gamesa-press-release-vietnam-78-mw.html",
-    "quote": "The wind farm will feature 18 units of the SG 5.0-145 turbine, which are among the largest turbines on the Vietnamese market."
-   },
-   {
-    "url": "https://www.siemensgamesa.com/global/en/home/press-releases/200723-siemens-gamesa-press-release-vietnam-78-mw.html",
-    "quote": "The 78-MW Hiep Thanh wind farm will be located 1-3 km off the coast of Tra Vinh Province."
-   },
-   {
-    "url": "https://www.siemensgamesa.com/global/en/home/products-and-services/onshore/wind-turbine-sg-5-0-145.html",
-    "quote": "Rotor diameter 145 m Nominal power 5.0 MW Technology Geared + DFIG"
-   }
-  ]
  },
  {
   "farm": "Tan Phu Dong 1 (Tien Giang, GEC)",
@@ -319,70 +266,6 @@
     {
      "url": "https://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/",
      "quote": "HTL was also awarded a contract for the construction of 20 wind turbine foundations for the second phase."
-    }
-   ]
-  }
- },
- {
-  "farm": "V1-1 Truong Long Hoa (Tra Vinh)",
-  "status": "write",
-  "hub": null,
-  "hub_kind": "hub",
-  "depth": null,
-  "rotor": 150,
-  "note_zh": "Vestas 2020-01 統包合約：12 部 V150-4.2 MW；Vestas 產品頁：V150-4.2 葉輪直徑 150 m。輪轂高度與水深未查到。（尺寸可寫入的前提是下面的基礎型式被採用。）",
-  "note_en": "Vestas EPC contract (Jan 2020): 12 V150-4.2 MW; Vestas product page: V150-4.2 rotor diameter 150 m. Hub height and depth not found. (Writable only if the foundation below is accepted.)",
-  "why": "Hub height and water depth not found (Vestas, Khang Duc, Waves Group, Bao Dau tu give none).",
-  "sources": [
-   {
-    "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
-    "quote": "Vestas will provide a full turn-key solution with delivery, installation and commissioning of 12 V150-4.2 MW wind turbines"
-   },
-   {
-    "url": "https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW",
-    "quote": "ROTOR Rotor diameter 150m Swept area 17,671m2"
-   },
-   {
-    "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
-    "quote": "The turbines will be installed on reinforced onshore gravity foundations that are raised above sea level on multi-pile structures and connected to shore with link bridges"
-   },
-   {
-    "url": "https://baodautu.vn/khanh-thanh-nha-may-dien-gio-han-quoc---tra-vinh-co-von-dau-tu-2822-ty-dong-d156117.html",
-    "quote": "do Công ty Vestas Asia Pacific và Vestas Technology làm tổng thầu; cùng các nhà thầu Việt Nam: Nhà thầu xây dựng Khang Đức, nhà thầu điện Công ty cổ phần Xây lắp điện 1 (PCC1)."
-   },
-   {
-    "url": "https://www.phanvu.vn/en-US/project/industrial-production/tra-vinh-wind-power-plant",
-    "quote": "Project: Tra Vinh Wind Power Plant Location: Duyen Hai, Tra Vinh Client: Khang Duc Construction & Investment JSC Scope of work: Supplying Pile D500, D600, D800"
-   },
-   {
-    "url": "https://www.vir.com.vn/the-race-to-complete-korea-tra-vinh-wind-farm-81103.html",
-    "quote": "At the end of September 2020, Korea-Tra Vinh Wind Farm has taken shape with 12 turbine foundations and a 4.2km access bridge."
-   }
-  ],
-  "issues": "Owner field lists Climate Investor One / Samtan (correct per Bao Dau tu: CIO, ST International, EU); earlier rounds noted the stored Envision turbine and Sermsang owner were wrong.",
-  "foundation": {
-   "t": "pc",
-   "parts": null,
-   "sub": null,
-   "status": "write",
-   "note_zh": "韓國－茶榮一期 12 座：Vestas 統包合約寫風機「裝在架高於海面、以多樁支撐的強化基座上，並以引橋連岸」；落成報導（投資報）寫土建承包商為 Khang Đức；潘武集團專案頁記載為「Tra Vinh Wind Power Plant」（茶榮風電公司，維嶺）供應 D500／D600／D800 預應力混凝土樁給 Khang Đức；VIR 2020-09 寫已成形 12 座風機基礎與 4.2 km 引橋。即 PHC 群樁＋承台（高樁承台）。",
-   "note_en": "Korea–Tra Vinh phase 1, 12 units: the Vestas EPC contract says the turbines sit on reinforced foundations raised above sea level on multi-pile structures with link bridges; the inauguration report (Bao Dau tu) names Khang Duc as civil contractor; Phan Vu's project page records D500/D600/D800 prestressed concrete piles supplied to Khang Duc for the \"Tra Vinh Wind Power Plant\" (Duyen Hai); VIR (Sep 2020) reports 12 turbine foundations and a 4.2 km access bridge in place. I.e. PHC pile group with a raised cap.",
-   "sources": [
-    {
-     "url": "https://www.energyglobal.com/wind/03012020/vestas-wins-epc-contract-in-vietnam/",
-     "quote": "The turbines will be installed on reinforced onshore gravity foundations that are raised above sea level on multi-pile structures and connected to shore with link bridges"
-    },
-    {
-     "url": "https://baodautu.vn/khanh-thanh-nha-may-dien-gio-han-quoc---tra-vinh-co-von-dau-tu-2822-ty-dong-d156117.html",
-     "quote": "do Công ty Vestas Asia Pacific và Vestas Technology làm tổng thầu; cùng các nhà thầu Việt Nam: Nhà thầu xây dựng Khang Đức, nhà thầu điện Công ty cổ phần Xây lắp điện 1 (PCC1)."
-    },
-    {
-     "url": "https://www.phanvu.vn/en-US/project/industrial-production/tra-vinh-wind-power-plant",
-     "quote": "Project: Tra Vinh Wind Power Plant Location: Duyen Hai, Tra Vinh Client: Khang Duc Construction & Investment JSC Scope of work: Supplying Pile D500, D600, D800"
-    },
-    {
-     "url": "https://www.vir.com.vn/the-race-to-complete-korea-tra-vinh-wind-farm-81103.html",
-     "quote": "At the end of September 2020, Korea-Tra Vinh Wind Farm has taken shape with 12 turbine foundations and a 4.2km access bridge."
     }
    ]
   }
