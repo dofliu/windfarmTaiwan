@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.8 — 2026-10-08
+
+- Research round 14 (quotes checked with `check_quotes.py`; see the 8 Oct 2026 "eighth batch" in the [clean-up log](docs/data-cleanup.en.md) and [foundations](docs/foundations.en.md)):
+  - Zhangpu Liu'ao: a 2023 Fujian government report says the approved 800 MW consists of area D and phase 2, so the old "area D = phase 2" reading is corrected; area D (402 MW) is back as pre-construction, and CTG's Liu'ao phase 2 moves to its site from the sea-use approval's boundary points (the old point was about 30 km off).
+  - Added CSSC Haizhuang's 6.2 MW "Fuyao" floating demonstrator (Luodousha off Zhanjiang; position inferred from an MSA notice and the cable in its EIA approval, running off-grid on a micro-grid, as the card says).
+  - Germany: GEM's Lichtenau (11 MW) is part of Windpark Asseln (GEM's Paderborn, 36 MW) and is removed as a duplicate.
+  - Foundations: Qidong H3 all monopiles, Huaneng Rudong Baxianjiao 50 monopiles + 20 high-rise pile caps, Jiangjiasha H2 61 monopiles + 6 multi-pile jackets.
+
 ## v2.30.7 — 2026-10-08
 
 - Research round 13: the doubts left in TODO (quotes checked with `check_quotes.py`; clean-up rules 478 → 498, see the 8 Oct 2026 "seventh batch" in the [clean-up log](docs/data-cleanup.en.md)):

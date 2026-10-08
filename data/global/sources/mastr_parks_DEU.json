@@ -3,10 +3,10 @@
 "source": "Bundesnetzagentur, Marktstammdatenregister (MaStR), Gesamtdatenexport: EinheitenWind",
 "url": "https://www.marktstammdatenregister.de/MaStR/Datendownload",
 "license": "Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0); © Bundesnetzagentur | Marktstammdatenregister",
-"farms": 4884,
-"mw": 24344,
+"farms": 4886,
+"mw": 24354,
 "mastr_mw": 82643,
-"site_mw": 53262
+"site_mw": 53251
 },
 "parks": [
 {
@@ -16256,6 +16256,26 @@
 "n": 3
 },
 {
+"name": "WP- LA",
+"lat": 51.635,
+"lon": 8.914,
+"mw": 6.1,
+"year": 2016,
+"ph": [
+[
+2016,
+3.1
+],
+[
+2018,
+3.0
+]
+],
+"turbine": "",
+"gem": "Warburg",
+"n": 3
+},
+{
 "name": "WP_Kindenheim",
 "lat": 49.614,
 "lon": 8.1389,
@@ -29841,6 +29861,17 @@
 "ph": 0,
 "turbine": "1 x Vestas V126 3.45MW",
 "gem": "Kranenburg",
+"n": 1
+},
+{
+"name": "WP Dalheim Lichtenau",
+"lat": 51.5685,
+"lon": 8.8222,
+"mw": 3.45,
+"year": 2019,
+"ph": 0,
+"turbine": "1 x Vestas V126",
+"gem": "Warburg",
 "n": 1
 },
 {

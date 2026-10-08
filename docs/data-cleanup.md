@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 498 條：刪除 161 筆（其中營運中 45,178.8 MW），修正 337 筆。
+- 規則 501 條：刪除 162 筆（其中營運中 45,189.8 MW），修正 339 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 59 | 26,824.5 | 137 |
+| 中國大陸 | 59 | 26,824.5 | 139 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -26,7 +26,7 @@
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 1 | 150 | 0 |
-| 德國 | 1 | 60 | 14 |
+| 德國 | 2 | 71 | 14 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
@@ -190,7 +190,7 @@
 | Changle Waihai B · 400 MW · 2022 | 精選 | 重複（併入「Fujian Changle 'Outer Ocean' Area B Offshore wind farm」） | 長樂外海 B 區沒有建成的風場：唯一的 B 區案是中閩能源的「長樂 B 區（調整）」，2023 年競爭配置才選定業主、2024 年 11 月 30 日核准（114 MW、7 部），2026 年 9 月才招 EPC（不超過 102 MW、6 部，計畫 2027 年 12 月前全部併網）。這筆 400 MW、2022 年營運中有誤，GEM 已有該案的規劃中紀錄 | [連結](https://baijiahao.baidu.com/s?id=1875652994034298464&wfr=spider&for=pc) |
 | Fujian Changle 'Outer Ocean' Area B Offshore wind farm · 114 MW | GEM | 修正：業主、容量、年份 | 業主是中閩能源（福建投資集團旗下；專案公司福建福州閩投海上風電由中閩能源持股 100%），不是華電；2024 年 11 月核准 114 MW、7 部，2026 年 9 月 EPC 招標為不超過 102 MW、6 部，計畫 2027 年 10 月前首部、12 月前全部併網 | [連結](https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/zdjsxmpzhss/202412/t20241202_6587050.htm) |
 | Shandong Haiwei Peninsula South U · 450 MW · 2025 | 精選 | 重複（併入「CGN Peninsula South U1」） | 「山東海衛半島南 U 場址 450MW 海上風電項目」就是國家電投半島南 U 場址項目二期（53 部 8.5 MW、450.5 MW，乳山南側海域，世紀新能源網 2024-09）；精選紀錄「SPIC Peninsula South U1」已含兩期 900 MW（一期 2023-11-17 投運、二期 2024-10-26 全容量併網，中國電器工業協會 2024-10-31），本筆重複，年份 2025 也不對 | [連結](https://www.ne21.com/news/show-201133.html) |
-| Zhangpu Liu'ao Phase 1 · 400 MW · 2022 | 精選 | 重複（併入「CTG Zhangpu Liu'ao Phase 2」） | 福能持股 35%、三峽 65% 的海峽發電在六鰲只有一個項目：2018 年券商報告寫「漳州六鰲 D 區項目（40.2 萬千瓦）」，2024 年中閩能源回覆上交所（引福能年報）寫成「漳浦六鰲二期 40.2 萬千瓦」，即 2023-02-04 開工（「閩南地區首個海上風電項目」）、2024-06-27 全容量併網的三峽漳浦六鰲二期；本筆「一期、2022 年營運」是 GEM 的 D 區併進精選紀錄後誤標，與二期重複 | [連結](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
+| Zhangpu Liu'ao Phase 1 · 400 MW · 2022 | 精選 | 刪除 | 六鰲沒有 2022 年營運的「一期」：福建省 2023-02 的報導說漳浦六鰲已核准 800 MW，由漳浦 D 區與漳浦二期兩個項目組成；二期 2023-02 開工時是「閩南地區首個海上風電項目」，2024-06 全容量併網（精選「CTG Zhangpu Liu'ao Phase 2」）；D 區（402 MW）查無開工紀錄，由 GEM 的 D 區紀錄代表 | [連結](https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm) |
 | Zhuanghe I · 200 MW · 2021 | 精選 | 修正：容量、業主、機組 | 莊河場址 I 是大唐集團的 100 MW 項目：19 部明陽 MySE5.2-166（19 × 5.2 = 98.8 MW），EPC 於 2021 年由中國能建北方建投與上海院聯合體得標（世紀新能源網）；原寫 200 MW、業主空白、「4-6 MW class」都不對。併網年份沒有可引用的出處，2021 年待查證 | [連結](https://www.ne21.com/news/show-157836.html) |
 | Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm · 350 MW · 2021 | GEM | 修正：業主、機組 | 華能莊河 IV1（350 MW）：中新網寫 II、IV1 兩場共 650 MW、60 部 5 MW＋26 部 7.5 MW＋25 部 6.2 MW，II 場是 60 部 5 MW，所以 IV1 為 26 × 7.5＋25 × 6.2 = 350 MW，2021-12-29 全容量併網，由華能遼寧清潔能源建設運維；補上業主與機組 | [連結](https://www.chinanews.com/ny/2021/12-29/9640309.shtml) |
 | Shanghai Fengxian Haiwan Expansion Offshore wind farm · 15 MW · 2012 | GEM | 修正：容量、業主、類型、名稱 | 財政部 2013-03 可再生能源電價附加補助目錄：「上海新能源環保工程公司奉賢海灣風電場擴容 14.75MW 發電工程」。奉賢海灣風電場本身是陸上風電場（新浪 2007-02：上海已建的 3 處陸上風電場之一），同一業主為它申報的汰換案「奉賢海灣風電（場）一期擴容工程」在上海市發改委 2023–2026 年的清單都列為陸上風電；沒有任何出處說擴容的機組在海上（GEM 的「海上」只引 CDM 5636 號，讀不到），改為陸域 | [連結](http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf) |
@@ -250,6 +250,8 @@
 | CTG Dafeng H8-2 · 300 MW · 2021 | 精選 | 修正：座標 | 三峽大豐 H8-2 離岸約 72 km（offshoreWIND.biz 2021-12）；GEM 依鹽城市政府資料標的確切位置在大豐毛竹沙海域（北緯 33.3225°、東經 121.5927°），落在 OpenStreetMap 依海事局通告 715/2025 繪製的風場範圍（way 1343826793）裡；點位改到這裡。原點位（33.2 N、121.3 E）在西南方約 30 km，落在 OpenStreetMap 標為 H17 的場址範圍（way 1454078619，三峽 800 MW 項目的一區） | [連結](https://www.gem.wiki/Jiangsu_Dafeng_H8-2_Offshore_wind_farm) |
 | Zhejiang Jiaxing 2 Offshore wind farm · 300 MW · 2021 | GEM | 修正：座標 | OpenStreetMap 的風場範圍 way 1177759242 標名「华能嘉兴2号海上风电场」，範圍北緯 30.563–30.654°、東經 121.445–121.500°；點位改為範圍中心（北緯 30.608°、東經 121.473°），原點位在其西方約 13 km | [連結](https://www.openstreetmap.org/way/1177759242) |
 | Zhejiang Energy Jiaxing 1 · 300 MW · 2021 | 精選 | 修正：座標 | OpenStreetMap 的風場範圍 way 1300965884 標名「浙能嘉兴1号海上风电场」，範圍北緯 30.394–30.515°、東經 121.454–121.499°（嘉興 2 號範圍的南側）；點位改為範圍中心（北緯 30.455°、東經 121.476°），原點位在其西北約 24 km | [連結](https://www.openstreetmap.org/way/1300965884) |
+| CTG Zhangpu Liu'ao Phase 2 · 400 MW · 2024 | 精選 | 修正：座標 | 福建省政府 2023-12-25 的二期用海變更批復（閩政海域〔2023〕45 號）附宗海界址點坐標：風機區在北緯 23.894–23.947°、東經 118.174–118.245°（另有海纜往西接回六鰲）；點位改為風機區中心（北緯 23.921°、東經 118.209°），原點位在其西南約 30 km。OpenStreetMap 依海事局通告 1182/2024 畫的無名風場範圍（way 1334215514）與此重合 | [連結](https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm) |
+| Fujian Zhangpu Liu'Ao Offshore wind farm · D · 402 MW | GEM | 修正：狀態、中文名 | 六鰲 D 區（402 MW）是海峽發電已核准的項目（2018 年券商報告已列），但查無開工紀錄：二期在 2023 年開工時與 2024 年都還被稱為閩南首個海上風電項目，2024-06 海峽發電的項目清單只列「負責控股建設漳浦六鰲二期」與「籌建平海灣 DE 區」，沒有 D 區；改為前期開發（GEM 寫興建中）。GEM 的點位是貼近六鰲海岸的概略位置，確切場址待查證 | [連結](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
 
 ## 丹麥 (DNK)
 
@@ -408,6 +410,7 @@
 | Zettingen wind farm · 13 MW | GEM | 修正：年份 | 補上商轉年 2009：MaStR 的「Zettingen」6 部 Nordex N90 中 5 部 2009 年 12 月、1 部 2010 年 6 月併網（Gamesa 開發，2010 年 9 月售予 IKEA） | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Bornstedt-Holdenstedt wind farm · 12 MW · 2010 | GEM | 修正：年份 | MVV 的「Windpark Holdenstedt-Bornstedt」是 8 部、12 MW，就是 MaStR 的 8 部 GE 1.5sl（2006 年 7 月併網，Allstedt／Bornstedt）；GEM 的 2010 年是旁邊別批機組的年份，改為 2006 | [連結](https://web.archive.org/web/20240131130640/https://www.mvv.de/en/about-us/group-of-companies/mvv-umwelt/renewable-energies/windfarms-on-shore?tx_maps2_maps2%5BmapProviderRequestsAllowedForMaps2%5D=1&cHash=c4995b927adfc78d8d92015e95b3acdc) |
 | Süderauerdorf wind farm · 12 MW · 2017 | GEM | 修正：容量、分期 | 2017 年 4 部 Siemens SWT-3.0-113（12 MW），2023 年同一個 BWP Süderauerdorf 再加 2 部 SWT-DD-130（8.6 MW，MaStR） | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Lichtenau wind farm · 11 MW · 1997 | GEM | 重複（併入「Paderborn wind farm」） | GEM 的 Lichtenau（11 MW、1997、RWE）是 1997–98 年 Lichtenau-Asseln「Windpark Asseln」的一部分：當地鄉土協會的介紹寫整座風場 62 部、36 MW，1997 年 12 月首次併網、1998 年 5 月完工，營運者「Diverse Betreiber 23 部、Asselner Windkraft 18 部、WINKRA Lichtenau 21 部」；The Wind Power 的 Lichtenau 頁列 18 部 Enercon E-40「開發商 Winkra、營運者 RWE」。GEM 另一筆 Paderborn（36 MW、1998，出處就是這篇介紹）是整座風場，本筆重複 | [連結](https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21) |
 
 ## 愛爾蘭 (IRL)
 
@@ -760,6 +763,7 @@
 
 | 專案 | 理由 | 出處 |
 |---|---|---|
+| Fujian Zhangpu Liu'Ao Offshore wind farm (CHN) | 六鰲 D 區（402 MW）與三峽漳浦六鰲二期（400.2 MW）是兩個分別核准的項目：福建省 2023-02 的報導說漳浦六鰲已核准 800 MW，由 D 區與二期組成；二期另於 2021-05-21 核准（閩發改網審能源〔2021〕80 號）。舊建置把 D 區併進後來刪除的精選「Zhangpu Liu'ao Phase 1」，整筆消失 | [連結](https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm) |
 | Hanuman 10 wind farm (THA) | Energy Absolute 的 Hanuman 10（Banchuan Development 公司，80 MW、32 部西門子歌美颯 2.5 MW，猜也蓬府 Bamnet Narong 縣 Ban Chuan 分區，2019-04-13 商轉）與 EGCO 2016 年的 Chaiyaphum 風場（Subyai，Sap Yai 縣）是兩座；舊建置把它當成「Subyai (Chaiyaphum)」的重複刪掉 | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
 | Kakegawa wind farm (JPN) | 日本風力開發的掛川風力發電所（6 部 Enercon E-82 2,300 kW、13.8 MW，2020 年 7 月）與黑潮風力發電的遠州掛川風力發電所（8 部 Enercon E-82，2009–2011 年）是相鄰的兩座風場（日立 Power Solutions 的 Enercon 國內交貨表分列） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 | Gansu Minqin Hongshagang 1 wind farm (CHN) | 民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失 | [連結](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
