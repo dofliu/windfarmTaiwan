@@ -813,6 +813,12 @@ FOUNDATIONS = [
     F5('CHN', 'Jiangsu Jiangjiasha H2 Offshore wind farm', 'mx', url='http://www.dlztb.com/news/202406/03/3408.html', parts=[['mp', 61], ['jk', 6]],
        zh='67 部 4.5 MW（301.5 MW）：61 部單樁、6 部多樁導管架（國電投南通新能源 2024-06「蔣家沙 H2# 項目安全監測工作委託服務（3 年）」等運維招標，中國電力招標採購網轉載）；2018 年監測儀器採購招標寫的設計是 47 單樁＋20 三樁導管架，建成時已改',
        en='67 × 4.5 MW (301.5 MW): 61 monopiles and 6 multi-pile jackets (SPIC Nantong New Energy’s June 2024 O&M tenders, incl. three-year safety monitoring of Jiangjiasha H2#, reposted by dlztb.com); the 2018 monitoring-equipment tender gave a design of 47 monopiles + 20 three-pile jackets, changed by the time it was built'),
+    F5('CHN', 'Zhejiang Taizhou 1 Offshore wind farm', 'mp', url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ff7fd82e247a4ab49067854ada6fcc9b&channelId=dc8d821b39fb46908fd50924c86a7ac7',
+    zh='浙能台州1號 40 台東方風電 DEW-D7500-204（7.5 MW）：浙江海事局 2025-03-28 公布通航要素的通告（台航通〔2025〕0033 號，項目「已建成投用」）寫 39 台採單樁基礎、1 台採「樁—桶複合基礎」；樁桶複合基礎是先打單樁、再把桶形基礎套在單樁外以負壓下沉並灌漿連接（《水道港口》2024，以台州1號為例），仍以單樁為主體，所以全場列為單樁。標段 B（中鐵大橋局）為 19 座單樁＋1 座樁桶複合基礎，標段 A 的施工通告（2022-12）也寫「單樁基礎沉樁」。',
+    en='Zheneng Taizhou 1, 40 Dongfang DEW-D7500-204 (7.5 MW): the Zhejiang MSA navigation notice of 28 Mar 2025 (Tai Hang Tong [2025] 0033, project "built and in service") says 39 turbines stand on monopiles and one on a pile–bucket composite foundation; that foundation is a driven monopile with a bucket lowered over it by suction and grouted to it (Port & Waterway Engineering 2024, on Taizhou 1), still a monopile at its core, so the whole farm is listed as monopile. Lot B (China Railway Major Bridge) was 19 monopiles + 1 pile–bucket composite, and the lot A construction notice (Dec 2022) lists monopile driving.'),
+    F5('VNM', 'Tan Phu Dong 2 (Tien Giang, GEC)', 'pc', url='https://lethycorp.com/en/du-an-da-thi-cong/tan-phu-dong-2-html',
+    zh='GEC（TTC 集團）新富東2號 12 座（2021-10-30 送電，越南銀行協會）：黎蒂建設承做 PHC D800 樁打設並完成風機承台基礎，即 PHC 群樁＋承台（與新富東1號相同）。',
+    en='GEC’s (TTC Group) Tan Phu Dong 2, 12 turbines (energised 30 Oct 2021, Vietnam Banks Association): Le Thy drove the PHC D800 piles and completed the turbine pier foundations, i.e. PHC pile group with cap (as at Tan Phu Dong 1).'),
     # ------------------------------------------------ 歐洲早期示範風場（已除役；出處原文以 check_quotes 核對）· early European pilots, decommissioned
     F('DNK', 'Vindeby', 'gb', url='https://www.windpowermonthly.com/article/1427436/dong-begins-vindeby-decommissioning-pictures',
       zh='世界第一座離岸風場：11 部 450 kW 坐在混凝土重力式基礎上（Ørsted 稱基礎以燈塔基礎為本，澆灌後浮運到場填砂）；2017 年 9 月拆除完畢',

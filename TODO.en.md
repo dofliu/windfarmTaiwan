@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 8 Oct 2026: v2.30.7, research round 13: the remaining doubts in TODO; the next conversation starts here)
+## In progress (hand-off, 8 Oct 2026: v2.30.9, research round 14: foundations and new leads; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,29 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 8 Oct 2026 (v2.30.8, v2.30.9): research round 14 (three sub-agents: R northern China foundations, S southern China and Vietnam foundations, T round 13's new leads;
+  every quote checked with `check_quotes.py`; results in `tools/research/fd_2026-10k_R.json`, `fd_2026-10k_S.json` and `doubts_2026-10k_T.json`, with written entries removed and only
+  leads kept). Items tried two or three times against blocked sites (the Lac Hoa 1, Jeonnam 1 and Youde coordinates, Song An's COD, Changle's 118 m hub) were not repeated.
+  Clean-up rules 498 → 502 (the 8 Oct 2026 "eighth batch" block of `farm_cleanup.py`):
+  1. Zhangpu Liu'ao: the Fujian industry department wrote in Feb 2023 that "the approved 800 MW consists of the Zhangpu area D project and the Zhangpu phase 2 project", and GEM lists them as
+     separate projects, so the old "area D = phase 2" reading was wrong: the curated "Zhangpu Liu'ao Phase 1" is now a `drop` (with corrected reasons), GEM's Liu'ao project moves from
+     `ORPHAN_OK` to `GEM_KEEP`, area D (402 MW) is pre-construction, and CTG's Liu'ao phase 2 moves to the centre of its turbine area from the Dec 2023 sea-use change approval (the old
+     point was about 30 km off). Area E's point (22.733 N) may be a slip for 23.733 N, which cannot be shown; still to verify.
+  2. Added CSSC Haizhuang's 6.2 MW "Fuyao" floating demonstrator (`data/global/sources/farms_attachment.json`): the position comes from MSA notice 795/2026 (a lone turbine at
+     Luodousha with a cable of about 25.9 km), matching the 25.77 km cable to Wailuo phase 2 turbine no. 27 in Guangdong's EIA approval; the notice does not name the unit, and the card
+     says the position is inferred; it ran off-grid on a micro-grid in 2023, and a public-grid connection is unverified.
+  3. Germany: GEM's Lichtenau (11 MW) is part of Windpark Asseln (62 turbines, 36 MW, GEM's Paderborn) and is a `dup`. The MaStR matches of GEM's Paderborn and Asselner and MaStR's
+     "Windpark Asseln" / "WP Asseln" around there are also off (the Lichtenau entry of `doubts_2026-10k_T.json`); use asseln.de's description when sorting them out.
+  4. Foundations, northern China: Qidong H3 all monopiles, Huaneng Rudong Baxianjiao 50 monopiles + 20 high-rise pile caps (2018 O&M vessel tender), Jiangjiasha H2 61 monopiles + 6
+     multi-pile jackets (2024 O&M tender); a useful new source is the O&M tenders reposted by dlztb.com. Still leads: Datang Binhai (monopile sources for part of its 96 turbines only),
+     Peninsula South U2 (EIA only), Laoting Putidao (conflicting pile-cap and monopile counts).
+  5. Foundations, southern China and Vietnam: Zheneng Taizhou 1, 39 monopiles + 1 pile–bucket composite (listed as monopile); Vietnam's Tan Phu Dong 2 on PHC pile groups with caps;
+     Pinghai Bay area F's turbines 3 × 6 MW + 26 × 7 MW. A useful new source: the MSA's mobile notice pages (`https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=…`; the
+     desktop pages give 403; the list API is a POST to `/msacncms_wap/cmsarticle/selectPageByChannelId.jhtml`); post-completion navigation notices often give depth and turbine counts,
+     sometimes hub and rotor. Dimensions ready but waiting for a foundation type: Jiazi I (depth 33–39 m, hub 100 m, rotor 168 m, which does not fit the record's MySE6.45-180, so check
+     the model first), Jiazi II (32–37 m, hub 127 m), Cangnan 4 (26–34 m), Yuhuan 1 (7–15 m), Pinghai Bay area F (10–25 m). Zhuhai Guishan: the MSA says 200 MW and 49 turbines as built,
+     while the record has the shareholder's 198 MW; to confirm. Xiangshan Tuci was built by 2024 with 38 × 8 MW.
+  Offshore sums: 278 of 331 operating offshore farms have a known type (85.2%), 96 of China's 141 (about 71%) and 15 of Vietnam's 20; dimensions for 276, all three for 183.
 - 8 Oct 2026 (v2.30.7): research round 13: the doubts left in TODO (four sub-agents in parallel for China, Vietnam and Thailand, Taiwan/Japan/Korea,
   and Europe/the Americas/Oceania; every quote checked with `check_quotes.py`; results in `tools/research/doubts_2026-10j_N/O/P/Q.json`, with written entries
   removed and only leads kept). Clean-up rules 478 → 498 (the 8 Oct 2026 "seventh batch" block of `farm_cleanup.py`):
@@ -355,7 +378,7 @@ and move finished items to the topic lists below.
      20 unknown), Putian Shicheng (lot II: 19 pile caps of 29), Taizhou 1 (lot B: 19 monopiles + 1 pile-bucket), Changyi (25 monopiles), Danzhou CZ3 site 1
      (25 suction-bucket jackets) and Zhuanghe III (55 of 73).
      The data problems noted in this round were checked and fixed in v2.30.0 (see the v2.30.0 entry under "In progress").
-   - The other Chinese offshore farms (50 of the 141 operating) and Vietnam (6 of 20, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (45 of the 141 operating in v2.30.9) and Vietnam (5 of 20, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
@@ -504,8 +527,8 @@ the rules are in `tools/farm_cleanup.py`.
       2021, the other 5 MW still not filed in Apr 2025), the 3 MW test turbine at Gunsan port in Korea, and China's 6.2 MW "Fuyao" floating unit (below).
       (Lac Hoa 2, Cho Long, Pantelimon and Carreto were handled in v2.30.6; Thailand's Hanuman 10 was in GEM all along, wrongly dropped, and is back in v2.30.7)
 - [x] "Suspected duplicates B" (different names, same capacity, close by): all checked in v2.30.7 (none left): the 7 German pairs were re-matched or confirmed
-      as different farms from owner and municipal sources, and the 4 Chinese pairs are all different farms. Still open: GEM's Lichtenau (11 MW, 1997, RWE) fits no
-      set of MaStR units (RWE/Winkra's E-40 of December 1997 are mostly in the "Lichtenau" group, 14.52 MW), so the current match stays
+      as different farms from owner and municipal sources, and the 4 Chinese pairs are all different farms. GEM's Lichtenau (11 MW, 1997, RWE) is part of
+      Windpark Asseln (GEM's Paderborn) and was removed as a duplicate in v2.30.8; the MaStR matching around there still needs sorting out (item 3 of round 14 under "In progress")
 - [x] 587 pipeline projects whose expected year had already passed (101 GW): only 2 remain after GEM 2026-02 (Monsoon in Laos, 600 MW,
       and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
 - [ ] 48 GW of operating farms have no commissioning year (mostly in China and India), so the map can
@@ -594,7 +617,7 @@ the rules are in `tools/farm_cleanup.py`.
       foundation is only described as "a heavy-duty foundation tied to the seabed by means of planking and piles", so it stays in `EXCLUDED`
 - [x] Step 3: floating farms: 19 get a sub-type, 15 of them operating; 20 more rules corrected the data (GEM's BiMEP test-site
       capacity was removed) (Sep 2026, v2.9.0)
-- [ ] Floating units in China not yet in the data (their coordinates still need a source, never guessed): CSSC Haizhuang's Fuyao
+- [ ] Floating units in China: CSSC Haizhuang's Fuyao was added in v2.30.8 (position inferred from the MSA notice and the cable in the EIA approval; item 2 of round 14 under "In progress"; the notes below predate it): Fuyao
       6.2 MW (2022, Luodousha off Zhanjiang, [National Energy Administration](http://www.nea.gov.cn/2022-06/24/c_1310631921.htm); running
       on a micro-grid; whether it reached the public grid is unverified; MSA chart-correction notice 795/2026 lays a cable at Luodousha to a single turbine at
       20°18′50.4″N 110°34′48.7″E, very probably this one, but the notice does not name the unit, so it is not added yet) and Longyuan's Guoneng Gongxiang 4 MW three-column

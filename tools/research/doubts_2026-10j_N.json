@@ -50,47 +50,6 @@
   ]
  },
  {
-  "item": "5. CSSC 'Fuyao' (扶摇号) 6.2 MW floating prototype: position, status, record",
-  "farm": "(no record)",
-  "src_code": null,
-  "iso": "CHN",
-  "status": "missing",
-  "proposal": "(candidate position, identification by inference — main session to decide.) Possible record if accepted: name 'CSSC Haizhuang Fuyao floating demonstrator', zh '中船海裝「扶搖號」浮式示範機', iso 'CHN', lat 20.314, lon 110.580, mw 6.2, year 2023 (first reported generation, microgrid mode), type 2 (floating, semi-submersible, 9 catenary mooring lines), st 0, owner 'CSSC Haizhuang Wind Power Co Ltd', turbine '1x CSSC Haizhuang 6.2 MW'; card note: public-grid connection not confirmed. If it is also put into the foundations/dimensions tables: depth 65 (site average), hub 96, rotor 152 (southcn 2022-08).",
-  "note_zh": "新線索：海事局《中國沿海港口航道圖改正通告》2026 年第 27 期的 795/2026「南海 羅斗沙及附近——敷設海底電力線及設置海上風機」：一條海纜從北緯 20°18′50.4″、東經 110°34′48.7″ 向北接到 20°31′52.6″ N、110°38′14.7″ E（徐聞新寮島東南方風場一帶），第 (11) 點「同上述 (1)」是一部單獨的海上風機（OSM 據此畫了 node 13999772715，最近的其他風機在 24 km 外）。扶搖號正是「湛江徐聞羅斗沙海域」唯一已知的單機、2022 年起鋪設海纜（南方網 2022-08），機位平均水深 65 m。但通告沒寫機組名稱，所以是推論、不是確認；也可能是同海域的其他樣機。狀態：2023-08 以智能微網模式運行發電（離網），2022 年已具備併網條件；之後查不到正式併入公用電網的報導（2026 年的海纜改正通告可能代表接入附近風場，但沒有出處寫明）。業主：中船海裝（原中國海裝）；尺寸：輪轂 96 m、葉輪 152 m、葉片 74 m。資料庫沒有任何紀錄。",
-  "note_en": "New lead: China MSA chart-correction notice 795/2026 (issue 27 of 2026), 'South China Sea, Luodousha and nearby — submarine power cable laid and offshore wind turbine set': a cable runs from 20°18′50.4″N 110°34′48.7″E north to 20°31′52.6″N 110°38′14.7″E (by the wind farm south-east of Xinliao Island, Xuwen), and point (11) 'same as (1)' is a single offshore turbine (OSM node 13999772715 was drawn from it; the nearest other turbine is 24 km away). Fuyao is the only single unit known in the 'Luodousha sea area off Xuwen, Zhanjiang', with a cable being laid from 2022 (southcn, Aug 2022) and 65 m average depth at its position. But the notice does not name the unit, so this is inference, not confirmation; it could be another prototype in the same waters. Status: ran in intelligent-microgrid mode (off-grid) in Aug 2023, having had the engineering conditions for grid connection since 2022; no later report of formal connection to the public grid (the 2026 cable notice may mean a tie-in to a nearby farm, but no source says so). Owner: CSSC Haizhuang (formerly CSIC Haizhuang); dimensions: hub 96 m, rotor 152 m, blade 74 m. No record in the database.",
-  "why": "No source names the unit at the MSA 795/2026 position; MSA's own notice pages for 2022 (installation) are not in the chart-correction index (only 2025–2026 are listed). bjx 2023 article is a WAF shell.",
-  "sources": [
-   {
-    "url": "https://pnp.chart.msa.gov.cn/CorrectionPdf/Download/6d0c2f72-3f31-458c-98e4-efb2c6af8fb5?y=2026",
-    "quote": "795.南海 罗斗沙及附近——敷设海底电力线及设置海上风机 加绘 海底电力线，连接： （1）20°18′50″.4N、110°34′48″.7E"
-   },
-   {
-    "url": "https://pnp.chart.msa.gov.cn/CorrectionPdf/Download/6d0c2f72-3f31-458c-98e4-efb2c6af8fb5?y=2026",
-    "quote": "（10）20°31′52″.6N、110°38′14″.7E （11）同上述（1）"
-   },
-   {
-    "url": "https://www.openstreetmap.org/node/13999772715",
-    "quote": "Location: 20.3140000 , 110.5801944"
-   },
-   {
-    "url": "https://www.southcn.com/node_0183de080d/afab06a14f.shtml",
-    "quote": "近日，国内首台深远海浮式风电装备“扶摇号”落户湛江徐闻罗斗沙海域。波光粼粼的海面上，“扶摇号”高高耸立，一旁的施工船正进行海缆铺设，为接下来的并网发电做好准备。 “扶摇号”机组轮毂中心高度96米，风轮直径152米，叶片长度74米。"
-   },
-   {
-    "url": "https://www.southcn.com/node_0183de080d/afab06a14f.shtml",
-    "quote": "“扶摇号”机位点平均水深达65米"
-   },
-   {
-    "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10313681/content.html",
-    "quote": "近日，中国船舶集团旗下中船海装 “扶摇号”浮式风电装备在智能微网模式下成功运行发电。"
-   },
-   {
-    "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10313681/content.html",
-    "quote": "为“扶摇号”的正式并网运行做好了充分准备"
-   }
-  ]
- },
- {
   "item": "6. Hainan CZ7 · 1 and CZ9 · 1: any grid connection?",
   "farm": "Hainan CZ7 Demonstration Offshore wind farm · 1 / Hainan CZ9 Demonstration Offshore wind farm · 1",
   "src_code": 2,

@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 501 rules: 162 records removed (45,189.8 MW of them operating), 339 records fixed.
+- 502 rules: 162 records removed (45,189.8 MW of them operating), 340 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 59 | 26,824.5 | 139 |
+| China | 59 | 26,824.5 | 140 |
 | Colombia | 1 | 8 | 3 |
 | Denmark | 1 | 180 | 3 |
 | Dominican Rep. | 2 | 50 | 8 |
@@ -286,6 +286,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Zhejiang Energy Jiaxing 1 · 300 MW · 2021 | curated | fixed: location | OpenStreetMap wind-farm area way 1300965884 is named “浙能嘉兴1号海上风电场” and spans 30.394–30.515 N, 121.454–121.499 E (south of the Jiaxing 2 area); the point moves to its centre (30.455 N, 121.476 E), about 24 km south-east of the old one | [link](https://www.openstreetmap.org/way/1300965884) |
 | CTG Zhangpu Liu'ao Phase 2 · 400 MW · 2024 | curated | fixed: location | The Fujian government's approval of phase 2's sea-use change (25 Dec 2023, Min Zheng Hai Yu [2023] 45) lists its boundary points: the turbine area spans 23.894–23.947 N, 118.174–118.245 E (with the export cable running west to Liu'ao); the point moves to the centre of that area (23.921 N, 118.209 E), about 30 km north-east of the old one. The unnamed wind-farm area OpenStreetMap drew from MSA notice 1182/2024 (way 1334215514) covers the same ground | [link](https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm) |
 | Fujian Zhangpu Liu'Ao Offshore wind farm · D · 402 MW | GEM | fixed: status, Chinese name | Liu'ao area D (402 MW) is an approved Straits Power project (already listed in a 2018 broker report) with no record of construction: phase 2 was still called the first offshore wind project in southern Fujian when it started in 2023 and in 2024, and Straits Power's project list of June 2024 names only Zhangpu Liu'ao phase 2 (under construction) and Pinghai Bay DE (in preparation), not area D; moved to pre-construction (GEM says construction). GEM's point is an approximate one close to the Liu'ao coast; the real site is unverified | [link](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
+| Putian Pinghai Bay Area F (Sanchuan) · 200 MW · 2021 | GEM | fixed: turbines | Putian MSA navigation notice (Dec 2025, built): Pinghai Bay area F uses 3 × 6 MW and 26 × 7 MW turbines (200 MW in all), in 10–25 m of water | [link](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0) |
 
 ## Colombia (COL)
 
