@@ -1793,6 +1793,41 @@ RULES = [
         'https://www.energie-fb.de/referenzen/', mw=13.2, turbine='4x Vestas V126'),
     fix('JPN', 'Choshi Offshore Demonstration (NEDO/TEPCO)', C, '仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km）', 'Still operating (September 2026: the demonstration turbine was never removed and has run commercially since 2019); the point moves to the turbine position published by TEPCO Renewable Power (35°40′54″ N, 140°49′13″ E, WGS; the old point was about 3 km to the north-east)', 'https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf', lat=35.682, lon=140.82),
     fix('TWN', 'Formosa 1 Phase 1', C, '機組是西門子 SWT-4.0-120（葉輪直徑 120 m）：營運商沃旭 2019 年簡報列「4MW Siemens SWT 4.0-120」，西門子歌美颯 2018 年 1 月簡報的已安裝實績（統計至 2017 年 11 月）也列「Formosa: 2x SWT-4.0-120」；西門子歌美颯 2018 年 4 月新聞稿寫的 SWT-4.0-130 與這兩份不符，不採用', 'The turbines are Siemens SWT-4.0-120 (120 m rotor): the operator Ørsted’s 2019 presentation lists “4MW Siemens SWT 4.0-120”, and Siemens Gamesa’s January 2018 presentation of installed projects (installed by November 2017) lists “Formosa: 2x SWT-4.0-120”; the SWT-4.0-130 in Siemens Gamesa’s April 2018 press release contradicts both and is not used', 'https://www.asiawind.org/wp-content/uploads/2019/10/01-ORSTED-ULRIK-LANGE.pdf', turbine='2x Siemens SWT-4.0-120'),
+    # ------------------------------------------------ 2026-10-08 第七批（第十三輪資料疑點；出處原文以 check_quotes.py 核對）
+    fix('THA', 'Hanuman 10 wind farm', G, '亞洲開發銀行（ADB）2020 年度環境社會監測報告（2021-05）表 2 列出 Hanuman 10 全部 32 部風機的座標（北緯 15.507–15.566°、東經 101.520–101.589°）；點位改為 32 點的平均（北緯 15.536°、東經 101.557°；GEM 的概略點在東北方約 0.8 km）。機組為 32 部西門子歌美颯 2.5 MW（輪轂 153 m、葉輪 126 m）', 'Table 2 of the ADB environmental and social monitoring report for 2020 (May 2021) lists all 32 turbine positions of Hanuman 10 (15.507–15.566 N, 101.520–101.589 E); the point moves to their mean (15.536 N, 101.557 E; GEM’s approximate point was about 0.8 km north-east). It has 32 Siemens Gamesa 2.5 MW turbines (153 m hub, 126 m rotor)', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf', lat=15.536, lon=101.557, turbine='32x Siemens Gamesa 2.5 MW'),
+    fix('THA', 'Hanuman 1 wind farm', G, '亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 18 部風機座標（Sap Yai 縣 Tha Kup 分區）；點位改為其平均（北緯 15.653°、東經 101.689°；原點是 GEM 給 Hanuman 1、5、9、10 的同一點（在 Hanuman 10 的範圍內），在約 18.5 km 外）。機組為 18 部西門子歌美颯 2.5 MW', 'Table 2 of the ADB environmental and social monitoring report for 2020 lists the 18 turbine positions (Tha Kup subdistrict, Sap Yai district); the point moves to their mean (15.653 N, 101.689 E; the old point was the single GEM point given to Hanuman 1, 5, 9 and 10 (inside Hanuman 10), about 18.5 km away). It has 18 Siemens Gamesa 2.5 MW turbines', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf', lat=15.653, lon=101.689, turbine='18x Siemens Gamesa 2.5 MW'),
+    fix('THA', 'Hanuman 8 wind farm', G, '亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 18 部風機座標（Sap Yai 縣 Tha Kup 與 Sap Yai 分區）；點位改為其平均（北緯 15.625°、東經 101.650°；原點是 GEM 的點，落在 Hanuman 10 的範圍內，在約 11.5 km 外）。機組為 18 部西門子歌美颯 2.5 MW', 'Table 2 of the ADB environmental and social monitoring report for 2020 lists the 18 turbine positions (Tha Kup and Sap Yai subdistricts, Sap Yai district); the point moves to their mean (15.625 N, 101.650 E; the old GEM point lay inside Hanuman 10, about 11.5 km away). It has 18 Siemens Gamesa 2.5 MW turbines', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf', lat=15.625, lon=101.650, turbine='18x Siemens Gamesa 2.5 MW'),
+    fix('THA', 'Hanuman 5 wind farm', G, '亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 19 部風機座標（Thep Sathit 縣 Watabaek 分區）；點位改為其平均（北緯 15.464°、東經 101.413°；原點是 GEM 給 Hanuman 1、5、9、10 的同一點（在 Hanuman 10 的範圍內），在約 18.2 km 外）。機組為 19 部西門子歌美颯 2.5 MW', 'Table 2 of the ADB environmental and social monitoring report for 2020 lists the 19 turbine positions (Watabaek subdistrict, Thep Sathit district); the point moves to their mean (15.464 N, 101.413 E; the old point was the single GEM point given to Hanuman 1, 5, 9 and 10 (inside Hanuman 10), about 18.2 km away). It has 19 Siemens Gamesa 2.5 MW turbines', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf', lat=15.464, lon=101.413, turbine='19x Siemens Gamesa 2.5 MW'),
+    fix('THA', 'Hanuman 9 wind farm', G, '亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 16 部風機座標（Thep Sathit 縣 Watabaek 分區）；點位改為其平均（北緯 15.485°、東經 101.449°；原點是 GEM 給 Hanuman 1、5、9、10 的同一點（在 Hanuman 10 的範圍內），在約 13.6 km 外）。機組為 16 部西門子歌美颯 2.5 MW', 'Table 2 of the ADB environmental and social monitoring report for 2020 lists the 16 turbine positions (Watabaek subdistrict, Thep Sathit district); the point moves to their mean (15.485 N, 101.449 E; the old point was the single GEM point given to Hanuman 1, 5, 9 and 10 (inside Hanuman 10), about 13.6 km away). It has 16 Siemens Gamesa 2.5 MW turbines', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf', lat=15.485, lon=101.449, turbine='16x Siemens Gamesa 2.5 MW'),
+    fix('THA', 'Subyai (Chaiyaphum)', C, '點位改為 OpenStreetMap 風場關係「Chaiyaphum Wind Farm」（16162037，業主 EGCO Group、80 MW、2016）32 部風機的平均（北緯 15.603°、東經 101.538°，猜也蓬府 Subyai（Sap Yai）縣；原點在南南東約 7 km，落在 Hanuman 10 的範圍）', 'The point moves to the mean of the 32 turbines of the OpenStreetMap wind-farm relation “Chaiyaphum Wind Farm” (16162037; owner EGCO Group, 80 MW, 2016): 15.603 N, 101.538 E, in Subyai (Sap Yai) district, Chaiyaphum (the old point was about 7 km SSE, inside Hanuman 10)', 'https://www.openstreetmap.org/relation/16162037', lat=15.603, lon=101.538, turbine='32x 2.5 MW'),
+    fix('VNM', 'Dong Hai V1-4 Offshore wind farm', G, 'GEM 這筆的本地名稱是「Nhà máy điện gió Đông Hải 1 Giai đoạn 4」（東海 1 號第 4 期），狀態引用的工貿部 1509/QĐ-BCT 號決定（2025-05-30）把它列在薄遼省（50 MW、2025–2030）；「V1-4」與茶榮外海的點、業主 SC-CCG 來自另一個茶榮 V1-4 場址的舊資料（茶榮 V1-4 是 REE 的 Duyên Hải，已另有紀錄）。越通社 2026-08-28：金甌省（原薄遼）在東海社為東海 1 號第 3、4 期與東海 13 號第 2 期舉行啟動儀式，第 4 期由 Miền Tây 風電股份公司投資、50 MW、目標 2028 年第 4 季完成，之後才做勘察與可行性研究。改名、改業主、改為規劃中（2028），點位暫用同名第 1–2 期的概略點', 'GEM’s local name for this record is “Nhà máy điện gió Đông Hải 1 Giai đoạn 4” (Dong Hai 1 phase 4), and its status source, MOIT Decision 1509/QĐ-BCT (30 May 2025), lists that project under Bạc Liêu province (50 MW, 2025–2030); the “V1-4” label, the point off Trà Vinh and the owner SC-CCG come from older data on a Trà Vinh V1-4 site (Trà Vinh’s V1-4 is REE’s Duyen Hai, already a separate record). VietnamPlus, 28 Aug 2026: Cà Mau (which absorbed Bạc Liêu) launched Dong Hai 1 phases 3 and 4 and Dong Hai 13 phase 2 in Đông Hải commune; phase 4 is Mien Tay Wind Power JSC’s, 50 MW, due by Q4 2028, with surveys and the feasibility study still to come. Renamed, owner changed, set to pre-construction (2028); the point provisionally takes the approximate point of phases 1–2', 'https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp', rename='Dong Hai 1 Phase 4 (Ca Mau)', zhname='東海1號四期（金甌）', owner='Mien Tay Wind Power JSC', st=2, year=2028, lat=9.101, lon=105.601, approx=True),
+    fix('VNM', 'Dong Hai 1 Offshore wind farm · 3', G, '薄遼（今金甌）東海 1 號第 3 期：工貿部 1509/QĐ-BCT 號決定列在薄遼省（50 MW、2025–2030，接到屬於東海 1 號的和平 2 開關站）；越通社 2026-08-28：金甌省為第 3、4 期舉行啟動儀式，第 3 期由 Bắc Phương 風能股份公司投資、50 MW、在東海社海域、預計 2029 年第 1 季完成。GEM 的點（北緯 9.352°、東經 109.146°）在南海中、離岸約 390 km，改用同名第 1–2 期的概略點；改為規劃中（2029）並補業主', 'Dong Hai 1 phase 3 in Bạc Liêu (now Cà Mau): MOIT Decision 1509/QĐ-BCT lists it under Bạc Liêu (50 MW, 2025–2030, connecting to the Hòa Bình 2 switching station that belongs to Dong Hai 1); VietnamPlus, 28 Aug 2026: Cà Mau launched phases 3 and 4, phase 3 being Bac Phuong Wind Energy JSC’s, 50 MW, in the sea off Đông Hải commune, due by Q1 2029. GEM’s point (9.352 N, 109.146 E) is in the South China Sea about 390 km offshore, so the approximate point of phases 1–2 is used; set to pre-construction (2029) with the owner added', 'https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp', rename='Dong Hai 1 Phase 3 (Ca Mau)', zhname='東海1號三期（金甌）', owner='Bac Phuong Wind Energy JSC', st=2, year=2029, lat=9.101, lon=105.601, approx=True),
+    fix('VNM', 'Dong Hai 1 Phase 1 (Tra Vinh, Trungnam)', C, '點位改為 OpenStreetMap 風場關係「điện gió Đông Hải 1 Trà Vinh」（18122789，營運者中南集團、100 MW）25 部風機的平均（北緯 9.522°、東經 106.451°；原點在東北方約 14 km，靠近茶榮 V1-1～V1-3）', 'The point moves to the mean of the 25 turbines of the OpenStreetMap wind-farm relation “điện gió Đông Hải 1 Trà Vinh” (18122789; operator Trungnam Group, 100 MW): 9.522 N, 106.451 E (the old point was about 14 km north-east, near Trà Vinh V1-1 to V1-3)', 'https://www.openstreetmap.org/relation/18122789', lat=9.522, lon=106.451),
+    fix('DEU', 'Erbes-Büdesheim wind farm', G,
+        'GEM 的 15 MW 取自 The Wind Power 的「5 部 Vestas V112、15,375 kW」（Erbes-Büdesheim／Offenheim／Nack），就是 MaStR 的「Windpark Offenheim」：5 部 V112，2013 年 12 月至 2014 年 2 月併網，'
+        '營運公司 ERG Wind Erbes Büdesheim GmbH & Co. KG, Standort Offenheim；GEM 的 2012 年與座標取自村北另一群 2012 年的 Senvion 3.4M104，改為 2013 年、座標移到這 5 部的中心',
+        'GEM’s 15 MW comes from The Wind Power’s “5 Vestas V112, 15,375 kW” (Erbes-Büdesheim/Offenheim/Nack), i.e. MaStR’s “Windpark Offenheim”: 5 V112 connected December 2013 – February 2014, '
+        'operated by ERG Wind Erbes Büdesheim GmbH & Co. KG, Standort Offenheim; GEM’s 2012 and its point come from a different group of 2012 Senvion 3.4M104 north of the village, so the year becomes 2013 and the point moves to the centre of the five',
+        'https://www.thewindpower.net/windfarm_en_24358.php', year=2013, lat=49.741, lon=8.026),
+    fix('DEU', 'Lütjenholm wind farm', G,
+        '「Windpark Lütjenholm」是 4 部 Senvion（REpower）3.4M104、13.6 MW，2013 年併網，就是 MaStR 的「WPL」（Bargum／Lütjenholm，OpenStreetMap 的風場範圍是同一批機位）；'
+        'GEM 的座標在東方約 4 km 的 Goldelund，那裡是另一座 BWP Veer Dörper，改到這 4 部的中心',
+        '“Windpark Lütjenholm” is 4 Senvion (REpower) 3.4M104, 13.6 MW, connected in 2013: MaStR’s “WPL” at Bargum/Lütjenholm (the OpenStreetMap plant has the same turbine positions); '
+        'GEM’s point is about 4 km east at Goldelund, where the separate BWP Veer Dörper stands, so it moves to the centre of the four',
+        'https://www.openstreetmap.org/relation/14965140', lat=54.674, lon=9.036),
+    fix('DEU', 'Zettingen wind farm', G,
+        '補上商轉年 2009：MaStR 的「Zettingen」6 部 Nordex N90 中 5 部 2009 年 12 月、1 部 2010 年 6 月併網（Gamesa 開發，2010 年 9 月售予 IKEA）',
+        'Start year 2009 added: of MaStR’s six Nordex N90 “Zettingen”, five were connected in December 2009 and one in June 2010 (developed by Gamesa, sold to IKEA in September 2010)',
+        'https://www.marktstammdatenregister.de/MaStR/Datendownload', year=2009),
+    fix('DEU', 'Bornstedt-Holdenstedt wind farm', G,
+        'MVV 的「Windpark Holdenstedt-Bornstedt」是 8 部、12 MW，就是 MaStR 的 8 部 GE 1.5sl（2006 年 7 月併網，Allstedt／Bornstedt）；GEM 的 2010 年是旁邊別批機組的年份，改為 2006',
+        'MVV’s “Windpark Holdenstedt-Bornstedt” has 8 turbines and 12 MW, i.e. MaStR’s 8 GE 1.5sl connected in July 2006 (Allstedt/Bornstedt); GEM’s 2010 belongs to other turbines nearby, so the year becomes 2006',
+        'https://web.archive.org/web/20240131130640/https://www.mvv.de/en/about-us/group-of-companies/mvv-umwelt/renewable-energies/windfarms-on-shore?tx_maps2_maps2%5BmapProviderRequestsAllowedForMaps2%5D=1&cHash=c4995b927adfc78d8d92015e95b3acdc', year=2006),
+    fix('DEU', 'Süderauerdorf wind farm', G, '2017 年 4 部 Siemens SWT-3.0-113（12 MW），2023 年同一個 BWP Süderauerdorf 再加 2 部 SWT-DD-130（8.6 MW，MaStR）', '4 Siemens SWT-3.0-113 in 2017 (12 MW), and 2 SWT-DD-130 added under the same BWP Süderauerdorf name in 2023 (8.6 MW, MaStR)', 'https://www.marktstammdatenregister.de/MaStR/Datendownload', mw=20.6, ph=[[2017, 12.0], [2023, 8.6]]),
+    fix('POL', 'Baltica I Offshore wind farm', G,
+        '2025 年 12 月 17 日波蘭首次離岸風電差價合約競標落選（PGE 得標的是 Baltica 9）；原訂 2032 年底商轉以得標為前提，之後沒有新的預定年；由 PGE 集團（PGE Baltica）開發',
+        'Lost Poland’s first offshore wind CfD auction on 17 December 2025 (PGE won with Baltica 9 instead); the end-2032 commissioning target depended on winning it, and no new date has been given; developed by the PGE Group (PGE Baltica)',
+        'https://globenergia.pl/wyniki-aukcji-offshore-jeden-projekt-nie-uzyskal-wsparcia/', year=0, owner='PGE Baltica (PGE Group)', note=True),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1810,6 +1845,43 @@ ORPHAN_OK = {
 
 # 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
 NOT_DUP = {
+    # 2026-10-08 第十三輪：查證後確定是不同風場
+    ('DEU', 'WP Kail'):
+        ('MaStR 的「WP Kail」是 2025 年在 Kail／Kaisersesch 併網的 3 部 Nordex（2 部 N149/4.5 MW、1 部 N131/3.9 MW，12.9 MW）；GEM 的 Zettingen（Gamesa 開發、2010 年售予 IKEA）對到的是 3 km 外 2009–2010 年的 6 部 Nordex N90：不同風場',
+         'MaStR’s “WP Kail” is 3 Nordex turbines connected in 2025 at Kail/Kaisersesch (2 N149/4.5 MW and an N131/3.9 MW, 12.9 MW); GEM’s Zettingen (developed by Gamesa, sold to IKEA in 2010) matches the 6 Nordex N90 of 2009–2010 3 km away: different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'WP Mittelhausen'):
+        ('MaStR 的「WP Mittelhausen」是 2010 年在 Allstedt 併網的 6 部 Vestas V90（12 MW）；GEM 的 Bornstedt-Holdenstedt（MVV，8 部、12 MW）是旁邊 2006 年的 8 部 GE 1.5sl：不同風場（The Wind Power 也把 Mittelhausen I、II 列為附近另外的風場）',
+         'MaStR’s “WP Mittelhausen” is 6 Vestas V90 connected in 2010 at Allstedt (12 MW); GEM’s Bornstedt-Holdenstedt (MVV, 8 turbines, 12 MW) is the neighbouring 8 GE 1.5sl of 2006: different farms (The Wind Power also lists Mittelhausen I and II as separate nearby farms)',
+         'https://www.thewindpower.net/windfarm_en_3743_bornstedt-holdenstedt.php'),
+    ('DEU', 'Sommerland_B'):
+        ('MaStR 的「Sommerland_B」是 Elskop 2016–2018 年的 6 部 Senvion MM100（12 MW），在 BWP Süderauerdorf（2017 年 4 部 Siemens SWT-3.0-113）西南方約 4 km；也不是 ing-holst 列的 BWP Sommerland（1 部 MM100）：不同風場',
+         'MaStR’s “Sommerland_B” is 6 Senvion MM100 at Elskop from 2016–2018 (12 MW), about 4 km south-west of BWP Süderauerdorf (4 Siemens SWT-3.0-113 of 2017), and not the BWP Sommerland on ing-holst’s list (1 MM100): different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Bürgerwindpark Norddeich'):
+        ('MaStR 的「Bürgerwindpark Norddeich」是 Norddeich 2015–2016 年的 5 部 Enercon E-92（11.75 MW）；GEM 的 Schülp（wpd，2014 年 5 部 E-70）、Büttler Balje（Friedrichsgabekoog，2014–2015 年 5 部 E-82）與 Wesselburener Deichhausen（2014 年 5 部 E-82）都是別的機組：不同風場',
+         'MaStR’s “Bürgerwindpark Norddeich” is 5 Enercon E-92 at Norddeich from 2015–2016 (11.75 MW); GEM’s Schülp (wpd, 5 E-70 of 2014), Büttler Balje (Friedrichsgabekoog, 5 E-82 of 2014–2015) and Wesselburener Deichhausen (5 E-82 of 2014) are other turbines: different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Asseln'):
+        ('MaStR 的「Windpark Asseln」是 Asselner Windkraft 的機組（1998 年 1 月的 E-40 序號 41075–41081、1998 年的 E-66、2001／2008／2015／2020 年的補建）；GEM 的 Lichtenau（1997 年、RWE）是 1997 年 12 月 RWE／Winkra 的 E-40：不同批機組',
+         'MaStR’s “Windpark Asseln” is Asselner Windkraft’s turbines (E-40 serials 41075–41081 of January 1998, an E-66 of 1998, and units added in 2001, 2008, 2015 and 2020); GEM’s Lichtenau (1997, RWE) is RWE/Winkra’s E-40 of December 1997: a different set of turbines',
+         'https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php'),
+    ('DEU', 'Dieksanderkoog TraGe 1'):
+        ('MaStR 的「Dieksanderkoog TraGe 1」是 Friedrichskoog 2012 年 11–12 月併網的 6 部 Enercon E-70 E4（13.8 MW）；GEM 的 Barlt West（14 MW、2012）對到的是約 8 km 外 Barlt 的 4 部 Senvion 3.4M104（2012）與 1 部 3.2M114（2016）：不同風場',
+         'MaStR’s “Dieksanderkoog TraGe 1” is 6 Enercon E-70 E4 connected November–December 2012 at Friedrichskoog (13.8 MW); GEM’s Barlt West (14 MW, 2012) matches 4 Senvion 3.4M104 (2012) and a 3.2M114 (2016) at Barlt, about 8 km away: different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'WP Neuenreuth'):
+        ('MaStR 的「WP Neuenreuth」是 Thiersheim／Höchstädt 2017 年 1–2 月併網的 4 部 Nordex N131（13.2 MW）；GEM 的 Heidelheim（13 MW、2017）對到的是約 8 km 外 Selb 的 5 部 Vensys 112（2017）：不同風場',
+         'MaStR’s “WP Neuenreuth” is 4 Nordex N131 connected January–February 2017 at Thiersheim/Höchstädt (13.2 MW); GEM’s Heidelheim (13 MW, 2017) matches 5 Vensys 112 (2017) at Selb, about 8 km away: different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'Windpark Priesberg'):
+        ('MaStR 的「Windpark Priesberg」是 Nohfelden 2016 年 9 月併網的 5 部 Vensys 112（12.5 MW）；GEM 的 Sötern-Bosen（13 MW、2016）對到的是約 4 km 北邊的另外 4 部（3 部 Vestas V126/3.3「Windpark Nohfelden-Eisen」2016 年與 1 部 2014 年的 E-101）：不同風場',
+         'MaStR’s “Windpark Priesberg” is 5 Vensys 112 connected in September 2016 at Nohfelden (12.5 MW); GEM’s Sötern-Bosen (13 MW, 2016) matches 4 other units about 4 km north (3 Vestas V126/3.3 “Windpark Nohfelden-Eisen” of 2016 and an E-101 of 2014): different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
+    ('DEU', 'OF III'):
+        ('MaStR 的「OF III」是 Ovelgönne（Oldenbroker Feld）2017 年 11–12 月併網的 3 部 Vestas V112（9.9 MW）；GEM 的 Hammelwarder Moor（10 MW、2018）對到的是約 10 km 外的 3 部 Senvion 3.4M114（2017–2018）：不同風場',
+         'MaStR’s “OF III” is 3 Vestas V112 connected November–December 2017 at Ovelgönne (Oldenbroker Feld, 9.9 MW); GEM’s Hammelwarder Moor (10 MW, 2018) matches 3 Senvion 3.4M114 (2017–2018) about 10 km away: different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
     # 2026-10-07 第十二輪：查證後確定是不同風場
     ('VNM', 'Cửu An wind farm'):
         ('嘉萊安溪的 Cửu An 與 Song An 是兩座 46.2 MW 風場，共用一座 110 kV 升壓站；Cửu An 2021 年在 FIT 期限前全廠 COD，Song An 是轉型期專案（EVN）',
@@ -1921,6 +1993,8 @@ NOT_DUP = {
 }
 
 GEM_KEEP = {
+    ('THA', 'Hanuman 10 wind farm'):
+        ('Energy Absolute 的 Hanuman 10（Banchuan Development 公司，80 MW、32 部西門子歌美颯 2.5 MW，猜也蓬府 Bamnet Narong 縣 Ban Chuan 分區，2019-04-13 商轉）與 EGCO 2016 年的 Chaiyaphum 風場（Subyai，Sap Yai 縣）是兩座；舊建置把它當成「Subyai (Chaiyaphum)」的重複刪掉', 'Energy Absolute’s Hanuman 10 (Banchuan Development Co, 80 MW, 32 Siemens Gamesa 2.5 MW, Ban Chuan subdistrict, Bamnet Narong district, Chaiyaphum; COD 13 Apr 2019) is not EGCO’s 2016 Chaiyaphum Wind Farm (Subyai, Sap Yai district); the old build dropped it as a duplicate of “Subyai (Chaiyaphum)”', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf'),
     ('JPN', 'Kakegawa wind farm'):
         ('日本風力開發的掛川風力發電所（6 部 2,300 kW、13.8 MW，2020 年）與黑潮風力發電的遠州掛川風力發電所（7 部 Enercon，2011 年）是相鄰的兩座風場',
          'Japan Wind Development’s Kakegawa wind farm (6 × 2,300 kW, 13.8 MW, 2020) and Kuroshio Wind Power’s Enshu Kakegawa (7 Enercon units, 2011) are two neighbouring farms',
@@ -1996,6 +2070,11 @@ PIPE_DROP = {
 
 # 2026 整理清單之後才變動的欄位（國別, 清單上的名稱）→（要改的欄位, 中文理由, English, 出處）；在比對清單前套用
 PIPE_FIX = {
+    ('POL', 'Baltica 1'): (
+        {'expected': 0, 'note': 'Lost the Dec 2025 CfD auction; no new commissioning date'},
+        '清單的 Baltica 1 就是 GEM 的 Baltica I（PGE 的 Elektrownia Wiatrowa Baltica-1，896 MW；對照寫在 tools/build_farms.py 的 PIPE_SAME），GEM 的座標在環評決定所寫的 POM.60.E 海域內，清單的概略座標在海域外約 23 km；2025 年 12 月 17 日差價合約競標落選，原訂 2032 年底商轉以得標為前提，預計年改為未定',
+        'The list’s Baltica 1 is GEM’s Baltica I (PGE’s Elektrownia Wiatrowa Baltica-1, 896 MW; mapped in PIPE_SAME in tools/build_farms.py); GEM’s point lies inside sea area POM.60.E named in the environmental decision, while the list’s approximate point is about 23 km outside it; it lost the CfD auction of 17 December 2025, and the end-2032 target depended on winning, so the expected year becomes unknown',
+        'https://www.gov.pl/attachment/d17bdc47-d1be-49f9-a810-2949be7213b4'),
     ('GBR', 'East Anglia TWO'): (
         {'expected': 2028, 'mw': 960.0},
         '預計運轉年由 2029 改為 2028、容量由 963 改為 960 MW：64 部單樁與轉接段 2026 年下半年才開始製造，預計 2027 年海上施工、2028 年運轉',

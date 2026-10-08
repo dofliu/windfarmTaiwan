@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 478 條：刪除 160 筆（其中營運中 45,178.8 MW），修正 318 筆。
+- 規則 493 條：刪除 160 筆（其中營運中 45,178.8 MW），修正 333 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -26,15 +26,15 @@
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 1 | 150 | 0 |
-| 德國 | 1 | 60 | 9 |
+| 德國 | 1 | 60 | 14 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
 | 日本 | 2 | 30 | 12 |
 | 比利時 | 1 | 325 | 0 |
 | 法國 | 2 | 0 | 5 |
-| 波蘭 | 0 | 0 | 1 |
-| 泰國 | 1 | 600 | 1 |
+| 波蘭 | 0 | 0 | 2 |
+| 泰國 | 1 | 600 | 7 |
 | 澳洲 | 4 | 1,161 | 7 |
 | 烏拉圭 | 1 | 141.6 | 1 |
 | 瑞典 | 0 | 0 | 3 |
@@ -48,7 +48,7 @@
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
-| 越南 | 15 | 1,512.8 | 36 |
+| 越南 | 15 | 1,512.8 | 39 |
 
 ## 中國大陸 (CHN)
 
@@ -399,6 +399,11 @@
 | Gohlocher Wald wind farm · 12 MW · 2018 | GEM | 修正：容量、機組 | Gohlocher Wald 風場在 Lebach，是 2 部 Nordex N131/3000、6 MW（GEM 寫 12 MW）；與 Püttlingen 的 Schwalbach 風場（4 部 E-115、12 MW）是不同風場 | [連結](https://www.energy3k.com/wp-gow-erste-kwh/) |
 | Oederquart wind farm · 16 MW · 2019 | GEM | 修正：容量、機組 | Bürgerwindpark Oederquart 的 Seeweg 風場：7 部 Enercon E-115 E2（3.2 MW），共 22.4 MW，2019 年併網（GEM 寫 16 MW） | [連結](https://www.investmentcheck.de/produkt/buergerwindpark-oederquart/) |
 | Streumen wind farm · 13 MW · 2016 | GEM | 修正：容量、機組 | Streumen/Glaubitz II 汰換案：2016 年、4 部 Vestas V126，13.2 MW（業者 Energieanlagen FB；GEM 也列 Glaubitz RI 為別名） | [連結](https://www.energie-fb.de/referenzen/) |
+| Erbes-Büdesheim wind farm · 15 MW · 2012 | GEM | 修正：年份、座標 | GEM 的 15 MW 取自 The Wind Power 的「5 部 Vestas V112、15,375 kW」（Erbes-Büdesheim／Offenheim／Nack），就是 MaStR 的「Windpark Offenheim」：5 部 V112，2013 年 12 月至 2014 年 2 月併網，營運公司 ERG Wind Erbes Büdesheim GmbH & Co. KG, Standort Offenheim；GEM 的 2012 年與座標取自村北另一群 2012 年的 Senvion 3.4M104，改為 2013 年、座標移到這 5 部的中心 | [連結](https://www.thewindpower.net/windfarm_en_24358.php) |
+| Lütjenholm wind farm · 14 MW · 2013 | GEM | 修正：座標 | 「Windpark Lütjenholm」是 4 部 Senvion（REpower）3.4M104、13.6 MW，2013 年併網，就是 MaStR 的「WPL」（Bargum／Lütjenholm，OpenStreetMap 的風場範圍是同一批機位）；GEM 的座標在東方約 4 km 的 Goldelund，那裡是另一座 BWP Veer Dörper，改到這 4 部的中心 | [連結](https://www.openstreetmap.org/relation/14965140) |
+| Zettingen wind farm · 13 MW | GEM | 修正：年份 | 補上商轉年 2009：MaStR 的「Zettingen」6 部 Nordex N90 中 5 部 2009 年 12 月、1 部 2010 年 6 月併網（Gamesa 開發，2010 年 9 月售予 IKEA） | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Bornstedt-Holdenstedt wind farm · 12 MW · 2010 | GEM | 修正：年份 | MVV 的「Windpark Holdenstedt-Bornstedt」是 8 部、12 MW，就是 MaStR 的 8 部 GE 1.5sl（2006 年 7 月併網，Allstedt／Bornstedt）；GEM 的 2010 年是旁邊別批機組的年份，改為 2006 | [連結](https://web.archive.org/web/20240131130640/https://www.mvv.de/en/about-us/group-of-companies/mvv-umwelt/renewable-energies/windfarms-on-shore?tx_maps2_maps2%5BmapProviderRequestsAllowedForMaps2%5D=1&cHash=c4995b927adfc78d8d92015e95b3acdc) |
+| Süderauerdorf wind farm · 12 MW · 2017 | GEM | 修正：容量、分期 | 2017 年 4 部 Siemens SWT-3.0-113（12 MW），2023 年同一個 BWP Süderauerdorf 再加 2 部 SWT-DD-130（8.6 MW，MaStR） | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## 愛爾蘭 (IRL)
 
@@ -481,6 +486,7 @@
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
 | Baltic Power Offshore wind farm · 1,200 MW · 2026 | GEM | 修正：容量 | 76 部 15 MW 風機、共 1,140 MW（Northland 寫約 1.1 GW），不是 1,200 MW；2026 年 7 月首度發電，第二季末 76 部已裝 61 部，預計 2026 年下半年商轉 | [連結](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
+| Baltica I Offshore wind farm · 896 MW · 2030 | GEM | 修正：年份、業主 | 2025 年 12 月 17 日波蘭首次離岸風電差價合約競標落選（PGE 得標的是 Baltica 9）；原訂 2032 年底商轉以得標為前提，之後沒有新的預定年；由 PGE 集團（PGE Baltica）開發 | [連結](https://globenergia.pl/wyniki-aukcji-offshore-jeden-projekt-nie-uzyskal-wsparcia/) |
 
 ## 泰國 (THA)
 
@@ -488,6 +494,12 @@
 |---|---|---|---|---|
 | Jhimpir Power (Energy Absolute) wind farm · 600 MW · 2019 | GEM | 刪除 | 不存在：Jhimpir 在巴基斯坦，Energy Absolute 在泰國沒有 600 MW 風場（它在猜也蓬的 Hanuman 各場另有紀錄） | [連結](https://www.energyabsolute.co.th/en/our-businesses/renewable-business/wind-power-plants) |
 | Subyai (Chaiyaphum) · 90 MW · 2016 | 精選 | 修正：容量、業主 | EGCO 的 Chaiyaphum 風場：80 MW（32 × 2.5 MW），2016 年 12 月商轉；業主名稱原本拼錯 | [連結](https://www.bangkokpost.com/business/1163661/egco-kicks-off-latest-wind-farm) |
+| Hanuman 10 wind farm · 80 MW · 2019 | GEM | 修正：座標、機組 | 亞洲開發銀行（ADB）2020 年度環境社會監測報告（2021-05）表 2 列出 Hanuman 10 全部 32 部風機的座標（北緯 15.507–15.566°、東經 101.520–101.589°）；點位改為 32 點的平均（北緯 15.536°、東經 101.557°；GEM 的概略點在東北方約 0.8 km）。機組為 32 部西門子歌美颯 2.5 MW（輪轂 153 m、葉輪 126 m） | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 1 wind farm · 45 MW · 2019 | GEM | 修正：座標、機組 | 亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 18 部風機座標（Sap Yai 縣 Tha Kup 分區）；點位改為其平均（北緯 15.653°、東經 101.689°；原點是 GEM 給 Hanuman 1、5、9、10 的同一點（在 Hanuman 10 的範圍內），在約 18.5 km 外）。機組為 18 部西門子歌美颯 2.5 MW | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 8 wind farm · 45 MW · 2019 | GEM | 修正：座標、機組 | 亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 18 部風機座標（Sap Yai 縣 Tha Kup 與 Sap Yai 分區）；點位改為其平均（北緯 15.625°、東經 101.650°；原點是 GEM 的點，落在 Hanuman 10 的範圍內，在約 11.5 km 外）。機組為 18 部西門子歌美颯 2.5 MW | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 5 wind farm · 48 MW · 2019 | GEM | 修正：座標、機組 | 亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 19 部風機座標（Thep Sathit 縣 Watabaek 分區）；點位改為其平均（北緯 15.464°、東經 101.413°；原點是 GEM 給 Hanuman 1、5、9、10 的同一點（在 Hanuman 10 的範圍內），在約 18.2 km 外）。機組為 19 部西門子歌美颯 2.5 MW | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 9 wind farm · 42 MW · 2019 | GEM | 修正：座標、機組 | 亞洲開發銀行（ADB）2020 年度環境社會監測報告表 2 的 16 部風機座標（Thep Sathit 縣 Watabaek 分區）；點位改為其平均（北緯 15.485°、東經 101.449°；原點是 GEM 給 Hanuman 1、5、9、10 的同一點（在 Hanuman 10 的範圍內），在約 13.6 km 外）。機組為 16 部西門子歌美颯 2.5 MW | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Subyai (Chaiyaphum) · 80 MW · 2016 | 精選 | 修正：座標、機組 | 點位改為 OpenStreetMap 風場關係「Chaiyaphum Wind Farm」（16162037，業主 EGCO Group、80 MW、2016）32 部風機的平均（北緯 15.603°、東經 101.538°，猜也蓬府 Subyai（Sap Yai）縣；原點在南南東約 7 km，落在 Hanuman 10 的範圍） | [連結](https://www.openstreetmap.org/relation/16162037) |
 
 ## 澳洲 (AUS)
 
@@ -712,6 +724,9 @@
 | Chơ Long wind farm · 2 · 105.5 MW | GEM | 修正：狀態、業主 | 朱龍（Chơ Long）風電廠共 155 MW（Phong Điện Chơ Long 股份公司，原 Krông Chro 縣）：2021 年已建成，但只有 49.5 MW 在 FIT 期限前通過 COD；其餘 105.5 MW 因電能品質（諧波）試驗問題，到 2026-08 仍未商轉（嘉萊省 2026-08-04 向 EVN 陳情）。不是「規劃中」，改為興建中（已建成、未商轉） | [連結](https://www.tinnhanhchungkhoan.vn/gia-lai-tiep-tuc-kien-nghi-go-vuong-2-du-an-dien-gio-chua-van-hanh-thuong-mai-post395316.html) |
 | Chơ Long wind farm · 49.5 MW | GEM | 修正：年份、業主 | 朱龍風電廠的 49.5 MW 在 2021-10-31 前通過 COD（EVN 名單「部分」，全廠 155 MW） | [連結](https://evn.com.vn/userfile/User/tcdl/files/Thong-tin-COD-dien-gio-den-het-ngay-31-10-2021_2.pdf) |
 | Soc Trang 7 Phase 1 · 30 MW · 2021 | 精選 | 修正：容量、機組、業主 | 7 號風場一期是 7 部 4.2 MW、29.4 MW（EVN 2021 FIT 名單「Số 7 Sóc Trăng 29,40 全部」），業主朔莊能源股份公司與春求公司 | [連結](https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html) |
+| Dong Hai V1-4 Offshore wind farm · 50 MW | GEM | 修正：名稱、中文名、業主、狀態、年份、座標 | GEM 這筆的本地名稱是「Nhà máy điện gió Đông Hải 1 Giai đoạn 4」（東海 1 號第 4 期），狀態引用的工貿部 1509/QĐ-BCT 號決定（2025-05-30）把它列在薄遼省（50 MW、2025–2030）；「V1-4」與茶榮外海的點、業主 SC-CCG 來自另一個茶榮 V1-4 場址的舊資料（茶榮 V1-4 是 REE 的 Duyên Hải，已另有紀錄）。越通社 2026-08-28：金甌省（原薄遼）在東海社為東海 1 號第 3、4 期與東海 13 號第 2 期舉行啟動儀式，第 4 期由 Miền Tây 風電股份公司投資、50 MW、目標 2028 年第 4 季完成，之後才做勘察與可行性研究。改名、改業主、改為規劃中（2028），點位暫用同名第 1–2 期的概略點 | [連結](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
+| Dong Hai 1 Offshore wind farm · 3 · 50 MW | GEM | 修正：名稱、中文名、業主、狀態、年份、座標 | 薄遼（今金甌）東海 1 號第 3 期：工貿部 1509/QĐ-BCT 號決定列在薄遼省（50 MW、2025–2030，接到屬於東海 1 號的和平 2 開關站）；越通社 2026-08-28：金甌省為第 3、4 期舉行啟動儀式，第 3 期由 Bắc Phương 風能股份公司投資、50 MW、在東海社海域、預計 2029 年第 1 季完成。GEM 的點（北緯 9.352°、東經 109.146°）在南海中、離岸約 390 km，改用同名第 1–2 期的概略點；改為規劃中（2029）並補業主 | [連結](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
+| Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | 精選 | 修正：座標 | 點位改為 OpenStreetMap 風場關係「điện gió Đông Hải 1 Trà Vinh」（18122789，營運者中南集團、100 MW）25 部風機的平均（北緯 9.522°、東經 106.451°；原點在東北方約 14 km，靠近茶榮 V1-1～V1-3） | [連結](https://www.openstreetmap.org/relation/18122789) |
 
 ## 規劃中專案清單（2026 整理）裡不收錄的專案
 
@@ -729,6 +744,7 @@
 
 | 專案 | 修正 | 理由 | 出處 |
 |---|---|---|---|
+| Baltica 1 (POL) | expected=0, note=Lost the Dec 2025 CfD auction; no new commissioning date | 清單的 Baltica 1 就是 GEM 的 Baltica I（PGE 的 Elektrownia Wiatrowa Baltica-1，896 MW；對照寫在 tools/build_farms.py 的 PIPE_SAME），GEM 的座標在環評決定所寫的 POM.60.E 海域內，清單的概略座標在海域外約 23 km；2025 年 12 月 17 日差價合約競標落選，原訂 2032 年底商轉以得標為前提，預計年改為未定 | [連結](https://www.gov.pl/attachment/d17bdc47-d1be-49f9-a810-2949be7213b4) |
 | East Anglia TWO (GBR) | expected=2028, mw=960.0 | 預計運轉年由 2029 改為 2028、容量由 963 改為 960 MW：64 部單樁與轉接段 2026 年下半年才開始製造，預計 2027 年海上施工、2028 年運轉 | [連結](https://www.nsenergybusiness.com/projects/east-anglia-two-offshore-wind-farm/) |
 | YouDe (TWN) | mw=700.0, zh=又德, note=Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed | 名稱改為又德、容量由 1,000 MW 改為 3.2 期獲配的 700 MW；與 GEM 的「Datian Youde」是同一案，合成一筆 | [連結](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Fengmiao 2 (TWN) | mw=600.0 | 容量由 500 MW 改為 3.2 期獲配的 600 MW | [連結](https://www.cna.com.tw/news/afe/202408050303.aspx) |
@@ -739,6 +755,7 @@
 
 | 專案 | 理由 | 出處 |
 |---|---|---|
+| Hanuman 10 wind farm (THA) | Energy Absolute 的 Hanuman 10（Banchuan Development 公司，80 MW、32 部西門子歌美颯 2.5 MW，猜也蓬府 Bamnet Narong 縣 Ban Chuan 分區，2019-04-13 商轉）與 EGCO 2016 年的 Chaiyaphum 風場（Subyai，Sap Yai 縣）是兩座；舊建置把它當成「Subyai (Chaiyaphum)」的重複刪掉 | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
 | Kakegawa wind farm (JPN) | 日本風力開發的掛川風力發電所（6 部 2,300 kW、13.8 MW，2020 年）與黑潮風力發電的遠州掛川風力發電所（7 部 Enercon，2011 年）是相鄰的兩座風場 | [連結](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 | Gansu Minqin Hongshagang 1 wind farm (CHN) | 民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失 | [連結](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
 | YEP wind farm (KOR) | 韓華建設的英陽風場（76 MW、22 部 3.45 MW）與 2008 年 Macquarie 的英陽風場不同；舊建置把它併進後來判為重複刪除的精選「Yeongyang」 | [連結](https://www.etoday.co.kr/news/view/1988572) |
@@ -757,6 +774,15 @@
 
 | 風場 | 理由 | 出處 |
 |---|---|---|
+| WP Kail (DEU) | MaStR 的「WP Kail」是 2025 年在 Kail／Kaisersesch 併網的 3 部 Nordex（2 部 N149/4.5 MW、1 部 N131/3.9 MW，12.9 MW）；GEM 的 Zettingen（Gamesa 開發、2010 年售予 IKEA）對到的是 3 km 外 2009–2010 年的 6 部 Nordex N90：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| WP Mittelhausen (DEU) | MaStR 的「WP Mittelhausen」是 2010 年在 Allstedt 併網的 6 部 Vestas V90（12 MW）；GEM 的 Bornstedt-Holdenstedt（MVV，8 部、12 MW）是旁邊 2006 年的 8 部 GE 1.5sl：不同風場（The Wind Power 也把 Mittelhausen I、II 列為附近另外的風場） | [連結](https://www.thewindpower.net/windfarm_en_3743_bornstedt-holdenstedt.php) |
+| Sommerland_B (DEU) | MaStR 的「Sommerland_B」是 Elskop 2016–2018 年的 6 部 Senvion MM100（12 MW），在 BWP Süderauerdorf（2017 年 4 部 Siemens SWT-3.0-113）西南方約 4 km；也不是 ing-holst 列的 BWP Sommerland（1 部 MM100）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Bürgerwindpark Norddeich (DEU) | MaStR 的「Bürgerwindpark Norddeich」是 Norddeich 2015–2016 年的 5 部 Enercon E-92（11.75 MW）；GEM 的 Schülp（wpd，2014 年 5 部 E-70）、Büttler Balje（Friedrichsgabekoog，2014–2015 年 5 部 E-82）與 Wesselburener Deichhausen（2014 年 5 部 E-82）都是別的機組：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Asseln (DEU) | MaStR 的「Windpark Asseln」是 Asselner Windkraft 的機組（1998 年 1 月的 E-40 序號 41075–41081、1998 年的 E-66、2001／2008／2015／2020 年的補建）；GEM 的 Lichtenau（1997 年、RWE）是 1997 年 12 月 RWE／Winkra 的 E-40：不同批機組 | [連結](https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php) |
+| Dieksanderkoog TraGe 1 (DEU) | MaStR 的「Dieksanderkoog TraGe 1」是 Friedrichskoog 2012 年 11–12 月併網的 6 部 Enercon E-70 E4（13.8 MW）；GEM 的 Barlt West（14 MW、2012）對到的是約 8 km 外 Barlt 的 4 部 Senvion 3.4M104（2012）與 1 部 3.2M114（2016）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| WP Neuenreuth (DEU) | MaStR 的「WP Neuenreuth」是 Thiersheim／Höchstädt 2017 年 1–2 月併網的 4 部 Nordex N131（13.2 MW）；GEM 的 Heidelheim（13 MW、2017）對到的是約 8 km 外 Selb 的 5 部 Vensys 112（2017）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Priesberg (DEU) | MaStR 的「Windpark Priesberg」是 Nohfelden 2016 年 9 月併網的 5 部 Vensys 112（12.5 MW）；GEM 的 Sötern-Bosen（13 MW、2016）對到的是約 4 km 北邊的另外 4 部（3 部 Vestas V126/3.3「Windpark Nohfelden-Eisen」2016 年與 1 部 2014 年的 E-101）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| OF III (DEU) | MaStR 的「OF III」是 Ovelgönne（Oldenbroker Feld）2017 年 11–12 月併網的 3 部 Vestas V112（9.9 MW）；GEM 的 Hammelwarder Moor（10 MW、2018）對到的是約 10 km 外的 3 部 Senvion 3.4M114（2017–2018）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Cửu An wind farm (VNM) | 嘉萊安溪的 Cửu An 與 Song An 是兩座 46.2 MW 風場，共用一座 110 kV 升壓站；Cửu An 2021 年在 FIT 期限前全廠 COD，Song An 是轉型期專案（EVN） | [連結](https://sdic.vn/nha-may-dien-gio-cuu-an-462mw/) |
 | Quoc Vinh Soc Trang wind farm (VNM) | 國榮（6 號，陸上 7.5 ha、6 部，朔莊國榮風電公司）與 7 號（海上 3,100 ha 範圍、7 部 4.2 MW，朔莊能源公司與春求公司）是不同業主的兩座；EVN 的 FIT 名單分列國榮 30 MW 與 7 號 29.4 MW | [連結](https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html) |
 | Streumen (DEU) | MaStR 在 Streumen 有好幾群：GEM 的 Streumen（Streumen/Glaubitz II 汰換案，4 部 Vestas V126，2016 年）之外，這筆是 2011–2023 年陸續併網的另外 4 部（16.7 MW），是另一批機組 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

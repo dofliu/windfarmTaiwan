@@ -50,6 +50,7 @@ MANUAL = {
     ("AEMO", "CROOKWF2"): "Crookwell II wind farm",           # Crookwell 2（不是 1998 年的 Crookwell 1，4.8 MW）
     ("AEMO", "CROOKWF3"): "Crookwell II wind farm",           # GEM 的 Crookwell II 紀錄第二期（2024 年 58 MW）就是 Crookwell 3
     ("AEMO", "YAWWF1"): None,                                 # 資料中沒有 Yawong
+    ("AEMO", "GULLRWF2"): "Biala wind farm",                 # AEMO 登記名「Gullen Range 2 Wind Farm」＝Biala（經 Gullen Range 變電所併網；Open Electricity 的 Biala 機組表，2026-10 查核）
     # 加拿大亞伯達
     ("AESO", "TAB1"): "Taber wind farm",
     ("AESO", "SCR2"): "Magrath wind farm",

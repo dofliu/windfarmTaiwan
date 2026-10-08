@@ -65,6 +65,14 @@ MANUAL = {
                              'https://www.investmentcheck.de/produkt/buergerwindpark-oederquart/'),
     'Streumen wind farm': (['Glaubitz RI'],      # Streumen/Glaubitz II 汰換：4 部 Vestas V126，2016 年（GEM 也列 Glaubitz RI 為別名）
                            'https://www.energie-fb.de/referenzen/'),
+    'Erbes-Büdesheim wind farm': (['Windpark Offenheim'],   # 5 部 Vestas V112（3,075 kW，2013-12 至 2014-02），15.375 MW；營運公司 ERG Wind Erbes Büdesheim（Standort Offenheim）
+                                  'https://www.thewindpower.net/windfarm_en_24358.php'),
+    'Lütjenholm wind farm': (['WPL'],            # MaStR 的「WPL」＝Windpark Lütjenholm：4 部 Senvion 3.4M104，2013 年（OpenStreetMap 風場範圍是同一批機位）
+                             'https://www.openstreetmap.org/relation/14965140'),
+    'Süderauerdorf wind farm': (['BWP Süderauerdorf'],   # Bürgerwindpark Süderauerdorf：4 部 Siemens SWT-3.0-113，2017 年；2023 年同名再加 2 部 SWT-DD-130
+                                'https://web.archive.org/web/20240126011532/https://www.ing-holst.de/de/referenzen.php'),
+    'Schülp wind farm': (['Windpark Schülp', 'Windpark Schülp III'],   # wpd 的 Schülp：5 部 Enercon E-70，2014 年（MaStR 分成兩群；Schülp III 群裡 2016 年那部＝wpd 的 Schülp II）
+                         'https://www.wpd.de/en/projects/references/'),
 }
 
 

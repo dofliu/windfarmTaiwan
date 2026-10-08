@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 478 rules: 160 records removed (45,178.8 MW of them operating), 318 records fixed.
+- 493 rules: 160 records removed (45,178.8 MW of them operating), 333 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -23,7 +23,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 2 |
 | France | 2 | 0 | 5 |
-| Germany | 1 | 60 | 9 |
+| Germany | 1 | 60 | 14 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Japan | 2 | 30 | 12 |
@@ -33,7 +33,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Netherlands | 8 | 1,852 | 7 |
 | Norway | 7 | 1,939 | 10 |
 | Philippines | 1 | 160 | 1 |
-| Poland | 0 | 0 | 1 |
+| Poland | 0 | 0 | 2 |
 | Portugal | 1 | 14 | 2 |
 | Romania | 16 | 2,439 | 11 |
 | Senegal | 0 | 0 | 2 |
@@ -42,12 +42,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Spain | 1 | 20 | 1 |
 | Sweden | 0 | 0 | 3 |
 | Taiwan | 2 | 0 | 21 |
-| Thailand | 1 | 600 | 1 |
+| Thailand | 1 | 600 | 7 |
 | Turkey | 2 | 270 | 1 |
 | United Kingdom | 7 | 3,485 | 7 |
 | United States of America | 7 | 943.6 | 8 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 15 | 1,512.8 | 36 |
+| Vietnam | 15 | 1,512.8 | 39 |
 | Åland | 0 | 0 | 1 |
 
 ## Australia (AUS)
@@ -355,6 +355,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Gohlocher Wald wind farm · 12 MW · 2018 | GEM | fixed: capacity, turbines | The Gohlocher Wald farm at Lebach has 2 Nordex N131/3000, 6 MW (GEM says 12 MW); it is not the Schwalbach farm at Püttlingen (4 E-115, 12 MW) | [link](https://www.energy3k.com/wp-gow-erste-kwh/) |
 | Oederquart wind farm · 16 MW · 2019 | GEM | fixed: capacity, turbines | Bürgerwindpark Oederquart’s Seeweg park: 7 Enercon E-115 E2 (3.2 MW), 22.4 MW in all, connected in 2019 (GEM says 16 MW) | [link](https://www.investmentcheck.de/produkt/buergerwindpark-oederquart/) |
 | Streumen wind farm · 13 MW · 2016 | GEM | fixed: capacity, turbines | The Streumen/Glaubitz II repowering: 2016, 4 Vestas V126, 13.2 MW (Energieanlagen FB; GEM also lists Glaubitz RI as another name) | [link](https://www.energie-fb.de/referenzen/) |
+| Erbes-Büdesheim wind farm · 15 MW · 2012 | GEM | fixed: year, location | GEM’s 15 MW comes from The Wind Power’s “5 Vestas V112, 15,375 kW” (Erbes-Büdesheim/Offenheim/Nack), i.e. MaStR’s “Windpark Offenheim”: 5 V112 connected December 2013 – February 2014, operated by ERG Wind Erbes Büdesheim GmbH & Co. KG, Standort Offenheim; GEM’s 2012 and its point come from a different group of 2012 Senvion 3.4M104 north of the village, so the year becomes 2013 and the point moves to the centre of the five | [link](https://www.thewindpower.net/windfarm_en_24358.php) |
+| Lütjenholm wind farm · 14 MW · 2013 | GEM | fixed: location | “Windpark Lütjenholm” is 4 Senvion (REpower) 3.4M104, 13.6 MW, connected in 2013: MaStR’s “WPL” at Bargum/Lütjenholm (the OpenStreetMap plant has the same turbine positions); GEM’s point is about 4 km east at Goldelund, where the separate BWP Veer Dörper stands, so it moves to the centre of the four | [link](https://www.openstreetmap.org/relation/14965140) |
+| Zettingen wind farm · 13 MW | GEM | fixed: year | Start year 2009 added: of MaStR’s six Nordex N90 “Zettingen”, five were connected in December 2009 and one in June 2010 (developed by Gamesa, sold to IKEA in September 2010) | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Bornstedt-Holdenstedt wind farm · 12 MW · 2010 | GEM | fixed: year | MVV’s “Windpark Holdenstedt-Bornstedt” has 8 turbines and 12 MW, i.e. MaStR’s 8 GE 1.5sl connected in July 2006 (Allstedt/Bornstedt); GEM’s 2010 belongs to other turbines nearby, so the year becomes 2006 | [link](https://web.archive.org/web/20240131130640/https://www.mvv.de/en/about-us/group-of-companies/mvv-umwelt/renewable-energies/windfarms-on-shore?tx_maps2_maps2%5BmapProviderRequestsAllowedForMaps2%5D=1&cHash=c4995b927adfc78d8d92015e95b3acdc) |
+| Süderauerdorf wind farm · 12 MW · 2017 | GEM | fixed: capacity, phases | 4 Siemens SWT-3.0-113 in 2017 (12 MW), and 2 SWT-DD-130 added under the same BWP Süderauerdorf name in 2023 (8.6 MW, MaStR) | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## Iran (IRN)
 
@@ -472,6 +477,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Baltic Power Offshore wind farm · 1,200 MW · 2026 | GEM | fixed: capacity | 76 turbines of 15 MW, 1,140 MW in total (Northland: about 1.1 GW), not 1,200 MW; first power in July 2026, 61 of 76 installed at the end of Q2, commercial operation expected in H2 2026 | [link](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
+| Baltica I Offshore wind farm · 896 MW · 2030 | GEM | fixed: year, owner | Lost Poland’s first offshore wind CfD auction on 17 December 2025 (PGE won with Baltica 9 instead); the end-2032 commissioning target depended on winning it, and no new date has been given; developed by the PGE Group (PGE Baltica) | [link](https://globenergia.pl/wyniki-aukcji-offshore-jeden-projekt-nie-uzyskal-wsparcia/) |
 
 ## Portugal (PRT)
 
@@ -596,6 +602,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Jhimpir Power (Energy Absolute) wind farm · 600 MW · 2019 | GEM | removed | Does not exist: Jhimpir is in Pakistan and Energy Absolute has no 600 MW farm in Thailand (its Hanuman farms in Chaiyaphum are listed separately) | [link](https://www.energyabsolute.co.th/en/our-businesses/renewable-business/wind-power-plants) |
 | Subyai (Chaiyaphum) · 90 MW · 2016 | curated | fixed: capacity, owner | EGCO’s Chaiyaphum Wind Farm: 80 MW (32 × 2.5 MW), commercial operation December 2016; the owner name was misspelt | [link](https://www.bangkokpost.com/business/1163661/egco-kicks-off-latest-wind-farm) |
+| Hanuman 10 wind farm · 80 MW · 2019 | GEM | fixed: location, turbines | Table 2 of the ADB environmental and social monitoring report for 2020 (May 2021) lists all 32 turbine positions of Hanuman 10 (15.507–15.566 N, 101.520–101.589 E); the point moves to their mean (15.536 N, 101.557 E; GEM’s approximate point was about 0.8 km north-east). It has 32 Siemens Gamesa 2.5 MW turbines (153 m hub, 126 m rotor) | [link](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 1 wind farm · 45 MW · 2019 | GEM | fixed: location, turbines | Table 2 of the ADB environmental and social monitoring report for 2020 lists the 18 turbine positions (Tha Kup subdistrict, Sap Yai district); the point moves to their mean (15.653 N, 101.689 E; the old point was the single GEM point given to Hanuman 1, 5, 9 and 10 (inside Hanuman 10), about 18.5 km away). It has 18 Siemens Gamesa 2.5 MW turbines | [link](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 8 wind farm · 45 MW · 2019 | GEM | fixed: location, turbines | Table 2 of the ADB environmental and social monitoring report for 2020 lists the 18 turbine positions (Tha Kup and Sap Yai subdistricts, Sap Yai district); the point moves to their mean (15.625 N, 101.650 E; the old GEM point lay inside Hanuman 10, about 11.5 km away). It has 18 Siemens Gamesa 2.5 MW turbines | [link](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 5 wind farm · 48 MW · 2019 | GEM | fixed: location, turbines | Table 2 of the ADB environmental and social monitoring report for 2020 lists the 19 turbine positions (Watabaek subdistrict, Thep Sathit district); the point moves to their mean (15.464 N, 101.413 E; the old point was the single GEM point given to Hanuman 1, 5, 9 and 10 (inside Hanuman 10), about 18.2 km away). It has 19 Siemens Gamesa 2.5 MW turbines | [link](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Hanuman 9 wind farm · 42 MW · 2019 | GEM | fixed: location, turbines | Table 2 of the ADB environmental and social monitoring report for 2020 lists the 16 turbine positions (Watabaek subdistrict, Thep Sathit district); the point moves to their mean (15.485 N, 101.449 E; the old point was the single GEM point given to Hanuman 1, 5, 9 and 10 (inside Hanuman 10), about 13.6 km away). It has 16 Siemens Gamesa 2.5 MW turbines | [link](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
+| Subyai (Chaiyaphum) · 80 MW · 2016 | curated | fixed: location, turbines | The point moves to the mean of the 32 turbines of the OpenStreetMap wind-farm relation “Chaiyaphum Wind Farm” (16162037; owner EGCO Group, 80 MW, 2016): 15.603 N, 101.538 E, in Subyai (Sap Yai) district, Chaiyaphum (the old point was about 7 km SSE, inside Hanuman 10) | [link](https://www.openstreetmap.org/relation/16162037) |
 
 ## Turkey (TUR)
 
@@ -706,6 +718,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Chơ Long wind farm · 2 · 105.5 MW | GEM | fixed: status, owner | Cho Long wind plant is 155 MW in all (Cho Long Wind Power JSC, former Krong Chro district): it was built in 2021, but only 49.5 MW reached COD before the FIT deadline; the remaining 105.5 MW was still not in commercial operation in Aug 2026 because of power-quality (harmonics) test issues (Gia Lai’s request to EVN on 4 Aug 2026). Not “pre-construction”: set to under construction (built, not commissioned) | [link](https://www.tinnhanhchungkhoan.vn/gia-lai-tiep-tuc-kien-nghi-go-vuong-2-du-an-dien-gio-chua-van-hanh-thuong-mai-post395316.html) |
 | Chơ Long wind farm · 49.5 MW | GEM | fixed: year, owner | The 49.5 MW part of Cho Long reached COD by 31 Oct 2021 (EVN list, “partial” of the 155 MW plant) | [link](https://evn.com.vn/userfile/User/tcdl/files/Thong-tin-COD-dien-gio-den-het-ngay-31-10-2021_2.pdf) |
 | Soc Trang 7 Phase 1 · 30 MW · 2021 | curated | fixed: capacity, turbines, owner | Wind farm No. 7 phase 1 has 7 × 4.2 MW, 29.4 MW (EVN’s 2021 FIT list: “Số 7 Sóc Trăng 29,40, full”), owned by Soc Trang Energy JSC and Xuan Cau Co Ltd | [link](https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html) |
+| Dong Hai V1-4 Offshore wind farm · 50 MW | GEM | fixed: name, Chinese name, owner, status, year, location | GEM’s local name for this record is “Nhà máy điện gió Đông Hải 1 Giai đoạn 4” (Dong Hai 1 phase 4), and its status source, MOIT Decision 1509/QĐ-BCT (30 May 2025), lists that project under Bạc Liêu province (50 MW, 2025–2030); the “V1-4” label, the point off Trà Vinh and the owner SC-CCG come from older data on a Trà Vinh V1-4 site (Trà Vinh’s V1-4 is REE’s Duyen Hai, already a separate record). VietnamPlus, 28 Aug 2026: Cà Mau (which absorbed Bạc Liêu) launched Dong Hai 1 phases 3 and 4 and Dong Hai 13 phase 2 in Đông Hải commune; phase 4 is Mien Tay Wind Power JSC’s, 50 MW, due by Q4 2028, with surveys and the feasibility study still to come. Renamed, owner changed, set to pre-construction (2028); the point provisionally takes the approximate point of phases 1–2 | [link](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
+| Dong Hai 1 Offshore wind farm · 3 · 50 MW | GEM | fixed: name, Chinese name, owner, status, year, location | Dong Hai 1 phase 3 in Bạc Liêu (now Cà Mau): MOIT Decision 1509/QĐ-BCT lists it under Bạc Liêu (50 MW, 2025–2030, connecting to the Hòa Bình 2 switching station that belongs to Dong Hai 1); VietnamPlus, 28 Aug 2026: Cà Mau launched phases 3 and 4, phase 3 being Bac Phuong Wind Energy JSC’s, 50 MW, in the sea off Đông Hải commune, due by Q1 2029. GEM’s point (9.352 N, 109.146 E) is in the South China Sea about 390 km offshore, so the approximate point of phases 1–2 is used; set to pre-construction (2029) with the owner added | [link](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
+| Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | curated | fixed: location | The point moves to the mean of the 25 turbines of the OpenStreetMap wind-farm relation “điện gió Đông Hải 1 Trà Vinh” (18122789; operator Trungnam Group, 100 MW): 9.522 N, 106.451 E (the old point was about 14 km north-east, near Trà Vinh V1-1 to V1-3) | [link](https://www.openstreetmap.org/relation/18122789) |
 
 ## Åland (ALA)
 
@@ -729,6 +744,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Project | Change | Reason | Source link |
 |---|---|---|---|
+| Baltica 1 (POL) | expected=0, note=Lost the Dec 2025 CfD auction; no new commissioning date | The list’s Baltica 1 is GEM’s Baltica I (PGE’s Elektrownia Wiatrowa Baltica-1, 896 MW; mapped in PIPE_SAME in tools/build_farms.py); GEM’s point lies inside sea area POM.60.E named in the environmental decision, while the list’s approximate point is about 23 km outside it; it lost the CfD auction of 17 December 2025, and the end-2032 target depended on winning, so the expected year becomes unknown | [link](https://www.gov.pl/attachment/d17bdc47-d1be-49f9-a810-2949be7213b4) |
 | East Anglia TWO (GBR) | expected=2028, mw=960.0 | Expected operation moved from 2029 to 2028 and capacity from 963 to 960 MW: fabrication of the 64 monopiles and transition pieces only starts in H2 2026, with offshore construction expected in 2027 and operation in 2028 | [link](https://www.nsenergybusiness.com/projects/east-anglia-two-offshore-wind-farm/) |
 | YouDe (TWN) | mw=700.0, zh=又德, note=Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed | Name corrected to Youde (又德) and capacity from 1,000 MW to the 700 MW allocated in Round 3.2; the same project as GEM’s “Datian Youde”, now one record | [link](https://www.cna.com.tw/news/afe/202408050303.aspx) |
 | Fengmiao 2 (TWN) | mw=600.0 | Capacity from 500 MW to the 600 MW allocated in Round 3.2 | [link](https://www.cna.com.tw/news/afe/202408050303.aspx) |
@@ -739,6 +755,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Project | Reason | Source link |
 |---|---|---|
+| Hanuman 10 wind farm (THA) | Energy Absolute’s Hanuman 10 (Banchuan Development Co, 80 MW, 32 Siemens Gamesa 2.5 MW, Ban Chuan subdistrict, Bamnet Narong district, Chaiyaphum; COD 13 Apr 2019) is not EGCO’s 2016 Chaiyaphum Wind Farm (Subyai, Sap Yai district); the old build dropped it as a duplicate of “Subyai (Chaiyaphum)” | [link](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
 | Kakegawa wind farm (JPN) | Japan Wind Development’s Kakegawa wind farm (6 × 2,300 kW, 13.8 MW, 2020) and Kuroshio Wind Power’s Enshu Kakegawa (7 Enercon units, 2011) are two neighbouring farms | [link](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 | Gansu Minqin Hongshagang 1 wind farm (CHN) | Minqin Hongshagang No. 1 (CGN, 400 MW) is a separate farm in the Hongshagang base; the old build merged it into the area-wide aggregate “Minqin Hongshagang”, which was later removed, so the farm vanished | [link](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
 | YEP wind farm (KOR) | Hanwha’s Yeongyang farm (76 MW, 22 × 3.45 MW) is not Macquarie’s 2008 Yeongyang farm; the old build merged it into the curated “Yeongyang”, later removed as a duplicate | [link](https://www.etoday.co.kr/news/view/1988572) |
@@ -757,6 +774,15 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Farm | Reason | Source link |
 |---|---|---|
+| WP Kail (DEU) | MaStR’s “WP Kail” is 3 Nordex turbines connected in 2025 at Kail/Kaisersesch (2 N149/4.5 MW and an N131/3.9 MW, 12.9 MW); GEM’s Zettingen (developed by Gamesa, sold to IKEA in 2010) matches the 6 Nordex N90 of 2009–2010 3 km away: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| WP Mittelhausen (DEU) | MaStR’s “WP Mittelhausen” is 6 Vestas V90 connected in 2010 at Allstedt (12 MW); GEM’s Bornstedt-Holdenstedt (MVV, 8 turbines, 12 MW) is the neighbouring 8 GE 1.5sl of 2006: different farms (The Wind Power also lists Mittelhausen I and II as separate nearby farms) | [link](https://www.thewindpower.net/windfarm_en_3743_bornstedt-holdenstedt.php) |
+| Sommerland_B (DEU) | MaStR’s “Sommerland_B” is 6 Senvion MM100 at Elskop from 2016–2018 (12 MW), about 4 km south-west of BWP Süderauerdorf (4 Siemens SWT-3.0-113 of 2017), and not the BWP Sommerland on ing-holst’s list (1 MM100): different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Bürgerwindpark Norddeich (DEU) | MaStR’s “Bürgerwindpark Norddeich” is 5 Enercon E-92 at Norddeich from 2015–2016 (11.75 MW); GEM’s Schülp (wpd, 5 E-70 of 2014), Büttler Balje (Friedrichsgabekoog, 5 E-82 of 2014–2015) and Wesselburener Deichhausen (5 E-82 of 2014) are other turbines: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Asseln (DEU) | MaStR’s “Windpark Asseln” is Asselner Windkraft’s turbines (E-40 serials 41075–41081 of January 1998, an E-66 of 1998, and units added in 2001, 2008, 2015 and 2020); GEM’s Lichtenau (1997, RWE) is RWE/Winkra’s E-40 of December 1997: a different set of turbines | [link](https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php) |
+| Dieksanderkoog TraGe 1 (DEU) | MaStR’s “Dieksanderkoog TraGe 1” is 6 Enercon E-70 E4 connected November–December 2012 at Friedrichskoog (13.8 MW); GEM’s Barlt West (14 MW, 2012) matches 4 Senvion 3.4M104 (2012) and a 3.2M114 (2016) at Barlt, about 8 km away: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| WP Neuenreuth (DEU) | MaStR’s “WP Neuenreuth” is 4 Nordex N131 connected January–February 2017 at Thiersheim/Höchstädt (13.2 MW); GEM’s Heidelheim (13 MW, 2017) matches 5 Vensys 112 (2017) at Selb, about 8 km away: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Windpark Priesberg (DEU) | MaStR’s “Windpark Priesberg” is 5 Vensys 112 connected in September 2016 at Nohfelden (12.5 MW); GEM’s Sötern-Bosen (13 MW, 2016) matches 4 other units about 4 km north (3 Vestas V126/3.3 “Windpark Nohfelden-Eisen” of 2016 and an E-101 of 2014): different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| OF III (DEU) | MaStR’s “OF III” is 3 Vestas V112 connected November–December 2017 at Ovelgönne (Oldenbroker Feld, 9.9 MW); GEM’s Hammelwarder Moor (10 MW, 2018) matches 3 Senvion 3.4M114 (2017–2018) about 10 km away: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Cửu An wind farm (VNM) | Cuu An and Song An at An Khe, Gia Lai, are two 46.2 MW farms sharing one 110 kV substation; Cuu An reached full COD before the 2021 FIT deadline, Song An is a transitional project (EVN) | [link](https://sdic.vn/nha-may-dien-gio-cuu-an-462mw/) |
 | Quoc Vinh Soc Trang wind farm (VNM) | Quoc Vinh (No. 6, 7.5 ha onshore, 6 turbines, Soc Trang Quoc Vinh Wind Power Co) and No. 7 (3,100 ha offshore area, 7 × 4.2 MW, Soc Trang Energy JSC and Xuan Cau Co) are two farms with different owners; EVN’s FIT list has Quoc Vinh 30 MW and No. 7 29.4 MW as separate entries | [link](https://vietnamenergy.vn/the-first-wind-power-projects-in-soc-trang-province-have-started-the-power-generation-27557.html) |
 | Streumen (DEU) | MaStR has several groups at Streumen: besides GEM’s Streumen (the Streumen/Glaubitz II repowering, 4 Vestas V126, 2016), this record is 4 other units connected 2011–2023 (16.7 MW), a different set of turbines | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

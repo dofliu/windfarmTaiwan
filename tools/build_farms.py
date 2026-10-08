@@ -477,6 +477,8 @@ PIPE_SAME = {
             'East Anglia TWO': 'East Anglia wind farm · EA2', 'East Anglia THREE': 'East Anglia wind farm · EA3'},
     # Ecowende 是 Hollandse Kust West 第 VI 區；自動比對時被寫到 GEM 的第 VIII 區（2022 年才加的場址，尚未招標）
     'NLD': {'Hollandse Kust West VI (Ecowende)': 'Ecowende Offshore wind farm'},
+    # 清單的 Baltica 1（2032、概略座標）就是 GEM 的 Baltica I（座標在環評決定的 POM.60.E 海域內）；名稱拼法不同，自動比對對不到
+    'POL': {'Baltica 1': 'Baltica I Offshore wind farm'},
 }
 TW_PIPE_NOTE_ZH = {'Fengmiao 1': '區塊開發 3.1 期；2024 年完成融資；座標為概略位置',
                    'Formosa 4': '區塊開發 3.1 期；2024 年取得許可、2025 年 12 月簽訂企業購電合約，尚未做最終投資決定',
