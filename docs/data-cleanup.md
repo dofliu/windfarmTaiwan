@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 493 條：刪除 160 筆（其中營運中 45,178.8 MW），修正 333 筆。
+- 規則 498 條：刪除 161 筆（其中營運中 45,178.8 MW），修正 337 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 58 | 26,824.5 | 134 |
+| 中國大陸 | 59 | 26,824.5 | 137 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -30,7 +30,7 @@
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
-| 日本 | 2 | 30 | 12 |
+| 日本 | 2 | 30 | 13 |
 | 比利時 | 1 | 325 | 0 |
 | 法國 | 2 | 0 | 5 |
 | 波蘭 | 0 | 0 | 2 |
@@ -193,7 +193,7 @@
 | Zhangpu Liu'ao Phase 1 · 400 MW · 2022 | 精選 | 重複（併入「CTG Zhangpu Liu'ao Phase 2」） | 福能持股 35%、三峽 65% 的海峽發電在六鰲只有一個項目：2018 年券商報告寫「漳州六鰲 D 區項目（40.2 萬千瓦）」，2024 年中閩能源回覆上交所（引福能年報）寫成「漳浦六鰲二期 40.2 萬千瓦」，即 2023-02-04 開工（「閩南地區首個海上風電項目」）、2024-06-27 全容量併網的三峽漳浦六鰲二期；本筆「一期、2022 年營運」是 GEM 的 D 區併進精選紀錄後誤標，與二期重複 | [連結](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
 | Zhuanghe I · 200 MW · 2021 | 精選 | 修正：容量、業主、機組 | 莊河場址 I 是大唐集團的 100 MW 項目：19 部明陽 MySE5.2-166（19 × 5.2 = 98.8 MW），EPC 於 2021 年由中國能建北方建投與上海院聯合體得標（世紀新能源網）；原寫 200 MW、業主空白、「4-6 MW class」都不對。併網年份沒有可引用的出處，2021 年待查證 | [連結](https://www.ne21.com/news/show-157836.html) |
 | Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm · 350 MW · 2021 | GEM | 修正：業主、機組 | 華能莊河 IV1（350 MW）：中新網寫 II、IV1 兩場共 650 MW、60 部 5 MW＋26 部 7.5 MW＋25 部 6.2 MW，II 場是 60 部 5 MW，所以 IV1 為 26 × 7.5＋25 × 6.2 = 350 MW，2021-12-29 全容量併網，由華能遼寧清潔能源建設運維；補上業主與機組 | [連結](https://www.chinanews.com/ny/2021/12-29/9640309.shtml) |
-| Shanghai Fengxian Haiwan Expansion Offshore wind farm · 15 MW · 2012 | GEM | 修正：容量、業主 | 財政部 2013-03 可再生能源電價附加補助目錄：「上海新能源環保工程公司奉賢海灣風電場擴容 14.75MW 發電工程」，容量 14.75 MW；是海堤上的陸域還是海上沒有可引用的出處，型別待查證 | [連結](http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf) |
+| Shanghai Fengxian Haiwan Expansion Offshore wind farm · 15 MW · 2012 | GEM | 修正：容量、業主、類型、名稱 | 財政部 2013-03 可再生能源電價附加補助目錄：「上海新能源環保工程公司奉賢海灣風電場擴容 14.75MW 發電工程」。奉賢海灣風電場本身是陸上風電場（新浪 2007-02：上海已建的 3 處陸上風電場之一），同一業主為它申報的汰換案「奉賢海灣風電（場）一期擴容工程」在上海市發改委 2023–2026 年的清單都列為陸上風電；沒有任何出處說擴容的機組在海上（GEM 的「海上」只引 CDM 5636 號，讀不到），改為陸域 | [連結](http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf) |
 | CGN Xiangshan 1 Phase 1 (Tuci) · 280 MW · 2022 | 精選 | 修正：機組、名稱、年份 | 這筆是中廣核象山塗茨海上風電場（象山縣東北部塗茨外海，與 GEM 的 Xiangshan Tuci 同點），不是國電象山 1 號一期（鶴浦鎮東南海域，已含在 GEM 的象山 1 號），原名「Xiangshan 1 Phase 1」是混名。一期已併網（寧波日報 2025-07），風機由中國海裝供應（日立能源 2022-07 新聞稿、券商報告），8 MW 級；原寫「明陽 6.45 MW」不對。變更海域使用論證報告（2022-08 調整批覆後成稿）寫「目前尚未投產建設」，所以「2022 年」不對；中郵證券 2023-10 研報列「中廣核象山塗茨 280 MW、23 年已併網」，GEM 也寫 2023，年份改 2023（業主的全容量併網公告待查證）；寧波海事局 2024-11 通告寫「已建成投用」、38 台 8 MW（舊說的 35 部、280 MW 是調整前的數字） | [連結](https://file.iyanbao.com/pdf/3023a-06643cec-e616-4cde-aed1-4d8ef822d202.pdf) |
 | Huaneng Cangnan 4 · 400 MW · 2022 | 精選 | 修正：機組 | 華能蒼南 4 號安裝 77 部機組（蒼南新聞網 2022-09），GlobalData 寫為遠景 5.2 MW（77 × 5.2 = 400.4 MW）；原寫「明陽 6.45–8 MW」沒有出處 | [連結](https://www.cnxw.com.cn/system/2022/09/06/014531534.shtml) |
 | CGN Shanwei Jiazi II · 400 MW · 2022 | 精選 | 修正：機組 | 汕尾甲子 900 MW 全場「78 台 6.45 MW 和 50 台 8.0 MW」，甲子一是 78 台 6.45 MW，所以甲子二為 50 台 8.0 MW（中國證券報 2022-12-21；汕尾市政府補充論證報告同）；原寫 MySE6.45-180 | [連結](https://www.cs.com.cn/ssgs/gsxw/202212/t20221221_6314699.html) |
@@ -246,6 +246,10 @@
 | Putian Shicheng · 200 MW · 2021 | 精選 | 修正：座標 | 福建省政府 2024-04-19 莆田石城海上風電場用海批覆：用海位於秀嶼區埭頭鎮石城村東北側，附件宗海界址點 954–982 號是 29 台風機的圓心點；點位改為這 29 點的平均（北緯 25.297°、東經 119.373°；原點 25.12°N、119.30°E 在南方約 21 km） | [連結](https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202404/t20240423_6439224.htm) |
 | CTG Yangjiang Shapa Phase 2 · 400 MW · 2021 | 精選 | 修正：機組 | 沙扒二期海域使用補充論證報告書（陽江市自然資源局，建成後）：62 台 6.45 MW，機型為明陽 MySE6.45-180 與金風 GW171/6450 兩種，2021-11-27 最後一台併網；兩種機型各幾台報告沒寫，機型欄改為兩種並列（原寫 62 台全為明陽） | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58162/731643.pdf) |
 | Shandong Bandaonan U2 (Guohua) Offshore wind farm · 603.5 MW | GEM | 修正：狀態、年份、機組 | 山東半島南 U 場址（150 萬瓩，含國家電投 U1 的 90 萬瓩與國家能源集團 U2 的 60 萬瓩，共 177 台）2024-10-26 實現全容量併網（威海市委對外宣傳辦經澎湃新聞 2024-10-29；山東 2024-12 報導同）；國家能源集團 2025-09：U2 安裝 71 台 8.5 MW、603.5 MW（機型為遠景 EN226-8.5，世紀新能源網的專案介紹）。改為營運中 2024 年。中證鵬元 2025-06 評級報告把 U2 列在「截至 2024 年末在建、擬建項目」，應是會計上尚未結轉 | [連結](https://m.thepaper.cn/newsDetail_forward_29177936) |
+| Shanghai Fengxian Bay Retrofit and Upgrade wind farm · 48 MW | GEM | 重複（併入「Shanghai Fengxian Haiwan 1 wind farm」） | 同一個汰換案：上海市發改委 2023 年清單的「奉賢海灣風電場改造升級」（上海新能源環保工程，陸上風電 4.8 萬瓩，前期）在 2024 年清單改名「上海奉賢海灣風力發電場一期擴容工程」（4.8 萬瓩，調整納入，執行風電場改造升級辦法），2025、2026 年清單擴大為 6.25 萬瓩；2026 年清單只剩「一期擴容工程」。GEM 把 2023 與 2025 年版本各列一筆，保留 62.5 MW 那筆 | [連結](https://fgw.sh.gov.cn/cmsres/de/de4b42f5f30241c88757752ef1004c34/54a6401b19396ff535006fd29d60218f.pdf) |
+| CTG Dafeng H8-2 · 300 MW · 2021 | 精選 | 修正：座標 | 三峽大豐 H8-2 離岸約 72 km（offshoreWIND.biz 2021-12）；GEM 依鹽城市政府資料標的確切位置在大豐毛竹沙海域（北緯 33.3225°、東經 121.5927°），落在 OpenStreetMap 依海事局通告 715/2025 繪製的風場範圍（way 1343826793）裡；點位改到這裡。原點位（33.2 N、121.3 E）在西南方約 30 km，落在 OpenStreetMap 標為 H17 的場址範圍（way 1454078619，三峽 800 MW 項目的一區） | [連結](https://www.gem.wiki/Jiangsu_Dafeng_H8-2_Offshore_wind_farm) |
+| Zhejiang Jiaxing 2 Offshore wind farm · 300 MW · 2021 | GEM | 修正：座標 | OpenStreetMap 的風場範圍 way 1177759242 標名「华能嘉兴2号海上风电场」，範圍北緯 30.563–30.654°、東經 121.445–121.500°；點位改為範圍中心（北緯 30.608°、東經 121.473°），原點位在其西方約 13 km | [連結](https://www.openstreetmap.org/way/1177759242) |
+| Zhejiang Energy Jiaxing 1 · 300 MW · 2021 | 精選 | 修正：座標 | OpenStreetMap 的風場範圍 way 1300965884 標名「浙能嘉兴1号海上风电场」，範圍北緯 30.394–30.515°、東經 121.454–121.499°（嘉興 2 號範圍的南側）；點位改為範圍中心（北緯 30.455°、東經 121.476°），原點位在其西北約 24 km | [連結](https://www.openstreetmap.org/way/1300965884) |
 
 ## 丹麥 (DNK)
 
@@ -454,7 +458,7 @@
 | Kamis Offshore wind farm · 30 MW · 2010 | GEM | 刪除 | GEM 把神栖一期（2010 年 14 MW）與二期（2013 年 16 MW）合成一筆，本站兩期各有紀錄 | [連結](https://www.gem.wiki/Kamis_Offshore_wind_farm) |
 | Kamisu Phase 1 (Wind Power Ibaraki) · 14 MW · 2010 | 精選 | 修正：座標 | 一期在南濱外海（神栖市資料）；原座標在內陸約 1.5–2 km，改用 OpenStreetMap 的風機位置（概略位置） | [連結](https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html) |
 | Kamisu Phase 2 · 16 MW · 2013 | 精選 | 修正：座標 | 二期在北濱外海、位於一期北邊（原座標在一期南邊的內陸，南北顛倒）；改用 OpenStreetMap 的風機位置（概略位置） | [連結](https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html) |
-| Setana semi-offshore · 1.2 MW · 2004 | 精選 | 修正：除役年 | 因故障與老化停機（確切停機時間待查證，2025 年 7 月已報導決定撤除）；瀨棚町 2026 年 4 月決定 2027 年度撤除 | [連結](https://www.hokkaido-np.co.jp/article/1305209/) |
+| Setana semi-offshore · 1.2 MW · 2004 | 精選 | 修正：除役年 | 2 號機 2023 年 2 月 21 日齒輪箱損壞緊急停機，1 號機也因老化常出故障；町公所 2025 年 9 月審查決算時說明 2024 年度（2024 年 4 月起）已停止發電。2026 年 4 月町公所決定 2027 年度撤除 | [連結](https://www.town.setana.lg.jp/gikai/745f1de0a8c0ef02111284d7a3b4a4b6.pdf) |
 | Setana semi-offshore · 1.2 MW · 2004 | 精選 | 修正：座標 | 座標改到瀨棚港東外防波堤內側的風機位置（OpenStreetMap，概略位置；原座標偏東北約 1 km） | [連結](https://www.khi.co.jp/pressrelease/detail/c3040209-1.html) |
 | Kitakyushu Offshore Demonstration (NEDO/J-Power) · 2 MW · 2013 | 精選 | 修正：除役年 | 2019 年 9 月撤除風機與上部結構（10 月起以 SEP 船施工），不是 2023 年；重力式底版留作 J-POWER 的研究設施 | [連結](https://www.jpower.co.jp/oshirase/2019/10/oshirase191001.html) |
 | Kitakyushu Hibikinada · 220 MW · 2026 | 精選 | 修正：機組、狀態、年份 | 2026 年 3 月 2 日開始商業運轉（25 部 9.6 MW，併網上限 220 MW）；時間軸「2026（最新可得）」起列為營運中 | [連結](https://www.jpower.co.jp/english/news_release/pdf/news260302e.pdf) |
@@ -462,6 +466,7 @@
 | Hokkaido Ishikari Bay Offshore wind farm · 1,000 MW | GEM | 修正：狀態 | 不是興建中：丸紅的石狩灣專案只有 2021 年 2 月的計畫階段環境配慮書，海域尚未指定為促進區域 | [連結](https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/electric/detail/furyoku_hokkaidoishikariwan.html) |
 | Kakegawa wind farm · 14 MW · 2020 | GEM | 修正：容量、機組 | 靜岡縣環評：掛川風力發電事業變更為 6 部 2,300 kW 級、13,800 kW（日本風力開發，2020 年運轉） | [連結](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 | Choshi Offshore Demonstration (NEDO/TEPCO) · 2.4 MW · 2019 | 精選 | 修正：座標 | 仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km） | [連結](https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf) |
+| Kakegawa wind farm · 13.8 MW · 2020 | GEM | 修正：機組 | 機組是 Enercon E-82（2,300 kW，6 部，2020 年 7 月交貨；日立 Power Solutions 的 Enercon 國內交貨表） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 
 ## 比利時 (BEL)
 
@@ -756,7 +761,7 @@
 | 專案 | 理由 | 出處 |
 |---|---|---|
 | Hanuman 10 wind farm (THA) | Energy Absolute 的 Hanuman 10（Banchuan Development 公司，80 MW、32 部西門子歌美颯 2.5 MW，猜也蓬府 Bamnet Narong 縣 Ban Chuan 分區，2019-04-13 商轉）與 EGCO 2016 年的 Chaiyaphum 風場（Subyai，Sap Yai 縣）是兩座；舊建置把它當成「Subyai (Chaiyaphum)」的重複刪掉 | [連結](https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf) |
-| Kakegawa wind farm (JPN) | 日本風力開發的掛川風力發電所（6 部 2,300 kW、13.8 MW，2020 年）與黑潮風力發電的遠州掛川風力發電所（7 部 Enercon，2011 年）是相鄰的兩座風場 | [連結](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
+| Kakegawa wind farm (JPN) | 日本風力開發的掛川風力發電所（6 部 Enercon E-82 2,300 kW、13.8 MW，2020 年 7 月）與黑潮風力發電的遠州掛川風力發電所（8 部 Enercon E-82，2009–2011 年）是相鄰的兩座風場（日立 Power Solutions 的 Enercon 國內交貨表分列） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 | Gansu Minqin Hongshagang 1 wind farm (CHN) | 民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失 | [連結](https://www.gem.wiki/Gansu_Minqin_Hongshagang_1_wind_farm) |
 | YEP wind farm (KOR) | 韓華建設的英陽風場（76 MW、22 部 3.45 MW）與 2008 年 Macquarie 的英陽風場不同；舊建置把它併進後來判為重複刪除的精選「Yeongyang」 | [連結](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation (KOR) | 英陽第二風場（GS E&R 70%、韓國中部發電 30%，42 MW）是 2023 年的新風場；舊建置把它併進後來判為重複刪除的精選「Yeongyang」 | [連結](https://www.fnnews.com/news/202309241852426048) |
@@ -774,6 +779,11 @@
 
 | 風場 | 理由 | 出處 |
 |---|---|---|
+| Enshu Kakegawa Wind Farm (JPN) | 黑潮風力發電的遠州掛川（掛川市國安海岸，8 部 Enercon E-82，2009–2011 年，15.97 MW）與中部電力的御前崎二期（御前崎市，8 部 Subaru 2 MW，2011 年）容量年份相同，是相距約 7 km 的兩座風場（日立 Power Solutions 的 Enercon 國內交貨表只列掛川） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
+| Jiangsu Dafeng H4 Offshore (Longyuan) wind farm (CHN) | 龍源大豐 H4（303 MW、47 部 6.45 MW，太平沙，龍源鹽城新能源）與三峽大豐 H8-2（300 MW、38 部 4.5 MW＋20 部 6.45 MW，離岸約 72 km）是不同業主、不同機組的兩座風場 | [連結](https://offshorewind.biz/2021/12/21/chinas-farthest-offshore-wind-farm-sprints-to-the-finish-line) |
+| Zhejiang Jiaxing 2 Offshore wind farm (CHN) | 華能嘉興 2 號（300 MW、50 部 6 MW）與浙能嘉興 1 號（300 MW，浙江省新能源投資集團）是不同業主的兩座風場；OpenStreetMap 分別標出相鄰的兩個範圍：1 號在北緯 30.39–30.52°、2 號在 30.56–30.65° | [連結](https://www.openstreetmap.org/way/1300965884) |
+| Jiangsu Dafeng H12 Offshore (Longyuan) wind farm (CHN) | 龍源大豐 H12（80 部金風 GW109/2500，55 部在潮間帶）與 H7（80 部金風 2.5 MW，2018 年 7 月底首台交付、2019 年 6 月全部併網，中心離岸 45 km 以上）是兩座風場：金風稱 H7 是龍源在江蘇大豐海域投資建設的第二個海上風電場 | [連結](https://www.china5e.com/news/news-1061980-1.html) |
+| Fujian Putian Shitang wind farm (CHN) | 莆田石塘風電場（48 MW，陸域，平海鎮，福能新能源／福能平海（莆田）風力發電，2016 年）與平海灣海上風電一期（50 MW，福建中閩海上風電，2015-04 動工、2016-07 全部併網）是不同業主的陸域與離岸兩座風場 | [連結](https://www.gem.wiki/Fujian_Putian_Shitang_wind_farm) |
 | WP Kail (DEU) | MaStR 的「WP Kail」是 2025 年在 Kail／Kaisersesch 併網的 3 部 Nordex（2 部 N149/4.5 MW、1 部 N131/3.9 MW，12.9 MW）；GEM 的 Zettingen（Gamesa 開發、2010 年售予 IKEA）對到的是 3 km 外 2009–2010 年的 6 部 Nordex N90：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | WP Mittelhausen (DEU) | MaStR 的「WP Mittelhausen」是 2010 年在 Allstedt 併網的 6 部 Vestas V90（12 MW）；GEM 的 Bornstedt-Holdenstedt（MVV，8 部、12 MW）是旁邊 2006 年的 8 部 GE 1.5sl：不同風場（The Wind Power 也把 Mittelhausen I、II 列為附近另外的風場） | [連結](https://www.thewindpower.net/windfarm_en_3743_bornstedt-holdenstedt.php) |
 | Sommerland_B (DEU) | MaStR 的「Sommerland_B」是 Elskop 2016–2018 年的 6 部 Senvion MM100（12 MW），在 BWP Süderauerdorf（2017 年 4 部 Siemens SWT-3.0-113）西南方約 4 km；也不是 ing-holst 列的 BWP Sommerland（1 部 MM100）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

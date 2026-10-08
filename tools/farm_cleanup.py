@@ -584,10 +584,10 @@ RULES = [
         'to the turbine positions in OpenStreetMap (approximate)',
         'https://www.city.kamisu.ibaraki.jp/shisei/machi/1007515/1002412.html', lat=35.91, lon=140.716, approx=True),
     fix('JPN', 'Setana semi-offshore', C,
-        '因故障與老化停機（確切停機時間待查證，2025 年 7 月已報導決定撤除）；瀨棚町 2026 年 4 月決定 2027 年度撤除',
-        'Out of service after breakdowns and ageing (the exact date it stopped is not verified; the decision to remove it was already '
-        'reported in July 2025); in April 2026 the town of Setana decided to remove it in the 2027 financial year',
-        'https://www.hokkaido-np.co.jp/article/1305209/', end=2025, note=True),
+        '2 號機 2023 年 2 月 21 日齒輪箱損壞緊急停機，1 號機也因老化常出故障；町公所 2025 年 9 月審查決算時說明 2024 年度（2024 年 4 月起）已停止發電。2026 年 4 月町公所決定 2027 年度撤除',
+        'Unit 2 made an emergency stop with a broken gearbox on 21 February 2023 and ageing unit 1 kept breaking down; at the review of the accounts in '
+        'September 2025 the town said generation had stopped from FY2024 (April 2024). In April 2026 the town decided to remove it in FY2027',
+        'https://www.town.setana.lg.jp/gikai/745f1de0a8c0ef02111284d7a3b4a4b6.pdf', end=2024, note=True),
     fix('JPN', 'Setana semi-offshore', C, '座標改到瀨棚港東外防波堤內側的風機位置（OpenStreetMap，概略位置；原座標偏東北約 1 km）',
         'Point moved to the turbines inside Setana port, behind the east outer breakwater (OpenStreetMap, approximate; the old one was '
         'about 1 km to the north-east)',
@@ -1519,11 +1519,7 @@ RULES = [
         'Huaneng Zhuanghe IV-1 (350 MW): China News gives sites II and IV-1 together as 650 MW with 60 × 5 MW + 26 × 7.5 MW + 25 × 6.2 MW; site II is 60 × 5 MW, so IV-1 is '
         '26 × 7.5 + 25 × 6.2 = 350 MW, fully connected 29 Dec 2021, built and run by Huaneng Liaoning Clean Energy; owner and turbines filled in',
         'https://www.chinanews.com/ny/2021/12-29/9640309.shtml', owner='Huaneng Liaoning Clean Energy Co Ltd', turbine='26x 7.5 MW + 25x 6.2 MW'),
-    fix('CHN', 'Shanghai Fengxian Haiwan Expansion Offshore wind farm', G,
-        '財政部 2013-03 可再生能源電價附加補助目錄：「上海新能源環保工程公司奉賢海灣風電場擴容 14.75MW 發電工程」，容量 14.75 MW；是海堤上的陸域還是海上沒有可引用的出處，型別待查證',
-        "The Ministry of Finance renewable-energy subsidy catalogue (March 2013) lists 'Shanghai New Energy & Environmental Protection Engineering Co – Fengxian Haiwan wind farm "
-        "expansion 14.75 MW'; whether it stands on the sea wall (onshore) or offshore has no quotable source, so the type is unverified",
-        'http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf', mw=14.75, owner='Shanghai New Energy and Environmental Protection Engineering Co Ltd'),
+    fix('CHN', 'Shanghai Fengxian Haiwan Expansion Offshore wind farm', G, '財政部 2013-03 可再生能源電價附加補助目錄：「上海新能源環保工程公司奉賢海灣風電場擴容 14.75MW 發電工程」。奉賢海灣風電場本身是陸上風電場（新浪 2007-02：上海已建的 3 處陸上風電場之一），同一業主為它申報的汰換案「奉賢海灣風電（場）一期擴容工程」在上海市發改委 2023–2026 年的清單都列為陸上風電；沒有任何出處說擴容的機組在海上（GEM 的「海上」只引 CDM 5636 號，讀不到），改為陸域', 'The Ministry of Finance subsidy catalogue (March 2013) lists the “Fengxian Haiwan wind farm expansion 14.75 MW” of Shanghai New Energy & Environmental Protection Engineering. The Fengxian Haiwan farm itself is an onshore farm (Sina, Feb 2007: one of Shanghai’s three onshore farms), and the same owner’s repowering of it (“Fengxian Haiwan wind farm phase 1 expansion”) is listed as onshore wind in the Shanghai DRC lists of 2023–2026; no source puts the expansion’s turbines at sea (GEM’s ‘offshore’ cites only CDM project 5636, which cannot be read), so the type becomes onshore', 'http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf', mw=14.75, owner='Shanghai New Energy and Environmental Protection Engineering Co Ltd', type=0, note=True, rename='Shanghai Fengxian Haiwan Expansion wind farm'),
     fix('VNM', 'V1-1 Truong Long Hoa (Tra Vinh)', C,
         '茶榮 V1-1 就是「韓國－茶榮」風場一期（48 MW）：2019-04-24 由茶榮 1 號風電公司在長隆和社 V1-1 位置動工，主要出資者 Climate Investor One 與韓國 Samtan（vietnamfinance）；'
         'Vestas 統包 12 部 V150-4.2 MW（offshoreWIND.biz 2021-09）。Sermsang 是 V1-2 的投資人，原寫的業主與「12x Envision 4 MW」都不對',
@@ -1828,6 +1824,14 @@ RULES = [
         '2025 年 12 月 17 日波蘭首次離岸風電差價合約競標落選（PGE 得標的是 Baltica 9）；原訂 2032 年底商轉以得標為前提，之後沒有新的預定年；由 PGE 集團（PGE Baltica）開發',
         'Lost Poland’s first offshore wind CfD auction on 17 December 2025 (PGE won with Baltica 9 instead); the end-2032 commissioning target depended on winning it, and no new date has been given; developed by the PGE Group (PGE Baltica)',
         'https://globenergia.pl/wyniki-aukcji-offshore-jeden-projekt-nie-uzyskal-wsparcia/', year=0, owner='PGE Baltica (PGE Group)', note=True),
+    fix('JPN', 'Kakegawa wind farm', G,
+        '機組是 Enercon E-82（2,300 kW，6 部，2020 年 7 月交貨；日立 Power Solutions 的 Enercon 國內交貨表）',
+        'The turbines are Enercon E-82 (2,300 kW, 6 units, delivered July 2020; Hitachi Power Solutions’ Enercon delivery list)',
+        'https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf', turbine='6 x Enercon E-82 2.3 MW'),
+    dup('CHN', 'Shanghai Fengxian Bay Retrofit and Upgrade wind farm', G, ('Shanghai Fengxian Haiwan 1 wind farm', G), '同一個汰換案：上海市發改委 2023 年清單的「奉賢海灣風電場改造升級」（上海新能源環保工程，陸上風電 4.8 萬瓩，前期）在 2024 年清單改名「上海奉賢海灣風力發電場一期擴容工程」（4.8 萬瓩，調整納入，執行風電場改造升級辦法），2025、2026 年清單擴大為 6.25 萬瓩；2026 年清單只剩「一期擴容工程」。GEM 把 2023 與 2025 年版本各列一筆，保留 62.5 MW 那筆', 'One repowering project: the Shanghai DRC’s 2023 list item “Fengxian Haiwan wind farm repowering” (Shanghai New Energy & Environmental Protection Engineering, onshore wind, 48 MW, pre-construction) became “Fengxian Haiwan wind farm phase 1 expansion” in the 2024 list (48 MW, re-included under the repowering rules) and grew to 62.5 MW in the 2025 and 2026 lists; the 2026 list has only the phase 1 expansion. GEM lists the 2023 and the 2025 versions as two projects; the 62.5 MW one is kept', 'https://fgw.sh.gov.cn/cmsres/de/de4b42f5f30241c88757752ef1004c34/54a6401b19396ff535006fd29d60218f.pdf'),
+    fix('CHN', 'CTG Dafeng H8-2', C, '三峽大豐 H8-2 離岸約 72 km（offshoreWIND.biz 2021-12）；GEM 依鹽城市政府資料標的確切位置在大豐毛竹沙海域（北緯 33.3225°、東經 121.5927°），落在 OpenStreetMap 依海事局通告 715/2025 繪製的風場範圍（way 1343826793）裡；點位改到這裡。原點位（33.2 N、121.3 E）在西南方約 30 km，落在 OpenStreetMap 標為 H17 的場址範圍（way 1454078619，三峽 800 MW 項目的一區）', 'CTG Dafeng H8-2 lies some 72 km offshore (offshoreWIND.biz, Dec 2021); GEM gives its exact position from Yancheng government data in the Maozhusha area of Dafeng (33.3225 N, 121.5927 E), inside the wind-farm area OpenStreetMap drew from MSA notice 715/2025 (way 1343826793); the point moves there. The old point (33.2 N, 121.3 E), about 30 km south-west, lies inside the area OpenStreetMap labels H17 (way 1454078619, one site of CTG’s 800 MW project)', 'https://www.gem.wiki/Jiangsu_Dafeng_H8-2_Offshore_wind_farm', lat=33.3225, lon=121.5927),
+    fix('CHN', 'Zhejiang Jiaxing 2 Offshore wind farm', G, 'OpenStreetMap 的風場範圍 way 1177759242 標名「华能嘉兴2号海上风电场」，範圍北緯 30.563–30.654°、東經 121.445–121.500°；點位改為範圍中心（北緯 30.608°、東經 121.473°），原點位在其西方約 13 km', 'OpenStreetMap wind-farm area way 1177759242 is named “华能嘉兴2号海上风电场” and spans 30.563–30.654 N, 121.445–121.500 E; the point moves to its centre (30.608 N, 121.473 E), about 13 km east of the old one', 'https://www.openstreetmap.org/way/1177759242', lat=30.608, lon=121.473),
+    fix('CHN', 'Zhejiang Energy Jiaxing 1', C, 'OpenStreetMap 的風場範圍 way 1300965884 標名「浙能嘉兴1号海上风电场」，範圍北緯 30.394–30.515°、東經 121.454–121.499°（嘉興 2 號範圍的南側）；點位改為範圍中心（北緯 30.455°、東經 121.476°），原點位在其西北約 24 km', 'OpenStreetMap wind-farm area way 1300965884 is named “浙能嘉兴1号海上风电场” and spans 30.394–30.515 N, 121.454–121.499 E (south of the Jiaxing 2 area); the point moves to its centre (30.455 N, 121.476 E), about 24 km south-east of the old one', 'https://www.openstreetmap.org/way/1300965884', lat=30.455, lon=121.476),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1846,6 +1850,18 @@ ORPHAN_OK = {
 # 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
 NOT_DUP = {
     # 2026-10-08 第十三輪：查證後確定是不同風場
+    ('JPN', 'Enshu Kakegawa Wind Farm'):
+        ('黑潮風力發電的遠州掛川（掛川市國安海岸，8 部 Enercon E-82，2009–2011 年，15.97 MW）與中部電力的御前崎二期（御前崎市，8 部 Subaru 2 MW，2011 年）容量年份相同，是相距約 7 km 的兩座風場（日立 Power Solutions 的 Enercon 國內交貨表只列掛川）',
+         'Kuroshio Wind Power’s Enshu Kakegawa (Kuniyasu coast, Kakegawa; 8 Enercon E-82, 2009–2011, 15.97 MW) and Chubu Electric’s Omaezaki phase 2 (Omaezaki; 8 Subaru 2 MW, 2011) share capacity and year but are two farms about 7 km apart (Hitachi Power Solutions’ Enercon delivery list has only the Kakegawa one)',
+         'https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf'),
+    ('CHN', 'Jiangsu Dafeng H4 Offshore (Longyuan) wind farm'):
+        ('龍源大豐 H4（303 MW、47 部 6.45 MW，太平沙，龍源鹽城新能源）與三峽大豐 H8-2（300 MW、38 部 4.5 MW＋20 部 6.45 MW，離岸約 72 km）是不同業主、不同機組的兩座風場', 'Longyuan Dafeng H4 (303 MW, 47 × 6.45 MW, Taipingsha, Longyuan Yancheng New Energy) and CTG Dafeng H8-2 (300 MW, 38 × 4.5 MW + 20 × 6.45 MW, some 72 km offshore) are two farms with different owners and turbines', 'https://offshorewind.biz/2021/12/21/chinas-farthest-offshore-wind-farm-sprints-to-the-finish-line'),
+    ('CHN', 'Zhejiang Jiaxing 2 Offshore wind farm'):
+        ('華能嘉興 2 號（300 MW、50 部 6 MW）與浙能嘉興 1 號（300 MW，浙江省新能源投資集團）是不同業主的兩座風場；OpenStreetMap 分別標出相鄰的兩個範圍：1 號在北緯 30.39–30.52°、2 號在 30.56–30.65°', 'Huaneng Jiaxing 2 (300 MW, 50 × 6 MW) and Zheneng Jiaxing 1 (300 MW, Zhejiang Provincial New Energy Investment Group) are two farms with different owners; OpenStreetMap maps them as two adjacent areas: No. 1 at 30.39–30.52 N, No. 2 at 30.56–30.65 N', 'https://www.openstreetmap.org/way/1300965884'),
+    ('CHN', 'Jiangsu Dafeng H12 Offshore (Longyuan) wind farm'):
+        ('龍源大豐 H12（80 部金風 GW109/2500，55 部在潮間帶）與 H7（80 部金風 2.5 MW，2018 年 7 月底首台交付、2019 年 6 月全部併網，中心離岸 45 km 以上）是兩座風場：金風稱 H7 是龍源在江蘇大豐海域投資建設的第二個海上風電場', 'Longyuan Dafeng H12 (80 Goldwind GW109/2500, 55 of them intertidal) and H7 (80 Goldwind 2.5 MW, first unit delivered end of July 2018, all connected by June 2019, centre over 45 km offshore) are two farms: Goldwind calls H7 Longyuan’s second offshore farm in the Dafeng sea area', 'https://www.china5e.com/news/news-1061980-1.html'),
+    ('CHN', 'Fujian Putian Shitang wind farm'):
+        ('莆田石塘風電場（48 MW，陸域，平海鎮，福能新能源／福能平海（莆田）風力發電，2016 年）與平海灣海上風電一期（50 MW，福建中閩海上風電，2015-04 動工、2016-07 全部併網）是不同業主的陸域與離岸兩座風場', 'Putian Shitang (48 MW, onshore, Pinghai town, Funeng New Energy / Funeng Pinghai (Putian) Wind Power, 2016) and Pinghai Bay offshore phase 1 (50 MW, Fujian Zhongmin Offshore Wind, started April 2015, fully connected July 2016) are an onshore and an offshore farm with different owners', 'https://www.gem.wiki/Fujian_Putian_Shitang_wind_farm'),
     ('DEU', 'WP Kail'):
         ('MaStR 的「WP Kail」是 2025 年在 Kail／Kaisersesch 併網的 3 部 Nordex（2 部 N149/4.5 MW、1 部 N131/3.9 MW，12.9 MW）；GEM 的 Zettingen（Gamesa 開發、2010 年售予 IKEA）對到的是 3 km 外 2009–2010 年的 6 部 Nordex N90：不同風場',
          'MaStR’s “WP Kail” is 3 Nordex turbines connected in 2025 at Kail/Kaisersesch (2 N149/4.5 MW and an N131/3.9 MW, 12.9 MW); GEM’s Zettingen (developed by Gamesa, sold to IKEA in 2010) matches the 6 Nordex N90 of 2009–2010 3 km away: different farms',
@@ -1996,9 +2012,9 @@ GEM_KEEP = {
     ('THA', 'Hanuman 10 wind farm'):
         ('Energy Absolute 的 Hanuman 10（Banchuan Development 公司，80 MW、32 部西門子歌美颯 2.5 MW，猜也蓬府 Bamnet Narong 縣 Ban Chuan 分區，2019-04-13 商轉）與 EGCO 2016 年的 Chaiyaphum 風場（Subyai，Sap Yai 縣）是兩座；舊建置把它當成「Subyai (Chaiyaphum)」的重複刪掉', 'Energy Absolute’s Hanuman 10 (Banchuan Development Co, 80 MW, 32 Siemens Gamesa 2.5 MW, Ban Chuan subdistrict, Bamnet Narong district, Chaiyaphum; COD 13 Apr 2019) is not EGCO’s 2016 Chaiyaphum Wind Farm (Subyai, Sap Yai district); the old build dropped it as a duplicate of “Subyai (Chaiyaphum)”', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf'),
     ('JPN', 'Kakegawa wind farm'):
-        ('日本風力開發的掛川風力發電所（6 部 2,300 kW、13.8 MW，2020 年）與黑潮風力發電的遠州掛川風力發電所（7 部 Enercon，2011 年）是相鄰的兩座風場',
-         'Japan Wind Development’s Kakegawa wind farm (6 × 2,300 kW, 13.8 MW, 2020) and Kuroshio Wind Power’s Enshu Kakegawa (7 Enercon units, 2011) are two neighbouring farms',
-         'https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html'),
+        ('日本風力開發的掛川風力發電所（6 部 Enercon E-82 2,300 kW、13.8 MW，2020 年 7 月）與黑潮風力發電的遠州掛川風力發電所（8 部 Enercon E-82，2009–2011 年）是相鄰的兩座風場（日立 Power Solutions 的 Enercon 國內交貨表分列）',
+         'Japan Wind Development’s Kakegawa wind farm (6 × Enercon E-82 2,300 kW, 13.8 MW, July 2020) and Kuroshio Wind Power’s Enshu Kakegawa (8 Enercon E-82, 2009–2011) are two neighbouring farms (listed separately in Hitachi Power Solutions’ Enercon delivery list)',
+         'https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf'),
     ('CHN', 'Gansu Minqin Hongshagang 1 wind farm'):
         ('民勤紅沙崗第一風電場（中廣核，400 MW）是紅沙崗基地裡獨立的一座；舊建置把它併進後來刪除的整區彙總「Minqin Hongshagang」，整座消失',
          'Minqin Hongshagang No. 1 (CGN, 400 MW) is a separate farm in the Hongshagang base; the old build merged it into the area-wide aggregate “Minqin Hongshagang”, which was later removed, so the farm vanished',

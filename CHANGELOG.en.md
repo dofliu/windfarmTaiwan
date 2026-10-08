@@ -17,12 +17,15 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 
 ## v2.30.7 — 2026-10-08
 
-- Research round 13: the doubts left in TODO (quotes checked with `check_quotes.py`; see the 8 Oct 2026 "seventh batch" in the [clean-up log](docs/data-cleanup.en.md)):
+- Research round 13: the doubts left in TODO (quotes checked with `check_quotes.py`; clean-up rules 478 → 498, see the 8 Oct 2026 "seventh batch" in the [clean-up log](docs/data-cleanup.en.md)):
   - Thailand: Hanuman 10 (80 MW), which the build had dropped as a duplicate of Subyai, is back; Hanuman 1, 5, 8, 9 and 10 now sit at the turbine positions of an Asian Development Bank report (they shared one GEM point), and Subyai at its OpenStreetMap wind-farm area.
   - Vietnam: GEM's "Dong Hai V1-4" and "Dong Hai 1 · 3" are phases 4 and 3 of Dong Hai 1 in Ca Mau (formerly Bac Lieu; launched in Aug 2026, due 2028 and 2029), renamed with owners and set to pre-construction; the second one's point was in the middle of the South China Sea. Tra Vinh's Dong Hai 1 moves to its turbines.
-  - Germany: Erbes-Büdesheim, Lütjenholm, Süderauerdorf and Schülp now carry their own MaStR turbines, and the years of Zettingen, Bornstedt-Holdenstedt and Erbes-Büdesheim are corrected; every German "suspected duplicate" pair is now checked.
+  - China: the four "suspected duplicate" pairs (Dafeng H4 / H8-2, Jiaxing 1 / 2, Dafeng H12 / H7, Putian Shitang / Pinghai Bay phase 1) are all different farms; CTG Dafeng H8-2 and Jiaxing 1 and 2 move to their real sites; the Fengxian Haiwan expansion becomes onshore (the original farm and the same owner's repowering are both onshore wind); the two Fengxian Haiwan repowering records are merged; Changle Waihai C gains its depth and rotor. China now has 140 operating offshore farms.
+  - Japan: Setana port's semi-offshore turbines stopped in 2024 (town council minutes: no generation from FY2024); Enshu Kakegawa (8 Enercon E-82, 15.97 MW) and Kakegawa (6 E-82) are two neighbouring farms, each with corrected turbines and moved to its turbines.
+  - Germany: Erbes-Büdesheim, Lütjenholm, Süderauerdorf and Schülp now carry their own MaStR turbines, and the years of Zettingen, Bornstedt-Holdenstedt and Erbes-Büdesheim are corrected; every "suspected duplicate" pair is now checked.
   - Poland: the 2026 compilation's Baltica 1 and GEM's Baltica I are one project and are merged (it lost the Dec 2025 CfD auction, so the expected year is unknown).
   - Australia: AEMO unit GULLRWF2 ("Gullen Range 2") is Biala wind farm; its live and measured output now belong to Biala.
+  - US turbine positions, measured output and OpenStreetMap turbine positions rebuilt with the farm layer. Operating offshore farms with a known foundation type: 272 of 330 (83.8% of capacity).
 
 ## v2.30.6 — 2026-10-07
 

@@ -129,6 +129,7 @@ CLEAN dup CHN Shandong Changyi Laizhouwan Offshore wind farm 300.0 -> CTG Changy
 CLEAN dup CHN Shandong Haiwei Peninsula South U 450.0 -> CGN Peninsula South U1
 CLEAN dup CHN Shandong Peninsula South U Site Offshore Wind Project 1503.5 -> CGN Peninsula South U1
 CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai Bridge
+CLEAN dup CHN Shanghai Fengxian Bay Retrofit and Upgrade wind farm 48.0 -> Shanghai Fengxian Haiwan 1 wind farm
 CLEAN dup CHN Zhangpu Liu'ao Phase 1 400.0 -> CTG Zhangpu Liu'ao Phase 2
 CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
 CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putuo 6#2
@@ -212,6 +213,7 @@ CLEAN fix CHN CGN Xiangshan 1 Phase 1 (Tuci) 280.0
 CLEAN fix CHN CGN Xiangshan Tuci 280.0
 CLEAN fix CHN CGN Yangjiang Qingzhou 1&2 1000.0
 CLEAN fix CHN CTG Changyi 300.0
+CLEAN fix CHN CTG Dafeng H8-2 300.0
 CLEAN fix CHN CTG Dafeng H8-2 300.0
 CLEAN fix CHN CTG Dalian Zhuanghe III 300.0
 CLEAN fix CHN CTG Fujian Changle Waihai A 300.0
@@ -327,7 +329,9 @@ CLEAN fix CHN Tianjin Nangang 90.0
 CLEAN fix CHN Tianjin Nangang 90.0
 CLEAN fix CHN Zhejiang Daishan 4 Offshore wind farm 234.0
 CLEAN fix CHN Zhejiang Daishan 4 Offshore wind farm 234.0
+CLEAN fix CHN Zhejiang Energy Jiaxing 1 300.0
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
+CLEAN fix CHN Zhejiang Jiaxing 2 Offshore wind farm 300.0
 CLEAN fix CHN Zhejiang Jiaxing 2 Offshore wind farm 300.0
 CLEAN fix CHN Zhejiang Shengsi 2 Offshore wind farm 400.0
 CLEAN fix CHN Zhejiang Taizhou 1 Offshore wind farm 300.0
@@ -387,6 +391,7 @@ CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
 CLEAN fix JPN Goto City Offshore floating project 16.8
 CLEAN fix JPN Hokkaido Ishikari Bay Offshore wind farm 1000.0
+CLEAN fix JPN Kakegawa wind farm 13.8
 CLEAN fix JPN Kakegawa wind farm 14.0
 CLEAN fix JPN Kamisu Phase 1 (Wind Power Ibaraki) 14.0
 CLEAN fix JPN Kamisu Phase 2 16.0

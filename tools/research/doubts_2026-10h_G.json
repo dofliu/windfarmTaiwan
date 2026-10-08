@@ -17,23 +17,6 @@
   ]
  },
  {
-  "item": "9. Shanghai Fengxian Haiwan Expansion: offshore or seawall?",
-  "farm": "Shanghai Fengxian Haiwan Expansion Offshore wind farm",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "lead",
-  "proposal": "",
-  "note_zh": "仍無可引用的出處說明是海上還是海堤上。GEM 的型別「Offshore hard mount」與概略座標（30.7841, 121.8092）都引用 UNFCCC CDM 第 5636 號「Shanghai Fengxian Bay Wind Farm Capacity Expansion Project」（小型專案、AMS-I.D.），但 cdm.unfccc.int 被 Incapsula 機器人檢查擋住，讀不到 PDD。線索：GEM 另把同一座「奉賢海灣風電場」的兩個汰換案（一期擴容工程 62.5 MW、改造升級 48 MW）列為陸域，點在奉賢海岸（30.86–30.92 N、121.56–121.57 E），暗示原風場在岸上；但沒有出處直接說擴容的 14.75 MW 在哪裡。狀態維持營運中。",
-  "note_en": "Still no quotable source saying offshore or seawall. GEM's 'Offshore hard mount' type and its approximate point (30.7841, 121.8092) cite UNFCCC CDM project 5636 'Shanghai Fengxian Bay Wind Farm Capacity Expansion Project' (small-scale, AMS-I.D.), but cdm.unfccc.int sits behind an Incapsula bot check and the PDD cannot be read. Lead: GEM lists the two repowering projects of the same 'Fengxian Haiwan wind farm' (phase 1 expansion 62.5 MW, retrofit 48 MW) as onshore, on the Fengxian shore (30.86–30.92 N, 121.56–121.57 E), suggesting the original farm is on land, but nothing states where the 14.75 MW expansion stands. Status stays operating.",
-  "why": "The CDM PDD (cdm.unfccc.int, Incapsula bot wall) is the only document likely to say; no Chinese construction or acceptance record found. swj.sh.gov.cn PDF 404.",
-  "sources": [
-   {
-    "url": "https://www.gem.wiki/Shanghai_Fengxian_Haiwan_Expansion_wind_farm",
-    "quote": "Fengxian District, Shanghai, China [ 2 ] 30.7841, 121.8092 (approximate)"
-   }
-  ]
- },
- {
   "item": "11. Changle Waihai A/C: zone of the first Dongfang 10 MW unit (118 m hub)",
   "farm": "Changle Waihai C / CTG Fujian Changle Waihai A",
   "src_code": 0,

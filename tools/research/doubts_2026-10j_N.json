@@ -1,0 +1,110 @@
+[
+ {
+  "item": "2. Fujian Zhangpu Liu'ao area E: position and status",
+  "farm": "Fujian Zhangpu Liu'Ao Offshore wind farm · E",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change: the existing rule already sets st=2 and says the position is unverified)",
+  "note_zh": "第三輪仍查不到 E 區的官方座標或用海資料。新試的管道：漳浦縣政府「三峽能源漳浦六鰲海上風電場海洋養殖研究（第二階段）海域使用論證報告表」PDF 與漳州市「十四五」能源發展專項規劃 PDF 都回 503；OpenStreetMap 在六鰲以東（北緯 23.55–23.95°、東經 117.80–118.20°）只有一個依海事局通告 1182/2024 繪製的無名風場範圍（way 1334215514，23.894–23.948 N、118.174–118.245 E），GEM 的 E 區點（22.733 N、118.033 E，位於台灣淺灘一帶）附近沒有任何風場資料。",
+  "note_en": "Third round, still no official position or sea-use data for area E. New routes tried: the Zhangpu county PDF of the sea-use report for CTG's Liu'ao aquaculture research (phase 2) and the Zhangzhou 14th five-year energy plan PDF both return 503; east of Liu'ao (23.55–23.95 N, 117.80–118.20 E) OpenStreetMap has only one unnamed wind-farm area drawn from MSA notice 1182/2024 (way 1334215514, 23.894–23.948 N, 118.174–118.245 E), and there is nothing near GEM's E point (22.733 N, 118.033 E, on the Taiwan Bank).",
+  "why": "Blocked: zhangpu.gov.cn and zhangzhou.gov.cn attachments (503), imarine.cn (403), plus the routes listed in rounds 11–12. Aside, unverified: a search-result snippet (no page found to quote) said Zhangpu Liu'ao's approved 800 MW consists of 'the Zhangpu D area project and the Zhangpu phase 2 project', which would conflict with the GEM_KEEP note treating GEM's area D as phase 2; worth a check by whoever next touches Liu'ao.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "E Liu'ao Peninsula, Zhangpu, Zhangzhou, Fujian, China [ 8 ] 22.7333, 118.0333 (exact)"
+   },
+   {
+    "url": "https://www.openstreetmap.org/way/1334215514",
+    "quote": "China MSA Notice No. 1182/2024"
+   }
+  ]
+ },
+ {
+  "item": "3. Changle: the first Dongfang 10 MW unit (5 Aug 2021, 118 m hub) — area A or C? + Changle C dimensions",
+  "farm": "CTG Fujian Changle Waihai A / Changle Waihai C",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(zone still undecided; no hub row.) Dimensions row that the sources do support for area C (as built; rotor = largest model, no hub because the 8 MW units' hub is unknown and the 10 MW figure is approximate): D('CHN', 'Changle Waihai C', depth=(31, 45), rotor=185, url=['http://static.sse.com.cn/stock/disclosure/announcement/c/202306/001859_20230620_37VP.pdf', 'http://www.chinapower.com.cn/flfd/hyyw/20211025/109965.html'], zh='海電運維招股說明書：C 區水深 31–45 m、37 部 8 MW＋20 部 10 MW，10 MW 機組輪轂中心距海平面約 120 m（約值，8 MW 機組的輪轂高度查無出處，所以不寫輪轂）；電力網 2021-10：C 區首台東方 10 MW 葉輪直徑 185 m；葉輪直徑取最大機型', en='Fujian Haidian O&M prospectus: area C water depth 31–45 m, 37 × 8 MW + 20 × 10 MW, 10 MW hub centre about 120 m above sea level (approximate; no source for the 8 MW units’ hub, so no hub is given); chinapower.com.cn (Oct 2021): area C’s first Dongfang 10 MW unit has a 185 m rotor; rotor diameter is the largest model')",
+  "note_zh": "區別仍無法用可引用的出處判定。新證據：海電運維（801 平台業主）招股說明書寫 801 參與建設「長樂 A 區及 C 區」，報告期內主要承接 C 區部分風機安裝，並寫 C 區 10 MW 機組輪轂中心「距離海平面約 120 米」；長樂區政府轉載的 8 月 5 日那台是 118 m。約 120 與 118 不足以區分。北極星 2021-09-08（C 區首台 10 MW 於 9 月 4 日吊裝，若屬實則 8 月 5 日那台在 A 區）仍是 WAF 空殼，無法引用。不論哪一區，該區都混裝不同機型，118 m 不是全場的輪轂高度。可以寫的是 C 區的水深 31–45 m 與葉輪 185 m（最大機型，東方 10 MW），見 proposal；Changle Waihai C 已在 farm_foundations.py（第 774 行）。",
+  "note_en": "Still not decidable from a quotable source. New evidence: the prospectus of Fujian Haidian O&M (owner of the 801 platform) says 801 worked on 'Changle areas A and C', mainly on part of area C's installation, and gives area C's 10 MW hub centre as 'about 120 m above sea level'; the 5 Aug unit reported by the Changle district is 118 m. 'About 120' vs 118 does not separate them. bjx (8 Sept 2021: area C's first 10 MW installed on 4 Sept, which would put the 5 Aug unit in area A) is still a WAF shell and cannot be quoted. Either way both areas mix models, so 118 m is no whole-farm hub height. What can be written is area C's depth 31–45 m and its 185 m rotor (largest model, Dongfang 10 MW): see the proposal; Changle Waihai C is already in farm_foundations.py (line 774).",
+  "why": "bjx.com.cn (WAF; WebFetch also gets only the WAF config), imarine.cn (403), eworldship (TLS DH key too small; http gives 148 chars), finance.sina.com.cn (503). No page names the zone of the 5 Aug 2021 installation.",
+  "sources": [
+   {
+    "url": "http://www.fzcl.gov.cn/xjwz/zwgk/zfxxgkzdgz/zdjsxm/jsqk/202108/t20210826_4171849.htm",
+    "quote": "本次吊装的风机为东方电气10MW风电机组，发电机重量达270吨（不含吊具和支架重量），轮毂中心高度达到118米，单只叶片长度90米。"
+   },
+   {
+    "url": "http://static.sse.com.cn/stock/disclosure/announcement/c/202306/001859_20230620_37VP.pdf",
+    "quote": "公司参与建设的风场包括长乐 A 区及 C 区海上风电场"
+   },
+   {
+    "url": "http://static.sse.com.cn/stock/disclosure/announcement/c/202306/001859_20230620_37VP.pdf",
+    "quote": "场址中 心距离长乐海岸线约 40km，水深 31 至 45m，风场共安装 37 台 8MW 机组和 20 台 10MW 机组，项目总装机容量 496MW，总装机容量规模较大。其中 10MW 海上风电机组轮毂中心高度距离海平面约 120 米"
+   },
+   {
+    "url": "http://www.chinapower.com.cn/flfd/hyyw/20211025/109965.html",
+    "quote": "10月20日，缓缓转动的直径185米的叶轮，打破了福建长乐外海海上风电场C区项目空域的静谧，项目首台机组一次并网成功"
+   }
+  ]
+ },
+ {
+  "item": "5. CSSC 'Fuyao' (扶摇号) 6.2 MW floating prototype: position, status, record",
+  "farm": "(no record)",
+  "src_code": null,
+  "iso": "CHN",
+  "status": "missing",
+  "proposal": "(candidate position, identification by inference — main session to decide.) Possible record if accepted: name 'CSSC Haizhuang Fuyao floating demonstrator', zh '中船海裝「扶搖號」浮式示範機', iso 'CHN', lat 20.314, lon 110.580, mw 6.2, year 2023 (first reported generation, microgrid mode), type 2 (floating, semi-submersible, 9 catenary mooring lines), st 0, owner 'CSSC Haizhuang Wind Power Co Ltd', turbine '1x CSSC Haizhuang 6.2 MW'; card note: public-grid connection not confirmed. If it is also put into the foundations/dimensions tables: depth 65 (site average), hub 96, rotor 152 (southcn 2022-08).",
+  "note_zh": "新線索：海事局《中國沿海港口航道圖改正通告》2026 年第 27 期的 795/2026「南海 羅斗沙及附近——敷設海底電力線及設置海上風機」：一條海纜從北緯 20°18′50.4″、東經 110°34′48.7″ 向北接到 20°31′52.6″ N、110°38′14.7″ E（徐聞新寮島東南方風場一帶），第 (11) 點「同上述 (1)」是一部單獨的海上風機（OSM 據此畫了 node 13999772715，最近的其他風機在 24 km 外）。扶搖號正是「湛江徐聞羅斗沙海域」唯一已知的單機、2022 年起鋪設海纜（南方網 2022-08），機位平均水深 65 m。但通告沒寫機組名稱，所以是推論、不是確認；也可能是同海域的其他樣機。狀態：2023-08 以智能微網模式運行發電（離網），2022 年已具備併網條件；之後查不到正式併入公用電網的報導（2026 年的海纜改正通告可能代表接入附近風場，但沒有出處寫明）。業主：中船海裝（原中國海裝）；尺寸：輪轂 96 m、葉輪 152 m、葉片 74 m。資料庫沒有任何紀錄。",
+  "note_en": "New lead: China MSA chart-correction notice 795/2026 (issue 27 of 2026), 'South China Sea, Luodousha and nearby — submarine power cable laid and offshore wind turbine set': a cable runs from 20°18′50.4″N 110°34′48.7″E north to 20°31′52.6″N 110°38′14.7″E (by the wind farm south-east of Xinliao Island, Xuwen), and point (11) 'same as (1)' is a single offshore turbine (OSM node 13999772715 was drawn from it; the nearest other turbine is 24 km away). Fuyao is the only single unit known in the 'Luodousha sea area off Xuwen, Zhanjiang', with a cable being laid from 2022 (southcn, Aug 2022) and 65 m average depth at its position. But the notice does not name the unit, so this is inference, not confirmation; it could be another prototype in the same waters. Status: ran in intelligent-microgrid mode (off-grid) in Aug 2023, having had the engineering conditions for grid connection since 2022; no later report of formal connection to the public grid (the 2026 cable notice may mean a tie-in to a nearby farm, but no source says so). Owner: CSSC Haizhuang (formerly CSIC Haizhuang); dimensions: hub 96 m, rotor 152 m, blade 74 m. No record in the database.",
+  "why": "No source names the unit at the MSA 795/2026 position; MSA's own notice pages for 2022 (installation) are not in the chart-correction index (only 2025–2026 are listed). bjx 2023 article is a WAF shell.",
+  "sources": [
+   {
+    "url": "https://pnp.chart.msa.gov.cn/CorrectionPdf/Download/6d0c2f72-3f31-458c-98e4-efb2c6af8fb5?y=2026",
+    "quote": "795.南海 罗斗沙及附近——敷设海底电力线及设置海上风机 加绘 海底电力线，连接： （1）20°18′50″.4N、110°34′48″.7E"
+   },
+   {
+    "url": "https://pnp.chart.msa.gov.cn/CorrectionPdf/Download/6d0c2f72-3f31-458c-98e4-efb2c6af8fb5?y=2026",
+    "quote": "（10）20°31′52″.6N、110°38′14″.7E （11）同上述（1）"
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/13999772715",
+    "quote": "Location: 20.3140000 , 110.5801944"
+   },
+   {
+    "url": "https://www.southcn.com/node_0183de080d/afab06a14f.shtml",
+    "quote": "近日，国内首台深远海浮式风电装备“扶摇号”落户湛江徐闻罗斗沙海域。波光粼粼的海面上，“扶摇号”高高耸立，一旁的施工船正进行海缆铺设，为接下来的并网发电做好准备。 “扶摇号”机组轮毂中心高度96米，风轮直径152米，叶片长度74米。"
+   },
+   {
+    "url": "https://www.southcn.com/node_0183de080d/afab06a14f.shtml",
+    "quote": "“扶摇号”机位点平均水深达65米"
+   },
+   {
+    "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10313681/content.html",
+    "quote": "近日，中国船舶集团旗下中船海装 “扶摇号”浮式风电装备在智能微网模式下成功运行发电。"
+   },
+   {
+    "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10313681/content.html",
+    "quote": "为“扶摇号”的正式并网运行做好了充分准备"
+   }
+  ]
+ },
+ {
+  "item": "6. Hainan CZ7 · 1 and CZ9 · 1: any grid connection?",
+  "farm": "Hainan CZ7 Demonstration Offshore wind farm · 1 / Hainan CZ9 Demonstration Offshore wind farm · 1",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change: both stay under construction with year unknown; for CZ7 the April 2026 plan of completion in 2027 from round 12 still stands, nothing newer found)",
+  "note_zh": "到 2026-10 仍查不到 CZ7 一期或 CZ9 一期的海上吊裝或併網報導；同海域的東方 CZ8 在 2026-09-21 完成 42 部風機海上安裝（中新網），與 CZ7／CZ9 無關。",
+  "note_en": "By Oct 2026 still no report of offshore installation or connection for CZ7 phase 1 or CZ9 phase 1; the neighbouring Dongfang CZ8 finished installing its 42 turbines on 21 Sept 2026 (China News), unrelated to CZ7/CZ9.",
+  "why": "Searches found only the 2025 onshore control-centre tender and the April 2026 plan for CZ7; nothing for CZ9.",
+  "sources": [
+   {
+    "url": "https://finance.sina.com.cn/roll/2026-04-07/doc-inhtsmie2263846.shtml",
+    "quote": "在海南，海南CZ7海上风电项目总装机容量1500MW，分两期建设，其中一期工程装机容量600MW，目前大部分设备及工程招标已经完成，计划今年开始施工，2027年竣工。"
+   }
+  ]
+ }
+]

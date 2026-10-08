@@ -575,13 +575,16 @@ def find_same_jp(f, pool):
     return best, bkey[0], km(f['lat'], f['lon'], best[3], best[4]), (f['mw'] or 0) / (best[5] or 1)
 
 
+# 一定另加、不和既有紀錄比對的日本清單風場：遠州掛川（黑潮風力，8 部 Enercon E-82，2009–2011 年）離中部電力御前崎二期（8 部 Subaru 2 MW，2011 年）
+# 約 7 km、容量年份都相同，會被當成同址；兩者是不同風場（日立 Power Solutions 的 Enercon 國內交貨表）
+JP_DISTINCT = {'Enshu Kakegawa Wind Farm'}
 jp_add = jp_upg = jp_fix = 0
 moved = set()
 jc = json.loads((EXTRA / 'farms_jp_compiled.json').read_text(encoding='utf-8')) if (EXTRA / 'farms_jp_compiled.json').exists() else {'farms': []}
 for f in jc['farms']:
     if not f.get('year') or not f.get('mw') or AGG.search(f['name']) or (f.get('end') and f['end'] <= f['year']):
         continue
-    r, sc, d, mwr = find_same_jp(f, by_iso['JPN'])
+    r, sc, d, mwr = find_same_jp(f, by_iso['JPN']) if f['name'] not in JP_DISTINCT else (None, 0, 0, 0)
     if r is not None:
         precise = 'approx' not in (f.get('note') or '')
         if sc == 3 and r[13] == 2 and d > 5 and precise and 0.75 <= mwr <= 1.33 and id(r) not in moved:

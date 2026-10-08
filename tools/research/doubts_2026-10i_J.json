@@ -1,26 +1,5 @@
 [
  {
-  "item": "1. Shanghai Fengxian Haiwan Expansion: offshore or seawall/onshore?",
-  "farm": "Shanghai Fengxian Haiwan Expansion Offshore wind farm",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "lead",
-  "proposal": "(lead) if accepted: fix('CHN', 'Shanghai Fengxian Haiwan Expansion Offshore wind farm', G, '上海市發改委 2023-07 陸上風電與光伏電站開發建設項目清單把同一業主（上海新能源環保工程有限公司）的「奉賢海灣風電場改造升級」4.8 萬瓩列為陸上風電；這筆是同一座奉賢海灣風電場的 14.75 MW 擴容（財政部 2013-03 補助目錄），沒有任何出處說機組在海上，改為陸域', 'The Shanghai DRC list of onshore wind and solar projects (July 2023) puts the repowering of the same Fengxian Haiwan wind farm (owner Shanghai New Energy & Environmental Protection Engineering, 48 MW) under onshore wind; this record is the 14.75 MW expansion of that farm (Ministry of Finance subsidy catalogue, March 2013), and no source places any of its turbines at sea, so it becomes onshore', 'https://fgw.sh.gov.cn/fgw_ny/20230713/489709e3eb964cf79f9d138ff6ed31a2.html', type=0)",
-  "note_zh": "新證據（官方）：上海市發改委 2023-07-10《上海市2023年陸上風電和光伏電站開發建設項目清單》第 2 項「奉賢區 奉賢海灣風電場改造升級 上海新能源環保工程有限公司 陸上風電 4.8 前期」——同一業主、同一座「奉賢海灣風電場」被歸為陸上風電。這筆 GEM 紀錄是該風電場的 14.75 MW 擴容（財政部 2013-03 補助目錄名稱「奉賢海灣風電場擴容14.75MW發電工程」）。強烈指向陸域（海堤上），但仍沒有出處直接寫擴容的機組位置；GEM 的「海上」與概略點都只引 CDM 5636 號（cdm.unfccc.int 機器人牆，讀不到 PDD）。主對話若接受「同一風電場＝陸上」的推論，可改 type=0。",
-  "note_en": "New official evidence: the Shanghai DRC list of 10 July 2023 (onshore wind and solar projects) has item 2 “Fengxian district – Fengxian Haiwan wind farm repowering – Shanghai New Energy & Environmental Protection Engineering Co – onshore wind – 4.8 (10 MW) – pre-construction”: the same owner’s same “Fengxian Haiwan wind farm” is classed as onshore wind. This GEM record is that farm’s 14.75 MW expansion (Ministry of Finance subsidy catalogue: “Fengxian Haiwan wind farm expansion 14.75 MW”). This points strongly to onshore (on the sea wall), but no source states where the expansion’s turbines stand; GEM’s ‘offshore’ and its approximate point both cite only CDM project 5636 (cdm.unfccc.int bot wall, PDD unreadable). If the main session accepts ‘same farm = onshore’, set type=0.",
-  "why": "No document describes the expansion's turbine positions. Blocked: cdm.unfccc.int (Incapsula; grab_page returns 1 char; WebFetch empty), mp.weixin.qq.com (GEM's source for the 62.5 MW repowering), Overpass API mirrors (timeouts/reset). Web-search budget ran out before the UNEP DTU / IGES CDM databases could be tried.",
-  "sources": [
-   {
-    "url": "https://fgw.sh.gov.cn/fgw_ny/20230713/489709e3eb964cf79f9d138ff6ed31a2.html",
-    "quote": "2 奉贤区 奉贤海湾风电场改造升级 上海新能源环保工程有限公司 陆上风电 4.8 前期"
-   },
-   {
-    "url": "http://jjs.mof.gov.cn/tongzhigonggao/201303/P020130308403305257355.pdf",
-    "quote": "上海新能源环保工程公司奉贤海湾风电场扩容14.75MW发电工程"
-   }
-  ]
- },
- {
   "item": "2. Fujian Zhangpu Liu'ao area E: real location",
   "farm": "Fujian Zhangpu Liu'Ao Offshore wind farm · E",
   "src_code": 2,

@@ -269,8 +269,12 @@ def report(lang):
                f"   **Suspected duplicates A (same or similar name)**: {len(dupA)} pairs, smaller side {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupA))} MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:"))
     for x, y, d in dupA[:12]:
         s.append(f"   - {x['iso']} · {x['name']} ({SRC[x['src']]}, {fmt(x['mw'])} MW, {x['year']}) ↔ {y['name']} ({SRC[y['src']]}, {fmt(y['mw'])} MW, {y['year']}) · {d:.1f} km")
-    s.append(L(f"   **疑似重複 B（名稱不同、容量相同、位置相近）**：{len(dupB)} 組、較小一方合計 {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW——多數是相鄰的姊妹風場（例：江蘇大豐 H4 與 H8-2）；已查證為同一座的已由清理規則合併（見[資料清理紀錄](data-cleanup.md)），其餘需逐組人工確認。",
-               f"   **Suspected duplicates B (different names, same capacity, close by)**: {len(dupB)} pairs, smaller side {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check."))
+    if dupB:
+        s.append(L(f"   **疑似重複 B（名稱不同、容量相同、位置相近）**：{len(dupB)} 組、較小一方合計 {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW——多數是相鄰的姊妹風場（例：江蘇大豐 H4 與 H8-2）；已查證為同一座的已由清理規則合併（見[資料清理紀錄](data-cleanup.md)），其餘需逐組人工確認。",
+                   f"   **Suspected duplicates B (different names, same capacity, close by)**: {len(dupB)} pairs, smaller side {fmt(sum(min(x['mw'], y['mw']) for x, y, _ in dupB))} MW — mostly neighbouring sister farms (e.g. Jiangsu Dafeng H4 and H8-2); pairs confirmed to be the same farm have been merged by the clean-up rules (see the [clean-up log](data-cleanup.en.md)), the rest need a manual check."))
+    else:
+        s.append(L("   **疑似重複 B（名稱不同、容量相同、位置相近）**：0 組——找到的每一組都已逐組查證：同一座的已由清理規則合併，確認是不同風場的列在 `tools/farm_cleanup.py` 的 `NOT_DUP`（見[資料清理紀錄](data-cleanup.md)）。",
+                   "   **Suspected duplicates B (different names, same capacity, close by)**: none left — every pair found has been checked: same-farm pairs were merged by the clean-up rules and pairs confirmed as different farms are listed in `NOT_DUP` in `tools/farm_cleanup.py` (see the [clean-up log](data-cleanup.en.md))."))
     s.append(L(f"   **共用座標**：{len(stacks)} 個點上各有 3 座以上營運中風場（合計 {sum(len(v) for v in stacks):,} 座、{fmt(sum(f['mw'] for v in stacks for f in v))} MW），多半是國家或省份中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：",
                f"   **Shared coordinates**: {len(stacks)} points each hold 3 or more operating farms ({sum(len(v) for v in stacks):,} farms, {fmt(sum(f['mw'] for v in stacks for f in v))} MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:"))
     for v in stacks[:5]:

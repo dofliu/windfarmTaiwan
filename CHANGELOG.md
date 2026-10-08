@@ -16,12 +16,15 @@ v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
 ## v2.30.7 — 2026-10-08
 
-- 第十三輪查證：TODO 裡剩下的疑點（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-08「第七批」）：
+- 第十三輪查證：TODO 裡剩下的疑點（出處原文以 `check_quotes.py` 核對；清理規則 478 → 498 條，見[資料清理紀錄](docs/data-cleanup.md) 2026-10-08「第七批」）：
   - 泰國：補回被誤當成 Subyai 重複而刪掉的 Hanuman 10（80 MW）；Hanuman 1、5、8、9、10 改用亞洲開發銀行報告的逐部風機座標（原本共用 GEM 的同一點），Subyai 改用 OpenStreetMap 的風場範圍。
   - 越南：GEM 的「Dong Hai V1-4」與「Dong Hai 1 · 3」是金甌（原薄遼）東海 1 號的第 4、3 期（2026 年 8 月啟動，預計 2028、2029 年），改名、補業主、改為規劃中；後者原本的點在南海中；茶榮東海 1 號移到實際機位。
-  - 德國：Erbes-Büdesheim、Lütjenholm、Süderauerdorf、Schülp 改配到自己的 MaStR 機組，Zettingen、Bornstedt-Holdenstedt、Erbes-Büdesheim 的年份更正；「疑似重複」的德國配對全部查完。
+  - 中國：「疑似重複」的四組（大豐 H4／H8-2、嘉興 1／2 號、大豐 H12／H7、莆田石塘／平海灣一期）都確認是不同風場；三峽大豐 H8-2、嘉興 1、2 號移到實際場址；奉賢海灣擴建改為陸域（原風場與同業主的汰換案都是陸上風電）；奉賢海灣兩筆汰換案合併；長樂外海 C 補水深與葉輪直徑。中國營運中離岸風場改為 140 座。
+  - 日本：瀨棚港半離岸風機的停機年改為 2024（町議會會議紀錄：2024 年度起停止發電）；遠州掛川（8 部 Enercon E-82、15.97 MW）與掛川（6 部 E-82）是相鄰的兩座風場，各自更正機組並移到實際機位。
+  - 德國：Erbes-Büdesheim、Lütjenholm、Süderauerdorf、Schülp 改配到自己的 MaStR 機組，Zettingen、Bornstedt-Holdenstedt、Erbes-Büdesheim 的年份更正；「疑似重複」的配對全部查完。
   - 波蘭：2026 整理清單的 Baltica 1 與 GEM 的 Baltica I 是同一案，合併為一筆（2025 年 12 月差價合約競標落選，預計年改為未定）。
   - 澳洲：AEMO 機組 GULLRWF2（「Gullen Range 2」）是 Biala 風場，即時出力與實測發電量改掛到 Biala。
+  - 美國機位、各國實測發電量與 OpenStreetMap 機位隨風場層重建。營運中離岸風場已知水下基礎型式 272／330 座（占容量 83.8%）。
 
 ## v2.30.6 — 2026-10-07
 

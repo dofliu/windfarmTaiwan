@@ -107,43 +107,6 @@
   ]
  },
  {
-  "item": "13a. Japan: when did Setana (瀬棚) stop operating",
-  "farm": "Setana semi-offshore",
-  "src_code": 0,
-  "iso": "JPN",
-  "status": "lead",
-  "proposal": "(lead; possible note update) fix('JPN', 'Setana semi-offshore', C, '2 號機 2018 年 12 月因雷擊斷葉停機（2020 年修理）；2023 年 8 月町公所說 2 部中 1 部故障中、FIT 於 2023 年 12 月結束；最後停機日期仍待查證。2026 年 4 月町公所決定 2027 年度撤除', 'Unit 2 stopped in December 2018 after a lightning-damaged blade (repaired in 2020); in August 2023 the town said one of the two units was broken and the FIT ended in December 2023; the date of the final shutdown is still unverified. In April 2026 the town decided to remove it in FY2027', 'https://hokkaido.env.go.jp/content/000153282.pdf', note=True)",
-  "note_zh": "北海道新聞 2020-08：2 號機因葉片破損自 2018 年 12 月停機、正在修理；せたな町 2023-08-24 環境省媒合會簡報：令和 3 年度（2021）平均容量因數約 34%，「目前 2 部中 1 部故障中」，需決定修理或撤除，FIT 於 2023 年 12 月結束；北海道新聞（2026-04-24）：町公所決定 2027 年度撤除（付費全文看不到停機日）。所以 2021 年仍在發電、2023 年至少 1 部仍可運轉，確切的最後停機時間仍查不到。記錄 end=2025 沒有直接出處；可改說明，或在查到前保留。",
-  "note_en": "Hokkaido Shimbun (Aug 2020): unit 2 had been out of service since December 2018 because of a damaged blade and was under repair; Setana town’s slides for an MOE matching event (24 Aug 2023): average capacity factor about 34% in FY2021, “one of the two units is currently broken” and the town must choose repair or removal, FIT ended December 2023; Hokkaido Shimbun (24 Apr 2026): the town decided to remove it in FY2027 (the paywalled text does not show a stop date). So it generated in FY2021 and at least one unit could run in 2023; the exact final shutdown is still unknown. The record’s end=2025 has no direct source; reword the note or keep it until a date is found.",
-  "why": "Final shutdown date not published in accessible sources; hokkaido-np.co.jp articles paywalled.",
-  "sources": [
-   {
-    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
-    "quote": "令和５年度第 １ 回地域脱炭素マッチング会 令和５年８月２４日 北海道せたな町"
-   },
-   {
-    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
-    "quote": "令和3年度の設備 利用率は年平均で約34％となっている"
-   },
-   {
-    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
-    "quote": "一方、現在２基（600kW×2基1,200kW)のうち１基が故障中であり、町とし て修繕か撤去かの判断が必要となっている"
-   },
-   {
-    "url": "https://hokkaido.env.go.jp/content/000153282.pdf",
-    "quote": "日本発の洋上風車（風海鳥）の卒FIT後の利活用（2023年12月にFIT終了）"
-   },
-   {
-    "url": "https://www.hokkaido-np.co.jp/movies/detail/6182515957001/",
-    "quote": "檜山管内せたな町は、ブレード（羽根）の破損で２０１８年１２月から運用を停止している国内初の洋上風車「風海鳥（かざみどり）」２号機を修理している。"
-   },
-   {
-    "url": "https://www.hokkaido-np.co.jp/article/1305209/",
-    "quote": "【せたな】檜山管内せたな町は24日、瀬棚港内にある国内初の洋上風力発電施設「風海鳥（かざみどり）」を撤去する時期について、2027年度とすることを決めた。"
-   }
-  ]
- },
- {
   "item": "13d. Korea: Jeju Woljeong test site status",
   "farm": "Jeju Woljeong test (Doosan)",
   "src_code": 0,
