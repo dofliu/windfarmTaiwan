@@ -45,6 +45,7 @@ CLEAN drop CHN Shandong Guohua Kenli Offshore wind farm 1000.0
 CLEAN drop CHN Shangdong Dongying Dongfang offshore wind farm 26.0
 CLEAN drop CHN Togtoh 1750.0
 CLEAN drop CHN Yumen Changma 1000.0
+CLEAN drop CHN Zhangpu Liu'ao Phase 1 400.0
 CLEAN drop CHN Zhoushan Liuheng / Zhejiang others 600.0
 CLEAN drop COL El Morro wind farm 8.0
 CLEAN drop ESP Biscay Marine Energy Platform wind farm 20.0
@@ -130,10 +131,10 @@ CLEAN dup CHN Shandong Haiwei Peninsula South U 450.0 -> CGN Peninsula South U1
 CLEAN dup CHN Shandong Peninsula South U Site Offshore Wind Project 1503.5 -> CGN Peninsula South U1
 CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai Bridge
 CLEAN dup CHN Shanghai Fengxian Bay Retrofit and Upgrade wind farm 48.0 -> Shanghai Fengxian Haiwan 1 wind farm
-CLEAN dup CHN Zhangpu Liu'ao Phase 1 400.0 -> CTG Zhangpu Liu'ao Phase 2
 CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
 CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putuo 6#2
 CLEAN dup DEU Dreiberg wind farm 60.0 -> Windpark Druiberg (Dardesheim)
+CLEAN dup DEU Lichtenau wind farm 11.0 -> Paderborn wind farm
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Esperanza wind farm (Dominican Republic) 50.0 -> Esperanza (Dominican Republic) wind farm
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
@@ -227,6 +228,7 @@ CLEAN fix CHN CTG Yangjiang Shapa Phase 3 400.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 3 400.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 4 300.0
 CLEAN fix CHN CTG Yangjiang Shapa Phase 5 400.0
+CLEAN fix CHN CTG Zhangpu Liu'ao Phase 2 400.0
 CLEAN fix CHN Changle Waihai C 496
 CLEAN fix CHN Changle Waihai C 496
 CLEAN fix CHN Changle Waihai C 498.0
@@ -238,6 +240,7 @@ CLEAN fix CHN Fujian Pingtan Changjiang'Ao Offshore wind farm 295.0
 CLEAN fix CHN Fujian Pingtan Straits Road/Railroad Bridge Illumination Project Offshore Distributed wind farm 34.0
 CLEAN fix CHN Fujian Pingtan Waihai Offshore wind farm 111.0
 CLEAN fix CHN Fujian Putian Pinghaiwan Offshore wind farm 814.0
+CLEAN fix CHN Fujian Zhangpu Liu'Ao Offshore wind farm · D 402.0
 CLEAN fix CHN Fujian Zhangpu Liu'Ao Offshore wind farm · E 404.0
 CLEAN fix CHN Fuqing Haitan Strait 300.0
 CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
@@ -607,7 +610,6 @@ DROP CHL operating San Juan wind farm 193.0 ~ San Juan de Chañaral de Aceituno 
 DROP CHL operating Sarco wind farm 170.0 ~ Sarco 170.0
 DROP CHN announced Guangdong Taishan Chuandao I Offshore wind farm 400.0 ~ CGN Yangjiang Nanpeng Island 401.5
 DROP CHN announced Guangdong Xuwen Dongyi Offshore wind farm 400.0 ~ Huaneng Zhanjiang Xuwen East 400.0
-DROP CHN construction Fujian Zhangpu Liu'Ao Offshore wind farm 402.0 ~ Zhangpu Liu'ao Phase 1 400.0
 DROP CHN construction Guangdong Xuwen Dongsan Offshore wind farm 500.0 ~ Huaneng Zhanjiang Xuwen East 400.0
 DROP CHN construction Guangdong Yangjiang Fanshi Offshore wind farm 2000.0 ~ CGN Fanshi I 1000.0
 DROP CHN construction Liaoning Zhuanghe (Taopingwan) wind farm 250.0 ~ Huaneng Dalian Zhuanghe III 300.0

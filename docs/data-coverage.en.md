@@ -7,17 +7,17 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,701 operating farms, 1,187,284 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 20,703 operating farms, 1,187,289 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 55 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 4 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 161 duplicate, never-built or non-existent records were removed and 337 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,573 projects, 2,716,390 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Clean-up**: checked record by record in 2026-09; 162 duplicate, never-built or non-existent records were removed and 339 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,574 projects, 2,716,792 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
-- **China**: national 640,626 MW, mapped 569,934 MW (89%), gap 70,692 MW.
+- **China**: national 640,626 MW, mapped 569,941 MW (89%), gap 70,685 MW.
 - **India**: national 54,511 MW, mapped 42,278 MW (78%), gap 12,233 MW.
 - **Italy**: national 13,568 MW, mapped 10,504 MW (77%), gap 3,064 MW.
-- **Germany**: national 77,873 MW, mapped 74,946 MW (96%), gap 2,927 MW.
+- **Germany**: national 77,873 MW, mapped 74,944 MW (96%), gap 2,929 MW.
 - **Denmark**: national 7,547 MW, mapped 5,001 MW (66%), gap 2,546 MW.
 - **Belgium**: national 5,851 MW, mapped 3,972 MW (68%), gap 1,879 MW.
 - **Spain**: national 33,301 MW, mapped 31,436 MW (94%), gap 1,865 MW.
@@ -49,7 +49,7 @@ English ｜ [中文](data-coverage.md)
    - CHN (38.0, 102.0) · 29 farms · 5,680 MW · Gansu - Shandong Power Export Huanxian (Huaneng) Wind/Solar Demonstration Project wind farm · Area A1, Area A2, Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm…
    - CHN (34.0, 114.0) · 65 farms · 5,349 MW · Henan Neihuang (China Resources) wind farm, Henan Huaxian Zaocun wind farm, Henan Tangyin wind farm · 1, 2…
 5. **Pipeline totals**: projects and country totals are both from GEM 2026-02; the differences are mostly the Sep 2026 compiled list added here, projects removed by the clean-up rules, and phases GEM gives no capacity for. Top-15 countries:
-   - China: projects 740,780 MW · GEM total 743,588 MW
+   - China: projects 741,182 MW · GEM total 743,588 MW
    - United States of America: projects 89,451 MW · GEM total 89,440 MW
    - Germany: projects 37,482 MW · GEM total 18,119 MW
    - India: projects 51,063 MW · GEM total 51,063 MW
@@ -99,9 +99,9 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 
 | # | Country | National MW | of which offshore | GEM operating MW | Mapped MW | Coverage | Gap MW | Farms | Year-unknown MW | Approx. coords | Flag |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 569,934 | 89% | 70,692 | 5,128 | 20,521 | 2,872 | ✓ |
+| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 569,941 | 89% | 70,685 | 5,129 | 20,521 | 2,872 | ✓ |
 | 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 166,220 | 105% | 0 | 1,236 | 0 | 9 | ✓ |
-| 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 74,946 | 96% | 2,927 | 6,602 | 839 | 177 | ✓ |
+| 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 74,944 | 96% | 2,929 | 6,603 | 839 | 177 | ✓ |
 | 4 | India (IND) | 54,511 | 0 | 38,937 | 42,278 | 78% | 12,233 | 630 | 10,869 | 568 | △ |
 | 5 | Brazil (BRA) | 34,866 | 0 | 35,718 | 34,291 | 98% | 575 | 295 | 760 | 3 | ✓ |
 | 6 | Spain (ESP) | 33,301 | 7 | 31,007 | 31,436 | 94% | 1,865 | 872 | 3,671 | 253 | ✓ |

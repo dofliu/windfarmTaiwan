@@ -1499,14 +1499,11 @@ RULES = [
         'the curated "SPIC Peninsula South U1" already holds both phases, 900 MW (phase 1 in operation 17 Nov 2023, phase 2 fully connected 26 Oct 2024; CEEIA, 31 Oct 2024), '
         'so this record is a duplicate, and its year 2025 is wrong too',
         'https://www.ne21.com/news/show-201133.html'),
-    dup('CHN', "Zhangpu Liu'ao Phase 1", C, ("CTG Zhangpu Liu'ao Phase 2", C),
-        '福能持股 35%、三峽 65% 的海峽發電在六鰲只有一個項目：2018 年券商報告寫「漳州六鰲 D 區項目（40.2 萬千瓦）」，2024 年中閩能源回覆上交所（引福能年報）'
-        '寫成「漳浦六鰲二期 40.2 萬千瓦」，即 2023-02-04 開工（「閩南地區首個海上風電項目」）、2024-06-27 全容量併網的三峽漳浦六鰲二期；本筆「一期、2022 年營運」'
-        '是 GEM 的 D 區併進精選紀錄後誤標，與二期重複',
-        "Straits Power (Funeng 35%, CTG 65%) has a single Liu'ao project: a 2018 broker report calls it 'Zhangzhou Liu'ao area D (402 MW)' and Zhongmin Energy's 2024 reply "
-        "to the stock exchange (citing Funeng's annual report) calls it 'Zhangpu Liu'ao phase 2, 402 MW' — CTG's phase 2, started 4 Feb 2023 as 'the first offshore wind "
-        "project in southern Fujian' and fully connected 27 Jun 2024; this 'phase 1, operating 2022' record is GEM's area D mislabelled, a duplicate of phase 2",
-        'https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf'),
+    drop('CHN', "Zhangpu Liu'ao Phase 1", C,
+        '六鰲沒有 2022 年營運的「一期」：福建省 2023-02 的報導說漳浦六鰲已核准 800 MW，由漳浦 D 區與漳浦二期兩個項目組成；二期 2023-02 開工時是「閩南地區首個海上風電項目」，2024-06 全容量併網'
+        '（精選「CTG Zhangpu Liu\'ao Phase 2」）；D 區（402 MW）查無開工紀錄，由 GEM 的 D 區紀錄代表',
+        "Liu'ao has no 'phase 1' operating since 2022: a Fujian government report of Feb 2023 says Zhangpu Liu'ao has 800 MW approved, made up of the Zhangpu area D project and the Zhangpu phase 2 project; phase 2 started in Feb 2023 as 'the first offshore wind project in southern Fujian' and was fully connected in June 2024 (the curated “CTG Zhangpu Liu'ao Phase 2”); area D (402 MW) has no record of construction and is represented by GEM's area D record",
+        'https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm'),
     fix('CHN', 'Zhuanghe I', C,
         '莊河場址 I 是大唐集團的 100 MW 項目：19 部明陽 MySE5.2-166（19 × 5.2 = 98.8 MW），EPC 於 2021 年由中國能建北方建投與上海院聯合體得標（世紀新能源網）；'
         '原寫 200 MW、業主空白、「4-6 MW class」都不對。併網年份沒有可引用的出處，2021 年待查證',
@@ -1832,6 +1829,22 @@ RULES = [
     fix('CHN', 'CTG Dafeng H8-2', C, '三峽大豐 H8-2 離岸約 72 km（offshoreWIND.biz 2021-12）；GEM 依鹽城市政府資料標的確切位置在大豐毛竹沙海域（北緯 33.3225°、東經 121.5927°），落在 OpenStreetMap 依海事局通告 715/2025 繪製的風場範圍（way 1343826793）裡；點位改到這裡。原點位（33.2 N、121.3 E）在西南方約 30 km，落在 OpenStreetMap 標為 H17 的場址範圍（way 1454078619，三峽 800 MW 項目的一區）', 'CTG Dafeng H8-2 lies some 72 km offshore (offshoreWIND.biz, Dec 2021); GEM gives its exact position from Yancheng government data in the Maozhusha area of Dafeng (33.3225 N, 121.5927 E), inside the wind-farm area OpenStreetMap drew from MSA notice 715/2025 (way 1343826793); the point moves there. The old point (33.2 N, 121.3 E), about 30 km south-west, lies inside the area OpenStreetMap labels H17 (way 1454078619, one site of CTG’s 800 MW project)', 'https://www.gem.wiki/Jiangsu_Dafeng_H8-2_Offshore_wind_farm', lat=33.3225, lon=121.5927),
     fix('CHN', 'Zhejiang Jiaxing 2 Offshore wind farm', G, 'OpenStreetMap 的風場範圍 way 1177759242 標名「华能嘉兴2号海上风电场」，範圍北緯 30.563–30.654°、東經 121.445–121.500°；點位改為範圍中心（北緯 30.608°、東經 121.473°），原點位在其西方約 13 km', 'OpenStreetMap wind-farm area way 1177759242 is named “华能嘉兴2号海上风电场” and spans 30.563–30.654 N, 121.445–121.500 E; the point moves to its centre (30.608 N, 121.473 E), about 13 km east of the old one', 'https://www.openstreetmap.org/way/1177759242', lat=30.608, lon=121.473),
     fix('CHN', 'Zhejiang Energy Jiaxing 1', C, 'OpenStreetMap 的風場範圍 way 1300965884 標名「浙能嘉兴1号海上风电场」，範圍北緯 30.394–30.515°、東經 121.454–121.499°（嘉興 2 號範圍的南側）；點位改為範圍中心（北緯 30.455°、東經 121.476°），原點位在其西北約 24 km', 'OpenStreetMap wind-farm area way 1300965884 is named “浙能嘉兴1号海上风电场” and spans 30.394–30.515 N, 121.454–121.499 E (south of the Jiaxing 2 area); the point moves to its centre (30.455 N, 121.476 E), about 24 km south-east of the old one', 'https://www.openstreetmap.org/way/1300965884', lat=30.455, lon=121.476),
+    # ------------------------------------------------ 2026-10-08 第八批（第十四輪資料疑點；出處原文以 check_quotes.py 核對）
+    fix('CHN', "CTG Zhangpu Liu'ao Phase 2", C,
+        '福建省政府 2023-12-25 的二期用海變更批復（閩政海域〔2023〕45 號）附宗海界址點坐標：風機區在北緯 23.894–23.947°、東經 118.174–118.245°（另有海纜往西接回六鰲）；點位改為風機區中心（北緯 23.921°、東經 118.209°），原點位在其西南約 30 km。OpenStreetMap 依海事局通告 1182/2024 畫的無名風場範圍（way 1334215514）與此重合',
+        "The Fujian government's approval of phase 2's sea-use change (25 Dec 2023, Min Zheng Hai Yu [2023] 45) lists its boundary points: the turbine area spans 23.894–23.947 N, 118.174–118.245 E (with the export cable running west to Liu'ao); the point moves to the centre of that area (23.921 N, 118.209 E), about 30 km north-east of the old one. The unnamed wind-farm area OpenStreetMap drew from MSA notice 1182/2024 (way 1334215514) covers the same ground",
+        'https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm', lat=23.921, lon=118.209),
+    fix('CHN', "Fujian Zhangpu Liu'Ao Offshore wind farm · D", G,
+        '六鰲 D 區（402 MW）是海峽發電已核准的項目（2018 年券商報告已列），但查無開工紀錄：二期在 2023 年開工時與 2024 年都還被稱為閩南首個海上風電項目，2024-06 海峽發電的項目清單只列「負責控股建設漳浦六鰲二期」'
+        '與「籌建平海灣 DE 區」，沒有 D 區；改為前期開發（GEM 寫興建中）。GEM 的點位是貼近六鰲海岸的概略位置，確切場址待查證',
+        "Liu'ao area D (402 MW) is an approved Straits Power project (already listed in a 2018 broker report) with no record of construction: phase 2 was still called the first offshore wind project in southern Fujian when it started in 2023 and in 2024, and Straits Power's project list of June 2024 names only Zhangpu Liu'ao phase 2 (under construction) and Pinghai Bay DE (in preparation), not area D; moved to pre-construction (GEM says construction). GEM's point is an approximate one close to the Liu'ao coast; the real site is unverified",
+        'https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf', st=2, note=True, zhname='福建漳浦六鰲海上風電場D區'),
+    dup('DEU', 'Lichtenau wind farm', G, ('Paderborn wind farm', G),
+        'GEM 的 Lichtenau（11 MW、1997、RWE）是 1997–98 年 Lichtenau-Asseln「Windpark Asseln」的一部分：當地鄉土協會的介紹寫整座風場 62 部、36 MW，1997 年 12 月首次併網、1998 年 5 月完工，'
+        '營運者「Diverse Betreiber 23 部、Asselner Windkraft 18 部、WINKRA Lichtenau 21 部」；The Wind Power 的 Lichtenau 頁列 18 部 Enercon E-40「開發商 Winkra、營運者 RWE」。GEM 另一筆 Paderborn（36 MW、1998，出處就是這篇介紹）是整座風場，本筆重複',
+        'GEM’s Lichtenau (11 MW, 1997, RWE) is part of the 1997–98 “Windpark Asseln” at Lichtenau-Asseln: the village heritage society’s page gives the whole park as 62 turbines and 36 MW, first feed-in in December 1997 and completion in May 1998, '
+        'with operators “various operators 23, Asselner Windkraft 18, WINKRA Lichtenau 21”; The Wind Power lists 18 Enercon E-40 there with “developer Winkra, operator RWE”. GEM’s separate Paderborn record (36 MW, 1998, sourced to that page) is the whole park, so this one is a duplicate',
+        'https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1842,9 +1855,6 @@ ORPHAN_OK = {
         ('蒼南 1 號由精選的「Huarun Cangnan 1 / CR Power」（400 MW）代表', 'Cangnan 1 is represented by the curated “Huarun Cangnan 1 / CR Power” (400 MW)'),
     ('CHN', 'Xinjiang Mori 2500 MW wind farm complex'):
         ('莫里 2,500 MW 是整區彙總，GEM 另逐場列出同地名的各座風場', 'The Mori 2,500 MW complex is an area total; GEM also lists the individual Mori farms'),
-    ('CHN', "Fujian Zhangpu Liu'Ao Offshore wind farm"):
-        ('GEM 的六鰲 D 區（402 MW）就是三峽漳浦六鰲二期，由精選的「CTG Zhangpu Liu\'ao Phase 2」（400 MW，2024 年）代表（中國證券報 2024-06 中閩能源回覆上交所）',
-         "GEM's Liu'ao area D (402 MW) is CTG's Zhangpu Liu'ao phase 2, represented by the curated “CTG Zhangpu Liu'ao Phase 2” (400 MW, 2024; Zhongmin Energy's reply to the SSE, China Securities Journal, June 2024)"),
 }
 
 # 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
@@ -2009,6 +2019,12 @@ NOT_DUP = {
 }
 
 GEM_KEEP = {
+    ('CHN', "Fujian Zhangpu Liu'Ao Offshore wind farm"):
+        (
+    '六鰲 D 區（402 MW）與三峽漳浦六鰲二期（400.2 MW）是兩個分別核准的項目：福建省 2023-02 的報導說漳浦六鰲已核准 800 MW，由 D 區與二期組成；二期另於 2021-05-21 核准（閩發改網審能源〔2021〕80 號）。'
+    '舊建置把 D 區併進後來刪除的精選「Zhangpu Liu\'ao Phase 1」，整筆消失',
+    "Liu'ao area D (402 MW) and CTG's Zhangpu Liu'ao phase 2 (400.2 MW) are two separately approved projects: a Fujian government report of Feb 2023 says Zhangpu Liu'ao has 800 MW approved, made up of area D and phase 2; phase 2 had its own approval on 21 May 2021 (Min Fa Gai Wang Shen Neng Yuan [2021] 80). The old build merged area D into the curated “Zhangpu Liu'ao Phase 1”, later removed, so the project vanished",
+    'https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm'),
     ('THA', 'Hanuman 10 wind farm'):
         ('Energy Absolute 的 Hanuman 10（Banchuan Development 公司，80 MW、32 部西門子歌美颯 2.5 MW，猜也蓬府 Bamnet Narong 縣 Ban Chuan 分區，2019-04-13 商轉）與 EGCO 2016 年的 Chaiyaphum 風場（Subyai，Sap Yai 縣）是兩座；舊建置把它當成「Subyai (Chaiyaphum)」的重複刪掉', 'Energy Absolute’s Hanuman 10 (Banchuan Development Co, 80 MW, 32 Siemens Gamesa 2.5 MW, Ban Chuan subdistrict, Bamnet Narong district, Chaiyaphum; COD 13 Apr 2019) is not EGCO’s 2016 Chaiyaphum Wind Farm (Subyai, Sap Yai district); the old build dropped it as a duplicate of “Subyai (Chaiyaphum)”', 'https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf'),
     ('JPN', 'Kakegawa wind farm'):

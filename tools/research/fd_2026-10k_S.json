@@ -1,0 +1,38 @@
+[
+  {
+    "item": "S1",
+    "farm": "Zhejiang Taizhou 1 Offshore wind farm",
+    "src_code": 2,
+    "iso": "CHN",
+    "status": "write",
+    "proposal": "F5('CHN', 'Zhejiang Taizhou 1 Offshore wind farm', 'mp', url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ff7fd82e247a4ab49067854ada6fcc9b&channelId=dc8d821b39fb46908fd50924c86a7ac7',\n       zh='浙能台州1號 40 台東方風電 DEW-D7500-204（7.5 MW）：浙江海事局 2025-03-28 公布通航要素的通告（台航通〔2025〕0033 號，項目「已建成投用」）寫 39 台採單樁基礎、1 台採「樁—桶複合基礎」；樁桶複合基礎是先打單樁、再把桶形基礎套在單樁外以負壓下沉並灌漿連接（《水道港口》2024，以台州1號為例），仍以單樁為主體，所以全場列為單樁。標段 B（中鐵大橋局）為 19 座單樁＋1 座樁桶複合基礎。',\n       en='Zheneng Taizhou 1, 40 Dongfang DEW-D7500-204 (7.5 MW): the Zhejiang MSA navigation notice of 28 Mar 2025 (Tai Hang Tong [2025] 0033, project \"built and in service\") says 39 turbines stand on monopiles and one on a pile–bucket composite foundation; that foundation is a driven monopile with a bucket lowered over it by suction and grouted to it (Port & Waterway Engineering 2024, on Taizhou 1), still a monopile at its core, so the whole farm is listed as monopile. Lot B (China Railway Major Bridge) was 19 monopiles + 1 pile–bucket composite.'),",
+    "note_zh": "海事局通告（建成後）：39 台單樁＋1 台樁—桶複合基礎（單樁外套吸力桶）；建議列為單樁並在註記說明那 1 台。若維護者認為樁桶複合基礎應算複合筒，可改為 mx，parts=[['mp', 39], ['bk', 1]]。尺寸：海事局通告沒有水深與輪轂高度；機型名 DEW-D7500-204 暗示葉輪 204 m，但沒有來源明寫，不填。",
+    "note_en": "MSA notice (after completion): 39 monopiles + 1 pile–bucket composite (a monopile with a suction bucket around it); proposed as monopile with the one unit explained in the note. If the maintainer prefers to count the hybrid as a composite bucket, use mx with parts=[['mp', 39], ['bk', 1]]. Dimensions: the notice gives no depth or hub; the model name DEW-D7500-204 suggests a 204 m rotor but no source states it, so none.",
+    "why": "The MSA desktop page (www.msa.gov.cn/page/article.do?...) returns 403, but the same notice is served by the MSA mobile path msacncms_wap/pages/content.jhtml with the article id in lower-case hex without dashes, which the checker can read. New route for other farms too.",
+    "sources": [
+      {"url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ff7fd82e247a4ab49067854ada6fcc9b&channelId=dc8d821b39fb46908fd50924c86a7ac7", "quote": "浙能台州1号海上风电项目已建成投用，为保护风机、海缆安全"},
+      {"url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ff7fd82e247a4ab49067854ada6fcc9b&channelId=dc8d821b39fb46908fd50924c86a7ac7", "quote": "采用40台东方风电DEW-D7500-204风电机组，单机容量7.5MW，其中39台风机基础采用单桩基础型式，另外1台采用桩—桶复合基础型式"},
+      {"url": "https://search.napstic.cn/literature/periodical/010sdgk202403018", "quote": "桩桶复合基础是一种新型的单桩基础与桶体基础相结合的海上风电基础结构"},
+      {"url": "https://search.napstic.cn/literature/periodical/010sdgk202403018", "quote": "该施工技术和质量控制方法在浙江台州1 号海上风电项目得到了成功应用"},
+      {"url": "https://www.cpem.org.cn/list99/60587.html", "quote": "风机基础施工与风电机组安装工程标段B，主要包括19个机位单桩基础施工、1个机位桩桶复合基础施工及20台风机安装施工"}
+    ]
+  },
+  {
+    "item": "S2",
+    "farm": "Tan Phu Dong 2 (Tien Giang, GEC)",
+    "src_code": 0,
+    "iso": "VNM",
+    "status": "write",
+    "proposal": "F5('VNM', 'Tan Phu Dong 2 (Tien Giang, GEC)', 'pc', url='https://lethycorp.com/en/du-an-da-thi-cong/tan-phu-dong-2-html',\n       zh='GEC（TTC 集團）新富東2號 12 座（2021-10-30 送電，越南銀行協會）：黎蒂建設承做 PHC D800 樁打設並完成風機承台基礎，即 PHC 群樁＋承台（與新富東1號相同）。',\n       en='GEC’s (TTC Group) Tan Phu Dong 2, 12 turbines (energised 30 Oct 2021, Vietnam Banks Association): Le Thy drove the PHC D800 piles and completed the turbine pier foundations, i.e. PHC pile group with cap (as at Tan Phu Dong 1).'),\nD('VNM', 'Tan Phu Dong 2 (Tien Giang, GEC)', rotor=150, url=['https://power-technology.com/?p=174203', 'https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW'], zh='Power Technology：12 部 Vestas V150-4.2 MW；Vestas：葉輪直徑 150 m。水深與輪轂高度未查得。', en='Power Technology: 12 Vestas V150-4.2 MW; Vestas: 150 m rotor. Depth and hub height not found.'),",
+    "note_zh": "黎蒂建設（承包商）專案頁：新富東2號工程項目為「施打 PHC D800 樁並完成風機承台基礎」；越南銀行協會：12 座風機在前江省鵝貢東縣新城社海域，2021-10-30 送電。",
+    "note_en": "Contractor Le Thy’s project page: the Tan Phu Dong 2 scope was driving PHC D800 piles and completing the turbine pier foundations; Vietnam Banks Association: 12 turbines at sea off Tan Thanh commune, energised 30 Oct 2021.",
+    "why": "Same contractor and same wording as the existing Tan Phu Dong 1 row (pc). The page does not give a count, but the farm has only 12 turbines and Le Thy's scope covers the turbine foundations of the project.",
+    "sources": [
+      {"url": "https://lethycorp.com/en/du-an-da-thi-cong/tan-phu-dong-2-html", "quote": "Project: Construction of Tan Phu Dong 2 Wind Power Plant Item: Construction of PHC D800 piles and completion of wind turbine pier foundations"},
+      {"url": "https://vnba.org.vn/vi/vietcombank-cung-tap-doan-ttc-khanh-thanh-nha-may-dien-gio-tan-phu-dong-2-4804.htm", "quote": "Địa điểm xây dựng 12 trụ turbine gió tại khu vực biển thuộc xã Tân Thành, huyện Gò Công Đông, tỉnh Tiền Giang."},
+      {"url": "https://vnba.org.vn/vi/vietcombank-cung-tap-doan-ttc-khanh-thanh-nha-may-dien-gio-tan-phu-dong-2-4804.htm", "quote": "có công suất thiết kế 50MW được Tập đoàn TTC đầu tư xây dựng từ tháng 03/2021 và đóng điện đúng tiến độ ngày 30/10/2021"},
+      {"url": "https://power-technology.com/?p=174203", "quote": "The company provided 12 units of V150-4.2 MW turbines."},
+      {"url": "https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW", "quote": "Rotor diameter 150m"}
+    ]
+  }
+]

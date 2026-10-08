@@ -1,0 +1,198 @@
+[
+ {
+  "item": "1. Liu'ao, Zhangpu (Fujian): what the projects are; existing dup / ORPHAN_OK notes; phase 2 position",
+  "farm": "CTG Zhangpu Liu'ao Phase 2 / Zhangpu Liu'ao Phase 1 / Fujian Zhangpu Liu'Ao Offshore wind farm (GEM D, E, F-1)",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "# (a) new rule — phase 2 position (verified, official boundary points)\nfix('CHN', \"CTG Zhangpu Liu'ao Phase 2\", C,\n    '福建省政府 2023-12-25 的二期用海變更批復（閩政海域〔2023〕45 號）附宗海界址點坐標：風機區在北緯 23.894–23.947°、東經 118.174–118.245°（另有海纜往西接回六鰲）；點位改為風機區中心（北緯 23.921°、東經 118.209°），原點位在其西南約 30 km。OpenStreetMap 依海事局通告 1182/2024 畫的無名風場範圍（way 1334215514）與此重合',\n    \"The Fujian government's approval of phase 2's sea-use change (25 Dec 2023, Min Zheng Hai Yu [2023] 45) lists its boundary points: the turbine area spans 23.894–23.947 N, 118.174–118.245 E (with the export cable running west to Liu'ao); the point moves to the centre of that area (23.921 N, 118.209 E), about 30 km north-east of the old one. The unnamed wind-farm area OpenStreetMap drew from MSA notice 1182/2024 (way 1334215514) covers the same ground\",\n    'https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm', lat=23.921, lon=118.209),\n\n# (b) replace the existing dup('CHN', \"Zhangpu Liu'ao Phase 1\", C, ...) — its reasoning ('Straits Power has a single Liu'ao project') is contradicted by the Fujian government\ndrop('CHN', \"Zhangpu Liu'ao Phase 1\", C,\n     '六鰲沒有 2022 年營運的「一期」：福建省 2023-02 的報導說漳浦六鰲已核准 800 MW，由漳浦 D 區與漳浦二期兩個項目組成；二期 2023-02 開工時是「閩南地區首個海上風電項目」，2024-06 全容量併網'\n     '（精選「CTG Zhangpu Liu\\'ao Phase 2」）；D 區（402 MW）查無開工紀錄，由 GEM 的 D 區紀錄代表',\n     \"Liu'ao has no 'phase 1' operating since 2022: a Fujian government report of Feb 2023 says Zhangpu Liu'ao has 800 MW approved, made up of the Zhangpu area D project and the Zhangpu phase 2 project; phase 2 started in Feb 2023 as 'the first offshore wind project in southern Fujian' and was fully connected in June 2024 (the curated “CTG Zhangpu Liu'ao Phase 2”); area D (402 MW) has no record of construction and is represented by GEM's area D record\",\n     'https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm'),\n\n# (c) move ('CHN', \"Fujian Zhangpu Liu'Ao Offshore wind farm\") from ORPHAN_OK to GEM_KEEP (the ORPHAN_OK text 'area D is CTG's phase 2' is wrong)\nGEM_KEEP[('CHN', \"Fujian Zhangpu Liu'Ao Offshore wind farm\")] = (\n    '六鰲 D 區（402 MW）與三峽漳浦六鰲二期（400.2 MW）是兩個分別核准的項目：福建省 2023-02 的報導說漳浦六鰲已核准 800 MW，由 D 區與二期組成；二期另於 2021-05-21 核准（閩發改網審能源〔2021〕80 號）。'\n    '舊建置把 D 區併進後來刪除的精選「Zhangpu Liu\\'ao Phase 1」，整筆消失',\n    \"Liu'ao area D (402 MW) and CTG's Zhangpu Liu'ao phase 2 (400.2 MW) are two separately approved projects: a Fujian government report of Feb 2023 says Zhangpu Liu'ao has 800 MW approved, made up of area D and phase 2; phase 2 had its own approval on 21 May 2021 (Min Fa Gai Wang Shen Neng Yuan [2021] 80). The old build merged area D into the curated “Zhangpu Liu'ao Phase 1”, later removed, so the project vanished\",\n    'https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm')\n\n# (d) new rule for the GEM area D record that (c) brings back (status not verified as construction)\nfix('CHN', \"Fujian Zhangpu Liu'Ao Offshore wind farm · D\", G,\n    '六鰲 D 區（402 MW）是海峽發電已核准的項目（2018 年券商報告已列），但查無開工紀錄：二期在 2023 年開工時與 2024 年都還被稱為閩南首個海上風電項目，2024-06 海峽發電的項目清單只列「負責控股建設漳浦六鰲二期」'\n    '與「籌建平海灣 DE 區」，沒有 D 區；改為前期開發（GEM 寫興建中）。GEM 的點位是貼近六鰲海岸的概略位置，確切場址待查證',\n    \"Liu'ao area D (402 MW) is an approved Straits Power project (already listed in a 2018 broker report) with no record of construction: phase 2 was still called the first offshore wind project in southern Fujian when it started in 2023 and in 2024, and Straits Power's project list of June 2024 names only Zhangpu Liu'ao phase 2 (under construction) and Pinghai Bay DE (in preparation), not area D; moved to pre-construction (GEM says construction). GEM's point is an approximate one close to the Liu'ao coast; the real site is unverified\",\n    'https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf', st=2, note=True),",
+  "note_zh": "六鰲的海上風電：(1) 漳浦六鰲二期：漳浦海峽發電（三峽能源控股、福能參股的海峽發電旗下）建設，2021-05-21 核准（閩發改網審能源〔2021〕80 號），2023-06 變更為 400.2 MW、離岸 30.3–36.7 km；2023-02 開工（閩南地區首個海上風電項目），2024-06 全容量併網，28 部 13 MW 以上（含 6 部 16 MW）。2023-12 的用海變更批復附整個宗海的界址點：風機區 23.894–23.947 N、118.174–118.245 E，精選紀錄的點位（23.8 N、117.95 E）偏西南約 30 km。(2) 六鰲 D 區：海峽發電 402 MW（2018 年券商報告），福建省 2023-02 的報導明寫「已核准裝機 800MW，由漳浦 D 區項目、漳浦二期項目組成」，所以 D 區不是二期，ORPHAN_OK 的說法錯了；但 2024-06 海峽發電的項目清單沒有 D 區，至今查無開工紀錄。(3) GEM 的 E 區（404 MW，業主同為三峽 65%／福能 35%）與 F-1 區（201 MW，GEM 標擱置）：查不到官方文件；E 區的「精確」點 22.7333 N、118.0333 E（台灣淺灘一帶）可能是 23.7333 N 的筆誤，但無法證實。(4) 中船的六鰲 I-1 區（208.7 MW）與 GEM 另一筆「中船風電福建漳州漳浦 20 萬千瓦」可能是同一個項目，本輪沒有查到可引用的出處。附帶：Straits Power 2024 年的清單把二期寫成「40.2 萬千瓦」，與核准變更的 400.2 MW 不同，應是筆誤或四捨五入。",
+  "note_en": "Liu'ao offshore wind: (1) Zhangpu Liu'ao phase 2 is built by Zhangpu Straits Power (under Straits Power, controlled by CTG Renewables with Funeng as minority holder), approved on 21 May 2021 (Min Fa Gai Wang Shen Neng Yuan [2021] 80), changed in June 2023 to 400.2 MW and 30.3–36.7 km offshore; started Feb 2023 (the first offshore wind project in southern Fujian), fully connected June 2024, 28 turbines of 13 MW and above (six of 16 MW). The Dec 2023 sea-use change approval lists the full boundary: turbine area 23.894–23.947 N, 118.174–118.245 E, so the curated point (23.8 N, 117.95 E) is about 30 km south-west of the site. (2) Liu'ao area D: Straits Power, 402 MW (2018 broker report); the Fujian government wrote in Feb 2023 that 'the approved 800 MW consists of the Zhangpu area D project and the Zhangpu phase 2 project', so area D is not phase 2 and the ORPHAN_OK note is wrong; but Straits Power's project list of June 2024 has no area D, and no construction record was found. (3) GEM's area E (404 MW, same CTG 65% / Funeng 35% owners) and F-1 (201 MW, shelved per GEM): no official document found; E's 'exact' point 22.7333 N, 118.0333 E (on the Taiwan Bank) may be a slip for 23.7333 N, but this cannot be shown. (4) CSSC's Liu'ao I-1 area (208.7 MW) and GEM's separate 'CSSC Fujian Zhangzhou Zhangpu 200 MW' may be one project; no quotable source this round. Aside: Straits Power's 2024 list writes phase 2 as '402 MW' (40.2万), not the approved 400.2 MW — a slip or rounding.",
+  "why": "Phase 2 position and the D/phase-2 distinction rest on official Fujian pages (OK). Area D's current status is inferred from absence (no construction report; not in Straits Power's June 2024 list), so (d) sets pre-construction rather than guessing. Blocked: zhangzhou.gov.cn sea-use change report PDF of phase 2 (connection reset / 503; per a search summary it says the phase-2 export cable lands with areas D, E and F-1, the last suspended — not quotable), bjx.com.cn (WAF), wind.in-en.com (TLS), wind.imarine.cn (403), chinawindnews.com (31-char page).",
+  "sources": [
+   {
+    "url": "https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202302/t20230206_6103398.htm",
+    "quote": "据介绍，漳浦六鳌海上风电场项目已核准装机容量为800MW，由漳浦D区项目、漳浦二期项目组成。"
+   },
+   {
+    "url": "https://img3.gelonghui.com/pdf201812/pdf20181204165722787.pdf",
+    "quote": "以及漳州六鳌 D 区项目（40.2 万千瓦）"
+   },
+   {
+    "url": "https://fgw.fj.gov.cn/zfxxgkzl/zfxxgkml/xzxk/202306/t20230605_6181820.htm",
+    "quote": "我委于2021年5月21日以闽发改网审能源〔2021〕80号文核准漳浦六鳌海上风电场二期项目(项目编码:2102-350000-04-01-638446)，项目单位为漳浦海峡发电有限"
+   },
+   {
+    "url": "https://fgw.fj.gov.cn/zfxxgkzl/zfxxgkml/xzxk/202306/t20230605_6181820.htm",
+    "quote": "同意将项目场址离岸距离调整为30.3—36.7千米，装机容量调整为400.2兆瓦"
+   },
+   {
+    "url": "https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm",
+    "quote": "一、同意你司建设的漳浦六鳌海上风电场二期项目变更用海，海底电缆管道用海面积增加3.3719公顷。"
+   },
+   {
+    "url": "https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm",
+    "quote": "附件 漳浦六鳌海上风电场二期项目 变更后宗海界址点坐标 （CGCS2000坐标系 L0=118°00′） 序号 纬度 经度 序号 纬度 经度 1 23°56′50.970″ 118°13′25.680″"
+   },
+   {
+    "url": "https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202405/t20240523_6453562.htm",
+    "quote": "项目由三峡集团福建分公司所属漳浦海峡公司投建，是闽南区域首个海上风电项目，总投资近60亿元。"
+   },
+   {
+    "url": "https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf",
+    "quote": "负 责控股建 设漳浦六鳌 二期 40.2 万 千瓦 和 筹 建平海 湾 DE 区 40 万 千瓦 海上风电项目"
+   },
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "D Construction [ 1 ] 402 MW [ 2 ] Offshore hard mount"
+   },
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "F-1 Shelved ( inferred January 2026) 201 MW"
+   },
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "D Liu'ao Peninsula, Zhangpu, Zhangzhou, Fujian, China [ 11 ] 23.8694, 117.8120 (approximate)"
+   },
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'ao_offshore_wind_farm",
+    "quote": "Fujian Zhangpu Liu'ao offshore wind farm (三峡福建漳浦六鳌海上风电场二期项目)"
+   }
+  ]
+ },
+ {
+  "item": "2. CSSC Haizhuang 'Fuyao' (扶摇号) 6.2 MW floating prototype, Luodousha off Xuwen",
+  "farm": "(no record)",
+  "src_code": null,
+  "iso": "CHN",
+  "status": "missing",
+  "proposal": "farms_attachment.json (curated) record:\n{\"name\": \"CSSC Haizhuang 'Fuyao' floating demonstrator\", \"zh\": \"中船海裝「扶搖號」浮式示範機\", \"iso\": \"CHN\", \"lat\": 20.314, \"lon\": 110.5802, \"mw\": 6.2, \"year\": 2023, \"type\": \"floating\", \"turbine\": \"1x CSSC Haizhuang 6.2 MW, 152 m rotor (semi-submersible)\", \"owner\": \"CSSC Haizhuang Wind Power\", \"src\": \"curated\", \"status\": \"operating\", \"subtype\": \"semi-submersible\", \"url\": \"https://gdee.gd.gov.cn/gkmlpt/content/3/3803/post_3803484.html\", \"note\": [\"中船海裝的浮式風電樣機（廣東海裝海上風電研究中心申請環評的「海上浮式風電裝備試驗場」），2022 年 5 月底拖到徐聞前山鎮羅斗沙海域安裝，2023 年 8 月以智能微網模式（離網）運行發電；之後查不到正式併入公用電網的報導。位置取自海事局航道圖改正通告 795/2026：一條約 25.9 km 的海纜從羅斗沙一部單獨的風機接到外羅風場一帶的一部風機，與環評批復寫的 25.77 km 35 kV 海纜（接粵電外羅二期 27 號風機）相符；通告沒寫機組名稱。環評寫單機 5.95 MW，建成機組的報導是 6.2 MW。\", \"CSSC Haizhuang's floating wind prototype (the 'offshore floating wind equipment test site' whose EIA was filed by Guangdong Haizhuang Offshore Wind Power Research Center), towed to the Luodousha waters off Qianshan, Xuwen and installed in late May 2022; it ran in intelligent-microgrid (off-grid) mode in August 2023, and no later report of a formal connection to the public grid was found. The position comes from MSA chart-correction notice 795/2026, in which a cable of about 25.9 km runs from a lone turbine at Luodousha to a turbine in the Wailuo farm area, matching the 25.77 km 35 kV cable to turbine no. 27 of Guangdong Energy's Wailuo phase 2 in the EIA approval; the notice does not name the unit. The EIA gives 5.95 MW; reports of the installed unit give 6.2 MW.\"]}\n\ntools/farm_foundations.py:\n    F5('CHN', \"CSSC Haizhuang 'Fuyao' floating demonstrator\", 'fl', url='https://www.gdwc.gov.cn/zjwcfgw/gkmlpt/content/1/1620/post_1620820.html', sub='semi',\n       zh='半潛式平台，以九條對稱分布的懸垂錨鏈繫泊，機位平均水深約 65 m',\n       en='Semi-submersible platform held by nine symmetrically arranged catenary mooring lines, at a mean water depth of about 65 m'),\n\ntools/farm_dimensions.py (optional):\n    D('CHN', \"CSSC Haizhuang 'Fuyao' floating demonstrator\", depth=(65, 65), hub=96, rotor=152, url=['https://www.southcn.com/node_0183de080d/afab06a14f.shtml', 'https://www.gdwc.gov.cn/zjwcfgw/gkmlpt/content/1/1620/post_1620820.html'],\n      zh='水深是機位的平均水深', en='The depth is the mean water depth at the position')",
+  "note_zh": "新證據：廣東省生態環境廳 2022-01 的環評批復（粵環審〔2022〕15 號，申請人廣東海裝海上風電研究中心）：「海上浮式風電裝備試驗場工程」在徐聞前山鎮羅斗沙海域，只有 1 部浮式機組（5.95 MW）與 1 條 25.7658 km 的 35 kV 海纜，接到粵電湛江外羅二期的 27 號風機。海事局通告 795/2026 的海纜從 (1) 20°18′50.4″N、110°34′48.7″E 經 9 個轉折點到 (10) 20°31′52.6″N、110°38′14.7″E，按座標算全長約 25.9 km，與環評的 25.77 km 幾乎相同；(10) 正是 OpenStreetMap 依海事局通告 774/2026 畫的一部既有風機（node 11975236866，旁邊的 AIS 標名「Yuedian No.8」，粵電），(11)「同上述 (1)」是新設的單獨風機。徐聞政府網（2022-06）寫扶搖號是「中國海裝海上浮式風電裝備研製項目樣機建設工程」，位於前山鎮羅斗沙海域、半潛式、九條錨鏈。所以通告的單機就是扶搖號：通告本身沒寫名稱，辨識靠海纜長度與兩端位置吻合（推論，但很強）。狀態：2023-08 智能微網模式離網運行發電（國防科工局轉中國船舶）；2023-08 中國能源報說已成功運行發電；正式併網沒有報導，2026 年才在海圖加繪海纜，可能是補登或新敷設，不能據此說已併網。",
+  "note_en": "New evidence: Guangdong's Ecology and Environment Department approved the EIA in Jan 2022 (Yue Huan Shen [2022] 15, applicant Guangdong Haizhuang Offshore Wind Power Research Center): the 'offshore floating wind equipment test site' in the Luodousha waters off Qianshan, Xuwen has a single floating unit (5.95 MW) and one 25.7658 km 35 kV cable to turbine no. 27 of Guangdong Energy's Zhanjiang Wailuo phase 2. The cable in MSA notice 795/2026 runs from (1) 20°18′50.4″N 110°34′48.7″E through nine points to (10) 20°31′52.6″N 110°38′14.7″E — about 25.9 km by its coordinates, almost exactly the EIA's 25.77 km; (10) is an existing turbine OpenStreetMap drew from MSA notice 774/2026 (node 11975236866, next to an AIS mark named 'Yuedian No.8', i.e. Guangdong Energy), and (11) 'same as (1)' is the newly charted lone turbine. Xuwen's government page (June 2022) calls Fuyao 'the prototype construction of CSIC Haizhuang's floating wind equipment project' in the Luodousha waters off Qianshan, semi-submersible with nine mooring lines. So the notice's lone turbine is Fuyao: the notice does not name it, and the identification rests on the matching cable length and end points (inference, but strong). Status: ran off-grid in intelligent-microgrid mode in Aug 2023 (SASTIND, citing CSSC); China Energy News (Aug 2023) says it is generating; no report of a formal grid connection, and the 2026 charting of the cable may be a late entry or new laying, so it does not prove a connection.",
+  "why": "Identification is by matching the EIA's cable length/end point with the MSA notice (no source names the unit at the coordinates). Year: installed 2022, first reported generation 2023 (microgrid) — main session to choose. Blocked or empty: msa.gov.cn 2022 notice pages (403 to curl), zhanjiang.gov.cn 2022 article (404), bjx (WAF). 4C/TGS has a matching point but is excluded.",
+  "sources": [
+   {
+    "url": "https://gdee.gd.gov.cn/gkmlpt/content/3/3803/post_3803484.html",
+    "quote": "海上浮式风电装备试验场工程选址位于湛江市徐闻县前山镇罗斗沙海域，主要建设内容包括1台单机容量5.95MW浮式风电机组和1根25.7658km的35kV海底送出电缆等设备。35kV送出电缆接入广东粤电湛江外罗海上风电场二期项目的27号风机。"
+   },
+   {
+    "url": "https://gdee.gd.gov.cn/gkmlpt/content/3/3803/post_3803484.html",
+    "quote": "粤环审〔2022〕15号 广东海装海上风电研究中心有限公司："
+   },
+   {
+    "url": "https://pnp.chart.msa.gov.cn/CorrectionPdf/Download/6d0c2f72-3f31-458c-98e4-efb2c6af8fb5?y=2026",
+    "quote": "795.南海 罗斗沙及附近——敷设海底电力线及设置海上风机 加绘 海底电力线，连接： （1）20°18′50″.4N、110°34′48″.7E"
+   },
+   {
+    "url": "https://pnp.chart.msa.gov.cn/CorrectionPdf/Download/6d0c2f72-3f31-458c-98e4-efb2c6af8fb5?y=2026",
+    "quote": "（10）20°31′52″.6N、110°38′14″.7E （11）同上述（1）"
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/11975236866",
+    "quote": "Location: 20.5312778 , 110.6374444"
+   },
+   {
+    "url": "https://www.gdwc.gov.cn/zjwcfgw/gkmlpt/content/1/1620/post_1620820.html",
+    "quote": "该项目为中国海装海上浮式风电装备研制项目样机建设工程，项目位于徐闻县前山镇，处于琼州海峡东口，徐闻罗斗沙海域。该装备采用半潜式平台结构，机位位于平均水深约65米的深海海域，依靠九个对称分布的悬锚链系泊实现固定。"
+   },
+   {
+    "url": "http://www.nea.gov.cn/2022-06/24/c_1310631921.htm",
+    "quote": "由该所承担相关设计任务的国内功率最大（6.2MW）的海上浮式风电装备“扶摇号”，已在广东湛江罗斗沙海域顺利完成安装，将于近期开始并网发电。"
+   },
+   {
+    "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10313681/content.html",
+    "quote": "发布日期：2023-08-23 信息来源：中国船舶 分享： 近日，中国船舶集团旗下中船海装 “扶摇号”浮式风电装备在智能微网模式下成功运行发电。"
+   },
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2023-08/21/content_26013636.htm",
+    "quote": "去年，中船海装开发的国内首台深海漂浮式风电机组“扶摇号”也完成了安装，目前已成功运行发电"
+   },
+   {
+    "url": "https://www.southcn.com/node_0183de080d/afab06a14f.shtml",
+    "quote": "“扶摇号”机组轮毂中心高度96米，风轮直径152米，叶片长度74米。"
+   }
+  ]
+ },
+ {
+  "item": "3. Vietnam: GEM 'Dong Hai 1 Offshore wind farm' (Bac Lieu phases 1–2) point on Hòa Bình 2; Phase 3/4 (Ca Mau) borrow it",
+  "farm": "Dong Hai 1 Offshore wind farm; Dong Hai 1 Phase 3 (Ca Mau); Dong Hai 1 Phase 4 (Ca Mau)",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "(no change: no citable position; the three records already carry the approximate-location flag)",
+  "note_zh": "本輪新試：OpenStreetMap 在 105.50–105.63 E、9.03–9.12 N 的所有具名電力圖徵只有「Nhà máy điện gió Hòa Bình 2」（relation 16237373）與其 HB02 風機，Đông Hải 1 那兩群 26 部風機仍無名稱、無營運者；Nominatim 查不到「điện gió Đông Hải」；越南的海域交付決定（含 VN-2000 座標）在 thuvienphapluat／caselaw 查不到；The Wind Power 的點（9°05′59.9″N、105°35′59.9″E）自註「未驗證」，Helis 的點用的是 4C Offshore 的代碼與資料，依規定不能用。",
+  "note_en": "New routes this round: in OpenStreetMap the only named power features in 105.50–105.63 E, 9.03–9.12 N are 'Nhà máy điện gió Hòa Bình 2' (relation 16237373) and its HB02 turbines; the two 26-turbine groups that are probably Đông Hải 1 still carry no name or operator; Nominatim finds no 'điện gió Đông Hải'; no sea-area allocation decision with VN-2000 coordinates found on thuvienphapluat/caselaw; The Wind Power's point (9°05′59.9″N, 105°35′59.9″E) is marked as not verified, and Helis uses 4C Offshore's codes and data, which the rules exclude.",
+  "why": "Overpass endpoints failed (reset / 500 / busy); OSM API bbox read worked but shows no named Đông Hải 1 feature. Earlier sources kept for context.",
+  "sources": [
+   {
+    "url": "https://baodauthau.vn/huy-dong-nghin-ty-bac-phuong-nuoi-tham-vong-dien-gio-post100000.html",
+    "quote": "Dự án được xây dựng trên địa bàn xã Long Điền Đông (huyện Đông Hải, tỉnh Bạc Liêu), có tổng diện tích 2.700 ha mặt nước biển và 11,2 ha trên đất liền."
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/11140463150",
+    "quote": "name HB02-08 power generator rotor:diameter 150 m Part of 1 relation Nhà máy điện gió Hòa Bình 2 ( 16237373 ) (as generator)"
+   }
+  ]
+ },
+ {
+  "item": "4. Germany: GEM 'Lichtenau wind farm' (11 MW, 1997, RWE) — which MaStR units",
+  "farm": "Lichtenau wind farm / Paderborn wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "write",
+  "proposal": "# (a) farm_cleanup.py\ndup('DEU', 'Lichtenau wind farm', G, ('Paderborn wind farm', G),\n    'GEM 的 Lichtenau（11 MW、1997、RWE）是 1997–98 年 Lichtenau-Asseln「Windpark Asseln」的一部分：當地鄉土協會的介紹寫整座風場 62 部、36 MW，1997 年 12 月首次併網、1998 年 5 月完工，'\n    '營運者「Diverse Betreiber 23 部、Asselner Windkraft 18 部、WINKRA Lichtenau 21 部」；The Wind Power 的 Lichtenau 頁列 18 部 Enercon E-40「開發商 Winkra、營運者 RWE」。GEM 另一筆 Paderborn（36 MW、1998，出處就是這篇介紹）是整座風場，本筆重複',\n    'GEM’s Lichtenau (11 MW, 1997, RWE) is part of the 1997–98 “Windpark Asseln” at Lichtenau-Asseln: the village heritage society’s page gives the whole park as 62 turbines and 36 MW, first feed-in in December 1997 and completion in May 1998, '\n    'with operators “various operators 23, Asselner Windkraft 18, WINKRA Lichtenau 21”; The Wind Power lists 18 Enercon E-40 there with “developer Winkra, operator RWE”. GEM’s separate Paderborn record (36 MW, 1998, sourced to that page) is the whole park, so this one is a duplicate',\n    'https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21'),\n\n# (b) optional, main session to weigh: build_mastr.py MANUAL for the surviving record\n    'Paderborn wind farm': (['Lichtenau', 'Windpark Asseln', '41032'],   # Windpark Asseln 1997–98（62 部、36 MW）仍運轉的機組：MaStR「Lichtenau」群（E-40 序號 41017–41035 等）、「Windpark Asseln」群（Asselner Windkraft）與單部「41032」\n                            'https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21'),",
+  "note_zh": "GEM 的 Lichtenau：年份與「精確」點（51.6402, 8.9306）取自 MaStR 的 E-40「41031_Lichtenau」（1997-12-22），容量 11 MW 取自 The Wind Power（出處 [2]，該頁第 15 部分是 18 部 E-40、9,000 kW、Winkra／RWE），營運者 RWE 也取自 The Wind Power。新證據：GEM 的「Paderborn wind farm」（36 MW、1998，位置寫 Lichtenau-Asseln）出處是 asseln.de 的「Windpark Asseln」介紹：1997-04 動工、1997-12 首次併網、1998-05 完工，62 部、36 MW，營運者分三群（雜項 23、Asselner Windkraft 18、WINKRA Lichtenau 21），機型表有 31 部 E-40、2 部 E-66 等。所以 Lichtenau 是 Paderborn 的一部分，兩筆並存就重複計算。MaStR 現況：1997-04 至 1998-06 併網、仍運轉的機組約 29 部、16.45 MW（另 6 部、3 MW 已拆）；現在的自動配對也錯：Lichtenau 配到 Hakenberg 一帶的 1993–2019 年雜項機組（9 部、10.7 MW），GEM 的 Asselner wind farm（2015、19.5 MW）配到「Lichtenau」群＋「WP- LA」（29 部、20.62 MW、1997–2018），Paderborn 配到 12 部 28.85 MW、以 E-101 為主的 1997–2017 機組。(b) 的 MANUAL 會讓 MaStR 新增的「Windpark Asseln」（src 4、10.75 MW）消失（被 Paderborn 吃掉；其 NOT_DUP 說明可保留或刪除），也讓 Asselner wind farm 失去「Lichtenau」群：它對應的「Asselner Windpark」群（24.75 MW、2015–2018）超出 ±20%，可能需要另一條 MANUAL（未查證）。",
+  "note_en": "GEM’s Lichtenau: year and ‘exact’ point (51.6402, 8.9306) come from MaStR’s E-40 ‘41031_Lichtenau’ (22 Dec 1997); the 11 MW comes from The Wind Power (ref [2]; its part 15 is 18 E-40, 9,000 kW, Winkra/RWE), as does the operator RWE. New evidence: GEM’s ‘Paderborn wind farm’ (36 MW, 1998, located at Lichtenau-Asseln) is sourced to asseln.de’s ‘Windpark Asseln’ page: work began April 1997, first feed-in December 1997, completion May 1998, 62 turbines, 36 MW, with three operator groups (various 23, Asselner Windkraft 18, WINKRA Lichtenau 21) and a type table with 31 E-40, 2 E-66 and others. So Lichtenau is part of Paderborn and keeping both double-counts. MaStR today: about 29 units (16.45 MW) connected between Apr 1997 and Jun 1998 still operate (6 units, 3 MW dismantled). The automatic matching is also off: Lichtenau gets 1993–2019 odds and ends around Hakenberg (9 units, 10.7 MW), GEM’s Asselner wind farm (2015, 19.5 MW) gets the ‘Lichtenau’ group + ‘WP- LA’ (29 units, 20.62 MW, 1997–2018), and Paderborn gets 12 units, 28.85 MW of 1997–2017, mostly E-101. The MANUAL in (b) would make the MaStR-added ‘Windpark Asseln’ (src 4, 10.75 MW) disappear into Paderborn (its NOT_DUP note can stay or go) and take the ‘Lichtenau’ group away from Asselner wind farm, whose own ‘Asselner Windpark’ group (24.75 MW, 2015–2018) is outside ±20%, so it may need a MANUAL of its own (not researched).",
+  "why": "The dup rests on the asseln.de page (OK) plus GEM's own references. Which exact turbines make GEM's 11 MW cannot be settled (WINKRA's 21 turbines are not listed one by one; 18 E-40 = 9 MW), which is why the proposal removes the partial record instead of fixing its capacity. MaStR figures are from the local EinheitenWind extract.",
+  "sources": [
+   {
+    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
+    "quote": "Auf der Paderborner Hochfläche, an den Ausläufern des Eggegebirges, ist bei Lichtenau-Asseln der seinerzeit größte Binnenland-Windpark Europas entstanden."
+   },
+   {
+    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
+    "quote": "1998 mit 62 Anlagen verschiedener Hersteller und einer insgesamt installierten Nennleistung von 36 MW realisiert"
+   },
+   {
+    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
+    "quote": "Betreiber Diverse Betreiber: 23 Anlagen Asselner Windkraft: 18 Anlagen WINKRA Lichtenau: 21 Anlagen"
+   },
+   {
+    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
+    "quote": "Die Errichtungsarbeiten am Windpark wurden im April 1997 begonnen, im Dezember desselben Jahres erfolgte die erste Stromeinspeisung."
+   },
+   {
+    "url": "https://web.archive.org/web/20240126010746/https://www.thewindpower.net/windfarm_en_13301_lichtenau.php",
+    "quote": "Part #15: City: Lichtenau Commissioning: 18 turbines: Enercon E40/500 (power 500 kW, diameter 40 m) Hub height: Total nominal power: 9,000 kW Operational Onshore wind farm Developer: Winkra Operator: RWE"
+   },
+   {
+    "url": "https://www.gem.wiki/Lichtenau_wind_farm",
+    "quote": "Operating [ 1 ] 1997 [ 1 ] 11 MW [ 2 ] Onshore [ 1 ] RWE [ 3 ]"
+   },
+   {
+    "url": "https://www.gem.wiki/Lichtenau_wind_farm",
+    "quote": "Kreis Paderborn, North Rhine-Westphalia, Germany [ 1 ] 51.6402, 8.9306 (exact)"
+   },
+   {
+    "url": "https://www.gem.wiki/Paderborn_wind_farm",
+    "quote": "Operating [ 1 ] 1998 [ 1 ] 36 MW [ 1 ] Onshore [ 1 ]"
+   },
+   {
+    "url": "https://www.gem.wiki/Paderborn_wind_farm",
+    "quote": "Lichtenau-Asseln, Paderborn, North Rhine-Westphalia, Germany [ 1 ] 51.6632, 8.9314 (approximate)"
+   }
+  ]
+ },
+ {
+  "item": "5. Song An wind farm COD (only if a new route exists)",
+  "farm": "Song An wind farm",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "(not attempted: budget spent on items 1–4; no new route beyond those in doubts_2026-10j_O.json item 4)",
+  "note_zh": "本輪未查。",
+  "note_en": "Not researched this round.",
+  "why": "Budget.",
+  "sources": []
+ }
+]
