@@ -3,10 +3,10 @@
 "source": "Bundesnetzagentur, Marktstammdatenregister (MaStR), Gesamtdatenexport: EinheitenWind",
 "url": "https://www.marktstammdatenregister.de/MaStR/Datendownload",
 "license": "Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0); © Bundesnetzagentur | Marktstammdatenregister",
-"farms": 4886,
-"mw": 24354,
+"farms": 4888,
+"mw": 24375,
 "mastr_mw": 82643,
-"site_mw": 53251
+"site_mw": 53257
 },
 "parks": [
 {
@@ -3074,6 +3074,26 @@
 "n": 7
 },
 {
+"name": "WP Lichtenau",
+"lat": 51.6494,
+"lon": 8.9091,
+"mw": 16.05,
+"year": 2016,
+"ph": [
+[
+2016,
+13.75
+],
+[
+2017,
+2.3
+]
+],
+"turbine": "",
+"gem": "Warburg",
+"n": 6
+},
+{
 "name": "Heng",
 "lat": 51.7184,
 "lon": 8.8887,
@@ -4821,6 +4841,26 @@
 "n": 5
 },
 {
+"name": "WP LA",
+"lat": 51.6512,
+"lon": 8.9138,
+"mw": 12.3,
+"year": 2015,
+"ph": [
+[
+2015,
+2.3
+],
+[
+2016,
+10.0
+]
+],
+"turbine": "",
+"gem": "Warburg",
+"n": 5
+},
+{
 "name": "WP Neuenbeken",
 "lat": 51.7331,
 "lon": 8.8822,
@@ -6465,38 +6505,6 @@
 "turbine": "",
 "gem": "Warburg",
 "n": 3
-},
-{
-"name": "Windpark Asseln",
-"lat": 51.6377,
-"lon": 8.9118,
-"mw": 10.75,
-"year": 1998,
-"ph": [
-[
-1998,
-4.0
-],
-[
-2001,
-0.6
-],
-[
-2008,
-0.8
-],
-[
-2015,
-2.35
-],
-[
-2020,
-3.0
-]
-],
-"turbine": "",
-"gem": "Warburg",
-"n": 10
 },
 {
 "name": "Windpark Mönkeberg",
@@ -13843,6 +13851,17 @@
 "n": 2
 },
 {
+"name": "Paderborn-Benhausen",
+"lat": 51.7203,
+"lon": 8.8435,
+"mw": 6.9,
+"year": 2017,
+"ph": 0,
+"turbine": "2 x Vestas V126",
+"gem": "Paderborn",
+"n": 2
+},
+{
 "name": "SWE2015",
 "lat": 51.5494,
 "lon": 8.705,
@@ -19222,34 +19241,6 @@
 "turbine": "",
 "gem": "Münster",
 "n": 2
-},
-{
-"name": "AWP",
-"lat": 51.6305,
-"lon": 8.9121,
-"mw": 5.65,
-"year": 1996,
-"ph": [
-[
-1996,
-0.25
-],
-[
-1998,
-0.75
-],
-[
-2015,
-2.35
-],
-[
-2016,
-2.3
-]
-],
-"turbine": "",
-"gem": "Warburg",
-"n": 4
 },
 {
 "name": "ABO Wind WP Dünfus",
@@ -42611,6 +42602,17 @@
 "turbine": "",
 "gem": "Ottersberg",
 "n": 2
+},
+{
+"name": "Windpark Paderborn-Sande",
+"lat": 51.7489,
+"lon": 8.6402,
+"mw": 2.3,
+"year": 2014,
+"ph": 0,
+"turbine": "1 x ENERCON E-82 E2/BF/107/23/01",
+"gem": "Paderborn",
+"n": 1
 },
 {
 "name": "Windpark Penig-Markersdorf",

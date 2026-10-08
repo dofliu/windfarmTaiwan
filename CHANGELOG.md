@@ -18,6 +18,8 @@ v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
 - 第十五輪查證（出處原文以 `check_quotes.py` 核對；見[水下基礎](docs/foundations.md)）：
   - 江蘇的海事局施工通告：如東 H5（75 座）、協鑫如東 H15（40 座）、國信如東 H2（70 座，另補水深）、華能如東 H3（80 座）與蔣家沙 H1 二期（15 座）全為單樁。
+  - 德國 Lichtenau-Asseln：GEM 的 Paderborn（1993–98 年的 Windpark Asseln）、Asselner（2015 年）改配到各自的 MaStR 機組（`build_mastr.py` 的 `MANUAL`），MaStR 補進的「Windpark Asseln」「AWP」原本重複計算舊機組、併回 Paderborn；Asselner 補上 2018 年擴建（24.75 MW）；Paderborn 點位改用德文維基的風場座標。
+  - 六鰲 D 區的點位改到漳州海事局通告的 D 區測風塔（仍為概略位置）。
 
 ## v2.30.9 — 2026-10-08
 

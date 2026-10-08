@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 502 rules: 162 records removed (45,189.8 MW of them operating), 340 records fixed.
+- 505 rules: 162 records removed (45,189.8 MW of them operating), 343 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,14 +16,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 59 | 26,824.5 | 140 |
+| China | 59 | 26,824.5 | 141 |
 | Colombia | 1 | 8 | 3 |
 | Denmark | 1 | 180 | 3 |
 | Dominican Rep. | 2 | 50 | 8 |
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 2 |
 | France | 2 | 0 | 5 |
-| Germany | 2 | 71 | 14 |
+| Germany | 2 | 71 | 16 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Japan | 2 | 30 | 13 |
@@ -287,6 +287,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | CTG Zhangpu Liu'ao Phase 2 · 400 MW · 2024 | curated | fixed: location | The Fujian government's approval of phase 2's sea-use change (25 Dec 2023, Min Zheng Hai Yu [2023] 45) lists its boundary points: the turbine area spans 23.894–23.947 N, 118.174–118.245 E (with the export cable running west to Liu'ao); the point moves to the centre of that area (23.921 N, 118.209 E), about 30 km north-east of the old one. The unnamed wind-farm area OpenStreetMap drew from MSA notice 1182/2024 (way 1334215514) covers the same ground | [link](https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm) |
 | Fujian Zhangpu Liu'Ao Offshore wind farm · D · 402 MW | GEM | fixed: status, Chinese name | Liu'ao area D (402 MW) is an approved Straits Power project (already listed in a 2018 broker report) with no record of construction: phase 2 was still called the first offshore wind project in southern Fujian when it started in 2023 and in 2024, and Straits Power's project list of June 2024 names only Zhangpu Liu'ao phase 2 (under construction) and Pinghai Bay DE (in preparation), not area D; moved to pre-construction (GEM says construction). GEM's point is an approximate one close to the Liu'ao coast; the real site is unverified | [link](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
 | Putian Pinghai Bay Area F (Sanchuan) · 200 MW · 2021 | GEM | fixed: turbines | Putian MSA navigation notice (Dec 2025, built): Pinghai Bay area F uses 3 × 6 MW and 26 × 7 MW turbines (200 MW in all), in 10–25 m of water | [link](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0) |
+| Fujian Zhangpu Liu'Ao Offshore wind farm · D · 402 MW | GEM | fixed: location | The point moves to the 'area D met mast No. 4' of a Zhangzhou MSA notice of Aug 2026 (Min Hang Tong [2026] 0531; 23°49′25.57″ N, 118°01′29.45″ E, removed in Sept 2026); a met mast is not the centre of the site, so the point stays approximate; GEM's point hugged the Liu'ao coast about 22 km to the north-west | [link](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649) |
 
 ## Colombia (COL)
 
@@ -368,6 +369,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Bornstedt-Holdenstedt wind farm · 12 MW · 2010 | GEM | fixed: year | MVV’s “Windpark Holdenstedt-Bornstedt” has 8 turbines and 12 MW, i.e. MaStR’s 8 GE 1.5sl connected in July 2006 (Allstedt/Bornstedt); GEM’s 2010 belongs to other turbines nearby, so the year becomes 2006 | [link](https://web.archive.org/web/20240131130640/https://www.mvv.de/en/about-us/group-of-companies/mvv-umwelt/renewable-energies/windfarms-on-shore?tx_maps2_maps2%5BmapProviderRequestsAllowedForMaps2%5D=1&cHash=c4995b927adfc78d8d92015e95b3acdc) |
 | Süderauerdorf wind farm · 12 MW · 2017 | GEM | fixed: capacity, phases | 4 Siemens SWT-3.0-113 in 2017 (12 MW), and 2 SWT-DD-130 added under the same BWP Süderauerdorf name in 2023 (8.6 MW, MaStR) | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Lichtenau wind farm · 11 MW · 1997 | GEM | duplicate of “Paderborn wind farm” | GEM’s Lichtenau (11 MW, 1997, RWE) is part of the 1997–98 “Windpark Asseln” at Lichtenau-Asseln: the village heritage society’s page gives the whole park as 62 turbines and 36 MW, first feed-in in December 1997 and completion in May 1998, with operators “various operators 23, Asselner Windkraft 18, WINKRA Lichtenau 21”; The Wind Power lists 18 Enercon E-40 there with “developer Winkra, operator RWE”. GEM’s separate Paderborn record (36 MW, 1998, sourced to that page) is the whole park, so this one is a duplicate | [link](https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21) |
+| Paderborn wind farm · 36 MW · 1998 | GEM | fixed: location | This is the Windpark Asseln at Lichtenau-Asseln (GEM’s other name: Asseln wind farm); GEM’s approximate point is about 2.7 km north of the park, next to the separate WP LA and WP Lichtenau turbines of 2015–17, so the German Wikipedia coordinates are used (51°38′24″ N, 8°54′35″ E) | [link](https://de.wikipedia.org/wiki/Windpark_Lichtenau-Asseln) |
+| Asselner wind farm · 19.5 MW · 2015 | GEM | fixed: capacity, phases | Asselner Windpark: 7 Enercon E-92 and one E-115 of December 2015 (19.45 MW, The Wind Power); MaStR’s group of that name adds 2 units of 2018 (an E-115 of 3 MW and an E-82 of 2.3 MW), 24.75 MW in all | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## Iran (IRN)
 
@@ -784,6 +787,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 
 | Farm | Reason | Source link |
 |---|---|---|
+| WP LA (DEU) | MaStR’s “WP LA” is 5 turbines of 2015–16 just north of Lichtenau-Asseln (E-82, E-92, E-115, E-70; 12.3 MW); GEM’s Dahl (12 MW, 2016) matches the Bürgerwindpark Dahl at Paderborn-Dahl about 8 km away (5 E-82 of 2016–17): different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Enshu Kakegawa Wind Farm (JPN) | Kuroshio Wind Power’s Enshu Kakegawa (Kuniyasu coast, Kakegawa; 8 Enercon E-82, 2009–2011, 15.97 MW) and Chubu Electric’s Omaezaki phase 2 (Omaezaki; 8 Subaru 2 MW, 2011) share capacity and year but are two farms about 7 km apart (Hitachi Power Solutions’ Enercon delivery list has only the Kakegawa one) | [link](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 | Jiangsu Dafeng H4 Offshore (Longyuan) wind farm (CHN) | Longyuan Dafeng H4 (303 MW, 47 × 6.45 MW, Taipingsha, Longyuan Yancheng New Energy) and CTG Dafeng H8-2 (300 MW, 38 × 4.5 MW + 20 × 6.45 MW, some 72 km offshore) are two farms with different owners and turbines | [link](https://offshorewind.biz/2021/12/21/chinas-farthest-offshore-wind-farm-sprints-to-the-finish-line) |
 | Zhejiang Jiaxing 2 Offshore wind farm (CHN) | Huaneng Jiaxing 2 (300 MW, 50 × 6 MW) and Zheneng Jiaxing 1 (300 MW, Zhejiang Provincial New Energy Investment Group) are two farms with different owners; OpenStreetMap maps them as two adjacent areas: No. 1 at 30.39–30.52 N, No. 2 at 30.56–30.65 N | [link](https://www.openstreetmap.org/way/1300965884) |
@@ -793,7 +797,6 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | WP Mittelhausen (DEU) | MaStR’s “WP Mittelhausen” is 6 Vestas V90 connected in 2010 at Allstedt (12 MW); GEM’s Bornstedt-Holdenstedt (MVV, 8 turbines, 12 MW) is the neighbouring 8 GE 1.5sl of 2006: different farms (The Wind Power also lists Mittelhausen I and II as separate nearby farms) | [link](https://www.thewindpower.net/windfarm_en_3743_bornstedt-holdenstedt.php) |
 | Sommerland_B (DEU) | MaStR’s “Sommerland_B” is 6 Senvion MM100 at Elskop from 2016–2018 (12 MW), about 4 km south-west of BWP Süderauerdorf (4 Siemens SWT-3.0-113 of 2017), and not the BWP Sommerland on ing-holst’s list (1 MM100): different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Bürgerwindpark Norddeich (DEU) | MaStR’s “Bürgerwindpark Norddeich” is 5 Enercon E-92 at Norddeich from 2015–2016 (11.75 MW); GEM’s Schülp (wpd, 5 E-70 of 2014), Büttler Balje (Friedrichsgabekoog, 5 E-82 of 2014–2015) and Wesselburener Deichhausen (5 E-82 of 2014) are other turbines: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
-| Windpark Asseln (DEU) | MaStR’s “Windpark Asseln” is Asselner Windkraft’s turbines (E-40 serials 41075–41081 of January 1998, an E-66 of 1998, and units added in 2001, 2008, 2015 and 2020); GEM’s Lichtenau (1997, RWE) is RWE/Winkra’s E-40 of December 1997: a different set of turbines | [link](https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php) |
 | Dieksanderkoog TraGe 1 (DEU) | MaStR’s “Dieksanderkoog TraGe 1” is 6 Enercon E-70 E4 connected November–December 2012 at Friedrichskoog (13.8 MW); GEM’s Barlt West (14 MW, 2012) matches 4 Senvion 3.4M104 (2012) and a 3.2M114 (2016) at Barlt, about 8 km away: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | WP Neuenreuth (DEU) | MaStR’s “WP Neuenreuth” is 4 Nordex N131 connected January–February 2017 at Thiersheim/Höchstädt (13.2 MW); GEM’s Heidelheim (13 MW, 2017) matches 5 Vensys 112 (2017) at Selb, about 8 km away: different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Windpark Priesberg (DEU) | MaStR’s “Windpark Priesberg” is 5 Vensys 112 connected in September 2016 at Nohfelden (12.5 MW); GEM’s Sötern-Bosen (13 MW, 2016) matches 4 other units about 4 km north (3 Vestas V126/3.3 “Windpark Nohfelden-Eisen” of 2016 and an E-101 of 2014): different farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
