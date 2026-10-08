@@ -1,38 +1,360 @@
 [
-  {
-    "item": "S1",
-    "farm": "Zhejiang Taizhou 1 Offshore wind farm",
-    "src_code": 2,
-    "iso": "CHN",
-    "status": "write",
-    "proposal": "F5('CHN', 'Zhejiang Taizhou 1 Offshore wind farm', 'mp', url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ff7fd82e247a4ab49067854ada6fcc9b&channelId=dc8d821b39fb46908fd50924c86a7ac7',\n       zh='浙能台州1號 40 台東方風電 DEW-D7500-204（7.5 MW）：浙江海事局 2025-03-28 公布通航要素的通告（台航通〔2025〕0033 號，項目「已建成投用」）寫 39 台採單樁基礎、1 台採「樁—桶複合基礎」；樁桶複合基礎是先打單樁、再把桶形基礎套在單樁外以負壓下沉並灌漿連接（《水道港口》2024，以台州1號為例），仍以單樁為主體，所以全場列為單樁。標段 B（中鐵大橋局）為 19 座單樁＋1 座樁桶複合基礎。',\n       en='Zheneng Taizhou 1, 40 Dongfang DEW-D7500-204 (7.5 MW): the Zhejiang MSA navigation notice of 28 Mar 2025 (Tai Hang Tong [2025] 0033, project \"built and in service\") says 39 turbines stand on monopiles and one on a pile–bucket composite foundation; that foundation is a driven monopile with a bucket lowered over it by suction and grouted to it (Port & Waterway Engineering 2024, on Taizhou 1), still a monopile at its core, so the whole farm is listed as monopile. Lot B (China Railway Major Bridge) was 19 monopiles + 1 pile–bucket composite.'),",
-    "note_zh": "海事局通告（建成後）：39 台單樁＋1 台樁—桶複合基礎（單樁外套吸力桶）；建議列為單樁並在註記說明那 1 台。若維護者認為樁桶複合基礎應算複合筒，可改為 mx，parts=[['mp', 39], ['bk', 1]]。尺寸：海事局通告沒有水深與輪轂高度；機型名 DEW-D7500-204 暗示葉輪 204 m，但沒有來源明寫，不填。",
-    "note_en": "MSA notice (after completion): 39 monopiles + 1 pile–bucket composite (a monopile with a suction bucket around it); proposed as monopile with the one unit explained in the note. If the maintainer prefers to count the hybrid as a composite bucket, use mx with parts=[['mp', 39], ['bk', 1]]. Dimensions: the notice gives no depth or hub; the model name DEW-D7500-204 suggests a 204 m rotor but no source states it, so none.",
-    "why": "The MSA desktop page (www.msa.gov.cn/page/article.do?...) returns 403, but the same notice is served by the MSA mobile path msacncms_wap/pages/content.jhtml with the article id in lower-case hex without dashes, which the checker can read. New route for other farms too.",
-    "sources": [
-      {"url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ff7fd82e247a4ab49067854ada6fcc9b&channelId=dc8d821b39fb46908fd50924c86a7ac7", "quote": "浙能台州1号海上风电项目已建成投用，为保护风机、海缆安全"},
-      {"url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ff7fd82e247a4ab49067854ada6fcc9b&channelId=dc8d821b39fb46908fd50924c86a7ac7", "quote": "采用40台东方风电DEW-D7500-204风电机组，单机容量7.5MW，其中39台风机基础采用单桩基础型式，另外1台采用桩—桶复合基础型式"},
-      {"url": "https://search.napstic.cn/literature/periodical/010sdgk202403018", "quote": "桩桶复合基础是一种新型的单桩基础与桶体基础相结合的海上风电基础结构"},
-      {"url": "https://search.napstic.cn/literature/periodical/010sdgk202403018", "quote": "该施工技术和质量控制方法在浙江台州1 号海上风电项目得到了成功应用"},
-      {"url": "https://www.cpem.org.cn/list99/60587.html", "quote": "风机基础施工与风电机组安装工程标段B，主要包括19个机位单桩基础施工、1个机位桩桶复合基础施工及20台风机安装施工"}
-    ]
-  },
-  {
-    "item": "S2",
-    "farm": "Tan Phu Dong 2 (Tien Giang, GEC)",
-    "src_code": 0,
-    "iso": "VNM",
-    "status": "write",
-    "proposal": "F5('VNM', 'Tan Phu Dong 2 (Tien Giang, GEC)', 'pc', url='https://lethycorp.com/en/du-an-da-thi-cong/tan-phu-dong-2-html',\n       zh='GEC（TTC 集團）新富東2號 12 座（2021-10-30 送電，越南銀行協會）：黎蒂建設承做 PHC D800 樁打設並完成風機承台基礎，即 PHC 群樁＋承台（與新富東1號相同）。',\n       en='GEC’s (TTC Group) Tan Phu Dong 2, 12 turbines (energised 30 Oct 2021, Vietnam Banks Association): Le Thy drove the PHC D800 piles and completed the turbine pier foundations, i.e. PHC pile group with cap (as at Tan Phu Dong 1).'),\nD('VNM', 'Tan Phu Dong 2 (Tien Giang, GEC)', rotor=150, url=['https://power-technology.com/?p=174203', 'https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW'], zh='Power Technology：12 部 Vestas V150-4.2 MW；Vestas：葉輪直徑 150 m。水深與輪轂高度未查得。', en='Power Technology: 12 Vestas V150-4.2 MW; Vestas: 150 m rotor. Depth and hub height not found.'),",
-    "note_zh": "黎蒂建設（承包商）專案頁：新富東2號工程項目為「施打 PHC D800 樁並完成風機承台基礎」；越南銀行協會：12 座風機在前江省鵝貢東縣新城社海域，2021-10-30 送電。",
-    "note_en": "Contractor Le Thy’s project page: the Tan Phu Dong 2 scope was driving PHC D800 piles and completing the turbine pier foundations; Vietnam Banks Association: 12 turbines at sea off Tan Thanh commune, energised 30 Oct 2021.",
-    "why": "Same contractor and same wording as the existing Tan Phu Dong 1 row (pc). The page does not give a count, but the farm has only 12 turbines and Le Thy's scope covers the turbine foundations of the project.",
-    "sources": [
-      {"url": "https://lethycorp.com/en/du-an-da-thi-cong/tan-phu-dong-2-html", "quote": "Project: Construction of Tan Phu Dong 2 Wind Power Plant Item: Construction of PHC D800 piles and completion of wind turbine pier foundations"},
-      {"url": "https://vnba.org.vn/vi/vietcombank-cung-tap-doan-ttc-khanh-thanh-nha-may-dien-gio-tan-phu-dong-2-4804.htm", "quote": "Địa điểm xây dựng 12 trụ turbine gió tại khu vực biển thuộc xã Tân Thành, huyện Gò Công Đông, tỉnh Tiền Giang."},
-      {"url": "https://vnba.org.vn/vi/vietcombank-cung-tap-doan-ttc-khanh-thanh-nha-may-dien-gio-tan-phu-dong-2-4804.htm", "quote": "có công suất thiết kế 50MW được Tập đoàn TTC đầu tư xây dựng từ tháng 03/2021 và đóng điện đúng tiến độ ngày 30/10/2021"},
-      {"url": "https://power-technology.com/?p=174203", "quote": "The company provided 12 units of V150-4.2 MW turbines."},
-      {"url": "https://www.vestas.com/en/energy-solutions/onshore-wind-turbines/4-mw-platform/V150-4-2-MW", "quote": "Rotor diameter 150m"}
-    ]
-  }
+ {
+  "item": "S3",
+  "farm": "CGN Shanwei Jiazi I",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row (foundation type not in any construction source). Dimensions ready once a foundation row exists: D('CHN', 'CGN Shanwei Jiazi I', depth=(33, 39), hub=100, rotor=168, url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167', zh='汕尾海事局 2025-08 通航安全技術參數通告（已備案）：水深 33–39 m，78 台 6.45 MW，葉輪直徑 168 m、輪轂高度 100 m。', en='Shanwei MSA navigation-parameter notice (Aug 2025, filed after completion): depth 33–39 m, 78 × 6.45 MW, rotor 168 m, hub 100 m.')",
+  "note_zh": "海事局建成後備案通告給出水深 33–39 m、輪轂 100 m、葉輪 168 m（本站機型欄寫 MySE6.45-180，葉輪 180 m，與通告的 168 m 不符，待查）；基礎型式仍只有研報的設計（70 單樁＋8 四樁導管架），沒有施工紀錄。",
+  "note_en": "The MSA notice filed after completion gives depth 33–39 m, hub 100 m and rotor 168 m (the record’s turbine field says MySE6.45-180, i.e. a 180 m rotor, which conflicts with 168 m; to check). Foundation type still only from the design (70 monopiles + 8 four-pile jackets); no construction record.",
+  "why": "MSA mobile pages work (see S1). The Jiazi I construction notices (Nov 2021, Mar 2022) list only vessels and areas, no foundation type. Shanwei gkmlpt says post 787473 (Jiazi II sea-use report) is not a catalogue post, so a Jiazi I supplementary report could not be listed.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167",
+    "quote": "中广核汕尾甲子一海上风电场项目已完成通航安全技术参数备案"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167",
+    "quote": "水深在33m-39m之间，共布置78台单机容量为6.45MW的风机，装机容量为500MW"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167",
+    "quote": "风机叶轮直径168m，轮毂高度100m"
+   }
+  ]
+ },
+ {
+  "item": "S4",
+  "farm": "CGN Shanwei Jiazi II",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row (monopiles only in the Dec 2021 pre-construction adjustment report). Dimensions ready once a foundation row exists: D('CHN', 'CGN Shanwei Jiazi II', depth=(32, 37), hub=127, url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=23ac52d2dcf1491599a30f22c5a5afaf', zh='汕尾海事局 2025-08 通航安全技術參數通告（已備案）：水深 32–37 m，50 台 8.0 MW，輪轂高度 127 m（只寫葉片長 94 m，未寫葉輪直徑）。', en='Shanwei MSA navigation-parameter notice (Aug 2025, filed after completion): depth 32–37 m, 50 × 8.0 MW, hub 127 m (blade length 94 m; rotor diameter not stated).')",
+  "note_zh": "海事局建成後備案通告：水深 32–37 m、50 台 8.0 MW、葉片長 94 m、輪轂 127 m；基礎型式仍只有施工前的調整報告（單樁）。",
+  "note_en": "MSA notice filed after completion: depth 32–37 m, 50 × 8.0 MW, 94 m blades, hub 127 m. Foundation type still only from the pre-construction adjustment report (monopiles).",
+  "why": "The notice describes the substation jacket but not the turbine foundations. No Jiazi II construction notice with a foundation type in the Guangdong MSA list (684 wind titles scanned).",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=23ac52d2dcf1491599a30f22c5a5afaf",
+    "quote": "水深在32m-37m之间，共布置50台单机容量为8.0MW的风机，装机容量为400MW"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=23ac52d2dcf1491599a30f22c5a5afaf",
+    "quote": "风机叶片长度94m，轮毂高度127m"
+   }
+  ]
+ },
+ {
+  "item": "S5",
+  "farm": "Huaneng Cangnan 4",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row (mixed, counts unknown). Dimensions ready once a foundation row exists: D('CHN', 'Huaneng Cangnan 4', depth=(26, 34), url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa', zh='溫州海事局 2025-12 通航要素通告（已建成投用）：水深約 26–34 m，77 台 5.2 MW。', en='Wenzhou MSA notice (Dec 2025, built and in service): depth about 26–34 m, 77 × 5.2 MW.')",
+  "note_zh": "建成通告確認 77 台 5.2 MW、水深 26–34 m；2021 年施工通告的作業為鋼管樁沉樁、鋼套箱、鋼筋混凝土澆築（高樁承台的工序），2026 年又有「單樁基礎固化土沖刷防護」工程，所以是高樁承台＋單樁混合，各幾座未查到。",
+  "note_en": "The completion notice confirms 77 × 5.2 MW and 26–34 m depth; the 2021 construction notice lists steel-pile driving, steel jacket boxes and reinforced-concrete work (pile-cap steps), and a 2026 notice covers scour protection of the monopile foundations, so the farm mixes high-rise pile caps and monopiles; counts not found.",
+  "why": "Zhejiang MSA list (557 wind titles) scanned; no notice gives the split. cncn.gov.cn (2025 EIA notice) still unreachable.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa",
+    "quote": "因华能苍南4号海上风电项目已建成投用"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa",
+    "quote": "水深约26米～34米"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa",
+    "quote": "工程安装77台5.2兆瓦风电机组"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=6583234d72a3464fb3705f8550641186",
+    "quote": "钢管桩沉桩，防撞构件等外附件安装、灌浆，钢套箱安装、钢筋混凝土施工，钢套箱拆除"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=229eab3244aa44168457d76e415c9443",
+    "quote": "华能苍南4号海上风电项目单桩基础固化土冲刷防护施工工程"
+   }
+  ]
+ },
+ {
+  "item": "S6",
+  "farm": "Huadian Yuhuan 1",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row yet (south zone type only from self-media). When settled: mx parts=[['pc', 22], ['mp', 10]]. Dimensions ready: D('CHN', 'Huadian Yuhuan 1', depth=(7, 15), url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=dc77012a775444e8a92c8753e143397b', zh='台州海事局 2025-06 通航要素通告（已建成投用）：水深約 7–15 m，32 台、實際容量 229 MW。', en='Taizhou MSA notice (Jun 2025, built and in service): depth about 7–15 m, 32 turbines, 229 MW.')",
+  "note_zh": "建成通告：32 台、229 MW（北區 22＋南區 10）、水深 7–15 m；北區 22 座高樁承台已有施工來源，南區 10 座單樁仍只有自媒體與供貨招標，南區施工通告未寫型式。",
+  "note_en": "Completion notice: 32 turbines, 229 MW (22 north + 10 south), depth 7–15 m; the 22 north-zone high-rise pile caps have a construction source, but the 10 south-zone monopiles still rest on a self-media post and a supply tender; the south-zone construction notice (Oct 2023) gives no type.",
+  "why": "hhi.com.cn 503, zjtz.gov.cn reset.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=dc77012a775444e8a92c8753e143397b",
+    "quote": "华电玉环1号海上风电场一期工程项目已建成投用"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=dc77012a775444e8a92c8753e143397b",
+    "quote": "水深约为7-15m"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=dc77012a775444e8a92c8753e143397b",
+    "quote": "建设32台风机，实际容量为229MW"
+   }
+  ]
+ },
+ {
+  "item": "S7",
+  "farm": "CGN Xiangshan Tuci",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": null,
+  "note_zh": "建成通告（2024-11）：中廣核象山塗茨已建成投用，38 台 8 MW，與本站紀錄相符（先前擔心「尚未建設」是 2019 年核准時的狀態）；基礎型式未查到，施工通告只寫「風機基礎施工」。",
+  "note_en": "Completion notice (Nov 2024): CGN Xiangshan Tuci is built and in service with 38 × 8 MW, matching the record (the earlier ‘not yet built’ worry reflects the 2019 consent stage); foundation type not found, the construction notices only say ‘turbine foundation works’.",
+  "why": "No foundation type in any Ningbo MSA notice.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=bbc12c15a2fe47e6ac5ceb280b1bc877",
+    "quote": "中广核象山涂茨海上风电场已建成投用"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=bbc12c15a2fe47e6ac5ceb280b1bc877",
+    "quote": "场区建设有38台单机8MW的风力发电机组"
+   }
+  ]
+ },
+ {
+  "item": "S8",
+  "farm": "Zhuhai Guishan",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": null,
+  "note_zh": "廣州海事局 2025-07：桂山示範項目已完工，建成 200 MW、49 台；一期 37 台為導管架，後續與二期有單樁（世紀新能源網），2024 年又有「一期後續及二期 EPC 筒型基礎專項工程」，所以至少三種型式，各幾座未查到。本站 198 MW 可改 200 MW（待確認）。",
+  "note_en": "Guangzhou MSA (Jul 2025): the Guishan demonstration project is complete, 200 MW with 49 turbines; phase 1’s 37 units are on jackets, the follow-up/phase 2 has monopiles (ne21), and a 2024 notice covers a ‘bucket-foundation special EPC’ for the follow-up and phase 2, so at least three types; counts not found. Record 198 MW could become 200 MW (to confirm).",
+  "why": "Turbine coordinate PDF attached to the notice has no foundation column.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=4ab6834f5da342eda39986faf7b5b0fa",
+    "quote": "珠海桂山海上风电场示范项目已完工，并进行通航安全技术参数备案"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=4ab6834f5da342eda39986faf7b5b0fa",
+    "quote": "项目建成装机容量200MW，共49台风机"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=314bf3fb97614b4fa873732993c4c24e",
+    "quote": "筒型基础专项EPC工程"
+   }
+  ]
+ },
+ {
+  "item": "S9",
+  "farm": "Fujian Pingtan Dalian Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": null,
+  "note_zh": "平潭海事 2020-08 施工通告：C 區「18 台單樁基礎及 20 台風機安裝」，另一標為 A 區 33 台＋C 區 8 台「風機基礎及安裝」（2021-04 改為 A 區 36＋C 區 5）；只確定 C 區 18 座單樁，其餘型式未寫。",
+  "note_en": "Pingtan MSA construction notices (Aug 2020): zone C ‘18 monopile foundations and 20 turbine installations’; the other lot is ‘33 in zone A + 8 in zone C, foundations and installation’ (36 + 5 from Apr 2021); only the 18 zone-C monopiles are certain, other types not stated.",
+  "why": "SASAC says seven foundation types; per-type counts still missing.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=b9b9bb4f73e141bf8b8f0ce237f2e79b",
+    "quote": "中广核平潭大练海上风电项目C区18台单桩基础及20台风机安装工程作业"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=4f890280dcd144849ee3c56d2198a3f9",
+    "quote": "中广核平潭大练海上风电场项目A区33台和C区8台风机基础及安装工程作业"
+   }
+  ]
+ },
+ {
+  "item": "S10",
+  "farm": "Longyuan Putian Nanri Island",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": null,
+  "note_zh": "莆田海事 2020-01 施工通告：一期風機基礎 IV 標為「26 台嵌岩單樁工程」；加上 4 台高樁承台樣機，其餘 70 台型式未查到。",
+  "note_en": "Putian MSA construction notice (Jan 2020): phase 1 foundation lot IV is ‘26 rock-socketed monopiles’; with the 4 high-rise pile-cap prototypes, the type of the other 70 is still unknown.",
+  "why": "Other lot notices (III, VIII) do not state types.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=13fdc34debc743a2a5f264a127f5acdc",
+    "quote": "26台嵌岩单桩工程"
+   }
+  ]
+ },
+ {
+  "item": "S11",
+  "farm": "Putian Pinghai Bay Area F (Sanchuan)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row. Depth ready once a foundation row exists: D('CHN', 'Putian Pinghai Bay Area F (Sanchuan)', depth=(10, 25), url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0', zh='莆田海事局 2025-12 通航要素通告（已建成）：水深 10–25 m（平均潮位以下），3 台 6 MW＋26 台 7 MW。', en='Putian MSA notice (Dec 2025, built): depth 10–25 m below mean tide, 3 × 6 MW + 26 × 7 MW.')",
+  "note_zh": "建成通告：3 台 6 MW＋26 台 7 MW、水深 10–25 m；基礎型式未查到（相鄰同業主的石城為高樁承台，不能套用）。",
+  "note_en": "Completion notice: 3 × 6 MW + 26 × 7 MW, depth 10–25 m; foundation type not found (neighbouring Shicheng, same owner group, is on pile caps, which cannot be assumed here).",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0",
+    "quote": "海域水深10m～25m（平均潮位以下水深）"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0",
+    "quote": "采用3台6MW、26台7MW风电机组"
+   }
+  ]
+ },
+ {
+  "item": "S12",
+  "farm": "Fuqing Xinghua Bay Phase 2",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": null,
+  "note_zh": "福州海事局 2025-09 建成通告：二期 45 台、280 MW；基礎型式未寫。",
+  "note_en": "Fuzhou MSA completion notice (Sep 2025): phase 2 has 45 turbines, 280 MW; no foundation type.",
+  "why": "CTG sites still unreachable.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=08006acc4b1d4dabb54804c4d47279c8",
+    "quote": "二期项目场址中心距岸线约2.2km，共安装45台风机，项目装机容量280MW"
+   }
+  ]
+ },
+ {
+  "item": "S13",
+  "farm": "CTG Yangjiang Qingzhou 6",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Yangjiang MSA notices name three foundation/installation lots (I CCCC Third Harbour, II China Railway Major Bridge, III Qingzhou 6/7 part) but no types; no completion notice yet; Yangjiang natural-resources gkmlpt list (113 wind/sea-use posts, reachable with a browser User-Agent via /yjzrzy/gkmlpt/api/all/0?page=N&sid=662019) has no Qingzhou 6 report after 2021.",
+  "sources": []
+ },
+ {
+  "item": "S14",
+  "farm": "CGN Fanshi II",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Lot II (China Railway Major Bridge, 2026-07) and lot III (CGN Engineering, 2025-07) construction notices give no type; the Jan 2025 supplementary report (all 58 four-pile jackets) is pre-construction (T+0 schedule). Lot I/III construction records still missing.",
+  "sources": []
+ },
+ {
+  "item": "S15",
+  "farm": "Datang Danzhou CZ3 (site 1)",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Hainan MSA notices for lot I (turbine and substation foundations) and lot II give areas and vessels only; no completion notice.",
+  "sources": []
+ },
+ {
+  "item": "S16",
+  "farm": "CGN Shanwei Jiazi I (see S3)",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "see S3",
+  "sources": []
+ },
+ {
+  "item": "S17",
+  "farm": "Putian Pinghai Bay Phase 1 / Phase 2 / Phase 3",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Fujian MSA notices for phase 2 lots I/II and phase 3 foundations give no type. Phase 2: Offshore Energy (search result, not checked) says monopiles, pile caps and a monopile–caisson; NDB evaluation brief has no foundation data.",
+  "sources": []
+ },
+ {
+  "item": "S18",
+  "farm": "Fujian Pingtan Changjiang'Ao Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "MSA notices list foundation/turbine works and a 2022 ‘partial foundation removal’ job, no types.",
+  "sources": []
+ },
+ {
+  "item": "S19",
+  "farm": "Fujian Pingtan Straits Road/Railroad Bridge Illumination Project Offshore Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "MSA notices (2021) list works only.",
+  "sources": []
+ },
+ {
+  "item": "S20",
+  "farm": "V1-3 Ben Tre (BTRE)",
+  "src_code": 0,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "No contractor page found (Sigma EPC); Phan Vu's 'Ba Tri' D800 pile supply cannot be tied to V1-3.",
+  "sources": []
+ },
+ {
+  "item": "S21",
+  "farm": "Bac Lieu Phase 1 / Phase 2",
+  "src_code": 0,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "TEDI WECCO, Vietnamese Wikipedia and Tien Phong (octagonal concrete base about 17 m across) give no pile type.",
+  "sources": []
+ },
+ {
+  "item": "S22",
+  "farm": "Duyên Hai wind farm · 1",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only KBSV (10 turbines installed, Q3 2025); no foundation source.",
+  "sources": []
+ },
+ {
+  "item": "S23",
+  "farm": "Tân An 1 offshore wind farm",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "PLC page covers port lifting only.",
+  "sources": []
+ }
 ]

@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.9 — 2026-10-08
+
+- Research round 14, second part: foundations in southern China and Vietnam (quotes checked with `check_quotes.py`; see [foundations](docs/foundations.en.md)):
+  - Zheneng Taizhou 1: 39 of its 40 turbines on monopiles and one on a pile–bucket composite (still a monopile at its core, so the farm is listed as monopile; Zhejiang MSA completion notice, 2025); Vietnam's Tan Phu Dong 2: 12 turbines on PHC pile groups with caps.
+  - Pinghai Bay area F's turbines filled in as 3 × 6 MW + 26 × 7 MW (Putian MSA completion notice).
+  - Operating offshore farms with a known foundation type: 278 of 331 (85.2% of capacity); 96 of China's 141 and 15 of Vietnam's 20.
+
 ## v2.30.8 — 2026-10-08
 
 - Research round 14 (quotes checked with `check_quotes.py`; see the 8 Oct 2026 "eighth batch" in the [clean-up log](docs/data-cleanup.en.md) and [foundations](docs/foundations.en.md)):
