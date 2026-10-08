@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.10 — 2026-10-08
+
+- Research round 15 (quotes checked with `check_quotes.py`; see [foundations](docs/foundations.en.md)):
+  - From Jiangsu MSA construction notices: Rudong H5 (75), GCL Rudong H15 (40), Guoxin Rudong H2 (70, depth added), Huaneng Rudong H3 (80) and Jiangjiasha H1 phase 2 (15) all stand on monopiles.
+
 ## v2.30.9 — 2026-10-08
 
 - Research round 14, second part: foundations in southern China and Vietnam (quotes checked with `check_quotes.py`; see [foundations](docs/foundations.en.md)):
