@@ -3,10 +3,10 @@
 "source": "Bundesnetzagentur, Marktstammdatenregister (MaStR), Gesamtdatenexport: EinheitenWind",
 "url": "https://www.marktstammdatenregister.de/MaStR/Datendownload",
 "license": "Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0); © Bundesnetzagentur | Marktstammdatenregister",
-"farms": 4873,
-"mw": 24311,
+"farms": 4884,
+"mw": 24344,
 "mastr_mw": 82643,
-"site_mw": 53254
+"site_mw": 53262
 },
 "parks": [
 {
@@ -3230,26 +3230,6 @@
 "n": 5
 },
 {
-"name": "Windpark Offenheim",
-"lat": 49.7411,
-"lon": 8.0258,
-"mw": 15.38,
-"year": 2013,
-"ph": [
-[
-2013,
-6.15
-],
-[
-2014,
-9.23
-]
-],
-"turbine": "5 x Vestas Vestas V112-3.0 MW",
-"gem": "Erbes-Büdesheim",
-"n": 5
-},
-{
 "name": "Windpark Teutleben",
 "lat": 50.9558,
 "lon": 10.5466,
@@ -4134,17 +4114,6 @@
 ],
 "turbine": "",
 "gem": "Niebüll",
-"n": 4
-},
-{
-"name": "WPL",
-"lat": 54.6736,
-"lon": 9.0357,
-"mw": 13.48,
-"year": 2013,
-"ph": 0,
-"turbine": "4 x Senvion 3.4M104",
-"gem": "Bargum",
 "n": 4
 },
 {
@@ -6691,6 +6660,26 @@
 "turbine": "",
 "gem": "Salz",
 "n": 2
+},
+{
+"name": "WP Schülp Groth Hagge",
+"lat": 54.2372,
+"lon": 8.9446,
+"mw": 10.4,
+"year": 1994,
+"ph": [
+[
+1994,
+1.2
+],
+[
+2010,
+9.2
+]
+],
+"turbine": "",
+"gem": "Schülp",
+"n": 6
 },
 {
 "name": "Windpark Twerberg",
@@ -10522,6 +10511,17 @@
 "n": 3
 },
 {
+"name": "Windpark Grönland",
+"lat": 53.8303,
+"lon": 9.5804,
+"mw": 8.39,
+"year": 2015,
+"ph": 0,
+"turbine": "",
+"gem": "Horst (Holstein)",
+"n": 3
+},
+{
 "name": "Wortberg",
 "lat": 51.6227,
 "lon": 9.3648,
@@ -10656,6 +10656,26 @@
 ],
 "turbine": "",
 "gem": "Twistringen",
+"n": 3
+},
+{
+"name": "WP Schülp West",
+"lat": 54.2355,
+"lon": 8.9072,
+"mw": 8.3,
+"year": 2011,
+"ph": [
+[
+2011,
+2.3
+],
+[
+2012,
+6.0
+]
+],
+"turbine": "",
+"gem": "Schülp",
 "n": 3
 },
 {
@@ -14678,6 +14698,17 @@
 "ph": 0,
 "turbine": "2 x Senvion 3.4M",
 "gem": "Bosbüll",
+"n": 2
+},
+{
+"name": "Windpark Erbes-Büdesheim",
+"lat": 49.757,
+"lon": 8.0561,
+"mw": 6.74,
+"year": 2012,
+"ph": 0,
+"turbine": "2 x Senvion RE3.4M104",
+"gem": "Alzey",
 "n": 2
 },
 {
@@ -21321,6 +21352,17 @@
 "n": 2
 },
 {
+"name": "Lütjenholm",
+"lat": 54.67,
+"lon": 9.0425,
+"mw": 4.8,
+"year": 2025,
+"ph": 0,
+"turbine": "1 x Nordex SE N-133",
+"gem": "Lütjenholm",
+"n": 1
+},
+{
 "name": "Mallerstetten",
 "lat": 49.0515,
 "lon": 11.5354,
@@ -22346,6 +22388,17 @@
 "ph": 0,
 "turbine": "",
 "gem": "Wangels",
+"n": 2
+},
+{
+"name": "Schülp Jarrenwisch 1",
+"lat": 54.2257,
+"lon": 8.9394,
+"mw": 4.6,
+"year": 2016,
+"ph": 0,
+"turbine": "2 x ENERCON E-70 E4",
+"gem": "Oesterwurth",
 "n": 2
 },
 {
@@ -24934,6 +24987,17 @@
 "ph": 0,
 "turbine": "1 x Vestas Vestas V150/150/4200",
 "gem": "Seevetal",
+"n": 1
+},
+{
+"name": "Repowering Kooperation Högel",
+"lat": 54.6364,
+"lon": 9.0775,
+"mw": 4.2,
+"year": 2024,
+"ph": 0,
+"turbine": "1 x ENERCON E-138 EP3 E2",
+"gem": "Högel",
 "n": 1
 },
 {
@@ -31107,6 +31171,17 @@
 "n": 1
 },
 {
+"name": "BWP Hollmark",
+"lat": 54.7101,
+"lon": 9.0609,
+"mw": 3.2,
+"year": 2020,
+"ph": 0,
+"turbine": "1 x Siemens Wind Power SWT-3.2-113",
+"gem": "Enge-Sande",
+"n": 1
+},
+{
 "name": "Gau-Heppenheim I",
 "lat": 49.7331,
 "lon": 8.1656,
@@ -34897,6 +34972,17 @@
 "ph": 0,
 "turbine": "1 x ENERCON E-115",
 "gem": "Kierspe",
+"n": 1
+},
+{
+"name": "Windpark AZH 3",
+"lat": 49.754,
+"lon": 8.0646,
+"mw": 3.0,
+"year": 2016,
+"ph": 0,
+"turbine": "1 x ENERCON E-115",
+"gem": "Alzey",
 "n": 1
 },
 {
@@ -40594,6 +40680,39 @@
 "ph": 0,
 "turbine": "1 x ENERCON E82 - E2",
 "gem": "Altenbeken",
+"n": 1
+},
+{
+"name": "Schülp Nordwest",
+"lat": 54.2395,
+"lon": 8.9134,
+"mw": 2.3,
+"year": 2010,
+"ph": 0,
+"turbine": "1 x ENERCON Enercon E-70",
+"gem": "Schülp",
+"n": 1
+},
+{
+"name": "Schülp Thöming 2",
+"lat": 54.2335,
+"lon": 8.9418,
+"mw": 2.3,
+"year": 2011,
+"ph": 0,
+"turbine": "1 x ENERCON E-70 E4",
+"gem": "Karolinenkoog",
+"n": 1
+},
+{
+"name": "Schülp Thöming 3",
+"lat": 54.2431,
+"lon": 8.9459,
+"mw": 2.3,
+"year": 2010,
+"ph": 0,
+"turbine": "1 x ENERCON E-70 E4",
+"gem": "Karolinenkoog",
 "n": 1
 },
 {
@@ -51131,6 +51250,17 @@
 "ph": 0,
 "turbine": "2 x Sonstige V52",
 "gem": "Binnen",
+"n": 2
+},
+{
+"name": "Schülp",
+"lat": 54.2283,
+"lon": 8.942,
+"mw": 1.7,
+"year": 2001,
+"ph": 0,
+"turbine": "2 x Vestas V52",
+"gem": "Oesterwurth",
 "n": 2
 },
 {

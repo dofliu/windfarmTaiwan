@@ -196,38 +196,5 @@
     "check": "OK"
    }
   ]
- },
- {
-  "item": "8c. Hanuman 10 (Thailand, 80 MW, Energy Absolute) — missing",
-  "farm": "(none)",
-  "src_code": null,
-  "iso": "THA",
-  "status": "missing",
-  "proposal": "(missing) Hanuman 10 wind farm — Banchuan Development Co Ltd (Energy Absolute PCL); Ban Chuan subdistrict, Bamnet Narong district, Chaiyaphum; 80 MW, 32 × Siemens Gamesa 2.5 MW (ADB: the five Hanuman farms use 103 SG 2.5 MW, hub 153 m, rotor 126 m); COD 13 Apr 2019 (EA). No citable coordinates (Overpass unreachable; the ADB report only gives coordinates of noise receptors).",
-  "note_zh": "能源絕對公司（EA）的 Hanuman 1、5、8、9、10 共 260 MW，資料裡只有 1、5、8、9（180 MW）。Hanuman 10（80 MW、32 部西門子歌美颯 2.5 MW，Banchuan Development 公司，猜也蓬府 Bamnet Narong 縣 Ban Chuan 分區）2019-04-13 商轉。「Subyai (Chaiyaphum)」80 MW 是 EGCO 2016 年的另一座，不是它；泰國沒有其他紀錄涵蓋 Hanuman 10。沒有可引用的座標。",
-  "note_en": "Energy Absolute’s Hanuman 1, 5, 8, 9 and 10 total 260 MW; the data has only 1, 5, 8 and 9 (180 MW). Hanuman 10 (80 MW, 32 Siemens Gamesa 2.5 MW, Banchuan Development Co, Ban Chuan subdistrict, Bamnet Narong district, Chaiyaphum) entered commercial operation on 13 Apr 2019. “Subyai (Chaiyaphum)” (80 MW) is EGCO’s separate 2016 farm; no other Thai record covers Hanuman 10. No citable coordinates.",
-  "why": "Coordinates missing (Overpass blocked).",
-  "sources": [
-   {
-    "url": "https://www.kaohoon.com/?p=289650",
-    "quote": "has announced that the 80-MW Wind Power Plant (Project Hanuman 10 ) at Chaiyaphum province of EA’s Subsidiary (Banchuan Development Co.,Ltd.) has completely connected to power system of",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.kaohoon.com/?p=289650",
-    "quote": "commenced the commercial operation on April 13, 2019 : 12.00 hrs.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.kaohoon.com/?p=289650",
-    "quote": "all 5 Hanuman projects ( Hanuman 1, 5, 8, 9, 10 projects , the aggregate capacity of 260 MW ) have already achieved COD.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.adb.org/sites/default/files/project-documents/53255/53255-001-esmr-en_9.pdf",
-    "quote": "5 HNM 10 (Banchuan Development Co., Ltd.) 80 32 Ban Chuan subdistrict, Bamnet Narong district Total 260 103 The Hanuman Wind Project utilises 103 Siemens Gamesa 2.5MW wind turbines with a hub height of 153 meters and rotor diameter of 126 meters.",
-    "check": "OK"
-   }
-  ]
  }
 ]

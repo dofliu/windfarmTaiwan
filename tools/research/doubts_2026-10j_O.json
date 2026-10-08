@@ -1,0 +1,69 @@
+[
+ {
+  "item": "2. TDC’s Lạc Hòa 1 (Sóc Trăng wind farm No. 5, 30 MW) — coordinates and the last 5 MW",
+  "farm": "(none)",
+  "src_code": null,
+  "iso": "VNM",
+  "status": "missing",
+  "proposal": "(missing, no change) Lạc Hòa 1 / Sóc Trăng wind farm No. 5 — Vinh Chau–TDC Renewable Energy JSC; coastal flats of Lạc Hòa commune and ward 2, Vĩnh Châu (now Cần Thơ); 30 MW, 6 × 5 MW; 25 MW at COD by 31 Oct 2021, the other 5 MW still “COD dossier not submitted” on 30 Apr 2025. Still no citable coordinates.",
+  "note_zh": "仍沒有可引用的座標。新試的路線：(1) OSM API 永珠一帶（105.93–106.20°E、9.26–9.44°N）沒有任何具名的風場、風機或升壓站，只有「Trạm Biến áp 110 kV Vĩnh Châu」；沿海岸有一串 5 部無名風機（9.312–9.331°N、106.021–106.078°E，changeset 179786102，註解只寫「Update」），位置與「樂和社與第 2 坊的海岸灘地」相符，但沒有名稱或業主，不能單獨引用。(2) OpenInfraMap 的越南電廠清單裡沒有這座。(3) GEM 2026-02 也沒有（GEM 的「Lạc Hòa wind farm」一期是 UPC／AC Energy 的和東社那座；「Sóc Trăng 4」是 4 號）。(4) thewindpower.net 的永珠條目註明「Precise localization: No」。最後 5 MW：EVN 2025-04-30 表仍是「未送 COD 文件」，之後沒找到新的追蹤表或公告。",
+  "note_en": "Still no citable coordinates. New routes tried: (1) the OSM API around Vĩnh Châu (105.93–106.20 E, 9.26–9.44 N) has no named wind farm, turbine or substation except “Trạm Biến áp 110 kV Vĩnh Châu”; a string of 5 unnamed turbines along the shore (9.312–9.331 N, 106.021–106.078 E, changeset 179786102, comment just “Update”) fits “the coastal flats of Lạc Hòa commune and ward 2”, but without a name or operator it cannot be cited on its own. (2) OpenInfraMap’s list of Vietnamese plants does not have it. (3) Nor does GEM 2026-02 (GEM’s “Lạc Hòa wind farm” phase 1 is UPC / AC Energy’s plant in Hòa Đông; “Sóc Trăng 4” is No. 4). (4) thewindpower.net’s Vĩnh Châu entry says “Precise localization: No”. The last 5 MW: EVN’s 30 Apr 2025 tracker still says “COD dossier not submitted”; no later tracker or announcement found.",
+  "why": "No named OSM feature, no provincial sea-area decision with coordinates found (search returned only other investors’ decisions), no newer EVN tracker located. If someone adds name/operator tags to the 5 shore turbines in OSM, they could be used.",
+  "sources": [
+   {
+    "url": "https://vietnamfinance.vn/soc-trang-khanh-thanh-2-nha-may-dien-gio-tong-von-dau-tu-gan-3000-ty-dong-d79124.html",
+    "quote": "Nhà máy điện gió số 5 (nhà máy điện gió Lạc Hòa) thuộc Công ty cổ phần Năng lượng tái tạo Vĩnh Châu làm chủ đầu tư, được khởi công xây dựng từ tháng 12/2019, tại bãi bồi ven biển xã Lạc Hòa và phường 2 (thị xã Vĩnh Châu)."
+   },
+   {
+    "url": "https://www.evn.com.vn/userfile/User/giangtcdl/files/2025/5/30042025capnhatCODduanNLTTchuyentiep-20250513162804678.pdf",
+    "quote": "70 NMĐ gió Lạc Hòa Giai đoạn 1 Gió 5 Chưa gửi hồ sơ COD"
+   }
+  ]
+ },
+ {
+  "item": "3d. “Dong Hai 1 Offshore wind farm” (GEM, Bạc Liêu, 100 MW) — its point looks like Hòa Bình 2’s site",
+  "farm": "Dong Hai 1 Offshore wind farm",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "lead",
+  "proposal": "(lead, no rule yet) GEM’s approximate point 9.101 N, 105.601 E is about 0.9 km from turbine HB02-08 of the OSM relation “Nhà máy điện gió Hòa Bình 2” (and in Vĩnh Hậu commune by OSM boundaries), whereas Dong Hai 1 is in Long Điền Đông commune of the former Đông Hải district. No citable position for Dong Hai 1 found.",
+  "note_zh": "GEM 東海 1 號第 1–2 期的概略點離 OSM「和平 2 號」風場的 HB02-08 風機只有約 0.9 km（Nominatim 反查在 Vĩnh Hậu 社，原和平縣），但東海 1 號在原東海縣 Long Điền Đông 社（Báo Đấu thầu）。OSM 在 105.40–105.60°E、8.94–9.10°N 有兩群 26 部的無名風機（平均 9.0638°N、105.5510°E 與 9.0762°N、105.5812°E，changeset 157326799，註解只寫「Wind farm」），其中一群很可能是東海 1 號（26 部），但沒有名稱，不能引用。3a、3b 暫用的就是這個點。",
+  "note_en": "GEM’s approximate point for Dong Hai 1 phases 1–2 is only about 0.9 km from turbine HB02-08 of the OSM “Hòa Bình 2” wind farm (reverse-geocoded to Vĩnh Hậu commune, former Hòa Bình district), but Dong Hai 1 is in Long Điền Đông commune of the former Đông Hải district (Báo Đấu thầu). OSM has two unnamed 26-turbine groups in 105.40–105.60 E, 8.94–9.10 N (means 9.0638 N, 105.5510 E and 9.0762 N, 105.5812 E; changeset 157326799, comment just “Wind farm”), one of which is very probably Dong Hai 1 (26 turbines), but they carry no name and cannot be cited. 3a and 3b borrow this same point for now.",
+  "why": "No named OSM feature, Bac Phuong pages give only the commune; 4C Offshore (which GEM cites) is excluded.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Dong_Hai_1_Offshore_wind_farm",
+    "quote": "1 Vietnam [ 7 ] 9.1010, 105.6010 (approximate) [ 7 ] 2 Vietnam [ 8 ] 9.1010, 105.6010 (approximate)"
+   },
+   {
+    "url": "https://baodauthau.vn/huy-dong-nghin-ty-bac-phuong-nuoi-tham-vong-dien-gio-post100000.html",
+    "quote": "Dự án được xây dựng trên địa bàn xã Long Điền Đông (huyện Đông Hải, tỉnh Bạc Liêu), có tổng diện tích 2.700 ha mặt nước biển và 11,2 ha trên đất liền."
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/11140463150",
+    "quote": "Location: 9.1067290 , 105.6073820 Tags generator:method wind_turbine generator:output:electricity 3.8 MW generator:source wind"
+   },
+   {
+    "url": "https://www.openstreetmap.org/node/11140463150",
+    "quote": "name HB02-08 power generator rotor:diameter 150 m Part of 1 relation Nhà máy điện gió Hòa Bình 2 ( 16237373 ) (as generator)"
+   }
+  ]
+ },
+ {
+  "item": "4. Song An wind farm (Gia Lai, 46.2 MW) — COD date",
+  "farm": "Song An wind farm",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "(no new evidence; keep the round-12 lead: COD between 10 Nov 2023 and 23 May 2024)",
+  "note_zh": "沒有新證據。新試的路線：用 EVN 已知的檔名格式（honghoa/files/日月年_CapnhatCODduanNLTTchuyentiep.pdf，含 10112023 與 23524 兩種寫法）探測 2023-11-11 至 2024-05-22 每一天的三種寫法共 540 個網址，沒有一個存在；工貿雜誌 2023-08 與 2025-05 的轉型期專案報導沒有提到 Song An 何時 COD；搜尋業主（IPC／Song An 風電公司）聲明也沒有結果。",
+  "note_en": "No new evidence. New routes: probing EVN’s known file-name pattern (honghoa/files/<date>_CapnhatCODduanNLTTchuyentiep.pdf, in both the 10112023 and 23524 styles) for every day from 11 Nov 2023 to 22 May 2024, 540 URLs in all, found none; Tạp chí Công Thương’s transitional-project reports of Aug 2023 and May 2025 do not date Song An’s COD; no owner statement (IPC / Song An Wind Power JSC) found.",
+  "why": "Trackers between Nov 2023 and May 2024 not located.",
+  "sources": [
+   {
+    "url": "https://tapchicongthuong.vn/30-du-an-nang-luong-tai-tao-chuyen-tiep-phat-hon-6-ty-kwh-len-luoi-dien-140517.htm",
+    "quote": "Nhà máy điện gió Song An (46,2MW)"
+   }
+  ]
+ }
+]

@@ -1,0 +1,108 @@
+[
+ {
+  "item": "2. Korea: KEPRI Doosan 3 MW suction-bucket test turbine at Gunsan (no record)",
+  "farm": "(no record)",
+  "src_code": null,
+  "iso": "KOR",
+  "status": "missing",
+  "proposal": "(missing; propose only if the main session accepts the OSM operator-tagged node as the position) new curated record: name 'Gunsan Port KEPRI suction-bucket demonstrator', zh '群山港電力研究院吸力式桶型基礎實證機', iso KOR, lat 35.972, lon 126.515 (approx), mw 3.0, year 2016, type 1 (offshore), st 0, end 0, owner 'KEPCO Research Institute (KEPRI)', turbine '1 x Doosan WinDS3000 3 MW', note zh '韓電電力研究院的吸力式桶型三腳基礎實證機，2016 年 10 月裝在群山外海（離岸約 200 m、水深約 10 m）；OpenStreetMap 在此有兩部業者為電力研究院、附航標燈的風機（各標 1.5 MW），對不到哪一部是這部 3 MW 機（概略位置），目前是否運轉待查證' / en 'KEPRI’s demonstrator on a tripod suction-bucket foundation, installed off Gunsan in October 2016 (about 200 m from the shore in about 10 m of water); OpenStreetMap has two KEPRI-operated turbines with navigation lights here (each tagged 1.5 MW) and it is not clear which one is this 3 MW unit (approximate position); whether it still runs is unverified', url 'http://www.mcnews.co.kr/63690'",
+  "note_zh": "OSM API 讀到的完整標籤：node 9166584284（35.9720556, 126.5148611，ref 1）與 11773837241（35.9693056, 126.5149167，ref 2）都是 power=generator、業者「한국전력공사 전력연구원」、generator:output 1.5 MW、start_date 2017-07-01，附 seamark 航標燈（燈高 19 m，國際燈號 M 4192.9／4192.7），說明寫「不在 EPSIS 電力統計內」。兩點在東邊陸上一排 0.75–0.85 MW（業者全羅北道，2002–2007）以西約 650 m 的海上，距防波堤約 300 m。《每日建設新聞》2018-09：電力研究院與 에드벡트 2016 年 10 月在群山外海完成吸力式桶型基礎，「離海岸線 200 m、水深 10 m」，葉片約 48 m、3 MW、輪轂離平均海面 80 m——與這兩點的位置相符（某付費資料庫列的座標 35.972, 126.515 也正好是 ref 1，但不可引用）。不能確定：OSM 標兩部各 1.5 MW、2017-07 起，與「1 部 3 MW、2016-10」不符；第二部是什麼查不到。目前是否運轉也查不到。",
+  "note_en": "Full tags from the OSM API: node 9166584284 (35.9720556, 126.5148611, ref 1) and 11773837241 (35.9693056, 126.5149167, ref 2) are both power=generator, operator “한국전력공사 전력연구원” (KEPRI), generator:output 1.5 MW, start_date 2017-07-01, with seamark navigation lights (19 m, light numbers M 4192.9 / 4192.7) and a note that they are outside the EPSIS statistics. They stand in the sea about 650 m west of the onshore row of 0.75–0.85 MW units (operator Jeollabuk-do, 2002–2007), about 300 m off the breakwater. Maeil Construction News (Sep 2018): KEPRI and Advect finished the suction-bucket foundation off Gunsan in October 2016, “200 m from the shoreline, 10 m deep”, with ~48 m blades, 3 MW and the hub 80 m above mean sea level — consistent with these positions (a paid database lists 35.972, 126.515, exactly the ref-1 node, but it cannot be cited). Unresolved: OSM tags two units of 1.5 MW from July 2017, not one 3 MW unit from October 2016, and nothing identifies the second unit. Current operation is unknown.",
+  "why": "Position citable only through the OSM operator tag, and the OSM capacity/date tags contradict the 3 MW demonstrator, so the main session must decide whether that is enough. Blocked: cyber.kepco.co.kr (TLS handshake failure), Overpass (connection reset), NGA List of Lights API (400), mdpi.com (403 last round); koreascience full text 404. No KEPRI/MOF notice with coordinates found.",
+  "sources": [
+   {
+    "url": "https://api.openstreetmap.org/api/0.6/node/9166584284.json",
+    "quote": "{\"type\":\"node\",\"id\":9166584284,\"lat\":35.9720556,\"lon\":126.5148611"
+   },
+   {
+    "url": "https://api.openstreetmap.org/api/0.6/node/9166584284.json",
+    "quote": "\"generator:output:electricity\":\"1.5 MW\",\"generator:source\":\"wind\",\"operator\":\"한국전력공사 전력연구원\",\"power\":\"generator\",\"ref\":\"1\""
+   },
+   {
+    "url": "https://api.openstreetmap.org/api/0.6/node/11773837241.json",
+    "quote": "{\"type\":\"node\",\"id\":11773837241,\"lat\":35.9693056,\"lon\":126.5149167"
+   },
+   {
+    "url": "https://api.openstreetmap.org/api/0.6/node/11773837241.json",
+    "quote": "\"generator:output:electricity\":\"1.5 MW\",\"generator:source\":\"wind\",\"operator\":\"한국전력공사 전력연구원\",\"power\":\"generator\",\"ref\":\"2\""
+   },
+   {
+    "url": "http://www.mcnews.co.kr/63690",
+    "quote": "에드벡트는 전력연구원과 2014년 말 연구개발을 착수해 석션 버켓 기초 해상풍력발전기 지지구조물 설치를 군산 앞바다에서 2016년 10월 완료했다. 해안선으로부터 200미터, 수심 10미터 위치에 블레이드(날개) 길이 약 48미터, 발전용량 3MW(메가와트)의 터빈이 평균해수면으로부터 80미터 높이로 설치돼 있다."
+   },
+   {
+    "url": "http://www.mcnews.co.kr/63690",
+    "quote": "기사입력 2018/09/07 [13:42]"
+   },
+   {
+    "url": "https://www.epj.co.kr/news/articleView.html?idxno=28418",
+    "quote": "이 기술을 적용해 지난 2016년 10월 군산항에서 성공적으로 3MW급 해상풍력기 1기가 설치했다."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-gunsan-port-kepri-suction-bucket-demonstrator-south-korea/",
+    "quote": "The company provided 1 unit of WinD3000/134 turbine with 3MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "item": "3. Korea: Jeonnam Offshore Wind 1 (전남해상풍력 1단지) citable coordinates",
+  "farm": "Jeonnam Offshore Wind 1",
+  "src_code": 0,
+  "iso": "KOR",
+  "status": "none",
+  "proposal": "(none) keep the approximate point (rule name 'Jeonnam Shinan 1 / others', C).",
+  "note_zh": "再查 OpenStreetMap（API 逐塊讀 125.75–126.05 E、34.86–35.10 N）：自恩島西北海域仍沒有任何風機或風場圖徵。新聞只說「自恩島沿岸西北約 9 km 的公有水面、水深 10–20 m」；查不到航行警告、航行通報、實施計畫認可告示或環評書的座標。",
+  "note_en": "OpenStreetMap re-checked tile by tile through the API (125.75–126.05 E, 34.86–35.10 N): still no turbine or wind-farm feature in the waters north-west of Jaeun-do. News reports only say “public waters about 9 km north-west of the Jaeun-do coast, 10–20 m deep”; no navigational warning, notice to mariners, implementation-plan notice or EIA with coordinates was found.",
+  "why": "KHOA notices to mariners / MOF warnings not indexed by search; eiass.go.kr not reachable via search; OSM empty.",
+  "sources": []
+ },
+ {
+  "item": "4. Taiwan: YouDe (又德) site coordinates; termination final for YouDe and Huanyang (蔚藍海彰化)?",
+  "farm": "YouDe; Huanyang",
+  "src_code": 3,
+  "iso": "TWN",
+  "status": "lead",
+  "proposal": "No change (keep PIPE_FIX for both and GEM's approximate YouDe point). No report or notice of a completed termination for either project up to 8 Oct 2026. If the main session counts the minister's April 2026 statement as final for Huanyang, the ready entry is PIPE_DROP[('TWN', 'Huanyang')] = ('EDF 2026 年 2 月向能源署提出終止行政契約、撤出台灣；經濟部長 4 月表示風場容量與空間併入 3-4 期招標', 'EDF filed to end the administrative contract in February 2026 and left Taiwan; in April the economy minister said the site and its capacity will go into the Round 3.4 tender', 'https://udn.com/news/story/7238/9460419').",
+  "note_zh": "又德：最新仍是 9 月 13 日經濟日報「又德風場解約程序未完成」，之後沒有解約完成的消息。蔚藍海彰化：經濟部長龔明鑫 2026-04-23 說 EDF 撤出使蔚藍海（440 MW）開發「胎死腹中」，風場容量與空間將併到 3-4 期招標（預計 2027 年）；能源署 7 月仍稱「解約程序當中」，9 月 26 日的 3-3 期擴充容量只列海峽一、海峽二、海鼎二。座標：環評書件系統仍連不上，航港局／海軍航船布告查不到又德的作業區座標，所以仍沒有可引用的場址座標。",
+  "note_en": "Youde: the latest is still the Economic Daily News of 13 Sep 2026 (“the Youde termination procedure is not complete”); nothing later. Wei Lan Hai Changhua (Huanyang): economy minister Kung Ming-hsin said on 23 Apr 2026 that EDF's exit left the 440 MW project stillborn and that its capacity and site will go into the Round 3.4 tender (expected 2027); the EA still said in July it was in the termination process, and on 26 Sep the Round 3.3 expansion capacity listed only Haixia 1, Haixia 2 and Haiding 2. Coordinates: the EIA document system is still unreachable and no navy/MPB notice to mariners for Youde survey work was found, so there is still no citable site coordinate.",
+  "why": "No MOEA/EA notice of a completed termination found; eiadoc.moenv.gov.tw unreachable; navy.mnd.gov.tw notices not indexed for 又德.",
+  "sources": [
+   {
+    "url": "https://udn.com/news/story/7238/9460419",
+    "quote": "2026-04-23 17:34 經濟日報／ 記者 江睿智 ／台北即時報導"
+   },
+   {
+    "url": "https://udn.com/news/story/7238/9460419",
+    "quote": "風場的容量及空間都在，將會併到區塊開發3-4期招標，預計2027年展開作業。"
+   },
+   {
+    "url": "https://udn.com/news/story/7238/9460419",
+    "quote": "也使得EDF3及台亞風能在3-1期蔚藍海（440MW）風場開發胎死腹中，龔明鑫今日在部務會議前受訪表示尊重。"
+   },
+   {
+    "url": "https://udn.com/news/story/7238/9752007",
+    "quote": "海興風場所在場址與正在進行解約程序的又德風場重疊，又德風場解約程序未完成，是否會參與3-3期競標，仍有待觀察。"
+   },
+   {
+    "url": "https://udn.com/news/story/7238/9752007",
+    "quote": "2026-09-13 18:54 經濟日報／ 記者 江睿智 ／台北即時報導"
+   },
+   {
+    "url": "https://www.cna.com.tw/news/afe/202609260023.aspx",
+    "quote": "在場址資源方面，針對過往解約的海峽一、海峽二及海鼎二等3座風場，能源署也將其納入3-3期作為擴充容量。"
+   }
+  ]
+ },
+ {
+  "item": "6. Korea: Jeju Woljeong test site (Doosan 3 MW + STX 2 MW): generation or removal after 2016?",
+  "farm": "Jeju Woljeong test (Doosan)",
+  "src_code": 0,
+  "iso": "KOR",
+  "status": "none",
+  "proposal": "(none) keep the existing note (present state unverified).",
+  "note_zh": "韓文搜尋（월정 실증 철거／가동 중단／발전량）仍只找到 2025-12 電力專刊「目前由能源技術研究院運營」；沒有發電量或撤除的出處（只有不可引用的付費資料庫寫到 2023 年的重新運轉計畫）。",
+  "note_en": "Korean searches (Woljeong demonstration removal / shutdown / output) still only find the Dec 2025 Electric Power Journal line that KIER operates it; no source on generation or removal (only a non-citable paid database mentions a 2023 restart plan).",
+  "why": "No KIER or Jeju province statement found.",
+  "sources": []
+ }
+]

@@ -129,6 +129,7 @@ CLEAN dup CHN Shandong Changyi Laizhouwan Offshore wind farm 300.0 -> CTG Changy
 CLEAN dup CHN Shandong Haiwei Peninsula South U 450.0 -> CGN Peninsula South U1
 CLEAN dup CHN Shandong Peninsula South U Site Offshore Wind Project 1503.5 -> CGN Peninsula South U1
 CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai Bridge
+CLEAN dup CHN Shanghai Fengxian Bay Retrofit and Upgrade wind farm 48.0 -> Shanghai Fengxian Haiwan 1 wind farm
 CLEAN dup CHN Zhangpu Liu'ao Phase 1 400.0 -> CTG Zhangpu Liu'ao Phase 2
 CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
 CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putuo 6#2
@@ -212,6 +213,7 @@ CLEAN fix CHN CGN Xiangshan 1 Phase 1 (Tuci) 280.0
 CLEAN fix CHN CGN Xiangshan Tuci 280.0
 CLEAN fix CHN CGN Yangjiang Qingzhou 1&2 1000.0
 CLEAN fix CHN CTG Changyi 300.0
+CLEAN fix CHN CTG Dafeng H8-2 300.0
 CLEAN fix CHN CTG Dafeng H8-2 300.0
 CLEAN fix CHN CTG Dalian Zhuanghe III 300.0
 CLEAN fix CHN CTG Fujian Changle Waihai A 300.0
@@ -327,7 +329,9 @@ CLEAN fix CHN Tianjin Nangang 90.0
 CLEAN fix CHN Tianjin Nangang 90.0
 CLEAN fix CHN Zhejiang Daishan 4 Offshore wind farm 234.0
 CLEAN fix CHN Zhejiang Daishan 4 Offshore wind farm 234.0
+CLEAN fix CHN Zhejiang Energy Jiaxing 1 300.0
 CLEAN fix CHN Zhejiang Energy Taizhou Yuhuan 1 300.0
+CLEAN fix CHN Zhejiang Jiaxing 2 Offshore wind farm 300.0
 CLEAN fix CHN Zhejiang Jiaxing 2 Offshore wind farm 300.0
 CLEAN fix CHN Zhejiang Shengsi 2 Offshore wind farm 400.0
 CLEAN fix CHN Zhejiang Taizhou 1 Offshore wind farm 300.0
@@ -339,14 +343,19 @@ CLEAN fix COL Carreto wind farm 9.9
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
 CLEAN fix DEU Borkum Riffgrund 3 913.0
+CLEAN fix DEU Bornstedt-Holdenstedt wind farm 12.0
+CLEAN fix DEU Erbes-Büdesheim wind farm 15.0
 CLEAN fix DEU Flomborn-Stetten wind farm 15.0
 CLEAN fix DEU Gohlocher Wald wind farm 12.0
 CLEAN fix DEU Hohe See 497.0
 CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
+CLEAN fix DEU Lütjenholm wind farm 14.0
 CLEAN fix DEU Oederquart wind farm 16.0
 CLEAN fix DEU Streumen wind farm 13.0
+CLEAN fix DEU Süderauerdorf wind farm 12.0
 CLEAN fix DEU Windanker wind farm 300.0
 CLEAN fix DEU Windpark Druiberg (Dardesheim) 62.0
+CLEAN fix DEU Zettingen wind farm 13.0
 CLEAN fix DNK Frederikshavn 7.6
 CLEAN fix DNK Rønland 17.2
 CLEAN fix DNK Vesterhav Nord 176.4
@@ -382,6 +391,7 @@ CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
 CLEAN fix JPN Goto City Offshore floating project 16.8
 CLEAN fix JPN Hokkaido Ishikari Bay Offshore wind farm 1000.0
+CLEAN fix JPN Kakegawa wind farm 13.8
 CLEAN fix JPN Kakegawa wind farm 14.0
 CLEAN fix JPN Kamisu Phase 1 (Wind Power Ibaraki) 14.0
 CLEAN fix JPN Kamisu Phase 2 16.0
@@ -423,6 +433,7 @@ CLEAN fix NOR TetraSpar Demonstrator (METCentre) 3.6
 CLEAN fix NOR Tysvaer wind farm 47.0
 CLEAN fix PHL Bangui Bay 33.0
 CLEAN fix POL Baltic Power Offshore wind farm 1200.0
+CLEAN fix POL Baltica I Offshore wind farm 896.0
 CLEAN fix PRT WindFloat 1 (Aguçadoura demo) 2.0
 CLEAN fix PRT WindFloat Atlantic 25.2
 CLEAN fix ROU Alpha Wind Nord wind farm 81.0
@@ -441,6 +452,12 @@ CLEAN fix SEN Taiba N’Diaye wind farm 158.0
 CLEAN fix SWE Bockstigen 2.8
 CLEAN fix SWE Utgrunden I 10.5
 CLEAN fix SWE Vindpark Vänern (Gässlingegrund) 30.0
+CLEAN fix THA Hanuman 1 wind farm 45.0
+CLEAN fix THA Hanuman 10 wind farm 80.0
+CLEAN fix THA Hanuman 5 wind farm 48.0
+CLEAN fix THA Hanuman 8 wind farm 45.0
+CLEAN fix THA Hanuman 9 wind farm 42.0
+CLEAN fix THA Subyai (Chaiyaphum) 80
 CLEAN fix THA Subyai (Chaiyaphum) 90.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
 CLEAN fix TWN Datan (Tatan) 12.5
@@ -482,8 +499,11 @@ CLEAN fix VNM Chơ Long wind farm · 2 105.5
 CLEAN fix VNM Cà Mau wind farm 350
 CLEAN fix VNM Cà Mau wind farm 352.0
 CLEAN fix VNM Cư An wind farm 200.0
+CLEAN fix VNM Dong Hai 1 Offshore wind farm · 3 50.0
 CLEAN fix VNM Dong Hai 1 Phase 1 (Tra Vinh, Trungnam) 100.0
 CLEAN fix VNM Dong Hai 1 – Tra Vinh (Trungnam) 100.0
+CLEAN fix VNM Dong Hai 1 – Tra Vinh (Trungnam) 100.0
+CLEAN fix VNM Dong Hai V1-4 Offshore wind farm 50.0
 CLEAN fix VNM Duyên Hai wind farm · 1 48.0
 CLEAN fix VNM Hiep Thanh (Tra Vinh) 78.0
 CLEAN fix VNM Hiep Thanh (Tra Vinh) 78.0
@@ -938,7 +958,6 @@ DROP SWE operating Åskälen wind farm 288.0 ~ Åskälen 288.0
 DROP SWE retired Utgrunden wind farm 11.0 ~ Utgrunden I 10.5
 DROP SWE retired Yttre Stengrund wind farm 10.0 ~ Yttre Stengrund 10.0
 DROP THA operating Chaiyaphum (EGCO) wind farm 80.0 ~ Subyai (Chaiyaphum) 90.0
-DROP THA operating Hanuman 10 wind farm 80.0 ~ Subyai (Chaiyaphum) 90.0
 DROP THA operating Huay Bong wind farm 208.0 ~ Huai Bong (West Huay Bong 2 & 3) 207.0
 DROP TUR operating Karaburun wind farm (Türkiye) 252.0 ~ Karaburun 252.0
 DROP TUR operating Soma (Polat) wind farm 311.0 ~ Soma (Polat) 311.0
@@ -1099,6 +1118,7 @@ PIPE-DROP TWN DeShuai
 PIPE-DROP TWN Greater Changhua Northeast
 PIPE-DROP TWN Haiding 1 (Formosa 3)
 PIPE-FIX GBR East Anglia TWO {'expected': 2028, 'mw': 960.0}
+PIPE-FIX POL Baltica 1 {'expected': 0, 'note': 'Lost the Dec 2025 CfD auction; no new commissioning date'}
 PIPE-FIX TWN Fengmiao 2 {'mw': 600.0}
 PIPE-FIX TWN Huanyang {'note': 'Round 3.1; the Energy Administration said in 2026 that the termination was in process'}
 PIPE-FIX TWN YouDe {'mw': 700.0, 'zh': '又德', 'note': 'Round 3.2 (2024, 700 MW); in August 2026 the Energy Administration said the termination was being processed'}

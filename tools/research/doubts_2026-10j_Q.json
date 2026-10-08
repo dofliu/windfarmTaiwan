@@ -1,0 +1,27 @@
+[
+ {
+  "item": "1g. Lichtenau (GEM) vs Windpark Asseln (MaStR)",
+  "farm": "Lichtenau wind farm / Windpark Asseln",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(lead) if accepted:\nbuild_mastr.py MANUAL:\n    'Lichtenau wind farm': (['Lichtenau'],   # RWE／Winkra 1997 年 12 月的 Enercon E-40（序號 41017–41035）在 MaStR 的「Lichtenau」群；這群另含 1997–2000 年別家的小型機\n                            'https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php'),\nfarm_cleanup.py NOT_DUP:\n    ('DEU', 'Windpark Asseln'):\n        ('MaStR 的「Windpark Asseln」是 Asselner Windkraft 的機組（1998 年 1 月的 E-40 序號 41075–41081、1998 年的 E-66、2001／2008／2015／2020 年的補建）；GEM 的 Lichtenau（1997 年、RWE）是 1997 年 12 月 RWE／Winkra 的 E-40：不同批機組',\n         'MaStR’s “Windpark Asseln” is Asselner Windkraft’s turbines (E-40 serials 41075–41081 of January 1998, an E-66 of 1998, and units added in 2001, 2008, 2015 and 2020); GEM’s Lichtenau (1997, RWE) is RWE/Winkra’s E-40 of December 1997: a different set of turbines',\n         'https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php'),",
+  "note_zh": "GEM 的 Lichtenau（11 MW、1997 年、營運者 RWE）：年份與「精確」座標 51.6402, 8.9306 取自 MaStR，正是 1997-12-22 的一部 Enercon E-40（單元名「41031_Lichtenau」，SEE941109269090）；容量與營運者取自 The Wind Power 的 Lichtenau 頁（共 128 MW、27 部分），其中第 15 部分是「18 部 Enercon E40/500，9,000 kW，開發商 Winkra，營運者 RWE」。MaStR 裡 1997 年 12 月 19–23 日併網的 E-40 單元名是連號的 41017–41035（4 部已拆除），18 個序號正好對上這 18 部；運轉中的 12 部在 MaStR 的「Lichtenau」群（26 部、14.52 MW、1997–2000，還含 WERA 的 4 部 Nordex N43、WMK 的 V44／S46／S31 等別家機組），其餘在「41032」、「41018」等小群。MaStR 的「Windpark Asseln」（10 部、10.75 MW）是另一家 Asselner Windkraft 的機組：E-40 序號 41075–41081（1998 年 1 月）、1998 年的 E-66（The Wind Power 第 2 部分：E66/1500，營運者 Asselner Windkraft GmbH），以及 2001–2020 年的補建，營運者編號與 GEM「Asselner wind farm」對到的「Asselner Windpark」相同。結論：Windpark Asseln 不是 GEM 的 Lichtenau；但 GEM 的 11 MW 對不上任何一組（RWE 部分 9 MW、MaStR「Lichtenau」群 14.52 MW），而且 MaStR 現在把那些 E-40 登記在兩家營運公司名下（ABR997608402803 與 Asselner Windkraft 的 ABR948908589176），所以 MANUAL 的取捨要主對話決定。",
+  "note_en": "GEM’s Lichtenau (11 MW, 1997, operator RWE): the year and the ‘exact’ point 51.6402, 8.9306 come from MaStR and are a single Enercon E-40 of 22 Dec 1997 (unit name “41031_Lichtenau”, SEE941109269090); capacity and operator come from The Wind Power’s Lichtenau page (128 MW in 27 parts), whose part 15 is “18 Enercon E40/500, 9,000 kW, developer Winkra, operator RWE”. In MaStR the E-40 connected on 19–23 Dec 1997 carry the consecutive unit names 41017–41035 (4 dismantled), matching those 18; the 12 still operating are in MaStR’s “Lichtenau” group (26 units, 14.52 MW, 1997–2000, which also holds other owners’ units: WERA’s 4 Nordex N43, WMK’s V44/S46/S31 and others), the rest in small groups such as “41032” and “41018”. MaStR’s “Windpark Asseln” (10 units, 10.75 MW) belongs to a different company, Asselner Windkraft: E-40 serials 41075–41081 (January 1998), the 1998 E-66 (The Wind Power part 2: E66/1500, operator Asselner Windkraft GmbH) and units added 2001–2020, under the same operator number as the “Asselner Windpark” group that GEM’s “Asselner wind farm” matches. So Windpark Asseln is not GEM’s Lichtenau; but GEM’s 11 MW fits no set (RWE part 9 MW, MaStR “Lichtenau” group 14.52 MW), and MaStR now registers those E-40 under two operators (ABR997608402803 and Asselner Windkraft’s ABR948908589176), so the MANUAL choice is left to the main session.",
+  "why": "No owner, municipal or press source states which turbines make up GEM's 11 MW; the serial-number reading of MaStR unit names (41017–41035 = the 18 RWE/Winkra E-40) is an inference. MaStR operator numbers are from the EinheitenWind export.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Lichtenau_wind_farm",
+    "quote": "Operating [ 1 ] 1997 [ 1 ] 11 MW [ 2 ] Onshore [ 1 ] RWE [ 3 ]"
+   },
+   {
+    "url": "https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php",
+    "quote": "Part #15: City: Lichtenau Commissioning: 18 turbines: Enercon E40/500 (power 500 kW, diameter 40 m) Hub height: Total nominal power: 9,000 kW Operational Onshore wind farm Developer: Winkra Operator: RWE"
+   },
+   {
+    "url": "https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php",
+    "quote": "Part #2: City: Lichtenau Commissioning: 1 turbine: Enercon E66/1500 (power 1 500 kW, diameter 66 m) Hub height: Total nominal power: 1,500 kW Operational Onshore wind farm Operator: Asselner Windkraft GmbH"
+   }
+  ]
+ }
+]

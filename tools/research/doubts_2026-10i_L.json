@@ -125,31 +125,6 @@
   ]
  },
  {
-  "item": "4. Setana semi-offshore: when did it stop generating?",
-  "farm": "Setana semi-offshore",
-  "src_code": 0,
-  "iso": "JPN",
-  "status": "lead",
-  "proposal": "(lead; ready once the town's xlsx table can be checked or a citable copy is found) fix('JPN', 'Setana semi-offshore', C, '町營風力發電事業的經營比較分析表：年發電量 2022 年度 3,321 MWh、2023 年度 694 MWh（2 號機無法修復、1 號機限制出力）、2024 年度只有 3 MWh（兩部都幾乎沒有運轉）；FIT 2023 年 12 月 31 日結束、售電契約 2025 年 3 月 31 日結束。2027 年度撤除，北海道電力將移設到江差町的訓練設施', 'The town’s public-enterprise analysis tables: 3,321 MWh in FY2022, 694 MWh in FY2023 (unit 2 beyond repair, unit 1 output-limited) and only 3 MWh in FY2024 (both units barely running); the FIT ended on 31 Dec 2023 and the power-sales contract on 31 Mar 2025. It will be removed in FY2027 and moved by Hokkaido Electric to a training facility in Esashi', 'https://www.town.setana.lg.jp/92728c1fe546b41d39b2a3d2786eda47.xlsx', end=2024, note=True)",
-  "note_zh": "せたな町公布的「經營比較分析表」（電氣事業・風力發電事業，xlsx）：令和 6 年度（2024 年 4 月–2025 年 3 月）年發電量 3 MWh（令和 2–5 年度依序 2,277、3,375、3,321、694 MWh），分析欄寫 1、2 號機都幾乎沒有運轉、因沒有發電 FIT 收入比率為 0；FIT 適用終了日 2023-12-31，售電契約終了日 2025-03-31；令和 5 年度表寫 2 號機無法修復、只有 1 號機在限制出力下運轉。所以實際上 2024 年度起停止發電（end=2024 較合適；若以售電契約結束算則是 2025）。另：北海道新聞 2026-07-07 報導北海道電力決定把風海鳥移設到江差町的洋上風力訓練設施；町公所網頁確認 2004 年 4 月 1 日正式運轉。xlsx 無法用 check_quotes.py 核對，所以只列為線索。",
-  "note_en": "Setana town's published public-enterprise analysis tables (electricity business, wind; xlsx): FY2024 (Apr 2024–Mar 2025) generation 3 MWh (FY2020–2023: 2,277, 3,375, 3,321 and 694 MWh); the analysis says units 1 and 2 were hardly running and the FIT revenue ratio is 0 because it is not generating; FIT end date 31 Dec 2023, power-sales contract end 31 Mar 2025; the FY2023 table says unit 2 cannot be restored and only unit 1 ran, output-limited. So it effectively stopped generating from FY2024 (end=2024 fits better; 2025 if the end of the sales contract is used). Also: Hokkaido Shimbun (7 Jul 2026) reports that Hokkaido Electric decided to move Kazamidori to an offshore-wind training facility in Esashi; the town page confirms full operation from 1 Apr 2004. The xlsx files cannot be checked by check_quotes.py, so this stays a lead.",
-  "why": "The decisive official source is an .xlsx (https://www.town.setana.lg.jp/92728c1fe546b41d39b2a3d2786eda47.xlsx ; FY2023: https://www.town.setana.lg.jp/681357dc3d06b67c78aa5e5c7782d6ea.xlsx; also in Hokkaido's zip https://www.pref.hokkaido.lg.jp/ss/scs/250716.html). check_quotes.py reads HTML/PDF/docx only, so no OK quote; cells: データ sheet row 6 cols 32–36 = 2277, 3375, 3321, 694, 3 (風力 年間発電電力量 R02–R06); 料金契約終了年月日 '令和７年３月31日'; ＦＩＴ・ＦＩＰ適用終了年月日 '令和５年12月31日'.",
-  "sources": [
-   {
-    "url": "https://www.town.setana.lg.jp/kazamidori/article27.html",
-    "quote": "そして、いよいよ平成16年4月1日より本格稼動が始まりました。"
-   },
-   {
-    "url": "https://www.hokkaido-np.co.jp/article/1334624/",
-    "quote": "北海道電力は、2027年度内の撤去が決まっている檜山管内せたな町の洋上風力発電施設「風海鳥（かざみどり）」を、同管内江差町に整備予定の洋上風力発電の訓練施設に移設することを決めた。"
-   },
-   {
-    "url": "https://www.hokkaido-np.co.jp/article/1334624/",
-    "quote": "2026年7月7日 17:34"
-   }
-  ]
- },
- {
   "item": "6a. Kamisu Phase 1 and 2 positions",
   "farm": "Kamisu Phase 1 (Wind Power Ibaraki); Kamisu Phase 2",
   "src_code": 0,
