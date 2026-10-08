@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 8 Oct 2026: v2.30.9, research round 14: foundations and new leads; the next conversation starts here)
+## In progress (hand-off, 8 Oct 2026: v2.30.10, research round 15: foundations and Asseln in Germany; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,25 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 8 Oct 2026 (v2.30.10): research round 15 (three sub-agents: U northern China, V southern China and Vietnam, W Asseln in Germany and Liu'ao; every quote checked with `check_quotes.py`;
+  results in `tools/research/fd_2026-10l_U.json`, `fd_2026-10l_V.json` and `doubts_2026-10l_W.json`, with written entries removed and only leads kept). Clean-up rules 502 → 506 (the 8 Oct 2026
+  "ninth batch" block of `farm_cleanup.py`):
+  1. Foundations (Jiangsu MSA construction notices, mobile pages): Rudong H5 (75), GCL Rudong H15 (40), Guoxin Rudong H2 (70, plus depth 6–21 m from the seabed elevation), Huaneng Rudong H3 (80) and
+     Jiangjiasha H1 phase 2 (15) all on monopiles; Huaneng Cangnan 4 on 42 monopiles + 35 high-rise pile caps (2025 scour-protection tender, dlztb.com). The provincial MSA mobile channel ids are in
+     `fd_2026-10l_U.json`; northern completion notices rarely give the type, and the lists only go back to 2019–2020.
+  2. Jiazi I's turbine field now reads just "78 Mingyang 6.45 MW": the MSA-filed 168 m rotor and 100 m hub do not fit the stored MySE6.45-180, whose suffix had no source (exact model unverified).
+  3. Germany, Lichtenau-Asseln: GEM's Paderborn (36 MW) is the site of the 1993–98 Windpark Asseln (asseln.de's 62-turbine list includes Hakenberg's units of 1993–95); `MANUAL` in `build_mastr.py`
+     gives it the 8 MaStR groups holding original units (38.37 MW); Asselner (GEM 19.5 MW) = MaStR "Asselner Windpark", with its 2018 extension now 24.75 MW; the MaStR-added "Windpark Asseln" and "AWP",
+     which counted old units twice, fold into Paderborn, while WP Lichtenau and WP LA (2015–17) and Paderborn-Benhausen and Paderborn-Sande, which Paderborn had held back, are added; Paderborn's point
+     moves to the German Wikipedia coordinates. The area now adds up to 130 MW against MaStR's 133.8 MW with no double counting; WP LA and Dahl are confirmed as different farms (`NOT_DUP`).
+  4. Liu'ao area D's point moves to the "area D met mast No. 4" of a Zhangzhou MSA notice (approximate); area E appears nowhere in all 3,695 Fujian MSA notices and 921 warnings since 2020 and stays unverified.
+  5. Still leads: SinoHydro Rudong intertidal (20 units on "low-pile high-platform-column" foundations, 12 five-pile jackets, 10 unstated; whether the first counts as a high-rise pile cap needs a
+     decision), Huaneng Dafeng expansion (hub 96 m, type unknown), CTG Dafeng 300 MW = H11 (mixed, counts unknown), Zhuanghe II (monopiles and suction-bucket jackets, counts unknown), Peninsula South U2
+     (accepted with 71 turbines in Aug 2026, type unknown); Jiazi I (lots I and II add up to 71 monopiles; the design was 70 monopiles + 8 jackets; the MSA as-built layout is a scanned file), Jiazi II
+     (only the pre-construction all-monopile design), Yuhuan 1 south zone, Qingzhou 6 (depth 37–46 m ready), Danzhou CZ3 site 1 (monopiles and suction-bucket jackets), Nanri Island (lot VIII only).
+     Zhuhai Guishan: two composite-bucket units were added after 2021 (the first in 2022, two turbines in 2024), so the record's 198 MW / 2021 predates them; 200 MW and the turbine mix are still unverified.
+     New routes: dlztb.com's per-channel `search.php` (indexes only from about mid-2025) and the CHN Energy full-text tender search API (POST /bidfulltextsearch/rest/inteligentSearch/getFullTextData).
+  Offshore sums: 284 of 331 operating offshore farms have a known type (87.0%), 102 of China's 141 (about 75%) and 15 of Vietnam's 20; dimensions for 278, all three for 183.
 - 8 Oct 2026 (v2.30.8, v2.30.9): research round 14 (three sub-agents: R northern China foundations, S southern China and Vietnam foundations, T round 13's new leads;
   every quote checked with `check_quotes.py`; results in `tools/research/fd_2026-10k_R.json`, `fd_2026-10k_S.json` and `doubts_2026-10k_T.json`, with written entries removed and only
   leads kept). Items tried two or three times against blocked sites (the Lac Hoa 1, Jeonnam 1 and Youde coordinates, Song An's COD, Changle's 118 m hub) were not repeated.
@@ -84,7 +103,7 @@ and move finished items to the topic lists below.
      Luodousha with a cable of about 25.9 km), matching the 25.77 km cable to Wailuo phase 2 turbine no. 27 in Guangdong's EIA approval; the notice does not name the unit, and the card
      says the position is inferred; it ran off-grid on a micro-grid in 2023, and a public-grid connection is unverified.
   3. Germany: GEM's Lichtenau (11 MW) is part of Windpark Asseln (62 turbines, 36 MW, GEM's Paderborn) and is a `dup`. The MaStR matches of GEM's Paderborn and Asselner and MaStR's
-     "Windpark Asseln" / "WP Asseln" around there are also off (the Lichtenau entry of `doubts_2026-10k_T.json`); use asseln.de's description when sorting them out.
+     "Windpark Asseln" / "WP Asseln" around there were also off; sorted out from asseln.de's description in v2.30.10 (item 3 of round 15).
   4. Foundations, northern China: Qidong H3 all monopiles, Huaneng Rudong Baxianjiao 50 monopiles + 20 high-rise pile caps (2018 O&M vessel tender), Jiangjiasha H2 61 monopiles + 6
      multi-pile jackets (2024 O&M tender); a useful new source is the O&M tenders reposted by dlztb.com. Still leads: Datang Binhai (monopile sources for part of its 96 turbines only),
      Peninsula South U2 (EIA only), Laoting Putidao (conflicting pile-cap and monopile counts).
@@ -378,7 +397,7 @@ and move finished items to the topic lists below.
      20 unknown), Putian Shicheng (lot II: 19 pile caps of 29), Taizhou 1 (lot B: 19 monopiles + 1 pile-bucket), Changyi (25 monopiles), Danzhou CZ3 site 1
      (25 suction-bucket jackets) and Zhuanghe III (55 of 73).
      The data problems noted in this round were checked and fixed in v2.30.0 (see the v2.30.0 entry under "In progress").
-   - The other Chinese offshore farms (45 of the 141 operating in v2.30.9) and Vietnam (5 of 20, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (39 of the 141 operating in v2.30.10) and Vietnam (5 of 20, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
@@ -528,7 +547,7 @@ the rules are in `tools/farm_cleanup.py`.
       (Lac Hoa 2, Cho Long, Pantelimon and Carreto were handled in v2.30.6; Thailand's Hanuman 10 was in GEM all along, wrongly dropped, and is back in v2.30.7)
 - [x] "Suspected duplicates B" (different names, same capacity, close by): all checked in v2.30.7 (none left): the 7 German pairs were re-matched or confirmed
       as different farms from owner and municipal sources, and the 4 Chinese pairs are all different farms. GEM's Lichtenau (11 MW, 1997, RWE) is part of
-      Windpark Asseln (GEM's Paderborn) and was removed as a duplicate in v2.30.8; the MaStR matching around there still needs sorting out (item 3 of round 14 under "In progress")
+      Windpark Asseln (GEM's Paderborn) and was removed as a duplicate in v2.30.8; the MaStR matching around there was sorted out in v2.30.10 (item 3 of round 15 under "In progress")
 - [x] 587 pipeline projects whose expected year had already passed (101 GW): only 2 remain after GEM 2026-02 (Monsoon in Laos, 600 MW,
       and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
 - [ ] 48 GW of operating farms have no commissioning year (mostly in China and India), so the map can

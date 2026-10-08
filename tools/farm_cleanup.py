@@ -1862,6 +1862,10 @@ RULES = [
         '點位改到漳州海事局 2026-08 通告（閩航通〔2026〕0531 號）的「D 區 4 號測風塔」（北緯 23°49′25.57″、東經 118°01′29.45″，2026-09 拆除）；測風塔不是場址中心，仍標概略位置；GEM 原點位貼近六鰲海岸，在其西北約 22 km',
         "The point moves to the 'area D met mast No. 4' of a Zhangzhou MSA notice of Aug 2026 (Min Hang Tong [2026] 0531; 23°49′25.57″ N, 118°01′29.45″ E, removed in Sept 2026); a met mast is not the centre of the site, so the point stays approximate; GEM's point hugged the Liu'ao coast about 22 km to the north-west",
         'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649', lat=23.824, lon=118.025, approx=True),
+    fix('CHN', 'CGN Shanwei Jiazi I', C,
+        '甲子一 78 部明陽 6.45 MW（中國電力網 2022-04：擬安裝 78 台 MySE6.45MW、首台 6.45 MW 已裝；汕尾海事局 2025-08 備案參數：78 台 6.45 MW）。海事局備案的葉輪直徑為 168 m、輪轂高 100 m，與原寫的 MySE6.45-180（葉輪約 178–180 m）不合，型號尾碼沒有出處，改為只寫 6.45 MW（確切型號待查證）',
+        'Jiazi I has 78 Mingyang 6.45 MW turbines (China Power, Apr 2022: 78 MySE6.45MW planned, first 6.45 MW unit erected; Shanwei MSA filed parameters, Aug 2025: 78 × 6.45 MW). The MSA filing gives a 168 m rotor and 100 m hub, which does not fit the stored MySE6.45-180 (a 178–180 m rotor); the suffix had no source, so only the 6.45 MW rating is kept (exact model unverified)',
+        'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167', turbine='78x Mingyang MySE 6.45 MW'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
