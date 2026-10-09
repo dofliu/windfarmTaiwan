@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 580 條：刪除 176 筆（其中營運中 46,786.9 MW），修正 404 筆。
+- 規則 600 條：刪除 180 筆（其中營運中 47,058.2 MW），修正 420 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 61 | 27,524.5 | 183 |
+| 中國大陸 | 62 | 27,624.5 | 185 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -34,7 +34,7 @@
 | 日本 | 2 | 30 | 13 |
 | 智利 | 1 | 105.6 | 0 |
 | 比利時 | 1 | 325 | 0 |
-| 法國 | 8 | 271 | 14 |
+| 法國 | 10 | 370.3 | 19 |
 | 波蘭 | 0 | 0 | 2 |
 | 泰國 | 1 | 600 | 7 |
 | 澳洲 | 4 | 1,161 | 7 |
@@ -43,11 +43,11 @@
 | 約旦 | 1 | 117 | 0 |
 | 羅馬尼亞 | 16 | 2,439 | 11 |
 | 美國 | 7 | 943.6 | 8 |
-| 義大利 | 1 | 84 | 2 |
+| 義大利 | 2 | 156 | 3 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 2 |
 | 英國 | 7 | 3,485 | 7 |
-| 荷蘭 | 8 | 1,852 | 8 |
+| 荷蘭 | 8 | 1,852 | 16 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
 | 西班牙 | 1 | 20 | 1 |
@@ -301,6 +301,9 @@
 | Inner Mongolia Hure Banner Rural Energy wind farm · 50 MW | GEM | 修正：年份 | 國家電投庫倫旗農村能源革命試點縣項目一期工程（風電 5 萬瓩、光伏 0.5 萬瓩，2024 年 8 月核准）2025 年 12 月 28 日全容量併網（山東電建三公司 2025-12-31）；補上商轉年 | [連結](http://www.sepco3.com/col/col16685/art/2026/art_281764cf66bf431294af6c843904dc77.html) |
 | Hubei Anlu Zhaopeng wind farm · 50 MW | GEM | 修正：年份 | 長源電力全資子公司國能長源安陸新能源的安陸趙棚風電項目（安陸市與廣水市交界，5 萬瓩，2021 年 11 月開工）2023 年 6 月全部風電機組併網發電轉商運（長源電力公告 2023-06-26）；補上商轉年 | [連結](http://static.cninfo.com.cn/finalpage/2023-06-27/1217138136.PDF) |
 | Anhui Woyang Baohe & Wujiahe wind farm · 50 MW | GEM | 修正：年份 | 渦陽縣包河與武家河風電廠（總裝機 50 MW，2020 年 4 月開工）2020 年 12 月 23 日 110 kV 送出線路送電成功、併網發電（國網亳州供電公司經人民網精選資訊 2020-12-25，標題「9 個風電項目投運」）。補上商轉年（業主欄待查證） | [連結](https://baijiahao.baidu.com/s?id=1687019672959469071&wfr=spider&for=pc) |
+| Liaoning Chifeng Poverty Alleviation District (China Guangdong Nuclear) wind farm · 100 MW | GEM | 重複（併入「Inner Mongolia Chifeng Poverty Alleviation Area (China Guangdong Nuclear) wind farm」） | 同一座風場：兩筆的中文名都是「中广核赤峰市扶贫改革试验区10万千瓦风电项目」、都是 100 MW、都在翁牛特旗；這個項目只有一個（中廣核 2022 年 5 月風機招標：場址在內蒙古赤峰市翁牛特旗、容量 100 MW、20 個機位）。赤峰屬內蒙古，名稱裡的「Liaoning」有誤 | [連結](https://www.sohu.com/a/551331079_257552) |
+| Inner Mongolia - Shandong Power Export Hanggin Banner  (China Resources) wind farm · 100 MW | GEM | 修正：座標 | GEM 寫明此場在鄂爾多斯杭錦旗巴拉貢鎮，但座標（北緯 43.244°、東經 114.325°）是錫林郭勒盟的代用點、離杭錦旗約 600 km；改用巴拉貢鎮的位置（OpenStreetMap，概略位置） | [連結](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_(China_Resources)_wind_farm) |
+| Sichuan Yanyuan Houlongshan wind farm · 100 MW | GEM | 修正：年份、中文名、機組 | 補上商轉年 2023 並更正中文名：華電涼山鹽源後龍山風電場 100 MW（20 部 5 MW），2022 年開工、2023 年 5 月商轉（GlobalData），華電新能鹽源公司 2023-03-29 舉行白楊坪、後龍山、長坪子風電項目集中投產儀式（四川在線）；原中文名「凉山盐源后龙山二期风电项目」是 2025 年才核准的二期（16 部 6.25 MW），已另有紀錄 | [連結](https://power-technology.com/?p=302298) |
 
 ## 丹麥 (DNK)
 
@@ -565,7 +568,6 @@
 | Fontenelle-Montby wind farm · 56 MW | GEM | 重複（併入「Rougemont wind farm」） | 同一座風場：Fontenelle-Montby 鎮的風機是 Innergex／VSB 的 Rougemont II（16 部 GE 120，44.5 MW）；法國國家發電設施登錄（ODRÉ）在 Fontenelle-Montby 與 Mésandans 只有 Energies du Plateau Central 2 的 4 個併網點、各 11.12 MW（合計 44.48 MW，2016-10 至 2017-10 併網），已含在 Rougemont 風場（80 MW，2017） | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Doubs%22%20and%20commune%20in%20%28%22Fontenelle-Montby%22%2C%22M%C3%A9sandans%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 | Pelade wind farm · 48 MW | GEM | 重複（併入「Artigues Et Ollieres wind farm」） | 同一座風場：Provencialis 的 Colle Pelade 風場就是 Artigues 與 Ollières 的 22 部風機（2020-12-01 起運轉，NTR 收購的 48 MW 風場）；國家發電設施登錄的「Ferme éolienne de Pelade」4 個併網點合計 48.4 MW、2020-11-06 併網 | [連結](https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/kechPa3nkXwlrxDJr3hpjwrav9FaC6zU) |
 | Les Vignottes wind farm · 36 MW | GEM | 重複（併入「Vignottes wind farm」） | 同一座風場：國家發電設施登錄只有一座 Les Vignottes（Saron-sur-Aube，3 個併網點各 12 MW，合計 36 MW，2015 年 7 月併網），與 Vignottes 風場（36 MW，2015）相同 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Saron-sur-Aube%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
-| Fère-Champenoise-Euvy-Corroy wind farm · 45 MW | GEM | 重複（併入「Fère-Champenoise wind farm」） | 同一座風場：國家發電設施登錄在 Euvy 有 3 個 2011 年併網的併網點（Parc éolien d’Euvy 12.5 MW、Corroy Énergies 17 MW、另一個 15 MW，合計 44.5 MW），Fère-Champenoise 鎮只有 2026 年的新機組；與 Fère-Champenoise 風場（45 MW，2011）相同 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 | Tulipes wind farm · 36 MW | GEM | 修正：年份 | 補上商轉年 2020：國家發電設施登錄的「Ferme éolienne des Tulipes de Bus-la-Mésière」36 MW，2020-09-11 併網 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Bus-la-M%C3%A9si%C3%A8re%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 | Longues Roies wind farm · 47 MW | GEM | 修正：年份 | 補上商轉年 2020：國家發電設施登錄的 Parc éolien des Longues Roies（Songy）5 個併網點 2020-09-17／18 併網（登錄容量合計 44.4 MW） | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Songy%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 | Plateau De Cabalas wind farm · 30 MW | GEM | 修正：容量、年份、分期 | 補上商轉年：國家發電設施登錄的 Cabalas 三個併網點（Joncels）分三年併網：Cabalas Centre 11.5 MW（2017-12）、Cabalas Ouest 9.2 MW（2018-12）、Cabalas Est 9.2 MW（2020-02），合計 29.9 MW | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22H%C3%A9rault%22%20and%20commune%3D%22Joncels%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
@@ -576,6 +578,14 @@
 | Chambon Puyravault wind farm · 43.2 MW | GEM | 修正：容量、年份 | 補上商轉年 2026 並更正容量：EDF power solutions 與 Volkswind 2026-05-28 新聞稿說 Chambon 與 Puyravault 風場有 8 部風機、合計 34 MW，2026 年初投入運轉（國家發電設施登錄兩個 17 MW 併網點 2026-03-19 併網） | [連結](https://france.edf-powersolutions.com/en/communiques/edf-power-solutions-volkswind-france-inaugurent-parc-eolien-chambon-puyravault-charente-maritime/) |
 | Rembercourt-Sommaisne wind farm · 30 MW | GEM | 修正：容量、年份 | 補上商轉年 2023 並更正容量：DREAL 2024 檢查報告說 Rembercourt 風場（CE Rembercourt）有 10 部風機、最大裝置容量 36.5 MW，2023-07-04 投入運轉（ENEDIS 證明） | [連結](https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/gzZaXBryvnhSnq1hi40jtuD93xXTAnY5) |
 | Saint-Georges-Sur-Arnon wind farm · 48 MW | GEM | 刪除 | 已由逐場資料涵蓋的彙總：國家發電設施登錄在 Saint-Georges-sur-Arnon 2009 年併網的是 Joyeuses（10 MW）、Tilleuls（12.5 MW）、Vignes（12 MW）與另一座 12 MW（合計 46.5 MW），2021 年再加 Les Pierrots 1–3；這些風場本站已逐場收錄（Joyeuses、Les Tilleuls、Les Vignes、Les Barbes D’Or、Les Pierrots），這筆 48 MW 是同一群風機的合計 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
+| Fère-Champenoise wind farm · 45 MW · 2011 | GEM | 刪除 | 已由逐場資料涵蓋的彙總：國家發電設施登錄在 Euvy、Fère-Champenoise 與 Corroy 三鎮 2011 年併網的只有 3 個併網點（Parc éolien d’Euvy 12.5 MW、另一個 15 MW、Corroy Énergies 17 MW，合計 44.5 MW）；前兩個是 Féréole 風場（11 部 2.5 MW、2 個併網點，2011 年投入運轉，DREAL 2026 檢查報告），第三個是 Corroy 風場（17 MW，2011），兩座本站已分別收錄，這筆 45 MW 是兩者的合計 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%2C%22Corroy%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
+| Fère-Champenoise-Euvy-Corroy wind farm · 45 MW | GEM | 刪除 | 已由逐場資料涵蓋的彙總：國家發電設施登錄在 Euvy 有 3 個 2011 年併網的併網點（Parc éolien d’Euvy 12.5 MW、另一個 15 MW、Corroy Énergies 17 MW，合計 44.5 MW），Fère-Champenoise 鎮只有 2026 年的新機組；前兩個是 Féréole 風場（27.5 MW，2011），第三個是 Corroy 風場（17 MW，2011），本站已分別收錄 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%2C%22Corroy%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
+| Fereole wind farm · 27.5 MW | GEM | 修正：年份 | 補上商轉年 2011：DREAL 2026 檢查報告說 Féréole 風場（Fère-Champenoise）有 11 部 2.5 MW 風機、2 個併網點，2011 年投入運轉；與國家發電設施登錄在相鄰 Euvy 2011 年 3 月併網的兩個併網點（12.5＋15＝27.5 MW）相符 | [連結](https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/APZUC91LtbyADa5d3ZKrUTpiMZmg9cmb) |
+| Melle wind farm · 54.3 MW | GEM | 刪除 | 已由逐場資料涵蓋的彙總：國家發電設施登錄在 Melle 鎮（INSEE 79174）的 5 個風電併網點合計正好 54.3 MW（12 MW 2009-12、12 MW 2011-02、14 MW 2018-07、9.4 MW 2018-08、Les Raffauds 2 6.9 MW 2020-09）；鎮內的風場本站已逐場收錄：Mont Jarron（12 MW，2009；ICPE 登記在 Melle 鎮 Mont Jarron）、Lusseray（14 MW，2018；ICPE「Ferme éolienne Lusseray-Paizay le Tort」也登記在 Melle 鎮）、3D Energies 的 La Tourette 與 Les Raffauds，以及 Paizay Le Tort；這筆是同一群風機的合計 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
+| Miraumont wind farm · 46.1 MW | GEM | 修正：容量、年份、分期 | 更正容量與年份：這筆 46.1 MW 是 Miraumont 鎮 5 個併網點的合計；其中 2018-12-07 併網的兩個（9.9＋13.2 MW）是 Sources de l’Ancre 風場（7 部風機、2 個併網點，ICPE 登記在 Miraumont），本站已另列（23 MW）。剩下的是 H2air 的 Coquelicot 2（2A、2B 各 9.2 MW，2015-11-27 併網）與 Camomille（4.6 MW，2018-06-27 併網），合計 23 MW | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
+| Voie Romaine wind farm · 22 MW · 2013 | GEM | 修正：年份 | 更正商轉年為 2014：Global EcoPower 2014-06-26 公告 Marne 省的 La Voie Romaine 風場（22 MW）風機 2014-05-13 組裝完成、2014-06-16 併網；DREAL 2026 檢查報告說前 11 部風機 2014-07-01 投入運轉（之後另核准 2 部，全場 13 部 2 MW、26 MW） | [連結](https://echanges.dila.gouv.fr/OPENDATA/AMF/ACT/2014/06/FCACT027058_20140626.pdf) |
+| Les Tilleuls wind farm · 12 MW · 2010 | GEM | 修正：年份、容量 | 更正商轉年與容量：國家發電設施登錄的 Parc éolien des Tilleuls（Saint-Georges-sur-Arnon）12.5 MW，2009-05-13 併網 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
+| Les Pierrots wind farm · 26 MW | GEM | 修正：年份、容量 | 補上商轉年 2021 並更正容量：國家發電設施登錄的 Parc éolien Les Pierrots 1、2、3（Saint-Georges-sur-Arnon）9.6＋7.2＋9.6＝26.4 MW，2021-07-28／30 併網 | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 
 ## 波蘭 (POL)
 
@@ -693,6 +703,8 @@
 | Lercara Friddi wind farm · 84 MW | GEM | 重複（併入「Rocca Rossa (Alpiq) wind farm」） | 同一座風場：Alpiq 在 Lercara Friddi 的 84 MW 風場就是 Rocca Rossa（又名 Aerorossa，42 部 Gamesa G90，2011 年商轉）；GEM 自己的 Rocca Rossa (Alpiq) 頁面也把它放在 Lercara Friddi | [連結](https://www.gem.wiki/Rocca_Rossa_(Alpiq)_wind_farm) |
 | Camporeale wind farm · 50 MW | GEM | 修正：容量、年份 | 補上商轉年 2023：ERG 2023-09-29 新聞稿說 Camporeale 改建完工並開始送電，24 部 0.85 MW（20.4 MW）換成 12 部 4.2 MW（50.4 MW） | [連結](https://www.erg.eu/en/-/erg-prosegue-nel-repowering-dei-propri-impianti.-avviato-il-parco-eolico-da-50-mw-di-camporeale-in-sicilia) |
 | Trapani Salemi wind farm · 66 MW | GEM | 修正：容量、年份、機組 | 補上商轉年 2009：ENGIE Rinnovabili 的 Trapani Salemi 風場 66.25 MW（31 部 Vestas V90 2 MW＋5 部 V52 0.85 MW），2009-11-23 投入運轉（環境部改建案文件） | [連結](https://va.mite.gov.it/File/Documento/503356) |
+| Sant Agata wind farm · 72 MW | GEM | 重複（併入「Sant’Agata Di Puglia (EDF) wind farm」） | 同一座風場：EDF 2007 年 3 月宣布投入運轉的 Sant’Agata 風場是 36 部 Vestas V80 2 MW（72 MW），與 Fri-El Green Power 合作開發，EDF EN Italia 持有 50%；環境部 2023 年改建案文件說 Sant’Agata di Puglia 的既有風場是 Fri-El S. Agata 的 36 部 2 MW、72 MW，同一批風機 | [連結](https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/) |
+| Sant’Agata Di Puglia (EDF) wind farm · 72 MW · 2007 | GEM | 修正：機組 | 補上機組：36 部 Vestas V80 2 MW（EDF 2007 年公告；環境部改建案文件） | [連結](https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/) |
 
 ## 肯亞 (KEN)
 
@@ -751,6 +763,14 @@
 | Borssele Site V wind farm · 19 MW · 2021 | GEM | 重複（併入「Borssele V (Two Towers innovation site)」） | 同一座風場（兩部 V164-9.5 MW，2022 年由 Octopus Energy 買下）；GEM 座標偏北約 85 km | [連結](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
 | Ecowende Offshore wind farm · 780 MW · 2026 | GEM | 修正：機組、座標 | Ecowende（Hollandse Kust West 第 VI 區）52 部 Vestas V236-15.0、760 MW，2026 年 7 月首度送電、預定 2026 年底全面運轉；座標改為 Hollandse Kust West 風場區（原座標在海岸線上，概略位置）。容量、狀態與年份由 2026 年整理的規劃中清單帶入（見 build_farms.py 的 PIPE_SAME） | [連結](https://windpowernl.com/2026/07/06/ecowendes-hollandse-kust-west-offshore-wind-farm-delivers-first-power-to-dutch-grid/) |
 | De Drentse Monden En Oostermoer wind farm · 156.8 MW | GEM | 修正：容量、年份、機組 | 風場共 45 部 Nordex N131/3900（測試機 2019 年夏天先在現場裝設，其餘 44 部 2019 年 12 月下單），總裝置容量 175.5 MW（經濟部 2022 年政府公報）；荷蘭企業局（RVO）《2021 陸域風電監測》：2021 年全場建成，2022 年 1 月 45 部全部運轉。原寫 156.8 MW、年份不詳 | [連結](https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf) |
+| Delfzijl Midden wind farm · 39 MW | GEM | 修正：年份、容量 | 補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》格羅寧根省 2021 年完成的風場列有 Delfzijl Midden（Eemsdelta，38.7 MW） | [連結](https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf) |
+| Piet De Wit wind farm · 32 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2022 並更正容量與機組：舊的 Piet de Wit（21 MW）2021 年拆除，新的 Windpark Piet de Wit（Goeree-Overflakkee，7 部 Nordex N133/4800、33.6 MW）列在荷蘭企業局（RVO）《2022 陸域風電監測》2022 年完成的風場 | [連結](https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf) |
+| Suyderlandt wind farm · 11 MW | GEM | 修正：年份、容量 | 補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》南荷蘭省 2021 年完成的風場列有 Windpark Suyderlandt（Goeree-Overflakkee，10.8 MW） | [連結](https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf) |
+| Windmolens Groetpolder wind farm · 13 MW | GEM | 修正：年份、容量 | 補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》北荷蘭省 2021 年完成的風場列有 WP Groetpolder（Hollands Kroon，13.2 MW），同時拆除舊機組 4.7 MW | [連結](https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf) |
+| Anna Vosdijk Polder wind farm · 15 MW | GEM | 修正：年份、機組 | 補上商轉年 2008：Anna Vosdijkpolder 風場（Tholen）有 5 部 Vestas V90 3 MW（15 MW），2008 年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖） | [連結](https://nl.wikipedia.org/wiki/Windpark_Anna_Vosdijkpolder) |
+| Wisse wind farm · 12 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2011 並更正容量：Wisse Wind BV 的 Willempolder 風場（Sint Philipsland）有 5 部 2.3 MW Enercon（11.5 MW），2011 年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖） | [連結](https://nl.wikipedia.org/wiki/Windpark_Wissewind) |
+| Zierikzee wind farm · 10 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2014 並更正容量：Zierikzee 風場有 3 部 Senvion 3.4M104（10.2 MW），2014 年 8 月開工、同年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖） | [連結](https://nl.wikipedia.org/wiki/Windpark_Zierikzee) |
+| Etten-Leur wind farm · 13 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2019 並更正容量與機組：Etten-Leur 風場（換掉 2000 年的 5 部舊機）有 3 部 Vestas 4.2 MW（輪轂 112 m、葉輪 136 m），合計 12.6 MW，2019 年完工（基礎設計公司 Windbase 專案資料） | [連結](https://galleo.co/search/projects/wind-park-etten-leur/windbase) |
 
 ## 菲律賓 (PHL)
 
