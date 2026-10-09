@@ -1,0 +1,1134 @@
+[
+ {
+  "item": "ITA 1. Carlentini wind farm 48.0 MW",
+  "farm": "Carlentini wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "ERG FER X release (Dec 2025) only gives the repowering (97 MW); Enel’s Carlentini 2 release concerns Enel’s farm (already Carlentini II, 2008). No COD for ERG’s 48 MW farm. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 2. Messina Randazzo 48 MW (Athena) = Minerva Messina",
+  "farm": "Messina Randazzo wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Messina Randazzo wind farm', G, '補上商轉年 2010 與概略位置：Greentech Energy Systems（今 Athena Investments）簡報列出 Minerva Messina 風場 48.3 MW、Nordex 風機，2010 年 7 月開始運轉；2009 年報導說它在西西里東北部 Randazzo 附近（座標取該鎮，原座標是義大利中心的代用點）', 'Commissioning year 2010 and approximate position added: a Greentech Energy Systems (now Athena Investments) presentation lists the Minerva Messina farm, 48.3 MW, Nordex turbines, in operation since July 2010; a 2009 report puts it near Randazzo in north-eastern Sicily (coordinates of that town; the old point was a placeholder at the centre of Italy)', 'https://static.seekingalpha.com/uploads/sa_presentations/512/31512/original.pdf', year=2010, mw=48.3, lat=37.877, lon=14.95, approx=True),",
+  "note_zh": "Athena（前 Greentech）的 Minerva Messina：48.3 MW、Nordex、2010 年 7 月運轉；位在 Randazzo 附近（座標用 it.wikipedia 的 Randazzo 37°52′38.5″N 14°57′00.43″E，標概略）。2019 年 Athena 同意把它賣給 Glennmont（未確認交割，業主不改）。可考慮改名 Minerva Messina wind farm（與 Fri-El 的 Minerva/Castel di Lucio 是不同風場）。",
+  "note_en": "Athena’s (ex-Greentech) Minerva Messina: 48.3 MW, Nordex, operating since Jul 2010; near Randazzo (coordinates: Randazzo’s from it.wikipedia, 37°52′38.5″N 14°57′00.43″E, marked approximate). In 2019 Athena agreed to sell it to Glennmont (closing not confirmed; owner left). A rename to Minerva Messina wind farm could be considered (it is not Fri-El’s Minerva/Castel di Lucio).",
+  "why": "Owner presentation for year and size; 2009 trade report for location; 2019 sale note confirms it is Athena’s 48.3 MW Sicilian farm.",
+  "sources": [
+   {
+    "url": "https://static.seekingalpha.com/uploads/sa_presentations/512/31512/original.pdf",
+    "quote": "Minerva Messina Italy Power: 48.3 MW Type of turbine: Nordex Start of operation: July 2010"
+   },
+   {
+    "url": "https://www.electricityforum.com/news-archive/may09/SardinianwindfarmgetsFrenchlifeline",
+    "quote": "Minerva Messina is a 48.3-MW project near Randazzo in northeastern Sicily."
+   },
+   {
+    "url": "https://ippjournal.com/update/athena-enters-agreement-to-sell-its-2055-mw-wind-and-solar-assets-to-ardian-and-glennmont",
+    "quote": "Glenmont will acquire 100% stake in the 48.3 MW Minerva Messina wind farm in Italy by taking over Minerva Messina Srl."
+   },
+   {
+    "url": "https://it.wikipedia.org/wiki/Randazzo",
+    "quote": "Coordinate : 37°52′38.5″N 14°57′00.43″E"
+   }
+  ]
+ },
+ {
+  "item": "ITA 3. Pietramontecorvino (ICQ) 48 MW",
+  "farm": "Pietramontecorvino (ICQ) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Pietramontecorvino (ICQ) wind farm', G, '補上商轉年 2009：GlobalData 寫 Pietramontecorvino 風場 48 MW（24 部 Senvion/REpower MM82 2 MW），2009 年 5 月商轉，現由 Voreas 持有', 'Commissioning year 2009 added: GlobalData gives the Pietramontecorvino farm as 48 MW (24 Senvion/REpower MM82 2 MW units), commissioned May 2009 and now owned by Voreas', 'https://www.power-technology.com/marketdata/power-plant-profile-pietramontecorvino-italy/', year=2009, turbine='24 x REpower MM82 2.0 MW'),",
+  "note_zh": "GlobalData：48 MW、24 部 MM82，2009 年 5 月商轉，業主 Voreas。GEM 寫 ICQ Holding（Voreas 據 PitchBook 是 ICQ 子公司，付費資料未引用），業主不改。本站另有 Pietramontecorvino (PLT) 17 MW（2005），是別座。",
+  "note_en": "GlobalData: 48 MW, 24 MM82 units, commissioned May 2009, owner Voreas. GEM says ICQ Holding (PitchBook calls Voreas an ICQ subsidiary; paywalled, not cited), so the owner is left as is. Pietramontecorvino (PLT) 17 MW (2005) is a different farm.",
+  "why": "Single source (GlobalData); capacity and commune match exactly.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-pietramontecorvino-italy/",
+    "quote": "Pietramontecorvino is a 48MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-pietramontecorvino-italy/",
+    "quote": "the project got commissioned in May 2009"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-pietramontecorvino-italy/",
+    "quote": "The project is currently owned by Voreas."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-pietramontecorvino-italy/",
+    "quote": "The company provided 24 units of MM82 turbines, each with 2MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "item": "ITA 4. Alcantara 48 MW (Glennmont)",
+  "farm": "Alcantara wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Alcantara wind farm', G, '補上商轉年 2012：GlobalData 寫 Alcantara 風場 47.6 MW（56 部 Gamesa G52 0.85 MW），由 Iberdrola 與 Novaenergy 開發，2012 年 4 月商轉，現由 Eni Plenitude 全資持有', 'Commissioning year 2012 added: GlobalData gives the Alcantara farm as 47.6 MW (56 Gamesa G52 0.85 MW units), developed by Iberdrola and Novaenergy, commissioned April 2012 and now wholly owned by Eni Plenitude', 'https://www.power-technology.com/marketdata/power-plant-profile-alcantara-italy/', year=2012, mw=47.6, turbine='56 x Gamesa G52-0.85 MW', owner='Eni Plenitude SpA [100%]'),",
+  "note_zh": "GlobalData：47.6 MW、56 部 G52，2012 年 4 月商轉，Eni Plenitude 持有（Glennmont 2021 年把義大利風場組合賣給 Eni）。位置仍是義大利中心代用點：只知在西西里，查不到可引用的場址，不改座標。",
+  "note_en": "GlobalData: 47.6 MW, 56 G52 units, commissioned Apr 2012, owned by Eni Plenitude (Glennmont sold its Italian wind portfolio to Eni in 2021). Position is still the Italy-centre placeholder: only “Sicily” is citable, so no coordinates are proposed.",
+  "why": "Single source (GlobalData) for year/turbines/owner; capacity matches. Overpass (OSM) unreachable from this session, so no position.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alcantara-italy/",
+    "quote": "Alcantara is a 47.6MW onshore wind power project. It is located in Sicily, Italy."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alcantara-italy/",
+    "quote": "The project was developed by Iberdrola and Novaenergy. The project is currently owned by Eni Plenitude with a stake of 100%."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alcantara-italy/",
+    "quote": "the project got commissioned in April 2012"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alcantara-italy/",
+    "quote": "The company provided 56 units of G52-850 kW turbines"
+   }
+  ]
+ },
+ {
+  "item": "ITA 5. Serra Marrocco 47 MW (EGP)",
+  "farm": "Serra Marrocco wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Serra Marrocco wind farm', G, '補上商轉年 2004：Enel 2004-07-23 新聞稿宣布恩納省 Nicosia 的 Serra Marrocco 新風場，47 MW、55 部風機；GlobalData 寫 46.75 MW（55 部 Gamesa G52 0.85 MW），2004 年 7 月商轉', 'Commissioning year 2004 added: Enel’s release of 23 Jul 2004 announced the new Serra Marrocco farm at Nicosia (Enna), 47 MW, 55 turbines; GlobalData gives 46.75 MW (55 Gamesa G52 0.85 MW units), commissioned July 2004', 'https://www.enel.com/content/dam/enel-com/pressrelease/porting_pressrelease_IT/965957-1_PDF-1.pdf', year=2004, turbine='55 x Gamesa G52-0.85 MW'),",
+  "note_zh": "Enel 2004 年 7 月新聞稿：Serra Marrocco 47 MW、55 部，使 Enel 風電達約 200 MW；GlobalData：2004 年 7 月商轉、55 部 G52。",
+  "note_en": "Enel’s July 2004 release: Serra Marrocco 47 MW, 55 turbines, bringing Enel’s wind fleet to about 200 MW; GlobalData: commissioned July 2004, 55 G52 units.",
+  "why": "Owner press release plus GlobalData (spelled “Serra Marocco”).",
+  "sources": [
+   {
+    "url": "https://www.enel.com/content/dam/enel-com/pressrelease/porting_pressrelease_IT/965957-1_PDF-1.pdf",
+    "quote": "Il nuovo impianto eolico ha una capacità di 47 MW"
+   },
+   {
+    "url": "https://www.enel.com/content/dam/enel-com/pressrelease/porting_pressrelease_IT/965957-1_PDF-1.pdf",
+    "quote": "Roma, 23 luglio 2004"
+   },
+   {
+    "url": "https://www.enel.com/content/dam/enel-com/pressrelease/porting_pressrelease_IT/965957-1_PDF-1.pdf",
+    "quote": "La centrale di Serra Marrocco (1.057 metri s.l.m.) è il quattordicesimo impianto eolico di Enel in Italia"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-serra-marocco-italy/",
+    "quote": "Serra Marocco is a 46.75MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-serra-marocco-italy/",
+    "quote": "the project got commissioned in July 2004"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-serra-marocco-italy/",
+    "quote": "The company provided 55 units of G52-850 kW turbines"
+   }
+  ]
+ },
+ {
+  "item": "ITA 6. Serro Lo Monaco 45 MW (EDPR)",
+  "farm": "Serro Lo Monaco (EDP) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "thewindpower.net：Serro Lo Monaco 在 Castellaneta（8 部 Vestas V90 3 MW）與 Laterza（7 部），共 45 MW，沒有商轉日期。EDPR 在義大利的第一座風場是 2012 年 12 月的 Villa Castelli，所以若是 EDPR 自建應在 2013 年後，但可能是收購的舊場，無法判斷。",
+  "note_en": "thewindpower.net: Serro Lo Monaco spans Castellaneta (8 Vestas V90 3 MW) and Laterza (7), 45 MW in all, with no commissioning date. EDPR’s first Italian farm was Villa Castelli (Dec 2012), but this one may have been acquired; undetermined.",
+  "why": "Only turbines/place found; no date anywhere public.",
+  "sources": [
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_429_serro-lo-monaco.php",
+    "quote": "City Castellaneta Commissioning Turbines 8x Vestas V90/3000"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_429_serro-lo-monaco.php",
+    "quote": "City Laterza Commissioning Turbines 7x Vestas V90/3000"
+   }
+  ]
+ },
+ {
+  "item": "ITA 7. Lago Arancio 44 MW (Glennmont)",
+  "farm": "Lago Arancio wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Lago Arancio wind farm', G, '補上商轉年 2012 與概略位置：GlobalData 寫 Lago Arancio 風場 44 MW（22 部 Gamesa G87 2 MW），由 Iberdrola 與 Novaenergy 開發，2012 年 4 月商轉；地方報 QdS 說風場位於 Sambuca di Sicilia 境內（座標取該鎮，原座標是義大利中心的代用點）', 'Commissioning year 2012 and approximate position added: GlobalData gives the Lago Arancio farm as 44 MW (22 Gamesa G87 2 MW units), developed by Iberdrola and Novaenergy, commissioned April 2012; the local paper QdS places it in Sambuca di Sicilia (coordinates of that town; the old point was a placeholder at the centre of Italy)', 'https://www.power-technology.com/marketdata/power-plant-profile-lago-arancio-italy/', year=2012, turbine='22 x Gamesa G87-2.0 MW', lat=37.648, lon=13.111, approx=True),",
+  "note_zh": "GlobalData：44 MW、22 部 G87，2012 年 4 月商轉，現由 Eni 持有。QdS：Lago Arancio 風場在 Sambuca di Sicilia 境內施工（申請者為 Api Holding）。座標用 it.wikipedia 的 Sambuca di Sicilia（37°38′52″N 13°06′40″E），標概略。業主（Glennmont → Eni）可另改。",
+  "note_en": "GlobalData: 44 MW, 22 G87 units, commissioned Apr 2012, now owned by Eni. QdS: the Lago Arancio farm was being built in Sambuca di Sicilia (applicant Api Holding). Coordinates are Sambuca di Sicilia’s from it.wikipedia (37°38′52″N 13°06′40″E), marked approximate. Owner (Glennmont → Eni) could also be updated.",
+  "why": "Year from GlobalData; place from a local newspaper (undated, during construction) plus the commune’s coordinates.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-lago-arancio-italy/",
+    "quote": "Lago Arancio is a 44MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-lago-arancio-italy/",
+    "quote": "the project got commissioned in April 2012"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-lago-arancio-italy/",
+    "quote": "The company provided 22 units of G87-2.0 MW turbines"
+   },
+   {
+    "url": "https://qds.it/241-le-pale-eoliche-invadono-la-provincia-137-aerogeneratori-in-30-chilometri-htm/",
+    "quote": "In territorio sambucese, i lavori per la realizzazione del parco eolico “Lago Arancio” sono a buon punto"
+   },
+   {
+    "url": "https://it.wikipedia.org/wiki/Sambuca_di_Sicilia",
+    "quote": "Coordinate : 37°38′52″N 13°06′40″E"
+   }
+  ]
+ },
+ {
+  "item": "ITA 8. Rotello 42 MW (ERG)",
+  "farm": "Rotello wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GlobalData 的 Rotello：40 MW（20 部 Vestas V90 2 MW），IVPC 開發、ERG 持有，分期建設，2009 年 9 月商轉。本站紀錄是 42 MW，容量不符；ERG 有 Rotello 改建案（10 部 4.2 MW＝42 MW），GEM 的 42 MW 可能是改建後或另一期，無法確認，不寫年份。",
+  "note_en": "GlobalData’s Rotello: 40 MW (20 Vestas V90 2 MW), developed by IVPC, owned by ERG, built in phases, commissioned Sep 2009. The record says 42 MW; ERG has a Rotello repowering plan (10 × 4.2 MW = 42 MW), so GEM’s 42 MW may be the repowered or another phase. Not resolved; no year written.",
+  "why": "Capacity mismatch 40 vs 42 MW; need an ERG source (repowering file or release) to tell which.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-rotello-italy/",
+    "quote": "Rotello is a 40MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-rotello-italy/",
+    "quote": "the project got commissioned in September 2009"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-rotello-italy/",
+    "quote": "The project consists of 20 units of V90-2.0 MW turbines"
+   }
+  ]
+ },
+ {
+  "item": "ITA 9. Lacedonia (Nsidia) wind farm 42.0 MW",
+  "farm": "Lacedonia (Nsidia) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "GlobalData slug for Lacedonia is a different project page; no Nisida source found. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 10. Bellavello wind farm 40.0 MW",
+  "farm": "Bellavello wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further (budget). GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 11. Isola I 40 MW (Acciona)",
+  "farm": "Isola I wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GlobalData 的 Isola I：45.9 MW（54 部 Gamesa G58 0.85 MW），Acciona，分期建設，2008 年 12 月商轉。本站 40 MW 與之不符（可能只是第一期），不寫年份。本站另有 Isola di Capo Rizzuto 96 MW（2009，Scan Energy/Vent 1），是別座。",
+  "note_en": "GlobalData’s Isola I: 45.9 MW (54 Gamesa G58 0.85 MW), Acciona, built in phases, commissioned Dec 2008. The record’s 40 MW does not match (perhaps phase 1 only); no year written. Isola di Capo Rizzuto 96 MW (2009) is a different farm.",
+  "why": "Capacity mismatch; need Acciona or regional source giving phases.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-isola-i-italy/",
+    "quote": "Isola I is a 45.9MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-isola-i-italy/",
+    "quote": "the project got commissioned in December 2008"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-isola-i-italy/",
+    "quote": "The project consists of 54 units of G58-850 kW turbines"
+   }
+  ]
+ },
+ {
+  "item": "ITA 12. Contrada Corvo - Cozzo Miturro wind farm 38.0 MW",
+  "farm": "Contrada Corvo - Cozzo Miturro wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Enel release search found only Serra Marrocco; no GlobalData profile under corvo/miturro slugs. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 13. Ricigliano (Fri-El) 36 MW",
+  "farm": "Ricigliano (Fri-El) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Ricigliano (Fri-El) wind farm', G, '補上商轉年 2007：Alerion Clean Power 2022 年債券公開說明書的風場表列出 Ricigliano 風場（FriEl Ricigliano S.r.l.）36 MW、12 部 Vestas V90，2007 年 8 月開始發電；GlobalData 也寫 2007 年 8 月商轉', 'Commissioning year 2007 added: the wind-farm table in Alerion Clean Power’s 2022 bond prospectus lists the Ricigliano farm (FriEl Ricigliano S.r.l.), 36 MW, 12 Vestas V90 units, producing since August 2007; GlobalData also gives August 2007', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf', year=2007, turbine='12 x Vestas V90-3.0 MW'),",
+  "note_zh": "Alerion 2022 年債券公開說明書：Ricigliano 36 MW、12 部 Vestas V90（每部 3 MW），2007 年 8 月開始發電；GlobalData 2007 年 8 月商轉。本站另有 Ricigliano (Renvico) 12 MW（2012），是另一座。",
+  "note_en": "Alerion 2022 bond prospectus: Ricigliano 36 MW, 12 Vestas V90 (3 MW each), producing since Aug 2007; GlobalData: commissioned Aug 2007. The site’s Ricigliano (Renvico) 12 MW (2012) is a different farm.",
+  "why": "Owner’s prospectus table (columns: turbines, date production commenced) plus GlobalData agree.",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Ricigliano FriEl Ricignano S.r.l. Vestas V90 36 MW 36 MW 100% 36 MW 12 August 2007"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-ricigliano-italy/",
+    "quote": "Ricigliano is a 36MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-ricigliano-italy/",
+    "quote": "the project got commissioned in August 2007"
+   }
+  ]
+ },
+ {
+  "item": "ITA 14. Baselice (Enel) wind farm 36.0 MW",
+  "farm": "Baselice (Enel) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile (baselice, baselice-enel); no Enel release found. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 15. Wind Power Sud 34 MW (Fri-El) = Agrigento (Alerion) = Altopiano Petrasi",
+  "farm": "Wind Power Sud wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "dup('ITA', 'Wind Power Sud wind farm', G, ('Agrigento wind farm', G), '同一座風場：Alerion 2022 年債券公開說明書列出 Agrigento 風場由 Wind Power Sud S.r.l. 經營（33.2 MW、39 部 Gamesa G58，2007 年 2 月開始發電），Fri-El 網站寫 Wind Power Sud 的風場在 Agrigento 的 Monte Petrasi、33.15 MW；本站 Agrigento 風場（33 MW、2007 年）座標相同', 'Same farm: Alerion’s 2022 bond prospectus lists the Agrigento farm as run by Wind Power Sud S.r.l. (33.2 MW, 39 Gamesa G58 units, producing since February 2007), and Fri-El’s site puts the Wind Power Sud farm at Monte Petrasi, Agrigento, 33.15 MW; the site’s Agrigento wind farm (33 MW, 2007) has the same coordinates', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf'),\ndup('ITA', 'Altopiano Petrasi wind farm', G, ('Agrigento wind farm', G), '同一座風場：GlobalData 說 Altopiano Petrasi 風場（34 MW、Gamesa G58、2007 年 3 月商轉）由 Moncada Energy Group 開發、現由 Alerion Clean Power 全資持有；Alerion 在 Agrigento 只有 Wind Power Sud 這一座（Monte Petrasi，33.2 MW、Gamesa G58、2007 年 2 月開始發電），即本站 Agrigento 風場，座標相同', 'Same farm: GlobalData says the Altopiano Petrasi farm (34 MW, Gamesa G58, commissioned March 2007) was developed by Moncada Energy Group and is now wholly owned by Alerion Clean Power; Alerion’s only Agrigento farm is Wind Power Sud (Monte Petrasi, 33.2 MW, Gamesa G58, producing since February 2007), i.e. the site’s Agrigento wind farm at the same coordinates', 'https://www.power-technology.com/marketdata/power-plant-profile-altopiano-petrasi-italy/'),",
+  "note_zh": "三筆是同一座：Wind Power Sud（Fri-El）、Agrigento（Alerion，33 MW，2007）、Altopiano Petrasi（Moncada，34 MW，2007）座標完全相同；保留 Agrigento。Moncada 的 Monte Durra、Monte Narbonne 同在 Agrigento 代用點，未查。",
+  "note_en": "Three records of one farm: Wind Power Sud (Fri-El), Agrigento (Alerion, 33 MW, 2007) and Altopiano Petrasi (Moncada, 34 MW, 2007) share identical coordinates; keep Agrigento. Moncada’s Monte Durra and Monte Narbonne sit on the same Agrigento placeholder point and were not checked.",
+  "why": "Alerion’s table lists one Agrigento farm (Wind Power Sud, G58, 2007); Fri-El places Wind Power Sud at Monte Petrasi; GlobalData’s Altopiano Petrasi is Moncada-developed and Alerion-owned, G58, 2007. 39 vs 40 turbines (33.15 vs 34 MW) is the only difference.",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Agrigento Wind Power Sud S.r.l. Gamesa G58 33.2 MW 33.2 MW 100% 33.2 MW 39 February 2007"
+   },
+   {
+    "url": "https://www.fri-el.it/energia-eolica/",
+    "quote": "Impianto Eolico Wind Power Sud Srl Agrigento, Monte Petrasi (AG) Il parco eolico locato a Agrigento, Monte Petrasi (AG) ha una potenza massima installata di 33,15 MW"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-altopiano-petrasi-italy/",
+    "quote": "Altopiano Petrasi is a 34MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-altopiano-petrasi-italy/",
+    "quote": "The project was developed by Moncada Energy Group and is currently owned by Alerion Clean Power with a stake of 100%."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-altopiano-petrasi-italy/",
+    "quote": "the project got commissioned in March 2007"
+   }
+  ]
+ },
+ {
+  "item": "ITA 16. Conza wind farm 34.0 MW",
+  "farm": "Conza wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; EDPR Italy sources give no farm list. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 17. Cocullo 31 MW (Acciona)",
+  "farm": "Cocullo wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet; possible dup of Pietrafitta wind farm)",
+  "note_zh": "可能與本站 Pietrafitta 風場（G，31 MW，2005，相距約 1.8 km）重複：GlobalData 的 Pietrafitta 是 Acciona 在阿布魯佐的 31.45 MW 風場（27 部 G52＋10 部 G58），2004 年 12 月商轉。但查不到把 Pietrafitta 與 Cocullo 連在一起的出處（環境部的 Cocullo 案是另一家 SPIRIT 的新案），不提 dup。",
+  "note_en": "Possibly the same farm as the site’s Pietrafitta wind farm (G, 31 MW, 2005, about 1.8 km away): GlobalData’s Pietrafitta is Acciona’s 31.45 MW farm in Abruzzo (27 G52 + 10 G58), commissioned Dec 2004. No source ties Pietrafitta to Cocullo (the ministry’s Cocullo file is a new SPIRIT S.r.l. project), so no dup is proposed.",
+  "why": "Need a source naming the Acciona farm at Cocullo/Monte Pietrafitta.",
+  "sources": [
+   {
+    "url": "https://power-technology.com/?p=182741",
+    "quote": "Pietrafitta is a 31.45MW onshore wind power project. It is located in Abruzzo, Italy."
+   },
+   {
+    "url": "https://power-technology.com/?p=182741",
+    "quote": "The project was developed by Acciona Energia"
+   },
+   {
+    "url": "https://power-technology.com/?p=182741",
+    "quote": "the project got commissioned in December 2004"
+   }
+  ]
+ },
+ {
+  "item": "ITA 18. Caltavuturo 30.6 MW (EGP)",
+  "farm": "Caltavuturo wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Caltavuturo wind farm', G, '補上商轉年 2003：GlobalData 寫 Caltavuturo 風場 30.6 MW（36 部 Vestas V52 0.85 MW），由 Enel 開發，2003 年 10 月商轉', 'Commissioning year 2003 added: GlobalData gives the Caltavuturo farm as 30.6 MW (36 Vestas V52 0.85 MW units), developed by Enel, commissioned October 2003', 'https://www.power-technology.com/marketdata/power-plant-profile-caltavuturo-italy/', year=2003, turbine='36 x Vestas V52-0.85 MW'),",
+  "note_zh": "GlobalData：30.6 MW、36 部 V52，Enel 開發，2003 年 10 月商轉；與本站容量一致。",
+  "note_en": "GlobalData: 30.6 MW, 36 V52 units, developed by Enel, commissioned Oct 2003; matches the record’s capacity.",
+  "why": "Single source (GlobalData, already used elsewhere in farm_cleanup.py); capacity and developer match exactly.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-caltavuturo-italy/",
+    "quote": "Caltavuturo is a 30.6MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-caltavuturo-italy/",
+    "quote": "The project was developed by Enel."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-caltavuturo-italy/",
+    "quote": "the project got commissioned in October 2003"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-caltavuturo-italy/",
+    "quote": "The company provided 36 units of V52-850 kW turbines"
+   }
+  ]
+ },
+ {
+  "item": "ITA 19. Siamanna wind farm 30.0 MW",
+  "farm": "Siamanna wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 20. Banzi (EDPR) wind farm 30.0 MW",
+  "farm": "Banzi (EDPR) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; EDPR Italy sources give no farm list. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 21. Anglona 30 MW (Fri-El)",
+  "farm": "Anglona S.R.L. wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Anglona S.R.L. wind farm', G, '補上商轉年 2008：Alerion 2022 年債券公開說明書列出 Nulvi-Tergu 風場（Fri-El Anglona S.r.l.）29.75 MW、35 部 Vestas V52，2008 年 1 月開始發電', 'Commissioning year 2008 added: Alerion’s 2022 bond prospectus lists the Nulvi-Tergu farm (Fri-El Anglona S.r.l.), 29.75 MW, 35 Vestas V52 units, producing since January 2008', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf', year=2008, mw=29.75, turbine='35 x Vestas V52-0.85 MW'),",
+  "note_zh": "Fri-El Anglona 的風場在 Nulvi–Tergu（SS），29.75 MW、35 部 V52，2008 年 1 月開始發電。本站 Nulvi (ERG) 16 MW（2005）與 Nulvi - Ploaghe 是別座。",
+  "note_en": "Fri-El Anglona’s farm is at Nulvi–Tergu (SS): 29.75 MW, 35 V52 units, producing since Jan 2008. The site’s Nulvi (ERG) 16 MW (2005) and Nulvi - Ploaghe are other farms.",
+  "why": "Prospectus table and Fri-El’s own plant list agree on place and capacity.",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Nulvi-Tergu Fri-El Anglona S.r.l. Vestas V52 29.8 MW 29.8 MW 90% 26.8 MW 35 January 2008"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "having total installed power output of 29.75 MW and located in the Municipalities of Nulvi and Tergu (SS)"
+   },
+   {
+    "url": "https://www.fri-el.it/energia-eolica/",
+    "quote": "Impianto Eolico FRI-EL Anglona Srl Nulvi-Tergu (SS) Il parco eolico locato a Nulvi-Tergu (SS) ha una potenza massima installata di 29,75 MW"
+   }
+  ]
+ },
+ {
+  "item": "ITA 22. Colle Sannita S.R.L. wind farm 29.0 MW",
+  "farm": "Colle Sannita S.R.L. wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Fri-El plant list confirms Golden FRI-EL Colle Sannita Srl at Colle Sannita (BN) but gives no date; not in Alerion’s table. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 23. Sicignano Degli Alburni wind farm 29.0 MW",
+  "farm": "Sicignano Degli Alburni wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 24. Marsica 2 At 28 MW (Eneco)",
+  "farm": "Marsica 2 At wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet; probable dup of Marsica II wind farm)",
+  "note_zh": "很可能與本站 Marsica II 風場（G，28 MW，2009，PLT Energia，相距約 1.8 km）重複：同名、同容量；搜尋結果顯示 GEM 的 Marsica 2 At 別名 Cerchio 風場，Eni Plenitude 網頁說 Marsica II 在 Collarmele 與 Cerchio（AQ），但兩頁都抓不到可引用的原文（Plenitude 頁只回首頁內容）。",
+  "note_en": "Probably the same farm as the site’s Marsica II wind farm (G, 28 MW, 2009, PLT Energia, about 1.8 km away): same name and capacity; search results show GEM’s Marsica 2 At has the other name Cerchio wind farm and Eni Plenitude’s page puts Marsica II in Collarmele and Cerchio (AQ), but neither page yielded quotable text (the Plenitude URL returns its home page).",
+  "why": "Dup likely but unquoted; Plenitude page not readable by the checker.",
+  "sources": []
+ },
+ {
+  "item": "ITA 25. Monte Zimmara wind farm 27.0 MW",
+  "farm": "Monte Zimmara wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile (monte-zimmara, zimmara); Enel release search found nothing. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 26. Baselice (IVPC) wind farm 27.0 MW",
+  "farm": "Baselice (IVPC) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 27. Alia/Sclafani Bagni 26 MW (Asja)",
+  "farm": "Alia/Sclafani Bagn wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GlobalData 的 Alia Sclafani：30.625 MW、兩期（一期 30 部 Vestas V52 0.85 MW＝25.5 MW；二期 2 部 Gamesa G114），Asja 開發，「2009 年 4 月商轉」；環境部改建案文件也說現有 30 部 V52。本站 26 MW 相當於一期，但 GlobalData 的日期是整個專案的，二期年份不明，不能確定 2009 年就是一期的商轉年。",
+  "note_en": "GlobalData’s Alia Sclafani: 30.625 MW in two phases (phase I 30 Vestas V52 0.85 MW = 25.5 MW; phase II 2 Gamesa G114), developed by Asja, “commissioned April 2009”; the ministry repowering file also lists 30 existing V52. The record’s 26 MW is phase I, but GlobalData’s date is for the whole project, so 2009 is not proven for phase I.",
+  "why": "Likely 2009, but the date is not tied to phase I; need an Asja or GSE source.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alia-sclafani-italy/",
+    "quote": "Alia Sclafani is a 30.625MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alia-sclafani-italy/",
+    "quote": "the project got commissioned in April 2009"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alia-sclafani-italy/",
+    "quote": "Alia Sclafani (Alia Sclafani- Phase I) is equipped with Vestas Wind Systems V52-850 kW turbines. The phase consists of 30 turbines with 0.85MW nameplate capacity."
+   },
+   {
+    "url": "https://va.mite.gov.it/File/Documento/1117897",
+    "quote": "rimozione e dismissione dei 30 aerogeneratori V52-850kW"
+   }
+  ]
+ },
+ {
+  "item": "ITA 28. Andromeda Wind 26 MW (Fri-El) = Ururi",
+  "farm": "Andromeda Wind S.R.L. wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "dup('ITA', 'Andromeda Wind S.R.L. wind farm', G, ('Ururi wind farm', G), '同一座風場：Alerion 2022 年債券公開說明書說 Andromeda Wind S.r.l. 經營 Molise 大區的 Ururi 風場（26 MW、13 部 Vestas V90，2011 年 1 月開始發電，RWE Innogy Italia 也是股東），與本站 Ururi 風場（26 MW、2011 年，相距約 2 km）同容量、同地點', 'Same farm: Alerion’s 2022 bond prospectus says Andromeda Wind S.r.l. runs the Ururi wind farm in Molise (26 MW, 13 Vestas V90 units, producing since January 2011, with RWE Innogy Italia as a shareholder), the same capacity and place as the site’s Ururi wind farm (26 MW, 2011, about 2 km away)', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf'),",
+  "note_zh": "同一座：Andromeda Wind S.r.l. 就是 Ururi 風場的公司，本站已有 Ururi wind farm（G，26 MW，2011，RWE）。",
+  "note_en": "Duplicate: Andromeda Wind S.r.l. is the company of the Ururi farm, already on the site as Ururi wind farm (G, 26 MW, 2011, RWE).",
+  "why": "Same capacity, 1.7 km apart, prospectus ties the SPV to the Ururi farm and names RWE Innogy Italia as co-shareholder (matching the keeper’s RWE owner).",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Ururi Andromeda Wind S.r.l. Vestas V90 26 MW 12.7 MW 49% 12.7 MW 13 January 2011"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Andromeda Wind S.r.l. (“Andromeda SPV” or “Andromeda”)(company managing the Ururi Wind Farm in Molise)"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "RWE Innogy Italia S.r.l. e Frie -El Germany GmbH (now, the Company), as shareholders of Andromeda SPV"
+   }
+  ]
+ },
+ {
+  "item": "ITA 29. Ponte Rotto wind farm 26.0 MW",
+  "farm": "Ponte Rotto wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。可能重複，見英文說明。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Possible dup: Ordona (Inergia) wind farm (G, 26 MW, 2009) lies 0.3 km away with the same capacity; not checked against a source. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 30. Molinara wind farm 25.0 MW",
+  "farm": "Molinara wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; ERG search found only the Edison Molinara/San Giorgio project. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 31. Guardionara 25 MW (Fri-El) = San Basilio",
+  "farm": "Guardionara wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "dup('ITA', 'Guardionara wind farm', G, ('San Basilio wind farm', G), '同一座風場：Alerion 2022 年債券公開說明書列出 San Basilio 風場由 Fri-el Guardionara S.r.l. 經營（24.7 MW、29 部 Vestas V52，2010 年 6 月開始發電），Fri-El 網站也寫 Guardionara 風場在 San Basilio（CA）、24.65 MW；與本站 San Basilio 風場（25 MW、2010 年，相距約 3 km）同容量、同地點', 'Same farm: Alerion’s 2022 bond prospectus lists the San Basilio farm as run by Fri-el Guardionara S.r.l. (24.7 MW, 29 Vestas V52 units, producing since June 2010), and Fri-El’s site puts the Guardionara farm at San Basilio (CA), 24.65 MW; the site’s San Basilio wind farm (25 MW, 2010, about 3 km away) is the same', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf'),",
+  "note_zh": "同一座：Guardionara 是 San Basilio 風場的公司名，本站已有 San Basilio wind farm（G，25 MW，2010）。",
+  "note_en": "Duplicate: Guardionara is the company name of the San Basilio farm, already on the site as San Basilio wind farm (G, 25 MW, 2010).",
+  "why": "Same capacity, 3.3 km apart, company-to-place link quoted from both owner sources.",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "San Basilio Fri-el Guardionara S.r.l. Vestas V52 24.7 MW 12.1 MW 49% 12.1 MW 29 June 2010"
+   },
+   {
+    "url": "https://www.fri-el.it/energia-eolica/",
+    "quote": "Impianto Eolico FRI-EL Guardionara Srl San Basilio (CA) Il parco eolico locato a San Basilio (CA) ha una potenza massima installata di 24,65 MW"
+   }
+  ]
+ },
+ {
+  "item": "ITA 32. San Canio wind farm 24.0 MW",
+  "farm": "San Canio wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Fri-El plant list confirms FRI-EL San Canio Srl at Guardia Perticara–Gorgoglione (MT) but gives no date. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 33. Faeto (ERG) wind farm 24.0 MW",
+  "farm": "Faeto (ERG) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; ERG Greci–Montaguto repowering files do not give the old COD. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 34. Taverna Caduta wind farm 23.0 MW",
+  "farm": "Taverna Caduta wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; EDPR sources give no farm list. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 35. Minerva (Fri-El) 23 MW = Castel di Lucio",
+  "farm": "Minerva (Fri-El) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "dup('ITA', 'Minerva (Fri-El) wind farm', G, ('Castel Di Lucio wind farm', G), '同一座風場：Alerion 2022 年債券公開說明書列出 Castel di Lucio 風場由 Minerva S.r.l. 經營（23 MW、27 部 Vestas V52，2010 年 4 月開始發電），Fri-El 網站也寫 Minerva 風場在 Castel di Lucio（ME）、22.95 MW；本站 Castel Di Lucio 風場（23 MW、2010 年）座標相同', 'Same farm: Alerion’s 2022 bond prospectus lists the Castel di Lucio farm as run by Minerva S.r.l. (23 MW, 27 Vestas V52 units, producing since April 2010), and Fri-El’s site puts the Minerva farm at Castel di Lucio (ME), 22.95 MW; the site’s Castel Di Lucio wind farm (23 MW, 2010) has the same coordinates', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf'),",
+  "note_zh": "同一座：Minerva S.r.l. 是 Castel di Lucio 風場的公司，本站已有 Castel Di Lucio wind farm（G，23 MW，2010，Alerion），座標完全相同。注意：這座 Minerva 與 Randazzo 附近的 Minerva Messina（48.3 MW）是不同風場。",
+  "note_en": "Duplicate: Minerva S.r.l. is the company of the Castel di Lucio farm, already on the site as Castel Di Lucio wind farm (G, 23 MW, 2010, Alerion) at identical coordinates. Not to be confused with Minerva Messina (48.3 MW) near Randazzo.",
+  "why": "Same capacity and identical coordinates; both owner sources tie Minerva S.r.l. to Castel di Lucio.",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Castel di Lucio Minerva S.r.l. Vestas V52 23 MW 23 MW 100% 23 MW 27 April 2010"
+   },
+   {
+    "url": "https://www.fri-el.it/energia-eolica/",
+    "quote": "Impianto Eolico Minerva Srl Castel di Lucio (ME) Il parco eolico locato a Castel di Lucio (ME) ha una potenza massima installata di 22,95 MW"
+   }
+  ]
+ },
+ {
+  "item": "ITA 36. Rocca Ficuzza 22 MW (CEF 2)",
+  "farm": "Rocca Ficuzza wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Rocca Ficuzza wind farm', G, '改成概略位置：地方報 QdS 說同名的 Rocca Ficuzza 風場位在 Caltabellotta 的 Rocca Ficuzza 地區（座標取該鎮，原座標是義大利中心的代用點）；商轉年仍待查證', 'Approximate position: the local paper QdS places the Rocca Ficuzza wind plant in contrada Rocca Ficuzza, Caltabellotta (coordinates of that town; the old point was a placeholder at the centre of Italy); commissioning year still unverified', 'https://qds.it/241-le-pale-eoliche-invadono-la-provincia-137-aerogeneratori-in-30-chilometri-htm/', lat=37.576, lon=13.218, approx=True),",
+  "note_zh": "只補位置：QdS 說 Caltabellotta 的 contrada「Rocca Ficuzza」即將興建同名風電場；座標用 it.wikipedia 的 Caltabellotta（37°34′32.66″N 13°13′06.99″E），標概略。商轉年查不到（GlobalData 無此場頁面），屬 Iberdrola→Glennmont 的 SER 組合（2009–2012 年商轉）但不能逐場確認。",
+  "note_en": "Position only: QdS says construction of the plant named after contrada “Rocca Ficuzza” in Caltabellotta was about to begin; coordinates are Caltabellotta’s from it.wikipedia (37°34′32.66″N 13°13′06.99″E), marked approximate. Year not found (no GlobalData profile); likely part of the SER portfolio (Iberdrola → Glennmont, in service 2009–2012) but not confirmed per farm.",
+  "why": "Name match (contrada Rocca Ficuzza, “omonima centrale eolica”) in the same Sambuca/Caltabellotta/Sciacca cluster as Lago Arancio; year missing.",
+  "sources": [
+   {
+    "url": "https://qds.it/241-le-pale-eoliche-invadono-la-provincia-137-aerogeneratori-in-30-chilometri-htm/",
+    "quote": "a Caltabellotta, in contrada “Rocca Ficuzza”, le operazioni per la costruzione dell’omonima centrale eolica"
+   },
+   {
+    "url": "https://it.wikipedia.org/wiki/Caltabellotta",
+    "quote": "Coordinate : 37°34′32.66″N 13°13′06.99″E"
+   }
+  ]
+ },
+ {
+  "item": "ITA 37. Panni wind farm 20.0 MW",
+  "farm": "Panni wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not found in ERG searches. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 38. Lucus Power wind farm 20.0 MW",
+  "farm": "Lucus Power wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; position is a placeholder too; nothing found. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 39. Santomenna wind farm 20.0 MW",
+  "farm": "Santomenna wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 40. Pietragalla wind farm 20.0 MW",
+  "farm": "Pietragalla wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; Potenza Pietragalla (EGP, 18 MW, 2012) 5.5 km away is a different owner. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 41. Piano Del Cornale wind farm 20.0 MW",
+  "farm": "Piano Del Cornale wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。可能重複，見英文說明。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Possible dup: Campagna wind farm (Renvico, 20 MW, 2012) is 1.9 km away with the same capacity; unchecked. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 42. Roseto wind farm 18.0 MW",
+  "farm": "Roseto wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "GlobalData’s Roseto Valfortore is 40 MW (20 Enercon E-70, Sep 2005), not this 18 MW record. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 43. Contrada Coniglia wind farm 18.0 MW",
+  "farm": "Contrada Coniglia wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 44. Ginestra Degli Schiavoni 2 wind farm 18.0 MW",
+  "farm": "Ginestra Degli Schiavoni 2 wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "E&S plant page (gruppoes.com/impianti.htm cited by GEM) is 404; web.archive.org reset; successor site inenergygroup.it returns 403. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 45. Foiano Val Fortore (ERG SPA) wind farm 18.0 MW",
+  "farm": "Foiano Val Fortore (ERG SPA) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; ERG searches found nothing. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 46. Matera 1 (ASJA) wind farm 18.0 MW",
+  "farm": "Matera 1 (ASJA) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "GlobalData’s Matera wind farm is 47.7 MW (Nov 2014), not this 18 MW record. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 47. Brienza wind farm 18.0 MW",
+  "farm": "Brienza wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 48. Bortigiadas wind farm 18.0 MW",
+  "farm": "Bortigiadas wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Search found no ERG/MASE document for Bortigiadas. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 49. Anzi 16 MW (Fri-El)",
+  "farm": "Anzi S.R.L wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "fix('ITA', 'Anzi S.R.L wind farm', G, '補上商轉年 2011：Alerion 2022 年債券公開說明書列出 Anzi 風場（Fri-el Anzi S.r.l.）16 MW、8 部 Vestas V90，2011 年 8 月開始發電', 'Commissioning year 2011 added: Alerion’s 2022 bond prospectus lists the Anzi farm (Fri-el Anzi S.r.l.), 16 MW, 8 Vestas V90 units, producing since August 2011', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf', year=2011, turbine='8 x Vestas V90-2.0 MW'),",
+  "note_zh": "Anzi 16 MW、8 部 V90（每部 2 MW），2011 年 8 月開始發電；Fri-El 網站也列 Anzi (PZ) 16 MW。",
+  "note_en": "Anzi 16 MW, 8 V90 units (2 MW each), producing since Aug 2011; Fri-El’s site also lists Anzi (PZ), 16 MW.",
+  "why": "Prospectus table and Fri-El plant list.",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Anzi Fri-el Anzi S.r.l. Vestas V90 16 MW 7.8 MW 49% 7.8 MW 8 August 2011"
+   },
+   {
+    "url": "https://www.fri-el.it/energia-eolica/",
+    "quote": "Impianto Eolico FRI-EL Anzi Srl Anzi (PZ) Il parco eolico locato a Anzi (PZ) ha una potenza massima installata di 16 MW"
+   }
+  ]
+ },
+ {
+  "item": "ITA 50. Greci (ERG) wind farm 16.0 MW",
+  "farm": "Greci (ERG) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "ERG Greci–Montaguto repowering (44 MW, FER X 2025) does not give the old COD. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 51. Genzano Di Lucania wind farm 16.0 MW",
+  "farm": "Genzano Di Lucania wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。可能重複，見英文說明。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Possible dup: Banzi - Tre Titoli (PLT, 16 MW, 2021) is 2.1 km away with the same capacity; unchecked. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 52. Avigliano wind farm 15.0 MW",
+  "farm": "Avigliano wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; ERG searches found nothing. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 53. San Marco Dei Cavoti wind farm 15.0 MW",
+  "farm": "San Marco Dei Cavoti wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; not searched further. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 54. San Nicola wind farm 15.0 MW",
+  "farm": "San Nicola wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; EDPR sources give no farm list. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 55. Foiano Val Fortore wind farm 15.0 MW",
+  "farm": "Foiano Val Fortore wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "E&S plant page 404 / archive blocked / inenergygroup.it 403. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 56. Costa Grande wind farm 15.0 MW",
+  "farm": "Costa Grande wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "E&S plant page 404 / archive blocked / inenergygroup.it 403. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 57. Colori Del Vento wind farm 15.0 MW",
+  "farm": "Colori Del Vento wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "E&S plant page 404 / archive blocked / inenergygroup.it 403. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 58. Monacilioni wind farm 15.0 MW",
+  "farm": "Monacilioni wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "MASE repowering file (search result only, not quoted) describes ERG’s Monacilioni–Pietracatella–Sant’Elia group of 41 × 0.66 MW (23 in Monacilioni ≈ 15 MW); no COD. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 59. Ecoenergia Campania 15 MW (Fri-El) = Lacedonia (Alerion)",
+  "farm": "Ecoenergia Campania S.R.L wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "dup('ITA', 'Ecoenergia Campania S.R.L wind farm', G, ('Lacedonia (Alerion) wind farm', G), '同一座風場：Alerion 2022 年債券公開說明書列出 Lacedonia 風場由 Ecoenergia Campania S.r.l. 經營（15 MW、5 部 Vestas V90，2008 年 10 月開始發電，Alerion 持有 50%），Fri-El 網站也寫 Ecoenergia Campania 的風場在 Lacedonia（AV）、15 MW；本站 Lacedonia (Alerion) 風場（15 MW、2008 年）相距約 0.5 km', 'Same farm: Alerion’s 2022 bond prospectus lists the Lacedonia farm as run by Ecoenergia Campania S.r.l. (15 MW, 5 Vestas V90 units, producing since October 2008, 50% Alerion), and Fri-El’s site puts the Ecoenergia Campania farm at Lacedonia (AV), 15 MW; the site’s Lacedonia (Alerion) wind farm (15 MW, 2008) is about 0.5 km away', 'https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf'),",
+  "note_zh": "同一座：本站已有 Lacedonia (Alerion) wind farm（G，15 MW，2008）。Lacedonia (Nsidia) 42 MW、Lacedonia (ERG) 52 MW 是別座。",
+  "note_en": "Duplicate of Lacedonia (Alerion) wind farm (G, 15 MW, 2008). Lacedonia (Nsidia) 42 MW and Lacedonia (ERG) 52 MW are other farms.",
+  "why": "Same capacity, 0.5 km apart, company-to-place link in both owner sources (50/50 JV between Alerion and Fri-El, hence two GEM owners).",
+  "sources": [
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Number of turbines Date on which production commenced Date of expiry of incentives"
+   },
+   {
+    "url": "https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf",
+    "quote": "Lacedonia Ecoenergia Campania S.r.l. Vestas V90 15 MW 7.5 MW 50% 7.5 MW 5 October 2008"
+   },
+   {
+    "url": "https://www.fri-el.it/energia-eolica/",
+    "quote": "Impianto Eolico Ecoenergia Campania Srl Lacedonia (AV) Il parco eolico locato a Lacedonia (AV) ha una potenza massima installata di 15 MW"
+   }
+  ]
+ },
+ {
+  "item": "ITA 60. Alcamo wind farm · 2 14.0 MW",
+  "farm": "Alcamo wind farm · 2",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "GlobalData’s Alcamo (32 MW, 16 G90, Feb 2012) matches phase 1 (32 MW, which the data dates 2011), not this 14 MW phase. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 61. Frigento wind farm 14.0 MW",
+  "farm": "Frigento wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Not searched (budget). GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 62. Garessio wind farm 12.0 MW",
+  "farm": "Garessio wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "Not searched (budget). GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 63. Montarone II wind farm 11.0 MW",
+  "farm": "Montarone II wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile (montarone, montarone-ii). GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 64. Parco La Rocca wind farm 10.0 MW",
+  "farm": "Parco La Rocca wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile; position is a placeholder; nothing found. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 65. San Pietro Avellana wind farm 10.0 MW",
+  "farm": "San Pietro Avellana wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 66. Serra Chiapponi wind farm 10.0 MW",
+  "farm": "Serra Chiapponi wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 67. Cozzo Vallefondi 1 wind farm 10.0 MW",
+  "farm": "Cozzo Vallefondi 1 wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile (cozzo-vallefondi, vallefondi); Enel release search found nothing. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ },
+ {
+  "item": "ITA 68. Bisaccia (Cubico) wind farm 10.0 MW",
+  "farm": "Bisaccia (Cubico) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無可引用的商轉年。",
+  "note_en": "No citable commissioning year found.",
+  "why": "No GlobalData profile. GlobalData (power-technology.com) slugs tried: town name ± “-wind-farm”.",
+  "sources": []
+ }
+]
