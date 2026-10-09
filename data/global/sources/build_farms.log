@@ -144,8 +144,11 @@ CLEAN dup CHN Shanghai Donghai Bridge Offshore wind farm · 1 102.0 -> Donghai B
 CLEAN dup CHN Shanghai Fengxian Bay Retrofit and Upgrade wind farm 48.0 -> Shanghai Fengxian Haiwan 1 wind farm
 CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
 CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putuo 6#2
+CLEAN dup DEU Ackendorf-Gutenswegen wind farm 12.0 -> Niedere Börde wind farm
 CLEAN dup DEU Dreiberg wind farm 60.0 -> Windpark Druiberg (Dardesheim)
+CLEAN dup DEU Felde Windpark 17.0 -> Riede wind farm
 CLEAN dup DEU Lichtenau wind farm 11.0 -> Paderborn wind farm
+CLEAN dup DEU Wegeleben wind farm 28.0 -> Speckberg wind farm
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Esperanza wind farm (Dominican Republic) 50.0 -> Esperanza (Dominican Republic) wind farm
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
@@ -204,8 +207,14 @@ CLEAN dup NOR Smola wind farm 150.0 -> Smøla
 CLEAN dup PHL Pagudpud (ACEN) Wind Power Project 160.0 -> Balaoi & Caunayan
 CLEAN dup PRT Alto Do Talefe wind farm 14.0 -> Alto do Talefe
 CLEAN dup ROU Valea Nucarilor wind farm 70.0 -> Salbatica wind farm · 2
+CLEAN dup TUR Akyurt wind farm 15.0 -> Ado Akyurt wind farm
+CLEAN dup TUR Ge wind farm 28.0 -> Geres wind farm
+CLEAN dup TUR Greif wind farm 1.2 -> Sunjüt wind farm
 CLEAN dup TUR Gökçedag wind farm 135.0 -> Gökçedağ (Osmaniye)
 CLEAN dup TUR Gökçedağ wind farm 135.0 -> Gökçedağ (Osmaniye)
+CLEAN dup TUR Kayadüzü wind farm 82.0 -> Amasya (Eksim) wind farm
+CLEAN dup TUR Söke (Ulusoy) wind farm 110.0 -> Kuşadası wind farm
+CLEAN dup TUR İçdaş Biga wind farm 60.8 -> Biga wind farm
 CLEAN dup URY Pampa (Nordex) wind farm 141.6 -> Pampa (Tacuarembó)
 CLEAN dup USA Chanarambie Power Partners  LLC 85.5 -> Chanarambie wind farm
 CLEAN dup USA Dempsey Ridge Wind Farm 132.0 -> Big Smile wind farm
@@ -432,16 +441,24 @@ CLEAN fix COL WESP 01 wind farm 12.0
 CLEAN fix DEU Asselner wind farm 19.5
 CLEAN fix DEU Borkum Riffgrund 3 913.0
 CLEAN fix DEU Bornstedt-Holdenstedt wind farm 12.0
+CLEAN fix DEU Büttstedt wind farm 37.0
 CLEAN fix DEU Erbes-Büdesheim wind farm 15.0
 CLEAN fix DEU Flomborn-Stetten wind farm 15.0
 CLEAN fix DEU Gohlocher Wald wind farm 12.0
 CLEAN fix DEU Hohe See 497.0
+CLEAN fix DEU Hohengüstow wind farm · 1 11.0
 CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
+CLEAN fix DEU Kesfeld wind farm 33.0
+CLEAN fix DEU Köhlen wind farm 48.0
 CLEAN fix DEU Lütjenholm wind farm 14.0
 CLEAN fix DEU Oederquart wind farm 16.0
 CLEAN fix DEU Paderborn wind farm 36.0
+CLEAN fix DEU Riede wind farm 17.0
+CLEAN fix DEU Speckberg wind farm 28.0
 CLEAN fix DEU Streumen wind farm 13.0
 CLEAN fix DEU Süderauerdorf wind farm 12.0
+CLEAN fix DEU Twist (Wea) wind farm 40.0
+CLEAN fix DEU Uelitz wind farm 30.0
 CLEAN fix DEU Windanker wind farm 300.0
 CLEAN fix DEU Windpark Druiberg (Dardesheim) 62.0
 CLEAN fix DEU Zettingen wind farm 13.0
@@ -665,7 +682,23 @@ CLEAN fix THA Hanuman 8 wind farm 45.0
 CLEAN fix THA Hanuman 9 wind farm 42.0
 CLEAN fix THA Subyai (Chaiyaphum) 80
 CLEAN fix THA Subyai (Chaiyaphum) 90.0
+CLEAN fix TUR Alibeyhüyüğü wind farm 3.5
+CLEAN fix TUR Baglama wind farm 53.0
+CLEAN fix TUR Geres wind farm 30.0
 CLEAN fix TUR Gökçedağ (Osmaniye) 135.0
+CLEAN fix TUR Gündogdu wind farm 9.6
+CLEAN fix TUR Güney wind farm 74.0
+CLEAN fix TUR Karatepe wind farm 14.0
+CLEAN fix TUR Konakpınar wind farm 14.7
+CLEAN fix TUR Kuşadası wind farm 103.5
+CLEAN fix TUR Küptepe wind farm 11.7
+CLEAN fix TUR Miskevank wind farm 4.8
+CLEAN fix TUR Orhanlı wind farm 12.0
+CLEAN fix TUR Pazarköy wind farm 46.0
+CLEAN fix TUR Soganli wind farm 32.0
+CLEAN fix TUR Sunjüt wind farm 1.2
+CLEAN fix TUR Tepe wind farm 5.9
+CLEAN fix TUR Ömerli wind farm 100.0
 CLEAN fix TWN Datan (Tatan) 12.5
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
 CLEAN fix TWN Formosa 1 Phase 1 8.0

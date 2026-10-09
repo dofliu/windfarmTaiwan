@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 704 條：刪除 196 筆（其中營運中 47,332.6 MW），修正 508 筆。
+- 規則 737 條：刪除 205 筆（其中營運中 47,686.6 MW），修正 532 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -21,13 +21,13 @@
 | 印度 | 3 | 378 | 3 |
 | 台灣 | 2 | 0 | 21 |
 | 哥倫比亞 | 1 | 8 | 3 |
-| 土耳其 | 2 | 270 | 1 |
+| 土耳其 | 8 | 567 | 17 |
 | 埃及 | 2 | 1,082 | 0 |
 | 塞內加爾 | 0 | 0 | 2 |
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 2 | 208.5 | 4 |
-| 德國 | 2 | 71 | 16 |
+| 德國 | 5 | 128 | 24 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
@@ -412,6 +412,28 @@
 | Gökçedag wind farm · 135 MW · 2009 | GEM | 重複（併入「Gökçedağ (Osmaniye)」） | 同一座風場（又稱 Bahçe 風場） | [連結](https://en.wikipedia.org/wiki/Bah%C3%A7e_Wind_Farm) |
 | Gökçedağ (Osmaniye) · 135 MW · 2010 | 精選 | 修正：座標 | 座標改到 Bahçe 與 Hasanbeyli 之間的 Gökçedağ 稜線（原座標偏離約 30 km） | [連結](https://www.openstreetmap.org/relation/12270025) |
 | Gökçedağ wind farm · 135 MW | GEM | 重複（併入「Gökçedağ (Osmaniye)」） | 同一座風場（奧斯曼尼耶，135 MW，Zorlu 集團的 Rotor Elektrik）；GEM 沒有商轉年 | [連結](https://www.gem.wiki/G%C3%B6k%C3%A7eda%C4%9F_wind_farm) |
+| Ömerli wind farm · 100 MW | GEM | 修正：容量、年份、分期 | 補上商轉年 2022：TÜREB 統計報告 2022 年 1 月版列 Ömerli RES 運轉中 4.8 MW（2020 年）、興建中 96 MW；2022 年 7 月版列運轉中 100.8 MW（21 部 Nordex N149） | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Güney wind farm · 74 MW | GEM | 修正：容量、年份、分期 | 補上商轉年 2022：TÜREB 統計報告 2022 年 1 月版列 Sanko 的 Güney-1 RES 運轉中 28.8 MW（2021 年）、興建中 44.8 MW；2022 年 7 月版列運轉中 73.6 MW | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Pazarköy wind farm · 46 MW | GEM | 修正：年份 | 補上商轉年 2021：TÜREB 統計報告 2021 年 1 月版列 Pazarköy RES 45.6 MW 興建中，2022 年 1 月版列運轉中 45.6 MW（2021 年） | [連結](https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf) |
+| Baglama wind farm · 53 MW | GEM | 修正：年份 | 補上商轉年 2021：TÜREB 統計報告 2021 年 1 月版列 Bağlama RES 53.2 MW 興建中，2022 年 1 月版列運轉中 53.2 MW（2021 年） | [連結](https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf) |
+| Soganli wind farm · 32 MW | GEM | 修正：年份、分期 | 補上商轉年：TÜREB 統計報告 2021 年 1 月版列 Soğanlı RES 運轉中 4 MW（2020 年），2022 年 1 月版運轉中 32 MW（2020／2021 年） | [連結](https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf) |
+| Küptepe wind farm · 11.7 MW | GEM | 修正：年份、分期 | 補上商轉年：TÜREB 統計報告 2021 年 1 月版列 Küptepe RES 運轉中 3.9 MW（2020 年），2022 年 1 月版運轉中 11.7 MW（2020／2021 年） | [連結](https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf) |
+| Orhanlı wind farm · 12 MW | GEM | 修正：年份、分期 | 補上商轉年：TÜREB 統計報告 2021 年 1 月版列 Orhanlı RES 運轉中 8 MW（2020 年），2022 年 1 月版運轉中 12 MW（2020／2021 年） | [連結](https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf) |
+| Karatepe wind farm · 14 MW | GEM | 修正：年份 | 補上商轉年 2021：TÜREB 統計報告 2021 年 1 月版列 Tepe Enerji 的 Karatepe RES 運轉中 3.5 MW（2020 年），2022 年 1 月版運轉中 16.1 MW（2020／2021 年，機械功率） | [連結](https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf) |
+| Kuşadası wind farm · 103.5 MW | GEM | 修正：年份 | 補上商轉年 2021：TÜREB 統計報告 2021 年 1 月版列 Akış Enerji 的 Söke RES 運轉中 38.4 MW（2020 年），2022 年 1 月版運轉中 110.4 MW（2020／2021 年），2022 年 7 月版同一筆改稱 Kuşadası RES | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Söke (Ulusoy) wind farm · 110 MW · 2020 | GEM | 重複（併入「Kuşadası wind farm」） | 與 Kuşadası 風場是同一座：TÜREB 統計報告 2022 年 1 月版稱 Akış Enerji 的 Söke RES（110.4 MW，Nordex N149），7 月版同一筆改稱 Kuşadası RES，擴建段由 Ulusoy Elektrik 興建；兩筆紀錄相距約 1 km | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Alibeyhüyüğü wind farm · 3.5 MW | GEM | 修正：年份 | 補上商轉年 2020：TÜREB《土耳其風能統計報告》2022 年 7 月版列Alibeyhüyüğü RES（3.5 MW，Konya），2020 年商轉 | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Miskevank wind farm · 4.8 MW | GEM | 修正：年份 | 補上商轉年 2021：TÜREB《土耳其風能統計報告》2022 年 7 月版列Miskevank RES 運轉中 4.8 MW（Bitlis），2021 年商轉 | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Konakpınar wind farm · 14.7 MW | GEM | 修正：年份 | 補上商轉年 2016：TÜREB《土耳其風能統計報告》2022 年 7 月版列ADO Enerji 的 Konakpınarı RES（14.7 MW，Sivas），2016 年商轉 | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Gündogdu wind farm · 9.6 MW | GEM | 修正：年份 | 補上商轉年 2016：TÜREB《土耳其風能統計報告》2022 年 7 月版列Gündoğdu RES（9.6 MW，Bursa），2016 年商轉 | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Sunjüt wind farm · 1.2 MW | GEM | 修正：年份 | 補上商轉年 2003：TÜREB《土耳其風能統計報告》2022 年 7 月版列Greif 的 Sunjüt RES（1.2 MW，伊斯坦堡），2003 年商轉 | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Tepe wind farm · 5.9 MW | GEM | 修正：容量、年份、分期 | 補上商轉年：TÜREB 統計報告 2022 年 7 月版列 Teperes 的 TepeRES 0.85 MW（2006 年）與 Tepe RES Ext. 5 MW（2016 年），合計 5.85 MW | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| İçdaş Biga wind farm · 60.8 MW | GEM | 重複（併入「Biga wind farm」） | 與 Biga 風場是同一座：TÜREB 統計報告列 İçdaş 在 Çanakkale 只有 Biga RES（60.8 MW，2015 年）；兩筆紀錄相距約 1 km | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Geres wind farm · 30 MW | GEM | 修正：年份 | 補上商轉年 2015：TÜREB 統計報告 2015 年 7 月版與 2022 年 7 月版都列 Geres Enerji 的 GERES 30 MW（Manisa，2014／2015 年） | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Ge wind farm · 28 MW · 2014 | GEM | 重複（併入「Geres wind farm」） | 與 Geres 風場是同一座：業主 Ge Res Enerji 即 TÜREB 所列的 Geres Enerji（GERES 30 MW，Manisa）；兩筆紀錄相距約 0.7 km | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Greif wind farm · 1.2 MW | GEM | 重複（併入「Sunjüt wind farm」） | 與 Sunjüt 風場是同一座：TÜREB 統計報告列 Greif 只有伊斯坦堡的 Sunjüt RES（1.2 MW，2003 年）；這筆座標在 Çorum 附近，當地沒有 1.2 MW 的運轉中風場 | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Kayadüzü wind farm · 82 MW | GEM | 重複（併入「Amasya (Eksim) wind farm」） | 與 Amasya (Eksim) 風場是同一座：GEM 自己的 Amasya (Eksim) 頁面以 Kayaduzu 為別名（82 MW，Merzifon）；TÜREB 統計報告 2016 年列 Merzifon Enerji 的 Kayadüzü RES 執照，2022 年列 Merzifon Enerji 的 Amasya RES 82 MW（2012／2017 年） | [連結](https://www.gem.wiki/Amasya_(Eksim)_wind_farm) |
+| Akyurt wind farm · 15 MW · 2016 | GEM | 重複（併入「Ado Akyurt wind farm」） | 與 Ado Akyurt 風場是同一座：TÜREB 統計報告列 ADO Enerji 只有一座 Akyurt RES（Tokat，14.7 MW，2016 年）；這筆座標在 Sivas，與 Konakpınar 風場（ADO Enerji 的 Konakpınarı RES）相距不到 1 km | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
 
 ## 埃及 (EGY)
 
@@ -481,6 +503,17 @@
 | Lichtenau wind farm · 11 MW · 1997 | GEM | 重複（併入「Paderborn wind farm」） | GEM 的 Lichtenau（11 MW、1997、RWE）是 1997–98 年 Lichtenau-Asseln「Windpark Asseln」的一部分：當地鄉土協會的介紹寫整座風場 62 部、36 MW，1997 年 12 月首次併網、1998 年 5 月完工，營運者「Diverse Betreiber 23 部、Asselner Windkraft 18 部、WINKRA Lichtenau 21 部」；The Wind Power 的 Lichtenau 頁列 18 部 Enercon E-40「開發商 Winkra、營運者 RWE」。GEM 另一筆 Paderborn（36 MW、1998，出處就是這篇介紹）是整座風場，本筆重複 | [連結](https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21) |
 | Paderborn wind farm · 36 MW · 1998 | GEM | 修正：座標 | 即 Lichtenau-Asseln 的 Windpark Asseln（GEM 的別名 Asseln wind farm）；GEM 的概略點位在風場北方約 2.7 km，靠近 2015–17 年另外的 WP LA、WP Lichtenau 機組，改用德文維基的座標（北緯 51°38′24″、東經 8°54′35″） | [連結](https://de.wikipedia.org/wiki/Windpark_Lichtenau-Asseln) |
 | Asselner wind farm · 19.5 MW · 2015 | GEM | 修正：容量、分期 | Asselner Windpark：2015 年 12 月 7 部 Enercon E-92＋1 部 E-115（19.45 MW，The Wind Power）；MaStR 的同名群另有 2018 年 2 部（E-115 3 MW、E-82 2.3 MW），共 24.75 MW | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Köhlen wind farm · 48 MW | GEM | 修正：年份 | 補上商轉年 2016：MaStR 登錄的 Windpark Köhlen 與 WP Köhlen 共 16 部 Enercon E-101（各 3.05 MW，合計 48.8 MW），2016 年 6 月 7 日至 9 月 22 日陸續商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2736692) |
+| Twist (Wea) wind farm · 40 MW | GEM | 修正：年份 | 補上商轉年 2004：MaStR 登錄 Twist 鎮的 Twist、WP Twist、BW 與 WT Bürgerwindpark Twist 共 22 部 Enercon E-66（各 1.8 MW），都在 2004 年 4 月 6 日至 7 月 22 日商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2556504) |
+| Büttstedt wind farm · 37 MW | GEM | 修正：容量、年份、分期 | 補上商轉年：MaStR 登錄 GERES 的 WP Büttstedt（12 部 E-66）、Windpark Büttstedt GmbH & Co. KG（8 部 E-66）與 Büttstedt I（1 部 E-40）共 36.6 MW；34.2 MW 在 2003 年、最後 2 部（2.4 MW）在 2004 年 10–11 月商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2333818) |
+| Kesfeld wind farm · 33 MW | GEM | 修正：容量、年份、分期 | 補上商轉年：MaStR 登錄的 Windpark Kesfeld-Heckhuscheid 在 2005 年 12 月商轉 8.2 MW、2006 年 24.3 MW（合計 32.5 MW，Siemens SWT-1.3／2.3），與 GEM 的 33 MW 相符；同一公司 2011 年再加 2 部（4.6 MW） | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3600662) |
+| Uelitz wind farm · 30 MW | GEM | 修正：容量、年份、分期 | 補上商轉年：MaStR 登錄 EOS Windpark Uelitz 的 13 部 Nordex S77（19.5 MW）在 2005 年、4 部 N90（10 MW）在 2006 年 6 月商轉，合計 29.5 MW，與 GEM 的 30 MW 相符；2020 年另一家公司加 2 部 N131（6.6 MW） | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3645800) |
+| Riede wind farm · 17 MW | GEM | 修正：年份 | 補上商轉年 2019：MaStR 登錄 Riede 鄉只有 WP Riede 的 5 部 Vestas V117（各 3.3 MW，16.5 MW），2019 年 8 月 30 日至 9 月 12 日商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/1878538) |
+| Felde Windpark · 17 MW · 2019 | GEM | 重複（併入「Riede wind farm」） | 與 Riede 風場是同一座：MaStR 登錄 Riede 鄉（含 Felde）只有 WP Riede 的 5 部風機（16.5 MW，2019 年），其中 4 部在 Felde 地段；兩筆紀錄相距約 0.5 km | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Gemeinde~eq~'Riede'~and~Energietr%C3%A4ger~eq~'2497') |
+| Hohengüstow wind farm · 1 · 11 MW | GEM | 修正：容量、年份 | 補上商轉年 2017 並更正容量：MaStR 登錄的 Windpark Hohengüstow 是 3 部 GE 3.2-130（各 3.23 MW，合計 9.69 MW），2017 年 9 月 15 日至 30 日商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2229455) |
+| Speckberg wind farm · 28 MW | GEM | 修正：年份、分期 | 補上商轉年：MaStR 登錄 Maple Wind GmbH & Co. KG 的 14 部 2 MW 風機（Wegeleben 的 WGL 1–5 與 Speckberg 的 SBG 6–14，合計 28 MW）：2006 年 12 月 6 MW、2007 年 8 MW、2009 年 1 月 14 MW | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/1973680) |
+| Wegeleben wind farm · 28 MW · 2006 | GEM | 重複（併入「Speckberg wind farm」） | 與 Speckberg 風場是同一座：MaStR 登錄 Wegeleben 鎮只有 Maple Wind 的 10 部風機，整座 Maple Wind 風場（WGL 與 SBG 共 14 部）合計 28 MW，與兩筆紀錄的容量相同；兩筆紀錄相距約 0.4 km | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Gemeinde~eq~'Wegeleben'~and~Energietr%C3%A4ger~eq~'2497') |
+| Ackendorf-Gutenswegen wind farm · 12 MW | GEM | 重複（併入「Niedere Börde wind farm」） | 與 Niedere Börde 風場是同一座：MaStR 在 Ackendorf 與 Gutenswegen 地段登錄的是 Niedere Börde 各期的 Vestas V80（各 2 MW，共 6 部、12 MW，2006 年 12 月商轉），與兩筆紀錄的 12 MW（業主都是 NOTUS）相同 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Gemarkung~eq~'Gutenswegen'~and~Energietr%C3%A4ger~eq~'2497') |
 
 ## 愛爾蘭 (IRL)
 
