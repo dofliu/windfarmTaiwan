@@ -1,0 +1,208 @@
+[
+ {
+  "item": "2. CGN Shanwei Jiazi I: exact turbine model",
+  "farm": "CGN Shanwei Jiazi I",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No change to the turbine field (\"78x Mingyang MySE 6.45 MW\"): the sources conflict on the rotor.",
+  "note_zh": "汕尾海事局 2025-08 建成通告：78 部 6.45 MW，葉輪直徑 168 m、輪轂高 100 m、葉尖最低點距設計高水位 16 m（三個數字互相吻合）；GlobalData 寫明陽 MySE6.45-180（葉輪約 180 m），與 168 m 不符；中國電力網只寫「MySE6.45MW」。機型尾碼無法確定，維持原欄位。另：海事局通告顯示 2024-07 至 2026-12 正逐台更換主機（拆葉輪與主機、換新主機、裝回原葉輪）",
+  "note_en": "Shanwei MSA completion notice (Aug 2025): 78 × 6.45 MW, rotor 168 m, hub 100 m, lowest tip 16 m above design high water (the three figures agree); GlobalData says Mingyang MySE6.45-180 (about 180 m rotor), which does not fit 168 m; China Power only says “MySE6.45MW”. The suffix cannot be settled, so the field stays. Also: MSA notices show the nacelles being replaced one by one from July 2024 to December 2026 (rotor and nacelle removed, new nacelle fitted, original rotor refitted)",
+  "why": "No CGN, Mingyang, EIA or acceptance document naming the suffix was found: the CGN e-procurement static page for the 2019 Shanwei turbine lot 1 (CGN-201811080004, Mingyang first) is readable but gives no model; Mingyang 2022 half-year report, Houhu sea-use report (shanwei.gov.cn) and the MSA turbine list/layout attachments name no model. A 6.45 MW / 168 m combination is Goldwind’s GW168-6.45 (Goldwind was the second bidder in 2019), but nothing ties it to Jiazi I, so no change.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167",
+    "quote": "本风场共布置78台6.45MW风机，共布置7列。 风机叶轮直径168m，轮毂高度100m，风机叶片最低点至设计高水位净高为16m。"
+   },
+   {
+    "url": "https://www.power-technology.com/data-insights/power-plant-profile-cgn-guangdong-shanwei-offshore-wind-farm-china/",
+    "quote": "is equipped with China Ming Yang Wind Power Group MYSE6.45-180 turbines. The phase consists of 78 turbines with 6.45MW nameplate capacity."
+   },
+   {
+    "url": "http://www.chinapower.com.cn/flfd/xmjz/20220419/144878.html",
+    "quote": "拟安装78台MySE6.45MW风电机组"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=96aa6573be664bc2a6b9c253bb7c4fbc",
+    "quote": "吊装需要替换的海上风电主机（步骤为拆除叶轮、主机，更换新主机，复装原叶轮）"
+   },
+   {
+    "url": "https://ecp.cgnpc.com.cn/view/staticpags/zgh_zhongbgg/8a488fc36a3f0d72016a49d1454d03bd.html",
+    "quote": "汕尾海上风电项目风力发电机组（第一标段）中标候选人公示"
+   }
+  ]
+ },
+ {
+  "item": "3a. Vietnam foundations: Bac Lieu Phase 1 / Phase 2",
+  "farm": "Bac Lieu Phase 1; Bac Lieu Phase 2",
+  "src_code": 0,
+  "iso": "VNM",
+  "status": "lead",
+  "proposal": "Candidate only (needs a construction source before writing): F5 rows for 'Bac Lieu Phase 1' and 'Bac Lieu Phase 2' as pc. Present evidence: a peer-reviewed review (J. Mar. Sci. Eng. 2019) calls Bac Lieu an example of pile cap foundations, citing a 2013 resource paper (not a construction record); Tien Phong (earlier rounds) describes an octagonal concrete base about 17 m across. Neither names piles.",
+  "note_zh": "J. Mar. Sci. Eng. 2019 回顧論文：薄寮風場是群樁承台基礎的例子（引用 2013 年的風能評估論文）；查無施工單位或業主的樁型說明。",
+  "note_en": "J. Mar. Sci. Eng. 2019 review: Bac Lieu is an example of pile cap foundations (citing a 2013 wind-resource paper); no contractor or owner text on the piles.",
+  "why": "Vietnamese press (vietnamnet, nangluongvietnam, baochinhphu, vneec, vi.wikipedia) mention only the foundation packages; climateimpact.com has no foundation text; vdb.gov.vn fails TLS; MDPI pages 403 (the mdpi-res.com PDF works). khangducconst.com lists “Grounded: High-Rise Pile Cap” for Bac Lieu I/II, Tan An 1, V1-3 Ben Tre and V1-4, but the list is a copy of 4C Offshore’s database fields and is not used.",
+  "sources": [
+   {
+    "url": "https://mdpi-res.com/d_attachment/jmse/jmse-07-00441/article_deploy/jmse-07-00441.pdf",
+    "quote": "Bac Lieu wind farm, the first one in Vietnam, stands as one of the examples of pile cap foundations [77]."
+   }
+  ]
+ },
+ {
+  "item": "3b. Vietnam foundations: Tân An 1 offshore wind farm",
+  "farm": "Tân An 1 offshore wind farm",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "lead",
+  "proposal": "None yet: PLC says it did the pile foundations (“thi công móng cọc”) for the VPL and Tân Ân projects, but not the type (pile group with cap vs monopile).",
+  "note_zh": "PLC 公司頁：負責 VPL 與新安風場的樁基礎施工與港口吊裝，未寫樁型。",
+  "note_en": "PLC company page: it did the pile foundations and port lifting for the VPL and Tan An projects; no pile type.",
+  "why": "Searched Vietnamese terms (móng cọc, bệ móng, đài móng, cọc ống thép, cọc PHC) with Tân Ân; only PLC (marketing page) and Tân Thuận/Cà Mau 1 results for other farms.",
+  "sources": [
+   {
+    "url": "https://plc-corp.vn/thi-cong-dien-gio-ngoai-khoi.html",
+    "quote": "Dự án Điện gió VPL & Tân Ân: Đảm nhận thi công móng cọc và cung cấp dịch vụ cẩu tuabin chuyên dụng tại cảng"
+   }
+  ]
+ },
+ {
+  "item": "3c. Vietnam foundations: Duyên Hải wind farm · 1 (V1-4) and V1-3 Ben Tre (BTRE)",
+  "farm": "Duyên Hải wind farm · 1; V1-3 Ben Tre (BTRE)",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "V1-4: tapchicongthuong (REE 48 MW) has no foundation text; Fecon’s VSSMGE paper covers Trà Vinh V1-3 (12 PHC pile foundations, 21.5 m caps — a different farm), not V1-4. V1-3 Ben Tre: inauguration reports (MOIT, nangluongvietnam, Dong Khoi) give turbines only; EPC Sigma has no reference page; Le Thy’s page is for VPL Bến Tre phase 2 and reads as generated text (“theo thông tin bạn cung cấp”), so it is not used.",
+  "sources": []
+ },
+ {
+  "item": "4a. Status sweep (checked 9 Oct 2026): Greater Changhua 2b & 4",
+  "farm": "Greater Changhua 2b & 4",
+  "src_code": 0,
+  "iso": "TWN",
+  "status": "none",
+  "proposal": "No rule change (no full-COD / full-connection announcement).",
+  "note_zh": "",
+  "note_en": "Taipower live data on 9 Oct 2026 still shows 沃四風 with note 10 (trial operation, no installed capacity); Ørsted has announced no full COD. No change.",
+  "why": "Taipower live data on 9 Oct 2026 still shows 沃四風 with note 10 (trial operation, no installed capacity); Ørsted has announced no full COD. No change.",
+  "sources": [
+   {
+    "url": "https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json",
+    "quote": "\"機組名稱\":\"沃四風(註10)\",\"裝置容量(MW)\":\"-\""
+   }
+  ]
+ },
+ {
+  "item": "4b. Status sweep (checked 9 Oct 2026): Revolution Wind",
+  "farm": "Revolution Wind",
+  "src_code": 2,
+  "iso": "USA",
+  "status": "none",
+  "proposal": "No rule change (no full-COD / full-connection announcement).",
+  "note_zh": "",
+  "note_en": "MV Times 8 Oct 2026: Ørsted spokesperson says COD is anticipated later this year. No change.",
+  "why": "MV Times 8 Oct 2026: Ørsted spokesperson says COD is anticipated later this year. No change.",
+  "sources": [
+   {
+    "url": "https://mvtimes.com/2026/10/08/wind-farms-navigate-rough-seas",
+    "quote": "Revolution Wind continues to progress toward an anticipated commercial operation date later this year"
+   }
+  ]
+ },
+ {
+  "item": "4c. Status sweep (checked 9 Oct 2026): Vineyard Wind 1",
+  "farm": "Vineyard Wind 1",
+  "src_code": 0,
+  "iso": "USA",
+  "status": "none",
+  "proposal": "No rule change (no full-COD / full-connection announcement).",
+  "note_zh": "",
+  "note_en": "New Bedford Light tracker (as of 23 Sep 2026): installed, PPAs activated in April, average output about 300 MW in May; no full-capacity announcement found up to 9 Oct 2026. No change.",
+  "why": "New Bedford Light tracker (as of 23 Sep 2026): installed, PPAs activated in April, average output about 300 MW in May; no full-capacity announcement found up to 9 Oct 2026. No change.",
+  "sources": [
+   {
+    "url": "https://newbedfordlight.org/offshore-wind-tracker-whats-happening-to-massachusetts-projects/",
+    "quote": "Though the wind farm is physically installed and has been sending power, its average output was about 300 megawatts in May"
+   }
+  ]
+ },
+ {
+  "item": "4d. Status sweep (checked 9 Oct 2026): Baltic Power Offshore wind farm",
+  "farm": "Baltic Power Offshore wind farm",
+  "src_code": 2,
+  "iso": "POL",
+  "status": "none",
+  "proposal": "No rule change (no full-COD / full-connection announcement).",
+  "note_zh": "",
+  "note_en": "Rynek Infrastruktury 8 Oct 2026: last (76th) turbine installed; turbines are being commissioned and integrated one by one. No change.",
+  "why": "Rynek Infrastruktury 8 Oct 2026: last (76th) turbine installed; turbines are being commissioned and integrated one by one. No change.",
+  "sources": [
+   {
+    "url": "https://www.rynekinfrastruktury.pl/wiadomosci/biznes-przemysl-cyfryzacja/wszystkie-turbiny-baltic-power-zainstalowane-106947.html",
+    "quote": "Projekt Baltic Power potwierdził montaż ostatniej, 76. turbiny."
+   },
+   {
+    "url": "https://www.rynekinfrastruktury.pl/wiadomosci/biznes-przemysl-cyfryzacja/wszystkie-turbiny-baltic-power-zainstalowane-106947.html",
+    "quote": "Obecnie na morskim obszarze instalacyjnym realizowane są rozruchy turbin i ich sekwencyjna integracja z krajowym systemem elektroenergetycznym."
+   }
+  ]
+ },
+ {
+  "item": "4e. Status sweep (checked 9 Oct 2026): Sofia",
+  "farm": "Sofia",
+  "src_code": 0,
+  "iso": "GBR",
+  "status": "none",
+  "proposal": "No rule change (no full-COD / full-connection announcement).",
+  "note_zh": "",
+  "note_en": "Project site still says “Now under construction”; no first-power or COD news found after the June 2026 installation completion. No change.",
+  "why": "Project site still says “Now under construction”; no first-power or COD news found after the June 2026 installation completion. No change.",
+  "sources": [
+   {
+    "url": "https://sofiawindfarm.com/",
+    "quote": "1400MW wind farm on Dogger Bank, North Sea. Now under construction."
+   }
+  ]
+ },
+ {
+  "item": "4f. Status sweep (checked 9 Oct 2026): CTG Yangjiang Qingzhou 5 / 7",
+  "farm": "CTG Yangjiang Qingzhou 5 / 7",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "No rule change (no full-COD / full-connection announcement).",
+  "note_zh": "",
+  "note_en": "China Report via Sohu (1 Oct 2026): first batch connected on 27 Sep, full-capacity connection still to come. No change.",
+  "why": "China Report via Sohu (1 Oct 2026): first batch connected on 27 Sep, full-capacity connection still to come. No change.",
+  "sources": [
+   {
+    "url": "https://www.sohu.com/a/1083005471_714642",
+    "quote": "顺利实现首批机组并网发电，为后续全容量并网打下了坚实基础"
+   }
+  ]
+ },
+ {
+  "item": "4g. Status sweep (checked 9 Oct 2026): Datang Danzhou CZ3 (site 2)",
+  "farm": "Datang Danzhou CZ3 (site 2)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "No rule change (no full-COD / full-connection announcement).",
+  "note_zh": "",
+  "note_en": "Yangpu MSA 2 Oct 2026: vessels added for laying site 2’s 220 kV export cable (and, per notice 0357, for turbine/foundation lot 2), so it is not connected. No change.",
+  "why": "Yangpu MSA 2 Oct 2026: vessels added for laying site 2’s 220 kV export cable (and, per notice 0357, for turbine/foundation lot 2), so it is not connected. No change.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=8e0ef5b393184b4da22d7dcecd88a868&channelId=5eb2863167464a6faaa1fca5bff0a2a9",
+    "quote": "大唐海南儋州1200MW海上风电项目二场址220kV海缆敷设施工作业（见琼航通〔2026〕0336号），因工程作业需要，增加作业船舶"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=8e0ef5b393184b4da22d7dcecd88a868&channelId=5eb2863167464a6faaa1fca5bff0a2a9",
+    "quote": "发布时间：2026-10-02 14:42"
+   }
+  ]
+ }
+]

@@ -1,0 +1,189 @@
+[
+ {
+  "item": "X2 SinoHydro Rudong Intertidal: what is a 低桩高台柱 foundation?",
+  "farm": "SinoHydro Rudong Intertidal",
+  "status": "lead",
+  "proposal": "(lead, no row) Classification: NOT a high-rise pile cap. 低桩高台柱 = a low (buried) pile cap on a ring of piles with a tall concrete pedestal carrying the tower above high water. Options for the owner: (a) add a type, e.g. 'lp': ('低樁承台', 'Low pile cap', 'other'); (b) file it under pc with a note that the cap is buried, not raised; (c) keep the farm in EXCLUDED. Whatever is chosen, the row still needs the 10 shore-side units: when found, F5('CHN', 'SinoHydro Rudong Intertidal', 'mx', parts=[['<lp|pc>', 20], ['jk', 12], ['<type>', 10]], url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312', ...).",
+  "note_zh": "「低樁高台柱」：灘塗上先築圍堰、打一圈管樁，樁頂在灘面以下，於基坑內澆築承台（承台埋在泥面下），再以高立柱把塔筒基礎環抬到最高潮位以上。承台不離開海床，與「高樁承台」（承台高於海床、樁有自由段）不同。",
+  "note_en": "\"Low pile, tall pedestal\": on the tidal flat a cofferdam is built and a ring of piles driven, the pile heads are cut below the mud surface and the cap is cast in a pit (buried below the mudline), then a tall column lifts the tower flange above the highest tide. The cap does not stand clear of the seabed, unlike a high-rise pile cap whose piles have a free length.",
+  "why": "No document describes the SinoHydro Rudong foundation itself, but (1) the owner, 中国水电建设集团如东新能源有限公司, patented its tidal-flat turbine platform method (CN107217681A, 2017): drive foundation piles in an array, sheet-pile cofferdam, excavate 6–7 m, tie rebar and pour concrete, solving the large gap between the natural mud level and the platform top; (2) Sinohydro Bureau 4 patented a \"tidal-flat wind low pile cap foundation\" (CN105926660B, 2016): cofferdam, 30 PHC piles whose heads end 0.8–1.2 m below the mud, cap cast in an excavated pit; (3) a 2009 utility model (CN201390974Y) describes the same concept: buried base slab on rings of piles with a tall column whose top is above the highest tide. Together these define the MSA notice’s 低桩高台柱 as a buried pile cap with a tall pedestal. The patents are not tied to the project by name except through the owner’s assignee, so they define the term rather than prove the as-built design. The 10 shore-side units (probably the 20 MW phase 1, 10 × 2 MW) are still unknown.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
+    "quote": "风电场共布置风力发电组42台，其中沿岸侧布置10台；滩涂区域布置20台（采用低桩高台柱基础型式），海上区域布置12台（采用五桩导管架基础型式），详细机组位置分布见附件。"
+   },
+   {
+    "url": "https://patents.google.com/patent/CN107217681A/zh",
+    "quote": "成功解决了自然泥面标高和风机基础平面顶高程相差较大条件下"
+   },
+   {
+    "url": "https://patents.google.com/patent/CN107217681A/zh",
+    "quote": "Original Assignee China Hydropower Construction Group Rudong New Energy Co Ltd"
+   },
+   {
+    "url": "https://patents.google.com/patent/CN105926660B/zh",
+    "quote": "所述管桩顶部位于围堰内的滩涂泥面以下0.8m-1.2m"
+   },
+   {
+    "url": "https://patents.google.com/patent/CN105926660B/zh",
+    "quote": "然后在作业平台上挖出基坑，使管桩露出；接着，对管桩进行截桩头；并在基坑底部浇筑出垫层，再在垫层上浇筑出风机承台。"
+   },
+   {
+    "url": "https://patents.google.com/patent/CN201390974Y/zh",
+    "quote": "基础底板埋于地面下，地面上部的基础立柱顶部高于最高潮位"
+   }
+  ],
+  "src_code": 0,
+  "iso": "CHN"
+ },
+ {
+  "item": "X3 Longyuan Putian Nanri Island (= Longyuan \"Sandun\" wind farm): foundation types, depth, turbines",
+  "farm": "Longyuan Putian Nanri Island",
+  "status": "lead",
+  "proposal": "(lead, no F5 row) D row ready once a foundation row exists: D('CHN', 'Longyuan Putian Nanri Island', depth=(5, 30), url='http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20241012/0bb917b6-a698-43e0-a307-3aa587e4bcf3.html', zh='福建龍源 2024-10 三墩風電場（南日島海上一期）航標維護招標：A 區 55 部、理論水深 5–20 m，B 區 45 部、理論水深 10–30 m。', en='Fujian Longyuan navaid maintenance tender (Oct 2024) for the Sandun wind farm (Nanri Island offshore phase 1): area A 55 turbines in 5–20 m (chart datum), area B 45 turbines in 10–30 m.'). (The turbine and year corrections were written in round 16.)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CHN Energy full-text search: after completion Longyuan calls the farm 三墩风电场 (Sandun), A + B areas, 100 Siemens 4 MW. Foundation lots found only as tenders: lot VIII (12 units: piling, rock-socketing, pile caps) and lot IX (18 units: drilling, piling and installing the 套笼 cages); lots I–VII predate the platform. The 2022 sea-use post-evaluation, completion environmental acceptance and 2023 turbine-position re-survey tenders, and the 2023–2025 anti-corrosion tenders (one mentions 三墩 turbine foundation pile caps) give no per-type counts.",
+  "sources": [
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20241012/0bb917b6-a698-43e0-a307-3aa587e4bcf3.html",
+    "quote": "A区安装55台风机，B区安装45台风机"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20241012/0bb917b6-a698-43e0-a307-3aa587e4bcf3.html",
+    "quote": "理论水深 5～20m"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20241012/0bb917b6-a698-43e0-a307-3aa587e4bcf3.html",
+    "quote": "理论水深 10～30m"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20260731/e9b7aeb1-a2d1-4db9-b7a9-afc63483abb8.html",
+    "quote": "现已安装有海上100台西门子 SWT-4.0-130变桨变速型机组"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20200624/af7c90a9-3922-44be-bf8b-176a855af8f7.html",
+    "quote": "并负责吊桩、钻孔、沉桩、局部现场焊接以及套笼的安装"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20200424/69406956-3cc6-4565-a660-10e5296ed980.html",
+    "quote": "负责吊桩、沉桩、嵌岩施工、承台施工、局部现场焊接以及电缆管的安装、抛石等施工图内的所有工作内容"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220817/475120fe-d699-4cc3-af64-5bd9bf13f507.html",
+    "quote": "安装100台西门子4MW双馈风力发电机组，机组离岸距离在0-14公里范围内，于2021年底完成全部投产发电"
+   }
+  ],
+  "src_code": 0,
+  "iso": "CHN"
+ },
+ {
+  "item": "X4 Shandong Bandaonan U2 (Guohua): foundation type",
+  "farm": "Shandong Bandaonan U2 (Guohua) Offshore wind farm",
+  "src_code": 2,
+  "status": "lead",
+  "proposal": "(lead) probable F5 mp; still only pre-construction sources: construction tender U2-1 36 + U2-2 35 foundations with steel-pipe-pile works, 2023 supervision tender for 'monopile foundation steel pipe piles' of both phases; MSA (Aug 2026) completed, 71 turbines.",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CHN Energy full-text search for 半岛南U2 (109 notices) has no post-construction O&M, scour or anti-corrosion tender yet; the latest are O&M-centre building and marine-ecology works without foundation data.",
+  "sources": [
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20230209/976797f8-9657-4dcd-a955-f786b4e67408.html",
+    "quote": "U2-1期包含36台8.5MW风机基础制作、运输及施工"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=259575b2633e40028bb85f487ae3e95c",
+    "quote": "风电场总容量为603.5MW，共建有71台风电机组"
+   }
+  ],
+  "iso": "CHN"
+ },
+ {
+  "item": "X5 CGN Shanwei Jiazi I and II: foundation counts",
+  "farm": "CGN Shanwei Jiazi I; CGN Shanwei Jiazi II",
+  "status": "lead",
+  "proposal": "(lead, no rows) see why",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CGN e-procurement API: Jiazi tenders listed from 2018 to 2026. Original (2019) design for both farms: jacket lot I = 17 non-rock-socketed jackets (15 turbines + 2 substations) and monopile lots I and II (30 positions each); Jiazi II was re-tendered in 2022 for 50 × 8 MW as lots I (20 positions) and II (20 positions) without a stated type and lot III (10 monopiles + substation); the 2021–2022 cathodic-protection tenders cover \"monopiles and jackets\" for each farm. Post-construction tenders (2022 operating-period navaids, 2025–2026 defect rectification \"monopile foundation anti-corrosion\") give no counts. So Jiazi I’s 7 non-monopile units (probably jackets) and Jiazi II’s lots I/II types remain unconfirmed as built.",
+  "sources": [
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/65e43b2fbc914f7e98d966d85f78d5de/adb3004f51d74860b3c8ecda209d3dd5.json",
+    "quote": "17台导管架基础（非嵌岩）施工，其中风机导管架基础15台"
+   },
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/65e43b2fbc914f7e98d966d85f78d5de/9e2610232f984f44ba63b8ba9bd90b4c.json",
+    "quote": "10机位单桩基础施工及10台风机安装"
+   },
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/65e43b2fbc914f7e98d966d85f78d5de/a8c85f2da4b6435689e047ac5a0173c4.json",
+    "quote": "共20机位基础施工和20台风机安装"
+   }
+  ],
+  "src_code": 0,
+  "iso": "CHN"
+ },
+ {
+  "item": "X6 CGN Fanshi II: lot II",
+  "farm": "CGN Fanshi II",
+  "status": "lead",
+  "proposal": "(lead) lot (二) grouting subcontract (Oct 2025, during construction): 11 × 18 MW turbines on jackets; lots I and III counts still missing.",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CGN Engineering subcontract tenders for lots II and III (grouting, testing, vessels, labour) name no other counts; no completion record yet.",
+  "sources": [
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/a1d9712e21f640f79c1878b63c1aae75.json",
+    "quote": "11台18MW风机导管架基础灌浆"
+   }
+  ],
+  "src_code": 0,
+  "iso": "CHN"
+ },
+ {
+  "item": "X7 Shandong Laizhou (CGN): foundation type",
+  "farm": "Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project",
+  "src_code": 2,
+  "status": "lead",
+  "proposal": "Candidate (caller to decide): F5('CHN', 'Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project', 'mp', url='https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4674453659ef4aa59cced5db80cbc40b.json', zh='38 部 8 MW：中廣核 2024-07 為已運轉的萊州海上風儲電場招標風機腐蝕狀態檢測，寫明「單樁及套籠和套籠所有附件統稱為風機基礎」（套籠為海洋牧場的養殖網籠，裝在單樁外）。', en='38 × 8 MW: CGN’s July 2024 corrosion-inspection tender for the operating Laizhou farm defines the turbine foundation as the monopile plus the aquaculture cage and its fittings mounted around it.')",
+  "note_zh": "",
+  "note_en": "",
+  "why": "The O&M tender describes the farm’s turbine foundation generically as monopile + cage but does not say \"all 38\"; the 2025 repeat (20% sample) also tests \"cage protection potential\". No construction record with counts found on the CGN platform (EPC 2020 tender only).",
+  "sources": [
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4674453659ef4aa59cced5db80cbc40b.json",
+    "quote": "本次中广核莱州海上风储电场对单桩及套笼的腐蚀状态进行检测，其中单桩及套笼和套笼所有附件统称为风机基础"
+   }
+  ],
+  "iso": "CHN"
+ },
+ {
+  "item": "X8 Longyuan Rudong Intertidal Demo (Huangang 30 MW test project)",
+  "farm": "Longyuan Rudong Intertidal Demo",
+  "status": "lead",
+  "proposal": "(lead) jackets confirmed for at least 7 units of the 30 MW intertidal test project (2024 coating tender); the other test units’ types unknown.",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CHN Energy search: Longyuan calls the Rudong intertidal complex 海上环港风电场 (155 turbines in five phases). No tender lists types per phase; 2023 H2S tender mentions 10 Huangang units with monopile bases (phase not named).",
+  "sources": [
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20240624/ac50828b-5deb-40cc-a1c3-4f3a85694989.html",
+    "quote": "对30MW潮间带试验项目导管架基础防腐情况进行检测，检测发现7台风机"
+   }
+  ],
+  "src_code": 0,
+  "iso": "CHN"
+ },
+ {
+  "item": "X9 Other farms (no new source)",
+  "farm": "Jiangsu Jiangjiasha H1 Offshore wind farm · 1; Longyuan Rudong Intertidal Expansion; Fujian Pingtan Dalian Offshore wind farm; Huaneng Zhuanghe II; Jiangsu Dafeng (Huaneng) Offshore wind farm · capacity expansion; Huaneng Peninsula North BW; Liaoning Dalian Zhuanghe 4 Area II Offshore wind farm; Huadian Yuhuan 1; Datang Danzhou CZ3 (site 1); Zhuanghe I; Jiangsu Binhai (Datang) Offshore wind farm; Fujian Pingtan Changjiang'Ao Offshore wind farm; CTG Jiangsu Dafeng 300 MW; CTG Dafeng H8-2; CTG Yangjiang Qingzhou 6; CTG Changyi; CTG Dalian Zhuanghe III; CTG Jiangsu Xiangshui; Jiangsu Xiangshui C1 Offshore wind farm; Fuqing Xinghua Bay Phase 2; others",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Portals: chnenergybidding.com.cn works over http only (https returns a 403 IP block); full-text API = POST /bidfulltextsearch/rest/inteligentSearch/getFullTextData (JSON body as in /bidsearch/js/fullsearch.js; \"wd\" URL-encoded, \"cl\" up to 60000 returns the whole text). Jiangjiasha H1: only O&M tenders shared with other Longyuan farms, no per-farm types. CGN Pingtan Dalian: navaid/lightning/audit tenders, no types. Huaneng ec.chng.com.cn and Huadian chdtp.com.cn return 412 (anti-bot) or reset; Datang cdt-ec.com 405; CTG eps.ctg.com.cn 503/TLS reset; SPIC ebid.espic.com.cn reachable but no SPIC farm in this list. MSA channel lists were not rescanned (earlier rounds covered 2019 onwards). CGN e-procurement (ecp.cgnpc.com.cn): notice pages (Details.html) are rendered by script; the list API is POST http://ecp.cgnpc.com.cn/portalApi/connect/query?siteId=3f5692fa17a24c86b80a08e6669a4df5 with {\"dataConnectId\":\"e106b8c1504b4cfe9dff6ac78cbf138c\",\"Key\":\"%keyword%\",\"pageIndex\":1,\"pageSize\":50}, and each notice's content is at /detail/<ContentStoreId>/<Id>.json (cite that JSON URL).",
+  "sources": [],
+  "src_code": 0,
+  "iso": "CHN"
+ }
+]

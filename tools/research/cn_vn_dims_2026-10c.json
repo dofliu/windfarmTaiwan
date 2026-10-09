@@ -549,22 +549,6 @@
   ]
  },
  {
-  "farm": "CGN Xiangshan 1 Phase 1 (Tuci)",
-  "kind": "foundation",
-  "type": "unknown",
-  "parts": null,
-  "turbines": null,
-  "status": "none",
-  "note_zh": "名稱混淆（前一輪已查）：2021-12 全容量投運的「象山 1 號一期」是國電電力 254.2 MW、41 部 6.2 MW；中廣核象山塗茨 300 MW 2022 年才做環評。本輪未再找到新資料。",
-  "note_en": "Name conflation (found in the previous round): the ‘Xiangshan 1 Phase 1’ in full operation since Dec 2021 is Guodian Power’s 254.2 MW, 41 × 6.2 MW project, while CGN Xiangshan Tuci (300 MW) was only at EIA stage in 2022. Nothing new this round.",
-  "sources": [
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/1419e3dea92043f6b6ce3eeb297f57bf.shtml",
-    "quote": "安装41台6.2兆瓦风机，接入1座220千伏海上升压站"
-   }
-  ]
- },
- {
   "farm": "Putian Pinghai Bay Phase 2",
   "kind": "foundation",
   "type": "mx",

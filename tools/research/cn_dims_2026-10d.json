@@ -202,26 +202,6 @@
   ]
  },
  {
-  "farm": "CGN Xiangshan 1 Phase 1 (Tuci)",
-  "kind": "dimensions",
-  "status": "lead",
-  "depth": null,
-  "hub": null,
-  "rotor": null,
-  "note_zh": "資料問題：《中廣核象山塗茨海上風電項目變更海域使用論證報告書》寫本項目 2019 年核准、「目前尚未投產建設」，變更後規劃 38 台 8 MW（300 MW），採用 WTG220-8（葉輪 220 m），海底高程約 −6.9～−12.6 m（設計值）。資料庫寫 280 MW、2022 年、明陽 6.45 MW，可能有誤（建成年份與機型待查）。",
-  "note_en": "Data problem: the CGN Xiangshan Tuci sea-use change report says the project was approved in 2019 and \"has not yet been built\"; the changed plan is 38 × 8 MW (300 MW) with WTG220-8 turbines (220 m rotor), seabed about −6.9 to −12.6 m (design values). The database has 280 MW, 2022, Mingyang 6.45 MW — possibly wrong (completion year and turbine to be checked).",
-  "sources": [
-   {
-    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3507/site/attach/0/842c786192c540d5a9bf66d6693cfbb5.pdf",
-    "quote": "中广核象山涂茨海上风电项目 属于 2019 年核准，但目前尚未投产建设的项目"
-   },
-   {
-    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3507/site/attach/0/842c786192c540d5a9bf66d6693cfbb5.pdf",
-    "quote": "采用 WTG220-8 风电机组（叶轮直径 220m）"
-   }
-  ]
- },
- {
   "farm": "Tianjin Nangang",
   "kind": "dimensions",
   "status": "lead",

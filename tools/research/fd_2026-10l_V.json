@@ -76,7 +76,7 @@
   "src_code": 0,
   "iso": "CHN",
   "status": "lead",
-  "proposal": "No change yet. Leave the existing rule (198 MW, 2021); candidate later edit: note that two further units on composite-bucket foundations were added after 2021 (first bucket installed 26 Jun 2022; bucket EPC works extended to 30 Dec 2024; MSA July 2025: 49 turbines, 200 MW). Foundation row: mx (phase-1 four-pile jackets, later monopiles, 2 composite buckets) once counts are found.",
+  "proposal": "Capacity, turbine mix and year were written in round 16 (MSA July 2025: 49 turbines, 200 MW). Still open: a foundation row, mx (phase-1 four-pile jackets, the later units, 2 composite buckets), once counts are found.",
   "note_zh": "廣州海事局 2025-07 已完工備案：建成 200 MW、49 台（座標表 1#–49#，38# 座標精度不同、位於筒型基礎施工水域內，應是後加的）。長江設計集團「筒型基礎專項 EPC」2022-06-26 裝好第一座圓形筒型基礎、第二座為多邊形；海事局 2024 年通告施工延到 2024-12-30；中文維基寫 2024 年在二期範圍加建兩台。所以 2021-12「全容量併網、198 MW」是加建前的狀態，200 MW 與 198 MW 的差異（及各期機型）仍無法以可核對的出處定案（2021 年一期後續及二期 13 台機型的報導在 in-en.com，連不上）。",
   "note_en": "Guangzhou MSA completion filing (Jul 2025): built 200 MW with 49 turbines (coordinate list 1#–49#; 38# has different precision and lies in the bucket works area, so it was added later). CJWSJY's bucket-foundation special EPC installed the first circular bucket on 26 Jun 2022, with a second, polygonal one to follow; an MSA notice extended the works to 30 Dec 2024, and zh.wikipedia says two turbines were added in phase 2 in 2024. The Dec 2021 '198 MW, full connection' therefore predates these units; the 200 vs 198 MW difference and the per-phase models still cannot be settled from checkable sources (the 2021 report on the 13 phase-2 units is on in-en.com, unreachable).",
   "why": "yanshougs.com lists Guishan's soil-and-water acceptance (Nov 2023) but its PDFs are Cloudflare-blocked (403); Southern Offshore Wind has no public procurement site found.",
@@ -260,18 +260,6 @@
   "note_zh": "",
   "note_en": "",
   "why": "dlztb has 2026 Datang Pingtan (Xianmei) navaid/security tenders without foundation data.",
-  "sources": []
- },
- {
-  "item": "V9. CGN Xiangshan Tuci",
-  "farm": "CGN Xiangshan Tuci",
-  "src_code": 0,
-  "iso": "CHN",
-  "status": "none",
-  "proposal": "None",
-  "note_zh": "",
-  "note_en": "",
-  "why": "dlztb 2026 wind-solar supervision tender has no foundation data.",
   "sources": []
  },
  {
