@@ -12,110 +12,6 @@
   "sources": []
  },
  {
-  "item": "2. Belguppa (Greenko) wind farm (IND, 101 MW)",
-  "farm": "Belguppa (Greenko) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Belguppa (Greenko) wind farm', G, '補上商轉年 2016：GlobalData（Power Technology 轉載）稱 Orange Renewable Power 在安得拉邦的 Beluguppa 風場（100.8 MW，48 部 Suzlon S111 2.1 MW）於 2016 年 7 月商轉', 'Commissioning year 2016: GlobalData (via Power Technology) says Orange Renewable Power’s 100.8 MW Beluguppa wind farm in Andhra Pradesh (48 Suzlon S111 2.1 MW units) was commissioned in July 2016', 'https://www.power-technology.com/data-insights/power-plant-profile-beluguppa-wind-farm-orange-india/', year=2016, turbine='48x Suzlon S111 (2.1 MW)'),",
-  "note_zh": "補上商轉年 2016：GlobalData（Power Technology 轉載）稱 Orange Renewable Power 在安得拉邦的 Beluguppa 風場（100.8 MW，48 部 Suzlon S111 2.1 MW）於 2016 年 7 月商轉",
-  "note_en": "Commissioning year 2016: GlobalData (via Power Technology) says Orange Renewable Power’s 100.8 MW Beluguppa wind farm in Andhra Pradesh (48 Suzlon S111 2.1 MW units) was commissioned in July 2016",
-  "why": "Beluguppa = GEM’s “Belguppa” (Anantapur district, AP), 100.8 vs 101 MW. The point (14.822, 78.282) is a placeholder shared with four other AP records (Mpr Dam, Guttaseema, Devenkonda, Sandla); no citable farm position found, so left as is.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-beluguppa-wind-farm-orange-india/",
-    "quote": "Beluguppa Wind Farm – Orange is a 100.8MW onshore wind power project. It is located in Andhra Pradesh, India."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-beluguppa-wind-farm-orange-india/",
-    "quote": "The project is developed and owned by Orange Renewable Power. Development status The project is currently active. The project got commissioned in July 2016."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-beluguppa-wind-farm-orange-india/",
-    "quote": "The project consists of 48 units of S111-2.1 MW turbines, each with 2.1MW nameplate capacity."
-   }
-  ]
- },
- {
-  "item": "3. Mamatkheda wind farm (IND, 101 MW)",
-  "farm": "Mamatkheda wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Mamatkheda wind farm', G, '補上商轉年 2015：GlobalData（Power Technology 轉載）稱 Orange Renewable Power 在中央邦的 Mamatkheda 風場（100.5 MW）於 2015 年 4 月商轉', 'Commissioning year 2015: GlobalData (via Power Technology) says Orange Renewable Power’s 100.5 MW Mamatkheda wind farm in Madhya Pradesh was commissioned in April 2015', 'https://www.power-technology.com/data-insights/power-plant-profile-mamatkheda-wind-farmorange-group-india/', year=2015),",
-  "note_zh": "補上商轉年 2015：GlobalData（Power Technology 轉載）稱 Orange Renewable Power 在中央邦的 Mamatkheda 風場（100.5 MW）於 2015 年 4 月商轉",
-  "note_en": "Commissioning year 2015: GlobalData (via Power Technology) says Orange Renewable Power’s 100.5 MW Mamatkheda wind farm in Madhya Pradesh was commissioned in April 2015",
-  "why": "Name, state and capacity (100.5 vs 101 MW) match. GlobalData names the developer Orange Renewable Power (bought by Greenko, GEM’s owner); no owner change proposed. The turbine line in the profile is self-contradictory (“LTW104 - 2.5 turbines, each with 1.5MW”), so no turbine field.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-mamatkheda-wind-farmorange-group-india/",
-    "quote": "Mamatkheda Wind Farm_Orange Group is a 100.5MW onshore wind power project. It is located in Madhya Pradesh, India."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-mamatkheda-wind-farmorange-group-india/",
-    "quote": "Development status The project is currently active. The project got commissioned in April 2015."
-   }
-  ]
- },
- {
-  "item": "4. Rajkot Hybrid (Continuum) wind farm (IND, 100 MW)",
-  "farm": "Rajkot Hybrid (Continuum) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Rajkot Hybrid (Continuum) wind farm', G, '補上商轉年 2023：Continuum 2024 年 12 月的上市說明書草案稱 Rajkot 3 風光混合案（249.9 MW）在 2022 年底前完成 153.7 MW、其餘 86.2 MW 於 2023 年 6 月 9 日完成，風電部分在 2023–24 財年（2023 年 4 月起）才全部商轉', 'Commissioning year 2023: Continuum’s December 2024 draft prospectus says 153.7 MW of the 249.9 MW Rajkot 3 wind–solar hybrid was commissioned by the end of 2022 and the remaining 86.2 MW by 9 June 2023, with its wind capacity fully commissioned in fiscal 2024 (from April 2023)', 'https://www.sebi.gov.in/sebi_data/attachdocs/dec-2024/1734348609680_606.pdf', year=2023),",
-  "note_zh": "補上商轉年 2023：Continuum 2024 年 12 月的上市說明書草案稱 Rajkot 3 風光混合案（249.9 MW）在 2022 年底前完成 153.7 MW、其餘 86.2 MW 於 2023 年 6 月 9 日完成，風電部分在 2023–24 財年（2023 年 4 月起）才全部商轉",
-  "note_en": "Commissioning year 2023: Continuum’s December 2024 draft prospectus says 153.7 MW of the 249.9 MW Rajkot 3 wind–solar hybrid was commissioned by the end of 2022 and the remaining 86.2 MW by 9 June 2023, with its wind capacity fully commissioned in fiscal 2024 (from April 2023)",
-  "why": "GEM’s record is phase “3” (Rajkot 3, sourced to continuumenergy.in/project/rajkot-3 and a 100 MW GE turbine order). Wind full commissioning fell in fiscal 2024 and the whole project was done by 9 June 2023, so the wind part was complete between April and June 2023. Point is Rajkot city (approximate); not changed.",
-  "sources": [
-   {
-    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/dec-2024/1734348609680_606.pdf",
-    "quote": "Rajkot 3 249.90 MW project December 31, 2022 153.70 MW commissioned by the targeted date and the remaining 86.20 MW by June 9, 2023"
-   },
-   {
-    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/dec-2024/1734348609680_606.pdf",
-    "quote": "higher number of operational projects in Fiscal 2024 compared to Fiscal 2023, i.e., interim operating and maintenanc e fees till the time Rajkot 3 project (Gujarat) and the Morjar 1 project (Gujarat) achieved full commissioning of wind capacity"
-   },
-   {
-    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/dec-2024/1734348609680_606.pdf",
-    "quote": "Construction of 240 MW Wind Solar Hybrid project completed at Rajkot 3 in the State of Gujarat during the financial year (FY) 2023-24"
-   },
-   {
-    "url": "https://www.gem.wiki/Rajkot_Hybrid_(Continuum)_wind_farm",
-    "quote": "3 Rajkot, Gujarat, India [ 3 ] 22.3032, 70.7999 (approximate)"
-   }
-  ]
- },
- {
-  "item": "5. Dhar (Hero) wind farm (IND, 100 MW)",
-  "farm": "Dhar (Hero) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Dhar (Hero) wind farm', G, '補上商轉年 2016：GlobalData（Power Technology 轉載）稱 Hero Future Energies 在中央邦的 Dhar 風場（100 MW，50 部 Gamesa G97 2.0 MW）於 2016 年 3 月商轉', 'Commissioning year 2016: GlobalData (via Power Technology) says Hero Future Energies’ 100 MW Dhar wind farm in Madhya Pradesh (50 Gamesa G97 2.0 MW units) was commissioned in March 2016', 'https://www.power-technology.com/data-insights/power-plant-profile-dhar-wind-farm-india/', year=2016, turbine='50x Gamesa G97 (2.0 MW)'),",
-  "note_zh": "補上商轉年 2016：GlobalData（Power Technology 轉載）稱 Hero Future Energies 在中央邦的 Dhar 風場（100 MW，50 部 Gamesa G97 2.0 MW）於 2016 年 3 月商轉",
-  "note_en": "Commissioning year 2016: GlobalData (via Power Technology) says Hero Future Energies’ 100 MW Dhar wind farm in Madhya Pradesh (50 Gamesa G97 2.0 MW units) was commissioned in March 2016",
-  "why": "Owner, district and capacity match.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-dhar-wind-farm-india/",
-    "quote": "Dhar Wind Farm is a 100MW onshore wind power project. It is located in Madhya Pradesh, India."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-dhar-wind-farm-india/",
-    "quote": "The project is developed and owned by Hero Future Energies. The project has 104m high towers. Development status The project is currently active."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-dhar-wind-farm-india/",
-    "quote": "The project got commissioned in March 2016."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-dhar-wind-farm-india/",
-    "quote": "The company provided 50 units of G97-2.0 MW turbines, each with 2MW nameplate capacity."
-   }
-  ]
- },
- {
   "item": "6. Gudepanchgani wind farm (IND, 100 MW)",
   "farm": "Gudepanchgani wind farm",
   "src_code": 2,
@@ -126,31 +22,6 @@
   "note_en": "No commissioning year found.",
   "why": "Suzlon multi-owner cluster in Sangli; GEM’s only source is MSETCL’s FGC list (connection reset, as in round 10o).",
   "sources": []
- },
- {
-  "item": "7. MPR Dam (Axis) wind farm (IND, 100 MW)",
-  "farm": "MPR Dam (Axis) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'MPR Dam (Axis) wind farm', G, '補上商轉年 2017：GlobalData（Power Technology 轉載）稱 Axis Wind Farms (MPR Dam) 在安得拉邦的 100 MW 風場（50 部 Gamesa G114 2.0 MW）於 2017 年 3 月商轉', 'Commissioning year 2017: GlobalData (via Power Technology) says the 100 MW farm of Axis Wind Farms (MPR Dam) in Andhra Pradesh (50 Gamesa G114 2.0 MW units) was commissioned in March 2017', 'https://www.power-technology.com/data-insights/power-plant-profile-mpr-dam-awel-india/', year=2017, turbine='50x Gamesa G114 (2.0 MW)'),",
-  "note_zh": "補上商轉年 2017：GlobalData（Power Technology 轉載）稱 Axis Wind Farms (MPR Dam) 在安得拉邦的 100 MW 風場（50 部 Gamesa G114 2.0 MW）於 2017 年 3 月商轉",
-  "note_en": "Commissioning year 2017: GlobalData (via Power Technology) says the 100 MW farm of Axis Wind Farms (MPR Dam) in Andhra Pradesh (50 Gamesa G114 2.0 MW units) was commissioned in March 2017",
-  "why": "Owner and capacity match exactly. Note the separate GEM record “Mpr Dam (Greenko) wind farm” (104 MW, placeholder point) — not shown to be the same farm (Greenko IR unreachable).",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-mpr-dam-awel-india/",
-    "quote": "MPR Dam-AWEL is a 100MW onshore wind power project. It is located in Andhra Pradesh, India."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-mpr-dam-awel-india/",
-    "quote": "developed and owned by Axis Wind Farms (MPR DAM). Development status The project is currently active. The project got commissioned in March 2017."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-mpr-dam-awel-india/",
-    "quote": "The company provided 50 units of G114-2.0 MW turbines, each with 2MW nameplate capacity."
-   }
-  ]
  },
  {
   "item": "8. Ratlam 2 wind farm (IND, 100 MW)",
@@ -211,48 +82,6 @@
   ]
  },
  {
-  "item": "12. Poolavadi (Tata) wind farm (IND, 99 MW)",
-  "farm": "Poolavadi (Tata) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Poolavadi (Tata) wind farm', G, '補上商轉年 2012：GlobalData（Power Technology 轉載）稱 Tata Power Renewable Energy 在坦米爾納德邦的 Poolawadi 風場（99 MW）於 2012 年商轉', 'Commissioning year 2012: GlobalData (via Power Technology) says Tata Power Renewable Energy’s 99 MW Poolawadi wind farm in Tamil Nadu was commissioned in 2012', 'https://www.power-technology.com/data-insights/power-plant-profile-poolawadi-tata-india/', year=2012),",
-  "note_zh": "補上商轉年 2012：GlobalData（Power Technology 轉載）稱 Tata Power Renewable Energy 在坦米爾納德邦的 Poolawadi 風場（99 MW）於 2012 年商轉",
-  "note_en": "Commissioning year 2012: GlobalData (via Power Technology) says Tata Power Renewable Energy’s 99 MW Poolawadi wind farm in Tamil Nadu was commissioned in 2012",
-  "why": "Owner and capacity match exactly. Point (10.326, 77.985) is a placeholder shared with several Leap Green records; not changed.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-poolawadi-tata-india/",
-    "quote": "Poolawadi – TATA is a 99MW onshore wind power project. It is located in Tamil Nadu, India."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-poolawadi-tata-india/",
-    "quote": "The company has a stake of 100%. Development status The project is currently active. The project got commissioned in 2012."
-   }
-  ]
- },
- {
-  "item": "13. Samana (Hindustan Zinc) wind farm (IND, 89 MW)",
-  "farm": "Samana (Hindustan Zinc) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Samana (Hindustan Zinc) wind farm', G, '補上商轉年 2007：GlobalData（Power Technology 轉載）稱 Hindustan Zinc 在古吉拉特邦的 Samana 風場（88.8 MW，分期興建）於 2007 年 3 月完工商轉', 'Commissioning year 2007: GlobalData (via Power Technology) says Hindustan Zinc’s 88.8 MW Samana wind farm in Gujarat, built in phases, was commissioned in March 2007 once construction was complete', 'https://power-technology.com/?p=166866', year=2007),",
-  "note_zh": "補上商轉年 2007：GlobalData（Power Technology 轉載）稱 Hindustan Zinc 在古吉拉特邦的 Samana 風場（88.8 MW，分期興建）於 2007 年 3 月完工商轉",
-  "note_en": "Commissioning year 2007: GlobalData (via Power Technology) says Hindustan Zinc’s 88.8 MW Samana wind farm in Gujarat, built in phases, was commissioned in March 2007 once construction was complete",
-  "why": "Owner, place and capacity (88.8 vs 89 MW) match. Phase dates not given, so no ph.",
-  "sources": [
-   {
-    "url": "https://power-technology.com/?p=166866",
-    "quote": "Samana HZL is an 88.8MW onshore wind power project. It is located in Gujarat, India. The project is currently active. It has been developed in multiple phases."
-   },
-   {
-    "url": "https://power-technology.com/?p=166866",
-    "quote": "Post completion of construction, the project got commissioned in March 2007."
-   }
-  ]
- },
- {
   "item": "14. Animala wind farm (IND, 84 MW)",
   "farm": "Animala wind farm",
   "src_code": 2,
@@ -286,56 +115,6 @@
   "sources": []
  },
  {
-  "item": "16. Mokal (Hindustan Zinc) wind farm (IND, 80 MW)",
-  "farm": "Mokal (Hindustan Zinc) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Mokal (Hindustan Zinc) wind farm', G, '補上商轉年 2011：GlobalData（Power Technology 轉載）稱 Hindustan Zinc 在拉賈斯坦邦的 Mokal 風場（79.8 MW，Suzlon 機組）於 2011 年 12 月商轉', 'Commissioning year 2011: GlobalData (via Power Technology) says Hindustan Zinc’s 79.8 MW Mokal wind farm in Rajasthan (Suzlon turbines) was commissioned in December 2011', 'https://www.power-technology.com/marketdata/power-plant-profile-mokal-hzl-india/', year=2011),",
-  "note_zh": "補上商轉年 2011：GlobalData（Power Technology 轉載）稱 Hindustan Zinc 在拉賈斯坦邦的 Mokal 風場（79.8 MW，Suzlon 機組）於 2011 年 12 月商轉",
-  "note_en": "Commissioning year 2011: GlobalData (via Power Technology) says Hindustan Zinc’s 79.8 MW Mokal wind farm in Rajasthan (Suzlon turbines) was commissioned in December 2011",
-  "why": "Fits HZL’s 150 MW wind expansion of 2011 (48 MW in Q4 FY2011, the rest in FY2011-12, per HZL’s production release seen in search). Position not changed: the point (25.186, 75.859, near Kota) is a placeholder shared with “Orchid” and “Bhesada (Greenko)”; Mokal/Mokla is in Jaisalmer district, but no citable farm location was found.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-mokal-hzl-india/",
-    "quote": "Mokal – HZL is a 79.8MW onshore wind power project. It is located in Rajasthan, India."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-mokal-hzl-india/",
-    "quote": "The project is developed and owned by Hindustan Zinc. Development status The project is currently active. The project got commissioned in December 2011."
-   }
-  ]
- },
- {
-  "item": "17. Guttaseema wind farm (IND, 80 MW)",
-  "farm": "Guttaseema wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Guttaseema wind farm', G, '補上商轉年 2019：GlobalData（Power Technology 轉載）稱 Guttaseema Wind Energy 開發並持有的安得拉邦 80 MW 風場（Palakonda Wind Farm – GEH，40 部 Gamesa G97 2.0 MW）於 2019 年商轉', 'Commissioning year 2019: GlobalData (via Power Technology) says the 80 MW Andhra Pradesh farm developed and owned by Guttaseema Wind Energy (“Palakonda Wind Farm – GEH”, 40 Gamesa G97 2.0 MW units) was commissioned in 2019', 'https://www.power-technology.com/marketdata/palakonda-wind-farm-geh-india/', year=2019, turbine='40x Gamesa G97 (2.0 MW)'),",
-  "note_zh": "補上商轉年 2019：GlobalData（Power Technology 轉載）稱 Guttaseema Wind Energy 開發並持有的安得拉邦 80 MW 風場（Palakonda Wind Farm – GEH，40 部 Gamesa G97 2.0 MW）於 2019 年商轉",
-  "note_en": "Commissioning year 2019: GlobalData (via Power Technology) says the 80 MW Andhra Pradesh farm developed and owned by Guttaseema Wind Energy (“Palakonda Wind Farm – GEH”, 40 Gamesa G97 2.0 MW units) was commissioned in 2019",
-  "why": "Matched by owner company (Guttaseema Wind Energy), capacity (80 MW = 40 × 2 MW, also in the VCS-1985 bundle) and state; GlobalData names it after the Palakonda hills. Only the year (no month) is given. Point is the shared AP placeholder.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/marketdata/palakonda-wind-farm-geh-india/",
-    "quote": "Palakonda Wind Farm – GEH is an 80MW onshore wind power project. It is located in Andhra Pradesh, India."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/palakonda-wind-farm-geh-india/",
-    "quote": "The project is developed and owned by Guttaseema Wind Energy. Development status The project is currently active. The project got commissioned in 2019."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/palakonda-wind-farm-geh-india/",
-    "quote": "The company provided 40 units of G97-2.0 MW turbines, each with 2MW nameplate capacity."
-   },
-   {
-    "url": "https://app.carbonmark.com//projects/VCS-1985",
-    "quote": "Guttaseema Wind Energy Company Private Limited (GWECPL) has set up 40 machines of 2MW capacity while the other 10 machines of 2MW"
-   }
-  ]
- },
- {
   "item": "18. Clover wind farm (IND, 72 MW)",
   "farm": "Clover wind farm",
   "src_code": 2,
@@ -353,44 +132,6 @@
   ]
  },
  {
-  "item": "19. Orchid wind farm (IND, 67 MW)",
-  "farm": "Orchid wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Orchid wind farm', G, '不是單一風場：CARE 信評報告稱 Leap Green 旗下 Orchid Renewable Powertech 的 66.9 MW 風電分在拉賈斯坦邦（42 MW）與中央邦（24.9 MW）；商轉年不詳，座標是代用點', 'Not a single farm: a CARE rating report says the 66.9 MW of Leap Green’s Orchid Renewable Powertech is split between Rajasthan (42 MW) and Madhya Pradesh (24.9 MW); no commissioning year is known and the point is a placeholder', 'https://www.careratings.com/upload/CompanyFiles/PR/Tulip%20Renewable%20Powertech%20Private%20Limited-02-22-2018.pdf', note=True),",
-  "note_zh": "不是單一風場：CARE 信評報告稱 Leap Green 旗下 Orchid Renewable Powertech 的 66.9 MW 風電分在拉賈斯坦邦（42 MW）與中央邦（24.9 MW）；商轉年不詳，座標是代用點",
-  "note_en": "Not a single farm: a CARE rating report says the 66.9 MW of Leap Green’s Orchid Renewable Powertech is split between Rajasthan (42 MW) and Madhya Pradesh (24.9 MW); no commissioning year is known and the point is a placeholder",
-  "why": "An SPV portfolio across two states (Leap Green buys wind assets from others); no year can be assigned. Note-only fix (like the Evergreen rule). The point (25.186, 75.859) is shared with Mokal (HZL) and Bhesada (Greenko).",
-  "sources": [
-   {
-    "url": "https://www.careratings.com/upload/CompanyFiles/PR/Tulip%20Renewable%20Powertech%20Private%20Limited-02-22-2018.pdf",
-    "quote": "Violet -33.0 MW (Rajasthan), Orchid-66.9 MW (Rajasthan-42 MW and Madhya Pradesh-24.9 MW)"
-   },
-   {
-    "url": "https://www.gem.wiki/Orchid_wind_farm",
-    "quote": "Rajasthan, India [ 2 ] 25.1862, 75.8589 (approximate)"
-   }
-  ]
- },
- {
-  "item": "20. Palghat wind farm (IND, 63 MW)",
-  "farm": "Palghat wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Palghat wind farm', G, '不是單一風場：Brickwork 信評報告稱 Rajalakshmi Wind Energy（原 Ashok Leyland Wind Energy）的 63.175 MW 風機分布在 Palghat、Shencottah 與 Aralvoimozhi 三處風口；商轉年不詳', 'Not a single farm: a Brickwork rating report says the 63.175 MW of Rajalakshmi Wind Energy (formerly Ashok Leyland Wind Energy) is spread over the Palghat, Shencottah and Aralvoimozhi wind passes; no commissioning year is known', 'https://www.brickworkratings.com/Admin/PressRelease/Rajalakshmi-Wind-20Mar2020.pdf', note=True),",
-  "note_zh": "不是單一風場：Brickwork 信評報告稱 Rajalakshmi Wind Energy（原 Ashok Leyland Wind Energy）的 63.175 MW 風機分布在 Palghat、Shencottah 與 Aralvoimozhi 三處風口；商轉年不詳",
-  "note_en": "Not a single farm: a Brickwork rating report says the 63.175 MW of Rajalakshmi Wind Energy (formerly Ashok Leyland Wind Energy) is spread over the Palghat, Shencottah and Aralvoimozhi wind passes; no commissioning year is known",
-  "why": "Captive portfolio in three wind passes; no year. Note-only fix.",
-  "sources": [
-   {
-    "url": "https://www.brickworkratings.com/Admin/PressRelease/Rajalakshmi-Wind-20Mar2020.pdf",
-    "quote": "The company owns 63.175 MW capacity Wind farm installed in Tamilnadu. All these wind turbines are installed and in operation at prominent wind zones namely Palghat, Senkotah and Aralvoimozhi wind Pass."
-   }
-  ]
- },
- {
   "item": "21. Maple wind farm (IND, 62 MW)",
   "farm": "Maple wind farm",
   "src_code": 2,
@@ -404,23 +145,6 @@
    {
     "url": "https://www.careratings.com/upload/CompanyFiles/PR/Tulip%20Renewable%20Powertech%20Private%20Limited-02-22-2018.pdf",
     "quote": "Maple -61.5 MW (Tamil Nadu)"
-   }
-  ]
- },
- {
-  "item": "22. Tirunelveli (KPR) wind farm (IND, 62 MW)",
-  "farm": "Tirunelveli (KPR) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Tirunelveli (KPR) wind farm', G, '不是單一風場：CARE 信評報告稱 K.P.R. Mill 的 66 部自用風機合計 61.92 MW，分布在蒂魯內爾維利、Tenkasi、Theni 與哥印拜陀四縣；商轉年不詳', 'Not a single farm: a CARE rating report says K.P.R. Mill’s 66 captive wind turbines (61.92 MW in total) are spread over Tirunelveli, Tenkasi, Theni and Coimbatore districts; no commissioning year is known', 'https://www.careratings.com/upload/CompanyFiles/PR/27092022060801_K.P.R._Mill_Limited.pdf', note=True),",
-  "note_zh": "不是單一風場：CARE 信評報告稱 K.P.R. Mill 的 66 部自用風機合計 61.92 MW，分布在蒂魯內爾維利、Tenkasi、Theni 與哥印拜陀四縣；商轉年不詳",
-  "note_en": "Not a single farm: a CARE rating report says K.P.R. Mill’s 66 captive wind turbines (61.92 MW in total) are spread over Tirunelveli, Tenkasi, Theni and Coimbatore districts; no commissioning year is known",
-  "why": "A textile company’s captive turbines in four districts, bought over many years; no single year or site. Note-only fix.",
-  "sources": [
-   {
-    "url": "https://www.careratings.com/upload/CompanyFiles/PR/27092022060801_K.P.R._Mill_Limited.pdf",
-    "quote": "KPR has 66 windmills with total power generation capacity of 61.92 MW at Tirunelveli, Tenkasi, Theni & Coimbatore Districts."
    }
   ]
  },
@@ -461,31 +185,6 @@
   "sources": []
  },
  {
-  "item": "26. Gurmitkal (Greenko) wind farm (IND, 60 MW)",
-  "farm": "Gurmitkal (Greenko) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Gurmitkal (Greenko) wind farm', G, '補上商轉年 2017：GlobalData（Power Technology 轉載）稱 Orange Renewable Power 在卡納塔克邦的 Gurmitkal 風場（60 MW，30 部 Gamesa G97 2.0 MW）於 2017 年 4 月商轉', 'Commissioning year 2017: GlobalData (via Power Technology) says Orange Renewable Power’s 60 MW Gurmitkal wind farm in Karnataka (30 Gamesa G97 2.0 MW units) was commissioned in April 2017', 'https://www.power-technology.com/data-insights/power-plant-profile-gurmitkal-wind-farm-orange-india/', year=2017, turbine='30x Gamesa G97 (2.0 MW)'),",
-  "note_zh": "補上商轉年 2017：GlobalData（Power Technology 轉載）稱 Orange Renewable Power 在卡納塔克邦的 Gurmitkal 風場（60 MW，30 部 Gamesa G97 2.0 MW）於 2017 年 4 月商轉",
-  "note_en": "Commissioning year 2017: GlobalData (via Power Technology) says Orange Renewable Power’s 60 MW Gurmitkal wind farm in Karnataka (30 Gamesa G97 2.0 MW units) was commissioned in April 2017",
-  "why": "Name, state and capacity match exactly.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-gurmitkal-wind-farm-orange-india/",
-    "quote": "Gurmitkal Wind Farm – Orange is a 60MW onshore wind power project. It is located in Karnataka, India."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-gurmitkal-wind-farm-orange-india/",
-    "quote": "Development status The project is currently active. The project got commissioned in April 2017."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-gurmitkal-wind-farm-orange-india/",
-    "quote": "The company provided 30 units of G97-2.0 MW turbines, each with 2MW nameplate capacity."
-   }
-  ]
- },
- {
   "item": "27. Supa wind farm (IND, 57 MW)",
   "farm": "Supa wind farm",
   "src_code": 2,
@@ -496,35 +195,6 @@
   "note_en": "No commissioning year found.",
   "why": "Suzlon multi-owner cluster at Supa (Ahmednagar), built over many years; MSETCL list unreachable. Other Supa records exist (Bajaj 2001, Tata).",
   "sources": []
- },
- {
-  "item": "28. Tuppadahalli wind farm (IND, 56 MW)",
-  "farm": "Tuppadahalli wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Tuppadahalli wind farm', G, '補上商轉年 2011：ICRA 信評報告稱 Tuppadahalli Energy India 的 56.1 MW 風場分三期興建，2011 年 10 月全部商轉；GlobalData 列 34 部 Vestas V82（1.65 MW）', 'Commissioning year 2011: an ICRA rating report says Tuppadahalli Energy India’s 56.1 MW wind farm was commissioned in three phases, the last in October 2011; GlobalData lists 34 Vestas V82 (1.65 MW) units', 'https://www.icra.in/Rating/GetRationalReportFilePdf?id=125637', year=2011, turbine='34x Vestas V82 (1.65 MW)'),",
-  "note_zh": "補上商轉年 2011：ICRA 信評報告稱 Tuppadahalli Energy India 的 56.1 MW 風場分三期興建，2011 年 10 月全部商轉；GlobalData 列 34 部 Vestas V82（1.65 MW）",
-  "note_en": "Commissioning year 2011: an ICRA rating report says Tuppadahalli Energy India’s 56.1 MW wind farm was commissioned in three phases, the last in October 2011; GlobalData lists 34 Vestas V82 (1.65 MW) units",
-  "why": "Acciona’s Tuppadahalli farm (Karnataka). GlobalData says November 2011; ICRA (Oct 2011) is the primary rating document. Phases not dated individually, so no ph.",
-  "sources": [
-   {
-    "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=125637",
-    "quote": "The wind power plant was commissioned in three phases, with complete commissioning achieved in October 2011, at a total cost of Rs. 337 crore."
-   },
-   {
-    "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=125637",
-    "quote": "Tuppadahalli Energy India Pvt Ltd: Ratings reaffirmed"
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-tuppadahalli-acciona-india/",
-    "quote": "Tuppadahalli Acciona is a 56.1MW onshore wind power project. It is located in Karnataka, India."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-tuppadahalli-acciona-india/",
-    "quote": "The company provided 34 units of V82-1.65 MW turbines, each with 1.65MW nameplate capacity."
-   }
-  ]
  },
  {
   "item": "29. Tulip wind farm (IND, 56 MW)",
@@ -588,31 +258,6 @@
   "note_en": "No commissioning year found.",
   "why": "Phase 1 (54.6 MW) of Sembcorp’s 180 MW SECI project (awarded Oct 2021); GEM’s source is a CEA monthly report page; no commissioning date found.",
   "sources": []
- },
- {
-  "item": "33. Dagri wind farm (IND, 54 MW)",
-  "farm": "Dagri wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Dagri wind farm', G, '補上商轉年 2013：印度石油公司（Oil India）在拉賈斯坦邦賈沙梅爾縣 Dangri 的 54 MW 風場（27 部 2 MW）於 2013 年 3 月 30 日商轉（該公司 2012–13 年永續報告）。GEM 把地名寫成「Dagri」，座標（北緯 26.974°、東經 74.155°）離賈沙梅爾約 280 km；改名並移到 Fatehgarh 區的 Dangri 風區（概略位置）', 'Commissioning year 2013: Oil India’s 54 MW wind farm at Dangri, Jaisalmer district, Rajasthan (27 × 2 MW) was commissioned on 30 March 2013 (company sustainability report 2012–13). GEM spells the place “Dagri” and its point (26.974 N, 74.155 E) is about 280 km from Jaisalmer; renamed and moved to the Dangri wind area in Fatehgarh tehsil (approximate)', 'https://www.sustainabilityreports.com/oil-india/2013/sustainability-report', rename='Dangri (Oil India) wind farm', year=2013, lat=26.556, lon=71.375, approx=True),",
-  "note_zh": "補上商轉年 2013：印度石油公司（Oil India）在拉賈斯坦邦賈沙梅爾縣 Dangri 的 54 MW 風場（27 部 2 MW）於 2013 年 3 月 30 日商轉（該公司 2012–13 年永續報告）。GEM 把地名寫成「Dagri」，座標（北緯 26.974°、東經 74.155°）離賈沙梅爾約 280 km；改名並移到 Fatehgarh 區的 Dangri 風區（概略位置）",
-  "note_en": "Commissioning year 2013: Oil India’s 54 MW wind farm at Dangri, Jaisalmer district, Rajasthan (27 × 2 MW) was commissioned on 30 March 2013 (company sustainability report 2012–13). GEM spells the place “Dagri” and its point (26.974 N, 74.155 E) is about 280 km from Jaisalmer; renamed and moved to the Dangri wind area in Fatehgarh tehsil (approximate)",
-  "why": "The OIL sustainability report is quoted from the sustainabilityreports.com summary page (oil-india.com annual report URL 404). Coordinates borrowed from GEM’s exact point for “Dangri (Renew)” in the same wind area (approx=True). Possible overlap with “Dangri (GFL) wind farm” (54 MW, 2012; Inox/GFL built OIL’s farm) not checked — no dup proposed.",
-  "sources": [
-   {
-    "url": "https://www.sustainabilityreports.com/oil-india/2013/sustainability-report",
-    "quote": "reports 67.6 MW of installed wind capacity by 2012-13, including a 54 MW project commissioned on 30 March 2013"
-   },
-   {
-    "url": "https://www.gktoday.in/recently-april-2013-the-public-sector-company-oil-india-ltd-oil-has-commissioned-a-54-mw-wind-turbine-power-plant-in-which-among-the-following-states/",
-    "quote": "The project, which comprises of 27 wind turbine generator (WTG) units of 2,000 kilo-watt each, is located at Dangri in Jaisalmer district."
-   },
-   {
-    "url": "https://www.gem.wiki/Dangri_(Renew)_wind_farm",
-    "quote": "Fatehgarh Tehsil, Jaisalmer, Rajasthan, India [ 3 ] 26.5564, 71.3751 (exact)"
-   }
-  ]
  },
  {
   "item": "34. Khavda-I wind farm (IND, 52.8 MW)",
@@ -704,40 +349,15 @@
   "sources": []
  },
  {
-  "item": "41. Bableshwar (Hero) wind farm (IND, 50 MW)",
-  "farm": "Bableshwar (Hero) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Bableshwar (Hero) wind farm', G, '補上商轉年 2017：GlobalData（Power Technology 轉載）稱 Hero Future Energies 在卡納塔克邦的 Bableshwar 風場（50 MW，25 部 Gamesa G114 2.0 MW）於 2017 年 3 月商轉', 'Commissioning year 2017: GlobalData (via Power Technology) says Hero Future Energies’ 50 MW Bableshwar wind farm in Karnataka (25 Gamesa G114 2.0 MW units) was commissioned in March 2017', 'https://www.power-technology.com/marketdata/power-plant-profile-bableshwar-hfe-india/', year=2017, turbine='25x Gamesa G114 (2.0 MW)'),",
-  "note_zh": "補上商轉年 2017：GlobalData（Power Technology 轉載）稱 Hero Future Energies 在卡納塔克邦的 Bableshwar 風場（50 MW，25 部 Gamesa G114 2.0 MW）於 2017 年 3 月商轉",
-  "note_en": "Commissioning year 2017: GlobalData (via Power Technology) says Hero Future Energies’ 50 MW Bableshwar wind farm in Karnataka (25 Gamesa G114 2.0 MW units) was commissioned in March 2017",
-  "why": "Owner and capacity match. A separate PTC Energy 50 MW farm at Bableswar (next item) was commissioned in the same fiscal year; both appear in thewindpower as separate parts of the Bableshwar site, so not a duplicate.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-bableshwar-hfe-india/",
-    "quote": "Bableshwar-HFE is a 50MW onshore wind power project. It is located in Karnataka, India."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-bableshwar-hfe-india/",
-    "quote": "The project is developed and owned by Hero Future Energies. The project has 90m high towers. Development status The project is currently active. The project got commissioned in March 2017."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/power-plant-profile-bableshwar-hfe-india/",
-    "quote": "The project consists of 25 units of G114-2.0 MW turbines, each with 2MW nameplate capacity."
-   }
-  ]
- },
- {
   "item": "42. Bableshwar (PTC) wind farm (IND, 50 MW)",
   "farm": "Bableshwar (PTC) wind farm",
   "src_code": 2,
   "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Bableshwar (PTC) wind farm', G, '補上商轉年 2017：PTC Energy 於 2017 年 4 月 3 日宣布在安得拉邦與卡納塔克邦商轉五座風場（合計 238.8 MW，屬 2016–17 財年新增），其中包括卡納塔克邦 Vijayapura 縣 Bableswar 的 50 MW。原座標（北緯 12.975°、東經 77.726°）是班加羅爾的代用點，改用 Babaleshwar 村的位置（概略位置）', 'Commissioning year 2017: on 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 50 MW at Bableswar, Vijayapura district, Karnataka. The old point (12.975 N, 77.726 E) was a Bengaluru placeholder; it now uses the village of Babaleshwar (approximate)', 'https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/', year=2017, lat=16.668, lon=75.574, approx=True),",
+  "status": "lead",
+  "proposal": "",
   "note_zh": "補上商轉年 2017：PTC Energy 於 2017 年 4 月 3 日宣布在安得拉邦與卡納塔克邦商轉五座風場（合計 238.8 MW，屬 2016–17 財年新增），其中包括卡納塔克邦 Vijayapura 縣 Bableswar 的 50 MW。原座標（北緯 12.975°、東經 77.726°）是班加羅爾的代用點，改用 Babaleshwar 村的位置（概略位置）",
   "note_en": "Commissioning year 2017: on 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 50 MW at Bableswar, Vijayapura district, Karnataka. The old point (12.975 N, 77.726 E) was a Bengaluru placeholder; it now uses the village of Babaleshwar (approximate)",
-  "why": "Year = the April 2017 announcement of commissioning (the 238.8 MW was added during fiscal 2016–17, Apr 2016–Mar 2017); no per-project month is given, but the announcement right after the 31 Mar 2017 fiscal year-end and the 288.8 MW portfolio CRISIL lists as operational support 2017. Position: OSM place node of Babaleshwara village (Vijayapura district); Wikipedia’s coordinates for Babaleshwar (16.83 N, 75.73 E) are those of Vijayapura city, so not used.",
+  "why": "Position (and capacity) written in round 22; year left open (2016 or 2017, fiscal 2016–17). Year = the April 2017 announcement of commissioning (the 238.8 MW was added during fiscal 2016–17, Apr 2016–Mar 2017); no per-project month is given, but the announcement right after the 31 Mar 2017 fiscal year-end and the 288.8 MW portfolio CRISIL lists as operational support 2017. Position: OSM place node of Babaleshwara village (Vijayapura district); Wikipedia’s coordinates for Babaleshwar (16.83 N, 75.73 E) are those of Vijayapura city, so not used.",
   "sources": [
    {
     "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
@@ -778,31 +398,6 @@
   "sources": []
  },
  {
-  "item": "44. Agaswadi wind farm (IND, 50 MW)",
-  "farm": "Agaswadi wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Agaswadi wind farm', G, '補上商轉年 2011：GlobalData（Power Technology 轉載）稱 Sri Maruti Wind Park Developers 開發、Tata Power 持有的 Agaswadi 風場（馬哈拉施特拉邦，49.5 MW，分期興建，10＋23 部 Regen 1.5 MW）於 2011 年 9 月完工商轉', 'Commissioning year 2011: GlobalData (via Power Technology) says the 49.5 MW Agaswadi wind farm in Maharashtra (developed by Sri Maruti Wind Park Developers, owned by Tata Power; built in phases of 10 and 23 Regen 1.5 MW units) was commissioned in September 2011 after construction was completed', 'https://www.energymonitor.ai/data-insights/power-plant-profile-agaswadi-tata-india/', year=2011),",
-  "note_zh": "補上商轉年 2011：GlobalData（Power Technology 轉載）稱 Sri Maruti Wind Park Developers 開發、Tata Power 持有的 Agaswadi 風場（馬哈拉施特拉邦，49.5 MW，分期興建，10＋23 部 Regen 1.5 MW）於 2011 年 9 月完工商轉",
-  "note_en": "Commissioning year 2011: GlobalData (via Power Technology) says the 49.5 MW Agaswadi wind farm in Maharashtra (developed by Sri Maruti Wind Park Developers, owned by Tata Power; built in phases of 10 and 23 Regen 1.5 MW units) was commissioned in September 2011 after construction was completed",
-  "why": "GEM cites a Tata Power Renewables release of 9 Nov 2015 (acquisition, tatapowerrenewables.com fails TLS); the farm itself dates from 2011. Capacity left at 50 MW (49.5 MW vs GEM 50).",
-  "sources": [
-   {
-    "url": "https://www.energymonitor.ai/data-insights/power-plant-profile-agaswadi-tata-india/",
-    "quote": "Agaswadi – TATA is a 49.5MW onshore wind power project. It is located in Maharashtra, India."
-   },
-   {
-    "url": "https://www.energymonitor.ai/data-insights/power-plant-profile-agaswadi-tata-india/",
-    "quote": "It has been developed in multiple phases. Post completion of construction, the project got commissioned in September 2011."
-   },
-   {
-    "url": "https://www.energymonitor.ai/data-insights/power-plant-profile-agaswadi-tata-india/",
-    "quote": "The project was developed by Sri Maruti Wind Park Developers and is currently owned by The Tata Power."
-   }
-  ]
- },
- {
   "item": "45. Bercha (Greenko) wind farm (IND, 50 MW)",
   "farm": "Bercha (Greenko) wind farm",
   "src_code": 2,
@@ -819,11 +414,11 @@
   "farm": "Devenkonda wind farm",
   "src_code": 2,
   "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Devenkonda wind farm', G, '補上商轉年 2017：PTC Energy 於 2017 年 4 月 3 日宣布在安得拉邦與卡納塔克邦商轉五座風場（合計 238.8 MW，屬 2016–17 財年新增），其中 Kurnool 縣 Devenkonda 為 49.5 MW。原座標（北緯 14.822°、東經 78.282°）是多筆安得拉邦紀錄共用的代用點，改用 Kurnool 縣 Devanakonda 的位置（概略位置）', 'Commissioning year 2017: on 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 49.5 MW at Devenkonda, Kurnool district. The old point (14.822 N, 78.282 E) was a placeholder shared by several Andhra Pradesh records; it now uses Devanakonda in Kurnool district (approximate)', 'https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/', year=2017, mw=49.5, lat=15.538, lon=77.549, approx=True),",
+  "status": "lead",
+  "proposal": "",
   "note_zh": "補上商轉年 2017：PTC Energy 於 2017 年 4 月 3 日宣布在安得拉邦與卡納塔克邦商轉五座風場（合計 238.8 MW，屬 2016–17 財年新增），其中 Kurnool 縣 Devenkonda 為 49.5 MW。原座標（北緯 14.822°、東經 78.282°）是多筆安得拉邦紀錄共用的代用點，改用 Kurnool 縣 Devanakonda 的位置（概略位置）",
   "note_en": "Commissioning year 2017: on 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 49.5 MW at Devenkonda, Kurnool district. The old point (14.822 N, 78.282 E) was a placeholder shared by several Andhra Pradesh records; it now uses Devanakonda in Kurnool district (approximate)",
-  "why": "Year = the April 2017 announcement of commissioning (the 238.8 MW was added during fiscal 2016–17, Apr 2016–Mar 2017); no per-project month is given, but the announcement right after the 31 Mar 2017 fiscal year-end and the 288.8 MW portfolio CRISIL lists as operational support 2017. Capacity corrected to the announced 49.5 MW. Position: OSM place node of Devanakonda (mandal headquarters, Kurnool district).",
+  "why": "Position (and capacity) written in round 22; year left open (2016 or 2017, fiscal 2016–17). Year = the April 2017 announcement of commissioning (the 238.8 MW was added during fiscal 2016–17, Apr 2016–Mar 2017); no per-project month is given, but the announcement right after the 31 Mar 2017 fiscal year-end and the 288.8 MW portfolio CRISIL lists as operational support 2017. Capacity corrected to the announced 49.5 MW. Position: OSM place node of Devanakonda (mandal headquarters, Kurnool district).",
   "sources": [
    {
     "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
@@ -898,77 +493,6 @@
   ]
  },
  {
-  "item": "50. Rojmal (NTPC) wind farm (IND, 50 MW)",
-  "farm": "Rojmal (NTPC) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Rojmal (NTPC) wind farm', G, '補上商轉年 2017：GlobalData（Power Technology 轉載）稱 NTPC 在古吉拉特邦的 Rojmal 風場（50 MW，單期）於 2017 年 9 月完工商轉', 'Commissioning year 2017: GlobalData (via Power Technology) says NTPC’s 50 MW Rojmal wind farm in Gujarat, built in a single phase, was commissioned in September 2017 once construction was complete', 'https://power-technology.com/?p=174170', year=2017),",
-  "note_zh": "補上商轉年 2017：GlobalData（Power Technology 轉載）稱 NTPC 在古吉拉特邦的 Rojmal 風場（50 MW，單期）於 2017 年 9 月完工商轉",
-  "note_en": "Commissioning year 2017: GlobalData (via Power Technology) says NTPC’s 50 MW Rojmal wind farm in Gujarat, built in a single phase, was commissioned in September 2017 once construction was complete",
-  "why": "NTPC’s first wind project (board approval Dec 2016, target Q1 FY2017-18 per search results). Position not changed: the point (22.541, 73.433) is a placeholder shared with Mahidad, Rojmal (Adani/Green Infra) and Mokal (Mytrah); no citable farm location found.",
-  "sources": [
-   {
-    "url": "https://power-technology.com/?p=174170",
-    "quote": "Rojmal Wind Project-NTPC is a 50MW onshore wind power project. It is located in Gujarat, India."
-   },
-   {
-    "url": "https://power-technology.com/?p=174170",
-    "quote": "It has been developed in a single phase. Post completion of construction, the project got commissioned in September 2017."
-   }
-  ]
- },
- {
-  "item": "51. Kayathar wind farm (IND, 50 MW)",
-  "farm": "Kayathar wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Kayathar wind farm', G, '補上商轉年 2019：GlobalData（Power Technology 轉載）稱 Atria Power 在坦米爾納德邦的 Kayathar 風場（50 MW，25 部 Gamesa G97 2.0 MW）於 2019 年 3 月商轉', 'Commissioning year 2019: GlobalData (via Power Technology) says Atria Power’s 50 MW Kayathar wind farm in Tamil Nadu (25 Gamesa G97 2.0 MW units) was commissioned in March 2019', 'https://www.power-technology.com/data-insights/power-plant-profile-kayathar-wind-farm-india/', year=2019, turbine='25x Gamesa G97 (2.0 MW)'),",
-  "note_zh": "補上商轉年 2019：GlobalData（Power Technology 轉載）稱 Atria Power 在坦米爾納德邦的 Kayathar 風場（50 MW，25 部 Gamesa G97 2.0 MW）於 2019 年 3 月商轉",
-  "note_en": "Commissioning year 2019: GlobalData (via Power Technology) says Atria Power’s 50 MW Kayathar wind farm in Tamil Nadu (25 Gamesa G97 2.0 MW units) was commissioned in March 2019",
-  "why": "Owner and capacity match. (A separate GlobalData “Kayathar – NSL” profile is a different, older project.)",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-kayathar-wind-farm-india/",
-    "quote": "Kayathar Wind Farm is a 50MW onshore wind power project. It is located in Tamil Nadu, India."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-kayathar-wind-farm-india/",
-    "quote": "The project is developed and owned by Atria Power. The project has 104m high towers. Development status The project is currently active. The project got commissioned in March 2019."
-   },
-   {
-    "url": "https://www.power-technology.com/data-insights/power-plant-profile-kayathar-wind-farm-india/",
-    "quote": "The company provided 25 units of G97-2.0 MW turbines, each with 2MW nameplate capacity."
-   }
-  ]
- },
- {
-  "item": "52. Khandke (Tata) wind farm (IND, 50 MW)",
-  "farm": "Khandke (Tata) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Khandke (Tata) wind farm', G, '補上商轉年 2007：Tata Power 2010 年新聞稿稱其 50.4 MW 的 Khandke 風場（馬哈拉施特拉邦）於 2007 年 12 月商轉', 'Commissioning year 2007: a 2010 Tata Power release says its 50.4 MW Khandke wind farm in Maharashtra was commissioned in December 2007', 'https://m.energytrend.com/news/20100719-375.html', year=2007),",
-  "note_zh": "補上商轉年 2007：Tata Power 2010 年新聞稿稱其 50.4 MW 的 Khandke 風場（馬哈拉施特拉邦）於 2007 年 12 月商轉",
-  "note_en": "Commissioning year 2007: a 2010 Tata Power release says its 50.4 MW Khandke wind farm in Maharashtra was commissioned in December 2007",
-  "why": "Separate from “Khandke (CLP) wind farm” (2009). GlobalData lists 63 × E-53/800 kW, unusual for 2007 in India, so no turbine field.",
-  "sources": [
-   {
-    "url": "https://m.energytrend.com/news/20100719-375.html",
-    "quote": "Tata Power’s 50.4 MW Khandke wind farm in Maharashtra was commissioned in December 2007 and has been operating well."
-   },
-   {
-    "url": "https://power-technology.com/?p=173756",
-    "quote": "Khandke Power Project TPCL is a 50.4MW onshore wind power project. It is located in Maharashtra, India."
-   },
-   {
-    "url": "https://power-technology.com/?p=173756",
-    "quote": "The project got commissioned in December 2007."
-   }
-  ]
- },
- {
   "item": "53. Kushtagi (Greenko) wind farm (IND, 50 MW)",
   "farm": "Kushtagi (Greenko) wind farm",
   "src_code": 2,
@@ -1002,40 +526,15 @@
   ]
  },
  {
-  "item": "55. Nallakonda wind farm (IND, 50 MW)",
-  "farm": "Nallakonda wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Nallakonda wind farm', G, '補上商轉年 2012：GlobalData（Power Technology 轉載）稱 IL&FS Wind Energy 開發的 Nallakonda 風場（安得拉邦，50.4 MW，現由 ORIX 持有）於 2012 年 7 月商轉', 'Commissioning year 2012: GlobalData (via Power Technology) says the 50.4 MW Nallakonda wind farm in Andhra Pradesh, developed by IL&FS Wind Energy and now owned by ORIX, was commissioned in July 2012', 'https://www.power-technology.com/marketdata/nallakonda-tadas-wind-energy-ltd-india/', year=2012),",
-  "note_zh": "補上商轉年 2012：GlobalData（Power Technology 轉載）稱 IL&FS Wind Energy 開發的 Nallakonda 風場（安得拉邦，50.4 MW，現由 ORIX 持有）於 2012 年 7 月商轉",
-  "note_en": "Commissioning year 2012: GlobalData (via Power Technology) says the 50.4 MW Nallakonda wind farm in Andhra Pradesh, developed by IL&FS Wind Energy and now owned by ORIX, was commissioned in July 2012",
-  "why": "GEM lists Greenko as owner (ORIX folded its Indian wind portfolio into Greenko), GlobalData ORIX; owner left unchanged. Turbine sources disagree (GlobalData 63 × E-70, thewindpower E53/800), so no turbine field.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/marketdata/nallakonda-tadas-wind-energy-ltd-india/",
-    "quote": "Nallakonda – Tadas Wind Energy Ltd is a 50.4MW onshore wind power project. It is located in Andhra Pradesh, India."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/nallakonda-tadas-wind-energy-ltd-india/",
-    "quote": "The project got commissioned in July 2012."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/nallakonda-tadas-wind-energy-ltd-india/",
-    "quote": "The project was developed by IL&FS Wind Energy and is currently owned by ORIX with a stake of 100%."
-   }
-  ]
- },
- {
   "item": "56. Molagavalli (PTC) wind farm (IND, 50 MW)",
   "farm": "Molagavalli (PTC) wind farm",
   "src_code": 2,
   "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Molagavalli (PTC) wind farm', G, '補上商轉年 2017：PTC Energy 於 2017 年 4 月 3 日宣布在安得拉邦與卡納塔克邦商轉五座風場（合計 238.8 MW，屬 2016–17 財年新增），其中包括 Kurnool 縣 Molagavalli 的 50 MW', 'Commissioning year 2017: on 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 50 MW at Molagavalli, Kurnool district', 'https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/', year=2017),",
+  "status": "lead",
+  "proposal": "",
   "note_zh": "補上商轉年 2017：PTC Energy 於 2017 年 4 月 3 日宣布在安得拉邦與卡納塔克邦商轉五座風場（合計 238.8 MW，屬 2016–17 財年新增），其中包括 Kurnool 縣 Molagavalli 的 50 MW",
   "note_en": "Commissioning year 2017: on 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 50 MW at Molagavalli, Kurnool district",
-  "why": "Year = the April 2017 announcement of commissioning (the 238.8 MW was added during fiscal 2016–17, Apr 2016–Mar 2017); no per-project month is given, but the announcement right after the 31 Mar 2017 fiscal year-end and the 288.8 MW portfolio CRISIL lists as operational support 2017. Not the same as ReNew’s Molagavalli farms (separate records, 79 + 46 MW). Point (15.357, 77.331) is already at Molagavalli.",
+  "why": "Year not written in round 22: PTC Energy’s 3 Apr 2017 announcement covers projects added in fiscal 2016–17, so the year could be 2016 or 2017. Year = the April 2017 announcement of commissioning (the 238.8 MW was added during fiscal 2016–17, Apr 2016–Mar 2017); no per-project month is given, but the announcement right after the 31 Mar 2017 fiscal year-end and the 288.8 MW portfolio CRISIL lists as operational support 2017. Not the same as ReNew’s Molagavalli farms (separate records, 79 + 46 MW). Point (15.357, 77.331) is already at Molagavalli.",
   "sources": [
    {
     "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
@@ -1066,56 +565,6 @@
   "note_en": "No commissioning year found.",
   "why": "Hero Future Energies; no profile or dated source found (the Raichur GlobalData profile is Torrent’s).",
   "sources": []
- },
- {
-  "item": "58. Lalpur (Tadas) wind farm (IND, 50 MW)",
-  "farm": "Lalpur (Tadas) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Lalpur (Tadas) wind farm', G, '補上商轉年 2012：GlobalData（Power Technology 轉載）稱 IL&FS Wind Energy 開發、現由 ORIX 持有的古吉拉特邦 Lalpur 風場（Tadas Wind Energy，50.4 MW）於 2012 年 9 月商轉', 'Commissioning year 2012: GlobalData (via Power Technology) says the 50.4 MW Lalpur wind farm in Gujarat (Tadas Wind Energy), developed by IL&FS Wind Energy and now owned by ORIX, was commissioned in September 2012', 'https://www.power-technology.com/marketdata/lalpur-tadas-wind-energy-ltd-india/', year=2012),",
-  "note_zh": "補上商轉年 2012：GlobalData（Power Technology 轉載）稱 IL&FS Wind Energy 開發、現由 ORIX 持有的古吉拉特邦 Lalpur 風場（Tadas Wind Energy，50.4 MW）於 2012 年 9 月商轉",
-  "note_en": "Commissioning year 2012: GlobalData (via Power Technology) says the 50.4 MW Lalpur wind farm in Gujarat (Tadas Wind Energy), developed by IL&FS Wind Energy and now owned by ORIX, was commissioned in September 2012",
-  "why": "Owner and capacity match. Three GEM records share the Lalpur point (Tadas 50 MW, Kaze 48 MW, Torrent 50 MW/2012); a second GlobalData profile “Gujarat- Lalpur Wind Energy” (IL&FS/ORIX, 50.4 MW, Sept 2012) may be the Kaze record or a duplicate listing — not resolved, no dup proposed.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/marketdata/lalpur-tadas-wind-energy-ltd-india/",
-    "quote": "Lalpur – Tadas Wind Energy Ltd is a 50.4MW onshore wind power project. It is located in Gujarat, India."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/lalpur-tadas-wind-energy-ltd-india/",
-    "quote": "The project got commissioned in September 2012."
-   },
-   {
-    "url": "https://www.power-technology.com/marketdata/lalpur-tadas-wind-energy-ltd-india/",
-    "quote": "The project was developed by IL&FS Wind Energy and is currently owned by ORIX with a stake of 100%."
-   }
-  ]
- },
- {
-  "item": "59. Lakhmana wind farm (IND, 50 MW)",
-  "farm": "Lakhmana wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Lakhmana wind farm', G, '補上商轉年 2016：NHPC 在拉賈斯坦邦賈沙梅爾縣 Lakhmana 村的 50 MW 風場於 2016 年 10 月併網商轉（GKToday 2016 年 11 月 2 日報導；NHPC 專案頁）', 'Commissioning year 2016: NHPC’s 50 MW wind farm at Lakhmana village, Jaisalmer district, Rajasthan, was synchronised with the grid and commissioned in October 2016 (GKToday, 2 Nov 2016; NHPC project page)', 'https://www.gktoday.in/nhpc-commissions-50-mw-wind-project-rajasthan/', year=2016),",
-  "note_zh": "補上商轉年 2016：NHPC 在拉賈斯坦邦賈沙梅爾縣 Lakhmana 村的 50 MW 風場於 2016 年 10 月併網商轉（GKToday 2016 年 11 月 2 日報導；NHPC 專案頁）",
-  "note_en": "Commissioning year 2016: NHPC’s 50 MW wind farm at Lakhmana village, Jaisalmer district, Rajasthan, was synchronised with the grid and commissioned in October 2016 (GKToday, 2 Nov 2016; NHPC project page)",
-  "why": "NHPC’s only wind farm; the project page (Hindi version) names village Lakhmana, tehsil Fatehgarh, Jaisalmer. Point (27.028, 70.778) is in Jaisalmer district; not changed.",
-  "sources": [
-   {
-    "url": "https://www.gktoday.in/nhpc-commissions-50-mw-wind-project-rajasthan/",
-    "quote": "has commissioned its 50 MW wind power project (WPP) in Jaisalmer, Rajasthan. The project has achieved synchronization with the national grid in October, 2016."
-   },
-   {
-    "url": "https://www.gktoday.in/nhpc-commissions-50-mw-wind-project-rajasthan/",
-    "quote": "NHPC commissions 50 mw Wind project in Rajasthan November 2, 2016"
-   },
-   {
-    "url": "https://www.nhpcindia.com/welcome/language/en/project_detail/36/2/",
-    "quote": "एनएचपीसी ने 50 मेगावाट क्षमता की पवन ऊर्जा परियोजना जैसलमेर (WPPJ), गांव- लखमाना"
-   }
-  ]
  },
  {
   "item": "60. Bhesada (Mytrah) wind farm (IND, 50 MW)",

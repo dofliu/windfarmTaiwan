@@ -14,6 +14,16 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v2.30.17 — 2026-10-09
+
+- 第二十二輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十五批」）：
+  - 補上商轉年：營運中沒有年份的風場從 725 座（34.9 GW）減為 666 座（32.1 GW）。印度 250 → 218 座（GlobalData 電廠簡介、信評報告、業主公告與上訴法庭判決），
+    義大利 72 → 58 座（Alerion 2022 年債券公開說明書逐場列出開始發電的日期、GlobalData、Enel 新聞稿），另有瑞典 Kölvallen（2025，277.2 MW）、墨西哥 Coromuel 與 San Pedro、
+    克羅埃西亞、波蘭、塞爾維亞、以色列、納米比亞、荷蘭、日本與澳洲各一至兩座。
+  - 重複：義大利 6 筆併掉（Agrigento 原本有三筆同一座風場：Wind Power Sud、Altopiano Petrasi 併入）；印度 Visapur 併入 Girijashankarwadi。
+  - 位置與名稱：印度「Dagri」改名 Dangri (Oil India)（54 MW，2013），從約 280 km 外移到 Jaisalmer 的 Dangri；PTC 的 Bableshwar、Devenkonda、Payalakuntla 從代用點移到所在村
+    （概略位置；三座的商轉年在 2016 或 2017，未寫）；義大利 Lago Arancio、Messina Randazzo、Rocca Ficuzza 移到所在鎮（概略位置）；Orchid、Tirunelveli (KPR)、Palghat 標示為業主的風場組合，不是單一風場。
+
 ## v2.30.16 — 2026-10-09
 
 - 第二十一輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十四批」）：

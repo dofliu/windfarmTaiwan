@@ -6,44 +6,49 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 782 rules: 227 records removed (48,092.1 MW of them operating), 555 records fixed.
+- 849 rules: 234 records removed (48,281.1 MW of them operating), 615 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
 | Country | Removed | Operating MW | Fixed |
 |---|---:|---:|---:|
-| Australia | 4 | 1,161 | 7 |
+| Australia | 4 | 1,161 | 8 |
 | Belgium | 1 | 325 | 0 |
 | Brazil | 2 | 208.5 | 4 |
 | Canada | 1 | 353 | 0 |
 | Chile | 1 | 105.6 | 0 |
 | China | 62 | 27,624.5 | 190 |
 | Colombia | 1 | 8 | 3 |
+| Croatia | 0 | 0 | 2 |
 | Denmark | 1 | 180 | 3 |
 | Dominican Rep. | 2 | 50 | 8 |
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 2 |
 | France | 39 | 853.9 | 94 |
 | Germany | 9 | 212 | 24 |
-| India | 3 | 378 | 3 |
+| India | 4 | 410 | 40 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
-| Italy | 2 | 156 | 3 |
-| Japan | 2 | 30 | 13 |
+| Israel | 0 | 0 | 1 |
+| Italy | 8 | 313 | 13 |
+| Japan | 2 | 30 | 15 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
+| Mexico | 0 | 0 | 2 |
 | Morocco | 3 | 642 | 3 |
-| Netherlands | 8 | 1,852 | 18 |
+| Namibia | 0 | 0 | 1 |
+| Netherlands | 8 | 1,852 | 19 |
 | Norway | 7 | 1,939 | 10 |
 | Philippines | 1 | 160 | 1 |
-| Poland | 0 | 0 | 2 |
+| Poland | 0 | 0 | 3 |
 | Portugal | 1 | 14 | 2 |
 | Romania | 16 | 2,439 | 11 |
 | Senegal | 0 | 0 | 2 |
+| Serbia | 0 | 0 | 1 |
 | South Africa | 2 | 159 | 2 |
 | South Korea | 4 | 158.3 | 9 |
 | Spain | 5 | 107.3 | 29 |
-| Sweden | 0 | 0 | 3 |
+| Sweden | 0 | 0 | 4 |
 | Taiwan | 2 | 0 | 21 |
 | Thailand | 1 | 600 | 7 |
 | Turkey | 9 | 592 | 18 |
@@ -68,6 +73,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Cullerin Range wind farm · 26 MW · 2009 | GEM | fixed: capacity, turbines | Cullerin Range has 8 Senvion MM82 2 MW and 7 MM92 2.05 MW turbines, 30 MW in all (English Wikipedia; AEMO registered capacity 30 MW), not 26 MW | [link](https://en.wikipedia.org/wiki/Cullerin_Range_Wind_Farm) |
 | Lal Lal · 228 MW · 2021 | curated | fixed: turbines | Lal Lal’s 60 turbines are Vestas V136-3.45 machines rated 3.8 MW each (228 MW in all, English Wikipedia); the row said “V136 3.6”, which does not add up to its capacity | [link](https://en.wikipedia.org/wiki/Lal_Lal_Wind_Farm) |
 | Gullen Range wind farm · 165 MW · 2014 | GEM | fixed: capacity, turbines | 73 Goldwind turbines (56 GW100-2.5MW + 17 GW82-1.5MW), 165.5 MW, fully operational in December 2014 (annual environmental report) | [link](https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf) |
+| Denmark Community wind farm · 1.4 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2013 added, capacity and turbines corrected: the two Enercon E48 turbines (800 kW each) of the Denmark community wind farm started generating on 20 February 2013 | [link](https://c4ce.org.au/node/166) |
 
 ## Belgium (BEL)
 
@@ -364,6 +370,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | El Morro wind farm · 8 MW | GEM | removed | No such farm found; Grupo Argos’s only wind farm is Carreto (9.6 MW, Atlántico, 2025) | [link](https://www.eltiempo.com/colombia/barranquilla/el-atlantico-entra-a-la-era-de-la-energia-eolica-con-el-primer-parque-de-celsia-en-colombia-3460285) |
 | Carreto wind farm · 9.9 MW | GEM | fixed: status, year, capacity, turbines | Celsia’s Carreto farm (Atlántico): 9.6 MW, 2 turbines of 4.8 MW, completed in June 2025 and entering operation that month (Celsia’s 2025 results: Carreto entered operation); GEM says 9.9 MW, under construction | [link](https://www.eltiempo.com/colombia/barranquilla/el-atlantico-entra-a-la-era-de-la-energia-eolica-con-el-primer-parque-de-celsia-en-colombia-3460285) |
 
+## Croatia (HRV)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Lukovac wind farm · 49 MW | GEM | fixed: year | Commissioning year 2018 added: owner Enlight’s project page gives the Lukovac farm (Split-Dalmatia County) a commercial operation date of 2018, 49 MW and 16 turbines | [link](https://enlightenergy.com/?p=1322) |
+| Kamensko-Vostane wind farm · 42 MW | GEM | fixed: year, turbines | Commissioning year 2013 added: the Croatian wind farm table on English Wikipedia lists VE Kamensko-Voštane (14 Siemens 3 MW turbines) as commissioned in 2013 | [link](https://en.wikipedia.org/wiki/Wind_power_in_Croatia) |
+
 ## Denmark (DNK)
 
 | Record | Source | Action | Reason | Source link |
@@ -589,6 +602,44 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Yermala wind farm · 149 MW | GEM | removed | CLP’s Yermala wind project (Maharashtra; 148.8 MW “under construction” in 2014) was discontinued in 2017 because of land issues and its capitalised cost written off; it is not among the 13 wind farms of Apraava Energy (the former CLP India). No evidence it was built | [link](https://www1.hkexnews.hk/listedco/listconews/sehk/2017/0807/ltn20170807155.pdf) |
 | Vankusawade Wind Park · 189 MW | GEM | duplicate of “Vankusawade” | Same farm: the Vankusawade wind park on the plateau about 1,150 m above the Koyna reservoir in Satara district, with Suzlon turbines, is already the curated record “Vankusawade”; GEM’s point (18.635 N, 73.849 E) is a Pune placeholder. Sources differ on capacity (GEM 189 MW, Wikipedia 210 MW, the curated row 259 MW); the curated row is kept | [link](https://en.wikipedia.org/wiki/Vankusawade_Wind_Park) |
 | Tamil Nadu (Evergreen) wind farm · 250 MW | GEM | fixed:  | Not a single farm: Evergreen Power is a developer, and its website only gives a total of 250 MW of wind “executed & sold” in Tamil Nadu; the projects, their locations, years and buyers are not published, and the point is a placeholder | [link](https://egreenpwr.com/project-in-india.html) |
+| Belguppa (Greenko) wind farm · 101 MW | GEM | fixed: year, turbines | Commissioning year 2016: GlobalData (via Power Technology) says Orange Renewable Power’s 100.8 MW Beluguppa wind farm in Andhra Pradesh (48 Suzlon S111 2.1 MW units) was commissioned in July 2016 | [link](https://www.power-technology.com/data-insights/power-plant-profile-beluguppa-wind-farm-orange-india/) |
+| Mamatkheda wind farm · 101 MW | GEM | fixed: year | Commissioning year 2015: GlobalData (via Power Technology) says Orange Renewable Power’s 100.5 MW Mamatkheda wind farm in Madhya Pradesh was commissioned in April 2015 | [link](https://www.power-technology.com/data-insights/power-plant-profile-mamatkheda-wind-farmorange-group-india/) |
+| Rajkot Hybrid (Continuum) wind farm · 100 MW | GEM | fixed: year | Commissioning year 2023: Continuum’s December 2024 draft prospectus says 153.7 MW of the 249.9 MW Rajkot 3 wind–solar hybrid was commissioned by the end of 2022 and the remaining 86.2 MW by 9 June 2023, with its wind capacity fully commissioned in fiscal 2024 (from April 2023) | [link](https://www.sebi.gov.in/sebi_data/attachdocs/dec-2024/1734348609680_606.pdf) |
+| Dhar (Hero) wind farm · 100 MW | GEM | fixed: year, turbines | Commissioning year 2016: GlobalData (via Power Technology) says Hero Future Energies’ 100 MW Dhar wind farm in Madhya Pradesh (50 Gamesa G97 2.0 MW units) was commissioned in March 2016 | [link](https://www.power-technology.com/data-insights/power-plant-profile-dhar-wind-farm-india/) |
+| MPR Dam (Axis) wind farm · 100 MW | GEM | fixed: year, turbines | Commissioning year 2017: GlobalData (via Power Technology) says the 100 MW farm of Axis Wind Farms (MPR Dam) in Andhra Pradesh (50 Gamesa G114 2.0 MW units) was commissioned in March 2017 | [link](https://www.power-technology.com/data-insights/power-plant-profile-mpr-dam-awel-india/) |
+| Poolavadi (Tata) wind farm · 99 MW | GEM | fixed: year | Commissioning year 2012: GlobalData (via Power Technology) says Tata Power Renewable Energy’s 99 MW Poolawadi wind farm in Tamil Nadu was commissioned in 2012 | [link](https://www.power-technology.com/data-insights/power-plant-profile-poolawadi-tata-india/) |
+| Samana (Hindustan Zinc) wind farm · 89 MW | GEM | fixed: year | Commissioning year 2007: GlobalData (via Power Technology) says Hindustan Zinc’s 88.8 MW Samana wind farm in Gujarat, built in phases, was commissioned in March 2007 once construction was complete | [link](https://power-technology.com/?p=166866) |
+| Mokal (Hindustan Zinc) wind farm · 80 MW | GEM | fixed: year | Commissioning year 2011: GlobalData (via Power Technology) says Hindustan Zinc’s 79.8 MW Mokal wind farm in Rajasthan (Suzlon turbines) was commissioned in December 2011 | [link](https://www.power-technology.com/marketdata/power-plant-profile-mokal-hzl-india/) |
+| Guttaseema wind farm · 80 MW | GEM | fixed: year, turbines | Commissioning year 2019: GlobalData (via Power Technology) says the 80 MW Andhra Pradesh farm developed and owned by Guttaseema Wind Energy (“Palakonda Wind Farm – GEH”, 40 Gamesa G97 2.0 MW units) was commissioned in 2019 | [link](https://www.power-technology.com/marketdata/palakonda-wind-farm-geh-india/) |
+| Orchid wind farm · 67 MW | GEM | fixed:  | Not a single farm: a CARE rating report says the 66.9 MW of Leap Green’s Orchid Renewable Powertech is split between Rajasthan (42 MW) and Madhya Pradesh (24.9 MW); no commissioning year is known and the point is a placeholder | [link](https://www.careratings.com/upload/CompanyFiles/PR/Tulip%20Renewable%20Powertech%20Private%20Limited-02-22-2018.pdf) |
+| Palghat wind farm · 63 MW | GEM | fixed:  | Not a single farm: a Brickwork rating report says the 63.175 MW of Rajalakshmi Wind Energy (formerly Ashok Leyland Wind Energy) is spread over the Palghat, Shencottah and Aralvoimozhi wind passes; no commissioning year is known | [link](https://www.brickworkratings.com/Admin/PressRelease/Rajalakshmi-Wind-20Mar2020.pdf) |
+| Tirunelveli (KPR) wind farm · 62 MW | GEM | fixed:  | Not a single farm: a CARE rating report says K.P.R. Mill’s 66 captive wind turbines (61.92 MW in total) are spread over Tirunelveli, Tenkasi, Theni and Coimbatore districts; no commissioning year is known | [link](https://www.careratings.com/upload/CompanyFiles/PR/27092022060801_K.P.R._Mill_Limited.pdf) |
+| Gurmitkal (Greenko) wind farm · 60 MW | GEM | fixed: year, turbines | Commissioning year 2017: GlobalData (via Power Technology) says Orange Renewable Power’s 60 MW Gurmitkal wind farm in Karnataka (30 Gamesa G97 2.0 MW units) was commissioned in April 2017 | [link](https://www.power-technology.com/data-insights/power-plant-profile-gurmitkal-wind-farm-orange-india/) |
+| Tuppadahalli wind farm · 56 MW | GEM | fixed: year, turbines | Commissioning year 2011: an ICRA rating report says Tuppadahalli Energy India’s 56.1 MW wind farm was commissioned in three phases, the last in October 2011; GlobalData lists 34 Vestas V82 (1.65 MW) units | [link](https://www.icra.in/Rating/GetRationalReportFilePdf?id=125637) |
+| Dagri wind farm · 54 MW | GEM | fixed: name, year, location | Commissioning year 2013: Oil India’s 54 MW wind farm at Dangri, Jaisalmer district, Rajasthan (27 × 2 MW) was commissioned on 30 March 2013 (company sustainability report 2012–13). GEM spells the place “Dagri” and its point (26.974 N, 74.155 E) is about 280 km from Jaisalmer; renamed and moved to the Dangri wind area in Fatehgarh tehsil (approximate) | [link](https://www.sustainabilityreports.com/oil-india/2013/sustainability-report) |
+| Bableshwar (Hero) wind farm · 50 MW | GEM | fixed: year, turbines | Commissioning year 2017: GlobalData (via Power Technology) says Hero Future Energies’ 50 MW Bableshwar wind farm in Karnataka (25 Gamesa G114 2.0 MW units) was commissioned in March 2017 | [link](https://www.power-technology.com/marketdata/power-plant-profile-bableshwar-hfe-india/) |
+| Bableshwar (PTC) wind farm · 50 MW | GEM | fixed: location | On 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 50 MW at Bableswar, Vijayapura district, Karnataka; the exact year (2016 or 2017) was not found. The old point (12.975 N, 77.726 E) was a Bengaluru placeholder; it now uses the village of Babaleshwar (approximate) | [link](https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/) |
+| Agaswadi wind farm · 50 MW | GEM | fixed: year | Commissioning year 2011: GlobalData (via Power Technology) says the 49.5 MW Agaswadi wind farm in Maharashtra (developed by Sri Maruti Wind Park Developers, owned by Tata Power; built in phases of 10 and 23 Regen 1.5 MW units) was commissioned in September 2011 after construction was completed | [link](https://www.energymonitor.ai/data-insights/power-plant-profile-agaswadi-tata-india/) |
+| Devenkonda wind farm · 50 MW | GEM | fixed: capacity, location | Capacity set to 49.5 MW: on 3 April 2017 PTC Energy announced the commissioning of five wind projects in Andhra Pradesh and Karnataka (238.8 MW, added in fiscal 2016–17), including 49.5 MW at Devenkonda, Kurnool district; the exact year (2016 or 2017) was not found. The old point (14.822 N, 78.282 E) was a placeholder shared by several Andhra Pradesh records; it now uses Devanakonda in Kurnool district (approximate) | [link](https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/) |
+| Rojmal (NTPC) wind farm · 50 MW | GEM | fixed: year | Commissioning year 2017: GlobalData (via Power Technology) says NTPC’s 50 MW Rojmal wind farm in Gujarat, built in a single phase, was commissioned in September 2017 once construction was complete | [link](https://power-technology.com/?p=174170) |
+| Kayathar wind farm · 50 MW | GEM | fixed: year, turbines | Commissioning year 2019: GlobalData (via Power Technology) says Atria Power’s 50 MW Kayathar wind farm in Tamil Nadu (25 Gamesa G97 2.0 MW units) was commissioned in March 2019 | [link](https://www.power-technology.com/data-insights/power-plant-profile-kayathar-wind-farm-india/) |
+| Khandke (Tata) wind farm · 50 MW | GEM | fixed: year | Commissioning year 2007: a 2010 Tata Power release says its 50.4 MW Khandke wind farm in Maharashtra was commissioned in December 2007 | [link](https://m.energytrend.com/news/20100719-375.html) |
+| Nallakonda wind farm · 50 MW | GEM | fixed: year | Commissioning year 2012: GlobalData (via Power Technology) says the 50.4 MW Nallakonda wind farm in Andhra Pradesh, developed by IL&FS Wind Energy and now owned by ORIX, was commissioned in July 2012 | [link](https://www.power-technology.com/marketdata/nallakonda-tadas-wind-energy-ltd-india/) |
+| Lalpur (Tadas) wind farm · 50 MW | GEM | fixed: year | Commissioning year 2012: GlobalData (via Power Technology) says the 50.4 MW Lalpur wind farm in Gujarat (Tadas Wind Energy), developed by IL&FS Wind Energy and now owned by ORIX, was commissioned in September 2012 | [link](https://www.power-technology.com/marketdata/lalpur-tadas-wind-energy-ltd-india/) |
+| Lakhmana wind farm · 50 MW | GEM | fixed: year | Commissioning year 2016: NHPC’s 50 MW wind farm at Lakhmana village, Jaisalmer district, Rajasthan, was synchronised with the grid and commissioned in October 2016 (GKToday, 2 Nov 2016; NHPC project page) | [link](https://www.gktoday.in/nhpc-commissions-50-mw-wind-project-rajasthan/) |
+| Lalpur (Kaze) wind farm · 48 MW | GEM | fixed: year, turbines | Commissioning year 2017: GlobalData (via Power Technology) says the Lalpur_KAZE Energy wind farm in Gujarat (48.3 MW, 21 GE 2.3 MW units), developed by IL&FS Wind Energy and now wholly owned by ORIX, was built in a single phase and commissioned in March 2017 | [link](https://www.power-technology.com/marketdata/power-plant-profile-lalpurkaze-energy-india/) |
+| Vashpet wind farm · 45 MW | GEM | fixed: year, owner, turbines | Commissioning year 2013: Reliance Power’s 45 MW wind farm at Vashpet, Maharashtra (18 units of 2.5 MW), was reported commissioned on 1 Aug 2013; it was sold to JSW Renewable Energy (Coated) in April 2024, so the owner is updated too | [link](https://infrastructuretoday.co.in/?p=24321) |
+| Lahori (Tata) wind farm · 44 MW | GEM | fixed: year | Commissioning year 2016: Tata Power announced the commissioning of its 44 MW Lahori wind farm in Shajapur district, Madhya Pradesh (IWR Online, 28 Apr 2016) | [link](https://www.offshore-windindustry.com/news/wind/article-4944-tata-power-successfully-commissions-44-mw-lahori-wind-farm-project-in-madhya-pradesh) |
+| Haveri-Dharwad wind farm · 44 MW | GEM | fixed: year | Commissioning year 2013: in the Appellate Tribunal for Electricity’s judgment in Appeal 37 of 2016, the appellant Lalpur Wind Energy states that its 44 MW farm (55 units) in Haveri and Dharwad districts, Karnataka, had 37.6 MW commissioned on 13 Nov 2013 and the remaining 6.4 MW on 27 Nov 2013 | [link](https://indiankanoon.org/doc/42572982/) |
+| Jamnagar (Green Infra) wind farm · 41 MW | GEM | fixed: year, turbines | Commissioning year 2011: GlobalData (via Power Technology) says the Jamnagar wind farm in Gujarat owned by Sembcorp Green Infra (40.8 MW, 51 Wind World/Enercon E-53 800 kW units) was commissioned in March 2011 | [link](https://www.power-technology.com/marketdata/power-plant-profile-jamnagar-green-infra-india) |
+| Gunga wind farm · 40 MW | GEM | fixed: year, turbines | Commissioning year 2015: GlobalData (via Power Technology) says Hero Future Energies’ Gunga wind farm in Rajasthan (40 MW, 20 Gamesa G97 2 MW units) was built in a single phase and commissioned in March 2015 | [link](https://power-technology.com/marketdata/gunga-wind-farmhfe-india) |
+| Payalakuntla wind farm · 40 MW | GEM | fixed: location | PTC Energy announced in early April 2017 that its 40 MW wind project at Payalkuntla, Kadapa district, had been commissioned (the five projects were added in fiscal 2016–17; the exact year was not found). The farm is in Kadapa district, Andhra Pradesh; the old point (23.281 N, 77.41 E) was a Bhopal (Madhya Pradesh) placeholder, so it now uses Payalakuntla village (approximate, OpenStreetMap) | [link](https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/) |
+| Maliya wind farm · 40 MW | GEM | fixed: year, turbines | Commissioning year 2017: GlobalData (via Power Technology) says Orange Renewable’s Maliya wind farm in Gujarat (40 MW, 20 Gamesa G114 2 MW units) was commissioned in April 2017; Greenko completed its acquisition of Orange Renewable in October 2018 | [link](https://www.power-technology.com/?p=181172) |
+| Dangri (Hero) wind farm · 40 MW | GEM | fixed: year | Commissioning year 2015: GlobalData (via Power Technology) says the 40 MW Dangri wind farm in Rajasthan, developed by Hero Future Energies with Inox Wind and owned by Hero Future Energies, was commissioned in March 2015 | [link](https://www.power-technology.com/marketdata/power-plant-profile-dangrihfe/) |
+| Chandgarh (Oil India) wind farm · 38 MW | GEM | fixed: year | Commissioning year 2015: Oil India commissioned its 38 MW Chandgarh wind farm in Madhya Pradesh together with 16 MW at Patan, Gujarat (GKToday, 17 Apr 2015; GlobalData gives March 2015) | [link](https://www.gktoday.in/oil-india-commissions-54-mw-capacity-wind-energy-projects-gujarat-madhya-pradesh/) |
+| Gadag (Hindustan Zinc) wind farm · 34 MW | GEM | fixed: year | Commissioning year 2008: GlobalData (via Power Technology) says Hindustan Zinc’s wholly owned Gadag wind farm in Karnataka (34.4 MW, 43 Wind World/Enercon 800 kW units) was built in a single phase and commissioned in March 2008 | [link](https://power-technology.com/?p=181846) |
+| Visapur wind farm · 32 MW | GEM | duplicate of “Girijashankarwadi wind farm” | Same farm: GEM’s own Girijashankarwadi page lists “Visapur wind farm” as another name; both rows are Tata Power’s 32 MW farm in Khatav, Satara district, at the same point (Tata Power announced the last 8 MW of the 32 MW farm in December 2014) | [link](https://www.gem.wiki/Girijashankarwadi_wind_farm) |
+| Jaora wind farm · 30 MW | GEM | fixed: year, turbines | Commissioning year 2016: PTC Energy’s 30 MW wind farm at Jaora, Ratlam district, Madhya Pradesh (15 Gamesa 2 MW units), was commissioned on 8 Mar 2016 | [link](https://www.business-standard.com/article/markets/ptc-india-gains-after-arm-commissions-wind-power-project-in-mp-116031000321_1.html) |
 
 ## Iran (IRN)
 
@@ -606,6 +657,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Arklow Bank Phase 1 · 25.2 MW · 2004 | curated | fixed: end year | The last three turbines were shut down for safety reasons in May 2024 and it has not generated since; in September 2026 the operator said it would apply to dismantle it | [link](https://www.rte.ie/news/business/2026/0910/1591020-plans-lodged-to-dismantle-constructed-off-shore-wind-farm/) |
 
+## Israel (ISR)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Afcon wind farm · 22 MW | GEM | fixed: year | Commissioning year 2016 added: Afcon’s farms at Ma’ale Gilboa (14 turbines) and Ramat Sirin (11) have 25 turbines and about 22 MW in all; construction began in 2015 and they were connected to the grid in 2016 | [link](https://en.afcon.co.il/blog/companies/afcon-manufacture/) |
+
 ## Italy (ITA)
 
 | Record | Source | Action | Reason | Source link |
@@ -615,6 +672,22 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Trapani Salemi wind farm · 66 MW | GEM | fixed: capacity, year, turbines | Commissioning year 2009 added: ENGIE Rinnovabili’s Trapani Salemi farm, 66.25 MW (31 Vestas V90 2 MW + 5 V52 0.85 MW), in service since 23 Nov 2009 (environment ministry repowering file) | [link](https://va.mite.gov.it/File/Documento/503356) |
 | Sant Agata wind farm · 72 MW | GEM | duplicate of “Sant’Agata Di Puglia (EDF) wind farm” | Same farm: the Sant’Agata farm EDF announced in service in March 2007 is 36 Vestas V80 2 MW units (72 MW), developed with Fri-El Green Power and 50% owned by EDF EN Italia; the environment ministry’s 2023 repowering file describes the existing farm at Sant’Agata di Puglia as Fri-El S. Agata’s 36 × 2 MW, 72 MW, the same turbines | [link](https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/) |
 | Sant’Agata Di Puglia (EDF) wind farm · 72 MW · 2007 | GEM | fixed: turbines | Turbines added: 36 Vestas V80 2 MW units (EDF, 2007; environment ministry repowering file) | [link](https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/) |
+| Messina Randazzo wind farm · 48 MW | GEM | fixed: year, capacity, location | Commissioning year 2010 and approximate position added: a Greentech Energy Systems (now Athena Investments) presentation lists the Minerva Messina farm, 48.3 MW, Nordex turbines, in operation since July 2010; a 2009 report puts it near Randazzo in north-eastern Sicily (coordinates of that town; the old point was a placeholder at the centre of Italy) | [link](https://static.seekingalpha.com/uploads/sa_presentations/512/31512/original.pdf) |
+| Pietramontecorvino (ICQ) wind farm · 48 MW | GEM | fixed: year, turbines | Commissioning year 2009 added: GlobalData gives the Pietramontecorvino farm as 48 MW (24 Senvion/REpower MM82 2 MW units), commissioned May 2009 and now owned by Voreas | [link](https://www.power-technology.com/marketdata/power-plant-profile-pietramontecorvino-italy/) |
+| Alcantara wind farm · 48 MW | GEM | fixed: year, capacity, turbines, owner | Commissioning year 2012 added: GlobalData gives the Alcantara farm as 47.6 MW (56 Gamesa G52 0.85 MW units), developed by Iberdrola and Novaenergy, commissioned April 2012 and now wholly owned by Eni Plenitude | [link](https://www.power-technology.com/marketdata/power-plant-profile-alcantara-italy/) |
+| Serra Marrocco wind farm · 47 MW | GEM | fixed: year, turbines | Commissioning year 2004 added: Enel’s release of 23 Jul 2004 announced the new Serra Marrocco farm at Nicosia (Enna), 47 MW, 55 turbines; GlobalData gives 46.75 MW (55 Gamesa G52 0.85 MW units), commissioned July 2004 | [link](https://www.enel.com/content/dam/enel-com/pressrelease/porting_pressrelease_IT/965957-1_PDF-1.pdf) |
+| Lago Arancio wind farm · 44 MW | GEM | fixed: year, turbines, location | Commissioning year 2012 and approximate position added: GlobalData gives the Lago Arancio farm as 44 MW (22 Gamesa G87 2 MW units), developed by Iberdrola and Novaenergy, commissioned April 2012; the local paper QdS places it in Sambuca di Sicilia (coordinates of that town; the old point was a placeholder at the centre of Italy) | [link](https://www.power-technology.com/marketdata/power-plant-profile-lago-arancio-italy/) |
+| Ricigliano (Fri-El) wind farm · 36 MW | GEM | fixed: year, turbines | Commissioning year 2007 added: the wind-farm table in Alerion Clean Power’s 2022 bond prospectus lists the Ricigliano farm (FriEl Ricigliano S.r.l.), 36 MW, 12 Vestas V90 units, producing since August 2007; GlobalData also gives August 2007 | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
+| Wind Power Sud wind farm · 34 MW | GEM | duplicate of “Agrigento wind farm” | Same farm: Alerion’s 2022 bond prospectus lists the Agrigento farm as run by Wind Power Sud S.r.l. (33.2 MW, 39 Gamesa G58 units, producing since February 2007), and Fri-El’s site puts the Wind Power Sud farm at Monte Petrasi, Agrigento, 33.15 MW; the site’s Agrigento wind farm (33 MW, 2007) has the same coordinates | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
+| Altopiano Petrasi wind farm · 34 MW · 2007 | GEM | duplicate of “Agrigento wind farm” | Same farm: GlobalData says the Altopiano Petrasi farm (34 MW, Gamesa G58, commissioned March 2007) was developed by Moncada Energy Group and is now wholly owned by Alerion Clean Power; Alerion’s only Agrigento farm is Wind Power Sud (Monte Petrasi, 33.2 MW, Gamesa G58, producing since February 2007), i.e. the site’s Agrigento wind farm at the same coordinates | [link](https://www.power-technology.com/marketdata/power-plant-profile-altopiano-petrasi-italy/) |
+| Caltavuturo wind farm · 30.6 MW | GEM | fixed: year, turbines | Commissioning year 2003 added: GlobalData gives the Caltavuturo farm as 30.6 MW (36 Vestas V52 0.85 MW units), developed by Enel, commissioned October 2003 | [link](https://www.power-technology.com/marketdata/power-plant-profile-caltavuturo-italy/) |
+| Anglona S.R.L. wind farm · 30 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2008 added: Alerion’s 2022 bond prospectus lists the Nulvi-Tergu farm (Fri-El Anglona S.r.l.), 29.75 MW, 35 Vestas V52 units, producing since January 2008 | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
+| Andromeda Wind S.R.L. wind farm · 26 MW | GEM | duplicate of “Ururi wind farm” | Same farm: Alerion’s 2022 bond prospectus says Andromeda Wind S.r.l. runs the Ururi wind farm in Molise (26 MW, 13 Vestas V90 units, producing since January 2011, with RWE Innogy Italia as a shareholder), the same capacity and place as the site’s Ururi wind farm (26 MW, 2011, about 2 km away) | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
+| Guardionara wind farm · 25 MW | GEM | duplicate of “San Basilio wind farm” | Same farm: Alerion’s 2022 bond prospectus lists the San Basilio farm as run by Fri-el Guardionara S.r.l. (24.7 MW, 29 Vestas V52 units, producing since June 2010), and Fri-El’s site puts the Guardionara farm at San Basilio (CA), 24.65 MW; the site’s San Basilio wind farm (25 MW, 2010, about 3 km away) is the same | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
+| Minerva (Fri-El) wind farm · 23 MW | GEM | duplicate of “Castel Di Lucio wind farm” | Same farm: Alerion’s 2022 bond prospectus lists the Castel di Lucio farm as run by Minerva S.r.l. (23 MW, 27 Vestas V52 units, producing since April 2010), and Fri-El’s site puts the Minerva farm at Castel di Lucio (ME), 22.95 MW; the site’s Castel Di Lucio wind farm (23 MW, 2010) has the same coordinates | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
+| Rocca Ficuzza wind farm · 22 MW | GEM | fixed: location | Approximate position: the local paper QdS places the Rocca Ficuzza wind plant in contrada Rocca Ficuzza, Caltabellotta (coordinates of that town; the old point was a placeholder at the centre of Italy); commissioning year still unverified | [link](https://qds.it/241-le-pale-eoliche-invadono-la-provincia-137-aerogeneratori-in-30-chilometri-htm/) |
+| Anzi S.R.L wind farm · 16 MW | GEM | fixed: year, turbines | Commissioning year 2011 added: Alerion’s 2022 bond prospectus lists the Anzi farm (Fri-el Anzi S.r.l.), 16 MW, 8 Vestas V90 units, producing since August 2011 | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
+| Ecoenergia Campania S.R.L wind farm · 15 MW | GEM | duplicate of “Lacedonia (Alerion) wind farm” | Same farm: Alerion’s 2022 bond prospectus lists the Lacedonia farm as run by Ecoenergia Campania S.r.l. (15 MW, 5 Vestas V90 units, producing since October 2008, 50% Alerion), and Fri-El’s site puts the Ecoenergia Campania farm at Lacedonia (AV), 15 MW; the site’s Lacedonia (Alerion) wind farm (15 MW, 2008) is about 0.5 km away | [link](https://www.alerion.it/wp-content/uploads/2025/04/Alerion_-_2022_bond_-_Prospectus_-__FINAL_APPROVED_BY_THE_CBI.pdf) |
 
 ## Japan (JPN)
 
@@ -635,6 +708,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Kakegawa wind farm · 14 MW · 2020 | GEM | fixed: capacity, turbines | Shizuoka EIA notice: the Kakegawa wind project was changed to 6 turbines of the 2,300 kW class, 13,800 kW (Japan Wind Development, in operation from 2020) | [link](https://www.pref.shizuoka.jp/kurashikankyo/kankyo/assessetc/1002648/1017974.html) |
 | Choshi Offshore Demonstration (NEDO/TEPCO) · 2.4 MW · 2019 | curated | fixed: location | Still operating (September 2026: the demonstration turbine was never removed and has run commercially since 2019); the point moves to the turbine position published by TEPCO Renewable Power (35°40′54″ N, 140°49′13″ E, WGS; the old point was about 3 km to the north-east) | [link](https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf) |
 | Kakegawa wind farm · 13.8 MW · 2020 | GEM | fixed: turbines | The turbines are Enercon E-82 (2,300 kW, 6 units, delivered July 2020; Hitachi Power Solutions’ Enercon delivery list) | [link](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
+| Shinkamigoto Whales Wind System · 16 MW | GEM | fixed: year, turbines | Commissioning year 2010 added with turbines: NEDO’s list of wind installations in Nagasaki gives Kyushu Wind Power’s Shinkamigoto Whales Wind System as running from February 2010, 8 Japan Steel Works 2,000 kW units, 16,000 kW in all | [link](https://www.nedo.go.jp/library/fuuryoku/case/pref_42.html) |
+| Banya wind farm · 18 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2004 added, capacity and turbines corrected: in 2020 the Ministry of the Environment described the “Banya wind farm” in Minamisatsuma as 10 operating turbines (to be replaced by Kagoshima Wind Power Research); NEDO’s Kagoshima list gives the Wind Power Research farm at Minamisatsuma (former Bōnotsu), 10 Vestas 1,750 kW units, 17,500 kW, running from March 2004 — the only 10-turbine farm in the city | [link](https://www.nedo.go.jp/library/fuuryoku/case/pref_46.html) |
 
 ## Jordan (JOR)
 
@@ -652,6 +727,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Kilifi wind farm · 36 MW · 2021 | GEM | fixed: year | Commissioned December 2019; a captive plant of Mombasa Cement that feeds its surplus into the grid | [link](https://en.wikipedia.org/wiki/Mombasa_Cement_Wind_Power_Station) |
 | Kajiado wind farm · 100 MW · 2021 | GEM | duplicate of “Kipeto” | GEM’s project page lists Kipeto Project as its other name (100 MW, 2021) | [link](https://www.gem.wiki/Kajiado_wind_farm) |
 
+## Mexico (MEX)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Coromuel wind farm · 56 MW | GEM | fixed: year | Commissioning year 2022 added: in October 2022 Eolica Coromuel, a subsidiary of Eurus Energy America, announced that the first wind farm in Baja California Sur had begun commercial operation | [link](https://www.elfinancierocr.com/cables/comunicado-de-prensa-de-business-wire-eurus-energy/V3OOF4QJPJGZXPGS5HKAYUHBFU/story) |
+| San Pedro wind farm (Mexico) · 30 MW | GEM | fixed: year | Commissioning year 2023 added: Elawan says its San Pedro farm in Querétaro (30 MW) has been operating since September 2023 | [link](https://www.elawan.com/en/noticias/elawan-energy-secures-e25-m-in-financing-for-its-30-mw-san-pedro-wind-farm-in-queretaro-mexico/) |
+
 ## Morocco (MAR)
 
 | Record | Source | Action | Reason | Source link |
@@ -662,6 +744,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Akhfenir wind farm · 202 MW · 2014 | GEM | duplicate of “Akhfennir I-II” | The same Akhfenir farm (Akhfennir I and II, about 200 MW, in Tarfaya Province) | [link](https://www.gem.wiki/Akhfenir_wind_farm) |
 | Akhfennir I-II · 200 MW · 2013 | curated | fixed: location | Point moved to GEM’s exact location (Akhfenir, Tarfaya Province); the old one was about 17 km to the north-west, so the close-up could not pick up the turbines mapped in OpenStreetMap | [link](https://www.gem.wiki/Akhfenir_wind_farm) |
 | Akhfennir I-II · 200 MW · 2013 | curated | fixed: phases, turbines | Akhfennir I (101.87 MW, 61 Alstom ECO 74) went into service in 2013: Nareva’s CEO said in Feb 2013 that turbines had been turning since January with full commissioning due in June; Le Matin (2014) says “operational since 2013” and GlobalData gives June 2013; GEM’s 2014 is wrong. Phase II has 56 GE 1.7-100 (GE contract, Sep 2014); the stored “Siemens Gamesa” is wrong | [link](https://lematin.ma/express/2014/energie-eolienne_tarfaya-abrite-le-premier-parc-en-afrique/200878.html) |
+
+## Namibia (NAM)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Ombepo wind farm · 6 MW | GEM | fixed: year | Commissioning year 2017 added: the three turbines of the Ombepo farm at Lüderitz started producing power on 20 August 2017 (Namibia’s first wind farm) | [link](https://neweralive.na/?p=21954) |
 
 ## Netherlands (NLD)
 
@@ -693,6 +781,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Etten-Leur wind farm · 13 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2019 added, capacity and turbines corrected: the Etten-Leur farm (replacing five turbines from 2000) has 3 Vestas 4.2 MW units (112 m hub, 136 m rotor), 12.6 MW in all, completed in 2019 (foundation designer Windbase’s project sheet) | [link](https://galleo.co/search/projects/wind-park-etten-leur/windbase) |
 | Epz wind farm · 24 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2022 added and capacity corrected: RVO’s Monitor Wind op Land 2022 lists Windpark EPZ at Borsele, 16.8 MW (two Nordex N133/4800 and two N117/3600), as completed in 2022, replacing 8.9 MW of old EPZ turbines; the 2023 and 2024 editions list no further EPZ turbines in Zeeland | [link](https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf) |
 | Kubbeweg wind farm · 74 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2023 added and capacity corrected: the new Windpark Kubbeweg 2 is 12 Vestas V162-6.0 (72 MW), replacing the 17 × 2 MW farm of 2006, and is part of Windplan Groen; RVO’s Monitor Wind op Land 2023 lists Windplan Groen (Dronten, 512.6 MW) as completed in 2023, and the 2022 edition expected it to be completed in 2023 | [link](https://www.windparkkubbeweg.nl/) |
+| Flevo Ventum wind farm · 32 MW | GEM | fixed: year | Commissioning year 2023 added: Flevo Ventum’s five turbines were built by Pure Energie within Windplan Groen; RVO’s Monitor Wind op Land 2023 lists Windplan Groen (Dronten, 512.6 MW) as realised in 2023 | [link](https://www.rvo.nl/sites/default/files/2024-05/Monitor%20Wind%20op%20land%202023.pdf) |
 
 ## Norway (NOR)
 
@@ -729,6 +818,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Baltic Power Offshore wind farm · 1,200 MW · 2026 | GEM | fixed: capacity | 76 turbines of 15 MW, 1,140 MW in total (Northland: about 1.1 GW), not 1,200 MW; first power in July 2026, 61 of 76 installed at the end of Q2, commercial operation expected in H2 2026 | [link](https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/) |
 | Baltica I Offshore wind farm · 896 MW · 2030 | GEM | fixed: year, owner | Lost Poland’s first offshore wind CfD auction on 17 December 2025 (PGE won with Baltica 9 instead); the end-2032 commissioning target depended on winning it, and no new date has been given; developed by the PGE Group (PGE Baltica) | [link](https://globenergia.pl/wyniki-aukcji-offshore-jeden-projekt-nie-uzyskal-wsparcia/) |
+| Taciewo wind farm · 30 MW | GEM | fixed: year, turbines | Commissioning year 2012 added: the wind farm table on Polish Wikipedia lists Taciewo (Suwałki county, 15 Gamesa G90-2.0, 30 MW, RWE Polska) in 2012 | [link](https://pl.wikipedia.org/wiki/Energetyka_wiatrowa_w_Polsce) |
 
 ## Portugal (PRT)
 
@@ -776,6 +866,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Léona wind farm · 50 MW | GEM | fixed: status, year | Still in development (met mast in 2010; no financing or construction reported) | [link](http://www.arei.info/fr_EleQtra_Wind___Leona_50_MW__Wind.html) |
 | Taiba N’Diaye wind farm · 158 MW · 2019 | GEM | fixed: capacity, phases | Three phases: 55.2 MW each in 2019 and 2020, 48.3 MW in 2021 | [link](https://en.wikipedia.org/wiki/Taiba_N%27Diaye_Wind_Power_Station) |
+
+## Serbia (SRB)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Kula wind farm · 10 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2016 added, capacity and turbines corrected: the Kula farm has 3 Vestas V117 3.3 MW units (9.9 MW); test runs started in late February 2016 and it received its energy licence and feed-in tariff in September 2016 | [link](https://www.emarketstorage.it/sites/default/files/comunicati/2022-05/20160926_20753.pdf) |
 
 ## South Africa (ZAF)
 
@@ -850,6 +946,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Utgrunden I · 10.5 MW · 2000 | curated | fixed: end year | Dismantled by Vattenfall in 2018 | [link](https://www.offshorewind.biz/2018/10/04/swedish-offshore-wind-farm-is-no-more/) |
 | Bockstigen · 2.8 MW · 1998 | curated | fixed: capacity, phases | In 2018 refurbished Vestas V47 (660 kW) nacelles and blades went onto the original towers and foundations, raising the capacity from 2.8 to 3.3 MW | [link](https://www.offshorewind.biz/2018/12/05/swedish-old-timer-gains-momentum/) |
 | Vindpark Vänern (Gässlingegrund) · 30 MW · 2010 | curated | fixed: location | Point moved to the 10 turbines on Gässlingegrund in Lake Vänern (the old one was about 27 km to the south) | [link](https://www.openstreetmap.org/relation/14399986) |
+| Kölvallen wind farm · 96.6 MW | GEM | fixed: year, capacity, owner, turbines | Commissioning year 2025 added, capacity, turbines and owner corrected: Arise’s Kölvallen farm has 42 Siemens Gamesa turbines, 277.2 MW, sold in July 2022 to a fund managed by Foresight Group (Arise keeps about 9%); Arise’s Q3 2025 report speaks of the completion of Kölvallen and its production page says the project added 277 MW to price area SE2 in 2025. The row said 96.6 MW with no year | [link](https://www.arise.se/en/node/1595) |
 
 ## Taiwan (TWN)
 

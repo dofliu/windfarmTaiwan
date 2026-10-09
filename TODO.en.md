@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 9 Oct 2026: v2.30.16, research round 21: commissioning years and data doubts; the next conversation starts here)
+## In progress (hand-off, 9 Oct 2026: v2.30.17, research round 22: commissioning years; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,26 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 9 Oct 2026 (v2.30.17): research round 22 (four sub-agents: EA and EB India's 120 largest, EC Italy's 68 and ED 106 farms in other countries without a commissioning year, none researched before;
+  every quote checked with `check_quotes.py`; results in `tools/research/years_2026-10s_EA.json`, `years_2026-10s_EB.json`, `years_2026-10s_EC.json` and `years_2026-10s_ED.json`, written entries
+  deleted, leads kept). Clean-up rules 782 → 849 (`farm_cleanup.py`, 9 Oct 2026 "fifteenth batch"):
+  1. Commissioning years: operating farms without a year go from 725 (34.9 GW) to 666 (32.1 GW); India 250 → 218, Italy 72 → 58. Useful sources: GlobalData plant profiles (the marketdata pages on
+     power-technology.com / energymonitor, which answer 403 after many requests), Indian rating reports (CARE, CRISIL, Brickwork), Alerion's 2022 bond prospectus (each farm's month of first
+     production) and NEDO's prefecture lists (Japan).
+  2. Proposals not taken: for PTC Energy's five farms (Bableshwar, Devenkonda, Molagavalli, Kandimallayapalli, Payalakuntla), 2017 is only the date of the 3 Apr 2017 announcement, which says the
+     projects were added in fiscal 2016–17, so the year may be 2016; only positions and capacity were written and the years left open.
+  3. Still leads:
+     - India: Animala has planned dates only; Bhesada (Mytrah)'s 2016 is in Mytrah's interim results (lse.co.uk blocks); Ratlam 2, Bhesada (ReNew), Zaheerabad, Satara (Hero) (32 MW, March 2014?);
+       Sangli (REMC) still commissioning in May 2020; possible duplicates: Sogi and MSPL's "Sogi & Jajikallgudda", Kukru and Betul (same owner, point and source), Agar (Greenko) and Maliya (CDM name
+       "Orange Agar Wind Power", seen only in a search result); which of the two 99.5 MW phases Betul (Atria) is; Kita (Orix) may be Wind Urja India (38.4 MW, 2010); Leap Green's Clover, Maple, Tulip,
+       Olive, Vanila Jodhpur, Lotus, Iris, Violet and Citron I/II are SPV portfolios; Mahuva (KP Energy lists 67.8 MW). Blockers: Greenko's site fails TLS, web.archive.org resets, ICRA pages need
+       JavaScript, the CDM site blocks bots.
+     - Italy: Rotello (40 or 42 MW), Isola I (45.9 MW in phases), Alia/Sclafani has one phase only; possible duplicates: Cocullo / Pietrafitta, Marsica 2 At / Marsica II, Ponte Rotto / Ordona,
+       Piano del Cornale / Campagna, Genzano di Lucania / Banzi - Tre Titoli; GlobalData dates Alcamo phase 1 to Feb 2012 (record 2011).
+     - Elsewhere: the year of Tunisia's Bizerte Métline / Kchabta extension; Argentina's Energetica I may be Vientos Bonaerenses, and Santa Teresita was still unbuilt in Oct 2022 (GEM says operating);
+       Poland's Klukowo/Samborsko and Reńska Wieś may never have been built, Tyszowce (Kresy I is 30 MW, the record 34); Cameroon's 100 MW "operating" conflicts with IRENA and is probably a GEM error;
+       Israel's Afcon may duplicate WRI's Mount Gilboa; Lithuania's Strepeikiu may overlap Pagėgiai 13; most of the other 20 Dutch farms are old Zeewolde-area turbines due for removal in 2026 and may
+       need to become retired; 5 farms in Costa Rica and 10 distributed farms in China have no year.
 - 9 Oct 2026 (v2.30.16): research round 21 (five sub-agents: DA 45 more Chinese farms, DB 97 Spanish, DC 44 Turkish and 31 German farms without a commissioning year, DD the French duplicate and
   year leads left by rounds 19–20, DE the Spanish, German, Dutch and Turkish leads; every quote checked with `check_quotes.py`; results in `tools/research/years_2026-10r_DA.json`, `years_2026-10r_DB.json`,
   `years_2026-10r_DC.json`, `doubts_2026-10r_DD.json` and `doubts_2026-10r_DE.json`, written entries deleted, leads kept). Clean-up rules 675 → 782 (`farm_cleanup.py`, 9 Oct 2026 "fourteenth batch";
@@ -413,8 +433,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures (v2.30.16): 285 of 331 operating offshore farms have a known foundation type (87.3% of capacity); dimensions for 278 farms,
-  all three for 183; 782 clean-up rules; card photos for 64 farms; 84 of 91 events linked to a farm.
+- Current figures (v2.30.17): 285 of 331 operating offshore farms have a known foundation type (87.3% of capacity); dimensions for 278 farms,
+  all three for 183; 849 clean-up rules; card photos for 64 farms; 84 of 91 events linked to a farm.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -666,8 +686,8 @@ the rules are in `tools/farm_cleanup.py`.
       Windpark Asseln (GEM's Paderborn) and was removed as a duplicate in v2.30.8; the MaStR matching around there was sorted out in v2.30.10 (item 3 of round 15 under "In progress")
 - [x] 587 pipeline projects whose expected year had already passed (101 GW): only 2 remain after GEM 2026-02 (Monsoon in Laos, 600 MW,
       and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
-- [ ] 725 operating farms, 34.9 GW, have no commissioning year (v2.30.16; mostly in India, China, Spain and Italy), so the map can
-      only show them from 2025: add years where they can be found (rounds 18–21 checked about 590; leads under "In progress")
+- [ ] 666 operating farms, 32.1 GW, have no commissioning year (v2.30.17; mostly in India, China, Spain and Italy), so the map can
+      only show them from 2025: add years where they can be found (rounds 18–22 checked about 940; leads under "In progress")
 - [x] Germany filled from MaStR (v2.22.0): farm-level coverage 68% → 96%; the suspected duplicates were cleared in v2.22.1 (Flomborn-Stetten's
       misplaced point corrected, the other 7 pairs confirmed as different farms and listed in `NOT_DUP` in `farm_cleanup.py`)
 - [ ] Large countries with low coverage (after GEM 2026-02: China 98 GW short, India 16 GW): assess filling

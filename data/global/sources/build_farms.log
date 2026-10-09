@@ -204,10 +204,17 @@ CLEAN dup GBR Triton Knoll (Innogy) wind farm 857.0 -> Triton Knoll
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
 CLEAN dup IND Basavana Bagewadi (Atria) II wind farm 40.0 -> Basavana Bagewadi (Atria) I wind farm
 CLEAN dup IND Vankusawade Wind Park 189.0 -> Vankusawade
+CLEAN dup IND Visapur wind farm 32.0 -> Girijashankarwadi wind farm
 CLEAN dup IRN Harzvil wind farm 14.0 -> Manjil wind farm
 CLEAN dup IRN Siahpoush (Manjil) wind farm 48.0 -> Manjil wind farm
+CLEAN dup ITA Altopiano Petrasi wind farm 34.0 -> Agrigento wind farm
+CLEAN dup ITA Andromeda Wind S.R.L. wind farm 26.0 -> Ururi wind farm
+CLEAN dup ITA Ecoenergia Campania S.R.L wind farm 15.0 -> Lacedonia (Alerion) wind farm
+CLEAN dup ITA Guardionara wind farm 25.0 -> San Basilio wind farm
 CLEAN dup ITA Lercara Friddi wind farm 84.0 -> Rocca Rossa (Alpiq) wind farm
+CLEAN dup ITA Minerva (Fri-El) wind farm 23.0 -> Castel Di Lucio wind farm
 CLEAN dup ITA Sant Agata wind farm 72.0 -> Sant’Agata Di Puglia (EDF) wind farm
+CLEAN dup ITA Wind Power Sud wind farm 34.0 -> Agrigento wind farm
 CLEAN dup JOR Tafilah wind farm 117.0 -> Tafila
 CLEAN dup JPN Kyushu floating wind farm 1000.0 -> Kyushu - GIP floating wind farm
 CLEAN dup KEN Kajiado wind farm 100.0 -> Kipeto
@@ -262,6 +269,7 @@ CLEAN dup ZAF Amakhala Emoyeni wind farm 134.0 -> Amakhala Emoyeni
 CLEAN dup ZAF Waainek wind farm 25.0 -> Waainek Wind Farm
 CLEAN fix ALA Långnabba wind farm 40.0
 CLEAN fix AUS Cullerin Range wind farm 26.0
+CLEAN fix AUS Denmark Community wind farm 1.4
 CLEAN fix AUS Gullen Range wind farm 165.0
 CLEAN fix AUS Lal Lal 228.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm 48.0
@@ -632,16 +640,67 @@ CLEAN fix GBR Kincardine 49.5
 CLEAN fix GBR Pentland wind farm 100.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
+CLEAN fix HRV Kamensko-Vostane wind farm 42.0
+CLEAN fix HRV Lukovac wind farm 49.0
+CLEAN fix IND Agaswadi wind farm 50.0
+CLEAN fix IND Bableshwar (Hero) wind farm 50.0
+CLEAN fix IND Bableshwar (PTC) wind farm 50.0
 CLEAN fix IND Basavana Bagewadi (Atria) I wind farm 119.0
+CLEAN fix IND Belguppa (Greenko) wind farm 101.0
+CLEAN fix IND Chandgarh (Oil India) wind farm 38.0
+CLEAN fix IND Dagri wind farm 54.0
+CLEAN fix IND Dangri (Hero) wind farm 40.0
+CLEAN fix IND Devenkonda wind farm 50.0
+CLEAN fix IND Dhar (Hero) wind farm 100.0
+CLEAN fix IND Gadag (Hindustan Zinc) wind farm 34.0
+CLEAN fix IND Gunga wind farm 40.0
+CLEAN fix IND Gurmitkal (Greenko) wind farm 60.0
+CLEAN fix IND Guttaseema wind farm 80.0
+CLEAN fix IND Haveri-Dharwad wind farm 44.0
+CLEAN fix IND Jamnagar (Green Infra) wind farm 41.0
+CLEAN fix IND Jaora wind farm 30.0
+CLEAN fix IND Kayathar wind farm 50.0
+CLEAN fix IND Khandke (Tata) wind farm 50.0
+CLEAN fix IND Lahori (Tata) wind farm 44.0
+CLEAN fix IND Lakhmana wind farm 50.0
+CLEAN fix IND Lalpur (Kaze) wind farm 48.0
+CLEAN fix IND Lalpur (Tadas) wind farm 50.0
+CLEAN fix IND MPR Dam (Axis) wind farm 100.0
+CLEAN fix IND Maliya wind farm 40.0
+CLEAN fix IND Mamatkheda wind farm 101.0
+CLEAN fix IND Mokal (Hindustan Zinc) wind farm 80.0
+CLEAN fix IND Nallakonda wind farm 50.0
+CLEAN fix IND Orchid wind farm 67.0
+CLEAN fix IND Palghat wind farm 63.0
+CLEAN fix IND Payalakuntla wind farm 40.0
+CLEAN fix IND Poolavadi (Tata) wind farm 99.0
+CLEAN fix IND Rajkot Hybrid (Continuum) wind farm 100.0
+CLEAN fix IND Rojmal (NTPC) wind farm 50.0
+CLEAN fix IND Samana (Hindustan Zinc) wind farm 89.0
 CLEAN fix IND Tamil Nadu (Evergreen) wind farm 250.0
 CLEAN fix IND Tanot wind farm 120.0
+CLEAN fix IND Tirunelveli (KPR) wind farm 62.0
+CLEAN fix IND Tuppadahalli wind farm 56.0
+CLEAN fix IND Vashpet wind farm 45.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0
 CLEAN fix IRN Tizbaad wind farm 100.0
+CLEAN fix ISR Afcon wind farm 22.0
+CLEAN fix ITA Alcantara wind farm 48.0
+CLEAN fix ITA Anglona S.R.L. wind farm 30.0
+CLEAN fix ITA Anzi S.R.L wind farm 16.0
+CLEAN fix ITA Caltavuturo wind farm 30.6
 CLEAN fix ITA Camporeale wind farm 50.0
+CLEAN fix ITA Lago Arancio wind farm 44.0
+CLEAN fix ITA Messina Randazzo wind farm 48.0
+CLEAN fix ITA Pietramontecorvino (ICQ) wind farm 48.0
+CLEAN fix ITA Ricigliano (Fri-El) wind farm 36.0
+CLEAN fix ITA Rocca Ficuzza wind farm 22.0
 CLEAN fix ITA Sant’Agata Di Puglia (EDF) wind farm 72.0
+CLEAN fix ITA Serra Marrocco wind farm 47.0
 CLEAN fix ITA Trapani Salemi wind farm 66.0
+CLEAN fix JPN Banya wind farm 18.0
 CLEAN fix JPN Choshi Offshore Demonstration (NEDO/TEPCO) 2.4
 CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
@@ -655,6 +714,7 @@ CLEAN fix JPN Kitakyushu Hibikinada 220.0
 CLEAN fix JPN Kitakyushu Offshore Demonstration (NEDO/J-Power) 2.0
 CLEAN fix JPN Setana semi-offshore 1.2
 CLEAN fix JPN Setana semi-offshore 1.2
+CLEAN fix JPN Shinkamigoto Whales Wind System 16.0
 CLEAN fix KEN Chania Green Wind Project 50.0
 CLEAN fix KEN Kilifi wind farm 36.0
 CLEAN fix KEN Lake Turkana 310.0
@@ -670,6 +730,9 @@ CLEAN fix KOR Yeongyang 2nd wind power generation 42.0
 CLEAN fix MAR Akhfennir I-II 200.0
 CLEAN fix MAR Akhfennir I-II 200.0
 CLEAN fix MAR Tarfaya 301.0
+CLEAN fix MEX Coromuel wind farm 56.0
+CLEAN fix MEX San Pedro wind farm (Mexico) 30.0
+CLEAN fix NAM Ombepo wind farm 6.0
 CLEAN fix NLD Anna Vosdijk Polder wind farm 15.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
 CLEAN fix NLD De Drentse Monden En Oostermoer wind farm 156.8
@@ -677,6 +740,7 @@ CLEAN fix NLD Delfzijl Midden wind farm 39.0
 CLEAN fix NLD Ecowende Offshore wind farm 780.0
 CLEAN fix NLD Epz wind farm 24.0
 CLEAN fix NLD Etten-Leur wind farm 13.0
+CLEAN fix NLD Flevo Ventum wind farm 32.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
 CLEAN fix NLD Irene Vorrink (Dronten) 16.8
 CLEAN fix NLD Kubbeweg wind farm 74.0
@@ -701,6 +765,7 @@ CLEAN fix NOR Tysvaer wind farm 47.0
 CLEAN fix PHL Bangui Bay 33.0
 CLEAN fix POL Baltic Power Offshore wind farm 1200.0
 CLEAN fix POL Baltica I Offshore wind farm 896.0
+CLEAN fix POL Taciewo wind farm 30.0
 CLEAN fix PRT WindFloat 1 (Aguçadoura demo) 2.0
 CLEAN fix PRT WindFloat Atlantic 25.2
 CLEAN fix ROU Alpha Wind Nord wind farm 81.0
@@ -716,7 +781,9 @@ CLEAN fix ROU Salbatica wind farm · 2 70.0
 CLEAN fix ROU Ventus Nord-2 wind farm 69.0
 CLEAN fix SEN Léona wind farm 50.0
 CLEAN fix SEN Taiba N’Diaye wind farm 158.0
+CLEAN fix SRB Kula wind farm 10.0
 CLEAN fix SWE Bockstigen 2.8
+CLEAN fix SWE Kölvallen wind farm 96.6
 CLEAN fix SWE Utgrunden I 10.5
 CLEAN fix SWE Vindpark Vänern (Gässlingegrund) 30.0
 CLEAN fix THA Hanuman 1 wind farm 45.0
