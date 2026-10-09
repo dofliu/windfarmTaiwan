@@ -4,7 +4,7 @@
 
 具體可執行的任務清單。背景、評估理由與分階段規劃見 [ROADMAP.md](./ROADMAP.md)。
 
-## 進行中（2026-10-09 交接：v2.30.15，第二十輪查證：商轉年與資料疑點；下一個對話從這裡開始）
+## 進行中（2026-10-09 交接：v2.30.16，第二十一輪查證：商轉年與資料疑點；下一個對話從這裡開始）
 
 開新的工作階段先讀這一段（見 CLAUDE.md 第 8 節）；做完後把這一段改寫成下一件進行中的工作，完成的項目移到下面各主題的清單。
 
@@ -50,6 +50,30 @@
      （國家電投半島南 U1 全單樁、上海臨港二期全高樁承台、越南協成全單樁）；其餘只有單一標段、招標設計或座數不明的線索，連同資料疑點存在
      `tools/research/cn_vn_dims_2026-10c.json`（127 個出處、全部核對 OK）。尺寸補了 7 座（輪轂：半島南 V 117–130 m、海油安瀾號約 150 m）。
      搜尋額度用完，缺輪轂高度的中國風場約 36 座這輪沒查（從 `docs/foundations.md` 輪轂欄空白者挑），下一輪優先搜「風場名 竣工環境保護驗收調查報告」。
+- 2026-10-09（v2.30.16）：第二十一輪查證（五個子代理：DA 中國再 45 座、DB 西班牙 97 座、DC 土耳其 44 座與德國 31 座沒有商轉年的風場，DD 法國第十九、二十輪留下的重複與年份線索，
+  DE 西班牙、德國、荷蘭、土耳其的線索；出處原文都以 `check_quotes.py` 核對，結果在 `tools/research/years_2026-10r_DA.json`、`years_2026-10r_DB.json`、`years_2026-10r_DC.json`、
+  `doubts_2026-10r_DD.json`、`doubts_2026-10r_DE.json`，已寫入的條目已刪掉、只留線索）。清理規則 675 → 782 條（`farm_cleanup.py` 2026-10-09「第十四批」；Tripleville 原本的 fix 改為 dup）：
+  1. 商轉年：營運中沒有年份的風場 815 座（37.3 GW）→ 725 座（34.9 GW）；西班牙 110 → 80、土耳其 48 → 28、法國 62 → 40、德國 32 → 21、中國 138 → 133、荷蘭 24 → 22 座。
+     好用的新來源：卡斯提亞—雷昂自治區開放資料 `analisis.datosabiertos.jcyl.es` 的 parques-eolicos（`fecha_puesta_en_marcha`，早期列的日欄位挪作他用，只取年份）、
+     亞拉岡自治區的環境監測報告（aragon.es「plan-de-vigilancia-ambiental」）、TÜREB 2015–2022 年統計報告 PDF（server.tureb.tr；2023 年起的完整版限會員）、
+     MaStR 的公開 JSON 清單與機組頁（不需登入，查詢式在 `years_2026-10r_DC.json`）。
+  2. 德國 MaStR：重跑 `build_mastr.py`（輸入是 MaStR 匯出的 EinheitenWind.xml、Katalogwerte.xml），被刪除紀錄原本預扣的 11 群改列新風場。Niedere Börde 寫進 `MANUAL`；
+     其中 Biegen、A1 兩群的登錄座標在約 16 km 外、超過 MANUAL 的 10 km，卡片只畫 3 部。Nessa 的提案（移位、2012 年、13.8 MW）會讓建置不再加入含其他業者機組的「UW Nessa」（49.8 MW），
+     所以改為刪除 GEM 那筆（它的 6 部已在 UW Nessa 裡）。
+  3. 我沒採用的提案：Tayakadin（2022 年 7 月從 41 增為 50 MW 可能是資料更正）、高郵三垛（2025 年只是轉入固定資產，不是併網日期）、Buchhain（GEM 的座標在 2018 年的 G114 風場旁）；
+     Kores 依「全部完成的年份」寫 2015（TÜREB 寫 2009／2012／2015，各期容量不詳）。
+  4. 仍是線索：
+     - 中國：農安（三峽）、前郭、鄧州（中廣核）、商水譚莊、樅陽麻埠山只有首批併網日期；白沽屯、新沂桂子、夏津華晟、吳川只有完工上限；扶餘（華電）、鎮平老莊、建平三家、洮南永茂保安只有開工；
+       廣寧廣北的中文名是江西吉安青原富灘的；青原富灘營運與規劃兩筆中文名相同；滎陽飛龍頂容量存疑（核准 48.6 MW、鄭州 2022 年只計 32.4 MW）；萊州華能分散式一、二期的狀態可能顛倒；
+       天津小王莊（龍源）與小王莊三期同座標；洮南鄉村振興 31.7 MW 與改名後的 22.1 MW 是否同一案未查。
+     - 西班牙：亞拉岡 13 座只有「運轉第 N 年」（Picador、Las Azubías 約 2021；El Cabezo、Venta del Ginestar、La Rinconada、La Sarda、Tinajeros、Cañacoloma、Sierra de Luna、La Nava、Los Cierzos 約 2020；
+       El Saso、San Isidro）；Hoya de Lucas 是否已運轉；Tirapun 的年份（預定 2019 年 7 月首次併網）；Munilla 擴建段的年份；Greenalia 7.3 MW 的 Alto da Croa 沒有收錄（查無座標）。
+     - 土耳其：Atares-1、Hacı Bey、Gazi-9、Şapdağı、İpektepe、Alares 2、Hamzabeyli 在 2022 年 7 月還沒全部完成（之後的 TÜREB 報告限會員）；Metafor、Karaman、Aydos、Fener、Çandarlı、Karamürsel
+       的容量與 GEM 不符；Kalyon 的 R3 四座（Bilecik-6、Ankara-2-1、Elazığ-1、Bayburt-5）GEM 寫營運中，查無完工紀錄。
+     - 德國：Wulfen（GEM 座標是代用點）、Buchhain、Wölkisch、Görike-Schönhagen、Schoenermark、Gollmitz-Schönermark、Remlingen、Clauen 等的年份只有推測。
+     - 法國：Tournevents du COS 的年份（WKN 與 DREAL 說 2017 年 11–12 月全場運轉，現行規則依登錄寫 2019）；L'Huître et Granville（24 MW 已確認，登錄 2009-12-19、Valorem 說 2010 年 2 月）；
+       Naives-Rosières；Entre Seine Et Aube 與 La Prévoterie 重疊（都含 2010 年那期）；Mauléon（座標在錯的省）；Roman Road、Gourgançon；Roye 的 Bois Guillaume、Chemin Blanc 沒有收錄；
+       Les Chandelles 可能與 Breteuil-Esquennoy 重複；Fortel en Artois 可能就是 InnoVent 的 Longue Rive；Crouy et Cuffies 的許可結果未查到（若被駁回應刪除）；La Chapelle Bâton 有商轉日後改為營運中。
 - 2026-10-09（v2.30.15）：第二十輪查證（三個子代理：CA 中國再 45 座、CB 法國剩下的 119 座沒有商轉年的風場、CC 第十九輪的資料疑點與荷蘭 32 座；出處原文都以 `check_quotes.py` 核對，
   結果在 `tools/research/years_2026-10q_CA.json`、`years_2026-10q_CB.json`、`doubts_2026-10q_CC.json`，已寫入的條目已刪掉、只留線索）。清理規則 568 → 675 條（`farm_cleanup.py` 2026-10-09「第十三批」）：
   1. 商轉年：營運中沒有年份的風場 917 座（40.1 GW）→ 815 座（37.3 GW）；這輪補了法國 64 座、中國 13 座、荷蘭 8 座。法國用 ODRÉ 全國登錄的整份風電資料逐筆比對名稱、鎮與容量，
@@ -270,7 +294,7 @@
 - 2026-10-04（v2.19.2）：「預計 2026 年完工」的興建中離岸風場再核對一輪（East Anglia TWO／THREE 與 Ecowende 的清單比對改為明確對應、海南 CZ2 年份與位置更正等，見 CHANGELOG）。
 - 2026-10-04（v2.19.0–v2.19.1）：使用者同意用 OpenStreetMap（ODbL 相同方式分享）→ 美國以外 6,886 座風場、147,012 部風機改畫實際機位
   （`tools/fetch_osm_turbines.py` 下載約 2–4 小時、`tools/build_turbines_osm.py` 對應；重建風場層後要重跑對應）；法國 2025 年陸域、離岸一起改用 SDES。
-- 目前數字（v2.30.15）：營運中離岸風場 331 座中 285 座已知水下基礎型式（占容量 87.3%）；尺寸 278 座至少一項、183 座三項齊全；清理規則 675 條；卡片照片 64 座風場；事件 84／91 筆對到風場。
+- 目前數字（v2.30.16）：營運中離岸風場 331 座中 285 座已知水下基礎型式（占容量 87.3%）；尺寸 278 座至少一項、183 座三項齊全；清理規則 782 條；卡片照片 64 座風場；事件 84／91 筆對到風場。
 - 查證的工作方式：每個數字附出處原文（`tools/grab_page.py` 找片段、`tools/check_quotes.py` 核對），較大批的查證分給幾個子代理平行查，
   結果先寫成 JSON 核對，再由主對話判斷採用與否、寫進對照表（規則見 CLAUDE.md 第 4 節）。
 - 沒有做到一半的程式修改。下一個對話可以從下面「重啟時先做」挑一項，或由使用者指定新工作。
@@ -439,7 +463,7 @@
 - [x] 「疑似重複 B」（名稱不同、容量相同、位置相近）：v2.30.7 全部查完（0 組）：德國 7 組依業主與鄉鎮資料改配機組或確認是不同風場，中國 4 組都是不同風場。
       GEM 的 Lichtenau（11 MW、1997、RWE）是 Windpark Asseln（GEM 的 Paderborn）的一部分，v2.30.8 已刪除重複；這一帶 MaStR 的對應已在 v2.30.10 整理（見「進行中」第十五輪第 3 點）
 - [x] 587 個預計商轉年已過卻仍列規劃中的專案（101 GW）：GEM 2026-02 升級後只剩 2 案（寮國 Monsoon 600 MW、越南 BPP Vĩnh Châu 30 MW，皆興建中、預計 2025）
-- [ ] 815 座、37.3 GW 營運中風場沒有商轉年（v2.30.15；多在中國、印度、西班牙），地圖只能從 2025 年顯示：找得到年份的補上（第十八至二十輪已查約 370 座，線索見「進行中」）
+- [ ] 725 座、34.9 GW 營運中風場沒有商轉年（v2.30.16；多在印度、中國、西班牙、義大利），地圖只能從 2025 年顯示：找得到年份的補上（第十八至二十一輪已查約 590 座，線索見「進行中」）
 - [x] 德國以 MaStR 補齊（v2.22.0）：逐場覆蓋率 68%→96%；v2.22.1 查清疑似重複（Flomborn-Stetten 錯置已更正，其餘 7 組確認是不同風場，列在 `farm_cleanup.py` 的 `NOT_DUP`）
 - [ ] 覆蓋率較低的大國（GEM 2026-02 後：中國差 98 GW、印度 16 GW）：評估以各國官方登錄資料補齊（見 ROADMAP 第 1 階段）
 - [x] 重複的風場紀錄：美國 Sunrise Wind 同時有 GEM 的「Sunrise wind farm (United States)」與 2026 年整理清單的「Sunrise Wind」（同為 924 MW、興建中）：已在水下基礎第 4 步合併為一筆，座標改到 BOEM 租約區 OCS-A 0487 的中心（2026-09，v2.10.0）

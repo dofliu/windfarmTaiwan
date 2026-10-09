@@ -51,9 +51,16 @@ CLEAN drop COL El Morro wind farm 8.0
 CLEAN drop DEU Nessa wind farm 14.0
 CLEAN drop ESP Biscay Marine Energy Platform wind farm 20.0
 CLEAN drop ESP Els Pessells wind farm 47.0
+CLEAN drop FRA Chapelle Vallon wind farm 24.0
+CLEAN drop FRA Droupt-Saint-Basle wind farm 12.0
+CLEAN drop FRA Droupt-Sainte-Marie wind farm 12.0
+CLEAN drop FRA Esnouveaux wind farm 10.0
+CLEAN drop FRA Essigny-le-Grand wind farm 19.5
 CLEAN drop FRA Fère-Champenoise wind farm 45.0
 CLEAN drop FRA Fère-Champenoise-Euvy-Corroy wind farm 45.0
 CLEAN drop FRA Haut De Mergey wind farm 24.0
+CLEAN drop FRA Kergrist Moelou wind farm 26.0
+CLEAN drop FRA Lanques Sur Rognon wind farm 10.0
 CLEAN drop FRA Melle wind farm 54.3
 CLEAN drop FRA Saint-Georges-Sur-Arnon wind farm 48.0
 CLEAN drop GBR Dounreay Tr‚àö¬®  Floating Wind Demonstration 10.0
@@ -166,9 +173,12 @@ CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
 CLEAN dup FRA Baronville wind farm 12.0 -> Destry wind farm
 CLEAN dup FRA Binas wind farm 11.5 -> Viertiville wind farm
 CLEAN dup FRA Blancfossé wind farm 10.0 -> Butte Saint Liphard wind farm
+CLEAN dup FRA Bois Madame wind farm 13.2 -> Méharicourt wind farm
 CLEAN dup FRA Chasseradès wind farm 27.4 -> Taillades Sud wind farm
+CLEAN dup FRA Chêne Courteau Terre d'Abbayes wind farm 27.6 -> Moreuil wind farm
 CLEAN dup FRA Des Hauts Pres wind farm 28.0 -> Haut Pres wind farm
 CLEAN dup FRA EFGL wind farm 30.0 -> Les Éoliennes Flottantes du Golfe du Lion (EFGL)
+CLEAN dup FRA Ecuvilly wind farm 8.0 -> Haut Pres wind farm
 CLEAN dup FRA Eolmed Floating wind farm 30.0 -> EolMed (Gruissan)
 CLEAN dup FRA Fontenelle-Montby wind farm 56.0 -> Rougemont wind farm
 CLEAN dup FRA L'Epine Aux Bois wind farm 18.0 -> Epine-Aux-Bois wind farm
@@ -177,10 +187,15 @@ CLEAN dup FRA Le Mont Hussard wind farm 38.0 -> Mont D'Origny wind farm
 CLEAN dup FRA Le Moulin De Sehen wind farm 12.0 -> Mesnil-Rousset wind farm
 CLEAN dup FRA Le Nitis 1 wind farm 11.8 -> Le Nitis wind farm
 CLEAN dup FRA Le Val D'Esnoms wind farm 28.0 -> Langres Sud wind farm
+CLEAN dup FRA Les Trois Fermes wind farm 10.0 -> Pithiviers Le Vieil wind farm
 CLEAN dup FRA Les Vignottes wind farm 36.0 -> Vignottes wind farm
 CLEAN dup FRA Pelade wind farm 48.0 -> Artigues Et Ollieres wind farm
 CLEAN dup FRA Sacquenay wind farm 10.0 -> Sources Du Mistral wind farm
+CLEAN dup FRA Sommette-Eaucourt wind farm 22.0 -> Les Tournevents du COS wind farm
+CLEAN dup FRA Sorbon 2 wind farm 12.0 -> Mont De Gerson wind farm
 CLEAN dup FRA Soutets wind farm 13.8 -> Les Faydunnes wind farm
+CLEAN dup FRA Tripleville wind farm 11.8 -> Mont D'Ergny wind farm
+CLEAN dup FRA Vaux-Andigny wind farm 21.0 -> Plateau D'Andigny wind farm
 CLEAN dup FRA Villes D'Oyses wind farm 28.0 -> Achery-Mayot wind farm
 CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
@@ -516,10 +531,12 @@ CLEAN fix ESP Valdemoro wind farm 49.5
 CLEAN fix ESP Valdesamario wind farm 24.0
 CLEAN fix FIN Ajos Retrofit wind farm 43.0
 CLEAN fix FIN Kemi wind farm 27.0
+CLEAN fix FRA Achery-Mayot wind farm 28.0
 CLEAN fix FRA Achiet-Le-Petit wind farm 21.0
 CLEAN fix FRA Aeolus Masts wind farm 26.4
 CLEAN fix FRA Arcy-Précy wind farm 16.0
 CLEAN fix FRA Audinchtun wind farm 14.1
+CLEAN fix FRA Autremencourt wind farm 26.0
 CLEAN fix FRA Bena wind farm 13.5
 CLEAN fix FRA Bois Briffaut wind farm 14.4
 CLEAN fix FRA Bois Du Frou wind farm 14.0
@@ -527,21 +544,28 @@ CLEAN fix FRA Bois d'Olivet wind farm 12.0
 CLEAN fix FRA Bois de la Hayette wind farm 10.9
 CLEAN fix FRA Bornay 2 wind farm 15.0
 CLEAN fix FRA Brandes wind farm 15.0
+CLEAN fix FRA Breteuil wind farm 12.0
 CLEAN fix FRA Brux wind farm 10.5
 CLEAN fix FRA Calvados (Courseulles-sur-Mer) 450.0
 CLEAN fix FRA Chambon Puyravault wind farm 43.2
+CLEAN fix FRA Champ Vert Sommer wind farm 12.0
 CLEAN fix FRA Champarts wind farm 15.2
 CLEAN fix FRA Chaunay wind farm 18.0
 CLEAN fix FRA Chauvé wind farm 12.0
 CLEAN fix FRA Chemin De Valenciennes wind farm 18.0
 CLEAN fix FRA Chenu wind farm 11.0
+CLEAN fix FRA Crouy et Cuffies wind farm 12.0
 CLEAN fix FRA D'Autremencourt wind farm 12.0
 CLEAN fix FRA Energie Du Gatinais wind farm · 2 21.0
 CLEAN fix FRA EolMed (Gruissan) 30.0
 CLEAN fix FRA Falvieux wind farm 25.0
 CLEAN fix FRA Fereole wind farm 27.5
+CLEAN fix FRA Fortel En Artois wind farm 11.0
 CLEAN fix FRA Goulafrière wind farm 10.0
+CLEAN fix FRA Grande Combe wind farm 18.0
 CLEAN fix FRA Haut-Vignoble wind farm 14.1
+CLEAN fix FRA Ker Rose wind farm 10.0
+CLEAN fix FRA La Chapelle Bâton wind farm 21.6
 CLEAN fix FRA La Côte Du Cerisat wind farm 50.0
 CLEAN fix FRA La Remise Des Bruyeres wind farm 12.0
 CLEAN fix FRA La Seauve wind farm 12.0
@@ -551,10 +575,13 @@ CLEAN fix FRA Leigné-Les-Bois wind farm 14.0
 CLEAN fix FRA Les Hauts Chemins wind farm 14.0
 CLEAN fix FRA Les Pelures Blanches wind farm 12.5
 CLEAN fix FRA Les Pierrots wind farm 26.0
+CLEAN fix FRA Les Plaines wind farm 13.2
 CLEAN fix FRA Les Tilleuls wind farm 12.0
 CLEAN fix FRA Les Tournevents du COS wind farm 21.6
+CLEAN fix FRA Les Vents De Nord-Sarthe wind farm · 2 10.8
 CLEAN fix FRA Les Vingt Sétiers wind farm 18.4
 CLEAN fix FRA Les Éoliennes Flottantes du Golfe du Lion (EFGL) 30.0
+CLEAN fix FRA Leury wind farm 12.0
 CLEAN fix FRA Lizant Saint-Macoux wind farm 24.0
 CLEAN fix FRA Longueil wind farm 16.0
 CLEAN fix FRA Longues Roies wind farm 47.0
@@ -572,13 +599,16 @@ CLEAN fix FRA Noyal-Muzillac wind farm 10.0
 CLEAN fix FRA Orvilliers wind farm 19.0
 CLEAN fix FRA Pays de Caux wind farm 12.9
 CLEAN fix FRA Petit Arbre wind farm 12.0
+CLEAN fix FRA Pithiviers Le Vieil wind farm 10.0
 CLEAN fix FRA Plaine De L’Escrebieux  wind farm 17.0
+CLEAN fix FRA Plaine Du Moulin wind farm 12.0
 CLEAN fix FRA Plateau De Cabalas wind farm 30.0
 CLEAN fix FRA Pougny wind farm 28.0
 CLEAN fix FRA Provence Grand Large 25.0
 CLEAN fix FRA Rembercourt-Sommaisne wind farm 30.0
 CLEAN fix FRA Rescotiou wind farm 16.0
 CLEAN fix FRA Roussac wind farm 15.0
+CLEAN fix FRA Roye wind farm 12.0
 CLEAN fix FRA Rully wind farm 12.0
 CLEAN fix FRA Saint Jacques wind farm 12.0
 CLEAN fix FRA Saint Jean de Liversay wind farm 18.0
@@ -587,7 +617,6 @@ CLEAN fix FRA Terres Chaudes wind farm 25.2
 CLEAN fix FRA Tilleul Othon wind farm 24.4
 CLEAN fix FRA Tortebesse wind farm 30.0
 CLEAN fix FRA Tout Vent wind farm 18.0
-CLEAN fix FRA Tripleville wind farm 11.8
 CLEAN fix FRA Tulipes wind farm 36.0
 CLEAN fix FRA Varimpré wind farm 12.5
 CLEAN fix FRA Vaux-Coulommes wind farm 32.0

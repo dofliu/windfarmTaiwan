@@ -403,7 +403,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   farm belongs to China Three Gorges; Fuqing Xinghua Bay phase 2 is 280 MW, fully connected in 2021
 - From late September 2026, checking the foundations and dimensions of Chinese and Vietnamese offshore farms produced further rules correcting
   duplicates, never-built farms, status, capacity, turbine models and locations (e.g. GEM's four records for the four sites of CTG Dafeng 800 MW,
-  Xiangshan Tuci's connection year, Zhuanghe IV-2 now operating); 675 rules in all, each with its reason and source in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
+  Xiangshan Tuci's connection year, Zhuanghe IV-2 now operating); 782 rules in all, each with its reason and source in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total
