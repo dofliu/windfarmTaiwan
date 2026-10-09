@@ -1866,6 +1866,15 @@ RULES = [
         '甲子一 78 部明陽 6.45 MW（中國電力網 2022-04：擬安裝 78 台 MySE6.45MW、首台 6.45 MW 已裝；汕尾海事局 2025-08 備案參數：78 台 6.45 MW）。海事局備案的葉輪直徑為 168 m、輪轂高 100 m，與原寫的 MySE6.45-180（葉輪約 178–180 m）不合，型號尾碼沒有出處，改為只寫 6.45 MW（確切型號待查證）',
         'Jiazi I has 78 Mingyang 6.45 MW turbines (China Power, Apr 2022: 78 MySE6.45MW planned, first 6.45 MW unit erected; Shanwei MSA filed parameters, Aug 2025: 78 × 6.45 MW). The MSA filing gives a 168 m rotor and 100 m hub, which does not fit the stored MySE6.45-180 (a 178–180 m rotor); the suffix had no source, so only the 6.45 MW rating is kept (exact model unverified)',
         'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167', turbine='78x Mingyang MySE 6.45 MW'),
+    # ------------------------------------------------ 2026-10-09 第十批（第十六輪資料疑點；出處原文以 check_quotes.py 核對）
+    fix('CHN', 'Longyuan Putian Nanri Island', C,
+        '龍源莆田南日島（三墩風電場）是 100 部西門子 SWT-4.0-130（福建龍源 2026-07 招標：「現已安裝有海上 100 台西門子 SWT-4.0-130 變槳變速型機組」），不是金風 GW171-6.45',
+        'Longyuan Putian Nanri Island (the Sandun wind farm) has 100 Siemens SWT-4.0-130 turbines (Fujian Longyuan tender, July 2026: “100 Siemens SWT-4.0-130 pitch-regulated variable-speed units are installed at sea”), not Goldwind GW171-6.45',
+        'http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20260731/e9b7aeb1-a2d1-4db9-b7a9-afc63483abb8.html', turbine='100x Siemens SWT-4.0-130'),
+    fix('CHN', 'Longyuan Putian Nanri Island', C,
+        '全部投產是 2021 年底（福建龍源 2022-08 招標：「安裝 100 台西門子 4MW 雙饋風力發電機組，機組離岸距離在 0–14 公里範圍內，於 2021 年底完成全部投產發電」），不是 2019 年',
+        'All units were in production by the end of 2021 (Fujian Longyuan tender, Aug 2022: 100 Siemens 4 MW doubly-fed turbines 0–14 km offshore, “all put into production by the end of 2021”), not 2019',
+        'http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220817/475120fe-d699-4cc3-af64-5bd9bf13f507.html', year=2021),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）

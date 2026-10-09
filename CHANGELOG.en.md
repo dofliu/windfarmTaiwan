@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.11 — 2026-10-09
+
+- Research round 16 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "tenth batch" in the [clean-up log](docs/data-cleanup.en.md) and [foundations](docs/foundations.en.md)):
+  - CGN Xiangshan Tuci: all 38 turbines on monopiles (2025 inspection tender for the built farm).
+  - Longyuan Putian Nanri Island (the Sandun wind farm): turbines corrected to 100 Siemens SWT-4.0-130, and the year of full operation to 2021.
+
 ## v2.30.10 — 2026-10-08
 
 - Research round 15 (quotes checked with `check_quotes.py`; see [foundations](docs/foundations.en.md)):

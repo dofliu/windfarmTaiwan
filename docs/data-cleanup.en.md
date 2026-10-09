@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 506 rules: 162 records removed (45,189.8 MW of them operating), 344 records fixed.
+- 508 rules: 162 records removed (45,189.8 MW of them operating), 346 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -16,7 +16,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Belgium | 1 | 325 | 0 |
 | Brazil | 1 | 150 | 0 |
 | Canada | 1 | 353 | 0 |
-| China | 59 | 26,824.5 | 142 |
+| China | 59 | 26,824.5 | 144 |
 | Colombia | 1 | 8 | 3 |
 | Denmark | 1 | 180 | 3 |
 | Dominican Rep. | 2 | 50 | 8 |
@@ -289,6 +289,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Putian Pinghai Bay Area F (Sanchuan) · 200 MW · 2021 | GEM | fixed: turbines | Putian MSA navigation notice (Dec 2025, built): Pinghai Bay area F uses 3 × 6 MW and 26 × 7 MW turbines (200 MW in all), in 10–25 m of water | [link](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0) |
 | Fujian Zhangpu Liu'Ao Offshore wind farm · D · 402 MW | GEM | fixed: location | The point moves to the 'area D met mast No. 4' of a Zhangzhou MSA notice of Aug 2026 (Min Hang Tong [2026] 0531; 23°49′25.57″ N, 118°01′29.45″ E, removed in Sept 2026); a met mast is not the centre of the site, so the point stays approximate; GEM's point hugged the Liu'ao coast about 22 km to the north-west | [link](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649) |
 | CGN Shanwei Jiazi I · 503 MW · 2022 | curated | fixed: turbines | Jiazi I has 78 Mingyang 6.45 MW turbines (China Power, Apr 2022: 78 MySE6.45MW planned, first 6.45 MW unit erected; Shanwei MSA filed parameters, Aug 2025: 78 × 6.45 MW). The MSA filing gives a 168 m rotor and 100 m hub, which does not fit the stored MySE6.45-180 (a 178–180 m rotor); the suffix had no source, so only the 6.45 MW rating is kept (exact model unverified) | [link](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167) |
+| Longyuan Putian Nanri Island · 400 MW · 2019 | curated | fixed: turbines | Longyuan Putian Nanri Island (the Sandun wind farm) has 100 Siemens SWT-4.0-130 turbines (Fujian Longyuan tender, July 2026: “100 Siemens SWT-4.0-130 pitch-regulated variable-speed units are installed at sea”), not Goldwind GW171-6.45 | [link](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20260731/e9b7aeb1-a2d1-4db9-b7a9-afc63483abb8.html) |
+| Longyuan Putian Nanri Island · 400 MW · 2019 | curated | fixed: year | All units were in production by the end of 2021 (Fujian Longyuan tender, Aug 2022: 100 Siemens 4 MW doubly-fed turbines 0–14 km offshore, “all put into production by the end of 2021”), not 2019 | [link](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220817/475120fe-d699-4cc3-af64-5bd9bf13f507.html) |
 
 ## Colombia (COL)
 
