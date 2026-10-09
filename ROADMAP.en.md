@@ -122,7 +122,7 @@ Compiled 26 Sep 2026; data availability was checked the same day (anything not v
 
 - Goal: a switchable layer, like onshore/offshore, that colours offshore farms on the same globe by foundation
   type: monopile, jacket (piled), jacket (suction bucket), tripod/tripile, gravity-based, high-rise pile cap
-  (common in China), floating (semi-submersible, spar, barge, TLP), mixed, and "fixed-bottom, type unknown". The
+  (common in China), low pile cap (Chinese tidal flats, added 9 Oct 2026), floating (semi-submersible, spar, barge, TLP), mixed, and "fixed-bottom, type unknown". The
   legend always says how many farms and what share of capacity are classified; country profiles add a bar per type.
 - Data (checked Sep 2026):
   - The only open dataset with a foundation type per farm is OSPAR Offshore Renewables 2024 (CC0). It covers the

@@ -1,0 +1,139 @@
+[
+  {
+    "item": "Z1 SinoHydro Rudong Intertidal: the 10 shore-side units",
+    "farm": "SinoHydro Rudong Intertidal",
+    "src_code": 0,
+    "iso": "CHN",
+    "status": "lead",
+    "proposal": "(lead, no row yet) 32 of 42 units are covered by an as-built source (Nantong MSA navigation-parameter notice, Nov 2021): 20 low pile caps + 12 five-pile jackets. The 10 shore-side units (collector line A, nos. 1#-10#, i.e. the 10 x 2 MW of phase 1, connected May 2014) still have no stated type. Row to paste once they are known: F5('CHN', 'SinoHydro Rudong Intertidal', 'mx', url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312', parts=[['lp', 20], ['jk', 12], ['<type>', 10]], zh='42 部（10 部 2 MW＋32 部 2.5 MW）：灘塗區 20 部為低樁承台（「低樁高台柱」：承台埋在泥面下，以高立柱把塔筒抬到最高潮位以上），海上區 12 部為五樁導管架，沿岸側 10 部（一期 2 MW，2014 年 5 月併網）為<型式>（南通海事局 2021-11 通航安全技術參數通告，項目 2021-08-06 備案）', en='42 turbines (10 x 2 MW + 32 x 2.5 MW): the 20 on the tidal flat stand on low pile caps (cap buried below the mud, a tall pedestal lifting the tower above the highest tide), the 12 farther out on five-pile jackets and the 10 shore-side units (phase 1, 2 MW, connected May 2014) on <type> (Nantong MSA navigation-parameter notice, Nov 2021, filed 6 Aug 2021)'). Option for the owner: the designer (PowerChina Zhongnan) says the farm used only two foundation types, low-pile tall-pedestal caps and five-pile jackets (Rednet 2023, retrospective); if that is accepted for the 10 shore-side units, parts=[['lp', 30], ['jk', 12]] and the zh/en say so and cite Rednet. Not written as a row because the MSA notice, the only as-built source, is silent on the 10.",
+    "note_zh": "沿岸側 10 部是集電線路洋口 A 線的 1#–10#，即一期 10 部 2 MW（2014-05-25 首批併網）；型式仍未查到。設計單位中南院（紅網 2023）說全場採低樁高台柱與五樁導管架兩種基礎，但海事局通告只對灘塗區 20 部與海上區 12 部寫明型式。",
+    "note_en": "The 10 shore-side units are collector line A, nos. 1#-10#, i.e. the 10 x 2 MW of phase 1 (first connected 25 May 2014); their type is still not found. The designer, PowerChina Zhongnan, says the farm used two types, low-pile tall-pedestal caps and five-pile jackets (Rednet 2023), but the MSA notice states the type only for the 20 tidal-flat and 12 offshore units.",
+    "why": "New this round: the MSA notice ties the 10 shore-side units to line A (1#-10#), and CWEEA (2014) shows the first 10 x 2 MW (phase 1) on grid in May 2014. OpenStreetMap has unnamed turbine nodes in a row along the seaward edge of the seawall road at about 32.5995N, 120.944-120.975E (the likely shore-side units), but unnamed nodes are not citable and say nothing about foundations. Dead ends: the MSA notice's attachment (layout plan) is filtered out of the mobile page; Jiangsu MSA lists start in 2019 (no 2013-2016 construction notices); Nantong ecology bureau upload files return 403; rechargenews (paywall); powerchinanewenergy.com listing 403/404; no Sinohydro Bureau 13 (contractor) or Zhongnan project page found; web search found no paper, completion acceptance or sea-use report for this farm. Patents CN107217681A (owner's tidal-flat platform method) and CN105926660B (Sinohydro Bureau 4 low pile cap) describe the method but are not tied to specific units.",
+    "sources": [
+      {
+        "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
+        "quote": "风电场共布置风力发电组42台，其中沿岸侧布置10台；滩涂区域布置20台（采用低桩高台柱基础型式），海上区域布置12台（采用五桩导管架基础型式），详细机组位置分布见附件。"
+      },
+      {
+        "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
+        "quote": "洋口A线接1#-10#风机，共10台；洋口B线接11#-18#风机，共8台"
+      },
+      {
+        "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
+        "quote": "中国水电建设集团如东新能源有限公司建设的中水电如东潮间带风电场100MW示范项目于2021年8月6日通过了海事管理机构的通航安全技术参数备案"
+      },
+      {
+        "url": "https://www.cweea.com.cn/xwdt/html/4250.html",
+        "quote": "2014年4月29日顺利完成风电场升压站倒送电，5月25日首批10台单机2MW风机开始并网发电"
+      },
+      {
+        "url": "https://hn.rednet.cn/content/646656/58/12150467.html",
+        "quote": "中南院设计团队因地制宜采取了低桩高台柱基础和五桩导管架基础，并首次采用了路基板及浮箱承台、超长锚栓笼组件、浮式路基通道等新技术"
+      },
+      {
+        "url": "https://patents.google.com/patent/CN105926660B/zh",
+        "quote": "所述管桩顶部位于围堰内的滩涂泥面以下0.8m-1.2m"
+      },
+      {
+        "url": "https://patents.google.com/patent/CN201390974Y/zh",
+        "quote": "基础底板埋于地面下，地面上部的基础立柱顶部高于最高潮位"
+      }
+    ]
+  },
+  {
+    "item": "Z2 Tianjin Nangang: low (lp) or high-rise (pc) pile cap",
+    "farm": "Tianjin Nangang",
+    "src_code": 0,
+    "iso": "CHN",
+    "status": "lead",
+    "proposal": "(lead, no row) The only source that names the cap says LOW pile cap, and it is pre-completion (china5e, Sept 2017 overview of offshore projects under construction; works started Nov 2016, grid June 2018). Its setting fits a low cap: outside the south breakwater of the Nangang industrial zone and inside the left training wall of the Qingjinghuang river mouth, a 'sea-land combined' farm. If the owner accepts this pre-completion source: F5('CHN', 'Tianjin Nangang', 'lp', url='https://www.china5e.com/news/news-1004814-1.html', zh='18 部歌美颯 G132-5.0（90 MW）：位於南港工業區南防波堤外、青靜黃河口左治導線內的「海陸結合」風場，採低樁承台基礎（中國能源網 2017-09 在建項目概況）；國資委稱為首個對風機採「複合樁」基礎施工的風電場（2018-06 首批併網）', en='18 Gamesa G132-5.0 (90 MW): a \"sea-land combined\" farm outside the south breakwater of the Nangang industrial zone and inside the left training wall of the Qingjinghuang river mouth, on low pile caps (china5e overview of projects under construction, Sept 2017); SASAC calls it the first wind farm built with \"composite pile\" turbine foundations (first units on grid June 2018)'). Otherwise keep as a lead (GlobalData's 'high-rise pile cap' is not citable and conflicts).",
+    "note_zh": "唯一寫出承台型式的是 2017-09 的在建項目概況：「採用低樁承台基礎」，位於南防波堤外、治導線內的「海陸結合風場」，與低樁承台的條件相符；國資委（2018-06）與中國電建新能源只寫「複合樁」。沒有建成後的出處寫明承台高低。",
+    "note_en": "The only source naming the cap is the Sept 2017 overview of projects under construction: \"uses low pile-cap foundations\", in a \"sea-land combined\" farm outside the south breakwater and inside the river training wall, a setting that fits a low cap; SASAC (June 2018) and PowerChina New Energy only say \"composite pile\". No post-completion source states whether the cap is low or high-rise.",
+    "why": "Routes tried this round: CTI (cti-cert.com) notice of the phase-1 completion environmental acceptance (Aliyun WAF captcha for both urllib and WebFetch; per a search summary the acceptance covered only the land part, not the turbines); Tianjin planning and natural resources bureau sea-use report for the CTG Nangang breakwater project (Dec 2025, which describes neighbouring works) and every *.tj.gov.cn host return 403; powerchinanewenergy.com project listing 403/404; Tianjin MSA lists start Dec 2019 (only the later CTG demo); no Beijing/Shanghai Institute or Tianjin Port & Waterway project page, paper or award found by web search; China Energy News 2018-07-02 and the SASAC/Sohu grid-connection reports give no cap level.",
+    "sources": [
+      {
+        "url": "https://www.china5e.com/news/news-1004814-1.html",
+        "quote": "该风电项目位于天津港南港工业区南防波堤以外，青静黄河口左治导线以里，属于海陆结合风场，一期总装机容量90MW，采用了18台歌美飒G132-5.0MW风电机组，采用低桩承台基础"
+      },
+      {
+        "url": "http://www.sasac.gov.cn/n2588025/n2588124/c9178300/content.html",
+        "quote": "南港海上风电场是首个对风机采用复合桩基础施工的风电场"
+      },
+      {
+        "url": "https://www.powerchinanewenergy.com/col13032/art/2022/art_13032_1298379.html",
+        "quote": "也是中国首个采用复合桩风机 基础的风电项目"
+      }
+    ]
+  },
+  {
+    "item": "Z3 Longyuan Rudong Intertidal Demo (30 MW test project): concrete caps in cofferdams",
+    "farm": "Longyuan Rudong Intertidal Demo",
+    "src_code": 0,
+    "iso": "CHN",
+    "status": "lead",
+    "proposal": "(lead, no row) The test project mixes concrete caps, multi-pile steel jackets and (probably) monopiles, but no per-type counts exist: early units used steel sheet-pile cofferdams with concrete foundations (i.e. caps cast in a cofferdam on the tidal flat, the lp construction), at least 7 units are jackets (2023 inspection) and H1008 (Haizhuang #112) is a multi-pile foundation. Longyuan's 2025 NDT tender says only the Huangang complex (of its four farms) has concrete caps, and the 150 MW demo row already has only monopiles + jackets, so the caps belong to the test project (or another Huangang phase). Note for the farm record: Longyuan's 2019 O&M tender lists 15 test turbines totalling 27.5 MW (record: 32 MW).",
+    "note_zh": "龍源 30 MW 潮間帶試驗項目：初期以鋼板圍堰、混凝土基礎施工（澎湃轉載圖說），後改多管樁鋼構與單樁；2023 年檢測 7 部導管架基礎、H1008（海裝 #112）為多管樁；2025 年招標寫環港風場有「混凝土承台、單管樁、多管樁」多種基礎。各型式座數未查到。2019 年運維招標：試驗項目共 15 部、27.5 MW。",
+    "note_en": "Longyuan's 30 MW intertidal test project: the first units were built inside steel sheet-pile cofferdams on concrete foundations (The Paper caption), later ones on multi-pile steel structures and monopiles; a 2023 inspection covered 7 jacket foundations and H1008 (Haizhuang #112) is multi-pile; a 2025 tender says the Huangang farm has concrete caps, monopiles and multi-pile foundations. Per-type counts not found. The 2019 O&M tender lists 15 test turbines, 27.5 MW.",
+    "why": "CHN Energy full-text search (http API) for 低桩承台 / 混凝土承台 / 试验风电场 / 30MW潮间带试验 found no tender giving per-type counts for the test project; NTOC (ntoc-china.com) pages returned 502 this round; web search found no paper with the 16-unit foundation list.",
+    "sources": [
+      {
+        "url": "https://m.thepaper.cn/baijiahao_13374721",
+        "quote": "建设团队先后尝试了混凝土基础、多管桩钢结构基础、“单桩加过渡段”基础，单台风机的施工周期从几个月缩短到几天。 30MW试验项目初期采取的钢板围堰、混凝土基础方案"
+      },
+      {
+        "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251219/a5e27cb2-7ca9-4f09-884a-bda586e28c3d.html",
+        "quote": "海上环港风电场风机基础有混泥土承台、单管桩、多管桩多种形式，海上大丰风电场和蒋家沙风电场风机基础有单管桩和多管桩两种形式，海上射阳风电场风机基础为单管桩"
+      },
+      {
+        "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20240624/ac50828b-5deb-40cc-a1c3-4f3a85694989.html",
+        "quote": "对30MW潮间带试验项目导管架基础防腐情况进行检测，检测发现7台风机"
+      },
+      {
+        "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20260416/525e50d3-0e22-4d80-abee-c44d5e4c2072.html",
+        "quote": "1台多管桩（江苏如东30MW海上试验风电场H1008-海装#112风机基础）腐蚀疲劳的检测评估"
+      },
+      {
+        "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20190814/91f278b0-cb76-4c62-81f7-9f3d77c5c03f.html",
+        "quote": "上海电气 W2000 机组两台，共计 15 台风电机组，总容量为 27.5MW"
+      }
+    ]
+  },
+  {
+    "item": "Z4 Sweep of the other untyped Chinese farms for low pile caps",
+    "farm": "Tangshan Laoting Putidao; CTG Jiangsu Xiangshui; Jiangsu Xiangshui C1 Offshore wind farm; Longyuan Rudong Intertidal Expansion; and the other farms in the round-17 list",
+    "src_code": 0,
+    "iso": "CHN",
+    "status": "none",
+    "proposal": null,
+    "note_zh": "",
+    "note_en": "",
+    "why": "No low-pile-cap source found for any other farm. Putidao: its caps are high-rise, not lp (CCCC Third Harbor: 15 high-pile concrete foundations; Huadian Heavy contract: high-rise pile caps; site depth 5-25 m), so it stays a pc/mp lead. CTG Xiangshui: a 2026 CTG feature mentions the '9号风机基础承台' 10+ km offshore (a cap, but level not stated; consistent with the earlier high-rise lead, not lp). Xiangshui C1 (5 intertidal test units, 2011): only that the T5 unit is reached on foot at low tide; no type. Longyuan Expansion: CHN Energy tenders give no per-project types. The remaining farms (Bohai, Shandong, Fujian, Guangdong, Hainan, Liaoning, Zhejiang, deeper Jiangsu) are in open water; web search and the CHN Energy full-text search for 低桩承台 / 低承台 returned nothing. Search engines: Bing returns unrelated results for Chinese queries and DuckDuckGo shows a bot challenge, so only the built-in web search and the CHN Energy API were usable.",
+    "sources": [
+      {
+        "url": "https://baijiahao.baidu.com/s?id=1755608206977396947&wfr=spider&for=pc",
+        "quote": "三航局负责15台高桩混凝土基础的土建及金属结构安装工程和75台单机容量为4.0兆瓦风机机组的安装"
+      },
+      {
+        "url": "https://www.sina.cn/news/detail/5272097557580327.html",
+        "quote": "两小时后，船抵达离岸十余公里外的9号风机基础承台。"
+      }
+    ]
+  },
+  {
+    "item": "Z5 Existing Chinese 'pc' rows: any that are really low pile caps?",
+    "farm": "Existing F5 CHN rows with 'pc'",
+    "src_code": 0,
+    "iso": "CHN",
+    "status": "none",
+    "proposal": null,
+    "note_zh": "",
+    "note_en": "",
+    "why": "No source found saying any existing 'pc' row is a low pile cap. Side check: CHN Energy's Aug 2025 repair tender confirms Guodian Xiangshan 1# phase 1 as 41 x 6.2 MW with 23 high-rise pile caps (outer ring) and 18 monopiles, consistent with the existing 'Zhejiang Xiangshan 1 Offshore wind farm' row (pc 43 + mp 54 over both phases; the phase-2 turbine tender reserved 20 positions for pile-group high-rise caps).",
+    "sources": [
+      {
+        "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20250825/d6341eaa-d4a1-4d23-a5f6-e3df32360f7f.html",
+        "quote": "共安装重庆海装6.2MW风机41台，采用单桩和高桩承台两种基础型式，外围23台风机采用高桩承台基础，内部18台风机采用单桩基础"
+      }
+    ]
+  }
+]

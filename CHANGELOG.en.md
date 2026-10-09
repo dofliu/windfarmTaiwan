@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.12 — 2026-10-09
+
+- New foundation type "low pile cap" (`lp`, the owner's decision of 9 Oct 2026): the Chinese tidal-flat "low pile, tall pedestal", where piles are driven inside a cofferdam, the cap is cast in a pit
+  below the mud, and a tall column lifts the tower above the highest tide, unlike a high-rise pile cap whose cap sits near the waterline on piles with a free length. It is in the "other fixed" colour group, so the
+  map colours do not change (colour-blind check re-run, same result); the type chart and text in chapter 7 of the Learn page, the farm card's cross-section and the close-up bases all include it.
+
 ## v2.30.11 — 2026-10-09
 
 - Research round 16 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "tenth batch" in the [clean-up log](docs/data-cleanup.en.md) and [foundations](docs/foundations.en.md)):

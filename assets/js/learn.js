@@ -189,16 +189,16 @@ const BUILD = 0.6;
 function fdMwAt(f, y) { if (!f.ph) return f.mw; let s = 0; for (const p of f.ph) { if (!p[0] || p[0] - BUILD <= y) s += p[1]; } return s || f.ph[0][1]; }
 function paintFoundations() {
   const gal = mount('fdgal'); if (!gal) return;
-  // 型式圖：九種固定式與浮動式並排（與地球儀風場卡片同一套繪製）
-  const types = [['mp', '', L('單樁', 'Monopile')], ['jk', '', L('套管式', 'Jacket')], ['tp', '', L('三腳架', 'Tripod')], ['tl', '', L('三樁', 'Tripile')], ['gb', '', L('重力式', 'Gravity base')], ['pc', '', L('高樁承台', 'Pile cap')], ['bk', '', L('吸力桶', 'Suction bucket')],
+  // 型式圖：八種固定式與四種浮動式並排（與地球儀風場卡片同一套繪製）
+  const types = [['mp', '', L('單樁', 'Monopile')], ['jk', '', L('套管式', 'Jacket')], ['tp', '', L('三腳架', 'Tripod')], ['tl', '', L('三樁', 'Tripile')], ['gb', '', L('重力式', 'Gravity base')], ['pc', '', L('高樁承台', 'Pile cap')], ['lp', '', L('低樁承台', 'Low pile cap')], ['bk', '', L('吸力桶', 'Suction bucket')],
     ['fl', 'spar', L('單柱式', 'Spar')], ['fl', 'semi', L('半潛式', 'Semi-sub')], ['fl', 'barge', L('駁船式', 'Barge')], ['fl', 'tlp', L('張力腳', 'TLP')]];
   WW.chart.figure(gal, {
     title: L('水下基礎型式一覽（示意，非等比例）', 'Foundation types at a glance (schematic, not to scale)'),
     subtitle: L('灰：鋼構 · 米白：混凝土 · 白：浮體 · 黃：過渡段（TP）· 虛線：繫泊纜', 'Grey: steel · off-white: concrete · white: floating hull · yellow: transition piece (TP) · dashed: mooring lines'),
-    table: { head: [L('型式', 'Type'), L('說明', 'Description')], rows: types.map(t => [t[2], L({ mp: '單根鋼管打入海床', jk: '三或四支腳的鋼構架', tp: '三支斜撐接中央鋼管', tl: '三根鋼樁撐住過渡段', gb: '靠自重的混凝土基座', pc: '多支斜樁上的混凝土承台', bk: '抽水吸入海床的倒扣鋼桶', fl: { spar: '細長吃水深的浮筒', semi: '三到四個浮筒的平台', barge: '方形淺吃水浮體', tlp: '以繃緊纜繩下拉的平台' }[t[1]] }[t[0]],
-      { mp: 'One steel tube driven into the seabed', jk: 'Three- or four-legged steel lattice', tp: 'Three braces to a central tube', tl: 'Three piles carrying the transition piece', gb: 'Concrete base held by its weight', pc: 'Concrete cap on a ring of raked piles', bk: 'Upturned steel can sucked into the seabed', fl: { spar: 'Slender deep-draught buoy', semi: 'Platform on three or four columns', barge: 'Square shallow-draught hull', tlp: 'Platform pulled down by taut tethers' }[t[1]] }[t[0]])]) },
+    table: { head: [L('型式', 'Type'), L('說明', 'Description')], rows: types.map(t => [t[2], L({ mp: '單根鋼管打入海床', jk: '三或四支腳的鋼構架', tp: '三支斜撐接中央鋼管', tl: '三根鋼樁撐住過渡段', gb: '靠自重的混凝土基座', pc: '多支斜樁上的混凝土承台', lp: '承台埋在泥面、高立柱撐起塔筒', bk: '抽水吸入海床的倒扣鋼桶', fl: { spar: '細長吃水深的浮筒', semi: '三到四個浮筒的平台', barge: '方形淺吃水浮體', tlp: '以繃緊纜繩下拉的平台' }[t[1]] }[t[0]],
+      { mp: 'One steel tube driven into the seabed', jk: 'Three- or four-legged steel lattice', tp: 'Three braces to a central tube', tl: 'Three piles carrying the transition piece', gb: 'Concrete base held by its weight', pc: 'Concrete cap on a ring of raked piles', lp: 'Cap buried at the mudline, tall column above', bk: 'Upturned steel can sucked into the seabed', fl: { spar: 'Slender deep-draught buoy', semi: 'Platform on three or four columns', barge: 'Square shallow-draught hull', tlp: 'Platform pulled down by taut tethers' }[t[1]] }[t[0]])]) },
     render(plot, W) {
-      const perRow = W < 560 ? 4 : W < 760 ? 6 : 11, rows = Math.ceil(types.length / perRow), slot = W / perRow, RH = 172, SEAo = 76, BEDo = 134, H = rows * RH;   // 海床帶要容得下樁腳（最深到海床下 14）
+      const perRow = W < 560 ? 4 : W < 900 ? 6 : 12, rows = Math.ceil(types.length / perRow), slot = W / perRow, RH = 172, SEAo = 76, BEDo = 134, H = rows * RH;   // 海床帶要容得下樁腳（最深到海床下 14）
       const C = WW.FD_SVG_COL; let g = '';
       for (let r = 0; r < rows; r++) {
         const y0 = r * RH;

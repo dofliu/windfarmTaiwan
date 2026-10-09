@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '2.30.11';
+WW.VERSION = '2.30.12';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -132,7 +132,7 @@ WW.DATA = {
   turbines: 'data/global/turbines.json',
   turbinesOsm: 'data/global/turbines_osm.json'
 };
-/* 水下基礎剖面示意：依型式（mp/jk/tp/tl/gb/pc/cf/bk/ra/fl＋浮動式細分）畫在 x=cx、海面 SEA、海床 BED 的座標系裡，回傳 SVG 片段與塔底高度。
+/* 水下基礎剖面示意：依型式（mp/jk/tp/tl/gb/pc/lp/cf/bk/ra/fl＋浮動式細分）畫在 x=cx、海面 SEA、海床 BED 的座標系裡，回傳 SVG 片段與塔底高度。
    地球儀的風場卡片與風電知識頁的型式圖共用（示意、非等比例） */
 WW.FD_SVG_COL = { sea: 'rgba(59,143,224,.28)', seaLine: '#6fb3ff', bed: '#7a6650', tower: '#dfe6f0', tp: '#f2c230', steel: '#9aa3ad', conc: '#c9c3b6', hull: '#e3e8ee', txt: 'currentColor', moor: '#9aa3ad' };
 WW.fdDraw = function (t, sub, cx, SEA, BED, SVG_COL) {
@@ -152,6 +152,7 @@ WW.fdDraw = function (t, sub, cx, SEA, BED, SVG_COL) {
   else if (t === 'tl') { [-1, 0, 1].forEach(d => P.push(rect(cx + d * 16 - 3, SEA - 26, 6, BED - SEA + 40, SVG_COL.steel))); P.push(rect(cx - 22, SEA - 34, 44, 10, SVG_COL.tp, 1.5)); top = SEA - 34; }
   else if (t === 'gb') { P.push(poly([(cx - 30) + ',' + BED, (cx + 30) + ',' + BED, (cx + 10) + ',' + (SEA + 8), (cx - 10) + ',' + (SEA + 8)], SVG_COL.conc), rect(cx - 7, SEA - 14, 14, 24, SVG_COL.conc)); top = SEA - 14; }
   else if (t === 'pc') { [-2, -1, 0, 1, 2].forEach(d => P.push(line(cx + d * 10, SEA + 2, cx + d * 13, BED + 10, SVG_COL.steel, 2.2))); P.push(rect(cx - 24, SEA - 14, 48, 18, SVG_COL.conc, 2)); top = SEA - 14; }
+  else if (t === 'lp') { [-2, -1, 0, 1, 2].forEach(d => P.push(line(cx + d * 9, BED + 7, cx + d * 9, BED + 14, SVG_COL.steel, 2.2))); P.push(rect(cx - 22, BED, 44, 7, SVG_COL.conc, 2), rect(cx - 7, SEA - 14, 14, BED - SEA + 14, SVG_COL.conc, 1.5)); top = SEA - 14; }   // 承台埋在泥面下、高立柱撐到水面上
   else if (t === 'cf' || t === 'bk') { P.push(rect(cx - 22, t === 'cf' ? SEA + 10 : BED - 18, 44, t === 'cf' ? BED - SEA - 10 : 18, t === 'cf' ? SVG_COL.steel : SVG_COL.conc, 2), rect(cx - 5, SEA - 10, 10, BED - SEA, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); top = SEA - 26; }
   else if (t === 'ra') { P.push(rect(cx - 16, BED - 6, 32, 8, SVG_COL.conc), rect(cx - 5, SEA - 10, 10, BED - SEA + 4, SVG_COL.steel), rect(cx - 7, SEA - 26, 14, 18, SVG_COL.tp, 1.5)); [-1, 1].forEach(d => P.push(line(cx + d * 8, BED, cx + d * 14, BED + 14, SVG_COL.steel, 2))); top = SEA - 26; }
   else if (t === 'fl') {
