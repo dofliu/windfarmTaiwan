@@ -1,0 +1,691 @@
+[
+ {
+  "item": "1a. FRA Corroy / Fère-Champenoise / Fereole (shared point)",
+  "farm": "Fère-Champenoise wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "drop('FRA', 'Fère-Champenoise wind farm', G, '已由逐場資料涵蓋的彙總：國家發電設施登錄在 Euvy、Fère-Champenoise 與 Corroy 三鎮 2011 年併網的只有 3 個併網點（Parc éolien d’Euvy 12.5 MW、另一個 15 MW、Corroy Énergies 17 MW，合計 44.5 MW）；前兩個是 Féréole 風場（11 部 2.5 MW、2 個併網點，2011 年投入運轉，DREAL 2026 檢查報告），第三個是 Corroy 風場（17 MW，2011），兩座本站已分別收錄，這筆 45 MW 是兩者的合計', 'An aggregate already covered farm by farm: the national register has only three delivery points connected in 2011 in Euvy, Fère-Champenoise and Corroy (Parc éolien d’Euvy 12.5 MW, another of 15 MW and Corroy Énergies 17 MW, 44.5 MW in all); the first two are the Féréole farm (11 turbines of 2.5 MW, 2 delivery points, in service since 2011, DREAL inspection 2026) and the third is the Corroy farm (17 MW, 2011), both already listed, so this 45 MW record is their sum', 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%2C%22Corroy%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B'),\n# 並把第十二批的 dup('FRA', 'Fère-Champenoise-Euvy-Corroy wind farm', G, ('Fère-Champenoise wind farm', G), …) 改成同理由的 drop（保留者被刪掉後 dup 就沒有對象）：\ndrop('FRA', 'Fère-Champenoise-Euvy-Corroy wind farm', G, '已由逐場資料涵蓋的彙總：國家發電設施登錄在 Euvy 有 3 個 2011 年併網的併網點（Parc éolien d’Euvy 12.5 MW、另一個 15 MW、Corroy Énergies 17 MW，合計 44.5 MW），Fère-Champenoise 鎮只有 2026 年的新機組；前兩個是 Féréole 風場（27.5 MW，2011），第三個是 Corroy 風場（17 MW，2011），本站已分別收錄', 'An aggregate already covered farm by farm: the national register has three delivery points in Euvy connected in 2011 (Parc éolien d’Euvy 12.5 MW, another of 15 MW and Corroy Énergies 17 MW, 44.5 MW in all) and only 2026 units in Fère-Champenoise itself; the first two are the Féréole farm (27.5 MW, 2011) and the third the Corroy farm (17 MW, 2011), both listed separately', 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%2C%22Corroy%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B'),\nfix('FRA', 'Fereole wind farm', G, '補上商轉年 2011：DREAL 2026 檢查報告說 Féréole 風場（Fère-Champenoise）有 11 部 2.5 MW 風機、2 個併網點，2011 年投入運轉；與國家發電設施登錄在相鄰 Euvy 2011 年 3 月併網的兩個併網點（12.5＋15＝27.5 MW）相符', 'Commissioning year 2011 added: the DREAL inspection report (2026) says the Féréole farm (Fère-Champenoise) has 11 turbines of 2.5 MW and 2 delivery points, in service since 2011; this matches the two delivery points the national register lists in neighbouring Euvy, connected in March 2011 (12.5 + 15 = 27.5 MW)', 'https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/APZUC91LtbyADa5d3ZKrUTpiMZmg9cmb', year=2011)",
+  "note_zh": "Fère-Champenoise（45 MW，2011）＝Féréole（27.5 MW）＋Corroy（17 MW）；三筆疊在一起。Corroy 這筆本身正確（登錄「CORROY ENERGIES」17 MW，2011-04-15），保留；Fère-Champenoise 刪除（第十二批併進它的 Fère-Champenoise-Euvy-Corroy 改成 drop），Féréole 補上 2011。",
+  "note_en": "Fère-Champenoise (45 MW, 2011) = Féréole (27.5 MW) + Corroy (17 MW); the three overlap. The Corroy record itself is right (register “CORROY ENERGIES”, 17 MW, 15 Apr 2011) and stays; Fère-Champenoise is dropped (the round-19 dup that merged Fère-Champenoise-Euvy-Corroy into it becomes a drop), and Féréole gets 2011.",
+  "why": "The Euvy rows 12.5 + 15 MW are attributed to Féréole by capacity (27.5 MW), count (2 delivery points) and year (2011); the register does not name the 15 MW row. Corroy commune has only 2022 and 2026 rows, Fère-Champenoise only 2026 rows. Note for the build: the round-19 dup of Fère-Champenoise-Euvy-Corroy must become a drop in the same commit.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%2C%22Corroy%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "CORROY ENERGIES;Euvy;51241;15/04/2011;15/04/2011;17000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%2C%22Corroy%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN D EUVY;Euvy;51241;16/03/2011;16/03/2011;12500.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%20in%20%28%22Euvy%22%2C%22F%C3%A8re-Champenoise%22%2C%22Corroy%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Euvy;51241;01/03/2011;01/03/2011;15000.0;1"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/APZUC91LtbyADa5d3ZKrUTpiMZmg9cmb",
+    "quote": "dans l'établissement FEREOLE implanté Parc éolien Féréole 51230 Fère-Champenoise"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/APZUC91LtbyADa5d3ZKrUTpiMZmg9cmb",
+    "quote": "comprend 11 éoliennes, chacune d’une hauteur en bout de pale de 135 m et d’une puissance unitaire de 2,5 MW. Les deux postes de livraison sont raccordés au poste source de FèreChampenoise. Ce parc, bénéficiant d’une antériorité, a été mis en service en 2011."
+   }
+  ]
+ },
+ {
+  "item": "1a. FRA Gourgançon 48 MW (ENGIE)",
+  "farm": "Gourgançon wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "fix('FRA', 'Gourgançon wind farm', G, '更正為鎮內未另列的一座：國家發電設施登錄在 Gourgançon 鎮 2021 年前只有 4 個 12 MW 併網點（合計正好 48 MW）：Erelia Champagne（即 Mont de Bézard 風場）與另一個（2007-04-23），以及 Mont Grignon 第 4、5 場（2010-10-01）；Mont de Bézard 2007 年一期與 Le Mont Grignon（24 MW，2010）本站已另列。剩下的 12 MW 是 Maurienne 的 Mont de Bézard II – Les Renardières（Gourgançon 與 Semoine，6 部風機、2 個併網點，2007 年 9 月投入運轉，2023-03-21 換新機組；DREAL 檢查報告）', 'Corrected to the one park in the commune not listed elsewhere: before 2021 the national register has only four 12 MW delivery points in Gourgançon (exactly 48 MW): Erelia Champagne (the Mont de Bézard farm) and another (23 Apr 2007), and Mont Grignon parks 4 and 5 (1 Oct 2010); Mont de Bézard’s 2007 phase and Le Mont Grignon (24 MW, 2010) are listed separately. The remaining 12 MW is Maurienne’s Mont de Bézard II – Les Renardières (Gourgançon and Semoine, 6 turbines and 2 delivery points, in service since September 2007, new machines from 21 Mar 2023; DREAL inspection reports)', 'https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/my3Ga9DAqq5N5aNKpClmt5bw0mMSM4p4', mw=12, year=2007, note=True)",
+  "note_zh": "Gourgançon 48 MW＝鎮內 2021 年前 4 個 12 MW 併網點的合計（GEM 依 ENGIE 2019 年資產表）；其中 36 MW 已在 Mont De Bézard（2007 一期）與 Le Mont Grignon，剩下 12 MW 是 Maurienne 的 Mont de Bézard II – Les Renardières。",
+  "note_en": "Gourgançon 48 MW = the commune’s four pre-2021 12 MW delivery points (GEM, from ENGIE’s 2019 asset list); 36 MW of it is already in Mont De Bézard (2007 phase) and Le Mont Grignon, leaving Maurienne’s 12 MW Mont de Bézard II – Les Renardières.",
+  "why": "The register row for the remaining 12 MW is “Confidentiel”; it is attributed to the Maurienne park because that is the only other park the DREAL reports place in Gourgançon with a 2007 start. Its capacity after the 2023 repowering is not stated (register still 12 MW). Optional: rename='Mont de Bézard II – Les Renardières wind farm'. Owner ENGIE kept (GEM source: ENGIE FY2019 analyst pack). Not to be confused with Innergex’s Les Renardières (21 MW, 2017), a separate record 9 km south.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "ERELIA CHAMPAGNE;Gourgançon;51276;23/04/2007;23/04/2007;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Gourgançon;51276;23/04/2007;23/04/2007;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN MONT GRIGNON 1-PARC 4;Gourgançon;51276;01/10/2010;01/10/2010;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN MONT GRIGNON 2- PARC 5;Gourgançon;51276;01/10/2010;01/10/2010;12000.0;1"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/unacYrrp0jSmws04jhoEG9sxjpaj74Qh",
+    "quote": "dans l'établissement SAS ERELIA Champagne implanté Parc éolien du Mont de Bézard Lieu-dit L'Ouche Jacquelin 51230 Gourgançon"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/my3Ga9DAqq5N5aNKpClmt5bw0mMSM4p4",
+    "quote": "Le parc a été mis en service en septembre 2007, il a bénéficié du droit d'antériorité."
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/my3Ga9DAqq5N5aNKpClmt5bw0mMSM4p4",
+    "quote": "La mise en service industrielle des nouvelles machines date du 21 mars 2023. Le parc est composé de 6 aérogénérateurs et 2 postes de livraison sur les communes de Gourgançon (51) et Semoine (10)."
+   },
+   {
+    "url": "https://www.gem.wiki/Gourgan%C3%A7on_wind_farm",
+    "quote": "Operating [ 1 ] 48 MW [ 1 ] Onshore [ 2 ] ENGIE SA [100%]"
+   }
+  ]
+ },
+ {
+  "item": "1a. FRA Melle 54.3 MW (commune total)",
+  "farm": "Melle wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "drop('FRA', 'Melle wind farm', G, '已由逐場資料涵蓋的彙總：國家發電設施登錄在 Melle 鎮（INSEE 79174）的 5 個風電併網點合計正好 54.3 MW（12 MW 2009-12、12 MW 2011-02、14 MW 2018-07、9.4 MW 2018-08、Les Raffauds 2 6.9 MW 2020-09）；鎮內的風場本站已逐場收錄：Mont Jarron（12 MW，2009；ICPE 登記在 Melle 鎮 Mont Jarron）、Lusseray（14 MW，2018；ICPE「Ferme éolienne Lusseray-Paizay le Tort」也登記在 Melle 鎮）、3D Energies 的 La Tourette 與 Les Raffauds，以及 Paizay Le Tort；這筆是同一群風機的合計', 'An aggregate already covered farm by farm: the national register’s five wind delivery points in the commune of Melle (INSEE 79174) add up to exactly 54.3 MW (12 MW Dec 2009, 12 MW Feb 2011, 14 MW Jul 2018, 9.4 MW Aug 2018 and Les Raffauds 2, 6.9 MW, Sep 2020); the site already lists the farms in the commune one by one: Mont Jarron (12 MW, 2009; its ICPE is registered at Mont Jarron in Melle), Lusseray (14 MW, 2018; the ICPE “Ferme éolienne Lusseray-Paizay le Tort” is also registered in Melle), 3D Energies’ La Tourette and Les Raffauds, and Paizay Le Tort; this record is the total of the same turbines', 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B')",
+  "note_zh": "Melle 54.3 MW＝鎮內 5 個併網點合計；Mont Jarron（12，2009）、Lusseray（14，2018）、La Tourette（12，2011，3D Energies）、Paizay Le Tort（12，Axpo）、Les Raffauds（12，3D Energies）本站都已另列（合計 62 MW，比登錄還多），這筆再加 54.3 MW 是重複。",
+  "note_en": "Melle 54.3 MW = the commune’s five delivery points; Mont Jarron (12, 2009), Lusseray (14, 2018), La Tourette (12, 2011, 3D Energies), Paizay Le Tort (12, Axpo) and Les Raffauds (12, 3D Energies) are all separate records (62 MW, already more than the register), so this 54.3 MW counts them again.",
+  "why": "The 2009, 2011 and 2018 (14 MW) rows map cleanly to Mont Jarron, La Tourette and Lusseray; the 9.4 MW (Aug 2018) and Les Raffauds 2 (6.9 MW, 2020) rows map less certainly (Paizay Le Tort / Les Raffauds extension), so up to 16.3 MW may have no exact separate record — far less than the 54.3 MW double count. The DREAL inspection PDFs for the Melle parks are scanned images (no text), so the georisques API listing is used for the ICPE names.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "privé;Melle;79174;03/12/2009;03/12/2009;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "privé;Melle;79174;01/02/2011;01/02/2011;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "privé;Melle;79174;19/07/2018;19/07/2018;14000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "privé;Melle;79174;02/08/2018;02/08/2018;9400.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "3D ENERGIES PARC EOLIEN LES RAFFAUDS 2;Melle;79174;30/09/2020;30/09/2020;6900.0;1"
+   },
+   {
+    "url": "https://georisques.gouv.fr/api/v1/installations_classees?code_insee=79174&page_size=100",
+    "quote": "\"raisonSociale\":\"Le Champ Eolien de Saint-Martin SAS\",\"adresse1\":\"LIEU-DIT MONT JARRON\",\"adresse2\":null,\"adresse3\":null,\"codePostal\":\"79500\",\"codeInsee\":\"79174\",\"commune\":\"Melle\""
+   },
+   {
+    "url": "https://georisques.gouv.fr/api/v1/installations_classees?code_insee=79174&page_size=100",
+    "quote": "\"raisonSociale\":\"Ferme éolienne Lusseray-Paizay le Tort\",\"adresse1\":null,\"adresse2\":null,\"adresse3\":null,\"codePostal\":\"79170\",\"codeInsee\":\"79174\""
+   }
+  ]
+ },
+ {
+  "item": "1a. FRA Miraumont 46.1 MW (commune total)",
+  "farm": "Miraumont wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "fix('FRA', 'Miraumont wind farm', G, '更正容量與年份：這筆 46.1 MW 是 Miraumont 鎮 5 個併網點的合計；其中 2018-12-07 併網的兩個（9.9＋13.2 MW）是 Sources de l’Ancre 風場（7 部風機、2 個併網點，ICPE 登記在 Miraumont），本站已另列（23 MW）。剩下的是 H2air 的 Coquelicot 2（2A、2B 各 9.2 MW，2015-11-27 併網）與 Camomille（4.6 MW，2018-06-27 併網），合計 23 MW', 'Capacity and year corrected: the 46.1 MW is the total of the five delivery points in Miraumont; the two connected on 7 Dec 2018 (9.9 + 13.2 MW) are the Sources de l’Ancre farm (7 turbines and 2 delivery points, registered as an ICPE in Miraumont), listed separately (23 MW). The rest is H2air’s Coquelicot 2 (2A and 2B, 9.2 MW each, connected 27 Nov 2015) and Camomille (4.6 MW, connected 27 Jun 2018), 23 MW in all', 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B', mw=23, year=2018, ph=[[2015, 18.4], [2018, 4.6]], note=True)",
+  "note_zh": "Miraumont 46.1 MW＝鎮內 5 個併網點；扣掉已另列的 Sources de l’Ancre（2 個併網點 23.1 MW），剩 Coquelicot 2（18.4 MW，2015）＋Camomille（4.6 MW，2018）＝23 MW。",
+  "note_en": "Miraumont 46.1 MW = the commune’s five delivery points; without Sources de l’Ancre (2 delivery points, 23.1 MW, a separate record) it leaves Coquelicot 2 (18.4 MW, 2015) + Camomille (4.6 MW, 2018) = 23 MW.",
+  "why": "The two Dec 2018 rows are “Confidentiel”; they are Sources de l’Ancre by count (the only two unnamed rows; the farm has 2 delivery points and its ICPE is in Miraumont) and capacity (23.1 vs 23 MW). Optional: rename='Coquelicot 2 – Camomille wind farm'. The separate Coquelicot record (36 MW, 2016, H2Air) sits at Louvencourt, where the register has “Eoliennes du Coquelicot 1” (20.7 MW, 2018), so Coquelicot 2 is not double-counted there; that record’s own 36 MW/2016 is unverified.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "COQUELICOT 2A;Miraumont;80549;27/11/2015;27/11/2015;9200.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "COQUELICOT 2B;Miraumont;80549;27/11/2015;27/11/2015;9200.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN CAMOMILLE;Miraumont;80549;27/06/2018;27/06/2018;4600.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Miraumont;80549;07/12/2018;07/12/2018;9900.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Miraumont;80549;07/12/2018;07/12/2018;13200.0;1"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/lnqGaoODi8Qr9TMoaFWkOGPITk7oJjas",
+    "quote": "Le parc éolien des sources de l'Ancre est autorisé à exploiter un parc éolien de 7 aérogénérateurs et de 2 postes de livraison"
+   },
+   {
+    "url": "https://georisques.gouv.fr/api/v1/installations_classees?code_insee=80549&page_size=100",
+    "quote": "\"codePostal\":\"80300\",\"codeInsee\":\"80549\",\"commune\":\"Miraumont\""
+   },
+   {
+    "url": "https://georisques.gouv.fr/api/v1/installations_classees?code_insee=80549&page_size=100",
+    "quote": "\"raisonSociale\":\"PARC EOLIEN DU COQUELICOT 2 (H2AIR)\""
+   }
+  ]
+ },
+ {
+  "item": "1a. FRA Voie Romaine (record 2013)",
+  "farm": "Voie Romaine wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "fix('FRA', 'Voie Romaine wind farm', G, '更正商轉年為 2014：Global EcoPower 2014-06-26 公告 Marne 省的 La Voie Romaine 風場（22 MW）風機 2014-05-13 組裝完成、2014-06-16 併網；DREAL 2026 檢查報告說前 11 部風機 2014-07-01 投入運轉（之後另核准 2 部，全場 13 部 2 MW、26 MW）', 'Commissioning year corrected to 2014: Global EcoPower announced on 26 Jun 2014 that the La Voie Romaine farm in the Marne (22 MW) finished turbine erection on 13 May 2014 and was connected on 16 Jun 2014; the DREAL inspection report (2026) says the first 11 turbines went into service on 1 Jul 2014 (2 more were authorised later, 13 × 2 MW = 26 MW in all)', 'https://echanges.dila.gouv.fr/OPENDATA/AMF/ACT/2014/06/FCACT027058_20140626.pdf', year=2014)",
+  "note_zh": "Voie Romaine：2014-06-16 併網、前 11 部 2014-07-01 運轉，紀錄的 2013 有誤。之後再加的 M1、M2 兩部（全場 26 MW）的運轉日期未寫明，容量維持 22 MW。",
+  "note_en": "Voie Romaine: connected 16 Jun 2014, first 11 turbines in service 1 Jul 2014, so the record’s 2013 is wrong. The later M1 and M2 units (26 MW in all) have no stated date, so the capacity stays 22 MW.",
+  "why": "The register has three Vitry-la-Ville delivery points dated 19 Jun 2014 (4 + 8 + 12.08 MW), consistent with 2014. La Guenelle (22 MW, 2013; Togny-aux-Bœufs 10 + 12.006 MW on 16 Dec 2013) is a separate farm and correct.",
+  "sources": [
+   {
+    "url": "https://echanges.dila.gouv.fr/OPENDATA/AMF/ACT/2014/06/FCACT027058_20140626.pdf",
+    "quote": "de la centrale éolienne de « La Voie Romaine » dans la Marne, d’une capacité installée de 22 MW"
+   },
+   {
+    "url": "https://echanges.dila.gouv.fr/OPENDATA/AMF/ACT/2014/06/FCACT027058_20140626.pdf",
+    "quote": "rbines s’est achevée le 13 mai 2014 et la centrale a été raccordée au réseau le 16 juin 2014"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/KkiWZwa8V1dBfsUVrKPPEDaAL1dnBkPw",
+    "quote": "11 premières éoliennes ont bénéficié d’une antériorité accordée par lettre préfectorale du 11 juillet 2012. Elles ont été mises en service le 1er juillet 2014."
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/KkiWZwa8V1dBfsUVrKPPEDaAL1dnBkPw",
+    "quote": "Ce parc éolien, d’une puissance totale de 26 MW, a été construit en deux phases"
+   }
+  ]
+ },
+ {
+  "item": "1a. FRA Roman Road 44 MW (Calyce)",
+  "farm": "Roman Road wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet) Probably GEM’s English rendering of “Voie Romaine” (Calyce’s other records are also translated: “Aeolus Masts” = Les Mâts d’Éole at Cheppes-la-Prairie); 44 MW = Voie Romaine 22 + La Guenelle 22 (both separate records, 2014 and 2013). A dup/drop needs a source tying Calyce’s 44 MW to these parks.",
+  "note_zh": "Roman Road（44 MW，Calyce）很可能是 GEM 把「Voie Romaine」譯成英文（Calyce 的 Aeolus Masts 就是 Cheppes-la-Prairie 的 Les Mâts d’Éole）；44 MW＝Voie Romaine 22＋La Guenelle 22。附近 6 km 內的 ICPE 只有 Voie Romaine（13 部）、La Guenelle（11 部）、Noyales（前 Eol Team，6 部）、Les Mâts d’Éole、Cheppes la Prairie 等，沒有第三座 44 MW 的風場。",
+  "note_en": "Roman Road (44 MW, Calyce) is most likely GEM’s English rendering of “Voie Romaine” (Calyce’s “Aeolus Masts” is Les Mâts d’Éole at Cheppes-la-Prairie); 44 MW = Voie Romaine 22 + La Guenelle 22. Within 6 km the only wind ICPEs are Voie Romaine (13 turbines), La Guenelle (11), Noyales (ex Eol Team, 6), Les Mâts d’Éole and Cheppes la Prairie, so there is no third 44 MW farm.",
+  "why": "marne.gouv.fr (Calyce dossiers) closes the connection; no Calyce page names Roman Road / Voie Romaine. Global EcoPower built Voie Romaine for PEVR (Leonidas Associates), not Calyce. Kept as lead; a drop would rest on the name translation only.",
+  "sources": [
+   {
+    "url": "https://georisques.gouv.fr/api/v1/installations_classees?latlon=4.42%2C48.83&rayon=6000&page_size=100",
+    "quote": "\"raisonSociale\":\"PARC EOLIEN DE LA VOIE ROMAINE\""
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/317Z9hseIjNnGmaxGllfNSR0gJRU3yl3",
+    "quote": "La Guenelle est composé de 11 éoliennes de 125m de hauteur bout de pâle et deux postes de livraison. Les éoliennes sont situées sur les territoires des communes de Togny-aux-boeufs et Mairy-sur-Marne."
+   },
+   {
+    "url": "https://www.gem.wiki/Roman_Road_wind_farm",
+    "quote": "Operating [ 1 ] 44 MW [ 1 ] Onshore [ 1 ] Calyce [100%]"
+   }
+  ]
+ },
+ {
+  "item": "1a. FRA Les Tilleuls (record 2010)",
+  "farm": "Les Tilleuls wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "fix('FRA', 'Les Tilleuls wind farm', G, '更正商轉年與容量：國家發電設施登錄的 Parc éolien des Tilleuls（Saint-Georges-sur-Arnon）12.5 MW，2009-05-13 併網', 'Commissioning year and capacity corrected: the national register lists the Parc éolien des Tilleuls (Saint-Georges-sur-Arnon), 12.5 MW, connected on 13 May 2009', 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B', year=2009, mw=12.5)",
+  "note_zh": "登錄：Parc éolien des Tilleuls 12.5 MW，2009-05-13 併網（紀錄 2010、12 MW）。",
+  "note_en": "Register: Parc éolien des Tilleuls, 12.5 MW, connected 13 May 2009 (record: 2010, 12 MW).",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN DES TILLEULS;Saint-Georges-sur-Arnon;36195;13/05/2009;13/05/2009;12500.0;1"
+   }
+  ]
+ },
+ {
+  "item": "1a+ FRA Les Pierrots (no year; same register query)",
+  "farm": "Les Pierrots wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "fix('FRA', 'Les Pierrots wind farm', G, '補上商轉年 2021 並更正容量：國家發電設施登錄的 Parc éolien Les Pierrots 1、2、3（Saint-Georges-sur-Arnon）9.6＋7.2＋9.6＝26.4 MW，2021-07-28／30 併網', 'Commissioning year 2021 added and capacity corrected: the national register lists the Parc éolien Les Pierrots 1, 2 and 3 (Saint-Georges-sur-Arnon), 9.6 + 7.2 + 9.6 = 26.4 MW, connected on 28 and 30 Jul 2021', 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B', year=2021, mw=26.4)",
+  "note_zh": "Les Pierrots 1–3：26.4 MW，2021 年 7 月併網。",
+  "note_en": "Les Pierrots 1–3: 26.4 MW, connected July 2021.",
+  "why": "Found while checking Les Tilleuls (same commune); the record (RWE, 26 MW, no year) is the only Pierrots record.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN LES PIERROTS 3;Saint-Georges-sur-Arnon;36195;28/07/2021;28/07/2021;9600.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN LES PIERROTS 2;Saint-Georges-sur-Arnon;36195;28/07/2021;28/07/2021;7200.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Indre%22%20and%20commune%3D%22Saint-Georges-sur-Arnon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN LES PIERROTS 1;Saint-Georges-sur-Arnon;36195;30/07/2021;30/07/2021;9600.0;1"
+   }
+  ]
+ },
+ {
+  "item": "1b. ITA three Sant’Agata records within 0.5 km",
+  "farm": "Sant Agata wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "write",
+  "proposal": "dup('ITA', 'Sant Agata wind farm', G, ('Sant’Agata Di Puglia (EDF) wind farm', G), '同一座風場：EDF 2007 年 3 月宣布投入運轉的 Sant’Agata 風場是 36 部 Vestas V80 2 MW（72 MW），與 Fri-El Green Power 合作開發，EDF EN Italia 持有 50%；環境部 2023 年改建案文件說 Sant’Agata di Puglia 的既有風場是 Fri-El S. Agata 的 36 部 2 MW、72 MW，同一批風機', 'Same farm: the Sant’Agata farm EDF announced in service in March 2007 is 36 Vestas V80 2 MW units (72 MW), developed with Fri-El Green Power and 50% owned by EDF EN Italia; the environment ministry’s 2023 repowering file describes the existing farm at Sant’Agata di Puglia as Fri-El S. Agata’s 36 × 2 MW, 72 MW, the same turbines', 'https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/'),\nfix('ITA', 'Sant’Agata Di Puglia (EDF) wind farm', G, '補上機組：36 部 Vestas V80 2 MW（EDF 2007 年公告；環境部改建案文件）', 'Turbines added: 36 Vestas V80 2 MW units (EDF, 2007; environment ministry repowering file)', 'https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/', turbine='36 x Vestas V80-2.0 MW')",
+  "note_zh": "EDF（72 MW，2007）與 Fri-El（72 MW）是同一座 36 部 V80；Glennmont／CEF 2 的 66 MW（Nord 1 18、Nord 2 12、Sud 1 22、Sud 2 14 MW）是另一座：The Wind Power 的 Sant’Agata 頁只有一個 72 MW 區塊（36 × V80），另有 9 × G80（18 MW）、11 × G87（22 MW）、12＋19 × G52（10.2＋16.15 MW）等 Gamesa 區塊，合計約 66 MW。",
+  "note_en": "EDF (72 MW, 2007) and Fri-El (72 MW) are the same 36 V80 units; Glennmont/CEF 2’s 66 MW (Nord 1 18, Nord 2 12, Sud 1 22, Sud 2 14 MW) is a different farm: The Wind Power’s Sant’Agata page has a single 72 MW block (36 × V80) plus Gamesa blocks of 9 × G80 (18 MW), 11 × G87 (22 MW) and 12 + 19 × G52 (10.2 + 16.15 MW), about 66 MW.",
+  "why": "Keeps the EDF record (it has the year); its owner field could become Fri-El (the 2023 file says the farm belongs to Fri-El S. Agata srl), not proposed without a dated transfer. The Glennmont record (Sant’Agata wind farm, 66 MW) stays; if a future duplicate check flags it, add NOT_DUP with The Wind Power page. Its year is still unknown (the ERM Mezzogiorno report GEM cites is 404 and web.archive.org resets).",
+  "sources": [
+   {
+    "url": "https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/",
+    "quote": "EDF has announced the entry into service of the Sant’Agata wind farm in Italy. Located in the Puglia region of southern Italy, it comprises 36 Vestas V80 windmills, each with a unit capacity of 2 MW."
+   },
+   {
+    "url": "https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/",
+    "quote": "It was developed and built together with Fri-El Green Power, the Italian partner of EDF Energies Nouvelles’ subsidiary in Italy."
+   },
+   {
+    "url": "https://www.power-eng.com/renewables/wind-energy/edf-commissions-72-mw-wind-farm-in-italy/",
+    "quote": "The wind farm is 50 per cent owned by EDF EN Italia, a 95 per cent held subsidiary of EDF Energies Nouvelles."
+   },
+   {
+    "url": "https://va.mite.gov.it/File/Documento/785134",
+    "quote": "L’impianto eolico esistente è costituito da 36 aerogeneratori, ciascuno con potenza di 2MW, per una potenza totale di impianto pari a 72 MW"
+   },
+   {
+    "url": "https://va.mite.gov.it/File/Documento/785134",
+    "quote": "di proprietà della società Fri – El S. Agata srl"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_18915.php",
+    "quote": "Part #2 City S. Agata Di Puglia Commissioning Turbines 36x Vestas V80/2000 (power 2,000 kW, diameter 80 m) Total nominal power 72,000 kW"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_18915.php",
+    "quote": "Part #4 City S. Agata Di Puglia Commissioning Turbines 9x Gamesa G80/2000 (power 2,000 kW, diameter 80 m) Total nominal power 18,000 kW"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_18915.php",
+    "quote": "Part #5 City S. Agata Di Puglia Turbines 11x Gamesa G87/2000 (power 2,000 kW, diameter 87 m) Total nominal power 22,000 kW"
+   },
+   {
+    "url": "https://www.gem.wiki/Sant%27Agata_wind_farm",
+    "quote": "Nord 1 Operating [ 1 ] 18 MW [ 1 ] Onshore Glennmont Partners; CEF 2 Wind Energy"
+   }
+  ]
+ },
+ {
+  "item": "1c. CHN two CGN Chifeng poverty-alleviation records",
+  "farm": "Liaoning Chifeng Poverty Alleviation District (China Guangdong Nuclear) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "dup('CHN', 'Liaoning Chifeng Poverty Alleviation District (China Guangdong Nuclear) wind farm', G, ('Inner Mongolia Chifeng Poverty Alleviation Area (China Guangdong Nuclear) wind farm', G), '同一座風場：兩筆的中文名都是「中广核赤峰市扶贫改革试验区10万千瓦风电项目」、都是 100 MW、都在翁牛特旗；這個項目只有一個（中廣核 2022 年 5 月風機招標：場址在內蒙古赤峰市翁牛特旗、容量 100 MW、20 個機位）。赤峰屬內蒙古，名稱裡的「Liaoning」有誤', 'Same farm: both records carry the Chinese name “中广核赤峰市扶贫改革试验区10万千瓦风电项目”, both are 100 MW and both are in Ongniud Banner; there is one such project (CGN’s turbine tender of May 2022: site in Ongniud Banner, Chifeng, Inner Mongolia, 100 MW, 20 positions). Chifeng is in Inner Mongolia, so “Liaoning” in the name is wrong', 'https://www.sohu.com/a/551331079_257552')",
+  "note_zh": "兩筆同名同容量，都在翁牛特旗；保留有精確座標（廣德公鎮）的 Inner Mongolia 那筆。商轉年仍未查到（2022 年 5 月才招標風機）。",
+  "note_en": "Same name and capacity, both in Ongniud Banner; keeps the Inner Mongolia record (exact point at Guangdegong). The year is still unknown (turbines tendered only in May 2022).",
+  "why": "Year searches (全容量并网, 广德公) found nothing; CGN e-procurement and imarine pages not reached.",
+  "sources": [
+   {
+    "url": "https://www.sohu.com/a/551331079_257552",
+    "quote": "中广核赤峰市扶贫改革试验区10万千瓦风电项目场址位于内蒙古自治区赤峰市翁牛特旗境内。本项目容量为100MW"
+   },
+   {
+    "url": "https://www.sohu.com/a/551331079_257552",
+    "quote": "本项目机位数量20台"
+   },
+   {
+    "url": "https://www.gem.wiki/Liaoning_Chifeng_Poverty_Alleviation_District_(China_Guangdong_Nuclear)_wind_farm",
+    "quote": "is an operating wind farm in Ongniud Banner, Chifeng, Inner Mongolia, China"
+   },
+   {
+    "url": "https://www.gem.wiki/Inner_Mongolia_Chifeng_Poverty_Alleviation_Area_(China_Guangdong_Nuclear)_wind_farm",
+    "quote": "is an operating wind farm in Guangdegong, Ongniud Banner, Chifeng, Inner Mongolia, China"
+   }
+  ]
+ },
+ {
+  "item": "1c. CHN Hanggin Banner (China Resources) placed in Xilingol",
+  "farm": "Inner Mongolia - Shandong Power Export Hanggin Banner  (China Resources) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Inner Mongolia - Shandong Power Export Hanggin Banner  (China Resources) wind farm', G, 'GEM 寫明此場在鄂爾多斯杭錦旗巴拉貢鎮，但座標（北緯 43.244°、東經 114.325°）是錫林郭勒盟的代用點、離杭錦旗約 600 km；改用巴拉貢鎮的位置（OpenStreetMap，概略位置）', 'GEM places this farm in Balagong, Hanggin Banner, Ordos, but its point (43.244 N, 114.325 E) is a placeholder in Xilingol League, about 600 km away; moved to Balagong town (OpenStreetMap, approximate)', 'https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_(China_Resources)_wind_farm', lat=40.27, lon=107.04, approx=True)",
+  "note_zh": "GEM 的地點欄是巴拉貢鎮（杭錦旗），座標卻是錫林郭勒的代用點（同一點還有國投杭錦旗與杭錦旗 4# 兩筆外送項目、塔林花、黃羊窪二期）。巴拉貢鎮（OSM 行政區 10438250）中心約北緯 40.27°、東經 107.04°，國電杭錦旗 3#（伊和烏素蘇木）與山東能源杭錦旗都在其範圍附近。商轉年仍未查到。",
+  "note_en": "GEM’s location field says Balagong (Hanggin Banner), but the point is a Xilingol placeholder (shared with SDIC Hanggin and Hanggin 4#, which are also export projects, Talinhua and Huangyangwa 2). Balagong town (OSM boundary 10438250) is centred at about 40.27 N, 107.04 E, near Guodian Hanggin 3# (Yihewusu) and Shandong Energy Hanggin. The year is still unknown.",
+  "why": "SDIC Hanggin and Hanggin 4# (both on the same placeholder) could be moved the same way once their localities are sourced (not checked). China Resources’ separate 200 MW guaranteed Hanggin project (2021 list) is a different project.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_(China_Resources)_wind_farm",
+    "quote": "is an operating wind farm in Balagong, Hanggin Banner, Ordos, Inner Mongolia, China"
+   },
+   {
+    "url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_(China_Resources)_wind_farm",
+    "quote": "Balagong, Hanggin Banner, Ordos, Inner Mongolia, China [ 3 ] 43.2443, 114.3252 (approximate)"
+   },
+   {
+    "url": "https://nominatim.openstreetmap.org/search?q=%E5%B7%B4%E6%8B%89%E8%B4%A1%E9%95%87&format=json",
+    "quote": "\"lat\":\"40.2741146\",\"lon\":\"107.0407789\""
+   },
+   {
+    "url": "https://nominatim.openstreetmap.org/search?q=%E5%B7%B4%E6%8B%89%E8%B4%A1%E9%95%87&format=json",
+    "quote": "\"name\":\"Balagong\",\"display_name\":\"Balagong, Hanggin Banner, Ordos City, Inner Mongolia, 017400, China\""
+   }
+  ]
+ },
+ {
+  "item": "1c. CHN Jushi Lianshui No.1/2/3 vs “· 1, 2” / “· 3”",
+  "farm": "Jiangsu Lianshui (Jushi) No.3 wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet) Probable GEM double entry: No.1 45 + No.2 90 + No.3 100 MW (operating, placeholder point, source: an administrative-licence listing on kanzhun.com) vs “Jiangsu Lianshui (Jushi) wind farm” phases 1 (44 MW), 2 (90 MW), 3 (99 MW) (construction, Dadong/Lianshui points; other name 巨石涟水223MW风电项目). Same operator 巨石新能源(淮安)有限公司. Which status is right (operating vs construction) is unproven, so no dup yet.",
+  "note_zh": "巨石涟水一、二、三號（45、90、100 MW，運轉中，代用點）與「巨石涟水223MW风电项目」一、二、三期（44、90、99 MW，建設中）營運者相同、容量幾乎一樣，應是 GEM 重複收錄；但哪一組的狀態對（已運轉或建設中）沒有出處，暫不合併。",
+  "note_en": "Jushi Lianshui No.1/2/3 (45, 90, 100 MW, operating, placeholder) and the “Jushi Lianshui 223 MW” phases 1–3 (44, 90, 99 MW, construction) share the operator and nearly the same capacities, so GEM has probably listed them twice; which status is right (operating or under construction) is unsourced, so no merge yet.",
+  "why": "Searches for 并网 and the power-business licence of 巨石新能源(淮安) found nothing; China Jushi’s announcements cover a new 500 MW Lianshui project (Dec 2024). Next: China Jushi (600176) annual reports 2023–2025 (subsidiary list / construction-in-progress) via cninfo.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Jiangsu_Lianshui_(Jushi)_No.3_wind_farm",
+    "quote": "Operating [ 1 ] 100 MW [ 1 ] Onshore [ 1 ] Jushi Renewable (Huaian) (巨石新能源(淮安)有限公司)"
+   },
+   {
+    "url": "https://www.gem.wiki/Jiangsu_Lianshui_(Jushi)_wind_farm",
+    "quote": "Other names: 巨石涟水223MW风电项目"
+   }
+  ]
+ },
+ {
+  "item": "1c. CHN Houlongshan (operating 100 MW is phase 1; zh name is phase 2)",
+  "farm": "Sichuan Yanyuan Houlongshan wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "write",
+  "proposal": "fix('CHN', 'Sichuan Yanyuan Houlongshan wind farm', G, '補上商轉年 2023 並更正中文名：華電涼山鹽源後龍山風電場 100 MW（20 部 5 MW），2022 年開工、2023 年 5 月商轉（GlobalData），華電新能鹽源公司 2023-03-29 舉行白楊坪、後龍山、長坪子風電項目集中投產儀式（四川在線）；原中文名「凉山盐源后龙山二期风电项目」是 2025 年才核准的二期（16 部 6.25 MW），已另有紀錄', 'Commissioning year 2023 added and Chinese name corrected: Huadian’s Liangshan Yanyuan Houlongshan wind farm, 100 MW (20 × 5 MW), started in 2022 and entered commercial operation in May 2023 (GlobalData); Huadian New Energy’s Yanyuan company held a joint commissioning ceremony for the Baiyangping, Houlongshan and Changpingzi wind projects on 29 Mar 2023 (Sichuan Online); the old Chinese name “凉山盐源后龙山二期风电项目” is phase 2 (16 × 6.25 MW, approved in 2025), which has its own record', 'https://power-technology.com/?p=302298', year=2023, zhname='华电凉山盐源后龙山风电场', turbine='20x 5 MW')",
+  "note_zh": "後龍山一期 100 MW：20 × 5 MW，2023 年 5 月商轉，3 月 29 日集中投產儀式；中文名改成一期。",
+  "note_en": "Houlongshan phase 1, 100 MW: 20 × 5 MW, commercial operation May 2023, joint commissioning ceremony 29 Mar 2023; Chinese name changed to phase 1.",
+  "why": "Year rests on GlobalData (power-technology profile) plus the ceremony; no 全容量并网 report found. The zh name is written from GlobalData’s English (Huadian Liangshan Yanyuan Yi Houlongshan) and the Sichuan Online wording; no Chinese source gives the exact phase-1 title.",
+  "sources": [
+   {
+    "url": "https://power-technology.com/?p=302298",
+    "quote": "Sichuan Huadian Liangshan Yanyuan Yi Houlongshan Wind Farm is a 100MW onshore wind power project. It is located in Sichuan, China."
+   },
+   {
+    "url": "https://power-technology.com/?p=302298",
+    "quote": "The wind power project consists of 20 turbines, each with 5MW nameplate capacity."
+   },
+   {
+    "url": "https://power-technology.com/?p=302298",
+    "quote": "It has been developed in a single phase. The project construction commenced in 2022 and subsequently entered into commercial operation in May 2023."
+   },
+   {
+    "url": "https://sichuan.scol.com.cn/ggxw/202303/58840888.html",
+    "quote": "3月29日，华电新能盐源公司风电项目集中投产仪式在凉山州盐源县举行。此次集中投产的是白杨坪、后龙山、长坪子三个风电项目，均位于盐源县境内"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1847847896555615665&wfr=spider&for=pc",
+    "quote": "凉山盐源后龙山二期风电项目 建设地点位于四川省凉山彝族自治州盐源县平川镇、卫城镇、树河镇及右所乡。项目 总装机容量10万千瓦，拟安装16台单机容量为0.625万千瓦的风力发电机组"
+   }
+  ]
+ },
+ {
+  "item": "1c. CHN TBEA Ruoqiang Qiman (750 MW operating) and “· 2”",
+  "farm": "Xinjiang Ruoqiang Qiman (TBEA) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet; candidate rename as in doubts_2026-10p_BC.json item 4) New: TBEA’s 2024 annual report says its new-energy company disposed of the project company 若羌县同阳新能源有限公司 and transferred out the related construction in progress (with Suileng Hesheng, 3,200 million CNY); the 2025 report records cash received for it. If 同阳 is the Ruoqiang River 1 GW project company, the farm was sold while under construction. Still no full-connection report, and the link 同阳 ↔ 若羌河 is unproven.",
+  "note_zh": "特變電工若羌河 100 萬瓩（羅布莊風區，150 部）2024-12-31 首台併網；全容量日期仍未查到。新線索：特變電工 2024 年年報說新能源公司處置了項目公司「若羌县同阳新能源有限公司」並轉出對應在建工程，2025 年年報列為收到的處置款；若同陽就是若羌河項目公司，電場在建設中已出售。",
+  "note_en": "TBEA’s Ruoqiang River 1 GW (Luobuzhuang area, 150 turbines) had its first turbine connected on 31 Dec 2024; the full-connection date is still unknown. New lead: TBEA’s 2024 annual report says its new-energy arm disposed of the project company “若羌县同阳新能源有限公司” and transferred out its construction in progress, and the 2025 report lists the disposal cash received; if Tongyang is the Ruoqiang River company, the farm was sold while being built.",
+  "why": "Searched: TBEA 2024/2025 annual reports and 2026 interim (cninfo), searches for 全容量并网 / 同阳新能源; no source names Tongyang’s project or the buyer. The 2026 interim report not read (budget).",
+  "sources": [
+   {
+    "url": "https://static.cninfo.com.cn/finalpage/2025-04-22/1223189910.PDF",
+    "quote": "所属新能源公司处置其项目公司若羌县同阳 新能源有限公司、绥棱县禾晟新能源有限公司转出对应在建工程 320,045.85 万 元"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1820129249520114866&wfr=spider&for=pc",
+    "quote": "12月31日，特变电工若羌县若羌河100万千瓦风电及配套储能项目升压站一次性反送电成功，首台风机发电，标志着若羌县又一风电及配套储能项目成功并网。"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Delfzijl Midden 39 MW",
+  "farm": "Delfzijl Midden wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Delfzijl Midden wind farm', G, '補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》格羅寧根省 2021 年完成的風場列有 Delfzijl Midden（Eemsdelta，38.7 MW）', 'Commissioning year 2021 added: RVO’s Monitor Wind op Land 2021 lists Delfzijl Midden (Eemsdelta, 38.7 MW) among the farms completed in Groningen in 2021', 'https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf', year=2021, mw=38.7)",
+  "note_zh": "RVO 2021：格羅寧根省 2021 年新增 Delfzijl Midden 38.7 MW。",
+  "note_en": "RVO 2021: Delfzijl Midden, 38.7 MW, completed in Groningen in 2021.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "Tabel 22: Realisatie en Sanering uitgesplitst per project voor Groningen Windpark Locatie MW MWh Delfzijl Midden Eemsdelta 38,7 145.400"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "realisatie van windpark Delfzijl Midden en Eemshaven Zuid-Oost"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Piet De Wit 32 MW (Promill / Deltawind)",
+  "farm": "Piet De Wit wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Piet De Wit wind farm', G, '補上商轉年 2022 並更正容量與機組：舊的 Piet de Wit（21 MW）2021 年拆除，新的 Windpark Piet de Wit（Goeree-Overflakkee，7 部 Nordex N133/4800、33.6 MW）列在荷蘭企業局（RVO）《2022 陸域風電監測》2022 年完成的風場', 'Commissioning year 2022 added, capacity and turbines corrected: the old Piet de Wit (21 MW) was removed in 2021, and the new Windpark Piet de Wit (Goeree-Overflakkee, 7 Nordex N133/4800, 33.6 MW) is listed by RVO’s Monitor Wind op Land 2022 among the farms completed in 2022', 'https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf', year=2022, mw=33.6, turbine='7 x Nordex N133/4800')",
+  "note_zh": "RVO：2021 年拆除舊 Piet de Wit 21 MW，2022 年完成新 Piet de Wit 33.6 MW（7 × Nordex N133/4800，nl.wikipedia）。",
+  "note_en": "RVO: old Piet de Wit (21 MW) removed in 2021, new Piet de Wit (33.6 MW) completed in 2022 (7 × Nordex N133/4800 per nl.wikipedia).",
+  "why": "nl.wikipedia’s table and the foundation designer’s portfolio (windbase.eu) give 2021 (construction finished); RVO, which counts operating capacity at 31 Dec, books it in 2022, so 2022 is used. The record’s 32 MW is replaced by 33.6 MW (7 × 4.8).",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf",
+    "quote": "Tabel 27: Realisatie en Sanering per project voor Zuid-Holland Windpark Locatie MW MWh Windpark Kroningswind Goeree-Overflakkee 79,8 216.600 WP Landtong Rozenburg I Rotterdam 34,2 121.200 Windpark Piet de Wit Goeree-Overflakkee 33,6 98.000"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "Sanering Piet de Wit Goeree-Overflakkee -21 -36.000"
+   },
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windturbines_in_Nederland",
+    "quote": "Windpark Piet de Wit II Zuid-Holland Deltawind 2021 7 33,6 87,5 35.000 Nordex N133/4800 4,8"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Suyderlandt 11 MW",
+  "farm": "Suyderlandt wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Suyderlandt wind farm', G, '補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》南荷蘭省 2021 年完成的風場列有 Windpark Suyderlandt（Goeree-Overflakkee，10.8 MW）', 'Commissioning year 2021 added: RVO’s Monitor Wind op Land 2021 lists Windpark Suyderlandt (Goeree-Overflakkee, 10.8 MW) among the farms completed in South Holland in 2021', 'https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf', year=2021, mw=10.8)",
+  "note_zh": "RVO 2021：Suyderlandt 10.8 MW 於 2021 年完成。",
+  "note_en": "RVO 2021: Suyderlandt, 10.8 MW, completed in 2021.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "Tabel 29: Realisatie en Sanering per project voor Zuid-Holland"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "Windpark Suyderlandt Goeree-Overflakkee 10,8 34.600"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Windmolens Groetpolder 13 MW",
+  "farm": "Windmolens Groetpolder wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Windmolens Groetpolder wind farm', G, '補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》北荷蘭省 2021 年完成的風場列有 WP Groetpolder（Hollands Kroon，13.2 MW），同時拆除舊機組 4.7 MW', 'Commissioning year 2021 added: RVO’s Monitor Wind op Land 2021 lists WP Groetpolder (Hollands Kroon, 13.2 MW) among the farms completed in North Holland in 2021, with 4.7 MW of old turbines removed', 'https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf', year=2021, mw=13.2)",
+  "note_zh": "RVO 2021：Groetpolder 13.2 MW 於 2021 年完成（2022 年另有一對一換機 6.3 MW，不在這筆）。",
+  "note_en": "RVO 2021: Groetpolder, 13.2 MW, completed in 2021 (a separate one-for-one replacement of 6.3 MW followed in 2022, not part of this record).",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "Tabel 38: Realisatie en Sanering per project voor Noord-Holland"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "HS WP Groetpolder Hollands Kroon 13,2 54.700"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Neeltje Jans – Vluchtheuvel 22 MW",
+  "farm": "Neeltje Jans – Vluchtheuvel wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Neeltje Jans – Vluchtheuvel wind farm', G, '補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》澤蘭省 2021 年完成的風場列有 Windpark Neeltje Jans Buitenhaven（Veere，21.5 MW，含 Vluchthaven，換下 15 MW 舊機組）', 'Commissioning year 2021 added: RVO’s Monitor Wind op Land 2021 lists Windpark Neeltje Jans Buitenhaven (Veere, 21.5 MW, including Vluchthaven, replacing 15 MW of old turbines) among the farms completed in Zeeland in 2021', 'https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf', year=2021, mw=21.5)",
+  "note_zh": "GEM 的「Vluchtheuvel」應是 Vluchthaven：RVO 把 Neeltje Jans Buitenhaven（含 Vluchthaven）21.5 MW 記在 2021 年完成（Noordland Buitenhaven 2 × 4.3＋Vluchthaven 3 × 4.3 MW＝21.5 MW，nl.wikipedia）；Binnenhaven 另有紀錄。",
+  "note_en": "GEM’s “Vluchtheuvel” is presumably Vluchthaven: RVO books Neeltje Jans Buitenhaven (incl. Vluchthaven), 21.5 MW, as completed in 2021 (Noordland Buitenhaven 2 × 4.3 + Vluchthaven 3 × 4.3 MW = 21.5 MW per nl.wikipedia); Binnenhaven is a separate record.",
+  "why": "nl.wikipedia dates the three Vluchthaven V136 units to 2022 and the two Noordland Buitenhaven units to 2021; RVO (primary) counts all 21.5 MW as realised in 2021, so 2021 is used. The name match (Vluchtheuvel ≈ Vluchthaven) is an inference; the capacity (22 vs 21.5 MW) and place fit.",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "Windpark Neeltje Jans Buitenhaven Veere 21,5 92.200 Sanering oude turbines Neeltje Jans Buitenhaven Veere -15 -40.100"
+   },
+   {
+    "url": "https://zoek.officielebekendmakingen.nl/blg-942277.pdf",
+    "quote": "Veere Neeltje Jans Buitenhaven (incl. Vluchthaven) Geen (2023) 22,5 15,0 7,5"
+   },
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windparken_Oosterscheldekering",
+    "quote": "Noordland Buitenhaven 2 4,3 MW 8,6 MW Vestas, V136 136 m 204 m 2021 Windpark Roompotsluis 2 BV"
+   },
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windparken_Oosterscheldekering",
+    "quote": "Vluchthaven 3 4,3 MW 12,9 MW Vestas, V136 136 m 204 m 2022 Windpark Neeltje-Jans 2 BV"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Anna Vosdijk Polder 15 MW",
+  "farm": "Anna Vosdijk Polder wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Anna Vosdijk Polder wind farm', G, '補上商轉年 2008：Anna Vosdijkpolder 風場（Tholen）有 5 部 Vestas V90 3 MW（15 MW），2008 年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖）', 'Commissioning year 2008 added: the Anna Vosdijkpolder farm (Tholen) has 5 Vestas V90 3 MW units (15 MW), in operation since 2008 (Dutch Wikipedia, after the Zeeland province wind map)', 'https://nl.wikipedia.org/wiki/Windpark_Anna_Vosdijkpolder', year=2008, turbine='5 x Vestas V90-3.0 MW')",
+  "note_zh": "nl.wikipedia：5 × V90 3 MW、2008 年運轉，座標與紀錄相差約 1 km。",
+  "note_en": "nl.wikipedia: 5 × V90 3 MW, in operation since 2008; its point is about 1 km from the record.",
+  "why": "Secondary source (nl.wikipedia infobox citing the Zeeland province wind map); the province map itself is an interactive app, not quotable.",
+  "sources": [
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windpark_Anna_Vosdijkpolder",
+    "quote": "Windpark Anna Vosdijkpolder is een windmolenpark met vijf windturbines van drie megawatt op het eiland Tholen"
+   },
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windpark_Anna_Vosdijkpolder",
+    "quote": "ame 2008 Datum info 2023-11-09 Uitbater Eneco"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Wisse 12 MW",
+  "farm": "Wisse wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Wisse wind farm', G, '補上商轉年 2011 並更正容量：Wisse Wind BV 的 Willempolder 風場（Sint Philipsland）有 5 部 2.3 MW Enercon（11.5 MW），2011 年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖）', 'Commissioning year 2011 added and capacity corrected: Wisse Wind BV’s Willempolder farm (Sint Philipsland) has 5 Enercon units of 2.3 MW (11.5 MW), in operation since 2011 (Dutch Wikipedia, after the Zeeland province wind map)', 'https://nl.wikipedia.org/wiki/Windpark_Wissewind', year=2011, mw=11.5, turbine='5 x Enercon E-82 2.3 MW')",
+  "note_zh": "nl.wikipedia（Wissewind 轉到 Willempolder）：5 × Enercon 2.3 MW、2011 年，業主 Wisse Wind BV，座標與紀錄一致。",
+  "note_en": "nl.wikipedia (Wissewind redirects to Willempolder): 5 × Enercon 2.3 MW, 2011, owner Wisse Wind BV; its point matches the record.",
+  "why": "The infobox gives Enercon, 2.3 MW and an 82 m rotor (hence E-82); secondary source.",
+  "sources": [
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windpark_Wissewind",
+    "quote": "perationeel Inbedrijfname 2011 Datum info 2023-11-14 Eigenaar Wisse Wind BV Windpark Willempolder Windpark Willempolder is een windmolenpark met vijf windturbines van elk 2,3 megawatt op het eiland Sint Philipsland"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Zierikzee 10 MW",
+  "farm": "Zierikzee wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Zierikzee wind farm', G, '補上商轉年 2014 並更正容量：Zierikzee 風場有 3 部 Senvion 3.4M104（10.2 MW），2014 年 8 月開工、同年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖）', 'Commissioning year 2014 added and capacity corrected: the Zierikzee farm has 3 Senvion 3.4M104 units (10.2 MW), construction started in August 2014 and it went into operation the same year (Dutch Wikipedia, after the Zeeland province wind map)', 'https://nl.wikipedia.org/wiki/Windpark_Zierikzee', year=2014, mw=10.2, turbine='3 x Senvion 3.4M104')",
+  "note_zh": "nl.wikipedia：3 × Senvion 3.4M104、2014 年，座標與紀錄一致。",
+  "note_en": "nl.wikipedia: 3 × Senvion 3.4M104, 2014; its point matches the record.",
+  "why": "Secondary source.",
+  "sources": [
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windpark_Zierikzee",
+    "quote": "ee Operationeel Begin bouw augustus 2014 Inbedrijfname 2014 Datum info 2023-11-13 Windpark Zierikzee Windpark Zierikzee is een windmolenpark met drie windturbines van elk 3,4 megawatt"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Etten-Leur 13 MW",
+  "farm": "Etten-Leur wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Etten-Leur wind farm', G, '補上商轉年 2019 並更正容量與機組：Etten-Leur 風場（換掉 2000 年的 5 部舊機）有 3 部 Vestas 4.2 MW（輪轂 112 m、葉輪 136 m），合計 12.6 MW，2019 年完工（基礎設計公司 Windbase 專案資料）', 'Commissioning year 2019 added, capacity and turbines corrected: the Etten-Leur farm (replacing five turbines from 2000) has 3 Vestas 4.2 MW units (112 m hub, 136 m rotor), 12.6 MW in all, completed in 2019 (foundation designer Windbase’s project sheet)', 'https://galleo.co/search/projects/wind-park-etten-leur/windbase', year=2019, mw=12.6, turbine='3 x Vestas V136-4.2 MW')",
+  "note_zh": "Windbase：3 × Vestas 4.2 MW（V136）、12.6 MW、2019 年完工；位置（北緯 51.628°、東經 4.642°）離紀錄約 1.4 km。",
+  "note_en": "Windbase: 3 × Vestas 4.2 MW (V136), 12.6 MW, completed 2019; its point (51.628 N, 4.642 E) is about 1.4 km from the record.",
+  "why": "Windbase is the foundation designer’s project portfolio (secondary). RVO 2018 listed the repowering as “Windpark Groene Dijk” (13.5 MW, replacing 6.5 MW); the 2020 monitor lists a further “Uitbreiding Groene Dijk” (6 MW), not part of this record.",
+  "sources": [
+   {
+    "url": "https://galleo.co/search/projects/wind-park-etten-leur/windbase",
+    "quote": "Wind Farm Etten-Leur is a wind farm located in The Netherlands completed in 2019. The project consists of 3"
+   },
+   {
+    "url": "https://galleo.co/search/projects/wind-park-etten-leur/windbase",
+    "quote": "Rated power total: 12.6 MW"
+   },
+   {
+    "url": "https://zoek.officielebekendmakingen.nl/blg-892400.pdf",
+    "quote": "Etten-Leur Windpark Groene Dijk°³ GCR 13,5 6,5 7,0"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Epz 24 MW (EPZ NV)",
+  "farm": "Epz wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "(no change yet) RVO 2022 lists “Windpark EPZ” (Borsele) 16.8 MW completed in 2022, replacing 8.9 MW of old EPZ turbines; the record’s 24 MW does not match either figure, so which park GEM means (old + new, or a planned extension) is unclear.",
+  "note_zh": "RVO 2022：Windpark EPZ（Borsele）16.8 MW 於 2022 年完成，換下 8.9 MW 舊機組；紀錄 24 MW 與兩者都不符，待查。",
+  "note_en": "RVO 2022: Windpark EPZ (Borsele) 16.8 MW completed in 2022, replacing 8.9 MW of old turbines; the record’s 24 MW matches neither, to check.",
+  "why": "If the record stands for the new park, fix year=2022, mw=16.8; needs a source tying GEM’s 24 MW to it (RVO 2020 notes the project was enlarged by 2 turbines, phases 1 and 2 built together).",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf",
+    "quote": "Windpark EPZ Borsele 16,8 50.800 Sanering oude turbines EPZ Borsele -8,9 -20.400"
+   },
+   {
+    "url": "https://zoek.officielebekendmakingen.nl/blg-992813.pdf",
+    "quote": "EPZ Project is uitgebreid met 2 turbines. Fase 1 en 2 wordt nu gelijktijdig uitgevoerd"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Kubbeweg 74 MW (repowering)",
+  "farm": "Kubbeweg wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "(no change yet) The 74 MW record is the repowering of Kubbeweg (the old 17 × V80, 34 MW from 2006, is the separate retired record “· 1”): Windpark Kubbetocht en Zijdenettentocht, a line of 12 turbines in Windplan Groen. Its commissioning date was not found (RVO 2022/2023 monitors and the permit files give none).",
+  "note_zh": "Kubbeweg 74 MW 是 Windplan Groen 的 Kubbetocht／Zijdenettentocht 一排 12 部換機（舊的 17 部 V80 是另一筆已除役紀錄）；運轉日期未查到。",
+  "note_en": "Kubbeweg 74 MW is Windplan Groen’s Kubbetocht/Zijdenettentocht line of 12 replacement turbines (the old 17 V80 units are a separate retired record); commissioning date not found.",
+  "why": "Windplan Groen parts were commissioned 2023–2024 (Hondtocht Zuid 2024 in the data); next: Windplan Groen / Windkoepel Groen news, RVO Monitor 2024.",
+  "sources": [
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windpark_Kubbeweg",
+    "quote": "Het park is gebouwd in 2006 en bestaat uit zeventien V80 2 MW-turbines van Vestas"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD remaining farms without a year",
+  "farm": "(22 farms: Flevo Ventum, Mammoettocht, De Kleine Trap, Haagen, Bosruitertocht, Amsterdam-Westpoort, Van Pallandtpolder, Midlum, Ritthem, Wagendorp, Ooievaarsweg, Roompotsluis, Netterden-Azewijn, Noordertocht, Windstroom, Futenweg, Dodaarsweg, Laaksche Vaart, St. Antoinedijk, Van Gogh, Hoofdplaatpolder)",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "none",
+  "proposal": "(no change) Not found in the RVO Monitor Wind op Land 2018–2023 project tables (they cover projects completed from 2018 on) nor in nl.wikipedia articles; most are older Flevoland line parks and Zeeland/Brabant parks from the 1990s–2000s.",
+  "note_zh": "其餘 21 座（多為 1990–2000 年代的弗萊福蘭線狀風場與澤蘭、北布拉班特的小風場）在 RVO 2018–2023 監測的逐案表與荷蘭文維基都沒有年份；另注意 Ritthem（北緯 52.477°）與 Roompotsluis（北緯 52.04°、東經 5.223°）的座標不在澤蘭，疑為錯置。",
+  "note_en": "The other 21 (mostly 1990s–2000s Flevoland line parks and small Zeeland/Brabant parks) have no year in the RVO 2018–2023 project tables or nl.wikipedia; note also that Ritthem (52.477 N) and Roompotsluis (52.04 N, 5.223 E) are not in Zeeland and look misplaced.",
+  "why": "The Wind Power hides commissioning dates on free pages; windbase.eu (foundation designer portfolio) lists Zwartenbergseweg (Etten-Leur, 5 × V90 2 MW, 2012) and Hoevensche Beemden (Hoeven, 5 × V90 3 MW, 2012), which could be Van Gogh / Laaksche Vaart (both 10 MW) but no source ties the names. Roompotsluis may be Noordland Buitenhaven (Windpark Roompotsluis BV, 2 × 3 MW, 2012). Next: Windstats NL (if reachable without an account), provincial wind maps, Eurus/Vattenfall pages.",
+  "sources": []
+ }
+]
