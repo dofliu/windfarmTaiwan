@@ -576,6 +576,10 @@
    {
     "url": "https://nl.wikipedia.org/wiki/Windpark_Anna_Vosdijkpolder",
     "quote": "ame 2008 Datum info 2023-11-09 Uitbater Eneco"
+   },
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windpark_Anna_Vosdijkpolder",
+    "quote": "Vermogen 15 MW Windmolens Aantal 5 Type Vestas V90/3000 Vermogen 3 MW"
    }
   ]
  },
@@ -585,10 +589,10 @@
   "src_code": 2,
   "iso": "NLD",
   "status": "write",
-  "proposal": "fix('NLD', 'Wisse wind farm', G, '補上商轉年 2011 並更正容量：Wisse Wind BV 的 Willempolder 風場（Sint Philipsland）有 5 部 2.3 MW Enercon（11.5 MW），2011 年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖）', 'Commissioning year 2011 added and capacity corrected: Wisse Wind BV’s Willempolder farm (Sint Philipsland) has 5 Enercon units of 2.3 MW (11.5 MW), in operation since 2011 (Dutch Wikipedia, after the Zeeland province wind map)', 'https://nl.wikipedia.org/wiki/Windpark_Wissewind', year=2011, mw=11.5, turbine='5 x Enercon E-82 2.3 MW')",
+  "proposal": "fix('NLD', 'Wisse wind farm', G, '補上商轉年 2011 並更正容量：Wisse Wind BV 的 Willempolder 風場（Sint Philipsland）有 5 部 2.3 MW Enercon（11.5 MW），2011 年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖）', 'Commissioning year 2011 added and capacity corrected: Wisse Wind BV’s Willempolder farm (Sint Philipsland) has 5 Enercon units of 2.3 MW (11.5 MW), in operation since 2011 (Dutch Wikipedia, after the Zeeland province wind map)', 'https://nl.wikipedia.org/wiki/Windpark_Wissewind', year=2011, mw=11.5, turbine='5 x Enercon 2.3 MW')",
   "note_zh": "nl.wikipedia（Wissewind 轉到 Willempolder）：5 × Enercon 2.3 MW、2011 年，業主 Wisse Wind BV，座標與紀錄一致。",
   "note_en": "nl.wikipedia (Wissewind redirects to Willempolder): 5 × Enercon 2.3 MW, 2011, owner Wisse Wind BV; its point matches the record.",
-  "why": "The infobox gives Enercon, 2.3 MW and an 82 m rotor (hence E-82); secondary source.",
+  "why": "The infobox gives Enercon, 2.3 MW and an 82 m rotor (probably E-82, not written); secondary source.",
   "sources": [
    {
     "url": "https://nl.wikipedia.org/wiki/Windpark_Wissewind",
@@ -630,7 +634,7 @@
    },
    {
     "url": "https://galleo.co/search/projects/wind-park-etten-leur/windbase",
-    "quote": "Rated power total: 12.6 MW"
+    "quote": "Turbine supplier: Vestas Type: Onshore Turbine Tip height: 180 m Rotor diameter: 136 m Rated power total: 12.6 MW"
    },
    {
     "url": "https://zoek.officielebekendmakingen.nl/blg-892400.pdf",
@@ -678,7 +682,7 @@
  },
  {
   "item": "2. NLD remaining farms without a year",
-  "farm": "(22 farms: Flevo Ventum, Mammoettocht, De Kleine Trap, Haagen, Bosruitertocht, Amsterdam-Westpoort, Van Pallandtpolder, Midlum, Ritthem, Wagendorp, Ooievaarsweg, Roompotsluis, Netterden-Azewijn, Noordertocht, Windstroom, Futenweg, Dodaarsweg, Laaksche Vaart, St. Antoinedijk, Van Gogh, Hoofdplaatpolder)",
+  "farm": "(21 farms: Flevo Ventum, Mammoettocht, De Kleine Trap, Haagen, Bosruitertocht, Amsterdam-Westpoort, Van Pallandtpolder, Midlum, Ritthem, Wagendorp, Ooievaarsweg, Roompotsluis, Netterden-Azewijn, Noordertocht, Windstroom, Futenweg, Dodaarsweg, Laaksche Vaart, St. Antoinedijk, Van Gogh, Hoofdplaatpolder)",
   "src_code": 2,
   "iso": "NLD",
   "status": "none",
