@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 517 條：刪除 164 筆（其中營運中 45,353.9 MW），修正 353 筆。
+- 規則 533 條：刪除 166 筆（其中營運中 46,053.9 MW），修正 367 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 59 | 26,824.5 | 145 |
+| 中國大陸 | 61 | 27,524.5 | 159 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -260,6 +260,22 @@
 | Longyuan Putian Nanri Island · 400 MW · 2019 | 精選 | 修正：機組 | 龍源莆田南日島（三墩風電場）是 100 部西門子 SWT-4.0-130（福建龍源 2026-07 招標：「現已安裝有海上 100 台西門子 SWT-4.0-130 變槳變速型機組」），不是金風 GW171-6.45 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20260731/e9b7aeb1-a2d1-4db9-b7a9-afc63483abb8.html) |
 | Longyuan Putian Nanri Island · 400 MW · 2019 | 精選 | 修正：年份 | 全部投產是 2021 年底（福建龍源 2022-08 招標：「安裝 100 台西門子 4MW 雙饋風力發電機組，機組離岸距離在 0–14 公里範圍內，於 2021 年底完成全部投產發電」），不是 2019 年 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220817/475120fe-d699-4cc3-af64-5bd9bf13f507.html) |
 | Longyuan Rudong Intertidal Demo · 32 MW · 2010 | 精選 | 修正：機組 | 龍源如東 30 MW 潮間帶試驗風電場 2010 年 9 月投產時是 9 家廠商的 16 部試驗機組、3.2 萬瓩（1.5–3 MW）；龍源 2019 與 2024 年運維招標列出現存 15 部、8 種機型：遠景 EN82/1.5、聯合動力 UP82-1500、海裝 H93-2000、明陽 MY1.5S、三一 SE93/2000、華銳 SL3000、上海電氣 W2000 各 2 部，金風 GW100/2500 1 部（招標寫總容量 27.5 MW，但所列機組合計 29.5 MW）。第 16 部（2.5 MW）何時、為何不在清單上待查證；容量維持建成時的 32 MW | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20190814/91f278b0-cb76-4c62-81f7-9f3d77c5c03f.html) |
+| Inner Mongolia Zhengxiangbai Banner (Shanxi International Energy) Green Hydrogen wind farms · 1,350 MW | GEM | 修正：狀態 | 正鑲白旗300萬瓩風光製氫一體化項目（風電250萬瓩、光伏50萬瓩，格盟諾金新能源，山西國際能源集團儲能公司持股65%）2024年12月27日取得建設指標，2025年11月可研才通過評審；原訂一期2025年6月開工、二期2025年10月開工，報導指一期仍未開工（晉融社經東方財富 2025-11-27）。GEM 把二期 1,350 MW 標為營運中，實為規劃中 | [連結](https://caifuhao.eastmoney.com/news/20251127100947595412760) |
+| Inner Mongolia Shangdu (Huaneng Beifang) wind farm · Duolun · 500 MW | GEM | 重複（併入「Shangdu Huaneng Beifang」） | 同一座風場：精選紀錄「Shangdu Huaneng Beifang」（1,600 MW）就是華能北方上都百萬千瓦級風電基地，分正藍旗場區 1,100 MW 與多倫場區 500 MW（北方多倫），全容量併網日期 2023-06-30（蒙電華能重組審核問詢回覆 2025-12）；GEM 的正藍旗分期已在建置時併入精選紀錄，多倫分期是重複 | [連結](https://file.finance.qq.com/finance/hs/pdf/2025/12/03/1224844317.PDF) |
+| Shangdu Huaneng Beifang · 1,600 MW · 2022 | 精選 | 修正：年份 | 華能北方上都百萬千瓦級風電基地（正藍旗 1,100 MW、多倫 500 MW）2022 年 10 月底起陸續併網，2023 年 6 月 30 日全容量併網（中新網經能源在線 2023-07-05；蒙電華能重組審核問詢回覆 2025-12）；原寫 2022 年 | [連結](https://www.news2e.com/e/action/ShowInfo.php?classid=20&id=566) |
+| Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 1, Area 2, Area 6, Area 7, Area 8, Area 9 · 444 MW | GEM | 修正：年份 | 華電北疆烏魯木齊 100 萬瓩風光基地（風電 80 萬瓩、光伏 20 萬瓩，達坂城 10 個地塊）2023 年 6 月 30 日全容量併網（中國華電經新華網新疆頻道 2023-07-10） | [連結](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
+| Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 4, Area 5 · 300 MW | GEM | 修正：年份 | 華電北疆烏魯木齊 100 萬瓩風光基地（風電 80 萬瓩、光伏 20 萬瓩，達坂城 10 個地塊）2023 年 6 月 30 日全容量併網（中國華電經新華網新疆頻道 2023-07-10） | [連結](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
+| Gansu Subei Mazongshan Yinmaxia Area A wind farm · 155 MW | GEM | 修正：年份、容量、機組 | 肅北縣馬鬃山飲馬峽 A 區 15 萬瓩風電項目（業主肅北蒙古族自治縣騰達風電，運達風電總包招標 2022-07）即「馬鬃山騰達 15 萬瓩風電項目」：30 部 5 MW，2023 年 12 月全容量併網（中新網甘肅 2023-12-28）；原寫 155 MW | [連結](http://www.gs.chinanews.com.cn/news/2023/12-28/367256.shtml) |
+| Xinjiang Altai Jimunai (State Power Investment) wind farm · 250 MW | GEM | 修正：年份、機組 | 國家電投吉木乃 25 萬瓩風電項目（阿勒泰地區保障性併網項目，40 部 6.25 MW）2023 年 4 月全容量併網（國家電投新疆公司經電力網 2023-04-19） | [連結](http://www.chinapower.com.cn/flfd/xmjz/20230419/196883.html) |
+| Inner Mongolia Wulatehou Banner 200 MW (Jingneng) wind farm · 200 MW | GEM | 修正：年份、機組、業主 | 烏拉特後旗京能 200 MW 風電項目（巴彥淖爾京能清潔能源電力公司，2022 年 6 月開工，40 部 5 MW）2023 年 3–4 月全容量併網（掌上巴彥淖爾 2023-04-02） | [連結](https://baijiahao.baidu.com/s?id=1762074057272726588&wfr=spider&for=pc) |
+| Inner Mongolia Keyouqian Banner 200 MW wind farm · 200 MW | GEM | 修正：年份 | 華能蒙東新能源恩輝風電場科爾沁右翼前旗 20 萬瓩風電項目 32 部風機 2023 年 6 月 9 日全部併網（電力網 2023-06-15） | [連結](http://mm.chinapower.com.cn/flfd/xmjz/20230615/205166.html) |
+| Hunan Jiangyong Shuimeitang wind farm · 260 MW | GEM | 修正：年份、機組 | 華電永州水美塘 260 MW 風電項目（江永縣松柏鄉與瀟浦鎮，52 部 5.0 MW）2023 年 12 月 29 日全容量併網（央廣網 2023-12-30） | [連結](https://www.cnr.cn/hunan/yw/20231230/t20231230_526540744.shtml) |
+| Inner Mongolia Alashanzuo Banner Zongbieli (China Resources) wind farm · 200 MW | GEM | 修正：年份、機組、業主 | 華潤新能源阿拉善宗別立 200 MW 風電項目 2023 年 6 月 30 日 32 部風機全容量併網，裝 32 部中車 6.25 MW（內蒙古日報 2023-07-21） | [連結](http://nm.people.com.cn/n2/2023/0721/c347198-40502062.html) |
+| Liaoning Tai'an (Anshan Liaodian) wind farm · 200 MW | GEM | 修正：年份、機組 | 國家電投東北公司台安縣 200 MW 集中式風電項目（新台鎮、富家鎮，40 部 5 MW）2024 年 10 月 25 日全容量併網（遼寧日報經遼寧省政府網 2024-11-04；國家電投東北公司 2024-10-28） | [連結](https://www.ln.gov.cn/web/ywdt/jrln/tpxw/2024110409165961567/index.shtml) |
+| Liaoning Zhangwu Xiliujiazi wind farm · 250 MW | GEM | 修正：年份 | 大金重工的阜新彰武西六家子 250 MW 風電項目「已經於去年建成」（大金重工投資者關係活動記錄 2024-09，即 2023 年建成） | [連結](http://static.cninfo.com.cn/finalpage/2024-09-01/1221106372.PDF) |
+| Jilin Tongyu (Huaneng) 2000 MW Unsubsidized wind farm · 200 MW | GEM | 重複（併入「Jilin Tongyu Shihuadao wind farm」） | 同一座風場：華能通榆 200 萬瓩平價上網項目一期 20 萬瓩與二期 10 萬瓩建在什花道風電場（華能沉降觀測招標 2022-05），什花道 30 萬瓩（89 部風機）2021 年 12 月 30 日全容量併網（中國華能經世紀新能源網 2022-01-05），已是「Jilin Tongyu Shihuadao wind farm」（300 MW、2021） | [連結](https://www.ne21.com/news/show-167486.html) |
+| Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 3 · 56 MW | GEM | 修正：年份 | 華電北疆烏魯木齊 100 萬瓩風光基地（風電 80 萬瓩、光伏 20 萬瓩，達坂城 10 個地塊）2023 年 6 月 30 日全容量併網（中國華電經新華網新疆頻道 2023-07-10）；GEM 把 80 萬瓩風電分成三筆（444＋300＋56 MW），這筆的座標是新疆的佔位點，不在達坂城 | [連結](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
+| Jilin Tongyu Shihuadao wind farm · 300 MW · 2021 | GEM | 修正：座標 | 什花道風電場是華能通榆 200 萬瓩平價上網項目的一、二期（見同批 Tongyu 一期的 dup），在通榆縣；原座標（北緯 42.999°、東經 125.982°，與良井子同點）在通榆東南約 300 km，改用 GEM 對同一專案一期的點（通榆縣，概略位置） | [連結](https://www.ne21.com/news/show-167486.html) |
 
 ## 丹麥 (DNK)
 

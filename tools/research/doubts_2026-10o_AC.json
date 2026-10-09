@@ -100,47 +100,6 @@
   ]
  },
  {
-  "item": "WIND-045 Rokewood (Victoria) blade fatality, 2024-11-11",
-  "farm": "Golden Plains (Stage 1)",
-  "src_code": 0,
-  "iso": "AUS",
-  "status": "write",
-  "proposal": "\"WIND-045\": [\"Golden Plains (Stage 1)\"]",
-  "note_zh": "WorkSafe 只寫 Rokewood；AAP 與 RenewEconomy 都寫明是 Rokewood 的 Golden Plains 風場（Vestas 安裝，36 歲分包工人被地面待吊的葉片壓死）。事故地點在 Rokewood 東邊、Rokewood–Shelford 路旁的 Bells Road（Stock & Land）；Bells Road（OSM way 205318904）距本站 turbines_osm.json 裡 Golden Plains 第一期（東區，122 部）的風機只有 0.25–0.66 km，而且事故後 Vestas 暫停的是第一期 756 MW 的施工。第二期（西區，本站 GEM 紀錄「Golden Plains wind farm (Australia)」574 MW）2024 年中才開工。對應第一期。",
-  "note_en": "WorkSafe only says Rokewood; AAP and RenewEconomy name the Golden Plains Wind Farm at Rokewood (Vestas installation; a 36-year-old subcontractor crushed by a blade waiting on the ground to be lifted). The site was on Bells Road, off the Rokewood–Shelford Road east of Rokewood (Stock & Land); Bells Road (OSM way 205318904) is 0.25–0.66 km from the stage 1 (East, 122 turbines) positions in the site's turbines_osm.json, and after the accident Vestas paused construction on the first 756 MW stage. Stage 2 (West; the site's GEM record \"Golden Plains wind farm (Australia)\", 574 MW) only began construction in mid-2024. Linked to stage 1.",
-  "why": "No source states the stage in so many words: the stage rests on the Bells Road location inside the stage 1 turbine array (an internal check against turbines_osm.json; the OSM API XML cannot be quoted by check_quotes) and on Vestas pausing stage 1 work. If the main session wants only explicitly stated links, use both records [\"Golden Plains (Stage 1)\", \"Golden Plains wind farm (Australia)\"] or leave it unlinked.",
-  "sources": [
-   {
-    "url": "https://aapnews.aap.com.au/news/worker-killed-by-fallen-turbine-blade-at-wind-farm",
-    "quote": "The 36-year-old subcontractor was working at Golden Plains Wind Farm in Rokewood, west of Melbourne, when he was crushed by the rotor blade on Monday morning"
-   },
-   {
-    "url": "https://www.stockandland.com.au/story/8816147/wind-farm-accident-man-reportedly-injured-by-turbine-blade/",
-    "quote": "The site of the incident is on Bells Road, off the Rokewood-Shelford Road, east of Rokewood."
-   },
-   {
-    "url": "https://reneweconomy.com.au/vestas-suspends-work-on-a-gigawatt-of-projects-as-golden-plains-fatal-accident-investigated/",
-    "quote": "construction work at the first 756 stage of the Golden Plains wind project and the first 252 MW stage of the Wambo project in Queensland have both been pa"
-   },
-   {
-    "url": "https://reneweconomy.com.au/man-dies-after-being-crushed-by-turbine-blade-at-australias-biggest-wind-project/",
-    "quote": "In September, small blade parts fell from turbines at the 756 megawatt (MW) stage one ‘East’ section of the project."
-   },
-   {
-    "url": "https://www.goldenplainswindfarm.com.au/",
-    "quote": "Golden Plains Wind Farm – East commenced construction in Q1 2023 and will feature 122 turbines"
-   },
-   {
-    "url": "https://www.goldenplainswindfarm.com.au/",
-    "quote": "Golden Plains Wind Farm – West of the project is currently owned by TagEnergy (85%) and Ingka Group (15%) and commenced construction in mid-2024."
-   },
-   {
-    "url": "https://www.worksafe.vic.gov.au/news/2024-11/worksafe-investigates-wind-farm-fatality",
-    "quote": "WorkSafe is investigating the death of a worker who was crushed by a wind turbine blade at Rokewood yesterday."
-   }
-  ]
- },
- {
   "item": "WIND-063 Miyakojima, Typhoon Maemi (2003-09-11)",
   "farm": "Okinawa Electric Karimata / Shichimata test units (not in the layer)",
   "src_code": 3,
@@ -208,89 +167,6 @@
   ]
  },
  {
-  "item": "WIND-068 Windpark Haltern AV9 (Nordex N149 collapse, 2021-09-29)",
-  "farm": "Windpark Haltern AV 9",
-  "src_code": 4,
-  "iso": "DEU",
-  "status": "write",
-  "proposal": "\"WIND-068\": [\"Windpark Haltern AV 9\"]",
-  "note_zh": "Nordex 聲明：2021-09-29 在 Haltern AV9 風場（9 MW）一部 N149/4.0-4.5 幾乎全毀；該機 1 月裝在 164 m 混合塔架上、3 月 11 日商轉。本站 MaStR 紀錄「Windpark Haltern AV 9」（北緯 51.744°、東經 7.094°；2 部 Nordex N149/4.0-4.5 TCS164，9 MW，2021；turbines_de.json 輪轂 164 m）就是這座。",
-  "note_en": "Nordex statement: on 29 Sept 2021 an N149/4.0-4.5 almost completely collapsed in the 9 MW Haltern AV9 wind park; it was installed on a 164 m hybrid tower in January and commissioned on 11 March. The site's MaStR record \"Windpark Haltern AV 9\" (51.744 N, 7.094 E; 2 x Nordex N149/4.0-4.5 TCS164, 9 MW, 2021; hub 164 m in turbines_de.json) is that park.",
-  "why": "Name, capacity (9 MW), model, tower (TCS164 = 164 m) and year all match.",
-  "sources": [
-   {
-    "url": "https://www.nordex-online.com/en/2021/10/statement-on-the-collapse-of-a-wind-turbine-in-haltern-av9-wind-park-germany/",
-    "quote": "On 29 September 2021, a N149/4.0-4.5 turbine almost completely collapsed in the 9MW wind park. The turbine was installed on a 164m hybrid tower in January and was commissioned on 11 March."
-   },
-   {
-    "url": "https://www.nordex-online.com/en/2021/10/statement-on-the-collapse-of-a-wind-turbine-in-haltern-av9-wind-park-germany/",
-    "quote": "Statement on the collapse of a wind turbine in Haltern AV9 wind park (Germany)"
-   }
-  ]
- },
- {
-  "item": "WIND-079 Rei dos Ventos 3 (AES Brasil, 2021-02-07)",
-  "farm": "Ventus wind farm",
-  "src_code": 2,
-  "iso": "BRA",
-  "status": "write",
-  "proposal": "\"WIND-079\": [\"Ventus wind farm\"]  ·  plus a duplicate rule: dup('BRA', 'Rei dos Ventos 1', P, ('Ventus wind farm', G), 'WRI 的 Rei dos Ventos 1（58.5 MW，北緯 5.101° 南、西經 36.202°）就是 GEM「Ventus wind farm」（Complexo Eólico Ventus，187 MW）的一期 Rei dos Ventos 1（58.45 MW，座標相同）', 'WRI’s Rei dos Ventos 1 (58.5 MW, 5.101 S, 36.202 W) is the Rei dos Ventos 1 phase (58.45 MW, same coordinates) of GEM’s “Ventus wind farm” (Complexo Eólico Ventus, 187 MW)', 'https://www.gem.wiki/Ventus_wind_farm')",
-  "note_zh": "AES Brasil：故障後關閉的是 Rei dos Ventos 3 園區的機組。GEM「Ventus wind farm」（Complexo Eólico Ventus，AES 100%）由 Miassaba 3（68.47 MW）、Rei dos Ventos 1（58.45 MW）與 Rei dos Ventos 3（60.12 MW）組成，合計 187 MW，即本站的「Ventus wind farm」紀錄。另：WRI 的「Rei dos Ventos 1」（58.5 MW、座標與 GEM 的 Rei dos Ventos 1 分期完全相同）重複計入，建議 dup 到 Ventus。",
-  "note_en": "AES Brasil: the machines switched off after the incidents were those of the Rei dos Ventos 3 park. GEM's \"Ventus wind farm\" (Complexo Eólico Ventus, AES 100%) consists of Miassaba 3 (68.47 MW), Rei dos Ventos 1 (58.45 MW) and Rei dos Ventos 3 (60.12 MW), 187 MW in all: the site's \"Ventus wind farm\" record. Also: WRI's \"Rei dos Ventos 1\" (58.5 MW, the same coordinates as GEM's Rei dos Ventos 1 phase) double-counts that phase; a dup rule into Ventus is proposed.",
-  "why": "The event is at park 3, which the layer holds only inside the Ventus complex record.",
-  "sources": [
-   {
-    "url": "https://en.clickpetroleoegas.com.br/general-electric-e-aes-brasil-investigam-incendio-e-queda-de-turbinas-em-parque-eolico-no-rn/",
-    "quote": "the machines at the Rei dos Ventos 3 park were turned off"
-   },
-   {
-    "url": "https://en.clickpetroleoegas.com.br/general-electric-e-aes-brasil-investigam-incendio-e-queda-de-turbinas-em-parque-eolico-no-rn/",
-    "quote": "AES Brazil acquired the Rei dos Ventos wind farm in 2020, in a transaction that also included other wind assets that belonged to J. Malucelli"
-   },
-   {
-    "url": "https://www.gem.wiki/Ventus_wind_farm",
-    "quote": "Ventus wind farm (Complexo Eólico Ventus) is an operating wind farm in Macau , Rio Grande do Norte, Brazil."
-   },
-   {
-    "url": "https://www.gem.wiki/Ventus_wind_farm",
-    "quote": "Rei dos Ventos 1 Operating [ 1 ] 2014 [ 1 ] 58.45 MW [ 1 ] Onshore [ 2 ] AES Corp [100%] [ 3 ] AES [ 3 ] Rei dos Ventos 3 Operating [ 1 ] 2014 [ 1 ] 60.12 MW"
-   },
-   {
-    "url": "https://www.gem.wiki/Ventus_wind_farm",
-    "quote": "Rei dos Ventos 1 Galinhos , Região Geográfica Intermediária de Natal, Rio Grande do Norte, Brazil [ 1 ] -5.1009, -36.2021 (exact)"
-   }
-  ]
- },
- {
-  "item": "WIND-080 Delta 6 (Omega, Paulino Neves, 2019-09-03)",
-  "farm": "Delta Maranhão",
-  "src_code": 0,
-  "iso": "BRA",
-  "status": "write",
-  "proposal": "\"WIND-080\": [\"Delta Maranhão\"]",
-  "note_zh": "GE 聲明：2019-09-03 一部 GE 風機在馬拉尼昂州 Paulino Neves 的 Delta 6 風場倒塌。GEM「Delta Maranhão wind farm」（Complexo Eólico Delta Maranhão，Omega）含 Delta 3-1～3-8、5-1/5-2、6-1（29.7 MW）/6-2（24.3 MW，即事件的 54 MW）、7-1/7-2、8-1，合計 426 MW，兩個 Delta 6 分期都在 Paulino Neves；建置時這筆 GEM 被同名同容量（426 MW）的精選紀錄「Delta Maranhão」取代（build_farms.log），所以對應精選紀錄。",
-  "note_en": "GE statement: on 3 Sept 2019 a GE turbine collapsed at the Delta 6 wind park in Paulino Neves, Maranhão. GEM's \"Delta Maranhão wind farm\" (Complexo Eólico Delta Maranhão, Omega) holds Delta 3-1 to 3-8, 5-1/5-2, 6-1 (29.7 MW) / 6-2 (24.3 MW, the event's 54 MW), 7-1/7-2 and 8-1, 426 MW in all, with both Delta 6 phases in Paulino Neves; the build replaced this GEM record with the curated \"Delta Maranhão\" of the same name and capacity (426 MW; build_farms.log), so the event goes to the curated record.",
-  "why": "Side note (lead, no rule): the curated record's turbine field says \"Vestas/Nordex\", but Delta 6 used GE turbines per GE's statement; the full model mix of the complex was not checked.",
-  "sources": [
-   {
-    "url": "https://www.wind-watch.org/news/2019/09/06/worker-hurt-after-fifth-ge-wind-turbine-collapse-this-year/",
-    "quote": "On 3 September, a GE turbine collapsed at the Delta 6 wind park, located at Paulino Neves, Maranhao."
-   },
-   {
-    "url": "https://www.gem.wiki/Delta_Maranh%C3%A3o_wind_farm",
-    "quote": "Delta 6 - 1 Operating [ 1 ] 2019 [ 1 ] 29.7 MW [ 1 ] Onshore [ 2 ] Omega Geração SA [100%] [ 3 ] Omega Geração [ 3 ] Delta 6 - 2 Operating [ 1 ] 2019 [ 1 ] 24.3 MW"
-   },
-   {
-    "url": "https://www.gem.wiki/Delta_Maranh%C3%A3o_wind_farm",
-    "quote": "Delta 6 - 2 Paulino Neves , Região Geográfica Intermediária de São Luís, Maranhão, Brazil [ 1 ] -2.7058, -42.5336 (exact)"
-   },
-   {
-    "url": "https://www.gem.wiki/Delta_Maranh%C3%A3o_wind_farm",
-    "quote": "Delta Maranhão wind farm (Complexo Eólico Delta Maranhão) is an operating wind farm in Barreiri"
-   }
-  ]
- },
- {
   "item": "WIND-084 Jiuquan mass disconnection (2011-02-24)",
   "farm": "(multi-site: 16 wind farms, 598 turbines)",
   "src_code": 0,
@@ -304,43 +180,6 @@
    {
     "url": "https://www.chinanews.com.cn/ny/2011/06-07/3093352.shtml",
     "quote": "2月24日，中电酒泉风电公司桥西第一风电场出现电缆头故障，导致16个风电场598台风电机组脱网。"
-   }
-  ]
- },
- {
-  "item": "WIND-085 Huaneng Wenchang repowering, Typhoon Yagi (2024-09-06)",
-  "farm": "Hainan Wenchang Chaotanbi wind farm · RP",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "write",
-  "proposal": "\"WIND-085\": [\"Hainan Wenchang Chaotanbi wind farm · RP\"]",
-  "note_zh": "界面新聞：倒塔的是華能海南發電的華能文昌風電廠「以大代小」改造升級項目（擬新建 16 台 6.25 MW 抗颱型風機、已吊裝 13 台，尚未併網）。湖南火電（施工方）2024-07：華能文昌風電廠「以大代小」增容改造項目位於文昌市錦山鎮東北部沿海，原裝機 52.5 MW、2008-12-21 全容量併網，拆除 32 台舊機、新建 16 台 6.25 MW，總容量增至 104 MW。本站 GEM 紀錄「Hainan Wenchang Chaotanbi wind farm · RP」（海南文昌風电厂“以大代小”增容改造项目，104 MW，興建中，錦山）就是這個改造案（GEM 同頁一期的營運者是華能海南發電）。",
-  "note_en": "Jiemian: the collapsed towers belong to Huaneng Hainan Power's Wenchang wind farm \"replace small with large\" repowering (16 new 6.25 MW typhoon-class turbines planned, 13 erected, not yet connected). Hunan Thermal Power (the contractor), July 2024: the Huaneng Wenchang repowering is on the coast north-east of Jinshan town, Wenchang; the old farm (52.5 MW, fully connected on 21 Dec 2008) loses 32 old units and gains 16 x 6.25 MW, 104 MW in all. The site's GEM record \"Hainan Wenchang Chaotanbi wind farm · RP\" (104 MW, under construction, Jinshan) is this repowering (GEM's page names Huaneng Hainan Power as the phase 1 operator).",
-  "why": "Name, owner, place (Jinshan, Wenchang) and capacity (104 MW) match. Side note for the record (not proposed here): the contractor gives hub 113 m and rotor 190 m for the new units.",
-  "sources": [
-   {
-    "url": "https://m.jiemian.com/article/11690459.html",
-    "quote": "据界面新闻多方求证，这些风电机组属于华能集团旗下华能海南发电股份有限公司。"
-   },
-   {
-    "url": "https://m.jiemian.com/article/11690459.html",
-    "quote": "该项目为华能文昌风电厂“以大代小”改造升级项目，拟新建16台6.25MW抗台型风机，项目已吊装了13台。"
-   },
-   {
-    "url": "http://www.hpcc.ceec.net.cn/art/2024/7/17/art_6915_2527447.html",
-    "quote": "华能文昌风电厂“以大代小”增容改造项目拟拆除原有除27#、33#风机外的32台风机，在拆除风机点位处新建16台6.25兆瓦抗台型风机，风电场总容量增至104兆瓦。"
-   },
-   {
-    "url": "http://www.hpcc.ceec.net.cn/art/2024/7/17/art_6915_2527447.html",
-    "quote": "于海南文昌市锦山镇东北部沿海，原装机容量为52.5兆瓦，于2008年12月21日全容量并网发电"
-   },
-   {
-    "url": "https://www.gem.wiki/Hainan_Wenchang_Chaotanbi_wind_farm",
-    "quote": "RP Construction [ 4 ] – 104 MW [ 4 ] Onshore [ 4 ]"
-   },
-   {
-    "url": "https://www.gem.wiki/Hainan_Wenchang_Chaotanbi_wind_farm",
-    "quote": "Huaneng Hainan Power (华能海南发电股份有限公司)"
    }
   ]
  },
@@ -362,39 +201,6 @@
    {
     "url": "https://www.rechargenews.com/wind/worker-falls-to-death-inside-wind-turbine-tower-in-california/2-1-939049",
     "quote": "Mario Contreras Jr was working for Site Constructors Inc at an unidentified project near Palm Springs"
-   }
-  ]
- },
- {
-  "item": "Part 2a. Longyuan Rudong Intertidal Demo: unit list and capacity",
-  "farm": "Longyuan Rudong Intertidal Demo",
-  "src_code": 0,
-  "iso": "CHN",
-  "status": "write",
-  "proposal": "fix('CHN', 'Longyuan Rudong Intertidal Demo', C, '2010 年 9 月投產時是 16 部試驗機組、32 MW（1.5–3 MW）；龍源 2019 與 2024 年運維招標列出現存 15 部、8 種機型：遠景 EN82/1.5、聯合動力 UP82-1500、海裝 H93-2000、明陽 MY1.5S、三一 SE93/2000、華銳 SL3000、上海電氣 W2000 各 2 部，金風 GW100/2500 1 部（招標寫總容量 27.5 MW，但所列機組合計 29.5 MW）。第 16 部（2.5 MW）何時、為何不在清單上待查；容量維持建成時的 32 MW', 'In service from Sept 2010 with 16 test units, 32 MW (1.5–3 MW); Longyuan’s O&M tenders of 2019 and 2024 list the 15 units still there, 8 models: 2 each of Envision EN82/1.5, Guodian United Power UP82-1500, CSSC Haizhuang H93-2000, Mingyang MY1.5S, Sany SE93/2000, Sinovel SL3000 and Shanghai Electric W2000, and 1 Goldwind GW100/2500 (the tenders state 27.5 MW, but the listed units add up to 29.5 MW). When and why the 16th unit (2.5 MW) left is still to be checked; the capacity stays at the as-built 32 MW', 'http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20190814/91f278b0-cb76-4c62-81f7-9f3d77c5c03f.html', turbine='16 test units, 1.5–3 MW; 15 listed since 2019: 2x Envision EN82-1.5, 2x Guodian UP82-1.5, 2x CSSC Haizhuang H93-2.0, 1x Goldwind GW100-2.5, 2x Mingyang MY1.5S, 2x Sany SE93-2.0, 2x Sinovel SL3000, 2x Shanghai Electric W2000', note=True)",
-  "note_zh": "建成時：16 部、32 MW（geoseu 引述；前瞻網「3.2 萬千瓦試驗風電場 2010 年 9 月投產」為先前輪次已用的口徑）。2019-08 與 2024-07 兩份運維招標逐一列出現存機組：15 部、8 種機型，其中金風 GW100/2500 只有 1 部、其餘各 2 部；兩份都寫「總容量 27.5 MW」，但 2×1.5＋2×1.5＋2×2＋2.5＋2×1.5＋2×2＋2×3＋2×2＝29.5 MW，與招標自己的數字不符，應以機組清單為準。32 − 29.5 = 2.5 MW，推測少掉的是一部 2.5 MW（可能是第二部金風；建成時若是 8 家各 2 部正好 32 MW，但 geoseu 寫 9 家廠商，所以不能確定）。容量建議維持 32 MW（2010 年建成值），機型欄改列 2019 年清單；第 16 部何時離場待查（不知道年份，不改容量）。",
-  "note_en": "As built: 16 units, 32 MW (geoseu). The O&M tenders of Aug 2019 and Jul 2024 list the remaining units one by one: 15 units of 8 models, Goldwind GW100/2500 x1 and the others x2. Both state \"27.5 MW in total\", but 2x1.5 + 2x1.5 + 2x2 + 2.5 + 2x1.5 + 2x2 + 2x3 + 2x2 = 29.5 MW, so the tenders' own total is wrong and the unit list is used. 32 − 29.5 = 2.5 MW: the missing unit was presumably a 2.5 MW machine (possibly a second Goldwind; 8 makers x 2 units would give exactly 32 MW, but geoseu says 9 makers, so this is not certain). Keep 32 MW (as built in 2010) and list the 2019 units in the turbine field; when the 16th unit left is unknown, so the capacity is not reduced.",
-  "why": "No source lists the original 16 units or says when one left (CHN Energy full-text search: only the 2019 and 2024 O&M tenders list units; a 2026 Longyuan tender confirms the Huangang complex = 30 MW test + 50 MW expansion, 150 MW demo + 50 MW addition and the 200 MW expansion, 155 turbines). Alternative if the main session prefers current capacity: mw=29.5 with the same note, but that would under-count 2010 to the unknown removal year.",
-  "sources": [
-   {
-    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20190814/91f278b0-cb76-4c62-81f7-9f3d77c5c03f.html",
-    "quote": "其中江苏如东 30MW 潮间带试验项目中，包含远景 EN82/15 机组两台、联合动力 UP82-1500 机组两台、海装 H93CN-2000 机组两台、金风 GW100/2500 机组一台、明阳 MY1.5S 机组两台、三一 SE93/2000 机组两台、华锐 SL3000 机组两台、上海电气 W2000 机组两台，共计 15 台风电机组，总容量为 27.5MW"
-   },
-   {
-    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20240710/7af3b5b0-4fa8-4e0e-973e-489809af537e.html",
-    "quote": "其中江苏如东30MW潮间带试验项目中，包含远景EN82/15机组两台、联合动力UP82-1500机组两台、海装H93CN-2000机组两台、金风GW100/2500机组一台、明阳MY1.5S机组两台、三一SE9"
-   },
-   {
-    "url": "https://www.geoseu.cn/yanjiuyuan/5136.html",
-    "quote": "风电场共安装了9个国内风电机组生产厂家的16台海上试验机组，单机容量为1.5-3.0MW，总容量3.2万千瓦。"
-   },
-   {
-    "url": "http://www.nea.gov.cn/2011-10/26/c_131213139.htm",
-    "quote": "2010年9月28日，如东30兆瓦海上（潮间带）试验风电场建设竣工投产"
-   },
-   {
-    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20260630/e0999206-6fa3-41b0-9471-9075f64c5031.html",
-    "quote": "分别是龙源如东30MW试验风电场及后续50MW扩建项目、龙源如东150MW示范风电场及后续50MW增容项目、龙源如东示范风电场200MW扩建项目共155台风机"
    }
   ]
  },

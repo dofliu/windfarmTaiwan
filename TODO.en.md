@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 9 Oct 2026: v2.30.12, the new "low pile cap" type and research round 17; the next conversation starts here)
+## In progress (hand-off, 9 Oct 2026: v2.30.13, research round 18: commissioning years and event links; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,25 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 9 Oct 2026 (v2.30.13): research round 18 (three sub-agents: AA China and AB elsewhere, the largest operating farms without a commissioning year; AC the events not yet linked to a farm plus two Chinese doubts;
+  every quote checked with `check_quotes.py`; results in `tools/research/years_2026-10o_AA.json`, `years_2026-10o_AB.json` and `doubts_2026-10o_AC.json`, written entries deleted, leads kept). Clean-up rules 508 → 533
+  (`farm_cleanup.py`, 9 Oct 2026 "eleventh batch"):
+  1. Commissioning years: operating farms without a year go from 966 (48.2 GW) to 948 (42.6 GW), with years written for 14 (11 in China, 2 in Brazil, 1 in India). A useful new source: ANEEL's open data
+     (`dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?q=…&format=csv`, the commercial-release date of every unit, quotable as is).
+  2. Duplicates and status: Shangdu's Duolun section folds into the curated Huaneng Shangdu (1,600 MW, full connection 30 June 2023); Tongyu 2 GW phase 1 = Shihuadao (which moves to Tongyu county,
+     approximate); Chile's La Cabana and WRI's Rei dos Ventos 1 in Brazil; the 1,350 MW Zhengxiangbai wind-hydrogen project is now pre-construction; Brazil's Ventos de São Rafael 08, 10 and 11 are operating.
+  3. Events: 7 more placed at their farms (84 of 91); Crotched Mountain (1980, often called the world's first wind farm) is a new retired curated record, with an approximate end year of 1982 and the
+     summit as an approximate point, both unverified.
+  4. The Longyuan Rudong intertidal test farm's turbine field lists the 15 units of its O&M tenders; the capacity stays at 32 MW (the tenders say 27.5 MW, the units add up to 29.5 MW, and when the 16th
+     unit left is unverified). Shapa phase 2 is 31 Mingyang + 31 Goldwind (GlobalData plus the lot values in CTG's prospectus).
+  5. Still leads (years): in China, Mangya (Luneng), Jiuzhou, Jidian Weifang and Tieling county may not be fully operating yet; Chaoyang (first power May 2023), Hangjin (1 Jan 2023), Dashiqiao (June 2024)
+     and Alashanyou have first-power dates only; Gaotai Beibutan, Changling Longfenghu and Yangyuan have planned dates only; GEM's "750 MW operating" for TBEA's Ruoqiang Qiman may belong to its separate
+     Luobuzhuang project (Qiman was announced as 1,000 MW in two phases). Elsewhere: Amistad (planned Oct 2018; phase 1 188.1 MW), San Carlos (53 MW still added in Q1 2021), Santa Cruz (2020 or 2021),
+     Monlora, Uygar (first phase May 2025), Evrencik and Dangri (Tata); several Indian farms found nothing.
+  6. Data doubts (to verify): the Netherlands' Drentse Monden should be 45 × 3.9 MW = 175.5 MW (record 156.8); India's Atria I + II exceed the whole 120 MW farm; Atria I, Yermala, Vankusawade, Evergreen,
+     TEECL and Dangri (Leap) sit on city or shared placeholder points; Evergreen's 250 MW looks like a developer total; Jimunai and Dabancheng Area 3 share a Xinjiang placeholder; Liangjingzi shared
+     Shihuadao's wrong point (Liangjingzi is still there); Fengning's two 150 MW phases may be double-counted; Envision's two Ejin Horo records may overlap; Delta Maranhão's turbine field says
+     Vestas/Nordex, but Delta 6 used GE.
 - 9 Oct 2026 (v2.30.12): the owner decided to add the foundation type "low pile cap" (`lp`; the Chinese tidal-flat "low pile, tall pedestal", with the cap buried below the mud and a tall column carrying
   the tower), in the "other fixed" colour group, so the map colours do not change (colour-blind check re-run). Research round 17 the same day (one sub-agent, results in `tools/research/fd_2026-10n_Z.json`,
   every quote checked with `check_quotes.py`) looked for farms that use the type; **none could be written**:
@@ -330,8 +349,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures (v2.30.11): 285 of 331 operating offshore farms have a known foundation type (87.3% of capacity); dimensions for 278 farms,
-  all three for 183; 508 clean-up rules; card photos for 64 farms.
+- Current figures (v2.30.13): 285 of 331 operating offshore farms have a known foundation type (87.3% of capacity); dimensions for 278 farms,
+  all three for 183; 533 clean-up rules; card photos for 64 farms; 84 of 91 events linked to a farm.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -474,11 +493,10 @@ and move finished items to the topic lists below.
       CHANGELOG v2.12.3). The four details that were only in the notes (Lemnhult date, Delta 6 date, Maverick farm name, Screggagh root cause)
       were checked against openable sources in v2.12.4; still unchecked and kept only in the notes: the Maverick turbine make (GE, KFOR 403)
       and the Screggagh wind speed of 9–10 m/s (E&T 403).
-- [ ] 14 events not yet linked to a farm: WIND-001 Crotched Mountain, WIND-008 Kunimidake (the layer only has the 2027 project), WIND-010 and
-      WIND-084 (grid-wide events), WIND-079 Rei dos Ventos (park 3; the layer only has park 1), WIND-034 Ocean Wind 1/2 (cancelled), WIND-045 Rokewood (no official site name in the source), WIND-063
-      Miyakojima 2003 (the layer's two records are a later batch from 2007/2008), WIND-064 the Awaji park turbine, WIND-065 Hornslet, WIND-068
-      Haltern AV9 (the layer's Haltern Ennenberg is a different park), WIND-080 Delta 6, WIND-085 Wenchang (cannot confirm which record),
-      WIND-088 (the reports do not name the farm). Add to `FARMS` when found; never guess.
+- [ ] 7 events not yet linked to a farm (re-checked in round 18, v2.30.13; the other 7 are now linked): WIND-008 Kunimidake (the 2002 farm, 2 × 900 kW, is not in the layer; only the 2027
+      project is), WIND-010 (the South Australia blackout; AEMO names nine farms), WIND-034 Ocean Wind 1/2 (cancelled, not in the layer), WIND-063 Miyakojima 2003 (Okinawa Electric's Karimata and
+      Shichimata test units, not in the layer), WIND-064 the Awaji park turbine (a single municipal turbine), WIND-065 Hornslet (Hyacintvej, five 600 kW turbines, not in the layer) and WIND-088 (the
+      reports do not name the farm). Add to `FARMS` when found; never guess.
 - [ ] Events without coordinates: those linked to a farm are placed at the farm (the card says so), the rest appear only in the Events tab and
       clicking them flies to the country; add coordinates to the CSV only from a primary source (Miyakojima and Hornslet currently use approximate
       town positions, stated in the coordinate note).
@@ -584,8 +602,8 @@ the rules are in `tools/farm_cleanup.py`.
       Windpark Asseln (GEM's Paderborn) and was removed as a duplicate in v2.30.8; the MaStR matching around there was sorted out in v2.30.10 (item 3 of round 15 under "In progress")
 - [x] 587 pipeline projects whose expected year had already passed (101 GW): only 2 remain after GEM 2026-02 (Monsoon in Laos, 600 MW,
       and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
-- [ ] 48 GW of operating farms have no commissioning year (mostly in China and India), so the map can
-      only show them from 2025: add years where they can be found
+- [ ] 948 operating farms, 42.6 GW, have no commissioning year (v2.30.13; mostly in China and India), so the map can
+      only show them from 2025: add years where they can be found (round 18 checked the 68 largest; leads under "In progress")
 - [x] Germany filled from MaStR (v2.22.0): farm-level coverage 68% → 96%; the suspected duplicates were cleared in v2.22.1 (Flomborn-Stetten's
       misplaced point corrected, the other 7 pairs confirmed as different farms and listed in `NOT_DUP` in `farm_cleanup.py`)
 - [ ] Large countries with low coverage (after GEM 2026-02: China 98 GW short, India 16 GW): assess filling
