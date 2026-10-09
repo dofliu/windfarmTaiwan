@@ -15,6 +15,18 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.18 — 2026-10-09
+
+- Research round 23 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "sixteenth batch" in the [clean-up log](docs/data-cleanup.en.md)):
+  - Commissioning years added: operating farms without a year go from 666 (32.1 GW) to 640 (31.1 GW). India 218 → 204 (rating reports, Oil India and Tata Power releases, Orient Green's IPO
+    prospectus and others; Oil India's Unchawas and Ludurva and Tata's Supa move from placeholder points to their villages, approximate); China's Alashanyou (SPIC) and Dengzhou (CGN) distributed get 2022.
+  - Duplicates and farms that do not exist: Argentina's Energética I and Tres Picos fold into Vientos Bonaerenses; WRI's Mount Gilboa in Israel into Afcon; Lithuania's Strepeikiu into Pagėgiai 13;
+    Italy's Cocullo, Marsica 2 At and Ponte Rotto into the records of the same farms; France's Les Chandelles into Breteuil-Esquennoy and Entre Seine Et Aube into La Prévoterie (now with its 2010, 2014
+    and 2021 phases); India's Agar (Greenko), Dangri (Bhilwara) and Gopalpura folded. Cameroon's 100 MW "operating" farm does not exist (IRENA: 0 MW of wind in Cameroon in 2024) and Poland's
+    Reńska Wieś is only an application, so both are removed; Argentina's Santa Teresita becomes pre-construction.
+  - Corrections: Tournevents du COS becomes 2017 (DREAL: the whole farm running from 10 Nov 2017), L'Huître et Granville gets 2009 (register), Poland's Tyszowce 30 MW / 2016, Xingyang Feilongding's
+    capacity becomes the 32.4 MW actually built, India's Kita (Orix) 38.4 MW; "Chennai wind farm (REMCL)" is really Southern Railway's 10.5 MW farm at Kayathar (renamed, 2019).
+
 ## v2.30.17 — 2026-10-09
 
 - Research round 22 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "fifteenth batch" in the [clean-up log](docs/data-cleanup.en.md)):

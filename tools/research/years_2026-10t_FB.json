@@ -1,0 +1,722 @@
+[
+ {
+  "item": "1. Gude wind farm lat 17.685, lon 74.025",
+  "farm": "Gude wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s only source is an archived pppinindia.gov.in page (web.archive.org resets here). The Wind Power lists 12 Suzlon S82 (18 MW) by GreenInfra at Gude but no year. No rating rationale or Sembcorp/Green Infra release found.",
+  "sources": []
+ },
+ {
+  "item": "2. Sadawaghapur wind farm lat 17.636, lon 74.298",
+  "farm": "Sadawaghapur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "ADB’s project page gives 17.5 MW (14 × 1.25 MW) and public consultation on 18 Sep 2008, so commissioning is 2008 or later, but no date. ADB monitoring reports for the project are scanned images; Tata Power annual reports not reached.",
+  "sources": [
+   {
+    "url": "https://www.adb.org/projects/41900-014/main",
+    "quote": "The Sadawaghapur Wind Power Project involves the construction and operation of 17.5 MW of wind power generation facilities (14 units of 1,250 kilowatts)"
+   },
+   {
+    "url": "https://www.adb.org/projects/41900-014/main",
+    "quote": "on 18 September 2008 for the Sadawaghapur Wind Power Project"
+   }
+  ]
+ },
+ {
+  "item": "3. TEECL Wind Project 1 lat 13.79, lon 75.746",
+  "farm": "TEECL Wind Project 1",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CRISIL rationales (2019, 2022) describe Techno Electric’s wind portfolio (Super Wind 45 MW and Simran 50.45 MW acquired 2009, later divestments) but not this 18 MW Karnataka project or a COD.",
+  "sources": []
+ },
+ {
+  "item": "4. Tukda Adodar wind farm lat 21.641, lon 69.611",
+  "farm": "Tukda Adodar wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is the CEA plant-wise RE report (cea.nic.in now requires login; web.archive.org resets). No GSFC annual report or other source found for an 18 MW Tukda Adodar farm.",
+  "sources": []
+ },
+ {
+  "item": "5. Udumalpet (Orient Green) I wind farm lat 10.584, lon 77.248",
+  "farm": "Udumalpet (Orient Green) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Orient Green Power’s wind assets are bundles of second-hand turbines with mixed commissioning dates (1994–2010 per the 2010 prospectus table “Date of commissioning”); the prospectus codes them (KKM, KVM, UPT, PRG…) and GEM’s names come from OGPL’s website, which is unreadable here (stub page; web.archive.org resets). No reliable match, and an aggregate’s year would be its last part. Candidates: “WF 17.95 UPT” (Udumalpet EDC, 17.95 MW, 67 WEGs, Sept 1994–July 2010) or “WF 17 KVM2” (17 MW, March 1997–April 2001, but in Tirunelveli EDC).",
+  "sources": [
+   {
+    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287656661830.pdf",
+    "quote": "WF 17.95 UPT 17.95 67 66 NEPC; 1 Chettinad September 1994, March 1995, September 1995, April 1996, July 2010"
+   }
+  ]
+ },
+ {
+  "item": "7. Jamnagar (CEPCO) wind farm lat 22.541, lon 73.433",
+  "farm": "Jamnagar (CEPCO) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "ICRA’s rationale (June 2016; the PDF viewer route /Rating/ShowRationalReportFilePdfViewer/<Id> works where ShowRationaleReport is JavaScript-only) gives CEPCO’s wind capacity by state but no CODs or sites. A UNFCCC CDM entry “Cepco Wind Power Project in Gujarat” exists (crediting from Dec 2011) but cdm.unfccc.int is blocked. Points are state placeholders. Capacity per ICRA: Gujarat (16.8 MW).",
+  "sources": [
+   {
+    "url": "https://www.icra.in/Rating/ShowRationalReportFilePdfViewer/26968",
+    "quote": "CEPCO owns and operates a total of 87.8 MW of wind power capacity across the states of Rajasthan (39.2 MW), Madhya Pradesh (16.8 MW), Karnataka (13.2 MW) and Gujarat (16.8 MW)"
+   }
+  ]
+ },
+ {
+  "item": "8. Dewas (CEPCO) wind farm lat 23.281, lon 77.41",
+  "farm": "Dewas (CEPCO) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "ICRA’s rationale (June 2016; the PDF viewer route /Rating/ShowRationalReportFilePdfViewer/<Id> works where ShowRationaleReport is JavaScript-only) gives CEPCO’s wind capacity by state but no CODs or sites. A UNFCCC CDM entry “Cepco Wind Power Project in Gujarat” exists (crediting from Dec 2011) but cdm.unfccc.int is blocked. Points are state placeholders. Capacity per ICRA: Madhya Pradesh (16.8 MW).",
+  "sources": [
+   {
+    "url": "https://www.icra.in/Rating/ShowRationalReportFilePdfViewer/26968",
+    "quote": "CEPCO owns and operates a total of 87.8 MW of wind power capacity across the states of Rajasthan (39.2 MW), Madhya Pradesh (16.8 MW), Karnataka (13.2 MW) and Gujarat (16.8 MW)"
+   }
+  ]
+ },
+ {
+  "item": "9. Ecoren Venti wind farm lat 12.033, lon 77.273",
+  "farm": "Ecoren Venti wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "ecorenenergy.com/projects/ returns 404; web.archive.org resets. No other source with a COD.",
+  "sources": []
+ },
+ {
+  "item": "11. Nettur wind farm lat 8.917, lon 77.531",
+  "farm": "Nettur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Orient Green Power’s wind assets are bundles of second-hand turbines with mixed commissioning dates (1994–2010 per the 2010 prospectus table “Date of commissioning”); the prospectus codes them (KKM, KVM, UPT, PRG…) and GEM’s names come from OGPL’s website, which is unreadable here (stub page; web.archive.org resets). No reliable match, and an aggregate’s year would be its last part. Candidate by capacity: “WF 16 KKM2” (16.05 MW, 65 WEGs, March 1997–April 2001), but its approvals place it at Pazhavoor/Karunkulam/Levengipuram, not Nettur.",
+  "sources": [
+   {
+    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287656661830.pdf",
+    "quote": "WF 16 KKM2 16.05 65 57 DLWL; 8 Vestas RRB Various dates from March 1997-April 20012 June 2008 – January 2009"
+   }
+  ]
+ },
+ {
+  "item": "13. Theni (Ienergy) wind farm lat 9.848, lon 77.383",
+  "farm": "Theni (Ienergy) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Indian Energy’s Theni phase 1 is 16.5 MW (11 × 1.5 MW Regen); all 11 turbines were installed by 19 Jul 2010, awaiting TNEB interconnection. A Renewable Energy Focus story (“Indian Theni wind farm fully commissioned”, c. 2010, CEO says completed ahead of the 9–12 months from the Dec 2009 contract) points to 2010, but renewableenergyfocus.com (503/TLS reset) and reinforcedplastics.com (404) could not be read, so no year. Capacity 16.5 MW could replace 16.",
+  "sources": [
+   {
+    "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/IEnergy_Wind_Farms_Theni_Private_Limited_August_31_2020_RR.html",
+    "quote": "Thus, currently, IWFTPL is operating a 16.5 MW (11 x 1.5MW) plant."
+   },
+   {
+    "url": "https://www.foundry-planet.com/d/theni-i-wind-farm-ready-for-connection/",
+    "quote": "The last 8 wind turbines have now been installed, bringing the total to 11, 1.5 MW wind turbines. The wind farm will be fully commissioned once the interconnection work at the Tamil Nadu Electricity Board substation is finished."
+   },
+   {
+    "url": "https://www.foundry-planet.com/d/theni-i-wind-farm-ready-for-connection/",
+    "quote": "19. July 2010"
+   }
+  ]
+ },
+ {
+  "item": "14. Sandala (Suzlon) II wind farm lat 23.481, lon 74.918",
+  "farm": "Sandala (Suzlon) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM cites no source; MP lists (mprenewable.nic.in: DNS failure / 502), MP SLDC minutes (403) and web.archive.org (reset) unreachable. Point is the Ratlam placeholder shared with Sandala I, Ratlam (Choksi) I and Ratlam (Suzlon) I/II.",
+  "sources": []
+ },
+ {
+  "item": "15. Sandala (Suzlon) I wind farm lat 23.481, lon 74.918",
+  "farm": "Sandala (Suzlon) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Same as Sandala (Suzlon) II: no source reachable; placeholder point.",
+  "sources": []
+ },
+ {
+  "item": "16. Tirunelvelli (Cape) wind farm lat 10.909, lon 78.367",
+  "farm": "Tirunelvelli (Cape) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Economic Times (27 Feb 2009): Shriram EPC won a turnkey contract from Cape Energy for a 15 MW farm in Tirunelveli district (60 × 250 kW), due by end-April 2009. Completion not confirmed, so no year. GEM’s point (10.909 N, 78.367 E) is near Tiruchirappalli, not Tirunelveli district — position looks wrong but the exact site is unknown.",
+  "sources": [
+   {
+    "url": "https://economictimes.indiatimes.com/industry/energy/power/shriram-epc-bags-70-cr-contract/articleshow/4199499.cms",
+    "quote": "has been awarded a Rs.70 crore turnkey contract for setting up a 15 MW wind farm in Tirunelveli district, by Cape Energy"
+   },
+   {
+    "url": "https://economictimes.indiatimes.com/industry/energy/power/shriram-epc-bags-70-cr-contract/articleshow/4199499.cms",
+    "quote": "The contract involves supply of 60 units of 250 KW wind turbines"
+   },
+   {
+    "url": "https://economictimes.indiatimes.com/industry/energy/power/shriram-epc-bags-70-cr-contract/articleshow/4199499.cms",
+    "quote": "The project is to be completed by end of April."
+   },
+   {
+    "url": "https://economictimes.indiatimes.com/industry/energy/power/shriram-epc-bags-70-cr-contract/articleshow/4199499.cms",
+    "quote": "Last Updated: Feb 27, 2009"
+   }
+  ]
+ },
+ {
+  "item": "17. Ratlam (Choksi) I wind farm lat 23.481, lon 74.918",
+  "farm": "Ratlam (Choksi) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No source with a COD found; MP lists unreachable (mprenewable.nic.in 502, SLDC 403). Placeholder point.",
+  "sources": []
+ },
+ {
+  "item": "18. Susner wind farm lat 23.371, lon 76.621",
+  "farm": "Susner wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM cites no source; MP lists unreachable (mprenewable.nic.in 502, SLDC 403, web.archive.org reset). Same point as Mahuriya (Suzlon) I/II.",
+  "sources": []
+ },
+ {
+  "item": "19. Kuchrod wind farm lat 23.896, lon 75.266",
+  "farm": "Kuchrod wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Giriraj Enterprises (Unjha, Gujarat) captive farm; GEM cites no source; no rating rationale or COD found; MP lists unreachable.",
+  "sources": []
+ },
+ {
+  "item": "20. Mahuriya (Suzlon) II wind farm lat 23.371, lon 76.621",
+  "farm": "Mahuriya (Suzlon) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s sources are MP SLDC minutes of 24 Sep 2015 (403) and mprenewable.nic.in/aa2.pdf (DNS failure; web.archive.org resets). No other source.",
+  "sources": []
+ },
+ {
+  "item": "21. Mahuriya (Suzlon) I wind farm lat 23.371, lon 76.621",
+  "farm": "Mahuriya (Suzlon) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "As Mahuriya (Suzlon) II: MP SLDC (403) and mprenewable.nic.in (unreachable).",
+  "sources": []
+ },
+ {
+  "item": "22. Chennai Mohan wind farm lat 13.05, lon 80.23",
+  "farm": "Chennai Mohan wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s sources are The Wind Power (15 MW Suzlon, no year) and a tourism listing. No COD found.",
+  "sources": []
+ },
+ {
+  "item": "23. Agar (Suzlon) II wind farm lat 23.934, lon 76.145",
+  "farm": "Agar (Suzlon) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM cites no source; MP lists unreachable. Same point as Agar (Suzlon) I.",
+  "sources": []
+ },
+ {
+  "item": "24. Agar (Suzlon) I wind farm lat 23.934, lon 76.145",
+  "farm": "Agar (Suzlon) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM cites no source; MP lists unreachable.",
+  "sources": []
+ },
+ {
+  "item": "25. Afjalpur wind farm lat 24.265, lon 75.387",
+  "farm": "Afjalpur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Giriraj Enterprises captive farm; no source with a COD; MP lists unreachable.",
+  "sources": []
+ },
+ {
+  "item": "27. Dhar (Choksi) wind farm lat 22.5, lon 75.25",
+  "farm": "Dhar (Choksi) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM cites no source; no Choksi group wind disclosure found; MP lists unreachable. Point is a Dhar district centroid.",
+  "sources": []
+ },
+ {
+  "item": "28. Varshamedi (GACL) wind farm lat 22.305, lon 70.803",
+  "farm": "Varshamedi (GACL) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is the CEA plant-wise RE report (login now; web.archive.org resets). Searches for GACL annual reports with per-site years found only the 21 MW Maliya Miyana project (due March 2010) and GACL’s 171.45 MW total.",
+  "sources": []
+ },
+ {
+  "item": "29. Ratlam (Suzlon) I wind farm lat 23.481, lon 74.918",
+  "farm": "Ratlam (Suzlon) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is mprenewable.nic.in/aa1.jpg (unreachable). Placeholder point.",
+  "sources": []
+ },
+ {
+  "item": "31. Jogmatti BSES wind farm lat 12.975, lon 77.726",
+  "farm": "Jogmatti BSES wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Old farm from the Wikipedia-derived list GEM cites (a blog); no COD found.",
+  "sources": []
+ },
+ {
+  "item": "32. Jamgodrani (MP Windfarms) wind farm lat 22.969, lon 76.055",
+  "farm": "Jamgodrani (MP Windfarms) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "The Wind Power lists a 14 MW Suzlon (20 units) phase at Jamgudrani, Dewas, without year or owner; no MP Windfarms Ltd source found.",
+  "sources": []
+ },
+ {
+  "item": "33. Chavaneswar (Paharpur) wind farm lat 17.685, lon 74.025",
+  "farm": "Chavaneswar (Paharpur) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is the CDM validation report (cdm.unfccc.int blocked); Mahatransco’s grid-connectivity list resets the connection. No COD found. Point is a Satara placeholder shared with Gude.",
+  "sources": []
+ },
+ {
+  "item": "34. Udumalpet (Orient Green) II wind farm lat 10.584, lon 77.248",
+  "farm": "Udumalpet (Orient Green) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Owner per GEM is Ramco Cements (source: ramcocements.in/wind-farms.aspx, now 404; web.archive.org resets). Ramco’s mills date from 1992 onwards; no per-site year found.",
+  "sources": []
+ },
+ {
+  "item": "35. Thandayarkulam wind farm lat 10.326, lon 77.985",
+  "farm": "Thandayarkulam wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Ramco Cements site (13 MW per The Wind Power); Ramco’s wind-farm page is 404 and archives unreachable. No year found.",
+  "sources": []
+ },
+ {
+  "item": "36. Arasingundi wind farm lat 14.48, lon 76.347",
+  "farm": "Arasingundi wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Conflicting years: Energías Renovables (25 Nov 2008) says Acciona “installed” the 13.2 MW Arasinagundi farm in 2007 (its first in India), while Acciona’s Nov 2009 financing news says both Arasinagundi and Anabaru “entered service in 2008”. Installation in 2007 and service in 2008 may both be true, but no source gives Arasinagundi’s own commissioning date, so no year is written. Capacity 13.2 MW (8 Vestas V82 1.65 MW per The Wind Power) could replace GEM’s 13 MW. See the Anabaru item on a possible location swap between the two records.",
+  "sources": [
+   {
+    "url": "https://www.energias-renovables.com/eolica/la-onu-registra-como-proyecto-de-desarrollo",
+    "quote": "En 2007, Acciona instaló el parque eólico de Arasinagundi, de 13,2 MW, ubicado junto al anterior"
+   },
+   {
+    "url": "https://www.energias-renovables.com/eolica/acciona-consigue-18-nbsp-millones-de-euros",
+    "quote": "Representan una inversión total de 29,6 millones de euros y entraron en servicio en el año 2008"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_9670.php",
+    "quote": "Vestas V82/1650 (x 8)"
+   }
+  ]
+ },
+ {
+  "item": "37. Gadag (CEPCO) wind farm lat 12.975, lon 77.726",
+  "farm": "Gadag (CEPCO) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "ICRA’s rationale (June 2016; the PDF viewer route /Rating/ShowRationalReportFilePdfViewer/<Id> works where ShowRationaleReport is JavaScript-only) gives CEPCO’s wind capacity by state but no CODs or sites. A UNFCCC CDM entry “Cepco Wind Power Project in Gujarat” exists (crediting from Dec 2011) but cdm.unfccc.int is blocked. Points are state placeholders. Capacity per ICRA: Karnataka (13.2 MW).",
+  "sources": [
+   {
+    "url": "https://www.icra.in/Rating/ShowRationalReportFilePdfViewer/26968",
+    "quote": "CEPCO owns and operates a total of 87.8 MW of wind power capacity across the states of Rajasthan (39.2 MW), Madhya Pradesh (16.8 MW), Karnataka (13.2 MW) and Gujarat (16.8 MW)"
+   }
+  ]
+ },
+ {
+  "item": "38. Nagercoil (Orient) I wind farm lat 8.169, lon 77.422",
+  "farm": "Nagercoil (Orient) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Orient Green Power’s wind assets are bundles of second-hand turbines with mixed commissioning dates (1994–2010 per the 2010 prospectus table “Date of commissioning”); the prospectus codes them (KKM, KVM, UPT, PRG…) and GEM’s names come from OGPL’s website, which is unreadable here (stub page; web.archive.org resets). No reliable match, and an aggregate’s year would be its last part. No 13 MW asset in the 2010 prospectus table; may have been acquired later.",
+  "sources": []
+ },
+ {
+  "item": "39. Gorsar wind farm lat 21.333, lon 69.9",
+  "farm": "Gorsar wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is the CEA plant-wise RE report (login now). GSPL’s only dated wind project found is the 52.5 MW Kachchh plant (July 2009, GlobalData), not Gorsar.",
+  "sources": []
+ },
+ {
+  "item": "40. Vejalpar (Giriraj) I wind farm lat 22.305, lon 70.803",
+  "farm": "Vejalpar (Giriraj) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Giriraj Enterprises captive farm (Rajkot); GEM cites no source; no COD found.",
+  "sources": []
+ },
+ {
+  "item": "41. Ratlam (Suzlon) II wind farm lat 23.481, lon 74.918",
+  "farm": "Ratlam (Suzlon) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is mprenewable.nic.in/aa2.pdf (unreachable). Placeholder point.",
+  "sources": []
+ },
+ {
+  "item": "42. Jogihalli wind farm lat 14.708, lon 76.485",
+  "farm": "Jogihalli wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM cites only renew.com’s home page; no ReNew release or rating rationale mentions Jogihalli.",
+  "sources": []
+ },
+ {
+  "item": "43. Perugundi Newam wind farm lat 10.326, lon 77.985",
+  "farm": "Perugundi Newam wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Old farm from the Wikipedia-derived list GEM cites (a blog); no COD found.",
+  "sources": []
+ },
+ {
+  "item": "44. Kethanur Wind Farms wind farm lat 10.326, lon 77.985",
+  "farm": "Kethanur Wind Farms wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Old farm from the Wikipedia-derived list GEM cites (a blog); no COD found.",
+  "sources": []
+ },
+ {
+  "item": "45. Bramanvel wind farm lat 18.635, lon 73.849",
+  "farm": "Bramanvel wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "ADB’s project page (Tata Power Wind Energy Financing Facility) describes the Bramanvel project as 11.25 MW (9 × 1.25 MW) with public consultation on 13 Mar 2007, but no commissioning date. ADB’s monitoring reports (41900-014-esmr-08 etc.) are scanned images (no text); Tata Power’s annual reports and tatapowerrenewables.com (TLS failure) not reached. Point is the Pune placeholder.",
+  "sources": [
+   {
+    "url": "https://www.adb.org/projects/41900-014/main",
+    "quote": "The Bramanvel Wind Power Project involves the construction and operation of 11.25 MW of wind power generation facilities (9 units of 1,250 kilowatts)"
+   },
+   {
+    "url": "https://www.adb.org/projects/41900-014/main",
+    "quote": "on 13 March 2007 for the Bramanvel Wind Power Project"
+   }
+  ]
+ },
+ {
+  "item": "47. Kottamangalam RWEL 50 wind farm lat 10.654, lon 77.281",
+  "farm": "Kottamangalam RWEL 50 wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "rajalakshmirenewables.com/wind-farms/ now shows only general text; no year found.",
+  "sources": []
+ },
+ {
+  "item": "48. Gadag (Goyal) wind farm lat 15.42, lon 75.622",
+  "farm": "Gadag (Goyal) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "The farm was built by DLF (11.2 MW, 14 × 800 kW; Spanish carbon-fund summary) and sold to Goyal MG Gases in July 2013. No commissioning year found (stakeholder consultation in January 2008 per the same summary suggests 2008 or later). mw could become 11.2.",
+  "sources": [
+   {
+    "url": "https://www.thehindubusinessline.com/companies/DLF-sells-wind-turbine-unit-for-Rs-30-cr/article20636034.ece",
+    "quote": "The company said it has entered into a definitive agreement with Goyal MG Gases Pvt Ltd to sell its 11.2 MW wind turbine unit located at Gadag in Karnataka."
+   },
+   {
+    "url": "https://www.thehindubusinessline.com/companies/DLF-sells-wind-turbine-unit-for-Rs-30-cr/article20636034.ece",
+    "quote": "Published on July 12, 2013"
+   },
+   {
+    "url": "https://www.miteco.gob.es/es/cambio-climatico/temas/mecanismos-de-flexibilidad-y-sumideros/223.%20Ficha%20resumen_30AND_APCF_25.6MW%20India_ES_tcm30-178069.pdf",
+    "quote": "En total se han instalado 14 aerogeneradores con una capacidad individual de 800 kW"
+   }
+  ]
+ },
+ {
+  "item": "49. Jamanvada (GACL) II wind farm lat 23.709, lon 69.828",
+  "farm": "Jamanvada (GACL) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is the CEA plant-wise RE report (login now). No GACL source for its Jamanwada units found (other Jamanwada owners: Mytrah, GEL, GPCL).",
+  "sources": []
+ },
+ {
+  "item": "50. Muppandal Madras wind farm lat 10.326, lon 77.985",
+  "farm": "Muppandal Madras wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Old farm (Chettinad Cement) from the Wikipedia-derived list GEM cites; no COD found.",
+  "sources": []
+ },
+ {
+  "item": "51. Rajpara (GACL) I wind farm lat 22.305, lon 70.803",
+  "farm": "Rajpara (GACL) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM’s source is the CEA plant-wise RE report (login now). No GACL per-site year found.",
+  "sources": []
+ },
+ {
+  "item": "52. Rajpara (GACL) II wind farm lat 22.305, lon 70.803",
+  "farm": "Rajpara (GACL) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "As Rajpara (GACL) I.",
+  "sources": []
+ },
+ {
+  "item": "53. Tenkasi wind farm lat 8.968, lon 77.303",
+  "farm": "Tenkasi wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Orient Green Power’s 2010 prospectus (SEBI) lists one 10 MW wind asset, “WF 10 TKI” (20 Vestas RRB 500 kW, commissioned May–July 2006, acquired June 2009), at Ariyanayagipuram, Kambaneri Pudukudi, Veerasigamani and Serndamangalam (Tirunelveli EDC, Tenkasi–Sankarankovil area). It probably is GEM’s 10 MW “Tenkasi” (source: OGPL’s website, unreadable: orientgreenpower.com returns a stub, web.archive.org resets), but the prospectus never spells out “TKI”, so year 2006 is not written.",
+  "sources": [
+   {
+    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287656661830.pdf",
+    "quote": "WF 10 TKI 10.0 20 Vestas RRB May-July 2006 June 30, 2009"
+   },
+   {
+    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287656661830.pdf",
+    "quote": "20 x 500 KW WEGs connected to 181 to 186, 1912, 1914 to 1921, 1931 to 1935 Tirunelveli EDC installed at Ariyanakipuram, Kambaneripudukudi, Veerasigamani and Serndamangalam"
+   }
+  ]
+ },
+ {
+  "item": "54. Tinwari wind farm lat 26.293, lon 73.035",
+  "farm": "Tinwari wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "MSPL (Baldota) farm at Jodhpur; GEM’s source is an IndiaMART listing. Baldota newsletters checked do not mention Tinwari; no COD found.",
+  "sources": []
+ },
+ {
+  "item": "55. Vejalpar (Giriraj) II wind farm lat 22.385, lon 71.745",
+  "farm": "Vejalpar (Giriraj) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Giriraj Enterprises captive farm; GEM cites no source; no COD found.",
+  "sources": []
+ },
+ {
+  "item": "56. Jamanvada (GACL) I wind farm lat 23.709, lon 69.828",
+  "farm": "Jamanvada (GACL) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "As Jamanvada (GACL) II.",
+  "sources": []
+ },
+ {
+  "item": "57. Ecoren Cardea wind farm lat 12.035, lon 77.273",
+  "farm": "Ecoren Cardea wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "ecorenenergy.com/projects/ returns 404; web.archive.org resets. No other source with a COD.",
+  "sources": []
+ }
+]

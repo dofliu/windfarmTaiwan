@@ -48,48 +48,6 @@
   "sources": []
  },
  {
-  "item": "5. Kotiya (Oil India) wind farm (IND, 27.0 MW)",
-  "farm": "Kotiya (Oil India) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Kotiya (Oil India) wind farm', G, '補上商轉年 2018：Oil India 第四座商業風電專案（52.5 MW，分在古吉拉特邦與中央邦兩處）中，古吉拉特邦 Kotiya 的 27.3 MW 於 2018 年 1 月 12 日全部商轉；容量改為 27.3 MW', 'Commissioning year 2018: of Oil India’s fourth commercial wind project (52.5 MW at two sites in Gujarat and Madhya Pradesh), the 27.3 MW part at Kotiya, Gujarat, was fully commissioned on 12 January 2018; capacity set to 27.3 MW', 'https://www.sarkaritel.com/oil-successfully-commissions-renewable-energy-wind-and-solar-projects/', year=2018, mw=27.3),",
-  "note_zh": "補上商轉年 2018：Oil India 第四座商業風電專案（52.5 MW，分在古吉拉特邦與中央邦兩處）中，古吉拉特邦 Kotiya 的 27.3 MW 於 2018 年 1 月 12 日全部商轉；容量改為 27.3 MW",
-  "note_en": "Commissioning year 2018: of Oil India’s fourth commercial wind project (52.5 MW at two sites in Gujarat and Madhya Pradesh), the 27.3 MW part at Kotiya, Gujarat, was fully commissioned on 12 January 2018; capacity set to 27.3 MW",
-  "why": "Oil India release (Sarkaritel, 17 Apr 2018). Suzlon was developer and O&M contractor. Oil India's 174.1 MW of wind = Ludarva 13.6 + Dangri 54 + Patan 16 + Chandgarh 38 + this 52.5 MW. The point (22.541, 73.433) is the Gujarat state-centre placeholder; no OSM village 'Kotiya' in Gujarat was found (Nominatim has Kotiya only in Odisha, AP and MP), so the position is left.",
-  "sources": [
-   {
-    "url": "https://www.sarkaritel.com/oil-successfully-commissions-renewable-energy-wind-and-solar-projects/",
-    "quote": "The 52.5MW Project is split between a27.3MW capacity Project operational at Kotiya in Gujarat and a 25.2MW capacity Project operational at Unchwas in Madhya Pradesh."
-   },
-   {
-    "url": "https://www.sarkaritel.com/oil-successfully-commissions-renewable-energy-wind-and-solar-projects/",
-    "quote": "The Kotiya, Gujarat sub part of the project was fully commissioned on 12 th January, 2018"
-   }
-  ]
- },
- {
-  "item": "6. Shajapur wind farm (IND, 26.0 MW)",
-  "farm": "Shajapur wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Shajapur wind farm', G, '不是單一風場：CARE 信評報告稱 Leap Green 旗下 Ivy Ecoenergy（2017–18 財年向 Inox Renewables 購入）在中央邦的 26 MW 風電分布在 Shajapur 與 Mandsaur 兩縣；商轉年不詳，座標是 Shajapur 市區', 'Not a single farm: a CARE rating report says the 26 MW of Leap Green’s Ivy Ecoenergy in Madhya Pradesh (bought from Inox Renewables in fiscal 2018) is spread over Shajapur and Mandsaur districts; no commissioning year is known and the point is the town of Shajapur', 'https://www.careratings.com/upload/CompanyFiles/PR/22032021021701_Ivy_Ecoenergy_India_Private_Limited.pdf', note=True),",
-  "note_zh": "不是單一風場：CARE 信評報告稱 Leap Green 旗下 Ivy Ecoenergy（2017–18 財年向 Inox Renewables 購入）在中央邦的 26 MW 風電分布在 Shajapur 與 Mandsaur 兩縣；商轉年不詳，座標是 Shajapur 市區",
-  "note_en": "Not a single farm: a CARE rating report says the 26 MW of Leap Green’s Ivy Ecoenergy in Madhya Pradesh (bought from Inox Renewables in fiscal 2018) is spread over Shajapur and Mandsaur districts; no commissioning year is known and the point is the town of Shajapur",
-  "why": "Note-only fix like 'Orchid'. GEM's sole source is this CARE rationale; Ivy's 164 MW = Rajasthan 112 + MP 26 + Maharashtra 26, so the 26 MW record is the whole MP holding, which CARE places in two districts (~150 km apart). No COD is given (Inox Renewables built them; CRISIL says the Inox assets were acquired in fiscal 2018). Point 23.424, 76.284 is Shajapur town.",
-  "sources": [
-   {
-    "url": "https://www.careratings.com/upload/CompanyFiles/PR/22032021021701_Ivy_Ecoenergy_India_Private_Limited.pdf",
-    "quote": "Madhya Pradesh (26 MW in Shajapur & Mandsaur districts)"
-   },
-   {
-    "url": "https://www.careratings.com/upload/CompanyFiles/PR/22032021021701_Ivy_Ecoenergy_India_Private_Limited.pdf",
-    "quote": "(from INOX Renewable Ltd), with an aggregate capacity of 164 MW. IEPL successfully acquired the assets in FY18"
-   }
-  ]
- },
- {
   "item": "7. Rajgarh (Renew) II wind farm (IND, 26.0 MW)",
   "farm": "Rajgarh (Renew) II wind farm",
   "src_code": 2,
@@ -153,31 +111,6 @@
   "note_en": "No commissioning year found.",
   "why": "Atria's wind page now 404; no profile found. Point is an Andhra placeholder.",
   "sources": []
- },
- {
-  "item": "12. Amreli (Sitac) wind farm (IND, 26.0 MW)",
-  "farm": "Amreli (Sitac) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Amreli (Sitac) wind farm', G, '補上商轉年 2017：CARE 信評報告稱 EDF 與 Sitac 合資（各 50%）的 Amreli Renewable Energy 在古吉拉特邦 Amreli 的 26 MW 風場分期商轉，全場於 2017 年 4 月 29 日完成商轉', 'Commissioning year 2017: a CARE rating report says the 26 MW wind farm of Amreli Renewable Energy (a 50:50 joint venture of EDF and Sitac) at Amreli, Gujarat, was commissioned in phases, reaching final commercial operation on 29 April 2017', 'https://www.careratings.com/upload/CompanyFiles/PR/Amreli%20Renewable%20Energy%20Private%20Limited-12-30-2020.pdf', year=2017),",
-  "note_zh": "補上商轉年 2017：CARE 信評報告稱 EDF 與 Sitac 合資（各 50%）的 Amreli Renewable Energy 在古吉拉特邦 Amreli 的 26 MW 風場分期商轉，全場於 2017 年 4 月 29 日完成商轉",
-  "note_en": "Commissioning year 2017: a CARE rating report says the 26 MW wind farm of Amreli Renewable Energy (a 50:50 joint venture of EDF and Sitac) at Amreli, Gujarat, was commissioned in phases, reaching final commercial operation on 29 April 2017",
-  "why": "CARE (30 Dec 2020): 24 MW was commissioned by 31 Mar 2017 (GBI registration) and the final COD of the 26 MW project was 29 Apr 2017, so the year the full capacity was reached is 2017; the date of the first 24 MW (2016 or early 2017) is not given, so no phases. Owner (EDF 50% / Sitac 50%) matches the record. The point (20.867, 70.75) is a placeholder shared by 8 Gujarat records; CARE only says 'Amreli, Gujarat', so it is left. Separate from 'Sukavala Amreli (Sitac)' (64 MW, 2017).",
-  "sources": [
-   {
-    "url": "https://www.careratings.com/upload/CompanyFiles/PR/Amreli%20Renewable%20Energy%20Private%20Limited-12-30-2020.pdf",
-    "quote": "The project achieved commercial operations in a phase wise manner, with final project COD on April 29, 2017"
-   },
-   {
-    "url": "https://www.careratings.com/upload/CompanyFiles/PR/Amreli%20Renewable%20Energy%20Private%20Limited-12-30-2020.pdf",
-    "quote": "It was promoted to install a 26 MW wind power generation capacity at Amreli, Gujarat."
-   },
-   {
-    "url": "https://www.careratings.com/upload/CompanyFiles/PR/Amreli%20Renewable%20Energy%20Private%20Limited-12-30-2020.pdf",
-    "quote": "Amreli RE is a 50:50 JV of EDF Group of France, through its subsidiary EDF EN, and Sitac Group of India."
-   }
-  ]
  },
  {
   "item": "13. Bhendewade wind farm (IND, 26.0 MW)",
@@ -289,35 +222,6 @@
   "sources": []
  },
  {
-  "item": "21. Unchawas (Oil India) wind farm (IND, 25.0 MW)",
-  "farm": "Unchawas (Oil India) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Unchawas (Oil India) wind farm', G, '補上商轉年 2018：Oil India 的 52.5 MW 風電專案中，中央邦 Unchwas 的 25.2 MW 於 2018 年 3 月 31 日全部商轉；容量改為 25.2 MW。原座標（北緯 23.281°、東經 77.41°）是博帕爾的代用點，改用 Agar Malwa 縣 Badod 區 Unchwas 村的位置（概略位置，OpenStreetMap）', 'Commissioning year 2018: of Oil India’s 52.5 MW wind project, the 25.2 MW part at Unchwas, Madhya Pradesh, was fully commissioned on 31 March 2018; capacity set to 25.2 MW. The old point (23.281 N, 77.41 E) was a Bhopal placeholder; it now uses the village of Unchwas, Badod tehsil, Agar Malwa district (approximate, OpenStreetMap)', 'https://www.sarkaritel.com/oil-successfully-commissions-renewable-energy-wind-and-solar-projects/', year=2018, mw=25.2, lat=23.864, lon=75.874, approx=True),",
-  "note_zh": "補上商轉年 2018：Oil India 的 52.5 MW 風電專案中，中央邦 Unchwas 的 25.2 MW 於 2018 年 3 月 31 日全部商轉；容量改為 25.2 MW。原座標（北緯 23.281°、東經 77.41°）是博帕爾的代用點，改用 Agar Malwa 縣 Badod 區 Unchwas 村的位置（概略位置，OpenStreetMap）",
-  "note_en": "Commissioning year 2018: of Oil India’s 52.5 MW wind project, the 25.2 MW part at Unchwas, Madhya Pradesh, was fully commissioned on 31 March 2018; capacity set to 25.2 MW. The old point (23.281 N, 77.41 E) was a Bhopal placeholder; it now uses the village of Unchwas, Badod tehsil, Agar Malwa district (approximate, OpenStreetMap)",
-  "why": "Same Oil India release as Kotiya. Position: Nominatim finds exactly one 'Unchwas' in India, OSM node 9497919222 (place=village, Badod tehsil, Agar Malwa district, an MP wind area); the GEM point is the Bhopal placeholder shared by 7 records. The OSM JSON is ODbL data; only the coordinates are used. If the caller prefers not to move the point on a village-name match, drop lat/lon/approx and keep year/mw.",
-  "sources": [
-   {
-    "url": "https://www.sarkaritel.com/oil-successfully-commissions-renewable-energy-wind-and-solar-projects/",
-    "quote": "a 25.2MW capacity Project operational at Unchwas in Madhya Pradesh"
-   },
-   {
-    "url": "https://www.sarkaritel.com/oil-successfully-commissions-renewable-energy-wind-and-solar-projects/",
-    "quote": "while the Unchwas, M.P. sub part was fully commissioned on 31 st March, 2018"
-   },
-   {
-    "url": "https://api.openstreetmap.org/api/0.6/node/9497919222.json",
-    "quote": "\"lat\":23.8638223,\"lon\":75.8735990"
-   },
-   {
-    "url": "https://api.openstreetmap.org/api/0.6/node/9497919222.json",
-    "quote": "\"tags\":{\"name\":\"Unchwas\",\"place\":\"village\"}"
-   }
-  ]
- },
- {
   "item": "22. Baroda wind farm (IND, 25.0 MW)",
   "farm": "Baroda wind farm",
   "src_code": 2,
@@ -375,31 +279,6 @@
    {
     "url": "https://www.power-technology.com/?p=181304",
     "quote": "Post completion of construction, the project got commissioned in March 2008."
-   }
-  ]
- },
- {
-  "item": "26. Ratedi wind farm (IND, 24.0 MW)",
-  "farm": "Ratedi wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Ratedi wind farm', G, '補上商轉年 2012：ICRA 信評報告稱 Ratedi Wind Power（原 IL&FS Wind Power，現由 ORIX 持有）在中央邦的 24 MW（Ratedi）連同其拉賈斯坦、坦米爾納德與古吉拉特邦的風場於 2012 年 3 月商轉', 'Commissioning year 2012: an ICRA rating report says Ratedi Wind Power (formerly IL&FS Wind Power, now owned by ORIX) commissioned its 24 MW in Madhya Pradesh (Ratedi), together with its farms in Rajasthan, Tamil Nadu and Gujarat, in March 2012', 'https://www.icra.in/Rating/GetRationalReportFilePdf?id=88368', year=2012),",
-  "note_zh": "補上商轉年 2012：ICRA 信評報告稱 Ratedi Wind Power（原 IL&FS Wind Power，現由 ORIX 持有）在中央邦的 24 MW（Ratedi）連同其拉賈斯坦、坦米爾納德與古吉拉特邦的風場於 2012 年 3 月商轉",
-  "note_en": "Commissioning year 2012: an ICRA rating report says Ratedi Wind Power (formerly IL&FS Wind Power, now owned by ORIX) commissioned its 24 MW in Madhya Pradesh (Ratedi), together with its farms in Rajasthan, Tamil Nadu and Gujarat, in March 2012",
-  "why": "ICRA rationale of 13 Sep 2019 (the PDF route GetRationalReportFilePdf?id=88368 works; GEM cites the JavaScript-only ShowRationaleReport?Id=88368). The 24 MW MP farm is named 'Ratedi (24 MW)'. Its later 56 MW Mahuria farm (2015/2017) is a different site. ORIX bought IL&FS's remaining 51% in Oct 2019, matching the record's owner. The point (23.281, 77.41) is the Bhopal placeholder; no source or OSM feature for 'Ratedi' was found, so the position is left.",
-  "sources": [
-   {
-    "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=88368",
-    "quote": "RWPPL, erstwhile IL&FS Wind Power Limited is a special purpose vehicle (SPV) formed by IL&FS Renewable Energy Limited (IREL) for the purpose of development and operation of wind farms."
-   },
-   {
-    "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=88368",
-    "quote": "The wind farms developed in the states of Rajasthan, Madhya Pradesh, Tamil Na du and Gujarat with capacities of 26.4 MW, 24 MW, 12 MW and 12 MW respectively were commissioned on March 2012."
-   },
-   {
-    "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=88368",
-    "quote": "While the PLF levels for Gujarat and Madhya Pradesh - Ratedi (24 MW) have exceeded their P-90 levels in FY2019"
    }
   ]
  },
@@ -464,35 +343,6 @@
   "note_en": "No commissioning year found.",
   "why": "Only the 2016–17 sale of JSPL's 24 MW Satara wind business to Parjanya Wind Power (IDFC Alternatives fund) was found; no commissioning date.",
   "sources": []
- },
- {
-  "item": "31. Tadpatri (Bharath) wind farm (IND, 24.0 MW)",
-  "farm": "Tadpatri (Bharath) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Tadpatri (Bharath) wind farm', G, '補上商轉年 2000：Orient Green Power 2010 年上市公開說明書列出子公司 Bharath Wind Farm 在安得拉邦 Tadipatri 的 24.25 MW 風場（97 部 250 kW 機組，2007–08 年購入），機組於 1999 年 3 月（12 部）、7 月（4 部）與 2000 年 3 月（81 部）商轉；容量改為 24.25 MW', 'Commissioning year 2000: Orient Green Power’s 2010 IPO prospectus lists its subsidiary Bharath Wind Farm’s 24.25 MW farm at Tadipatri, Andhra Pradesh (97 units of 250 kW, bought in 2007–08), with units commissioned in March 1999 (12), July 1999 (4) and March 2000 (81); capacity set to 24.25 MW', 'https://www.sebi.gov.in/sebi_data/attachdocs/1287471439190.pdf', year=2000, mw=24.25, ph=[[1999, 4.0], [2000, 20.25]], turbine='97x 250 kW'),",
-  "note_zh": "補上商轉年 2000：Orient Green Power 2010 年上市公開說明書列出子公司 Bharath Wind Farm 在安得拉邦 Tadipatri 的 24.25 MW 風場（97 部 250 kW 機組，2007–08 年購入），機組於 1999 年 3 月（12 部）、7 月（4 部）與 2000 年 3 月（81 部）商轉；容量改為 24.25 MW",
-  "note_en": "Commissioning year 2000: Orient Green Power’s 2010 IPO prospectus lists its subsidiary Bharath Wind Farm’s 24.25 MW farm at Tadipatri, Andhra Pradesh (97 units of 250 kW, bought in 2007–08), with units commissioned in March 1999 (12), July 1999 (4) and March 2000 (81); capacity set to 24.25 MW",
-  "why": "OGPL red herring prospectus (SEBI, Sept 2010), operating-wind-farm table: 'WF 24.25 TDP', 97 WEGs (93 DLWL, 4 Pioneer Wincon), commissioned March 1999 (12), July 1999 (4), March 2000 (81), acquired Sept 2007–Mar 2008. The approvals annex shows the block is 97 × 250 kW (service connections 1031/1032 from Wind Energy System Care (Wescare) = 17 units and 1025/1030 from RCI Power = 80 units), so ph = 16 × 0.25 = 4.0 MW (1999) + 81 × 0.25 = 20.25 MW (2000). The separate 'WF 2 TDP' (2 MW, 1999/2000) is not part of this record. Note: GEM's 'Putluru wind farm' (20 MW, Wescare, 'set up' by April 2000) may be RCI Power's 80 units inside this block — see that item.",
-  "sources": [
-   {
-    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287471439190.pdf",
-    "quote": "Bharath Wind Farm Limited – Andhra Pradesh WF 24.25 TDP 24.25 97 93 DLWL; 4 Pioneer Wincon March 1999 (12); July 1999 (4); March 2000 (81)"
-   },
-   {
-    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287471439190.pdf",
-    "quote": "Date of commissioning Date of acquisition"
-   },
-   {
-    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287471439190.pdf",
-    "quote": "Application for transfer of service connections nos. 1031 (11 x 250 kw) and 1032 (6 x 250 kw) , and 1025 (44 x 250 kw) and 1030 (36 x 250 kw) at Tadipatri, Andhra Pradesh from Wind Energy System Care India Limited and RCI Power Limited respectively to BWFL"
-   },
-   {
-    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287471439190.pdf",
-    "quote": "BWFL Bharath Wind Farm Limited."
-   }
-  ]
  },
  {
   "item": "32. Ananthapuramu (Poly) wind farm (IND, 24.0 MW)",
@@ -702,11 +552,11 @@
   "farm": "Nipaniya (PTC) wind farm",
   "src_code": 2,
   "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Nipaniya (PTC) wind farm', G, '補上商轉年 2016：Inox Wind 於 2016 年 3 月 2 日宣布接獲 PTC Energy 在中央邦 Mandsaur 縣 Nipaniya 的 20 MW 統包訂單（預定 2016 年 3 月前商轉）；PTC Energy 2017 年 4 月稱其在中央邦已有 50 MW 運轉，新增 238.8 MW 後總容量 288.8 MW、約為 2016–17 財年初（2016 年 4 月）的 6 倍，即當時已有約 50 MW；扣除 2016 年 3 月 8 日商轉的 Jaora 30 MW，Nipaniya 的 20 MW 在 2016 年 3 月底前已運轉', 'Commissioning year 2016: Inox Wind announced on 2 March 2016 a turnkey order from PTC Energy for a 20 MW project at Nipaniya, Mandsaur district, Madhya Pradesh, due by March 2016; in April 2017 PTC Energy said it already had 50 MW operating in Madhya Pradesh and that its new total of 288.8 MW was nearly six times its capacity at the start of fiscal 2016–17 (April 2016), i.e. about 50 MW then. Besides the 30 MW Jaora farm commissioned on 8 March 2016, that leaves Nipaniya’s 20 MW operating by the end of March 2016', 'https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/', year=2016),",
+  "status": "lead",
+  "proposal": "",
   "note_zh": "補上商轉年 2016：Inox Wind 於 2016 年 3 月 2 日宣布接獲 PTC Energy 在中央邦 Mandsaur 縣 Nipaniya 的 20 MW 統包訂單（預定 2016 年 3 月前商轉）；PTC Energy 2017 年 4 月稱其在中央邦已有 50 MW 運轉，新增 238.8 MW 後總容量 288.8 MW、約為 2016–17 財年初（2016 年 4 月）的 6 倍，即當時已有約 50 MW；扣除 2016 年 3 月 8 日商轉的 Jaora 30 MW，Nipaniya 的 20 MW 在 2016 年 3 月底前已運轉",
   "note_en": "Commissioning year 2016: Inox Wind announced on 2 March 2016 a turnkey order from PTC Energy for a 20 MW project at Nipaniya, Mandsaur district, Madhya Pradesh, due by March 2016; in April 2017 PTC Energy said it already had 50 MW operating in Madhya Pradesh and that its new total of 288.8 MW was nearly six times its capacity at the start of fiscal 2016–17 (April 2016), i.e. about 50 MW then. Besides the 30 MW Jaora farm commissioned on 8 March 2016, that leaves Nipaniya’s 20 MW operating by the end of March 2016",
-  "why": "The year is derived, not stated in one sentence: (1) the 10 × 2 MW Inox order was announced on 2 Mar 2016, so it was not built before March 2016; (2) by April 2017 PTC Energy had 50 MW operating in MP, which can only be Jaora (30 MW, 8 Mar 2016) + Nipaniya (20 MW); (3) 288.8 MW being 'nearly 6 times' the capacity at the start of FY2016-17 means about 50 MW on 1 Apr 2016 (with only Jaora it would be ~9.6 times). So Nipaniya was commissioned in March 2016. If the caller treats this arithmetic as too indirect, downgrade to lead (year 2016 or early 2017). Owner: PTC Energy Ltd (100% PTC India subsidiary at the time).",
+  "why": "Not written in round 23: the year 2016 is worked out indirectly, not stated in a source. The year is derived, not stated in one sentence: (1) the 10 × 2 MW Inox order was announced on 2 Mar 2016, so it was not built before March 2016; (2) by April 2017 PTC Energy had 50 MW operating in MP, which can only be Jaora (30 MW, 8 Mar 2016) + Nipaniya (20 MW); (3) 288.8 MW being 'nearly 6 times' the capacity at the start of FY2016-17 means about 50 MW on 1 Apr 2016 (with only Jaora it would be ~9.6 times). So Nipaniya was commissioned in March 2016. If the caller treats this arithmetic as too indirect, downgrade to lead (year 2016 or early 2017). Owner: PTC Energy Ltd (100% PTC India subsidiary at the time).",
   "sources": [
    {
     "url": "https://www.business-standard.com/article/markets/inox-wind-gains-on-turnkey-order-ptc-energy-116030200396_1.html",
@@ -772,35 +622,6 @@
   "sources": []
  },
  {
-  "item": "50. Dangri (Bhilwara) wind farm (IND, 20.0 MW)",
-  "farm": "Dangri (Bhilwara) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "dup('IND', 'Dangri (Bhilwara) wind farm', G, ('Jaisalmer (Bhilwara) wind farm', G), '同一座風場：IFC 揭露文件所述 Bhilwara Energy 在拉賈斯坦邦賈沙梅爾的 20 MW 集團自用風電專案位於 Pokaran 區 Rajgarh 與 Bhaisara 村、Inox Renewables 的 300 MW 風場內，專案文件放在 Dangri 村的 Inox 匯流變電所；這筆 20 MW 與「Jaisalmer (Bhilwara)」（20 MW，2013 年）是同一案，重複計算', 'Same farm: IFC’s disclosure describes Bhilwara Energy’s 20 MW group-captive wind project in Jaisalmer, Rajasthan, at the villages of Rajgarh and Bhaisara (Pokaran tehsil) inside Inox Renewables’ 300 MW wind farm, with its documents kept at Inox’s pooling substation in Dangri village; this 20 MW record and “Jaisalmer (Bhilwara)” (20 MW, 2013) are the same project counted twice', 'https://disclosures.ifc.org/project-detail/SII/33351/bhilwara-captive'),",
-  "note_zh": "同一座風場：IFC 揭露文件所述 Bhilwara Energy 在拉賈斯坦邦賈沙梅爾的 20 MW 集團自用風電專案位於 Pokaran 區 Rajgarh 與 Bhaisara 村、Inox Renewables 的 300 MW 風場內，專案文件放在 Dangri 村的 Inox 匯流變電所；這筆 20 MW 與「Jaisalmer (Bhilwara)」（20 MW，2013 年）是同一案，重複計算",
-  "note_en": "Same farm: IFC’s disclosure describes Bhilwara Energy’s 20 MW group-captive wind project in Jaisalmer, Rajasthan, at the villages of Rajgarh and Bhaisara (Pokaran tehsil) inside Inox Renewables’ 300 MW wind farm, with its documents kept at Inox’s pooling substation in Dangri village; this 20 MW record and “Jaisalmer (Bhilwara)” (20 MW, 2013) are the same project counted twice",
-  "why": "Both GEM records are 20 MW, owner 'Bhilwara Energy Ltd [100%]', in Jaisalmer district, ~36 km apart; 'Jaisalmer (Bhilwara)' (src G, year 2013) cites the CEA list and this IFC disclosure, while 'Dangri (Bhilwara)' cites BEL's old about-us page. The IFC summary lists BEL's other assets (Malana 86 MW, AD Hydro 192 MW, Bhilwara Green Energy 49.5 MW wind in Maharashtra) and only this one wind project in Rajasthan. Commissioning was 'expected by March 31, 2013' (expected, so the kept record's 2013 is GEM's own). If the caller wants stronger proof that BEL never had a second 20 MW Jaisalmer farm, treat as lead. BEL's current site lists only 14 MW at Bhendwade (Kolhapur), so the Jaisalmer project appears to have been sold since. Side note (not on this list): 'Satara (Bhilwara)' and 'Kukudwad' (both 50 MW, 2012, Bhilwara group) look like another possible duplicate pair.",
-  "sources": [
-   {
-    "url": "https://disclosures.ifc.org/project-detail/SII/33351/bhilwara-captive",
-    "quote": "to develop and own a 20MW wind power project in Jaisalmer, Rajasthan, under the Group Captive Scheme in India"
-   },
-   {
-    "url": "https://disclosures.ifc.org/project-detail/SII/33351/bhilwara-captive",
-    "quote": "The Project is located in Villages Rajgarh and Bhaisara; Tehsil Pokran in Jaisalmer, Rajasthan. The Project is located within a 300MW wind farm being developed by Inox Renewables Ltd (IRL)"
-   },
-   {
-    "url": "https://disclosures.ifc.org/project-detail/SII/33351/bhilwara-captive",
-    "quote": "Village: Dangri – 3 KM from Dangri to Shakara Road"
-   },
-   {
-    "url": "https://disclosures.ifc.org/project-detail/SII/33351/bhilwara-captive",
-    "quote": "Bhilwara Green Energy Limited (49.5MW wind power project in Maharasthra)"
-   }
-  ]
- },
- {
   "item": "51. EEIPL wind farm (IND, 20.0 MW)",
   "farm": "EEIPL wind farm",
   "src_code": 2,
@@ -811,31 +632,6 @@
   "note_en": "No commissioning year found.",
   "why": "Ecoren's projects page 404; no profile found.",
   "sources": []
- },
- {
-  "item": "52. Dhule (MSPL) wind farm (IND, 20.0 MW)",
-  "farm": "Dhule (MSPL) wind farm",
-  "src_code": 2,
-  "iso": "IND",
-  "status": "write",
-  "proposal": "fix('IND', 'Dhule (MSPL) wind farm', G, '補上商轉年 2006：MSPL 2006 年 1–3 月的公司通訊稱，該公司當年 3 月在馬哈拉施特拉邦 Dhule 商轉 20 MW 風電（16 部 1,250 kW 機組）', 'Commissioning year 2006: MSPL’s January–March 2006 news bulletin says the company commissioned a 20 MW wind project at Dhule, Maharashtra (16 turbines of 1,250 kW) that March', 'https://baldota.co.in/uploads/publication/publicationReport734984.pdf', year=2006, turbine='16x 1.25 MW'),",
-  "note_zh": "補上商轉年 2006：MSPL 2006 年 1–3 月的公司通訊稱，該公司當年 3 月在馬哈拉施特拉邦 Dhule 商轉 20 MW 風電（16 部 1,250 kW 機組）",
-  "note_en": "Commissioning year 2006: MSPL’s January–March 2006 news bulletin says the company commissioned a 20 MW wind project at Dhule, Maharashtra (16 turbines of 1,250 kW) that March",
-  "why": "MSPL (Baldota group) 'Minds & Mettle' bulletin Vol. 9 No. 1, Jan–Mar 2006. The bulletin does not name the turbine maker, so only the unit size is written.",
-  "sources": [
-   {
-    "url": "https://baldota.co.in/uploads/publication/publicationReport734984.pdf",
-    "quote": "MSPL NEWS BULLETIN VOLUME 9 NO.1 JAN-MAR 2006 Dhule & Harihar wind energy projects commissioned"
-   },
-   {
-    "url": "https://baldota.co.in/uploads/publication/publicationReport734984.pdf",
-    "quote": "a 20MW wind energy project at Dhule in Maharashtra and a 6.6MW windfarm at Harihar in Karnataka"
-   },
-   {
-    "url": "https://baldota.co.in/uploads/publication/publicationReport734984.pdf",
-    "quote": "The Dhule wind energy project comprising of 16 turbines of 1250KW each has been set up at a capital investment of Rs.100 crores."
-   }
-  ]
  },
  {
   "item": "53. Dalot (Greenko) wind farm (IND, 20.0 MW)",
