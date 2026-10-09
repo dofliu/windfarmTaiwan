@@ -1,0 +1,570 @@
+[
+ {
+  "item": "SWE 1. Kölvallen 96.6 MW",
+  "farm": "Kölvallen wind farm",
+  "src_code": 2,
+  "iso": "SWE",
+  "status": "write",
+  "proposal": "fix('SWE', 'Kölvallen wind farm', G, '補上商轉年 2025 並更正容量、機組與業主：Arise 的 Kölvallen 風場共 42 部 Siemens Gamesa 風機、277.2 MW，2022 年 7 月售予 Foresight Group 管理的基金（Arise 保留約 9%），Arise 2025 年第三季報告說 Kölvallen 已完工，生產部門頁面說它 2025 年為 SE2 電價區新增 277 MW。原寫 96.6 MW、年份不詳', 'Commissioning year 2025 added, capacity, turbines and owner corrected: Arise’s Kölvallen farm has 42 Siemens Gamesa turbines, 277.2 MW, sold in July 2022 to a fund managed by Foresight Group (Arise keeps about 9%); Arise’s Q3 2025 report speaks of the completion of Kölvallen and its production page says the project added 277 MW to price area SE2 in 2025. The row said 96.6 MW with no year', 'https://www.arise.se/en/node/1595', year=2025, mw=277.2, owner='Foresight Group (fund) [91%]; Arise AB [9%]', turbine='42 x Siemens Gamesa'),",
+  "note_zh": "補上商轉年 2025 並更正容量、機組與業主：Arise 的 Kölvallen 風場共 42 部 Siemens Gamesa 風機、277.2 MW，2022 年 7 月售予 Foresight Group 管理的基金（Arise 保留約 9%），Arise 2025 年第三季報告說 Kölvallen 已完工，生產部門頁面說它 2025 年為 SE2 電價區新增 277 MW。原寫 96.6 MW、年份不詳",
+  "note_en": "Commissioning year 2025 added, capacity, turbines and owner corrected: Arise’s Kölvallen farm has 42 Siemens Gamesa turbines, 277.2 MW, sold in July 2022 to a fund managed by Foresight Group (Arise keeps about 9%); Arise’s Q3 2025 report speaks of the completion of Kölvallen and its production page says the project added 277 MW to price area SE2 in 2025. The row said 96.6 MW with no year",
+  "why": "Same name, developer (Arise) and site (Ljusdal area); GEM’s 96.6 MW is an old project size. The model mix (41 SG 6.6-170 + 1 SG 6.6-155) appears only in a Foresight page that now returns 404, so the turbine field stays generic. Owner split is “approximately 9%” per Arise.",
+  "sources": [
+   {
+    "url": "https://www.arise.se/en/node/1595",
+    "quote": "The wind farm consists of 42 turbines with a total installed capacity of 277.2 MW"
+   },
+   {
+    "url": "https://www.arise.se/en/node/1595",
+    "quote": "With the inauguration behind us and operations now handed over to our asset management team, Arise is ready to manage the wind farm"
+   },
+   {
+    "url": "https://arise.se/en/production",
+    "quote": "The project contributed 277 MW of capacity to price area SE2 in 2025."
+   },
+   {
+    "url": "https://www.arise.se/en/report/interim-report-1-january-30-september-2025",
+    "quote": "The company delivered a strong operating cash flow of over MSEK 300 from the successful completion of the Kölvallen project."
+   },
+   {
+    "url": "https://www.arise.se/sites/default/files/pr/202207158517-1.pdf",
+    "quote": "Arise AB (publ) (”Arise”) has entered into an agreement with a fund managed by Foresight Group LLP (”Foresight”)"
+   },
+   {
+    "url": "https://www.arise.se/sites/default/files/pr/202207158517-1.pdf",
+    "quote": "Arise shall invest approximately EUR 17 million in to the Project and thereby acquires approximately 9% equity stake in the Project"
+   },
+   {
+    "url": "https://www.arise.se/sites/default/files/pr/202207158517-1.pdf",
+    "quote": "Siemens Gamesa will be supplying 42 turbines with a total nominal capacity of 277 MW"
+   }
+  ]
+ },
+ {
+  "item": "TUN 2. Bizerte Métline 94 MW",
+  "farm": "Bizerte Métline wind farm",
+  "src_code": 2,
+  "iso": "TUN",
+  "status": "lead",
+  "proposal": "(no rule yet) candidate: year=2012",
+  "note_zh": "補上商轉年 2012（待確認）：STEG 的 Bizerte 風場共 143 部風機、分在 Metline 與 Kchabta 兩處，約 190 MW；2019 年 TAP 報導說 Metline-Kchabta 風場「2012 年設置」，Metline 站有 72 部、95 MW",
+  "note_en": "Commissioning year 2012 (to be confirmed): STEG’s Bizerte farm has 143 turbines on two sites, Metline and Kchabta, about 190 MW; a 2019 TAP report says the Metline-Kchabta farm was “set up in 2012”, with 72 turbines and 95 MW at Metline",
+  "why": "Not written: the farm was built in two stages (120 MW / 91 turbines, then 26 more turbines per site), so each site’s full capacity is the extension year. The site’s own IRENA series for Tunisia rises 54 → 173 (2012) → 200 (2013) → 233 (2014) → 240 (2015) MW, which suggests the extension was finished 2013–2015, not 2012. No STEG annual report or extension commissioning notice found; thewindpower leaves the date blank.",
+  "sources": [
+   {
+    "url": "https://www.webmanagercenter.com/2019/04/10/433443/dix-sept-eoliennes-de-la-centrale-de-metline-kchabta-en-panne-depuis-2015",
+    "quote": "Dix-sept (17) des 143 éoliennes de la centrale éolienne de Metline-Kchabta mise en place en 2012 sont en panne"
+   },
+   {
+    "url": "https://www.webmanagercenter.com/2019/04/10/433443/dix-sept-eoliennes-de-la-centrale-de-metline-kchabta-en-panne-depuis-2015",
+    "quote": "La station de Metline, pour rappel, regroupe 72 éoliennes d’une capacité globale de 95 Mw."
+   },
+   {
+    "url": "https://www.webmanagercenter.com/2012/01/06/114586/tunisie-la-steg-s-engage-davantage-dans-les-energies-renovables/",
+    "quote": "Le projet de la Centrale éolienne de Bizerte consiste en un parc de 143 éoliennes réparties sur 2 sites, Metline et Kchabta d’une puissance totale de l’ordre de 190 MW."
+   }
+  ]
+ },
+ {
+  "item": "TUN 3. Bizerte Kchabta 94 MW",
+  "farm": "Bizerte Kchabta wind farm",
+  "src_code": 2,
+  "iso": "TUN",
+  "status": "lead",
+  "proposal": "(no rule yet) candidate: year=2012",
+  "note_zh": "補上商轉年 2012（待確認）：STEG 的 Bizerte 風場共 143 部風機、分在 Metline 與 Kchabta 兩處，約 190 MW；2019 年 TAP 報導說 Metline-Kchabta 風場「2012 年設置」，Metline 站有 72 部、95 MW",
+  "note_en": "Commissioning year 2012 (to be confirmed): STEG’s Bizerte farm has 143 turbines on two sites, Metline and Kchabta, about 190 MW; a 2019 TAP report says the Metline-Kchabta farm was “set up in 2012”, with 72 turbines and 95 MW at Metline",
+  "why": "Not written: the farm was built in two stages (120 MW / 91 turbines, then 26 more turbines per site), so each site’s full capacity is the extension year. The site’s own IRENA series for Tunisia rises 54 → 173 (2012) → 200 (2013) → 233 (2014) → 240 (2015) MW, which suggests the extension was finished 2013–2015, not 2012. No STEG annual report or extension commissioning notice found; thewindpower leaves the date blank.",
+  "sources": [
+   {
+    "url": "https://www.webmanagercenter.com/2019/04/10/433443/dix-sept-eoliennes-de-la-centrale-de-metline-kchabta-en-panne-depuis-2015",
+    "quote": "Dix-sept (17) des 143 éoliennes de la centrale éolienne de Metline-Kchabta mise en place en 2012 sont en panne"
+   },
+   {
+    "url": "https://www.webmanagercenter.com/2019/04/10/433443/dix-sept-eoliennes-de-la-centrale-de-metline-kchabta-en-panne-depuis-2015",
+    "quote": "La station de Metline, pour rappel, regroupe 72 éoliennes d’une capacité globale de 95 Mw."
+   },
+   {
+    "url": "https://www.webmanagercenter.com/2012/01/06/114586/tunisie-la-steg-s-engage-davantage-dans-les-energies-renovables/",
+    "quote": "Le projet de la Centrale éolienne de Bizerte consiste en un parc de 143 éoliennes réparties sur 2 sites, Metline et Kchabta d’une puissance totale de l’ordre de 190 MW."
+   }
+  ]
+ },
+ {
+  "item": "ARG 1. Energetica I 100 MW",
+  "farm": "Energetica I wind farm",
+  "src_code": 2,
+  "iso": "ARG",
+  "status": "lead",
+  "proposal": "(no rule yet) probable dup of ('Vientos Bonaerenses wind farm', G)",
+  "note_zh": "疑與 Vientos Bonaerenses 重複：AES Argentina 2018 年 4 月同意買下 Tres Picos 的 Energética I（79.8 MW，RenovAr 第 2 輪）；AES 在 Tornquist（Tres Picos）的 Vientos Bonaerenses 2023 年為 99.75 MW。GEM 的 Energética I 分兩期 80＋20 MW，與 Vientos Bonaerenses 的 99.75 MW 相符",
+  "note_en": "Probably the same farm as Vientos Bonaerenses: AES Argentina agreed in April 2018 to buy Energética I at Tres Picos (79.8 MW, RenovAr round 2); AES’s Vientos Bonaerenses at Tornquist (Tres Picos) had 99.75 MW in 2023. GEM splits Energética I into 80 + 20 MW, matching the 99.75 MW",
+  "why": "No source says outright that Energética I was renamed Vientos Bonaerenses; the data also has “Tres Picos wind farm” (100 MW, 2020, Nordex/AES) 3 km away, which may be a third record of the same park. Needs an AES/CAMMESA source naming the plant (e.g. CAMMESA unit list) before a dup rule.",
+  "sources": [
+   {
+    "url": "https://econojournal.com.ar/renovables-te/aes-invertira-us-140-millones-para-construir-un-parque-eolico/",
+    "quote": "AES Argentina firmó un acuerdo para adquirir el 100% del parque eólico Energética I, ubicado en Tres Picos, al sur de la provincia de Buenos Aires."
+   },
+   {
+    "url": "https://econojournal.com.ar/renovables-te/aes-invertira-us-140-millones-para-construir-un-parque-eolico/",
+    "quote": "El proyecto de 79,8 MW, fue adjudicado en la Ronda 2 del Programa RenovAr"
+   },
+   {
+    "url": "https://eleconomista.com.ar/energia/parque-eolico-tornquist-aes-invierte-us-90-millones-ampliarlo-n62542",
+    "quote": "Vientos Bonaerenses, que actualmente cuenta con una potencia instalada de 99,75 megavatios, incrementará su capacidad productiva total a 153 MW"
+   },
+   {
+    "url": "https://www.gem.wiki/Energetica_I_wind_farm",
+    "quote": "1 Operating [ 1 ] 80 MW [ 1 ] Onshore [ 1 ] Eipor SA [100%]"
+   }
+  ]
+ },
+ {
+  "item": "POL 1. Klukowo/Samborsko 105 MW",
+  "farm": "Klukowo/Samborsko wind farm",
+  "src_code": 2,
+  "iso": "POL",
+  "status": "lead",
+  "proposal": "(no rule yet) possibly never built",
+  "note_zh": "可能從未建成：2012 年 5 月 GDF Suez（今 Engie）仍在開發 Klukowo-Samborsko（105 MW）；Engie Zielona Energia 自述在波蘭的風場只有 Jarogniew-Mołtowo、Wartkowo、Pągów 與 Dąbrowice 四處，合計 138 MW",
+  "note_en": "Possibly never built: in May 2012 GDF Suez (now Engie) was still developing Klukowo-Samborsko (105 MW); Engie Zielona Energia says its Polish wind farms are four sites only, Jarogniew-Mołtowo, Wartkowo, Pągów and Dąbrowice, 138 MW in all",
+  "why": "No construction or commissioning news for Klukowo or Samborsko was found; thewindpower lists Klukowo I / Samborsko without dates. The Engie profile is undated (gramwzielone company database). Not enough to drop: another owner may have built it later. Next: URE concession register, PSE connection lists, gmina Złotów / Jastrowie local news.",
+  "sources": [
+   {
+    "url": "https://www.gramwzielone.pl/?p=2974",
+    "quote": "GDF Suez Energia Polska realizuje obecnie także projekty farm wiatrowych Pągów o mocy 51 MW oraz Klukowo-Samborsko o mocy 105 MW."
+   },
+   {
+    "url": "https://www.gramwzielone.pl/baza-firm/energia/20123714/engie-zielona-energia-sp-z-o-o",
+    "quote": "W Polsce posiadamy farmy wiatrowe w czterech lokalizacjach – Jarogniew-Mołtowo, Wartkowo, Pągów i Dąbrowice, o łącznej mocy zainstalowanej 138 MW."
+   }
+  ]
+ },
+ {
+  "item": "MEX 1. Coromuel 56 MW",
+  "farm": "Coromuel wind farm",
+  "src_code": 2,
+  "iso": "MEX",
+  "status": "write",
+  "proposal": "fix('MEX', 'Coromuel wind farm', G, '補上商轉年 2022：Eurus Energy America 的子公司 Eolica Coromuel 2022 年 10 月宣布，南下加利福尼亞州第一座風場已開始商業運轉', 'Commissioning year 2022 added: in October 2022 Eolica Coromuel, a subsidiary of Eurus Energy America, announced that the first wind farm in Baja California Sur had begun commercial operation', 'https://www.elfinancierocr.com/cables/comunicado-de-prensa-de-business-wire-eurus-energy/V3OOF4QJPJGZXPGS5HKAYUHBFU/story', year=2022),",
+  "note_zh": "補上商轉年 2022：Eurus Energy America 的子公司 Eolica Coromuel 2022 年 10 月宣布，南下加利福尼亞州第一座風場已開始商業運轉",
+  "note_en": "Commissioning year 2022 added: in October 2022 Eolica Coromuel, a subsidiary of Eurus Energy America, announced that the first wind farm in Baja California Sur had begun commercial operation",
+  "why": "Eurus calls it a 50 MW project (grid limit); GEM’s 56 MW = 20 × GE 2.8 MW, so mw is left alone.",
+  "sources": [
+   {
+    "url": "https://www.elfinancierocr.com/cables/comunicado-de-prensa-de-business-wire-eurus-energy/V3OOF4QJPJGZXPGS5HKAYUHBFU/story",
+    "quote": "Eolica Coromuel, S. De R.L. De C.V., una subsidiaria de Eurus Energy America Corporation, ha comenzado las operaciones comerciales de la primera planta de energía eólica de Baja California Sur."
+   },
+   {
+    "url": "https://www.elfinancierocr.com/cables/comunicado-de-prensa-de-business-wire-eurus-energy/V3OOF4QJPJGZXPGS5HKAYUHBFU/story",
+    "quote": "El proyecto de 50 megavatios construido por Eolica Coromuel, la filial mexicana de Eurus Energy America, ha comenzado a funcionar"
+   },
+   {
+    "url": "https://www.elfinancierocr.com/cables/comunicado-de-prensa-de-business-wire-eurus-energy/V3OOF4QJPJGZXPGS5HKAYUHBFU/story",
+    "quote": "28 de octubre 2022"
+   }
+  ]
+ },
+ {
+  "item": "HRV 1. Lukovac 49 MW",
+  "farm": "Lukovac wind farm",
+  "src_code": 2,
+  "iso": "HRV",
+  "status": "write",
+  "proposal": "fix('HRV', 'Lukovac wind farm', G, '補上商轉年 2018：業主 Enlight 的專案頁列 Lukovac 風場（斯普利特-達爾馬提亞縣）商轉日 2018 年、49 MW、16 部風機', 'Commissioning year 2018 added: owner Enlight’s project page gives the Lukovac farm (Split-Dalmatia County) a commercial operation date of 2018, 49 MW and 16 turbines', 'https://enlightenergy.com/?p=1322', year=2018),",
+  "note_zh": "補上商轉年 2018：業主 Enlight 的專案頁列 Lukovac 風場（斯普利特-達爾馬提亞縣）商轉日 2018 年、49 MW、16 部風機",
+  "note_en": "Commissioning year 2018 added: owner Enlight’s project page gives the Lukovac farm (Split-Dalmatia County) a commercial operation date of 2018, 49 MW and 16 turbines",
+  "why": "en.wikipedia’s Croatia table says 2017 (citing thewindpower); the owner’s own COD (2018) is used.",
+  "sources": [
+   {
+    "url": "https://enlightenergy.com/?p=1322",
+    "quote": "Commercial Operation Date 2018 Installed Capacity 49 MW No. of turbines 16"
+   },
+   {
+    "url": "https://enlightenergy.com/?p=1322",
+    "quote": "The Lukovac wind farm is located in Split-Dalmatia County, Croatia, 35 km west of Split."
+   }
+  ]
+ },
+ {
+  "item": "HRV 2. Kamensko-Vostane 42 MW",
+  "farm": "Kamensko-Vostane wind farm",
+  "src_code": 2,
+  "iso": "HRV",
+  "status": "write",
+  "proposal": "fix('HRV', 'Kamensko-Vostane wind farm', G, '補上商轉年 2013：英文維基百科克羅埃西亞風電表列 VE Kamensko-Voštane（14 部 Siemens 3 MW）2013 年商轉', 'Commissioning year 2013 added: the Croatian wind farm table on English Wikipedia lists VE Kamensko-Voštane (14 Siemens 3 MW turbines) as commissioned in 2013', 'https://en.wikipedia.org/wiki/Wind_power_in_Croatia', year=2013, turbine='14 x Siemens 3.0 MW'),",
+  "note_zh": "補上商轉年 2013：英文維基百科克羅埃西亞風電表列 VE Kamensko-Voštane（14 部 Siemens 3 MW）2013 年商轉",
+  "note_en": "Commissioning year 2013 added: the Croatian wind farm table on English Wikipedia lists VE Kamensko-Voštane (14 Siemens 3 MW turbines) as commissioned in 2013",
+  "why": "Wikipedia gives 40 MW but 14 × 3 MW = 42 MW (GEM), so mw is left alone. Wikipedia’s cited source [19] not opened (budget).",
+  "sources": [
+   {
+    "url": "https://en.wikipedia.org/wiki/Wind_power_in_Croatia",
+    "quote": "VE Kamensko-Voštane 40 114 14 × Siemens – 3 MW 2013"
+   }
+  ]
+ },
+ {
+  "item": "POL 2. Taciewo 30 MW",
+  "farm": "Taciewo wind farm",
+  "src_code": 2,
+  "iso": "POL",
+  "status": "write",
+  "proposal": "fix('POL', 'Taciewo wind farm', G, '補上商轉年 2012：波蘭文維基百科的風場表列 Taciewo（蘇瓦烏基縣，15 部 Gamesa G90-2.0、30 MW，RWE Polska）2012 年', 'Commissioning year 2012 added: the wind farm table on Polish Wikipedia lists Taciewo (Suwałki county, 15 Gamesa G90-2.0, 30 MW, RWE Polska) in 2012', 'https://pl.wikipedia.org/wiki/Energetyka_wiatrowa_w_Polsce', year=2012, turbine='15 x Gamesa G90-2.0 MW'),",
+  "note_zh": "補上商轉年 2012：波蘭文維基百科的風場表列 Taciewo（蘇瓦烏基縣，15 部 Gamesa G90-2.0、30 MW，RWE Polska）2012 年",
+  "note_en": "Commissioning year 2012 added: the wind farm table on Polish Wikipedia lists Taciewo (Suwałki county, 15 Gamesa G90-2.0, 30 MW, RWE Polska) in 2012",
+  "why": "Secondary (Wikipedia table, which cites PSEW/GUS lists); no RWE page fetched.",
+  "sources": [
+   {
+    "url": "https://pl.wikipedia.org/wiki/Energetyka_wiatrowa_w_Polsce",
+    "quote": "22. Taciewo [ 79 ] województwo podlaskie , powiat suwalski , gmina wiejska Suwałki 15 Gamesa G90-2.0M 78 m 90 m 030 ! 30 MW RWE Polska 2012"
+   }
+  ]
+ },
+ {
+  "item": "POL 3. Tyszowce 34 MW",
+  "farm": "Tyszowce wind farm",
+  "src_code": 2,
+  "iso": "POL",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "Tyszowce 的 Kresy I 風場（EDP Renewables，30 MW）2016 年商轉；與 GEM 的 34 MW 不完全相符",
+  "note_en": "The Kresy I farm at Tyszowce (EDP Renewables, 30 MW) went online in 2016; this does not quite match GEM’s 34 MW",
+  "why": "GEM 34 MW vs Kresy I 30 MW (15 turbines): could be a different or enlarged project; no owner given by GEM. Needs an EDPR source for Kresy I and a check for a second farm at Tyszowce.",
+  "sources": [
+   {
+    "url": "https://pl.wikipedia.org/wiki/Energetyka_wiatrowa_w_Polsce",
+    "quote": "49. Elektrownia Wiatrowa Kresy I [ 126 ] , Tyszowce [ 127 ] [ 128 ] województwo lubelskie 15 95 m [ 127 ] 030 ! 30 MW EDP Renewables Polska [ 127 ] 2016"
+   }
+  ]
+ },
+ {
+  "item": "NAM 1. Ombepo 6 MW",
+  "farm": "Ombepo wind farm",
+  "src_code": 2,
+  "iso": "NAM",
+  "status": "write",
+  "proposal": "fix('NAM', 'Ombepo wind farm', G, '補上商轉年 2017：Lüderitz 的 Ombepo 風場三部風機 2017 年 8 月 20 日開始發電（納米比亞第一座風場）', 'Commissioning year 2017 added: the three turbines of the Ombepo farm at Lüderitz started producing power on 20 August 2017 (Namibia’s first wind farm)', 'https://neweralive.na/?p=21954', year=2017),",
+  "note_zh": "補上商轉年 2017：Lüderitz 的 Ombepo 風場三部風機 2017 年 8 月 20 日開始發電（納米比亞第一座風場）",
+  "note_en": "Commissioning year 2017 added: the three turbines of the Ombepo farm at Lüderitz started producing power on 20 August 2017 (Namibia’s first wind farm)",
+  "why": "Press calls it 5 MW (grid injection); GEM 6 MW is left alone (IRENA also shows 6 MW for Namibia from 2017).",
+  "sources": [
+   {
+    "url": "https://neweralive.na/?p=21954",
+    "quote": "Ombepo was successfully competed as scheduled and the three massive turbines started producing power in Lüderitz on 20 August"
+   },
+   {
+    "url": "https://neweralive.na/?p=21954",
+    "quote": "Ombepo energy project has already started to produce electricity since 2017"
+   },
+   {
+    "url": "https://www.aera-group.fr/portfolio/portfolio/ombepo-wind",
+    "quote": "Since its commissioning in August 2017, this trailblazing wind farm has powered over 20,000 Namibians with renewable energy."
+   }
+  ]
+ },
+ {
+  "item": "SRB 1. Kula 10 MW",
+  "farm": "Kula wind farm",
+  "src_code": 2,
+  "iso": "SRB",
+  "status": "write",
+  "proposal": "fix('SRB', 'Kula wind farm', G, '補上商轉年 2016 並更正容量與機組：Kula 風場是 3 部 Vestas V117 3.3 MW（9.9 MW），2016 年 2 月底開始試運轉，同年 9 月取得能源執照並開始適用躉購電價', 'Commissioning year 2016 added, capacity and turbines corrected: the Kula farm has 3 Vestas V117 3.3 MW units (9.9 MW); test runs started in late February 2016 and it received its energy licence and feed-in tariff in September 2016', 'https://www.emarketstorage.it/sites/default/files/comunicati/2022-05/20160926_20753.pdf', year=2016, mw=9.9, turbine='3 x Vestas V117-3.3 MW'),",
+  "note_zh": "補上商轉年 2016 並更正容量與機組：Kula 風場是 3 部 Vestas V117 3.3 MW（9.9 MW），2016 年 2 月底開始試運轉，同年 9 月取得能源執照並開始適用躉購電價",
+  "note_en": "Commissioning year 2016 added, capacity and turbines corrected: the Kula farm has 3 Vestas V117 3.3 MW units (9.9 MW); test runs started in late February 2016 and it received its energy licence and feed-in tariff in September 2016",
+  "why": "IRENA shows Serbia’s first 10 MW in 2015 (turbines erected 2015), but operation (test run, licence, tariff) is 2016.",
+  "sources": [
+   {
+    "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2022-05/20160926_20753.pdf",
+    "quote": "Fintel Energia Group SpA announced today that its subsidiary Vetro Park Kula d.o.o. has obtained from the Ministry Of Energy and Mining the Energy Licence for its newly built 9,9 MW wind farm"
+   },
+   {
+    "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2022-05/20160926_20753.pdf",
+    "quote": "Pollenza, September 27, 2016"
+   },
+   {
+    "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2022-05/20160926_20753.pdf",
+    "quote": "It consists of 3 Vestas V117 3,3 MW each with a hub height of 116,5 mt."
+   },
+   {
+    "url": "https://www.energetskiportal.com/kula-wind-power-plant-to-start-delivering-electricity-works-at-la-piccolina-launched/",
+    "quote": "MK-Fintel Wind’s 9.9 MW project in Serbia’s northwest will soon complete its test drive, started in late February."
+   }
+  ]
+ },
+ {
+  "item": "ISR 1. Afcon 22 MW",
+  "farm": "Afcon wind farm",
+  "src_code": 2,
+  "iso": "ISR",
+  "status": "write",
+  "proposal": "fix('ISR', 'Afcon wind farm', G, '補上商轉年 2016：Afcon 在 Ma’ale Gilboa（14 部）與 Ramat Sirin（11 部）兩處共 25 部風機、約 22 MW，2015 年開始興建、2016 年併網', 'Commissioning year 2016 added: Afcon’s farms at Ma’ale Gilboa (14 turbines) and Ramat Sirin (11) have 25 turbines and about 22 MW in all; construction began in 2015 and they were connected to the grid in 2016', 'https://en.afcon.co.il/blog/companies/afcon-manufacture/', year=2016, note=True),",
+  "note_zh": "補上商轉年 2016：Afcon 在 Ma’ale Gilboa（14 部）與 Ramat Sirin（11 部）兩處共 25 部風機、約 22 MW，2015 年開始興建、2016 年併網",
+  "note_en": "Commissioning year 2016 added: Afcon’s farms at Ma’ale Gilboa (14 turbines) and Ramat Sirin (11) have 25 turbines and about 22 MW in all; construction began in 2015 and they were connected to the grid in 2016",
+  "why": "The 22 MW covers two sites. The WRI record “Mount Gilboa” (21 MW, 2017, Israel Electric Corporation, 11 km away) may be the same Gilboa turbines; not resolved here (needs a source on who owns/what is at Mount Gilboa).",
+  "sources": [
+   {
+    "url": "https://en.afcon.co.il/blog/companies/afcon-manufacture/",
+    "quote": "These wind farms produce electricity from wind energy through 25 turbines that stand 44 meters high: 14 at the Ma’ale Gilboa Site and 11 at the Ramat Sirin Site – generating a total of about 22MW of clean green electricity."
+   },
+   {
+    "url": "https://en.afcon.co.il/blog/companies/afcon-manufacture/",
+    "quote": "The farms were connected to the national electricity network in 2016."
+   },
+   {
+    "url": "https://en.afcon.co.il/blog/companies/afcon-manufacture/",
+    "quote": "The set-up process began in 2015."
+   }
+  ]
+ },
+ {
+  "item": "NLD 1. Flevo Ventum 32 MW",
+  "farm": "Flevo Ventum wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "write",
+  "proposal": "fix('NLD', 'Flevo Ventum wind farm', G, '補上商轉年 2023：Flevo Ventum 的 5 部風機由 Pure Energie 在 Windplan Groen 內興建；荷蘭企業局（RVO）《2023 陸域風電監測》列 Windplan Groen（Dronten，512.6 MW）於 2023 年完成', 'Commissioning year 2023 added: Flevo Ventum’s five turbines were built by Pure Energie within Windplan Groen; RVO’s Monitor Wind op Land 2023 lists Windplan Groen (Dronten, 512.6 MW) as realised in 2023', 'https://www.rvo.nl/sites/default/files/2024-05/Monitor%20Wind%20op%20land%202023.pdf', year=2023),",
+  "note_zh": "補上商轉年 2023：Flevo Ventum 的 5 部風機由 Pure Energie 在 Windplan Groen 內興建；荷蘭企業局（RVO）《2023 陸域風電監測》列 Windplan Groen（Dronten，512.6 MW）於 2023 年完成",
+  "note_en": "Commissioning year 2023 added: Flevo Ventum’s five turbines were built by Pure Energie within Windplan Groen; RVO’s Monitor Wind op Land 2023 lists Windplan Groen (Dronten, 512.6 MW) as realised in 2023",
+  "why": "Same reasoning as the Kubbeweg rule (Windplan Groen realised 2023). Construction finished late Nov 2023, then test period; Pure Energie’s page (Jan 2024) says Flevo Ventum B.V. now runs its turbines itself.",
+  "sources": [
+   {
+    "url": "https://pure-energie.nl/over-ons/nieuws/team-blikt-trots-terug-op-realisatie-windparken-in-windplan-groen/",
+    "quote": "Wij ontwikkelden en realiseerden 25 windmolens verdeeld over vier projecten in Windplan Groen, waarvan vijf voor Flevo Ventum B.V."
+   },
+   {
+    "url": "https://pure-energie.nl/over-ons/nieuws/team-blikt-trots-terug-op-realisatie-windparken-in-windplan-groen/",
+    "quote": "Flevo Ventum B.V. beheert de windmolens vanaf nu zelf"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2024-05/Monitor%20Wind%20op%20land%202023.pdf",
+    "quote": "Tabel B1. Gerealiseerde windprojecten en sanering in 2023 Windpark Gemeente MW MWh Windplan Groen Dronten 512,6"
+   }
+  ]
+ },
+ {
+  "item": "MEX 2. San Pedro 30 MW",
+  "farm": "San Pedro wind farm (Mexico)",
+  "src_code": 2,
+  "iso": "MEX",
+  "status": "write",
+  "proposal": "fix('MEX', 'San Pedro wind farm (Mexico)', G, '補上商轉年 2023：Elawan 說克雷塔羅州的 San Pedro 風場（30 MW）2023 年 9 月起運轉', 'Commissioning year 2023 added: Elawan says its San Pedro farm in Querétaro (30 MW) has been operating since September 2023', 'https://www.elawan.com/en/noticias/elawan-energy-secures-e25-m-in-financing-for-its-30-mw-san-pedro-wind-farm-in-queretaro-mexico/', year=2023),",
+  "note_zh": "補上商轉年 2023：Elawan 說克雷塔羅州的 San Pedro 風場（30 MW）2023 年 9 月起運轉",
+  "note_en": "Commissioning year 2023 added: Elawan says its San Pedro farm in Querétaro (30 MW) has been operating since September 2023",
+  "why": "Owner’s own statement.",
+  "sources": [
+   {
+    "url": "https://www.elawan.com/en/noticias/elawan-energy-secures-e25-m-in-financing-for-its-30-mw-san-pedro-wind-farm-in-queretaro-mexico/",
+    "quote": "Operational since September 2023, the San Pedro wind farm is the only wind-power project in the state of Querétaro."
+   },
+   {
+    "url": "https://www.elawan.com/en/noticias/elawan-energy-secures-e25-m-in-financing-for-its-30-mw-san-pedro-wind-farm-in-queretaro-mexico/",
+    "quote": "Elawan Energy Secures €25 M in Financing for Its 30 MW San Pedro Wind Farm in Querétaro, Mexico"
+   }
+  ]
+ },
+ {
+  "item": "JPN 1. Shinkamigoto Whales Wind System 16 MW",
+  "farm": "Shinkamigoto Whales Wind System",
+  "src_code": 2,
+  "iso": "JPN",
+  "status": "write",
+  "proposal": "fix('JPN', 'Shinkamigoto Whales Wind System', G, '補上商轉年 2010 並補上機組：NEDO 的長崎縣風力發電設備一覽列九州風力發電（株）「新上五島ホエールズウィンドシステム」2010 年 2 月運轉，8 部日本製鋼所 2,000 kW、共 16,000 kW', 'Commissioning year 2010 added with turbines: NEDO’s list of wind installations in Nagasaki gives Kyushu Wind Power’s Shinkamigoto Whales Wind System as running from February 2010, 8 Japan Steel Works 2,000 kW units, 16,000 kW in all', 'https://www.nedo.go.jp/library/fuuryoku/case/pref_42.html', year=2010, turbine='8 x Japan Steel Works 2.0 MW'),",
+  "note_zh": "補上商轉年 2010 並補上機組：NEDO 的長崎縣風力發電設備一覽列九州風力發電（株）「新上五島ホエールズウィンドシステム」2010 年 2 月運轉，8 部日本製鋼所 2,000 kW、共 16,000 kW",
+  "note_en": "Commissioning year 2010 added with turbines: NEDO’s list of wind installations in Nagasaki gives Kyushu Wind Power’s Shinkamigoto Whales Wind System as running from February 2010, 8 Japan Steel Works 2,000 kW units, 16,000 kW in all",
+  "why": "NEDO table (as of March 2018) matches name, owner, town and capacity.",
+  "sources": [
+   {
+    "url": "https://www.nedo.go.jp/library/fuuryoku/case/pref_42.html",
+    "quote": "2010年2月 九州風力発電（株）［新上五島ホエールズウィンドシステム］ 新上五島町 2,000 8 16,000 日本製鋼所 売電事業"
+   }
+  ]
+ },
+ {
+  "item": "JPN 2. Banya 18 MW",
+  "farm": "Banya wind farm",
+  "src_code": 2,
+  "iso": "JPN",
+  "status": "write",
+  "proposal": "fix('JPN', 'Banya wind farm', G, '補上商轉年 2004 並更正容量與機組：環境省 2020 年說南薩摩市「番屋風力發電所」有 10 部運轉中的風機（鹿兒島風力發電研究所計畫汰換）；NEDO 的鹿兒島縣一覽列南薩摩市（舊坊津町）風力發電研究所 10 部 Vestas 1,750 kW、共 17,500 kW，2004 年 3 月運轉，是該市唯一的 10 部風場', 'Commissioning year 2004 added, capacity and turbines corrected: in 2020 the Ministry of the Environment described the “Banya wind farm” in Minamisatsuma as 10 operating turbines (to be replaced by Kagoshima Wind Power Research); NEDO’s Kagoshima list gives the Wind Power Research farm at Minamisatsuma (former Bōnotsu), 10 Vestas 1,750 kW units, 17,500 kW, running from March 2004 — the only 10-turbine farm in the city', 'https://www.nedo.go.jp/library/fuuryoku/case/pref_46.html', year=2004, mw=17.5, turbine='10 x Vestas 1.75 MW'),",
+  "note_zh": "補上商轉年 2004 並更正容量與機組：環境省 2020 年說南薩摩市「番屋風力發電所」有 10 部運轉中的風機（鹿兒島風力發電研究所計畫汰換）；NEDO 的鹿兒島縣一覽列南薩摩市（舊坊津町）風力發電研究所 10 部 Vestas 1,750 kW、共 17,500 kW，2004 年 3 月運轉，是該市唯一的 10 部風場",
+  "note_en": "Commissioning year 2004 added, capacity and turbines corrected: in 2020 the Ministry of the Environment described the “Banya wind farm” in Minamisatsuma as 10 operating turbines (to be replaced by Kagoshima Wind Power Research); NEDO’s Kagoshima list gives the Wind Power Research farm at Minamisatsuma (former Bōnotsu), 10 Vestas 1,750 kW units, 17,500 kW, running from March 2004 — the only 10-turbine farm in the city",
+  "why": "Match is by city, turbine count and size (NEDO does not print the name 番屋). The 2020 replacement plan (≤6 turbines, ≤17.5 MW) was at the consideration-document stage; no evidence it has been built, so the record stays the 2004 farm. If the repowering is later found built, year/turbine must change.",
+  "sources": [
+   {
+    "url": "https://www.nedo.go.jp/library/fuuryoku/case/pref_46.html",
+    "quote": "2004年3月 株式会社風力発電研究所（旧ｳｲﾝﾄﾞﾃｯｸ坊津） 南さつま市（旧坊津町） 1,750 10 17,500 Vestas 売電事業"
+   },
+   {
+    "url": "https://www.env.go.jp/press/108455.html",
+    "quote": "本事業は、鹿児島県南さつま市において、稼働中である「番屋風力発電所」の風力発電設備10基を撤去し、最大で出力17,500kWの風力発電設備最大６基に更新するものである。"
+   },
+   {
+    "url": "https://www.env.go.jp/press/108455.html",
+    "quote": "「（仮称）番屋風力発電所 更新事業 計画段階環境配慮書」（株式会社鹿児島風力発電研究所）"
+   }
+  ]
+ },
+ {
+  "item": "AUS 1. Denmark Community 1.4 MW",
+  "farm": "Denmark Community wind farm",
+  "src_code": 2,
+  "iso": "AUS",
+  "status": "write",
+  "proposal": "fix('AUS', 'Denmark Community wind farm', G, '補上商轉年 2013 並更正容量與機組：Denmark 社區風場的兩部 Enercon E48（各 800 kW）2013 年 2 月 20 日開始發電', 'Commissioning year 2013 added, capacity and turbines corrected: the two Enercon E48 turbines (800 kW each) of the Denmark community wind farm started generating on 20 February 2013', 'https://c4ce.org.au/node/166', year=2013, mw=1.6, turbine='2 x Enercon E48/800'),",
+  "note_zh": "補上商轉年 2013 並更正容量與機組：Denmark 社區風場的兩部 Enercon E48（各 800 kW）2013 年 2 月 20 日開始發電",
+  "note_en": "Commissioning year 2013 added, capacity and turbines corrected: the two Enercon E48 turbines (800 kW each) of the Denmark community wind farm started generating on 20 February 2013",
+  "why": "Community energy network case study; 2 × 800 kW = 1.6 MW (GEM 1.4 MW).",
+  "sources": [
+   {
+    "url": "https://c4ce.org.au/node/166",
+    "quote": "Denmark began generating its own wind energy on 20 February 2013"
+   },
+   {
+    "url": "https://c4ce.org.au/node/166",
+    "quote": "Two 800kW Enercon E48 turbines supply about 50% of the local domestic demand."
+   }
+  ]
+ },
+ {
+  "item": "AUS 2. Kalbarri 1.6 MW",
+  "farm": "Kalbarri wind farm",
+  "src_code": 2,
+  "iso": "AUS",
+  "status": "lead",
+  "proposal": "(no rule yet) candidate: year=2008",
+  "note_zh": "Open Electricity 的設施頁把 Kalbarri 風場（Synergy，1.6 MW）標為 2008 年；同頁另說「2021 年完成」的是讓 Kalbarri 在斷網時有替代電源的計畫（電池）",
+  "note_en": "Open Electricity’s facility page shows the Kalbarri farm (Synergy, 1.6 MW) with the year 2008; the same page says the project “completed in 2021” is the back-up supply for Kalbarri (battery)",
+  "why": "The 2008 on Open Electricity is an unlabelled year next to the region; the ERA licence amendment adding the farm (Aug 2007) returned 404 on erawa.com.au. Needs a dated Verve/ERA source for first operation.",
+  "sources": [
+   {
+    "url": "https://openelectricity.org.au/facility/KALBARRI",
+    "quote": "Kalbarri Kalbarri operating WA Western Australia 2008"
+   },
+   {
+    "url": "https://openelectricity.org.au/facility/KALBARRI",
+    "quote": "Owner Synergy Units 1 unit Operating KALBARRI_WF1 1.6 MW Wind"
+   }
+  ]
+ },
+ {
+  "item": "ARG 2. Santa Teresita 50 MW",
+  "farm": "Santa Teresita wind farm",
+  "src_code": 2,
+  "iso": "ARG",
+  "status": "lead",
+  "proposal": "(no rule yet) status doubtful: possibly st=2/3",
+  "note_zh": "2022 年 10 月阿根廷電力管理局（ENRE）公告時，Santa Teresita 風場（Vientos Punta Alta S.A.，50.4 MW）仍是「將有」50.4 MW、要接到「未來的」Vientos Fray Güen 變電所，當時尚未建成",
+  "note_en": "In October 2022 the ENRE notice still describes the Santa Teresita farm (Vientos Punta Alta S.A., 50.4 MW) as one that “will have” 50.4 MW and will connect to the “future” Vientos Fray Güen substation, i.e. not built then",
+  "why": "No commissioning (habilitación comercial) found; GEM’s “operating” may be wrong. Owner per the bulletin is Vientos Punta Alta S.A., not Eolia Renovables. Next: CAMMESA habilitaciones 2023–2026.",
+  "sources": [
+   {
+    "url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/273857/20221018",
+    "quote": "el que tiene por objeto vincular el PARQUE EÓLICO SANTA TERESITA (PEST), que tendrá una potencia instalada de 50,4 MW, a la futura Estación Transformadora (ET) Vientos Fray Güen"
+   }
+  ]
+ },
+ {
+  "item": "POL 4. Reńska Wieś 45 MW",
+  "farm": "Reńska Wieś wind farm",
+  "src_code": 2,
+  "iso": "POL",
+  "status": "lead",
+  "proposal": "(no rule yet) possibly never built",
+  "note_zh": "可能從未建成：奧波萊區域環保局 2026 年的通知說，「Farma wiatrowa Reńska Wieś」是在 Reńska Wieś 規劃 5 部、Gierałtowice 1 部風機的案子，環境條件審查程序已終止；沒有找到 45 MW 風場建成的紀錄",
+  "note_en": "Possibly never built: a 2026 notice of the Regional Environmental Directorate in Opole describes “Farma wiatrowa Reńska Wieś” as a plan for 5 turbines at Reńska Wieś and 1 at Gierałtowice whose environmental-conditions procedure is being discontinued; no record of a 45 MW farm being built was found",
+  "why": "The planned 6-turbine project is not proof that no older 45 MW farm exists (thewindpower lists 15 turbines, developer Yard Energy, no date). Next: URE concession list for gmina Reńska Wieś.",
+  "sources": [
+   {
+    "url": "https://www.gov.pl/attachment/e9087ed7-c3c3-4121-a9a2-6cc10e7f984e",
+    "quote": "elektrownie wiatrowe będą zlokalizowane w gminie Reńska Wieś na działkach nr: 509, 510, 432/3, 34, 8/6, 68 obręb Reńska Wieś (5 szt.) oraz na działce nr 6 obręb Gierałtowice (1 szt.)"
+   }
+  ]
+ },
+ {
+  "item": "CRI 1–4. Vientos De La Perla, Vientos Del Miramar, Altamira, Campos Azules (20 MW each)",
+  "farm": "(4 farms: Vientos De La Perla, Vientos Del Miramar, Altamira (Costa Rica), Campos Azules)",
+  "src_code": 2,
+  "iso": "CRI",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "四座都是 Globeleq Mesoamérica Energy（2016 年併入 CMI）建的 20 MW 風場，各 10 部 Gamesa G87/90；2015 年底簽約時預計 2016 年底完工，2019 年的學術論文列為運轉中，確切商轉年不詳",
+  "note_en": "All four are 20 MW farms built by Globeleq Mesoamérica Energy (bought by CMI in 2016), 10 Gamesa G87/90 each; the late-2015 contract aimed at completion by the end of 2016 and a 2019 paper lists them as operating, but the actual commissioning year was not found",
+  "why": "Searched ICE/CMI/press; only the contract target (end 2016) and a 2019 table were found. IRENA’s Costa Rica series (+41 MW in 2016, +59 MW in 2017) does not settle it. Note GEM puts La Perla/Miramar at the same point (scielo: Liberia) and Altamira/Campos Azules at another (Tilarán).",
+  "sources": [
+   {
+    "url": "https://www.scielo.sa.cr/pdf/tem/v32n2/0379-3982-tem-32-02-54.pdf",
+    "quote": "Altamira Tilarán, Guanacaste 10 2000 20 000 Gamesa. Modelo G87/90 Campos Azules Tilarán, Guanacaste 10 2000 20 000 Gamesa."
+   },
+   {
+    "url": "https://www.scielo.sa.cr/pdf/tem/v32n2/0379-3982-tem-32-02-54.pdf",
+    "quote": "Vientos de Miramar Liberia, Guanacaste 10 2000 20 000 Gamesa. Modelo G87/90 Vientos de La Perla Liberia, Guanacaste 10 2000 20 000 Gamesa."
+   },
+   {
+    "url": "https://semanariouniversidad.com/pais/cmi-el-gigante-guatemalteco-de-energia-renovable-que-encontro-viento-favorable-en-costa-rica/",
+    "quote": "Globaleq Mesoamérica Energy (GME), que fue adquirida por CMI en el 2016 y que fue la encargada de la construcción de cuatro de las seis plantas eólicas que son propiedad en la actualidad de CMI en Costa Rica: Vientos de la Perla, Vientos de Miramar, Campos Azules y Altamira"
+   }
+  ]
+ },
+ {
+  "item": "CRI 5. Mogote 20 MW",
+  "farm": "Mogote wind farm",
+  "src_code": 2,
+  "iso": "CRI",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "Mogote 風場（Bagaces，7 部 Vestas V90 3 MW）在 2019 年的學術論文列為運轉中；2015 年訂機時預計當年底完工，確切商轉年不詳",
+  "note_en": "The Mogote farm (Bagaces, 7 Vestas V90 3 MW) is listed as operating in a 2019 paper; the 2015 turbine order expected completion at the end of that year, but the actual year was not found",
+  "why": "Only order-time expectations (Vestas/Bloomberg 2015) found; no commissioning notice.",
+  "sources": [
+   {
+    "url": "https://www.scielo.sa.cr/pdf/tem/v32n2/0379-3982-tem-32-02-54.pdf",
+    "quote": "Mogote Bagaces, Guanacaste 7 3000 20 000 Vestas. Modelo V90"
+   }
+  ]
+ },
+ {
+  "item": "NLD 2–21. Remaining Dutch farms",
+  "farm": "(20 farms: Mammoettocht, De Kleine Trap, Haagen, Bosruitertocht, Amsterdam-Westpoort, Van Pallandtpolder, Midlum, Ritthem, Wagendorp, Ooievaarsweg, Roompotsluis, Netterden-Azewijn, Noordertocht, Windstroom, Futenweg, Dodaarsweg, Laaksche Vaart, St. Antoinedijk, Van Gogh, Windpark Hoofdplaatpolder BV)",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "其餘 20 座沒有找到年份。另注意：Zeewolde 的舊線狀風場（Bosruitertocht、Dodaarsweg、Ooievaarsweg、Futenweg 一帶）正為 Windpark Zeewolde 拆除，RVO《2023 陸域風電監測》列「Windpark Zeewolde 2026 年前尚待拆除」153.3 MW，Dronten 另有 18 MW 舊機待 2027 年拆除；這些紀錄之後可能要改為已除役",
+  "note_en": "No year found for the other 20. Note: the old line parks in Zeewolde (around Bosruitertocht, Dodaarsweg, Ooievaarsweg, Futenweg) are being removed for Windpark Zeewolde; RVO’s Monitor 2023 lists 153.3 MW of “Windpark Zeewolde still to be removed in 2026”, and 18 MW of old Dronten turbines to go by 2027, so these rows may later need to become retired",
+  "why": "Tried: RVO Monitor 2023 (no per-farm rows for pre-2018 parks), web searches. A Futenweg permit decision (permit of 25 Oct 2001, six turbines, partial withdrawal 2025–26) exists on repository.officiele-overheidspublicaties.nl but the PDF is a scan (no text), so it cannot be quoted. Earlier round (doubts_2026-10q_CC) found nothing in RVO 2018–2023 or nl.wikipedia either.",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2024-05/Monitor%20Wind%20op%20land%202023.pdf",
+    "quote": "Windpark Zeewolde nog te saneren in 2026 Zeewolde 153,3 -153,3 -0,399"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2024-05/Monitor%20Wind%20op%20land%202023.pdf",
+    "quote": "Windplan Groen nog te saneren in 2027 Dronten 18,0 -18 -0,126"
+   }
+  ]
+ },
+ {
+  "item": "CHN 1–10. Distributed farms",
+  "farm": "(10 farms: Henan Yongcheng Tuobing, Henan Wuyang Jiangdian (Longyuan), Shaanxi Yuyang Hailiutan, Inner Mongolia Damao (Runfeng), Inner Mongolia Wuchuan demonstration, Liaoning Wensheng Xiaotunzhen Badaogou (Fenghai), Liaoning Fuxin (Fengshun), Inner Mongolia Morin Dawa Banner (Zhongrong), Henan Huaxian Zhaoying, Jiangsu Jinhu Youtian)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "十座分散式風場都沒有找到併網年份",
+  "note_en": "No grid-connection year found for any of the ten distributed farms",
+  "why": "Searched (Chinese) project name + 并网 for Yongcheng Tuobing, Wuyang Jiangdian and Yuyang Hailiutan: only GEM wiki and policy pages. These are onshore distributed projects, so MSA routes do not apply; owners are small private firms without cninfo reports (except Tianrun = Goldwind, whose reports do not list 10 MW projects by name). Not pursued further (budget).",
+  "sources": []
+ },
+ {
+  "item": "Other items with no usable source",
+  "farm": "(Poland: Odrzechowa, Lewin Brazeski, Kluczbork, Konczewo, Bierutow, Warblewo, Zopowy, Rymanów, Kołobrzeg, Ketrzyn, Przasnysz, Makow (EWind), Sztum, Kocierzew, Granowo, Poblocie Male, Ciechanow, Ronica; Romania: Ventus Nord-2, Cerna, Cee Nicolae Balcescu, Cudalbi, Insuratei, Casimcea · 2; Ireland: Cahercullenagh, Grove Hill, Lissycasey, Cloghaneleskirt; Belgium: Chimay, Plateau De Bourcy, Zelzate 3, Zandvliet Basf; AUS Diapur 2, Timboon West; DNK Udbyneder, Hillerslev; LTU Strepeikiu; URY Santa Rita; CHL Vientos de Renaico; MUS Plaine Sophie; THA Tha Phaya; UKR Mirnov; GBR Parc Stormy; JPN Tsuno; NFK Steeles Point, Headstone; CMR Cameroon)",
+  "src_code": 2,
+  "iso": "(various)",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "這些風場沒有找到可引用的商轉年",
+  "note_en": "No quotable commissioning year found for these farms",
+  "why": "Leads only: Zopowy — Iberdrola bought it (with Korytnica I) from CEE Equity Partners in 2021, GlobalData says commissioned 2014 (not primary). Ronica — European Energy/VisaVento, thewindpower 55.35 MW / 18 turbines, no date; EE’s 2025 sale of six West Pomeranian farms (commissioned 2021–2023) does not name them. Ventus Nord-2 — Verbund’s Casimcea complex (226 MW) was half connected in June 2013 and finished by early 2014 at the latest; no split by park. Strepeikiu — may overlap Pagėgiai 13 (Amberwind, opened 16 June 2016, 73.5 MW, already in the data as 74 MW 2016); thewindpower lists Strepeikiu separately at 50 MW, so not resolved. Udbyneder — Randers municipality (2017) mentions an existing 30-turbine farm at Overgaard near Udbyneder; no year. Plaine Sophie — 29.4 MW Suzlon/PADCO plant was due Sept–Oct 2017 (Ecofin 2016); no confirmation it was built. Chimay — GEM phases 10 + 14 MW at Baileux (Ventient); press dates not found. Plateau de Bourcy — 7 × Fuhrländer 2.5 MW (17.5 MW). Cameroon 100 MW “operating” — the site’s IRENA series has no wind capacity for Cameroon at all, so the row is probably a GEM error (status), but no quotable source was fetched. Tsuno — the NEDO Miyazaki page (to March 2018) shows only a 16 MW 2016 farm at Gokase; the GEM point (32.611 N, 131.715 E) is not in Tsuno town. Others: nothing found in 1–2 searches.",
+  "sources": []
+ }
+]
