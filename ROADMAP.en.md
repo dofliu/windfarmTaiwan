@@ -7,7 +7,7 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (7 Oct 2026, v2.30.2): maintenance, improvements as the owner asks
+## Current status (9 Oct 2026, v2.30.18): maintenance, improvements as the owner asks
 
 The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks,
 visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CHANGELOG.en.md)). The automatic Taiwan live-data updates keep running
@@ -44,9 +44,12 @@ visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CH
   farms have a known type, 87.3% of capacity); dimensions: at least one value for 278 farms and all three for 183 (ten rounds, every
   figure with a quoted source checked by `tools/check_quotes.py`); the differences between GEM 2026-02 and the site's list checked one
   by one (v2.17.7).
+- 8–9 Oct 2026, research rounds 17–23 (v2.30.12–v2.30.18): a new foundation type, "low pile cap"; operating farms without a commissioning year from 966 (48.2 GW)
+  to 640 (31.1 GW), and clean-up rules from 508 to 885 (duplicates, never-built farms and aggregates cleared on the way).
 
 The phased plans and ideas below are kept but not scheduled; when work resumes, read the hand-off at the top of
-[TODO.en.md](./TODO.en.md) first, then re-rank the priorities by the "Principles".
+[TODO.en.md](./TODO.en.md) first (on 9 Oct 2026 it lists the "Next-step options": time-sensitive checks, yearly data updates, data quality and the features
+not yet built, recommending phase 2's country comparison, Ember indicators and yearly additions as the first new features), then re-rank the priorities by the "Principles".
 
 ## Next steps (compiled Sep 2026)
 

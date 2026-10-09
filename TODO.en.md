@@ -5,10 +5,40 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 9 Oct 2026: v2.30.18, research round 23: commissioning years and data doubts; the next conversation starts here)
+## In progress (hand-off, 9 Oct 2026: v2.30.18, after research round 23, next-step options listed; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
+
+### Next-step options (9 Oct 2026, for the owner to choose)
+
+After round 23 the owner asked what else there is to do besides the doubts; the answer is below (details in the topic lists of this file and in phases 2–3 of
+[ROADMAP.en.md](./ROADMAP.en.md)). In a new conversation, ask the owner to pick one first:
+
+1. **Time-sensitive checks, due soon**
+   - The quarterly "latest available" update at the end of October: Taiwan's September data and China's third quarter at the end of October, the US EIA-860M on 23 October,
+     India and Brazil in mid-October; edit `tools/latest_wind.py`, then run `tools/build_country_stats.py`.
+   - Taiwan offshore: Taipower Offshore Phase 2 (grid connection targeted for the end of the year), Greater Changhua 4 (wait for Ørsted's full-operation notice), Hai Long (Northland's Q3 report);
+     move Yude and Huanyang to `PIPE_DROP` once their termination is formal.
+   - Offshore farms under construction elsewhere: Vineyard Wind 1, Revolution Wind, Baltic Power, Sofia, Dieppe-Le Tréport, Qingzhou 5 and 7 (target Dec 2026); switch them to operating
+     once fully commissioned.
+   - Routine: check the data times and Actions monthly ("Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)); re-run `tools/build_live_units.py` quarterly (Elaine, Yawong and Forty Mile
+     Bow Island are still missing).
+2. **Yearly data updates (early 2027)**: IRENA (about March), the Energy Administration's handbook, JWPA (about February); merge the 2026 yearly statistics into `wind_global.json` and move
+   "latest available" to 2027; add full-year 2026 measured output for Denmark (the early-2027 files), Australia (AEMO through 2026-12) and the US (EIA-923); when GEM publishes a new release,
+   rebuild the farm layer and re-check the clean-up rules one by one.
+3. **Data quality beyond the doubts**: 130 shared placeholder points remain (about 1,310 operating farms, mostly Chinese province centres); coverage gaps of about 98 GW in China and 16 GW in
+   India (assess national registries, phase 1, large); foundation types unknown for 38 Chinese and 5 Vietnamese farms, hub heights missing for about 91; ports (none in China yet, about 20 in
+   Europe, quay coordinates for 5 in the US); 7 events not yet linked to a farm and several incidents awaiting official findings; no free-licence photos yet for major farms such as
+   Greater Changhua and Hornsea.
+4. **Features not yet built (ROADMAP phases 2–3)**: country comparison (2–4 countries side by side, medium), more indicators (capacity per person, wind's share of generation, capacity factor;
+   Ember, CC BY 4.0; the map can be coloured by them; medium), yearly additions (small), turbine-maker and developer shares (medium), teaching interactives (power curve, capacity factor,
+   wake effect, falling costs; medium), farm details v2 (UK REPD and the Danish turbine register for positions, a common-model spec table, UK per-farm output), Taiwan's offshore phases
+   (`ph` field), and small onshore farms in Taiwan (GEM leaves out those under 10 MW). **Ask the owner first**: UK estimates and live data from NED (Netherlands) and ENTSO-E (free keys
+   needed), a long-term archive and trend chart for the grid status, and the grid-status source's WAF 403 (needs another runtime, not a code fix). Other energy sources: the owner chose to defer.
+
+Recommendation: at the end of October do the quarterly update and the Taiwan offshore status check from group 1 first (fixed dates, small changes); for new features start with
+"country comparison + Ember indicators + yearly additions" (no keys, clear licences, and they reuse the globe's existing timeline and country data).
 
 ### Where things stand
 
@@ -457,7 +487,8 @@ and move finished items to the topic lists below.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
-- No code change is left half-done. The next conversation can pick an item from "First things to do" below, or the owner can name new work.
+- No code change is left half-done, no sub-agent is running and no PR is open (PR #99 is merged). In the next conversation, ask the owner to pick from "Next-step options" above,
+  or to name new work; to carry on with the doubts, pick from the leads each round recorded.
 
 ### First things to do when work resumes (in order)
 
