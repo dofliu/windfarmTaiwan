@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 550 條：刪除 173 筆（其中營運中 46,408.9 MW），修正 377 筆。
+- 規則 561 條：刪除 173 筆（其中營運中 46,408.9 MW），修正 388 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 61 | 27,524.5 | 159 |
+| 中國大陸 | 61 | 27,524.5 | 170 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -277,6 +277,17 @@
 | Jilin Tongyu (Huaneng) 2000 MW Unsubsidized wind farm · 200 MW | GEM | 重複（併入「Jilin Tongyu Shihuadao wind farm」） | 同一座風場：華能通榆 200 萬瓩平價上網項目一期 20 萬瓩與二期 10 萬瓩建在什花道風電場（華能沉降觀測招標 2022-05），什花道 30 萬瓩（89 部風機）2021 年 12 月 30 日全容量併網（中國華能經世紀新能源網 2022-01-05），已是「Jilin Tongyu Shihuadao wind farm」（300 MW、2021） | [連結](https://www.ne21.com/news/show-167486.html) |
 | Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 3 · 56 MW | GEM | 修正：年份 | 華電北疆烏魯木齊 100 萬瓩風光基地（風電 80 萬瓩、光伏 20 萬瓩，達坂城 10 個地塊）2023 年 6 月 30 日全容量併網（中國華電經新華網新疆頻道 2023-07-10）；GEM 把 80 萬瓩風電分成三筆（444＋300＋56 MW），這筆的座標是新疆的佔位點，不在達坂城 | [連結](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
 | Jilin Tongyu Shihuadao wind farm · 300 MW · 2021 | GEM | 修正：座標 | 什花道風電場是華能通榆 200 萬瓩平價上網項目的一、二期（見同批 Tongyu 一期的 dup），在通榆縣；原座標（北緯 42.999°、東經 125.982°，與良井子同點）在通榆東南約 300 km，改用 GEM 對同一專案一期的點（通榆縣，概略位置） | [連結](https://www.ne21.com/news/show-167486.html) |
+| Liaoning Liaozhong (Guohua) wind farm · 150 MW | GEM | 修正：年份 | 國華投資遼寧分公司遼中 15 萬瓩風電項目（瀋陽市遼中區大黑崗子鎮、老大房鎮）2024 年 6 月 30 日全容量併網（搜狐轉載國華投資消息 2024-07-03）；補上商轉年 | [連結](https://www.sohu.com/a/790453667_121124362) |
+| Heilongjiang Binxian (Datang) wind farm · 150 MW | GEM | 修正：年份、機組 | 大唐黑龍江發電宾縣二期 150 MW 風電項目（24 部 6.25 MW）2023 年 12 月全部機組併網發電，當年開工、當年投產（哈爾濱日報經中國能源新聞網 2023-12-25）；補上商轉年 | [連結](https://www.cpnn.com.cn/news/xny/202312/t20231225_1663739.html) |
+| Inner Mongolia Wuchuan (Tianneng) wind farm · 150 MW | GEM | 修正：年份 | 天能重工呼和浩特市武川縣 150 MW 風電項目 2023 年 3 月併網，2023-03-18 達到預定可使用狀態（天能重工 2024 年年報）；補上商轉年 | [連結](https://static.cninfo.com.cn/finalpage/2025-04-24/1223243270.pdf) |
+| Hebei Zhangbei Zhanhai wind farm · 108 MW | GEM | 修正：年份 | 新天綠能張北戰海 108 MW 風電項目 2023 年全部風機併網發電（2023 年年報）；同一 200 MW 指標的另外 92 MW（張北新澤戰海）2024 年仍在建，不在這筆紀錄。補上商轉年 | [連結](https://static.cninfo.com.cn/finalpage/2024-03-27/1219412368.PDF) |
+| Hunan Yuanling Rangjiaxi wind farm · 100 MW | GEM | 修正：年份 | 華能讓家溪風電場（沅陵縣，10 萬瓩）2023 年全容量投產發電（懷化市政府 2024-12）；補上商轉年。二期 10 萬瓩仍在規劃 | [連結](https://www.huaihua.gov.cn/huaihua/c101116/202412/24ccb96c529942e6a88ad782fc48d555.shtml) |
+| Jilin Changling (China Energy Investment) wind farm · 100 MW | GEM | 修正：年份、機組 | 國能吉林長嶺 A 10 萬瓩風電項目（三期規劃中的一期 A 地塊，20 部 5.0 MW）2023 年 2 月開工，2024 年 9 月全容量併網（中國能源新聞網轉載中國電建 2024-09-25）；補上商轉年 | [連結](https://www.cpnn.com.cn/news/xny/202409/t20240925_1738774.html) |
+| Gansu Gaotai Yanchitan (Gansu Power Investment) wind farm · 100 MW | GEM | 修正：年份 | 甘肅能源（辰旭高台公司）高台縣鹽池灘 100 MW 風電場：首台機組 2023-07-01 併網，2023 年 7 月投產發電、列入年內併網的裝機（甘肅能源 2023 年公告與年報）；補上商轉年 | [連結](https://static.cninfo.com.cn/finalpage/2024-03-30/1219460939.PDF) |
+| Xinjiang Ruoqiang Luobuzhuang Wind District wind farm · 100 MW | GEM | 修正：年份 | 新天綠能若羌縣羅布莊 10 萬瓩風電項目 2022 年底仍在建（2022 年年報），2023 年全部風機併網發電（2023 年年報）；補上商轉年 | [連結](https://static.cninfo.com.cn/finalpage/2024-03-27/1219412368.PDF) |
+| Shanxi Pinglu Xiamiangao wind farm · 100 MW | GEM | 修正：年份、機組 | 朔州平魯區下面高鄉 100 MW 風電項目（16 部 6.25 MW）2024 年 10 月全容量併網（中國電力網／山西電建 2024-10-12）；補上商轉年 | [連結](http://www.chinapower.com.cn/flfd/xmjz/20241012/262997.html) |
+| Hebei Lixian wind farm · 100 MW | GEM | 修正：年份、機組 | 國能保定蠡縣 100 MW 風電項目（16 部 6.25 MW，褚崗風電場）首台風機 2024 年 12 月併網，2025 年 4 月初全容量併網（蠡縣政府 2025-04-08）；補上商轉年 | [連結](https://lixian.gov.cn/content-252-90504.html) |
+| Heilongjiang Tailai wind farm · 100 MW | GEM | 修正：年份 | 泰來九洲大興 100 MW 風電項目：2023 年底仍列在建工程（九洲集團 2023 年年報），2024 年內併網（2024 年年報）；2024-11 中核匯能受讓泰來風電時稱在運裝機 100 MW（證券時報 2024-11-12）。補上商轉年 | [連結](https://static.cninfo.com.cn/finalpage/2025-04-24/1223241473.PDF) |
 
 ## 丹麥 (DNK)
 
