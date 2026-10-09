@@ -1,0 +1,155 @@
+[
+ {
+  "item": "A7. FRA Naives-Rosières 12 MW vs Erize St Dizier 12 MW (2008)",
+  "farm": "Naives-Rosieres wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Not proven to be a duplicate: the register has two separate ~11.5 MW units, “Perfect Wind Erize” in Naives-Rosières (14 Aug 2008) and an unnamed one in Érize-Saint-Dizier (5 Mar 2009). If Naives-Rosières is the commune’s own park, fix year=2008 and keep both; if Erize St Dizier is the Perfect Wind Erize park, dup Naives-Rosières into it and give Erize St Dizier’s other unit a record.",
+  "note_zh": "登錄有兩個約 11.5 MW 的併網點：Naives-Rosières 的 Perfect Wind Erize（2008-08-14）與 Érize-Saint-Dizier 的一個（2009-03-05），兩筆紀錄可能分屬兩座。",
+  "note_en": "The register has two ~11.5 MW units: Perfect Wind Erize in Naives-Rosières (14 Aug 2008) and one in Érize-Saint-Dizier (5 Mar 2009); the two records may be two farms.",
+  "why": "Overpass (OpenStreetMap) timed out repeatedly for this area, and Géorisques has no wind ICPE within 5 km of Naives-Rosières except Rumont/Érize-la-Brûlée parks; which record is which park is still open.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Meuse%22%20and%20commune%20in%20%28%22Naives-Rosi%C3%A8res%22%2C%22%C3%89rize-Saint-Dizier%22%2C%22Erize-Saint-Dizier%22%2C%22Rumont%22%2C%22G%C3%A9ry%22%2C%22Chardogne%22%2C%22Seigneulles%22%2C%22Rosnes%22%2C%22%C3%89rize-la-Br%C3%BBl%C3%A9e%22%2C%22%C3%89rize-la-Petite%22%2C%22Raival%22%2C%22Vavincourt%22%2C%22Belrain%22%2C%22Hargeville-sur-Ch%C3%A9e%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Érize-Saint-Dizier;55178;05/03/2009;05/03/2009;11500.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Meuse%22%20and%20commune%20in%20%28%22Naives-Rosi%C3%A8res%22%2C%22%C3%89rize-Saint-Dizier%22%2C%22Erize-Saint-Dizier%22%2C%22Rumont%22%2C%22G%C3%A9ry%22%2C%22Chardogne%22%2C%22Seigneulles%22%2C%22Rosnes%22%2C%22%C3%89rize-la-Br%C3%BBl%C3%A9e%22%2C%22%C3%89rize-la-Petite%22%2C%22Raival%22%2C%22Vavincourt%22%2C%22Belrain%22%2C%22Hargeville-sur-Ch%C3%A9e%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PERFECT WIND ERIZE;Naives-Rosières;55369;14/08/2008;14/08/2008;11500.0;1"
+   }
+  ]
+ },
+ {
+  "item": "A9b. FRA Entre Seine Et Aube 49 MW (2010) vs La Prévoterie 48.9 MW (2021, ENGIE) — side finding",
+  "farm": "Entre Seine Et Aube wind farm; La Prévoterie wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) The two records overlap: both have La Prévoterie’s 2010 phase (37 / 36.9 MW, 18 × MM92). Entre Seine Et Aube adds the 12 MW 2013 phase (register “MSE PREVOTERIE RHEGES” 12.3 MW, 1 Jan 2014); La Prévoterie adds the 2021 extension (Eolis Les Champs, 12 MW). A clean option: dup Entre Seine Et Aube into La Prévoterie and fix La Prévoterie to mw=61.2, ph=[[2010, 36.9], [2014, 12.3], [2021, 12]] (or leave Entre Seine Et Aube and cut La Prévoterie to the 12 MW 2021 extension). Needs a decision on which name to keep.",
+  "note_zh": "Entre Seine Et Aube 與 La Prévoterie 兩筆都含 La Prévoterie 2010 年的 37 MW 一期。",
+  "note_en": "Entre Seine Et Aube and La Prévoterie both contain La Prévoterie’s 37 MW 2010 phase.",
+  "why": "Not in the brief; found while checking the Droupt records. The DREAL report counts 24 MM92 (= 49.2 MW: 18 of 2010 + 6 of Rhèges) for the original park, plus the separate 6 × 2 MW extension of 2021.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Entre_Seine_Et_Aube_wind_farm",
+    "quote": "1 Operating [ 1 ] 2010 [ 1 ] 37 MW [ 1 ] Onshore [ 2 ] SNC MSE La Prévoterie"
+   },
+   {
+    "url": "https://www.gem.wiki/La_Pr%C3%A9voterie_wind_farm",
+    "quote": "extension Operating [ 5 ] 2021 [ 5 ] 12 MW"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/2i8nYuDSMRS98v4Y99FawaYAgaB3dgkK",
+    "quote": "Le parc éolien exploité par la société MSE LA PRÉVOTERIE se compose de 24 machines SENVION MM92 de puissance unitaire 2.05 MW."
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%20in%20%28%22Premierfait%22%2C%22Rh%C3%A8ges%22%2C%22Droupt-Sainte-Marie%22%2C%22Droupt-Saint-Basle%22%2C%22Les%20Grandes-Chapelles%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "MSE PREVOTERIE RHEGES;Rhèges;10316;01/01/2014;01/01/2014;12300.0;1"
+   }
+  ]
+ },
+ {
+  "item": "B1. FRA L'Huître Et Granville 24 MW — year",
+  "farm": "L'Huître Et Granville wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(ready either way) fix('FRA', \"L'Huître Et Granville wind farm\", G, '補上商轉年 2009／2010：…', '…', url, year=2009 or 2010). Capacity is now settled (24 MW = Grandville Énergies 12 MW + Dosnon Énergies 12 MW, both “formerly the Lhuître park”, Valemo); only the year remains: register and OSM 19 Dec 2009 vs Valorem’s brochure February 2010.",
+  "note_zh": "容量已確認：24 MW ＝ Grandville Énergies 12 ＋ Dosnon Énergies 12 MW（都是原 Lhuître 風場，Valemo）；年份：登錄 2009-12-19，Valorem 簡介 2010 年 2 月。",
+  "note_en": "Capacity confirmed: 24 MW = Grandville Énergies 12 + Dosnon Énergies 12 MW (both formerly the Lhuître park, Valemo); year: register 19 Dec 2009, Valorem brochure February 2010.",
+  "why": "The register’s datemiseenservice equals dateraccordement (19/12/2009) for both units, so it may record grid connection only; Valorem says “mis en service en février 2010” (and “10 éoliennes”, while DREAL counts 6 + 6). Recommendation: year=2010 if the developer’s commissioning date is preferred, 2009 if the register is the rule; the main session should pick one convention.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%20in%20%28%22Lhu%C3%AEtre%22%2C%22Grandville%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Lhuître;10195;19/12/2009;19/12/2009;12000.0;1 Confidentiel;Grandville;10167;19/12/2009;19/12/2009;12000.0;1"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/j7nKbDFieFzK6aE3CrMXIk2VvaB41alz",
+    "quote": "Parc Eolien de Grandville Energies Anciennement parc éolien de LHUITRE"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/j7nKbDFieFzK6aE3CrMXIk2VvaB41alz",
+    "quote": "La puissance installée totale du parc atteint 12 MW."
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/c7MvKqO1ewaP5HevcnGwW8WJqA2UduzH",
+    "quote": "Anciennement parc éolien de lhuitre 10700 Dosnon"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/c7MvKqO1ewaP5HevcnGwW8WJqA2UduzH",
+    "quote": "Ce parc se situe à proximité du parc éolien GRANDVILLE EN ERGIES, exploité également par VALEMO"
+   },
+   {
+    "url": "https://www.openstreetmap.org/relation/5562032",
+    "quote": "start_date 2009-12-19"
+   },
+   {
+    "url": "https://cdn-assets.inwink.com/c05ff71e-2d94-48bf-9b14-5248ad81d842/8747bf55-58b2-4e3a-848a-e7ac8261e880",
+    "quote": "Le parc éolien de Lhuître et Grandville a été mis en service en février 2010."
+   },
+   {
+    "url": "https://cdn-assets.inwink.com/c05ff71e-2d94-48bf-9b14-5248ad81d842/8747bf55-58b2-4e3a-848a-e7ac8261e880",
+    "quote": "Les 10 éoliennes du parc de Lhuître et Grandville vont produire environ 57 000 MWh"
+   }
+  ]
+ },
+ {
+  "item": "B7. FRA Mauléon 18.4 MW (EOS Holding, no year)",
+  "farm": "Mauléon wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) The record is GEM’s approximate geocode of “Mauléon” in the Pyrénées-Atlantiques (43.23, −0.91), where no wind unit is registered; EOS’s park is most likely in Mauléon (Deux-Sèvres), which has two wind ICPEs (SAS Eole 79 at La Gralière; SEPE Delta Sèvre Argent) and two register units (8 MW 2008, 9 MW 2023). Neither sums to 18.4 MW and no EOS source names the park.",
+  "note_zh": "紀錄落在 Pyrénées-Atlantiques 的 Mauléon-Licharre（GEM 概略定位），當地無風電；EOS 的風場較可能在 Deux-Sèvres 省 Mauléon，但容量與年份都對不上。",
+  "note_en": "The record sits at Mauléon-Licharre (GEM’s approximate point), where there is no wind power; EOS’s park is more likely in Mauléon (Deux-Sèvres), but neither capacity nor year matches yet.",
+  "why": "eosholding.ch/en/eos-nre returns almost no text; the Eole 79 inspection report text has no capacity; searches found no EOS–Mauléon link. Still missing: a source naming EOS’s Mauléon park with capacity and date.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Maul%C3%A9on_wind_farm",
+    "quote": "Mauléon, France [ 1 ] 43.2275, -0.9113 (approximate)"
+   },
+   {
+    "url": "https://www.gem.wiki/Maul%C3%A9on_wind_farm",
+    "quote": "Operating [ 1 ] 18.4 MW [ 1 ] Onshore [ 1 ] EOS Holdings SA [100%]"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Maul%C3%A9on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "privé;Mauléon;79079;12/06/2008;12/06/2008;8000.0;1 privé;Mauléon;79079;12/12/2023;12/12/2023;9000.0;1"
+   },
+   {
+    "url": "https://georisques.gouv.fr/api/v1/installations_classees?latlon=-0.75%2C46.92&rayon=9000&page_size=100",
+    "quote": "\"raisonSociale\":\"SAS Eole 79\",\"adresse1\":\"lieu-dit La Gralière\""
+   }
+  ]
+ },
+ {
+  "item": "C1. FRA Roman Road 44 MW (Calyce)",
+  "farm": "Roman Road wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet) Still unproven that Calyce’s “Roman Road” 44 MW = Voie Romaine (22/26 MW) + La Guenelle (22 MW). New: Calyce develops a charity extension at Songy “dans le prolongement d’un site déjà existant de 13 turbines” (Voie Romaine has 13 turbines per the existing rule), but no source names Roman Road / Voie Romaine as Calyce’s, so a drop would still rest on the name translation only.",
+  "note_zh": "仍未證實：Calyce 的「Roman Road」可能是 Voie Romaine＋La Guenelle 的英譯合計，查無來源。",
+  "note_en": "Still unproven: Calyce’s “Roman Road” may be an English rendering of Voie Romaine + La Guenelle; no source found.",
+  "why": "marne.gouv.fr dossiers not retried (closed the connection in round 20); the AFP item names Calyce and a 13-turbine site at Songy but not the farm’s name.",
+  "sources": [
+   {
+    "url": "https://www.connaissancedesenergies.org/afp/un-parc-eolien-caritatif-en-developpement-en-champagne-200205",
+    "quote": "doit être érigé à Songy, dans la Marne, dans le prolongement d'un site déjà existant de 13 turbines"
+   }
+  ]
+ },
+ {
+  "item": "C2. FRA Gourgançon 48 MW (ENGIE) commune total",
+  "farm": "Gourgançon wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change) Round-20 proposal (fix to the remaining 12 MW, Mont de Bézard II – Les Renardières) still rests on an inference; no new source tying the “Confidentiel” 12 MW row of 23 Apr 2007 to a named park was found this round.",
+  "note_zh": "未再查證；第 20 輪的提案仍只是推論。",
+  "note_en": "Not settled; round 20’s proposal is still an inference.",
+  "why": "Budget spent on the other items; next try: OSM power=plant relations around 48.66 N 4.04 E (Overpass timed out repeatedly this round) to see whether a relation with start_date 2007-04-23 is named.",
+  "sources": []
+ }
+]

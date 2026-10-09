@@ -1,0 +1,702 @@
+[
+ {
+  "item": "TUR 12. Tayakadin 51 MW",
+  "farm": "Tayakadin wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "補上商轉年 2022：TÜREB 統計報告 2021 年 1 月版列 Tayakadın RES（51 MW）興建中；2022 年 1 月版運轉中 41 MW（2021 年），2022 年 7 月版運轉中 50 MW",
+  "note_en": "Commissioning year 2022 added: TÜREB’s January 2021 statistics report lists Tayakadın RES (51 MW) under construction; the January 2022 report has 41 MW in operation (2021) and the July 2022 report 50 MW",
+  "why": "Not written in round 21: the January 2022 under-construction list no longer names it, so the July 2022 rise from 41 to 50 MW may be a data correction rather than new turbines. The January 2022 under-construction list no longer names Tayakadın, so the last ~9 MW could also be a data correction rather than new turbines; year 2022 is the year the listed operating capacity reached the full figure. No ph (41 + 9 ≠ GEM 51).",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b4f0-cbd5-73c6-92ce-ded41e1cbe9b.pdf",
+    "quote": "37 İstres Elektrik Üretim A.Ş. Tayakadın RES 51,00 İstanbul GE GE3.8-130 3,4 MW"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf",
+    "quote": "248 Istres Elektrik Uretim A.Ş. Tayakadın RES 41 İstanbul GE GE3.8-130 110 m HH 3,8 2021"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "248 Istres Elektrik Uretim A.Ş. Tayakadın RES 50,00 İstanbul GE GE3.8-130 110 m HH 3,8 2021"
+   }
+  ]
+ },
+ {
+  "item": "TUR 5. Atares-1 71 MW",
+  "farm": "Atares-1 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2022 年 7 月版：Atares-1 RES 運轉中 4.8 MW（2021 年），另有 67.2 MW 興建中；完工年不詳。",
+  "note_en": "TÜREB July 2022: Atares-1 RES has 4.8 MW in operation (2021) and 67.2 MW under construction; completion year not found.",
+  "why": "Full 72 MWm ≈ GEM 71 MW was not online by July 2022; the 2023+ TÜREB full reports are members-only. Likely 2022–2023, unproven.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "30 Ataseven Enerji Üretim A.Ş. Atares-1 RES 4,80 Bursa NORDEX N149 4,8 2021"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "4 Ataseven Enerji Üretim A.Ş. Atares-1 RES 67,20 Bursa NORDEX N149 4,8"
+   }
+  ]
+ },
+ {
+  "item": "TUR 7. Hacı Bey 68.8 MW",
+  "farm": "Hacı Bey wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告：Hacıbey RES 2021 年 1 月運轉中 3.6 MW（2020 年），2022 年 7 月運轉中 21.6 MW、興建中 42 MW；完工年不詳。",
+  "note_en": "TÜREB: Hacıbey RES had 3.6 MW in operation in January 2021 (2020) and 21.6 MW in operation plus 42 MW under construction in July 2022; completion year not found.",
+  "why": "Not complete by July 2022; later TÜREB lists are members-only; no completion news found (Vestas V162 orders are anonymous).",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "119 Bali Rüzgar Elektrik Ür. San. Tic. A.Ş. Hacıbey RES 21,60 İstanbul VESTAS V136-3.6 3,6 2020"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "10 Bali Rüzgar El. Ür. San. ve Tic. A.Ş. Hacıbey RES 42,00 İstanbul VESTAS V162-6.0 7"
+   }
+  ]
+ },
+ {
+  "item": "TUR 8. Gazi-9 67 MW (Sanko)",
+  "farm": "Gazi-9 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告：Gazi-9 RES 2021 年 1 月 67 MW 興建中；2022 年 1 月運轉中 57.6 MW（2021 年）、興建中 9.4 MW；2022 年 7 月仍為 57.6 MW，興建中清單已無此場。",
+  "note_en": "TÜREB: Gazi-9 RES was 67 MW under construction in January 2021; in January 2022 57.6 MW was in operation (2021) and 9.4 MW under construction; in July 2022 still 57.6 MW, and it was off the under-construction list.",
+  "why": "Either year=2021 with mw=57.6 (if the last 9.4 MW was dropped) or a later year for 67 MW; cannot tell from TÜREB alone.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf",
+    "quote": "100 Sanko Enerji San. ve Tic A.Ş. Gazi-9 RES 57,6 Çanakkale GE GE4.8-158 4,8 2021"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf",
+    "quote": "8 Sanko Enerji San. ve Tic A.Ş. Gazi-9 RES 9,40 Çanakkale GE GE4.8-158 4,8"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "100 Sanko Enerji San. ve Tic A.Ş. Gazi-9 RES 57,60 Çanakkale GE GE4.8-158 4,8 2021"
+   }
+  ]
+ },
+ {
+  "item": "TUR 10. Şapdağı 60.4 MW",
+  "farm": "Şapdağı wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告：Şapdağı RES 2022 年 1 月運轉中 3.8 MW、興建中 56.6 MW（合計 60.4 MW）；2022 年 7 月運轉中 30.4 MW、興建中 11.4 MW；完工年不詳。",
+  "note_en": "TÜREB: Şapdağı RES had 3.8 MW in operation and 56.6 MW under construction in January 2022 (60.4 MW in all); in July 2022, 30.4 MW in operation and 11.4 MW under construction; completion year not found.",
+  "why": "Not complete by July 2022; later lists members-only.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf",
+    "quote": "241 Barkan Enerji Yatırım Ür. ve Tic. A.Ş. Şapdağı RES 3,8 Balıkesir GE GE3.8-130 3,8 2021"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf",
+    "quote": "19 Barkan Enerji Yatırım Ür. ve Tic. A.Ş. Şapdağı RES 56,60 Balıkesir GE GE3.8-130 3,8"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "241 Barkan Enerji Yatırım Ür. ve Tic. A.Ş. Şapdağı RES 30,40 Balıkesir GE GE3.8-130 3,8 2021"
+   }
+  ]
+ },
+ {
+  "item": "TUR 14. Metafor 49.7 MW",
+  "farm": "Metafor wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2022 年 7 月版：Metafor RES運轉中容量小於 GEM 的 Metafor 紀錄；GEM 容量的完工年不詳。",
+  "note_en": "TÜREB July 2022: Metafor RES has less capacity in operation than the GEM record; the year GEM’s capacity was reached was not found.",
+  "why": "Capacity mismatch with GEM; probably later extensions (2023+), for which the TÜREB lists are members-only. Çandarlı: 9.2 MW in January 2022, 26 MW (all) by July 2022 → year 2022 for 26 MW, but GEM says 36 MW.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "187 Göktekin Enerji A.Ş. Metafor RES 3,50 Bingöl ENERCON E-138 3,5 2020"
+   }
+  ]
+ },
+ {
+  "item": "TUR 15. Karaman 46.8 MW",
+  "farm": "Karaman wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2022 年 7 月版：Karaman RES運轉中容量小於 GEM 的 Karaman 紀錄；GEM 容量的完工年不詳。",
+  "note_en": "TÜREB July 2022: Karaman RES has less capacity in operation than the GEM record; the year GEM’s capacity was reached was not found.",
+  "why": "Capacity mismatch with GEM; probably later extensions (2023+), for which the TÜREB lists are members-only. Çandarlı: 9.2 MW in January 2022, 26 MW (all) by July 2022 → year 2022 for 26 MW, but GEM says 36 MW.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "146 UMUT İNŞAAT Karaman RES 3,60 Karaman NORDEX N131 3,6 2021"
+   }
+  ]
+ },
+ {
+  "item": "TUR 25. Aydos 25 MW",
+  "farm": "Aydos wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2022 年 7 月版：Aydos RES運轉中容量小於 GEM 的 Aydos 紀錄；GEM 容量的完工年不詳。",
+  "note_en": "TÜREB July 2022: Aydos RES has less capacity in operation than the GEM record; the year GEM’s capacity was reached was not found.",
+  "why": "Capacity mismatch with GEM; probably later extensions (2023+), for which the TÜREB lists are members-only. Çandarlı: 9.2 MW in January 2022, 26 MW (all) by July 2022 → year 2022 for 26 MW, but GEM says 36 MW.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "33 Serbest Enerji Sanayi ve Ticaret A.Ş. Aydos RES 16,60 İstanbul ENERCON E-126/E-138 4/4,2 2021"
+   }
+  ]
+ },
+ {
+  "item": "TUR 39. Fener 5.1 MW",
+  "farm": "Fener wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2022 年 7 月版：Fener RES運轉中容量小於 GEM 的 Fener 紀錄；GEM 容量的完工年不詳。",
+  "note_en": "TÜREB July 2022: Fener RES has less capacity in operation than the GEM record; the year GEM’s capacity was reached was not found.",
+  "why": "Capacity mismatch with GEM; probably later extensions (2023+), for which the TÜREB lists are members-only. Çandarlı: 9.2 MW in January 2022, 26 MW (all) by July 2022 → year 2022 for 26 MW, but GEM says 36 MW.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "96 Orsa Enerji Elektrik Üretim A.Ş. Fener RES 4,20 Sinop ENERCON E-138 4,2 2021"
+   }
+  ]
+ },
+ {
+  "item": "TUR 21. Çandarli 36 MW",
+  "farm": "Çandarli wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2022 年 7 月版：Çandarlı RES運轉中容量小於 GEM 的 Çandarli 紀錄；GEM 容量的完工年不詳。",
+  "note_en": "TÜREB July 2022: Çandarlı RES has less capacity in operation than the GEM record; the year GEM’s capacity was reached was not found.",
+  "why": "Capacity mismatch with GEM; probably later extensions (2023+), for which the TÜREB lists are members-only. Çandarlı: 9.2 MW in January 2022, 26 MW (all) by July 2022 → year 2022 for 26 MW, but GEM says 36 MW.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "62 Çandarlı Elektrik Üretim A.Ş. Çandarlı RES 26,00 İzmir VESTAS V136-3.6/V162-5.6 3,6/5,6 2021"
+   }
+  ]
+ },
+ {
+  "item": "TUR 27. İpektepe 24 MW",
+  "farm": "İpektepe wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告：İpektepe RES 2022 年 1 月運轉中 4.8 MW、興建中 19.2 MW（合計 24 MW）；2022 年 7 月運轉中 19.2 MW、興建中 4.8 MW；完工年不詳。",
+  "note_en": "TÜREB: İpektepe RES had 4.8 MW in operation and 19.2 MW under construction in January 2022 (24 MW in all), and 19.2 MW in operation plus 4.8 MW under construction in July 2022; completion year not found.",
+  "why": "Last turbine after July 2022 (likely 2022 or 2023).",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "129 DERE GRUP İpektepe RES 19,20 Ağrı NORDEX N149 4,8 2021"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "12 Dere Grup İpektepe RES 4,80 Ağrı NORDEX N149 4,8"
+   }
+  ]
+ },
+ {
+  "item": "TUR 28. Alares 2 19.2 MW",
+  "farm": "Alares 2 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告：Alares 2 RES 2022 年 1 月運轉中 4.8 MW（2021 年）、興建中 14.4 MW（合計 19.2 MW）；2022 年 7 月仍運轉 4.8 MW，14.4 MW 改列為 Alares 1 興建中。",
+  "note_en": "TÜREB: Alares 2 RES had 4.8 MW in operation (2021) and 14.4 MW under construction in January 2022 (19.2 MW in all); in July 2022 still 4.8 MW, with the 14.4 MW listed as “Alares 1” under construction.",
+  "why": "Completion of the 14.4 MW not found. The separate “Alares wind farm” (Eksel, Manisa, 10.2 MW) is a different licence.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf",
+    "quote": "19 Alares Elektrik Alares 2 RES 4,8 Bursa NORDEX N149 4,8 2021"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-0a5d-7334-b652-034afa7f2e96.pdf",
+    "quote": "1 Alares Elekrtik Üretim A.S Alares 2 14,40 Bursa NORDEX N149 4,8"
+   }
+  ]
+ },
+ {
+  "item": "TUR 29. Karamürsel 15.6 MW",
+  "farm": "Karamürsel wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2022 年 7 月版：Karamürsel RES 運轉中 4.2 MW（2021 年），另有 33 MW 興建中；都對不上 GEM 的 15.6 MW。",
+  "note_en": "TÜREB July 2022: Karamürsel RES has 4.2 MW in operation (2021) and 33 MW under construction; neither matches GEM’s 15.6 MW.",
+  "why": "Capacity mismatch; completion year of the extension not found.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "147 RUZEN Elektrik Üretim ve Ticaret Ltd. Şti Karamürsel RES 4,20 Kocaeli ENERCON E-138 4,2 2021"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "13 Ruzen Elektrik Ür. ve Tic Ltd. Şti. Karamürsel RES 33,00 İzmit GE GE 5.8-158 5,8"
+   }
+  ]
+ },
+ {
+  "item": "TUR 24. Hamzabeyli 25.2 MW",
+  "farm": "Hamzabeyli wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告：Hamzabeyli RES 2021 年 1 月列為已發照 6 MW（Edirne），2022 年 1 月與 7 月有 19.2 MW 擴建段興建中（6＋19.2＝25.2 MW），運轉清單沒有此場。",
+  "note_en": "TÜREB: Hamzabeyli RES was a 6 MW licence (Edirne) in January 2021; a 19.2 MW extension was under construction in January and July 2022 (6 + 19.2 = 25.2 MW); it is not in the operating lists.",
+  "why": "Not operating by July 2022; completion year not found.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b4f0-cbd5-73c6-92ce-ded41e1cbe9b.pdf",
+    "quote": "10 Meriç Rüzgar Enerjisi Elektrik Ür. A.Ş. Hamzabeyli RES Edirne 6,00"
+   },
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "11 VRES Enerji Hamzabeyli RES Ext. 19,20 Tekirdağ NORDEX N149 4,8"
+   }
+  ]
+ },
+ {
+  "item": "TUR 26. Kocadağ-2 25 MW",
+  "farm": "Kocadağ-2 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告列 Kores Kocadağ 公司的 KORES 共 25 MW（İzmir，2009／2012／2015 年）；GEM 另有 Kores 風場 22.5 MW（2009 年）在 0.6 km 外，Kocadağ-2 可能是同一座或其擴建。",
+  "note_en": "TÜREB lists Kores Kocadağ’s KORES at 25 MW in all (İzmir, 2009/2012/2015); GEM also has the Kores farm (22.5 MW, 2009) 0.6 km away, so Kocadağ-2 may be the same farm or its extension.",
+  "why": "Possible dup of Kores wind farm (and Kores could then take ph); phase amounts not citable.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf",
+    "quote": "166 Kores Kocadağ Rüz. En. Sant. Ür. A.Ş. KORES 25,00 İzmir NORDEX N90/N100 2,5 2009/2012/2015"
+   }
+  ]
+ },
+ {
+  "item": "TUR 34. Alares 10.2 MW (Eksel, Manisa)",
+  "farm": "Alares wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "TÜREB 統計報告 2021 年 1 月版只把 Eksel 的 Alares RES（Manisa，10.2 MW）列在已發照清單，2022 年 7 月的運轉清單沒有它。",
+  "note_en": "TÜREB’s January 2021 statistics report lists Eksel’s Alares RES (Manisa, 10.2 MW) only as licensed, and it is not in the July 2022 operating list.",
+  "why": "May not be operating (or built after July 2022); status not proven either way.",
+  "sources": [
+   {
+    "url": "https://server.tureb.tr/storage/20250509/0196b4f0-cbd5-73c6-92ce-ded41e1cbe9b.pdf",
+    "quote": "2 Eksel Elektrik Ür. San. ve Tic. A.Ş. Alares RES Manisa 10,20"
+   }
+  ]
+ },
+ {
+  "item": "TUR 6. R3 Bilecik-6 70 MW",
+  "farm": "R3 Bilecik-6 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "屬 Kalyon 的 YEKA RES-3 專案：Enercon 2023 年簽約供應 64 部 E-138 EP3 給 Elazığ、Bilecik、Bayburt、Ankara 與 Trabzon 的專案；查不到完工或商轉日期。",
+  "note_en": "One of Kalyon’s YEKA RES-3 projects: Enercon signed in 2023 to supply 64 E-138 EP3 turbines for the Elazığ, Bilecik, Bayburt, Ankara and Trabzon projects; no completion or commercial-operation date found.",
+  "why": "Built 2024 or later at the earliest; GEM marks it operating but no source gives the year (R3 Trabzon 1 is st=1 in GEM). Not in TÜREB’s July 2022 lists.",
+  "sources": [
+   {
+    "url": "https://enercon.de/en/news/enercon-und-kalyon-enerji-unterzeichnen-260-mw-vertrag",
+    "quote": "Enerji agreed for the delivery and installation of 64 E-138 EP3 WECs for KALOYN Enerji’s YEKA RES-3 projects in Elazığ, Bilecik, Bayburt, Ankara and Trabzon regions with a capacity of 260 MW"
+   }
+  ]
+ },
+ {
+  "item": "TUR 13. R3-Ankara-2-1 50 MW",
+  "farm": "R3-Ankara-2-1 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "屬 Kalyon 的 YEKA RES-3 專案：Enercon 2023 年簽約供應 64 部 E-138 EP3 給 Elazığ、Bilecik、Bayburt、Ankara 與 Trabzon 的專案；查不到完工或商轉日期。",
+  "note_en": "One of Kalyon’s YEKA RES-3 projects: Enercon signed in 2023 to supply 64 E-138 EP3 turbines for the Elazığ, Bilecik, Bayburt, Ankara and Trabzon projects; no completion or commercial-operation date found.",
+  "why": "Built 2024 or later at the earliest; GEM marks it operating but no source gives the year (R3 Trabzon 1 is st=1 in GEM). Not in TÜREB’s July 2022 lists.",
+  "sources": [
+   {
+    "url": "https://enercon.de/en/news/enercon-und-kalyon-enerji-unterzeichnen-260-mw-vertrag",
+    "quote": "Enerji agreed for the delivery and installation of 64 E-138 EP3 WECs for KALOYN Enerji’s YEKA RES-3 projects in Elazığ, Bilecik, Bayburt, Ankara and Trabzon regions with a capacity of 260 MW"
+   }
+  ]
+ },
+ {
+  "item": "TUR 20. R3-Elaziğ-1 40 MW",
+  "farm": "R3-Elaziğ-1 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "屬 Kalyon 的 YEKA RES-3 專案：Enercon 2023 年簽約供應 64 部 E-138 EP3 給 Elazığ、Bilecik、Bayburt、Ankara 與 Trabzon 的專案；查不到完工或商轉日期。",
+  "note_en": "One of Kalyon’s YEKA RES-3 projects: Enercon signed in 2023 to supply 64 E-138 EP3 turbines for the Elazığ, Bilecik, Bayburt, Ankara and Trabzon projects; no completion or commercial-operation date found.",
+  "why": "Built 2024 or later at the earliest; GEM marks it operating but no source gives the year (R3 Trabzon 1 is st=1 in GEM). Not in TÜREB’s July 2022 lists.",
+  "sources": [
+   {
+    "url": "https://enercon.de/en/news/enercon-und-kalyon-enerji-unterzeichnen-260-mw-vertrag",
+    "quote": "Enerji agreed for the delivery and installation of 64 E-138 EP3 WECs for KALOYN Enerji’s YEKA RES-3 projects in Elazığ, Bilecik, Bayburt, Ankara and Trabzon regions with a capacity of 260 MW"
+   }
+  ]
+ },
+ {
+  "item": "TUR 18. R3-Bayburt-5 43 MW",
+  "farm": "R3-Bayburt-5 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "屬 Kalyon 的 YEKA RES-3 專案：Enercon 2023 年簽約供應 64 部 E-138 EP3 給 Elazığ、Bilecik、Bayburt、Ankara 與 Trabzon 的專案；查不到完工或商轉日期。",
+  "note_en": "One of Kalyon’s YEKA RES-3 projects: Enercon signed in 2023 to supply 64 E-138 EP3 turbines for the Elazığ, Bilecik, Bayburt, Ankara and Trabzon projects; no completion or commercial-operation date found.",
+  "why": "Built 2024 or later at the earliest; GEM marks it operating but no source gives the year (R3 Trabzon 1 is st=1 in GEM). Not in TÜREB’s July 2022 lists.",
+  "sources": [
+   {
+    "url": "https://enercon.de/en/news/enercon-und-kalyon-enerji-unterzeichnen-260-mw-vertrag",
+    "quote": "Enerji agreed for the delivery and installation of 64 E-138 EP3 WECs for KALOYN Enerji’s YEKA RES-3 projects in Elazığ, Bilecik, Bayburt, Ankara and Trabzon regions with a capacity of 260 MW"
+   }
+  ]
+ },
+ {
+  "item": "TUR 19. R3-SİVAS-1-2 40 MW",
+  "farm": "R3-SİVAS-1-2 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年（YEKA RES-3 專案，業主 AŞİYAN）。",
+  "note_en": "No commissioning year found (a YEKA RES-3 project, owner AŞİYAN).",
+  "why": "Not in TÜREB’s July 2022 lists; no completion news found.",
+  "sources": []
+ },
+ {
+  "item": "TUR 17. Manastır-Esenköy 43.1 MW",
+  "farm": "Manastır-Esenköy wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年；TÜREB 在 Yalova 的 Esenköy 只有 Marmarares 的 Esenköy RES 32.4 MW（2017 年，GEM 另有紀錄），沒有 43.1 MW 的電場。",
+  "note_en": "No commissioning year found; TÜREB’s only Esenköy plant in Yalova is Marmarares’s Esenköy RES, 32.4 MW (2017, a separate GEM record), with nothing of 43.1 MW.",
+  "why": "Possibly an extension or a duplicate of Esenköy wind farm (0.7 km away); unproven.",
+  "sources": []
+ },
+ {
+  "item": "TUR 37. Tuzla 7.5 MW",
+  "farm": "Tuzla wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年；TÜREB 2015–2022 年的清單都沒有 Tuzla。",
+  "note_en": "No commissioning year found; no Tuzla plant in TÜREB’s 2015–2022 lists.",
+  "why": "",
+  "sources": []
+ },
+ {
+  "item": "TUR 35. Petkim · 1 9.6 MW",
+  "farm": "Petkim wind farm · 1",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年；TÜREB 只列 Petkim RES 51 MW（2016 年，即 GEM 的 Petkim · 2）。",
+  "note_en": "No commissioning year found; TÜREB lists only Petkim RES, 51 MW (2016, GEM’s Petkim · 2).",
+  "why": "The 9.6 MW block near Mordoğan is not in TÜREB’s lists.",
+  "sources": []
+ },
+ {
+  "item": "DEU 3. Wölkisch 39 MW",
+  "farm": "Wölkisch wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 Windpark Wölkisch 只有 6 部、12.3 MW（2015 年）；turbines_de.json 配到的 19 部（38.8 MW）跨 2002–2016 年、6 種機型，無法確定 GEM 的 39 MW 指哪些機組。",
+  "note_en": "MaStR’s Windpark Wölkisch has only 6 units, 12.3 MW (2015); the 19 units matched in turbines_de.json (38.8 MW) span 2002–2016 and six models, so GEM’s 39 MW cannot be tied to specific units.",
+  "why": "Needs a Lommatzsch-area list by park; possibly year 2016 for the whole matched group.",
+  "sources": []
+ },
+ {
+  "item": "DEU 6. Westerberg (Windstrom) 32 MW",
+  "farm": "Westerberg (Windstrom) wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 名為 Westerberg 的只有 Hedeper／Börßum 的 Westerberg（18 MW，2002 年）與 Westerberg II（6 MW，2009 年），距紀錄約 13 km，容量也不符。",
+  "note_en": "The only MaStR parks named Westerberg are Westerberg (18 MW, 2002) and Westerberg II (6 MW, 2009) at Hedeper/Börßum, about 13 km from the record and not 32 MW.",
+  "why": "Unresolved; not in turbines_de.json.",
+  "sources": []
+ },
+ {
+  "item": "DEU 8. Görike-Schönhagen 28 MW",
+  "farm": "Görike-Schönhagen wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 Görike（Windpark Görike GmbH & Co. KG）11 部、24.7 MW：2012 年 4 MW、2014 年 20.7 MW；GEM 另有 Görike（10 MW，2010）與 Görike-Söllenthin（20 MW，2003）兩筆。",
+  "note_en": "MaStR’s Görike park (Windpark Görike GmbH & Co. KG) has 11 units, 24.7 MW: 4 MW in 2012 and 20.7 MW in 2014; GEM also has Görike (10 MW, 2010) and Görike-Söllenthin (20 MW, 2003).",
+  "why": "Likely 2014 if Görike-Schönhagen = the 24.7 MW park; 28 MW not matched exactly.",
+  "sources": []
+ },
+ {
+  "item": "DEU 10. Steglitz 27 MW",
+  "farm": "Steglitz wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 名為 Steglitz 的只有 Möckern 的 Lorica Windpark Steglitz II（3 MW，2009 年），距紀錄約 17 km；turbines_de.json 的配對跨 2000–2006 年、6 種機型。",
+  "note_en": "The only MaStR park named Steglitz is Lorica Windpark Steglitz II (3 MW, 2009) at Möckern, about 17 km away; the turbines_de.json match spans 2000–2006 and six models.",
+  "why": "Unresolved.",
+  "sources": []
+ },
+ {
+  "item": "DEU 11. Hochfranken 27 MW",
+  "farm": "Hochfranken wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 Windpark Hochfranken 在 Münchberg／Stammbach（7 部、16.45 MW，2014–2015 年），距紀錄約 30 km；紀錄附近配到的是 2011–2014 年的另一組機組。",
+  "note_en": "MaStR’s Windpark Hochfranken is at Münchberg/Stammbach (7 units, 16.45 MW, 2014–2015), about 30 km from the record; the units matched near the record are another group (2011–2014).",
+  "why": "Record point or name may be wrong; unresolved.",
+  "sources": []
+ },
+ {
+  "item": "DEU 12. Freiheit 25 MW",
+  "farm": "Freiheit wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 F3 Freiheit III 有 15 部（23.4 MW，1998–2012 年，其中 4 部已除役），2025 年另有 F3 Freiheit 汰換 2 部（12 MW）。",
+  "note_en": "MaStR’s F3 Freiheit III has 15 units (23.4 MW, 1998–2012, four since decommissioned), and the F3 Freiheit repowering added 2 units (12 MW) in 2025.",
+  "why": "Mixed years; GEM 25 MW not matched to a dated set.",
+  "sources": []
+ },
+ {
+  "item": "DEU 13. Osterburg 21 MW",
+  "farm": "Osterburg wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 Windpark Osterburg 是 3 部 Vestas V136（10.8 MW，2020 年），距紀錄約 7 km；紀錄附近有 GEM 的 Krevese（50 MW）與 Rossau（30 MW）。",
+  "note_en": "MaStR’s Windpark Osterburg is three Vestas V136 (10.8 MW, 2020), about 7 km from the record; GEM’s Krevese (50 MW) and Rossau (30 MW) are next to the record.",
+  "why": "Unresolved; possibly a duplicate of a neighbour.",
+  "sources": []
+ },
+ {
+  "item": "DEU 14. Wangerland 20 MW",
+  "farm": "Wangerland wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 沒有 20 MW、名為 Wangerland 的風場；turbines_de.json 的配對是 1992–2018 年、8 種機型的零散機組。",
+  "note_en": "MaStR has no 20 MW park named Wangerland; the turbines_de.json match is scattered units of eight models from 1992–2018.",
+  "why": "Unresolved.",
+  "sources": []
+ },
+ {
+  "item": "DEU 15. Lehrte (Windstrom) 20 MW",
+  "farm": "Lehrte (Windstrom) wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 在 Lehrte 有 WP Lehrte（7.5 MW，2002 年）、Lehrte III（12 MW，2009 年，即 GEM 的 Lehrte (Eurowind)）與 Sehnde Lehrte（10 MW，2005 年）；WindStrom 名下的 WP Lehrte I Rep（34 MW）仍在規劃。",
+  "note_en": "MaStR has WP Lehrte (7.5 MW, 2002), Lehrte III (12 MW, 2009 — GEM’s Lehrte (Eurowind)) and Sehnde Lehrte (10 MW, 2005) at Lehrte; WindStrom’s WP Lehrte I Rep (34 MW) is still planned.",
+  "why": "No 20 MW WindStrom park found; maybe the older park WindStrom is repowering.",
+  "sources": []
+ },
+ {
+  "item": "DEU 16. Pinnow (Teut) 18 MW",
+  "farm": "Pinnow (Teut) wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 在 Pinnow 有 WP Pinnow（10.15 MW，2009 年）、Pinnow 7 等 2 部（各 2.05 MW，2010 年）、Pinnow 5（13.48 MW，2012 年，即 GEM 的 Pinnow (Joule)）與 2023 年的 2 部 6 MW。",
+  "note_en": "MaStR has WP Pinnow (10.15 MW, 2009), two 2.05 MW units (2010), Pinnow 5 (13.48 MW, 2012 — GEM’s Pinnow (Joule)) and two 6 MW units of 2023 at Pinnow.",
+  "why": "18 MW not matched to a dated set.",
+  "sources": []
+ },
+ {
+  "item": "DEU 17. Osterholz 18 MW",
+  "farm": "Osterholz wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 名為 Osterholz 的風場不在此地；turbines_de.json 的配對是 1996–2015 年、6 種機型的機組。",
+  "note_en": "The MaStR parks named Osterholz are elsewhere; the turbines_de.json match spans 1996–2015 and six models.",
+  "why": "Unresolved.",
+  "sources": []
+ },
+ {
+  "item": "DEU 18. Schoenermark 18 MW (NEAG)",
+  "farm": "Schoenermark wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 WP Schönermark（Norddeutsche Energie WP Schönermark 等）運轉中 20 MW：2017 年 8 MW、2018 年 12 MW，另有 7.2 MW 規劃中，距紀錄約 10 km。",
+  "note_en": "MaStR’s WP Schönermark (Norddeutsche Energie WP Schönermark and others) has 20 MW in operation, 8 MW from 2017 and 12 MW from 2018, plus 7.2 MW planned, about 10 km from the record.",
+  "why": "Likely year 2018 for NEAG’s units; split by operator not checked.",
+  "sources": []
+ },
+ {
+  "item": "DEU 20. North Leesweg 16 MW",
+  "farm": "North Leesweg wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 沒有名為 Leesweg 的風場；紀錄在 Norden 附近 Drostenplatz、Ostermarsch 等多座風場之間。",
+  "note_en": "MaStR has no park named Leesweg; the record sits among several farms near Norden (Drostenplatz, Ostermarsch).",
+  "why": "Unresolved; not in turbines_de.json.",
+  "sources": []
+ },
+ {
+  "item": "DEU 21. Nessa 14 MW",
+  "farm": "Nessa wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 WP Nessa 在 Teuchern（5 部、13.7 MW：2013 年 2.3、2014 年 6.1、2017 年 5.3 MW），但紀錄座標是代用點（與另三筆相同）；這 5 部在 turbines_de.json 已配給 Wulfen 風場。",
+  "note_en": "MaStR’s WP Nessa is at Teuchern (5 units, 13.7 MW: 2.3 MW in 2013, 6.1 in 2014, 5.3 in 2017), but the record’s point is a placeholder shared with three other records, and these five units are matched to the Wulfen farm in turbines_de.json.",
+  "why": "Would be year=2017, ph=[[2013, 2.3], [2014, 6.1], [2017, 5.3]] plus a move to ~51.147, 11.965, but the Wulfen overlap must be checked first.",
+  "sources": []
+ },
+ {
+  "item": "DEU 22. Bgp Rakow 14 MW",
+  "farm": "Bgp Rakow wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 名為 Rakow 的都在梅克倫堡；本紀錄在東弗里斯蘭 Norden 附近，turbines_de.json 配到 1995–2009 年、7 種機型的機組。",
+  "note_en": "The MaStR parks named Rakow are in Mecklenburg; this record is near Norden (East Frisia), and its turbines_de.json match spans 1995–2009 and seven models.",
+  "why": "Unresolved.",
+  "sources": []
+ },
+ {
+  "item": "DEU 23. Gollmitz-Schönermark 13 MW",
+  "farm": "Gollmitz-Schönermark wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 WP Gollmitz（4 部、10 MW）與 G5 Gollmitz 5（2.5 MW）都在 2009 年商轉，合計 12.5 MW；但 turbines_de.json 配給本紀錄的是 2014–2025 年的機組，GEM 另有 Gollmitz（20 MW，2018）。",
+  "note_en": "MaStR’s WP Gollmitz (4 units, 10 MW) and G5 Gollmitz 5 (2.5 MW) were both commissioned in 2009, 12.5 MW in all; but turbines_de.json gives this record units from 2014–2025, and GEM also has Gollmitz (20 MW, 2018).",
+  "why": "Probably year 2009, unproven.",
+  "sources": []
+ },
+ {
+  "item": "DEU 24. Remlingen (Lower Saxony) 13 MW",
+  "farm": "Remlingen (Lower Saxony) wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 Remlingen II 有 WindStrom 的 5 部 E-66（9 MW，2000 年）、NeuWind 的 2 部 E-70（4 MW，2009 年）與 KE Windpark Remlingen 的 4 部（9.2 MW，2010 年）。",
+  "note_en": "MaStR’s Remlingen II holds WindStrom’s five E-66 (9 MW, 2000), NeuWind’s two E-70 (4 MW, 2009) and KE Windpark Remlingen’s four units (9.2 MW, 2010).",
+  "why": "13 MW might be 9 + 4 (year 2009), unproven; turbines_de.json shows 7 × E-70 of 2009.",
+  "sources": []
+ },
+ {
+  "item": "DEU 25. Westerburg (MMJ) 12 MW",
+  "farm": "Westerburg (MMJ) wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 在 Westerburg 有 Charlottendorf-Ost（2001–2002 年 9 MW 已除役，2024 年汰換 8.4 MW）與 Charlottendorf-Ost III（9.2 MW，2011–2013 年）。",
+  "note_en": "MaStR has Charlottendorf-Ost at Westerburg (9 MW of 2001–2002, decommissioned, repowered with 8.4 MW in 2024) and Charlottendorf-Ost III (9.2 MW, 2011–2013).",
+  "why": "12 MW not matched.",
+  "sources": []
+ },
+ {
+  "item": "DEU 26. Wittstedt 12 MW",
+  "farm": "Wittstedt wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 Wittstedt 只有 2 部 1.5 MW（2000 年）；紀錄旁有 GEM 的 Moosmoor（24 MW）與 Lohkamp（12 MW，2018）。",
+  "note_en": "MaStR’s Wittstedt park has only two 1.5 MW units (2000); GEM’s Moosmoor (24 MW) and Lohkamp (12 MW, 2018) are next to the record.",
+  "why": "Possibly a duplicate of Lohkamp; unproven.",
+  "sources": []
+ },
+ {
+  "item": "DEU 29. Blaufelden 12 MW",
+  "farm": "Blaufelden wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 沒有名為 Blaufelden 的風場；turbines_de.json 的配對是 2002–2017 年、5 種機型。",
+  "note_en": "MaStR has no park named Blaufelden; the turbines_de.json match spans 2002–2017 and five models.",
+  "why": "Unresolved.",
+  "sources": []
+ },
+ {
+  "item": "DEU 30. Buchhain (Buchhainer Heide) 10 MW",
+  "farm": "Buchhain (Buchhainer Heide) wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 在 Buchhain 有 Planet energy I／II（14 MW，2011–2012，即 GEM 的 Buchhain）、WP Buchhain（32.5 MW，2014–2016，即 GEM 的 Buchhainer Heide）、Buchhain 7（2.2 MW，2014）與 Buchhain 8 & 11（4 MW，2018）。",
+  "note_en": "MaStR has Planet energy I/II (14 MW, 2011–2012 — GEM’s Buchhain), WP Buchhain (32.5 MW, 2014–2016 — GEM’s Buchhainer Heide), Buchhain 7 (2.2 MW, 2014) and Buchhain 8 & 11 (4 MW, 2018) at Buchhain.",
+  "why": "10 MW not matched; possibly a duplicate.",
+  "sources": []
+ },
+ {
+  "item": "DEU 31. Clauen 10 MW",
+  "farm": "Clauen wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "MaStR 的 WP Clauen II 有 5 部（12.74 MW：2009 年 4 MW、2010 年 8.74 MW），WP Clauen 2 部（4 MW，2002 年），2026 年另有 7.2 MW 汰換。",
+  "note_en": "MaStR’s WP Clauen II has 5 units (12.74 MW: 4 MW in 2009, 8.74 MW in 2010), WP Clauen 2 units (4 MW, 2002), and a 7.2 MW repowering in 2026.",
+  "why": "10 MW not matched exactly; likely 2010.",
+  "sources": []
+ }
+]

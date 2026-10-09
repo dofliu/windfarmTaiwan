@@ -14,6 +14,28 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v2.30.17 — 2026-10-09
+
+- 第二十二輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十五批」）：
+  - 補上商轉年：營運中沒有年份的風場從 725 座（34.9 GW）減為 666 座（32.1 GW）。印度 250 → 218 座（GlobalData 電廠簡介、信評報告、業主公告與上訴法庭判決），
+    義大利 72 → 58 座（Alerion 2022 年債券公開說明書逐場列出開始發電的日期、GlobalData、Enel 新聞稿），另有瑞典 Kölvallen（2025，277.2 MW）、墨西哥 Coromuel 與 San Pedro、
+    克羅埃西亞、波蘭、塞爾維亞、以色列、納米比亞、荷蘭、日本與澳洲各一至兩座。
+  - 重複：義大利 6 筆併掉（Agrigento 原本有三筆同一座風場：Wind Power Sud、Altopiano Petrasi 併入）；印度 Visapur 併入 Girijashankarwadi。
+  - 位置與名稱：印度「Dagri」改名 Dangri (Oil India)（54 MW，2013），從約 280 km 外移到 Jaisalmer 的 Dangri；PTC 的 Bableshwar、Devenkonda、Payalakuntla 從代用點移到所在村
+    （概略位置；三座的商轉年在 2016 或 2017，未寫）；義大利 Lago Arancio、Messina Randazzo、Rocca Ficuzza 移到所在鎮（概略位置）；Orchid、Tirunelveli (KPR)、Palghat 標示為業主的風場組合，不是單一風場。
+
+## v2.30.16 — 2026-10-09
+
+- 第二十一輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十四批」）：
+  - 補上商轉年：營運中沒有年份的風場從 815 座（37.3 GW）減為 725 座（34.9 GW）。西班牙 27 座（卡斯提亞—雷昂自治區開放資料的運轉中風場登錄、亞拉岡自治區的環境監測報告），
+    土耳其 16 座（土耳其風能協會 TÜREB 2015–2022 年統計報告），德國 8 座（市場主資料登錄 MaStR 的公開機組頁），法國 10 座（國家發電設施登錄 ODRÉ 與地方督察報告；另依登錄更正 3 座的年份），
+    中國 5 座，荷蘭 2 座（Epz 16.8 MW、Kubbeweg 72 MW，荷蘭企業局 RVO 年度監測）。
+  - 重複與彙總：法國 8 組重複併掉，Kergrist Moelou、Chapelle Vallon、Essigny-le-Grand、Esnouveaux、Lanques-sur-Rognon 與兩筆 Droupt 是已逐場收錄風場的合計或其中一個併網點，刪除；
+    土耳其 7 組、德國 6 組、西班牙 3 組重複併掉；西班牙 Els Pessells 的許可 2020 年撤銷、從未建成，刪除；德國 Nessa 的 6 部風機已在 MaStR 來源的「UW Nessa」裡，刪除重複的那筆。
+  - 德國 MaStR 對照重建：Niedere Börde 改為人工核對的配對（其中一部登錄名稱是 Borregaard I/S，不再另列一座）；被刪除紀錄原本預扣的 11 群 MaStR 機組改列為新風場（例：不來梅的 WP Hemelingen，12.8 MW，2018）。
+  - 名稱、位置與狀態：洮南「大唐二期」其實是另一個 22.1 MW 鄉村振興分散式項目（改名、補業主與中文名）；Köhlen、Les Plaines、Leury 移到風機所在位置，Les Vents de Nord-Sarthe 二期的經度正負號更正；
+    Crouy et Cuffies 改為規劃中、La Chapelle Bâton 改為興建中（已併網、還沒有商轉日）；容量更正 Kores 25 MW、Autremencourt 14.4 MW、Croa 10.4 MW，Breteuil（11 MW，2024）與 Plaine du Moulin（20.2 MW，2025）改為汰換後的風場。
+
 ## v2.30.15 — 2026-10-09
 
 - 第二十輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十三批」）：

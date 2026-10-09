@@ -1,0 +1,608 @@
+[
+ {
+  "item": "1. Liaoning Jianping Sanjia wind farm lat 41.403, lon 119.643",
+  "farm": "Liaoning Jianping Sanjia wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Under construction in Nov 2022 (CGN new-energy company feature, Sohu 2022-11-14): 50 MW in Sanjia township, 10 × 4.2 + 2 × 4.0 MW Goldwind turbines. No connection report found (dlzb 502; Chaoyang environment-bureau PDF 404).",
+  "sources": [
+   {
+    "url": "https://www.sohu.com/a/605694237_121123683",
+    "quote": "建平风电项目，位于辽宁省朝阳市建平县三家乡境内，工程总装机容量50MW，安装金凤科技10台4.2MW和2台4.0MW风力发电机组"
+   }
+  ]
+ },
+ {
+  "item": "3. Shandong Xiajin Dongnan Leiji wind farm lat 37.064, lon 116.201",
+  "farm": "Shandong Xiajin Dongnan Leiji wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found (refs: bidcenter, Baidu link, news.qq blocked). Possible duplicate: 'Shandong Xiajin Leiji wind farm' (50 MW, 2020, placeholder coordinates 36.0/119.0, operator 夏津惠能风力发电, from SGCC's project list) vs this 夏津县东南风电场雷集一期 (operator 夏津田辰新能源); different operators, so not proposed as dup.",
+  "sources": []
+ },
+ {
+  "item": "4. Shandong Xiajin Multi-functional Complementarity wind farm lat 37.081, lon 116.03",
+  "farm": "Shandong Xiajin Multi-functional Complementarity wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Upper bound only: Xiajin county's Sept 2023 project tour lists the Huasheng multi-energy demonstration wind project (50 MW: 13 × 3.6 + 1 × 3.2 MW, 220 kV substation) as built and generating. Year not found. Note a pre-construction record 'Shandong Dezhou Xiajin (Runfeng) wind farm' (50 MW) sits at almost the same coordinates.",
+  "sources": [
+   {
+    "url": "https://www.sohu.com/a/718886225_121123809",
+    "quote": "总容量50MW，安装13台3.6MW风力发电机组和1台3.2MW风力发电机组，建设220kV升压站一座，配套建设35kV集成线路及场内外道路。项目已建成投产发电"
+   }
+  ]
+ },
+ {
+  "item": "5. Shaanxi Huaneng Hancheng Yaoxian wind farm lat 35.49, lon 110.417",
+  "farm": "Shaanxi Huaneng Hancheng Yaoxian wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only shows operation by 2023: Northwest NEA's Shaanxi ancillary-service settlement for May 2023 lists 要先风电场 (50 MW). No commissioning date found (bidcenter, iguopin refs are company pages).",
+  "sources": []
+ },
+ {
+  "item": "7. Jiangsu Jinhu Chenqiao wind farm lat 33.124, lon 119.04",
+  "farm": "Jiangsu Jinhu Chenqiao wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM's Jinhu PDF (2023-07) is a planning/EIA schedule ('first year' timeline, no dates); jinhu.gov.cn article 503; WeChat ref not fetchable. No connection report found.",
+  "sources": []
+ },
+ {
+  "item": "8. Jilin Taonan Yongmao Bao'An wind farm lat 45.553, lon 122.247",
+  "farm": "Jilin Taonan Yongmao Bao'An wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Phase 1 (50 MW) of 洮南永茂保安100MW was under construction in Sept 2021 (Mingyang guarantee notice); Mingyang's subsidiary Beijing Jieyuan is to take over the project company after grid connection, and its 2023 annual report still calls it 'intended investment'. No connection date found.",
+  "sources": [
+   {
+    "url": "http://epaper.zqrb.cn/html/2021-09/13/content_767003.htm?div=-1",
+    "quote": "洮南百强为洮南永茂保安100MW风电平价上网项目（一期50MW）的承建单位，目前处于建设阶段"
+   }
+  ]
+ },
+ {
+  "item": "9. Inner Mongolia Wuchuan (Shandong Guofeng) wind farm lat 41.097, lon 111.448",
+  "farm": "Inner Mongolia Wuchuan (Shandong Guofeng) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Upper bound only: Wuchuan county's May 2022 summary lists 山东国风5万千瓦 among its 11 built wind farms, so it was operating before 2022. Year not found.",
+  "sources": [
+   {
+    "url": "http://www.wuchuan.gov.cn/zfxxgknew_27916/fdzdgknr/zfwjnew/202205/t20220511_1275041.html",
+    "quote": "截至目前，全县已建风、光、水电站13座，总装机容量246万千瓦，其中风电场11座，总装机111万千瓦[包括华能李汉梁风场25万千瓦、国电红山风场20万千瓦、大唐黑沙兔风场5万千瓦、义合美风场5万千瓦、蒙能15万千瓦、蒙天风能10万千瓦、国龙15万千瓦、东方能源5万千瓦、风盛5万千瓦、山东国风5万千瓦"
+   }
+  ]
+ },
+ {
+  "item": "10. Jiangsu Guannan Xinyihe wind farm lat 34.157, lon 119.381",
+  "farm": "Jiangsu Guannan Xinyihe wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs tgnet/doc88 (company pages). No commissioning report found for 东方大唐灌南新沂河风电场.",
+  "sources": []
+ },
+ {
+  "item": "11. Shandong Zhebu (Tietou) wind farm lat 36.796, lon 119.739",
+  "farm": "Shandong Zhebu (Tietou) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs sd.china.com.cn (DNS failure) and bidcenter. Not searched further.",
+  "sources": []
+ },
+ {
+  "item": "12. Guangxi Gongcheng Low Wind Speed Test (Jieyuan) wind farm lat 24.949, lon 110.795",
+  "farm": "Guangxi Gongcheng Low Wind Speed Test (Jieyuan) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Identified: Mingyang's (601615) subsidiary 恭城洁源 built the 广西桂林恭城茶江低风速试验风电场 (49.5 MW; Xiling town, started July 2017). Mingyang's 2020 report transfers RMB 369.8 m of its RMB 493 m budget to fixed assets in 2020 (94.44% complete, RMB 32.1 m left), the remaining RMB 39.6 m in 2021 (100%); the company's tax holiday runs from 1 Jan 2020 (first revenue year). So most of the capacity went into service in 2020, the rest probably by 2021; no connection date quoted. GEM's Chinese name says 二期 and a separate 50 MW 'phase 2' (pre-construction) and a 150 MW 'Xinhua' record share the name; the relationships are unclear.",
+  "sources": [
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2021-04-17/1209711755.PDF",
+    "quote": "广西桂林 恭城茶江 低风速试 验风电场 项目 493,210, 000.00 272,125, 544.58 129,821,82 2.63 369,83 4,912. 97 - 32,112,454 .24 94.4 4 95"
+   },
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2022-04-15/1212921347.PDF",
+    "quote": "本公司之下属子公司恭城洁源新能源有限公司自2020年1月1日至2022年12月 31 日定期减免征收企业所得税"
+   },
+   {
+    "url": "https://www.sohu.com/a/159446761_267106",
+    "quote": "7月18日，恭城瑶族自治县首个低风速试验风电场项目在该县西岭镇开工"
+   }
+  ]
+ },
+ {
+  "item": "13. Henan Xingyang Feilongding wind farm lat 34.953, lon 113.437",
+  "farm": "Henan Xingyang Feilongding wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Capacity doubt: Suntien's 2020 IPO prospectus lists 新天荥阳飞龙顶风电场 (approved 48.6 MW) as under construction at end-2019; Zhengzhou's industry bureau (Sept 2022) counts 荥阳市飞龙顶风电场 as built with 32.4 MW; Suntien's 2021 report impaired the Xingyang construction in progress (recoverable amount below book value). So only about 32.4 MW seems built, probably 2020–2021; GEM's 49.5 MW and the year are unverified.",
+  "sources": [
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2020-06-11/1207916432.PDF",
+    "quote": "河南电网 荥阳新天风能有限公司 新天荥阳飞龙顶风电场 48.6MW"
+   },
+   {
+    "url": "https://public.zhengzhou.gov.cn/D1102X/6715242.jhtml",
+    "quote": "郑州已建成登封市荟萃山风电场（48MW）、新密市蕴成风电场（49.5MW）、荥阳市飞龙顶风电场（32.4MW）"
+   },
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2022-03-24/1212651504.PDF",
+    "quote": "荥阳新天 7,040,492.38 可收回金额小于账面价值"
+   }
+  ]
+ },
+ {
+  "item": "14. Sichuan Gulin Jianzhuping wind farm lat 28.043, lon 105.702",
+  "farm": "Sichuan Gulin Jianzhuping wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs scb.nea.gov.cn (404) and fgw.sc.gov.cn (503). Not found.",
+  "sources": []
+ },
+ {
+  "item": "15. Shanxi Xiangjiashan wind farm lat 38.648, lon 112.36",
+  "farm": "Shanxi Xiangjiashan wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs book118/360doc (documents) and a Baidu link. Not found.",
+  "sources": []
+ },
+ {
+  "item": "16. Guangdong Guangning Guangbei wind farm lat 23.81, lon 112.589",
+  "farm": "Guangdong Guangning Guangbei wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No source found (h0758.net closed connection). Data problem: the record's Chinese name 吉安市青原区富滩风电场项目（一期富滩风电场项目） belongs to a Jiangxi farm (Ji'an Qingyuan Futan), while name and coordinates are in Guangning, Zhaoqing, Guangdong — GEM mixed up the zh name.",
+  "sources": []
+ },
+ {
+  "item": "17. Jiangxi Qingyuan Futan wind farm lat 27.002, lon 115.124",
+  "farm": "Jiangxi Qingyuan Futan wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found (jian.gov.cn 503, bjx blocked, weixin). Data problem: the operating 45 MW record and the 'announced' 45 MW '· 2' record carry the same zh name 青原区风光储一体化项目（二期）, while the Futan phase-1 zh name sits on the Guangdong Guangning Guangbei record.",
+  "sources": []
+ },
+ {
+  "item": "18. Shandong Laizhou Huaneng distributed wind farm lat 37.321, lon 119.915",
+  "farm": "Shandong Laizhou Huaneng distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Wanhua (Aug 2021) describes the Huaneng–Wanhua Laizhou (Zhuqiao) 93 MW distributed project: phase 1 48 MW (16 × 3 MW), phase 2 the remainder (45 MW). No dates for either phase; GEM marks phase 1 shelved and phase 2 operating, which looks inverted but is unverified (in-en/bjx blocked).",
+  "sources": [
+   {
+    "url": "https://www.whchem.com/cmscontent/833.html",
+    "quote": "近期，万华化学与华能集团合资成立华能（莱州）新能源科技有限公司，共同建设山东省烟台莱州市93MW分散式风电项目。该项目一期装机容量48MW，安装16台单机容量为3000KW的风力发电机组"
+   }
+  ]
+ },
+ {
+  "item": "19. Jiangsu Lianshui (Jushi) No.1 wind farm lat 33.852, lon 119.276",
+  "farm": "Jiangsu Lianshui (Jushi) No.1 wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only a kanzhun licence page in GEM. China Jushi's cninfo notices concern a new 500 MW Lianshui project (company founded 2025, not yet operating) — not this 45 MW record. Not found.",
+  "sources": []
+ },
+ {
+  "item": "20. Tianjin Xiaowangzhuang (Longyuan) wind farm lat 39.008, lon 117.714",
+  "farm": "Tianjin Xiaowangzhuang (Longyuan) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Not found. The Sina 2022-04 ref is about Guohua's Xiaowangzhuang wind farm (44 turbines), not Longyuan. Note the record shares exact coordinates (39.008, 117.714) with 'Tianjin Xiaowangzhuang wind farm · 3' (50 MW, construction, CHN Energy) — possible overlap, unverified.",
+  "sources": []
+ },
+ {
+  "item": "21. Henan Tangyin (Huaneng) Distributed wind farm lat 35.926, lon 114.646",
+  "farm": "Henan Tangyin (Huaneng) Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs tangyin.gov.cn (404) and qianlima. Not found.",
+  "sources": []
+ },
+ {
+  "item": "22. Tianjin Baodi Datangzhuangzhen (TIANRUN) wind farm lat 39.405, lon 117.439",
+  "farm": "Tianjin Baodi Datangzhuangzhen (TIANRUN) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs tjbd.gov.cn 2023-10 (403), ghhzrzy.tj.gov.cn (403), solarbe 2021-08 (page now shows other news). Not found.",
+  "sources": []
+ },
+ {
+  "item": "23. Henan Yuanhui (SPIC) Distributed wind farm lat 33.466, lon 113.889",
+  "farm": "Henan Yuanhui (SPIC) Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs in-en (blocked) and lhgtj.gov.cn (DNS failure). Not found.",
+  "sources": []
+ },
+ {
+  "item": "24. Henan Zhenping Laozhuang wind farm lat 33.104, lon 112.28",
+  "farm": "Henan Zhenping Laozhuang wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Lower bound only: the first turbine of Huaneng's Zhenping wind project (Laozhuang wind farm) was erected on 11 Oct 2020 (Henan No.2 Construction via Sohu). A turbine-tender report seen in search results (not quoted) planned all turbines in service by 31 Oct 2020. Connection year likely 2020–2021, unverified (zhenping.gov.cn 503, fgw.henan 403).",
+  "sources": [
+   {
+    "url": "https://www.sohu.com/a/424556817_100022145",
+    "quote": "华能镇平风电项目首台风电机组吊装圆满完成。 镇平老庄风电场位于八百里伏牛山的南麓"
+   }
+  ]
+ },
+ {
+  "item": "25. Jilin Fuyu Rural Revitalization wind farm lat 45.226, lon 125.629",
+  "farm": "Jilin Fuyu Rural Revitalization wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Lower bound only: the first turbine of Huadian's Fuyu 38.3 MW project was erected in early Aug 2024 (China Power, 5 Aug 2024), so operation is late 2024 at the earliest; no connection report found (Huadian/Jilin searches).",
+  "sources": [
+   {
+    "url": "http://www.chinapower.com.cn/flfd/xmjz/20240805/256275.html",
+    "quote": "华电扶余38.3MW风电项目首台风机顺利吊装成功"
+   }
+  ]
+ },
+ {
+  "item": "26. Jilin Nongan (Three Gorges) wind farm lat 44.256, lon 124.852",
+  "farm": "Jilin Nongan (Three Gorges) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Three Gorges' Jilin Nong'an wind project (37.7 MW, Nong'an county) was first connected on 9 Aug 2024 (Jiemian via Baidu, 10 Aug 2024); the item speaks of output 'after full-capacity connection', so full capacity is not confirmed. A CTG O&M tender (eps.ctg.com.cn, unreadable to the checker: SSL error) reportedly says 'started Mar 2023, connected Aug 2024'. Year very likely 2024.",
+  "sources": [
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1807013887369184896&wfr=spider&for=pc",
+    "quote": "据三峡能源官微，8月9日，三峡能源吉林农安风电项目实现并网。该项目位于吉林省长春市农安县，总装机容量为37.7兆瓦。项目全容量并网后，每年可发电约1.14亿千瓦时。"
+   }
+  ]
+ },
+ {
+  "item": "27. Guangdong Xinyi Guizi Disturbed wind farm lat 22.669, lon 111.105",
+  "farm": "Guangdong Xinyi Guizi Disturbed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Upper bound only: Maoming's environment bureau inspected the completion acceptance (竣工验收) of 茂名信宜贵子风电场 on 26 Dec 2024. Connection year not found (sohu/weixin refs).",
+  "sources": [
+   {
+    "url": "http://www.xinyi.gov.cn/zdly/hjbh/gpdbhxzzfxx/content/post_1431919.html",
+    "quote": "2024年第4季度 竣工验收 茂名信宜贵子风电场 广东省茂名信宜市贵子镇 一般行业项目 2024-12-26"
+   }
+  ]
+ },
+ {
+  "item": "28. Henan Qi (China Resources) Distributed wind farm lat 34.389, lon 114.665",
+  "farm": "Henan Qi (China Resources) Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Turbines only: a 2021 broker report lists 华润杞县34MW分散式风电项目 with 6 × GW150-3.0 and 4 × GW165-4.0 (Goldwind) in a March 2021 turbine tender, among projects planned for connection by end-2021. No connection report found (Kaifeng environment bureau 403).",
+  "sources": [
+   {
+    "url": "https://pdf.dfcfw.com/pdf/H3_AP202109031513927579_1.pdf",
+    "quote": "华润杞县 34MW 分散式风电项目 34 6 套 GW150-3.0/145 和 4 套 GW165-4.0/140 3.4 2021.3"
+   }
+  ]
+ },
+ {
+  "item": "29. Tianjin Baigutun Distributed wind farm lat 39.552, lon 116.908",
+  "farm": "Tianjin Baigutun Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Upper bound only: the completion environmental-acceptance report of the Wuqing Baigutun 33 MW distributed project (builder 天津市凌晟新能源) was put up for public notice from 20 May 2024, so it was complete by then. Connection year not found (tjwq.gov.cn 403).",
+  "sources": [
+   {
+    "url": "http://tjxgh.cn/index.php/arc/show/id/631.html",
+    "quote": "现将武清区白古屯镇33MW分散式风电项目竣工环境保护验收报告及专家意见公示如下"
+   },
+   {
+    "url": "http://tjxgh.cn/index.php/arc/show/id/631.html",
+    "quote": "公示时间：2024年5月20日起20个工作日"
+   }
+  ]
+ },
+ {
+  "item": "30. Guangxi Binyang Gaoshanling Distributed wind farm lat 22.979, lon 108.994",
+  "farm": "Guangxi Binyang Gaoshanling Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs a 2021 dfcfw PDF (empty), bhi.com.cn 2017 PDF and bjx (blocked). Not found.",
+  "sources": []
+ },
+ {
+  "item": "31. Jiangsu Gaoyou Sanduo wind farm lat 32.83, lon 119.674",
+  "farm": "Jiangsu Gaoyou Sanduo wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "依深圳能源年報，2025 年轉入固定資產（達到預定可使用狀態）",
+  "note_en": "Per Shenzhen Energy’s annual reports, transferred to fixed assets (intended usable state) in 2025",
+  "why": "Not written in round 21: the year rests only on the 2025 transfer to fixed assets (an accounting step that can follow connection), not on a dated grid connection; year 2024 or 2025. Year from the owner's accounts, not a news report: Shenzhen Energy's 2024 annual report still lists 深能高邮三垛镇30MW分布式风电项目 as construction in progress at 31 Dec 2024 (97.40% complete, no transfer), and its 2025 report transfers RMB 190.68 million of it to fixed assets during 2025 (99.98%); the same report's policy note says self-built assets are transferred when they reach their intended usable state. All 6 turbines were erected by Aug 2023 (Gaoyou Today). No grid-connection news found (Shenzhen Energy/SZ SASAC pages 503/reset). If the caller prefers news-based years only, downgrade to lead.",
+  "sources": [
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2025-04-18/1223126126.PDF",
+    "quote": "深能高邮三垛镇 30MW 分布 式风电项目 277,200,000.00 166,617,841.62 20,203,630.81 - 186,821,472.43 97.40 97.50"
+   },
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2026-04-17/1225111758.PDF",
+    "quote": "深能高邮三垛镇 30MW 分布式风电项目 277,200,000.00 186,821,472.43 9,130,616.01 190,683,555.39 - 5,268,533.05 99.98 99.95"
+   },
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2026-04-17/1225111758.PDF",
+    "quote": "自行建造的固定资产于达到预定可使用状态时转入固定资产"
+   },
+   {
+    "url": "http://www.gytoday.cn/yw/2023-08-31/89364.html",
+    "quote": "深能高邮三垛30MW分散式风电项目目前已完成全部6台风电机组的吊装，标志着项目距离全容量并网的总目标又迈进了一大步。"
+   }
+  ]
+ },
+ {
+  "item": "33. Shaanxi Huaneng Yulin Fengjiagou wind farm lat 38.274, lon 109.703",
+  "farm": "Shaanxi Huaneng Yulin Fengjiagou wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only shows operation by 2023: Northwest NEA's Shaanxi settlement for May 2023 lists 冯家沟风电场 (30 MW). No commissioning date found.",
+  "sources": []
+ },
+ {
+  "item": "34. Henan Dengzhou (China Guangdong Nuclear) Distributed wind farm lat 32.804, lon 112.112",
+  "farm": "Henan Dengzhou (China Guangdong Nuclear) Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "First power only: the first turbine of CGN's Dengzhou 29.8 MW distributed project (9 turbines, Xiaji town) was connected on 31 Dec 2021 (NCPE, 31 Dec 2021). Full-capacity date not found (cpecc.net 418, dengzhou.gov.cn not tried successfully); likely 2022.",
+  "sources": [
+   {
+    "url": "http://www.ncpe.ceec.net.cn/art/2021/12/31/art_11334_2513304.html",
+    "quote": "12月31日，中国能建中电工程华北院总承包的中广核邓州市29.8兆瓦分散式风电项目首台风机成功并网，正式投产发电。"
+   }
+  ]
+ },
+ {
+  "item": "35. Shanxi Kelan (Datang) Distribution wind farm lat 38.651, lon 111.684",
+  "farm": "Shanxi Kelan (Datang) Distribution wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs bjx (blocked) and bidcenter. Not found.",
+  "sources": []
+ },
+ {
+  "item": "36. Inner Mongolia Horqin Left Middle Banner distributed wind farm lat 44.161, lon 122.781",
+  "farm": "Inner Mongolia Horqin Left Middle Banner distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "NEA's list of projects newly registered (建档立卡) in Nov 2025 includes 科尔沁左翼中旗28MW分散式风电项目 (PWD2404150521001M, Horqin Left Middle Banner) — in the .docx attachment, which check_quotes cannot read, so not quoted. Registration usually follows connection, so operation 2025 is plausible but unverified.",
+  "sources": []
+ },
+ {
+  "item": "37. Henan Shangshui Tanzhuang Distributed wind farm lat 33.56, lon 114.415",
+  "farm": "Henan Shangshui Tanzhuang Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "First batch only: the first turbines of the Shangshui Tanzhuang 25 MW distributed project were connected on 26 Dec 2021 (PowerChina Hainan institute via smedianews, 28 Dec 2021). Full-capacity date not found. Note the same text gives 6 × 4.0 MW (24 MW) against a 25 MW total.",
+  "sources": [
+   {
+    "url": "https://www.smedianews.com/NewsContents_45713.html",
+    "quote": "12月26日，在广袤中原大地上，随着风机叶片徐徐转动，历时2个月，公司总承包（EPC）建设的商水县谭庄镇25MW分散式风电项目首批风机顺利并网发电。"
+   },
+   {
+    "url": "https://www.smedianews.com/NewsContents_45713.html",
+    "quote": "总装机容量为25兆瓦，总投资为2.28亿元，共安装6台4.0MW风力发电机组"
+   }
+  ]
+ },
+ {
+  "item": "38. Jilin Qianguo Rural Revitalization wind farm lat 44.444, lon 124.103",
+  "farm": "Jilin Qianguo Rural Revitalization wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Goldwind's Qianguo Dongjia wind farm (23.5 MW: 1×5.0 + 1×6.0 + 2×6.25 MW) was connected on 23 Dec 2023 and called 'formally in production', but the same report says this was a step 'towards full-capacity connection', so full capacity in 2023 is not confirmed (likely 2023 or early 2024).",
+  "sources": [
+   {
+    "url": "https://kejo-www.plus.jlntv.cn/folder340/folder352/folder8004/2023-12-26/ytqt1rpRrGJXKLO8.html",
+    "quote": "12月23日，前郭县天润东家风电场投入使用，2.35万千瓦新能源风电乡村振兴项目顺利并网发电，标志着此项目向着全容量并网发电迈出了坚实一步。"
+   }
+  ]
+ },
+ {
+  "item": "41. Shanxi Ruicheng Nanlingshang wind farm lat 34.757, lon 110.874",
+  "farm": "Shanxi Ruicheng Nanlingshang wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs imarine (blocked), weixin, baishui.gov.cn. Not found.",
+  "sources": []
+ },
+ {
+  "item": "42. Shanxi Ruicheng Ximo wind farm lat 34.698, lon 110.635",
+  "farm": "Shanxi Ruicheng Ximo wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs in-en (blocked) and bidcenter. Not found.",
+  "sources": []
+ },
+ {
+  "item": "43. Yulin Hancha wind farm lat 39.072, lon 110.779",
+  "farm": "Yulin Hancha wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs bjx (blocked), hszf.gov.cn (503). Not found.",
+  "sources": []
+ },
+ {
+  "item": "44. Anhui Zongyang Mabushan wind farm lat 30.756, lon 117.356",
+  "farm": "Anhui Zongyang Mabushan wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Partial: the Zongyang Mabushan distributed wind farm (6 turbines, 20 MW) was connected on 28 Dec 2021 with 5 of its 6 turbines (Anhui News, 5 Jan 2022). Date of the sixth turbine not found.",
+  "sources": [
+   {
+    "url": "http://ah.anhuinews.com/tl/xqdt/zy/202201/t20220105_5736080.html",
+    "quote": "规划建设容量20MWp，安装风电机组6台，总容量20MW，本期并网5台。"
+   }
+  ]
+ },
+ {
+  "item": "45. Henan Pingqiao Hudian Distributed wind farm lat 32.408, lon 114.156",
+  "farm": "Henan Pingqiao Hudian Distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs in-en (blocked), eiacloud, bidcenter, shibor. Not found.",
+  "sources": []
+ }
+]

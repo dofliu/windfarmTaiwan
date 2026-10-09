@@ -15,6 +15,32 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.17 — 2026-10-09
+
+- Research round 22 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "fifteenth batch" in the [clean-up log](docs/data-cleanup.en.md)):
+  - Commissioning years added: operating farms without a year go from 725 (34.9 GW) to 666 (32.1 GW). India 250 → 218 (GlobalData plant profiles, rating reports, owners' announcements and an
+    appellate tribunal judgment), Italy 72 → 58 (Alerion's 2022 bond prospectus lists each farm's start of production; GlobalData; an Enel press release), plus Sweden's Kölvallen (2025, 277.2 MW),
+    Mexico's Coromuel and San Pedro, and one or two each in Croatia, Poland, Serbia, Israel, Namibia, the Netherlands, Japan and Australia.
+  - Duplicates: 6 folded in Italy (Agrigento had three records for one farm: Wind Power Sud and Altopiano Petrasi folded in); India's Visapur folded into Girijashankarwadi.
+  - Locations and names: India's "Dagri" is renamed Dangri (Oil India) (54 MW, 2013) and moves about 280 km to Dangri in Jaisalmer; PTC's Bableshwar, Devenkonda and Payalakuntla move from placeholder
+    points to their villages (approximate; their years are 2016 or 2017 and left open); Italy's Lago Arancio, Messina Randazzo and Rocca Ficuzza move to their towns (approximate); Orchid, Tirunelveli (KPR)
+    and Palghat are noted as owners' portfolios rather than single farms.
+
+## v2.30.16 — 2026-10-09
+
+- Research round 21 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "fourteenth batch" in the [clean-up log](docs/data-cleanup.en.md)):
+  - Commissioning years added: operating farms without a year go from 815 (37.3 GW) to 725 (34.9 GW). 27 in Spain (Castilla y León's open-data register of operating farms and Aragón's
+    environmental monitoring reports), 16 in Turkey (the Turkish Wind Energy Association TÜREB's 2015–2022 statistics reports), 8 in Germany (public unit pages of the Marktstammdatenregister, MaStR),
+    10 in France (the national register of production installations, ODRÉ, and inspection reports; 3 more years corrected from the register), 5 in China and 2 in the Netherlands (Epz 16.8 MW and Kubbeweg 72 MW, RVO's yearly monitor).
+  - Duplicates and aggregates: 8 French duplicates folded; Kergrist Moelou, Chapelle Vallon, Essigny-le-Grand, Esnouveaux, Lanques-sur-Rognon and the two Droupt records were totals or single
+    delivery points of farms already listed and are removed; 7 duplicates in Turkey, 6 in Germany and 3 in Spain folded; Spain's Els Pessells (authorisation revoked in 2020, never built) is removed;
+    Germany's Nessa is removed because its six turbines are already in the MaStR-derived "UW Nessa".
+  - German MaStR matching rebuilt: Niedere Börde now has a hand-checked match (one of its turbines is registered as Borregaard I/S, no longer listed as a farm of its own); 11 MaStR groups that removed
+    records used to hold are now farms of their own (e.g. WP Hemelingen in Bremen, 12.8 MW, 2018).
+  - Names, locations and status: Taonan "Datang phase 2" is really a separate 22.1 MW distributed rural revitalisation project (renamed, with owner and Chinese name); Köhlen, Les Plaines and Leury move to
+    their turbines and the longitude sign of Les Vents de Nord-Sarthe phase 2 is fixed; Crouy et Cuffies becomes pre-construction and La Chapelle Bâton under construction (connected, no commissioning
+    date yet); capacities corrected for Kores (25 MW), Autremencourt (14.4 MW) and Croa (10.4 MW); Breteuil (11 MW, 2024) and Plaine du Moulin (20.2 MW, 2025) now describe the repowered farms.
+
 ## v2.30.15 — 2026-10-09
 
 - Research round 20 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "thirteenth batch" in the [clean-up log](docs/data-cleanup.en.md)):

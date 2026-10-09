@@ -1,0 +1,684 @@
+[
+ {
+  "item": "1. Betul (United) I wind farm lat 21.88, lon 77.876",
+  "farm": "Betul (United) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is the archived useipl.com/projects.html (web.archive.org resets the connection here; the live useipl.com fails TLS verification). The four Betul records (United I, United II, 'Betul' and Atria, all 50 MW) and 'Kukru (United Sustainable)' (50 MW, same point as 'Betul wind farm') sit within 4 km of each other; GlobalData's Atria Wind Farm-Betul (99.5 MW in two phases, Atria Power with GE Energy Financial Services, completed December 2014) may overlap with some of them, but no source ties the USEIPL rows to it, so no dup is proposed.",
+  "sources": []
+ },
+ {
+  "item": "2. Betul wind farm lat 21.909, lon 77.905",
+  "farm": "Betul wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is the archived useipl.com/projects.html (web.archive.org resets the connection here; the live useipl.com fails TLS verification). The four Betul records (United I, United II, 'Betul' and Atria, all 50 MW) and 'Kukru (United Sustainable)' (50 MW, same point as 'Betul wind farm') sit within 4 km of each other; GlobalData's Atria Wind Farm-Betul (99.5 MW in two phases, Atria Power with GE Energy Financial Services, completed December 2014) may overlap with some of them, but no source ties the USEIPL rows to it, so no dup is proposed.",
+  "sources": []
+ },
+ {
+  "item": "3. Betul (United) II wind farm lat 21.88, lon 77.876",
+  "farm": "Betul (United) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is the archived useipl.com/projects.html (web.archive.org resets the connection here; the live useipl.com fails TLS verification). The four Betul records (United I, United II, 'Betul' and Atria, all 50 MW) and 'Kukru (United Sustainable)' (50 MW, same point as 'Betul wind farm') sit within 4 km of each other; GlobalData's Atria Wind Farm-Betul (99.5 MW in two phases, Atria Power with GE Energy Financial Services, completed December 2014) may overlap with some of them, but no source ties the USEIPL rows to it, so no dup is proposed. Note: identical name pattern, capacity and point to 'Betul (United) I' (GEM gives the same single source for both).",
+  "sources": []
+ },
+ {
+  "item": "4. Betul (Atria) wind farm lat 21.907, lon 77.898",
+  "farm": "Betul (Atria) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GlobalData (via Power Technology) has Atria Wind Farm-Betul as 99.5 MW in two phases (Betul I: 33 Regen Vensys 82 1.5 MW = 49.5 MW; Betul II: 25 Gamesa G97 2 MW = 50 MW), co-owned by Atria Power and GE Energy Financial Services India, with the project commissioned (completed) in December 2014. The 50 MW GEM record is one of the two phases, but which one (and the earlier phase's date) is not stated, so a year cannot be assigned safely. atriapower.com/wind-power-2/ now returns 404.",
+  "sources": [
+   {
+    "url": "https://power-technology.com/?p=241457",
+    "quote": "Atria Wind Farm-Betul is a 99.5MW onshore wind power project. It is located in Madhya Pradesh, India."
+   },
+   {
+    "url": "https://power-technology.com/?p=241457",
+    "quote": "It has been developed in multiple phases. Post completion of construction, the project got commissioned in December 2014."
+   },
+   {
+    "url": "https://power-technology.com/?p=241457",
+    "quote": "Atria Power and GE Energy Financial Services India are currently owning the project."
+   },
+   {
+    "url": "https://power-technology.com/?p=241457",
+    "quote": "Atria Wind Farm-Betul (Atria Wind Farm-Betul I) is equipped with Regen Powertech VENSYS 82 turbines. The phase consists of 33 turbines with 1.5MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "item": "5. Chakla (Suzlon) II wind farm lat 21.32, lon 74.309",
+  "farm": "Chakla (Suzlon) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is MSETCL's final-grid-connectivity list via web.archive.org (connection reset here). The record sits at the same point as the curated 'Chakala (Suzlon)' (255 MW, 2018), so it may be one block of Suzlon's multi-owner Chakla park, but nothing quotable links them; no dup proposed.",
+  "sources": []
+ },
+ {
+  "item": "6. Tirumalayapalli wind farm lat 10.909, lon 78.367",
+  "farm": "Tirumalayapalli wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Sources conflict and none was quotable: GEM says Tirumalayapalli, 'Cuddapah, Tamil Nadu' (Cuddapah/Kadapa is in Andhra Pradesh) with phases 30 + 20 MW; GlobalData (search result only; power-technology began returning 403 to new requests) describes a 94.5 MW Hetero project in Andhra Pradesh (63 Vensys 87 units, commissioned February 2013); thewindpower has a separate 54 MW 'Tirumalaipalli' in Kadapa. heterowindpower.com archive copy blocked. Location and capacity both need a primary source.",
+  "sources": []
+ },
+ {
+  "item": "7. Kandimallayapalli wind farm lat 14.822, lon 78.282",
+  "farm": "Kandimallayapalli wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Year not written in round 22: PTC Energy’s 3 Apr 2017 announcement covers projects added in fiscal 2016–17, so the year could be 2016 or 2017. PTI story (EQ, 3 Apr 2017; Renewable Watch, 12 Apr 2017): PTC Energy commissioned five wind projects (238.8 MW) incl. 49.3 MW at Kandimalayapalli (Kadapa). The company says it grew to about six times its capacity at the start of FY2016-17, i.e. these were completed within FY2016-17 (Apr 2016-Mar 2017); 2017 is the announcement year, the exact COD per project is not published (PTC India annual reports on ptcindia.com fail TLS verification here). The same source covers 'Devenkonda wind farm' (49.5 MW, PTC) and 'Molagavalli (PTC) wind farm' (50 MW), which may be on the other list. The point (shared by 13 records, near Gandikota) is in Kadapa district, so it is left.",
+  "sources": [
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "PTC Energy commissions wind projects in Karnataka, Andhra India April 3, 2017"
+   },
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "Also in Andhra Pradesh, 49.3 MW wind power project was commissioned at Kandimalayapalli in Kadapa district, 49.5 MW project at Devenkonda in Kurnool district and 40 MW at Payalkuntla in Kadapa district."
+   },
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "achieve a scale of nearly 6 times the capacity it had at the beginning of FY2016-17"
+   },
+   {
+    "url": "https://renewablewatch.in/2017/04/12/ptc-commissions-five-wind-power-projects/",
+    "quote": "PTC Energy Limited (PEL) has commissioned five wind power projects, aggregating 238.8 MW, in Andhra Pradesh and Karnataka."
+   }
+  ]
+ },
+ {
+  "item": "9. Tadpatri (Beta) wind farm lat 14.938, lon 78.028",
+  "farm": "Tadpatri (Beta) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Orient Green's wind page lists only SPV totals (Beta Wind Farm, Andhra Pradesh 50.4 MW) without dates; a 2012 report gives Beta's plan only. Same point as 'Tadpatri (Bharath) wind farm' (24 MW, OGPL).",
+  "sources": []
+ },
+ {
+  "item": "10. Lotus wind farm (India) lat 10.326, lon 77.985",
+  "farm": "Lotus wind farm (India)",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CRISIL (31 Mar 2021) confirms Lotus Clean Power Venture (Leap Green) operates a 46.2 MW wind plant in Tamil Nadu (SPV incorporated 21 Jul 2011) but gives no COD; CARE/CRISIL group rationales list capacities only. The point is a Tamil Nadu placeholder shared by 30 records.",
+  "sources": [
+   {
+    "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/LotusCleanPowerVenturePrivateLimited_March%2031,%202021_RR_253379.html",
+    "quote": "was incorporated on July 21, 2011, as a special purpose vehicle (SPV) to install and operate a 46.2-megawatt, wind-based power plant in Tamil Nadu"
+   }
+  ]
+ },
+ {
+  "item": "11. Sukhpur wind farm lat 20.867, lon 70.75",
+  "farm": "Sukhpur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is CEA's plant-wise RE generation PDF (web.archive.org resets; the live cea.nic.in/old path returns an empty stub). Gujarat state-PSU captive farm, likely built 2000s-2010s; GSFC/GMDC/GACL/GSPL annual reports not reached in this pass. Point 20.867, 70.75 is shared by 8 records (placeholder).",
+  "sources": []
+ },
+ {
+  "item": "15. Sailana (Suzlon) wind farm lat 23.463, lon 74.924",
+  "farm": "Sailana (Suzlon) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM gives no source (or a 2009-10 Suzlon subsidiary accounts PDF via web.archive.org, blocked here). Suzlon-built multi-owner cluster in western Madhya Pradesh; per-block dates were not found. GEM lists three phases (14 + 15 + 14 MW).",
+  "sources": []
+ },
+ {
+  "item": "16. Pushpathur wind farm lat 10.326, lon 77.985",
+  "farm": "Pushpathur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's source is Ramco Cements' archived wind-farm page (web.archive.org blocked). Point is a Tamil Nadu placeholder shared by 30 records.",
+  "sources": []
+ },
+ {
+  "item": "17. Badnagar wind farm lat 23.064, lon 75.447",
+  "farm": "Badnagar wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM gives no source (or a 2009-10 Suzlon subsidiary accounts PDF via web.archive.org, blocked here). Suzlon-built multi-owner cluster in western Madhya Pradesh; per-block dates were not found.",
+  "sources": []
+ },
+ {
+  "item": "18. Citron (Leap) I wind farm lat 10.326, lon 77.985",
+  "farm": "Citron (Leap) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CRISIL (1 Apr 2019) says Leap Green acquired Citron Ecopower (75 MW) in fiscal 2017; GEM splits it as Citron I 42 MW + Citron II 33 MW (= 75 MW). No COD found (India Ratings release via web.archive.org blocked). Point is a Tamil Nadu placeholder shared by 30 records.",
+  "sources": [
+   {
+    "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/Leap_Green_Energy_Private_Limited_April_01_2019_RR.html",
+    "quote": "75MW of citron (debt of about Rs 300 crore) in fiscal 2017"
+   }
+  ]
+ },
+ {
+  "item": "19. Iris wind farm lat 10.326, lon 77.985",
+  "farm": "Iris wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CRISIL (31 Mar 2021): Iris Ecopower Venture (Leap Green) operates a 42.05 MW wind plant in Tamil Nadu; SPV incorporated 22 Oct 2012; no COD given.",
+  "sources": [
+   {
+    "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/IrisEcopowerVenturePrivateLimited_March%2031,%202021_RR_252618.html",
+    "quote": "was incorporated on October 22, 2012, as a special purpose vehicle (SPV) to install and operate a 42.05-megawatt, wind-based power plant in Tamil Nadu"
+   }
+  ]
+ },
+ {
+  "item": "20. GR Halli wind farm lat 14.233, lon 76.404",
+  "farm": "GR Halli wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's sources are an IndiaMART listing and an MSPL 2010 CSR PDF (both via web.archive.org, blocked).",
+  "sources": []
+ },
+ {
+  "item": "21. Kazugumalai wind farm lat 8.726, lon 77.747",
+  "farm": "Kazugumalai wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Orient Green's wind page gives SPV totals only (Beta / Clarion / Gamma, by state) with no dates; its 2010 prospectus was not reached.",
+  "sources": []
+ },
+ {
+  "item": "23. Khandke IV wind farm lat 19.14, lon 74.882",
+  "farm": "Khandke IV wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's source is Greenko's IR 2020-21 PDF; greenkogroup.com fails TLS verification here and web.archive.org resets. Note 'Ahmednagar wind farm' (ORIX, 40 MW, 2014) lies 58 km away — Khandke was an IL&FS site; a link was not established.",
+  "sources": []
+ },
+ {
+  "item": "24. Joodiya wind farm lat 22.692, lon 70.305",
+  "farm": "Joodiya wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's sources (GMDC green-footprint page, a 2010 Economic Times item) are via web.archive.org (blocked). GlobalData's 'Jamnagar_GMDC' (50.4 MW, 24 Suzlon S95, August 2013; search result only) does not match 40 MW.",
+  "sources": []
+ },
+ {
+  "item": "26. Payalakuntla wind farm lat 23.281, lon 77.41",
+  "farm": "Payalakuntla wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Position (and capacity) written in round 22; year left open (2016 or 2017, fiscal 2016–17). Same PTI story as Kandimallayapalli (completed in FY2016-17, announced 3 Apr 2017). GEM wrongly places it in Madhya Pradesh at the Bhopal point (shared by 7 records). OpenStreetMap has one village of that name in India (node 5465011324, B.Kodur mandal, YSR Kadapa per Nominatim). The OSM JSON is ODbL data; only the coordinates are used.",
+  "sources": [
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "Also in Andhra Pradesh, 49.3 MW wind power project was commissioned at Kandimalayapalli in Kadapa district, 49.5 MW project at Devenkonda in Kurnool district and 40 MW at Payalkuntla in Kadapa district."
+   },
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "PTC Energy commissions wind projects in Karnataka, Andhra India April 3, 2017"
+   },
+   {
+    "url": "https://www.gem.wiki/Payalakuntla_wind_farm",
+    "quote": "Payalakuntla wind farm is an operating wind farm in Payalakuntla, Madhya Pradesh, India."
+   },
+   {
+    "url": "https://api.openstreetmap.org/api/0.6/node/5465011324.json",
+    "quote": "\"id\":5465011324,\"lat\":14.8777997,\"lon\":79.0187680"
+   },
+   {
+    "url": "https://api.openstreetmap.org/api/0.6/node/5465011324.json",
+    "quote": "\"tags\":{\"name\":\"Payalakuntla\",\"place\":\"village\"}"
+   }
+  ]
+ },
+ {
+  "item": "28. Agar (Greenko) wind farm lat 22.541, lon 73.433",
+  "farm": "Agar (Greenko) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Possible duplicate of 'Maliya wind farm' (item 27): GEM places this 40 MW Greenko record in Gujarat (at the state-centre placeholder 22.541, 73.433, shared by 15 records), citing Greenko's 2019 green-bond impact report (unreachable: TLS failure) for capacity, while its status source is thewindpower's 'Agar' farm in Madhya Pradesh (245.5 MW, several owners). Orange's Maliya project was registered with UNFCCC CDM under the SPV 'Orange Agar Wind Power Pvt Ltd' ('40 MW Wind Power Project at Maliya, Gujarat' — seen only in a search result; cdm.unfccc.int is behind an Incapsula block here). If that SPV name is what GEM read, this row double-counts Maliya. Needs Greenko's SPV list or the CDM page before a dup.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Agar_(Greenko)_wind_farm",
+    "quote": "Agar (Greenko) wind farm is an operating wind farm in Gujarat, India."
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_26887_agar.php",
+    "quote": "Agar (Madhya Pradesh) (India) Operational (245,5 MW)"
+   }
+  ]
+ },
+ {
+  "item": "30. Anantapur wind farm lat 14.279, lon 78.488",
+  "farm": "Anantapur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's source is Ecoren's archived projects page (web.archive.org blocked). GEM's own location text says Lakkireddipalle, Annamayya district, not Anantapur district; name and location need checking.",
+  "sources": []
+ },
+ {
+  "item": "31. Bhesada (Greenko) wind farm lat 25.186, lon 75.859",
+  "farm": "Bhesada (Greenko) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Source is Greenko IR 2019-20 (TLS failure). Point 25.186, 75.859 is a Rajasthan placeholder (Kota) shared by 12 records; GEM's location is 'Bhesda, Rajasthan'.",
+  "sources": []
+ },
+ {
+  "item": "32. Kita (Orix) wind farm lat 27.451, lon 73.436",
+  "farm": "Kita (Orix) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM's source (ICRA Id=98041) is JavaScript-only here. Candidate: GlobalData's 'Jaisalmer – Wind Urja India' (IL&FS SPV, now 100% ORIX): 38.4 MW, 48 Enercon E-70 0.8 MW, commissioned September 2010 — capacity and owner fit the 39 MW record, but no source places Wind Urja's farm at Kita, and GlobalData also lists a separate Wind World 'Bhu / Kita' project. GEM only says 'Kita, Rajasthan'; the record's point (27.451, 73.436) lies between Nagaur and Bikaner, far from Jaisalmer, so the location is unverified too.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-jaisalmer-wind-urja-india-india/",
+    "quote": "Jaisalmer – Wind Urja India is a 38.4MW onshore wind power project. It is located in Rajasthan, India."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-jaisalmer-wind-urja-india-india/",
+    "quote": "Post completion of construction, the project got commissioned in September 2010."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-jaisalmer-wind-urja-india-india/",
+    "quote": "The project was developed by IL&FS Wind Energy and is currently owned by ORIX with a stake of 100%."
+   }
+  ]
+ },
+ {
+  "item": "33. Jodhpur (CEPCO) wind farm lat 25.186, lon 75.859",
+  "farm": "Jodhpur (CEPCO) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's source is ICRA rationale Id=26968 (JavaScript-only here). Point is the Rajasthan placeholder shared by 12 records.",
+  "sources": []
+ },
+ {
+  "item": "34. Bita-Valadiya wind farm lat 23.709, lon 69.828",
+  "farm": "Bita-Valadiya wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is CEA's plant-wise RE generation PDF (web.archive.org resets; the live cea.nic.in/old path returns an empty stub). Gujarat state-PSU captive farm, likely built 2000s-2010s; GSFC/GMDC/GACL/GSPL annual reports not reached in this pass. GEM lists phases 12 + 27 MW.",
+  "sources": []
+ },
+ {
+  "item": "36. Mandsaur wind farm lat 24.1, lon 74.967",
+  "farm": "Mandsaur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's sources are renew.com's home page and thewindpower (no dates). No ReNew Mandsaur 36 MW profile found; nearby 36 MW 'Nipaniya (Goenka)' (Surya Vidyut, 2016) is a different owner.",
+  "sources": []
+ },
+ {
+  "item": "37. Kalorana wind farm lat 20.867, lon 70.75",
+  "farm": "Kalorana wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's sources (CEA plant-wise PDF, docplayer 'Jasdan Energy') are via web.archive.org (blocked). Point is a Gujarat placeholder shared by 8 records.",
+  "sources": []
+ },
+ {
+  "item": "38. Soraja wind farm lat 12.975, lon 77.726",
+  "farm": "Soraja wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Source is Greenko IR 2019-20 (TLS failure). Point is the Bengaluru placeholder shared by 12 records (same point as 'Bharmasagar - Devangere', 36 MW Green Infra 2008 — not shown to be the same farm).",
+  "sources": []
+ },
+ {
+  "item": "39. Satara (Hero) wind farm lat 17.691, lon 74.001",
+  "farm": "Satara (Hero) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "A search result shows a GlobalData profile (power-technology ?p=182709) of a 32 MW Satara farm developed by Hero Future Energies with Sri Maruti Wind Park Developers, commissioned March 2014; GEM's record is 36 MW (24 + 12 MW). The profile could not be read before power-technology started returning 403, and the capacity differs, so no quote/rule.",
+  "sources": []
+ },
+ {
+  "item": "40. Jangi (Gujarat NRE) wind farm lat 23.211, lon 70.538",
+  "farm": "Jangi (Gujarat NRE) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is CEA's plant-wise RE generation PDF (web.archive.org resets; the live cea.nic.in/old path returns an empty stub). Gujarat industrial captive farm, likely built 2000s-2010s; GSFC/GMDC/GACL/GSPL annual reports not reached in this pass. GEM lists phases 18 + 18 MW.",
+  "sources": []
+ },
+ {
+  "item": "42. Elavanthi wind farm lat 10.326, lon 77.985",
+  "farm": "Elavanthi wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's sources are thewindpower (no dates) and a Hindu BusinessLine item on DLF selling its wind business (web.archive.org blocked). Point is the Tamil Nadu placeholder shared by 30 records.",
+  "sources": []
+ },
+ {
+  "item": "43. Surajbari (Cotinuum) wind farm lat 23.241, lon 70.644",
+  "farm": "Surajbari (Cotinuum) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is Continuum's home page; Continuum's DRHP not reached.",
+  "sources": []
+ },
+ {
+  "item": "44. Maha Wind wind farm lat 18.635, lon 73.849",
+  "farm": "Maha Wind wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Source is Greenko IR 2020-21 (TLS failure). Point is the Pune placeholder shared by several GEM records.",
+  "sources": []
+ },
+ {
+  "item": "45. Khanapur wind farm lat 23.281, lon 77.41",
+  "farm": "Khanapur wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Source is Greenko IR 2019-20 (TLS failure). Point is the Bhopal placeholder.",
+  "sources": []
+ },
+ {
+  "item": "46. Kudankulam wind farm lat 8.187, lon 77.698",
+  "farm": "Kudankulam wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Orient Green's wind page gives SPV totals only (Beta / Clarion / Gamma, by state) with no dates; its 2010 prospectus was not reached.",
+  "sources": []
+ },
+ {
+  "item": "47. Citron (Leap) II wind farm lat 10.326, lon 77.985",
+  "farm": "Citron (Leap) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "See item 18: Citron Ecopower (75 MW = Citron I 42 + II 33 MW) acquired by Leap Green in fiscal 2017; no COD.",
+  "sources": [
+   {
+    "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/Leap_Green_Energy_Private_Limited_April_01_2019_RR.html",
+    "quote": "75MW of citron (debt of about Rs 300 crore) in fiscal 2017"
+   }
+  ]
+ },
+ {
+  "item": "48. Osisan wind farm lat 25.186, lon 75.859",
+  "farm": "Osisan wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Same sources as Elavanthi (thewindpower; BusinessLine DLF sale via web.archive.org). Point is the Rajasthan placeholder.",
+  "sources": []
+ },
+ {
+  "item": "49. Violet wind farm lat 25.186, lon 75.859",
+  "farm": "Violet wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "CRISIL (31 Mar 2021) and CARE (22 Feb 2018): Violet Green Power (Leap Green) runs a 33 MW wind plant in Rajasthan; no COD. Point is the Rajasthan placeholder.",
+  "sources": [
+   {
+    "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/VioletGreenPowerPrivateLimited_March%2031,%202021_RR_252466.html",
+    "quote": "is an SPV set up to install and operate a 33-megawatt wind-based power plant"
+   },
+   {
+    "url": "https://www.careratings.com/upload/CompanyFiles/PR/Tulip%20Renewable%20Powertech%20Private%20Limited-02-22-2018.pdf",
+    "quote": "Violet -33.0 MW (Rajasthan)"
+   }
+  ]
+ },
+ {
+  "item": "51. Varshamedi (GSPL) wind farm lat 22.305, lon 70.803",
+  "farm": "Varshamedi (GSPL) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is CEA's plant-wise RE generation PDF (web.archive.org resets; the live cea.nic.in/old path returns an empty stub). Gujarat state-PSU captive farm, likely built 2000s-2010s; GSFC/GMDC/GACL/GSPL annual reports not reached in this pass. Point 22.305, 70.803 is Rajkot city.",
+  "sources": []
+ },
+ {
+  "item": "52. Zaheerabad wind farm lat 18.045, lon 78.261",
+  "farm": "Zaheerabad wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Search results only (not quotable here): Suzlon's Nov 2015 order from Hero Future Energies for 31.5 MW (15 Suzlon S97 2.1 MW) at Zaheerabad, Medak district, Telangana, due by June 2016, and a later Telangana Today item saying the 32 MW project was in advanced stages of commissioning. No completion date found.",
+  "sources": []
+ },
+ {
+  "item": "53. Savarakundla wind farm lat 21.338, lon 71.305",
+  "farm": "Savarakundla wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's sources are Atria's wind page (now 404) and thewindpower (no dates).",
+  "sources": []
+ },
+ {
+  "item": "54. Sindhodi wind farm lat 23.131, lon 68.781",
+  "farm": "Sindhodi wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is CEA's plant-wise RE generation PDF (web.archive.org resets; the live cea.nic.in/old path returns an empty stub). Gujarat state-PSU captive farm, likely built 2000s-2010s; GSFC/GMDC/GACL/GSPL annual reports not reached in this pass. GEM lists phases 10 + 22 MW; thewindpower has the same split without dates.",
+  "sources": []
+ },
+ {
+  "item": "55. Balambha wind farm lat 22.737, lon 70.425",
+  "farm": "Balambha wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is CEA's plant-wise RE generation PDF (web.archive.org resets; the live cea.nic.in/old path returns an empty stub). Gujarat state-PSU captive farm, likely built 2000s-2010s; GSFC/GMDC/GACL/GSPL annual reports not reached in this pass. GEM lists phases 16 + 16 MW.",
+  "sources": []
+ },
+ {
+  "item": "56. Eppodhumvendran wind farm lat 10.326, lon 77.985",
+  "farm": "Eppodhumvendran wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. Orient Green's wind page gives SPV totals only (Beta / Clarion / Gamma, by state) with no dates; its 2010 prospectus was not reached. thewindpower (search result) lists 17 Vestas V100 1.8 MW = 30.6 MW, no date. Point is the Tamil Nadu placeholder.",
+  "sources": []
+ },
+ {
+  "item": "57. Surajbari (MSPL) wind farm lat 22.541, lon 73.433",
+  "farm": "Surajbari (MSPL) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's sources are Baldota's archived pages (web.archive.org blocked). Point is the Gujarat state-centre placeholder; GEM's location 'Surajpari' (Surajbari is in Kutch near Bhachau).",
+  "sources": []
+ },
+ {
+  "item": "58. Kaythar Subhash wind farm lat 10.326, lon 77.985",
+  "farm": "Kaythar Subhash wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is a personal blog list. Point is the Tamil Nadu placeholder.",
+  "sources": []
+ },
+ {
+  "item": "60. Sadodar (Patnaik) wind farm lat 22.463, lon 70.076",
+  "farm": "Sadodar (Patnaik) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No commissioning record found. GEM's only source is CEA's plant-wise RE generation PDF (web.archive.org resets; the live cea.nic.in/old path returns an empty stub). Gujarat private captive farm, likely built 2000s-2010s; GSFC/GMDC/GACL/GSPL annual reports not reached in this pass. GEM lists phases 15 + 15 MW.",
+  "sources": []
+ }
+]
