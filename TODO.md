@@ -491,7 +491,7 @@
 - [x] 月排程 keepalive workflow（`.github/workflows/keepalive.yml`，2026-09）：每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用
 - [ ] 每月檢查資料時間與 Actions 是否正常、必要時手動跑一次（步驟見 DEPLOY.md「維護」）
 - [x] PR 自動檢查（`.github/workflows/pr-check.yml`，v2.28.0）：冒煙測試、語法、座標健檢、產生的文件、版本號與 CHANGELOG
-- [ ] 澳洲實測發電量的待查證：Gullen Range 本站 165.5 MW（73 部金風），AEMO 兩個機組共登記 275 MW；GULLRWF2（110 MW，2020 年）很可能是經 Gullen Range 變電站併網的 Biala 風場（約 110 MW、2020 年首度發電），但沒有文件直接寫出對應，`units.json` 先不改；
+- [ ] 澳洲實測發電量的待查證：Gullen Range 本站 165.5 MW（73 部金風），AEMO 兩個機組共登記 275 MW；GULLRWF2（110 MW，2020 年）是經 Gullen Range 變電站併網的 Biala 風場（AEMO 登記名「Gullen Range 2」；v2.30.7 已寫進 `build_live_units.py` 的 `MANUAL`，Gullen Range 本身只對 GULLRWF1）；
       Moorabool 南北兩區共用一個機組，發電量分不開，不列入；Crookwell II 紀錄含 Crookwell 3（2024 年），要到 2026 年才有兩區都整年發電的年份
 - [x] 長期存檔已於 2026-09-30 改為依月分檔（`data/archive/wind_history_archive_YYYY-MM.json`），每週回填只改寫當月檔；單檔版改上傳 Release、不進 git
 

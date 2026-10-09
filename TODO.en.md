@@ -720,8 +720,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [ ] Check once a month that the data time and Actions look right, and trigger a run by hand if needed (steps under "Maintenance" in DEPLOY.en.md)
 - [x] PR checks (`.github/workflows/pr-check.yml`, v2.28.0): smoke test, syntax, coordinates, generated documents, version and changelogs
 - [ ] To verify for Australian measured output: Gullen Range is 165.5 MW on the site (73 Goldwind turbines) but AEMO registers 275 MW over two units; GULLRWF2
-      (110 MW, 2020) is very probably the Biala farm (about 110 MW, first power 2020), which connects through the Gullen Range substation, but no document states
-      the mapping, so `units.json` is unchanged; Moorabool North and South share one unit, so their output cannot be split and is left out; the Crookwell II
+      (110 MW, 2020) is the Biala farm, which connects through the Gullen Range substation (AEMO name "Gullen Range 2"; mapped in `MANUAL` of `build_live_units.py`
+      in v2.30.7, so Gullen Range itself maps only to GULLRWF1); Moorabool North and South share one unit, so their output cannot be split and is left out; the Crookwell II
       record includes Crookwell 3 (2024), so its first year with both parts generating all year is 2026
 - [x] The long-term archive was split into monthly files on 30 Sep 2026 (`data/archive/wind_history_archive_YYYY-MM.json`), so the weekly
       backfill only rewrites the current month; the single-file builds now go to a Release instead of git
