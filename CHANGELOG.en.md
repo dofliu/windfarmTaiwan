@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.15 — 2026-10-09
+
+- Research round 20 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "thirteenth batch" in the [clean-up log](docs/data-cleanup.en.md)):
+  - Commissioning years added: operating farms without a year go from 917 (40.1 GW) to 815 (37.3 GW). 119 French farms were matched one by one against the national register of production
+    installations (ODRÉ), adding years for 64 of them (some with corrected capacity, phases or location), so French farms without a year go from 155 to 62; 13 in China (mostly from listed owners'
+    annual reports); 8 in the Netherlands (RVO's yearly monitor and others).
+  - Duplicates and aggregates: 13 French duplicates folded; Fère-Champenoise, Melle and Haut de Mergey were commune totals of farms already listed and are removed; Miraumont is now its own 23 MW;
+    duplicates at Sant'Agata (Italy) and CGN's Chifeng folded.
+  - Locations and names: Hanggin (China Resources) moves to Balagong town and a few misplaced French farms move back to their communes (approximate); Houlongshan gets 2023 and its Chinese name
+    corrected (it was phase 2's).
+
 ## v2.30.14 — 2026-10-09
 
 - Research round 19 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "twelfth batch" in the [clean-up log](docs/data-cleanup.en.md)):
