@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 9 Oct 2026: v2.30.11, research round 16: Xiangshan Tuci, Nanri Island, Zhuhai Guishan; the next conversation starts here)
+## In progress (hand-off, 9 Oct 2026: v2.30.12, the new "low pile cap" type and research round 17; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,18 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 9 Oct 2026 (v2.30.12): the owner decided to add the foundation type "low pile cap" (`lp`; the Chinese tidal-flat "low pile, tall pedestal", with the cap buried below the mud and a tall column carrying
+  the tower), in the "other fixed" colour group, so the map colours do not change (colour-blind check re-run). Research round 17 the same day (one sub-agent, results in `tools/research/fd_2026-10n_Z.json`,
+  every quote checked with `check_quotes.py`) looked for farms that use the type; **none could be written**:
+  1. SinoHydro Rudong Intertidal: the other 10 units are collector line A, nos. 1#–10#, i.e. phase 1's 10 × 2 MW (connected May 2014), and still have no stated type. The designer (PowerChina Zhongnan)
+     wrote in 2023, looking back, that the farm used "low pile, tall pedestal" and five-pile jacket foundations; inferring from that that the 10 are low pile caps would give 30 low pile caps + 12 jackets.
+     Not used for now (the MSA notice gives no type for the 10); unverified.
+  2. Tianjin Nangang phase 1: the only source naming the cap level is a Sept 2017 overview of projects under construction, "uses low pile-cap foundations" (a "sea-land combined" farm outside the
+     south breakwater and inside the river-mouth training wall, which fits), while GlobalData says high-rise pile cap; no post-completion source (Tianjin government sites 403, the acceptance notice
+     behind a captcha), so it stays a lead.
+  3. Longyuan Rudong Intertidal Demo: early test units had concrete foundations built inside steel sheet-pile cofferdams (the low-pile-cap method), and at least 7 units are jackets plus some multi-pile
+     foundations; no per-type counts. A 2019 tender lists 15 test turbines totalling 27.5 MW, against 32 MW in the record (to verify).
+  4. No low pile caps found at the other untyped Chinese farms; Laoting Putidao's caps are high-rise ("15 high-pile concrete foundations"); none of the existing high-rise pile cap rows turned out to be low.
 - 9 Oct 2026 (v2.30.11): research round 16 (two sub-agents: X Chinese foundations, Y the remaining doubts and a status sweep; every quote checked with `check_quotes.py`;
   results in `tools/research/fd_2026-10m_X.json` and `doubts_2026-10m_Y.json`, written entries deleted, leads kept). Clean-up rules 506 → 508 (`farm_cleanup.py`, 9 Oct 2026 "tenth batch"):
   1. Foundations: all 38 turbines of CGN Xiangshan Tuci stand on monopiles (CGN e-procurement, Aug 2025 corrosion and structural inspection tender for the built farm). The platform renders
@@ -86,6 +98,7 @@ and move finished items to the topic lists below.
   5. **Owner to decide**: the 20 "low pile, tall pedestal" (低桩高台柱) foundations of SinoHydro Rudong Intertidal have the pile cap buried below the mud and a tall column lifting the tower flange above the
      highest tide (patents of the owner and Sinohydro Bureau 4), unlike a high-rise pile cap standing clear of the seabed with free pile length. Options: (a) a new type "low pile cap", (b) file under
      high-rise pile cap with a note that the cap is buried, (c) keep it out. Either way the other 10 units' type is still unknown.
+     → The owner chose (a) on 9 Oct 2026; added in v2.30.12 (see the item above).
   6. Still leads: Laizhou (a 2024 O&M tender calls "the monopile and cage" the turbine foundation but does not say all 38); Jiazi I's exact model (MSA rotor 168 m, GlobalData MySE6.45-180; nacelles being
      replaced one by one from July 2024 to Dec 2026); Jiazi I and II (2019 design: a 17-jacket lot and two 30-position monopile lots; Jiazi II re-tendered in 2022 for 50 × 8 MW, lots I and II with no type);
      Fanshi II (lot II: 11 × 18 MW on jackets; lots I and III counts unknown); Peninsula South U2 (no post-construction foundation tender yet); the Longyuan Rudong intertidal demo (the Huangang complex,
