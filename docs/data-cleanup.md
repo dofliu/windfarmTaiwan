@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 510 條：刪除 163 筆（其中營運中 45,248.3 MW），修正 347 筆。
+- 規則 517 條：刪除 164 筆（其中營運中 45,353.9 MW），修正 353 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -18,6 +18,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 4 | 158.3 | 9 |
+| 印度 | 0 | 0 | 1 |
 | 台灣 | 2 | 0 | 21 |
 | 哥倫比亞 | 1 | 8 | 3 |
 | 土耳其 | 2 | 270 | 1 |
@@ -25,14 +26,15 @@
 | 塞內加爾 | 0 | 0 | 2 |
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
-| 巴西 | 2 | 208.5 | 0 |
+| 巴西 | 2 | 208.5 | 4 |
 | 德國 | 2 | 71 | 16 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
 | 日本 | 2 | 30 | 13 |
+| 智利 | 1 | 105.6 | 0 |
 | 比利時 | 1 | 325 | 0 |
-| 法國 | 2 | 0 | 5 |
+| 法國 | 2 | 0 | 6 |
 | 波蘭 | 0 | 0 | 2 |
 | 泰國 | 1 | 600 | 7 |
 | 澳洲 | 4 | 1,161 | 7 |
@@ -311,6 +313,12 @@
 | Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | 修正：中文名、年份、機組 | 英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉） | [連結](https://www.fnnews.com/news/202309241852426048) |
 | Ulsan Dongbu floating demo (Vindmøllen 750 kW) · 0.8 MW · 2020 | 精選 | 刪除 | 蔚山 750 kW 浮動式示範機從未在海上安裝：2019 年 11 月蔚州郡四度退回細部設計、無法下海；2025 年政府的風電研發企畫報告說 750 kW 浮動式實證「曾嘗試」、因取得實證海域困難而受阻，2025 年 9 月 KISTEP 報告說韓國沒有浮動式離岸風電的運送安裝實例 | [連結](https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1) |
 
+## 印度 (IND)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Tanot wind farm · 120 MW | GEM | 修正：年份 | 補上商轉年 2015：GlobalData（Power Technology 轉載）稱 Greenko 的 Tanot 風場（拉賈斯坦，120 MW）分期興建，建成後於 2015 年 6 月商轉 | [連結](https://www.power-technology.com/?p=241025) |
+
 ## 台灣 (TWN)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -397,6 +405,10 @@
 |---|---|---|---|---|
 | Ventos Do Sul wind farm · 150 MW · 2006 | GEM | 重複（併入「Osório」） | Ventos do Sul Energia 就是 Osório 風場（150 MW，75 × 2 MW）的業主，同一座 | [連結](https://en.wikipedia.org/wiki/Os%C3%B3rio_wind_farm) |
 | Rei dos Ventos 1 · 58.5 MW · 2014 | WRI GPPD | 重複（併入「Ventus wind farm」） | WRI 的 Rei dos Ventos 1（58.5 MW，南緯 5.101°、西經 36.202°）就是 GEM「Ventus wind farm」（Complexo Eólico Ventus，187 MW，AES）的一期 Rei dos Ventos 1（58.45 MW，座標相同） | [連結](https://www.gem.wiki/Ventus_wind_farm) |
+| Ventos de São Rafael wind farm · 499.5 MW | GEM | 修正：年份 | 補上商轉年 2025：本筆 499.5 MW 是 Ventos de São Rafael 01–07 與 09 八座風場（GEM 第 1–7、9 期，各 58.5–63 MW），巴西電力監理署 ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這八座的 111 部 4.5 MW 機組，都在 2025 年 9 月 3 日至 12 月 23 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Serra Das Almas wind farm · 261 MW | GEM | 修正：年份 | 補上商轉年 2025：本筆 261 MW 是 PEC Energia 的 Serra das Almas I–VI 六座風場（GEM 第 1–6 期），ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這六座的 58 部 4.5 MW 機組，都在 2025 年 6 月 24 日至 8 月 22 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Serra%20das%20Almas&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Ventos de São Rafael wind farm · 10, 8 · 121.5 MW | GEM | 修正：狀態、年份、分期 | GEM 標為興建中，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 08（14 部，63 MW）於 2025 年 12 月 18 日、10（13 部，58.5 MW）於 2026 年 2 月 10 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Ventos de São Rafael wind farm · 11 · 63 MW | GEM | 修正：狀態、年份 | GEM 標為準備興建，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 11 的 14 部 4.5 MW 機組（63 MW）於 2026 年 7 月 16 日至 8 月 12 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
 
 ## 德國 (DEU)
 
@@ -480,6 +492,12 @@
 | Choshi Offshore Demonstration (NEDO/TEPCO) · 2.4 MW · 2019 | 精選 | 修正：座標 | 仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km） | [連結](https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf) |
 | Kakegawa wind farm · 13.8 MW · 2020 | GEM | 修正：機組 | 機組是 Enercon E-82（2,300 kW，6 部，2020 年 7 月交貨；日立 Power Solutions 的 Enercon 國內交貨表） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 
+## 智利 (CHL)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| La Cabana (Enel) wind farm · 105.6 MW | GEM | 重複（併入「La Cabaña wind farm (Chile)」） | 與「La Cabaña wind farm (Chile)」（106 MW、2024）是同一座：Enel Green Power Chile 在阿勞卡尼亞大區 Angol 的 La Cabaña 風場，22 部 4.8 MW、合計 105.6 MW，2022 年 11 月開工，已商轉 | [連結](https://www.nsenergybusiness.com/news/enel-green-power-starts-construction-la-cabana-wind-farm-chile/) |
+
 ## 比利時 (BEL)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -497,6 +515,7 @@
 | Eolmed Floating wind farm · 30 MW | GEM | 重複（併入「EolMed (Gruissan)」） | 同一座風場（Gruissan 外海，30 MW） | [連結](https://www.gem.wiki/Eolmed_Floating_wind_farm) |
 | EolMed (Gruissan) · 30 MW · 2025 | 精選 | 修正：狀態、年份 | 2026 年 4 月開始發電、5 月全面運轉；時間軸「2026（最新可得）」起列為營運中 | [連結](https://www.bw-ideol.com/en/eolmed-project) |
 | Provence Grand Large · 25 MW · 2024 | 精選 | 修正：機組 | 機組是西門子歌美颯 SWT-8.0-154（以 8.4 MW 運轉，葉片 75 m），不是 Vestas；RTE 專案文件寫明選用 SWT-8.0-154，SBM 寫 3 座浮動機組安裝完成 | [連結](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
+| Village du Richebourg wind farm · 109.2 MW | GEM | 修正：座標 | 位置更正：En Avel Braz 的 Village de Richebourg I（22 部，92.4 MW）與 II 位於奧布省（Aube），法國國家發電設施登錄（ODRÉ）的「PARC EOLIEN RICHEBOURG 6」在 Salon 鎮，環評意見書也說 Richebourg III（Villiers-Herbisse、Semoine）緊鄰 I、II 期；原座標是加來海峽省同名的 Richebourg 村，偏離約 230 km。改用 Salon 鎮座標（概略位置） | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%3D%22Salon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 
 ## 波蘭 (POL)
 

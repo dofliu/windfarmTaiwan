@@ -1,0 +1,590 @@
+[
+ {
+  "item": "1. Ventos de São Rafael (BRA, 499.5 MW)",
+  "farm": "Ventos de São Rafael wind farm",
+  "src_code": 2,
+  "iso": "BRA",
+  "status": "write",
+  "proposal": "fix('BRA', 'Ventos de São Rafael wind farm', G, '補上商轉年 2025：本筆 499.5 MW 是 Ventos de São Rafael 01–07 與 09 八座風場（GEM 第 1–7、9 期，各 58.5–63 MW），巴西電力監理署 ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這八座的 111 部 4.5 MW 機組，都在 2025 年 9 月 3 日至 12 月 23 日取得商業運轉許可', 'Commissioning year 2025: the 499.5 MW are the eight parks Ventos de São Rafael 01–07 and 09 (GEM phases 1–7 and 9, 58.5–63 MW each); ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition) list their 111 units of 4.5 MW, all released between 3 Sep and 23 Dec 2025', 'https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina', year=2025),",
+  "note_zh": "補上商轉年 2025：本筆 499.5 MW 是 Ventos de São Rafael 01–07 與 09 八座風場（GEM 第 1–7、9 期，各 58.5–63 MW），巴西電力監理署 ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這八座的 111 部 4.5 MW 機組，都在 2025 年 9 月 3 日至 12 月 23 日取得商業運轉許可",
+  "note_en": "Commissioning year 2025: the 499.5 MW are the eight parks Ventos de São Rafael 01–07 and 09 (GEM phases 1–7 and 9, 58.5–63 MW each); ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition) list their 111 units of 4.5 MW, all released between 3 Sep and 23 Dec 2025",
+  "why": "GEM phases 1–7 and 9 (63+63+63+63+63+58.5+63+63 = 499.5 MW) match ANEEL parks 01–07 and 09. ANEEL per-unit release data, filtered to these eight parks and sorted by release date (newest first): 111 units summing to 499,500 kW, newest release 23 Dec 2025, oldest 3 Sep 2025. SIGA confirms all eight in operation with inspected capacity equal to granted capacity (SIGA’s DatEntradaOperacao is the first unit’s date, per the data dictionary, so the per-unit table is used for full operation).",
+  "sources": [
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Ventos+de+S%C3%A3o+Rafael+01%22%2C+%22Ventos+de+S%C3%A3o+Rafael+02%22%2C+%22Ventos+de+S%C3%A3o+Rafael+03%22%2C+%22Ventos+de+S%C3%A3o+Rafael+04%22%2C+%22Ventos+de+S%C3%A3o+Rafael+05%22%2C+%22Ventos+de+S%C3%A3o+Rafael+06%22%2C+%22Ventos+de+S%C3%A3o+Rafael+07%22%2C+%22Ventos+de+S%C3%A3o+Rafael+09%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado Ventos de São Rafael 06,1,\"4500,00\",2025-12-23"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Ventos+de+S%C3%A3o+Rafael+01%22%2C+%22Ventos+de+S%C3%A3o+Rafael+02%22%2C+%22Ventos+de+S%C3%A3o+Rafael+03%22%2C+%22Ventos+de+S%C3%A3o+Rafael+04%22%2C+%22Ventos+de+S%C3%A3o+Rafael+05%22%2C+%22Ventos+de+S%C3%A3o+Rafael+06%22%2C+%22Ventos+de+S%C3%A3o+Rafael+07%22%2C+%22Ventos+de+S%C3%A3o+Rafael+09%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "Ventos de São Rafael 05,9,\"4500,00\",2025-09-03"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina",
+    "quote": "Ventos de São Rafael 01,1,\"4500,00\",2025-09-03"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/11ec447d-698d-4ab8-977f-b424d5deee6a?q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomEmpreendimento,DscFaseUsina,DatEntradaOperacao,MdaPotenciaOutorgadaKw,MdaPotenciaFiscalizadaKw&sort=NomEmpreendimento&format=csv",
+    "quote": "Ventos de São Rafael 09,Operação,2025-12-20,\"63000,00\",63000"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/dataset/6d90b77c-c5f5-4d81-bdec-7bc619494bb9/resource/25722a60-194d-4234-ab3b-b71354078402/download/dm-siga-sistema-de-informacoes-de-geracao-da-aneel.pdf",
+    "quote": "DatEntradaOperacao Data simples 10 Data de entrada em operação da primeira unidade geradora do empreendimento"
+   }
+  ]
+ },
+ {
+  "item": "2. Serra Das Almas (BRA, 261 MW)",
+  "farm": "Serra Das Almas wind farm",
+  "src_code": 2,
+  "iso": "BRA",
+  "status": "write",
+  "proposal": "fix('BRA', 'Serra Das Almas wind farm', G, '補上商轉年 2025：本筆 261 MW 是 PEC Energia 的 Serra das Almas I–VI 六座風場（GEM 第 1–6 期），ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這六座的 58 部 4.5 MW 機組，都在 2025 年 6 月 24 日至 8 月 22 日取得商業運轉許可', 'Commissioning year 2025: the 261 MW are PEC Energia’s six parks Serra das Almas I–VI (GEM phases 1–6); ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition) list their 58 units of 4.5 MW, all released between 24 Jun and 22 Aug 2025', 'https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Serra%20das%20Almas&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina', year=2025),",
+  "note_zh": "補上商轉年 2025：本筆 261 MW 是 PEC Energia 的 Serra das Almas I–VI 六座風場（GEM 第 1–6 期），ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這六座的 58 部 4.5 MW 機組，都在 2025 年 6 月 24 日至 8 月 22 日取得商業運轉許可",
+  "note_en": "Commissioning year 2025: the 261 MW are PEC Energia’s six parks Serra das Almas I–VI (GEM phases 1–6); ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition) list their 58 units of 4.5 MW, all released between 24 Jun and 22 Aug 2025",
+  "why": "GEM phases 1–6 (40.5+45+40.5+45+45+45 = 261 MW) match ANEEL parks Serra das Almas I–VI (same capacities). Per-unit release data for the six parks, sorted newest first: 58 units summing to 261,000 kW, newest 22 Aug 2025, oldest 24 Jun 2025.",
+  "sources": [
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Serra+das+Almas+I%22%2C+%22Serra+das+Almas+II%22%2C+%22Serra+das+Almas+III%22%2C+%22Serra+das+Almas+IV%22%2C+%22Serra+das+Almas+V%22%2C+%22Serra+das+Almas+VI%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado Serra das Almas II,1,\"4500,00\",2025-08-22"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Serra+das+Almas+I%22%2C+%22Serra+das+Almas+II%22%2C+%22Serra+das+Almas+III%22%2C+%22Serra+das+Almas+IV%22%2C+%22Serra+das+Almas+V%22%2C+%22Serra+das+Almas+VI%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "Serra das Almas VI,9,\"4500,00\",2025-06-24"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Serra%20das%20Almas&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina",
+    "quote": "Serra das Almas I,1,\"4500,00\",2025-08-08"
+   }
+  ]
+ },
+ {
+  "item": "3. Tamil Nadu (Evergreen) (IND, 250 MW)",
+  "farm": "Tamil Nadu (Evergreen) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "可能不是單一風場：GEM 的出處（Evergreen Power 網站）只寫該公司在泰米爾納德邦「已開發並出售」250 MW 風電，是開發商的業績總數，買方的風場可能已在本站另有紀錄；年份與位置都無從查起。",
+  "note_en": "Probably not a single farm: GEM’s source (Evergreen Power’s website) only says the company has “executed & sold” 250 MW of wind in Tamil Nadu, a developer’s portfolio total whose farms may already be listed under their buyers; no year or location can be checked.",
+  "why": "The record is a portfolio aggregate at a placeholder point (10.68, 78.402 — also shared by “TEECL Wind Project 2”). A drop() would need proof that the sold projects are covered by other records, which was not checked. Suggest reviewing it as a possible aggregate.",
+  "sources": [
+   {
+    "url": "https://egreenpwr.com/project-in-india.html",
+    "quote": "Executed & Sold Wind (MW) Solar (MW) Telangana 23 Tamil Nadu 250 Gujarat 31.5 Total 281.5"
+   }
+  ]
+ },
+ {
+  "item": "4. Ghatnandre (IND, 231.5 MW, Suzlon)",
+  "farm": "Ghatnandre wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. GEM’s only source is MSETCL’s list of wind projects with final grid connectivity (mahatransco.in/uploads/docs/FGC_Wind_31.07.2022.pdf), which resets the connection here, as does its web.archive.org copy. Likely a Suzlon-built multi-owner cluster at the Ghatnandre substation (Sangli) built over several years; a single year may not fit.",
+  "sources": []
+ },
+ {
+  "item": "5. Monlora (ESP, 202 MW)",
+  "farm": "Monlora wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "Monlora I–V（202 MW）屬 Forestalia、ENGIE、Mirova 的 Phoenix 案（2017 年 5 月競標得標，2019 年 4 月開工、Elecnor 承包，預計 2019 年 11 月完工），查不到實際併網或商轉日期。",
+  "note_en": "Monlora I–V (202 MW) belong to the Phoenix project of Forestalia, ENGIE and Mirova (won in the May 2017 auction; construction from April 2019 under Elecnor, expected to finish in November 2019); no actual connection or commissioning date found.",
+  "why": "Sources show only the plan (GE/ENGIE April 2019; Elecnor contract May 2019 per search results). Not found: the Aragon government’s operating authorisations, the RAIPRE register, Forestalia/Mirova releases. The May 2017 auction required operation by end-2019, so 2019 is likely but unproven. Note: La Sarda (30 MW, the sixth Phoenix park in the same Elecnor contract) is a separate record, also without a year.",
+  "sources": [
+   {
+    "url": "https://www.ge.com/news/press-releases/ge-renewable-energy-continues-conquering-aragons-winds",
+    "quote": "The 342MW Phoenix project will produce power across 10 wind parks in Aragon, Spain"
+   }
+  ]
+ },
+ {
+  "item": "6. Amistad (MEX, 200 MW, Enel)",
+  "farm": "Amistad wind farm",
+  "src_code": 2,
+  "iso": "MEX",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "Enel 的 Amistad 一期（57 部）原定 2018 年 10 月交付，2018 年 9 月 Enel 稱「正在完成」，查不到實際完工或商轉日期；The Wind Power 記一期為 57 部 Gamesa G132/3300、188.1 MW，與 200 MW 不同。",
+  "note_en": "Phase 1 of Enel’s Amistad (57 turbines) was due for delivery in October 2018 and Enel said in September 2018 that it was “completing” it; no actual completion or commercial-operation date found. The Wind Power gives phase 1 as 57 Gamesa G132/3300, 188.1 MW, not 200 MW.",
+  "why": "Likely 2018 or early 2019, unproven. Also: GEM marks Amistad II–IV as mothballed, while the Mexican government project portal (proyectosmexico.gob.mx, seen in search results only) gives Amistad II start 30 Jun 2019 and Amistad III 26 Feb 2025 — the other Amistad records may need a check too. Tried: Enel press pages, Forbes México, The Wind Power (dates behind login), proyectosmexico.",
+  "sources": [
+   {
+    "url": "https://forbes.com.mx/?p=483429",
+    "quote": "Amistad 1: Capacidad instalada: 200 MW Costo estimado: 300 millones de dólares. Fecha de entrega: octubre 2018"
+   },
+   {
+    "url": "https://www.enel.com/content/dam/enel-common/press/en/2018-September/EGP%20Amistad%20II%20ENG.pdf",
+    "quote": "as well as the 200 MW Amistad wind farm"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_24339_amistad.php",
+    "quote": "Turbines 57x Gamesa G132/3300 (power 3,300 kW, diameter 132 m) Hub height Total nominal power 188,100 kW"
+   }
+  ]
+ },
+ {
+  "item": "7. San Carlos (MEX, 198 MW, Acciona)",
+  "farm": "San Carlos wind farm (Mexico)",
+  "src_code": 2,
+  "iso": "MEX",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "GlobalData 稱 2020 年商轉，但 Acciona 2021 年第一季財報仍新增 San Carlos 53 MW；全場完工應在 2021 年，2020 年的量無確切出處。",
+  "note_en": "GlobalData says 2020, but Acciona’s Q1 2021 results still added 53 MW at San Carlos; full completion was probably in 2021, and the 2020 amount has no exact source.",
+  "why": "Possible rule once the 2020 amount is confirmed: year=2021, ph=[[2020, 145], [2021, 53]] — but nothing shows the other 145 MW were all online in 2020. Acciona’s results PDFs (FY2020, Q1 2021) were not reached.",
+  "sources": [
+   {
+    "url": "https://mexicobusiness.news/energy/news/san-carlos-wind-farm-part-accionas-1q2021-consolidation",
+    "quote": "Additions to the San Carlos wind farm amount to 53MW of the total."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-san-carloswind-farm-mexico/",
+    "quote": "San Carlos_Wind Farm is a 198MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-san-carloswind-farm-mexico/",
+    "quote": "It has been developed in multiple phases. Post completion of construction, the project got commissioned in 2020."
+   }
+  ]
+ },
+ {
+  "item": "8. Vankusawade Wind Park (IND, 189 MW, Suzlon)",
+  "farm": "Vankusawade Wind Park",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Suzlon’s multi-owner park in Satara (Maharashtra), built in stages from the early 2000s; a single year likely does not fit. Point 18.635, 73.849 is a placeholder (Pune) shared with several other GEM records.",
+  "sources": []
+ },
+ {
+  "item": "9. Sadawaghapur II (IND, 170 MW, Suzlon)",
+  "farm": "Sadawaghapur II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Suzlon multi-owner cluster (Satara/Patan); MSETCL lists blocked (connection reset).",
+  "sources": []
+ },
+ {
+  "item": "10. Uckermark (DEU, 164 MW)",
+  "farm": "Uckermark wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "不是一次建成：本站對到的 MaStR 機組（69 部，合計約 163 MW）的商轉年從 1994 到 2026，是 ENERTRAG 一帶多年陸續擴建的風場群，單一年份不適用；需要逐年容量（ph）的公開出處。",
+  "note_en": "Not built at once: the MaStR units matched to this record (69 units, about 163 MW) were commissioned from 1994 to 2026 — ENERTRAG’s wind field built up over decades — so a single year does not fit; a public source with yearly amounts (ph) is needed.",
+  "why": "Context from data/global/turbines_de.json (MaStR, y = [1994, 2026], kw 163,410). A ph from MaStR would be possible from the build data but needs a quotable public page; GEM’s source (enertrag.com/unternehmen/referenzen) was not fetched.",
+  "sources": []
+ },
+ {
+  "item": "11. Uygar (TUR, 163 MW, Enerjisa)",
+  "farm": "Uygar wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "Enerjisa Üretim 的 Uygar 風場（全部完成時 60 部、250 MW）第一期於 2025 年 5 月投產，第一期容量與其餘各期的時程都查不到；GEM 的 163 MW 不知對應哪幾期。",
+  "note_en": "Enerjisa Üretim’s Uygar wind farm (60 turbines, 250 MW when complete) put its first phase into operation in May 2025; the first phase’s size and the later phases’ timing were not found, and it is unclear which phases GEM’s 163 MW covers.",
+  "why": "If the first phase alone is 163 MW, year=2025 would fit; not shown. KAP/fintables disclosures returned 403.",
+  "sources": [
+   {
+    "url": "https://www.dha.com.tr/ekonomi/enerjisa-uretim-30uncu-enerji-santralini-devreye-aldi-2635832",
+    "quote": "tüm fazları tamamlandığında 60 türbin ile 250 MW kurulu güce sahip olacak Uygar RES'in ilk fazını işletmeye aldı"
+   }
+  ]
+ },
+ {
+  "item": "12. De Drentse Monden En Oostermoer (NLD, 156.8 MW)",
+  "farm": "De Drentse Monden En Oostermoer wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "風場共 45 部 Nordex 3.9 MW、175.5 MW（不是 156.8 MW）；Nordex 2020 年 1 月才接單、下半年起安裝，基礎設計公司寫「2020 年完成」，實際全場併網年查不到（可能 2021）。",
+  "note_en": "45 Nordex turbines of 3.9 MW, 175.5 MW (not 156.8 MW); Nordex took the order in January 2020 with installation from the second half of the year, and the foundation designer says “completed 2020”; the year of full connection was not found (possibly 2021).",
+  "why": "Capacity likely wrong (GEM 46.8+47+63 = 156.8 MW vs 45 x 3.9 = 175.5 MW). The RVO 2023 overview PDF from search results returns 404; nl.wikipedia API rate-limited.",
+  "sources": [
+   {
+    "url": "https://windbase.eu/?p=1063",
+    "quote": "Completed 2020 Location NL - Stadskanaal Wind Farm Drentse Monden & Oostermoer (DMO) is a wind farm located in The Netherlands"
+   },
+   {
+    "url": "https://windbase.eu/?p=1063",
+    "quote": "The rated power per turbine is 3.9 MW and the rated total power is 175.5 MW."
+   }
+  ]
+ },
+ {
+  "item": "13. Rajkot (Continuum) (IND, 154 MW)",
+  "farm": "Rajkot (Continuum) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Continuum’s site and DRHP not reached; no dated source.",
+  "sources": []
+ },
+ {
+  "item": "14. Mendhegiri (IND, 150 MW)",
+  "farm": "Mendhegiri wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Suzlon cluster in Sangli (Jath area); MSETCL lists blocked.",
+  "sources": []
+ },
+ {
+  "item": "15. Yermala (IND, 149 MW)",
+  "farm": "Yermala wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. GEM gives CLP India/Apraava; clpgroup.com asset pages return 403; point 18.635, 73.849 is a Pune placeholder.",
+  "sources": []
+ },
+ {
+  "item": "16. Santa Cruz (MEX, 138.6 MW, Acciona)",
+  "farm": "Santa Cruz wind farm (Mexico)",
+  "src_code": 2,
+  "iso": "MEX",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "GlobalData 稱單期興建、2020 年商轉；但 Acciona 2021 年上半年財報說「過去 12 個月」在墨西哥新裝 214 MW（San Carlos 與 Santa Cruz），全場完工年無法分辨 2020 或 2021。Acciona 已同意把 Santa Cruz 與 El Cortijo 售予 Mexico Infrastructure Partners。",
+  "note_en": "GlobalData says it was built in one phase and commissioned in 2020, but Acciona’s H1 2021 results say 214 MW of wind were installed in Mexico (San Carlos and Santa Cruz) in the previous twelve months, so full completion could be 2020 or 2021. Acciona has agreed to sell Santa Cruz and El Cortijo to Mexico Infrastructure Partners.",
+  "why": "year=2020 would rest on GlobalData alone and conflicts in timing with Acciona’s own wording; left as lead. Owner may change once the sale closes (expected H1 2026 per search results).",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/santa-cruz-acciona-mexico",
+    "quote": "It has been developed in single phase. Post completion of construction, the project got commissioned in 2020."
+   },
+   {
+    "url": "https://www.energias-renovables.com/panorama/acciona-energia-obtiene-un-beneficio-neto-de-20210730/",
+    "quote": "214 MW eólicos en México (San Carlos y Santa Cruz)"
+   },
+   {
+    "url": "https://www.posta.com.mx/tamaulipas/acciona-vende-parques-eolicos-de-reynosa-dentro-de-operacion-millonaria-con-mexico-infrastructure-partners/vl2138462",
+    "quote": "La venta de los parques El Cortijo y Santa Cruz , ambos operativos y con producción estable"
+   }
+  ]
+ },
+ {
+  "item": "17. Göktepe (TUR, 121.1 MW)",
+  "farm": "Göktepe wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Owner unknown; Turkish searches return other plants (Gökçedağ etc.).",
+  "sources": []
+ },
+ {
+  "item": "18. Ulu (TUR, 120.4 MW)",
+  "farm": "Ulu wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Owner unknown; not searched beyond the GEM record.",
+  "sources": []
+ },
+ {
+  "item": "19. Evrencik (TUR, 120 MW, RES/STFA)",
+  "farm": "Evrencik wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "Nordex 2020 年 3 月接到 Evrencik 120 MW（27 部 N149）訂單，預計 2020 年 10 月開始安裝；查不到完工或商轉日期。",
+  "note_en": "Nordex took the order for the 120 MW Evrencik farm (27 x N149) in March 2020 with installation due to start in October 2020; no completion or commercial-operation date found.",
+  "why": "Likely 2021, unproven. GlobalData’s profile is outdated (302.4 MW, “planned”, COD expected 2020).",
+  "sources": [
+   {
+    "url": "https://power-technology.com/?p=243603",
+    "quote": "Evrencik Wind Farm is a 302.4MW onshore wind power project. It is planned in Kirklareli, Turkey."
+   }
+  ]
+ },
+ {
+  "item": "20. Tanot (IND, 120 MW, Greenko)",
+  "farm": "Tanot wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "write",
+  "proposal": "fix('IND', 'Tanot wind farm', G, '補上商轉年 2015：GlobalData（Power Technology 轉載）稱 Greenko 的 Tanot 風場（拉賈斯坦，120 MW）分期興建，建成後於 2015 年 6 月商轉', 'Commissioning year 2015: GlobalData (via Power Technology) says Greenko’s 120 MW Tanot wind farm in Rajasthan was built in phases and commissioned in June 2015 once construction was complete', 'https://www.power-technology.com/?p=241025', year=2015),",
+  "note_zh": "補上商轉年 2015：GlobalData（Power Technology 轉載）稱 Greenko 的 Tanot 風場（拉賈斯坦，120 MW）分期興建，建成後於 2015 年 6 月商轉",
+  "note_en": "Commissioning year 2015: GlobalData (via Power Technology) says Greenko’s 120 MW Tanot wind farm in Rajasthan was built in phases and commissioned in June 2015 once construction was complete",
+  "why": "Only a secondary database (GlobalData, reproduced by Power Technology) gives the date; it names the farm, owner (Greenko), 120 MW and two 60 MW phases of 30 x 2 MW. No Greenko or RRVPNL document found to cross-check (Greenko’s site and Rajasthan nodal-agency lists not searched to the end). Treat as weaker than the Brazilian rows; drop it if a primary source is required.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/?p=241025",
+    "quote": "Tanot Wind Farm – GEH is a 120MW onshore wind power project. It is located in Rajasthan, India."
+   },
+   {
+    "url": "https://www.power-technology.com/?p=241025",
+    "quote": "It has been developed in multiple phases. Post completion of construction, the project got commissioned in June 2015."
+   }
+  ]
+ },
+ {
+  "item": "21. Dalavaipuram Hybrid (IND, 119 MW)",
+  "farm": "Dalavaipuram Hybrid wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Continuum hybrid project (Tamil Nadu); no dated source found.",
+  "sources": []
+ },
+ {
+  "item": "22. Bhavnagar Hybrid (Continuum) (IND, 119 MW)",
+  "farm": "Bhavnagar Hybrid (Continuum) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Continuum hybrid project (Gujarat); no dated source found.",
+  "sources": []
+ },
+ {
+  "item": "23. Basavana Bagewadi (Atria) I (IND, 119 MW)",
+  "farm": "Basavana Bagewadi (Atria) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "可能與「Basavana Bagewadi (Atria) II」（40 MW、2018）重複計算：Vestas 稱 Basavane Bagewadi 風場全部 120 MW、分三期，40 MW 是第三期也是最後一期；本筆 119 MW 加 II 的 40 MW 超過全場。座標（12.975, 77.726）是班加羅爾的代用點，風場在比賈布爾縣。",
+  "note_en": "Possibly double-counted with “Basavana Bagewadi (Atria) II” (40 MW, 2018): Vestas says the Basavane Bagewadi farm is 120 MW in three phases, the 40 MW being the third and last, so this 119 MW plus II’s 40 MW exceeds the whole farm. The point (12.975, 77.726) is a Bengaluru placeholder; the farm is in Bijapur district.",
+  "why": "Vestas’ 2017 releases give only expected commissioning (Q1–Q2 2018). A fix (mw≈80 for phases 1–2, year 2018, location) needs completion evidence.",
+  "sources": [
+   {
+    "url": "https://www.vestas.com/en/media/company-news/2017/vestas-receives-40-mw-order-in-india-c2963504",
+    "quote": "Atria Brindavan Power Private Limited has placed a 40 MW order for the third and final phase of the 120 MW Basavane Bagewadi Wind Farm in the Bijapur district of Karnataka."
+   }
+  ]
+ },
+ {
+  "item": "24. Dangri (Tata) (IND, 118 MW)",
+  "farm": "Dangri (Tata) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change)",
+  "note_zh": "Tata Power Renewable 委託 Inox 興建（59 部 2 MW），合約預定分兩階段在 2016 年 3 月前完成；查不到實際完工日期。",
+  "note_en": "Built for Tata Power Renewable by Inox (59 x 2 MW), contracted in two stages to finish by March 2016; no actual completion date found.",
+  "why": "Only the contract schedule (Greentechlead/Inox, seen in search results) and an outdated GlobalData note (“expected April 2015, partially active”). Tata Power annual reports FY2015–16 not reached.",
+  "sources": []
+ },
+ {
+  "item": "25. Dangri (Leap) (IND, 112 MW)",
+  "farm": "Dangri (Leap) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Leap Green; point 26.383, 76.7 is far from Dangri (Jaisalmer, ~71.4 E) — location likely wrong as well.",
+  "sources": []
+ },
+ {
+  "item": "26. TEECL Wind Project 2 (IND, 111 MW)",
+  "farm": "TEECL Wind Project 2",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Techno Electric’s Tamil Nadu wind assets; point is the same placeholder as the Evergreen record.",
+  "sources": []
+ },
+ {
+  "item": "27. Village du Richebourg (FRA, 109.2 MW) — location; year lead",
+  "farm": "Village du Richebourg wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "write",
+  "proposal": "fix('FRA', 'Village du Richebourg wind farm', G, '位置更正：En Avel Braz 的 Village de Richebourg I（22 部，92.4 MW）與 II 位於奧布省（Aube），法國國家發電設施登錄（ODRÉ）的「PARC EOLIEN RICHEBOURG 6」在 Salon 鎮，環評意見書也說 Richebourg III（Villiers-Herbisse、Semoine）緊鄰 I、II 期；原座標是加來海峽省同名的 Richebourg 村，偏離約 230 km。改用 Salon 鎮座標（概略位置）', 'Location corrected: En Avel Braz’s Village de Richebourg I (22 turbines, 92.4 MW) and II are in the Aube department; the national register of production installations (ODRÉ) places “PARC EOLIEN RICHEBOURG 6” in Salon, and the environmental authority’s opinion puts Richebourg III (Villiers-Herbisse, Semoine) next to phases I and II. The old point was the village of Richebourg in Pas-de-Calais, about 230 km away. Now at Salon (approximate)', 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%3D%22Salon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B', lat=48.641, lon=4.004, approx=True),",
+  "note_zh": "位置更正：En Avel Braz 的 Village de Richebourg I（22 部，92.4 MW）與 II 位於奧布省（Aube），法國國家發電設施登錄（ODRÉ）的「PARC EOLIEN RICHEBOURG 6」在 Salon 鎮，環評意見書也說 Richebourg III（Villiers-Herbisse、Semoine）緊鄰 I、II 期；原座標是加來海峽省同名的 Richebourg 村，偏離約 230 km。改用 Salon 鎮座標（概略位置）",
+  "note_en": "Location corrected: En Avel Braz’s Village de Richebourg I (22 turbines, 92.4 MW) and II are in the Aube department; the national register of production installations (ODRÉ) places “PARC EOLIEN RICHEBOURG 6” in Salon, and the environmental authority’s opinion puts Richebourg III (Villiers-Herbisse, Semoine) next to phases I and II. The old point was the village of Richebourg in Pas-de-Calais, about 230 km away. Now at Salon (approximate)",
+  "why": "Year not settled (left out of the rule): the ODRÉ register lists 10 wind installations in Salon (INSEE 10365), all commissioned/connected 1 Oct – 3 Dec 2021 (113.7 MW in all; one named PARC EOLIEN RICHEBOURG 6, the rest “Confidentiel”), and a web-search summary of Géorisques ICPE inspection reports gives an ICPE commissioning date of 19 Mar 2022 for both I and II, but georisques.gouv.fr resets the connection here, so it cannot be quoted. Likely 2021 (grid) or 2022 (ICPE); needs a quotable source that names Richebourg I/II. Salon coordinates 48°38′27″N 4°00′16″E from fr.wikipedia. Overpass API also blocked (no OSM feature checked).",
+  "sources": [
+   {
+    "url": "https://www.anavelbraz.com/en/our-wind-farms-in-france.html",
+    "quote": "Village de Richebourg I See wind farm details Department : Aube Number of wind turbines : 22 Power production : 92.4 MW"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%3D%22Salon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN RICHEBOURG 6;Salon;10365;01/10/2021;01/10/2021;13350.0;1"
+   },
+   {
+    "url": "https://www.mrae.developpement-durable.gouv.fr/IMG/pdf/2023apge93.pdf",
+    "quote": "Le projet souhaite s’implanter en continuité des parcs de Village de Richebourg I et II"
+   },
+   {
+    "url": "https://www.mrae.developpement-durable.gouv.fr/IMG/pdf/2023apge93.pdf",
+    "quote": "sollicite l’autorisation d’implanter et d’exploiter le parc éolien du village de Richebourg III sur le territoire des communes de Villiers-Herbisse et Semoine (10)"
+   },
+   {
+    "url": "https://fr.wikipedia.org/wiki/Salon_(Aube)",
+    "quote": "Coordonnées 48° 38′ 27″ nord, 4° 00′ 16″ est"
+   }
+  ]
+ },
+ {
+  "item": "28. Atares-2 (TUR, 106.8 MW)",
+  "farm": "Atares-2 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Owner unknown (Bursa/Karacabey area); a separate “Atares-2 wind farm · 3” record exists.",
+  "sources": []
+ },
+ {
+  "item": "29. Sogi & Jajikallgudda (IND, 106 MW)",
+  "farm": "Sogi & Jajikallgudda wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. MSPL (Baldota group) Karnataka wind farms; no dated source.",
+  "sources": []
+ },
+ {
+  "item": "30. La Cabana (Enel) (CHL, 105.6 MW) — duplicate",
+  "farm": "La Cabana (Enel) wind farm",
+  "src_code": 2,
+  "iso": "CHL",
+  "status": "write",
+  "proposal": "dup('CHL', 'La Cabana (Enel) wind farm', G, ('La Cabaña wind farm (Chile)', G), '與「La Cabaña wind farm (Chile)」（106 MW、2024）是同一座：Enel Green Power Chile 在阿勞卡尼亞大區 Angol 的 La Cabaña 風場，22 部 4.8 MW、合計 105.6 MW，2022 年 11 月開工，已商轉', 'Same farm as “La Cabaña wind farm (Chile)” (106 MW, 2024): Enel Green Power Chile’s La Cabaña wind farm in Angol, Araucanía, 22 turbines of 4.8 MW, 105.6 MW; construction began in November 2022 and it is now in commercial operation', 'https://www.nsenergybusiness.com/news/enel-green-power-starts-construction-la-cabana-wind-farm-chile/'),",
+  "note_zh": "與「La Cabaña wind farm (Chile)」（106 MW、2024）是同一座：Enel Green Power Chile 在阿勞卡尼亞大區 Angol 的 La Cabaña 風場，22 部 4.8 MW、合計 105.6 MW，2022 年 11 月開工，已商轉",
+  "note_en": "Same farm as “La Cabaña wind farm (Chile)” (106 MW, 2024): Enel Green Power Chile’s La Cabaña wind farm in Angol, Araucanía, 22 turbines of 4.8 MW, 105.6 MW; construction began in November 2022 and it is now in commercial operation",
+  "why": "Two GEM records for the same Enel project: “La Cabana (Enel) wind farm” (105.6 MW, no year, approximate point at Angol) and “La Cabaña wind farm (Chile)” (106 MW, 2024, Enel Green Power Chile, 11 km east). Enel has only one La Cabaña wind farm (22 x 4.8 MW = 105.6 MW, Angol). The kept record already carries the year 2024; this one is removed.",
+  "sources": [
+   {
+    "url": "https://www.nsenergybusiness.com/news/enel-green-power-starts-construction-la-cabana-wind-farm-chile/",
+    "quote": "Enel Green Power Chile has commenced the construction of the 105.6MW La Cabaña wind farm in the Araucanía Region in Chile"
+   },
+   {
+    "url": "https://www.nsenergybusiness.com/news/enel-green-power-starts-construction-la-cabana-wind-farm-chile/",
+    "quote": "Located in the Angol municipality, the Chilean onshore wind farm will feature 22"
+   },
+   {
+    "url": "https://ippjournal.com/update/egp-chile-starts-commercial-operation-of-wind-and-energy-storage-facility-in-araucania",
+    "quote": "Enel Green Power Chile, a unit of Enel Chile, has started the commercial operation of the 105.6 MW La Cabaña wind farm project"
+   }
+  ]
+ },
+ {
+  "item": "31. Borampalli (Greenko) (IND, 105 MW)",
+  "farm": "Borampalli (Greenko) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. Several Borampalli farms (ReNew, Axis, Greenko “Jed”) in Anantapur; the Greenko 105 MW one could not be tied to a date.",
+  "sources": []
+ },
+ {
+  "item": "32. Saipuram (IND, 105 MW)",
+  "farm": "Saipuram wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "No commissioning record found. GlobalData only has an old 199.6 MW plan (COD expected March 2017); no completion record. Point shared with many Andhra records (placeholder).",
+  "sources": []
+ },
+ {
+  "item": "33. (extra) Ventos de São Rafael · 10, 8 (BRA, 121.5 MW, GEM: construction)",
+  "farm": "Ventos de São Rafael wind farm · 10, 8",
+  "src_code": 2,
+  "iso": "BRA",
+  "status": "write",
+  "proposal": "fix('BRA', 'Ventos de São Rafael wind farm · 10, 8', G, 'GEM 標為興建中，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 08（14 部，63 MW）於 2025 年 12 月 18 日、10（13 部，58.5 MW）於 2026 年 2 月 10 日取得商業運轉許可', 'Listed by GEM as under construction, but operating: in ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition), Ventos de São Rafael 08 (14 units, 63 MW) was released on 18 Dec 2025 and 10 (13 units, 58.5 MW) on 10 Feb 2026', 'https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina', st=0, year=2026, ph=[[2025, 63], [2026, 58.5]], note=True),",
+  "note_zh": "GEM 標為興建中，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 08（14 部，63 MW）於 2025 年 12 月 18 日、10（13 部，58.5 MW）於 2026 年 2 月 10 日取得商業運轉許可",
+  "note_en": "Listed by GEM as under construction, but operating: in ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition), Ventos de São Rafael 08 (14 units, 63 MW) was released on 18 Dec 2025 and 10 (13 units, 58.5 MW) on 10 Feb 2026",
+  "why": "Found while checking item 1 (Ventos de São Rafael) (not in the batch list). Parks 08 (63 MW) and 10 (58.5 MW) = 121.5 MW, the record’s capacity. Per-unit data for the two parks sorted newest first: all 13 units of park 10 on 10 Feb 2026, then all 14 units of park 08 on 18 Dec 2025 (27 units, 121,500 kW).",
+  "sources": [
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Ventos+de+S%C3%A3o+Rafael+08%22%2C+%22Ventos+de+S%C3%A3o+Rafael+10%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado Ventos de São Rafael 10,1,\"4500,00\",2026-02-10"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Ventos+de+S%C3%A3o+Rafael+08%22%2C+%22Ventos+de+S%C3%A3o+Rafael+10%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "Ventos de São Rafael 10,9,\"4500,00\",2026-02-10 Ventos de São Rafael 08,1,\"4500,00\",2025-12-18"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Ventos+de+S%C3%A3o+Rafael+08%22%2C+%22Ventos+de+S%C3%A3o+Rafael+10%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "Ventos de São Rafael 08,9,\"4500,00\",2025-12-18"
+   }
+  ]
+ },
+ {
+  "item": "34. (extra) Ventos de São Rafael · 11 (BRA, 63 MW, GEM: pre-construction)",
+  "farm": "Ventos de São Rafael wind farm · 11",
+  "src_code": 2,
+  "iso": "BRA",
+  "status": "write",
+  "proposal": "fix('BRA', 'Ventos de São Rafael wind farm · 11', G, 'GEM 標為準備興建，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 11 的 14 部 4.5 MW 機組（63 MW）於 2026 年 7 月 16 日至 8 月 12 日取得商業運轉許可', 'Listed by GEM as pre-construction, but operating: in ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition), the 14 units of 4.5 MW (63 MW) of Ventos de São Rafael 11 were released between 16 Jul and 12 Aug 2026', 'https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina', st=0, year=2026, note=True),",
+  "note_zh": "GEM 標為準備興建，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 11 的 14 部 4.5 MW 機組（63 MW）於 2026 年 7 月 16 日至 8 月 12 日取得商業運轉許可",
+  "note_en": "Listed by GEM as pre-construction, but operating: in ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition), the 14 units of 4.5 MW (63 MW) of Ventos de São Rafael 11 were released between 16 Jul and 12 Aug 2026",
+  "why": "Found while checking item 1 (Ventos de São Rafael) (not in the batch list). Owner on the record (Ventos de Santa Sônia) matches ANEEL/SIGA. Per-unit data sorted newest first: 14 units, 63,000 kW, newest 12 Aug 2026, oldest 16 Jul 2026. Parks 12–19 (record “· 12, …, 19”) are still “Construção não iniciada” in SIGA, so that record stays as it is.",
+  "sources": [
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Ventos+de+S%C3%A3o+Rafael+11%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado Ventos de São Rafael 11,1,\"4500,00\",2026-08-12"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&filters=%7B%22NomUsina%22%3A+%5B%22Ventos+de+S%C3%A3o+Rafael+11%22%5D%7D&fields=NomUsina%2CNumUgUsina%2CMdaPotenciaLiberadaComercial%2CDatLiberOpComerRealizado&sort=DatLiberOpComerRealizado+desc%2CNomUsina%2CNumUgUsina",
+    "quote": "Ventos de São Rafael 11,9,\"4500,00\",2026-07-16"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/11ec447d-698d-4ab8-977f-b424d5deee6a?q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomEmpreendimento,DscFaseUsina,DatEntradaOperacao,MdaPotenciaOutorgadaKw,MdaPotenciaFiscalizadaKw&sort=NomEmpreendimento&format=csv",
+    "quote": "Ventos de São Rafael 11,Operação,2026-07-16,\"63000,00\",63000"
+   },
+   {
+    "url": "https://dadosabertos.aneel.gov.br/datastore/dump/11ec447d-698d-4ab8-977f-b424d5deee6a?q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomEmpreendimento,DscFaseUsina,DatEntradaOperacao,MdaPotenciaOutorgadaKw,MdaPotenciaFiscalizadaKw&sort=NomEmpreendimento&format=csv",
+    "quote": "Ventos de São Rafael 12,Construção não iniciada,1900-01-03,\"63000,00\",0"
+   }
+  ]
+ }
+]

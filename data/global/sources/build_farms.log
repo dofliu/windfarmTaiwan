@@ -88,6 +88,7 @@ CLEAN dup AUS Studland Bay wind farm 75.0 -> Woolnorth (Bluff Point / Studland B
 CLEAN dup BRA Rei dos Ventos 1 58.5 -> Ventus wind farm
 CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
 CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
+CLEAN dup CHL La Cabana (Enel) wind farm 105.6 -> La Cabaña wind farm (Chile)
 CLEAN dup CHN CGN Jiaxing 2 (Zhoushan Daishan 4) 300.0 -> Zhejiang Daishan 4 Offshore wind farm
 CLEAN dup CHN CGN Taizhou 1 300.0 -> Zhejiang Taizhou 1 Offshore wind farm
 CLEAN dup CHN CR Power Cangnan 2 / Wenzhou 500.0 -> Zhejiang Cangnan 2 Offshore wind farm
@@ -204,6 +205,10 @@ CLEAN fix AUS Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambu
 CLEAN fix AUS Rye Park 327.0
 CLEAN fix AUS Snowtown 370.0
 CLEAN fix AUS Woolnorth (Bluff Point / Studland Bay) 140.0
+CLEAN fix BRA Serra Das Almas wind farm 261.0
+CLEAN fix BRA Ventos de São Rafael wind farm 499.5
+CLEAN fix BRA Ventos de São Rafael wind farm · 10, 8 121.5
+CLEAN fix BRA Ventos de São Rafael wind farm · 11 63.0
 CLEAN fix CHN CGN Fanshi I 1000.0
 CLEAN fix CHN CGN Fanshi I 1000.0
 CLEAN fix CHN CGN Huizhou Gangkou I & II 1000
@@ -386,6 +391,7 @@ CLEAN fix FRA Calvados (Courseulles-sur-Mer) 450.0
 CLEAN fix FRA EolMed (Gruissan) 30.0
 CLEAN fix FRA Les Éoliennes Flottantes du Golfe du Lion (EFGL) 30.0
 CLEAN fix FRA Provence Grand Large 25.0
+CLEAN fix FRA Village du Richebourg wind farm 109.2
 CLEAN fix FRA Îles d'Yeu et de Noirmoutier 496.0
 CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank A 1200.0
@@ -394,6 +400,7 @@ CLEAN fix GBR Kincardine 49.5
 CLEAN fix GBR Pentland wind farm 100.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
+CLEAN fix IND Tanot wind farm 120.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0

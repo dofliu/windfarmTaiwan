@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 510 rules: 163 records removed (45,248.3 MW of them operating), 347 records fixed.
+- 517 rules: 164 records removed (45,353.9 MW of them operating), 353 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -14,16 +14,18 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---:|---:|---:|
 | Australia | 4 | 1,161 | 7 |
 | Belgium | 1 | 325 | 0 |
-| Brazil | 2 | 208.5 | 0 |
+| Brazil | 2 | 208.5 | 4 |
 | Canada | 1 | 353 | 0 |
+| Chile | 1 | 105.6 | 0 |
 | China | 59 | 26,824.5 | 145 |
 | Colombia | 1 | 8 | 3 |
 | Denmark | 1 | 180 | 3 |
 | Dominican Rep. | 2 | 50 | 8 |
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 2 |
-| France | 2 | 0 | 5 |
+| France | 2 | 0 | 6 |
 | Germany | 2 | 71 | 16 |
+| India | 0 | 0 | 1 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Japan | 2 | 30 | 13 |
@@ -78,12 +80,22 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Ventos Do Sul wind farm · 150 MW · 2006 | GEM | duplicate of “Osório” | Ventos do Sul Energia owns the Osório farm (150 MW, 75 × 2 MW): same farm | [link](https://en.wikipedia.org/wiki/Os%C3%B3rio_wind_farm) |
 | Rei dos Ventos 1 · 58.5 MW · 2014 | WRI GPPD | duplicate of “Ventus wind farm” | WRI’s Rei dos Ventos 1 (58.5 MW, 5.101 S, 36.202 W) is the Rei dos Ventos 1 phase (58.45 MW, same coordinates) of GEM’s “Ventus wind farm” (Complexo Eólico Ventus, 187 MW, AES) | [link](https://www.gem.wiki/Ventus_wind_farm) |
+| Ventos de São Rafael wind farm · 499.5 MW | GEM | fixed: year | Commissioning year 2025: the 499.5 MW are the eight parks Ventos de São Rafael 01–07 and 09 (GEM phases 1–7 and 9, 58.5–63 MW each); ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition) list their 111 units of 4.5 MW, all released between 3 Sep and 23 Dec 2025 | [link](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Serra Das Almas wind farm · 261 MW | GEM | fixed: year | Commissioning year 2025: the 261 MW are PEC Energia’s six parks Serra das Almas I–VI (GEM phases 1–6); ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition) list their 58 units of 4.5 MW, all released between 24 Jun and 22 Aug 2025 | [link](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Serra%20das%20Almas&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Ventos de São Rafael wind farm · 10, 8 · 121.5 MW | GEM | fixed: status, year, phases | Listed by GEM as under construction, but operating: in ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition), Ventos de São Rafael 08 (14 units, 63 MW) was released on 18 Dec 2025 and 10 (13 units, 58.5 MW) on 10 Feb 2026 | [link](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Ventos de São Rafael wind farm · 11 · 63 MW | GEM | fixed: status, year | Listed by GEM as pre-construction, but operating: in ANEEL’s open data on generating units released for commercial operation (6 Oct 2026 edition), the 14 units of 4.5 MW (63 MW) of Ventos de São Rafael 11 were released between 16 Jul and 12 Aug 2026 | [link](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
 
 ## Canada (CAN)
 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Whitla wind farm · 353 MW · 2019 | GEM | duplicate of “Whitla” | Same farm; the GEM point is near Banff, about 300 km off (the farm is in the County of Forty Mile) | [link](https://www.capitalpower.com/operations/whitla-wind-2-3/) |
+
+## Chile (CHL)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| La Cabana (Enel) wind farm · 105.6 MW | GEM | duplicate of “La Cabaña wind farm (Chile)” | Same farm as “La Cabaña wind farm (Chile)” (106 MW, 2024): Enel Green Power Chile’s La Cabaña wind farm in Angol, Araucanía, 22 turbines of 4.8 MW, 105.6 MW; construction began in November 2022 and it is now in commercial operation | [link](https://www.nsenergybusiness.com/news/enel-green-power-starts-construction-la-cabana-wind-farm-chile/) |
 
 ## China (CHN)
 
@@ -353,6 +365,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Eolmed Floating wind farm · 30 MW | GEM | duplicate of “EolMed (Gruissan)” | Same farm (off Gruissan, 30 MW) | [link](https://www.gem.wiki/Eolmed_Floating_wind_farm) |
 | EolMed (Gruissan) · 30 MW · 2025 | curated | fixed: status, year | First power in April 2026 and full capacity in May 2026; operating from the timeline's "2026 (latest available)" point | [link](https://www.bw-ideol.com/en/eolmed-project) |
 | Provence Grand Large · 25 MW · 2024 | curated | fixed: turbines | The turbines are Siemens Gamesa SWT-8.0-154 (run at 8.4 MW, 75 m blades), not Vestas; the RTE project dossier names the SWT-8.0-154 and SBM reports the three floating units installed | [link](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
+| Village du Richebourg wind farm · 109.2 MW | GEM | fixed: location | Location corrected: En Avel Braz’s Village de Richebourg I (22 turbines, 92.4 MW) and II are in the Aube department; the national register of production installations (ODRÉ) places “PARC EOLIEN RICHEBOURG 6” in Salon, and the environmental authority’s opinion puts Richebourg III (Villiers-Herbisse, Semoine) next to phases I and II. The old point was the village of Richebourg in Pas-de-Calais, about 230 km away. Now at Salon (approximate) | [link](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%3D%22Salon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 
 ## Germany (DEU)
 
@@ -376,6 +389,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Lichtenau wind farm · 11 MW · 1997 | GEM | duplicate of “Paderborn wind farm” | GEM’s Lichtenau (11 MW, 1997, RWE) is part of the 1997–98 “Windpark Asseln” at Lichtenau-Asseln: the village heritage society’s page gives the whole park as 62 turbines and 36 MW, first feed-in in December 1997 and completion in May 1998, with operators “various operators 23, Asselner Windkraft 18, WINKRA Lichtenau 21”; The Wind Power lists 18 Enercon E-40 there with “developer Winkra, operator RWE”. GEM’s separate Paderborn record (36 MW, 1998, sourced to that page) is the whole park, so this one is a duplicate | [link](https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21) |
 | Paderborn wind farm · 36 MW · 1998 | GEM | fixed: location | This is the Windpark Asseln at Lichtenau-Asseln (GEM’s other name: Asseln wind farm); GEM’s approximate point is about 2.7 km north of the park, next to the separate WP LA and WP Lichtenau turbines of 2015–17, so the German Wikipedia coordinates are used (51°38′24″ N, 8°54′35″ E) | [link](https://de.wikipedia.org/wiki/Windpark_Lichtenau-Asseln) |
 | Asselner wind farm · 19.5 MW · 2015 | GEM | fixed: capacity, phases | Asselner Windpark: 7 Enercon E-92 and one E-115 of December 2015 (19.45 MW, The Wind Power); MaStR’s group of that name adds 2 units of 2018 (an E-115 of 3 MW and an E-82 of 2.3 MW), 24.75 MW in all | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+
+## India (IND)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Tanot wind farm · 120 MW | GEM | fixed: year | Commissioning year 2015: GlobalData (via Power Technology) says Greenko’s 120 MW Tanot wind farm in Rajasthan was built in phases and commissioned in June 2015 once construction was complete | [link](https://www.power-technology.com/?p=241025) |
 
 ## Iran (IRN)
 
