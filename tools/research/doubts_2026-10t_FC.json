@@ -1,0 +1,133 @@
+[
+ {
+  "item": "A5. POL Klukowo/Samborsko 105 MW (Engie) — built or not?",
+  "farm": "Klukowo/Samborsko wind farm",
+  "src_code": 2,
+  "iso": "POL",
+  "status": "lead",
+  "proposal": "(ready if accepted) drop('POL', 'Klukowo/Samborsko wind farm', G, '查無建成紀錄：GDF Suez（Engie）2012 年取得的 Klukowo（23 部 3 MW）與 Samborsko（18 部 2 MW）共 105 MW 案沒有建成：Engie 在波蘭只有 Jarogniew-Mołtowo、Wartkowo、Pągów 與 Dąbrowice 四處風場；能源管理局 2026 年 10 MW 以上風電裝置表在 Złotów 縣只有 2024–2025 年的 Tarnówka、Okonek、Jastrowie 三筆（後兩者是 Exus 的新風場）', 'No evidence it was built: the 105 MW Klukowo (23 × 3 MW) and Samborsko (18 × 2 MW) project GDF Suez (Engie) took over in 2012 was not built: Engie’s Polish wind farms are Jarogniew-Mołtowo, Wartkowo, Pągów and Dąbrowice; the energy regulator’s 2026 table of wind installations above 10 MW has only Tarnówka, Okonek and Jastrowie (2024–2025; the last two are Exus’s new farms) in Złotów county', 'https://www.rynekinfrastruktury.pl/wiadomosci/intermodal-i-logistyka/wielkopolska-gdf-suez-buduje-farme-wiatrowa-w-klukowie-24502.html'),",
+  "note_zh": "2012 年 11 月 GDF Suez 為 Klukowo 招標地質調查，105 MW（Klukowo 23×3 MW、Samborsko 18×2 MW）。之後沒有建成消息；Engie 公司簡介列四處風場、合計 138 MW，沒有 Klukowo。URE 表在 Złotów 縣只有 Tarnówka 14.025 MW（2024）、Okonek 22.87 MW（2025）、Jastrowie 30.74 MW（2025）。OSM：Samborsko 村周圍約 4.5 公里內沒有風機；Klukowo 村旁只有 6 部（就是本站的 Eurowind Złotów 12 MW）。",
+  "note_en": "In November 2012 GDF Suez tendered geotechnical work for Klukowo, 105 MW (Klukowo 23 × 3 MW, Samborsko 18 × 2 MW). No later construction news; Engie’s company profile lists four farm sites, 138 MW, without Klukowo. The URE table has only Tarnówka 14.025 MW (2024), Okonek 22.87 MW (2025) and Jastrowie 30.74 MW (2025) in Złotów county. OSM: no turbine within about 4.5 km of Samborsko village; only six turbines next to Klukowo village (the site’s Eurowind Złotów, 12 MW).",
+  "why": "Left as a lead because the URE table also lacks Eurowind’s 12 MW Złotów farm (2015), so the table may miss farms registered as smaller installations, and the Engie profile is undated. Still missing: a dated statement that the project was abandoned or sold (gmina Złotów / Jastrowie planning documents, Engie annual report). GEM’s “operating” comes from the 2016 “Wind Energy Poland” project report; thewindpower lists Samborsko “operational 36 MW” with no date or owner.",
+  "sources": [
+   {
+    "url": "https://www.rynekinfrastruktury.pl/wiadomosci/intermodal-i-logistyka/wielkopolska-gdf-suez-buduje-farme-wiatrowa-w-klukowie-24502.html",
+    "quote": "Planowana moc połączonych projektów to 105 MW generowana z 41 turbin wiatrowych (Klukowo: 23 turbiny wiatrowe o mocy 3MW, Samborsko: 18 turbin wiatrowych o mocy 2MW)."
+   },
+   {
+    "url": "https://www.gramwzielone.pl/baza-firm/energia/20123714/engie-zielona-energia-sp-z-o-o",
+    "quote": "W Polsce posiadamy farmy wiatrowe w czterech lokalizacjach – Jarogniew-Mołtowo, Wartkowo, Pągów i Dąbrowice, o łącznej mocy zainstalowanej 138 MW."
+   },
+   {
+    "url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDR9JYS/i12647-o1.pdf",
+    "quote": "wielkopolskie złotowski Tarnówka – gmina wiejska 14,025 20.11.2024"
+   },
+   {
+    "url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDR9JYS/i12647-o1.pdf",
+    "quote": "wielkopolskie złotowski Okonek – gm. m.-w. 22,870 15.10.2025"
+   },
+   {
+    "url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDR9JYS/i12647-o1.pdf",
+    "quote": "wielkopolskie złotowski Jastrowie – gm. m.-w. 30,740 15.10.2025"
+   },
+   {
+    "url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDR9JYS/i12647-o1.pdf",
+    "quote": "Poniżej przedstawiam dane w formie tabelarycznej, pozyskane z Urzędu Regulacji Energetyki"
+   }
+  ]
+ },
+ {
+  "item": "A6. NLD remaining no-year farms: dismantled or still running?",
+  "farm": "(21 Dutch operating farms without a year: Mammoettocht, Neeltje Jans – Vluchtheuvel, De Kleine Trap, Haagen, Bosruitertocht, Amsterdam-Westpoort, Van Pallandtpolder, Midlum, Ritthem, Wagendorp, Ooievaarsweg, Roompotsluis, Netterden-Azewijn, Noordertocht, Windstroom, Futenweg, Dodaarsweg, Laaksche Vaart, St. Antoinedijk, Van Gogh, Windpark Hoofdplaatpolder BV)",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "(no rule yet) Noordertocht: candidate st=4 once the removal year (2024 or 2025) is sourced. All others: keep st=0.",
+  "note_zh": "新出處：RIVM（國家公衛環境研究院）公開的全國風機圖層有 2024-01-01 與 2026-01-01 兩個快照（WFS，公有領域）。比對每筆紀錄 1.5 公里內的風機：只有 Noordertocht（Vattenfall，6 部 1.75 MW，Lelystad／Dronten）的舊風機在 2024 年還在、2026 年已全數消失（同一範圍 15 → 0 部），應是 Windplan Groen 汰換時拆除，年份 2024 或 2025 待查。Zeewolde 一帶的 Dodaarsweg、Ooievaarsweg、Futenweg、De Kleine Trap、Bosruitertocht 等舊風機 2026-01-01 仍在；RVO《2025 陸域風電監測》也說 Windpark Zeewolde 的 153.3 MW 舊機仍「待 2026 年拆除」，所以現在不能改成除役。Ritthem 與 Roompotsluis 的點附近沒有風機（已知錯置在別省，見 TODO）。",
+  "note_en": "New source: RIVM’s national wind-turbine layer has snapshots for 1 Jan 2024 and 1 Jan 2026 (WFS, public domain). Comparing turbines within 1.5 km of each record: only Noordertocht (Vattenfall, six 1.75 MW, Lelystad/Dronten) had its old turbines standing in 2024 and none in 2026 (15 → 0 in the same box), presumably removed for Windplan Groen; the year (2024 or 2025) still needs a source. The old Zeewolde-area turbines (Dodaarsweg, Ooievaarsweg, Futenweg, De Kleine Trap, Bosruitertocht, …) still stood on 1 Jan 2026, and RVO’s Monitor Wind op Land 2025 still lists Windpark Zeewolde’s 153.3 MW of old turbines as “to be removed in 2026”, so none can be marked retired yet. The Ritthem and Roompotsluis points have no turbines nearby (known misplacements, see TODO).",
+  "why": "RIVM layers alo:rivm_20240101_Windturbines_vermogen and alo:rivm_20260101_windturbines_vermogen (data.rivm.nl/geo/alo/wfs) carry kW, rotor and hub height but no commissioning date and no park name for NL rows, so they cannot supply years. The RVO 2025 monitor table names projects, not the old parks being removed. Windplan Groen’s 2024 overview PDF on rvo.nl returns 404. Next: Vattenfall or Windplan Groen news on removing the Noordertocht line; re-run the RIVM comparison when the 2027 snapshot appears (Zeewolde removals due by end-2026).",
+  "sources": [
+   {
+    "url": "https://data.rivm.nl/geo/alo/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=alo:rivm_20240101_Windturbines_vermogen&outputFormat=application/json&srsName=EPSG:4326&bbox=5.538,52.554,5.574,52.572,EPSG:4326",
+    "quote": "\"totalFeatures\":15,\"numberMatched\":15"
+   },
+   {
+    "url": "https://data.rivm.nl/geo/alo/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=alo:rivm_20260101_windturbines_vermogen&outputFormat=application/json&srsName=EPSG:4326&bbox=5.538,52.554,5.574,52.572,EPSG:4326",
+    "quote": "\"features\":[],\"totalFeatures\":0,\"numberMatched\":0"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2026-05/Monitor-Wind-op-Land-2025.pdf",
+    "quote": "Windpark Zeewolde nog te saneren in 2026 Zeewolde 0,0 -153,3"
+   },
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2026-05/Monitor-Wind-op-Land-2025.pdf",
+    "quote": "Voor windpark Zeewolde en Wieringermeer geldt de afspraak dat al deze turbines uiterlijk in 2026 gesaneerd moeten zijn."
+   }
+  ]
+ },
+ {
+  "item": "B7. ITA Piano del Cornale 20 MW (ACEA) vs Campagna (Renvico, 20 MW, 2012); Genzano di Lucania 16 MW (HelveticWind) vs Banzi - Tre Titoli (PLT, 16 MW, 2021)",
+  "farm": "Piano Del Cornale wind farm; Genzano Di Lucania wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "Piano del Cornale：The Wind Power 把 Piano del Cornale（20 MW，無開發商、位置不精確，40.665 N 15.107 E）與 Campagna（Renvico，10 部 V90、20 MW，40.633 N 15.201 E）列成兩筆、相距約 8 公里，沒有出處把兩者連起來；GEM 的 ACEA 業主出自工程顧問 Enertea 的業績頁（已失效）。Genzano di Lucania：沒有出處把 HelveticWind 的 16 MW 與 PLT 的 Banzi - Tre Titoli 連起來。",
+  "note_en": "Piano del Cornale: The Wind Power lists Piano del Cornale (20 MW, no developer, imprecise point 40.665 N 15.107 E) and Campagna (Renvico, 10 × V90, 20 MW, 40.633 N 15.201 E) as two farms about 8 km apart, and no source ties them; GEM’s ACEA owner comes from the consultant Enertea’s project list (dead). Genzano di Lucania: no source ties HelveticWind’s 16 MW to PLT’s Banzi - Tre Titoli.",
+  "why": "renvicoenergy.com fails TLS verification; enertea.it page is empty; Overpass (maps.mail.ru mirror) timed out for the Campagna area; overpass-api.de resets. Next: OSM turbines near both Campagna points; GSE/Terna plant lists; HelveticWind (BKW/EKZ) portfolio.",
+  "sources": []
+ },
+ {
+  "item": "B10. FRA Fortel en Artois vs InnoVent’s Longue Rive",
+  "farm": "Fortel En Artois wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change: the existing rule, farm_cleanup.py line ~2151, already identifies the record as InnoVent’s Longue Rive, 9.375 MW, 2014, separate from Boralex’s Fortel-Bonnières; no separate Longue Rive record exists in the layer)",
+  "note_zh": "圖層裡沒有另一筆 Longue Rive，Fortel En Artois 這筆就是它（年份 2014 已補）。唯一的出入是容量：GEM 11 MW、登錄 9.375 MW（3 部 GE），若要改名或改容量需再查 GE 機型。",
+  "note_en": "The layer has no separate Longue Rive record; Fortel En Artois is that farm (year 2014 already added). The only gap is capacity: GEM 11 MW vs the register’s 9.375 MW (three GE turbines); renaming or a capacity fix would need the GE model checked.",
+  "why": "TODO line from round 20 is already resolved by the round-21 rule; nothing new needed.",
+  "sources": []
+ },
+ {
+  "item": "C3. TUN Bizerte Métline / Kchabta — extension year",
+  "farm": "Bizerte Métline wind farm; Bizerte Kchabta wind farm",
+  "src_code": 2,
+  "iso": "TUN",
+  "status": "lead",
+  "proposal": "(no rule yet) candidates: year=2013 (GlobalData, whole project) or year=2012 (first stage)",
+  "note_zh": "GlobalData：Metline 95.04 MW（一期 46 部＋二期 26 部 AE-61 1.32 MW）、Kchabta 93.72 MW（45＋26 部），兩場都寫「分期開發，完工後 2013 年商轉」。但本站 IRENA 數列 2013 年全國 200 MW、2014 年 233 MW、2015 年 240 MW，扣掉 Sidi Daoud 54 MW，2013 年底比薩大風場只有約 146 MW，表示擴建可能到 2014–2015 年才完成；2019 年報導又說 143 部「2012 年設置」。三種說法互相矛盾。",
+  "note_en": "GlobalData: Metline 95.04 MW (phase 1 46 + phase 2 26 AE-61 of 1.32 MW) and Kchabta 93.72 MW (45 + 26), both “developed in multiple phases … commissioned in 2013”. But the site’s IRENA series has 200 MW nationally in 2013, 233 MW in 2014 and 240 MW in 2015; less Sidi Daoud’s 54 MW, Bizerte had only about 146 MW at the end of 2013, so the extension may have finished in 2014–2015, while a 2019 article says all 143 turbines were “installed in 2012”. The three disagree.",
+  "why": "No STEG annual report or extension commissioning notice found this round either. Next: STEG annual reports 2013–2015 (steg.com.tn rapport annuel), ANME publications.",
+  "sources": [
+   {
+    "url": "https://power-technology.com/?p=166466",
+    "quote": "Metline is a 95.04MW onshore wind power project. It is located in Bizerte, Tunisia."
+   },
+   {
+    "url": "https://power-technology.com/?p=166466",
+    "quote": "It has been developed in multiple phases. Post completion of construction, the project got commissioned in 2013."
+   },
+   {
+    "url": "https://power-technology.com/?p=166465",
+    "quote": "Kchabta is a 93.72MW onshore wind power project. It is located in Bizerte, Tunisia."
+   },
+   {
+    "url": "https://power-technology.com/?p=166465",
+    "quote": "The phase consists of 45 turbines with 1.32MW nameplate capacity."
+   }
+  ]
+ },
+ {
+  "item": "C4. ITA Alcamo phase 1, Rotello, Isola I — years / capacities",
+  "farm": "Alcamo wind farm · 1; Rotello wind farm; Isola I wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change)",
+  "note_zh": "本輪時間用在重複與狀態問題上，這三筆沒有新出處：仍只有 GlobalData（Alcamo 2012 年 2 月；Rotello 40 MW、2009 年 9 月；Isola I 45.9 MW、2008 年 12 月）。",
+  "note_en": "This round’s time went to the duplicate and status items; no new source for these three: still only GlobalData (Alcamo February 2012; Rotello 40 MW, September 2009; Isola I 45.9 MW, December 2008).",
+  "why": "Not searched further (budget). Next: ERG’s repowering filings for Rotello (Molise/Puglia regional VIA), Acciona Italia’s farm list for Isola I, RWE Italia for Alcamo.",
+  "sources": []
+ }
+]

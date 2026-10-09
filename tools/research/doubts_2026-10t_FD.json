@@ -1,0 +1,256 @@
+[
+ {
+  "item": "A1. Guangdong Guangning Guangbei: real Chinese name",
+  "farm": "Guangdong Guangning Guangbei wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "這筆的中文名「吉安市青原區富灘風電場項目（一期富灘風電場項目）」是江西吉安的風場，英文名與座標卻在廣東肇慶廣寧縣；GEM 唯一的出處 h0758.net（肇慶本地網站）連不上（https 斷線、http 503），查不到廣寧這座 48 MW 風場的中文名與業主。",
+  "note_en": "The Chinese name on this record (Ji’an Qingyuan Futan, phase 1) is a Jiangxi farm, while its English name and point are in Guangning, Zhaoqing, Guangdong. GEM’s only source, h0758.net (a Zhaoqing site), is unreachable (https dropped, http 503), so the real Chinese name and owner of this 48 MW Guangning farm were not found.",
+  "why": "Blocked: h0758.net. Web search (English-only engine) returns nothing for 广宁 广北; Bing/DDG/Baidu block scripted searches here. Not proposed: clearing the zh name would need to know whether the Chinese name or the English name/location is the wrong half (it could also be a misplaced Futan phase-1 row).",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Guangdong_Guangning_Guangbei_wind_farm",
+    "quote": "Guangdong Guangning Guangbei wind farm is an operating wind farm in Guangning, Zhaoqing, Guangdong, China."
+   }
+  ]
+ },
+ {
+  "item": "A2. Jiangxi Qingyuan Futan: which phase is which",
+  "farm": "Jiangxi Qingyuan Futan wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GEM 的富灘頁：別名「青原區風光儲一體化項目」，一期 45 MW 運轉中、二期 45 MW 已公布，業主江西聯合能源 70%、吉安青源發展 30%。兩筆共用二期的中文名；GEM 的出處（吉安市自然資源局 bnr.jian.gov.cn 503、chengezhao 404、北極星有驗證碼）都讀不到，無法確定運轉中的是哪一期。",
+  "note_en": "GEM’s Futan page: other name “Qingyuan District wind-solar-storage project”, phase 1 45 MW operating, phase 2 45 MW announced, owners Jiangxi United Energy 70% and Ji’an Qingyuan Development 30%. Both rows carry the phase-2 Chinese name; GEM’s sources (Ji’an natural-resources bureau 503, chengezhao 404, bjx captcha) cannot be read, so which phase operates is unproven.",
+  "why": "Blocked: bnr.jian.gov.cn (503), chengezhao.com (404), bjx (Aliyun captcha), weixin. Likely fix once sourced: operating row zhname = phase 1 name (the one now on the Guangning record).",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Jiangxi_Qingyuan_Futan_wind_farm",
+    "quote": "Other names: 青原区风光储一体化项目"
+   },
+   {
+    "url": "https://www.gem.wiki/Jiangxi_Qingyuan_Futan_wind_farm",
+    "quote": "Jiangxi Qingyuan Futan wind farm is an operating wind farm in Futan, Qingyuan District, Ji'an, Jiangxi, China."
+   }
+  ]
+ },
+ {
+  "item": "A4. Laizhou Huaneng distributed phases 1 and 2",
+  "farm": "Shandong Laizhou Huaneng distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "萬華化學與華能合資的華能（萊州）新能源 93 MWp 分散式風電：一期 48 MW（16 部 3 MW），一、二期年上網電量合計 2.1 億度（2022-11 報導，用語像兩期都已運轉）。仍無各期併網日期，GEM 一期擱置、二期運轉的標示無法核對。",
+  "note_en": "The Huaneng–Wanhua Laizhou 93 MWp distributed project: phase 1 48 MW (16 × 3 MW), with phases 1 and 2 together sending out about 210 GWh a year (Nov 2022 report, worded as if both run). No per-phase connection dates; GEM’s “phase 1 shelved, phase 2 operating” still cannot be checked.",
+  "why": "Wanhua’s cninfo announcements have nothing on Laizhou wind; in-en/bjx blocked. The pedaily item suggests phase 1 exists, so a status swap is plausible but not proven.",
+  "sources": [
+   {
+    "url": "https://news.pedaily.cn/20221125/46916.shtml",
+    "quote": "该项目一期的装机容量48MWp,共16台单机容量3000KW的风力发电机,年上网量与项目二期共计达2.1亿度"
+   }
+  ]
+ },
+ {
+  "item": "A5. Tianjin Xiaowangzhuang (Longyuan) vs Xiaowangzhuang 3",
+  "farm": "Tianjin Xiaowangzhuang (Longyuan) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "共用的座標（39.0085、117.7143）在 GEM 兩頁都標為概略位置，是濱海新區的代用點（小王莊鎮在其南方約 40 km），不能當作重疊的證據。龍源這筆的營運者是天津龍源新能源開發，三期是國家能源集團新能源（神華天津）。國華小王莊 96 MW（44 部）2018 年 10 月 30 日全部併網，就是 GEM 的一、二期（97 MW、2018）；小王莊鎮到 2021 年底光電與風電合計 150 MW。是否重複仍未證實。",
+  "note_en": "The shared point (39.0085, 117.7143) is marked approximate on both GEM pages and is a Binhai New District placeholder (Xiaowangzhuang town lies about 40 km south), so it is no evidence of overlap. The Longyuan row is operated by Tianjin Longyuan New Energy Development; phase 3 by CHN Energy New Energy (Shenhua Tianjin). Guohua’s Xiaowangzhuang 96 MW (44 turbines) was fully connected on 30 Oct 2018 = GEM phases 1–2 (97 MW, 2018); the town had 150 MW of solar and wind by end-2021. Overlap still unproven.",
+  "why": "No source names a Longyuan farm at Xiaowangzhuang; in-en, dlzb (502) and bjx (captcha) blocked. Longyuan’s 2023 annual report shows Tianjin capacity unchanged at 538 MW (2022–2023) but no farm list.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Tianjin_Xiaowangzhuang_(Longyuan)_wind_farm",
+    "quote": "Xiaowangzhuang Town, Binhai New District, Tianjin, Tianjin, China [ 2 ] 39.0085, 117.7143 (approximate)"
+   },
+   {
+    "url": "https://www.sohu.com/a/272631635_472920",
+    "quote": "10月30日，国华投资公司天津小王庄项目44台风机全部并网发电"
+   },
+   {
+    "url": "https://www.sohu.com/a/272631635_472920",
+    "quote": "该项目位于天津市滨海新区小王庄镇，装机容量96兆瓦，安装44台风力发电机组"
+   },
+   {
+    "url": "https://finance.sina.cn/2022-04-28/detail-imcwiwst4415631.d.html",
+    "quote": "截至2021年底，镇域内光伏和风力发电装机达到150兆瓦"
+   }
+  ]
+ },
+ {
+  "item": "A6. Taonan Rural Revitalization 31.7 MW vs the 22.1 MW Shangdian project",
+  "farm": "Jilin Taonan Rural Revitalization wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(candidate, not proven) NOT_DUP[('CHN', 'Jilin Taonan Rural Revitalization wind farm')] = ('不同風場：吉林洮南鄉村振興風電（31.7 MW，GEM：規劃中，那金鎮，洮南上電雙龍新能源有限公司）與已併網的吉林洮南 22.1 MW 分散式風電鄉村振興項目（上電洮南新能源發展有限公司投資，2024 年 8 月 30 日併網）的專案公司、容量都不同', 'Different farms: the Jilin Taonan rural revitalisation wind project (31.7 MW, GEM: pre-construction, Najin town, Taonan Shangdian Shuanglong New Energy Co Ltd) and the connected Jilin Taonan 22.1 MW distributed rural revitalisation project (invested by Shangdian Taonan New Energy Development Co Ltd, connected 30 Aug 2024) have different project companies and capacities', 'https://www.gem.wiki/Jilin_Taonan_Rural_Revitalization_wind_farm')",
+  "note_zh": "不同風場：吉林洮南鄉村振興風電（31.7 MW，GEM：規劃中，那金鎮，洮南上電雙龍新能源有限公司）與已併網的吉林洮南 22.1 MW 分散式風電鄉村振興項目（上電洮南新能源發展有限公司投資，2024 年 8 月 30 日併網）的專案公司、容量都不同",
+  "note_en": "Different farms: the Jilin Taonan rural revitalisation wind project (31.7 MW, GEM: pre-construction, Najin town, Taonan Shangdian Shuanglong New Energy Co Ltd) and the connected Jilin Taonan 22.1 MW distributed rural revitalisation project (invested by Shangdian Taonan New Energy Development Co Ltd, connected 30 Aug 2024) have different project companies and capacities",
+  "why": "Two different Shanghai Electric project companies and capacities point to separate projects, but GEM’s only source for the 31.7 MW (dianlijia.com) is unreachable, and one company could have replaced the other or the project been re-scoped; nothing shows the 31.7 MW project being built. Left as lead with the NOT_DUP text ready.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Jilin_Taonan_Rural_Revitalization_wind_farm",
+    "quote": "Taonan Shangdian Shuanglong New Energy Co Ltd (洮南上电双龙新能源有限公司)"
+   },
+   {
+    "url": "https://www.gem.wiki/Jilin_Taonan_Rural_Revitalization_wind_farm",
+    "quote": "Najin, Taonan, Baicheng, Jilin, China"
+   },
+   {
+    "url": "https://www.nengyuanjie.net/article/98112.html",
+    "quote": "2024年8月30日，由上电洮南新能源发展有限公司投资建设"
+   }
+  ]
+ },
+ {
+  "item": "A7. Heilongjiang Bayan 200 MW vs Huadian Bayan phases 1-2",
+  "farm": "Heilongjiang Bayan wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GEM 這筆（黑龍江巴彥 200MW 風電項目，規劃中）的出處是國家能源集團招標網的公告與北極星「金風、三一預中標！國能 600MW 風機採購項目開標！」，指向國能（國家能源集團）的專案，不是華電；華電哈爾濱巴彥一期 100 MW 2022 年核准（九洲集團公告）。兩者座標相距不到 1 km，但業主不同，不能當作重複。",
+  "note_en": "GEM’s sources for this row (“Heilongjiang Bayan 200MW wind project”, pre-construction) are a CHN Energy tender notice and a bjx story titled “Goldwind and Sany pre-selected: Guoneng 600 MW turbine purchase opened”, pointing to a CHN Energy (Guoneng) project, not Huadian; Huadian’s Harbin Bayan phase 1 (100 MW) was approved in 2022 (Jiuzhou notice). The points are under 1 km apart, but the owners differ, so no dup.",
+  "why": "chnenergybidding.com.cn (403/503), wind.imarine.cn (403) and bjx (captcha) unreadable, so the CHN Energy project’s site and status could not be confirmed. Leaning: separate project (keep).",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Heilongjiang_Bayan_wind_farm",
+    "quote": "金风、三一预中标！国能600MW风机采购项目开标！-北极星风力发电网"
+   },
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2022-06-06/1213616387.PDF",
+    "quote": "（一）巴彦一期 100 兆瓦风电项目 1、项目代码：2204-230000-04-01-761938； 2、项目单位：华电哈尔滨巴彦新能源有限公司（九洲集团持有 49%股权）"
+   }
+  ]
+ },
+ {
+  "item": "A8. Jushi Lianshui No.1/2/3 vs “· 1, 2” / “· 3”",
+  "farm": "Jiangsu Lianshui (Jushi) No.1 wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "中國巨石 2025 年年報與 2026-08 公告只談新的涟水 500 MW（改為 496 MW：巨石綠色能源（涟水）358.5 MW、巨石淮安 137.5 MW）；年報稱「淮安風電項目實現碳減排超 40 萬噸」，表示已有風電在運轉，但沒有逐場名稱與容量，無法對到一、二、三號或南集 99 MW。",
+  "note_en": "China Jushi’s 2025 annual report and its Aug 2026 notice cover only the new Lianshui 500 MW (re-planned as 496 MW: Jushi Green Energy (Lianshui) 358.5 MW, Jushi Huai’an 137.5 MW); the report says the Huai’an wind project cut more than 400 kt of CO2, so some wind is running, but with no per-farm names or sizes to match No.1–3 or Nanji 99 MW.",
+  "why": "kanzhun licence page (GEM’s source) not reachable as a quote; no connection news found.",
+  "sources": [
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2026-03-20/1225018682.PDF",
+    "quote": "淮安风电项目实现碳减排超40 万吨"
+   },
+   {
+    "url": "http://static.cninfo.com.cn/finalpage/2026-08-21/1225484377.PDF",
+    "quote": "巨石绿色能源（涟水）有限公司 358.5MW"
+   }
+  ]
+ },
+ {
+  "item": "A9. TBEA Ruoqiang Qiman",
+  "farm": "Xinjiang Ruoqiang Qiman (TBEA) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "TBEA 2026 年半年報沒有若羌祁曼或同陽新能源的項目，只見若羌縣卓尚新能源的米蘭風區 5 萬千瓦質押。",
+  "note_en": "TBEA’s 2026 interim report has no Ruoqiang Qiman or Tongyang project; only Ruoqiang Zhuoshang’s 50 MW Milan wind-area pledge appears.",
+  "why": "Nothing new; earlier leads stand.",
+  "sources": []
+ },
+ {
+  "item": "B. Zhongyi B (50 MW) year",
+  "farm": "Jilin Zhongyi wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "搜狐（華能國際）2023-12-29 全文可讀：12 月 28 日「隨著 3 號風機葉輪緩緩轉動」，中溢 25 萬千瓦風電項目（B 期 5 萬千瓦）成功併網發電，是首批併網，未寫全容量。",
+  "note_en": "The Sohu repost (Huaneng Power International, 29 Dec 2023) now loads: on 28 Dec, “as turbine no. 3 began to turn”, the Zhongyi 250 MW project (phase B, 50 MW) was connected; first power, not full capacity.",
+  "why": "Year likely 2023–2024; full-capacity date not found.",
+  "sources": [
+   {
+    "url": "https://m.sohu.com/a/748122580_121613636",
+    "quote": "12月28日， 随着3号风机叶轮缓缓转动，吉林分公司中溢25万千瓦风电项目（B期5万千瓦）成功并网发电"
+   }
+  ]
+ },
+ {
+  "item": "B. Other year leads (Nong'an, Qianguo, Shangshui Tanzhuang, Zongyang Mabushan, Baigutun, Xinyi Guizi, Xiajin Huasheng, Wuchuan, Gaoyou Sanduo, Chaoyang, Hangjin, Dashiqiao, Daqinghe)",
+  "farm": "(13 farms)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "本輪沒有新的可引用出處。三峽能源 2024 年年報只有三峽新能源農安有限公司的子公司資料；龍源 2023 年年報只列杭錦旗龍源新能源的稅率；GlobalData 搜不到商水、樅陽、農安的電廠頁。",
+  "note_en": "No new quotable source this round. Three Gorges’ 2024 report only lists the Nong’an subsidiary; Longyuan’s 2023 report only gives Hangjin Longyuan’s tax rate; GlobalData has no profiles for Shangshui, Zongyang or Nong’an.",
+  "why": "Search engines (Bing, DuckDuckGo, Baidu) block scripted queries here; WebSearch is English-only; bjx captcha; in-en 403.",
+  "sources": []
+ },
+ {
+  "item": "C. Sogi (RMML) vs MSPL “Sogi & Jajikallgudda”",
+  "farm": "Sogi wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Baldota 集團（MSPL 與 RMML）風電頁只列一座 Harapanahalli（Sogi & Jajikalgudda）風場，七座合計 215.75 MW（同頁另寫 230.1 MW）；本站 MSPL 的紀錄（GR Halli 41、Sogi & Jajikallgudda 106、Surajbari 30、Dhule 20、Tinwari 10 MW，加 Harihar 6.6 MW）已約 214 MW，再加 RMML 的 Sogi 50 MW 會超過集團總量，表示 Sogi 很可能已含在 106 MW 裡，但只是加總推論。",
+  "note_en": "The Baldota group’s wind page (MSPL and RMML) lists a single Harapanahalli (Sogi & Jajikalgudda) farm among seven totalling 215.75 MW (230.1 MW elsewhere on the page); the site’s MSPL rows (GR Halli 41, Sogi & Jajikallgudda 106, Surajbari 30, Dhule 20, Tinwari 10 MW, plus Harihar 6.6 MW) already make about 214 MW, so adding RMML’s Sogi 50 MW would exceed the group total: Sogi is probably inside the 106 MW, but this is arithmetic only.",
+  "why": "No per-farm capacity on Baldota’s pages; Baldota’s 2015 report only via web.archive.org (403 here). A dup needs a source giving the Harapanahalli farm’s capacity by company.",
+  "sources": [
+   {
+    "url": "https://baldota.co.in/wind",
+    "quote": "Harapanahalli - (Sogi & Jajikalgudda)"
+   },
+   {
+    "url": "https://baldota.co.in/wind",
+    "quote": "We operate seven wind farms across India with a total installed rated capacity of 215.75 MW."
+   },
+   {
+    "url": "https://www.gem.wiki/Sogi_wind_farm",
+    "quote": "Sogi wind farm is an operating wind farm in Sogi & JJKL, Karnataka, India."
+   }
+  ]
+ },
+ {
+  "item": "C. Kukru (United Sustainable) vs Betul; Betul (Atria) phase",
+  "farm": "Kukru (United Sustainable) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "USEIPL 的專案頁仍讀不到（useipl.com TLS 失敗；archive.org 的 API 可查到 2026-05 的存檔，但下載存檔回 403）。Betul (Atria) 這筆 50 MW 與 GlobalData 的 Betul II（25 部 Gamesa G97 2 MW = 50 MW）容量相同、Betul I 是 49.5 MW，但只是容量吻合。",
+  "note_en": "USEIPL’s project page is still unreadable (useipl.com fails TLS; archive.org’s API shows a May 2026 snapshot, but fetching it returns 403). Betul (Atria)’s 50 MW equals GlobalData’s Betul II (25 Gamesa G97 2 MW) rather than Betul I (49.5 MW), but only the capacity matches.",
+  "why": "No dup or year proposed.",
+  "sources": []
+ },
+ {
+  "item": "C. PTC Energy’s five farms: years",
+  "farm": "Bableshwar (PTC) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet; same for Devenkonda, Molagavalli (PTC), Kandimallayapalli, Payalakuntla)",
+  "note_zh": "PTC India 2016–17 年報（BSE 公開 PDF）：五座風場合計 238.8 MW 於 2016–17 財年「依約定時程在 2017-03-31 前商轉」，沒有逐場日期；2017–18 年報的借款表寫出機組廠商（Devenkonda ReGen 49.5 MW、Bableshwar Gamesa 50 MW）。年份仍是 2016 或 2017。另注意：Hero 的 Bableshwar（50 MW，25 部 Gamesa G114，2017-03）與 PTC 的 Bableshwar（50 MW Gamesa）同村同規模，可能是同一 Gamesa 園區的兩塊，未查證。",
+  "note_en": "PTC India’s 2016–17 annual report (public BSE PDF): the five farms (238.8 MW) were commissioned in fiscal 2016–17 “as per the agreed schedule by 31.03.2017”, with no per-farm dates; the 2017–18 report’s loan notes give the OEMs (Devenkonda ReGen 49.5 MW, Bableshwar Gamesa 50 MW). The year is still 2016 or 2017. Note: Hero’s Bableshwar (50 MW, 25 Gamesa G114, March 2017) and PTC’s Bableshwar (50 MW Gamesa) share village and size; they may be two blocks of one Gamesa park, unchecked.",
+  "why": "Per-project CODs would need APERC/KERC PPA orders or the AP High Court tariff judgments (not reached this round); ptcindia.com fails TLS. BSE annual-report PDFs (bseindia.com/bseplus/AnnualReport/532524/…) are a new working route.",
+  "sources": [
+   {
+    "url": "https://www.bseindia.com/bseplus/AnnualReport/532524/5325240317.pdf",
+    "quote": "In FY 16-17, five wind projects of PEL totaling 238.8 MW have also been commissioned as per the agreed schedule by 31.03.2017 taking its total operating capacity to 288.8 MW."
+   },
+   {
+    "url": "https://www.bseindia.com/bseplus/AnnualReport/532524/5325240318.pdf",
+    "quote": "49.5 MW ReGen Project at Devenkonda, Andhra Pradesh"
+   },
+   {
+    "url": "https://www.bseindia.com/bseplus/AnnualReport/532524/5325240318.pdf",
+    "quote": "50 MW Gamesa Project at Bableshwar, Karnataka"
+   }
+  ]
+ }
+]

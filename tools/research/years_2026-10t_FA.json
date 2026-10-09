@@ -1,0 +1,708 @@
+[
+ {
+  "item": "1. Limbwas wind farm · 1 (IND, 29.0 MW)",
+  "farm": "Limbwas wind farm · 1",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM sources: ReNew home page and thewindpower 27006/27007 (Limbwas I 13 × S97 = 27.3 MW, Limbwas II 12 × S97 = 25.2 MW, no dates). GlobalData's 'ReNew Power-Madhya Pradesh wind park' gives only an expected date (March 2016); Suzlon's 2017 S111 order (100.8 MW 'Limbwas', due March 2018) is a different phase. No COD found.",
+  "sources": []
+ },
+ {
+  "item": "2. Khachrod wind farm (IND, 29.0 MW)",
+  "farm": "Khachrod wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Suzlon Gujarat Wind Park multi-owner cluster; GEM sources are CEA's plant-wise PDF and a 2009-10 Suzlon subsidiary accounts PDF (web.archive.org blocked). Not searched further.",
+  "sources": []
+ },
+ {
+  "item": "3. Rajpara Sardhar (GSFC) wind farm (IND, 29.0 MW)",
+  "farm": "Rajpara Sardhar (GSFC) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GlobalData has GSFC's 'Rajkot_GSFL' (50.4 MW, 2011) and 'Kosa_GSFL' (2011); GSFC commissioned 51 MW in fiscal 2011, but nothing ties a 29 MW Rajpara/Sardhar block to a year. Point is Rajkot city.",
+  "sources": []
+ },
+ {
+  "item": "4. Uthumalai wind farm (IND, 28.0 MW)",
+  "farm": "Uthumalai wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM source is Ramco's archived wind-farm page (live page 404; web.archive.org blocked). No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "7. Rajgarh (Renew) II wind farm (IND, 26.0 MW)",
+  "farm": "Rajgarh (Renew) II wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "thewindpower 27042 only (Enercon E-53 units, no dates); GlobalData's 'Rajgarh' profiles are Ostro (50.4 MW, expected Feb 2016) and Sprng (MP), not ReNew.",
+  "sources": []
+ },
+ {
+  "item": "8. Rajgarh (Renew) I wind farm (IND, 26.0 MW)",
+  "farm": "Rajgarh (Renew) I wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "As Rajgarh (Renew) II.",
+  "sources": []
+ },
+ {
+  "item": "9. Chitradurga (Jindal) wind farm (IND, 26.0 MW)",
+  "farm": "Chitradurga (Jindal) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "jindalaluminium.com fails TLS verification; 2013 press items give Jindal Aluminium 12.04 MW of wind at Chitradurga (not 26 MW) and no date.",
+  "sources": []
+ },
+ {
+  "item": "10. Chakala (Hindustan Zinc) wind farm (IND, 26.0 MW)",
+  "farm": "Chakala (Hindustan Zinc) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Hindustan Zinc 在馬哈拉施特拉邦的風電為 25.5 MW，屬 2011 年 Suzlon 承建的 150 MW 擴建（預定 2011 年 3 月與 9 月分兩期完成）；確切商轉年未查證。",
+  "note_en": "Hindustan Zinc’s wind capacity in Maharashtra is 25.5 MW, part of the 150 MW expansion Suzlon built in 2011 (planned in two phases, March and September 2011); the exact year is not verified.",
+  "why": "HZL's 273.5 MW: Gujarat 88.8, Karnataka 49.4, Rajasthan 88.8, Maharashtra 25.5, TN 21. The Jan 2011 HZL release (SEC copy: HTTP 403) planned 50 MW by March 2011 and 100 MW by September 2011 in Rajasthan, Maharashtra, Karnataka and TN (= 88.8 + 25.5 + 15 + 21 MW). No per-site date; HZL annual reports not reached. Point 19.115, 72.862 is Mumbai (placeholder).",
+  "sources": [
+   {
+    "url": "https://www.sarkaritel.com/hindustan-zinc-going-all-out-to-decrease-water-footprint/",
+    "quote": "Gujarat (88.8 MW), Karnataka (49.40 MW), Rajasthan (88.8 MW), Maharashtra (25.5 MW) and Tamil Nadu (21 MW)"
+   }
+  ]
+ },
+ {
+  "item": "11. Blyth wind farm (IND, 26.0 MW)",
+  "farm": "Blyth wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Atria's wind page now 404; no profile found. Point is an Andhra placeholder.",
+  "sources": []
+ },
+ {
+  "item": "13. Bhendewade wind farm (IND, 26.0 MW)",
+  "farm": "Bhendewade wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Leap Green 旗下 Ivy Ecoenergy 在馬哈拉施特拉邦的 26 MW 分布在 Bhendewade 與 South Budh 兩地；商轉年不詳。",
+  "note_en": "Leap Green’s Ivy Ecoenergy holds 26 MW in Maharashtra spread over Bhendewade and South Budh; no commissioning year found.",
+  "why": "CARE (Mar 2021) gives the 26 MW as 'Bhendewade and South Budh districts' (both are villages, not districts; South Budh not located), so a note-only fix like Shajapur's is possible but weaker. GlobalData has a 'Bhendwade Wind Farm' (TS Windfarms, Inox turbines, commissioned March 2014) whose owner/capacity do not match; Bhilwara Energy also says it owns 14 MW at Bhendwade, Kolhapur district. No COD tied to the Ivy/Inox Renewables 26 MW.",
+  "sources": [
+   {
+    "url": "https://www.careratings.com/upload/CompanyFiles/PR/22032021021701_Ivy_Ecoenergy_India_Private_Limited.pdf",
+    "quote": "26 MW in Bhendewade and South Budh districts"
+   },
+   {
+    "url": "https://www.energymonitor.ai/?p=118930",
+    "quote": "The project is developed and owned by TS Windfarms. Development status The project is currently active. The project got commissioned in March 2014."
+   },
+   {
+    "url": "https://www.bhilwaraenergy.com/",
+    "quote": "BEL owns 14 MW wind power project at site Bhendwade, District Kohlapur, Maharashtra"
+   }
+  ]
+ },
+ {
+  "item": "14. Aeolus 2 wind farm (IND, 26.0 MW)",
+  "farm": "Aeolus 2 wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Ecoren's projects page returns 404; thewindpower 9878 has no date.",
+  "sources": []
+ },
+ {
+  "item": "15. GV Palli wind farm (IND, 26.0 MW)",
+  "farm": "GV Palli wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Atria's wind page 404; GE EFS 2014 release mentions a 25.6 MW Atria project in Anantapur expected Sept 2014, but nothing ties it to GV Palli (whose point is in West Godavari).",
+  "sources": []
+ },
+ {
+  "item": "16. Limbwas wind farm · 2 (IND, 25.0 MW)",
+  "farm": "Limbwas wind farm · 2",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "As Limbwas · 1 (same GEM project, phase 2, 25 MW). Note the two phases sit at different points (24.238, 75.109 vs 23.312, 75.362); thewindpower places Limbwas in Ujjain district.",
+  "sources": []
+ },
+ {
+  "item": "17. Ramakkalmedu wind farm (IND, 25.0 MW)",
+  "farm": "Ramakkalmedu wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Wikipedia gives ~14.25 MW of NEG Micon machines on private holdings (GEM 25 MW) and no year; GEM's source is a personal blog list.",
+  "sources": []
+ },
+ {
+  "item": "18. Changdai wind farm (IND, 25.0 MW)",
+  "farm": "Changdai wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM's only source is CEA's plant-wise PDF (web.archive.org resets). No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "19. Vajrakarur (Orix) wind farm (IND, 25.0 MW)",
+  "farm": "Vajrakarur (Orix) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM source is APTRANSCO's connectivity PDF (archived). Owner given as Axis Energy; point (13.6, 78.53) is far from Vajrakarur; GlobalData's Vajrakarur profiles are Mytrah's. Nothing tied to this record.",
+  "sources": []
+ },
+ {
+  "item": "20. Anantapur (Jindal) wind farm (IND, 25.0 MW)",
+  "farm": "Anantapur (Jindal) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "As Chitradurga (Jindal): company site fails TLS; no dated source.",
+  "sources": []
+ },
+ {
+  "item": "22. Baroda wind farm (IND, 25.0 MW)",
+  "farm": "Baroda wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Suzlon Gujarat Wind Park cluster at Barod (Shajapur); same blocked sources as Khachrod.",
+  "sources": []
+ },
+ {
+  "item": "23. Jamanvada (Orient) wind farm (IND, 25.0 MW)",
+  "farm": "Jamanvada (Orient) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Orient Green's wind page lists SPV totals only; its 2010 prospectus has no Gujarat/Kutch site (Gujarat assets came later).",
+  "sources": []
+ },
+ {
+  "item": "24. Kukru wind farm (IND, 25.0 MW)",
+  "farm": "Kukru wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Atria's wind page 404; Kukru (Betul district) area has several Atria/USEIPL records (see round 22 Betul items); no date.",
+  "sources": []
+ },
+ {
+  "item": "25. Nani Sindhodi wind farm (IND, 24.0 MW)",
+  "farm": "Nani Sindhodi wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GACL 在 Abdasa（Kutch）的風場共 39 MW、分期興建（第一期 19 部 Suzlon 1.25 MW＝23.75 MW），2008 年 3 月完工；未確認 Nani Sindhodi 即為第一期。",
+  "note_en": "GACL’s Abdasa (Kutch) farm is 39 MW built in phases (phase I: 19 Suzlon 1.25 MW units = 23.75 MW), completed in March 2008; Nani Sindhodi is not confirmed to be phase I.",
+  "why": "Sindhodi villages are in Abdasa taluka, Kutch. GEM has both 'Nani Sindhodi' (GACL 24 MW) and 'Sindhodi' (32 MW, owner GSFC, 10+22) 2 km apart; a search-only news item says GACL 'recently set up a 23.75-MW windfarm in Moti Sindhodi' with 40 MW more planned. No source names Nani Sindhodi, so no rule.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/?p=181304",
+    "quote": "Abdasa GACL is a 39MW onshore wind power project."
+   },
+   {
+    "url": "https://www.power-technology.com/?p=181304",
+    "quote": "The phase consists of 19 turbines, each with 1.25MW nameplate capacity."
+   },
+   {
+    "url": "https://www.power-technology.com/?p=181304",
+    "quote": "Post completion of construction, the project got commissioned in March 2008."
+   }
+  ]
+ },
+ {
+  "item": "27. Vaingakullam wind farm (IND, 24.0 MW)",
+  "farm": "Vaingakullam wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "ICRA 稱 ORIX 旗下風場在坦米爾納德邦 Vaingakullam 為 12 MW（GEM 記 24 MW）；Ratedi Wind Power 的坦米爾納德 12 MW 於 2012 年 3 月商轉，但未確認即為此場。",
+  "note_en": "ICRA gives ORIX’s Vaingakullam site in Tamil Nadu as 12 MW (GEM: 24 MW); Ratedi Wind Power’s 12 MW in Tamil Nadu was commissioned in March 2012, but it is not confirmed to be this site.",
+  "why": "ICRA (2020, ORIX's five ex-IL&FS SPVs): 'Vaingakullam (12 MW) in Tamil Nadu'; Tamil Nadu is ~4% of the 504.8 MW portfolio (~20 MW), so there may be another TN site. RWPPL (ICRA 2019) has 12 MW in TN commissioned March 2012 but its rationale does not name the site. Capacity conflict (12 vs 24 MW) and the missing site name keep this a lead; if a source ties RWPPL's TN 12 MW to Vaingakullam, propose year=2012 and mw=12.",
+  "sources": [
+   {
+    "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=98040",
+    "quote": "Vaingakullam (12 MW) in Tamil Nadu"
+   },
+   {
+    "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=88368",
+    "quote": "The wind farms developed in the states of Rajasthan, Madhya Pradesh, Tamil Na du and Gujarat with capacities of 26.4 MW, 24 MW, 12 MW and 12 MW respectively were commissioned on March 2012."
+   }
+  ]
+ },
+ {
+  "item": "28. Kita (Kohinoor) wind farm (IND, 24.0 MW)",
+  "farm": "Kita (Kohinoor) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Kohinoor 集團稱 2009 年投資拉賈斯坦邦一座 24 MW 風電；商轉年未查證。",
+  "note_en": "The Kohinoor group says it invested in a 24 MW wind plant in Rajasthan in 2009; the commissioning year is not verified.",
+  "why": "'Invested in 2009' may predate commissioning. The CDM project 'Kohinoor Wind Power Project in Rajasthan' (BVQI1302691944.71, with Wind World/Enercon as co-participant; search results say the crediting period started 1 Apr 2011) would give the COD, but cdm.unfccc.int returns an empty Incapsula page here.",
+  "sources": [
+   {
+    "url": "http://kohinoorgroup.co.in/kohinoor-group-power.html",
+    "quote": "The Group invested in a 24 MW power plant in Rajasthan in 2009."
+   }
+  ]
+ },
+ {
+  "item": "29. Tebdha (Vish Wind) wind farm (IND, 24.0 MW)",
+  "farm": "Tebdha (Vish Wind) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM's only source is CEA's plant-wise PDF; a Jamnagar bundled CDM project (9.6 MW, Enercon) with 'Vishwind' annexes does not match 24 MW; no date found.",
+  "sources": []
+ },
+ {
+  "item": "30. Satara (Jindal) wind farm (IND, 24.0 MW)",
+  "farm": "Satara (Jindal) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Only the 2016–17 sale of JSPL's 24 MW Satara wind business to Parjanya Wind Power (IDFC Alternatives fund) was found; no commissioning date.",
+  "sources": []
+ },
+ {
+  "item": "32. Ananthapuramu (Poly) wind farm (IND, 24.0 MW)",
+  "farm": "Ananthapuramu (Poly) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM cites an APSPDCL 2015-16 PPA (PPA signing, not COD); no commissioning record found.",
+  "sources": []
+ },
+ {
+  "item": "33. Aeolus 1 wind farm (IND, 24.0 MW)",
+  "farm": "Aeolus 1 wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "As Aeolus 2.",
+  "sources": []
+ },
+ {
+  "item": "34. Tirunelveli (Green Infra) wind farm (IND, 24.0 MW)",
+  "farm": "Tirunelveli (Green Infra) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM cites CEA plant-wise list; a CDM record '24 MW Wind Energy based Power Generation in Theni' (Green Infra) exists but cdm.unfccc.int is blocked here, and Theni is not Tirunelveli.",
+  "sources": []
+ },
+ {
+  "item": "35. Vijayapathy wind farm (IND, 24.0 MW)",
+  "farm": "Vijayapathy wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Orient Green's 2010 prospectus has no Vijayapathy block; later OGPL acquisitions are only given as SPV totals.",
+  "sources": []
+ },
+ {
+  "item": "36. Bengaluru (CleanMax) wind farm (IND, 23.1 MW)",
+  "farm": "Bengaluru (CleanMax) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "CleanMax 的 92.1 MW 風光混合案（69 MWp 太陽光電＋23.1 MW 風電）於 2025 年 4 月宣布已商轉，位於卡納塔克邦 Jagluru；確切商轉日期與風機位置未查證。",
+  "note_en": "CleanMax’s 92.1 MW wind–solar hybrid (69 MWp solar + 23.1 MW wind) was announced as commissioned in April 2025, at Jagluru, Karnataka; the exact date and the wind turbines’ location are not verified.",
+  "why": "Year is probably 2025 but rests only on the 22–23 Apr 2025 announcements ('recently commissioned'); the plant may have reached COD in late 2024. The point (12.956, 77.559) is central Bengaluru (placeholder); the press release puts the hybrid at Jagluru (Jagalur, Davanagere district), but CleanMax hybrids sometimes have the wind part elsewhere (e.g. its Shell project: solar at Jagalur, wind at Honawad), so the point is not moved. CleanMax's Aug 2025 DRHP / listing documents may give the COD (not read: very large).",
+  "sources": [
+   {
+    "url": "https://www.pv-magazine-india.com/2025/04/22/cleanmax-commissions-92-1-mw-wind-solar-hybrid-plant-in-karnataka/",
+    "quote": "The project comprises 69 MWp of solar and 23.1 MW of wind energy"
+   },
+   {
+    "url": "https://www.energetica-india.net/news/cleanmax-wins-cisco-sustainability-award-for-92-mw-project-in-karnataka",
+    "quote": "commissioning of a state-of-the-art 92.1 MW hybrid wind-solar project in Jagluru, Karnataka, which now powers Cisco’s India campus"
+   },
+   {
+    "url": "https://www.energetica-india.net/news/cleanmax-wins-cisco-sustainability-award-for-92-mw-project-in-karnataka",
+    "quote": "including 92.1 MW recently commissioned"
+   }
+  ]
+ },
+ {
+  "item": "37. Chitradurga (Atria) wind farm (IND, 23.0 MW)",
+  "farm": "Chitradurga (Atria) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Atria's wind page 404; thewindpower 26920 has no date. Point (16.831, 75.704) is near Vijayapura, not Chitradurga.",
+  "sources": []
+ },
+ {
+  "item": "38. Dalot-Devgarh (Greenko) wind farm (IND, 23.0 MW)",
+  "farm": "Dalot-Devgarh (Greenko) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Only Greenko IR 2019-20 (TLS failure). GlobalData's 'Devgarh' (ReNew, Regen, March 2015) is another owner; thewindpower Dalot 34.5 MW has no owner/date.",
+  "sources": []
+ },
+ {
+  "item": "39. Muppandal (Muppandal Wind) wind farm (IND, 22.0 MW)",
+  "farm": "Muppandal (Muppandal Wind) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM's only source is a personal blog list; no dated source.",
+  "sources": []
+ },
+ {
+  "item": "40. Gudimangalam wind farm (IND, 21.0 MW)",
+  "farm": "Gudimangalam wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM's only source is a personal blog list; owner field is the place name.",
+  "sources": []
+ },
+ {
+  "item": "41. Belgavi wind farm (IND, 21.0 MW)",
+  "farm": "Belgavi wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM cites a CEA monthly report page only; Hindalco wind not found.",
+  "sources": []
+ },
+ {
+  "item": "42. Muthiyampatti wind farm (IND, 21.0 MW)",
+  "farm": "Muthiyampatti wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Hindustan Zinc 在坦米爾納德邦的風電為 21 MW，屬 2011 年的 150 MW 擴建；確切商轉年未查證。",
+  "note_en": "Hindustan Zinc’s wind capacity in Tamil Nadu is 21 MW, part of its 2011 150 MW expansion; the exact year is not verified.",
+  "why": "See Chakala (Hindustan Zinc): same 2011 Suzlon programme; no per-site date. Point is the Tamil Nadu placeholder.",
+  "sources": [
+   {
+    "url": "https://www.sarkaritel.com/hindustan-zinc-going-all-out-to-decrease-water-footprint/",
+    "quote": "Maharashtra (25.5 MW) and Tamil Nadu (21 MW)"
+   }
+  ]
+ },
+ {
+  "item": "43. Niwade wind farm (IND, 21.0 MW)",
+  "farm": "Niwade wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Tata Power 2011 年 10 月稱正向 Niskalp Energy 收購馬哈拉施特拉邦 20.95 MW 已運轉風電資產，可能即此 21 MW；商轉年未查證。",
+  "note_en": "In October 2011 Tata Power said it was acquiring 20.95 MW of operating wind assets in Maharashtra from Niskalp Energy, possibly this 21 MW farm; commissioning year not verified.",
+  "why": "Link to Niwade not proven; the assets were already operating in 2011, so the build year is earlier and unknown. Tata Power Renewables FY18 annual report (GEM's source) not reached.",
+  "sources": [
+   {
+    "url": "https://www.eco-business.com/news/tata-power-reaches-300-mw-wind-milestone-in-india/",
+    "quote": "acquiring 20.95 MW operating wind assets in Maharashtra from Niskalp Energy Ltd"
+   }
+  ]
+ },
+ {
+  "item": "44. Shanay wind farm (IND, 21.0 MW)",
+  "farm": "Shanay wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Only Greenko IR 2019-20 (TLS failure). Point is the Bengaluru placeholder.",
+  "sources": []
+ },
+ {
+  "item": "45. Jamanvada (GACL) III wind farm (IND, 21.0 MW)",
+  "farm": "Jamanvada (GACL) III wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM's only source is CEA's plant-wise PDF (unreachable); GACL wind farms total 171.45 MW (2023) with no per-site dates found.",
+  "sources": []
+ },
+ {
+  "item": "46. Suthri wind farm (IND, 21.0 MW)",
+  "farm": "Suthri wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GMDC's wind page gives only the 200.9 MW total (seven farms) without per-site dates; GEM's source is CEA's plant-wise PDF.",
+  "sources": []
+ },
+ {
+  "item": "47. Nipaniya (PTC) wind farm (IND, 20.0 MW)",
+  "farm": "Nipaniya (PTC) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "補上商轉年 2016：Inox Wind 於 2016 年 3 月 2 日宣布接獲 PTC Energy 在中央邦 Mandsaur 縣 Nipaniya 的 20 MW 統包訂單（預定 2016 年 3 月前商轉）；PTC Energy 2017 年 4 月稱其在中央邦已有 50 MW 運轉，新增 238.8 MW 後總容量 288.8 MW、約為 2016–17 財年初（2016 年 4 月）的 6 倍，即當時已有約 50 MW；扣除 2016 年 3 月 8 日商轉的 Jaora 30 MW，Nipaniya 的 20 MW 在 2016 年 3 月底前已運轉",
+  "note_en": "Commissioning year 2016: Inox Wind announced on 2 March 2016 a turnkey order from PTC Energy for a 20 MW project at Nipaniya, Mandsaur district, Madhya Pradesh, due by March 2016; in April 2017 PTC Energy said it already had 50 MW operating in Madhya Pradesh and that its new total of 288.8 MW was nearly six times its capacity at the start of fiscal 2016–17 (April 2016), i.e. about 50 MW then. Besides the 30 MW Jaora farm commissioned on 8 March 2016, that leaves Nipaniya’s 20 MW operating by the end of March 2016",
+  "why": "Not written in round 23: the year 2016 is worked out indirectly, not stated in a source. The year is derived, not stated in one sentence: (1) the 10 × 2 MW Inox order was announced on 2 Mar 2016, so it was not built before March 2016; (2) by April 2017 PTC Energy had 50 MW operating in MP, which can only be Jaora (30 MW, 8 Mar 2016) + Nipaniya (20 MW); (3) 288.8 MW being 'nearly 6 times' the capacity at the start of FY2016-17 means about 50 MW on 1 Apr 2016 (with only Jaora it would be ~9.6 times). So Nipaniya was commissioned in March 2016. If the caller treats this arithmetic as too indirect, downgrade to lead (year 2016 or early 2017). Owner: PTC Energy Ltd (100% PTC India subsidiary at the time).",
+  "sources": [
+   {
+    "url": "https://www.business-standard.com/article/markets/inox-wind-gains-on-turnkey-order-ptc-energy-116030200396_1.html",
+    "quote": "The company in a release said it has received an order for a 20MW wind power project to be set up at Nipaniya, Mandsaur in the state of Madhya Pradesh from PTC Energy Ltd."
+   },
+   {
+    "url": "https://www.business-standard.com/article/markets/inox-wind-gains-on-turnkey-order-ptc-energy-116030200396_1.html",
+    "quote": "Last Updated : Mar 02 2016"
+   },
+   {
+    "url": "https://www.business-standard.com/article/markets/inox-wind-extends-rally-on-winning-power-project-from-ptc-energy-116030300210_1.html",
+    "quote": "The company will supply and install 10 units of wind turbine generators and the project is due to be commissioned by March 2016"
+   },
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "With 50 MW operational capacity in wind power already in Madhya Pradesh, PEL’s portfolio of renewable energy projects has now scaled up to 288.8 MW"
+   },
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "achieve a scale of nearly 6 times the capacity it had at the beginning of FY2016-17"
+   },
+   {
+    "url": "https://www.eqmagpro.com/ptc-energy-commissions-wind-projects-in-karnataka-andhra/",
+    "quote": "PTC Energy commissions wind projects in Karnataka, Andhra India April 3, 2017"
+   },
+   {
+    "url": "https://www.indiaenvironmentportal.org.in/news-clippings/ptc-india-gains-after-arm-commissions-wind-power-project-in-mp",
+    "quote": "has achieved successful commissioning of its 30MW wind power project at Jaora, Ratlam District in Madhya Pradesh on March 08, 2016"
+   }
+  ]
+ },
+ {
+  "item": "48. Putluru wind farm (IND, 20.0 MW)",
+  "farm": "Putluru wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Wescare 集團於 2000 年 4 月前在 Anantapur 縣 Putluru 附近建成 20 MW 風場；可能與 Orient Green 的「Tadpatri (Bharath)」（含 RCI Power 的 80 部 250 kW）重複，未證實。",
+  "note_en": "The Wescare group had set up a 20 MW farm near Putluru, Anantapur district, by April 2000; it may duplicate Orient Green’s “Tadpatri (Bharath)” (which includes RCI Power’s 80 units of 250 kW), but this is not proven.",
+  "why": "Business Line (17 Apr 2000): 20 MW 'set up' near Putluru (so built by 2000, possibly 1999). OGPL's prospectus: its 24.25 MW Tadipatri block comprises 17 × 250 kW bought from Wind Energy System Care (Wescare) and 80 × 250 kW (= 20 MW) from RCI Power, commissioned 1999–March 2000. GEM's source is swapdial's 'putluru-rci-wind-farm' page (TLS failure) and thewindpower calls it 'Puthlur RCI' (20 MW). If a source ties RCI Power's 20 MW to Putluru, propose dup into 'Tadpatri (Bharath) wind farm'; otherwise year 2000 stays unconfirmed.",
+  "sources": [
+   {
+    "url": "https://www.indiaenvironmentportal.org.in/news-clippings/serc-recommendation-may-hit-wescare-ap-windfarm-project",
+    "quote": "The Wescare group of companies has set up a 20 MW windfarm near Putluru in the Ananthpur district of Andhra Pradesh."
+   },
+   {
+    "url": "https://www.sebi.gov.in/sebi_data/attachdocs/1287471439190.pdf",
+    "quote": "1025 (44 x 250 kw) and 1030 (36 x 250 kw) at Tadipatri, Andhra Pradesh from Wind Energy System Care India Limited and RCI Power Limited respectively to BWFL"
+   }
+  ]
+ },
+ {
+  "item": "49. Periyapatti (Ramco) wind farm (IND, 20.0 MW)",
+  "farm": "Periyapatti (Ramco) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "As Uthumalai (Ramco archived page blocked).",
+  "sources": []
+ },
+ {
+  "item": "51. EEIPL wind farm (IND, 20.0 MW)",
+  "farm": "EEIPL wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Ecoren's projects page 404; no profile found.",
+  "sources": []
+ },
+ {
+  "item": "53. Dalot (Greenko) wind farm (IND, 20.0 MW)",
+  "farm": "Dalot (Greenko) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Only Greenko IR 2019-20 (TLS failure). A separate 'Dalot (Tata)' (21 MW, 2013) shares the same point; not shown to be the same farm.",
+  "sources": []
+ },
+ {
+  "item": "54. Leap Green wind farm (IND, 20.0 MW)",
+  "farm": "Leap Green wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "CRISIL (2019) gives Leap Green Energy's own capacity as 19.50 MW but no site or COD; Tamia (Chhindwara) is an unusual wind location — position also doubtful.",
+  "sources": []
+ },
+ {
+  "item": "55. Vasai Dwarka wind farm (IND, 20.0 MW)",
+  "farm": "Vasai Dwarka wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "As Suthri (GMDC; no per-site dates).",
+  "sources": []
+ },
+ {
+  "item": "56. Vayaputra wind farm (IND, 20.0 MW)",
+  "farm": "Vayaputra wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "Only Greenko IR 2019-20 (TLS failure).",
+  "sources": []
+ },
+ {
+  "item": "57. Tirunelveli (Sai Regency) wind farm (IND, 19.0 MW)",
+  "farm": "Tirunelveli (Sai Regency) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "GEM's source is a CDM validation report on cdm.unfccc.int (blocked here).",
+  "sources": []
+ },
+ {
+  "item": "58. Udumalpet (Beta) wind farm (IND, 19.0 MW)",
+  "farm": "Udumalpet (Beta) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無商轉年。",
+  "note_en": "No commissioning year found.",
+  "why": "OGPL's 2010 prospectus lists Udumalpet-area blocks of Gamma Green Power (1994–2010), none matching a 19 MW Beta block; later Beta Wind Farm additions are not dated in reachable sources.",
+  "sources": []
+ }
+]

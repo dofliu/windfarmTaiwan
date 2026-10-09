@@ -38,7 +38,7 @@ visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CH
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
   [docs/events.en.md](./docs/events.en.md)).
 - Live output for about 150 farms in Australia and Canada.
-- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 849 record-level farm
+- Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 885 record-level farm
   clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)), with a build check for farms lost to a wrong merge
   (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (285 of 331 operating offshore
   farms have a known type, 87.3% of capacity); dimensions: at least one value for 278 farms and all three for 183 (ten rounds, every

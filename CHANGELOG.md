@@ -14,6 +14,17 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v2.30.18 — 2026-10-09
+
+- 第二十三輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十六批」）：
+  - 補上商轉年：營運中沒有年份的風場從 666 座（32.1 GW）減為 640 座（31.1 GW）。印度 218 → 204 座（信評報告、Oil India 與 Tata Power 公告、Orient Green 上市公開說明書等；
+    Oil India 的 Unchawas、Ludurva 與 Tata 的 Supa 從代用點移到所在村，概略位置），中國阿右旗（國家電投）與鄧州（中廣核）分散式補 2022 年。
+  - 重複與不存在：阿根廷 Energética I 與 Tres Picos 併入 Vientos Bonaerenses；以色列 WRI 的 Mount Gilboa 併入 Afcon；立陶宛 Strepeikiu 併入 Pagėgiai 13；義大利 Cocullo、Marsica 2 At、
+    Ponte Rotto 併入同一座的紀錄；法國 Les Chandelles 併入 Breteuil-Esquennoy、Entre Seine Et Aube 併入 La Prévoterie（補上 2010、2014、2021 三期）；印度 Agar (Greenko)、Dangri (Bhilwara)、
+    Gopalpura 併掉。喀麥隆 100 MW「營運中」查無此場（IRENA：喀麥隆 2024 年風電 0 MW）、波蘭 Reńska Wieś 只有申請案，刪除；阿根廷 Santa Teresita 改為規劃中。
+  - 更正：Tournevents du COS 改為 2017（DREAL：全場 2017-11-10 運轉）、L'Huître et Granville 補 2009（登錄）、波蘭 Tyszowce 30 MW／2016、滎陽飛龍頂容量改為已建成的 32.4 MW、
+    印度 Kita (Orix) 38.4 MW；「Chennai wind farm (REMCL)」其實是南方鐵路在 Kayathar 的 10.5 MW 風場（改名、2019）。
+
 ## v2.30.17 — 2026-10-09
 
 - 第二十二輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十五批」）：
