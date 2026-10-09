@@ -49,8 +49,10 @@ CLEAN drop CHN Zhangpu Liu'ao Phase 1 400.0
 CLEAN drop CHN Zhoushan Liuheng / Zhejiang others 600.0
 CLEAN drop COL El Morro wind farm 8.0
 CLEAN drop ESP Biscay Marine Energy Platform wind farm 20.0
+CLEAN drop FRA Saint-Georges-Sur-Arnon wind farm 48.0
 CLEAN drop GBR Dounreay Tr‚àö¬®  Floating Wind Demonstration 10.0
 CLEAN drop GBR Hornsea wind farm · 3, 4 5555.0
+CLEAN drop IND Yermala wind farm 149.0
 CLEAN drop JPN Kamis Offshore wind farm 30.0
 CLEAN drop KOR Firefly (Bandibuli) floating offshore wind farm 750.0
 CLEAN drop KOR Ulsan Dongbu floating demo (Vindmøllen 750 kW) 0.8
@@ -147,13 +149,21 @@ CLEAN dup EGY Gulf Of Ziet Wind Complex 580.0 -> Gabal El Zeit (I-III)
 CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
 CLEAN dup FRA EFGL wind farm 30.0 -> Les Éoliennes Flottantes du Golfe du Lion (EFGL)
 CLEAN dup FRA Eolmed Floating wind farm 30.0 -> EolMed (Gruissan)
+CLEAN dup FRA Fontenelle-Montby wind farm 56.0 -> Rougemont wind farm
+CLEAN dup FRA Fère-Champenoise-Euvy-Corroy wind farm 45.0 -> Fère-Champenoise wind farm
+CLEAN dup FRA Le Mont Hussard wind farm 38.0 -> Mont D'Origny wind farm
+CLEAN dup FRA Les Vignottes wind farm 36.0 -> Vignottes wind farm
+CLEAN dup FRA Pelade wind farm 48.0 -> Artigues Et Ollieres wind farm
 CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
 CLEAN dup GBR Sofia wind farm 1400.0 -> Sofia
 CLEAN dup GBR Triton Knoll (Innogy) wind farm 857.0 -> Triton Knoll
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
+CLEAN dup IND Basavana Bagewadi (Atria) II wind farm 40.0 -> Basavana Bagewadi (Atria) I wind farm
+CLEAN dup IND Vankusawade Wind Park 189.0 -> Vankusawade
 CLEAN dup IRN Harzvil wind farm 14.0 -> Manjil wind farm
 CLEAN dup IRN Siahpoush (Manjil) wind farm 48.0 -> Manjil wind farm
+CLEAN dup ITA Lercara Friddi wind farm 84.0 -> Rocca Rossa (Alpiq) wind farm
 CLEAN dup JOR Tafilah wind farm 117.0 -> Tafila
 CLEAN dup JPN Kyushu floating wind farm 1000.0 -> Kyushu - GIP floating wind farm
 CLEAN dup KEN Kajiado wind farm 100.0 -> Kipeto
@@ -254,6 +264,7 @@ CLEAN fix CHN Fujian Zhangpu Liu'Ao Offshore wind farm · D 402.0
 CLEAN fix CHN Fujian Zhangpu Liu'Ao Offshore wind farm · E 404.0
 CLEAN fix CHN Fuqing Haitan Strait 300.0
 CLEAN fix CHN Fuqing Xinghua Bay Phase 2 300.0
+CLEAN fix CHN Gansu Gaotai Yanchitan (Gansu Power Investment) wind farm 100.0
 CLEAN fix CHN Gansu Subei Mazongshan Yinmaxia Area A wind farm 155.0
 CLEAN fix CHN Guangdong Energy Fanshi II / Yangjiang 1000.0
 CLEAN fix CHN Guangdong Three Gorges Pilot Floating Offshore wind farm 16.0
@@ -272,6 +283,10 @@ CLEAN fix CHN Hainan CZ9 Demonstration Offshore wind farm · 1 600.0
 CLEAN fix CHN Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2 600.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
 CLEAN fix CHN Hebei Construction Investment Xiangyun Island 250.0
+CLEAN fix CHN Hebei Lixian wind farm 100.0
+CLEAN fix CHN Hebei Zhangbei Zhanhai wind farm 108.0
+CLEAN fix CHN Heilongjiang Binxian (Datang) wind farm 150.0
+CLEAN fix CHN Heilongjiang Tailai wind farm 100.0
 CLEAN fix CHN Huadian Yangjiang Qingzhou 3 500.6
 CLEAN fix CHN Huadian Yuhuan 2 500.0
 CLEAN fix CHN Huaneng Cangnan 4 400.0
@@ -292,8 +307,10 @@ CLEAN fix CHN Huaneng Yuhuan 2 500.0
 CLEAN fix CHN Huaneng Zhanjiang Xuwen East 400.0
 CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0
 CLEAN fix CHN Hunan Jiangyong Shuimeitang wind farm 260.0
+CLEAN fix CHN Hunan Yuanling Rangjiaxi wind farm 100.0
 CLEAN fix CHN Inner Mongolia Alashanzuo Banner Zongbieli (China Resources) wind farm 200.0
 CLEAN fix CHN Inner Mongolia Keyouqian Banner 200 MW wind farm 200.0
+CLEAN fix CHN Inner Mongolia Wuchuan (Tianneng) wind farm 150.0
 CLEAN fix CHN Inner Mongolia Wulatehou Banner 200 MW (Jingneng) wind farm 200.0
 CLEAN fix CHN Inner Mongolia Zhengxiangbai Banner (Shanxi International Energy) Green Hydrogen wind farms 1350.0
 CLEAN fix CHN Jiangsu Dafeng H12 Offshore (Longyuan) wind farm 200.0
@@ -310,9 +327,12 @@ CLEAN fix CHN Jiangsu Rudong H5 (Yunshan) Offshore wind farm 300.0
 CLEAN fix CHN Jiangsu Sheyang Southern Area H2-1 Offshore wind farm 104.0
 CLEAN fix CHN Jiangsu Sheyang Southern Area H5 Offshore wind farm 400.0
 CLEAN fix CHN Jiangsu Xiangshui C1 Offshore wind farm 12.0
+CLEAN fix CHN Jilin Changling (China Energy Investment) wind farm 100.0
+CLEAN fix CHN Jilin Tongyu Liangjingzi wind farm 400.0
 CLEAN fix CHN Jilin Tongyu Shihuadao wind farm 300.0
 CLEAN fix CHN Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm 350.0
 CLEAN fix CHN Liaoning Dalian Zhuanghe 4 Area II Offshore wind farm 200.0
+CLEAN fix CHN Liaoning Liaozhong (Guohua) wind farm 150.0
 CLEAN fix CHN Liaoning Tai'an (Anshan Liaodian) wind farm 200.0
 CLEAN fix CHN Liaoning Zhangwu Xiliujiazi wind farm 250.0
 CLEAN fix CHN Longyuan Dafeng H3 (Huaneng Dafeng) 300.0
@@ -348,6 +368,7 @@ CLEAN fix CHN Shangdu Huaneng Beifang 1600.0
 CLEAN fix CHN Shanghai Fengxian 200.0
 CLEAN fix CHN Shanghai Fengxian Haiwan Expansion Offshore wind farm 15.0
 CLEAN fix CHN Shanghai Lingang Demonstration Phase 1 102.0
+CLEAN fix CHN Shanxi Pinglu Xiamiangao wind farm 100.0
 CLEAN fix CHN Shenergy Hainan CZ2 (Dongfang) 600.0
 CLEAN fix CHN SinoHydro Rudong Intertidal 100.0
 CLEAN fix CHN Tangshan Laoting Putidao 300.0
@@ -355,6 +376,7 @@ CLEAN fix CHN Tangshan Laoting Yuetuo Island Phase 1 304.0
 CLEAN fix CHN Tianjin Nangang 90.0
 CLEAN fix CHN Tianjin Nangang 90.0
 CLEAN fix CHN Xinjiang Altai Jimunai (State Power Investment) wind farm 250.0
+CLEAN fix CHN Xinjiang Ruoqiang Luobuzhuang Wind District wind farm 100.0
 CLEAN fix CHN Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 1, Area 2, Area 6, Area 7, Area 8, Area 9 444.0
 CLEAN fix CHN Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 3 56.0
 CLEAN fix CHN Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 4, Area 5 300.0
@@ -404,9 +426,17 @@ CLEAN fix ESP Timanfaya Floating Offshore wind farm 50.0
 CLEAN fix FIN Ajos Retrofit wind farm 43.0
 CLEAN fix FIN Kemi wind farm 27.0
 CLEAN fix FRA Calvados (Courseulles-sur-Mer) 450.0
+CLEAN fix FRA Chambon Puyravault wind farm 43.2
 CLEAN fix FRA EolMed (Gruissan) 30.0
+CLEAN fix FRA La Côte Du Cerisat wind farm 50.0
 CLEAN fix FRA Les Éoliennes Flottantes du Golfe du Lion (EFGL) 30.0
+CLEAN fix FRA Longues Roies wind farm 47.0
+CLEAN fix FRA Plateau De Cabalas wind farm 30.0
 CLEAN fix FRA Provence Grand Large 25.0
+CLEAN fix FRA Rembercourt-Sommaisne wind farm 30.0
+CLEAN fix FRA Tortebesse wind farm 30.0
+CLEAN fix FRA Tulipes wind farm 36.0
+CLEAN fix FRA Vaux-Coulommes wind farm 32.0
 CLEAN fix FRA Village du Richebourg wind farm 109.2
 CLEAN fix FRA Îles d'Yeu et de Noirmoutier 496.0
 CLEAN fix GBR Dogger Bank A 1200.0
@@ -416,11 +446,15 @@ CLEAN fix GBR Kincardine 49.5
 CLEAN fix GBR Pentland wind farm 100.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
+CLEAN fix IND Basavana Bagewadi (Atria) I wind farm 119.0
+CLEAN fix IND Tamil Nadu (Evergreen) wind farm 250.0
 CLEAN fix IND Tanot wind farm 120.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
 CLEAN fix IRN Manjil wind farm 93.0
 CLEAN fix IRN Tizbaad wind farm 100.0
+CLEAN fix ITA Camporeale wind farm 50.0
+CLEAN fix ITA Trapani Salemi wind farm 66.0
 CLEAN fix JPN Choshi Offshore Demonstration (NEDO/TEPCO) 2.4
 CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
@@ -450,6 +484,7 @@ CLEAN fix MAR Akhfennir I-II 200.0
 CLEAN fix MAR Akhfennir I-II 200.0
 CLEAN fix MAR Tarfaya 301.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
+CLEAN fix NLD De Drentse Monden En Oostermoer wind farm 156.8
 CLEAN fix NLD Ecowende Offshore wind farm 780.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
 CLEAN fix NLD Irene Vorrink (Dronten) 16.8

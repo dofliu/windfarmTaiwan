@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 9 Oct 2026: v2.30.13, research round 18: commissioning years and event links; the next conversation starts here)
+## In progress (hand-off, 9 Oct 2026: v2.30.14, research round 19: commissioning years and data doubts; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,23 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 9 Oct 2026 (v2.30.14): research round 19 (three sub-agents: BA the next 40 Chinese farms and BB 55 French, Spanish and Italian farms without a commissioning year, BC the data doubts found in
+  round 18; every quote checked with `check_quotes.py`; results in `tools/research/years_2026-10p_BA.json`, `years_2026-10p_BB.json` and `doubts_2026-10p_BC.json`, written entries deleted, leads kept).
+  Clean-up rules 533 → 568 (`farm_cleanup.py`, 9 Oct 2026 "twelfth batch"):
+  1. Commissioning years: operating farms without a year go from 948 (42.6 GW) to 917 (40.1 GW). Best sources: for France the national register of production installations (ODRÉ, open data, quotable
+     CSV; query pattern in `years_2026-10p_BB.json`) and DREAL inspection reports; for China the annual reports and notices of listed owners (the cninfo announcement query API).
+  2. Duplicates and removals: five in France, one in Italy, Atria II and GEM's Vankusawade in India; Saint-Georges-sur-Arnon (the sum of the commune's four 2009 parks) and India's Yermala
+     (discontinued in 2017) are removed.
+  3. Round-18 doubts settled: Drentse Monden (175.5 MW, 2021), Atria (one 120 MW farm, 54 V110, moved to Basavana Bagewadi town; two phases in operation from 18 Apr 2018, the third phase's
+     date not found, so the farm's year is still unverified), the points of Liangjingzi and Jimunai (SPIC), Evergreen 250 MW (noted as a developer total).
+  4. Still leads: GEM's alternative name and sources for TBEA's Ruoqiang Qiman are really TBEA's Ruoqiang River 1 GW project (Luobuzhuang wind area, 150 turbines, first turbine on 31 Dec 2024);
+     neither the 750 MW "operating" nor the Qiman 1,000 MW has a construction record, to verify. Fengning wind-hydrogen was still under construction in Jan 2024; a double count is unproven. Envision's
+     200 MW at Ejin Horo is its own entry on the 2021 grid list; whether it is part of the 440 MW zero-carbon park is unproven. Every Delta Maranhão model found is GE (the field's Vestas/Nordex has no
+     source). Amistad still has no year (phases II–IV stalled for permits in 2022 and are not in the layer). TEECL and Dangri (Leap) remain placeholders. In France, Herbissonne (2014), Joyeux
+     Developers, Plateau-de-Grès (2017) and Plaine d'Osne (2020) rest only on unnamed register rows; Melle and Miraumont equal their whole commune's total and overlap other records; Gourgançon is
+     probably Mont de Bézard + Le Mont Grignon; Roman Road is probably Voie Romaine / La Guenelle; Corroy shares Fère-Champenoise's point; Voie Romaine should be 2014 and Les Tilleuls 2009 (register).
+     Italy: three Sant'Agata records within 0.5 km may be one farm. China: the two CGN Chifeng poverty-alleviation records share name and capacity (one says Liaoning) and may be duplicates; Hanggin
+     (China Resources) is about 600 km off; Houlongshan's Chinese name is phase 2; the three Jushi Lianshui records share a placeholder; Tailai was agreed for sale to CNNC Huineng in Nov 2024 (completion unverified).
 - 9 Oct 2026 (v2.30.13): research round 18 (three sub-agents: AA China and AB elsewhere, the largest operating farms without a commissioning year; AC the events not yet linked to a farm plus two Chinese doubts;
   every quote checked with `check_quotes.py`; results in `tools/research/years_2026-10o_AA.json`, `years_2026-10o_AB.json` and `doubts_2026-10o_AC.json`, written entries deleted, leads kept). Clean-up rules 508 → 533
   (`farm_cleanup.py`, 9 Oct 2026 "eleventh batch"):
@@ -349,8 +366,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures (v2.30.13): 285 of 331 operating offshore farms have a known foundation type (87.3% of capacity); dimensions for 278 farms,
-  all three for 183; 533 clean-up rules; card photos for 64 farms; 84 of 91 events linked to a farm.
+- Current figures (v2.30.14): 285 of 331 operating offshore farms have a known foundation type (87.3% of capacity); dimensions for 278 farms,
+  all three for 183; 568 clean-up rules; card photos for 64 farms; 84 of 91 events linked to a farm.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -602,8 +619,8 @@ the rules are in `tools/farm_cleanup.py`.
       Windpark Asseln (GEM's Paderborn) and was removed as a duplicate in v2.30.8; the MaStR matching around there was sorted out in v2.30.10 (item 3 of round 15 under "In progress")
 - [x] 587 pipeline projects whose expected year had already passed (101 GW): only 2 remain after GEM 2026-02 (Monsoon in Laos, 600 MW,
       and BPP Vĩnh Châu in Vietnam, 30 MW, both under construction and expected in 2025)
-- [ ] 948 operating farms, 42.6 GW, have no commissioning year (v2.30.13; mostly in China and India), so the map can
-      only show them from 2025: add years where they can be found (round 18 checked the 68 largest; leads under "In progress")
+- [ ] 917 operating farms, 40.1 GW, have no commissioning year (v2.30.14; mostly in China and India), so the map can
+      only show them from 2025: add years where they can be found (rounds 18–19 checked about 160; leads under "In progress")
 - [x] Germany filled from MaStR (v2.22.0): farm-level coverage 68% → 96%; the suspected duplicates were cleared in v2.22.1 (Flomborn-Stetten's
       misplaced point corrected, the other 7 pairs confirmed as different farms and listed in `NOT_DUP` in `farm_cleanup.py`)
 - [ ] Large countries with low coverage (after GEM 2026-02: China 98 GW short, India 16 GW): assess filling

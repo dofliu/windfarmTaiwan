@@ -7,16 +7,16 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,700 operating farms, 1,185,098 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 20,689 operating farms, 1,184,349 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 55 countries · △ 60–85%: 12 · ✗ below 60%: 8 · ⚠ above 110%: 4 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 166 duplicate, never-built or non-existent records were removed and 367 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Clean-up**: checked record by record in 2026-09; 176 duplicate, never-built or non-existent records were removed and 392 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 9,573 projects, 2,717,958 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
 - **China**: national 640,626 MW, mapped 567,888 MW (89%), gap 72,738 MW.
-- **India**: national 54,511 MW, mapped 42,278 MW (78%), gap 12,233 MW.
-- **Italy**: national 13,568 MW, mapped 10,504 MW (77%), gap 3,064 MW.
+- **India**: national 54,511 MW, mapped 41,900 MW (77%), gap 12,611 MW.
+- **Italy**: national 13,568 MW, mapped 10,421 MW (77%), gap 3,147 MW.
 - **Germany**: national 77,873 MW, mapped 74,971 MW (96%), gap 2,902 MW.
 - **Denmark**: national 7,547 MW, mapped 5,001 MW (66%), gap 2,546 MW.
 - **Belgium**: national 5,851 MW, mapped 3,972 MW (68%), gap 1,879 MW.
@@ -34,15 +34,15 @@ English ｜ [中文](data-coverage.md)
    - Ethiopia: 122% (613 / 504 MW)
    - Philippines: 116% (603 / 518 MW) — the farm list checks out (DOE’s 2020 list, 443 MW, plus the 160 MW Pagudpud farm completed in 2024–25); IRENA’s figure may not yet fully count Pagudpud
    - Chile: 110% (6,477 / 5,883 MW)
-2. **Unknown commissioning year**: 42,471 MW of operating farms have no start year in GEM, so the map can only show them from 2025 and earlier years look sparser at farm level. Largest by country:
-   China 15,956 MW, India 10,749 MW, Spain 3,671 MW, France 3,371 MW, Italy 2,195 MW, Turkey 2,194 MW, Germany 839 MW, Poland 718 MW, Netherlands 716 MW, Mexico 644 MW
+2. **Unknown commissioning year**: 39,949 MW of operating farms have no start year in GEM, so the map can only show them from 2025 and earlier years look sparser at farm level. Largest by country:
+   China 14,698 MW, India 10,411 MW, Spain 3,671 MW, France 2,802 MW, Turkey 2,194 MW, Italy 1,995 MW, Germany 839 MW, Poland 718 MW, Mexico 644 MW, Netherlands 559 MW
 3. **Expected year already passed but still in the pipeline**: 2 projects, 630 MW — they may have started operating, slipped or been cancelled. The 10 largest:
    - Monsoon Wind (Sekong/Attapeu) (LAO) · 600 MW · construction · expected 2025
    - BPP Vĩnh Châu wind farm (VNM) · 30 MW · construction · expected 2025
-4. **Coordinates**: 4,996 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 19 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
+4. **Coordinates**: 4,992 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 19 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
    **Suspected duplicates A (same or similar name)**: 0 pairs, smaller side 0 MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:
    **Suspected duplicates B (different names, same capacity, close by)**: none left — every pair found has been checked: same-farm pairs were merged by the clean-up rules and pairs confirmed as different farms are listed in `NOT_DUP` in `tools/farm_cleanup.py` (see the [clean-up log](data-cleanup.en.md)).
-   **Shared coordinates**: 131 points each hold 3 or more operating farms (1,312 farms, 105,624 MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:
+   **Shared coordinates**: 131 points each hold 3 or more operating farms (1,307 farms, 104,516 MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:
    - CHN (43.244, 114.325) · 88 farms · 10,251 MW · Inner Mongolia Huolinhe Circulating Economy Demonstration wind farm · 1,2,3, 4, 5, Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm, Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (Huaneng) wind farm…
    - CHN (36.0, 119.0) · 86 farms · 6,891 MW · Shandong Qingdao Baoshan wind farm, Shandong Muping Wanggezhuang wind farm, Shandong Juancheng Zuoying wind farm…
    - CHN (37.0, 112.0) · 67 farms · 5,952 MW · Shanxi Fanshi County Yunwuyu wind farm, Shanxi Yuanqu (State Power Investment) wind farm, Shanxi Pinglu Dashantai wind farm · 3…
@@ -99,20 +99,20 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 
 | # | Country | National MW | of which offshore | GEM operating MW | Mapped MW | Coverage | Gap MW | Farms | Year-unknown MW | Approx. coords | Flag |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 567,888 | 89% | 72,738 | 5,126 | 15,956 | 2,869 | ✓ |
+| 1 | China (CHN) | 640,626 | 48,400 | 542,758 | 567,888 | 89% | 72,738 | 5,126 | 14,698 | 2,869 | ✓ |
 | 2 | United States of America (USA) | 158,372 | 174 | 157,594 | 166,220 | 105% | 0 | 1,236 | 0 | 9 | ✓ |
 | 3 | Germany (DEU) | 77,873 | 9,931 | 50,536 | 74,971 | 96% | 2,902 | 6,605 | 839 | 176 | ✓ |
-| 4 | India (IND) | 54,511 | 0 | 38,937 | 42,278 | 78% | 12,233 | 630 | 10,749 | 568 | △ |
+| 4 | India (IND) | 54,511 | 0 | 38,937 | 41,900 | 77% | 12,611 | 627 | 10,411 | 565 | △ |
 | 5 | Brazil (BRA) | 34,866 | 0 | 35,718 | 34,232 | 98% | 634 | 294 | 0 | 3 | ✓ |
 | 6 | Spain (ESP) | 33,301 | 7 | 31,007 | 31,436 | 94% | 1,865 | 872 | 3,671 | 253 | ✓ |
 | 7 | United Kingdom (GBR) | 33,088 | 16,071 | 28,965 | 31,731 | 96% | 1,357 | 740 | 2 | 0 | ✓ |
-| 8 | France (FRA) | 26,000 | 2,008 | 25,610 | 25,896 | 100% | 104 | 1,248 | 3,371 | 321 | ✓ |
+| 8 | France (FRA) | 26,000 | 2,008 | 25,610 | 25,590 | 98% | 410 | 1,241 | 2,802 | 320 | ✓ |
 | 9 | Canada (CAN) | 18,153 | 0 | 17,709 | 17,755 | 98% | 398 | 197 | 0 | 6 | ✓ |
 | 10 | Sweden (SWE) | 17,381 | 191 | 16,574 | 16,554 | 95% | 827 | 259 | 97 | 0 | ✓ |
 | 11 | Turkey (TUR) | 14,781 | 0 | 13,784 | 14,067 | 95% | 714 | 278 | 2,194 | 13 | ✓ |
 | 12 | Australia (AUS) | 14,529 | 0 | 14,252 | 15,239 | 105% | 0 | 107 | 18 | 3 | ✓ |
-| 13 | Italy (ITA) | 13,568 | 30 | 10,440 | 10,504 | 77% | 3,064 | 338 | 2,195 | 146 | △ |
-| 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,675 | 91% | 1,107 | 160 | 716 | 49 | ✓ |
+| 13 | Italy (ITA) | 13,568 | 30 | 10,440 | 10,421 | 77% | 3,147 | 337 | 1,995 | 146 | △ |
+| 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,693 | 91% | 1,089 | 160 | 559 | 49 | ✓ |
 | 15 | Poland (POL) | 10,602 | 0 | 8,962 | 9,024 | 85% | 1,578 | 239 | 718 | 115 | ✓ |
 | 16 | Finland (FIN) | 9,383 | 71 | 8,551 | 9,012 | 96% | 371 | 143 | 0 | 1 | ✓ |
 | 17 | Denmark (DNK) | 7,547 | 2,687 | 5,003 | 5,001 | 66% | 2,546 | 119 | 80 | 4 | △ |

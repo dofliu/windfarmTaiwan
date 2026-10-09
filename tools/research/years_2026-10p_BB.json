@@ -1,0 +1,528 @@
+[
+ {
+  "item": "FRA 10. Herbissonne 46 MW",
+  "farm": "Herbissonne wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(ready if accepted) fix('FRA', 'Herbissonne wind farm', G, '補上商轉年 2014：An Avel Braz 的 Herbissonne 風場有 23 部 2 MW 風機、4 個併網點（Villiers-Herbisse）；國家發電設施登錄在 Villiers-Herbisse 與 Herbisse 有 4 個 2014-11 至 12 月併網的併網點，合計正好 46 MW', 'Commissioning year 2014 added: An Avel Braz’s Herbissonne farm has 23 turbines of 2 MW and 4 delivery points (Villiers-Herbisse); the national register has four delivery points in Villiers-Herbisse and Herbisse connected Nov–Dec 2014, exactly 46 MW in all', 'https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/ZPDLpU5jzQ8tKoE9Tq3XxAUax1LKPtxH', year=2014)",
+  "note_zh": "檢查報告：23 部 × 2 MW、4 個併網點，2011 年起依既得權核准；登錄：Villiers-Herbisse 3 × 12 MW（2014-11-10、12-04、12-15）＋Herbisse 10 MW（2014-11-28）＝46 MW。",
+  "note_en": "Inspection: 23 × 2 MW, 4 delivery points, authorised under prior rights since 2011; register: Villiers-Herbisse 3 × 12 MW (10 Nov, 4 Dec, 15 Dec 2014) + Herbisse 10 MW (28 Nov 2014) = 46 MW.",
+  "why": "All four register rows are “Confidentiel”; the 4-row/46 MW match is exact but the Herbisse row’s commune is not confirmed by a named source, so left as lead. An Avel Braz filings (registre-dematerialise, aube.gouv.fr) did not give a date or could not be read.",
+  "sources": [
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/ZPDLpU5jzQ8tKoE9Tq3XxAUax1LKPtxH",
+    "quote": "Le parc est constitué de 23 éoliennes, de 138 m de hauteur totale et de 4 PDL. La puissance unitaire est de 2 MW."
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%20in%20%28%22Herbisse%22%2C%22Villiers-Herbisse%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Villiers-Herbisse;10430;04/12/2014;04/12/2014;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%20in%20%28%22Herbisse%22%2C%22Villiers-Herbisse%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Herbisse;10172;28/11/2014;28/11/2014;10000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 2. Melle 54.3 MW",
+  "farm": "Melle wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) The 54.3 MW equals the sum of all five wind delivery points in the commune of Melle (2009, 2011, 2018, 2018, 2020), so the record is a commune total, not one farm; at least the 2009 12 MW row is probably the separate Mont Jarron record (12 MW, 2009, 2.4 km away). Options: drop as an aggregate, or reduce to the parts not otherwise listed.",
+  "note_zh": "Melle 鎮 5 個併網點合計正好 54.3 MW：12（2009-12）、12（2011-02）、14（2018-07）、9.4（2018-08）、Les Raffauds 2 6.9（2020-09）；資料另有 Mont Jarron（12 MW，2009）在 2.4 km 外。這筆是鎮內合計，與其他紀錄部分重複。",
+  "note_en": "The five delivery points in Melle add up to exactly 54.3 MW: 12 (Dec 2009), 12 (Feb 2011), 14 (Jul 2018), 9.4 (Aug 2018) and Les Raffauds 2, 6.9 (Sep 2020); the data also has Mont Jarron (12 MW, 2009) 2.4 km away. This record is a commune total and partly overlaps other records.",
+  "why": "Rows are “privé” (unnamed); which parks they are (Mont Jarron, Raffauds …) needs another source. If kept as a whole: year=2020, ph=[[2009, 12], [2011, 12], [2018, 23.4], [2020, 6.9]].",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Melle%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "privé;Melle;79174;01/02/2011;01/02/2011;12000.0;1 privé;Melle;79174;02/08/2018;02/08/2018;9400.0;1 privé;Melle;79174;03/12/2009;03/12/2009;12000.0;1 privé;Melle;79174;19/07/2018;19/07/2018;14000.0;1 3D ENERGIES PARC EOLIEN LES RAFFAUDS 2;Melle;79174;30/09/2020;30/09/2020;6900.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 9. Miraumont 46.1 MW",
+  "farm": "Miraumont wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) The 46.1 MW equals the sum of all five delivery points in Miraumont: Coquelicot 2A/2B 18.4 MW (Nov 2015), Camomille 4.6 MW (Jun 2018) and two unnamed rows 9.9 + 13.2 = 23.1 MW (Dec 2018), the last pair probably Boralex's Sources de l'Ancre (23 MW, 2019, already a record 1.8 km away). Suggested: fix mw=23, year=2018, ph=[[2015, 18.4], [2018, 4.6]], rename to the Coquelicot 2 / Camomille parks — needs a source naming Sources de l'Ancre's delivery points.",
+  "note_zh": "Miraumont 鎮 5 個併網點合計正好 46.1 MW：Coquelicot 2A、2B 各 9.2（2015-11）、Camomille 4.6（2018-06）、兩個未具名 9.9＋13.2（2018-12）；後兩者可能是 Boralex 的 Sources de l’Ancre（23 MW，已另有紀錄）。這筆是鎮內合計。",
+  "note_en": "The five delivery points in Miraumont add up to exactly 46.1 MW: Coquelicot 2A and 2B, 9.2 each (Nov 2015), Camomille 4.6 (Jun 2018) and two unnamed rows of 9.9 + 13.2 (Dec 2018), the latter probably Boralex’s Sources de l’Ancre (23 MW, a separate record). The record is a commune total.",
+  "why": "Unnamed rows; no Boralex source tying Sources de l’Ancre to Miraumont was looked up (budget).",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Miraumont%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Miraumont;80549;07/12/2018;07/12/2018;9900.0;1 Confidentiel;Miraumont;80549;07/12/2018;07/12/2018;13200.0;1 PARC EOLIEN CAMOMILLE;Miraumont;80549;27/06/2018;27/06/2018;4600.0;1 COQUELICOT 2B;Miraumont;80549;27/11/2015;27/11/2015;9200.0;1 COQUELICOT 2A;Miraumont;80549;27/11/2015;27/11/2015;9200.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 6. Gourgançon 48 MW",
+  "farm": "Gourgançon wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Probably an aggregate: the commune’s pre-2021 wind capacity is exactly 48 MW — Erelia Champagne 12 + another 12 MW (23 Apr 2007) and Mont Grignon parcs 4 and 5, 12 + 12 MW (1 Oct 2010); the data already has Mont De Bézard (25 MW, 2007, ENGIE) 1.6 km away and Le Mont Grignon (24 MW, 2010, Erelia) 3.8 km away. Erelia is an ENGIE company, matching GEM’s owner. Likely drop as covered; needs a source naming the 2007 Erelia park.",
+  "note_zh": "Gourgançon 鎮 2021 年以前的風電正好 48 MW：Erelia Champagne 12＋12 MW（2007-04-23）、Mont Grignon 4、5 號各 12 MW（2010-10-01）；資料已有 Mont De Bézard（25 MW，2007，ENGIE）與 Le Mont Grignon（24 MW，2010，Erelia）。很可能是重複的合計。",
+  "note_en": "Gourgançon’s pre-2021 wind capacity is exactly 48 MW: Erelia Champagne 12 + 12 MW (23 Apr 2007) and Mont Grignon parcs 4 and 5, 12 MW each (1 Oct 2010); the data already has Mont De Bézard (25 MW, 2007, ENGIE) and Le Mont Grignon (24 MW, 2010, Erelia). Very likely a duplicate aggregate.",
+  "why": "Not searched further (budget).",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN MONT GRIGNON 2- PARC 5;Gourgançon;51276;01/10/2010;01/10/2010;12000.0;1 PARC EOLIEN MONT GRIGNON 1-PARC 4;Gourgançon;51276;01/10/2010;01/10/2010;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "ERELIA CHAMPAGNE;Gourgançon;51276;23/04/2007;23/04/2007;12000.0;1 Confidentiel;Gourgançon;51276;23/04/2007;23/04/2007;12000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 20. Joyeux Developers 36 MW",
+  "farm": "Joyeux Developers wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(ready if a name source is found) year=2017: the only wind delivery points in Buire-le-Sec (the commune at the record’s point) are three of 12 MW each, all connected on 13 Sep 2017 = 36 MW.",
+  "note_zh": "Buire-le-Sec 3 × 12 MW，2017-09-13 併網，合計 36 MW；「Joyeux Developers」這個名稱查不到出處。",
+  "note_en": "Buire-le-Sec has 3 × 12 MW connected on 13 Sep 2017, 36 MW in all; no source found for the name “Joyeux Developers”.",
+  "why": "Rows are “Confidentiel”; no developer page found tying the name to Buire-le-Sec (not searched further, budget).",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Pas-de-Calais%22%20and%20commune%3D%22Buire-le-Sec%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Buire-le-Sec;62183;13/09/2017;13/09/2017;12000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 24. Plateau-De-Gres 33 MW",
+  "farm": "Plateau-De-Gres wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(ready if a name source is found) year=2017: the register’s “Ferme éolienne de Roqueredonde” (two 16.5 MW delivery points, 33 MW, 19 Dec 2017) is 1.6 km from the record’s point and has the same capacity.",
+  "note_zh": "Roqueredonde 的 Ferme éolienne de Roqueredonde 2 × 16.5 MW＝33 MW，2017-12-19 併網；尚無出處把它叫做 Plateau de Grès。",
+  "note_en": "Ferme éolienne de Roqueredonde, 2 × 16.5 MW = 33 MW, connected 19 Dec 2017; no source yet calls it Plateau de Grès.",
+  "why": "Web search for “Plateau de Grès” Roqueredonde found nothing.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22H%C3%A9rault%22%20and%20commune%3D%22Roqueredonde%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "RQREDE01 - ADP 01 DE LA FERME EOLIENNE DE ROQUEREDONDE;Roqueredonde;34233;19/12/2017;19/12/2017;16500.0;1 RQREDE02 - ADP 02 DE LA FERME EOLIENNE DE ROQUEREDONDE;Roqueredonde;34233;19/12/2017;19/12/2017;16500.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 28. Plaine D'Osne 32 MW",
+  "farm": "Plaine D'Osne wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(probable year=2020) Osne-le-Val has three delivery points connected Feb–Oct 2020 (7.875 + 13.8 + 7.625 = 29.3 MW), plus 9 MW in Montreuil-sur-Thonnance (Jun 2020); no source names the Plaine d’Osne farm.",
+  "note_zh": "Osne-le-Val 三個併網點 2020-02、06、10 併網（29.3 MW）；尚無具名出處。",
+  "note_en": "Osne-le-Val has three delivery points connected Feb, Jun and Oct 2020 (29.3 MW); no named source yet.",
+  "why": "Not searched further (budget).",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Haute-Marne%22%20and%20commune%3D%22Osne-le-Val%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Osne-le-Val;52370;01/10/2020;01/10/2020;7625.0;1 Confidentiel;Osne-le-Val;52370;18/02/2020;18/02/2020;7875.0;1 Confidentiel;Osne-le-Val;52370;22/06/2020;22/06/2020;13800.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 4. Saint Riquier 50 MW",
+  "farm": "Saint Riquier wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "未能確認。ICPE 登錄有 Saint-Riquier 1–4 號（位於 Gueschart），國家發電設施登錄附近只有 Brailly-Cornehotte 的 4 個併網點（2011-02：11.5＋13.8 MW；2013-11：13.8＋16.1 MW，合計 55.2 MW），是否就是這座待查。",
+  "note_en": "Unconfirmed. The ICPE register has Saint-Riquier 1–4 (located in Gueschart); the only nearby rows in the national register are four delivery points of the “Ferme éolienne de Brailly-Cornehotte” (Feb 2011: 11.5 + 13.8 MW; Nov 2013: 13.8 + 16.1 MW; 55.2 MW), and whether these are Saint-Riquier is unverified.",
+  "why": "travail-industrie.com pages for Saint-Riquier 2/3/4 (Gueschart) found by search but that site returns 403 to the checker; capacity 50 MW not matched.",
+  "sources": []
+ },
+ {
+  "item": "FRA 12. Roman Road 44 MW",
+  "farm": "Roman Road wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "「Roman Road」應是 La Voie Romaine（Vitry-la-Ville，Calycé 開發）的英譯：Global EcoPower 2014 年說 22 MW（11 部 V90），2014-06-16 併網；登錄 Vitry-la-Ville 3 個併網點 2014-06-19（合計 24.08 MW）。資料已有 Voie Romaine（22 MW，2013，GEP）與 La Guenelle（22 MW，2013）在 1.6 km 外，44 MW 可能是兩者合計，疑重複。",
+  "note_en": "“Roman Road” is probably La Voie Romaine (Vitry-la-Ville, developed by Calycé) in English: Global EcoPower (2014) gave 22 MW (11 V90) connected on 16 Jun 2014; the register has three delivery points in Vitry-la-Ville connected 19 Jun 2014 (24.08 MW). The data already has Voie Romaine (22 MW, 2013, GEP) and La Guenelle (22 MW, 2013) 1.6 km away; 44 MW may be their sum, so a duplicate is likely.",
+  "why": "Quotes not yet taken (AMF filing FCACT027058 of 26 Jun 2014 by Global EcoPower is the candidate source). Also the existing Voie Romaine record’s year 2013 looks wrong (2014).",
+  "sources": []
+ },
+ {
+  "item": "FRA 16. Voulpaix-Haution 41.1 MW",
+  "farm": "Voulpaix-Haution wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GEM wiki 現在把它列為「宣布」；2012–13 年有「Plateau d’Haution」風場（La Vallée-au-Blé、Laigny、Haution、Voulpaix）的公聽會。國家發電設施登錄在 La Vallée-au-Blé 有 4 個 2024 年 2–5 月併網的併網點（合計 36.6 MW），可能就是它，待具名出處。",
+  "note_en": "GEM wiki now lists it as announced; a 2012–13 public inquiry covered the “Plateau d’Haution” farm (La Vallée-au-Blé, Laigny, Haution, Voulpaix). The national register has four delivery points in La Vallée-au-Blé connected Feb–May 2024 (36.6 MW), possibly this farm; a named source is needed.",
+  "why": "Elicio/Valorem pages not found.",
+  "sources": []
+ },
+ {
+  "item": "FRA 23. Plaine De Courance 33 MW",
+  "farm": "Plaine De Courance wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "ENGIE Green（La Minée et Les Fougères）有「Plaine de Courance 2023 年環境監測」；登錄在 Beauvoir-sur-Niort 8.8 MW 與 Plaine-d’Argenson 13.2 MW 於 2023-01-04 併網，可能是它；年份可能 2023，待查證。",
+  "note_en": "ENGIE Green (La Minée et Les Fougères) has a “Plaine de Courance 2023 environmental monitoring” record; the register has 8.8 MW in Beauvoir-sur-Niort and 13.2 MW in Plaine-d’Argenson connected on 4 Jan 2023, possibly this farm; year probably 2023, unverified.",
+  "why": "INPN metadata page only; register rows are “privé”.",
+  "sources": []
+ },
+ {
+  "item": "FRA 15. l'Hommelet 41.4 MW",
+  "farm": "l'Hommelet wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無「Hommelet」風場的出處。所在點 0.5 km 外已有 Quesnoy-sur-Airaines（36 MW，2012）；登錄在 Quesnoy-sur-Airaines 有 3 × 12 MW（2010–2012），可能重複，待查。",
+  "note_en": "No source found for an “Hommelet” farm. The data already has Quesnoy-sur-Airaines (36 MW, 2012) 0.5 km away, and the register has 3 × 12 MW in Quesnoy-sur-Airaines (2010–2012); possibly a duplicate, unverified.",
+  "why": "Web search (French) returned only unrelated Somme projects.",
+  "sources": []
+ },
+ {
+  "item": "FRA 18. Blaznay 37.8 MW",
+  "farm": "Blaznay wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無出處；所在點（Blanzay 附近，Vienne）8 km 內的登錄只有 Saint-Pierre-d’Exideuil 15 MW（2025-06）與 Chaunay 18 MW（2018–19）。",
+  "note_en": "No source found; within 8 km of the point (near Blanzay, Vienne) the register has only Saint-Pierre-d’Exideuil 15 MW (Jun 2025) and Chaunay 18 MW (2018–19).",
+  "why": "Register only; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 22. Pays De Bray 35 MW",
+  "farm": "Pays De Bray wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未能對應；附近已有多筆小風場紀錄（Les Vatines、Varimpré、Val aux Moines、Clos Bataille 等），可能是彙總，待查。",
+  "note_en": "Not matched; several small farms are already listed nearby (Les Vatines, Varimpré, Val aux Moines, Clos Bataille …), so this may be an aggregate; unverified.",
+  "why": "Register only; not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 25. Mont Benhaut 32.4 MW",
+  "farm": "Mont Benhaut wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未能對應；8 km 內只有 La Ferté-Chevresis 12 MW（2017）。",
+  "note_en": "Not matched; within 8 km the register has only La Ferté-Chevresis 12 MW (2017).",
+  "why": "Register only; not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 26. Douiche · Nordex 31 32 MW",
+  "farm": "Douiche wind farm · Nordex 31",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未能對應；8 km 內只有 Le Thil 10.25 MW（2020），可能尚未建成或位置不對。",
+  "note_en": "Not matched; within 8 km the register has only Le Thil 10.25 MW (2020); possibly not built or misplaced.",
+  "why": "Register only; not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 29. Mont De Treme 31 MW",
+  "farm": "Mont De Treme wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未能對應；最近的是 Davenescourt 12.8 MW（2017-11），1.8 km 外已有 La Sablière Dave（29 MW，2018）。",
+  "note_en": "Not matched; nearest register row is Davenescourt 12.8 MW (Nov 2017), and La Sablière Dave (29 MW, 2018) is already a record 1.8 km away.",
+  "why": "Register only; not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 33. Champ Bonnet 29 MW",
+  "farm": "Champ Bonnet wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "所在點 8 km 內登錄沒有風電，可能尚未建成或位置不對。",
+  "note_en": "No wind rows in the register within 8 km of the point; possibly not built or misplaced.",
+  "why": "Register only; not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 34. La Hotte 29 MW",
+  "farm": "La Hotte wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未能對應；附近有 Rubigny 9 MW＋Vaux-lès-Rubigny 6 MW（2020-09）、Rocquigny 9 MW（2019-12），待具名出處。",
+  "note_en": "Not matched; nearby rows are Rubigny 9 MW + Vaux-lès-Rubigny 6 MW (Sep 2020) and Rocquigny 9 MW (Dec 2019); a named source is needed.",
+  "why": "Register only; not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 35. Jura Nord 28 MW",
+  "farm": "Jura Nord wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Velocita／Opale 的 Jura Nord 案（Gendrey、Sermange、Saligney，11 部）2017 年預計 2019 年春運轉，但國家發電設施登錄在這三鎮沒有任何風電併網點，可能尚未建成，待查。",
+  "note_en": "Velocita/Opale’s Jura Nord project (Gendrey, Sermange, Saligney, 11 turbines) was expected in spring 2019 (2017 press), but the national register has no wind delivery point in those three communes; possibly not built, unverified.",
+  "why": "Source for the plan: macommune.info 2017 article (quote not taken). Register checked for Gendrey/Sermange/Saligney: none.",
+  "sources": []
+ },
+ {
+  "item": "FRA 14. Parc Eolien de Cernon 41.9 MW",
+  "farm": "Parc Eolien de Cernon wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "所在點（Jura 省 Cernon 附近）8 km 內登錄沒有風電；0.4 km 外是 Entre Coole et Marne（14.4 MW，Marne 省），座標或名稱可能有誤（Marne 省也有 Cernon 鎮，登錄有 2008、2016 年的風電）。",
+  "note_en": "No wind rows within 8 km of the point (near Cernon, Jura); “Entre Coole et Marne” (14.4 MW, Marne) is 0.4 km away in the data, so the coordinates or name may be wrong (there is also a Cernon in the Marne with wind connected in 2008 and 2016).",
+  "why": "Register only; not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 1. La Lora 100 MW",
+  "farm": "La Lora wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not searched (budget); try Castilla y León BOCYL “autorización de explotación” Páramo de La Lora.",
+  "sources": []
+ },
+ {
+  "item": "ESP 2. Virgen De Rodanas 100 MW",
+  "farm": "Virgen De Rodanas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Forestalia 的 Virgen de Rodanas I、II（各 49.4 MW，13 部 GE 3.8-130）；GlobalData 說 2022 年商轉，2019 年新聞說預計 2020 年完工；待官方出處。",
+  "note_en": "Forestalia’s Virgen de Rodanas I and II (49.4 MW each, 13 GE 3.8-130); GlobalData says commissioned 2022, a 2019 article expected completion in 2020; official source needed.",
+  "why": "Aragón surveillance reports (aragon.es) give the operating year count but not a start date; BOA autorización de explotación not searched.",
+  "sources": []
+ },
+ {
+  "item": "ESP 3. La Muga 94 MW",
+  "farm": "La Muga wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GEM 的 94 MW＝La Muga（15.2 MW，4 部）＋La Muga II（49.4 MW）＋La Muga III（30.4 MW）；亞拉岡政府的環境監測報告說 2023-08 至 11 月是 La Muga 的「第四年運轉」，推得約 2020 年開始運轉；GlobalData 說 II 期 2020-09、III 期 2020-08。待官方日期。",
+  "note_en": "GEM’s 94 MW = La Muga (15.2 MW, 4 turbines) + La Muga II (49.4 MW) + La Muga III (30.4 MW); Aragón’s surveillance report calls Aug–Nov 2023 La Muga’s “fourth year of operation”, implying operation from about 2020; GlobalData gives Sep 2020 (II) and Aug 2020 (III). Official date needed.",
+  "why": "Year 2020 is likely for all three; quotes below only support the phase size and the operating-year count.",
+  "sources": [
+   {
+    "url": "https://aragon.es/documents/d/guest/pe-la-muga_ano4_ic1_expl_ago23-nov23-pdf-1",
+    "quote": "El parque eólico La Muga, situado en los términos municipales de Gallur y Magallón, consta de un total de 4 aerogeneradores de 3,8 MW de potencia, acumulando un total de 15,2 MW."
+   },
+   {
+    "url": "https://aragon.es/documents/d/guest/pe-la-muga_ano4_ic1_expl_ago23-nov23-pdf-1",
+    "quote": "uarto año de explotación en el parque eólico La Muga, incluyendo los periodos de agosto de 2023 a noviembre de 2023"
+   }
+  ]
+ },
+ {
+  "item": "ESP 4. El Portillo 2 83 MW",
+  "farm": "El Portillo 2 wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Forestalia 的 Portillo II（45.6＋38 MW，Valdejalón 群）2019 年預計 2020 年完工；待官方日期。",
+  "note_en": "Forestalia’s Portillo II (45.6 + 38 MW, Valdejalón group) was expected to finish in 2020 (2019 article); official date needed.",
+  "why": "Not quoted (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 5. Rocha 80 MW",
+  "farm": "Rocha wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "可能是 Repsol「Delta」（335 MW，8 座，2021 年 3 月全部運轉）的一部分，但查無把 Rocha 列入 Delta 的出處。",
+  "note_en": "Possibly part of Repsol’s “Delta” (335 MW, 8 farms, fully operating since March 2021), but no source lists Rocha among the Delta farms.",
+  "why": "Repsol Delta release PDF (index.repsol.com) failed (502); Delta II release names only La Cometa I/II.",
+  "sources": []
+ },
+ {
+  "item": "ESP 6. El Carrascal 78 MW",
+  "farm": "El Carrascal wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "BOE／BOJA：El Carrascal 49.5 MW（25 部 Gamesa）與 El Carrascal II 28 MW（14 部），Serón／Tíjola，2004–2006 年核准；FCC 2008 年買下 Olivento（14 座、420.7 MW）。商轉年待查。",
+  "note_en": "BOE/BOJA: El Carrascal 49.5 MW (25 Gamesa) and El Carrascal II 28 MW (14 units), Serón/Tíjola, permitted 2004–2006; FCC bought Olivento (14 farms, 420.7 MW) in 2008. Commissioning year unverified.",
+  "why": "Not quoted (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 7. La Cerradilla 72 MW",
+  "farm": "La Cerradilla wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "BOJA：La Cerradilla 49.5 MW（2002 年公告，33 部）、La Cerradilla II 22 MW（2004 年，11 部），Serón。資料在同一點還有 La Celaya（29 MW，2005，EDPR）與 Serón（60 MW，2008，Saeta），可能有重複。商轉年待查。",
+  "note_en": "BOJA: La Cerradilla 49.5 MW (2002 notice, 33 units) and La Cerradilla II 22 MW (2004, 11 units), Serón. The data also has La Celaya (29 MW, 2005, EDPR) and Serón (60 MW, 2008, Saeta) on the same point, so duplicates are possible. Year unverified.",
+  "why": "Not quoted (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 8. Monforte 72 MW",
+  "farm": "Monforte wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 9. Conesa 60 MW",
+  "farm": "Conesa wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 10. Mudefer 58 MW",
+  "farm": "Mudefer wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 11. Chorreaderos 51 MW",
+  "farm": "Chorreaderos wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not searched (budget).",
+  "sources": []
+ },
+ {
+  "item": "ESP 12. Iniesta 50 MW",
+  "farm": "Iniesta wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "卡斯提亞—拉曼查政府只查到 Parque Eólico Iniesta S.L. 的 50 MW（9 部 SG170）事前許可公告，另一公告提到現有 PE Iniesta 只有 5 MW；未見運轉紀錄，可能仍在規劃。",
+  "note_en": "Castilla-La Mancha notices show only a prior authorisation for Parque Eólico Iniesta S.L., 50 MW (9 SG170), and another notice mentions an existing PE Iniesta of only 5 MW; no evidence of operation, possibly still planned.",
+  "why": "jccm.es tablón PDFs not quoted (budget).",
+  "sources": []
+ },
+ {
+  "item": "ITA 2. Sant Agata 72 MW (Fri-El)",
+  "farm": "Sant Agata wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Fri-El S. Agata 的現有風場 36 部 × 2 MW＝72 MW（2003–2005 年核准），商轉年待查；資料在 0.5 km 內另有 Sant’Agata Di Puglia (EDF)（72 MW，2007）與 Sant’Agata（66 MW，CEF 2／Glennmont），三筆可能有重複。",
+  "note_en": "Fri-El S. Agata’s existing farm has 36 × 2 MW = 72 MW (permits 2003–2005), year unverified; within 0.5 km the data also has Sant’Agata Di Puglia (EDF) (72 MW, 2007) and Sant’Agata (66 MW, CEF 2/Glennmont); the three may overlap.",
+  "why": "MITE repowering file gives no commissioning date.",
+  "sources": [
+   {
+    "url": "https://va.mite.gov.it/File/Documento/785134",
+    "quote": "L’impianto eolico esistente è costituito da 36 aerogeneratori, ciascuno con potenza di 2MW, per una potenza totale di impianto pari a 72 MW"
+   },
+   {
+    "url": "https://va.mite.gov.it/File/Documento/785134",
+    "quote": "di proprietà della società Fri – El S. Agata srl"
+   }
+  ]
+ },
+ {
+  "item": "ITA 4. Sant'Agata 66 MW (CEF 2/Glennmont)",
+  "farm": "Sant'Agata wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "查無 CEF 2／Glennmont 66 MW 的出處；與上兩筆在 0.5 km 內，疑重複。",
+  "note_en": "No source for a CEF 2/Glennmont 66 MW farm; within 0.5 km of the two 72 MW records, a duplicate is suspected.",
+  "why": "Search found nothing on Glennmont at Sant’Agata.",
+  "sources": []
+ },
+ {
+  "item": "ITA 5. Grottole 54 MW",
+  "farm": "Grottole S.R.L wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Fri-El Grottole 現有風場 27 部 × 2 MW＝54 MW（改建案送審中），商轉年待查。",
+  "note_en": "Fri-El Grottole’s existing farm is 27 × 2 MW = 54 MW (repowering under review); year unverified.",
+  "why": "MITE repowering file gives no commissioning date.",
+  "sources": [
+   {
+    "url": "https://va.mite.gov.it/File/Documento/1079328",
+    "quote": "del “Parco eolico Grottole” esistente da 54 MW, con dismissione degli attuali 27 aerogeneratori"
+   }
+  ]
+ },
+ {
+  "item": "ITA 6. Lacedonia (ERG) 52 MW",
+  "farm": "Lacedonia (ERG) wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "查無 ERG 在 Lacedonia 52 MW 的出處；ERG 在當地的是 Lacedonia–Monteverde（39.6 MW，60 部 V47）。",
+  "note_en": "No source for an ERG 52 MW farm at Lacedonia; ERG’s farm there is Lacedonia–Monteverde (39.6 MW, 60 V47).",
+  "why": "Search only.",
+  "sources": []
+ },
+ {
+  "item": "ITA 8. Anemos Wind 50 MW",
+  "farm": "Anemos Wind S.R.L wind farm",
+  "src_code": 2,
+  "iso": "ITA",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not searched (budget).",
+  "sources": []
+ }
+]

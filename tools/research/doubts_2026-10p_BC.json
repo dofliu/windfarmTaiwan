@@ -1,0 +1,177 @@
+[
+ {
+  "item": "3d. IND TEECL Wind Project 2 (Tamil Nadu placeholder)",
+  "farm": "TEECL Wind Project 2",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change: no single locality)",
+  "note_zh": "Techno Electric（子公司 Simran Wind Project）在坦米爾納德邦的風場分在不同縣：IFC 2011 年揭露的 126.9 MW 擴建在 Muthianpatti（蒂魯布爾縣 Dharapuram 區）、Amdhapuram 與 Rasta，在地文件放在蒂魯布爾縣與蒂魯內爾維利縣的村公所；2015 年又出售 44.45 MW。沒有單一地點可用，現有座標（10.68 N、78.40 E，蒂魯奇拉帕利附近）不在這些地方。",
+  "note_en": "Techno Electric’s Tamil Nadu wind (through Simran Wind Project) is spread over several districts: the 126.9 MW expansion disclosed by IFC in 2011 is at Muthianpatti (Dharapuram taluk, Tiruppur), Amdhapuram and Rasta, with local documents at village offices in Tiruppur and Tirunelveli districts; 44.45 MW was sold in 2015. There is no single locality, and the current point (10.68 N, 78.40 E, near Tiruchirappalli) is at none of them.",
+  "why": "A multi-site record; a single approximate point would mislead. Which units remain in the 111 MW record after the 2015 sale is unknown (Techno annual reports not reached).",
+  "sources": [
+   {
+    "url": "https://disclosures.ifc.org/project-detail/SPI/30400/techno-wind",
+    "quote": "The Company is now expanding its wind power capacity for a total new capacity of about 126.9 MW in the state of Tamil Nadu in Muthianpatti, Amdhapuram and Rasta."
+   },
+   {
+    "url": "https://disclosures.ifc.org/project-detail/SPI/30400/techno-wind",
+    "quote": "The President, Muthianpatti Gram Panchayat Panchayat Union/ Block Kundadam Taluk: Dharapuram Distt: Tirupur PIN: 638702 The President, Maranthai Gram Panchayat Panchayat Union/ Block Alangulam Taluk: Tirunelveli Distt: Tirunelveli"
+   },
+   {
+    "url": "https://www.business-standard.com/article/news-cm/techno-electric-engineering-company-updates-on-its-wind-power-assets-115051400524_1.html",
+    "quote": "Post this transaction, SWPL continues to hold 117.9 MW of wind power assets."
+   }
+  ]
+ },
+ {
+  "item": "3e. IND Dangri (Leap) 112 MW at 76.7 E",
+  "farm": "Dangri (Leap) wind farm",
+  "src_code": 2,
+  "iso": "IND",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GEM 只寫「Dangri, Rajasthan」，座標（26.38 N、76.70 E）落在拉賈斯坦東部，與賈沙梅爾縣 Fatehgarh 區的 Dangri 風區（其他 Dangri 風場約 26.55 N、71.38 E）相距約 530 km，應是地名誤配。Leap Green 2017 年收購 Inox Renewables 與 Inox Renewables (Jaisalmer) 在拉賈斯坦等四邦的風場，可能就是本筆來源；但沒有出處直接寫 Leap 的 Dangri 風場在賈沙梅爾，也可能與「Dangri (GFL)」（54 MW，GFL 是 Inox Renewables 的母公司）重複，未查證。",
+  "note_en": "GEM only says “Dangri, Rajasthan”; its point (26.38 N, 76.70 E) is in eastern Rajasthan, about 530 km from the Dangri wind area in Fatehgarh tehsil, Jaisalmer (other Dangri farms at about 26.55 N, 71.38 E), so it looks like a mis-geocoded place name. Leap Green bought the wind plants of Inox Renewables and Inox Renewables (Jaisalmer) in Rajasthan and three other states in 2017, which may be where this record comes from; but no source says Leap’s Dangri farm is in Jaisalmer, and it may also overlap “Dangri (GFL)” (54 MW; GFL is Inox Renewables’ parent) — not checked.",
+  "why": "leapgreenenergy.com pages 502 / no project list; thewindpower’s free pages hide operators (“ND”); GlobalData’s “Dangri Wind Farm II – LGE” (64 MW, Inox 32 × 2 MW, March 2013) gives only “Rajasthan”. A relocation needs a source naming Leap’s site.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Dangri_(Leap)_wind_farm",
+    "quote": "Dangri, Rajasthan, India [ 1 ] 26.3833, 76.7001 (approximate)"
+   },
+   {
+    "url": "https://www.gem.wiki/Dangri_(Renew)_wind_farm",
+    "quote": "Fatehgarh Tehsil, Jaisalmer, Rajasthan, India [ 3 ] 26.5564, 71.3751 (exact)"
+   },
+   {
+    "url": "https://indianinfrastructure.com/2017/03/05/jpmorgan-backed-leap-green-to-buy-inoxs-wind-power-plants/",
+    "quote": "Inox Renewables and its unit Inox Renewables (Jaisalmer) Limited will sell wind power plants in Rajasthan, Maharashtra, Madhya Pradesh and Tamil Nadu"
+   }
+  ]
+ },
+ {
+  "item": "4. CHN Xinjiang Ruoqiang Qiman (TBEA) 750 MW operating",
+  "farm": "Xinjiang Ruoqiang Qiman (TBEA) wind farm (+ · 2)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(candidate, not yet supported for mw/st/year) fix('CHN', 'Xinjiang Ruoqiang Qiman (TBEA) wind farm', G, 'GEM 這筆的別名與出處其實是特變電工若羌縣「若羌河」100 萬瓩風電及配套儲能項目：位於若羌縣羅布莊風區一帶，2023 年 10 月開工，150 部風機（42×7.15＋48×6.25＋60×6.7 MW），2024 年 12 月 31 日升壓站反送電、首台風機發電併網（中新網 2025-01-02）；全容量併網日期未查到。特變電工 2024 年 6 月公告的祁曼 1,000 MW 風儲項目查無開工紀錄', 'GEM’s other name and sources for this record are TBEA’s Ruoqiang County “Ruoqiang River” 1 GW wind-plus-storage project: in the Luobuzhuang wind area of Ruoqiang, started in Oct 2023, 150 turbines (42 × 7.15 + 48 × 6.25 + 60 × 6.7 MW), substation energised and first turbine generating on 31 Dec 2024 (China News Service, 2 Jan 2025); the full-connection date was not found. The Qiman 1,000 MW wind-storage project TBEA announced in June 2024 has no record of construction', 'https://baijiahao.baidu.com/s?id=1820129249520114866&wfr=spider&for=pc', rename='Xinjiang Ruoqiang River (TBEA) wind farm', zhname='特变电工若羌县若羌河100万千瓦风电及配套储能项目', note=True),",
+  "note_zh": "GEM 把兩個項目混在一起：記錄名是「祁曼」，但別名、一期 750 MW「營運中」的出處都是若羌河 100 萬瓩項目（羅布莊風區，2024-12-31 首台併網）。祁曼 1,000 MW（一期 200、二期 800 MW，2024-06 公告）查無開工或併網報導。若羌河項目何時全容量併網、750 MW 是否已運轉都查不到；座標（38.374 N、89.96 E）在祁曼一帶而非羅布莊風區，羅布莊風區沒有可引用的座標。",
+  "note_en": "GEM mixes two projects: the record is named “Qiman”, but its other name and the source for phase 1 (750 MW operating) are the Ruoqiang River 1 GW project (Luobuzhuang wind area, first turbine on the grid on 31 Dec 2024). The Qiman 1,000 MW project (200 + 800 MW, announced June 2024) has no construction or connection report. When Ruoqiang River reached full connection, and whether 750 MW runs, is not found; the point (38.374 N, 89.96 E) is in the Qiman area, not Luobuzhuang, and no citable Luobuzhuang coordinates were found.",
+  "why": "Tried: TBEA’s Q1 2025 generation notice (cninfo, provincial totals only), the NEA page GEM cites (no mention), the Xinjiang 750 kV EIA PDF (404), searches for 全容量并网. A rename would also need the “· 2” phase record (250 MW construction, owner TBEA Xinjiang Sunoasis, refs from 2023–24 that fit the Ruoqiang River start in Oct 2023).",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Xinjiang_Ruoqiang_Qiman_(TBEA)_wind_farm",
+    "quote": "Other names: 变电工若羌县若羌河100万千瓦风电及配套储能项目"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1820129249520114866&wfr=spider&for=pc",
+    "quote": "12月31日，特变电工若羌县若羌河100万千瓦风电及配套储能项目升压站一次性反送电成功，首台风机发电，标志着若羌县又一风电及配套储能项目成功并网。"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1820129249520114866&wfr=spider&for=pc",
+    "quote": "该项目位于新疆若羌县境内的罗布庄风区一带，2023年10月正式开工建设。施工内容包括42台单机容量7.15兆瓦，48台单机容量6.25兆瓦，60台单机容量6.7兆瓦的风力发电机组以及2座220千伏升压站。"
+   },
+   {
+    "url": "https://cs.com.cn/esg/202406/t20240628_6420803.html",
+    "quote": "拟投资建设祁曼1000MW风储项目"
+   },
+   {
+    "url": "https://cs.com.cn/esg/202406/t20240628_6420803.html",
+    "quote": "其中一期建设200MW风电及配套储能项目，二期建设800MW风电及配套储能项目"
+   }
+  ]
+ },
+ {
+  "item": "5. CHN Fengning wind-solar-hydrogen-storage (two 150 MW phases)",
+  "farm": "Hebei Fengning Wind-solar hydrogen storage wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "GEM 這筆（承德豐寧風光氫儲 100 萬瓩項目的風電部分，國華控股 51%，大閣鎮）分「發電」「製氫」兩期各 150 MW、都標營運中，但人民日報 2024-01-13 仍寫該項目「建設有序推進」（1 月 12 日安裝輪轂）。風電實際容量（300 MW 或 150 MW）與併網年都查不到，無法判斷兩期是否重複；與遠景「風電＋儲能＋製氫」300 MW、交投晟德 200 MW 兩筆是否同案也未確認（業主不同）。",
+  "note_en": "This GEM record (wind part of the Chengde Fengning 1 GW wind-solar-hydrogen-storage project, Guohua 51%, Dage town) has two 150 MW phases, “electricity production” and “hydrogen production”, both operating; but People’s Daily said on 13 Jan 2024 that the project was still under construction (hubs being fitted on 12 Jan). The actual wind capacity (300 or 150 MW) and the connection year are not found, so a double count cannot be shown; links to the Envision 300 MW and Jiaotou Shengde 200 MW Fengning records are also unconfirmed (different owners).",
+  "why": "fengning.gov.cn (connection reset) and chengde.gov.cn (503 / reset) — GEM’s sources — are unreachable; searches found no grid-connection report.",
+  "sources": [
+   {
+    "url": "https://paper.people.com.cn/rmrb/html/2024-01/13/nw.D110000renmrb_20240113_5-02.htm",
+    "quote": "近期，位于河北省丰宁满族自治县坝上地区的承德丰宁风光氢储100万千瓦风光项目建设有序推进。"
+   },
+   {
+    "url": "https://www.gem.wiki/Hebei_Fengning_Wind-solar_hydrogen_storage_wind_farm",
+    "quote": "Hebei Fengning Wind-solar hydrogen storage wind farm is an operating wind farm in Dage, Fengning, Chengde, Hebei, China."
+   }
+  ]
+ },
+ {
+  "item": "6. CHN Envision Ejin Horo: Ordos Zero Carbon Park (440 MW) vs Yijinhuoluo Smart Energy (200 MW)",
+  "farm": "Inner Mongolia Ordos Zero Carbon Industrial Park wind farm / Inner Mongolia Yijinhuoluo Banner Smart Energy wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "兩筆都是遠景在伊金霍洛旗的項目：智慧綜合能源 200 MW 風電示範項目列在內蒙古 2021 年保障性併網名單（遠景、20 萬瓩、儲能 30%/2h）；零碳產業園 500 MW 風光儲項目含風電 440 MW。查不到 200 MW 項目是否就是 440 MW 的一部分，也查不到各自的併網日期，不能判定重複。",
+  "note_en": "Both are Envision projects in Ejin Horo Banner: the Smart Energy 200 MW wind demonstration project is on Inner Mongolia’s 2021 guaranteed-grid list (Envision, 200 MW, storage 30%/2h); the Zero-Carbon Park 500 MW wind-solar-storage project includes 440 MW of wind. Whether the 200 MW became part of the 440 MW, and either project’s connection date, are not found, so no duplicate can be shown.",
+  "why": "kjt.nmg.gov.cn / ordos.gov.cn blocked in round 18; no approval document for the zero-carbon park’s wind found. Points differ (39.70 N 109.54 E vs 39.24 N 109.83 E, ~55 km apart).",
+  "sources": [
+   {
+    "url": "https://www.nmgxny.com/myloads/file/20211008/1633685084733222.pdf",
+    "quote": "伊金霍洛旗智慧综合能源 200MW 风电示 范项目 远景能源有限公司 20 30%/2h"
+   },
+   {
+    "url": "https://new.qq.com/rain/a/20240113A030X200",
+    "quote": "远景能源500MW风光储一体化项目位于内蒙古鄂尔多斯市伊金霍洛旗，包括风电440MW、光伏60MW及配套储能80MW/320MWh"
+   }
+  ]
+ },
+ {
+  "item": "9. BRA Delta Maranhão: turbine field “Vestas/Nordex”",
+  "farm": "Delta Maranhão",
+  "src_code": 0,
+  "iso": "BRA",
+  "status": "lead",
+  "proposal": "(no change yet; the field may be wrong, but no source covers the whole complex)",
+  "note_zh": "426 MW＝Delta 3（96 部）＋Delta 5、6＋Delta 7、8（共 172 部）。查到的機型都是 GE：Delta 6 是 GE 風機（2019 年倒塌事件，GE 聲明），Delta 7 III 是 13 部 GE 2.7-116（GlobalData），Delta 3 在 The Wind Power 記為 GE 2.3-116（96 × 2.3 = 220.8 MW，但該頁的業主與位置不一致）。沒有任何出處提到 Vestas 或 Nordex，但 Delta 3、5、8 沒有可靠的機型出處，無法替全場寫一個機型。",
+  "note_en": "426 MW = Delta 3 (96 units) + Delta 5 and 6 + Delta 7 and 8 (172 units in all). Every model found is GE: Delta 6 is GE (2019 collapse, GE statement), Delta 7 III is 13 × GE 2.7-116 (GlobalData), and The Wind Power lists Delta 3 as GE 2.3-116 (96 × 2.3 = 220.8 MW, though that page’s owner and location are inconsistent). No source mentions Vestas or Nordex, but Delta 3, 5 and 8 have no reliable model source, so no field for the whole complex can be written.",
+  "why": "ANEEL’s open data (SIGA, generating units) has no turbine model; Omega/Serena investor pages not reached; GE press releases found cover other Brazilian farms. Suggest removing “Vestas/Nordex” or writing “GE” once Delta 3’s model is confirmed from a primary source.",
+  "sources": [
+   {
+    "url": "https://oimparcial.com.br/noticias/2019/06/novos-parques-de-energia-eolica-do-maranhao-terao-meio-bilhao-de-investimento/",
+    "quote": "Com a construção dos Deltas 7 e 8, a quantidade de aerogeradores passará de 136 para 172 e a geração total chegará a 426 MW de energia."
+   },
+   {
+    "url": "https://www.wind-watch.org/news/2019/09/06/worker-hurt-after-fifth-ge-wind-turbine-collapse-this-year/",
+    "quote": "On 3 September, a GE turbine collapsed at the Delta 6 wind park, located at Paulino Neves, Maranhao."
+   },
+   {
+    "url": "https://power-technology.com/?p=181820",
+    "quote": "The company provided 13 units of GE 2.7 - 116 turbines, each with 2.7MW nameplate capacity."
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_24979_delta-3.php",
+    "quote": "Turbines 12x GE Vernova 2.3-116 (power 2,300 kW, diameter 116 m) Total nominal power 27,600 kW"
+   }
+  ]
+ },
+ {
+  "item": "10. MEX Amistad (200 MW, no year) and Amistad II–IV",
+  "farm": "Amistad wind farm",
+  "src_code": 2,
+  "iso": "MEX",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "Amistad 一期 200 MW 2017 年 3 月開工（Enel）、原定 2018 年 10 月交付，仍查不到實際商轉日期。Amistad II、III、IV（合計 350 MW）2022 年 7 月報導「已可運轉，但因能源管制委員會（CRE）不發發電許可停擺兩年」；本站資料目前只有 Amistad 一筆（GEM 的 II–IV 標為暫停，未進風場層），不需修改。",
+  "note_en": "Amistad phase 1 (200 MW) started construction in March 2017 (Enel) with delivery planned for Oct 2018; the actual commercial-operation date is still not found. Amistad II, III and IV (350 MW together) were reported in July 2022 as “ready to operate but stopped for two years for lack of CRE generation permits”; the layer has only the one Amistad record (GEM’s II–IV are mothballed and not in the layer), so nothing to change there.",
+  "why": "proyectosmexico.gob.mx fails TLS verification here (incomplete certificate chain), so its project sheets (Amistad II start 30 Jun 2019, III 26 Feb 2025, IV 31 Dec 2028 per search results) cannot be quoted; Enel annual reports not reached. The 188.1 MW (57 × G132) vs 200 MW question also remains (The Wind Power only).",
+  "sources": [
+   {
+    "url": "https://www.enelgreenpower.com/media/news/2017/3/enel-green-power-mxico-starts-contruction-of-amistad-wind-farm",
+    "quote": "has started construction of the 200 MW wind farm called Amistad in the state of Coahuila"
+   },
+   {
+    "url": "https://www.energias-renovables.com/eolica/mexico-mantiene-paralizados-proyectos-eolicos-a-enel-20220711",
+    "quote": "Se trata de las centrales eólicas Amistad II, III, IV, listas para entrar en operaciones, pero paradas desde hace dos años por falta de permisos para generación"
+   }
+  ]
+ }
+]
