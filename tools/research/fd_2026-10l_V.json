@@ -1,0 +1,337 @@
+[
+ {
+  "item": "V2b. CGN Shanwei Jiazi I: foundation types",
+  "farm": "CGN Shanwei Jiazi I",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row. Design 70 monopiles + 8 four-pile jackets (cpem, plan); construction lots: I = 30 monopiles (dlztb 2019-12), II = 41 monopiles + 43 turbine installs (ne21) → 71 monopiles, 7 others unaccounted. D row (round 14) stays ready.",
+  "note_zh": "中廣核 2025-12 甲子一、二零星消缺招標（已建成投產）寫有「風電機組單樁基礎防腐處理」，證實有單樁，但沒有分項數量；海事局 2025-08 備案通告附「平面布置圖（竣工圖）」PDF 是掃描圖，無文字可核對；附件 1 風機座標清單沒有基礎欄。",
+  "note_en": "CGN's Dec 2025 defect-rectification tender for the built Jiazi I and II mentions 'monopile foundation anti-corrosion' of the turbines, confirming monopiles but giving no counts; the MSA Aug 2025 filing's as-built layout PDF is a scanned image (not quotable) and its coordinate list has no foundation column.",
+  "why": "dlztb site search only indexes items from about mid-2025 on; ecp.cgnpc.com.cn search API not found (homepage TLS reset); shanwei.gov.cn has no Jiazi I post-construction sea-use report (searched natural-resources notices 2025–2026).",
+  "sources": [
+   {
+    "url": "http://www.dlztb.com/xmxx/202512/134994.html",
+    "quote": "工作范围包括海上升压站/风电机组结构类缺陷处理、海上升压站/风电机组单桩基础防腐处理"
+   },
+   {
+    "url": "http://www.dlztb.com/xmxx/202512/134994.html",
+    "quote": "汕尾甲子一项目500MW海上风电场项目和甲子二400MW海上风电场项目已建成投产"
+   }
+  ]
+ },
+ {
+  "item": "V3. CGN Shanwei Jiazi II: foundation types",
+  "farm": "CGN Shanwei Jiazi II",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "Candidate only (not verified as built): F5('CHN', 'CGN Shanwei Jiazi II', 'mp', url='https://www.shanwei.gov.cn/attachment/0/27/27643/787473.pdf', zh='50 台 8 MW 全為單樁（2021-12 補充論證報告的調整後設計；2025-12 中廣核零星消缺招標寫已建成的風機有單樁基礎）', en='All 50 × 8 MW on monopiles (adjusted design in the Dec 2021 supplementary report; CGN’s Dec 2025 defect tender refers to the built turbines’ monopile foundations)') + the round-14 D row. Write only if the caller accepts a pre-construction design plus a post-construction mention without counts.",
+  "note_zh": "甲子二 2022-06 開工、半年完工；設計為 50 台單樁（最大樁徑 10 m）。建成後文件只有 2025-12 消缺招標提到「風電機組單樁基礎」，沒有數量；海事局 2025-08 通告只描述升壓站導管架。",
+  "note_en": "Jiazi II was built Jun–Dec 2022 to an all-monopile design (up to 10 m). The only post-construction document is the Dec 2025 defect tender mentioning turbine monopile foundations, without counts; the MSA Aug 2025 notice describes only the substation jacket.",
+  "why": "No construction lot record with counts found (dlztb search does not reach 2022; CGN ecp not searchable).",
+  "sources": [
+   {
+    "url": "https://www.shanwei.gov.cn/attachment/0/27/27643/787473.pdf",
+    "quote": "项目调整后风机基础结构为单桩基础结构"
+   },
+   {
+    "url": "http://www.dlztb.com/xmxx/202512/134994.html",
+    "quote": "海上升压站/风电机组单桩基础防腐处理"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=23ac52d2dcf1491599a30f22c5a5afaf",
+    "quote": "水深在32m-37m之间，共布置50台单机容量为8.0MW的风机，装机容量为400MW"
+   }
+  ]
+ },
+ {
+  "item": "V4. Huadian Yuhuan 1: south-zone construction source",
+  "farm": "Huadian Yuhuan 1",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row yet; when a construction source appears: mx parts=[['pc', 22], ['mp', 10]] + round-14 D row.",
+  "note_zh": "南區 10 台 2023-11 開工、2024-05-29 全部吊裝（華電重工，中國潛水打撈行業協會轉載）；台州海事局南區「風機基礎及風機安裝」通告（2023-10、2024-05）只列船舶與水域。工程建設驗收公示網有南區水保驗收公示，只寫陸上部分，附件在 oss 子網域被 Cloudflare 擋。",
+  "note_en": "The 10 south-zone turbines were built Nov 2023 – 29 May 2024 (Huadian Heavy Industries via CDSCA); the Taizhou MSA south-zone foundation notices (Oct 2023, May 2024) list vessels and areas only. yanshougs.com has the south zone's soil-and-water acceptance notice, covering only the onshore part; its attachments (oss.yanshougs.com) are Cloudflare-blocked.",
+  "why": "Still only the supply tender (10 monopile sets) and a self-media summary for the south zone; hhi.com.cn, zjtz.gov.cn and chdtp.com.cn unreachable.",
+  "sources": [
+   {
+    "url": "https://www.cdsca.org.cn/news/shownews.php?lang=cn&id=2843",
+    "quote": "标志着该项目（南区）10台风机，已全部吊装完成"
+   },
+   {
+    "url": "http://www.dlztb.com/xmxx/202309/28086.html",
+    "quote": "单桩基础及附属构件供货（南区10套）"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=6ef1c0d85b0046dbb4d3e8fd96bc989b",
+    "quote": "华电玉环1号海上风电场一期工程（南区）风机基础及风机安装施工作业"
+   }
+  ]
+ },
+ {
+  "item": "V5. Zhuhai Guishan: as-built capacity, turbine mix, foundations (data check)",
+  "farm": "Zhuhai Guishan",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No change yet. Leave the existing rule (198 MW, 2021); candidate later edit: note that two further units on composite-bucket foundations were added after 2021 (first bucket installed 26 Jun 2022; bucket EPC works extended to 30 Dec 2024; MSA July 2025: 49 turbines, 200 MW). Foundation row: mx (phase-1 four-pile jackets, later monopiles, 2 composite buckets) once counts are found.",
+  "note_zh": "廣州海事局 2025-07 已完工備案：建成 200 MW、49 台（座標表 1#–49#，38# 座標精度不同、位於筒型基礎施工水域內，應是後加的）。長江設計集團「筒型基礎專項 EPC」2022-06-26 裝好第一座圓形筒型基礎、第二座為多邊形；海事局 2024 年通告施工延到 2024-12-30；中文維基寫 2024 年在二期範圍加建兩台。所以 2021-12「全容量併網、198 MW」是加建前的狀態，200 MW 與 198 MW 的差異（及各期機型）仍無法以可核對的出處定案（2021 年一期後續及二期 13 台機型的報導在 in-en.com，連不上）。",
+  "note_en": "Guangzhou MSA completion filing (Jul 2025): built 200 MW with 49 turbines (coordinate list 1#–49#; 38# has different precision and lies in the bucket works area, so it was added later). CJWSJY's bucket-foundation special EPC installed the first circular bucket on 26 Jun 2022, with a second, polygonal one to follow; an MSA notice extended the works to 30 Dec 2024, and zh.wikipedia says two turbines were added in phase 2 in 2024. The Dec 2021 '198 MW, full connection' therefore predates these units; the 200 vs 198 MW difference and the per-phase models still cannot be settled from checkable sources (the 2021 report on the 13 phase-2 units is on in-en.com, unreachable).",
+  "why": "yanshougs.com lists Guishan's soil-and-water acceptance (Nov 2023) but its PDFs are Cloudflare-blocked (403); Southern Offshore Wind has no public procurement site found.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=4ab6834f5da342eda39986faf7b5b0fa",
+    "quote": "项目建成装机容量200MW，共49台风机"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=314bf3fb97614b4fa873732993c4c24e",
+    "quote": "珠海桂山海上风电场示范项目一期后续及二期EPC总承包项目筒型基础专项EPC工程"
+   },
+   {
+    "url": "https://www.gdshe.org/article/17649.html",
+    "quote": "6月26日，长江设计集团珠海桂山海上风电示范项目筒型基础专项EPC工程（桂山项目）完成第一台圆形筒型基础沉放安装"
+   },
+   {
+    "url": "https://www.gdshe.org/article/17649.html",
+    "quote": "确保顺利完成该项目第二台首创多边形筒型基础的建造安装"
+   },
+   {
+    "url": "https://zh.wikipedia.org/zh-hans/%E6%A1%82%E5%B1%B1%E6%B5%B7%E4%B8%8A%E9%A3%8E%E7%94%B5%E5%9C%BA",
+    "quote": "2024年，营运商于风电场二期范围内加建两台风力发电机。"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-178370.html",
+    "quote": "总装机规模198兆瓦，于2021年12月实现全容量并网"
+   }
+  ]
+ },
+ {
+  "item": "V6. CTG Yangjiang Qingzhou 6: foundation types",
+  "farm": "CTG Yangjiang Qingzhou 6",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row. D row ready once a foundation row exists: D('CHN', 'CTG Yangjiang Qingzhou 6', depth=(37, 46), url='http://www.dlztb.com/xmxx/202604/182123.html', zh='三峽 2026-04 運行期海洋環境跟蹤監測招標：水深約 37–46 m，74 台、100 萬瓩。', en='CTG operating-period marine monitoring tender (Apr 2026): depth about 37–46 m, 74 turbines, 1,000 MW.')",
+  "note_zh": "運行期招標寫 74 台（2021 年補充報告的設計是 105 台四樁導管架，已不適用）；沒有基礎型式。",
+  "note_en": "The operating-period tender gives 74 turbines (the 2021 report's 105-unit four-pile-jacket design no longer applies); no foundation type.",
+  "why": "CTG eps unreachable; MSA Ⅲ-lot notices give no type (round 14).",
+  "sources": [
+   {
+    "url": "http://www.dlztb.com/xmxx/202604/182123.html",
+    "quote": "水深约37m-46m，总装机容量100万千瓦。风电场内布置74台风电机组"
+   }
+  ]
+ },
+ {
+  "item": "V7. Datang Danzhou CZ3 (site 1): foundation counts",
+  "farm": "Datang Danzhou CZ3 (site 1)",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row (25 suction-bucket jackets known; the other 35 positions include monopiles in lot I, counts missing).",
+  "note_zh": "中交一航局一標段（29 台 10 MW＋升壓站）同時有單樁翻樁工藝與四樁吸力桶導管架；二標段 31 台型式未見。",
+  "note_en": "CCCC First Harbour's lot I (29 × 10 MW + substation) used both a single-pile turnover method (monopiles) and four-leg suction-bucket jackets; lot II (31 units) types not found.",
+  "why": "Datang e-commerce (cdt-ec.com) returns 405; dlztb only indexes site-2 tenders; Hainan MSA notices list areas and vessels only.",
+  "sources": [
+   {
+    "url": "https://www.163.com/dy/article/JF47HIJJ0514R9OJ.html",
+    "quote": "由中交一航局总承包分公司承建的一场址一标段施工内容包括29台10兆瓦风机基础及风机安装施工"
+   },
+   {
+    "url": "https://www.163.com/dy/article/JF47HIJJ0514R9OJ.html",
+    "quote": "采用自主研发的三绳单船单桩翻桩工艺"
+   }
+  ]
+ },
+ {
+  "item": "V8. Longyuan Putian Nanri Island: foundation types",
+  "farm": "Longyuan Putian Nanri Island",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "No F5 row (nine foundation lots; only lot VIII scope found: 12 units with piling, rock-socketing and cap works — tender stage).",
+  "note_zh": "國家能源招標網全文檢索可用（POST /bidfulltextsearch/rest/inteligentSearch/getFullTextData）：南日島只查到 VIII、IX 標段（2020）與運維類招標，沒有逐機位型式。",
+  "note_en": "CHN Energy's full-text search works (POST /bidfulltextsearch/rest/inteligentSearch/getFullTextData): for Nanri only lots VIII and IX (2020) and O&M tenders exist, none listing per-turbine types.",
+  "why": "Lots I–VII predate the platform's records; no completion acceptance found.",
+  "sources": [
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20200424/69406956-3cc6-4565-a660-10e5296ed980.html",
+    "quote": "负责吊桩、沉桩、嵌岩施工、承台施工、局部现场焊接以及电缆管的安装、抛石等施工图内的所有工作内容"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20210827/3544aa70-86c4-4ac1-8c91-3208e838f66d.html",
+    "quote": "安装单机容量4兆瓦的风机机组100台"
+   }
+  ]
+ },
+ {
+  "item": "V9. CGN Fanshi II",
+  "farm": "CGN Fanshi II",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "dlztb only has a 2026 security-assessment tender; no new construction record (lots I/III).",
+  "sources": []
+ },
+ {
+  "item": "V9. Fuqing Xinghua Bay Phase 2",
+  "farm": "Fuqing Xinghua Bay Phase 2",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "dlztb 2026 navigation-aid tender lists lights only; CTG sites unreachable.",
+  "sources": []
+ },
+ {
+  "item": "V9. Putian Pinghai Bay Phase 1",
+  "farm": "Putian Pinghai Bay Phase 1",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No new source (dlztb indexes only area DE tenders; Putian portals unreachable).",
+  "sources": []
+ },
+ {
+  "item": "V9. Putian Pinghai Bay Phase 2",
+  "farm": "Putian Pinghai Bay Phase 2",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No new source.",
+  "sources": []
+ },
+ {
+  "item": "V9. Putian Pinghai Bay Phase 3",
+  "farm": "Putian Pinghai Bay Phase 3",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No new source.",
+  "sources": []
+ },
+ {
+  "item": "V9. Putian Pinghai Bay Area F (Sanchuan)",
+  "farm": "Putian Pinghai Bay Area F (Sanchuan)",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No new source; D row from round 14 stays ready.",
+  "sources": []
+ },
+ {
+  "item": "V9. Fujian Pingtan Dalian Offshore wind farm",
+  "farm": "Fujian Pingtan Dalian Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No CGN O&M tender reachable; per-type counts for the seven types still missing.",
+  "sources": []
+ },
+ {
+  "item": "V9. Fujian Pingtan Changjiang'Ao Offshore wind farm",
+  "farm": "Fujian Pingtan Changjiang'Ao Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "dlztb has 2026 Datang Pingtan (Xianmei) navaid/security tenders without foundation data.",
+  "sources": []
+ },
+ {
+  "item": "V9. CGN Xiangshan Tuci",
+  "farm": "CGN Xiangshan Tuci",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "dlztb 2026 wind-solar supervision tender has no foundation data.",
+  "sources": []
+ },
+ {
+  "item": "V10. Tân An 1 offshore wind farm",
+  "farm": "Tân An 1 offshore wind farm",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Vietnamese press (Bao Dau tu, PLO, Cong Thuong) covers turbines and grid only; no pile/foundation contractor found.",
+  "sources": []
+ },
+ {
+  "item": "V10. Bac Lieu Phase 2",
+  "farm": "Bac Lieu Phase 2",
+  "src_code": 0,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Tien Phong: towers on ~17 m octagonal concrete bases; TEDI WECCO and power-technology (HTL, Descon built foundations) give no pile type.",
+  "sources": []
+ },
+ {
+  "item": "V10. Bac Lieu Phase 1",
+  "farm": "Bac Lieu Phase 1",
+  "src_code": 0,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Same as phase 2.",
+  "sources": []
+ },
+ {
+  "item": "V10. Duyên Hai wind farm · 1",
+  "farm": "Duyên Hai wind farm · 1",
+  "src_code": 2,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No foundation source beyond KBSV.",
+  "sources": []
+ },
+ {
+  "item": "V10. V1-3 Ben Tre (BTRE)",
+  "farm": "V1-3 Ben Tre (BTRE)",
+  "src_code": 0,
+  "iso": "VNM",
+  "status": "none",
+  "proposal": "None",
+  "note_zh": "",
+  "note_en": "",
+  "why": "MOIT/VietnamPlus inauguration reports give turbines only; EPC Sigma (GlobalData) has no reference page.",
+  "sources": []
+ }
+]

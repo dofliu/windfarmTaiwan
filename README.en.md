@@ -110,7 +110,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
     Australia (AEMO, 62 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
     private farms (an estimate from samples, never mixed with the official figures)
   - **Layers**: ports (55 in 15 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
-    foundations (278 of the 331 operating offshore farms have a known type, 85.2% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
+    foundations (284 of the 331 operating offshore farms have a known type, 87.0% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
     Wind now (NOAA GFS, every 6 hours), Sea zones (EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
     areas of 6 North Sea countries) and a mean wind speed basemap (Global Wind Atlas)
   - **Tours**: an auto tour and four story tours (Taiwan's road to offshore wind, Europe offshore, China's rise, Floating wind;
@@ -403,7 +403,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   farm belongs to China Three Gorges; Fuqing Xinghua Bay phase 2 is 280 MW, fully connected in 2021
 - From late September 2026, checking the foundations and dimensions of Chinese and Vietnamese offshore farms produced further rules correcting
   duplicates, never-built farms, status, capacity, turbine models and locations (e.g. GEM's four records for the four sites of CTG Dafeng 800 MW,
-  Xiangshan Tuci's connection year, Zhuanghe IV-2 now operating); 502 rules in all, each with its reason and source in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
+  Xiangshan Tuci's connection year, Zhuanghe IV-2 now operating); 506 rules in all, each with its reason and source in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
 - English country names: Australia was labelled "Ashmore and Cartier Is." (which shares the AUS code); fixed
 
 > The country profile's "farm-level coverage" = mapped operating capacity ÷ national year-end total

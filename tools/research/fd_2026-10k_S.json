@@ -46,39 +46,6 @@
   ]
  },
  {
-  "item": "S5",
-  "farm": "Huaneng Cangnan 4",
-  "src_code": 0,
-  "iso": "CHN",
-  "status": "lead",
-  "proposal": "No F5 row (mixed, counts unknown). Dimensions ready once a foundation row exists: D('CHN', 'Huaneng Cangnan 4', depth=(26, 34), url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa', zh='溫州海事局 2025-12 通航要素通告（已建成投用）：水深約 26–34 m，77 台 5.2 MW。', en='Wenzhou MSA notice (Dec 2025, built and in service): depth about 26–34 m, 77 × 5.2 MW.')",
-  "note_zh": "建成通告確認 77 台 5.2 MW、水深 26–34 m；2021 年施工通告的作業為鋼管樁沉樁、鋼套箱、鋼筋混凝土澆築（高樁承台的工序），2026 年又有「單樁基礎固化土沖刷防護」工程，所以是高樁承台＋單樁混合，各幾座未查到。",
-  "note_en": "The completion notice confirms 77 × 5.2 MW and 26–34 m depth; the 2021 construction notice lists steel-pile driving, steel jacket boxes and reinforced-concrete work (pile-cap steps), and a 2026 notice covers scour protection of the monopile foundations, so the farm mixes high-rise pile caps and monopiles; counts not found.",
-  "why": "Zhejiang MSA list (557 wind titles) scanned; no notice gives the split. cncn.gov.cn (2025 EIA notice) still unreachable.",
-  "sources": [
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa",
-    "quote": "因华能苍南4号海上风电项目已建成投用"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa",
-    "quote": "水深约26米～34米"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=adec97d82c014ec5922be0b6627b9baa",
-    "quote": "工程安装77台5.2兆瓦风电机组"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=6583234d72a3464fb3705f8550641186",
-    "quote": "钢管桩沉桩，防撞构件等外附件安装、灌浆，钢套箱安装、钢筋混凝土施工，钢套箱拆除"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=229eab3244aa44168457d76e415c9443",
-    "quote": "华能苍南4号海上风电项目单桩基础固化土冲刷防护施工工程"
-   }
-  ]
- },
- {
   "item": "S6",
   "farm": "Huadian Yuhuan 1",
   "src_code": 0,

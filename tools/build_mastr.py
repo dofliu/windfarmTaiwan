@@ -73,6 +73,12 @@ MANUAL = {
                                 'https://web.archive.org/web/20240126011532/https://www.ing-holst.de/de/referenzen.php'),
     'Schülp wind farm': (['Windpark Schülp', 'Windpark Schülp III'],   # wpd 的 Schülp：5 部 Enercon E-70，2014 年（MaStR 分成兩群；Schülp III 群裡 2016 年那部＝wpd 的 Schülp II）
                          'https://www.wpd.de/en/projects/references/'),
+    'Paderborn wind farm': (['Lichtenau', 'Windpark Asseln', 'AWP', 'Windpark Lichtenau - Hakenberg', 'Windpark Lichtenau-Hakenberg',
+                             'Hakenberg Driburger Strasse', '41032', 'Windpark Lichtenau'],
+                            # 1993–98 年的 Windpark Asseln（62 部、36 MW，含 1993–95 年 Hakenberg 的 Nordex N27、Tacke、NEG Micon）原址：MaStR 裡含 1993–98 年機組的各群，共 38.37 MW（原機仍運轉 40 部、20.77 MW，其餘是原址補建與汰換）
+                            'https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21'),
+    'Asselner wind farm': (['Asselner Windpark'],   # Asselner Windkraft 2015 年 12 月的 7 部 E-92＋1 部 E-115（19.45 MW）；MaStR 同名群另含 2018 年的 E-115（AWK 10）與 E-82（Heggewind），共 24.75 MW
+                           'https://www.thewindpower.net/windfarm_en_12163_asselner-windpark.php'),
 }
 
 

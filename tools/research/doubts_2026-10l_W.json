@@ -1,0 +1,39 @@
+[
+ {
+  "item": "2. Fujian: Zhangpu Liu'ao area E (and D) — position and status",
+  "farm": "Fujian Zhangpu Liu'Ao Offshore wind farm · E / · D",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "# tools/farm_cleanup.py — edit the existing area D rule (fix('CHN', \"Fujian Zhangpu Liu'Ao Offshore wind farm · D\", G, ...)): replace the last sentence of zh/en and the url, add lat/lon/approx\n    fix('CHN', \"Fujian Zhangpu Liu'Ao Offshore wind farm · D\", G,\n        '六鰲 D 區（402 MW）是海峽發電已核准的項目（2018 年券商報告已列），但查無開工紀錄：二期在 2023 年開工時與 2024 年都還被稱為閩南首個海上風電項目，2024-06 海峽發電的項目清單只列「負責控股建設漳浦六鰲二期」'\n        '與「籌建平海灣 DE 區」，沒有 D 區；改為前期開發（GEM 寫興建中）。點位改到漳州海事局 2026-08 通告的「D 區 4 號測風塔」（北緯 23°49′25.57″、東經 118°01′29.45″，2026-09 拆除），仍是概略位置；GEM 原點位貼近六鰲海岸',\n        \"Liu'ao area D (402 MW) is an approved Straits Power project (already listed in a 2018 broker report) with no record of construction: phase 2 was still called the first offshore wind project in southern Fujian when it started in 2023 and in 2024, and Straits Power's project list of June 2024 names only Zhangpu Liu'ao phase 2 (under construction) and Pinghai Bay DE (in preparation), not area D; moved to pre-construction (GEM says construction). \"\n        \"The point moves to the 'area D met mast No. 4' of a Zhangzhou MSA notice of Aug 2026 (23°49′25.57″ N, 118°01′29.45″ E, removed in Sept 2026), still approximate; GEM's point hugged the Liu'ao coast\",\n        'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649', st=2, note=True, zhname='福建漳浦六鰲海上風電場D區', lat=23.824, lon=118.025, approx=True),\n# (the existing Feb-2024 broker-report url 'https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf' can stay instead if the main session prefers; the MSA url backs only the new sentence)\n# Area E: no change (existing rule st=2 stays; position unverified).",
+  "note_zh": "E 區：福建海事局航行通告（行動版 API，2020-01 至 2026-10 共 3,695 則）與航行警告（921 則）都沒有任何六鰲 E 區的通告；以「六鰲 E 區」查漳州、福建自然資源、生態環境、發改委與省海上風電規劃都找不到用海、環評或核准文件。GEM 的 E 區點位（北緯 22.7333、東經 118.0333，標 exact）在台灣淺灘上，仍無法核對；GEM 同頁的 F-1 在北緯 23.8897、東經 118.0933，D 區的測風塔在北緯 23.82、東經 118.02，北緯 23.73 的打字錯誤是可能的，但沒有出處，不改。狀態維持現有規則（前期開發）。D 區（附帶）：漳州海事局 2026-08-20 通告（閩航通〔2026〕0531 號）的「漳浦六鰲海上風電場 D 區 4 號測風塔拆除項目」以測風塔中心 23°49′25.57″N／118°01′29.45″E 為圓心劃安全區，2026-09-24 拆除完工（0609 號）。這是第一個有官方座標、明確屬於 D 區的設施：在六鰲二期風機區（離岸 30.3–37 km）西南約 19 km、GEM 的 D 區點位（貼近六鰲海岸）東南約 22 km。建議把 D 區點位移到測風塔位置並保留「概略位置」（測風塔不是風場範圍的中心）。測風塔在 2026 年 9 月拆除，可能表示測風已完成，也可能表示計畫有變；查無開工或停止的紀錄，狀態維持前期開發。",
+  "note_en": "Area E: the Fujian MSA navigation notices on the mobile API (3,695 notices, Jan 2020 – Oct 2026) and navigation warnings (921) contain nothing on Liu'ao area E; searches for 'Liu'ao E area' at the Zhangzhou and Fujian natural-resources, ecology and development bodies and in the provincial offshore wind plan found no sea-use, EIA or approval document. GEM's E point (22.7333 N, 118.0333 E, marked exact) lies on the Taiwan Bank and still cannot be checked; GEM's F-1 on the same page is at 23.8897 N, 118.0933 E and the area D met mast is at 23.82 N, 118.02 E, so a slip for 23.73 N is possible, but nothing says so and the point is not moved. Status stays as in the existing rule (pre-construction). Area D (found on the way): Zhangzhou MSA notice of 20 Aug 2026 (Min Hang Tong [2026] 0531) on the 'Zhangpu Liu'ao offshore wind farm area D met mast No. 4 removal' sets a safety zone around the mast centre at 23°49′25.57″ N, 118°01′29.45″ E; the removal was completed on 24 Sept 2026 (notice 0609). This is the first facility with official coordinates that belongs explicitly to area D: about 19 km south-west of the Liu'ao phase 2 turbine area (30.3–37 km off the coast) and about 22 km south-east of GEM's area D point, which hugs the Liu'ao coast. Proposed: move area D to the met mast and keep it flagged approximate (a met mast is not the centre of the site). The mast was removed in September 2026, which may mean the measurement campaign ended or that plans changed; with no record of construction or cancellation the status stays pre-construction.",
+  "why": "Area E: no citable position or status change; MSA notice lists (navigation notices channel 3d725583ac134dfcb74aa8c47b14a164 and warnings channel 7b08405760384570a0fb44e9204c4b1d, both complete back to 2020) have no E-area entry; web searches for E-area sea-use/EIA/approval found only GEM, GlobalData and 4C (not citable). The area D change is a 'write'-grade proposal resting on the MSA notice (OK), kept approximate because the boundary is still unknown.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649",
+    "quote": "以D区4号测风塔中心坐标：23°49′25.57″N/118°01′29.45″E为圆心，半径500米施工水域范围所形成安全水域范围内区域"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649",
+    "quote": "三、作业内容：漳浦六鳌海上风电场D区4号测风塔拆除项目"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=4a429345440f4e76b5e426e7ae1a98af",
+    "quote": "已于2026年9月24日完工"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=93d687a6fa3b437ca0bddf81cda0cf8e",
+    "quote": "场址西距漳浦六鳌岸线30.3~37km，中心距离岸线32.8km"
+   },
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "E Liu'ao Peninsula, Zhangpu, Zhangzhou, Fujian, China [ 8 ] 22.7333, 118.0333 (exact)"
+   },
+   {
+    "url": "https://www.gem.wiki/Fujian_Zhangpu_Liu'Ao_Offshore_wind_farm",
+    "quote": "F-1 Liu'ao Peninsula, Zhangpu, Zhangzhou, Fujian, China [ 10 ] 23.8897, 118.0933 (exact)"
+   }
+  ]
+ }
+]

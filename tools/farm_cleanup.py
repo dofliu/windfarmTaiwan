@@ -1849,6 +1849,23 @@ RULES = [
         '莆田海事局 2025-12 通航要素通告（已建成）：平海灣 F 區採用 3 台 6 MW、26 台 7 MW 風電機組（合計 200 MW），海域水深 10–25 m',
         'Putian MSA navigation notice (Dec 2025, built): Pinghai Bay area F uses 3 × 6 MW and 26 × 7 MW turbines (200 MW in all), in 10–25 m of water',
         'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0', turbine='3x 6 MW + 26x 7 MW'),
+    # ------------------------------------------------ 2026-10-08 第九批（第十五輪資料疑點；出處原文以 check_quotes.py 核對）
+    fix('DEU', 'Paderborn wind farm', G,
+        '即 Lichtenau-Asseln 的 Windpark Asseln（GEM 的別名 Asseln wind farm）；GEM 的概略點位在風場北方約 2.7 km，靠近 2015–17 年另外的 WP LA、WP Lichtenau 機組，改用德文維基的座標（北緯 51°38′24″、東經 8°54′35″）',
+        'This is the Windpark Asseln at Lichtenau-Asseln (GEM’s other name: Asseln wind farm); GEM’s approximate point is about 2.7 km north of the park, next to the separate WP LA and WP Lichtenau turbines of 2015–17, so the German Wikipedia coordinates are used (51°38′24″ N, 8°54′35″ E)',
+        'https://de.wikipedia.org/wiki/Windpark_Lichtenau-Asseln', lat=51.64, lon=8.91),
+    fix('DEU', 'Asselner wind farm', G,
+        'Asselner Windpark：2015 年 12 月 7 部 Enercon E-92＋1 部 E-115（19.45 MW，The Wind Power）；MaStR 的同名群另有 2018 年 2 部（E-115 3 MW、E-82 2.3 MW），共 24.75 MW',
+        'Asselner Windpark: 7 Enercon E-92 and one E-115 of December 2015 (19.45 MW, The Wind Power); MaStR’s group of that name adds 2 units of 2018 (an E-115 of 3 MW and an E-82 of 2.3 MW), 24.75 MW in all',
+        'https://www.marktstammdatenregister.de/MaStR/Datendownload', mw=24.75, ph=[[2015, 19.45], [2018, 5.3]]),
+    fix('CHN', "Fujian Zhangpu Liu'Ao Offshore wind farm · D", G,
+        '點位改到漳州海事局 2026-08 通告（閩航通〔2026〕0531 號）的「D 區 4 號測風塔」（北緯 23°49′25.57″、東經 118°01′29.45″，2026-09 拆除）；測風塔不是場址中心，仍標概略位置；GEM 原點位貼近六鰲海岸，在其西北約 22 km',
+        "The point moves to the 'area D met mast No. 4' of a Zhangzhou MSA notice of Aug 2026 (Min Hang Tong [2026] 0531; 23°49′25.57″ N, 118°01′29.45″ E, removed in Sept 2026); a met mast is not the centre of the site, so the point stays approximate; GEM's point hugged the Liu'ao coast about 22 km to the north-west",
+        'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649', lat=23.824, lon=118.025, approx=True),
+    fix('CHN', 'CGN Shanwei Jiazi I', C,
+        '甲子一 78 部明陽 6.45 MW（中國電力網 2022-04：擬安裝 78 台 MySE6.45MW、首台 6.45 MW 已裝；汕尾海事局 2025-08 備案參數：78 台 6.45 MW）。海事局備案的葉輪直徑為 168 m、輪轂高 100 m，與原寫的 MySE6.45-180（葉輪約 178–180 m）不合，型號尾碼沒有出處，改為只寫 6.45 MW（確切型號待查證）',
+        'Jiazi I has 78 Mingyang 6.45 MW turbines (China Power, Apr 2022: 78 MySE6.45MW planned, first 6.45 MW unit erected; Shanwei MSA filed parameters, Aug 2025: 78 × 6.45 MW). The MSA filing gives a 168 m rotor and 100 m hub, which does not fit the stored MySE6.45-180 (a 178–180 m rotor); the suffix had no source, so only the 6.45 MW rating is kept (exact model unverified)',
+        'https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167', turbine='78x Mingyang MySE 6.45 MW'),
 ]
 
 # 不可當成精選風場重複的 GEM 專案（GEM 專案名稱，不含分期標籤）
@@ -1864,6 +1881,10 @@ ORPHAN_OK = {
 # 名稱相近、已查證是不同風場的組合：覆蓋率報告的「疑似重複」不再列（tools/coverage_report.py）
 NOT_DUP = {
     # 2026-10-08 第十三輪：查證後確定是不同風場
+    ('DEU', 'WP LA'):
+        ('MaStR 的「WP LA」是 Lichtenau-Asseln 北側 2015–16 年的 5 部（E-82、E-92、E-115、E-70，12.3 MW）；GEM 的 Dahl（12 MW、2016）對到的是約 8 km 外 Paderborn-Dahl 的 Bürgerwindpark Dahl（2016–17 年 5 部 E-82）：不同風場',
+         'MaStR’s “WP LA” is 5 turbines of 2015–16 just north of Lichtenau-Asseln (E-82, E-92, E-115, E-70; 12.3 MW); GEM’s Dahl (12 MW, 2016) matches the Bürgerwindpark Dahl at Paderborn-Dahl about 8 km away (5 E-82 of 2016–17): different farms',
+         'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
     ('JPN', 'Enshu Kakegawa Wind Farm'):
         ('黑潮風力發電的遠州掛川（掛川市國安海岸，8 部 Enercon E-82，2009–2011 年，15.97 MW）與中部電力的御前崎二期（御前崎市，8 部 Subaru 2 MW，2011 年）容量年份相同，是相距約 7 km 的兩座風場（日立 Power Solutions 的 Enercon 國內交貨表只列掛川）',
          'Kuroshio Wind Power’s Enshu Kakegawa (Kuniyasu coast, Kakegawa; 8 Enercon E-82, 2009–2011, 15.97 MW) and Chubu Electric’s Omaezaki phase 2 (Omaezaki; 8 Subaru 2 MW, 2011) share capacity and year but are two farms about 7 km apart (Hitachi Power Solutions’ Enercon delivery list has only the Kakegawa one)',
@@ -1892,10 +1913,6 @@ NOT_DUP = {
         ('MaStR 的「Bürgerwindpark Norddeich」是 Norddeich 2015–2016 年的 5 部 Enercon E-92（11.75 MW）；GEM 的 Schülp（wpd，2014 年 5 部 E-70）、Büttler Balje（Friedrichsgabekoog，2014–2015 年 5 部 E-82）與 Wesselburener Deichhausen（2014 年 5 部 E-82）都是別的機組：不同風場',
          'MaStR’s “Bürgerwindpark Norddeich” is 5 Enercon E-92 at Norddeich from 2015–2016 (11.75 MW); GEM’s Schülp (wpd, 5 E-70 of 2014), Büttler Balje (Friedrichsgabekoog, 5 E-82 of 2014–2015) and Wesselburener Deichhausen (5 E-82 of 2014) are other turbines: different farms',
          'https://www.marktstammdatenregister.de/MaStR/Datendownload'),
-    ('DEU', 'Windpark Asseln'):
-        ('MaStR 的「Windpark Asseln」是 Asselner Windkraft 的機組（1998 年 1 月的 E-40 序號 41075–41081、1998 年的 E-66、2001／2008／2015／2020 年的補建）；GEM 的 Lichtenau（1997 年、RWE）是 1997 年 12 月 RWE／Winkra 的 E-40：不同批機組',
-         'MaStR’s “Windpark Asseln” is Asselner Windkraft’s turbines (E-40 serials 41075–41081 of January 1998, an E-66 of 1998, and units added in 2001, 2008, 2015 and 2020); GEM’s Lichtenau (1997, RWE) is RWE/Winkra’s E-40 of December 1997: a different set of turbines',
-         'https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php'),
     ('DEU', 'Dieksanderkoog TraGe 1'):
         ('MaStR 的「Dieksanderkoog TraGe 1」是 Friedrichskoog 2012 年 11–12 月併網的 6 部 Enercon E-70 E4（13.8 MW）；GEM 的 Barlt West（14 MW、2012）對到的是約 8 km 外 Barlt 的 4 部 Senvion 3.4M104（2012）與 1 部 3.2M114（2016）：不同風場',
          'MaStR’s “Dieksanderkoog TraGe 1” is 6 Enercon E-70 E4 connected November–December 2012 at Friedrichskoog (13.8 MW); GEM’s Barlt West (14 MW, 2012) matches 4 Senvion 3.4M104 (2012) and a 3.2M114 (2016) at Barlt, about 8 km away: different farms',

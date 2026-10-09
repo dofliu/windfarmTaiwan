@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.10 — 2026-10-08
+
+- Research round 15 (quotes checked with `check_quotes.py`; see [foundations](docs/foundations.en.md)):
+  - From Jiangsu MSA construction notices: Rudong H5 (75), GCL Rudong H15 (40), Guoxin Rudong H2 (70, depth added), Huaneng Rudong H3 (80) and Jiangjiasha H1 phase 2 (15) all stand on monopiles.
+  - Germany, Lichtenau-Asseln: GEM's Paderborn (the 1993–98 Windpark Asseln) and Asselner (2015) now carry their own MaStR turbines (`MANUAL` in `build_mastr.py`); the MaStR-added "Windpark Asseln" and "AWP", which counted old turbines a second time, fold into Paderborn; Asselner gains its 2018 extension (24.75 MW); Paderborn's point moves to the German Wikipedia coordinates of the park.
+  - Liu'ao area D's point moves to the area D met mast of a Zhangzhou MSA notice (still approximate).
+  - Huaneng Cangnan 4's 77 foundations: 42 monopiles + 35 high-rise pile caps (2025 scour-protection tender), plus depth 26–34 m; Jiazi I's turbine field now reads just "78 Mingyang 6.45 MW" (the MSA-filed 168 m rotor does not fit the stored MySE6.45-180; exact model unverified).
+  - Operating offshore farms with a known foundation type: 284 of 331 (87.0% of capacity); 102 of China's 141 and 15 of Vietnam's 20.
+
 ## v2.30.9 — 2026-10-08
 
 - Research round 14, second part: foundations in southern China and Vietnam (quotes checked with `check_quotes.py`; see [foundations](docs/foundations.en.md)):

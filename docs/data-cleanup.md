@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 502 條：刪除 162 筆（其中營運中 45,189.8 MW），修正 340 筆。
+- 規則 506 條：刪除 162 筆（其中營運中 45,189.8 MW），修正 344 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 59 | 26,824.5 | 140 |
+| 中國大陸 | 59 | 26,824.5 | 142 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -26,7 +26,7 @@
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 1 | 150 | 0 |
-| 德國 | 2 | 71 | 14 |
+| 德國 | 2 | 71 | 16 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
@@ -253,6 +253,8 @@
 | CTG Zhangpu Liu'ao Phase 2 · 400 MW · 2024 | 精選 | 修正：座標 | 福建省政府 2023-12-25 的二期用海變更批復（閩政海域〔2023〕45 號）附宗海界址點坐標：風機區在北緯 23.894–23.947°、東經 118.174–118.245°（另有海纜往西接回六鰲）；點位改為風機區中心（北緯 23.921°、東經 118.209°），原點位在其西南約 30 km。OpenStreetMap 依海事局通告 1182/2024 畫的無名風場範圍（way 1334215514）與此重合 | [連結](https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202401/t20240104_6372449.htm) |
 | Fujian Zhangpu Liu'Ao Offshore wind farm · D · 402 MW | GEM | 修正：狀態、中文名 | 六鰲 D 區（402 MW）是海峽發電已核准的項目（2018 年券商報告已列），但查無開工紀錄：二期在 2023 年開工時與 2024 年都還被稱為閩南首個海上風電項目，2024-06 海峽發電的項目清單只列「負責控股建設漳浦六鰲二期」與「籌建平海灣 DE 區」，沒有 D 區；改為前期開發（GEM 寫興建中）。GEM 的點位是貼近六鰲海岸的概略位置，確切場址待查證 | [連結](https://epaper.cs.com.cn/zgzqb/images/2024-06/08/B075/zqB07508.pdf) |
 | Putian Pinghai Bay Area F (Sanchuan) · 200 MW · 2021 | GEM | 修正：機組 | 莆田海事局 2025-12 通航要素通告（已建成）：平海灣 F 區採用 3 台 6 MW、26 台 7 MW 風電機組（合計 200 MW），海域水深 10–25 m | [連結](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=43c18726195d4eb29b36542045a78ee0) |
+| Fujian Zhangpu Liu'Ao Offshore wind farm · D · 402 MW | GEM | 修正：座標 | 點位改到漳州海事局 2026-08 通告（閩航通〔2026〕0531 號）的「D 區 4 號測風塔」（北緯 23°49′25.57″、東經 118°01′29.45″，2026-09 拆除）；測風塔不是場址中心，仍標概略位置；GEM 原點位貼近六鰲海岸，在其西北約 22 km | [連結](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5747a71192184f58bf7a009e7d857649) |
+| CGN Shanwei Jiazi I · 503 MW · 2022 | 精選 | 修正：機組 | 甲子一 78 部明陽 6.45 MW（中國電力網 2022-04：擬安裝 78 台 MySE6.45MW、首台 6.45 MW 已裝；汕尾海事局 2025-08 備案參數：78 台 6.45 MW）。海事局備案的葉輪直徑為 168 m、輪轂高 100 m，與原寫的 MySE6.45-180（葉輪約 178–180 m）不合，型號尾碼沒有出處，改為只寫 6.45 MW（確切型號待查證） | [連結](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167) |
 
 ## 丹麥 (DNK)
 
@@ -412,6 +414,8 @@
 | Bornstedt-Holdenstedt wind farm · 12 MW · 2010 | GEM | 修正：年份 | MVV 的「Windpark Holdenstedt-Bornstedt」是 8 部、12 MW，就是 MaStR 的 8 部 GE 1.5sl（2006 年 7 月併網，Allstedt／Bornstedt）；GEM 的 2010 年是旁邊別批機組的年份，改為 2006 | [連結](https://web.archive.org/web/20240131130640/https://www.mvv.de/en/about-us/group-of-companies/mvv-umwelt/renewable-energies/windfarms-on-shore?tx_maps2_maps2%5BmapProviderRequestsAllowedForMaps2%5D=1&cHash=c4995b927adfc78d8d92015e95b3acdc) |
 | Süderauerdorf wind farm · 12 MW · 2017 | GEM | 修正：容量、分期 | 2017 年 4 部 Siemens SWT-3.0-113（12 MW），2023 年同一個 BWP Süderauerdorf 再加 2 部 SWT-DD-130（8.6 MW，MaStR） | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Lichtenau wind farm · 11 MW · 1997 | GEM | 重複（併入「Paderborn wind farm」） | GEM 的 Lichtenau（11 MW、1997、RWE）是 1997–98 年 Lichtenau-Asseln「Windpark Asseln」的一部分：當地鄉土協會的介紹寫整座風場 62 部、36 MW，1997 年 12 月首次併網、1998 年 5 月完工，營運者「Diverse Betreiber 23 部、Asselner Windkraft 18 部、WINKRA Lichtenau 21 部」；The Wind Power 的 Lichtenau 頁列 18 部 Enercon E-40「開發商 Winkra、營運者 RWE」。GEM 另一筆 Paderborn（36 MW、1998，出處就是這篇介紹）是整座風場，本筆重複 | [連結](https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21) |
+| Paderborn wind farm · 36 MW · 1998 | GEM | 修正：座標 | 即 Lichtenau-Asseln 的 Windpark Asseln（GEM 的別名 Asseln wind farm）；GEM 的概略點位在風場北方約 2.7 km，靠近 2015–17 年另外的 WP LA、WP Lichtenau 機組，改用德文維基的座標（北緯 51°38′24″、東經 8°54′35″） | [連結](https://de.wikipedia.org/wiki/Windpark_Lichtenau-Asseln) |
+| Asselner wind farm · 19.5 MW · 2015 | GEM | 修正：容量、分期 | Asselner Windpark：2015 年 12 月 7 部 Enercon E-92＋1 部 E-115（19.45 MW，The Wind Power）；MaStR 的同名群另有 2018 年 2 部（E-115 3 MW、E-82 2.3 MW），共 24.75 MW | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 
 ## 愛爾蘭 (IRL)
 
@@ -784,6 +788,7 @@
 
 | 風場 | 理由 | 出處 |
 |---|---|---|
+| WP LA (DEU) | MaStR 的「WP LA」是 Lichtenau-Asseln 北側 2015–16 年的 5 部（E-82、E-92、E-115、E-70，12.3 MW）；GEM 的 Dahl（12 MW、2016）對到的是約 8 km 外 Paderborn-Dahl 的 Bürgerwindpark Dahl（2016–17 年 5 部 E-82）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Enshu Kakegawa Wind Farm (JPN) | 黑潮風力發電的遠州掛川（掛川市國安海岸，8 部 Enercon E-82，2009–2011 年，15.97 MW）與中部電力的御前崎二期（御前崎市，8 部 Subaru 2 MW，2011 年）容量年份相同，是相距約 7 km 的兩座風場（日立 Power Solutions 的 Enercon 國內交貨表只列掛川） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 | Jiangsu Dafeng H4 Offshore (Longyuan) wind farm (CHN) | 龍源大豐 H4（303 MW、47 部 6.45 MW，太平沙，龍源鹽城新能源）與三峽大豐 H8-2（300 MW、38 部 4.5 MW＋20 部 6.45 MW，離岸約 72 km）是不同業主、不同機組的兩座風場 | [連結](https://offshorewind.biz/2021/12/21/chinas-farthest-offshore-wind-farm-sprints-to-the-finish-line) |
 | Zhejiang Jiaxing 2 Offshore wind farm (CHN) | 華能嘉興 2 號（300 MW、50 部 6 MW）與浙能嘉興 1 號（300 MW，浙江省新能源投資集團）是不同業主的兩座風場；OpenStreetMap 分別標出相鄰的兩個範圍：1 號在北緯 30.39–30.52°、2 號在 30.56–30.65° | [連結](https://www.openstreetmap.org/way/1300965884) |
@@ -793,7 +798,6 @@
 | WP Mittelhausen (DEU) | MaStR 的「WP Mittelhausen」是 2010 年在 Allstedt 併網的 6 部 Vestas V90（12 MW）；GEM 的 Bornstedt-Holdenstedt（MVV，8 部、12 MW）是旁邊 2006 年的 8 部 GE 1.5sl：不同風場（The Wind Power 也把 Mittelhausen I、II 列為附近另外的風場） | [連結](https://www.thewindpower.net/windfarm_en_3743_bornstedt-holdenstedt.php) |
 | Sommerland_B (DEU) | MaStR 的「Sommerland_B」是 Elskop 2016–2018 年的 6 部 Senvion MM100（12 MW），在 BWP Süderauerdorf（2017 年 4 部 Siemens SWT-3.0-113）西南方約 4 km；也不是 ing-holst 列的 BWP Sommerland（1 部 MM100）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Bürgerwindpark Norddeich (DEU) | MaStR 的「Bürgerwindpark Norddeich」是 Norddeich 2015–2016 年的 5 部 Enercon E-92（11.75 MW）；GEM 的 Schülp（wpd，2014 年 5 部 E-70）、Büttler Balje（Friedrichsgabekoog，2014–2015 年 5 部 E-82）與 Wesselburener Deichhausen（2014 年 5 部 E-82）都是別的機組：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
-| Windpark Asseln (DEU) | MaStR 的「Windpark Asseln」是 Asselner Windkraft 的機組（1998 年 1 月的 E-40 序號 41075–41081、1998 年的 E-66、2001／2008／2015／2020 年的補建）；GEM 的 Lichtenau（1997 年、RWE）是 1997 年 12 月 RWE／Winkra 的 E-40：不同批機組 | [連結](https://web.archive.org/web/20240131062441/https://www.thewindpower.net/windfarm_en_13301.php) |
 | Dieksanderkoog TraGe 1 (DEU) | MaStR 的「Dieksanderkoog TraGe 1」是 Friedrichskoog 2012 年 11–12 月併網的 6 部 Enercon E-70 E4（13.8 MW）；GEM 的 Barlt West（14 MW、2012）對到的是約 8 km 外 Barlt 的 4 部 Senvion 3.4M104（2012）與 1 部 3.2M114（2016）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | WP Neuenreuth (DEU) | MaStR 的「WP Neuenreuth」是 Thiersheim／Höchstädt 2017 年 1–2 月併網的 4 部 Nordex N131（13.2 MW）；GEM 的 Heidelheim（13 MW、2017）對到的是約 8 km 外 Selb 的 5 部 Vensys 112（2017）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | Windpark Priesberg (DEU) | MaStR 的「Windpark Priesberg」是 Nohfelden 2016 年 9 月併網的 5 部 Vensys 112（12.5 MW）；GEM 的 Sötern-Bosen（13 MW、2016）對到的是約 4 km 北邊的另外 4 部（3 部 Vestas V126/3.3「Windpark Nohfelden-Eisen」2016 年與 1 部 2014 年的 E-101）：不同風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |

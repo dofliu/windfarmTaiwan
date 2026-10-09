@@ -1,0 +1,148 @@
+[
+ {
+  "item": "U6",
+  "farm": "SinoHydro Rudong Intertidal",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) mixed: 20 low-pile high-pedestal concrete (closest code pc, to confirm) + 12 five-pile jackets (jk); 10 shore-side units of unknown type -> no row yet",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Jiangsu MSA navigation-parameter notice (Nov 2021, filed 6 Aug 2021): 42 turbines = 10 shore-side + 20 on the tidal flat (低桩高台柱基础) + 12 offshore (五桩导管架基础). The 10 shore-side units (probably the 20 MW phase 1, 10 x 2 MW) have no stated foundation; the attachment with positions is not on the page. Also: a 'low pile cap with tall pedestal' is not exactly the pc (high-rise pile cap) code — needs a decision.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
+    "quote": "中水电如东潮间带风电场100MW示范项目于2021年8月6日通过了海事管理机构的通航安全技术参数备案"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
+    "quote": "风电场共布置风力发电组42台，其中沿岸侧布置10台；滩涂区域布置20台（采用低桩高台柱基础型式），海上区域布置12台（采用五桩导管架基础型式），详细机组位置分布见附件。"
+   }
+  ]
+ },
+ {
+  "item": "U7",
+  "farm": "Jiangsu Dafeng (Huaneng) Offshore wind farm · capacity expansion",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead, D ready once a foundation row exists) D('CHN', 'Jiangsu Dafeng (Huaneng) Offshore wind farm · capacity expansion', hub=96, url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=c229d4597db94c06831c3cffa425287b', zh='鹽城海事局 2026-03 通告（已建成、通航安全技術參數已報備）：二期擴建23台遠景 EN148-4.5，基礎頂高程13 m，輪轂高度95.97 m；水深未寫。', en='Yancheng MSA notice (Mar 2026, built, navigation parameters filed): the 100 MW extension has 23 x Envision EN148-4.5, foundation top at +13 m, hub height 95.97 m; depth not stated.')",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No foundation type for the 23 extension units in the MSA notice or the 2022 Huaneng anti-corrosion inspection tender (dlztb hpi/202209/48388). Rotor 148 m only from the model name, so not proposed.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=c229d4597db94c06831c3cffa425287b",
+    "quote": "华能江苏大丰海上风电场海上风电场场区部分已建成，相关通航安全技术参数已按要求报备"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=c229d4597db94c06831c3cffa425287b",
+    "quote": "二期为100MW扩建项目，共布置23台远景EN148-4.5风力发电机组，单机容量为4.5MW，总装机容量103.5MW。项目基础顶高程为13m，风电机组轮毂高度为95.97m"
+   }
+  ]
+ },
+ {
+  "item": "U8",
+  "farm": "CTG Jiangsu Dafeng 300 MW",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) the record is CTG Dafeng H11 (MSA: built, 54 x 3.3 MW + 19 x 6.45 MW = 300.75 MW); mixed monopile + composite bucket (earlier leads), counts unknown",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Yancheng MSA 2022 'built' notice identifies the farm as H11 and confirms 73 turbines but gives no foundation types; the Yancheng list starts Dec 2019, after the H11 foundation works, and the 2023–2024 scour-repair notices name no types.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=b495cd2ce2074c3b91d1a4813d323afc",
+    "quote": "三峡新能源江苏大丰（H11）300MW海上风电场已建成"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=b495cd2ce2074c3b91d1a4813d323afc",
+    "quote": "风电场布置54台单机容量3.3MW及19台单机容量6.45MW风电机组，装机规模为300.75MW。"
+   }
+  ]
+ },
+ {
+  "item": "U9",
+  "farm": "CTG Dafeng H8-2",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) MSA 2025 'built' notice: 58 turbines (20 x 6.45 + 38 x 4.5 MW); turbine foundation type not stated",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Construction notices (lots I and II, Dec 2020) only say 'foundations and turbine installation'; the 2022 scour-protection notice names jackets only for the offshore substation and reactor station.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5854d0e741ec4ba1a77dc666e5595d12",
+    "quote": "三峡新能源江苏大丰H8-2#300MW海上风电场已建成"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5854d0e741ec4ba1a77dc666e5595d12",
+    "quote": "本工程共布置58台风机，其中20台为6.45MW风机、38台为4.5MW风机"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=dfccfd5e27ef4d6fb27ba0e5d97275da",
+    "quote": "三峡新能源江苏大丰H8-2#300MW海上风电场风机基础及海上升压站、高抗站导管架基础防冲刷保护施工"
+   }
+  ]
+ },
+ {
+  "item": "U10",
+  "farm": "Huaneng Zhuanghe II",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) mixed mp (non-rock-socketed monopiles, lot I) + jk sub='sb' (suction-bucket jackets); per-type counts still missing",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Liaoning MSA notices confirm both types were built (lot I monopiles by China Railway Construction Harbour; suction-bucket jackets installed by Yantai Salvage and Tianjin Hengtai in 2021) but give no counts; the 40 + 20 split is still only from dlzh.gov.cn (unreachable).",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=1470992cb14d4c3e93cf0439b48aa435",
+    "quote": "中船重工大连市庄河海域海上风电场址II（300MW）项目风机基础施工I标段（非嵌岩单桩）施工项目"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=77cca08e967b4c978924fa7e2fa22218",
+    "quote": "中船重工大连市庄河海域海上风电场址Ⅱ（300MW）项目EPC总承包工程吸力桶导管架基础、海上升压站运输与安装工程的通告"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=b36f2cc195ed41e78e9f1065026bf643",
+    "quote": "中船重工大连市庄河海域海上风电场址Ⅱ（300MW）项目吸力桶导管架基础运输与安装施工"
+   }
+  ]
+ },
+ {
+  "item": "U11",
+  "farm": "Shandong Bandaonan U2 (Guohua) Offshore wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) probable F5 mp: CHN Energy's 2023 tenders (equipment supervision of 'monopile foundations' for both phases) are pre-construction; MSA completion notice (Aug 2026) confirms 71 turbines but no type",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Qingdao MSA notice (Aug 2026): completed and accepted, 71 turbines; attachments are xlsx (coordinates). chnenergybidding full-text searches (U2 单桩/冲刷/运维/防腐, 乳山) found no post-construction tender naming the foundations.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=259575b2633e40028bb85f487ae3e95c",
+    "quote": "国家能源集团国华半岛南U2场址海上风电项目已经建设完成并通过竣工验收"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=259575b2633e40028bb85f487ae3e95c",
+    "quote": "风电场总容量为603.5MW，共建有71台风电机组"
+   }
+  ]
+ },
+ {
+  "item": "U12",
+  "farm": "Other farms checked in the MSA lists (no type found)",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": null,
+  "note_zh": "",
+  "note_en": "",
+  "why": "Tangshan Laoting Putidao (Hebei list from Nov 2019: only O&M/scour-survey notices); Tianjin Nangang (Tianjin list from Dec 2019 covers only the later CTG Nangang demo); Liaoning Dalian Zhuanghe 4 Area II, Zhuanghe I, CTG Dalian Zhuanghe III (construction/O&M notices without types); Shandong Energy Bozhong B and G, Huaneng Peninsula North BW, CTG Changyi, Shandong Laizhou (Shandong notices name only 'foundation works'/'pile driving'); Jiangsu Binhai (Datang), CTG Jiangsu Xiangshui, Jiangsu Xiangshui C1 (Yancheng list only 2024 O&M); Jiangjiasha H1 · 1, Longyuan Rudong Intertidal Demo/Expansion (built before the Jiangsu list starts in Jan 2019). dlztb.com site search only covers about two months; older dlztb pages are reachable only through web search.",
+  "sources": []
+ }
+]

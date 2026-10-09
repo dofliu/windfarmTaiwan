@@ -21,55 +21,6 @@
   ]
  },
  {
-  "item": "4. Germany: GEM 'Lichtenau wind farm' (11 MW, 1997, RWE) — which MaStR units",
-  "farm": "Lichtenau wind farm / Paderborn wind farm",
-  "src_code": 2,
-  "iso": "DEU",
-  "status": "write",
-  "proposal": "# (a) farm_cleanup.py\ndup('DEU', 'Lichtenau wind farm', G, ('Paderborn wind farm', G),\n    'GEM 的 Lichtenau（11 MW、1997、RWE）是 1997–98 年 Lichtenau-Asseln「Windpark Asseln」的一部分：當地鄉土協會的介紹寫整座風場 62 部、36 MW，1997 年 12 月首次併網、1998 年 5 月完工，'\n    '營運者「Diverse Betreiber 23 部、Asselner Windkraft 18 部、WINKRA Lichtenau 21 部」；The Wind Power 的 Lichtenau 頁列 18 部 Enercon E-40「開發商 Winkra、營運者 RWE」。GEM 另一筆 Paderborn（36 MW、1998，出處就是這篇介紹）是整座風場，本筆重複',\n    'GEM’s Lichtenau (11 MW, 1997, RWE) is part of the 1997–98 “Windpark Asseln” at Lichtenau-Asseln: the village heritage society’s page gives the whole park as 62 turbines and 36 MW, first feed-in in December 1997 and completion in May 1998, '\n    'with operators “various operators 23, Asselner Windkraft 18, WINKRA Lichtenau 21”; The Wind Power lists 18 Enercon E-40 there with “developer Winkra, operator RWE”. GEM’s separate Paderborn record (36 MW, 1998, sourced to that page) is the whole park, so this one is a duplicate',\n    'https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21'),\n\n# (b) optional, main session to weigh: build_mastr.py MANUAL for the surviving record\n    'Paderborn wind farm': (['Lichtenau', 'Windpark Asseln', '41032'],   # Windpark Asseln 1997–98（62 部、36 MW）仍運轉的機組：MaStR「Lichtenau」群（E-40 序號 41017–41035 等）、「Windpark Asseln」群（Asselner Windkraft）與單部「41032」\n                            'https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21'),",
-  "note_zh": "GEM 的 Lichtenau：年份與「精確」點（51.6402, 8.9306）取自 MaStR 的 E-40「41031_Lichtenau」（1997-12-22），容量 11 MW 取自 The Wind Power（出處 [2]，該頁第 15 部分是 18 部 E-40、9,000 kW、Winkra／RWE），營運者 RWE 也取自 The Wind Power。新證據：GEM 的「Paderborn wind farm」（36 MW、1998，位置寫 Lichtenau-Asseln）出處是 asseln.de 的「Windpark Asseln」介紹：1997-04 動工、1997-12 首次併網、1998-05 完工，62 部、36 MW，營運者分三群（雜項 23、Asselner Windkraft 18、WINKRA Lichtenau 21），機型表有 31 部 E-40、2 部 E-66 等。所以 Lichtenau 是 Paderborn 的一部分，兩筆並存就重複計算。MaStR 現況：1997-04 至 1998-06 併網、仍運轉的機組約 29 部、16.45 MW（另 6 部、3 MW 已拆）；現在的自動配對也錯：Lichtenau 配到 Hakenberg 一帶的 1993–2019 年雜項機組（9 部、10.7 MW），GEM 的 Asselner wind farm（2015、19.5 MW）配到「Lichtenau」群＋「WP- LA」（29 部、20.62 MW、1997–2018），Paderborn 配到 12 部 28.85 MW、以 E-101 為主的 1997–2017 機組。(b) 的 MANUAL 會讓 MaStR 新增的「Windpark Asseln」（src 4、10.75 MW）消失（被 Paderborn 吃掉；其 NOT_DUP 說明可保留或刪除），也讓 Asselner wind farm 失去「Lichtenau」群：它對應的「Asselner Windpark」群（24.75 MW、2015–2018）超出 ±20%，可能需要另一條 MANUAL（未查證）。",
-  "note_en": "GEM’s Lichtenau: year and ‘exact’ point (51.6402, 8.9306) come from MaStR’s E-40 ‘41031_Lichtenau’ (22 Dec 1997); the 11 MW comes from The Wind Power (ref [2]; its part 15 is 18 E-40, 9,000 kW, Winkra/RWE), as does the operator RWE. New evidence: GEM’s ‘Paderborn wind farm’ (36 MW, 1998, located at Lichtenau-Asseln) is sourced to asseln.de’s ‘Windpark Asseln’ page: work began April 1997, first feed-in December 1997, completion May 1998, 62 turbines, 36 MW, with three operator groups (various 23, Asselner Windkraft 18, WINKRA Lichtenau 21) and a type table with 31 E-40, 2 E-66 and others. So Lichtenau is part of Paderborn and keeping both double-counts. MaStR today: about 29 units (16.45 MW) connected between Apr 1997 and Jun 1998 still operate (6 units, 3 MW dismantled). The automatic matching is also off: Lichtenau gets 1993–2019 odds and ends around Hakenberg (9 units, 10.7 MW), GEM’s Asselner wind farm (2015, 19.5 MW) gets the ‘Lichtenau’ group + ‘WP- LA’ (29 units, 20.62 MW, 1997–2018), and Paderborn gets 12 units, 28.85 MW of 1997–2017, mostly E-101. The MANUAL in (b) would make the MaStR-added ‘Windpark Asseln’ (src 4, 10.75 MW) disappear into Paderborn (its NOT_DUP note can stay or go) and take the ‘Lichtenau’ group away from Asselner wind farm, whose own ‘Asselner Windpark’ group (24.75 MW, 2015–2018) is outside ±20%, so it may need a MANUAL of its own (not researched).",
-  "why": "The dup rests on the asseln.de page (OK) plus GEM's own references. Which exact turbines make GEM's 11 MW cannot be settled (WINKRA's 21 turbines are not listed one by one; 18 E-40 = 9 MW), which is why the proposal removes the partial record instead of fixing its capacity. MaStR figures are from the local EinheitenWind extract.",
-  "sources": [
-   {
-    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
-    "quote": "Auf der Paderborner Hochfläche, an den Ausläufern des Eggegebirges, ist bei Lichtenau-Asseln der seinerzeit größte Binnenland-Windpark Europas entstanden."
-   },
-   {
-    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
-    "quote": "1998 mit 62 Anlagen verschiedener Hersteller und einer insgesamt installierten Nennleistung von 36 MW realisiert"
-   },
-   {
-    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
-    "quote": "Betreiber Diverse Betreiber: 23 Anlagen Asselner Windkraft: 18 Anlagen WINKRA Lichtenau: 21 Anlagen"
-   },
-   {
-    "url": "https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21",
-    "quote": "Die Errichtungsarbeiten am Windpark wurden im April 1997 begonnen, im Dezember desselben Jahres erfolgte die erste Stromeinspeisung."
-   },
-   {
-    "url": "https://web.archive.org/web/20240126010746/https://www.thewindpower.net/windfarm_en_13301_lichtenau.php",
-    "quote": "Part #15: City: Lichtenau Commissioning: 18 turbines: Enercon E40/500 (power 500 kW, diameter 40 m) Hub height: Total nominal power: 9,000 kW Operational Onshore wind farm Developer: Winkra Operator: RWE"
-   },
-   {
-    "url": "https://www.gem.wiki/Lichtenau_wind_farm",
-    "quote": "Operating [ 1 ] 1997 [ 1 ] 11 MW [ 2 ] Onshore [ 1 ] RWE [ 3 ]"
-   },
-   {
-    "url": "https://www.gem.wiki/Lichtenau_wind_farm",
-    "quote": "Kreis Paderborn, North Rhine-Westphalia, Germany [ 1 ] 51.6402, 8.9306 (exact)"
-   },
-   {
-    "url": "https://www.gem.wiki/Paderborn_wind_farm",
-    "quote": "Operating [ 1 ] 1998 [ 1 ] 36 MW [ 1 ] Onshore [ 1 ]"
-   },
-   {
-    "url": "https://www.gem.wiki/Paderborn_wind_farm",
-    "quote": "Lichtenau-Asseln, Paderborn, North Rhine-Westphalia, Germany [ 1 ] 51.6632, 8.9314 (approximate)"
-   }
-  ]
- },
- {
   "item": "5. Song An wind farm COD (only if a new route exists)",
   "farm": "Song An wind farm",
   "src_code": 2,
