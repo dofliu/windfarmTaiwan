@@ -52,6 +52,7 @@ CLEAN drop ESP Biscay Marine Energy Platform wind farm 20.0
 CLEAN drop FRA Saint-Georges-Sur-Arnon wind farm 48.0
 CLEAN drop GBR Dounreay Tr‚àö¬®  Floating Wind Demonstration 10.0
 CLEAN drop GBR Hornsea wind farm · 3, 4 5555.0
+CLEAN drop IND Yermala wind farm 149.0
 CLEAN drop JPN Kamis Offshore wind farm 30.0
 CLEAN drop KOR Firefly (Bandibuli) floating offshore wind farm 750.0
 CLEAN drop KOR Ulsan Dongbu floating demo (Vindmøllen 750 kW) 0.8
@@ -158,6 +159,8 @@ CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
 CLEAN dup GBR Sofia wind farm 1400.0 -> Sofia
 CLEAN dup GBR Triton Knoll (Innogy) wind farm 857.0 -> Triton Knoll
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
+CLEAN dup IND Basavana Bagewadi (Atria) II wind farm 40.0 -> Basavana Bagewadi (Atria) I wind farm
+CLEAN dup IND Vankusawade Wind Park 189.0 -> Vankusawade
 CLEAN dup IRN Harzvil wind farm 14.0 -> Manjil wind farm
 CLEAN dup IRN Siahpoush (Manjil) wind farm 48.0 -> Manjil wind farm
 CLEAN dup ITA Lercara Friddi wind farm 84.0 -> Rocca Rossa (Alpiq) wind farm
@@ -325,6 +328,7 @@ CLEAN fix CHN Jiangsu Sheyang Southern Area H2-1 Offshore wind farm 104.0
 CLEAN fix CHN Jiangsu Sheyang Southern Area H5 Offshore wind farm 400.0
 CLEAN fix CHN Jiangsu Xiangshui C1 Offshore wind farm 12.0
 CLEAN fix CHN Jilin Changling (China Energy Investment) wind farm 100.0
+CLEAN fix CHN Jilin Tongyu Liangjingzi wind farm 400.0
 CLEAN fix CHN Jilin Tongyu Shihuadao wind farm 300.0
 CLEAN fix CHN Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm 350.0
 CLEAN fix CHN Liaoning Dalian Zhuanghe 4 Area II Offshore wind farm 200.0
@@ -442,6 +446,8 @@ CLEAN fix GBR Kincardine 49.5
 CLEAN fix GBR Pentland wind farm 100.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
+CLEAN fix IND Basavana Bagewadi (Atria) I wind farm 119.0
+CLEAN fix IND Tamil Nadu (Evergreen) wind farm 250.0
 CLEAN fix IND Tanot wind farm 120.0
 CLEAN fix IRL Arklow Bank Phase 1 25.2
 CLEAN fix IRN Binalood wind farm 28.0
@@ -478,6 +484,7 @@ CLEAN fix MAR Akhfennir I-II 200.0
 CLEAN fix MAR Akhfennir I-II 200.0
 CLEAN fix MAR Tarfaya 301.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
+CLEAN fix NLD De Drentse Monden En Oostermoer wind farm 156.8
 CLEAN fix NLD Ecowende Offshore wind farm 780.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
 CLEAN fix NLD Irene Vorrink (Dronten) 16.8

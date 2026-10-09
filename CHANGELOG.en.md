@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.14 — 2026-10-09
+
+- Research round 19 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "twelfth batch" in the [clean-up log](docs/data-cleanup.en.md)):
+  - Commissioning years added: operating farms without a year go from 948 (42.6 GW) to 917 (40.1 GW). France from the national register of production installations (ODRÉ) and inspection
+    reports, 8 farms (Tulipes, Longues Roies, Cabalas, Vaux-Coulommes, Côte du Cerisat, Tortebesse, Chambon-Puyravault, Rembercourt, some with corrected capacity); Italy's Camporeale (50.4 MW after
+    repowering, 2023) and Trapani Salemi (2009); 11 in China (Liaozhong, Binxian phase 2, Wuchuan, Zhangbei Zhanhai, Ruoqiang Luobuzhuang, Yuanling Rangjiaxi, Changling A, Gaotai Yanchitan,
+    Pinglu Xiamiangao, Lixian, Tailai); the Netherlands' Drentse Monden (2021, capacity corrected to 45 Nordex N131, 175.5 MW).
+  - Duplicates: Fontenelle-Montby, Pelade, Les Vignottes, Fère-Champenoise-Euvy-Corroy and Le Mont Hussard in France, Lercara Friddi in Italy, Atria II and GEM's Vankusawade in India; France's
+    Saint-Georges-sur-Arnon 48 MW (the sum of the commune's four 2009 parks) and India's Yermala (discontinued in 2017) are removed.
+  - Locations: India's Atria Basavana Bagewadi (was at Bengaluru), Jilin's Tongyu Liangjingzi and Xinjiang's Jimunai (SPIC) move to their towns (approximate); India's Evergreen 250 MW is noted as a developer total, not one farm.
+
 ## v2.30.13 — 2026-10-09
 
 - Research round 18 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "eleventh batch" in the [clean-up log](docs/data-cleanup.en.md) and the [events](docs/events.en.md)):

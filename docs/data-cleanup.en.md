@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 561 rules: 173 records removed (46,408.9 MW of them operating), 388 records fixed.
+- 568 rules: 176 records removed (46,786.9 MW of them operating), 392 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -17,7 +17,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Brazil | 2 | 208.5 | 4 |
 | Canada | 1 | 353 | 0 |
 | Chile | 1 | 105.6 | 0 |
-| China | 61 | 27,524.5 | 170 |
+| China | 61 | 27,524.5 | 171 |
 | Colombia | 1 | 8 | 3 |
 | Denmark | 1 | 180 | 3 |
 | Dominican Rep. | 2 | 50 | 8 |
@@ -25,7 +25,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Finland | 1 | 30 | 2 |
 | France | 8 | 271 | 14 |
 | Germany | 2 | 71 | 16 |
-| India | 0 | 0 | 1 |
+| India | 3 | 378 | 3 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Italy | 1 | 84 | 2 |
@@ -33,7 +33,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
 | Morocco | 3 | 642 | 3 |
-| Netherlands | 8 | 1,852 | 7 |
+| Netherlands | 8 | 1,852 | 8 |
 | Norway | 7 | 1,939 | 10 |
 | Philippines | 1 | 160 | 1 |
 | Poland | 0 | 0 | 2 |
@@ -312,7 +312,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 1, Area 2, Area 6, Area 7, Area 8, Area 9 · 444 MW | GEM | fixed: year | Huadian’s North Xinjiang Ürümqi 1 GW wind-solar base (800 MW wind, 200 MW solar on 10 plots in Dabancheng) reached full grid connection on 30 June 2023 (China Huadian via Xinhua Xinjiang, 10 July 2023) | [link](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
 | Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 4, Area 5 · 300 MW | GEM | fixed: year | Huadian’s North Xinjiang Ürümqi 1 GW wind-solar base (800 MW wind, 200 MW solar on 10 plots in Dabancheng) reached full grid connection on 30 June 2023 (China Huadian via Xinhua Xinjiang, 10 July 2023) | [link](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
 | Gansu Subei Mazongshan Yinmaxia Area A wind farm · 155 MW | GEM | fixed: year, capacity, turbines | The Subei Mazongshan Yinmaxia area A 150 MW wind project (owner Subei Mongol Autonomous County Tengda Wind Power; Windey EPC tender, July 2022) is the “Mazongshan Tengda 150 MW” project: 30 × 5 MW, fully connected in Dec 2023 (China News Service Gansu, 28 Dec 2023); the row said 155 MW | [link](http://www.gs.chinanews.com.cn/news/2023/12-28/367256.shtml) |
-| Xinjiang Altai Jimunai (State Power Investment) wind farm · 250 MW | GEM | fixed: year, turbines | SPIC’s Jimunai 250 MW wind project (an Altay prefecture guaranteed-grid project, 40 × 6.25 MW) reached full grid connection in April 2023 (SPIC Xinjiang via chinapower.com.cn, 19 Apr 2023) | [link](http://www.chinapower.com.cn/flfd/xmjz/20230419/196883.html) |
+| Xinjiang Altai Jimunai (State Power Investment) wind farm · 250 MW | GEM | fixed: year, turbines, location | SPIC’s Jimunai 250 MW wind project (an Altay prefecture guaranteed-grid project, 40 × 6.25 MW) reached full grid connection in April 2023 (SPIC Xinjiang via chinapower.com.cn, 19 Apr 2023); it lies in the Irtysh valley wind area of Qialeshihai township, Jeminay county (Sina News, 27 Feb 2023), so the old Xinjiang placeholder (42.48 N, 85.463 E) is replaced by the township’s position (approximate) | [link](http://www.chinapower.com.cn/flfd/xmjz/20230419/196883.html) |
 | Inner Mongolia Wulatehou Banner 200 MW (Jingneng) wind farm · 200 MW | GEM | fixed: year, turbines, owner | The Wulatehou Banner Jingneng 200 MW wind project (Bayannur Jingneng Clean Energy Power, started June 2022, 40 × 5 MW) reached full grid connection by early April 2023 (Bayannur city media, 2 Apr 2023) | [link](https://baijiahao.baidu.com/s?id=1762074057272726588&wfr=spider&for=pc) |
 | Inner Mongolia Keyouqian Banner 200 MW wind farm · 200 MW | GEM | fixed: year | All 32 turbines of Huaneng Mengdong New Energy’s Enhui wind farm, the Horqin Right Front Banner 200 MW project, were connected on 9 June 2023 (chinapower.com.cn, 15 June 2023) | [link](http://mm.chinapower.com.cn/flfd/xmjz/20230615/205166.html) |
 | Hunan Jiangyong Shuimeitang wind farm · 260 MW | GEM | fixed: year, turbines | Huadian’s Yongzhou Shuimeitang 260 MW wind project (Songbai and Xiaopu, Jiangyong county; 52 × 5.0 MW) reached full grid connection on 29 Dec 2023 (CNR, 30 Dec 2023) | [link](https://www.cnr.cn/hunan/yw/20231230/t20231230_526540744.shtml) |
@@ -333,6 +333,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Shanxi Pinglu Xiamiangao wind farm · 100 MW | GEM | fixed: year, turbines | The 100 MW Xiamiangao project in Pinglu District, Shuozhou (16 × 6.25 MW) reached full grid connection in Oct 2024 (chinapower.com.cn / Shanxi Electric Power Construction, 12 Oct 2024); commissioning year added | [link](http://www.chinapower.com.cn/flfd/xmjz/20241012/262997.html) |
 | Hebei Lixian wind farm · 100 MW | GEM | fixed: year, turbines | CHN Energy’s 100 MW Lixian (Baoding) wind project (16 × 6.25 MW, Chugang wind farm): first turbine connected in Dec 2024, full grid connection in early April 2025 (Lixian county government, 8 Apr 2025); commissioning year added | [link](https://lixian.gov.cn/content-252-90504.html) |
 | Heilongjiang Tailai wind farm · 100 MW | GEM | fixed: year | Tailai Jiuzhou Daxing 100 MW wind project: still under construction at end-2023 (Jiuzhou Group 2023 annual report) and connected during 2024 (2024 annual report); when CNNC Huineng agreed to buy Tailai Wind in Nov 2024 it had 100 MW in operation (Securities Times, 12 Nov 2024). Commissioning year added | [link](https://static.cninfo.com.cn/finalpage/2025-04-24/1223241473.PDF) |
+| Jilin Tongyu Liangjingzi wind farm · 400 MW · 2021 | GEM | fixed: location | Huaneng’s Liangjingzi farm is in Tongyu county, Jilin (GEM gives Zhanyu town; the Liangjingzi livestock farm is a township-level unit of Tongyu); the old point (42.999 N, 125.982 E) is about 300 km south-east of Tongyu, so it now uses Zhanyu town (approximate) | [link](https://www.gem.wiki/Jilin_Tongyu_Liangjingzi_wind_farm) |
 
 ## Colombia (COL)
 
@@ -437,6 +438,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Record | Source | Action | Reason | Source link |
 |---|---|---|---|---|
 | Tanot wind farm · 120 MW | GEM | fixed: year | Commissioning year 2015: GlobalData (via Power Technology) says Greenko’s 120 MW Tanot wind farm in Rajasthan was built in phases and commissioned in June 2015 once construction was complete | [link](https://www.power-technology.com/?p=241025) |
+| Basavana Bagewadi (Atria) II wind farm · 40 MW · 2018 | GEM | duplicate of “Basavana Bagewadi (Atria) I wind farm” | Same farm: Vestas describes the Basavane Bagewadi farm as 120 MW in three 40 MW phases (18 V110 units each); “Basavana Bagewadi (Atria) I” (119 MW) already stands for the whole farm, so this 40 MW record is one of its phases counted twice | [link](https://www.vestas.com/en/media/company-news/2017/vestas-receives-40-mw-order-in-india-c2963504) |
+| Basavana Bagewadi (Atria) I wind farm · 119 MW | GEM | fixed: location, turbines | Atria’s 120 MW farm at Basavana Bagewadi, Bijapur district: three phases, 54 Vestas V110 units (2.2 MW); two of its project companies (Atria Wind Power (Bijapur 1) and (Basavana Bagewadi), 39.6 MW each) reached commercial operation on 18 Apr 2018 (CARE rating reports); the third phase’s date was not found, so the farm’s year is still unverified. The old point (12.975 N, 77.726 E) was a Bengaluru placeholder; it now uses the town of Basavana Bagewadi (approximate) | [link](https://www.careratings.com/upload/CompanyFiles/PR/21102021044859_Atria_Wind_Power_(Bijapur_1)_Private_Limited.pdf) |
+| Yermala wind farm · 149 MW | GEM | removed | CLP’s Yermala wind project (Maharashtra; 148.8 MW “under construction” in 2014) was discontinued in 2017 because of land issues and its capitalised cost written off; it is not among the 13 wind farms of Apraava Energy (the former CLP India). No evidence it was built | [link](https://www1.hkexnews.hk/listedco/listconews/sehk/2017/0807/ltn20170807155.pdf) |
+| Vankusawade Wind Park · 189 MW | GEM | duplicate of “Vankusawade” | Same farm: the Vankusawade wind park on the plateau about 1,150 m above the Koyna reservoir in Satara district, with Suzlon turbines, is already the curated record “Vankusawade”; GEM’s point (18.635 N, 73.849 E) is a Pune placeholder. Sources differ on capacity (GEM 189 MW, Wikipedia 210 MW, the curated row 259 MW); the curated row is kept | [link](https://en.wikipedia.org/wiki/Vankusawade_Wind_Park) |
+| Tamil Nadu (Evergreen) wind farm · 250 MW | GEM | fixed:  | Not a single farm: Evergreen Power is a developer, and its website only gives a total of 250 MW of wind “executed & sold” in Tamil Nadu; the projects, their locations, years and buyers are not published, and the point is a placeholder | [link](https://egreenpwr.com/project-in-india.html) |
 
 ## Iran (IRN)
 
@@ -528,6 +534,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Borssele V (Two Towers innovation site) · 19 MW · 2021 | curated | fixed: location | Point moved to the two turbines (the old one was about 3 km to the north-east) | [link](https://www.openstreetmap.org/node/7680250702) |
 | Borssele Site V wind farm · 19 MW · 2021 | GEM | duplicate of “Borssele V (Two Towers innovation site)” | Same farm (two V164-9.5 MW, bought by Octopus Energy in 2022); the GEM point is about 85 km to the north | [link](https://www.offshorewind.biz/2022/06/29/dutch-offshore-wind-innovation-site-gets-new-owner/) |
 | Ecowende Offshore wind farm · 780 MW · 2026 | GEM | fixed: turbines, location | Ecowende (Hollandse Kust West site VI), 52 Vestas V236-15.0, 760 MW, first power July 2026, full operation planned for the end of 2026; moved to the Hollandse Kust West zone (the old point was on the coastline; approximate). Capacity, status and year come from the 2026 pipeline compilation (PIPE_SAME in build_farms.py) | [link](https://windpowernl.com/2026/07/06/ecowendes-hollandse-kust-west-offshore-wind-farm-delivers-first-power-to-dutch-grid/) |
+| De Drentse Monden En Oostermoer wind farm · 156.8 MW | GEM | fixed: capacity, year, turbines | The farm has 45 Nordex N131/3900 turbines (a test unit put up on site in summer 2019, the other 44 ordered in Dec 2019), 175.5 MW in all (Ministry of Economic Affairs notice, Staatscourant 2022); RVO’s Monitor Wind op Land 2021: the whole farm was built in 2021 and all 45 turbines were running in January 2022. The row said 156.8 MW with no year | [link](https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf) |
 
 ## Norway (NOR)
 

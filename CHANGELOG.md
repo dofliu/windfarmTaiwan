@@ -14,6 +14,16 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v2.30.14 — 2026-10-09
+
+- 第十九輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十二批」）：
+  - 補上商轉年：營運中沒有年份的風場從 948 座（42.6 GW）減為 917 座（40.1 GW）。法國依國家發電設施登錄（ODRÉ）與地方督察報告補 8 座（Tulipes、Longues Roies、Cabalas、Vaux-Coulommes、
+    Côte du Cerisat、Tortebesse、Chambon-Puyravault、Rembercourt，部分順便更正容量），義大利 Camporeale（改建後 50.4 MW，2023）與 Trapani Salemi（2009），中國 11 座（遼中、賓縣二期、
+    武川、張北戰海、若羌羅布莊、沅陵讓家溪、長嶺 A、高台鹽池灘、平魯下面高、蠡縣、泰來），荷蘭 Drentse Monden（2021，容量更正為 45 部 Nordex N131、175.5 MW）。
+  - 重複：法國 Fontenelle-Montby、Pelade、Les Vignottes、Fère-Champenoise-Euvy-Corroy、Le Mont Hussard，義大利 Lercara Friddi，印度 Atria II、Vankusawade（GEM）；
+    法國 Saint-Georges-sur-Arnon 48 MW 是同鎮四座 2009 年風場的加總、印度 Yermala 2017 年已停建，刪除。
+  - 位置：印度 Atria Basavana Bagewadi（原在班加羅爾）、吉林通榆良井子、新疆吉木乃（國家電投）改到所在鄉鎮（概略位置）；印度 Evergreen 250 MW 註明是開發商的合計、不是單一風場。
+
 ## v2.30.13 — 2026-10-09
 
 - 第十八輪查證（出處原文以 `check_quotes.py` 核對；見[資料清理紀錄](docs/data-cleanup.md) 2026-10-09「第十一批」與[重大事件](docs/events.md)）：
