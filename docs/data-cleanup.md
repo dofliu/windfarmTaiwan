@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 737 條：刪除 205 筆（其中營運中 47,686.6 MW），修正 532 筆。
+- 規則 742 條：刪除 205 筆（其中營運中 47,686.6 MW），修正 537 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 62 | 27,624.5 | 185 |
+| 中國大陸 | 62 | 27,624.5 | 190 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -304,6 +304,11 @@
 | Liaoning Chifeng Poverty Alleviation District (China Guangdong Nuclear) wind farm · 100 MW | GEM | 重複（併入「Inner Mongolia Chifeng Poverty Alleviation Area (China Guangdong Nuclear) wind farm」） | 同一座風場：兩筆的中文名都是「中广核赤峰市扶贫改革试验区10万千瓦风电项目」、都是 100 MW、都在翁牛特旗；這個項目只有一個（中廣核 2022 年 5 月風機招標：場址在內蒙古赤峰市翁牛特旗、容量 100 MW、20 個機位）。赤峰屬內蒙古，名稱裡的「Liaoning」有誤 | [連結](https://www.sohu.com/a/551331079_257552) |
 | Inner Mongolia - Shandong Power Export Hanggin Banner  (China Resources) wind farm · 100 MW | GEM | 修正：座標 | GEM 寫明此場在鄂爾多斯杭錦旗巴拉貢鎮，但座標（北緯 43.244°、東經 114.325°）是錫林郭勒盟的代用點、離杭錦旗約 600 km；改用巴拉貢鎮的位置（OpenStreetMap，概略位置） | [連結](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_(China_Resources)_wind_farm) |
 | Sichuan Yanyuan Houlongshan wind farm · 100 MW | GEM | 修正：年份、中文名、機組 | 補上商轉年 2023 並更正中文名：華電涼山鹽源後龍山風電場 100 MW（20 部 5 MW），2022 年開工、2023 年 5 月商轉（GlobalData），華電新能鹽源公司 2023-03-29 舉行白楊坪、後龍山、長坪子風電項目集中投產儀式（四川在線）；原中文名「凉山盐源后龙山二期风电项目」是 2025 年才核准的二期（16 部 6.25 MW），已另有紀錄 | [連結](https://power-technology.com/?p=302298) |
+| Shandong Yucheng Weihe wind farm · 2 · 50 MW | GEM | 修正：年份、機組 | 運達股份子公司禹城市運風的禹城葦河二期 50 MW 風電項目（2020 年平價項目，辛寨鎮，10 部 5.0 MW，輪轂高 166 m、葉輪直徑 200 m）2023 年 4 月完成全容量併網發電（禹城發改經網易 2023-04-23）；補上商轉年與機組 | [連結](https://www.163.com/dy/article/I31UJ4P1054157ZQ.html) |
+| Tianjin Ninghe (State Development Investment) wind farm · 2 · 50 MW | GEM | 修正：年份 | 國投天津寧河 50 MW 風電項目二期（寧河鎮大月河村西北約 2.2 公里，16 部雙饋機組）2023 年 4 月 3 日全部吊裝完成並全容量併網發電（中國能建葛洲壩電力公司 2023-04-06）；補上商轉年 | [連結](http://www.cggc.cn/art/2023/4/6/art_7370_2520765.html) |
+| Jilin Qian'an (Jilin Oilfield) wind farm · 30 MW | GEM | 修正：年份、機組 | 吉林油田美字風電場（乾安縣，核准 30 MW，6 部 5 MW，油田自用 15 萬瓩風光發電項目的一部分）2023 年 3 月 17 日併網發電，中國石油首個風電項目至此全面投產（中國石油新聞中心 2023-03-22；人民網精選資訊 2023-03）；補上商轉年與機組 | [連結](http://news.cnpc.com.cn/system/2023/03/22/030096322.shtml) |
+| Jilin Changling Rural Revitalization wind farm · 23.2 MW | GEM | 修正：年份 | 國能長嶺新能源的長嶺新能源鄉村振興 2.32 萬瓩風電項目（長嶺縣光明鄉）2023 年 12 月 30 日全部風機併網發電，當年開工、當年投產（長嶺政務經澎湃新聞 2024-02-09）；補上商轉年 | [連結](https://www.thepaper.cn/newsDetail_forward_26335349) |
+| Jilin Taonan (Datang) wind farm · 2 · 22.1 MW | GEM | 修正：年份、名稱、業主、中文名 | 這筆其實是吉林洮南 22.1 MW 分散式風電鄉村振興項目（GEM 引用的同一篇報導）：上電洮南新能源發展有限公司投資，2024 年 3 月 15 日開工、8 月 30 日併網發電（能源界 2024-09-04），不是大唐洮南風電場的二期；補上商轉年，更正名稱、業主與中文名 | [連結](https://www.nengyuanjie.net/article/98112.html) |
 
 ## 丹麥 (DNK)
 

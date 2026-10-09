@@ -17,31 +17,6 @@
   ]
  },
  {
-  "item": "2. Shandong Yucheng Weihe wind farm · 2 lat 36.81, lon 116.429",
-  "farm": "Shandong Yucheng Weihe wind farm · 2",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "lead",
-  "proposal": "(no change yet)",
-  "note_zh": "",
-  "note_en": "",
-  "why": "Phase 2 is the 2020 grid-parity project 禹城市苇河二期50MW风电项目 of Windey's subsidiary 禹城市运风 (NDRC 2020 list). Windey's 2022 annual report: phase 2 still under construction (30% at end-2022); its 2023 report records a 2023 sale-and-leaseback of the phase-2 turbines. No connection date found; most likely 2023, unverified. Phase 1 (50 MW) was connected on 17 June 2021 (163.com) and already has 2021; the separate 36 MW distributed project ('Shandong Yucheng Weihe Distributed', 2021) is a different record.",
-  "sources": [
-   {
-    "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202008/P020200805354037104994.pdf",
-    "quote": "禹城市苇河二期 50MW 风电项 目 禹城市运风风力发电 有限公司 德州禹城市 5"
-   },
-   {
-    "url": "http://static.cninfo.com.cn/finalpage/2023-04-19/1216457533.PDF",
-    "quote": "公司山东禹城苇河二期 50MW 风电项目、酒泉 马鬃山 150MW 风电项目、新疆哈密市伊吾县淖毛湖 70MW 风光同场等项目建设进度有序推进"
-   },
-   {
-    "url": "http://static.cninfo.com.cn/finalpage/2024-04-19/1219669940.PDF",
-    "quote": "2023 年，公司之子公司禹城市运风风力发电有限公司（以下简称禹城运风公司）自建山东禹城苇河风电场二期"
-   }
-  ]
- },
- {
   "item": "3. Shandong Xiajin Dongnan Leiji wind farm lat 37.064, lon 116.201",
   "farm": "Shandong Xiajin Dongnan Leiji wind farm",
   "src_code": 2,
@@ -81,27 +56,6 @@
   "note_en": "",
   "why": "Only shows operation by 2023: Northwest NEA's Shaanxi ancillary-service settlement for May 2023 lists 要先风电场 (50 MW). No commissioning date found (bidcenter, iguopin refs are company pages).",
   "sources": []
- },
- {
-  "item": "6. Tianjin Ninghe (State Development Investment) wind farm · 2 lat 39.489, lon 117.668",
-  "farm": "Tianjin Ninghe (State Development Investment) wind farm · 2",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "write",
-  "proposal": "fix('CHN', 'Tianjin Ninghe (State Development Investment) wind farm · 2', G, '國投天津寧河 50 MW 風電項目二期（寧河鎮大月河村西北約 2.2 公里，16 部雙饋機組）2023 年 4 月 3 日全部吊裝完成並全容量併網發電（中國能建葛洲壩電力公司 2023-04-06）；補上商轉年', 'Phase 2 of SDIC’s Tianjin Ninghe 50 MW wind project (about 2.2 km north-west of Dayuehe village, Ninghe town; 16 doubly-fed turbines) finished erecting all turbines and reached full grid connection on 3 Apr 2023 (China Energy Engineering Gezhouba Electric Power, 6 Apr 2023); commissioning year added', 'http://www.cggc.cn/art/2023/4/6/art_7370_2520765.html', year=2023),",
-  "note_zh": "國投天津寧河 50 MW 風電項目二期 2023 年 4 月 3 日全容量併網發電",
-  "note_en": "Phase 2 of SDIC’s Tianjin Ninghe 50 MW project reached full grid connection on 3 Apr 2023",
-  "why": "Phase 2 of SDIC's Tianjin Ninghe 50 MW wind project (Dayuehe village, Ninghe town; 16 doubly-fed turbines) reached full grid connection on 3 Apr 2023 (CGGC news dated 2023-04-06). Phase 1 already carries 2020.",
-  "sources": [
-   {
-    "url": "http://www.cggc.cn/art/2023/4/6/art_7370_2520765.html",
-    "quote": "4月3日，中国能建葛洲坝电力公司承建的国投天津宁河50兆瓦风电项目（二期）16台风机全部吊装完成，并实现全容量并网发电。"
-   },
-   {
-    "url": "http://www.cggc.cn/art/2023/4/6/art_7370_2520765.html",
-    "quote": "发布时间：2023-04-06"
-   }
-  ]
  },
  {
   "item": "7. Jiangsu Jinhu Chenqiao wind farm lat 33.124, lon 119.04",
@@ -471,11 +425,11 @@
   "farm": "Jiangsu Gaoyou Sanduo wind farm",
   "src_code": 2,
   "iso": "CHN",
-  "status": "write",
-  "proposal": "fix('CHN', 'Jiangsu Gaoyou Sanduo wind farm', G, '深圳能源年報：深能高郵三垛鎮 30 MW 分布式風電項目 2024 年底仍列在建工程（進度 97.4%），2025 年轉入固定資產 1.91 億元（進度 99.98%），依其會計政策即於當年達到預定可使用狀態；6 部機組 2023 年 8 月已吊裝完成（今日高郵 2023-08-31）。補上商轉年', 'Shenzhen Energy’s annual reports list the Gaoyou Sanduo 30 MW distributed wind project as construction in progress at the end of 2024 (97.4% complete) and transfer RMB 191 million of it to fixed assets in 2025 (99.98%), which under its accounting policy means it reached its intended usable state that year; all six turbines had been erected by Aug 2023 (Gaoyou Today, 31 Aug 2023). Commissioning year added', 'http://static.cninfo.com.cn/finalpage/2026-04-17/1225111758.PDF', year=2025),",
+  "status": "lead",
+  "proposal": "",
   "note_zh": "依深圳能源年報，2025 年轉入固定資產（達到預定可使用狀態）",
   "note_en": "Per Shenzhen Energy’s annual reports, transferred to fixed assets (intended usable state) in 2025",
-  "why": "Year from the owner's accounts, not a news report: Shenzhen Energy's 2024 annual report still lists 深能高邮三垛镇30MW分布式风电项目 as construction in progress at 31 Dec 2024 (97.40% complete, no transfer), and its 2025 report transfers RMB 190.68 million of it to fixed assets during 2025 (99.98%); the same report's policy note says self-built assets are transferred when they reach their intended usable state. All 6 turbines were erected by Aug 2023 (Gaoyou Today). No grid-connection news found (Shenzhen Energy/SZ SASAC pages 503/reset). If the caller prefers news-based years only, downgrade to lead.",
+  "why": "Not written in round 21: the year rests only on the 2025 transfer to fixed assets (an accounting step that can follow connection), not on a dated grid connection; year 2024 or 2025. Year from the owner's accounts, not a news report: Shenzhen Energy's 2024 annual report still lists 深能高邮三垛镇30MW分布式风电项目 as construction in progress at 31 Dec 2024 (97.40% complete, no transfer), and its 2025 report transfers RMB 190.68 million of it to fixed assets during 2025 (99.98%); the same report's policy note says self-built assets are transferred when they reach their intended usable state. All 6 turbines were erected by Aug 2023 (Gaoyou Today). No grid-connection news found (Shenzhen Energy/SZ SASAC pages 503/reset). If the caller prefers news-based years only, downgrade to lead.",
   "sources": [
    {
     "url": "http://static.cninfo.com.cn/finalpage/2025-04-18/1223126126.PDF",
@@ -492,27 +446,6 @@
    {
     "url": "http://www.gytoday.cn/yw/2023-08-31/89364.html",
     "quote": "深能高邮三垛30MW分散式风电项目目前已完成全部6台风电机组的吊装，标志着项目距离全容量并网的总目标又迈进了一大步。"
-   }
-  ]
- },
- {
-  "item": "32. Jilin Qian'an (Jilin Oilfield) wind farm lat 45.005, lon 124.026",
-  "farm": "Jilin Qian'an (Jilin Oilfield) wind farm",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "write",
-  "proposal": "fix('CHN', \"Jilin Qian'an (Jilin Oilfield) wind farm\", G, '吉林油田美字風電場（乾安縣，核准 30 MW，6 部 5 MW，油田自用 15 萬瓩風光發電項目的一部分）2023 年 3 月 17 日併網發電，中國石油首個風電項目至此全面投產（中國石油新聞中心 2023-03-22；人民網精選資訊 2023-03）；補上商轉年與機組', 'Jilin Oilfield’s Meizi wind farm (Qian’an county; 30 MW approved, 6 × 5 MW; part of the oilfield’s 150 MW self-consumption wind and solar project) was connected to the grid on 17 Mar 2023, completing PetroChina’s first wind project (CNPC News, 22 Mar 2023; People’s Daily feed, Mar 2023); commissioning year and turbines added', 'http://news.cnpc.com.cn/system/2023/03/22/030096322.shtml', year=2023, turbine='6x 5 MW'),",
-  "note_zh": "吉林油田美字風電場 2023 年 3 月 17 日併網發電",
-  "note_en": "Jilin Oilfield’s Meizi wind farm was connected on 17 Mar 2023",
-  "why": "GEM's own reference (People's Daily feed on Baidu, March 2023) describes this record: Jilin Oilfield's Meizi wind farm in Qian'an county, 30 MW approved, 6 × 5 MW, part of the oilfield's 150 MW self-consumption wind/solar project. CNPC News (22 Mar 2023) reports it was connected on 17 Mar 2023, completing PetroChina's first wind project. Turbine field added from the same quote.",
-  "sources": [
-   {
-    "url": "https://baijiahao.baidu.com/s?id=1760124681855849822&wfr=spider&for=pc",
-    "quote": "美字风电场建设项目属于15万千瓦风光发电项目的重要组成部分。该项目位于吉林省松原市乾安县境内，核准建设规模30MW，安装单机容量5MW风电机组6台"
-   },
-   {
-    "url": "http://news.cnpc.com.cn/system/2023/03/22/030096322.shtml",
-    "quote": "3月17日，随着吉林油田美字风电场成功并网发电，中国石油首个风电项目全面投产。"
    }
   ]
  },
@@ -604,48 +537,6 @@
    {
     "url": "https://kejo-www.plus.jlntv.cn/folder340/folder352/folder8004/2023-12-26/ytqt1rpRrGJXKLO8.html",
     "quote": "12月23日，前郭县天润东家风电场投入使用，2.35万千瓦新能源风电乡村振兴项目顺利并网发电，标志着此项目向着全容量并网发电迈出了坚实一步。"
-   }
-  ]
- },
- {
-  "item": "39. Jilin Changling Rural Revitalization wind farm lat 44.312, lon 124.394",
-  "farm": "Jilin Changling Rural Revitalization wind farm",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "write",
-  "proposal": "fix('CHN', 'Jilin Changling Rural Revitalization wind farm', G, '國能長嶺新能源的長嶺新能源鄉村振興 2.32 萬瓩風電項目（長嶺縣光明鄉）2023 年 12 月 30 日全部風機併網發電，當年開工、當年投產（長嶺政務經澎湃新聞 2024-02-09）；補上商轉年', 'Guoneng Changling New Energy’s Changling rural revitalisation 23.2 MW wind project (Guangming township, Changling county) had all turbines connected to the grid on 30 Dec 2023, the year construction started (Changling county government via The Paper, 9 Feb 2024); commissioning year added', 'https://www.thepaper.cn/newsDetail_forward_26335349', year=2023),",
-  "note_zh": "2023 年 12 月 30 日全部風機併網發電",
-  "note_en": "All turbines connected to the grid on 30 Dec 2023",
-  "why": "Guoneng Changling New Energy's Changling rural-revitalisation 23.2 MW project (Guangming township) had all turbines connected on 30 Dec 2023 (Changling county government account on The Paper, 9 Feb 2024). GEM ref: the 2022-12 EPC tender (5 turbines, Guangming township).",
-  "sources": [
-   {
-    "url": "https://www.thepaper.cn/newsDetail_forward_26335349",
-    "quote": "长岭新能源乡村振兴2.32万千瓦风电项目于2023年12月30日实现全部风机并网发电，比原计划提前半年完工，实现了当年开工，当年投产。"
-   },
-   {
-    "url": "http://www.dlztb.com/cpeinet/202212/38265.html",
-    "quote": "长岭新能源乡村振兴2.32万千瓦风电项目（以下简称长岭乡村振兴风电项目）位于吉林省松原市长岭县光明乡"
-   }
-  ]
- },
- {
-  "item": "40. Jilin Taonan (Datang) wind farm · 2 lat 45.336, lon 122.788",
-  "farm": "Jilin Taonan (Datang) wind farm · 2",
-  "src_code": 2,
-  "iso": "CHN",
-  "status": "write",
-  "proposal": "fix('CHN', 'Jilin Taonan (Datang) wind farm · 2', G, '這筆其實是吉林洮南 22.1 MW 分散式風電鄉村振興項目（GEM 引用的同一篇報導）：上電洮南新能源發展有限公司投資，2024 年 3 月 15 日開工、8 月 30 日併網發電（能源界 2024-09-04），不是大唐洮南風電場的二期；補上商轉年，更正業主與中文名', 'This record is in fact the Jilin Taonan 22.1 MW distributed rural revitalisation wind project (the report GEM cites): invested by Shangdian Taonan New Energy Development Co Ltd, started on 15 Mar 2024 and connected to the grid on 30 Aug 2024 (nengyuanjie.net, 4 Sept 2024); it is not a phase 2 of Datang’s Taonan wind farm. Commissioning year added, owner and Chinese name corrected', 'https://www.nengyuanjie.net/article/98112.html', year=2024, owner='Shangdian Taonan New Energy Development Co Ltd (上电洮南新能源发展有限公司)', zhname='吉林洮南22.1MW分散式风电乡村振兴项目', note=True),",
-  "note_zh": "吉林洮南 22.1 MW 分散式風電鄉村振興項目，2024 年 8 月 30 日併網；並非大唐洮南風電場二期",
-  "note_en": "The Jilin Taonan 22.1 MW distributed rural revitalisation project, connected on 30 Aug 2024; not a phase of Datang’s Taonan wind farm",
-  "why": "GEM's phase 2 cites nengyuanjie.net 98112, which describes the Jilin Taonan 22.1 MW distributed rural-revitalisation wind project invested by 上电洮南新能源发展有限公司, started 15 Mar 2024 and connected 30 Aug 2024. It is not a phase of Datang's 2006 Taonan wind farm (phase 1, 49 MW at a placeholder location); GEM's Datang owner/operator came from a dlzb tender page (502, unreadable). Owner set to the investor named in the quote (whether 上电 is Shanghai Electric or Shanghai Electric Power is not stated, so only the legal name is used); consider also renaming the record (e.g. 'Jilin Taonan Rural Revitalization Distributed wind farm').",
-  "sources": [
-   {
-    "url": "https://www.nengyuanjie.net/article/98112.html",
-    "quote": "2024年8月30日，由上电洮南新能源发展有限公司投资建设"
-   },
-   {
-    "url": "https://www.nengyuanjie.net/article/98112.html",
-    "quote": "吉林洮南22.1MW分散式风电乡村振兴EPC总承包项目成功并网发电! 本项目自2024年3月15日开工至2024年8月30日并网，累计用时168天。"
    }
   ]
  },

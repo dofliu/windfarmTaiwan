@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 737 rules: 205 records removed (47,686.6 MW of them operating), 532 records fixed.
+- 742 rules: 205 records removed (47,686.6 MW of them operating), 537 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -17,7 +17,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Brazil | 2 | 208.5 | 4 |
 | Canada | 1 | 353 | 0 |
 | Chile | 1 | 105.6 | 0 |
-| China | 62 | 27,624.5 | 185 |
+| China | 62 | 27,624.5 | 190 |
 | Colombia | 1 | 8 | 3 |
 | Denmark | 1 | 180 | 3 |
 | Dominican Rep. | 2 | 50 | 8 |
@@ -349,6 +349,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Liaoning Chifeng Poverty Alleviation District (China Guangdong Nuclear) wind farm · 100 MW | GEM | duplicate of “Inner Mongolia Chifeng Poverty Alleviation Area (China Guangdong Nuclear) wind farm” | Same farm: both records carry the Chinese name “中广核赤峰市扶贫改革试验区10万千瓦风电项目”, both are 100 MW and both are in Ongniud Banner; there is one such project (CGN’s turbine tender of May 2022: site in Ongniud Banner, Chifeng, Inner Mongolia, 100 MW, 20 positions). Chifeng is in Inner Mongolia, so “Liaoning” in the name is wrong | [link](https://www.sohu.com/a/551331079_257552) |
 | Inner Mongolia - Shandong Power Export Hanggin Banner  (China Resources) wind farm · 100 MW | GEM | fixed: location | GEM places this farm in Balagong, Hanggin Banner, Ordos, but its point (43.244 N, 114.325 E) is a placeholder in Xilingol League, about 600 km away; moved to Balagong town (OpenStreetMap, approximate) | [link](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_(China_Resources)_wind_farm) |
 | Sichuan Yanyuan Houlongshan wind farm · 100 MW | GEM | fixed: year, Chinese name, turbines | Commissioning year 2023 added and Chinese name corrected: Huadian’s Liangshan Yanyuan Houlongshan wind farm, 100 MW (20 × 5 MW), started in 2022 and entered commercial operation in May 2023 (GlobalData); Huadian New Energy’s Yanyuan company held a joint commissioning ceremony for the Baiyangping, Houlongshan and Changpingzi wind projects on 29 Mar 2023 (Sichuan Online); the old Chinese name “凉山盐源后龙山二期风电项目” is phase 2 (16 × 6.25 MW, approved in 2025), which has its own record | [link](https://power-technology.com/?p=302298) |
+| Shandong Yucheng Weihe wind farm · 2 · 50 MW | GEM | fixed: year, turbines | Phase 2 of the Yucheng Weihe wind farm, a 50 MW grid-parity project of Windey’s subsidiary Yucheng Yunfeng (Xinzhai town; 10 × 5.0 MW, 166 m hubs, 200 m rotors), completed full grid connection in April 2023 (Yucheng development and reform bureau via 163.com, 23 Apr 2023); commissioning year and turbines added | [link](https://www.163.com/dy/article/I31UJ4P1054157ZQ.html) |
+| Tianjin Ninghe (State Development Investment) wind farm · 2 · 50 MW | GEM | fixed: year | Phase 2 of SDIC’s Tianjin Ninghe 50 MW wind project (about 2.2 km north-west of Dayuehe village, Ninghe town; 16 doubly-fed turbines) finished erecting all turbines and reached full grid connection on 3 Apr 2023 (China Energy Engineering Gezhouba Electric Power, 6 Apr 2023); commissioning year added | [link](http://www.cggc.cn/art/2023/4/6/art_7370_2520765.html) |
+| Jilin Qian'an (Jilin Oilfield) wind farm · 30 MW | GEM | fixed: year, turbines | Jilin Oilfield’s Meizi wind farm (Qian’an county; 30 MW approved, 6 × 5 MW; part of the oilfield’s 150 MW self-consumption wind and solar project) was connected to the grid on 17 Mar 2023, completing PetroChina’s first wind project (CNPC News, 22 Mar 2023; People’s Daily feed, Mar 2023); commissioning year and turbines added | [link](http://news.cnpc.com.cn/system/2023/03/22/030096322.shtml) |
+| Jilin Changling Rural Revitalization wind farm · 23.2 MW | GEM | fixed: year | Guoneng Changling New Energy’s Changling rural revitalisation 23.2 MW wind project (Guangming township, Changling county) had all turbines connected to the grid on 30 Dec 2023, the year construction started (Changling county government via The Paper, 9 Feb 2024); commissioning year added | [link](https://www.thepaper.cn/newsDetail_forward_26335349) |
+| Jilin Taonan (Datang) wind farm · 2 · 22.1 MW | GEM | fixed: year, name, owner, Chinese name | This record is in fact the Jilin Taonan 22.1 MW distributed rural revitalisation wind project (the report GEM cites): invested by Shangdian Taonan New Energy Development Co Ltd, started on 15 Mar 2024 and connected to the grid on 30 Aug 2024 (nengyuanjie.net, 4 Sept 2024); it is not a phase 2 of Datang’s Taonan wind farm. Commissioning year added, name, owner and Chinese name corrected | [link](https://www.nengyuanjie.net/article/98112.html) |
 
 ## Colombia (COL)
 
