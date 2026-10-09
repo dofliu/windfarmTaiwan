@@ -696,8 +696,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Whether the "Sea zones" layer should include The Crown Estate's offshore wind lease areas for England, Wales and Northern Ireland: the owner decided on 7 Oct 2026 to leave them out (Wind Site
       Agreements, downloadable without an account; its custom The Crown Estate Open Data Licence is revocable and bars use on a site offering "the same or
       similar services" to its portal; credit "Contains data provided by The Crown Estate…")
-- [ ] How to classify the "low pile, tall pedestal" (低桩高台柱) foundations (20 units at SinoHydro Rudong Intertidal; cap buried below the mud, a tall column carrying the tower): a new type
-      "low pile cap", high-rise pile cap with a note, or keep it out (raised in round 16 on 9 Oct 2026, item 5 under "In progress"; re-run the map's colour-blind check before adding a type)
+- [x] How to classify the "low pile, tall pedestal" (低桩高台柱) foundations (20 units at SinoHydro Rudong Intertidal; cap buried below the mud, a tall column carrying the tower): the owner decided
+      on 9 Oct 2026 to add a type "low pile cap" (`lp`, v2.30.12), in the "other fixed" colour group (colour-blind check re-run, map colours unchanged)
 - [ ] The priority order of the phases under "Next steps" in the ROADMAP
 
 ## Operations

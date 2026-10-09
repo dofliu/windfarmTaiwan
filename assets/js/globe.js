@@ -18,7 +18,7 @@ const I18N = {
     region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
-    fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
+    fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、低樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
     fdLabel: '水下基礎', fdUnknown: '型式不詳（尚未查證）', fdFloatSub: '細分型式待查', fdFlBy: '浮動式細分', fdSecond: '第二來源', fdSrc: '來源', fdDoc: '逐場清單',
     fdStep: '逐步收集中：歐洲、全球浮動式風場與台灣、日本、韓國、美國已完成；中國、越南進行中，還沒查明的暫列型式不詳', fdProf: '水下基礎（營運中離岸風場，依容量）',
@@ -132,7 +132,7 @@ const I18N = {
     region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
-    fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
+    fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
     fdLabel: 'Foundation', fdUnknown: 'Type unknown (not yet checked)', fdFloatSub: 'sub-type to be checked', fdFlBy: 'Floating by type', fdSecond: 'second source', fdSrc: 'source', fdDoc: 'Farm-by-farm list',
     fdStep: 'Collected step by step: Europe, floating farms worldwide and Taiwan, Japan, Korea and the USA are done; China and Vietnam are under way, and farms not yet checked show as type unknown', fdProf: 'Foundations (operating offshore farms, by capacity)',
@@ -858,7 +858,7 @@ function buildFarmLayer() {
 }
 const _col = new THREE.Color();
 /* 水下基礎：多於三種色相在地圖上分不清（dataviz 色盲檢查，--pairs all），所以依結構歸成三個色相＋兩個中性色：
-   單樁（藍）、鋼構框架＝套管／三腳／三樁（橘）、浮動式（青綠）、其他固定式＝重力式／高樁承台／圍堰式／岩錨式／複合筒／混合（近白）、型式不詳（淺灰）。
+   單樁（藍）、鋼構框架＝套管／三腳／三樁（橘）、浮動式（青綠）、其他固定式＝重力式／高樁承台／低樁承台／圍堰式／岩錨式／複合筒／混合（近白）、型式不詳（淺灰）。
    確切型式寫在卡片與提示框；圖例可只看一組。資料：data/global/foundations.json（tools/build_foundations.py） */
 const FD_GROUPS = ['mp', 'frame', 'fl', 'other', 'unk'];
 const FD_HEX = { mp: 0x3987e5, frame: 0xd95926, fl: 0x199e70, other: 0xdfe3ea, unk: 0xa7adb6 };
@@ -1129,7 +1129,7 @@ function fdMats(g) {
 }
 /* ---------------- 近景的基座段：依水下基礎型式畫出水面以上看得到的部分（示意，尺寸以塔高為 1） ----------------
    單樁＝灰樁身＋黃色過渡段（TP）與工作平台；套管＝四腿格構＋黃色過渡段；三腳架＝中柱＋三斜撐；三樁＝三根直樁＋連接架；
-   重力式＝混凝土錐台；高樁承台＝群樁＋混凝土承台；圍堰式／複合筒＝寬筒；浮動式依細分型式畫半潛式三立柱、單柱式、駁船式或張力腳平台；
+   重力式＝混凝土錐台；高樁承台＝群樁＋混凝土承台；低樁承台＝混凝土高立柱（承台在泥面下，不畫）；圍堰式／複合筒＝寬筒；浮動式依細分型式畫半潛式三立柱、單柱式、駁船式或張力腳平台；
    混合型依各型式座數分配到機位；型式不詳不畫基座。水面以下不畫（地球面就是海面）。 */
 const BASE_COL = { tp: 0xf2c230, steel: 0x9aa3ad, conc: 0xc9c3b6, hull: 0xe3e8ee };
 const baseGeoCache = {};
@@ -1157,6 +1157,7 @@ function baseParts(key) {
   else if (t === 'tl') { parts.push(['steel', [...legs(3, 0.12, 0.12, 0.2, 0.028)]]); parts.push(['tp', [[new THREE.CylinderGeometry(0.17, 0.17, 0.05, 3), M(0, 0.225, 0)], tpRing(0.06, 0.22, 0.3)]]); }
   else if (t === 'gb') { parts.push(['conc', [[new THREE.CylinderGeometry(0.075, 0.2, 0.16, 14), M(0, 0.08, 0)], platform(0.1, 0.16)]]); }
   else if (t === 'pc') { parts.push(['conc', [[new THREE.CylinderGeometry(0.17, 0.17, 0.07, 14), M(0, 0.1, 0)]]]); parts.push(['steel', [...legs(6, 0.12, 0.12, 0.07, 0.016)]]); }
+  else if (t === 'lp') { parts.push(['conc', [tpRing(0.055, -0.02, 0.2), platform(0.095, 0.2)]]); }
   else if (t === 'cf' || t === 'bk') { parts.push([t === 'cf' ? 'steel' : 'conc', [[new THREE.CylinderGeometry(0.16, 0.16, 0.1, 14), M(0, 0.05, 0)]]]); parts.push(['tp', [tpRing(0.065, 0.1, 0.2), platform(0.1, 0.2)]]); }
   else if (t === 'ra') { parts.push(['steel', [tpRing(0.08, 0, 0.06)]]); parts.push(['tp', [tpRing(0.065, 0.06, 0.15), platform(0.1, 0.15)]]); }
   else if (t === 'fl') {
