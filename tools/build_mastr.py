@@ -79,6 +79,9 @@ MANUAL = {
                             'https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21'),
     'Asselner wind farm': (['Asselner Windpark'],   # Asselner Windkraft 2015 年 12 月的 7 部 E-92＋1 部 E-115（19.45 MW）；MaStR 同名群另含 2018 年的 E-115（AWK 10）與 E-82（Heggewind），共 24.75 MW
                            'https://www.thewindpower.net/windfarm_en_12163_asselner-windpark.php'),
+    'Niedere Börde wind farm': (['Niedere Börde A2 I/S', 'Niedere Börde G3', 'Borregaard I/S', 'Niedere Börde/Biegen I/S', 'Niedere Börde A1'],
+                                # NOTUS 的 Niedere Börde：6 部 Vestas V80 2.0（MaStR 機組 25654–25659，2006 年 12 月 1–8 日），其中 25655 的風場名稱登錄為 Borregaard I/S
+                                'https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3293583'),
 }
 
 

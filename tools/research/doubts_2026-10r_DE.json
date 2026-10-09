@@ -1,0 +1,172 @@
+[
+ {
+  "item": "B5. DEU Wulfen 41 MW (MBBF) — position and units",
+  "farm": "Wulfen wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "GEM 的 Wulfen 座標（51.197, 11.966，與 Burg (NOTUS) 共用的概略點）在 Teuchern 附近，那裡沒有 MBBF 的機組；Wulfen 在安哈特—比特費爾德縣 Osternienburger Land，MBBF 在當地是 Dornbock（10 部 Enron 1.5s，2002）與 Kleinpaschleben（12 部，2002），本站已各有紀錄。",
+  "note_en": "GEM’s Wulfen point (51.197, 11.966, an approximate point shared with Burg (NOTUS)) is near Teuchern, where MBBF has no turbines; Wulfen lies in Osternienburger Land (Anhalt-Bitterfeld), where MBBF runs Dornbock (10 Enron 1.5s, 2002) and Kleinpaschleben (12, 2002), both already separate records.",
+  "why": "MaStR: MBBF Windpark GmbH & Co. KG has Windpark Dornbock (10 × Enron Wind 1.5s, 19.02–12.03.2002, 15 MW) and Windpark Kleinpaschleben (12 × 1.5s, 12.06–16.07.2002, 18 MW) in Osternienburger Land; site records \"Dornbock\" (26 MW, 2002/2021) and \"Kleinpaschleben\" (18 MW, 2002, owner EOS) exist. 15 + 18 = 33 MW ≠ GEM’s 41 MW, so Wulfen cannot be called a duplicate yet; MBBF’s own Windpark Wulfen page (GEM’s source) is gone (404) and web.archive.org is blocked from here. turbines_de.json gives Wulfen 18 unrelated units near Teuchern (1994–2022, 11 models) through the build’s capacity budget around the wrong point — Wulfen’s match there is wrong either way. Next: MBBF portfolio list from another archive, or a press item naming Windpark Wulfen’s turbines.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Wulfen_wind_farm",
+    "quote": "51.1965, 11.9661 (approximate)"
+   },
+   {
+    "url": "https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3784296",
+    "quote": "Anzeige-Name des Windparks im MaStR: Windpark Dornbock"
+   },
+   {
+    "url": "https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3815103",
+    "quote": "Anzeige-Name des Windparks im MaStR: Windpark Kleinpaschleben"
+   }
+  ]
+ },
+ {
+  "item": "B7. DEU Buchhain (Buchhainer Heide) 10 MW",
+  "farm": "Buchhain (Buchhainer Heide) wind farm",
+  "src_code": 2,
+  "iso": "DEU",
+  "status": "lead",
+  "proposal": "dup('DEU', 'Buchhain (Buchhainer Heide) wind farm', G, ('Buchhainer Heide wind farm', G), '是 Buchhainer Heide 風場的一部分：GEM 這筆的經營者 Windpark Buchhainer Heide GmbH und Co. Betriebs KG 在 MaStR 只登錄 13 部 Nordex N100（各 2.5 MW，共 32.5 MW，即 Buchhainer Heide 紀錄的 33 MW：2014 年 8 部、2016 年 5 部），其中 Schlieben 鎮 Oelsig 地段的 4 部（2016 年 8–9 月商轉）正好是這筆的 10 MW', 'Part of the Buchhainer Heide record: this record’s operator, Windpark Buchhainer Heide GmbH und Co. Betriebs KG, has only 13 Nordex N100 in the Marktstammdatenregister (2.5 MW each, 32.5 MW, i.e. the Buchhainer Heide record’s 33 MW: eight in 2014, five in 2016); the four of them in Oelsig (Schlieben), commissioned in August–September 2016, make exactly this record’s 10 MW', 'https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Name%20des%20Anlagenbetreibers%20(nur%20Org.)~ct~%27Buchhainer%27')",
+  "note_zh": "GEM 依 MaStR 的鄉鎮把同一座 WP Buchhain 拆成兩筆（Doberlug-Kirchhain 9 部、Schlieben 4 部），其中 Schlieben 的 4 部已含在 Buchhainer Heide 的 2016 年分期。",
+  "note_en": "GEM split the one WP Buchhain by MaStR municipality (nine units in Doberlug-Kirchhain, four in Schlieben); the four in Schlieben are already inside Buchhainer Heide’s 2016 phase.",
+  "why": "Not written in round 21: GEM took this record’s point from the 2018 Gamesa G114 farm, so the record may stand for that farm rather than part of Buchhainer Heide. MaStR operator query: 13 units, all \"WP Buchhain\" N100: Buc 01–05, 07, 10, 11 (03.11–09.12.2014, Doberlug-Kirchhain), Buc 12 (11.08.2016, Buchhain) and Buc 06, 09, 14, 17 (25.08–14.09.2016, Gemarkung Oelsig, Gemeinde Schlieben) = 4 × 2.5 = 10 MW. GEM’s Buchhainer Heide phases (2014 20 MW at 51.6565, 13.3458; 2016 13 MW at 51.6640, 13.3609) cover all 13. Caveat: GEM took this record’s point (51.6640, 13.3920) from a The Wind Power entry for the 2018 Gamesa G114 farm, which sits by Bärfang’s units; the G114 farm is the separate \"Bärfang (Schleswig-Holstein)\" record (16 MW, 8 units — misnamed, it is in Brandenburg), and 2 more G114 (Windpark Buchhain 8 & 11, 4 MW, June 2018) plus BUC 07 (eno100, 2.2 MW, 2014) and TWS KG Oelsig (3 × V90, 6 MW) have no record of their own. The identification rests on GEM’s operator (cited to MaStR) and the exact 10 MW; if the main session prefers, keep the record and only note it.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Buchhain_(Buchhainer_Heide)_wind_farm",
+    "quote": "Buchhain (Buchhainer Heide) wind farm is an operating wind farm in Elbe-Elster, Brandenburg, Germany."
+   },
+   {
+    "url": "https://www.gem.wiki/Buchhain_(Buchhainer_Heide)_wind_farm",
+    "quote": "Windpark Buchhainer Heide GmbH und Co Betriebs"
+   },
+   {
+    "url": "https://www.gem.wiki/Buchhainer_Heide_wind_farm",
+    "quote": "Other names: WP Buchhain Buchhainer Heide wind farm is an operating wind farm in Elbe-Elster, Brandenburg, Germany."
+   },
+   {
+    "url": "https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Name%20des%20Anlagenbetreibers%20(nur%20Org.)~ct~%27Buchhainer%27",
+    "quote": "\"Total\":13"
+   },
+   {
+    "url": "https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Name%20des%20Anlagenbetreibers%20(nur%20Org.)~ct~%27Buchhainer%27",
+    "quote": "\"EinheitName\":\"Buc 06\",\"EndgueltigeStilllegungDatum\":null,\"Flurstueck\":\"Flur 5 / Flurstück 46\",\"Gemarkung\":\"Oelsig\",\"Gemeinde\":\"Schlieben\""
+   },
+   {
+    "url": "https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/1994016",
+    "quote": "Anlagenbetreiber der Einheit: Windpark Buchhainer Heide GmbH und Co. Betriebs KG"
+   },
+   {
+    "url": "https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/1994016",
+    "quote": "Datum der erstmaligen Inbetriebnahme der Einheit: 05.09.2016"
+   },
+   {
+    "url": "https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/1988864",
+    "quote": "Datum der erstmaligen Inbetriebnahme der Einheit: 03.11.2014"
+   }
+  ]
+ },
+ {
+  "item": "A1. ESP Aragón farms with only \"year N\" reports (Picador, Las Azubías, El Cabezo, Venta del Ginestar, La Rinconada, La Sarda, Tinajeros, Cañacoloma, Sierra de Luna, La Nava (Forestalia), Los Cierzos, El Saso, San Isidro)",
+  "farm": "(13 Aragón farms)",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule; the round-21 leads stand: Picador/Las Azubías ~2021, El Cabezo/Venta del Ginestar/La Rinconada/La Sarda/Tinajeros/Cañacoloma/Sierra de Luna/La Nava/Los Cierzos/El Saso ~2020, San Isidro ~2024)",
+  "note_zh": "仍找不到明寫投入運轉日期的出處。Elecnor 2019 年 5 月承建 Monlora I–V 與 La Sarda，預計同年 11 月完工（只是預計）。",
+  "note_en": "Still no source stating the start of operation. Elecnor took the contract for Monlora I–V and La Sarda in May 2019, expecting construction to end that November (a plan only).",
+  "why": "Tried this round: the La Sarda page’s earliest posted report (year 2, Dec 2021–Mar 2022; 182 k chars) — no start date (it only says no new works have been opened since operation began and mentions a non-conformity closed on 18/11/2020); aragon.es lists start at year 2 for La Sarda (year-1 reports not posted). Searches for Forestalia/Mirova/Engie/GE (Goya and Phoenix projects) and Elecnor give construction contracts and 2018 authorisations only, no commissioning dates. Not tried / still possible: BOA \"autorización de explotación\" notices (not found by search), CNMC/MITECO registries (xlsx or login), Forestalia corporate reports (PDF annual reports 2019–2020).",
+  "sources": [
+   {
+    "url": "https://www.smartgridsinfo.es/2019/05/20/elecnor-construira-seis-parques-eolicos-zaragoza-47-millones-de-euros",
+    "quote": "Los parques eólicos Monlora I, Monlora II, Monlora III, Monlora IV, Monlora V y La Sarda, que sumarán 61 aerogeneradores con una potencia unitaria de 3,83 MW"
+   },
+   {
+    "url": "https://www.smartgridsinfo.es/2019/05/20/elecnor-construira-seis-parques-eolicos-zaragoza-47-millones-de-euros",
+    "quote": "Se espera que los trabajos de construcción concluyan en noviembre de este mismo año."
+   },
+   {
+    "url": "https://www.aragon.es/documents/20127/91924091/PE+La+Sarda_A%C3%B1o2_IC3_Expl_dic21-mar22.pdf/fdb85c85-0781-552b-9c57-a4532ce9561d?t=1655816252606",
+    "quote": "no se han abierto nuevas zonas de obras desde la puesta en marcha de su fase de explotación"
+   }
+  ]
+ },
+ {
+  "item": "A2d. ESP Hoya de Lucas (Tenerife) — operating?",
+  "farm": "Hoya De Lucas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "只找到 2020 年的核准（19.2 MW，Disa Eólica）與施工紀錄，沒有投入運轉的出處。",
+  "note_en": "Only the 2020 approval (19.2 MW, Disa Eólica) and construction references found; nothing on entry into service.",
+  "why": "Searches (Spanish news, Canarian energy yearbook) found no commissioning; GEM cites BOE-B-2020-40103 (authorisation) and a Render Industrial construction page; The Wind Power (pointer only) still showed it under construction in April 2024. Next: Anuario Energético de Canarias 2024/2025 PDF list of wind farms, Cabildo de Tenerife, DISA news.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Hoya_De_Lucas_wind_farm",
+    "quote": "Hoya De Lucas wind farm is an operating wind farm in Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain."
+   }
+  ]
+ },
+ {
+  "item": "A2f. ESP Tirapun (Naturgy, 13.2 MW) — year",
+  "farm": "Tirapun wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet; year=2019 still unproven)",
+  "note_zh": "仍只有 2018 年開工、預計 2019 年 7 月初併網的新聞。",
+  "note_en": "Still only the 2018 start-of-works release expecting first power in early July 2019.",
+  "why": "Searched Naturgy/Barásoain/Tirapu news and the Barásoain municipal PDFs (2019 Premio Eolo): nothing on Tirapu entering service. Next: Gobierno de Navarra \"registro de instalaciones\" / Navarra energy balance 2019–2020, Naturgy 2019 annual report.",
+  "sources": [
+   {
+    "url": "https://smartgridsinfo.es/2018/11/15/naturgy-comienza-las-obras-cuatro-parque-eolicos-navarra-sumaran-una-potencia-495-mw",
+    "quote": "Está previsto que el primer vertido a red de estos parques se realice a principios del mes de julio de 2019."
+   }
+  ]
+ },
+ {
+  "item": "D2. TUR Kalyon R3 Bilecik-6, R3-Ankara-2-1, R3-Elaziğ-1, R3-Bayburt-5 (GEM: operating)",
+  "farm": "R3 Bilecik-6 / R3-Ankara-2-1 / R3-Elaziğ-1 / R3-Bayburt-5 wind farm",
+  "src_code": 2,
+  "iso": "TUR",
+  "status": "lead",
+  "proposal": "(no rule yet: built or not is unproven; GEM’s \"operating\" rests on the EPDK licence)",
+  "note_zh": "Kalyon 官網四案都寫「2024 年第一季起施工、預計 2024 年第三或第四季全容量併網」，是計畫用語；沒有找到完工或併網的出處。",
+  "note_en": "Kalyon’s pages for all four say construction from Q1 2024 with full capacity planned in Q3 or Q4 2024 — planning language; no source on completion or grid connection found.",
+  "why": "Kalyon Holding project pages (live) give licence size and the 2024 plan only; the Enercon contract (June/Nov 2023: 64 E-138 EP3, 260 MW for Elazığ, Bilecik, Bayburt, Ankara, Trabzon) is a supply deal. Searches for \"devreye alındı/geçici kabul/işletmeye alındı\" found nothing; TÜREB’s 2023+ lists are members-only. Note Kalyon gives R3-Bayburt-5 as 40 MWe installed (GEM 43 MW). If the main session wants an interim status, st=1 (construction) is consistent with Kalyon’s own pages, but completion is unknown either way.",
+  "sources": [
+   {
+    "url": "https://kalyonholding.com/enerji/res/bilecik-res",
+    "quote": "70 MWe lisans gücüne sahip R3-Bilecik-6 RES projesi"
+   },
+   {
+    "url": "https://kalyonholding.com/enerji/res/bilecik-res",
+    "quote": "RES projesinin inşaat faaliyetlerine 2024 yılının ilk çeyreğinden itibaren başlanıp, 2024 4. Çeyreği içerisinde tam kapasite devreye alınması planlanmaktadır."
+   },
+   {
+    "url": "https://kalyonholding.com/enerji/res/ankara-res",
+    "quote": "50 MWe lisans gücüne sahip R3-Ankara-2-1 RES projesi"
+   },
+   {
+    "url": "https://kalyonholding.com/enerji/res/elazig-res",
+    "quote": "40 MWe lisans gücüne sahip R3-Elazığ-1 RES projesi"
+   },
+   {
+    "url": "https://kalyonholding.com/enerji/res/bayburt-res",
+    "quote": "40 MWe kurulu güce sahip R3-Bayburt-5 RES projesi"
+   },
+   {
+    "url": "https://kalyonholding.com/enerji/res/bayburt-res",
+    "quote": "2024 3. Çeyreği içerisinde tam kapasite devreye alınması planlanmaktadır."
+   },
+   {
+    "url": "https://enercon.de/en/news/enercon-und-kalyon-enerji-unterzeichnen-260-mw-vertrag",
+    "quote": "Enerji agreed for the delivery and installation of 64 E-138 EP3 WECs for KALOYN Enerji’s YEKA RES-3 projects in Elazığ, Bilecik, Bayburt, Ankara and Trabzon regions with a capacity of 260 MW"
+   }
+  ]
+ }
+]

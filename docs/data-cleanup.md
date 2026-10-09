@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 742 條：刪除 205 筆（其中營運中 47,686.6 MW），修正 537 筆。
+- 規則 753 條：刪除 212 筆（其中營運中 47,853 MW），修正 541 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -21,13 +21,13 @@
 | 印度 | 3 | 378 | 3 |
 | 台灣 | 2 | 0 | 21 |
 | 哥倫比亞 | 1 | 8 | 3 |
-| 土耳其 | 8 | 567 | 17 |
+| 土耳其 | 9 | 592 | 18 |
 | 埃及 | 2 | 1,082 | 0 |
 | 塞內加爾 | 0 | 0 | 2 |
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 2 | 208.5 | 4 |
-| 德國 | 5 | 128 | 24 |
+| 德國 | 9 | 212 | 24 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
@@ -47,10 +47,10 @@
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 2 |
 | 英國 | 7 | 3,485 | 7 |
-| 荷蘭 | 8 | 1,852 | 16 |
+| 荷蘭 | 8 | 1,852 | 18 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
-| 西班牙 | 3 | 49.9 | 28 |
+| 西班牙 | 5 | 107.3 | 29 |
 | 越南 | 15 | 1,512.8 | 39 |
 
 ## 中國大陸 (CHN)
@@ -439,6 +439,8 @@
 | Greif wind farm · 1.2 MW | GEM | 重複（併入「Sunjüt wind farm」） | 與 Sunjüt 風場是同一座：TÜREB 統計報告列 Greif 只有伊斯坦堡的 Sunjüt RES（1.2 MW，2003 年）；這筆座標在 Çorum 附近，當地沒有 1.2 MW 的運轉中風場 | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
 | Kayadüzü wind farm · 82 MW | GEM | 重複（併入「Amasya (Eksim) wind farm」） | 與 Amasya (Eksim) 風場是同一座：GEM 自己的 Amasya (Eksim) 頁面以 Kayaduzu 為別名（82 MW，Merzifon）；TÜREB 統計報告 2016 年列 Merzifon Enerji 的 Kayadüzü RES 執照，2022 年列 Merzifon Enerji 的 Amasya RES 82 MW（2012／2017 年） | [連結](https://www.gem.wiki/Amasya_(Eksim)_wind_farm) |
 | Akyurt wind farm · 15 MW · 2016 | GEM | 重複（併入「Ado Akyurt wind farm」） | 與 Ado Akyurt 風場是同一座：TÜREB 統計報告列 ADO Enerji 只有一座 Akyurt RES（Tokat，14.7 MW，2016 年）；這筆座標在 Sivas，與 Konakpınar 風場（ADO Enerji 的 Konakpınarı RES）相距不到 1 km | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Kocadağ-2 wind farm · 25 MW | GEM | 重複（併入「Kores wind farm」） | 與 Kores 風場是同一座：GEM 這筆取自能源市場管理局（EPDK）執照，經營者是 Kores Kocadağ（Urla 的 Birgi，25 MW）；TÜREB 統計報告列 Kores Kocadağ 只有一座 KORES（伊茲密爾，25 MW，Nordex N90／N100，2009／2012／2015 年），兩筆紀錄相距約 0.6 km | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Kores wind farm · 22.5 MW · 2009 | GEM | 修正：容量、年份 | 容量改為 25 MW、商轉年改為最後一期完成的 2015 年：TÜREB 統計報告列 KORES 25 MW（Nordex N90／N100，2009、2012、2015 年分期完成；各期容量不詳） | [連結](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
 
 ## 埃及 (EGY)
 
@@ -508,7 +510,7 @@
 | Lichtenau wind farm · 11 MW · 1997 | GEM | 重複（併入「Paderborn wind farm」） | GEM 的 Lichtenau（11 MW、1997、RWE）是 1997–98 年 Lichtenau-Asseln「Windpark Asseln」的一部分：當地鄉土協會的介紹寫整座風場 62 部、36 MW，1997 年 12 月首次併網、1998 年 5 月完工，營運者「Diverse Betreiber 23 部、Asselner Windkraft 18 部、WINKRA Lichtenau 21 部」；The Wind Power 的 Lichtenau 頁列 18 部 Enercon E-40「開發商 Winkra、營運者 RWE」。GEM 另一筆 Paderborn（36 MW、1998，出處就是這篇介紹）是整座風場，本筆重複 | [連結](https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21) |
 | Paderborn wind farm · 36 MW · 1998 | GEM | 修正：座標 | 即 Lichtenau-Asseln 的 Windpark Asseln（GEM 的別名 Asseln wind farm）；GEM 的概略點位在風場北方約 2.7 km，靠近 2015–17 年另外的 WP LA、WP Lichtenau 機組，改用德文維基的座標（北緯 51°38′24″、東經 8°54′35″） | [連結](https://de.wikipedia.org/wiki/Windpark_Lichtenau-Asseln) |
 | Asselner wind farm · 19.5 MW · 2015 | GEM | 修正：容量、分期 | Asselner Windpark：2015 年 12 月 7 部 Enercon E-92＋1 部 E-115（19.45 MW，The Wind Power）；MaStR 的同名群另有 2018 年 2 部（E-115 3 MW、E-82 2.3 MW），共 24.75 MW | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
-| Köhlen wind farm · 48 MW | GEM | 修正：年份 | 補上商轉年 2016：MaStR 登錄的 Windpark Köhlen 與 WP Köhlen 共 16 部 Enercon E-101（各 3.05 MW，合計 48.8 MW），2016 年 6 月 7 日至 9 月 22 日陸續商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2736692) |
+| Köhlen wind farm · 48 MW | GEM | 修正：年份、座標 | 補上商轉年 2016：MaStR 登錄的 Windpark Köhlen 與 WP Köhlen 共 16 部 Enercon E-101（各 3.05 MW，合計 48.8 MW），2016 年 6 月 7 日至 9 月 22 日陸續商轉；GEM 的座標是概略位置（在機組以西約 5 km），改到 MaStR 機組的中心 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2736692) |
 | Twist (Wea) wind farm · 40 MW | GEM | 修正：年份 | 補上商轉年 2004：MaStR 登錄 Twist 鎮的 Twist、WP Twist、BW 與 WT Bürgerwindpark Twist 共 22 部 Enercon E-66（各 1.8 MW），都在 2004 年 4 月 6 日至 7 月 22 日商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2556504) |
 | Büttstedt wind farm · 37 MW | GEM | 修正：容量、年份、分期 | 補上商轉年：MaStR 登錄 GERES 的 WP Büttstedt（12 部 E-66）、Windpark Büttstedt GmbH & Co. KG（8 部 E-66）與 Büttstedt I（1 部 E-40）共 36.6 MW；34.2 MW 在 2003 年、最後 2 部（2.4 MW）在 2004 年 10–11 月商轉 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2333818) |
 | Kesfeld wind farm · 33 MW | GEM | 修正：容量、年份、分期 | 補上商轉年：MaStR 登錄的 Windpark Kesfeld-Heckhuscheid 在 2005 年 12 月商轉 8.2 MW、2006 年 24.3 MW（合計 32.5 MW，Siemens SWT-1.3／2.3），與 GEM 的 33 MW 相符；同一公司 2011 年再加 2 部（4.6 MW） | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3600662) |
@@ -519,6 +521,10 @@
 | Speckberg wind farm · 28 MW | GEM | 修正：年份、分期 | 補上商轉年：MaStR 登錄 Maple Wind GmbH & Co. KG 的 14 部 2 MW 風機（Wegeleben 的 WGL 1–5 與 Speckberg 的 SBG 6–14，合計 28 MW）：2006 年 12 月 6 MW、2007 年 8 MW、2009 年 1 月 14 MW | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/1973680) |
 | Wegeleben wind farm · 28 MW · 2006 | GEM | 重複（併入「Speckberg wind farm」） | 與 Speckberg 風場是同一座：MaStR 登錄 Wegeleben 鎮只有 Maple Wind 的 10 部風機，整座 Maple Wind 風場（WGL 與 SBG 共 14 部）合計 28 MW，與兩筆紀錄的容量相同；兩筆紀錄相距約 0.4 km | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Gemeinde~eq~'Wegeleben'~and~Energietr%C3%A4ger~eq~'2497') |
 | Ackendorf-Gutenswegen wind farm · 12 MW | GEM | 重複（併入「Niedere Börde wind farm」） | 與 Niedere Börde 風場是同一座：MaStR 在 Ackendorf 與 Gutenswegen 地段登錄的是 Niedere Börde 各期的 Vestas V80（各 2 MW，共 6 部、12 MW，2006 年 12 月商轉），與兩筆紀錄的 12 MW（業主都是 NOTUS）相同 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Gemarkung~eq~'Gutenswegen'~and~Energietr%C3%A4ger~eq~'2497') |
+| Brockoh wind farm · 36 MW · 2016 | GEM | 重複（併入「Köhlen wind farm」） | 與 Köhlen 風場是同一座：庫克斯港縣 2013 年的計畫說明寫明，Windpark Köhlen GmbH 在區域計畫的風能優先區「Köhlen-Brockoh」興建 Enercon E-101 風場，鄉鎮的土地利用計畫稱它「Windpark Brockoh」；這筆紀錄兩期的座標（53.5388, 8.9545／53.5355, 8.9677）正落在 MaStR 的 WP Köhlen 機組上（WEA 8、WEA 15，2016 年商轉），附近沒有其他 2016 年的風場 | [連結](https://www.landkreis-cuxhaven.de/media/custom/1779_3201_1.PDF) |
+| Twist (WT) wind farm · 22 MW · 2004 | GEM | 重複（併入「Twist (Wea) wind farm」） | 是 Twist (Wea) 風場的一部分：OpenStreetMap 的「Windpark Twist」是一座 22 部、39.6 MW 的風場（Agro & WEA Windpark Twist 經營）；MaStR 在 Twist 鎮登錄的 22 部 Enercon E-66（各 1.8 MW，2004 年）都在這一片，其中 WT Bürgerwindpark Twist 的 12 部（21.6 MW，即這筆的 22 MW）與 Alterric 等公司的另 10 部穿插排列；保留代表整座風場的 40 MW 紀錄 | [連結](https://www.openstreetmap.org/relation/13454358) |
+| Nessa wind farm · 14 MW | GEM | 刪除 | 與風場層裡 MaStR 來源的「UW Nessa」重複：Thüga Erneuerbare Energien（THEE）的 Nessa 風場是 6 部 Enercon E-82、13.8 MW；MaStR 登錄的 Windpark THEE Nessa 這 6 部（2012 年 1 月 19 日至 7 月 20 日商轉，薩克森—安哈特邦 Teuchern）屬於「UW Nessa」群（19 部、49.8 MW，含其他業者的機組），本站已由 MaStR 加入；GEM 這筆的概略座標在約 110 km 外的圖林根，重複計算 | [連結](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3804544) |
+| Wittstedt wind farm · 12 MW | GEM | 重複（併入「Lohkamp wind farm」） | 與 Lohkamp 風場是同一座：European Energy 自 2013 年持有的舊 Wittstedt 風場（FEW Windpark Wittstedt K/S，7 部）2017 年開始汰換，5 部拆除、改建 4 部高 186 m、葉輪直徑 101 m 的新機；MaStR 在 Wittstedt 地段登錄的就是 CEE Windpark Lohkamp 的 4 部 Enercon（1 部 E-101，輪轂 135.38 m、葉輪 101 m，2017 年 12 月 21 日商轉；3 部 E-115，2018 年 2–3 月），共 12.05 MW；European Energy 2018 年也說 Wittstedt 風場是 4 部 Enercon | [連結](http://www.wittstedt.de/fileadmin/user/NZ_09.08_Windpark_Wittstedt_wird_erneuert.pdf) |
 
 ## 愛爾蘭 (IRL)
 
@@ -884,6 +890,8 @@
 | Wisse wind farm · 12 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2011 並更正容量：Wisse Wind BV 的 Willempolder 風場（Sint Philipsland）有 5 部 2.3 MW Enercon（11.5 MW），2011 年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖） | [連結](https://nl.wikipedia.org/wiki/Windpark_Wissewind) |
 | Zierikzee wind farm · 10 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2014 並更正容量：Zierikzee 風場有 3 部 Senvion 3.4M104（10.2 MW），2014 年 8 月開工、同年投入運轉（荷蘭文維基百科，依澤蘭省風能地圖） | [連結](https://nl.wikipedia.org/wiki/Windpark_Zierikzee) |
 | Etten-Leur wind farm · 13 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2019 並更正容量與機組：Etten-Leur 風場（換掉 2000 年的 5 部舊機）有 3 部 Vestas 4.2 MW（輪轂 112 m、葉輪 136 m），合計 12.6 MW，2019 年完工（基礎設計公司 Windbase 專案資料） | [連結](https://galleo.co/search/projects/wind-park-etten-leur/windbase) |
+| Epz wind farm · 24 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2022 並更正容量：荷蘭企業局（RVO）《2022 陸域風電監測》列 Borsele 的 Windpark EPZ 16.8 MW 於 2022 年完成（2 部 Nordex N133/4800、2 部 N117/3600），同時拆除 8.9 MW 舊 EPZ 機組；2023、2024 年版在澤蘭省都沒有再列 EPZ 的新機組 | [連結](https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf) |
+| Kubbeweg wind farm · 74 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2023 並更正容量：新的 Windpark Kubbeweg 2 是 12 部 Vestas V162-6.0（72 MW），取代 2006 年的 17 部 2 MW 舊風場，屬於 Windplan Groen；荷蘭企業局（RVO）《2023 陸域風電監測》列 Windplan Groen（Dronten，512.6 MW）於 2023 年完成，2022 年版說它可望在 2023 年完成 | [連結](https://www.windparkkubbeweg.nl/) |
 
 ## 菲律賓 (PHL)
 
@@ -935,6 +943,9 @@
 | Montejo De Bricia wind farm · 14 MW | GEM | 修正：年份 | 補上商轉年 2006：卡斯提亞—雷昂自治區開放資料「運轉中風場」（Parques eólicos en funcionamiento）列 MONTEJO DE BRICIA（Valle de Valdebezana，Burgos，13.6 MW，16 部 Gamesa 850 kW），2006 年投入運轉 | [連結](https://analisis.datosabiertos.jcyl.es/api/explore/v2.1/catalog/datasets/parques-eolicos/exports/csv?where=nombre%3D%22MONTEJO%20DE%20BRICIA%22&delimiter=%3B) |
 | Tirupan wind farm · 13 MW · 2019 | GEM | 重複（併入「Tirapun wind farm」） | 與「Tirapun wind farm」（13.2 MW）是同一座：Naturgy 的 Tirapu 風場（納瓦拉，4 部 3.3 MW＝13.2 MW），2018 年 11 月與 Barásoain 風場一起開工；這筆的座標落在 Ribera 一帶（與 San Gregorio、Pestriz 同點），保留座標在 Tirapu 附近的那筆 | [連結](https://smartgridsinfo.es/2018/11/15/naturgy-comienza-las-obras-cuatro-parque-eolicos-navarra-sumaran-una-potencia-495-mw) |
 | Las Traperas wind farm · 10 MW | GEM | 修正：年份 | 補上商轉年 2013：卡斯提亞—雷昂自治區開放資料「運轉中風場」（Parques eólicos en funcionamiento）列 LAS TRAPERAS（Medina del Campo，Valladolid，9.9 MW，6 部 MTorres 1.65 MW），2013 年投入運轉 | [連結](https://analisis.datosabiertos.jcyl.es/api/explore/v2.1/catalog/datasets/parques-eolicos/exports/csv?where=nombre%3D%22LAS%20TRAPERAS%22&delimiter=%3B) |
+| Alto de Croa 2 wind farm · 10.4 MW | GEM | 重複（併入「Croa wind farm」） | 與 Croa 風場是同一座：Greenalia 在 Vimianzo 的 Alto da Croa II 風場（10.4 MW）；GEM 的 Croa 紀錄以 Alto de Croa II 為別名，兩筆相距約 0.5 km（Greenalia 另有 7.3 MW 的 Alto da Croa，本站沒有收錄） | [連結](https://greenalia.es/en/business/onshore-wind/) |
+| Croa wind farm · 10 MW · 2021 | GEM | 修正：容量 | 容量依 Greenalia 公布的 Alto da Croa II 改為 10.4 MW | [連結](https://greenalia.es/en/business/onshore-wind/) |
+| Els Pessells wind farm · 47 MW | GEM | 刪除 | 從未建成：加泰隆尼亞自治區能源總局 2020 年撤銷 Horta de Sant Joan（Terra Alta）Els Pesells 風場的許可；這個案子自 2015 年由 Fercom Eòlica（GEM 這筆的經營者）持有，電網業者 REE 拒絕併網後業者申請取回併網保證金；原座標是與 Els Barrancs 共用的代用點 | [連結](https://ebredigital.cat/?p=196548) |
 
 ## 越南 (VNM)
 
@@ -1082,3 +1093,5 @@
 | Loehrheide Nord (DEU) | MaStR 的「Loehrheide Nord」是 2 部 Nordex Energy N149（2024 年併網，11.4 MW）；GEM 的「Stepratherheide」（11 MW）在 MaStR 對到的是另外 2 部 Nordex SE N149（2024 年）：兩批不同的機組，是相鄰的兩座風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | WPGEL (DEU) | MaStR 的「WPGEL」是 2 部 Nordex SE Nordex Delta4000 N163/5.X（2025 年併網，11.4 MW）；GEM 的「Stepratherheide」（11 MW）在 MaStR 對到的是另外 2 部 Nordex SE N149（2024 年）：兩批不同的機組，是相鄰的兩座風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | WP Uhlhorn (DEU) | MaStR 的「WP Uhlhorn」是 3 部 Vestas V-126（2018 年併網，10.35 MW）；GEM 的「Hengsterholz」（10 MW）在 MaStR 對到的是另外 3 部 Vestas V117-3,45MW（2017 年）：兩批不同的機組，是相鄰的兩座風場 | [連結](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Munilla wind farm (ESP) | GEM 的 Munilla（10 MW）是 Munilla-La Santa 風場的擴建段「Munilla Ampliación」；OpenStreetMap 把兩者畫成同一經營者 Eólicas de La Rioja 的兩座風場（Ampliación 10 MW、Munilla - La Santa 36 MW）：不同機組，不是重複 | [連結](https://www.openstreetmap.org/relation/13071752) |
+| Los Isletes (Iberdrola) wind farm (ESP) | Los Isletes 風場（Jerez）共 35.3 MW，由兩部分組成：GEM 的 Los Isletes (Iberdrola)（10 MW，經營者 Ibernova）與 Los Isletes (Urbaenergía)（25 MW，Saeta Yield）各是其中一部分（OpenStreetMap 的風場範圍：5 部 2 MW 與 11 部 2.3 MW）：不同機組，不是重複 | [連結](https://www.openstreetmap.org/relation/13943144) |

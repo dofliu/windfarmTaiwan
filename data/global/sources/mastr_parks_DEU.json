@@ -3,10 +3,10 @@
 "source": "Bundesnetzagentur, Marktstammdatenregister (MaStR), Gesamtdatenexport: EinheitenWind",
 "url": "https://www.marktstammdatenregister.de/MaStR/Datendownload",
 "license": "Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0); © Bundesnetzagentur | Marktstammdatenregister",
-"farms": 4888,
-"mw": 24375,
+"farms": 4898,
+"mw": 24417,
 "mastr_mw": 82643,
-"site_mw": 53257
+"site_mw": 53113
 },
 "parks": [
 {
@@ -4402,6 +4402,17 @@
 "turbine": "",
 "gem": "Heek",
 "n": 7
+},
+{
+"name": "WP Hemelingen",
+"lat": 53.0236,
+"lon": 8.9023,
+"mw": 12.8,
+"year": 2018,
+"ph": 0,
+"turbine": "",
+"gem": "Bremen",
+"n": 4
 },
 {
 "name": "Windpark Hohelucht",
@@ -14464,6 +14475,17 @@
 "n": 1
 },
 {
+"name": "WEA Balkenortsmoor",
+"lat": 53.5426,
+"lon": 9.0259,
+"mw": 6.8,
+"year": 2026,
+"ph": 0,
+"turbine": "1 x Nordex Germany NORDEX N163-6.X",
+"gem": "Ebersdorf",
+"n": 1
+},
+{
 "name": "WP A 33",
 "lat": 51.6316,
 "lon": 8.7267,
@@ -15636,6 +15658,26 @@
 ],
 "turbine": "",
 "gem": "Borchen",
+"n": 3
+},
+{
+"name": "WP_Hermsdorf-II",
+"lat": 52.2074,
+"lon": 11.4704,
+"mw": 6.3,
+"year": 2006,
+"ph": [
+[
+2006,
+4.3
+],
+[
+2007,
+2.0
+]
+],
+"turbine": "3 x ENERCON E-70 E4",
+"gem": "Hohe Börde",
 "n": 3
 },
 {
@@ -20437,6 +20479,17 @@
 "ph": 0,
 "turbine": "3 x ENERCON E 66",
 "gem": "Bakum",
+"n": 3
+},
+{
+"name": "WP_Hermsdorf-I",
+"lat": 52.2076,
+"lon": 11.477,
+"mw": 5.4,
+"year": 2002,
+"ph": 0,
+"turbine": "3 x ENERCON E-66/18.70",
+"gem": "Hohe Börde",
 "n": 3
 },
 {
@@ -35497,6 +35550,17 @@
 "n": 1
 },
 {
+"name": "Wittstedt",
+"lat": 53.399,
+"lon": 8.662,
+"mw": 3.0,
+"year": 2000,
+"ph": 0,
+"turbine": "2 x GE Wind Energy GE 1,5s",
+"gem": "Hagen im Bremischen",
+"n": 2
+},
+{
 "name": "provent Windpark Rackwitz",
 "lat": 51.4545,
 "lon": 12.3877,
@@ -36253,6 +36317,17 @@
 "name": "GE 27120154",
 "lat": 53.4628,
 "lon": 8.727,
+"mw": 2.75,
+"year": 2015,
+"ph": 0,
+"turbine": "1 x General Electric Holding GE 2,75-103",
+"gem": "Beverstedt",
+"n": 1
+},
+{
+"name": "GE 27120164",
+"lat": 53.4457,
+"lon": 8.6907,
 "mw": 2.75,
 "year": 2015,
 "ph": 0,
@@ -44369,17 +44444,6 @@
 "ph": 0,
 "turbine": "1 x ENERCON E 70 E4",
 "gem": "Ribnitz-Damgarten",
-"n": 1
-},
-{
-"name": "Borregaard I/S",
-"lat": 52.2123,
-"lon": 11.4809,
-"mw": 2.0,
-"year": 2006,
-"ph": 0,
-"turbine": "1 x Vestas V80 2,0",
-"gem": "Hohe Börde",
 "n": 1
 },
 {
@@ -54392,6 +54456,17 @@
 "n": 1
 },
 {
+"name": "WKA Ackendorf",
+"lat": 52.2303,
+"lon": 11.4322,
+"mw": 1.5,
+"year": 2003,
+"ph": 0,
+"turbine": "1 x GE Wind Energy GE 1,5csl - 85m NH",
+"gem": "Hohe Börde",
+"n": 1
+},
+{
 "name": "WKA Dirmingen 1",
 "lat": 49.4294,
 "lon": 7.0105,
@@ -55926,6 +56001,17 @@
 "n": 1
 },
 {
+"name": "Zephir",
+"lat": 52.2011,
+"lon": 11.4522,
+"mw": 1.5,
+"year": 2003,
+"ph": 0,
+"turbine": "1 x General Electric Holding GE 1.5sl",
+"gem": "Hohe Börde",
+"n": 1
+},
+{
 "name": "Zweite Energien Weide 70221",
 "lat": 54.5322,
 "lon": 9.4194,
@@ -56293,6 +56379,17 @@
 "n": 1
 },
 {
+"name": "AN 130015105",
+"lat": 53.4458,
+"lon": 8.5782,
+"mw": 1.3,
+"year": 2000,
+"ph": 0,
+"turbine": "1 x AN Windenergie 1,3 MW/62",
+"gem": "Loxstedt",
+"n": 1
+},
+{
 "name": "AN 130015201",
 "lat": 53.4535,
 "lon": 8.5855,
@@ -56348,9 +56445,31 @@
 "n": 1
 },
 {
+"name": "AN 130016606",
+"lat": 53.4439,
+"lon": 8.5767,
+"mw": 1.3,
+"year": 2000,
+"ph": 0,
+"turbine": "1 x AN Windenergie 1,3 MW/62",
+"gem": "Loxstedt",
+"n": 1
+},
+{
 "name": "AN 130019303",
 "lat": 53.4495,
 "lon": 8.5823,
+"mw": 1.3,
+"year": 2000,
+"ph": 0,
+"turbine": "1 x AN Windenergie 1,3 MW/62",
+"gem": "Loxstedt",
+"n": 1
+},
+{
+"name": "AN 130019404",
+"lat": 53.4476,
+"lon": 8.58,
 "mw": 1.3,
 "year": 2000,
 "ph": 0,

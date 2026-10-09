@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 742 rules: 205 records removed (47,686.6 MW of them operating), 537 records fixed.
+- 753 rules: 212 records removed (47,853 MW of them operating), 541 records fixed.
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -24,7 +24,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 2 |
 | France | 24 | 614.8 | 80 |
-| Germany | 5 | 128 | 24 |
+| Germany | 9 | 212 | 24 |
 | India | 3 | 378 | 3 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
@@ -33,7 +33,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
 | Morocco | 3 | 642 | 3 |
-| Netherlands | 8 | 1,852 | 16 |
+| Netherlands | 8 | 1,852 | 18 |
 | Norway | 7 | 1,939 | 10 |
 | Philippines | 1 | 160 | 1 |
 | Poland | 0 | 0 | 2 |
@@ -42,11 +42,11 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Senegal | 0 | 0 | 2 |
 | South Africa | 2 | 159 | 2 |
 | South Korea | 4 | 158.3 | 9 |
-| Spain | 3 | 49.9 | 28 |
+| Spain | 5 | 107.3 | 29 |
 | Sweden | 0 | 0 | 3 |
 | Taiwan | 2 | 0 | 21 |
 | Thailand | 1 | 600 | 7 |
-| Turkey | 8 | 567 | 17 |
+| Turkey | 9 | 592 | 18 |
 | United Kingdom | 7 | 3,485 | 7 |
 | United States of America | 7 | 943.6 | 8 |
 | Uruguay | 1 | 141.6 | 1 |
@@ -534,7 +534,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Lichtenau wind farm · 11 MW · 1997 | GEM | duplicate of “Paderborn wind farm” | GEM’s Lichtenau (11 MW, 1997, RWE) is part of the 1997–98 “Windpark Asseln” at Lichtenau-Asseln: the village heritage society’s page gives the whole park as 62 turbines and 36 MW, first feed-in in December 1997 and completion in May 1998, with operators “various operators 23, Asselner Windkraft 18, WINKRA Lichtenau 21”; The Wind Power lists 18 Enercon E-40 there with “developer Winkra, operator RWE”. GEM’s separate Paderborn record (36 MW, 1998, sourced to that page) is the whole park, so this one is a duplicate | [link](https://web.archive.org/web/20240126012246/https://www.asseln.de/index.php?option=com_content&view=article&id=4&Itemid=21) |
 | Paderborn wind farm · 36 MW · 1998 | GEM | fixed: location | This is the Windpark Asseln at Lichtenau-Asseln (GEM’s other name: Asseln wind farm); GEM’s approximate point is about 2.7 km north of the park, next to the separate WP LA and WP Lichtenau turbines of 2015–17, so the German Wikipedia coordinates are used (51°38′24″ N, 8°54′35″ E) | [link](https://de.wikipedia.org/wiki/Windpark_Lichtenau-Asseln) |
 | Asselner wind farm · 19.5 MW · 2015 | GEM | fixed: capacity, phases | Asselner Windpark: 7 Enercon E-92 and one E-115 of December 2015 (19.45 MW, The Wind Power); MaStR’s group of that name adds 2 units of 2018 (an E-115 of 3 MW and an E-82 of 2.3 MW), 24.75 MW in all | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
-| Köhlen wind farm · 48 MW | GEM | fixed: year | Commissioning year 2016 added: the Marktstammdatenregister lists 16 Enercon E-101 (3.05 MW each, 48.8 MW) under Windpark Köhlen and WP Köhlen, commissioned between 7 June and 22 September 2016 | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2736692) |
+| Köhlen wind farm · 48 MW | GEM | fixed: year, location | Commissioning year 2016 added: the Marktstammdatenregister lists 16 Enercon E-101 (3.05 MW each, 48.8 MW) under Windpark Köhlen and WP Köhlen, commissioned between 7 June and 22 September 2016; GEM’s point was approximate (about 5 km west of the turbines) and moves to the centre of the MaStR units | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2736692) |
 | Twist (Wea) wind farm · 40 MW | GEM | fixed: year | Commissioning year 2004 added: the Marktstammdatenregister lists 22 Enercon E-66 (1.8 MW each) in Twist under Twist, WP Twist, BW and WT Bürgerwindpark Twist, all commissioned between 6 April and 22 July 2004 | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2556504) |
 | Büttstedt wind farm · 37 MW | GEM | fixed: capacity, year, phases | Commissioning years added: the Marktstammdatenregister lists GERES’s WP Büttstedt (12 E-66), Windpark Büttstedt GmbH & Co. KG (8 E-66) and Büttstedt I (1 E-40), 36.6 MW in all; 34.2 MW was commissioned in 2003 and the last two units (2.4 MW) in October–November 2004 | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/2333818) |
 | Kesfeld wind farm · 33 MW | GEM | fixed: capacity, year, phases | Commissioning years added: the Marktstammdatenregister lists Windpark Kesfeld-Heckhuscheid with 8.2 MW commissioned in December 2005 and 24.3 MW in 2006 (32.5 MW, Siemens SWT-1.3/2.3), matching GEM’s 33 MW; the same company added two more units (4.6 MW) in 2011 | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3600662) |
@@ -545,6 +545,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Speckberg wind farm · 28 MW | GEM | fixed: year, phases | Commissioning years added: the Marktstammdatenregister lists 14 turbines of 2 MW of Maple Wind GmbH & Co. KG (WGL 1–5 at Wegeleben and SBG 6–14 at Speckberg, 28 MW): 6 MW in December 2006, 8 MW in 2007 and 14 MW in January 2009 | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/1973680) |
 | Wegeleben wind farm · 28 MW · 2006 | GEM | duplicate of “Speckberg wind farm” | Same farm as the Speckberg record: the Marktstammdatenregister lists only Maple Wind’s ten turbines in the town of Wegeleben, and the whole Maple Wind farm (WGL and SBG, 14 units) is 28 MW, the capacity of both records; the two records are about 0.4 km apart | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Gemeinde~eq~'Wegeleben'~and~Energietr%C3%A4ger~eq~'2497') |
 | Ackendorf-Gutenswegen wind farm · 12 MW | GEM | duplicate of “Niedere Börde wind farm” | Same farm as the Niedere Börde record: the Marktstammdatenregister lists the Niedere Börde Vestas V80s (2 MW each, six units, 12 MW, commissioned in December 2006) in the Ackendorf and Gutenswegen cadastral districts, the same 12 MW as both records (both owned by NOTUS) | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/EinheitJson/GetErweiterteOeffentlicheEinheitStromerzeugung?sort=&page=1&pageSize=500&group=&filter=Gemarkung~eq~'Gutenswegen'~and~Energietr%C3%A4ger~eq~'2497') |
+| Brockoh wind farm · 36 MW · 2016 | GEM | duplicate of “Köhlen wind farm” | Same farm as the Köhlen record: Landkreis Cuxhaven’s 2013 project description says Windpark Köhlen GmbH would build its Enercon E-101 farm in the regional plan’s “Köhlen-Brockoh” wind priority area, which the municipality’s land-use plan calls “Windpark Brockoh”; this record’s two phase points (53.5388, 8.9545 and 53.5355, 8.9677) sit on the Marktstammdatenregister’s WP Köhlen turbines (WEA 8 and WEA 15, commissioned in 2016), and there is no other 2016 farm nearby | [link](https://www.landkreis-cuxhaven.de/media/custom/1779_3201_1.PDF) |
+| Twist (WT) wind farm · 22 MW · 2004 | GEM | duplicate of “Twist (Wea) wind farm” | Part of the Twist (Wea) record: OpenStreetMap maps “Windpark Twist” as one 22-turbine, 39.6 MW farm (operated by Agro & WEA Windpark Twist); all 22 Enercon E-66 the Marktstammdatenregister lists in Twist (1.8 MW each, 2004) stand in this one cluster, the 12 of WT Bürgerwindpark Twist (21.6 MW, this record’s 22 MW) interleaved with the other 10 (Alterric and others); the 40 MW record for the whole farm is kept | [link](https://www.openstreetmap.org/relation/13454358) |
+| Nessa wind farm · 14 MW | GEM | removed | Duplicate of the MaStR-derived record “UW Nessa” in the layer: Thüga Erneuerbare Energien (THEE) lists its Nessa farm as six Enercon E-82, 13.8 MW; the Marktstammdatenregister lists these six units of Windpark THEE Nessa (commissioned between 19 January and 20 July 2012 at Teuchern, Saxony-Anhalt) in the “UW Nessa” group (19 units, 49.8 MW, other operators’ turbines included), which the site already adds from MaStR; GEM’s approximate point is about 110 km away in Thuringia, so the farm was counted twice | [link](https://www.marktstammdatenregister.de/MaStR/Einheit/Detail/IndexOeffentlich/3804544) |
+| Wittstedt wind farm · 12 MW | GEM | duplicate of “Lohkamp wind farm” | Same farm as the Lohkamp record: the old Wittstedt farm (FEW Windpark Wittstedt K/S, seven turbines), owned by European Energy since 2013, began repowering in 2017, five turbines giving way to four new ones 186 m tall with 101 m rotors; the Marktstammdatenregister lists these in the Wittstedt district as CEE Windpark Lohkamp’s four Enercon (an E-101 with a 135.38 m hub and 101 m rotor commissioned on 21 December 2017, and three E-115 in February–March 2018), 12.05 MW, and European Energy described Wind Park Wittstedt as four Enercon turbines in 2018 | [link](http://www.wittstedt.de/fileadmin/user/NZ_09.08_Windpark_Wittstedt_wird_erneuert.pdf) |
 
 ## India (IND)
 
@@ -658,6 +662,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Wisse wind farm · 12 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2011 added and capacity corrected: Wisse Wind BV’s Willempolder farm (Sint Philipsland) has 5 Enercon units of 2.3 MW (11.5 MW), in operation since 2011 (Dutch Wikipedia, after the Zeeland province wind map) | [link](https://nl.wikipedia.org/wiki/Windpark_Wissewind) |
 | Zierikzee wind farm · 10 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2014 added and capacity corrected: the Zierikzee farm has 3 Senvion 3.4M104 units (10.2 MW), construction started in August 2014 and it went into operation the same year (Dutch Wikipedia, after the Zeeland province wind map) | [link](https://nl.wikipedia.org/wiki/Windpark_Zierikzee) |
 | Etten-Leur wind farm · 13 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2019 added, capacity and turbines corrected: the Etten-Leur farm (replacing five turbines from 2000) has 3 Vestas 4.2 MW units (112 m hub, 136 m rotor), 12.6 MW in all, completed in 2019 (foundation designer Windbase’s project sheet) | [link](https://galleo.co/search/projects/wind-park-etten-leur/windbase) |
+| Epz wind farm · 24 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2022 added and capacity corrected: RVO’s Monitor Wind op Land 2022 lists Windpark EPZ at Borsele, 16.8 MW (two Nordex N133/4800 and two N117/3600), as completed in 2022, replacing 8.9 MW of old EPZ turbines; the 2023 and 2024 editions list no further EPZ turbines in Zeeland | [link](https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf) |
+| Kubbeweg wind farm · 74 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2023 added and capacity corrected: the new Windpark Kubbeweg 2 is 12 Vestas V162-6.0 (72 MW), replacing the 17 × 2 MW farm of 2006, and is part of Windplan Groen; RVO’s Monitor Wind op Land 2023 lists Windplan Groen (Dronten, 512.6 MW) as completed in 2023, and the 2022 edition expected it to be completed in 2023 | [link](https://www.windparkkubbeweg.nl/) |
 
 ## Norway (NOR)
 
@@ -804,6 +810,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Montejo De Bricia wind farm · 14 MW | GEM | fixed: year | Commissioning year 2006 added: Castilla y León’s open data on operating wind farms (Parques eólicos en funcionamiento) lists MONTEJO DE BRICIA (Valle de Valdebezana, Burgos, 13.6 MW, 16 Gamesa turbines of 850 kW), put into operation in 2006 | [link](https://analisis.datosabiertos.jcyl.es/api/explore/v2.1/catalog/datasets/parques-eolicos/exports/csv?where=nombre%3D%22MONTEJO%20DE%20BRICIA%22&delimiter=%3B) |
 | Tirupan wind farm · 13 MW · 2019 | GEM | duplicate of “Tirapun wind farm” | Same farm as “Tirapun wind farm” (13.2 MW): Naturgy’s Tirapu wind farm in Navarre (4 × 3.3 MW = 13.2 MW), started together with the Barásoain farm in November 2018; this record sits on a point in the Ribera shared with San Gregorio and Pestriz, so the record near Tirapu is kept | [link](https://smartgridsinfo.es/2018/11/15/naturgy-comienza-las-obras-cuatro-parque-eolicos-navarra-sumaran-una-potencia-495-mw) |
 | Las Traperas wind farm · 10 MW | GEM | fixed: year | Commissioning year 2013 added: Castilla y León’s open data on operating wind farms (Parques eólicos en funcionamiento) lists LAS TRAPERAS (Medina del Campo, Valladolid, 9.9 MW, 6 MTorres turbines of 1.65 MW), put into operation in 2013 | [link](https://analisis.datosabiertos.jcyl.es/api/explore/v2.1/catalog/datasets/parques-eolicos/exports/csv?where=nombre%3D%22LAS%20TRAPERAS%22&delimiter=%3B) |
+| Alto de Croa 2 wind farm · 10.4 MW | GEM | duplicate of “Croa wind farm” | Same farm as the Croa record: Greenalia’s Alto da Croa II farm at Vimianzo (10.4 MW); GEM’s own Croa record gives Alto de Croa II as an alias, and the two records are about 0.5 km apart (Greenalia’s separate 7.3 MW Alto da Croa is not in the data) | [link](https://greenalia.es/en/business/onshore-wind/) |
+| Croa wind farm · 10 MW · 2021 | GEM | fixed: capacity | Capacity set to 10.4 MW, Greenalia’s figure for Alto da Croa II | [link](https://greenalia.es/en/business/onshore-wind/) |
+| Els Pessells wind farm · 47 MW | GEM | removed | Never built: Catalonia’s Directorate-General for Energy revoked the authorisation of the Els Pesells wind farm at Horta de Sant Joan (Terra Alta) in 2020; Fercom Eòlica (this record’s operator) had held the project since 2015 and asked for its grid-connection guarantee back after Red Eléctrica refused access; the record’s point was a placeholder shared with Els Barrancs | [link](https://ebredigital.cat/?p=196548) |
 
 ## Sweden (SWE)
 
@@ -883,6 +892,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Greif wind farm · 1.2 MW | GEM | duplicate of “Sunjüt wind farm” | Same farm as the Sunjüt record: TÜREB’s statistics report lists Greif’s only wind plant as Sunjüt RES in Istanbul (1.2 MW, 2003); this record’s point near Çorum has no 1.2 MW plant in operation | [link](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
 | Kayadüzü wind farm · 82 MW | GEM | duplicate of “Amasya (Eksim) wind farm” | Same farm as the Amasya (Eksim) record: GEM’s own Amasya (Eksim) page gives Kayaduzu as another name (82 MW, Merzifon); TÜREB’s 2016 statistics report lists Merzifon Enerji’s licence for Kayadüzü RES and the 2022 report Merzifon Enerji’s Amasya RES, 82 MW (2012/2017) | [link](https://www.gem.wiki/Amasya_(Eksim)_wind_farm) |
 | Akyurt wind farm · 15 MW · 2016 | GEM | duplicate of “Ado Akyurt wind farm” | Same farm as the Ado Akyurt record: TÜREB’s statistics report lists a single Akyurt RES of ADO Enerji (Tokat, 14.7 MW, 2016); this record’s point is in Sivas, under 1 km from the Konakpınar record (ADO Enerji’s Konakpınarı RES) | [link](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Kocadağ-2 wind farm · 25 MW | GEM | duplicate of “Kores wind farm” | Same farm as the Kores record: GEM took this record from the EPDK licence, operated by Kores Kocadağ (Birgi, Urla, 25 MW); TÜREB’s statistics report lists a single plant for Kores Kocadağ, KORES (İzmir, 25 MW, Nordex N90/N100, 2009/2012/2015), and the two records are about 0.6 km apart | [link](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+| Kores wind farm · 22.5 MW · 2009 | GEM | fixed: capacity, year | Capacity set to 25 MW and the year to 2015, when the last phase was completed: TÜREB’s statistics report lists KORES at 25 MW (Nordex N90/N100, built in 2009, 2012 and 2015; the phase sizes are not given) | [link](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
 
 ## United Kingdom (GBR)
 
@@ -1082,3 +1093,5 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Loehrheide Nord (DEU) | MaStR’s “Loehrheide Nord” is 2 × Nordex Energy N149 (connected 2024, 11.4 MW); GEM’s “Stepratherheide” (11 MW) matches 2 other units in MaStR, Nordex SE N149 (2024): two different sets of turbines, i.e. neighbouring farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | WPGEL (DEU) | MaStR’s “WPGEL” is 2 × Nordex SE Nordex Delta4000 N163/5.X (connected 2025, 11.4 MW); GEM’s “Stepratherheide” (11 MW) matches 2 other units in MaStR, Nordex SE N149 (2024): two different sets of turbines, i.e. neighbouring farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
 | WP Uhlhorn (DEU) | MaStR’s “WP Uhlhorn” is 3 × Vestas V-126 (connected 2018, 10.35 MW); GEM’s “Hengsterholz” (10 MW) matches 3 other units in MaStR, Vestas V117-3,45MW (2017): two different sets of turbines, i.e. neighbouring farms | [link](https://www.marktstammdatenregister.de/MaStR/Datendownload) |
+| Munilla wind farm (ESP) | GEM’s Munilla (10 MW) is the extension of the Munilla-La Santa farm, “Munilla Ampliación”; OpenStreetMap maps them as two plants of the same operator, Eólicas de La Rioja (Ampliación 10 MW, Munilla - La Santa 36 MW): different turbines, not a duplicate | [link](https://www.openstreetmap.org/relation/13071752) |
+| Los Isletes (Iberdrola) wind farm (ESP) | The Los Isletes wind farm (Jerez), 35.3 MW in all, has two parts: GEM’s Los Isletes (Iberdrola) (10 MW, operator Ibernova) and Los Isletes (Urbaenergía) (25 MW, Saeta Yield) are one part each (the OpenStreetMap plant: five 2 MW and eleven 2.3 MW turbines): different turbines, not a duplicate | [link](https://www.openstreetmap.org/relation/13943144) |

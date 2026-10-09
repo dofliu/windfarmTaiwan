@@ -48,7 +48,9 @@ CLEAN drop CHN Yumen Changma 1000.0
 CLEAN drop CHN Zhangpu Liu'ao Phase 1 400.0
 CLEAN drop CHN Zhoushan Liuheng / Zhejiang others 600.0
 CLEAN drop COL El Morro wind farm 8.0
+CLEAN drop DEU Nessa wind farm 14.0
 CLEAN drop ESP Biscay Marine Energy Platform wind farm 20.0
+CLEAN drop ESP Els Pessells wind farm 47.0
 CLEAN drop FRA Fère-Champenoise wind farm 45.0
 CLEAN drop FRA Fère-Champenoise-Euvy-Corroy wind farm 45.0
 CLEAN drop FRA Haut De Mergey wind farm 24.0
@@ -145,15 +147,19 @@ CLEAN dup CHN Shanghai Fengxian Bay Retrofit and Upgrade wind farm 48.0 -> Shang
 CLEAN dup CHN Zhejiang Energy Cangnan 1 400.0 -> Huarun Cangnan 1 / CR Power
 CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putuo 6#2
 CLEAN dup DEU Ackendorf-Gutenswegen wind farm 12.0 -> Niedere Börde wind farm
+CLEAN dup DEU Brockoh wind farm 36.0 -> Köhlen wind farm
 CLEAN dup DEU Dreiberg wind farm 60.0 -> Windpark Druiberg (Dardesheim)
 CLEAN dup DEU Felde Windpark 17.0 -> Riede wind farm
 CLEAN dup DEU Lichtenau wind farm 11.0 -> Paderborn wind farm
+CLEAN dup DEU Twist (WT) wind farm 22.0 -> Twist (Wea) wind farm
 CLEAN dup DEU Wegeleben wind farm 28.0 -> Speckberg wind farm
+CLEAN dup DEU Wittstedt wind farm 12.0 -> Lohkamp wind farm
 CLEAN dup DNK Vesterhav Offshore wind farm · Nord 180.0 -> Vesterhav Nord
 CLEAN dup DOM Esperanza wind farm (Dominican Republic) 50.0 -> Esperanza (Dominican Republic) wind farm
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup EGY Amunet wind farm 502.0 -> Amunet (AMEA Power) Red Sea
 CLEAN dup EGY Gulf Of Ziet Wind Complex 580.0 -> Gabal El Zeit (I-III)
+CLEAN dup ESP Alto de Croa 2 wind farm 10.4 -> Croa wind farm
 CLEAN dup ESP Do Vilan wind farm 16.9 -> Do Vilán wind farm
 CLEAN dup ESP Tirupan wind farm 13.0 -> Tirapun wind farm
 CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
@@ -213,6 +219,7 @@ CLEAN dup TUR Greif wind farm 1.2 -> Sunjüt wind farm
 CLEAN dup TUR Gökçedag wind farm 135.0 -> Gökçedağ (Osmaniye)
 CLEAN dup TUR Gökçedağ wind farm 135.0 -> Gökçedağ (Osmaniye)
 CLEAN dup TUR Kayadüzü wind farm 82.0 -> Amasya (Eksim) wind farm
+CLEAN dup TUR Kocadağ-2 wind farm 25.0 -> Kores wind farm
 CLEAN dup TUR Söke (Ulusoy) wind farm 110.0 -> Kuşadası wind farm
 CLEAN dup TUR İçdaş Biga wind farm 60.8 -> Biga wind farm
 CLEAN dup URY Pampa (Nordex) wind farm 141.6 -> Pampa (Tacuarembó)
@@ -481,6 +488,7 @@ CLEAN fix DOM Puerto Plata-Imbert wind farm 46.0
 CLEAN fix ESP Campanario (Ventient) wind farm 38.0
 CLEAN fix ESP Carratorres wind farm 40.0
 CLEAN fix ESP Castil De Tierra wind farm 36.0
+CLEAN fix ESP Croa wind farm 10.0
 CLEAN fix ESP El Castillo (EDP) wind farm 25.0
 CLEAN fix ESP El Coto wind farm 20.0
 CLEAN fix ESP El Llano wind farm (Spain) 50.0
@@ -638,9 +646,11 @@ CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
 CLEAN fix NLD De Drentse Monden En Oostermoer wind farm 156.8
 CLEAN fix NLD Delfzijl Midden wind farm 39.0
 CLEAN fix NLD Ecowende Offshore wind farm 780.0
+CLEAN fix NLD Epz wind farm 24.0
 CLEAN fix NLD Etten-Leur wind farm 13.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
 CLEAN fix NLD Irene Vorrink (Dronten) 16.8
+CLEAN fix NLD Kubbeweg wind farm 74.0
 CLEAN fix NLD Noordoostpolder (incl. Westermeerwind nearshore) 429.0
 CLEAN fix NLD Piet De Wit wind farm 32.0
 CLEAN fix NLD Suyderlandt wind farm 11.0
@@ -695,6 +705,7 @@ CLEAN fix TUR Gündogdu wind farm 9.6
 CLEAN fix TUR Güney wind farm 74.0
 CLEAN fix TUR Karatepe wind farm 14.0
 CLEAN fix TUR Konakpınar wind farm 14.7
+CLEAN fix TUR Kores wind farm 22.5
 CLEAN fix TUR Kuşadası wind farm 103.5
 CLEAN fix TUR Küptepe wind farm 11.7
 CLEAN fix TUR Miskevank wind farm 4.8
