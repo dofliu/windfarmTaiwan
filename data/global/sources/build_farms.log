@@ -221,6 +221,8 @@ CLEAN fix BRA Serra Das Almas wind farm 261.0
 CLEAN fix BRA Ventos de São Rafael wind farm 499.5
 CLEAN fix BRA Ventos de São Rafael wind farm · 10, 8 121.5
 CLEAN fix BRA Ventos de São Rafael wind farm · 11 63.0
+CLEAN fix CHN Anhui Qixing Yingquan wind farm 99.0
+CLEAN fix CHN Anhui Woyang Baohe & Wujiahe wind farm 50.0
 CLEAN fix CHN CGN Fanshi I 1000.0
 CLEAN fix CHN CGN Fanshi I 1000.0
 CLEAN fix CHN CGN Huizhou Gangkou I & II 1000
@@ -273,6 +275,7 @@ CLEAN fix CHN Guangdong Yangjiang Shaba (Guangdong Energy) Offshore wind farm 30
 CLEAN fix CHN Guangdong Zhanjiang Xuwen Offshore wind farm 906.0
 CLEAN fix CHN Guangdong Zhanjiang Xuwen Offshore wind farm 906.0
 CLEAN fix CHN Guangxi Fangchenggang A 700.0
+CLEAN fix CHN Guangxi Qinbei Wuning wind farm 80.0
 CLEAN fix CHN Guohua Dongtai IV (H2) 300.0
 CLEAN fix CHN Guoneng Bozhong B1 / Bozhong B 500.0
 CLEAN fix CHN Guoneng Dafeng H5 200.0
@@ -282,10 +285,15 @@ CLEAN fix CHN Hainan CZ7 Demonstration Offshore wind farm · 1 600.0
 CLEAN fix CHN Hainan CZ9 Demonstration Offshore wind farm · 1 600.0
 CLEAN fix CHN Hainan Danzhou CZ3 (Datang) Offshore wind farm · 2 600.0
 CLEAN fix CHN Haiyou Guanlan (CNOOC floating) 7.2
+CLEAN fix CHN Hebei Baixiang Huaiyang wind farm 60.0
 CLEAN fix CHN Hebei Construction Investment Xiangyun Island 250.0
+CLEAN fix CHN Hebei Fengning Hademen Wind Storage Hydrogen wind farm 100.0
 CLEAN fix CHN Hebei Lixian wind farm 100.0
 CLEAN fix CHN Hebei Zhangbei Zhanhai wind farm 108.0
 CLEAN fix CHN Heilongjiang Binxian (Datang) wind farm 150.0
+CLEAN fix CHN Heilongjiang Daqing Unsubsidized (Daqing Chenneng) wind farm 100.0
+CLEAN fix CHN Heilongjiang Harbin Bayan wind farm 100.0
+CLEAN fix CHN Heilongjiang Harbin Hulan wind farm 100.0
 CLEAN fix CHN Heilongjiang Tailai wind farm 100.0
 CLEAN fix CHN Huadian Yangjiang Qingzhou 3 500.6
 CLEAN fix CHN Huadian Yuhuan 2 500.0
@@ -306,9 +314,11 @@ CLEAN fix CHN Huaneng Sheyang H1 / Yancheng 300.0
 CLEAN fix CHN Huaneng Yuhuan 2 500.0
 CLEAN fix CHN Huaneng Zhanjiang Xuwen East 400.0
 CLEAN fix CHN Huarun Cangnan 1 / CR Power 400.0
+CLEAN fix CHN Hubei Anlu Zhaopeng wind farm 50.0
 CLEAN fix CHN Hunan Jiangyong Shuimeitang wind farm 260.0
 CLEAN fix CHN Hunan Yuanling Rangjiaxi wind farm 100.0
 CLEAN fix CHN Inner Mongolia Alashanzuo Banner Zongbieli (China Resources) wind farm 200.0
+CLEAN fix CHN Inner Mongolia Hure Banner Rural Energy wind farm 50.0
 CLEAN fix CHN Inner Mongolia Keyouqian Banner 200 MW wind farm 200.0
 CLEAN fix CHN Inner Mongolia Wuchuan (Tianneng) wind farm 150.0
 CLEAN fix CHN Inner Mongolia Wulatehou Banner 200 MW (Jingneng) wind farm 200.0
@@ -334,6 +344,7 @@ CLEAN fix CHN Liaoning Dalian Zhuanghe 4 Area I Offshore wind farm 350.0
 CLEAN fix CHN Liaoning Dalian Zhuanghe 4 Area II Offshore wind farm 200.0
 CLEAN fix CHN Liaoning Liaozhong (Guohua) wind farm 150.0
 CLEAN fix CHN Liaoning Tai'an (Anshan Liaodian) wind farm 200.0
+CLEAN fix CHN Liaoning Zhangwu Dasijiazi wind farm 99.0
 CLEAN fix CHN Liaoning Zhangwu Xiliujiazi wind farm 250.0
 CLEAN fix CHN Longyuan Dafeng H3 (Huaneng Dafeng) 300.0
 CLEAN fix CHN Longyuan Dafeng H7 200.0
@@ -364,6 +375,7 @@ CLEAN fix CHN Shandong Energy Bozhong G 400.4
 CLEAN fix CHN Shandong Energy Bozhong G 850.0
 CLEAN fix CHN Shandong Huaneng Offshore L Area wind farm 504.0
 CLEAN fix CHN Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project 303.0
+CLEAN fix CHN Shandong Qingyun Zhongding wind farm 100.0
 CLEAN fix CHN Shangdu Huaneng Beifang 1600.0
 CLEAN fix CHN Shanghai Fengxian 200.0
 CLEAN fix CHN Shanghai Fengxian Haiwan Expansion Offshore wind farm 15.0

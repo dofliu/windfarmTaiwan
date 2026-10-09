@@ -6,13 +6,13 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 568 條：刪除 176 筆（其中營運中 46,786.9 MW），修正 392 筆。
+- 規則 580 條：刪除 176 筆（其中營運中 46,786.9 MW），修正 404 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 61 | 27,524.5 | 171 |
+| 中國大陸 | 61 | 27,524.5 | 183 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
@@ -289,6 +289,18 @@
 | Hebei Lixian wind farm · 100 MW | GEM | 修正：年份、機組 | 國能保定蠡縣 100 MW 風電項目（16 部 6.25 MW，褚崗風電場）首台風機 2024 年 12 月併網，2025 年 4 月初全容量併網（蠡縣政府 2025-04-08）；補上商轉年 | [連結](https://lixian.gov.cn/content-252-90504.html) |
 | Heilongjiang Tailai wind farm · 100 MW | GEM | 修正：年份 | 泰來九洲大興 100 MW 風電項目：2023 年底仍列在建工程（九洲集團 2023 年年報），2024 年內併網（2024 年年報）；2024-11 中核匯能受讓泰來風電時稱在運裝機 100 MW（證券時報 2024-11-12）。補上商轉年 | [連結](https://static.cninfo.com.cn/finalpage/2025-04-24/1223241473.PDF) |
 | Jilin Tongyu Liangjingzi wind farm · 400 MW · 2021 | GEM | 修正：座標 | 華能良井子風電場在吉林通榆縣（GEM 寫瞻榆鎮；良井子畜牧場是通榆縣的鄉級單位）；原座標（北緯 42.999°、東經 125.982°）在通榆東南約 300 km，改用瞻榆鎮的位置（概略位置） | [連結](https://www.gem.wiki/Jilin_Tongyu_Liangjingzi_wind_farm) |
+| Heilongjiang Daqing Unsubsidized (Daqing Chenneng) wind farm · 100 MW | GEM | 修正：年份 | 大慶辰能風力發電平價上網項目（大同區太陽升鎮馬營子村，100 MW、24 部風機）2024 年 8 月 23 日一次倒送電成功、正式併入國家電網（微大慶經新浪財經 2024-10-30）；同址的二期 200 MW 是另一個項目。補上商轉年 | [連結](https://finance.sina.com.cn/roll/2024-10-30/doc-incuiarc6932254.shtml) |
+| Heilongjiang Harbin Bayan wind farm · 100 MW | GEM | 修正：年份、業主 | 黑龍江華電哈爾濱巴彥一期 100 MW 風電項目（2022 年核准；項目單位華電哈爾濱巴彥新能源公司，九洲集團持股 49%）：九洲集團 2022 年年報列為在建，2023 年年報列為 100 MW、2023 年上網電量 12,038 萬度（2024 年 24,776 萬度），2023 年投產；二期 100 MW 另列在建。業主原寫四川九洲投資（另一家公司） | [連結](http://static.cninfo.com.cn/finalpage/2024-04-22/1219738496.PDF) |
+| Heilongjiang Harbin Hulan wind farm · 100 MW | GEM | 修正：年份、業主 | 華電哈爾濱呼蘭一期 100 MW 風電場（呼蘭區大用鎮，2022 年核准；項目單位華電哈爾濱呼蘭新能源公司，九洲集團持股 49%）：九洲集團 2022 年年報列為在建，2023 年年報列為 100 MW、2023 年上網電量 2,651 萬度（2024 年 23,864 萬度），即 2023 年底投產 | [連結](http://static.cninfo.com.cn/finalpage/2024-04-22/1219738496.PDF) |
+| Hebei Fengning Hademen Wind Storage Hydrogen wind farm · 100 MW | GEM | 修正：年份 | 新天綠能 2025 年年報：哈德門一期等項目 2025 年全部風機併網發電（承德大元新能源，新天綠能控股）；補上商轉年。一期容量（100 MW）沿用 GEM，待查證 | [連結](http://static.cninfo.com.cn/finalpage/2026-03-26/1225032266.PDF) |
+| Shandong Qingyun Zhongding wind farm · 100 MW | GEM | 修正：年份 | 中廣核山東慶雲中丁 10 萬瓩風電項目 2022 年 12 月 30 日全容量投運（中廣核集團要聞 2023-01-11）；補上商轉年 | [連結](http://www.cgnpc.com.cn/cgn/c100944/2023-01/23/content_0f9d6a99a59f43bead956f34ac445b8b.shtml) |
+| Liaoning Zhangwu Dasijiazi wind farm · 99 MW | GEM | 修正：年份、機組 | 遼水清潔能源彰武大四家子 99 MW 風電場（大四家子鎮，20 部 4.55 MW＋2 部 4.0 MW）2023 年 10 月初升壓站受電、首台機組運行（電力網 2023-10-08）；GlobalData 記 2023 年 11 月投運。補上商轉年 | [連結](http://www.chinapower.com.cn/flfd/xmjz/20231008/219108.html) |
+| Anhui Qixing Yingquan wind farm · 99 MW | GEM | 修正：年份 | 中國能建浙江火電 EPC 總承包的安徽萁星潁泉風電 2023 年 5 月全容量併網發電（電力工業網 2023-05-10）；補上商轉年 | [連結](https://www.chinapower.org.cn/index.php/detail/405288.html) |
+| Guangxi Qinbei Wuning wind farm · 80 MW | GEM | 修正：年份、中文名 | 國華投資廣西分公司欽北五寧一期 80 MW 風電項目 2023 年 12 月下旬實現全容量併網（電力網 2023-12-26）；這筆是一期（80 MW），GEM 的中文名寫成二期（140 MW、28 部 5 MW，2024 年才招標風機，另一筆），一併改名。補上商轉年 | [連結](http://mm.chinapower.com.cn/flfd/xmjz/20231226/229836.html) |
+| Hebei Baixiang Huaiyang wind farm · 60 MW | GEM | 修正：年份 | 柏鄉槐陽二期 60 MW 風電項目 2024 年底成功併網，年發電量逾 1.5 億度（人民日報客戶端河北頻道 2025-09-18）；補上商轉年 | [連結](https://sdxw.iqilu.com/share/YS0yMS0xNjc2MTczNw.html) |
+| Inner Mongolia Hure Banner Rural Energy wind farm · 50 MW | GEM | 修正：年份 | 國家電投庫倫旗農村能源革命試點縣項目一期工程（風電 5 萬瓩、光伏 0.5 萬瓩，2024 年 8 月核准）2025 年 12 月 28 日全容量併網（山東電建三公司 2025-12-31）；補上商轉年 | [連結](http://www.sepco3.com/col/col16685/art/2026/art_281764cf66bf431294af6c843904dc77.html) |
+| Hubei Anlu Zhaopeng wind farm · 50 MW | GEM | 修正：年份 | 長源電力全資子公司國能長源安陸新能源的安陸趙棚風電項目（安陸市與廣水市交界，5 萬瓩，2021 年 11 月開工）2023 年 6 月全部風電機組併網發電轉商運（長源電力公告 2023-06-26）；補上商轉年 | [連結](http://static.cninfo.com.cn/finalpage/2023-06-27/1217138136.PDF) |
+| Anhui Woyang Baohe & Wujiahe wind farm · 50 MW | GEM | 修正：年份 | 渦陽縣包河與武家河風電廠（總裝機 50 MW，2020 年 4 月開工）2020 年 12 月 23 日 110 kV 送出線路送電成功、併網發電（國網亳州供電公司經人民網精選資訊 2020-12-25，標題「9 個風電項目投運」）。補上商轉年（業主欄待查證） | [連結](https://baijiahao.baidu.com/s?id=1687019672959469071&wfr=spider&for=pc) |
 
 ## 丹麥 (DNK)
 
