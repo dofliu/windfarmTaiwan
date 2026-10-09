@@ -1,0 +1,244 @@
+[
+ {
+  "item": "WIND-001 Crotched Mountain (USA, 1980)",
+  "farm": "Crotched Mountain (not in the layer)",
+  "src_code": 0,
+  "iso": "USA",
+  "status": "missing",
+  "proposal": "Proposed curated record for data/global/sources/farms_attachment.json (notable: often called the world's first wind farm): {\"name\": \"Crotched Mountain\", \"iso\": \"USA\", \"lat\": 42.998, \"lon\": -71.874, \"mw\": 0.6, \"year\": 1980, \"type\": \"onshore\", \"turbine\": \"20 x US Windpower 30 kW\", \"owner\": \"US Windpower\", \"end\": 1982, \"status\": \"retired\", \"src\": \"curated\", \"url\": \"https://www.umass.edu/windenergy/about/history/alumni/index.html\", \"note\": [\"US Windpower 1980 年 12 月在新罕布夏州 Crotched Mountain 山肩裝設 20 部 30 kW 風機（麻州大學風能中心稱為世界第一座風場）；只運轉一、兩年就拆除，除役年 1982 為約略值（1982 年 1 月報導仍在運轉）。座標是山頂（風場在山的北側／西北稜線），為概略位置。\", \"US Windpower installed twenty 30 kW turbines on the shoulder of Crotched Mountain, New Hampshire, in December 1980 (called the world's first wind farm by the UMass Wind Energy Center); it lasted only a year or two before the turbines were taken apart, so the 1982 end year is approximate (a January 1982 report still describes it running). The point is the summit (the farm stood on the north / north-west ridge), an approximate position.\"]}; then FARMS \"WIND-001\": [\"Crotched Mountain\"]",
+  "note_zh": "不在風場層。麻州大學風能中心：US Windpower 1980 年 12 月在 Crotched Mountain 山肩裝了 20 部 30 kW 風機（0.6 MW）；Concord Monitor（2016）：風場在山的北側、只維持一、兩年就拆除；Christian Science Monitor 1982-01-27 仍描述它在運轉，所以除役約在 1982 年（約略值，來源沒有確切年份）。座標用維基百科的山頂（北緯 42.998°、西經 71.874°），風場在北側／西北稜線，屬概略位置。",
+  "note_en": "Not in the layer. UMass Wind Energy Center: in December 1980 US Windpower installed twenty 30 kW turbines (0.6 MW) on the shoulder of Crotched Mountain; Concord Monitor (2016): it stood on the north side of the mountain and lasted only a year or two; the Christian Science Monitor still described it running on 27 Jan 1982, so it ended about 1982 (approximate; no source gives the exact year). The point is the summit from Wikipedia (42.998 N, 71.874 W); the farm was on the north / north-west ridge, so the position is approximate.",
+  "why": "Sources disagree on the town (Greenfield vs Francestown) and the start (UMass: Dec 1980; CSM: \"went into action last spring\", i.e. 1981; Concord Monitor: dedicated April 1981, about four months after it started). No source gives the removal year; 1982 is the earliest year consistent with both the Jan 1982 CSM report and \"a year or two\". If an exact end year is required for a retired record, the main session may prefer to leave it out (a curated record with status retired but no end year is built as operating).",
+  "sources": [
+   {
+    "url": "https://www.umass.edu/windenergy/about/history/alumni/index.html",
+    "quote": "In December 1980, US Windpower installed the world’s first wind farm, consisting of 20 wind turbines rated at 30 kilowatts each, on the shoulder of Crotched Mountain in southern New Hampshire."
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Crotched_Mountain",
+    "quote": "Coordinates : 42°59′54″N 71°52′25″W"
+   },
+   {
+    "url": "https://granitegeek.concordmonitor.com/2016/02/24/remembering-worlds-first-wind-farm-new-hampshire/",
+    "quote": "The world’s first wind farm stood on the north side of Crotched Mountain in 1980, on land owned by the Crotched Mountain Rehabilitation Center"
+   },
+   {
+    "url": "https://granitegeek.concordmonitor.com/2016/02/24/remembering-worlds-first-wind-farm-new-hampshire/",
+    "quote": "It only lasted a year or two before the turbines were taken apart – without fanfare."
+   },
+   {
+    "url": "https://m.csmonitor.com/1982/0127/012735.html",
+    "quote": "What it does produce is energy, about 1.5 million kilowatt-hours each year"
+   }
+  ]
+ },
+ {
+  "item": "WIND-008 Kunimidake wind farm, Fukui (2013-12 fire)",
+  "farm": "Kunimidake wind farm (original 1.8 MW farm, not in the layer)",
+  "src_code": 2,
+  "iso": "JPN",
+  "status": "missing",
+  "proposal": "(no FARMS entry, no new record) The 2013 fire was at the original 国見岳風力発電所 (2 x NEG Micon 900 kW = 1.8 MW, built Dec 2002 by Fukui Prefecture, Hokuriku Electric from Apr 2010). The layer's \"Fukui Kunimidake wind farm\" (37.8 MW, 2027, announced) is a later project, not this farm; no other record lies within 15 km. Too small to add as a notable record.",
+  "note_zh": "火災發生在原本的國見岳風力發電所（福井市奧平町，900 kW×2 部＝1,800 kW，NEG Micon，2002 年 12 月由福井縣興建，2010-04-01 由北陸電力受讓；北陸電力 2013-12-26 中間報告）。風場層只有 2027 年的新計畫「Fukui Kunimidake wind farm」（37.8 MW，宣布階段），不是同一座；半徑 15 km 內沒有其他紀錄。1.8 MW 規模小，不新增紀錄，事件維持不對應。",
+  "note_en": "The fire was at the original Kunimidake wind farm (Okudaira, Fukui City; 2 x 900 kW = 1,800 kW, NEG Micon, built in Dec 2002 by Fukui Prefecture, taken over by Hokuriku Electric on 1 Apr 2010; Hokuriku Electric interim report of 26 Dec 2013). The layer only has the later 2027 project \"Fukui Kunimidake wind farm\" (37.8 MW, announced), a different farm; no other record lies within 15 km. At 1.8 MW it is too small for a new record, so the event stays unlinked.",
+  "why": "Whether the two 900 kW units were repaired or removed after 2013 was not checked (the METI notice and the interim report do not say).",
+  "sources": [
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/001_04_02.pdf",
+    "quote": "定格出力：1,800kW （900kW×2 基）"
+   },
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/001_04_02.pdf",
+    "quote": "運転開始：2002年12 月（福井県が建設），2010年4 月1 日 北陸電力㈱が福井県から譲受"
+   },
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/001_04_02.pdf",
+    "quote": "発見時刻：2013年12 月1 日（日） 9:24 2 号機 火災報知器動作"
+   },
+   {
+    "url": "https://www.meti.go.jp/policy/safety_security/industrial_safety/oshirase/2013/12/251203-2.html",
+    "quote": "平成２５年１２月１日、別紙のとおり国見岳風力発電所において発生した風車の火災によるブレード等の落下事故"
+   }
+  ]
+ },
+ {
+  "item": "WIND-010 South Australia black system (2016-09-28)",
+  "farm": "(multi-site: nine wind farms in the mid-north of SA)",
+  "src_code": 0,
+  "iso": "AUS",
+  "status": "none",
+  "proposal": "(leave unlinked) AEMO describes a state-wide event involving nine wind farms and the transmission network; no single farm.",
+  "note_zh": "AEMO 最終報告：多次輸電故障期間，南澳中北部九座風場因保護功能啟動而持續降低出力（合計 456 MW），之後全州停電。是跨案場的電網事件，沒有單一風場，維持不對應。",
+  "note_en": "AEMO final report: during the series of transmission faults nine wind farms in the mid-north of SA reduced output when a protection feature activated (456 MW in all), followed by the state-wide black system. A multi-site grid event with no single farm, so it stays unlinked.",
+  "why": "Linking it to one of the nine farms would misrepresent the event.",
+  "sources": [
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "nine wind farms in the mid-north of SA exhibited a sustained reduction in power as a protection feature activated"
+   }
+  ]
+ },
+ {
+  "item": "WIND-034 Ocean Wind 1 / 2 (cancelled 2023-10-31)",
+  "farm": "Ocean Wind 1 / Ocean Wind 2 (not in the layer)",
+  "src_code": 3,
+  "iso": "USA",
+  "status": "missing",
+  "proposal": "(no FARMS entry, no record) The layer has no record named Ocean Wind 1 or 2 (only \"Ocean Winds\"-owned projects elsewhere and the Atlantic Shores records off New Jersey); the 2026 pipeline compilation omits them on purpose (\"cancelled Ocean Wind 1/2 omitted\"), and the status list has no \"cancelled\" code. Leave the event unlinked.",
+  "note_zh": "Ørsted 2023-10-31 停止開發 Ocean Wind 1（1,100 MW）與 Ocean Wind 2（1,148 MW）。風場層沒有這兩筆（名稱含「Ocean Winds」的是其他國家的業主名稱；紐澤西外海只有 Atlantic Shores），2026 整理清單也刻意不收（註記「cancelled Ocean Wind 1/2 omitted」），狀態代碼沒有「取消」。不新增紀錄，事件維持不對應。",
+  "note_en": "Ørsted ceased development of Ocean Wind 1 (1,100 MW) and Ocean Wind 2 (1,148 MW) on 31 Oct 2023. The layer has neither (names with \"Ocean Winds\" are another owner's projects elsewhere; off New Jersey there are only the Atlantic Shores records), the 2026 pipeline compilation omits them on purpose (\"cancelled Ocean Wind 1/2 omitted\"), and the status list has no \"cancelled\" code. No record; the event stays unlinked.",
+  "why": "Cancelled projects are not represented in the farm layer by design.",
+  "sources": [
+   {
+    "url": "https://us.orsted.com/news-archive/2023/10/orsted-ceases-development-of-ocean-wind-1-and-ocean-wind-2",
+    "quote": "Following a decision by its Board of Directors, Ørsted will cease development of the Ocean Wind 1 and Ocean Wind 2 projects"
+   },
+   {
+    "url": "https://us.orsted.com/news-archive/2023/10/orsted-ceases-development-of-ocean-wind-1-and-ocean-wind-2",
+    "quote": "Ocean Wind 1 and 2 (1100MW project and 1148 MW projects)"
+   }
+  ]
+ },
+ {
+  "item": "WIND-063 Miyakojima, Typhoon Maemi (2003-09-11)",
+  "farm": "Okinawa Electric Karimata / Shichimata test units (not in the layer)",
+  "src_code": 3,
+  "iso": "JPN",
+  "status": "missing",
+  "proposal": "(no FARMS entry, no record) The damaged machines are Okinawa Electric's six units (2,900 kW) at its Karimata (units 3–6) and Shichimata (units 1–2) wind test facilities: Micon 400 kW x3 (from Dec 1995), Enercon 600 kW (Mar 2003), Enercon 500 kW and Vestas 600 kW (Aug 1998). The layer's two Miyakojima records are 2 x Enercon 900 kW each from 2007 and 2008 (Okinawa New Energy), different machines. Both 2003 sites are small (1.8 MW and 1.1 MW) and the report only maps them, so no record is proposed.",
+  "note_zh": "颱風 14 號（梅米）損壞的是沖繩電力的 6 部（2,900 kW）：狩俣風力 3–6 號機（Micon 400 kW×3，1995-12 起；Enercon 600 kW，2003-03）與七又風力 1–2 號機（Enercon 500 kW、Vestas 600 kW，1998-08）；倒塌的是狩俣 3、5 號與七又 1 號。風場層的兩筆宮古島紀錄是 2007、2008 年各 2 部 Enercon 900 kW（沖繩新能源），不是同一批機組。兩處都很小（1.8 MW、1.1 MW），報告只有位置圖，不新增紀錄。",
+  "note_en": "Typhoon No. 14 (Maemi) damaged Okinawa Electric's six units (2,900 kW): Karimata units 3–6 (Micon 400 kW x3 from Dec 1995; Enercon 600 kW from Mar 2003) and Shichimata units 1–2 (Enercon 500 kW and Vestas 600 kW, Aug 1998); Karimata 3 and 5 and Shichimata 1 collapsed. The layer's two Miyakojima records are 2 x Enercon 900 kW each from 2007 and 2008 (Okinawa New Energy), different machines. Both sites are small (1.8 and 1.1 MW) and the report only maps them, so no record is proposed.",
+  "why": "No citable coordinates for Karimata / Shichimata in the report (map only).",
+  "sources": [
+   {
+    "url": "https://www.okiden.co.jp/shared/pdf/news_release/2004/04113001.pdf",
+    "quote": "当社が保有 する6 機（2,900kW）の風力発電設備は、3 基が倒壊、2 基がブレード破損、1 基がナセル損傷等の被害 を受けた"
+   },
+   {
+    "url": "https://www.okiden.co.jp/shared/pdf/news_release/2004/04113001.pdf",
+    "quote": "使用開始年月日 H7.12.5 H7.12.5 H7.12.5 H15.3.31 H10.8.28 H10.8.28 定格出力 400/100 kW 400/100 kW 400/100 kW 600 kW 500 kW 600 kW"
+   },
+   {
+    "url": "https://www.okiden.co.jp/shared/pdf/news_release/2004/04113001.pdf",
+    "quote": "2.2 狩俣風力 3 号、5 号機の倒壊原因"
+   }
+  ]
+ },
+ {
+  "item": "WIND-064 Hokudan Earthquake Memorial Park turbine, Awaji (2018)",
+  "farm": "Hokudan park turbine (single municipal turbine, not in the layer)",
+  "src_code": 2,
+  "iso": "JPN",
+  "status": "missing",
+  "proposal": "(no FARMS entry, no record) A single city-owned turbine at the memorial park, not a wind farm; dismantled from Jan 2021. The nearest record, \"Awaji wind farm\" (Kansai Electric, 12 MW, 2012, about 10 km south), is a different farm.",
+  "note_zh": "倒塌的是淡路市所有、北淡震災記念公園（淡路市小倉）的一部風車，不是風場；2021 年 1 月開始拆除，市府已提出設施廢止。最近的紀錄「Awaji wind farm」（關西電力 12 MW、2012，南方約 10 km）是另一座。不新增紀錄，事件維持不對應。",
+  "note_en": "A single city-owned turbine at the Hokudan Earthquake Memorial Park (Ogura, Awaji City), not a wind farm; dismantling began in Jan 2021 after the city filed its closure. The nearest record, \"Awaji wind farm\" (Kansai Electric, 12 MW, 2012, about 10 km south), is a different farm. No record; the event stays unlinked.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://www.kobe-np.co.jp/news/awaji/202101/0014031343.shtml",
+    "quote": "２０１８年８月の台風２０号の強風で倒壊した、北淡震災記念公園（兵庫県淡路市小倉）の風力発電用風車の解体撤去工事が２５日、始まった。"
+   },
+   {
+    "url": "https://www.kobe-np.co.jp/news/awaji/202101/0014031343.shtml",
+    "quote": "風車を所有する市は事故後、専門家会議（事故調査委員会）を設置。"
+   }
+  ]
+ },
+ {
+  "item": "WIND-065 Hornslet Nordtank NTK 600 (2008-02-22)",
+  "farm": "Hyacintvej Wind Park, Hornslet (not in the layer)",
+  "src_code": 2,
+  "iso": "DNK",
+  "status": "missing",
+  "proposal": "(no FARMS entry, no record) The turbine was the first of the five-turbine Hyacintvej wind park (5 x 600 kW, about 3 MW). No Danish record lies within 8 km of Hornslet or of the Wikipedia coordinate; the layer's 152 Danish records are larger farms. Too small for a notable record.",
+  "note_zh": "倒塌的 Nordtank NTK 600 是 Hyacintvej 風場五部同型機中最北的一部（約 3 MW）。風場層的丹麥紀錄（152 筆）在 Hornslet 與維基百科座標 8 km 內都沒有；規模小，不新增紀錄，事件維持不對應。",
+  "note_en": "The Nordtank NTK 600 was the first and northernmost of the five similar turbines of the Hyacintvej wind park (about 3 MW). None of the layer's 152 Danish records lies within 8 km of Hornslet or the Wikipedia coordinate; too small for a new record, so the event stays unlinked.",
+  "why": "The Wikipedia coordinate (56.345 N, 10.170 E) is about 10 km west of Hornslet town and the event CSV uses the town centre; the exact site was not checked (the Danish Energy Agency register is xlsx, not quotable).",
+  "sources": [
+   {
+    "url": "https://en.wikipedia.org/wiki/Hornslet_wind-turbine_collapse",
+    "quote": "The turbine was the first and northernmost turbine of Hyacintvej Wind Park, which consists of five similar wind turbines"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Hornslet_wind-turbine_collapse",
+    "quote": "The wind turbine was a Nordtank NTK 600-180/43 with a maximum generation capacity of 600 kW at Hornslet"
+   }
+  ]
+ },
+ {
+  "item": "WIND-084 Jiuquan mass disconnection (2011-02-24)",
+  "farm": "(multi-site: 16 wind farms, 598 turbines)",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(leave unlinked) The fault began at CPI Jiuquan's Qiaoxi No. 1 wind farm (中电酒泉风电公司桥西第一风电场) but tripped 598 turbines at 16 farms. No record named Qiaoxi / 桥西 exists in the layer (the Qiaowan 桥湾 records are other farms). Option for the main session: link to the curated aggregate \"Gansu Guazhou / Jiuquan wind base\" (10,450 MW), as WIND-025 is linked to the Hinggan League base.",
+  "note_zh": "起因是中電酒泉風電公司橋西第一風電場的電纜頭故障，但脫網的是 16 座風場的 598 部風機，屬跨案場電網事件。風場層沒有「橋西」這筆（「橋灣」各場是別的風場）。維持不對應；若要比照 WIND-025（興安盟基地），可對應精選彙總紀錄「Gansu Guazhou / Jiuquan wind base」。",
+  "note_en": "It began with a cable-head fault at CPI Jiuquan's Qiaoxi No. 1 wind farm, but 598 turbines at 16 farms tripped: a multi-site grid event. The layer has no Qiaoxi record (the Qiaowan farms are others). Left unlinked; to follow WIND-025 (Hinggan League base), it could go to the curated aggregate \"Gansu Guazhou / Jiuquan wind base\".",
+  "why": "Only one farm is named, and only as the origin of the fault; it is not in the layer.",
+  "sources": [
+   {
+    "url": "https://www.chinanews.com.cn/ny/2011/06-07/3093352.shtml",
+    "quote": "2月24日，中电酒泉风电公司桥西第一风电场出现电缆头故障，导致16个风电场598台风电机组脱网。"
+   }
+  ]
+ },
+ {
+  "item": "WIND-088 Desert Hot Springs fall (2020-12-30)",
+  "farm": "(farm not named)",
+  "src_code": 2,
+  "iso": "USA",
+  "status": "none",
+  "proposal": "(leave unlinked) Reports give only \"a wind generation facility located west of Highway 62 and Painted Hills Road\"; Recharge calls it an unidentified project. More than a dozen records lie within 7 km (Painted Hills Wind Park, then being repowered, is one candidate, but no source names it). Cal/OSHA's inspection search (osha.gov IMIS) is behind a CAPTCHA.",
+  "note_zh": "報導只寫「62 號公路與 Painted Hills Road 以西的一處風力發電設施」，Recharge 稱「未指明的專案」。附近 7 km 內有十多筆紀錄（當時正在汰換重建的 Painted Hills Wind Park 是候選之一，但沒有來源寫明）。維持不對應。",
+  "note_en": "The reports only say \"a wind generation facility located west of Highway 62 and Painted Hills Road\"; Recharge calls it an unidentified project. More than a dozen records lie within 7 km (Painted Hills Wind Park, then being repowered, is one candidate, but no source names it). Left unlinked.",
+  "why": "OSHA IMIS establishment search (Site Constructors Inc.) returned a CAPTCHA page; no other source names the facility.",
+  "sources": [
+   {
+    "url": "https://kesq.com/news/2021/01/04/man-killed-in-100-ft-wind-turbine-fall-near-desert-hot-springs-identified/",
+    "quote": "Mario Contreras Jr. fell while working at a wind generation facility located west of Highway 62 and Painted Hills Road about 11:15 a.m. Wednesday"
+   },
+   {
+    "url": "https://www.rechargenews.com/wind/worker-falls-to-death-inside-wind-turbine-tower-in-california/2-1-939049",
+    "quote": "Mario Contreras Jr was working for Site Constructors Inc at an unidentified project near Palm Springs"
+   }
+  ]
+ },
+ {
+  "item": "Part 2b. CTG Yangjiang Shapa phase 2: per-model counts",
+  "farm": "CTG Yangjiang Shapa Phase 2",
+  "src_code": 0,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(lead) If the main session accepts a GlobalData profile backed by the CTG prospectus, edit the existing rule (farm_cleanup.py, 'CTG Yangjiang Shapa Phase 2', C) to turbine='31x Mingyang MySE6.45-180 + 31x Goldwind GW171-6.45' and add to its zh/en: '三峽能源招股書：二期風機及塔筒分兩個標段，I 標明陽智慧（14.996 億元）、II 標金風科技（14.646 億元）；GlobalData（Energy Monitor）列二期 I、II 各 31 台' / 'CTG New Energy prospectus: phase 2 turbines and towers were bought in two lots, lot I from Mingyang (CNY 1,499.6 m) and lot II from Goldwind (CNY 1,464.6 m); GlobalData (Energy Monitor) lists 31 units in each of phase 2-I and 2-II'.",
+  "note_zh": "仍是線索：(1) 陽江市自然資源局 2023-09 公示的補充論證報告書只寫 62 台、兩種機型（MySE6.45-180、GW171/6450），不分台數；同報告寫基礎全為導管架（非嵌岩 40、芯柱式嵌岩 13、植入式嵌岩 9），與現有 F5 一致。(2) 三峽能源 IPO 招股書（中國證券報 2021-04-26 摘要）重大合同：沙扒二期「風機及配套塔筒設備（I 標段）」明陽智慧 149,962.50 萬元、「（II 標段）」金風科技 146,463.38 萬元，兩標金額幾乎相同，符合各半（31＋31）。(3) GlobalData 的電廠資料（Energy Monitor）寫二期 I（明陽）31 台、二期 II（金風）31 台。前兩者是官方文件但沒有台數；只有 GlobalData 有台數，屬商業資料庫轉述，所以列線索。",
+  "note_en": "Still a lead: (1) the supplementary sea-use report (Yangjiang natural resources bureau, Sept 2023) gives 62 units of two models (MySE6.45-180, GW171/6450) without a split; it also gives all-jacket foundations (40 non-rock-socketed, 13 core-pile rock-socketed, 9 implanted rock-socketed), consistent with the existing F5 row. (2) CTG New Energy's IPO prospectus (summary in China Securities Journal, 26 Apr 2021) lists the material contracts: phase 2 \"turbines and towers (lot I)\" Mingyang CNY 1,499.625 m and \"(lot II)\" Goldwind CNY 1,464.634 m, almost equal values, consistent with an even split (31 + 31). (3) GlobalData's plant profiles (Energy Monitor) give phase 2-I (Mingyang) 31 units and phase 2-II (Goldwind) 31 units. The official documents give no counts; only GlobalData does, a commercial database, so this stays a lead.",
+  "why": "Not found: MSA notices or O&M tenders naming the split (CTG's eps.ctg.com.cn blocked in earlier rounds); Mingyang's own 2019 award notice for phase 2 (only mentioned in a 2020 report, without count); news sites ycwb.com (empty page) and thepaper.cn (short shell).",
+  "sources": [
+   {
+    "url": "https://epaper.cs.com.cn/zgzqb/images/2021-04/26/A59/zqA5926.pdf",
+    "quote": "三峡新能源阳西沙扒二期（ 400MW ）海上风电项目 风 机 及 配 套塔 筒 设 备 （ Ⅰ 标 段 ） 采 购 合 同 阳江发电 明 阳 智慧 149,962.50 2020 年 1 月 15 日"
+   },
+   {
+    "url": "https://epaper.cs.com.cn/zgzqb/images/2021-04/26/A59/zqA5926.pdf",
+    "quote": "三峡新能源阳西沙扒二期（ 400MW ）海上风电项目 风电 机 组 及 塔 筒配 套 设 备 （ Ⅱ 标 段 ） 采 购 合 同 阳江发电 金风 科 技 146,463.38 2020 年 1 月 20 日"
+   },
+   {
+    "url": "https://www.energymonitor.ai/data-insights/power-plant-profile-ctgne-yangjiang-shapa-phase-2-china",
+    "quote": "CTGNE Yangjiang Shapa Phase 2 (CTGNE Yangjiang Shapa Phase 2 - II) is equipped with Goldwind Science & Technology GW 171/6450 turbines. The phase consists of 31 turbines with 6.45MW nameplate capacity."
+   },
+   {
+    "url": "https://www.energymonitor.ai/data-insights/power-plant-profile-ctgne-yangjiang-shapa-phase-2-china",
+    "quote": "CTGNE Yangjiang Shapa Phase 2 (CTGNE Yangjiang Shapa Phase 2 - I) is equipped with China Ming Yang Wind Power Group MySE6.45-180 turbines. The phase consists of 31 turbines with 6.45MW nameplate capacity."
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58162/731643.pdf",
+    "quote": "选定 6.45MW 风电组（MySE6.45180、GW171-6.45）作为推选机型，安装风电机组 62 台 6.45MW 风电机组。"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58162/731643.pdf",
+    "quote": "项目风机采用的桩型分别为非嵌岩导管架 基础（40 台）、芯柱式嵌岩导管架基础（13 台）和植入式嵌岩导管架基础（9 台）"
+   }
+  ]
+ }
+]

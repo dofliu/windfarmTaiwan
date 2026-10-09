@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.13 — 2026-10-09
+
+- Research round 18 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "eleventh batch" in the [clean-up log](docs/data-cleanup.en.md) and the [events](docs/events.en.md)):
+  - Commissioning years added: operating farms without a year go from 966 (48.2 GW) to 948 (42.6 GW). In China: Huaneng Shangdu (2023, was 2022), three Huadian Dabancheng records, Jimunai, Wulatehou,
+    Keyouqian, Jiangyong Shuimeitang, Alashanzuo Zongbieli, Subei Yinmaxia A (capacity now 150 MW), Tai'an (2024) and Zhangwu Xiliujiazi; Brazil's Ventos de São Rafael and Serra das Almas (2025, from ANEEL's
+    unit-by-unit commercial-release data; two more GEM records listed as under construction or pre-construction have been operating since 2025–26) and India's Tanot (2015).
+  - Duplicates and status: Shangdu's Duolun section, Tongyu 2 GW phase 1 (= Shihuadao), Chile's La Cabana and WRI's Rei dos Ventos 1 in Brazil were duplicates; the 1,350 MW Zhengxiangbai wind-hydrogen project has not started and is now pre-construction.
+  - Locations: France's Village du Richebourg moves from Pas-de-Calais to the Aube; Tongyu's Shihuadao moves to Tongyu county (approximate).
+  - Events: 7 more are placed at their farms (Golden Plains stage 1, Haltern AV 9, Ventus, Delta Maranhão, the Jiuquan base, the Wenchang repowering, and Crotched Mountain, added as a retired curated record), 84 of 91 in all.
+  - The Longyuan Rudong intertidal test farm's turbine field now lists the 15 units of 8 models named in its O&M tenders; CTG Shapa phase 2 is now 31 Mingyang + 31 Goldwind.
+
 ## v2.30.12 — 2026-10-09
 
 - New foundation type "low pile cap" (`lp`, the owner's decision of 9 Oct 2026): the Chinese tidal-flat "low pile, tall pedestal", where piles are driven inside a cofferdam, the cap is cast in a pit

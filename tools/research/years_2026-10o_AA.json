@@ -1,0 +1,364 @@
+[
+ {
+  "item": "13. Ruoqiang Qiman (TBEA) 750 MW",
+  "farm": "Xinjiang Ruoqiang Qiman (TBEA) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "特變電工的若羌祁曼風儲項目公告為 1,000 MW、分兩期（一期 200 MW、二期 800 MW，二期待電網接入批覆）；GEM 的「750 MW 營運中」引用的百家號報導其實是特變電工若羌縣若羌河 100 萬瓩項目（羅布莊風區，2025-01 併網），疑似混為一談。祁曼項目的併網年份與已建規模待查證",
+  "note_en": "TBEA announced the Ruoqiang Qiman wind-storage project as 1,000 MW in two phases (200 MW, then 800 MW awaiting a grid-connection approval); the Baijiahao report GEM cites for “750 MW operating” is about TBEA’s separate Ruoqiang River 1 GW project (Luobuzhuang wind area, connected Jan 2025), so GEM may have mixed the two. Year and built capacity of the Qiman project unverified",
+  "why": "GEM wiki: phase 1 operating 750 MW, phase 2 construction 250 MW, citing baijiahao 1820129249520114866 (which is the 若羌河 1 GW project, 42×7.15 + 48×6.25 + 60×6.7 MW, connected around 1 Jan 2025) and an NEA page that does not mention Qiman. Search found only the June 2024 TBEA investment announcement (cs.com.cn/stcn/sina), no grid-connection news; xjrq.gov.cn page 404. Also check whether the 若羌河 project is in the data at all (no TBEA 1,000 MW Ruoqiang River record seen among the Ruoqiang rows).",
+  "sources": [
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1820129249520114866&wfr=spider&for=pc",
+    "quote": "该项目位于新疆若羌县境内的罗布庄风区一带，2023年10月正式开工建设。施工内容包括42台单机容量7.15兆瓦，48台单机容量6.25兆瓦，60台单机容量6.7兆瓦的风力发电机组以及2座220千伏升压站"
+   }
+  ]
+ },
+ {
+  "item": "14. Mangya (Luneng) 500 MW",
+  "farm": "Qinghai - Henan High Voltage Transmission Mangya (Luneng) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "青海茫崖魯能新能源（中綠電全資）負責青豫直流二期 50 萬瓩風電；聯合資信 2025 年評級報告把「茫崖風電項目（50 萬瓩）」列為截至 2024 年底的在建項目（已投入 91%）。全容量併網日期待查證，2024 年底仍在建",
+  "note_en": "Qinghai Mangya Luneng New Energy (wholly owned by Zhonglvdian/Luneng) develops the 500 MW wind project of the Qinghai–Henan UHV phase 2; Lianhe Ratings’ 2025 report lists the “Mangya wind project (500 MW)” as under construction at end-2024 (91% of budget spent). Full-connection date unverified; still under construction at end-2024",
+  "why": "No grid-connection news found (searches for 茫崖 鲁能 并网 returned only other Haixi 500 MW blocks: Huanghe, Longyuan 探月, etc.). Next: Zhonglvdian (000537) 2025 annual report / interim announcements.",
+  "sources": [
+   {
+    "url": "https://www.cs.com.cn/sylm/jsbd/202204/t20220414_6260074.html",
+    "quote": "子公司鲁能新能源投资设立全资子公司青海茫崖鲁能新能源，注册资本为2000万元，主要负责青豫直流二期50万千瓦风电项目的开发建设"
+   },
+   {
+    "url": "https://www.lhratings.com/reports/B022658-P52530-2020-GZ2025.pdf",
+    "quote": "截至 2024 年底公司主要在建项目情况（单位：亿元） 项目名称 预算数 工程累计投入占预算比例 工程累计投入 青海茫崖鲁能新能源有限公司茫崖风电项目 （50 万千瓦） 26.34 91.28% 24.04"
+   }
+  ]
+ },
+ {
+  "item": "15. Ordos Zero Carbon Industrial Park 440 MW (Envision)",
+  "farm": "Inner Mongolia Ordos Zero Carbon Industrial Park wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "遠景鄂爾多斯零碳產業園 500 MW 風光儲一體化示範項目在伊金霍洛旗，風電 440 MW、光伏 60 MW，2024 年 1 月已在運行，風機為遠景 EN-182/5.0；併網年份待查證",
+  "note_en": "Envision’s Ordos Zero-Carbon Park 500 MW wind-solar-storage demonstration project in Ejin Horo Banner has 440 MW of wind and 60 MW of solar, was running by Jan 2024 and uses Envision EN-182/5.0 turbines; commissioning year unverified",
+  "why": "Capacity and turbine confirmed; no dated grid-connection report found. kjt.nmg.gov.cn (403) and ordos.gov.cn (503) blocked; bjx blocked. Possible overlap with the separate 200 MW \"Yijinhuoluo Banner Smart Energy\" Envision record (item 31) should be checked.",
+  "sources": [
+   {
+    "url": "https://new.qq.com/rain/a/20240113A030X200",
+    "quote": "远景能源500MW风光储一体化项目位于内蒙古鄂尔多斯市伊金霍洛旗，包括风电440MW、光伏60MW及配套储能80MW/320MWh"
+   },
+   {
+    "url": "https://www.news.cn/enterprise/20240701/0b640607ab3e42319131f12d26f69b3c/c.html",
+    "quote": "项目中的风电部分采用了远景能源EN-182/5.0-120HH机型"
+   }
+  ]
+ },
+ {
+  "item": "16. Cangxian Fuyang 400 MW",
+  "farm": "Hebei Cangxian (Fuyang) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only tender records found (search summaries: 64 × 6.25 MW at 崔尔庄镇; substation and export line tender opened 15 Apr 2024 by 浙江景程能源科技) — no grid-connection news, so the record may be premature. Pages not quoted.",
+  "sources": []
+ },
+ {
+  "item": "17. Gaotai Beibutan 400 MW (Shanghai Electric)",
+  "farm": "Gansu Gaotai Beibutan 400 MW (Shanghai Electric) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "上海電氣高台縣羅城灘 400 MW 風電項目（64 部 6.25 MW、葉輪 182 m）2022 年 11 月吊裝中，計畫 2022 年 12 月 30 日全容量併網；實際完成日期待查證",
+  "note_en": "Shanghai Electric’s 400 MW project at Luochengtan, Gaotai (64 × 6.25 MW, 182 m rotor) was being erected in Nov 2022 with full connection planned for 30 Dec 2022; actual date unverified",
+  "why": "Planned date only. Shanghai Electric page \"张掖高台北部滩600MW风电项目\" (shanghai-electric.com/listed/c/2024-11-26/578658.shtml, which per search says phases 1–2 were connected by 31 July 2024) returns HTTP 521; gaotai.gov.cn 2022 project page 404; the 2024 gaotai page is about a separate 200 MW Shanghai Electric New Energy project. Turbine (64 × 6.25 MW) is citable if a year is found.",
+  "sources": [
+   {
+    "url": "http://www.gs.chinanews.com.cn/news/2022/11-24/355857.shtml",
+    "quote": "风机整体吊装完成11台，混塔塔筒完成19台，计划12月30日实现全容量并网发电"
+   },
+   {
+    "url": "http://www.gs.chinanews.com.cn/news/2022/11-24/355857.shtml",
+    "quote": "安装6.25兆瓦叶轮直径182米的风力发电机组64台"
+   }
+  ]
+ },
+ {
+  "item": "18. Pingquan 300 MW (Hebei Communications)",
+  "farm": "Hebei Pingquan 300 MW (Hebei Communications) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs (chengde.gov.cn 2024-11-12, hebtig tender 2022-10) fetched no usable text in this round; no grid-connection news found.",
+  "sources": []
+ },
+ {
+  "item": "19. Zhangbei Juren 300 MW",
+  "farm": "Hebei Zhangbei (Juren) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Not reached in this round (budget).",
+  "sources": []
+ },
+ {
+  "item": "20. Jiuzhou Group 300 MW heating wind",
+  "farm": "Heilongjiang Jiuzhou Group distributed wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "possible: fix('CHN', 'Heilongjiang Jiuzhou Group distributed wind farm', G, ..., st=1) once a 2026 status is found",
+  "note_zh": "九洲集團 300 MW 風電清潔供暖示範項目：2024 年報稱已核准、分散式項目陸續開工；2025 年 5 月投資者關係記錄稱電力接入等前期手續仍在辦理，最早 2025 年第四季至 2026 年上半年併網。紀錄標為營運中恐過早",
+  "note_en": "Jiuzhou Group’s 300 MW wind clean-heating demonstration: its 2024 annual report says the approved projects were starting construction; in May 2025 it said grid access and other permits were still in progress, with connection at the earliest in Q4 2025–H1 2026. “Operating” looks premature",
+  "why": "Not operating as of May 2025; the 2025 annual report (Apr 2026) does not mention the 300 MW project’s connection. Without a 2026 status, st=1 is not proposed as a write.",
+  "sources": [
+   {
+    "url": "https://pdf.dfcfw.com/pdf/H2_AN202505301681635786_1.pdf",
+    "quote": "公司至今已陆续获取了5 个乡镇的供暖资产/特许经营权 （2023-2024 年布局），电力接入及其他前期手续正在办理阶段，预 计最早将在本年四季度至2026 年上半年实现项目并网落地"
+   }
+  ]
+ },
+ {
+  "item": "21. Fengning wind-solar-hydrogen 300 MW",
+  "farm": "Hebei Fengning Wind-solar hydrogen storage wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM wiki shows two 150 MW phases (electricity production / hydrogen production) adding up to the record’s 300 MW; fengning.gov.cn (503) and the archive copies were unreachable. Possible double count to check.",
+  "sources": []
+ },
+ {
+  "item": "22. Tieling County 290 MW (SPIC)",
+  "farm": "Liaoning Tieling Wind/Solar/Thermal/Storage Complex Tieling County wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "國家電投鐵嶺百萬千瓦級風光火儲示範項目一期分清開 210 MW 與鐵嶺縣 290 MW；2024 年 7 月只有清開 210 MW「部分實現併網」，鐵嶺縣 290 MW 的併網情況待查證",
+  "note_en": "Phase 1 of SPIC’s Tieling 1 GW-class wind-solar-thermal-storage project is Qingkai 210 MW plus Tieling County 290 MW; in July 2024 only Qingkai 210 MW was “partly connected”; the Tieling County 290 MW status is unverified",
+  "why": "Search summaries: 2023 reports say the 290 MW part was \"about to start\"; planned full connection of phase 1 by end-2024. tieling.gov.cn 503. Record may be premature.",
+  "sources": [
+   {
+    "url": "https://news.qq.com/rain/a/20240731A03QV500",
+    "quote": "国家电投铁岭市百万千瓦级风光火储多能互补示范项目（一期）清开210兆瓦风电项目部分实现并网发电"
+   }
+  ]
+ },
+ {
+  "item": "23. Jidian (Weifang) wind-solar pilot 250 MW",
+  "farm": "Shandong Jidian  Weifang) Wind-Solar Pilot Project",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "國電投吉電濰坊風光儲多能互補試點項目：2024 年 8 月只有 200 MW 光伏併網，250 MW 風電還在辦用地等手續、預計 9 月全面開工。風電併網年份待查證，紀錄標為營運中恐過早",
+  "note_en": "SPIC Jidian’s Weifang wind-solar-storage pilot: in Aug 2024 only 200 MW of solar was connected; the 250 MW wind part was still clearing land permits, with construction expected from September. Wind connection year unverified; “operating” may be premature",
+  "why": "Only the Aug 2024 status found. Next: 吉电股份 (000875) announcements 2025–2026.",
+  "sources": [
+   {
+    "url": "http://www.chinapower.com.cn/chuneng/dongtai1/20240828/259083.html",
+    "quote": "目前，500千伏升压站已正式开工建设。与此同时，250兆瓦风电与420兆瓦光伏项目正在紧锣密鼓地办理用地等合规文件，预计9月份将实现全面开工"
+   }
+  ]
+ },
+ {
+  "item": "24. Chaoyang 250 MW smart wind-storage (China Power)",
+  "farm": "Liaoning Chaoyang Smart Wind Storage Integration wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "中電朝陽 250 MW 智慧風儲一體化風電項目（50 部 5 MW）2023 年 5 月首次併網；全容量併網日期待查證",
+  "note_en": "China Power’s Chaoyang 250 MW smart wind-storage project (50 × 5 MW) first connected in May 2023; full-connection date unverified",
+  "why": "First power 19 May 2023 (in-en, per search); a July 2024 county article still speaks of \"after full connection\" in the future tense, so full capacity may be 2024. Not written.",
+  "sources": [
+   {
+    "url": "https://www.cyx.gov.cn/html/CYXZF/202407/0172040144886947.html",
+    "quote": "中电朝阳250兆瓦智慧风储一体化风电项目是中国电力在朝阳市规划建设的重大能源项目，是辽宁省2022年下达指标中最先并网发电的项目"
+   },
+   {
+    "url": "https://www.cyx.gov.cn/html/CYXZF/202407/0172040144886947.html",
+    "quote": "该项目全容量并网发电后，有效助力木头城子镇打造清洁能源优势产业"
+   }
+  ]
+ },
+ {
+  "item": "25. Longjiang Baishan 200 MW",
+  "farm": "Heilongjiang Longjiang Baishan wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only the export-line approval (28 Aug 2023) found; no connection news.",
+  "sources": [
+   {
+    "url": "https://drc.hlj.gov.cn/drc/c111481/202311/c00_31680324.shtml",
+    "quote": "关于齐齐哈尔龙江白山200MW和黑岗100MW风电项目送出线路工程项目核准的批复 主要内容 核准日期 2023-08-28"
+   }
+  ]
+ },
+ {
+  "item": "26. Hangjin Banner 200 MW (Longyuan)",
+  "farm": "Inner Mongolia Hangjin Banner (Longyuan) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "龍源杭錦旗 200 MW「風儲一體化」示範項目（32 部 6.25 MW）2023 年 1 月 1 日升壓站倒送電、正式併網；全容量併網日期待查證（必在 2023 年或之後）",
+  "note_en": "Longyuan’s Hangjin Banner 200 MW wind-storage demonstration (32 × 6.25 MW) back-energised its substation and formally connected on 1 Jan 2023; full-connection date unverified (2023 or later)",
+  "why": "First grid connection 1 Jan 2023, so full capacity cannot be earlier than 2023; a June 2023 contractor article describes the farm running but gives no full-connection date. Strong candidate for 2023 if one more source is found.",
+  "sources": [
+   {
+    "url": "https://www.energytrend.cn/news/20230103-118530.html",
+    "quote": "1月1日，记者从内蒙古自治区鄂尔多斯市杭锦旗委宣传部获悉，国家能源集团龙源电力内蒙古公司杭锦旗200兆瓦“风储一体化”示范项目倒送电成功，标志着该项目正式并网"
+   }
+  ]
+ },
+ {
+  "item": "27. Alashanyou Banner 200 MW (SPIC)",
+  "farm": "Inner Mongolia Alashanyou Banner (State Power Investment) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "國家電投阿右旗 200 MW 風儲一體化項目（40 部 5 MW）2022 年 12 月 30 日首台併網；全容量併網日期兩說（2022-12-31 或 2023-01-31），待查證",
+  "note_en": "SPIC’s Alxa Right Banner 200 MW wind-storage project (40 × 5 MW) connected its first turbine on 30 Dec 2022; full connection is reported as either 31 Dec 2022 or 31 Jan 2023, unverified",
+  "why": "Conflicting dates in search summaries (bjx 2023-01-05 vs a POWERCHINA Beijing institute handover report). bjx, ne21 (403), in-en (403) and alsyq.gov.cn (connection reset) all unreadable, so nothing quotable.",
+  "sources": []
+ },
+ {
+  "item": "28. Tiemenguan 36th Regiment 200 MW (CNNC)",
+  "farm": "Xinjiang Tiemenguan 36Th Regiment (China Nuclear) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only the July 2022 PC tender (dlztb.com/quote/202207/88843.html, per search: 40 × 5 MW, planned completion 31 Dec 2022) found. The XPCC June 2025 removal list concerns other 2nd-Division projects (36团风光热一体化 by CEEC Hunan, 中核37团光伏), not this farm.",
+  "sources": []
+ },
+ {
+  "item": "29. Changli 200 MW (Lankai)",
+  "farm": "Hebei Qinhuangdao Changli (Lankai) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "No trace of 秦皇岛蓝凯新能源 found; the Goldwind Changli 200 MW project (connected 30 Nov 2024) belongs to 秦皇岛金风润腾 and is a different company, so it is not used.",
+  "sources": []
+ },
+ {
+  "item": "30. Yangyuan 200 MW (Datang)",
+  "farm": "Hebei Yangyuan (Datang) wind and solar farm wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "大唐張家口陽原 200 MW 風電項目（25 部 MySE4.0、16 部 MySE6.25）2023 年 9 月完成吊裝；大唐發電 2024 年報的新增裝機只列大唐陽原新能源 49.25 MW 光伏，風電應在 2023 年併網，但未見併網報導，待查證",
+  "note_en": "Datang’s Zhangjiakou Yangyuan 200 MW wind project (25 MySE4.0 + 16 MySE6.25) finished erection in Sept 2023; Datang Power’s 2024 annual report lists only 49.25 MW of solar as new capacity at Datang Yangyuan New Energy, so the wind was presumably connected in 2023, but no connection report was found",
+  "why": "Inference only (erection Sept 2023 + no 2024 wind addition). The cpem/cweea erection articles were not fetched. The quote below is from the 2024 annual report table (column order: type, company, MW), which needs reading in context before relying on it.",
+  "sources": [
+   {
+    "url": "https://www.dtpower.com/dtpower/content_file/tzzgx/dqbg/dqshzq/2025/3/637f7d1357de460b900eaa55623971e7.pdf",
+    "quote": "光伏 大唐阳原新能源有限公司 49.25 光伏 大唐蔚县新能源有限公司 319"
+   }
+  ]
+ },
+ {
+  "item": "31. Yijinhuoluo Banner Smart Energy 200 MW (Envision)",
+  "farm": "Inner Mongolia Yijinhuoluo Banner Smart Energy wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM refs (wind.in-en 2429229: 403; sthjt.nmg.gov.cn and the china-nengyuan PDF via web.archive: unreachable). Check overlap with item 15 (Envision Ordos zero-carbon park 440 MW, also in Ejin Horo Banner).",
+  "sources": []
+ },
+ {
+  "item": "32. Acheng 200 MW unsubsidised",
+  "farm": "Heilongjiang Ha'Erbin A'Cheng Unsubsidized wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "Only the approval of the Huayong Group 200 MW Acheng project (20 July 2023) found; no connection news.",
+  "sources": [
+   {
+    "url": "https://drc.hlj.gov.cn/drc/c111481/202311/c00_31680319.shtml",
+    "quote": "黑龙江省发展和改革委员会关于黑龙江省哈尔滨市阿城区华永集团二十万千瓦风电项目核准的批复 主要内容 核准日期 2023-07-20"
+   }
+  ]
+ },
+ {
+  "item": "33. Dashiqiao 200 MW (Xintai)",
+  "farm": "Liaoning Dashiqiao (Xintai) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "大石橋鑫泰 200 MW 風電項目（40 部 5 MW）2024 年 6 月 17 日首批風機併網；全容量併網日期待查證",
+  "note_en": "The Dashiqiao Xintai 200 MW project (40 × 5 MW) connected its first turbines on 17 June 2024; full-connection date unverified",
+  "why": "First power only (CEEC NEPC2, Sept 2025 feature; NEPC2 June 2024 news says the team aimed for full connection within the year).",
+  "sources": [
+   {
+    "url": "https://www.ceec.net.cn/art/2025/9/26/art_52770_2536788.html",
+    "quote": "2024年6月15日，大石桥鑫泰项目220千伏升压站反送电一次成功；6月17日，首批风机并网发电"
+   }
+  ]
+ },
+ {
+  "item": "35. Changling Longfenghu 200 MW hydrogen",
+  "farm": "Jilin Changling Longfenghu Hydrogen Production Demonstration wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "長嶺龍鳳湖 20 萬瓩風電製氫示範項目在 2023 年 9 月已建成（新華網）；併網年份待查證",
+  "note_en": "The Changling Longfenghu 200 MW wind-to-hydrogen demonstration was already built by Sept 2023 (Xinhua); commissioning year unverified",
+  "why": "Upper bound only. jl.gov.cn 2021 page 404.",
+  "sources": [
+   {
+    "url": "http://www.news.cn/politics/2023-09/25/c_1129882973.htm",
+    "quote": "松原市已建成长岭龙凤湖20万千瓦风电制氢示范项目，具备了绿氢生产能力"
+   }
+  ]
+ },
+ {
+  "item": "36. Dabancheng Jingong · Ürümqi County 156.3 MW",
+  "farm": "Xinjiang Urumqi Dabancheng (Dabancheng Jingong) wind farm · Ürümqi County",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "",
+  "note_en": "",
+  "why": "GEM ref zfxxgk.nea.gov.cn 2024-11-28 has no matching text; not pursued further (budget).",
+  "sources": []
+ }
+]

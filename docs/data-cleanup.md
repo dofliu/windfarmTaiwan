@@ -6,18 +6,19 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 508 條：刪除 162 筆（其中營運中 45,189.8 MW），修正 346 筆。
+- 規則 533 條：刪除 166 筆（其中營運中 46,053.9 MW），修正 367 筆。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
-| 中國大陸 | 59 | 26,824.5 | 144 |
+| 中國大陸 | 61 | 27,524.5 | 159 |
 | 丹麥 | 1 | 180 | 3 |
 | 伊朗 | 2 | 62 | 3 |
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 4 | 158.3 | 9 |
+| 印度 | 0 | 0 | 1 |
 | 台灣 | 2 | 0 | 21 |
 | 哥倫比亞 | 1 | 8 | 3 |
 | 土耳其 | 2 | 270 | 1 |
@@ -25,14 +26,15 @@
 | 塞內加爾 | 0 | 0 | 2 |
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
-| 巴西 | 1 | 150 | 0 |
+| 巴西 | 2 | 208.5 | 4 |
 | 德國 | 2 | 71 | 16 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
 | 日本 | 2 | 30 | 13 |
+| 智利 | 1 | 105.6 | 0 |
 | 比利時 | 1 | 325 | 0 |
-| 法國 | 2 | 0 | 5 |
+| 法國 | 2 | 0 | 6 |
 | 波蘭 | 0 | 0 | 2 |
 | 泰國 | 1 | 600 | 7 |
 | 澳洲 | 4 | 1,161 | 7 |
@@ -244,7 +246,7 @@
 | CGN Xiangshan Tuci · 280 MW · 2023 | 精選 | 修正：容量、機組、座標 | 寧波海事局 2024-11-11 通航要素通告（甬航通〔2024〕0532 號）：中廣核象山塗茨海上風電場「已建成投用」，場區有 38 台單機 8 MW 風機，並列出 38 台的座標；點位改為這 38 點的平均（北緯 29.531°、東經 122.057°；原點在西方約 10 km）。容量依調整後核准的 300 MW（38 台 8 MW，變更海域使用論證報告） | [連結](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=BBC12C15A2FE47E6AC5CEB280B1BC877) |
 | Putian Pinghai Bay Area F (Sanchuan) · 200 MW · 2021 | GEM | 修正：座標、機組 | 福建省政府 2024-09-18 平海灣 F 區變更用海批覆（閩政海域〔2024〕27 號）附件的界址點 1–29 號是 29 台風機的圓心；點位改為這 29 點的平均（北緯 25.164°、東經 119.470°，南日島南側；GEM 的概略點在西方約 18 km）。F 區 2018-08-21 開工、2021-07-15 與石城一起竣工投產（人民網福建）。機型待查證（GlobalData 寫 29 台 SWT-7.0-154、203 MW，與官方 200 MW 不符），只寫台數 | [連結](https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202409/t20240929_6537863.htm) |
 | Putian Shicheng · 200 MW · 2021 | 精選 | 修正：座標 | 福建省政府 2024-04-19 莆田石城海上風電場用海批覆：用海位於秀嶼區埭頭鎮石城村東北側，附件宗海界址點 954–982 號是 29 台風機的圓心點；點位改為這 29 點的平均（北緯 25.297°、東經 119.373°；原點 25.12°N、119.30°E 在南方約 21 km） | [連結](https://zrzyt.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/hygl/202404/t20240423_6439224.htm) |
-| CTG Yangjiang Shapa Phase 2 · 400 MW · 2021 | 精選 | 修正：機組 | 沙扒二期海域使用補充論證報告書（陽江市自然資源局，建成後）：62 台 6.45 MW，機型為明陽 MySE6.45-180 與金風 GW171/6450 兩種，2021-11-27 最後一台併網；兩種機型各幾台報告沒寫，機型欄改為兩種並列（原寫 62 台全為明陽） | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58162/731643.pdf) |
+| CTG Yangjiang Shapa Phase 2 · 400 MW · 2021 | 精選 | 修正：機組 | 沙扒二期海域使用補充論證報告書（陽江市自然資源局，建成後）：62 台 6.45 MW，機型為明陽 MySE6.45-180 與金風 GW171/6450 兩種，2021-11-27 最後一台併網；兩種機型各幾台報告沒寫；三峽能源招股書：二期風機及塔筒分兩個標段，I 標明陽智慧（14.996 億元）、II 標金風科技（14.646 億元），GlobalData（Energy Monitor）列二期 I、II 各 31 台，機型欄依此寫明陽、金風各 31 台（原寫 62 台全為明陽） | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58162/731643.pdf) |
 | Shandong Bandaonan U2 (Guohua) Offshore wind farm · 603.5 MW | GEM | 修正：狀態、年份、機組 | 山東半島南 U 場址（150 萬瓩，含國家電投 U1 的 90 萬瓩與國家能源集團 U2 的 60 萬瓩，共 177 台）2024-10-26 實現全容量併網（威海市委對外宣傳辦經澎湃新聞 2024-10-29；山東 2024-12 報導同）；國家能源集團 2025-09：U2 安裝 71 台 8.5 MW、603.5 MW（機型為遠景 EN226-8.5，世紀新能源網的專案介紹）。改為營運中 2024 年。中證鵬元 2025-06 評級報告把 U2 列在「截至 2024 年末在建、擬建項目」，應是會計上尚未結轉 | [連結](https://m.thepaper.cn/newsDetail_forward_29177936) |
 | Shanghai Fengxian Bay Retrofit and Upgrade wind farm · 48 MW | GEM | 重複（併入「Shanghai Fengxian Haiwan 1 wind farm」） | 同一個汰換案：上海市發改委 2023 年清單的「奉賢海灣風電場改造升級」（上海新能源環保工程，陸上風電 4.8 萬瓩，前期）在 2024 年清單改名「上海奉賢海灣風力發電場一期擴容工程」（4.8 萬瓩，調整納入，執行風電場改造升級辦法），2025、2026 年清單擴大為 6.25 萬瓩；2026 年清單只剩「一期擴容工程」。GEM 把 2023 與 2025 年版本各列一筆，保留 62.5 MW 那筆 | [連結](https://fgw.sh.gov.cn/cmsres/de/de4b42f5f30241c88757752ef1004c34/54a6401b19396ff535006fd29d60218f.pdf) |
 | CTG Dafeng H8-2 · 300 MW · 2021 | 精選 | 修正：座標 | 三峽大豐 H8-2 離岸約 72 km（offshoreWIND.biz 2021-12）；GEM 依鹽城市政府資料標的確切位置在大豐毛竹沙海域（北緯 33.3225°、東經 121.5927°），落在 OpenStreetMap 依海事局通告 715/2025 繪製的風場範圍（way 1343826793）裡；點位改到這裡。原點位（33.2 N、121.3 E）在西南方約 30 km，落在 OpenStreetMap 標為 H17 的場址範圍（way 1454078619，三峽 800 MW 項目的一區） | [連結](https://www.gem.wiki/Jiangsu_Dafeng_H8-2_Offshore_wind_farm) |
@@ -257,6 +259,23 @@
 | CGN Shanwei Jiazi I · 503 MW · 2022 | 精選 | 修正：機組 | 甲子一 78 部明陽 6.45 MW（中國電力網 2022-04：擬安裝 78 台 MySE6.45MW、首台 6.45 MW 已裝；汕尾海事局 2025-08 備案參數：78 台 6.45 MW）。海事局備案的葉輪直徑為 168 m、輪轂高 100 m，與原寫的 MySE6.45-180（葉輪約 178–180 m）不合，型號尾碼沒有出處，改為只寫 6.45 MW（確切型號待查證） | [連結](https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=255290a5a1bf454781d9520088a87167) |
 | Longyuan Putian Nanri Island · 400 MW · 2019 | 精選 | 修正：機組 | 龍源莆田南日島（三墩風電場）是 100 部西門子 SWT-4.0-130（福建龍源 2026-07 招標：「現已安裝有海上 100 台西門子 SWT-4.0-130 變槳變速型機組」），不是金風 GW171-6.45 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20260731/e9b7aeb1-a2d1-4db9-b7a9-afc63483abb8.html) |
 | Longyuan Putian Nanri Island · 400 MW · 2019 | 精選 | 修正：年份 | 全部投產是 2021 年底（福建龍源 2022-08 招標：「安裝 100 台西門子 4MW 雙饋風力發電機組，機組離岸距離在 0–14 公里範圍內，於 2021 年底完成全部投產發電」），不是 2019 年 | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20220817/475120fe-d699-4cc3-af64-5bd9bf13f507.html) |
+| Longyuan Rudong Intertidal Demo · 32 MW · 2010 | 精選 | 修正：機組 | 龍源如東 30 MW 潮間帶試驗風電場 2010 年 9 月投產時是 9 家廠商的 16 部試驗機組、3.2 萬瓩（1.5–3 MW）；龍源 2019 與 2024 年運維招標列出現存 15 部、8 種機型：遠景 EN82/1.5、聯合動力 UP82-1500、海裝 H93-2000、明陽 MY1.5S、三一 SE93/2000、華銳 SL3000、上海電氣 W2000 各 2 部，金風 GW100/2500 1 部（招標寫總容量 27.5 MW，但所列機組合計 29.5 MW）。第 16 部（2.5 MW）何時、為何不在清單上待查證；容量維持建成時的 32 MW | [連結](http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20190814/91f278b0-cb76-4c62-81f7-9f3d77c5c03f.html) |
+| Inner Mongolia Zhengxiangbai Banner (Shanxi International Energy) Green Hydrogen wind farms · 1,350 MW | GEM | 修正：狀態 | 正鑲白旗300萬瓩風光製氫一體化項目（風電250萬瓩、光伏50萬瓩，格盟諾金新能源，山西國際能源集團儲能公司持股65%）2024年12月27日取得建設指標，2025年11月可研才通過評審；原訂一期2025年6月開工、二期2025年10月開工，報導指一期仍未開工（晉融社經東方財富 2025-11-27）。GEM 把二期 1,350 MW 標為營運中，實為規劃中 | [連結](https://caifuhao.eastmoney.com/news/20251127100947595412760) |
+| Inner Mongolia Shangdu (Huaneng Beifang) wind farm · Duolun · 500 MW | GEM | 重複（併入「Shangdu Huaneng Beifang」） | 同一座風場：精選紀錄「Shangdu Huaneng Beifang」（1,600 MW）就是華能北方上都百萬千瓦級風電基地，分正藍旗場區 1,100 MW 與多倫場區 500 MW（北方多倫），全容量併網日期 2023-06-30（蒙電華能重組審核問詢回覆 2025-12）；GEM 的正藍旗分期已在建置時併入精選紀錄，多倫分期是重複 | [連結](https://file.finance.qq.com/finance/hs/pdf/2025/12/03/1224844317.PDF) |
+| Shangdu Huaneng Beifang · 1,600 MW · 2022 | 精選 | 修正：年份 | 華能北方上都百萬千瓦級風電基地（正藍旗 1,100 MW、多倫 500 MW）2022 年 10 月底起陸續併網，2023 年 6 月 30 日全容量併網（中新網經能源在線 2023-07-05；蒙電華能重組審核問詢回覆 2025-12）；原寫 2022 年 | [連結](https://www.news2e.com/e/action/ShowInfo.php?classid=20&id=566) |
+| Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 1, Area 2, Area 6, Area 7, Area 8, Area 9 · 444 MW | GEM | 修正：年份 | 華電北疆烏魯木齊 100 萬瓩風光基地（風電 80 萬瓩、光伏 20 萬瓩，達坂城 10 個地塊）2023 年 6 月 30 日全容量併網（中國華電經新華網新疆頻道 2023-07-10） | [連結](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
+| Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 4, Area 5 · 300 MW | GEM | 修正：年份 | 華電北疆烏魯木齊 100 萬瓩風光基地（風電 80 萬瓩、光伏 20 萬瓩，達坂城 10 個地塊）2023 年 6 月 30 日全容量併網（中國華電經新華網新疆頻道 2023-07-10） | [連結](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
+| Gansu Subei Mazongshan Yinmaxia Area A wind farm · 155 MW | GEM | 修正：年份、容量、機組 | 肅北縣馬鬃山飲馬峽 A 區 15 萬瓩風電項目（業主肅北蒙古族自治縣騰達風電，運達風電總包招標 2022-07）即「馬鬃山騰達 15 萬瓩風電項目」：30 部 5 MW，2023 年 12 月全容量併網（中新網甘肅 2023-12-28）；原寫 155 MW | [連結](http://www.gs.chinanews.com.cn/news/2023/12-28/367256.shtml) |
+| Xinjiang Altai Jimunai (State Power Investment) wind farm · 250 MW | GEM | 修正：年份、機組 | 國家電投吉木乃 25 萬瓩風電項目（阿勒泰地區保障性併網項目，40 部 6.25 MW）2023 年 4 月全容量併網（國家電投新疆公司經電力網 2023-04-19） | [連結](http://www.chinapower.com.cn/flfd/xmjz/20230419/196883.html) |
+| Inner Mongolia Wulatehou Banner 200 MW (Jingneng) wind farm · 200 MW | GEM | 修正：年份、機組、業主 | 烏拉特後旗京能 200 MW 風電項目（巴彥淖爾京能清潔能源電力公司，2022 年 6 月開工，40 部 5 MW）2023 年 3–4 月全容量併網（掌上巴彥淖爾 2023-04-02） | [連結](https://baijiahao.baidu.com/s?id=1762074057272726588&wfr=spider&for=pc) |
+| Inner Mongolia Keyouqian Banner 200 MW wind farm · 200 MW | GEM | 修正：年份 | 華能蒙東新能源恩輝風電場科爾沁右翼前旗 20 萬瓩風電項目 32 部風機 2023 年 6 月 9 日全部併網（電力網 2023-06-15） | [連結](http://mm.chinapower.com.cn/flfd/xmjz/20230615/205166.html) |
+| Hunan Jiangyong Shuimeitang wind farm · 260 MW | GEM | 修正：年份、機組 | 華電永州水美塘 260 MW 風電項目（江永縣松柏鄉與瀟浦鎮，52 部 5.0 MW）2023 年 12 月 29 日全容量併網（央廣網 2023-12-30） | [連結](https://www.cnr.cn/hunan/yw/20231230/t20231230_526540744.shtml) |
+| Inner Mongolia Alashanzuo Banner Zongbieli (China Resources) wind farm · 200 MW | GEM | 修正：年份、機組、業主 | 華潤新能源阿拉善宗別立 200 MW 風電項目 2023 年 6 月 30 日 32 部風機全容量併網，裝 32 部中車 6.25 MW（內蒙古日報 2023-07-21） | [連結](http://nm.people.com.cn/n2/2023/0721/c347198-40502062.html) |
+| Liaoning Tai'an (Anshan Liaodian) wind farm · 200 MW | GEM | 修正：年份、機組 | 國家電投東北公司台安縣 200 MW 集中式風電項目（新台鎮、富家鎮，40 部 5 MW）2024 年 10 月 25 日全容量併網（遼寧日報經遼寧省政府網 2024-11-04；國家電投東北公司 2024-10-28） | [連結](https://www.ln.gov.cn/web/ywdt/jrln/tpxw/2024110409165961567/index.shtml) |
+| Liaoning Zhangwu Xiliujiazi wind farm · 250 MW | GEM | 修正：年份 | 大金重工的阜新彰武西六家子 250 MW 風電項目「已經於去年建成」（大金重工投資者關係活動記錄 2024-09，即 2023 年建成） | [連結](http://static.cninfo.com.cn/finalpage/2024-09-01/1221106372.PDF) |
+| Jilin Tongyu (Huaneng) 2000 MW Unsubsidized wind farm · 200 MW | GEM | 重複（併入「Jilin Tongyu Shihuadao wind farm」） | 同一座風場：華能通榆 200 萬瓩平價上網項目一期 20 萬瓩與二期 10 萬瓩建在什花道風電場（華能沉降觀測招標 2022-05），什花道 30 萬瓩（89 部風機）2021 年 12 月 30 日全容量併網（中國華能經世紀新能源網 2022-01-05），已是「Jilin Tongyu Shihuadao wind farm」（300 MW、2021） | [連結](https://www.ne21.com/news/show-167486.html) |
+| Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 3 · 56 MW | GEM | 修正：年份 | 華電北疆烏魯木齊 100 萬瓩風光基地（風電 80 萬瓩、光伏 20 萬瓩，達坂城 10 個地塊）2023 年 6 月 30 日全容量併網（中國華電經新華網新疆頻道 2023-07-10）；GEM 把 80 萬瓩風電分成三筆（444＋300＋56 MW），這筆的座標是新疆的佔位點，不在達坂城 | [連結](http://xj.news.cn/20230710/eed62de1a1f4428c9a894351549d70c5/c.html) |
+| Jilin Tongyu Shihuadao wind farm · 300 MW · 2021 | GEM | 修正：座標 | 什花道風電場是華能通榆 200 萬瓩平價上網項目的一、二期（見同批 Tongyu 一期的 dup），在通榆縣；原座標（北緯 42.999°、東經 125.982°，與良井子同點）在通榆東南約 300 km，改用 GEM 對同一專案一期的點（通榆縣，概略位置） | [連結](https://www.ne21.com/news/show-167486.html) |
 
 ## 丹麥 (DNK)
 
@@ -309,6 +328,12 @@
 | YEP wind farm · 76 MW · 2017 | GEM | 修正：名稱、中文名、年份、機組 | 韓華建設的英陽風場 76 MW、22 部 3.45 MW 級，2020 年完工（易投資日報 2021 年 1 月：「去年完工」）；GEM 寫 2017 年 | [連結](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | 修正：中文名、年份、機組 | 英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉） | [連結](https://www.fnnews.com/news/202309241852426048) |
 | Ulsan Dongbu floating demo (Vindmøllen 750 kW) · 0.8 MW · 2020 | 精選 | 刪除 | 蔚山 750 kW 浮動式示範機從未在海上安裝：2019 年 11 月蔚州郡四度退回細部設計、無法下海；2025 年政府的風電研發企畫報告說 750 kW 浮動式實證「曾嘗試」、因取得實證海域困難而受阻，2025 年 9 月 KISTEP 報告說韓國沒有浮動式離岸風電的運送安裝實例 | [連結](https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1) |
+
+## 印度 (IND)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Tanot wind farm · 120 MW | GEM | 修正：年份 | 補上商轉年 2015：GlobalData（Power Technology 轉載）稱 Greenko 的 Tanot 風場（拉賈斯坦，120 MW）分期興建，建成後於 2015 年 6 月商轉 | [連結](https://www.power-technology.com/?p=241025) |
 
 ## 台灣 (TWN)
 
@@ -395,6 +420,11 @@
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
 |---|---|---|---|---|
 | Ventos Do Sul wind farm · 150 MW · 2006 | GEM | 重複（併入「Osório」） | Ventos do Sul Energia 就是 Osório 風場（150 MW，75 × 2 MW）的業主，同一座 | [連結](https://en.wikipedia.org/wiki/Os%C3%B3rio_wind_farm) |
+| Rei dos Ventos 1 · 58.5 MW · 2014 | WRI GPPD | 重複（併入「Ventus wind farm」） | WRI 的 Rei dos Ventos 1（58.5 MW，南緯 5.101°、西經 36.202°）就是 GEM「Ventus wind farm」（Complexo Eólico Ventus，187 MW，AES）的一期 Rei dos Ventos 1（58.45 MW，座標相同） | [連結](https://www.gem.wiki/Ventus_wind_farm) |
+| Ventos de São Rafael wind farm · 499.5 MW | GEM | 修正：年份 | 補上商轉年 2025：本筆 499.5 MW 是 Ventos de São Rafael 01–07 與 09 八座風場（GEM 第 1–7、9 期，各 58.5–63 MW），巴西電力監理署 ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這八座的 111 部 4.5 MW 機組，都在 2025 年 9 月 3 日至 12 月 23 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Serra Das Almas wind farm · 261 MW | GEM | 修正：年份 | 補上商轉年 2025：本筆 261 MW 是 PEC Energia 的 Serra das Almas I–VI 六座風場（GEM 第 1–6 期），ANEEL 機組商轉許可開放資料（2026-10-06 版）列出這六座的 58 部 4.5 MW 機組，都在 2025 年 6 月 24 日至 8 月 22 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Serra%20das%20Almas&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Ventos de São Rafael wind farm · 10, 8 · 121.5 MW | GEM | 修正：狀態、年份、分期 | GEM 標為興建中，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 08（14 部，63 MW）於 2025 年 12 月 18 日、10（13 部，58.5 MW）於 2026 年 2 月 10 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
+| Ventos de São Rafael wind farm · 11 · 63 MW | GEM | 修正：狀態、年份 | GEM 標為準備興建，實已商轉：ANEEL 機組商轉許可開放資料（2026-10-06 版）中 Ventos de São Rafael 11 的 14 部 4.5 MW 機組（63 MW）於 2026 年 7 月 16 日至 8 月 12 日取得商業運轉許可 | [連結](https://dadosabertos.aneel.gov.br/datastore/dump/75419902-c692-498b-a6ef-85f6d4beb5b2?format=csv&q=Ventos%20de%20S%C3%A3o%20Rafael&fields=NomUsina,NumUgUsina,MdaPotenciaLiberadaComercial,DatLiberOpComerRealizado&sort=NomUsina,NumUgUsina) |
 
 ## 德國 (DEU)
 
@@ -478,6 +508,12 @@
 | Choshi Offshore Demonstration (NEDO/TEPCO) · 2.4 MW · 2019 | 精選 | 修正：座標 | 仍在運轉（2026 年 9 月報導：實證風車沒有撤除，2019 年轉為商轉後至今持續運轉）；座標改為東京電力 RP 公布的風車位置（北緯 35°40′54″、東經 140°49′13″，世界測地系；原座標偏東北約 3 km） | [連結](https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001388008.pdf) |
 | Kakegawa wind farm · 13.8 MW · 2020 | GEM | 修正：機組 | 機組是 Enercon E-82（2,300 kW，6 部，2020 年 7 月交貨；日立 Power Solutions 的 Enercon 國內交貨表） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 
+## 智利 (CHL)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| La Cabana (Enel) wind farm · 105.6 MW | GEM | 重複（併入「La Cabaña wind farm (Chile)」） | 與「La Cabaña wind farm (Chile)」（106 MW、2024）是同一座：Enel Green Power Chile 在阿勞卡尼亞大區 Angol 的 La Cabaña 風場，22 部 4.8 MW、合計 105.6 MW，2022 年 11 月開工，已商轉 | [連結](https://www.nsenergybusiness.com/news/enel-green-power-starts-construction-la-cabana-wind-farm-chile/) |
+
 ## 比利時 (BEL)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -495,6 +531,7 @@
 | Eolmed Floating wind farm · 30 MW | GEM | 重複（併入「EolMed (Gruissan)」） | 同一座風場（Gruissan 外海，30 MW） | [連結](https://www.gem.wiki/Eolmed_Floating_wind_farm) |
 | EolMed (Gruissan) · 30 MW · 2025 | 精選 | 修正：狀態、年份 | 2026 年 4 月開始發電、5 月全面運轉；時間軸「2026（最新可得）」起列為營運中 | [連結](https://www.bw-ideol.com/en/eolmed-project) |
 | Provence Grand Large · 25 MW · 2024 | 精選 | 修正：機組 | 機組是西門子歌美颯 SWT-8.0-154（以 8.4 MW 運轉，葉片 75 m），不是 Vestas；RTE 專案文件寫明選用 SWT-8.0-154，SBM 寫 3 座浮動機組安裝完成 | [連結](https://www.sbmoffshore.com/newsroom/sbm-offshore-announces-successful-installation-3-floating-wind-units/) |
+| Village du Richebourg wind farm · 109.2 MW | GEM | 修正：座標 | 位置更正：En Avel Braz 的 Village de Richebourg I（22 部，92.4 MW）與 II 位於奧布省（Aube），法國國家發電設施登錄（ODRÉ）的「PARC EOLIEN RICHEBOURG 6」在 Salon 鎮，環評意見書也說 Richebourg III（Villiers-Herbisse、Semoine）緊鄰 I、II 期；原座標是加來海峽省同名的 Richebourg 村，偏離約 230 km。改用 Salon 鎮座標（概略位置） | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%3D%22Salon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 
 ## 波蘭 (POL)
 
