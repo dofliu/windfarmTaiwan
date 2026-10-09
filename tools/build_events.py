@@ -154,13 +154,18 @@ FARMS = {
     "WIND-087": ["EnBW He Dreiht"],
     # 2026-10-03 第三批（Sørmarkfjellet 2025 年三次葉片事件，Aneo 公告） · third batch (Sørmarkfjellet blade incidents in 2025, Aneo notices)
     "WIND-089": ["Sormarkfjellet wind farm"], "WIND-090": ["Sormarkfjellet wind farm"], "WIND-091": ["Sormarkfjellet wind farm"],
-    # 對不到的 · unmatched (left out on purpose): WIND-001 Crotched Mountain (not in the farm layer), WIND-008 Kunimidake (the 2013 farm is not
-    # in the layer; the listed entry is a later project), WIND-010 (grid-wide), WIND-034 Ocean Wind (cancelled, not in the layer), WIND-045 Rokewood
-    # (official site name pending per the source). WIND-057 Taipower Mailiao = Yunmai (Mailiao): Taipower's only Mailiao farm, Vestas V80 2 MW ×23
+    # 2026-10-09 第十八輪補上（出處原文見 tools/research/doubts_2026-10o_AC.json） · added in research round 18 (quotes in that file):
+    # WIND-001 Crotched Mountain 補進精選紀錄（farms_attachment.json）；WIND-045 是 Golden Plains 東區＝一期（AAP：Golden Plains Wind Farm, Rokewood；
+    # 事發地 Bells Road 在 Rokewood 東邊；Vestas 事後暫停的是一期 756 MW）；WIND-079 Rei dos Ventos 3 是 GEM「Ventus」綜合風場的一期；WIND-080 Delta 6
+    # 是 GEM「Delta Maranhão」的 Delta 6-1/6-2；WIND-084 酒泉 16 座風場脫網，比照 WIND-025 對到整個基地；WIND-085 華能文昌「以大代小」改造＝GEM 的文昌 RP
+    "WIND-001": ["Crotched Mountain"], "WIND-045": ["Golden Plains (Stage 1)"], "WIND-068": ["Windpark Haltern AV 9"], "WIND-079": ["Ventus wind farm"],
+    "WIND-080": ["Delta Maranhão"], "WIND-084": ["Gansu Guazhou / Jiuquan wind base"], "WIND-085": ["Hainan Wenchang Chaotanbi wind farm · RP"],
+    # 對不到的 · unmatched (left out on purpose, re-checked in round 18): WIND-008 Kunimidake (the 2002 farm, 2 x 900 kW, is not in the layer; the listed
+    # entry is a later project), WIND-010 (grid-wide; AEMO names nine farms), WIND-034 Ocean Wind 1/2 (cancelled, not in the layer), WIND-063 Miyakojima
+    # 2003 (Okinawa Electric's Karimata/Shichimata test units, not in the layer; the 2007/2008 records are different turbines), WIND-064 Awaji park turbine
+    # (single municipal turbine), WIND-065 Hornslet (Hyacintvej, five 600 kW turbines, not in the layer), WIND-088 (the reports do not name the farm).
+    # WIND-057 Taipower Mailiao = Yunmai (Mailiao): Taipower's only Mailiao farm, Vestas V80 2 MW ×23
     # (second batch of 7 commissioned 2010/2011, matching the "2010-05-27, 2 MW Vestas, unit 17" in the official notice).
-    # Second batch unmatched: WIND-079 Rei dos Ventos (the incident was at park 3; the layer only has Rei dos Ventos 1), WIND-063 Miyakojima 2003 (the 2007/2008 records are later, different turbines), WIND-064 Awaji park turbine (single
-    # municipal turbine, not in the layer), WIND-065 Hornslet (not in the layer), WIND-068 Haltern AV9 (the layer's Haltern Ennenberg is a different
-    # park), WIND-080 Delta 6 (not in the layer), WIND-084 Jiuquan (grid-wide), WIND-085 Wenchang repowering (cannot confirm which record), WIND-088 (farm not named).
 }
 
 # ---------------------------------------------------------------- 英文 · English text per event: title, summary, area, then optional notes

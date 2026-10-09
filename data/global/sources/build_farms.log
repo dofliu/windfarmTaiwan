@@ -85,6 +85,7 @@ CLEAN dup AUS Bluff Point wind farm 64.0 -> Woolnorth (Bluff Point / Studland Ba
 CLEAN dup AUS MacIntyre 923.0 -> MacIntyre precinct wind farm
 CLEAN dup AUS Snowtown I wind farm 99.0 -> Snowtown
 CLEAN dup AUS Studland Bay wind farm 75.0 -> Woolnorth (Bluff Point / Studland Bay)
+CLEAN dup BRA Rei dos Ventos 1 58.5 -> Ventus wind farm
 CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
 CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
 CLEAN dup CHN CGN Jiaxing 2 (Zhoushan Daishan 4) 300.0 -> Zhejiang Daishan 4 Offshore wind farm
@@ -304,6 +305,7 @@ CLEAN fix CHN Longyuan Jiangsu Xiangshui 202.0
 CLEAN fix CHN Longyuan Putian Nanri Island 400.0
 CLEAN fix CHN Longyuan Putian Nanri Island 400.0
 CLEAN fix CHN Longyuan Rudong Intertidal 150 MW Demo 150.0
+CLEAN fix CHN Longyuan Rudong Intertidal Demo 32.0
 CLEAN fix CHN Longyuan Sheyang H2 300.0
 CLEAN fix CHN Mingyang Qingzhou 4 floating 'OceanX' & Tiancheng 16.6
 CLEAN fix CHN Mingyang Yangjiang Qingzhou 4 500.0
