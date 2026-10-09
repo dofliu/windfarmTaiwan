@@ -1,0 +1,923 @@
+[
+ {
+  "item": "ESP Las Tres Villas wind farm",
+  "farm": "Las Tres Villas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "BOJA/BOE 2002–2006 permitting notices (Uniwindet, PE/23) only; no commissioning date.",
+  "sources": []
+ },
+ {
+  "item": "ESP Lezuza wind farm",
+  "farm": "Lezuza wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not among EUFER’s Castilla-La Mancha farms in its Dec 2007 release (Malagón I/II, La Losilla, Sierra de la Oliva), so later than 2007; no dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP Picador wind farm",
+  "farm": "Picador wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2021",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2021 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2021, but no passage stating the start date was found",
+  "why": "Fuendejalón; 50 MW (12 turbines) per the year-2 report. Operating year 2 began March 2022, so operation began about March 2021. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-picador-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico Picador, año 2, informe cuatrimestral 1, marzo 2022-junio 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP La Sarguilla wind farm",
+  "farm": "La Sarguilla wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP El Cabezo wind farm",
+  "farm": "El Cabezo wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "María de Huerva and Zaragoza. Year 3 began July 2022 → about July 2020. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-el-cabezo-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico El Cabezo, año 3, informe cuatrimestral 1, julio 2022-octubre 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP Vilalba (EDPR) wind farm",
+  "farm": "Vilalba (EDPR) wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Catalonia’s individual production data (from 2010) already lists it in 2010, so it was operating by 2010; its wind-farm register has no commissioning dates. No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP Venta Del Ginestar wind farm",
+  "farm": "Venta Del Ginestar wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Bisimbre, Agón, Magallón. Year 3 began August 2022 → about August 2020. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-venta-del-ginestar-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico Venta del Ginestar, año 3, informe cuatrimestral 1, agosto 2022-noviembre 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP San Isidro wind farm",
+  "farm": "San Isidro wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2024",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2024 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2024, but no passage stating the start date was found",
+  "why": "San Isidro I (Almudévar and Huesca), 8 GE 158 turbines of 6.1 MW = 48.8 MW, titular Aragonesa de Infraestructuras Energéticas Renovables S.L. (Repsol link not quoted); construction May 2023–April 2024 (post-construction report), operating-phase year 1 from June 2024. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-san-isidro-plan-de-vigilancia-ambiental",
+    "quote": "Parque Eólico San Isidro, año 1, informe cuatrimestral 1, junio 2024-septiembre 2024"
+   }
+  ]
+ },
+ {
+  "item": "ESP Cerro Pelado wind farm",
+  "farm": "Cerro Pelado wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Ecovent wind farm",
+  "farm": "Ecovent wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Catalonia’s individual production data (from 2010) already lists it in 2010, so it was operating by 2010; its wind-farm register has no commissioning dates. No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP Els Pessells wind farm",
+  "farm": "Els Pessells wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "有線索但未能確認，見 why。",
+  "note_en": "Lead only; see why.",
+  "why": "Point (41.193, 1.591) is a placeholder shared with Els Barrancs (23 MW, 2023); no “Pessells” installation appears in Catalonia’s individual production data (2010–2023) or wind-farm register, so the name/location needs checking.",
+  "sources": []
+ },
+ {
+  "item": "ESP Las Azubías wind farm",
+  "farm": "Las Azubías wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2021",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2021 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2021, but no passage stating the start date was found",
+  "why": "Fuendejalón; 46 MW (11 × 4.2 MW). Operating year 2 began March 2022 → about March 2021. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-las-azubias-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico Las Azubias, año 2, informe cuatrimestral 1, marzo 2022-junio 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP Mirasierra wind farm",
+  "farm": "Mirasierra wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not in Castilla y León’s open-data list of operating wind farms (checked for MIRASIERRA); nearest is Las Pardas (50 MW, 2008).",
+  "sources": []
+ },
+ {
+  "item": "ESP Menaute wind farm",
+  "farm": "Menaute wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "BOJA 2009 utility declaration: 37.4 MW (19 × 2 MW, one limited to 1.4 MW) in Campillos/Teba; 2008 archaeological works report; no commissioning date found.",
+  "sources": []
+ },
+ {
+  "item": "ESP El Álamo wind farm",
+  "farm": "El Álamo wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Tejonero wind farm",
+  "farm": "Tejonero wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Escalon wind farm",
+  "farm": "Escalon wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP El Balsón wind farm",
+  "farm": "El Balsón wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "No monitoring page under “parque-eolico-el-balson” on aragon.es (404); not searched further.",
+  "sources": []
+ },
+ {
+  "item": "ESP Trucafort wind farm",
+  "farm": "Trucafort wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Catalonia’s individual production data (from 2010) already lists it in 2010, so it was operating by 2010; its wind-farm register has no commissioning dates. No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP La Rinconada wind farm",
+  "farm": "La Rinconada wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Herrera de los Navarros, Aguilón, Azuara. Year 3 began April 2022 → about April 2020. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-la-rinconada-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico La Rinconada, Año 3, informe cuatrimestral 1, abril 2022-julio 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP La Sarda wind farm",
+  "farm": "La Sarda wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Sierra de Luna. Year 3 began April 2022 → about April 2020. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-la-sarda-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico La Sarda, año 3, informe cuatrimestral 1, abril 2022-julio 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP Pico Collalbas wind farm",
+  "farm": "Pico Collalbas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Veciana wind farm",
+  "farm": "Veciana wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Catalonia’s individual production data (from 2010) already lists it in 2010, so it was operating by 2010; its wind-farm register has no commissioning dates. No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP Canredondo wind farm",
+  "farm": "Canredondo wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Barchín wind farm",
+  "farm": "Barchín wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) operating by Sept 2014",
+  "note_zh": "Gamesa 2014 年 9 月把運轉中的 Barchín 風場（28 MW，昆卡省）賣給中國華電；商轉年未查到",
+  "note_en": "Gamesa sold the Barchín wind farm (28 MW, Cuenca) to China Huadian in September 2014; commissioning year not found",
+  "why": "Only shows it existed by 2014; thewindpower lists 14 × G90 (not citable).",
+  "sources": [
+   {
+    "url": "https://www.energias-renovables.com/eolica/gamesa-vende-un-parque-eolico-de-cuenca-20140905",
+    "quote": "para la venta del parque eólico Barchín de 28 MW, localizado en Cuenca"
+   }
+  ]
+ },
+ {
+  "item": "ESP Turó Del Magre wind farm",
+  "farm": "Turó Del Magre wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Catalonia’s individual production data (from 2010) already lists it in 2010, so it was operating by 2010; its wind-farm register has no commissioning dates. No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP Alta Anoia wind farm",
+  "farm": "Alta Anoia wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Catalonia’s individual production data (from 2010) already lists it in 2010, so it was operating by 2010; its wind-farm register has no commissioning dates. No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP El Saso wind farm",
+  "farm": "El Saso wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Aragón lists El Saso (Azuara, 5 × 3.8 MW = 18 MW, year 3 = 2022) and El Saso Fase II (Aguilón/Herrera, year 3 began April 2022) separately; the record’s 28 MW may be both. Both point to 2020. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-el-saso-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico El Saso, año 3, informe cuatrimestral 1, enero 2022-abril 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP Ayamonte wind farm",
+  "farm": "Ayamonte wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP La Cuesta wind farm",
+  "farm": "La Cuesta wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Castillo Garcimuñoz wind farm",
+  "farm": "Castillo Garcimuñoz wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Los Castríos wind farm",
+  "farm": "Los Castríos wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Lanternoso wind farm",
+  "farm": "Lanternoso wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Only a company-directory mention (RWE Innogy Aersa, 24 MW); no date.",
+  "sources": []
+ },
+ {
+  "item": "ESP El Barroso wind farm",
+  "farm": "El Barroso wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP La Rabia wind farm",
+  "farm": "La Rabia wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Boquerón (Iberdrola) wind farm",
+  "farm": "Boquerón (Iberdrola) wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Coll De La Garganta wind farm",
+  "farm": "Coll De La Garganta wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "有線索但未能確認，見 why。",
+  "note_en": "Lead only; see why.",
+  "why": "Catalonia’s individual production data first lists COLL DE LA GARGANTA (EDPR, La Torre de l’Espanyol) in 2011 with 15.03 MW and 21.71 MW from 2012: probably phased 2010/11–2012; no dated source.",
+  "sources": []
+ },
+ {
+  "item": "ESP Almendarache wind farm",
+  "farm": "Almendarache wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Tinajeros wind farm",
+  "farm": "Tinajeros wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Agón, Bisimbre, Magallón. Year 3 = 2022 → 2020 (or late 2019); a scavenger trial started in April 2020. The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-tinajeros-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico Tinajeros, año 3, informe cuatrimestral 1, enero 2022-abril 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP Cañacoloma wind farm",
+  "farm": "Cañacoloma wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Aguilón. Calendar-aligned years: year 3 = 2022 → year 1 = 2020 (could have started late 2019). The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-canacoloma-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico Cañacoloma, año 3, informe cuatrimestral 1, enero 2022-abril 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP La Tahuna wind farm",
+  "farm": "La Tahuna wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Loma De Ayala wind farm",
+  "farm": "Loma De Ayala wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "BOJA 2002/2006 permitting notices (19.5 MW, 13 turbines in the 2006 version) only.",
+  "sources": []
+ },
+ {
+  "item": "ESP Las Zorerras wind farm",
+  "farm": "Las Zorerras wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Savalla wind farm",
+  "farm": "Savalla wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "有線索但未能確認，見 why。",
+  "note_en": "Lead only; see why.",
+  "why": "Catalonia’s individual production data (dataset arbg-m6sq, from 2010) first lists SAVALLÀ (18 MW, Savallà del Comtat) in 2011, so probably commissioned 2010–2011; no dated source.",
+  "sources": []
+ },
+ {
+  "item": "ESP Sierra De Luna wind farm",
+  "farm": "Sierra De Luna wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Herrera de los Navarros (not the municipality of Sierra de Luna). Year 3 = 2022 → 2020 (or late 2019). The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-sierra-de-luna-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico Sierra de Luna, año 3, informe cuatrimestral 1, enero 2022-abril 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP Mostaza wind farm",
+  "farm": "Mostaza wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Los Jarales wind farm",
+  "farm": "Los Jarales wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP La Nava (Forestalia) wind farm",
+  "farm": "La Nava (Forestalia) wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Gallur and Magallón. Year 3 = 2022 → 2020 (or late 2019). The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-la-nava-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico La Nava, año 3, informe cuatrimestral 1, enero 2022-abril 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP Serra Voltorera wind farm",
+  "farm": "Serra Voltorera wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Catalonia’s individual production data (from 2010) already lists it in 2010, so it was operating by 2010; its wind-farm register has no commissioning dates. No dated source found.",
+  "sources": []
+ },
+ {
+  "item": "ESP Hoya De Lucas wind farm",
+  "farm": "Hoya De Lucas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "有線索但未能確認，見 why。",
+  "note_en": "Lead only; see why.",
+  "why": "Status doubtful: only the 2020 authorisation was found, and thewindpower.net (pointer only, not citable) still showed it under construction in April 2024; no DISA or Canary Islands source on entry into service. Check whether st should be 1.",
+  "sources": []
+ },
+ {
+  "item": "ESP Piletas wind farm (Spain)",
+  "farm": "Piletas wind farm (Spain)",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "Naturgy 的 Piletas I 為 12.8 MW（本站 16 MW），2017 年獲准；商轉年未查到",
+  "note_en": "Naturgy’s Piletas I is 12.8 MW (record: 16 MW), authorised in 2017; commissioning year not found",
+  "why": "Boletín Oficial de Canarias (2024) says Piletas I was authorised by resolution of 8 Aug 2017; Anuario Energético de Canarias not reached.",
+  "sources": [
+   {
+    "url": "https://www.energias-renovables.com/eolica/naturgy-pone-en-servicio-cerca-de-20-20230628",
+    "quote": "Junto al nuevo parque, la compañía gestiona también Piletas I, que con 12,8 MW de potencia"
+   }
+  ]
+ },
+ {
+  "item": "ESP San Gregorio wind farm",
+  "farm": "San Gregorio wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Las Lomas Uniwindet wind farm",
+  "farm": "Las Lomas Uniwindet wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Aldeavieja wind farm",
+  "farm": "Aldeavieja wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet)",
+  "note_zh": "CyL 開放資料的 ALDEAVIEJA 為 24 MW、4 部 Vestas 6 MW、2000 年，與本站 15 MW 不符（可能已汰換更新）",
+  "note_en": "Castilla y León’s open data lists ALDEAVIEJA as 24 MW with 4 Vestas 6 MW turbines and a 2000 start, inconsistent with the record’s 15 MW (possibly repowered)",
+  "why": "The register row mixes a 2000 date with 6 MW turbines; the record shares its point with La Cruz de Hierro, Villacastín and Ojos Albos (all 15 MW). Needs a repowering source.",
+  "sources": [
+   {
+    "url": "https://analisis.datosabiertos.jcyl.es/api/explore/v2.1/catalog/datasets/parques-eolicos/exports/csv?where=nombre%3D%22ALDEAVIEJA%22&delimiter=%3B",
+    "quote": "ALDEAVIEJA;Stª. Mª del Cubillo y Ojos Albos;AVILA;24000;4.0;VESTAS;6000;2000-01-04"
+   }
+  ]
+ },
+ {
+  "item": "ESP Los Cierzos wind farm",
+  "farm": "Los Cierzos wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no rule yet) likely year=2020",
+  "note_zh": "亞拉岡自治區政府公布的環境監測報告編號推得約 2020 年開始運轉，但未查到明寫投入運轉日期的段落",
+  "note_en": "The numbering of the Government of Aragón’s monitoring reports implies operation from about 2020, but no passage stating the start date was found",
+  "why": "Gallur and Magallón. Year 3 = 2022 → 2020 (or late 2019). The year-1 reports (which state the start date for other farms) are not posted on the page; the later reports scanned did not state it.",
+  "sources": [
+   {
+    "url": "https://www.aragon.es/-/parque-eolico-los-cierzos-plan-de-vigilancia-ambiental",
+    "quote": "Parque eólico Los Cierzos, año 3, informe cuatrimestral 1, enero 2022-abril 2022"
+   }
+  ]
+ },
+ {
+  "item": "ESP El Romeral wind farm",
+  "farm": "El Romeral wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Tirapun wind farm",
+  "farm": "Tirapun wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "",
+  "note_zh": "與「Tirapun wind farm」（13.2 MW）是同一座：Naturgy 的 Tirapu 風場（納瓦拉，4 部 3.3 MW＝13.2 MW），2018 年 11 月與 Barásoain 風場一起開工；這筆的座標落在 Ribera 一帶（與 San Gregorio、Pestriz 同點），保留座標在 Tirapu 附近的那筆",
+  "note_en": "Same farm as “Tirapun wind farm” (13.2 MW): Naturgy’s Tirapu wind farm in Navarre (4 × 3.3 MW = 13.2 MW), started together with the Barásoain farm in November 2018; this record sits on a point in the Ribera shared with San Gregorio and Pestriz, so the record near Tirapu is kept",
+  "why": "dup Tirupan → Tirapun written in round 21. Year still open for the kept record: GEM’s duplicate “Tirupan” carries 2019, and the 2018 release expected first power in early July 2019, but no source confirming operation in 2019 was found (lead for year=2019). dup() does not carry the year over.",
+  "sources": [
+   {
+    "url": "https://smartgridsinfo.es/2018/11/15/naturgy-comienza-las-obras-cuatro-parque-eolicos-navarra-sumaran-una-potencia-495-mw",
+    "quote": "Cada uno de los quince aerogeneradores tendrá una potencia unitaria de 3,3 MW."
+   },
+   {
+    "url": "https://smartgridsinfo.es/2018/11/15/naturgy-comienza-las-obras-cuatro-parque-eolicos-navarra-sumaran-una-potencia-495-mw",
+    "quote": "los cuatro restantes se levantarán en el parque eólico Tirapu y alcanzarán los 42.000 MWh/año"
+   },
+   {
+    "url": "https://smartgridsinfo.es/2018/11/15/naturgy-comienza-las-obras-cuatro-parque-eolicos-navarra-sumaran-una-potencia-495-mw",
+    "quote": "Está previsto que el primer vertido a red de estos parques se realice a principios del mes de julio de 2019."
+   }
+  ]
+ },
+ {
+  "item": "ESP Sierra Aguas wind farm",
+  "farm": "Sierra Aguas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Pena Alta wind farm",
+  "farm": "Pena Alta wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not in Castilla y León’s operating-farm list (only PEÑA OTERO 4.8 MW in Los Altos nearby); Acciona source not found.",
+  "sources": []
+ },
+ {
+  "item": "ESP Puerto Facinas wind farm",
+  "farm": "Puerto Facinas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Las Lomillas wind farm",
+  "farm": "Las Lomillas wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP La Risa wind farm",
+  "farm": "La Risa wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Monte Seixo wind farm · Ampliación",
+  "farm": "Monte Seixo wind farm · Ampliación",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Lecrín wind farm",
+  "farm": "Lecrín wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ },
+ {
+  "item": "ESP Alto de Croa 2 wind farm",
+  "farm": "Alto de Croa 2 wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "有線索但未能確認，見 why。",
+  "note_en": "Lead only; see why.",
+  "why": "0.5 km from “Croa wind farm” (10 MW, 2021, Greenalia); possibly the same farm. Not resolved.",
+  "sources": []
+ },
+ {
+  "item": "ESP Los Isletes (Iberdrola) wind farm",
+  "farm": "Los Isletes (Iberdrola) wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "有線索但未能確認，見 why。",
+  "note_en": "Lead only; see why.",
+  "why": "Same point as “Los Isletes (Urbaenergía) wind farm” (25 MW, 2009, Saeta); may be a duplicate or a second phase. Not resolved.",
+  "sources": []
+ },
+ {
+  "item": "ESP Munilla wind farm",
+  "farm": "Munilla wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "lead",
+  "proposal": "(no change yet)",
+  "note_zh": "有線索但未能確認，見 why。",
+  "note_en": "Lead only; see why.",
+  "why": "Same point and owner (Iberdrola) as “Munilla-La Santa wind farm” (36 MW, 2004); may be a duplicate or a separate phase. La Rioja source not searched.",
+  "sources": []
+ },
+ {
+  "item": "ESP Campo de Magallón wind farm",
+  "farm": "Campo de Magallón wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "No monitoring page under “parque-eolico-campo-de-magallon” on aragon.es (404); not searched further.",
+  "sources": []
+ },
+ {
+  "item": "ESP La Estancia wind farm",
+  "farm": "La Estancia wind farm",
+  "src_code": 2,
+  "iso": "ESP",
+  "status": "none",
+  "proposal": "(no change yet)",
+  "note_zh": "未查到可引用的出處。",
+  "note_en": "No quotable source found.",
+  "why": "Not reached within budget (no regional open register with dates for this region: Andalucía, Castilla-La Mancha, Murcia, Asturias, Galicia, Canarias, Navarra, La Rioja have none found; AAE site blocked).",
+  "sources": []
+ }
+]

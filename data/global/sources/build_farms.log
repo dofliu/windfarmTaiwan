@@ -151,6 +151,8 @@ CLEAN dup DOM Esperanza wind farm (Dominican Republic) 50.0 -> Esperanza (Domini
 CLEAN dup DOM Pecasa wind farm 50.0 -> Guanillo wind farm
 CLEAN dup EGY Amunet wind farm 502.0 -> Amunet (AMEA Power) Red Sea
 CLEAN dup EGY Gulf Of Ziet Wind Complex 580.0 -> Gabal El Zeit (I-III)
+CLEAN dup ESP Do Vilan wind farm 16.9 -> Do Vilán wind farm
+CLEAN dup ESP Tirupan wind farm 13.0 -> Tirapun wind farm
 CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
 CLEAN dup FRA Baronville wind farm 12.0 -> Destry wind farm
 CLEAN dup FRA Binas wind farm 11.5 -> Viertiville wind farm
@@ -454,7 +456,34 @@ CLEAN fix DOM Los Cocos wind farm 87.3
 CLEAN fix DOM Los Guzmancito wind farm 98.0
 CLEAN fix DOM Matafongo wind farm 34.0
 CLEAN fix DOM Puerto Plata-Imbert wind farm 46.0
+CLEAN fix ESP Campanario (Ventient) wind farm 38.0
+CLEAN fix ESP Carratorres wind farm 40.0
+CLEAN fix ESP Castil De Tierra wind farm 36.0
+CLEAN fix ESP El Castillo (EDP) wind farm 25.0
+CLEAN fix ESP El Coto wind farm 20.0
+CLEAN fix ESP El Llano wind farm (Spain) 50.0
+CLEAN fix ESP El Páramo wind farm 24.0
+CLEAN fix ESP Fuente Vaín wind farm 32.0
+CLEAN fix ESP Juno wind farm 50.0
+CLEAN fix ESP La Luna wind farm 50.0
+CLEAN fix ESP La Peña wind farm 29.0
+CLEAN fix ESP La Sía wind farm 30.0
+CLEAN fix ESP Las Fuentes wind farm 18.0
+CLEAN fix ESP Las Mazorras wind farm 22.0
+CLEAN fix ESP Las Sardas wind farm 20.0
+CLEAN fix ESP Las Traperas wind farm 10.0
+CLEAN fix ESP Los Gigantes wind farm 21.0
+CLEAN fix ESP Montejo De Bricia wind farm 14.0
+CLEAN fix ESP Parideras wind farm 23.0
+CLEAN fix ESP Perdiguera wind farm 22.0
+CLEAN fix ESP Piedrahita wind farm 20.0
+CLEAN fix ESP Rea Unificado wind farm 41.0
+CLEAN fix ESP Soliedra wind farm 21.0
 CLEAN fix ESP Timanfaya Floating Offshore wind farm 50.0
+CLEAN fix ESP Urano wind farm 30.0
+CLEAN fix ESP Valdelugo wind farm 18.0
+CLEAN fix ESP Valdemoro wind farm 49.5
+CLEAN fix ESP Valdesamario wind farm 24.0
 CLEAN fix FIN Ajos Retrofit wind farm 43.0
 CLEAN fix FIN Kemi wind farm 27.0
 CLEAN fix FRA Achiet-Le-Petit wind farm 21.0
