@@ -1,38 +1,5 @@
 [
  {
-  "item": "X1 CGN Xiangshan Tuci: foundation type",
-  "farm": "CGN Xiangshan Tuci",
-  "status": "write",
-  "proposal": "F5('CHN', 'CGN Xiangshan Tuci', 'mp', url='https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4fa7f47781394cc89bc6cadb984c84c9.json', zh='38 部 8 MW 全部為單樁：中廣核新能源（象山）2025-08 為已建成的象山塗茨海上風電場招標風機基礎防腐及結構檢測服務，寫明裝機 304 MW、38 部 8.0 MW，「風機基礎全部採用單樁基礎結構型式」，2022 年 10 月開工、2023 年 11 月全容量投運；寧波海事局通告已建成投用。', en='All 38 × 8 MW turbines on monopiles: CGN New Energy (Xiangshan)’s Aug 2025 tender for corrosion and structural inspection of the built farm’s foundations states 304 MW, 38 × 8.0 MW and that all turbine foundations are monopiles, with construction from Oct 2022 and full operation in Nov 2023; Ningbo MSA notice: built and in service.')",
-  "note_zh": "中廣核電子商務平台的公告頁（Details.html）由程式載入，引用的是同一公告的 JSON 內容網址；公告標題稱「塗海風電場」，內文寫明「中廣核象山塗茨海上風電場」。海底高程 −11.3～−6.9 m（基準面未寫，不當水深用，不提 D 列）。",
-  "note_en": "The CGN e-procurement page (Details.html) is rendered by script, so the cited URL is the same notice’s JSON content; the title says \"Tuhai wind farm\" and the text names the CGN Xiangshan Tuci offshore wind farm. Seabed elevation −11.3 to −6.9 m (datum not stated; not used as depth, so no D row).",
-  "why": "Post-construction O&M tender (Aug 2025) on the CGN e-procurement platform, reachable this round through its JSON API (POST http://ecp.cgnpc.com.cn/portalApi/connect/query?siteId=3f5692fa17a24c86b80a08e6669a4df5 with {\"dataConnectId\":\"e106b8c1504b4cfe9dff6ac78cbf138c\",\"Key\":\"%keyword%\",\"pageIndex\":1,\"pageSize\":50}; details at /detail/<ContentStoreId>/<Id>.json). It says all turbine foundations are monopiles and the farm was fully operating in Nov 2023; the 38 × 8 MW count matches the Ningbo MSA built notice. Record says 300 MW / 2023; the tender gives 304 MW.",
-  "sources": [
-   {
-    "url": "https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4fa7f47781394cc89bc6cadb984c84c9.json",
-    "quote": "中广核象山涂茨海上风电场位于浙江省宁波市象山县东北部海域"
-   },
-   {
-    "url": "https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4fa7f47781394cc89bc6cadb984c84c9.json",
-    "quote": "风电场装机容量304MW，布置38台单机容量8.0MW的风电机组，风机基础全部采用单桩基础结构型式。"
-   },
-   {
-    "url": "https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4fa7f47781394cc89bc6cadb984c84c9.json",
-    "quote": "中广核涂海风电场风电机组于2022年10月开始建设，2023年11月全容量投运"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=bbc12c15a2fe47e6ac5ceb280b1bc877",
-    "quote": "中广核象山涂茨海上风电场已建成投用"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=bbc12c15a2fe47e6ac5ceb280b1bc877",
-    "quote": "场区建设有38台单机8MW的风力发电机组"
-   }
-  ],
-  "src_code": 0,
-  "iso": "CHN"
- },
- {
   "item": "X2 SinoHydro Rudong Intertidal: what is a 低桩高台柱 foundation?",
   "farm": "SinoHydro Rudong Intertidal",
   "status": "lead",
@@ -73,7 +40,7 @@
   "item": "X3 Longyuan Putian Nanri Island (= Longyuan \"Sandun\" wind farm): foundation types, depth, turbines",
   "farm": "Longyuan Putian Nanri Island",
   "status": "lead",
-  "proposal": "(lead, no F5 row) D row ready once a foundation row exists: D('CHN', 'Longyuan Putian Nanri Island', depth=(5, 30), url='http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20241012/0bb917b6-a698-43e0-a307-3aa587e4bcf3.html', zh='福建龍源 2024-10 三墩風電場（南日島海上一期）航標維護招標：A 區 55 部、理論水深 5–20 m，B 區 45 部、理論水深 10–30 m。', en='Fujian Longyuan navaid maintenance tender (Oct 2024) for the Sandun wind farm (Nanri Island offshore phase 1): area A 55 turbines in 5–20 m (chart datum), area B 45 turbines in 10–30 m.'). Data check for the caller: the farm is 100 × Siemens SWT-4.0-130 (plus one 4 MW floating demo), not Goldwind GW171-6.45 as in the record’s turbine field; the 2022 oil-spill tender says all units were in production by the end of 2021 (record year 2019).",
+  "proposal": "(lead, no F5 row) D row ready once a foundation row exists: D('CHN', 'Longyuan Putian Nanri Island', depth=(5, 30), url='http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20241012/0bb917b6-a698-43e0-a307-3aa587e4bcf3.html', zh='福建龍源 2024-10 三墩風電場（南日島海上一期）航標維護招標：A 區 55 部、理論水深 5–20 m，B 區 45 部、理論水深 10–30 m。', en='Fujian Longyuan navaid maintenance tender (Oct 2024) for the Sandun wind farm (Nanri Island offshore phase 1): area A 55 turbines in 5–20 m (chart datum), area B 45 turbines in 10–30 m.'). (The turbine and year corrections were written in round 16.)",
   "note_zh": "",
   "note_en": "",
   "why": "CHN Energy full-text search: after completion Longyuan calls the farm 三墩风电场 (Sandun), A + B areas, 100 Siemens 4 MW. Foundation lots found only as tenders: lot VIII (12 units: piling, rock-socketing, pile caps) and lot IX (18 units: drilling, piling and installing the 套笼 cages); lots I–VII predate the platform. The 2022 sea-use post-evaluation, completion environmental acceptance and 2023 turbine-position re-survey tenders, and the 2023–2025 anti-corrosion tenders (one mentions 三墩 turbine foundation pile caps) give no per-type counts.",
@@ -214,7 +181,7 @@
   "proposal": null,
   "note_zh": "",
   "note_en": "",
-  "why": "Portals: chnenergybidding.com.cn works over http only (https returns a 403 IP block); full-text API = POST /bidfulltextsearch/rest/inteligentSearch/getFullTextData (JSON body as in /bidsearch/js/fullsearch.js; \"wd\" URL-encoded, \"cl\" up to 60000 returns the whole text). Jiangjiasha H1: only O&M tenders shared with other Longyuan farms, no per-farm types. CGN Pingtan Dalian: navaid/lightning/audit tenders, no types. Huaneng ec.chng.com.cn and Huadian chdtp.com.cn return 412 (anti-bot) or reset; Datang cdt-ec.com 405; CTG eps.ctg.com.cn 503/TLS reset; SPIC ebid.espic.com.cn reachable but no SPIC farm in this list. MSA channel lists were not rescanned (earlier rounds covered 2019 onwards).",
+  "why": "Portals: chnenergybidding.com.cn works over http only (https returns a 403 IP block); full-text API = POST /bidfulltextsearch/rest/inteligentSearch/getFullTextData (JSON body as in /bidsearch/js/fullsearch.js; \"wd\" URL-encoded, \"cl\" up to 60000 returns the whole text). Jiangjiasha H1: only O&M tenders shared with other Longyuan farms, no per-farm types. CGN Pingtan Dalian: navaid/lightning/audit tenders, no types. Huaneng ec.chng.com.cn and Huadian chdtp.com.cn return 412 (anti-bot) or reset; Datang cdt-ec.com 405; CTG eps.ctg.com.cn 503/TLS reset; SPIC ebid.espic.com.cn reachable but no SPIC farm in this list. MSA channel lists were not rescanned (earlier rounds covered 2019 onwards). CGN e-procurement (ecp.cgnpc.com.cn): notice pages (Details.html) are rendered by script; the list API is POST http://ecp.cgnpc.com.cn/portalApi/connect/query?siteId=3f5692fa17a24c86b80a08e6669a4df5 with {\"dataConnectId\":\"e106b8c1504b4cfe9dff6ac78cbf138c\",\"Key\":\"%keyword%\",\"pageIndex\":1,\"pageSize\":50}, and each notice's content is at /detail/<ContentStoreId>/<Id>.json (cite that JSON URL).",
   "sources": [],
   "src_code": 0,
   "iso": "CHN"

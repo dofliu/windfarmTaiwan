@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 8 Oct 2026: v2.30.10, research round 15: foundations and Asseln in Germany; the next conversation starts here)
+## In progress (hand-off, 9 Oct 2026: v2.30.11, research round 16: Xiangshan Tuci, Nanri Island, Zhuhai Guishan; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -72,6 +72,27 @@ and move finished items to the topic lists below.
      `tools/research/cn_vn_dims_2026-10c.json` (127 sources, all OK). Dimensions for 7 farms (hub: Peninsula South V 117–130 m, Haiyou Anlan about 150 m).
      The search limit ran out, so about 36 Chinese farms without a hub height were not searched this round (pick them from the empty hub column of
      `docs/foundations.en.md`); next time search "<farm> 竣工环境保护验收调查报告" first.
+- 9 Oct 2026 (v2.30.11): research round 16 (two sub-agents: X Chinese foundations, Y the remaining doubts and a status sweep; every quote checked with `check_quotes.py`;
+  results in `tools/research/fd_2026-10m_X.json` and `doubts_2026-10m_Y.json`, written entries deleted, leads kept). Clean-up rules 506 → 508 (`farm_cleanup.py`, 9 Oct 2026 "tenth batch"):
+  1. Foundations: all 38 turbines of CGN Xiangshan Tuci stand on monopiles (CGN e-procurement, Aug 2025 corrosion and structural inspection tender for the built farm). The platform renders
+     its notice pages by script, so the cited URL is the same notice's JSON (`https://ecp.cgnpc.com.cn/detail/<store>/<id>.json`; the list API is POST `/portalApi/connect/query`, parameters in X9 of `fd_2026-10m_X.json`).
+  2. Longyuan Putian Nanri Island (called the "Sandun wind farm" after completion; area A 55 turbines, area B 45): turbines corrected to 100 Siemens SWT-4.0-130 and the year of full operation to 2021 (CHN Energy tenders).
+     Chart depth 5–30 m is ready; for the type only lot VIII (12 units, rock-socketing and pile caps) and lot IX (18 units, cages) were found, the other lots predate the tender site, so it waits for the type.
+  3. Zhuhai Guishan: the Guangzhou MSA completion notice (July 2025) gives 200 MW and 49 turbines. Phase 1 has 34 × 3 MW; in June 2021 the rest of the design was changed to 7 × 6.45 MW + 8 × 7 MW, 13 of which
+     were connected at full capacity in December 2021 (GlobalData: 5 Mingyang MySE6.45-180 and 8 Dongfang DEW-D7000-186), and two units on bucket foundations were added in 2024 (models and ratings
+     unpublished, unverified). Capacity now 200 MW, year still 2021. Foundations: phase 1's 34 four-pile jackets; the types and counts of the 15 later units are still unknown.
+  4. Status sweep (9 Oct): Greater Changhua 2b & 4, Revolution Wind, Vineyard Wind 1, Baltic Power (all 76 turbines installed), Sofia, Qingzhou 5/7 (first batch connected 27 Sep) and Danzhou CZ3 site 2
+     are all not yet fully commercial; no change.
+  5. **Owner to decide**: the 20 "low pile, tall pedestal" (低桩高台柱) foundations of SinoHydro Rudong Intertidal have the pile cap buried below the mud and a tall column lifting the tower flange above the
+     highest tide (patents of the owner and Sinohydro Bureau 4), unlike a high-rise pile cap standing clear of the seabed with free pile length. Options: (a) a new type "low pile cap", (b) file under
+     high-rise pile cap with a note that the cap is buried, (c) keep it out. Either way the other 10 units' type is still unknown.
+  6. Still leads: Laizhou (a 2024 O&M tender calls "the monopile and cage" the turbine foundation but does not say all 38); Jiazi I's exact model (MSA rotor 168 m, GlobalData MySE6.45-180; nacelles being
+     replaced one by one from July 2024 to Dec 2026); Jiazi I and II (2019 design: a 17-jacket lot and two 30-position monopile lots; Jiazi II re-tendered in 2022 for 50 × 8 MW, lots I and II with no type);
+     Fanshi II (lot II: 11 × 18 MW on jackets; lots I and III counts unknown); Peninsula South U2 (no post-construction foundation tender yet); the Longyuan Rudong intertidal demo (the Huangang complex,
+     155 turbines in five phases; at least 7 jackets in the 30 MW test farm); in Vietnam, Bac Lieu 1 and 2 (only a 2019 review says pile caps), Tan An 1, Duyen Hai V1-4 and V1-3 Ben Tre (nothing; one
+     Vietnamese builder's list of types is copied from 4C Offshore and not used).
+     New routes: the CHN Energy tender site works over http only (https blocks the IP), full-text API in X9 of `fd_2026-10m_X.json`; the Huaneng, Huadian, Datang and CTG procurement sites all block us.
+  Offshore totals: 285 of 331 operating offshore farms have a known type (87.3%), 103 of China's 141 (about 76%), 15 of Vietnam's 20; dimensions for 278 farms, all three for 183.
 - 8 Oct 2026 (v2.30.10): research round 15 (three sub-agents: U northern China, V southern China and Vietnam, W Asseln in Germany and Liu'ao; every quote checked with `check_quotes.py`;
   results in `tools/research/fd_2026-10l_U.json`, `fd_2026-10l_V.json` and `doubts_2026-10l_W.json`, with written entries removed and only leads kept). Clean-up rules 502 → 506 (the 8 Oct 2026
   "ninth batch" block of `farm_cleanup.py`):
@@ -88,7 +109,7 @@ and move finished items to the topic lists below.
      decision), Huaneng Dafeng expansion (hub 96 m, type unknown), CTG Dafeng 300 MW = H11 (mixed, counts unknown), Zhuanghe II (monopiles and suction-bucket jackets, counts unknown), Peninsula South U2
      (accepted with 71 turbines in Aug 2026, type unknown); Jiazi I (lots I and II add up to 71 monopiles; the design was 70 monopiles + 8 jackets; the MSA as-built layout is a scanned file), Jiazi II
      (only the pre-construction all-monopile design), Yuhuan 1 south zone, Qingzhou 6 (depth 37–46 m ready), Danzhou CZ3 site 1 (monopiles and suction-bucket jackets), Nanri Island (lot VIII only).
-     Zhuhai Guishan: two composite-bucket units were added after 2021 (the first in 2022, two turbines in 2024), so the record's 198 MW / 2021 predates them; 200 MW and the turbine mix are still unverified.
+     Zhuhai Guishan: two composite-bucket units were added after 2021 (the first in 2022, two turbines in 2024), so the record's 198 MW / 2021 predated them (v2.30.11 changed it to 200 MW with the turbine mix).
      New routes: dlztb.com's per-channel `search.php` (indexes only from about mid-2025) and the CHN Energy full-text tender search API (POST /bidfulltextsearch/rest/inteligentSearch/getFullTextData).
   Offshore sums: 284 of 331 operating offshore farms have a known type (87.0%), 102 of China's 141 (about 75%) and 15 of Vietnam's 20; dimensions for 278, all three for 183.
 - 8 Oct 2026 (v2.30.8, v2.30.9): research round 14 (three sub-agents: R northern China foundations, S southern China and Vietnam foundations, T round 13's new leads;
@@ -296,8 +317,8 @@ and move finished items to the topic lists below.
 - 4 Oct 2026 (v2.19.0–v2.19.1): the owner agreed to use OpenStreetMap (share-alike under the ODbL), so 6,886 farms outside the US with
   147,012 turbines now draw their real positions (`tools/fetch_osm_turbines.py` downloads in about 2–4 hours, `tools/build_turbines_osm.py`
   matches; re-run the matching after rebuilding the farm layer); France 2025 onshore and offshore both now come from SDES.
-- Current figures: 272 of 331 operating offshore farms have a known foundation type (83.8% of capacity); dimensions for 272 farms,
-  all three for 182; 478 clean-up rules; card photos for 64 farms.
+- Current figures (v2.30.11): 285 of 331 operating offshore farms have a known foundation type (87.3% of capacity); dimensions for 278 farms,
+  all three for 183; 508 clean-up rules; card photos for 64 farms.
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
@@ -397,7 +418,7 @@ and move finished items to the topic lists below.
      20 unknown), Putian Shicheng (lot II: 19 pile caps of 29), Taizhou 1 (lot B: 19 monopiles + 1 pile-bucket), Changyi (25 monopiles), Danzhou CZ3 site 1
      (25 suction-bucket jackets) and Zhuanghe III (55 of 73).
      The data problems noted in this round were checked and fixed in v2.30.0 (see the v2.30.0 entry under "In progress").
-   - The other Chinese offshore farms (39 of the 141 operating in v2.30.10) and Vietnam (5 of 20, mostly intertidal; the owner's workbook only says
+   - The other Chinese offshore farms (38 of the 141 operating in v2.30.11) and Vietnam (5 of 20, mostly intertidal; the owner's workbook only says
      intertidal / nearshore, no sub-type) are still "type unknown".
    - Same route as the first four steps: research notes in `tools/research/` (a quoted passage for every source, checked with
      `python3 tools/check_quotes.py file.json`, using only OK results) → rows in `tools/farm_foundations.py` with `F5(...)` (the count of
@@ -675,6 +696,8 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] Whether the "Sea zones" layer should include The Crown Estate's offshore wind lease areas for England, Wales and Northern Ireland: the owner decided on 7 Oct 2026 to leave them out (Wind Site
       Agreements, downloadable without an account; its custom The Crown Estate Open Data Licence is revocable and bars use on a site offering "the same or
       similar services" to its portal; credit "Contains data provided by The Crown Estate…")
+- [ ] How to classify the "low pile, tall pedestal" (低桩高台柱) foundations (20 units at SinoHydro Rudong Intertidal; cap buried below the mud, a tall column carrying the tower): a new type
+      "low pile cap", high-rise pile cap with a note, or keep it out (raised in round 16 on 9 Oct 2026, item 5 under "In progress"; re-run the map's colour-blind check before adding a type)
 - [ ] The priority order of the phases under "Next steps" in the ROADMAP
 
 ## Operations

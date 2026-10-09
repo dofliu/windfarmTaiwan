@@ -20,6 +20,7 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 - Research round 16 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "tenth batch" in the [clean-up log](docs/data-cleanup.en.md) and [foundations](docs/foundations.en.md)):
   - CGN Xiangshan Tuci: all 38 turbines on monopiles (2025 inspection tender for the built farm).
   - Longyuan Putian Nanri Island (the Sandun wind farm): turbines corrected to 100 Siemens SWT-4.0-130, and the year of full operation to 2021.
+  - Zhuhai Guishan: 200 MW and 49 turbines per the Guangzhou MSA completion notice of 2025 (phase 1's 34 × 3 MW; 5 Mingyang MySE6.45-180 and 8 Dongfang DEW-D7000-186 added by full capacity in 2021; two more units on bucket foundations in 2024, models unpublished); the year stays 2021.
 
 ## v2.30.10 — 2026-10-08
 

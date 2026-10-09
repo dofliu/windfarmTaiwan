@@ -272,52 +272,6 @@
   "issues": "Aggregate record overlapping individual records: \"Zhejiang Jiaxing 2 Offshore wind farm\" (Huaneng, 300 MW, 50 × 6 MW, 2021) already exists separately, and no operating \"Zhoushan Liuheng\" offshore farm was found. Likely double counting; suggest a cleanup rule after checking which capacity it is meant to cover."
  },
  {
-  "farm": "CGN Xiangshan 1 Phase 1 (Tuci)",
-  "status": "none",
-  "hub": null,
-  "hub_kind": "hub",
-  "depth": null,
-  "rotor": null,
-  "note_zh": "查不到建成尺寸；變更論證報告書（施工前）為 38 台 8 MW、WTG220-8（葉輪 220 m）設計值。",
-  "note_en": "No as-built dimensions; the (pre-construction) sea-use change report gives a design of 38 × 8 MW WTG220-8 (220 m rotor).",
-  "why": "No construction or completion record found; GEM lists it as operating since 2023 but no Chinese source confirms the build or foundations.",
-  "sources": [
-   {
-    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3507/site/attach/0/842c786192c540d5a9bf66d6693cfbb5.pdf",
-    "quote": "中广核象山涂茨海上风电项目 属于 2019 年核准，但目前尚未投产建设的项目"
-   },
-   {
-    "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3507/site/attach/0/842c786192c540d5a9bf66d6693cfbb5.pdf",
-    "quote": "采用 WTG220-8 风电机组（叶轮直径 220m）"
-   }
-  ],
-  "foundation": {
-   "t": null,
-   "parts": null,
-   "sub": null,
-   "status": "none",
-   "note_zh": "查不到：中廣核象山塗茨 2019 年核准，變更論證報告書寫「目前尚未投產建設」；之後的施工報導未找到。",
-   "note_en": "Not found: CGN Xiangshan Tuci was approved in 2019 and the sea-use change report says it “has not yet been built”; no later construction report found.",
-   "sources": [
-    {
-     "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3507/site/attach/0/842c786192c540d5a9bf66d6693cfbb5.pdf",
-     "quote": "中广核象山涂茨海上风电项目 属于 2019 年核准，但目前尚未投产建设的项目"
-    },
-    {
-     "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3507/site/attach/0/842c786192c540d5a9bf66d6693cfbb5.pdf",
-     "quote": "采用 WTG220-8 风电机组（叶轮直径 220m）"
-    }
-   ]
-  },
-  "issues": "As before: the record (280 MW, 2022, CSSC 8 MW class) may conflate CGN Tuci (300 MW, 38 × 8 MW plan) with Guodian Xiangshan 1 phase 1 (254.2 MW, 41 × 6.2 MW, Dec 2021).",
-  "issue_sources": [
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202112/1419e3dea92043f6b6ce3eeb297f57bf.shtml",
-    "quote": "项目 位于宁波市象山县鹤浦镇东南海域，总投资约44亿元，安装41台6.2兆瓦风机，接入1座220千伏海上升压站"
-   }
-  ]
- },
- {
   "farm": "Zhejiang Taizhou 1 Offshore wind farm",
   "status": "none",
   "hub": null,
