@@ -1,0 +1,615 @@
+[
+ {
+  "item": "FRA 5. Chêne Courteau Terre d'Abbayes 27.6 MW",
+  "farm": "Chêne Courteau Terre d'Abbayes wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Possibly the same as “Moreuil wind farm” (27.6 MW, 2021, 3 km away; register Moreuil rows 12 + 12 + 6 MW, Feb 2021); GEG ENeR ownership not checked.",
+  "note_zh": "沒有同名的併網點；3 km 外的 Moreuil 風場同為 27.6 MW（2021），可能重複。",
+  "note_en": "No delivery point of that name; the Moreuil record 3 km away is also 27.6 MW (2021) and may be the same farm.",
+  "why": "Thennes has 8 MW (Dec 2023) and Moreuil 30 MW (Feb 2021); neither names Chêne Courteau or Terre d’Abbayes.",
+  "sources": []
+ },
+ {
+  "item": "FRA 10. Autremencourt 26.0 MW",
+  "farm": "Autremencourt wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Either Parc éolien d’Autremencourt 12 MW (2008) + Autremencourt Cuirieux 14.4 MW (Dec 2018) = 26.4 → year=2018, ph=[[2008, 12], [2018, 14.4]] (then D’Autremencourt would duplicate the 2008 part), or the Cuirieux parks only; needs an EWZ source.",
+  "note_zh": "Autremencourt 鎮有 2008 年 12 MW、2009 年 12＋2.5 MW（Cent Jalois 等）與 2018 年 Cuirieux 7.2＋7.2 MW；26 MW 無法唯一對應。",
+  "note_en": "Autremencourt has 12 MW (2008), 12 + 2.5 MW (2009, Cent Jalois etc.) and the Cuirieux parks 7.2 + 7.2 MW (2018); 26 MW cannot be matched uniquely.",
+  "why": "EWZ ownership not checked; D’Autremencourt (12 MW) is written as the 2008 park.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aisne%22%20and%20commune%3D%22Autremencourt%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Autremencourt;02039;01/01/2009;01/01/2009;12000.0;1 Confidentiel;Autremencourt;02039;01/02/2009;01/02/2009;2500.0;1 PARC EOLIEN D AUTREMENCOURT;Autremencourt;02039;04/12/2008;04/12/2008;12000.0;1 PARC EOLIEN D AUTRENCOURT CUIRIEUX;Autremencourt;02039;06/12/2018;06/12/2018;7200.0;1 PARC EOLIEN AUTREMENCOURT CUIRIEUX 2;Autremencourt;02039;06/12/2018;06/12/2018;7200.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 17. L'Huître Et Granville 24.0 MW",
+  "farm": "L'Huître Et Granville wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(ready if accepted) fix('FRA', \"L'Huître Et Granville wind farm\", G, …, year=2009) — register date; but a Valorem brochure gives commissioning in February 2010.",
+  "note_zh": "登錄：Lhuître 與 Grandville 各 12 MW，都在 2009-12-19 併網；OpenStreetMap 標為 Grandville 與 Dosnon。Valorem 簡介說 2010 年 2 月投入運轉，年份有出入。",
+  "note_en": "Register: 12 MW each in Lhuître and Grandville, both connected on 19 Dec 2009 (OSM: Grandville and Dosnon); a Valorem brochure says February 2010.",
+  "why": "Rows are “Confidentiel”; a 2024 inspection report says Grandville Énergies (formerly the Lhuître park, Valemo) has 6 turbines and 12 MW, which covers only half. Year 2009 vs 2010 unresolved.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%20in%20%28%22Lhu%C3%AEtre%22%2C%22Grandville%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Lhuître;10195;19/12/2009;19/12/2009;12000.0;1 Confidentiel;Grandville;10167;19/12/2009;19/12/2009;12000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 18. Ardes-sur-Couze 23.4 MW",
+  "farm": "Ardes-sur-Couze wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 19. Cardiff 22.0 MW",
+  "farm": "Cardiff wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 20. La Chapelle Bâton 21.6 MW",
+  "farm": "La Chapelle Bâton wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Probably not yet in service: register row “CHARRE02 – Ferme éolienne de Charraut (Chapelle Bâton)”, 25.2 MW, connected on 6 May 2026 but with no commissioning date; suggest st=1 (or year=2026, mw=25.2 once a commissioning date appears).",
+  "note_zh": "登錄的 Charraut（Chapelle Bâton）25.2 MW 已於 2026-05-06 接上電網，但還沒有商轉日期；OpenStreetMap 的 Ferme éolienne de la Chapelle Bâton（25.2 MW）也沒有開始日期。",
+  "note_en": "The register’s Charraut (Chapelle Bâton) unit, 25.2 MW, was connected on 6 May 2026 but has no commissioning date; OSM’s Ferme éolienne de la Chapelle Bâton (25.2 MW) has no start date either.",
+  "why": "La Chapelle-Bâton’s own 16 MW row (Nov 2016) is a different park (code only). Commissioning in 2026 likely but not yet citable.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Vienne%22%20and%20commune%3D%22Saint-Secondin%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "CHARRE02 - ADP 02 DE LA FERME EOLIENNE DE CHARRAUT (CHAPELLE BATON);Saint-Secondin;86248;;06/05/2026;25200.0;1"
+   },
+   {
+    "url": "https://www.openstreetmap.org/relation/21103308",
+    "quote": "name Ferme éolienne de la Chapelle Bâton plant:method wind_turbine plant:output:electricity 25.2 MW"
+   }
+  ]
+ },
+ {
+  "item": "FRA 23. Vaux-Andigny 21.0 MW",
+  "farm": "Vaux-Andigny wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Likely dup of “Plateau D’Andigny wind farm” (EDF, 21 MW, 2014): Vaux-Andigny’s only rows are Plateau d’Andigny 2 (9 MW) + 12 MW, both 11 Dec 2014 (21 MW). JPEE’s own Vaux-Andigny project (Fortes Terres, 5 × 3.6 MW) was still at the MRAe stage in 2024 and already has its own record.",
+  "note_zh": "Vaux-Andigny 鎮只有 Plateau d’Andigny 的 21 MW（2014）；JPEE 在當地的 Fortes Terres 計畫尚未興建。",
+  "note_en": "Vaux-Andigny holds only Plateau d’Andigny’s 21 MW (2014); JPEE’s Fortes Terres project there is not built.",
+  "why": "Owner mismatch (JPEE vs EDF) keeps this a lead.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aisne%22%20and%20commune%3D%22Vaux-Andigny%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PLATEAU D ANDIGNY 2;Vaux-Andigny;02769;11/12/2014;11/12/2014;9000.0;1 Confidentiel;Vaux-Andigny;02769;11/12/2014;11/12/2014;12000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 25. Plo de Laurier 20.0 MW",
+  "farm": "Plo de Laurier wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 26. Essigny-le-Grand 19.5 MW",
+  "farm": "Essigny-le-Grand wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Probably overlaps “Terres Noires wind farm” (19 MW, 2017): Essigny-le-Grand has Terres Noires II 10.7 MW (Jul 2017) and an unnamed 10.4 MW (Jul 2017; perhaps Voie des Monts, 10 MW, 2017).",
+  "note_zh": "Essigny-le-Grand 鎮的兩個併網點都是 2017 年；其中一個屬於已有紀錄的 Terres Noires。",
+  "note_en": "Both Essigny-le-Grand rows are 2017; one belongs to the existing Terres Noires record.",
+  "why": "If kept, year=2017.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aisne%22%20and%20commune%3D%22Essigny-le-Grand%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Essigny-le-Grand;02287;04/07/2017;04/07/2017;10400.0;1 PARC EOLIEN TERRES NOIRES II;Essigny-le-Grand;02287;26/07/2017;26/07/2017;10704.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 28. Mauléon 18.4 MW",
+  "farm": "Mauléon wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) The register’s Mauléon rows are in the Deux-Sèvres (8 MW 2008, 9 MW 2023), while the record sits at Mauléon-Licharre (Pyrénées-Atlantiques), where no wind unit is registered; location or identity unclear.",
+  "note_zh": "登錄的 Mauléon 在德塞夫勒省，不是紀錄座標所在的 Mauléon-Licharre。",
+  "note_en": "The register’s Mauléon is in the Deux-Sèvres, not Mauléon-Licharre where the record sits.",
+  "why": "EOS Holding ownership not checked.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Deux-S%C3%A8vres%22%20and%20commune%3D%22Maul%C3%A9on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "privé;Mauléon;79079;12/06/2008;12/06/2008;8000.0;1 privé;Mauléon;79079;12/12/2023;12/12/2023;9000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 31. Grande Combe 18.0 MW",
+  "farm": "Grande Combe wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Register gives 16 Dec 2019 (Aillianville, 4.4 + 13.2 = 17.6 MW, OSM alt_name “Eole de la Grande Combe”), but the DREAL inspection report says “mis en service en décembre 2021”. Resolve before writing year=2019 or 2021.",
+  "note_zh": "登錄：Aillianville 兩個併網點 2019-12-16 併網（17.6 MW）；DREAL 檢查報告卻說 2021 年 12 月投入運轉。",
+  "note_en": "Register: two Aillianville delivery points connected on 16 Dec 2019 (17.6 MW); the DREAL inspection report says in service December 2021.",
+  "why": "Conflicting dates.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Haute-Marne%22%20and%20commune%3D%22Aillianville%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN D AILLIANVILLE PDL 1;Aillianville;52003;16/12/2019;16/12/2019;4400.0;1 PARC EOLIEN D AILLIANVILLE PDL 2;Aillianville;52003;16/12/2019;16/12/2019;13200.0;1"
+   },
+   {
+    "url": "https://www.openstreetmap.org/relation/14045775",
+    "quote": "alt_name Eole de la Grande Combe name Parc éolien d'Aillianville plant:method wind_turbine plant:output:electricity 17.6 MW"
+   },
+   {
+    "url": "https://georisques.gouv.fr/webappReport/ws/installations/inspection/8FGvJ7OkxcUchvdqUdMO82mtQ2JcfgaD",
+    "quote": "Le parc éolien de Grande Combe a été autorisé le 12 avril 2017 et mis en service en décembre 2021."
+   }
+  ]
+ },
+ {
+  "item": "FRA 33. Terres du Pre Rene 18.0 MW",
+  "farm": "Terres du Pre Rene wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 41. Méasnes 16.8 MW",
+  "farm": "Méasnes wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 42. La Voie Verte 16.5 MW",
+  "farm": "La Voie Verte wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 46. Troyes 16.0 MW",
+  "farm": "Troyes wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 48. Sud Osartis 16.0 MW",
+  "farm": "Sud Osartis wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 51. Le Margnes 15.0 MW",
+  "farm": "Le Margnes wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 54. Bois Bodin 15.0 MW",
+  "farm": "Bois Bodin wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 59. Ecoparc des Energies 14.4 MW",
+  "farm": "Ecoparc des Energies wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 67. Châtres 13.8 MW",
+  "farm": "Châtres wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 69. Bois Madame 13.2 MW",
+  "farm": "Bois Madame wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) dup('FRA', 'Bois Madame wind farm', G, ('Méharicourt wind farm', G), …) + fix Méharicourt year=2023, ph=[[2020, 14.4], [2023, 6]]: Méharicourt (Energieteam, 20.4 MW) = Bois Madame I 14.4 MW (24 Dec 2020) + II 6 MW (17 Feb 2023).",
+  "note_zh": "登錄：Ferme éolienne Bois Madame 14.4 MW（2020-12）＋6 MW（2023-02）＝20.4 MW，正好是 1.4 km 外 Méharicourt 風場的容量。",
+  "note_en": "Register: Ferme éolienne Bois Madame 14.4 MW (Dec 2020) + 6 MW (Feb 2023) = 20.4 MW, exactly the Méharicourt record 1.4 km away.",
+  "why": "The Energieteam/FEAG link of Méharicourt is only in somme.gouv.fr files, which refused the connection.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Rouvroy-en-Santerre%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "FERME EOLIENNE BOIS MADAME;Rouvroy-en-Santerre;80682;17/02/2023;17/02/2023;6000.0;1 FERME EOLIENNE BOIS MADAME;Rouvroy-en-Santerre;80682;24/12/2020;24/12/2020;14400.0;1"
+   },
+   {
+    "url": "https://www.openstreetmap.org/relation/13260306",
+    "quote": "name Parc éolien du Bois Madame old_ref:EU:ENTSOE_EIC 17W000000998315Q plant:method wind_turbine plant:output:electricity 14.4 MW"
+   },
+   {
+    "url": "https://www.openstreetmap.org/relation/17075428",
+    "quote": "name Ferme eolienne de Bois Madame II old_ref:EU:ENTSOE_EIC 17W000001575650M plant:method wind_turbine plant:output:electricity 6 MW"
+   }
+  ]
+ },
+ {
+  "item": "FRA 71. Les Plaines 13.2 MW",
+  "farm": "Les Plaines wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) The only register “Parc éolien des Plaines” is in Cressy-Omencourt (Somme), 13.2 MW, Nov 2019, 40 km from the record (Oise); Eurowatt ownership unverified.",
+  "note_zh": "同名併網點在 40 km 外的 Cressy-Omencourt（13.2 MW，2019）。",
+  "note_en": "The namesake unit is 40 km away in Cressy-Omencourt (13.2 MW, 2019).",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Somme%22%20and%20commune%3D%22Cressy-Omencourt%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN DES PLAINES;Cressy-Omencourt;80224;08/11/2019;08/11/2019;13200.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 73. la Besse 12.6 MW",
+  "farm": "la Besse wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 76. Breteuil 12.0 MW",
+  "farm": "Breteuil wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Breteuil’s rows are Esquennois Énergie 12 MW (2009, = the existing Breteuil-Esquennoy record) and an unnamed 11.3 MW (Oct 2024); which one is Kallista’s “Breteuil” is unknown.",
+  "note_zh": "Breteuil 鎮：Esquennois Énergie 12 MW（2009，已有紀錄）與另一個 11.3 MW（2024）。",
+  "note_en": "Breteuil: Esquennois Énergie 12 MW (2009, already a record) and another 11.3 MW (2024).",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Oise%22%20and%20commune%3D%22Breteuil%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "ESQUENNOIS ENERGIE;Breteuil;60104;18/05/2009;18/05/2009;12000.0;1 Confidentiel;Breteuil;60104;31/10/2024;31/10/2024;11300.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 78. Champ Vert Sommer 12.0 MW",
+  "farm": "Champ Vert Sommer wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Possibly Engie Green’s Parc éolien de Sommereux (12 MW, 27 Mar 2015; OSM relation 7947856, 0.3 km), but the name does not match.",
+  "note_zh": "Sommereux 鎮 2015-03-27 的 12 MW 可能是這座。",
+  "note_en": "Possibly Sommereux’s 12 MW unit of 27 Mar 2015.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Oise%22%20and%20commune%3D%22Sommereux%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Sommereux;60622;27/03/2015;27/03/2015;12000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 81. Paizay Le Tort 12.0 MW",
+  "farm": "Paizay Le Tort wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 83. Montelu 12.0 MW",
+  "farm": "Montelu wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 84. Naives-Rosieres 12.0 MW",
+  "farm": "Naives-Rosieres wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Likely dup of “Erize St Dizier wind farm” (12 MW, 2008): Naives-Rosières’ only row is “Perfect Wind Erize”, 11.5 MW, 14 Aug 2008.",
+  "note_zh": "Naives-Rosières 唯一的併網點是 Perfect Wind Erize（11.5 MW，2008）。",
+  "note_en": "Naives-Rosières’ only unit is Perfect Wind Erize (11.5 MW, 2008).",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Meuse%22%20and%20commune%3D%22Naives-Rosi%C3%A8res%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PERFECT WIND ERIZE;Naives-Rosières;55369;14/08/2008;14/08/2008;11500.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 85. Plaine Du Moulin 12.0 MW",
+  "farm": "Plaine Du Moulin wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Register rows “Parc éolien Plaine du Moulin PDL1/PDL2” (11.4 + 8.8 MW) date from 18 Nov 2025, but OSM’s Parc éolien de la Plaine du Moulin (19 MW) starts in 2008: probably a repowering; which park the 12 MW record means is unclear.",
+  "note_zh": "登錄的 Plaine du Moulin 是 2025 年的 20.2 MW；OpenStreetMap 記 2008 年起運轉，可能是汰舊換新。",
+  "note_en": "The register’s Plaine du Moulin is 20.2 MW of 2025; OSM gives 2008, probably a repowering.",
+  "why": "",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Seine-Maritime%22%20and%20commune%3D%22Saint-Pierre-le-Viger%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Parc eolien plaine du moulin pdl2;Saint-Pierre-le-Viger;76642;18/11/2025;18/11/2025;8800.0;1 Parc eolien Plaine du Moulin PDL1_sp;Saint-Pierre-le-Viger;76642;18/11/2025;18/11/2025;11400.0;1"
+   },
+   {
+    "url": "https://www.openstreetmap.org/relation/7970514",
+    "quote": "name Parc éolien de la Plaine du Moulin note repowering 2025-11-18 old_ref:EU:ENTSOE_EIC 17W000000411405W;17W000001658938R plant:method wind_turbine plant:output:electricity 19 MW"
+   }
+  ]
+ },
+ {
+  "item": "FRA 89. Leury 12.0 MW",
+  "farm": "Leury wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Both InnoVent 12 MW records (Leury, Crouy et Cuffies) fit the one register unit “Éoliennes du Soissonnais” (Crouy, 12 MW, 23 Jan 2017; OSM “Parc éolien de Soissons”, InnoVent): one is probably a duplicate.",
+  "note_zh": "兩筆 InnoVent 12 MW 紀錄只對到一個 Éoliennes du Soissonnais（Crouy，2017）。",
+  "note_en": "Two InnoVent 12 MW records but only one Éoliennes du Soissonnais unit (Crouy, 2017).",
+  "why": "",
+  "sources": []
+ },
+ {
+  "item": "FRA 90. Droupt-Sainte-Marie 12.0 MW",
+  "farm": "Droupt-Sainte-Marie wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Each commune has one 12 MW unit of Oct/Nov 2010; OSM ties the Droupt-Sainte-Marie one to “Entre Seine et Aube” (Engie Green), which already has a 49 MW record of 2010: probably parts of it.",
+  "note_zh": "Droupt 兩鎮各一個 2010 年的 12 MW，可能屬於已有紀錄的 Entre Seine et Aube。",
+  "note_en": "One 12 MW unit of 2010 in each Droupt commune, probably part of the existing Entre Seine et Aube record.",
+  "why": "If kept, year=2010.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%20in%20%28%22Droupt-Sainte-Marie%22%2C%22Droupt-Saint-Basle%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Droupt-Saint-Basle;10131;12/11/2010;12/11/2010;12000.0;1 Confidentiel;Droupt-Sainte-Marie;10132;25/10/2010;25/10/2010;12000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 91. Crouy et Cuffies 12.0 MW",
+  "farm": "Crouy et Cuffies wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Both InnoVent 12 MW records (Leury, Crouy et Cuffies) fit the one register unit “Éoliennes du Soissonnais” (Crouy, 12 MW, 23 Jan 2017; OSM “Parc éolien de Soissons”, InnoVent): one is probably a duplicate.",
+  "note_zh": "兩筆 InnoVent 12 MW 紀錄只對到一個 Éoliennes du Soissonnais（Crouy，2017）。",
+  "note_en": "Two InnoVent 12 MW records but only one Éoliennes du Soissonnais unit (Crouy, 2017).",
+  "why": "",
+  "sources": []
+ },
+ {
+  "item": "FRA 92. Droupt-Saint-Basle 12.0 MW",
+  "farm": "Droupt-Saint-Basle wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Each commune has one 12 MW unit of Oct/Nov 2010; OSM ties the Droupt-Sainte-Marie one to “Entre Seine et Aube” (Engie Green), which already has a 49 MW record of 2010: probably parts of it.",
+  "note_zh": "Droupt 兩鎮各一個 2010 年的 12 MW，可能屬於已有紀錄的 Entre Seine et Aube。",
+  "note_en": "One 12 MW unit of 2010 in each Droupt commune, probably part of the existing Entre Seine et Aube record.",
+  "why": "If kept, year=2010.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%20in%20%28%22Droupt-Sainte-Marie%22%2C%22Droupt-Saint-Basle%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Droupt-Saint-Basle;10131;12/11/2010;12/11/2010;12000.0;1 Confidentiel;Droupt-Sainte-Marie;10132;25/10/2010;25/10/2010;12000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 93. Roye 12.0 MW",
+  "farm": "Roye wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Roye has seven units (2011–2015, named and unnamed); OSM names Roye 1 and Roye 4 (InnoVent, 11.4 MW each, 2014–2015) and Saint-François (Boralex). Which 12 MW is this record is unclear.",
+  "note_zh": "Roye 鎮有 7 個併網點，無法唯一對應。",
+  "note_en": "Roye has seven units; no unique match.",
+  "why": "",
+  "sources": []
+ },
+ {
+  "item": "FRA 96. Sorbon 2 12.0 MW",
+  "farm": "Sorbon 2 wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) OSM gives “Eole de Sorbon” as another name of Mont de Gerson (6 MW, 2010); the Mont De Gerson record (22 MW, 2010) may already include it.",
+  "note_zh": "可能已含在 Mont De Gerson 紀錄中。",
+  "note_en": "Possibly already part of the Mont De Gerson record.",
+  "why": "",
+  "sources": []
+ },
+ {
+  "item": "FRA 100. Bettenbos 11.8 MW",
+  "farm": "Bettenbos wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 104. Fortel En Artois 11.0 MW",
+  "farm": "Fortel En Artois wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Fortel-en-Artois has one unnamed 9.375 MW unit (13 Aug 2014); “Fortel-Bonnières wind farm” (24 MW, 2014) is 2.2 km away and may cover it.",
+  "note_zh": "Fortel-en-Artois 只有一個 2014 年 9.375 MW。",
+  "note_en": "One 9.375 MW unit of 2014 in Fortel-en-Artois.",
+  "why": "If kept, year=2014.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Pas-de-Calais%22%20and%20commune%3D%22Fortel-en-Artois%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Fortel-en-Artois;62346;13/08/2014;13/08/2014;9375.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 107. Les Vents De Nord-Sarthe · 2 10.8 MW",
+  "farm": "Les Vents De Nord-Sarthe wind farm · 2",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) OSM has “Les Vents du Nord Sarthe 2”, 9 MW, start 2021-01-12, 37 km east of the record (which sits at Courcité, Mayenne); no register row with that date was found.",
+  "note_zh": "OpenStreetMap 有 Vents du Nord Sarthe 2（9 MW，2021），但登錄查不到對應。",
+  "note_en": "OSM has Vents du Nord Sarthe 2 (9 MW, 2021) but no matching register row.",
+  "why": "",
+  "sources": []
+ },
+ {
+  "item": "FRA 111. Esnouveaux 10.0 MW",
+  "farm": "Esnouveaux wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Esnouveaux has one unnamed 10 MW unit (6 May 2014); “Haut Chemin wind farm” (20 MW, 2014, 4 km) may include it.",
+  "note_zh": "Esnouveaux 只有一個 2014 年 10 MW。",
+  "note_en": "One 10 MW unit of 2014 in Esnouveaux.",
+  "why": "If kept, year=2014.",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Haute-Marne%22%20and%20commune%3D%22Esnouveaux%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Esnouveaux;52190;06/05/2014;06/05/2014;10000.0;1"
+   }
+  ]
+ },
+ {
+  "item": "FRA 112. Castres 10.0 MW",
+  "farm": "Castres wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "none",
+  "proposal": "(no rule)",
+  "note_zh": "登錄與 OpenStreetMap 都查不到可對應的風場。",
+  "note_en": "Nothing matching in the register or OpenStreetMap.",
+  "why": "No register row or OpenStreetMap plant within about 6 km carries this name, and no commune row matches the capacity; not searched further (budget).",
+  "sources": []
+ },
+ {
+  "item": "FRA 113. Les Trois Fermes 10.0 MW",
+  "farm": "Les Trois Fermes wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Pithiviers-le-Vieil has one unnamed 10 MW unit (9 Nov 2007; OSM “Parc éolien de la Grange du Bourreau”), probably the existing “Pithiviers Le Vieil wind farm” (10 MW, 2008): likely dup.",
+  "note_zh": "Pithiviers-le-Vieil 只有一個 2007 年 10 MW，可能與既有紀錄重複。",
+  "note_en": "One 10 MW unit of 2007 in Pithiviers-le-Vieil, probably an existing record.",
+  "why": "",
+  "sources": []
+ },
+ {
+  "item": "FRA 119. Ecuvilly 8.0 MW",
+  "farm": "Ecuvilly wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no rule yet) Écuvilly’s only unit is a Hauts Prés 12 MW delivery point (2019, see item 2); nothing of 8 MW.",
+  "note_zh": "Écuvilly 只有 Hauts Prés 的併網點。",
+  "note_en": "Écuvilly holds only a Hauts Prés unit.",
+  "why": "",
+  "sources": []
+ }
+]

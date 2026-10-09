@@ -1,0 +1,193 @@
+[
+ {
+  "item": "1a. FRA Gourgançon 48 MW (ENGIE)",
+  "farm": "Gourgançon wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "fix('FRA', 'Gourgançon wind farm', G, '更正為鎮內未另列的一座：國家發電設施登錄在 Gourgançon 鎮 2021 年前只有 4 個 12 MW 併網點（合計正好 48 MW）：Erelia Champagne（即 Mont de Bézard 風場）與另一個（2007-04-23），以及 Mont Grignon 第 4、5 場（2010-10-01）；Mont de Bézard 2007 年一期與 Le Mont Grignon（24 MW，2010）本站已另列。剩下的 12 MW 是 Maurienne 的 Mont de Bézard II – Les Renardières（Gourgançon 與 Semoine，6 部風機、2 個併網點，2007 年 9 月投入運轉，2023-03-21 換新機組；DREAL 檢查報告）', 'Corrected to the one park in the commune not listed elsewhere: before 2021 the national register has only four 12 MW delivery points in Gourgançon (exactly 48 MW): Erelia Champagne (the Mont de Bézard farm) and another (23 Apr 2007), and Mont Grignon parks 4 and 5 (1 Oct 2010); Mont de Bézard’s 2007 phase and Le Mont Grignon (24 MW, 2010) are listed separately. The remaining 12 MW is Maurienne’s Mont de Bézard II – Les Renardières (Gourgançon and Semoine, 6 turbines and 2 delivery points, in service since September 2007, new machines from 21 Mar 2023; DREAL inspection reports)', 'https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/my3Ga9DAqq5N5aNKpClmt5bw0mMSM4p4', mw=12, year=2007, note=True)",
+  "note_zh": "Gourgançon 48 MW＝鎮內 2021 年前 4 個 12 MW 併網點的合計（GEM 依 ENGIE 2019 年資產表）；其中 36 MW 已在 Mont De Bézard（2007 一期）與 Le Mont Grignon，剩下 12 MW 是 Maurienne 的 Mont de Bézard II – Les Renardières。",
+  "note_en": "Gourgançon 48 MW = the commune’s four pre-2021 12 MW delivery points (GEM, from ENGIE’s 2019 asset list); 36 MW of it is already in Mont De Bézard (2007 phase) and Le Mont Grignon, leaving Maurienne’s 12 MW Mont de Bézard II – Les Renardières.",
+  "why": "The register row for the remaining 12 MW is “Confidentiel”; it is attributed to the Maurienne park because that is the only other park the DREAL reports place in Gourgançon with a 2007 start. Its capacity after the 2023 repowering is not stated (register still 12 MW). Optional: rename='Mont de Bézard II – Les Renardières wind farm'. Owner ENGIE kept (GEM source: ENGIE FY2019 analyst pack). Not to be confused with Innergex’s Les Renardières (21 MW, 2017), a separate record 9 km south. [Main session, round 20: not written — which park the remaining 12 MW is was only inferred.]",
+  "sources": [
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "ERELIA CHAMPAGNE;Gourgançon;51276;23/04/2007;23/04/2007;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "Confidentiel;Gourgançon;51276;23/04/2007;23/04/2007;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN MONT GRIGNON 1-PARC 4;Gourgançon;51276;01/10/2010;01/10/2010;12000.0;1"
+   },
+   {
+    "url": "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Marne%22%20and%20commune%3D%22Gourgan%C3%A7on%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B",
+    "quote": "PARC EOLIEN MONT GRIGNON 2- PARC 5;Gourgançon;51276;01/10/2010;01/10/2010;12000.0;1"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/unacYrrp0jSmws04jhoEG9sxjpaj74Qh",
+    "quote": "dans l'établissement SAS ERELIA Champagne implanté Parc éolien du Mont de Bézard Lieu-dit L'Ouche Jacquelin 51230 Gourgançon"
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/my3Ga9DAqq5N5aNKpClmt5bw0mMSM4p4",
+    "quote": "Le parc a été mis en service en septembre 2007, il a bénéficié du droit d'antériorité."
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/my3Ga9DAqq5N5aNKpClmt5bw0mMSM4p4",
+    "quote": "La mise en service industrielle des nouvelles machines date du 21 mars 2023. Le parc est composé de 6 aérogénérateurs et 2 postes de livraison sur les communes de Gourgançon (51) et Semoine (10)."
+   },
+   {
+    "url": "https://www.gem.wiki/Gourgan%C3%A7on_wind_farm",
+    "quote": "Operating [ 1 ] 48 MW [ 1 ] Onshore [ 2 ] ENGIE SA [100%]"
+   }
+  ]
+ },
+ {
+  "item": "1a. FRA Roman Road 44 MW (Calyce)",
+  "farm": "Roman Road wind farm",
+  "src_code": 2,
+  "iso": "FRA",
+  "status": "lead",
+  "proposal": "(no change yet) Probably GEM’s English rendering of “Voie Romaine” (Calyce’s other records are also translated: “Aeolus Masts” = Les Mâts d’Éole at Cheppes-la-Prairie); 44 MW = Voie Romaine 22 + La Guenelle 22 (both separate records, 2014 and 2013). A dup/drop needs a source tying Calyce’s 44 MW to these parks.",
+  "note_zh": "Roman Road（44 MW，Calyce）很可能是 GEM 把「Voie Romaine」譯成英文（Calyce 的 Aeolus Masts 就是 Cheppes-la-Prairie 的 Les Mâts d’Éole）；44 MW＝Voie Romaine 22＋La Guenelle 22。附近 6 km 內的 ICPE 只有 Voie Romaine（13 部）、La Guenelle（11 部）、Noyales（前 Eol Team，6 部）、Les Mâts d’Éole、Cheppes la Prairie 等，沒有第三座 44 MW 的風場。",
+  "note_en": "Roman Road (44 MW, Calyce) is most likely GEM’s English rendering of “Voie Romaine” (Calyce’s “Aeolus Masts” is Les Mâts d’Éole at Cheppes-la-Prairie); 44 MW = Voie Romaine 22 + La Guenelle 22. Within 6 km the only wind ICPEs are Voie Romaine (13 turbines), La Guenelle (11), Noyales (ex Eol Team, 6), Les Mâts d’Éole and Cheppes la Prairie, so there is no third 44 MW farm.",
+  "why": "marne.gouv.fr (Calyce dossiers) closes the connection; no Calyce page names Roman Road / Voie Romaine. Global EcoPower built Voie Romaine for PEVR (Leonidas Associates), not Calyce. Kept as lead; a drop would rest on the name translation only.",
+  "sources": [
+   {
+    "url": "https://georisques.gouv.fr/api/v1/installations_classees?latlon=4.42%2C48.83&rayon=6000&page_size=100",
+    "quote": "\"raisonSociale\":\"PARC EOLIEN DE LA VOIE ROMAINE\""
+   },
+   {
+    "url": "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/317Z9hseIjNnGmaxGllfNSR0gJRU3yl3",
+    "quote": "La Guenelle est composé de 11 éoliennes de 125m de hauteur bout de pâle et deux postes de livraison. Les éoliennes sont situées sur les territoires des communes de Togny-aux-boeufs et Mairy-sur-Marne."
+   },
+   {
+    "url": "https://www.gem.wiki/Roman_Road_wind_farm",
+    "quote": "Operating [ 1 ] 44 MW [ 1 ] Onshore [ 1 ] Calyce [100%]"
+   }
+  ]
+ },
+ {
+  "item": "1c. CHN Jushi Lianshui No.1/2/3 vs “· 1, 2” / “· 3”",
+  "farm": "Jiangsu Lianshui (Jushi) No.3 wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet) Probable GEM double entry: No.1 45 + No.2 90 + No.3 100 MW (operating, placeholder point, source: an administrative-licence listing on kanzhun.com) vs “Jiangsu Lianshui (Jushi) wind farm” phases 1 (44 MW), 2 (90 MW), 3 (99 MW) (construction, Dadong/Lianshui points; other name 巨石涟水223MW风电项目). Same operator 巨石新能源(淮安)有限公司. Which status is right (operating vs construction) is unproven, so no dup yet.",
+  "note_zh": "巨石涟水一、二、三號（45、90、100 MW，運轉中，代用點）與「巨石涟水223MW风电项目」一、二、三期（44、90、99 MW，建設中）營運者相同、容量幾乎一樣，應是 GEM 重複收錄；但哪一組的狀態對（已運轉或建設中）沒有出處，暫不合併。",
+  "note_en": "Jushi Lianshui No.1/2/3 (45, 90, 100 MW, operating, placeholder) and the “Jushi Lianshui 223 MW” phases 1–3 (44, 90, 99 MW, construction) share the operator and nearly the same capacities, so GEM has probably listed them twice; which status is right (operating or under construction) is unsourced, so no merge yet.",
+  "why": "Searches for 并网 and the power-business licence of 巨石新能源(淮安) found nothing; China Jushi’s announcements cover a new 500 MW Lianshui project (Dec 2024). Next: China Jushi (600176) annual reports 2023–2025 (subsidiary list / construction-in-progress) via cninfo.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Jiangsu_Lianshui_(Jushi)_No.3_wind_farm",
+    "quote": "Operating [ 1 ] 100 MW [ 1 ] Onshore [ 1 ] Jushi Renewable (Huaian) (巨石新能源(淮安)有限公司)"
+   },
+   {
+    "url": "https://www.gem.wiki/Jiangsu_Lianshui_(Jushi)_wind_farm",
+    "quote": "Other names: 巨石涟水223MW风电项目"
+   }
+  ]
+ },
+ {
+  "item": "1c. CHN TBEA Ruoqiang Qiman (750 MW operating) and “· 2”",
+  "farm": "Xinjiang Ruoqiang Qiman (TBEA) wind farm",
+  "src_code": 2,
+  "iso": "CHN",
+  "status": "lead",
+  "proposal": "(no change yet; candidate rename as in doubts_2026-10p_BC.json item 4) New: TBEA’s 2024 annual report says its new-energy company disposed of the project company 若羌县同阳新能源有限公司 and transferred out the related construction in progress (with Suileng Hesheng, 3,200 million CNY); the 2025 report records cash received for it. If 同阳 is the Ruoqiang River 1 GW project company, the farm was sold while under construction. Still no full-connection report, and the link 同阳 ↔ 若羌河 is unproven.",
+  "note_zh": "特變電工若羌河 100 萬瓩（羅布莊風區，150 部）2024-12-31 首台併網；全容量日期仍未查到。新線索：特變電工 2024 年年報說新能源公司處置了項目公司「若羌县同阳新能源有限公司」並轉出對應在建工程，2025 年年報列為收到的處置款；若同陽就是若羌河項目公司，電場在建設中已出售。",
+  "note_en": "TBEA’s Ruoqiang River 1 GW (Luobuzhuang area, 150 turbines) had its first turbine connected on 31 Dec 2024; the full-connection date is still unknown. New lead: TBEA’s 2024 annual report says its new-energy arm disposed of the project company “若羌县同阳新能源有限公司” and transferred out its construction in progress, and the 2025 report lists the disposal cash received; if Tongyang is the Ruoqiang River company, the farm was sold while being built.",
+  "why": "Searched: TBEA 2024/2025 annual reports and 2026 interim (cninfo), searches for 全容量并网 / 同阳新能源; no source names Tongyang’s project or the buyer. The 2026 interim report not read (budget).",
+  "sources": [
+   {
+    "url": "https://static.cninfo.com.cn/finalpage/2025-04-22/1223189910.PDF",
+    "quote": "所属新能源公司处置其项目公司若羌县同阳 新能源有限公司、绥棱县禾晟新能源有限公司转出对应在建工程 320,045.85 万 元"
+   },
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1820129249520114866&wfr=spider&for=pc",
+    "quote": "12月31日，特变电工若羌县若羌河100万千瓦风电及配套储能项目升压站一次性反送电成功，首台风机发电，标志着若羌县又一风电及配套储能项目成功并网。"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Neeltje Jans – Vluchtheuvel 22 MW",
+  "farm": "Neeltje Jans – Vluchtheuvel wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "fix('NLD', 'Neeltje Jans – Vluchtheuvel wind farm', G, '補上商轉年 2021：荷蘭企業局（RVO）《2021 陸域風電監測》澤蘭省 2021 年完成的風場列有 Windpark Neeltje Jans Buitenhaven（Veere，21.5 MW，含 Vluchthaven，換下 15 MW 舊機組）', 'Commissioning year 2021 added: RVO’s Monitor Wind op Land 2021 lists Windpark Neeltje Jans Buitenhaven (Veere, 21.5 MW, including Vluchthaven, replacing 15 MW of old turbines) among the farms completed in Zeeland in 2021', 'https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf', year=2021, mw=21.5)",
+  "note_zh": "GEM 的「Vluchtheuvel」應是 Vluchthaven：RVO 把 Neeltje Jans Buitenhaven（含 Vluchthaven）21.5 MW 記在 2021 年完成（Noordland Buitenhaven 2 × 4.3＋Vluchthaven 3 × 4.3 MW＝21.5 MW，nl.wikipedia）；Binnenhaven 另有紀錄。",
+  "note_en": "GEM’s “Vluchtheuvel” is presumably Vluchthaven: RVO books Neeltje Jans Buitenhaven (incl. Vluchthaven), 21.5 MW, as completed in 2021 (Noordland Buitenhaven 2 × 4.3 + Vluchthaven 3 × 4.3 MW = 21.5 MW per nl.wikipedia); Binnenhaven is a separate record.",
+  "why": "nl.wikipedia dates the three Vluchthaven V136 units to 2022 and the two Noordland Buitenhaven units to 2021; RVO (primary) counts all 21.5 MW as realised in 2021, so 2021 is used. The name match (Vluchtheuvel ≈ Vluchthaven) is an inference; the capacity (22 vs 21.5 MW) and place fit. [Main session, round 20: not written — RVO (2021) and Wikipedia (Vluchthaven 2022) disagree, and the name match is inferred.]",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2022-05/Monitor-wind-op-land-2021_0.pdf",
+    "quote": "Windpark Neeltje Jans Buitenhaven Veere 21,5 92.200 Sanering oude turbines Neeltje Jans Buitenhaven Veere -15 -40.100"
+   },
+   {
+    "url": "https://zoek.officielebekendmakingen.nl/blg-942277.pdf",
+    "quote": "Veere Neeltje Jans Buitenhaven (incl. Vluchthaven) Geen (2023) 22,5 15,0 7,5"
+   },
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windparken_Oosterscheldekering",
+    "quote": "Noordland Buitenhaven 2 4,3 MW 8,6 MW Vestas, V136 136 m 204 m 2021 Windpark Roompotsluis 2 BV"
+   },
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windparken_Oosterscheldekering",
+    "quote": "Vluchthaven 3 4,3 MW 12,9 MW Vestas, V136 136 m 204 m 2022 Windpark Neeltje-Jans 2 BV"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Epz 24 MW (EPZ NV)",
+  "farm": "Epz wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "(no change yet) RVO 2022 lists “Windpark EPZ” (Borsele) 16.8 MW completed in 2022, replacing 8.9 MW of old EPZ turbines; the record’s 24 MW does not match either figure, so which park GEM means (old + new, or a planned extension) is unclear.",
+  "note_zh": "RVO 2022：Windpark EPZ（Borsele）16.8 MW 於 2022 年完成，換下 8.9 MW 舊機組；紀錄 24 MW 與兩者都不符，待查。",
+  "note_en": "RVO 2022: Windpark EPZ (Borsele) 16.8 MW completed in 2022, replacing 8.9 MW of old turbines; the record’s 24 MW matches neither, to check.",
+  "why": "If the record stands for the new park, fix year=2022, mw=16.8; needs a source tying GEM’s 24 MW to it (RVO 2020 notes the project was enlarged by 2 turbines, phases 1 and 2 built together).",
+  "sources": [
+   {
+    "url": "https://www.rvo.nl/sites/default/files/2023-05/Monitor-wind-op-land-2022.pdf",
+    "quote": "Windpark EPZ Borsele 16,8 50.800 Sanering oude turbines EPZ Borsele -8,9 -20.400"
+   },
+   {
+    "url": "https://zoek.officielebekendmakingen.nl/blg-992813.pdf",
+    "quote": "EPZ Project is uitgebreid met 2 turbines. Fase 1 en 2 wordt nu gelijktijdig uitgevoerd"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD Kubbeweg 74 MW (repowering)",
+  "farm": "Kubbeweg wind farm",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "lead",
+  "proposal": "(no change yet) The 74 MW record is the repowering of Kubbeweg (the old 17 × V80, 34 MW from 2006, is the separate retired record “· 1”): Windpark Kubbetocht en Zijdenettentocht, a line of 12 turbines in Windplan Groen. Its commissioning date was not found (RVO 2022/2023 monitors and the permit files give none).",
+  "note_zh": "Kubbeweg 74 MW 是 Windplan Groen 的 Kubbetocht／Zijdenettentocht 一排 12 部換機（舊的 17 部 V80 是另一筆已除役紀錄）；運轉日期未查到。",
+  "note_en": "Kubbeweg 74 MW is Windplan Groen’s Kubbetocht/Zijdenettentocht line of 12 replacement turbines (the old 17 V80 units are a separate retired record); commissioning date not found.",
+  "why": "Windplan Groen parts were commissioned 2023–2024 (Hondtocht Zuid 2024 in the data); next: Windplan Groen / Windkoepel Groen news, RVO Monitor 2024.",
+  "sources": [
+   {
+    "url": "https://nl.wikipedia.org/wiki/Windpark_Kubbeweg",
+    "quote": "Het park is gebouwd in 2006 en bestaat uit zeventien V80 2 MW-turbines van Vestas"
+   }
+  ]
+ },
+ {
+  "item": "2. NLD remaining farms without a year",
+  "farm": "(21 farms: Flevo Ventum, Mammoettocht, De Kleine Trap, Haagen, Bosruitertocht, Amsterdam-Westpoort, Van Pallandtpolder, Midlum, Ritthem, Wagendorp, Ooievaarsweg, Roompotsluis, Netterden-Azewijn, Noordertocht, Windstroom, Futenweg, Dodaarsweg, Laaksche Vaart, St. Antoinedijk, Van Gogh, Hoofdplaatpolder)",
+  "src_code": 2,
+  "iso": "NLD",
+  "status": "none",
+  "proposal": "(no change) Not found in the RVO Monitor Wind op Land 2018–2023 project tables (they cover projects completed from 2018 on) nor in nl.wikipedia articles; most are older Flevoland line parks and Zeeland/Brabant parks from the 1990s–2000s.",
+  "note_zh": "其餘 21 座（多為 1990–2000 年代的弗萊福蘭線狀風場與澤蘭、北布拉班特的小風場）在 RVO 2018–2023 監測的逐案表與荷蘭文維基都沒有年份；另注意 Ritthem（北緯 52.477°）與 Roompotsluis（北緯 52.04°、東經 5.223°）的座標不在澤蘭，疑為錯置。",
+  "note_en": "The other 21 (mostly 1990s–2000s Flevoland line parks and small Zeeland/Brabant parks) have no year in the RVO 2018–2023 project tables or nl.wikipedia; note also that Ritthem (52.477 N) and Roompotsluis (52.04 N, 5.223 E) are not in Zeeland and look misplaced.",
+  "why": "The Wind Power hides commissioning dates on free pages; windbase.eu (foundation designer portfolio) lists Zwartenbergseweg (Etten-Leur, 5 × V90 2 MW, 2012) and Hoevensche Beemden (Hoeven, 5 × V90 3 MW, 2012), which could be Van Gogh / Laaksche Vaart (both 10 MW) but no source ties the names. Roompotsluis may be Noordland Buitenhaven (Windpark Roompotsluis BV, 2 × 3 MW, 2012). Next: Windstats NL (if reachable without an account), provincial wind maps, Eurus/Vattenfall pages.",
+  "sources": []
+ }
+]
