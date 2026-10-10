@@ -2489,7 +2489,7 @@ let cardItem = null;
 const INTL_URL = 'data/live/intl_realtime.json', LIVE_HEX = 0x3fdcb0, LIVE_STALE_MS = 6 * 3600e3;
 const GRID_TZ = { AEMO: 'Australia/Brisbane', AESO: 'America/Edmonton', IESO: 'America/Toronto', GB: 'Europe/London', DE: 'Europe/Berlin', FR: 'Europe/Paris',
   DK: 'Europe/Copenhagen', ERCOT: 'America/Chicago', CAISO: 'America/Los_Angeles', BE: 'Europe/Brussels', PL: 'Europe/Warsaw',
-  IE: 'Europe/Dublin', NI: 'Europe/London', KR: 'Asia/Seoul' };
+  IE: 'Europe/Dublin', NI: 'Europe/London', KR: 'Asia/Seoul', BR: 'America/Sao_Paulo' };
 const GRID_SRC = { AEMO: 'https://nemweb.com.au/Reports/Current/Dispatch_SCADA/', AESO: 'http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet',
   IESO: 'https://reports-public.ieso.ca/public/GenOutputCapability/PUB_GenOutputCapability.xml' };
 let INTL = null, intlByKey = new Map(), intlTimer = null, liveSeen = false;
@@ -2526,7 +2526,7 @@ function gridName(g) {
     GB: L('大不列顛（Elexon）', 'Great Britain (Elexon)'), DE: L('德國（SMARD）', 'Germany (SMARD)'), FR: L('法國（RTE）', 'France (RTE)'), DK: L('丹麥（Energinet）', 'Denmark (Energinet)'),
     ERCOT: L('德州電網（ERCOT）', 'Texas grid (ERCOT)'), CAISO: L('加州（CAISO）', 'California (CAISO)'), BE: L('比利時（Elia）', 'Belgium (Elia)'), PL: L('波蘭（PSE）', 'Poland (PSE)'),
     IE: L('愛爾蘭（EirGrid）', 'Ireland (EirGrid)'), NI: L('北愛爾蘭（SONI）', 'Northern Ireland (SONI)'), KR: L('韓國（KPX）', 'Korea (KPX)'),
-    TPC: L('台灣（台電）', 'Taiwan (Taipower)') })[g] || g;
+    BR: L('巴西（ONS）', 'Brazil (ONS)'), TPC: L('台灣（台電）', 'Taiwan (Taipower)') })[g] || g;
 }
 function gridRes(g) {
   if (g.h) return ({ '5min': L('每 5 分鐘', 'every 5 min'), '15min': L('每 15 分鐘', 'every 15 min'), '1min': L('每分鐘', 'every minute'), snapshot: L('即時快照', 'live snapshot') })[g.res] || '';
@@ -2549,7 +2549,7 @@ function gridTime(key, g) {
   const zone = ({ AEMO: L('澳洲東部時間', 'AEST'), AESO: L('亞伯達時間', 'Alberta time'), IESO: L('安大略時間', 'Ontario time'), GB: L('英國時間', 'UK time'),
     DE: L('德國時間', 'German time'), FR: L('法國時間', 'French time'), DK: L('丹麥時間', 'Danish time'), ERCOT: L('德州時間', 'Texas time'), CAISO: L('加州時間', 'California time'),
     BE: L('比利時時間', 'Belgian time'), PL: L('波蘭時間', 'Polish time'), IE: L('愛爾蘭時間', 'Irish time'), NI: L('英國時間', 'UK time'),
-    KR: L('韓國時間', 'Korea time') })[key] || '';
+    KR: L('韓國時間', 'Korea time'), BR: L('巴西利亞時間', 'Brasília time') })[key] || '';
   const ago = agoText(t);
   return `${local}（${zone}，${ago}）`.replace('（', lang === 'en' ? ' (' : '（').replace('，', lang === 'en' ? ', ' : '，').replace('）', lang === 'en' ? ')' : '）');
 }
@@ -2597,7 +2597,9 @@ function natScope(k) {
     NI: L('北愛爾蘭（SONI 區域）所有風場出力的估計值，同樣取自 EirGrid Smart Grid Dashboard；大不列顛的數字不含北愛爾蘭，兩列不重疊。',
       'An estimate of the output of all wind farms in Northern Ireland (the SONI area), also from EirGrid’s Smart Grid Dashboard; the Great Britain figure leaves out Northern Ireland, so the two rows do not overlap.'),
     KR: L('韓國全國每 5 分鐘的瞬時值（KPX 實時電力供需，2024-11-23 起風電單獨列出）。KPX 網頁沒有附授權條款，本站依公共資料入口網站同一數列標示的「使用不受限制」（該數列註明含本土與濟州）與韓國《公共資料法》使用。',
-      'Nationwide 5-minute instantaneous values (KPX real-time supply and demand; wind listed separately since 23 Nov 2024). The KPX page carries no licence of its own; the site relies on the same series being listed as “no restriction on use” on Korea’s public data portal (where it is said to include the mainland and Jeju) and on Korea’s Public Data Act.')
+      'Nationwide 5-minute instantaneous values (KPX real-time supply and demand; wind listed separately since 23 Nov 2024). The KPX page carries no licence of its own; the site relies on the same series being listed as “no restriction on use” on Korea’s public data portal (where it is said to include the mainland and Jeju) and on Korea’s Public Data Act.'),
+    BR: L('巴西全國互聯電網（SIN）每分鐘的風電出力，大部分在東北部；2021 年 3 月起含 ONS 未監控的電廠。取自 ONS 網站「Energia Agora」頁背後的資料端點（沒有公開文件，也沒有附授權條款），本站依同一數列在 ONS 開放資料入口網站以 CC BY 4.0 公布而使用。端點只有當天（巴西利亞時間）的資料，48 小時趨勢由本站每次取的資料累積。',
+      'Wind output of Brazil’s National Interconnected System (SIN) every minute, mostly in the Northeast; since March 2021 it includes plants ONS does not supervise. From the data endpoint behind the “Energia Agora” page on the ONS website (undocumented, with no licence of its own); the site relies on the same series being published under CC BY 4.0 on the ONS open-data portal. The endpoint only holds the current day (Brasília time), so the 48-hour trend is built up from this site’s own fetches.')
   })[k] || '';
 }
 function natRow(k) {
@@ -3676,8 +3678,8 @@ function dataStats(zh) {
                                        : 'Offshore wind ports: ' + n(PORTS.length) + ' ports in ' + n(new Set(PORTS.map(p => p.iso)).size) + ' countries with ' + n(PORTS.reduce((a, p) => a + (p.farms || []).length, 0)) + ' farm links, each port sourced');
   if (EVENTS.length) li.push(zh ? '重大事件與事故：' + n(EVENTS.length) + ' 筆，每筆附主管機關、業者或媒體出處'
                                 : 'Major events and incidents: ' + n(EVENTS.length) + ' entries, each with a regulator, operator or press source');
-  if (!LITE) li.push(zh ? '即時出力：台灣台電逐機組（每 10 分鐘，另存歷史存檔）；澳洲 AEMO、亞伯達 AESO、安大略 IESO 三個電網的逐機組與電網總量；大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國全國與美國德州（ERCOT）、加州（CAISO）電網的風電總量（只有總量，沒有逐場）'
-                        : 'Live output: Taipower unit by unit (every 10 minutes, with a history archive); unit-level and grid totals from AEMO (Australia), AESO (Alberta) and IESO (Ontario); wind totals for Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland and Korea and the Texas (ERCOT) and California (CAISO) grids (totals only, nothing per farm)');
+  if (!LITE) li.push(zh ? '即時出力：台灣台電逐機組（每 10 分鐘，另存歷史存檔）；澳洲 AEMO、亞伯達 AESO、安大略 IESO 三個電網的逐機組與電網總量；大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國、巴西全國與美國德州（ERCOT）、加州（CAISO）電網的風電總量（只有總量，沒有逐場）'
+                        : 'Live output: Taipower unit by unit (every 10 minutes, with a history archive); unit-level and grid totals from AEMO (Australia), AESO (Alberta) and IESO (Ontario); wind totals for Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas (ERCOT) and California (CAISO) grids (totals only, nothing per farm)');
   if (!li.length) return '';
   return '<h4>' + (zh ? '資料統計（依目前載入的資料即時計算）' : 'Data inventory (computed from the data now loaded)') + '</h4><ul><li>' + li.join('</li><li>') + '</li></ul>';
 }
@@ -3812,6 +3814,8 @@ function showSources() {
           '<a href="https://www.smartgriddashboard.com/all/open-data-license/" target="_blank" rel="noopener">' + (zh ? 'EirGrid 開放資料授權' : 'EirGrid Open Data Licence') + '</a>' + (zh ? '；本站計算每小時平均。' : '; hourly means computed by this site.') + '</li>' +
         '<li>' + (zh ? '韓國：韓國電力交易所（KPX）「실시간 전력수급현황（발전원별）」每 5 分鐘的瞬時值。KPX 網頁沒有附授權條款；公共資料入口網站把同一數列標示為「이용허락범위 제한 없음」（' : 'Korea: Korea Power Exchange (KPX) real-time supply and demand by source, 5-minute instantaneous values. The KPX page carries no licence of its own; Korea’s public data portal lists the same series as “이용허락범위 제한 없음” (no restriction on use; ') +
           '<a href="https://www.data.go.kr/data/15142651/openapi.do" target="_blank" rel="noopener">data.go.kr 15142651</a>' + (zh ? '）。本站計算每小時平均。' : '). Hourly means computed by this site.') + '</li>' +
+        '<li>' + (zh ? '巴西：ONS 網站「Energia Agora」頁背後的資料端點，全國互聯電網（SIN）每分鐘的風電（沒有公開文件，也沒有附授權條款）；同一數列在 ' : 'Brazil: the data endpoint behind the “Energia Agora” page on the ONS website, wind output of the National Interconnected System (SIN) every minute (undocumented, with no licence of its own); the same series is published on the ') +
+          '<a href="https://dados.ons.org.br/dataset/balanco-energia-subsistema" target="_blank" rel="noopener">' + (zh ? 'ONS 開放資料入口網站' : 'ONS open-data portal') + '</a>' + (zh ? '以 CC BY 4.0 公布，本站據此使用並標示 ONS；每小時平均由本站計算。' : ' under CC BY 4.0, which the site relies on, crediting ONS; hourly means computed by this site.') + '</li>' +
         '<li>' + (zh ? '日本各電力區域也公開每 30 分鐘的風電實績，但各家網站條款都要求轉載前取得同意（九州另禁止程式自動取得），所以沒有收錄。' : 'Japan’s grid operators also publish 30-minute wind output by area, but every operator’s site terms require consent before republishing (Kyushu also bans automated retrieval), so it is not included.') + '</li></ul></li></ul>') +
     '<h4>' + (zh ? '海域（工具列「海域」）' : 'Sea zones (toolbar “Sea zones”)') + '</h4><ul><li><a href="https://www.marineregions.org/" target="_blank" rel="noopener">Flanders Marine Institute (VLIZ), Marine Regions: Maritime Boundaries Geodatabase v12 (2023)</a>' +
       (zh ? '（CC BY 4.0）的專屬經濟區界線：不畫基線，依類型分成協議或判決、中線與 200 浬外界、未定或有爭議（虛線）三種，簡化到約 2 km 供地圖顯示（tools/build_offshore_zones.py）。界線不具法律效力，也不代表本站對任何爭議海域的立場；完整資料請到 marineregions.org。'
