@@ -11,7 +11,7 @@
 **已接入（逐場）**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 約每 2 小時抓取，
 輸出 `data/live/intl_realtime.json`。
 
-**已接入（只有總量，v2.31.0；比利時、波蘭 v2.32.0）**：大不列顛、德國、法國、丹麥、比利時、波蘭全國，以及美國德州（ERCOT）、加州（CAISO）電網的風電總出力，
+**已接入（只有總量，v2.31.0；比利時、波蘭 v2.32.0；愛爾蘭、北愛爾蘭、韓國 v2.33.0）**：大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國全國，以及美國德州（ERCOT）、加州（CAISO）電網的風電總出力，
 同一支程式、同一次 commit，寫在同一檔的 `nat`。每個來源存最新一筆（時間、MW；德、法、丹另有陸域／離岸）與過去 48 小時每個整點的平均；
 ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監測容量，國家概況只對這兩個顯示「約為容量的幾 %」，其他來源沒有同口徑的容量，不算百分比。
 任一來源失敗時保留上一次的數值並標示 `ok: false`。
@@ -26,11 +26,13 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 | CAISO | `caiso.com/outlook/current/fuelsource.csv`＋`outlook/history/日期/fuelsource.csv` | CAISO 約供應加州八成的用電（[CAISO 2024 年 10 月 Key Statistics](https://www.caiso.com/documents/key-statistics-oct-2024.pdf)：「Serve ~80% of California demand」）；檔內只有當地時間，依太平洋時間換算 | 5 分鐘 · 約 5 分鐘 |
 | BE | Elia 開放資料 `ods086`（近即時）＋`ods031`（歷史），`exports/json` | 比利時全國：離岸（Federal）、法蘭德斯與瓦隆的陸域，各分輸電網與配電網，每個時段 5 列，五列齊全才加總。欄位是「Measured & upscaled」：有監測的風場實測後推估到全部容量；另有「監測容量」合計約 6.0 GW，國家概況以它算百分比。近即時資料集只有今天，較早的時段用歷史資料集（同樣 5 列） | 15 分鐘 · 約 25 分鐘 |
 | PL | PSE 首頁「Mapa KSE」的 `www.pse.pl/transmissionMapService`（此刻）＋`api.raporty.pse.pl` 的 `his-wlk-cal`（趨勢） | 此刻值是網頁地圖小工具的資料端點（陸域、離岸風電，沒有公開文件，可能變動），只有一筆快照、沒有歷史；PSE 報表 API 的實際風電（`wi`＝「Sumaryczna generacja Źródeł Wiatrowych / Total generation of Wind Sources」，見 [EndpointsMap.pdf](https://api.raporty.pse.pl/EndpointsMap.pdf)）次日約 00:52 UTC 才公布，所以趨勢的前一天以前用它（`dtime_utc` 是時段結束），今天只有本站約每 2 小時的快照；API 其他有風電欄位的端點都是預測或日前計畫 | 快照 · 約 1 分鐘（趨勢的官方值晚一天） |
+| IE、NI | EirGrid Smart Grid Dashboard 的 `smartgriddashboard.com/api/chart/?region=ROI\|NI&chartType=wind&dateRange=day&areas=windactual` | 愛爾蘭共和國（ROI）放在愛爾蘭的概況、北愛爾蘭（NI，SONI 區域）放在英國的概況（大不列顛的數字不含北愛爾蘭）；全島（ALL）＝ROI＋NI。數值是 EirGrid 對全部風場出力的估計（[風電頁](https://www.smartgriddashboard.com/all/wind/)：「Wind Generation is an estimate of the total electrical output of all wind farms on the system」）。網頁背後的資料端點，沒有公開文件（EirGrid 已換過一次端點）；時間是愛爾蘭當地時間、不帶時區，沒說明是時段起點、終點還是瞬時值；一次可取多天，取三天剛好涵蓋 48 小時。沒有同口徑的裝置容量（年報的兩地資料日期不同），不算百分比 | 15 分鐘 · 約 2–6 分鐘 |
+| KR | KPX `powerSource.es?mid=a10404030000&device=chart&view_sdate=…&view_edate=…` | 韓國全國每 5 分鐘的瞬時值（網頁註明「실시간 전력수급현황은 5분주기 순시자료 입니다」，2024-11-23 起風電單獨列出），網頁內嵌 `var ictArr = [...]`，以日期區間一次取三天（約 1.3 MB）。KPX 說會限制海外 IP 連線，本環境連得上，GitHub Actions 待合併後確認；容量有兩個數列且彼此不一致，不算百分比 | 5 分鐘 · 約 4–7 分鐘 |
 
-- **地球儀上的顯示**：英、德、法、丹、比、波、美國的國家概況有「此刻」方塊（此刻值、陸域／離岸、48 小時趨勢、範圍說明、授權標示與連結）；
+- **地球儀上的顯示**：英（含北愛爾蘭）、愛、德、法、丹、比、波、韓、美國的國家概況有「此刻」方塊（此刻值、陸域／離岸、48 小時趨勢、範圍說明、授權標示與連結）；
   全球與各洲的概況另有「各地此刻的風電出力」清單（含台灣、澳洲、加拿大），依出力排序、不加總，點名稱進該國概況。
 - **比利時、波蘭的授權（2026-10-10 查明）**：見下面「授權」一節。波蘭的此刻值來自沒有公開文件的網頁端點，網站上寫明；端點失效時保留上一次的數值並標示資料延遲。
-- **檔案大小**：`intl_realtime.json` 從約 18 KB 增為約 22 KB（每小時平均以整數 MW、起始時間加陣列存放）。
+- **檔案大小**：`intl_realtime.json` 從約 18 KB 增為約 24 KB（每小時平均以整數 MW、起始時間加陣列存放）。
 
 - **地球儀上的顯示**：國家概況有各電網此刻的總出力與 48 小時趨勢；對應到的風場在卡片、提示與風場清單顯示此刻出力。
   時間軸在最新年份時，這些風場外圈為綠色，葉片轉速依此刻出力。
@@ -84,7 +86,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 | 波蘭 | PSE `api.raporty.pse.pl` | 全國 | 15 分鐘 | 不需要 | 是 |
 | 巴西 | ONS 即時（未公開文件的端點） | 全國、子系統 | 1 分鐘 · 約 2 分鐘 | 不需要 | 是 |
 | 丹麥 | Energinet `PowerSystemRightNow` | 全國、DK1／DK2 | 1 分鐘 · 約 1 分鐘 | 不需要 | 否（帶網站來源時回傳空資料） |
-| 愛爾蘭 | EirGrid Smart Grid Dashboard（未公開文件的端點） | 全島、愛爾蘭共和國 | 15 分鐘 · 約 15 分鐘 | 不需要 | 否 |
+| 愛爾蘭 | EirGrid Smart Grid Dashboard（未公開文件的端點） | 全島、愛爾蘭共和國、北愛爾蘭 | 15 分鐘 · 約 2–6 分鐘 | 不需要 | 否 |
 | 美國德州 | ERCOT `fuel-mix.json` | 全系統 | 5 分鐘 · 約 2 分鐘 | 不需要 | 否 |
 | 美國加州 | CAISO `fuelsource.csv` | CAISO 區 | 5 分鐘 · 約 5 分鐘 | 不需要 | 否 |
 | 日本 | 各電力網公司的需給實績（例：東北、北海道） | 供電區域（含風電與風電抑制量） | 30 分鐘 · 約 20 分鐘 | 不需要 | 否；東京電力回 CDN 403 |
@@ -111,7 +113,10 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 - ONS：創用 CC 姓名標示
 - IESO：可使用與轉載，須在轉載處附上 IESO 規定的版權聲明（[使用條款](https://www.ieso.ca/Terms-of-Use)）
 - AESO：限非商業、個人或教育用途，不得修改，並保留版權聲明（[法律聲明](https://www.aeso.ca/legal/)）
-- EirGrid、NED、SEMO：尚未查到
+- EirGrid（含 SONI）：Smart Grid Dashboard 的 [Open Data Licence](https://www.smartgriddashboard.com/all/open-data-license/) 適用於儀表板資料：「You are free to: copy, publish, distribute and transmit the Information; adapt the Information; exploit the Information commercially and non-commercially」；須標示「Supported by EirGrid Group Data」、不得使用標誌或暗示背書；EirGrid 保留在使用過量時限制存取的權利，也可不經通知修改授權。eirgrid.ie 與 SONI 網站本身的版權聲明另有「未經書面同意不得重製」，授權頁明列適用於「Smart Grid Dashboards」與「SONI Libraries」
+- KPX：KPX 網頁本身沒有授權條款，只有頁尾「ALL RIGHTS RESERVED」；同一數列（5 分鐘發電源別，含風電 `fuelPwr9`）在[公共資料入口網站](https://www.data.go.kr/data/15142651/openapi.do)標示「이용허락범위 제한 없음」，KPX 的開放資料頁說明「개방」是賦予「영리적·비영리적으로 이용할 권한」，韓國《公共資料法》第 3 條第 3、4 項禁止公共機關限制公開資料的使用（含商業使用）。robots.txt 為 `Allow: /`。官方 API 需要公共資料入口網站的金鑰，沒有申請
+- 日本各電力區域（2026-10-10 查）：北海道、東北、北陸、關西、中國、四國的網站條款都寫明，除私人使用與著作權法允許的情形外，未經事前同意不得複製、傳送、散布（關西連設連結都要先取得許可）；中部禁止私人使用以外的二次利用；九州另禁止以程式自動取得（「スクレイピング等」），除非事前許可；東京電力與沖繩的條款頁在本環境被 CDN 擋住，沒讀到。OCCTO 的網站條款可自由利用（註明出處與加工），但 OCCTO 沒有公布各區的風電實績。所以日本暫不收錄；若要加，先向北海道、東北、九州等申請同意
+- NED、SEMO：尚未查到
 
 ## 建議的接入順序
 
@@ -123,7 +128,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 
 **快速成果**：國家層級的「此刻風電出力」面板。英國、德國、法國、比利時、波蘭、巴西可以由瀏覽器直接讀；
 丹麥、愛爾蘭、德州、加州、日本、韓國要經 Actions。→ 2026-10 已接入英、德、法、丹、德州、加州（一律經 Actions，與其他即時資料同一次 commit）；
-2026-10-10 再加比利時、波蘭；巴西、愛爾蘭、日本、韓國尚未評估授權。
+2026-10-10 再加比利時、波蘭、愛爾蘭（含北愛爾蘭）、韓國；日本各電力區域要先取得同意（見「授權」），巴西尚未評估授權。
 
 ## 接入時要注意
 
@@ -142,7 +147,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 - SMARD 的 100 MW 以上機組下載（只看過文件）
 - 西班牙 REE（WAF 封鎖）、東京電力（CDN 封鎖）、印度（無法連線）、智利逐廠 SCADA 頁面（Cloudflare 403 與 TLS 錯誤）
 - SEMO 機組代碼、巴西 `ceg` 代碼對應名稱與座標的清單
-- EirGrid、NED、SEMO 的授權條款
+- NED、SEMO 的授權條款；東京電力、沖繩電力的網站條款（本環境無法讀取）
 - PSE 的再利用條件是否明文涵蓋 `raporty.pse.pl`（條件只寫 www.pse.pl）
 - EIA 約 31 小時、B1610 約 14 天的延遲各只觀察到一次
 
@@ -163,5 +168,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 - [Electricity Maps 免費方案](https://ww2.electricitymaps.com/free-tier-api)
 - [NED API 手冊](https://ned.nl/nl/handleiding-api)
 - [KPX 開放 API](https://www.data.go.kr/data/15056640/openapi.do)
+- [KPX 發電源別 5 分鐘 API（含風電）](https://www.data.go.kr/data/15142651/openapi.do)
+- [EirGrid Smart Grid Dashboard 開放資料授權](https://www.smartgriddashboard.com/all/open-data-license/)
 - [OCCTO 逐機組發電公開](https://hatsuden-kokai.occto.or.jp/hks-web-public/home)
 - [REE REData](https://www.ree.es/en/datos/apidata)

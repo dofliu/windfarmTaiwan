@@ -16,6 +16,8 @@
     CAISO  美國加州獨立系統營運者每 5 分鐘
     BE     比利時：Elia 開放資料，離岸＋陸域（含配電網）每 15 分鐘「實測並推估」，附監測容量
     PL     波蘭：PSE 首頁地圖的即時快照（陸域、離岸）；趨勢的較早時段用 PSE 次日公布的每 15 分鐘風電總發電量
+    IE/NI  愛爾蘭共和國／北愛爾蘭：EirGrid Smart Grid Dashboard 每 15 分鐘的風電估計
+    KR     韓國：KPX 實時電力供需現況（發電源別）每 5 分鐘的瞬時值
 機組對應到哪座風場由 data/live/units.json 決定（tools/build_live_units.py 產生）；對不到的機組只計入電網總量。
 任一來源失敗時保留上一次的數值並標示 ok=false，不寫入臆測值；另保留各電網總量 48 小時的歷史供前端畫趨勢。
 只用 Python 標準函式庫。
@@ -146,6 +148,12 @@ NAT = {
     "BE": {"iso": "BEL", "res": "15min", "url": "https://opendata.elia.be/explore/dataset/ods086/", "lic": "https://opendata.elia.be/pages/licence/"},
     "PL": {"iso": "POL", "res": "snapshot", "url": "https://www.pse.pl/home",
            "lic": "https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej"},
+    "IE": {"iso": "IRL", "res": "15min", "url": "https://www.smartgriddashboard.com/roi/wind/",
+           "lic": "https://www.smartgriddashboard.com/all/open-data-license/"},
+    "NI": {"iso": "GBR", "area": "NI", "res": "15min", "url": "https://www.smartgriddashboard.com/ni/wind/",
+           "lic": "https://www.smartgriddashboard.com/all/open-data-license/"},
+    "KR": {"iso": "KOR", "res": "5min", "url": "https://www.kpx.or.kr/powerinfoSubmain.es?mid=a10404030000",
+           "lic": "https://www.data.go.kr/data/15142651/openapi.do"},
 }
 NAT_NOTICE = {
     "GB": "Contains BMRS data © Elexon Limited copyright and database right {year}",
@@ -156,6 +164,9 @@ NAT_NOTICE = {
     "CAISO": "Source: California ISO, Today's Outlook (fuel source)",
     "BE": "Source: Elia Open Data (ods086, ods031), Elia Open Data Licence (CC BY 4.0) (regions summed and hourly means computed by this site)",
     "PL": "Informacja pozyskana ze strony www.pse.pl, wg. stanu strony na dzień {date}, przetworzona w części (średnie godzinowe obliczone przez ten serwis)",
+    "IE": "Supported by EirGrid Group Data (Smart Grid Dashboard, wind generation estimate; hourly means computed by this site)",
+    "NI": "Supported by EirGrid Group Data (Smart Grid Dashboard, SONI area, wind generation estimate; hourly means computed by this site)",
+    "KR": "출처: 한국전력거래소(KPX) 실시간 전력수급현황(발전원별, 5분 순시값) — Source: Korea Power Exchange (KPX); hourly means computed by this site",
 }
 
 
@@ -309,8 +320,41 @@ def fetch_pl(now):
     return pts, None
 
 
+def fetch_eirgrid(region):
+    """EirGrid Smart Grid Dashboard（全島網頁背後的資料端點，沒有公開文件）：ROI＝愛爾蘭共和國、NI＝北愛爾蘭（SONI），
+    每 15 分鐘的風電估計 MW。時間是愛爾蘭當地時間、不帶時區；一次取三天，尚未到的時段是 null。"""
+    def fetch(now):
+        tz = ZoneInfo("Europe/Dublin")
+        today = now.astimezone(tz).date()
+        q = urllib.parse.urlencode({"region": region, "chartType": "wind", "dateRange": "day", "areas": "windactual",
+                                    "dateFrom": f"{today - dt.timedelta(days=2):%d-%b-%Y}", "dateTo": f"{today:%d-%b-%Y}"})
+        rows = get_json("https://www.smartgriddashboard.com/api/chart/?" + q)["Rows"]
+        return [(dt.datetime.strptime(r["EffectiveTime"], "%d-%b-%Y %H:%M:%S").replace(tzinfo=tz), float(r["Value"]), None, None)
+                for r in rows if r.get("Value") is not None and r.get("FieldName") == "WIND_ACTUAL"], None
+    return fetch
+
+
+def fetch_kr(now):
+    """KPX 實時電力供需現況（發電源別）的圖表頁：網頁內嵌 `var ictArr = [...]`，每 5 分鐘的瞬時值（KST），
+    風電欄 windPower（2024-11-23 起單獨列出）；以日期區間一次取三天，尚未到的時段 regDate 為 "0"。"""
+    tz = ZoneInfo("Asia/Seoul")
+    today = now.astimezone(tz).date()
+    q = urllib.parse.urlencode({"mid": "a10404030000", "device": "chart",
+                                "view_sdate": f"{today - dt.timedelta(days=2):%Y-%m-%d}", "view_edate": f"{today:%Y-%m-%d}"})
+    html = get("https://www.kpx.or.kr/powerSource.es?" + q, timeout=90)
+    m = re.search(r"var ictArr\s*=\s*(\[\{.*?\}\]);", html, re.S)
+    if not m:
+        raise RuntimeError("KPX page layout changed (no ictArr)")
+    pts = []
+    for r in json.loads(m.group(1)):
+        if r.get("regDate") in (None, "", "0") or r.get("windPower") in (None, ""):
+            continue
+        pts.append((dt.datetime.strptime(r["regDate"], "%Y-%m-%d %H:%M").replace(tzinfo=tz), float(r["windPower"]), None, None))
+    return pts, None
+
+
 NAT_FETCH = {"GB": fetch_gb, "DE": fetch_de, "FR": fetch_fr, "DK": fetch_dk, "ERCOT": fetch_ercot, "CAISO": fetch_caiso,
-             "BE": fetch_be, "PL": fetch_pl}
+             "BE": fetch_be, "PL": fetch_pl, "IE": fetch_eirgrid("ROI"), "NI": fetch_eirgrid("NI"), "KR": fetch_kr}
 
 
 def nat_entry(key, pts, cap, now, prev=None):
