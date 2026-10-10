@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.33.0 — 2026-10-10
+
+- Ireland, Northern Ireland and Korea join the national wind output right now. Republic of Ireland and Northern Ireland: EirGrid Smart Grid Dashboard wind generation
+  estimates every 15 minutes (the page's undocumented data endpoint), credited "Supported by EirGrid Group Data" under EirGrid's Open Data Licence; Northern Ireland sits
+  in the UK profile (the Great Britain figure leaves it out). Korea: Korea Power Exchange (KPX) real-time supply and demand, 5-minute instantaneous values; the KPX page carries
+  no licence, so the site relies on the same series being listed as "no restriction on use" on Korea's public data portal and on Korea's Public Data Act. Japan's grid operators
+  all require consent before republishing (Kyushu also bans automated retrieval), so Japan is not included; the findings are in the live-data assessment. The Sources dialog,
+  Learn chapter 13, the footer source list, the user guide and the README are updated.
+
 ## v2.32.0 — 2026-10-10
 
 - Belgium and Poland join the national wind output right now. Belgium: Elia Open Data (near real-time ods086 + historical ods031), offshore and onshore (distribution grid

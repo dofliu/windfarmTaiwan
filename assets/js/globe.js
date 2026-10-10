@@ -2488,7 +2488,8 @@ let cardItem = null;
 // 超過 LIVE_STALE_MS 的電網資料不再疊到風場上：排程約每 2 小時，容許漏跑一兩次（安大略的資料本身還晚約 1 小時）
 const INTL_URL = 'data/live/intl_realtime.json', LIVE_HEX = 0x3fdcb0, LIVE_STALE_MS = 6 * 3600e3;
 const GRID_TZ = { AEMO: 'Australia/Brisbane', AESO: 'America/Edmonton', IESO: 'America/Toronto', GB: 'Europe/London', DE: 'Europe/Berlin', FR: 'Europe/Paris',
-  DK: 'Europe/Copenhagen', ERCOT: 'America/Chicago', CAISO: 'America/Los_Angeles', BE: 'Europe/Brussels', PL: 'Europe/Warsaw' };
+  DK: 'Europe/Copenhagen', ERCOT: 'America/Chicago', CAISO: 'America/Los_Angeles', BE: 'Europe/Brussels', PL: 'Europe/Warsaw',
+  IE: 'Europe/Dublin', NI: 'Europe/London', KR: 'Asia/Seoul' };
 const GRID_SRC = { AEMO: 'https://nemweb.com.au/Reports/Current/Dispatch_SCADA/', AESO: 'http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet',
   IESO: 'https://reports-public.ieso.ca/public/GenOutputCapability/PUB_GenOutputCapability.xml' };
 let INTL = null, intlByKey = new Map(), intlTimer = null, liveSeen = false;
@@ -2524,6 +2525,7 @@ function gridName(g) {
   return ({ AEMO: L('澳洲東部電網（AEMO）', 'Australia NEM (AEMO)'), AESO: L('亞伯達（AESO）', 'Alberta (AESO)'), IESO: L('安大略（IESO）', 'Ontario (IESO)'),
     GB: L('大不列顛（Elexon）', 'Great Britain (Elexon)'), DE: L('德國（SMARD）', 'Germany (SMARD)'), FR: L('法國（RTE）', 'France (RTE)'), DK: L('丹麥（Energinet）', 'Denmark (Energinet)'),
     ERCOT: L('德州電網（ERCOT）', 'Texas grid (ERCOT)'), CAISO: L('加州（CAISO）', 'California (CAISO)'), BE: L('比利時（Elia）', 'Belgium (Elia)'), PL: L('波蘭（PSE）', 'Poland (PSE)'),
+    IE: L('愛爾蘭（EirGrid）', 'Ireland (EirGrid)'), NI: L('北愛爾蘭（SONI）', 'Northern Ireland (SONI)'), KR: L('韓國（KPX）', 'Korea (KPX)'),
     TPC: L('台灣（台電）', 'Taiwan (Taipower)') })[g] || g;
 }
 function gridRes(g) {
@@ -2546,7 +2548,8 @@ function gridTime(key, g) {
   try { local = new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'zh-TW', { timeZone: GRID_TZ[key], month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(t); } catch (e) { local = g.time; }
   const zone = ({ AEMO: L('澳洲東部時間', 'AEST'), AESO: L('亞伯達時間', 'Alberta time'), IESO: L('安大略時間', 'Ontario time'), GB: L('英國時間', 'UK time'),
     DE: L('德國時間', 'German time'), FR: L('法國時間', 'French time'), DK: L('丹麥時間', 'Danish time'), ERCOT: L('德州時間', 'Texas time'), CAISO: L('加州時間', 'California time'),
-    BE: L('比利時時間', 'Belgian time'), PL: L('波蘭時間', 'Polish time') })[key] || '';
+    BE: L('比利時時間', 'Belgian time'), PL: L('波蘭時間', 'Polish time'), IE: L('愛爾蘭時間', 'Irish time'), NI: L('英國時間', 'UK time'),
+    KR: L('韓國時間', 'Korea time') })[key] || '';
   const ago = agoText(t);
   return `${local}（${zone}，${ago}）`.replace('（', lang === 'en' ? ' (' : '（').replace('，', lang === 'en' ? ', ' : '，').replace('）', lang === 'en' ? ')' : '）');
 }
@@ -2588,7 +2591,13 @@ function natScope(k) {
     BE: L('比利時全國：離岸，加上法蘭德斯與瓦隆的陸域（含接在配電網的風機）；Elia 以有監測的風場實測值推估到全部容量。百分比以 Elia 公布的監測容量計算。',
       'All of Belgium: offshore plus onshore in Flanders and Wallonia (turbines on the distribution network included); Elia scales the measured output of monitored farms up to the whole fleet. The percentage uses the monitored capacity Elia publishes.'),
     PL: L('此刻值是 PSE 首頁「Mapa KSE」地圖的即時快照（網頁小工具的資料，沒有公開文件，可能變動）；48 小時趨勢裡，前一天以前是 PSE 次日公布的每 15 分鐘風電總發電量，今天只有本站約每 2 小時取一次的快照。',
-      'The current value is the live snapshot on PSE’s homepage map (“Mapa KSE”; the widget’s data, undocumented and subject to change). In the 48-hour trend, earlier days are PSE’s next-day 15-minute total wind generation, and today only has this site’s snapshots, taken about every 2 hours.')
+      'The current value is the live snapshot on PSE’s homepage map (“Mapa KSE”; the widget’s data, undocumented and subject to change). In the 48-hour trend, earlier days are PSE’s next-day 15-minute total wind generation, and today only has this site’s snapshots, taken about every 2 hours.'),
+    IE: L('愛爾蘭共和國（不含北愛爾蘭）所有風場出力的估計值，每 15 分鐘，取自 EirGrid Smart Grid Dashboard（網頁背後的資料端點，沒有公開文件）；EirGrid 沒說明時間是時段起點、終點還是瞬時值。',
+      'An estimate of the output of all wind farms in the Republic of Ireland (Northern Ireland excluded), every 15 minutes, from EirGrid’s Smart Grid Dashboard (the page’s undocumented data endpoint); EirGrid does not say whether a time marks the start or end of the interval or an instant.'),
+    NI: L('北愛爾蘭（SONI 區域）所有風場出力的估計值，同樣取自 EirGrid Smart Grid Dashboard；大不列顛的數字不含北愛爾蘭，兩列不重疊。',
+      'An estimate of the output of all wind farms in Northern Ireland (the SONI area), also from EirGrid’s Smart Grid Dashboard; the Great Britain figure leaves out Northern Ireland, so the two rows do not overlap.'),
+    KR: L('韓國全國每 5 分鐘的瞬時值（KPX 實時電力供需，2024-11-23 起風電單獨列出）。KPX 網頁沒有附授權條款，本站依公共資料入口網站同一數列標示的「使用不受限制」（該數列註明含本土與濟州）與韓國《公共資料法》使用。',
+      'Nationwide 5-minute instantaneous values (KPX real-time supply and demand; wind listed separately since 23 Nov 2024). The KPX page carries no licence of its own; the site relies on the same series being listed as “no restriction on use” on Korea’s public data portal (where it is said to include the mainland and Jeju) and on Korea’s Public Data Act.')
   })[k] || '';
 }
 function natRow(k) {
@@ -3667,8 +3676,8 @@ function dataStats(zh) {
                                        : 'Offshore wind ports: ' + n(PORTS.length) + ' ports in ' + n(new Set(PORTS.map(p => p.iso)).size) + ' countries with ' + n(PORTS.reduce((a, p) => a + (p.farms || []).length, 0)) + ' farm links, each port sourced');
   if (EVENTS.length) li.push(zh ? '重大事件與事故：' + n(EVENTS.length) + ' 筆，每筆附主管機關、業者或媒體出處'
                                 : 'Major events and incidents: ' + n(EVENTS.length) + ' entries, each with a regulator, operator or press source');
-  if (!LITE) li.push(zh ? '即時出力：台灣台電逐機組（每 10 分鐘，另存歷史存檔）；澳洲 AEMO、亞伯達 AESO、安大略 IESO 三個電網的逐機組與電網總量；大不列顛、德國、法國、丹麥、比利時、波蘭全國與美國德州（ERCOT）、加州（CAISO）電網的風電總量（只有總量，沒有逐場）'
-                        : 'Live output: Taipower unit by unit (every 10 minutes, with a history archive); unit-level and grid totals from AEMO (Australia), AESO (Alberta) and IESO (Ontario); wind totals for Great Britain, Germany, France, Denmark, Belgium and Poland and the Texas (ERCOT) and California (CAISO) grids (totals only, nothing per farm)');
+  if (!LITE) li.push(zh ? '即時出力：台灣台電逐機組（每 10 分鐘，另存歷史存檔）；澳洲 AEMO、亞伯達 AESO、安大略 IESO 三個電網的逐機組與電網總量；大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國全國與美國德州（ERCOT）、加州（CAISO）電網的風電總量（只有總量，沒有逐場）'
+                        : 'Live output: Taipower unit by unit (every 10 minutes, with a history archive); unit-level and grid totals from AEMO (Australia), AESO (Alberta) and IESO (Ontario); wind totals for Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland and Korea and the Texas (ERCOT) and California (CAISO) grids (totals only, nothing per farm)');
   if (!li.length) return '';
   return '<h4>' + (zh ? '資料統計（依目前載入的資料即時計算）' : 'Data inventory (computed from the data now loaded)') + '</h4><ul><li>' + li.join('</li><li>') + '</li></ul>';
 }
@@ -3798,7 +3807,12 @@ function showSources() {
         '<li>' + (zh ? '比利時：Elia 開放資料 ods086（近即時）與 ods031（歷史），每 15 分鐘「實測並推估到全部容量」的離岸與陸域風電，附監測容量；依 ' : 'Belgium: Elia Open Data ods086 (near real-time) and ods031 (historical), offshore and onshore wind every 15 minutes, “measured & upscaled” to the whole fleet, with the monitored capacity; under the ') +
           '<a href="https://opendata.elia.be/pages/licence/" target="_blank" rel="noopener">' + (zh ? 'Elia 開放資料授權' : 'Elia Open Data Licence') + '</a>' + (zh ? '（CC BY 4.0）；本站把各區相加並計算每小時平均。' : ' (CC BY 4.0); regions summed and hourly means computed by this site.') + '</li>' +
         '<li>' + (zh ? '波蘭：PSE 首頁「Mapa KSE」地圖的即時快照（陸域、離岸風電；網頁小工具的資料端點，沒有公開文件），趨勢的較早時段用 PSE 報表 API 次日公布的每 15 分鐘風電總發電量（his-wlk-cal）。依 ' : 'Poland: the live snapshot on PSE’s homepage map “Mapa KSE” (onshore and offshore wind; the widget’s undocumented data endpoint), with earlier hours of the trend from the 15-minute total wind generation PSE’s report API publishes the next day (his-wlk-cal). Under ') +
-          '<a href="https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej" target="_blank" rel="noopener">' + (zh ? 'PSE 公共資訊再利用條件' : 'PSE’s conditions for reusing public-sector information') + '</a>' + (zh ? '：' : ': ') + 'Informacja pozyskana ze strony www.pse.pl, przetworzona w części' + (zh ? '（本站計算每小時平均；取用日期寫在數值旁）。' : ' (hourly means computed by this site; the retrieval date is shown next to the values).') + '</li></ul></li></ul>') +
+          '<a href="https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej" target="_blank" rel="noopener">' + (zh ? 'PSE 公共資訊再利用條件' : 'PSE’s conditions for reusing public-sector information') + '</a>' + (zh ? '：' : ': ') + 'Informacja pozyskana ze strony www.pse.pl, przetworzona w części' + (zh ? '（本站計算每小時平均；取用日期寫在數值旁）。' : ' (hourly means computed by this site; the retrieval date is shown next to the values).') + '</li>' +
+        '<li>' + (zh ? '愛爾蘭共和國與北愛爾蘭：EirGrid Smart Grid Dashboard 每 15 分鐘的風電估計（網頁背後的資料端點，沒有公開文件）。Supported by EirGrid Group Data；依 ' : 'Republic of Ireland and Northern Ireland: EirGrid Smart Grid Dashboard wind generation estimates every 15 minutes (the page’s undocumented data endpoint). Supported by EirGrid Group Data; under the ') +
+          '<a href="https://www.smartgriddashboard.com/all/open-data-license/" target="_blank" rel="noopener">' + (zh ? 'EirGrid 開放資料授權' : 'EirGrid Open Data Licence') + '</a>' + (zh ? '；本站計算每小時平均。' : '; hourly means computed by this site.') + '</li>' +
+        '<li>' + (zh ? '韓國：韓國電力交易所（KPX）「실시간 전력수급현황（발전원별）」每 5 分鐘的瞬時值。KPX 網頁沒有附授權條款；公共資料入口網站把同一數列標示為「이용허락범위 제한 없음」（' : 'Korea: Korea Power Exchange (KPX) real-time supply and demand by source, 5-minute instantaneous values. The KPX page carries no licence of its own; Korea’s public data portal lists the same series as “이용허락범위 제한 없음” (no restriction on use; ') +
+          '<a href="https://www.data.go.kr/data/15142651/openapi.do" target="_blank" rel="noopener">data.go.kr 15142651</a>' + (zh ? '）。本站計算每小時平均。' : '). Hourly means computed by this site.') + '</li>' +
+        '<li>' + (zh ? '日本各電力區域也公開每 30 分鐘的風電實績，但各家網站條款都要求轉載前取得同意（九州另禁止程式自動取得），所以沒有收錄。' : 'Japan’s grid operators also publish 30-minute wind output by area, but every operator’s site terms require consent before republishing (Kyushu also bans automated retrieval), so it is not included.') + '</li></ul></li></ul>') +
     '<h4>' + (zh ? '海域（工具列「海域」）' : 'Sea zones (toolbar “Sea zones”)') + '</h4><ul><li><a href="https://www.marineregions.org/" target="_blank" rel="noopener">Flanders Marine Institute (VLIZ), Marine Regions: Maritime Boundaries Geodatabase v12 (2023)</a>' +
       (zh ? '（CC BY 4.0）的專屬經濟區界線：不畫基線，依類型分成協議或判決、中線與 200 浬外界、未定或有爭議（虛線）三種，簡化到約 2 km 供地圖顯示（tools/build_offshore_zones.py）。界線不具法律效力，也不代表本站對任何爭議海域的立場；完整資料請到 marineregions.org。'
         : ' (CC BY 4.0), exclusive economic zone boundaries: baselines left out, grouped as agreed or ruled, median lines and 200 NM limits, and unsettled or disputed (dashed), simplified to about 2 km for display (tools/build_offshore_zones.py). The lines have no legal value and imply no position on any disputed area; for the data itself, see marineregions.org.') +

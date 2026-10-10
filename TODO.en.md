@@ -5,12 +5,12 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 10 Oct 2026: v2.32.0 national live output plus Belgium and Poland; the next conversation starts here)
+## In progress (hand-off, 10 Oct 2026: v2.33.0 national live output plus Ireland, Northern Ireland and Korea; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
 
-### Live data (10 Oct 2026, v2.31.0–v2.32.0)
+### Live data (10 Oct 2026, v2.31.0–v2.33.0)
 
 On 10 Oct 2026 the owner chose "national output right now": `intl_wind_scraper.py` now also fetches Great Britain (Elexon FUELINST), Germany (SMARD onshore 4067 +
 offshore 1225), France (ODRÉ éCO2mix), Denmark (Energinet PowerSystemRightNow) and the Texas (ERCOT fuel-mix) and California (CAISO fuelsource) grids into `nat` in
@@ -20,12 +20,17 @@ v2.31.0 is merged; a manual scheduled run at 06:02 UTC on 10 Oct 2026 succeeded 
 once they were clear, to add both (v2.32.0): Belgium from Elia Open Data ods086 + ods031 (Elia Open Data Licence = CC BY 4.0, with the monitored capacity); Poland's current
 value from `transmissionMapService` behind the www.pse.pl homepage map (undocumented), with earlier hours of the trend from `his-wlk-cal` on `api.raporty.pse.pl`
 (published the next day), credited with the source, retrieval date and "przetworzona w części" under PSE's conditions for reusing public-sector information.
+After v2.32.0 was merged a manual scheduled run succeeded for all eight sources. The owner then asked for the Irish, Japanese and Korean licences (three sub-agents in parallel,
+every quote checked with `check_quotes.py`) and agreed to add Ireland and Korea (v2.33.0): the Republic of Ireland and Northern Ireland from EirGrid's Smart Grid Dashboard
+(Open Data Licence, credit "Supported by EirGrid Group Data"; Northern Ireland goes in the UK profile), and Korea from KPX's real-time supply-and-demand chart page (no licence on
+the page itself; relies on the same series being listed as unrestricted on Korea's public data portal and on the Public Data Act). Japan's grid operators all require consent first, so Japan stays out.
 
-- After v2.32.0 is merged, check that the scheduled `scrape` run succeeds for all eight sources (one line per source in the Actions log; ERCOT occasionally answers 403 and
+- After v2.33.0 is merged, check that the scheduled `scrape` run succeeds for all eleven sources (KPX says it restricts overseas IPs, so confirm GitHub Actions can reach it; if not,
+  Korea simply does not appear, and switching to a public-data-portal key needs the owner's approval) (one line per source in the Actions log; ERCOT occasionally answers 403 and
   the script retries once); ERCOT's 48-hour trend fills up only after a day (the source has just yesterday and today), and today's part of Poland's trend only has the
   scheduled snapshots. Poland's map endpoint is undocumented: if it stops working, fall back to `his-wlk-cal` (a day late, so not a current value) or drop it, and update the docs.
-- More could be added (each needs its licence checked first): Ireland's EirGrid, Japan's utility areas,
-  Korea's KPX and Brazil's ONS; other US regions only have EIA-930 (key needed, about 31 hours behind, not live). UK per-farm estimates and NED/ENTSO-E still need the owner's approval.
+- More could be added: Japan's grid areas (consent from Hokkaido, Tohoku, Kyushu and others first, the owner's call),
+  and Brazil's ONS (licence to be checked first); other US regions only have EIA-930 (key needed, about 31 hours behind, not live). UK per-farm estimates and NED/ENTSO-E still need the owner's approval.
 - The UK figure leaves out most turbines on the distribution network (NESO publishes an "embedded wind" estimate; adding it would be an estimate, so ask the owner first and label it).
 
 ### Next-step options (9 Oct 2026, for the owner to choose)
@@ -509,7 +514,7 @@ Recommendation: at the end of October do the quarterly update and the Taiwan off
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
-- The v2.32.0 PR (Belgium and Poland live output) is open and waits for the owner to say it can be merged; no code change is left half-done and no sub-agent is running. In the next
+- The v2.33.0 PR (Ireland, Northern Ireland and Korea live output) is open and waits for the owner to say it can be merged; no code change is left half-done and no sub-agent is running. In the next
   conversation, first check that the PR is merged, then ask the owner to pick from "Next-step options" above, or to name new work; to carry on with the doubts, pick from the
   leads each round recorded.
 
