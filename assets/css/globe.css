@@ -189,6 +189,8 @@
 #globe .livebox .lic{margin-top:6px;font-size:10px;line-height:1.4;opacity:.8}
 #globe .livebox.none{border-color:var(--gline);background:transparent}
 #globe .livebox .lspark{display:block;margin-top:3px}
+#globe .livebox .lago{margin-left:6px;font-weight:400;font-size:10.5px;color:var(--ink-2)}
+#globe .prof .rows.lnow span:nth-child(even){white-space:nowrap}
 #globe .msItem .lv{color:var(--live);font-weight:700}
 #g-tip .tlive{margin-top:4px;color:var(--live)}
 #g-tip .tnote{margin-top:4px;font-size:11px;color:var(--ink-2);border-left:2px solid var(--p2);padding-left:6px}

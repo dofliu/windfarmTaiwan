@@ -5,10 +5,23 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 9 Oct 2026: v2.30.18, after research round 23, next-step options listed; the next conversation starts here)
+## In progress (hand-off, 10 Oct 2026: v2.31.0 national live output; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
+
+### Live data (10 Oct 2026, v2.31.0)
+
+On 10 Oct 2026 the owner chose "national output right now": `intl_wind_scraper.py` now also fetches Great Britain (Elexon FUELINST), Germany (SMARD onshore 4067 +
+offshore 1225), France (ODRÉ éCO2mix), Denmark (Energinet PowerSystemRightNow) and the Texas (ERCOT fuel-mix) and California (CAISO fuelsource) grids into `nat` in
+`intl_realtime.json` (latest value + hourly means for 48 hours), shown in the country profile's "now" box and the world/continent "Wind output right now" list (`natRow` and
+`liveWorldBox` in `globe.js`). Sources, coverage and licences are in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md).
+
+- After the merge, check that the scheduled `scrape` run succeeds for all six sources (one line per source in the Actions log; ERCOT occasionally answers 403 and the script
+  retries once); ERCOT's 48-hour trend fills up only after a day (the source has just yesterday and today).
+- More could be added (each needs its licence checked first): Belgium's Elia (licence page unreachable), Poland's PSE (no terms found), Ireland's EirGrid, Japan's utility areas,
+  Korea's KPX and Brazil's ONS; other US regions only have EIA-930 (key needed, about 31 hours behind, not live). UK per-farm estimates and NED/ENTSO-E still need the owner's approval.
+- The UK figure leaves out most turbines on the distribution network (NESO publishes an "embedded wind" estimate; adding it would be an estimate, so ask the owner first and label it).
 
 ### Next-step options (9 Oct 2026, for the owner to choose)
 
@@ -491,8 +504,9 @@ Recommendation: at the end of October do the quarterly update and the Taiwan off
 - How research is done: every figure carries a quoted passage (`tools/grab_page.py` to find it, `tools/check_quotes.py` to verify);
   larger batches are split among a few sub-agents working in parallel, their results written as JSON and checked, then the main
   conversation decides what to adopt and writes it into the tables (rules in section 4 of CLAUDE.md).
-- No code change is left half-done, no sub-agent is running and no PR is open (PR #99 is merged). In the next conversation, ask the owner to pick from "Next-step options" above,
-  or to name new work; to carry on with the doubts, pick from the leads each round recorded.
+- The v2.31.0 PR (national live output) is open and waits for the owner to say it can be merged; no code change is left half-done and no sub-agent is running. In the next
+  conversation, first check that the PR is merged, then ask the owner to pick from "Next-step options" above, or to name new work; to carry on with the doubts, pick from the
+  leads each round recorded.
 
 ### First things to do when work resumes (in order)
 

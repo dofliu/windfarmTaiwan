@@ -5,12 +5,36 @@ English (this page) ｜ [中文](./live-data-sources.md)
 > Every public endpoint below was called with `curl` on 2026-09-26 (10:40–11:02 UTC), sending
 > `Origin: https://dofliu.github.io` to check whether a browser could read it directly (CORS). No
 > account was registered and no key was used (except the US EIA's public test key `DEMO_KEY`). Items
-> that could not be verified are listed in the last section.
+> that could not be verified are listed in the last section. When the national totals were added on
+> 2026-10-10, the UK, German, French, Danish, Texas and California endpoints were tested again and their licences checked.
 
-## Current status (updated Sep 2026)
+## Current status (updated Oct 2026)
 
-**Integrated**: Australia's NEM (AEMO), Alberta (AESO) and Ontario (IESO), fetched about every 2 hours by
+**Integrated (per farm)**: Australia's NEM (AEMO), Alberta (AESO) and Ontario (IESO), fetched about every 2 hours by
 `intl_wind_scraper.py` into `data/live/intl_realtime.json`.
+
+**Integrated (totals only, v2.31.0)**: wind output for Great Britain, Germany, France and Denmark as a whole and for the
+Texas (ERCOT) and California (CAISO) grids, from the same script and in the same commit, under `nat` in the same file.
+Each source keeps its latest value (time, MW; onshore/offshore for Germany, France and Denmark) and the mean of every hour
+over the past 48 hours. ERCOT also keeps the month's wind capacity from the same dashboard, and only ERCOT gets a
+"percent of capacity" in the country profile; the other sources have no capacity on the same footing, so no percentage is shown.
+When a source fails, its previous values are kept and marked `ok: false`.
+
+| Key | Source | Coverage and caveats | Resolution · delay seen (10 Oct) |
+|---|---|---|---|
+| GB | Elexon BMRS `FUELINST` (`fuelType=WIND`) | Wind metered by the grid operator in Great Britain (not Northern Ireland); most turbines on the distribution network have no operational metering ([UK energy department, 2012](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/65923/6487-nat-grid-metering-data-et-article-sep12.pdf): "generation units connected to the low voltage distribution system ("embedded" generation) are excluded from operational metering"), so it is below total GB output; onshore and offshore are not split | 5 min · about 5 min |
+| DE | SMARD `chart_data` (onshore 4067, offshore 1225, `quarterhour`) | All of Germany. Values are energy per 15 minutes (MWh): the four quarter-hours of an hour add up to the hourly file's value, so × 4 gives average power (MW). One file per week; across a week boundary the previous week is read too | 15 min · about 45 min |
+| FR | ODRÉ `eco2mix-national-tr` (`exports/json`) | RTE's real-time data; the dataset description says telemetry is completed with estimates ("complétées par des forfaits et estimations") and later replaced by settled figures; 50,000 API calls per user per month (the site makes 12 a day) | 15 min · about 15 min |
+| DK | Energinet `PowerSystemRightNow` | DK1 + DK2, onshore and offshore separately | 1 min · about 1 min |
+| ERCOT | `ercot.com/api/1/services/read/dashboards/fuel-mix.json` | ERCOT serves about 90% of Texas load ([About ERCOT](https://www.ercot.com/about): "about 90 percent of the state's electric load"); only yesterday and today, so earlier hours carry over from the previous file. It occasionally answers 403; the script waits 10 seconds and retries once | 5 min · about 5 min |
+| CAISO | `caiso.com/outlook/current/fuelsource.csv` + `outlook/history/DATE/fuelsource.csv` | CAISO serves about 80% of California's demand ([CAISO Key Statistics, Oct 2024](https://www.caiso.com/documents/key-statistics-oct-2024.pdf): "Serve ~80% of California demand"); the file has local times only, converted from Pacific time | 5 min · about 5 min |
+
+- **On the globe**: the profiles of the UK, Germany, France, Denmark and the US get a "now" box (current value,
+  onshore/offshore, 48-hour trend, coverage note, attribution and links); the world and continent profiles get a
+  "Wind output right now" list (with Taiwan, Australia and Canada), sorted by output and not summed; a name opens that country's profile.
+- **Belgium (Elia) and Poland (PSE) are left out for now**: Elia's licence page could not be opened and PSE's terms of
+  use could not be found; they will be added once that is clear.
+- **File size**: `intl_realtime.json` grew from about 18 KB to about 21 KB (hourly means stored as whole MW, a start time plus an array).
 
 - **On the globe**: country profiles show each grid's current total and a 48-hour trend; matched farms show
   their current output in the card, the tooltip and the farm list. With the timeline at the latest year these
@@ -23,6 +47,8 @@ English (this page) ｜ [中文](./live-data-sources.md)
     the data, and Golden Plains West is the under-construction whole-project record.
 - **Attribution**: AEMO is credited as the source; AESO's copyright notice is shown and its data is used for
   non-commercial, educational purposes without modification; IESO's required copyright notice is shown in full.
+  The credits for the national totals (Elexon, SMARD, ODRÉ, Energinet, ERCOT, CAISO) are listed under "Licences found"
+  below; the site shows them next to the values and in the Sources dialog.
 
 ## Conclusion
 
@@ -93,11 +119,14 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 
 ## Licences found
 
-- Elexon BMRS licence: commercial use allowed, with attribution
+- Elexon BMRS licence: commercial use allowed, crediting "Contains BMRS data © Elexon Limited copyright and database right [year]" with a link to the licence where possible
 - AEMO: any use, with attribution
-- Energinet, SMARD: CC BY 4.0
-- ODRÉ: Licence Ouverte 2.0
-- Elia: its own open-data licence
+- Energinet, SMARD: CC BY 4.0 (credit "Source: Energinet (www.energidataservice.dk)" and "Bundesnetzagentur | SMARD.de"; changes must be indicated, so the site says the hourly means are its own)
+- ODRÉ: Licence Ouverte 2.0 (credit the source and the data time)
+- ERCOT: raw data from public parts of the site may be used in compilations, charts and analyses ([terms](https://www.ercot.com/help/terms): "raw data provided in public portions of this website may be used, reproduced, and redistributed in compilations, charts, and analyses")
+- CAISO: may be used if copyright and other notices are kept and the California ISO is credited ([terms of use](https://www.caiso.com/privacy-terms-of-use))
+- Elia: its own open-data licence (the licence page could not be opened in Oct 2026; left out)
+- PSE: no terms of use found (left out)
 - ONS: Creative Commons Attribution
 - IESO: use and reproduction allowed with IESO's required copyright notice on every reproduction ([terms of use](https://www.ieso.ca/Terms-of-Use))
 - AESO: non-commercial, personal or educational use only, unmodified, with copyright notices kept ([legal](https://www.aeso.ca/legal/))
@@ -117,7 +146,8 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 
 **Quick win**: a national "wind output right now" panel. The UK, Germany, France, Belgium, Poland and
 Brazil can be read straight from the browser; Denmark, Ireland, Texas, California, Japan and Korea need
-Actions.
+Actions. → Done in Oct 2026 for the UK, Germany, France, Denmark, Texas and California (all through Actions, in the same
+commit as the other live data); Belgium and Poland wait for their licences, and Brazil, Ireland, Japan and Korea have not had their licences checked.
 
 ## Things to watch when integrating
 
@@ -142,7 +172,7 @@ Actions.
 - Spain's REE (WAF block), TEPCO (CDN block), India (unreachable), Chile's per-plant SCADA page
   (Cloudflare 403 and a TLS error)
 - Lists mapping SEMO unit codes and Brazil's `ceg` codes to names and coordinates
-- The licences of EirGrid, NED and SEMO
+- The licences of EirGrid, NED and SEMO; Elia (licence page unreachable) and PSE (no terms found)
 - The ~31-hour EIA delay and the ~14-day B1610 delay were each observed only once
 
 ## References
@@ -151,6 +181,9 @@ Actions.
 - [ENTSO-E: how to get a security token](https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token)
 - [ENTSO-E 16.1.A actual generation per generation unit](https://transparencyplatform.zendesk.com/hc/en-us/articles/16648326220564-Actual-Generation-per-Generation-Unit-16-1-A)
 - [Energinet terms and conditions](https://www.energidataservice.dk/terms-and-conditions)
+- [ODRÉ éCO2mix national real-time data](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/)
+- [ERCOT terms of use](https://www.ercot.com/help/terms)
+- [CAISO terms of use](https://www.caiso.com/privacy-terms-of-use)
 - [SMARD data use](https://www.smard.de/en/datennutzung)
 - [AEMO copyright permissions](https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions)
 - [Open Electricity](https://docs.openelectricity.org.au/introduction)

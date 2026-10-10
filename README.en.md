@@ -117,6 +117,8 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
     `#/global?tour=tw` / `eu` / `cn` / `fl`)
   - **Live output in Australia and Canada**: about 150 farms from AEMO, AESO and IESO; with the timeline at the latest year, farms with
     live data get a green ring and their rotors spin with their current output
+  - **National wind output right now**: totals and a 48-hour trend for the UK (Great Britain), Germany, France and Denmark and the Texas
+    and California grids (totals only), in the country profiles and the world "Wind output right now" list; see [user guide 4.5](./docs/user-guide.en.md#45-side-panel-tabs)
   - Devices without WebGL fall back to the bar race automatically
 - **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations, floating wind,
   ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a glossary and full source list; every chart is drawn
@@ -194,7 +196,7 @@ output and sea zones load only when needed.
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, the merge log, the wind records of OSPAR Offshore
   Renewables 2024 (CC0, used for foundation types) and other raw build inputs
-- `data/live/` — live output in Australia and Canada `intl_realtime.json`, the grid unit code → farm mapping `units.json` (built by
+- `data/live/` — live output in Australia and Canada plus six national/grid wind totals `intl_realtime.json`, the grid unit code → farm mapping `units.json` (built by
   `tools/build_live_units.py`; Ontario checked by hand against IESO's published facility list), and Wind now `wind_now.webp` + `wind_now.json` (scheduled)
 - `data/archive/wind_history_archive_YYYY-MM.json` — the long-term archive of Taipower's official retrospective data, one file per month (written by `backfill_history.py`)
 - `data/archive/farm_daily.json` — daily samples of every grid unit (private farms included) in Taipower's live data, from June 2026 (added by the scraper
@@ -218,8 +220,9 @@ output and sea zones load only when needed.
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`; adds the daily samples of every grid
   unit → `data/archive/farm_daily.json`; also fetches the real-time supply-demand report → `grid_status.json`
 - `intl_wind_scraper.py` — runs about every 2 hours: fetches each wind farm's live output from Australia's NEM
-  (AEMO), Alberta (AESO) and Ontario (IESO) → `data/live/intl_realtime.json` (with each grid's 48-hour
-  total); if a source fails, the previous values are kept and flagged, and Taiwan's data is unaffected
+  (AEMO), Alberta (AESO) and Ontario (IESO), plus the wind totals of Great Britain, Germany, France, Denmark, Texas (ERCOT)
+  and California (CAISO) → `data/live/intl_realtime.json` (with each grid's 48-hour total, and hourly means for the national
+  totals); if a source fails, the previous values are kept and flagged, and Taiwan's data is unaffected
 - `wind_realtime.json` — live data (auto-updated by Actions)
 - `wind_history.json` — rolling 7-day history (accumulated live by the scraper, for trend lines)
 - `grid_status.json` — national power supply-demand report (peak load / supply capacity /
@@ -439,7 +442,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   sourced during research and omitted rather than guessed when no precise date could be verified
 - License: Government Open Data License, Version 1
 
-**Australia and Canada live**
+**Live data abroad**
 
 - Australia's NEM: AEMO NEMWeb [Dispatch_SCADA](https://nemweb.com.au/Reports/Current/Dispatch_SCADA/) (measured output
   of every generating unit every 5 minutes); source: Australian Energy Market Operator (AEMO); unit list: AEMO NEM
@@ -450,7 +453,20 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Ontario: IESO [Generators Output and Capability](https://reports-public.ieso.ca/public/GenOutputCapability/) report;
   unit names matched with IESO's [Transmission-Connected Generation](https://www.ieso.ca/en/Power-Data/Supply-Overview/Transmission-Connected-Generation) list.
   Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).
-- The assessment, and the countries not yet added, are in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)
+- Great Britain: Elexon BMRS [Generation by fuel type](https://bmrs.elexon.co.uk/generation-by-fuel-type) (FUELINST, every 5 minutes; only wind metered
+  by the grid operator, so most turbines on the distribution network are not in it). Contains BMRS data © Elexon Limited copyright and database right 2026;
+  under the [BMRS data licence](https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/)
+- Germany: Bundesnetzagentur | [SMARD.de](https://www.smard.de/) (onshore and offshore generation every 15 minutes, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/);
+  converted to average power and averaged by hour by this site)
+- France: RTE éCO2mix national real-time data via [ODRÉ](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/) (every 15 minutes,
+  [Licence Ouverte v2.0](https://www.etalab.gouv.fr/licence-ouverte-open-licence/))
+- Denmark: Energinet ([www.energidataservice.dk](https://www.energidataservice.dk/tso-electricity/PowerSystemRightNow)) PowerSystemRightNow (every minute,
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); hourly means computed by this site)
+- Texas: ERCOT [Fuel Mix](https://www.ercot.com/gridmktinfo/dashboards/fuelmix) dashboard (every 5 minutes, with the month's wind capacity); Source: Electric
+  Reliability Council of Texas (under [ERCOT's terms of use](https://www.ercot.com/help/terms))
+- California: California ISO [Today's Outlook](https://www.caiso.com/todays-outlook/supply) (every 5 minutes); Source: California ISO (under
+  [CAISO's terms of use](https://www.caiso.com/privacy-terms-of-use))
+- The assessment, and the countries not yet added (Belgium and Poland await licence checks), are in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)
 
 **Global**
 

@@ -37,7 +37,7 @@ visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CH
   areas of 6 North Sea countries.
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
   [docs/events.en.md](./docs/events.en.md)).
-- Live output for about 150 farms in Australia and Canada.
+- Live output for about 150 farms in Australia and Canada; since v2.31.0 also national wind totals for the UK (Great Britain), Germany, France and Denmark and the Texas and California grids (totals only).
 - Data checks: country figures against official statistics (Taiwan's Energy Administration, Japan's JWPA); 885 record-level farm
   clean-up rules ([docs/data-cleanup.en.md](./docs/data-cleanup.en.md)), with a build check for farms lost to a wrong merge
   (`ORPHAN_OK`); offshore foundation types, steps 1–4 done and step 5 (China and Vietnam) under way (285 of 331 operating offshore
@@ -76,7 +76,7 @@ not yet built, recommending phase 2's country comparison, Ember indicators and y
 
 | Item | What | Effort |
 |---|---|---|
-| Live output in other countries | **Done (Sep 2026)**: Australia NEM, Alberta and Ontario, about 150 farms; farms with live data get a green ring. Next: UK estimates and a national "wind output right now" panel (see [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)) | medium–large |
+| Live output in other countries | **Done (Sep 2026)**: Australia NEM, Alberta and Ontario, about 150 farms; farms with live data get a green ring. Oct 2026 (v2.31.0): a national "wind output right now" for Great Britain, Germany, France, Denmark, Texas and California. Next: Belgium, Poland and others once their licences are clear; UK per-farm estimates (ask the owner first) (see [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)) | medium–large |
 | Country comparison | Put 2–4 countries side by side (small multiples): cumulative capacity, yearly additions, onshore / offshore, indexed growth | medium |
 | More metrics | Capacity per person, wind's share of electricity generation, capacity factor (Ember yearly data, CC BY 4.0); colour the map by any metric | medium |
 | Yearly additions | Show capacity added each year (not just cumulative) to reveal each country's build-out peaks and cycles | small |
@@ -285,7 +285,7 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
   straight from the browser); Denmark, Ireland, Texas and California, Japan and South Korea (need
   Actions). No usable public live data for China or India.
 - **Suggested order**: Australia NEM → Alberta + Ontario → UK (estimates) → Netherlands / ENTSO-E (keys);
-  the national panel can come first. No per-farm source has coordinates, so a hand-maintained
+  the national panel can come first (six sources done in Oct 2026). No per-farm source has coordinates, so a hand-maintained
   "unit code → farm" table is needed (a few hundred rows); fold new countries into the existing
   scheduled commit.
 
