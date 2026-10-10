@@ -14,6 +14,8 @@
     DK     丹麥：Energinet PowerSystemRightNow 陸域、離岸每分鐘
     ERCOT  美國德州電網每 5 分鐘（附同一儀表板的當月風電容量）
     CAISO  美國加州獨立系統營運者每 5 分鐘
+    BE     比利時：Elia 開放資料，離岸＋陸域（含配電網）每 15 分鐘「實測並推估」，附監測容量
+    PL     波蘭：PSE 首頁地圖的即時快照（陸域、離岸）；趨勢的較早時段用 PSE 次日公布的每 15 分鐘風電總發電量
 機組對應到哪座風場由 data/live/units.json 決定（tools/build_live_units.py 產生）；對不到的機組只計入電網總量。
 任一來源失敗時保留上一次的數值並標示 ok=false，不寫入臆測值；另保留各電網總量 48 小時的歷史供前端畫趨勢。
 只用 Python 標準函式庫。
@@ -141,6 +143,9 @@ NAT = {
            "lic": "https://creativecommons.org/licenses/by/4.0/"},
     "ERCOT": {"iso": "USA", "area": "TX", "res": "5min", "url": "https://www.ercot.com/gridmktinfo/dashboards/fuelmix"},
     "CAISO": {"iso": "USA", "area": "CA", "res": "5min", "url": "https://www.caiso.com/todays-outlook/supply"},
+    "BE": {"iso": "BEL", "res": "15min", "url": "https://opendata.elia.be/explore/dataset/ods086/", "lic": "https://opendata.elia.be/pages/licence/"},
+    "PL": {"iso": "POL", "res": "snapshot", "url": "https://www.pse.pl/home",
+           "lic": "https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej"},
 }
 NAT_NOTICE = {
     "GB": "Contains BMRS data © Elexon Limited copyright and database right {year}",
@@ -149,6 +154,8 @@ NAT_NOTICE = {
     "DK": "Source: Energinet (www.energidataservice.dk), CC BY 4.0 (hourly means computed by this site)",
     "ERCOT": "Source: Electric Reliability Council of Texas (ERCOT), Fuel Mix dashboard",
     "CAISO": "Source: California ISO, Today's Outlook (fuel source)",
+    "BE": "Source: Elia Open Data (ods086, ods031), Elia Open Data Licence (CC BY 4.0) (regions summed and hourly means computed by this site)",
+    "PL": "Informacja pozyskana ze strony www.pse.pl, wg. stanu strony na dzień {date}, przetworzona w części (średnie godzinowe obliczone przez ten serwis)",
 }
 
 
@@ -253,7 +260,57 @@ def fetch_caiso(now):
     return pts, None
 
 
-NAT_FETCH = {"GB": fetch_gb, "DE": fetch_de, "FR": fetch_fr, "DK": fetch_dk, "ERCOT": fetch_ercot, "CAISO": fetch_caiso}
+def fetch_be(now):
+    """Elia：比利時離岸＋法蘭德斯、瓦隆陸域（輸電網與配電網各一列，共 5 列）每 15 分鐘「實測並推估到全部容量」的 MW。
+    近即時資料集 ods086 只有今天，較早的時段補歷史資料集 ods031；五列齊全的時段才加總。容量為 ods086 最新時段的「監測容量」合計。"""
+    base = "https://opendata.elia.be/api/explore/v2.1/catalog/datasets/{}/exports/json?"
+    slots, cap = {}, {}
+    for ds, col in (("ods031", "measured"), ("ods086", "realtime")):                # 後讀的近即時資料覆蓋歷史資料
+        q = urllib.parse.urlencode({"select": f"datetime,offshoreonshore,{col},monitoredcapacity",
+                                    "where": f"datetime >= now(hours=-{HIST_HOURS + 1}) and {col} is not null"})
+        rows = get_json(base.format(ds) + q)
+        got = {}
+        for r in rows:
+            t = dt.datetime.fromisoformat(r["datetime"])
+            got.setdefault(t, []).append(r)
+        for t, rs in got.items():
+            if len(rs) == 5:
+                slots[t] = rs
+                if ds == "ods086":
+                    cap[t] = sum(x.get("monitoredcapacity") or 0 for x in rs)
+    pts = []
+    for t, rs in slots.items():
+        col = "realtime" if "realtime" in rs[0] else "measured"
+        off = sum(x[col] for x in rs if x["offshoreonshore"] == "Offshore")
+        on = sum(x[col] for x in rs if x["offshoreonshore"] == "Onshore")
+        pts.append((t, on + off, on, off))
+    return pts, (cap[max(cap)] if cap else None)
+
+
+def fetch_pl(now):
+    """PSE：www.pse.pl 首頁「Mapa KSE」的即時快照（陸域、離岸風電 MW；網頁小工具的資料端點，沒有公開文件），
+    歷史補 api.raporty.pse.pl his-wlk-cal 次日公布的每 15 分鐘「風電總發電量」（dtime_utc 是時段結束時間）。"""
+    snap = get_json("https://www.pse.pl/transmissionMapService")
+    d = snap["data"]["podsumowanie"]
+    t = dt.datetime.fromtimestamp(snap["timestamp"] / 1000, dt.timezone.utc)
+    on, off = float(d.get("ladowewiatrowe") or 0), float(d.get("morskiewiatrowe") or 0)
+    pts = [(t, float(d["wiatrowe"]), on, off)]
+    for k in (1, 2):
+        day = (now - dt.timedelta(days=k)).astimezone(ZoneInfo("Europe/Warsaw")).date()
+        q = urllib.parse.urlencode({"$filter": f"business_date eq '{day:%Y-%m-%d}' and wi ne null", "$select": "dtime_utc,wi", "$first": "200"})
+        try:
+            rows = get_json("https://api.raporty.pse.pl/api/his-wlk-cal?" + q).get("value", [])
+        except Exception as e:  # noqa: BLE001 — 歷史缺了不影響此刻值
+            print(f"PL history {day}: {e}", file=sys.stderr)
+            continue
+        for r in rows:
+            end = dt.datetime.strptime(r["dtime_utc"], "%Y-%m-%d %H:%M:%S").replace(tzinfo=dt.timezone.utc)
+            pts.append((end - dt.timedelta(minutes=15), float(r["wi"]), None, None))
+    return pts, None
+
+
+NAT_FETCH = {"GB": fetch_gb, "DE": fetch_de, "FR": fetch_fr, "DK": fetch_dk, "ERCOT": fetch_ercot, "CAISO": fetch_caiso,
+             "BE": fetch_be, "PL": fetch_pl}
 
 
 def nat_entry(key, pts, cap, now, prev=None):
@@ -358,7 +415,7 @@ def main():
            "notice": {"AEMO": "Source: Australian Energy Market Operator (AEMO), NEMWeb Dispatch_SCADA",
                       "AESO": "© 2026 THE INDEPENDENT SYSTEM OPERATOR (\"ISO\"). All rights reserved. Source: AESO Current Supply Demand report",
                       "IESO": "Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca)",
-                      **{k: v.format(year=now.year) for k, v in NAT_NOTICE.items()}}}
+                      **{k: v.format(year=now.year, date=now.strftime("%Y-%m-%d")) for k, v in NAT_NOTICE.items()}}}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print("wrote", OUT.relative_to(ROOT), f"({OUT.stat().st_size / 1024:.1f} KB)")
