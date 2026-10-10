@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.36.0 — 2026-10-10
+
+- In the "Live data" layer, partly covered countries are now coloured only in the states or provinces with data: Texas (ERCOT) and California (CAISO) in the US, Alberta (AESO)
+  and Ontario (IESO) in Canada, and the eastern-grid states and territories of Australia (Queensland, New South Wales, the ACT, Victoria, South Australia, Tasmania), with the
+  national border dashed. The borders come from Natural Earth 1:50m (public domain, the same scale as the country borders) via the new `tools/build_live_regions.py`, which writes
+  `data/global/live_regions.json` (about 37 KB, loaded when the layer is turned on); a state is coloured only while its source is present. Grids do not follow state and province
+  borders exactly (ERCOT, for example, serves about 90% of Texas load), so the legend and tooltip call the areas approximate; hovering over land shows whether that state has data.
+  Both parts of the UK have data, but Great Britain leaves out turbines on the distribution network, so the UK stays hatched as a whole. User guide, README and Sources dialog updated.
+
 ## v2.35.0 — 2026-10-10
 
 - New "Live data" layer on the globe toolbar (URL `live=1`): countries are coloured by whether the site has live wind output for them — solid teal where it covers the whole country

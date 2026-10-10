@@ -3637,6 +3637,8 @@ function toggleZones(on) {
 /* ================= 即時資料涵蓋範圍：哪些國家有全國、哪些只有部分地區此刻的風電出力 =================
    依 data/live/intl_realtime.json 實際有的來源（台灣另看台電即時資料）替國家上色，畫在一張等距圓柱畫布上、蓋在地球（或平面）上，跟高解析圖磚一起抬高。
    全國＝實心青綠、部分＝紫色斜線；dataviz 色盲檢查兩色可分，紫色在陸地底色上對比不足，所以另有斜線紋理，圖例與提示框也寫出國家與範圍。
+   只涵蓋部分地區的國家，有州界（tools/build_live_regions.py → data/global/live_regions.json）時只塗來源此刻存在的州或省，國界畫虛線；
+   州界載入失敗或沒有州界的國家（英國：兩個區域都有資料，但大不列顛不含配電網的風機）整國塗斜線。
    預設關閉，網址 live=1；單檔公開版沒有即時資料，不提供。 */
 const CVG_HEX = { full: '#25aa8a', part: '#a072ea' };
 const CVG_PART = {                                   // 只涵蓋部分地區的國家與原因（與「概況」的即時資料說明一致）
@@ -3646,7 +3648,28 @@ const CVG_PART = {                                   // 只涵蓋部分地區的
   CAN: ['只有亞伯達（AESO）與安大略（IESO）', 'only Alberta (AESO) and Ontario (IESO)'],
 };
 const CVG_BOX = { FRA: [-6, 41, 10, 52] };           // 只塗本土：法國的海外省與海外領地是獨立電網，不在 RTE 的範圍
-let CVG = null;
+let CVG = null, CVG_REG = null, cvgRegP = null;
+function cvgRegLoad() {
+  if (!cvgRegP) cvgRegP = WW.getJSON(WW.DATA.liveRegions).then(j => {
+    j.regions.forEach(r => { r.box = r.rings.map(ringBBox); });
+    CVG_REG = j; cvgPaint(); renderCvgLegend();
+  }).catch(e => { console.warn(e); cvgRegP = null; });           // 沒有州界：部分地區的國家整國塗斜線
+  return cvgRegP;
+}
+function ringBBox(r) { let a = 1e9, b = 1e9, c = -1e9, d = -1e9; for (let i = 0; i < r.length; i += 2) { a = Math.min(a, r[i]); c = Math.max(c, r[i]); b = Math.min(b, r[i + 1]); d = Math.max(d, r[i + 1]); } return [a, b, c, d]; }
+function inRing(r, bx, lon, lat) {
+  if (lon < bx[0] || lon > bx[2] || lat < bx[1] || lat > bx[3]) return false;
+  let inside = false;
+  for (let i = 0, j = r.length - 2; i < r.length; j = i, i += 2) {
+    const xi = r[i], yi = r[i + 1], xj = r[j], yj = r[j + 1];
+    if (((yi > lat) !== (yj > lat)) && (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi)) inside = !inside;
+  }
+  return inside;
+}
+/* 部分地區的國家此刻有來源的州或省；沒有州界資料時是空陣列（整國塗斜線） */
+const cvgRegions = iso => CVG_REG && CVG_PART[iso] ? CVG_REG.regions.filter(r => r.iso === iso && liveSrc(r.src)) : [];
+const cvgRegionAt = (iso, lon, lat) => cvgRegions(iso).find(r => r.rings.some((ring, k) => inRing(ring, r.box[k], lon, lat))) || null;
+const regName = r => lang === 'en' ? r.en : r.zh;
 function cvgOf(iso) {
   if (iso === 'TWN') return WW.live && !LITE ? 'full' : null;
   if (!liveKeys(iso).length) return null;
@@ -3667,22 +3690,22 @@ function cvgSetup() {
 }
 function cvgPaint() {
   if (!CVG) return;
-  const isos = Object.keys(isoRings).filter(cvgOf), sig = isos.map(i => i + cvgOf(i)).join();
+  const isos = Object.keys(isoRings).filter(cvgOf), sig = isos.map(i => i + cvgOf(i) + cvgRegions(i).map(r => r.id).join('+')).join();
   if (sig === CVG.sig) return;
   CVG.sig = sig;
   const g = CVG.g, CW = CVG.cv.width, CH = CVG.cv.height;
+  const trace = rings => { g.beginPath(); rings.forEach(r => { for (let i = 0; i < r.length; i += 2) { const x = (r[i] + 180) / 360 * CW, y = (90 - r[i + 1]) / 180 * CH; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); } g.closePath(); }); };
+  const hatch = () => { g.globalAlpha = 0.12; g.fillStyle = CVG_HEX.part; g.fill(); g.globalAlpha = 1; g.fillStyle = CVG.pat; g.fill(); };
   g.clearRect(0, 0, CW, CH); g.lineJoin = 'round';
   isos.forEach(iso => {
-    const c = cvgOf(iso), b = CVG_BOX[iso];
-    g.beginPath();
-    isoRings[iso].forEach(k => {
-      const bx = ringBox[k]; if (b && (bx[0] < b[0] || bx[2] > b[2] || bx[1] < b[1] || bx[3] > b[3])) return;
-      const r = RINGS[k];
-      for (let i = 0; i < r.length; i += 2) { const x = (r[i] + 180) / 360 * CW, y = (90 - r[i + 1]) / 180 * CH; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); }
-      g.closePath();
-    });
+    const c = cvgOf(iso), b = CVG_BOX[iso], regs = cvgRegions(iso);
+    trace(isoRings[iso].filter(k => { const bx = ringBox[k]; return !b || (bx[0] >= b[0] && bx[2] <= b[2] && bx[1] >= b[1] && bx[3] <= b[3]); }).map(k => RINGS[k]));
     if (c === 'full') { g.globalAlpha = 0.5; g.fillStyle = CVG_HEX.full; g.fill(); }
-    else { g.globalAlpha = 0.12; g.fillStyle = CVG_HEX.part; g.fill(); g.globalAlpha = 1; g.fillStyle = CVG.pat; g.fill(); }
+    else if (!regs.length) hatch();
+    else {                                           // 只塗有資料的州或省，國界畫虛線
+      g.globalAlpha = 0.7; g.strokeStyle = CVG_HEX.part; g.lineWidth = 1.2; g.setLineDash([5, 4]); g.stroke(); g.setLineDash([]);
+      trace(regs.flatMap(r => r.rings)); hatch();
+    }
     g.globalAlpha = 0.95; g.strokeStyle = CVG_HEX[c]; g.lineWidth = 1.5; g.stroke();
   });
   g.globalAlpha = 1;
@@ -3693,13 +3716,17 @@ function cvgVisible() {
   const flat = S.modeT > 0.5, on = !!S.liveCov && S.view !== 'bars' && !modeAnim;
   CVG.mg.visible = on && !flat; CVG.mf.visible = on && flat;
 }
-function cvgTip(iso) {
+/* 提示框的涵蓋範圍；有經緯度（滑過陸地）時，部分地區的國家另寫出這裡有沒有資料 */
+function cvgTip(iso, lon, lat) {
   if (!S.liveCov) return '';
-  const c = cvgOf(iso);
+  const c = cvgOf(iso), regs = c === 'part' && lon != null ? cvgRegions(iso) : [], here = regs.length ? cvgRegionAt(iso, lon, lat) : null;
   const txt = !c ? L('本站沒有這個國家此刻的風電出力', 'No live wind output for this country here')
     : c === 'full' ? L('即時資料：全國', 'Live data: whole country') + (iso === 'FRA' ? L('（本土）', ' (mainland)') : '')
+    : here ? L('即時資料：有 · ', 'Live data: yes · ') + gridName(here.src)
+    : regs.length ? L('這裡沒有即時資料', 'No live data here')
     : L('即時資料：部分地區', 'Live data: part of the country');
-  return '<div class="tcvg">' + (c ? '<i class="cvsw ' + c + '"></i>' : '') + '<span>' + esc(txt) + (c === 'part' ? '<small>' + esc(CVG_PART[iso][lang === 'en' ? 1 : 0]) + '</small>' : '') + '</span></div>';
+  return '<div class="tcvg">' + (c && (c === 'full' || !regs.length || here) ? '<i class="cvsw ' + c + '"></i>' : '') + '<span>' + esc(txt) +
+    (c === 'part' ? '<small>' + esc(CVG_PART[iso][lang === 'en' ? 1 : 0]) + (regs.length ? L('；州省界線是近似範圍', '; state and province borders are approximate') : '') + '</small>' : '') + '</span></div>';
 }
 function renderCvgLegend() {
   const el = $('g-cvgLegend'); if (!el) return;
@@ -3712,8 +3739,10 @@ function renderCvgLegend() {
     '<div class="zl"><i class="cvsw full"></i><span><b>' + esc(L('全國', 'Whole country')) + '</b>' + L('（', ' (') + full.length + L('）：', '): ') + full.map(ln).join(L('、', ', ')) + '</span></div>' +
     (part.length ? '<div class="zl"><i class="cvsw part"></i><span><b>' + esc(L('部分地區', 'Part of the country')) + '</b>' + L('（', ' (') + part.length + L('）：', '): ') + part.map(ln).join(L('、', ', ')) + '</span></div>' +
       '<ul class="cvp">' + part.map(i => '<li>' + esc(byIso[i] ? cname(byIso[i]) : i) + L('：', ': ') + esc(CVG_PART[i][lang === 'en' ? 1 : 0]) + '</li>').join('') + '</ul>' : '') +
-    '<div class="wln cvn">' + esc(L('顏色只表示本站有沒有該國此刻的風電出力、涵蓋多少，不是出力大小；法國只有本土。沒有顏色的國家沒有本站可用的即時資料（例如日本的電網業者要求事先同意）。點國家名稱看此刻的數字、48 小時趨勢與資料授權。',
-      'Colours show whether the site has live wind output for a country and how much of it the data covers, not how much is generated; France is mainland only. Countries without colour have no live data the site may use (Japan’s grid operators, for example, require prior consent). Click a name for the current figure, the 48-hour trend and the data licence.')) + '</div>';
+    '<div class="wln cvn">' + esc(L('部分地區的國家只塗有資料的州或省（國界畫虛線）。州省界線是近似範圍：電網範圍與州界、省界不完全相同，例如 ERCOT 約占德州用電的九成、CAISO 約供應加州八成用電；英國的兩個區域都有資料，但大不列顛不含大部分接在配電網的風機，所以整國塗斜線。' +
+        '顏色只表示本站有沒有此刻的風電出力、涵蓋多少，不是出力大小；法國只有本土。沒有顏色的國家沒有本站可用的即時資料（例如日本的電網業者要求事先同意）。點國家名稱看此刻的數字、48 小時趨勢與資料授權。州省界線：Natural Earth。',
+      'In partly covered countries only the states or provinces with data are coloured (the national border is dashed). State and province borders are approximate, since grids do not follow them exactly: ERCOT, for example, serves about 90% of Texas load and CAISO about 80% of California’s demand. Both parts of the UK have data, but Great Britain leaves out most turbines on the distribution network, so the whole country is hatched. ' +
+        'Colours show whether the site has live wind output and how much of the country it covers, not how much is generated; France is mainland only. Countries without colour have no live data the site may use (Japan’s grid operators, for example, require prior consent). Click a name for the current figure, the 48-hour trend and the data licence. State and province borders: Natural Earth.')) + '</div>';
   el.querySelectorAll('[data-liso]').forEach(a => a.onclick = e => { e.preventDefault(); e.stopPropagation(); setRegion(a.dataset.liso); });
   const tg = () => { el.classList.toggle('open'); el.querySelector('.cvt').setAttribute('aria-expanded', el.classList.contains('open')); };   // 原因與說明預設收起，點一下展開
   el.onclick = e => { if (e.target.tagName !== 'A') tg(); };
@@ -3724,7 +3753,7 @@ function toggleLiveCov(on) {
   S.liveCov = on != null ? on : !S.liveCov;
   const b = $('g-btnLiveCov'); b.classList.toggle('active', S.liveCov); b.setAttribute('aria-pressed', S.liveCov ? 'true' : 'false');
   if (S.liveCov && !CVG) cvgSetup();
-  if (S.liveCov) cvgPaint();
+  if (S.liveCov) { cvgPaint(); cvgRegLoad(); }
   cvgVisible(); renderCvgLegend(); hoverKey = null;
   syncURL();
 }
@@ -3916,8 +3945,8 @@ function showSources() {
         '<li>' + (zh ? '巴西：ONS 網站「Energia Agora」頁背後的資料端點，全國互聯電網（SIN）每分鐘的風電（沒有公開文件，也沒有附授權條款）；同一數列在 ' : 'Brazil: the data endpoint behind the “Energia Agora” page on the ONS website, wind output of the National Interconnected System (SIN) every minute (undocumented, with no licence of its own); the same series is published on the ') +
           '<a href="https://dados.ons.org.br/dataset/balanco-energia-subsistema" target="_blank" rel="noopener">' + (zh ? 'ONS 開放資料入口網站' : 'ONS open-data portal') + '</a>' + (zh ? '以 CC BY 4.0 公布，本站據此使用並標示 ONS；每小時平均由本站計算。' : ' under CC BY 4.0, which the site relies on, crediting ONS; hourly means computed by this site.') + '</li>' +
         '<li>' + (zh ? '日本各電力區域也公開每 30 分鐘的風電實績，但各家網站條款都要求轉載前取得同意（九州另禁止程式自動取得），所以沒有收錄。' : 'Japan’s grid operators also publish 30-minute wind output by area, but every operator’s site terms require consent before republishing (Kyushu also bans automated retrieval), so it is not included.') + '</li></ul></li>' +
-      '<li>' + (zh ? '工具列「即時資料」依上列來源替國家上色：涵蓋全國的塗實心青綠，只涵蓋部分地區的塗紫色斜線（大不列顛只有電網營運計量的風電、美國只有德州與加州、澳洲只有東部電網、加拿大只有亞伯達與安大略）；法國只塗本土。顏色不表示出力大小。'
-        : 'The “Live data” toolbar button colours countries by these sources: solid teal where the data covers the whole country, violet hatching where it covers only part (Great Britain only has wind metered by the grid operator, the US only Texas and California, Australia only the eastern grid, Canada only Alberta and Ontario); France is coloured on the mainland only. The colours do not show how much is generated.') + '</li></ul>') +
+      '<li>' + (zh ? '工具列「即時資料」依上列來源替國家上色：涵蓋全國的塗實心青綠，只涵蓋部分地區的塗紫色斜線（大不列顛只有電網營運計量的風電、美國只有德州與加州、澳洲只有東部電網、加拿大只有亞伯達與安大略）；美國、加拿大、澳洲只塗有資料的州或省（Natural Earth 1:50m 州省界線，公有領域，tools/build_live_regions.py；電網範圍與州界、省界不完全相同），法國只塗本土。顏色不表示出力大小。'
+        : 'The “Live data” toolbar button colours countries by these sources: solid teal where the data covers the whole country, violet hatching where it covers only part (Great Britain only has wind metered by the grid operator, the US only Texas and California, Australia only the eastern grid, Canada only Alberta and Ontario); in the US, Canada and Australia only the covered states or provinces are coloured (Natural Earth 1:50m state and province borders, public domain, tools/build_live_regions.py; grids do not follow them exactly), and France is coloured on the mainland only. The colours do not show how much is generated.') + '</li></ul>') +
     '<h4>' + (zh ? '海域（工具列「海域」）' : 'Sea zones (toolbar “Sea zones”)') + '</h4><ul><li><a href="https://www.marineregions.org/" target="_blank" rel="noopener">Flanders Marine Institute (VLIZ), Marine Regions: Maritime Boundaries Geodatabase v12 (2023)</a>' +
       (zh ? '（CC BY 4.0）的專屬經濟區界線：不畫基線，依類型分成協議或判決、中線與 200 浬外界、未定或有爭議（虛線）三種，簡化到約 2 km 供地圖顯示（tools/build_offshore_zones.py）。界線不具法律效力，也不代表本站對任何爭議海域的立場；完整資料請到 marineregions.org。'
         : ' (CC BY 4.0), exclusive economic zone boundaries: baselines left out, grouped as agreed or ruled, median lines and 200 NM limits, and unsettled or disputed (dashed), simplified to about 2 km for display (tools/build_offshore_zones.py). The lines have no legal value and imply no position on any disputed area; for the data itself, see marineregions.org.') +
@@ -4337,8 +4366,9 @@ function wireUI() {
       const g = S.liveCov && S.view !== 'bars' && groundAt(ev), iso = g && countryAt(g.lon, g.lat);      // 涵蓋範圍圖層：滑過陸地也顯示該國的涵蓋範圍
       if (iso && byIso[iso]) {
         canvas.style.cursor = 'pointer';
-        if (hoverKey === 'v' + iso) { moveTip(ev, pane); return; }
-        hoverKey = 'v' + iso; showTip(ev, '<b>' + esc(cname(byIso[iso])) + '</b>' + cvgTip(iso), pane); return;
+        const reg = cvgRegions(iso).length ? cvgRegionAt(iso, g.lon, g.lat) : null, key = 'v' + iso + (reg ? reg.id : '');
+        if (hoverKey === key) { moveTip(ev, pane); return; }
+        hoverKey = key; showTip(ev, '<b>' + esc(cname(byIso[iso])) + (reg ? ' · ' + esc(regName(reg)) : '') + '</b>' + cvgTip(iso, g.lon, g.lat), pane); return;
       }
       hideTip(); canvas.style.cursor = 'grab'; return;
     }
