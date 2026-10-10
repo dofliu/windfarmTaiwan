@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.30.19 — 2026-10-10
+
+- The limits of the data are now explained on the site: the globe's "Sources" dialog opens with "Limits of the data and open questions (please read first)", which lists, computed from the
+  data now loaded, the farms on shared placeholder points or approximate locations, the farms with no known start year, the countries whose farm records fall furthest short of the national
+  figure, the offshore farms whose foundation type or hub height is not yet checked, the countries with no port listed yet, the events not yet linked to a farm and the state of the photos,
+  and says which figures are estimates or schematic (estimated yearly output, live samples, "latest available", turbines laid out schematically); the attribution line under the globe now
+  says the data is still being checked and not fully accurate; Learn chapter 13 opens with "Limits of the data". The user guide and README are updated too.
+
 ## v2.30.18 — 2026-10-09
 
 - Research round 23 (quotes checked with `check_quotes.py`; see the 9 Oct 2026 "sixteenth batch" in the [clean-up log](docs/data-cleanup.en.md)):

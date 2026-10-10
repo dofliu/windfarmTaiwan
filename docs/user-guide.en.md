@@ -2,7 +2,7 @@
 
 English (this page) ｜ [中文](./user-guide.md)
 
-How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.30.2. For a quick first look, read "Quick start" in the [README](../README.en.md).
+How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.30.19. For a quick first look, read "Quick start" in the [README](../README.en.md).
 
 ## Contents
 
@@ -207,6 +207,8 @@ Press "▶ Tour":
 
 "Sources" in the toolbar lists the source, licence, data time and record count of each dataset, with the required credits (e.g. © OpenStreetMap contributors, AEMO, Energistyrelsen).
 
+At the top of the dialog, "Limits of the data and open questions" lists, computed from the data now loaded, how many farms share placeholder points or have approximate locations, the farms with no known start year, the countries whose farm records fall furthest short of the national figure, the offshore farms whose foundation type or hub height is not yet checked, the countries with no port listed yet, the events not yet linked to a farm and the state of the photos, and says which figures are estimates. The attribution line under the globe also says the data is still being checked and not fully accurate.
+
 ## 5. Learn
 
 `#/learn`, 13 illustrated chapters; the table of contents on the left marks the chapter you are reading. Every chapter has a button that replays that part of the story on the globe, and chapters 5, 6, 8 and 10 also start their story tour.
@@ -225,7 +227,7 @@ Press "▶ Tour":
 | 10 | `#/learn/taiwan` | Taiwan's path |
 | 11 | `#/learn/why` | Why wind · myths (with "Frequently asked") |
 | 12 | `#/learn/terms` | Glossary |
-| 13 | `#/learn/sources` | Sources & method (with "About this site") |
+| 13 | `#/learn/sources` | Sources & method (with "Limits of the data" and "About this site") |
 
 Charts can be switched to tables.
 
@@ -295,6 +297,7 @@ Both are HTML files you save and open in a browser, with no web server, publishe
 
 When reading the figures:
 
+- **The data is not fully accurate**: the site compiles public data and keeps checking it record by record, but some locations, years and values are placeholders or estimates and some are not yet checked; rely on the original sources. The live list of limits is at the top of the globe's "Sources" dialog (see 4.10), and the explanation is in Learn chapter 13, "Limits of the data".
 - **Measured, estimated and sampled are different**: "actual yearly output" is official farm-level data; "estimated yearly output" is capacity × the country's average capacity factor; "live samples" are samples of instantaneous output. The site labels each and never ranks them together.
 - **Farm totals ≠ national statistics**: the national figures are the official ones. Large offshore farms in Taiwan and Japan count from their full-completion year; farms elsewhere come from GEM at full nameplate capacity. The country profile's "farm-level coverage" shows the gap instead of filling it with made-up farms.
 - **Coordinates are mostly approximate**, and most countries' figures for 1980–1999 are estimates, good for trends only.
