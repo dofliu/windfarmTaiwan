@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.32.0 — 2026-10-10
+
+- Belgium and Poland join the national wind output right now. Belgium: Elia Open Data (near real-time ods086 + historical ods031), offshore and onshore (distribution grid
+  included) every 15 minutes, "measured & upscaled" to the whole fleet, under the Elia Open Data Licence (CC BY 4.0), with the share of Elia's monitored capacity. Poland: the
+  live snapshot on PSE's homepage map "Mapa KSE" (onshore and offshore; the widget's undocumented data endpoint), with earlier hours of the 48-hour trend from the 15-minute
+  total wind generation PSE's report API publishes the next day, credited "Informacja pozyskana ze strony www.pse.pl" with the retrieval date and a processing note under
+  PSE's conditions for reusing public-sector information. Trend lines now join points up to 3 hours apart (today Poland only has snapshots about every 2 hours). The Sources
+  dialog, Learn chapter 13, the footer source list, the user guide, the README and the live-data assessment are updated.
+
 ## v2.31.0 — 2026-10-10
 
 - National wind output right now: Great Britain (Elexon BMRS), Germany (SMARD, onshore/offshore), France (RTE éCO2mix via ODRÉ, onshore/offshore) and Denmark

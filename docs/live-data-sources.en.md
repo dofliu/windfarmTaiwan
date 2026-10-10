@@ -13,11 +13,11 @@ English (this page) ｜ [中文](./live-data-sources.md)
 **Integrated (per farm)**: Australia's NEM (AEMO), Alberta (AESO) and Ontario (IESO), fetched about every 2 hours by
 `intl_wind_scraper.py` into `data/live/intl_realtime.json`.
 
-**Integrated (totals only, v2.31.0)**: wind output for Great Britain, Germany, France and Denmark as a whole and for the
+**Integrated (totals only, v2.31.0; Belgium and Poland v2.32.0)**: wind output for Great Britain, Germany, France, Denmark, Belgium and Poland as a whole and for the
 Texas (ERCOT) and California (CAISO) grids, from the same script and in the same commit, under `nat` in the same file.
 Each source keeps its latest value (time, MW; onshore/offshore for Germany, France and Denmark) and the mean of every hour
-over the past 48 hours. ERCOT also keeps the month's wind capacity from the same dashboard, and only ERCOT gets a
-"percent of capacity" in the country profile; the other sources have no capacity on the same footing, so no percentage is shown.
+over the past 48 hours. ERCOT also keeps the month's wind capacity from the same dashboard and Belgium Elia's monitored capacity, and only
+these two get a "percent of capacity" in the country profile; the other sources have no capacity on the same footing, so no percentage is shown.
 When a source fails, its previous values are kept and marked `ok: false`.
 
 | Key | Source | Coverage and caveats | Resolution · delay seen (10 Oct) |
@@ -28,13 +28,15 @@ When a source fails, its previous values are kept and marked `ok: false`.
 | DK | Energinet `PowerSystemRightNow` | DK1 + DK2, onshore and offshore separately | 1 min · about 1 min |
 | ERCOT | `ercot.com/api/1/services/read/dashboards/fuel-mix.json` | ERCOT serves about 90% of Texas load ([About ERCOT](https://www.ercot.com/about): "about 90 percent of the state's electric load"); only yesterday and today, so earlier hours carry over from the previous file. It occasionally answers 403; the script waits 10 seconds and retries once | 5 min · about 5 min |
 | CAISO | `caiso.com/outlook/current/fuelsource.csv` + `outlook/history/DATE/fuelsource.csv` | CAISO serves about 80% of California's demand ([CAISO Key Statistics, Oct 2024](https://www.caiso.com/documents/key-statistics-oct-2024.pdf): "Serve ~80% of California demand"); the file has local times only, converted from Pacific time | 5 min · about 5 min |
+| BE | Elia Open Data `ods086` (near real-time) + `ods031` (historical), `exports/json` | All of Belgium: offshore (Federal) and onshore in Flanders and Wallonia, each split into transmission and distribution grid, so 5 rows per slot; a slot is summed only when all five are there. The field is "Measured & upscaled": monitored farms measured and scaled up to the whole fleet; the "monitored capacity" adds up to about 6.0 GW and the country profile uses it for the percentage. The near-real-time set only holds today, so earlier slots come from the historical set (same 5 rows) | 15 min · about 25 min |
+| PL | `www.pse.pl/transmissionMapService` behind PSE's homepage map "Mapa KSE" (now) + `his-wlk-cal` on `api.raporty.pse.pl` (trend) | The current value is the map widget's data endpoint (onshore and offshore wind; undocumented, may change), a single snapshot with no history. The report API's actual wind (`wi` = "Sumaryczna generacja Źródeł Wiatrowych / Total generation of Wind Sources", see [EndpointsMap.pdf](https://api.raporty.pse.pl/EndpointsMap.pdf)) is published the next day around 00:52 UTC, so the trend uses it up to yesterday (`dtime_utc` is the end of the slot) and only this site's snapshots, about every 2 hours, for today; the API's other endpoints with wind fields are forecasts or day-ahead plans | snapshot · about 1 min (official trend values one day later) |
 
-- **On the globe**: the profiles of the UK, Germany, France, Denmark and the US get a "now" box (current value,
+- **On the globe**: the profiles of the UK, Germany, France, Denmark, Belgium, Poland and the US get a "now" box (current value,
   onshore/offshore, 48-hour trend, coverage note, attribution and links); the world and continent profiles get a
   "Wind output right now" list (with Taiwan, Australia and Canada), sorted by output and not summed; a name opens that country's profile.
-- **Belgium (Elia) and Poland (PSE) are left out for now**: Elia's licence page could not be opened and PSE's terms of
-  use could not be found; they will be added once that is clear.
-- **File size**: `intl_realtime.json` grew from about 18 KB to about 21 KB (hourly means stored as whole MW, a start time plus an array).
+- **Belgium and Poland licences (checked 10 Oct 2026)**: see "Licences found" below. Poland's current value comes from an
+  undocumented web endpoint, which the site says; if it stops working, the previous value is kept and shown as delayed.
+- **File size**: `intl_realtime.json` grew from about 18 KB to about 22 KB (hourly means stored as whole MW, a start time plus an array).
 
 - **On the globe**: country profiles show each grid's current total and a 48-hour trend; matched farms show
   their current output in the card, the tooltip and the farm list. With the timeline at the latest year these
@@ -125,8 +127,8 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 - ODRÉ: Licence Ouverte 2.0 (credit the source and the data time)
 - ERCOT: raw data from public parts of the site may be used in compilations, charts and analyses ([terms](https://www.ercot.com/help/terms): "raw data provided in public portions of this website may be used, reproduced, and redistributed in compilations, charts, and analyses")
 - CAISO: may be used if copyright and other notices are kept and the California ISO is credited ([terms of use](https://www.caiso.com/privacy-terms-of-use))
-- Elia: its own open-data licence (the licence page could not be opened in Oct 2026; left out)
-- PSE: no terms of use found (left out)
+- Elia: the datasets carry the "Elia Open Data Licence", whose [licence page](https://opendata.elia.be/pages/licence/) says "The data provided for are governed by Creative Commons Attribution 4.0 International Public License" (CC BY 4.0, under Belgian law with disputes before the Brussels courts; the page is built by JavaScript and the text is in its source). Credit Elia, link the licence and note the site's sums and means
+- PSE: the [conditions for reusing public-sector information](https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej) (set in 2016 under the public-sector information reuse act then in force) cover information published on www.pse.pl: free, for commercial or non-commercial use; credit "Informacja pozyskana ze strony www.pse.pl" with the retrieval date, remove the PSE logo, say when and how the data was processed ("przetworzona w całości/w części") and do not mislead. The current-value endpoint is on www.pse.pl; the report API is on `raporty.pse.pl`, which pse.pl's data page names as the new home of its reports, but the conditions do not name that subdomain
 - ONS: Creative Commons Attribution
 - IESO: use and reproduction allowed with IESO's required copyright notice on every reproduction ([terms of use](https://www.ieso.ca/Terms-of-Use))
 - AESO: non-commercial, personal or educational use only, unmodified, with copyright notices kept ([legal](https://www.aeso.ca/legal/))
@@ -147,7 +149,7 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 **Quick win**: a national "wind output right now" panel. The UK, Germany, France, Belgium, Poland and
 Brazil can be read straight from the browser; Denmark, Ireland, Texas, California, Japan and Korea need
 Actions. → Done in Oct 2026 for the UK, Germany, France, Denmark, Texas and California (all through Actions, in the same
-commit as the other live data); Belgium and Poland wait for their licences, and Brazil, Ireland, Japan and Korea have not had their licences checked.
+commit as the other live data), and Belgium and Poland on 10 Oct 2026; Brazil, Ireland, Japan and Korea have not had their licences checked.
 
 ## Things to watch when integrating
 
@@ -172,7 +174,8 @@ commit as the other live data); Belgium and Poland wait for their licences, and 
 - Spain's REE (WAF block), TEPCO (CDN block), India (unreachable), Chile's per-plant SCADA page
   (Cloudflare 403 and a TLS error)
 - Lists mapping SEMO unit codes and Brazil's `ceg` codes to names and coordinates
-- The licences of EirGrid, NED and SEMO; Elia (licence page unreachable) and PSE (no terms found)
+- The licences of EirGrid, NED and SEMO
+- Whether PSE's reuse conditions explicitly cover `raporty.pse.pl` (they only name www.pse.pl)
 - The ~31-hour EIA delay and the ~14-day B1610 delay were each observed only once
 
 ## References
@@ -184,6 +187,8 @@ commit as the other live data); Belgium and Poland wait for their licences, and 
 - [ODRÉ éCO2mix national real-time data](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/)
 - [ERCOT terms of use](https://www.ercot.com/help/terms)
 - [CAISO terms of use](https://www.caiso.com/privacy-terms-of-use)
+- [Elia Open Data Licence](https://opendata.elia.be/pages/licence/)
+- [PSE conditions for reusing public-sector information](https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej)
 - [SMARD data use](https://www.smard.de/en/datennutzung)
 - [AEMO copyright permissions](https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions)
 - [Open Electricity](https://docs.openelectricity.org.au/introduction)
