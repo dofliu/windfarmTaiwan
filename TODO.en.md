@@ -5,12 +5,12 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 10 Oct 2026: v2.34.0 national live output plus Brazil; the next conversation starts here)
+## In progress (hand-off, 10 Oct 2026: v2.35.0 live data coverage layer; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
 
-### Live data (10 Oct 2026, v2.31.0–v2.34.0)
+### Live data (10 Oct 2026, v2.31.0–v2.35.0)
 
 On 10 Oct 2026 the owner chose "national output right now": `intl_wind_scraper.py` now also fetches Great Britain (Elexon FUELINST), Germany (SMARD onshore 4067 +
 offshore 1225), France (ODRÉ éCO2mix), Denmark (Energinet PowerSystemRightNow) and the Texas (ERCOT fuel-mix) and California (CAISO fuelsource) grids into `nat` in
@@ -27,9 +27,14 @@ the page itself; relies on the same series being listed as unrestricted on Korea
 After v2.33.0 was merged a manual scheduled run succeeded for all eleven sources (GitHub Actions reaches KPX). The owner then asked about Brazil and agreed to add it as for Korea
 (v2.34.0): the current value comes from `tr.ons.org.br/Content/Get/Geracao_SIN_Eolica` behind ONS's "Energia Agora" page (National Interconnected System, every minute, undocumented
 and without a licence), used because the same series is published under CC BY 4.0 on the ONS open-data portal; the endpoint only holds the current day, so the trend builds up run by run.
+After v2.34.0 was merged a manual scheduled run succeeded for all twelve sources (GitHub Actions reaches ONS). The owner then asked to "show by colour whether a country has live output data for all or part of it" (v2.35.0):
+the "Live data" layer on the globe toolbar (`cvgOf` / `cvgPaint` / `renderCvgLegend` in `globe.js`) colours countries with a source solid teal or with violet hatching according to `CVG_PART` (countries covered only in part, with reasons),
+and France on the mainland only through `CVG_BOX`; the colours passed the dataviz colour-blind check.
 
-- After v2.34.0 is merged, check that the scheduled `scrape` run succeeds for all twelve sources (confirm GitHub Actions can reach ONS; Brazil's 48-hour trend takes two days to fill,
-  the last hour or so before midnight may be missing, and the ONS open data `balanco-energia-subsistema` could later fill such gaps) (one line per source in the Actions log; ERCOT occasionally answers 403 and
+- When adding or removing a live source, check `CVG_PART` (countries covered only in part, with bilingual reasons) and `CVG_BOX` (countries whose overseas territories are outside their grid).
+- Possible next step: colour only the covered regions of the partial countries (Texas, California, Alberta, Ontario, the eastern Australian states, Great Britain / Northern Ireland); this needs first-level
+  administrative boundaries (e.g. Natural Earth admin-1, public domain) and one more data file, so ask the owner first.
+- Brazil's 48-hour trend takes two days to fill; the last hour or so before midnight may be missing, and the ONS open data `balanco-energia-subsistema` could later fill such gaps (one line per source in the Actions log; ERCOT occasionally answers 403 and
   the script retries once); ERCOT's 48-hour trend fills up only after a day (the source has just yesterday and today), and today's part of Poland's trend only has the
   scheduled snapshots. Poland's map endpoint is undocumented: if it stops working, fall back to `his-wlk-cal` (a day late, so not a current value) or drop it, and update the docs.
 - More could be added: Japan's grid areas (consent from Hokkaido, Tohoku, Kyushu and others first, the owner's call),

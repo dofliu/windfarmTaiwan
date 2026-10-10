@@ -37,6 +37,8 @@ When a source fails, its previous values are kept and marked `ok: false`.
 - **On the globe**: the profiles of the UK (with Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea, Brazil and the US get a "now" box (current value,
   onshore/offshore, 48-hour trend, coverage note, attribution and links); the world and continent profiles get a
   "Wind output right now" list (with Taiwan, Australia and Canada), sorted by output and not summed; a name opens that country's profile.
+  The "Live data" toolbar layer (v2.35.0) colours countries by these sources: solid teal where they cover the whole country, violet hatching with the reason where they cover only part
+  (the UK, the US, Australia, Canada); France is coloured on the mainland only.
 - **Belgium and Poland licences (checked 10 Oct 2026)**: see "Licences found" below. Poland's current value comes from an
   undocumented web endpoint, which the site says; if it stops working, the previous value is kept and shown as delayed.
 - **File size**: `intl_realtime.json` grew from about 18 KB to about 25 KB (hourly means stored as whole MW, a start time plus an array).

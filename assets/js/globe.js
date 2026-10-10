@@ -15,7 +15,7 @@ const host = $('globe');
 const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
-    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
+    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', liveCov: '即時資料', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、低樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
@@ -129,7 +129,7 @@ const I18N = {
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
-    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
+    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', liveCov: 'Live data', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
@@ -262,6 +262,7 @@ host.innerHTML = `
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
   <button id="g-btnFlow" type="button" aria-pressed="false" data-gi="flow"></button>
   <button id="g-btnZones" type="button" aria-pressed="false" data-gi="zones"></button>
+  <button id="g-btnLiveCov" type="button" aria-pressed="false" data-gi="liveCov"></button>
   <button id="g-btnPorts" type="button" aria-pressed="true" data-gi="btnPorts"></button>
   <button id="g-btnEvents" type="button" aria-pressed="true" data-gi="btnEvents"></button>
   <span class="gsp"></span>
@@ -287,7 +288,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-portList" hidden></div>
       <div class="gpbody" id="g-evList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-legStack"><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -397,7 +398,7 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJ
 /* 單檔公開版：藏起進階功能的按鈕與分頁，里程碑清空（地圖上的星號與導覽都不出現），圖層選單去掉水下基礎 */
 function liteSetup() {
   D.milestones = [];
-  ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-btnZones', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
+  ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-btnZones', 'g-btnLiveCov', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
   const fd = $('g-layerSel').querySelector('option[value="fd"]'); if (fd) fd.remove();
   panelTab = 'farms';
 }
@@ -1365,7 +1366,7 @@ function setMode(m) {
 }
 function applyModeT() {
   const flat = S.modeT > 0.5;
-  globe.visible = !flat; atmo.visible = !flat; bordersG.visible = !flat; plane.visible = flat; bordersF.visible = flat; zonesVisible();
+  globe.visible = !flat; atmo.visible = !flat; bordersG.visible = !flat; plane.visible = flat; bordersF.visible = flat; zonesVisible(); cvgVisible();
   globe.scale.setScalar(Math.max(0.001, 1 - Math.min(1, S.modeT * 2) * 0.999)); plane.scale.setScalar(clamp((S.modeT - 0.5) * 2, 0.001, 1));
   layoutAnchors();
 }
@@ -1383,7 +1384,7 @@ function buildRegionSelect() {
 }
 function setRegion(r, noFly) {
   if (r !== 'WORLD' && !r.startsWith('C:') && !byIso[r]) r = 'WORLD';
-  S.region = r; $('g-regionSel').value = r;
+  S.region = r; $('g-regionSel').value = r; hideTip();
   setHighlight(byIso[r] ? r : null);
   farmLayerDirty = true;
   focusFarm = null;
@@ -1477,10 +1478,12 @@ function frame(now) {
       const s = r => (R + r) / R;
       if (patch) patch.scale.setScalar(s(lift)); bordersG.scale.setScalar(s(lift * 1.7)); if (hiLines) hiLines.scale.setScalar(s(lift * 1.9));
       if (ZONE_G) ZONE_G.g.scale.setScalar(s(lift * 1.8));
+      if (CVG) CVG.mg.scale.setScalar(s(lift * 1.15));        // 在高解析圖磚（lift）之上、風場符號（lift × 1.3）之下
       surfaceRoot.scale.setScalar(s(lift * 1.3)); surfaceRoot.position.set(0, 0, 0);
     } else {
       if (patch) { patch.scale.setScalar(1); patch.position.y = lift; } bordersF.position.y = lift * 1.7; if (hiLines) { hiLines.scale.setScalar(1); hiLines.position.y = lift * 1.9; }
       if (ZONE_G) ZONE_G.f.position.y = lift * 1.8;
+      if (CVG) CVG.mf.position.y = lift * 1.15;
       surfaceRoot.scale.setScalar(1); surfaceRoot.position.y = lift * 1.3;
     }
   } else { surfaceRoot.scale.setScalar(1); surfaceRoot.position.set(0, 0, 0); if (hiLines) { hiLines.scale.setScalar(1); hiLines.position.set(0, 0, 0); } }
@@ -2502,6 +2505,8 @@ function loadIntl() {
 }
 function liveChanged() {
   farmLayerDirty = true;
+  if (CVG) cvgPaint();
+  renderCvgLegend();
   if (!active || !farmsReady) return;
   if (panelTab === 'prof' && (!byIso[S.region] || S.region === 'TWN' || liveKeys(S.region).length)) renderProfile();
   if (panelTab === 'farms') renderFarmResults(true);
@@ -3344,7 +3349,7 @@ let tipPane = null, hoverKey = null, hoverTimer = null;
 function tipCountry(c) {
   const on = valAt(c.on, S.year), off = valAt(c.off, S.year);
   return '<b>' + esc(cname(c)) + '</b> · ' + Math.floor(S.year) + '<br><i class="gsw" style="background:var(--on)"></i>' + T('onshore') + ' ' + fmtMW(on) + '<br><i class="gsw" style="background:var(--off)"></i>' + T('offshore') + ' ' + fmtMW(off) + '<br>' + T('total') + ' <b>' + fmtMW(on + off) + '</b>' +
-    (atLT() ? '<br><span style="color:var(--ginkm)">' + esc(ltLine(c)) + '</span>' : '');
+    (atLT() ? '<br><span style="color:var(--ginkm)">' + esc(ltLine(c)) + '</span>' : '') + cvgTip(c.iso);
 }
 function liveTip(f) {
   const x = liveOn() && liveFor(f); if (!x) return '';
@@ -3421,7 +3426,7 @@ function setView(v) {
   S.view = v; const st = $('g-stage'); st.className = v === 'map' ? 'mapOnly' : v === 'bars' ? 'barOnly' : 'split';
   document.querySelectorAll('#g-viewSeg button').forEach(b => b.classList.toggle('active', b.dataset.view === v));
   setTimeout(() => { resize(); updateBars(true); }, 30);
-  zonesVisible(); renderZoneLegend();
+  zonesVisible(); renderZoneLegend(); cvgVisible(); renderCvgLegend();
   syncURL();
 }
 /* ================= 此刻的風：NOAA GFS 離地 10 m 風場（公有領域，tools/fetch_gfs_wind.py → data/live/wind_now.png）畫成流動的粒子 =================
@@ -3629,6 +3634,100 @@ function toggleZones(on) {
   else { zonesVisible(); renderZoneLegend(); }
   syncURL();
 }
+/* ================= 即時資料涵蓋範圍：哪些國家有全國、哪些只有部分地區此刻的風電出力 =================
+   依 data/live/intl_realtime.json 實際有的來源（台灣另看台電即時資料）替國家上色，畫在一張等距圓柱畫布上、蓋在地球（或平面）上，跟高解析圖磚一起抬高。
+   全國＝實心青綠、部分＝紫色斜線；dataviz 色盲檢查兩色可分，紫色在陸地底色上對比不足，所以另有斜線紋理，圖例與提示框也寫出國家與範圍。
+   預設關閉，網址 live=1；單檔公開版沒有即時資料，不提供。 */
+const CVG_HEX = { full: '#25aa8a', part: '#a072ea' };
+const CVG_PART = {                                   // 只涵蓋部分地區的國家與原因（與「概況」的即時資料說明一致）
+  GBR: ['大不列顛只有電網營運計量的風電（大部分接在配電網的風機不在內）；北愛爾蘭是全區估計值', 'Great Britain only has wind metered by the grid operator (most turbines on the distribution network are left out); Northern Ireland is an estimate for the whole area'],
+  USA: ['只有德州電網（ERCOT）與加州（CAISO）', 'only the Texas grid (ERCOT) and California (CAISO)'],
+  AUS: ['只有東部電網（NEM），不含西澳與北領地', 'only the eastern grid (NEM), not Western Australia or the Northern Territory'],
+  CAN: ['只有亞伯達（AESO）與安大略（IESO）', 'only Alberta (AESO) and Ontario (IESO)'],
+};
+const CVG_BOX = { FRA: [-6, 41, 10, 52] };           // 只塗本土：法國的海外省與海外領地是獨立電網，不在 RTE 的範圍
+let CVG = null;
+function cvgOf(iso) {
+  if (iso === 'TWN') return WW.live && !LITE ? 'full' : null;
+  if (!liveKeys(iso).length) return null;
+  return CVG_PART[iso] ? 'part' : 'full';
+}
+function cvgSetup() {
+  const cv = document.createElement('canvas'); cv.width = 2048; cv.height = 1024;
+  const tex = new THREE.CanvasTexture(cv); tex.anisotropy = 4;
+  const mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false });
+  const mg = new THREE.Mesh(new THREE.SphereGeometry(R, 160, 100), mat);
+  const pg = new THREE.PlaneGeometry(360 * FS, 180 * FS); pg.rotateX(-Math.PI / 2);
+  const mf = new THREE.Mesh(pg, mat);
+  mg.renderOrder = mf.renderOrder = 1; mg.visible = mf.visible = false; scene.add(mg, mf);
+  const pc = document.createElement('canvas'); pc.width = pc.height = 16;          // 斜線紋理（45°，約每 2.8 度一條）
+  const p = pc.getContext('2d'); p.strokeStyle = CVG_HEX.part; p.globalAlpha = 0.6; p.lineWidth = 3;
+  [[-8, 8], [0, 16], [8, 24]].forEach(([a, b]) => { p.beginPath(); p.moveTo(a, 16); p.lineTo(b, 0); p.stroke(); });
+  CVG = { cv, g: cv.getContext('2d'), tex, mg, mf, pat: cv.getContext('2d').createPattern(pc, 'repeat'), sig: null };
+}
+function cvgPaint() {
+  if (!CVG) return;
+  const isos = Object.keys(isoRings).filter(cvgOf), sig = isos.map(i => i + cvgOf(i)).join();
+  if (sig === CVG.sig) return;
+  CVG.sig = sig;
+  const g = CVG.g, CW = CVG.cv.width, CH = CVG.cv.height;
+  g.clearRect(0, 0, CW, CH); g.lineJoin = 'round';
+  isos.forEach(iso => {
+    const c = cvgOf(iso), b = CVG_BOX[iso];
+    g.beginPath();
+    isoRings[iso].forEach(k => {
+      const bx = ringBox[k]; if (b && (bx[0] < b[0] || bx[2] > b[2] || bx[1] < b[1] || bx[3] > b[3])) return;
+      const r = RINGS[k];
+      for (let i = 0; i < r.length; i += 2) { const x = (r[i] + 180) / 360 * CW, y = (90 - r[i + 1]) / 180 * CH; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); }
+      g.closePath();
+    });
+    if (c === 'full') { g.globalAlpha = 0.5; g.fillStyle = CVG_HEX.full; g.fill(); }
+    else { g.globalAlpha = 0.12; g.fillStyle = CVG_HEX.part; g.fill(); g.globalAlpha = 1; g.fillStyle = CVG.pat; g.fill(); }
+    g.globalAlpha = 0.95; g.strokeStyle = CVG_HEX[c]; g.lineWidth = 1.5; g.stroke();
+  });
+  g.globalAlpha = 1;
+  CVG.tex.needsUpdate = true;
+}
+function cvgVisible() {
+  if (!CVG) return;
+  const flat = S.modeT > 0.5, on = !!S.liveCov && S.view !== 'bars' && !modeAnim;
+  CVG.mg.visible = on && !flat; CVG.mf.visible = on && flat;
+}
+function cvgTip(iso) {
+  if (!S.liveCov) return '';
+  const c = cvgOf(iso);
+  const txt = !c ? L('本站沒有這個國家此刻的風電出力', 'No live wind output for this country here')
+    : c === 'full' ? L('即時資料：全國', 'Live data: whole country') + (iso === 'FRA' ? L('（本土）', ' (mainland)') : '')
+    : L('即時資料：部分地區', 'Live data: part of the country');
+  return '<div class="tcvg">' + (c ? '<i class="cvsw ' + c + '"></i>' : '') + '<span>' + esc(txt) + (c === 'part' ? '<small>' + esc(CVG_PART[iso][lang === 'en' ? 1 : 0]) + '</small>' : '') + '</span></div>';
+}
+function renderCvgLegend() {
+  const el = $('g-cvgLegend'); if (!el) return;
+  if (!S.liveCov || S.view === 'bars') { el.hidden = true; return; }
+  const ln = iso => '<a href="#" data-liso="' + iso + '">' + esc(byIso[iso] ? cname(byIso[iso]) : iso) + '</a>';
+  const of = c => Object.keys(isoRings).filter(i => cvgOf(i) === c).sort((a, b) => (byIso[a] ? cname(byIso[a]) : a).localeCompare(byIso[b] ? cname(byIso[b]) : b, lang === 'en' ? 'en' : 'zh-Hant'));
+  const full = of('full'), part = of('part');
+  el.innerHTML = '<div class="wlh"><b>' + esc(L('即時風電出力的涵蓋範圍', 'Live wind output coverage')) + '</b><span class="cvt" role="button" tabindex="0" aria-expanded="' + el.classList.contains('open') + '">' + esc(L('說明', 'Details')) + '</span></div>' +
+    (!INTL ? '<div class="wln">' + esc(L('國外即時資料還沒載入（離線或暫時無法取得）', 'Overseas live data has not loaded (offline or unavailable)')) + '</div>' : '') +
+    '<div class="zl"><i class="cvsw full"></i><span><b>' + esc(L('全國', 'Whole country')) + '</b>' + L('（', ' (') + full.length + L('）：', '): ') + full.map(ln).join(L('、', ', ')) + '</span></div>' +
+    (part.length ? '<div class="zl"><i class="cvsw part"></i><span><b>' + esc(L('部分地區', 'Part of the country')) + '</b>' + L('（', ' (') + part.length + L('）：', '): ') + part.map(ln).join(L('、', ', ')) + '</span></div>' +
+      '<ul class="cvp">' + part.map(i => '<li>' + esc(byIso[i] ? cname(byIso[i]) : i) + L('：', ': ') + esc(CVG_PART[i][lang === 'en' ? 1 : 0]) + '</li>').join('') + '</ul>' : '') +
+    '<div class="wln cvn">' + esc(L('顏色只表示本站有沒有該國此刻的風電出力、涵蓋多少，不是出力大小；法國只有本土。沒有顏色的國家沒有本站可用的即時資料（例如日本的電網業者要求事先同意）。點國家名稱看此刻的數字、48 小時趨勢與資料授權。',
+      'Colours show whether the site has live wind output for a country and how much of it the data covers, not how much is generated; France is mainland only. Countries without colour have no live data the site may use (Japan’s grid operators, for example, require prior consent). Click a name for the current figure, the 48-hour trend and the data licence.')) + '</div>';
+  el.querySelectorAll('[data-liso]').forEach(a => a.onclick = e => { e.preventDefault(); e.stopPropagation(); setRegion(a.dataset.liso); });
+  const tg = () => { el.classList.toggle('open'); el.querySelector('.cvt').setAttribute('aria-expanded', el.classList.contains('open')); };   // 原因與說明預設收起，點一下展開
+  el.onclick = e => { if (e.target.tagName !== 'A') tg(); };
+  el.querySelector('.cvt').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tg(); } };
+  el.hidden = false;
+}
+function toggleLiveCov(on) {
+  S.liveCov = on != null ? on : !S.liveCov;
+  const b = $('g-btnLiveCov'); b.classList.toggle('active', S.liveCov); b.setAttribute('aria-pressed', S.liveCov ? 'true' : 'false');
+  if (S.liveCov && !CVG) cvgSetup();
+  if (S.liveCov) cvgPaint();
+  cvgVisible(); renderCvgLegend(); hoverKey = null;
+  syncURL();
+}
 function togglePipe(on) {
   S.pipe = on != null ? on : !S.pipe; WW.store.set('ww_globe_pipe', S.pipe ? '1' : '0');
   const b = $('g-btnPipe'); b.classList.toggle('active', S.pipe); b.setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
@@ -3646,7 +3745,7 @@ function applyI18n() {
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
-  renderWindLegend(); renderZoneLegend();
+  renderWindLegend(); renderZoneLegend(); renderCvgLegend();
   renderOutput();
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
@@ -3816,7 +3915,9 @@ function showSources() {
           '<a href="https://www.data.go.kr/data/15142651/openapi.do" target="_blank" rel="noopener">data.go.kr 15142651</a>' + (zh ? '）。本站計算每小時平均。' : '). Hourly means computed by this site.') + '</li>' +
         '<li>' + (zh ? '巴西：ONS 網站「Energia Agora」頁背後的資料端點，全國互聯電網（SIN）每分鐘的風電（沒有公開文件，也沒有附授權條款）；同一數列在 ' : 'Brazil: the data endpoint behind the “Energia Agora” page on the ONS website, wind output of the National Interconnected System (SIN) every minute (undocumented, with no licence of its own); the same series is published on the ') +
           '<a href="https://dados.ons.org.br/dataset/balanco-energia-subsistema" target="_blank" rel="noopener">' + (zh ? 'ONS 開放資料入口網站' : 'ONS open-data portal') + '</a>' + (zh ? '以 CC BY 4.0 公布，本站據此使用並標示 ONS；每小時平均由本站計算。' : ' under CC BY 4.0, which the site relies on, crediting ONS; hourly means computed by this site.') + '</li>' +
-        '<li>' + (zh ? '日本各電力區域也公開每 30 分鐘的風電實績，但各家網站條款都要求轉載前取得同意（九州另禁止程式自動取得），所以沒有收錄。' : 'Japan’s grid operators also publish 30-minute wind output by area, but every operator’s site terms require consent before republishing (Kyushu also bans automated retrieval), so it is not included.') + '</li></ul></li></ul>') +
+        '<li>' + (zh ? '日本各電力區域也公開每 30 分鐘的風電實績，但各家網站條款都要求轉載前取得同意（九州另禁止程式自動取得），所以沒有收錄。' : 'Japan’s grid operators also publish 30-minute wind output by area, but every operator’s site terms require consent before republishing (Kyushu also bans automated retrieval), so it is not included.') + '</li></ul></li>' +
+      '<li>' + (zh ? '工具列「即時資料」依上列來源替國家上色：涵蓋全國的塗實心青綠，只涵蓋部分地區的塗紫色斜線（大不列顛只有電網營運計量的風電、美國只有德州與加州、澳洲只有東部電網、加拿大只有亞伯達與安大略）；法國只塗本土。顏色不表示出力大小。'
+        : 'The “Live data” toolbar button colours countries by these sources: solid teal where the data covers the whole country, violet hatching where it covers only part (Great Britain only has wind metered by the grid operator, the US only Texas and California, Australia only the eastern grid, Canada only Alberta and Ontario); France is coloured on the mainland only. The colours do not show how much is generated.') + '</li></ul>') +
     '<h4>' + (zh ? '海域（工具列「海域」）' : 'Sea zones (toolbar “Sea zones”)') + '</h4><ul><li><a href="https://www.marineregions.org/" target="_blank" rel="noopener">Flanders Marine Institute (VLIZ), Marine Regions: Maritime Boundaries Geodatabase v12 (2023)</a>' +
       (zh ? '（CC BY 4.0）的專屬經濟區界線：不畫基線，依類型分成協議或判決、中線與 200 浬外界、未定或有爭議（虛線）三種，簡化到約 2 km 供地圖顯示（tools/build_offshore_zones.py）。界線不具法律效力，也不代表本站對任何爭議海域的立場；完整資料請到 marineregions.org。'
         : ' (CC BY 4.0), exclusive economic zone boundaries: baselines left out, grouped as agreed or ruled, median lines and 200 NM limits, and unsettled or disputed (dashed), simplified to about 2 km for display (tools/build_offshore_zones.py). The lines have no legal value and imply no position on any disputed area; for the data itself, see marineregions.org.') +
@@ -4158,6 +4259,7 @@ function stateParams() {
   if (S.layer !== 'both') p.layer = S.layer;
   if (S.flow) p.flow = '1';
   if (S.zones) p.zones = '1';
+  if (S.liveCov) p.live = '1';
   if (outShown()) { p.out = OUT.iso + '.' + OUT.view; if (isSamp() && OUT.per !== '90') p.op = OUT.per; }
   if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
@@ -4192,6 +4294,7 @@ function applyParams(p, fromFarms) {
   if (p.pipe != null) togglePipe(p.pipe !== '0');
   if (p.flow != null && (p.flow === '1') !== !!S.flow) toggleFlow(p.flow === '1');
   if ((p.zones === '1') !== !!S.zones && !LITE) toggleZones(p.zones === '1');
+  if ((p.live === '1') !== !!S.liveCov && !LITE) toggleLiveCov(p.live === '1');
   if (p.r && !fromFarms) setRegion(p.r);
   if (p.y && !isNaN(+p.y)) { S.year = clamp(+p.y, Y0, Y1); syncYearUI(); }
   else if (!fromFarms && p.play !== '1') { S.year = Y1; syncYearUI(); }     // 連結省略 y ＝ 最新年份（見 stateParams）
@@ -4230,7 +4333,15 @@ function wireUI() {
   canvas.addEventListener('mousemove', ev => {
     if (ev.buttons) { hideTip(); return; }
     const h = pick(ev), pane = $('g-mapPane');
-    if (!h) { hideTip(); canvas.style.cursor = 'grab'; return; }
+    if (!h) {
+      const g = S.liveCov && S.view !== 'bars' && groundAt(ev), iso = g && countryAt(g.lon, g.lat);      // 涵蓋範圍圖層：滑過陸地也顯示該國的涵蓋範圍
+      if (iso && byIso[iso]) {
+        canvas.style.cursor = 'pointer';
+        if (hoverKey === 'v' + iso) { moveTip(ev, pane); return; }
+        hoverKey = 'v' + iso; showTip(ev, '<b>' + esc(cname(byIso[iso])) + '</b>' + cvgTip(iso), pane); return;
+      }
+      hideTip(); canvas.style.cursor = 'grab'; return;
+    }
     canvas.style.cursor = 'pointer';
     const key = h.farm ? 'f' + h.farm.name + h.farm.lat : h.ms ? 'm' + h.ms.name : 'c' + h.country.iso;
     if (key === hoverKey) { moveTip(ev, pane); return; }
@@ -4284,6 +4395,7 @@ function wireUI() {
   $('g-baseSel').onchange = e => setBase(e.target.value);
   $('g-btnFlow').onclick = () => toggleFlow();
   $('g-btnZones').onclick = () => toggleZones();
+  $('g-btnLiveCov').onclick = () => toggleLiveCov();
   $('g-btnOut').onclick = () => openOutput({ iso: OUT_ISO.includes(S.region) ? S.region : OUT.iso });
   $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');

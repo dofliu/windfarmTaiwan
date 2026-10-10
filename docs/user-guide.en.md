@@ -2,7 +2,7 @@
 
 English (this page) ｜ [中文](./user-guide.md)
 
-How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.34.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
+How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.35.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
 
 ## Contents
 
@@ -123,6 +123,7 @@ Clicking empty ground zooms in there. Click the map once before using the keys; 
 | **Pipeline** | Projects under construction, in pre-construction or announced, as dashed rings, brighter when closer to completion; on by default |
 | **Wind now** | The latest NOAA GFS 10 m wind as flowing particles, refreshed every 6 hours; it is today's weather and does not follow the timeline |
 | **Sea zones** | EEZ boundaries and national offshore wind areas (4.7) |
+| **Live data** | Colours countries by whether the site has live wind output for them: the whole country or only part of it (4.7) |
 | **⚓ Ports** | Offshore wind ports (4.7); on by default |
 | **⚑ Events** | Major events and incidents (4.7); on by default |
 | **Auto-rotate** | Turns the globe slowly |
@@ -180,6 +181,7 @@ Port cards list the roles, the farms served (drawn as arcs on the map) and the s
 - **Wind now**: see 4.3; the legend gives the data time (Taiwan time).
 - **Sea zones**: EEZ boundaries (three kinds of line: agreed or ruled, median lines and 200 NM limits, unsettled or disputed); Taiwan's 36 offshore wind potential sites published by the Energy Administration, Japan's 13 promotion zones, and the planned or leased areas of 6 North Sea countries (Netherlands, Germany, Belgium, Denmark, Scotland, Norway), named with their area when zoomed in.
   **The lines have no legal value and imply no position on disputed waters.**
+- **Live data**: countries for which the site has live wind output are coloured — **solid teal** = the whole country (Germany, France, Denmark, Belgium, Poland, Ireland, Korea, Brazil, Taiwan), **violet hatching** = only part of it (UK: Great Britain only has wind metered by the grid operator, and Northern Ireland is an estimate for the whole area; US: only Texas and California; Australia: only the eastern grid; Canada: only Alberta and Ontario); no colour = no live data the site may use. France is coloured on the mainland only. The colours only show whether there is data and how much of the country it covers, not how much is generated. Hover a country for its coverage; the legend lists the countries, "Details" shows the reasons for the partial ones, and a name opens the current figure and 48-hour trend. The public single-file globe does not have this layer.
 - **Wind speed** (the "Basemap" menu): Global Wind Atlas mean wind speed at 100 m, in 1 m/s bands with a legend.
 
 ### 4.8 Output
@@ -254,13 +256,13 @@ The link is the view: share it and the other person sees the same thing. The glo
 | `q`, `fst`, `fty`, `fmin`, `fy` | Search text, status (`op,p1,p2,p3,ret`), type (`on,off,fl`), minimum MW, year range (`2015-2025`) | `fty=fl&fst=op` |
 | `out` | Output: `TWN`, `TWS`, `USA`, `AUS`, `DNK`, `DKT` plus `.gen`, `.cf` or `.model` | `out=USA.cf` |
 | `op` | Live-sample period: `30`, `all` (90 days by default) | `op=30` |
-| `flow=1`, `zones=1` | Turn on Wind now, Sea zones | `zones=1` |
+| `flow=1`, `zones=1`, `live=1` | Turn on Wind now, Sea zones, live data coverage | `live=1` |
 | `base` | Basemap: `relief`, `sat`, `plain`, `wind` | `base=wind` |
 | `pipe` | Pipeline: `0` off, `1` on | `pipe=0` |
 | `play=1` | Play from 1980 (or from `y`) | `play=1` |
 | `tour` | `1` auto tour; `tw`, `eu`, `cn`, `fl` story tours | `tour=tw` |
 
-Examples: `#/global?fty=fl&fst=op` (operating floating farms worldwide), `#/global?r=C:Europe&layer=fd` (foundations in Europe), `#/global?r=TWN&zones=1` (Taiwan with sea zones).
+Examples: `#/global?fty=fl&fst=op` (operating floating farms worldwide), `#/global?r=C:Europe&layer=fd` (foundations in Europe), `#/global?r=TWN&zones=1` (Taiwan with sea zones), `#/global?r=C:Europe&live=1` (live data coverage in Europe).
 `base`, `pipe`, `play` and `tour` apply when a link is opened but are not written back; the Ports and Events toggles are remembered in the browser, not in the link.
 
 ## 7. Single-file edition and public global wind map
