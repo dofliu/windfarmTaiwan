@@ -94,7 +94,7 @@
   - **導覽**：自動導覽與四個故事導覽（台灣離岸之路、歐洲離岸、中國崛起、浮動式風電，`#/global?tour=tw`／`eu`／`cn`／`fl`）
   - **澳洲、加拿大即時出力**：AEMO、AESO、IESO 約 150 座風場；時間軸在最新年份時，有即時資料的風場外圈為綠色、葉片依出力轉動
   - **各國此刻的風電總出力**：英國（大不列顛、北愛爾蘭）、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國、巴西全國與美國德州、加州電網的總量與 48 小時趨勢（只有總量），在國家概況與全球「各地此刻的風電出力」清單；說明見[使用說明 4.5](./docs/user-guide.md#45-側欄分頁)
-  - **即時資料涵蓋範圍**：工具列「即時資料」依本站有沒有此刻的風電出力替國家上色——涵蓋全國（實心青綠）或只有部分地區（紫色斜線），見[使用說明 4.7](./docs/user-guide.md#47-圖層)
+  - **即時資料涵蓋範圍**：工具列「即時資料」依本站有沒有此刻的風電出力替國家上色——涵蓋全國（實心青綠）或只有部分地區（紫色斜線；美國、加拿大、澳洲只塗有資料的州或省），見[使用說明 4.7](./docs/user-guide.md#47-圖層)
   - 無 WebGL 的裝置自動改用長條排名
 - **風電知識** `#/learn` — 13 章：從 1888 年 Brush 風機到 2025 年、陸域與離岸、水下基礎、浮動式、風機大型化、亞洲崛起、台灣的離岸風電、
   為什麼要發展風電、名詞解釋與完整資料來源；圖表皆由同一份全球資料集繪製，每章都能跳到地球儀重播那一段
@@ -153,6 +153,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   日本促進區域與北海周邊國家的離岸風電規劃區，由 `tools/build_offshore_zones.py` 產生（潛力場址原始座標存在 `data/global/sources/twn_offshore_potential_sites_36681.csv`，
   日本促進區域的公告點位存在 `data/global/sources/jpn_promotion_zones.json`，北海各國由建置程式從官方開放圖層下載），開啟「海域」時才載入
 - `data/global/wind_resource.json` — 平均風速底圖的分級與圖例（`tools/build_wind_resource.py` 產生）
+- `data/global/live_regions.json` — 「即時資料」圖層裡有即時資料的州或省（德州、加州、亞伯達、安大略與澳洲東部電網的州與領地；Natural Earth 1:50m 州省界線，公有領域），由 `tools/build_live_regions.py` 產生，開啟「即時資料」時才載入
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄、
   OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）與其他建置用的原始檔
 - `data/live/` — 澳洲、加拿大即時出力與十二個國家／地區／電網的風電總量 `intl_realtime.json`、電網機組代碼 → 風場的對照 `units.json`（`tools/build_live_units.py` 產生；安大略依 IESO 公布的設施對照人工核對）、
@@ -381,7 +382,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   其他國家 © [OpenStreetMap](https://www.openstreetmap.org/copyright) 貢獻者（ODbL 1.0，衍生的 `data/global/turbines_osm.json` 同樣以 ODbL 分享）
 - 水下基礎：OSPAR Offshore Renewable Energy Developments 2024（CC0）；其他逐場出處（開發商、施工廠商、政府文件、產業新聞）寫在 [docs/foundations.md](./docs/foundations.md)
 - 重大事件與事故、港口：逐筆附主管機關、業主或產業新聞的出處（[docs/events.md](./docs/events.md)、`data/global/ports.json`）
-- 國界與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
+- 國界、州省界線與地形：Natural Earth（公有領域）；衛星底圖：NASA Earth Observatory Blue Marble Next Generation（公有領域）
 - 平均風速底圖：Global Wind Atlas 3（DTU 丹麥技術大學、世界銀行集團，CC BY 4.0）
 - 海域：專屬經濟區界線取自 Flanders Marine Institute（VLIZ）[Marine Regions](https://www.marineregions.org/) Maritime Boundaries Geodatabase 第 12 版（2023，CC BY 4.0，已簡化，不具法律效力）；
   台灣離岸風電潛力場址取自經濟部能源署[台灣離岸風電潛力場址地理資訊](https://data.gov.tw/dataset/36681)（政府資料開放授權條款）；

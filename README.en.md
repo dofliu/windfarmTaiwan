@@ -119,7 +119,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
     live data get a green ring and their rotors spin with their current output
   - **National wind output right now**: totals and a 48-hour trend for the UK (Great Britain, Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas
     and California grids (totals only), in the country profiles and the world "Wind output right now" list; see [user guide 4.5](./docs/user-guide.en.md#45-side-panel-tabs)
-  - **Live data coverage**: the "Live data" toolbar button colours countries by whether the site has live wind output for them — the whole country (solid teal) or only part of it (violet hatching); see [user guide 4.7](./docs/user-guide.en.md#47-layers)
+  - **Live data coverage**: the "Live data" toolbar button colours countries by whether the site has live wind output for them — the whole country (solid teal) or only part of it (violet hatching; in the US, Canada and Australia only the covered states or provinces); see [user guide 4.7](./docs/user-guide.en.md#47-layers)
   - Devices without WebGL fall back to the bar race automatically
 - **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations, floating wind,
   ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a glossary and full source list; every chart is drawn
@@ -194,6 +194,8 @@ output and sea zones load only when needed.
   notices' vertices in `data/global/sources/jpn_promotion_zones.json`, and the North Sea layers are downloaded from official open services by the build) and loaded
   when "Sea zones" is turned on
 - `data/global/wind_resource.json` — bands and legend of the wind speed basemap (built by `tools/build_wind_resource.py`)
+- `data/global/live_regions.json` — the states and provinces with live data in the "Live data" layer (Texas, California, Alberta, Ontario and the states and territories of Australia's
+  eastern grid; Natural Earth 1:50m state and province borders, public domain), built by `tools/build_live_regions.py` and loaded when "Live data" is turned on
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, the merge log, the wind records of OSPAR Offshore
   Renewables 2024 (CC0, used for foundation types) and other raw build inputs
@@ -507,7 +509,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Foundations: OSPAR Offshore Renewable Energy Developments 2024 (CC0); every other farm's sources (developers, construction contractors, government documents,
   trade press) are in [docs/foundations.en.md](./docs/foundations.en.md)
 - Major events and incidents, ports: each row cites a regulator, owner or trade press source ([docs/events.en.md](./docs/events.en.md), `data/global/ports.json`)
-- Borders and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
+- Borders, state and province borders, and relief: Natural Earth (public domain); satellite basemap: NASA Earth Observatory Blue
   Marble Next Generation (public domain)
 - Wind speed basemap: Global Wind Atlas 3 (DTU Wind Energy / World Bank Group, CC BY 4.0)
 - Sea zones: EEZ boundaries from the Flanders Marine Institute (VLIZ) [Marine Regions](https://www.marineregions.org/) Maritime Boundaries Geodatabase v12

@@ -2,7 +2,7 @@
 
 English (this page) ｜ [中文](./user-guide.md)
 
-How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.35.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
+How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.36.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
 
 ## Contents
 
@@ -181,7 +181,7 @@ Port cards list the roles, the farms served (drawn as arcs on the map) and the s
 - **Wind now**: see 4.3; the legend gives the data time (Taiwan time).
 - **Sea zones**: EEZ boundaries (three kinds of line: agreed or ruled, median lines and 200 NM limits, unsettled or disputed); Taiwan's 36 offshore wind potential sites published by the Energy Administration, Japan's 13 promotion zones, and the planned or leased areas of 6 North Sea countries (Netherlands, Germany, Belgium, Denmark, Scotland, Norway), named with their area when zoomed in.
   **The lines have no legal value and imply no position on disputed waters.**
-- **Live data**: countries for which the site has live wind output are coloured — **solid teal** = the whole country (Germany, France, Denmark, Belgium, Poland, Ireland, Korea, Brazil, Taiwan), **violet hatching** = only part of it (UK: Great Britain only has wind metered by the grid operator, and Northern Ireland is an estimate for the whole area; US: only Texas and California; Australia: only the eastern grid; Canada: only Alberta and Ontario); no colour = no live data the site may use. France is coloured on the mainland only. The colours only show whether there is data and how much of the country it covers, not how much is generated. Hover a country for its coverage; the legend lists the countries, "Details" shows the reasons for the partial ones, and a name opens the current figure and 48-hour trend. The public single-file globe does not have this layer.
+- **Live data**: countries for which the site has live wind output are coloured — **solid teal** = the whole country (Germany, France, Denmark, Belgium, Poland, Ireland, Korea, Brazil, Taiwan), **violet hatching** = only part of it (UK: Great Britain only has wind metered by the grid operator, and Northern Ireland is an estimate for the whole area; US: only Texas and California; Australia: only the eastern grid; Canada: only Alberta and Ontario); no colour = no live data the site may use. In the US, Canada and Australia only the covered states or provinces are coloured, with the national border dashed (state and province borders are approximate, since grids do not follow them exactly); both parts of the UK have data, but Great Britain leaves out most turbines on the distribution network, so the whole country is hatched. France is coloured on the mainland only. The colours only show whether there is data and how much of the country it covers, not how much is generated. Hover over land to see whether that country or state has data; the legend lists the countries, "Details" shows the reasons for the partial ones, and a name opens the current figure and 48-hour trend. The public single-file globe does not have this layer.
 - **Wind speed** (the "Basemap" menu): Global Wind Atlas mean wind speed at 100 m, in 1 m/s bands with a legend.
 
 ### 4.8 Output

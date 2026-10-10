@@ -193,6 +193,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Australian/Canadian live data: the scheduled `intl_wind_scraper.py` (standard library only) reads `data/live/units.json`,
   built by `tools/build_live_units.py`; hand-checked matches live in its `MANUAL` with their source. Never guess a match —
   leave unmatched units in the grid total. Keep each source's attribution (AEMO source, AESO and IESO copyright notices) next to the data.
+- 地球儀「即時資料」圖層依 `intl_realtime.json` 實際有的來源上色（`globe.js` 的 `CVG_PART`、`CVG_BOX`）；只涵蓋部分地區的國家只塗有資料的州或省，
+  對照寫在 `tools/build_live_regions.py` 的 `REGIONS`（Natural Earth 1:50m 州省界線，公有領域），改完重跑。新增或拿掉即時來源時三處一起檢查；州省界線是近似範圍，介面要寫明。
+  The globe's "Live data" layer colours countries by the sources present in `intl_realtime.json` (`CVG_PART`, `CVG_BOX` in `globe.js`); partly covered countries are
+  coloured only in the covered states or provinces listed in `REGIONS` in `tools/build_live_regions.py` (Natural Earth 1:50m, public domain; re-run after editing).
+  Check all three when adding or removing a live source; the borders are approximate and the UI must say so.
 
 ## 5. 測試 · Testing
 
