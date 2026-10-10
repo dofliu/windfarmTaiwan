@@ -117,7 +117,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
     `#/global?tour=tw` / `eu` / `cn` / `fl`)
   - **Live output in Australia and Canada**: about 150 farms from AEMO, AESO and IESO; with the timeline at the latest year, farms with
     live data get a green ring and their rotors spin with their current output
-  - **National wind output right now**: totals and a 48-hour trend for the UK (Great Britain, Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland and Korea and the Texas
+  - **National wind output right now**: totals and a 48-hour trend for the UK (Great Britain, Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas
     and California grids (totals only), in the country profiles and the world "Wind output right now" list; see [user guide 4.5](./docs/user-guide.en.md#45-side-panel-tabs)
   - Devices without WebGL fall back to the bar race automatically
 - **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations, floating wind,
@@ -196,7 +196,7 @@ output and sea zones load only when needed.
 - `data/global/sources/` — the curated farm list before merging (with the Taiwan/Japan audit status), the
   pipeline projects and Japanese farm list compiled in 2026, the merge log, the wind records of OSPAR Offshore
   Renewables 2024 (CC0, used for foundation types) and other raw build inputs
-- `data/live/` — live output in Australia and Canada plus eleven national, regional and grid wind totals `intl_realtime.json`, the grid unit code → farm mapping `units.json` (built by
+- `data/live/` — live output in Australia and Canada plus twelve national, regional and grid wind totals `intl_realtime.json`, the grid unit code → farm mapping `units.json` (built by
   `tools/build_live_units.py`; Ontario checked by hand against IESO's published facility list), and Wind now `wind_now.webp` + `wind_now.json` (scheduled)
 - `data/archive/wind_history_archive_YYYY-MM.json` — the long-term archive of Taipower's official retrospective data, one file per month (written by `backfill_history.py`)
 - `data/archive/farm_daily.json` — daily samples of every grid unit (private farms included) in Taipower's live data, from June 2026 (added by the scraper
@@ -220,7 +220,7 @@ output and sea zones load only when needed.
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`; adds the daily samples of every grid
   unit → `data/archive/farm_daily.json`; also fetches the real-time supply-demand report → `grid_status.json`
 - `intl_wind_scraper.py` — runs about every 2 hours: fetches each wind farm's live output from Australia's NEM
-  (AEMO), Alberta (AESO) and Ontario (IESO), plus the wind totals of Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland, Korea, Texas (ERCOT)
+  (AEMO), Alberta (AESO) and Ontario (IESO), plus the wind totals of Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland, Korea, Brazil, Texas (ERCOT)
   and California (CAISO) → `data/live/intl_realtime.json` (with each grid's 48-hour total, and hourly means for the national
   totals); if a source fails, the previous values are kept and flagged, and Taiwan's data is unaffected
 - `wind_realtime.json` — live data (auto-updated by Actions)
@@ -476,6 +476,9 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Korea: Korea Power Exchange (KPX) [real-time supply and demand by source](https://www.kpx.or.kr/powerinfoSubmain.es?mid=a10404030000) (5-minute instantaneous values). The KPX page carries
   no licence; used because the same series is listed as "이용허락범위 제한 없음" (no restriction on use) on Korea's public data portal ([data.go.kr 15142651](https://www.data.go.kr/data/15142651/openapi.do))
   and under Korea's Public Data Act; hourly means computed by this site
+- Brazil: ONS [Energia Agora](https://www.ons.org.br/paginas/energia-agora/carga-e-geracao) (National Interconnected System wind output every minute; the page's undocumented data endpoint,
+  without a licence of its own); used because the same series is published under CC BY 4.0 on the [ONS open-data portal](https://dados.ons.org.br/dataset/balanco-energia-subsistema),
+  crediting ONS; hourly means computed by this site
 - Japan's grid operators all require consent before their data is republished, so Japan is not included
 - The assessment, and the countries not yet added, are in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)
 

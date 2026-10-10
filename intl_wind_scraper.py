@@ -18,6 +18,7 @@
     PL     波蘭：PSE 首頁地圖的即時快照（陸域、離岸）；趨勢的較早時段用 PSE 次日公布的每 15 分鐘風電總發電量
     IE/NI  愛爾蘭共和國／北愛爾蘭：EirGrid Smart Grid Dashboard 每 15 分鐘的風電估計
     KR     韓國：KPX 實時電力供需現況（發電源別）每 5 分鐘的瞬時值
+    BR     巴西：ONS Energia Agora 全國互聯電網（SIN）每分鐘的風電；端點只有當天，趨勢由每次執行累積
 機組對應到哪座風場由 data/live/units.json 決定（tools/build_live_units.py 產生）；對不到的機組只計入電網總量。
 任一來源失敗時保留上一次的數值並標示 ok=false，不寫入臆測值；另保留各電網總量 48 小時的歷史供前端畫趨勢。
 只用 Python 標準函式庫。
@@ -154,6 +155,8 @@ NAT = {
            "lic": "https://www.smartgriddashboard.com/all/open-data-license/"},
     "KR": {"iso": "KOR", "res": "5min", "url": "https://www.kpx.or.kr/powerinfoSubmain.es?mid=a10404030000",
            "lic": "https://www.data.go.kr/data/15142651/openapi.do"},
+    "BR": {"iso": "BRA", "res": "1min", "url": "https://www.ons.org.br/paginas/energia-agora/carga-e-geracao",
+           "lic": "https://dados.ons.org.br/dataset/balanco-energia-subsistema"},
 }
 NAT_NOTICE = {
     "GB": "Contains BMRS data © Elexon Limited copyright and database right {year}",
@@ -167,6 +170,7 @@ NAT_NOTICE = {
     "IE": "Supported by EirGrid Group Data (Smart Grid Dashboard, wind generation estimate; hourly means computed by this site)",
     "NI": "Supported by EirGrid Group Data (Smart Grid Dashboard, SONI area, wind generation estimate; hourly means computed by this site)",
     "KR": "출처: 한국전력거래소(KPX) 실시간 전력수급현황(발전원별, 5분 순시값) — Source: Korea Power Exchange (KPX); hourly means computed by this site",
+    "BR": "Fonte: ONS – Operador Nacional do Sistema Elétrico, Energia Agora (dados em tempo real, preliminares); a mesma série é publicada no Portal de Dados Abertos do ONS (CC BY 4.0). Médias horárias calculadas por este site / hourly means computed by this site",
 }
 
 
@@ -353,8 +357,26 @@ def fetch_kr(now):
     return pts, None
 
 
+def fetch_br(now):
+    """ONS「Energia Agora」（ONS 網站 Carga e geração 頁背後的資料端點，沒有公開文件）：巴西全國互聯電網（SIN）每分鐘的風電 MW，
+    只有巴西利亞時間（UTC−3，無夏令時間）當天 00:00 起的分鐘序號；較早的小時沿用上一次的檔案。"""
+    tz = dt.timezone(dt.timedelta(hours=-3))
+    j = get_json("https://tr.ons.org.br/Content/Get/Geracao_SIN_Eolica")
+    rows = []
+    for r in j.get("rows", []):
+        c = r.get("c") or []
+        if len(c) > 1 and c[0] and c[1] and c[0].get("v") is not None and c[1].get("v") is not None:
+            rows.append((int(c[0]["v"]), float(c[1]["v"])))
+    if not rows:
+        raise RuntimeError("ONS series is empty")
+    base = dt.datetime.combine(now.astimezone(tz).date(), dt.time(0), tzinfo=tz)
+    if base + dt.timedelta(minutes=rows[-1][0]) > now + dt.timedelta(minutes=15):      # 剛過午夜時可能還是前一天的
+        base -= dt.timedelta(days=1)
+    return [(base + dt.timedelta(minutes=m), v, None, None) for m, v in rows], None
+
+
 NAT_FETCH = {"GB": fetch_gb, "DE": fetch_de, "FR": fetch_fr, "DK": fetch_dk, "ERCOT": fetch_ercot, "CAISO": fetch_caiso,
-             "BE": fetch_be, "PL": fetch_pl, "IE": fetch_eirgrid("ROI"), "NI": fetch_eirgrid("NI"), "KR": fetch_kr}
+             "BE": fetch_be, "PL": fetch_pl, "IE": fetch_eirgrid("ROI"), "NI": fetch_eirgrid("NI"), "KR": fetch_kr, "BR": fetch_br}
 
 
 def nat_entry(key, pts, cap, now, prev=None):

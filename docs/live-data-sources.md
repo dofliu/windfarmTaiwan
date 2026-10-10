@@ -11,7 +11,7 @@
 **已接入（逐場）**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 約每 2 小時抓取，
 輸出 `data/live/intl_realtime.json`。
 
-**已接入（只有總量，v2.31.0；比利時、波蘭 v2.32.0；愛爾蘭、北愛爾蘭、韓國 v2.33.0）**：大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國全國，以及美國德州（ERCOT）、加州（CAISO）電網的風電總出力，
+**已接入（只有總量，v2.31.0；比利時、波蘭 v2.32.0；愛爾蘭、北愛爾蘭、韓國 v2.33.0；巴西 v2.34.0）**：大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國、巴西全國，以及美國德州（ERCOT）、加州（CAISO）電網的風電總出力，
 同一支程式、同一次 commit，寫在同一檔的 `nat`。每個來源存最新一筆（時間、MW；德、法、丹另有陸域／離岸）與過去 48 小時每個整點的平均；
 ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監測容量，國家概況只對這兩個顯示「約為容量的幾 %」，其他來源沒有同口徑的容量，不算百分比。
 任一來源失敗時保留上一次的數值並標示 `ok: false`。
@@ -27,12 +27,13 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 | BE | Elia 開放資料 `ods086`（近即時）＋`ods031`（歷史），`exports/json` | 比利時全國：離岸（Federal）、法蘭德斯與瓦隆的陸域，各分輸電網與配電網，每個時段 5 列，五列齊全才加總。欄位是「Measured & upscaled」：有監測的風場實測後推估到全部容量；另有「監測容量」合計約 6.0 GW，國家概況以它算百分比。近即時資料集只有今天，較早的時段用歷史資料集（同樣 5 列） | 15 分鐘 · 約 25 分鐘 |
 | PL | PSE 首頁「Mapa KSE」的 `www.pse.pl/transmissionMapService`（此刻）＋`api.raporty.pse.pl` 的 `his-wlk-cal`（趨勢） | 此刻值是網頁地圖小工具的資料端點（陸域、離岸風電，沒有公開文件，可能變動），只有一筆快照、沒有歷史；PSE 報表 API 的實際風電（`wi`＝「Sumaryczna generacja Źródeł Wiatrowych / Total generation of Wind Sources」，見 [EndpointsMap.pdf](https://api.raporty.pse.pl/EndpointsMap.pdf)）次日約 00:52 UTC 才公布，所以趨勢的前一天以前用它（`dtime_utc` 是時段結束），今天只有本站約每 2 小時的快照；API 其他有風電欄位的端點都是預測或日前計畫 | 快照 · 約 1 分鐘（趨勢的官方值晚一天） |
 | IE、NI | EirGrid Smart Grid Dashboard 的 `smartgriddashboard.com/api/chart/?region=ROI\|NI&chartType=wind&dateRange=day&areas=windactual` | 愛爾蘭共和國（ROI）放在愛爾蘭的概況、北愛爾蘭（NI，SONI 區域）放在英國的概況（大不列顛的數字不含北愛爾蘭）；全島（ALL）＝ROI＋NI。數值是 EirGrid 對全部風場出力的估計（[風電頁](https://www.smartgriddashboard.com/all/wind/)：「Wind Generation is an estimate of the total electrical output of all wind farms on the system」）。網頁背後的資料端點，沒有公開文件（EirGrid 已換過一次端點）；時間是愛爾蘭當地時間、不帶時區，沒說明是時段起點、終點還是瞬時值；一次可取多天，取三天剛好涵蓋 48 小時。沒有同口徑的裝置容量（年報的兩地資料日期不同），不算百分比 | 15 分鐘 · 約 2–6 分鐘 |
-| KR | KPX `powerSource.es?mid=a10404030000&device=chart&view_sdate=…&view_edate=…` | 韓國全國每 5 分鐘的瞬時值（網頁註明「실시간 전력수급현황은 5분주기 순시자료 입니다」，2024-11-23 起風電單獨列出），網頁內嵌 `var ictArr = [...]`，以日期區間一次取三天（約 1.3 MB）。KPX 說會限制海外 IP 連線，本環境連得上，GitHub Actions 待合併後確認；容量有兩個數列且彼此不一致，不算百分比 | 5 分鐘 · 約 4–7 分鐘 |
+| KR | KPX `powerSource.es?mid=a10404030000&device=chart&view_sdate=…&view_edate=…` | 韓國全國每 5 分鐘的瞬時值（網頁註明「실시간 전력수급현황은 5분주기 순시자료 입니다」，2024-11-23 起風電單獨列出），網頁內嵌 `var ictArr = [...]`，以日期區間一次取三天（約 1.3 MB）。KPX 說會限制海外 IP 連線，本環境與 GitHub Actions 都連得上（2026-10-10 確認）；容量有兩個數列且彼此不一致，不算百分比 | 5 分鐘 · 約 4–7 分鐘 |
+| BR | ONS「Energia Agora」頁背後的 `tr.ons.org.br/Content/Get/Geracao_SIN_Eolica` | 巴西全國互聯電網（SIN）每分鐘的風電，大部分在東北部；頁面註明 2021-03-02 起含「usinas não supervisionadas e sem relacionamento com o ONS」。Google Charts 格式（分鐘序號、MW），只有巴西利亞時間（UTC−3）當天的資料，所以 48 小時趨勢由每次執行累積（午夜前最後約 1 小時可能缺）；更早的同一數列在開放資料入口網站 `balanco-energia-subsistema`（每小時，晚約 30 小時）。ONS 開放資料的風電容量約 33.8 GW 只含 ONS 調度的電廠，與即時值口徑不同，不算百分比 | 1 分鐘（約每 9 分鐘一批）· 最多約 15 分鐘 |
 
-- **地球儀上的顯示**：英（含北愛爾蘭）、愛、德、法、丹、比、波、韓、美國的國家概況有「此刻」方塊（此刻值、陸域／離岸、48 小時趨勢、範圍說明、授權標示與連結）；
+- **地球儀上的顯示**：英（含北愛爾蘭）、愛、德、法、丹、比、波、韓、巴西、美國的國家概況有「此刻」方塊（此刻值、陸域／離岸、48 小時趨勢、範圍說明、授權標示與連結）；
   全球與各洲的概況另有「各地此刻的風電出力」清單（含台灣、澳洲、加拿大），依出力排序、不加總，點名稱進該國概況。
 - **比利時、波蘭的授權（2026-10-10 查明）**：見下面「授權」一節。波蘭的此刻值來自沒有公開文件的網頁端點，網站上寫明；端點失效時保留上一次的數值並標示資料延遲。
-- **檔案大小**：`intl_realtime.json` 從約 18 KB 增為約 24 KB（每小時平均以整數 MW、起始時間加陣列存放）。
+- **檔案大小**：`intl_realtime.json` 從約 18 KB 增為約 25 KB（每小時平均以整數 MW、起始時間加陣列存放）。
 
 - **地球儀上的顯示**：國家概況有各電網此刻的總出力與 48 小時趨勢；對應到的風場在卡片、提示與風場清單顯示此刻出力。
   時間軸在最新年份時，這些風場外圈為綠色，葉片轉速依此刻出力。
@@ -84,7 +85,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 | 法國 | RTE éCO2mix（ODRÉ） | 全國、12 個大區 | 15 分鐘 · 約 30 分鐘（大區約 1 小時） | 不需要 | 是 |
 | 比利時 | Elia `ods086` | 離岸、法蘭德斯、瓦隆 | 15 分鐘 · 約 30 分鐘 | 不需要 | 是 |
 | 波蘭 | PSE `api.raporty.pse.pl` | 全國 | 15 分鐘 | 不需要 | 是 |
-| 巴西 | ONS 即時（未公開文件的端點） | 全國、子系統 | 1 分鐘 · 約 2 分鐘 | 不需要 | 是 |
+| 巴西 | ONS 即時（未公開文件的端點） | 全國、子系統 | 1 分鐘 · 最多約 15 分鐘 | 不需要 | 是 |
 | 丹麥 | Energinet `PowerSystemRightNow` | 全國、DK1／DK2 | 1 分鐘 · 約 1 分鐘 | 不需要 | 否（帶網站來源時回傳空資料） |
 | 愛爾蘭 | EirGrid Smart Grid Dashboard（未公開文件的端點） | 全島、愛爾蘭共和國、北愛爾蘭 | 15 分鐘 · 約 2–6 分鐘 | 不需要 | 否 |
 | 美國德州 | ERCOT `fuel-mix.json` | 全系統 | 5 分鐘 · 約 2 分鐘 | 不需要 | 否 |
@@ -110,7 +111,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 - CAISO：可使用，須保留版權等聲明並標示 California ISO（[使用條款](https://www.caiso.com/privacy-terms-of-use)）
 - Elia：資料集標示「Elia Open Data Licence」，[授權頁](https://opendata.elia.be/pages/licence/)寫明「The data provided for are governed by Creative Commons Attribution 4.0 International Public License」（即 CC BY 4.0，適用比利時法、爭議由布魯塞爾法院管轄；頁面由 JavaScript 產生，原文在網頁原始碼裡）。標示 Elia、授權連結並註明本站的加總與平均
 - PSE：[公共資訊再利用條件](https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej)（2016 年依當時的《公共部門資訊再利用法》訂定）適用於 www.pse.pl 上公布的資訊：可免費用於商業或非商業目的；須註明「Informacja pozyskana ze strony www.pse.pl」與取用日期、移除 PSE 標誌、加工過的要告知並註明「przetworzona w całości/w części」、不得誤導。此刻值的端點就在 www.pse.pl；報表 API 在 `raporty.pse.pl`，pse.pl 的「資料」頁說新的報表都移到那裡，但條件原文沒有點名這個子網域
-- ONS：創用 CC 姓名標示
+- ONS：開放資料入口網站的資料集都標示「Licença Creative Commons Atribuição」（CKAN `license_id` 為 `cc-by`；AWS 開放資料目錄寫 CC BY 4.0），[資料集頁](https://dados.ons.org.br/dataset/balanco-energia-subsistema)寫明可散布、修改，「desde que seja dado o crédito apropriado ao criador(ONS) e que informe quais alterações foram feitas」；入口網站自稱提供「dados históricos」。ONS 網站與「Energia Agora」即時資料沒有使用條款或授權，只有「© - Copyright - ONS」，也沒有禁止轉載或自動取得的文字；本站比照韓國，依同一數列在開放資料入口網站以 CC BY 公布而使用，標示 ONS 與本站的計算
 - IESO：可使用與轉載，須在轉載處附上 IESO 規定的版權聲明（[使用條款](https://www.ieso.ca/Terms-of-Use)）
 - AESO：限非商業、個人或教育用途，不得修改，並保留版權聲明（[法律聲明](https://www.aeso.ca/legal/)）
 - EirGrid（含 SONI）：Smart Grid Dashboard 的 [Open Data Licence](https://www.smartgriddashboard.com/all/open-data-license/) 適用於儀表板資料：「You are free to: copy, publish, distribute and transmit the Information; adapt the Information; exploit the Information commercially and non-commercially」；須標示「Supported by EirGrid Group Data」、不得使用標誌或暗示背書；EirGrid 保留在使用過量時限制存取的權利，也可不經通知修改授權。eirgrid.ie 與 SONI 網站本身的版權聲明另有「未經書面同意不得重製」，授權頁明列適用於「Smart Grid Dashboards」與「SONI Libraries」
@@ -128,7 +129,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 
 **快速成果**：國家層級的「此刻風電出力」面板。英國、德國、法國、比利時、波蘭、巴西可以由瀏覽器直接讀；
 丹麥、愛爾蘭、德州、加州、日本、韓國要經 Actions。→ 2026-10 已接入英、德、法、丹、德州、加州（一律經 Actions，與其他即時資料同一次 commit）；
-2026-10-10 再加比利時、波蘭、愛爾蘭（含北愛爾蘭）、韓國；日本各電力區域要先取得同意（見「授權」），巴西尚未評估授權。
+2026-10-10 再加比利時、波蘭、愛爾蘭（含北愛爾蘭）、韓國、巴西；日本各電力區域要先取得同意（見「授權」）。
 
 ## 接入時要注意
 
@@ -157,6 +158,8 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 - [ENTSO-E：取得 security token](https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token)
 - [ENTSO-E 16.1.A 逐機組實際出力](https://transparencyplatform.zendesk.com/hc/en-us/articles/16648326220564-Actual-Generation-per-Generation-Unit-16-1-A)
 - [Energinet 使用條款](https://www.energidataservice.dk/terms-and-conditions)
+- [ONS 開放資料：各子系統能量平衡（含風電）](https://dados.ons.org.br/dataset/balanco-energia-subsistema)
+- [ONS Energia Agora](https://www.ons.org.br/paginas/energia-agora/carga-e-geracao)
 - [ODRÉ éCO2mix 全國即時資料](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/)
 - [ERCOT 使用條款](https://www.ercot.com/help/terms)
 - [CAISO 使用條款](https://www.caiso.com/privacy-terms-of-use)

@@ -13,7 +13,7 @@ English (this page) ｜ [中文](./live-data-sources.md)
 **Integrated (per farm)**: Australia's NEM (AEMO), Alberta (AESO) and Ontario (IESO), fetched about every 2 hours by
 `intl_wind_scraper.py` into `data/live/intl_realtime.json`.
 
-**Integrated (totals only, v2.31.0; Belgium and Poland v2.32.0; Ireland, Northern Ireland and Korea v2.33.0)**: wind output for Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland and Korea as a whole and for the
+**Integrated (totals only, v2.31.0; Belgium and Poland v2.32.0; Ireland, Northern Ireland and Korea v2.33.0; Brazil v2.34.0)**: wind output for Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil as a whole and for the
 Texas (ERCOT) and California (CAISO) grids, from the same script and in the same commit, under `nat` in the same file.
 Each source keeps its latest value (time, MW; onshore/offshore for Germany, France and Denmark) and the mean of every hour
 over the past 48 hours. ERCOT also keeps the month's wind capacity from the same dashboard and Belgium Elia's monitored capacity, and only
@@ -31,14 +31,15 @@ When a source fails, its previous values are kept and marked `ok: false`.
 | BE | Elia Open Data `ods086` (near real-time) + `ods031` (historical), `exports/json` | All of Belgium: offshore (Federal) and onshore in Flanders and Wallonia, each split into transmission and distribution grid, so 5 rows per slot; a slot is summed only when all five are there. The field is "Measured & upscaled": monitored farms measured and scaled up to the whole fleet; the "monitored capacity" adds up to about 6.0 GW and the country profile uses it for the percentage. The near-real-time set only holds today, so earlier slots come from the historical set (same 5 rows) | 15 min · about 25 min |
 | PL | `www.pse.pl/transmissionMapService` behind PSE's homepage map "Mapa KSE" (now) + `his-wlk-cal` on `api.raporty.pse.pl` (trend) | The current value is the map widget's data endpoint (onshore and offshore wind; undocumented, may change), a single snapshot with no history. The report API's actual wind (`wi` = "Sumaryczna generacja Źródeł Wiatrowych / Total generation of Wind Sources", see [EndpointsMap.pdf](https://api.raporty.pse.pl/EndpointsMap.pdf)) is published the next day around 00:52 UTC, so the trend uses it up to yesterday (`dtime_utc` is the end of the slot) and only this site's snapshots, about every 2 hours, for today; the API's other endpoints with wind fields are forecasts or day-ahead plans | snapshot · about 1 min (official trend values one day later) |
 | IE, NI | EirGrid Smart Grid Dashboard `smartgriddashboard.com/api/chart/?region=ROI\|NI&chartType=wind&dateRange=day&areas=windactual` | The Republic of Ireland (ROI) goes in Ireland's profile and Northern Ireland (NI, the SONI area) in the UK's (the Great Britain figure leaves Northern Ireland out); all-island (ALL) = ROI + NI. The values are EirGrid's estimate of all wind farms' output ([wind page](https://www.smartgriddashboard.com/all/wind/): "Wind Generation is an estimate of the total electrical output of all wind farms on the system"). The page's undocumented data endpoint (EirGrid has replaced it once); times are Irish local time without a zone, and whether they mark the start or end of an interval or an instant is not stated; one call can return several days, and three days cover 48 hours. No capacity on the same footing (the annual report's two regions have different dates), so no percentage | 15 min · about 2–6 min |
-| KR | KPX `powerSource.es?mid=a10404030000&device=chart&view_sdate=…&view_edate=…` | South Korea, nationwide 5-minute instantaneous values (the page says "실시간 전력수급현황은 5분주기 순시자료 입니다"; wind listed separately since 23 Nov 2024), embedded in the page as `var ictArr = [...]`; a date range returns three days in one call (about 1.3 MB). KPX says it restricts overseas IPs; it worked from this environment, and GitHub Actions is to be confirmed after the merge; the two capacity series disagree, so no percentage | 5 min · about 4–7 min |
+| KR | KPX `powerSource.es?mid=a10404030000&device=chart&view_sdate=…&view_edate=…` | South Korea, nationwide 5-minute instantaneous values (the page says "실시간 전력수급현황은 5분주기 순시자료 입니다"; wind listed separately since 23 Nov 2024), embedded in the page as `var ictArr = [...]`; a date range returns three days in one call (about 1.3 MB). KPX says it restricts overseas IPs; both this environment and GitHub Actions reach it (confirmed 10 Oct 2026); the two capacity series disagree, so no percentage | 5 min · about 4–7 min |
+| BR | `tr.ons.org.br/Content/Get/Geracao_SIN_Eolica` behind ONS's "Energia Agora" page | Wind output of Brazil's National Interconnected System (SIN) every minute, mostly in the Northeast; the page says that since 2 March 2021 it includes "usinas não supervisionadas e sem relacionamento com o ONS". Google Charts format (minute index, MW) holding only the current day in Brasília time (UTC−3), so the 48-hour trend is built up run by run (the last hour or so before midnight may be missing); earlier values of the same series are on the open-data portal as `balanco-energia-subsistema` (hourly, about 30 hours behind). The open data's 33.8 GW of wind covers ONS-dispatched plants only, a different scope from the live value, so no percentage | 1 min (batches about every 9 min) · up to about 15 min |
 
-- **On the globe**: the profiles of the UK (with Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and the US get a "now" box (current value,
+- **On the globe**: the profiles of the UK (with Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea, Brazil and the US get a "now" box (current value,
   onshore/offshore, 48-hour trend, coverage note, attribution and links); the world and continent profiles get a
   "Wind output right now" list (with Taiwan, Australia and Canada), sorted by output and not summed; a name opens that country's profile.
 - **Belgium and Poland licences (checked 10 Oct 2026)**: see "Licences found" below. Poland's current value comes from an
   undocumented web endpoint, which the site says; if it stops working, the previous value is kept and shown as delayed.
-- **File size**: `intl_realtime.json` grew from about 18 KB to about 24 KB (hourly means stored as whole MW, a start time plus an array).
+- **File size**: `intl_realtime.json` grew from about 18 KB to about 25 KB (hourly means stored as whole MW, a start time plus an array).
 
 - **On the globe**: country profiles show each grid's current total and a 48-hour trend; matched farms show
   their current output in the card, the tooltip and the farm list. With the timeline at the latest year these
@@ -103,7 +104,7 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 | France | RTE éCO2mix (ODRÉ) | national, 12 regions | 15 min · ~30 min (regions ~1 h) | none | yes |
 | Belgium | Elia `ods086` | offshore, Flanders, Wallonia | 15 min · ~30 min | none | yes |
 | Poland | PSE `api.raporty.pse.pl` | national | 15 min | none | yes |
-| Brazil | ONS live (undocumented endpoint) | national, subsystems | 1 min · ~2 min | none | yes |
+| Brazil | ONS live (undocumented endpoint) | national, subsystems | 1 min · up to ~15 min | none | yes |
 | Denmark | Energinet `PowerSystemRightNow` | national, DK1 / DK2 | 1 min · ~1 min | none | no (returns empty data when the site's Origin is sent) |
 | Ireland | EirGrid Smart Grid Dashboard (undocumented endpoint) | all-island, Republic of Ireland, Northern Ireland | 15 min · ~2–6 min | none | no |
 | Texas, US | ERCOT `fuel-mix.json` | whole system | 5 min · ~2 min | none | no |
@@ -131,7 +132,7 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 - CAISO: may be used if copyright and other notices are kept and the California ISO is credited ([terms of use](https://www.caiso.com/privacy-terms-of-use))
 - Elia: the datasets carry the "Elia Open Data Licence", whose [licence page](https://opendata.elia.be/pages/licence/) says "The data provided for are governed by Creative Commons Attribution 4.0 International Public License" (CC BY 4.0, under Belgian law with disputes before the Brussels courts; the page is built by JavaScript and the text is in its source). Credit Elia, link the licence and note the site's sums and means
 - PSE: the [conditions for reusing public-sector information](https://www.pse.pl/bip/ponowne-wykorzystanie-informacji-publicznej) (set in 2016 under the public-sector information reuse act then in force) cover information published on www.pse.pl: free, for commercial or non-commercial use; credit "Informacja pozyskana ze strony www.pse.pl" with the retrieval date, remove the PSE logo, say when and how the data was processed ("przetworzona w całości/w części") and do not mislead. The current-value endpoint is on www.pse.pl; the report API is on `raporty.pse.pl`, which pse.pl's data page names as the new home of its reports, but the conditions do not name that subdomain
-- ONS: Creative Commons Attribution
+- ONS: every open-data portal dataset is marked "Licença Creative Commons Atribuição" (CKAN `license_id` `cc-by`; the AWS open-data registry says CC BY 4.0), and the [dataset page](https://dados.ons.org.br/dataset/balanco-energia-subsistema) allows distributing and modifying "desde que seja dado o crédito apropriado ao criador(ONS) e que informe quais alterações foram feitas"; the portal describes itself as offering "dados históricos". The ONS website and the "Energia Agora" live data carry no terms of use or licence, only "© - Copyright - ONS", and nothing forbidding reuse or automated access; as for Korea, the site relies on the same series being published under CC BY on the open-data portal, crediting ONS and its own calculations
 - IESO: use and reproduction allowed with IESO's required copyright notice on every reproduction ([terms of use](https://www.ieso.ca/Terms-of-Use))
 - AESO: non-commercial, personal or educational use only, unmodified, with copyright notices kept ([legal](https://www.aeso.ca/legal/))
 - EirGrid (with SONI): the Smart Grid Dashboard's [Open Data Licence](https://www.smartgriddashboard.com/all/open-data-license/) covers the dashboard data: "You are free to: copy, publish, distribute and transmit the Information; adapt the Information; exploit the Information commercially and non-commercially"; credit "Supported by EirGrid Group Data", use no logos and imply no endorsement; EirGrid may limit access when use is excessive and may revise the licence without notice. The eirgrid.ie and SONI websites carry their own "no reproduction without written permission" notices, but the licence names "Smart Grid Dashboards" and "SONI Libraries"
@@ -154,7 +155,7 @@ next day; Hokkaido's per-unit file checked here contained no wind units.
 **Quick win**: a national "wind output right now" panel. The UK, Germany, France, Belgium, Poland and
 Brazil can be read straight from the browser; Denmark, Ireland, Texas, California, Japan and Korea need
 Actions. → Done in Oct 2026 for the UK, Germany, France, Denmark, Texas and California (all through Actions, in the same
-commit as the other live data), and Belgium, Poland, Ireland (with Northern Ireland) and Korea on 10 Oct 2026; Japan's grid areas need consent first (see "Licences found"), and Brazil's licence has not been checked.
+commit as the other live data), and Belgium, Poland, Ireland (with Northern Ireland), Korea and Brazil on 10 Oct 2026; Japan's grid areas need consent first (see "Licences found").
 
 ## Things to watch when integrating
 
@@ -185,6 +186,8 @@ commit as the other live data), and Belgium, Poland, Ireland (with Northern Irel
 
 ## References
 
+- [ONS open data: energy balance by subsystem (with wind)](https://dados.ons.org.br/dataset/balanco-energia-subsistema)
+- [ONS Energia Agora](https://www.ons.org.br/paginas/energia-agora/carga-e-geracao)
 - [Elexon BMRS data licence](https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/)
 - [ENTSO-E: how to get a security token](https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token)
 - [ENTSO-E 16.1.A actual generation per generation unit](https://transparencyplatform.zendesk.com/hc/en-us/articles/16648326220564-Actual-Generation-per-Generation-Unit-16-1-A)

@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.34.0 — 2026-10-10
+
+- Brazil joins the national wind output right now: the data endpoint behind the "Energia Agora" page on the ONS website, wind output of the National Interconnected System
+  (SIN) every minute (undocumented, with no licence of its own); as for Korea, it is used because the same series is published under CC BY 4.0 on the ONS open-data portal,
+  crediting ONS and noting that the hourly means are computed by this site. The endpoint only holds the current day (Brasília time), so the 48-hour trend builds up run by run.
+  The Sources dialog, Learn chapter 13, the footer source list, the user guide, the README and the live-data assessment are updated.
+
 ## v2.33.0 — 2026-10-10
 
 - Ireland, Northern Ireland and Korea join the national wind output right now. Republic of Ireland and Northern Ireland: EirGrid Smart Grid Dashboard wind generation
