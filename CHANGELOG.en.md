@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.35.0 — 2026-10-10
+
+- New "Live data" layer on the globe toolbar (URL `live=1`): countries are coloured by whether the site has live wind output for them — solid teal where it covers the whole country
+  (Germany, France, Denmark, Belgium, Poland, Ireland, Korea, Brazil, Taiwan), violet hatching where it covers only part (the UK, the US, Australia and Canada, with the reason in the
+  legend and tooltip); France is coloured on the mainland only. The legend lists the countries ("Details" opens the reasons), and a name opens the current figure and 48-hour trend; with the layer on, hovering over
+  land also shows that country's coverage. The two colours pass the colour-blind check; the violet has low contrast on the land colour, so hatching and text labels are added. The public
+  single-file globe has no live data and leaves the layer out. User guide, README and Sources dialog updated.
+
 ## v2.34.0 — 2026-10-10
 
 - Brazil joins the national wind output right now: the data endpoint behind the "Energia Agora" page on the ONS website, wind output of the National Interconnected System

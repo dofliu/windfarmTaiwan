@@ -59,6 +59,10 @@ const ROUTES = [
     const l = document.querySelector('#g-zoneLegend');
     return l && !l.hidden ? '' : 'sea zones: legend missing';
   }],
+  ['#/global?live=1', 15000, () => {
+    const l = document.querySelector('#g-cvgLegend');
+    return l && !l.hidden && l.querySelector('.cvsw.full') ? '' : 'live data coverage: legend missing';
+  }],
   ['#/learn', 3500],
   ['#/learn/sources', 3500],
 ];

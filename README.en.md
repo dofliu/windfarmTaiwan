@@ -119,6 +119,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
     live data get a green ring and their rotors spin with their current output
   - **National wind output right now**: totals and a 48-hour trend for the UK (Great Britain, Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas
     and California grids (totals only), in the country profiles and the world "Wind output right now" list; see [user guide 4.5](./docs/user-guide.en.md#45-side-panel-tabs)
+  - **Live data coverage**: the "Live data" toolbar button colours countries by whether the site has live wind output for them — the whole country (solid teal) or only part of it (violet hatching); see [user guide 4.7](./docs/user-guide.en.md#47-layers)
   - Devices without WebGL fall back to the bar race automatically
 - **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations, floating wind,
   ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a glossary and full source list; every chart is drawn

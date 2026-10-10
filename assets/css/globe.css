@@ -142,8 +142,30 @@
 #g-flowLegend .wln a{color:var(--ginkm)}
 #g-flowLegend .fly{color:var(--acc)}
 /* 海域圖層圖例（左下，其他圖例上方；右下會被側欄蓋住）：界線藍、潛力場址玫瑰紅（dataviz 色盲檢查）；未定界線用虛線區分，不只靠透明度 */
-#g-zoneLegend{position:absolute;left:16px;bottom:88px;display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--ink-2);background:rgba(7,13,24,.84);border:1px solid var(--gline);border-radius:10px;padding:7px 10px;max-width:min(310px,calc(100% - 24px));z-index:3}
-#g-zoneLegend[hidden]{display:none}
+/* 左下的圖例堆疊：海域、即時資料涵蓋範圍（同時開啟時上下排列） */
+#g-legStack{position:absolute;left:16px;bottom:88px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:min(330px,calc(100% - 24px));max-height:calc(100% - 300px);overflow-y:auto;scrollbar-width:thin;z-index:3;pointer-events:none}
+#g-legStack>*{pointer-events:auto}
+#g-zoneLegend,#g-cvgLegend{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--ink-2);background:rgba(7,13,24,.84);border:1px solid var(--gline);border-radius:10px;padding:7px 10px;max-width:100%;box-sizing:border-box}
+#g-zoneLegend[hidden],#g-cvgLegend[hidden]{display:none}
+#g-cvgLegend{cursor:pointer}
+#g-cvgLegend .wlh{display:flex;align-items:baseline;gap:10px;justify-content:space-between}
+#g-cvgLegend .wlh b{color:var(--ink)}
+#g-cvgLegend .cvt{font-size:10px;color:var(--ginkm);white-space:nowrap}
+#g-cvgLegend .cvt::after{content:' ▸'}
+#g-cvgLegend.open .cvt::after{content:' ▾'}
+#g-cvgLegend .cvp,#g-cvgLegend .wln.cvn{display:none}
+#g-cvgLegend.open .cvp,#g-cvgLegend.open .wln.cvn{display:block}
+#g-cvgLegend .zl{display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+#g-cvgLegend .zl b{color:var(--ink);font-weight:600}
+#g-cvgLegend a{color:var(--ink-2);text-decoration:underline dotted;text-underline-offset:2px}
+#g-cvgLegend a:hover{color:var(--ink)}
+#g-cvgLegend .cvp{margin:0 0 0 26px;padding:0;list-style:none;font-size:10.5px;line-height:1.45;color:var(--ginkm)}
+#g-cvgLegend .wln{font-size:10px;line-height:1.45;color:var(--ginkm)}
+.cvsw{flex:0 0 18px;display:inline-block;width:18px;height:12px;border-radius:3px;box-sizing:border-box;margin-top:2px}
+.cvsw.full{background:rgba(37,170,138,.75);border:1.5px solid #25aa8a}
+.cvsw.part{background:repeating-linear-gradient(135deg,#a072ea 0 2.5px,rgba(160,114,234,.22) 2.5px 6px);border:1.5px solid #a072ea}
+#g-tip .tcvg{margin-top:4px;display:flex;align-items:flex-start;gap:6px;color:var(--ink-2)}
+#g-tip .tcvg small{display:block;font-size:11px;color:var(--ginkm);line-height:1.4}
 #g-zoneLegend .wlh b{color:var(--ink)}
 #g-zoneLegend .zl{display:flex;align-items:center;gap:8px}
 #g-zoneLegend .zl i{flex:0 0 24px;height:0;border-top:2px solid #3a9fd8}
@@ -363,7 +385,7 @@
   #g-msPanel{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:46%}
   #g-mapPane:has(#g-infoCard.show) #g-msPanel{display:none}
   #g-attr{bottom:auto;top:6px;right:8px;max-width:60%}
-  #g-zoneLegend{bottom:auto;top:80px;left:8px;max-width:min(260px,calc(100% - 16px))}
+  #g-legStack{bottom:auto;top:80px;left:8px;max-width:min(280px,calc(100% - 16px));max-height:calc(100% - 140px)}
   #g-yearBig{font-size:40px;left:10px;top:8px}
   #g-worldStat{left:4px;top:72px;font-size:11.5px;padding:4px 8px}
   #g-infoCard{left:8px;right:8px;width:auto;bottom:8px;max-height:58%}
@@ -386,6 +408,7 @@
   #g-zoneLegend{cursor:pointer;font-size:10.5px;padding:5px 8px}
   #g-zoneLegend .wln.zn{display:none}
   #g-zoneLegend.open .wln.zn{display:block}
+  #g-cvgLegend{font-size:10.5px;padding:5px 8px}
   #globe{font-size:12px}
   #g-windLegend{top:auto;bottom:54px;padding:4px 7px;gap:2px}
   #g-flowLegend{top:auto;bottom:54px;padding:4px 7px;gap:2px}
