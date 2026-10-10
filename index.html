@@ -475,6 +475,22 @@
      <div class="ch-eyebrow">13</div>
      <h2><span data-l="zh">資料來源與方法</span><span data-l="en">Sources &amp; method</span></h2>
      <div class="prose">
+       <h3><span data-l="zh">資料的限制（請先讀）</span><span data-l="en">Limits of the data (please read first)</span></h3>
+       <div class="callout"><span data-l="zh">本站整合公開資料並持續逐筆查證，但資料<b>並非完全準確</b>：有些是代用或估計值，有些還沒查證。請以原始出處為準；最新的筆數依目前資料即時計算，列在<a href="#/global">全球發展</a>地球儀的「資料來源」視窗最上面。</span><span data-l="en">This site compiles public data and keeps checking it record by record, but the data is <b>not fully accurate</b>: some values are placeholders or estimates and some are not yet checked. Rely on the original sources; up-to-date counts, computed from the data, are at the top of the “Sources” dialog on the <a href="#/global">Global</a> globe.</span></div>
+       <ul>
+         <li data-l="zh"><b>代用座標</b>：一部分風場（多為中國）在原始資料裡只有省或國家中心的代用座標，地圖上以該點為中心示意排開，卡片寫「位置示意」；另有一些標示為概略位置。</li>
+         <li data-l="en"><b>Placeholder locations</b>: some farms (mostly in China) only have a province or country centre as a placeholder in the source data; the map fans them out around that point and their cards say the position is schematic. Others are marked as approximate.</li>
+         <li data-l="zh"><b>商轉年不詳</b>：數百座營運中風場查不到商轉年，時間軸只在最新一年顯示它們，所以早年的地圖會比實際少。</li>
+         <li data-l="en"><b>Unknown start years</b>: several hundred operating farms have no known start year, so the timeline shows them only in the latest year and maps of earlier years show fewer farms than there were.</li>
+         <li data-l="zh"><b>逐場資料沒收齊</b>：國家總容量用官方統計，逐場紀錄在中國、印度等國明顯少於國家統計（中國的差距達數十 GW）；差額只算進國家總量，地圖上沒有對應的風場（各國的比例見國家概況的「逐場資料覆蓋率」）。</li>
+         <li data-l="en"><b>Incomplete farm records</b>: country totals come from official statistics, while the farm records fall well short of the national figures in China, India and elsewhere (by tens of GW in China); the difference counts in the country total but has no farm on the map (each country's share is under “Farm-level coverage” in its profile).</li>
+         <li data-l="zh"><b>估計值</b>：風場卡片的估計年發電量用該國平均容量因數推算，不是實測（實測只有美國、台電自有風場、丹麥與澳洲）；「台灣・即時取樣」是取樣估計；時間軸的「最新可得」有些國家是估計；1980–1999 年多數國家的容量是估計值；近景裡沒有實際機位資料的風場，風機是示意排列。</li>
+         <li data-l="en"><b>Estimates</b>: the estimated yearly output on farm cards uses the country's average capacity factor and is not measured (measured output exists only for the US, Taipower-owned farms, Denmark and Australia); “Taiwan · live samples” are estimates from samples; some countries' figures in the timeline's “latest available” year are estimates; most countries' 1980–1999 capacities are estimates; in the close-up, farms without real turbine positions are laid out schematically.</li>
+         <li data-l="zh"><b>還沒查證或還沒收齊</b>：部分離岸風場的水下基礎型式（多在中國、越南）與輪轂高度；港口（中國等國還沒有收錄）；幾筆事件還沒對到風場，部分事故的原因與傷亡仍待官方調查；多數風場（包括大彰化、Hornsea 等重要風場）還沒有核對過的自由授權照片。</li>
+         <li data-l="en"><b>Not yet checked or complete</b>: foundation types (mostly in China and Vietnam) and hub heights of some offshore farms; ports (none listed yet in China and some other countries); a few events not yet linked to a farm, and some incidents whose cause and casualties await official findings; most farms, including major ones such as Greater Changhua and Hornsea, have no hand-checked free-licence photo yet.</li>
+         <li data-l="zh">每筆修正與理由見 <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/data-cleanup.md" target="_blank" rel="noopener">資料清理紀錄</a>，各國覆蓋見 <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/data-coverage.md" target="_blank" rel="noopener">資料涵蓋報告</a>；發現錯誤，請用風場卡片的「回報資料錯誤」。</li>
+         <li data-l="en">Each correction and its reason is in the <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/data-cleanup.en.md" target="_blank" rel="noopener">clean-up log</a> and coverage by country in the <a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/data-coverage.en.md" target="_blank" rel="noopener">coverage report</a>; if you find an error, use “Report a data error” on the farm card.</li>
+       </ul>
        <h3><span data-l="zh">台灣即時（政府開放資料）</span><span data-l="en">Taiwan live (government open data)</span></h3>
        <ul>
          <li data-l="zh"><b>即時發電</b>：政府資料開放平臺「台灣電力公司各機組發電量即時資訊」（<a href="https://data.gov.tw/dataset/8931" target="_blank" rel="noopener">資料集 8931</a>），台電每 10 分鐘更新；本站由 GitHub Actions 約每 2 小時抓取，產生 <code>wind_realtime.json</code> 與滾動 7 天的 <code>wind_history.json</code>。</li>

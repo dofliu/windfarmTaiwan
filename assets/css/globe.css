@@ -347,6 +347,9 @@
 #g-modal a{color:var(--off-b);word-break:break-all}
 #g-modal ul{padding-left:18px;margin:4px 0}
 #g-modal .gclose{float:right}
+#g-modal .glim{margin:10px 0 6px;padding:8px 12px 6px;border:1px solid rgba(255,190,90,.45);border-left:4px solid #ffbe5a;border-radius:10px;background:rgba(255,190,90,.07)}
+#g-modal .glim h4{color:#ffcf85}
+#g-modal .glim p{margin:4px 0}
 #g-stage.split #g-msPanel{max-height:45%}
 @media (max-width:1500px){#g-top .gtitle{display:none}}
 @media (max-width:1280px){#g-top .ggrp>label{display:none}#g-top .gtitle{display:none}}

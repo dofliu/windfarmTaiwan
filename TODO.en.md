@@ -31,6 +31,10 @@ After round 23 the owner asked what else there is to do besides the doubts; the 
    India (assess national registries, phase 1, large); foundation types unknown for 38 Chinese and 5 Vietnamese farms, hub heights missing for about 91; ports (none in China yet, about 20 in
    Europe, quay coordinates for 5 in the US); 7 events not yet linked to a farm and several incidents awaiting official findings; no free-licence photos yet for major farms such as
    Greater Changhua and Hornsea.
+   On 10 Oct 2026 the owner decided to keep working on this group when there is time and to explain it on the site: from v2.30.19 the globe's "Sources" dialog opens with
+   "Limits of the data and open questions", computing these counts from the loaded data (`dataLimits` in `globe.js`); the attribution line says the data is still being checked and not
+   fully accurate, and Learn chapter 13 and sections 4.10 and 9 of the user guide explain it in words (no figures). When things change (ports in China added, photos filled in), update
+   the chapter-13 and README wording too.
 4. **Features not yet built (ROADMAP phases 2–3)**: country comparison (2–4 countries side by side, medium), more indicators (capacity per person, wind's share of generation, capacity factor;
    Ember, CC BY 4.0; the map can be coloured by them; medium), yearly additions (small), turbine-maker and developer shares (medium), teaching interactives (power curve, capacity factor,
    wake effect, falling costs; medium), farm details v2 (UK REPD and the Danish turbine register for positions, a common-model spec table, UK per-farm output), Taiwan's offshore phases

@@ -414,6 +414,11 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 
 ## Data sources & license
 
+> **The data is not fully accurate**: the site compiles public data and keeps checking it record by record, but some locations, years and values are placeholders or estimates
+> (shared placeholder points, unknown start years, farm records short of the national figures, estimated yearly output and so on), and some are not yet checked or complete
+> (foundation types and hub heights of some offshore farms, ports, events and photos). On the site, see the top of the globe's "Sources" dialog (computed from the data now loaded)
+> and Learn chapter 13, "Limits of the data"; each correction and its reason is in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) and coverage by country in [docs/data-coverage.en.md](./docs/data-coverage.en.md).
+
 **Taiwan live**
 
 - Live generation: Government Open Data Platform, "Taiwan Power Company — Real-time Information

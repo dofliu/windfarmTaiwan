@@ -54,7 +54,7 @@ const I18N = {
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
     attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', zoneLegT: '海域', zEezA: '專屬經濟區界線：協議或判決', zEezM: '中線與 200 浬外界', zEezU: '未定或有爭議（虛線）', zSites: '離岸風電規劃區：台灣潛力場址、日本促進區域、北海周邊國家', zSite: '潛力場址', zArea: '離岸風電規劃區', zAreaSrc: '規劃區出處（皆已簡化）：', zNote: '界線取自 Marine Regions（CC BY 4.0），已簡化，不具法律效力，也不代表本站對任何爭議海域的立場', zSkip: '新竹縣場址的點位順序無法確定，未畫出', zSrcE: 'Marine Regions', zSrcT: '能源署開放資料', zSrcA: '各國規劃區出處見「資料來源」', zErr: '海域圖層載入失敗（離線或資料暫時無法取得）', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m，越亮風越強', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
-    attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
+    attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrCaveat: '資料持續查證中、並非完全準確（見「資料來源」）', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
     ltWorld: (n, m) => n + ' 國已有今年官方數字（截至 ' + m + '），其他國家沿用去年底',
@@ -168,7 +168,7 @@ const I18N = {
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
     attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', zoneLegT: 'Sea zones', zEezA: 'EEZ boundaries: agreed or ruled', zEezM: 'Median lines and 200 NM limits', zEezU: 'Unsettled or disputed (dashed)', zSites: 'Offshore wind areas: Taiwan potential sites, Japan promotion zones, North Sea countries', zSite: 'Potential site', zArea: 'Offshore wind area', zAreaSrc: 'Area sources (all simplified): ', zNote: 'Boundaries from Marine Regions (CC BY 4.0), simplified; they have no legal value and imply no position on any disputed area', zSkip: 'The Hsinchu County site is not drawn: its vertex order cannot be determined', zSrcE: 'Marine Regions', zSrcT: 'Energy Administration open data', zSrcA: 'other countries: see Sources', zErr: 'Sea zones failed to load (offline or data unavailable)', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground; brighter = stronger', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
-    attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
+    attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrCaveat: 'Data still being checked, not fully accurate (see Sources)', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
     ltWorld: (n, m) => n + ' countries have official figures for this year (up to ' + m + '); the rest carry last year-end',
@@ -547,7 +547,7 @@ function renderWindLegend() {
 }
 function updateAttr() {
   const tiles = patch && patch.visible && S.base !== 'plain' && tileAttrOn;
-  const parts = [T('credit') + ' · v' + WW.VERSION, S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : S.base === 'wind' ? T('attrWind') : T('attrPlain')];
+  const parts = [T('credit') + ' · v' + WW.VERSION, T('attrCaveat'), S.base === 'relief' ? T('attrRelief') : S.base === 'sat' ? T('attrSat') : S.base === 'wind' ? T('attrWind') : T('attrPlain')];
   if (S.flow) parts.push(L('風：NOAA GFS', 'Wind: NOAA GFS'));
   if (S.zones) parts.push(L('海域：Marine Regions（CC BY 4.0）、能源署與各國規劃單位（見「資料來源」）', 'Sea zones: Marine Regions (CC BY 4.0), Energy Administration and national planning bodies (see Sources)'));
   if (tiles) parts.push(S.base === 'sat' ? T('attrTileSat') : T('attrTileRelief'));
@@ -3592,6 +3592,67 @@ function dataStats(zh) {
   return '<h4>' + (zh ? '資料統計（依目前載入的資料即時計算）' : 'Data inventory (computed from the data now loaded)') + '</h4><ul><li>' + li.join('</li><li>') + '</li></ul>';
 }
 
+/* 資料的限制與未確認事項：依目前載入的資料即時計算，讓使用者知道哪些是代用、估計或還沒查證的（資料來源視窗最上面） */
+function dataLimits(zh) {
+  const n = v => WW.int(v), gw = mw => (mw >= 100000 ? n(Math.round(mw / 1000)) : (Math.round(mw / 100) / 10).toFixed(1)) + ' GW';
+  const sep = zh ? '、' : ', ', est = [], open = [];
+  const byIsoC = {}; (C || []).forEach(c => { byIsoC[c.iso] = c; });
+  const cn = iso => byIsoC[iso] ? cname(byIsoC[iso]) : iso;
+  if (farmsReady && D.farms) {
+    const op = D.farms.filter(f => f.st === 0 && !f.end);
+    const stk = op.filter(f => f.nStack), pts = new Set(stk.map(f => f.iso + '|' + f.lat0 + '|' + f.lon0));
+    const apx = op.filter(f => !f.nStack && (f.flags & 1)), yu = op.filter(f => f.yu);
+    est.push(zh ? '<b>位置</b>：營運中風場有 ' + n(stk.length) + ' 座共用 ' + n(pts.size) + ' 個代用座標點（多為中國的省或國家中心），地圖上以該點為中心示意排開，卡片寫「位置示意」；另有 ' + n(apx.length) + ' 座的座標是資料來源標示的概略位置。'
+                : '<b>Locations</b>: ' + n(stk.length) + ' operating farms share ' + n(pts.size) + ' placeholder points (mostly Chinese province or country centres); the map fans them out around the point and their cards say the position is schematic. Another ' + n(apx.length) + ' have locations the source marks as approximate.');
+    est.push(zh ? '<b>商轉年</b>：' + n(yu.length) + ' 座、' + gw(yu.reduce((a, f) => a + (f.mw || 0), 0)) + ' 營運中風場查不到商轉年，時間軸只在最新一年顯示它們（卡片寫「商轉年份不詳」），所以早年的地圖會比實際少。'
+                : '<b>Start years</b>: ' + n(yu.length) + ' operating farms (' + gw(yu.reduce((a, f) => a + (f.mw || 0), 0)) + ') have no known start year, so the timeline shows them only in the latest year (their cards say so) and maps of earlier years show fewer farms than there were.');
+    const yi = YEARS.indexOf(DATA_Y);
+    if (yi >= 0) {
+      const gaps = C.map(c => {
+        const nat = c.on[yi] + c.off[yi], map = (farmsByIso[c.iso] || []).filter(f => !f.pipe && farmActive(f, DATA_Y)).reduce((a, f) => a + farmMwAt(f, DATA_Y), 0);
+        return { c, nat, gap: nat - map, pct: nat > 0 ? map / nat * 100 : 100 };
+      }).filter(x => x.gap >= 1000).sort((a, b) => b.gap - a.gap).slice(0, 5);
+      if (gaps.length) est.push(zh ? '<b>逐場覆蓋</b>：國家總容量用官方統計（IRENA 等），逐場紀錄還沒收齊。以 ' + DATA_Y + ' 年底計，逐場加總比國家統計少最多的是' + gaps.map(x => cname(x.c) + '約 ' + gw(x.gap) + '（已逐場標示 ' + Math.round(x.pct) + '%）').join(sep) + '；差額只算進國家總量，地圖上沒有對應的風場。'
+                                   : '<b>Farm-level coverage</b>: country totals come from official statistics (IRENA and others), and the farm records are not complete. At the end of ' + DATA_Y + ' the largest shortfalls of the farm sum against the national figure are ' + gaps.map(x => cname(x.c) + ' about ' + gw(x.gap) + ' (' + Math.round(x.pct) + '% mapped)').join(sep) + '; the difference counts in the country total but has no farm on the map.');
+    }
+    if (FD && FD.farms) {
+      const off = op.filter(f => f.type !== 'onshore'), unk = off.filter(f => !f.fd), noH = off.filter(f => f.fd && !f.fd.h);
+      const byC = {}; unk.forEach(f => { byC[f.iso] = (byC[f.iso] || 0) + 1; });
+      const top = Object.keys(byC).sort((a, b) => byC[b] - byC[a]).slice(0, 4).map(k => cn(k) + ' ' + n(byC[k]));
+      if (unk.length) open.push(zh ? '<b>水下基礎</b>：營運中離岸風場 ' + n(off.length) + ' 座中，' + n(unk.length) + ' 座的型式還沒查證（' + top.join(sep) + '），地圖與卡片寫「型式不詳」；已知型式的風場裡，' + n(noH.length) + ' 座還沒有可引用的輪轂高度。'
+                                   : '<b>Foundations</b>: of ' + n(off.length) + ' operating offshore farms, ' + n(unk.length) + ' have no checked type yet (' + top.join(sep) + ') and show “type unknown”; among farms with a known type, ' + n(noH.length) + ' still have no quotable hub height.');
+    }
+    if (!LITE && PORTS.length) {
+      const offC = {}; op.filter(f => f.type !== 'onshore').forEach(f => { offC[f.iso] = (offC[f.iso] || 0) + (f.mw || 0); });
+      const hasP = new Set(PORTS.map(p => p.iso)), miss = Object.keys(offC).filter(k => offC[k] >= 500 && !hasP.has(k)).sort((a, b) => offC[b] - offC[a]).map(cn);
+      open.push(zh ? '<b>港口</b>：只收錄有出處的港口（' + n(PORTS.length) + ' 座），還沒收齊' + (miss.length ? '；離岸容量 0.5 GW 以上但還沒有收錄任何港口的國家：' + miss.join(sep) : '') + '。'
+                   : '<b>Ports</b>: only ports with sources are listed (' + n(PORTS.length) + '), and the list is incomplete' + (miss.length ? '; countries with 0.5 GW or more offshore but no port listed yet: ' + miss.join(sep) : '') + '.');
+    }
+  }
+  est.push(zh ? '<b>估計值</b>：風場卡片的「估計年發電量」用該國平均容量因數推算，不是實測（實測年發電量只有美國、台電自有風場、丹麥與澳洲）；「台灣・即時取樣」是取樣估計；時間軸的「最新可得」有些國家是「前一年底＋今年增量」的估計，其他國家沿用前一年底；1980–1999 年多數國家的容量是估計值。'
+              : '<b>Estimates</b>: the “estimated yearly output” on farm cards uses the country’s average capacity factor and is not measured (measured output exists only for the US, Taipower-owned farms, Denmark and Australia); “Taiwan · live samples” are estimates from samples; in the timeline’s “latest available” year some countries are “previous year-end + this year’s growth” estimates and the rest carry the previous year-end; most countries’ 1980–1999 capacities are estimates.');
+  est.push(zh ? '<b>風機位置</b>：近景裡的風機，有 USWTDB（美國）、MaStR（德國）或 OpenStreetMap 資料的才是實際機位，其餘依機組數示意排列；規劃中專案的狀態與時程變動快，座標多為概略位置。'
+              : '<b>Turbine positions</b>: in the close-up, turbines are at their real positions only where USWTDB (US), MaStR (Germany) or OpenStreetMap has them; elsewhere they are laid out schematically from the unit count. Pipeline projects change status and timing often, and most of their locations are approximate.');
+  if (EVENTS.length) {
+    const unl = EVENTS.filter(e => !(e.farms || []).length).length;
+    open.push(zh ? '<b>事件</b>：' + n(EVENTS.length) + ' 筆中有 ' + n(unl) + ' 筆還沒對到風場（風場不在資料裡，或報導沒寫風場名）；部分事故的原因與傷亡還在等官方調查，卡片只寫已確認的部分。'
+                 : '<b>Events</b>: ' + n(unl) + ' of ' + n(EVENTS.length) + ' are not yet linked to a farm (the farm is not in the data or the reports do not name it); for some incidents the cause and casualties still await official findings, and cards state only what is confirmed.');
+  }
+  if (PHOTOS && PHOTOS.farms) open.push(zh ? '<b>照片</b>：只有 ' + n(Object.keys(PHOTOS.farms).length) + ' 座風場有人工核對過的自由授權照片；許多重要風場（例如大彰化、Hornsea）還沒有可用的照片。'
+                                         : '<b>Photos</b>: only ' + n(Object.keys(PHOTOS.farms).length) + ' farms have a hand-checked free-licence photo; many major farms (Greater Changhua and Hornsea, for example) have none yet.');
+  else if (!LITE) open.push(zh ? '<b>照片</b>：只有少數風場有人工核對過的自由授權照片；許多重要風場（例如大彰化、Hornsea）還沒有可用的照片。'
+                              : '<b>Photos</b>: only a few farms have a hand-checked free-licence photo; many major farms (Greater Changhua and Hornsea, for example) have none yet.');
+  const gh = 'https://github.com/dofliu/windfarmTaiwan/blob/main/docs/', sfx = zh ? '' : '.en';
+  const links = zh ? '逐筆修正與理由見<a href="' + gh + 'data-cleanup.md" target="_blank" rel="noopener">資料清理紀錄</a>，各國逐場覆蓋見<a href="' + gh + 'data-coverage.md" target="_blank" rel="noopener">資料涵蓋報告</a>，離岸風場逐場見<a href="' + gh + 'foundations.md" target="_blank" rel="noopener">水下基礎清單</a>。'
+                   : 'Each correction and its reason is in the <a href="' + gh + 'data-cleanup' + sfx + '.md" target="_blank" rel="noopener">clean-up log</a>, farm-level coverage by country in the <a href="' + gh + 'data-coverage' + sfx + '.md" target="_blank" rel="noopener">coverage report</a>, and offshore farms one by one in the <a href="' + gh + 'foundations' + sfx + '.md" target="_blank" rel="noopener">foundation list</a>.';
+  return '<div class="glim"><h4>' + (zh ? '資料的限制與未確認事項（請先讀）' : 'Limits of the data and open questions (please read first)') + '</h4>' +
+    '<p>' + (zh ? '本站整合 GEM、IRENA、各國官方登錄與開放資料，並持續逐筆查證，但資料<b>並非完全準確</b>：有些位置、年份與數值是代用或估計的，有些還沒查證。請以原始出處為準；發現錯誤，請用風場卡片的「回報資料錯誤」。下列數字依目前載入的資料即時計算。'
+                : 'This site combines GEM, IRENA, national registers and open data and keeps checking them record by record, but the data is <b>not fully accurate</b>: some locations, years and values are placeholders or estimates, and some are not yet checked. Rely on the original sources; if you find an error, use “Report a data error” on the farm card. The counts below are computed from the data now loaded.') + '</p>' +
+    '<h4>' + (zh ? '代用與估計的部分' : 'Placeholders and estimates') + '</h4><ul><li>' + est.join('</li><li>') + '</li></ul>' +
+    (open.length ? '<h4>' + (zh ? '還沒查證或還沒收齊' : 'Not yet checked or not yet complete') + '</h4><ul><li>' + open.join('</li><li>') + '</li></ul>' : '') +
+    '<p class="gnote">' + links + '</p></div>';
+}
+
 function showSources() {
   if (!GEN) {                                                       // 發電量資料（筆數、丹麥能源署的取用月份）還沒載入：載入後若視窗仍開著就重畫
     needGen();
@@ -3601,7 +3662,7 @@ function showSources() {
   const li = arr => (arr || []).map(s => '<li>' + (/^https?:/.test(s) ? '<a href="' + esc(s.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(s) + '</a>' : esc(s)) + '</li>').join('');
   const zh = lang === 'zh';
   $('g-modal').querySelector('.box').classList.remove('wide');
-  $('g-modalBody').innerHTML = '<h2 class="gsrcs">' + T('srcTitle') + '</h2>' +
+  $('g-modalBody').innerHTML = '<h2 class="gsrcs">' + T('srcTitle') + '</h2>' + dataLimits(zh) +
     (zh ? '<p>地圖顯示各國<b>年底累計裝置容量</b>（MW），陸域與離岸分開統計，離岸含潮間帶／近岸（GWEC 口徑）。國家層級的風機高度以容量的 0.4 次方縮放；選擇單一國家或放大時改以風場為單位，每座風場以一支風機代表；點選某座風場時，才依它的機組數量與間距畫出全部風機（機組位置為示意排列，非實際座標）。虛線環為規劃中專案（越亮越接近完工；「規劃」分頁有逐案清單與 GEM 2026-02 各國總量，點選專案時以半透明風機顯示預定配置）。台灣與日本的國家數字採官方統計（能源署、JWPA），兩國風場另經逐場稽核。1980–1999 年多數國家的逐年數字為估計值，僅供趨勢觀察。風場照片優先用人工核對過的 Wikimedia Commons 照片（tools/farm_photos.py，逐張看過、出自該風場的 Commons 分類，卡片寫出作者與授權）；沒有的話才用維基百科條目圖片，而且要在 Commons 上屬於風電相關分類才顯示。簡介於瀏覽時即時查詢維基百科，離線時照片與簡介都不會顯示。</p>'
         : '<p>The map shows <b>year-end cumulative installed capacity</b> per country (MW), onshore and offshore separately (offshore includes intertidal/nearshore, GWEC convention). Country turbine height scales with capacity^0.4; with a country selected or when zoomed in the map switches to individual farms, each shown as a single turbine; clicking a farm draws all of its turbines from its unit count and spacing (schematic layout). Dashed rings are pipeline projects (brighter = closer to completion; the Pipeline tab lists them with GEM’s February 2026 country totals, and clicking a project shows its planned layout as translucent turbines). Taiwan’s and Japan’s national figures come from official statistics (Energy Administration, JWPA), and their farms were audited one by one. Most 1980–1999 country series are estimates. Farm photos come first from hand-checked Wikimedia Commons photos (tools/farm_photos.py: each looked at, taken from the farm\'s own Commons category, with author and licence on the card); otherwise a Wikipedia article image is used only if Commons files it under a wind-power category. Summaries are looked up live from Wikipedia; offline, neither is shown.</p>') +
     dataStats(zh) +
