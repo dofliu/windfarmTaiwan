@@ -33,7 +33,7 @@ jobs:
           CWA_API_KEY: ${{ secrets.CWA_API_KEY }}   # 中央氣象署風速授權碼(未設定則自動略過風速)
         run: python taipower_wind_scraper.py
 
-      - name: Run international scraper (Australia NEM, Alberta, Ontario)
+      - name: Run international scraper (Australia NEM, Alberta, Ontario; GB, DE, FR, DK, ERCOT, CAISO totals)
         continue-on-error: true     # 國外來源失敗不影響台灣資料的更新
         run: python intl_wind_scraper.py
 

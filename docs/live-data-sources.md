@@ -4,12 +4,31 @@
 
 > 2026-09-26（UTC 10:40–11:02）以 `curl` 逐一實測各國公開端點，並帶 `Origin: https://dofliu.github.io`
 > 檢查瀏覽器能否直接讀取（CORS）。沒有註冊任何帳號、沒有使用任何金鑰（美國 EIA 官方公開的測試用 `DEMO_KEY` 除外）。
-> 沒能實測成功的項目另列在最後一節。
+> 沒能實測成功的項目另列在最後一節。2026-10-10 接入國家層級的總量時，再實測一次英國、德國、法國、丹麥、德州、加州的端點並查了授權。
 
-## 目前狀態（2026-09 更新）
+## 目前狀態（2026-10 更新）
 
-**已接入**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 約每 2 小時抓取，
+**已接入（逐場）**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 約每 2 小時抓取，
 輸出 `data/live/intl_realtime.json`。
+
+**已接入（只有總量，v2.31.0）**：大不列顛、德國、法國、丹麥全國，以及美國德州（ERCOT）、加州（CAISO）電網的風電總出力，
+同一支程式、同一次 commit，寫在同一檔的 `nat`。每個來源存最新一筆（時間、MW；德、法、丹另有陸域／離岸）與過去 48 小時每個整點的平均；
+ERCOT 另存同一儀表板的當月風電容量，國家概況只對它顯示「約為容量的幾 %」，其他來源沒有同口徑的容量，不算百分比。
+任一來源失敗時保留上一次的數值並標示 `ok: false`。
+
+| 代碼 | 來源 | 範圍與注意事項 | 解析度 · 實測延遲（10/10） |
+|---|---|---|---|
+| GB | Elexon BMRS `FUELINST`（`fuelType=WIND`） | 大不列顛（不含北愛爾蘭）由電網營運計量的風電；大部分接在配電網的風機沒有營運計量（[英國能源部 2012 年的說明](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/65923/6487-nat-grid-metering-data-et-article-sep12.pdf)：「generation units connected to the low voltage distribution system ("embedded" generation) are excluded from operational metering」），所以低於全國實際出力；陸域、離岸不分 | 5 分鐘 · 約 5 分鐘 |
+| DE | SMARD `chart_data`（陸域 4067、離岸 1225，`quarterhour`） | 德國全國。數值是每 15 分鐘的發電量（MWh）：同一小時的四個 15 分鐘值相加等於小時檔的值，所以 × 4 才是平均功率（MW）。每週一個檔，跨週時多讀前一週 | 15 分鐘 · 約 45 分鐘 |
+| FR | ODRÉ `eco2mix-national-tr`（`exports/json`） | RTE 的即時資料，資料集說明寫明是遙測值加上估計值（「complétées par des forfaits et estimations」），之後換成結算數字；每位使用者每月限 50,000 次 API 呼叫（本站每天 12 次） | 15 分鐘 · 約 15 分鐘 |
+| DK | Energinet `PowerSystemRightNow` | DK1＋DK2，陸域與離岸分開 | 1 分鐘 · 約 1 分鐘 |
+| ERCOT | `ercot.com/api/1/services/read/dashboards/fuel-mix.json` | ERCOT 約占德州用電的九成（[ERCOT 簡介](https://www.ercot.com/about)：「about 90 percent of the state's electric load」）；只有昨天與今天，較早的小時沿用上一次的檔案。偶爾回 403，程式等 10 秒重試一次 | 5 分鐘 · 約 5 分鐘 |
+| CAISO | `caiso.com/outlook/current/fuelsource.csv`＋`outlook/history/日期/fuelsource.csv` | CAISO 約供應加州八成的用電（[CAISO 2024 年 10 月 Key Statistics](https://www.caiso.com/documents/key-statistics-oct-2024.pdf)：「Serve ~80% of California demand」）；檔內只有當地時間，依太平洋時間換算 | 5 分鐘 · 約 5 分鐘 |
+
+- **地球儀上的顯示**：英、德、法、丹、美國的國家概況有「此刻」方塊（此刻值、陸域／離岸、48 小時趨勢、範圍說明、授權標示與連結）；
+  全球與各洲的概況另有「各地此刻的風電出力」清單（含台灣、澳洲、加拿大），依出力排序、不加總，點名稱進該國概況。
+- **比利時（Elia）與波蘭（PSE）暫不收錄**：Elia 的授權頁本次無法開啟，PSE 找不到資料使用條款；查清楚之後再加。
+- **檔案大小**：`intl_realtime.json` 從約 18 KB 增為約 21 KB（每小時平均以整數 MW、起始時間加陣列存放）。
 
 - **地球儀上的顯示**：國家概況有各電網此刻的總出力與 48 小時趨勢；對應到的風場在卡片、提示與風場清單顯示此刻出力。
   時間軸在最新年份時，這些風場外圈為綠色，葉片轉速依此刻出力。
@@ -19,6 +38,7 @@
   - 安大略：45 個全部對應，依 IESO「Transmission-Connected Generation」頁的設施對照人工核對。
   - 對不到的機組只計入電網總量：資料中沒有 Elaine、Yawong、Forty Mile Bow Island 三座風場；Golden Plains 西區在資料中是興建中的整體專案列。
 - **授權標示**：AEMO 標示來源；AESO 附版權聲明，限非商業與教育用途、數值不修改；IESO 附其規定的版權聲明全文。
+  全國總量的標示（Elexon、SMARD、ODRÉ、Energinet、ERCOT、CAISO）見下面「授權」一節，網站顯示在數值旁，並在「資料來源」視窗列出。
 
 ## 結論
 
@@ -78,11 +98,14 @@
 
 ## 授權（已查到的）
 
-- Elexon BMRS 授權：可商用，需標示來源
+- Elexon BMRS 授權：可商用，需標示「Contains BMRS data © Elexon Limited copyright and database right [年]」，可行時附授權連結
 - AEMO：任何用途，需標示來源
-- Energinet、SMARD：CC BY 4.0
-- ODRÉ：Licence Ouverte 2.0
-- Elia：自有開放資料授權
+- Energinet、SMARD：CC BY 4.0（Energinet 標示「Source: Energinet (www.energidataservice.dk)」，SMARD 標示「Bundesnetzagentur | SMARD.de」；有修改要註明，本站寫明「每小時平均由本站計算」）
+- ODRÉ：Licence Ouverte 2.0（標示來源與資料時間）
+- ERCOT：網站公開部分的原始資料可用於彙編、圖表與分析（[使用條款](https://www.ercot.com/help/terms)：「raw data provided in public portions of this website may be used, reproduced, and redistributed in compilations, charts, and analyses」）
+- CAISO：可使用，須保留版權等聲明並標示 California ISO（[使用條款](https://www.caiso.com/privacy-terms-of-use)）
+- Elia：自有開放資料授權（授權頁 2026-10 無法開啟，未收錄）
+- PSE：找不到資料使用條款（未收錄）
 - ONS：創用 CC 姓名標示
 - IESO：可使用與轉載，須在轉載處附上 IESO 規定的版權聲明（[使用條款](https://www.ieso.ca/Terms-of-Use)）
 - AESO：限非商業、個人或教育用途，不得修改，並保留版權聲明（[法律聲明](https://www.aeso.ca/legal/)）
@@ -97,7 +120,8 @@
 4. **荷蘭離岸（NED）或 ENTSO-E 逐機組**：需要免費金鑰（存成 GitHub Secrets），只能由伺服器端抓；實際延遲要再測。
 
 **快速成果**：國家層級的「此刻風電出力」面板。英國、德國、法國、比利時、波蘭、巴西可以由瀏覽器直接讀；
-丹麥、愛爾蘭、德州、加州、日本、韓國要經 Actions。
+丹麥、愛爾蘭、德州、加州、日本、韓國要經 Actions。→ 2026-10 已接入英、德、法、丹、德州、加州（一律經 Actions，與其他即時資料同一次 commit）；
+比利時、波蘭待查授權，巴西、愛爾蘭、日本、韓國尚未評估授權。
 
 ## 接入時要注意
 
@@ -116,7 +140,7 @@
 - SMARD 的 100 MW 以上機組下載（只看過文件）
 - 西班牙 REE（WAF 封鎖）、東京電力（CDN 封鎖）、印度（無法連線）、智利逐廠 SCADA 頁面（Cloudflare 403 與 TLS 錯誤）
 - SEMO 機組代碼、巴西 `ceg` 代碼對應名稱與座標的清單
-- EirGrid、NED、SEMO 的授權條款
+- EirGrid、NED、SEMO 的授權條款；Elia（授權頁無法開啟）與 PSE（找不到條款）
 - EIA 約 31 小時、B1610 約 14 天的延遲各只觀察到一次
 
 ## 參考連結
@@ -125,6 +149,9 @@
 - [ENTSO-E：取得 security token](https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token)
 - [ENTSO-E 16.1.A 逐機組實際出力](https://transparencyplatform.zendesk.com/hc/en-us/articles/16648326220564-Actual-Generation-per-Generation-Unit-16-1-A)
 - [Energinet 使用條款](https://www.energidataservice.dk/terms-and-conditions)
+- [ODRÉ éCO2mix 全國即時資料](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/)
+- [ERCOT 使用條款](https://www.ercot.com/help/terms)
+- [CAISO 使用條款](https://www.caiso.com/privacy-terms-of-use)
 - [SMARD 資料使用](https://www.smard.de/en/datennutzung)
 - [AEMO 著作權](https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions)
 - [Open Electricity](https://docs.openelectricity.org.au/introduction)

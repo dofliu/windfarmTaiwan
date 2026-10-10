@@ -93,6 +93,7 @@
     平均風速底圖（Global Wind Atlas）
   - **導覽**：自動導覽與四個故事導覽（台灣離岸之路、歐洲離岸、中國崛起、浮動式風電，`#/global?tour=tw`／`eu`／`cn`／`fl`）
   - **澳洲、加拿大即時出力**：AEMO、AESO、IESO 約 150 座風場；時間軸在最新年份時，有即時資料的風場外圈為綠色、葉片依出力轉動
+  - **各國此刻的風電總出力**：英國（大不列顛）、德國、法國、丹麥全國與美國德州、加州電網的總量與 48 小時趨勢（只有總量），在國家概況與全球「各地此刻的風電出力」清單；說明見[使用說明 4.5](./docs/user-guide.md#45-側欄分頁)
   - 無 WebGL 的裝置自動改用長條排名
 - **風電知識** `#/learn` — 13 章：從 1888 年 Brush 風機到 2025 年、陸域與離岸、水下基礎、浮動式、風機大型化、亞洲崛起、台灣的離岸風電、
   為什麼要發展風電、名詞解釋與完整資料來源；圖表皆由同一份全球資料集繪製，每章都能跳到地球儀重播那一段
@@ -153,7 +154,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/global/wind_resource.json` — 平均風速底圖的分級與圖例（`tools/build_wind_resource.py` 產生）
 - `data/global/sources/` — 合併前的精選風場（含台灣、日本稽核狀態）、2026 年整理的規劃中專案與日本風場清單、合併紀錄、
   OSPAR Offshore Renewables 2024 的風機紀錄（CC0，水下基礎用）與其他建置用的原始檔
-- `data/live/` — 澳洲、加拿大即時出力 `intl_realtime.json`、電網機組代碼 → 風場的對照 `units.json`（`tools/build_live_units.py` 產生；安大略依 IESO 公布的設施對照人工核對）、
+- `data/live/` — 澳洲、加拿大即時出力與六個國家／電網的風電總量 `intl_realtime.json`、電網機組代碼 → 風場的對照 `units.json`（`tools/build_live_units.py` 產生；安大略依 IESO 公布的設施對照人工核對）、
   此刻的風 `wind_now.webp`＋`wind_now.json`（排程更新）
 - `data/archive/wind_history_archive_YYYY-MM.json` — 台電官方回溯的長期存檔，依月分檔（`backfill_history.py` 產生）
 - `data/archive/farm_daily.json` — 台電即時資料各併網點（含民營）的每日取樣累積（2026-06 起，抓取程式每次累加；`tools/build_farm_daily.py` 可從 git 歷史回補），
@@ -169,8 +170,9 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新、測試與版本），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；累加各併網點的每日取樣 → `data/archive/farm_daily.json`；同時抓電力供需即時報表 → `grid_status.json`
-- `intl_wind_scraper.py` — 約每 2 小時執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力 →
-  `data/live/intl_realtime.json`（含各電網 48 小時總出力）；任一來源失敗時保留上一次的數值並標示，不影響台灣資料
+- `intl_wind_scraper.py` — 約每 2 小時執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力，
+  以及大不列顛、德國、法國、丹麥、美國德州（ERCOT）、加州（CAISO）的風電總量 → `data/live/intl_realtime.json`
+  （含各電網 48 小時總出力，全國總量存每小時平均）；任一來源失敗時保留上一次的數值並標示，不影響台灣資料
 - `wind_realtime.json` — 即時資料（由 Actions 自動更新）
 - `wind_history.json` — 滾動 7 天歷史（scraper 即時累積，供前端趨勢線）
 - `grid_status.json` — 全國電力供需即時報表（尖峰負載/供電能力/備轉容量率）。
@@ -336,7 +338,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   逐條附來源查證，查無精確日期者不臆測填補
 - 授權：政府資料開放授權條款－第 1 版
 
-**澳洲、加拿大即時**
+**國外即時**
 
 - 澳洲東部電網：AEMO NEMWeb [Dispatch_SCADA](https://nemweb.com.au/Reports/Current/Dispatch_SCADA/)（每個發電機組每 5 分鐘的實測出力）；
   資料來源：Australian Energy Market Operator（AEMO）；機組清單：AEMO NEM Registration and Exemption List
@@ -345,7 +347,14 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 安大略：IESO [Generators Output and Capability](https://reports-public.ieso.ca/public/GenOutputCapability/) 報表；機組名稱對照：
   IESO [Transmission-Connected Generation](https://www.ieso.ca/en/Power-Data/Supply-Overview/Transmission-Connected-Generation)。
   Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO's website (www.ieso.ca).
-- 評估與未接入的國家見 [docs/live-data-sources.md](./docs/live-data-sources.md)
+- 大不列顛：Elexon BMRS [Generation by fuel type](https://bmrs.elexon.co.uk/generation-by-fuel-type)（FUELINST，每 5 分鐘；只含電網營運計量的風電，大部分接在配電網的風機不在其中）。
+  Contains BMRS data © Elexon Limited copyright and database right 2026；依 [BMRS 資料授權](https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/)
+- 德國：Bundesnetzagentur | [SMARD.de](https://www.smard.de/)（陸域、離岸每 15 分鐘的發電量，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)；本站換算成平均功率並計算每小時平均）
+- 法國：RTE éCO2mix 全國即時資料，經 [ODRÉ](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/) 取得（每 15 分鐘，[Licence Ouverte v2.0](https://www.etalab.gouv.fr/licence-ouverte-open-licence/)）
+- 丹麥：Energinet（[www.energidataservice.dk](https://www.energidataservice.dk/tso-electricity/PowerSystemRightNow)）PowerSystemRightNow（每分鐘，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)；本站計算每小時平均）
+- 美國德州：ERCOT [Fuel Mix](https://www.ercot.com/gridmktinfo/dashboards/fuelmix) 儀表板（每 5 分鐘，附當月風電容量）；Source: Electric Reliability Council of Texas（依 [ERCOT 使用條款](https://www.ercot.com/help/terms)）
+- 美國加州：California ISO [Today's Outlook](https://www.caiso.com/todays-outlook/supply)（每 5 分鐘）；Source: California ISO（依 [CAISO 使用條款](https://www.caiso.com/privacy-terms-of-use)）
+- 評估與未接入的國家（比利時、波蘭的授權待查）見 [docs/live-data-sources.md](./docs/live-data-sources.md)
 
 **全球發展**
 

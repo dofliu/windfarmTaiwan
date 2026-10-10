@@ -2200,9 +2200,10 @@ function renderProfile() {
     box.innerHTML = `<h4>${esc(scopeName())}</h4><div class="sub">${y === (LT && LT.year) ? esc(T('ltYear')(y)) + ' · ' + esc(T('ltCap')) : y + ' · ' + T('worldCap')}</div>${y === (LT && LT.year) ? '<div class="ltbox">' + esc(ltLine(null)) + L('：', ': ') + C.filter(x => x.lt && inRegion(x)).map(x => esc(cname(x)) + ' ' + esc(x.lt.asof)).join(L('、', ', ')) + '</div>' : ''}
       <div class="big">${WW.int(on[yi] + off[yi])}<small>MW</small></div>${sparkSVG(on, off, yi)}
       ${rowsHTML([[T('profOnOff'), `${WW.int(on[yi])} / ${WW.int(off[yi])}`], ...top.map((c, k) => [`#${k + 1} ${esc(cname(c))}`, WW.int(c.on[yi] + c.off[yi])])])}
-      ${fdBox(S.region)}${pipeBlock(S.region)}
+      ${LITE ? '' : liveWorldBox()}${fdBox(S.region)}${pipeBlock(S.region)}
       <div class="gnote" style="margin-top:8px">${L('在「範圍」選一個國家，可看該國概況、風場與規劃中專案。', 'Pick a country in “Focus” to see its profile, farms and pipeline.')}</div>`;
     const ps0 = box.querySelector('[data-act="pipe"]'); if (ps0) ps0.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
+    box.querySelectorAll('[data-liso]').forEach(a => a.onclick = e => { e.preventDefault(); setRegion(a.dataset.liso); });
     wireFdLink(box);
     return;
   }
@@ -2482,10 +2483,12 @@ function msPseudoFarm(m) {
 }
 function msStop(m) { return { kind: 'ms', m, name: m.name, zh: null, lat: m.lat, lon: m.lon, year: m.year, type: m.type, iso: m.iso, farm: farmsReady ? msPseudoFarm(m) : null }; }
 let cardItem = null;
-/* ================= 澳洲、加拿大即時出力（intl_wind_scraper.py 約每 2 小時更新 data/live/intl_realtime.json） ================= */
+/* ================= 國外即時出力（intl_wind_scraper.py 約每 2 小時更新 data/live/intl_realtime.json）：
+   grids＝澳洲、加拿大的電網（有逐場資料）；nat＝英、德、法、丹全國與美國德州、加州電網的風電總量（沒有逐場資料） ================= */
 // 超過 LIVE_STALE_MS 的電網資料不再疊到風場上：排程約每 2 小時，容許漏跑一兩次（安大略的資料本身還晚約 1 小時）
 const INTL_URL = 'data/live/intl_realtime.json', LIVE_HEX = 0x3fdcb0, LIVE_STALE_MS = 6 * 3600e3;
-const GRID_TZ = { AEMO: 'Australia/Brisbane', AESO: 'America/Edmonton', IESO: 'America/Toronto' };
+const GRID_TZ = { AEMO: 'Australia/Brisbane', AESO: 'America/Edmonton', IESO: 'America/Toronto', GB: 'Europe/London', DE: 'Europe/Berlin', FR: 'Europe/Paris',
+  DK: 'Europe/Copenhagen', ERCOT: 'America/Chicago', CAISO: 'America/Los_Angeles' };
 const GRID_SRC = { AEMO: 'https://nemweb.com.au/Reports/Current/Dispatch_SCADA/', AESO: 'http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet',
   IESO: 'https://reports-public.ieso.ca/public/GenOutputCapability/PUB_GenOutputCapability.xml' };
 let INTL = null, intlByKey = new Map(), intlTimer = null, liveSeen = false;
@@ -2499,7 +2502,7 @@ function loadIntl() {
 function liveChanged() {
   farmLayerDirty = true;
   if (!active || !farmsReady) return;
-  if (panelTab === 'prof' && (S.region === 'AUS' || S.region === 'CAN' || S.region === 'TWN')) renderProfile();
+  if (panelTab === 'prof' && (!byIso[S.region] || S.region === 'TWN' || liveKeys(S.region).length)) renderProfile();
   if (panelTab === 'farms') renderFarmResults(true);
   refreshLiveBox();
 }
@@ -2517,17 +2520,40 @@ function liveFor(f) {
   const x = INTL && intlByKey.get(f.iso + '|' + f.name);
   return x && gridFresh(INTL.grids[x.grid]) ? x : null;
 }
-function gridName(g) { return ({ AEMO: L('澳洲東部電網（AEMO）', 'Australia NEM (AEMO)'), AESO: L('亞伯達（AESO）', 'Alberta (AESO)'), IESO: L('安大略（IESO）', 'Ontario (IESO)') })[g] || g; }
-function gridRes(g) { return ({ '5min': L('每 5 分鐘實測', 'measured every 5 min'), snapshot: L('約 1 分鐘的即時值', 'real-time value (~1 min)'), hourly: L('每小時平均', 'hourly average') })[g.res] || ''; }
+function gridName(g) {
+  return ({ AEMO: L('澳洲東部電網（AEMO）', 'Australia NEM (AEMO)'), AESO: L('亞伯達（AESO）', 'Alberta (AESO)'), IESO: L('安大略（IESO）', 'Ontario (IESO)'),
+    GB: L('大不列顛（Elexon）', 'Great Britain (Elexon)'), DE: L('德國（SMARD）', 'Germany (SMARD)'), FR: L('法國（RTE）', 'France (RTE)'), DK: L('丹麥（Energinet）', 'Denmark (Energinet)'),
+    ERCOT: L('德州電網（ERCOT）', 'Texas grid (ERCOT)'), CAISO: L('加州（CAISO）', 'California (CAISO)'), TPC: L('台灣（台電）', 'Taiwan (Taipower)') })[g] || g;
+}
+function gridRes(g) {
+  if (g.h) return ({ '5min': L('每 5 分鐘', 'every 5 min'), '15min': L('每 15 分鐘', 'every 15 min'), '1min': L('每分鐘', 'every minute') })[g.res] || '';
+  return ({ '5min': L('每 5 分鐘實測', 'measured every 5 min'), snapshot: L('約 1 分鐘的即時值', 'real-time value (~1 min)'), hourly: L('每小時平均', 'hourly average') })[g.res] || '';
+}
+/* 某國有哪些即時來源（電網或全國總量）的代碼 */
+function liveKeys(iso) {
+  if (!INTL) return [];
+  return Object.keys(INTL.grids).filter(k => INTL.grids[k].iso === iso).concat(Object.keys(INTL.nat || {}).filter(k => INTL.nat[k].iso === iso));
+}
+const liveSrc = k => (INTL && INTL.grids[k]) || (INTL && INTL.nat && INTL.nat[k]);
+function agoText(time) {
+  const mins = Math.max(0, Math.round((Date.now() - new Date(time)) / 60000));
+  return mins < 90 ? L(mins + ' 分鐘前', mins + ' min ago') : L(Math.round(mins / 60) + ' 小時前', Math.round(mins / 60) + ' h ago');
+}
 function gridTime(key, g) {
-  const t = new Date(g.time), mins = Math.max(0, Math.round((Date.now() - t) / 60000));
+  const t = new Date(g.time);
   let local = '';
   try { local = new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'zh-TW', { timeZone: GRID_TZ[key], month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(t); } catch (e) { local = g.time; }
-  const zone = ({ AEMO: L('澳洲東部時間', 'AEST'), AESO: L('亞伯達時間', 'Alberta time'), IESO: L('安大略時間', 'Ontario time') })[key] || '';
-  const ago = mins < 90 ? L(mins + ' 分鐘前', mins + ' min ago') : L(Math.round(mins / 60) + ' 小時前', Math.round(mins / 60) + ' h ago');
+  const zone = ({ AEMO: L('澳洲東部時間', 'AEST'), AESO: L('亞伯達時間', 'Alberta time'), IESO: L('安大略時間', 'Ontario time'), GB: L('英國時間', 'UK time'),
+    DE: L('德國時間', 'German time'), FR: L('法國時間', 'French time'), DK: L('丹麥時間', 'Danish time'), ERCOT: L('德州時間', 'Texas time'), CAISO: L('加州時間', 'California time') })[key] || '';
+  const ago = agoText(t);
   return `${local}（${zone}，${ago}）`.replace('（', lang === 'en' ? ' (' : '（').replace('，', lang === 'en' ? ', ' : '，').replace('）', lang === 'en' ? ')' : '）');
 }
-function gridNotice(key) { return INTL && INTL.notice && INTL.notice[key] ? '<div class="gnote lic">' + esc(INTL.notice[key]) + '</div>' : ''; }
+function gridNotice(key) {
+  if (!INTL || !INTL.notice || !INTL.notice[key]) return '';
+  const n = INTL.nat && INTL.nat[key];                      // 全國總量另附來源與授權連結
+  return '<div class="gnote lic">' + esc(INTL.notice[key]) + (n ? ' · <a href="' + esc(n.url) + '" target="_blank" rel="noopener">' + T('lnkSrc') + ' ↗</a>' +
+    (n.lic ? ' · <a href="' + esc(n.lic) + '" target="_blank" rel="noopener">' + L('授權', 'Licence') + ' ↗</a>' : '') : '') + '</div>';
+}
 function liveSpark(pts, cap) {
   if (!pts || pts.length < 2) return '';
   const W = 250, H = 36, t0 = Date.parse(pts[0][0]), t1 = Date.parse(pts[pts.length - 1][0]) || t0 + 1, ym = Math.max(cap || 0, ...pts.map(p => p[1])) || 1;
@@ -2535,20 +2561,69 @@ function liveSpark(pts, cap) {
   const last = xy[xy.length - 1];
   return `<svg class="lspark" viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="${esc(L('過去 48 小時風電出力', 'Wind output, last 48 hours'))}"><polyline fill="none" stroke="var(--live)" stroke-width="1.5" points="${xy.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ')}"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="var(--live)"/></svg>`;
 }
-/* 國家概況：澳洲、加拿大此刻的風電總出力（各電網）與 48 小時趨勢 */
+/* 全國總量的 48 小時趨勢：每小時平均（h = [起始整點, [MW…]]），缺資料的小時斷開 */
+function natSpark(e) {
+  if (!e.h || e.h[1].filter(v => v != null).length < 2) return '';
+  const W = 250, H = 36, v = e.h[1], n = v.length, ym = Math.max(e.cap || 0, ...v.filter(x => x != null)) || 1;
+  let d = '', pen = false, last = null;
+  v.forEach((x, i) => {
+    if (x == null) { pen = false; return; }
+    last = [(i / (n - 1)) * W, H - 2 - (x / ym) * (H - 4)];
+    d += (pen ? 'L' : 'M') + last[0].toFixed(1) + ',' + last[1].toFixed(1); pen = true;
+  });
+  return `<svg class="lspark" viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="${esc(L('過去 48 小時風電出力（每小時平均）', 'Wind output, last 48 hours (hourly means)'))}"><path fill="none" stroke="var(--live)" stroke-width="1.5" d="${d}"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="var(--live)"/></svg>`;
+}
+/* 各全國總量的涵蓋範圍（評估與出處見 docs/live-data-sources.md） */
+function natScope(k) {
+  return ({
+    GB: L('大不列顛（不含北愛爾蘭）由電網營運計量的風電；大部分接在配電網的風機沒有計入，所以低於實際的全國風電出力。陸域、離岸不分。',
+      'Wind metered by the grid operator in Great Britain (not Northern Ireland); most turbines on the distribution network are not included, so this is below total GB wind output. Onshore and offshore are not split.'),
+    DE: L('德國全國，陸域與離岸分開公布；每 15 分鐘的發電量換算成平均功率，之後可能修正。', 'All of Germany, onshore and offshore published separately; 15-minute energy converted to average power, which may be revised later.'),
+    FR: L('RTE 的即時資料由遙測值加上估計值組成，之後會換成結算後的數字。', 'RTE’s real-time data is telemetry completed with estimates, later replaced by settled figures.'),
+    DK: L('丹麥東、西兩個電網區合計。', 'Western and eastern Denmark (DK1 + DK2) combined.'),
+    ERCOT: L('ERCOT 電網約占德州用電的九成；百分比以同一儀表板公布的當月風電容量計算。', 'The ERCOT grid serves about 90% of Texas load; the percentage uses the month’s wind capacity from the same dashboard.'),
+    CAISO: L('加州獨立系統營運者約供應加州八成的用電。', 'The California ISO serves about 80% of California’s demand.')
+  })[k] || '';
+}
+function natRow(k) {
+  const e = INTL.nat[k], fresh = gridFresh(e);
+  return `<div class="lrow"><div>${esc(gridName(k))}${L('：', ': ')}<b>${fresh ? WW.int(e.mw) + ' MW' : L('資料延遲', 'delayed')}</b>` +
+    (fresh && e.on != null ? ` · ${L('陸域', 'onshore')} ${WW.int(e.on)} / ${L('離岸', 'offshore')} ${WW.int(e.off)} MW` : '') +
+    (fresh && e.cap ? ` · ${L('約為當月風電容量 ' + fmtMW(e.cap) + ' 的 ', 'about ')}${(e.mw / e.cap * 100).toFixed(0)}%${L('', ' of the month’s ' + fmtMW(e.cap) + ' wind capacity')}` : '') +
+    `</div><div class="gnote">${esc(gridRes(e))} · ${esc(gridTime(k, e))}</div>${natSpark(e)}<div class="gnote">${esc(natScope(k))}</div></div>`;
+}
+/* 國家概況：此刻的風電出力（澳洲、加拿大各電網；英、德、法、丹全國；美國德州、加州電網）與 48 小時趨勢 */
 function intlProfileBox(iso) {
-  if (!INTL || (iso !== 'AUS' && iso !== 'CAN')) return '';
-  const keys = Object.keys(INTL.grids).filter(k => INTL.grids[k].iso === iso);
+  const keys = liveKeys(iso);
   if (!keys.length) return '';
   const rows = keys.map(k => {
+    if (INTL.nat && INTL.nat[k]) return natRow(k);
     const g = INTL.grids[k], fresh = gridFresh(g);
     return `<div class="lrow"><div>${esc(gridName(k))}${L('：', ': ')}<b>${fresh ? WW.int(g.mw) + ' MW' : L('資料延遲', 'delayed')}</b>` +
       (fresh && g.cap_listed ? ` · ${L('約為已登錄容量 ' + fmtMW(g.cap_listed) + ' 的 ', 'about ')}${(g.mw / g.cap_listed * 100).toFixed(0)}%${L('', ' of ' + fmtMW(g.cap_listed) + ' registered')}` : '') +
       `</div><div class="gnote">${esc(gridRes(g))} · ${esc(gridTime(k, g))}</div>${liveSpark(INTL.hist && INTL.hist[k], g.cap_listed)}</div>`;
   }).join('');
   const other = iso === 'AUS' ? L('西澳與北領地不在東部電網，沒有即時資料。', 'Western Australia and the Northern Territory are outside the NEM and have no live data here.')
-    : L('其他省份沒有公開的即時資料。', 'Other provinces publish no live data.');
-  return `<div class="livebox intl">🌬 ${T('liveNow')}${rows}<div class="gnote">${other} ${L('地圖上綠色外圈的風場有即時資料。', 'Farms with a green ring on the map have live data.')}</div>${keys.map(gridNotice).join('')}</div>`;
+    : iso === 'CAN' ? L('其他省份沒有公開的即時資料。', 'Other provinces publish no live data.')
+    : iso === 'USA' ? L('美國其他地區沒有列入。', 'Other US regions are not included.') : '';
+  const ring = INTL.grids && keys.some(k => INTL.grids[k]) ? L('地圖上綠色外圈的風場有即時資料。', 'Farms with a green ring on the map have live data.')
+    : L('只有總量，沒有逐場的即時資料。', 'Totals only; there is no live data per farm.');
+  return `<div class="livebox intl">🌬 ${T('liveNow')}${rows}<div class="gnote">${other ? other + ' ' : ''}${ring}</div>${keys.map(gridNotice).join('')}</div>`;
+}
+/* 全球或洲的概況：各地此刻的風電出力清單（範圍與時間各不相同，不加總） */
+function liveWorldBox() {
+  const items = [];
+  if (INTL) [INTL.grids, INTL.nat || {}].forEach(o => Object.keys(o).forEach(k => { const g = o[k]; if (gridFresh(g) && inScope(g.iso)) items.push({ k, iso: g.iso, mw: g.mw, ago: agoText(g.time) }); }));
+  if (WW.live && WW.live.isLive() && inScope('TWN')) {
+    const st = WW.live.srcTime() || '';                       // 台電的資料時間是台灣時間、沒有時區
+    items.push({ k: 'TPC', iso: 'TWN', mw: WW.live.totals().total, ago: st ? agoText(/(Z|[+-]\d\d:?\d\d)$/i.test(st) ? st : st + '+08:00') : '' });
+  }
+  if (!items.length) return '';
+  items.sort((a, b) => b.mw - a.mw);
+  return `<div class="livebox intl">🌬 ${L('各地此刻的風電出力', 'Wind output right now')}<div class="rows lnow">` +
+    items.map(x => `<span><a href="#" data-liso="${x.iso}">${esc(gridName(x.k))}</a></span><span><b>${WW.int(x.mw)} MW</b><small class="lago">${esc(x.ago)}</small></span>`).join('') +
+    `</div><div class="gnote">${L('各來源的範圍與時間不同（有的只是一個電網，英國不含大部分配電網的風機），不能加總成全球數字。點名稱看該國的說明、48 小時趨勢與資料授權。',
+      'Sources differ in coverage and timing (some are a single grid, and Great Britain leaves out most turbines on the distribution network), so they do not add up to a world total. Click a name for its notes, 48-hour trend and data licence.')}</div></div>`;
 }
 function liveBoxFor(f) {
   if (f.iso === 'AUS' || f.iso === 'CAN') {
@@ -3586,8 +3661,8 @@ function dataStats(zh) {
                                        : 'Offshore wind ports: ' + n(PORTS.length) + ' ports in ' + n(new Set(PORTS.map(p => p.iso)).size) + ' countries with ' + n(PORTS.reduce((a, p) => a + (p.farms || []).length, 0)) + ' farm links, each port sourced');
   if (EVENTS.length) li.push(zh ? '重大事件與事故：' + n(EVENTS.length) + ' 筆，每筆附主管機關、業者或媒體出處'
                                 : 'Major events and incidents: ' + n(EVENTS.length) + ' entries, each with a regulator, operator or press source');
-  if (!LITE) li.push(zh ? '即時出力：台灣台電逐機組（每 10 分鐘，另存歷史存檔）；澳洲 AEMO、亞伯達 AESO、安大略 IESO 三個電網的逐機組與電網總量'
-                        : 'Live output: Taipower unit by unit (every 10 minutes, with a history archive); unit-level and grid totals from AEMO (Australia), AESO (Alberta) and IESO (Ontario)');
+  if (!LITE) li.push(zh ? '即時出力：台灣台電逐機組（每 10 分鐘，另存歷史存檔）；澳洲 AEMO、亞伯達 AESO、安大略 IESO 三個電網的逐機組與電網總量；大不列顛、德國、法國、丹麥全國與美國德州（ERCOT）、加州（CAISO）電網的風電總量（只有總量，沒有逐場）'
+                        : 'Live output: Taipower unit by unit (every 10 minutes, with a history archive); unit-level and grid totals from AEMO (Australia), AESO (Alberta) and IESO (Ontario); wind totals for Great Britain, Germany, France and Denmark and the Texas (ERCOT) and California (CAISO) grids (totals only, nothing per farm)');
   if (!li.length) return '';
   return '<h4>' + (zh ? '資料統計（依目前載入的資料即時計算）' : 'Data inventory (computed from the data now loaded)') + '</h4><ul><li>' + li.join('</li><li>') + '</li></ul>';
 }
@@ -3700,12 +3775,21 @@ function showSources() {
       esc(D.pipelineCuratedAsOf || '2026') + (zh ? '），用來更新狀態與預計商轉年，GEM 沒有的才新增；「暫緩」不收錄。' : '), used to update status and expected commissioning year and to add projects GEM lacks; on-hold projects are left out.') + '</li>' +
       (D.pipelineTotals ? '<li>' + (zh ? '各國總量：' : 'Country totals: ') + esc(D.pipelineTotals.source) + ' · ' + esc(D.pipelineTotals.release) + ' — <a href="' + esc(D.pipelineTotals.url) + '" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' : '') +
       '<li>' + (zh ? '日本另補 NEDO 各縣風場清單（1 MW 以上，至 2018 年 3 月）與 windfarm.work／營運商資料中 GEM 未收錄的小型風場，並據以修正 GEM 錯置的座標。' : 'Japan adds small farms missing from GEM from the NEDO prefecture lists (≥1 MW, to March 2018) and windfarm.work / operator pages, which were also used to correct misplaced GEM coordinates.') + '</li></ul>' +
-    (LITE ? '' : '<h4>' + (zh ? '即時出力（台灣、澳洲、加拿大）' : 'Live output (Taiwan, Australia, Canada)') + '</h4><ul>' +
+    (LITE ? '' : '<h4>' + (zh ? '即時出力' : 'Live output') + '</h4><ul>' +
       '<li>' + (zh ? '台灣：台電「各機組發電量即時資訊」（政府資料開放平臺資料集 8931）。' : 'Taiwan: Taipower real-time generation by unit (government open data, dataset 8931).') + '</li>' +
       '<li>' + (zh ? '澳洲東部電網：AEMO NEMWeb Dispatch_SCADA（每 5 分鐘）。資料來源：Australian Energy Market Operator (AEMO)。' : 'Australia NEM: AEMO NEMWeb Dispatch_SCADA (every 5 minutes). Source: Australian Energy Market Operator (AEMO).') + '</li>' +
       '<li>' + (zh ? '亞伯達：AESO Current Supply Demand 報表（約 1 分鐘）。© 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved；非商業與教育用途，數值未修改。' : 'Alberta: AESO Current Supply Demand report (about 1 minute). © 2026 THE INDEPENDENT SYSTEM OPERATOR ("ISO"). All rights reserved; non-commercial, educational use, values unmodified.') + '</li>' +
       '<li>' + (zh ? '安大略：IESO Generators Output and Capability 報表（每小時）。' : 'Ontario: IESO Generators Output and Capability report (hourly). ') + 'Copyright © 2004-2022 Independent Electricity System Operator, all rights reserved. This information is subject to the Terms of Use set out in the IESO\'s website (www.ieso.ca).</li>' +
-      '<li>' + (zh ? '機組與風場的對照以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對；對不到的機組只計入電網總量。綠色外圈只在時間軸位於最新年份時顯示。' : 'Units are matched to farms using AEMO’s registration list and IESO’s “Transmission-Connected Generation” page, checked by hand; unmatched units only count toward the grid total. Green rings only show when the timeline is at the latest year.') + '</li></ul>') +
+      '<li>' + (zh ? '機組與風場的對照以 AEMO 登錄清單與 IESO「Transmission-Connected Generation」人工核對；對不到的機組只計入電網總量。綠色外圈只在時間軸位於最新年份時顯示。' : 'Units are matched to farms using AEMO’s registration list and IESO’s “Transmission-Connected Generation” page, checked by hand; unmatched units only count toward the grid total. Green rings only show when the timeline is at the latest year.') + '</li>' +
+      '<li>' + (zh ? '全國或電網的風電總量（國家概況與全球概況的「此刻」；只有總量，沒有逐場資料，48 小時趨勢是本站算的每小時平均）：' : 'National or grid wind totals (the “now” box in country and world profiles; totals only, nothing per farm; the 48-hour trend is hourly means computed by this site):') + '<ul>' +
+        '<li>' + (zh ? '大不列顛：Elexon BMRS「Generation by fuel type」（FUELINST，每 5 分鐘）。只含電網營運計量的風電，大部分接在配電網的風機不在其中。' : 'Great Britain: Elexon BMRS “Generation by fuel type” (FUELINST, every 5 minutes). Only wind metered by the grid operator; most turbines on the distribution network are not in it. ') +
+          'Contains BMRS data © Elexon Limited copyright and database right ' + new Date().getFullYear() + (zh ? '；依 ' : '; under the ') + '<a href="https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/" target="_blank" rel="noopener">' + (zh ? 'BMRS 資料授權' : 'BMRS data licence') + '</a>' + (zh ? '。' : '.') + '</li>' +
+        '<li>' + (zh ? '德國：Bundesnetzagentur | SMARD.de，陸域與離岸每 15 分鐘的發電量（' : 'Germany: Bundesnetzagentur | SMARD.de, onshore and offshore generation every 15 minutes (') + '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>' + (zh ? '）；本站換算成平均功率並相加。' : '); converted to average power and summed by this site.') + '</li>' +
+        '<li>' + (zh ? '法國：RTE éCO2mix 全國即時資料，經 ODRÉ（Open Data Réseaux Énergies）取得，' : 'France: RTE éCO2mix national real-time data via ODRÉ (Open Data Réseaux Énergies), ') + '<a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence/" target="_blank" rel="noopener">Licence Ouverte v2.0</a>' + (zh ? '；每 15 分鐘，含陸域與離岸。' : '; every 15 minutes, onshore and offshore.') + '</li>' +
+        '<li>' + (zh ? '丹麥：Energinet（www.energidataservice.dk）「PowerSystemRightNow」，每分鐘的陸域與離岸風電（' : 'Denmark: Energinet (www.energidataservice.dk) “PowerSystemRightNow”, onshore and offshore wind every minute (') + '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>' + (zh ? '）。' : ').') + '</li>' +
+        '<li>' + (zh ? '美國德州：ERCOT「Fuel Mix」儀表板（每 5 分鐘，附當月風電容量）。Source: Electric Reliability Council of Texas (ERCOT)。' : 'Texas: ERCOT “Fuel Mix” dashboard (every 5 minutes, with the month’s wind capacity). Source: Electric Reliability Council of Texas (ERCOT).') + '</li>' +
+        '<li>' + (zh ? '美國加州：California ISO「Today’s Outlook」各燃料出力（每 5 分鐘）。Source: California ISO。' : 'California: California ISO “Today’s Outlook” supply by fuel (every 5 minutes). Source: California ISO.') + '</li>' +
+        '<li>' + (zh ? '比利時（Elia）與波蘭（PSE）也有公開的即時資料，授權條款還沒查清楚，暫不收錄。' : 'Belgium (Elia) and Poland (PSE) also publish live data, but their licence terms are not yet clear, so they are left out for now.') + '</li></ul></li></ul>') +
     '<h4>' + (zh ? '海域（工具列「海域」）' : 'Sea zones (toolbar “Sea zones”)') + '</h4><ul><li><a href="https://www.marineregions.org/" target="_blank" rel="noopener">Flanders Marine Institute (VLIZ), Marine Regions: Maritime Boundaries Geodatabase v12 (2023)</a>' +
       (zh ? '（CC BY 4.0）的專屬經濟區界線：不畫基線，依類型分成協議或判決、中線與 200 浬外界、未定或有爭議（虛線）三種，簡化到約 2 km 供地圖顯示（tools/build_offshore_zones.py）。界線不具法律效力，也不代表本站對任何爭議海域的立場；完整資料請到 marineregions.org。'
         : ' (CC BY 4.0), exclusive economic zone boundaries: baselines left out, grouped as agreed or ruled, median lines and 200 NM limits, and unsettled or disputed (dashed), simplified to about 2 km for display (tools/build_offshore_zones.py). The lines have no legal value and imply no position on any disputed area; for the data itself, see marineregions.org.') +

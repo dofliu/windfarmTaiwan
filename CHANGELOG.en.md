@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.31.0 — 2026-10-10
+
+- National wind output right now: Great Britain (Elexon BMRS), Germany (SMARD, onshore/offshore), France (RTE éCO2mix via ODRÉ, onshore/offshore) and Denmark
+  (Energinet, onshore/offshore) as a whole, plus the Texas (ERCOT) and California (CAISO) grids, fetched by `intl_wind_scraper.py` on the same schedule as the other
+  live data, keeping the latest value and the hourly means of the past 48 hours. The country profile's "Live output now" box shows the current value, the data time
+  (local time), the 48-hour trend, a coverage note (Great Britain leaves out most turbines on the distribution network, France's real-time values include estimates,
+  ERCOT serves about 90% of Texas load, CAISO about 80% of California's demand) and the attribution; Texas also shows the share of the month's wind capacity. World
+  and continent profiles get a "Wind output right now" list (with Taiwan, Australia and Canada), sorted by output and not summed; a name opens that country's profile.
+  The Sources dialog, Learn chapter 13 (sources and "Limits of the data"), the footer source list, the user guide, the README and the live-data assessment are updated;
+  Belgium and Poland stay out until their licence terms are clear.
+
 ## v2.30.19 — 2026-10-10
 
 - The limits of the data are now explained on the site: the globe's "Sources" dialog opens with "Limits of the data and open questions (please read first)", which lists, computed from the
