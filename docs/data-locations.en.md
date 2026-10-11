@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-locations.md)
 
 The February 2026 GEM release places many operating farms (mostly in China and India) on province- or country-centre placeholders (dozens of records on one point). The GEM project page’s “Location” still names the township, county or district, city and province, so each farm is moved to the centre of that administrative unit: the coordinate comes from Wikidata (CC0) and the unit was found with OpenStreetMap Nominatim (used only as an index; no OSM data is included). These are still **approximate** positions (the card says so): a township or county centre is not the farm itself, but far closer than a province centre. Farms that could not be located keep the placeholder and are listed under skipped in gem_locations.json.
 
-- 1013 farms: 373 at township level, 612 at county or district level, 28 at city level.
+- 1081 farms: 399 at township level, 652 at county or district level, 30 at city level.
 
 ## China (CHN)
 
@@ -855,6 +855,26 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Zhejiang Zhoushan Qushan wind farm · 2](https://www.gem.wiki/Zhejiang_Zhoushan_Qushan_wind_farm) | 10 | 1 Daishan, Zhoushan, Zhejiang, China | [Daishan County](https://www.wikidata.org/wiki/Q1157663) | 30.2473, 122.2008 | township |
 | [Hunan Zhuzhou Fenghuangshan wind farm](https://www.gem.wiki/Hunan_Zhuzhou_Fenghuangshan_wind_farm) | 38 | Longtan, Lukou District, Zhuzhou, Hunan, China | [Longtan Township](https://www.wikidata.org/wiki/Q11181570) | 27.2948, 113.1749 | township |
 | [Henan Fengqiu Huangchi wind farm](https://www.gem.wiki/Henan_Fengqiu_Huangchi_wind_farm) | 40 | Jinglonggong Town, Fengqiu, Xinxiang, Henan, China | [Fengqiu County](https://www.wikidata.org/wiki/Q1198669) | 35.0367, 114.4189 | county or district |
+| [Gansu Yumen Local Consumption Hongliuquan (Jiugang Steel) wind farm · 2](https://www.gem.wiki/Gansu_Yumen_Local_Consumption_Hongliuquan_%28Jiugang_Steel%29_wind_farm) | 400 | 1 Yumen City, Jiuquan, Gansu, China | [Yumen](https://www.wikidata.org/wiki/Q729562) | 39.8251, 97.5719 | county or district |
+| [Inner Mongolia Siziwang Banner (Inner Mongolia Energy) wind farm](https://www.gem.wiki/Inner_Mongolia_Siziwang_Banner_%28Inner_Mongolia_Energy%29_wind_farm) | 1,000 | Dorbod (Siziwang) Banner, Ulanqab, Inner Mongolia, China | [Ulanqab](https://www.wikidata.org/wiki/Q571219) | 40.9919, 113.1244 | county or district |
+| [Xinjiang Hami Yandun 7 Area B wind farm](https://www.gem.wiki/Xinjiang_Hami_Yandun_7_Area_B_wind_farm) | 200 | Yizhou District, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Shandong Zhangqiu Jiudingshan wind farm](https://www.gem.wiki/Shandong_Zhangqiu_Jiudingshan_wind_farm) | 150 | 1 Guanzhuang, Zhangqiu District, Jinan, Shandong, China | [Zhangqiu District](https://www.wikidata.org/wiki/Q197392) | 36.7583, 117.4914 | county or district |
+| [Inner Mongolia Siziwang Banner Wind Heating Project](https://www.gem.wiki/Inner_Mongolia_Siziwang_Banner_Wind_Heating_Project) | 200 | 1 Wulanhua Zhen, Dorbod (Siziwang) Banner, Ulanqab, Inner Mongolia, China | [Ulanqab](https://www.wikidata.org/wiki/Q571219) | 40.9919, 113.1244 | county or district |
+| [Xinjiang Hami Balikun Santanghu Third Area C wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Santanghu_Third_Area_C_wind_farm) | 200 | Santanghu, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Balikun Santanghu Third Area B wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Santanghu_Third_Area_B_wind_farm) | 200 | Santanghu, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Naomaohu (Datang) wind farm](https://www.gem.wiki/Xinjiang_Hami_Naomaohu_%28Datang%29_wind_farm) | 200 | Naomaohu, Yizhou District, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Balikun Santanghu (Datang/13Th Corps) wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Santanghu_%28Datang/13Th_Corps%29_wind_farm) | 200 | Santanghu, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Balikun Santanghu First Area A wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Santanghu_First_Area_A_wind_farm) | 200 | Santanghu, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Guangxi Binyang Mawang (Datang) wind farm](https://www.gem.wiki/Guangxi_Binyang_Mawang_%28Datang%29_wind_farm) | 200 | 1 Wuling Zhen, Binyang, Nanning, Guangxi, China | [Nanning](https://www.wikidata.org/wiki/Q179608) | 22.8192, 108.315 | county or district |
+| [Xinjiang Hami Balikun Santanghu Third Area D wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Santanghu_Third_Area_D_wind_farm) | 100 | Santanghu, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Jingxia 5 Area B wind farm](https://www.gem.wiki/Xinjiang_Hami_Jingxia_5_Area_B_wind_farm) | 100 | Jingxia Area, Yizhou District, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Balikun Santanghu (Haixin/13Th Corps) wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Santanghu_%28Haixin/13Th_Corps%29_wind_farm) | 99 | Santanghu, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Balikun Distributed wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Distributed_wind_farm) | 69 | 1 Heiyanquan area, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Guangxi Binyang Shuangqiao wind farm](https://www.gem.wiki/Guangxi_Binyang_Shuangqiao_wind_farm) | 50 | Luxu Zhen, Binyang, Nanning, Guangxi, China | [Nanning](https://www.wikidata.org/wiki/Q179608) | 22.8192, 108.315 | county or district |
+| [Xinjiang Hami Balikun Santanghu (Guodian/13Th Corps) wind farm](https://www.gem.wiki/Xinjiang_Hami_Balikun_Santanghu_%28Guodian/13Th_Corps%29_wind_farm) | 50 | 1 Santanghu, Barköl, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Shisanjianfang (Tianrun) wind farm · 3, 4, 5](https://www.gem.wiki/Xinjiang_Hami_Shisanjianfang_%28Tianrun%29_wind_farm) | 150 | 1 Qijiaojing, Yizhou District, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Xinjiang Hami Shisanjianfang (Xinyue) wind farm](https://www.gem.wiki/Xinjiang_Hami_Shisanjianfang_%28Xinyue%29_wind_farm) | 50 | 1 Qijiaojing, Yizhou District, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
+| [Heilongjiang Daqing Dagang wind farm](https://www.gem.wiki/Heilongjiang_Daqing_Dagang_wind_farm) | 48 | 1 Dajingzi, Datong District, Daqing, Heilongjiang, China | [Daqing](https://www.wikidata.org/wiki/Q304848) | 46.5979, 125.008 | county or district |
 
 ## Colombia (COL)
 
@@ -868,6 +888,7 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 |---|---:|---|---|---|---|
 | [Winsen wind farm](https://www.gem.wiki/Winsen_wind_farm) | 20 | Lower Saxony, Germany | [Lower Saxony](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | city |
 | [Hohe Heide wind farm](https://www.gem.wiki/Hohe_Heide_wind_farm) | 18 | Lower Saxony, Germany | [Lower Saxony](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | city |
+| [Borne (MDP) wind farm](https://www.gem.wiki/Borne_%28MDP%29_wind_farm) | 33 | 1 Salzlandkreis, Saxony-Anhalt, Germany | [Salzlandkreis](https://www.wikidata.org/wiki/Q6081) | 51.8333, 11.5833 | county or district |
 
 ## India (IND)
 
@@ -1002,6 +1023,13 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Vejalpar (Giriraj) I wind farm](https://www.gem.wiki/Vejalpar_%28Giriraj%29_I_wind_farm) | 12 | Vejalpar, Rajkot, Gujarat, India | [Rajkot](https://www.wikidata.org/wiki/Q11854) | 22.2969, 70.7984 | county or district |
 | [Rajpara (GACL) I wind farm](https://www.gem.wiki/Rajpara_%28GACL%29_I_wind_farm) | 10 | Rajpara, Rajkot, Gujarat, India | [Rajkot](https://www.wikidata.org/wiki/Q11854) | 22.2969, 70.7984 | county or district |
 | [Rajpara (GACL) II wind farm](https://www.gem.wiki/Rajpara_%28GACL%29_II_wind_farm) | 10 | Rajpara, Rajkot, Gujarat, India | [Rajkot](https://www.wikidata.org/wiki/Q11854) | 22.2969, 70.7984 | county or district |
+| [Ralla wind farm](https://www.gem.wiki/Ralla_wind_farm) | 197 | Kanaganapalli, Ananthapuramu, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
+| [Borampalli (Renew) wind farm](https://www.gem.wiki/Borampalli_%28Renew%29_wind_farm) | 197 | Kanaganapalli, Ananthapuramu, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
+| [Nimbagallu (Tata) II wind farm](https://www.gem.wiki/Nimbagallu_%28Tata%29_II_wind_farm) | 64 | Nimbagallu, Ananthapuramu, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
+| [Nimbagallu (Tata) I Wind Far](https://www.gem.wiki/Nimbagallu_%28Tata%29_I_Wind_Far) | 36 | Nimbagallu, Ananthapuramu, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
+| [Vajrakarur (Orix) wind farm](https://www.gem.wiki/Vajrakarur_%28Orix%29_wind_farm) | 25 | Vajrakarur, Ananthapuramu, Andhra Pradesh, India | [Vajrakarur mandal](https://www.wikidata.org/wiki/Q60213325) | 15.028, 77.385 | township |
+| [Belguppa (Adurjee) wind farm](https://www.gem.wiki/Belguppa_%28Adurjee%29_wind_farm) | 15 | Beguppa, Ananthapuramu, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
+| [Ramagiri wind farm](https://www.gem.wiki/Ramagiri_wind_farm) | 10 | Ramagiri, Ananthapuramu, Andhra Pradesh, India | [Ramagiri](https://www.wikidata.org/wiki/Q16344471) | 14.9587, 77.4714 | township |
 
 ## Italy (ITA)
 
@@ -1020,6 +1048,9 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Faeto Ampliamento wind farm](https://www.gem.wiki/Faeto_Ampliamento_wind_farm) | 12 | Apulia, Italy | [Apulia](https://www.wikidata.org/wiki/Q1447) | 41.0086, 16.5128 | city |
 | [Baselice (E2i) wind farm](https://www.gem.wiki/Baselice_%28E2i%29_wind_farm) | 12 | Campania, Italy | [Campania](https://www.wikidata.org/wiki/Q1438) | 40.75, 14.95 | city |
 | [Ciponte wind farm](https://www.gem.wiki/Ciponte_wind_farm) | 10 | Apulia, Italy | [Apulia](https://www.wikidata.org/wiki/Q1447) | 41.0086, 16.5128 | city |
+| [Vrg Wind 030 wind farm](https://www.gem.wiki/Vrg_Wind_030_wind_farm) | 60 | Prizzi E Corleone, Siciliy, Italy | [Prizzi](https://www.wikidata.org/wiki/Q264940) | 37.7215, 13.4312 | county or district |
+| [Vrg Wind 040 wind farm](https://www.gem.wiki/Vrg_Wind_040_wind_farm) | 30 | Campofelice E Villafrati, Siciliy, Italy | [Campofelice di Roccella](https://www.wikidata.org/wiki/Q496823) | 37.9894, 13.8711 | county or district |
+| [Mistretta wind farm](https://www.gem.wiki/Mistretta_wind_farm) | 30 | Siciliy, Italy | [Sicily](https://www.wikidata.org/wiki/Q1460) | 37.6, 14.0167 | city |
 
 ## Japan (JPN)
 
@@ -1028,6 +1059,19 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Abukuma South wind farm](https://www.gem.wiki/Abukuma_South_wind_farm) | 89.6 | Fukushima Prefecture, Japan | [Fukushima Prefecture](https://www.wikidata.org/wiki/Q71707) | 37.7503, 140.4677 | city |
 | [Yurihonjo Bayside wind farm](https://www.gem.wiki/Yurihonjo_Bayside_wind_farm) | 16 | Akita, Japan | [Akita Prefecture](https://www.wikidata.org/wiki/Q81863) | 39.7186, 140.1025 | city |
 | [Yokohama Town Hibaritaira wind farm](https://www.gem.wiki/Yokohama_Town_Hibaritaira_wind_farm) | 32 | Yokohama-cho, Kamikita-gun, Aomori, Japan | [Kamikita district](https://www.wikidata.org/wiki/Q1143970) | 40.7739, 141.2608 | county or district |
+
+## Kazakhstan (KAZ)
+
+| Farm | MW | GEM location | Moved to | Coordinates | Level |
+|---|---:|---|---|---|---|
+| [Borey wind farm](https://www.gem.wiki/Borey_wind_farm) | 100 | 1 Arshaly District, Akmola Region, Kazakhstan | [Arshaly District](https://www.wikidata.org/wiki/Q2321988) | 50.8314, 72.1814 | county or district |
+
+## Morocco (MAR)
+
+| Farm | MW | GEM location | Moved to | Coordinates | Level |
+|---|---:|---|---|---|---|
+| [Jbel Lahdid wind farm](https://www.gem.wiki/Jbel_Lahdid_wind_farm) | 270 | Essaouira, Marakesh-Safi, Morocco | [Essaouira](https://www.wikidata.org/wiki/Q216939) | 31.513, -9.7687 | county or district |
+| [Oualidia wind farm](https://www.gem.wiki/Oualidia_wind_farm) | 35 | 1 Safi, Marakesh-Safi, Morocco | [Safi](https://www.wikidata.org/wiki/Q183405) | 32.2833, -9.2333 | county or district |
 
 ## Norway (NOR)
 
@@ -1060,6 +1104,43 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Sabucedo wind farm](https://www.gem.wiki/Sabucedo_wind_farm) | 13 | Ourol, Lugo, Galicia, Spain | [Ourol](https://www.wikidata.org/wiki/Q1445352) | 43.5619, -7.642 | township |
 | [Cinseiro wind farm](https://www.gem.wiki/Cinseiro_wind_farm) | 12 | Lubián, Zamora, Castile and León, Spain | [Lubián](https://www.wikidata.org/wiki/Q1646337) | 42.035, -6.9069 | township |
 | [Monte Marbán wind farm](https://www.gem.wiki/Monte_Marb%C3%A1n_wind_farm) | 11 | O Eume, Galicia, Spain | [O Eume](https://www.wikidata.org/wiki/Q222967) | 43.405, -8.0367 | county or district |
+| [Pinta wind farm](https://www.gem.wiki/Pinta_wind_farm) | 100 | Villalba de los Alcores, Soria, Castilla y León, Spain | [Soria Province](https://www.wikidata.org/wiki/Q55276) | 41.6667, -2.6667 | county or district |
+| [Guindalera wind farm](https://www.gem.wiki/Guindalera_wind_farm) | 100 | Villalba de los Alcores, Soria, Castilla y León, Spain | [Soria Province](https://www.wikidata.org/wiki/Q55276) | 41.6667, -2.6667 | county or district |
+| [Casa Del Aire wind farm · 2](https://www.gem.wiki/Casa_Del_Aire_wind_farm) | 50 | 1 Bonillo, Albacete, Castilla-La Mancha, Spain | [El Bonillo](https://www.wikidata.org/wiki/Q54883) | 38.95, -2.5331 | township |
+| [Andella wind farm](https://www.gem.wiki/Andella_wind_farm) | 50 | Adalia, Soria, Castilla y León, Spain | [Soria Province](https://www.wikidata.org/wiki/Q55276) | 41.6667, -2.6667 | county or district |
+| [El Campillo wind farm](https://www.gem.wiki/El_Campillo_wind_farm) | 48.8 | Casa Acampo Brun, Zaragosa, Aragón, Spain | [Zaragoza](https://www.wikidata.org/wiki/Q10305) | 41.65, -0.8833 | county or district |
+| [Portachuelo wind farm](https://www.gem.wiki/Portachuelo_wind_farm) | 45 | El Bonillo, Albacete, Castilla-La Mancha, Spain | [El Bonillo](https://www.wikidata.org/wiki/Q54883) | 38.95, -2.5331 | township |
+| [La Zarzuela wind farm](https://www.gem.wiki/La_Zarzuela_wind_farm) | 42 | Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [Pesur wind farm](https://www.gem.wiki/Pesur_wind_farm) | 42 | 1 Tarifa, Cádiz, Andalucía, Spain | [Tarifa](https://www.wikidata.org/wiki/Q222702) | 36.0153, -5.6057 | township |
+| [Rincón Del Cabello wind farm](https://www.gem.wiki/Rinc%C3%B3n_Del_Cabello_wind_farm) | 40 | Ayora, Valencia, Comunidad Valenciana, Spain | [Ayora](https://www.wikidata.org/wiki/Q34343) | 39.0597, -1.0558 | township |
+| [El Mulatón wind farm](https://www.gem.wiki/El_Mulat%C3%B3n_wind_farm) | 38 | Ayora, Valencia, Comunidad Valenciana, Spain | [Ayora](https://www.wikidata.org/wiki/Q34343) | 39.0597, -1.0558 | township |
+| [El Gramal wind farm](https://www.gem.wiki/El_Gramal_wind_farm) | 37 | El Bonillo, Albacete, Castilla-La Mancha, Spain | [El Bonillo](https://www.wikidata.org/wiki/Q54883) | 38.95, -2.5331 | township |
+| [Las Bodeguillas wind farm](https://www.gem.wiki/Las_Bodeguillas_wind_farm) | 37 | Ayora, Valencia, Comunidad Valenciana, Spain | [Ayora](https://www.wikidata.org/wiki/Q34343) | 39.0597, -1.0558 | township |
+| [Herrera La Huesa wind farm](https://www.gem.wiki/Herrera_La_Huesa_wind_farm) | 32 | Isar, Burgos, Castilla y León, Spain | [Isar](https://www.wikidata.org/wiki/Q2001258) | 42.3617, -3.9303 | township |
+| [EEE repotenciado wind farm](https://www.gem.wiki/EEE_repotenciado_wind_farm) | 32 | 2-3 Tarifa, Cádiz, Andalucía, Spain | [Tarifa](https://www.wikidata.org/wiki/Q222702) | 36.0153, -5.6057 | township |
+| [Encinedo wind farm](https://www.gem.wiki/Encinedo_wind_farm) | 30 | Hornillos de Cerrato, Palencia, Castilla y León, Spain | [Hornillos de Cerrato](https://www.wikidata.org/wiki/Q1918521) | 41.9883, -4.2725 | township |
+| [Tahivilla wind farm](https://www.gem.wiki/Tahivilla_wind_farm) | 30 | Desarollos Eólicos de Tarifa Campo de Gibraltar, Cádiz, Andalucía, Spain | [Cádiz](https://www.wikidata.org/wiki/Q15682) | 36.535, -6.2975 | county or district |
+| [Kw Tarifa Repotenciado wind farm](https://www.gem.wiki/Kw_Tarifa_Repotenciado_wind_farm) | 30 | Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [Hornillos wind farm](https://www.gem.wiki/Hornillos_wind_farm) | 26 | Hornillos de Cerrato, Palencia, Castilla y León, Spain | [Hornillos de Cerrato](https://www.wikidata.org/wiki/Q1918521) | 41.9883, -4.2725 | township |
+| [El Cuadrón wind farm](https://www.gem.wiki/El_Cuadr%C3%B3n_wind_farm) | 22 | Hornillos de Cerrato, Palencia, Castilla y León, Spain | [Hornillos de Cerrato](https://www.wikidata.org/wiki/Q1918521) | 41.9883, -4.2725 | township |
+| [El Bancal wind farm](https://www.gem.wiki/El_Bancal_wind_farm) | 21 | Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [El Coto wind farm](https://www.gem.wiki/El_Coto_wind_farm) | 21 | Cartuja Baja, Zaragosa, Aragón, Spain | [Zaragoza](https://www.wikidata.org/wiki/Q10305) | 41.65, -0.8833 | county or district |
+| [Orbaneja wind farm](https://www.gem.wiki/Orbaneja_wind_farm) | 18 | Isar, Burgos, Castilla y León, Spain | [Isar](https://www.wikidata.org/wiki/Q2001258) | 42.3617, -3.9303 | township |
+| [Cañaseca wind farm](https://www.gem.wiki/Ca%C3%B1aseca_wind_farm) | 18 | Blesa, Zaragosa, Aragón, Spain | [Zaragoza](https://www.wikidata.org/wiki/Q10305) | 41.65, -0.8833 | county or district |
+| [Los Siglos wind farm](https://www.gem.wiki/Los_Siglos_wind_farm) | 18 | Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [Zarzuela wind farm](https://www.gem.wiki/Zarzuela_wind_farm) | 16 | 2 Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [Pedregoso wind farm](https://www.gem.wiki/Pedregoso_wind_farm) | 45 | 1 Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [Hinojal wind farm](https://www.gem.wiki/Hinojal_wind_farm) | 14 | 1 Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [Valdesantos wind farm](https://www.gem.wiki/Valdesantos_wind_farm) | 13 | Isar, Burgos, Castilla y León, Spain | [Isar](https://www.wikidata.org/wiki/Q2001258) | 42.3617, -3.9303 | township |
+| [Los Lances wind farm](https://www.gem.wiki/Los_Lances_wind_farm) | 11 | Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
+| [Las Atalayas wind farm](https://www.gem.wiki/Las_Atalayas_wind_farm) | 50 | Valle de Santibáñez, Burgos, Castilla y León, Spain | [Valle de Santibáñez](https://www.wikidata.org/wiki/Q1656698) | 42.4802, -3.783 | township |
+| [Fuenteblanca wind farm](https://www.gem.wiki/Fuenteblanca_wind_farm) | 10 | Valle de Santibáñez, Burgos, Castilla y León, Spain | [Valle de Santibáñez](https://www.wikidata.org/wiki/Q1656698) | 42.4802, -3.783 | township |
+
+## United States of America (USA)
+
+| Farm | MW | GEM location | Moved to | Coordinates | Level |
+|---|---:|---|---|---|---|
+| [Goodnight wind farm](https://www.gem.wiki/Goodnight_wind_farm) | 266 | 1 Armstrong County, Texas, United States | [Armstrong County](https://www.wikidata.org/wiki/Q107977) | 34.97, -101.35 | county or district |
 
 ## Uruguay (URY)
 
@@ -1075,3 +1156,5 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 |---|---:|---|---|---|---|
 | [Ia Le wind farm](https://www.gem.wiki/Ia_Le_wind_farm) | 47 | 1 Phú Bình, La Lê, Chư Pưh, Gia Lai Province, Vietnam | [Chư Pưh](https://www.wikidata.org/wiki/Q263608) | 13.5208, 108.0792 | county or district |
 | [Chinh Thang wind farm](https://www.gem.wiki/Chinh_Thang_wind_farm) | 50 | Ninh Thuận Province, Vietnam | [Ninh Thuận](https://www.wikidata.org/wiki/Q36903) | 11.75, 108.8333 | city |
+| [Hanbaram wind farm](https://www.gem.wiki/Hanbaram_wind_farm) | 117 | 1 Ninh Thuận Province, Vietnam | [Ninh Thuận](https://www.wikidata.org/wiki/Q36903) | 11.75, 108.8333 | city |
+| [Ia Bang wind farm](https://www.gem.wiki/Ia_Bang_wind_farm) | 50 | 1 Chư Pưh, Gia Lai Province, Vietnam | [Chư Pưh](https://www.wikidata.org/wiki/Q263608) | 13.5208, 108.0792 | county or district |

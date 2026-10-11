@@ -39,15 +39,15 @@
 3. **預計商轉年已過、仍列規劃中**：2 案、630 MW，可能已商轉、延期或取消，需要逐案更新狀態。容量最大的 10 案：
    - Monsoon Wind (Sekong/Attapeu) (LAO) · 600 MW · 興建中 · 預計 2025
    - BPP Vĩnh Châu wind farm (VNM) · 30 MW · 興建中 · 預計 2025
-4. **座標**：4,977 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 19 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各）。
+4. **座標**：4,989 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 19 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各）。
    **疑似重複 A（名稱相同或相似）**：0 組、較小一方合計 0 MW——來源不同、名稱相同或高度相似、相距 50 km 內，很可能是同一座風場被收了兩次，應優先處理：
    **疑似重複 B（名稱不同、容量相同、位置相近）**：0 組——找到的每一組都已逐組查證：同一座的已由清理規則合併，確認是不同風場的列在 `tools/farm_cleanup.py` 的 `NOT_DUP`（見[資料清理紀錄](data-cleanup.md)）。
-   **共用座標**：136 個點上各有 3 座以上營運中風場（合計 749 座、61,667 MW），多半是鄉鎮、縣或省中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：
+   **共用座標**：134 個點上各有 3 座以上營運中風場（合計 735 座、61,161 MW），多半是鄉鎮、縣或省中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：
    - IND (23.095, 69.613) · 28 座 · 3,498 MW · Bhuj (Alfanar) wind farm, Kutch (Alfanar) wind farm, Kutch (Renew) II wind farm…
    - CHN (40.5148, 95.7806) · 16 座 · 3,306 MW · Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm, Gansu Guazhou Localization Demonstration wind farm…
    - CHN (44.0222, 87.2961) · 22 座 · 3,098 MW · Xinjiang Qitai Beitashan (Three Gorges) wind farm, Xinjiang Mulei Laojunmiao (State Power Investment) wind farm · 3, 4, Xinjiang Mulei Dashitou (Tebian Electric) wind farm…
-   - CHN (43.244, 114.325) · 13 座 · 2,553 MW · Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm, Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (State Power Investment) wind farm, Inner Mongolia - Shandong Power Export Urad Rear Banner 2 wind farm…
-   - CHN (42.48, 85.463) · 16 座 · 2,118 MW · Xinjiang Hami Yandun 7 Area B wind farm, Xinjiang Hami Balikun Santanghu Third Area C wind farm, Xinjiang Hami Balikun Santanghu Third Area B wind farm…
+   - CHN (43.244, 114.325) · 12 座 · 2,353 MW · Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm, Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (State Power Investment) wind farm, Inner Mongolia - Shandong Power Export Urad Rear Banner 2 wind farm…
+   - CHN (42.8322, 93.5155) · 13 座 · 1,818 MW · Xinjiang Hami Yandun 7 Area B wind farm, Xinjiang Hami Balikun Santanghu Third Area C wind farm, Xinjiang Hami Balikun Santanghu Third Area B wind farm…
 5. **規劃中總量對照**：逐案資料與各國總量同為 GEM 2026-02；差額多為本站另收的 2026 年整理清單、被清理規則移除的專案，以及 GEM 未給容量的分期。前 15 大國家的對照：
    - 中國大陸：逐案 742,532 MW · GEM 總量 743,588 MW
    - 美國：逐案 89,451 MW · GEM 總量 89,440 MW
@@ -100,11 +100,11 @@
 | # | 國家 | 國家統計 MW | 其中離岸 | GEM 營運中 MW | 已逐場標示 MW | 覆蓋率 | 差額 MW | 風場數 | 年份不詳 MW | 概略座標 | 判讀 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 中國大陸（CHN） | 640,626 | 48,400 | 542,758 | 567,770 | 89% | 72,856 | 5,125 | 13,088 | 2,881 | ✓ |
-| 2 | 美國（USA） | 158,372 | 174 | 157,594 | 166,220 | 105% | 0 | 1,236 | 0 | 9 | ✓ |
-| 3 | 德國（DEU） | 77,873 | 9,931 | 50,536 | 74,862 | 96% | 3,011 | 6,607 | 557 | 174 | ✓ |
+| 2 | 美國（USA） | 158,372 | 174 | 157,594 | 166,220 | 105% | 0 | 1,236 | 0 | 10 | ✓ |
+| 3 | 德國（DEU） | 77,873 | 9,931 | 50,536 | 74,862 | 96% | 3,011 | 6,607 | 557 | 175 | ✓ |
 | 4 | 印度（IND） | 54,511 | 0 | 38,937 | 41,792 | 77% | 12,719 | 623 | 8,218 | 561 | △ |
 | 5 | 巴西（BRA） | 34,866 | 0 | 35,718 | 34,232 | 98% | 634 | 294 | 0 | 3 | ✓ |
-| 6 | 西班牙（ESP） | 33,301 | 7 | 31,007 | 31,350 | 94% | 1,951 | 868 | 2,820 | 258 | ✓ |
+| 6 | 西班牙（ESP） | 33,301 | 7 | 31,007 | 31,350 | 94% | 1,951 | 868 | 2,820 | 267 | ✓ |
 | 7 | 英國（GBR） | 33,088 | 16,071 | 28,965 | 31,731 | 96% | 1,357 | 740 | 2 | 0 | ✓ |
 | 8 | 法國（FRA） | 26,000 | 2,008 | 25,610 | 24,859 | 96% | 1,141 | 1,205 | 1,105 | 301 | ✓ |
 | 9 | 加拿大（CAN） | 18,153 | 0 | 17,709 | 17,755 | 98% | 398 | 197 | 0 | 6 | ✓ |
@@ -135,7 +135,7 @@
 | 34 | 立陶宛（LTU） | 2,510 | 0 | 1,308 | 1,258 | 50% | 1,252 | 22 | 0 | 9 | ✗ |
 | 35 | 摩洛哥（MAR） | 2,452 | 0 | 1,627 | 2,310 | 94% | 142 | 15 | 0 | 2 | ✓ |
 | 36 | 南韓（KOR） | 2,451 | 312 | 1,649 | 1,653 | 67% | 798 | 44 | 0 | 24 | △ |
-| 37 | 哈薩克（KAZ） | 1,909 | 0 | 1,418 | 1,430 | 75% | 479 | 24 | 0 | 15 | △ |
+| 37 | 哈薩克（KAZ） | 1,909 | 0 | 1,418 | 1,430 | 75% | 479 | 24 | 0 | 16 | △ |
 | 38 | 巴基斯坦（PAK） | 1,845 | 0 | 1,941 | 1,941 | 105% | 0 | 33 | 0 | 3 | ✓ |
 | 39 | 烏克蘭（UKR） | 1,761 | 0 | 560 | 1,017 | 58% | 744 | 19 | 18 | 8 | ✗ |
 | 40 | 烏茲別克（UZB） | 1,652 | 0 | 1,600 | 1,600 | 97% | 52 | 4 | 0 | 0 | ✓ |

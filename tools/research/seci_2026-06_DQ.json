@@ -1,0 +1,1328 @@
+{
+ "source": "https://www.seci.co.in/uploads/media/Wind_installed_capacity_status_as_on_30_06_2026.pdf",
+ "note_zh": "SECI 風電專案進度表（2026-06-30）：107 列、解析 98 列；完全商轉 30 案、5,567 MW。2026-10-11 以開發商名稱＋容量 ±25% 對本站印度營運中紀錄，幾乎都已在 GEM 列為營運中（年份偶有不同，GEM 多寫首批併網年）；沒對到的只有 Inox 的 Wind One／Two／Three／Five Renergy（各 50 MW，2019）與 Sprng（300 MW，蒂魯普爾、卡魯爾，2021）。Powerica 德瓦卡 T16（50 MW，2026-02 商轉）與 T17（未商轉）可能對應 GEM 的「Devbhumi Dwarka wind farm」（興建中）與「Devbhoomi Dwaraka wind farm」（前期開發），但 GEM 頁沒寫批次，無法判定哪筆是哪案，暫不改。",
+ "note_en": "SECI wind project status sheet (30 Jun 2026): 107 rows, 98 parsed; 30 projects fully commissioned, 5,567 MW. Matched on 11 Oct 2026 by developer name and capacity ±25% against the site's operating Indian records: nearly all are already operating in GEM (years sometimes differ; GEM tends to give the first-connection year); the only unmatched ones are Inox's Wind One / Two / Three / Five Renergy (50 MW each, 2019) and Sprng (300 MW, Tiruppur and Karur, 2021). Powerica Dwarka T16 (50 MW, commissioned Feb 2026) and T17 (not yet) may correspond to GEM's \"Devbhumi Dwarka wind farm\" (construction) and \"Devbhoomi Dwaraka wind farm\" (pre-construction), but the GEM pages name no tranche, so which is which cannot be decided; left unchanged.",
+ "rows": [
+  {
+   "id": "WPD-ISTS-T1-MEIPL-P1-250TN",
+   "names": "Mytrah Energy India Private Limited Mytrah Vayu (Sabarmati) Private Limited",
+   "loa": "05.04.2017",
+   "mw": 250.0,
+   "loc": "Thoothukkudi, Tamil Nadu",
+   "ppa": "21.07.2017",
+   "comm": "28.01.2019 (128.79 MW) 13.04.2019 (58.32) 09.05.2019 (62.89 MW)",
+   "done_mw": 250.0,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-GIWEL-P1-249.9TN",
+   "names": "Green Infra Wind Energy Limited Green Infra Renewable Energy Limited",
+   "loa": "05.04.2017",
+   "mw": 249.9,
+   "loc": "Tuticorin, Tamil Nadu",
+   "ppa": "21.07.2017",
+   "comm": "07.10.2018",
+   "done_mw": 249.9,
+   "years": [
+    2018
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-IWISL-P2-50GJ",
+   "names": "Wind One Renergy Private Limited",
+   "loa": "05.04.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "21.07.2017",
+   "comm": "02.07.2019",
+   "done_mw": 50.0,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-IWISL-P1-50GJ",
+   "names": "Wind Two Renergy Private Limited",
+   "loa": "05.04.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "21.07.2017",
+   "comm": "04.07.2019",
+   "done_mw": 50.0,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-IWISL-P4-50GJ",
+   "names": "Wind Three Renergy Private Limited",
+   "loa": "05.04.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "21.07.2017",
+   "comm": "29.06.2019",
+   "done_mw": 50.0,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-IWISL-P5-50GJ",
+   "names": "Wind Four Renergy Private Limited",
+   "loa": "05.04.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "21.07.2017",
+   "comm": "Project stands terminated.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-IWISL-P3-50GJ",
+   "names": "Wind Five Renergy Private Limited",
+   "loa": "05.04.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "21.07.2017",
+   "comm": "04.07.2019",
+   "done_mw": 50.0,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-OKWPL-P1-250GJ",
+   "names": "Ostro Kutch Wind Private Limited Ostro Kutch Wind Private Limited",
+   "loa": "05.04.2017",
+   "mw": 250.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "21.07.2017",
+   "comm": "21.08.2018 (126 MW) 31.10.2018 (50 MW) 26.12.2018 (50 MW) 29.03.2019 (24 MW)",
+   "done_mw": 250.0,
+   "years": [
+    2018,
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T1-AGEMPL-P1-50GJ",
+   "names": "Adani Green Energy (MP) Limited Adani Green Energy (MP) Limited",
+   "loa": "05.04.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "21.07.2017",
+   "comm": "20.10.2019",
+   "done_mw": 50.0,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-RPVPL-P1-250GJ",
+   "names": "ReNew Power Private Limited ReNew Power Private Limited",
+   "loa": "03.11.2017",
+   "mw": 250.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "02.01.2018",
+   "comm": "17.05.2019 (126 MW) 29.09.2019 (58.5) 01.09.2020 (27.6 MW) 06.02.2021 (18 MW)",
+   "done_mw": 230.1,
+   "years": [
+    2019,
+    2020,
+    2021
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-OSWPPL-P1-200TN",
+   "names": "Greenko Sironj Wind Power Pvt Ltd Greenko Sironj Wind Power Pvt Ltd",
+   "loa": "03.11.2017",
+   "mw": 200.0,
+   "loc": "Tuticorin, Tamil Nadu",
+   "ppa": "19.12.2017",
+   "comm": "05.03.2019 (100 MW) 13.04.2019 (100 MW)",
+   "done_mw": 200.0,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-IWISL-P1-50GJ",
+   "names": "Haroda Wind Energy Private Limited",
+   "loa": "03.11.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "27.12.2017",
+   "comm": "Project stands terminated.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-IWISL-P2-50GJ",
+   "names": "Khatiyu Wind Energy Private Limited",
+   "loa": "03.11.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "27.12.2017",
+   "comm": "Project stands terminated.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-IWISL-P3-50GJ",
+   "names": "Vigodi Wind Energy Private Limited",
+   "loa": "03.11.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "27.12.2017",
+   "comm": "Project stands terminated.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-IWISL-P4-50GJ",
+   "names": "Nani Virani Wind Energy Private Limited",
+   "loa": "03.11.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "27.12.2017",
+   "comm": "03.09.2021 (10 MW); 22.03.2022 (10 MW); 12.05.2022 (10 MW)",
+   "done_mw": 30.0,
+   "years": [
+    2021,
+    2022
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-IWISL-P5-50GJ",
+   "names": "Ravapar Wind Energy Private Limited",
+   "loa": "03.11.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "27.12.2017",
+   "comm": "Project stands terminated.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-GIWEL-P1-250MP",
+   "names": "Green Infra Wind Energy Limited Green Infra Wind Energy Limited",
+   "loa": "03.11.2017",
+   "mw": 250.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "02.01.2018",
+   "comm": "23.06.2019 (126 MW) 20.10.2019 (54.6 MW) 03.01.2020 (50.4 MW) 06.02.2020 (19 MW)",
+   "done_mw": 250.0,
+   "years": [
+    2019,
+    2020
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T2-AGEMPL-P1-50GJ",
+   "names": "Adani Wind Energy Kutchh One Ltd Adani Wind Energy Kutchh One Ltd",
+   "loa": "03.11.2017",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "29.12.2017",
+   "comm": "05.03.2020",
+   "done_mw": 50.0,
+   "years": [
+    2020
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-RWEAP2PL-P1-100GJ",
+   "names": "ReNew Wind Energy (AP2) Private Limited",
+   "loa": "23.02.2018",
+   "mw": 100.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-RWEAP2PL-P2-300GJ",
+   "names": "ReNew Wind Energy (AP2) Private Limited",
+   "loa": "23.02.2018",
+   "mw": 300.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "15.10.2020 (50 MW); 04.11.2020 (22.5 MW); 12.11.2020 (22.5 MW); 07.12.2020 (52.5MW); 17.12.2020 (22.5MW); 24.12.2020 (12.5MW); 29.12.2020 (10 MW); 22.01.2021 (50 MW); 08.02.2021 (12.5 MW); 12.02.2021 (10 MW); 18.02.2021 (10 MW); 01.03.2021 (10 MW); 05.03.2021 (10 MW); 11.03.2021 (5 MW)",
+   "done_mw": 300.0,
+   "years": [
+    2020,
+    2021
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-GIWEL-P1-300GJ",
+   "names": "Green Infra Wind Energy Limited Green Infra Wind Energy Limited",
+   "loa": "23.02.2018",
+   "mw": 300.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "05.07.2019 (73.5 MW);  06.09.2019 (50.4 MW); 02.11.2019 (52.5 MW); 03.01.2020 (50.4 MW); 18.06.2020 (73.2 MW)",
+   "done_mw": 300.0,
+   "years": [
+    2019,
+    2020
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-IWISL-P1-50GJ",
+   "raw": "ALIENTO WIND ENERGY PRIVATE LIMITED 23.02.2018 50 Kutch, Gujarat 24.05.2018 - 0 Inox Green Energy Services Limited Inox Green Energy Services Limited Renew Wind Energy (AP2) Private Limited Wind Proje",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T3-IWISL-P2-50GJ",
+   "names": "FLURRY WIND ENERGY PRIVATE LIMITED",
+   "loa": "23.02.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-IWISL-P3-50GJ",
+   "names": "TEMPEST WIND ENERGY PRIVATE LIMITED",
+   "loa": "23.02.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-IWISL-P4-50GJ",
+   "names": "VUELTA ENERGY PRIVATE LIMITED",
+   "loa": "23.02.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-TPL-P1-300.3GJ",
+   "names": "Torrent Power Limited",
+   "loa": "23.02.2018",
+   "mw": 300.3,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-TPL-P2-199.5GJ",
+   "names": "Torrent Power Limited",
+   "loa": "23.02.2018",
+   "mw": 199.5,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-AC-P1-300GJ",
+   "names": "Alfanar Company Alfanar Energy Private Limited",
+   "loa": "23.02.2018",
+   "mw": 300.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "28.07.2020 (88 MW); 02.08.2020 (50.6 MW); 04.09.2020 (29.6 MW); 11.09.2020 (15.4 MW); 01.10.2020 (15.4 MW); 20.10.2020 (15.4 MW); 18.11.2020 (20.2 MW); 29.12.2020 (15.6 MW); 22.02.2021 (11.4 MW); 04.03.2021 (11 MW); 25.03.2021 (15.4 MW); 31.03.2021 (12 MW)",
+   "done_mw": 300.0,
+   "years": [
+    2020,
+    2021
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-AGEMPL-P1-250GJ",
+   "names": "Adani Green Energy (MP) Limited Adani Green Energy (MP) Limited",
+   "loa": "23.02.2018",
+   "mw": 250.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "24.05.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T3-BWEPL-P1-50.2TN",
+   "names": "Betam Wind Energy Private Limited Vivid Solaire Energy Private Limited",
+   "loa": "23.02.2018",
+   "mw": 50.2,
+   "loc": "Tuticorin, Tamil Nadu",
+   "ppa": "24.05.2018",
+   "comm": "24.11.2019 (50.2MW)",
+   "done_mw": 50.2,
+   "years": [
+    2019
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-SESPL-P1-250GJ",
+   "names": "Srijan Energy Systems Private Limited Continuum Power Trading (TN) Pvt Ltd",
+   "loa": "01.06.2018",
+   "mw": 250.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "11.04.2021 (32 MW); 21.04.2021 (18 MW);  12.08.2021 (10 MW); 06.10.2021 (10 MW); 14.04.2022 (18 MW)",
+   "done_mw": 88.0,
+   "years": [
+    2021,
+    2022
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-SEPL-P1-300TN",
+   "names": "Sprng Energy Private Limited Sprng Renewable Energy Private Limited",
+   "loa": "01.06.2018",
+   "mw": 300.0,
+   "loc": "Tiruppur and Karur, Tamil Nadu",
+   "ppa": "30.08.2018",
+   "comm": "27.03.2021 (60 MW); 31.03.2021 (93 MW); 04.07.2021 (39 MW); 13.07.2021 (36 MW); 20.08.2021 (12 MW); 04.09.2021 (15 MW); 13.10.2021 (12 MW); 22.10.2021 (12 MW); 30.10.2021 (21 MW)",
+   "done_mw": 300.0,
+   "years": [
+    2021
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-BEPL-P1-285GJ",
+   "names": "BLP Energy Private Limited Avikiran Solar India Pvt Ltd.",
+   "loa": "01.06.2018",
+   "mw": 285.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "23.02.2022 (16.8 MW); 03.03.2022 (25.2 MW); 05.03.2022 (35.7 MW); 10.03.2022 (21 MW); 18.04.2022 (12.6 MW); 21.04.2022 (14.7 MW); 15.06.2022 (25.2 MW); 18.08.2022 (14.7 MW)",
+   "done_mw": 168.0,
+   "years": [
+    2022
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-BWEPL-P1-200TN",
+   "names": "Betam Wind Energy Private Limited Vivid Solaire Energy Pvt. Ltd.",
+   "loa": "01.06.2018",
+   "mw": 200.0,
+   "loc": "Tuticorin, Tamil Nadu",
+   "ppa": "30.08.2018",
+   "comm": "09.09.2020 (46 MW); 24.10.2020 (30 MW); 16.11.2020 (18 MW); 04.03.2021 (12 MW); 16.04.2021 (18 MW); 10.06.2021 (12 MW); 13.08.2021 (10 MW); 18.09.2021 (12 MW); 21.10.2021 (10 MW)",
+   "done_mw": 168.0,
+   "years": [
+    2020,
+    2021
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-IWISL-P1-50GJ",
+   "names": "Suswind Power Private Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-IWISL-P2-50GJ",
+   "names": "Flutter Wind Energy Private Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-ARETNL-P1-50GJ",
+   "names": "Adani Wind Energy Kutchh Two Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-ARETNL-P2-50GJ",
+   "names": "Adani Wind Energy Kutchh Two Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-ARETNL-P3-50GJ",
+   "names": "Adani Wind Energy Kutchh Two Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-ARETNL-P4-50GJ",
+   "names": "Adani Wind Energy Kutchh Two Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-ARETNL-P5-50GJ",
+   "names": "Adani Wind Energy Kutchh Two Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-ARETNL-P6-50GJ",
+   "names": "Adani Wind Energy Kutchh Two Limited",
+   "loa": "01.06.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "30.08.2018",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-MEPL-P1-300TN",
+   "names": "Mytrah Energy (India) Private Limited Mytrah Vayu (Brahmaputra) Pvt Ltd",
+   "loa": "01.06.2018",
+   "mw": 300.0,
+   "loc": "Coimbatore, Tamil Nadu",
+   "ppa": "30.08.2018",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T4-RWETNPL-P1-265GJ",
+   "raw": "ReNew Wind Energy (TN) Private Limited ReNew Wind Energy (TN) Private Limited 01.06.2018 265 Kutch, Gujarat 30.08.2018 - 0 Inox Green Energy Services Limited Torrent Power Limited Inox Green Energy Se",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T5-TPL-P1-115GJ",
+   "names": "Torrent Power Limited Torrent Solargen Limited",
+   "loa": "24.10.2018",
+   "mw": 115.0,
+   "loc": "Devbhoomi Dwarka, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "26.05.2023 (27 MW); 16.06.2023 (13.5 MW); 21.06.2023 (16.2 MW); 03.07.2023 (13.5 MW); 05.07.2023 (16.2 MW); 10.07.2023 (24.3 MW); 14.07.2023 (4.3 MW)",
+   "done_mw": 115.0,
+   "years": [
+    2023
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-AGEL-P1-50GJ",
+   "names": "Adani Wind Energy Kutchh Four Ltd",
+   "loa": "24.10.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-AGEL-P2-50GJ",
+   "names": "Adani Wind Energy Kutchh Four Ltd",
+   "loa": "24.10.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-AGEL-P3-50GJ",
+   "names": "Adani Wind Energy Kutchh Four Ltd",
+   "loa": "24.10.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-AGEL-P4-50GJ",
+   "names": "Adani Wind Energy Kutchh Four Ltd",
+   "loa": "24.10.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-AGEL-P5-50GJ",
+   "names": "Adani Wind Energy Kutchh Four Ltd",
+   "loa": "24.10.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-AGEL-P6-50GJ",
+   "names": "Adani Wind Energy Kutchh Four Ltd",
+   "loa": "24.10.2018",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-AC-P1-300GJ",
+   "names": "Alfanar Company Netra Wind Private Limited",
+   "loa": "24.10.2018",
+   "mw": 300.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "10.04.2023 (55 MW); 13.07.2023 (39.6 MW); 03.08.2023 (24.7 MW); 08.03.2024 (17.6 MW); 28.03.2024 (24.2 MW); 25.04.2024 (45.4 MW)",
+   "done_mw": 206.5,
+   "years": [
+    2023,
+    2024
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-SKRPL-P1-300GJ",
+   "names": "Sitac Kabini Renewables Private Limited Sitac Kabini Renewables Private Limited",
+   "loa": "24.10.2018",
+   "mw": 300.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "22.01.2019",
+   "comm": "10.08.2022 (94.5 MW); 18.08.2022 (21.6 MW); 23.08.2022 (18.9 MW); 24.08.2022 (13.5 MW); 01.09.2022 (10.8 MW); 05.09.2022 (13.5 MW); 20.09.2022 (35.1 MW); 23.09.2022 (10.8 MW); 10.10.2022 (10.8 MW); 21.11.2022 (13.5 MW); 05.12.2022 (13.5 MW); 29.05.2023 (29.7 MW); 30.05.2023 (13.8 MW)",
+   "done_mw": 300.0,
+   "years": [
+    2022,
+    2023
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T5-EEIPL-P1-175KA",
+   "names": "Ecoren Energy India Private Limited Boreas Renewable Energy Private Limited",
+   "loa": "24.10.2018",
+   "mw": 175.0,
+   "loc": "Bellary, Karnataka",
+   "ppa": "22.01.2019",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T6-AREPGL-P1-150GJ",
+   "names": "Adani Wind Energy Kutchh Three Limited",
+   "loa": "17.06.2019",
+   "mw": 150.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "15.09.2019",
+   "comm": "10.03.2021 (14.7 MW); 17.03.2021 (30.5 MW); 09.04.2021 (43.8 MW); 04.05.2021 (28.6 MW); 01.06.2021 (32.4 MW)",
+   "done_mw": 150.0,
+   "years": [
+    2021
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T6-AREPGL-P2-100GJ",
+   "names": "Adani Wind Energy Kutchh Three Limited",
+   "loa": "17.06.2019",
+   "mw": 100.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "15.09.2019",
+   "comm": "06-03-2021",
+   "done_mw": 100.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T6-OEPL-P1-300TN",
+   "raw": "Ostro Energy Private Limited Ostro Kannada Power Pvt Ltd 17.06.2019 300 Bellary, Chitradurga, Davanagere and Vijaynagara,  Karnataka 15.09.2019 24.09.2021 (63 MW); 11.10.2021 (10.50 MW); 19.10.2021 (1",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T6-PL-P1-50.6GJ",
+   "names": "Powerica Limited Powerica Limited",
+   "loa": "17.06.2019",
+   "mw": 50.6,
+   "loc": "Devbhoomi Dwarka, Gujarat",
+   "ppa": "15.09.2019",
+   "comm": "02.06.2022 (24.3 MW); 18.08.2022 (26.3 MW)",
+   "done_mw": 50.6,
+   "years": [
+    2022
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T6-SSPTPL-P1-274.4MH",
+   "raw": "Adani Wind Energy MP One Private Limited Adani Wind Energy MP One Private Limited 17.06.2019 274.4 Dhar, Ratlam and Ujjain in Madhya Pradesh 15.09.2019 10.09.2022 (205.2 MW); 17.09.2022 (69.2 MW) 274.",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T6-SSPTPL-P2-50MH",
+   "raw": "Adani Wind Energy MP One Private Limited Adani Wind Energy MP One Private Limited 17.06.2019 50 Dhar, Ratlam and Ujjain in Madhya Pradesh 15.09.2019 10.09.2022 (45.9 MW); 17.09.2022 (4.1 MW) 50",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T6-SESPL-P1-150GJ",
+   "names": "Srijan Energy Systems Private Limited Morjar Windfarm Development Pvt. Ltd.",
+   "loa": "17.06.2019",
+   "mw": 150.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "15.09.2019",
+   "comm": "10.08.2022 (67.5 MW); 08.09.2022 (13.5 MW); 09.12.2022 (10.8 MW); 01.06.2023 (24.3 MW); 02.06.2023 (16.2 MW); 08.06.2023 (13.5 MW); 16.06.2023 (2.7 MW)",
+   "done_mw": 148.5,
+   "years": [
+    2022,
+    2023
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T6-ZREPL-P1-125KA",
+   "names": "Zenataris Renewable Energy Private Limited Zenataris Renewable Energy Private Limited",
+   "loa": "17.06.2019",
+   "mw": 125.0,
+   "loc": "Bellary, Karnataka",
+   "ppa": "15.09.2019",
+   "comm": "Project cancelled.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T7-BWEPL-P1-200GJ",
+   "raw": "Betam Wind Energy Private Limited Betam Wind Energy Private Limited 19.06.2019 200 Devbhumi Dwarka, Gujarat 18.10.2019 Project cancelled. 0 Adani Green Energy Limited Adani Renewable Energy Holding Th",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T7-OEPL-P1-50GJ",
+   "names": "Ostro Energy Private Limited Ostro Energy Private Limited",
+   "loa": "19.06.2019",
+   "mw": 50.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "18.10.2019",
+   "comm": "12.11.2021 (11 MW); 03.12.2021 (11 MW) 29.03.2022 (13.2 MW); 09.05.2022 (11 MW); 05.12.2022 (3.8 MW)",
+   "done_mw": 50.0,
+   "years": [
+    2021,
+    2022
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T7-SPUPL-P1-100MP",
+   "names": "Sprng Vaayu Urja Private Limited Sprng Wind Energy Private Limited",
+   "loa": "19.06.2019",
+   "mw": 100.0,
+   "loc": "Dhar, Madhya Pradesh",
+   "ppa": "18.10.2019",
+   "comm": "Project stands terminated.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T7-AREPGL-P1-130GJ",
+   "names": "Adani Renewable Energy Holding Three Limited Adani Wind Energy Kutchh Five Limited",
+   "loa": "19.06.2019",
+   "mw": 130.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "18.10.2019",
+   "comm": "15.08.2021 (53.6 MW); 12.10.2021 (14.70 MW); 04.01.2023 (50.2 MW); 25.05.2023 (11.5 MW)",
+   "done_mw": 130.0,
+   "years": [
+    2021,
+    2023
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T8-CLPIPL-P1-250GJ",
+   "names": "Apraava Energy Private Limited Apraava Energy Pvt Ltd",
+   "loa": "28.09.2019",
+   "mw": 250.8,
+   "loc": "Devbhumi Dwarka, Gujarat",
+   "ppa": "21.05.2020",
+   "comm": "06.04.2023 (52.5 MW); 05.05.2023 (29.4 MW); 26.05.2023 (25.2 MW); 15.09.2023 (21  MW); 27.09.2023 (10.5 MW); 27.02.2024 (25.2 MW); 01.03.2024 (29.4 MW); 22.03.2024 (16.8 MW); 30.04.2024 (12.6 MW); 18.07.2024 (23.1 MW); 16.01.2025 (5.01 MW)",
+   "done_mw": 250.71,
+   "years": [
+    2023,
+    2024,
+    2025
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T8-AEIPL-P1-190GJ",
+   "names": "Avikiran Energy India Private Limited Tunga Renewable Energy Pvt Ltd",
+   "loa": "28.09.2019",
+   "mw": 190.0,
+   "loc": "Koppal, Karnataka",
+   "ppa": "21.05.2020",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T9-VEVPL-P1-160MW",
+   "names": "Vena Energy Vidyuth Pvt Ltd Vena Energy Vidyuth Pvt Ltd",
+   "loa": "25.09.2020",
+   "mw": 160.0,
+   "loc": "Tiruppur, Tamil Nadu",
+   "ppa": "31.03.2021",
+   "comm": "29.10.2024 (160 MW)",
+   "done_mw": 160.0,
+   "years": [
+    2024
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T9-JSWSL-P1-540MW",
+   "names": "JSW Future Energy Ltd (formerly JSW Solar Ltd) JSW Renew Energy Ltd",
+   "loa": "25.09.2020",
+   "mw": 540.0,
+   "loc": "Koppal, Karnataka",
+   "ppa": "31.03.2021",
+   "comm": "24.12.2023 (51.3 MW); 22.03.2024 (40.5 MW); 27.05.2024 (56.7 MW); 02.07.2024 (18.9 MW); 25.07.2024 (18.9 MW): 03.10.2024 (18.9 MW); 25.10.2024 (67.5 MW); 22.11.2024 (110.7 MW); 01.12.2024 (75.6 MW); 06.03.2025 (40.5 MW); 28.03.2025 (29.7 MW); 31.03.2025 (10.8 MW)",
+   "done_mw": 540.0,
+   "years": [
+    2023,
+    2024,
+    2025
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T9-JSWSL-P2-270MW",
+   "names": "JSW Future Energy Ltd (formerly JSW Solar Ltd) JSW Renew Energy Ltd",
+   "loa": "25.09.2020",
+   "mw": 270.0,
+   "loc": "Tuticorin, Tenkasi, Tirunelveli, Tamil Nadu",
+   "ppa": "15.07.2021",
+   "comm": "28.02.2025 (59.4 MW); 27.03.2025 (27 MW); 28.03.2025(43.2MW)  09.05.2025 (32.4 MW) 06.06.2026 (27 MW); 25.06.2026 (81 MW)",
+   "done_mw": 270.0,
+   "years": [
+    2025,
+    2026
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T10-AREHFL-P1-300MW",
+   "names": "Adani Renewable Energy Holding Fifteen Ltd Adani Renewable Energy Seven Ltd",
+   "loa": "19.03.2021",
+   "mw": 300.0,
+   "loc": "Koppal, Karnataka",
+   "ppa": "10.09.2021",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T10-ARPSPL-P1-300MW",
+   "names": "Ayana Renewable Power Six Pvt Ltd Ayana Renewable Power Six Pvt Ltd",
+   "loa": "19.03.2021",
+   "mw": 300.0,
+   "loc": "Gadag, Karnataka",
+   "ppa": "10.09.2021",
+   "comm": "05.12.2023 (50.4 MW); 02.01.2024 (46.8 MW); 14.01.2024 (54 MW); 29.01.2024 (68.4 MW); 19.02.2024 (82.8 MW)",
+   "done_mw": 300.0,
+   "years": [
+    2023,
+    2024
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T10-EPMPL-P1-150MW",
+   "names": "Evergreen Power Mauritius Pvt Ltd Viento Renewables Pvt Ltd",
+   "loa": "19.03.2021",
+   "mw": 150.0,
+   "loc": "Osmanabad, Maharashtra",
+   "ppa": "10.09.2021",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T10-JSWFEL-P1-150MW",
+   "raw": "JSW Renew Energy Two Ltd 19.03.2021 150 Tiruppur, Tamil Nadu 10.09.2021 13.05.2024 (51.3 MW); 06.09.2024 (72.9 MW); 12.09.2024 (13.5 MW); 19.11.2024 (12.3 mw) 150 1800 MW ISTS-connected Wind Power Pro",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T10-JSWFEL-P2-300MW",
+   "names": "JSW Renew Energy Two Ltd",
+   "loa": "19.03.2021",
+   "mw": 300.0,
+   "loc": "Thoothukudi, Tamil Nadu",
+   "ppa": "10.09.2021",
+   "comm": "04.12.2022 (27 MW); 21.04.2023 (51.3 MW); 09.05.2023 (13.5 MW); 26.05.2023 (24.3 MW); 05.06.2023 (13.5 MW); 05.07.2023 (18.9 MW); 28.07.2023 (21.6 MW); 29.08.2023 (27 MW); 27.09.2023 (18.9 MW); 10.11.2023 (16.2 MW); 01.03.2024 (13.5 MW); 20.06.2024 (18.9 MW); 08.07.2024 (13.5 MW); 07.08.2024 (13.5 MW); 13.09.2024 (8.4 MW)",
+   "done_mw": 300.0,
+   "years": [
+    2022,
+    2023,
+    2024
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T11-RNUPL-P1-300MW",
+   "names": "ReNew Naveen Urja Private Limited ReNew Naveen Urja Private Limited",
+   "loa": "20.10.2021",
+   "mw": 300.0,
+   "loc": "Gadag, Karnataka",
+   "ppa": "30.06.2022",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T11-GIWEL-P1-180MW",
+   "names": "Green lnfra Wind Energy Limited Green lnfra Wind Energy Limited",
+   "loa": "20.10.2021",
+   "mw": 180.0,
+   "loc": "Koppal, Karnataka",
+   "ppa": "30.06.2022",
+   "comm": "17.01.2025 (54.6 MW) 25.03.2026 (14.7 MW) 22.05.2026 (29.4 MW)",
+   "done_mw": 98.7,
+   "years": [
+    2025,
+    2026
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T11-ARPL-P1-150MW",
+   "names": "Anupavan Renewables pvt Ltd Anupavan Renewables pvt Ltd",
+   "loa": "20.10.2021",
+   "mw": 150.0,
+   "loc": "Osmanabad, Maharashtra",
+   "ppa": "30.06.2022",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T11-AREHFL-P1-450MW",
+   "names": "Adani Renewable Energy Holding Fifteen Limited Adani Renewable Energy Four Ltd",
+   "loa": "20.10.2021",
+   "mw": 450.0,
+   "loc": "Gadag, Karnataka",
+   "ppa": "30.06.2022",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T11-APIPL-P1-120MW",
+   "names": "Azure Power lndia Pvt Ltd Two Wind Energy Pvt Ltd",
+   "loa": "20.10.2021",
+   "mw": 120.0,
+   "loc": "Koppal, Karnataka",
+   "ppa": "30.06.2022",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T12-HRPL-P1-300MW",
+   "names": "Halvad Renewables Pvt Ltd Halvad Renewables Pvt Ltd",
+   "loa": "12.07.2022",
+   "mw": 300.0,
+   "loc": "Koppal & Gadag, Karnataka",
+   "ppa": "29.03.2023",
+   "comm": "Project cancelled.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T12-JSWNEL-P1-300MW",
+   "names": "JSW Neo Energy Ltd JSW Renew Energy Three Ltd",
+   "loa": "12.07.2022",
+   "mw": 300.0,
+   "loc": "Osmanabad, Maharashtra",
+   "ppa": "29.03.2023",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T12-NTPCREL-P1-200MW",
+   "names": "NTPC Renewable Energy Ltd NTPC Renewable Energy Ltd",
+   "loa": "12.07.2022",
+   "mw": 200.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "29.03.2023",
+   "comm": "25.02.2026 (50 MW)",
+   "done_mw": 50.0,
+   "years": [
+    2026
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T12-TPL-P1-300MW",
+   "names": "Torrent power Ltd Torrent Saurya Urja 2 Pvt Ltd",
+   "loa": "12.07.2022",
+   "mw": 300.0,
+   "loc": "Bagalkot, Karnataka",
+   "ppa": "29.03.2023",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T13-SJVNL-P1-100MW",
+   "names": "SJVN Ltd SJVN Green Energy Ltd",
+   "loa": "19.01.2023",
+   "mw": 100.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "26.06.2023",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T13-SIIIBV-P1-300MW",
+   "names": "Scatec India II B.V. Scatec India Renewables One Private Limited",
+   "loa": "19.01.2023",
+   "mw": 300.0,
+   "loc": "Koppal, Karnataka",
+   "ppa": "26.06.2023",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T13-TGPXIPL-P1-200MW",
+   "names": "Teq Green Power XI Pvt Ltd Teq Green Power XI Pvt Ltd",
+   "loa": "19.01.2023",
+   "mw": 200.0,
+   "loc": "Ahmednagar, Beed and Osmanabad, Maharashtra",
+   "ppa": "26.06.2023",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T14-GPEPL-P1-190MW",
+   "names": "Green Prairie Energy Pvt Ltd Green Prairie Energy Pvt Ltd",
+   "loa": "23.06.2023",
+   "mw": 190.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "16.11.2023",
+   "comm": "PPA not signed.",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T14-AEPL-P1-300MW",
+   "names": "Apraava Energy Pvt Ltd Apraava Energy Pvt Ltd",
+   "loa": "23.06.2023",
+   "mw": 300.0,
+   "loc": "Koppal, Karnataka",
+   "ppa": "16.11.2023",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T14-SGEL-P1-200MW",
+   "names": "SJVN Green Energy Ltd SJVN Green Energy Ltd",
+   "loa": "23.06.2023",
+   "mw": 200.0,
+   "loc": "Ahmednagar, Beed and Osmanabad, Maharashtra",
+   "ppa": "16.11.2023",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T16-KA-TPL-P1-100MW",
+   "names": "Torrent Power Ltd Torrent Solar Power Pvt Ltd",
+   "loa": "09.02.2024",
+   "mw": 100.0,
+   "loc": "Kukunoor, Karnataka",
+   "ppa": "13.06.2024",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T16-GJ-JNEL-P1-350MW",
+   "names": "JSW Neo Energy Ltd JSW Renew Energy Eight Ltd",
+   "loa": "09.02.2024",
+   "mw": 350.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "13.06.2024",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T16-KA-JNL-P1-150MW",
+   "names": "JSW Neo Energy Ltd JSW Renew Energy Four Limited",
+   "loa": "09.02.2024",
+   "mw": 150.0,
+   "loc": "Bidar, Karnataka",
+   "ppa": "13.06.2024",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T16-GJ-PL-P1-50MW",
+   "names": "Powerica Ltd Powerica Ltd",
+   "loa": "09.02.2024",
+   "mw": 50.0,
+   "loc": "Devbhoomi Dwaraka, Gujarat",
+   "ppa": "13.06.2024",
+   "comm": "11.02.2026 (50 MW)",
+   "done_mw": 50.0,
+   "years": [
+    2026
+   ],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T16-KA-JNL-P2-150MW",
+   "names": "JSW Neo Energy Ltd JSW Renew Energy Four Limited",
+   "loa": "15.03.2024",
+   "mw": 175.0,
+   "loc": "Bidar, Karnataka",
+   "ppa": "13.06.2024",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T16-GJ-JNEL-P2-350MW",
+   "names": "JSW Neo Energy Ltd JSW Renew Energy Eight Ltd",
+   "loa": "15.03.2024",
+   "mw": 350.0,
+   "loc": "Kutch, Gujarat",
+   "ppa": "13.06.2024",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T17-PL-P1-50MW",
+   "names": "Powerica Ltd Powerica Ltd",
+   "loa": "28.10.2024",
+   "mw": 50.0,
+   "loc": "Devbhoomi Dwaraka, Gujarat",
+   "ppa": "01.03.2025",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T18-TGEPL-P1-175MW",
+   "names": "Torrent Green Energy Private Limited Torrent Saurya Urja Private Limited",
+   "loa": "11.06.2025",
+   "mw": 175.0,
+   "loc": "Jamnagar, Gujarat",
+   "ppa": "07-11-2025",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T18-TGEPL-P2-125MW",
+   "names": "Torrent Green Energy Private Limited Torrent Solar Power Private Limited",
+   "loa": "11.06.2025",
+   "mw": 125.0,
+   "loc": "Beed, Ahemdnagar and Osmanabad, Maharashtra",
+   "ppa": "07-11-2025",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T19-KPEL-P1-100MW",
+   "names": "K.P. Energy Limited -",
+   "loa": "10.02.2026",
+   "mw": 100.0,
+   "loc": "Devbhoomi Dwaraka, Gujarat",
+   "ppa": "15-04-2026",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T19-GTEPL-P1-180MW",
+   "names": "Ganeko Three Energy Private Limited -",
+   "loa": "10.02.2026",
+   "mw": 180.0,
+   "loc": "Anantapur, Andhra Pradesh",
+   "ppa": "15-04-2026",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T19-WFEPL-P1-300MW",
+   "names": "Waaree Forever Energies Private Limited Waaree Forever Energies Four Private Limited",
+   "loa": "10.02.2026",
+   "mw": 300.0,
+   "loc": "Devbhoomi Dwaraka, Gujarat",
+   "ppa": "15-04-2026",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T19-OEPL-P1-50MW",
+   "names": "Opera Energy Private Limited Opera Lalpur Project Private Limited",
+   "loa": "10.02.2026",
+   "mw": 50.0,
+   "loc": "Jamnagar, Gujarat",
+   "ppa": "15-04-2026",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T19-PGPPL-P1-250MW",
+   "names": "Purvah Green Power Private Limited Greenpulse Power Private Limited",
+   "loa": "10.02.2026",
+   "mw": 250.0,
+   "loc": "Bijapur, Karnataka",
+   "ppa": "15-04-2026",
+   "comm": "-",
+   "done_mw": 0.0,
+   "years": [],
+   "parsed": true
+  },
+  {
+   "id": "WPD-ISTS-T19-VEAPL-P1-124MW",
+   "raw": "Vena Energy Aura Private Limited - 10.02.2026 124 Koppal, Karnataka 15-04-2026 - 0 1200 MW ISTS-connected Wind Power Projects in India (SECI-Tranche-XIX) 500 MW ISTS-connected Wind Power Projects (Tra",
+   "parsed": false
+  },
+  {
+   "id": "WPD-ISTS-T19-RHPL-P1-196MW",
+   "raw": "Refex Holding Private Limited Refex Vayu SPV2 Private Limited 10.02.2026 196 Kurnool, Andhra Pradesh 15-04-2026 - 0 7378.11TOTAL",
+   "parsed": false
+  }
+ ]
+}

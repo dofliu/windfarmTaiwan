@@ -117,22 +117,62 @@ def norm(s):
     return re.sub(r'[^a-z0-9]', '', s.lower())
 
 
+COUNTRIES = ('china', 'india', 'spain', 'italy', 'japan', 'germany', 'vietnam', 'romania', 'kazakhstan', 'ukraine', 'norway', 'poland', 'uruguay',
+             'netherlands', 'czech republic', 'czechia', 'morocco', 'united states', 'oman', 'colombia', 'turkey', 'türkiye', 'greece', 'portugal',
+             'france', 'sweden', 'finland', 'brazil', 'argentina', 'chile', 'mexico', 'south africa', 'egypt', 'australia', 'canada', 'south korea',
+             'philippines', 'thailand', 'pakistan', 'iran', 'kenya', 'ethiopia', 'taiwan', 'united kingdom', 'ireland', 'austria', 'belgium', 'denmark',
+             'bulgaria', 'croatia', 'serbia', 'hungary', 'lithuania', 'estonia', 'latvia', 'russia', 'mongolia', 'peru', 'jordan', 'saudi arabia')
+# GEM 的省名有英文慣用名或拼錯的，Nominatim 的英文地址用的是另一種寫法 · province names GEM spells differently from Nominatim's English address
+PROV_ALIAS = {'castillayleon': 'castileandleon', 'castillalamancha': 'castilelamancha', 'andalucia': 'andalusia', 'aragon': 'aragon',
+              'cataluna': 'catalonia', 'catalunya': 'catalonia', 'paisvasco': 'basquecountry', 'euskadi': 'basquecountry', 'comunidadvalenciana': 'valenciancommunity',
+              'islascanarias': 'canaryislands', 'siciliy': 'sicily', 'sicilia': 'sicily', 'puglia': 'apulia', 'sardegna': 'sardinia', 'toscana': 'tuscany',
+              'hokkadio': 'hokkaido', 'zaragosa': 'zaragoza', 'ananthapuramu': 'anantapur', 'marakeshsafi': 'marrakeshsafi', 'innermongolia': 'innermongolia',
+              'xinjianguyghur': 'xinjiang', 'guangxizhuang': 'guangxi', 'ningxiahui': 'ningxia', 'tibet': 'tibet'}
+
+
+QUERY_FIX = {'Hokkadio': 'Hokkaido', 'Siciliy': 'Sicily', 'Zaragosa': 'Zaragoza', 'Ananthapuramu': 'Anantapur', 'Marakesh-Safi': 'Marrakesh-Safi'}   # GEM 頁面的拼字
+
+
+def strip_accents(s):
+    import unicodedata
+    return ''.join(c for c in unicodedata.normalize('NFKD', s) if not unicodedata.combining(c))
+
+
+def prov_match(prov_n, r):
+    """省（邦、州）名要出現在 Nominatim 結果的地址裡；允許別名與拼字差一點（difflib ≥ 0.85）"""
+    import difflib
+    if not prov_n:
+        return True
+    cands = {prov_n, PROV_ALIAS.get(prov_n, prov_n)}
+    dn = norm(strip_accents(r.get('display_name', '')))
+    addr = r.get('address', {})
+    vals = [norm(strip_accents(str(v))) for v in addr.values()]
+    for c in cands:
+        if c in dn or any(c in v for v in vals):
+            return True
+        for v in vals:
+            if v and len(v) >= 5 and difflib.SequenceMatcher(None, c, v).ratio() >= 0.85:
+                return True
+    return False
+
+
 def geocode(place, lat0, lon0, min_drop=0):
     """依序試完整地址、去掉第一段（鄉鎮）、再去掉一段；要求結果含省名且在 800 km 內。min_drop=1 從縣層級開始（鄉鎮的 Wikidata 項目沒有座標時）"""
+    place = re.sub(r'^\d+\s+', '', place.strip())      # GEM 頁面把分期編號接在地點前面（「1 Yumen City, …」）
+    for a, b in QUERY_FIX.items():
+        place = re.sub(r'\b' + a + r'\b', b, place)
     parts = [p.strip() for p in place.split(',') if p.strip()]
+    parts[0] = re.split(r'\s+[Ee]\s+', parts[0])[0]    # 義大利「Prizzi E Corleone」兩個鎮：取第一個
     if len(parts) < 2:
         return None, 'too short'
-    prov = parts[-2] if parts[-1].lower() in ('china', 'india', 'spain', 'italy', 'japan', 'germany', 'vietnam', 'romania', 'kazakhstan', 'ukraine', 'norway', 'poland', 'uruguay', 'netherlands', 'czech republic', 'czechia', 'morocco', 'united states', 'oman', 'colombia') else parts[-1]
-    prov_n = norm(re.sub(r'\b(province|state|autonomous region|special administrative region|municipality)\b', '', prov, flags=re.I))
+    prov = parts[-2] if parts[-1].lower() in COUNTRIES else parts[-1]
+    prov_n = norm(strip_accents(re.sub(r'\b(province|state|autonomous region|special administrative region|municipality|prefecture|region)\b', '', prov, flags=re.I)))
     for drop in range(min_drop, max(min_drop + 1, len(parts) - 2)):
         q = ', '.join(parts[drop:])
         for r in nominatim(q):
             if r.get('type') not in OK_TYPES and r.get('category') not in ('boundary', 'place'):
                 continue
-            dn = norm(r.get('display_name', ''))
-            addr = r.get('address', {})
-            addr_n = norm(' '.join(str(v) for v in addr.values()))
-            if prov_n and prov_n not in dn and prov_n not in addr_n:
+            if not prov_match(prov_n, r):
                 continue
             la, lo = float(r['lat']), float(r['lon'])
             if km(lat0, lon0, la, lo) > MAX_KM:
@@ -141,6 +181,8 @@ def geocode(place, lat0, lon0, min_drop=0):
             if not wd:
                 continue
             level = 'township' if drop == 0 and len(parts) >= 4 else ('county' if len(parts) - drop >= 3 else 'city')
+            if re.search(r'\b(City|County|Banner|District)$', parts[drop]) and level == 'township':
+                level = 'county'
             return dict(wikidata=wd, query=q, level=level, _lat=la, _lon=lo), None
     return None, 'no acceptable result'
 
@@ -181,9 +223,11 @@ def main():
     f = json.loads(src.read_text(encoding='utf-8'))
     cols = f['meta']['cols']
     rows = [dict(zip(cols, r)) for r in f['rows']]
-    todo = [r for r in rows if r['st'] == 0 and not r['end'] and (r['flags'] & 4) and r['src'] == 2]
     prev = json.loads(out.read_text(encoding='utf-8')) if out.exists() else {'located': [], 'skipped': []}
-    prev['skipped'] = [x for x in prev['skipped'] if not x['why'].startswith(('Wikidata fetch failed', 'Wikidata item has no coordinate'))]   # 重跑時再試這些
+    seen = {(x['iso'], x['name']) for x in prev['located']} | {(x['iso'], x['name']) for x in prev['skipped']}
+    # 共用代用點的營運中 GEM 紀錄；已處理過的也保留（改位置後可能不再共用點）· shared-point operating GEM records, plus any handled before
+    todo = [r for r in rows if r['st'] == 0 and not r['end'] and r['src'] == 2 and ((r['flags'] & 4) or (r['iso'], r['name']) in seen)]
+    prev['skipped'] = [x for x in prev['skipped'] if not x['why'].startswith(('Wikidata fetch failed', 'Wikidata item has no coordinate', 'no acceptable result', 'Wikidata and OSM centres differ'))]   # 重跑時再試這些（查詢都有快取）
     done = {(x['iso'], x['name']) for x in prev['located']} | {(x['iso'], x['name']) for x in prev['skipped']}
     located, skipped = prev['located'], prev['skipped']
     cache_place = {}
@@ -225,21 +269,26 @@ def main():
                                 why='Wikidata fetch failed' if x['wikidata'] in wd['_failed'] else ('Wikidata item has no coordinate' if not w else 'Wikidata and OSM centres differ by more than 50 km')))
     located = keep
     # 第三階段：鄉鎮的 Wikidata 項目沒有座標的，退一級用縣（區）中心
-    retry = [x for x in skipped if x['why'] == 'Wikidata item has no coordinate' and x.get('place')]
-    skipped = [x for x in skipped if not (x['why'] == 'Wikidata item has no coordinate' and x.get('place'))]
-    got = {}
-    for x in retry:
-        if x['place'] not in got:
-            got[x['place']] = geocode(x['place'], *placeholder[(x['iso'], x['name'])], min_drop=1)
-    wd = wikidata_coords([g['wikidata'] for g, _ in got.values() if g])
-    for x in retry:
-        g, why = got[x['place']]
-        w = wd.get(g['wikidata']) if g else None
-        if g and w and km(g['_lat'], g['_lon'], w['lat'], w['lon']) <= 50:
-            located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], wikidata=g['wikidata'], query=g['query'], level=g['level'], **w))
-        else:
-            x['why'] = 'Wikidata fetch failed' if g and g['wikidata'] in wd['_failed'] else ('Wikidata item has no coordinate (township and county)' if not g or not w else 'Wikidata and OSM centres differ by more than 50 km')
-            skipped.append(x)
+    RETRY = ('Wikidata item has no coordinate', 'Wikidata and OSM centres differ by more than 50 km')
+    for min_drop in (1, 2):           # 鄉鎮不行就退到縣（區），再退到市
+        retry = [x for x in skipped if x['why'] in RETRY and x.get('place')]
+        skipped = [x for x in skipped if not (x['why'] in RETRY and x.get('place'))]
+        got = {}
+        for x in retry:
+            if x['place'] not in got:
+                got[x['place']] = geocode(x['place'], *placeholder[(x['iso'], x['name'])], min_drop=min_drop)
+        wd = wikidata_coords([g['wikidata'] for g, _ in got.values() if g])
+        for x in retry:
+            g, why = got[x['place']]
+            w = wd.get(g['wikidata']) if g else None
+            if g and w and km(g['_lat'], g['_lon'], w['lat'], w['lon']) <= 50:
+                located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], wikidata=g['wikidata'], query=g['query'], level=g['level'], **w))
+            else:
+                x['why'] = 'Wikidata fetch failed' if g and g['wikidata'] in wd['_failed'] else ('Wikidata item has no coordinate' if not g or not w else 'Wikidata and OSM centres differ by more than 50 km')
+                skipped.append(x)
+    for x in skipped:
+        if x['why'] in RETRY:
+            x['why'] += ' (township, county and city)'
     out.write_text(json.dumps({'meta': META, 'located': located, 'skipped': skipped}, ensure_ascii=False, indent=0), encoding='utf-8')
     print('done', len(todo), 'located', len(located), 'skipped', len(skipped))
 
