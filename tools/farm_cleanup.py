@@ -16,6 +16,9 @@ PIPE_DROP 列出 2026 整理的規劃中專案清單（data/global/sources/pipel
 PIPE_FIX 列出清單整理後才變動的欄位（例：預計完工年延後），套用在清單比對之前。兩者對不到清單裡的專案時建置會中止。
 每條規則都附中英文理由與來源連結（url=None 表示依資料本身比對：同名、同容量、同地點），
 build_farms.py 會把套用結果寫成 docs/data-cleanup.md 與 docs/data-cleanup.en.md。
+GEM_LOC_RULES 是由 data/global/sources/gem_locations.json（tools/fetch_gem_locations.py 產生）展開的座標更正：GEM 放在省或國家中心
+代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（Wikidata 座標），仍標「概略位置」；這批規則對不到紀錄時只略過、
+不中止（上游改名時重跑 fetch_gem_locations.py 即可），清單另外寫成 docs/data-locations.md 與 .en.md。
 """
 import json
 import os
@@ -1376,6 +1379,14 @@ RULES = [
         'https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/', year=2030,
         lat=58.633, lon=-3.815, approx=True),
     drop('KOR', 'Ulsan Dongbu floating demo (Vindmøllen 750 kW)', C, '蔚山 750 kW 浮動式示範機從未在海上安裝：2019 年 11 月蔚州郡四度退回細部設計、無法下海；2025 年政府的風電研發企畫報告說 750 kW 浮動式實證「曾嘗試」、因取得實證海域困難而受阻，2025 年 9 月 KISTEP 報告說韓國沒有浮動式離岸風電的運送安裝實例', 'The Ulsan 750 kW floating demonstrator was never installed at sea: in November 2019 Ulju County had rejected its detailed design four times; the government’s 2025 wind R&D planning report says a 750 kW floating demonstration was “attempted” and held back by the difficulty of securing a test site, and a KISTEP report of September 2025 says Korea has no case of transporting and installing floating offshore wind', 'https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1'),
+    # 2026-10-11 監察院麥寮風場火災調查報告（115-07-23）與台電發電站清單：分期是 15＋8 部，不是 16＋7
+    fix('TWN', 'Yunmai (Mailiao)', C,
+        '監察院 2026 年 7 月 23 日調查報告（麥寮 17 號風機火災）：第 1 期 15 支 2009 年 1 月商轉、第 2 期 8 支 2010 年 5 月商轉；'
+        '台電發電站清單也是雲林麥寮 1（#1–#15，30 MW）與麥寮 2（#16–#23，16 MW）。原本的「16 部 2008 年、7 部 2011 年」有誤，商轉年改 2009',
+        'The Control Yuan’s investigation report of 23 July 2026 (the Mailiao turbine 17 fire): phase 1 of 15 turbines commissioned in January 2009 and '
+        'phase 2 of 8 in May 2010; Taipower’s station list likewise has Mailiao 1 (#1–#15, 30 MW) and Mailiao 2 (#16–#23, 16 MW). '
+        'The old “16 in 2008, 7 in 2011” was wrong; the start year becomes 2009',
+        'https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/76442', year=2009, turbine='Vestas V80 2.0 MW x23 (15 in 2009, 8 in 2010)', ph=[[2009, 30], [2010, 16]]),
     # 2026-10-05 台電自有風場對照台電「風力發電站資料」（政府資料開放平臺 17141，2026 年版）與能源署風力發電單一服務窗口（出處原文以 check_quotes.py 核對）
     fix('TWN', 'Taoyuan Luzhu', C,
         '台電發電站清單與能源署單一窗口都只有蘆竹 8 部 Enercon E44（0.9 MW），共 7.2 MW，查無 33.6 MW 的新建或汰舊換新計畫；2015 年 2 月 2 日完工併聯商轉（維基百科）。原本的 33.6 MW、2025 年是估計值',
@@ -2563,6 +2574,35 @@ PIPE_FIX = {
         'https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027'),
 }
 
+# ---------------------------------------------------------------- GEM 代用座標 → 鄉鎮／縣中心（tools/fetch_gem_locations.py）
+GEM_LOC_FILE = ROOT / 'data' / 'global' / 'sources' / 'gem_locations.json'
+LEVEL_ZH = {'township': '鄉鎮', 'county': '縣（區）', 'city': '市'}
+LEVEL_EN = {'township': 'township', 'county': 'county or district', 'city': 'city'}
+
+
+def gem_location_rules():
+    """把 gem_locations.json 的定位結果展開成 fix 規則（soft=True：對不到就略過）"""
+    if not GEM_LOC_FILE.exists():
+        return []
+    rules = []
+    for x in json.loads(GEM_LOC_FILE.read_text(encoding='utf-8'))['located']:
+        if 'lat' not in x:
+            continue                   # fetch_gem_locations.py 的中途存檔（還沒取 Wikidata 座標）
+        lab = x.get('label_zh') or x.get('label_en') or x['query']
+        lab_en = x.get('label_en') or x.get('label_zh') or x['query']
+        r = fix(x['iso'], x['name'], G,
+                f'GEM 專案頁的位置是「{x["place"]}」，由省中心的代用點改到該{LEVEL_ZH[x["level"]]}的中心（Wikidata {x["wikidata"]}：{lab}），仍為概略位置',
+                f'GEM’s project page locates it at “{x["place"]}”; moved from the province-centre placeholder to the centre of that '
+                f'{LEVEL_EN[x["level"]]} (Wikidata {x["wikidata"]}: {lab_en}), still approximate',
+                x['gem_url'], lat=x['lat'], lon=x['lon'], approx=True, note=True)
+        r['kind'] = 'gemloc'
+        r['loc'] = x
+        rules.append(r)
+    return rules
+
+
+GEM_LOC_RULES = gem_location_rules()
+
 FIELDS = {'rename': 0, 'zhname': 1, 'lat': 3, 'lon': 4, 'mw': 5, 'year': 6, 'type': 7, 'st': 8, 'end': 9, 'owner': 10, 'turbine': 11, 'ph': 14}
 LABEL_ZH = {'rename': '名稱', 'zhname': '中文名', 'lat': '座標', 'lon': '座標', 'mw': '容量', 'year': '年份', 'type': '類型', 'st': '狀態',
             'end': '除役年', 'owner': '業主', 'turbine': '機組', 'ph': '分期'}
@@ -2570,24 +2610,30 @@ LABEL_EN = {'rename': 'name', 'zhname': 'Chinese name', 'lat': 'location', 'lon'
             'type': 'type', 'st': 'status', 'end': 'end year', 'owner': 'owner', 'turbine': 'turbines', 'ph': 'phases'}
 
 
-def apply(rows, rules=RULES):
-    """套用規則，回傳 (新的 rows, 套用紀錄)。任何一條對不到剛好一筆就中止。"""
+def apply(rows, rules=None):
+    """套用規則，回傳 (新的 rows, 套用紀錄)。任何一條對不到剛好一筆就中止（GEM_LOC_RULES 的除外：只略過）。"""
+    if rules is None:
+        rules = RULES + GEM_LOC_RULES
     idx = defaultdict(list)
     for r in rows:
         idx[(r[2], r[0], r[13])].append(r)
-    errors, gone, log = [], set(), []
+    errors, gone, log, soft_miss = [], set(), [], 0
 
-    def one(iso, name, src):
+    def one(iso, name, src, soft=False):
         hits = idx.get((iso, name, src), [])
         if len(hits) != 1:
-            errors.append(f"{iso} {SRC_EN[src]} “{name}”: {len(hits)} matching records")
+            if not soft:
+                errors.append(f"{iso} {SRC_EN[src]} “{name}”: {len(hits)} matching records")
             return None
         return hits[0]
 
     for c in rules:
-        r = one(c['iso'], c['name'], c['src'])
+        r = one(c['iso'], c['name'], c['src'], soft=c.get('kind') == 'gemloc')
         if r is None:
+            soft_miss += c.get('kind') == 'gemloc'
             continue
+        if c.get('kind') == 'gemloc' and (r[8] != 0 or r[9]):
+            continue                   # 只改營運中的紀錄（規劃中的由別的規則處理）
         before = list(r)
         if c['act'] == 'dup':
             k = one(c['iso'], *c['keep'])
@@ -2609,13 +2655,16 @@ def apply(rows, rules=RULES):
             r[12] = (r[12] | 1) if f.get('approx') else (r[12] & ~1)
         if f.get('year') or f.get('st', 0):
             r[12] &= ~2
-        if f.get('note'):
+        if f.get('note') and not (c.get('kind') == 'gemloc' and r[15]):     # 定位規則不蓋掉已有的註記
             r[15] = [c['zh'], c['en']]
         log.append((c, before, list(r)))
-    if errors:
-        # 升級 GEM 版本時可設 CLEANUP_LENIENT=1 先建置、看新資料的紀錄名稱，再逐條改寫規則；平常一定中止
-        # (set CLEANUP_LENIENT=1 only while upgrading the GEM release, to build first and then rewrite the rules one by one)
+    # 升級 GEM 版本時可設 CLEANUP_LENIENT=1 先建置、看新資料的紀錄名稱，再逐條改寫規則；平常一定中止
+    # (set CLEANUP_LENIENT=1 only while upgrading the GEM release, to build first and then rewrite the rules one by one)
+    if True:
         msg = "farm_cleanup: rules no longer match the data (recheck them against the new release):\n  " + "\n  ".join(errors)
+    if soft_miss:
+        print(f"farm_cleanup: {soft_miss} GEM location rules matched no record (rerun tools/fetch_gem_locations.py after a GEM upgrade)", file=sys.stderr)
+    if errors:
         if os.environ.get('CLEANUP_LENIENT'):
             print(msg + "\n  (CLEANUP_LENIENT: continuing without these rules)", file=sys.stderr)
         else:
@@ -2631,6 +2680,9 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
     """把套用紀錄寫成 docs/data-cleanup.md（中文）與 docs/data-cleanup.en.md。"""
     names = {c['iso']: (c.get('zh') or c['name'], c['name']) for c in countries}
     names.setdefault('ALA', ('奧蘭', 'Åland'))          # wind_global.json 沒有國家資料的地區
+    loc_log = [x for x in log if x[0].get('kind') == 'gemloc']
+    log = [x for x in log if x[0].get('kind') != 'gemloc']
+    write_location_docs(loc_log, names, out_dir)
     for lang in ('zh', 'en'):
         zh = lang == 'zh'
         cname = lambda iso: names.get(iso, (iso, iso))[0 if zh else 1]
@@ -2648,7 +2700,8 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
                   '合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、'
                   '從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，'
                   '上游資料改版後若對不到就讓建置失敗，提醒重新查證。', '',
-                  f'- 規則 {len(log)} 條：刪除 {n_drop} 筆（其中營運中 {_fmt(round(mw_drop, 1))} MW），修正 {n_fix} 筆。',
+                  f'- 規則 {len(log)} 條：刪除 {n_drop} 筆（其中營運中 {_fmt(round(mw_drop, 1))} MW），修正 {n_fix} 筆。'
+                  + (f'另有 {len(loc_log)} 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。' if loc_log else ''),
                   '- 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，'
                   '讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。',
                   '- 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。', '']
@@ -2660,7 +2713,8 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
                   '“whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, '
                   'and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails '
                   'if a rule no longer matches after an upstream update, so it gets checked again.', '',
-                  f'- {len(log)} rules: {n_drop} records removed ({_fmt(round(mw_drop, 1))} MW of them operating), {n_fix} records fixed.',
+                  f'- {len(log)} rules: {n_drop} records removed ({_fmt(round(mw_drop, 1))} MW of them operating), {n_fix} records fixed.'
+                  + (f' In addition, {len(loc_log)} operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).' if loc_log else ''),
                   '- In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses '
                   'Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore '
                   'farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the '
@@ -2717,9 +2771,52 @@ def write_docs(log, countries, out_dir=ROOT / 'docs'):
         (out_dir / ('data-cleanup.md' if zh else 'data-cleanup.en.md')).write_text('\n'.join(L), encoding='utf-8')
 
 
+def write_location_docs(loc_log, names, out_dir):
+    """docs/data-locations.md 與 .en.md：由代用座標改到鄉鎮／縣中心的風場清單"""
+    for lang in ('zh', 'en'):
+        zh = lang == 'zh'
+        cname = lambda iso: names.get(iso, (iso, iso))[0 if zh else 1]
+        by = defaultdict(list)
+        for c, b, a in loc_log:
+            by[c['iso']].append((c, b, a))
+        lv = defaultdict(int)
+        for c, *_ in loc_log:
+            lv[c['loc']['level']] += 1
+        L = []
+        if zh:
+            L += ['# 風場位置：代用座標改到鄉鎮／縣中心', '', '[English](data-locations.en.md) ｜ 中文（本頁）', '',
+                  '> 由 `tools/build_farms.py` 依 `data/global/sources/gem_locations.json`（`tools/fetch_gem_locations.py` 產生）寫出，請勿手動編輯。', '',
+                  'GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或國家中心的代用座標上（同一點有幾十筆）。GEM 專案頁的「Location」仍寫出鄉鎮、縣（區）、市、省，'
+                  '這裡依那段文字把風場改到該行政區的中心：座標取自 Wikidata（CC0），行政區以 OpenStreetMap Nominatim 查出（只當索引，不含 OSM 資料）。'
+                  '這些仍是**概略位置**（卡片標示「概略位置」）：鄉鎮或縣中心不是風場本身，但比省中心近得多。定位不到的風場維持原代用點，列在 gem_locations.json 的 skipped。', '',
+                  f'- 共 {len(loc_log)} 座：鄉鎮層級 {lv["township"]}、縣（區）層級 {lv["county"]}、市層級 {lv["city"]}。', '']
+        else:
+            L += ['# Farm locations: placeholders moved to township or county centres', '', 'English (this page) ｜ [中文](data-locations.md)', '',
+                  '> Written by `tools/build_farms.py` from `data/global/sources/gem_locations.json` (built by `tools/fetch_gem_locations.py`); do not edit by hand.', '',
+                  'The February 2026 GEM release places many operating farms (mostly in China and India) on province- or country-centre placeholders '
+                  '(dozens of records on one point). The GEM project page’s “Location” still names the township, county or district, city and province, '
+                  'so each farm is moved to the centre of that administrative unit: the coordinate comes from Wikidata (CC0) and the unit was found with '
+                  'OpenStreetMap Nominatim (used only as an index; no OSM data is included). These are still **approximate** positions (the card says so): '
+                  'a township or county centre is not the farm itself, but far closer than a province centre. Farms that could not be located keep the '
+                  'placeholder and are listed under skipped in gem_locations.json.', '',
+                  f'- {len(loc_log)} farms: {lv["township"]} at township level, {lv["county"]} at county or district level, {lv["city"]} at city level.', '']
+        for iso in sorted(by, key=cname):
+            L += [f"## {cname(iso)} ({iso})", '',
+                  '| ' + ('風場 | MW | GEM 的位置 | 改到 | 座標 | 層級' if zh else 'Farm | MW | GEM location | Moved to | Coordinates | Level') + ' |',
+                  '|---|---:|---|---|---|---|']
+            for c, b, a in by[iso]:
+                x = c['loc']
+                lab = (x.get('label_zh') if zh else x.get('label_en')) or x.get('label_en') or x.get('label_zh') or ''
+                L.append(f"| [{b[0]}]({c['url']}) | {_fmt(b[5])} | {x['place']} | [{lab}](https://www.wikidata.org/wiki/{x['wikidata']}) | {a[3]}, {a[4]} | {(LEVEL_ZH if zh else LEVEL_EN)[x['level']]} |")
+            L.append('')
+        (out_dir / ('data-locations.md' if zh else 'data-locations.en.md')).write_text('\n'.join(L), encoding='utf-8')
+
+
 def summary(log):
+    loc = [c for c, *_ in log if c.get('kind') == 'gemloc']
+    log = [x for x in log if x[0].get('kind') != 'gemloc']
     return {"asof": ASOF, "rules": len(log), "removed": sum(1 for c, *_ in log if c['act'] != 'fix'),
-            "fixed": sum(1 for c, *_ in log if c['act'] == 'fix'), "doc": "docs/data-cleanup.md"}
+            "fixed": sum(1 for c, *_ in log if c['act'] == 'fix'), "located": len(loc), "doc": "docs/data-cleanup.md"}
 
 
 if __name__ == '__main__':

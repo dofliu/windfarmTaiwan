@@ -5,10 +5,26 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 10 Oct 2026: v2.36.0 live data layer coloured by state or province; the next conversation starts here)
+## In progress (hand-off, 11 Oct 2026: v2.37.0 data-quality push; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
+
+### Data-quality push (11 Oct 2026, v2.37.0; item 3 of "Next-step options")
+
+On 11 Oct 2026 the owner asked to complete item 3 of "Next-step options" below in one go. Done and still open (details in [CHANGELOG.en.md](./CHANGELOG.en.md) v2.37.0):
+
+- **Placeholder points**: `tools/fetch_gem_locations.py` (GEM project-page location text → Nominatim as the index → Wikidata coordinate, CC0) located 1,013 farms, applied at build time by `GEM_LOC_RULES` in `farm_cleanup.py` and listed in [docs/data-locations.en.md](./docs/data-locations.en.md).
+  Operating farms on shared placeholder points: 1,349 on 172 points → 771 on 151. The 330 not located: 222 with no acceptable Nominatim result (GEM names only the province, or an unusual spelling), 99 where the Wikidata and OSM centres differ by more than 50 km (mostly a township and a county with the same name), 8 with too short a location text, 1 missing GEM page;
+  worth trying next: search the township by the Chinese name on the GEM page, or the "provincial list → county" path in Phase 1 of the ROADMAP. Re-run after a GEM upgrade (about 10 minutes, cache in `/tmp/gem_loc_cache`; Wikidata occasionally returns 429, the script retries, and a second run fills in the farms marked "Wikidata fetch failed").
+- **Coverage gap (China, India)**: assessed; the conclusion is in Phase 1 of [ROADMAP.en.md](./ROADMAP.en.md): upgrade GEM first, do not ingest registries; India's SECI status sheet can fix statuses and start years (small job). Quotes in `tools/research/coverage_2026-10_DQ.json`.
+- **Foundations**: 2 added (Laizhou monopiles, Pinghai Bay Phase 2 mixed); 36 Chinese and 5 Vietnamese farms still unknown. 14 leads (Zhuanghe III 68 of 73 typed, the make-up of Guishan's 49, Xinghua Bay Phase 2 unit 58 on a pile cap, Pinghai Bay Phase 3 with both types, Dafeng composite bucket and others) are in `tools/research/fd_2026-10u_DQ.json`; all lack a construction record giving the count per type.
+- **Hub heights**: 4 added; 38 leads (Fanchang I 151.2 / 155.7 m from the post-tender sea-use report, Qingzhou 4 140 m and others, mostly consent values or values for some units only) are in `tools/research/hub_2026-10u_DQ.json`.
+- **Ports**: 16 added in China, 4 in Korea, 4 in the Philippines, 19 in Europe and 5 in the US (ports 55 → 103, countries 15 → 20); `qa_ports.py` gained `FAR_OK` (island ports allowed up to 25 km). Still not found: Zhanjiang Xuwen (only reports on the farms themselves), Qidong Haili export base (construction started 2023, no operation reported), Dalian Zhuanghe / Taipingwan, Busan, Pohang, Incheon.
+  "Manufacturing" ports were classified as nacelle / blade / foundation / tower / cable from the products found; most coordinates are approximate port-area positions (stated in `coordNote`).
+- **Events**: the 7 events without a farm are handled (WIND-010 linked to 5 farms; WIND-088 still cannot be linked); causes added for WIND-008, 031 and 057; WIND-053 and 058 await official investigations.
+- **Photos**: none added. Vindeby's Commons category holds only an OSM location map (the "Lolland, Denmark" photo is, by its own description, not Vindeby); file searches for Greater Changhua return nothing; the rest (Changfang & Xidao, Zhong Neng, Yunlin, Hai Long, Taipower Phase 2, Hornsea One / Two, Dogger Bank, Moray West, Seagreen, Hollandse Kust Zuid, Gemini, Borssele, Shapa, Yinling, Fukushima FORWARD, Hywind Tampen, Kincardine, Provence Grand Large, Goto, the milestone machines)
+  could not be searched this time because Commons rate-limited this environment (API and REST answer 429; thumbnails are not limited); retry at another time with `tools/find_photos.py`.
 
 ### Live data (10 Oct 2026, v2.31.0–v2.36.0)
 
@@ -61,7 +77,7 @@ After round 23 the owner asked what else there is to do besides the doubts; the 
 2. **Yearly data updates (early 2027)**: IRENA (about March), the Energy Administration's handbook, JWPA (about February); merge the 2026 yearly statistics into `wind_global.json` and move
    "latest available" to 2027; add full-year 2026 measured output for Denmark (the early-2027 files), Australia (AEMO through 2026-12) and the US (EIA-923); when GEM publishes a new release,
    rebuild the farm layer and re-check the clean-up rules one by one.
-3. **Data quality beyond the doubts**: 130 shared placeholder points remain (about 1,310 operating farms, mostly Chinese province centres); coverage gaps of about 98 GW in China and 16 GW in
+3. **Data quality beyond the doubts** (pushed in one go in v2.37.0 on 11 Oct 2026; what was done and what remains is under "Data-quality push" at the top; the list below is as it stood then): 130 shared placeholder points remain (about 1,310 operating farms, mostly Chinese province centres); coverage gaps of about 98 GW in China and 16 GW in
    India (assess national registries, phase 1, large); foundation types unknown for 38 Chinese and 5 Vietnamese farms, hub heights missing for about 91; ports (none in China yet, about 20 in
    Europe, quay coordinates for 5 in the US); 7 events not yet linked to a farm and several incidents awaiting official findings; no free-licence photos yet for major farms such as
    Greater Changhua and Hornsea.
@@ -666,17 +682,22 @@ Recommendation: at the end of October do the quarterly update and the Taiwan off
       CHANGELOG v2.12.3). The four details that were only in the notes (Lemnhult date, Delta 6 date, Maverick farm name, Screggagh root cause)
       were checked against openable sources in v2.12.4; still unchecked and kept only in the notes: the Maverick turbine make (GE, KFOR 403)
       and the Screggagh wind speed of 9–10 m/s (E&T 403).
-- [ ] 7 events not yet linked to a farm (re-checked in round 18, v2.30.13; the other 7 are now linked): WIND-008 Kunimidake (the 2002 farm, 2 × 900 kW, is not in the layer; only the 2027
-      project is), WIND-010 (the South Australia blackout; AEMO names nine farms), WIND-034 Ocean Wind 1/2 (cancelled, not in the layer), WIND-063 Miyakojima 2003 (Okinawa Electric's Karimata and
-      Shichimata test units, not in the layer), WIND-064 the Awaji park turbine (a single municipal turbine), WIND-065 Hornslet (Hyacintvej, five 600 kW turbines, not in the layer) and WIND-088 (the
-      reports do not name the farm). Add to `FARMS` when found; never guess.
+- [x] 7 events not yet linked to a farm (re-checked in round 24 on 11 Oct 2026, quotes checked with `check_quotes.py`): WIND-010, the South Australia blackout, is now linked to 5 records from Table 8 of
+      AEMO's final report (Clements Gap, the four Hallett farms as one record, Mount Millar, Hornsdale, Snowtown); WIND-008 Kunimidake (the 2002 pair of 900 kW units has been decommissioned; the layer only
+      has the 2027 project), WIND-034 Ocean Wind 1/2 (cancelled), WIND-063 Miyakojima (Okinawa Electric's six Karimata/Shichimata test units), WIND-064 the Awaji park turbine (a single municipal turbine)
+      and WIND-065 Hornslet (Hyacintvej, five 600 kW turbines) are confirmed not to be in the layer and stay unlinked.
+- [ ] WIND-088 (the Desert Hot Springs fall of 30 Dec 2020): reports only say "a wind generation facility west of Highway 62 and Painted Hills Road"; osha.gov's IMIS search answers 403 from this
+      environment. Add to `FARMS` once a Cal/OSHA citation or report names the farm; never guess.
 - [ ] Events without coordinates: those linked to a farm are placed at the farm (the card says so), the rest appear only in the Events tab and
       clicking them flies to the country; add coordinates to the CSV only from a primary source (Miyakojima and Hornslet currently use approximate
       town positions, stated in the coordinate note).
 - [ ] Photos are recorded as page URLs with their rights status only (the CSV says each needs the rights holder's permission); obtain
       permission before showing any of them on the site.
-- [ ] Casualties and root causes are recorded only when officially confirmed: the Noshiro Port oil leak (WIND-031), the February Yeongdeok
-      tower buckling (WIND-053), the Mailiao fire (WIND-057) and the Greater Changhua 4 fire (WIND-058) still await official findings; update the CSV when they are published.
+- [ ] Casualties and root causes are recorded only when officially confirmed. Added on 11 Oct 2026: the Kunimidake fire (WIND-008, Hokuriku Electric's 2014 final report: lightning through the
+      hydraulic cylinder), the Noshiro Port oil leak (WIND-031, the operator's cause statement of 28 Sep 2023: a maintenance error and a remote-system error) and the Mailiao fire (WIND-057, the Control
+      Yuan's report of 23 Jul 2026 quoting the ministry: a short circuit inside the nacelle; the report's 15 + 8 phases were used to correct the farm record). Still awaiting official findings: the
+      February Yeongdeok tower buckling (WIND-053; the interim conclusion reported in March, a faulty blade-speed alarm sensor, is not final) and the Greater Changhua 4 fire (WIND-058; Ørsted was still
+      investigating on 1 Sep); update the CSV when they are published.
 - [ ] The timeline ends at 2025, so 2026 events show at the latest year; once `wind_global.json` extends past 2026 the `evShown` special case in `globe.js` can go.
 
 ## Re-check periodically (time-sensitive, not code problems)
@@ -761,8 +782,7 @@ the rules are in `tools/farm_cleanup.py`.
       Yambuk (Victoria)
 - [x] Shared coordinate points: the map fans the farms out around the point and their cards say the
       position is schematic (`flags` 4)
-- [ ] 130 shared coordinate points remain (1,310 operating farms, mostly province-centre placeholders in
-      China): add real coordinates from a newer GEM release or local data
+- [x] Shared coordinate points (130 points, 1,310 operating farms at v2.36.0): v2.37.0 moved 1,013 farms to township or county centres with `tools/fetch_gem_locations.py` (see "In progress"); 151 points and 771 farms remain, of which 330 have no locatable township on their GEM page and the rest are farms in the same county sharing the county centre
 - [ ] Items the clean-up could not find or confirm: Vietnam's Song An (46.2 MW) is operating, but its COD fell between Nov 2023 and May 2024 and the date
       is not published (year left blank; nothing new on 8 Oct 2026); GEM's point for Bac Lieu's Dong Hai 1 phases 1–2 is under 1 km from an OSM Hoa Binh 2
       turbine while the farm is in Long Dien Dong commune, with no citable coordinates (phases 3 and 4 use the same point for now) (CGN Taizhou 1 and Guoxin
@@ -792,15 +812,10 @@ the rules are in `tools/farm_cleanup.py`.
 
 ## Ports data (data/global/ports.json, compiled by hand in Sep 2026)
 
-- [x] Global farm search and filters, and the ports layer (55 ports in 15 countries, each with sources; checked by `tools/qa_ports.py`)
-- [ ] Ports still missing (no citable source could be found in Sep 2026, so none was guessed):
-      China (none yet, e.g. Rudong/Yangkou, Nantong/Qidong, Yangjiang, Shantou, Fuqing/Jiangyin, Penglai, Weihai, Dalian); Korea's Mokpo
-      New Port, Ulsan and LS Cable's Donghae cable plant; the Philippines; in Europe Vlissingen, Den Helder, IJmuiden, Emden, Nordenham,
-      Aalborg, Lindø/Odense, Brest, Port-la-Nouvelle, Fos-sur-Mer, Świnoujście, Gdańsk, Szczecin, Viana do Castelo, Taranto, Irish ports
-      and Dundee
-- [ ] Five US ports have sources but no checked quay coordinates yet, so they are left out: New Jersey Wind Port (finished 2024,
-      never used), Long Beach Pier Wind (planned), Vineyard Haven (Vineyard Wind 1 O&M base), Quonset/Davisville (South Fork Wind
-      O&M) and the Nexans Goose Creek cable plant
+- [x] Global farm search and filters, and the ports layer (55 ports in 15 countries in Sep 2026, 103 in 20 countries since v2.37.0, each with sources; checked by `tools/qa_ports.py`)
+- [x] Ports missing in Sep 2026: 48 added in v2.37.0 (China 16, Korea 4, the Philippines 4, Europe 19, US 5; each with sources whose quotes were checked; most coordinates are approximate port-area positions, stated in `coordNote`)
+- [ ] Ports still without a citable source (none guessed): Zhanjiang Xuwen, the Qidong Haili export base (construction started 2023, no operation reported) and Dalian Zhuanghe / Taipingwan in China; Busan, Pohang and Incheon in Korea;
+      for the New Jersey Wind Port the sources end with the strategic review of Feb 2025 (later use unsourced), and Nexans Goose Creek's 2025–26 order book is unverified
 - [ ] Port status changes quickly (several US projects were halted or lost grants in 2025–26): re-check twice a year; mark ports
       whose role has ended as `former` (grey on the map) and run `tools/qa_ports.py` after editing
 - [x] Duplicate farm records found while compiling the ports (GEM 2026-02 merged them itself and "EW Baltica 2" no longer appears; confirmed in v2.30.7, when the list's
@@ -880,7 +895,7 @@ the rules are in `tools/farm_cleanup.py`.
 - [x] The UK's Pentland: GEM's two records are the same project (the current data has only "Pentland wind farm"); v2.24.3 sets 2030 as the
       planned year and moves it off Dounreay; if a later GEM release brings back the other record, merge it with a dup rule
 - [x] Step 4: Taiwan, Japan, Korea and the USA: 36 farms (Sep 2026, v2.10.0)
-- [ ] Step 5: China and Vietnam (the owner decided on 2026-09-27 to keep collecting step by step): 5 Chinese farms added (v2.11.0, v2.11.1); the rest is item 4 of "First things to do" at the top
+- [ ] Step 5: China and Vietnam (the owner decided on 2026-09-27 to keep collecting step by step): by v2.37.0 105 Chinese and 15 Vietnamese farms are typed; 36 Chinese and 5 Vietnamese farms remain unknown, with leads in `tools/research/fd_2026-10u_DQ.json` (see "In progress")
 
 ## To assess / waiting for the owner's decision (do not start on your own)
 

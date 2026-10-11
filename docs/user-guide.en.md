@@ -163,7 +163,7 @@ Click a farm on the map, in the search results or in a list to open its card. Fr
 5. **Distance to shore**, **actual yearly output** and capacity factor (where official farm-level measurements exist; "See rankings" opens the Output dialog) or **estimated yearly output** (capacity × the country's average capacity factor, labelled as an estimate); Taiwanese farms also show "live samples (last 90 days)".
 6. **Standing in the country**: capacity rank and share of the national total in the timeline year.
 7. **Phases**: dashed boxes are phases not yet finished in the timeline year.
-8. Description and data notes, including when the coordinates are only approximate.
+8. Description and data notes, including when the coordinates are only approximate (for example only the township or county centre) or a shared placeholder point.
 9. **Live output right now**: farms with live data in Taiwan, Australia and Canada (with the timeline at the latest year they get a green ring and their rotors turn with their output); Taiwanese farms link to their live details.
 10. Wikipedia summary; links to Wikipedia, a satellite map, OpenStreetMap, a wind resource map, a photo search, the GEM project page, Wikidata and the source.
 11. **Nearby farms** (within 30 km), other farms by the **same developer** and **related events**; click to switch.
@@ -174,7 +174,7 @@ Port cards list the roles, the farms served (drawn as arcs on the map) and the s
 ### 4.7 Layers
 
 - **Pipeline** (dashed rings): about 9,600 projects under construction, in pre-construction or announced; turning it on moves the timeline to the latest year.
-- **⚓ Ports**: 55 offshore wind ports in 15 countries (marshalling, manufacturing, cables, floating assembly, O&M), each with sources; small dots at world zoom, icons and names when zoomed in.
+- **⚓ Ports**: 103 offshore wind ports in 20 countries (marshalling, manufacturing, cables, floating assembly, O&M), each with sources; small dots at world zoom, icons and names when zoomed in.
 - **⚑ Events**: 91 major events and incidents (red = incident / failure, white = milestone, purple = policy & society), shown once the timeline reaches their year; events without coordinates are placed at their farm or listed only in the Events tab. Full list: [events.en.md](./events.en.md).
 - **Offshore: foundations** (the "Show" menu): colours operating offshore farms by type — monopile, steel frame (jacket, tripod, tripile), floating, other fixed-bottom (gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed) —
   with farms not yet checked as "type unknown". The legend counts each group in focus; click a group to show only that group. Farm-by-farm list: [foundations.en.md](./foundations.en.md).

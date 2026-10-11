@@ -23,6 +23,9 @@ ROLES = {"marshalling", "foundation", "tower", "blade", "nacelle", "cable", "flo
 STATUS = {"operating", "developing", "former"}   # former：離岸風電用途已停止 · the offshore wind role has ended
 REQUIRED = ["id", "name", "zh", "iso", "lat", "lon", "roles", "status", "en", "zhNote", "src"]
 NEAR_KM = 15  # 港口座標可以稍在海上（碼頭、外堤），但要在該國海岸 15 km 內
+FAR_OK = {  # 1:50m 國界畫不出的離島：允許到 25 km · islands missing from the 1:50m borders, allowed up to 25 km
+    "chn-wenzhou-zhuangyuan-ao": "狀元岙島（溫州洞頭）· Zhuangyuan'ao island, Dongtou, Wenzhou",
+}
 
 
 def inside(x, y, ring):
@@ -82,7 +85,7 @@ def main():
                 warns.append(f"{tag}: no border rings for {p.get('iso')}; location not checked")
             elif not any(inside(lon, lat, r) for r in rs):
                 d = min(km_to_ring(lon, lat, r) for r in rs)
-                if d > NEAR_KM:
+                if d > (25 if p.get("id") in FAR_OK else NEAR_KM):
                     errors.append(f"{tag}: {lat}, {lon} is {d:.0f} km outside {p['iso']} (limit {NEAR_KM} km)")
         for u in p.get("src") or []:
             if not str(u).startswith("https://") and not str(u).startswith("http://"):

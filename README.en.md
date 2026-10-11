@@ -28,6 +28,7 @@ Every document comes in Chinese and English with the same content; the site itse
 | Deployment | [DEPLOY.md](./DEPLOY.md) | [DEPLOY.en.md](./DEPLOY.en.md) | Deployment options and the monthly maintenance check |
 | Data coverage | [docs/data-coverage.md](./docs/data-coverage.md) | [docs/data-coverage.en.md](./docs/data-coverage.en.md) | Farm-level coverage by country, suspected duplicates and items to verify (generated) |
 | Data clean-up log | [docs/data-cleanup.md](./docs/data-cleanup.md) | [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) | Every farm record removed or corrected, and why (generated) |
+| Farm locations | [docs/data-locations.md](./docs/data-locations.md) | [docs/data-locations.en.md](./docs/data-locations.en.md) | Farms moved from province-centre placeholders to township or county centres (generated) |
 | Foundations | [docs/foundations.md](./docs/foundations.md) | [docs/foundations.en.md](./docs/foundations.en.md) | Foundation type and dimensions of each offshore farm (generated) |
 | Events and incidents | [docs/events.md](./docs/events.md) | [docs/events.en.md](./docs/events.en.md) | The events layer, row by row (generated) |
 | Live-data sources | [docs/live-data-sources.md](./docs/live-data-sources.md) | [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) | Which other countries publish live wind generation |
@@ -109,7 +110,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 833 farms),
     Australia (AEMO, 62 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
     private farms (an estimate from samples, never mixed with the official figures)
-  - **Layers**: ports (55 in 15 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
+  - **Layers**: ports (103 in 20 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
     foundations (285 of the 331 operating offshore farms have a known type, 87.3% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
     Wind now (NOAA GFS, every 6 hours), Sea zones (EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
     areas of 6 North Sea countries) and a mean wind speed basemap (Global Wind Atlas)
@@ -214,7 +215,7 @@ output and sea zones load only when needed.
   the tables (each source with its quoted passage and check result)
 - `tools/promo/` — scripts for the promo video of the 3D globe (globe recording, designed scenes, storyboards; the videos stay out of git, see [tools/promo/README.en.md](./tools/promo/README.en.md))
 - `standalone/` (not in git) — where the build scripts write locally; the official single-file edition and public global wind map are built by Actions and uploaded to the GitHub Release "standalone"
-- `docs/` — the user guide (`user-guide.en.md`), the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the
+- `docs/` — the user guide (`user-guide.en.md`), the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the farm location list (`data-locations.en.md`), the
   farm-by-farm foundation list (`foundations.en.md`), the events list (`events.en.md`) and the
   assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
 - `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing and versions) for future
@@ -320,6 +321,7 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 #    Germany: range-fetch the wind file (about 10 MB) from the MaStR bulk export, match it to the site's farms and list the farms to add (matched against non-MaStR records only)
 python tools/fetch_mastr.py mastr/ && python tools/build_mastr.py mastr/EinheitenWind.xml mastr/Katalogwerte.xml
 curl -LO https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson   # GEM public data bucket (about 55 MB)
+python tools/fetch_gem_locations.py data/global/wind_farms.json data/global/sources/gem_locations.json   # placeholder farms: GEM page township/county → Wikidata coordinate (about an hour; rerun after a GEM upgrade)
 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 #   clean-up rules that no longer match the new names stop the build; when upgrading the GEM release, build once with CLEANUP_LENIENT=1 to see the new names, then rewrite the rules in tools/farm_cleanup.py
 #    (applies the record-level clean-up rules in tools/farm_cleanup.py and writes docs/data-cleanup.md and .en.md)
@@ -385,6 +387,9 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   Simplified Chinese and zone codes are compared too (the same offshore farm in Jiangsu and elsewhere is no
   longer listed twice); farms sharing a province or country centre as a placeholder are fanned out on the map
   and labelled. Every record, with its reason and source, is in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
+- Oct 2026: operating farms that only had a province or country centre as a placeholder are moved to the coordinate of the Wikidata item (CC0) of the township
+  or county named on their GEM project page (`tools/fetch_gem_locations.py`; OpenStreetMap Nominatim serves only as the lookup index and no OSM data is written;
+  the approximate flag stays), listed in [docs/data-locations.en.md](./docs/data-locations.en.md); farms with no such place keep the province centre
 - While matching the OSPAR offshore data in Sep 2026, two more duplicates were removed: GEM's whole-farm “C-Power”
   record in Belgium (which repeated Thornton Bank phases I–III) and a second Saint-Brieuc record in France placed
   about 170 km away

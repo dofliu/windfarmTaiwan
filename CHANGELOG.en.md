@@ -15,6 +15,22 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.37.0 — 2026-10-11
+
+- A data-quality push (the owner asked on 11 Oct 2026 to complete the "data quality beyond the open doubts" item in one go):
+  - **Placeholder points moved to township or county centres**: the new `tools/fetch_gem_locations.py` reads the "Location" text (township / county / province) of each GEM project page, finds the matching Wikidata item through OpenStreetMap Nominatim and takes the item's coordinate (CC0; OSM is only the lookup index and no OSM data is written),
+    accepting a result only when the province name matches, it lies within 800 km of the old placeholder and the two coordinates are within 50 km; townships without a coordinate fall back to the county. The result, `data/global/sources/gem_locations.json` (1,013 farms: 373 townships, 612 counties or districts, 28 cities; China 843, India 129),
+    is applied at build time by `GEM_LOC_RULES` in `farm_cleanup.py` as approximate positions (flag 1 kept; the 330 farms without a result stay on the province centre), listed in the new [docs/data-locations.en.md](./docs/data-locations.en.md).
+    Operating farms on shared placeholder points fell from 1,349 on 172 points to 771 on 151 (farms in the same county now share the county centre). The card wording, the "Limits of the data" and "Sources" dialogs, Learn chapter 13, the README and the user guide were updated.
+  - **Ports**: 16 in China (Rudong Xiaoyangkou, Yangjiang Jishu, Jieyang Qianzhan, Shantou, Fuqing Jiangyin, Dajin's Penglai and Caofeidian bases, Dongying Guangli, Zhoushan Liuheng, Shanwei Lufeng, Yancheng Sheyang and Dafeng, Putian Pinghai, Rushan, Wenzhou Zhuangyuan'ao, Xiangshan Hepu),
+    4 in Korea (Mokpo New Port, Gunsan, Ulsan New Port, LS Cable Donghae), 4 in the Philippines (Currimao, Batangas, Jose Panganiban, Agila Subic), 19 in Europe (Vlissingen, Den Helder, IJmuiden, Emden, Nordenham, Aalborg, Lindø / Odense, Brest, Port-la-Nouvelle, Fos-sur-Mer, Świnoujście, Gdańsk, Szczecin, Viana do Castelo, Taranto, Rosslare, Cork, Shannon Foynes, Dundee) and 5 in the US (New Jersey Wind Port, Pier Wind Long Beach, Vineyard Haven, Quonset / Davisville, Nexans Goose Creek); the layer grows from 55 ports in 15 countries to 103 in 20, each with sources whose quotes were checked; the island port Zhuangyuan'ao is listed as an exception in `FAR_OK` of `qa_ports.py`.
+  - **Events**: the 2016 South Australia blackout (WIND-010) is linked to 5 farms per AEMO's final report; the official causes were added for Hokuriku (WIND-008), Atlantic Shores (WIND-031) and the Mailiao turbine 17 fire (WIND-057, Control Yuan report);
+    the Mailiao farm's phases were corrected from the Control Yuan report and Taipower's station list (15 turbines in 2009, 8 in 2010). WIND-053 and 058 still await official investigations.
+  - **Hub heights**: Taizhou 1 126 m, East Anglia ONE 111 m, Huaneng Sheyang H1 90 m (rotor 148 m), Shanghai Lingang II 90 m; **foundations**: Laizhou offshore wind and aquaculture project (monopiles), Putian Pinghai Bay Phase 2 (mixed: 28 high-rise pile caps + 13 monopiles, NDB post-completion evaluation).
+    Leads that do not meet the as-built rule stay in `tools/research/`.
+  - **Coverage gap in China and India**: official and open per-farm datasets were assessed one by one; the conclusion is to upgrade GEM first and not ingest registries (see Phase 1 in [ROADMAP.en.md](./ROADMAP.en.md)).
+  - **Photos**: Wikimedia Commons checked again: Vindeby's category holds only an OSM location map (and the "Lolland" photo is, by its own description, not Vindeby), file searches for Greater Changhua return nothing; the rest of the list (Changfang, Zhong Neng, Yunlin, Hai Long, Hornsea and others) could not be searched this time because Commons rate-limited this environment (HTTP 429). No photo added.
+
 ## v2.36.0 — 2026-10-10
 
 - In the "Live data" layer, partly covered countries are now coloured only in the states or provinces with data: Texas (ERCOT) and California (CAISO) in the US, Alberta (AESO)
