@@ -194,26 +194,38 @@ WD_API = 'https://www.wikidata.org/w/api.php'
 def wikidata_coords(ids):
     """Wikidata 項目的座標（P625）與中英文標籤，每次 50 筆 · coordinates and labels of Wikidata items, 50 per call"""
     out = {}
-    ids = sorted(set(ids))
     out['_failed'] = set()
-    for i in range(0, len(ids), 50):
-        url = WD_API + '?' + urllib.parse.urlencode({'action': 'wbgetentities', 'ids': '|'.join(ids[i:i + 50]), 'props': 'claims|labels',
+    ids = sorted(set(ids))
+    # 每個項目的結果各存一個快取檔（重跑時不再向 Wikidata 要同一批）· per-item cache so reruns do not re-fetch the same items
+    todo = []
+    for q in ids:
+        c = CACHE / ('wd_' + q + '.json')
+        if c.exists():
+            v = json.loads(c.read_text(encoding='utf-8'))
+            if v:
+                out[q] = v
+        else:
+            todo.append(q)
+    for i in range(0, len(todo), 50):
+        url = WD_API + '?' + urllib.parse.urlencode({'action': 'wbgetentities', 'ids': '|'.join(todo[i:i + 50]), 'props': 'claims|labels',
                                                      'languages': 'zh|zh-hant|zh-hans|en', 'format': 'json'})
         t = get(url, retries=5, ua=WD_UA)
         if t.startswith('ERR'):
-            out['_failed'].update(ids[i:i + 50])
+            out['_failed'].update(todo[i:i + 50])
             continue
-        for q, e in json.loads(t).get('entities', {}).items():
+        ents = json.loads(t).get('entities', {})
+        for q in todo[i:i + 50]:
+            e = ents.get(q, {})
             cl = e.get('claims', {}).get('P625')
-            if not cl:
-                continue
-            v = cl[0]['mainsnak'].get('datavalue', {}).get('value', {})
-            if 'latitude' not in v:
-                continue
-            lab = e.get('labels', {})
-            out[q] = dict(lat=round(v['latitude'], 4), lon=round(v['longitude'], 4),
-                          label_zh=(lab.get('zh-hant') or lab.get('zh') or lab.get('zh-hans') or {}).get('value', ''),
-                          label_en=(lab.get('en') or {}).get('value', ''))
+            v = cl[0]['mainsnak'].get('datavalue', {}).get('value', {}) if cl else {}
+            res = {}
+            if 'latitude' in v:
+                lab = e.get('labels', {})
+                res = dict(lat=round(v['latitude'], 4), lon=round(v['longitude'], 4),
+                           label_zh=(lab.get('zh-hant') or lab.get('zh') or lab.get('zh-hans') or {}).get('value', ''),
+                           label_en=(lab.get('en') or {}).get('value', ''))
+                out[q] = res
+            (CACHE / ('wd_' + q + '.json')).write_text(json.dumps(res, ensure_ascii=False), encoding='utf-8')
         time.sleep(3)
     return out
 
@@ -356,8 +368,9 @@ def main():
         if x['why'] in RETRY:
             x['why'] += ' (township, county and city)'
     # 第四階段：Nominatim 找不到的，直接搜尋 Wikidata（P131 鏈要含省名）· direct Wikidata search for the rest
-    retry = [x for x in skipped if x['why'] == 'no acceptable result' and x.get('place')]
-    skipped = [x for x in skipped if not (x['why'] == 'no acceptable result' and x.get('place'))]
+    WDS = ('no acceptable result', 'Wikidata item has no coordinate (township, county and city)', 'Wikidata and OSM centres differ by more than 50 km (township, county and city)', 'Wikidata fetch failed')
+    retry = [x for x in skipped if x['why'] in WDS and x.get('place')]
+    skipped = [x for x in skipped if not (x['why'] in WDS and x.get('place'))]
     got = {}
     for n, x in enumerate(retry):
         key = (x['iso'], x['place'])
@@ -367,7 +380,7 @@ def main():
         if g:
             located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], **g))
         else:
-            x['why'] = 'no acceptable result (Nominatim and Wikidata search)'
+            x['why'] = x['why'].split(' (')[0] + ' (Nominatim and Wikidata search)'
             skipped.append(x)
         if (n + 1) % 25 == 0:
             print(time.strftime('%H:%M:%S'), 'wikidata search', n + 1, '/', len(retry), 'located', len(located), flush=True)

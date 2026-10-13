@@ -12,8 +12,8 @@
 
 使用者 2026-10-11 要求把下面「下一步選項」第 3 項一次完成。做了的、還留著的如下（細節見 [CHANGELOG.md](./CHANGELOG.md) v2.37.0）：
 
-- **代用座標**：`tools/fetch_gem_locations.py`（GEM 專案頁地點文字 → Nominatim 當索引 → Wikidata 座標，CC0；Nominatim 找不到時直接搜尋 Wikidata，所在行政區鏈要含 GEM 寫的縣與省）定位 1,138 座，建置時 `farm_cleanup.py` 的 `GEM_LOC_RULES` 套用，清單 [docs/data-locations.md](./docs/data-locations.md)。
-  營運中共用代用點 1,349 座／172 點 → 730 座／141 點。沒定位到的 205 座：114 座 Nominatim 與 Wikidata 搜尋都找不到可接受的結果（多為 GEM 只寫到省或村名，或村子在 Wikidata 沒有項目）、50 座鄉鎮、縣、市的 Wikidata 項目都沒有座標、32 座三個層級的 Wikidata 與 OSM 中心都相差 50 km 以上、8 座地點文字太短、1 座 GEM 頁面不存在；
+- **代用座標**：`tools/fetch_gem_locations.py`（GEM 專案頁地點文字 → Nominatim 當索引 → Wikidata 座標，CC0；Nominatim 找不到時直接搜尋 Wikidata，所在行政區鏈要含 GEM 寫的縣與省）定位 1,204 座，建置時 `farm_cleanup.py` 的 `GEM_LOC_RULES` 套用，清單 [docs/data-locations.md](./docs/data-locations.md)。
+  營運中共用代用點 1,349 座／172 點 → 722 座／138 點。沒定位到的 139 座（印度 87、中國 9、日本 7、義大利 6…）：114 座 Nominatim 與 Wikidata 搜尋都找不到可接受的結果（多為 GEM 只寫到邦或村名，村子在 Wikidata 沒有項目）、16 座鄉鎮、縣、市的 Wikidata 項目都沒有座標、8 座地點文字太短、1 座 GEM 頁面不存在；
   可再試：用 GEM 頁的中文名找鄉鎮、或接 ROADMAP 第 1 階段「省級名單→旗縣」的做法。升級 GEM 版本後要重跑（第一次約 40 分鐘，之後有快取約 10 分鐘，快取在 `/tmp/gem_loc_cache`；Wikidata 偶爾 429，程式會重試，再跑一次就會補上「Wikidata fetch failed」的；每次重跑都會再試沒定位到的）。
 - **覆蓋缺口（中國、印度）**：已評估，結論寫在 [ROADMAP.md](./ROADMAP.md) 第 1 階段：先升級 GEM、不接登錄資料。印度 SECI 進度表（2026-06-30）已解析並比對：完全商轉的 30 案幾乎都已在 GEM 列為營運中，沒有可安全套用的更正（Powerica 德瓦卡兩筆分不出是哪個批次），紀錄在 `tools/research/seci_2026-06_DQ.json`。出處引文在 `tools/research/coverage_2026-10_DQ.json`。
 - **水下基礎**：補 3 座（萊州單樁、平海灣二期混合、華電玉環 1 號混合）；中國仍 35 座、越南 5 座型式不詳。42 條線索（莊河 III 68／73 座已知、桂山 49 座的組成、興化灣二期 58# 高樁承台、平海灣三期兩種都有、大豐複合桶等）在 `tools/research/fd_2026-10u_DQ.json`，都差「每種幾座」的建成紀錄。
@@ -552,7 +552,7 @@ v2.35.0 合併後手動跑一次排程，十五個來源都成功。使用者接
 - [x] 12 個「逐場加總高於國家統計 110%」的國家：GEM 2026-02 升級後為 5 國——智利、摩洛哥、衣索比亞（2025 年新併網的風場，IRENA 2025 年統計尚未計入）、菲律賓（Pagudpud）與伊朗
 - [x] 接入即時資料時發現的重複：亞伯達 Whitla、澳洲 Snowtown、塔斯馬尼亞 Bluff Point、維多利亞 Yambuk
 - [x] 共用座標點：地圖上以該點為中心示意排開、卡片註明「位置示意」（`flags` 4）
-- [x] 共用座標點（v2.36.0 時 130 個點、1,310 座營運中風場）：v2.37.0 以 `tools/fetch_gem_locations.py` 把 1,138 座改到鄉鎮、縣的中心（見「進行中」）；剩 141 個點、730 座，其中 205 座 GEM 頁面找不到可定位的鄉鎮，其餘是同一縣的風場共用縣中心
+- [x] 共用座標點（v2.36.0 時 130 個點、1,310 座營運中風場）：v2.37.0 以 `tools/fetch_gem_locations.py` 把 1,204 座改到鄉鎮、縣的中心（見「進行中」）；剩 138 個點、722 座，其中 139 座 GEM 頁面找不到可定位的鄉鎮，其餘是同一縣的風場共用縣中心
 - [ ] 清理時查不到或未能證實的項目：越南 Song An（46.2 MW）已運轉，但 COD 在 2023-11 到 2024-05 之間、確切日期未公布（年份留空）（2026-10-08 再查仍無）；薄寮東海 1 號第 1–2 期的 GEM 點離 OSM 的和平 2 號風機不到 1 km，實際在 Long Điền Đông 社，沒有可引用的座標（第 3、4 期暫用同一點）
       （CGN Taizhou 1、Guoxin Sheyang H1 已由 2026-10-04 的規則處理；Kemi Ajos 沿革與多明尼加的差額已在 v2.30.6、Erbes-Büdesheim 與 Dong Hai V1-4 已在 v2.30.7 查清）
 - [ ] 資料中缺的風場（查證時發現；沒有可引用的座標，先不加）：越南 TDC 的 Lạc Hòa 1（朔莊 5 號，30 MW 中 25 MW 於 2021 年 COD、其餘 5 MW 到 2025-04 仍未送件）、韓國群山港 3 MW 試驗機、中國「扶搖號」6.2 MW 浮動式（見下）。

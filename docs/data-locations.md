@@ -6,7 +6,7 @@
 
 GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或國家中心的代用座標上（同一點有幾十筆）。GEM 專案頁的「Location」仍寫出鄉鎮、縣（區）、市、省，這裡依那段文字把風場改到該行政區的中心：座標取自 Wikidata（CC0），行政區以 OpenStreetMap Nominatim 查出（只當索引，不含 OSM 資料）。這些仍是**概略位置**（卡片標示「概略位置」）：鄉鎮或縣中心不是風場本身，但比省中心近得多。定位不到的風場維持原代用點，列在 gem_locations.json 的 skipped。
 
-- 共 1138 座：鄉鎮層級 419、縣（區）層級 689、市層級 30。
+- 共 1204 座：鄉鎮層級 422、縣（區）層級 752、市層級 30。
 
 ## 中國大陸 (CHN)
 
@@ -896,6 +896,27 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Shandong Feicheng Taoyuan wind farm](https://www.gem.wiki/Shandong_Feicheng_Taoyuan_wind_farm) | 50 | Taoyuan, Feicheng City, Taian, Shandong, China | [肥城市](https://www.wikidata.org/wiki/Q1198379) | 36.186, 116.772 | 縣（區） |
 | [Shandong Feicheng Humen wind farm](https://www.gem.wiki/Shandong_Feicheng_Humen_wind_farm) | 50 | Anlinzhan, Feicheng City, Taian, Shandong, China | [安临站镇](https://www.wikidata.org/wiki/Q10946315) | 36.0711, 116.7665 | 鄉鎮 |
 | [Henan Suiping Jianshan wind farm](https://www.gem.wiki/Henan_Suiping_Jianshan_wind_farm) | 48 | Chayashan Zhen, Suiping, Zhumadian Municipality, Henan, China | [查岈山镇](https://www.wikidata.org/wiki/Q11054494) | 33.2028, 113.7456 | 鄉鎮 |
+| [Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Urad_Rear_Banner_4_wind_farm) | 403 | Huogeqi Sumu, Urad Rear Banner, Bayannur, Inner Mongolia, China | [烏拉特後旗](https://www.wikidata.org/wiki/Q1342571) | 41.0835, 107.0704 | 縣（區） |
+| [Inner Mongolia - Shandong Power Export Urad Rear Banner 2 wind farm](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Urad_Rear_Banner_2_wind_farm) | 400 | Urad Rear Banner, Bayannur, Inner Mongolia, China | [烏拉特後旗](https://www.wikidata.org/wiki/Q1342571) | 41.0835, 107.0704 | 縣（區） |
+| [Inner Mongolia Hangjin Banner (China Resources) 200 MW wind farm](https://www.gem.wiki/Inner_Mongolia_Hangjin_Banner_%28China_Resources%29_200_MW_wind_farm) | 200 | Duguitala, Hanggin Banner, Ordos, Inner Mongolia, China | [杭锦能源重化工基地](https://www.wikidata.org/wiki/Q14228337) | 40.468, 108.92 | 鄉鎮 |
+| [Inner Mongolia - Shandong Power Export Hanggin Banner (State Development Investment) wind farm](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_%28State_Development_Investment%29_wind_farm) | 150 | Yihewusu Sumu, Hanggin Banner, Ordos, Inner Mongolia, China | [伊和乌素苏木](https://www.wikidata.org/wiki/Q10884919) | 40.0481, 107.8438 | 鄉鎮 |
+| [Inner Mongolia - Shandong Power Export Hanggin Banner 4 wind farm](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_4_wind_farm) | 150 | Wurigeng Gacha in Yihewusu Sumu, Hanggin Banner, Ordos, Inner Mongolia, China | [伊和乌素苏木](https://www.wikidata.org/wiki/Q10884919) | 40.0481, 107.8438 | 鄉鎮 |
+| [Inner Mongolia Alashanyou Banner (Huadian) wind farm](https://www.gem.wiki/Inner_Mongolia_Alashanyou_Banner_%28Huadian%29_wind_farm) | 150 | Arimaodao Village in Badanjilin, Alxa Right Banner, Alxa League, Inner Mongolia, China | [阿拉善右旗](https://www.wikidata.org/wiki/Q1028278) | 39.2124, 101.6695 | 縣（區） |
+| [Xinjiang Buerjin (Tebian Electric) wind farm](https://www.gem.wiki/Xinjiang_Buerjin_%28Tebian_Electric%29_wind_farm) | 150 | 20 km west of county seat, Burqin, Altay Prefecture, Xinjiang, China | [布尔津县](https://www.wikidata.org/wiki/Q1016896) | 47.7016, 86.862 | 縣（區） |
+| [Xinjiang Buerjin (Three Gorges) wind farm](https://www.gem.wiki/Xinjiang_Buerjin_%28Three_Gorges%29_wind_farm) | 100 | 8 km west from county seat, Burqin, Altay Prefecture, Xinjiang, China | [布尔津县](https://www.wikidata.org/wiki/Q1016896) | 47.7016, 86.862 | 縣（區） |
+| [Heilongjiang Jiamusi Suburbs Houshi wind farm](https://www.gem.wiki/Heilongjiang_Jiamusi_Suburbs_Houshi_wind_farm) | 50 | Aoqi, Suburban District, Jiamusi, Heilongjiang, China | [佳木斯市](https://www.wikidata.org/wiki/Q29003) | 46.8081, 130.3653 | 縣（區） |
+| [Heilongjiang Tongjiang Jiejinshan wind farm](https://www.gem.wiki/Heilongjiang_Tongjiang_Jiejinshan_wind_farm) | 50 | Tongjiang City, Jiamusi, Heilongjiang, China | [同江市](https://www.wikidata.org/wiki/Q1022983) | 47.6502, 132.503 | 縣（區） |
+| [Heilongjiang Tongjiang Sanjiangkou wind farm](https://www.gem.wiki/Heilongjiang_Tongjiang_Sanjiangkou_wind_farm) | 50 | Tongjiang City, Jiamusi, Heilongjiang, China | [同江市](https://www.wikidata.org/wiki/Q1022983) | 47.6502, 132.503 | 縣（區） |
+| [Inner Mongolia Alxa Left BannerWuri Tugaole distributed wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_BannerWuri_Tugaole_distributed_wind_farm) | 50 | Wuritugaole area in Zongbiela, Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
+| [Inner Mongolia Alxa Left Banner Heishan distributed wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Heishan_distributed_wind_farm) | 50 | Heishan area, Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
+| [Qinghai Gonghe Shazhubao wind farm](https://www.gem.wiki/Qinghai_Gonghe_Shazhubao_wind_farm) | 50 | 1 Shazhubao, Gonghe County, Haixi AP, Qinghai, China | [海西蒙古族藏族自治州](https://www.wikidata.org/wiki/Q874334) | 37.3697, 97.373 | 縣（區） |
+| [Xinjiang Buerjin Tuohongtai wind farm](https://www.gem.wiki/Xinjiang_Buerjin_Tuohongtai_wind_farm) | 50 | 1 Tuokumute region, Burqin, Altay Prefecture, Xinjiang, China | [布尔津县](https://www.wikidata.org/wiki/Q1016896) | 47.7016, 86.862 | 縣（區） |
+| [Inner Mongolia Wulatehou Banner Huogeqi wind farm](https://www.gem.wiki/Inner_Mongolia_Wulatehou_Banner_Huogeqi_wind_farm) | 50 | 1 Huogeqi Sumu, Urad Rear Banner, Bayannur, Inner Mongolia, China | [烏拉特後旗](https://www.wikidata.org/wiki/Q1342571) | 41.0835, 107.0704 | 縣（區） |
+| [Hunan Daoxian Shenzhangtang wind farm · 1](https://www.gem.wiki/Hunan_Daoxian_Shenzhangtang_wind_farm) | 48 | 1 Shenzhangtang, Daoxian, Yongzhou, Hunan, China | [永州市](https://www.wikidata.org/wiki/Q266014) | 26.4515, 111.5953 | 縣（區） |
+| [Inner Mongolia Alxa Left Banner Shuangjingzi distributed wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Shuangjingzi_distributed_wind_farm) | 35 | Shuangjingzi area, Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
+| [Inner Mongolia Alxa Left Banner Beiwan distributed wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Beiwan_distributed_wind_farm) | 35 | Beiwan area, Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
+| [Ningxia Qingtongxia Helanshan Number 4 Hongchazi wind farm · 3](https://www.gem.wiki/Ningxia_Qingtongxia_Helanshan_Number_4_Hongchazi_wind_farm) | 10 | 1, 2, 3 RP Qingtongxia City, Wuzhong, Ningxia, China | [吳忠市](https://www.wikidata.org/wiki/Q604517) | 37.9874, 106.1919 | 縣（區） |
+| [Liaoning Dandong Haiyanghong wind farm](https://www.gem.wiki/Liaoning_Dandong_Haiyanghong_wind_farm) | 21 | Dandong, Liaoning, China | [丹東市](https://www.wikidata.org/wiki/Q75110) | 40.1167, 124.3833 | 縣（區） |
 
 ## 印度 (IND)
 
@@ -1060,6 +1081,51 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Kethanur Wind Farms wind farm](https://www.gem.wiki/Kethanur_Wind_Farms_wind_farm) | 11 | Kethanur, Tamil Nadu, India | [Kethanur](https://www.wikidata.org/wiki/Q6395389) | 10.91, 77.26 | 縣（區） |
 | [Muppandal Madras wind farm](https://www.gem.wiki/Muppandal_Madras_wind_farm) | 10 | Muppandal, Tamil Nadu, India | [穆潘達爾風電場](https://www.wikidata.org/wiki/Q6937112) | 8.2608, 77.5486 | 縣（區） |
 | [Modha wind farm](https://www.gem.wiki/Modha_wind_farm) | 52 | Fatehgarh, Jaiselmer, Rajasthan, India | [傑伊瑟爾梅爾縣](https://www.wikidata.org/wiki/Q1419708) | 26.9133, 70.9139 | 縣（區） |
+| [Bhuj (Alfanar) wind farm](https://www.gem.wiki/Bhuj_%28Alfanar%29_wind_farm) | 300 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Alfanar) wind farm](https://www.gem.wiki/Kutch_%28Alfanar%29_wind_farm) | 300 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Renew) II wind farm](https://www.gem.wiki/Kutch_%28Renew%29_II_wind_farm) | 300 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Adani) VIII wind farm](https://www.gem.wiki/Kutch_%28Adani%29_VIII_wind_farm) | 300 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Green Infra) I wind farm](https://www.gem.wiki/Kutch_%28Green_Infra%29_I_wind_farm) | 300 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Sitac) wind farm](https://www.gem.wiki/Kutch_%28Sitac%29_wind_farm) | 300 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Renew) V wind farm](https://www.gem.wiki/Kutch_%28Renew%29_V_wind_farm) | 250 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Green Infra) II wind farm](https://www.gem.wiki/Kutch_%28Green_Infra%29_II_wind_farm) | 250 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Torrent) I wind farm](https://www.gem.wiki/Kutch_%28Torrent%29_I_wind_farm) | 202 | Andasa, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Amreli Hybrid wind farm](https://www.gem.wiki/Amreli_Hybrid_wind_farm) | 198 | Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Kutch (BLP) wind farm](https://www.gem.wiki/Kutch_%28BLP%29_wind_farm) | 150 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Adani) VI wind farm](https://www.gem.wiki/Kutch_%28Adani%29_VI_wind_farm) | 150 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Adani) VII wind farm](https://www.gem.wiki/Kutch_%28Adani%29_VII_wind_farm) | 130 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Verdant wind farm](https://www.gem.wiki/Verdant_wind_farm) | 105 | Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Kutch (Adani) V wind farm](https://www.gem.wiki/Kutch_%28Adani%29_V_wind_farm) | 100 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Dayapar (Adani) I wind farm](https://www.gem.wiki/Dayapar_%28Adani%29_I_wind_farm) | 75 | Dayapur, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Rojmal (Goenka) wind farm](https://www.gem.wiki/Rojmal_%28Goenka%29_wind_farm) | 70 | Rojmal, Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Sukavala Amreli (Sitac) wind farm](https://www.gem.wiki/Sukavala_Amreli_%28Sitac%29_wind_farm) | 64 | Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Chandrodi wind farm](https://www.gem.wiki/Chandrodi_wind_farm) | 60 | Chnadrodi, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (ONGC) wind farm](https://www.gem.wiki/Kutch_%28ONGC%29_wind_farm) | 51 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Adani) I wind farm](https://www.gem.wiki/Kutch_%28Adani%29_I_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (GFL) I wind farm](https://www.gem.wiki/Kutch_%28GFL%29_I_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Adani) IV wind farm](https://www.gem.wiki/Kutch_%28Adani%29_IV_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Adani) III wind farm](https://www.gem.wiki/Kutch_%28Adani%29_III_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Adani) II wind farm](https://www.gem.wiki/Kutch_%28Adani%29_II_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (GFL) III wind farm](https://www.gem.wiki/Kutch_%28GFL%29_III_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (GFL) II wind farm](https://www.gem.wiki/Kutch_%28GFL%29_II_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (GFL) IX wind farm](https://www.gem.wiki/Kutch_%28GFL%29_IX_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Ostro) wind farm](https://www.gem.wiki/Kutch_%28Ostro%29_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (GFL) VIII wind farm](https://www.gem.wiki/Kutch_%28GFL%29_VIII_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Torrent) II wind farm](https://www.gem.wiki/Kutch_%28Torrent%29_II_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kutch (Vivid) wind farm](https://www.gem.wiki/Kutch_%28Vivid%29_wind_farm) | 50 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Dayapar (Adani) II wind farm](https://www.gem.wiki/Dayapar_%28Adani%29_II_wind_farm) | 50 | Dayapur, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kalorana wind farm](https://www.gem.wiki/Kalorana_wind_farm) | 36 | Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Bita-Valadiya wind farm](https://www.gem.wiki/Bita-Valadiya_wind_farm) | 39 | 1 Bita Valadiya, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Amreli (Sitac) wind farm](https://www.gem.wiki/Amreli_%28Sitac%29_wind_farm) | 26 | Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Sukhpur wind farm](https://www.gem.wiki/Sukhpur_wind_farm) | 46 | 1 Sukhpur, Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Jamanvada (GACL) III wind farm](https://www.gem.wiki/Jamanvada_%28GACL%29_III_wind_farm) | 21 | Jamanvada, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Suthri wind farm](https://www.gem.wiki/Suthri_wind_farm) | 21 | Suthri, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Kotadapitha wind farm](https://www.gem.wiki/Kotadapitha_wind_farm) | 15 | Kotadapitha, Amreli, Gujarat, India | [阿姆雷利縣](https://www.wikidata.org/wiki/Q257946) | 20.8667, 70.75 | 縣（區） |
+| [Kutch (Ansal) wind farm](https://www.gem.wiki/Kutch_%28Ansal%29_wind_farm) | 12 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Jamanvada (GACL) II wind farm](https://www.gem.wiki/Jamanvada_%28GACL%29_II_wind_farm) | 10 | 2 Jamanvada, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Nakhatrana Sn1 (GIPCL) wind farm](https://www.gem.wiki/Nakhatrana_Sn1_%28GIPCL%29_wind_farm) | 10 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Nakhatrana Sn5 (GIPCL) wind farm](https://www.gem.wiki/Nakhatrana_Sn5_%28GIPCL%29_wind_farm) | 10 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Jamanvada (GACL) I wind farm](https://www.gem.wiki/Jamanvada_%28GACL%29_I_wind_farm) | 10 | 1 Jamanvada, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
 
 ## 哈薩克 (KAZ)
 

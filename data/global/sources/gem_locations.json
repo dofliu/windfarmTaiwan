@@ -14797,6 +14797,864 @@
 "lon": 70.9139,
 "label_zh": "傑伊瑟爾梅爾縣",
 "label_en": "Jaisalmer district"
+},
+{
+"name": "Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm",
+"iso": "CHN",
+"place": "Huogeqi Sumu, Urad Rear Banner, Bayannur, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Urad_Rear_Banner_4_wind_farm",
+"wikidata": "Q1342571",
+"query": "wikidata:Urad Rear",
+"level": "county",
+"lat": 41.0835,
+"lon": 107.0704,
+"label_zh": "烏拉特後旗",
+"label_en": "Urad Rear Banner"
+},
+{
+"name": "Inner Mongolia - Shandong Power Export Urad Rear Banner 2 wind farm",
+"iso": "CHN",
+"place": "Urad Rear Banner, Bayannur, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Urad_Rear_Banner_2_wind_farm",
+"wikidata": "Q1342571",
+"query": "wikidata:Urad Rear",
+"level": "county",
+"lat": 41.0835,
+"lon": 107.0704,
+"label_zh": "烏拉特後旗",
+"label_en": "Urad Rear Banner"
+},
+{
+"name": "Bhuj (Alfanar) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Bhuj_%28Alfanar%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Alfanar) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Alfanar%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Renew) II wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Renew%29_II_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Adani) VIII wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_VIII_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Green Infra) I wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Green_Infra%29_I_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Sitac) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Sitac%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Renew) V wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Renew%29_V_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Green Infra) II wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Green_Infra%29_II_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Torrent) I wind farm",
+"iso": "IND",
+"place": "Andasa, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Torrent%29_I_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Inner Mongolia Hangjin Banner (China Resources) 200 MW wind farm",
+"iso": "CHN",
+"place": "Duguitala, Hanggin Banner, Ordos, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_Hangjin_Banner_%28China_Resources%29_200_MW_wind_farm",
+"wikidata": "Q14228337",
+"query": "wikidata:Duguitala",
+"level": "township",
+"lat": 40.468,
+"lon": 108.92,
+"label_zh": "杭锦能源重化工基地",
+"label_en": "Hangjin Energy Heavy Chemical Base"
+},
+{
+"name": "Amreli Hybrid wind farm",
+"iso": "IND",
+"place": "Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Amreli_Hybrid_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Inner Mongolia - Shandong Power Export Hanggin Banner (State Development Investment) wind farm",
+"iso": "CHN",
+"place": "Yihewusu Sumu, Hanggin Banner, Ordos, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_%28State_Development_Investment%29_wind_farm",
+"wikidata": "Q10884919",
+"query": "wikidata:Yihewusu",
+"level": "township",
+"lat": 40.0481,
+"lon": 107.8438,
+"label_zh": "伊和乌素苏木",
+"label_en": "Ih Us Sum"
+},
+{
+"name": "Inner Mongolia - Shandong Power Export Hanggin Banner 4 wind farm",
+"iso": "CHN",
+"place": "Wurigeng Gacha in Yihewusu Sumu, Hanggin Banner, Ordos, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_4_wind_farm",
+"wikidata": "Q10884919",
+"query": "wikidata:Yihewusu",
+"level": "township",
+"lat": 40.0481,
+"lon": 107.8438,
+"label_zh": "伊和乌素苏木",
+"label_en": "Ih Us Sum"
+},
+{
+"name": "Inner Mongolia Alashanyou Banner (Huadian) wind farm",
+"iso": "CHN",
+"place": "Arimaodao Village in Badanjilin, Alxa Right Banner, Alxa League, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alashanyou_Banner_%28Huadian%29_wind_farm",
+"wikidata": "Q1028278",
+"query": "wikidata:Alxa Right",
+"level": "county",
+"lat": 39.2124,
+"lon": 101.6695,
+"label_zh": "阿拉善右旗",
+"label_en": "Alxa Right Banner"
+},
+{
+"name": "Kutch (BLP) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28BLP%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Adani) VI wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_VI_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Xinjiang Buerjin (Tebian Electric) wind farm",
+"iso": "CHN",
+"place": "20 km west of county seat, Burqin, Altay Prefecture, Xinjiang, China",
+"gem_url": "https://www.gem.wiki/Xinjiang_Buerjin_%28Tebian_Electric%29_wind_farm",
+"wikidata": "Q1016896",
+"query": "wikidata:Burqin",
+"level": "county",
+"lat": 47.7016,
+"lon": 86.862,
+"label_zh": "布尔津县",
+"label_en": "Burqin County"
+},
+{
+"name": "Kutch (Adani) VII wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_VII_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Verdant wind farm",
+"iso": "IND",
+"place": "Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Verdant_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Kutch (Adani) V wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_V_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Xinjiang Buerjin (Three Gorges) wind farm",
+"iso": "CHN",
+"place": "8 km west from county seat, Burqin, Altay Prefecture, Xinjiang, China",
+"gem_url": "https://www.gem.wiki/Xinjiang_Buerjin_%28Three_Gorges%29_wind_farm",
+"wikidata": "Q1016896",
+"query": "wikidata:Burqin",
+"level": "county",
+"lat": 47.7016,
+"lon": 86.862,
+"label_zh": "布尔津县",
+"label_en": "Burqin County"
+},
+{
+"name": "Dayapar (Adani) I wind farm",
+"iso": "IND",
+"place": "Dayapur, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Dayapar_%28Adani%29_I_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Rojmal (Goenka) wind farm",
+"iso": "IND",
+"place": "Rojmal, Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Rojmal_%28Goenka%29_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Sukavala Amreli (Sitac) wind farm",
+"iso": "IND",
+"place": "Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Sukavala_Amreli_%28Sitac%29_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Chandrodi wind farm",
+"iso": "IND",
+"place": "Chnadrodi, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Chandrodi_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (ONGC) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28ONGC%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Heilongjiang Jiamusi Suburbs Houshi wind farm",
+"iso": "CHN",
+"place": "Aoqi, Suburban District, Jiamusi, Heilongjiang, China",
+"gem_url": "https://www.gem.wiki/Heilongjiang_Jiamusi_Suburbs_Houshi_wind_farm",
+"wikidata": "Q29003",
+"query": "wikidata:Jiamusi",
+"level": "county",
+"lat": 46.8081,
+"lon": 130.3653,
+"label_zh": "佳木斯市",
+"label_en": "Jiamusi"
+},
+{
+"name": "Heilongjiang Tongjiang Jiejinshan wind farm",
+"iso": "CHN",
+"place": "Tongjiang City, Jiamusi, Heilongjiang, China",
+"gem_url": "https://www.gem.wiki/Heilongjiang_Tongjiang_Jiejinshan_wind_farm",
+"wikidata": "Q1022983",
+"query": "wikidata:Tongjiang",
+"level": "county",
+"lat": 47.6502,
+"lon": 132.503,
+"label_zh": "同江市",
+"label_en": "Tongjiang"
+},
+{
+"name": "Heilongjiang Tongjiang Sanjiangkou wind farm",
+"iso": "CHN",
+"place": "Tongjiang City, Jiamusi, Heilongjiang, China",
+"gem_url": "https://www.gem.wiki/Heilongjiang_Tongjiang_Sanjiangkou_wind_farm",
+"wikidata": "Q1022983",
+"query": "wikidata:Tongjiang",
+"level": "county",
+"lat": 47.6502,
+"lon": 132.503,
+"label_zh": "同江市",
+"label_en": "Tongjiang"
+},
+{
+"name": "Inner Mongolia Alxa Left BannerWuri Tugaole distributed wind farm",
+"iso": "CHN",
+"place": "Wuritugaole area in Zongbiela, Alxa Left Banner, Alxa League, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_BannerWuri_Tugaole_distributed_wind_farm",
+"wikidata": "Q1367222",
+"query": "wikidata:Alxa Left",
+"level": "county",
+"lat": 38.8336,
+"lon": 105.6703,
+"label_zh": "阿拉善左旗",
+"label_en": "Alxa Left Banner"
+},
+{
+"name": "Inner Mongolia Alxa Left Banner Heishan distributed wind farm",
+"iso": "CHN",
+"place": "Heishan area, Alxa Left Banner, Alxa League, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Heishan_distributed_wind_farm",
+"wikidata": "Q1367222",
+"query": "wikidata:Alxa Left",
+"level": "county",
+"lat": 38.8336,
+"lon": 105.6703,
+"label_zh": "阿拉善左旗",
+"label_en": "Alxa Left Banner"
+},
+{
+"name": "Kutch (Adani) I wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_I_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (GFL) I wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_I_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Adani) IV wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_IV_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Adani) III wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_III_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Adani) II wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_II_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (GFL) III wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_III_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (GFL) II wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_II_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (GFL) IX wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_IX_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Ostro) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Ostro%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (GFL) VIII wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_VIII_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Torrent) II wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Torrent%29_II_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kutch (Vivid) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Vivid%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Dayapar (Adani) II wind farm",
+"iso": "IND",
+"place": "Dayapur, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Dayapar_%28Adani%29_II_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Qinghai Gonghe Shazhubao wind farm",
+"iso": "CHN",
+"place": "1 Shazhubao, Gonghe County, Haixi AP, Qinghai, China",
+"gem_url": "https://www.gem.wiki/Qinghai_Gonghe_Shazhubao_wind_farm",
+"wikidata": "Q874334",
+"query": "wikidata:Haixi",
+"level": "county",
+"lat": 37.3697,
+"lon": 97.373,
+"label_zh": "海西蒙古族藏族自治州",
+"label_en": "Haixi Mongol and Tibetan Autonomous Prefecture"
+},
+{
+"name": "Xinjiang Buerjin Tuohongtai wind farm",
+"iso": "CHN",
+"place": "1 Tuokumute region, Burqin, Altay Prefecture, Xinjiang, China",
+"gem_url": "https://www.gem.wiki/Xinjiang_Buerjin_Tuohongtai_wind_farm",
+"wikidata": "Q1016896",
+"query": "wikidata:Burqin",
+"level": "county",
+"lat": 47.7016,
+"lon": 86.862,
+"label_zh": "布尔津县",
+"label_en": "Burqin County"
+},
+{
+"name": "Inner Mongolia Wulatehou Banner Huogeqi wind farm",
+"iso": "CHN",
+"place": "1 Huogeqi Sumu, Urad Rear Banner, Bayannur, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_Wulatehou_Banner_Huogeqi_wind_farm",
+"wikidata": "Q1342571",
+"query": "wikidata:Urad Rear",
+"level": "county",
+"lat": 41.0835,
+"lon": 107.0704,
+"label_zh": "烏拉特後旗",
+"label_en": "Urad Rear Banner"
+},
+{
+"name": "Hunan Daoxian Shenzhangtang wind farm · 1",
+"iso": "CHN",
+"place": "1 Shenzhangtang, Daoxian, Yongzhou, Hunan, China",
+"gem_url": "https://www.gem.wiki/Hunan_Daoxian_Shenzhangtang_wind_farm",
+"wikidata": "Q266014",
+"query": "wikidata:Yongzhou",
+"level": "county",
+"lat": 26.4515,
+"lon": 111.5953,
+"label_zh": "永州市",
+"label_en": "Yongzhou"
+},
+{
+"name": "Kalorana wind farm",
+"iso": "IND",
+"place": "Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kalorana_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Inner Mongolia Alxa Left Banner Shuangjingzi distributed wind farm",
+"iso": "CHN",
+"place": "Shuangjingzi area, Alxa Left Banner, Alxa League, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Shuangjingzi_distributed_wind_farm",
+"wikidata": "Q1367222",
+"query": "wikidata:Alxa Left",
+"level": "county",
+"lat": 38.8336,
+"lon": 105.6703,
+"label_zh": "阿拉善左旗",
+"label_en": "Alxa Left Banner"
+},
+{
+"name": "Inner Mongolia Alxa Left Banner Beiwan distributed wind farm",
+"iso": "CHN",
+"place": "Beiwan area, Alxa Left Banner, Alxa League, Inner Mongolia, China",
+"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Beiwan_distributed_wind_farm",
+"wikidata": "Q1367222",
+"query": "wikidata:Alxa Left",
+"level": "county",
+"lat": 38.8336,
+"lon": 105.6703,
+"label_zh": "阿拉善左旗",
+"label_en": "Alxa Left Banner"
+},
+{
+"name": "Ningxia Qingtongxia Helanshan Number 4 Hongchazi wind farm · 3",
+"iso": "CHN",
+"place": "1, 2, 3 RP Qingtongxia City, Wuzhong, Ningxia, China",
+"gem_url": "https://www.gem.wiki/Ningxia_Qingtongxia_Helanshan_Number_4_Hongchazi_wind_farm",
+"wikidata": "Q604517",
+"query": "wikidata:Wuzhong",
+"level": "county",
+"lat": 37.9874,
+"lon": 106.1919,
+"label_zh": "吳忠市",
+"label_en": "Wuzhong"
+},
+{
+"name": "Bita-Valadiya wind farm",
+"iso": "IND",
+"place": "1 Bita Valadiya, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Bita-Valadiya_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Amreli (Sitac) wind farm",
+"iso": "IND",
+"place": "Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Amreli_%28Sitac%29_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Sukhpur wind farm",
+"iso": "IND",
+"place": "1 Sukhpur, Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Sukhpur_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Liaoning Dandong Haiyanghong wind farm",
+"iso": "CHN",
+"place": "Dandong, Liaoning, China",
+"gem_url": "https://www.gem.wiki/Liaoning_Dandong_Haiyanghong_wind_farm",
+"wikidata": "Q75110",
+"query": "wikidata:Dandong",
+"level": "county",
+"lat": 40.1167,
+"lon": 124.3833,
+"label_zh": "丹東市",
+"label_en": "Dandong"
+},
+{
+"name": "Jamanvada (GACL) III wind farm",
+"iso": "IND",
+"place": "Jamanvada, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Jamanvada_%28GACL%29_III_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Suthri wind farm",
+"iso": "IND",
+"place": "Suthri, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Suthri_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Kotadapitha wind farm",
+"iso": "IND",
+"place": "Kotadapitha, Amreli, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kotadapitha_wind_farm",
+"wikidata": "Q257946",
+"query": "wikidata:Amreli",
+"level": "county",
+"lat": 20.8667,
+"lon": 70.75,
+"label_zh": "阿姆雷利縣",
+"label_en": "Amreli district"
+},
+{
+"name": "Kutch (Ansal) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Kutch_%28Ansal%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Jamanvada (GACL) II wind farm",
+"iso": "IND",
+"place": "2 Jamanvada, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Jamanvada_%28GACL%29_II_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Nakhatrana Sn1 (GIPCL) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Nakhatrana_Sn1_%28GIPCL%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Nakhatrana Sn5 (GIPCL) wind farm",
+"iso": "IND",
+"place": "Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Nakhatrana_Sn5_%28GIPCL%29_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
+},
+{
+"name": "Jamanvada (GACL) I wind farm",
+"iso": "IND",
+"place": "1 Jamanvada, Kutch, Gujarat, India",
+"gem_url": "https://www.gem.wiki/Jamanvada_%28GACL%29_I_wind_farm",
+"wikidata": "Q1063417",
+"query": "wikidata:Kutch",
+"level": "county",
+"lat": 23.13,
+"lon": 69.8,
+"label_zh": "卡奇縣",
+"label_en": "Kutch district"
 }
 ],
 "skipped": [
@@ -14861,580 +15719,6 @@
 "place": "Italy",
 "gem_url": "https://www.gem.wiki/Parco_La_Rocca_wind_farm",
 "why": "too short"
-},
-{
-"name": "Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm",
-"iso": "CHN",
-"place": "Huogeqi Sumu, Urad Rear Banner, Bayannur, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Urad_Rear_Banner_4_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia - Shandong Power Export Urad Rear Banner 2 wind farm",
-"iso": "CHN",
-"place": "Urad Rear Banner, Bayannur, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Urad_Rear_Banner_2_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Bhuj (Alfanar) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Bhuj_%28Alfanar%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Alfanar) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Alfanar%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Renew) II wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Renew%29_II_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Adani) VIII wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_VIII_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Green Infra) I wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Green_Infra%29_I_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Sitac) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Sitac%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Renew) V wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Renew%29_V_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Green Infra) II wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Green_Infra%29_II_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Torrent) I wind farm",
-"iso": "IND",
-"place": "Andasa, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Torrent%29_I_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia Hangjin Banner (China Resources) 200 MW wind farm",
-"iso": "CHN",
-"place": "Duguitala, Hanggin Banner, Ordos, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_Hangjin_Banner_%28China_Resources%29_200_MW_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Amreli Hybrid wind farm",
-"iso": "IND",
-"place": "Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Amreli_Hybrid_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Inner Mongolia - Shandong Power Export Hanggin Banner (State Development Investment) wind farm",
-"iso": "CHN",
-"place": "Yihewusu Sumu, Hanggin Banner, Ordos, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_%28State_Development_Investment%29_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia - Shandong Power Export Hanggin Banner 4 wind farm",
-"iso": "CHN",
-"place": "Wurigeng Gacha in Yihewusu Sumu, Hanggin Banner, Ordos, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Hanggin_Banner_4_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia Alashanyou Banner (Huadian) wind farm",
-"iso": "CHN",
-"place": "Arimaodao Village in Badanjilin, Alxa Right Banner, Alxa League, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alashanyou_Banner_%28Huadian%29_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Kutch (BLP) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28BLP%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Adani) VI wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_VI_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Xinjiang Buerjin (Tebian Electric) wind farm",
-"iso": "CHN",
-"place": "20 km west of county seat, Burqin, Altay Prefecture, Xinjiang, China",
-"gem_url": "https://www.gem.wiki/Xinjiang_Buerjin_%28Tebian_Electric%29_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Kutch (Adani) VII wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_VII_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Verdant wind farm",
-"iso": "IND",
-"place": "Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Verdant_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Adani) V wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_V_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Xinjiang Buerjin (Three Gorges) wind farm",
-"iso": "CHN",
-"place": "8 km west from county seat, Burqin, Altay Prefecture, Xinjiang, China",
-"gem_url": "https://www.gem.wiki/Xinjiang_Buerjin_%28Three_Gorges%29_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Chandgarh (CLP) wind farm",
-"iso": "IND",
-"place": "Madhya Pradesh, India",
-"gem_url": "https://www.gem.wiki/Chandgarh_%28CLP%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Dayapar (Adani) I wind farm",
-"iso": "IND",
-"place": "Dayapur, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Dayapar_%28Adani%29_I_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Clover wind farm",
-"iso": "IND",
-"place": "Tamil Nadu, India",
-"gem_url": "https://www.gem.wiki/Clover_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Rojmal (Goenka) wind farm",
-"iso": "IND",
-"place": "Rojmal, Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Rojmal_%28Goenka%29_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Sukavala Amreli (Sitac) wind farm",
-"iso": "IND",
-"place": "Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Sukavala_Amreli_%28Sitac%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Maple wind farm",
-"iso": "IND",
-"place": "Tamil Nadu, India",
-"gem_url": "https://www.gem.wiki/Maple_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Chandrodi wind farm",
-"iso": "IND",
-"place": "Chnadrodi, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Chandrodi_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Jath (CLP) wind farm",
-"iso": "IND",
-"place": "Maharashtra, India",
-"gem_url": "https://www.gem.wiki/Jath_%28CLP%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Olive wind farm",
-"iso": "IND",
-"place": "Tamil Nadu, India",
-"gem_url": "https://www.gem.wiki/Olive_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kamiyuchi wind farm",
-"iso": "JPN",
-"place": "Hokkadio Prefecture, Japan",
-"gem_url": "https://www.gem.wiki/Kamiyuchi_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (ONGC) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28ONGC%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Nhơn Hòa wind farm",
-"iso": "VNM",
-"place": "1 Gia Lai Province, Vietnam",
-"gem_url": "https://www.gem.wiki/Nh%C6%A1n_H%C3%B2a_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Heilongjiang Jiamusi Suburbs Houshi wind farm",
-"iso": "CHN",
-"place": "Aoqi, Suburban District, Jiamusi, Heilongjiang, China",
-"gem_url": "https://www.gem.wiki/Heilongjiang_Jiamusi_Suburbs_Houshi_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Heilongjiang Tongjiang Jiejinshan wind farm",
-"iso": "CHN",
-"place": "Tongjiang City, Jiamusi, Heilongjiang, China",
-"gem_url": "https://www.gem.wiki/Heilongjiang_Tongjiang_Jiejinshan_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Heilongjiang Tongjiang Sanjiangkou wind farm",
-"iso": "CHN",
-"place": "Tongjiang City, Jiamusi, Heilongjiang, China",
-"gem_url": "https://www.gem.wiki/Heilongjiang_Tongjiang_Sanjiangkou_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia Alxa Left BannerWuri Tugaole distributed wind farm",
-"iso": "CHN",
-"place": "Wuritugaole area in Zongbiela, Alxa Left Banner, Alxa League, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_BannerWuri_Tugaole_distributed_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia Alxa Left Banner Heishan distributed wind farm",
-"iso": "CHN",
-"place": "Heishan area, Alxa Left Banner, Alxa League, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Heishan_distributed_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Kutch (Adani) I wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_I_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (GFL) I wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_I_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Adani) IV wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_IV_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Adani) III wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_III_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Adani) II wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Adani%29_II_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (GFL) III wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_III_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (GFL) II wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_II_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (GFL) IX wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_IX_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Ostro) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Ostro%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (GFL) VIII wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28GFL%29_VIII_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Torrent) II wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Torrent%29_II_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kutch (Vivid) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Vivid%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Dayapar (Adani) II wind farm",
-"iso": "IND",
-"place": "Dayapur, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Dayapar_%28Adani%29_II_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Qinghai Gonghe Shazhubao wind farm",
-"iso": "CHN",
-"place": "1 Shazhubao, Gonghe County, Haixi AP, Qinghai, China",
-"gem_url": "https://www.gem.wiki/Qinghai_Gonghe_Shazhubao_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Xinjiang Buerjin Tuohongtai wind farm",
-"iso": "CHN",
-"place": "1 Tuokumute region, Burqin, Altay Prefecture, Xinjiang, China",
-"gem_url": "https://www.gem.wiki/Xinjiang_Buerjin_Tuohongtai_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia Wulatehou Banner Huogeqi wind farm",
-"iso": "CHN",
-"place": "1 Huogeqi Sumu, Urad Rear Banner, Bayannur, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_Wulatehou_Banner_Huogeqi_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Hunan Daoxian Shenzhangtang wind farm · 1",
-"iso": "CHN",
-"place": "1 Shenzhangtang, Daoxian, Yongzhou, Hunan, China",
-"gem_url": "https://www.gem.wiki/Hunan_Daoxian_Shenzhangtang_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Lotus wind farm (India)",
-"iso": "IND",
-"place": "Tamil Nadu, India",
-"gem_url": "https://www.gem.wiki/Lotus_wind_farm_%28India%29",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Citron (Leap) I wind farm",
-"iso": "IND",
-"place": "Tamil Nadu, India",
-"gem_url": "https://www.gem.wiki/Citron_%28Leap%29_I_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Iris wind farm",
-"iso": "IND",
-"place": "Tamil Nadu, India",
-"gem_url": "https://www.gem.wiki/Iris_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kalorana wind farm",
-"iso": "IND",
-"place": "Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kalorana_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Inner Mongolia Alxa Left Banner Shuangjingzi distributed wind farm",
-"iso": "CHN",
-"place": "Shuangjingzi area, Alxa Left Banner, Alxa League, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Shuangjingzi_distributed_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Inner Mongolia Alxa Left Banner Beiwan distributed wind farm",
-"iso": "CHN",
-"place": "Beiwan area, Alxa Left Banner, Alxa League, Inner Mongolia, China",
-"gem_url": "https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Beiwan_distributed_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Maha Wind wind farm",
-"iso": "IND",
-"place": "Maharashtra, India",
-"gem_url": "https://www.gem.wiki/Maha_Wind_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Citron (Leap) II wind farm",
-"iso": "IND",
-"place": "Tamil Nadu, India",
-"gem_url": "https://www.gem.wiki/Citron_%28Leap%29_II_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Ningxia Qingtongxia Helanshan Number 4 Hongchazi wind farm · 3",
-"iso": "CHN",
-"place": "1, 2, 3 RP Qingtongxia City, Wuzhong, Ningxia, China",
-"gem_url": "https://www.gem.wiki/Ningxia_Qingtongxia_Helanshan_Number_4_Hongchazi_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Bita-Valadiya wind farm",
-"iso": "IND",
-"place": "1 Bita Valadiya, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Bita-Valadiya_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Amreli (Sitac) wind farm",
-"iso": "IND",
-"place": "Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Amreli_%28Sitac%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Gujarat (First Energy) hybrid wind farm",
-"iso": "IND",
-"place": "Gujarat, India",
-"gem_url": "https://www.gem.wiki/Gujarat_%28First_Energy%29_hybrid_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Sukhpur wind farm",
-"iso": "IND",
-"place": "1 Sukhpur, Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Sukhpur_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Liaoning Dandong Haiyanghong wind farm",
-"iso": "CHN",
-"place": "Dandong, Liaoning, China",
-"gem_url": "https://www.gem.wiki/Liaoning_Dandong_Haiyanghong_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Niwade wind farm",
-"iso": "IND",
-"place": "Maharashtra, India",
-"gem_url": "https://www.gem.wiki/Niwade_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Jamanvada (GACL) III wind farm",
-"iso": "IND",
-"place": "Jamanvada, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Jamanvada_%28GACL%29_III_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Suthri wind farm",
-"iso": "IND",
-"place": "Suthri, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Suthri_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Jamnagar (CEPCO) wind farm",
-"iso": "IND",
-"place": "Gujarat, India",
-"gem_url": "https://www.gem.wiki/Jamnagar_%28CEPCO%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Dewas (CEPCO) wind farm",
-"iso": "IND",
-"place": "Madhya Pradesh, India",
-"gem_url": "https://www.gem.wiki/Dewas_%28CEPCO%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Kotadapitha wind farm",
-"iso": "IND",
-"place": "Kotadapitha, Amreli, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kotadapitha_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Kutch (Ansal) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Kutch_%28Ansal%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Jamanvada (GACL) II wind farm",
-"iso": "IND",
-"place": "2 Jamanvada, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Jamanvada_%28GACL%29_II_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
-},
-{
-"name": "Nakhatrana Sn1 (GIPCL) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Nakhatrana_Sn1_%28GIPCL%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Nakhatrana Sn5 (GIPCL) wind farm",
-"iso": "IND",
-"place": "Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Nakhatrana_Sn5_%28GIPCL%29_wind_farm",
-"why": "Wikidata item has no coordinate (township, county and city)"
-},
-{
-"name": "Jamanvada (GACL) I wind farm",
-"iso": "IND",
-"place": "1 Jamanvada, Kutch, Gujarat, India",
-"gem_url": "https://www.gem.wiki/Jamanvada_%28GACL%29_I_wind_farm",
-"why": "Wikidata and OSM centres differ by more than 50 km (township, county and city)"
 },
 {
 "name": "Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (State Power Investment) wind farm",
@@ -16233,6 +16517,118 @@
 "place": "1 Aqmola Oblysy, Kazakhstan",
 "gem_url": "https://www.gem.wiki/Jasil_Jel_Energy_wind_farm",
 "why": "no acceptable result (Nominatim and Wikidata search)"
+},
+{
+"name": "Chandgarh (CLP) wind farm",
+"iso": "IND",
+"place": "Madhya Pradesh, India",
+"gem_url": "https://www.gem.wiki/Chandgarh_%28CLP%29_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Clover wind farm",
+"iso": "IND",
+"place": "Tamil Nadu, India",
+"gem_url": "https://www.gem.wiki/Clover_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Maple wind farm",
+"iso": "IND",
+"place": "Tamil Nadu, India",
+"gem_url": "https://www.gem.wiki/Maple_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Jath (CLP) wind farm",
+"iso": "IND",
+"place": "Maharashtra, India",
+"gem_url": "https://www.gem.wiki/Jath_%28CLP%29_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Olive wind farm",
+"iso": "IND",
+"place": "Tamil Nadu, India",
+"gem_url": "https://www.gem.wiki/Olive_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Kamiyuchi wind farm",
+"iso": "JPN",
+"place": "Hokkadio Prefecture, Japan",
+"gem_url": "https://www.gem.wiki/Kamiyuchi_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Nhơn Hòa wind farm",
+"iso": "VNM",
+"place": "1 Gia Lai Province, Vietnam",
+"gem_url": "https://www.gem.wiki/Nh%C6%A1n_H%C3%B2a_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Lotus wind farm (India)",
+"iso": "IND",
+"place": "Tamil Nadu, India",
+"gem_url": "https://www.gem.wiki/Lotus_wind_farm_%28India%29",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Citron (Leap) I wind farm",
+"iso": "IND",
+"place": "Tamil Nadu, India",
+"gem_url": "https://www.gem.wiki/Citron_%28Leap%29_I_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Iris wind farm",
+"iso": "IND",
+"place": "Tamil Nadu, India",
+"gem_url": "https://www.gem.wiki/Iris_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Maha Wind wind farm",
+"iso": "IND",
+"place": "Maharashtra, India",
+"gem_url": "https://www.gem.wiki/Maha_Wind_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Citron (Leap) II wind farm",
+"iso": "IND",
+"place": "Tamil Nadu, India",
+"gem_url": "https://www.gem.wiki/Citron_%28Leap%29_II_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Gujarat (First Energy) hybrid wind farm",
+"iso": "IND",
+"place": "Gujarat, India",
+"gem_url": "https://www.gem.wiki/Gujarat_%28First_Energy%29_hybrid_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Niwade wind farm",
+"iso": "IND",
+"place": "Maharashtra, India",
+"gem_url": "https://www.gem.wiki/Niwade_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Jamnagar (CEPCO) wind farm",
+"iso": "IND",
+"place": "Gujarat, India",
+"gem_url": "https://www.gem.wiki/Jamnagar_%28CEPCO%29_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
+},
+{
+"name": "Dewas (CEPCO) wind farm",
+"iso": "IND",
+"place": "Madhya Pradesh, India",
+"gem_url": "https://www.gem.wiki/Dewas_%28CEPCO%29_wind_farm",
+"why": "Wikidata item has no coordinate (Nominatim and Wikidata search)"
 }
 ]
 }
