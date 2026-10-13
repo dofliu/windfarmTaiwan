@@ -6,7 +6,7 @@
 
 GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或國家中心的代用座標上（同一點有幾十筆）。GEM 專案頁的「Location」仍寫出鄉鎮、縣（區）、市、省，這裡依那段文字把風場改到該行政區的中心：座標取自 Wikidata（CC0），行政區以 OpenStreetMap Nominatim 查出（只當索引，不含 OSM 資料）。這些仍是**概略位置**（卡片標示「概略位置」）：鄉鎮或縣中心不是風場本身，但比省中心近得多。定位不到的風場維持原代用點，列在 gem_locations.json 的 skipped。
 
-- 共 1081 座：鄉鎮層級 399、縣（區）層級 652、市層級 30。
+- 共 1138 座：鄉鎮層級 419、縣（區）層級 689、市層級 30。
 
 ## 中國大陸 (CHN)
 
@@ -875,6 +875,27 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Xinjiang Hami Shisanjianfang (Tianrun) wind farm · 3, 4, 5](https://www.gem.wiki/Xinjiang_Hami_Shisanjianfang_%28Tianrun%29_wind_farm) | 150 | 1 Qijiaojing, Yizhou District, Hami, Xinjiang, China | [哈密市](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | 縣（區） |
 | [Xinjiang Hami Shisanjianfang (Xinyue) wind farm](https://www.gem.wiki/Xinjiang_Hami_Shisanjianfang_%28Xinyue%29_wind_farm) | 50 | 1 Qijiaojing, Yizhou District, Hami, Xinjiang, China | [哈密市](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | 縣（區） |
 | [Heilongjiang Daqing Dagang wind farm](https://www.gem.wiki/Heilongjiang_Daqing_Dagang_wind_farm) | 48 | 1 Dajingzi, Datong District, Daqing, Heilongjiang, China | [大慶市](https://www.wikidata.org/wiki/Q304848) | 46.5979, 125.008 | 縣（區） |
+| [Qinghai Haixi Prefecture Multi-Source Energy Integration Demonstration Project wind farm](https://www.gem.wiki/Qinghai_Haixi_Prefecture_Multi-Source_Energy_Integration_Demonstration_Project_wind_farm) | 400 | Golmud City, Haixi AP, Qinghai, China | [格爾木市](https://www.wikidata.org/wiki/Q858250) | 36.4028, 94.9042 | 縣（區） |
+| [Qinghai Dulan Nuomuhong (State Power Investment) wind farm](https://www.gem.wiki/Qinghai_Dulan_Nuomuhong_%28State_Power_Investment%29_wind_farm) | 350 | Zongjia, Dulan, Haixi AP, Qinghai, China | [宗加镇](https://www.wikidata.org/wiki/Q10948077) | 36.4334, 96.4607 | 鄉鎮 |
+| [Qinghai Delingha Gahai wind farm · 3](https://www.gem.wiki/Qinghai_Delingha_Gahai_wind_farm) | 100 | 1 Gahai, Delingha, Haixi AP, Qinghai, China | [尕海镇](https://www.wikidata.org/wiki/Q11037419) | 37.2175, 97.4148 | 鄉鎮 |
+| [Qinghai Dachaidan (Mingyang) wind farm](https://www.gem.wiki/Qinghai_Dachaidan_%28Mingyang%29_wind_farm) | 100 | Golmud City, Haixi AP, Qinghai, China | [格爾木市](https://www.wikidata.org/wiki/Q858250) | 36.4028, 94.9042 | 縣（區） |
+| [Qinghai Qaidam Xitieshan Liushaping (Mingyang) wind farm](https://www.gem.wiki/Qinghai_Qaidam_Xitieshan_Liushaping_%28Mingyang%29_wind_farm) | 100 | Xitieshan, Da Qaidam Administrative Zone, Haixi AP, Qinghai, China | [锡铁山镇](https://www.wikidata.org/wiki/Q14051127) | 37.316, 95.553 | 鄉鎮 |
+| [Qinghai Qaidam Xitieshan (China Resources) wind farm](https://www.gem.wiki/Qinghai_Qaidam_Xitieshan_%28China_Resources%29_wind_farm) | 50 | Xitieshan, Da Qaidam Administrative Zone, Haixi AP, Qinghai, China | [锡铁山镇](https://www.wikidata.org/wiki/Q14051127) | 37.316, 95.553 | 鄉鎮 |
+| [Qinghai Qaidam Xitieshan (Qinghai Development Investment) wind farm](https://www.gem.wiki/Qinghai_Qaidam_Xitieshan_%28Qinghai_Development_Investment%29_wind_farm) | 150 | 1 Xitieshan, Da Qaidam Administrative Zone, Haixi AP, Qinghai, China | [锡铁山镇](https://www.wikidata.org/wiki/Q14051127) | 37.316, 95.553 | 鄉鎮 |
+| [Qinghai Dulan (Luneng) wind farm](https://www.gem.wiki/Qinghai_Dulan_%28Luneng%29_wind_farm) | 100 | 1 Zongjia, Dulan, Haixi AP, Qinghai, China | [宗加镇](https://www.wikidata.org/wiki/Q10948077) | 36.4334, 96.4607 | 鄉鎮 |
+| [Qinghai Golmud Wuzihe wind farm](https://www.gem.wiki/Qinghai_Golmud_Wuzihe_wind_farm) | 50 | Golmud City, Haixi AP, Qinghai, China | [格爾木市](https://www.wikidata.org/wiki/Q858250) | 36.4028, 94.9042 | 縣（區） |
+| [Qinghai Dulan Nuomuhong Dagele Hedong wind farm](https://www.gem.wiki/Qinghai_Dulan_Nuomuhong_Dagele_Hedong_wind_farm) | 50 | 1 Zongjia, Dulan, Haixi AP, Qinghai, China | [宗加镇](https://www.wikidata.org/wiki/Q10948077) | 36.4334, 96.4607 | 鄉鎮 |
+| [Henan Xincai Liqiao wind farm](https://www.gem.wiki/Henan_Xincai_Liqiao_wind_farm) | 100 | Liqiao Zhen, Xincai, Zhumadian Municipality, Henan, China | [李桥回族镇](https://www.wikidata.org/wiki/Q11097005) | 32.8517, 114.8411 | 鄉鎮 |
+| [Shandong Xintai Yucun wind farm](https://www.gem.wiki/Shandong_Xintai_Yucun_wind_farm) | 100 | Yucun, Xintai City, Taian, Shandong, China | [新泰市](https://www.wikidata.org/wiki/Q1344683) | 35.91, 117.78 | 縣（區） |
+| [Henan Zhumadian Shangcai wind farm](https://www.gem.wiki/Henan_Zhumadian_Shangcai_wind_farm) | 50 | Xiaoyuesi Xiang, Shangcai, Zhumadian Municipality, Henan, China | [小岳寺乡](https://www.wikidata.org/wiki/Q10958837) | 33.4272, 114.3398 | 鄉鎮 |
+| [Henan Queshan Maweishan wind farm](https://www.gem.wiki/Henan_Queshan_Maweishan_wind_farm) | 50 | Rendian Zhen, Queshan, Zhumadian Municipality, Henan, China | [任店镇](https://www.wikidata.org/wiki/Q10884680) | 32.6643, 113.9786 | 鄉鎮 |
+| [Henan Xincai Chendian wind farm](https://www.gem.wiki/Henan_Xincai_Chendian_wind_farm) | 50 | Longkou Zhen, Xincai, Zhumadian Municipality, Henan, China | [新蔡县](https://www.wikidata.org/wiki/Q1199071) | 32.7528, 114.9706 | 縣（區） |
+| [Henan Xincai (State Power Investment) wind farm](https://www.gem.wiki/Henan_Xincai_%28State_Power_Investment%29_wind_farm) | 50 | Yudian Zhen, Xincai, Zhumadian Municipality, Henan, China | [余店镇](https://www.wikidata.org/wiki/Q10886562) | 32.7591, 114.731 | 鄉鎮 |
+| [Henan Xincai Longkou wind farm](https://www.gem.wiki/Henan_Xincai_Longkou_wind_farm) | 50 | Longkou Zhen, Xincai, Zhumadian Municipality, Henan, China | [新蔡县](https://www.wikidata.org/wiki/Q1199071) | 32.7528, 114.9706 | 縣（區） |
+| [Henan Xiping Pingyuan wind farm](https://www.gem.wiki/Henan_Xiping_Pingyuan_wind_farm) | 50 | Wugouying Town, Xiping, Zhumadian Municipality, Henan, China | [五沟营镇](https://www.wikidata.org/wiki/Q10881948) | 33.4349, 114.1556 | 鄉鎮 |
+| [Shandong Feicheng Taoyuan wind farm](https://www.gem.wiki/Shandong_Feicheng_Taoyuan_wind_farm) | 50 | Taoyuan, Feicheng City, Taian, Shandong, China | [肥城市](https://www.wikidata.org/wiki/Q1198379) | 36.186, 116.772 | 縣（區） |
+| [Shandong Feicheng Humen wind farm](https://www.gem.wiki/Shandong_Feicheng_Humen_wind_farm) | 50 | Anlinzhan, Feicheng City, Taian, Shandong, China | [安临站镇](https://www.wikidata.org/wiki/Q10946315) | 36.0711, 116.7665 | 鄉鎮 |
+| [Henan Suiping Jianshan wind farm](https://www.gem.wiki/Henan_Suiping_Jianshan_wind_farm) | 48 | Chayashan Zhen, Suiping, Zhumadian Municipality, Henan, China | [查岈山镇](https://www.wikidata.org/wiki/Q11054494) | 33.2028, 113.7456 | 鄉鎮 |
 
 ## 印度 (IND)
 
@@ -1016,6 +1037,29 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Vajrakarur (Orix) wind farm](https://www.gem.wiki/Vajrakarur_%28Orix%29_wind_farm) | 25 | Vajrakarur, Ananthapuramu, Andhra Pradesh, India | [Vajrakarur mandal](https://www.wikidata.org/wiki/Q60213325) | 15.028, 77.385 | 鄉鎮 |
 | [Belguppa (Adurjee) wind farm](https://www.gem.wiki/Belguppa_%28Adurjee%29_wind_farm) | 15 | Beguppa, Ananthapuramu, Andhra Pradesh, India | [安南塔普爾](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | 縣（區） |
 | [Ramagiri wind farm](https://www.gem.wiki/Ramagiri_wind_farm) | 10 | Ramagiri, Ananthapuramu, Andhra Pradesh, India | [Ramagiri](https://www.wikidata.org/wiki/Q16344471) | 14.9587, 77.4714 | 鄉鎮 |
+| [Tirunelveli (Nupower) wind farm](https://www.gem.wiki/Tirunelveli_%28Nupower%29_wind_farm) | 100 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Gujarat (Juniper Green) wind farm](https://www.gem.wiki/Gujarat_%28Juniper_Green%29_wind_farm) | 70 | Surendra Nagar, Gujarat, India | [蘇倫德拉訥格爾縣](https://www.wikidata.org/wiki/Q237535) | 22.73, 71.51 | 縣（區） |
+| [Tirunelveli (KPR) wind farm](https://www.gem.wiki/Tirunelveli_%28KPR%29_wind_farm) | 62 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Sipla (CLP) wind farm](https://www.gem.wiki/Sipla_%28CLP%29_wind_farm) | 50 | Jaiselmer, Rajasthan, India | [傑伊瑟爾梅爾縣](https://www.wikidata.org/wiki/Q1419708) | 26.9133, 70.9139 | 縣（區） |
+| [Tirunelveli (Eveready) wind farm](https://www.gem.wiki/Tirunelveli_%28Eveready%29_wind_farm) | 41 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Tirunelveli (TNPL) wind farm](https://www.gem.wiki/Tirunelveli_%28TNPL%29_wind_farm) | 36 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Tirunelveli (Paharpur) wind farm](https://www.gem.wiki/Tirunelveli_%28Paharpur%29_wind_farm) | 32 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Poly wind farm](https://www.gem.wiki/Poly_wind_farm) | 24 | Anantpur, Andhra Pradesh, India | [安南塔普爾](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | 縣（區） |
+| [Jed wind farm](https://www.gem.wiki/Jed_wind_farm) | 24 | Anantpur, Andhra Pradesh, India | [安南塔普爾](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | 縣（區） |
+| [Tirunelveli (VRETPL) wind farm](https://www.gem.wiki/Tirunelveli_%28VRETPL%29_wind_farm) | 22 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Tirunelvelli (Cape) wind farm](https://www.gem.wiki/Tirunelvelli_%28Cape%29_wind_farm) | 15 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Tirunelvelli (SRF) wind farm](https://www.gem.wiki/Tirunelvelli_%28SRF%29_wind_farm) | 14 | Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Kasturi Rengapuram wind farm](https://www.gem.wiki/Kasturi_Rengapuram_wind_farm) | 10 | Kasturi Rengapuram, Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Rastha wind farm](https://www.gem.wiki/Rastha_wind_farm) | 10 | Rastha, Tirunelvelli, Tamil Nadu, India | [蒂魯內爾維利縣](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | 縣（區） |
+| [Kutch (Torrent) V wind farm](https://www.gem.wiki/Kutch_%28Torrent%29_V_wind_farm) | 115 | Devbhoomi Dwarka, Gujarat, India | [代沃普米德瓦尔卡县](https://www.wikidata.org/wiki/Q14594717) | 22.2, 69.65 | 縣（區） |
+| [Bhuj (Green Infra) wind farm](https://www.gem.wiki/Bhuj_%28Green_Infra%29_wind_farm) | 44 | Bhud, Maharashtra, India | [Bhood](https://www.wikidata.org/wiki/Q3630738) | 17.3364, 74.6842 | 縣（區） |
+| [Nipaniya (Mytrah) wind farm](https://www.gem.wiki/Nipaniya_%28Mytrah%29_wind_farm) | 30 | Nipaniya, Madhya Pradesh, India | [Nipaniya](https://www.wikidata.org/wiki/Q15262381) | 24.2, 79.2333 | 縣（區） |
+| [Muppandal (Muppandal Wind) wind farm](https://www.gem.wiki/Muppandal_%28Muppandal_Wind%29_wind_farm) | 22 | Muppandal, Tamil Nadu, India | [穆潘達爾風電場](https://www.wikidata.org/wiki/Q6937112) | 8.2608, 77.5486 | 縣（區） |
+| [Nipaniya (PTC) wind farm](https://www.gem.wiki/Nipaniya_%28PTC%29_wind_farm) | 20 | Nipaniya, Madhya Pradesh, India | [Nipaniya](https://www.wikidata.org/wiki/Q15262381) | 24.2, 79.2333 | 縣（區） |
+| [Muppandal (Ramco) wind farm](https://www.gem.wiki/Muppandal_%28Ramco%29_wind_farm) | 13 | Muppandal, Tamil Nadu, India | [穆潘達爾風電場](https://www.wikidata.org/wiki/Q6937112) | 8.2608, 77.5486 | 縣（區） |
+| [Kethanur Wind Farms wind farm](https://www.gem.wiki/Kethanur_Wind_Farms_wind_farm) | 11 | Kethanur, Tamil Nadu, India | [Kethanur](https://www.wikidata.org/wiki/Q6395389) | 10.91, 77.26 | 縣（區） |
+| [Muppandal Madras wind farm](https://www.gem.wiki/Muppandal_Madras_wind_farm) | 10 | Muppandal, Tamil Nadu, India | [穆潘達爾風電場](https://www.wikidata.org/wiki/Q6937112) | 8.2608, 77.5486 | 縣（區） |
+| [Modha wind farm](https://www.gem.wiki/Modha_wind_farm) | 52 | Fatehgarh, Jaiselmer, Rajasthan, India | [傑伊瑟爾梅爾縣](https://www.wikidata.org/wiki/Q1419708) | 26.9133, 70.9139 | 縣（區） |
 
 ## 哈薩克 (KAZ)
 
@@ -1036,6 +1080,7 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Winsen wind farm](https://www.gem.wiki/Winsen_wind_farm) | 20 | Lower Saxony, Germany | [下薩克森州](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | 市 |
 | [Hohe Heide wind farm](https://www.gem.wiki/Hohe_Heide_wind_farm) | 18 | Lower Saxony, Germany | [下薩克森州](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | 市 |
 | [Borne (MDP) wind farm](https://www.gem.wiki/Borne_%28MDP%29_wind_farm) | 33 | 1 Salzlandkreis, Saxony-Anhalt, Germany | [萨尔茨兰县](https://www.wikidata.org/wiki/Q6081) | 51.8333, 11.5833 | 縣（區） |
+| [Damme wind farm · 2, RP](https://www.gem.wiki/Damme_wind_farm) | 40 | 1 Vechta district, Lower Saxony, Germany | [費希塔縣](https://www.wikidata.org/wiki/Q5941) | 52.67, 8.25 | 縣（區） |
 
 ## 挪威 (NOR)
 
@@ -1059,6 +1104,11 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Abukuma South wind farm](https://www.gem.wiki/Abukuma_South_wind_farm) | 89.6 | Fukushima Prefecture, Japan | [福島縣](https://www.wikidata.org/wiki/Q71707) | 37.7503, 140.4677 | 市 |
 | [Yurihonjo Bayside wind farm](https://www.gem.wiki/Yurihonjo_Bayside_wind_farm) | 16 | Akita, Japan | [秋田縣](https://www.wikidata.org/wiki/Q81863) | 39.7186, 140.1025 | 市 |
 | [Yokohama Town Hibaritaira wind farm](https://www.gem.wiki/Yokohama_Town_Hibaritaira_wind_farm) | 32 | Yokohama-cho, Kamikita-gun, Aomori, Japan | [上北郡](https://www.wikidata.org/wiki/Q1143970) | 40.7739, 141.2608 | 縣（區） |
+| [Hamasato wind farm](https://www.gem.wiki/Hamasato_wind_farm) | 48 | Horonobe City, Hokkadio Prefecture, Japan | [幌延町](https://www.wikidata.org/wiki/Q955532) | 45.018, 141.8497 | 縣（區） |
+| [Hizen South (Daigas) wind farm](https://www.gem.wiki/Hizen_South_%28Daigas%29_wind_farm) | 18 | Karatsu City, Saga Prefecture, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
+| [Hizen South (JWE) wind farm](https://www.gem.wiki/Hizen_South_%28JWE%29_wind_farm) | 18 | Karatsu City, Saga Prefecture, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
+| [Hizen (JWE) wind farm](https://www.gem.wiki/Hizen_%28JWE%29_wind_farm) | 12 | Karatsu City, Saga, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
+| [Hizen (Daigas) wind farm](https://www.gem.wiki/Hizen_%28Daigas%29_wind_farm) | 12 | Karatsu City, Saga Prefecture, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
 
 ## 波蘭 (POL)
 
@@ -1149,6 +1199,13 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Los Lances wind farm](https://www.gem.wiki/Los_Lances_wind_farm) | 11 | Campo de Gibraltar, Cádiz, Andalucía, Spain | [直布羅陀縣](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | 鄉鎮 |
 | [Las Atalayas wind farm](https://www.gem.wiki/Las_Atalayas_wind_farm) | 50 | Valle de Santibáñez, Burgos, Castilla y León, Spain | [巴列德桑蒂瓦涅斯](https://www.wikidata.org/wiki/Q1656698) | 42.4802, -3.783 | 鄉鎮 |
 | [Fuenteblanca wind farm](https://www.gem.wiki/Fuenteblanca_wind_farm) | 10 | Valle de Santibáñez, Burgos, Castilla y León, Spain | [巴列德桑蒂瓦涅斯](https://www.wikidata.org/wiki/Q1656698) | 42.4802, -3.783 | 鄉鎮 |
+| [Icor wind farm](https://www.gem.wiki/Icor_wind_farm) | 21 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
+| [Porís De Abona wind farm](https://www.gem.wiki/Por%C3%ADs_De_Abona_wind_farm) | 20 | 1 Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
+| [Arico Environmental Complex wind farm](https://www.gem.wiki/Arico_Environmental_Complex_wind_farm) | 18 | Lomo del Arrastradero, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [聖克魯斯-德特內里費](https://www.wikidata.org/wiki/Q14328) | 28.4667, -16.25 | 縣（區） |
+| [Tagoro Risco Blanco wind farm](https://www.gem.wiki/Tagoro_Risco_Blanco_wind_farm) | 16 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
+| [Hoya De Lucas wind farm](https://www.gem.wiki/Hoya_De_Lucas_wind_farm) | 16 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
+| [Bermejo wind farm](https://www.gem.wiki/Bermejo_wind_farm) | 13 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
+| [Vera De Abote wind farm](https://www.gem.wiki/Vera_De_Abote_wind_farm) | 11 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
 
 ## 越南 (VNM)
 

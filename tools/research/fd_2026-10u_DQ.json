@@ -1,5 +1,508 @@
 [
  {
+  "farm": "Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "t": "mp",
+   "units_covered": "whole farm described as monopile + aquaculture cage (38 x 8 MW); no explicit count"
+  },
+  "note_zh": "單樁：中廣核電子採購平台 2024-07 為已運轉的萊州海上風儲電場招標風機腐蝕狀態檢測，採購內容寫「對單樁及套籠的腐蝕狀態進行檢測，其中單樁及套籠和套籠所有附件統稱為風機基礎」（套籠為海洋牧場養殖網籠，掛在單樁上）；山東省能源局 2022-12：38 台 8 MW，2022-07-24 首根風機基礎鋼管樁沉樁。出處把整座風場的風機基礎定義為單樁＋套籠，但沒有寫「38 台全部」，主對話請自行判斷是否採納。",
+  "note_en": "Monopiles: CGN's e-procurement notice (July 2024) for corrosion inspection of the operating Laizhou wind-plus-storage farm defines its scope as 'the monopile and the cage, the monopile, the cage and all cage fittings together being called the turbine foundation' (the cage is the aquaculture net cage hung on the monopile); Shandong Energy Bureau (Dec 2022): 38 x 8 MW, first foundation steel pipe pile driven on 24 July 2022. The notice describes the whole farm's turbine foundations as monopile + cage but does not say 'all 38'; the caller should decide whether that is enough.",
+  "sources": [
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4674453659ef4aa59cced5db80cbc40b.json",
+    "quote": "本次中广核莱州海上风储电场对单桩及套笼的腐蚀状态进行检测，其中单桩及套笼和套笼所有附件统称为风机基础",
+    "check": "OK"
+   },
+   {
+    "url": "http://nyj.shandong.gov.cn/art/2022/12/21/art_253733_10295458.html",
+    "quote": "总装机容量304兆瓦，规划建设38台单机容量8兆瓦风电机组",
+    "check": "OK"
+   },
+   {
+    "url": "http://nyj.shandong.gov.cn/art/2022/12/21/art_253733_10295458.html",
+    "quote": "7月24日，首根风机基础钢管桩沉桩；9月21日，首台风机吊装；11月25日，首批13台风机并网",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Longyuan Rudong Intertidal Demo",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "lp",
+     null
+    ],
+    [
+     "jk",
+     null
+    ],
+    [
+     "mp",
+     null
+    ]
+   ],
+   "units_covered": "types only (16 test units; 7 jacket foundations inspected 2023)"
+  },
+  "note_zh": "32 MW 潮間帶試驗場 16 部：龍源回顧寫先後用鋼板圍堰混凝土基礎、多管樁鋼結構與「單樁加過渡段」，2023 年檢測 7 部導管架基礎；本輪再查國家能源招標網（30MW 試驗項目鋼構基礎涂層改造 2024-10 終止公告、各風電場焊縫檢測招標）與世紀新能源網，都沒有各型式座數，仍缺混凝土基礎與單樁各幾部。",
+  "note_en": "16 test units (32 MW): Longyuan says the project used cofferdam concrete bases, multi-pile steel structures and \"monopile + transition piece\" in turn, and the 2023 inspection names 7 jacket foundations; this round (CHN Energy tender portal and ne21 again) found no per-type counts, so the number of concrete bases and monopiles is still missing.",
+  "sources": [
+   {
+    "url": "https://m.thepaper.cn/baijiahao_13374721",
+    "quote": "建设团队先后尝试了混凝土基础、多管桩钢结构基础、“单桩加过渡段”基础，单台风机的施工周期从几个月缩短到几天。",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20240624/ac50828b-5deb-40cc-a1c3-4f3a85694989.html",
+    "quote": "对30MW潮间带试验项目导管架基础防腐情况进行检测，检测发现7台风机",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Longyuan Rudong Intertidal Expansion",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "",
+   "units_covered": "none (50 units); the Huangang complex as a whole has concrete caps, monopiles and multi-pile foundations"
+  },
+  "note_zh": "擴建 200 MW（25 西門子＋25 遠景 4 MW，2015-08 竣工）仍沒有寫明基礎型式的出處：龍源 2025-12 焊縫檢測招標只寫環港風電場（155 部，含試驗、示範與擴建）有混凝土承台、單管樁、多管樁三種；2023-06 硫化氫整治招標寫環港風電場 10 部單樁塔基要處理（未指明期別）；2024-03 海域使用論證招標只寫機組與工期。缺擴建工程本身的施工或竣工紀錄。",
+  "note_en": "Still no source naming the expansion's foundations (25 Siemens + 25 Envision 4 MW, completed Aug 2015): Longyuan's Dec 2025 weld-inspection tender says only that the Huangang complex (155 units: test, demo and expansion) has concrete caps, monopiles and multi-pile foundations; the June 2023 hydrogen-sulphide tender treats 10 monopile units at Huangang without saying which phase; the Mar 2024 sea-use tender gives turbines and dates only. A construction or completion record for the expansion itself is missing.",
+  "sources": [
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20240320/a63a082f-7473-4c2e-97a3-de59ee531922.html",
+    "quote": "布置25台西门子和25台远景4.0MW风机，2014年12月开工，2015年8月30日全部竣工。",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251219/a5e27cb2-7ca9-4f09-884a-bda586e28c3d.html",
+    "quote": "海上环港风电场风机基础有混泥土承台、单管桩、多管桩多种形式",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20230607/422fe238-d6e5-4f4d-b035-5f79fe8d8c52.html",
+    "quote": "经初步分析，需要对海上射阳风电场全场90台，海上环港风电场10台机组内部采取排气、抽水、清淤等办法进行处理。 2.1.2招标范围：本项目共计100台机组腐蚀性气体处理，工作内容包括： 1、单桩塔基内排气",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Jiangsu Xiangshui",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "sb",
+     2
+    ]
+   ],
+   "units_covered": "2 of 55 (composite-bucket test foundations); the other 53 unknown"
+  },
+  "note_zh": "55 部（37×4 MW＋18×3 MW）：只有 2 座複合筒型試驗基礎可核對；本輪搜尋（施工完成、單樁／高樁承台、三航局）與世紀新能源網站內搜尋（只有運維招標）都沒有其餘 53 座的施工紀錄；三峽集團網站連不上。",
+  "note_en": "55 units (37 x 4 MW + 18 x 3 MW): only the 2 composite-bucket test foundations are quotable; this round's searches (completion, monopile/pile cap, CCCC Third Harbour) and the ne21 site search (O&M tenders only) gave no construction record for the other 53; CTG sites are unreachable.",
+  "sources": [
+   {
+    "url": "https://www.geoseu.cn/yanjiuyuan/5136.html",
+    "quote": "共安装37台单机容量为4MW风电机组和18台单机容量为3MW风电机组。该场址以软土地基为主，并在风电场内运用了两台吸力筒试验基础。",
+    "check": "OK"
+   },
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2017-06/26/content_1786482.htm",
+    "quote": "近日，世界首座复合筒型风机基础及3兆瓦风机结构在江苏响水海上风电场一步式安装完成。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SinoHydro Rudong Intertidal",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "lp",
+     20
+    ],
+    [
+     "jk",
+     12
+    ]
+   ],
+   "units_covered": "32 of 42 (MSA as-built notice); the 10 shore-side units are not typed"
+  },
+  "note_zh": "海事局 2021 年備案通告：灘塗區 20 部低樁高台柱、海上區 12 部五樁導管架，沿岸側 10 部（一期 2 MW）未寫型式；本輪無新出處。",
+  "note_en": "MSA 2021 notice: 20 low-pile tall-pedestal caps on the flat and 12 five-pile jackets offshore; the 10 shore-side units (phase 1, 2 MW) remain untyped. No new source this round.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
+    "quote": "风电场共布置风力发电组42台，其中沿岸侧布置10台；滩涂区域布置20台（采用低桩高台柱基础型式），海上区域布置12台（采用五桩导管架基础型式），详细机组位置分布见附件。",
+    "check": "OK"
+   },
+   {
+    "url": "https://hn.rednet.cn/content/646656/58/12150467.html",
+    "quote": "中南院设计团队因地制宜采取了低桩高台柱基础和五桩导管架基础，并首次采用了路基板及浮箱承台、超长锚栓笼组件、浮式路基通道等新技术",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Putian Pinghai Bay Phase 1",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "",
+   "units_covered": "none (10 prototype units; type not stated in any fetchable source)"
+  },
+  "note_zh": "一期 10 部湘電 5 MW 樣機：本輪搜尋（高樁承台、三航局、湘電）與英文報導（offshoreWIND.biz 2014、Windtech）都沒有寫基礎型式；百度百科仍 403。",
+  "note_en": "Phase 1, 10 XEMC 5 MW prototypes: this round's searches (pile cap, CCCC Third Harbour, XEMC) and the English trade press (offshoreWIND.biz 2014, Windtech) do not name the foundation type; Baidu Baike still returns 403.",
+  "sources": [
+   {
+    "url": "https://www.ndb.int/wp-content/uploads/2024/10/PPE-China-Putian-Pinghai-Bay-Offshore-Wind-Power-Project.pdf",
+    "quote": "Phase I was a testing prototype of 10 turbines with a capacity of 50 MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Zhuhai Guishan",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "jk",
+     34
+    ],
+    [
+     "mp",
+     null
+    ],
+    [
+     "sb",
+     2
+    ]
+   ],
+   "units_covered": "34 jackets (phase 1) + 2 bucket foundations of 49; the 13 units of 2021 are documented only as far as the first four monopiles"
+  },
+  "note_zh": "一期 34 部四樁導管架、後加 2 部筒型基礎有出處；2021 年的 13 部只有開工時「打下四根單樁」；本輪世紀新能源網站內搜尋只有已用過的報導，沒有 13 部的型式紀錄。",
+  "note_en": "Phase 1: 34 four-pile jackets; 2 later bucket foundations; the 13 units of 2021 are documented only by the first four monopiles at the start of works. The ne21 site search this round returned only the articles already used.",
+  "sources": [
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2017-06/19/content_1784827.htm",
+    "quote": "也是国内首例采用内插式四桩导管架基础型式、整机安装的海上风电机组",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-154743.html",
+    "quote": "从11月25日打下一期后续及二期工程首根桩开始，到12月2日因为恶劣天气避风，不到十天的时间里，项目部克服重重困难打下四根单桩",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=4ab6834f5da342eda39986faf7b5b0fa",
+    "quote": "项目建成装机容量200MW，共49台风机",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.gdshe.org/article/17649.html",
+    "quote": "6月26日，长江设计集团珠海桂山海上风电示范项目筒型基础专项EPC工程（桂山项目）完成第一台圆形筒型基础沉放安装",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Longyuan Putian Nanri Island",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "pc",
+     4
+    ],
+    [
+     "mp",
+     26
+    ]
+   ],
+   "sub": "嵌岩单桩",
+   "units_covered": "30 of 100 (4 pile-cap prototypes + lot IV 26 rock-socketed monopiles); lots VIII (12, with cap works) and IX (18) and the rest untyped"
+  },
+  "note_zh": "4 部高樁承台樣機＋IV 標段 26 部嵌岩單樁可核對；新查到龍源 2025-10 南日維保中心防腐招標寫三墩風電場（100 部 SWT-4.0-130＋1 部 4 MW 浮動式）有「海上風機基礎承台」要防腐，證實承台不只樣機，但沒有座數；VIII 標段 12 部含承台施工、IX 標段 18 部含鑽孔與套籠（招標），其餘標段沒有紀錄。",
+  "note_en": "4 pile-cap prototypes + lot IV's 26 rock-socketed monopiles are quotable; a new Longyuan tender (Oct 2025, Nanri maintenance centre) lists \"offshore turbine foundation caps\" at the Sandun farm (100 SWT-4.0-130 + one 4 MW floating unit) for anti-corrosion work, confirming caps beyond the prototypes but giving no count; lot VIII (12 units, cap works) and lot IX (18 units, drilling and cages) are tender-stage only, other lots undocumented.",
+  "sources": [
+   {
+    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202003/3557344e78ee4abb89fe3e86806d8ca3.shtml",
+    "quote": "先期开展的四台高桩承台基础样机，是我国东南沿海首批并网发电的海上风电机组",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=13fdc34debc743a2a5f264a127f5acdc",
+    "quote": "26台嵌岩单桩工程",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20200424/69406956-3cc6-4565-a660-10e5296ed980.html",
+    "quote": "负责吊桩、沉桩、嵌岩施工、承台施工、局部现场焊接以及电缆管的安装、抛石等施工图内的所有工作内容",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20251015/d7371b08-2c56-465e-8870-a1f938bfbd55.html",
+    "quote": "福建龙源海上风力发电有限公司三墩风电场安装100台西门子SWT-4.0-130风机和1台4MW漂浮式风机，装机容量404MW",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20251015/d7371b08-2c56-465e-8870-a1f938bfbd55.html",
+    "quote": "三墩风电场海上风机基础承台、护栏爬梯等钢结构防腐",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Tangshan Laoting Putidao",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "pc",
+     15
+    ],
+    [
+     "mp",
+     null
+    ]
+   ],
+   "units_covered": "15 pile caps (CCCC Third Harbour) of 75; Huadian Heavy's 39 pile caps (2017 contract) vs monopile reports unresolved"
+  },
+  "note_zh": "中交三航局 15 座高樁承台、華電重工 2017 年 39 座高樁承台合約、華西海工 2018-11 單樁，仍互相矛盾；本輪搜尋與世紀新能源網站內搜尋（菩提島、樂亭、華電重工 承台）都沒有建成後分型式座數。",
+  "note_en": "CCCC Third Harbour's 15 pile caps, Huadian Heavy's 2017 contract for 39 pile caps and Huaxi's 2018 monopile remain unreconciled; this round's searches and the ne21 site search (Putidao, Laoting, Huadian Heavy cap) gave no as-built split.",
+  "sources": [
+   {
+    "url": "https://baijiahao.baidu.com/s?id=1755608206977396947&wfr=spider&for=pc",
+    "quote": "三航局负责15台高桩混凝土基础的土建及金属结构安装工程和75台单机容量为4.0兆瓦风机机组的安装，风电场装机总容量为300兆瓦。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.offshorewind.biz/2017/11/20/huadian-heavy-joins-laothing-bodhi-offshore-wind-project/",
+    "quote": "Huadian Heavy Industries will be in charge of constructing the high-rise pile cap foundations for 39 offshore wind turbines to be installed off the coast of the Hebei province.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.hxoes.com/history.html",
+    "quote": "2018年11月 华西5000在唐山乐亭菩提岛海上风电场项目中完成公司首个海上风电单桩基础施工",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Jiangsu Dafeng 300 MW",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "mp",
+     null
+    ],
+    [
+     "sb",
+     null
+    ]
+   ],
+   "units_covered": "types only (73 units; monopiles plus at least one composite bucket)"
+  },
+  "note_zh": "73 部（54×3.3＋19×6.45 MW）：單樁為主、另有複合筒基礎；本輪搜尋與《岩土工程學報》2021 年論文（以大豐 6.45 MW 複合筒型基礎為背景）都沒有座數。",
+  "note_en": "73 units (54 x 3.3 + 19 x 6.45 MW): mostly monopiles plus composite bucket foundations; this round's searches and the 2021 geotechnical paper (on the Dafeng 6.45 MW composite bucket) give no counts.",
+  "sources": [
+   {
+    "url": "https://www.thepaper.cn/newsDetail_forward_4965158",
+    "quote": "复合筒基础及风机一体化施工 单桩基础立桩 沉桩完成",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.cgejournal.com/article/doi/10.11779/CJGE2020S1006",
+    "quote": "结合三峡大丰海上风电场建设工程开展原位监测,基于多向倾角自动化监测系统并结合数值模拟,研究了结构在安装运行过程中的倾角和姿态变化规律。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.cgejournal.com/cn/article/pdf/preview/10.11779/CJGE202104018.pdf",
+    "quote": "以江苏大丰海上风电场 6.45 MW风机复合筒型基 础为背景",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Fuqing Xinghua Bay Phase 2",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "pc",
+     null
+    ],
+    [
+     "gb",
+     null
+    ]
+   ],
+   "units_covered": "1 of 45 documented (58#, eight-inclined-pile high-rise cap for the 10 MW prototype)"
+  },
+  "note_zh": "二期 45 部：只有 58 號 10 MW 樣機的八斜樁高樁承台可核對；本輪世紀新能源網站內搜尋（吊裝、併網報導）都沒有寫其他機位的基礎型式。",
+  "note_en": "Phase 2, 45 units: only the eight-inclined-pile high-rise cap of the 10 MW prototype (58#) is quotable; the ne21 site search this round (installation and grid articles) names no other foundation types.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-133211.html",
+    "quote": "58号风机基础采用八根斜桩式高桩承台设计，具有抗风能力强，承受更大的上部荷载等优点，用来安装施工区域容量最大的10MW风机。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=08006acc4b1d4dabb54804c4d47279c8",
+    "quote": "二期项目场址中心距岸线约2.2km，共安装45台风机，项目装机容量280MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Dalian Zhuanghe III",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "mp",
+     48
+    ],
+    [
+     "pc",
+     20
+    ]
+   ],
+   "units_covered": "68 of 73 (CCCC Third Harbour 42 + 6 monopiles, 7 caps; CCCC First Harbour 13 caps); 5 unknown"
+  },
+  "note_zh": "68 部有施工紀錄（三航局 42 非嵌岩單樁＋6 嵌岩單樁＋7 高樁承台，一航局 13 座承台），其餘 5 部型式不詳；本輪無新出處。",
+  "note_en": "68 units have construction records (CCCC Third Harbour: 42 + 6 monopiles, 7 caps; CCCC First Harbour: 13 caps); 5 units remain untyped. No new source this round.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-132679.html",
+    "quote": "负责第一批次55台风电机组基础及安装任务，主要包括42台单桩非嵌岩式、6台单桩嵌岩式和7台高桩承台式结构",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-131142.html",
+    "quote": "该工程施工内容包括：钢管桩沉桩88根（不含试桩机位），非嵌岩桩桩芯64根，嵌岩桩桩芯24根，混凝土承台13座，附属构件安装13套",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-135820.html",
+    "quote": "本工程布置2台单机容量3MW风电机组、50台单机容量3.3MW风电机组、21台单机容量6.45MW风电机组，装机规模为300MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Putian Pinghai Bay Phase 3",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "mp",
+     null
+    ],
+    [
+     "pc",
+     null
+    ]
+   ],
+   "units_covered": "types only (44 units; monopiles with a pile-stabilising platform plus a pile-cap cage at 44#)"
+  },
+  "note_zh": "三期 44 部 7 MW：單樁與高樁承台並用有出處，座數不詳；本輪世紀新能源網站內搜尋（三航局預中標 308 MW 工程、三期核准）沒有寫分型式座數。",
+  "note_en": "Phase 3, 44 x 7 MW: monopiles and high-rise caps are both documented, counts not; the ne21 site search this round (CCCC Third Harbour's 308 MW award, phase-3 approval) gives no split.",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-134867.html",
+    "quote": "6月23日，厦船重工承接的中交三航局莆田平海湾海上风电项目一号稳桩平台、44#机位套笼成功交付落驳。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-131941.html",
+    "quote": "44台7MW机组",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Zhuanghe II",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "t": "mx",
+   "parts": [
+    [
+     "mp",
+     null
+    ],
+    [
+     "jk",
+     null
+    ]
+   ],
+   "sub": "吸力桶导管架",
+   "units_covered": "types only (60 units): 25 monopiles by Sept 2020; suction-bucket jackets include 7 built by DSIC (Oct 2021); the 40 + 20 split still unverified"
+  },
+  "note_zh": "60 部海裝 5 MW：2020-09 已裝單樁 25 根及首座吸力桶導管架；新查到大船集團 2021-10 報導：為莊河 II 交付 7 套「四吸力桶導管架」（長寬 30 m、高 45.5 m、近 1,200 t），是其承建的部分，不等於全場吸力桶數量；40 單樁＋20 吸力桶的分法仍無可核對出處（莊河市政府頁面 503，本輪搜尋無其他）。",
+  "note_en": "60 CSIC Haizhuang 5 MW units: 25 monopiles and the first suction-bucket jacket by Sept 2020; newly found, DSIC reported in Oct 2021 that it delivered 7 \"four-bucket\" jackets (30 m square, 45.5 m high, nearly 1,200 t) for Zhuanghe II — its own share, not the farm total; the 40 + 20 split still has no checkable source (Zhuanghe government page 503, nothing else found this round).",
+  "sources": [
+   {
+    "url": "https://www.ne21.com/news/show-135438.html",
+    "quote": "累计安装单桩风机基础25根，全球首台海冰地区吸力桶导管架风机基础及国内首台吸力桶风机基础成功实施",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.news.cn/power/2021-12/30/c_1211507094.htm",
+    "quote": "Ⅱ风场规模化应用负压吸力桶导管架风机基础，开创中国海上风电先河",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=1470992cb14d4c3e93cf0439b48aa435",
+    "quote": "中船重工大连市庄河海域海上风电场址II（300MW）项目风机基础施工I标段（非嵌岩单桩）施工项目",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=b36f2cc195ed41e78e9f1065026bf643",
+    "quote": "中船重工大连市庄河海域海上风电场址Ⅱ（300MW）项目吸力桶导管架基础运输与安装施工",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-166126.html",
+    "quote": "大船集团装备公司已为大连市庄河海域海上风电场址II（300MW）交付吸力桶导管架基础7套",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-166126.html",
+    "quote": "该项目是国内首制的四吸力桶导管架形式的海上风电风机基础，长宽各30米、高45.5米、重量近1200吨，由4个直径9.5米、高10.5米的吸力桶和高35米的上部导管架组成",
+    "check": "OK"
+   }
+  ]
+ },
+ {
   "farm": "Zhuanghe I",
   "iso": "CHN",
   "type": "lead",
@@ -8,8 +511,8 @@
    "sub": "吸力桶",
    "units_covered": "design only (19)"
   },
-  "note_zh": "只有 2020 年 EPC 得標新聞（世紀新能源網）寫 19 部 5.2 MW「風機基礎將創新性地採用導管架吸力筒基礎型式」，是設計；搜尋摘要另稱建成 16 單樁＋3 吸力筒導管架（龍船風電網，403 無法核對），沒有施工或竣工紀錄。本輪搜尋額度在查到施工紀錄前用完。",
-  "note_en": "Only the 2020 EPC award news (ne21) says the 19 x 5.2 MW turbines 'will' use suction-bucket jacket foundations (design); a search snippet claims 16 monopiles + 3 suction-bucket jackets as built (longship site, 403, not checkable). No construction or completion record found; search budget ran out.",
+  "note_zh": "只有 2020 年 EPC 得標新聞寫 19 部「將創新性地採用導管架吸力筒基礎」；本輪搜尋（北方建投、沉放、單桩）仍沒有施工或竣工紀錄。",
+  "note_en": "Only the 2020 EPC award says the 19 units \"will innovatively use suction-bucket jacket foundations\"; this round's searches (contractor, installation, monopile) found no construction or completion record.",
   "sources": [
    {
     "url": "https://www.ne21.com/news/show-157836.html",
@@ -27,8 +530,8 @@
    "sub": "复合桩",
    "units_covered": "18 (pre-completion description)"
   },
-  "note_zh": "中國能源網 2017-09 在建項目概況寫一期 18 部 G132-5.0「採用低樁承台基礎」（海陸結合風場、位於南防波堤外治導線內）；國資委 2018-06 與中國電建新能源官網（建成後）只寫「複合樁風機基礎」，沒有寫明承台高低。建成後沒有出處寫出承台型式，故列線索（低樁承台＋複合樁）。",
-  "note_en": "A Sep 2017 project overview (china5e, under construction) says the 18 x G132-5.0 phase 1 'uses low pile-cap foundations' (land-sea site inside the south breakwater training line); SASAC (Jun 2018) and PowerChina New Energy (post-completion) only say 'composite-pile turbine foundations' without naming the cap type. Lead: low pile cap on composite piles.",
+  "note_zh": "仍只有 2017-09 在建概況寫「低樁承台基礎」，建成後出處只寫「複合樁」；本輪世紀新能源網站內搜尋（南港）沒有新出處。",
+  "note_en": "Still only the Sept 2017 under-construction overview names \"low pile cap\"; post-completion sources say only \"composite pile\"; the ne21 site search (Nangang) gave nothing new.",
   "sources": [
    {
     "url": "https://www.china5e.com/news/news-1004814-1.html",
@@ -39,11 +542,6 @@
     "url": "http://www.sasac.gov.cn/n2588025/n2588124/c9178300/content.html",
     "quote": "南港海上风电场是首个对风机采用复合桩基础施工的风电场",
     "check": "OK"
-   },
-   {
-    "url": "https://www.powerchinanewenergy.com/col13032/art/2022/art_13032_1298379.html",
-    "quote": "也是中国首个采用复合桩风机 基础的风电项目",
-    "check": "OK"
    }
   ]
  },
@@ -53,10 +551,10 @@
   "type": "lead",
   "value": {
    "t": "mp",
-   "units_covered": "30 of 58 (lot 2) by construction record"
+   "units_covered": "30 of 58 (lot 2) by construction record; lot 1 (28 x 4.5 MW) untyped by a primary source"
   },
-  "note_zh": "第一財經（2021-11）：2 標「10 台 4.5 MW 和 20 台 6.45 MW 風機的單樁基礎和安裝作業全部完成」（30 部單樁，施工紀錄）；海事局建成備案寫全場 58 部（20×6.45＋38×4.5 MW）。1 標 28 部 4.5 MW 的型式只有 GlobalData 的二手專案頁寫「monopile」，沒有一手施工紀錄；海事局 2022-11 航行通告只寫「風機基礎及海上升壓站、高抗站導管架基礎防沖刷保護」。",
-  "note_en": "Yicai (Nov 2021): lot 2 '10 x 4.5 MW and 20 x 6.45 MW turbines' monopile foundations and installation all finished (30 monopiles, construction record); the MSA post-completion notice gives 58 turbines (20 x 6.45 + 38 x 4.5 MW). For lot 1 (28 x 4.5 MW) only a secondary GlobalData profile says monopile; no primary construction record. The MSA Nov 2022 notice only mentions scour protection of turbine foundations and the substation/reactor jacket foundations.",
+  "note_zh": "2 標 30 部單樁有施工紀錄；1 標 28 部 4.5 MW 仍只有 GlobalData 二手頁；本輪搜尋無新出處。",
+  "note_en": "Lot 2's 30 monopiles have a construction record; lot 1's 28 x 4.5 MW still rest on GlobalData only; nothing new this round.",
   "sources": [
    {
     "url": "https://www.yicai.com/news/101251052.html",
@@ -66,16 +564,6 @@
    {
     "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5854d0e741ec4ba1a77dc666e5595d12",
     "quote": "本工程共布置58台风机，其中20台为6.45MW风机、38台为4.5MW风机",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=dfccfd5e27ef4d6fb27ba0e5d97275da",
-    "quote": "三峡新能源江苏大丰H8-2#300MW海上风电场风机基础及海上升压站、高抗站导管架基础防冲刷保护施工",
-    "check": "OK"
-   },
-   {
-    "url": "https://power-technology.com/?p=172502",
-    "quote": "The wind turbines in the Three Gorges New Energy Jiangsu Dafeng H8-2 Offshore Wind Farm Project Phase I are installed on fixed foundations. An array of monopile foundations feature in the phase.",
     "check": "OK"
    }
   ]
@@ -96,19 +584,14 @@
      8
     ]
    ],
-   "units_covered": "design (research report); construction counts not found"
+   "units_covered": "design (research report); construction lots I (30 mp) + II (41 mp) = 71 monopiles, jackets not counted"
   },
-  "note_zh": "78 部 6.45 MW，2022-11 全場併網。設計：研報（CPEM 轉載）寫「計畫採用 70 台單樁基礎和 8 台四樁導管架基礎」；招標：2019-12 甲子（一、二）導管架施工 I 標段 15 台風機導管架、2021-12 甲子一單樁 II 標段 41 個機位；建成後 2025-12 消缺招標寫「風電機組單樁基礎防腐處理」，證實有單樁，但各型式建成座數沒有一手紀錄。",
-  "note_en": "78 x 6.45 MW, fully connected Nov 2022. Design: a research report (CPEM) says '70 monopiles and 8 four-pile jackets planned'; tenders: Dec 2019 jacket lot I for Jiazi (I and II) with 15 turbine jackets, Dec 2021 monopile lot II for Jiazi I with 41 positions; the Dec 2025 defect-closure tender (post-completion) mentions 'monopile foundation anti-corrosion', confirming monopiles, but no primary record gives the as-built count per type.",
+  "note_zh": "設計 70 單樁＋8 四樁導管架；施工標段 I 30 單樁、II 41 單樁；本輪廣東省生態環境廳 PDF（2857499、2853385）只有 1.4 KB 文字、無基礎內容，中廣核採購平台查詢 API 回 0 筆，澎湃與中證網的全容量併網報導只寫 20 號機位 2021-10-16 開始沉樁。缺導管架座數的施工紀錄。",
+  "note_en": "Design: 70 monopiles + 8 four-pile jackets; construction lots I (30 monopiles) and II (41 monopiles); this round the Guangdong EE bureau PDFs (2857499, 2853385) have 1.4 KB of text and nothing on foundations, the CGN procurement API returned 0 items, and the thepaper/cs.com.cn full-capacity articles only say piling began at position 20 on 16 Oct 2021. A construction count of the jackets is still missing.",
   "sources": [
    {
     "url": "https://www.cpem.org.cn/list99/51783.html",
     "quote": "中广核汕尾 甲子一 500MW 海风项目水深 30-35 米，计划采用 70台单桩基础和 8台四桩导管架基础",
-    "check": "OK"
-   },
-   {
-    "url": "https://ecp.cgnpc.com.cn/detail/65e43b2fbc914f7e98d966d85f78d5de/adb3004f51d74860b3c8ecda209d3dd5.json",
-    "quote": "本标段投标人负责完成中广核汕尾甲子海上风电场 17 台导管架基础（非嵌岩）施工，其中风机导管架基础 15 台，海上升压站（甲子一，甲子二）导管架基础 2 台",
     "check": "OK"
    },
    {
@@ -122,8 +605,8 @@
     "check": "OK"
    },
    {
-    "url": "https://news.southcn.com/node_54a44f01a2/cf0ad8e8d4.shtml",
-    "quote": "顺利实现全场78台风机并网发电，标志着国内首个平价海上风电项目实现全容量并网发电",
+    "url": "https://www.thepaper.cn/newsDetail_forward_21241450",
+    "quote": "2021年10月16日，中广核汕尾甲子一海上风电项目20号风机基础开始沉桩作业",
     "check": "OK"
    }
   ]
@@ -134,10 +617,10 @@
   "type": "lead",
   "value": {
    "t": "mp",
-   "units_covered": "50 (design + tender lots 20+?+10; post-completion mention of monopiles, no count)"
+   "units_covered": "30 of 50 by tender lots (I: 20 positions, III: 10 monopile positions; lot II not found); design 50 monopiles ≤10 m; post-completion mention of monopiles without count"
   },
-  "note_zh": "2021-12 海域使用補充論證（汕尾市政府）：改為 50 部 8.0 MW，「風機基礎採用最大樁徑 10.0 m 的單樁基礎」；2022-03 中廣核招標 I 標段 20 機位基礎、III 標段「10 機位單樁基礎施工」（II 標段未抓到）；2022-06-03 首台風機基礎沉樁、2022-12 全容量併網；海事局備案寫建成 50 部 8.0 MW；2025-12 消缺招標寫「風電機組單樁基礎防腐處理」。全部都指向 50 座單樁，但沒有一份建成紀錄寫出 50 座單樁。",
-  "note_en": "Dec 2021 sea-use supplementary report (Shanwei government): revised to 50 x 8.0 MW with 'monopile foundations of up to 10.0 m diameter'; Mar 2022 CGN tenders: lot I 20 positions, lot III '10 positions monopile foundations' (lot II not fetched); first foundation pile 3 Jun 2022, full capacity Dec 2022; MSA record 50 x 8.0 MW as built; the Dec 2025 defect-closure tender mentions 'turbine monopile foundation anti-corrosion'. Everything points to 50 monopiles but no single as-built record states it.",
+  "note_zh": "仍是線索：汕尾市政府 2021-12 海域使用補充報告寫調整後 50 部 8.0 MW、風機基礎為最大樁徑 10 m 的單樁；中廣核 2022-03 招標 Ⅰ 標段 20 機位基礎、Ⅲ 標段 10 機位單樁基礎（公告要求同時投 Ⅰ、Ⅱ、Ⅲ 三個標段，Ⅱ 標段公告在這裡找不到）；澎湃 2022：首台基礎 2022-06-03 沉樁、甲子場布置 78 部 6.45 MW＋50 部 8.0 MW；海事局寫建成 50 部 8.0 MW；2025-12 缺陷整治招標提到「風電機組單樁基礎防腐」。沒有一份竣工文件寫 50 座單樁；本輪新搜尋（沉樁完成、Ⅱ 標段、竣工驗收）都沒有結果。",
+  "note_en": "Still a lead: Shanwei's Dec 2021 supplementary sea-use report gives 50 x 8.0 MW on monopiles of up to 10 m; CGN's Mar 2022 tenders cover 20 positions (lot I) and 10 monopile positions (lot III), and the lot I notice requires bidding on lots I, II and III together (the lot II notice could not be found); The Paper: first foundation pile 3 Jun 2022, the Jiazi site has 78 x 6.45 MW + 50 x 8.0 MW; the MSA records 50 x 8.0 MW built; the Dec 2025 defect-closure tender mentions turbine monopile foundations. No completion document states 50 monopiles; this round's searches (pile-driving completion, lot II, completion acceptance) found nothing.",
   "sources": [
    {
     "url": "https://www.shanwei.gov.cn/attachment/0/27/27643/787473.pdf",
@@ -173,6 +656,21 @@
     "url": "http://www.dlztb.com/xmxx/202512/134994.html",
     "quote": "海上升压站/风电机组单桩基础防腐处理",
     "check": "OK"
+   },
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/65e43b2fbc914f7e98d966d85f78d5de/a8c85f2da4b6435689e047ac5a0173c4.json",
+    "quote": "拟布置 50 台 8.0MW 风电机组，新建 1 座 400MW 海上升压站",
+    "check": "OK"
+   },
+   {
+    "url": "https://ecp.cgnpc.com.cn/detail/65e43b2fbc914f7e98d966d85f78d5de/a8c85f2da4b6435689e047ac5a0173c4.json",
+    "quote": "投标人应同时投 “ 中广核甲子二海上风电场项目基础施工及风机安装采购 Ⅰ 标段 ” 、 “ 中广核甲子二海上风电场项目基础施工及风机安装采购 Ⅱ 标段 ” 和 “ 中广核甲子二海上风电场项目基础施工及风机安装采购 Ⅲ 标段 ”",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.thepaper.cn/newsDetail_forward_21241450",
+    "quote": "布置78台6.45MW和50台8.0MW海上风电机组",
+    "check": "OK"
    }
   ]
  },
@@ -181,8 +679,8 @@
   "iso": "CHN",
   "type": "none",
   "value": {},
-  "note_zh": "查不到型式：47 部 8.5 MW，2022-07-11 首樁沉樁、2022-12-30 全容量併網（電力網）；山能新能源 2025 年運維檢測招標只寫 A、B 場「鋼管樁基礎」與「樁基沖刷檢測」（未寫單樁或導管架）。東營市政府與北極星連不上，搜尋額度用完。",
-  "note_en": "Type not found: 47 x 8.5 MW, first pile 11 Jul 2022, full capacity 30 Dec 2022 (chinapower); the 2025 O&M inspection tender for sites A and B only says 'steel pipe pile foundations' and 'pile scour inspection' without naming monopile or jacket. Dongying government and bjx unreachable; search budget exhausted.",
+  "note_zh": "仍查不到型式：47 部 8.5 MW，2022-07-11 首樁沉樁、2022-12-30 全容量併網（中國電力網）；2025 年 A、B 場址檢驗招標只寫「鋼管樁基礎」。本輪搜尋（單樁沉樁 47 台、中鐵）與世紀新能源網站內搜尋（渤中B）都沒有新結果。",
+  "note_en": "Type still not found: 47 x 8.5 MW, first pile 11 Jul 2022, full capacity 30 Dec 2022 (chinapower); the 2025 inspection tender for sites A and B says only 'steel pipe pile foundations'. This round's search (47 monopiles, China Railway) and the ne21 site search returned nothing new.",
   "sources": [
    {
     "url": "http://mm.chinapower.com.cn/flfd/xmjz/20230103/182345.html",
@@ -202,10 +700,10 @@
   "type": "lead",
   "value": {
    "t": "mp",
-   "units_covered": "25 of 50 (CCCC Third Harbour lot, WeChat source not machine-checkable)"
+   "units_covered": "25 of 50 (CCCC Third Harbour lot, WeChat source not machine-checkable); all 50 only 'foundations' without type"
   },
-  "note_zh": "50 部 6 MW；金風科技與山東省能源局寫 2022 年 3 個半月內完成全部 50 部的基礎施工與吊裝，世紀新能源網 2022-07 寫已完成 15 個機位基礎沉樁，新華社 2026-06 寫「基樁已打入海底 50 米」，都沒寫型式。中交三航局承建其中 25 部單樁基礎（微信出處，無法核對）；另 25 部型式未找到。",
-  "note_en": "50 x 6 MW; Goldwind and the Shandong Energy Bureau say all 50 foundations and turbines were done within 3.5 months in 2022, ne21 (Jul 2022) reports 15 positions piled, Xinhua (Jun 2026) says piles driven 50 m into the seabed; none names the type. CCCC Third Harbour built 25 monopile foundations (WeChat, not checkable); the other 25 are unknown.",
+  "note_zh": "仍是線索：金風與三峽稱 2022 年 3 個半月內完成全部 50 部風機基礎施工與吊裝、ne21 2022-07 寫已完成 15 個機位基礎沉樁、新華社 2026-06 寫基樁打入海底 50 m、水深 7–9 m，都沒寫型式；中交三航 25 座單樁只見於微信（無法核對）。本輪搜尋「50台 單樁基礎 沉樁」沒有新結果。",
+  "note_en": "Still a lead: Goldwind/CTG say all 50 foundations and turbines were done within 3.5 months in 2022, ne21 (Jul 2022) reports 15 positions piled and Xinhua (Jun 2026) piles driven 50 m into the seabed in 7-9 m of water, none naming the type; CCCC Third Harbour's 25 monopiles are only on WeChat (not checkable). This round's search found nothing new.",
   "sources": [
    {
     "url": "https://www.goldwind.com/en/news/focus-922169309487311872/?id=922182106367542272",
@@ -221,6 +719,11 @@
     "url": "https://www.news.cn/20260608/89c8b23d2cbb4d8ba9d560e88d62f153/c.html",
     "quote": "这些风机安装在距离海岸14-18公里的莱州湾海域，水深7-9米，基桩已打入海底50米",
     "check": "OK"
+   },
+   {
+    "url": "https://c.m.163.com/news/a/KUU78PU205346RC6.html",
+    "quote": "这些风机安装在距离海岸14-18公里的莱州湾海域，水深7-9米，基桩已打入海底50米",
+    "check": "OK"
    }
   ]
  },
@@ -233,8 +736,8 @@
    "sub": "四桩",
    "units_covered": "39+1 of 74 (CRBC lot II, under construction Jun 2024)"
   },
-  "note_zh": "2021 年補充論證報告設計為四樁導管架（當時 105 部）；中鐵大橋局青洲六、七 II 標段為 39 部 10 MW 以上＋1 部 8 MW 機位的導管架基礎，2024-06 已沉樁 9 個機位、安裝導管架 5 個機位（電力網轉龍船風電網）；運行期招標寫建成 74 部。其餘標段型式與全場竣工紀錄未找到，搜尋額度用完。",
-  "note_en": "The 2021 supplementary sea-use report designed four-pile jackets (105 turbines then); CRBC's Qingzhou 6/7 lot II covers jacket foundations for 39 turbines of 10 MW+ and 1 x 8 MW, with 9 positions piled and 5 jackets installed by Jun 2024 (chinapower); the O&M tender says 74 turbines built. Other lots and a whole-farm completion record not found; search budget exhausted.",
+  "note_zh": "沿用前一輪線索：2021 年用海補充報告設計四樁導管架（當時 105 部）；路橋青洲六／七 Ⅱ 標段含 39 部 10 MW 以上＋1 部 8 MW 的導管架基礎，2024-06 已沉樁 9 機位、裝導管架 5 機位；運維招標寫建成 74 部。本輪沒有新搜尋額度，其餘標段與全場完工紀錄仍未找到。",
+  "note_en": "Prior lead carried over: the 2021 supplementary sea-use report designed four-pile jackets (105 units then); CRBC's lot II covers jacket foundations for 39 x 10 MW+ and 1 x 8 MW, with 9 positions piled and 5 jackets set by Jun 2024; the O&M tender gives 74 units built. No search budget was left for the other lots or a whole-farm completion record.",
   "sources": [
    {
     "url": "http://www.chinapower.com.cn/flfd/xmjz/20240705/252493.html",
@@ -263,12 +766,17 @@
   "iso": "CHN",
   "type": "none",
   "value": {},
-  "note_zh": "查不到型式：一期 35×10 MW＋4×12.6 MW，2025-05-31 全容量併網；齊魯網只寫「樁基東營本地化率達 90% 以上」。單樁直徑 7.5 m 的報導在連不上的網站（北極星），搜尋額度用完。",
-  "note_en": "Type not found: phase 1 is 35 x 10 MW + 4 x 12.6 MW, full capacity 31 May 2025; iqilu only says 'pile foundations over 90% locally made in Dongying'. The 7.5 m monopile report is on an unreachable site (bjx); search budget exhausted.",
+  "note_zh": "仍查不到型式：一期 35 部 10 MW＋4 部 12.6 MW，2025-05-31 全容量併網（大眾新聞、齊魯網）；只寫樁基東營本地化率 90% 以上。本輪搜尋「渤中G 單樁 沉樁 39台」與 ne21 站內搜尋沒有結果；7.5 m 單樁的報導仍在連不上的北極星。",
+  "note_en": "Type still not found: phase 1 is 35 x 10 MW + 4 x 12.6 MW, full capacity 31 May 2025 (Dazhong News, iqilu), which only say pile foundations are over 90% locally made. This round's search and the ne21 site search gave nothing; the 7.5 m monopile report remains on the unreachable bjx site.",
   "sources": [
    {
     "url": "https://news.iqilu.com/shandong/yuanchuang/2025/0531/5817656.shtml",
     "quote": "风电机组、塔筒、桩基东营本地化率达到90%以上",
+    "check": "OK"
+   },
+   {
+    "url": "https://m.dzplus.dzng.com/share/general/0/NEWS2440766LNRPSOPDIPEMT",
+    "quote": "项目一期工程位于山东省东营市东部海域，总装机容量400.4兆瓦，安装35台10兆瓦、4台12.6兆瓦风机",
     "check": "OK"
    }
   ]
@@ -281,8 +789,8 @@
    "t": "mp",
    "units_covered": "60 (tender: lot I 30 + lot II 30 monopile positions); 9 jacket positions reserved in an earlier design"
   },
-  "note_zh": "招標（智瞭標訊轉載）：風機基礎及安裝 I、II 標段各「30 個機位風電機組單樁基礎施工」，合計 60 座單樁；更早的設計（CPEM）寫「暫時預留 9 個機位做導管架基礎設計，剩餘機位做單樁」。沒有施工或竣工紀錄，搜尋額度用完。",
-  "note_en": "Tender (zhiliaobiaoxun): foundation-and-installation lots I and II each cover 'monopile foundations at 30 positions', i.e. 60 monopiles; an earlier design note (CPEM) reserved 9 positions for jackets with the rest monopiles. No construction or completion record; search budget exhausted.",
+  "note_zh": "沿用前一輪線索：招標 Ⅰ、Ⅱ 標段各「30 個機位風電機組單樁基礎施工」（共 60 單樁）、較早的設計說明預留 9 機位導管架。本輪搜尋「單樁 沉樁 完成」只找到半島北 L 場址（四樁導管架）的報導，與 BW 無關；ne21 站內搜尋「半島北BW」「BW場址」沒有結果。仍無施工或完工紀錄。",
+  "note_en": "Prior lead carried over: tender lots I and II each cover 'monopile foundations at 30 positions' (60 monopiles), and an earlier design note reserved 9 jacket positions. This round's search only returned the Peninsula North L site (four-pile jackets), unrelated to BW, and the ne21 site search found nothing; still no construction or completion record.",
   "sources": [
    {
     "url": "https://sd.zhiliaobiaoxun.com/article/37855135",
@@ -310,8 +818,8 @@
    "sub": "四桩",
    "units_covered": "58 (post-tender sea-use report); construction records for 25 (lot II jackets shipped) + 11 (18 MW jacket grouting tender)"
   },
-  "note_zh": "陽江市自然資源局公開的用海調整論證報告（依實際中標機型，25×16.2＋33×18 MW）寫「本項目 58 台風機基礎為四樁導管架，鋼管樁直徑 3.5 m」「調整後風機基礎仍採用四樁導管架基礎」；施工面：II 標段 25 座四腿導管架 2026-05 發運（百家號轉載）、I 標段中廣核 2025-10 採購「11 台 18MW 風機導管架基礎灌漿」、2026-07 25 部 GWH266-16.2MW 全場吊裝完成、2026-09-24 全容量投運。全場皆導管架的證據很強，但沒有一份竣工紀錄寫明 58 座導管架建成，故列線索。",
-  "note_en": "The sea-use adjustment report published by Yangjiang's natural-resources bureau (based on the actual winning turbine models, 25 x 16.2 + 33 x 18 MW) says 'the 58 turbine foundations are four-pile jackets with 3.5 m piles' and 'the foundations remain four-pile jackets after the adjustment'; construction side: 25 four-leg jackets of lot II shipped May 2026 (Baijiahao repost), CGN's Oct 2025 procurement of 'grouting for 11 x 18 MW turbine jacket foundations' in lot I, all 25 GWH266-16.2 MW turbines installed Jul 2026, full operation 24 Sep 2026. Strong evidence that the whole farm is on jackets, but no completion record states 58 jackets as built, so a lead.",
+  "note_zh": "沿用前一輪線索：陽江自然資源局公開的用海調整報告（依實際中標機型 25 部 16.2＋33 部 18 MW）寫 58 座風機基礎為四樁導管架；施工面有 Ⅱ 標段 25 座四腿導管架發運、Ⅰ 標段 11 部 18 MW 導管架灌漿採購；2026-09-24 全容量投運。本輪搜尋「導管架 全部 沉樁完成 58台」沒有找到整場完工紀錄（只有 2026-07 吊裝 27 部、剩 31 部的報導）。",
+  "note_en": "Prior lead carried over: the sea-use adjustment report published by Yangjiang's natural-resources bureau (25 x 16.2 + 33 x 18 MW as awarded) says the 58 turbine foundations are four-pile jackets; construction records cover lot II's 25 four-leg jackets shipped and lot I's grouting of 11 x 18 MW jackets; full operation 24 Sep 2026. This round's search found no whole-farm foundation completion record (only July 2026 reports of 27 turbines installed, 31 to go).",
   "sources": [
    {
     "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/66/66606/833758.pdf",
@@ -373,8 +881,8 @@
    ],
    "units_covered": "25 suction-bucket jackets by design/construction news; the other 35 only implied (monopile pile-flipping technique in lot 1)"
   },
-  "note_zh": "大唐集團／環球網（2024-10）：「本項目共設計吸力桶導管架基礎 25 套，佔總基礎樁的近四成」（桁架式導管架＋4 個吸力桶，中交三航局沉貫）；中交一航局一標段（29 部 10 MW）風機基礎 2024-10 全部完成，同時用「三繩單船單樁翻樁工藝」與四樁吸力桶導管架沉貫，搜狐 2024-12 寫一標段「超大直徑鋼管樁沉樁」。其餘 35 座應為單樁，但沒有出處寫明座數；二標段 31 部未見紀錄。",
-  "note_en": "Datang / Huanqiu (Oct 2024): '25 suction-bucket jacket foundations designed, nearly 40% of all foundations' (truss jacket + 4 buckets, sunk by CCCC Third Harbour); CCCC First Harbour's lot 1 (29 x 10 MW) foundations were all finished by Oct 2024 using both a 'single-vessel monopile flipping technique' and four-pile suction-bucket jackets; Sohu (Dec 2024) mentions driving ultra-large steel pipe piles in lot 1. The other 35 are presumably monopiles but no source states the count; nothing found for lot 2 (31 turbines).",
+  "note_zh": "沿用前一輪線索並補一筆：大唐／ne21 2024-10：全案設計吸力桶導管架基礎 25 座（桁架式導管架＋4 個吸力桶）、2024-10-18 完成最大一座沉貫；中交一航局一場址一標段（29 部）基礎 2024-10 全部完成，同時用「單船單樁翻樁工藝」沉超大直徑鋼管樁；一場址 2025-06-30 通過竣工海洋環境保護驗收（評審會有「環保設施竣工驗收調查報告」，該報告應寫出建成的基礎型式，但本輪找不到公開檔）。其餘 35 座沒有出處寫明是單樁。",
+  "note_en": "Prior lead carried over with one addition: Datang / ne21 (Oct 2024): 25 suction-bucket jacket foundations designed for the project (truss jacket + 4 buckets), the largest sunk on 18 Oct 2024; CCCC First Harbour's lot 1 (29 units) finished all foundations by Oct 2024 using a single-vessel monopile flipping technique for ultra-large steel pipe piles; site 1 passed its marine-environment completion acceptance on 30 Jun 2025 (the review heard the completion acceptance survey report, which should state the as-built foundation types, but no public copy was found). No source states that the other 35 are monopiles.",
   "sources": [
    {
     "url": "https://www.china-cdt.com/dtwz/xwzx/mtgz/2024/12/I1313444386821898240.html",
@@ -400,80 +908,15 @@
     "url": "https://www.sohu.com/a/840019511_121271463",
     "quote": "由中交一航局总承包分公司承建的一场址一标段主要包括29台10兆瓦风机基础及风机安装施工、海上升压站基础制作、上部组块安装及一场址航标工程等所涉及的全部工作。 该项目采用自主研发的亚洲最大、功能最全的深水模块化多用途稳桩平台完成超大直径钢管桩沉桩作业",
     "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Bac Lieu Phase 1",
-  "iso": "VNM",
-  "type": "lead",
-  "value": {
-   "t": "pc",
-   "units_covered": "10 (construction-period description; pile type not stated)"
-  },
-  "note_zh": "前鋒報（2012，施工中）：鋼塔「放在直徑約 17 m 的八角形混凝土墩柱上」，離岸 300–1,000 m（潮間帶）；基礎由 TEDI WECCO 設計（軟土層厚）；投資報寫每座基礎造價 120 億越盾。八角形混凝土承台是高樁承台的特徵，但樁型（鑽孔灌注樁或預製樁）與樁數沒有出處，故列線索。",
-  "note_en": "Tien Phong (2012, under construction): the steel tower 'sits on an octagonal concrete pedestal about 17 m in diameter', 300-1,000 m offshore (intertidal); foundations designed by TEDI WECCO (thick soft soil); Bao Dau Tu gives VND 12 bn per foundation. An octagonal concrete cap suggests a high-rise pile cap, but the pile type (bored or precast) and count are not documented, so a lead.",
-  "sources": [
+   },
    {
-    "url": "https://tienphong.vn/Kinh-Te/564801/Nguon-sang-tu-gio-bien-tpp.html",
-    "quote": "Cột turbine làm bằng thép đặc biệt không rỉ, cao 80 m, đường kính 4 m, đặt trên trụ bê tông hình bát giác đường kính khoảng 17 m, xây cách bờ biển từ 300m đến 1.000 m.",
+    "url": "https://www.ne21.com/news/show-202661.html",
+    "quote": "大唐儋州120万千瓦海上风电项目共设计吸力桶导管架基础25个，由桁架式导管架结构和四个吸力桶组成。",
     "check": "OK"
    },
    {
-    "url": "https://tediwecco.vn/portfolio/nha-may-dien-gio-bac-lieu/",
-    "quote": "Công ty nghiên cứu thiết kế móng trụ turbine là Công ty CP Tư vấn Thiết kế Xây dựng Giao thông thủy (TEDI WECCO)",
-    "check": "OK"
-   },
-   {
-    "url": "https://baodautu.vn/gia-dien-gio-cao-vi-chi-phi-lon-d1498.html",
-    "quote": "chi phí đầu tư xây dựng móng trụ tại Dự án Nhà máy Điện gió Bạc Liêu là 12 tỷ đồng/trụ",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Bac Lieu Phase 2",
-  "iso": "VNM",
-  "type": "lead",
-  "value": {
-   "t": "pc",
-   "units_covered": "52 (assumed same design as phase 1; contractors only)"
-  },
-  "note_zh": "二期 52 部只查到承包商：HTL 承建 20 座風機基礎、Descon 承建 8 座（Power Technology，二手），沒有寫型式；一期的八角形混凝土墩柱（前鋒報）是否沿用沒有出處。列線索。",
-  "note_en": "For the 52 phase 2 turbines only contractors were found: HTL built 20 turbine foundations and Descon 8 (Power Technology, secondary), without a type; no source says whether phase 1's octagonal concrete pedestal design was reused. Lead.",
-  "sources": [
-   {
-    "url": "https://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/",
-    "quote": "HTL was also awarded a contract for the construction of 20 wind turbine foundations for the second phase. Descon was awarded a contract for the construction of the foundation for eight wind turbines",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ge.com/news/press-releases/phase-two-bac-lieu-wind-farm-will-be-powered-52-ge-wind-turbines",
-    "quote": "to provide 52 1.6MW -- 82.5, wind turbines for phase two of the project.",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "V1-3 Ben Tre (BTRE)",
-  "iso": "VNM",
-  "type": "lead",
-  "value": {
-   "t": "pc",
-   "sub": "D800 spun concrete piles (identification of the plant unconfirmed)",
-   "units_covered": "7"
-  },
-  "note_zh": "Phan Vu（樁廠）專案頁：「Ba Tri Wind Power Plant，Ba Tri, Ben Tre，客戶 Huy Hoang Transportation & Logistics Corp.，供應 D800 樁」。V1-3 在巴知縣（工商部落成報導：7 部 4.2 MW、塔高 104 m），但 Phan Vu 的頁面沒寫 V1-3 或 BTRE，是否同一案無法確認；也沒有樁數與承台紀錄。列線索（預製管樁群樁承台）。",
-  "note_en": "Pile maker Phan Vu's project page: 'Ba Tri Wind Power Plant, Ba Tri, Ben Tre, client Huy Hoang Transportation & Logistics Corp., supplying D800 piles'. V1-3 is in Ba Tri district (MoIT inauguration: 7 x 4.2 MW, 104 m towers), but Phan Vu's page does not name V1-3 or BTRE, so the identification is unconfirmed; no pile count or cap record. Lead (spun-pile group with cap).",
-  "sources": [
-   {
-    "url": "https://www.phanvu.vn/en-US/project/industrial-production/ba-tri-wind-power-plant",
-    "quote": "Ba Tri Wind Power Plant Location: Ba Tri, Ben Tre Client: Huy Hoang Transportation & Logistics Corp., Scope of work: Supplying pile D800",
-    "check": "OK"
-   },
-   {
-    "url": "https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/ben-tre-khanh-thanh-nha-may-dien-gio-30-mw.html",
-    "quote": "Dự án có 7 trụ tuabin gió, công suất 4,2 MW/tuabin; chiều cao trụ tuabin 104 m; cánh quạt dài 75 m, đường kính thân trụ 4,4 m do hãng Vestas - Đan Mạch sản xuất.",
+    "url": "https://www.ne21.com/news/show-215244.html",
+    "quote": "6月30日，大唐儋州120万千瓦海上风电项目一场址工程竣工海洋环境保护验收评审会在海口举行，顺利通过验收。",
     "check": "OK"
    }
   ]
@@ -483,8 +926,8 @@
   "iso": "CHN",
   "type": "none",
   "value": {},
-  "note_zh": "仍查不到基礎型式：中能網 2017 年專案彙整只寫 2017-05 核准、6 月試樁開工（當時規劃 40×5 MW）；莆田海事局 2025-12 建成通告寫 3×6 MW＋26×7 MW、水深 10–25 m；福建省自然資源廳 2024-09 變更用海批覆只列 29 個機位的圓心與半徑（53.35 m 與 58.25 m 兩種），沒有型式。網路搜尋額度用完，三川／福能的公告未能再查。",
-  "note_en": "Foundation type still not found: the 2017 china5e project roundup only records approval (May 2017) and the start of trial piling (June 2017, then planned as 40 x 5 MW); the Putian MSA completion notice (Dec 2025) gives 3 x 6 MW + 26 x 7 MW and 10-25 m depth; Fujian's Sept 2024 sea-use change approval lists the 29 turbine positions only as circle centres with two radii (53.35 m and 58.25 m), no type. The search budget ran out before Sanchuan/Funeng filings could be checked.",
+  "note_zh": "仍查不到型式：海事局完工公告 3 部 6 MW＋26 部 7 MW、水深 10–25 m；福建省 2024-09 用海變更批覆只列 29 個圓心與半徑；本輪搜尋「三川 平海灣F區 承台 單樁」沒有結果，ne21 站內搜尋只有 2019–2020 年吊裝報導（石城、F 區各 7 MW 機組），不寫基礎。",
+  "note_en": "Type still not found: the MSA completion notice gives 3 x 6 MW + 26 x 7 MW in 10-25 m of water; Fujian's Sept 2024 sea-use change lists only 29 circle centres and radii; this round's search found nothing, and ne21's site search only has 2019-2020 turbine-installation reports without foundations.",
   "sources": [
    {
     "url": "https://www.china5e.com/news/news-1004814-1.html",
@@ -511,8 +954,8 @@
    "t": "mp",
    "units_covered": "71 (design/procurement only)"
   },
-  "note_zh": "很可能全部單樁，但仍只有採購階段出處：國能 e 招 2023-02 設備監造招標把一、二期的監造範圍都寫成「風機單樁基礎鋼管樁及附屬構件」；2023-03 的 35 kV 海纜招標寫海纜「在單樁和風機內平台上的固定」；2024-12 月坨島「風機單樁基礎制作」招標的候選人業績表列出「國華半島南U2場址海上風電項目、中交三航（南通）海洋工程有限公司、2023.10.19」（即單樁基礎製作業績）；2026-02 後評價招標寫一期海上主體工程由中交三航局施工；青島海事局 2026-08 寫已建成 71 台。沒有一句寫建成的 71 台都是單樁。",
-  "note_en": "Very probably all monopiles, but still only procurement-stage sources: CHN Energy's Feb 2023 equipment-supervision tender lists 'monopile foundation steel pipe piles' for both phases; the Mar 2023 35 kV cable tender speaks of fixing cables 'on the monopile and the turbine platform'; the Dec 2024 Yuetuodao monopile-fabrication tender lists 'Guohua Peninsula South U2, CCCC Third Harbour (Nantong) Marine Engineering, 2023.10.19' as a bidder's monopile-fabrication reference; the Feb 2026 post-evaluation tender names CCCC Third Harbour as the offshore main-works contractor of phase 1; Qingdao MSA (Aug 2026) confirms 71 turbines built. No source states that all 71 built units stand on monopiles.",
+  "note_zh": "沿用前一輪線索：國家能源集團 2023-02 設備監造招標寫一、二期「風機單樁基礎鋼管樁」、2023-03 海纜招標寫「海底電纜在單樁和風機內平台上的固定」、2024-12 月坨島招標列「國華半島南 U2，中交三航（南通），2023.10.19」為單樁製作業績、2026-02 後評價招標列中交三航為海上主體工程施工單位；青島海事局 2026-08 確認建成 71 部。本輪 ne21 站內搜尋只有 2023 年首吊報導，仍沒有「71 部全為單樁」的建成紀錄。",
+  "note_en": "Prior lead carried over: CHN Energy's Feb 2023 supervision tender lists 'monopile foundation steel pipe piles' for both phases, the Mar 2023 cable tender fixes cables 'on the monopile', the Dec 2024 Yuetuodao tender lists 'Guohua Peninsula South U2, CCCC Third Harbour (Nantong), 2023.10.19' as a monopile-fabrication reference, and the Feb 2026 post-evaluation tender names CCCC Third Harbour as the offshore main-works contractor; Qingdao MSA (Aug 2026) confirms 71 units built. The ne21 site search only adds the 2023 first-hoist reports; still no as-built statement that all 71 stand on monopiles.",
   "sources": [
    {
     "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20230217/e942bcea-0ca5-43be-9d29-5c44f1216c57.html",
@@ -547,40 +990,12 @@
   ]
  },
  {
-  "farm": "Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project",
-  "iso": "CHN",
-  "type": "result",
-  "value": {
-   "t": "mp",
-   "units_covered": "whole farm described as monopile + aquaculture cage (38 x 8 MW); no explicit count"
-  },
-  "note_zh": "單樁：中廣核電子採購平台 2024-07 為已運轉的萊州海上風儲電場招標風機腐蝕狀態檢測，採購內容寫「對單樁及套籠的腐蝕狀態進行檢測，其中單樁及套籠和套籠所有附件統稱為風機基礎」（套籠為海洋牧場養殖網籠，掛在單樁上）；山東省能源局 2022-12：38 台 8 MW，2022-07-24 首根風機基礎鋼管樁沉樁。出處把整座風場的風機基礎定義為單樁＋套籠，但沒有寫「38 台全部」，主對話請自行判斷是否採納。",
-  "note_en": "Monopiles: CGN's e-procurement notice (July 2024) for corrosion inspection of the operating Laizhou wind-plus-storage farm defines its scope as 'the monopile and the cage, the monopile, the cage and all cage fittings together being called the turbine foundation' (the cage is the aquaculture net cage hung on the monopile); Shandong Energy Bureau (Dec 2022): 38 x 8 MW, first foundation steel pipe pile driven on 24 July 2022. The notice describes the whole farm's turbine foundations as monopile + cage but does not say 'all 38'; the caller should decide whether that is enough.",
-  "sources": [
-   {
-    "url": "https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4674453659ef4aa59cced5db80cbc40b.json",
-    "quote": "本次中广核莱州海上风储电场对单桩及套笼的腐蚀状态进行检测，其中单桩及套笼和套笼所有附件统称为风机基础",
-    "check": "OK"
-   },
-   {
-    "url": "http://nyj.shandong.gov.cn/art/2022/12/21/art_253733_10295458.html",
-    "quote": "总装机容量304兆瓦，规划建设38台单机容量8兆瓦风电机组",
-    "check": "OK"
-   },
-   {
-    "url": "http://nyj.shandong.gov.cn/art/2022/12/21/art_253733_10295458.html",
-    "quote": "7月24日，首根风机基础钢管桩沉桩；9月21日，首台风机吊装；11月25日，首批13台风机并网",
-    "check": "OK"
-   }
-  ]
- },
- {
   "farm": "Jiangsu Dafeng (Huaneng) Offshore wind farm · capacity expansion",
   "iso": "CHN",
   "type": "none",
   "value": {},
-  "note_zh": "二期擴建 23 台遠景 EN148-4.5：鹽城海事局 2026-03 通告（已建成）只寫基礎頂高程 13 m、輪轂 95.97 m，沒有型式；中證網 2020-05 併網報導也沒有。一期已列單樁，不能推及二期。網路搜尋額度用完，華能電子商務平台（ec.chng.com.cn）從這裡連不上。",
-  "note_en": "Phase 2 extension, 23 x Envision EN148-4.5: the Yancheng MSA notice (Mar 2026, built) gives only foundation top +13 m and hub 95.97 m, no type; the May 2020 grid-connection report has none either. Phase 1 is on record as monopiles, which cannot be extended to phase 2. The search budget ran out and Huaneng's procurement portal is unreachable from here.",
+  "note_zh": "仍查不到型式：遠景 2019-12（ne21 轉載）：擴建 100 MW 採用 23 部 EN-148/4.5，2019-10-08 首台安裝、12-21 全部吊裝完成；鹽城海事局 2026-03 公告只寫基礎頂高程 13 m。本輪 ne21 站內搜尋（華能大丰 擴建）只找到這兩篇，無基礎型式。",
+  "note_en": "Type still not found: Envision (Dec 2019, via ne21) says the 100 MW extension uses 23 EN-148/4.5 units, first installed 8 Oct and all installed by 21 Dec 2019; the Yancheng MSA notice (Mar 2026) gives only a +13 m foundation top. The ne21 site search found only these two items, without a foundation type.",
   "sources": [
    {
     "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=c229d4597db94c06831c3cffa425287b",
@@ -590,6 +1005,16 @@
    {
     "url": "https://www.cs.com.cn/ssgs/gsxw/202005/t20200512_6055758.html",
     "quote": "大丰海上风电位于江苏盐城市大丰区毛竹沙海域，中心离岸距离约55千米。二期项目安装23台4.5兆瓦的远景风电机组",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-132959.html",
+    "quote": "该项目采用23台远景EN-148/4.5海上智能风机",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-132959.html",
+    "quote": "从10月8日完成首台风机安装，到12月21日完成全部风机吊装再到全部交付",
     "check": "OK"
    }
   ]
@@ -602,8 +1027,8 @@
    "t": "mp",
    "units_covered": "96 implied; 45 of the 96 foundations documented as single 6.5 m piles"
   },
-  "note_zh": "單樁（線索，未逐座涵蓋 96 台）：offshoreWIND.biz 2019-06 施工中報導寫機組「安裝在單樁基礎上，為控制成本而選用」（當時明陽 50 台裝了近 25 台，另有金風 46 台）；世紀新能源網 2019-11：振華重工承做二標段 45 套基礎，基礎樁長 79–86 m、最大管徑 6.5 m（即單樁尺寸）；國資委 2019-11：96 台全部吊裝完成。2016 年試樁方案為「單樁及高樁承台」。沒有一份出處寫建成的 96 台都是單樁。",
-  "note_en": "Monopiles (lead, not covering all 96 units): offshoreWIND.biz (June 2019, during construction) says the units 'are being mounted on monopile foundations, chosen for cost optimization' (about 25 of 50 Ming Yang units installed then, plus 46 Goldwind units); ne21 (Nov 2019): ZPMC built the 45 lot-2 foundations with piles 79-86 m long and up to 6.5 m in diameter (monopile dimensions); SASAC (Nov 2019): all 96 turbines erected. The 2016 trial-pile scheme was 'monopiles and high-rise pile caps'. No source states that all 96 built units are monopiles.",
+  "note_zh": "沿用前一輪線索：offshoreWIND.biz 2019-06（施工中）寫機組裝在單樁基礎上；ne21 2019-11：振華重工承做二標段 45 套基礎，基礎樁長 79–86 m、最大管徑 6.5 m（單樁尺寸）；國資委：96 部全部安裝。本輪搜尋「96台 單樁基礎 竣工驗收」沒有結果，ne21 站內搜尋（大唐濱海）只有併網報導。",
+  "note_en": "Prior lead carried over: offshoreWIND.biz (Jun 2019, during construction) says the units are mounted on monopiles; ne21 (Nov 2019): ZPMC built lot 2's 45 foundations with 79-86 m piles up to 6.5 m in diameter; SASAC: all 96 units erected. This round's search found nothing, and the ne21 site search only has grid-connection reports.",
   "sources": [
    {
     "url": "https://www.offshorewind.biz/2019/06/17/ming-yang-reaches-turbine-milestone-at-chinese-owf/",
@@ -629,6 +1054,11 @@
     "url": "http://www.sasac.gov.cn/n2588025/n2588124/c12542173/content.html",
     "quote": "将风机总台数由100台优化为96台",
     "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-132982.html",
+    "quote": "振华重工参与建设的是大唐滨海300兆瓦海上风电项目二标段，共布置45台3.3兆瓦、50台3兆瓦风机及1座220千伏海上升压站",
+    "check": "OK"
    }
   ]
  },
@@ -650,8 +1080,8 @@
    ],
    "units_covered": "types known for the farm, counts unknown (75 units)"
   },
-  "note_zh": "混合（單管樁＋多管樁，各型式座數不詳）：江蘇海上龍源 2025-12 關鍵焊縫無損檢測招標（國能 e 招）寫「海上大豐風電場和蔣家沙風電場風機基礎有單管樁和多管樁兩種形式」，是建成後的描述，但沒有各型式座數；澎湃號 2021：2016 年與大豐 H12 同時開工的蔣家沙 30 萬千瓦項目。國能 e 招全文檢索「蔣家沙 多管樁／單管樁」只有這一則。",
-  "note_en": "Mixed (monopiles plus multi-pile foundations, counts unknown): Jiangsu Offshore Longyuan's Dec 2025 weld-inspection tender (CHN Energy portal) says 'the Dafeng and Jiangjiasha offshore farms have two foundation types, single-pile and multi-pile', a post-construction description without per-type counts; The Paper (2021): the 300 MW Jiangjiasha project started in 2016 together with Dafeng H12. The CHN Energy full-text search for 'Jiangjiasha multi-pile/single-pile' returns only this notice.",
+  "note_zh": "沿用前一輪線索並補一筆：江蘇海上龍源 2025-12 焊縫檢測招標寫「大豐與蔣家沙風電場風機基礎有單管樁和多管樁兩種形式」（建成後描述、無座數）；NS Energy 2017-06：Ramboll 受華東院委託為一座中國海上風場做 75 部風機單樁基礎詳細設計（文中未寫風場名，75 部與蔣家沙相符但無法確認，且與「兩種形式」不一致）。各型式座數仍未找到。",
+  "note_en": "Prior lead carried over with one addition: Jiangsu Offshore Longyuan's Dec 2025 weld-inspection tender says the Dafeng and Jiangjiasha farms have two foundation types, single-pile and multi-pile (post-construction, no counts); NS Energy (Jun 2017): Ramboll, appointed by Huadong, did the detailed design of monopile foundations for 75 turbines of a Chinese offshore farm (unnamed; 75 matches Jiangjiasha but cannot be confirmed, and it conflicts with the two-type description). Per-type counts still not found.",
   "sources": [
    {
     "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251219/a5e27cb2-7ca9-4f09-884a-bda586e28c3d.html",
@@ -661,6 +1091,16 @@
    {
     "url": "https://m.thepaper.cn/baijiahao_13374721",
     "quote": "2016年，同时开工大丰（H12）20万千瓦和蒋家沙30万千瓦两个海上项目，总计容量50万千瓦。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.nsenergybusiness.com/?p=68074",
+    "quote": "Ramboll appointed by Huadong to design foundations for Chinese offshore wind farm",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.nsenergybusiness.com/?p=68074",
+    "quote": "detailed designing of the mono-pile foundations for 75 wind turbines",
     "check": "OK"
    }
   ]
@@ -679,8 +1119,8 @@
    ],
    "units_covered": "18 of 60 (zone C monopiles); 7 types in all, other counts unknown"
   },
-  "note_zh": "混合（7 種基礎型式，各型式座數不詳）：國資委 2021-12：60 台 4 MW，嵌岩機位占 54%，採 7 種基礎型式、完成 138 根嵌岩基礎；平潭海事 2020-08 施工通告只確定 C 區 18 台單樁；中證網 2024-11：2018 年底完成首根大直徑單樁；2018 年中廣核招標時多數機位規劃大直徑單樁、3 個機位可改高樁承台（設計）。中廣核電子採購平台 2024–2026 年大練的招標（生態修復、海纜後保護、航標、鳥類觀測等）都沒有基礎型式；網路搜尋額度用完。",
-  "note_en": "Mixed (seven foundation types, per-type counts unknown): SASAC (Dec 2021): 60 x 4 MW, 54% of positions rock-socketed, seven foundation types, 138 rock-socketed foundations completed; Pingtan MSA construction notice (Aug 2020) confirms only 18 monopiles in zone C; cs.com.cn (Nov 2024): the first large-diameter monopile was driven at the end of 2018; CGN's 2018 tender planned large-diameter monopiles at most positions with three positions switchable to high-rise pile caps (design). CGN's 2024-2026 Dalian notices (ecological restoration, cable protection, navaids, bird surveys) carry no foundation types; the search budget ran out.",
+  "note_zh": "沿用前一輪線索：國資委 2021-12：60 部 4 MW、嵌岩機位 54%、7 種基礎型式、完成 138 根嵌岩基礎；平潭海事局 2020-08：C 區 18 台單樁基礎；中證網 2024-11：2018 年底完成首根大直徑單樁。本輪沒有新搜尋額度；ne21 站內搜尋只有調減為 240 MW 與測風塔招標。",
+  "note_en": "Prior lead carried over: SASAC (Dec 2021): 60 x 4 MW, 54% rock-socketed positions, seven foundation types, 138 rock-socketed foundations; Pingtan MSA (Aug 2020): 18 monopiles in zone C; cs.com.cn (Nov 2024): first large-diameter monopile at end-2018. No search budget left this round; the ne21 site search only has the 240 MW reduction and a met-mast tender.",
   "sources": [
    {
     "url": "http://www.sasac.gov.cn/n2588025/n2588124/c22577939/content.html",
@@ -732,8 +1172,8 @@
    ],
    "units_covered": "25 units; types only hinted"
   },
-  "note_zh": "線索：遼寧省政府 2024-09（最後一台併網）寫 25 台 8 MW，建設過程取得「樁桶複合基礎外加電流陰極保護系統」等專利（暗示用了樁桶複合基礎）；國能 e 招 2024-12 月坨島「風機單樁基礎制作」招標的候選人業績表列「華能莊河 4-2 號風電場海上風電項目、中國鐵建港航局集團有限公司大連莊河海上風電場址IV2項目經理部、2022.12.30」（即為 IV2 製作過單樁基礎）；中國海裝 2024-07：離岸約 27 km、水深 16–22 m。可能是單樁＋樁桶複合混合，各型式座數與施工紀錄未查到。",
-  "note_en": "Lead: the Liaoning provincial government (Sept 2024, last unit connected) gives 25 x 8 MW and says the build won patents including a 'pile-bucket composite foundation impressed-current cathodic protection system' (implying pile-bucket composite foundations were used); the Dec 2024 Yuetuodao monopile-fabrication tender lists 'Huaneng Zhuanghe 4-2, China Railway Construction Port & Channel Bureau Zhuanghe IV2 project office, 2022.12.30' among a bidder's monopile references (so monopiles were fabricated for IV2); CSSC Haizhuang (July 2024): about 27 km offshore, 16-22 m deep. Probably a mix of monopiles and pile-bucket composites; counts and construction records not found.",
+  "note_zh": "沿用前一輪線索：遼寧省政府 2024-09：25 部 8.0 MW、建設中取得「樁桶複合基礎外加電流陰極保護系統」等專利；2024-12 月坨島招標列「華能莊河 4-2，中國鐵建港航局莊河 IV2 項目部，2022.12.30」為單樁製作業績；海裝 2024-07：離岸 27 km、水深 16–22 m。本輪搜尋「樁桶複合基礎 單樁 25台」與 ne21（華能莊河全容量併網 2024-09）都沒有基礎座數。",
+  "note_en": "Prior lead carried over: the Liaoning government (Sept 2024): 25 x 8.0 MW and patents including a 'pile-bucket composite foundation impressed-current cathodic protection system'; the Dec 2024 Yuetuodao tender lists 'Huaneng Zhuanghe 4-2, CRCC Port & Channel Bureau Zhuanghe IV2 project office, 2022.12.30' as a monopile reference; CSSC Haizhuang (Jul 2024): 27 km offshore, 16-22 m deep. This round's search and the ne21 full-capacity report (Sept 2024) give no per-type counts.",
   "sources": [
    {
     "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024093014452334478/index.shtml",
@@ -765,8 +1205,8 @@
    "t": "pc",
    "units_covered": "design only (2017, 37 x 5 MW planned); built 15 x 5 MW + 11 x 10 MW"
   },
-  "note_zh": "高樁承台（線索，設計階段）：中能網 2017 年專案彙整寫大唐平潭長江澳 185 MW「擬安裝 37 台 5 MW…工程共採用高樁承台基礎型式」，與微信（路建海工 2020）稱一期為嵌岩高樁承台一致；但建成為 15 台 5 MW（2024-07 已併網）＋11 台 10 MW（續建），機型與台數都已改，二期型式未查到。GEM 引用的福建省環境監測／驗收組意見 PDF（oss.fjhb.org，2023-12，一期竣工環保驗收）從這裡連不上（TLS 憑證錯誤），在能連線的環境應優先讀它。",
-  "note_en": "High-rise pile caps (lead, design stage): the 2017 china5e project roundup says the Datang Pingtan Changjiang'ao 185 MW project 'plans 37 x 5 MW ... all on high-rise pile cap foundations', consistent with the unverifiable 2020 contractor post calling phase 1 rock-socketed pile caps; but it was built as 15 x 5 MW (connected by July 2024) + 11 x 10 MW (still being built), so model and count changed and the phase-2 type is unknown. The phase-1 completion environmental-acceptance opinion PDF cited by GEM (oss.fjhb.org, Dec 2023) cannot be fetched from here (TLS certificate error) and should be read first where reachable.",
+  "note_zh": "沿用前一輪線索：china5e 2017 專案彙整寫大唐平潭長江澳 185 MW「擬安裝 37 台 5 MW，工程共採用高樁承台基礎型式」（設計階段）；建成為 15 部 5 MW（2024-07 前併網）＋11 部 10 MW（2025 全容量投產）。本輪搜尋「高樁承台 嵌岩」沒有專案結果；ne21 站內的 4 號、14 號風機併網報導連不上或不寫基礎；GEM 引用的一期竣工環保驗收 PDF（oss.fjhb.org）仍無法從這裡讀取。",
+  "note_en": "Prior lead carried over: the 2017 china5e roundup says the Datang Pingtan Changjiang'ao 185 MW project 'plans 37 x 5 MW ... all on high-rise pile cap foundations' (design stage); it was built as 15 x 5 MW (connected by Jul 2024) + 11 x 10 MW (full output 2025). This round's search gave no project-specific result; ne21's turbine-connection items return 403 or omit foundations; the phase-1 completion environmental-acceptance PDF cited by GEM (oss.fjhb.org) is still unreadable from here.",
   "sources": [
    {
     "url": "https://www.china5e.com/news/news-1004814-1.html",
@@ -791,54 +1231,29 @@
   ]
  },
  {
-  "farm": "Duyên Hai wind farm · 1",
-  "iso": "VNM",
-  "type": "none",
-  "value": {},
-  "note_zh": "查無基礎型式：工商雜誌 2024-10 只寫 REE 子公司 Duyên Hải 風電公司在 V1-4 施工 48 MW；REE 網站的專案頁由程式載入、抓不到內容；網路搜尋額度用完，越南語「móng trụ／cọc」的搜尋只做了兩次，沒有結果。",
-  "note_en": "No foundation source: Tap chi Cong Thuong (Oct 2024) only says REE's subsidiary is building the 48 MW plant at site V1-4; REE's project pages are script-rendered and empty to the fetcher; the search budget ran out after two Vietnamese 'mong tru / coc' searches, which returned nothing.",
-  "sources": [
-   {
-    "url": "https://tapchicongthuong.vn/co-dien-lanh--ree--thi-cong-du-an-dien-gio-48-mw--muon-lam-them-344-mw-nua-tai-tra-vinh-128129.htm",
-    "quote": "hiện đang triển khai thi công Dự án Nhà máy điện gió Duyên Hải Trà Vinh tại vị trí V1-4 với công suất 48 MW",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Tân An 1 offshore wind farm",
-  "iso": "VNM",
+  "farm": "Fujian Pingtan Straits Road/Railroad Bridge Illumination Project Offshore Distributed wind farm",
+  "iso": "CHN",
   "type": "lead",
   "value": {
    "t": "",
-   "units_covered": "pile foundations confirmed (type not stated)"
+   "units_covered": "steel-pipe-pile foundations (type not stated), 5 units"
   },
-  "note_zh": "只知是樁基礎：PLC 公司頁寫「VPL 與新安風電專案：承擔樁基礎施工（thi công móng cọc）與港口專用吊裝」，沒寫單樁或承台；一期 25 MW、6 部。越南語搜尋（cọc thép、móng）沒有新結果，網路搜尋額度用完。",
-  "note_en": "Only known to be on pile foundations: PLC's page says it 'carried out the pile-foundation works (thi cong mong coc) and port crane services' for the VPL and Tan An projects, without saying monopile or cap; phase 1 is 25 MW with 6 turbines. Vietnamese searches (coc thep, mong) gave nothing new before the search budget ran out.",
-  "sources": [
-   {
-    "url": "https://plc-corp.vn/thi-cong-dien-gio-ngoai-khoi.html",
-    "quote": "Dự án Điện gió VPL & Tân Ân: Đảm nhận thi công móng cọc và cung cấp dịch vụ cẩu tuabin chuyên dụng tại cảng",
-    "check": "OK"
-   },
-   {
-    "url": "https://plc-corp.vn/nha-may-dien-gio-tan-an.html",
-    "quote": "Giai đoạn 1 của dự án có công suất 25 MW, bao gồm 6 trụ tuabin.",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Fujian Pingtan Straits Road/Railroad Bridge Illumination Project Offshore Distributed wind farm",
-  "iso": "CHN",
-  "type": "none",
-  "value": {},
-  "note_zh": "查無：福州新聞網 2022-01 只寫 33.5 MW、5 台；永福股份 2020-08 公告只寫 EPC 聯合體；GEM 頁面沒有可用的出處連結；網路搜尋額度用完。",
-  "note_en": "Nothing found: fznews (Jan 2022) gives only 33.5 MW and 5 turbines; the Yongfu filing (Aug 2020) only the EPC consortium; the GEM page has no usable source links; the search budget ran out.",
+  "note_zh": "永福股份 2021-03（ne21 轉載）：首台風機基礎鋼管樁沉樁完成，工程共 5 部 6.7 MW（輪轂 103 m）、33.5 MW；只知是鋼管樁基礎（「風機基礎鋼管樁」的寫法較像多樁承台或導管架，但未寫明），型式與座數待查。本輪搜尋「高樁承台 導管架 永福」沒有結果。",
+  "note_en": "Yongfu (Mar 2021, via ne21): the first turbine foundation's steel pipe piles were driven; 5 x 6.7 MW (hub 103 m), 33.5 MW. Only known to be on steel-pipe-pile foundations (the wording 'foundation steel pipe piles' reads like a multi-pile cap or jacket rather than a monopile, but the type is not stated). This round's search found nothing.",
   "sources": [
    {
     "url": "https://m.fznews.com.cn/dsxw/20220120/61e8d11edda84.shtml",
     "quote": "项目总装机容量33.5兆瓦，共布置5台海上风电机组",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-158229.html",
+    "quote": "平潭海峡公铁两用大桥照明工程分散式海上风电项目首台风机基础钢管桩沉桩顺利完成。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.ne21.com/news/show-158229.html",
+    "quote": "工程共建设5台单机容量6.7MW（轮毂高度103m）的海上风电机组，总装机容量33.5MW。",
     "check": "OK"
    }
   ]
@@ -851,8 +1266,8 @@
    "t": "pc",
    "units_covered": "the intertidal test unit(s) poured by Sinohydro Bureau 7 (2009-10), not all 5"
   },
-  "note_zh": "線索：河海大學《水利水電科技進展》2010 年增刊（中國水電七局）寫響水風電場近海潮間帶試驗風機基礎「採用先進的多樁承台鋼結構基礎澆築，較傳統基礎環單樁基礎」大幅減少混凝土（即多樁承台），但只講當時澆築的試驗風機基礎（引用「江蘇響水潮間帶 2×2 MW 試驗機組工程」技術要求），不是 5 台全部；三峽回顧（新浪 2026）：2011 年在潮間帶由近及遠安裝 5 台試驗機組；鹽城市 2014 聽證公告：5 台、離岸 0.5–3 km。PDF 文字編碼有缺字，引文只取能辨識的一段。",
-  "note_en": "Lead: a 2010 supplement paper in Hohai University's journal (Sinohydro Bureau 7) says the Xiangshui intertidal test turbine foundation was 'poured as an advanced multi-pile cap steel-structure foundation, which compared with a conventional foundation-ring monopile' cut concrete greatly (i.e. a pile cap), but it covers only the test foundation poured then (citing the 'Jiangsu Xiangshui intertidal 2 x 2 MW test unit' specifications), not all five units; a CTG retrospective (Sina 2026): five test units installed in the intertidal zone in 2011; Yancheng hearing notice (2014): 5 units 0.5-3 km offshore. The PDF text has encoding gaps, so only a legible passage is quoted.",
+  "note_zh": "沿用前一輪線索：河海大學學報 2010 增刊（水電七局）寫響水潮間帶試驗風機基礎「多樁承台鋼結構基礎澆築，較傳統基礎環單樁基礎」省混凝土，只涵蓋當時澆築的試驗基礎；三峽回顧：2011 年潮間帶裝 5 部試驗機；鹽城 2014 公告：5 部、離岸 0.5–3 km。本輪 ne21 站內搜尋只有齒輪箱維護招標。",
+  "note_en": "Prior lead carried over: a 2010 Hohai University journal supplement (Sinohydro Bureau 7) says the Xiangshui intertidal test foundation was poured as a multi-pile cap steel-structure foundation, compared with a conventional foundation-ring monopile, covering only the test foundation poured then; CTG: 5 test units in the intertidal zone in 2011; Yancheng (2014): 5 units 0.5-3 km offshore. The ne21 site search only has gearbox-maintenance tenders.",
   "sources": [
    {
     "url": "https://jour.hhu.edu.cn/slsdkjjz/article/pdf/jz2010S218",
@@ -872,546 +1287,142 @@
   ]
  },
  {
-  "farm": "Longyuan Rudong Intertidal Demo",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "cf",
-     null
-    ],
-    [
-     "jk",
-     null
-    ],
-    [
-     "mp",
-     null
-    ]
-   ],
-   "units_covered": "types only (16 test units; 7 jacket-type foundations inspected 2023)"
-  },
-  "note_zh": "32 MW 潮間帶試驗場 16 部：龍源回顧稱先後用鋼板圍堰混凝土基礎、多管樁鋼結構（導管架）與「單樁加過渡段」；2023 年防腐檢測寫 7 部導管架基礎；各型式座數仍查不到（本輪無新出處）。",
-  "note_en": "32 MW intertidal test farm, 16 units: Longyuan's retrospective lists steel-cofferdam concrete bases, multi-pile steel (jacket) bases and monopile-plus-transition-piece; a 2023 corrosion inspection covers 7 jacket foundations; counts per type still unknown (nothing new this round).",
-  "sources": [
-   {
-    "url": "https://m.thepaper.cn/baijiahao_13374721",
-    "quote": "建设团队先后尝试了混凝土基础、多管桩钢结构基础、“单桩加过渡段”基础，单台风机的施工周期从几个月缩短到几天。",
-    "check": "OK"
-   },
-   {
-    "url": "http://www.nea.gov.cn/2011-10/26/c_131213139.htm",
-    "quote": "在国内首次采用了钢结构多角架、大直径单桩的风机基础型式，使风机基础施工效率大为提高。",
-    "check": "OK"
-   },
-   {
-    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20240624/ac50828b-5deb-40cc-a1c3-4f3a85694989.html",
-    "quote": "对30MW潮间带试验项目导管架基础防腐情况进行检测，检测发现7台风机",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Rudong Intertidal Expansion",
-  "iso": "CHN",
+  "farm": "Frederikshavn",
+  "iso": "DNK",
   "type": "lead",
   "value": {
    "t": "",
-   "units_covered": "none; only the farm-complex O&M tender (concrete caps, monopiles, multi-pile) covers the Huangang site as a whole"
+   "units_covered": "1 (Nordex N90: 'heavy-duty foundation tied to the seabed by planking and piles'); the bucket foundation was tested on the two Vestas V90, not on this unit"
   },
-  "note_zh": "擴建 200 MW（25 西門子＋25 遠景 4 MW，2015-08 竣工）本身沒有可引用的基礎施工紀錄；龍源 2025 年招標只寫「海上環港風電場」（含試驗場、示範場與擴建）有混凝土承台、單管樁、多管樁多種形式，無法分到擴建工程。",
-  "note_en": "No quotable construction record for the 200 MW expansion itself (25 Siemens + 25 Envision 4 MW, finished Aug 2015); Longyuan's 2025 tender only says the Huangang offshore farm as a whole (test, demo and expansion) has concrete caps, monopiles and multi-pile foundations, which cannot be attributed to the expansion.",
+  "note_zh": "Ingeniøren 2003-05：Frederikshavn 港外 4 部試驗機（2 部 Vestas V90 3 MW、1 部 Bonus 2.3 MW、1 部 Nordex N90 2.3 MW），Elsam 與 MBD 開發的「吸力桶基礎」用那兩部相同的 Vestas 機測試；Nordex 2003-04 新聞稿（Renewable Energy World）：N90 的基礎 3 月沉入海床，是「以板樁與樁固定在海床上的重型基礎」。現在仍在海上的只有 Nordex 這部，它的基礎無法歸入本站型式（不是單樁、也不是吸力桶）；沒有找到更詳細的工程描述。",
+  "note_en": "Ingeniøren (May 2003): four test turbines off Frederikshavn harbour (2 x Vestas V90 3 MW, 1 x Bonus 2.3 MW, 1 x Nordex N90 2.3 MW); the bucket foundation developed by Elsam with MBD is tested on the two identical Vestas turbines; Nordex's Apr 2003 release (Renewable Energy World): the N90's foundation was sunk in March, 'a heavy-duty foundation tied to the seabed by means of planking and piles'. Only the Nordex unit is still at sea, and its foundation fits no type here (neither monopile nor bucket); no more detailed engineering description was found.",
   "sources": [
    {
-    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20240320/a63a082f-7473-4c2e-97a3-de59ee531922.html",
-    "quote": "布置25台西门子和25台远景4.0MW风机，2014年12月开工，2015年8月30日全部竣工。",
+    "url": "https://ing.dk/artikel/havmoellepark-ved-frederikshavn-goeres-faerdig",
+    "quote": "Afprøvningen af det såkaldte bøttefundament sker ved hjælp af de to identiske Vestas møller.",
     "check": "OK"
    },
    {
-    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002003/20251219/a5e27cb2-7ca9-4f09-884a-bda586e28c3d.html",
-    "quote": "海上环港风电场风机基础有混泥土承台、单管桩、多管桩多种形式",
+    "url": "https://ing.dk/artikel/havmoellepark-ved-frederikshavn-goeres-faerdig",
+    "quote": "2 stk. Vestas V90 - 3MW Navhøjde 80 meter Vingefang 90 meter 1 stk. Bonus 2,3 MW Navhøjde 80 meter Vingefang 82,4 meter 1 stk. Nordex N90 2,3 MW (offshore version)",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.renewableenergyworld.com/wind-power/offshore/nordex-going-offshore-with-elsam-8514/",
+    "quote": "This is a heavy-duty foundation tied to the seabed by means of planking and piles.",
     "check": "OK"
    }
   ]
  },
  {
-  "farm": "CTG Jiangsu Xiangshui",
-  "iso": "CHN",
+  "farm": "Bac Lieu Phase 1",
+  "iso": "VNM",
   "type": "lead",
   "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "bk",
-     2
-    ]
-   ],
-   "units_covered": "2 of 55 (suction-bucket test foundations); other 53 unknown"
+   "t": "pc",
+   "units_covered": "10 (construction-period description; pile type not stated)"
   },
-  "note_zh": "55 部（37×4 MW＋18×3 MW）、軟土地基，場內 2 座吸力筒試驗基礎（東合南岩土）；Power Technology 施工前寫「將採高樁承台」、GlobalData 寫單樁，互相矛盾；本輪再搜仍無竣工或施工紀錄寫明其餘 53 座型式。",
-  "note_en": "55 units (37 x 4 MW + 18 x 3 MW) on soft soil with 2 suction-bucket test foundations; pre-construction sources conflict (pile caps vs monopiles); no construction or completion record found this round for the other 53.",
+  "note_zh": "沿用前一輪線索：前鋒報 2012（施工中）：鋼塔「立在直徑約 17 m 的八角形混凝土墩上」、離岸 300–1,000 m；TEDI WECCO 設計基礎；投資報每座基礎 120 億越盾。本輪越文搜尋（cọc khoan nhồi、bê tông bát giác）沒有新結果。",
+  "note_en": "Prior lead carried over: Tien Phong (2012, under construction): the steel tower sits on an octagonal concrete pedestal about 17 m across, 300-1,000 m offshore; foundations designed by TEDI WECCO; Bao Dau Tu gives VND 12 bn per foundation. This round's Vietnamese search (bored piles, octagonal concrete) found nothing new.",
   "sources": [
    {
-    "url": "https://www.geoseu.cn/yanjiuyuan/5136.html",
-    "quote": "共安装37台单机容量为4MW风电机组和18台单机容量为3MW风电机组。该场址以软土地基为主，并在风电场内运用了两台吸力筒试验基础。",
+    "url": "https://tienphong.vn/Kinh-Te/564801/Nguon-sang-tu-gio-bien-tpp.html",
+    "quote": "Cột turbine làm bằng thép đặc biệt không rỉ, cao 80 m, đường kính 4 m, đặt trên trụ bê tông hình bát giác đường kính khoảng 17 m, xây cách bờ biển từ 300m đến 1.000 m.",
     "check": "OK"
    },
    {
-    "url": "https://paper.people.com.cn/zgnyb/html/2017-06/26/content_1786482.htm",
-    "quote": "近日，世界首座复合筒型风机基础及3兆瓦风机结构在江苏响水海上风电场一步式安装完成。",
+    "url": "https://tediwecco.vn/portfolio/nha-may-dien-gio-bac-lieu/",
+    "quote": "Công ty nghiên cứu thiết kế móng trụ turbine là Công ty CP Tư vấn Thiết kế Xây dựng Giao thông thủy (TEDI WECCO)",
     "check": "OK"
    },
    {
-    "url": "https://www.power-technology.com/projects/jiangsu-xiangshui-offshore-wind-farm/",
-    "quote": "The project will include wind turbines rated at 3MW and 4MW and based on high-rise pile cap foundations of 146.5m in height.",
+    "url": "https://baodautu.vn/gia-dien-gio-cao-vi-chi-phi-lon-d1498.html",
+    "quote": "chi phí đầu tư xây dựng móng trụ tại Dự án Nhà máy Điện gió Bạc Liêu là 12 tỷ đồng/trụ",
     "check": "OK"
    }
   ]
  },
  {
-  "farm": "SinoHydro Rudong Intertidal",
-  "iso": "CHN",
+  "farm": "Bac Lieu Phase 2",
+  "iso": "VNM",
   "type": "lead",
   "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "lp",
-     20
-    ],
-    [
-     "jk",
-     12
-    ]
-   ],
-   "sub": "五桩导管架",
-   "units_covered": "32 of 42 (MSA as-built notice); the 10 shore-side units are not typed"
+   "t": "pc",
+   "units_covered": "52 (assumed same design as phase 1; contractors only)"
   },
-  "note_zh": "海事局 2021 年通航安全參數備案通告：42 部中灘塗區 20 部低樁高台柱、海上區 12 部五樁導管架，沿岸側 10 部（一期 2 MW）未寫型式；設計單位中南院說全場只用這兩種型式，但沒有寫明沿岸側 10 部屬哪一種。本輪無新出處。",
-  "note_en": "The MSA as-built notice (2021) types 32 of the 42 units (20 low pile caps on the flats, 12 five-pile jackets at sea) but not the 10 shore-side 2 MW units; the designer (Zhongnan) says only these two types were used, without saying which the shore-side units have. Nothing new this round.",
+  "note_zh": "沿用前一輪線索：只有承包商（HTL 20 座、Descon 8 座基礎，Power Technology）與 GE 52 部 1.6 MW；沒有出處寫二期沿用一期的八角形混凝土承台。本輪沒有新結果。",
+  "note_en": "Prior lead carried over: only contractors (HTL 20 and Descon 8 foundations, Power Technology) and GE's 52 x 1.6 MW; no source says phase 2 reused phase 1's octagonal concrete cap. Nothing new this round.",
   "sources": [
    {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=2c011c1d33c14754a862cf5b3be89312",
-    "quote": "风电场共布置风力发电组42台，其中沿岸侧布置10台；滩涂区域布置20台（采用低桩高台柱基础型式），海上区域布置12台（采用五桩导管架基础型式），详细机组位置分布见附件。",
+    "url": "https://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/",
+    "quote": "HTL was also awarded a contract for the construction of 20 wind turbine foundations for the second phase. Descon was awarded a contract for the construction of the foundation for eight wind turbines",
     "check": "OK"
    },
    {
-    "url": "https://hn.rednet.cn/content/646656/58/12150467.html",
-    "quote": "中南院设计团队因地制宜采取了低桩高台柱基础和五桩导管架基础，并首次采用了路基板及浮箱承台、超长锚栓笼组件、浮式路基通道等新技术",
+    "url": "https://www.ge.com/news/press-releases/phase-two-bac-lieu-wind-farm-will-be-powered-52-ge-wind-turbines",
+    "quote": "to provide 52 1.6MW -- 82.5, wind turbines for phase two of the project.",
     "check": "OK"
    }
   ]
  },
  {
-  "farm": "Putian Pinghai Bay Phase 1",
-  "iso": "CHN",
+  "farm": "V1-3 Ben Tre (BTRE)",
+  "iso": "VNM",
+  "type": "lead",
+  "value": {
+   "t": "pc",
+   "sub": "D800 spun concrete piles (identification of the plant unconfirmed)",
+   "units_covered": "7"
+  },
+  "note_zh": "沿用前一輪線索：樁廠 Phan Vũ 專案頁「Ba Tri 風電廠，供應 D800 樁」（未寫 V1-3／BTRE）；工貿部：7 部 4.2 MW。本輪越文搜尋（móng trụ、cọc bê tông ly tâm）只找到保險簽約與 Vestas 訂單報導，無基礎資料。",
+  "note_en": "Prior lead carried over: pile maker Phan Vu's page 'Ba Tri Wind Power Plant, supplying D800 piles' (V1-3/BTRE not named); MoIT: 7 x 4.2 MW. This round's Vietnamese search only returned the insurance signing and Vestas order reports, nothing on foundations.",
+  "sources": [
+   {
+    "url": "https://www.phanvu.vn/en-US/project/industrial-production/ba-tri-wind-power-plant",
+    "quote": "Ba Tri Wind Power Plant Location: Ba Tri, Ben Tre Client: Huy Hoang Transportation & Logistics Corp., Scope of work: Supplying pile D800",
+    "check": "OK"
+   },
+   {
+    "url": "https://moit.gov.vn/tin-tuc/phat-trien-nang-luong/ben-tre-khanh-thanh-nha-may-dien-gio-30-mw.html",
+    "quote": "Dự án có 7 trụ tuabin gió, công suất 4,2 MW/tuabin; chiều cao trụ tuabin 104 m; cánh quạt dài 75 m, đường kính thân trụ 4,4 m do hãng Vestas - Đan Mạch sản xuất.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Duyên Hai wind farm · 1",
+  "iso": "VNM",
+  "type": "none",
+  "value": {},
+  "note_zh": "仍查不到：越文搜尋（Duyên Hải V1-4 móng trụ cọc）只回到工商雜誌 2024-10（REE 子公司在 V1-4 建 48 MW）、茶榮省 2023 年 110 kV 線路塔基用地決定（V1-3）與 Vestas 2020 年 V1-3 EPC 合約；沒有任何基礎資料。",
+  "note_en": "Still nothing: the Vietnamese search only returned Tap chi Cong Thuong (Oct 2024, REE's subsidiary building 48 MW at V1-4), a 2023 Tra Vinh land decision for 110 kV tower footings (V1-3) and Vestas's 2020 V1-3 EPC contract; no foundation information.",
+  "sources": [
+   {
+    "url": "https://tapchicongthuong.vn/co-dien-lanh--ree--thi-cong-du-an-dien-gio-48-mw--muon-lam-them-344-mw-nua-tai-tra-vinh-128129.htm",
+    "quote": "hiện đang triển khai thi công Dự án Nhà máy điện gió Duyên Hải Trà Vinh tại vị trí V1-4 với công suất 48 MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Tân An 1 offshore wind farm",
+  "iso": "VNM",
   "type": "lead",
   "value": {
    "t": "",
-   "units_covered": "none (10 prototype units; type not stated in any fetchable source)"
+   "units_covered": "pile foundations confirmed (type not stated)"
   },
-  "note_zh": "新開發銀行 2024 年專案評價報告寫一期是 10 部、50 MW 的樣機試驗工程，但只詳述二期的基礎；百度百科稱首批 10 個機位全為高樁承台，頁面 403 無法核對。",
-  "note_en": "NDB's 2024 project evaluation calls phase I a 10-turbine, 50 MW prototype and details only phase II's foundations; the Baidu Baike claim that all 10 are high-rise pile caps cannot be checked (page 403).",
+  "note_zh": "沿用前一輪線索：PLC 頁面寫承做 VPL 與 Tân Ân 專案的「樁基礎施工」（未寫單樁或承台）、一期 25 MW 6 部。本輪越文搜尋（cọc thép、hoàn thành thi công móng）只回到 110 kV 送電與新順三期報導。",
+  "note_en": "Prior lead carried over: PLC's page says it carried out the pile-foundation works for the VPL and Tan An projects (monopile or cap not stated); phase 1 is 25 MW with 6 turbines. This round's Vietnamese search only returned 110 kV energisation and Tan Thuan phase 3 reports.",
   "sources": [
    {
-    "url": "https://www.ndb.int/wp-content/uploads/2024/10/PPE-China-Putian-Pinghai-Bay-Offshore-Wind-Power-Project.pdf",
-    "quote": "Phase I was a testing prototype of 10 turbines with a capacity of 50 MW",
+    "url": "https://plc-corp.vn/thi-cong-dien-gio-ngoai-khoi.html",
+    "quote": "Dự án Điện gió VPL & Tân Ân: Đảm nhận thi công móng cọc và cung cấp dịch vụ cẩu tuabin chuyên dụng tại cảng",
     "check": "OK"
    },
    {
-    "url": "http://www.xyxc.com/2021-07/30/content_1183361.htm",
-    "quote": "其中，一期是我省首个国家能源局批复的海上风电项目，也是东南沿海地区首个投入商业化运行的海上风电项目，总装机容量5万千瓦，已实现投产",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Zhuhai Guishan",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "jk",
-     34
-    ],
-    [
-     "mp",
-     null
-    ],
-    [
-     "bk",
-     2
-    ]
-   ],
-   "sub": "四桩导管架",
-   "units_covered": "34 jackets (phase 1) + 2 bucket foundations of 49; the 13 units of 2021 (1 x 8.3 + 8 x 7 + 4 x 6.45 MW) are probably monopiles but only the first four piles are documented"
-  },
-  "note_zh": "一期 34 部 3 MW 全為內插式四樁導管架；一期後續及二期 2021-12 全容量併網時為 13 部（8.3 MW 1 部、7 MW 8 部、6.45 MW 4 部，共 88.25 MW），中交三航局開工報導寫「打下四根單樁」，其餘未寫明；另有筒型基礎專項 EPC（2022-06 第一座圓形、第二座多邊形）承載後加的 2 部（明陽 MySE11-230 樣機塔筒合約 2022-03）；海事局 2025-07 建成備案 49 部、200 MW。缺 13 部的型式紀錄，不寫入。",
-  "note_en": "Phase 1: 34 x 3 MW on inserted four-pile jackets. The phase-1 follow-up/phase 2 reached full capacity in Dec 2021 with 13 units (1 x 8.3, 8 x 7, 4 x 6.45 MW = 88.25 MW); CCCC Third Harbour's construction report mentions only the first four monopiles. Two more units stand on the bucket foundations of a separate EPC (first circular bucket June 2022, second polygonal; a Mingyang MySE11-230 prototype tower contract in March 2022); the MSA completion notice (July 2025) gives 49 units, 200 MW. The 13 units of 2021 lack a foundation record, so not written.",
-  "sources": [
-   {
-    "url": "https://paper.people.com.cn/zgnyb/html/2017-06/19/content_1784827.htm",
-    "quote": "也是国内首例采用内插式四桩导管架基础型式、整机安装的海上风电机组",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.energychina.press/article/doi/10.16516/j.gedi.issn2095-8676.2018.02.018",
-    "quote": "已成功地应用于广东珠海桂山海上风电示范项目，优化了设计工序，高效率、高质量、高精度地完成了全部导管架四桩基础的施工",
-    "check": "OK"
-   },
-   {
-    "url": "https://web.archive.org/web/20220408001918/http://www.hlfdw.com/xiangmujianshe/jianshe/20211215932717.html",
-    "quote": "一期后续及二期工程总装机容量为88.25兆瓦，共安装8.3兆瓦风机1台、7兆瓦风机8台、6.45兆瓦风机4台",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-154743.html",
-    "quote": "从11月25日打下一期后续及二期工程首根桩开始，到12月2日因为恶劣天气避风，不到十天的时间里，项目部克服重重困难打下四根单桩",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-169126.html",
-    "quote": "本次中标项目风场位于广东省珠海市桂山岛海域，机型为明阳MySE11-230",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=4ab6834f5da342eda39986faf7b5b0fa",
-    "quote": "项目建成装机容量200MW，共49台风机",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.gdshe.org/article/17649.html",
-    "quote": "6月26日，长江设计集团珠海桂山海上风电示范项目筒型基础专项EPC工程（桂山项目）完成第一台圆形筒型基础沉放安装",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Longyuan Putian Nanri Island",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "pc",
-     4
-    ],
-    [
-     "mp",
-     26
-    ]
-   ],
-   "sub": "嵌岩单桩",
-   "units_covered": "30 of 100 (4 pile-cap prototypes + lot IV 26 rock-socketed monopiles); lot IX (18 units) includes cap works, other lots unknown"
-  },
-  "note_zh": "4 部高樁承台樣機（國家能源集團）＋海事局 2020-01 通告的 IV 標段 26 台嵌岩單樁；IX 標段 18 台的招標含「嵌岩施工、承台施工」，其餘標段型式與座數仍查不到（本輪無新出處）。",
-  "note_en": "4 pile-cap prototypes (CHN Energy) + lot IV's 26 rock-socketed monopiles (MSA notice Jan 2020); lot IX (18 units) tender covers rock-socketing and cap works; the other lots remain unknown (nothing new this round).",
-  "sources": [
-   {
-    "url": "https://www.ceic.com/gjnyjtww/chnjcxw/202003/3557344e78ee4abb89fe3e86806d8ca3.shtml",
-    "quote": "先期开展的四台高桩承台基础样机，是我国东南沿海首批并网发电的海上风电机组",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=13fdc34debc743a2a5f264a127f5acdc",
-    "quote": "26台嵌岩单桩工程",
-    "check": "OK"
-   },
-   {
-    "url": "http://www.chnenergybidding.com.cn/bidweb/001/001002/001002002/20200424/69406956-3cc6-4565-a660-10e5296ed980.html",
-    "quote": "负责吊桩、沉桩、嵌岩施工、承台施工、局部现场焊接以及电缆管的安装、抛石等施工图内的所有工作内容",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Tangshan Laoting Putidao",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "pc",
-     15
-    ],
-    [
-     "mp",
-     null
-    ]
-   ],
-   "units_covered": "15 pile caps (CCCC Third Harbour) of 75; Huadian Heavy's 2017 contract for 39 pile caps conflicts with reports of monopiles"
-  },
-  "note_zh": "中交三航局 15 座高樁混凝土承台、華電重工 2017 年合約 39 座高樁承台（offshoreWIND.biz）、華西海工 2018-11 在此做單樁，彼此矛盾，沒有建成後分型式座數（本輪無新出處）。",
-  "note_en": "CCCC Third Harbour's 15 high-rise concrete caps, Huadian Heavy's 2017 contract for 39 pile caps (offshoreWIND.biz) and Huaxi's monopile work in Nov 2018 do not add up; no post-completion breakdown (nothing new this round).",
-  "sources": [
-   {
-    "url": "https://baijiahao.baidu.com/s?id=1755608206977396947&wfr=spider&for=pc",
-    "quote": "三航局负责15台高桩混凝土基础的土建及金属结构安装工程和75台单机容量为4.0兆瓦风机机组的安装，风电场装机总容量为300兆瓦。",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.offshorewind.biz/2017/11/20/huadian-heavy-joins-laothing-bodhi-offshore-wind-project/",
-    "quote": "Huadian Heavy Industries will be in charge of constructing the high-rise pile cap foundations for 39 offshore wind turbines to be installed off the coast of the Hebei province.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.hxoes.com/history.html",
-    "quote": "2018年11月 华西5000在唐山乐亭菩提岛海上风电场项目中完成公司首个海上风电单桩基础施工",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "CTG Jiangsu Dafeng 300 MW",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "mp",
-     null
-    ],
-    [
-     "bk",
-     null
-    ]
-   ],
-   "units_covered": "types only (73 units; monopiles plus at least one composite bucket, count unknown)"
-  },
-  "note_zh": "73 部，以 7–8 m 大直徑單樁為主，另有複合筒基礎與風機一體化施工（三峽新能源圖說）；《岩土工程學報》2020 年論文在三峽大豐風場對複合筒型基礎做原位監測，證實建成，但座數未寫。",
-  "note_en": "73 units, mainly 7–8 m monopiles plus composite-bucket foundations installed with the turbine (CTG photo story); a 2020 Chinese Journal of Geotechnical Engineering paper monitored a composite bucket foundation at the CTG Dafeng farm in situ, confirming one was built, but gives no count.",
-  "sources": [
-   {
-    "url": "https://www.thepaper.cn/newsDetail_forward_4965158",
-    "quote": "复合筒基础及风机一体化施工 单桩基础立桩 沉桩完成",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.cgejournal.com/article/doi/10.11779/CJGE2020S1006",
-    "quote": "结合三峡大丰海上风电场建设工程开展原位监测,基于多向倾角自动化监测系统并结合数值模拟,研究了结构在安装运行过程中的倾角和姿态变化规律。",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-181494.html",
-    "quote": "总装机容量30万千瓦，共安装73台风力发电机组，并配套建设一座220千伏海上升压站和一座陆上集控中心，于2019年10月31日全容量并网",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Fuqing Xinghua Bay Phase 2",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "pc",
-     null
-    ],
-    [
-     "gb",
-     null
-    ]
-   ],
-   "units_covered": "1 of 45 documented (58#, eight-inclined-pile high-rise cap for the 10 MW prototype); first-pile report (in-en.com, 403 here) says pile caps and gravity bases, monopiles possibly added"
-  },
-  "note_zh": "二期 45 部（15#–59#）；國際風力發電網首樁報導（搜尋摘要，頁面 403）寫基礎含高樁承台與重力式、視地質再加單樁；可核對的只有北極星轉載：58 號 10 MW 樣機為八根斜樁高樁承台（承台直徑 18 m）。各型式座數不詳。",
-  "note_en": "45 units (15#–59#); the first-pile report (in-en.com, 403 here) says high-rise pile caps and gravity bases with monopiles possibly added; the only checkable record is unit 58# (10 MW prototype) on an eight-inclined-pile high-rise cap, 18 m across. Counts per type unknown.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-133211.html",
-    "quote": "58号风机基础采用八根斜桩式高桩承台设计，具有抗风能力强，承受更大的上部荷载等优点，用来安装施工区域容量最大的10MW风机。",
-    "check": "OK"
-   },
-   {
-    "url": "https://fgw.fuzhou.gov.cn/fgwzwgk/fzgggz/cyfz/202410/t20241024_4913860.htm",
-    "quote": "但2021年二期项目安装的45台风机，全部是国产的。",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=08006acc4b1d4dabb54804c4d47279c8",
-    "quote": "二期项目场址中心距岸线约2.2km，共安装45台风机，项目装机容量280MW",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "CTG Dalian Zhuanghe III",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "mp",
-     48
-    ],
-    [
-     "pc",
-     20
-    ]
-   ],
-   "units_covered": "68 of 73 (CCCC Third Harbour batch 1: 42 monopiles + 6 rock-socketed monopiles + 7 pile caps; CCCC First Harbour 3rd Co.: 13 concrete pile caps); 5 unknown"
-  },
-  "note_zh": "中交三航局第一批次 55 部＝42 非嵌岩單樁＋6 嵌岩單樁＋7 高樁承台；新查到中交一航局三公司 2019-03 開工報導：其標段為鋼管樁 88 根、混凝土承台 13 座（含 24 根嵌岩樁芯），即再 13 座高樁承台。合計 68 部，全場 73 部還有 5 部型式不詳。",
-  "note_en": "CCCC Third Harbour's batch 1 of 55 = 42 monopiles + 6 rock-socketed monopiles + 7 pile caps; newly found: CCCC First Harbour 3rd Co.'s lot (construction start March 2019) is 88 steel piles and 13 concrete caps (24 rock-socketed pile cores), i.e. 13 more high-rise pile caps. 68 of the 73 units are covered; 5 remain unknown.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-132679.html",
-    "quote": "负责第一批次55台风电机组基础及安装任务，主要包括42台单桩非嵌岩式、6台单桩嵌岩式和7台高桩承台式结构",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-131142.html",
-    "quote": "该工程施工内容包括：钢管桩沉桩88根（不含试桩机位），非嵌岩桩桩芯64根，嵌岩桩桩芯24根，混凝土承台13座，附属构件安装13套",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-135820.html",
-    "quote": "本工程布置2台单机容量3MW风电机组、50台单机容量3.3MW风电机组、21台单机容量6.45MW风电机组，装机规模为300MW",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Huadian Yuhuan 1",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "pc",
-     22
-    ],
-    [
-     "mp",
-     10
-    ]
-   ],
-   "units_covered": "22 of 32 by construction record (north zone, 176 piles); the 10 south-zone monopiles rest on a supply tender and a self-media summary"
-  },
-  "note_zh": "北區 22 部 7 MW 高樁承台（176 根鋼管樁，2021-02 沉樁完成）有施工紀錄；南區 10 部 7.5 MW（2023-11 開工、2024-05-29 吊裝完成）的單樁只有供貨招標與自媒體，華電重工／潛水打撈協會的吊裝報導與海事局通告都沒寫型式。本輪再搜無新出處。",
-  "note_en": "North zone: 22 x 7 MW on high-rise pile caps (176 piles, driven by Feb 2021) with construction records; south zone: 10 x 7.5 MW (started Nov 2023, all hoisted 29 May 2024) are monopiles only per a supply tender and a self-media summary; the hoisting report and MSA notices give no type. Nothing new this round.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-200359.html",
-    "quote": "面对采用高桩承台基础结构型式的玉环项目，仅用139天就完成了176根钢管桩的沉桩工作",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-195622.html",
-    "quote": "该项目分南北两区建设，其中北区22台7兆瓦风机已于2021年12月投运；南区布置10台7.5兆瓦风机，装机容量规划75兆瓦。",
-    "check": "OK"
-   },
-   {
-    "url": "http://www.dlztb.com/xmxx/202309/28086.html",
-    "quote": "单桩基础及附属构件供货（南区10套）",
-    "check": "OK"
-   },
-   {
-    "url": "https://baijiahao.baidu.com/s?id=1822723006600317442&wfr=spider&for=pc",
-    "quote": "与北区不同，南区风机基础采用了更为经济的单桩基础。",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.cdsca.org.cn/news/shownews.php?lang=cn&id=2843",
-    "quote": "标志着该项目（南区）10台风机，已全部吊装完成",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Putian Pinghai Bay Phase 3",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "mp",
-     null
-    ],
-    [
-     "pc",
-     null
-    ]
-   ],
-   "units_covered": "types only (44 units; CCCC Third Harbour used a pile-stabilising platform for monopiles and a pile-cap cage at 44#)"
-  },
-  "note_zh": "三期 44 部 7 MW（中交三航局施工）：2020-06 國際船舶網／世紀新能源網報導廈船重工交付「一號穩樁平台」（單樁沉樁用）與「44# 機位套籠」（承台用），證實單樁與高樁承台並用；中新網福建 2024 寫「從單樁到高樁」；各型式座數仍不詳。",
-  "note_en": "Phase 3, 44 x 7 MW built by CCCC Third Harbour: a June 2020 report on Xiamen Shipbuilding delivering the 'No. 1 pile-stabilising platform' (for monopiles) and the '44# cage' (for a pile cap) confirms both monopiles and high-rise caps; Chinanews Fujian 2024 says 'from monopiles to high-rise caps'; counts per type still unknown.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-134867.html",
-    "quote": "6月23日，厦船重工承接的中交三航局莆田平海湾海上风电项目一号稳桩平台、44#机位套笼成功交付落驳。",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.fj.chinanews.com.cn/news/2024/2024-08-14/552232.html",
-    "quote": "从单桩到高桩、从嵌岩施工到风机安装，每一个工序都能看到他的身影。",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-131941.html",
-    "quote": "44台7MW机组",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Huaneng Zhuanghe II",
-  "iso": "CHN",
-  "type": "lead",
-  "value": {
-   "t": "mx",
-   "parts": [
-    [
-     "mp",
-     null
-    ],
-    [
-     "jk",
-     null
-    ]
-   ],
-   "sub": "吸力桶",
-   "units_covered": "types only (60 units): 25 monopiles installed by Sept 2020 plus suction-bucket jackets; the '40 + 20' split (dlzh.gov.cn) is unreachable (503)"
-  },
-  "note_zh": "60 部海裝 5 MW：2020-09 已裝單樁基礎 25 根及首座吸力桶導管架（世紀新能源網），海事局通告有「風機基礎施工 I 標段（非嵌岩單樁）」與「吸力桶導管架基礎運輸與安裝」，新華網稱 Ⅱ 風場規模化應用吸力桶導管架；莊河市政府頁面的 40 單樁＋20 吸力桶導管架仍連不上（503），本輪搜尋也無其他寫座數的出處。",
-  "note_en": "60 x 5 MW CSIC Haizhuang units: 25 monopiles and the first suction-bucket jacket installed by Sept 2020 (ne21), MSA notices for 'foundation lot I (non-rock-socketed monopiles)' and 'suction-bucket jacket transport and installation', Xinhua on large-scale use of suction-bucket jackets; the 40 + 20 split on the Zhuanghe city site is still unreachable (503) and no other source with counts was found.",
-  "sources": [
-   {
-    "url": "https://www.ne21.com/news/show-135438.html",
-    "quote": "累计安装单桩风机基础25根，全球首台海冰地区吸力桶导管架风机基础及国内首台吸力桶风机基础成功实施",
-    "check": "OK"
-   },
-   {
-    "url": "http://www.news.cn/power/2021-12/30/c_1211507094.htm",
-    "quote": "Ⅱ风场规模化应用负压吸力桶导管架风机基础，开创中国海上风电先河",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=1470992cb14d4c3e93cf0439b48aa435",
-    "quote": "中船重工大连市庄河海域海上风电场址II（300MW）项目风机基础施工I标段（非嵌岩单桩）施工项目",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=b36f2cc195ed41e78e9f1065026bf643",
-    "quote": "中船重工大连市庄河海域海上风电场址Ⅱ（300MW）项目吸力桶导管架基础运输与安装施工",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-155084.html",
-    "quote": "中船大连庄河海上风电场项目，计划安装60台中国海装5.0MW风电机组",
+    "url": "https://plc-corp.vn/nha-may-dien-gio-tan-an.html",
+    "quote": "Giai đoạn 1 của dự án có công suất 25 MW, bao gồm 6 trụ tuabin.",
     "check": "OK"
    }
   ]

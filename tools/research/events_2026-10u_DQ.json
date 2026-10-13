@@ -195,30 +195,6 @@
   ]
  },
  {
-  "farm": "WIND-088",
-  "iso": "USA",
-  "type": "lead",
-  "value": {
-   "farms": [],
-   "finding": "Farm still not named. News reports give only 'a wind generation facility located west of Highway 62 and Painted Hills Road' near Desert Hot Springs; Recharge calls it an unidentified project. OSHA/Cal-OSHA inspection databases (osha.gov IMIS establishment and accident search) return HTTP 403 from this environment and the osha.gov fatality table only covers the last six months; the web-search budget was exhausted before a Desert Sun or Cal/OSHA citation story could be found. Left unlinked.",
-   "date": ""
-  },
-  "note_zh": "報導只寫「62 號公路與 Painted Hills Road 以西的風力發電設施」，未指名風場；osha.gov 的 IMIS 查詢在本環境回 403，搜尋額度用盡前找不到 Cal/OSHA 裁罰或指名風場的報導（附近 7 km 內有十多筆紀錄，Painted Hills 當時在汰換重建，僅為候選）。維持不對應。",
-  "note_en": "Reports only say 'a wind generation facility west of Highway 62 and Painted Hills Road'; osha.gov IMIS returns 403 here and no Cal/OSHA citation or farm-naming story was found before the search budget ran out (a dozen records lie within 7 km; Painted Hills, then being repowered, is only a candidate). Left unlinked.",
-  "sources": [
-   {
-    "url": "https://kesq.com/news/2021/01/04/man-killed-in-100-ft-wind-turbine-fall-near-desert-hot-springs-identified/",
-    "quote": "Mario Contreras Jr. fell while working at a wind generation facility located west of Highway 62 and Painted Hills Road about 11:15 a.m. Wednesday",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.rechargenews.com/wind/worker-falls-to-death-inside-wind-turbine-tower-in-california/2-1-939049",
-    "quote": "Mario Contreras Jr was working for Site Constructors Inc at an unidentified project near Palm Springs",
-    "check": "OK"
-   }
-  ]
- },
- {
   "farm": "WIND-031",
   "iso": "JPN",
   "type": "result",
@@ -255,52 +231,6 @@
    {
     "url": "https://aow.co.jp/jp/eventa/item.cgi?pro&104",
     "quote": "本事案で漏油したのは潤滑油であり、風車ナセル外に最大280リットル程度が漏れ出しましたが、風車基礎部分等で最大限回収するとともに、海への漏出分は吸着マットで回収を完了しております。",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "WIND-053",
-  "iso": "KOR",
-  "type": "lead",
-  "value": {
-   "farms": [
-    "Yeongdeok"
-   ],
-   "finding": "No official final cause published as of 11 Oct 2026. Ministry of Climate, Energy and Environment press release (5 Feb 2026): investigation under way, special safety inspection (5–27 Feb) of 80 turbines over 20 years old or of the same maker/capacity. Interim (operator Yeongdeok Wind Power and Korea Electrical Safety Corp., reported 25 Mar 2026): a fault in the alarm sensor controlling blade speed; blades over-sped and tore, then struck the tower; no tower-fatigue problem; investigation stalled over the manufacturer's cooperation. No casualties on 2 Feb (unit 21). The separate 23 Mar 2026 fire at unit 19 killed three workers.",
-   "date": "2026-02-05"
-  },
-  "note_zh": "對應風場層「Yeongdeok」（39.6 MW，Vestas V80 1.65 MW×24，2005）。2/2 塔架折彎（21 號機）未見官方最終原因：氣候能源環境部 2026-02-05 說原因調查中、對 80 部老舊或同型機特別安全檢查（2/5–2/27）；3/25 報導營運公司與電氣安全公社暫定結論是控制葉片轉速的警報感測器異常、葉片超速撕裂後擊中塔架，塔架無疲勞問題，因製造商配合問題調查停滯。2/2 無人傷亡；3/23 的 19 號機火災 3 名工人死亡是另一事件。",
-  "note_en": "Maps to the layer record 'Yeongdeok' (39.6 MW, 24 x Vestas V80 1.65 MW, 2005). No official final cause for the 2 Feb tower collapse (unit 21): the ministry (5 Feb 2026) said the investigation was under way and ordered a special inspection of 80 old/same-type turbines; an interim finding reported on 25 Mar 2026 (operator and Korea Electrical Safety Corp.) blames a blade-speed alarm sensor fault (over-speed, blade tore and struck the tower; no tower fatigue), with the probe stalled over manufacturer cooperation. No casualties on 2 Feb; the 23 Mar fire at unit 19 (three workers killed) is a separate event.",
-  "sources": [
-   {
-    "url": "https://me.go.kr/home/web/board/read.do?boardCategoryId=&boardId=1840360&boardMasterId=939&decorator=&maxIndexPages=10&maxPageItems=10&menuId=10598&orgCd=&pagerOffset=160&searchKey=&searchValue=",
-    "quote": "기후에너지환경부(장관 김성환, 이하 ‘기후부’)는 최근 발생한 영덕 풍력발전기 타워꺽임 사고(2.2일, 오후 4시 40분)와 관련하여, 국민불안을 해소하고 추가 사고를 예방하기 위해 노후 풍력발전기에 대한 특별안전점검(’26.2.5.~2.27.)을 실시한다고 밝혔다.",
-    "check": "OK"
-   },
-   {
-    "url": "https://me.go.kr/home/web/board/read.do?boardCategoryId=&boardId=1840360&boardMasterId=939&decorator=&maxIndexPages=10&maxPageItems=10&menuId=10598&orgCd=&pagerOffset=160&searchKey=&searchValue=",
-    "quote": "사고원인에 대한 조사가 진행 중인 가운데 유사사고 발생 가능성이 있는 노후 발전기(20년 이상 가동) 또는 동일 제조사·동일 용량 발전기 80기가 대상이다.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.twig24.com/news/accident/2026/03/25/20260325500187",
-    "quote": "영덕풍력발전과 전기안전공사 등은 사고 이후 조사를 통해 블레이드(날개) 속도를 제어하는 알람센서에 이상이 있었다고 잠정 결론을 내렸다.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.twig24.com/news/accident/2026/03/25/20260325500187",
-    "quote": "사고 이후 점검을 통해 센서 이상을 파악했지만 제조사 협조 문제로 현재 조사가 지지부진한 상태다.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.twig24.com/news/accident/2026/03/24/20260324500076",
-    "quote": "지난 23일 오후 1시 11분쯤 영덕읍 창포리 풍력발전단지 내 풍력발전기 19호기에서 불이 나 발전기에 올라가서 수리하던 작업자 3명이 지상 출입구와 추락한 블레이드(날개)에서 숨진 채 발견됐다. 지난달 2일에는 가동 중이던 풍력발전기 21호기의 블레이드(날개) 파손에 따른 타워구조물(기둥) 꺾임 사고가 났다.",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.twig24.com/news/accident/2026/02/03/20260203500266",
-    "quote": "다행히 인명 피해는 발생하지 않았지만 추가 사고 발생 우려로 발전단지 내 발전기 전체를 전력차단하고 가동중지했다. 해당 단지에 설치된 발전기는 총 24(사유지 10기·군유지 14시)기로 2004~2005년 조성됐다.",
     "check": "OK"
    }
   ]
@@ -347,37 +277,126 @@
   ]
  },
  {
+  "farm": "WIND-088",
+  "iso": "USA",
+  "type": "lead",
+  "value": {
+   "farm": null,
+   "cause_zh": "",
+   "cause_en": "",
+   "date": ""
+  },
+  "note_zh": "仍無法指名風場。報導只寫「62 號公路與 Painted Hills Road 以西的風力發電設施」，Recharge 另寫「其他機關說地點更南」；Cal/OSHA 裁罰與 osha.gov／enforcedata.dol.gov 的檢查紀錄在本環境不可讀（403 或只剩 JS 單頁應用），Desert Sun 回 402，15 次搜尋內找不到任何把 Site Constructors 或墜落事故對到某風場的原文。地點最接近的候選是 Terra-Gen 2020 年在 SR 62／Painted Hills 的兩個汰換案：Painted Hills 汰換（291 部舊機換最多 14 部新機，對應風場層「Painted Hills Wind Park」46.8 MW／2021）與 Desert Hot Springs 汰換（69 部換 4 部，約 17 MW，風場層無對應紀錄）；Site Constructors 官網只列夏威夷 Hawi 汰換案。候選未經證實，不填風場。",
+  "note_en": "Farm still not identifiable. Reports only say 'a wind generation facility located west of Highway 62 and Painted Hills Road' and Recharge adds that other agencies placed it further south; Cal/OSHA citations and the osha.gov / enforcedata.dol.gov inspection records are unreadable here (403 or a JS-only app), the Desert Sun returns 402, and 15 searches found no passage tying Site Constructors or the fall to a named farm. The nearest candidates are Terra-Gen's two 2020 repowers at SR 62 / Painted Hills: the Painted Hills repower (291 old machines replaced by up to 14 new ones; layer record 'Painted Hills Wind Park', 46.8 MW / 2021) and the Desert Hot Springs repower (69 replaced by 4, about 17 MW; no layer record); Site Constructors' own site lists only the Hawi repower in Hawaii. Candidates unverified, so no farm is set.",
+  "sources": [
+   {
+    "url": "https://kesq.com/news/2021/01/04/man-killed-in-100-ft-wind-turbine-fall-near-desert-hot-springs-identified/",
+    "quote": "Mario Contreras Jr. fell while working at a wind generation facility located west of Highway 62 and Painted Hills Road about 11:15 a.m. Wednesday, according to Riverside County coroner's officials.",
+    "check": "OK"
+   },
+   {
+    "url": "https://kesq.com/news/2021/01/04/man-killed-in-100-ft-wind-turbine-fall-near-desert-hot-springs-identified/",
+    "quote": "fied by a representative of Site Constructors Inc. that an employee \"fell more than 100 feet inside the tower of a wind turbine.\" The agency investigates workplace accidents. Site Constructors did not immediately respond to a request seeking additional information.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.rechargenews.com/wind/worker-falls-to-death-inside-wind-turbine-tower-in-california/2-1-939049",
+    "quote": "Mario Contreras Jr was working for Site Constructors Inc at an unidentified project near Palm Springs The location of the accident, according to the Riverside Country Fire Department. Other agencies said it occurred further south.",
+    "check": "OK"
+   },
+   {
+    "url": "https://ceqanet.lci.ca.gov/2018101062",
+    "quote": "Painted Hills Wind Energy Repowering Project…State Highways SR 62, I-10 Waterways Whitewater River…The project proposes to decommission and remove approx 291 existing commercial wind turbines and install up to 14 new commercial wind turbines up to 499 ft in height",
+    "check": "OK(parts)"
+   },
+   {
+    "url": "https://waterboards.ca.gov/coloradoriver/water_issues/programs/401_certification/docs/applications/2019/pn_wdid_7A333206001.pdf",
+    "quote": "Decommissioning and removing 69 existing wind turbines and replacing them with 4 new wind turbines with a capacity of 2.0 to 4.2 MW of power generation",
+    "check": "OK"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/San_Gorgonio_Pass_wind_farm",
+    "quote": "2020: Painted Hills Repower replaced 291 old machines with nine new turbines.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.siteconstructors.net/wind.html",
+    "quote": "Hawi Wind Repower Refurbishment of all sixteen V147 wind turbines have been completed.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-053",
+  "iso": "KOR",
+  "type": "lead",
+  "value": {
+   "farm": "Yeongdeok",
+   "cause_zh": "",
+   "cause_en": "",
+   "date": ""
+  },
+  "note_zh": "截至 2026-10-13 仍無官方最終原因。搜尋到的最新進展是 3 月底：朝鮮日報 3/28 引用電氣安全公社與盈德風力發電的聯合調查，說事故一個半月後塔架折彎的直接原因仍未查明，只有警報感測器故障的跡象與當時風速 6.4 m/s，製造商 Vestas 2/13 取得 SCADA 資料分析，但以保固期已過為由未提出結果；韓國經濟 3/24 引用國會取得的氣候能源環境部「盈德風力特別安全點檢結果」只列各機組缺陷（4 號機固定螺栓、7／8／19／23 號機葉片裂縫、9 號機變槳軸承），沒有 2/2 事故原因。暫定原因（葉片轉速警報感測器異常）仍不填根因欄。",
+  "note_en": "No official final cause as of 13 Oct 2026. The latest finding is from late March: Chosun Ilbo (28 Mar) cites the joint investigation by Korea Electrical Safety Corp. and Yeongdeok Wind Power — a month and a half on, the direct cause of the tower buckling was still unclear beyond signs of an alarm-sensor fault and a 6.4 m/s wind; Vestas took the SCADA data on 13 Feb but has given no result, citing the expired warranty. Hankyung (24 Mar) quotes the ministry's special-inspection results obtained by a lawmaker, which list defects on other units (bolts on unit 4, blade cracks on 7/8/19/23, pitch bearing on 9) but no cause for the 2 Feb event. The interim cause (blade-speed alarm sensor fault) stays out of the root-cause field.",
+  "sources": [
+   {
+    "url": "https://v.daum.net/v/20260328093255764",
+    "quote": "28일 전기안전공사와 영덕풍력발전 등 합동 조사 결과에 따르면, 사고 발생 한 달 보름이 지나도록 타워 구조물(기둥) 붕괴 사고의 직접적인 원인은 명확히 밝혀지지 않았다. 알람 센서 고장 정황과 사고 당시 발전기 주변 풍속이 초속 6.4m인 점 외 뚜렷한 사고 원인이 될 단서는 없다고 한다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://v.daum.net/v/20260328093255764",
+    "quote": "풍력발전기 제조사인 덴마크 베스타스(Vestas) 기술진은 지난달 13일 영덕 사고 현장에서 ‘스카다(SCADA·원격 감시 제어)’ 데이터를 확보해 분석에 착수했다. 전기안전공사와 운영사 요청으로 사고 발생 12일 만이다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://v.daum.net/v/20260328093255764",
+    "quote": "영덕풍력발전 관계자는 “날개 속도가 일정 수준을 넘으면 알람 센서가 작동하고 제어해야 하는데 고장이 나면서 날개 파손 영향으로 기둥이 꺾인 것 같다”며 “센서 이상 원인과 관련해 제조업체가 보증 기한 경과 등을 이유로 협조하지 않고 있다”고 밝혔다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.hankyung.com/article/202603243528i",
+    "quote": "김 의원실에 따르면 영덕 4호기는 고정볼트 파손으로 교체가 필요하다는 진단을 받았고, 7·8·19·23호기는 각각 블레이드에 발생한 균열에 수리가 필요하다는 진단을 받았다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.twig24.com/news/accident/2026/03/25/20260325500187",
+    "quote": "영덕풍력발전과 전기안전공사 등은 사고 이후 조사를 통해 블레이드(날개) 속도를 제어하는 알람센서에 이상이 있었다고 잠정 결론을 내렸다.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
   "farm": "WIND-058",
   "iso": "TWN",
   "type": "lead",
   "value": {
-   "farms": [
-    "Greater Changhua 2b & 4"
-   ],
-   "finding": "No official cause published as of 11 Oct 2026. Energy Administration (21 Aug 2026): the turbine faulted at 03:29 on 8 Aug, tripped automatically, parts caught fire about 05:00 and the fire stopped at 06:30; no staff on site, partial damage to the turbine only, no casualties; the operator was ordered to clarify the cause. MOEA (27 Aug 2026): affected capacity about 14 MW, below the lowest reportable grade. Ørsted (1 Sep 2026): a possible overheating area identified in a preliminary way; the cause is still being investigated with Siemens Gamesa. A separate blade failure on another turbine of the same farm on 2 Oct 2026 (no casualties; Siemens Gamesa leading the investigation).",
-   "date": "2026-08-21"
+   "farm": "Greater Changhua 2b & 4",
+   "cause_zh": "",
+   "cause_en": "",
+   "date": ""
   },
-  "note_zh": "對應風場層「Greater Changhua 2b & 4」（大彰化西北 G05 屬此筆）。截至 2026-10-11 無官方起火原因：能源署 8/21 說 8/8 03:29 故障跳脫、約 05:00 起火、06:30 熄滅，現場無人、僅風機部分受損、無人傷亡，已要求業者釐清原因；經濟部 8/27 說影響容量約 14 MW；沃旭 9/1 說初步釐清可能過熱區域、仍與西門子歌美颯調查；10/2 同場另一風機葉片損毀（無人傷亡）是另一事件。",
-  "note_en": "Maps to 'Greater Changhua 2b & 4' (G05 is the Changhua 4 / north-west site). No official cause as of 11 Oct 2026: the Energy Administration (21 Aug) gave the timeline (fault 03:29, fire about 05:00, out 06:30), no staff on site, partial damage, no casualties, operator ordered to clarify the cause; MOEA (27 Aug) put the affected capacity at about 14 MW; Ørsted (1 Sep) said a possible overheating area was identified preliminarily and the investigation with Siemens Gamesa continues; a blade failure on another turbine on 2 Oct 2026 is a separate event.",
+  "note_zh": "截至 2026-10-13 仍無官方起火原因。最新進展是中華日報 10/3：10/2 同場 H04 風機葉片斷裂後，能源署表示 8/8 G05 火災「還沒收到業者的火場鑑定報告」，認為有必要釐清同一風場事故接連發生的原因，並將請業者評估啟動風機全面健檢；沃旭 9/1 仍只說初步釐清可能過熱區域、與西門子歌美颯調查中。沃旭官網新聞中心為 JS 載入、無法讀取清單；能源署新聞頁未見新公告。",
+  "note_en": "No official cause as of 13 Oct 2026. The latest development is the China Daily News (Tainan) report of 3 Oct: after the H04 blade failure on 2 Oct at the same farm, the Energy Administration said it had not yet received the operator's fire investigation report for the 8 Aug G05 fire, saw a need to clarify why incidents cluster at this farm and will ask the operator to consider a full health check of the turbines; Ørsted (1 Sep) still only cites a preliminarily identified overheating area with the Siemens Gamesa investigation ongoing. Ørsted Taiwan's news centre is JS-rendered and could not be listed; no new Energy Administration notice was found.",
   "sources": [
    {
-    "url": "https://cna.com.tw/news/afe/202608210181.aspx",
-    "quote": "經濟部能源署今天表示，事故當時現場無工作人員在場，僅風機部分受損，無人員傷亡，已依規定要求業者釐清事故原因，後續將依調查結果擬定並落實修復計畫。",
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "至於八月八日發生的火災，能源署也還沒收到業者的火場鑑定報告。",
     "check": "OK"
    },
    {
-    "url": "https://cna.com.tw/news/afe/202608210181.aspx",
-    "quote": "根據業者說明，該風機於凌晨3時29分發生故障，系統隨即啟動保護機制並自動跳脫停機；約上午5時，部分設備出現著火情形，至6時30分火勢停止。",
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "由於其他離岸風場目前並未傳出火災或葉片斷裂等類似事故，能源署因此認為，有必要進一步釐清大彰化西北離岸風場近期事故接連發生的原因",
     "check": "OK"
    },
    {
-    "url": "https://www.moeaea.gov.tw/ECW/populace/news/News.aspx?kind=1&menu_id=41&news_id=34569",
-    "quote": "本次事故影響裝置容量約14MW未達丙級規模，業者已於火災緊急處置後向能源署通報，符合通報規定",
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "同一風場接連發生事故的罕見狀況，已引起能源署關注，將請業者評估啟動風機全面健檢。",
     "check": "OK"
    },
    {
-    "url": "https://www.moeaea.gov.tw/ECW/populace/news/News.aspx?kind=1&menu_id=41&news_id=34569",
-    "quote": "本次事故能源署已發函要求業者提供火災事故調查及風機修復計畫，後續將檢視事故原因，提出改善意見",
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "同一風場先前發生的另一起事故是火災，Ｇ０五風機於八月八日凌晨三時二十九分發生故障，五時起火，火勢直至六時三十分才停止。",
     "check": "OK"
    },
    {
@@ -386,8 +405,8 @@
     "check": "OK"
    },
    {
-    "url": "https://cna.com.tw/news/afe/202610030029.aspx",
-    "quote": "大彰化西北離岸風場一座風機2日中午發生葉片損毀。沃旭能源今天說明，確認無人傷亡，附近海域亦已採取安全管制，後續風機系統原廠西門子歌美颯將主導並負責事件調查。",
+    "url": "https://www.moeaea.gov.tw/ECW/populace/news/News.aspx?kind=1&menu_id=41&news_id=34569",
+    "quote": "本次事故能源署已發函要求業者提供火災事故調查及風機修復計畫，後續將檢視事故原因，提出改善意見",
     "check": "OK"
    }
   ]

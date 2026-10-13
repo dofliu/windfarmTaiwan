@@ -125,12 +125,13 @@ COUNTRIES = ('china', 'india', 'spain', 'italy', 'japan', 'germany', 'vietnam', 
 # GEM 的省名有英文慣用名或拼錯的，Nominatim 的英文地址用的是另一種寫法 · province names GEM spells differently from Nominatim's English address
 PROV_ALIAS = {'castillayleon': 'castileandleon', 'castillalamancha': 'castilelamancha', 'andalucia': 'andalusia', 'aragon': 'aragon',
               'cataluna': 'catalonia', 'catalunya': 'catalonia', 'paisvasco': 'basquecountry', 'euskadi': 'basquecountry', 'comunidadvalenciana': 'valenciancommunity',
-              'islascanarias': 'canaryislands', 'siciliy': 'sicily', 'sicilia': 'sicily', 'puglia': 'apulia', 'sardegna': 'sardinia', 'toscana': 'tuscany',
+              'islascanarias': 'canaryislands', 'canarias': 'canaryislands', 'siciliy': 'sicily', 'sicilia': 'sicily', 'puglia': 'apulia', 'sardegna': 'sardinia', 'toscana': 'tuscany',
               'hokkadio': 'hokkaido', 'zaragosa': 'zaragoza', 'ananthapuramu': 'anantapur', 'marakeshsafi': 'marrakeshsafi', 'innermongolia': 'innermongolia',
               'xinjianguyghur': 'xinjiang', 'guangxizhuang': 'guangxi', 'ningxiahui': 'ningxia', 'tibet': 'tibet'}
 
 
-QUERY_FIX = {'Hokkadio': 'Hokkaido', 'Siciliy': 'Sicily', 'Zaragosa': 'Zaragoza', 'Ananthapuramu': 'Anantapur', 'Marakesh-Safi': 'Marrakesh-Safi'}   # GEM 頁面的拼字
+QUERY_FIX = {'Hokkadio': 'Hokkaido', 'Siciliy': 'Sicily', 'Zaragosa': 'Zaragoza', 'Ananthapuramu': 'Anantapur', 'Marakesh-Safi': 'Marrakesh-Safi', 'Anantpur': 'Anantapur',
+             'Tirunelvelli': 'Tirunelveli', 'Jaiselmer': 'Jaisalmer', 'Surendra Nagar': 'Surendranagar', 'Cuddapah': 'Kadapa', 'Tuticorin': 'Thoothukudi', 'Haixi AP': 'Haixi'}   # GEM 頁面的拼字
 
 
 def strip_accents(s):
@@ -217,6 +218,71 @@ def wikidata_coords(ids):
     return out
 
 
+COUNTRY_Q = {'CHN': 'Q148', 'IND': 'Q668', 'ESP': 'Q29', 'ITA': 'Q38', 'JPN': 'Q17', 'DEU': 'Q183', 'VNM': 'Q881', 'ROU': 'Q218', 'KAZ': 'Q232', 'UKR': 'Q212',
+             'NOR': 'Q20', 'POL': 'Q36', 'URY': 'Q77', 'NLD': 'Q55', 'CZE': 'Q213', 'MAR': 'Q1028', 'USA': 'Q30', 'OMN': 'Q842', 'COL': 'Q739', 'TUR': 'Q43',
+             'GRC': 'Q41', 'PRT': 'Q45', 'FRA': 'Q142', 'SWE': 'Q34', 'FIN': 'Q33', 'BRA': 'Q155', 'ARG': 'Q414', 'CHL': 'Q298', 'MEX': 'Q96', 'ZAF': 'Q258',
+             'EGY': 'Q79', 'AUS': 'Q408', 'CAN': 'Q16', 'KOR': 'Q884', 'PHL': 'Q928', 'THA': 'Q869', 'PAK': 'Q843', 'IRN': 'Q794', 'KEN': 'Q114', 'ETH': 'Q115',
+             'TWN': 'Q865', 'GBR': 'Q145', 'IRL': 'Q27', 'AUT': 'Q40', 'BEL': 'Q31', 'DNK': 'Q35', 'BGR': 'Q219', 'HRV': 'Q224', 'SRB': 'Q403', 'HUN': 'Q28',
+             'LTU': 'Q37', 'EST': 'Q191', 'LVA': 'Q211', 'RUS': 'Q159', 'MNG': 'Q711', 'PER': 'Q419', 'JOR': 'Q810', 'SAU': 'Q851'}
+
+
+SPARQL = 'https://query.wikidata.org/sparql'
+SUFFIX = ' (county|city|district|banner|municipality|prefecture|league|town|township|autonomous region|autonomous prefecture|province|state)$'   # 標籤比對時去掉的行政區字尾
+
+
+def wikidata_search(place, iso, lat0, lon0):
+    """Nominatim 找不到時直接查 Wikidata（SPARQL 一次查完）：以地點文字的一段（鄉鎮或縣）用 Wikidata 的搜尋服務找項目，要求 P17 是該國、有座標、
+    在 800 km 內，而且 P131（所在行政區）鏈上有一個項目的英文標籤等於 GEM 寫的省（邦）名；都符合才接受 · direct Wikidata search when Nominatim
+    fails (one SPARQL query per level): the entity search on a part of the place text, kept only when the country matches, the item has a coordinate
+    within 800 km and an item in its P131 chain carries the English label of the province GEM names"""
+    place = re.sub(r'^\d+(-\d+)?\s+', '', place.strip())
+    for a, b in QUERY_FIX.items():
+        place = re.sub(r'\b' + a + r'\b', b, place)
+    parts = [p.strip() for p in place.split(',') if p.strip()]
+    if len(parts) < 3 or iso not in COUNTRY_Q:
+        return None, 'no acceptable result'
+    prov = parts[-2] if parts[-1].lower() in COUNTRIES else parts[-1]
+    prov_n = norm(strip_accents(re.sub(r'\b(province|state|autonomous region|special administrative region|municipality|prefecture|region)\b', '', prov, flags=re.I)))
+    prov_c = {prov_n, PROV_ALIAS.get(prov_n, prov_n)}
+    for drop in range(0, len(parts) - 2):
+        q = re.sub(r'\s+(City|Town|Village|County|District|Banner|Township|Tehsil|Taluka|Mandal|Zhen|Xiang|Sumu|Gacha)$', '', parts[drop])
+        q = re.sub(r'^.*\s+in\s+', '', q).replace('"', '')      # 「X Gacha in Y」只留 Y
+        county_clause = ''
+        if len(parts) - drop >= 4:      # 鄉鎮層級：所在行政區鏈上也要有 GEM 寫的縣（市）· at township level the chain must also hold the county GEM names
+            cty = norm(strip_accents(re.sub(r'\s+(City|County|Banner|District|Municipality|Prefecture|League|AP|Zhen|Xiang)$', '', parts[drop + 1])))
+            if cty:
+                county_clause = ('?item wdt:P131+ ?cty. ?cty rdfs:label ?cl. FILTER(LANG(?cl) = "en" && REPLACE(REPLACE(LCASE(STR(?cl)), "' + SUFFIX + '", ""), "[^a-z0-9]", "") = "' + cty + '") ')
+        query = (
+            'SELECT ?item ?coord ?en ?zh WHERE { SERVICE wikibase:mwapi { bd:serviceParam wikibase:api "EntitySearch"; wikibase:endpoint "www.wikidata.org"; '
+            'mwapi:search "' + q + '"; mwapi:language "en"; mwapi:limit "8". ?item wikibase:apiOutputItem mwapi:item. } '
+            '?item wdt:P17 wd:' + COUNTRY_Q[iso] + '; wdt:P625 ?coord; wdt:P131+ ?adm. ?adm rdfs:label ?al. FILTER(LANG(?al) = "en") '
+            '{ ?item wdt:P31/wdt:P279* wd:Q486972 } UNION { ?item wdt:P31/wdt:P279* wd:Q56061 } '      # 聚落或行政區（不要車站、水庫等）
+            + county_clause +
+            'OPTIONAL { ?item rdfs:label ?en. FILTER(LANG(?en) = "en") } OPTIONAL { ?item rdfs:label ?zh. FILTER(LANG(?zh) IN ("zh-hant", "zh", "zh-hans")) } '
+            'FILTER(REPLACE(REPLACE(LCASE(STR(?al)), "' + SUFFIX + '", ""), "[^a-z0-9]", "") IN (' + ', '.join('"%s"' % c for c in sorted(prov_c) if c) + ')) } LIMIT 20')
+        t = get(SPARQL + '?' + urllib.parse.urlencode({'query': query, 'format': 'json'}), retries=3, ua=WD_UA)
+        time.sleep(2)
+        if t.startswith('ERR'):
+            continue
+        try:
+            rows = json.loads(t)['results']['bindings']
+        except (ValueError, KeyError):
+            continue
+        for r in rows:
+            m = re.match(r'Point\(([-\d.]+) ([-\d.]+)\)', r['coord']['value'])
+            if not m:
+                continue
+            lon, lat = float(m.group(1)), float(m.group(2))
+            if km(lat0, lon0, lat, lon) > MAX_KM:
+                continue
+            level = 'township' if drop == 0 and len(parts) >= 4 else ('county' if len(parts) - drop >= 3 else 'city')
+            if re.search(r'\b(City|County|Banner|District)$', parts[drop]) and level == 'township':
+                level = 'county'
+            return dict(wikidata=r['item']['value'].rsplit('/', 1)[1], query='wikidata:' + q, level=level, lat=round(lat, 4), lon=round(lon, 4),
+                        label_zh=r.get('zh', {}).get('value', ''), label_en=r.get('en', {}).get('value', '')), None
+    return None, 'no acceptable result'
+
+
 def main():
     src, out = Path(sys.argv[1]), Path(sys.argv[2])
     CACHE.mkdir(parents=True, exist_ok=True)
@@ -289,6 +355,22 @@ def main():
     for x in skipped:
         if x['why'] in RETRY:
             x['why'] += ' (township, county and city)'
+    # 第四階段：Nominatim 找不到的，直接搜尋 Wikidata（P131 鏈要含省名）· direct Wikidata search for the rest
+    retry = [x for x in skipped if x['why'] == 'no acceptable result' and x.get('place')]
+    skipped = [x for x in skipped if not (x['why'] == 'no acceptable result' and x.get('place'))]
+    got = {}
+    for n, x in enumerate(retry):
+        key = (x['iso'], x['place'])
+        if key not in got:
+            got[key] = wikidata_search(x['place'], x['iso'], *placeholder[(x['iso'], x['name'])])
+        g, why = got[key]
+        if g:
+            located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], **g))
+        else:
+            x['why'] = 'no acceptable result (Nominatim and Wikidata search)'
+            skipped.append(x)
+        if (n + 1) % 25 == 0:
+            print(time.strftime('%H:%M:%S'), 'wikidata search', n + 1, '/', len(retry), 'located', len(located), flush=True)
     out.write_text(json.dumps({'meta': META, 'located': located, 'skipped': skipped}, ensure_ascii=False, indent=0), encoding='utf-8')
     print('done', len(todo), 'located', len(located), 'skipped', len(skipped))
 

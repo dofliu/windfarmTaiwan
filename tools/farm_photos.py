@@ -68,6 +68,8 @@ FARMS = [
      'Category:Alpha ventus', '空拍 alpha ventus 的風機與套管式基礎'),
     ('DEU', 'BARD Offshore 1', 'File:Bard Offshore 2011.JPG',
      'Category:Bard 1 offshore wind farm', 'BARD Offshore 1 的三腳樁基礎風機'),
+    ('GBR', 'Moray West', 'File:PXL 20260708 125355462 exported 1785777008130.jpg',
+     'Category:Offshore wind farms', '2026-07-08 海上拍攝：前景一部 SG 14-222 風機（黃色單樁轉接段）與運維交通船，遠處一排風機與海上變電站；檔案說明寫明 Moray West Offshore Windfarm（沒有風場自己的分類，在「Offshore wind farms」分類）；CC0'),
     ('GBR', 'London Array', 'File:London Array Wind Farm in the Thames Estuary - geograph.org.uk - 7226633.jpg',
      'Category:London Array offshore wind farm', '泰晤士河口的 London Array 風機群'),
     ('GBR', 'Walney Extension', 'File:Turbine, Walney Offshore Windfarm - geograph.org.uk - 5496317.jpg',

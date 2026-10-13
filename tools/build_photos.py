@@ -37,13 +37,53 @@ FREE = re.compile(r'^(CC0|Public domain|PD\b|CC BY(-SA)? \d(\.\d)?|Attribution$)
 def api(**params):
     params.update(format='json', formatversion='2')
     url = API + '?' + urllib.parse.urlencode(params)
-    for attempt in range(6):
+    for attempt in range(3):
         try:
             return json.load(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60))
         except urllib.error.HTTPError as e:
-            if e.code != 429 or attempt == 5:
+            if e.code != 429 or attempt == 2:
                 raise
             time.sleep(5 * (attempt + 1))
+
+
+PAGE = 'https://commons.wikimedia.org/wiki/'
+
+
+def lookup_html(files):
+    """API 被限流（429）時的替代：讀每個檔案頁的 HTML，取授權（licensetpl）、作者（fileinfotpl_aut）、分類與原圖尺寸，縮圖網址依 Commons 的路徑規則組出
+    · fallback when the API answers 429: parse each file page (licence template spans, author cell, categories, original size) and build the thumbnail URL"""
+    info = {}
+    for f in files:
+        url = PAGE + urllib.parse.quote(f.replace(' ', '_'))
+        try:
+            t = html.unescape(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read().decode('utf-8', 'replace'))
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                info[f] = {'missing': True}
+                time.sleep(3)
+                continue
+            raise
+        full = re.search(r'class="fullImageLink"[^>]*>\s*<a href="(https://upload\.wikimedia\.org/wikipedia/commons/([0-9a-f])/([0-9a-f]{2})/[^"]+)"', t)
+        size = re.search(r'(\d[\d,]*)\s*×\s*(\d[\d,]*) pixels', t)
+        lic = re.search(r'class="licensetpl_short"[^>]*>(.*?)</span>', t, re.S)
+        licurl = re.search(r'class="licensetpl_link"[^>]*>(.*?)</span>', t, re.S)
+        aut = re.search(r'id="fileinfotpl_aut"[^>]*>.*?</td>\s*<td[^>]*>(.*?)</td>', t, re.S)
+        catblock = re.search(r'id="mw-normal-catlinks".*?</div>', t, re.S)
+        cats = re.findall(r'title="(Category:[^"]+)"', catblock.group(0)) if catblock else []
+        if not full or not size:
+            info[f] = {'missing': True}
+            time.sleep(3)
+            continue
+        w, h = int(size.group(1).replace(',', '')), int(size.group(2).replace(',', ''))
+        tw = min(WIDTH, w)
+        name = full.group(1).split('?')[0].rsplit('/', 1)[1]
+        thumb = f'https://thumb.wikimedia.org/wikipedia/commons/thumb/{full.group(2)}/{full.group(3)}/{name}/{tw}px-{name}' + ('.png' if name.lower().endswith('.svg') else '')   # 與 API 回的 thumburl 同一種網址
+        meta = {'LicenseShortName': {'value': lic.group(1) if lic else ''}, 'LicenseUrl': {'value': licurl.group(1) if licurl else ''},
+                'Artist': {'value': aut.group(1) if aut else ''}}
+        info[f] = {'imageinfo': [{'thumburl': thumb, 'descriptionurl': url, 'extmetadata': meta, 'thumbwidth': tw, 'thumbheight': round(h * tw / w)}],
+                   'categories': [{'title': c} for c in cats]}
+        time.sleep(3)
+    return info
 
 
 def text(v):
@@ -81,7 +121,14 @@ def main():
         if (kind, key) in seen:
             errors.append(f'listed twice: {kind} {key}')
         seen[(kind, key)] = 1
-    info = lookup(sorted({f for *_, f, _ in rows}))
+    files = sorted({f for *_, f, _ in rows})
+    try:
+        info = lookup(files)
+    except urllib.error.HTTPError as e:
+        if e.code != 429:
+            raise
+        print('Commons API rate-limited (429): reading the file pages instead', file=sys.stderr)
+        info = lookup_html(files)
     out = {'farms': {}, 'ms': {}, 'events': {}}
     for kind, key, f, cat in rows:
         p = info.get(f)

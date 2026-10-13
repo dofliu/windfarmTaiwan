@@ -12,17 +12,18 @@
 
 使用者 2026-10-11 要求把下面「下一步選項」第 3 項一次完成。做了的、還留著的如下（細節見 [CHANGELOG.md](./CHANGELOG.md) v2.37.0）：
 
-- **代用座標**：`tools/fetch_gem_locations.py`（GEM 專案頁地點文字 → Nominatim 當索引 → Wikidata 座標，CC0）定位 1,081 座，建置時 `farm_cleanup.py` 的 `GEM_LOC_RULES` 套用，清單 [docs/data-locations.md](./docs/data-locations.md)。
-  營運中共用代用點 1,349 座／172 點 → 748 座／143 點。沒定位到的 262 座：172 座 Nominatim 找不到可接受的結果（多為 GEM 只寫到省或村名、Nominatim 沒有該物件的 wikidata 標籤）、50 座鄉鎮、縣、市的 Wikidata 項目都沒有座標、31 座三個層級的 Wikidata 與 OSM 中心都相差 50 km 以上、8 座地點文字太短、1 座 GEM 頁面不存在；
-  可再試：用 GEM 頁的中文名找鄉鎮、或接 ROADMAP 第 1 階段「省級名單→旗縣」的做法。升級 GEM 版本後要重跑（約 10 分鐘，快取在 `/tmp/gem_loc_cache`；Wikidata 偶爾 429，程式會重試，重跑一次就會補上「Wikidata fetch failed」的）。
+- **代用座標**：`tools/fetch_gem_locations.py`（GEM 專案頁地點文字 → Nominatim 當索引 → Wikidata 座標，CC0；Nominatim 找不到時直接搜尋 Wikidata，所在行政區鏈要含 GEM 寫的縣與省）定位 1,138 座，建置時 `farm_cleanup.py` 的 `GEM_LOC_RULES` 套用，清單 [docs/data-locations.md](./docs/data-locations.md)。
+  營運中共用代用點 1,349 座／172 點 → 730 座／141 點。沒定位到的 205 座：114 座 Nominatim 與 Wikidata 搜尋都找不到可接受的結果（多為 GEM 只寫到省或村名，或村子在 Wikidata 沒有項目）、50 座鄉鎮、縣、市的 Wikidata 項目都沒有座標、32 座三個層級的 Wikidata 與 OSM 中心都相差 50 km 以上、8 座地點文字太短、1 座 GEM 頁面不存在；
+  可再試：用 GEM 頁的中文名找鄉鎮、或接 ROADMAP 第 1 階段「省級名單→旗縣」的做法。升級 GEM 版本後要重跑（第一次約 40 分鐘，之後有快取約 10 分鐘，快取在 `/tmp/gem_loc_cache`；Wikidata 偶爾 429，程式會重試，再跑一次就會補上「Wikidata fetch failed」的；每次重跑都會再試沒定位到的）。
 - **覆蓋缺口（中國、印度）**：已評估，結論寫在 [ROADMAP.md](./ROADMAP.md) 第 1 階段：先升級 GEM、不接登錄資料。印度 SECI 進度表（2026-06-30）已解析並比對：完全商轉的 30 案幾乎都已在 GEM 列為營運中，沒有可安全套用的更正（Powerica 德瓦卡兩筆分不出是哪個批次），紀錄在 `tools/research/seci_2026-06_DQ.json`。出處引文在 `tools/research/coverage_2026-10_DQ.json`。
-- **水下基礎**：補 2 座（萊州單樁、平海灣二期混合）；中國仍 36 座、越南 5 座型式不詳。14 條線索（莊河 III 68／73 座已知、桂山 49 座的組成、興化灣二期 58# 高樁承台、平海灣三期兩種都有、大豐複合桶等）在 `tools/research/fd_2026-10u_DQ.json`，都差「每種幾座」的建成紀錄。
+- **水下基礎**：補 3 座（萊州單樁、平海灣二期混合、華電玉環 1 號混合）；中國仍 35 座、越南 5 座型式不詳。42 條線索（莊河 III 68／73 座已知、桂山 49 座的組成、興化灣二期 58# 高樁承台、平海灣三期兩種都有、大豐複合桶等）在 `tools/research/fd_2026-10u_DQ.json`，都差「每種幾座」的建成紀錄。
 - **輪轂高度**：補 4 座；38 條線索（繁昌 I 151.2／155.7 m 來自後期海域使用報告、青洲四 140 m 等，多為核准值或只屬部分機組）在 `tools/research/hub_2026-10u_DQ.json`。
 - **港口**：補中國 16、韓國 4、菲律賓 4、歐洲 19、美國 5（港口 55→103 個、15→20 國）；`qa_ports.py` 新增 `FAR_OK`（離島港口可到 25 km）。還查不到的：湛江徐聞（只有風場本身的報導）、啟東海力出口基地（2023 年動工，未見運轉）、大連莊河／太平灣、釜山、浦項、仁川。
   機組「製造」類的港口依查到的產品分成 nacelle／blade／foundation／tower／cable，座標多為港區概略位置（`coordNote` 寫明）。
 - **事件**：7 筆未對到風場的事件已處理（WIND-010 對到 5 座；WIND-088 仍無法對到）；WIND-008、031、057 補上原因；WIND-053、058 等官方調查。
-- **照片**：沒有新增。Vindeby 的 Commons 分類只有一張 OSM 位置圖（「ロラン島、デンマーク.jpg」依檔案說明不是 Vindeby）；大彰化檔案搜尋 0 筆；其餘（彰芳暨西島、中能、允能、海龍、台電離岸二期、Hornsea One／Two、Dogger Bank、Moray West、Seagreen、Hollandse Kust Zuid、Gemini、Borssele、沙扒、引領號、福島實證、Hywind Tampen、Kincardine、Provence Grand Large、五島、里程碑機組）
-  這次 Commons 對本執行環境限流（API 與 REST 都回 429，縮圖不受限）沒查到，下次換時段再查；查詢腳本可照 `tools/find_photos.py` 用。
+- **照片**：新增 Moray West（2026-07-08 海上拍攝，CC0）。Commons 的 API 對本執行環境限流（429，網頁與縮圖不受限）：`build_photos.py` 遇到 429 改讀檔案頁 HTML；`find_photos.py` 用的是 API，限流時改手動看分類頁。
+  查過沒有可用照片的：Vindeby（分類只有 OSM 位置圖）、大彰化（檔案搜尋 0 筆）、Hornsea Two（分類裡唯一的空拍照日期 2017-09，早於風機安裝）、Dogger Bank（只有陸上變電站）、Hollandse Kust Zuid（只有雷達影像）、Gemini、Hywind Tampen、Kincardine、Provence Grand Large（分類是空的）、五島、福島實證、沙扒、彰芳暨西島、中能、允能、海龍、台電離岸二期（彰化縣政府的運維基地落成典禮照不算）、
+  Vineyard Wind 1（分類只有新貝德福港）、V236 原型機（Østerild 測試場分類沒有指名 V236 的照片）、明陽 20 MW、東方電氣 26 MW；Borssele（Windpark Borssele 分類，海平線上一排）與 Seagreen（從 Inverbervie 海灘望去）只有遠景，依規則不用。
 
 ### 即時資料（2026-10-10，v2.31.0–v2.36.0）
 
@@ -551,7 +552,7 @@ v2.35.0 合併後手動跑一次排程，十五個來源都成功。使用者接
 - [x] 12 個「逐場加總高於國家統計 110%」的國家：GEM 2026-02 升級後為 5 國——智利、摩洛哥、衣索比亞（2025 年新併網的風場，IRENA 2025 年統計尚未計入）、菲律賓（Pagudpud）與伊朗
 - [x] 接入即時資料時發現的重複：亞伯達 Whitla、澳洲 Snowtown、塔斯馬尼亞 Bluff Point、維多利亞 Yambuk
 - [x] 共用座標點：地圖上以該點為中心示意排開、卡片註明「位置示意」（`flags` 4）
-- [x] 共用座標點（v2.36.0 時 130 個點、1,310 座營運中風場）：v2.37.0 以 `tools/fetch_gem_locations.py` 把 1,081 座改到鄉鎮、縣的中心（見「進行中」）；剩 143 個點、748 座，其中 262 座 GEM 頁面找不到可定位的鄉鎮，其餘是同一縣的風場共用縣中心
+- [x] 共用座標點（v2.36.0 時 130 個點、1,310 座營運中風場）：v2.37.0 以 `tools/fetch_gem_locations.py` 把 1,138 座改到鄉鎮、縣的中心（見「進行中」）；剩 141 個點、730 座，其中 205 座 GEM 頁面找不到可定位的鄉鎮，其餘是同一縣的風場共用縣中心
 - [ ] 清理時查不到或未能證實的項目：越南 Song An（46.2 MW）已運轉，但 COD 在 2023-11 到 2024-05 之間、確切日期未公布（年份留空）（2026-10-08 再查仍無）；薄寮東海 1 號第 1–2 期的 GEM 點離 OSM 的和平 2 號風機不到 1 km，實際在 Long Điền Đông 社，沒有可引用的座標（第 3、4 期暫用同一點）
       （CGN Taizhou 1、Guoxin Sheyang H1 已由 2026-10-04 的規則處理；Kemi Ajos 沿革與多明尼加的差額已在 v2.30.6、Erbes-Büdesheim 與 Dong Hai V1-4 已在 v2.30.7 查清）
 - [ ] 資料中缺的風場（查證時發現；沒有可引用的座標，先不加）：越南 TDC 的 Lạc Hòa 1（朔莊 5 號，30 MW 中 25 MW 於 2021 年 COD、其餘 5 MW 到 2025-04 仍未送件）、韓國群山港 3 MW 試驗機、中國「扶搖號」6.2 MW 浮動式（見下）。
@@ -596,7 +597,7 @@ v2.35.0 合併後手動跑一次排程，十五個來源都成功。使用者接
       龍門 2022 年 6 月 1 日併聯；台電離岸一期改用 OpenStreetMap 標出的 21 部風機中心（23.986 N、120.242 E）
 - [ ] 台電資料待補：民營風場沒有逐場官方數字（T-REC 憑證量不是總發電量，不能用）。（台中電廠 2006、台中港區 2007 的商轉年已依監察院 2010 年調查報告更正，v2.27.0）
 - [ ] 還沒有核對照片的重要風場（2026-10 在 Commons 找不到可用的，`tools/farm_photos.py`）：大彰化東南／西南、大彰化西北／東北、彰芳暨西島、中能、允能、海龍、台電離岸二期；
-      Vindeby、Hornsea One／Two、Dogger Bank、Moray West、Seagreen、Hollandse Kust Zuid、Gemini、Borssele；陽江沙扒、引領號、福島實證、Hywind Tampen、Kincardine、
+      Vindeby、Hornsea One／Two、Dogger Bank、Seagreen、Hollandse Kust Zuid、Gemini、Borssele（Moray West 已於 v2.37.0 補上）；陽江沙扒、引領號、福島實證、Hywind Tampen、Kincardine、
       Provence Grand Large、五島；里程碑 V66 原型機、V236、Vineyard Wind 1、明陽 20 MW、東方電氣 26 MW。Commons 有新照片，或業主願意以自由授權提供時再補（每張都要看過）。
       2026-10-06 再找過、沒有可用照片的：Greater Gabbard、Triton Knoll、Kriegers Flak、Horns Rev 2／3、Lincs（分不出是哪座風場）、Lake Turkana（照片是人像）、
       Northwind、Macarthur（Commons 沒有該風場的分類）；Hornsea 分類裡的照片拍於 2017 年，當時還沒有風機，不要用。
@@ -623,7 +624,7 @@ v2.35.0 合併後手動跑一次排程，十五個來源都成功。使用者接
 - [x] 韓國蔚山 750 kW 浮動式試驗機：從未下海（蔚州郡四度退回設計、KISTEP 2025 年說韓國沒有浮動式運送安裝實例），v2.30.6 刪除
 - [x] 英國 Pentland：GEM 的兩筆是同一案（現在的資料只有「Pentland wind farm」一筆），v2.24.3 改為預計 2030 年、位置移到 Dounreay 外海；若 GEM 新版又出現另一筆，用 dup 規則併掉
 - [x] 第 4 步：台灣、日本、韓國、美國：36 座（2026-09，v2.10.0）
-- [ ] 第 5 步：中國、越南（2026-09-27 使用者決定繼續逐步收集）：到 v2.37.0 中國已查明 105 座、越南 15 座；中國 36 座、越南 5 座仍型式不詳，線索在 `tools/research/fd_2026-10u_DQ.json`（見「進行中」）
+- [ ] 第 5 步：中國、越南（2026-09-27 使用者決定繼續逐步收集）：到 v2.37.0 中國已查明 106 座、越南 15 座；中國 35 座、越南 5 座仍型式不詳，線索在 `tools/research/fd_2026-10u_DQ.json`（見「進行中」）
 
 ## 待評估／待使用者決定方向（不要自作主張動工）
 

@@ -116,18 +116,18 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   since stopped go in `PIPE_DROP`.
   If a GEM project was merged into a curated record that a dup/drop rule later removes, the build stops (otherwise the farm would
   vanish): list it in `GEM_KEEP` if it is a separate farm, or in `ORPHAN_OK` only when another record is confirmed to cover it.
-  GEM 放在省或國家中心代用點的營運中風場，由 `tools/fetch_gem_locations.py` 依 GEM 專案頁的鄉鎮／縣文字找到 Wikidata 項目、取其座標（CC0；OSM Nominatim 只當查詢索引，不寫出 OSM 資料），
+  GEM 放在省或國家中心代用點的營運中風場，由 `tools/fetch_gem_locations.py` 依 GEM 專案頁的鄉鎮／縣文字找到 Wikidata 項目、取其座標（CC0；OSM Nominatim 只當查詢索引，不寫出 OSM 資料；Nominatim 找不到時直接搜尋 Wikidata，所在行政區鏈要含 GEM 寫的縣與省），
   輸出 `data/global/sources/gem_locations.json`，建置時以 `GEM_LOC_RULES` 套用成「概略位置」（仍標 flags 1），清單寫成 `docs/data-locations*.md`；升級 GEM 版本後重跑。
   Operating farms that GEM puts on province- or country-centre placeholders are moved by `tools/fetch_gem_locations.py`: the township/county text of the GEM project
-  page is resolved to a Wikidata item and its coordinate (CC0; OSM Nominatim is only the lookup index and no OSM data is written) into `data/global/sources/gem_locations.json`,
+  page is resolved to a Wikidata item and its coordinate (CC0; OSM Nominatim is only the lookup index and no OSM data is written; where Nominatim finds nothing, Wikidata is searched directly and the chain of containing areas must carry the county and province GEM names) into `data/global/sources/gem_locations.json`,
   applied at build time as approximate positions (`GEM_LOC_RULES`, flag 1 kept) and listed in `docs/data-locations*.md`; rerun it after a GEM upgrade.
 
 - 卡片照片寫在 `tools/farm_photos.py`：每張都要人工看過（看得到該風場或里程碑風機的風機，不是地圖、標誌、典禮或遠景），出自該風場自己的 Wikimedia Commons 分類（沒有分類時，檔名或說明要寫明是這座風場），
-  授權是 CC0／公有領域／CC BY／CC BY-SA／Attribution；改完跑 `python3 tools/build_photos.py`（檢查名稱、分類與授權，輸出 `data/global/photos.json`），卡片會寫出作者與授權。
+  授權是 CC0／公有領域／CC BY／CC BY-SA／Attribution；改完跑 `python3 tools/build_photos.py`（檢查名稱、分類與授權，輸出 `data/global/photos.json`；Commons API 限流回 429 時改讀檔案頁），卡片會寫出作者與授權。
   事件只放拍到該事件本身的照片。找候選用 `python3 tools/find_photos.py 名稱 --save 目錄`。照片不存進 repo，網頁直接載入 Commons 縮圖。
   Card photos live in `tools/farm_photos.py`: each one looked at by hand (it shows the farm's or milestone machine's turbines, not a map,
   logo, ceremony or distant view), taken from the farm's own Wikimedia Commons category (or named as that farm in its title or description), under CC0 / public domain / CC BY / CC BY-SA / Attribution.
-  Run `python3 tools/build_photos.py` after editing (it checks names, categories and licences and writes `data/global/photos.json`); the card
+  Run `python3 tools/build_photos.py` after editing (it checks names, categories and licences and writes `data/global/photos.json`, reading the file pages when the Commons API answers 429); the card
   credits author and licence. Event photos must show the event itself. Photos are not stored in the repo; the page loads Commons thumbnails.
 
 - 港口資料 `data/global/ports.json` 是人工整理、每港附出處：座標標在碼頭或港池（`coordNote` 說明是哪裡），「服務過的風場」只列有出處佐證的，

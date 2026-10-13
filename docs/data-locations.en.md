@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-locations.md)
 
 The February 2026 GEM release places many operating farms (mostly in China and India) on province- or country-centre placeholders (dozens of records on one point). The GEM project page’s “Location” still names the township, county or district, city and province, so each farm is moved to the centre of that administrative unit: the coordinate comes from Wikidata (CC0) and the unit was found with OpenStreetMap Nominatim (used only as an index; no OSM data is included). These are still **approximate** positions (the card says so): a township or county centre is not the farm itself, but far closer than a province centre. Farms that could not be located keep the placeholder and are listed under skipped in gem_locations.json.
 
-- 1081 farms: 399 at township level, 652 at county or district level, 30 at city level.
+- 1138 farms: 419 at township level, 689 at county or district level, 30 at city level.
 
 ## China (CHN)
 
@@ -875,6 +875,27 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Xinjiang Hami Shisanjianfang (Tianrun) wind farm · 3, 4, 5](https://www.gem.wiki/Xinjiang_Hami_Shisanjianfang_%28Tianrun%29_wind_farm) | 150 | 1 Qijiaojing, Yizhou District, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
 | [Xinjiang Hami Shisanjianfang (Xinyue) wind farm](https://www.gem.wiki/Xinjiang_Hami_Shisanjianfang_%28Xinyue%29_wind_farm) | 50 | 1 Qijiaojing, Yizhou District, Hami, Xinjiang, China | [Hami](https://www.wikidata.org/wiki/Q989892) | 42.8322, 93.5155 | county or district |
 | [Heilongjiang Daqing Dagang wind farm](https://www.gem.wiki/Heilongjiang_Daqing_Dagang_wind_farm) | 48 | 1 Dajingzi, Datong District, Daqing, Heilongjiang, China | [Daqing](https://www.wikidata.org/wiki/Q304848) | 46.5979, 125.008 | county or district |
+| [Qinghai Haixi Prefecture Multi-Source Energy Integration Demonstration Project wind farm](https://www.gem.wiki/Qinghai_Haixi_Prefecture_Multi-Source_Energy_Integration_Demonstration_Project_wind_farm) | 400 | Golmud City, Haixi AP, Qinghai, China | [Golmud](https://www.wikidata.org/wiki/Q858250) | 36.4028, 94.9042 | county or district |
+| [Qinghai Dulan Nuomuhong (State Power Investment) wind farm](https://www.gem.wiki/Qinghai_Dulan_Nuomuhong_%28State_Power_Investment%29_wind_farm) | 350 | Zongjia, Dulan, Haixi AP, Qinghai, China | [Zongja Town](https://www.wikidata.org/wiki/Q10948077) | 36.4334, 96.4607 | township |
+| [Qinghai Delingha Gahai wind farm · 3](https://www.gem.wiki/Qinghai_Delingha_Gahai_wind_farm) | 100 | 1 Gahai, Delingha, Haixi AP, Qinghai, China | [Gahai](https://www.wikidata.org/wiki/Q11037419) | 37.2175, 97.4148 | township |
+| [Qinghai Dachaidan (Mingyang) wind farm](https://www.gem.wiki/Qinghai_Dachaidan_%28Mingyang%29_wind_farm) | 100 | Golmud City, Haixi AP, Qinghai, China | [Golmud](https://www.wikidata.org/wiki/Q858250) | 36.4028, 94.9042 | county or district |
+| [Qinghai Qaidam Xitieshan Liushaping (Mingyang) wind farm](https://www.gem.wiki/Qinghai_Qaidam_Xitieshan_Liushaping_%28Mingyang%29_wind_farm) | 100 | Xitieshan, Da Qaidam Administrative Zone, Haixi AP, Qinghai, China | [Xitieshan](https://www.wikidata.org/wiki/Q14051127) | 37.316, 95.553 | township |
+| [Qinghai Qaidam Xitieshan (China Resources) wind farm](https://www.gem.wiki/Qinghai_Qaidam_Xitieshan_%28China_Resources%29_wind_farm) | 50 | Xitieshan, Da Qaidam Administrative Zone, Haixi AP, Qinghai, China | [Xitieshan](https://www.wikidata.org/wiki/Q14051127) | 37.316, 95.553 | township |
+| [Qinghai Qaidam Xitieshan (Qinghai Development Investment) wind farm](https://www.gem.wiki/Qinghai_Qaidam_Xitieshan_%28Qinghai_Development_Investment%29_wind_farm) | 150 | 1 Xitieshan, Da Qaidam Administrative Zone, Haixi AP, Qinghai, China | [Xitieshan](https://www.wikidata.org/wiki/Q14051127) | 37.316, 95.553 | township |
+| [Qinghai Dulan (Luneng) wind farm](https://www.gem.wiki/Qinghai_Dulan_%28Luneng%29_wind_farm) | 100 | 1 Zongjia, Dulan, Haixi AP, Qinghai, China | [Zongja Town](https://www.wikidata.org/wiki/Q10948077) | 36.4334, 96.4607 | township |
+| [Qinghai Golmud Wuzihe wind farm](https://www.gem.wiki/Qinghai_Golmud_Wuzihe_wind_farm) | 50 | Golmud City, Haixi AP, Qinghai, China | [Golmud](https://www.wikidata.org/wiki/Q858250) | 36.4028, 94.9042 | county or district |
+| [Qinghai Dulan Nuomuhong Dagele Hedong wind farm](https://www.gem.wiki/Qinghai_Dulan_Nuomuhong_Dagele_Hedong_wind_farm) | 50 | 1 Zongjia, Dulan, Haixi AP, Qinghai, China | [Zongja Town](https://www.wikidata.org/wiki/Q10948077) | 36.4334, 96.4607 | township |
+| [Henan Xincai Liqiao wind farm](https://www.gem.wiki/Henan_Xincai_Liqiao_wind_farm) | 100 | Liqiao Zhen, Xincai, Zhumadian Municipality, Henan, China | [Liqiao](https://www.wikidata.org/wiki/Q11097005) | 32.8517, 114.8411 | township |
+| [Shandong Xintai Yucun wind farm](https://www.gem.wiki/Shandong_Xintai_Yucun_wind_farm) | 100 | Yucun, Xintai City, Taian, Shandong, China | [Xintai](https://www.wikidata.org/wiki/Q1344683) | 35.91, 117.78 | county or district |
+| [Henan Zhumadian Shangcai wind farm](https://www.gem.wiki/Henan_Zhumadian_Shangcai_wind_farm) | 50 | Xiaoyuesi Xiang, Shangcai, Zhumadian Municipality, Henan, China | [Xiaoyuesi Township](https://www.wikidata.org/wiki/Q10958837) | 33.4272, 114.3398 | township |
+| [Henan Queshan Maweishan wind farm](https://www.gem.wiki/Henan_Queshan_Maweishan_wind_farm) | 50 | Rendian Zhen, Queshan, Zhumadian Municipality, Henan, China | [Rendian Town, Queshan](https://www.wikidata.org/wiki/Q10884680) | 32.6643, 113.9786 | township |
+| [Henan Xincai Chendian wind farm](https://www.gem.wiki/Henan_Xincai_Chendian_wind_farm) | 50 | Longkou Zhen, Xincai, Zhumadian Municipality, Henan, China | [Xincai County](https://www.wikidata.org/wiki/Q1199071) | 32.7528, 114.9706 | county or district |
+| [Henan Xincai (State Power Investment) wind farm](https://www.gem.wiki/Henan_Xincai_%28State_Power_Investment%29_wind_farm) | 50 | Yudian Zhen, Xincai, Zhumadian Municipality, Henan, China | [Yudian Town, Xincai](https://www.wikidata.org/wiki/Q10886562) | 32.7591, 114.731 | township |
+| [Henan Xincai Longkou wind farm](https://www.gem.wiki/Henan_Xincai_Longkou_wind_farm) | 50 | Longkou Zhen, Xincai, Zhumadian Municipality, Henan, China | [Xincai County](https://www.wikidata.org/wiki/Q1199071) | 32.7528, 114.9706 | county or district |
+| [Henan Xiping Pingyuan wind farm](https://www.gem.wiki/Henan_Xiping_Pingyuan_wind_farm) | 50 | Wugouying Town, Xiping, Zhumadian Municipality, Henan, China | [Wugouying Town](https://www.wikidata.org/wiki/Q10881948) | 33.4349, 114.1556 | township |
+| [Shandong Feicheng Taoyuan wind farm](https://www.gem.wiki/Shandong_Feicheng_Taoyuan_wind_farm) | 50 | Taoyuan, Feicheng City, Taian, Shandong, China | [Feicheng](https://www.wikidata.org/wiki/Q1198379) | 36.186, 116.772 | county or district |
+| [Shandong Feicheng Humen wind farm](https://www.gem.wiki/Shandong_Feicheng_Humen_wind_farm) | 50 | Anlinzhan, Feicheng City, Taian, Shandong, China | [Anlinzhan Town](https://www.wikidata.org/wiki/Q10946315) | 36.0711, 116.7665 | township |
+| [Henan Suiping Jianshan wind farm](https://www.gem.wiki/Henan_Suiping_Jianshan_wind_farm) | 48 | Chayashan Zhen, Suiping, Zhumadian Municipality, Henan, China | [Chayashan](https://www.wikidata.org/wiki/Q11054494) | 33.2028, 113.7456 | township |
 
 ## Colombia (COL)
 
@@ -889,6 +910,7 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Winsen wind farm](https://www.gem.wiki/Winsen_wind_farm) | 20 | Lower Saxony, Germany | [Lower Saxony](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | city |
 | [Hohe Heide wind farm](https://www.gem.wiki/Hohe_Heide_wind_farm) | 18 | Lower Saxony, Germany | [Lower Saxony](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | city |
 | [Borne (MDP) wind farm](https://www.gem.wiki/Borne_%28MDP%29_wind_farm) | 33 | 1 Salzlandkreis, Saxony-Anhalt, Germany | [Salzlandkreis](https://www.wikidata.org/wiki/Q6081) | 51.8333, 11.5833 | county or district |
+| [Damme wind farm · 2, RP](https://www.gem.wiki/Damme_wind_farm) | 40 | 1 Vechta district, Lower Saxony, Germany | [Vechta District](https://www.wikidata.org/wiki/Q5941) | 52.67, 8.25 | county or district |
 
 ## India (IND)
 
@@ -1030,6 +1052,29 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Vajrakarur (Orix) wind farm](https://www.gem.wiki/Vajrakarur_%28Orix%29_wind_farm) | 25 | Vajrakarur, Ananthapuramu, Andhra Pradesh, India | [Vajrakarur mandal](https://www.wikidata.org/wiki/Q60213325) | 15.028, 77.385 | township |
 | [Belguppa (Adurjee) wind farm](https://www.gem.wiki/Belguppa_%28Adurjee%29_wind_farm) | 15 | Beguppa, Ananthapuramu, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
 | [Ramagiri wind farm](https://www.gem.wiki/Ramagiri_wind_farm) | 10 | Ramagiri, Ananthapuramu, Andhra Pradesh, India | [Ramagiri](https://www.wikidata.org/wiki/Q16344471) | 14.9587, 77.4714 | township |
+| [Tirunelveli (Nupower) wind farm](https://www.gem.wiki/Tirunelveli_%28Nupower%29_wind_farm) | 100 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Gujarat (Juniper Green) wind farm](https://www.gem.wiki/Gujarat_%28Juniper_Green%29_wind_farm) | 70 | Surendra Nagar, Gujarat, India | [Surendranagar district](https://www.wikidata.org/wiki/Q237535) | 22.73, 71.51 | county or district |
+| [Tirunelveli (KPR) wind farm](https://www.gem.wiki/Tirunelveli_%28KPR%29_wind_farm) | 62 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Sipla (CLP) wind farm](https://www.gem.wiki/Sipla_%28CLP%29_wind_farm) | 50 | Jaiselmer, Rajasthan, India | [Jaisalmer district](https://www.wikidata.org/wiki/Q1419708) | 26.9133, 70.9139 | county or district |
+| [Tirunelveli (Eveready) wind farm](https://www.gem.wiki/Tirunelveli_%28Eveready%29_wind_farm) | 41 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Tirunelveli (TNPL) wind farm](https://www.gem.wiki/Tirunelveli_%28TNPL%29_wind_farm) | 36 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Tirunelveli (Paharpur) wind farm](https://www.gem.wiki/Tirunelveli_%28Paharpur%29_wind_farm) | 32 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Poly wind farm](https://www.gem.wiki/Poly_wind_farm) | 24 | Anantpur, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
+| [Jed wind farm](https://www.gem.wiki/Jed_wind_farm) | 24 | Anantpur, Andhra Pradesh, India | [Ananthapuram](https://www.wikidata.org/wiki/Q760144) | 14.6833, 77.6 | county or district |
+| [Tirunelveli (VRETPL) wind farm](https://www.gem.wiki/Tirunelveli_%28VRETPL%29_wind_farm) | 22 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Tirunelvelli (Cape) wind farm](https://www.gem.wiki/Tirunelvelli_%28Cape%29_wind_farm) | 15 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Tirunelvelli (SRF) wind farm](https://www.gem.wiki/Tirunelvelli_%28SRF%29_wind_farm) | 14 | Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Kasturi Rengapuram wind farm](https://www.gem.wiki/Kasturi_Rengapuram_wind_farm) | 10 | Kasturi Rengapuram, Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Rastha wind farm](https://www.gem.wiki/Rastha_wind_farm) | 10 | Rastha, Tirunelvelli, Tamil Nadu, India | [Tirunelveli district](https://www.wikidata.org/wiki/Q15200) | 8.65, 77.3833 | county or district |
+| [Kutch (Torrent) V wind farm](https://www.gem.wiki/Kutch_%28Torrent%29_V_wind_farm) | 115 | Devbhoomi Dwarka, Gujarat, India | [Devbhumi Dwarka district](https://www.wikidata.org/wiki/Q14594717) | 22.2, 69.65 | county or district |
+| [Bhuj (Green Infra) wind farm](https://www.gem.wiki/Bhuj_%28Green_Infra%29_wind_farm) | 44 | Bhud, Maharashtra, India | [Bhood](https://www.wikidata.org/wiki/Q3630738) | 17.3364, 74.6842 | county or district |
+| [Nipaniya (Mytrah) wind farm](https://www.gem.wiki/Nipaniya_%28Mytrah%29_wind_farm) | 30 | Nipaniya, Madhya Pradesh, India | [Nipaniya](https://www.wikidata.org/wiki/Q15262381) | 24.2, 79.2333 | county or district |
+| [Muppandal (Muppandal Wind) wind farm](https://www.gem.wiki/Muppandal_%28Muppandal_Wind%29_wind_farm) | 22 | Muppandal, Tamil Nadu, India | [Muppandal](https://www.wikidata.org/wiki/Q6937112) | 8.2608, 77.5486 | county or district |
+| [Nipaniya (PTC) wind farm](https://www.gem.wiki/Nipaniya_%28PTC%29_wind_farm) | 20 | Nipaniya, Madhya Pradesh, India | [Nipaniya](https://www.wikidata.org/wiki/Q15262381) | 24.2, 79.2333 | county or district |
+| [Muppandal (Ramco) wind farm](https://www.gem.wiki/Muppandal_%28Ramco%29_wind_farm) | 13 | Muppandal, Tamil Nadu, India | [Muppandal](https://www.wikidata.org/wiki/Q6937112) | 8.2608, 77.5486 | county or district |
+| [Kethanur Wind Farms wind farm](https://www.gem.wiki/Kethanur_Wind_Farms_wind_farm) | 11 | Kethanur, Tamil Nadu, India | [Kethanur](https://www.wikidata.org/wiki/Q6395389) | 10.91, 77.26 | county or district |
+| [Muppandal Madras wind farm](https://www.gem.wiki/Muppandal_Madras_wind_farm) | 10 | Muppandal, Tamil Nadu, India | [Muppandal](https://www.wikidata.org/wiki/Q6937112) | 8.2608, 77.5486 | county or district |
+| [Modha wind farm](https://www.gem.wiki/Modha_wind_farm) | 52 | Fatehgarh, Jaiselmer, Rajasthan, India | [Jaisalmer district](https://www.wikidata.org/wiki/Q1419708) | 26.9133, 70.9139 | county or district |
 
 ## Italy (ITA)
 
@@ -1059,6 +1104,11 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Abukuma South wind farm](https://www.gem.wiki/Abukuma_South_wind_farm) | 89.6 | Fukushima Prefecture, Japan | [Fukushima Prefecture](https://www.wikidata.org/wiki/Q71707) | 37.7503, 140.4677 | city |
 | [Yurihonjo Bayside wind farm](https://www.gem.wiki/Yurihonjo_Bayside_wind_farm) | 16 | Akita, Japan | [Akita Prefecture](https://www.wikidata.org/wiki/Q81863) | 39.7186, 140.1025 | city |
 | [Yokohama Town Hibaritaira wind farm](https://www.gem.wiki/Yokohama_Town_Hibaritaira_wind_farm) | 32 | Yokohama-cho, Kamikita-gun, Aomori, Japan | [Kamikita district](https://www.wikidata.org/wiki/Q1143970) | 40.7739, 141.2608 | county or district |
+| [Hamasato wind farm](https://www.gem.wiki/Hamasato_wind_farm) | 48 | Horonobe City, Hokkadio Prefecture, Japan | [Horonobe](https://www.wikidata.org/wiki/Q955532) | 45.018, 141.8497 | county or district |
+| [Hizen South (Daigas) wind farm](https://www.gem.wiki/Hizen_South_%28Daigas%29_wind_farm) | 18 | Karatsu City, Saga Prefecture, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
+| [Hizen South (JWE) wind farm](https://www.gem.wiki/Hizen_South_%28JWE%29_wind_farm) | 18 | Karatsu City, Saga Prefecture, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
+| [Hizen (JWE) wind farm](https://www.gem.wiki/Hizen_%28JWE%29_wind_farm) | 12 | Karatsu City, Saga, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
+| [Hizen (Daigas) wind farm](https://www.gem.wiki/Hizen_%28Daigas%29_wind_farm) | 12 | Karatsu City, Saga Prefecture, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
 
 ## Kazakhstan (KAZ)
 
@@ -1135,6 +1185,13 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Los Lances wind farm](https://www.gem.wiki/Los_Lances_wind_farm) | 11 | Campo de Gibraltar, Cádiz, Andalucía, Spain | [Campo de Gibraltar](https://www.wikidata.org/wiki/Q1116986) | 36.1333, -5.45 | township |
 | [Las Atalayas wind farm](https://www.gem.wiki/Las_Atalayas_wind_farm) | 50 | Valle de Santibáñez, Burgos, Castilla y León, Spain | [Valle de Santibáñez](https://www.wikidata.org/wiki/Q1656698) | 42.4802, -3.783 | township |
 | [Fuenteblanca wind farm](https://www.gem.wiki/Fuenteblanca_wind_farm) | 10 | Valle de Santibáñez, Burgos, Castilla y León, Spain | [Valle de Santibáñez](https://www.wikidata.org/wiki/Q1656698) | 42.4802, -3.783 | township |
+| [Icor wind farm](https://www.gem.wiki/Icor_wind_farm) | 21 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
+| [Porís De Abona wind farm](https://www.gem.wiki/Por%C3%ADs_De_Abona_wind_farm) | 20 | 1 Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
+| [Arico Environmental Complex wind farm](https://www.gem.wiki/Arico_Environmental_Complex_wind_farm) | 18 | Lomo del Arrastradero, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Santa Cruz de Tenerife](https://www.wikidata.org/wiki/Q14328) | 28.4667, -16.25 | county or district |
+| [Tagoro Risco Blanco wind farm](https://www.gem.wiki/Tagoro_Risco_Blanco_wind_farm) | 16 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
+| [Hoya De Lucas wind farm](https://www.gem.wiki/Hoya_De_Lucas_wind_farm) | 16 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
+| [Bermejo wind farm](https://www.gem.wiki/Bermejo_wind_farm) | 13 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
+| [Vera De Abote wind farm](https://www.gem.wiki/Vera_De_Abote_wind_farm) | 11 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
 
 ## United States of America (USA)
 

@@ -566,6 +566,14 @@ FOUNDATIONS = [
     F5('CHN', 'Guoxin Dafeng 850 MW', 'mp', url='http://ddx.gubit.cn/fenxi/002608/202510081600.html',
        zh='100×8.5 MW，「風機基礎全部採用大直徑單樁結構」，2025年完成100根單樁基礎施工，2025-12-29全部風機併網（查股網／交匯點2025-10-08、國資委2026）。',
        en='100 x 8.5 MW; ’all turbine foundations use large-diameter monopiles’, all 100 monopiles driven in 2025 and all turbines grid-connected by 2025-12-29 (gubit/Jiaohuidian 2025-10-08, SASAC 2026).'),
+    F5('CHN', 'Huadian Yuhuan 1', 'mx', parts=[['pc', 22], ['mp', 10]], url='https://www.ne21.com/news/show-200359.html',
+       zh='32 部（台州海事局 2025 年 6 月建成通告：32 台、229 MW）。北區 22 部 7 MW 為高樁承台：施工紀錄「面对采用高桩承台基础结构型式的玉环项目，仅用139天就完成了176根钢管桩的沉桩工作」；'
+          '南區 10 部 7.5 MW 為單樁：國家能源招標網 2025 年 3 月中標公示列出「華電玉環1號南區單樁基礎沉樁施工合同、華電重工，2023-11-24」（http://www.chnenergybidding.com.cn/bidweb/001/001005/001005002/20250328/c68453da-dfbd-4d86-a4b2-17fbb0d123d0.html），'
+          '2023 年 9 月的供貨招標為「單樁基礎及附屬構件供貨（南區 10 套）」（http://www.dlztb.com/xmxx/202309/28086.html），2024-05-29 南區 10 部全部吊裝完成（https://www.ne21.com/news/show-195405.html）。南區沒有單獨的「沉樁完成」報導，以施工合約、供貨數量與吊裝完成互證',
+       en='32 units (Taizhou MSA completion notice, Jun 2025: 32 turbines, 229 MW). The north zone’s 22 × 7 MW stand on high-rise pile caps (construction record: 176 piles driven in 139 days for the pile-cap foundations); '
+          'the south zone’s 10 × 7.5 MW on monopiles: the CHN Energy award notice of Mar 2025 lists the contract “Huadian Yuhuan 1 south zone monopile foundation piling construction, Huadian Heavy Industries, 24 Nov 2023” '
+          '(http://www.chnenergybidding.com.cn/bidweb/001/001005/001005002/20250328/c68453da-dfbd-4d86-a4b2-17fbb0d123d0.html), the Sept 2023 supply tender is for “monopile foundations and attachments (10 sets, south zone)” (http://www.dlztb.com/xmxx/202309/28086.html), '
+          'and all 10 south-zone turbines were installed by 29 May 2024 (https://www.ne21.com/news/show-195405.html). No separate “piling completed” report exists for the south zone; the piling contract, the supply count and the installation completion corroborate each other'),
     F5('CHN', 'Putian Pinghai Bay Phase 2', 'mx', parts=[['pc', 28], ['mp', 13]],
        url='https://www.ndb.int/wp-content/uploads/2024/10/PPE-China-Putian-Pinghai-Bay-Offshore-Wind-Power-Project.pdf',
        zh='新開發銀行獨立評價局 2024 年 10 月的完工後績效評價報告：原規劃 13 座導管架＋37 座高樁承台，實際建成 28 座高樁承台（6 座直樁、3 座群樁、19 座斜樁）＋13 座單樁'
