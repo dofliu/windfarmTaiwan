@@ -26,6 +26,7 @@
 | 部署 | [DEPLOY.md](./DEPLOY.md) | [DEPLOY.en.md](./DEPLOY.en.md) | 部署方案與每月維護檢查 |
 | 資料覆蓋率 | [docs/data-coverage.md](./docs/data-coverage.md) | [docs/data-coverage.en.md](./docs/data-coverage.en.md) | 各國逐場資料覆蓋率、疑似重複與待查證項目（程式產生） |
 | 資料清理紀錄 | [docs/data-cleanup.md](./docs/data-cleanup.md) | [docs/data-cleanup.en.md](./docs/data-cleanup.en.md) | 逐筆刪除或更正的風場紀錄與理由（程式產生） |
+| 風場位置 | [docs/data-locations.md](./docs/data-locations.md) | [docs/data-locations.en.md](./docs/data-locations.en.md) | 由省中心代用座標改到鄉鎮／縣中心的風場清單（程式產生） |
 | 水下基礎 | [docs/foundations.md](./docs/foundations.md) | [docs/foundations.en.md](./docs/foundations.en.md) | 離岸風場的水下基礎型式與尺寸逐場清單（程式產生） |
 | 重大事件與事故 | [docs/events.md](./docs/events.md) | [docs/events.en.md](./docs/events.en.md) | 事件圖層的逐筆清單（程式產生） |
 | 即時資料來源評估 | [docs/live-data-sources.md](./docs/live-data-sources.md) | [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) | 其他國家即時發電資料的可行性 |
@@ -88,7 +89,7 @@
     外部連結、「複製此風場連結」與「回報資料錯誤」
   - **📊 發電表現**：台灣（台電自有 19 座）、美國（EIA-923，833 座）、澳洲（AEMO，62 座）與丹麥（54 座風場、約 1,800 部單獨計量的風機）逐場實測年發電量的排名與同機型比較；
     另有含民營風場的「台灣・即時取樣」（取樣估計，不與官方數字混排）
-  - **圖層**：港口（15 國 55 個，⚓）、重大事件與事故（91 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 331 座中 285 座已知型式、占容量 87.3%，
+  - **圖層**：港口（20 國 103 個，⚓）、重大事件與事故（91 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 331 座中 285 座已知型式、占容量 87.3%，
     [docs/foundations.md](./docs/foundations.md)）、此刻的風（NOAA GFS，每 6 小時）、海域（專屬經濟區界線、台灣 36 處潛力場址、日本 13 處促進區域、北海周邊 6 國的規劃區）、
     平均風速底圖（Global Wind Atlas）
   - **導覽**：自動導覽與四個故事導覽（台灣離岸之路、歐洲離岸、中國崛起、浮動式風電，`#/global?tour=tw`／`eu`／`cn`／`fl`）
@@ -167,7 +168,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   `tools/smoke_test.js` 冒煙測試、`tools/check_version.py` 檢查版本號與 CHANGELOG；`tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
 - `tools/promo/` — 全球風電 3D 地球儀宣傳影片的製作程式（地球儀實機錄製、設計景、分鏡；成品不進 git，見 [tools/promo/README.md](./tools/promo/README.md)）
 - `standalone/`（不進 git）— 本機執行建置程式的輸出位置；正式的單檔版與全球風電地圖公開版由 Actions 建好後上傳到 GitHub Release「standalone」
-- `docs/` — 使用說明（`user-guide.md`）、資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、水下基礎逐場清單（`foundations.md`）、
+- `docs/` — 使用說明（`user-guide.md`）、資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、風場位置清單（`data-locations.md`）、水下基礎逐場清單（`foundations.md`）、
   重大事件與事故清單（`events.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新、測試與版本），給之後的開發者與 AI 參考
 - `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
@@ -246,6 +247,7 @@ python tools/build_borders.py ne_50m_admin_0_countries.geojson data/global/world
 #    德國：先從 MaStR 全國匯出檔分段取出風機檔（約 10 MB），對到本站風場、列出要新增的風場（只拿非 MaStR 的紀錄比對）
 python tools/fetch_mastr.py mastr/ && python tools/build_mastr.py mastr/EinheitenWind.xml mastr/Katalogwerte.xml
 curl -LO https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/gwpt_map_2026-02.geojson   # GEM 公開資料桶（約 55 MB）
+python tools/fetch_gem_locations.py data/global/wind_farms.json data/global/sources/gem_locations.json   # 代用座標的風場：GEM 頁面的鄉鎮／縣 → Wikidata 座標（約 1 小時；升級 GEM 版本後重跑）
 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 #   對不到新版名稱的清理規則會讓建置中止；升級 GEM 版本時可先 CLEANUP_LENIENT=1 建置、看新名稱，再逐條改寫 tools/farm_cleanup.py
 #    （會套用 tools/farm_cleanup.py 的逐筆清理規則，並輸出 docs/data-cleanup.md 與 .en.md）
@@ -299,6 +301,8 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   從未獲准的挪威 Hordavind 682 MW、與逐場資料重複的中國達坂城等整區彙總、羅馬尼亞放在國土中心卻查無建成紀錄的 15 座），
   修正 52 筆的座標、容量、年份、分期或狀態；比對名稱時先把繁體轉成簡體並比較分區代號（江蘇等地同一座離岸風場不再重複收錄）；
   共用省或國家中心代用座標的風場在地圖上示意排開並註明。逐筆理由與出處見 [docs/data-cleanup.md](./docs/data-cleanup.md)
+- 2026 年 10 月：只有省或國家中心代用座標的營運中風場，依 GEM 專案頁寫的鄉鎮或縣，改用 Wikidata（CC0）該地項目的座標當概略位置（`tools/fetch_gem_locations.py`，
+  OpenStreetMap Nominatim 只當查詢索引、不寫出 OSM 資料；仍標概略位置），逐場清單見 [docs/data-locations.md](./docs/data-locations.md)；查不到的仍共用省中心
 - 2026 年 9 月比對 OSPAR 離岸風場資料時，另刪除 2 筆重複：GEM 的比利時「C-Power」整場合計（與 Thornton Bank 一、二、三期重複），
   以及法國 Saint-Brieuc 座標偏離約 170 km 的第二筆
 - 2026 年 9 月查歐洲離岸風場水下基礎（第 2 步）時，另以 26 條規則更正：英國 Sofia、法國 Calvados 原本誤列為 2025 年營運中（其實仍在興建）；

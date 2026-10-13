@@ -1,0 +1,371 @@
+[
+ {
+  "farm": "GEM Global Wind Power Tracker (baseline, 10 MW threshold)",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "publisher": "Global Energy Monitor",
+   "threshold_mw": 10,
+   "licence": "CC BY 4.0 (data; already used by the site)"
+  },
+  "note_zh": "GEM 方法頁：追蹤 10 MW 以上的專案分期，低於門檻的只在部分國家收錄——中印缺口的一部分是門檻以下與分散式風電。",
+  "note_en": "GEM methodology: tracks project phases above 10 MW; below-threshold phases only for some countries — part of the China/India gap is sub-threshold and distributed wind.",
+  "sources": [
+   {
+    "url": "https://www.gem.wiki/Global_Wind_Power_Tracker_Methodology",
+    "quote": "The Global Wind Power Tracker aims to comprehensively track all project phases larger than 10MW globally. Below threshold projects are also included for some countries.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.gem.wiki/Global_Wind_Power_Tracker_Methodology",
+    "quote": "Project phases below the 10 MW global threshold are provided for some countries when the data were readily available. Data on the below threshold phases is available in the downloadable dataset in a separate tab called ‘Below Threshold.’",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CWEA 2025 統計簡報 (China, aggregate only)",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "publisher": "中国可再生能源学会风能专业委员会 (CWEA)",
+   "per_farm": false,
+   "new_2025_gw": 130,
+   "site": "cwea.org.cn unreachable (503)"
+  },
+  "note_zh": "CWEA《2025年中國風電吊裝容量統計簡報》只有全國／分省／整機商彙總，2025 年新增吊裝 1.3 億千瓦；不含逐場清單。",
+  "note_en": "CWEA's 2025 installation bulletin gives national/provincial/OEM totals only (130 GW added in 2025); no per-farm list.",
+  "sources": [
+   {
+    "url": "https://www.chinanews.com.cn/cj/2026/02-14/10572464.shtml",
+    "quote": "中国可再生能源学会风能专业委员会(CWEA)2月13日晚最新发布的《2025年中国风电吊装容量统计简报》显示，去年国内风电新增装机18272台，新增吊装容量1.3亿千瓦，创历史新高，同比增长49.9%",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "國家能源局 NEA (website terms; 綠證 monthly data)",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "publisher": "国家能源局",
+   "per_farm": false,
+   "terms": "版权所有，如需转载，请注明来源",
+   "green_cert_projects_2026_08": "370.96万个 (all RE incl. rooftop PV)"
+  },
+  "note_zh": "國家能源局網站只有彙總統計與月度綠證核發數據（2026 年 8 月涉及 370.96 萬個可再生能源發電項目，含戶用光伏）；逐項目資料在「國家綠證核發交易系統」（gec.nea.gov.cn，需登入）與「資質和信用信息系統」（zzxy.nea.gov.cn，JS 應用，無公開批次下載）。網站聲明「版權所有，如需轉載，請註明來源」，不是開放授權。",
+  "note_en": "NEA publishes aggregates and monthly green-certificate figures only (Aug 2026: 3.7096 million RE projects incl. rooftop PV); per-project data sit in the green-certificate system (gec.nea.gov.cn, login) and the licensing system (zzxy.nea.gov.cn, JS app, no bulk download). Site notice: all rights reserved, cite the source when republishing — not an open licence.",
+  "sources": [
+   {
+    "url": "https://www.nea.gov.cn/",
+    "quote": "国家能源局 版权所有，如需转载，请注明来源",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.nea.gov.cn/20260930/8cee035ddfd7417fbea02b55cc386469/c.html",
+    "quote": "2026年8月，国家能源局核发绿证3.54亿个，环比增长15.75%，涉及可再生能源发电项目370.96万个",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "內蒙古自治區能源局 保障性並網項目名單 (provincial allocation lists)",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "publisher": "内蒙古自治区能源局 (nyj.nmg.gov.cn, reachable; PDF read from 内蒙古新能源网 mirror)",
+   "columns": [
+    "盟市",
+    "旗县",
+    "项目名称",
+    "投资主体",
+    "容量/万千瓦",
+    "储能比例"
+   ],
+   "wind_rows_2021": 35,
+   "coords": false,
+   "commissioning": false,
+   "licence": "none stated"
+  },
+  "note_zh": "2021 年保障性並網名單：風電 35 筆（蒙西 500 萬千瓦＋蒙東 180 萬千瓦），有盟市、旗縣、項目名稱、投資主體、容量；沒有座標與並網日期，是「核准／配置」名單而非「已建成」名單。能源局官網可連，但首頁與通知公告列表目前找不到逐年清單；鏡像站（內蒙古太陽能行業協會）聲明未經授權請勿轉載。",
+  "note_en": "2021 guaranteed-grid-connection list: 35 wind rows (5 GW West + 1.8 GW East) with league/banner, project name, investor and capacity; no coordinates or commissioning dates — an allocation list, not an as-built list. The bureau site is reachable but its notice lists do not currently expose yearly lists; the mirror (a solar industry association) forbids republishing without permission.",
+  "sources": [
+   {
+    "url": "https://www.nmgxny.com/myloads/file/20211008/1633685084733222.pdf",
+    "quote": "自治区 2021 年保障性并网集中式风电、光伏发电项目名单 风电项目表 序号 盟市 旗县 项目名称 投资主体 容量/万千瓦 储能比例 蒙西地区，总规模 500 万千瓦",
+    "check": "OK"
+   },
+   {
+    "url": "https://nyj.nmg.gov.cn/",
+    "quote": "主办单位：内蒙古自治区能源局",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.nmgxny.com/",
+    "quote": "未经授权请勿转载或建立镜像",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "山東省能源局 市場化並網項目名單 (provincial allocation lists)",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "publisher": "山东省能源局 (nyj.shandong.gov.cn reachable, list pages not located; repost on shifair.com)",
+   "wind_rows_2024": 1,
+   "format": "images in repost"
+  },
+  "note_zh": "2024 年市場化並網名單共 10.51 GW，但風電只有 1 個（50 MW）；轉載頁只有截圖。山東能源局官網可連，但未找到清單專頁（col 列表 000）。",
+  "note_en": "The 2024 market-based list totals 10.51 GW but holds one wind project (50 MW); the repost shows images only. The bureau site is reachable but no list page was found.",
+  "sources": [
+   {
+    "url": "https://www.shifair.com/informationDetails/250504.html",
+    "quote": "近日，山东省能源局公示2024年市场化并网项目名单，共公布了10.51GW的市场化项目。其中，风电项目1个，规模为50MW，光伏项目117个，规模合计10.46GW。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.shifair.com/informationDetails/250504.html",
+    "quote": "附 件：2024年市场化并网项目公示名单 山东省能源局 2024年4月22日",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "電網公司 可再生能源發電補貼項目清單 (State Grid / CSG subsidy lists)",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "publisher": "国家电网 / 南方电网 (sgcc.com.cn, 95598.cn unreachable; csg.cn reachable but no list found)",
+   "scope": "projects approved 2006+ and fully grid-connected (wind by end-2019)",
+   "coords": false
+  },
+  "note_zh": "補貼清單逐項目列名稱、核准容量、全容量並網時間，但只涵蓋 2019 年底前全容量並網的補貼項目（平價項目不在內），且國網公告站在此環境連不上；南網官網可連但找不到清單頁。",
+  "note_en": "Subsidy lists give project name, approved capacity and full-capacity grid-connection date, but cover only subsidised projects fully connected by end-2019 (no grid-parity projects); State Grid's sites are unreachable here and CSG's site shows no list page.",
+  "sources": [
+   {
+    "url": "https://www.cs.com.cn/xwzx/hg/202011/t20201126_6114908.html",
+    "quote": "此次《通知》明确，纳入补贴清单的可再生能源发电项目为符合我国可再生能源发展相关规划的陆上风电、海上风电、集中式光伏电站、非自然人分布式光伏发电、光热发电、地热发电、生物质发电等项目。所有项目应于2006年及以后年度按规定完成核准（备案）手续，并已全部容量完成并网。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "全國投資項目在線審批監管平台 (national investment approval platform)",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "publisher": "国家发展改革委",
+   "url": "https://www.tzxm.gov.cn/ (JS app, reachable; tzxm.ndrc.gov.cn unreachable)",
+   "bulk": false
+  },
+  "note_zh": "平台以 24 位項目代碼逐案查詢，核准文件與信息公開應標註項目代碼；沒有可批次下載的風電清單，只能逐案查。",
+  "note_en": "The platform is queried per 24-digit project code; approvals and disclosures must carry the code. No bulk downloadable wind list — per-project lookup only.",
+  "sources": [
+   {
+    "url": "https://www.ndrc.gov.cn/fggz/gdzctz/tzfg/201806/t20180604_1197641.html",
+    "quote": "项目审批文件、招标投标、公共资源交易、监督检查、后评价、行政处理、行政处罚、信息公开等涉及使用项目名称时，应当同时标注项目代码。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Wikidata / OpenStreetMap (China & India)",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "wikidata_wind_farms": {
+    "CHN": 16,
+    "IND": 4
+   },
+   "wikidata_licence": "CC0",
+   "osm_licence": "ODbL",
+   "overpass": "all public Overpass instances failed from this environment (connection reset / HTTP 500)"
+  },
+  "note_zh": "Wikidata SPARQL（2026-10-11 實查）：中國 16 個、印度 4 個風場項目，可忽略。OSM 計數無法在此環境執行（Overpass 全部失敗）；本站 turbines_osm.json 也沒有配到中印風場。授權分別為 CC0 與 ODbL。",
+  "note_en": "Wikidata SPARQL (queried 2026-10-11): 16 wind-farm items for China, 4 for India — negligible. OSM counts could not be run here (every Overpass instance failed); the site's turbines_osm.json matched no Chinese or Indian farms. Licences: CC0 and ODbL.",
+  "sources": [
+   {
+    "url": "https://www.wikidata.org/wiki/Wikidata:Copyright",
+    "quote": "all structured data from the main, Property, Lexeme, and EntitySchema namespaces is available under the Creative Commons CC0 License",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.openstreetmap.org/copyright",
+    "quote": "OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF).",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SECI wind project status list (India)",
+  "iso": "IND",
+  "type": "result",
+  "value": {
+   "publisher": "Solar Energy Corporation of India (SECI), MNRE CPSE",
+   "url": "https://www.seci.co.in/uploads/media/Wind_installed_capacity_status_as_on_30_06_2026.pdf",
+   "columns": [
+    "Sr. No.",
+    "Project ID",
+    "Bidder's Name",
+    "Name of Project Developer",
+    "Date of issuance of LOA",
+    "Project Capacity (MW)",
+    "Project Location (State)",
+    "Effective Date of PPA",
+    "Actual Commissioning Date/ Remarks",
+    "Total capacity commissioned as on 30.06.2026"
+   ],
+   "total_commissioned_mw": 7378.11,
+   "coords": false,
+   "location": "district + state",
+   "update": "monthly-ish (file dated 30.06.2026)",
+   "licence": "none stated on PDF; SECI site has no copyright page (404)"
+  },
+  "note_zh": "SECI 風電專案進度表：逐專案列開發商、容量、區＋州、PPA 與實際商轉日期（分批），截至 2026-06-30 已商轉 7,378 MW；只含 SECI 招標專案，無座標。",
+  "note_en": "SECI's wind project status sheet lists each SECI-tendered project with developer, capacity, district + state, PPA and actual commissioning dates (phased); 7,378 MW commissioned as of 30 Jun 2026. SECI projects only, no coordinates.",
+  "sources": [
+   {
+    "url": "https://www.seci.co.in/uploads/media/Wind_installed_capacity_status_as_on_30_06_2026.pdf",
+    "quote": "Sr. No. Project ID Bidder's Name Name of Project Developer Date of issuance of LOA Project Capacity (MW) Project Location (State) Effective Date of PPA Actual Commissioning Date/ Remarks Total capacity commissioned as on 30.06.2026",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.seci.co.in/uploads/media/Wind_installed_capacity_status_as_on_30_06_2026.pdf",
+    "quote": "7378.11TOTAL",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "MNRE physical progress + website copyright policy (India)",
+  "iso": "IND",
+  "type": "result",
+  "value": {
+   "publisher": "Ministry of New and Renewable Energy",
+   "per_farm": false,
+   "terms": "reproduction permitted except third-party material (copyright policy)",
+   "wind_mw": 58520.32,
+   "as_of": "31.08.2026"
+  },
+  "note_zh": "MNRE 只有全國／分州累計容量（31.08.2026 風電 58520.32 MW），沒有逐場清單；網站版權政策允許重製，但第三方材料除外。",
+  "note_en": "MNRE publishes national/state cumulative capacity only (wind 58520.32 MW as of 31.08.2026), no per-farm list; the copyright policy permits reproduction except for third-party material.",
+  "sources": [
+   {
+    "url": "https://mnre.gov.in/en/physical-progress/",
+    "quote": "Cumulative Achievements (as on 31.08.2026) Installed RE Capacity (Capacities in MW) Solar Power* 3445.30 17779.35 168040.05 Wind Power 383.43 2425.48 58520.32",
+    "check": "OK"
+   },
+   {
+    "url": "https://mnre.gov.in/en/website-policies/",
+    "quote": "the permission to reproduce this material does not extend to any material on this site which is explicitly identified as being the copyright of a third party. Authorization to reproduce such material must be obtained from the",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CCDC Wind portal (MNRE)",
+  "iso": "IND",
+  "type": "result",
+  "value": {
+   "publisher": "MNRE / NIC",
+   "per_farm": false,
+   "wind_gw_2026_06_30": 57.443
+  },
+  "note_zh": "MNRE 的 CCDC 風電入口只有全國總量（2026-06-30 為 57.443 GW）與機型清單，沒有逐場資料。",
+  "note_en": "MNRE's CCDC wind portal gives national totals (57.443 GW at 30 Jun 2026) and turbine-model lists, no per-farm data.",
+  "sources": [
+   {
+    "url": "https://ccdcwind.gov.in/",
+    "quote": "The country currently has the fourth highest wind installed capacity in the world with total installed capacity of 57.443 GW (as on 30th June 2026)",
+    "check": "OK"
+   },
+   {
+    "url": "https://ccdcwind.gov.in/",
+    "quote": "Portal Content Managed by Ministry of New and Renewable Energy",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "NIWE open datasets (India)",
+  "iso": "IND",
+  "type": "result",
+  "value": {
+   "publisher": "National Institute of Wind Energy",
+   "per_farm": false,
+   "datasets": "10 wind monitoring station datasets + 150 m wind atlas",
+   "terms": "© All Rights Reserved"
+  },
+  "note_zh": "NIWE 的開放資料集是測風站資料與 150 m 風圖，不是風場清單；頁尾「版權所有」。",
+  "note_en": "NIWE's open datasets are met-mast records and a 150 m wind atlas, not a farm list; footer says all rights reserved.",
+  "sources": [
+   {
+    "url": "https://niwe.res.in/Open_data_Set/open_wind_dataset/",
+    "quote": "The National Institute of Wind Energy (NIWE) provides open datasets to support research, education, innovation and development in the field of wind energy.",
+    "check": "OK"
+   },
+   {
+    "url": "https://niwe.res.in/Open_data_Set/open_wind_dataset/",
+    "quote": "© All Rights Reserved | Content Owned by National Institute of Wind Energy",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "REC Registry (Grid-India) accredited RE generators (India)",
+  "iso": "IND",
+  "type": "result",
+  "value": {
+   "publisher": "Grid Controller of India (REC Registry)",
+   "url": "https://recregistry.grid-india.in/index.php/publics/accredited_regens",
+   "columns": [
+    "SN",
+    "State",
+    "Energy Source",
+    "RE Generator",
+    "Project No.",
+    "Capacity (MW)",
+    "Date of Accreditation"
+   ],
+   "total_all_sources": "21,615.605 MW / 1,137 projects",
+   "wind_parsed": "458 wind rows, about 4,693 MW (Gujarat 1,744; Karnataka 1,007; Maharashtra 856 in 236 rows; Tamil Nadu 502 in 115 rows; Rajasthan 449; AP 124; MP 12)",
+   "coords": false,
+   "district": false,
+   "licence": "none stated"
+  },
+  "note_zh": "REC 登錄只列州、電源、業者名稱、容量、認證日期（無縣區、座標、商轉年）；風電 458 筆約 4.7 GW，馬哈拉什特拉與坦米爾納德多為 1–5 MW 的小業主——正是 GEM 漏掉的那類，但沒有位置就畫不上地圖。舊網域已轉到 grid-india.in。",
+  "note_en": "The REC registry lists state, source, generator name, capacity and accreditation date only (no district, coordinates or start year); 458 wind rows of about 4.7 GW, mostly 1–5 MW owners in Maharashtra and Tamil Nadu — exactly what GEM misses, but unmappable without a location. The old domain has moved to grid-india.in.",
+  "sources": [
+   {
+    "url": "https://recregistry.grid-india.in/index.php/publics/accredited_regens",
+    "quote": "Total Capacity (MW) = 21615.605 | Number of Projects = 1137 SN State Energy Source RE Generator Project No. Capacity (MW)",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.recregistryindia.nic.in/index.php/publics/accredited_regens",
+    "quote": "the REC website has been redirected from \"https://www.recregistryindia.nic.in/\" to the new domain \"https://recregistry.grid-india.in/\"",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CEA plant-wise RE installed capacity (India, legacy PDF)",
+  "iso": "IND",
+  "type": "lead",
+  "value": {
+   "publisher": "Central Electricity Authority",
+   "url": "https://cea.nic.in/old/reports/others/planning/rpm/Plant-wise details of RE Installed Capacity-merged.pdf",
+   "status": "every cea.nic.in URL (incl. wp-content PDFs) redirects to a login page from this environment"
+  },
+  "note_zh": "CEA 舊版「Plant-wise details of RE Installed Capacity」PDF（搜尋摘要：含電廠名、容量、縣、州、商轉日期，約 2019 年）與 2022 年各州「Plant wise RE generation」月報，是印度唯一官方逐廠清單；但 cea.nic.in 在此環境全部轉到登入頁，無法核對內容。",
+  "note_en": "CEA's legacy plant-wise RE capacity PDF (per search snippet: plant name, capacity, district, state, commissioning date, ~2019) and 2022 state 'plant wise RE generation' reports are India's only official per-plant lists, but every cea.nic.in URL redirects to a login page from here, so nothing could be verified.",
+  "sources": [
+   {
+    "url": "https://cea.nic.in/old/reports/others/planning/rpm/Plant-wise%20details%20of%20RE%20Installed%20Capacity-merged.pdf",
+    "quote": "Central Electricity Authority",
+    "check": "OK"
+   }
+  ]
+ }
+]

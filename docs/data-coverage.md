@@ -7,9 +7,9 @@
 ## 摘要
 
 - **國家層級**：79 國的年底容量合計 1,287,956 MW，即本站的全球總量（全球 1,287,956 MW）；其他國家容量很小，未列入。來源：IRENA（經 Our World in Data）；台灣採能源署、日本採 JWPA 官方統計。
-- **風場層級**：已逐場標示的營運中風場 20,623 座、1,182,367 MW，約為國家統計的 **92%**。差額是資料庫未收錄的風場（多為小型風場，GEM 以 10 MW 以上為主），地圖不補虛構風場。
+- **風場層級**：已逐場標示的營運中風場 20,623 座、1,182,373 MW，約為國家統計的 **92%**。差額是資料庫未收錄的風場（多為小型風場，GEM 以 10 MW 以上為主），地圖不補虛構風場。
 - **覆蓋率分級**：✓ 85% 以上 54 國 · △ 60–85% 13 國 · ✗ 低於 60% 8 國 · ⚠ 高於 110% 4 國（逐場加總超過國家統計，口徑不同或有重複，需要求證）。
-- **資料清理**：2026-09 逐筆查證，刪除 248 筆重複、從未建成或查無此場的紀錄，修正 637 筆（座標、容量、年份、分期、狀態），每筆的理由與出處見[資料清理紀錄](data-cleanup.md)。
+- **資料清理**：2026-09 逐筆查證，刪除 248 筆重複、從未建成或查無此場的紀錄，修正 638 筆（座標、容量、年份、分期、狀態），每筆的理由與出處見[資料清理紀錄](data-cleanup.md)。
 - **規劃中**：逐案 9,576 案、2,718,045 MW（GEM 2025-02＋2026 年 9 月人工整理）；另以 GEM 2026-02 各國總量對照。
 
 ## 需要補足的國家（差額超過 1,000 MW）
@@ -39,15 +39,15 @@
 3. **預計商轉年已過、仍列規劃中**：2 案、630 MW，可能已商轉、延期或取消，需要逐案更新狀態。容量最大的 10 案：
    - Monsoon Wind (Sekong/Attapeu) (LAO) · 600 MW · 興建中 · 預計 2025
    - BPP Vĩnh Châu wind farm (VNM) · 30 MW · 興建中 · 預計 2025
-4. **座標**：4,954 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 19 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各）。
+4. **座標**：4,989 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 19 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各）。
    **疑似重複 A（名稱相同或相似）**：0 組、較小一方合計 0 MW——來源不同、名稱相同或高度相似、相距 50 km 內，很可能是同一座風場被收了兩次，應優先處理：
    **疑似重複 B（名稱不同、容量相同、位置相近）**：0 組——找到的每一組都已逐組查證：同一座的已由清理規則合併，確認是不同風場的列在 `tools/farm_cleanup.py` 的 `NOT_DUP`（見[資料清理紀錄](data-cleanup.md)）。
-   **共用座標**：129 個點上各有 3 座以上營運中風場（合計 1,286 座、103,798 MW），多半是國家或省份中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：
-   - CHN (43.244, 114.325) · 87 座 · 10,151 MW · Inner Mongolia Huolinhe Circulating Economy Demonstration wind farm · 1,2,3, 4, 5, Inner Mongolia - Shandong Power Export Urad Rear Banner 4 wind farm, Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (Huaneng) wind farm…
-   - CHN (36.0, 119.0) · 86 座 · 6,891 MW · Shandong Qingdao Baoshan wind farm, Shandong Muping Wanggezhuang wind farm, Shandong Juancheng Zuoying wind farm…
-   - CHN (37.0, 112.0) · 67 座 · 5,952 MW · Shanxi Fanshi County Yunwuyu wind farm, Shanxi Yuanqu (State Power Investment) wind farm, Shanxi Pinglu Dashantai wind farm · 3…
-   - CHN (38.0, 102.0) · 29 座 · 5,680 MW · Gansu - Shandong Power Export Huanxian (Huaneng) Wind/Solar Demonstration Project wind farm · Area A1, Area A2, Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm…
-   - CHN (34.0, 114.0) · 65 座 · 5,349 MW · Henan Neihuang (China Resources) wind farm, Henan Huaxian Zaocun wind farm, Henan Tangyin wind farm · 1, 2…
+   **共用座標**：131 個點上各有 3 座以上營運中風場（合計 712 座、59,505 MW），多半是鄉鎮、縣或省中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：
+   - IND (23.13, 69.8) · 37 座 · 4,001 MW · Bhuj (Alfanar) wind farm, Kutch (Alfanar) wind farm, Kutch (Renew) II wind farm…
+   - CHN (40.5148, 95.7806) · 16 座 · 3,306 MW · Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm, Gansu Guazhou Localization Demonstration wind farm…
+   - CHN (44.0222, 87.2961) · 22 座 · 3,098 MW · Xinjiang Qitai Beitashan (Three Gorges) wind farm, Xinjiang Mulei Laojunmiao (State Power Investment) wind farm · 3, 4, Xinjiang Mulei Dashitou (Tebian Electric) wind farm…
+   - CHN (42.8322, 93.5155) · 13 座 · 1,818 MW · Xinjiang Hami Yandun 7 Area B wind farm, Xinjiang Hami Balikun Santanghu Third Area C wind farm, Xinjiang Hami Balikun Santanghu Third Area B wind farm…
+   - CHN (43.8522, 113.644) · 7 座 · 1,805 MW · Inner Mongolia Chagannaoer Thermal/Wind/Solar/Hydrogen Demonstration Project Sonid Left Banner wind farm, Inner Mongolia Sonid Left Banner Bayanhangggai High Voltage Power Export (Fengding) wind farm, Inner Mongolia Sunitezuo Banner Bayanhanggai High Voltage Power Export (Jingneng) wind farm…
 5. **規劃中總量對照**：逐案資料與各國總量同為 GEM 2026-02；差額多為本站另收的 2026 年整理清單、被清理規則移除的專案，以及 GEM 未給容量的分期。前 15 大國家的對照：
    - 中國大陸：逐案 742,532 MW · GEM 總量 743,588 MW
    - 美國：逐案 89,451 MW · GEM 總量 89,440 MW
@@ -99,12 +99,12 @@
 
 | # | 國家 | 國家統計 MW | 其中離岸 | GEM 營運中 MW | 已逐場標示 MW | 覆蓋率 | 差額 MW | 風場數 | 年份不詳 MW | 概略座標 | 判讀 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 中國大陸（CHN） | 640,626 | 48,400 | 542,758 | 567,770 | 89% | 72,856 | 5,125 | 13,088 | 2,868 | ✓ |
-| 2 | 美國（USA） | 158,372 | 174 | 157,594 | 166,220 | 105% | 0 | 1,236 | 0 | 9 | ✓ |
-| 3 | 德國（DEU） | 77,873 | 9,931 | 50,536 | 74,862 | 96% | 3,011 | 6,607 | 557 | 174 | ✓ |
+| 1 | 中國大陸（CHN） | 640,626 | 48,400 | 542,758 | 567,770 | 89% | 72,856 | 5,125 | 13,088 | 2,881 | ✓ |
+| 2 | 美國（USA） | 158,372 | 174 | 157,594 | 166,220 | 105% | 0 | 1,236 | 0 | 10 | ✓ |
+| 3 | 德國（DEU） | 77,873 | 9,931 | 50,536 | 74,862 | 96% | 3,011 | 6,607 | 557 | 175 | ✓ |
 | 4 | 印度（IND） | 54,511 | 0 | 38,937 | 41,792 | 77% | 12,719 | 623 | 8,218 | 561 | △ |
 | 5 | 巴西（BRA） | 34,866 | 0 | 35,718 | 34,232 | 98% | 634 | 294 | 0 | 3 | ✓ |
-| 6 | 西班牙（ESP） | 33,301 | 7 | 31,007 | 31,350 | 94% | 1,951 | 868 | 2,820 | 251 | ✓ |
+| 6 | 西班牙（ESP） | 33,301 | 7 | 31,007 | 31,350 | 94% | 1,951 | 868 | 2,820 | 267 | ✓ |
 | 7 | 英國（GBR） | 33,088 | 16,071 | 28,965 | 31,731 | 96% | 1,357 | 740 | 2 | 0 | ✓ |
 | 8 | 法國（FRA） | 26,000 | 2,008 | 25,610 | 24,859 | 96% | 1,141 | 1,205 | 1,105 | 301 | ✓ |
 | 9 | 加拿大（CAN） | 18,153 | 0 | 17,709 | 17,755 | 98% | 398 | 197 | 0 | 6 | ✓ |
@@ -117,7 +117,7 @@
 | 16 | 芬蘭（FIN） | 9,383 | 71 | 8,551 | 9,012 | 96% | 371 | 143 | 0 | 1 | ✓ |
 | 17 | 丹麥（DNK） | 7,547 | 2,687 | 5,003 | 5,001 | 66% | 2,546 | 119 | 80 | 4 | △ |
 | 18 | 墨西哥（MEX） | 7,512 | 0 | 8,425 | 8,214 | 109% | 0 | 55 | 558 | 19 | ✓ |
-| 19 | 日本（JPN） | 6,434 | 288 | 5,383 | 5,787 | 90% | 647 | 276 | 20 | 149 | ✓ |
+| 19 | 日本（JPN） | 6,434 | 288 | 5,383 | 5,793 | 90% | 641 | 276 | 20 | 149 | ✓ |
 | 20 | 越南（VNM） | 6,239 | 1,000 | 7,081 | 4,884 | 78% | 1,355 | 73 | 46 | 39 | △ |
 | 21 | 智利（CHL） | 5,883 | 0 | 6,300 | 6,477 | 110% | 0 | 57 | 30 | 14 | ⚠ |
 | 22 | 比利時（BEL） | 5,851 | 2,263 | 3,966 | 3,972 | 68% | 1,879 | 103 | 71 | 11 | △ |
@@ -135,12 +135,12 @@
 | 34 | 立陶宛（LTU） | 2,510 | 0 | 1,308 | 1,258 | 50% | 1,252 | 22 | 0 | 9 | ✗ |
 | 35 | 摩洛哥（MAR） | 2,452 | 0 | 1,627 | 2,310 | 94% | 142 | 15 | 0 | 2 | ✓ |
 | 36 | 南韓（KOR） | 2,451 | 312 | 1,649 | 1,653 | 67% | 798 | 44 | 0 | 24 | △ |
-| 37 | 哈薩克（KAZ） | 1,909 | 0 | 1,418 | 1,430 | 75% | 479 | 24 | 0 | 15 | △ |
+| 37 | 哈薩克（KAZ） | 1,909 | 0 | 1,418 | 1,430 | 75% | 479 | 24 | 0 | 16 | △ |
 | 38 | 巴基斯坦（PAK） | 1,845 | 0 | 1,941 | 1,941 | 105% | 0 | 33 | 0 | 3 | ✓ |
 | 39 | 烏克蘭（UKR） | 1,761 | 0 | 560 | 1,017 | 58% | 744 | 19 | 18 | 8 | ✗ |
 | 40 | 烏茲別克（UZB） | 1,652 | 0 | 1,600 | 1,600 | 97% | 52 | 4 | 0 | 0 | ✓ |
 | 41 | 泰國（THA） | 1,544 | 0 | 2,137 | 1,628 | 105% | 0 | 28 | 20 | 6 | ✓ |
-| 42 | 烏拉圭（URY） | 1,516 | 0 | 1,526 | 1,527 | 101% | 0 | 29 | 70 | 10 | ✓ |
+| 42 | 烏拉圭（URY） | 1,516 | 0 | 1,526 | 1,527 | 101% | 0 | 29 | 70 | 13 | ✓ |
 | 43 | 克羅埃西亞（HRV） | 1,375 | 0 | 1,095 | 1,095 | 80% | 280 | 26 | 14 | 3 | △ |
 | 44 | 秘魯（PER） | 1,340 | 0 | 1,448 | 1,448 | 108% | 0 | 11 | 0 | 1 | ✓ |
 | 45 | 紐西蘭（NZL） | 1,265 | 0 | 1,233 | 1,233 | 97% | 32 | 12 | 0 | 0 | ✓ |

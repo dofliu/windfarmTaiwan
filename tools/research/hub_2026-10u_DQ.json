@@ -1,0 +1,779 @@
+[
+ {
+  "farm": "Donghai Bridge Phase II",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "上海海事局沪航通〔2024〕0009號「東海大橋海上風電場二期建成的通告」只寫 28 台風機與場址座標，沒有輪轂高度；同日的一期（0008 號）與 7 台擴建（0006 號）通告也沒有（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Shanghai MSA notice 沪航通〔2024〕0009 (phase II built) gives 28 turbines and the site polygon but no hub height; the same-day notices for phase I (0008) and the 7-turbine extension (0006) have none either (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=1d2c6c78fece4565bde18ade2b8c80dd",
+    "quote": "东海大桥海上风电场二期及其相关配套附属设施日前已建成并投入运行，该海上风电场位于东海大桥西侧1公里外海域，东海大桥西侧2号通航孔航道至4号通航孔航道之间，分南北两块场址，最北端距岸线5公里，最南端距岸线11公里，场区建设28台风电机组",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Shanghai Lingang Demonstration Phase 2",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "hub_m": 90,
+   "basis": "stated",
+   "models": "28 x 3.6 MW (one model)"
+  },
+  "note_zh": "上海海事局沪航通〔2024〕0203號「上海臨港海上風電場一期二期建成的通告」：二期 28 台 3.6 MW 海上風機，輪轂高度 90 米，裝機 10.08 萬千瓦（同一通告另載一期 25 台 4 MW 輪轂 90 米、6 MW 樣機 2 台輪轂 110 米，屬別的紀錄）",
+  "note_en": "Shanghai MSA notice 沪航通〔2024〕0203 (Lingang phases I and II built): phase II has 28 x 3.6 MW offshore turbines with a hub height of 90 m, 100.8 MW (the same notice gives 90 m for the 25 x 4 MW phase I and 110 m for the two 6 MW prototypes, which are separate records)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=5955e497db754bd09c91b31166a49b38",
+    "quote": "上海临港海上风电场一期二期及其相关配套附属设施日前已建成并投入运行，该风电场位于南汇边滩东侧海域的避航区内，分为一期、二期、6MW样机三部分。风电场总装机容量21.28万千瓦，其中一期项目共安装25台4兆瓦海上风机，轮毂高度90米，装机容量为10万千瓦；二期项目共安装28台3.6兆瓦海上风机，轮毂高度90米，装机容量为10.08万千瓦；6MW样机项目共安装2台6兆瓦海上风机，轮毂高度110米，装机容量为1.2万千瓦",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Dafeng H3",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "鹽城海事局云航通〔2025〕0345號「中電投大豐H3#300MW海上風電場場區部分的通告」（已建成、通航參數已備案）：72 台 4.2 MW、302.4 MW，風機東西向成排，但沒有輪轂高度（鹽城海事局 2026 年的同類通告才開始寫輪轂高度）（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Yancheng MSA notice 云航通〔2025〕0345 (built, parameters filed): 72 x 4.2 MW, 302.4 MW in east–west rows, but no hub height (Yancheng notices only started giving hub heights in 2026) (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=56ce44feab58403aab7c2ecbea4aeacb",
+    "quote": "中电投大丰H3#300MW海上风电场场区部分已建成，相关通航安全技术参数已完成备案",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=56ce44feab58403aab7c2ecbea4aeacb",
+    "quote": "本工程共布置72台单机容量4.2MW的风力发电机组，装机规模为302.4MW。风机呈东西向成排布置，每排相邻风机间距约为650～1500m，每排间距约为1400～3000m",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Fuqing Xinghua Bay Phase 1 (demo)",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "福州海事局閩航通〔2025〕0678號「福清興化灣海上風電場一期、二期建成的通告」只寫一期 14 台、77.4 MW、離岸約 3 km 與座標，沒有各機型輪轂高度（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Fuzhou MSA notice 闽航通〔2025〕0678 (phases I and II built) gives only 14 turbines, 77.4 MW, about 3 km from shore and coordinates for phase I; no per-model hub heights (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=08006acc4b1d4dabb54804c4d47279c8",
+    "quote": "一期项目场址中心距岸线约3.0km，共安装14台风机，装机容量为77.4MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Binhai South H3",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "鹽城海事局云航通〔2025〕0343號「國家電投集團江蘇濱海南區H3#300MW海上風電場場區部分的通告」（已建成）只寫場址座標與風機排列間距，沒有機型與輪轂高度（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Yancheng MSA notice 云航通〔2025〕0343 (built) gives only the site corners and turbine spacing, no model or hub height (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=26b84f272acf44b7ba18b9e481187f3a",
+    "quote": "国家电投集团江苏滨海南区H3#300MW海上风电场场区部分已建成，相关通航安全技术参数已按要求报备",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Dafeng",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": 95.97,
+   "basis": "stated",
+   "models": "only the 100 MW extension (23 x Envision EN148-4.5), not the 300 MW farm"
+  },
+  "note_zh": "鹽城海事局云航通〔2026〕0055號（華能江蘇大豐 400 MW 已建成）：一期 300 MW 共 68 台（#1–#11、#15–#17、#29、#35、#42–#68 共 48 台遠景 4.2 MW；#12–#14、#18–#28、#36–#41 共 20 台重慶海裝 5 MW），二期 100 MW 擴建 23 台遠景 EN148-4.5；「基礎頂高程 13 m、輪轂高度 95.97 m、南北兩排 10＋13 台」只描述二期 23 台，一期 48 台 4.2 MW 與 20 台 5 MW 的輪轂高度沒寫。可寫進本筆的是機型數量的確認。",
+  "note_en": "Yancheng MSA notice 云航通〔2026〕0055 (Huaneng Jiangsu Dafeng 400 MW built): phase I 300 MW has 68 turbines (48 x Envision 4.2 MW at #1–#11, #15–#17, #29, #35, #42–#68 and 20 x CSSC Haizhuang 5 MW at #12–#14, #18–#28, #36–#41), the 100 MW extension 23 x Envision EN148-4.5; the 'foundation top +13 m, hub height 95.97 m, two rows of 10 and 13' sentence describes only the 23 extension turbines, so no hub height for the 300 MW farm's 4.2 MW and 5 MW units. The unit counts confirm the turbine field.",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=c229d4597db94c06831c3cffa425287b",
+    "quote": "华能江苏大丰海上风电场总装机容量为400MW，分两期建设。一期为300MW项目，共安装68台风力发电机组，风机行间距为670~1200m，行内间距为1260~1410m，其中#1-#11、#15-#17为远景能源4.2MW风电机组；#12-#14、#18-#28、#36-#41为重庆海装5MW风电机组；#2926#35#42-#68共34台风机均为远景能源4.2MW风电机组。二期为100MW扩建项目，共布置23台远景EN148-4.5风力发电机组，单机容量为4.5MW，总装机容量103.5MW。项目基础顶高程为13m，风电机组轮毂高度为95.97m，风机沿场区南、北边界布置，共布置2排，北排布置10台，南排布置13台",
+    "check": "OK(nospace)"
+   }
+  ]
+ },
+ {
+  "farm": "Shanghai Fengxian",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "上海海事局沪航通〔2024〕0007號「奉賢海上風電場建成的通告」只寫 32 台、206.4 MW 與場址座標，沒有機型與輪轂高度（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Shanghai MSA notice 沪航通〔2024〕0007 (Fengxian built) gives only 32 turbines, 206.4 MW and the site polygon; no models or hub height (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=05506b874c5c4d7694878180d376599c",
+    "quote": "奉贤海上风电场及其相关配套附属设施日前已建成并投入运行，该风电场位于奉贤杭州湾北部海域，场址临近漕泾航道和东海大桥，总装机容量为206.4MW，建设32台风力发电机组",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Rudong H6",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "南通海事局 2024-12-17「公布三峽新能源如東H6#海上風電場項目通航安全技術參數的航行通告」：離岸約 50 km、水深 9～20 m、100 台 4.0 MW、單樁基礎，但沒有輪轂高度（南通局的參數通告都不寫輪轂高度，鹽城局 2026 年起才寫）（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Nantong MSA parameter notice of 17 Dec 2024 for CTG Rudong H6: about 50 km offshore, water depth 9–20 m, 100 x 4.0 MW on monopiles, but no hub height (Nantong's parameter notices never give it; Yancheng's do from 2026) (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=97f9924d75c74c82978fa3bb6d9ef24b",
+    "quote": "三峡新能源如东H6#海上风电场项目位于南通市如东县东部的黄沙洋海域，场区中心离岸距离约50km，水深在9～20m之间，共布置100台单机容量4.0MW的风电机组",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Rudong H4",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "南通海事局 2023-11-09「公布江蘇如東H4#海上風電場項目通航安全技術參數的航行通告」：離岸 33 km、100 台 4.0 MW、單樁基礎，沒有輪轂高度（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Nantong MSA parameter notice of 9 Nov 2023 for Rudong H4: 33 km offshore, 100 x 4.0 MW on monopiles, no hub height (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=efed5f7f2951473eba54cc04678e1995",
+    "quote": "江苏如东H4#海上风电场项目位于南通市如东海域，在洋口港水域港界北侧，河豚沙西部，场区中心离岸距离33km，共布置100台单机容量4.0MW的风电机组",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Rudong H7",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "南通海事局 2023-11-09「公布江蘇如東H7#海上風電場項目通航安全技術參數的航行通告」：離岸 62 km、100 台 4.0 MW、單樁基礎，沒有輪轂高度（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Nantong MSA parameter notice of 9 Nov 2023 for Rudong H7: 62 km offshore, 100 x 4.0 MW on monopiles, no hub height (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=ef3b1f20ce834afea4d5a863aab25d36",
+    "quote": "场区中心离岸距离 62km，共布置100台单机容量4.0MW的风电机组",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Jiangsu Qidong H1+H2",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "上海海事局沪航通〔2024〕0712／0713號「江蘇啟東H1（250MW）／H2（250MW）海上風電場項目建成的通告」：H1 離岸約 32 km、42 台、250.5 MW；H2 離岸約 40 km、42 台、251.3 MW（合計 84 台、501.8 MW），沒有機型與輪轂高度（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Shanghai MSA notices 沪航通〔2024〕0712/0713 (Qidong H1 and H2 built): H1 about 32 km offshore, 42 turbines, 250.5 MW; H2 about 40 km offshore, 42 turbines, 251.3 MW (84 turbines, 501.8 MW in all); no models or hub height (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=941576f8cfd845b489b8f27c4210be58",
+    "quote": "江苏华威风力发电有限公司江苏启东H1（250MW）海上风电场及其相关配套附属设施日前已建成并投入运行，位于江苏省启东市近海海域，场区中心离岸距离约32km，场区形状呈矩形，南北长约8km，东西宽约5km，面积约40km²，安装42台风力发电机组，总装机容量为250.5MW",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=63deea4e2ec44474afb709eea7f6721c",
+    "quote": "江苏华威风力发电有限公司江苏启东H2（250MW）海上风电场及其相关配套附属设施日前已建成并投入运行，位于江苏省启东市近海海域，场区中心离岸距离约40km，区形状呈梯形，东西长约12km，南北宽约2.5km，面积约31.5km²，安装42台风力发电机组，总装机容量为251.3MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Huaneng Sheyang H1 / Yancheng",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "hub_m": 90,
+   "basis": "stated",
+   "models": "67 x Envision EN148-4.5 (one model)"
+  },
+  "note_zh": "鹽城海事局云航通〔2026〕0050號「射陽南區H1#30萬千瓦海上風電場場區部分的通告」（已建成、通航參數已備案）：67 台遠景 EN148-4.5（4.5 MW）、301.5 MW，風機轉輪直徑 148 m、輪轂高度 90 m",
+  "note_en": "Yancheng MSA notice 云航通〔2026〕0050 (Sheyang South H1 300 MW built, parameters filed): 67 x Envision EN148-4.5 (4.5 MW), 301.5 MW, rotor diameter 148 m, hub height 90 m",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=727b44b59f504f7bb53824eec54bb90b",
+    "quote": "射阳海上南区H1#30万千瓦海上风电场场区部分已建成，相关通航安全技术参数已按要求报备",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=727b44b59f504f7bb53824eec54bb90b",
+    "quote": "本项目风电场区安装67台远景能源EnvisionEN148-4.5机型4.5MW风电机组，总装机容量301.5MW。风机转轮直径148m，轮毂高度90m",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Fujian Changle Waihai A",
+  "iso": "CHN",
+  "type": "none",
+  "value": null,
+  "note_zh": "福州海事局閩航通〔2025〕0894號「長樂外海海上風電場A區項目建成的通告」：離岸約 40 km、37 台、297.8 MW，只有風機座標，沒有各機型輪轂高度（長樂區政府轉載的東方 10 MW 首台 118 m 只屬單一機組，前幾輪已記為線索）（本輪 WebSearch 額度已用盡，只能直接查海事局網站的航行通告；南通、鹽城、上海、福州海事局 2020–2026 年的航行通告與全站搜尋「輪轂高度」都查過）",
+  "note_en": "Fuzhou MSA notice 闽航通〔2025〕0894 (Changle Waihai A built): about 40 km offshore, 37 turbines, 297.8 MW, with turbine coordinates only; no per-model hub heights (the 118 m for the first Dongfang 10 MW unit is a single-unit value, already recorded as a lead) (web search quota was exhausted this round; only the MSA navigation notices 2020–2026 for Nantong, Yancheng, Shanghai and Fuzhou and the MSA site search for 轮毂高度 could be checked)",
+  "sources": [
+   {
+    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=266168570794495084565f025fa0986d",
+    "quote": "项目场址中心距岸线约40km，共安装37台风机，装机容量为297.8MW",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Changle Waihai C",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "10 MW units 118 m (first-unit hoisting news; the 37 × 8 MW units have no hub height)"
+  },
+  "note_zh": "長樂區政府轉人民日報（2021-08）：首台東方電氣 10 MW 機組「輪轂中心高度達到118米」，只屬 20 部 10 MW 機組中的一部，37 部上海電氣 8 MW 機組的輪轂高度仍查不到，無法給全場範圍；本輪搜尋（8 MW 輪轂、C 區驗收）沒有新出處。",
+  "note_en": "Changle district government (People's Daily, Aug 2021): the first Dongfang 10 MW unit has a hub centre height of 118 m; this covers only the 20 × 10 MW units, and no hub height was found for the 37 Shanghai Electric 8 MW units, so no farm-wide range can be given; this round's searches (8 MW hub, acceptance report) found nothing new.",
+  "sources": [
+   {
+    "url": "http://www.fzcl.gov.cn/xjwz/zwgk/zfxxgkzdgz/zdjsxm/jsqk/202108/t20210826_4171849.htm",
+    "quote": "本次吊装的风机为东方电气10MW风电机组，发电机重量达270吨（不含吊具和支架重量），轮毂中心高度达到118米，单只叶片长度90米",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Jieyang Shenquan I",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "5.5 MW units ≈106 m (first-unit hoisting, approximate); 7 MW units unknown"
+  },
+  "note_zh": "揭陽市政府（2021-04）：首台 37 號機（明陽 5.5 MW）「輪轂中心高度約106米」，只屬 37 部 5.5 MW 機組且是約數；29 部上海電氣 7 MW 的輪轂高度本輪仍查不到。",
+  "note_en": "Jieyang government (Apr 2021): the first unit (no. 37, Mingyang 5.5 MW) has a hub centre height of about 106 m; this covers only the 37 × 5.5 MW units and is approximate; no hub height for the 29 Shanghai Electric 7 MW units was found this round either.",
+  "sources": [
+   {
+    "url": "http://www.jieyang.gov.cn/zgb/jysq/content/post_536589.html",
+    "quote": "本次吊装成功的37号风机机型为5.5MW机组，叶片长度达76.6米，叶轮直径约158米，轮毂中心高度约106米",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Jieyang Shenquan II",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "11 MW units (34 of 50) ≈128 m; 16 × 8 MW units unknown"
+  },
+  "note_zh": "中國能源報（2022-08-22）：首台上海電氣 EW11.0-208「輪轂中心高度約128米」，只屬 34 部 11 MW 機組；16 部 8 MW 機組的機型與輪轂高度本輪仍查不到（搜尋預算用罄前未找到）。",
+  "note_en": "China Energy News (22 Aug 2022): the first Shanghai Electric EW11.0-208 has a hub centre height of about 128 m; this covers only the 34 × 11 MW units; the model and hub height of the 16 × 8 MW units were still not found.",
+  "sources": [
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2022-08/22/content_25936182.htm",
+    "quote": "该项目装机规模502兆瓦，拟安装34台11兆瓦和16台8兆瓦风电机组",
+    "check": "OK"
+   },
+   {
+    "url": "https://paper.people.com.cn/zgnyb/html/2022-08/22/content_25936182.htm",
+    "quote": "机组叶轮直径208米、轮毂中心高度约128米",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CGN Huizhou Gangkou I & II",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "phase 2 8.5 MW units 135.9 m above sea level (first-unit hoisting); 12/14 MW units and phase 1 unknown"
+  },
+  "note_zh": "廣東省科技廳（2023）：港口二期首台 8.5 MW 機組「風機輪轂中心距海平面135.9米」，只屬二期 10 部 8.5 MW；45 部 12 MW、9 部 14 MW 與一期 40 部 6.25 MW 的輪轂高度未查到；惠州市自然資源局的建成後報告書網站（上輪）回 503。",
+  "note_en": "Guangdong S&T department (2023): the first phase-2 unit (8.5 MW) has its hub centre 135.9 m above sea level; this covers only the 10 × 8.5 MW units; no hub height for the 45 × 12 MW, 9 × 14 MW or the 40 phase-1 units; the Huizhou natural-resources site with the post-construction reports returned 503 (earlier round).",
+  "sources": [
+   {
+    "url": "http://gdstc.gd.gov.cn/kjzx_n/gdkj_n/content/post_4196989.html",
+    "quote": "此次吊装的风机为8.5MW机型，风机轮毂中心距海平面135.9米，叶片长111米",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Mingyang Yangjiang Qingzhou 4",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "140 m for both the 11 MW and 12 MW models, stated in the Mar 2023 sea-use report while the farm was under construction"
+  },
+  "note_zh": "陽江市自然資源局 2023-03 公示的青洲四海域使用補充論證報告書：「11MW、12MW 風機機型不變，風機輪轂高度分別為 140m、140m」，是施工階段數值（當時近海深水區只有青洲三建成），上輪已列線索；本輪沒有找到 2024-02 全容量併網後寫出輪轂高度的出處。",
+  "note_en": "The Mar 2023 supplementary sea-use report: '11 MW and 12 MW models unchanged, hub heights 140 m and 140 m' — a construction-stage figure (listed as a lead earlier); no source published after the Feb 2024 full connection gives a hub height.",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/40/40198/694084.pdf",
+    "quote": "项目调整后 11MW、12MW 风机机型不变，风机轮毂高度分别为 140m、 140m，叶片运行影响高度分别为 28.5~251.5m、22~258m",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Shenergy Hainan CZ2 (Danzhou)",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "131 m hub centre at the first unit (B38), rotor 230 m; whether all 67 phase-1 units are the same model is unverified"
+  },
+  "note_zh": "申能官方帳號（東方財富轉載，2024-09-18）：首台 B38 機位「風機吊裝的輪轂中心高度131米，葉輪直徑230米，葉片長112米」。只寫一台，機型名稱與其餘 66 台是否同型都沒寫（海南日報寫一期 67 台 9 MW、GEM 寫 58 台 8.5 MW），本輪沒找到機型統一的出處，維持線索。",
+  "note_en": "Shenergy's official account (via Eastmoney, 18 Sep 2024): first unit B38 'hub centre height 131 m, rotor diameter 230 m, blade 112 m'. Only one unit, with no model name or statement that the other 66 units are identical (Hainan Daily: 67 × 9 MW; GEM: 58 × 8.5 MW); no uniformity source found this round, so it stays a lead.",
+  "sources": [
+   {
+    "url": "https://caifuhao.eastmoney.com/news/20240918214253083123450",
+    "quote": "此次风机吊装点位为B38，风机吊装的轮毂中心高度131米，叶轮直径230米，叶片长112米",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "SPIC Peninsula South U1",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "phase 1 MySE8.5-230 (53 units) ≈130 m above sea level; 79 of 106 units are MySE8.5-230, the other 27 units' model is unknown"
+  },
+  "note_zh": "山東省能源局（2023-03）：一期明陽 MySE8.5-230「輪轂中心高度距海平面約130米」；明陽（2024-10）寫 U1 共安裝 79 台 MySE8.5-230，其餘 27 台非明陽機組的機型與輪轂高度本輪仍查不到，所以不能給全場值。",
+  "note_en": "Shandong Energy Bureau (Mar 2023): phase 1 Mingyang MySE8.5-230 hub centre about 130 m above sea level; Mingyang (Oct 2024) says 79 MySE8.5-230 were installed at U1, and the model and hub height of the remaining 27 units are still unknown, so no farm-wide value.",
+  "sources": [
+   {
+    "url": "http://nyj.shandong.gov.cn/art/2023/3/2/art_253733_10296377.html",
+    "quote": "一期采用明阳智能MySE8.5-230型号机组，轮毂中心高度距海平面约130米",
+    "check": "OK"
+   },
+   {
+    "url": "https://mytfsolar.com/cn/sys-nd/172.html",
+    "quote": "U1场址 安装 了 79台明阳集团提供的MySE8.5-230新型半直驱机组",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CTG Dafeng H8-1 (800 MW)",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "the single GWH252-13.6MW unit has a 142 m hub centre; the 84 GWH230-8.5MW and GW191-6MW units have no stated hub height"
+  },
+  "note_zh": "揚子晚報（2026-07）：全容量併網 2025-12-15，「其中一台13.6兆瓦風機，輪轂中心高度達142米」，只屬 98 台中的 1 台；主力 8.5 MW 機型的輪轂高度仍查不到。",
+  "note_en": "Yangtse Evening Post (Jul 2026): full connection on 15 Dec 2025; 'one 13.6 MW turbine has a hub centre height of 142 m' — a single unit of 98; no hub height for the main 8.5 MW model.",
+  "sources": [
+   {
+    "url": "https://www.yzwb.net/news/jiangsu/202607/t20260720_374118.html",
+    "quote": "其中一台13.6兆瓦风机，轮毂中心高度达142米，单支叶片长度123米，叶轮直径252米",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "CGN Fanshi I",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "lead": "151.2 m (22 × GWH252-13.6MW) and 155.7 m (51 × MySE14-260) in the Apr 2025 adjusted equipment table; written while only some piles were in; the farm reached full operation on 24 Sep 2026 with 131 turbines across Fanshi I and II"
+  },
+  "note_zh": "陽江市自然資源局 2025-04 公示的帆石一用海調整補充論證報告書表 2.2.1-2「調整後風機主要設備特性表」：GWH252-13.6MW 輪轂高度 151.2 m、MySE14-260 155.7 m（上輪已列線索），同報告寫「目前已進行部分樁基礎施工」，屬施工階段；2026-09-24 帆石一、二全容量投運（中國金融信息網），但投運報導只寫 18 MW 機組葉輪 292 m，沒有輪轂高度。機型與台數和建成的一致，可由使用者決定是否採用。",
+  "note_en": "The Apr 2025 supplementary sea-use report's 'adjusted main turbine equipment table': GWH252-13.6MW hub height 151.2 m, MySE14-260 155.7 m (listed as a lead earlier); the same report says only some pile foundations were in, so it is construction-stage; Fanshi I and II reached full operation on 24 Sep 2026 (CNFIN), but that news gives only the 292 m rotor of the 18 MW units, no hub height. Models and counts match what was built; the owner may decide whether to accept it.",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf",
+    "quote": "调整后风机主要设备特性表 项目 单位 WTG01 WTG02 机型 GWH252-13.6MW MySE14-260 机组认证 型式认证 型式认证 额定功率 kw 13600 14000 功率调节方式 变速变桨 变速变桨 轮毂高度 m 151.2 155.7",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/yjzrzy/attachment/0/70/70786/853372.pdf",
+    "quote": "第 T+26 个月之后全部 73 台风机投产发电。目前已 进行部分桩基础施工",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.cnfin.com/dz-lb/detail/20260924/4474760_1.html",
+    "quote": "项目共布置131台风机，其中33台为18兆瓦超大型海上风机",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Provence Grand Large",
+  "iso": "FRA",
+  "type": "none",
+  "value": {
+   "hub_m": null
+  },
+  "note_zh": "本輪讀了 provencegrandlarge.fr 全站（le-projet、une-innovation-mondiale、documentations）、2025 年 6 月新聞資料袋與 2018 年專案簡介 PDF：只有浮體 45 m 高、錨深逾 100 m、葉尖高 174 m，沒有輪轂高度；edf-renouvelables.com 的專案頁與 PDF 都 404。",
+  "note_en": "This round read the whole provencegrandlarge.fr site (project, innovation, documentation pages), the June 2025 press kit and the 2018 project sheet: only floater height 45 m, anchors below 100 m and 174 m tip height, no hub height; the edf-renouvelables.com project page and PDFs return 404.",
+  "sources": [
+   {
+    "url": "https://www.connaissancedesenergies.org/une-premiere-eolienne-offshore-flottante-installee-au-large-du-golfe-de-fos-241104",
+    "quote": "Culminant chacune à 174 m au-dessus de la mer",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Les Éoliennes Flottantes du Golfe du Lion (EFGL)",
+  "iso": "FRA",
+  "type": "none",
+  "value": {
+   "hub_m": null
+  },
+  "note_zh": "Ocean Winds 專案頁、Principle Power 專案頁與 Banque des Territoires 的文章只寫 3 部 10 MW、WindFloat 浮體與「186 mètres de hauteur en bout de pale」；efgl.fr 從這裡連不上（DNS／502），lejournaldesentreprises 回 503；沒有輪轂高度。",
+  "note_en": "Ocean Winds' and Principle Power's project pages and the Banque des Territoires article give only 3 × 10 MW, WindFloat floaters and '186 m tip height'; efgl.fr is unreachable from here (DNS/502) and Le Journal des Entreprises returned 503; no hub height.",
+  "sources": [
+   {
+    "url": "https://www.banquedesterritoires.fr/eoliennes-flottantes-du-golfe-du-lion-zoom-sur-un-projet-pilote-pour-la-transition-energetique",
+    "quote": "186 mètres de hauteur en bout de pale",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Kentish Flats Extension",
+  "iso": "GBR",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "tower 70 m (tower height only)"
+  },
+  "note_zh": "offshoreWIND.biz（2015-06 首部風機）：鋼塔高 70 m、分兩段吊裝；這是塔高不是輪轂高度（不含基礎過渡段與機艙中心），依規則不採用。Vattenfall 電廠頁只有 15 部、50 MW；核准上限 85 m 與 2014 年的 83.6 m 仍不採用。",
+  "note_en": "offshoreWIND.biz (first turbine, June 2015): steel towers 70 m tall, lifted in two sections; a tower height, not the hub height (transition piece and hub centre not included), so not usable. Vattenfall's plant page gives only 15 turbines / 50 MW; the 85 m consent limit and the 2014 figure of 83.6 m stay rejected.",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2015/06/19/first-turbine-up-at-kentish-flats-extension/",
+    "quote": "155 tonne steel towers, 70 metres tall – in two sections getting lifted in one go and bolted onto the foundation",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Blyth Offshore Demonstrator",
+  "iso": "GBR",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "tip 191.5 m above LAT (GHD) and rotor 164 m (Jan De Nul) in different sources → ~109.5 m, not derivable under the rules"
+  },
+  "note_zh": "GHD（業主工程顧問）：5 部風機、葉尖高於 LAT 191.5 m；Jan De Nul：8.3 MW MHI Vestas 風機葉輪 164 m。兩個數字在不同出處，依規則不能相減（約 109.5 m，LAT 起算）；EDF-RE 英國網站各頁回 404，Vestas 2018 完工新聞稿無高度。",
+  "note_en": "GHD (owner's engineer): five turbines, tip height 191.5 m above LAT; Jan De Nul: the 8.3 MW MHI Vestas turbines have a 164 m rotor. The two figures are in different sources, so the ~109.5 m (LAT) cannot be derived under the rules; EDF-RE UK pages return 404 and Vestas's 2018 commissioning release has no heights.",
+  "sources": [
+   {
+    "url": "https://www.ghd.com/projects/blyth-offshore-demonstrator-wind-farm",
+    "quote": "a string of five wind turbines with generating capacity of 41.5MW - powering up to an average of 36,000 homes, and with a tip height of 191.5m above LAT.",
+    "check": "OK"
+   },
+   {
+    "url": "https://jandenul.com/node/260",
+    "quote": "The 8.3 MW MHI Vestas turbines have a rotor diameter of 164 metres.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "East Anglia ONE",
+  "iso": "GBR",
+  "type": "result",
+  "value": {
+   "hub_m": 111,
+   "basis": "stated",
+   "models": "102 x Siemens Gamesa SWT-7.0-154 (single model)",
+   "datum": "LAT",
+   "tip_m": 188,
+   "rotor_m": 154,
+   "clearance_m": 28
+  },
+  "note_zh": "East Anglia ONE 2021 年修正令（SI 2021/1086，2021-09-24 制定）：2014 年開發同意令的風機參數改為「葉尖高 200→188 m、輪轂高 120→111 m（LAT 至輪轂中心線）、葉輪 170→154 m、淨空 22→28 m、風機數 150→102」；業主 2021-03 的非重大變更申請公告寫明目的是「反映 EA ONE 已裝設的風機數與其高度、輪轂高度、葉輪直徑與淨空」，且 102 部全部裝好運轉。111 + 77（154/2）= 188，與 SWT-7.0-154 一致。注意：修正令文字仍是「最大參數」，但依申請公告它就是建成值；若主流程仍視為核准值，請改列線索。",
+  "note_en": "East Anglia ONE (Amendment) Order 2021 (SI 2021/1086, made 24 Sep 2021) rewrites the 2014 DCO turbine parameters to tip 200→188 m, hub 120→111 m (LAT to the hub centreline), rotor 170→154 m, clearance 22→28 m and 150→102 WTGs; the applicant's March 2021 NMC notice says the change is 'to reflect the number of WTGs installed at EA ONE' and their height, hub height, rotor diameter and clearance, with all 102 WTGs installed and operating. 111 + 77 (154/2) = 188, consistent with the SWT-7.0-154. Caveat: the Order's wording is still 'maximum parameters', but per the notice they are the installed values; downgrade to a lead if the main session treats it as a consent figure.",
+  "sources": [
+   {
+    "url": "https://www.legislation.gov.uk/uksi/2021/1086/body/made",
+    "quote": "in paragraph 3(1)(a), for “200 metres” substitute “188 metres”; (b) in paragraph 3(1)(b), for “120 metres” substitute “111 metres”; (c) in paragraph 3(1)(c), for “170 metres” substitute “154 metres”; (d) in paragraph 3(1)(e), for “22 metres” substit",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.legislation.gov.uk/uksi/2014/1599/schedule/1/part/3/made",
+    "quote": "(a) exceed a height of 200 metres when measured from LAT to the tip of the vertical blade; (b) exceed a height of 120 metres to the height of the centreline of the generator shaft forming part of the hub when measured from LAT;",
+    "check": "OK"
+   },
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/61b20ad88fa8f50384489c5d/EA1_NMC_Newspaper_Article.pdf",
+    "quote": "The construction of the offshore works for EA ONE were completed in October 2020. All 102 WTGs are now installed and operating",
+    "check": "OK"
+   },
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/61b20ad88fa8f50384489c5d/EA1_NMC_Newspaper_Article.pdf",
+    "quote": "to reflect the number of WTG s installed at EA ONE and a number of  the WTGs' parameters comprising their height (when measured from Lowest Astronomical Tide (LAT) to the tip of the vertical blade), their hub height (when measured from LAT to the centreline), their rotor diameter and their clearance height",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.legislation.gov.uk/uksi/2021/1086/note/made",
+    "quote": "The Order makes changes to the number and permitted parameters of the wind turbine generators and ensures that these are the final maximum parameters of the development.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Hornsea Two",
+  "iso": "GBR",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "pre-construction decommissioning programme: 167 m rotor + 204.37 m tip above LAT in one passage → 120.9 m (LAT); operator page only 'more than 200 m' to tip"
+  },
+  "note_zh": "沒有新的建成出處：Ørsted Hornsea 2 專案頁只寫「葉片 81 m、葉尖高於海平面超過 200 m」；Tethys 的「Hub Height 200 m」仍是葉尖高。先前的線索（施工前除役計畫書：167 m 葉輪、葉尖高於 LAT 204.37 m，同段可推 120.9 m）維持為線索。",
+  "note_en": "No new as-built source: Ørsted's Hornsea 2 project page only says 81 m blades and a blade tip 'more than 200m above sea level'; Tethys's 'Hub Height 200 m' is still the tip height. The earlier lead (pre-construction decommissioning programme: 167 m rotor and 204.37 m tip above LAT in one passage, giving 120.9 m) stands.",
+  "sources": [
+   {
+    "url": "https://hornseaprojects.co.uk/hornsea-project-two",
+    "quote": "Each turbine blade is 81m long and the blade tip is more than 200m above sea level.",
+    "check": "OK"
+   },
+   {
+    "url": "https://tethys.pnnl.gov/sites/default/files/publications/HOW02DecommissioningProgramme.pdf",
+    "quote": "165 offshore wind turbines with a rotor diameter of 167 m, a tip height of 204.37 m above LAT and a monopile foundation with a diameter of up to 9.5 m",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Dogger Bank A",
+  "iso": "GBR",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "tip 260 m above sea level and 107 m blades (Energy Global); rotor 220 m only in other sources → ~150 m, not derivable"
+  },
+  "note_zh": "Energy Global（2023-10 首部風機）：葉尖高於海平面 260 m、每片葉片 107 m；葉片長不是葉輪半徑（220 m 葉輪在別的出處），依規則不能推算（約 150 m）。Dogger Bank 官網各頁沒有高度；A／B 除役計畫書是 2020 年施工前版本，不採用。",
+  "note_en": "Energy Global (first turbine, Oct 2023): blade tips 260 m above sea level, each blade 107 m; blade length is not the rotor radius (the 220 m rotor is in other sources), so ~150 m cannot be derived under the rules. The Dogger Bank website pages have no heights; the A/B decommissioning programme is a 2020 pre-construction draft and is not used.",
+  "sources": [
+   {
+    "url": "https://www.energyglobal.com/wind/11102023/voltaire-installs-first-next-generation-wind-turbines-at-dogger-bank/",
+    "quote": "The turbine blades tips reach 260 m above sea level; the same height as New York’s iconic Rockefeller Centre. Each blade is 107 m long.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Goto City Offshore floating project",
+  "iso": "JPN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "design diagram: hub height probably 56 m (labels and values extracted in different order)"
+  },
+  "note_zh": "戶田建設 2023-09 在東京都的簡報（kankyo.metro.tokyo.lg.jp）有與 2022 年國交省事業概要相同的示意圖：標籤「ロータ直径／全長／ハブ高さ／喫水／水深」與數字「80／56／172／76／100 m」分開抽出，對應關係仍無法由文字確定（輪轂高度很可能是 56 m，但 56 也可能對到別的欄位）；且全長 172 m 是改設計前的值（關西電力 2026-01 商轉新聞稿：全長 176.1 m、葉輪 80 m）。能源廳公募占用計畫概要與 KEPCO 新聞稿都沒有輪轂高度；goto-fowind.co.jp 回 502。",
+  "note_en": "Toda's Sept 2023 presentation to the Tokyo government (kankyo.metro.tokyo.lg.jp) carries the same diagram as the 2022 MLIT outline: the labels (rotor diameter / overall length / hub height / draft / water depth) and the values (80 / 56 / 172 / 76 / 100 m) are extracted separately, so the pairing still cannot be fixed from the text (the hub is probably 56 m); and the 172 m overall length predates the redesign (KEPCO's Jan 2026 release: 176.1 m overall, 80 m rotor). The ANRE plan summary and the KEPCO release give no hub height; goto-fowind.co.jp returns 502.",
+  "sources": [
+   {
+    "url": "https://www.kankyo.metro.tokyo.lg.jp/documents/d/kankyo/renewable_energy-200100a20230614231953660-files-asano0901",
+    "quote": "ロ ー タ 直 径 ： 全 長 ： ハ ブ 高 さ ： 喫 水 ： 水 深 ： 80 ｍ 56 ｍ 172 ｍ 76 ｍ 100 ｍ",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.kepco.co.jp/corporate/pr/2026/pdf/20260105_1j.pdf",
+    "quote": "浮体式洋上風力発電設備 16.8MW（＝2.1MW 機×8 基） （全長176.1ｍ、ローター径80m）",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Kitakyushu Hibikinada",
+  "iso": "JPN",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "operator's own size diagram (image): rotor 174 m, about 200 m from sea surface to tip → hub about 113 m; MHI 2020 slide reportedly 'hub height about 110 m'"
+  },
+  "note_zh": "業主 ひびきウインドエナジー「風車スペック」頁的尺寸示意圖（img/turbine/img-04.webp，圖片無文字）：葉輪直徑 174 m、海水面至葉尖「約 200 m」，推得輪轂約 113 m，但圖片不能逐字引用且是約略值；頁面文字只寫選定 V174-9.5MW、每部 9.6 MW。搜尋摘要顯示三菱重工 2020 年簡報（smart2020_at6.pdf）寫「響灘選定機種：ハブ高さ約 110 m、ローター径 174 m、高さ約 197 m」，但該網址在此只回三菱重工網站的一般頁面，無法核對，而且是 2020 年施工前的概略值。",
+  "note_en": "The operator's (Hibiki Wind Energy) turbine-spec page has a size diagram (img/turbine/img-04.webp, an image with no text): rotor 174 m and 'about 200 m' from sea surface to tip, implying a hub of about 113 m, but it cannot be quoted and is approximate; the page text only says the V174-9.5MW was selected at 9.6 MW per unit. A search snippet of an MHI 2020 slide (smart2020_at6.pdf) gives 'hub height about 110 m, rotor 174 m, height about 197 m' for the model selected for Hibikinada, but that URL only returns MHI's generic site page here, so it cannot be checked, and it is a pre-construction approximation.",
+  "sources": [
+   {
+    "url": "https://hibikiwindenergy.co.jp/turbine/",
+    "quote": "Vestas Wind Systems A/S社のV174-9.5MWを風車機種に選定しました。 1基あたり出力9.6MWの大型風車は、国内初です。 風車のサイズのイメージ",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Southwest Offshore Demonstration (Seonam)",
+  "iso": "KOR",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "no hub height; KOWP spec image confirms 17 x TCS (134 m rotor) + 3 x TC2 (100 m rotor); Money Today 157 m max height stays a lead"
+  },
+  "note_zh": "韓國海上風力（KOWP）官網「설비 및 시스템—터빈 및 블레이드」頁只有一張圖（estate_system_01.jpg）：WinDS3000/134 TCS 17 部（葉輪 134 m）、TC2 3 部（葉輪 100 m），沒有輪轂高度；「실증단지 소개」頁寫 2017-05 海上開工、2019-07 商轉、2020-01 竣工。海岸海洋工學會 2023 年 LCOE 論文與 2014 年造船學會文章也沒有輪轂高度。머니투데이的「最高 157 m」仍只能當線索。",
+  "note_en": "KOWP's 'facilities—turbine and blades' page is a single image (estate_system_01.jpg): 17 WinDS3000/134 TCS units (134 m rotor) and 3 TC2 units (100 m rotor), no hub height; the demonstration-farm page gives offshore start May 2017, commercial operation July 2019 and completion Jan 2020. The 2023 KSCOE LCOE paper and the 2014 SNAK article have no hub height either. Money Today's '157 m maximum height' stays a lead.",
+  "sources": [
+   {
+    "url": "http://www.kowp.co.kr/business/advertise01.asp",
+    "quote": "2017년 5월 해상공사를 시작으로 2019년 7월 상업운전을 개시하였으며, 2020년 1월 종합준공 되었습니다. 총 60MW 규모로 조성된 실증단지는",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Coastal Virginia Offshore Wind (CVOW) Pilot",
+  "iso": "USA",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "BOEM RAP revision: hub height 104–111 m above MSL (design range for the SGRE turbine), already rejected"
+  },
+  "note_zh": "BOEM 的研究活動計畫修訂備忘錄（改用西門子歌美颯機組）表 3.2-1：輪轂高度（自平均海平面）由 Alstom 的 103 m 改為 104–111 m、塔高 82–86 m、葉尖最高 180–188 m；仍是施工前的設計範圍（TODO 已列為不採用），只記錄其基準（MSL）。Dominion 簡報只寫「約 600 英尺高」；coastalvawind.com 現在只談商轉案；BOEM 的 CVOW 頁沒有竣工文件。",
+  "note_en": "BOEM's Research Activities Plan revision memo (switch to the Siemens Gamesa turbine), table 3.2-1: hub height from mean sea level changed from Alstom's 103 m to 104–111 m, tower 82–86 m, maximum height 180–188 m; still the pre-construction design range already rejected in TODO, recorded here only for its datum (MSL). Dominion's presentation says only 'approximately 600 feet tall'; coastalvawind.com now covers the commercial project only; BOEM's CVOW page lists no as-built document.",
+  "sources": [
+   {
+    "url": "https://www.boem.gov/CVOW-RAP-Amendment-Memo/",
+    "quote": "Hub height (from mean sea level [MSL]) 338 ft (103 m) 341-364 ft (104-111 m) Increase of 3-26 ft (1-8m)",
+    "check": "OK"
+   },
+   {
+    "url": "https://energy.es.virginia.gov/offshore-wind/documents/June-Presentations/DominionPresentation2.pdf",
+    "quote": "Two 6-megawatt wind turbines • 12-megawatt total capacity • Enough to power up to 3,000 homes • Approximately 600 feet tall, the height of the Washington Monument",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Guangdong Zhanjiang Xuwen Offshore wind farm",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": 105,
+   "basis": "stated",
+   "models": "design value in the 300 MW expansion's soil-conservation report; not the 94 x 6.45 MW original farm"
+  },
+  "note_zh": "線索（同前輪）：徐聞縣公開的 300 MW 增容項目水土保持報告只寫「風電場預裝輪轂高度 105m」（風資源設計值，且只屬增容 25 台 12 MW）；原 600 MW（94 台 6.45 MW）的輪轂高度本輪仍未查到，環評批復 PDF（gdee）為掃描檔無文字。",
+  "note_en": "Lead (as before): the county's soil-conservation report for the 300 MW expansion only gives a 'pre-installed hub height 105 m' wind-resource design value for the 25 x 12 MW expansion; nothing found for the original 94 x 6.45 MW farm (the EIA approval PDF is a scan with no text).",
+  "sources": [
+   {
+    "url": "http://www.xuwen.gov.cn/zjxwswj/attachment/0/272/272016/2144156.pdf",
+    "quote": "风电场预装轮毂高度 105m 平均风速 7.72m/s",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Guangdong Yangjiang Nanpengdao (China Energy Conservation) Offshore wind farm",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": 100,
+   "basis": "tip-minus-radius",
+   "models": "MySE5.5-155 (rotor 155 m); 23–177 m sweep implies hub ~100 m"
+  },
+  "note_zh": "線索（同前輪）：海域使用補充論證報告書（陽江市自然資源局，2023-10）寫 2021 年底建成、機型 MySE5.5-155，鳥類段落寫葉片旋轉範圍「離地面 23~177m」（可推得輪轂約 100 m），但「離地面」未明寫海平面、同報告另一處寫 30~180 m，機型參數表標「略」，不採用。",
+  "note_en": "Lead (as before): the supplementary sea-use report (Yangjiang, Oct 2023) says the farm was completed by end-2021 with MySE5.5-155 turbines and the blades sweep 23–177 m 'above ground' (implying a ~100 m hub), but the datum is not stated as sea level, another passage says 30–180 m and the parameter table is omitted; not accepted.",
+  "sources": [
+   {
+    "url": "http://www.yangjiang.gov.cn/attachment/0/48/48248/739029.pdf",
+    "quote": "风机叶片旋转的范围在离地面23~177m 之 间",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/attachment/0/48/48248/739029.pdf",
+    "quote": "风机叶片旋转的范围在离地面30~180m 之间",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.yangjiang.gov.cn/attachment/0/48/48248/739029.pdf",
+    "quote": "至2021 年底，本项目已建设完成。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Zhejiang Jiaxing 2 Offshore wind farm",
+  "iso": "CHN",
+  "type": "lead",
+  "value": {
+   "hub_m": 105,
+   "basis": "stated",
+   "models": "stated for unit 32 (rotor 175 m) in China Railway Major Bridge's 25-turbine lot; whole-farm model unconfirmed"
+  },
+  "note_zh": "線索（同前輪）：中鐵大橋局（澎湃號 2021-10）其標段 25 台中的 32 號機「輪轂距離海平面高度 105 米」、旋轉直徑 175 m；全場 50 台 6 MW，但另一標段 25 台的機型未證實相同（Power Technology 寫 SWT-6.0-154，與 175 m 矛盾），本輪搜尋額度用盡前未找到新出處。",
+  "note_en": "Lead (as before): unit 32 in China Railway Major Bridge's 25-turbine lot has its hub 105 m above sea level and a 175 m rotor; the farm has 50 x 6 MW, but the other lot's model is unconfirmed (Power Technology lists SWT-6.0-154, contradicting 175 m). No new source found before the search budget ran out.",
+  "sources": [
+   {
+    "url": "https://m.thepaper.cn/newsDetail_forward_15174937",
+    "quote": "此次安装的32号风机，单片叶片长84米，旋转直径175米，轮毂距离海平面高度105米",
+    "check": "OK"
+   },
+   {
+    "url": "https://m.thepaper.cn/newsDetail_forward_15174937",
+    "quote": "共50台单机容量6兆瓦风力发电机组，装机总容量为300兆瓦。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Zhejiang Taizhou 1 Offshore wind farm",
+  "iso": "CHN",
+  "type": "result",
+  "value": {
+   "hub_m": 126,
+   "basis": "stated",
+   "models": "40 x 7.5 MW, rotor ~207 m (single capacity class; model name not stated)"
+  },
+  "note_zh": "中國電力企業聯合會轉載中鐵大橋局 2023-09 吊裝收官報導：全場 40 台單機 7.5 MW，最後吊裝的 40 號機位風機單片葉片長 100 m、風輪直徑約 207 m、輪轂中心距海平面 126 m。數字只寫在 40 號機上，但全場 40 台同為 7.5 MW 級（未寫機型名稱），採用時請注意。",
+  "note_en": "CPEM reprint of a China Railway Major Bridge report (Sept 2023, last turbine installed): all 40 units are 7.5 MW; unit 40 has 100 m blades, ~207 m rotor and hub centre 126 m above sea level. The figure is given for unit 40 only, but the farm is a single 7.5 MW class (model name not stated); treat with that caveat.",
+  "sources": [
+   {
+    "url": "http://www.cpem.org.cn/list68/83334.html",
+    "quote": "场区布置40台单机容量7.5兆瓦的风电机组，规划总装机容量300兆瓦",
+    "check": "OK"
+   },
+   {
+    "url": "http://www.cpem.org.cn/list68/83334.html",
+    "quote": "此次安装的40号机位风机，单片叶片长100米，风轮直径约207米，轮毂中心距离海平面高度126米。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Dong Hai 1 Offshore wind farm",
+  "iso": "VNM",
+  "type": "none",
+  "value": {},
+  "note_zh": "未查到：Vestas 新聞稿與 Composites World／NS Energy 只寫 13 部 V150-4.2（一期 10×3.8＋3×4.0 MW 模式）、客製化塔架與高於海面的陸上式基礎；Vestas 2020-04 的「162 m 輪轂高度」是另一筆 16 部、67 MW 未具名兩案的訂單，不能歸給東海 1 號。",
+  "note_en": "Not found: Vestas' releases and Composites World/NS Energy only give 13 V150-4.2 units per phase (10 at 3.8 MW + 3 at 4.0 MW) with customised towers on foundations raised above sea level; Vestas' April 2020 '162 m hub heights' belongs to a separate 16-turbine, 67 MW order for two unnamed projects and cannot be attributed to Dong Hai 1.",
+  "sources": [
+   {
+    "url": "https://vestas.com/en/media/company-news?n=3645256",
+    "quote": "The customised tower solution takes the turbines to 162m hub heights",
+    "check": "OK"
+   },
+   {
+    "url": "https://compositesworld.com/news/vestas-wins-50-mw-order-for-largest-vietnam-intertidal-wind-project",
+    "quote": "The project will also feature customized towers placed on reinforced onshore foundations above sea level.",
+    "check": "OK"
+   }
+  ]
+ }
+]

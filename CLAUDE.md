@@ -10,11 +10,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Every document has a Traditional Chinese `X.md` and an English `X.en.md`, cross-linked on the first lines.
 - 修改文件時兩個版本在同一個 commit 一起更新，數字、步驟、連結要一致；新增文件時兩個版本一起新增。
   Change both versions in the same commit, keeping numbers, steps and links identical; add new documents in both languages.
-- 由程式產生的文件（例：`docs/data-coverage*.md`、`docs/data-cleanup*.md`、`docs/foundations*.md`、`docs/events*.md`）由產生程式同時輸出兩種語言，不要手動改。
-  Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`, `docs/foundations*.md`, `docs/events*.md`) are written in both languages by their generator; do not edit them by hand.
+- 由程式產生的文件（例：`docs/data-coverage*.md`、`docs/data-cleanup*.md`、`docs/data-locations*.md`、`docs/foundations*.md`、`docs/events*.md`）由產生程式同時輸出兩種語言，不要手動改。
+  Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`, `docs/data-locations*.md`, `docs/foundations*.md`, `docs/events*.md`) are written in both languages by their generator; do not edit them by hand.
 - 網站介面文字也一律雙語：HTML 用 `data-l="zh"`／`data-l="en"`，JS 用 `WW.L(zh, en)` 或各模組的 i18n 字典。
   All UI text is bilingual as well: `data-l="zh"` / `data-l="en"` in HTML, `WW.L(zh, en)` or the module's i18n table in JS.
-- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/user-guide（使用說明）、docs/data-coverage、docs/data-cleanup、docs/foundations、docs/events、docs/live-data-sources、tools/promo/README。
+- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/user-guide（使用說明）、docs/data-coverage、docs/data-cleanup、docs/data-locations、docs/foundations、docs/events、docs/live-data-sources、tools/promo/README。
 - 網站新增或改變使用者看得到的功能（頁面、工具列按鈕、圖層、網址參數）時，同一個 PR 更新 `docs/user-guide.md` 與 `.en.md`；README 的「功能」只寫摘要並連到使用說明。
   When a PR adds or changes something users see (pages, toolbar buttons, layers, URL parameters), update `docs/user-guide.md` and `.en.md` in the same PR; the README's feature list stays a summary that links to the guide.
   `CLAUDE.md` 本身以中英並列寫在同一個檔。This file itself keeps both languages side by side.
@@ -116,20 +116,25 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   since stopped go in `PIPE_DROP`.
   If a GEM project was merged into a curated record that a dup/drop rule later removes, the build stops (otherwise the farm would
   vanish): list it in `GEM_KEEP` if it is a separate farm, or in `ORPHAN_OK` only when another record is confirmed to cover it.
+  GEM 放在省或國家中心代用點的營運中風場，由 `tools/fetch_gem_locations.py` 依 GEM 專案頁的鄉鎮／縣文字找到 Wikidata 項目、取其座標（CC0；OSM Nominatim 只當查詢索引，不寫出 OSM 資料；Nominatim 找不到時直接搜尋 Wikidata，所在行政區鏈要含 GEM 寫的縣與省），
+  輸出 `data/global/sources/gem_locations.json`，建置時以 `GEM_LOC_RULES` 套用成「概略位置」（仍標 flags 1），清單寫成 `docs/data-locations*.md`；升級 GEM 版本後重跑。
+  Operating farms that GEM puts on province- or country-centre placeholders are moved by `tools/fetch_gem_locations.py`: the township/county text of the GEM project
+  page is resolved to a Wikidata item and its coordinate (CC0; OSM Nominatim is only the lookup index and no OSM data is written; where Nominatim finds nothing, Wikidata is searched directly and the chain of containing areas must carry the county and province GEM names) into `data/global/sources/gem_locations.json`,
+  applied at build time as approximate positions (`GEM_LOC_RULES`, flag 1 kept) and listed in `docs/data-locations*.md`; rerun it after a GEM upgrade.
 
 - 卡片照片寫在 `tools/farm_photos.py`：每張都要人工看過（看得到該風場或里程碑風機的風機，不是地圖、標誌、典禮或遠景），出自該風場自己的 Wikimedia Commons 分類（沒有分類時，檔名或說明要寫明是這座風場），
-  授權是 CC0／公有領域／CC BY／CC BY-SA／Attribution；改完跑 `python3 tools/build_photos.py`（檢查名稱、分類與授權，輸出 `data/global/photos.json`），卡片會寫出作者與授權。
+  授權是 CC0／公有領域／CC BY／CC BY-SA／Attribution；改完跑 `python3 tools/build_photos.py`（檢查名稱、分類與授權，輸出 `data/global/photos.json`；Commons API 限流回 429 時改讀檔案頁），卡片會寫出作者與授權。
   事件只放拍到該事件本身的照片。找候選用 `python3 tools/find_photos.py 名稱 --save 目錄`。照片不存進 repo，網頁直接載入 Commons 縮圖。
   Card photos live in `tools/farm_photos.py`: each one looked at by hand (it shows the farm's or milestone machine's turbines, not a map,
   logo, ceremony or distant view), taken from the farm's own Wikimedia Commons category (or named as that farm in its title or description), under CC0 / public domain / CC BY / CC BY-SA / Attribution.
-  Run `python3 tools/build_photos.py` after editing (it checks names, categories and licences and writes `data/global/photos.json`); the card
+  Run `python3 tools/build_photos.py` after editing (it checks names, categories and licences and writes `data/global/photos.json`, reading the file pages when the Commons API answers 429); the card
   credits author and licence. Event photos must show the event itself. Photos are not stored in the repo; the page loads Commons thumbnails.
 
 - 港口資料 `data/global/ports.json` 是人工整理、每港附出處：座標標在碼頭或港池（`coordNote` 說明是哪裡），「服務過的風場」只列有出處佐證的，
-  名稱要與 `wind_farms.json` 完全一致；角色已結束的港口標 `former`。改完跑 `python3 tools/qa_ports.py`。查不到的港口不要猜，列在 TODO。
+  名稱要與 `wind_farms.json` 完全一致；角色已結束的港口標 `former`；製造基地依查到的產品寫成 `nacelle`／`blade`／`foundation`／`tower`／`cable`（沒有籠統的「製造」角色）。改完跑 `python3 tools/qa_ports.py`（座標要在國界內或離岸 15 km 內；1:50m 國界畫不出的離島港口列在它的 `FAR_OK`）。查不到的港口不要猜，列在 TODO。
   Ports (`data/global/ports.json`) are curated by hand with sources for every port: coordinates mark the quay or harbour basin
   (`coordNote` says which), "farms" lists only farms a source ties to the port, using exact names from `wind_farms.json`, and ports
-  whose role has ended are marked `former`. Run `python3 tools/qa_ports.py` after editing. Never guess a port — list missing ones in TODO.
+  whose role has ended are marked `former`; manufacturing sites are coded by product as `nacelle` / `blade` / `foundation` / `tower` / `cable` (there is no generic "manufacturing" role). Run `python3 tools/qa_ports.py` after editing (coordinates must be inside the country or within 15 km of its coast; island ports the 1:50m borders miss go in its `FAR_OK`). Never guess a port — list missing ones in TODO.
 
 - 離岸風場水下基礎型式：逐場對照表在 `tools/farm_foundations.py`（每列用國別與風場名稱指定一座，名稱與 `wind_farms.json` 完全一致），
   改完跑 `python3 tools/build_foundations.py`，輸出 `data/global/foundations.json` 與 `docs/foundations*.md`。OSPAR 的值不一定是建成的樣子

@@ -566,6 +566,27 @@ FOUNDATIONS = [
     F5('CHN', 'Guoxin Dafeng 850 MW', 'mp', url='http://ddx.gubit.cn/fenxi/002608/202510081600.html',
        zh='100×8.5 MW，「風機基礎全部採用大直徑單樁結構」，2025年完成100根單樁基礎施工，2025-12-29全部風機併網（查股網／交匯點2025-10-08、國資委2026）。',
        en='100 x 8.5 MW; ’all turbine foundations use large-diameter monopiles’, all 100 monopiles driven in 2025 and all turbines grid-connected by 2025-12-29 (gubit/Jiaohuidian 2025-10-08, SASAC 2026).'),
+    F5('CHN', 'Huadian Yuhuan 1', 'mx', parts=[['pc', 22], ['mp', 10]], url='https://www.ne21.com/news/show-200359.html',
+       zh='32 部（台州海事局 2025 年 6 月建成通告：32 台、229 MW）。北區 22 部 7 MW 為高樁承台：施工紀錄「面对采用高桩承台基础结构型式的玉环项目，仅用139天就完成了176根钢管桩的沉桩工作」；'
+          '南區 10 部 7.5 MW 為單樁：國家能源招標網 2025 年 3 月中標公示列出「華電玉環1號南區單樁基礎沉樁施工合同、華電重工，2023-11-24」（http://www.chnenergybidding.com.cn/bidweb/001/001005/001005002/20250328/c68453da-dfbd-4d86-a4b2-17fbb0d123d0.html），'
+          '2023 年 9 月的供貨招標為「單樁基礎及附屬構件供貨（南區 10 套）」（http://www.dlztb.com/xmxx/202309/28086.html），2024-05-29 南區 10 部全部吊裝完成（https://www.ne21.com/news/show-195405.html）。南區沒有單獨的「沉樁完成」報導，以施工合約、供貨數量與吊裝完成互證',
+       en='32 units (Taizhou MSA completion notice, Jun 2025: 32 turbines, 229 MW). The north zone’s 22 × 7 MW stand on high-rise pile caps (construction record: 176 piles driven in 139 days for the pile-cap foundations); '
+          'the south zone’s 10 × 7.5 MW on monopiles: the CHN Energy award notice of Mar 2025 lists the contract “Huadian Yuhuan 1 south zone monopile foundation piling construction, Huadian Heavy Industries, 24 Nov 2023” '
+          '(http://www.chnenergybidding.com.cn/bidweb/001/001005/001005002/20250328/c68453da-dfbd-4d86-a4b2-17fbb0d123d0.html), the Sept 2023 supply tender is for “monopile foundations and attachments (10 sets, south zone)” (http://www.dlztb.com/xmxx/202309/28086.html), '
+          'and all 10 south-zone turbines were installed by 29 May 2024 (https://www.ne21.com/news/show-195405.html). No separate “piling completed” report exists for the south zone; the piling contract, the supply count and the installation completion corroborate each other'),
+    F5('CHN', 'Putian Pinghai Bay Phase 2', 'mx', parts=[['pc', 28], ['mp', 13]],
+       url='https://www.ndb.int/wp-content/uploads/2024/10/PPE-China-Putian-Pinghai-Bay-Offshore-Wind-Power-Project.pdf',
+       zh='新開發銀行獨立評價局 2024 年 10 月的完工後績效評價報告：原規劃 13 座導管架＋37 座高樁承台，實際建成 28 座高樁承台（6 座直樁、3 座群樁、19 座斜樁）＋13 座單樁'
+          '（含 2 座單樁—桶組合基礎；41 部 6 MW 上海電氣機組）；中新網福建 2024 年證實單樁—桶組合基礎用在 12 號機位（https://www.fj.chinanews.com.cn/news/2024/2024-08-14/552232.html）',
+       en='NDB Independent Evaluation Office, post-completion project performance evaluation (Oct 2024): 13 jackets and 37 high-rise pile caps were planned, but 28 high-rise pile caps '
+          '(6 vertical-pile, 3 group-pile, 19 inclined-pile) and 13 single-pile foundations (including 2 monopile–bucket composites) were built for the 41 × 6 MW Shanghai Electric units; '
+          'Chinanews Fujian (2024, https://www.fj.chinanews.com.cn/news/2024/2024-08-14/552232.html) confirms the monopile–bucket composite at position 12'),
+    F5('CHN', 'Shandong Laizhou Offshore Wind Farm And Acquaculture Integrated Project', 'mp', url='https://ecp.cgnpc.com.cn/detail/bbf3c0e849e042459392b379c4fb343b/4674453659ef4aa59cced5db80cbc40b.json',
+       zh='中廣核電子採購平台 2024 年 7 月為已運轉的萊州海上風儲電場招標風機腐蝕檢測，把風機基礎定義為「單樁及套籠」（套籠是掛在單樁上的海洋牧場養殖網籠）；'
+          '山東省能源局：38 台 8 MW，2022 年 7 月 24 日首根風機基礎鋼管樁沉樁。業主文件以單樁描述整座風場的基礎，但沒有寫出座數',
+       en='CGN’s e-procurement notice of July 2024 for corrosion inspection of the operating Laizhou wind-plus-storage farm defines the turbine foundation as “the monopile and the cage” '
+          '(the cage is the aquaculture net cage hung on the monopile); Shandong Energy Bureau: 38 × 8 MW, first foundation steel pipe pile driven on 24 July 2022. '
+          'The owner’s document describes the whole farm’s foundations as monopiles without giving a count'),
     F5('CHN', 'Shandong Energy Bozhong A', 'mp', url='http://news.bandao.cn/a/620265.html',
        zh='60×8.35 MW（501 MW），全場單樁60根（大金重工製30根、煙台打撈局施工30台單樁基礎，2022-04-16首樁沉樁）（半島網／新華社2022-05-04、搜狐／煙台打撈局2022-04-19）。',
        en='60 x 8.35 MW (501 MW); 60 monopiles for the whole farm (30 made by Dajin Heavy Industry, Yantai Salvage installing 30 monopile foundations; first pile driven 2022-04-16) (Bandao/Xinhua 2022-05-04, Sohu/Yantai Salvage 2022-04-19).'),

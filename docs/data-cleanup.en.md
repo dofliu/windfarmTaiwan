@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 885 rules: 248 records removed (48,918.1 MW of them operating), 637 records fixed.
+- 886 rules: 248 records removed (48,918.1 MW of them operating), 638 records fixed. In addition, 1204 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -52,7 +52,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | South Korea | 4 | 158.3 | 9 |
 | Spain | 5 | 107.3 | 29 |
 | Sweden | 0 | 0 | 4 |
-| Taiwan | 2 | 0 | 21 |
+| Taiwan | 2 | 0 | 22 |
 | Thailand | 1 | 600 | 7 |
 | Turkey | 9 | 592 | 18 |
 | United Kingdom | 7 | 3,485 | 7 |
@@ -1016,6 +1016,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Greater Changhua 2b & 4 · 920 MW · 2026 | curated | fixed: owner | Ørsted: the 583 MW Greater Changhua 4 is co-owned by Ørsted (50%) and Cathay Life (50%); the record said Ørsted 100% | [link](https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521) |
 | Taipower Offshore Phase 2 · 294 MW · 2027 | curated | fixed: capacity | 31 turbines of 9.5 MW, 294.5 MW in total; the record said 294 MW | [link](https://technews.tw/2022/11/03/taipower-offshore-wind2/) |
 | Taipower Offshore Phase 2 · 294.5 MW · 2027 | curated | fixed:  | All 31 foundations and the cables are in; Taipower’s vessel sailed on 28 Sep 2026 to install turbines (planned for 25 Sep) with 1 of 31 installed, and Taipower aims to finish by year-end and connect in H1 2027 | [link](https://www.cna.com.tw/news/afe/202610020045.aspx) |
+| Yunmai (Mailiao) · 46 MW · 2008 | curated | fixed: year, turbines, phases | The Control Yuan’s investigation report of 23 July 2026 (the Mailiao turbine 17 fire): phase 1 of 15 turbines commissioned in January 2009 and phase 2 of 8 in May 2010; Taipower’s station list likewise has Mailiao 1 (#1–#15, 30 MW) and Mailiao 2 (#16–#23, 16 MW). The old “16 in 2008, 7 in 2011” was wrong; the start year becomes 2009 | [link](https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/76442) |
 | Taoyuan Luzhu · 33.6 MW · 2025 | curated | fixed: capacity, year, turbines | Taipower’s station list and the Energy Administration’s wind single window list only the 8 Enercon E44 (0.9 MW) at Luzhu, 7.2 MW in all, with no 33.6 MW new-build or repowering plan; completed and connected on 2 February 2015 (Wikipedia). The previous 33.6 MW and 2025 were estimates | [link](https://service.taipower.com.tw/data/opendata/apply/file/d693002/001.csv) |
 | Taichung Power Plant · 8 MW · 2005 | curated | fixed: capacity, turbines | Taichung Power Plant originally had 4 Zephyros Z72; after Typhoon Jangmi toppled one at Taichung Port in 2008, one (P01) was moved there, leaving 3; in 2016, with the plant’s turbines blocked by China Steel/Dragon Steel buildings, Taipower moved 2 more to the front row at Gaomei Wetland to replace units destroyed by Typhoon Soudelor (2015), leaving 1 (2 MW). Taipower’s 2026 station list and the Energy Administration’s single window both show 1 turbine | [link](https://news.ltn.com.tw/news/life/breakingnews/1618036) |
 | Taichung Port · 36 MW · 2006 | curated | fixed: capacity, turbines | Gaomei Wetland originally had 18 Zephyros Z72 (10 in the front row, 8 behind). Typhoon Jangmi broke unit 2 in 2008 and a turbine from Taichung Power Plant replaced it; Typhoon Soudelor toppled 6 in 2015 (3 in each row), and in 2016 Taipower moved 2 from the power plant to the front row and planned new turbines for the back row; Typhoon Megi broke unit 12’s blades in 2016. Taipower’s 2026 station list: 13 Z72 remain (7 fewer in all) plus 3 Enercon E82 E4, 16 turbines and 35 MW (the Energy Administration’s single window agrees) | [link](https://news.ltn.com.tw/news/life/breakingnews/1618036) |

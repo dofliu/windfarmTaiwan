@@ -1,0 +1,414 @@
+[
+ {
+  "farm": "WIND-008",
+  "iso": "JPN",
+  "type": "result",
+  "value": {
+   "farms": [],
+   "finding": "Hokuriku Electric final report (METI new-energy WG, 25 Jun 2014): fire at unit 2 caused by lightning — the hydraulic cylinder (head–rod gap) became part of the lightning current path because a down conductor had been routed along the cylinder in 2004 without the turbine maker's approval; the arc damaged the seal, hydraulic oil sprayed out and ignited. No casualties stated. Both 900 kW units of Kunimidake were decommissioned (廃止) because of ageing and winter-lightning trouble.",
+   "date": "2014-06-25"
+  },
+  "note_zh": "風場層沒有 2002 年的國見岳風力發電所（900 kW×2，2010 年起北陸電力）；只有 2027 年的新計畫「Fukui Kunimidake wind farm」（37.8 MW，東北電力，宣布階段），不是同一座，維持不對應。北陸電力 2014-06-25 最終報告（經產省新能源發電設備事故對應 WG 第 4 回資料）：起火原因是落雷時雷電流經油壓缸（2004 年譲受前未經風機廠確認把導雷線沿油壓缸布設），電弧損傷密封、操作油噴出著火；1、2 號機因老化與冬季雷故障增加已廢止。",
+  "note_en": "The layer has no record of the 2002 Kunimidake plant (2 x 900 kW, Hokuriku Electric from 2010); 'Fukui Kunimidake wind farm' (37.8 MW, Tohoku Electric, 2027, announced) is a different later project, so the event stays unlinked. Hokuriku Electric's final report of 25 Jun 2014 (METI WG, 4th meeting): lightning current ran through the hydraulic cylinder (a down conductor had been routed along it in 2004 without the maker's approval), the arc damaged the seal and the sprayed hydraulic oil ignited; both units were later decommissioned because of ageing and winter-lightning trouble.",
+  "sources": [
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/001_04_02.pdf",
+    "quote": "定格出力：1,800kW （900kW×2 基）",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/001_04_02.pdf",
+    "quote": "運転開始：2002年12 月（福井県が建設），2010年4 月1 日 北陸電力㈱が福井県から譲受",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/004_01_02_01.pdf",
+    "quote": "平成 26 年 6 月 25 日 北陸電力株式会 社 NEG ミーコン社製風車への再発防止対策について",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/004_01_02_01.pdf",
+    "quote": "(2) 火災の原因（国見岳風力） 油圧シリンダーのシリンダーヘッド・ロッド間が雷電流経路となり， 落雷時のアーク （放電） によりシール部が損傷し，操作油が噴出・漏油して着火。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.meti.go.jp/shingikai/sankoshin/hoan_shohi/denryoku_anzen/newenergy_hatsuden_wg/pdf/004_01_02_01.pdf",
+    "quote": "国見岳風力発電所は，１号機・２号機とも，経年劣化や冬季雷によるトラブルが増加して おり，設備の維持が困難であることから廃止した。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-010",
+  "iso": "AUS",
+  "type": "result",
+  "value": {
+   "farms": [
+    "Clements Gap wind farm",
+    "Hallett (Brown Hill/Hallett Hill/North Brown Hill/Bluff)",
+    "Mount Millar wind farm",
+    "Hornsdale",
+    "Snowtown"
+   ],
+   "finding": "AEMO final report (published March 2017): the nine wind farms with a sustained power reduction (456 MW) were Clements Gap, Hallett, Hallett Hill, North Brown Hill, The Bluff (Group A), Hornsdale, Snowtown North and Snowtown South (= Snowtown 2; Group B) and Mt Millar (Group C); the extreme weather event caused the loss of three transmission lines and 456 MW of generation from these nine farms, followed by the Black System. Lake Bonney 1–3, Canunda and Waterloo (Group D) stayed in service.",
+   "date": "2017-03"
+  },
+  "note_zh": "AEMO 最終報告（2017 年 3 月）表 8 列出持續降出力的九座風場：Clements Gap、Hallett、Hallett Hill、North Brown Hill、The Bluff、Hornsdale、Snowtown North、Snowtown South（合稱 Snowtown 2）、Mt Millar；對應風場層五筆：「Clements Gap wind farm」、「Hallett (Brown Hill/Hallett Hill/North Brown Hill/Bluff)」（含 Hallett、Hallett Hill、North Brown Hill、The Bluff 四場）、「Mount Millar wind farm」、「Hornsdale」、「Snowtown」（含 Snowtown 2 南北兩區）。Lake Bonney 1–3、Canunda、Waterloo 未脫網。",
+  "note_en": "AEMO's final report (March 2017), Table 8, names the nine farms with sustained power reduction: Clements Gap, Hallett, Hallett Hill, North Brown Hill, The Bluff, Hornsdale, Snowtown North, Snowtown South (together Snowtown 2) and Mt Millar. They map to five layer records: 'Clements Gap wind farm', 'Hallett (Brown Hill/Hallett Hill/North Brown Hill/Bluff)' (covering Hallett, Hallett Hill, North Brown Hill and The Bluff), 'Mount Millar wind farm', 'Hornsdale' and 'Snowtown' (covering both Snowtown 2 halves). Lake Bonney 1–3, Canunda and Waterloo stayed on line.",
+  "sources": [
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "BLACK SYSTEM SOUTH AUSTRALIA 28 SEPTEMBER 2016 Published: March 2017",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "nine wind farms in the mid-north of SA exhibited a sustained reduction in power as a protection feature activated",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "Group A Hallett, Hallett Hill, The Bluff, North Brown Hill, Clements Gap Group B Hornsdale, Snowtown North and South (collectively referred to as Snowtown 2 Wind Farm) Group C Mt. Millar Group D Lake Bonney 1, 2, 3, Canunda, Waterloo",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "Clements Gap 2 3 Disconnected 14.6 -0.5 Hallett 2 3 Most turbines disconnected 38.5 -0.6 Hallett Hill 2 3 Most turbines disconnected…Mt Millar Not applicable 5 Zero power mode 66.6 1.9 North Brown Hill 2 3 Most turbines disconnected 87.0 11.0 Hornsdale 5 6 Stopped Operation 83.6 -1.1 Snowtown North 5 6 Stopped Operation 65.9 -0.8 Snowtown South 5 6 Stopped Operation 41.3 -1.2 The Bluff 2 3 Most turbines disconnected 42.6 -0.3 Sustained MW reduction 456.3",
+    "check": "OK(parts)"
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "Note: Snowtown 2 comprises Snowtown North and Snowtown South wind farms.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "Extreme weather event caused loss of three transmission lines and loss of 456 MW of generation from nine wind farms.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.aemo.com.au/-/media/files/electricity/nem/market_notices_and_events/power_system_incident_reports/2017/integrated-final-report-sa-black-system-28-september-2016.pdf",
+    "quote": "Of the 13 wind farms on-line prior to the event, four remained in service: Canunda, Lake Bonney 1, Lake Bonney 2 & 3",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-034",
+  "iso": "USA",
+  "type": "result",
+  "value": {
+   "farms": [],
+   "finding": "Ørsted ceased development of Ocean Wind 1 (1,100 MW) and Ocean Wind 2 (1,148 MW) on 31 Oct 2023; no record of either exists in wind_farms.json (the 'Ocean Winds' hits are another owner's projects; off New Jersey only Atlantic Shores records exist).",
+   "date": "2023-10-31"
+  },
+  "note_zh": "風場層沒有 Ocean Wind 1／2（名稱含「Ocean Winds」的是另一家業主在別處的計畫；紐澤西外海只有 Atlantic Shores），2026 整理清單刻意不收已取消案，維持不對應。",
+  "note_en": "No Ocean Wind 1/2 record exists in the layer (names with 'Ocean Winds' are another owner's projects elsewhere; off New Jersey there are only Atlantic Shores records); cancelled projects are left out by design, so the event stays unlinked.",
+  "sources": [
+   {
+    "url": "https://us.orsted.com/news-archive/2023/10/orsted-ceases-development-of-ocean-wind-1-and-ocean-wind-2",
+    "quote": "Following a decision by its Board of Directors, Ørsted will cease development of the Ocean Wind 1 and Ocean Wind 2 projects",
+    "check": "OK"
+   },
+   {
+    "url": "https://us.orsted.com/news-archive/2023/10/orsted-ceases-development-of-ocean-wind-1-and-ocean-wind-2",
+    "quote": "Ocean Wind 1 and 2 (1100MW project and 1148 MW projects)",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-063",
+  "iso": "JPN",
+  "type": "result",
+  "value": {
+   "farms": [],
+   "finding": "Okinawa Electric's investigation (Nov 2004): of its six units (2,900 kW) at Karimata (units 3–6) and Shichimata (units 1–2), three collapsed, two lost blades and one had nacelle damage. The layer's two 'Miyakojima Wind (Okinawa New Energy)' records (2 x 900 kW each, 2007 and 2008) are different, later machines.",
+   "date": "2004-11-30"
+  },
+  "note_zh": "受損的是沖繩電力狩俣（3–6 號）與七又（1–2 號）6 部實證機組（400 kW×3、600、500、600 kW），風場層的兩筆宮古島紀錄是 2007、2008 年沖繩新能源各 2 部 900 kW，不是同一批，維持不對應。",
+  "note_en": "The damaged machines were Okinawa Electric's six test units at Karimata (3–6) and Shichimata (1–2); the layer's two Miyakojima records are Okinawa New Energy's 2 x 900 kW units of 2007 and 2008, different machines, so the event stays unlinked.",
+  "sources": [
+   {
+    "url": "https://www.okiden.co.jp/shared/pdf/news_release/2004/04113001.pdf",
+    "quote": "当社が保有 する6 機（2,900kW）の風力発電設備は、3 基が倒壊、2 基がブレード破損、1 基がナセル損傷等の被害 を受けた",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.okiden.co.jp/shared/pdf/news_release/2004/04113001.pdf",
+    "quote": "使用開始年月日 H7.12.5 H7.12.5 H7.12.5 H15.3.31 H10.8.28 H10.8.28 定格出力 400/100 kW 400/100 kW 400/100 kW 600 kW 500 kW 600 kW",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.okiden.co.jp/shared/pdf/news_release/2004/04113001.pdf",
+    "quote": "2.2 狩俣風力 3 号、5 号機の倒壊原因",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-064",
+  "iso": "JPN",
+  "type": "result",
+  "value": {
+   "farms": [],
+   "finding": "A single city-owned turbine at the Hokudan Earthquake Memorial Park (Ogura, Awaji City), not a wind farm; the city set up an accident investigation committee and dismantling began on 25 Jan 2021. The nearest record, 'Awaji wind farm' (Kansai Electric, 12 MW, 2012, about 10 km away), is a different site.",
+   "date": "2021-01-25"
+  },
+  "note_zh": "倒塌的是淡路市所有、北淡震災記念公園的單一風車，不是風場；最近的「Awaji wind farm」（關西電力 12 MW）是另一座，維持不對應。",
+  "note_en": "A single municipal turbine at the memorial park, not a wind farm; the nearest record 'Awaji wind farm' (Kansai Electric, 12 MW) is a different site, so the event stays unlinked.",
+  "sources": [
+   {
+    "url": "https://www.kobe-np.co.jp/news/awaji/202101/0014031343.shtml",
+    "quote": "２０１８年８月の台風２０号の強風で倒壊した、北淡震災記念公園（兵庫県淡路市小倉）の風力発電用風車の解体撤去工事が２５日、始まった。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.kobe-np.co.jp/news/awaji/202101/0014031343.shtml",
+    "quote": "風車を所有する市は事故後、専門家会議（事故調査委員会）を設置。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-065",
+  "iso": "DNK",
+  "type": "result",
+  "value": {
+   "farms": [],
+   "finding": "The collapsed Nordtank NTK 600-180/43 was the first and northernmost of the five turbines of Hyacintvej Wind Park (about 3 MW in all); no Danish record in wind_farms.json lies within 8 km of Hornslet, so there is no matching name.",
+   "date": ""
+  },
+  "note_zh": "倒塌風機是 Hyacintvej 風場（5 部 600 kW）最北的一部；風場層的丹麥紀錄在 Hornslet 8 km 內沒有任何一筆，維持不對應。",
+  "note_en": "The turbine was the northernmost of the five-turbine Hyacintvej park; no Danish layer record lies within 8 km of Hornslet, so the event stays unlinked.",
+  "sources": [
+   {
+    "url": "https://en.wikipedia.org/wiki/Hornslet_wind-turbine_collapse",
+    "quote": "The turbine was the first and northernmost turbine of Hyacintvej Wind Park, which consists of five similar wind turbines",
+    "check": "OK"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Hornslet_wind-turbine_collapse",
+    "quote": "The wind turbine was a Nordtank NTK 600-180/43 with a maximum generation capacity of 600 kW at Hornslet",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-031",
+  "iso": "JPN",
+  "type": "result",
+  "value": {
+   "farms": [
+    "Noshiro Port"
+   ],
+   "finding": "Operator AOW's cause statement of 28 Sep 2023: both leaks were on the same turbine. 11 Sep: a Vestas Japan maintenance worker damaged the gearbox oil-sensor connection by a wrong operation during an oil-sensor inspection (lubricating oil, up to about 3 L estimated). 23 Sep: before the damaged part was repaired, Vestas Japan mis-operated its remote system and restarted the oil pump, sending oil into the gearbox and out through the same damaged point (up to about 280 L outside the nacelle; the oil on the sea was recovered with absorbent mats under Akita Coast Guard guidance). AOW ordered Vestas Japan to tighten staff training and site/turbine monitoring. No casualties are mentioned; no regulator (METI/NITE) finding was found.",
+   "date": "2023-09-28"
+  },
+  "note_zh": "AOW 2023-09-28「漏油發生の原因について」：9/11 是 Vestas Japan 作業員檢查增速機油感測器時誤操作、弄壞感測器接頭（潤滑油，最多約 3 L）；9/23 是接頭修復前 Vestas Japan 遠端系統誤操作重啟油泵，從同一處再漏（機艙外最多約 280 L，海面以吸附墊回收，秋田海上保安部指導）。業主要求 Vestas Japan 加強教育與監視。未見主管機關的調查結論。對應風場層「Noshiro Port」。",
+  "note_en": "AOW's 28 Sep 2023 cause notice: on 11 Sep a Vestas Japan worker damaged the gearbox oil-sensor connection by a wrong operation (lubricating oil, up to about 3 L); on 23 Sep, before repair, Vestas Japan mis-operated its remote system, restarting the oil pump so oil leaked again from the same point (up to about 280 L outside the nacelle, recovered with absorbent mats under Coast Guard guidance). No regulator finding found. Maps to the layer record 'Noshiro Port'.",
+  "sources": [
+   {
+    "url": "https://aow.co.jp/jp/eventa/pro_list.html",
+    "quote": "2023/09/28 能代港洋上風力発電所における漏油発生の原因について 2023/09/25 能代港洋上風力発電所における漏油再発について",
+    "check": "OK"
+   },
+   {
+    "url": "https://aow.co.jp/jp/eventa/item.cgi?pro&105",
+    "quote": "●9/11（月）発生事案 風車メンテナンスを担当するべスタス・ジャパン社作業員が増速機内のオイルセンサー点検時に、誤った操作によりセンサー接続部を破損したことが原因となります。",
+    "check": "OK"
+   },
+   {
+    "url": "https://aow.co.jp/jp/eventa/item.cgi?pro&105",
+    "quote": "●9/23（土）発生事案 上記事案の破損箇所の復旧前にべスタス・ジャパン社が同社遠隔システムの操作内容を誤り、オイルポンプを再稼働させてしまい増速機内にオイルが送られたことが原因となります。",
+    "check": "OK"
+   },
+   {
+    "url": "https://aow.co.jp/jp/eventa/item.cgi?pro&102",
+    "quote": "本事案で漏油したのは潤滑油であり、漏油量は最大3リットル程度と推定されます。",
+    "check": "OK"
+   },
+   {
+    "url": "https://aow.co.jp/jp/eventa/item.cgi?pro&104",
+    "quote": "本事案で漏油したのは潤滑油であり、風車ナセル外に最大280リットル程度が漏れ出しましたが、風車基礎部分等で最大限回収するとともに、海への漏出分は吸着マットで回収を完了しております。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-057",
+  "iso": "TWN",
+  "type": "result",
+  "value": {
+   "farms": [
+    "Yunmai (Mailiao)"
+   ],
+   "finding": "Control Yuan investigation report (23 Jul 2026, member 葉宜津) quoting the Ministry of Economic Affairs: unit 17 was running normally with no alarm, no maintenance scheduled, no lightning and no temperature alarm, so the cause was judged to be a short-circuit fault of electrical equipment inside the nacelle that spread to the whole nacelle. The Control Yuan found Taipower at fault for not noticing that unit 17 had the most faults of the 23 turbines (over twice the average) in Jan 2024–Apr 2026. Unit 17 belongs to phase 2 (8 units, commercial May 2010; phase 1 15 units, Jan 2009). No casualties are mentioned in the official statements.",
+   "date": "2026-07-23"
+  },
+  "note_zh": "對應風場層「Yunmai (Mailiao)」（台電雲麥，23×Vestas V80 2 MW）。監察院 2026-07-23 調查報告引經濟部回覆：事故前正常運轉、無警報、未排維修、無雷擊、無溫度警報，研判是「機艙內電氣設備短路故障造成起火」延燒整座機艙；監察院認為 17 號機 113/1–115/4 故障次數為 23 支中最高、逾平均 2 倍，台電未察有疏失。第 1 期 15 支 98 年 1 月商轉、第 2 期 8 支 99 年 5 月商轉（17 號屬第 2 期）——與風場層「16 in 2008, 7 in 2011」不符，建議核對。官方文件未提傷亡。",
+  "note_en": "Maps to the layer record 'Yunmai (Mailiao)' (Taipower, 23 x Vestas V80 2 MW). The Control Yuan report of 23 Jul 2026 quotes the MOEA: normal operation, no alarms, no maintenance, no lightning, no temperature alarm, so the cause was judged a short circuit of electrical equipment in the nacelle that spread through it; the Control Yuan faulted Taipower for ignoring unit 17's fault record (highest of 23, over twice the average). Phase 1: 15 units, Jan 2009; phase 2: 8 units, May 2010 (unit 17) — this differs from the layer's '16 in 2008, 7 in 2011', worth checking. No casualties mentioned.",
+  "sources": [
+   {
+    "url": "https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/76441",
+    "quote": "經濟部回復本院說明起火原因：麥寮風場第17號風機事故發生前維持正常運轉發電，事故當天無異常警報、未安排維修（排除人為因素）、無閃電落雷（天氣晴朗）、無溫度警報（排除高溫），所以研判是「機艙內電氣設備短路故障造成起火」，進而延燒至整座機艙。",
+    "check": "OK"
+   },
+   {
+    "url": "https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/76441",
+    "quote": "本次起火第17號風機，113年1月至115年4月期間之故障次數，竟為該風場23支風機中最高，且高於平均值2倍以上，顯見設備短路起火前早有徵兆，台電公司未察頻繁故障風機原因，並加強維護頻率，核有疏失。",
+    "check": "OK"
+   },
+   {
+    "url": "https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/76441",
+    "quote": "調查委員：葉宜津 中 華 民 國 115 年 7 月 23 日",
+    "check": "OK"
+   },
+   {
+    "url": "https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/76442",
+    "quote": "台電麥寮風場分2期建置，第1期建置15支，於98年1月商 轉；第2期建置8支，於99年5月商轉，本次起火的風機為 編號第17號，屬第2期建置。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.moea.gov.tw/mns/populace/news/News.aspx?kind=1&menu_id=40&news_id=122862",
+    "quote": "本次起火風機為雲林麥寮風力發電17號機組，屬於2010年5月27日商轉風場，該風機機型為Vestas機型，單機裝置容量為2MW。針對本次機組火災原因，台電公司將會同相關專家深入調查，全面釐清事故原因。",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-088",
+  "iso": "USA",
+  "type": "lead",
+  "value": {
+   "farm": null,
+   "cause_zh": "",
+   "cause_en": "",
+   "date": ""
+  },
+  "note_zh": "仍無法指名風場。報導只寫「62 號公路與 Painted Hills Road 以西的風力發電設施」，Recharge 另寫「其他機關說地點更南」；Cal/OSHA 裁罰與 osha.gov／enforcedata.dol.gov 的檢查紀錄在本環境不可讀（403 或只剩 JS 單頁應用），Desert Sun 回 402，15 次搜尋內找不到任何把 Site Constructors 或墜落事故對到某風場的原文。地點最接近的候選是 Terra-Gen 2020 年在 SR 62／Painted Hills 的兩個汰換案：Painted Hills 汰換（291 部舊機換最多 14 部新機，對應風場層「Painted Hills Wind Park」46.8 MW／2021）與 Desert Hot Springs 汰換（69 部換 4 部，約 17 MW，風場層無對應紀錄）；Site Constructors 官網只列夏威夷 Hawi 汰換案。候選未經證實，不填風場。",
+  "note_en": "Farm still not identifiable. Reports only say 'a wind generation facility located west of Highway 62 and Painted Hills Road' and Recharge adds that other agencies placed it further south; Cal/OSHA citations and the osha.gov / enforcedata.dol.gov inspection records are unreadable here (403 or a JS-only app), the Desert Sun returns 402, and 15 searches found no passage tying Site Constructors or the fall to a named farm. The nearest candidates are Terra-Gen's two 2020 repowers at SR 62 / Painted Hills: the Painted Hills repower (291 old machines replaced by up to 14 new ones; layer record 'Painted Hills Wind Park', 46.8 MW / 2021) and the Desert Hot Springs repower (69 replaced by 4, about 17 MW; no layer record); Site Constructors' own site lists only the Hawi repower in Hawaii. Candidates unverified, so no farm is set.",
+  "sources": [
+   {
+    "url": "https://kesq.com/news/2021/01/04/man-killed-in-100-ft-wind-turbine-fall-near-desert-hot-springs-identified/",
+    "quote": "Mario Contreras Jr. fell while working at a wind generation facility located west of Highway 62 and Painted Hills Road about 11:15 a.m. Wednesday, according to Riverside County coroner's officials.",
+    "check": "OK"
+   },
+   {
+    "url": "https://kesq.com/news/2021/01/04/man-killed-in-100-ft-wind-turbine-fall-near-desert-hot-springs-identified/",
+    "quote": "fied by a representative of Site Constructors Inc. that an employee \"fell more than 100 feet inside the tower of a wind turbine.\" The agency investigates workplace accidents. Site Constructors did not immediately respond to a request seeking additional information.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.rechargenews.com/wind/worker-falls-to-death-inside-wind-turbine-tower-in-california/2-1-939049",
+    "quote": "Mario Contreras Jr was working for Site Constructors Inc at an unidentified project near Palm Springs The location of the accident, according to the Riverside Country Fire Department. Other agencies said it occurred further south.",
+    "check": "OK"
+   },
+   {
+    "url": "https://ceqanet.lci.ca.gov/2018101062",
+    "quote": "Painted Hills Wind Energy Repowering Project…State Highways SR 62, I-10 Waterways Whitewater River…The project proposes to decommission and remove approx 291 existing commercial wind turbines and install up to 14 new commercial wind turbines up to 499 ft in height",
+    "check": "OK(parts)"
+   },
+   {
+    "url": "https://waterboards.ca.gov/coloradoriver/water_issues/programs/401_certification/docs/applications/2019/pn_wdid_7A333206001.pdf",
+    "quote": "Decommissioning and removing 69 existing wind turbines and replacing them with 4 new wind turbines with a capacity of 2.0 to 4.2 MW of power generation",
+    "check": "OK"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/San_Gorgonio_Pass_wind_farm",
+    "quote": "2020: Painted Hills Repower replaced 291 old machines with nine new turbines.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.siteconstructors.net/wind.html",
+    "quote": "Hawi Wind Repower Refurbishment of all sixteen V147 wind turbines have been completed.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-053",
+  "iso": "KOR",
+  "type": "lead",
+  "value": {
+   "farm": "Yeongdeok",
+   "cause_zh": "",
+   "cause_en": "",
+   "date": ""
+  },
+  "note_zh": "截至 2026-10-13 仍無官方最終原因。搜尋到的最新進展是 3 月底：朝鮮日報 3/28 引用電氣安全公社與盈德風力發電的聯合調查，說事故一個半月後塔架折彎的直接原因仍未查明，只有警報感測器故障的跡象與當時風速 6.4 m/s，製造商 Vestas 2/13 取得 SCADA 資料分析，但以保固期已過為由未提出結果；韓國經濟 3/24 引用國會取得的氣候能源環境部「盈德風力特別安全點檢結果」只列各機組缺陷（4 號機固定螺栓、7／8／19／23 號機葉片裂縫、9 號機變槳軸承），沒有 2/2 事故原因。暫定原因（葉片轉速警報感測器異常）仍不填根因欄。",
+  "note_en": "No official final cause as of 13 Oct 2026. The latest finding is from late March: Chosun Ilbo (28 Mar) cites the joint investigation by Korea Electrical Safety Corp. and Yeongdeok Wind Power — a month and a half on, the direct cause of the tower buckling was still unclear beyond signs of an alarm-sensor fault and a 6.4 m/s wind; Vestas took the SCADA data on 13 Feb but has given no result, citing the expired warranty. Hankyung (24 Mar) quotes the ministry's special-inspection results obtained by a lawmaker, which list defects on other units (bolts on unit 4, blade cracks on 7/8/19/23, pitch bearing on 9) but no cause for the 2 Feb event. The interim cause (blade-speed alarm sensor fault) stays out of the root-cause field.",
+  "sources": [
+   {
+    "url": "https://v.daum.net/v/20260328093255764",
+    "quote": "28일 전기안전공사와 영덕풍력발전 등 합동 조사 결과에 따르면, 사고 발생 한 달 보름이 지나도록 타워 구조물(기둥) 붕괴 사고의 직접적인 원인은 명확히 밝혀지지 않았다. 알람 센서 고장 정황과 사고 당시 발전기 주변 풍속이 초속 6.4m인 점 외 뚜렷한 사고 원인이 될 단서는 없다고 한다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://v.daum.net/v/20260328093255764",
+    "quote": "풍력발전기 제조사인 덴마크 베스타스(Vestas) 기술진은 지난달 13일 영덕 사고 현장에서 ‘스카다(SCADA·원격 감시 제어)’ 데이터를 확보해 분석에 착수했다. 전기안전공사와 운영사 요청으로 사고 발생 12일 만이다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://v.daum.net/v/20260328093255764",
+    "quote": "영덕풍력발전 관계자는 “날개 속도가 일정 수준을 넘으면 알람 센서가 작동하고 제어해야 하는데 고장이 나면서 날개 파손 영향으로 기둥이 꺾인 것 같다”며 “센서 이상 원인과 관련해 제조업체가 보증 기한 경과 등을 이유로 협조하지 않고 있다”고 밝혔다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.hankyung.com/article/202603243528i",
+    "quote": "김 의원실에 따르면 영덕 4호기는 고정볼트 파손으로 교체가 필요하다는 진단을 받았고, 7·8·19·23호기는 각각 블레이드에 발생한 균열에 수리가 필요하다는 진단을 받았다.",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.twig24.com/news/accident/2026/03/25/20260325500187",
+    "quote": "영덕풍력발전과 전기안전공사 등은 사고 이후 조사를 통해 블레이드(날개) 속도를 제어하는 알람센서에 이상이 있었다고 잠정 결론을 내렸다.",
+    "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "WIND-058",
+  "iso": "TWN",
+  "type": "lead",
+  "value": {
+   "farm": "Greater Changhua 2b & 4",
+   "cause_zh": "",
+   "cause_en": "",
+   "date": ""
+  },
+  "note_zh": "截至 2026-10-13 仍無官方起火原因。最新進展是中華日報 10/3：10/2 同場 H04 風機葉片斷裂後，能源署表示 8/8 G05 火災「還沒收到業者的火場鑑定報告」，認為有必要釐清同一風場事故接連發生的原因，並將請業者評估啟動風機全面健檢；沃旭 9/1 仍只說初步釐清可能過熱區域、與西門子歌美颯調查中。沃旭官網新聞中心為 JS 載入、無法讀取清單；能源署新聞頁未見新公告。",
+  "note_en": "No official cause as of 13 Oct 2026. The latest development is the China Daily News (Tainan) report of 3 Oct: after the H04 blade failure on 2 Oct at the same farm, the Energy Administration said it had not yet received the operator's fire investigation report for the 8 Aug G05 fire, saw a need to clarify why incidents cluster at this farm and will ask the operator to consider a full health check of the turbines; Ørsted (1 Sep) still only cites a preliminarily identified overheating area with the Siemens Gamesa investigation ongoing. Ørsted Taiwan's news centre is JS-rendered and could not be listed; no new Energy Administration notice was found.",
+  "sources": [
+   {
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "至於八月八日發生的火災，能源署也還沒收到業者的火場鑑定報告。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "由於其他離岸風場目前並未傳出火災或葉片斷裂等類似事故，能源署因此認為，有必要進一步釐清大彰化西北離岸風場近期事故接連發生的原因",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "同一風場接連發生事故的罕見狀況，已引起能源署關注，將請業者評估啟動風機全面健檢。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.cdns.com.tw/articles/1469374",
+    "quote": "同一風場先前發生的另一起事故是火災，Ｇ０五風機於八月八日凌晨三時二十九分發生故障，五時起火，火勢直至六時三十分才停止。",
+    "check": "OK"
+   },
+   {
+    "url": "https://money.udn.com/money/story/5612/9727293",
+    "quote": "沃旭能源今天表示，已初步釐清可能的過熱區域，目前還在與風機系統供應商西門子歌美颯調查事故原因，尚待最終調查結果。",
+    "check": "OK"
+   },
+   {
+    "url": "https://www.moeaea.gov.tw/ECW/populace/news/News.aspx?kind=1&menu_id=41&news_id=34569",
+    "quote": "本次事故能源署已發函要求業者提供火災事故調查及風機修復計畫，後續將檢視事故原因，提出改善意見",
+    "check": "OK"
+   }
+  ]
+ }
+]

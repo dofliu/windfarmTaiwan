@@ -275,8 +275,8 @@ def report(lang):
     else:
         s.append(L("   **疑似重複 B（名稱不同、容量相同、位置相近）**：0 組——找到的每一組都已逐組查證：同一座的已由清理規則合併，確認是不同風場的列在 `tools/farm_cleanup.py` 的 `NOT_DUP`（見[資料清理紀錄](data-cleanup.md)）。",
                    "   **Suspected duplicates B (different names, same capacity, close by)**: none left — every pair found has been checked: same-farm pairs were merged by the clean-up rules and pairs confirmed as different farms are listed in `NOT_DUP` in `tools/farm_cleanup.py` (see the [clean-up log](data-cleanup.en.md))."))
-    s.append(L(f"   **共用座標**：{len(stacks)} 個點上各有 3 座以上營運中風場（合計 {sum(len(v) for v in stacks):,} 座、{fmt(sum(f['mw'] for v in stacks for f in v))} MW），多半是國家或省份中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：",
-               f"   **Shared coordinates**: {len(stacks)} points each hold 3 or more operating farms ({sum(len(v) for v in stacks):,} farms, {fmt(sum(f['mw'] for v in stacks for f in v))} MW in total) — mostly country or province centroids used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:"))
+    s.append(L(f"   **共用座標**：{len(stacks)} 個點上各有 3 座以上營運中風場（合計 {sum(len(v) for v in stacks):,} 座、{fmt(sum(f['mw'] for v in stacks for f in v))} MW），多半是鄉鎮、縣或省中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：",
+               f"   **Shared coordinates**: {len(stacks)} points each hold 3 or more operating farms ({sum(len(v) for v in stacks):,} farms, {fmt(sum(f['mw'] for v in stacks for f in v))} MW in total) — mostly township, county or province centres used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:"))
     for v in stacks[:5]:
         s.append(f"   - {v[0]['iso']} ({v[0]['lat']}, {v[0]['lon']}) · {len(v)} {L('座', 'farms')} · {fmt(sum(f['mw'] for f in v))} MW · " + ", ".join(f["name"] for f in sorted(v, key=lambda f: -f["mw"])[:3]) + ("…" if len(v) > 3 else ""))
     gem_rel = F.get('meta', {}).get('gem_release', '')
