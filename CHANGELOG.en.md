@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.38.1 — 2026-10-14
+
+- Time-sensitive checks, first round ("Next-step options" group 1): on the timeline's "2026 (latest available)" India moves to MNRE's cumulative 59,201.07 MW at 30 Sep 2026 and Brazil to January–September (the SIGA plant list of 12 Oct 2026 still shows the same 3 farms, 184.5 MW, so the figure is unchanged); Taiwan's September table, the EIA-860M September edition and China's first-three-quarters briefing wait for their month-end releases.
+  The Australian/Canadian live-unit mapping was rerun (only IESO's Wolfe Island registered capability changed, 171 → 140 MW). Taiwan's offshore projects (Taipower phase 2, Wo-4, Hai Long, Yude and Huanyang) and the offshore farms under construction elsewhere (Baltic Power with all 76 turbines installed on 7 Oct, Dieppe-Le Tréport at 41 of 62, and others) have reached neither full commercial operation nor formal termination, so no record changes; the verified notes are in `tools/research/`.
+
 ## v2.38.0 — 2026-10-14
 
 - The globe gains a **country comparison**, **indicator colouring** and **yearly additions** (the three ROADMAP phase-2 items the owner picked on 14 Oct 2026):

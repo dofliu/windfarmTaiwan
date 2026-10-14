@@ -1,0 +1,43 @@
+[
+  {
+    "farm": "台電離岸風電二期 · Taipower Offshore Phase II (31 turbines, Changhua)",
+    "status": "As of 2026-10-14: only 2 of 31 turbines installed (1 before the takeover; Taipower said on 7 Oct it had 'recently completed one more'). Taipower went to sea on 28 Sep (delayed from 25 Sep over the MWS certificate). Fuwei (富崴) board resolved on 29 Sep to file for bankruptcy; dispute over turbine ownership and a NT$6.1bn chattel mortgage to parent Shinfox. Taipower still states the target is end-2026 completion/grid connection ('目標年底前完成剩下30支風機安裝'); no revised date published. Taipower genary on 2026-10-14 09:10 still lists 離岸二期 as (註10), capacity blank, output 0.",
+    "sources": [
+      {"url": "https://udn.com/news/story/7238/9784509", "quote": "台電離岸二期應安裝31座風機，但只完成1座安裝，原承攬商富崴控台電搶走風機，台電則說，風機早已點交，是台電的。"},
+      {"url": "https://udn.com/news/story/7238/9784509", "quote": "台電指出，原定出海裝機時程為九月廿五日，但富崴要求ＭＷＳ第三方單位不准核發海事工程所須核准證書（ＣＯＡ）給台電， 台電緊急申請補發，造成出海時程延後至九月廿八日。至於台電離岸二期年底完工併網的承諾能否達成？台電表示，會努力達成。"},
+      {"url": "https://www.chinatimes.com/newspapers/20260930000528-260110", "quote": "為了讓離岸二期完工發電，台電強調會持續推進工程，目標年底前完成剩下30支風機安裝，完成發電。"},
+      {"url": "https://www.chinatimes.com/newspapers/20260930000528-260110", "quote": "因公司已「資不抵債」，富崴董事會昨通過申請破產案。"},
+      {"url": "https://www.cna.com.tw/news/afe/202610020045.aspx", "quote": "台電強調，目前正努力推進離岸二期工程，工作船已出海進行安裝，力拚年底前完工。"},
+      {"url": "https://www.cna.com.tw/news/afe/202610070324.aspx", "quote": "台電表示，經台電接手後，近日已再完成1部風機安裝，將持續推進工程，並以完成風機安裝及併網為首要目標"},
+      {"url": "https://www.cna.com.tw/news/afe/202610070324.aspx", "quote": "媒體今天報導，富崴能源將30座風機，設定逾新台幣61億元抵押給森崴、另約1.55億元給崴強科技。"}
+    ]
+  },
+  {
+    "farm": "大彰化西南第二階段及西北 · Greater Changhua 2b & 4 (沃南風 337.1 MW / 沃四風 583 MW, Ørsted)",
+    "status": "No announcement of full commercial operation found as of 2026-10-14. Latest Ørsted release is 1 Sep 2026 (completion ceremony, 'expected to enter full commercial operation in late Q3 2026 upon completion of the remaining commissioning activities'). Ørsted's newsroom (orsted.com, orsted.tw) shows no Sep/Oct COD release in the fetched listing (JS-rendered; could not confirm). Taipower genary 2026-10-14 09:10 (repo wind_realtime.json) still lists 沃四風 as '沃四風(註10)' with capacity blank (output 426.8 MW) while 沃南風 shows capacity 337.1 MW; i.e. 沃四風 not yet counted in installed capacity.",
+    "sources": [
+      {"url": "https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521", "quote": "The Greater Changhua 2b and 4 project is expected to enter full commercial operation in late Q3 2026 upon completion of the remaining commissioning activities and fulfilment of customary contractual and r"},
+      {"url": "https://orsted.com/en/media/news/2026/09/orsted-hosts-completion-ceremony-for-920-mw-greate-15125521", "quote": "The transaction is expected to close following commissioning of the project, and commercial operation is expected in late Q3 2026."},
+      {"url": "https://news.cnyes.com/news/id/6594322", "quote": "沃旭補充，大彰化西南第二階段與西北離岸風場正在進行最終試轉與測試作業，完成主管機關及台電相關許可申請後，將全面商轉。"}
+    ]
+  },
+  {
+    "farm": "海龍 Hai Long 2 & 3 (Northland Power / Mitsui / Gentari, 1,022 MW)",
+    "status": "No Q3 2026 report yet and no COD announcement as of 2026-10-14. Latest status remains the Q2 2026 release (12 Aug 2026): 71 of 73 turbines installed, 59 generating, commercial operations in 2027. Northland's newest release (7 Oct 2026, Baltic Power all 76 turbines) does not mention Hai Long. Northland's investor events page lists no Q3 2026 call yet; CEO said on the Q2 call it would speak 'in November for third quarter results'. Prior pattern: Q3 2025 results 12 Nov 2025 (call 13 Nov); date notice came 10 Oct 2025. Q3 2026 date therefore unconfirmed (expected mid-Nov; third-party estimate 5 Nov is not official). Taipower genary 2026-10-14 still lists 龍A風/龍B風/龍三風 as (註10).",
+    "sources": [
+      {"url": "https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/", "quote": "Northland continues to advance construction of the 1.0 GW Hai Long Project in Taiwan, with 71 of 73 turbines installed and 59 generating power."},
+      {"url": "https://northlandpower.com/northlands-baltic-power-offshore-wind-project-completes-installation-of-all-76-turbines/", "quote": "TORONTO, Oct. 07, 2026 (GLOBE NEWSWIRE) — Northland Power Inc. (“Northland” or the “Company”) (TSX: NPI) today announced the completion of tur"}
+    ]
+  },
+  {
+    "farm": "又德 Youde (森崴能源, 700 MW, R3-2) and 蔚藍海彰化／環洋 (EDF, 440 MW, R3-1)",
+    "status": "No official statement found that either contract termination has been formally completed (正式解約) as of 2026-10-14. 又德: Energy Administration said on 24 Aug 2026 the developer had still not paid the remaining performance bond and the agency was '正在簽報解約作業' (termination being submitted for approval). 蔚藍海彰化 (EDF): EDF filed to terminate the administrative contract in Feb 2026 (CNA 20 Apr 2026); on 23 Sep 2026 (R3-3 contract template notice) the agency still described it as '已在解約程序當中' and 又德 as '先前也傳出無法執行', and only 海峽一、海峽二、海鼎二 as already terminated (confirmed 2 Jul 2026). No later update found in news or on moeaea.gov.tw.",
+    "sources": [
+      {"url": "https://money.udn.com/money/story/7307/9711474", "quote": "經濟部能源署今天說明，截至本月業者仍未完成剩餘履約保證金繳納，目前正在簽報解約作業。"},
+      {"url": "https://money.udn.com/money/story/7307/9711474", "quote": "能源署說明，案經本月函請業者最後限期改善，仍未完成剩餘履約保證金繳納，能源署目前正在簽報解約作業，未有護航的情事。"},
+      {"url": "https://www.cna.com.tw/news/afe/202604200143.aspx", "quote": "台灣離岸風電區塊開發3-1期5座簽約風場之一的法商EDF蔚藍海彰化離岸風電計畫，已在今年2月向能源署提出公文終止行政契約"},
+      {"url": "https://www.nownews.com/news/6859530", "quote": "能源署說明，解約場址包括海峽一、海峽二和海鼎二，這3座風場都已經確定會納入擴充容量範圍內；至於蔚藍海彰化風場已在解約程序當中，又德風場先前也傳出無法執行，考量到收件截止日是9月30日，仍以這3座風場為主。"},
+      {"url": "https://www.cna.com.tw/news/afe/202607020354.aspx", "quote": "擴充容量部分可納入過去完成解約程序的場址空間，目前海峽一、海峽二與海鼎二風場已經解約。"}
+    ]
+  }
+]
