@@ -133,7 +133,7 @@ def load(xml_path, cat_path):
         man = (cat.get(d.get('Hersteller')) or '').replace(' GmbH', '').replace(' & Co. KG', '').replace(' Deutschland', '').strip()
         units.append({'id': d['EinheitMastrNummer'], 'lat': lat, 'lon': lon, 'kw': kw, 'name': (d.get('NameWindpark') or '').strip(),
                       'sea': d.get('WindAnLandOderAufSee') == '889', 'y': int((d.get('Inbetriebnahmedatum') or '0')[:4] or 0),
-                      'm': ' '.join(x for x in (man, (d.get('Typenbezeichnung') or '').strip()) if x), 'hh': num(d.get('Nabenhoehe')),
+                      'm': ' '.join(x for x in (man, (d.get('Typenbezeichnung') or '').strip()) if x), 'man': man, 'hh': num(d.get('Nabenhoehe')),
                       'rd': num(d.get('Rotordurchmesser')), 'gem': d.get('Gemeinde') or d.get('Ort') or ''})
     return units, total / 1000
 
@@ -190,10 +190,18 @@ def spec(us):
     hh = [u['hh'] for u in us if u['hh'] and 10 <= u['hh'] <= 250]
     rd = [u['rd'] for u in us if u['rd'] and 5 <= u['rd'] <= 300]
     yrs = [u['y'] for u in us if u['y']]
-    return {'c': [round(clon, 5), round(clat, 5)], 'p': pos, 'n': len(us), 'm': models.most_common(1)[0][0] if models else None,
-            'mn': len(models), 'hh': [min(hh), max(hh)] if len(hh) >= 0.5 * len(us) else None,
-            'rd': [min(rd), max(rd)] if len(rd) >= 0.5 * len(us) else None, 'kw': round(sum(u['kw'] for u in us)),
-            'y': [min(yrs), max(yrs)] if yrs else None}
+    out = {'c': [round(clon, 5), round(clat, 5)], 'p': pos, 'n': len(us), 'm': models.most_common(1)[0][0] if models else None,
+           'mn': len(models), 'hh': [min(hh), max(hh)] if len(hh) >= 0.5 * len(us) else None,
+           'rd': [min(rd), max(rd)] if len(rd) >= 0.5 * len(us) else None, 'kw': round(sum(u['kw'] for u in us)),
+           'y': [min(yrs), max(yrs)] if yrs else None}
+    # 混合機型的風場另記各廠牌的淨額定容量加總（kW），tools/build_market_shares.py 用來算廠牌占比；沒填廠牌的機組不列
+    mk = collections.Counter()
+    for u in us:
+        if u.get('man'):
+            mk[u['man']] += u['kw']
+    if len(models) > 1 and mk:
+        out['mk'] = {k: round(v) for k, v in mk.most_common()}
+    return out
 
 
 def best_subset(f, gis, fw):
@@ -386,7 +394,7 @@ def main(xml_path, cat_path):
         raise SystemExit('site + added onshore capacity exceeds MaStR by more than 2%: probably duplicates')
     meta = {'source': 'Bundesnetzagentur, Marktstammdatenregister (MaStR), Gesamtdatenexport: EinheitenWind', 'url': URL, 'license': LICENSE,
             'farms': len(tb), 'turbines': sum(v['n'] for v in tb.values()), 'mastr_mw': round(total_mw),
-            'note': 'Keys are "ISO|farm name". Positions are offsets from "c" in 1e-5 degrees, [dlon, dlat, ...]; hh/rd = hub height and rotor diameter range (m); kw = summed net rating.'}
+            'note': 'Keys are "ISO|farm name". Positions are offsets from "c" in 1e-5 degrees, [dlon, dlat, ...]; hh/rd = hub height and rotor diameter range (m); kw = summed net rating; mk = summed net rating (kW) by manufacturer, only for farms with more than one model.'}
     OUT_TB.write_text(json.dumps({'meta': meta, 'farms': dict(sorted(tb.items()))}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     OUT_PARKS.write_text(json.dumps({'meta': {'source': meta['source'], 'url': URL, 'license': LICENSE, 'farms': len(out_parks),
                                               'mw': round(mw_added), 'mastr_mw': round(total_mw), 'site_mw': round(site_mw)},
