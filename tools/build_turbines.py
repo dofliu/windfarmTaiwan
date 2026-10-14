@@ -140,6 +140,13 @@ def main(csv_path):
             # EIA 電廠代碼與這座風場裡屬於它的機組數（tools/build_generation.py 用來接 EIA-923 發電量）
             'eia': sorted([int(i), c] for i, c in collections.Counter(eia_of(t) for t in ts).items() if i),
         }
+        # 混合機型的風場另記各廠牌的額定容量加總（kW），tools/build_market_shares.py 用來算廠牌占比
+        mk = collections.Counter()
+        for t in ts:
+            if t['t_manu'] and t['t_manu'] != 'missing':
+                mk[t['t_manu']] += num(t['t_cap']) or 0
+        if len(models) > 1 and mk:
+            out[f['name']]['mk'] = {k: round(v) for k, v in mk.most_common()}
     meta = {
         'source': 'U.S. Wind Turbine Database (USWTDB), USGS / Lawrence Berkeley National Laboratory / American Clean Power Association',
         'version': (version.group(1).replace('_', '.') + ' (' + version.group(2)[:4] + '-' + version.group(2)[4:6] + '-' + version.group(2)[6:] + ')') if version else None,
@@ -147,7 +154,7 @@ def main(csv_path):
         'cite': 'Hoen, B.D., Diffendorfer, J.E., Rand, J.T., Kramer, L.A., Garrity, C.P., and Hunt, H.E., 2018, United States Wind Turbine Database: U.S. Geological Survey, American Clean Power Association, and Lawrence Berkeley National Laboratory data release, https://doi.org/10.5066/F7TX3DN0',
         'farms': len(out), 'turbines': sum(v['n'] for v in out.values()),
         'mw': round(sum(f['mw'] for f in us if f['name'] in out)), 'us_mw': round(sum(f['mw'] for f in us)), 'us_farms': len(us),
-        'note': 'Positions are offsets from "c" in 1e-5 degrees, [dlon, dlat, ...]; hh/rd = hub height and rotor diameter range (m); kw = summed turbine rating.',
+        'note': 'Positions are offsets from "c" in 1e-5 degrees, [dlon, dlat, ...]; hh/rd = hub height and rotor diameter range (m); kw = summed turbine rating; mk = summed rating (kW) by manufacturer, only for farms with more than one model.',
     }
     OUT.write_text(json.dumps({'meta': meta, 'farms': out}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f"{meta['farms']} of {len(us)} US farms matched ({meta['mw']:,} of {meta['us_mw']:,} MW), {meta['turbines']:,} turbines; "

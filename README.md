@@ -97,6 +97,7 @@
   - **各國此刻的風電總出力**：英國（大不列顛、北愛爾蘭）、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國、巴西全國與美國德州、加州電網的總量與 48 小時趨勢（只有總量），在國家概況與全球「各地此刻的風電出力」清單；說明見[使用說明 4.5](./docs/user-guide.md#45-側欄分頁)
   - **即時資料涵蓋範圍**：工具列「即時資料」依本站有沒有此刻的風電出力替國家上色——涵蓋全國（實心青綠）或只有部分地區（紫色斜線；美國、加拿大、澳洲只塗有資料的州或省），見[使用說明 4.7](./docs/user-guide.md#47-圖層)
   - **⚖ 國家比較與指標**：選 2–4 國並排（累計曲線＋當年對照表：新增、人均容量、風電占發電比例、容量因數、最大風場等）；工具列「指標」可讓地圖依年底容量、人均容量、風電占發電比例、容量因數或當年新增上色（Ember 年度電力資料與 Our World in Data 人口，CC BY 4.0），國家概況另有各年新增容量圖，見[使用說明 4.8a](./docs/user-guide.md#48a-國家比較與指標)
+  - **🏭 風機廠牌與業主**：本站逐場資料依廠牌的容量排名與各年新增（美國 USWTDB、德國 MaStR、其他國家風場紀錄），以及 GEM 營運中機組依持股比例的業主排名；一律寫出覆蓋率，已知部分不到一半時標示不能當市占，見[使用說明 4.8b](./docs/user-guide.md#48b-風機廠牌與業主)
   - 無 WebGL 的裝置自動改用長條排名
 - **風電知識** `#/learn` — 13 章：從 1888 年 Brush 風機到 2025 年、陸域與離岸、水下基礎、浮動式、風機大型化、亞洲崛起、台灣的離岸風電、
   為什麼要發展風電、名詞解釋與完整資料來源；圖表皆由同一份全球資料集繪製，每章都能跳到地球儀重播那一段
@@ -134,6 +135,8 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/global/wind_farms.json` — 風場層級資料約 3.1 萬筆（營運中、規劃中、已除役；151 個國家與地區）
 - `data/global/country_stats.json` — 地球儀時間軸的「最新可得」年份（2026：8 國官方數字，逐國出處寫在 `tools/latest_wind.py`）與各國風電平均容量因數
   （Ember，風場卡片估計年發電量用），由 `tools/build_country_stats.py` 產生
+- `data/global/market_shares.json` — 風機廠牌（本站營運中與已除役風場，依國家、商轉年、陸域／離岸與廠牌加總）與業主（GEM 2026-02 營運中機組依持股比例，全球、各洲與各國前 20 名）的容量，
+  地球儀「廠牌與業主」用；由 `tools/build_market_shares.py` 產生（約 90 KB）
 - `data/global/country_indicators.json` — 各國逐年（2000–2025）風電占發電比例、風電發電量、全國平均容量因數（Ember 年度電力資料，CC BY 4.0）與人口（Our World in Data，CC BY 4.0，到 2023 年），
   地球儀「指標」上色、國家比較與概況用；由 `tools/build_country_indicators.py` 從 `data/global/sources/ember_wind_2000-2025.csv` 與 `owid_population_2000-2023.csv` 產生（約 50 KB）
 - `data/global/world_borders.json` — 國界（Natural Earth 1:50m）
@@ -272,6 +275,8 @@ python tools/build_events.py
 python tools/build_country_stats.py
 # 7a. 各國指標（風電占比、容量因數、人口；加 --fetch 重新下載 Ember 與 Our World in Data 的原始檔並更新摘錄）
 python tools/build_country_indicators.py --fetch
+# 7b. 風機廠牌與業主（重建風場層、USWTDB、MaStR 之後；參數是 GEM 的 GeoJSON，與 build_farms.py 同一個檔）
+python tools/build_market_shares.py gwpt_map_2026-02.geojson
 # 8. 美國每部風機的位置與規格（USWTDB 每季更新；重建風場層後也要重跑，名稱改了會對不到）
 curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
 python tools/build_turbines.py uswtdb_V9_1_20260928.csv
@@ -387,6 +392,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 開發管線各國總量：GEM Global Wind Power Tracker 2026 年 2 月版
 - 時間軸「2026（最新可得）」：8 國官方或產業統計（台灣能源署、美國 EIA-860M、中國國家能源局、印度 MNRE、巴西 ANEEL、德國 Deutsche WindGuard、法國 SDES、英國 DESNZ），
   逐國出處、資料月份與說明寫在 `tools/latest_wind.py`；各國平均容量因數（估計年發電量用）：[Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/)（CC BY 4.0）
+- 風機廠牌與業主（地球儀「廠牌與業主」）：廠牌取自美國 USWTDB（公有領域）、德國 MaStR（見上）與本站風場紀錄的機型欄（不用 OpenStreetMap）；業主取自 GEM Global Wind Power Tracker 2026-02 版（CC BY 4.0）營運中機組的業主與持股比例
 - 各國指標（地球儀「指標」上色與國家比較）：風電占發電比例、風電發電量與全國平均容量因數取自 [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/)（CC BY 4.0）；
   人均容量用 [Our World in Data 的人口序列](https://ourworldindata.org/grapher/population)（CC BY 4.0，依聯合國《世界人口展望》等整理）除本站的年底容量
 - 風機位置：美國 [USWTDB](https://energy.usgs.gov/uswtdb/)（USGS、LBNL、American Clean Power Association，公有領域）；德國 MaStR（見上）；

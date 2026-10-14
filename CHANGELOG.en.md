@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.39.0 — 2026-10-14
+
+- The globe gains "**🏭 Makers & owners**" (ROADMAP phase 2, "turbine makers and developers", picked by the owner on 14 Oct 2026): opened from the toolbar or a country profile, with the world, a continent or a country as scope and the URL parameters `mk`, `mkv` and `mkt`.
+  - **Turbine makers**: the capacity of operating farms in the site's farm records at the end of the chosen year ranked by maker, for all, onshore or offshore, plus a stacked bar chart of the capacity added each year over the last 25 years by maker (one colour each for the top 5, checked with the dataviz colour-blind validator). Makers come from USWTDB for the US, MaStR for single-model German farms and the farm record's turbine field elsewhere, with brands folded along their history (NEG Micon, MHI Vestas → Vestas; Siemens, Gamesa, Bonus, Adwen → Siemens Gamesa; Enron Wind, Zond, Tacke, Alstom → GE Vernova; Acciona Windpower → Nordex; REpower → Senvion).
+  - **Owners**: owners of GEM's February 2026 operating units with capacity split by stake, top 15 for the world, each continent and each country; subsidiaries are merged only when the group's name is part of their own.
+  - **Coverage**: the share of capacity with a known maker (owner) is always shown, with a warning that the figures are not market shares when it is under half. A maker is known for about 23% of the world's capacity, 72% of offshore, 81% of the US, 96% of Taiwan and about 4% of China; an owner for about 72% of GEM's operating units.
+  - New data `data/global/market_shares.json` (`tools/build_market_shares.py`, about 90 KB); `tools/build_turbines.py` adds each maker's summed rating for mixed US farms (`mk`, rebuilt from USWTDB V9.1, nothing else changed). The sources dialog, the Learn section's "Sources & method", the READMEs and the user guide (new section 4.8b) are updated; the English user guide's country-profile buttons now list "Compare".
+
 ## v2.38.1 — 2026-10-14
 
 - Time-sensitive checks, first round ("Next-step options" group 1): on the timeline's "2026 (latest available)" India moves to MNRE's cumulative 59,201.07 MW at 30 Sep 2026 and Brazil to January–September (the SIGA plant list of 12 Oct 2026 still shows the same 3 farms, 184.5 MW, so the figure is unchanged); Taiwan's September table, the EIA-860M September edition and China's first-three-quarters briefing wait for their month-end releases.

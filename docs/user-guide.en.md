@@ -120,6 +120,7 @@ Clicking empty ground zooms in there. Click the map once before using the keys; 
 | **🔍 Search** | Opens the search in the Farms tab (4.5) |
 | **📊 Output** | Rankings and same-model comparisons of measured yearly output (4.8) |
 | **⚖ Compare** | Put 2–4 countries side by side (4.8a) |
+| **🏭 Makers & owners** | Capacity rankings of turbine makers and owners, with coverage (4.8b) |
 | **Indicator** | Colours the map by an indicator: capacity at year end, per capita, wind share of generation, capacity factor, added this year (4.8a); the bar race ranks by it too |
 | **Basemap** | Relief, Satellite, Plain or Wind speed (Global Wind Atlas at 100 m); zooming in adds sharper Esri tiles automatically (not on Wind speed) |
 | **Pipeline** | Projects under construction, in pre-construction or announced, as dashed rings, brighter when closer to completion; on by default |
@@ -143,7 +144,7 @@ Clicking empty ground zooms in there. Click the map once before using the keys; 
 ### 4.5 Side panel tabs
 
 - **Profile**: for a country, the year-end cumulative capacity with its curve, world rank, onshore / offshore, share of the world, the figure 10 years earlier, the offshore world rank, **added this year** (onshore / offshore), **per-capita capacity**, **wind share of generation**, **capacity factor (national average)** and a bar chart of the capacity added each year (4.8a); the number of farms in the data, the largest and earliest farms, **farm-level coverage** (capacity mapped farm by farm ÷ the national figure), foundation and pipeline totals;
-  Taiwan and Japan carry an official-statistics audit badge. The "Live output right now" box: for Taiwan, Australia and Canada it shows each grid's total (with farm-level figures as well); for the UK (Great Britain, with Northern Ireland as a second row), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil it shows national wind output (onshore/offshore for Germany, France, Denmark, Belgium and Poland), and for the US the Texas (ERCOT) and California (CAISO) grids — these are totals only, with nothing per farm. Each row has the data time (local time), the last 48 hours as a trend (hourly means), a coverage note (e.g. the UK figure leaves out most turbines on the distribution network, so it is low; Texas and Belgium also show the share of capacity; Poland's current value is a snapshot of PSE's homepage map, and today's part of its trend only has this site's points, about every 2 hours) and the attribution. Buttons below: tour this country, farm list, Output rankings (Taiwan, the US, Australia, Denmark) and the Taiwan live dashboard. With the world or a continent in focus, it lists the top five countries and a "Wind output right now" list, sorted by output and not summed (the sources differ in coverage and timing); a name opens that country's profile.
+  Taiwan and Japan carry an official-statistics audit badge. The "Live output right now" box: for Taiwan, Australia and Canada it shows each grid's total (with farm-level figures as well); for the UK (Great Britain, with Northern Ireland as a second row), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil it shows national wind output (onshore/offshore for Germany, France, Denmark, Belgium and Poland), and for the US the Texas (ERCOT) and California (CAISO) grids — these are totals only, with nothing per farm. Each row has the data time (local time), the last 48 hours as a trend (hourly means), a coverage note (e.g. the UK figure leaves out most turbines on the distribution network, so it is low; Texas and Belgium also show the share of capacity; Poland's current value is a snapshot of PSE's homepage map, and today's part of its trend only has this site's points, about every 2 hours) and the attribution. Buttons below: tour this country, farm list, Compare, Makers & owners, Output rankings (Taiwan, the US, Australia, Denmark) and the Taiwan live dashboard. With the world or a continent in focus, it lists the top five countries and a "Wind output right now" list, sorted by output and not summed (the sources differ in coverage and timing); a name opens that country's profile.
 - **Milestones**: landmark farms in wind history; click one to jump to its year and fly there.
 - **Farms**: search and filter every farm —
   - The search box takes a farm name, Chinese name, developer, turbine model, country or port.
@@ -215,6 +216,17 @@ Open it from "📊 Output" in the toolbar, "Output rankings" in a country profil
 
 Ember and the population series stop at their latest years (2025 and 2023 at present); later years carry the last value, labelled in the legend and the table. All of these are national averages, meant for trends and rough comparison only.
 
+### 4.8b Turbine makers and owners
+
+Open it from "🏭 Makers & owners" in the toolbar or the button of the same name in a country profile; the scope starts at the selected world, continent or country and can be changed in the dialog.
+
+- **Turbine makers**: the capacity of operating farms in the site's farm records at the end of the chosen year, ranked by maker (top 10 plus others), for all, onshore or offshore; below it, a stacked bar chart of the capacity added each year over the last 25 years by maker (one colour for each of the top 5, grey for the others and for unknown).
+  Makers come from USWTDB per-turbine manufacturers for the US, MaStR for German farms with a single model, and the turbine field of the farm records elsewhere; records naming several makers without their capacities count as unknown, and OpenStreetMap tags are not used.
+  Brands are folded into today's companies along their history (e.g. NEG Micon, MHI Vestas → Vestas; Siemens, Gamesa, Bonus, Adwen → Siemens Gamesa; Enron Wind, Zond, Tacke, Alstom → GE Vernova).
+- **Owners**: owners of operating units in Global Energy Monitor's (GEM) February 2026 release, with capacity split by their stakes (top 15 plus others); this is the current ownership, not tied to the timeline, and onshore is not split out. Subsidiaries are merged only when the group's name is part of their own.
+- **Always read the coverage**: the top line says how much of the capacity has a known maker (or owner). The site knows the maker for about a fifth of the world's capacity (very little for China, India and Spain), about 70% of offshore, and over 80% for Taiwan and the US; below half a warning appears and the shares **must not be read as market shares**.
+  Annual market-share statistics (GWEC, BNEF and others) are paid reports and are not included.
+
 ### 4.9 Tours
 
 Press "▶ Tour":
@@ -276,6 +288,7 @@ The link is the view: share it and the other person sees the same thing. The glo
 | `op` | Live-sample period: `30`, `all` (90 days by default) | `op=30` |
 | `ind` | Colour the map by an indicator: `cap`, `pc`, `share`, `cf`, `add` (4.8a) | `ind=share` |
 | `cmp` | Open the country comparison with 2–4 country codes separated by commas | `cmp=TWN,DNK,DEU` |
+| `mk`, `mkv`, `mkt` | Open makers & owners: scope (`WORLD`, a continent such as `C:Europe`, or a country code), `mkv=owner` for owners, `mkt=on` or `off` for onshore or offshore only | `mk=WORLD&mkt=off` |
 | `flow=1`, `zones=1`, `live=1` | Turn on Wind now, Sea zones, live data coverage | `live=1` |
 | `base` | Basemap: `relief`, `sat`, `plain`, `wind` | `base=wind` |
 | `pipe` | Pipeline: `0` off, `1` on | `pipe=0` |
