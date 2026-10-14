@@ -5,10 +5,20 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 14 Oct 2026: v2.38.0 country comparison, indicators and yearly additions; the next conversation starts here)
+## In progress (hand-off, 14 Oct 2026: v2.38.1 time-sensitive checks, half done; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
+
+### Time-sensitive checks, first round (14 Oct 2026, v2.38.1; "Next-step options" group 1)
+
+The owner chose group 1 on 14 Oct 2026. What could be done that day is done; the rest waits for the sources:
+
+- **Updated**: India MNRE cumulative 59,201.07 MW at 30 Sep 2026; Brazil now January–September (the SIGA plant list of 12 Oct 2026 still has the same 3 farms, 184.5 MW); `build_live_units.py` rerun (only IESO's Wolfe Island registered capability changed, 171 → 140 MW; Elaine, Yawong and Forty Mile Bow Island still unmatched).
+- **Still waiting** (edit `tools/latest_wind.py` and run `build_country_stats.py` when they appear): Taiwan's monthly table 4-02 for September (only August on 14 Oct; about month-end); the US EIA-860M September edition (EIA says 23 October); China's NEA first-three-quarters briefing (late October; usable only if onshore and offshore are given separately); Germany, France and the UK Q3 only in November–December.
+- **Taiwan offshore (research notes `tools/research/twn_offshore_2026-10.json`, quotes checked)**: Taipower phase 2 installed one more turbine on 7 Oct (2 of 31 with the earlier one; the "2" is derived, no source states it), Taipower still aims for grid connection by year-end, Fuwei's board resolved on 29 Sep to file for bankruptcy and the 30 turbines are mortgaged; Wo-4 is still marked "note 10" in Taipower's live data and Ørsted has published nothing since 1 Sep; Northland's Q3 report is expected in mid-November (per the Q2 call); the Energy Administration still said on 23 Sep that Yude and Huanyang are "in termination proceedings" with no formal notice, so they stay in `PIPE_FIX`. No data changed.
+- **Elsewhere (`tools/research/farms_2026-10_status.json`)**: Baltic Power had all 76 turbines installed on 7 Oct, over a third generating, commercial operation expected in 2026; Revolution Wind expects COD this year; Dieppe-Le Tréport 41 of 62 installed on 2 Oct; Sofia, Vineyard Wind 1, Qingzhou 5 and 7 and Windanker have no new whole-farm notice. All stay under construction.
+- **Next**: rerun the three "still waiting" items at the end of October; Northland's Q3 report in mid-November; at year-end check Taipower phase 2, Wo-4, Baltic Power, Revolution Wind, Dieppe-Le Tréport and Sofia.
 
 ### Country comparison, Ember indicators and yearly additions (14 Oct 2026, v2.38.0; the first three of "Next options" item 4)
 
@@ -77,12 +87,12 @@ After round 23 the owner asked what else there is to do besides the doubts; the 
 
 1. **Time-sensitive checks, due soon**
    - The quarterly "latest available" update at the end of October: Taiwan's September data and China's third quarter at the end of October, the US EIA-860M on 23 October,
-     India and Brazil in mid-October; edit `tools/latest_wind.py`, then run `tools/build_country_stats.py`.
+     (India and Brazil were updated to September on 14 Oct); edit `tools/latest_wind.py`, then run `tools/build_country_stats.py`.
    - Taiwan offshore: Taipower Offshore Phase 2 (grid connection targeted for the end of the year), Greater Changhua 4 (wait for Ørsted's full-operation notice), Hai Long (Northland's Q3 report);
      move Yude and Huanyang to `PIPE_DROP` once their termination is formal.
    - Offshore farms under construction elsewhere: Vineyard Wind 1, Revolution Wind, Baltic Power, Sofia, Dieppe-Le Tréport, Qingzhou 5 and 7 (target Dec 2026); switch them to operating
      once fully commissioned.
-   - Routine: check the data times and Actions monthly ("Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)); re-run `tools/build_live_units.py` quarterly (Elaine, Yawong and Forty Mile
+   - Routine: check the data times and Actions monthly ("Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)); re-run `tools/build_live_units.py` quarterly (done 14 Oct 2026; Elaine, Yawong and Forty Mile
      Bow Island are still missing).
 2. **Yearly data updates (early 2027)**: IRENA (about March), the Energy Administration's handbook, JWPA (about February); merge the 2026 yearly statistics into `wind_global.json` and move
    "latest available" to 2027; add full-year 2026 measured output for Denmark (the early-2027 files), Australia (AEMO through 2026-12) and the US (EIA-923); when GEM publishes a new release,
@@ -715,7 +725,7 @@ Recommendation: at the end of October do the quarterly update and the Taiwan off
       2025 key-project list gives December 2026 for commissioning; once fully connected, change `st=1, year=2026` in the two rules in
       `tools/farm_cleanup.py` to operating (CTG's own site is unreachable; the Yangjiang city government or China News Service report it).
 - [ ] Taipower Offshore Phase 2: on 30 Jul 2026 Taipower took over turbine installation under the contract and agreed terms with Vestas,
-      30 turbines to go, grid connection targeted for year-end (CNA); completion is still given as "2027". Check at year-end whether it
+      30 turbines to go, grid connection targeted for year-end (CNA); completion is still given as "2027". Sailed on 28 Sep 2026 and installed one more on 7 Oct (CNA), Taipower still aims for year-end; Fuwei resolved on 29 Sep to file for bankruptcy. Check at year-end whether it
       connected and update the `FARMS` array in `assets/js/live.js` (`id:"offshore2"`) if needed
 - [ ] Greater Changhua 2b & 4 (Ørsted, 920 MW): completion ceremony on 1 Sep 2026, now in O&M; Wo-Nan (2b) has been counted in Taipower's
       installed capacity since 18 Sep 2026 (updated in v2.27.0) while Wo-4 is still in trial operation; when Ørsted announces full commercial
@@ -724,7 +734,7 @@ Recommendation: at the end of October do the quarterly update and the Taiwan off
       ceremony on 2026-09-01, the English notice says final commissioning is pending; WIND-050: the 2b export cable was damaged in 2025-08;
       WIND-058: one 14 MW unit of phase 4 caught fire on 2026-08-08)
 - [ ] Hai Long (Hai Long B): Northland's Q2 2026 report (12 Aug 2026): 71 of 73 turbines installed, 59 generating, commercial operation
-      in 2027; follow the Q3/Q4 reports and the commercial-operation announcement and update `id:"longB"`
+      in 2027; follow the Q3 (about mid-November) and Q4 reports and the commercial-operation announcement and update `id:"longB"`
 - [ ] Left to verify from foundation step 4 (Sep 2026): the present state of the Jeju Woljeong test site (no output reported after 2016; nothing new on 8 Oct 2026);
       KEPCO Research Institute's Doosan 3 MW test turbine on a suction bucket at Gunsan port (installed at sea in October 2016, about 200 m from the shore; RVO's
       "on land" is wrong) has no record: OSM has two KEPRI-operated turbines with navigation lights off Gunsan port (nodes 9166584284 and 11773837241), but each is
@@ -742,7 +752,7 @@ Recommendation: at the end of October do the quarterly update and the Taiwan off
       whole-farm rule), Greater Changhua 2b&4 (final commissioning), Revolution Wind (last turbine installed in September, COD expected this year),
       Yeonggwang Nakwol, Sofia (HVDC link in testing), Dieppe-Le Tréport, Qingzhou 5 and 7; Windanker due to finish by year-end and be fully
       commissioned in 2027; also Baltic Power and Bac Lieu 3 (its Q2 2026 target has passed). The CVOW commercial project, Sunrise Wind and Empire
-      Wind are due in 2027. Re-checked on 2026-10-04 (v2.19.2): none of the above is in full commercial operation yet; CTG's 16 MW Three Gorges
+      Wind are due in 2027. Re-checked on 2026-10-14 (v2.38.1, `tools/research/farms_2026-10_status.json`): Baltic Power had all 76 turbines installed on 7 Oct and expects commercial operation in 2026; Dieppe-Le Tréport 41 of 62 installed on 2 Oct; nothing new elsewhere, all still under construction. Re-checked on 2026-10-04 (v2.19.2): none of the above is in full commercial operation yet; CTG's 16 MW Three Gorges
       Lead is installed, grid connection unconfirmed; Hainan CZ7 phase 1, CZ9 phase 1 and Xuwen Donger now have an unknown completion year, to be
       filled in when announced. Re-checked on 2026-10-07 (v2.30.6): Vineyard Wind 1 said in September that "all turbines are capable of producing power"
       but has announced no full COD; Revolution Wind expects COD later this year; Baltic Power has all 76 turbines installed and over a third generating;
