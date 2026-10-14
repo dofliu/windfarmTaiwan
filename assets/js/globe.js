@@ -125,7 +125,18 @@ const I18N = {
     evStage: '階段', evMw: '風場規模', evMwEvent: '本次涉及', evFd: '基礎', evDeaths: n => `死亡 ${n} 人`, evInjured: n => `受傷 ${n} 人`,
     evCap: '容量口徑', evStart: '開工', evCod: '完成／商轉', evNoteT: '註記', evCoord: '座標說明', evPosFarm: '事件本身沒有座標，位置依對應風場標示。', evNoPos: '沒有座標，不標在地圖上。',
     evFarms: '相關風場', evOfFarm: '相關事件', evSrcT: '出處', evOrg: '主要來源', evChecked: d => `查證日期 ${d}`, evPhoto: '照片頁面（本站不轉載，權利見說明）', copyLinkEv: '複製此事件連結',
-    evDatePrec: { m: '（月）', y: '（年）' }
+    evDatePrec: { m: '（月）', y: '（年）' },
+    ind: '指標', indNone: '不上色', indCap: '裝置容量', indPc: '人均容量', indShare: '風電占發電比例', indCf: '容量因數', indAdd: '當年新增',
+    indUnit: { cap: 'MW', pc: 'W／人', share: '%', cf: '%', add: 'MW' }, indNA: '沒有資料', indNeg: '當年淨減少',
+    indLegT: { cap: '年底累計裝置容量', pc: '每人風電容量（年底容量 ÷ 人口）', share: '風電占全國發電量的比例', cf: '風電平均容量因數（全國）', add: '當年新增容量（年底累計的差）' },
+    indSrc: { cap: '本站國家統計', pc: '本站國家統計 ÷ Our World in Data 人口（CC BY 4.0）', share: 'Ember 年度電力資料（CC BY 4.0）', cf: 'Ember 年度電力資料（CC BY 4.0）；發電量 ÷（前後兩年年底容量的平均 × 當年時數）', add: '本站國家統計' },
+    indNote: { cap: '', pc: y => `人口資料到 ${y} 年，之後沿用該年`, share: y => `Ember 資料到 ${y} 年，之後的年份沿用`, cf: y => `全國平均，含限電與新機組的部分年份；5–60% 以外不列。Ember 資料到 ${y} 年`, add: '除役多於新建的年份為負值，地圖不上色' },
+    indYear: y => `${y} 年`, indDataYear: y => `（${y} 年資料）`, indRank: '排名', indBars: k => k + '排名', indTip: '上色依「指標」選單；沒有資料的國家不上色',
+    profPc: '人均容量', profWShare: '風電占發電比例', profCf: '容量因數（全國平均）', profAdd: '當年新增', addYears: '各年新增容量', addYearsNote: '年底累計的逐年差；除役多於新建的年份為負',
+    btnCmp: '⚖ 國家比較', cmpTitle: '國家比較', cmpPick: '選 2–4 個國家', cmpNone: '（不選）', cmpYear: '年份', cmpChart: '累計裝置容量（MW）', cmpOnOff: '陸域／離岸',
+    cmpRows: { cap: '年底累計容量', on: '陸域', off: '離岸', rank: '全球排名', share: '占全球', add: '當年新增', add5: '近 5 年新增', x10: '十年成長倍數', pc: '人均容量', wshare: '風電占發電比例', cf: '容量因數（全國平均）', farms: '本站收錄的營運中風場', big: '最大風場' },
+    cmpNote: '容量為本站各國統計（IRENA、能源署、JWPA 等，見「資料來源」）；人均容量用 Our World in Data 的人口（CC BY 4.0），風電占發電比例與容量因數來自 Ember 年度電力資料（CC BY 4.0），只到 Ember 最新的年份。容量因數是全國平均，含限電與新機組的部分年份，只適合粗略比較。',
+    cmpAddTw: '加入台灣', cmpLink: '複製連結', cmpCopied: '已複製',
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
@@ -239,7 +250,18 @@ const I18N = {
     evStage: 'Stage', evMw: 'Farm size', evMwEvent: 'Affected', evFd: 'Foundation', evDeaths: n => `${n} dead`, evInjured: n => `${n} injured`,
     evCap: 'Capacity basis', evStart: 'Start', evCod: 'Completion / operation', evNoteT: 'Note', evCoord: 'Coordinates', evPosFarm: 'The event has no coordinates of its own; it is placed at the linked farm.', evNoPos: 'No coordinates; not shown on the map.',
     evFarms: 'Related farms', evOfFarm: 'Related events', evSrcT: 'Sources', evOrg: 'Main source', evChecked: d => `verified ${d}`, evPhoto: 'Photo page (not reproduced here; see rights note)', copyLinkEv: 'Copy link to this event',
-    evDatePrec: { m: '(month)', y: '(year)' }
+    evDatePrec: { m: '(month)', y: '(year)' },
+    ind: 'Colour by', indNone: 'None', indCap: 'Capacity', indPc: 'Per capita', indShare: 'Wind share of generation', indCf: 'Capacity factor', indAdd: 'Added this year',
+    indUnit: { cap: 'MW', pc: 'W per person', share: '%', cf: '%', add: 'MW' }, indNA: 'no data', indNeg: 'net decrease this year',
+    indLegT: { cap: 'Cumulative capacity at year end', pc: 'Wind capacity per person (year-end capacity ÷ population)', share: 'Wind share of national electricity generation', cf: 'Average wind capacity factor (national)', add: 'Capacity added in the year (difference of year-end totals)' },
+    indSrc: { cap: 'national statistics on this site', pc: 'national statistics on this site ÷ Our World in Data population (CC BY 4.0)', share: 'Ember, Yearly Electricity Data (CC BY 4.0)', cf: 'Ember, Yearly Electricity Data (CC BY 4.0); generation ÷ (mean of the two year-end capacities × hours in the year)', add: 'national statistics on this site' },
+    indNote: { cap: '', pc: y => `population data end in ${y}; later years use that value`, share: y => `Ember data end in ${y}; later years carry it forward`, cf: y => `national average, including curtailment and partial years of new turbines; values outside 5–60% are left out. Ember data end in ${y}`, add: 'years with more decommissioning than new build are negative and not coloured' },
+    indYear: y => `${y}`, indDataYear: y => ` (${y} data)`, indRank: 'rank', indBars: k => 'Ranking by ' + k.toLowerCase(), indTip: 'Coloured by the “Colour by” menu; countries without data stay uncoloured',
+    profPc: 'Per capita', profWShare: 'Wind share of generation', profCf: 'Capacity factor (national average)', profAdd: 'Added this year', addYears: 'Capacity added each year', addYearsNote: 'Year-on-year difference of the year-end totals; years with more decommissioning than new build are negative',
+    btnCmp: '⚖ Compare', cmpTitle: 'Country comparison', cmpPick: 'Pick 2–4 countries', cmpNone: '(none)', cmpYear: 'Year', cmpChart: 'Cumulative capacity (MW)', cmpOnOff: 'Onshore / offshore',
+    cmpRows: { cap: 'Capacity at year end', on: 'Onshore', off: 'Offshore', rank: 'World rank', share: 'Share of world', add: 'Added this year', add5: 'Added in the last 5 years', x10: 'Growth over 10 years', pc: 'Per capita', wshare: 'Wind share of generation', cf: 'Capacity factor (national average)', farms: 'Operating farms on this site', big: 'Largest farm' },
+    cmpNote: 'Capacities are the site’s national statistics (IRENA, the Energy Administration, JWPA and others; see “Sources”); per-capita capacity uses Our World in Data’s population (CC BY 4.0); wind share and capacity factor come from Ember’s yearly electricity data (CC BY 4.0) and stop at Ember’s latest year. The capacity factor is a national average including curtailment and partial years, good for rough comparison only.',
+    cmpAddTw: 'Add Taiwan', cmpLink: 'Copy link', cmpCopied: 'Copied',
   }
 };
 let lang = WW.lang;
@@ -258,6 +280,8 @@ host.innerHTML = `
   <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
   <button id="g-btnOut" type="button" data-gi="btnOut" aria-haspopup="dialog"></button>
+  <button id="g-btnCmp" type="button" data-gi="btnCmp" aria-haspopup="dialog"></button>
+  <div class="ggrp"><label for="g-indSel" data-gi="ind"></label><select id="g-indSel"><option value="" data-gi="indNone"></option><option value="cap" data-gi="indCap"></option><option value="pc" data-gi="indPc"></option><option value="share" data-gi="indShare"></option><option value="cf" data-gi="indCf"></option><option value="add" data-gi="indAdd"></option></select></div>
   <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
   <button id="g-btnFlow" type="button" aria-pressed="false" data-gi="flow"></button>
@@ -288,7 +312,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-portList" hidden></div>
       <div class="gpbody" id="g-evList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-legStack"><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-legStack"><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -324,7 +348,7 @@ const fname = f => (lang === 'zh' && f.zh) ? f.zh : f.name;
 const isTouch = matchMedia('(pointer: coarse)').matches;
 
 let D = null, YEARS, Y0, Y1, C, byIso = {}, DATA_Y, LT = null;     // DATA_Y：年度統計的最後一年；LT：之後的「最新可得」年份
-const S = { year: 1980, playing: false, speed: 1, mode: 'globe', view: 'map', region: 'WORLD', layer: 'both', rotate: false, density: 1, lastT: 0, modeT: 0,
+const S = { year: 1980, playing: false, speed: 1, mode: 'globe', view: 'map', region: 'WORLD', layer: 'both', rotate: false, density: 1, lastT: 0, modeT: 0, ind: '',
   pipe: WW.store.get('ww_globe_pipe', '1') === '1', base: WW.store.get('ww_globe_base', 'relief') };
 if (!['relief', 'sat', 'plain', 'wind'].includes(S.base)) S.base = 'relief';
 let active = false, running = false, farmsReady = false, firstEnter = true;
@@ -373,8 +397,9 @@ const stCls = f => f.st === 1 ? 'p1' : f.st === 2 ? 'p2' : f.st === 3 ? 'p3' : f
 /* ================= boot ================= */
 let THREEOK = true;
 let STATS = null;                                                 // data/global/country_stats.json：各國容量因數（tools/build_country_stats.py）
-const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJSON(WW.DATA.stats).catch(() => null)]).then(([G, B, ST]) => {
-  STATS = ST;
+let IND = null;                                                   // data/global/country_indicators.json：Ember 風電占比、容量因數與 OWID 人口（tools/build_country_indicators.py）
+const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJSON(WW.DATA.stats).catch(() => null), WW.getJSON(WW.DATA.indicators).catch(() => null)]).then(([G, B, ST, IX]) => {
+  STATS = ST; IND = IX;
   D = Object.assign({}, G, { borders: B.borders, ringIso: B.ringIso, farms: [] });
   DATA_Y = G.years[G.years.length - 1];
   // 「最新可得」年份（country_stats.json 的 latest）：有今年官方數字的國家用它，其他國家沿用去年底（c.lt＝null）。
@@ -433,7 +458,7 @@ function expandFarms(J) {
   D.farms.forEach(f => { (farmsByIso[f.iso] = farmsByIso[f.iso] || []).push(f); });
   farmsReady = true;
   farmLayerDirty = true;
-  renderFarmList(true); renderProfile(); renderPipeList(true); renderOutput();
+  renderFarmList(true); renderProfile(); renderPipeList(true); renderOutput(); renderCompare();
   if (pendingParams) { const p = pendingParams; pendingParams = null; applyParams(p, true); }
   if (cardItem && cardItem.kind === 'port') renderCard(cardItem);     // 港口卡片比風場資料先開：補上服務過的風場
   applyFoundations();
@@ -1366,7 +1391,7 @@ function setMode(m) {
 }
 function applyModeT() {
   const flat = S.modeT > 0.5;
-  globe.visible = !flat; atmo.visible = !flat; bordersG.visible = !flat; plane.visible = flat; bordersF.visible = flat; zonesVisible(); cvgVisible();
+  globe.visible = !flat; atmo.visible = !flat; bordersG.visible = !flat; plane.visible = flat; bordersF.visible = flat; zonesVisible(); cvgVisible(); indVisible();
   globe.scale.setScalar(Math.max(0.001, 1 - Math.min(1, S.modeT * 2) * 0.999)); plane.scale.setScalar(clamp((S.modeT - 0.5) * 2, 0.001, 1));
   layoutAnchors();
 }
@@ -1630,6 +1655,8 @@ function updateHUD() {
   if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = atLT() ? T('ltYear')(yr) + L(' · ', ' · ') + T('ltCap') : L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
   if (panelTab === 'farms') renderFarmResults(false);
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
+  if (S.ind && Math.floor(S.year) !== indYearPainted) { indPaint(); renderIndLegend(); }
+  if (cmpShown() && Math.floor(S.year) !== cmpYear) { cmpYear = Math.floor(S.year); renderCompare(); }
   const ll = $('g-liveLegend'), showLl = liveSeen && liveOn() && !!renderer && S.view !== 'bars' && farmsReady && S.layer !== 'fd';
   if (ll.hidden === showLl || ll._lang !== lang) { ll.hidden = !showLl; ll._lang = lang; ll.innerHTML = '<i class="gsw" style="background:var(--live)"></i>' + T('liveLegend'); }
   const lg = $('g-pipeLegend'), showLg = S.pipe && S.year >= Y1 - 0.02 && !!renderer && S.view !== 'bars' && farmsReady && S.layer !== 'fd';
@@ -2202,7 +2229,7 @@ function renderProfile() {
     const top = list.slice().sort((a, b) => (b.on[yi] + b.off[yi]) - (a.on[yi] + a.off[yi])).slice(0, 5);
     box.innerHTML = `<h4>${esc(scopeName())}</h4><div class="sub">${y === (LT && LT.year) ? esc(T('ltYear')(y)) + ' · ' + esc(T('ltCap')) : y + ' · ' + T('worldCap')}</div>${y === (LT && LT.year) ? '<div class="ltbox">' + esc(ltLine(null)) + L('：', ': ') + C.filter(x => x.lt && inRegion(x)).map(x => esc(cname(x)) + ' ' + esc(x.lt.asof)).join(L('、', ', ')) + '</div>' : ''}
       <div class="big">${WW.int(on[yi] + off[yi])}<small>MW</small></div>${sparkSVG(on, off, yi)}
-      ${rowsHTML([[T('profOnOff'), `${WW.int(on[yi])} / ${WW.int(off[yi])}`], ...top.map((c, k) => [`#${k + 1} ${esc(cname(c))}`, WW.int(c.on[yi] + c.off[yi])])])}
+      ${rowsHTML([[T('profOnOff'), `${WW.int(on[yi])} / ${WW.int(off[yi])}`], ...top.map((c, k) => [`#${k + 1} ${esc(cname(c))}`, WW.int(c.on[yi] + c.off[yi])])])}${addsChart(list)}
       ${LITE ? '' : liveWorldBox()}${fdBox(S.region)}${pipeBlock(S.region)}
       <div class="gnote" style="margin-top:8px">${L('在「範圍」選一個國家，可看該國概況、風場與規劃中專案。', 'Pick a country in “Focus” to see its profile, farms and pipeline.')}</div>`;
     const ps0 = box.querySelector('[data-act="pipe"]'); if (ps0) ps0.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
@@ -2217,6 +2244,7 @@ function renderProfile() {
   const rows = [[T('profCap'), `${WW.int(tot)} MW`], [T('profRank'), '#' + rank], [T('profOnOff'), `${WW.int(c.on[yi])} / ${WW.int(c.off[yi])} MW`], [T('profShare'), (tot / world * 100).toFixed(2) + '%']];
   if (tot10 > 0) rows.push([T('profTen') + ` (${YEARS[y10]})`, `${WW.int(tot10)} MW · ×${(tot / tot10).toFixed(1)}`]);
   if (c.off[yi] > 0) { const ro = C.slice().sort((a, b) => b.off[yi] - a.off[yi]).indexOf(c) + 1; rows.push([L('離岸全球排名', 'Offshore rank'), '#' + ro]); }
+  rows.push(...indProfileRows(c, y));
   let farmsHTML = '';
   if (farmsReady && farmsByIso[c.iso]) {
     const fl = farmsByIso[c.iso], op = fl.filter(f => !f.pipe && farmActive(f, S.year));
@@ -2235,12 +2263,13 @@ function renderProfile() {
   }
   const ltBox = y === (LT && LT.year) ? `<div class="ltbox">${c.lt ? `${esc(T('ltOk')(c.lt.asof, ''))}<a href="${esc(c.lt.url)}" target="_blank" rel="noopener">${esc(c.lt.src[lang === 'zh' ? 0 : 1])}</a>${c.lt.est ? esc(T('ltEst')) : ''}<div class="gnote">${esc(c.lt.note[lang === 'zh' ? 0 : 1])}</div>` : esc(T('ltCarry')(DATA_Y))}</div>` : '';
   box.innerHTML = `<h4>${esc(cname(c))}</h4><div class="sub">${esc(T('cont')[c.cont] || c.cont)} · ${y === (LT && LT.year) ? esc(T('ltYear')(y)) : y}</div>
-    <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${ltBox}${rowsHTML(rows)}${auditBox(c.iso)}${live}${note}${farmsHTML}${pipeBlock(c.iso)}
-    <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button>${OUT_ISO.includes(c.iso) ? `<button type="button" data-act="out">${T('outCountry')}</button>` : ''}${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
+    <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${ltBox}${rowsHTML(rows)}${addsChart([c])}${auditBox(c.iso)}${live}${note}${farmsHTML}${pipeBlock(c.iso)}
+    <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button><button type="button" data-act="cmp">${T('btnCmp')}</button>${OUT_ISO.includes(c.iso) ? `<button type="button" data-act="out">${T('outCountry')}</button>` : ''}${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
   box.querySelectorAll('[data-farm]').forEach(a => a.onclick = e => { e.preventDefault(); const f = D.farms.find(x => x.name === a.dataset.farm && x.iso === c.iso); if (f) selectFarm(f); });
   box.querySelector('[data-act="tour"]').onclick = () => tourStart();
   box.querySelector('[data-act="farms"]').onclick = () => setPanelTab('farms');
   const ob = box.querySelector('[data-act="out"]'); if (ob) ob.onclick = () => openOutput({ iso: c.iso });
+  box.querySelector('[data-act="cmp"]').onclick = () => openCompare([c.iso].concat(CMP.isos.filter(i => i !== c.iso)));
   const ps1 = box.querySelector('[data-act="pipe"]'); if (ps1) ps1.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
   wireFdLink(box);
 }
@@ -2333,10 +2362,14 @@ function updateBars(force) {
   if (S.view === 'map' && !force) return;
   const barsEl = $('g-bars'), axisEl = $('g-axis');
   const scoped = S.region === 'WORLD' || !S.region.startsWith('C:') ? C : C.filter(inRegion);
-  const all = scoped.map(c => ({ c, cap: capOf(c, S.year) })).filter(r => r.cap.tot > 0.5).sort((a, b) => b.cap.tot - a.cap.tot);
+  const ik = S.ind && S.ind !== 'cap' ? S.ind : '';                 // 依指標排名（人均、占比、容量因數、當年新增）：單一長條
+  const all = (ik ? scoped.map(c => { const r = indVal(ik, c, S.year); return r && r.v > 0 ? { c, cap: { on: r.v, off: 0, tot: r.v }, iv: r } : null; }).filter(Boolean)
+    : scoped.map(c => ({ c, cap: capOf(c, S.year) })).filter(r => r.cap.tot > 0.5)).sort((a, b) => b.cap.tot - a.cap.tot);
   all.forEach((r, i) => r.rank = i + 1);
+  barsEl.classList.toggle('ind', !!ik);
+  $('g-barHead').querySelector('h2').textContent = ik ? T('indBars')(indName(ik)) + ' (' + T('indUnit')[ik] + ')' : T('barTitle');
   const NB = clamp(Math.floor((barsEl.clientHeight - 22) / 19) - 2, 5, NBAR);   // 窄螢幕自動減少列數
-  $('g-barScope').textContent = (S.region.startsWith('C:') ? T('inRegion') : T('top15'))(NB) + (atLT() ? ' · ' + T('ltHatch') : '');
+  $('g-barScope').textContent = (S.region.startsWith('C:') ? T('inRegion') : T('top15'))(NB) + (atLT() ? ' · ' + T('ltHatch') : '') + (ik ? ' · ' + T('indSrc')[ik] : '');
   const rows = all.slice(0, NB);
   const extra = iso => { if (!rows.some(r => r.c.iso === iso)) { const r = all.find(r => r.c.iso === iso); if (r) rows.push(r); } };
   if (byIso[S.region]) extra(S.region);
@@ -2346,7 +2379,8 @@ function updateBars(force) {
   const AX = 18;                                  // 上方留給軸標籤
   const rowH = Math.max(18, Math.min(34, (barsEl.clientHeight - 4 - AX) / (nRows + 1)));
   $('g-barYear').textContent = Math.floor(S.year);
-  let ax = ''; for (let i = 1; i <= 4; i++) { ax += '<div style="left:' + (i * 25) + '%">' + fmtAxis(maxV * i / 4) + '</div>'; }
+  const fmtA = v => ik === 'share' || ik === 'cf' ? (Math.round(v * 10) / 10) + '%' : fmtAxis(v);
+  let ax = ''; for (let i = 1; i <= 4; i++) { ax += '<div style="left:' + (i * 25) + '%">' + fmtA(maxV * i / 4) + '</div>'; }
   axisEl.innerHTML = ax;
   const seen = new Set();
   rows.forEach((r, i) => {
@@ -2361,7 +2395,7 @@ function updateBars(force) {
     el.querySelector('.nm small').textContent = r.rank; el.querySelector('.nm span').textContent = cname(r.c);
     el.querySelector('i.on').style.width = (r.cap.on / maxV * 100) + '%'; el.querySelector('i.off').style.width = (r.cap.off / maxV * 100) + '%';
     el.querySelector('i.off').style.display = r.cap.off > 0.5 ? 'block' : 'none';
-    el.querySelector('.val').textContent = fmtMW(r.cap.tot);
+    el.querySelector('.val').textContent = ik ? indFmt(ik, r.cap.tot) : fmtMW(r.cap.tot);
     el.classList.toggle('sel', S.region === r.c.iso);
     el.classList.toggle('tw', r.c.iso === 'TWN');
     el.classList.toggle('carry', carried(r.c));
@@ -3349,7 +3383,7 @@ let tipPane = null, hoverKey = null, hoverTimer = null;
 function tipCountry(c) {
   const on = valAt(c.on, S.year), off = valAt(c.off, S.year);
   return '<b>' + esc(cname(c)) + '</b> · ' + Math.floor(S.year) + '<br><i class="gsw" style="background:var(--on)"></i>' + T('onshore') + ' ' + fmtMW(on) + '<br><i class="gsw" style="background:var(--off)"></i>' + T('offshore') + ' ' + fmtMW(off) + '<br>' + T('total') + ' <b>' + fmtMW(on + off) + '</b>' +
-    (atLT() ? '<br><span style="color:var(--ginkm)">' + esc(ltLine(c)) + '</span>' : '') + cvgTip(c.iso);
+    (atLT() ? '<br><span style="color:var(--ginkm)">' + esc(ltLine(c)) + '</span>' : '') + indTip(c) + cvgTip(c.iso);
 }
 function liveTip(f) {
   const x = liveOn() && liveFor(f); if (!x) return '';
@@ -3426,7 +3460,7 @@ function setView(v) {
   S.view = v; const st = $('g-stage'); st.className = v === 'map' ? 'mapOnly' : v === 'bars' ? 'barOnly' : 'split';
   document.querySelectorAll('#g-viewSeg button').forEach(b => b.classList.toggle('active', b.dataset.view === v));
   setTimeout(() => { resize(); updateBars(true); }, 30);
-  zonesVisible(); renderZoneLegend(); cvgVisible(); renderCvgLegend();
+  zonesVisible(); renderZoneLegend(); cvgVisible(); renderCvgLegend(); indVisible(); renderIndLegend();
   syncURL();
 }
 /* ================= 此刻的風：NOAA GFS 離地 10 m 風場（公有領域，tools/fetch_gfs_wind.py → data/live/wind_now.png）畫成流動的粒子 =================
@@ -3751,6 +3785,7 @@ function renderCvgLegend() {
 }
 function toggleLiveCov(on) {
   S.liveCov = on != null ? on : !S.liveCov;
+  if (S.liveCov && S.ind) setIndicator('', true);           // 與「指標」上色互斥
   const b = $('g-btnLiveCov'); b.classList.toggle('active', S.liveCov); b.setAttribute('aria-pressed', S.liveCov ? 'true' : 'false');
   if (S.liveCov && !CVG) cvgSetup();
   if (S.liveCov) { cvgPaint(); cvgRegLoad(); }
@@ -3774,8 +3809,8 @@ function applyI18n() {
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
-  renderWindLegend(); renderZoneLegend(); renderCvgLegend();
-  renderOutput();
+  renderWindLegend(); renderZoneLegend(); renderCvgLegend(); renderIndLegend();
+  renderOutput(); renderCompare();
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
 }
@@ -3902,6 +3937,8 @@ function showSources() {
         : ' (monthly DISPATCH_UNIT_SCADA, the 5-minute SCADA output of every unit, and DUDETAIL, registered capacity; source: Australian Energy Market Operator (AEMO), credited under <a href="' + AU_TERMS + '" target="_blank" rel="noopener">AEMO\'s copyright permissions</a>): eastern grid (NEM) only. Output × 5 minutes is summed into yearly output and linked to the site\'s Australian farms through the same unit mapping as the live output; units covering several farms are left out, and farms are used when AEMO\'s registered capacity is within 15% of the site\'s record. New farms often connect in stages, so only years in which the farm was already generating in January of the year before, kept its registered capacity, has 98% of the 5-minute data and a capacity factor of 5–65% are shown; measured output includes curtailment and self-curtailment at negative prices (tools/au_output.py).') + '</li><li>' +
       (zh ? '台灣即時取樣（發電表現「台灣・即時取樣」與風場卡片）：抓取程式約每 2 小時記下台電即時資料（資料集 8931）各併網點的瞬間出力，累積成 data/archive/farm_daily.json（2026-06 起，含民營風場；tools/build_farm_daily.py 可從 git 歷史回補）。平均出力是取樣平均，容量因數只計已列裝置容量的時段；是取樣估計，不是官方發電量。以 2026 年 7 月比對，台電自有 7 座風場與官方月發電量相差 0–2 個百分點。'
         : 'Taiwan live samples (the Output dialog\'s "Taiwan · live samples" and farm cards): the scraper records the instantaneous output of every grid unit in Taipower\'s live data (dataset 8931) about every 2 hours into data/archive/farm_daily.json (from June 2026, private farms included; tools/build_farm_daily.py backfills it from the git history). Average output is the mean of the samples and the capacity factor counts only times with a listed capacity: an estimate from samples, not official generation. Against July 2026, Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.') + '</li></ul>' +
+    '<h4>' + (zh ? '各國指標與國家比較' : 'Country indicators and comparison') + '</h4><ul><li><a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '：風電占發電比例、風電發電量與全國平均容量因數（發電量 ÷ 前後兩年年底容量的平均 × 當年時數；含限電與新機組的部分年份，只適合粗略比較）' : ': wind share of generation, wind generation and the national average capacity factor (generation ÷ the mean of the two year-end capacities × hours in the year; curtailment and partial years included, for rough comparison only)') + (IND && IND.meta && IND.meta.retrieved ? (zh ? '，' + IND.meta.retrieved + ' 取用' : ', retrieved ' + IND.meta.retrieved) : '') + (zh ? '。' : '.') + '</li>' +
+    '<li><a href="https://ourworldindata.org/grapher/population" target="_blank" rel="noopener">Our World in Data, Population</a> (CC BY 4.0' + (zh ? '，依聯合國《世界人口展望》等整理）：人均容量＝本站年底容量 ÷ 當年人口' : ', based on UN World Population Prospects and others): per-capita capacity = the site\'s year-end capacity ÷ the population of the year') + (IND && IND.meta && IND.meta.population ? (zh ? '，人口到 ' + IND.meta.population.last_year + ' 年、之後沿用' : ', population to ' + IND.meta.population.last_year + ' and carried forward') : '') + (zh ? '。當年新增為本站年底累計的逐年差。' : '. Capacity added this year is the year-on-year difference of the site\'s year-end totals.') + '</li></ul>' +
     '<h4>' + (zh ? '風場卡片的估計年發電量' : 'Estimated yearly output on farm cards') + '</h4><ul><li>' + (zh ? '容量 × 該國 2023–2025 年風電平均容量因數，取自 ' : 'Capacity × the country\'s 2023–2025 average wind capacity factor, from ') + '<a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '；是估計，不是實測。' : '; an estimate, not a measurement.') + '</li></ul>' +
     '<h4>' + (zh ? '其他國家的風機位置' : 'Turbine positions in other countries') + '</h4><ul><li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap ' + (zh ? '貢獻者' : 'contributors') + '</a>' + (zh ? '，開放資料庫授權（ODbL）；由 tools/build_turbines_osm.py 依 OSM 的風場範圍（名稱、容量）或空間群聚（單機容量要合理）對到本站的風場，衍生的 data/global/turbines_osm.json 同樣以 ODbL 分享。' : ', Open Database License (ODbL); matched to the site\'s farms by OSM wind-plant areas (name, capacity) or by spatial groups (plausible unit size) in tools/build_turbines_osm.py; the derived data/global/turbines_osm.json is likewise shared under the ODbL.') + '</li></ul>' +
     '<h4>' + (zh ? '德國的風場與風機' : 'German farms and turbines') + '</h4><ul><li><a href="https://www.marktstammdatenregister.de/MaStR/Datendownload" target="_blank" rel="noopener">© Bundesnetzagentur | Marktstammdatenregister (MaStR)</a>' + (zh ? '，Datenlizenz Deutschland – Namensnennung – Version 2.0：每部營運中風機的座標、機型、輪轂高度、葉輪直徑與商轉日。依風場名稱與位置分群後，對到本站已有的德國風場（近景改畫實際機位），其餘 1 MW 以上、附近沒有可能相同之本站紀錄的陸域風場加進風場層（tools/build_mastr.py）。' : ', Data licence Germany – attribution – version 2.0: position, model, hub height, rotor diameter and commissioning date of every operating turbine. Grouped by wind-farm name and location, matched to the site\'s German farms (whose close-ups now use the real positions); onshore groups of 1 MW or more with no possibly identical site record nearby are added to the farm layer (tools/build_mastr.py).') + '</li></ul>' +
@@ -4279,6 +4316,216 @@ function turbFacts(r) {
 
 /* ================= URL state (shareable deep links) ================= */
 let urlT = 0;
+/* ================= 指標上色、各年新增量與國家比較 · indicator colouring, yearly additions, country comparison =================
+   指標（S.ind）：cap 年底容量（本站）、pc 人均容量（本站容量 ÷ OWID 人口）、share 風電占發電比例（Ember）、cf 全國容量因數（Ember）、add 當年新增（本站累計的逐年差）。
+   地圖依指標把國家塗成單色系六級（深→亮）；沒有資料的國家不上色。長條排名也可依指標排。人口與 Ember 只到各自最新的年份，之後沿用並在圖例註明。 */
+const IND_KEYS = ['cap', 'pc', 'share', 'cf', 'add'];
+const IND_RAMP = ['#0f3d4a', '#155f6e', '#1f8390', '#3aa6ab', '#6fc9c0', '#b6ead9'];      // 同一色相、亮度遞增（dataviz：順序量表用單色系）
+const IND_BREAKS = { cap: [100, 1000, 5000, 20000, 50000], pc: [50, 150, 300, 600, 1000], share: [2, 5, 10, 20, 35], cf: [20, 25, 30, 35, 40], add: [50, 300, 1000, 3000, 10000] };
+let INDL = null, indYearPainted = -1;
+function indRow(iso) { return IND && IND.c[iso]; }
+function indLastYear(key) {                                        // 這個指標資料的最後一年（Ember 或人口）
+  if (!IND) return null;
+  if (key === 'pc') return IND.meta.population.last_year;
+  let last = IND.years[0];
+  Object.values(IND.c).forEach(r => { const a = r[key]; for (let i = a.length - 1; i >= 0; i--) if (a[i] != null) { if (IND.years[i] > last) last = IND.years[i]; break; } });
+  return last;
+}
+function popOf(iso, y) {                                           // 當年人口，之後沿用最後一年；回 [人口, 資料年]
+  const r = indRow(iso); if (!r) return null;
+  const ys = IND.years;
+  for (let i = Math.min(ys.length - 1, Math.floor(y) - ys[0]); i >= 0; i--) if (r.pop[i] != null) return [r.pop[i], ys[i]];
+  return null;
+}
+function emberOf(iso, key, y) {                                    // Ember 的值（share、cf），之後的年份沿用最後有值的年；回 [值, 資料年]
+  const r = indRow(iso); if (!r) return null;
+  const ys = IND.years;
+  for (let i = Math.min(ys.length - 1, Math.floor(y) - ys[0]); i >= 0; i--) if (r[key][i] != null) return [r[key][i], ys[i]];
+  return null;
+}
+function capYear(c, y) { return { on: valAt(c.on, Math.floor(y)), off: valAt(c.off, Math.floor(y)) }; }
+function addOf(c, y) {                                             // 當年新增＝年底累計 − 去年底（陸域、離岸分開；可為負）
+  y = Math.floor(y); if (y <= Y0) return null;
+  const a = capYear(c, y), b = capYear(c, y - 1);
+  return { on: a.on - b.on, off: a.off - b.off, tot: a.on + a.off - b.on - b.off };
+}
+/* 指標值：{ v, y（資料年）, note } 或 null */
+function indVal(key, c, y) {
+  y = Math.floor(y);
+  if (key === 'cap') return { v: capYear(c, y).on + capYear(c, y).off, y };
+  if (key === 'add') { const a = addOf(c, y); return a ? { v: a.tot, y } : null; }
+  if (key === 'pc') { const p = popOf(c.iso, y); if (!p) return null; const t = capYear(c, y); return { v: (t.on + t.off) * 1e6 / p[0], y: p[1] }; }
+  const e = emberOf(c.iso, key, y); if (!e) return null;
+  return { v: key === 'cf' ? e[0] * 100 : e[0], y: e[1] };
+}
+function indFmt(key, v) {
+  if (v == null) return '—';
+  if (key === 'cap' || key === 'add') return fmtMW(v);
+  if (key === 'pc') return WW.int(v) + ' ' + T('indUnit').pc;
+  return (key === 'cf' ? v.toFixed(1) : v < 10 ? v.toFixed(2) : v.toFixed(1)) + '%';
+}
+function indClass(key, v) { const b = IND_BREAKS[key]; let i = 0; while (i < b.length && v >= b[i]) i++; return i; }
+function indName(key) { return T({ cap: 'indCap', pc: 'indPc', share: 'indShare', cf: 'indCf', add: 'indAdd' }[key]); }
+function indSetup() {
+  const cv = document.createElement('canvas'); cv.width = 2048; cv.height = 1024;
+  const tex = new THREE.CanvasTexture(cv); tex.anisotropy = 4;
+  const mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false });
+  const mg = new THREE.Mesh(new THREE.SphereGeometry(R, 160, 100), mat);
+  const pg = new THREE.PlaneGeometry(360 * FS, 180 * FS); pg.rotateX(-Math.PI / 2);
+  const mf = new THREE.Mesh(pg, mat);
+  mg.renderOrder = mf.renderOrder = 1; mg.visible = mf.visible = false; scene.add(mg, mf);
+  INDL = { cv, g: cv.getContext('2d'), tex, mg, mf, sig: null };
+}
+function indPaint() {
+  if (!INDL || !S.ind) return;
+  const y = Math.floor(S.year), sig = S.ind + '|' + y + '|' + S.layer;
+  if (sig === INDL.sig) return;
+  INDL.sig = sig; indYearPainted = y;
+  const g = INDL.g, CW = INDL.cv.width, CH = INDL.cv.height;
+  g.clearRect(0, 0, CW, CH); g.lineJoin = 'round';
+  Object.keys(isoRings).forEach(iso => {
+    const c = byIso[iso]; if (!c) return;
+    const r = indVal(S.ind, c, y); if (!r || r.v == null || (S.ind !== 'add' && r.v <= 0) || (S.ind === 'add' && r.v <= 0)) return;
+    g.beginPath();
+    isoRings[iso].forEach(k => { const rg = RINGS[k]; for (let i = 0; i < rg.length; i += 2) { const x = (rg[i] + 180) / 360 * CW, yy = (90 - rg[i + 1]) / 180 * CH; if (i === 0) g.moveTo(x, yy); else g.lineTo(x, yy); } g.closePath(); });
+    g.globalAlpha = 0.82; g.fillStyle = IND_RAMP[indClass(S.ind, r.v)]; g.fill();
+    g.globalAlpha = 0.9; g.strokeStyle = '#0a1522'; g.lineWidth = 1; g.stroke();
+  });
+  g.globalAlpha = 1; INDL.tex.needsUpdate = true;
+}
+function indVisible() {
+  if (!INDL) return;
+  const flat = S.modeT > 0.5, on = !!S.ind && S.view !== 'bars' && !modeAnim;
+  INDL.mg.visible = on && !flat; INDL.mf.visible = on && flat;
+}
+function indTip(c) {
+  if (!S.ind) return '';
+  const r = indVal(S.ind, c, S.year);
+  return '<br><i class="gsw" style="background:' + (r && r.v > 0 ? IND_RAMP[indClass(S.ind, r.v)] : 'transparent') + ';border:1px solid #6fc9c0"></i>' + esc(indName(S.ind)) + ' <b>' + (r ? esc(indFmt(S.ind, r.v)) : esc(T('indNA'))) + '</b>' +
+    (r && r.y !== Math.floor(S.year) ? '<small style="color:var(--ginkm)">' + esc(T('indDataYear')(r.y)) + '</small>' : '');
+}
+function renderIndLegend() {
+  const el = $('g-indLegend'); if (!el) return;
+  if (!S.ind || S.view === 'bars') { el.hidden = true; return; }
+  const k = S.ind, b = IND_BREAKS[k], u = T('indUnit')[k], y = Math.floor(S.year);
+  const fmtB = v => k === 'cap' || k === 'add' ? WW.int(v) : k === 'pc' ? WW.int(v) : String(v);
+  const lab = i => i === 0 ? '< ' + fmtB(b[0]) : i === b.length ? '≥ ' + fmtB(b[b.length - 1]) : fmtB(b[i - 1]) + '–' + fmtB(b[i]);
+  const last = indLastYear(k), note = T('indNote')[k];
+  const noteTxt = typeof note === 'function' ? note(last) : note;
+  el.innerHTML = '<div class="wlh"><b>' + esc(indName(k)) + ' · ' + esc(T('indYear')(y)) + '</b><span class="ilu">' + esc(u) + '</span></div>' +
+    '<div class="ilt">' + esc(T('indLegT')[k]) + '</div>' +
+    '<div class="ilr">' + IND_RAMP.map((col, i) => '<span><i style="background:' + col + '"></i>' + esc(lab(i)) + '</span>').join('') + '</div>' +
+    '<div class="wln">' + esc(L('資料：', 'Data: ') + T('indSrc')[k]) + (noteTxt ? L('；', '; ') + esc(noteTxt) : '') + L('。沒有資料的國家不上色。', '. Countries without data stay uncoloured.') + '</div>';
+  el.hidden = false;
+}
+function setIndicator(k, silent) {
+  S.ind = IND_KEYS.includes(k) ? k : '';
+  const sel = $('g-indSel'); if (sel && sel.value !== S.ind) sel.value = S.ind;
+  if (S.ind && S.liveCov) toggleLiveCov(false);                  // 與「即時資料」圖層互斥
+  if (S.ind && !INDL) indSetup();
+  if (INDL) INDL.sig = null;
+  if (S.ind) indPaint();
+  indVisible(); renderIndLegend(); updateBars(true); hoverKey = null; hudCache = '';
+  if (!silent) syncURL();
+}
+/* 國家概況：各年新增容量的長條（陸域＋離岸堆疊；負值畫在基線下） */
+function addsChart(list) {
+  const yEnd = Math.floor(S.year), y0 = Math.max(Y0 + 1, yEnd - 25), years = []; for (let y = y0; y <= yEnd; y++) years.push(y);
+  const vals = years.map(y => list.reduce((a, c) => { const d = addOf(c, y); return d ? [a[0] + d.on, a[1] + d.off] : a; }, [0, 0]));
+  const max = Math.max(1, ...vals.map(v => Math.max(v[0] + v[1], 0))), min = Math.min(0, ...vals.map(v => Math.min(v[0], 0) + Math.min(v[1], 0)));
+  if (vals.every(v => Math.abs(v[0]) + Math.abs(v[1]) < 0.5)) return '';
+  const W = 280, H = 76, PT = 12, PB = 12, span = max - min || 1, bw = W / years.length, gap = bw > 6 ? 1.5 : 0.5;
+  const Y = v => PT + (H - PT - PB) * (1 - (v - min) / span), base = Y(0);
+  const P = [];
+  years.forEach((y, i) => {
+    const [on, off] = vals[i], x = i * bw + gap / 2, w = Math.max(1, bw - gap);
+    const seg = (v, acc, col) => { if (!v) return ''; const y1 = Y(acc), y2 = Y(acc + v); return '<rect x="' + x.toFixed(1) + '" y="' + Math.min(y1, y2).toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + Math.max(0.6, Math.abs(y1 - y2)).toFixed(1) + '" fill="' + col + '"/>'; };
+    const tip = y + ' · ' + fmtMW(on + off) + '\n' + T('onshore') + ' ' + fmtMW(on) + '\n' + T('offshore') + ' ' + fmtMW(off);
+    P.push('<g><title>' + esc(tip) + '</title><rect x="' + x.toFixed(1) + '" y="' + PT + '" width="' + w.toFixed(1) + '" height="' + (H - PT - PB) + '" fill="transparent"/>' + seg(on, 0, 'var(--on)') + seg(off, on >= 0 ? Math.max(on, 0) : 0, 'var(--off)') +
+      (y === yEnd ? '<rect x="' + (x - 0.75).toFixed(1) + '" y="' + (Math.min(Y(Math.max(on + off, 0)), base) - 1).toFixed(1) + '" width="' + (w + 1.5).toFixed(1) + '" height="' + (Math.abs(base - Y(on + off)) + 2).toFixed(1) + '" fill="none" stroke="#f0c86a" stroke-width="1.2"/>' : '') + '</g>');
+  });
+  P.push('<line x1="0" x2="' + W + '" y1="' + base.toFixed(1) + '" y2="' + base.toFixed(1) + '" stroke="currentColor" stroke-opacity=".35" stroke-width=".8"/>');
+  const step = years.length > 12 ? 5 : 2;
+  years.forEach((y, i) => { if (y % step === 0) P.push('<text x="' + (i * bw + bw / 2).toFixed(1) + '" y="' + (H - 2) + '" text-anchor="middle" font-size="8.5" fill="currentColor" opacity=".75">' + y + '</text>'); });
+  P.push('<text x="1" y="9" font-size="8.5" fill="currentColor" opacity=".75">' + esc(fmtMW(max)) + '</text>');
+  return '<div class="pipeh">' + esc(T('addYears')) + '</div><svg class="fdyears" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('addYears')) + '">' + P.join('') + '</svg><div class="gnote" style="margin-top:2px">' + esc(T('addYearsNote')) + '</div>';
+}
+/* 國家概況裡的指標列（人均容量、風電占比、容量因數、當年新增） */
+function indProfileRows(c, y) {
+  const rows = [], a = addOf(c, y);
+  if (a) rows.push([T('profAdd'), (a.tot < 0 ? '−' : '+') + fmtMW(Math.abs(a.tot)) + (a.on || a.off ? ' <small>(' + fmtMW(a.on) + ' / ' + fmtMW(a.off) + ')</small>' : '')]);
+  const pc = indVal('pc', c, y); if (pc) rows.push([T('profPc') + (pc.y !== Math.floor(y) ? ' <small>' + esc(T('indDataYear')(pc.y)) + '</small>' : ''), esc(indFmt('pc', pc.v))]);
+  const sh = indVal('share', c, y); if (sh) rows.push([T('profWShare') + ' <small>' + esc(T('indDataYear')(sh.y)) + '</small>', esc(indFmt('share', sh.v))]);
+  const cf = indVal('cf', c, y); if (cf) rows.push([T('profCf') + ' <small>' + esc(T('indDataYear')(cf.y)) + '</small>', esc(indFmt('cf', cf.v))]);
+  return rows;
+}
+
+/* ---- 國家比較 · country comparison dialog ---- */
+const CMP = { isos: [], open: false };
+let cmpYear = -1;
+const CMP_COL = ['#3d8fe0', '#a97f28', '#2a9f7a', '#c06ebd'];      // 四色固定順序（dataviz 色盲檢查通過，深色底）
+const cmpShown = () => $('g-modal').classList.contains('show') && !!$('g-modalBody').querySelector('.ocmp');
+function openCompare(isos) {
+  let list = (isos || []).filter(i => byIso[i]);
+  if (!list.length) list = [byIso[S.region] ? S.region : 'TWN'];
+  if (list.length < 2) ['TWN', 'DNK', 'DEU'].forEach(i => { if (list.length < 3 && !list.includes(i)) list.push(i); });
+  CMP.isos = [...new Set(list)].slice(0, 4); CMP.open = true;
+  $('g-modal').querySelector('.box').classList.add('wide');
+  $('g-modalBody').innerHTML = '<div class="ocmp"></div>';
+  $('g-modal').classList.add('show');
+  renderCompare();
+  $('g-modalClose').focus();
+  syncURL();
+}
+function cmpLine(list, y) {
+  const W = 560, H = 150, PL = 44, PR = 8, PT = 8, PB = 18, n = YEARS.length;
+  const max = Math.max(1, ...list.map(c => Math.max(...c.on.map((v, i) => v + c.off[i]))));
+  const X = i => PL + i / (n - 1) * (W - PL - PR), Yv = v => PT + (H - PT - PB) * (1 - v / max);
+  const ticks = [0, 0.5, 1].map(f => '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + Yv(max * f).toFixed(1) + '" y2="' + Yv(max * f).toFixed(1) + '" stroke="currentColor" stroke-opacity=".18"/><text x="' + (PL - 4) + '" y="' + (Yv(max * f) + 3).toFixed(1) + '" text-anchor="end" font-size="9" fill="currentColor" opacity=".75">' + esc(fmtAxis(max * f)) + '</text>').join('');
+  const lines = list.map((c, k) => '<polyline points="' + c.on.map((v, i) => X(i).toFixed(1) + ',' + Yv(v + c.off[i]).toFixed(1)).join(' ') + '" fill="none" stroke="' + CMP_COL[k] + '" stroke-width="2" stroke-linejoin="round"/>' +
+    '<circle cx="' + X(clamp(y - Y0, 0, n - 1)).toFixed(1) + '" cy="' + Yv(c.on[clamp(y - Y0, 0, n - 1)] + c.off[clamp(y - Y0, 0, n - 1)]).toFixed(1) + '" r="3.5" fill="' + CMP_COL[k] + '" stroke="#101a2d" stroke-width="1.5"/>').join('');
+  const yrs = YEARS.filter(v => v % 10 === 0 || v === Y1).map(v => '<text x="' + X(v - Y0).toFixed(1) + '" y="' + (H - 4) + '" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">' + v + '</text>').join('');
+  const cur = '<line x1="' + X(clamp(y - Y0, 0, n - 1)).toFixed(1) + '" x2="' + X(clamp(y - Y0, 0, n - 1)).toFixed(1) + '" y1="' + PT + '" y2="' + (H - PB) + '" stroke="#f0c86a" stroke-width="1" stroke-dasharray="3 3"/>';
+  return '<svg class="cmpchart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('cmpChart')) + '">' + ticks + cur + lines + yrs + '</svg>';
+}
+function renderCompare() {
+  if (!cmpShown()) return;
+  const el = $('g-modalBody').querySelector('.ocmp'), y = Math.floor(S.year), yi = clamp(y - Y0, 0, YEARS.length - 1);
+  const list = CMP.isos.map(i => byIso[i]).filter(Boolean);
+  const all = C.map(c => ({ c, t: c.on[yi] + c.off[yi] })).sort((a, b) => b.t - a.t), world = all.reduce((s, r) => s + r.t, 0);
+  const rankOf = c => all.findIndex(r => r.c === c) + 1;
+  const opts = sel => '<option value="">' + esc(T('cmpNone')) + '</option>' + C.slice().sort((a, b) => cname(a).localeCompare(cname(b), lang === 'en' ? 'en' : 'zh-Hant')).map(c => '<option value="' + c.iso + '"' + (c.iso === sel ? ' selected' : '') + '>' + esc(cname(c)) + '</option>').join('');
+  const picks = [0, 1, 2, 3].map(k => '<label class="oyl"><i class="gsw" style="background:' + CMP_COL[k] + '"></i><select class="cmpsel" data-k="' + k + '">' + opts(CMP.isos[k] || '') + '</select></label>').join('');
+  const yrSel = '<label class="oyl">' + esc(T('cmpYear')) + ' <select class="cmpyear">' + YEARS.map(v => '<option' + (v === y ? ' selected' : '') + '>' + v + '</option>').join('') + '</select></label>';
+  const cell = v => '<td>' + v + '</td>';
+  const row = (lab, fn) => '<tr><th>' + esc(lab) + '</th>' + list.map(c => cell(fn(c))).join('') + '</tr>';
+  const R = T('cmpRows');
+  const bigOf = c => { if (!farmsReady || !farmsByIso[c.iso]) return '—'; const f = farmsByIso[c.iso].filter(x => !x.pipe && !AGG_RE.test(x.name) && farmActive(x, y + 0.99)).sort((a, b) => b.mw - a.mw)[0]; return f ? esc(fname(f)) + ' · ' + fmtMW(f.mw) : '—'; };
+  const farmsOf = c => { if (!farmsReady || !farmsByIso[c.iso]) return '—'; const op = farmsByIso[c.iso].filter(x => !x.pipe && farmActive(x, y + 0.99)); return op.length + ' · ' + fmtMW(op.reduce((s, f) => s + farmMwAt(f, y + 0.99), 0)); };
+  const table = list.length ? '<table class="cmptab"><thead><tr><th></th>' + list.map((c, k) => '<th><i class="gsw" style="background:' + CMP_COL[k] + '"></i> ' + esc(cname(c)) + (c.lt && y === LT.year ? ' <small>' + esc(c.lt.asof) + '</small>' : '') + '</th>').join('') + '</tr></thead><tbody>' +
+    row(R.cap, c => '<b>' + fmtMW(c.on[yi] + c.off[yi]) + '</b>') + row(R.on, c => fmtMW(c.on[yi])) + row(R.off, c => fmtMW(c.off[yi])) +
+    row(R.rank, c => '#' + rankOf(c)) + row(R.share, c => world ? ((c.on[yi] + c.off[yi]) / world * 100).toFixed(2) + '%' : '—') +
+    row(R.add, c => { const a = addOf(c, y); return a ? (a.tot < 0 ? '−' : '+') + fmtMW(Math.abs(a.tot)) : '—'; }) +
+    row(R.add5, c => { const i5 = Math.max(0, yi - 5); return '+' + fmtMW(Math.max(0, c.on[yi] + c.off[yi] - c.on[i5] - c.off[i5])); }) +
+    row(R.x10, c => { const i10 = Math.max(0, yi - 10), t0 = c.on[i10] + c.off[i10]; return t0 > 0 ? '×' + ((c.on[yi] + c.off[yi]) / t0).toFixed(1) + ' <small>(' + YEARS[i10] + ')</small>' : '—'; }) +
+    row(R.pc, c => { const r = indVal('pc', c, y); return r ? indFmt('pc', r.v) + (r.y !== y ? ' <small>' + esc(T('indDataYear')(r.y)) + '</small>' : '') : '—'; }) +
+    row(R.wshare, c => { const r = indVal('share', c, y); return r ? indFmt('share', r.v) + (r.y !== y ? ' <small>' + esc(T('indDataYear')(r.y)) + '</small>' : '') : '—'; }) +
+    row(R.cf, c => { const r = indVal('cf', c, y); return r ? indFmt('cf', r.v) + (r.y !== y ? ' <small>' + esc(T('indDataYear')(r.y)) + '</small>' : '') : '—'; }) +
+    row(R.farms, farmsOf) + row(R.big, bigOf) + '</tbody></table>' : '';
+  el.innerHTML = '<h2>' + esc(T('cmpTitle')) + '</h2><div class="otop"><span class="oyl">' + esc(T('cmpPick')) + '</span>' + picks + yrSel +
+    (!CMP.isos.includes('TWN') && CMP.isos.length < 4 ? '<button type="button" class="cmptw">' + esc(T('cmpAddTw')) + '</button>' : '') +
+    '<button type="button" class="cmplink">' + esc(T('cmpLink')) + '</button></div>' +
+    (list.length >= 2 ? '<div class="ocov">' + esc(T('cmpChart')) + ' · ' + y + '</div>' + cmpLine(list, y) + table : '<div class="gnote">' + esc(T('cmpPick')) + '</div>') +
+    '<div class="onote">' + esc(T('cmpNote')) + '</div>';
+  el.querySelectorAll('.cmpsel').forEach(sel => sel.onchange = () => {
+    const k = +sel.dataset.k, v = sel.value, next = CMP.isos.slice(); next[k] = v;
+    CMP.isos = [...new Set(next.filter(Boolean))].slice(0, 4); renderCompare(); syncURL();
+  });
+  el.querySelector('.cmpyear').onchange = e => { S.year = clamp(+e.target.value, Y0, Y1); syncYearUI(); renderCompare(); syncURL(); };
+  const tw = el.querySelector('.cmptw'); if (tw) tw.onclick = () => { CMP.isos.push('TWN'); renderCompare(); syncURL(); };
+  const lk = el.querySelector('.cmplink'); if (lk) lk.onclick = () => { copyText(location.href).then(() => { lk.textContent = T('cmpCopied'); setTimeout(() => { lk.textContent = T('cmpLink'); }, 1500); }); };
+}
+
 function stateParams() {
   const p = {};
   if (S.region !== 'WORLD') p.r = S.region;
@@ -4289,6 +4536,8 @@ function stateParams() {
   if (S.flow) p.flow = '1';
   if (S.zones) p.zones = '1';
   if (S.liveCov) p.live = '1';
+  if (S.ind) p.ind = S.ind;
+  if (cmpShown()) p.cmp = CMP.isos.join(',');
   if (outShown()) { p.out = OUT.iso + '.' + OUT.view; if (isSamp() && OUT.per !== '90') p.op = OUT.per; }
   if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
@@ -4324,6 +4573,7 @@ function applyParams(p, fromFarms) {
   if (p.flow != null && (p.flow === '1') !== !!S.flow) toggleFlow(p.flow === '1');
   if ((p.zones === '1') !== !!S.zones && !LITE) toggleZones(p.zones === '1');
   if ((p.live === '1') !== !!S.liveCov && !LITE) toggleLiveCov(p.live === '1');
+  if ((p.ind || '') !== S.ind) setIndicator(p.ind || '', true);
   if (p.r && !fromFarms) setRegion(p.r);
   if (p.y && !isNaN(+p.y)) { S.year = clamp(+p.y, Y0, Y1); syncYearUI(); }
   else if (!fromFarms && p.play !== '1') { S.year = Y1; syncYearUI(); }     // 連結省略 y ＝ 最新年份（見 stateParams）
@@ -4350,6 +4600,7 @@ function applyParams(p, fromFarms) {
   if (p.port) { if (!portsReady) pendingPort = p.port; else { const pt = PORTS.find(x => x.id === p.port); if (pt) selectPort(pt); } }
   if (p.ev) { if (!eventsReady) pendingEvent = p.ev; else { const e = EVENTS.find(x => x.id === p.ev); if (e) selectEvent(e); } }
   if (p.out) { const [oi, ov] = String(p.out).split('.'); openOutput({ iso: oi, view: ov, per: OUT_PER.includes(p.op) ? p.op : '90' }); }
+  if (p.cmp) openCompare(String(p.cmp).split(',').map(x => x.trim().toUpperCase()));
   if (p.play === '1') { if (!p.y) S.year = Y0; setPlaying(true); }
   if (p.tour === '1' || STORIES[p.tour]) { const k = STORIES[p.tour] ? p.tour : null; if (farmsReady) tourStart(k); else pendingParams = Object.assign(pendingParams || {}, { tour: p.tour }); }
 }
@@ -4427,6 +4678,8 @@ function wireUI() {
   $('g-btnZones').onclick = () => toggleZones();
   $('g-btnLiveCov').onclick = () => toggleLiveCov();
   $('g-btnOut').onclick = () => openOutput({ iso: OUT_ISO.includes(S.region) ? S.region : OUT.iso });
+  $('g-btnCmp').onclick = () => openCompare(CMP.isos.length ? CMP.isos : [byIso[S.region] ? S.region : 'TWN']);
+  $('g-indSel').onchange = e => setIndicator(e.target.value);
   $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
   $('g-btnPorts').onclick = () => { togglePorts(); if (S.ports) setPanelTab('ports'); };
@@ -4443,7 +4696,7 @@ function wireUI() {
   window.addEventListener('keydown', e => {
     if (!active || e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關來源說明，再關資訊卡／導覽
-      if ($('g-modal').classList.contains('show')) { const wasOut = outShown(); $('g-modal').classList.remove('show'); $('g-' + (wasOut ? 'btnOut' : 'btnSources')).focus(); syncURL(); return; }
+      if ($('g-modal').classList.contains('show')) { const wasOut = outShown(), wasCmp = cmpShown(); $('g-modal').classList.remove('show'); $('g-' + (wasOut ? 'btnOut' : wasCmp ? 'btnCmp' : 'btnSources')).focus(); syncURL(); return; }
       if (TOUR) tourEnd(false); if (cardItem) closeCard(); return;
     }
     const tg = e.target.tagName;

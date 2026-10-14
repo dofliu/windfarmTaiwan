@@ -15,6 +15,16 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.38.0 — 2026-10-14
+
+- The globe gains a **country comparison**, **indicator colouring** and **yearly additions** (the three ROADMAP phase-2 items the owner picked on 14 Oct 2026):
+  - **Country comparison**: "⚖ Compare" in the toolbar or the "Compare" button in a country profile puts 2–4 countries side by side (Taiwan, Denmark and Germany by default): cumulative-capacity curves from 1980 to the latest year plus a table for the year — capacity at year end, onshore, offshore, world rank, share of the world, added this year, added in the last 5 years, growth over 10 years, per capita, wind share of generation, capacity factor (national average), operating farms on this site (count and capacity) and the largest farm; the year can be changed (in step with the timeline), Taiwan added and the link copied. URL parameter `cmp=TWN,DNK,DEU`.
+  - **Indicators**: the toolbar's "Indicator" menu colours the map by capacity at year end, per capita, wind share of generation, capacity factor or added this year (six steps of one hue with fixed breaks; the legend names the source and data year; countries without data stay uncoloured), hovering over a country shows its value, and the bar race ranks by the indicator as well. It cannot be combined with the "Live data" colouring. URL parameter `ind=share` and so on.
+  - **Yearly additions**: country profiles gain four rows — added this year (onshore / offshore), per capita, wind share of generation, capacity factor — and a "capacity added each year" onshore / offshore bar chart (last 25 years, years with more decommissioning than new build below the baseline); the world and continent profiles show the chart too.
+  - **New data**: `tools/build_country_indicators.py` builds `data/global/country_indicators.json` (79 countries, 2000–2025) from Ember's Yearly Electricity Data (wind share, generation, capacity, total generation; CC BY 4.0) and Our World in Data's population (CC BY 4.0, to 2023); the extracts are committed under `data/global/sources/`.
+    Capacity factor = generation ÷ (mean of the two year-end capacities × hours in the year), a national average including curtailment, blank outside 5–60%; per capita = the site's year-end capacity ÷ the population of the year, carried forward with a label after the last population year. The sources dialog, the Learn section's "Sources & method" and the READMEs credit Ember and Our World in Data.
+  - The user guide gains section 4.8a "Country comparison and indicators"; both single-file copies include the new data.
+
 ## v2.37.0 — 2026-10-11
 
 - A data-quality push (the owner asked on 11 Oct 2026 to complete the "data quality beyond the open doubts" item in one go):

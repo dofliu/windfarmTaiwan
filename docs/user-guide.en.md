@@ -119,6 +119,8 @@ Clicking empty ground zooms in there. Click the map once before using the keys; 
 | **Focus** | The world, a continent or one country (sorted by 2026 capacity); picking a country flies there and draws all its farms |
 | **🔍 Search** | Opens the search in the Farms tab (4.5) |
 | **📊 Output** | Rankings and same-model comparisons of measured yearly output (4.8) |
+| **⚖ Compare** | Put 2–4 countries side by side (4.8a) |
+| **Indicator** | Colours the map by an indicator: capacity at year end, per capita, wind share of generation, capacity factor, added this year (4.8a); the bar race ranks by it too |
 | **Basemap** | Relief, Satellite, Plain or Wind speed (Global Wind Atlas at 100 m); zooming in adds sharper Esri tiles automatically (not on Wind speed) |
 | **Pipeline** | Projects under construction, in pre-construction or announced, as dashed rings, brighter when closer to completion; on by default |
 | **Wind now** | The latest NOAA GFS 10 m wind as flowing particles, refreshed every 6 hours; it is today's weather and does not follow the timeline |
@@ -140,7 +142,7 @@ Clicking empty ground zooms in there. Click the map once before using the keys; 
 
 ### 4.5 Side panel tabs
 
-- **Profile**: for a country, the year-end cumulative capacity with its curve, world rank, onshore / offshore, share of the world, the figure 10 years earlier and the offshore world rank; the number of farms in the data, the largest and earliest farms, **farm-level coverage** (capacity mapped farm by farm ÷ the national figure), foundation and pipeline totals;
+- **Profile**: for a country, the year-end cumulative capacity with its curve, world rank, onshore / offshore, share of the world, the figure 10 years earlier, the offshore world rank, **added this year** (onshore / offshore), **per-capita capacity**, **wind share of generation**, **capacity factor (national average)** and a bar chart of the capacity added each year (4.8a); the number of farms in the data, the largest and earliest farms, **farm-level coverage** (capacity mapped farm by farm ÷ the national figure), foundation and pipeline totals;
   Taiwan and Japan carry an official-statistics audit badge. The "Live output right now" box: for Taiwan, Australia and Canada it shows each grid's total (with farm-level figures as well); for the UK (Great Britain, with Northern Ireland as a second row), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil it shows national wind output (onshore/offshore for Germany, France, Denmark, Belgium and Poland), and for the US the Texas (ERCOT) and California (CAISO) grids — these are totals only, with nothing per farm. Each row has the data time (local time), the last 48 hours as a trend (hourly means), a coverage note (e.g. the UK figure leaves out most turbines on the distribution network, so it is low; Texas and Belgium also show the share of capacity; Poland's current value is a snapshot of PSE's homepage map, and today's part of its trend only has this site's points, about every 2 hours) and the attribution. Buttons below: tour this country, farm list, Output rankings (Taiwan, the US, Australia, Denmark) and the Taiwan live dashboard. With the world or a continent in focus, it lists the top five countries and a "Wind output right now" list, sorted by output and not summed (the sources differ in coverage and timing); a name opens that country's profile.
 - **Milestones**: landmark farms in wind history; click one to jump to its year and fly there.
 - **Farms**: search and filter every farm —
@@ -196,6 +198,22 @@ Open it from "📊 Output" in the toolbar, "Output rankings" in a country profil
 - **Three views**: total output (average output for samples), capacity factor, and same turbine model (one model's capacity factor across farms). Pick the year, high→low or low→high; search when there are more than 20 rows.
 - Clicking a row closes the dialog and flies to the farm.
 - **Samples are not measurements**: "Taiwan · live samples" are estimates from instantaneous output, with seasonality; they are never mixed into the official yearly ranking or turned into yearly generation. Private farms have no official farm-level figures.
+
+### 4.8a Country comparison and indicators
+
+**Country comparison**: open it from "⚖ Compare" in the toolbar or "Compare" in a country profile; pick 2–4 countries (Taiwan, Denmark and Germany by default). Above is the cumulative-capacity curve from 1980 to the latest year, below a table for the chosen year: capacity at year end, onshore, offshore, world rank, share of the world, added this year, added in the last 5 years, growth over 10 years, per capita, wind share of generation, capacity factor (national average), the operating farms on this site (count and capacity) and the largest farm. You can change the year (in step with the timeline), add Taiwan and copy the link.
+
+**Indicators** (the "Indicator" menu in the toolbar): the map colours countries in six steps of one hue (brighter = higher), with the steps, the source and the data year in the legend; countries without data stay uncoloured; hovering over a country shows its value; the bar race view ranks by the indicator as well. It cannot be combined with the "Live data" colouring.
+
+| Indicator | How it is computed | Source |
+|---|---|---|
+| Capacity at year end | the site's national statistics (MW) | IRENA, the Energy Administration, JWPA and others |
+| Per capita | site year-end capacity ÷ population of the year (W per person); population runs to 2023 and is carried forward with a label | Our World in Data, population (CC BY 4.0) |
+| Wind share of generation | wind generation ÷ total generation (%) | Ember, Yearly Electricity Data (CC BY 4.0) |
+| Capacity factor (national average) | wind generation ÷ (mean of the two year-end capacities × hours in the year); includes curtailment and partial years, blank outside 5–60% | Ember, Yearly Electricity Data (CC BY 4.0) |
+| Added this year | year-on-year difference of the year-end totals (MW); negative when more was decommissioned than built | the site's national statistics |
+
+Ember and the population series stop at their latest years (2025 and 2023 at present); later years carry the last value, labelled in the legend and the table. All of these are national averages, meant for trends and rough comparison only.
 
 ### 4.9 Tours
 
@@ -256,6 +274,8 @@ The link is the view: share it and the other person sees the same thing. The glo
 | `q`, `fst`, `fty`, `fmin`, `fy` | Search text, status (`op,p1,p2,p3,ret`), type (`on,off,fl`), minimum MW, year range (`2015-2025`) | `fty=fl&fst=op` |
 | `out` | Output: `TWN`, `TWS`, `USA`, `AUS`, `DNK`, `DKT` plus `.gen`, `.cf` or `.model` | `out=USA.cf` |
 | `op` | Live-sample period: `30`, `all` (90 days by default) | `op=30` |
+| `ind` | Colour the map by an indicator: `cap`, `pc`, `share`, `cf`, `add` (4.8a) | `ind=share` |
+| `cmp` | Open the country comparison with 2–4 country codes separated by commas | `cmp=TWN,DNK,DEU` |
 | `flow=1`, `zones=1`, `live=1` | Turn on Wind now, Sea zones, live data coverage | `live=1` |
 | `base` | Basemap: `relief`, `sat`, `plain`, `wind` | `base=wind` |
 | `pipe` | Pipeline: `0` off, `1` on | `pipe=0` |
