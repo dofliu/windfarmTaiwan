@@ -5,10 +5,18 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 14 Oct 2026: v2.38.1 time-sensitive checks, half done; the next conversation starts here)
+## In progress (hand-off, 14 Oct 2026: v2.39.0 turbine makers and owners; second round of the time-sensitive checks at month-end; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
+
+### Turbine makers and owners (14 Oct 2026, v2.39.0; "Next-step options" item 4)
+
+Picked by the owner on 14 Oct 2026. The globe's "🏭 Makers & owners" is live (details in [CHANGELOG.en.md](./CHANGELOG.en.md) v2.39.0 and user guide 4.8b). Left over:
+
+- Maker coverage: about 23% of the world and 72% of offshore; very low for China (about 4%), India (7%), Spain (4%), France (10%) and Brazil (8%), whose farm records mostly lack the model and which have no public per-turbine register like USWTDB or MaStR. Filling them needs a citable per-farm model source (e.g. national authorities' farm lists) — not OSM tags (ODbL), and no guessing.
+- German MaStR farms with mixed models (about 1,600) count as unknown; adding each maker's capacity when `build_mastr.py` is rerun (like the US `mk`) would raise Germany's coverage from 54%.
+- Owner grouping is by name only (`OWNER_GROUPS`); groups whose subsidiaries' names do not show the parent (Longyuan of CHN Energy, Avangrid of Iberdrola) are not merged. Merging them needs a source for each link.
 
 ### Time-sensitive checks, first round (14 Oct 2026, v2.38.1; "Next-step options" group 1)
 
@@ -27,7 +35,7 @@ The owner picked "country comparison, Ember indicators and yearly additions firs
 - Data refresh: Ember publishes the full previous year around April–May (then updates monthly); Our World in Data's population series currently ends in 2023. After a release run `python3 tools/build_country_indicators.py --fetch` (the Ember file is about 50 MB), then rebuild the single-file copies.
 - The capacity factor uses Ember's capacity (a different scope from the site's national statistics), so countries whose Ember capacity differs much from the site's read high or low (Taiwan, Denmark and Germany agree for 2023–2025; other countries were not checked one by one); the UI already says it is for rough comparison only. To use the site's capacity as the denominator instead, point the `cf` block of `build_country_indicators.py` at `wind_global.json`, but first confirm the year scope of Ember's generation matches the site's capacity.
 - The fixed indicator breaks (`IND_BREAKS` in `globe.js`) were set by hand from the 2025 distribution; they may need adjusting as the figures grow, with the single-hue contrast check re-run before changing them.
-- The rest of "Next options" item 4: turbine-maker and developer shares, teaching interactives, farm details v2, Taiwan's offshore phases and small onshore farms; the items that need the owner's decision are unchanged.
+- The rest of "Next options" item 4: ~~turbine-maker and developer shares~~ (done in v2.39.0), teaching interactives, farm details v2, Taiwan's offshore phases and small onshore farms; the items that need the owner's decision are unchanged.
 
 ### Data-quality push (11 Oct 2026, v2.37.0; item 3 of "Next-step options")
 
@@ -105,7 +113,7 @@ After round 23 the owner asked what else there is to do besides the doubts; the 
    "Limits of the data and open questions", computing these counts from the loaded data (`dataLimits` in `globe.js`); the attribution line says the data is still being checked and not
    fully accurate, and Learn chapter 13 and sections 4.10 and 9 of the user guide explain it in words (no figures). When things change (ports in China added, photos filled in), update
    the chapter-13 and README wording too.
-4. **Features not yet built (ROADMAP phases 2–3)**: ~~country comparison, more indicators, yearly additions~~ (done on 14 Oct 2026, v2.38.0; see the top of this file), turbine-maker and developer shares (medium), teaching interactives (power curve, capacity factor,
+4. **Features not yet built (ROADMAP phases 2–3)**: ~~country comparison, more indicators, yearly additions~~ (done on 14 Oct 2026, v2.38.0; see the top of this file), ~~turbine-maker and developer shares~~ (done in v2.39.0), teaching interactives (power curve, capacity factor,
    wake effect, falling costs; medium), farm details v2 (UK REPD and the Danish turbine register for positions, a common-model spec table, UK per-farm output), Taiwan's offshore phases
    (`ph` field), and small onshore farms in Taiwan (GEM leaves out those under 10 MW). **Ask the owner first**: UK estimates and live data from NED (Netherlands) and ENTSO-E (free keys
    needed), a long-term archive and trend chart for the grid status, and the grid-status source's WAF 403 (needs another runtime, not a code fix). Other energy sources: the owner chose to defer.

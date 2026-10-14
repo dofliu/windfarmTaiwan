@@ -81,7 +81,7 @@ not yet built, recommending phase 2's country comparison, Ember indicators and y
 | Country comparison | **Done (Oct 2026, v2.38.0)**: "⚖ Compare" in the toolbar puts 2–4 countries side by side — cumulative curves and a table for the year (additions, last 5 years, 10-year growth, per capita, share, capacity factor, largest farm) | medium |
 | More metrics | **Done (Oct 2026, v2.38.0)**: the "Indicator" menu colours the map by capacity at year end, per capita, wind share of generation, capacity factor or added this year (Ember yearly data and OWID population, CC BY 4.0); the bar race ranks by the indicator too | medium |
 | Yearly additions | **Done (Oct 2026, v2.38.0)**: a "capacity added each year" onshore / offshore bar chart in the country, continent and world profiles, plus the "added this year" indicator | small |
-| Turbine makers and developers | Derive the manufacturer from the turbine model strings to show market shares by country and year; developer portfolios | medium |
+| Turbine makers and developers | **Done (Oct 2026, v2.39.0)**: the globe's "🏭 Makers & owners" — capacity and yearly additions by maker from the site's farm records (USWTDB, MaStR, farm records) and owners of GEM's operating units by stake, both with coverage. Next: maker coverage is very low for China and India (about 4% and 7%) and needs a citable per-farm model source | medium |
 
 ### Phase 3: context layers and deeper learning
 

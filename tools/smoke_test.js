@@ -67,6 +67,10 @@ const ROUTES = [
     const n = document.querySelectorAll('#g-modal.show .ocmp .cmptab tbody tr').length;
     return n >= 10 ? '' : 'country comparison: ' + n + ' rows';
   }],
+  ['#/global?mk=WORLD&mkt=off', 15000, () => {
+    const n = document.querySelectorAll('#g-modal.show .omk .mkrow').length;
+    return n >= 5 ? '' : 'makers & owners: ' + n + ' rows';
+  }],
   ['#/global?ind=share', 15000, () => {
     const l = document.querySelector('#g-indLegend');
     return l && !l.hidden && l.querySelector('.ilr') ? '' : 'indicator: legend missing';

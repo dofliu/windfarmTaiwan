@@ -137,6 +137,14 @@ const I18N = {
     cmpRows: { cap: '年底累計容量', on: '陸域', off: '離岸', rank: '全球排名', share: '占全球', add: '當年新增', add5: '近 5 年新增', x10: '十年成長倍數', pc: '人均容量', wshare: '風電占發電比例', cf: '容量因數（全國平均）', farms: '本站收錄的營運中風場', big: '最大風場' },
     cmpNote: '容量為本站各國統計（IRENA、能源署、JWPA 等，見「資料來源」）；人均容量用 Our World in Data 的人口（CC BY 4.0），風電占發電比例與容量因數來自 Ember 年度電力資料（CC BY 4.0），只到 Ember 最新的年份。容量因數是全國平均，含限電與新機組的部分年份，只適合粗略比較。',
     cmpAddTw: '加入台灣', cmpLink: '複製連結', cmpCopied: '已複製',
+    btnMk: '🏭 廠牌與業主', mkTitle: '風機廠牌與業主', mkScope: '範圍', mkMaker: '風機廠牌', mkOwner: '業主', mkAll: '全部', mkOn: '陸域', mkOff: '離岸', mkYear: '年份',
+    mkLoading: '載入中…', mkNone: '這個範圍沒有可用的資料。', mkOther: '其他廠牌', mkOtherOwn: '其他業主', mkUnknown: '不詳',
+    mkCov: (k, t, p, y) => y + ' 年底本站逐場資料 ' + t + '，已知廠牌 ' + k + '（' + p + '%）', mkLow: '已知廠牌的容量不到一半，這裡的比例不能當成這個範圍的市占。',
+    mkShare: '占已知廠牌', mkAdds: '各年新增容量（依廠牌）', mkAddsNote: '依風場商轉年；分期風場依本站紀錄的年份；淡色為廠牌不詳',
+    mkNoteM: '來源：美國用 USWTDB 每部風機的廠牌（公有領域），德國用 MaStR（整座風場只有一種機型的），其他國家用本站風場紀錄的機型欄；寫了兩家以上廠牌、又沒有各自容量的算「不詳」。不用 OpenStreetMap 的標籤（ODbL）。品牌依沿革歸併：NEG Micon、MHI Vestas → Vestas；Siemens、Gamesa、Bonus、Adwen → Siemens Gamesa；Enron Wind、Zond、Tacke、Alstom → GE Vernova；Acciona Windpower → Nordex；REpower → Senvion。這是本站資料中已知廠牌的容量，不是年度市占統計（那類統計是付費報告）。',
+    mkCovO: (k, t, p) => 'GEM 營運中機組 ' + t + '，已知業主 ' + k + '（' + p + '%）', mkLowO: '已知業主的容量不到一半，排名只供參考。', mkShareO: '占已知業主',
+    mkNoteO: '來源：Global Energy Monitor《Global Wind Power Tracker》2026-02 版（CC BY 4.0）營運中機組的業主欄，依持股比例分配容量；這是目前的持有狀況，不隨時間軸變動。子公司只在名稱看得出所屬集團時歸併（例：Enel Green Power España → Enel）；名稱看不出母公司的（例：龍源電力屬國家能源集團、Avangrid 屬 Iberdrola）各自列出，所以集團的實際持有量可能比這裡多。',
+    mkOffOnly: '業主沒有分陸域，顯示全部',
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
@@ -262,6 +270,14 @@ const I18N = {
     cmpRows: { cap: 'Capacity at year end', on: 'Onshore', off: 'Offshore', rank: 'World rank', share: 'Share of world', add: 'Added this year', add5: 'Added in the last 5 years', x10: 'Growth over 10 years', pc: 'Per capita', wshare: 'Wind share of generation', cf: 'Capacity factor (national average)', farms: 'Operating farms on this site', big: 'Largest farm' },
     cmpNote: 'Capacities are the site’s national statistics (IRENA, the Energy Administration, JWPA and others; see “Sources”); per-capita capacity uses Our World in Data’s population (CC BY 4.0); wind share and capacity factor come from Ember’s yearly electricity data (CC BY 4.0) and stop at Ember’s latest year. The capacity factor is a national average including curtailment and partial years, good for rough comparison only.',
     cmpAddTw: 'Add Taiwan', cmpLink: 'Copy link', cmpCopied: 'Copied',
+    btnMk: '🏭 Makers & owners', mkTitle: 'Turbine makers and owners', mkScope: 'Scope', mkMaker: 'Turbine makers', mkOwner: 'Owners', mkAll: 'All', mkOn: 'Onshore', mkOff: 'Offshore', mkYear: 'Year',
+    mkLoading: 'Loading…', mkNone: 'No usable data for this scope.', mkOther: 'Other makers', mkOtherOwn: 'Other owners', mkUnknown: 'Unknown',
+    mkCov: (k, t, p, y) => 'End of ' + y + ': ' + t + ' in the site’s farm records, ' + k + ' with a known maker (' + p + '%)', mkLow: 'Less than half of the capacity has a known maker, so these shares are not the market share of this scope.',
+    mkShare: 'Share of known', mkAdds: 'Capacity added each year (by maker)', mkAddsNote: 'By commissioning year; phased farms by the year on the site’s record; faded = maker unknown',
+    mkNoteM: 'Sources: USWTDB per-turbine manufacturers for the US (public domain), MaStR for German farms with a single model, the turbine field of the site’s farm records elsewhere; records naming several makers without their capacities count as unknown. OpenStreetMap tags are not used (ODbL). Brands are folded along their history: NEG Micon, MHI Vestas → Vestas; Siemens, Gamesa, Bonus, Adwen → Siemens Gamesa; Enron Wind, Zond, Tacke, Alstom → GE Vernova; Acciona Windpower → Nordex; REpower → Senvion. This is capacity with a known maker in the site’s data, not an annual market-share statistic (those are paid reports).',
+    mkCovO: (k, t, p) => 'Operating units in GEM: ' + t + ', ' + k + ' with a known owner (' + p + '%)', mkLowO: 'Less than half of the capacity has a known owner; treat the ranking as indicative.', mkShareO: 'Share of known',
+    mkNoteO: 'Source: Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0), owners of operating units with capacity split by their stakes; this is the current ownership and does not follow the timeline. Subsidiaries are merged only when the group’s name is part of their own (e.g. Enel Green Power España → Enel); those whose parent is not in the name (e.g. Longyuan Power of CHN Energy, Avangrid of Iberdrola) are listed separately, so a group may own more than shown.',
+    mkOffOnly: 'Owners are not split by onshore; showing all',
   }
 };
 let lang = WW.lang;
@@ -281,6 +297,7 @@ host.innerHTML = `
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
   <button id="g-btnOut" type="button" data-gi="btnOut" aria-haspopup="dialog"></button>
   <button id="g-btnCmp" type="button" data-gi="btnCmp" aria-haspopup="dialog"></button>
+  <button id="g-btnMk" type="button" data-gi="btnMk" aria-haspopup="dialog"></button>
   <div class="ggrp"><label for="g-indSel" data-gi="ind"></label><select id="g-indSel"><option value="" data-gi="indNone"></option><option value="cap" data-gi="indCap"></option><option value="pc" data-gi="indPc"></option><option value="share" data-gi="indShare"></option><option value="cf" data-gi="indCf"></option><option value="add" data-gi="indAdd"></option></select></div>
   <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
   <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
@@ -1657,6 +1674,7 @@ function updateHUD() {
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
   if (S.ind && Math.floor(S.year) !== indYearPainted) { indPaint(); renderIndLegend(); }
   if (cmpShown() && Math.floor(S.year) !== cmpYear) { cmpYear = Math.floor(S.year); renderCompare(); }
+  if (mkShown() && MK.view === 'maker' && Math.floor(S.year) !== mkYear) renderMk();
   const ll = $('g-liveLegend'), showLl = liveSeen && liveOn() && !!renderer && S.view !== 'bars' && farmsReady && S.layer !== 'fd';
   if (ll.hidden === showLl || ll._lang !== lang) { ll.hidden = !showLl; ll._lang = lang; ll.innerHTML = '<i class="gsw" style="background:var(--live)"></i>' + T('liveLegend'); }
   const lg = $('g-pipeLegend'), showLg = S.pipe && S.year >= Y1 - 0.02 && !!renderer && S.view !== 'bars' && farmsReady && S.layer !== 'fd';
@@ -2264,12 +2282,13 @@ function renderProfile() {
   const ltBox = y === (LT && LT.year) ? `<div class="ltbox">${c.lt ? `${esc(T('ltOk')(c.lt.asof, ''))}<a href="${esc(c.lt.url)}" target="_blank" rel="noopener">${esc(c.lt.src[lang === 'zh' ? 0 : 1])}</a>${c.lt.est ? esc(T('ltEst')) : ''}<div class="gnote">${esc(c.lt.note[lang === 'zh' ? 0 : 1])}</div>` : esc(T('ltCarry')(DATA_Y))}</div>` : '';
   box.innerHTML = `<h4>${esc(cname(c))}</h4><div class="sub">${esc(T('cont')[c.cont] || c.cont)} · ${y === (LT && LT.year) ? esc(T('ltYear')(y)) : y}</div>
     <div class="big">${WW.int(tot)}<small>MW</small></div>${sparkSVG(c.on, c.off, yi)}${ltBox}${rowsHTML(rows)}${addsChart([c])}${auditBox(c.iso)}${live}${note}${farmsHTML}${pipeBlock(c.iso)}
-    <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button><button type="button" data-act="cmp">${T('btnCmp')}</button>${OUT_ISO.includes(c.iso) ? `<button type="button" data-act="out">${T('outCountry')}</button>` : ''}${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
+    <div class="acts"><button type="button" data-act="tour">${T('tourCountry')}</button><button type="button" data-act="farms">${T('seeFarms')}</button><button type="button" data-act="cmp">${T('btnCmp')}</button><button type="button" data-act="mk">${T('btnMk')}</button>${OUT_ISO.includes(c.iso) ? `<button type="button" data-act="out">${T('outCountry')}</button>` : ''}${c.iso === 'TWN' ? `<a href="#/live">${T('seeLive')}</a>` : ''}</div>`;
   box.querySelectorAll('[data-farm]').forEach(a => a.onclick = e => { e.preventDefault(); const f = D.farms.find(x => x.name === a.dataset.farm && x.iso === c.iso); if (f) selectFarm(f); });
   box.querySelector('[data-act="tour"]').onclick = () => tourStart();
   box.querySelector('[data-act="farms"]').onclick = () => setPanelTab('farms');
   const ob = box.querySelector('[data-act="out"]'); if (ob) ob.onclick = () => openOutput({ iso: c.iso });
   box.querySelector('[data-act="cmp"]').onclick = () => openCompare([c.iso].concat(CMP.isos.filter(i => i !== c.iso)));
+  box.querySelector('[data-act="mk"]').onclick = () => openMk({ sc: c.iso });
   const ps1 = box.querySelector('[data-act="pipe"]'); if (ps1) ps1.onclick = e => { e.preventDefault(); setPanelTab('pipe'); };
   wireFdLink(box);
 }
@@ -3810,7 +3829,7 @@ function applyI18n() {
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
   renderWindLegend(); renderZoneLegend(); renderCvgLegend(); renderIndLegend();
-  renderOutput(); renderCompare();
+  renderOutput(); renderCompare(); renderMk();
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
 }
@@ -3937,6 +3956,8 @@ function showSources() {
         : ' (monthly DISPATCH_UNIT_SCADA, the 5-minute SCADA output of every unit, and DUDETAIL, registered capacity; source: Australian Energy Market Operator (AEMO), credited under <a href="' + AU_TERMS + '" target="_blank" rel="noopener">AEMO\'s copyright permissions</a>): eastern grid (NEM) only. Output × 5 minutes is summed into yearly output and linked to the site\'s Australian farms through the same unit mapping as the live output; units covering several farms are left out, and farms are used when AEMO\'s registered capacity is within 15% of the site\'s record. New farms often connect in stages, so only years in which the farm was already generating in January of the year before, kept its registered capacity, has 98% of the 5-minute data and a capacity factor of 5–65% are shown; measured output includes curtailment and self-curtailment at negative prices (tools/au_output.py).') + '</li><li>' +
       (zh ? '台灣即時取樣（發電表現「台灣・即時取樣」與風場卡片）：抓取程式約每 2 小時記下台電即時資料（資料集 8931）各併網點的瞬間出力，累積成 data/archive/farm_daily.json（2026-06 起，含民營風場；tools/build_farm_daily.py 可從 git 歷史回補）。平均出力是取樣平均，容量因數只計已列裝置容量的時段；是取樣估計，不是官方發電量。以 2026 年 7 月比對，台電自有 7 座風場與官方月發電量相差 0–2 個百分點。'
         : 'Taiwan live samples (the Output dialog\'s "Taiwan · live samples" and farm cards): the scraper records the instantaneous output of every grid unit in Taipower\'s live data (dataset 8931) about every 2 hours into data/archive/farm_daily.json (from June 2026, private farms included; tools/build_farm_daily.py backfills it from the git history). Average output is the mean of the samples and the capacity factor counts only times with a listed capacity: an estimate from samples, not official generation. Against July 2026, Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.') + '</li></ul>' +
+    '<h4>' + (zh ? '風機廠牌與業主' : 'Turbine makers and owners') + '</h4><ul><li>' + (zh ? '廠牌：美國 USWTDB（公有領域）、德國 MaStR 與本站風場紀錄的機型欄（不用 OpenStreetMap），品牌依沿革歸併成目前的公司；只涵蓋已知廠牌的容量，不是年度市占統計。' : 'Makers: the US USWTDB (public domain), Germany\'s MaStR and the turbine field of the site\'s farm records (OpenStreetMap is not used), brands folded into today\'s companies; known makers only, not an annual market-share statistic.') + '</li>' +
+    '<li>' + (zh ? '業主：' : 'Owners: ') + '<a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">Global Energy Monitor, Global Wind Power Tracker</a> ' + (zh ? '2026-02 版（CC BY 4.0）營運中機組的業主，依持股比例分配容量。' : 'February 2026 release (CC BY 4.0), owners of operating units with capacity split by stake.') + '</li></ul>' +
     '<h4>' + (zh ? '各國指標與國家比較' : 'Country indicators and comparison') + '</h4><ul><li><a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '：風電占發電比例、風電發電量與全國平均容量因數（發電量 ÷ 前後兩年年底容量的平均 × 當年時數；含限電與新機組的部分年份，只適合粗略比較）' : ': wind share of generation, wind generation and the national average capacity factor (generation ÷ the mean of the two year-end capacities × hours in the year; curtailment and partial years included, for rough comparison only)') + (IND && IND.meta && IND.meta.retrieved ? (zh ? '，' + IND.meta.retrieved + ' 取用' : ', retrieved ' + IND.meta.retrieved) : '') + (zh ? '。' : '.') + '</li>' +
     '<li><a href="https://ourworldindata.org/grapher/population" target="_blank" rel="noopener">Our World in Data, Population</a> (CC BY 4.0' + (zh ? '，依聯合國《世界人口展望》等整理）：人均容量＝本站年底容量 ÷ 當年人口' : ', based on UN World Population Prospects and others): per-capita capacity = the site\'s year-end capacity ÷ the population of the year') + (IND && IND.meta && IND.meta.population ? (zh ? '，人口到 ' + IND.meta.population.last_year + ' 年、之後沿用' : ', population to ' + IND.meta.population.last_year + ' and carried forward') : '') + (zh ? '。當年新增為本站年底累計的逐年差。' : '. Capacity added this year is the year-on-year difference of the site\'s year-end totals.') + '</li></ul>' +
     '<h4>' + (zh ? '風場卡片的估計年發電量' : 'Estimated yearly output on farm cards') + '</h4><ul><li>' + (zh ? '容量 × 該國 2023–2025 年風電平均容量因數，取自 ' : 'Capacity × the country\'s 2023–2025 average wind capacity factor, from ') + '<a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '；是估計，不是實測。' : '; an estimate, not a measurement.') + '</li></ul>' +
@@ -4526,6 +4547,116 @@ function renderCompare() {
   const lk = el.querySelector('.cmplink'); if (lk) lk.onclick = () => { copyText(location.href).then(() => { lk.textContent = T('cmpCopied'); setTimeout(() => { lk.textContent = T('cmpLink'); }, 1500); }); };
 }
 
+/* ---- 風機廠牌與業主（data/global/market_shares.json，tools/build_market_shares.py）----
+   廠牌：本站逐場資料（營運中與已除役）依商轉年累計，年份跟著時間軸；業主：GEM 營運中機組的業主與持股比例（目前的持有狀況）。
+   兩者都寫出覆蓋率；已知部分不到一半時加警語，不把它說成市占。 */
+let MS = null, msP = null;
+const MK = { sc: 'WORLD', view: 'maker', t: 'all' };
+let mkYear = -1;
+const MK_COL = ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181'], MK_OTHER = '#7a8494';   // dataviz 色盲檢查（dark、#101a2d）通過
+const mkShown = () => $('g-modal').classList.contains('show') && !!$('g-modalBody').querySelector('.omk');
+function mkIsos(sc) {
+  if (sc === 'WORLD') return C.map(c => c.iso);
+  if (sc.startsWith('C:')) return C.filter(c => c.cont === sc.slice(2)).map(c => c.iso);
+  return [sc];
+}
+function mkScopeName(sc) { return sc === 'WORLD' ? T('world') : sc.startsWith('C:') ? T('cont')[sc.slice(2)] : byIso[sc] ? cname(byIso[sc]) : sc; }
+function openMk(o) {
+  o = o || {};
+  const sc = o.sc && (o.sc === 'WORLD' || /^C:/.test(o.sc) || byIso[o.sc]) ? o.sc : (S.region || 'WORLD');
+  MK.sc = sc; if (o.view === 'owner' || o.view === 'maker') MK.view = o.view; if (['all', 'on', 'off'].includes(o.t)) MK.t = o.t;
+  $('g-modal').querySelector('.box').classList.add('wide');
+  $('g-modalBody').innerHTML = '<div class="omk"></div>';
+  $('g-modal').classList.add('show');
+  if (!msP) msP = WW.getJSON(WW.DATA.shares).then(j => { MS = j; }).catch(() => { MS = { makers: [], m: {}, owners: {} }; });
+  renderMk(); msP.then(() => renderMk());
+  $('g-modalClose').focus();
+  syncURL();
+}
+function mkMakerAgg(isos, y, t) {
+  const by = new Map(); let tot = 0, unk = 0; const adds = new Map();
+  isos.forEach(iso => (MS.m[iso] || []).forEach(([yy, end, off, mi, mw]) => {
+    if ((t === 'on' && off) || (t === 'off' && !off)) return;
+    const live = (yy ? yy <= y : y >= DATA_Y) && (!end || end > y);
+    if (live) { tot += mw; if (mi < 0) unk += mw; else by.set(mi, (by.get(mi) || 0) + mw); }
+    if (yy && yy <= y && yy > y - 25) { const a = adds.get(yy) || new Map(); a.set(mi, (a.get(mi) || 0) + mw); adds.set(yy, a); }
+  }));
+  return { by: [...by.entries()].sort((a, b) => b[1] - a[1]), tot, unk, adds };
+}
+function mkBarList(rows, known, other, otherLab) {
+  const max = Math.max(1, ...rows.map(r => r[1]));
+  return '<div class="mklist">' + rows.map(([n, v]) => '<div class="mkrow"><span class="mkn">' + esc(n) + '</span><span class="mkb"><i style="width:' + (100 * v / max).toFixed(1) + '%"></i></span><span class="mkv">' + fmtMW(v) + '</span><span class="mkp">' + (known ? (100 * v / known).toFixed(1) + '%' : '—') + '</span></div>').join('') +
+    (other > 0.5 ? '<div class="mkrow mko"><span class="mkn">' + esc(otherLab) + '</span><span class="mkb"></span><span class="mkv">' + fmtMW(other) + '</span><span class="mkp">' + (100 * other / known).toFixed(1) + '%</span></div>' : '') + '</div>';
+}
+function mkAddsChart(adds, topIdx, y) {
+  const yrs = []; for (let k = y - 24; k <= y; k++) yrs.push(k);
+  const W = 560, H = 150, PL = 44, PR = 8, PT = 8, PB = 18, bw = (W - PL - PR) / yrs.length;
+  const stacks = yrs.map(k => {
+    const a = adds.get(k) || new Map(), seg = [];
+    topIdx.forEach((mi, j) => seg.push([MK_COL[j], a.get(mi) || 0, 1]));
+    let oth = 0, unk = 0; a.forEach((v, mi) => { if (mi < 0) unk += v; else if (!topIdx.includes(mi)) oth += v; });
+    seg.push([MK_OTHER, oth, 1]); seg.push([MK_OTHER, unk, 0.35]);
+    return seg;
+  });
+  const max = Math.max(1, ...stacks.map(s => s.reduce((t, x) => t + x[1], 0)));
+  const Yv = v => (H - PB) - (H - PT - PB) * v / max;
+  let bars = '';
+  stacks.forEach((s, i) => {
+    let acc = 0; const x = PL + i * bw + 1;
+    s.forEach(([col, v, op]) => { if (v <= 0) return; const y0 = Yv(acc), y1 = Yv(acc + v); acc += v;
+      bars += '<rect x="' + x.toFixed(1) + '" y="' + y1.toFixed(1) + '" width="' + Math.max(1, bw - 2).toFixed(1) + '" height="' + Math.max(0.5, y0 - y1 - 0.6).toFixed(1) + '" fill="' + col + '" fill-opacity="' + op + '"><title>' + yrs[i] + ' · ' + fmtMW(v) + '</title></rect>'; });
+  });
+  const ticks = [0, 0.5, 1].map(f => '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + Yv(max * f).toFixed(1) + '" y2="' + Yv(max * f).toFixed(1) + '" stroke="currentColor" stroke-opacity=".15"/><text x="' + (PL - 4) + '" y="' + (Yv(max * f) + 3).toFixed(1) + '" text-anchor="end" font-size="9" fill="currentColor" opacity=".75">' + esc(fmtAxis(max * f)) + '</text>').join('');
+  const lab = yrs.map((k, i) => (k % 5 === 0 || i === yrs.length - 1) ? '<text x="' + (PL + (i + 0.5) * bw).toFixed(1) + '" y="' + (H - 4) + '" text-anchor="middle" font-size="9" fill="currentColor" opacity=".75">' + k + '</text>' : '').join('');
+  return '<svg class="cmpchart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(T('mkAdds')) + '">' + ticks + bars + lab + '</svg>';
+}
+function renderMk() {
+  if (!mkShown()) return;
+  const el = $('g-modalBody').querySelector('.omk'), y = Math.floor(S.year);
+  mkYear = y;
+  const scs = ['WORLD'].concat(['Asia', 'Europe', 'North America', 'South America', 'Africa', 'Oceania'].map(k => 'C:' + k));
+  const ctry = C.slice().sort((a, b) => cname(a).localeCompare(cname(b), lang === 'en' ? 'en' : 'zh-Hant'));
+  const scSel = '<label class="oyl">' + esc(T('mkScope')) + ' <select class="mksc">' + scs.map(s => '<option value="' + esc(s) + '"' + (s === MK.sc ? ' selected' : '') + '>' + esc(mkScopeName(s)) + '</option>').join('') +
+    '<option disabled>──────</option>' + ctry.map(c => '<option value="' + c.iso + '"' + (c.iso === MK.sc ? ' selected' : '') + '>' + esc(cname(c)) + '</option>').join('') + '</select></label>';
+  const seg = (cls, opts, cur) => '<span class="gseg ' + cls + '" role="group">' + opts.map(([v, lab]) => '<button type="button" data-v="' + v + '" aria-pressed="' + (v === cur) + '"' + (v === cur ? ' class="active"' : '') + '>' + esc(lab) + '</button>').join('') + '</span>';
+  const yrSel = MK.view === 'maker' ? '<label class="oyl">' + esc(T('mkYear')) + ' <select class="mkyear">' + YEARS.filter(v => v >= 1990).map(v => '<option' + (v === y ? ' selected' : '') + '>' + v + '</option>').join('') + '</select></label>' : '';
+  let body;
+  if (!MS) body = '<div class="gnote">' + esc(T('mkLoading')) + '</div>';
+  else if (MK.view === 'maker') {
+    const a = mkMakerAgg(mkIsos(MK.sc), y, MK.t), known = a.tot - a.unk;
+    if (!a.tot) body = '<div class="gnote">' + esc(T('mkNone')) + '</div>';
+    else {
+      const top = a.by.slice(0, 10).map(([mi, v]) => [MS.makers[mi] === 'Other' ? T('mkOther') : MS.makers[mi], v]);
+      const other = a.by.slice(10).reduce((t, x) => t + x[1], 0), pct = known / a.tot * 100;
+      const addTop = (() => { const s = new Map(); a.adds.forEach(m => m.forEach((v, mi) => { if (mi >= 0 && MS.makers[mi] !== 'Other') s.set(mi, (s.get(mi) || 0) + v); })); return [...s.entries()].sort((p, q) => q[1] - p[1]).slice(0, 5).map(x => x[0]); })();
+      const leg = addTop.map((mi, j) => '<span><i style="background:' + MK_COL[j] + '"></i>' + esc(MS.makers[mi]) + '</span>').join('') + '<span><i style="background:' + MK_OTHER + '"></i>' + esc(T('mkOther')) + '</span><span><i style="background:' + MK_OTHER + ';opacity:.35"></i>' + esc(T('mkUnknown')) + '</span>';
+      body = '<div class="ocov">' + esc(T('mkCov')(fmtMW(known), fmtMW(a.tot), pct.toFixed(pct < 10 ? 1 : 0), y)) + '</div>' +
+        (pct < 50 ? '<div class="mkwarn">⚠ ' + esc(T('mkLow')) + '</div>' : '') +
+        (known ? '<div class="mkhd"><span></span><span>' + esc(T('mkShare')) + '</span></div>' + mkBarList(top, known, other, T('mkOther')) : '') +
+        (a.adds.size ? '<div class="ocov">' + esc(T('mkAdds')) + '</div>' + mkAddsChart(a.adds, addTop, y) + '<div class="mkleg">' + leg + '</div><div class="onote" style="margin-top:2px">' + esc(T('mkAddsNote')) + '</div>' : '') +
+        '<div class="onote">' + esc(T('mkNoteM')) + '</div>';
+    }
+  } else {
+    const kind = MK.t === 'off' ? 'off' : 'all', o = (MS.owners[MK.sc] || {})[kind];
+    if (!o || !o.t) body = '<div class="gnote">' + esc(T('mkNone')) + '</div>';
+    else {
+      const top = o.top.slice(0, 15), shown = top.reduce((t, x) => t + x[1], 0), pct = o.k / o.t * 100;
+      body = '<div class="ocov">' + esc(T('mkCovO')(fmtMW(o.k), fmtMW(o.t), pct.toFixed(pct < 10 ? 1 : 0))) + (MK.t === 'on' ? ' · ' + esc(T('mkOffOnly')) : '') + '</div>' +
+        (pct < 50 ? '<div class="mkwarn">⚠ ' + esc(T('mkLowO')) + '</div>' : '') +
+        '<div class="mkhd"><span></span><span>' + esc(T('mkShareO')) + '</span></div>' + mkBarList(top, o.k, o.k - shown, T('mkOtherOwn')) +
+        '<div class="onote">' + esc(T('mkNoteO')) + '</div>';
+    }
+  }
+  el.innerHTML = '<h2>' + esc(T('mkTitle')) + ' · ' + esc(mkScopeName(MK.sc)) + '</h2><div class="otop">' + scSel +
+    seg('mkview', [['maker', T('mkMaker')], ['owner', T('mkOwner')]], MK.view) + seg('mkt', [['all', T('mkAll')], ['on', T('mkOn')], ['off', T('mkOff')]], MK.t) + yrSel +
+    '<button type="button" class="cmplink">' + esc(T('cmpLink')) + '</button></div>' + body;
+  el.querySelector('.mksc').onchange = e => { MK.sc = e.target.value; renderMk(); syncURL(); };
+  el.querySelectorAll('.mkview button').forEach(b => b.onclick = () => { MK.view = b.dataset.v; renderMk(); syncURL(); });
+  el.querySelectorAll('.mkt button').forEach(b => b.onclick = () => { MK.t = b.dataset.v; renderMk(); syncURL(); });
+  const ys = el.querySelector('.mkyear'); if (ys) ys.onchange = e => { S.year = clamp(+e.target.value, Y0, Y1); syncYearUI(); renderMk(); syncURL(); };
+  const lk = el.querySelector('.cmplink'); if (lk) lk.onclick = () => { copyText(location.href).then(() => { lk.textContent = T('cmpCopied'); setTimeout(() => { lk.textContent = T('cmpLink'); }, 1500); }); };
+}
+
 function stateParams() {
   const p = {};
   if (S.region !== 'WORLD') p.r = S.region;
@@ -4538,6 +4669,7 @@ function stateParams() {
   if (S.liveCov) p.live = '1';
   if (S.ind) p.ind = S.ind;
   if (cmpShown()) p.cmp = CMP.isos.join(',');
+  if (mkShown()) { p.mk = MK.sc; if (MK.view !== 'maker') p.mkv = MK.view; if (MK.t !== 'all') p.mkt = MK.t; }
   if (outShown()) { p.out = OUT.iso + '.' + OUT.view; if (isSamp() && OUT.per !== '90') p.op = OUT.per; }
   if (S.layer === 'fd' && S.fdOnly) p.fdg = S.fdOnly;
   if (focusFarm && !focusFarm.pseudo && cardItem && cardItem.kind === 'farm') p.f = focusFarm.name;
@@ -4601,6 +4733,7 @@ function applyParams(p, fromFarms) {
   if (p.ev) { if (!eventsReady) pendingEvent = p.ev; else { const e = EVENTS.find(x => x.id === p.ev); if (e) selectEvent(e); } }
   if (p.out) { const [oi, ov] = String(p.out).split('.'); openOutput({ iso: oi, view: ov, per: OUT_PER.includes(p.op) ? p.op : '90' }); }
   if (p.cmp) openCompare(String(p.cmp).split(',').map(x => x.trim().toUpperCase()));
+  if (p.mk) openMk({ sc: /^C:|^WORLD$/.test(p.mk) ? p.mk : String(p.mk).toUpperCase(), view: p.mkv === 'owner' ? 'owner' : 'maker', t: p.mkt });
   if (p.play === '1') { if (!p.y) S.year = Y0; setPlaying(true); }
   if (p.tour === '1' || STORIES[p.tour]) { const k = STORIES[p.tour] ? p.tour : null; if (farmsReady) tourStart(k); else pendingParams = Object.assign(pendingParams || {}, { tour: p.tour }); }
 }
@@ -4679,6 +4812,7 @@ function wireUI() {
   $('g-btnLiveCov').onclick = () => toggleLiveCov();
   $('g-btnOut').onclick = () => openOutput({ iso: OUT_ISO.includes(S.region) ? S.region : OUT.iso });
   $('g-btnCmp').onclick = () => openCompare(CMP.isos.length ? CMP.isos : [byIso[S.region] ? S.region : 'TWN']);
+  $('g-btnMk').onclick = () => openMk({ sc: S.region });
   $('g-indSel').onchange = e => setIndicator(e.target.value);
   $('g-btnPipe').onclick = () => { togglePipe(); if (S.pipe && S.year < Y1 - 0.02 && !S.playing) { S.year = Y1; syncYearUI(); } if (S.pipe) setPanelTab('pipe'); };
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
@@ -4696,7 +4830,7 @@ function wireUI() {
   window.addEventListener('keydown', e => {
     if (!active || e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關來源說明，再關資訊卡／導覽
-      if ($('g-modal').classList.contains('show')) { const wasOut = outShown(), wasCmp = cmpShown(); $('g-modal').classList.remove('show'); $('g-' + (wasOut ? 'btnOut' : wasCmp ? 'btnCmp' : 'btnSources')).focus(); syncURL(); return; }
+      if ($('g-modal').classList.contains('show')) { const wasOut = outShown(), wasCmp = cmpShown(), wasMk = mkShown(); $('g-modal').classList.remove('show'); $('g-' + (wasOut ? 'btnOut' : wasCmp ? 'btnCmp' : wasMk ? 'btnMk' : 'btnSources')).focus(); syncURL(); return; }
       if (TOUR) tourEnd(false); if (cardItem) closeCard(); return;
     }
     const tg = e.target.tagName;
