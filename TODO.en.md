@@ -14,8 +14,8 @@ and move finished items to the topic lists below.
 
 Picked by the owner on 14 Oct 2026. The globe's "🏭 Makers & owners" is live (details in [CHANGELOG.en.md](./CHANGELOG.en.md) v2.39.0 and user guide 4.8b). Left over:
 
-- Maker coverage: about 23% of the world and 72% of offshore; very low for China (about 4%), India (7%), Spain (4%), France (10%) and Brazil (8%), whose farm records mostly lack the model and which have no public per-turbine register like USWTDB or MaStR. Filling them needs a citable per-farm model source (e.g. national authorities' farm lists) — not OSM tags (ODbL), and no guessing.
-- German MaStR farms with mixed models (about 1,600) count as unknown; adding each maker's capacity when `build_mastr.py` is rerun (like the US `mk`) would raise Germany's coverage from 54%.
+- Maker coverage: about 26% of the world, 72% of offshore and 93% of Germany (MaStR per-maker capacity since v2.39.1); very low for China (about 4%), India (7%), Spain (4%), France (10%) and Brazil (8%), whose farm records mostly lack the model and which have no public per-turbine register like USWTDB or MaStR. Filling them needs a citable per-farm model source (e.g. national authorities' farm lists) — not OSM tags (ODbL), and no guessing.
+- German MaStR: `build_mastr.py` now writes `mk` (net rating by manufacturer) for mixed-model farms. v2.39.1 only merged the `mk` computed from the 2026-10-13 export into the existing `turbines_de.json` (the 1,695 farms whose unit count and capacity were unchanged; 8 farms whose units changed stay unknown); the farm matching and `mastr_parks_DEU.json` were not rerun — update them together at the next full MaStR and farm-layer rebuild. Units MaStR files under "Sonstige" (other) count as unknown.
 - Owner grouping is by name only (`OWNER_GROUPS`); groups whose subsidiaries' names do not show the parent (Longyuan of CHN Energy, Avangrid of Iberdrola) are not merged. Merging them needs a source for each link.
 
 ### Time-sensitive checks, first round (14 Oct 2026, v2.38.1; "Next-step options" group 1)

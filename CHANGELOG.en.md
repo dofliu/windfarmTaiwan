@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.39.1 — 2026-10-14
+
+- "Makers & owners" now uses MaStR's per-turbine manufacturers for Germany: `tools/build_mastr.py` writes each maker's net rating (`mk`) for mixed-model farms and `tools/build_market_shares.py` splits by it (units filed as "Sonstige" count as unknown).
+  Germany's capacity with a known maker rises from 54% to 93% (Enercon 34%, Vestas 26%, Siemens Gamesa 12%, Nordex 12%, Senvion 7%, GE Vernova 6%) and the world's from 23% to 26%.
+  Only the `mk` computed from the 2026-10-13 export was merged into the existing `turbines_de.json` (the 1,695 farms whose unit count and capacity were unchanged); the farm matching was not rerun. User guide 4.8b and the sources texts are updated.
+
 ## v2.39.0 — 2026-10-14
 
 - The globe gains "**🏭 Makers & owners**" (ROADMAP phase 2, "turbine makers and developers", picked by the owner on 14 Oct 2026): opened from the toolbar or a country profile, with the world, a continent or a country as scope and the URL parameters `mk`, `mkv` and `mkt`.

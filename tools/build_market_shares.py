@@ -5,7 +5,7 @@
 
 廠牌（makers）：本站逐場資料（data/global/wind_farms.json）裡營運中與已除役的風場，依下列順序決定廠牌：
   1. 美國：USWTDB 每部風機的廠牌（data/global/turbines.json；混合機型的風場用 mk 欄、依各廠牌額定容量比例分配）。
-  2. 德國：MaStR（data/global/turbines_de.json），只用整座風場只有一種機型的（混合機型時其他機組的廠牌不明，算「不詳」）。
+  2. 德國：MaStR（data/global/turbines_de.json）每部風機的廠牌；混合機型的風場用 mk 欄、依各廠牌淨額定容量比例分配（MaStR 填「Sonstige」的算「不詳」）。
   3. 其他：風場紀錄的機型欄（turbine）；寫了兩家以上廠牌、又沒有各自容量的，算「不詳」。
   不用 OpenStreetMap 的風機標籤（ODbL，不能併進其他授權的資料檔，見 CLAUDE.md）。
   品牌依沿革歸併成目前的公司：NEG Micon、Micon、Nordtank、MHI Vestas → Vestas；Siemens、Gamesa、Bonus、Adwen → Siemens Gamesa；
@@ -18,7 +18,7 @@
   （例：龍源電力、Avangrid 各自列出），所以集團的實際持有量可能比這裡多。
 
 Turbine makers come from the site's farm records (operating and retired farms): USWTDB per-turbine manufacturers for US farms
-(mixed farms split by each maker's summed rating), MaStR for German farms with a single model, otherwise the record's turbine
+(mixed farms split by each maker's summed rating), MaStR per-turbine manufacturers for German farms (mixed farms split the same way), otherwise the record's turbine
 field; records naming several makers without their capacities count as unknown. OpenStreetMap tags are not used (ODbL).
 Brands are folded into today's companies along their merger history (listed above). This is capacity with a known maker in
 the site's data, not an annual market-share statistic; the page shows the coverage.
@@ -183,9 +183,17 @@ def main():
                 src_mw['uswtdb'] += mw
         elif iso == 'DEU' and 'DEU|' + name in de:
             d = de['DEU|' + name]
-            if d.get('mn') == 1 and d.get('m'):
+            if d.get('mk'):                                # 混合機型：依各廠牌的淨額定容量分配（MaStR 寫 Sonstige＝其他的算不詳）
+                ks = collections.Counter()
+                for k, kw in d['mk'].items():
+                    m = makers_in(k)
+                    ks[m[0] if len(m) == 1 else -1] += kw
+                tot = sum(ks.values())
+                split = [(k, v / tot) for k, v in ks.items()] if tot else None
+            elif d.get('mn') == 1 and d.get('m'):
                 m = makers_in(d['m'])
                 split = [(m[0] if len(m) == 1 else 'Other', 1.0)]
+            if split:
                 src_mw['mastr'] += mw
         if split is None:
             m = makers_in(turbine)
@@ -238,7 +246,7 @@ def main():
     out = {
         'meta': {
             'makers': {
-                'source': 'Site farm records (data/global/wind_farms.json): USWTDB per-turbine manufacturers for US farms, MaStR for single-model German farms, otherwise the record\'s turbine field',
+                'source': 'Site farm records (data/global/wind_farms.json): USWTDB per-turbine manufacturers for US farms, MaStR per-turbine manufacturers for German farms, otherwise the record\'s turbine field',
                 'folding': 'NEG Micon, Micon, Nordtank, MHI Vestas → Vestas; Siemens, Gamesa, Bonus, Adwen → Siemens Gamesa; Enron Wind, Zond, Tacke, Alstom → GE Vernova; Acciona Windpower → Nordex; REpower → Senvion',
                 'note': 'Capacity with a known maker in the site\'s data (operating and retired farms by commissioning year), not an annual market-share statistic. Rows: [year (0 = unknown), retirement year (0 = none), offshore (0/1), maker index (-1 = unknown or mixed), MW].',
                 'by_source_mw': {k: round(v) for k, v in src_mw.items()},
