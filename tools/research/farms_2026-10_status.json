@@ -1,0 +1,68 @@
+[
+ {
+  "farm": "Vineyard Wind 1",
+  "iso": "USA",
+  "status": "no whole-farm COD announcement as of 2026-10-14; developer news page has nothing after the 16 Sep 2026 GE Vernova settlement; all turbines capable of producing power, full commissioning unconfirmed",
+  "sources": [
+   {"url": "https://www.vineyardwind.com/news", "quote": "September 16, 2026 Vineyard Wind and GE Vernova Announce Resolution of Commercial Litigation September 16, 2026 Read more → September 16, 2026 January 27, 2026 Vineyard Wind Allowed to Resume Full Activities"},
+   {"url": "https://www.mvtimes.com/2026/10/08/wind-farms-navigate-rough-seas/", "quote": "Separately, Vineyard Wind announced that the company and GE Vernova “reached an amicable settlement to absolve all outstanding litigation,” according to a press release from Vineyard Wind on Sept. 16."}
+  ]
+ },
+ {
+  "farm": "Revolution Wind",
+  "iso": "USA",
+  "status": "no COD as of 2026-10-14; all 65 turbines installed 17 Sep 2026, commissioning continuing, COD anticipated later in 2026",
+  "sources": [
+   {"url": "https://www.mvtimes.com/2026/10/08/wind-farms-navigate-rough-seas/", "quote": "An Ørsted spokesperson confirmed that installation is complete, and commissioning of the turbines continued across the project in mid-September. “Revolution Wind continues to progress toward an anticipated commercial operation date later this year,” the spokesperson said."},
+   {"url": "https://ctmirror.org/2026/08/13/revolution-wind-completed-2026-orsted/", "quote": "Ørsted Chief Executive Rasmus Errboe said the project is more than 95% complete, with 61 out of 65 turbines fully installed. The four remaining turbines are on track to be installed over the coming months, Errboe added, allowing the project to reach full commercial operation by the end of 2026."}
+  ]
+ },
+ {
+  "farm": "Baltic Power Offshore wind farm",
+  "iso": "POL",
+  "status": "not in full commercial operation as of 2026-10-14; all 76 turbines installed (Northland Power, 7 Oct 2026), over one-third generating, commissioning under way, commercial operations expected in 2026",
+  "sources": [
+   {"url": "https://www.windtech-international.com/projects-and-contracts/baltic-power-completes-turbine-installation", "quote": "Published: 07 October 2026 Installation of all 76 turbines at the Baltic Power offshore wind farm has been completed. Poland’s first offshore wind farm is now in the commissioning and testing phase, ahead of full operation in the coming months."},
+   {"url": "https://offshorewind.biz/2026/10/07/all-turbines-installed-at-polands-first-offshore-wind-farm", "quote": "generating power, according to Canada-based Northland Power, which said on 7 October that the project was on track for commercial operations in 2026. The company also said the costs of the project, which is now advancing through commissioning, were aligned with original expectations."},
+   {"url": "https://www.bairdmaritime.com/offshore/renewables/offshore-wind/polands-first-offshore-wind-farm-installs-all-76-turbines", "quote": "More than one-third of the turbines are already generating power, following the delivery of the project's first electricity to the grid in"}
+  ]
+ },
+ {
+  "farm": "Sofia",
+  "iso": "GBR",
+  "status": "not in full operation as of 2026-10-14; no RWE/Sofia press release since May 2026; project timeline still says late 2026 for all 100 turbines commissioned and fully operational",
+  "sources": [
+   {"url": "https://sofiawindfarm.com/offshore-construction/", "quote": "Late 2026 All 100 turbines fully commissioned. Offshore converter platform fully commissioned. Sofia is fully operational."},
+   {"url": "https://sofiawindfarm.com/latest/press-releases/", "quote": "Press Release May 1 2026 RWE celebrates five major wins at Humber Renewables Awards 2026 Find out more Press Release Feb 9 2026 RWE announces ne"}
+  ]
+ },
+ {
+  "farm": "Dieppe-Le Treport wind farm",
+  "iso": "FRA",
+  "status": "under construction as of 2026-10-14; 41 of 62 turbines installed on 2 Oct 2026 (project site), first turbines energised, full commissioning expected by end of 2026",
+  "sources": [
+   {"url": "https://dieppe-le-treport.eoliennes-mer.fr/", "quote": "Le parc est en construction 41/62 éoliennes installées"},
+   {"url": "https://dieppe-le-treport.eoliennes-mer.fr/", "quote": "A ce jour (02/10), 41 éoliennes sont installées. Nos premières éoliennes sont énergisées !"},
+   {"url": "https://www.meretmarine.com/fr/energies-marines/parc-eolien-de-dieppe-le-treport-le-parc-a-commence-a-entrer-en-production-en-juillet", "quote": "L’installation des 62 machines se poursuit, alors que la mise en service complète du parc normand est attendue d’ici la fin de l’année."}
+  ]
+ },
+ {
+  "farm": "CTG Yangjiang Qingzhou 5 & 7",
+  "iso": "CHN",
+  "status": "no full-capacity grid connection (全容量并网) reported as of 2026-10-14; first 5 of 163 turbines connected 27 Sep 2026 (CTG announcement 28 Sep); latest item 10 Oct 2026 still refers only to first-batch connection",
+  "sources": [
+   {"url": "https://m.gmw.cn/2026-09/29/content_1304569706.htm", "quote": "记者9月28日从三峡集团获悉，阳江青洲五期、七期海上风电项目首批5台机组成功并网，世界电压等级最高、输送容量最大的海上风电柔性直流送出工程同步投入运行"},
+   {"url": "https://finance.sina.com.cn/roll/2026-09-30/doc-initqkpc7118080.shtml", "quote": "9月27日 ，三峡阳江青洲五、七期 200万千瓦 海上风电项目首批机组成功并网发电。"},
+   {"url": "https://www.sohu.com/a/1083005471_714642", "quote": "顺利实现首批机组并网发电，为后续全容量并网打下了坚实基础。"},
+   {"url": "https://stock.10jqka.com.cn/20261010/c680554229.shtml", "quote": "此次项目首批机组顺利并网， 长缆科技（002879） 相关产品已由试验验证阶段转入实际运行阶段，全面服务于项目首批机组并网后的电力送出系统。"}
+  ]
+ },
+ {
+  "farm": "Windanker",
+  "iso": "DEU",
+  "status": "not operating as of 2026-10-14; no first-power or COD announcement found; Iberdrola targets operation by end of 2026 (Iberdrola pages return 403 to the checker, secondary source used)",
+  "sources": [
+   {"url": "https://www.power-technology.com/news/iberdrolas-windanker-offshore-wind-delivery/", "quote": "we look forward to adding Windanker to our portfolio of operational projects by the end of 2026."}
+  ]
+ }
+]
