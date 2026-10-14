@@ -63,6 +63,14 @@ const ROUTES = [
     const l = document.querySelector('#g-cvgLegend');
     return l && !l.hidden && l.querySelector('.cvsw.full') ? '' : 'live data coverage: legend missing';
   }],
+  ['#/global?cmp=TWN,DNK,DEU&y=2024', 15000, () => {
+    const n = document.querySelectorAll('#g-modal.show .ocmp .cmptab tbody tr').length;
+    return n >= 10 ? '' : 'country comparison: ' + n + ' rows';
+  }],
+  ['#/global?ind=share', 15000, () => {
+    const l = document.querySelector('#g-indLegend');
+    return l && !l.hidden && l.querySelector('.ilr') ? '' : 'indicator: legend missing';
+  }],
   ['#/learn', 3500],
   ['#/learn/sources', 3500],
 ];

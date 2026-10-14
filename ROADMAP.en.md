@@ -78,9 +78,9 @@ not yet built, recommending phase 2's country comparison, Ember indicators and y
 | Item | What | Effort |
 |---|---|---|
 | Live output in other countries | **Done (Sep 2026)**: Australia NEM, Alberta and Ontario, about 150 farms; farms with live data get a green ring. Oct 2026 (v2.31.0): a national "wind output right now" for Great Britain, Germany, France, Denmark, Texas and California; Belgium and Poland added in v2.32.0, Ireland, Northern Ireland and Korea in v2.33.0, and Brazil in v2.34.0. Next: Japan needs each grid operator's consent first; UK per-farm estimates (ask the owner first) (see [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)) | medium–large |
-| Country comparison | Put 2–4 countries side by side (small multiples): cumulative capacity, yearly additions, onshore / offshore, indexed growth | medium |
-| More metrics | Capacity per person, wind's share of electricity generation, capacity factor (Ember yearly data, CC BY 4.0); colour the map by any metric | medium |
-| Yearly additions | Show capacity added each year (not just cumulative) to reveal each country's build-out peaks and cycles | small |
+| Country comparison | **Done (Oct 2026, v2.38.0)**: "⚖ Compare" in the toolbar puts 2–4 countries side by side — cumulative curves and a table for the year (additions, last 5 years, 10-year growth, per capita, share, capacity factor, largest farm) | medium |
+| More metrics | **Done (Oct 2026, v2.38.0)**: the "Indicator" menu colours the map by capacity at year end, per capita, wind share of generation, capacity factor or added this year (Ember yearly data and OWID population, CC BY 4.0); the bar race ranks by the indicator too | medium |
+| Yearly additions | **Done (Oct 2026, v2.38.0)**: a "capacity added each year" onshore / offshore bar chart in the country, continent and world profiles, plus the "added this year" indicator | small |
 | Turbine makers and developers | Derive the manufacturer from the turbine model strings to show market shares by country and year; developer portfolios | medium |
 
 ### Phase 3: context layers and deeper learning

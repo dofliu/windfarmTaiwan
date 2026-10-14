@@ -55,6 +55,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   The "latest available" year after 2025 lives in `tools/latest_wind.py` (one row per country with source, data month and bilingual note);
   sources with a different scope from the site's 2025 figure add their growth to it (shown as an estimate), and a source's own figure is
   used only when the site's 2025 value is known to be wrong or comes from the same series. Run `python3 tools/build_country_stats.py` after editing.
+- 各國指標（`data/global/country_indicators.json`，地球儀「指標」上色、國家比較與概況用）由 `tools/build_country_indicators.py` 產生：風電占發電比例、發電量與全國平均容量因數取自 Ember 年度電力資料，人口取自 Our World in Data（都是 CC BY 4.0，兩者的摘錄檔在 `data/global/sources/`，加 `--fetch` 重新下載）；
+  人均容量由網站以本站年底容量 ÷ 人口計算，Ember 與人口只到各自最新的年份、之後沿用並標示；容量因數是全國平均（含限電與部分年份），介面要寫明只適合粗略比較，不與逐場實測混排。新的一年 Ember 發布後重跑 `--fetch`。
+  Country indicators (`data/global/country_indicators.json`, for the globe's indicator colouring, country comparison and profiles) are built by `tools/build_country_indicators.py`: wind share of generation, generation and the national average capacity factor from Ember's yearly electricity data, population from Our World in Data (both CC BY 4.0; the extracts live in `data/global/sources/`, `--fetch` re-downloads them);
+  the site computes per-capita capacity as its own year-end capacity ÷ population, Ember and the population series stop at their latest years and are carried forward with a label; the capacity factor is a national average (curtailment and partial years included), so the UI must say it is for rough comparison only and never mix it with measured per-farm output. Re-run with `--fetch` when Ember publishes a new year.
 - 美國每部風機的位置（`data/global/turbines.json`）由 `tools/build_turbines.py` 從 USWTDB 產生；對應規則寧可少配（名稱、30 km、容量 ±15%），重建風場層後要重跑。
   US turbine positions (`data/global/turbines.json`) are built from USWTDB by `tools/build_turbines.py` (conservative matching by name, 30 km and
   capacity ±15%); re-run it after rebuilding the farm layer.

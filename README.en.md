@@ -121,6 +121,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   - **National wind output right now**: totals and a 48-hour trend for the UK (Great Britain, Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas
     and California grids (totals only), in the country profiles and the world "Wind output right now" list; see [user guide 4.5](./docs/user-guide.en.md#45-side-panel-tabs)
   - **Live data coverage**: the "Live data" toolbar button colours countries by whether the site has live wind output for them — the whole country (solid teal) or only part of it (violet hatching; in the US, Canada and Australia only the covered states or provinces); see [user guide 4.7](./docs/user-guide.en.md#47-layers)
+  - **⚖ Compare and indicators**: put 2–4 countries side by side (cumulative curve plus a table for the year: additions, per-capita capacity, wind share of generation, capacity factor, largest farm and more); the toolbar's "Indicator" menu colours the map by capacity at year end, per capita, wind share of generation, capacity factor or added this year (Ember yearly electricity data and Our World in Data population, CC BY 4.0), and country profiles show the capacity added each year; see [user guide 4.8a](./docs/user-guide.en.md#48a-country-comparison-and-indicators)
   - Devices without WebGL fall back to the bar race automatically
 - **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations, floating wind,
   ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a glossary and full source list; every chart is drawn
@@ -166,6 +167,9 @@ output and sea zones load only when needed.
 - `data/global/country_stats.json` — the "latest available" point on the globe's timeline (2026: official figures for 8 countries,
   sourced country by country in `tools/latest_wind.py`) and each country's average wind capacity factor (Ember, for the
   estimated yearly output on farm cards); built by `tools/build_country_stats.py`
+- `data/global/country_indicators.json` — each country's wind share of generation, wind generation and national average capacity factor by year (2000–2025;
+  Ember Yearly Electricity Data, CC BY 4.0) and population (Our World in Data, CC BY 4.0, to 2023), used by the globe's indicator colouring, the country comparison and the profiles;
+  built by `tools/build_country_indicators.py` from `data/global/sources/ember_wind_2000-2025.csv` and `owid_population_2000-2023.csv` (about 50 KB)
 - `data/global/world_borders.json` — country borders (Natural Earth 1:50m)
 - `data/global/turbines.json` — position and specs of every US turbine (USWTDB, public domain; 967 farms, about 61,000
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
@@ -341,6 +345,8 @@ python tools/build_globe_lite.py
 python tools/build_events.py
 # 7. The timeline's "latest available" year and national capacity factors (after editing tools/latest_wind.py or updating data/global/sources/ember_wind_2020-2025.csv)
 python tools/build_country_stats.py
+# 7a. Country indicators (wind share, capacity factor, population; --fetch re-downloads the Ember and Our World in Data files and refreshes the extracts)
+python tools/build_country_indicators.py --fetch
 # 8. Position and specs of every US turbine (USWTDB, updated quarterly; re-run after rebuilding the farm layer, renamed farms stop matching)
 curl -LO https://energy.usgs.gov/uswtdb/assets/data/uswtdbCSV.zip && unzip uswtdbCSV.zip
 python tools/build_turbines.py uswtdb_V9_1_20260928.csv
@@ -509,6 +515,8 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - The timeline's "2026 (latest available)": official or industry statistics for 8 countries (Taiwan's Energy Administration, US EIA-860M, China's
   National Energy Administration, India's MNRE, Brazil's ANEEL, Germany's Deutsche WindGuard, France's SDES, the UK's DESNZ), with each country's source,
   data month and note in `tools/latest_wind.py`; national average capacity factors (for estimated yearly output): [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/) (CC BY 4.0)
+- Country indicators (the globe's indicator colouring and country comparison): wind share of generation, wind generation and the national average capacity factor from [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/) (CC BY 4.0);
+  per-capita capacity divides the site's year-end capacity by [Our World in Data's population series](https://ourworldindata.org/grapher/population) (CC BY 4.0, based on UN World Population Prospects and others)
 - Turbine positions: the US [USWTDB](https://energy.usgs.gov/uswtdb/) (USGS, LBNL, American Clean Power Association; public domain); Germany's MaStR (above);
   elsewhere © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (ODbL 1.0; the derived `data/global/turbines_osm.json` is likewise shared under the ODbL)
 - Foundations: OSPAR Offshore Renewable Energy Developments 2024 (CC0); every other farm's sources (developers, construction contractors, government documents,
