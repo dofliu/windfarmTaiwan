@@ -40,8 +40,8 @@ Every document comes in Chinese and English with the same content; the site itse
 - **Single-file edition**: [windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html) (about 13 MB), the whole site; see "Single-file edition" below.
 - **Public global wind map** (for everyone): [windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html) (about 12 MB), just the 3D globe with the onshore, offshore and pipeline layers.
 
-**Project status (7 Oct 2026, v2.30.2)**: the main features are finished; the project has been in maintenance since 27 Sep 2026, with improvements
-made since as the owner asks (one PR each, see the CHANGELOG). The automatic Taiwan and international live-data updates keep running; what to
+**Project status (15 Oct 2026, v2.39.1)**: the main features are finished; the project has been in maintenance since 27 Sep 2026, with improvements
+made since as the owner asks (one PR each, see the CHANGELOG; October 2026 added national wind output right now, the live-data coverage layer, country comparison and indicators, and turbine makers and owners). The automatic Taiwan and international live-data updates keep running; what to
 watch is under "Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md), and work to pick up next is at the top of [TODO.en.md](./TODO.en.md).
 
 ## Quick start (read this first)
@@ -107,11 +107,11 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   - **Farm cards**: hand-checked photos, Wikipedia summary, foundation and a to-scale cross-section, distance to shore, actual or estimated
     yearly output, national rank, phases, nearby and same-developer farms, related events, live output, external links, "Copy link to this
     farm" and "Report a data error"
-  - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 833 farms),
-    Australia (AEMO, 62 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
+  - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 834 farms),
+    Australia (AEMO, 64 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
     private farms (an estimate from samples, never mixed with the official figures)
   - **Layers**: ports (103 in 20 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
-    foundations (285 of the 331 operating offshore farms have a known type, 87.3% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
+    foundations (299 of the 342 operating offshore farms have a known type, 88.2% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
     Wind now (NOAA GFS, every 6 hours), Sea zones (EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
     areas of 6 North Sea countries) and a mean wind speed basemap (Global Wind Atlas)
   - **Tours**: an auto tour and four story tours (Taiwan's road to offshore wind, Europe offshore, China's rise, Floating wind;
@@ -182,20 +182,20 @@ output and sea zones load only when needed.
   turbines), downloaded by `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
   Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
   non-US farm is selected (Germany prefers MaStR)
-- `data/global/generation.json` — actual yearly output and capacity factor of farms (833 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
+- `data/global/generation.json` — actual yearly output and capacity factor of farms (834 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
   19 Taipower-owned farms in Taiwan from Taipower open data 17140; 54 Danish farms from the Danish Energy Agency's turbine register, matched by location;
-  62 Australian farms from AEMO's 5-minute SCADA output per unit; the turbine model when a farm has only one, for the Output dialog's same-model comparison),
+  64 Australian farms from AEMO's 5-minute SCADA output per unit; the turbine model when a farm has only one, for the Output dialog's same-model comparison),
   built by `tools/build_generation.py` (the Danish rules are in `tools/dk_output.py`, the Australian ones in `tools/au_output.py`) and loaded when a farm card first opens;
   the Australian source aggregate is `data/global/sources/aemo_wind_monthly.json` (made by `python3 tools/au_output.py fetch` from AEMO's monthly files)
 - `data/global/turbine_output.json` — position, specs and measured yearly output of 1,848 individually metered Danish turbines (Danish Energy Agency;
   production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
 - `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
   per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
-- `data/global/ports.json` — 55 offshore wind ports (curated by hand with sources; run `tools/qa_ports.py` after editing)
+- `data/global/ports.json` — 103 offshore wind ports in 20 countries (curated by hand with sources; run `tools/qa_ports.py` after editing)
 - `data/global/events.json` — 91 major events and incidents (built by `tools/build_events.py` from
   `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
   the build script, which checks that every event has English text and that farm names match the farm layer)
-- `data/global/photos.json` — farm card photos (64 farms and 18 milestones; hand-checked Wikimedia Commons photos, built by `tools/build_photos.py` from `tools/farm_photos.py`)
+- `data/global/photos.json` — farm card photos (65 farms and 18 milestones; hand-checked Wikimedia Commons photos, built by `tools/build_photos.py` from `tools/farm_photos.py`)
 - `data/global/offshore_zones.json` — the sea-zones layer: EEZ boundaries (Marine Regions v12, CC BY 4.0, simplified to about 2 km for display), Taiwan's offshore
   wind potential sites (Energy Administration open data 36681), Japan's promotion zones and the North Sea countries' offshore wind areas, built by
   `tools/build_offshore_zones.py` (the Taiwanese site coordinates are kept in `data/global/sources/twn_offshore_potential_sites_36681.csv`, the Japanese

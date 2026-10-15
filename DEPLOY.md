@@ -69,18 +69,18 @@ windfarmTaiwan/
 
 2026-09-27（v2.11.1）起專案進入維護期，之後依使用者的要求逐項補強（見 CHANGELOG）。以下都是自動進行的，不需要人手：
 
-- `scrape-taipower-wind`：約每 2 小時抓台電即時風力、電力供需與澳洲、加拿大的即時出力，有變動就 commit。
+- `scrape-taipower-wind`：約每 2 小時抓台電即時風力、電力供需、澳洲與加拿大逐場的即時出力，以及英國、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國、巴西與美國德州、加州的風電總出力（來源見 [docs/live-data-sources.md](./docs/live-data-sources.md)），有變動就 commit；國外來源失敗不影響台灣資料。
 - `backfill-taipower-wind-history`：每週一（台北週二清晨）累積台電官方回溯存檔。
 - `wind-now`：每 6 小時（05:37、11:37、17:37、23:37 UTC）抓 NOAA GFS 最新一次的離地 10 m 風場（公有領域，需要 `eccodes` 解 GRIB2），寫成 `data/live/wind_now.webp`（約 50 KB）與 `wind_now.json` 後 commit，地球儀「此刻的風」讀它。
 - `build-standalone`：`main` 的網站程式或全球資料有變更時重建單檔版並上傳到 GitHub Release「standalone」（固定標籤，覆蓋同名檔案；不 commit）。排程更新的即時資料不會觸發重建，
   所以單檔版的「離線快照」停在最後一次重建的時間。
-- `keepalive`：每月 1 日 04:41 UTC 以 GitHub API 重新啟用上面三個排程與它自己，避免連續 60 天無活動被 GitHub 停用；不產生 commit。
+- `keepalive`：每月 1 日 04:41 UTC 以 GitHub API 重新啟用上面三個排程（`scrape`、`backfill`、`wind-now`）與它自己，避免連續 60 天無活動被 GitHub 停用；不產生 commit。
 
 **每月檢查一次（約 5 分鐘）**：60 天停用已由 `keepalive` 處理，這個檢查主要是抓出資料來源的問題（例如台電改了格式）。
 
 1. 開網站，看頁首「即時 · 台電 MM/DD HH:MM」的資料時間。超過半天沒有前進，表示排程停了或抓取失敗；
-   網站不會顯示錯誤，只會一直顯示最後一次抓到的資料。
-2. 到 GitHub 的 **Actions** 分頁，看各排程 workflow 最近一次是不是綠色（`keepalive` 每月一次；`pr-check` 只在有 PR 時執行）。若有 workflow 顯示
+   網站不會顯示錯誤，只會一直顯示最後一次抓到的資料。地球儀國家概況的「此刻」方塊與全球「各地此刻的風電出力」清單也有各來源的資料時間。
+2. 到 GitHub 的 **Actions** 分頁，看各排程 workflow 最近一次是不是綠色（`keepalive` 每月一次；`pr-check` 只在有 PR 時執行；`build-standalone` 只在 `main` 改到網站或全球資料時執行）。若有 workflow 顯示
    「This scheduled workflow is disabled…」（連續 60 天沒有活動會被 GitHub 自動停用），按 **Enable workflow**。
 3. 資料時間停住時，在 `scrape-taipower-wind` 按 **Run workflow** 手動跑一次，確認 `wind_realtime.json` 有新的 commit，失敗就看執行紀錄。
 

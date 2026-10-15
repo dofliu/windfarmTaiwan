@@ -2,7 +2,7 @@
 
 English (this page) ｜ [中文](./user-guide.md)
 
-How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.36.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
+How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.39.1. For a quick first look, read "Quick start" in the [README](../README.en.md).
 
 ## Contents
 
@@ -194,7 +194,7 @@ Open it from "📊 Output" in the toolbar, "Output rankings" in a country profil
 - **Data**:
   - Taiwan · official yearly (19 Taipower-owned farms, Taipower open data)
   - Taiwan · live samples (every grid unit including private farms, sampled every 2 hours from Taipower's live data; last 30 days, last 90 days or everything)
-  - USA (EIA-923, 833 farms) and Australia (AEMO 5-minute measurements, 62 farms, curtailment included)
+  - USA (EIA-923, 834 farms) and Australia (AEMO 5-minute measurements, 64 farms, curtailment included)
   - Denmark · farms (Danish Energy Agency, 54 farms) and Denmark · single turbines (about 1,800 individually metered turbines; the same-model view draws a distribution)
 - **Three views**: total output (average output for samples), capacity factor, and same turbine model (one model's capacity factor across farms). Pick the year, high→low or low→high; search when there are more than 20 rows.
 - Clicking a row closes the dialog and flies to the farm.
