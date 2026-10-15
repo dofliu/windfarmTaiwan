@@ -86,21 +86,21 @@ To set up a new project from scratch (instead of using this repo directly):
 
 The project has been in maintenance since 27 Sep 2026 (v2.11.1), with improvements made since as the owner asks (see the CHANGELOG). All of the following runs by itself:
 
-- `scrape-taipower-wind`: about every 2 hours, fetches Taipower's live wind output, the supply/demand report and live output in
-  Australia and Canada, and commits any change.
+- `scrape-taipower-wind`: about every 2 hours, fetches Taipower's live wind output, the supply/demand report, per-farm live output in
+  Australia and Canada, and the national wind totals of the UK, Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas and California grids (sources in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)), and commits any change; a failing foreign source does not affect the Taiwan data.
 - `backfill-taipower-wind-history`: every Monday (early Tuesday in Taipei), adds to Taipower's official retrospective archive.
 - `wind-now`: every 6 hours (05:37, 11:37, 17:37, 23:37 UTC) fetches the newest NOAA GFS 10 m wind field (public domain; needs `eccodes` to read GRIB2), writes `data/live/wind_now.webp` (about 50 KB) and `wind_now.json` and commits them; the globe's "Wind now" reads them.
 - `build-standalone`: rebuilds the single-file edition when site code or global data change on `main` and uploads it to the GitHub Release "standalone" (a fixed tag whose files are overwritten; nothing is committed). Scheduled live-data commits
   do not trigger it, so the single-file edition's offline snapshot stays at the time of its last rebuild.
-- `keepalive`: at 04:41 UTC on the 1st of each month, re-enables the three schedules above and itself through the GitHub API, so
+- `keepalive`: at 04:41 UTC on the 1st of each month, re-enables the three schedules above (`scrape`, `backfill`, `wind-now`) and itself through the GitHub API, so
   GitHub does not disable them after 60 days without activity; it makes no commits.
 
 **Check once a month (about 5 minutes)**: `keepalive` takes care of the 60-day rule, so this check is mainly for problems with the
 data sources (for example Taipower changing its format).
 
 1. Open the site and look at the data time in the header ("Live · Taipower MM/DD HH:MM"). If it has not moved for more than half a
-   day, the schedule has stopped or fetching is failing; the site shows no error, it just keeps showing the last data it got.
-2. On GitHub's **Actions** tab, check that the latest run of each scheduled workflow is green (`keepalive` runs monthly; `pr-check` only runs when there is a pull request). If a
+   day, the schedule has stopped or fetching is failing; the site shows no error, it just keeps showing the last data it got. The "now" box of a globe country profile and the world list "Wind output right now" also show each source's data time.
+2. On GitHub's **Actions** tab, check that the latest run of each scheduled workflow is green (`keepalive` runs monthly; `pr-check` only runs when there is a pull request; `build-standalone` only when site code or global data change on `main`). If a
    workflow says "This scheduled workflow is disabled…" (GitHub disables schedules after 60 days without activity), press **Enable workflow**.
 3. If the data time has stopped, press **Run workflow** on `scrape-taipower-wind` to run it by hand and check that `wind_realtime.json`
    gets a new commit; if it fails, read the run log.

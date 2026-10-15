@@ -38,7 +38,7 @@
 - **單檔版**：[windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)（約 13 MB），整個網站；詳見下方「單檔版」。
 - **全球風電地圖公開版**（給一般人）：[windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html)（約 12 MB），只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層。
 
-**專案狀態（2026-10-07，v2.30.2）**：主要功能已完成，2026-09-27 起進入維護期，之後依使用者的要求逐項補強（每項一個 PR，見 CHANGELOG）。
+**專案狀態（2026-10-15，v2.39.1）**：主要功能已完成，2026-09-27 起進入維護期，之後依使用者的要求逐項補強（每項一個 PR，見 CHANGELOG；2026-10 加入各國此刻的風電總出力、即時資料涵蓋範圍、國家比較與指標、風機廠牌與業主）。
 台灣與國外即時資料的自動更新照常運作；維護要注意的事見 [DEPLOY.md](./DEPLOY.md)「維護」，之後要接續的工作見 [TODO.md](./TODO.md) 最上面。
 
 ## 快速上手（第一次來看這裡）
@@ -87,9 +87,9 @@
   - **國家概況**：歷年曲線、排名、10 年成長、最大與最早的風場、逐場資料覆蓋率、規劃中與水下基礎統計（台灣、日本附官方統計稽核標記）
   - **風場卡片**：人工核對的照片、維基百科簡介、水下基礎與按比例的剖面示意、離岸距離、實際或估計年發電量、國內排名、分期、附近與同開發商的風場、相關事件、即時出力、
     外部連結、「複製此風場連結」與「回報資料錯誤」
-  - **📊 發電表現**：台灣（台電自有 19 座）、美國（EIA-923，833 座）、澳洲（AEMO，62 座）與丹麥（54 座風場、約 1,800 部單獨計量的風機）逐場實測年發電量的排名與同機型比較；
+  - **📊 發電表現**：台灣（台電自有 19 座）、美國（EIA-923，834 座）、澳洲（AEMO，64 座）與丹麥（54 座風場、約 1,800 部單獨計量的風機）逐場實測年發電量的排名與同機型比較；
     另有含民營風場的「台灣・即時取樣」（取樣估計，不與官方數字混排）
-  - **圖層**：港口（20 國 103 個，⚓）、重大事件與事故（91 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 331 座中 285 座已知型式、占容量 87.3%，
+  - **圖層**：港口（20 國 103 個，⚓）、重大事件與事故（91 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 342 座中 299 座已知型式、占容量 88.2%，
     [docs/foundations.md](./docs/foundations.md)）、此刻的風（NOAA GFS，每 6 小時）、海域（專屬經濟區界線、台灣 36 處潛力場址、日本 13 處促進區域、北海周邊 6 國的規劃區）、
     平均風速底圖（Global Wind Atlas）
   - **導覽**：自動導覽與四個故事導覽（台灣離岸之路、歐洲離岸、中國崛起、浮動式風電，`#/global?tour=tw`／`eu`／`cn`／`fl`）
@@ -145,17 +145,17 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   **以 Datenlizenz Deutschland – Namensnennung 2.0 分享（© Bundesnetzagentur | Marktstammdatenregister）**；`data/global/sources/mastr_parks_DEU.json` 是要加進風場層的德國風場
 - `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
   **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入（德國以 MaStR 優先）
-- `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 833 座：EIA-923，容量以 EIA-860M 登記的裝置容量計，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；
-  丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場；澳洲 62 座：AEMO 每個機組每 5 分鐘的 SCADA 實測出力加總；風場只有一種機型時附機型，給「發電表現」的同機型比較），
+- `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 834 座：EIA-923，容量以 EIA-860M 登記的裝置容量計，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；
+  丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場；澳洲 64 座：AEMO 每個機組每 5 分鐘的 SCADA 實測出力加總；風場只有一種機型時附機型，給「發電表現」的同機型比較），
   由 `tools/build_generation.py`（丹麥的規則在 `tools/dk_output.py`，澳洲在 `tools/au_output.py`）產生，第一次打開風場卡片時才載入；
   澳洲的來源彙整檔是 `data/global/sources/aemo_wind_monthly.json`（`python3 tools/au_output.py fetch` 下載 AEMO 月檔後產生）
 - `data/global/turbine_output.json` — 丹麥單獨計量的 1,848 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
-- `data/global/ports.json` — 離岸風電港口 55 個（人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
+- `data/global/ports.json` — 離岸風電港口 103 個（20 國；人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
 - `data/global/events.json` — 重大事件與事故 91 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
   英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
-- `data/global/photos.json` — 風場卡片的照片（64 座風場與 18 個里程碑；人工核對的 Wikimedia Commons 照片，由 `tools/build_photos.py` 依 `tools/farm_photos.py` 產生）
+- `data/global/photos.json` — 風場卡片的照片（65 座風場與 18 個里程碑；人工核對的 Wikimedia Commons 照片，由 `tools/build_photos.py` 依 `tools/farm_photos.py` 產生）
 - `data/global/offshore_zones.json` — 海域圖層：專屬經濟區界線（Marine Regions 第 12 版，CC BY 4.0，簡化到約 2 km 供顯示）、台灣離岸風電潛力場址（能源署開放資料 36681）、
   日本促進區域與北海周邊國家的離岸風電規劃區，由 `tools/build_offshore_zones.py` 產生（潛力場址原始座標存在 `data/global/sources/twn_offshore_potential_sites_36681.csv`，
   日本促進區域的公告點位存在 `data/global/sources/jpn_promotion_zones.json`，北海各國由建置程式從官方開放圖層下載），開啟「海域」時才載入
