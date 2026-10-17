@@ -93,7 +93,8 @@ Clicking a farm in any tab opens the details on the right:
 - **Centre**: the globe or flat map; the readout at the top left shows the big year, the scope's cumulative capacity (onshore / offshore) and the year's additions; the legend panel at the bottom left lists only the layers and colourings that are on.
 - **Side panel (context panel)**: a breadcrumb "World › continent › country" at the top (click an earlier step to go back), then "Profile", "Lists ▾" (Milestones, Farms, Pipeline, Ports and Events, each with its count in the current focus) and "Analyse ▾" (Output, Compare, Makers & owners; 4.5); collapse it with "–/+".
 - **Timeline at the bottom**: play button, year slider and speed (4.4).
-- **Card**: opens for a farm, port, event or milestone; on desktop it takes the side panel's place (the panel steps aside) and the panel returns when you close it with ✕ (4.6). On phones the card slides up from the bottom.
+- **Card**: opens for a farm, port, event or milestone; on desktop it takes the side panel's place (the panel steps aside) and the panel returns when you close it with ✕ (4.6). On phones the card lives in the bottom drawer.
+- **Phones (640 px and below)**: the map fills the screen; the top edge keeps only Focus, Search, Layers and "⋯" (View, Analyse, Tour, Sources and Speed sit inside ⋯). The timeline, the readout, the side panel and the card are all in the **bottom drawer**: its handle row holds the play button, the year, the scope's figures and the slider; drag the handle (or the panel header) up for half height and again for full, drag down to close, or tap the grip or the figures to switch between closed and half. Tapping a farm opens its card at half height in the drawer; drag up for the rest, and closing the card returns to the panel.
 
 ### 4.2 Controls
 
@@ -307,7 +308,7 @@ Both are HTML files you save and open in a browser, with no web server, publishe
 
 ## 8. Phones and older devices
 
-- The site works on phones: the header shrinks to icons; the globe's toolbar becomes one row you can swipe sideways, the side panel and cards slide up from the bottom, and on narrow screens the side panel starts collapsed.
+- The site works on phones: the header shrinks to icons; at 640 px and below the globe becomes a full-screen map with a bottom drawer (timeline, readout, side panel and cards all live in it; drag up to open; see 4.1) and the top edge keeps only Focus, Search, Layers and "⋯"; tablets at 641–900 px keep the swipeable one-row toolbar with the panel and cards sliding up from the bottom.
 - Touch: one finger rotates, two fingers zoom, tap a country or farm to fly there.
 - Devices with small screens or little memory get smaller basemaps, which download faster.
 - **Without WebGL** the globe switches to the bar race and says so.

@@ -42,10 +42,23 @@ const ROUTES = [
   ['#/live/wall', 3500],
   ['#/live/charts', 4000],
   ['#/live/map', 4000],
-  ['#/global', 15000, () => document.querySelector('canvas') ? '' : 'globe: no canvas'],
+  ['#/global', 15000, async () => {
+    if (!document.querySelector('canvas')) return 'globe: no canvas';
+    if (innerWidth > 640) return '';
+    // 手機：底部抽屜三段高度（把手列／半開／全開），半開時側欄看得到 · phone drawer heights
+    const d = document.querySelector('#g-drawer'); if (!d) return 'phone: no drawer';
+    const H = document.querySelector('#g-stage').clientHeight, hs = [];
+    for (const h of [0, 1, 2]) { WW.globe.api().drawerSet(h); await new Promise(r => setTimeout(r, 400)); hs.push(d.clientHeight / H); }
+    if (!(hs[0] < 0.25 && hs[1] > 0.4 && hs[1] < 0.65 && hs[2] > 0.8)) return 'phone drawer heights: ' + hs.map(x => x.toFixed(2)).join(' / ');
+    const pn = document.querySelector('#g-msPanel'); if (!pn || !pn.offsetHeight) return 'phone drawer: panel not visible when open';
+    WW.globe.api().drawerSet(0);
+    return '';
+  }],
   ['#/global?f=Sweetwater', 15000, () => {
     const c = document.querySelector('#g-infoCard');
-    return c && c.classList.contains('show') && c.innerText.trim().length > 50 ? '' : 'farm card did not open';
+    if (!(c && c.classList.contains('show') && c.innerText.trim().length > 50)) return 'farm card did not open';
+    if (innerWidth <= 640) { const d = document.querySelector('#g-drawer'); if (!d || !d.classList.contains('h1')) return 'phone: the card did not open the drawer half way'; }
+    return '';
   }],
   ['#/global?out=USA.cf', 15000, () => {
     const n = document.querySelectorAll('.gana .oout .orow').length;

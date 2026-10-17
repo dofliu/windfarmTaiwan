@@ -32,7 +32,7 @@ const I18N = {
     cont: { Asia: '亞洲', Europe: '歐洲', 'North America': '北美洲', 'South America': '南美洲', Africa: '非洲', Oceania: '大洋洲' },
     turbine: '單機', farm: '風場', rotor: '葉輪直徑', type: { onshore: '陸域', offshore: '離岸', floating: '浮動式' },
     st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'],
-    srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界', anaGrow: '⤢ 放大', anaShrink: '⤡ 縮回面板',
+    srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界', anaGrow: '⤢ 放大', anaShrink: '⤡ 縮回面板', more: '更多', drawer: '展開或收起面板',
     msFocus: '點里程碑可跳到該年份並把鏡頭飛到現場',
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
     farmsLoading: '風場資料載入中…',
@@ -165,7 +165,7 @@ const I18N = {
     cont: { Asia: 'Asia', Europe: 'Europe', 'North America': 'North America', 'South America': 'South America', Africa: 'Africa', Oceania: 'Oceania' },
     turbine: 'Turbine', farm: 'Farm', rotor: 'Rotor Ø', type: { onshore: 'onshore', offshore: 'offshore', floating: 'floating' },
     st: ['operating', 'construction', 'pre-construction', 'announced', 'retired'],
-    srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile', listTab: 'Lists', crumbWorld: 'World', anaGrow: '⤢ Maximise', anaShrink: '⤡ Back to panel',
+    srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile', listTab: 'Lists', crumbWorld: 'World', anaGrow: '⤢ Maximise', anaShrink: '⤡ Back to panel', more: 'More', drawer: 'Expand or collapse the panel',
     msFocus: 'Click a milestone to jump to that year and fly there',
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
     farmsLoading: 'Loading farm data…',
@@ -293,7 +293,7 @@ host.innerHTML = `
   <span class="gtitle" data-gi="title"></span>
   <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
-  <span class="gmenu"><button id="g-mView" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pView"><span data-gi="mView"></span><i class="gcar"></i></button>
+  <span class="gmenu gphx"><button id="g-mView" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pView"><span data-gi="mView"></span><i class="gcar"></i></button>
     <div id="g-pView" class="gmp" hidden>
       <div class="gmrow"><span class="gml" data-gi="mLayout"></span><div class="gseg" id="g-viewSeg" role="group"><button data-view="map" class="active" data-gi="vMap"></button><button data-view="split" data-gi="vSplit"></button><button data-view="bars" data-gi="vBars"></button></div></div>
       <div class="gmrow"><span class="gml" data-gi="mProj"></span><div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div></div>
@@ -301,7 +301,7 @@ host.innerHTML = `
       <div class="gmrow"><label class="gml" for="g-densSel" data-gi="labels"></label><select id="g-densSel"><option value="0"></option><option value="1" selected></option><option value="2"></option><option value="3"></option></select></div>
       <button id="g-btnRotate" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><span data-gi="rotate"></span></button>
     </div></span>
-  <span class="gmenu"><button id="g-mLayers" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pLayers"><span data-gi="mLayers"></span><b class="gmc" id="g-layerCount" hidden></b><i class="gcar"></i></button>
+  <span class="gmenu gphl"><button id="g-mLayers" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pLayers"><span data-gi="mLayers"></span><b class="gmc" id="g-layerCount" hidden></b><i class="gcar"></i></button>
     <div id="g-pLayers" class="gmp" hidden>
       <button id="g-btnPipe" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw dash p1"></i><span data-gi="pipe"></span><b class="gmn" id="g-nPipe"></b></button>
       <button id="g-btnPorts" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw" style="background:var(--port)"></i><span data-gi="btnPorts"></span><b class="gmn" id="g-nPorts"></b></button>
@@ -313,15 +313,16 @@ host.innerHTML = `
       <div class="gmrow"><label class="gml" for="g-layerSel" data-gi="layer"></label><select id="g-layerSel"><option value="both" data-gi="lBoth"></option><option value="on" data-gi="lOn"></option><option value="off" data-gi="lOff"></option><option value="fd" data-gi="lFd"></option></select></div>
       <div class="gmrow"><label class="gml" for="g-indSel" data-gi="ind"></label><select id="g-indSel"><option value="" data-gi="indNone"></option><option value="cap" data-gi="indCap"></option><option value="pc" data-gi="indPc"></option><option value="share" data-gi="indShare"></option><option value="cf" data-gi="indCf"></option><option value="add" data-gi="indAdd"></option></select></div>
     </div></span>
-  <span class="gmenu"><button id="g-mAna" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pAna"><span data-gi="mAna"></span><i class="gcar"></i></button>
+  <span class="gmenu gphx"><button id="g-mAna" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pAna"><span data-gi="mAna"></span><i class="gcar"></i></button>
     <div id="g-pAna" class="gmp" hidden>
       <button id="g-btnOut" type="button" class="gmt" aria-haspopup="dialog" data-gi="btnOut"></button>
       <button id="g-btnCmp" type="button" class="gmt" aria-haspopup="dialog" data-gi="btnCmp"></button>
       <button id="g-btnMk" type="button" class="gmt" aria-haspopup="dialog" data-gi="btnMk"></button>
     </div></span>
+  <button id="g-btnMore" type="button" aria-expanded="false" title="">⋯</button>
   <span class="gsp"></span>
-  <span class="gtourwrap"><button id="g-btnTour" type="button" data-gi="tour" aria-haspopup="true"></button><span id="g-tourMenu" hidden></span></span>
-  <button id="g-btnSources" type="button" data-gi="sources"></button>
+  <span class="gtourwrap gphx"><button id="g-btnTour" type="button" data-gi="tour" aria-haspopup="true"></button><span id="g-tourMenu" hidden></span></span>
+  <button id="g-btnSources" type="button" class="gphx" data-gi="sources"></button>
 </div>
 <div id="g-stage" class="mapOnly">
   <div id="g-mapPane">
@@ -375,6 +376,7 @@ const fmtAxis = mw => WW.int(mw);
 const cname = c => lang === 'zh' ? c.zh : c.name;
 const fname = f => (lang === 'zh' && f.zh) ? f.zh : f.name;
 const isTouch = matchMedia('(pointer: coarse)').matches;
+const PHONE = window.innerWidth <= 640;                             // 手機版面（底部抽屜）；與 globe.css 的 640px 斷點一致
 
 let D = null, YEARS, Y0, Y1, C, byIso = {}, DATA_Y, LT = null;     // DATA_Y：年度統計的最後一年；LT：之後的「最新可得」年份
 const S = { year: 1980, playing: false, speed: 1, mode: 'globe', view: 'map', region: 'WORLD', layer: 'both', rotate: false, density: 1, lastT: 0, modeT: 0, ind: '',
@@ -1880,12 +1882,13 @@ function renderFarmResults(force) {
     m.onclick = () => { SQ.limit += 300; renderFarmResults(true); }; box.appendChild(m);
   }
 }
-function expandPanel() { const pn = $('g-msPanel'); if (pn.classList.contains('collapsed')) { pn.classList.remove('collapsed'); $('g-msToggle').textContent = '–'; } }
+function expandPanel() { const pn = $('g-msPanel'); if (pn.classList.contains('collapsed')) { pn.classList.remove('collapsed'); $('g-msToggle').textContent = '–'; } if (PHONE && drawerHv === 0) drawerSet(1); }
 function openSearch() {                        // 工具列「搜尋」與 / 鍵
   if (TOUR) tourEnd(false);
   if (cardItem && window.innerWidth <= 900) closeCard();            // 手機：資訊卡會蓋住面板
   expandPanel();
   setPanelTab('farms');
+  if (PHONE) drawerSet(2);                                            // 手機：鍵盤會占掉下半邊，抽屜全開
   const q = $('g-fq'); if (q) { q.focus(); q.select(); }
 }
 /* ================= 港口：離岸風電的組裝出港、製造與運維港口（data/global/ports.json，2026-09 整理，每港附出處） =================
@@ -3158,6 +3161,7 @@ function renderCard(it) {
     (full && it.kind !== 'turb' ? '<div class="factions"><button type="button" class="fcopy">🔗 ' + esc(T(it.kind === 'ms' ? 'copyLinkMs' : it.kind === 'port' ? 'copyLinkPort' : it.kind === 'event' ? 'copyLinkEv' : 'copyLink')) + '</button>' +
       '<a class="freport" href="' + esc(reportURL(it)) + '" target="_blank" rel="noopener" title="' + esc(T('reportT')) + '">⚑ ' + esc(T('report')) + '</a></div>' : '');
   card.classList.add('show'); $('g-mapPane').classList.add('carded');
+  if (PHONE && !same) drawerSet(TOUR ? 1 : Math.max(1, drawerHv));   // 手機：卡片進抽屜，至少半開（導覽時保持半開，地圖才看得到）
   if (!same) card.scrollTop = 0;
   cardYearKey = real ? cardYearKeyOf(f) : '';
   card.querySelectorAll('[data-rel]').forEach(a => a.onclick = e => {
@@ -3193,7 +3197,7 @@ function renderCard(it) {
     const wd = card.querySelector('.links.xl .wd'); if (wd && w.qid) wd.href = 'https://www.wikidata.org/wiki/' + w.qid;   // 找到維基百科條目：直接連到它的 Wikidata 項目
   });
 }
-function closeCard() { $('g-infoCard').classList.remove('show'); $('g-mapPane').classList.remove('carded'); cardItem = null; focusPort = null; focusEvent = null; if (!TOUR) focusFarm = null; updateClusters(0, true); syncURL(); }
+function closeCard() { $('g-infoCard').classList.remove('show'); $('g-mapPane').classList.remove('carded'); if (PHONE && drawerHv === 2) drawerSet(1); cardItem = null; focusPort = null; focusEvent = null; if (!TOUR) focusFarm = null; updateClusters(0, true); syncURL(); }
 function selectFarm(f) {
   setPlaying(false);
   if (f.pipe) { if (!S.pipe) togglePipe(true); S.year = Y1; syncYearUI(); }
@@ -3889,6 +3893,7 @@ function applyI18n() {
   document.querySelectorAll('#g-speedSel option').forEach(o => { const v = parseFloat(o.value); o.textContent = v < 1 ? (lang === 'zh' ? '1 年 ' + Math.round(1 / v) + ' 秒' : Math.round(1 / v) + ' s / yr') : (lang === 'zh' ? v + ' 年/秒' : v + ' yr/s'); });
   document.querySelectorAll('#g-densSel option').forEach(o => { o.textContent = T('dens')[+o.value]; });
   $('g-hint').textContent = isTouch ? T('hintTouch') : T('hint');
+  $('g-btnMore').title = T('more'); $('g-btnMore').setAttribute('aria-label', T('more')); const grip = host.querySelector('.gdgrip'); if (grip) grip.setAttribute('aria-label', T('drawer'));
   buildRegionSelect(); renderCrumb(); setPanelTab(panelTab);
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
   $('g-btnSearch').title = T('fsKey');
@@ -4878,9 +4883,8 @@ function wireUI() {
   $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe'); $('g-tabPorts').onclick = () => setPanelTab('ports'); $('g-tabEvents').onclick = () => setPanelTab('events');
   if (LITE) setPanelTab('farms');
   $('g-msToggle').onclick = e => { const p = $('g-msPanel'); p.classList.toggle('collapsed'); e.currentTarget.textContent = p.classList.contains('collapsed') ? '+' : '–'; };
-  if (window.innerWidth < 700) { $('g-msPanel').classList.add('collapsed'); $('g-msToggle').textContent = '+'; }
-  // 手機精簡版：速度選單搬到（可橫向捲動的）工具列，播放列只留播放鍵、年份與滑桿 · phone: move the speed select into the toolbar
-  if (window.innerWidth <= 640) { const top = $('g-top'), src = $('g-btnSources'); ['g-speedSel'].forEach(id => top.insertBefore($(id).parentNode, src)); }
+  if (!PHONE && window.innerWidth < 700) { $('g-msPanel').classList.add('collapsed'); $('g-msToggle').textContent = '+'; }
+  if (PHONE) phoneSetup();
   $('g-play').onclick = () => setPlaying(!S.playing);
   $('g-slider').oninput = () => { if (TOUR) tourPause(true); S.year = parseFloat($('g-slider').value); syncYearUI(); };
   $('g-slider').onchange = () => syncURL();
@@ -4926,6 +4930,40 @@ function wireUI() {
   });
 }
 
+/* ================= 手機底部抽屜（≤640px） =================
+   地圖永遠全螢幕；工具列浮在上緣只留範圍、搜尋、圖層與「⋯」（其餘收在 ⋯ 裡）；時間軸、讀數、側欄與卡片都搬進底部抽屜，
+   三段高度：0 只有把手列（播放鍵、年份、數字、滑桿）、1 半開（側欄或卡片）、2 全開。拖把手或側欄標題列換段，點把手在 0／1 之間切換。
+   Phone bottom drawer: the map stays full screen, the toolbar floats at the top edge, and the timeline, readout, panel and card live in a
+   drawer with three heights (handle only / half / full). Drag the handle or the panel header, or tap the grip. */
+let drawerHv = 0;
+function drawerSet(h) {
+  const dr = $('g-drawer'); if (!dr) return;
+  drawerHv = clamp(h, 0, 2);
+  dr.classList.remove('h0', 'h1', 'h2'); dr.classList.add('h' + drawerHv);
+  dr.querySelector('.gdgrip').setAttribute('aria-expanded', drawerHv ? 'true' : 'false');
+  if (drawerHv === 0) menuOpen(null, false);
+}
+function phoneSetup() {
+  const dr = document.createElement('div'); dr.id = 'g-drawer'; dr.className = 'h0';
+  dr.innerHTML = '<div class="gdh"><button type="button" class="gdgrip" aria-expanded="false" aria-label="' + esc(T('drawer')) + '"><i></i></button><div class="gdrow"></div></div>';
+  const hd = dr.querySelector('.gdh'), row = dr.querySelector('.gdrow');
+  row.append($('g-play'), $('g-yearNow'), $('g-worldStat'));
+  hd.appendChild($('g-slider'));
+  dr.append($('g-msPanel'), $('g-infoCard'));
+  $('g-stage').appendChild(dr);
+  $('g-bottom').hidden = true;
+  const top = $('g-top'), sp = $('g-speedSel').parentNode; sp.classList.add('gphx'); top.insertBefore(sp, $('g-btnSources'));   // 速度選單收進 ⋯
+  $('g-btnMore').onclick = e => { const on = top.classList.toggle('more'); e.currentTarget.setAttribute('aria-expanded', on ? 'true' : 'false'); menuOpen(null, false); };
+  let y0 = null, h0 = 0, dragT = 0;
+  const toggle = () => { if (Date.now() - dragT < 400) return; drawerSet(drawerHv ? 0 : 1); };   // 拖完接著的 click 不算
+  dr.querySelector('.gdgrip').onclick = toggle;
+  $('g-worldStat').onclick = toggle;
+  // 拖曳：把手列（滑桿與播放鍵除外）或側欄標題列，上下超過 30px 就換一段 · drag to change height
+  const down = e => { if (e.target.closest('#g-slider,#g-play,select,input')) return; y0 = e.clientY; h0 = drawerHv; };
+  const up = e => { if (y0 === null) return; const dy = y0 - e.clientY; y0 = null; if (Math.abs(dy) > 30) { dragT = Date.now(); drawerSet(h0 + (dy > 0 ? 1 : -1)); } };
+  [hd, $('g-msPanel').querySelector('.ph')].forEach(el => { el.addEventListener('pointerdown', down); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', () => { y0 = null; }); });
+}
+
 /* ================= page lifecycle ================= */
 WW.globe = {
   ready,
@@ -4950,7 +4988,7 @@ WW.globe = {
     });
   },
   leave() { active = false; clearTimeout(urlT); clearInterval(intlTimer); intlTimer = null; stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
-  api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, flyToLonLat, curAlt, FL, clusters, get portArcs() { return portArcs; }, get TOUR() { return TOUR; },
+  api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, drawerSet, flyToLonLat, curAlt, FL, clusters, get portArcs() { return portArcs; }, get TOUR() { return TOUR; },
     cam: () => { const f = focusLonLat(); return { lon: +f.lon.toFixed(3), lat: +f.lat.toFixed(3), alt: +curAlt().toFixed(1), frames: S.frames || 0, rotate: S.rotate }; },
     patchState: () => ({ info: patchInfo, tiles: tileAttrOn, visible: !!(patch && patch.visible), cache: tileCache.size, ok: [...tileCache.values()].filter(t => t.ok).length }) })
 };
