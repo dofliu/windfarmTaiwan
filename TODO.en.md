@@ -11,9 +11,11 @@ Read this section first in a new session (see section 8 of CLAUDE.md); when you 
 and move finished items to the topic lists below.
 The version-by-version work log and research leads from 28 Sep to 14 Oct 2026 moved to "Work log and research leads" at the bottom of this file; read them only when chasing a lead. Version details are in [CHANGELOG.en.md](./CHANGELOG.en.md).
 
-### Where things stand (15 Oct 2026)
+### Where things stand (17 Oct 2026)
 
-- Site v2.39.1, in maintenance. Finished on 14 Oct 2026: country comparison and indicators (v2.38.0), the first round of time-sensitive checks (v2.38.1), turbine makers and owners (v2.39.0–v2.39.1); on 15 Oct 2026 the documentation was tidied (figures and status in README, ROADMAP, TODO, DEPLOY and the user guide, both languages together).
+- **Globe layout redesign under way** (on 17 Oct 2026 the owner chose direction A, "command strip", from the design canvas at https://claude.ai/artifact/E5nujS99rh93GQeoXf3YBY ): steps 1 and 2 are done (v2.40.0: the toolbar split into Focus and Search plus the View / Layers / Analyse menus; the readout and the legend panel merged).
+  Next, following the canvas's "implementation order": step 3 the context panel (side panel becomes Profile / Lists ▾ / Analyse ▾, desktop cards move into it), step 4 the three analysis dialogs into the panel (wide tables keep a "maximise"), step 5 the phone bottom drawer, step 6 the four task cards on a first visit (direction C's optional piece), step 7 shapes only on the globe (event titles and milestone names on hover). One PR and a minor version per step.
+- Site v2.40.0, in maintenance. Finished on 14 Oct 2026: country comparison and indicators (v2.38.0), the first round of time-sensitive checks (v2.38.1), turbine makers and owners (v2.39.0–v2.39.1); on 15 Oct 2026 the documentation was tidied (figures and status in README, ROADMAP, TODO, DEPLOY and the user guide, both languages together).
 - All automatic updates run normally: Taiwan and international live data (every 2 hours), the retrospective archive (weekly), Wind now (every 6 hours), the single-file rebuild (on pushes to `main`), keepalive (monthly). The current habit after a merge is to run `scrape-taipower-wind` by hand once and check that every source succeeded.
 - No feature work is in progress. The owner picks the next piece from "Next-step options" below.
 

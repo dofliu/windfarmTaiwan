@@ -89,10 +89,10 @@ Clicking a farm in any tab opens the details on the right:
 
 ### 4.1 Layout
 
-- **Toolbar at the top**: view, focus, search, Output, basemap and layer toggles, tour, labels and sources (4.3).
-- **Centre**: the globe or flat map, with the big year and world totals at the top left and legends in the lower corners.
+- **Toolbar at the top**: Focus and Search, then the three menus View, Layers and Analyse, with Tour and Sources on the right (4.3).
+- **Centre**: the globe or flat map; the readout at the top left shows the big year, the scope's cumulative capacity (onshore / offshore) and the year's additions; the legend panel at the bottom left lists only the layers and colourings that are on.
 - **Side panel**: six tabs, Profile, Milestones, Farms, Pipeline, Ports and Events (4.5); collapse it with "–/+".
-- **Timeline at the bottom**: play button, year slider, speed and the "Show" menu (4.4).
+- **Timeline at the bottom**: play button, year slider and speed (4.4).
 - **Card**: opens for a farm, port, event or milestone; close it with ✕ (4.6).
 
 ### 4.2 Controls
@@ -112,33 +112,25 @@ Clicking empty ground zooms in there. Click the map once before using the keys; 
 
 ### 4.3 Toolbar
 
-| Button | What it does |
+The toolbar keeps two primary controls; everything else sits in three drop-down menus (click outside or press Esc to close; one open at a time):
+
+| Control | What it does |
 |---|---|
-| **Map / Map + bars / Bar race** | The map alone, the map with country bars, or only the bar race (always in MW) |
-| **3D globe / 2.5D map** | Globe or flat map |
 | **Focus** | The world, a continent or one country (sorted by 2026 capacity); picking a country flies there and draws all its farms |
 | **🔍 Search** | Opens the search in the Farms tab (4.5) |
-| **📊 Output** | Rankings and same-model comparisons of measured yearly output (4.8) |
-| **⚖ Compare** | Put 2–4 countries side by side (4.8a) |
-| **🏭 Makers & owners** | Capacity rankings of turbine makers and owners, with coverage (4.8b) |
-| **Indicator** | Colours the map by an indicator: capacity at year end, per capita, wind share of generation, capacity factor, added this year (4.8a); the bar race ranks by it too |
-| **Basemap** | Relief, Satellite, Plain or Wind speed (Global Wind Atlas at 100 m); zooming in adds sharper Esri tiles automatically (not on Wind speed) |
-| **Pipeline** | Projects under construction, in pre-construction or announced, as dashed rings, brighter when closer to completion; on by default |
-| **Wind now** | The latest NOAA GFS 10 m wind as flowing particles, refreshed every 6 hours; it is today's weather and does not follow the timeline |
-| **Sea zones** | EEZ boundaries and national offshore wind areas (4.7) |
-| **Live data** | Colours countries by whether the site has live wind output for them: the whole country or only part of it (4.7) |
-| **⚓ Ports** | Offshore wind ports (4.7); on by default |
-| **⚑ Events** | Major events and incidents (4.7); on by default |
-| **Auto-rotate** | Turns the globe slowly |
+| **View ▾** | **Layout**: the map alone, the map with country bars, or only the bar race (always in MW); **Projection**: 3D globe or 2.5D map; **Basemap**: Relief, Satellite, Plain or Wind speed (Global Wind Atlas at 100 m; zooming in adds sharper Esri tiles automatically, not on Wind speed); **Labels**: Off, Minimal, Standard, Detailed; **Auto-rotate** |
+| **Layers ▾** | Six layer toggles, each with its legend colour and the record count in the current focus; the number on the button is how many layers are on. **Pipeline** (dashed rings, brighter when closer to completion; on by default), **⚓ Ports** (on by default), **⚑ Events** (on by default), **Sea zones**, **Live data**, **Wind now** (the latest NOAA GFS 10 m wind as flowing particles, refreshed every 6 hours; today's weather, not tied to the timeline). Two menus below them: **Show** (onshore + offshore, onshore only, offshore only, Offshore: foundations) and **Colour by** (year-end capacity, per capita, wind share of generation, capacity factor or added this year; the bar race ranks by it too, 4.8a) |
+| **Analyse ▾** | **📊 Output** (4.8), **⚖ Compare** (4.8a), **🏭 Makers & owners** (4.8b) |
 | **▶ Tour** | The auto tour or one of four story tours (4.9); press it again during a tour to end it |
-| **Labels** | Name labels on the map: Off, Minimal, Standard, Detailed |
 | **Sources** | Source, licence, data time and record count of every dataset |
 
-### 4.4 Timeline and "Show"
+The layers themselves are described in 4.7.
+
+### 4.4 Timeline
 
 - The timeline runs from 1980 to **2026 (latest available)**. 1980–2025 are each country's year-end cumulative capacity; for 2026 only the countries that have published this year's official figures (Taiwan, China, India, Brazil, the US, Germany, France and the UK) are new, and the rest carry their end-2025 figure, drawn hatched in the bars.
 - **Speed**: from 1 year per 10 seconds to 4 years per second.
-- **Show**: onshore + offshore, onshore only, offshore only, or "**Offshore: foundations**" (4.7).
+- **Show** (in the Layers menu): onshore + offshore, onshore only, offshore only, or "**Offshore: foundations**" (4.7).
 - Farms appear in their commissioning year: with the timeline on an earlier year, farms finished later are not drawn.
 
 ### 4.5 Side panel tabs
@@ -179,17 +171,17 @@ Port cards list the roles, the farms served (drawn as arcs on the map) and the s
 - **Pipeline** (dashed rings): about 9,600 projects under construction, in pre-construction or announced; turning it on moves the timeline to the latest year.
 - **⚓ Ports**: 103 offshore wind ports in 20 countries (marshalling, manufacturing, cables, floating assembly, O&M), each with sources; small dots at world zoom, icons and names when zoomed in.
 - **⚑ Events**: 91 major events and incidents (red = incident / failure, white = milestone, purple = policy & society), shown once the timeline reaches their year; events without coordinates are placed at their farm or listed only in the Events tab. Full list: [events.en.md](./events.en.md).
-- **Offshore: foundations** (the "Show" menu): colours operating offshore farms by type — monopile, steel frame (jacket, tripod, tripile), floating, other fixed-bottom (gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed) —
+- **Offshore: foundations** ("Show" in the Layers menu): colours operating offshore farms by type — monopile, steel frame (jacket, tripod, tripile), floating, other fixed-bottom (gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed) —
   with farms not yet checked as "type unknown". The legend counts each group in focus; click a group to show only that group. Farm-by-farm list: [foundations.en.md](./foundations.en.md).
 - **Wind now**: see 4.3; the legend gives the data time (Taiwan time).
 - **Sea zones**: EEZ boundaries (three kinds of line: agreed or ruled, median lines and 200 NM limits, unsettled or disputed); Taiwan's 36 offshore wind potential sites published by the Energy Administration, Japan's 13 promotion zones, and the planned or leased areas of 6 North Sea countries (Netherlands, Germany, Belgium, Denmark, Scotland, Norway), named with their area when zoomed in.
   **The lines have no legal value and imply no position on disputed waters.**
 - **Live data**: countries for which the site has live wind output are coloured — **solid teal** = the whole country (Germany, France, Denmark, Belgium, Poland, Ireland, Korea, Brazil, Taiwan), **violet hatching** = only part of it (UK: Great Britain only has wind metered by the grid operator, and Northern Ireland is an estimate for the whole area; US: only Texas and California; Australia: only the eastern grid; Canada: only Alberta and Ontario); no colour = no live data the site may use. In the US, Canada and Australia only the covered states or provinces are coloured, with the national border dashed (state and province borders are approximate, since grids do not follow them exactly); both parts of the UK have data, but Great Britain leaves out most turbines on the distribution network, so the whole country is hatched. France is coloured on the mainland only. The colours only show whether there is data and how much of the country it covers, not how much is generated. Hover over land to see whether that country or state has data; the legend lists the countries, "Details" shows the reasons for the partial ones, and a name opens the current figure and 48-hour trend. The public single-file globe does not have this layer.
-- **Wind speed** (the "Basemap" menu): Global Wind Atlas mean wind speed at 100 m, in 1 m/s bands with a legend.
+- **Wind speed** ("Basemap" in the View menu): Global Wind Atlas mean wind speed at 100 m, in 1 m/s bands with a legend.
 
 ### 4.8 Output
 
-Open it from "📊 Output" in the toolbar, "Output rankings" in a country profile, or "See rankings" on a farm card.
+Open it from "📊 Output" in the toolbar's Analyse menu, "Output rankings" in a country profile, or "See rankings" on a farm card.
 
 - **Data**:
   - Taiwan · official yearly (19 Taipower-owned farms, Taipower open data)
@@ -202,9 +194,9 @@ Open it from "📊 Output" in the toolbar, "Output rankings" in a country profil
 
 ### 4.8a Country comparison and indicators
 
-**Country comparison**: open it from "⚖ Compare" in the toolbar or "Compare" in a country profile; pick 2–4 countries (Taiwan, Denmark and Germany by default). Above is the cumulative-capacity curve from 1980 to the latest year, below a table for the chosen year: capacity at year end, onshore, offshore, world rank, share of the world, added this year, added in the last 5 years, growth over 10 years, per capita, wind share of generation, capacity factor (national average), the operating farms on this site (count and capacity) and the largest farm. You can change the year (in step with the timeline), add Taiwan and copy the link.
+**Country comparison**: open it from "⚖ Compare" in the toolbar's Analyse menu or "Compare" in a country profile; pick 2–4 countries (Taiwan, Denmark and Germany by default). Above is the cumulative-capacity curve from 1980 to the latest year, below a table for the chosen year: capacity at year end, onshore, offshore, world rank, share of the world, added this year, added in the last 5 years, growth over 10 years, per capita, wind share of generation, capacity factor (national average), the operating farms on this site (count and capacity) and the largest farm. You can change the year (in step with the timeline), add Taiwan and copy the link.
 
-**Indicators** (the "Indicator" menu in the toolbar): the map colours countries in six steps of one hue (brighter = higher), with the steps, the source and the data year in the legend; countries without data stay uncoloured; hovering over a country shows its value; the bar race view ranks by the indicator as well. It cannot be combined with the "Live data" colouring.
+**Indicators** ("Colour by" in the Layers menu): the map colours countries in six steps of one hue (brighter = higher), with the steps, the source and the data year in the legend; countries without data stay uncoloured; hovering over a country shows its value; the bar race view ranks by the indicator as well. It cannot be combined with the "Live data" colouring.
 
 | Indicator | How it is computed | Source |
 |---|---|---|
@@ -218,7 +210,7 @@ Ember and the population series stop at their latest years (2025 and 2023 at pre
 
 ### 4.8b Turbine makers and owners
 
-Open it from "🏭 Makers & owners" in the toolbar or the button of the same name in a country profile; the scope starts at the selected world, continent or country and can be changed in the dialog.
+Open it from "🏭 Makers & owners" in the toolbar's Analyse menu or the button of the same name in a country profile; the scope starts at the selected world, continent or country and can be changed in the dialog.
 
 - **Turbine makers**: the capacity of operating farms in the site's farm records at the end of the chosen year, ranked by maker (top 10 plus others), for all, onshore or offshore; below it, a stacked bar chart of the capacity added each year over the last 25 years by maker (one colour for each of the top 5, grey for the others and for unknown).
   Makers come from USWTDB per-turbine manufacturers for the US, MaStR per-turbine manufacturers for Germany (mixed farms split by each maker's capacity), and the turbine field of the farm records elsewhere; records naming several makers without their capacities count as unknown, and OpenStreetMap tags are not used.

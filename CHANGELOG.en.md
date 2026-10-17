@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.40.0 — 2026-10-17
+
+- First step of the globe layout redesign (direction A of the design canvas of 17 Oct 2026; layout only, data, URL parameters and card content unchanged):
+  - **Grouped toolbar**: only "Focus" and "🔍 Search" stay as primary controls; everything else moves into three drop-down menus — "View" (layout, projection, basemap, labels, auto-rotate), "Layers" (the six toggles Pipeline, Ports, Events, Sea zones, Live data and Wind now, each with its legend colour and the record count in the current focus;
+    the "Show" menu from the timeline and the former stand-alone "Indicator" menu move here too) and "Analyse" (Output, Compare, Makers & owners). The "Layers" button shows how many layers are on; one menu opens at a time and closes on an outside click or Esc; on phones the toolbar no longer needs sideways swiping to reach a button.
+  - **Readout**: the big year and the scope statistics at the top left become one block and gain "Added this year" (the year-on-year difference of the scope's year-end totals, following the onshore / offshore choice in "Show").
+  - **Legend panel**: the legends for foundations, indicators, live data, sea zones, wind now, wind speed, pipeline and live output all move into one panel at the bottom left that lists only what is on, instead of sitting in different corners; it shifts right while a card is open.
+  - User guide 4.1, 4.3, 4.4, 4.7 and 4.8 and the README updated to match.
+
 ## v2.39.1 — 2026-10-14
 
 - "Makers & owners" now uses MaStR's per-turbine manufacturers for Germany: `tools/build_mastr.py` writes each maker's net rating (`mk`) for mixed-model farms and `tools/build_market_shares.py` splits by it (units filed as "Sonstige" count as unknown).
