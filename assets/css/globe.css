@@ -24,6 +24,34 @@
 #g-top{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--gpanel);border-bottom:1px solid var(--gline);z-index:6;flex-wrap:wrap}
 #g-top .gtitle{font-size:14px;font-weight:800;white-space:nowrap;margin-right:4px}
 #g-top .gtitle small{font-weight:500;color:var(--ink-2);font-size:11.5px;margin-left:6px}
+/* 工具列下拉選單（檢視／圖層／分析）：固定定位，位置由 globe.js 依按鈕算 · toolbar menus */
+#globe .gmenu{display:inline-flex;flex:0 0 auto}
+#globe .gmb{display:inline-flex;align-items:center;gap:4px}
+#globe .gmb.open{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+#globe .gmb .gcar::after{content:'▾';font-style:normal;font-size:10px;color:var(--ink-2);margin-left:2px}
+#globe .gmb.open .gcar::after{content:'▴'}
+#globe .gmc{display:inline-block;min-width:16px;padding:0 5px;border-radius:99px;background:var(--acc);color:#1d1504;font-size:10.5px;font-weight:700;line-height:16px;text-align:center}
+#globe .gmc[hidden]{display:none}
+#globe .gmp{position:fixed;z-index:60;display:flex;flex-direction:column;gap:4px;min-width:230px;max-width:min(320px,calc(100vw - 16px));padding:8px;overflow-y:auto;box-sizing:border-box;background:rgba(10,17,30,.97);border:1px solid var(--gline);border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+#globe .gmp[hidden]{display:none}
+#globe .gmrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:3px 8px}
+#globe .gmrow .gml{font-size:11.5px;color:var(--ink-2);white-space:nowrap}
+#globe .gmrow select{max-width:170px}
+#globe .gmsep{height:1px;background:var(--gline);margin:4px 0}
+#globe .gmp .gmt{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:1px solid transparent;padding:6px 8px;border-radius:7px;color:var(--ink);font-weight:500}
+#globe .gmp .gmt:hover{background:rgba(255,255,255,.08)}
+#globe .gmp .gmt.active{background:rgba(240,200,106,.12);border-color:rgba(240,200,106,.35);color:var(--ink);font-weight:500}
+#globe .gmp .gmt[hidden]{display:none}
+#globe .gmp .gmt .gtk{flex:none;width:14px;height:14px;border:1.5px solid var(--ink-2);border-radius:4px;box-sizing:border-box;font-style:normal;font-size:10px;line-height:11px;text-align:center;color:#1d1504}
+#globe .gmp .gmt.active .gtk{background:var(--acc);border-color:var(--acc)}
+#globe .gmp .gmt.active .gtk::after{content:'✓'}
+#globe .gmp .gmt .gsw{flex:none;margin-right:0}
+#globe .gmp .gmt .gsw.zline{width:14px;height:0;border-top:2px solid #3a9fd8;border-radius:0}
+#globe .gmp .gmt .gsw.flow{width:14px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#fff)}
+#globe .gmp .gmt .gsw.cvsw{width:14px;height:10px;margin-top:0}
+#globe .gmp .gmt span{flex:1 1 auto}
+#globe .gmp .gmt .gmn{flex:none;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:11.5px}
+#globe .gmp .gmt .gmn:empty{display:none}
 /* stage */
 #g-stage{position:relative;display:grid;grid-template-columns:1fr;min-height:0}
 #g-stage.split{grid-template-columns:3fr 2fr}
@@ -46,12 +74,15 @@
 #globe .lbl.focus{color:#fff}
 #globe .lbl.focus b{font-size:13px;color:var(--acc)}
 #globe .lbl.pipe{color:var(--p2)}
-#g-yearBig{position:absolute;left:16px;top:12px;font-size:60px;font-weight:900;letter-spacing:-2px;line-height:1;color:rgba(255,255,255,.93);text-shadow:0 2px 12px rgba(0,0,0,.6);pointer-events:none}
+/* 讀數列：年份＋範圍統計合成一塊（左上），拖時間軸時只有數字在變 · HUD */
+#g-hud{position:absolute;left:12px;top:12px;display:flex;flex-direction:column;gap:6px;max-width:min(380px,60%);pointer-events:none}
+#g-yearBig{font-size:60px;font-weight:900;letter-spacing:-2px;line-height:1;color:rgba(255,255,255,.93);text-shadow:0 2px 12px rgba(0,0,0,.6);padding-left:4px}
 #g-yearBig small{display:block;font-size:12.5px;font-weight:500;letter-spacing:0;color:var(--ink-2);margin-top:4px}
-#g-worldStat{position:absolute;left:8px;top:94px;pointer-events:none;font-size:12.5px;color:var(--ink-2);line-height:1.55;text-shadow:0 1px 4px #000;background:rgba(7,13,24,.62);border-radius:10px;padding:5px 10px;max-width:min(360px,60%)}
+#g-worldStat{font-size:12.5px;color:var(--ink-2);line-height:1.55;text-shadow:0 1px 4px #000;background:rgba(7,13,24,.62);border-radius:10px;padding:5px 10px;align-self:flex-start}
 #g-worldStat b{color:var(--ink);font-size:15px}
 #g-worldStat .gsw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
 #g-worldStat .pl{color:var(--p2)}
+#g-worldStat .hadd{font-size:12.5px;font-weight:600}
 /* side panel */
 #g-msPanel{position:absolute;right:12px;top:12px;width:320px;max-height:calc(100% - 46px);overflow:auto;background:var(--gpanel);border:1px solid var(--gline);border-radius:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 12px;display:flex;flex-direction:column;gap:8px;z-index:4}
 #g-msPanel .ph{display:flex;justify-content:space-between;align-items:center;gap:6px;position:sticky;top:-10px;background:var(--gpanel);margin:-10px -12px 0;padding:10px 12px 6px;z-index:2}
@@ -143,8 +174,14 @@
 #g-flowLegend .fly{color:var(--acc)}
 /* 海域圖層圖例（左下，其他圖例上方；右下會被側欄蓋住）：界線藍、潛力場址玫瑰紅（dataviz 色盲檢查）；未定界線用虛線區分，不只靠透明度 */
 /* 左下的圖例堆疊：海域、即時資料涵蓋範圍（同時開啟時上下排列） */
-#g-legStack{position:absolute;left:16px;bottom:88px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:min(330px,calc(100% - 24px));max-height:calc(100% - 300px);overflow-y:auto;scrollbar-width:thin;z-index:3;pointer-events:none}
+#g-legStack{position:absolute;left:12px;bottom:30px;display:flex;flex-direction:column;align-items:stretch;gap:6px;width:min(330px,calc(100% - 24px));max-height:calc(100% - 270px);overflow-y:auto;scrollbar-width:thin;z-index:3;pointer-events:none}
 #g-legStack>*{pointer-events:auto}
+/* 圖例一律放進左下的堆疊（只有開著的圖層才出現），不再各自貼在畫面不同角落 · every legend lives in the stack */
+#g-legStack>#g-fdLegend,#g-legStack>#g-windLegend,#g-legStack>#g-flowLegend,#g-legStack>#g-pipeLegend,#g-legStack>#g-liveLegend{position:static;left:auto;top:auto;bottom:auto;transform:none;max-width:100%;width:100%;box-sizing:border-box;border:1px solid var(--gline);border-radius:10px;background:rgba(7,13,24,.84);padding:7px 10px;pointer-events:auto}
+#g-legStack>#g-pipeLegend{display:flex;flex-direction:row;flex-wrap:wrap}
+#g-legStack>#g-liveLegend{display:flex;flex-direction:row}
+#g-legStack>#g-pipeLegend[hidden],#g-legStack>#g-liveLegend[hidden]{display:none}
+#g-legStack:empty{display:none}
 #g-zoneLegend,#g-cvgLegend{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--ink-2);background:rgba(7,13,24,.84);border:1px solid var(--gline);border-radius:10px;padding:7px 10px;max-width:100%;box-sizing:border-box}
 #g-zoneLegend[hidden],#g-cvgLegend[hidden]{display:none}
 #g-cvgLegend{cursor:pointer}
@@ -182,7 +219,7 @@
 #g-windLegend .wlbar em{font-style:normal;font-size:10px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
 #g-windLegend .wln{font-size:10px}
 #g-windLegend .wln a{color:var(--ginkm)}
-@media (min-width:901px){#g-mapPane.carded #g-fdLegend{left:378px;max-width:calc(100% - 740px)}}
+@media (min-width:901px){#g-mapPane.carded #g-legStack{left:378px;width:min(330px,calc(100% - 740px))}}
 #g-ports.fdm .pmk{background:rgba(10,17,30,.85);color:#e6ebf2;border-color:rgba(230,235,242,.8)}
 #g-ports.fdm .pmk.dev{border-style:dashed}
 #g-fdLegend .fdh b{color:var(--ink)}
@@ -385,16 +422,18 @@
   #g-msPanel{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:46%}
   #g-mapPane:has(#g-infoCard.show) #g-msPanel{display:none}
   #g-attr{bottom:auto;top:6px;right:8px;max-width:60%}
-  #g-legStack{bottom:auto;top:80px;left:8px;max-width:min(280px,calc(100% - 16px));max-height:calc(100% - 140px)}
-  #g-yearBig{font-size:40px;left:10px;top:8px}
-  #g-worldStat{left:4px;top:72px;font-size:11.5px;padding:4px 8px}
+  #g-legStack{bottom:auto;top:120px;left:8px;width:min(280px,calc(100% - 16px));max-height:calc(100% - 200px)}
+  @media (max-width:640px){#g-legStack{top:64px;max-height:45%}}
+  #g-hud{left:8px;top:8px;gap:4px}
+  #g-yearBig{font-size:40px}
+  #g-worldStat{font-size:11.5px;padding:4px 8px}
   #g-infoCard{left:8px;right:8px;width:auto;bottom:8px;max-height:58%}
   #g-hint{display:none}
   #g-pipeLegend{display:none!important}
   #g-liveLegend{display:none!important}
-  #g-fdLegend{left:8px;right:8px;max-width:none;bottom:68px;padding:6px 8px}
+  #g-fdLegend{padding:6px 8px}
   #g-fdLegend .fdn{display:none}
-  #g-mapPane:has(#g-infoCard.show) #g-fdLegend,#g-mapPane:has(#g-msPanel:not(.collapsed)) #g-fdLegend{display:none}
+  #g-mapPane:has(#g-infoCard.show) #g-legStack,#g-mapPane:has(#g-msPanel:not(.collapsed)) #g-legStack{display:none}
   #globe .brow{grid-template-columns:78px 1fr 92px;gap:6px}
   #g-axis{left:84px;right:98px}
   #g-bottom{gap:6px;padding:6px 8px}
@@ -410,9 +449,8 @@
   #g-zoneLegend.open .wln.zn{display:block}
   #g-cvgLegend{font-size:10.5px;padding:5px 8px}
   #globe{font-size:12px}
-  #g-windLegend{top:auto;bottom:54px;padding:4px 7px;gap:2px}
-  #g-flowLegend{top:auto;bottom:54px;padding:4px 7px;gap:2px}
-  #g-flowLegend.below{bottom:104px;top:auto}
+  #g-windLegend{padding:4px 7px;gap:2px}
+  #g-flowLegend{padding:4px 7px;gap:2px}
   #g-windLegend .wln{display:none}
   #g-windLegend .wlbar span{min-width:27px}
   #globe button,#globe select,#globe input{font-size:11.5px;padding:4px 7px;border-radius:7px}
@@ -421,7 +459,8 @@
   #g-top{padding:4px 6px;gap:4px}
   #g-top .gsp{display:none}
   #g-yearBig{display:none}
-  #g-worldStat{left:4px;top:4px;font-size:10.5px;line-height:1.3;padding:3px 6px;border-radius:7px;max-width:calc(100% - 8px)}
+  #g-hud{left:4px;top:4px;max-width:calc(100% - 8px)}
+  #g-worldStat{font-size:10.5px;line-height:1.3;padding:3px 6px;border-radius:7px}
   #g-worldStat b{font-size:12px}
   #g-worldStat>div{display:inline}
   #g-worldStat>div+div::before{content:' · ';color:var(--ginkm)}

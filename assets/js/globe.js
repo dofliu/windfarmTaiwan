@@ -16,7 +16,7 @@ const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
     region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', liveCov: '即時資料', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
-    speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
+    mView: '檢視', mLayers: '圖層', mAna: '分析', mLayout: '版面', mProj: '投影', speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、低樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
     fdCov: (n, t, p) => `已知型式 ${n}／${t} 座 · 占容量 ${p}`, fdIso: '點一組只看這一組，再點一次恢復全部', fdNoFarm: '範圍內沒有營運中的離岸風場',
@@ -149,7 +149,7 @@ const I18N = {
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
     region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', liveCov: 'Live data', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
-    speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
+    mView: 'View', mLayers: 'Layers', mAna: 'Analyse', mLayout: 'Layout', mProj: 'Projection', speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
     fdCov: (n, t, p) => `Type known for ${n} of ${t} farms · ${p} of capacity`, fdIso: 'Click a group to show only it; click again for all', fdNoFarm: 'No operating offshore farms in scope',
@@ -291,25 +291,36 @@ const loadingEl = $('globe-loading');     // 資料載入完成前保留「載�
 host.innerHTML = `
 <div id="g-top">
   <span class="gtitle" data-gi="title"></span>
-  <div class="gseg" id="g-viewSeg" role="group"><button data-view="map" class="active" data-gi="vMap"></button><button data-view="split" data-gi="vSplit"></button><button data-view="bars" data-gi="vBars"></button></div>
-  <div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div>
   <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
-  <button id="g-btnOut" type="button" data-gi="btnOut" aria-haspopup="dialog"></button>
-  <button id="g-btnCmp" type="button" data-gi="btnCmp" aria-haspopup="dialog"></button>
-  <button id="g-btnMk" type="button" data-gi="btnMk" aria-haspopup="dialog"></button>
-  <div class="ggrp"><label for="g-indSel" data-gi="ind"></label><select id="g-indSel"><option value="" data-gi="indNone"></option><option value="cap" data-gi="indCap"></option><option value="pc" data-gi="indPc"></option><option value="share" data-gi="indShare"></option><option value="cf" data-gi="indCf"></option><option value="add" data-gi="indAdd"></option></select></div>
-  <div class="ggrp"><label for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
-  <button id="g-btnPipe" type="button" aria-pressed="true" data-gi="pipe"></button>
-  <button id="g-btnFlow" type="button" aria-pressed="false" data-gi="flow"></button>
-  <button id="g-btnZones" type="button" aria-pressed="false" data-gi="zones"></button>
-  <button id="g-btnLiveCov" type="button" aria-pressed="false" data-gi="liveCov"></button>
-  <button id="g-btnPorts" type="button" aria-pressed="true" data-gi="btnPorts"></button>
-  <button id="g-btnEvents" type="button" aria-pressed="true" data-gi="btnEvents"></button>
+  <span class="gmenu"><button id="g-mView" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pView"><span data-gi="mView"></span><i class="gcar"></i></button>
+    <div id="g-pView" class="gmp" hidden>
+      <div class="gmrow"><span class="gml" data-gi="mLayout"></span><div class="gseg" id="g-viewSeg" role="group"><button data-view="map" class="active" data-gi="vMap"></button><button data-view="split" data-gi="vSplit"></button><button data-view="bars" data-gi="vBars"></button></div></div>
+      <div class="gmrow"><span class="gml" data-gi="mProj"></span><div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div></div>
+      <div class="gmrow"><label class="gml" for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
+      <div class="gmrow"><label class="gml" for="g-densSel" data-gi="labels"></label><select id="g-densSel"><option value="0"></option><option value="1" selected></option><option value="2"></option><option value="3"></option></select></div>
+      <button id="g-btnRotate" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><span data-gi="rotate"></span></button>
+    </div></span>
+  <span class="gmenu"><button id="g-mLayers" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pLayers"><span data-gi="mLayers"></span><b class="gmc" id="g-layerCount" hidden></b><i class="gcar"></i></button>
+    <div id="g-pLayers" class="gmp" hidden>
+      <button id="g-btnPipe" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw dash p1"></i><span data-gi="pipe"></span><b class="gmn" id="g-nPipe"></b></button>
+      <button id="g-btnPorts" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw" style="background:var(--port)"></i><span data-gi="btnPorts"></span><b class="gmn" id="g-nPorts"></b></button>
+      <button id="g-btnEvents" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw" style="background:var(--ev-inc)"></i><span data-gi="btnEvents"></span><b class="gmn" id="g-nEvents"></b></button>
+      <button id="g-btnZones" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><i class="gsw zline"></i><span data-gi="zones"></span></button>
+      <button id="g-btnLiveCov" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><i class="gsw cvsw full"></i><span data-gi="liveCov"></span></button>
+      <button id="g-btnFlow" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><i class="gsw flow"></i><span data-gi="flow"></span></button>
+      <div class="gmsep"></div>
+      <div class="gmrow"><label class="gml" for="g-layerSel" data-gi="layer"></label><select id="g-layerSel"><option value="both" data-gi="lBoth"></option><option value="on" data-gi="lOn"></option><option value="off" data-gi="lOff"></option><option value="fd" data-gi="lFd"></option></select></div>
+      <div class="gmrow"><label class="gml" for="g-indSel" data-gi="ind"></label><select id="g-indSel"><option value="" data-gi="indNone"></option><option value="cap" data-gi="indCap"></option><option value="pc" data-gi="indPc"></option><option value="share" data-gi="indShare"></option><option value="cf" data-gi="indCf"></option><option value="add" data-gi="indAdd"></option></select></div>
+    </div></span>
+  <span class="gmenu"><button id="g-mAna" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pAna"><span data-gi="mAna"></span><i class="gcar"></i></button>
+    <div id="g-pAna" class="gmp" hidden>
+      <button id="g-btnOut" type="button" class="gmt" aria-haspopup="dialog" data-gi="btnOut"></button>
+      <button id="g-btnCmp" type="button" class="gmt" aria-haspopup="dialog" data-gi="btnCmp"></button>
+      <button id="g-btnMk" type="button" class="gmt" aria-haspopup="dialog" data-gi="btnMk"></button>
+    </div></span>
   <span class="gsp"></span>
-  <button id="g-btnRotate" type="button" aria-pressed="false" data-gi="rotate"></button>
   <span class="gtourwrap"><button id="g-btnTour" type="button" data-gi="tour" aria-haspopup="true"></button><span id="g-tourMenu" hidden></span></span>
-  <div class="ggrp"><label for="g-densSel" data-gi="labels"></label><select id="g-densSel"><option value="0"></option><option value="1" selected></option><option value="2"></option><option value="3"></option></select></div>
   <button id="g-btnSources" type="button" data-gi="sources"></button>
 </div>
 <div id="g-stage" class="mapOnly">
@@ -318,8 +329,7 @@ host.innerHTML = `
     <div id="g-ports" aria-hidden="true"></div>
     <div id="g-events" aria-hidden="true"></div>
     <div id="g-labels"></div>
-    <div id="g-yearBig">1980<small></small></div>
-    <div id="g-worldStat"></div>
+    <div id="g-hud"><div id="g-yearBig">1980<small></small></div><div id="g-worldStat"></div></div>
     <div id="g-msPanel">
       <div class="ph"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" data-gi="profTab"></button><button id="g-tabMs" type="button" class="active" data-gi="msTitle"></button><button id="g-tabFarms" type="button" data-gi="farmsTab"></button><button id="g-tabPipe" type="button" data-gi="pipeTab"></button><button id="g-tabPorts" type="button" data-gi="portsTab"></button><button id="g-tabEvents" type="button" data-gi="evTab"></button></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div>
       <div class="gpbody prof" id="g-profBody" hidden></div>
@@ -329,7 +339,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-portList" hidden></div>
       <div class="gpbody" id="g-evList" hidden></div>
     </div>
-    <div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div><div id="g-fdLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-legStack"><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-legStack"><div id="g-fdLegend" hidden></div><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -346,7 +356,6 @@ host.innerHTML = `
   <div id="g-yearNow">1980</div>
   <input type="range" id="g-slider" min="1980" max="2026" step="0.02" value="1980">
   <div class="ggrp"><label for="g-speedSel" data-gi="speed"></label><select id="g-speedSel"><option value="0.1"></option><option value="0.2"></option><option value="0.333"></option><option value="0.5"></option><option value="1" selected></option><option value="2"></option><option value="4"></option></select></div>
-  <div class="ggrp"><label for="g-layerSel" data-gi="layer"></label><select id="g-layerSel"><option value="both" data-gi="lBoth"></option><option value="on" data-gi="lOn"></option><option value="off" data-gi="lOff"></option><option value="fd" data-gi="lFd"></option></select></div>
 </div>
 <div id="g-modal"><div class="box"><button class="gclose" id="g-modalClose" type="button" aria-label="close">✕</button><div id="g-modalBody"></div></div></div>`;
 if (loadingEl) { loadingEl.classList.add('gload'); host.appendChild(loadingEl); }
@@ -442,6 +451,7 @@ function liteSetup() {
   D.milestones = [];
   ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-btnZones', 'g-btnLiveCov', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
   const fd = $('g-layerSel').querySelector('option[value="fd"]'); if (fd) fd.remove();
+  const vs = $('g-viewSeg'); if (vs && vs.parentNode.classList.contains('gmrow')) vs.parentNode.hidden = true;   // 「檢視」選單裡的版面列整列藏起
   panelTab = 'farms';
 }
 
@@ -1614,7 +1624,7 @@ function frame(now) {
   if (S.density > 0 || TOUR) {
     const rects = [];
     const pr = $('g-mapPane').getBoundingClientRect();
-    ['g-yearBig', 'g-worldStat', 'g-msPanel', 'g-infoCard'].forEach(id => { const el = $(id); if (!el || el.offsetParent === null) return; const b = el.getBoundingClientRect(); if (b.width) rects.push([b.left - pr.left, b.top - pr.top, b.right - pr.left, b.bottom - pr.top]); });
+    ['g-hud', 'g-legStack', 'g-msPanel', 'g-infoCard'].forEach(id => { const el = $(id); if (!el || el.offsetParent === null) return; const b = el.getBoundingClientRect(); if (b.width) rects.push([b.left - pr.left, b.top - pr.top, b.right - pr.left, b.bottom - pr.top]); });
     const used = { c: 0, f: 0, m: 0, n: 0, p: 0, e: 0, z: 0 };
     const lim = S.density > 0 ? dens : { c: 0, f: 0, m: 1, n: 0, p: 0, e: 0, z: 0 };
     cands.sort((a, b) => b.pri - a.pri);
@@ -1656,6 +1666,10 @@ function updateHUD() {
   let html = '<div>' + esc(nm) + ' <b>' + fmtMW(sOn + sOff) + '</b></div>' +
     '<div><i class="gsw" style="background:var(--on)"></i>' + T('onshore') + ' ' + fmtMW(sOn) + ' &nbsp; <i class="gsw" style="background:var(--off)"></i>' + T('offshore') + ' ' + fmtMW(sOff) + '</div>' +
     (S.region === 'WORLD' ? '<div>' + (S.nWith || C.filter(c => capOf(c, S.year).tot > 0.5).length) + ' ' + T('countriesWith') + '</div>' : '');
+  if (yr > Y0 && S.layer !== 'fd') {                                 // 當年新增（範圍內各國年底累計的逐年差；除役多於新建的年份為負）
+    const add = C.filter(inRegion).reduce((t, c) => { const d = addOf(c, yr); return d ? t + (S.layer === 'on' ? d.on : S.layer === 'off' ? d.off : d.tot) : t; }, 0);
+    html += '<div>' + T('profAdd') + ' <b class="hadd">' + (add < 0 ? '−' : '+') + fmtMW(Math.abs(add)) + '</b></div>';
+  }
   if (byIso[S.region]) {
     if (!farmsReady) html += '<div style="margin-top:4px;color:var(--ginkm)">' + T('farmsLoading') + '</div>';
     else {
@@ -1670,6 +1684,7 @@ function updateHUD() {
   if (atLT()) html += '<div class="ltn">' + esc(ltLine(byIso[S.region] || null)) + '</div>';
   const key = yr + '|' + html;
   if (key !== hudCache) { hudCache = key; $('g-yearBig').childNodes[0].nodeValue = yr; $('g-yearBig').querySelector('small').textContent = atLT() ? T('ltYear')(yr) + L(' · ', ' · ') + T('ltCap') : L(yr + ' 年 · ' + T('worldCap'), T('worldCap')); $('g-worldStat').innerHTML = html; }
+  syncLayerMenu();
   if (panelTab === 'farms') renderFarmResults(false);
   if (panelTab === 'prof' && Math.floor(S.year) !== profYear) renderProfile();
   if (S.ind && Math.floor(S.year) !== indYearPainted) { indPaint(); renderIndLegend(); }
@@ -3336,6 +3351,33 @@ function storyStops(key) {
   });
   return out;
 }
+/* 工具列的三個下拉選單（檢視／圖層／分析）：一次只開一個，固定定位貼在按鈕下方（手機的工具列可橫向捲動，會裁掉絕對定位的選單）；
+   點外面或按 Esc 關閉。「圖層」按鈕上的數字是目前開著的圖層數，選單裡每個圖層旁是範圍內的筆數。 · Toolbar menus */
+const MENUS = [['g-mView', 'g-pView'], ['g-mLayers', 'g-pLayers'], ['g-mAna', 'g-pAna']];
+function menuOpen(id, show) {
+  MENUS.forEach(([b, p]) => {
+    const btn = $(b), pan = $(p); if (!btn || !pan) return;
+    const on = show && b === id;
+    pan.hidden = !on; btn.classList.toggle('open', on); btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (on) {
+      const r = btn.getBoundingClientRect();
+      pan.style.top = Math.round(r.bottom + 4) + 'px';
+      pan.style.maxHeight = Math.max(160, innerHeight - r.bottom - 16) + 'px';
+      pan.style.left = Math.round(Math.max(8, Math.min(r.left, innerWidth - pan.offsetWidth - 8))) + 'px';
+    }
+  });
+}
+const menuOpenId = () => { const m = MENUS.find(([b, p]) => $(p) && !$(p).hidden); return m ? m[0] : null; };
+function syncLayerMenu() {                                 // 「圖層」按鈕的數字與各圖層的筆數（範圍內、到目前年份）
+  const n = [S.pipe, S.ports, S.events, S.zones, S.liveCov, S.flow, S.layer === 'fd', !!S.ind].filter(Boolean).length;
+  const c = $('g-layerCount'); if (c) { c.textContent = n; c.hidden = !n; }
+  const yr = Math.floor(S.year + 1e-6), key = S.region + '|' + yr + '|' + (farmsReady ? 1 : 0) + '|' + PORTS.length + '|' + EVENTS.length + '|' + lang;
+  if (key === syncLayerMenu.key) return; syncLayerMenu.key = key;
+  const set = (id, v) => { const el = $(id); if (el) el.textContent = v == null ? '' : WW.int(v); };
+  set('g-nPipe', farmsReady ? D.farms.filter(f => f.pipe && inScope(f.iso)).length : null);
+  set('g-nPorts', PORTS.length ? PORTS.filter(p => inScope(p.iso)).length : null);
+  set('g-nEvents', EVENTS.length ? EVENTS.filter(e => e.year <= yr && inScope(e.iso)).length : null);
+}
 function tourMenu(show) {
   const m = $('g-tourMenu'); if (!m) return;
   if (show === undefined) show = m.hidden;
@@ -4793,12 +4835,16 @@ function wireUI() {
   tb.querySelector('.tx').onclick = () => { tourEnd(false); closeCard(); };
   $('g-btnTour').onclick = e => { e.stopPropagation(); if (TOUR) { tourEnd(false); closeCard(); } else tourMenu(); };
   document.addEventListener('click', e => { const m = $('g-tourMenu'); if (m && !m.hidden && !m.contains(e.target)) m.hidden = true; });
+  MENUS.forEach(([b]) => { $(b).onclick = e => { e.stopPropagation(); menuOpen(b, menuOpenId() !== b); }; });
+  document.addEventListener('click', e => { if (menuOpenId() && !e.target.closest('.gmenu')) menuOpen(null, false); });
+  $('g-pAna').addEventListener('click', e => { if (e.target.closest('button')) menuOpen(null, false); });
+  window.addEventListener('resize', () => { if (menuOpenId()) menuOpen(null, false); });
   $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe'); $('g-tabPorts').onclick = () => setPanelTab('ports'); $('g-tabEvents').onclick = () => setPanelTab('events');
   if (LITE) setPanelTab('farms');
   $('g-msToggle').onclick = e => { const p = $('g-msPanel'); p.classList.toggle('collapsed'); e.currentTarget.textContent = p.classList.contains('collapsed') ? '+' : '–'; };
   if (window.innerWidth < 700) { $('g-msPanel').classList.add('collapsed'); $('g-msToggle').textContent = '+'; }
-  // 手機精簡版：速度與顯示選單搬到（可橫向捲動的）工具列，播放列只留播放鍵、年份與滑桿 · phone: move the two selects into the toolbar
-  if (window.innerWidth <= 640) { const top = $('g-top'), src = $('g-btnSources'); ['g-speedSel', 'g-layerSel'].forEach(id => top.insertBefore($(id).parentNode, src)); }
+  // 手機精簡版：速度選單搬到（可橫向捲動的）工具列，播放列只留播放鍵、年份與滑桿 · phone: move the speed select into the toolbar
+  if (window.innerWidth <= 640) { const top = $('g-top'), src = $('g-btnSources'); ['g-speedSel'].forEach(id => top.insertBefore($(id).parentNode, src)); }
   $('g-play').onclick = () => setPlaying(!S.playing);
   $('g-slider').oninput = () => { if (TOUR) tourPause(true); S.year = parseFloat($('g-slider').value); syncYearUI(); };
   $('g-slider').onchange = () => syncURL();
@@ -4829,7 +4875,8 @@ function wireUI() {
   $('g-modal').onclick = e => { if (e.target.id === 'g-modal') { e.target.classList.remove('show'); syncURL(); } };
   window.addEventListener('keydown', e => {
     if (!active || e.altKey || e.ctrlKey || e.metaKey) return;
-    if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關來源說明，再關資訊卡／導覽
+    if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關工具列選單，再關來源說明，再關資訊卡／導覽
+      if (menuOpenId()) { const b = menuOpenId(); menuOpen(null, false); $(b).focus(); return; }
       if ($('g-modal').classList.contains('show')) { const wasOut = outShown(), wasCmp = cmpShown(), wasMk = mkShown(); $('g-modal').classList.remove('show'); $('g-' + (wasOut ? 'btnOut' : wasCmp ? 'btnCmp' : wasMk ? 'btnMk' : 'btnSources')).focus(); syncURL(); return; }
       if (TOUR) tourEnd(false); if (cardItem) closeCard(); return;
     }
