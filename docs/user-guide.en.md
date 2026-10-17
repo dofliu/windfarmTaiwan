@@ -91,7 +91,7 @@ Clicking a farm in any tab opens the details on the right:
 
 - **Toolbar at the top**: Focus and Search, then the three menus View, Layers and Analyse, with Tour and Sources on the right (4.3).
 - **Centre**: the globe or flat map; the readout at the top left shows the big year, the scope's cumulative capacity (onshore / offshore) and the year's additions; the legend panel at the bottom left lists only the layers and colourings that are on.
-- **Side panel (context panel)**: a breadcrumb "World › continent › country" at the top (click an earlier step to go back), then "Profile" and "Lists ▾" (Milestones, Farms, Pipeline, Ports and Events, each with its count in the current focus; 4.5); collapse it with "–/+".
+- **Side panel (context panel)**: a breadcrumb "World › continent › country" at the top (click an earlier step to go back), then "Profile", "Lists ▾" (Milestones, Farms, Pipeline, Ports and Events, each with its count in the current focus) and "Analyse ▾" (Output, Compare, Makers & owners; 4.5); collapse it with "–/+".
 - **Timeline at the bottom**: play button, year slider and speed (4.4).
 - **Card**: opens for a farm, port, event or milestone; on desktop it takes the side panel's place (the panel steps aside) and the panel returns when you close it with ✕ (4.6). On phones the card slides up from the bottom.
 
@@ -135,7 +135,7 @@ The layers themselves are described in 4.7.
 
 ### 4.5 Side panel tabs
 
-The panel opens on "Profile" (world, continent or country); the five lists sit under "Lists ▾", and once one is chosen the button shows its name. The breadcrumb takes you back to the continent or the world in one click.
+The panel opens on "Profile" (world, continent or country); the five lists sit under "Lists ▾", and once one is chosen the button shows its name; the three analyses sit under "Analyse ▾" and open inside the panel on desktop (4.8). The breadcrumb takes you back to the continent or the world in one click.
 
 - **Profile**: for a country, the year-end cumulative capacity with its curve, world rank, onshore / offshore, share of the world, the figure 10 years earlier, the offshore world rank, **added this year** (onshore / offshore), **per-capita capacity**, **wind share of generation**, **capacity factor (national average)** and a bar chart of the capacity added each year (4.8a); the number of farms in the data, the largest and earliest farms, **farm-level coverage** (capacity mapped farm by farm ÷ the national figure), foundation and pipeline totals;
   Taiwan and Japan carry an official-statistics audit badge. The "Live output right now" box: for Taiwan, Australia and Canada it shows each grid's total (with farm-level figures as well); for the UK (Great Britain, with Northern Ireland as a second row), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil it shows national wind output (onshore/offshore for Germany, France, Denmark, Belgium and Poland), and for the US the Texas (ERCOT) and California (CAISO) grids — these are totals only, with nothing per farm. Each row has the data time (local time), the last 48 hours as a trend (hourly means), a coverage note (e.g. the UK figure leaves out most turbines on the distribution network, so it is low; Texas and Belgium also show the share of capacity; Poland's current value is a snapshot of PSE's homepage map, and today's part of its trend only has this site's points, about every 2 hours) and the attribution. Buttons below: tour this country, farm list, Compare, Makers & owners, Output rankings (Taiwan, the US, Australia, Denmark) and the Taiwan live dashboard. With the world or a continent in focus, it lists the top five countries and a "Wind output right now" list, sorted by output and not summed (the sources differ in coverage and timing); a name opens that country's profile.
@@ -183,7 +183,7 @@ Port cards list the roles, the farms served (drawn as arcs on the map) and the s
 
 ### 4.8 Output
 
-Open it from "📊 Output" in the toolbar's Analyse menu, "Output rankings" in a country profile, or "See rankings" on a farm card.
+Open it from "📊 Output" in the toolbar's or the panel's Analyse menu, "Output rankings" in a country profile, or "See rankings" on a farm card. On desktop it shows in the panel's Analyse tab; "⤢ Maximise" turns it into a window over the map ("⤡ Back to panel" returns), and ✕ or switching tabs closes it. On phones it opens as a window straight away. Compare and Makers & owners work the same way.
 
 - **Data**:
   - Taiwan · official yearly (19 Taipower-owned farms, Taipower open data)

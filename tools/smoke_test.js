@@ -48,11 +48,11 @@ const ROUTES = [
     return c && c.classList.contains('show') && c.innerText.trim().length > 50 ? '' : 'farm card did not open';
   }],
   ['#/global?out=USA.cf', 15000, () => {
-    const n = document.querySelectorAll('#g-modal.show .oout .orow').length;
+    const n = document.querySelectorAll('.gana .oout .orow').length;
     return n > 10 ? '' : 'Output dialog: ' + n + ' rows';
   }],
   ['#/global?out=AUS.cf', 15000, () => {
-    const n = document.querySelectorAll('#g-modal.show .oout .orow').length;
+    const n = document.querySelectorAll('.gana .oout .orow').length;
     return n > 10 ? '' : 'Output dialog (Australia): ' + n + ' rows';
   }],
   ['#/global?r=TWN&zones=1', 15000, () => {
@@ -64,11 +64,11 @@ const ROUTES = [
     return l && !l.hidden && l.querySelector('.cvsw.full') ? '' : 'live data coverage: legend missing';
   }],
   ['#/global?cmp=TWN,DNK,DEU&y=2024', 15000, () => {
-    const n = document.querySelectorAll('#g-modal.show .ocmp .cmptab tbody tr').length;
+    const n = document.querySelectorAll('.gana .ocmp .cmptab tbody tr').length;
     return n >= 10 ? '' : 'country comparison: ' + n + ' rows';
   }],
   ['#/global?mk=WORLD&mkt=off', 15000, () => {
-    const n = document.querySelectorAll('#g-modal.show .omk .mkrow').length;
+    const n = document.querySelectorAll('.gana .omk .mkrow').length;
     return n >= 5 ? '' : 'makers & owners: ' + n + ' rows';
   }],
   ['#/global?ind=share', 15000, () => {

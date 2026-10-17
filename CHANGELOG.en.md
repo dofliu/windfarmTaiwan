@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.42.0 — 2026-10-17
+
+- Third step of the globe layout redesign (step 4 of the design canvas, "analyses into the panel"):
+  - On desktop the three analyses (Output, Compare, Makers & owners) now show inside the side panel's "Analyse" tab in a narrow layout, with a new "Analyse ▾" menu in the panel; "⤢ Maximise" turns one into the former window over the map and "⤡ Back to panel" returns; ✕, Esc or switching tabs closes it. Phones (900 px and below) keep opening the window directly.
+  - "See rankings" on a farm card now steps the card aside on desktop and opens the ranking in the panel, scrolled to that farm. The URL parameters `out`, `cmp` and `mk` are unchanged; shared links open in the panel on desktop.
+  - User guide 4.1, 4.5 and 4.8 updated; the smoke test checks either container.
+
 ## v2.41.0 — 2026-10-17
 
 - Second step of the globe layout redesign (step 3 of the design canvas, the "context panel"):
