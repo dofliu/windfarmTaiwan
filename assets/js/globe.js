@@ -3369,7 +3369,8 @@ function menuOpen(id, show) {
 }
 const menuOpenId = () => { const m = MENUS.find(([b, p]) => $(p) && !$(p).hidden); return m ? m[0] : null; };
 function syncLayerMenu() {                                 // 「圖層」按鈕的數字與各圖層的筆數（範圍內、到目前年份）
-  const n = [S.pipe, S.ports, S.events, S.zones, S.liveCov, S.flow, S.layer === 'fd', !!S.ind].filter(Boolean).length;
+  const vis = id => { const el = $(id); return el && !el.hidden; };            // 單檔公開版藏起的圖層不算
+  const n = [[S.pipe, 'g-btnPipe'], [S.ports, 'g-btnPorts'], [S.events, 'g-btnEvents'], [S.zones, 'g-btnZones'], [S.liveCov, 'g-btnLiveCov'], [S.flow, 'g-btnFlow']].filter(([on, id]) => on && vis(id)).length + (S.layer === 'fd' ? 1 : 0) + (S.ind ? 1 : 0);
   const c = $('g-layerCount'); if (c) { c.textContent = n; c.hidden = !n; }
   const yr = Math.floor(S.year + 1e-6), key = S.region + '|' + yr + '|' + (farmsReady ? 1 : 0) + '|' + PORTS.length + '|' + EVENTS.length + '|' + lang;
   if (key === syncLayerMenu.key) return; syncLayerMenu.key = key;
