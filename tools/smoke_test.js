@@ -44,6 +44,11 @@ const ROUTES = [
   ['#/live/map', 4000],
   ['#/global', 15000, async () => {
     if (!document.querySelector('canvas')) return 'globe: no canvas';
+    // 第一次沒帶參數：四張任務卡，點「探索」關掉並開始播放 · first-visit task cards
+    const w = document.querySelector('#g-welcome');
+    if (!w || w.hidden || w.querySelectorAll('.wcard').length !== 4) return 'welcome: task cards missing';
+    w.querySelector('.wcard[data-k=explore]').click();
+    if (!w.hidden || !WW.globe.api().S.playing) return 'welcome: explore card did not close the cards and start playing';
     if (innerWidth > 640) return '';
     // 手機：底部抽屜三段高度（把手列／半開／全開），半開時側欄看得到 · phone drawer heights
     const d = document.querySelector('#g-drawer'); if (!d) return 'phone: no drawer';

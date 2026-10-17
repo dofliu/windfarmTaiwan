@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.44.0 — 2026-10-17
+
+- Fifth step of the globe layout redesign (step 6 of the design canvas, the "first-visit entry", direction C's optional piece):
+  - **Start cards on the first visit**: opened without URL parameters for the first time, the globe now shows four cards — "Watch wind power grow" (play from 1980 to today), "Compare countries" (Taiwan, China, the US and Denmark side by side), "See right now" (the live-data layer plus the list of live output everywhere) and "Hear the story" (the four story tours and the auto tour) — instead of playing from 1980 straight away; "Just show me the map", ✕, a click outside or Esc closes them.
+  - The visit is remembered in the browser, so later visits without parameters autoplay as before; "✦ Start cards" at the top of the "▶ Tour" menu reopens them. The public single-file copy has no cards.
+  - User guide section 4 intro, 4.3 and 4.9 updated; the smoke test checks that the cards appear and that "explore" closes them and starts playing.
+
 ## v2.43.0 — 2026-10-17
 
 - Fourth step of the globe layout redesign (step 5 of the design canvas, the "phone bottom drawer", 640 px and below):
