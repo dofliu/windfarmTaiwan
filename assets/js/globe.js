@@ -32,7 +32,7 @@ const I18N = {
     cont: { Asia: '亞洲', Europe: '歐洲', 'North America': '北美洲', 'South America': '南美洲', Africa: '非洲', Oceania: '大洋洲' },
     turbine: '單機', farm: '風場', rotor: '葉輪直徑', type: { onshore: '陸域', offshore: '離岸', floating: '浮動式' },
     st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'],
-    srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況',
+    srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界',
     msFocus: '點里程碑可跳到該年份並把鏡頭飛到現場',
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
     farmsLoading: '風場資料載入中…',
@@ -165,7 +165,7 @@ const I18N = {
     cont: { Asia: 'Asia', Europe: 'Europe', 'North America': 'North America', 'South America': 'South America', Africa: 'Africa', Oceania: 'Oceania' },
     turbine: 'Turbine', farm: 'Farm', rotor: 'Rotor Ø', type: { onshore: 'onshore', offshore: 'offshore', floating: 'floating' },
     st: ['operating', 'construction', 'pre-construction', 'announced', 'retired'],
-    srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile',
+    srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile', listTab: 'Lists', crumbWorld: 'World',
     msFocus: 'Click a milestone to jump to that year and fly there',
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
     farmsLoading: 'Loading farm data…',
@@ -331,9 +331,10 @@ host.innerHTML = `
     <div id="g-labels"></div>
     <div id="g-hud"><div id="g-yearBig">1980<small></small></div><div id="g-worldStat"></div></div>
     <div id="g-msPanel">
-      <div class="ph"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" data-gi="profTab"></button><button id="g-tabMs" type="button" class="active" data-gi="msTitle"></button><button id="g-tabFarms" type="button" data-gi="farmsTab"></button><button id="g-tabPipe" type="button" data-gi="pipeTab"></button><button id="g-tabPorts" type="button" data-gi="portsTab"></button><button id="g-tabEvents" type="button" data-gi="evTab"></button></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div>
-      <div class="gpbody prof" id="g-profBody" hidden></div>
-      <div class="gpbody" id="g-msList"></div>
+      <div class="ph"><div class="gcrumb" id="g-crumb"></div><div class="phrow"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" class="active" data-gi="profTab"></button><span class="gmenu"><button id="g-tabList" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pList"><span id="g-tabListLabel"></span><i class="gcar"></i></button>
+        <div id="g-pList" class="gmp" hidden><button id="g-tabMs" type="button" class="gmt"><span data-gi="msTitle"></span><b class="gmn" id="g-nMs"></b></button><button id="g-tabFarms" type="button" class="gmt"><span data-gi="farmsTab"></span><b class="gmn" id="g-nFarms"></b></button><button id="g-tabPipe" type="button" class="gmt"><span data-gi="pipeTab"></span><b class="gmn" id="g-nPipeL"></b></button><button id="g-tabPorts" type="button" class="gmt"><span data-gi="portsTab"></span><b class="gmn" id="g-nPortsL"></b></button><button id="g-tabEvents" type="button" class="gmt"><span data-gi="evTab"></span><b class="gmn" id="g-nEventsL"></b></button></div></span></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div></div>
+      <div class="gpbody prof" id="g-profBody"></div>
+      <div class="gpbody" id="g-msList" hidden></div>
       <div class="gpbody" id="g-farmList" hidden></div>
       <div class="gpbody" id="g-pipeList" hidden></div>
       <div class="gpbody" id="g-portList" hidden></div>
@@ -1440,7 +1441,8 @@ function setRegion(r, noFly) {
   setHighlight(byIso[r] ? r : null);
   farmLayerDirty = true;
   focusFarm = null;
-  setPanelTab(panelTab === 'pipe' || panelTab === 'farms' || panelTab === 'ports' || panelTab === 'events' ? panelTab : (LITE ? 'farms' : byIso[r] ? 'prof' : 'ms'));
+  setPanelTab(panelTab !== 'prof' ? panelTab : (LITE ? 'farms' : 'prof'));
+  renderCrumb();
   if (!noFly) flyToRegion(false);
   updateBars(true); renderMilestones(true); renderProfile();
   if (farmsReady && byIso[r] && !TOUR) {          // 這一年該國還沒有風場（時間軸停在早期）：提醒，免得以為資料不見了
@@ -1449,13 +1451,15 @@ function setRegion(r, noFly) {
   }
   syncURL();
 }
-let panelTab = 'ms';
+let panelTab = 'prof';                                    // 預設顯示概況（全球、洲或國家）；清單從「清單 ▾」選
 function setPanelTab(t) {
   panelTab = t;
   [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList'], ['pipe', 'g-tabPipe', 'g-pipeList'], ['ports', 'g-tabPorts', 'g-portList'], ['events', 'g-tabEvents', 'g-evList']].forEach(([k, b, body]) => {
     $(b).classList.toggle('active', k === t); $(b).setAttribute('aria-selected', k === t ? 'true' : 'false'); $(body).hidden = k !== t;
   });
   $('g-tabProf').hidden = LITE || !(byIso[S.region] || S.region.startsWith('C:') || S.region === 'WORLD');
+  const LIST_KEY = { ms: 'msTitle', farms: 'farmsTab', pipe: 'pipeTab', ports: 'portsTab', events: 'evTab' };
+  $('g-tabList').classList.toggle('active', t !== 'prof'); $('g-tabListLabel').textContent = t === 'prof' ? T('listTab') : T(LIST_KEY[t]);
   if (t === 'farms') renderFarmList(true);
   if (t === 'prof') renderProfile();
   if (t === 'pipe') renderPipeList(true);
@@ -3353,7 +3357,7 @@ function storyStops(key) {
 }
 /* 工具列的三個下拉選單（檢視／圖層／分析）：一次只開一個，固定定位貼在按鈕下方（手機的工具列可橫向捲動，會裁掉絕對定位的選單）；
    點外面或按 Esc 關閉。「圖層」按鈕上的數字是目前開著的圖層數，選單裡每個圖層旁是範圍內的筆數。 · Toolbar menus */
-const MENUS = [['g-mView', 'g-pView'], ['g-mLayers', 'g-pLayers'], ['g-mAna', 'g-pAna']];
+const MENUS = [['g-mView', 'g-pView'], ['g-mLayers', 'g-pLayers'], ['g-mAna', 'g-pAna'], ['g-tabList', 'g-pList']];
 function menuOpen(id, show) {
   MENUS.forEach(([b, p]) => {
     const btn = $(b), pan = $(p); if (!btn || !pan) return;
@@ -3368,6 +3372,16 @@ function menuOpen(id, show) {
   });
 }
 const menuOpenId = () => { const m = MENUS.find(([b, p]) => $(p) && !$(p).hidden); return m ? m[0] : null; };
+/* 側欄的麵包屑：全世界 › 洲 › 國家（前面的可以點回去） · panel breadcrumb */
+function renderCrumb() {
+  const el = $('g-crumb'); if (!el || !D) return;
+  const r = S.region, c = byIso[r], cont = c ? c.cont : r.startsWith('C:') ? r.slice(2) : null;
+  const parts = [['WORLD', T('crumbWorld')]];
+  if (cont) parts.push(['C:' + cont, T('cont')[cont] || cont]);
+  if (c) parts.push([r, cname(c)]);
+  el.innerHTML = parts.map(([k, n], i) => i === parts.length - 1 ? '<b>' + esc(n) + '</b>' : '<button type="button" data-r="' + esc(k) + '">' + esc(n) + '</button>').join('<i>›</i>');
+  el.querySelectorAll('button').forEach(b => { b.onclick = () => { if (TOUR) tourEnd(false); closeCard(); setRegion(b.dataset.r); }; });
+}
 function syncLayerMenu() {                                 // 「圖層」按鈕的數字與各圖層的筆數（範圍內、到目前年份）
   const vis = id => { const el = $(id); return el && !el.hidden; };            // 單檔公開版藏起的圖層不算
   const n = [[S.pipe, 'g-btnPipe'], [S.ports, 'g-btnPorts'], [S.events, 'g-btnEvents'], [S.zones, 'g-btnZones'], [S.liveCov, 'g-btnLiveCov'], [S.flow, 'g-btnFlow']].filter(([on, id]) => on && vis(id)).length + (S.layer === 'fd' ? 1 : 0) + (S.ind ? 1 : 0);
@@ -3377,7 +3391,11 @@ function syncLayerMenu() {                                 // 「圖層」按鈕
   const set = (id, v) => { const el = $(id); if (el) el.textContent = v == null ? '' : WW.int(v); };
   set('g-nPipe', farmsReady ? D.farms.filter(f => f.pipe && inScope(f.iso)).length : null);
   set('g-nPorts', PORTS.length ? PORTS.filter(p => inScope(p.iso)).length : null);
-  set('g-nEvents', EVENTS.length ? EVENTS.filter(e => e.year <= yr && inScope(e.iso)).length : null);
+  const nEv = EVENTS.length ? EVENTS.filter(e => e.year <= yr && inScope(e.iso)).length : null, nPo = PORTS.length ? PORTS.filter(p => inScope(p.iso)).length : null;
+  set('g-nEvents', nEv); set('g-nEventsL', nEv); set('g-nPortsL', nPo);
+  set('g-nMs', D ? D.milestones.filter(m => m.year <= yr && inScope(m.iso)).length : null);
+  set('g-nFarms', farmsReady ? D.farms.filter(f => !f.pipe && inScope(f.iso) && f.year <= yr && (!f.end || f.end > yr)).length : null);
+  set('g-nPipeL', farmsReady ? D.farms.filter(f => f.pipe && inScope(f.iso)).length : null);
 }
 function tourMenu(show) {
   const m = $('g-tourMenu'); if (!m) return;
@@ -3867,7 +3885,7 @@ function applyI18n() {
   document.querySelectorAll('#g-speedSel option').forEach(o => { const v = parseFloat(o.value); o.textContent = v < 1 ? (lang === 'zh' ? '1 年 ' + Math.round(1 / v) + ' 秒' : Math.round(1 / v) + ' s / yr') : (lang === 'zh' ? v + ' 年/秒' : v + ' yr/s'); });
   document.querySelectorAll('#g-densSel option').forEach(o => { o.textContent = T('dens')[+o.value]; });
   $('g-hint').textContent = isTouch ? T('hintTouch') : T('hint');
-  buildRegionSelect();
+  buildRegionSelect(); renderCrumb(); setPanelTab(panelTab);
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
@@ -4836,9 +4854,11 @@ function wireUI() {
   tb.querySelector('.tx').onclick = () => { tourEnd(false); closeCard(); };
   $('g-btnTour').onclick = e => { e.stopPropagation(); if (TOUR) { tourEnd(false); closeCard(); } else tourMenu(); };
   document.addEventListener('click', e => { const m = $('g-tourMenu'); if (m && !m.hidden && !m.contains(e.target)) m.hidden = true; });
+  host.appendChild($('g-pList'));                       // 側欄有 backdrop-filter，會把固定定位的選單關在裡面：搬到 #globe 下
   MENUS.forEach(([b]) => { $(b).onclick = e => { e.stopPropagation(); menuOpen(b, menuOpenId() !== b); }; });
   document.addEventListener('click', e => { if (menuOpenId() && !e.target.closest('.gmenu')) menuOpen(null, false); });
   $('g-pAna').addEventListener('click', e => { if (e.target.closest('button')) menuOpen(null, false); });
+  $('g-pList').addEventListener('click', e => { if (e.target.closest('button')) menuOpen(null, false); });
   window.addEventListener('resize', () => { if (menuOpenId()) menuOpen(null, false); });
   $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe'); $('g-tabPorts').onclick = () => setPanelTab('ports'); $('g-tabEvents').onclick = () => setPanelTab('events');
   if (LITE) setPanelTab('farms');

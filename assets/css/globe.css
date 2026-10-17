@@ -84,10 +84,22 @@
 #g-worldStat .pl{color:var(--p2)}
 #g-worldStat .hadd{font-size:12.5px;font-weight:600}
 /* side panel */
-#g-msPanel{position:absolute;right:12px;top:12px;width:320px;max-height:calc(100% - 46px);overflow:auto;background:var(--gpanel);border:1px solid var(--gline);border-radius:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 12px;display:flex;flex-direction:column;gap:8px;z-index:4}
-#g-msPanel .ph{display:flex;justify-content:space-between;align-items:center;gap:6px;position:sticky;top:-10px;background:var(--gpanel);margin:-10px -12px 0;padding:10px 12px 6px;z-index:2}
+#g-msPanel{position:absolute;right:12px;top:12px;width:340px;max-height:calc(100% - 46px);overflow:auto;background:var(--gpanel);border:1px solid var(--gline);border-radius:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 12px;display:flex;flex-direction:column;gap:8px;z-index:4}
+#g-msPanel .ph{display:flex;flex-direction:column;gap:5px;position:sticky;top:-10px;background:var(--gpanel);margin:-10px -12px 0;padding:8px 12px 6px;z-index:2}
+#g-msPanel .phrow{display:flex;justify-content:space-between;align-items:center;gap:6px}
 #g-msPanel .ph .gseg button{padding:4px 8px;font-size:11.5px}
-#g-msPanel .ph>button{padding:2px 8px;font-size:12px}
+#g-msPanel .ph .gseg .gmenu{display:inline-flex}
+#g-msPanel .ph .gseg .gmenu .gmb{border-left:1px solid var(--gline)}
+#g-msPanel .ph .gseg .gmb.active{background:var(--acc);color:#1d1504;font-weight:700}
+#g-msPanel .ph .gseg .gmb.active .gcar::after{color:#1d1504}
+#g-msPanel .phrow>button{padding:2px 8px;font-size:12px}
+/* 麵包屑：全世界 › 洲 › 國家 · breadcrumb */
+#g-msPanel .gcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px;font-size:11.5px;color:var(--ink-2);min-height:14px}
+#g-msPanel .gcrumb:empty{display:none}
+#globe #g-msPanel .gcrumb button{border:0;background:none;padding:0 2px;font-size:11.5px;color:var(--off-b);cursor:pointer}
+#globe #g-msPanel .gcrumb button:hover{text-decoration:underline;background:none}
+#g-msPanel .gcrumb i{font-style:normal;color:var(--ginkm)}
+#g-msPanel .gcrumb b{color:var(--ink);font-weight:700}
 #g-msPanel.collapsed .gpbody{display:none!important}
 #globe .gnote{font-size:11px;color:var(--ginkm);line-height:1.5}
 #globe .msItem{border-left:3px solid rgba(255,255,255,.15);padding:5px 8px;cursor:pointer;border-radius:0 6px 6px 0;transition:background .2s;display:block;width:100%;text-align:left;background:none;border-top:0;border-right:0;border-bottom:0}
@@ -219,7 +231,8 @@
 #g-windLegend .wlbar em{font-style:normal;font-size:10px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
 #g-windLegend .wln{font-size:10px}
 #g-windLegend .wln a{color:var(--ginkm)}
-@media (min-width:901px){#g-mapPane.carded #g-legStack{left:378px;width:min(330px,calc(100% - 740px))}}
+/* 桌機：卡片就是情境面板的一個狀態，開卡片時面板讓位、卡片放在同一個位置 · desktop: the card replaces the panel */
+@media (min-width:901px){#g-mapPane.carded #g-msPanel{display:none}}
 #g-ports.fdm .pmk{background:rgba(10,17,30,.85);color:#e6ebf2;border-color:rgba(230,235,242,.8)}
 #g-ports.fdm .pmk.dev{border-style:dashed}
 #g-fdLegend .fdh b{color:var(--ink)}
@@ -254,7 +267,7 @@
 #g-tip .tlive{margin-top:4px;color:var(--live)}
 #g-tip .tnote{margin-top:4px;font-size:11px;color:var(--ink-2);border-left:2px solid var(--p2);padding-left:6px}
 /* info card */
-#g-infoCard{position:absolute;left:14px;bottom:30px;width:350px;max-height:calc(100% - 60px);overflow:auto;background:rgba(10,17,30,.95);border:1px solid var(--gline);border-radius:14px;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.45);display:none;z-index:8;line-height:1.55}
+#g-infoCard{position:absolute;right:12px;top:12px;width:340px;max-height:calc(100% - 46px);overflow:auto;background:rgba(10,17,30,.95);border:1px solid var(--gline);border-radius:14px;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.45);display:none;z-index:8;line-height:1.55}
 #g-infoCard.show{display:block}
 #g-infoCard .gx{position:absolute;right:8px;top:8px;padding:2px 8px;z-index:2;background:rgba(0,0,0,.45)}
 #g-infoCard .cb{padding:12px 14px 10px}
@@ -411,7 +424,7 @@
 #g-modal .glim{margin:10px 0 6px;padding:8px 12px 6px;border:1px solid rgba(255,190,90,.45);border-left:4px solid #ffbe5a;border-radius:10px;background:rgba(255,190,90,.07)}
 #g-modal .glim h4{color:#ffcf85}
 #g-modal .glim p{margin:4px 0}
-#g-stage.split #g-msPanel{max-height:45%}
+#g-stage.split #g-msPanel,#g-stage.split #g-infoCard{max-height:45%}
 @media (max-width:1500px){#g-top .gtitle{display:none}}
 @media (max-width:1280px){#g-top .ggrp>label{display:none}#g-top .gtitle{display:none}}
 @media (max-width:900px){
@@ -427,7 +440,7 @@
   #g-hud{left:8px;top:8px;gap:4px}
   #g-yearBig{font-size:40px}
   #g-worldStat{font-size:11.5px;padding:4px 8px}
-  #g-infoCard{left:8px;right:8px;width:auto;bottom:8px;max-height:58%}
+  #g-infoCard{left:8px;right:8px;top:auto;width:auto;bottom:8px;max-height:58%}
   #g-hint{display:none}
   #g-pipeLegend{display:none!important}
   #g-liveLegend{display:none!important}

@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.41.0 — 2026-10-17
+
+- Second step of the globe layout redesign (step 3 of the design canvas, the "context panel"):
+  - **The side panel becomes a context panel**: a breadcrumb "World › continent › country" at the top, with earlier steps clickable; the tabs are reduced to "Profile" and "Lists ▾", and the five lists (Milestones, Farms, Pipeline, Ports, Events) sit in a drop-down with their counts in the current focus, the button showing the chosen list's name. With no country selected the panel opens on the world or continent profile (it used to open on Milestones).
+  - **Desktop cards take the panel's place**: clicking a farm, port, event or milestone makes the panel step aside and the card appear in the same spot; closing it brings the panel back, so the card no longer floats over the globe at the bottom left. Phones keep the card sliding up from the bottom. Panel and card are both 340 px wide.
+  - User guide 4.1, 4.5 and 4.6 updated to match.
+
 ## v2.40.0 — 2026-10-17
 
 - First step of the globe layout redesign (direction A of the design canvas of 17 Oct 2026; layout only, data, URL parameters and card content unchanged):
