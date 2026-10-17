@@ -7,10 +7,11 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (15 Oct 2026, v2.39.1): maintenance, improvements as the owner asks
+## Current status (17 Oct 2026, v3.0.0): maintenance, improvements as the owner asks
 
 The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks,
-visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CHANGELOG.en.md)). The automatic Taiwan and international live-data updates keep running
+visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CHANGELOG.en.md)).
+On 17 Oct 2026 the globe layout redesign was completed (v2.40.0–v3.0.0, seven steps: grouped toolbar, merged readout and legends, context panel, analyses in the panel, phone bottom drawer, first-visit start cards, shapes only on the globe), taking the major version to 3. The automatic Taiwan and international live-data updates keep running
 (maintenance: "Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)). How to use the site: [docs/user-guide.en.md](./docs/user-guide.en.md). What is done:
 
 - Four pages: Home, Taiwan live (dashboard, farm grid, charts, map, farm details, share cards), Global (3D globe 1980–2025 plus

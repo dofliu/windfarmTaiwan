@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.0.0 — 2026-10-17
+
+- Last step of the globe layout redesign (step 7 of the design canvas, "shapes only on the globe"). This completes the redesign begun at v2.40.0 (seven steps: grouped toolbar, merged readout and legends, context panel, analyses in the panel, phone bottom drawer, first-visit start cards, shapes only), which counts as a full redesign under the versioning rules, so the major version moves to 3.
+  - **Shapes only on the globe**: event markers and milestone stars are still drawn, but their titles and names now appear only when hovered, selected or just reached while the timeline plays (never while paused); the current stop of a story tour keeps its name. Country and farm names still follow the label density in the View menu.
+  - User guide 4.1, 4.5 and 4.7 updated; the smoke test checks that no event or milestone labels show while paused. ROADMAP and TODO status updated.
+
 ## v2.44.0 — 2026-10-17
 
 - Fifth step of the globe layout redesign (step 6 of the design canvas, the "first-visit entry", direction C's optional piece):

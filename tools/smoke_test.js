@@ -63,6 +63,9 @@ const ROUTES = [
     const c = document.querySelector('#g-infoCard');
     if (!(c && c.classList.contains('show') && c.innerText.trim().length > 50)) return 'farm card did not open';
     if (innerWidth <= 640) { const d = document.querySelector('#g-drawer'); if (!d || !d.classList.contains('h1')) return 'phone: the card did not open the drawer half way'; }
+    // 暫停時地球上只畫形狀：事件標題與里程碑名不出現 · shapes only while paused
+    const shown = [...document.querySelectorAll('#g-labels .lbl.ev, #g-labels .lbl.ms')].filter(l => l.style.display !== 'none');
+    if (shown.length) return 'labels: ' + shown.length + ' event/milestone labels shown while paused';
     return '';
   }],
   ['#/global?out=USA.cf', 15000, () => {

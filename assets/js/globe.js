@@ -1629,7 +1629,8 @@ function frame(now) {
     g.scale.setScalar(pinK);
     g.userData.halo.scale.setScalar(pulse * (1 + Math.min(age, 2) * 0.6)); g.userData.halo.material.opacity = isTour ? 0.8 : Math.max(0, 0.8 - age * 0.2);
     g.userData.pin.position.y = 1.4 + 0.3 * Math.sin(now / 300);
-    if (isTour || age < 1.5) { g.getWorldPosition(tmpV); cands.push({ cat: 'm', pri: isTour ? 2e9 : 1e8, pos: tmpV.clone().addScaledVector(upAt(tmpV), 3.4 * pinK * surfaceRoot.scale.x), name: '★ ' + m.name, val: m.year + (m.farm ? ' · ' + fmtMW(m.farm) : m.mw ? ' · ' + T('turbine') + ' ' + (m.mw < 1 ? WW.int(m.mw * 1000) + ' kW' : m.mw + ' MW') : ''), cls: 'ms', key: 'm' + m.name }); }
+    const msSel = m === hoverMs || !!(cardItem && cardItem.kind === 'ms' && cardItem.m === m);     // 地球上只畫星號：名稱在導覽站、滑過、選到或播放到那一年時才出現
+    if (isTour || msSel || (S.playing && age < 1.5)) { g.getWorldPosition(tmpV); cands.push({ cat: 'm', pri: isTour ? 2e9 : msSel ? 1.5e9 : 1e8, pos: tmpV.clone().addScaledVector(upAt(tmpV), 3.4 * pinK * surfaceRoot.scale.x), name: '★ ' + m.name, val: m.year + (m.farm ? ' · ' + fmtMW(m.farm) : m.mw ? ' · ' + T('turbine') + ' ' + (m.mw < 1 ? WW.int(m.mw * 1000) + ' kW' : m.mw + ' MW') : ''), cls: 'ms', key: 'm' + m.name }); }
   });
 
   updatePorts(alt, cands); updateEvents(alt, cands); zoneLabels(alt, cands);
@@ -2059,7 +2060,7 @@ function loadEvents() {
       const b = document.createElement('button'); b.type = 'button'; b.tabIndex = -1;          // 鍵盤改用「事件」分頁的清單
       b.className = 'emk ' + e.cat; b.textContent = EV_ICON[e.cat]; b.style.display = 'none';
       b.onclick = ev => { ev.stopPropagation(); selectEvent(e); };
-      b.onmouseenter = ev => showTip(ev, tipEvent(e), $('g-mapPane'));
+      b.onmouseenter = ev => { hoverEvent = e; showTip(ev, tipEvent(e), $('g-mapPane')); };
       b.onmousemove = ev => moveTip(ev, $('g-mapPane'));
       b.onmouseleave = hideTip;
       e._el = b; e._vis = false; box.appendChild(b);
@@ -2091,7 +2092,8 @@ function updateEvents(alt, cands) {
         if (vis) {
           e._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)';
           const recent = S.year - e.year < 1.5 && S.year < Y1 - 0.02;
-          if (!far || e === focusEvent || recent) cands.push({ cat: 'e', pri: e === focusEvent ? 2e9 : (recent ? 9e7 : 4e7) + (3 - e.pri) * 1e6 + (e.cat === 'inc' ? 5e5 : 0), pos: tmpW.clone(), dy: 12,
+          // 地球上只畫記號：標題在選到、滑過或播放到那一年時才出現 · shapes only; the title appears when selected, hovered or just reached while playing
+          if (e === focusEvent || e === hoverEvent || (S.playing && recent)) cands.push({ cat: 'e', pri: e === focusEvent ? 2e9 : e === hoverEvent ? 1.5e9 : 9e7 + (3 - e.pri) * 1e6 + (e.cat === 'inc' ? 5e5 : 0), pos: tmpW.clone(), dy: 12,
             name: EV_ICON[e.cat] + ' ' + evTitle(e), val: evDate(e) + ' · ' + evL(e.project), cls: 'ev ' + e.cat + (e === focusEvent ? ' focus' : ''), key: 'e' + e.id });
         }
       }
@@ -3471,6 +3473,7 @@ function tourEnd(finished) {
 
 /* ================= tooltip & picking ================= */
 let tipPane = null, hoverKey = null, hoverTimer = null;
+let hoverMs = null, hoverEvent = null;            // 滑過的里程碑／事件：地球上只畫形狀，名稱滑過、選到或播放到那一年才顯示 · hovered milestone / event
 function tipCountry(c) {
   const on = valAt(c.on, S.year), off = valAt(c.off, S.year);
   return '<b>' + esc(cname(c)) + '</b> · ' + Math.floor(S.year) + '<br><i class="gsw" style="background:var(--on)"></i>' + T('onshore') + ' ' + fmtMW(on) + '<br><i class="gsw" style="background:var(--off)"></i>' + T('offshore') + ' ' + fmtMW(off) + '<br>' + T('total') + ' <b>' + fmtMW(on + off) + '</b>' +
@@ -3501,7 +3504,7 @@ function moveTip(ev, pane) {
   let x = ev.clientX - r.left + 14, y = ev.clientY - r.top + 14; if (x + tw > r.width - 8) x = ev.clientX - r.left - tw - 14; if (y + th > r.height - 8) y = Math.max(8, ev.clientY - r.top - th - 10);
   tip.style.left = x + 'px'; tip.style.top = y + 'px';
 }
-function hideTip() { $('g-tip').style.display = 'none'; hoverKey = null; }
+function hideTip() { $('g-tip').style.display = 'none'; hoverKey = null; hoverMs = null; hoverEvent = null; }
 const ray = new THREE.Raycaster(); const mouse = new THREE.Vector2();
 function visibleDeep(o) { while (o) { if (!o.visible) return false; o = o.parent; } return true; }
 /* 風場層用螢幕座標挑選（上萬個 instance 做射線檢測太慢） */
@@ -4829,6 +4832,7 @@ function wireUI() {
   canvas.addEventListener('mousemove', ev => {
     if (ev.buttons) { hideTip(); return; }
     const h = pick(ev), pane = $('g-mapPane');
+    hoverMs = h && h.ms ? h.ms : null;
     if (!h) {
       const g = S.liveCov && S.view !== 'bars' && groundAt(ev), iso = g && countryAt(g.lon, g.lat);      // 涵蓋範圍圖層：滑過陸地也顯示該國的涵蓋範圍
       if (iso && byIso[iso]) {
