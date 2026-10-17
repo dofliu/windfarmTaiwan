@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v2.43.0 — 2026-10-17
+
+- Fourth step of the globe layout redesign (step 5 of the design canvas, the "phone bottom drawer", 640 px and below):
+  - **Full-screen map**: the toolbar floats at the top edge with only Focus, Search, Layers and "⋯" (View, Analyse, Tour, Sources and Speed sit inside ⋯); the legend is at the top left and the attribution at the top right.
+  - **Bottom drawer**: the timeline, the readout, the side panel and the card all move into a drawer. Its handle row holds the play button, the year, the scope's figures and the slider (the figures sit next to your finger while you drag), and it has three heights: handle only, half (panel or card) and full. Drag the handle or the panel header up or down to change height; tap the grip or the figures to switch between closed and half; Search opens it fully to make room for the keyboard.
+  - **Cards inside the drawer**: tapping a farm, port, event or milestone opens the card at half height (the upper map stays visible); drag up for the rest; closing the card returns to the panel; the story tour keeps it at half height.
+  - Tablets (641–900 px) and desktop are unchanged. User guide 4.1 and section 8 updated; the smoke test checks the three drawer heights and that the card opens in the drawer at phone width.
+
 ## v2.42.0 — 2026-10-17
 
 - Third step of the globe layout redesign (step 4 of the design canvas, "analyses into the panel"):

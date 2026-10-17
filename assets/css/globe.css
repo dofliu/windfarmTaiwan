@@ -24,6 +24,7 @@
 #g-top{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--gpanel);border-bottom:1px solid var(--gline);z-index:6;flex-wrap:wrap}
 #g-top .gtitle{font-size:14px;font-weight:800;white-space:nowrap;margin-right:4px}
 #g-top .gtitle small{font-weight:500;color:var(--ink-2);font-size:11.5px;margin-left:6px}
+#g-btnMore{display:none}
 /* 工具列下拉選單（檢視／圖層／分析）：固定定位，位置由 globe.js 依按鈕算 · toolbar menus */
 #globe .gmenu{display:inline-flex;flex:0 0 auto}
 #globe .gmb{display:inline-flex;align-items:center;gap:4px}
@@ -647,3 +648,48 @@
 #globe #g-anaBody .oout .oaxis{grid-template-columns:1fr}
 #globe #g-anaBody .ocmp .cmptab{font-size:11.5px}#globe #g-anaBody .ocmp .cmptab th,#globe #g-anaBody .ocmp .cmptab td{padding:4px 5px}
 #globe #g-anaBody .omk .mkrow{grid-template-columns:minmax(80px,1.2fr) 1fr 64px 44px;gap:5px;font-size:11.5px}
+
+/* 手機底部抽屜（≤640px，globe.js 的 phoneSetup）：地圖全螢幕；工具列浮在上緣只留範圍、搜尋、圖層、⋯；時間軸、讀數、側欄與卡片在抽屜裡，
+   三段高度 h0（把手列）／h1（半開）／h2（全開） · phone bottom drawer */
+@media (max-width:640px){
+  #globe{grid-template-rows:1fr}
+  #g-top{position:absolute;left:0;right:0;top:0;z-index:8;background:none;border:0;flex-wrap:wrap;overflow:visible;padding:6px;gap:6px;pointer-events:none}
+  #g-top>*{pointer-events:auto}
+  #g-top button,#g-top select{background:rgba(10,17,30,.84);border-color:rgba(255,255,255,.16);box-shadow:0 1px 4px rgba(0,0,0,.4)}
+  #g-top .gmb.open{background:rgba(30,40,60,.95)}
+  #g-top .gphl{order:1}
+  #g-btnMore{display:inline-block;order:2;padding:4px 9px;font-weight:700;letter-spacing:1px}
+  #g-top.more #g-btnMore{background:rgba(255,255,255,.2)}
+  #g-top>.gphx{display:none;order:3}
+  #g-top.more>.gphx{display:inline-flex}
+  #g-top .ggrp.gphx>label{display:inline}
+  #g-hud{display:none}
+  #g-attr{top:40px;bottom:auto;left:auto;right:6px;max-width:62%;text-align:right}
+  #g-notice{top:44px}
+  #g-legStack{top:42px;max-height:40%}
+  #g-stage:has(#g-drawer.h2) #g-legStack,#g-stage:has(#g-drawer.h2) #g-attr{display:none}
+  #globe:has(#g-top.more) #g-attr{display:none}
+  #g-drawer{position:absolute;left:0;right:0;bottom:0;z-index:7;display:flex;flex-direction:column;box-sizing:border-box;background:rgba(10,17,30,.96);border-top:1px solid rgba(255,255,255,.14);border-radius:14px 14px 0 0;box-shadow:0 -6px 24px rgba(0,0,0,.45);overflow:hidden;transition:height .25s}
+  #g-drawer.h0{height:auto}
+  #g-drawer.h1{height:52%}
+  #g-drawer.h2{height:calc(100% - 44px)}
+  #g-drawer .gdh{flex:none;display:flex;flex-direction:column;gap:3px;padding:0 10px 8px}
+  #globe #g-drawer .gdgrip{display:block;width:100%;background:none;border:0;border-radius:0;padding:7px 0 5px;cursor:grab;touch-action:none;box-shadow:none}
+  #g-drawer .gdgrip i{display:block;width:40px;height:4px;border-radius:2px;background:rgba(255,255,255,.38);margin:0 auto}
+  #g-drawer .gdrow{display:flex;align-items:center;gap:8px;touch-action:none}
+  #g-drawer #g-worldStat{flex:1;min-width:0;background:none;padding:0;border-radius:0;pointer-events:auto;cursor:pointer;font-size:10.5px;line-height:1.3;text-shadow:none;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  #g-drawer #g-worldStat>div,#g-drawer #g-worldStat>div[style*="margin-top"]{display:inline;margin-top:0!important}
+  #g-drawer #g-worldStat>div+div::before,#g-drawer #g-worldStat>div[style*="margin-top"]::before,#g-drawer #g-worldStat>div.pl::before{content:' · ';color:var(--ginkm)}
+  #g-drawer #g-slider{order:0;flex:none;width:100%;margin:3px 0 0}
+  #g-drawer #g-msPanel,#g-drawer #g-infoCard{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:auto;max-height:none;flex:1 1 auto;min-height:0;overflow:auto;border:0;border-top:1px solid var(--gline);border-radius:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;margin:0}
+  #g-drawer #g-msPanel{padding:6px 10px 10px}
+  #g-drawer #g-msPanel .ph{margin:-6px -10px 0;padding:8px 10px 6px;top:-6px;background:rgba(10,17,30,.96);touch-action:none}
+  #g-drawer #g-msToggle{display:none}
+  #g-drawer.h0 #g-msPanel,#g-drawer.h0 #g-infoCard{display:none}
+  #g-drawer #g-msPanel.collapsed .gpbody{display:block!important}
+  #g-drawer:has(#g-infoCard.show) #g-msPanel{display:none}
+  #g-drawer #g-infoCard .gx{top:6px;right:8px}
+  #g-drawer #g-infoCard .cb{padding:10px 12px 10px}
+  #g-drawer #g-infoCard .gph{margin:-10px -12px 8px}
+  #g-drawer #g-infoCard .gph img{border-radius:0}
+}
