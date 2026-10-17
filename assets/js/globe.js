@@ -32,7 +32,7 @@ const I18N = {
     cont: { Asia: '亞洲', Europe: '歐洲', 'North America': '北美洲', 'South America': '南美洲', Africa: '非洲', Oceania: '大洋洲' },
     turbine: '單機', farm: '風場', rotor: '葉輪直徑', type: { onshore: '陸域', offshore: '離岸', floating: '浮動式' },
     st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'],
-    srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界',
+    srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界', anaGrow: '⤢ 放大', anaShrink: '⤡ 縮回面板',
     msFocus: '點里程碑可跳到該年份並把鏡頭飛到現場',
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
     farmsLoading: '風場資料載入中…',
@@ -165,7 +165,7 @@ const I18N = {
     cont: { Asia: 'Asia', Europe: 'Europe', 'North America': 'North America', 'South America': 'South America', Africa: 'Africa', Oceania: 'Oceania' },
     turbine: 'Turbine', farm: 'Farm', rotor: 'Rotor Ø', type: { onshore: 'onshore', offshore: 'offshore', floating: 'floating' },
     st: ['operating', 'construction', 'pre-construction', 'announced', 'retired'],
-    srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile', listTab: 'Lists', crumbWorld: 'World',
+    srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile', listTab: 'Lists', crumbWorld: 'World', anaGrow: '⤢ Maximise', anaShrink: '⤡ Back to panel',
     msFocus: 'Click a milestone to jump to that year and fly there',
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
     farmsLoading: 'Loading farm data…',
@@ -332,13 +332,15 @@ host.innerHTML = `
     <div id="g-hud"><div id="g-yearBig">1980<small></small></div><div id="g-worldStat"></div></div>
     <div id="g-msPanel">
       <div class="ph"><div class="gcrumb" id="g-crumb"></div><div class="phrow"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" class="active" data-gi="profTab"></button><span class="gmenu"><button id="g-tabList" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pList"><span id="g-tabListLabel"></span><i class="gcar"></i></button>
-        <div id="g-pList" class="gmp" hidden><button id="g-tabMs" type="button" class="gmt"><span data-gi="msTitle"></span><b class="gmn" id="g-nMs"></b></button><button id="g-tabFarms" type="button" class="gmt"><span data-gi="farmsTab"></span><b class="gmn" id="g-nFarms"></b></button><button id="g-tabPipe" type="button" class="gmt"><span data-gi="pipeTab"></span><b class="gmn" id="g-nPipeL"></b></button><button id="g-tabPorts" type="button" class="gmt"><span data-gi="portsTab"></span><b class="gmn" id="g-nPortsL"></b></button><button id="g-tabEvents" type="button" class="gmt"><span data-gi="evTab"></span><b class="gmn" id="g-nEventsL"></b></button></div></span></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div></div>
+        <div id="g-pList" class="gmp" hidden><button id="g-tabMs" type="button" class="gmt"><span data-gi="msTitle"></span><b class="gmn" id="g-nMs"></b></button><button id="g-tabFarms" type="button" class="gmt"><span data-gi="farmsTab"></span><b class="gmn" id="g-nFarms"></b></button><button id="g-tabPipe" type="button" class="gmt"><span data-gi="pipeTab"></span><b class="gmn" id="g-nPipeL"></b></button><button id="g-tabPorts" type="button" class="gmt"><span data-gi="portsTab"></span><b class="gmn" id="g-nPortsL"></b></button><button id="g-tabEvents" type="button" class="gmt"><span data-gi="evTab"></span><b class="gmn" id="g-nEventsL"></b></button></div></span><span class="gmenu"><button id="g-tabAna" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pAna2"><span data-gi="mAna"></span><i class="gcar"></i></button>
+        <div id="g-pAna2" class="gmp" hidden><button id="g-pnOut" type="button" class="gmt" data-gi="btnOut"></button><button id="g-pnCmp" type="button" class="gmt" data-gi="btnCmp"></button><button id="g-pnMk" type="button" class="gmt" data-gi="btnMk"></button></div></span></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div></div>
       <div class="gpbody prof" id="g-profBody"></div>
       <div class="gpbody" id="g-msList" hidden></div>
       <div class="gpbody" id="g-farmList" hidden></div>
       <div class="gpbody" id="g-pipeList" hidden></div>
       <div class="gpbody" id="g-portList" hidden></div>
       <div class="gpbody" id="g-evList" hidden></div>
+      <div class="gpbody gana" id="g-anaBody" hidden></div>
     </div>
     <div id="g-legStack"><div id="g-fdLegend" hidden></div><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
@@ -358,7 +360,7 @@ host.innerHTML = `
   <input type="range" id="g-slider" min="1980" max="2026" step="0.02" value="1980">
   <div class="ggrp"><label for="g-speedSel" data-gi="speed"></label><select id="g-speedSel"><option value="0.1"></option><option value="0.2"></option><option value="0.333"></option><option value="0.5"></option><option value="1" selected></option><option value="2"></option><option value="4"></option></select></div>
 </div>
-<div id="g-modal"><div class="box"><button class="gclose" id="g-modalClose" type="button" aria-label="close">✕</button><div id="g-modalBody"></div></div></div>`;
+<div id="g-modal"><div class="box"><button class="gclose" id="g-modalClose" type="button" aria-label="close">✕</button><div id="g-modalBody" class="gana"></div></div></div>`;
 if (loadingEl) { loadingEl.classList.add('gload'); host.appendChild(loadingEl); }
 
 /* ================= helpers ================= */
@@ -1454,12 +1456,14 @@ function setRegion(r, noFly) {
 let panelTab = 'prof';                                    // 預設顯示概況（全球、洲或國家）；清單從「清單 ▾」選
 function setPanelTab(t) {
   panelTab = t;
-  [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList'], ['pipe', 'g-tabPipe', 'g-pipeList'], ['ports', 'g-tabPorts', 'g-portList'], ['events', 'g-tabEvents', 'g-evList']].forEach(([k, b, body]) => {
+  if (t !== 'ana' && ANA.kind && !ANA.big) { ANA.kind = null; $('g-anaBody').innerHTML = ''; }   // 離開「分析」分頁就關掉面板裡的分析
+  [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList'], ['pipe', 'g-tabPipe', 'g-pipeList'], ['ports', 'g-tabPorts', 'g-portList'], ['events', 'g-tabEvents', 'g-evList'], ['ana', 'g-tabAna', 'g-anaBody']].forEach(([k, b, body]) => {
     $(b).classList.toggle('active', k === t); $(b).setAttribute('aria-selected', k === t ? 'true' : 'false'); $(body).hidden = k !== t;
   });
   $('g-tabProf').hidden = LITE || !(byIso[S.region] || S.region.startsWith('C:') || S.region === 'WORLD');
   const LIST_KEY = { ms: 'msTitle', farms: 'farmsTab', pipe: 'pipeTab', ports: 'portsTab', events: 'evTab' };
-  $('g-tabList').classList.toggle('active', t !== 'prof'); $('g-tabListLabel').textContent = t === 'prof' ? T('listTab') : T(LIST_KEY[t]);
+  $('g-tabList').classList.toggle('active', !!LIST_KEY[t]); $('g-tabListLabel').textContent = LIST_KEY[t] ? T(LIST_KEY[t]) : T('listTab');
+  $('g-tabAna').classList.toggle('active', t === 'ana');
   if (t === 'farms') renderFarmList(true);
   if (t === 'prof') renderProfile();
   if (t === 'pipe') renderPipeList(true);
@@ -3357,7 +3361,7 @@ function storyStops(key) {
 }
 /* 工具列的三個下拉選單（檢視／圖層／分析）：一次只開一個，固定定位貼在按鈕下方（手機的工具列可橫向捲動，會裁掉絕對定位的選單）；
    點外面或按 Esc 關閉。「圖層」按鈕上的數字是目前開著的圖層數，選單裡每個圖層旁是範圍內的筆數。 · Toolbar menus */
-const MENUS = [['g-mView', 'g-pView'], ['g-mLayers', 'g-pLayers'], ['g-mAna', 'g-pAna'], ['g-tabList', 'g-pList']];
+const MENUS = [['g-mView', 'g-pView'], ['g-mLayers', 'g-pLayers'], ['g-mAna', 'g-pAna'], ['g-tabList', 'g-pList'], ['g-tabAna', 'g-pAna2']];
 function menuOpen(id, show) {
   MENUS.forEach(([b, p]) => {
     const btn = $(b), pan = $(p); if (!btn || !pan) return;
@@ -3890,6 +3894,7 @@ function applyI18n() {
   $('g-btnSearch').title = T('fsKey');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
   renderWindLegend(); renderZoneLegend(); renderCvgLegend(); renderIndLegend();
+  if (ANA.kind) anaOpen(ANA.kind);
   renderOutput(); renderCompare(); renderMk();
   labelPool.forEach(l => { l._key = null; });          // 地圖標籤依語言重畫
   Object.keys(rowEls).forEach(k => { rowEls[k].querySelector('.nm span').textContent = cname(byIso[k]); });
@@ -4098,7 +4103,24 @@ const fmtYM = ym => { const y = ym.slice(0, 4), m = +ym.slice(5, 7); return lang
 const dkGot = () => { const ym = (GEN && GEN.meta.retrieved && GEN.meta.retrieved.DNK) || (TOUT && TOUT.meta && TOUT.meta.retrieved); return ym ? fmtYM(ym) : ''; };
 const OUT = { iso: 'TWN', view: 'cf', year: null, per: '90', desc: true, msort: 'n', q: '', all: false, open: null, hl: null };
 const OUT_LIMIT = 50;
-const outShown = () => $('g-modal').classList.contains('show') && !!$('g-modalBody').querySelector('.oout');
+/* 三個分析（發電表現、國家比較、廠牌與業主）的容器：桌機預設在側欄的「分析」分頁，按「放大」改成蓋住地圖的視窗；
+   手機（≤900px）預設就是視窗。網址參數 out／cmp／mk 不變。 · analysis host: side panel by default, modal when maximised */
+const ANA = { kind: null, big: window.innerWidth <= 900 }, ANA_CLS = { out: 'oout', cmp: 'ocmp', mk: 'omk' }, ANA_TITLE = { out: 'outTitle', cmp: 'cmpTitle', mk: 'mkTitle' };
+const anaEl = () => ANA.big ? $('g-modalBody') : $('g-anaBody');
+const anaVisible = () => ANA.big ? $('g-modal').classList.contains('show') : panelTab === 'ana';
+function anaOpen(kind) {
+  ANA.kind = kind;
+  const bar = '<div class="anabar"><button type="button" class="anasz" title="' + esc(T(ANA.big ? 'anaShrink' : 'anaGrow')) + '">' + esc(T(ANA.big ? 'anaShrink' : 'anaGrow')) + '</button>' +
+    (ANA.big ? '' : '<button type="button" class="anax" aria-label="close">✕</button>') + '</div><div class="' + ANA_CLS[kind] + '"></div>';
+  if (ANA.big) { $('g-modal').querySelector('.box').classList.add('wide'); $('g-modalBody').innerHTML = bar; $('g-modal').classList.add('show'); $('g-modalClose').focus(); }
+  else { $('g-modal').classList.remove('show'); $('g-anaBody').innerHTML = bar; if (cardItem && window.innerWidth > 900) closeCard(); expandPanel(); setPanelTab('ana'); }
+  const el = anaEl();
+  el.querySelector('.anasz').onclick = () => { ANA.big = !ANA.big; anaOpen(kind); anaRender(); syncURL(); };
+  const x = el.querySelector('.anax'); if (x) x.onclick = anaClose;
+}
+function anaRender() { if (ANA.kind === 'out') renderOutput(); else if (ANA.kind === 'cmp') renderCompare(); else if (ANA.kind === 'mk') renderMk(); }
+function anaClose() { if (!ANA.kind) return; ANA.kind = null; $('g-modal').classList.remove('show'); $('g-anaBody').innerHTML = ''; if (panelTab === 'ana') setPanelTab('prof'); syncURL(); }
+const outShown = () => ANA.kind === 'out' && anaVisible() && !!anaEl().querySelector('.oout');
 const median = a => { const s = a.slice().sort((x, y) => x - y), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : 0; };
 const fmtG = v => (v >= 100 ? WW.int(v) : v >= 10 ? v.toFixed(1) : v.toFixed(2)) + ' GWh';     // 排名裡同一欄維持 GWh，不混用 TWh
 const fmtMWv = v => (v >= 100 ? WW.int(v) : v.toFixed(1)) + ' MW';
@@ -4200,17 +4222,14 @@ function openOutput(o) {
   if (!OUT_VIEWS.includes(OUT.view)) OUT.view = 'cf';
   if (!OUT_PER.includes(OUT.per)) OUT.per = '90';
   // 從風場或風機卡片來（OUT.hl）：清單會延伸到那一列（fillOutList），開啟後捲過去
-  $('g-modal').querySelector('.box').classList.add('wide');
-  $('g-modalBody').innerHTML = '<div class="oout"></div>';
-  $('g-modal').classList.add('show');
+  anaOpen('out');
   renderOutput();
-  $('g-modalClose').focus();
-  const sel = $('g-modalBody').querySelector('.orow.sel'); if (sel) sel.scrollIntoView({ block: 'center' });
+  const sel = anaEl().querySelector('.orow.sel'); if (sel) sel.scrollIntoView({ block: 'center' });
   syncURL();
 }
 function renderOutput() {
   if (!outShown()) return;
-  const el = $('g-modalBody').querySelector('.oout');
+  const el = anaEl().querySelector('.oout');
   const wait = () => { el.innerHTML = '<h2>' + esc(T('outTitle')) + '</h2><div class="gnote">' + esc(T('farmsLoading')) + '</div>'; };
   if (!GEN || !farmsReady) {
     wait();
@@ -4340,8 +4359,8 @@ function outModels(rows, med) {
 function wireOutList(el) {
   const go = k => {
     const r = outRowMap[k]; if (!r) return;
-    if (r.t) { $('g-modal').classList.remove('show'); selectTurb(r); return; }      // 丹麥單部風機：飛到那部風機
-    if (!r.f) return; $('g-modal').classList.remove('show'); selectFarm(r.f);
+    if (r.t) { if (ANA.big) $('g-modal').classList.remove('show'); selectTurb(r); return; }      // 丹麥單部風機：飛到那部風機
+    if (!r.f) return; if (ANA.big) $('g-modal').classList.remove('show'); selectFarm(r.f);
   };
   el.querySelectorAll('.orow').forEach(b => b.onclick = () => go(b.dataset.k));
   const refill = () => { const rows = curRows(); fillOutList(el, rows, median(rows.map(r => r.cf))); };
@@ -4546,17 +4565,14 @@ function indProfileRows(c, y) {
 const CMP = { isos: [], open: false };
 let cmpYear = -1;
 const CMP_COL = ['#3d8fe0', '#a97f28', '#2a9f7a', '#c06ebd'];      // 四色固定順序（dataviz 色盲檢查通過，深色底）
-const cmpShown = () => $('g-modal').classList.contains('show') && !!$('g-modalBody').querySelector('.ocmp');
+const cmpShown = () => ANA.kind === 'cmp' && anaVisible() && !!anaEl().querySelector('.ocmp');
 function openCompare(isos) {
   let list = (isos || []).filter(i => byIso[i]);
   if (!list.length) list = [byIso[S.region] ? S.region : 'TWN'];
   if (list.length < 2) ['TWN', 'DNK', 'DEU'].forEach(i => { if (list.length < 3 && !list.includes(i)) list.push(i); });
   CMP.isos = [...new Set(list)].slice(0, 4); CMP.open = true;
-  $('g-modal').querySelector('.box').classList.add('wide');
-  $('g-modalBody').innerHTML = '<div class="ocmp"></div>';
-  $('g-modal').classList.add('show');
+  anaOpen('cmp');
   renderCompare();
-  $('g-modalClose').focus();
   syncURL();
 }
 function cmpLine(list, y) {
@@ -4572,7 +4588,7 @@ function cmpLine(list, y) {
 }
 function renderCompare() {
   if (!cmpShown()) return;
-  const el = $('g-modalBody').querySelector('.ocmp'), y = Math.floor(S.year), yi = clamp(y - Y0, 0, YEARS.length - 1);
+  const el = anaEl().querySelector('.ocmp'), y = Math.floor(S.year), yi = clamp(y - Y0, 0, YEARS.length - 1);
   const list = CMP.isos.map(i => byIso[i]).filter(Boolean);
   const all = C.map(c => ({ c, t: c.on[yi] + c.off[yi] })).sort((a, b) => b.t - a.t), world = all.reduce((s, r) => s + r.t, 0);
   const rankOf = c => all.findIndex(r => r.c === c) + 1;
@@ -4615,7 +4631,7 @@ let MS = null, msP = null;
 const MK = { sc: 'WORLD', view: 'maker', t: 'all' };
 let mkYear = -1;
 const MK_COL = ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181'], MK_OTHER = '#7a8494';   // dataviz 色盲檢查（dark、#101a2d）通過
-const mkShown = () => $('g-modal').classList.contains('show') && !!$('g-modalBody').querySelector('.omk');
+const mkShown = () => ANA.kind === 'mk' && anaVisible() && !!anaEl().querySelector('.omk');
 function mkIsos(sc) {
   if (sc === 'WORLD') return C.map(c => c.iso);
   if (sc.startsWith('C:')) return C.filter(c => c.cont === sc.slice(2)).map(c => c.iso);
@@ -4626,12 +4642,9 @@ function openMk(o) {
   o = o || {};
   const sc = o.sc && (o.sc === 'WORLD' || /^C:/.test(o.sc) || byIso[o.sc]) ? o.sc : (S.region || 'WORLD');
   MK.sc = sc; if (o.view === 'owner' || o.view === 'maker') MK.view = o.view; if (['all', 'on', 'off'].includes(o.t)) MK.t = o.t;
-  $('g-modal').querySelector('.box').classList.add('wide');
-  $('g-modalBody').innerHTML = '<div class="omk"></div>';
-  $('g-modal').classList.add('show');
+  anaOpen('mk');
   if (!msP) msP = WW.getJSON(WW.DATA.shares).then(j => { MS = j; }).catch(() => { MS = { makers: [], m: {}, owners: {} }; });
   renderMk(); msP.then(() => renderMk());
-  $('g-modalClose').focus();
   syncURL();
 }
 function mkMakerAgg(isos, y, t) {
@@ -4673,7 +4686,7 @@ function mkAddsChart(adds, topIdx, y) {
 }
 function renderMk() {
   if (!mkShown()) return;
-  const el = $('g-modalBody').querySelector('.omk'), y = Math.floor(S.year);
+  const el = anaEl().querySelector('.omk'), y = Math.floor(S.year);
   mkYear = y;
   const scs = ['WORLD'].concat(['Asia', 'Europe', 'North America', 'South America', 'Africa', 'Oceania'].map(k => 'C:' + k));
   const ctry = C.slice().sort((a, b) => cname(a).localeCompare(cname(b), lang === 'en' ? 'en' : 'zh-Hant'));
@@ -4854,11 +4867,13 @@ function wireUI() {
   tb.querySelector('.tx').onclick = () => { tourEnd(false); closeCard(); };
   $('g-btnTour').onclick = e => { e.stopPropagation(); if (TOUR) { tourEnd(false); closeCard(); } else tourMenu(); };
   document.addEventListener('click', e => { const m = $('g-tourMenu'); if (m && !m.hidden && !m.contains(e.target)) m.hidden = true; });
-  host.appendChild($('g-pList'));                       // 側欄有 backdrop-filter，會把固定定位的選單關在裡面：搬到 #globe 下
+  host.appendChild($('g-pList')); host.appendChild($('g-pAna2'));                       // 側欄有 backdrop-filter，會把固定定位的選單關在裡面：搬到 #globe 下
   MENUS.forEach(([b]) => { $(b).onclick = e => { e.stopPropagation(); menuOpen(b, menuOpenId() !== b); }; });
   document.addEventListener('click', e => { if (menuOpenId() && !e.target.closest('.gmenu')) menuOpen(null, false); });
   $('g-pAna').addEventListener('click', e => { if (e.target.closest('button')) menuOpen(null, false); });
   $('g-pList').addEventListener('click', e => { if (e.target.closest('button')) menuOpen(null, false); });
+  $('g-pAna2').addEventListener('click', e => { if (e.target.closest('button')) menuOpen(null, false); });
+  $('g-pnOut').onclick = () => $('g-btnOut').onclick(); $('g-pnCmp').onclick = () => $('g-btnCmp').onclick(); $('g-pnMk').onclick = () => $('g-btnMk').onclick();
   window.addEventListener('resize', () => { if (menuOpenId()) menuOpen(null, false); });
   $('g-tabProf').onclick = () => setPanelTab('prof'); $('g-tabMs').onclick = () => setPanelTab('ms'); $('g-tabFarms').onclick = () => setPanelTab('farms'); $('g-tabPipe').onclick = () => setPanelTab('pipe'); $('g-tabPorts').onclick = () => setPanelTab('ports'); $('g-tabEvents').onclick = () => setPanelTab('events');
   if (LITE) setPanelTab('farms');
@@ -4892,13 +4907,14 @@ function wireUI() {
   document.querySelectorAll('#g-modeSeg button').forEach(b => b.onclick = () => setMode(b.dataset.mode));
   $('g-btnRotate').onclick = e => { S.rotate = !S.rotate; e.currentTarget.classList.toggle('active', S.rotate); e.currentTarget.setAttribute('aria-pressed', S.rotate ? 'true' : 'false'); };
   $('g-btnSources').onclick = showSources;
-  $('g-modalClose').onclick = () => { $('g-modal').classList.remove('show'); syncURL(); };
-  $('g-modal').onclick = e => { if (e.target.id === 'g-modal') { e.target.classList.remove('show'); syncURL(); } };
+  $('g-modalClose').onclick = () => { $('g-modal').classList.remove('show'); if (ANA.big) ANA.kind = null; syncURL(); };
+  $('g-modal').onclick = e => { if (e.target.id === 'g-modal') { e.target.classList.remove('show'); if (ANA.big) ANA.kind = null; syncURL(); } };
   window.addEventListener('keydown', e => {
     if (!active || e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關工具列選單，再關來源說明，再關資訊卡／導覽
       if (menuOpenId()) { const b = menuOpenId(); menuOpen(null, false); $(b).focus(); return; }
-      if ($('g-modal').classList.contains('show')) { const wasOut = outShown(), wasCmp = cmpShown(), wasMk = mkShown(); $('g-modal').classList.remove('show'); $('g-' + (wasOut ? 'btnOut' : wasCmp ? 'btnCmp' : wasMk ? 'btnMk' : 'btnSources')).focus(); syncURL(); return; }
+      if ($('g-modal').classList.contains('show')) { const wasOut = outShown(), wasCmp = cmpShown(), wasMk = mkShown(); $('g-modal').classList.remove('show'); if (ANA.big) ANA.kind = null; $('g-' + (wasOut ? 'btnOut' : wasCmp ? 'btnCmp' : wasMk ? 'btnMk' : 'btnSources')).focus(); syncURL(); return; }
+      if (ANA.kind && !ANA.big && panelTab === 'ana') { anaClose(); return; }
       if (TOUR) tourEnd(false); if (cardItem) closeCard(); return;
     }
     const tg = e.target.tagName;
