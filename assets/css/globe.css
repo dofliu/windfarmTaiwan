@@ -693,3 +693,23 @@
   #g-drawer #g-infoCard .gph{margin:-10px -12px 8px}
   #g-drawer #g-infoCard .gph img{border-radius:0}
 }
+
+/* 首次進入的任務卡（沒帶參數第一次打開時取代自動播放；「導覽」選單的「任務卡」可再打開） · first-visit task cards */
+#g-welcome{position:absolute;inset:0;z-index:12;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;background:rgba(4,9,18,.55);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);overflow:auto}
+#g-welcome[hidden]{display:none}
+#g-welcome .wbox{position:relative;width:min(640px,100%);max-height:100%;overflow:auto;box-sizing:border-box;background:rgba(10,17,30,.97);border:1px solid var(--gline);border-radius:16px;padding:20px 22px 16px;box-shadow:0 14px 50px rgba(0,0,0,.5)}
+#g-welcome h2{margin:0 0 4px;font-size:20px;font-weight:800;padding-right:36px}
+#g-welcome .wsub{margin:0 0 14px;font-size:12.5px;color:var(--ink-2);line-height:1.5}
+#globe #g-welcome .wx{position:absolute;right:10px;top:10px;padding:2px 8px}
+#g-welcome .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#globe #g-welcome .wcard{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;white-space:normal;padding:14px 14px 12px;border:1px solid var(--gline);border-radius:12px;background:rgba(255,255,255,.04);min-height:96px;color:var(--ink);font-size:12.5px}
+#globe #g-welcome button.wcard:hover,#globe #g-welcome button.wcard:focus-visible{background:rgba(240,200,106,.12);border-color:rgba(240,200,106,.5)}
+#g-welcome .wcard i{font-style:normal;font-size:20px;line-height:1;color:var(--acc)}
+#g-welcome .wcard b{font-size:15px;font-weight:800}
+#g-welcome .wcard span{font-size:12px;color:var(--ink-2);line-height:1.45}
+#g-welcome .wcard.wstory{cursor:default}
+#g-welcome .wchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+#globe #g-welcome .wchip{padding:3px 9px;font-size:11.5px;border-radius:99px}
+#g-welcome .wfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
+#globe #g-welcome .wskip{padding:5px 12px}
+@media (max-width:640px){#g-welcome{padding:10px;align-items:flex-start}#g-welcome .wbox{padding:16px 14px 12px}#g-welcome .wgrid{grid-template-columns:1fr;gap:8px}#globe #g-welcome .wcard{min-height:0;padding:11px 12px}#g-welcome h2{font-size:17px}}

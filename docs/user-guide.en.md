@@ -85,7 +85,7 @@ Clicking a farm in any tab opens the details on the right:
 
 ## 4. Global (the 3D globe)
 
-`#/global`. The first visit downloads a few MB (three.js, basemaps, about 31,000 farm records), so give it a moment; opened without any parameters, it plays from 1980 automatically.
+`#/global`. The first visit downloads a few MB (three.js, basemaps, about 31,000 farm records), so give it a moment. The first time it is opened without parameters it shows four **start cards** — watch wind power grow (play from 1980 to today), compare countries, see right now (live data) and hear the story (tours); pick one to begin, or close them with "Just show me the map" or Esc. Later visits without parameters play from 1980 automatically, and "✦ Start cards" in the "▶ Tour" menu reopens them.
 
 ### 4.1 Layout
 
@@ -122,7 +122,7 @@ The toolbar keeps two primary controls; everything else sits in three drop-down 
 | **View ▾** | **Layout**: the map alone, the map with country bars, or only the bar race (always in MW); **Projection**: 3D globe or 2.5D map; **Basemap**: Relief, Satellite, Plain or Wind speed (Global Wind Atlas at 100 m; zooming in adds sharper Esri tiles automatically, not on Wind speed); **Labels**: Off, Minimal, Standard, Detailed; **Auto-rotate** |
 | **Layers ▾** | Six layer toggles, each with its legend colour and the record count in the current focus; the number on the button is how many layers are on. **Pipeline** (dashed rings, brighter when closer to completion; on by default), **⚓ Ports** (on by default), **⚑ Events** (on by default), **Sea zones**, **Live data**, **Wind now** (the latest NOAA GFS 10 m wind as flowing particles, refreshed every 6 hours; today's weather, not tied to the timeline). Two menus below them: **Show** (onshore + offshore, onshore only, offshore only, Offshore: foundations) and **Colour by** (year-end capacity, per capita, wind share of generation, capacity factor or added this year; the bar race ranks by it too, 4.8a) |
 | **Analyse ▾** | **📊 Output** (4.8), **⚖ Compare** (4.8a), **🏭 Makers & owners** (4.8b) |
-| **▶ Tour** | The auto tour or one of four story tours (4.9); press it again during a tour to end it |
+| **▶ Tour** | "✦ Start cards" (the four starting points, see the start of section 4), the auto tour or one of four story tours (4.9); press it again during a tour to end it |
 | **Sources** | Source, licence, data time and record count of every dataset |
 
 The layers themselves are described in 4.7.
@@ -226,6 +226,7 @@ Open it from "🏭 Makers & owners" in the toolbar's Analyse menu or the button 
 
 Press "▶ Tour":
 
+- **✦ Start cards**: reopens the four cards of the first visit (explore, compare, live, story).
 - **Auto tour (current focus)**: flies through the key moments within the focus.
 - **Story tours** (11 stops each, narrated in both languages): ★ Taiwan's road to offshore wind, ★ Europe offshore: from Vindeby to gigawatts, ★ China's rise, ★ Floating wind.
 - During a tour the card has ⏮ ❚❚ ⏭ and progress; Space pauses and the arrow keys change stops; dragging the map pauses, and clicking the map or pressing Esc ends it.

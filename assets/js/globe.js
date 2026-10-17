@@ -33,6 +33,7 @@ const I18N = {
     turbine: '單機', farm: '風場', rotor: '葉輪直徑', type: { onshore: '陸域', offshore: '離岸', floating: '浮動式' },
     st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'],
     srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界', anaGrow: '⤢ 放大', anaShrink: '⤡ 縮回面板', more: '更多', drawer: '展開或收起面板',
+    wTitle: '你想做什麼？', wSub: '四個起點，之後都可以從工具列換。', wExplore: '看風電怎麼長大', wExploreS: '從 1980 年播放到今天，看裝置容量在地球上長出來', wCmp: '比較國家', wCmpS: '台灣、中國、美國、丹麥並排：容量、人均、占比、容量因數', wLive: '看此刻', wLiveS: '哪些國家有即時出力、此刻的風電出力有多少', wStory: '聽故事', wStoryS: '地圖跟著站點飛，附中英文旁白', wSkip: '先看看地圖', wAgain: '之後可從「導覽」選單的「任務卡」再打開', tourCards: '✦ 任務卡：從這裡開始',
     msFocus: '點里程碑可跳到該年份並把鏡頭飛到現場',
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
     farmsLoading: '風場資料載入中…',
@@ -166,6 +167,7 @@ const I18N = {
     turbine: 'Turbine', farm: 'Farm', rotor: 'Rotor Ø', type: { onshore: 'onshore', offshore: 'offshore', floating: 'floating' },
     st: ['operating', 'construction', 'pre-construction', 'announced', 'retired'],
     srcTitle: 'Data sources & notes', msTitle: 'Milestones', farmsTab: 'Farms', profTab: 'Profile', listTab: 'Lists', crumbWorld: 'World', anaGrow: '⤢ Maximise', anaShrink: '⤡ Back to panel', more: 'More', drawer: 'Expand or collapse the panel',
+    wTitle: 'What would you like to do?', wSub: 'Four starting points; you can switch from the toolbar at any time.', wExplore: 'Watch wind power grow', wExploreS: 'Play from 1980 to today and watch capacity appear on the globe', wCmp: 'Compare countries', wCmpS: 'Taiwan, China, the US and Denmark side by side: capacity, per capita, share, capacity factor', wLive: 'See right now', wLiveS: 'Which countries report live output, and how much wind is generating now', wStory: 'Hear the story', wStoryS: 'The map flies stop by stop, narrated in both languages', wSkip: 'Just show me the map', wAgain: 'Open again from "Start cards" in the Tour menu', tourCards: '✦ Start cards',
     msFocus: 'Click a milestone to jump to that year and fly there',
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
     farmsLoading: 'Loading farm data…',
@@ -344,6 +346,7 @@ host.innerHTML = `
       <div class="gpbody gana" id="g-anaBody" hidden></div>
     </div>
     <div id="g-legStack"><div id="g-fdLegend" hidden></div><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-welcome" hidden></div>
     <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
@@ -3408,7 +3411,7 @@ function syncLayerMenu() {                                 // 「圖層」按鈕
 function tourMenu(show) {
   const m = $('g-tourMenu'); if (!m) return;
   if (show === undefined) show = m.hidden;
-  if (show) m.innerHTML = '<button type="button" data-k="">' + esc(T('tourAuto')) + '</button>' +
+  if (show) m.innerHTML = '<button type="button" data-cards="1">' + esc(T('tourCards')) + '</button><button type="button" data-k="">' + esc(T('tourAuto')) + '</button>' +
     Object.keys(STORIES).map(k => '<button type="button" data-k="' + k + '" title="' + esc(T('tourStoryT')[k]) + '">★ ' + esc(T('tourStory')[k]) + '</button>').join('');
   m.hidden = !show;
   if (show) {                       // 工具列在手機上可橫向捲動（會裁掉下拉選單）：選單用固定定位、貼在按鈕下方
@@ -3416,7 +3419,7 @@ function tourMenu(show) {
     m.style.top = Math.round(r.bottom + 4) + 'px';
     m.style.left = Math.round(Math.max(8, Math.min(r.left, innerWidth - m.offsetWidth - 8))) + 'px';
   }
-  if (show) m.querySelectorAll('button').forEach(b => { b.onclick = () => { m.hidden = true; tourStart(b.dataset.k || null); }; });
+  if (show) m.querySelectorAll('button').forEach(b => { b.onclick = () => { m.hidden = true; if (b.dataset.cards) welcomeShow(); else tourStart(b.dataset.k || null); }; });
 }
 function tourStart(story) {
   if (!farmsReady) { notice(T('farmsLoading'), 2000); pendingParams = Object.assign(pendingParams || {}, { tour: story || '1' }); return; }
@@ -3893,6 +3896,7 @@ function applyI18n() {
   document.querySelectorAll('#g-speedSel option').forEach(o => { const v = parseFloat(o.value); o.textContent = v < 1 ? (lang === 'zh' ? '1 年 ' + Math.round(1 / v) + ' 秒' : Math.round(1 / v) + ' s / yr') : (lang === 'zh' ? v + ' 年/秒' : v + ' yr/s'); });
   document.querySelectorAll('#g-densSel option').forEach(o => { o.textContent = T('dens')[+o.value]; });
   $('g-hint').textContent = isTouch ? T('hintTouch') : T('hint');
+  if (!$('g-welcome').hidden) welcomeShow();
   $('g-btnMore').title = T('more'); $('g-btnMore').setAttribute('aria-label', T('more')); const grip = host.querySelector('.gdgrip'); if (grip) grip.setAttribute('aria-label', T('drawer'));
   buildRegionSelect(); renderCrumb(); setPanelTab(panelTab);
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
@@ -4915,7 +4919,8 @@ function wireUI() {
   $('g-modal').onclick = e => { if (e.target.id === 'g-modal') { e.target.classList.remove('show'); if (ANA.big) ANA.kind = null; syncURL(); } };
   window.addEventListener('keydown', e => {
     if (!active || e.altKey || e.ctrlKey || e.metaKey) return;
-    if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關工具列選單，再關來源說明，再關資訊卡／導覽
+    if (e.key === 'Escape') {        // Esc 不論焦點在哪都有效：先關任務卡，再關工具列選單，再關來源說明，再關資訊卡／導覽
+      if (welcomeHide()) return;
       if (menuOpenId()) { const b = menuOpenId(); menuOpen(null, false); $(b).focus(); return; }
       if ($('g-modal').classList.contains('show')) { const wasOut = outShown(), wasCmp = cmpShown(), wasMk = mkShown(); $('g-modal').classList.remove('show'); if (ANA.big) ANA.kind = null; $('g-' + (wasOut ? 'btnOut' : wasCmp ? 'btnCmp' : wasMk ? 'btnMk' : 'btnSources')).focus(); syncURL(); return; }
       if (ANA.kind && !ANA.big && panelTab === 'ana') { anaClose(); return; }
@@ -4928,6 +4933,37 @@ function wireUI() {
     if (e.key === 'ArrowRight') { if (TOUR) tourShowStop(TOUR.i + 1); else { S.year = Math.min(Y1, Math.floor(S.year) + 1); syncYearUI(); } }
     if (e.key === 'ArrowLeft') { if (TOUR) tourShowStop(TOUR.i - 1); else { S.year = Math.max(Y0, Math.ceil(S.year) - 1); syncYearUI(); } }
   });
+}
+
+/* ================= 首次進入的任務卡 =================
+   沒帶網址參數第一次打開時，先給四個起點（探索、比較、即時、故事）取代 1980 年自動播放；看過一次就記在 localStorage，
+   之後沒帶參數照舊自動播放，「導覽」選單的「任務卡」可再打開。單檔公開版沒有（沒有導覽與即時）。
+   First-visit task cards: with no URL parameters the first visit shows four starting points instead of the 1980 autoplay; the choice is
+   remembered, later visits autoplay as before, and "Start cards" in the Tour menu reopens them. Not in the public single-file copy. */
+const WELCOME_KEY = 'ww_globe_seen';
+function welcomeShow() {
+  const w = $('g-welcome'); if (!w || LITE) return;
+  const card = (k, icon, t, s) => '<button type="button" class="wcard" data-k="' + k + '"><i>' + icon + '</i><b>' + esc(T(t)) + '</b><span>' + esc(T(s)) + '</span></button>';
+  const chips = Object.keys(STORIES).map(k => '<button type="button" class="wchip" data-story="' + k + '" title="' + esc(T('tourStoryT')[k]) + '">★ ' + esc(T('tourStory')[k]) + '</button>').join('') +
+    '<button type="button" class="wchip" data-story="">' + esc(T('tourAuto')) + '</button>';
+  w.innerHTML = '<div class="wbox" role="dialog" aria-modal="true" aria-labelledby="g-wTitle"><button type="button" class="gx wx" aria-label="close">✕</button>' +
+    '<h2 id="g-wTitle">' + esc(T('wTitle')) + '</h2><p class="wsub">' + esc(T('wSub')) + '</p><div class="wgrid">' +
+    card('explore', '▶', 'wExplore', 'wExploreS') + card('cmp', '⚖', 'wCmp', 'wCmpS') + card('live', '●', 'wLive', 'wLiveS') +
+    '<div class="wcard wstory"><i>★</i><b>' + esc(T('wStory')) + '</b><span>' + esc(T('wStoryS')) + '</span><div class="wchips">' + chips + '</div></div>' +
+    '</div><div class="wfoot"><button type="button" class="wskip">' + esc(T('wSkip')) + '</button><span class="gnote">' + esc(T('wAgain')) + '</span></div></div>';
+  w.hidden = false;
+  WW.store.set(WELCOME_KEY, '1');
+  w.querySelector('.wx').onclick = welcomeHide; w.querySelector('.wskip').onclick = welcomeHide;
+  w.onclick = e => { if (e.target === w) welcomeHide(); };
+  w.querySelectorAll('.wcard[data-k]').forEach(b => { b.onclick = () => { welcomeHide(); welcomeDo(b.dataset.k); }; });
+  w.querySelectorAll('.wchip').forEach(b => { b.onclick = () => { welcomeHide(); tourStart(b.dataset.story || null); }; });
+  w.querySelector('.wcard').focus();
+}
+function welcomeHide() { const w = $('g-welcome'); if (!w || w.hidden) return false; w.hidden = true; w.innerHTML = ''; return true; }
+function welcomeDo(k) {
+  if (k === 'explore') { if (TOUR) tourEnd(false); closeCard(); if (S.region !== 'WORLD') setRegion('WORLD'); S.year = Y0; syncYearUI(); setPlaying(true); }
+  else if (k === 'cmp') { S.year = Y1; syncYearUI(); openCompare(['TWN', 'CHN', 'USA', 'DNK']); }
+  else if (k === 'live') { closeCard(); S.year = Y1; syncYearUI(); if (S.region !== 'WORLD') setRegion('WORLD'); if (!S.liveCov) toggleLiveCov(true); expandPanel(); setPanelTab('prof'); syncURL(); }
 }
 
 /* ================= 手機底部抽屜（≤640px） =================
@@ -4978,6 +5014,7 @@ WW.globe = {
       const p = r && r.params ? r.params : {};
       const hasParams = Object.keys(p).length > 0;
       if (hasParams) applyParams(p);
+      else if (firstEnter && !LITE && !WW.store.get(WELCOME_KEY)) welcomeShow();                        // 第一次來：任務卡取代自動播放
       else if (firstEnter) setTimeout(() => { if (active && !TOUR && S.year === Y0 && !S.playing) setPlaying(true); }, 900);
       if (!hasParams && fsActive()) syncURL();          // 回到本頁時網址補上仍有效的搜尋條件
       firstEnter = false;
@@ -4988,7 +5025,7 @@ WW.globe = {
     });
   },
   leave() { active = false; clearTimeout(urlT); clearInterval(intlTimer); intlTimer = null; stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
-  api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, drawerSet, flyToLonLat, curAlt, FL, clusters, get portArcs() { return portArcs; }, get TOUR() { return TOUR; },
+  api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, drawerSet, welcomeShow, flyToLonLat, curAlt, FL, clusters, get portArcs() { return portArcs; }, get TOUR() { return TOUR; },
     cam: () => { const f = focusLonLat(); return { lon: +f.lon.toFixed(3), lat: +f.lat.toFixed(3), alt: +curAlt().toFixed(1), frames: S.frames || 0, rotate: S.rotate }; },
     patchState: () => ({ info: patchInfo, tiles: tileAttrOn, visible: !!(patch && patch.visible), cache: tileCache.size, ok: [...tileCache.values()].filter(t => t.ok).length }) })
 };
