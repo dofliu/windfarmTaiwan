@@ -22,6 +22,7 @@
 ### 近期要做（有日期）
 
 - **10 月底**（第 1 類第二輪）：台灣能源署月報表 4-02 的 9 月、美國 EIA-860M 9 月版（EIA 寫 10 月 23 日）、中國國家能源局前三季新聞發布會（要有陸上／海上分開的數字才能用）→ 改 `tools/latest_wind.py`、跑 `python3 tools/build_country_stats.py`；德、法、英的第三季要到 11–12 月。
+- **愛爾蘭與北愛爾蘭即時資料（同時看）**：EirGrid Smart Grid Dashboard 自 2026-10-17 18:15 UTC 起沒有新資料，`intl_wind_scraper.py` 的 `fetch_eirgrid` 每次都回報「no data points」：`/api/chart/` 回傳空的 `Rows`（舊的 `dd-Mon-YYYY` 與新頁面用的 `YYYY-MM-DD` 日期格式都試過）。網站已改版成新架構（Next.js），本對話的沙盒載不出新頁面的資料，無法確認是暫時故障還是介面換了。地球儀超過 6 小時的資料不當「此刻」，所以只顯示為資料較舊。使用者 2026-10-18 決定先等幾天：到時看排程紀錄的 `IE:`、`NI:` 兩行；仍失敗就找新的資料端點（要符合 EirGrid Open Data Licence），找不到就在 `intl_wind_scraper.py` 的 `NAT`／`NAT_FETCH` 與文件中標示暫停，並同步檢查 `globe.js` 的 `CVG_PART`、`CVG_BOX` 與 `tools/build_live_regions.py` 的 `REGIONS`（CLAUDE.md 第 4 節）。
 - **11 月中**：Northland 第三季報告 → 海龍（`assets/js/live.js` 的 `id:"longB"`，商轉仍寫 2027）。
 - **年底**：台電離岸二期（目標年底併網；10-07 裝 2／31）、沃四風（等沃旭全面商轉公告）、Baltic Power（76 部全裝完、預計 2026 年商轉）、Revolution Wind、Dieppe-Le Tréport（10-02 裝 41／62）、Sofia、青洲五、七（目標 2026-12）、儋州 CZ3 二場址；又德、環洋正式解約後改列 `PIPE_DROP`。
   查證紀錄在 `tools/research/twn_offshore_2026-10.json` 與 `farms_2026-10_status.json`（引文已核對）；要改哪裡見下面「需要定期回頭核對」。
