@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.1.0 — 2026-10-18
+
+- Interface review, batch 2: Taiwan live reads well in light wind too (review canvas: https://claude.ai/artifact/4ZoaNBVQ4FAVhv9a46JiDe ):
+  - **The dashboard shows who is generating first**: when some farms are generating and others are not, "Generating now" at the top lists the cards of the farms with output (0.1 MW or more as shown) in the chosen order, and "No output right now" below lists only their names by group (click a name for details, or "Show as cards" for cards again). In strong wind, with every farm generating, the page looks as before. Sorting, grouping and filters apply to both parts, and the ranking chart uses the same threshold.
+  - **Farm cards on phones are one per row**: full name, output on the right and the capacity bar below, so 6–7 farms fit on a screen (they were two columns with names often cut off).
+  - **An offline sketch for the map**: when the map library (Leaflet, loaded from cdnjs) cannot be loaded — offline, or the single-file copy offline — the tab no longer just says it failed; it draws the 30 farms' approximate positions on Natural Earth's outline of Taiwan (the same borders file as the globe), in the same colours and sizes as the satellite map, labelled as an offline sketch. Click a circle, or select it with the keyboard and press Enter, for the details.
+  - User guide sections 3 and 7 and the README updated to match; the smoke test checks that the dashboard folds and expands, that the map tab has the map or the sketch, and that the single-file copy draws the sketch offline.
+
 ## v3.0.1 — 2026-10-18
 
 - Interface review, batch 1 (copy and small fixes; review canvas: https://claude.ai/artifact/4ZoaNBVQ4FAVhv9a46JiDe ):

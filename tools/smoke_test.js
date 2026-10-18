@@ -5,16 +5,18 @@
   node tools/smoke_test.js [http://localhost:8000/] [--standalone] [--shots 目錄]
 
 1. 網站各頁（首頁、台灣即時的儀表／風場牆／數據／地圖、全球地球儀、風場卡片、發電表現、風電知識）以桌機與手機寬度各走一次：
-   不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容。
+   不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
+   儀表沒有出力的風場收成名稱後可展開；地圖要有衛星地圖或離線簡圖。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
-   連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」。
+   連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖。
 有錯誤時結束碼為 1。GitHub Actions 的 pr-check 在每個 PR 跑這支（.github/workflows/pr-check.yml）。
 
 1. Walks every page (home, the four Taiwan live tabs, the globe, a farm card, the Output dialog, Learn) at desktop and phone widths:
-   no page errors, no console errors (except unreachable external sites), no horizontal scrolling; the globe must draw, and the farm
-   card and Output dialog must have content.
+   no page errors, no console errors (except unreachable external sites), no horizontal scrolling; the globe must draw, the farm
+   card and Output dialog must have content, the dashboard's folded no-output farms must expand, and the map tab must show the map
+   or the offline sketch.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
-   and offline the full copy must label its live data as an offline snapshot.
+   and offline the full copy must label its live data as an offline snapshot and draw the sketch map.
 Exits with 1 on any error. The pr-check workflow runs it on every pull request.
 */
 const path = require('path');
@@ -38,10 +40,22 @@ const NET = /ERR_CERT|ERR_NAME|ERR_CONNECTION|ERR_INTERNET|ERR_TIMED_OUT|net::ER
 // [路由, 等待毫秒, 檢查（在頁面裡執行，回傳錯誤字串或空字串）]
 const ROUTES = [
   ['#/', 3500],
-  ['#/live', 4000],
+  ['#/live', 4000, () => {
+    // 儀表：有出力與沒出力的風場並存時，沒出力的收成名稱，展開後全部是卡片 · farms with no output fold into name chips
+    const q = s => document.querySelectorAll('#groups ' + s).length, cards = q('.fcard'), chips = q('.fchip');
+    if (!cards && !chips) return 'dashboard: no farms';
+    if (!chips) return '';
+    if (!q('.genhead.off')) return 'dashboard: chips without the no-output heading';
+    document.getElementById('offtoggle').click();
+    const n = q('.fcard'); document.getElementById('offtoggle').click();
+    return n === cards + chips ? '' : `dashboard: expanded to ${n} cards, expected ${cards + chips}`;
+  }],
   ['#/live/wall', 3500],
   ['#/live/charts', 4000],
-  ['#/live/map', 4000],
+  ['#/live/map', 4000, () => {
+    // 衛星地圖，或地圖元件載不到時的離線簡圖 · Leaflet map, or the offline sketch when it cannot load
+    return document.querySelector('#map.leaflet-container') || document.querySelectorAll('#map .fbdot').length ? '' : 'map: neither the map nor the offline sketch';
+  }],
   ['#/global', 15000, async () => {
     if (!document.querySelector('canvas')) return 'globe: no canvas';
     // 第一次沒帶參數：四張任務卡，點「探索」關掉並開始播放 · first-visit task cards
@@ -136,6 +150,12 @@ async function standalone(browser, fails) {
         await page.waitForTimeout(6000);
         const label = await page.evaluate(() => /離線快照|offline snapshot/i.test(document.body.innerText));
         if (offline && !label) errs.push('offline: live data not labelled as an offline snapshot');
+        if (offline) {                                  // 離線時地圖改畫簡圖 · offline, the map falls back to the sketch
+          await page.goto(url + '#/live/map');
+          await page.waitForTimeout(2500);
+          const dots = await page.evaluate(() => document.querySelectorAll('#map .fbdot').length);
+          if (!dots) errs.push('offline: no sketch map');
+        }
       }
       await page.goto(url + '#/global?f=Sweetwater');
       await page.waitForTimeout(15000);
