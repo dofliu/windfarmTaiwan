@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.2.1 — 2026-10-18
+
+- **A compact view on the dashboard** (the compromise the owner chose after the before/after comparison; canvas board 7): "Generating now" lists at most 8 cards first (in the current order), with "N more generating · show all cards" when there are more; with all 30 farms generating in strong wind, the dashboard on a phone shrinks from about 4,700 px to about 2,300 px. "Show all cards" and "Show as cards" now open the same all-cards view (by group), and "Compact view" returns. Sorting, grouping and filters stay on the dashboard; the farm grid and the home page's Explore section are unchanged.
+- The MW total of "Generating now" gets a thousands separator.
+- User guide section 3 and TODO updated; the smoke test now checks that the compact view shows at most 8 cards and the all-cards view every farm.
+
 ## v3.2.0 — 2026-10-18
 
 - Interface review, batch 3: home page, Learn, icons and footer (review canvas: https://claude.ai/artifact/4ZoaNBVQ4FAVhv9a46JiDe ):

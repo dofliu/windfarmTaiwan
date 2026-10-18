@@ -202,7 +202,8 @@ WW.addI18n({
   noGen:{zh:"目前沒有發電中的風場 🌙",en:"No farms generating right now 🌙"},noMatch:{zh:"查無符合條件的風場，試試放寬篩選 🔍",en:"No farms match — try relaxing filters 🔍"},
   genNow:{zh:"此刻在發電",en:"Generating now"},genNowSub:{zh:(n,mw)=>`${n} 座 · ${mw} MW`,en:(n,mw)=>`${n} ${n===1?"farm":"farms"} · ${mw} MW`},
   genOff:{zh:"此刻沒有出力",en:"No output right now"},genOffSub:{zh:n=>`${n} 座，點名稱看詳情`,en:n=>`${n} ${n===1?"farm":"farms"} · tap a name for details`},
-  offExpand:{zh:"全部展開成卡片 ▾",en:"Show as cards ▾"},offCollapse:{zh:"收成名稱 ▴",en:"Names only ▴"},
+  offExpand:{zh:"全部展開成卡片 ▾",en:"Show as cards ▾"},genMore:{zh:n=>`另 ${n} 座也在發電 · 看全部卡片 ▾`,en:n=>`${n} more generating · show all cards ▾`},
+  allCards:{zh:n=>`全部 ${n} 座`,en:n=>`All ${n} farms`},byGroup:{zh:"依分組",en:"by group"},compactView:{zh:"收成精簡 ▴",en:"Compact view ▴"},
   tpcOwn:{zh:"台電自有",en:"Taipower"},ppa:{zh:"購電",en:"PPA"},devTag:{zh:"開發商",en:"Developer"},
   d_output:{zh:"即時出力",en:"Live output"},d_avail:{zh:"可用率",en:"Availability"},d_cap:{zh:"裝置容量",en:"Capacity"},
   d_status:{zh:"狀態",en:"Status"},d_turbines:{zh:"風機數量",en:"Turbines"},d_unit:{zh:"單機容量",en:"Unit size"},
@@ -687,29 +688,31 @@ function groupHTML(g,list){                          // 一組：標題列（出
     <div class="fgrid">${list.map(cardHTML).join("")}</div>`;
 }
 const chipHTML=f=>`<button type="button" class="fchip${f.pending?" pending":""}" data-id="${f.id}" title="${esc(nm(f))}" aria-label="${esc(nm(f))}">${esc(sn(f))}${f.pending?`<i>${t("b_dev")}</i>`:""}</button>`;
-let offCards=false;     // 此刻沒有出力的風場：預設只列名稱，可展開成卡片 · farms with no output start as name chips
+const GEN_TOP=8;        // 精簡檢視的「此刻在發電」先列前 8 座 · the compact view lists the first 8 generating farms
+let fullView=false;     // 全部卡片（依分組），或精簡檢視（此刻在發電前 8 座＋沒有出力的名稱） · all cards by group, or the compact view
 function paintGroups(){
   updateToolbarBadge();
   const wrap=document.getElementById("groups");if(!wrap)return;
   const groups=groupsFor().map(g=>({g,list:sortFarms(g.farms.filter(farmPass))})).filter(x=>x.list.length);  // 篩選後沒有風場的組不顯示
   const all=groups.flatMap(x=>x.list),on=sortFarms(all.filter(isGen));
+  const btn=(open,txt)=>`<button type="button" class="btn sm fulltoggle" aria-expanded="${open}">${txt}</button>`;
   let html;
   if(!all.length)html=`<div class="empty">${t("noMatch")}</div>`;
-  else if(!on.length||on.length===all.length)html=groups.map(x=>groupHTML(x.g,x.list)).join("");   // 全部在發電（或全部沒有出力）：照分組列卡片
-  else{                                              // 先列此刻在發電的，其餘依分組收成名稱
+  else if(fullView||all.length<=GEN_TOP)             // 全部卡片依分組（篩選後不到 8 座時一律如此）
+    html=(all.length>GEN_TOP?`<div class="genhead"><h2>${t("allCards")(all.length)}</h2><span class="gsub">${t("byGroup")}</span><div class="rule"></div>${btn(true,t("compactView"))}</div>`:"")+
+      groups.map(x=>groupHTML(x.g,x.list)).join("");
+  else{                                              // 精簡：此刻在發電的前 8 座，其餘在發電的收在按鈕裡，沒有出力的依分組只列名稱
     const off=groups.map(x=>({g:x.g,list:x.list.filter(f=>!isGen(f))})).filter(x=>x.list.length);
-    const mw=on.reduce((s,f)=>s+RT[f.id],0);
-    html=`<div class="genhead"><h2>${t("genNow")}</h2><span class="gsub num">${t("genNowSub")(on.length,mw.toFixed(1))}</span><div class="rule"></div></div>
-      <div class="fgrid">${on.map(cardHTML).join("")}</div>
-      <div class="genhead off"><h2>${t("genOff")}</h2><span class="gsub">${t("genOffSub")(all.length-on.length)}</span><div class="rule"></div>
-        <button type="button" class="btn sm" id="offtoggle" aria-expanded="${offCards}">${offCards?t("offCollapse"):t("offExpand")}</button></div>`+
-      (offCards?off.map(x=>groupHTML(x.g,x.list)).join("")
-        :`<div class="offlist">${off.map(x=>`<div class="offrow"><span class="olab">${esc(x.g.label)}<b>${x.list.length}</b></span>
-          <span class="ochips">${x.list.map(chipHTML).join("")}</span></div>`).join("")}</div>`);
+    const mw=on.reduce((s,f)=>s+RT[f.id],0),more=on.length-GEN_TOP;
+    html=(on.length?`<div class="genhead"><h2>${t("genNow")}</h2><span class="gsub num">${t("genNowSub")(on.length,WW.num(mw,1))}</span><div class="rule"></div></div>
+      <div class="fgrid">${on.slice(0,GEN_TOP).map(cardHTML).join("")}</div>`+(more>0?`<div class="genmore">${btn(false,t("genMore")(more))}</div>`:""):"")+
+      (off.length?`<div class="genhead off"><h2>${t("genOff")}</h2><span class="gsub">${t("genOffSub")(all.length-on.length)}</span><div class="rule"></div>${btn(false,t("offExpand"))}</div>
+      <div class="offlist">${off.map(x=>`<div class="offrow"><span class="olab">${esc(x.g.label)}<b>${x.list.length}</b></span>
+        <span class="ochips">${x.list.map(chipHTML).join("")}</span></div>`).join("")}</div>`:"");
   }
   wrap.innerHTML=html;
   wrap.querySelectorAll(".fcard,.fchip").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);});
-  const ob=document.getElementById("offtoggle");if(ob)ob.onclick=()=>{offCards=!offCards;paintGroups();};
+  wrap.querySelectorAll(".fulltoggle").forEach(b=>{b.onclick=()=>{fullView=!fullView;paintGroups();const f=wrap.querySelector(".fulltoggle");if(f)f.focus();};});
 }
 function updateToolbarBadge(){
   const n=(sortKey!=="output")+(groupMode!=="type")+(filt!=="all")+(devFilt!=="all")+(brandFilt!=="all")+(capFilt!=="all");
