@@ -29,8 +29,74 @@ function paintLive() {
     mini(EN() ? 'Availability' : '整體可用率', (T.ratio * 100).toFixed(1), '%') +
     mini(EN() ? 'Share of grid' : '佔全國發電', V.share != null ? V.share.toFixed(1) : '—', V.share != null ? '%' : '') +
     mini(EN() ? 'Homes powered' : '可供家戶', EN() ? WW.int(V.homes * 10) : V.homes.toFixed(V.homes < 10 ? 1 : 0), EN() ? 'k' : '萬戶');
-  $('hh-mood').innerHTML = `<span aria-hidden="true">${M.m.e}</span> ${WW.esc(M.m.t)}`;
+  $('hh-mood').innerHTML = `${WW.windLevel(M.m.lv)} ${WW.esc(M.m.t)}`;
+  paint7d();
 }
+
+/* ---------- 台灣此刻：過去 7 天的全台出力（本站排程取樣的 wind_history.json，標出此刻與 7 天最高；滑過或方向鍵看各點） ·
+   Taiwan's total output over the past 7 days from the site's sampled history, with now and the 7-day peak marked ---------- */
+const tms = s => Date.parse(/[zZ]|[+-]\d\d:?\d\d$/.test(s) ? s : s + '+08:00');    // 沒寫時區的是台灣時間
+const tFmt = (ms, day) => { const x = new Date(ms + 288e5).toISOString(); return `${+x.slice(5, 7)}/${+x.slice(8, 10)}` + (day ? '' : ' ' + x.slice(11, 16)); };
+let c7 = null;
+function paint7d() {
+  const box = $('hh-7d'), L = WW.live; if (!box || !L || !L.hist) return;
+  const all = (L.hist().points || []).filter(p => p && p.t && typeof p.total === 'number').map(p => ({ t: tms(p.t), v: p.total })).filter(p => !isNaN(p.t)).sort((a, b) => a.t - b.t);
+  const st = L.srcTime && L.srcTime(), now = st && L.isLive() ? tms(st) : NaN;
+  if (all.length && !isNaN(now) && now > all[all.length - 1].t + 6e4) all.push({ t: now, v: L.totals().total });   // 補上此刻的即時值
+  const end = all.length ? all[all.length - 1].t : 0, P = all.filter(p => p.t >= end - 7 * 864e5);
+  if (P.length < 3 || P[P.length - 1].t - P[0].t < 864e5) { box.hidden = true; return; }
+  box.hidden = false;
+  c7 = { P, i: -1 };
+  draw7d();
+}
+function draw7d() {
+  const box = $('hh-7d'); if (!box || !c7 || box.hidden) return;
+  const P = c7.P, n = P.length, W = Math.max(240, box.clientWidth || 520), H = 112, pt = 20, pb = 18;
+  const t0 = P[0].t, t1 = P[n - 1].t, max = Math.max(...P.map(p => p.v), 1);
+  const sx = t => (t - t0) / (t1 - t0) * (W - 12) + 6, sy = v => pt + (H - pt - pb) * (1 - v / max);
+  const pk = P.reduce((b, p, i) => p.v > P[b].v ? i : b, 0), last = n - 1;
+  const pts = P.map(p => sx(p.t).toFixed(1) + ',' + sy(p.v).toFixed(1)).join(' ');
+  let g = '';
+  for (let d = Math.ceil((t0 + 288e5) / 864e5) * 864e5 - 288e5; d <= t1; d += 864e5) {     // 台灣時間的每天 0 點
+    const x = sx(d); g += `<line class="dy" x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${pt - 6}" y2="${H - pb}"/>`;
+    if (x < W - 30) g += `<text class="dt" x="${(x + 3).toFixed(1)}" y="${H - 5}">${tFmt(d, true)}</text>`;
+  }
+  const lab = (i, txt) => { const x = sx(P[i].t), y = sy(P[i].v), a = x > W - 120 ? 'end' : x < 90 ? 'start' : 'middle';
+    return `<text class="pl" x="${(a === 'end' ? x + 4 : a === 'start' ? x - 4 : x).toFixed(1)}" y="${Math.max(11, y - 9).toFixed(1)}" text-anchor="${a}">${WW.esc(txt)}</text>`; };
+  const nowTxt = EN() ? `Now ${WW.int(P[last].v)} MW` : `此刻 ${WW.int(P[last].v)} MW`;
+  const pkTxt = (EN() ? '7-day high ' : '7 天最高 ') + WW.int(P[pk].v) + ' MW';
+  const close = Math.abs(sx(P[pk].t) - sx(P[last].t)) < 130;
+  const labels = pk === last ? lab(last, nowTxt + (EN() ? ' (7-day high)' : '（7 天最高）')) : (close ? lab(last, nowTxt) : lab(pk, pkTxt) + lab(last, nowTxt));
+  const dot = (i, cls) => `<circle class="${cls}" cx="${sx(P[i].t).toFixed(1)}" cy="${sy(P[i].v).toFixed(1)}" r="4.5"/>`;
+  const sum = EN()
+    ? `Taiwan's total wind output over the past 7 days: high ${WW.int(P[pk].v)} MW (${tFmt(P[pk].t)}), now ${WW.int(P[last].v)} MW, ${n} samples`
+    : `過去 7 天全台風電出力：最高 ${WW.int(P[pk].v)} MW（${tFmt(P[pk].t)}），此刻 ${WW.int(P[last].v)} MW，共 ${n} 個取樣點`;
+  box.innerHTML = `<svg class="c7" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" tabindex="0" aria-label="${WW.esc(sum)}">${g}
+    <polygon class="ar" points="${sx(t0).toFixed(1)},${H - pb} ${pts} ${sx(t1).toFixed(1)},${H - pb}"/><polyline class="ln" points="${pts}"/>
+    <line class="bl" x1="0" x2="${W}" y1="${H - pb}" y2="${H - pb}"/>${pk !== last && !close ? dot(pk, 'pk') : ''}${dot(last, 'nw')}${labels}
+    <g class="hv" visibility="hidden"><line class="cx" y1="${pt - 6}" y2="${H - pb}"/><circle class="hd" r="4.5"/></g></svg>
+    <div class="t7" hidden></div>
+    <div class="c7cap">${EN() ? `Past 7 days · ${n} samples taken by the site (uneven spacing)` : `過去 7 天 · 本站取樣 ${n} 點（間隔不等）`} · <a href="#/live/charts?mode=hist">${EN() ? 'Long-term trend →' : '長期趨勢 →'}</a></div>`;
+  const svg = box.querySelector('svg'), hv = svg.querySelector('.hv'), tip = box.querySelector('.t7');
+  const show = i => {
+    c7.i = i; if (i < 0) { hv.setAttribute('visibility', 'hidden'); tip.hidden = true; return; }
+    const x = sx(P[i].t), y = sy(P[i].v);
+    hv.setAttribute('visibility', 'visible');
+    hv.querySelector('.cx').setAttribute('x1', x); hv.querySelector('.cx').setAttribute('x2', x);
+    hv.querySelector('.hd').setAttribute('cx', x); hv.querySelector('.hd').setAttribute('cy', y);
+    tip.textContent = `${tFmt(P[i].t)} · ${WW.int(P[i].v)} MW`; tip.hidden = false;
+    const tw = tip.offsetWidth; tip.style.left = Math.min(W - tw, Math.max(0, x - tw / 2)) + 'px';
+  };
+  const near = cx => { let b = 0; P.forEach((p, i) => { if (Math.abs(sx(p.t) - cx) < Math.abs(sx(P[b].t) - cx)) b = i; }); return b; };
+  svg.onpointermove = e => { const r = svg.getBoundingClientRect(); show(near((e.clientX - r.left) * W / r.width)); };
+  svg.onpointerleave = () => show(-1);
+  svg.onblur = () => show(-1);
+  svg.onkeydown = e => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); show(Math.min(n - 1, Math.max(0, (c7.i < 0 ? last : c7.i) + (e.key === 'ArrowLeft' ? -1 : 1)))); }
+    else if (e.key === 'Escape') show(-1);
+  };
+}
+if ('ResizeObserver' in window) { let w0 = 0; new ResizeObserver(es => { const w = Math.round(es[0].contentRect.width); if (w && Math.abs(w - w0) > 2) { w0 = w; draw7d(); } }).observe($('hh-7d')); }
 
 /* ---------- 全球 1980–2025 ---------- */
 function facts(D) {

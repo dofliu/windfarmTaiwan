@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.1.0';
+WW.VERSION = '3.2.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -31,6 +31,23 @@ WW.addI18n = obj => Object.assign(DICT, obj);
 WW.lang = WW.store.get('ww_lang', 'zh') === 'en' ? 'en' : 'zh';
 WW.t = k => (DICT[k] && DICT[k][WW.lang] != null) ? DICT[k][WW.lang] : k;
 WW.L = (zh, en) => WW.lang === 'en' ? en : zh;     // 行內雙語
+/* 線條圖示（取代 emoji：各系統長得一樣，顏色跟著文字的 currentColor）；HTML 寫 <span data-ico="名稱"></span> ·
+   line icons instead of emoji (same on every system, coloured by currentColor); in HTML use data-ico */
+const ICONS = {
+  wind: '<path d="M3 8h11a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h7"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
+  book: '<path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5zM12 6v13.5"/>',
+  trend: '<path d="M3 20h18M4 16l5-5 4 3 7-8"/>',
+  home: '<path d="M4 11l8-6 8 6M6 10v9h12v-9M10 19v-5h4v5"/>',
+  bolt: '<path d="M13 3L5 13h6l-1 8 8-10h-6z"/>',
+  bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.7.6 1.2 1.4 1.3 2.1h4.4c.1-.7.6-1.5 1.3-2.1A6 6 0 0 0 12 3z"/>',
+  leaf: '<path d="M12 21v-6M12 15c-4 0-7-3-7-7 4 0 7 3 7 7zM12 15c4 0 7-3 7-7-4 0-7 3-7 7z"/>'
+};
+WW.icon = name => '<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + (ICONS[name] || '') + '</svg>';
+/* 風力等級：四格長條，亮起的格數＝等級 1–4 · wind level drawn as 1–4 lit bars */
+WW.windLevel = n => '<svg class="ico wlv" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">' +
+  [0, 1, 2, 3].map(i => `<rect x="${3 + i * 5}" y="${17 - i * 4}" width="3.4" height="${4 + i * 4}" rx="1.2" fill="${i < n ? 'currentColor' : 'var(--line-2)'}"/>`).join('') + '</svg>';
+WW.paintIcons = root => (root || document).querySelectorAll('[data-ico]').forEach(el => { if (!el.firstChild) el.innerHTML = WW.icon(el.dataset.ico); });
 const langSubs = [];
 WW.onLang = fn => { langSubs.push(fn); };
 WW.applyI18n = root => {
@@ -278,6 +295,7 @@ WW.share = async () => {
 WW.boot = () => {
   syncLangDom();
   WW.applyI18n();
+  WW.paintIcons();
   syncHeaderH();
   if ('ResizeObserver' in window) new ResizeObserver(syncHeaderH).observe(document.querySelector('.topbar'));
   else window.addEventListener('resize', syncHeaderH);

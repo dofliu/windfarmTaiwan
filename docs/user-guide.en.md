@@ -29,17 +29,17 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
   | **Share** | On Taiwan live it makes a 1080×1080 live image card (shared directly on phones, downloaded as a PNG on computers); on other pages it shares or copies the current page's link |
   | **EN / 中文** | Switches the language; the browser remembers it |
 
-- **Footer**: data sources, "Sources & method", downloads of the single-file editions, a link to this guide, and the site version (click it for the changelog).
+- **Footer**: data sources in four groups (Taiwan, live output abroad, yearly statistics & farms, maps & other), each group name linking to its part of "Sources & method"; plus "Sources & method", downloads of the single-file editions, a link to this guide, and the site version (click it for the changelog).
 - Every view has its own link: copy the address and whoever opens it sees the same view (section 6).
 
 ## 2. Home
 
 `#/home`, the essentials on one page, top to bottom:
 
-1. **Right now · Taiwan wind**: Taiwan's live wind output, with overall availability, share of national generation and the number of households it could supply; buttons to the live dashboard, the farm map and the farm grid.
+1. **Right now · Taiwan wind**: Taiwan's live wind output; below it, Taiwan's total output over the past 7 days (sampled on the site's schedule, with now and the 7-day high marked; hover or use the arrow keys for each point's time and output), overall availability, share of national generation, the number of households it could supply, and a line about the wind in four levels; buttons to the live dashboard, the farm map and the farm grid.
 2. **1980–2025 · Global wind**: world cumulative capacity with its curve, the year's additions and the offshore part; a line below gives the world figure for "2026 (latest available)" and how it is made up (how many countries have this year's figures, the rest carrying the end of 2025, as on the globe); "Open the 3D globe" or "Play from 1980".
 3. **Taiwan in the world**: Taiwan's world rank in offshore wind, its share of world offshore capacity and its rank in total wind; "Read Taiwan's path" opens Learn chapter 10.
-4. **Explore**: four cards for the live dashboard, the 3D globe, the 13 Learn chapters and the long-term trend.
+4. **Explore**: four cards for the live dashboard, the 3D globe, the 13 Learn chapters and the long-term trend. On phones, "Taiwan in the world" and "Explore" are laid out in two columns.
 5. **Featured milestones**: click a card to fly to that farm on the globe; "▶ Guided tour" runs through the key moments in wind power.
 
 ## 3. Taiwan live
@@ -243,7 +243,7 @@ At the top of the dialog, "Limits of the data and open questions" lists, compute
 
 ## 5. Learn
 
-`#/learn`, 13 illustrated chapters; the table of contents on the left marks the chapter you are reading. Every chapter has a button that replays that part of the story on the globe, and chapters 5, 6, 8 and 10 also start their story tour.
+`#/learn`, 13 illustrated chapters; the table of contents on the left marks the chapter you are reading. On phones and tablets (1100 px and below) the contents sit at the top, and once you scroll past them a "current chapter ▾" bar with reading progress appears under the header; tap it for the contents. Every chapter has a button that replays that part of the story on the globe, and chapters 5, 6, 8 and 10 also start their story tour.
 
 | Ch. | Link | Title |
 |---|---|---|
@@ -268,6 +268,8 @@ Charts can be switched to tables.
 The link is the view: share it and the other person sees the same thing. The globe keeps its link up to date as you use it.
 
 **Taiwan live**: `#/live?farm=<id>` opens a farm's details; `#/live/charts?mode=bar|donut|hist` picks the chart (ranking, mix, long-term).
+
+**Learn**: `#/learn/<chapter>` jumps to a chapter; `#/learn/sources?s=tw|intl|global|all` jumps to the Taiwan live, live abroad or global wind part of the sources, or opens "All sources and data notes".
 
 **Globe** (combine parameters with `&`):
 

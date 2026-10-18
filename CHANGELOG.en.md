@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.2.0 — 2026-10-18
+
+- Interface review, batch 3: home page, Learn, icons and footer (review canvas: https://claude.ai/artifact/4ZoaNBVQ4FAVhv9a46JiDe ):
+  - **A 7-day output curve on the home page's Taiwan card**: Taiwan's total output over the past 7 days from the site's scheduled samples (`wind_history.json`), with now and the 7-day high marked; hover or use the arrow keys for each point's time and output, and the caption gives the number of samples (unevenly spaced). In light wind the middle of the card is no longer just one line of text.
+  - **Home page on phones**: the four "Taiwan in the world" figures and the four "Explore" cards are in two columns, and the Explore cards keep only the icon, title and two lines of text.
+  - **Learn**: on phones and tablets (1100 px and below), once you scroll past the contents at the top a "current chapter ▾" bar with reading progress appears under the header; tap it for the contents. Jumping to a chapter from another page now re-aligns once the charts above have drawn, instead of stopping short.
+  - **Line icons instead of emoji**: the home page's Explore cards (green = live, amber = history) and the dashboard's four "How much is this power" tiles; the mood line's emoji became a four-level wind bar.
+  - **Footer sources in four groups**: Taiwan, live output abroad, yearly statistics & farms, and maps & other, each group name linking to its part of "Sources & method" (`#/learn/sources?s=tw|intl|global|all`); the names are unchanged.
+  - One threshold for "generating" across the site: the dashboard's unit count, the mood line's "resting now" and the "Generating now" section all count farms showing 0.1 MW or more.
+  - User guide sections 1, 2, 5 and 6, ROADMAP and TODO updated; the smoke test checks the home page's 7-day curve, the footer links and the Learn current-chapter bar.
+
 ## v3.1.0 — 2026-10-18
 
 - Interface review, batch 2: Taiwan live reads well in light wind too (review canvas: https://claude.ai/artifact/4ZoaNBVQ4FAVhv9a46JiDe ):

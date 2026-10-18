@@ -335,13 +335,72 @@ function setupToc() {
       if (!en.isIntersecting) return;
       const ch = en.target.dataset.ch;
       links.forEach(a => a.classList.toggle('is-on', a.dataset.ch === ch));
+      barCh(ch);
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
   document.querySelectorAll('.chapter').forEach(s => io.observe(s));
+  setupBar();
 }
-function scrollToCh(ch) {
-  const el = document.getElementById('ch-' + ch); if (!el) return;
+/* 手機與平板（目錄不固定在側邊時）：目錄捲出畫面後，頁首下方出現「目前章節 ▾」與閱讀進度，點開是目錄 ·
+   on narrow screens a bar under the header shows the current chapter and reading progress once the table of contents scrolls away */
+const NARROW = matchMedia('(max-width:1100px)');
+let tocSeen = true, curCh = null;
+function barCh(ch) {
+  curCh = ch;
+  const a = document.querySelector(`#toc a[data-ch="${ch}"]`), c = $('lnc');
+  if (a && c) c.innerHTML = a.innerHTML;
+  document.querySelectorAll('#lnmenu a').forEach(x => { const on = x.dataset.ch === ch; x.classList.toggle('is-on', on); if (on) x.setAttribute('aria-current', 'true'); else x.removeAttribute('aria-current'); });
+  barShow();
+}
+function barShow() {
+  const bar = $('lnbar'); if (!bar) return;
+  const on = NARROW.matches && !tocSeen && WW.currentPage() === 'learn' && !!curCh;
+  bar.classList.toggle('is-on', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+  $('lnb').tabIndex = on ? 0 : -1;
+  if (!on) menu(false);
+}
+function menu(open) {
+  const m = $('lnmenu'), b = $('lnb'); if (!m) return;
+  m.hidden = !open; b.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function setupBar() {
+  const bar = $('lnbar'), toc = document.querySelector('.learn .toc'), art = document.querySelector('.learn .article');
+  if (!bar || !toc) return;
+  $('lnmenu').innerHTML = '<ol>' + document.getElementById('toc').innerHTML + '</ol>';
+  $('lnmenu').querySelectorAll('a').forEach(a => a.classList.remove('is-on'));
+  $('lnb').onclick = () => menu($('lnmenu').hidden);
+  $('lnmenu').onclick = e => { const a = e.target.closest('a'); if (!a) return; menu(false); if (location.hash === a.getAttribute('href')) { e.preventDefault(); scrollToCh(a.dataset.ch); } };
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('lnmenu').hidden) { menu(false); $('lnb').focus(); } });
+  document.addEventListener('click', e => { if (!$('lnmenu').hidden && !bar.contains(e.target)) menu(false); });
+  new IntersectionObserver(es => { tocSeen = es[0].isIntersecting; barShow(); }).observe(toc);
+  NARROW.addEventListener ? NARROW.addEventListener('change', barShow) : NARROW.addListener(barShow);
+  let raf = 0;
+  const prog = () => { raf = 0; if (WW.currentPage() !== 'learn' || !art) return;
+    const r = art.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+    $('lnprog').style.width = (p * 100).toFixed(1) + '%'; };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(prog); }, { passive: true });
+}
+let alignTok = 0;
+function scrollToCh(ch, sec) {
+  const el = (sec && document.getElementById('src-' + sec)) || document.getElementById('ch-' + ch); if (!el) return;
+  if (el.tagName === 'DETAILS') el.open = true;
   requestAnimationFrame(() => el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }));
+  // 捲動途中上方的圖表與圖片陸續長出來，停點會偏；停下來後再對齊（使用者自己捲動就不管） ·
+  // charts and images above keep growing during the scroll, so re-align once it settles unless the reader takes over
+  const tok = ++alignTok, EV = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+  let user = false, last = -1, n = 0;
+  const stop = () => { user = true; }, done = () => EV.forEach(t => removeEventListener(t, stop));
+  EV.forEach(t => addEventListener(t, stop, { passive: true }));
+  const pad = () => parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+  const check = () => {
+    if (tok !== alignTok || user || ++n > 16) return done();
+    if (Math.round(scrollY) === last) {
+      if (Math.abs(el.getBoundingClientRect().top - pad()) <= 6) return done();
+      el.scrollIntoView({ block: 'start' }); last = -1;
+    } else last = Math.round(scrollY);
+    setTimeout(check, 250);
+  };
+  setTimeout(check, 400);
 }
 function renderAll() {
   if (!D) return;
@@ -350,7 +409,7 @@ function renderAll() {
 WW.registerPage('learn', {
   enter(r) {
     setupToc();
-    const go = () => { if (!rendered) renderAll(); if (r.sub) scrollToCh(r.sub); };
+    const go = () => { if (!rendered) renderAll(); if (r.sub) scrollToCh(r.sub, r.params.s); barShow(); };
     if (D) go(); else WW.globalData().then(d => { D = d; go(); }).catch(() => { $('ln-facts').innerHTML = `<div class="note">${L('全球資料載入失敗。', 'Global data could not be loaded.')}</div>`; });
   }
 });
