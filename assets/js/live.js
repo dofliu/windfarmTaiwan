@@ -200,6 +200,9 @@ WW.addI18n({
   hist_all:{zh:"全部（台電自有）",en:"All (Taipower-owned)"},
   donutDev:{zh:"依開發商",en:"By developer"},donutType:{zh:"依類型（離岸／陸域）",en:"By type (offshore / onshore)"},
   noGen:{zh:"目前沒有發電中的風場 🌙",en:"No farms generating right now 🌙"},noMatch:{zh:"查無符合條件的風場，試試放寬篩選 🔍",en:"No farms match — try relaxing filters 🔍"},
+  genNow:{zh:"此刻在發電",en:"Generating now"},genNowSub:{zh:(n,mw)=>`${n} 座 · ${mw} MW`,en:(n,mw)=>`${n} ${n===1?"farm":"farms"} · ${mw} MW`},
+  genOff:{zh:"此刻沒有出力",en:"No output right now"},genOffSub:{zh:n=>`${n} 座，點名稱看詳情`,en:n=>`${n} ${n===1?"farm":"farms"} · tap a name for details`},
+  offExpand:{zh:"全部展開成卡片 ▾",en:"Show as cards ▾"},offCollapse:{zh:"收成名稱 ▴",en:"Names only ▴"},
   tpcOwn:{zh:"台電自有",en:"Taipower"},ppa:{zh:"購電",en:"PPA"},devTag:{zh:"開發商",en:"Developer"},
   d_output:{zh:"即時出力",en:"Live output"},d_avail:{zh:"可用率",en:"Availability"},d_cap:{zh:"裝置容量",en:"Capacity"},
   d_status:{zh:"狀態",en:"Status"},d_turbines:{zh:"風機數量",en:"Turbines"},d_unit:{zh:"單機容量",en:"Unit size"},
@@ -211,6 +214,9 @@ WW.addI18n({
   r_6h:{zh:"近6時",en:"6 h"},r_24h:{zh:"近24時",en:"24 h"},r_7d:{zh:"近7日",en:"7 d"},m_out:{zh:"出力",en:"Output"},m_wind:{zh:"風速",en:"Wind"},
   windNote:{zh:"鄰近測站風速",en:"Nearest station wind"},windRef:{zh:"沿海參考值，非風機輪轂高度實測",en:"coastal reference, not hub-height"},
   mapHint:{zh:"點選風場圖示查看即時出力與專案資訊 · 共 30 個機組 / 風場",en:"Tap a marker for live output & project info · 30 units/farms"},
+  mapFb:{zh:"<b>離線簡圖</b>：地圖元件載不到（可能離線），改用 Natural Earth 的台灣輪廓與各風場的概略位置繪製；點圓圈看詳情。",
+    en:"<b>Offline sketch</b>: the map library could not be loaded (offline?), so this is drawn from Natural Earth’s outline of Taiwan and each farm’s approximate position. Tap a circle for details."},
+  mapFbFail:{zh:"地圖元件載入失敗（可能離線）。",en:"Map library could not be loaded (offline?)."},
   legendTitle:{zh:"圖示說明",en:"Legend"},lg_size:{zh:"圈圈大小 ＝ 裝置容量",en:"Circle size = capacity"},
   mlg_high:{zh:"可用率高（≥45%）",en:"High availability (≥45%)"},mlg_mid:{zh:"可用率中（20–45%）",en:"Mid (20–45%)"},
   mlg_low:{zh:"可用率低（<20%）",en:"Low (<20%)"},mlg_dev:{zh:"開發中／未列容量",en:"In dev. / not listed"},
@@ -302,6 +308,8 @@ const capOf=f=>f.cap||f.planned||0;
 const sizeMW=f=>{const c=(typeof f.cap==="number"?f.cap:0)||(typeof f.planned==="number"?f.planned:0);
   return c>0?c:Math.max(20,(f.snap||0)*1.2);};   // 註10無容量者用出力推估marker大小
 const ratioOf=f=>{const c=f.cap||0;return c>0?RT[f.id]/c:0;};
+const GEN_MIN=0.05;                              // 「此刻在發電」：四捨五入到 0.1 MW 以上（畫面顯示到小數一位）
+const isGen=f=>(RT[f.id]||0)>=GEN_MIN;
 /* 可用率有序三階（同一色相，越亮＝越高；經 dataviz validator --ordinal 驗證）；未列容量＝灰 */
 const GEN={hi:"#3fdcb0",mid:"#24a886",lo:"#197a62",na:"#5b6b80"};
 function tier(f){if(f.pending||!f.cap)return"na";const r=ratioOf(f);return r>=0.45?"hi":r>=0.20?"mid":"lo";}
@@ -670,22 +678,38 @@ function groupsFor(){                                // 依分組模式回傳 [{
   }
   return GROUPS.map(g=>({label:t("grp_"+g.key.replace("-","")),tag:g.tag,cls:g.cls,farms:FARMS.filter(f=>f.grp===g.key)}));
 }
+function groupHTML(g,list){                          // 一組：標題列（出力／容量合計）＋卡片
+  const out=list.reduce((s,f)=>s+RT[f.id],0),cap=list.reduce((s,f)=>s+(f.cap||0),0);
+  const tagTxt=groupMode==="dev"?t("devTag"):(g.tag==="tpc"?t("tpcOwn"):t("ppa"));
+  return `<div class="grouphead"><span class="gtag ${g.cls}">${tagTxt}</span>
+    <h2>${esc(g.label)}</h2><div class="rule"></div>
+    <div class="sum num">${out.toFixed(1)} / ${WW.int(cap)} MW · ${cap>0?(out/cap*100).toFixed(0):0}%</div></div>
+    <div class="fgrid">${list.map(cardHTML).join("")}</div>`;
+}
+const chipHTML=f=>`<button type="button" class="fchip${f.pending?" pending":""}" data-id="${f.id}" title="${esc(nm(f))}" aria-label="${esc(nm(f))}">${esc(sn(f))}${f.pending?`<i>${t("b_dev")}</i>`:""}</button>`;
+let offCards=false;     // 此刻沒有出力的風場：預設只列名稱，可展開成卡片 · farms with no output start as name chips
 function paintGroups(){
   updateToolbarBadge();
-  const wrap=document.getElementById("groups");if(!wrap)return;let html="",shown=0;
-  groupsFor().forEach(g=>{
-    const list=sortFarms(g.farms.filter(farmPass));
-    if(!list.length)return;                          // 篩選後該組無風場 → 隱藏整組
-    shown+=list.length;
-    const out=list.reduce((s,f)=>s+RT[f.id],0),cap=list.reduce((s,f)=>s+(f.cap||0),0);
-    const tagTxt=groupMode==="dev"?t("devTag"):(g.tag==="tpc"?t("tpcOwn"):t("ppa"));
-    html+=`<div class="grouphead"><span class="gtag ${g.cls}">${tagTxt}</span>
-      <h2>${esc(g.label)}</h2><div class="rule"></div>
-      <div class="sum num">${out.toFixed(1)} / ${WW.int(cap)} MW · ${cap>0?(out/cap*100).toFixed(0):0}%</div></div>
-      <div class="fgrid">${list.map(cardHTML).join("")}</div>`;
-  });
-  wrap.innerHTML=shown?html:`<div class="empty">${t("noMatch")}</div>`;
-  wrap.querySelectorAll(".fcard").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);});
+  const wrap=document.getElementById("groups");if(!wrap)return;
+  const groups=groupsFor().map(g=>({g,list:sortFarms(g.farms.filter(farmPass))})).filter(x=>x.list.length);  // 篩選後沒有風場的組不顯示
+  const all=groups.flatMap(x=>x.list),on=sortFarms(all.filter(isGen));
+  let html;
+  if(!all.length)html=`<div class="empty">${t("noMatch")}</div>`;
+  else if(!on.length||on.length===all.length)html=groups.map(x=>groupHTML(x.g,x.list)).join("");   // 全部在發電（或全部沒有出力）：照分組列卡片
+  else{                                              // 先列此刻在發電的，其餘依分組收成名稱
+    const off=groups.map(x=>({g:x.g,list:x.list.filter(f=>!isGen(f))})).filter(x=>x.list.length);
+    const mw=on.reduce((s,f)=>s+RT[f.id],0);
+    html=`<div class="genhead"><h2>${t("genNow")}</h2><span class="gsub num">${t("genNowSub")(on.length,mw.toFixed(1))}</span><div class="rule"></div></div>
+      <div class="fgrid">${on.map(cardHTML).join("")}</div>
+      <div class="genhead off"><h2>${t("genOff")}</h2><span class="gsub">${t("genOffSub")(all.length-on.length)}</span><div class="rule"></div>
+        <button type="button" class="btn sm" id="offtoggle" aria-expanded="${offCards}">${offCards?t("offCollapse"):t("offExpand")}</button></div>`+
+      (offCards?off.map(x=>groupHTML(x.g,x.list)).join("")
+        :`<div class="offlist">${off.map(x=>`<div class="offrow"><span class="olab">${esc(x.g.label)}<b>${x.list.length}</b></span>
+          <span class="ochips">${x.list.map(chipHTML).join("")}</span></div>`).join("")}</div>`);
+  }
+  wrap.innerHTML=html;
+  wrap.querySelectorAll(".fcard,.fchip").forEach(c=>{c.onclick=()=>openDrawer(c.dataset.id);});
+  const ob=document.getElementById("offtoggle");if(ob)ob.onclick=()=>{offCards=!offCards;paintGroups();};
 }
 function updateToolbarBadge(){
   const n=(sortKey!=="output")+(groupMode!=="type")+(filt!=="all")+(devFilt!=="all")+(brandFilt!=="all")+(capFilt!=="all");
@@ -728,7 +752,7 @@ function chartBar(wrap){
     <span class="rn">${esc(sn(f))}</span>
     <span class="rt"><i style="width:${((RT[f.id]||0)/max*100).toFixed(1)}%;background:${hexColor(f)}"></i></span>
     <span class="rv">${(RT[f.id]||0).toFixed(1)}<small> MW</small></span></button>`;
-  const on=list.filter(f=>(RT[f.id]||0)>=0.05),off=list.filter(f=>(RT[f.id]||0)<0.05);
+  const on=list.filter(isGen),off=list.filter(f=>!isGen(f));
   const fold=on.length>0&&off.length>0;
   wrap.innerHTML=`<div class="rankbars">`+(fold?on:list).map(row).join("")+
     (fold?`<button type="button" class="rmore" aria-expanded="${rankAll}">${rankAll?t("rankLess"):t("rankMore")(off.length)}</button>`+(rankAll?off.map(row).join(""):""):"")+`</div>`;
@@ -926,12 +950,13 @@ document.getElementById("scrim").onclick=()=>closeDrawer();
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
 
 /* ---------------- 地圖（Leaflet 延遲載入） ---------------- */
-let map=null,markers={};
+let map=null,markers={},mapFb=false,twRings=null,twLoad=null,fbScale=2;
 const LEAFLET_CSS="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css",LEAFLET_JS="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js";
 async function initMap(){
   if(map){map.invalidateSize();return;}
+  if(mapFb){paintMapFb();return;}
   try{await Promise.all([WW.loadCSS(LEAFLET_CSS),WW.loadScript(LEAFLET_JS)]);}
-  catch(e){document.getElementById("map").innerHTML=`<div class="empty">${EN()?"Map library could not be loaded (offline?).":"地圖元件載入失敗（可能離線）。"}</div>`;return;}
+  catch(e){mapFb=true;paintMapFb();return;}
   if(map)return;
   map=L.map("map",{zoomControl:true}).setView([24.1,120.3],8);
   L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -958,7 +983,30 @@ function popHTML(f){
     <div class="pr"><span>${esc(fv(f,"dev"))}</span></div>
     <button type="button" id="pop-${f.id}">${t("popMore")}</button></div>`;
 }
-function updateMarkers(){if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
+/* 地圖元件載不到（離線、單檔版離線）時的簡圖：Natural Earth 1:50m 台灣輪廓（地球儀同一份國界檔）＋各風場概略位置，
+   顏色與大小同衛星地圖；點圓圈打開詳情 · offline sketch when Leaflet cannot load */
+const FB_BOX=[119.3,21.85,122.15,25.35],FB_K=100,FB_C=Math.cos(23.6*Math.PI/180);   // 經緯度範圍、每度單位、經度縮放
+const fbXY=(lng,lat)=>[(lng-FB_BOX[0])*FB_C*FB_K,(FB_BOX[3]-lat)*FB_K];
+function paintMapFb(){
+  const el=document.getElementById("map");if(!el)return;
+  if(!twRings){                                     // 國界檔載入前先寫明原因；載不到就只畫風場點
+    if(!twLoad){el.innerHTML=`<div class="empty">${t("mapFbFail")}</div>`;
+      twLoad=WW.getJSON(WW.DATA.borders).then(B=>{twRings=B.borders.filter((r,i)=>B.ringIso[i]==="TWN"&&r[0]>FB_BOX[0]);}).catch(()=>{twRings=[];}).then(paintMapFb);}
+    return;}
+  el.parentElement.classList.add("is-fb");
+  const W=(FB_BOX[2]-FB_BOX[0])*FB_C*FB_K,H=(FB_BOX[3]-FB_BOX[1])*FB_K;
+  if(el.clientWidth>0&&el.clientHeight>0)fbScale=Math.min(el.clientWidth/W,el.clientHeight/H);   // 圓圈的像素大小與衛星地圖相同
+  const land=twRings.map(r=>{let d="";for(let i=0;i<r.length;i+=2){const p=fbXY(r[i],r[i+1]);d+=(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1);}return d+"Z";}).join("");
+  const dots=[...FARMS].sort((a,b)=>sizeMW(b)-sizeMW(a)).map(f=>{     // 大的先畫，小的在上面
+    const p=fbXY(f.lng,f.lat),r=Math.max(6,Math.sqrt(sizeMW(f))*0.85)/fbScale,lab=`${nm(f)} · ${(RT[f.id]||0).toFixed(1)} MW`;
+    return `<circle class="fbdot" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${r.toFixed(2)}" fill="${hexColor(f)}" data-id="${f.id}" tabindex="0" role="button" aria-label="${esc(lab)}"><title>${esc(lab)}</title></circle>`;}).join("");
+  el.innerHTML=`<div class="mapfb"><svg viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" preserveAspectRatio="xMidYMid meet" role="group" aria-label="${EN()?"Sketch map of Taiwan's wind farms":"台灣風場位置簡圖"}">
+    <path class="fbland" d="${land}"/><g>${dots}</g></svg></div><div class="mapfbnote">${t("mapFb")}</div>`;
+  const svg=el.querySelector("svg");
+  svg.onclick=e=>{const c=e.target.closest(".fbdot");if(c)openDrawer(c.dataset.id);};
+  svg.onkeydown=e=>{const c=e.target.closest(".fbdot");if(c&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openDrawer(c.dataset.id);}};
+}
+function updateMarkers(){if(mapFb&&curView==="map")paintMapFb();if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
   if(m.isPopupOpen())m.setPopupContent(popHTML(f));}});}
 
 /* ---------------- 分享圖卡（1080×1080，含醒目資料時間） ---------------- */

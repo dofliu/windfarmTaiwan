@@ -77,7 +77,7 @@
 
 - **首頁** `#/home` — 台灣即時總出力與全球 1980–2025 累計容量並排；台灣在全球的位置；精選里程碑（點了直接飛到地球儀現場）
 - **台灣即時** `#/live` — 全國風電出力、可用率、電網備轉容量率與風電貢獻、今日發電量估算、可排序與篩選的機組量柱；
-  風場牆 `#/live/wall`、數據 `#/live/charts`（排行／出力組成、官方回溯資料的長期趨勢）、地圖 `#/live/map`（Leaflet 衛星地圖）；
+  風場牆 `#/live/wall`、數據 `#/live/charts`（排行／出力組成、官方回溯資料的長期趨勢）、地圖 `#/live/map`（Leaflet 衛星地圖，離線時改畫台灣輪廓簡圖）；
   每座風場的詳情（即時趨勢、鄰近測站風速、規格、查證過的開發與營運歷程，`#/live?farm=<id>`）；「分享」產生含資料時間的即時圖卡
 - **全球發展** `#/global` — 3D 地球儀（three.js，只在進入此頁才載入，離開即停止繪圖）：
   - 各國陸域／離岸**年底累計裝置容量**逐年動畫（1980–2025，加上 8 國官方數字的「2026（最新可得）」），長條排名一律以 MW 顯示；地圖／地圖＋長條／長條排名，3D 地球／2.5D 平面
@@ -219,7 +219,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   或直接開 `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html` 另存。
 - **連網時**：台灣即時資料直接向正式網站抓最新的（約每 2 小時更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
 - **離線時**：全球資料、約 3.1 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
-  並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網。
+  並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網，離線時改畫台灣輪廓簡圖（Natural Earth）。
 - **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建並上傳到 Release（檔案不進 git）；
   本機也可以執行 `python3 tools/build_standalone.py`（`WW.VERSION` 在兩份 CHANGELOG 沒有對應段落時會中止）。
   頁尾標示版本號、建置時間與 commit。分享按鈕在單檔版一律分享正式網站的網址。

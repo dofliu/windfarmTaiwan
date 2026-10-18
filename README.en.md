@@ -90,7 +90,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   (click one to fly there on the globe)
 - **Taiwan live** `#/live` — national wind output, availability, grid operating reserve rate and wind's contribution, today's estimated
   generation, sortable and filterable unit gauges; Farm grid `#/live/wall`, Charts `#/live/charts` (ranking / output mix, the long-term
-  trend from official retrospective data), Map `#/live/map` (Leaflet satellite map); a detail panel per farm (live trend, nearby
+  trend from official retrospective data), Map `#/live/map` (Leaflet satellite map, or a sketch of Taiwan when offline); a detail panel per farm (live trend, nearby
   weather-station wind speed, specs, verified development and operation timeline, `#/live?farm=<id>`); "Share" makes a live card with the data time
 - **Global** `#/global` — a 3D globe (three.js, loaded only when you open this page and paused when you leave it):
   - Year-by-year animation of each country's onshore/offshore **year-end cumulative capacity** (1980–2025, plus a "2026 (latest available)"
@@ -285,7 +285,7 @@ Learn) into one HTML file of about 13 MB, published in the GitHub Release "[stan
   zooming in on the globe loads Esri detail tiles, and farm cards look up Wikipedia.
 - **Offline**: the global data, ~31,000 farm records, borders and the 2k relief/satellite basemaps are
   inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled
-  "Offline snapshot". The satellite map on the Taiwan live page (Leaflet) needs a connection.
+  "Offline snapshot". The satellite map on the Taiwan live page (Leaflet) needs a connection; offline, a sketch of Taiwan (Natural Earth) is drawn instead.
 - **Updates**: pushes to `main` that touch `index.html`, `assets/` or `data/global/*.json` rebuild it
   automatically through GitHub Actions and upload it to the Release (the files are not in git); locally, run `python3 tools/build_standalone.py` (it stops if
   `WW.VERSION` has no entry in both changelogs). The footer shows the version, build time and commit.

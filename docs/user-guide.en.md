@@ -51,7 +51,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 | **Dashboard** | `#/live` | National figures and an output gauge for every farm |
 | **Farm grid** | `#/live/wall` | The 30 units / farms as tiles sorted by output, coloured by availability |
 | **Charts** | `#/live/charts` | Ranking, output mix and the official long-term trend |
-| **Map** | `#/live/map` | Farms on a satellite map; circle size = installed capacity |
+| **Map** | `#/live/map` | Farms on a satellite map; circle size = installed capacity; offline, a sketch of Taiwan instead |
 
 ### Dashboard
 
@@ -59,7 +59,9 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 - **Grid**: the operating reserve light (ample / tight / alert / curtailment alert). When Taipower's live supply-demand report cannot be fetched from cloud servers, the daily government open-data figure is used and labelled "official daily data, not live".
 - **What this power means**: households supplied right now, wind's share of live national generation, today's generation so far, and today's avoided CO₂ as trees.
 - **Sort & filter** (open the toolbar): sort by output, availability, capacity or name; group by type or developer; show only offshore, onshore, operating or in development; filter by developer, turbine maker or size.
-- **Farm cards**: four groups (offshore / onshore × purchased / Taipower-owned); the ring is availability, and the badges show commercial or trial operation, offshore or onshore, and the wind speed at the nearest station. Click a card for details.
+- **Farm cards**: four groups (offshore / onshore × purchased / Taipower-owned, or grouped by developer); the figure under the turbine is availability, and the badges show commercial or trial operation, offshore or onshore, and the wind speed at the nearest station. Click a card for details.
+- **In light wind**: when some farms are generating and others are not, "Generating now" at the top lists the cards of the farms with output (0.1 MW or more as shown) in the chosen order; below it, "No output right now" lists only the names, by group. Click a name for details, or "Show as cards" to see cards again. When all farms (or none) are generating, the cards are listed by group. Sorting, grouping and filters apply to both parts.
+- **Phones**: one farm per row, with the full name, the output on the right and the capacity bar below.
 
 ### Charts
 
@@ -71,7 +73,9 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 
 ### Map
 
-A satellite map (needs a connection). Click a farm for its live output, capacity and availability, then "Project info" for the details.
+A satellite map (needs a connection). Click a farm for its live output, capacity and availability, then "Project details" for the details.
+
+When the map library cannot be loaded (offline, or the single-file copy offline), an **offline sketch** is drawn instead: Natural Earth's outline of Taiwan with each farm's approximate position, in the same colours and sizes as the satellite map. Hover a circle for its name and output, and click it (or Tab to it and press Enter) for the details. The sketch cannot be zoomed.
 
 ### Farm details
 
@@ -304,7 +308,7 @@ Both are HTML files you save and open in a browser, with no web server, publishe
 | [windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html) | about 12 MB | A slim copy for everyone: just the globe with the onshore, offshore and pipeline layers, plus search, the Pipeline tab and Output |
 
 - **Online**: Taiwan live fetches the latest data from the live site, zooming in on the globe loads detailed tiles, and farm cards look up Wikipedia.
-- **Offline**: the global data, farms, borders and basemaps are inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled "Offline snapshot". Taiwan live's satellite map, Wikipedia summaries and detailed tiles need a connection.
+- **Offline**: the global data, farms, borders and basemaps are inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled "Offline snapshot". Taiwan live's satellite map is replaced by a sketch of Taiwan; Wikipedia summaries and detailed tiles need a connection.
 - The files are rebuilt automatically when the site code or global data change; the footer shows the version and build time. The Share button always shares the live site's link.
 
 ## 8. Phones and older devices

@@ -227,6 +227,21 @@ body[data-page="global"] .sitefoot{display:none}
 .fcard .fx{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
 .fcard .fw{margin-left:auto;font-size:11px;color:var(--offshore-b);font-weight:700;white-space:nowrap}
 .empty{text-align:center;color:var(--ink-3);font-size:14px;padding:48px 16px}
+/* 儀表：此刻在發電／此刻沒有出力 */
+.genhead{display:flex;align-items:center;gap:6px 11px;margin:24px 0 12px;flex-wrap:wrap}
+.genhead h2{font-size:16px;font-weight:800}
+.genhead .gsub{font-size:12.5px;color:var(--ink-2);font-weight:700}
+.genhead .rule{flex:1;min-width:24px;height:1px;background:linear-gradient(90deg,var(--line-2),transparent)}
+.genhead.off{margin-top:28px}
+.genhead.off h2{font-size:15px;color:var(--ink-2)}
+.offlist{display:flex;flex-direction:column;gap:10px}
+.offrow{display:flex;gap:12px;align-items:flex-start}
+.offrow .olab{flex:0 0 168px;font-size:12px;color:var(--ink-3);padding-top:5px}
+.offrow .olab b{color:var(--ink-2);margin-left:6px}
+.ochips{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.fchip{font:inherit;font-size:12.5px;line-height:1.4;color:var(--ink-2);background:var(--surface-1);border:1px solid var(--line);border-radius:99px;padding:4px 11px;cursor:pointer;text-align:left}
+.fchip:hover{border-color:var(--line-2);color:var(--ink);background:var(--surface-2)}
+.fchip i{font-style:normal;font-size:10.5px;color:var(--ink-3);margin-left:5px}
 /* wall */
 .wallbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 22px 8px;font-size:12.5px;color:var(--ink-2)}
 .wallbar b{color:var(--ink)}
@@ -290,6 +305,14 @@ body[data-page="global"] .sitefoot{display:none}
 .maplegend .ttl{font-weight:800;color:var(--ink);margin-bottom:8px}
 .maplegend .li{display:flex;align-items:center;gap:8px;margin:5px 0}
 .maplegend .mk{width:13px;height:13px;border-radius:50%;flex:0 0 auto;border:1px solid rgba(255,255,255,.7)}
+.is-fb .maphint{display:none}
+.mapfb{position:absolute;inset:0;padding:64px 16px 100px;display:flex}
+.mapfb svg{flex:1;width:100%;height:100%}
+.mapfb .fbland{fill:var(--surface-2);stroke:var(--line-2);stroke-width:1;vector-effect:non-scaling-stroke}
+.mapfb .fbdot{stroke:#fff;stroke-opacity:.75;stroke-width:1.1;vector-effect:non-scaling-stroke;fill-opacity:.88;cursor:pointer}
+.mapfb .fbdot:hover,.mapfb .fbdot:focus-visible{stroke:var(--ink);stroke-opacity:1;stroke-width:2.5;outline:none}
+.mapfbnote{position:absolute;left:14px;top:12px;right:14px;max-width:560px;z-index:500;font-size:12px;line-height:1.55;color:var(--ink-2);background:rgba(10,20,36,.86);border:1px solid var(--line-2);border-radius:9px;padding:7px 12px}
+.mapfbnote b{color:var(--ink)}
 .maphint{position:absolute;left:56px;top:12px;z-index:500;font-size:12px;color:var(--ink-2);background:rgba(10,20,36,.86);border:1px solid var(--line-2);border-radius:9px;padding:7px 12px;max-width:60vw}
 /* drawer */
 #scrim{position:fixed;inset:0;background:rgba(2,8,16,.66);opacity:0;pointer-events:none;transition:opacity .3s;z-index:900}
@@ -503,12 +526,26 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
   .hh .minis{grid-template-columns:repeat(3,1fr);gap:6px}
   .hh .mini{padding:8px}
   .hh .mini .v{font-size:16px}
-  .fgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-  .fcard{gap:8px;padding:10px}
-  .fcard .tw{flex-basis:32px;width:32px}
-  .turb{width:32px;height:52px}
-  .fcard .fn{font-size:12.5px}
-  .fcard .fo .big{font-size:18px}
+  .fgrid{grid-template-columns:1fr;gap:6px}
+  .fcard{gap:10px;padding:9px 12px;border-radius:12px}
+  .fcard:hover{transform:none}
+  .fcard .tw{flex-basis:26px;width:26px;justify-content:center}
+  .turb{width:26px;height:40px}
+  .fcard .pct{font-size:10px}
+  .fcard.pending .pct{display:none}
+  .fcard .fb{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;align-items:start}
+  .fcard .fn{grid-area:1/1;font-size:13.5px;line-height:1.3;white-space:normal}
+  .fcard .fd{grid-area:2/1;margin:1px 0 0}
+  .fcard .fo{grid-area:1/2/3/3;flex-direction:column;align-items:flex-end;gap:2px}
+  .fcard .fo .big{font-size:20px}
+  .fcard .fo .cap{font-size:10.5px;white-space:nowrap}
+  .fcard .fm{grid-column:1/-1;margin-top:7px;height:4px}
+  .fcard .fx{grid-column:1/-1;margin-top:6px}
+  .genhead{margin:18px 0 10px}
+  .offrow{flex-direction:column;gap:5px}
+  .offrow .olab{flex:none;padding-top:0}
+  .mapfb{padding:58px 6px 70px}
+  .mapfbnote{left:8px;right:8px;top:8px;font-size:11.5px;padding:6px 10px}
   .wall{grid-template-columns:repeat(3,1fr);gap:6px;padding:0 10px 10px;inset:40px 0 0 0}
   .wtile{padding:5px 8px;border-radius:9px}
   .wtile .wn{font-size:10.5px;padding-right:14px}
