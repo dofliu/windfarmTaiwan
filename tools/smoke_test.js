@@ -6,7 +6,8 @@
 
 1. 網站各頁（首頁、台灣即時的儀表／風場牆／數據／地圖、全球地球儀、風場卡片、發電表現、風電知識）以桌機與手機寬度各走一次：
    不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
-   儀表精簡檢視最多 8 張「此刻在發電」卡片、切到全部卡片要等於全部風場；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
+   儀表精簡檢視最多 8 張「此刻在發電」卡片、切到全部卡片要等於全部風場；儀表篩選要寫進網址與瀏覽器、「恢復預設」要清掉；
+   詳情的下一座要換風場，返回鍵（地球儀資訊卡也一樣）只關掉詳情、不離開頁面；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
    手機的風電知識捲到某章時要有「目前章節」列。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
    連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖。
@@ -14,7 +15,9 @@
 
 1. Walks every page (home, the four Taiwan live tabs, the globe, a farm card, the Output dialog, Learn) at desktop and phone widths:
    no page errors, no console errors (except unreachable external sites), no horizontal scrolling; the globe must draw, the farm
-   card and Output dialog must have content, the dashboard's compact view must show at most 8 generating cards and its all-cards view every farm, the map tab must show the map
+   card and Output dialog must have content, the dashboard's compact view must show at most 8 generating cards and its all-cards view every farm,
+   dashboard filters must reach the URL and storage and Reset must clear them, the drawer's next button must change farm and Back must close
+   only the drawer (likewise the globe's info card), the map tab must show the map
    or the offline sketch, the home page must have the 7-day curve and the four footer source groups, and on phones Learn must
    show the current-chapter bar inside a chapter.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
@@ -47,16 +50,32 @@ const ROUTES = [
     const g = [...document.querySelectorAll('.sitefoot .fsrc dt a')].map(a => a.getAttribute('href'));
     return g.length === 4 && g.every(h => /^#\/learn\/sources\?s=/.test(h)) ? '' : 'footer: source groups ' + g.join(' ');
   }],
-  ['#/live', 4000, () => {
+  ['#/live', 4000, async () => {
     // 儀表精簡檢視：此刻在發電最多 8 張卡、沒出力的收成名稱；切到全部卡片要等於全部風場 · compact view vs the all-cards view
     const q = s => document.querySelectorAll('#groups ' + s).length, tg = document.querySelector('#groups .fulltoggle');
     if (!q('.fcard') && !q('.fchip')) return 'dashboard: no farms';
-    if (!tg) return '';                                   // 風場不多時直接列全部卡片 · few farms: all cards already
-    if (q('.genhead:not(.off) + .fgrid .fcard') > 8) return 'dashboard: more than 8 cards in the compact view';
-    const mb = document.querySelector('#groups .genmore .fulltoggle'), more = mb ? parseInt(mb.textContent.match(/\d+/)[0], 10) : 0;
-    const shown = q('.fcard') + q('.fchip');
-    tg.click(); const n = q('.fcard'); document.querySelector('#groups .fulltoggle').click();
-    return n === shown + more ? '' : `dashboard: all-cards view has ${n} cards, expected ${shown + more}`;
+    if (tg) {                                             // 風場不多時直接列全部卡片 · few farms: all cards already
+      if (q('.genhead:not(.off) + .fgrid .fcard') > 8) return 'dashboard: more than 8 cards in the compact view';
+      const mb = document.querySelector('#groups .genmore .fulltoggle'), more = mb ? parseInt(mb.textContent.match(/\d+/)[0], 10) : 0;
+      const shown = q('.fcard') + q('.fchip');
+      tg.click(); const n = q('.fcard'); document.querySelector('#groups .fulltoggle').click();
+      if (n !== shown + more) return `dashboard: all-cards view has ${n} cards, expected ${shown + more}`;
+    }
+    // 篩選寫進網址並記住，「恢復預設」清掉 · filters go into the URL and storage; Reset clears them
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    document.querySelector('#filt .chip[data-f=offshore]').click();
+    if (!/[?&]type=offshore/.test(location.hash) || !/"offshore"/.test(localStorage.getItem('wf_live_view') || '')) return 'dashboard: filter not in the URL or storage: ' + location.hash;
+    document.getElementById('tbreset').click();
+    if (location.hash !== '#/live') return 'dashboard: Reset left ' + location.hash;
+    // 詳情：下一座、返回鍵只關掉詳情 · drawer: next farm, and Back closes only the drawer
+    document.querySelector('#groups [data-id]').click(); await wait(500);
+    const n0 = document.getElementById('dname').textContent;
+    if (!(history.state && history.state.wwLayer === 'ldrawer')) return 'drawer: no history entry for Back';
+    document.getElementById('dnext').click();
+    if (document.getElementById('dname').textContent === n0 || !/[?&]farm=/.test(location.hash)) return 'drawer: next farm did not open';
+    history.back(); await wait(700);
+    if (document.getElementById('drawer').classList.contains('is-on') || document.body.dataset.page !== 'live' || location.hash !== '#/live') return 'drawer: Back did not close it on the page: ' + location.hash;
+    return '';
   }],
   ['#/live/wall', 3500],
   ['#/live/charts', 4000],
@@ -71,6 +90,12 @@ const ROUTES = [
     if (!w || w.hidden || w.querySelectorAll('.wcard').length !== 4) return 'welcome: task cards missing';
     w.querySelector('.wcard[data-k=explore]').click();
     if (!w.hidden || !WW.globe.api().S.playing) return 'welcome: explore card did not close the cards and start playing';
+    // 返回鍵先關掉自己打開的資訊卡 · Back closes a card the user opened
+    const A = WW.globe.api(), card = document.querySelector('#g-infoCard');
+    A.selectFarm(A.D.farms.find(f => f.iso === 'DNK' && !f.pipe)); await new Promise(r => setTimeout(r, 400));
+    if (!card.classList.contains('show') || !(history.state && history.state.wwLayer === 'g-infoCard')) return 'card: no history entry for Back';
+    history.back(); await new Promise(r => setTimeout(r, 800));
+    if (card.classList.contains('show') || document.body.dataset.page !== 'global') return 'card: Back did not close it on the page';
     if (innerWidth > 640) return '';
     // 手機：底部抽屜三段高度（把手列／半開／全開），半開時側欄看得到 · phone drawer heights
     const d = document.querySelector('#g-drawer'); if (!d) return 'phone: no drawer';

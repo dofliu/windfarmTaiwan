@@ -204,6 +204,8 @@ WW.addI18n({
   genOff:{zh:"此刻沒有出力",en:"No output right now"},genOffSub:{zh:n=>`${n} 座，點名稱看詳情`,en:n=>`${n} ${n===1?"farm":"farms"} · tap a name for details`},
   offExpand:{zh:"全部展開成卡片 ▾",en:"Show as cards ▾"},genMore:{zh:n=>`另 ${n} 座也在發電 · 看全部卡片 ▾`,en:n=>`${n} more generating · show all cards ▾`},
   allCards:{zh:n=>`全部 ${n} 座`,en:n=>`All ${n} farms`},byGroup:{zh:"依分組",en:"by group"},compactView:{zh:"收成精簡 ▴",en:"Compact view ▴"},
+  tbReset:{zh:"恢復預設",en:"Reset"},prevFarm:{zh:"上一座風場",en:"Previous farm"},nextFarm:{zh:"下一座風場",en:"Next farm"},
+  navHint:{zh:"依目前清單的順序 · 鍵盤 ← →，手機左右滑",en:"In the current list order · ← → keys, or swipe on a phone"},
   tpcOwn:{zh:"台電自有",en:"Taipower"},ppa:{zh:"購電",en:"PPA"},devTag:{zh:"開發商",en:"Developer"},
   d_output:{zh:"即時出力",en:"Live output"},d_avail:{zh:"可用率",en:"Availability"},d_cap:{zh:"裝置容量",en:"Capacity"},
   d_status:{zh:"狀態",en:"Status"},d_turbines:{zh:"風機數量",en:"Turbines"},d_unit:{zh:"單機容量",en:"Unit size"},
@@ -350,7 +352,7 @@ function rotorSVG(f){
 }
 const esc=WW.esc;
 function paint(){paintKPIs();paintHero();paintGrid();paintImpact();paintGroups();
-  if(curView==="wall")paintWall();if(curView==="charts")paintChart();updateMarkers();notify();}
+  if(curView==="wall")paintWall();if(curView==="charts")paintChart();updateMarkers();paintNav();notify();}
 
 /* ---------------- 儀表：KPI ---------------- */
 // 可用率＝有列容量的機組出力 ÷ 其容量。試運轉機組（台電未列容量）也在發電，但沒有分母，算進去會超過 100%，另列 testOut
@@ -667,9 +669,9 @@ function buildFilterSelects(){                       // 依實際資料動態建
   ds.innerHTML=`<option value="all">${t("allDev")}</option>`+devs.map(d=>`<option value="${esc(d)}">${esc(lab(d))}</option>`).join("");
   bs.innerHTML=`<option value="all">${t("allBrand")}</option>`+brands.map(b=>`<option value="${esc(b)}">${esc(lab(b))}</option>`).join("");
   ds.value=devFilt;bs.value=brandFilt;              // 還原選取(語言切換時)
-  ds.onchange=()=>{devFilt=ds.value;paintGroups();};
-  bs.onchange=()=>{brandFilt=bs.value;paintGroups();};
-  const cs=document.getElementById("capsel");cs.value=capFilt;cs.onchange=e=>{capFilt=e.target.value;paintGroups();};
+  ds.onchange=()=>{devFilt=ds.value;viewChanged();};
+  bs.onchange=()=>{brandFilt=bs.value;viewChanged();};
+  const cs=document.getElementById("capsel");cs.value=capFilt;cs.onchange=e=>{capFilt=e.target.value;viewChanged();};
 }
 function groupsFor(){                                // 依分組模式回傳 [{label,tag,cls,farms}]
   if(groupMode==="dev"){
@@ -687,13 +689,14 @@ function groupHTML(g,list){                          // 一組：標題列（出
     <div class="sum num">${out.toFixed(1)} / ${WW.int(cap)} MW · ${cap>0?(out/cap*100).toFixed(0):0}%</div></div>
     <div class="fgrid">${list.map(cardHTML).join("")}</div>`;
 }
+const dashGroups=()=>groupsFor().map(g=>({g,list:sortFarms(g.farms.filter(farmPass))})).filter(x=>x.list.length);  // 篩選後沒有風場的組不顯示
 const chipHTML=f=>`<button type="button" class="fchip${f.pending?" pending":""}" data-id="${f.id}" title="${esc(nm(f))}" aria-label="${esc(nm(f))}">${esc(sn(f))}${f.pending?`<i>${t("b_dev")}</i>`:""}</button>`;
 const GEN_TOP=8;        // 精簡檢視的「此刻在發電」先列前 8 座 · the compact view lists the first 8 generating farms
 let fullView=false;     // 全部卡片（依分組），或精簡檢視（此刻在發電前 8 座＋沒有出力的名稱） · all cards by group, or the compact view
 function paintGroups(){
   updateToolbarBadge();
   const wrap=document.getElementById("groups");if(!wrap)return;
-  const groups=groupsFor().map(g=>({g,list:sortFarms(g.farms.filter(farmPass))})).filter(x=>x.list.length);  // 篩選後沒有風場的組不顯示
+  const groups=dashGroups();
   const all=groups.flatMap(x=>x.list),on=sortFarms(all.filter(isGen));
   const btn=(open,txt)=>`<button type="button" class="btn sm fulltoggle" aria-expanded="${open}">${txt}</button>`;
   let html;
@@ -718,6 +721,36 @@ function updateToolbarBadge(){
   const n=(sortKey!=="output")+(groupMode!=="type")+(filt!=="all")+(devFilt!=="all")+(brandFilt!=="all")+(capFilt!=="all");
   const badge=document.getElementById("tbbadge");if(!badge)return;
   badge.hidden=n===0;badge.textContent=n;
+  const rs=document.getElementById("tbreset");if(rs)rs.hidden=n===0;
+}
+/* 儀表的排序、分組與篩選：自己改的記在瀏覽器（下次打開沿用），也寫進網址可分享；網址有寫就以網址為準（不覆蓋自己記的）
+   Sort, group and filters: your own changes are remembered in the browser and also written into the URL for sharing; a URL that carries them wins (without overwriting what you saved) */
+const VIEW_KEY="wf_live_view";
+const VIEW_DEF={sort:"output",group:"type",type:"all",dev:"all",brand:"all",size:"all"};
+const VIEW_OK={sort:["output","ratio","cap","name"],group:["type","dev"],type:["all","offshore","onshore","commercial","building"],size:["all","L","M","S"],
+  dev:v=>FARMS.some(f=>devShort(f)===v),brand:v=>FARMS.some(f=>farmBrand(f)===v)};
+let viewInit=false;
+const viewState=()=>({sort:sortKey,group:groupMode,type:filt,dev:devFilt,brand:brandFilt,size:capFilt});
+function viewParams(){const s=viewState(),p={};Object.keys(VIEW_DEF).forEach(k=>{if(s[k]!==VIEW_DEF[k])p[k]=s[k];});return p;}
+function setViewState(s){
+  const ok=(k,v)=>v===VIEW_DEF[k]||(Array.isArray(VIEW_OK[k])?VIEW_OK[k].includes(v):VIEW_OK[k](v));
+  const g=k=>s&&typeof s[k]==="string"&&ok(k,s[k])?s[k]:VIEW_DEF[k];
+  sortKey=g("sort");groupMode=g("group");filt=g("type");devFilt=g("dev");brandFilt=g("brand");capFilt=g("size");
+  document.querySelectorAll("#sort button").forEach(x=>x.classList.toggle("is-on",x.dataset.s===sortKey));
+  document.querySelectorAll("#grpmode button").forEach(x=>x.classList.toggle("is-on",x.dataset.g===groupMode));
+  document.querySelectorAll("#filt .chip").forEach(x=>x.classList.toggle("is-on",x.dataset.f===filt));
+  document.getElementById("devsel").value=devFilt;document.getElementById("brandsel").value=brandFilt;document.getElementById("capsel").value=capFilt;
+}
+function savedView(){try{return JSON.parse(WW.store.get(VIEW_KEY,"null"));}catch(e){return null;}}
+function viewChanged(){WW.store.set(VIEW_KEY,JSON.stringify(viewState()));paintGroups();liveURL();}
+/* 網址跟著目前的分頁、儀表條件與打開的風場走（replaceState，不多記上一頁） · keep the URL in step with the view, the dashboard settings and the open farm */
+function liveURL(){
+  if(WW.currentPage()!=="live"||WW.parseHash().page!=="live")return;      // 正在換頁：不可覆寫下一頁的網址
+  const p=curView==="dash"?viewParams():{};
+  if(curView==="charts"&&chartMode!=="bar")p.mode=chartMode;
+  if(drawerFarm)p.farm=drawerFarm.id;
+  const h=WW.hashFor("live",curView==="dash"?null:curView,p);
+  if(location.hash!==h)history.replaceState(history.state,"",h);
 }
 
 /* ---------------- 風場牆 ---------------- */
@@ -897,9 +930,36 @@ function sparkLabel(f){
 }
 function renderSparkBox(f){return `${sparkSVG(f)}<div class="note" style="margin-top:6px">${esc(sparkLabel(f))}</div>`;}
 let lastFocus=null;
-function openDrawer(id){
-  const f=FARMS.find(x=>x.id===id);if(!f)return;drawerFarm=f;
-  lastFocus=document.activeElement;
+/* 詳情的上一座／下一座：儀表依目前的排序與篩選（與畫面順序相同），其他分頁與不在清單裡的依此刻出力
+   Previous/next in the drawer: the dashboard's current sort and filters (the on-screen order); other views, or a farm not in the list, by output now */
+function navList(){
+  let list=null;
+  if(curView==="dash"){
+    const groups=dashGroups(),all=groups.flatMap(x=>x.list);
+    list=fullView||all.length<=GEN_TOP?all:sortFarms(all.filter(isGen)).concat(groups.flatMap(x=>x.list.filter(f=>!isGen(f))));
+  }
+  if(!list||!list.includes(drawerFarm))list=[...FARMS].sort((a,b)=>(RT[b.id]||0)-(RT[a.id]||0));
+  return list;
+}
+function paintNav(){
+  if(!drawerFarm)return;
+  const list=navList(),i=list.indexOf(drawerFarm);
+  document.getElementById("dpos").textContent=`${i+1} / ${list.length}`;
+  document.getElementById("dprev").disabled=i<=0;document.getElementById("dnext").disabled=i>=list.length-1;
+}
+function navStep(d){
+  if(!drawerFarm)return;
+  const list=navList(),j=list.indexOf(drawerFarm)+d;if(j<0||j>=list.length)return;
+  const had=document.activeElement;
+  openDrawer(list[j].id,"nav");
+  const pv=document.getElementById("dprev"),nx=document.getElementById("dnext");
+  if((had===pv||had===nx)&&had.disabled)(had===pv?nx:pv).focus();      // 到頭了：焦點移到另一個鍵
+}
+function openDrawer(id,how){                     // how："url"＝由網址打開（不另記上一頁）、"nav"＝上一座／下一座
+  const f=FARMS.find(x=>x.id===id);if(!f)return;
+  const dr=document.getElementById("drawer"),was=!!drawerFarm;     // drawerFarm 不是 null ＝詳情開著
+  drawerFarm=f;
+  if(!was)lastFocus=document.activeElement;
   document.getElementById("dname").textContent=nm(f);
   document.getElementById("dsub").textContent=`${EN()?"Taipower unit: ":"台電機組名稱："}${f.tp} · ${fv(f,"dev")}`;
   const r=ratioOf(f)*100,off=isOffshore(f);
@@ -937,20 +997,38 @@ function openDrawer(id){
     document.querySelectorAll("#sparkRange button").forEach(x=>x.classList.toggle("is-on",x===b));sparkWin=+b.dataset.w;rerender();};
   document.getElementById("sparkMetric").onclick=e=>{const b=e.target.closest("button");if(!b)return;
     document.querySelectorAll("#sparkMetric button").forEach(x=>x.classList.toggle("is-on",x===b));sparkMetric=b.dataset.m;rerender();};
-  const dr=document.getElementById("drawer");
   const gl=dr.querySelector(".dglobe");if(gl)gl.addEventListener("click",()=>closeDrawer(true));
-  dr.hidden=false;
-  requestAnimationFrame(()=>{document.getElementById("scrim").classList.add("is-on");dr.classList.add("is-on");document.getElementById("dclose").focus();});
+  paintNav();
+  if(how==="nav")dr.querySelector(".dbody").scrollTop=0;
+  if(!was){
+    dr.hidden=false;
+    requestAnimationFrame(()=>{if(!drawerFarm)return;document.getElementById("scrim").classList.add("is-on");dr.classList.add("is-on");document.getElementById("dclose").focus();});
+    if(how!=="url")WW.layerOpen("ldrawer",()=>closeDrawer(false,true));   // 返回鍵先關掉詳情
+  }
+  liveURL();
 }
-function closeDrawer(noRestore){
-  const dr=document.getElementById("drawer");if(!dr.classList.contains("is-on"))return;
+function closeDrawer(noRestore,fromPop){         // noRestore：接著要換頁（焦點不還原、不退上一頁）；fromPop：按了返回鍵
+  const dr=document.getElementById("drawer");if(!drawerFarm)return;
   document.getElementById("scrim").classList.remove("is-on");dr.classList.remove("is-on");drawerFarm=null;
-  setTimeout(()=>{if(!dr.classList.contains("is-on"))dr.hidden=true;},360);
-  if(!noRestore&&lastFocus&&lastFocus.focus)lastFocus.focus();
+  setTimeout(()=>{if(!dr.classList.contains("is-on")&&!drawerFarm)dr.hidden=true;},360);
+  if(!fromPop){if(noRestore)WW.layerDrop("ldrawer");else WW.layerClosed("ldrawer");}
+  if(!noRestore){liveURL();if(lastFocus&&lastFocus.focus)lastFocus.focus();}
 }
 document.getElementById("dclose").onclick=()=>closeDrawer();
 document.getElementById("scrim").onclick=()=>closeDrawer();
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
+document.getElementById("dprev").onclick=()=>navStep(-1);
+document.getElementById("dnext").onclick=()=>navStep(1);
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeDrawer();
+  else if((e.key==="ArrowLeft"||e.key==="ArrowRight")&&drawerFarm&&!e.defaultPrevented&&!e.altKey&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&
+    !(e.target.closest&&e.target.closest("input,select,textarea"))){e.preventDefault();navStep(e.key==="ArrowLeft"?-1:1);}
+});
+(()=>{                                           // 手機：在詳情上左右滑換上一座／下一座
+  const dr=document.getElementById("drawer");let x0=null,y0=0;
+  dr.addEventListener("touchstart",e=>{x0=e.touches.length===1?e.touches[0].clientX:null;if(x0!==null)y0=e.touches[0].clientY;},{passive:true});
+  dr.addEventListener("touchend",e=>{if(x0===null)return;const p=e.changedTouches[0],dx=p.clientX-x0,dy=p.clientY-y0;x0=null;
+    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)navStep(dx<0?1:-1);},{passive:true});
+})();
 
 /* ---------------- 地圖（Leaflet 延遲載入） ---------------- */
 let map=null,markers={},mapFb=false,twRings=null,twLoad=null,fbScale=2;
@@ -1104,19 +1182,27 @@ function showView(v){
 }
 WW.registerPage("live",{
   enter(r){
-    if(r.sub==="charts"&&r.params.mode&&["bar","donut","hist"].includes(r.params.mode))chartMode=r.params.mode;
+    const p=r.params;
+    if(r.sub==="charts"&&["bar","donut","hist"].includes(p.mode))chartMode=p.mode;
+    if(!VIEWS.includes(r.sub)){                     // 儀表：網址有條件用網址的，否則第一次用記住的，之後沿用目前的
+      if(Object.keys(VIEW_DEF).some(k=>p[k]!=null))setViewState(p);
+      else if(!viewInit)setViewState(savedView());
+      viewInit=true;paintGroups();
+    }
     showView(r.sub||"dash");
-    if(r.params.farm)openDrawer(r.params.farm);
+    if(p.farm&&FARMS.some(f=>f.id===p.farm))openDrawer(p.farm,"url");else closeDrawer(true);
+    liveURL();
   },
   leave(){closeDrawer(true);}
 });
-document.getElementById("chartmode").onclick=e=>{const b=e.target.closest("button");if(!b)return;chartMode=b.dataset.c;paintChart();};
+document.getElementById("chartmode").onclick=e=>{const b=e.target.closest("button");if(!b)return;chartMode=b.dataset.c;paintChart();liveURL();};
 document.getElementById("sort").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-  document.querySelectorAll("#sort button").forEach(x=>x.classList.toggle("is-on",x===b));sortKey=b.dataset.s;paintGroups();};
+  document.querySelectorAll("#sort button").forEach(x=>x.classList.toggle("is-on",x===b));sortKey=b.dataset.s;viewChanged();};
 document.getElementById("filt").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;
-  document.querySelectorAll("#filt .chip").forEach(x=>x.classList.toggle("is-on",x===b));filt=b.dataset.f;paintGroups();};
+  document.querySelectorAll("#filt .chip").forEach(x=>x.classList.toggle("is-on",x===b));filt=b.dataset.f;viewChanged();};
 document.getElementById("grpmode").onclick=e=>{const b=e.target.closest("button");if(!b)return;
-  document.querySelectorAll("#grpmode button").forEach(x=>x.classList.toggle("is-on",x===b));groupMode=b.dataset.g;paintGroups();};
+  document.querySelectorAll("#grpmode button").forEach(x=>x.classList.toggle("is-on",x===b));groupMode=b.dataset.g;viewChanged();};
+document.getElementById("tbreset").onclick=()=>{setViewState(null);viewChanged();tbToggle.focus();};
 // 儀表工具列(排序/分組/篩選)預設收合，避免蓋掉風場卡片牆；記住上次展開/收合狀態
 const tbToggle=document.getElementById("tbtoggle"),tbBody=document.getElementById("tbbody");
 function setToolbarOpen(open){

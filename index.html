@@ -132,6 +132,7 @@
           <select id="brandsel" class="fsel" data-i18n-aria="aria_brand"></select>
           <select id="capsel" class="fsel" data-i18n-aria="aria_cap">
             <option value="all" data-i18n="allCap">全部容量</option><option value="L" data-i18n="capL">大型 &gt;300MW</option><option value="M" data-i18n="capM">中型 100–300MW</option><option value="S" data-i18n="capS">小型 &lt;100MW</option></select></div>
+        <button type="button" class="btn sm tbreset" id="tbreset" data-i18n="tbReset" hidden>恢復預設</button>
       </div>
     </div>
     <div id="groups"></div>
@@ -608,7 +609,8 @@
 <div id="scrim"></div>
 <aside id="drawer" role="dialog" aria-modal="true" aria-labelledby="dname" hidden>
   <div class="dhead"><button class="dclose" id="dclose" type="button" data-i18n-aria="close">×</button>
-    <h2 id="dname"></h2><div class="dsub" id="dsub"></div></div>
+    <div class="dnav" data-i18n-title="navHint"><button type="button" class="dnb" id="dprev" data-i18n-aria="prevFarm">‹</button><span class="dpos num" id="dpos"></span><button type="button" class="dnb" id="dnext" data-i18n-aria="nextFarm">›</button></div>
+    <h2 id="dname" aria-live="polite"></h2><div class="dsub" id="dsub"></div></div>
   <div class="dbody" id="dbody"></div>
 </aside>
 <div id="toast" role="status" aria-live="polite"></div>
