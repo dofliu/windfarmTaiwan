@@ -259,6 +259,7 @@ body[data-page="global"] .sitefoot{display:none}
 .genhead .gsub{font-size:12.5px;color:var(--ink-2);font-weight:700}
 .genhead .rule{flex:1;min-width:24px;height:1px;background:linear-gradient(90deg,var(--line-2),transparent)}
 .genhead.off{margin-top:28px}
+.genmore{display:flex;justify-content:center;margin-top:12px}
 .genhead.off h2{font-size:15px;color:var(--ink-2)}
 .offlist{display:flex;flex-direction:column;gap:10px}
 .offrow{display:flex;gap:12px;align-items:flex-start}
@@ -605,6 +606,7 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
   .fcard .fm{grid-column:1/-1;margin-top:7px;height:4px}
   .fcard .fx{grid-column:1/-1;margin-top:6px}
   .genhead{margin:18px 0 10px}
+  .genmore .btn{width:100%}
   .offrow{flex-direction:column;gap:5px}
   .offrow .olab{flex:none;padding-top:0}
   .mapfb{padding:58px 6px 70px}

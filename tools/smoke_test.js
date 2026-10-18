@@ -6,7 +6,7 @@
 
 1. 網站各頁（首頁、台灣即時的儀表／風場牆／數據／地圖、全球地球儀、風場卡片、發電表現、風電知識）以桌機與手機寬度各走一次：
    不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
-   儀表沒有出力的風場收成名稱後可展開；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
+   儀表精簡檢視最多 8 張「此刻在發電」卡片、切到全部卡片要等於全部風場；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
    手機的風電知識捲到某章時要有「目前章節」列。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
    連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖。
@@ -14,7 +14,7 @@
 
 1. Walks every page (home, the four Taiwan live tabs, the globe, a farm card, the Output dialog, Learn) at desktop and phone widths:
    no page errors, no console errors (except unreachable external sites), no horizontal scrolling; the globe must draw, the farm
-   card and Output dialog must have content, the dashboard's folded no-output farms must expand, the map tab must show the map
+   card and Output dialog must have content, the dashboard's compact view must show at most 8 generating cards and its all-cards view every farm, the map tab must show the map
    or the offline sketch, the home page must have the 7-day curve and the four footer source groups, and on phones Learn must
    show the current-chapter bar inside a chapter.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
@@ -48,14 +48,15 @@ const ROUTES = [
     return g.length === 4 && g.every(h => /^#\/learn\/sources\?s=/.test(h)) ? '' : 'footer: source groups ' + g.join(' ');
   }],
   ['#/live', 4000, () => {
-    // 儀表：有出力與沒出力的風場並存時，沒出力的收成名稱，展開後全部是卡片 · farms with no output fold into name chips
-    const q = s => document.querySelectorAll('#groups ' + s).length, cards = q('.fcard'), chips = q('.fchip');
-    if (!cards && !chips) return 'dashboard: no farms';
-    if (!chips) return '';
-    if (!q('.genhead.off')) return 'dashboard: chips without the no-output heading';
-    document.getElementById('offtoggle').click();
-    const n = q('.fcard'); document.getElementById('offtoggle').click();
-    return n === cards + chips ? '' : `dashboard: expanded to ${n} cards, expected ${cards + chips}`;
+    // 儀表精簡檢視：此刻在發電最多 8 張卡、沒出力的收成名稱；切到全部卡片要等於全部風場 · compact view vs the all-cards view
+    const q = s => document.querySelectorAll('#groups ' + s).length, tg = document.querySelector('#groups .fulltoggle');
+    if (!q('.fcard') && !q('.fchip')) return 'dashboard: no farms';
+    if (!tg) return '';                                   // 風場不多時直接列全部卡片 · few farms: all cards already
+    if (q('.genhead:not(.off) + .fgrid .fcard') > 8) return 'dashboard: more than 8 cards in the compact view';
+    const mb = document.querySelector('#groups .genmore .fulltoggle'), more = mb ? parseInt(mb.textContent.match(/\d+/)[0], 10) : 0;
+    const shown = q('.fcard') + q('.fchip');
+    tg.click(); const n = q('.fcard'); document.querySelector('#groups .fulltoggle').click();
+    return n === shown + more ? '' : `dashboard: all-cards view has ${n} cards, expected ${shown + more}`;
   }],
   ['#/live/wall', 3500],
   ['#/live/charts', 4000],
