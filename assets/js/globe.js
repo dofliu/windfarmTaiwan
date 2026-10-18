@@ -1638,7 +1638,8 @@ function frame(now) {
   if (S.density > 0 || TOUR) {
     const rects = [];
     const pr = $('g-mapPane').getBoundingClientRect();
-    ['g-hud', 'g-legStack', 'g-msPanel', 'g-infoCard'].forEach(id => { const el = $(id); if (!el || el.offsetParent === null) return; const b = el.getBoundingClientRect(); if (b.width) rects.push([b.left - pr.left, b.top - pr.top, b.right - pr.left, b.bottom - pr.top]); });
+    // 標籤要避開的區塊；手機另有底部抽屜與浮動工具列 · label keep-out areas (phone: drawer and floating toolbar too)
+    ['g-hud', 'g-legStack', 'g-msPanel', 'g-infoCard', 'g-drawer', 'g-top'].forEach(id => { const el = $(id); if (!el || el.offsetParent === null) return; const b = el.getBoundingClientRect(); if (b.width) rects.push([b.left - pr.left, b.top - pr.top, b.right - pr.left, b.bottom - pr.top]); });
     const used = { c: 0, f: 0, m: 0, n: 0, p: 0, e: 0, z: 0 };
     const lim = S.density > 0 ? dens : { c: 0, f: 0, m: 1, n: 0, p: 0, e: 0, z: 0 };
     cands.sort((a, b) => b.pri - a.pri);
@@ -4566,7 +4567,7 @@ function addsChart(list) {
 /* 國家概況裡的指標列（人均容量、風電占比、容量因數、當年新增） */
 function indProfileRows(c, y) {
   const rows = [], a = addOf(c, y);
-  if (a) rows.push([T('profAdd'), (a.tot < 0 ? '−' : '+') + fmtMW(Math.abs(a.tot)) + (a.on || a.off ? ' <small>(' + fmtMW(a.on) + ' / ' + fmtMW(a.off) + ')</small>' : '')]);
+  if (a) rows.push([T('profAdd'), (a.tot < 0 ? '−' : '+') + fmtMW(Math.abs(a.tot)) + (a.on || a.off ? ' <small>' + L('陸域 ', 'onshore ') + fmtMW(a.on) + ' · ' + L('離岸 ', 'offshore ') + fmtMW(a.off) + '</small>' : '')]);
   const pc = indVal('pc', c, y); if (pc) rows.push([T('profPc') + (pc.y !== Math.floor(y) ? ' <small>' + esc(T('indDataYear')(pc.y)) + '</small>' : ''), esc(indFmt('pc', pc.v))]);
   const sh = indVal('share', c, y); if (sh) rows.push([T('profWShare') + ' <small>' + esc(T('indDataYear')(sh.y)) + '</small>', esc(indFmt('share', sh.v))]);
   const cf = indVal('cf', c, y); if (cf) rows.push([T('profCf') + ' <small>' + esc(T('indDataYear')(cf.y)) + '</small>', esc(indFmt('cf', cf.v))]);
@@ -4989,6 +4990,7 @@ function phoneSetup() {
   const hd = dr.querySelector('.gdh'), row = dr.querySelector('.gdrow');
   row.append($('g-play'), $('g-yearNow'), $('g-worldStat'));
   hd.appendChild($('g-slider'));
+  const at = $('g-attr'); hd.appendChild(at); at.onclick = () => at.classList.toggle('open');     // 出處列放進把手列（不再壓在地圖上緣的記號上），點一下看全文
   dr.append($('g-msPanel'), $('g-infoCard'));
   $('g-stage').appendChild(dr);
   $('g-bottom').hidden = true;

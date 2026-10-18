@@ -127,6 +127,9 @@ body[data-page="global"] .sitefoot{display:none}
 .hh .big{font-size:clamp(46px,6.2vw,76px);font-weight:900;line-height:1;letter-spacing:-.01em}
 .hh .big small{font-size:.34em;font-weight:800;color:var(--ink-2);margin-left:8px;letter-spacing:0}
 .hh .cap{font-size:14px;color:var(--ink-2)}
+.hh-lt{margin-top:8px;padding:7px 10px;border:1px solid rgba(240,200,106,.3);border-radius:10px;background:rgba(240,200,106,.06);font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+.hh-lt b{color:#f0c86a}
+.hh-lt[hidden]{display:none}
 .hh .minis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .hh .mini{background:rgba(7,16,29,.5);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 .hh .mini .k{font-size:11.5px;color:var(--ink-3);font-weight:700}
@@ -253,6 +256,8 @@ body[data-page="global"] .sitefoot{display:none}
 .rrow .rt i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;transition:width .8s cubic-bezier(.4,1,.5,1)}
 .rrow .rv{font-size:12.5px;font-weight:800}
 .rrow .rv small{color:var(--ink-3);font-weight:600}
+.rankbars .rmore{align-self:flex-start;margin:6px 0 2px 120px;padding:6px 12px;border-radius:8px;border:1px dashed var(--line);background:rgba(255,255,255,.03);color:var(--ink-2);font:inherit;font-size:12.5px;cursor:pointer}
+.rankbars .rmore:hover{background:rgba(255,255,255,.07);color:var(--ink)}
 .shares{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .histpanel{display:flex;flex-direction:column;gap:14px}
 .histchips{display:flex;flex-wrap:wrap;gap:6px}
@@ -512,6 +517,7 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
   .wtile .wric{width:13px;height:13px;top:4px;right:5px}
   .wallbar{padding:8px 10px 4px;gap:8px;font-size:11px}
   .rrow{grid-template-columns:78px 1fr 70px;gap:6px}
+  .rankbars .rmore{margin-left:84px}
   .impact{grid-template-columns:1fr 1fr}
   .kpis{grid-template-columns:repeat(2,1fr)}
   .stat.hero{grid-column:1/-1}

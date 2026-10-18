@@ -67,12 +67,29 @@ function paintWorld(D) {
   const box = $('hh-ms'); box.textContent = '';
   ['Vindeby', 'Horns Rev 1', 'Formosa 1'].forEach(p => { const m = D.milestones.find(x => x.name.startsWith(p)); if (m) box.appendChild(WW.msCard(m, D)); });
 }
+/* 「最新可得」年份（country_stats.json 的 latest，與地球儀同一套算法）：有今年數字的國家用它，其他沿用去年底 ·
+   the latest-available year, computed the same way as the globe: countries with this year's figure use it, the rest carry last year-end */
+let ST = null;
+function paintLatest(D) {
+  const box = $('hh-worldlt'), LT = ST && ST.latest;
+  if (!box || !LT || LT.year !== D.Y1 + 1) { if (box) box.hidden = true; return; }
+  const i = D.years.length - 1;
+  const tot = D.countries.reduce((s, c) => { const u = LT.countries[c.iso]; return s + (u ? u.on + u.off : c.on[i] + c.off[i]); }, 0);
+  const U = Object.values(LT.countries), ms = U.map(u => u.asof).sort();
+  const range = ms.length ? (ms[0] === ms[ms.length - 1] ? ms[0] : ms[0] + '–' + ms[ms.length - 1].slice(5)) : '';
+  const est = U.some(u => u.est);
+  box.innerHTML = EN()
+    ? `<b>${LT.year} (latest available): about ${WW.int(tot / 1000)} GW</b> · ${U.length} countries have figures for this year (up to ${range}${est ? ', some estimated' : ''}); the rest carry the end of ${D.Y1}. The globe opens on this year.`
+    : `<b>${LT.year}（最新可得）約 ${WW.int(tot / 1000)} GW</b> · ${U.length} 國已有今年數字（截至 ${range}${est ? '，部分為估計' : ''}），其他國家沿用 ${D.Y1} 年底；地球儀預設顯示這一年。`;
+  box.hidden = false;
+}
 let GD = null;
-function paintAll() { paintLive(); if (GD) paintWorld(GD); }
+function paintAll() { paintLive(); if (GD) { paintWorld(GD); paintLatest(GD); } }
 WW.registerPage('home', { enter() { paintAll(); } });
 WW.onLang(paintAll);
 if (WW.live) WW.live.onUpdate(() => { if (WW.currentPage() === 'home') paintLive(); });
-WW.globalData().then(D => { GD = D; paintWorld(D); }).catch(() => {
+WW.getJSON(WW.DATA.stats).then(j => { ST = j; if (GD) paintLatest(GD); }).catch(() => {});
+WW.globalData().then(D => { GD = D; paintWorld(D); paintLatest(D); }).catch(() => {
   $('hh-world').textContent = '—';
   $('hh-worldcap').textContent = EN() ? 'Global data could not be loaded.' : '全球資料載入失敗。';
 });

@@ -37,7 +37,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 `#/home`, the essentials on one page, top to bottom:
 
 1. **Right now · Taiwan wind**: Taiwan's live wind output, with overall availability, share of national generation and the number of households it could supply; buttons to the live dashboard, the farm map and the farm grid.
-2. **1980–2025 · Global wind**: world cumulative capacity with its curve, the year's additions and the offshore part; "Open the 3D globe" or "Play from 1980".
+2. **1980–2025 · Global wind**: world cumulative capacity with its curve, the year's additions and the offshore part; a line below gives the world figure for "2026 (latest available)" and how it is made up (how many countries have this year's figures, the rest carrying the end of 2025, as on the globe); "Open the 3D globe" or "Play from 1980".
 3. **Taiwan in the world**: Taiwan's world rank in offshore wind, its share of world offshore capacity and its rank in total wind; "Read Taiwan's path" opens Learn chapter 10.
 4. **Explore**: four cards for the live dashboard, the 3D globe, the 13 Learn chapters and the long-term trend.
 5. **Featured milestones**: click a card to fly to that farm on the globe; "▶ Guided tour" runs through the key moments in wind power.
@@ -63,7 +63,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 
 ### Charts
 
-- **Ranking**: every farm's output right now; click a bar for details.
+- **Ranking**: every farm's output right now; click a bar for details. Farms with no output right now fold into one line, "N more with no output right now", which opens the rest.
 - **Output mix**: by developer and by offshore / onshore.
 - **Long-term**: Taipower's official retrospective data (open dataset 37331, Taipower-owned units only, about 4–5 months behind): the strongest and weakest days, generation over the period, a wind calendar heat map and the daily trend; one unit can be shown on its own.
 - Every chart switches to a **table**, and the arrow keys step through the values.
@@ -94,7 +94,7 @@ Clicking a farm in any tab opens the details on the right:
 - **Side panel (context panel)**: a breadcrumb "World › continent › country" at the top (click an earlier step to go back), then "Profile", "Lists ▾" (Milestones, Farms, Pipeline, Ports and Events, each with its count in the current focus) and "Analyse ▾" (Output, Compare, Makers & owners; 4.5); collapse it with "–/+".
 - **Timeline at the bottom**: play button, year slider and speed (4.4).
 - **Card**: opens for a farm, port, event or milestone; on desktop it takes the side panel's place (the panel steps aside) and the panel returns when you close it with ✕ (4.6). On phones the card lives in the bottom drawer.
-- **Phones (640 px and below)**: the map fills the screen; the top edge keeps only Focus, Search, Layers and "⋯" (View, Analyse, Tour, Sources and Speed sit inside ⋯). The timeline, the readout, the side panel and the card are all in the **bottom drawer**: its handle row holds the play button, the year, the scope's figures and the slider; drag the handle (or the panel header) up for half height and again for full, drag down to close, or tap the grip or the figures to switch between closed and half. Tapping a farm opens its card at half height in the drawer; drag up for the rest, and closing the card returns to the panel.
+- **Phones (640 px and below)**: the map fills the screen; the top edge keeps only Focus, Search, Layers and "⋯" (View, Analyse, Tour, Sources and Speed sit inside ⋯). The timeline, the readout, the side panel and the card are all in the **bottom drawer**: its handle row holds the play button, the year, the scope's figures and the slider; drag the handle (or the panel header) up for half height and again for full, drag down to close, or tap the grip or the figures to switch between closed and half. Tapping a farm opens its card at half height in the drawer; drag up for the rest, and closing the card returns to the panel. The attribution line sits at the bottom of the handle row; tap it to read it in full.
 
 ### 4.2 Controls
 
