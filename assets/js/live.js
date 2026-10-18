@@ -190,7 +190,7 @@ WW.addI18n({
   unit_homes:{zh:"萬戶",en:"k homes"},unit_trees:{zh:"棵",en:"trees"},accruing:{zh:"累積中",en:"accruing"},
   wallAll:{zh:"全部",en:"All"},wallFarms:{zh:"座風場 · 即時總出力",en:"farms · live total"},
   lg_high:{zh:"可用率高",en:"High"},lg_mid:{zh:"中",en:"Mid"},lg_low:{zh:"低",en:"Low"},lg_dev:{zh:"開發中",en:"In dev."},
-  c_bar:{zh:"排行長條",en:"Ranking"},c_donut:{zh:"出力組成",en:"Output mix"},c_hist:{zh:"長期趨勢",en:"Long-term"},
+  c_bar:{zh:"排行長條",en:"Ranking"},rankMore:{zh:n=>`另 ${n} 座此刻沒有出力 ▸`,en:n=>`${n} more with no output right now ▸`},rankLess:{zh:"收起沒有出力的風場 ▴",en:"Hide farms with no output ▴"},c_donut:{zh:"出力組成",en:"Output mix"},c_hist:{zh:"長期趨勢",en:"Long-term"},
   cn_bar:{zh:"全部風場依即時出力排名 · 顏色越亮＝可用率越高 · 點一下看詳情",en:"All farms ranked by live output · brighter = higher availability · click for details"},
   cn_donut:{zh:"此刻出力由哪些開發商、哪種類型貢獻",en:"Who is generating right now, by developer and by type"},
   cn_hist:{zh:"官方回溯資料（開放資料集 37331）· 台電自有風力機組小計，不含民營購電 · 季度回溯檔，非即時",en:"Official retrospective data (dataset 37331) · Taipower-owned wind only (excl. IPP) · quarterly archive, not live"},
@@ -720,14 +720,20 @@ function paintWall(){
 
 /* ---------------- 數據 ---------------- */
 let chartMode="bar";
+let rankAll=false;      // 排行長條：此刻沒有出力（顯示 0.0 MW）的風場預設收成一列 · rows with no output start collapsed
 function chartBar(wrap){
-  const list=[...FARMS].sort((a,b)=>RT[b.id]-RT[a.id]);
-  const max=Math.max(1,...list.map(f=>RT[f.id]));
-  wrap.innerHTML=`<div class="rankbars">`+list.map(f=>`<button type="button" class="rrow" data-id="${f.id}">
+  const list=[...FARMS].sort((a,b)=>(RT[b.id]||0)-(RT[a.id]||0));
+  const max=Math.max(1,...list.map(f=>RT[f.id]||0));
+  const row=f=>`<button type="button" class="rrow" data-id="${f.id}">
     <span class="rn">${esc(sn(f))}</span>
-    <span class="rt"><i style="width:${(RT[f.id]/max*100).toFixed(1)}%;background:${hexColor(f)}"></i></span>
-    <span class="rv">${(RT[f.id]||0).toFixed(1)}<small> MW</small></span></button>`).join("")+`</div>`;
+    <span class="rt"><i style="width:${((RT[f.id]||0)/max*100).toFixed(1)}%;background:${hexColor(f)}"></i></span>
+    <span class="rv">${(RT[f.id]||0).toFixed(1)}<small> MW</small></span></button>`;
+  const on=list.filter(f=>(RT[f.id]||0)>=0.05),off=list.filter(f=>(RT[f.id]||0)<0.05);
+  const fold=on.length>0&&off.length>0;
+  wrap.innerHTML=`<div class="rankbars">`+(fold?on:list).map(row).join("")+
+    (fold?`<button type="button" class="rmore" aria-expanded="${rankAll}">${rankAll?t("rankLess"):t("rankMore")(off.length)}</button>`+(rankAll?off.map(row).join(""):""):"")+`</div>`;
   wrap.querySelectorAll("[data-id]").forEach(el=>{el.onclick=()=>openDrawer(el.dataset.id);});
+  const mb=wrap.querySelector(".rmore");if(mb)mb.onclick=()=>{rankAll=!rankAll;chartBar(wrap);};
 }
 function chartMix(wrap){
   const total=totals().total||1;

@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.0.1 — 2026-10-18
+
+- Interface review, batch 1 (copy and small fixes; review canvas: https://claude.ai/artifact/4ZoaNBVQ4FAVhv9a46JiDe ):
+  - **Home page figures corrected**: the globe card under "Explore" and the page description still said "15,000+ wind farms, nearly 8,000 pipeline projects", the figures from GEM 2025-02; they now give the current data, about 31,000 wind farm records (nearly 9,600 of them pipeline projects), and mention the national or grid live totals for 10 more countries (both languages).
+  - **Home page global card**: a line under the end-2025 figure gives the world figure for "2026 (latest available)" and how it is made up (how many countries have this year's figures, up to which month, the rest carrying the end of 2025), computed the same way as on the globe.
+  - **Taiwan live › Charts › Ranking**: farms with no output right now fold into one line, "N more with no output right now", which opens the rest; when every farm or no farm is generating, the full list shows as before.
+  - **Globe**: values in the panel profile no longer break across two lines, with the onshore/offshore split of "Added this year" on a line of its own; on phones, labels now keep clear of the bottom drawer and the floating toolbar, and the attribution line moved to the bottom of the drawer's handle row (tap for the full text) instead of covering the port markers at the top of the map.
+  - User guide sections 2, 3 and 4 updated to match.
+
 ## v3.0.0 — 2026-10-17
 
 - Last step of the globe layout redesign (step 7 of the design canvas, "shapes only on the globe"). This completes the redesign begun at v2.40.0 (seven steps: grouped toolbar, merged readout and legends, context panel, analyses in the panel, phone bottom drawer, first-visit start cards, shapes only), which counts as a full redesign under the versioning rules, so the major version moves to 3.
