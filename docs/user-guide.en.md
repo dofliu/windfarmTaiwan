@@ -31,6 +31,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 
 - **Footer**: data sources in four groups (Taiwan, live output abroad, yearly statistics & farms, maps & other), each group name linking to its part of "Sources & method"; plus "Sources & method", downloads of the single-file editions, a link to this guide, and the site version (click it for the changelog).
 - Every view has its own link: copy the address and whoever opens it sees the same view (section 6).
+- The **Back** button (browser or phone) first closes the farm details, globe card or dialog you opened; press it again to go back a page. Anything you closed with × or Esc needs no extra Back.
 
 ## 2. Home
 
@@ -59,6 +60,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 - **Grid**: the operating reserve light (ample / tight / alert / curtailment alert). When Taipower's live supply-demand report cannot be fetched from cloud servers, the daily government open-data figure is used and labelled "official daily data, not live".
 - **What this power means**: households supplied right now, wind's share of live national generation, today's generation so far, and today's avoided CO₂ as trees.
 - **Sort & filter** (open the toolbar): sort by output, availability, capacity or name; group by type or developer; show only offshore, onshore, operating or in development; filter by developer, turbine maker or size.
+  Your changes are remembered in this browser for the next visit and written into the link (e.g. `#/live?sort=cap&type=offshore`, section 6), so copying the link shares the same view; "Reset" goes back to all farms by output. Opening someone else's link does not change what you saved.
 - **Farm cards**: four groups (offshore / onshore × purchased / Taipower-owned, or grouped by developer); the figure under the turbine is availability, and the badges show commercial or trial operation, offshore or onshore, and the wind speed at the nearest station. Click a card for details.
 - **Compact view** (the default): "Generating now" at the top lists the cards of the farms with output (0.1 MW or more as shown) in the chosen order, at most 8 of them, with "N more generating · show all cards" when there are more; below it, "No output right now" lists only the names, by group, and a name opens the details. "Show all cards" or "Show as cards" lists every farm's card by group, and "Compact view" returns. Sorting and filters apply to both parts and grouping to the names and the all-cards view; when filters leave 8 farms or fewer, all cards are listed straight away.
 - **Phones**: one farm per row, with the full name, the output on the right and the capacity bar below.
@@ -85,7 +87,8 @@ Clicking a farm in any tab opens the details on the right:
 - Specs: offshore farms show capacity, status, number of turbines, unit size, model, water depth, distance to shore and yearly generation; onshore farms show location, model and unit size.
 - **Development and operation timeline**: each date checked against a source; dates that could not be verified are left out.
 - "🌍 See this farm on the 3D globe" opens the same farm on the globe.
-- Close with ×, Esc or a click beside the panel. `#/live?farm=<id>` opens a farm directly (e.g. `#/live?farm=formosa1`).
+- **Previous / next**: ‹ › at the top move through the farms in the on-screen order (`←` `→` on a keyboard, or swipe sideways on the details on a phone), with the position shown between them. The dashboard follows its current sort and filters (including the cards folded under "show all cards"); the farm grid, charts and map follow the current output.
+- Close with ×, Esc, a click beside the panel or Back (Back closes only the details and stays on the page). While the details are open the link carries `?farm=<id>` and can be shared; `#/live?farm=<id>` opens a farm directly (e.g. `#/live?farm=formosa1`).
 
 ## 4. Global (the 3D globe)
 
@@ -114,6 +117,7 @@ Clicking a farm in any tab opens the details on the right:
 | Close | ✕ | ✕ | `Esc` (closes a dialog, then ends a tour, then closes the card) |
 
 Clicking empty ground zooms in there. Click the map once before using the keys; they do nothing while the cursor is in a box or menu.
+The browser's or phone's Back button first closes a card, the sources dialog or a maximised analysis you opened (analyses always open as a window on phones); press it again to leave. For a card opened from a shared link, Back returns to the previous view.
 
 ### 4.3 Toolbar
 
@@ -267,7 +271,8 @@ Charts can be switched to tables.
 
 The link is the view: share it and the other person sees the same thing. The globe keeps its link up to date as you use it.
 
-**Taiwan live**: `#/live?farm=<id>` opens a farm's details; `#/live/charts?mode=bar|donut|hist` picks the chart (ranking, mix, long-term).
+**Taiwan live**: `#/live?farm=<id>` opens a farm's details (on any tab, e.g. `#/live/wall?farm=wo1`); `#/live/charts?mode=bar|donut|hist` picks the chart (ranking, mix, long-term).
+Dashboard sort and filters (on `#/live` only; defaults are left out): `sort=ratio|cap|name` (availability, capacity, name; output by default), `group=dev` (group by developer), `type=offshore|onshore|commercial|building`, `size=L|M|S` (large >300 MW, medium 100–300 MW, small <100 MW), `dev` and `brand` (developer and maker, using the names in the toolbar menus; picking them there and copying the link is easiest). Example: `#/live?sort=cap&type=offshore`. A link that carries them wins; otherwise the dashboard uses what this browser remembered. These parameters, `farm` and `mode` are written into the link as you go.
 
 **Learn**: `#/learn/<chapter>` jumps to a chapter; `#/learn/sources?s=tw|intl|global|all` jumps to the Taiwan live, live abroad or global wind part of the sources, or opens "All sources and data notes".
 

@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.3.0 — 2026-10-18
+
+- Easier to use (the first three items the owner picked on 18 Oct 2026):
+  - **Back closes what is open first**: the farm details on Taiwan live, and the globe's info card, sources dialog and maximised analyses, close with the browser's or phone's Back button without leaving the page; closing them with × or Esc removes the extra history entry, so no second Back is needed. Things opened from a link (a shared link, or coming back with Back) add no entry, and the globe also closes a card or analysis when you go back to a link without one.
+  - **The dashboard remembers its sort and filters and puts them in the link**: your own changes are saved in the browser for the next visit, and the link follows them (`#/live?sort=cap&type=offshore`; parameters `sort`, `group`, `type`, `dev`, `brand`, `size`), ready to share. A link that carries them wins without overwriting what you saved. "Reset" appears in the toolbar once anything is changed. The link also gains `farm=` while details are open, and `mode=` for the chart on the Charts tab.
+  - **Previous / next farm in the details**: ‹ › at the top (← → keys, or a sideways swipe on phones), with the position shown; the dashboard follows its current sort and filters (folded cards included), the other tabs the current output.
+- User guide sections 1, 3, 4.2 and 6 and the README summary updated; the smoke test now checks that filters reach the link and the browser, Reset, the next-farm button, and that Back closes only the details and the globe card.
+
 ## v3.2.1 — 2026-10-18
 
 - **A compact view on the dashboard** (the compromise the owner chose after the before/after comparison; canvas board 7): "Generating now" lists at most 8 cards first (in the current order), with "N more generating · show all cards" when there are more; with all 30 farms generating in strong wind, the dashboard on a phone shrinks from about 4,700 px to about 2,300 px. "Show all cards" and "Show as cards" now open the same all-cards view (by group), and "Compact view" returns. Sorting, grouping and filters stay on the dashboard; the farm grid and the home page's Explore section are unchanged.

@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.2.1';
+WW.VERSION = '3.3.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -235,9 +235,36 @@ function setTitle() {
   const t = TITLES[cur || 'home'];
   if (t) document.title = WW.lang === 'en' ? t[1] : t[0];
 }
+/* 返回鍵先關掉打開的卡片、視窗與詳情：打開時記一筆上一頁（同一個網址），按返回只關掉它；用 ✕／Esc 關掉時把那一筆退掉。
+   由網址打開的（深連結、上一頁回來）不記，換頁時清掉。 · Back closes the open card, dialog or drawer first: opening one adds a history entry
+   with the same URL, Back closes it, and closing it with ✕/Esc drops the entry again. Opened from a URL: no entry; cleared on page change. */
+const layers = [];
+let popIgnore = 0, skipHash = null, skipUntil = 0;
+WW.layerOpen = (id, close) => {
+  const l = layers.find(x => x.id === id);
+  if (l) { l.close = close; return; }
+  layers.push({ id, close });
+  history.pushState({ wwLayer: id }, '', location.href);
+};
+WW.layerClosed = id => {
+  const i = layers.findIndex(x => x.id === id); if (i < 0) return;
+  layers.splice(i, 1);
+  if (history.state && history.state.wwLayer === id) { popIgnore++; history.back(); }
+};
+WW.layerDrop = id => { const i = layers.findIndex(x => x.id === id); if (i >= 0) layers.splice(i, 1); };   // 接著要換頁：不退那一筆
+window.addEventListener('popstate', () => {
+  const skip = () => { skipHash = location.hash; skipUntil = Date.now() + 600; };   // 接著來的 hashchange 不重新套用網址
+  if (popIgnore) { popIgnore--; skip(); return; }
+  const top = layers.pop(); if (!top) return;
+  skip();
+  try { top.close(); } catch (e) { console.error(e); }
+});
+
 function onRoute() {
   const r = WW.parseHash();
+  if (r.page === cur && skipHash === location.hash && Date.now() < skipUntil) { skipHash = null; WW.route = r; return; }
   const changed = r.page !== cur;
+  if (changed) layers.length = 0;
   if (changed && cur && PAGES[cur] && PAGES[cur].leave) { try { PAGES[cur].leave(); } catch (e) { console.error(e); } }
   WW.route = r;
   document.querySelectorAll('.page').forEach(p => { p.hidden = p.dataset.page !== r.page; });

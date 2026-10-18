@@ -89,9 +89,9 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
 - **Home** `#/home` — Taiwan's live total next to global cumulative capacity 1980–2025; where Taiwan ranks; featured milestones
   (click one to fly there on the globe)
 - **Taiwan live** `#/live` — national wind output, availability, grid operating reserve rate and wind's contribution, today's estimated
-  generation, sortable and filterable unit gauges; Farm grid `#/live/wall`, Charts `#/live/charts` (ranking / output mix, the long-term
+  generation, sortable and filterable unit gauges (settings saved in the browser and the link); Farm grid `#/live/wall`, Charts `#/live/charts` (ranking / output mix, the long-term
   trend from official retrospective data), Map `#/live/map` (Leaflet satellite map, or a sketch of Taiwan when offline); a detail panel per farm (live trend, nearby
-  weather-station wind speed, specs, verified development and operation timeline, `#/live?farm=<id>`); "Share" makes a live card with the data time
+  weather-station wind speed, specs, verified development and operation timeline, `#/live?farm=<id>`, with previous / next); "Share" makes a live card with the data time
 - **Global** `#/global` — a 3D globe (three.js, loaded only when you open this page and paused when you leave it):
   - Year-by-year animation of each country's onshore/offshore **year-end cumulative capacity** (1980–2025, plus a "2026 (latest available)"
     point from 8 countries' official figures); the ranking bars are always in MW; map / map + bars / bar race, 3D globe or 2.5D map

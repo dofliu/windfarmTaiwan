@@ -4128,7 +4128,7 @@ function anaOpen(kind) {
   if (ANA.big) { $('g-modal').querySelector('.box').classList.add('wide'); $('g-modalBody').innerHTML = bar; $('g-modal').classList.add('show'); $('g-modalClose').focus(); }
   else { $('g-modal').classList.remove('show'); $('g-anaBody').innerHTML = bar; if (cardItem && window.innerWidth > 900) closeCard(); expandPanel(); setPanelTab('ana'); }
   const el = anaEl();
-  el.querySelector('.anasz').onclick = () => { ANA.big = !ANA.big; anaOpen(kind); anaRender(); syncURL(); };
+  el.querySelector('.anasz').onclick = () => { ANA.big = !ANA.big; ANA.user = true; anaOpen(kind); anaRender(); syncURL(); };     // user：放大是自己點的（網址已有 out= 也記上一頁）
   const x = el.querySelector('.anax'); if (x) x.onclick = anaClose;
 }
 function anaRender() { if (ANA.kind === 'out') renderOutput(); else if (ANA.kind === 'cmp') renderCompare(); else if (ANA.kind === 'mk') renderMk(); }
@@ -4776,7 +4776,7 @@ function syncURL() {
   const at = location.hash;
   urlT = setTimeout(() => {
     if (!active || WW.currentPage() !== 'global' || location.hash !== at) return;     // 250 ms 內已換頁或開了別的深連結：不可覆寫
-    const h = WW.hashFor('global', null, stateParams()); if (location.hash !== h) history.replaceState(null, '', h);
+    const h = WW.hashFor('global', null, stateParams()); if (location.hash !== h) history.replaceState(history.state, '', h);     // 保留返回鍵的記號（WW.layerOpen）
   }, 250);
 }
 let pendingParams = null;
@@ -4815,6 +4815,10 @@ function applyParams(p, fromFarms) {
       fsRev++; fsTokens = fold(SQ.q).split(/\s+/).filter(Boolean); SQ.limit = 200; farmLayerDirty = true; hudCache = '';
       if (fsActive() && !p.f && !p.ms && !p.port && !p.ev) { expandPanel(); setPanelTab('farms'); } else renderFarmList();   // 分享的搜尋連結：直接看到結果
     }
+  }
+  if (!fromFarms && !p.tour) {                // 網址沒有卡片或分析（例如按上一頁回到開卡片前）：關掉 · a URL without a card or analysis closes it (e.g. Back)
+    if (cardItem && !p.f && !p.ms && !p.port && !p.ev) closeCard();
+    if (ANA.kind && !p.out && !p.cmp && !p.mk) anaClose();
   }
   if (p.port) { if (!portsReady) pendingPort = p.port; else { const pt = PORTS.find(x => x.id === p.port); if (pt) selectPort(pt); } }
   if (p.ev) { if (!eventsReady) pendingEvent = p.ev; else { const e = EVENTS.find(x => x.id === p.ev); if (e) selectEvent(e); } }
@@ -4921,6 +4925,18 @@ function wireUI() {
   $('g-btnRotate').onclick = e => { S.rotate = !S.rotate; e.currentTarget.classList.toggle('active', S.rotate); e.currentTarget.setAttribute('aria-pressed', S.rotate ? 'true' : 'false'); };
   $('g-btnSources').onclick = showSources;
   $('g-modalClose').onclick = () => { $('g-modal').classList.remove('show'); if (ANA.big) ANA.kind = null; syncURL(); };
+  /* 返回鍵先關掉資訊卡與視窗：自己點開的才記一筆上一頁（導覽中、或由網址打開的不記）；用 ✕／Esc 關掉時退掉那一筆
+     Back closes the info card or dialog first: only ones you open yourself add a history entry (not during a tour or from a URL); ✕/Esc drops it again */
+  [['g-infoCard', /[?&](f|ms|port|ev)=/, closeCard], ['g-modal', /[?&](out|cmp|mk)=/, () => $('g-modalClose').click()]].forEach(([id, re, close]) => {
+    const el = $(id); let on = el.classList.contains('show');
+    new MutationObserver(() => {
+      const now = el.classList.contains('show'); if (now === on) return; on = now;
+      const user = id === 'g-modal' && ANA.user; if (id === 'g-modal') ANA.user = false;
+      if (now) { if (active && !TOUR && (user || !re.test(location.hash))) WW.layerOpen(id, close); }
+      else WW.layerClosed(id);
+    }).observe(el, { attributes: true, attributeFilter: ['class'] });
+  });
+  window.addEventListener('popstate', () => { if (active) syncURL(); });     // 回到記號前的那一筆：網址換成目前的狀態
   $('g-modal').onclick = e => { if (e.target.id === 'g-modal') { e.target.classList.remove('show'); if (ANA.big) ANA.kind = null; syncURL(); } };
   window.addEventListener('keydown', e => {
     if (!active || e.altKey || e.ctrlKey || e.metaKey) return;
