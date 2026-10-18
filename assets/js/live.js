@@ -356,7 +356,7 @@ function paint(){paintKPIs();paintHero();paintGrid();paintImpact();paintGroups()
 function totals(){
   const total=FARMS.reduce((s,f)=>s+(RT[f.id]||0),0),cap=FARMS.reduce((s,f)=>s+(f.cap||0),0);
   const capOut=FARMS.reduce((s,f)=>s+(f.cap>0?(RT[f.id]||0):0),0);
-  return{total,cap,capOut,testOut:total-capOut,ratio:cap>0?capOut/cap:0,op:FARMS.filter(f=>!f.pending).length,gen:FARMS.filter(f=>(RT[f.id]||0)>0.1).length,
+  return{total,cap,capOut,testOut:total-capOut,ratio:cap>0?capOut/cap:0,op:FARMS.filter(f=>!f.pending).length,gen:FARMS.filter(isGen).length,
     pending:FARMS.filter(f=>f.pending).length};
 }
 function paintKPIs(){
@@ -368,20 +368,20 @@ function paintKPIs(){
     stat("",t("totalCap"),WW.int(T.cap),"MW",EN()?`+ ${T.pending} units testing (capacity not yet listed)`:`另有 ${T.pending} 個試運轉機組未列容量`)+
     stat("",t("overallAvail"),(T.ratio*100).toFixed(1),"%",T.testOut>0.5?(EN()?`excl. ${WW.int(T.testOut)} MW from units in testing`:`不含試運轉機組的 ${WW.int(T.testOut)} MW`):"",T.ratio*100)+
     stat("",t("co2hr"),WW.int(co2),t("tonHr"),EN()?"output × 0.495 kg/kWh":"出力 × 0.495 kg/度")+
-    stat("",t("unitsFarms"),T.gen,`／${FARMS.length}`,EN()?"generating > 0.1 MW now":"此刻出力 > 0.1 MW");
+    stat("",t("unitsFarms"),T.gen,`／${FARMS.length}`,EN()?"output of 0.1 MW or more now":"此刻出力 0.1 MW 以上");
 }
-// 依整體可用率產生口語化問候(生動/幽默)
+// 依整體可用率產生口語化問候(生動/幽默)；lv＝風力等級 1–4（線條圖示的亮格數）
 function heroMood(r){
-  if(r>=0.45)return{e:"💨",t:EN()?"Big wind! Turbines across Taiwan are going full throttle.":"狂風時刻！全台風機火力全開，正在猛灌綠電。"};
-  if(r>=0.28)return{e:"🌬️",t:EN()?"Good breeze — turbines are humming along steadily.":"風勢不錯，風機們穩穩出力中。"};
-  if(r>=0.13)return{e:"🍃",t:EN()?"Light winds — turbines turning at an easy pace.":"微風徐徐，風機悠閒地轉著。"};
-  return{e:"😴",t:EN()?"Calm out there — turbines resting, waiting for the winter monsoon.":"風有點懶，風機正在放假曬太陽，等東北季風回來上工。"};
+  if(r>=0.45)return{lv:4,t:EN()?"Big wind! Turbines across Taiwan are going full throttle.":"狂風時刻！全台風機火力全開，正在猛灌綠電。"};
+  if(r>=0.28)return{lv:3,t:EN()?"Good breeze — turbines are humming along steadily.":"風勢不錯，風機們穩穩出力中。"};
+  if(r>=0.13)return{lv:2,t:EN()?"Light winds — turbines turning at an easy pace.":"微風徐徐，風機悠閒地轉著。"};
+  return{lv:1,t:EN()?"Calm out there — turbines resting, waiting for the winter monsoon.":"風有點懶，風機正在放假曬太陽，等東北季風回來上工。"};
 }
 function moodParts(){
   const T=totals(),m=heroMood(T.ratio);
   const ops=FARMS.filter(f=>f.cap&&!f.pending);
-  const top=ops.filter(f=>RT[f.id]>0.1).sort((a,b)=>ratioOf(b)-ratioOf(a))[0];
-  const resting=ops.filter(f=>RT[f.id]<=0.1).length;
+  const top=ops.filter(isGen).sort((a,b)=>ratioOf(b)-ratioOf(a))[0];
+  const resting=ops.filter(f=>!isGen(f)).length;
   const mwh=todayEnergyMWh();
   const story=mwh!=null
     ?(EN()?`So far today, Taiwan's wind has generated ~<b>${WW.int(mwh)} MWh</b> ⚡ ≈ a full day's power for <b>${WW.int(mwh*100)}</b> homes 🏠 (still accruing)`
@@ -395,7 +395,7 @@ function moodParts(){
 function paintHero(){
   const el=document.getElementById("lv-mood");if(!el)return;
   const p=moodParts();
-  el.innerHTML=`<div class="mg"><span class="me" aria-hidden="true">${p.m.e}</span><span>${p.m.t}</span></div>
+  el.innerHTML=`<div class="mg"><span class="me">${WW.windLevel(p.m.lv)}</span><span>${p.m.t}</span></div>
     <div class="ms">${p.story}</div><div class="mc"><span>${p.topChip}</span><span>${p.restChip}</span></div>`;
 }
 // 備轉容量率燈號：優先依官方 status_text 的關鍵字判斷(文字與顏色一致)；
@@ -459,10 +459,10 @@ function paintImpact(){
     <div class="iv">${iv}${unit?`<small>${unit}</small>`:""}</div><div class="ik">${k}</div></div></div>`;
   const homesV=EN()?WW.int(v.homes*10):v.homes.toFixed(v.homes<10?1:0);
   const todayV=v.mwh!=null?(EN()?WW.int(v.mwh):(v.mwh/10).toFixed(v.mwh/10<10?2:1)):t("accruing"),todayU=v.mwh!=null?(EN()?"MWh":"萬度"):"";
-  el.innerHTML=card("🏠",homesV,t("unit_homes"),t("imp_homes"))+
-    card("⚡",v.share!=null?v.share.toFixed(1):"—",v.share!=null?"%":"",t("imp_share"))+
-    card("💡",todayV,todayU,t("imp_today"))+
-    card("🌳",v.trees!=null?WW.int(v.trees):t("accruing"),v.trees!=null?t("unit_trees"):"",t("imp_trees"));
+  el.innerHTML=card(WW.icon("home"),homesV,t("unit_homes"),t("imp_homes"))+
+    card(WW.icon("bolt"),v.share!=null?v.share.toFixed(1):"—",v.share!=null?"%":"",t("imp_share"))+
+    card(WW.icon("bulb"),todayV,todayU,t("imp_today"))+
+    card(WW.icon("leaf"),v.trees!=null?WW.int(v.trees):t("accruing"),v.trees!=null?t("unit_trees"):"",t("imp_trees"));
 }
 /* 台灣在世界：從全球資料集算離岸排名（與 3D 地球儀同一份資料） */
 function paintTwRank(){
@@ -1134,7 +1134,7 @@ WW.onLang(()=>{
 /* ---------------- 對外介面（首頁、地球儀用） ---------------- */
 WW.live={
   FARMS,RT,GLOBE_FARM,
-  isLive:()=>LIVE,srcTime:()=>srcTime,fmtSrc,
+  isLive:()=>LIVE,srcTime:()=>srcTime,fmtSrc,hist:()=>HIST,
   totals,impactVals,moodParts,tier,hexColor,
   onUpdate(fn){subs.push(fn);},
   openDrawer,

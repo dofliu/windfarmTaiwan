@@ -6,15 +6,17 @@
 
 1. 網站各頁（首頁、台灣即時的儀表／風場牆／數據／地圖、全球地球儀、風場卡片、發電表現、風電知識）以桌機與手機寬度各走一次：
    不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
-   儀表沒有出力的風場收成名稱後可展開；地圖要有衛星地圖或離線簡圖。
+   儀表沒有出力的風場收成名稱後可展開；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
+   手機的風電知識捲到某章時要有「目前章節」列。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
    連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖。
 有錯誤時結束碼為 1。GitHub Actions 的 pr-check 在每個 PR 跑這支（.github/workflows/pr-check.yml）。
 
 1. Walks every page (home, the four Taiwan live tabs, the globe, a farm card, the Output dialog, Learn) at desktop and phone widths:
    no page errors, no console errors (except unreachable external sites), no horizontal scrolling; the globe must draw, the farm
-   card and Output dialog must have content, the dashboard's folded no-output farms must expand, and the map tab must show the map
-   or the offline sketch.
+   card and Output dialog must have content, the dashboard's folded no-output farms must expand, the map tab must show the map
+   or the offline sketch, the home page must have the 7-day curve and the four footer source groups, and on phones Learn must
+   show the current-chapter bar inside a chapter.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
    and offline the full copy must label its live data as an offline snapshot and draw the sketch map.
 Exits with 1 on any error. The pr-check workflow runs it on every pull request.
@@ -39,7 +41,12 @@ const NET = /ERR_CERT|ERR_NAME|ERR_CONNECTION|ERR_INTERNET|ERR_TIMED_OUT|net::ER
 
 // [路由, 等待毫秒, 檢查（在頁面裡執行，回傳錯誤字串或空字串）]
 const ROUTES = [
-  ['#/', 3500],
+  ['#/', 3500, () => {
+    // 首頁：過去 7 天的出力曲線、頁尾四組來源連結 · home: 7-day curve and the four footer source groups
+    if (!document.querySelector('#hh-7d svg .ln')) return 'home: no 7-day output curve';
+    const g = [...document.querySelectorAll('.sitefoot .fsrc dt a')].map(a => a.getAttribute('href'));
+    return g.length === 4 && g.every(h => /^#\/learn\/sources\?s=/.test(h)) ? '' : 'footer: source groups ' + g.join(' ');
+  }],
   ['#/live', 4000, () => {
     // 儀表：有出力與沒出力的風場並存時，沒出力的收成名稱，展開後全部是卡片 · farms with no output fold into name chips
     const q = s => document.querySelectorAll('#groups ' + s).length, cards = q('.fcard'), chips = q('.fchip');
@@ -111,6 +118,12 @@ const ROUTES = [
     return l && !l.hidden && l.querySelector('.ilr') ? '' : 'indicator: legend missing';
   }],
   ['#/learn', 3500],
+  ['#/learn/asia', 3500, () => {
+    // 窄螢幕：目錄捲出畫面後出現「目前章節」列 · narrow screens: the current-chapter bar once the contents scroll away
+    if (innerWidth > 1100) return '';
+    const b = document.getElementById('lnbar');
+    return b && b.classList.contains('is-on') && /05/.test(document.getElementById('lnc').textContent) ? '' : 'learn: current-chapter bar missing';
+  }],
   ['#/learn/sources', 3500],
 ];
 
