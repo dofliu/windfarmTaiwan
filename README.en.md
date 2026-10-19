@@ -131,7 +131,8 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   from the same global dataset and every chapter links to the globe to replay that part of the story
 - **Travel with the Wind** `#/kids` — for upper primary and junior high students, alone or in class: a guide character (Breezy), a 3D globe with a time machine, and 8 stops
   (from Brush's 1888 turbine to a 26 MW giant in 2025), each with three key facts and a quick question whose right answer earns a stamp in the wind passport; "Taiwan's wind right now"
-  turns the live data into homes. Progress stays in the browser; see [user guide section 6](./docs/user-guide.en.md#6-travel-with-the-wind-for-young-explorers)
+  turns the live data into homes; "Read to me" reads the facts and questions aloud with the browser's speech, the passport and the certificate earned with all 8 stamps can be printed,
+  and "Play as a class" `#/kids/class` is for a teacher's projector (large type, three steps, countdown, full screen, no progress kept). Progress stays in the browser; see [user guide section 6](./docs/user-guide.en.md#6-travel-with-the-wind-for-young-explorers)
 
 ## Architecture
 

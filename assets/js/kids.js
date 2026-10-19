@@ -1,5 +1,6 @@
 /* 風電風情 · kids.js — 兒童版「跟著風去旅行」（給小學高年級到國中生，帶路角色「小風」）
    #/kids 開場 · #/kids/globe 地球與冒險路線 · #/kids/stop?n=1–8 一站 · #/kids/taiwan 台灣此刻的風 · #/kids/passport 風車護照
+   #/kids/cert 完成證書（可列印） · #/kids/class?n=1–8 全班一起玩（投影用，不蓋章、不記錄進度）；「唸給我聽」用瀏覽器內建的語音合成。
    地球用 three.js 畫卡通國界（world_borders.json），各國依「時光機」那一年的累積容量上色（wind_global.json）。
    八站對應 wind_global.json 的里程碑（年份、位置、容量、葉輪直徑都從那裡讀），照片取自 photos.json（已人工核對的 Commons 照片），
    Hywind 的水深、輪轂與葉輪取自 foundations.json；台灣此刻的數字來自 WW.live（台電即時資料）。進度只記在這台裝置的瀏覽器裡。
@@ -18,6 +19,7 @@ if (!Array.isArray(P.s)) P.s = [];
 P.s = P.s.filter(n => n >= 1 && n <= 8);
 const save = () => WW.store.set(KEY, JSON.stringify(P));
 const stamped = n => P.s.includes(n);
+const today = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
 const nextStop = () => { for (let n = 1; n <= 8; n++) if (!stamped(n)) return n; return 0; };
 
 /* ---------------- 小風（SVG，粗線條） · the guide, Breezy ---------------- */
@@ -67,9 +69,76 @@ const I = {
   stamp: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5" stroke-dasharray="2 2"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/>',
   clock: '<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>',
   wave: '<path d="M3 17c2 0 2-1.5 4.5-1.5S10 17 12 17s2-1.5 4.5-1.5S19 17 21 17"/><path d="M12 13V4"/><path d="M12 4l-3 4M12 4l3 4"/>',
-  lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>'
+  lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  speak: '<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/>',
+  stop: '<rect x="7" y="7" width="10" height="10" rx="1.5" fill="currentColor"/>',
+  print: '<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',
+  board: '<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l4-4 4 4"/>',
+  full: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
+  unfull: '<path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/>',
+  award: '<circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/>'
 };
 const ico = (n, sz) => '<svg class="kico" viewBox="0 0 24 24" width="' + (sz || 22) + '" height="' + (sz || 22) + '" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + I[n] + '</svg>';
+
+/* ---------------- 唸給我聽（瀏覽器內建語音合成，不連外） · read aloud with the browser's own speech ----------------
+   每個畫面把要唸的文字標成 data-say（有值就唸值，沒有就唸文字內容），依畫面順序一段一段唸。 */
+const SS = window.speechSynthesis, CAN_SAY = !!(SS && window.SpeechSynthesisUtterance);
+let saying = false, sayGen = 0;
+function sayVoice() {
+  const vs = SS.getVoices() || [];
+  if (!vs.length) return undefined;                                   // 清單還沒載入：交給瀏覽器依語言挑
+  return WW.lang === 'en' ? vs.find(v => /^en[-_](GB|US)/i.test(v.lang)) || vs.find(v => /^en/i.test(v.lang)) || null
+    : vs.find(v => /^(zh[-_]TW|cmn[-_]Hant)/i.test(v.lang)) || vs.find(v => /^(zh|cmn)/i.test(v.lang)) || null;
+}
+const sayFix = t => WW.lang === 'en'                                  // 單位唸成字 · units read as words
+  ? t.replace(/(\d)\s*GW\b/g, '$1 gigawatts').replace(/(\d)\s*MW\b/g, '$1 megawatts').replace(/(\d)\s*kWh\b/g, '$1 kilowatt hours').replace(/(\d)\s*kW\b/g, '$1 kilowatts')
+    .replace(/(\d)\s*m\b/g, '$1 metres').replace(/(\d)\s*[–-]\s*(\d)/g, '$1 to $2').replace(/\s*[=＝]\s*/g, ' equals ').replace(/·/g, ',')
+  : t.replace(/(\d)\s*GW/g, '$1 十億瓦').replace(/(\d)\s*MW/g, '$1 百萬瓦').replace(/(\d)\s*kW/g, '$1 千瓦').replace(/(\d)\s*m\b/g, '$1 公尺')
+    .replace(/(\d)\s*[–-]\s*(\d)/g, '$1 到 $2').replace(/\s*[=＝]\s*/g, '等於').replace(/·/g, '，');
+const sayParts = () => [...page.querySelectorAll('.kview [data-say]')].map(e => (e.dataset.say || e.textContent).replace(/\s+/g, ' ').trim()).filter(Boolean);
+function speak(on) {
+  sayGen++; saying = false;
+  if (CAN_SAY) SS.cancel();
+  const parts = on && CAN_SAY ? sayParts() : [];
+  if (parts.length) {
+    const g = sayGen, v = sayVoice(), done = () => { if (g === sayGen) { saying = false; paintSay(); } };
+    const fail = e => {                                                // 裝置沒有語音引擎或語音包 · no speech engine or voice
+      if (g === sayGen && e && e.error !== 'interrupted' && e.error !== 'canceled') { sayGen++; SS.cancel(); saying = false; paintSay(); WW.toast(L('這台裝置沒辦法唸出聲音（沒有語音合成或中文語音）', 'This device can’t read aloud (no speech engine or voice)')); }
+      else done();
+    };
+    parts.forEach((t, i) => {
+      const u = new SpeechSynthesisUtterance(sayFix(t));
+      u.lang = WW.lang === 'en' ? 'en-GB' : 'zh-TW'; if (v) u.voice = v; u.rate = 0.95;
+      u.onerror = fail; if (i === parts.length - 1) u.onend = done;
+      SS.speak(u);
+    });
+    saying = true;
+  }
+  paintSay();
+}
+const spkBtn = cls => CAN_SAY ? '<button type="button" class="kspk ' + (cls || '') + '" aria-pressed="false"></button>' : '';
+function paintSay() {
+  const none = CAN_SAY && SS.getVoices().length > 0 && sayVoice() === null;     // 裝置上沒有這個語言的語音
+  page.querySelectorAll('.kspk').forEach(b => {
+    b.disabled = none;
+    b.setAttribute('aria-pressed', saying ? 'true' : 'false');
+    b.title = none ? L('這台裝置沒有中文語音', 'No English voice on this device') : '';
+    b.innerHTML = ico(saying ? 'stop' : 'speak') + '<span>' + (saying ? L('停止', 'Stop') : L('唸給我聽', 'Read to me')) + '</span>';
+  });
+}
+if (CAN_SAY) SS.addEventListener && SS.addEventListener('voiceschanged', paintSay);
+page.addEventListener('click', e => { const b = e.target.closest('.kspk'); if (b && !b.disabled) speak(!saying); });
+
+/* 全螢幕（全班一起玩） · full screen for the class mode */
+const FS_OK = !!(document.fullscreenEnabled && page.requestFullscreen);
+const fsBtn = cls => FS_OK ? '<button type="button" class="kfs ' + (cls || '') + '"></button>' : '';
+function paintFS() {
+  const on = document.fullscreenElement === page;
+  page.querySelectorAll('.kfs').forEach(b => { b.innerHTML = ico(on ? 'unfull' : 'full') + '<span>' + (on ? L('離開全螢幕', 'Exit full screen') : L('全螢幕', 'Full screen')) + '</span>'; });
+}
+const toggleFS = () => { if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); else page.requestFullscreen().catch(() => {}); };
+if (FS_OK) document.addEventListener('fullscreenchange', paintFS);
+page.addEventListener('click', e => { if (e.target.closest('.kfs')) toggleFS(); });
 
 /* ---------------- 八站（內容的數字都取自里程碑與基礎資料） · the eight stops ---------------- */
 const fmtKW = mw => mw < 1 ? WW.int(mw * 1000) + ' kW' : WW.num(mw, mw % 1 ? 1 : 0) + ' MW';
@@ -212,13 +281,20 @@ const bar = $('kbar'), host = $('kview');
 function paintBar() {
   bar.hidden = view === 'home';
   if (bar.hidden) return;
+  const homeA = '<a class="kb-home" href="#/kids">' + sprite('wave', 34) + '<span>' + L('跟著風去旅行', 'Travel with the Wind') + '</span></a>';
+  if (view === 'class') {                                            // 全班一起玩：沒有護照與站點進度 · no personal progress in class mode
+    bar.innerHTML = '<div class="kbin">' + homeA + '<span class="kcl-t">' + ico('board') + L('全班一起玩', 'Play as a class') + (CL.n >= 1 && CL.n <= 8 ? L(' · 第 ' + CL.n + ' 站 / 8', ' · stop ' + CL.n + ' / 8') : '') + '</span>' +
+      '<div class="kb-r">' + spkBtn('kpill') + fsBtn('kpill') + '<a class="kpill" href="#/kids">' + L('結束', 'End') + '</a></div></div>';
+    paintSay(); paintFS();
+    return;
+  }
   const dots = STOPS.map(s => '<a class="kdot' + (stamped(s.n) ? ' done' : '') + (view === 'stop' && s.n === stopN ? ' cur' : '') + '" href="#/kids/stop?n=' + s.n + '" aria-label="' +
     esc(L('第 ' + s.n + ' 站：' + T(s.place), 'Stop ' + s.n + ': ' + T(s.place)) + (stamped(s.n) ? L('（已蓋章）', ' (stamped)') : '')) + '"></a>').join('');
-  bar.innerHTML = '<div class="kbin">' +
-    '<a class="kb-home" href="#/kids">' + sprite('wave', 34) + '<span>' + L('跟著風去旅行', 'Travel with the Wind') + '</span></a>' +
+  bar.innerHTML = '<div class="kbin">' + homeA +
     '<nav class="kdots" aria-label="' + esc(L('八站', 'Eight stops')) + '"><span class="kdl">' + (view === 'stop' ? L('第 ' + stopN + ' 站 / 8', 'Stop ' + stopN + ' / 8') : L('冒險路線', 'Route')) + '</span>' + dots + '</nav>' +
-    '<div class="kb-r"><a class="kpill' + (view === 'globe' ? ' on' : '') + '" href="#/kids/globe">' + ico('globe') + '<span>' + L('地球', 'Globe') + '</span></a>' +
-    '<a class="kpill' + (view === 'passport' ? ' on' : '') + '" href="#/kids/passport">' + ico('passport') + '<span>' + L('護照 ', 'Passport ') + P.s.length + '/8</span></a></div></div>';
+    '<div class="kb-r">' + spkBtn('kpill') + '<a class="kpill' + (view === 'globe' ? ' on' : '') + '" href="#/kids/globe">' + ico('globe') + '<span>' + L('地球', 'Globe') + '</span></a>' +
+    '<a class="kpill' + (view === 'passport' || view === 'cert' ? ' on' : '') + '" href="#/kids/passport">' + ico('passport') + '<span>' + L('護照 ', 'Passport ') + P.s.length + '/8</span></a></div></div>';
+  paintSay();
 }
 
 /* ---------------- 開場 · welcome ---------------- */
@@ -230,17 +306,21 @@ function viewHome() {
     '<div class="kh-main"><div class="kh-text">' +
       '<span class="kchip">' + L('8 站環遊世界 · 邊玩邊認識風力發電', '8 stops around the world · learn about wind power as you play') + '</span>' +
       '<h1>' + L('跟著風去旅行', 'Travel with the Wind') + '</h1>' +
-      '<p class="klead">' + L('從 1888 年第一部會自己運轉發電的風車，到葉輪比台北 101 一半還大的海上巨無霸，一站一站看懂風怎麼變成電。',
+      '<p class="klead" data-say>' + L('從 1888 年第一部會自己運轉發電的風車，到葉輪比台北 101 一半還大的海上巨無霸，一站一站看懂風怎麼變成電。',
         'From the first turbine that ran by itself to make power in 1888 to an offshore giant whose rotor is bigger than half of Taipei 101, see stop by stop how wind becomes electricity.') + '</p>' +
       '<div class="kbtns"><a class="kbtn primary" href="#/kids/globe">' + L('開始冒險', 'Start the adventure') + ico('next', 24) + '</a>' +
       '<a class="kbtn" href="#/kids/taiwan">' + L('台灣此刻的風', 'Taiwan’s wind right now') + '</a></div>' + resume +
-    '</div><div class="kh-guide"><div class="kbubble">' + L('嗨！我是<b>小風</b>，風去哪裡我就去哪裡。今天帶你去 8 個地方看風車，準備好了嗎？',
-      'Hi! I’m <b>Breezy</b>. I go wherever the wind goes. Today I’ll take you to see turbines in 8 places — ready?') + '</div>' + sprite('wave', 260, L('帶路角色小風在揮手', 'Breezy, your guide, waving')) + '</div></div>' +
+    '</div><div class="kh-guide"><div class="kbubble" data-say>' + L('嗨！我是<b>小風</b>，風去哪裡我就去哪裡。今天帶你去 8 個地方看風車，準備好了嗎？',
+      'Hi! I’m <b>Breezy</b>. I go wherever the wind goes. Today I’ll take you to see turbines in 8 places — ready?') + '</div>' + sprite('wave', 260, L('帶路角色小風在揮手', 'Breezy, your guide, waving')) + spkBtn('kpill') + '</div></div>' +
     '<div class="kfeat">' +
       '<div><span class="kfi t">' + ico('globe', 30) + '</span><b>' + L('轉地球找風車', 'Spin the globe') + '</b><span>' + L('拖拉地球，用時光機看 1980 年到現在，世界各地的風車一年年變多。', 'Drag the globe and use the time machine to watch wind power grow around the world since 1980.') + '</span></div>' +
       '<div><span class="kfi c">' + ico('stamp', 30) + '</span><b>' + L('答題蓋章', 'Answer and collect stamps') + '</b><span>' + L('每站一題小問題，答對就在風車護照蓋一個章。', 'Each stop has a question; answer it to get a stamp in your wind passport.') + '</span></div>' +
       '<div><span class="kfi s">' + ico('house', 30) + '</span><b>' + L('台灣此刻', 'Taiwan right now') + '</b><span>' + L('看看台灣的風車，現在正在幫多少個家庭供電。', 'See how many homes Taiwan’s turbines are powering right now.') + '</span></div>' +
-    '</div><p class="knote">' + L('數字都來自風電風情網站的資料；進度只記在這台裝置的瀏覽器裡，不用註冊。', 'All figures come from Wind Watch’s data; your progress stays in this browser, with no sign-up.') + '</p></div>';
+    '</div><a class="kteach" href="#/kids/class"><span class="kfi t">' + ico('board', 30) + '</span><span><b>' + L('給老師：全班一起玩', 'For teachers: play as a class') + '</b>' +
+      '<span>' + L('投影到大螢幕，一站一站看、全班舉手作答，可以倒數計時和全螢幕；這個模式不蓋章，也不記錄任何人的進度。',
+        'Project it on the big screen: stop by stop, the class answers by show of hands, with a countdown and full screen; this mode gives no stamps and keeps no one’s progress.') + '</span></span>' + ico('next', 26) + '</a>' +
+    '<p class="knote">' + L('數字都來自風電風情網站的資料；進度只記在這台裝置的瀏覽器裡，不用註冊。', 'All figures come from Wind Watch’s data; your progress stays in this browser, with no sign-up.') + '</p></div>';
+  paintSay();
 }
 
 /* ---------------- 地球（three.js） · the globe ---------------- */
@@ -369,7 +449,7 @@ function viewGlobe() {
       '<div class="kg-hint">' + L('拖拉轉地球 · 滾輪或兩指縮放 · 點數字進入那一站', 'Drag to spin · scroll or pinch to zoom · tap a number to open that stop') + '</div>' +
       '<div class="kleg"><b>' + L('國家顏色＝累積裝置容量（GW）', 'Country colour = installed capacity (GW)') + '</b>' + legend + '</div></div>' +
     '<div class="kg-right">' +
-      '<div class="kcard kguide">' + sprite(ns ? 'wow' : 'happy', 120) + '<div><p>' + (ns ? L('下一站：第 ' + nx + ' 站，' + T(ns.place) + '！' + T(ns.tease), 'Next: stop ' + nx + ', ' + T(ns.place) + '! ' + T(ns.tease))
+      '<div class="kcard kguide">' + sprite(ns ? 'wow' : 'happy', 120) + '<div><p data-say>' + (ns ? L('下一站：第 ' + nx + ' 站，' + T(ns.place) + '！' + T(ns.tease), 'Next: stop ' + nx + ', ' + T(ns.place) + '! ' + T(ns.tease))
         : L('8 個章都蓋滿了！你已經是風車探險家了。', 'All 8 stamps collected — you’re a wind explorer now!')) + '</p>' +
         '<a class="kbtn primary sm" href="' + (ns ? '#/kids/stop?n=' + nx : '#/kids/passport') + '">' + (ns ? L('出發去第 ' + nx + ' 站', 'Go to stop ' + nx) : L('看我的護照', 'See my passport')) + ico('next') + '</a></div></div>' +
       '<div class="kcard"><div class="kch"><b>' + L('冒險路線', 'The route') + '</b><span>' + L('照年份排，從 1888 到 ', 'In time order, 1888 to ') + STOPS[7].m.year + '</span></div><ol class="kroute">' +
@@ -466,29 +546,35 @@ let pick = null;
 function viewStop(n) {
   const s = STOPS[n - 1];
   if (!s) { location.hash = '#/kids/globe'; return; }
-  const F = FD && FD.farms && s.fd ? FD.farms[s.fd] : null;
-  const facts = s.facts(s.m, F || { d: ['?', '?'] }, X);
   host.innerHTML = '<div class="kwrap kstop">' +
     '<div class="ks-media">' + photoHTML(s) + compareHTML(s) + '</div>' +
     '<div class="ks-body"><span class="kchip">' + L('第 ' + s.n + ' 站 · ' + s.m.year + ' 年 · ' + T(s.place), 'Stop ' + s.n + ' · ' + s.m.year + ' · ' + T(s.place)) + '</span>' +
-      '<h1>' + esc(T(s.title)) + '</h1><ol class="kfacts">' + facts.map((f, i) => '<li><b>' + (i + 1) + '</b><span>' + esc(T(f)) + '</span></li>').join('') + '</ol>' +
+      '<h1 data-say>' + esc(T(s.title)) + '</h1>' + factsHTML(s) +
       '<div class="kcard kquiz" id="kquiz"></div>' +
       '<div class="ks-nav">' + (n > 1 ? '<a href="#/kids/stop?n=' + (n - 1) + '">' + ico('prev') + L('上一站', 'Previous') + '</a>' : '<a href="#/kids/globe">' + ico('globe') + L('回地球', 'Globe') + '</a>') +
         '<span id="knext"></span></div></div></div>';
   pick = null;
   paintQuiz(s);
-  const img = host.querySelector('.kphoto img');                     // 照片載不到（離線等）：改畫插畫
+  photoFallback(s);
+}
+function factsHTML(s) {
+  const F = FD && FD.farms && s.fd ? FD.farms[s.fd] : null;
+  return '<ol class="kfacts">' + s.facts(s.m, F || { d: ['?', '?'] }, X).map((f, i) => '<li><b>' + (i + 1) + '</b><span data-say>' + esc(T(f)) + '</span></li>').join('') + '</ol>';
+}
+function photoFallback(s) {                                          // 照片載不到（離線等）：改畫插畫
+  const img = host.querySelector('.kphoto img');
   if (img) img.addEventListener('error', () => { const f = img.closest('figure'); if (f) { f.className = 'kphoto ill'; f.innerHTML = scene(s) + '<figcaption>' + L('插畫（照片暫時載不到）', 'Illustration (the photo could not be loaded)') + '</figcaption>'; } });
 }
+const optSay = (q, i) => esc('ABC'[i] + L('，', ': ') + T(q.o[i][0]));
 function paintQuiz(s) {
   const q = s.quiz, done = stamped(s.n), right = pick === q.a, el = $('kquiz'); if (!el) return;
-  el.innerHTML = '<b class="kq">' + L('小問題：', 'Quick question: ') + esc(T(q.q)) + '</b><div class="kopts">' +
-    q.o.map((o, i) => '<button type="button" data-o="' + i + '" class="kopt' + (pick === i ? (i === q.a ? ' right' : ' wrong') : '') + (done && i === q.a && pick == null ? ' right' : '') + '"><b>' + 'ABC'[i] + '</b><span>' + esc(T(o[0])) + '</span></button>').join('') + '</div>' +
-    (right || (done && pick == null) ? '<div class="kfb ok">' + sprite('happy', 64) + '<span><b>' + L('答對了！', 'Correct! ') + '</b>' + esc(T(q.ok)) + (right ? L('第 ' + s.n + ' 站的章蓋好了！', ' Stop ' + s.n + ' is stamped!') : '') + '</span></div>'
-      : pick != null ? '<div class="kfb no">' + esc(T(q.o[pick][1])) + '</div>' : '');
+  el.innerHTML = '<b class="kq" data-say>' + L('小問題：', 'Quick question: ') + esc(T(q.q)) + '</b><div class="kopts">' +
+    q.o.map((o, i) => '<button type="button" data-o="' + i + '" data-say="' + optSay(q, i) + '" class="kopt' + (pick === i ? (i === q.a ? ' right' : ' wrong') : '') + (done && i === q.a && pick == null ? ' right' : '') + '"><b>' + 'ABC'[i] + '</b><span>' + esc(T(o[0])) + '</span></button>').join('') + '</div>' +
+    (right || (done && pick == null) ? '<div class="kfb ok" data-say>' + sprite('happy', 64) + '<span><b>' + L('答對了！', 'Correct! ') + '</b>' + esc(T(q.ok)) + (right ? L('第 ' + s.n + ' 站的章蓋好了！', ' Stop ' + s.n + ' is stamped!') : '') + '</span></div>'
+      : pick != null ? '<div class="kfb no" data-say>' + esc(T(q.o[pick][1])) + '</div>' : '');
   el.querySelectorAll('[data-o]').forEach(b => b.onclick = () => {
     pick = +b.dataset.o;
-    if (pick === q.a && !stamped(s.n)) { P.s.push(s.n); P.s.sort((a, c) => a - c); save(); paintBar(); }
+    if (pick === q.a && !stamped(s.n)) { P.s.push(s.n); P.s.sort((a, c) => a - c); if (P.s.length === 8 && !P.done) P.done = today(); save(); paintBar(); }
     paintQuiz(s);
     const f = el.querySelector('[data-o="' + pick + '"]'); if (f) f.focus();
   });
@@ -518,16 +604,17 @@ function viewTaiwan() {
   host.innerHTML = '<div class="kwrap ktwv">' +
     '<div class="kt-head"><h1>' + L('台灣此刻的風', 'Taiwan’s wind right now') + '</h1><span class="kchip">' + esc(when) + '</span></div>' +
     '<div class="kt-grid"><div class="kt-col">' +
-      '<div class="kcard kbig"><span class="kl">' + L('全台風力發電機，此刻一共發出', 'All of Taiwan’s wind turbines are making') + '</span><div class="kmw"><b>' + WW.num(total, 1) + '</b> MW</div>' +
+      '<div class="kcard kbig" data-say="' + esc(L('全台風力發電機，此刻一共發出 ' + WW.num(total, 1) + ' MW，大約可以同時供應 ' + WW.num(homes, homes < 10 ? 1 : 0) + ' 萬戶家庭用電。',
+        'All of Taiwan’s wind turbines are making ' + WW.num(total, 1) + ' MW right now, enough for about ' + WW.int(homes * 10000) + ' homes at once.')) + '"><span class="kl">' + L('全台風力發電機，此刻一共發出', 'All of Taiwan’s wind turbines are making') + '</span><div class="kmw"><b>' + WW.num(total, 1) + '</b> MW</div>' +
         '<span class="kl2">' + L('大約可以同時供應 <b>' + WW.num(homes, homes < 10 ? 1 : 0) + ' 萬戶</b> 家庭用電', 'enough for about <b>' + WW.int(homes * 10000) + ' homes</b> at once') + '</span>' +
         '<div class="khouses" role="img" aria-label="' + esc(L('房子圖示，一個代表一萬戶', 'House icons, each 10,000 homes')) + '">' + houses + (nH > shown ? '<span>＋' + (nH - shown) + '</span>' : '') + '<span class="ksmall">' + L('每個房子＝1 萬戶', 'each house = 10,000 homes') + '</span></div></div>' +
       (mx && mx.total > total * 1.5 ? '<div class="kcard"><b class="kq">' + L('風大的時候呢？', 'And on a windy day?') + '</b>' +
         '<div class="kbarrow"><span>' + L('現在', 'Now') + '</span><b>' + WW.num(total, 1) + ' MW</b></div><div class="ktrack"><i style="width:' + Math.max(1.5, total / mx.total * 100).toFixed(1) + '%"></i></div>' +
         '<div class="kbarrow"><span>' + L('這 7 天風最大的時候（' + mxS + '）', 'The windiest moment in the last 7 days (' + mxS + ')') + '</span><b>' + WW.num(mx.total, 1) + ' MW</b></div><div class="ktrack"><i class="d" style="width:100%"></i></div>' +
-        '<p>' + L('風大的時候，是現在的 <b>' + WW.int(times) + ' 倍</b>！風力發電要看天氣，所以還要搭配其他電源。', 'At that moment it was <b>' + WW.int(times) + ' times</b> the output right now! Wind power depends on the weather, so it works together with other power sources.') + '</p></div>' : '') +
+        '<p data-say>' + L('風大的時候，是現在的 <b>' + WW.int(times) + ' 倍</b>！風力發電要看天氣，所以還要搭配其他電源。', 'At that moment it was <b>' + WW.int(times) + ' times</b> the output right now! Wind power depends on the weather, so it works together with other power sources.') + '</p></div>' : '') +
     '</div><div class="kt-col">' +
-      '<div class="kcard kguide">' + sprite(mood, 120) + '<p>' + say + '</p></div>' +
-      '<div class="kcard"><b class="kq">' + L('全台 ' + nF + ' 座風場，此刻有 ' + gen + ' 座在發電', gen + ' of Taiwan’s ' + nF + ' wind farms are generating now') + '</b>' +
+      '<div class="kcard kguide">' + sprite(mood, 120) + '<p data-say>' + say + '</p></div>' +
+      '<div class="kcard"><b class="kq" data-say>' + L('全台 ' + nF + ' 座風場，此刻有 ' + gen + ' 座在發電', gen + ' of Taiwan’s ' + nF + ' wind farms are generating now') + '</b>' +
         '<div class="kfarms" role="img" aria-label="' + esc(L(gen + ' 個綠色風車代表正在發電，' + (nF - gen) + ' 個灰色代表此刻沒有出力', gen + ' green turbines are generating, ' + (nF - gen) + ' grey ones have no output now')) + '">' +
         LV.FARMS.map(f => (LV.RT[f.id] || 0) >= 0.05 ? ROTOR('kf on', '#12A594', NAVY, '#FFC845') : ROTOR('kf', '#EEF3F7', '#9DB4C6', '#D3DEE7')).join('') + '</div>' +
         '<div class="klegend"><span><i class="g"></i>' + L('正在發電', 'Generating') + '</span><span><i></i>' + L('此刻沒有出力', 'No output now') + '</span></div></div>' +
@@ -546,14 +633,17 @@ function viewPassport() {
   ];
   const COL = ['#B5401E', '#0A6B62', '#8A5B0C', '#1F5FA8'];     // 白底上的對比都在 4.5:1 以上
   host.innerHTML = '<div class="kwrap kpass">' +
-    '<div class="kp-head"><h1>' + L('我的風車護照', 'My wind passport') + '</h1>' +
-      '<a class="kbtn primary sm" href="' + (nextStop() ? '#/kids/stop?n=' + nextStop() : '#/kids/globe') + '">' + L('繼續冒險', 'Keep exploring') + ico('next') + '</a></div>' +
+    '<div class="kp-head"><h1 data-say="' + esc(L('我的風車護照。已經蓋了 ' + P.s.length + ' 個章，共 8 個。', 'My wind passport. ' + P.s.length + ' of 8 stamps collected.')) + '">' + L('我的風車護照', 'My wind passport') + '</h1>' +
+      '<div class="kp-btns knp"><button type="button" class="kbtn sm" id="kprint">' + ico('print') + L('列印護照', 'Print passport') + '</button>' +
+      (P.s.length >= 8 ? '<a class="kbtn sm" href="#/kids/cert">' + ico('award') + L('完成證書', 'Certificate') + '</a>' : '') +
+      '<a class="kbtn primary sm" href="' + (nextStop() ? '#/kids/stop?n=' + nextStop() : '#/kids/globe') + '">' + L('繼續冒險', 'Keep exploring') + ico('next') + '</a></div></div>' +
     '<div class="kbook"><div class="kb-left">' +
       '<div class="kb-id">' + sprite('happy', 76) + '<div><b>' + L('風車護照', 'Wind passport') + '</b><span>' + L('跟著風去旅行 · 探險紀錄', 'Travel with the Wind · explorer’s record') + '</span></div></div>' +
       '<label class="kname">' + L('探險家', 'Explorer') + '<input type="text" id="kname" maxlength="20" autocomplete="off" placeholder="' + esc(L('寫上你的名字', 'Write your name')) + '"></label>' +
       '<div class="kprog"><div><b>' + L('已蓋 ' + P.s.length + ' 個章', P.s.length + (P.s.length === 1 ? ' stamp' : ' stamps') + ' collected') + '</b><span>' + L('共 8 個', 'of 8') + '</span></div><div class="ktrack"><i style="width:' + (P.s.length / 8 * 100) + '%"></i></div></div>' +
-      '<b class="kq">' + L('徽章', 'Badges') + '</b><ul class="kbadges">' + badges.map(b => '<li class="' + (b[3] >= b[4] ? 'got' : '') + '"><span class="kbi">' + ico(b[3] >= b[4] ? b[0] : 'lock', 24) + '</span><span><b>' + b[1] + '</b><span>' + b[2] + ' · ' + Math.min(b[3], b[4]) + '/' + b[4] + '</span></span></li>').join('') + '</ul>' +
-      '<p class="ksmall">' + L('進度只記在這台電腦或平板上，不用註冊，也不會上傳。', 'Progress is kept on this computer or tablet only — no sign-up, nothing uploaded.') + ' <button type="button" class="klink" id="kreset">' + L('重新開始', 'Start over') + '</button></p>' +
+      '<b class="kq">' + L('徽章', 'Badges') + '</b><ul class="kbadges">' + badges.map(b => '<li class="' + (b[3] >= b[4] ? 'got' : '') + '"' + (b[3] >= b[4] ? ' data-say="' + esc(L('得到徽章：', 'Badge: ') + b[1]) + '"' : '') + '><span class="kbi">' + ico(b[3] >= b[4] ? b[0] : 'lock', 24) + '</span><span><b>' + b[1] + '</b><span>' + b[2] + ' · ' + Math.min(b[3], b[4]) + '/' + b[4] + '</span></span></li>').join('') + '</ul>' +
+      (P.s.length < 8 ? '<p class="ksmall knp">' + ico('award', 18) + ' ' + L('集滿 8 個章，就能列印「風車探險家」完成證書。', 'Collect all 8 stamps to print your “Wind explorer” certificate.') + '</p>' : '') +
+      '<p class="ksmall knp">' + L('進度只記在這台電腦或平板上，不用註冊，也不會上傳。', 'Progress is kept on this computer or tablet only — no sign-up, nothing uploaded.') + ' <button type="button" class="klink" id="kreset">' + L('重新開始', 'Start over') + '</button></p>' +
     '</div><div class="kstamps">' + STOPS.map((s, i) => {
       const ok = stamped(s.n), rot = [-8, 6, -4, 9, -6, 5, -3, 7][i];
       return '<a class="kst' + (ok ? ' ok' : '') + '" href="#/kids/stop?n=' + s.n + '" style="--c:' + COL[i % 4] + ';--r:' + rot + 'deg"><span class="kring"><span class="kin"><b>' + s.m.year + '</b><span>' + (ok ? esc(T(s.stamp)) : L('還沒\n蓋章', 'Not yet\nstamped')) + '</span></span></span>' +
@@ -561,25 +651,180 @@ function viewPassport() {
     }).join('') + '</div></div></div>';
   const nm = $('kname'); nm.value = P.name || '';
   nm.oninput = () => { P.name = nm.value.slice(0, 20); save(); };
+  $('kprint').onclick = () => window.print();
   $('kreset').onclick = () => { if (confirm(L('確定要清掉所有的章，重新開始嗎？', 'Clear all stamps and start over?'))) { P = { s: [] }; save(); render(); } };
 }
 
+/* ---------------- 完成證書（集滿 8 個章，可列印） · certificate ---------------- */
+function viewCert() {
+  const left = 8 - P.s.length;
+  if (left > 0) {
+    host.innerHTML = '<div class="kwrap kcertv"><div class="kcard kguide">' + sprite('talk', 120) + '<div><p data-say>' +
+      L('還差 ' + left + ' 個章，就能拿到「風車探險家」完成證書！', left + (left === 1 ? ' more stamp' : ' more stamps') + ' and you get your “Wind explorer” certificate!') + '</p>' +
+      '<a class="kbtn primary sm" href="#/kids/stop?n=' + nextStop() + '">' + L('去第 ' + nextStop() + ' 站', 'Go to stop ' + nextStop()) + ico('next') + '</a></div></div></div>';
+    return;
+  }
+  const d = P.done ? new Date(P.done + 'T12:00:00') : new Date();
+  const ds = L(d.getFullYear() + ' 年 ' + (d.getMonth() + 1) + ' 月 ' + d.getDate() + ' 日', d.getDate() + ' ' + ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][d.getMonth()] + ' ' + d.getFullYear());
+  const s1 = STOPS[0].m, s8 = STOPS[7].m, COL = ['#B5401E', '#0A6B62', '#8A5B0C', '#1F5FA8'];
+  const txt = nm => L('恭喜' + (nm || '你') + '跟著小風走完了 8 站：從 ' + s1.year + ' 年美國的布拉許風車，到 ' + s8.year + ' 年中國福建外海 ' + fmtKW(s8.mw) + ' 的巨型風機，認識了風怎麼變成電。你是風車探險家！',
+    'Congratulations, ' + (nm || 'explorer') + '! You travelled all 8 stops with Breezy, from Brush’s turbine in the USA in ' + s1.year + ' to a ' + fmtKW(s8.mw) + ' giant off Fujian, China, in ' + s8.year + ', and learned how wind becomes electricity. You are a wind explorer!');
+  host.innerHTML = '<div class="kwrap kcertv">' +
+    '<div class="kp-head knp"><h1>' + L('完成證書', 'Certificate') + '</h1><div class="kp-btns"><button type="button" class="kbtn sm" id="kprint">' + ico('print') + L('列印證書', 'Print') + '</button>' +
+      '<a class="kbtn sm" href="#/kids/passport">' + ico('passport') + L('回護照', 'Passport') + '</a></div></div>' +
+    '<div class="kcert">' + sprite('happy', 110) +
+      '<span class="kc-top">' + L('風電風情 · 跟著風去旅行', 'Taiwan Wind Watch · Travel with the Wind') + '</span>' +
+      '<h2>' + L('風車探險家證書', 'Wind Explorer Certificate') + '</h2>' +
+      '<label class="kc-namel"><span class="knp">' + L('探險家的名字（可以修改）', 'Explorer’s name (you can edit it)') + '</span><input type="text" id="kname" class="kc-name" maxlength="20" autocomplete="off" placeholder="' + esc(L('寫上你的名字', 'Write your name')) + '"></label>' +
+      '<p class="kc-txt" id="kctxt" data-say="' + esc(txt(P.name)) + '">' + L('跟著小風走完了 8 站：從 ' + s1.year + ' 年美國的布拉許風車，到 ' + s8.year + ' 年中國福建外海 ' + fmtKW(s8.mw) + ' 的巨型風機，認識了風怎麼變成電。',
+        'travelled all 8 stops with Breezy, from Brush’s turbine in the USA in ' + s1.year + ' to a ' + fmtKW(s8.mw) + ' giant off Fujian, China, in ' + s8.year + ', and learned how wind becomes electricity.') + '</p>' +
+      '<div class="kc-stamps" aria-hidden="true">' + STOPS.map((s, i) => '<span class="kst ok" style="--c:' + COL[i % 4] + ';--r:' + [-8, 6, -4, 9, -6, 5, -3, 7][i] + 'deg"><span class="kring"><span class="kin"><b>' + s.m.year + '</b></span></span></span>').join('') + '</div>' +
+      '<div class="kc-foot"><span>' + L('日期：', 'Date: ') + ds + '</span><span>' + L('帶路：小風', 'Guide: Breezy') + '</span></div>' +
+    '</div></div>';
+  const nm = $('kname'); nm.value = P.name || '';
+  nm.oninput = () => { P.name = nm.value.slice(0, 20); save(); $('kctxt').dataset.say = txt(P.name.trim()); };
+  $('kprint').onclick = () => window.print();
+}
+
+/* ---------------- 全班一起玩（老師投影；不蓋章、不記錄進度） · class mode for a projector ----------------
+   每站三步：看重點 → 小問題（可倒數 10 秒、點全班選的答案）→ 公布答案。→／空白鍵／簡報器下一頁＝下一步，←＝上一步，F＝全螢幕。 */
+const CL = { n: 0, step: 0, pick: null, left: 0, timer: null };
+const clStop = () => { clearInterval(CL.timer); CL.timer = null; CL.left = 0; };
+function clGo(n, step) {
+  clStop(); speak(false);
+  CL.n = n; CL.step = step || 0; CL.pick = null;
+  history.replaceState(history.state, '', '#/kids/class' + (n >= 1 && n <= 8 ? '?n=' + n : ''));
+  paintBar(); viewClass(); window.scrollTo(0, 0);
+}
+function clNext() {
+  if (CL.n < 1) clGo(1, 0);
+  else if (CL.n > 8) return;
+  else if (CL.step < 2) clGo(CL.n, CL.step + 1);
+  else clGo(CL.n + 1, 0);
+}
+function clPrev() {
+  if (CL.n > 8) clGo(8, 2);
+  else if (CL.n < 1) return;
+  else if (CL.step > 0) clGo(CL.n, CL.step - 1);
+  else clGo(CL.n - 1, CL.n > 1 ? 2 : 0);
+}
+function viewClass() {
+  if (CL.n < 1) {
+    host.innerHTML = '<div class="kwrap kclass kc-intro">' +
+      '<div class="kc-hero">' + sprite('wave', 170) + '<div><span class="kchip">' + L('給老師：投影這一頁，全班一起玩', 'For teachers: project this page and play together') + '</span>' +
+        '<h1 data-say>' + L('全班一起玩', 'Play as a class') + '</h1>' +
+        '<p data-say>' + L('一站一站看重點，每站一題小問題，大家舉手回答，老師再公布答案。這個模式不會蓋章，也不會記錄任何人的進度。',
+          'Read each stop together, then answer its question by show of hands before the teacher reveals the answer. This mode gives no stamps and keeps no one’s progress.') + '</p>' +
+        '<div class="kbtns"><button type="button" class="kbtn primary" data-cl="start">' + L('從第 1 站開始', 'Start at stop 1') + ico('next', 24) + '</button>' + fsBtn('kbtn') + '</div></div></div>' +
+      '<div class="kcard"><b class="kq">' + L('從哪一站開始？', 'Start from another stop') + '</b><div class="kc-pick">' +
+        STOPS.map(s => '<button type="button" data-cln="' + s.n + '"><b>' + s.n + '</b><span><span class="ky">' + s.m.year + '</span> ' + esc(T(s.place)) + '</span></button>').join('') + '</div></div>' +
+      '<div class="kcard kc-keys"><b class="kq">' + L('操作方式', 'Controls') + '</b><ul>' +
+        '<li>' + L('每站三步：看重點 → 小問題 → 公布答案', 'Three steps per stop: facts → question → answer') + '</li>' +
+        '<li>' + L('→、空白鍵或簡報器的「下一頁」：下一步；←：上一步', '→, the space bar or a clicker’s “next”: next step; ←: back') + '</li>' +
+        '<li>' + L('F：全螢幕；「唸給我聽」會唸出畫面上的重點或題目', 'F: full screen; “Read to me” reads out the facts or the question') + '</li>' +
+        '<li>' + L('小問題時可以按「倒數 10 秒」，再點全班選最多的答案，或直接公布答案', 'During a question, start the 10-second countdown, then tap the answer most of the class chose, or reveal the answer') + '</li></ul></div></div>';
+    paintFS();
+    return;
+  }
+  if (CL.n > 8) {
+    host.innerHTML = '<div class="kwrap kclass kc-end">' + sprite('happy', 200) +
+      '<h1 data-say>' + L('全班完成 8 站！', 'The class finished all 8 stops!') + '</h1>' +
+      '<p data-say>' + L('從 ' + STOPS[0].m.year + ' 年的布拉許風車到 ' + STOPS[7].m.year + ' 年的巨型風機，大家都是風車探險家了。想蓋章的同學，可以用自己的平板或電腦再玩一次。',
+        'From Brush’s turbine of ' + STOPS[0].m.year + ' to the giant of ' + STOPS[7].m.year + ', everyone is a wind explorer now. Anyone who wants the stamps can play again on their own tablet or computer.') + '</p>' +
+      '<div class="kbtns"><button type="button" class="kbtn primary" data-cl="restart">' + L('再玩一次', 'Play again') + '</button><a class="kbtn" href="#/kids">' + L('回探險版首頁', 'Back to the start') + '</a></div></div>' + clNav();
+    return;
+  }
+  const s = STOPS[CL.n - 1], q = s.quiz;
+  if (CL.step === 0) {
+    host.innerHTML = '<div class="kwrap kclass kc-learn"><div class="ks-media">' + photoHTML(s) + compareHTML(s) + '</div>' +
+      '<div class="kc-body"><span class="kchip">' + L('第 ' + s.n + ' 站 · ' + s.m.year + ' 年 · ' + T(s.place), 'Stop ' + s.n + ' · ' + s.m.year + ' · ' + T(s.place)) + '</span>' +
+      '<h1 data-say>' + esc(T(s.title)) + '</h1>' + factsHTML(s) + '</div></div>' + clNav();
+    photoFallback(s);
+    return;
+  }
+  const ans = CL.step === 2, right = CL.pick === q.a;
+  host.innerHTML = '<div class="kwrap kclass kc-quiz"><div class="kc-qhead">' + sprite(ans ? 'happy' : 'wow', 120) +
+      '<div><span class="kchip">' + L('第 ' + s.n + ' 站 · 小問題', 'Stop ' + s.n + ' · question') + '</span><h1 data-say>' + esc(T(q.q)) + '</h1></div></div>' +
+    '<div class="kc-opts">' + q.o.map((o, i) => '<button type="button" class="kc-opt' + (ans ? (i === q.a ? ' right' : ' dim') : CL.pick === i ? ' wrong' : '') + '" data-clo="' + i + '"' +
+      (ans && i !== q.a ? '' : ' data-say="' + optSay(q, i) + '"') + (ans ? ' disabled' : '') + '><b>' + 'ABC'[i] + '</b><span>' + esc(T(o[0])) + '</span></button>').join('') + '</div>' +
+    (ans ? '<div class="kfb ok kc-fb" data-say>' + sprite('happy', 64) + '<span><b>' + (right ? L('全班答對了！', 'The class got it! ') : L('答案是 ' + 'ABC'[q.a] + '。', 'The answer is ' + 'ABC'[q.a] + '. ')) + '</b>' + esc(T(q.ok)) + '</span></div>'
+      : (CL.pick != null ? '<div class="kfb no kc-fb" data-say>' + esc(T(q.o[CL.pick][1])) + '</div>' : '') +
+        '<div class="kc-tools"><button type="button" class="kbtn" data-cl="timer">' + ico('clock', 24) + L('倒數 10 秒', '10-second countdown') + '</button>' +
+        '<span class="kc-timer" id="kctimer" aria-live="polite"></span>' +
+        '<span class="ksmall">' + L('請大家舉手：選 A 的舉手、選 B 的舉手……再點全班選最多的答案。', 'Show of hands for A, then B, then C… and tap the answer most of the class chose.') + '</span></div>') +
+    '</div>' + clNav();
+  paintTimer();
+}
+function clNav() {
+  const end = CL.n > 8, labels = [L('看重點', 'Facts'), L('小問題', 'Question'), L('答案', 'Answer')];
+  const nextL = end ? '' : CL.step === 0 ? L('下一步：小問題', 'Next: question') : CL.step === 1 ? L('公布答案', 'Reveal the answer') : CL.n < 8 ? L('下一站', 'Next stop') : L('完成', 'Finish');
+  return '<div class="kc-nav"><button type="button" class="kbtn sm" data-cl="prev">' + ico('prev') + L('上一步', 'Back') + '</button>' +
+    (end ? '' : '<ol class="kc-steps" aria-label="' + esc(L('第 ' + CL.n + ' 站的步驟', 'Steps of stop ' + CL.n)) + '">' + labels.map((t, i) => '<li' + (i === CL.step ? ' class="on" aria-current="step"' : '') + '>' + t + '</li>').join('') + '</ol>' +
+      '<button type="button" class="kbtn primary sm" data-cl="next">' + nextL + ico('next') + '</button>') + '</div>';
+}
+function paintTimer() {
+  const el = $('kctimer'); if (!el) return;
+  el.textContent = CL.timer ? CL.left : CL.left === 0 && el.dataset.done ? L('時間到！請舉手', 'Time’s up! Hands up') : '';
+}
+function startTimer() {
+  clStop(); CL.left = 10;
+  const el = $('kctimer'); if (el) delete el.dataset.done;
+  CL.timer = setInterval(() => {
+    CL.left--;
+    if (CL.left <= 0) { clStop(); const e2 = $('kctimer'); if (e2) e2.dataset.done = '1'; }
+    paintTimer();
+  }, 1000);
+  paintTimer();
+}
+page.addEventListener('click', e => {
+  if (view !== 'class') return;
+  const b = e.target.closest('[data-cl],[data-cln],[data-clo]'); if (!b) return;
+  if (b.dataset.cln) return clGo(+b.dataset.cln, 0);
+  if (b.dataset.clo) {                                               // 點全班選的答案 · the answer the class chose
+    const i = +b.dataset.clo, q = STOPS[CL.n - 1].quiz;
+    clStop();
+    if (i === q.a) { CL.pick = i; CL.step = 2; } else CL.pick = i;
+    speak(false); viewClass();
+    return;
+  }
+  const a = b.dataset.cl;
+  if (a === 'start' || a === 'restart') clGo(1, 0);
+  else if (a === 'next') clNext();
+  else if (a === 'prev') clPrev();
+  else if (a === 'timer') startTimer();
+});
+document.addEventListener('keydown', e => {
+  if (view !== 'class' || WW.currentPage() !== 'kids' || e.altKey || e.ctrlKey || e.metaKey) return;
+  const t = e.target, tag = t && t.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  if ((e.key === ' ' || e.key === 'Enter') && tag === 'BUTTON') return;      // 按鈕上的空白鍵照按鈕本身的動作
+  if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); clNext(); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); clPrev(); }
+  else if ((e.key === 'f' || e.key === 'F') && FS_OK) { e.preventDefault(); toggleFS(); }
+});
+
 /* ---------------- 路由 · routing ---------------- */
-const VIEWS = { globe: 1, stop: 1, taiwan: 1, passport: 1 };
+const VIEWS = { globe: 1, stop: 1, taiwan: 1, passport: 1, cert: 1, class: 1 };
 function render() {
   if (!D) return;
+  speak(false);
   if (view !== 'globe') { stopGlobe(); setPlay(false); }
+  if (view !== 'class') clStop();
   paintBar();
   if (view === 'globe') viewGlobe();
   else if (view === 'stop') viewStop(stopN);
   else if (view === 'taiwan') viewTaiwan();
   else if (view === 'passport') viewPassport();
+  else if (view === 'cert') viewCert();
+  else if (view === 'class') viewClass();
   else viewHome();
+  paintSay();
 }
 WW.kids = {
   enter(r) {
     view = VIEWS[r.sub] ? r.sub : 'home';
     stopN = Math.max(1, Math.min(8, parseInt(r.params.n, 10) || 1));
+    if (view === 'class') { const n = parseInt(r.params.n, 10); CL.n = n >= 1 && n <= 8 ? n : 0; CL.step = 0; CL.pick = null; }
     loadData().then(() => (view === 'globe' ? initGlobe() : null)).then(() => {
       if (WW.currentPage() !== 'kids') return;
       render(); window.scrollTo(0, 0);
@@ -589,8 +834,11 @@ WW.kids = {
       host.innerHTML = '<div class="kwrap"><p>' + L('資料載入失敗，請檢查網路後重新整理。', 'The data failed to load. Check your connection and reload.') + '</p></div>';
     });
   },
-  leave() { stopGlobe(); setPlay(false); },
-  api: () => ({ G, P, STOPS, X })
+  leave() {
+    stopGlobe(); setPlay(false); speak(false); clStop();
+    if (document.fullscreenElement === page) document.exitFullscreen().catch(() => {});
+  },
+  api: () => ({ G, P, STOPS, X, CL, sayParts, CAN_SAY })
 };
 WW.onLang(() => { if (WW.currentPage() === 'kids' && D) render(); });
 if (WW.live) WW.live.onUpdate(() => { if (WW.currentPage() === 'kids' && view === 'taiwan') viewTaiwan(); });
