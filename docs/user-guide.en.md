@@ -2,7 +2,7 @@
 
 English (this page) ｜ [中文](./user-guide.md)
 
-How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v3.4.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
+How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v3.5.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
 
 ## Contents
 
@@ -271,15 +271,17 @@ Charts can be switched to tables.
 ## 6. Travel with the Wind (for young explorers)
 
 `#/kids`, a lighter version for upper primary and junior high students, to play alone or to project for a whole class. The guide is Breezy (小風), a little wind sprite; the page uses light colours, large type and big buttons.
-Open it from the banner under "Explore" on the home page or from the link under "Project" in the footer. The site's navigation stays at the top; the page's own toolbar sits under it, with Breezy and the title on the left, the 8 stops as dots in the middle (green = stamped, yellow = the current stop) and "Globe" and "Passport n/8" on the right.
+Open it from the banner under "Explore" on the home page or from the link under "Project" in the footer. The site's navigation stays at the top; the page's own toolbar sits under it, with Breezy and the title on the left, the 8 stops as dots in the middle (green = stamped, yellow = the current stop) and "Read to me", "Globe" and "Passport n/8" on the right.
 
 | View | Link | Contents |
 |---|---|---|
-| Welcome | `#/kids` | Breezy says hello; "Start the adventure" opens the globe, plus "Taiwan's wind right now"; once you have stamps, "continue with stop n" appears |
+| Welcome | `#/kids` | Breezy says hello; "Start the adventure" opens the globe, plus "Taiwan's wind right now"; once you have stamps, "continue with stop n" appears; below, "For teachers: play as a class" |
 | Globe | `#/kids/globe` | A 3D globe (drag to spin, scroll or pinch to zoom) with countries in 6 shades by installed capacity at year end; the 8 numbers are the stops, tap one to open it. Beside it are Breezy's "Next" hint and "The route" (hover over or Tab to a stop and the globe turns to it); below are the "Time machine" (▶ plays 1980 to 2025, or drag the slider) and "Who has the most wind power?" (the top 5 and Taiwan, pole heights to scale) |
 | Stop | `#/kids/stop?n=1` to `8` | A photo (Wikimedia Commons, with author and licence; an illustration when there is none or it cannot load), three key facts and a quick question; stops 6 and 8 add "Compare", drawing Taipei 101 and the turbine to the same scale. A wrong answer explains why and lets you try again; the right one stamps your passport and shows "Next stop" |
 | Taiwan's wind right now | `#/kids/taiwan` | Taiwan's wind output right now, roughly how many homes it could power at once (one small house = 10,000 homes), a comparison with the windiest moment of the past 7 days and how many of Taiwan's wind farms are generating; the same data as Taiwan live, labelled "Simulated" when Taipower's data cannot be reached |
-| Passport | `#/kids/passport` | Your name, the 8 stamps and three badges (Time traveller: all 8 stops; Offshore expert: the 4 offshore stops; Taiwan wind fan: stop 7 plus a visit to "Taiwan's wind right now"); "Start over" clears every stamp |
+| Passport | `#/kids/passport` | Your name, the 8 stamps and three badges (Time traveller: all 8 stops; Offshore expert: the 4 offshore stops; Taiwan wind fan: stop 7 plus a visit to "Taiwan's wind right now"); "Print passport" prints the page (without the buttons or the site's header and footer); with all 8 stamps a "Certificate" button appears; "Start over" clears every stamp |
+| Certificate | `#/kids/cert` | Only with all 8 stamps: the "Wind Explorer Certificate" with your name (editable here), the 8 stamps and the date you finished; "Print" fits it on one A4 page. Before that it tells you how many stamps are missing |
+| Play as a class | `#/kids/class` (`?n=1` to `8` starts at that stop) | For a teacher's projector, in large type: each stop has three steps, "Facts → Question → Answer". During a question, start the 10-second countdown, take a show of hands and tap the answer most of the class chose (a wrong one is explained and can be tried again), or reveal the answer. →, the space bar or a clicker's "next" moves on, ← goes back and F toggles full screen; the toolbar has "Read to me", "Full screen" and "End". This mode gives no stamps and keeps no one's progress |
 
 The eight stops, by year:
 
@@ -296,6 +298,7 @@ The eight stops, by year:
 
 - Every figure comes from the site's own data: country capacity as on the globe, turbine specifications from the globe's milestones, stop 6's water depth and sizes from the foundation data, and Taiwan right now from Taiwan live.
 - Progress (stamps and name) is kept only in this browser, with no sign-up and nothing uploaded; another computer, or clearing the browser's data, starts over.
+- **Read to me**: the browser's own speech synthesis reads out the screen's facts, question and options (nothing is sent anywhere); press again to stop. Without speech synthesis or a voice for the language, the button is disabled or shows a notice.
 - The language follows the EN / 中文 switch in the header.
 - The full single-file edition includes it (it works offline; photos need a connection); the public global wind map does not.
 
@@ -306,7 +309,7 @@ The link is the view: share it and the other person sees the same thing. The glo
 **Taiwan live**: `#/live?farm=<id>` opens a farm's details (on any tab, e.g. `#/live/wall?farm=wo1`); `#/live/charts?mode=bar|donut|hist` picks the chart (ranking, mix, long-term).
 Dashboard sort and filters (on `#/live` only; defaults are left out): `sort=ratio|cap|name` (availability, capacity, name; output by default), `group=dev` (group by developer), `type=offshore|onshore|commercial|building`, `size=L|M|S` (large >300 MW, medium 100–300 MW, small <100 MW), `dev` and `brand` (developer and maker, using the names in the toolbar menus; picking them there and copying the link is easiest). Example: `#/live?sort=cap&type=offshore`. A link that carries them wins; otherwise the dashboard uses what this browser remembered. These parameters, `farm` and `mode` are written into the link as you go.
 
-**Travel with the Wind**: `#/kids`, `#/kids/globe`, `#/kids/stop?n=1` to `8`, `#/kids/taiwan`, `#/kids/passport` (section 6).
+**Travel with the Wind**: `#/kids`, `#/kids/globe`, `#/kids/stop?n=1` to `8`, `#/kids/taiwan`, `#/kids/passport`, `#/kids/cert`, `#/kids/class` (optionally `?n=1` to `8`) (section 6).
 
 **Learn**: `#/learn/<chapter>` jumps to a chapter; `#/learn/sources?s=tw|intl|global|all` jumps to the Taiwan live, live abroad or global wind part of the sources, or opens "All sources and data notes".
 

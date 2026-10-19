@@ -15,6 +15,14 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.5.0 — 2026-10-19
+
+- **Travel with the Wind, second version** (started at the owner's request on 19 Oct 2026; the three items listed when the first version was handed over):
+  - **Read to me**: a new button in the page's toolbar (under Breezy on the welcome screen) reads out the screen's facts, question and options with the browser's own speech synthesis, saying units such as MW and GW as words; press again to stop, and it stops on its own when the screen changes. Nothing is sent anywhere; without speech synthesis or a voice for the language, the button is disabled or shows a notice.
+  - **Printing the passport, and a certificate**: the passport has "Print passport" (only the passport itself, without buttons or the site's header and footer); with all 8 stamps a "Certificate" button appears (`#/kids/cert`): the "Wind Explorer Certificate" carries the name, the 8 stamps and the date you finished, and "Print" fits it on one A4 page. The date is recorded when the eighth stamp is collected (for passports completed earlier, the day it is opened).
+  - **Play as a class** (`#/kids/class`, `?n=1` to `8` starts at a stop): a large-type version for a teacher's projector with three steps per stop, "Facts → Question → Answer"; during a question start a 10-second countdown, tap the answer most of the class chose (a wrong one is explained) or reveal it. →, the space bar or a clicker's "next" moves on, ← goes back, and F puts the page in full screen. This mode gives no stamps and keeps no one's progress; the welcome screen links to it under "For teachers".
+- User guide section 6 and the links section, and the README summaries, updated; the smoke test checks the read-aloud button and text, the three class steps without touching personal progress, and printing and the certificate once all 8 stamps are collected.
+
 ## v3.4.0 — 2026-10-19
 
 - **New page: "Travel with the Wind" for young explorers** (`#/kids`; settled on 19 Oct 2026 after the owner reviewed the prototype on the design canvas: the guide character Breezy (小風) and eight stops): for upper primary and junior high students, to play alone or project in class. Light colours, large type and big buttons, in both languages following the header switch.

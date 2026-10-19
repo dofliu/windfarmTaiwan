@@ -22,7 +22,14 @@
 .kb-r{display:flex;gap:8px}
 .kpill{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:6px 14px;border:2px solid var(--k-ink);border-radius:999px;background:#fff;color:var(--k-ink)!important;font-weight:700;text-decoration:none;white-space:nowrap}
 .kpill.on{background:var(--k-ink);color:#fff!important}
-@media(max-width:640px){.kb-home span{display:none}.kdl{display:none}.kdots{order:3;width:100%;justify-content:center;margin:0}.kb-r{margin-left:auto}}
+button.kpill{font:inherit;font-weight:700;cursor:pointer}
+.kspk[aria-pressed=true]{background:var(--k-coral);border-color:var(--k-ink)}
+.kspk:disabled{opacity:.45;cursor:not-allowed}
+.kcl-t{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:800;margin:0 auto}
+@media(max-width:640px){.kb-home span{display:none}.kdl{display:none}.kdots{order:3;width:100%;justify-content:center;margin:0}.kb-r{margin-left:auto}
+  .kb-r .kspk span,.kb-r .kfs span{display:none}.kb-r .kspk,.kb-r .kfs{padding:6px 10px}.kcl-t{order:3;width:100%;justify-content:center;font-size:16px}}
+#page-kids:fullscreen{overflow-y:auto;min-height:100vh}
+#page-kids:fullscreen .kbar{top:0}
 
 /* 共用 · shared */
 .kwrap{max-width:1240px;margin:0 auto;padding:24px 20px 44px}
@@ -65,6 +72,12 @@
 .kfeat b{font-size:18px}
 .kfeat span:not(.kfi){font-size:15px;color:var(--k-ink2);line-height:1.55}
 .knote{margin-top:16px;font-size:14px;color:var(--k-ink2)}
+.kh-guide .kspk{align-self:center}
+.kteach{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px 18px;background:#fff;border:2px dashed var(--k-teal-ink);border-radius:18px;color:var(--k-ink)!important;text-decoration:none}
+.kteach:hover{border-style:solid}
+.kteach>span:nth-child(2){flex:1;display:flex;flex-direction:column}
+.kteach b{font-size:18px}
+.kteach span span{font-size:15px;color:var(--k-ink2);line-height:1.55}
 @media(max-width:760px){.kfeat{grid-template-columns:1fr}}
 
 /* 地球 · globe */
@@ -211,3 +224,89 @@
 .kin span{font-size:12px;font-weight:700;line-height:1.3;white-space:pre-line}
 .kst .kno{font-size:15px}
 .kst .kspl{font-size:13px;color:var(--k-ink2)}
+
+.kp-btns{display:flex;flex-wrap:wrap;gap:10px}
+button.kbtn{font-family:inherit;cursor:pointer}
+
+/* 完成證書 · certificate */
+.kcertv{max-width:960px}
+.kcert{background:#FFFDF6;border:3px solid var(--k-ink);outline:3px solid var(--k-ink);outline-offset:6px;border-radius:10px;margin:10px;padding:30px 36px 26px;
+  display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.kc-top{font-size:15px;font-weight:700;color:var(--k-ink2);letter-spacing:2px}
+.kcert h2{font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.15;letter-spacing:3px;color:var(--k-ink)}
+.kc-namel{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%}
+.kc-namel>span{font-size:13px;color:var(--k-ink2)}
+.kc-name{font:inherit;font-size:clamp(28px,4vw,40px);font-weight:900;text-align:center;width:min(440px,100%);padding:2px 10px;border:0;border-bottom:3px solid var(--k-ink);background:transparent;color:var(--k-ink)}
+.kc-txt{font-size:clamp(18px,2vw,21px);line-height:1.8;max-width:32em}
+.kc-stamps{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;margin-top:4px}
+.kc-stamps .kring{width:66px}
+.kc-stamps .kin b{font-size:14px}
+.kc-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;width:100%;margin-top:10px;padding-top:10px;border-top:2px dashed #C9B98A;font-size:16px}
+
+/* 全班一起玩（投影用：字放大） · class mode, sized for a projector */
+.kclass{max-width:1400px}
+.kclass h1{font-size:clamp(34px,4.2vw,60px);line-height:1.15;font-weight:900}
+.kc-intro{display:flex;flex-direction:column;gap:20px}
+.kc-hero{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.kc-hero>div{flex:1 1 420px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.kc-hero p{font-size:clamp(19px,2vw,24px);color:var(--k-ink2);max-width:36em}
+.kc-hero .ksprite{max-width:40vw;height:auto}
+.kc-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+@media(max-width:760px){.kc-pick{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kc-pick button{display:flex;align-items:center;gap:10px;min-height:56px;padding:8px 12px;border:2px solid var(--k-line);border-radius:16px;background:#fff;color:var(--k-ink);font:inherit;font-size:16px;line-height:1.3;text-align:left;cursor:pointer}
+.kc-pick button:hover{border-color:var(--k-ink)}
+.kc-pick b{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--k-ink);display:flex;align-items:center;justify-content:center}
+.kc-pick .ky{font-weight:700;color:var(--k-ink2)}
+.kc-keys ul{margin:8px 0 0 1.2em;font-size:17px;line-height:1.75}
+.kc-learn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
+@media(max-width:900px){.kc-learn{grid-template-columns:minmax(0,1fr)}}
+.kc-body{display:flex;flex-direction:column;gap:18px;min-width:0}
+.kc-learn .kfacts{gap:16px}
+.kc-learn .kfacts li{font-size:clamp(20px,2.1vw,30px);line-height:1.55}
+.kc-learn .kfacts li>b{width:40px;height:40px;font-size:20px;margin-top:4px}
+.kc-qhead{display:flex;gap:20px;align-items:center}
+.kc-qhead>svg{flex:none}
+.kc-qhead>div{display:flex;flex-direction:column;gap:10px;min-width:0}
+.kc-opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+@media(max-width:900px){.kc-opts{grid-template-columns:minmax(0,1fr)}}
+.kc-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:170px;padding:18px;background:#fff;border:3px solid var(--k-ink);border-radius:24px;box-shadow:0 6px 0 var(--k-ink);
+  font:inherit;font-size:clamp(22px,2.4vw,34px);font-weight:700;line-height:1.3;color:var(--k-ink);text-align:center;cursor:pointer}
+@media(max-width:900px){.kc-opt{min-height:0;flex-direction:row;justify-content:flex-start;text-align:left}}
+.kc-opt b{flex:none;width:62px;height:62px;border-radius:50%;background:var(--k-sun);border:3px solid var(--k-ink);display:flex;align-items:center;justify-content:center;font-size:30px}
+.kc-opt.right{background:#D5F2EC;border-color:var(--k-teal-ink)}
+.kc-opt.right b{background:var(--k-teal);color:#fff}
+.kc-opt.wrong{background:#FFF1EC;border-color:var(--k-coral-ink)}
+.kc-opt.dim{opacity:.4}
+.kc-opt:disabled{cursor:default}
+.kc-fb{margin-top:24px;font-size:clamp(20px,2.1vw,28px)}
+.kc-tools{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;margin-top:26px}
+.kc-timer{font-size:clamp(30px,3.4vw,48px);font-weight:900;color:var(--k-coral-ink)}
+.kc-timer:empty{display:none}
+.kc-nav{max-width:1400px;margin:0 auto;padding:0 20px 30px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.kc-steps{list-style:none;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.kc-steps li{padding:4px 14px;border-radius:999px;border:2px solid var(--k-line);background:#fff;font-size:15px;font-weight:700;color:var(--k-ink2)}
+.kc-steps li.on{background:var(--k-ink);border-color:var(--k-ink);color:#fff}
+@media(max-width:600px){.kc-steps{order:-1;width:100%}}
+.kc-end{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.kc-end p{font-size:clamp(19px,2vw,24px);max-width:36em}
+.kc-end .ksprite{max-width:50vw;height:auto}
+
+/* 列印（護照、證書） · print */
+@media print{
+  html:has(body[data-page=kids]),body[data-page=kids]{background:#fff!important;min-height:0!important}
+  body[data-page=kids] .topbar,body[data-page=kids] .sitefoot,body[data-page=kids] #scrim,body[data-page=kids] #toast,#page-kids .kbar,#page-kids .knp,#page-kids .kspk{display:none!important}
+  #page-kids{background:#fff;min-height:0;font-size:15px}
+  #page-kids *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important}
+  #page-kids .kwrap{max-width:none;padding:0}
+  #page-kids .kbook,#page-kids .kcert{box-shadow:none;break-inside:avoid}
+  #page-kids .kbook{grid-template-columns:260px minmax(0,1fr)}
+  #page-kids .kb-left{border-right:3px dashed #C9B98A;border-bottom:0}
+  #page-kids .kname input{border:0;border-bottom:2px solid var(--k-ink);border-radius:0;padding:4px 0}
+  body[data-page=kids] main{min-height:0!important;padding:0!important}
+  #page-kids .kcertv{padding-top:8mm}
+  #page-kids .kcert{margin:0 6mm;padding:12mm 10mm 8mm;min-height:215mm;justify-content:space-evenly;break-after:avoid}
+  #page-kids .kcert h2{font-size:46px}
+  #page-kids .kc-txt{font-size:19px}
+  #page-kids .kc-stamps{gap:6px;flex-wrap:nowrap}
+  #page-kids .kc-stamps .kring{width:58px}
+}
