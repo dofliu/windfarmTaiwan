@@ -2,7 +2,7 @@
 
 English (this page) ｜ [中文](./user-guide.md)
 
-How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v2.39.1. For a quick first look, read "Quick start" in the [README](../README.en.md).
+How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io/windfarmTaiwan/`), as of site version v3.4.0. For a quick first look, read "Quick start" in the [README](../README.en.md).
 
 ## Contents
 
@@ -11,15 +11,16 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 3. [Taiwan live](#3-taiwan-live)
 4. [Global (the 3D globe)](#4-global-the-3d-globe)
 5. [Learn](#5-learn)
-6. [Links and sharing](#6-links-and-sharing)
-7. [Single-file edition and public global wind map](#7-single-file-edition-and-public-global-wind-map)
-8. [Phones and older devices](#8-phones-and-older-devices)
-9. [How current the data is and how to read the figures](#9-how-current-the-data-is-and-how-to-read-the-figures)
-10. [Frequently asked](#10-frequently-asked)
+6. [Travel with the Wind (for young explorers)](#6-travel-with-the-wind-for-young-explorers)
+7. [Links and sharing](#7-links-and-sharing)
+8. [Single-file edition and public global wind map](#8-single-file-edition-and-public-global-wind-map)
+9. [Phones and older devices](#9-phones-and-older-devices)
+10. [How current the data is and how to read the figures](#10-how-current-the-data-is-and-how-to-read-the-figures)
+11. [Frequently asked](#11-frequently-asked)
 
 ## 1. Before you start
 
-- **Browser**: any recent Chrome, Edge, Firefox or Safari. The globe needs WebGL (3D graphics); devices without it get a bar-chart ranking instead (section 8).
+- **Browser**: any recent Chrome, Edge, Firefox or Safari. The globe needs WebGL (3D graphics); devices without it get a bar-chart ranking instead (section 9).
 - **Header** (on every page):
 
   | Item | What it does |
@@ -30,7 +31,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
   | **EN / 中文** | Switches the language; the browser remembers it |
 
 - **Footer**: data sources in four groups (Taiwan, live output abroad, yearly statistics & farms, maps & other), each group name linking to its part of "Sources & method"; plus "Sources & method", downloads of the single-file editions, a link to this guide, and the site version (click it for the changelog).
-- Every view has its own link: copy the address and whoever opens it sees the same view (section 6).
+- Every view has its own link: copy the address and whoever opens it sees the same view (section 7).
 - The **Back** button (browser or phone) first closes the farm details, globe card or dialog you opened; press it again to go back a page. Anything you closed with × or Esc needs no extra Back.
 
 ## 2. Home
@@ -40,7 +41,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 1. **Right now · Taiwan wind**: Taiwan's live wind output; below it, Taiwan's total output over the past 7 days (sampled on the site's schedule, with now and the 7-day high marked; hover or use the arrow keys for each point's time and output), overall availability, share of national generation, the number of households it could supply, and a line about the wind in four levels; buttons to the live dashboard, the farm map and the farm grid.
 2. **1980–2025 · Global wind**: world cumulative capacity with its curve, the year's additions and the offshore part; a line below gives the world figure for "2026 (latest available)" and how it is made up (how many countries have this year's figures, the rest carrying the end of 2025, as on the globe); "Open the 3D globe" or "Play from 1980".
 3. **Taiwan in the world**: Taiwan's world rank in offshore wind, its share of world offshore capacity and its rank in total wind; "Read Taiwan's path" opens Learn chapter 10.
-4. **Explore**: four cards for the live dashboard, the 3D globe, the 13 Learn chapters and the long-term trend. On phones, "Taiwan in the world" and "Explore" are laid out in two columns.
+4. **Explore**: four cards for the live dashboard, the 3D globe, the 13 Learn chapters and the long-term trend. On phones, "Taiwan in the world" and "Explore" are laid out in two columns. The banner under the cards, "For young explorers: Travel with the Wind", opens the version for students (section 6).
 5. **Featured milestones**: click a card to fly to that farm on the globe; "▶ Guided tour" runs through the key moments in wind power.
 
 ## 3. Taiwan live
@@ -60,7 +61,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 - **Grid**: the operating reserve light (ample / tight / alert / curtailment alert). When Taipower's live supply-demand report cannot be fetched from cloud servers, the daily government open-data figure is used and labelled "official daily data, not live".
 - **What this power means**: households supplied right now, wind's share of live national generation, today's generation so far, and today's avoided CO₂ as trees.
 - **Sort & filter** (open the toolbar): sort by output, availability, capacity or name; group by type or developer; show only offshore, onshore, operating or in development; filter by developer, turbine maker or size.
-  Your changes are remembered in this browser for the next visit and written into the link (e.g. `#/live?sort=cap&type=offshore`, section 6), so copying the link shares the same view; "Reset" goes back to all farms by output. Opening someone else's link does not change what you saved.
+  Your changes are remembered in this browser for the next visit and written into the link (e.g. `#/live?sort=cap&type=offshore`, section 7), so copying the link shares the same view; "Reset" goes back to all farms by output. Opening someone else's link does not change what you saved.
 - **Farm cards**: four groups (offshore / onshore × purchased / Taipower-owned, or grouped by developer); the figure under the turbine is availability, and the badges show commercial or trial operation, offshore or onshore, and the wind speed at the nearest station. Click a card for details.
 - **Compact view** (the default): "Generating now" at the top lists the cards of the farms with output (0.1 MW or more as shown) in the chosen order, at most 8 of them, with "N more generating · show all cards" when there are more; below it, "No output right now" lists only the names, by group, and a name opens the details. "Show all cards" or "Show as cards" lists every farm's card by group, and "Compact view" returns. Sorting and filters apply to both parts and grouping to the names and the all-cards view; when filters leave 8 farms or fewer, all cards are listed straight away.
 - **Phones**: one farm per row, with the full name, the output on the right and the capacity bar below.
@@ -267,12 +268,45 @@ At the top of the dialog, "Limits of the data and open questions" lists, compute
 
 Charts can be switched to tables.
 
-## 6. Links and sharing
+## 6. Travel with the Wind (for young explorers)
+
+`#/kids`, a lighter version for upper primary and junior high students, to play alone or to project for a whole class. The guide is Breezy (小風), a little wind sprite; the page uses light colours, large type and big buttons.
+Open it from the banner under "Explore" on the home page or from the link under "Project" in the footer. The site's navigation stays at the top; the page's own toolbar sits under it, with Breezy and the title on the left, the 8 stops as dots in the middle (green = stamped, yellow = the current stop) and "Globe" and "Passport n/8" on the right.
+
+| View | Link | Contents |
+|---|---|---|
+| Welcome | `#/kids` | Breezy says hello; "Start the adventure" opens the globe, plus "Taiwan's wind right now"; once you have stamps, "continue with stop n" appears |
+| Globe | `#/kids/globe` | A 3D globe (drag to spin, scroll or pinch to zoom) with countries in 6 shades by installed capacity at year end; the 8 numbers are the stops, tap one to open it. Beside it are Breezy's "Next" hint and "The route" (hover over or Tab to a stop and the globe turns to it); below are the "Time machine" (▶ plays 1980 to 2025, or drag the slider) and "Who has the most wind power?" (the top 5 and Taiwan, pole heights to scale) |
+| Stop | `#/kids/stop?n=1` to `8` | A photo (Wikimedia Commons, with author and licence; an illustration when there is none or it cannot load), three key facts and a quick question; stops 6 and 8 add "Compare", drawing Taipei 101 and the turbine to the same scale. A wrong answer explains why and lets you try again; the right one stamps your passport and shows "Next stop" |
+| Taiwan's wind right now | `#/kids/taiwan` | Taiwan's wind output right now, roughly how many homes it could power at once (one small house = 10,000 homes), a comparison with the windiest moment of the past 7 days and how many of Taiwan's wind farms are generating; the same data as Taiwan live, labelled "Simulated" when Taipower's data cannot be reached |
+| Passport | `#/kids/passport` | Your name, the 8 stamps and three badges (Time traveller: all 8 stops; Offshore expert: the 4 offshore stops; Taiwan wind fan: stop 7 plus a visit to "Taiwan's wind right now"); "Start over" clears every stamp |
+
+The eight stops, by year:
+
+| Stop | Year | Place | Topic |
+|---|---|---|---|
+| 1 | 1888 | Cleveland, USA | The first turbine that ran by itself to make power (Brush) |
+| 2 | 1957 | Gedser, Denmark | The grandparent of three-blade turbines (the Gedser turbine) |
+| 3 | 1986 | Muppandal, India | Wind through a mountain pass |
+| 4 | 1991 | Off Lolland, Denmark | The first wind farm at sea (Vindeby) |
+| 5 | 2009 | Jiuquan, China | A wind power base by the Gobi |
+| 6 | 2017 | Off Peterhead, Scotland | Turbines that float (Hywind Scotland) |
+| 7 | 2019 | Off Miaoli, Taiwan | Taiwan's first offshore wind farm (Formosa 1) |
+| 8 | 2025 | Off Fujian, China | The biggest turbine yet (Dongfang Electric 26 MW) |
+
+- Every figure comes from the site's own data: country capacity as on the globe, turbine specifications from the globe's milestones, stop 6's water depth and sizes from the foundation data, and Taiwan right now from Taiwan live.
+- Progress (stamps and name) is kept only in this browser, with no sign-up and nothing uploaded; another computer, or clearing the browser's data, starts over.
+- The language follows the EN / 中文 switch in the header.
+- The full single-file edition includes it (it works offline; photos need a connection); the public global wind map does not.
+
+## 7. Links and sharing
 
 The link is the view: share it and the other person sees the same thing. The globe keeps its link up to date as you use it.
 
 **Taiwan live**: `#/live?farm=<id>` opens a farm's details (on any tab, e.g. `#/live/wall?farm=wo1`); `#/live/charts?mode=bar|donut|hist` picks the chart (ranking, mix, long-term).
 Dashboard sort and filters (on `#/live` only; defaults are left out): `sort=ratio|cap|name` (availability, capacity, name; output by default), `group=dev` (group by developer), `type=offshore|onshore|commercial|building`, `size=L|M|S` (large >300 MW, medium 100–300 MW, small <100 MW), `dev` and `brand` (developer and maker, using the names in the toolbar menus; picking them there and copying the link is easiest). Example: `#/live?sort=cap&type=offshore`. A link that carries them wins; otherwise the dashboard uses what this browser remembered. These parameters, `farm` and `mode` are written into the link as you go.
+
+**Travel with the Wind**: `#/kids`, `#/kids/globe`, `#/kids/stop?n=1` to `8`, `#/kids/taiwan`, `#/kids/passport` (section 6).
 
 **Learn**: `#/learn/<chapter>` jumps to a chapter; `#/learn/sources?s=tw|intl|global|all` jumps to the Taiwan live, live abroad or global wind part of the sources, or opens "All sources and data notes".
 
@@ -305,27 +339,27 @@ Dashboard sort and filters (on `#/live` only; defaults are left out): `sort=rati
 Examples: `#/global?fty=fl&fst=op` (operating floating farms worldwide), `#/global?r=C:Europe&layer=fd` (foundations in Europe), `#/global?r=TWN&zones=1` (Taiwan with sea zones), `#/global?r=C:Europe&live=1` (live data coverage in Europe).
 `base`, `pipe`, `play` and `tour` apply when a link is opened but are not written back; the Ports and Events toggles are remembered in the browser, not in the link.
 
-## 7. Single-file edition and public global wind map
+## 8. Single-file edition and public global wind map
 
 Both are HTML files you save and open in a browser, with no web server, published in the GitHub Release "standalone" and linked in the site footer:
 
 | File | Size | Contents |
 |---|---|---|
-| [windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html) | about 13 MB | The whole site (Home, Taiwan live, the globe, Learn) |
+| [windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html) | about 13 MB | The whole site (Home, Taiwan live, the globe, Learn, Travel with the Wind) |
 | [windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html) | about 12 MB | A slim copy for everyone: just the globe with the onshore, offshore and pipeline layers, plus search, the Pipeline tab and Output |
 
 - **Online**: Taiwan live fetches the latest data from the live site, zooming in on the globe loads detailed tiles, and farm cards look up Wikipedia.
 - **Offline**: the global data, farms, borders and basemaps are inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled "Offline snapshot". Taiwan live's satellite map is replaced by a sketch of Taiwan; Wikipedia summaries and detailed tiles need a connection.
 - The files are rebuilt automatically when the site code or global data change; the footer shows the version and build time. The Share button always shares the live site's link.
 
-## 8. Phones and older devices
+## 9. Phones and older devices
 
 - The site works on phones: the header shrinks to icons; at 640 px and below the globe becomes a full-screen map with a bottom drawer (timeline, readout, side panel and cards all live in it; drag up to open; see 4.1) and the top edge keeps only Focus, Search, Layers and "⋯"; tablets at 641–900 px keep the swipeable one-row toolbar with the panel and cards sliding up from the bottom.
 - Touch: one finger rotates, two fingers zoom, tap a country or farm to fly there.
 - Devices with small screens or little memory get smaller basemaps, which download faster.
 - **Without WebGL** the globe switches to the bar race and says so.
 
-## 9. How current the data is and how to read the figures
+## 10. How current the data is and how to read the figures
 
 | Data | Updated |
 |---|---|
@@ -346,7 +380,7 @@ When reading the figures:
 - **Coordinates are mostly approximate**, and most countries' figures for 1980–1999 are estimates, good for trends only.
 - Farm-level coverage and items still to verify by country: [data-coverage.en.md](./data-coverage.en.md); removed or corrected records: [data-cleanup.en.md](./data-cleanup.en.md).
 
-## 10. Frequently asked
+## 11. Frequently asked
 
 - **Search found it, but it says "not on the map for this year"?** The timeline is before the farm was finished; press "Go to the latest year".
 - **The globe stays blank or is slow?** The first visit downloads a few MB; reload once. Older devices without WebGL get the bar race instead.

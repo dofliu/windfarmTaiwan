@@ -15,6 +15,16 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.4.0 — 2026-10-19
+
+- **New page: "Travel with the Wind" for young explorers** (`#/kids`; settled on 19 Oct 2026 after the owner reviewed the prototype on the design canvas: the guide character Breezy (小風) and eight stops): for upper primary and junior high students, to play alone or project in class. Light colours, large type and big buttons, in both languages following the header switch.
+  - **Globe** (`#/kids/globe`): a 3D globe with countries in 6 shades by installed capacity at year end and the 8 stops as numbers; hovering over or tabbing to a stop in "The route" turns the globe to it; the "Time machine" plays 1980 to 2025; "Who has the most wind power?" draws the top 5 and Taiwan with poles to scale.
+  - **Eight stops** (`#/kids/stop?n=1` to `8`): Brush 1888, Gedser 1957, Muppandal 1986, Vindeby 1991, Jiuquan 2009, Hywind Scotland 2017, Formosa 1 2019 and Dongfang Electric's 26 MW turbine 2025. Each has a photo (Wikimedia Commons; an illustration when there is none or it cannot load), three key facts and a quick question, with figures from the site's milestones, country capacity and foundation data; stops 6 and 8 compare the turbine with Taipei 101 at the same scale. A wrong answer explains why; the right one stamps the passport and offers the next stop.
+  - **Taiwan's wind right now** (`#/kids/taiwan`): the live output turned into roughly how many homes, a comparison with the windiest moment of the past 7 days and how many farms are generating; labelled as simulated when Taipower's data cannot be reached, and as an offline snapshot in the single-file copy offline.
+  - **Wind passport** (`#/kids/passport`): a name, 8 stamps and three badges; progress stays in this browser (no sign-up, nothing uploaded) and can be started over.
+  - An entry banner under "Explore" on the home page and a link under "Project" in the footer. The page's script and styles load only when it is opened; the full single-file copy embeds them (build list `KIDS`), the public global wind map does not.
+- New user guide section 6 (former sections 6–10 are now 7–11), with the page's links in the links section; README summaries updated; the smoke test checks the kids globe's 8 stops, that a wrong answer gives no stamp and the right one stamps and offers the next stop, that the passport remembers it, and the kids globe in the full single-file copy.
+
 ## v3.3.0 — 2026-10-18
 
 - Easier to use (the first three items the owner picked on 18 Oct 2026):
