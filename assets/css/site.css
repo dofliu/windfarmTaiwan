@@ -176,6 +176,15 @@ body[data-page="global"] .sitefoot{display:none}
 .xcard .xd{font-size:13px;color:var(--ink-2);line-height:1.6}
 .xcard .xg{margin-top:auto;font-size:12.5px;font-weight:800;color:var(--live)}
 .xcard.hist .xg{color:var(--hist)}
+.kidsban{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px 18px;text-decoration:none;color:var(--ink);background:var(--surface-1);border:1px dashed rgba(240,200,106,.55);border-radius:var(--radius)}
+.kidsban:hover{border-style:solid;border-color:var(--hist)}
+.kidsban-i{display:flex;color:var(--hist)}
+.kidsban-i .ico{width:30px;height:30px}
+.kidsban-t{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.kidsban-t b{font-size:15.5px}
+.kidsban-t>span{font-size:13px;color:var(--ink-2);line-height:1.55}
+.kidsban-g{flex:none;font-size:13px;font-weight:800;color:var(--hist)}
+#kids-loading{padding:90px 20px;text-align:center;color:var(--ink-2)}
 .msrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .mscard{display:flex;flex-direction:column;gap:6px;background:var(--surface-1);border:1px solid var(--line);border-left:3px solid var(--hist);border-radius:0 12px 12px 0;padding:13px 15px;text-decoration:none;color:var(--ink)}
 .mscard:hover{background:var(--surface-2)}

@@ -55,6 +55,8 @@ The bar at the top of the site has four pages:
 | **Global** | A 3D globe that animates the growth of wind power by country and zooms down to single wind farms |
 | **Learn** | 13 illustrated chapters, from the first power-generating turbine in 1888 to Taiwan's offshore wind, with a glossary and "Frequently asked" |
 
+There is also **"Travel with the Wind"** for upper primary and junior high students (`#/kids`, linked under "Explore" on the home page and in the footer).
+
 A suggested first visit (about 5 minutes):
 
 1. **Home**: start with the two big numbers at the top — Taiwan's wind output right now and the world's cumulative capacity.
@@ -127,6 +129,9 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
 - **Learn** `#/learn` — 13 chapters: from Charles Brush's 1888 turbine to 2025, onshore and offshore, foundations, floating wind,
   ever-bigger turbines, Asia's rise, Taiwan's offshore build-out, why wind matters, a glossary and full source list; every chart is drawn
   from the same global dataset and every chapter links to the globe to replay that part of the story
+- **Travel with the Wind** `#/kids` — for upper primary and junior high students, alone or in class: a guide character (Breezy), a 3D globe with a time machine, and 8 stops
+  (from Brush's 1888 turbine to a 26 MW giant in 2025), each with three key facts and a quick question whose right answer earns a stamp in the wind passport; "Taiwan's wind right now"
+  turns the live data into homes. Progress stays in the browser; see [user guide section 6](./docs/user-guide.en.md#6-travel-with-the-wind-for-young-explorers)
 
 ## Architecture
 

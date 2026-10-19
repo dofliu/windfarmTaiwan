@@ -8,9 +8,9 @@
    不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
    儀表精簡檢視最多 8 張「此刻在發電」卡片、切到全部卡片要等於全部風場；儀表篩選要寫進網址與瀏覽器、「恢復預設」要清掉；
    詳情的下一座要換風場，返回鍵（地球儀資訊卡也一樣）只關掉詳情、不離開頁面；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
-   手機的風電知識捲到某章時要有「目前章節」列。
+   手機的風電知識捲到某章時要有「目前章節」列；探險版要畫出地球與 8 個站點，答錯不蓋章、答對蓋章並出現下一站，護照要記得。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
-   連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖。
+   連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖，完整版的探險版地球要有 8 個站點。
 有錯誤時結束碼為 1。GitHub Actions 的 pr-check 在每個 PR 跑這支（.github/workflows/pr-check.yml）。
 
 1. Walks every page (home, the four Taiwan live tabs, the globe, a farm card, the Output dialog, Learn) at desktop and phone widths:
@@ -19,9 +19,10 @@
    dashboard filters must reach the URL and storage and Reset must clear them, the drawer's next button must change farm and Back must close
    only the drawer (likewise the globe's info card), the map tab must show the map
    or the offline sketch, the home page must have the 7-day curve and the four footer source groups, and on phones Learn must
-   show the current-chapter bar inside a chapter.
+   show the current-chapter bar inside a chapter; the kids page must draw its globe with 8 stops, stamp only a right answer, offer the next stop and keep
+   the stamp in the passport.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
-   and offline the full copy must label its live data as an offline snapshot and draw the sketch map.
+   and offline the full copy must label its live data as an offline snapshot and draw the sketch map; the full copy's kids globe must show 8 stops.
 Exits with 1 on any error. The pr-check workflow runs it on every pull request.
 */
 const path = require('path');
@@ -151,6 +152,26 @@ const ROUTES = [
     return b && b.classList.contains('is-on') && /05/.test(document.getElementById('lnc').textContent) ? '' : 'learn: current-chapter bar missing';
   }],
   ['#/learn/sources', 3500],
+  ['#/kids', 3000, () => document.querySelector('#page-kids .khome h1') ? '' : 'kids: home page missing'],
+  ['#/kids/globe', 6000, () => {
+    const n = document.querySelectorAll('#page-kids .kpin').length;
+    return document.querySelector('#page-kids canvas') && n === 8 ? '' : 'kids globe: canvas or 8 stop pins missing (' + n + ')';
+  }],
+  ['#/kids/stop?n=6', 3000, () => {
+    // 答錯不蓋章，答對蓋章並出現「下一站」 · a wrong answer gives no stamp, the right one stamps and shows Next
+    localStorage.removeItem('wf_kids'); WW.kids.api().P.s = [];
+    const a = WW.kids.api().STOPS[5].quiz.a, wrong = a ? 0 : 1;
+    document.querySelector('#kquiz [data-o="' + wrong + '"]').click();
+    if (document.querySelector('#kquiz .kfb.ok') || /"s":\[6\]/.test(localStorage.getItem('wf_kids') || '')) return 'kids quiz: wrong answer stamped';
+    document.querySelector('#kquiz [data-o="' + a + '"]').click();
+    if (!document.querySelector('#kquiz .kfb.ok') || !/"s":\[6\]/.test(localStorage.getItem('wf_kids') || '')) return 'kids quiz: right answer not stamped';
+    return document.querySelector('#knext a[href="#/kids/stop?n=7"]') ? '' : 'kids quiz: no link to the next stop';
+  }],
+  ['#/kids/taiwan', 3500, () => /\d/.test((document.querySelector('#page-kids .ktwv .kbig') || {}).textContent || '') ? '' : 'kids Taiwan: no output figure'],
+  ['#/kids/passport', 2500, () => {
+    const st = document.querySelectorAll('#page-kids .kst'), ok = document.querySelectorAll('#page-kids .kst.ok');
+    return st.length === 8 && ok.length === 1 ? '' : 'kids passport: ' + st.length + ' stamps, ' + ok.length + ' stamped';
+  }],
 ];
 
 async function walk(browser, fails) {
@@ -195,6 +216,12 @@ async function standalone(browser, fails) {
           const dots = await page.evaluate(() => document.querySelectorAll('#map .fbdot').length);
           if (!dots) errs.push('offline: no sketch map');
         }
+      }
+      if (full) {                                    // 探險版只在完整版 · the kids page is in the full copy only
+        await page.goto(url + '#/kids/globe');
+        await page.waitForTimeout(5000);
+        const pins = await page.evaluate(() => document.querySelector('#page-kids canvas') ? document.querySelectorAll('#page-kids .kpin').length : 0);
+        if (pins !== 8) errs.push('kids globe: ' + pins + ' stop pins');
       }
       await page.goto(url + '#/global?f=Sweetwater');
       await page.waitForTimeout(15000);

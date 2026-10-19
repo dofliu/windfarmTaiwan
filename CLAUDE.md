@@ -37,7 +37,7 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<檔名>`）；本機改完也可以自己跑一次確認。
   The `build-standalone` workflow rebuilds them after such pushes and uploads them to the GitHub Release tagged `standalone` (fixed tag,
   assets overwritten; download URL `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<file>`); you can also run the scripts locally.
-- 新增執行時載入的檔案（JS、CSS、JSON、圖檔）時，要加進建置程式的清單（`PAGE_SCRIPTS`、`LAZY`、`DATA`、`LIVE`、`IMAGES`）。
+- 新增執行時載入的檔案（JS、CSS、JSON、圖檔）時，要加進建置程式的清單（`PAGE_SCRIPTS`、`LAZY`、`KIDS`、`DATA`、`LIVE`、`IMAGES`；`KIDS` 是兒童版的程式，只放進完整單檔版）。
   資料一律經 `WW.getJSON`／`WW.getLiveJSON` 讀取，程式經 `WW.loadScript`／`WW.loadCSS` 載入，圖檔經 `WW.asset()` 取得網址，
   單檔版才能改用內嵌內容。
   When adding a runtime resource, add it to the lists in the build script, and load it through

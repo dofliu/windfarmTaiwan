@@ -108,6 +108,9 @@ def main():
     icon = take(index, r'<link rel="icon"[^>]*>', "icon link")
     logo = take(index, r'<svg class="logo".*?</svg>', "logo svg")
     footer = take(index, r'<footer class="sitefoot">.*?</footer>', "footer")
+    # 探險版不在公開版裡：頁尾連結改開完整網站 · the kids page is not in this copy: link to the full site
+    assert footer.count('href="#/kids"') == 1, "footer kids link not found"
+    footer = footer.replace('href="#/kids"', f'href="{SITE}#/kids" target="_blank" rel="noopener"')
     note = (f'<br><span data-l="zh">全球風電地圖 單檔公開版 · 建置於 {built}（{sha}）· 只有陸域、離岸與規劃中三個圖層，離線也能開；港口、水下基礎、事件、台灣即時與風電知識請看'
             f'<a href="{SITE}" target="_blank" rel="noopener">完整網站</a></span>'
             f'<span data-l="en">Global wind map, public single-file copy · built {built} ({sha}) · onshore, offshore and pipeline layers only, works offline; ports, foundations, events, Taiwan live data and the Learn pages are on the '

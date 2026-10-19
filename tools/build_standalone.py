@@ -28,6 +28,7 @@ SITE = "https://dofliu.github.io/windfarmTaiwan/"
 
 PAGE_SCRIPTS = ["assets/js/core.js", "assets/js/charts.js", "assets/js/live.js", "assets/js/home.js", "assets/js/learn.js"]
 LAZY = ["assets/css/globe.css", "assets/vendor/three-r128.min.js", "assets/vendor/OrbitControls-r128.js", "assets/js/globe.js"]
+KIDS = ["assets/css/kids.css", "assets/js/kids.js"]          # 兒童版（#/kids）：只放進完整單檔版，公開版地球儀沒有這一頁
 DATA = ["data/global/wind_global.json", "data/global/wind_farms.json", "data/global/world_borders.json", "data/global/ports.json", "data/global/foundations.json", "data/global/events.json", "data/global/country_stats.json", "data/global/country_indicators.json", "data/global/market_shares.json", "data/global/turbines.json", "data/global/turbines_osm.json", "data/global/generation.json", "data/global/turbine_output.json", "data/global/photos.json", "data/live/wind_now.json", "data/global/wind_resource.json", "data/global/turbines_de.json", "data/global/offshore_zones.json", "data/global/live_regions.json"]
 LIVE = ["wind_realtime.json", "wind_history.json", "grid_status.json", "wind_archive_daily.json", "data/live/intl_realtime.json", "data/archive/farm_daily.json"]
 IMAGES = ["assets/img/globe/relief_2k.jpg", "assets/img/globe/sat_2k.jpg", "assets/img/globe/wind_2k.jpg", "data/live/wind_now.webp"]
@@ -118,7 +119,7 @@ def main():
     # 2) 延遲載入的程式與資料以不執行的區塊放在頁面程式之前（頁面程式載入時就可能讀資料），
     #    再把五個頁面程式改為內嵌（body 結尾、DOMContentLoaded 前執行，與 defer 相同）
     blocks = []
-    for p in LAZY:
+    for p in LAZY + KIDS:
         blocks.append(f'<script type="text/plain" data-emb="{p}">' + script_safe(read(p), p) + "</script>")
     for p in DATA + LIVE:
         blocks.append(f'<script type="application/json" data-emb="{p}">' + json_block(p) + "</script>")
