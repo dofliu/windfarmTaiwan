@@ -25,7 +25,6 @@
 ### 近期要做（有日期）
 
 - **10 月底**（第 1 類第二輪）：台灣能源署月報表 4-02 的 9 月、美國 EIA-860M 9 月版（EIA 寫 10 月 23 日）、中國國家能源局前三季新聞發布會（要有陸上／海上分開的數字才能用）→ 改 `tools/latest_wind.py`、跑 `python3 tools/build_country_stats.py`；德、法、英的第三季要到 11–12 月。
-- **愛爾蘭與北愛爾蘭即時資料（同時看）**：EirGrid Smart Grid Dashboard 自 2026-10-17 18:15 UTC 起沒有新資料，`intl_wind_scraper.py` 的 `fetch_eirgrid` 每次都回報「no data points」：`/api/chart/` 回傳空的 `Rows`（舊的 `dd-Mon-YYYY` 與新頁面用的 `YYYY-MM-DD` 日期格式都試過）。網站已改版成新架構（Next.js），本對話的沙盒載不出新頁面的資料，無法確認是暫時故障還是介面換了。地球儀超過 6 小時的資料不當「此刻」，所以只顯示為資料較舊。使用者 2026-10-18 決定先等幾天：到時看排程紀錄的 `IE:`、`NI:` 兩行；仍失敗就找新的資料端點（要符合 EirGrid Open Data Licence），找不到就在 `intl_wind_scraper.py` 的 `NAT`／`NAT_FETCH` 與文件中標示暫停，並同步檢查 `globe.js` 的 `CVG_PART`、`CVG_BOX` 與 `tools/build_live_regions.py` 的 `REGIONS`（CLAUDE.md 第 4 節）。
 - **11 月中**：Northland 第三季報告 → 海龍（`assets/js/live.js` 的 `id:"longB"`，商轉仍寫 2027）。
 - **年底**：台電離岸二期（目標年底併網；10-07 裝 2／31）、沃四風（等沃旭全面商轉公告）、Baltic Power（76 部全裝完、預計 2026 年商轉）、Revolution Wind、Dieppe-Le Tréport（10-02 裝 41／62）、Sofia、青洲五、七（目標 2026-12）、儋州 CZ3 二場址；又德、環洋正式解約後改列 `PIPE_DROP`。
   查證紀錄在 `tools/research/twn_offshore_2026-10.json` 與 `farms_2026-10_status.json`（引文已核對）；要改哪裡見下面「需要定期回頭核對」。
@@ -40,7 +39,7 @@
   業主集團歸併只看名稱（`OWNER_GROUPS`）；龍源／國家能源集團、Avangrid／Iberdrola 等要合併需逐筆附出處。
 - **國家比較與指標（v2.38.0）**：容量因數用 Ember 的容量計算，與本站容量相差大的國家會偏高或偏低（台灣、丹麥、德國 2023–2025 年一致，其他國家沒逐一核對；介面已寫明只適合粗略比較）；
   指標級距 `IND_BREAKS`（`globe.js`）依 2025 年分布手動定，數字上升時要調整並重跑單色系對比檢查；OWID 人口序列到 2023 年。
-- **即時資料（v2.31.0–v2.36.0）**：新增或拿掉來源時同步改 `CVG_PART`、`CVG_BOX`（`globe.js`）與 `tools/build_live_regions.py` 的 `REGIONS`；巴西與 ERCOT 的 48 小時趨勢要跑一兩天才補齊；波蘭的地圖端點沒有公開文件（失效時改 `his-wlk-cal` 或拿掉並更新文件）；
+- **即時資料（v2.31.0–v2.36.0）**：新增或拿掉來源時同步改 `CVG_PART`、`CVG_BOX`（`globe.js`）與 `tools/build_live_regions.py` 的 `REGIONS`；巴西與 ERCOT 的 48 小時趨勢要跑一兩天才補齊；波蘭的地圖端點沒有公開文件（失效時改 `his-wlk-cal` 或拿掉並更新文件）；愛爾蘭與北愛爾蘭（EirGrid）2026-10-17 18:15 UTC 起沒有新資料，2026-10-18 11:16 UTC 的排程已恢復（2026-10-19 手動排程時近 48 小時都有資料），沒有改程式（再中斷時先等幾天，仍失敗才找新端點）；
   英國數字不含大部分配電網風機。**要先問使用者**：日本各電力區域（要事前同意）、英國逐場估計值與 NESO「embedded wind」估計、荷蘭 NED 與 ENTSO-E（需免費金鑰）、美國其他調度區（EIA-930 需金鑰、晚 31 小時）。
 - **資料品質（v2.37.0 之後）**：代用座標沒定位到的 139 座（印度 87、中國 9、日本 7…；可試 GEM 頁的中文名或「省級名單→旗縣」）；水下基礎中國 35 座、越南 5 座型式不詳（42 條線索在 `tools/research/fd_2026-10u_DQ.json`，都差「每種幾座」的建成紀錄）；
   缺輪轂高度的線索在 `tools/research/hub_2026-10u_DQ.json`；查不到的港口（湛江徐聞、啟東海力、大連莊河／太平灣、釜山、浦項、仁川）；WIND-088 對不到風場，WIND-053、058 等官方調查；大彰化、Hornsea 等重要風場查過沒有可用照片（清單見工作紀錄）。
