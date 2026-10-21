@@ -232,8 +232,8 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 網站聚焦風電。擴展成多能源別、改變部署方式或加入需要帳號／金鑰的資料源等決定，動工前先問使用者。
   The site is about wind power. Ask the owner before widening the scope (other energy sources, a different
   deployment, data sources that need accounts or API keys).
-- 觀察報告的產生程式在 `tools/report/`（說明見其 README）：數字一律由 `analysis.py` 從資料計算、外部機構的數字只用 `outlook_quotes.json` 核對過的原文；中英兩版（`text_zh.py`／`text_en.py`，鍵相同，改文字時兩檔一起改；使用者 2026-10-21 選定年報雜誌風格、A4 直式）；成品在 `report/`，不進 git。
-  The observation report builder is `tools/report/` (see its README): figures come from `analysis.py`, outside figures only from the checked quotes in `outlook_quotes.json`; Chinese and English editions (`text_zh.py` / `text_en.py`, same keys, change both together; the owner chose the magazine style, A4 portrait, on 21 Oct 2026); the output in `report/` stays out of git.
+- 觀察報告的產生程式在 `tools/report/`（說明見其 README）：數字一律由 `analysis.py` 從資料計算、外部機構的數字只用 `outlook_quotes.json` 核對過的原文；中英兩版（`text_zh.py`／`text_en.py`，鍵相同，改文字時兩檔一起改；使用者 2026-10-21 選定年報雜誌風格、A4 直式）；成品在 `report/`，不進 git，由手動執行的 `build-report`（`.github/workflows/report.yml`）重建後上傳到 GitHub Release「report」。
+  The observation report builder is `tools/report/` (see its README): figures come from `analysis.py`, outside figures only from the checked quotes in `outlook_quotes.json`; Chinese and English editions (`text_zh.py` / `text_en.py`, same keys, change both together; the owner chose the magazine style, A4 portrait, on 21 Oct 2026); the output in `report/` stays out of git and is published by the manual `build-report` workflow to the GitHub Release tagged `report`.
 - 宣傳影片的製作程式在 `tools/promo/`（說明見其 README）：目前影片不寫「開源」、不放網址（使用者 2026-10 的決定）；成品與中間檔不進 git。
   The promo video tooling lives in `tools/promo/` (see its README): for now the video does not say "open source" and shows no URL (the owner's
   decision, Oct 2026); the videos and intermediate files stay out of git.
