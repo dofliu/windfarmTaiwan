@@ -18,6 +18,9 @@ pdftoppm -r 50 -png report/observation-report.zh.pdf /tmp/p   # 逐頁預覽（�
 需要 Python 3、Pillow、Node.js 與 Playwright（Chromium 131 以上，頁尾與頁碼用 `@page` 的頁邊框）；字型由 Google Fonts 載入（Noto Sans TC、Noto Serif TC）。
 輸出在 `report/`（不進 git）。
 
+發布：在 GitHub Actions 手動執行 `build-report`（`.github/workflows/report.yml`），它在 CI 重拍截圖、產生兩份 PDF，上傳到 GitHub Release「report」（固定標籤，覆蓋同名檔案）：
+[中文版](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.zh.pdf)、[英文版](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.en.pdf)。
+
 ## 檔案
 
 | 檔案 | 內容 |
@@ -25,8 +28,8 @@ pdftoppm -r 50 -png report/observation-report.zh.pdf /tmp/p   # 逐頁預覽（�
 | `analysis.py` | 從 `data/global/` 計算報告用的所有數字與數列；報告不寫死數字 |
 | `charts.py` | SVG 圖表（面積、直條、折線、點狀分布、排名橫條）；色盤經色盲檢查 |
 | `text_zh.py`、`text_en.py` | 中文版與英文版文字（兩檔的鍵相同；改一邊時另一邊同時改） |
-| `build_report.py` | 版面：封面、目次、摘要、8 章、附錄與封底；章與章之間換頁，章內由瀏覽器自動分頁 |
-| `outlook_quotes.json` | 第 8 章各機構展望的出處與原文，以 `python3 tools/check_quotes.py tools/report/outlook_quotes.json` 核對 |
+| `build_report.py` | 版面：封面、目次、摘要、10 章、觀察、附錄與封底；章與章之間換頁，章內由瀏覽器自動分頁 |
+| `outlook_quotes.json` | 第 10 章各機構展望的出處與原文，以 `python3 tools/check_quotes.py tools/report/outlook_quotes.json` 核對 |
 | `shots.js` | 網站截圖（1440×900，2 倍） |
 | `pdf.js` | HTML 轉 PDF |
 

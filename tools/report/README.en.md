@@ -18,6 +18,9 @@ pdftoppm -r 50 -png report/observation-report.zh.pdf /tmp/p   # page previews (o
 Needs Python 3, Pillow, Node.js and Playwright (Chromium 131 or later: the footer and page numbers use `@page` margin boxes); fonts load from Google Fonts (Noto Sans TC, Noto Serif TC).
 Output goes to `report/` (not in git).
 
+Publishing: run the `build-report` workflow by hand in GitHub Actions (`.github/workflows/report.yml`). It retakes the screenshots in CI, builds both PDFs and uploads them to the GitHub Release tagged `report` (fixed tag, assets overwritten):
+[Chinese](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.zh.pdf), [English](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.en.pdf).
+
 ## Files
 
 | File | Contents |
@@ -25,8 +28,8 @@ Output goes to `report/` (not in git).
 | `analysis.py` | Computes every figure and series in the report from `data/global/`; nothing is typed in |
 | `charts.py` | SVG charts (area, columns, lines, dot strips, ranked bars); the palette is checked for colour-blind readers |
 | `text_zh.py`, `text_en.py` | The Chinese and English text (same keys; change both together) |
-| `build_report.py` | Layout: cover, contents, summary, 8 chapters, appendix and back cover; each chapter starts a new page and the browser paginates within it |
-| `outlook_quotes.json` | Sources and quoted passages for chapter 8's outlooks, checked with `python3 tools/check_quotes.py tools/report/outlook_quotes.json` |
+| `build_report.py` | Layout: cover, contents, summary, 10 chapters, observations, appendix and back cover; each chapter starts a new page and the browser paginates within it |
+| `outlook_quotes.json` | Sources and quoted passages for chapter 10's outlooks, checked with `python3 tools/check_quotes.py tools/report/outlook_quotes.json` |
 | `shots.js` | Site screenshots (1440×900 at 2×) |
 | `pdf.js` | HTML to PDF |
 

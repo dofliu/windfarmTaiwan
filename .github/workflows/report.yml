@@ -1,0 +1,65 @@
+name: build-report
+
+# 觀察報告（tools/report/）：手動執行（Actions → build-report → Run workflow），在 CI 重拍網站截圖、產生中英文 PDF，
+# 上傳到 GitHub Release「report」（固定標籤，覆蓋同名檔案）。PDF 不進 git（每份約 10 MB）。
+# 下載網址固定為 https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.zh.pdf（英文版 .en.pdf）。
+# Observation report (tools/report/): run by hand (Actions → build-report → Run workflow). Retakes the site screenshots in CI,
+# builds the Chinese and English PDFs and uploads them to the GitHub Release tagged "report" (fixed tag, assets overwritten).
+# The PDFs (about 10 MB each) stay out of git. Download URL:
+# https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.en.pdf (Chinese: .zh.pdf).
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-report
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: report
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow and Playwright (Chromium)
+        run: |
+          pip install pillow
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Site screenshots (tools/report/shots.js)
+        run: |
+          python -m http.server 8000 >/dev/null 2>&1 &
+          sleep 2
+          node tools/report/shots.js http://localhost:8000/
+
+      - name: Build the PDFs
+        run: |
+          python tools/report/build_report.py zh
+          python tools/report/build_report.py en
+          ls -l report/*.pdf
+
+      - name: Upload to the "report" release
+        run: |
+          NOTES="全球風電觀察報告（A4 直式，中文版與英文版）。由 tools/report/ 依網站資料產生；報告的文字、圖表設計與版面保留所有權利（見 LICENSE），各資料依其來源授權。
+          Global wind power observation report (A4 portrait, Chinese and English editions), built by tools/report/ from the site's data. The text, chart design and layout are all rights reserved (see LICENSE); each dataset is used under its source's licence.
+
+          建置 · Built from commit ${GITHUB_SHA}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --title "觀察報告 · Observation report" --notes "$NOTES"
+          else
+            gh release create "$TAG" --title "觀察報告 · Observation report" --notes "$NOTES" --latest=false --target "$GITHUB_SHA"
+          fi
+          gh release upload "$TAG" report/observation-report.zh.pdf report/observation-report.en.pdf --clobber
+          git tag -f "$TAG" "$GITHUB_SHA"
+          git push -f origin "refs/tags/$TAG"
