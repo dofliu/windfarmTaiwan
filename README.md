@@ -430,5 +430,6 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 ## 開發者與版權
 
 - 開發與維護：**國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室**（National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu）
-- 網站程式、設計與文字 © 2026 劉瑞弘研究室；各項資料依上列來源的授權使用（政府資料開放授權條款、CC BY 4.0、公有領域等）。
+- 網站程式、設計與文字 © 2026 劉瑞弘研究室，**保留一切權利**：只允許瀏覽網站與在 GitHub 上檢視本儲存庫，未經書面同意不得重製、散布、修改、另行部署或作商業使用；全文見 [LICENSE](./LICENSE)。
+- 各項資料依上列來源的授權使用（政府資料開放授權條款、CC BY 4.0、公有領域等），不受上述限制；`data/global/turbines_osm.json` 依 ODbL 1.0 分享（© OpenStreetMap 貢獻者）。
 - 發現資料錯誤或有更好的來源，歡迎在 [GitHub](https://github.com/dofliu/windfarmTaiwan/issues) 回報。
