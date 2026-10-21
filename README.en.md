@@ -40,6 +40,7 @@ Every document comes in Chinese and English with the same content; the site itse
 
 - **Single-file edition**: [windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html) (about 13 MB), the whole site; see "Single-file edition" below.
 - **Public global wind map** (for everyone): [windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html) (about 12 MB), just the 3D globe with the onshore, offshore and pipeline layers.
+- **Global Wind Power Observation Report** (A4 PDF, 37 pages): [English](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.en.pdf) (about 10 MB), [Chinese](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.zh.pdf) (about 14 MB), on growth, shifts and what comes next from 1980 to 2025; the figures are computed from the site's data, see [tools/report/README.en.md](./tools/report/README.en.md).
 
 **Project status (15 Oct 2026, v2.39.1)**: the main features are finished; the project has been in maintenance since 27 Sep 2026, with improvements
 made since as the owner asks (one PR each, see the CHANGELOG; October 2026 added national wind output right now, the live-data coverage layer, country comparison and indicators, and turbine makers and owners). The automatic Taiwan and international live-data updates keep running; what to
@@ -227,7 +228,7 @@ output and sea zones load only when needed.
   passages quoted during research really are on their source pages (`tools/grab_page.py` finds quotable passages),
   `tools/smoke_test.js` is the smoke test and `tools/check_version.py` checks the version and changelogs; `tools/research/` holds research notes not yet written into
   the tables (each source with its quoted passage and check result)
-- `tools/report/` — builder of the Global Wind Power Observation Report (figures computed from the data, site screenshots, A4 PDF; output in `report/`, not in git, see [tools/report/README.en.md](./tools/report/README.en.md))
+- `tools/report/` — builder of the Global Wind Power Observation Report (figures computed from the data, site screenshots, A4 PDF; output in `report/`, not in git, published on the "report" Release, see [tools/report/README.en.md](./tools/report/README.en.md))
 - `tools/promo/` — scripts for the promo video of the 3D globe (globe recording, designed scenes, storyboards; the videos stay out of git, see [tools/promo/README.en.md](./tools/promo/README.en.md))
 - `standalone/` (not in git) — where the build scripts write locally; the official single-file edition and public global wind map are built by Actions and uploaded to the GitHub Release "standalone"
 - `docs/` — the user guide (`user-guide.en.md`), the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the farm location list (`data-locations.en.md`), the
@@ -265,6 +266,7 @@ output and sea zones load only when needed.
   git history; can also be triggered manually (with a dry-run option)
 - `.github/workflows/wind-now.yml` — fetches the NOAA GFS 10 m wind field every 6 hours (`tools/fetch_gfs_wind.py`) for the globe's "Wind now"
 - `.github/workflows/standalone.yml` — rebuilds both single-file copies when site code or global data change and uploads them to the "standalone" Release (no commit, so git history does not grow by 25 MB each time)
+- `.github/workflows/report.yml` — run by hand: retakes the site screenshots, builds the Chinese and English observation report PDFs and uploads them to the "report" Release (no commit)
 - `.github/workflows/keepalive.yml` — on the 1st of each month, re-enables the scheduled workflows through the GitHub API so they are not disabled after 60 days without activity (no commits)
 - `.github/workflows/pr-check.yml` — checks on every pull request: a Playwright smoke test (every page at desktop and phone widths, both single-file copies online and offline,
   `tools/smoke_test.js`), syntax, farm coordinates, generated documents being up to date, and the version and both changelogs when the site changes (`tools/check_version.py`);
