@@ -566,6 +566,8 @@ approximate.
 ## Developer & copyright
 
 - Developed and maintained by **National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu** (國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室)
-- Site code, design and text © 2026 Dof Lab; each dataset is used under the licence of its source
-  listed above (Open Government Data License, CC BY 4.0, public domain, etc.).
+- Site code, design and text © 2026 Dof Lab, **all rights reserved**: you may view the website and view this repository on GitHub,
+  but may not copy, redistribute, modify, deploy elsewhere or use it commercially without written permission; see [LICENSE](./LICENSE).
+- Each dataset is used under the licence of its source listed above (Open Government Data License, CC BY 4.0, public domain, etc.),
+  which these restrictions do not override; `data/global/turbines_osm.json` is shared under the ODbL 1.0 (© OpenStreetMap contributors).
 - Found a data error or a better source? Please report it on [GitHub](https://github.com/dofliu/windfarmTaiwan/issues).

@@ -1,0 +1,79 @@
+版權所有，保留一切權利 · Copyright, all rights reserved
+
+Copyright © 2026 國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室 ·
+National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu
+
+────────────────────────────────────────
+中文
+────────────────────────────────────────
+
+本儲存庫與「風電風情 · Taiwan Wind Watch」網站的程式碼、網頁設計、版面、文字、圖示、說明文件，
+以及本研究室整理、查證與編寫的資料檔與說明（以下合稱「本作品」），版權所有，保留一切權利。
+
+一、允許的使用
+  1. 透過瀏覽器瀏覽本網站，以及在 GitHub 上檢視本儲存庫的內容。
+  2. GitHub 服務條款允許的、在 GitHub 平臺內的檢視與分支（fork）；分支不代表取得下列任何權利。
+  3. 依著作權法合理使用的範圍內引用，並註明出處「國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室」與網址。
+
+二、未經書面同意不得
+  1. 重製、下載後散布、轉載或鏡像本作品的全部或部分（含單檔版 HTML）。
+  2. 修改、改作、翻譯本作品，或以本作品為基礎製作衍生作品。
+  3. 將本作品或其任何部分部署到其他網站、伺服器或應用程式。
+  4. 將本作品用於任何商業用途。
+
+三、第三方資料與程式庫
+  本作品使用的第三方資料與程式庫，仍依其原始授權條款（詳見 README「資料來源與授權」），
+  本授權不限制任何人依那些條款享有的權利。特別是：
+  - `data/global/turbines_osm.json` 取自 OpenStreetMap，依開放資料庫授權 ODbL 1.0 分享
+    （© OpenStreetMap 貢獻者），不適用本授權的限制。
+  - 政府開放資料、CC BY 4.0、公有領域等來源的原始資料，依各自的授權使用。
+  - three.js（MIT）、Leaflet（BSD-2-Clause）依各自的授權。
+  - 風場照片取自 Wikimedia Commons，作者與授權寫在各張照片旁。
+
+四、授權洽詢
+  如需上述「未經書面同意不得」項目的授權（例如教學、研究合作或轉載），
+  請在 https://github.com/dofliu/windfarmTaiwan/issues 提出。
+
+本作品依「現狀」提供，不作任何明示或默示的保證；資料並非完全準確，詳見 README 的說明。
+
+────────────────────────────────────────
+English
+────────────────────────────────────────
+
+The code, web design, layout, text, icons and documentation in this repository and of the
+"風電風情 · Taiwan Wind Watch" website, together with the data files and notes compiled,
+checked and written by the lab (together, "the Work"), are copyrighted. All rights reserved.
+
+1. What you may do
+  a. View the website in a web browser and view the contents of this repository on GitHub.
+  b. View and fork the repository within GitHub as GitHub's Terms of Service allow; a fork
+     grants none of the rights listed under 2.
+  c. Quote the Work within the limits of fair use under copyright law, crediting
+     "National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering,
+     Dof Lab by Juihung Liu" and the URL.
+
+2. What you may not do without written permission
+  a. Copy, redistribute, republish or mirror all or part of the Work (including the
+     single-file HTML copies).
+  b. Modify, adapt or translate the Work, or create derivative works based on it.
+  c. Deploy the Work or any part of it on another website, server or application.
+  d. Use the Work or any part of it for any commercial purpose.
+
+3. Third-party data and libraries
+  Third-party data and libraries used by the Work remain under their original licences
+  (listed in the README under "Data sources & license"); this licence does not restrict
+  any right anyone has under those terms. In particular:
+  - `data/global/turbines_osm.json` comes from OpenStreetMap and is shared under the
+    Open Database License (ODbL) 1.0 (© OpenStreetMap contributors); the restrictions of
+    this licence do not apply to it.
+  - Source data from government open data, CC BY 4.0, public-domain and similar sources are
+    used under their own licences.
+  - three.js (MIT) and Leaflet (BSD-2-Clause) are under their own licences.
+  - Farm photos come from Wikimedia Commons; each photo's author and licence are shown with it.
+
+4. Asking for permission
+  To ask for any permission listed under 2 (for example teaching, research collaboration or
+  republishing), please open an issue at https://github.com/dofliu/windfarmTaiwan/issues.
+
+The Work is provided "as is", without warranty of any kind, express or implied; the data are
+not fully accurate, as the README explains.
