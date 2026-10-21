@@ -184,19 +184,21 @@ def lines(xs, series, label, unit, w=640, h=280, ymax=None, right=118, xstep=5, 
             b.append(f'<text x="{X(v):.1f}" y="{h-8}" text-anchor="middle" class="tick">{v}</text>')
     b.append(f'<line x1="{ml}" x2="{ml+pw}" y1="{Yv(ymin)}" y2="{Yv(ymin)}" stroke="{T["axis"]}"/>')
     ends = []
-    for name, vals, col, wd, endlab in series:
+    for sr in series:
+        name, vals, col, wd, endlab = sr[:5]
+        dash = f' stroke-dasharray="{sr[5]}"' if len(sr) > 5 and sr[5] else ''
         seg = []
         for x, v in zip(xs, vals):
             if v is None:
                 if len(seg) > 1:
-                    b.append(f'<polyline points="{" ".join(seg)}" fill="none" stroke="{col}" stroke-width="{wd}" stroke-linejoin="round"/>')
+                    b.append(f'<polyline points="{" ".join(seg)}" fill="none" stroke="{col}" stroke-width="{wd}" stroke-linejoin="round"{dash}/>')
                 seg = []
                 continue
             seg.append(f'{X(x):.1f},{Yv(v):.1f}')
         if len(seg) > 1:
-            b.append(f'<polyline points="{" ".join(seg)}" fill="none" stroke="{col}" stroke-width="{wd}" stroke-linejoin="round"/>')
+            b.append(f'<polyline points="{" ".join(seg)}" fill="none" stroke="{col}" stroke-width="{wd}" stroke-linejoin="round"{dash}/>')
         last = next(((x, v) for x, v in zip(reversed(xs), reversed(vals)) if v is not None), None)
-        if last:
+        if last and endlab is not None:
             b.append(f'<circle cx="{X(last[0]):.1f}" cy="{Yv(last[1]):.1f}" r="3" fill="{col}"/>')
             ends.append((Yv(last[1]) + 4, X(last[0]), name, col, endlab))
     ys = _spread([e[0] for e in ends], 13, mt + 4, mt + ph + 4)
@@ -257,3 +259,68 @@ def strips(groups, label, unit, w=640, h=260, ymax=70, medlab='中位數'):
 CSS = f'''.chart{{width:100%;height:auto;display:block}}.chart .tick{{font-size:10.5px;fill:{T["muted"]};font-variant-numeric:tabular-nums}}
 .chart .tick2{{font-size:11px;fill:{T["ink"]}}}.chart .lab{{font-size:11.5px;fill:{T["ink"]};font-weight:600}}.chart .ann{{font-size:10.5px;fill:{T["muted"]};font-weight:400}}
 .chart .unit{{font-size:10px;fill:{T["muted"]}}}.chart .inbar{{font-size:11px;fill:#fff;font-weight:700}}.chart .val{{font-size:10.5px;fill:{T["ink"]};font-variant-numeric:tabular-nums}}'''
+
+
+def stacked_cols(xs, series, label, unit, w=640, h=230, right=110, xstep=5, total_lab=None):
+    """堆疊直條 · stacked columns. series: [(name, values, color)] bottom first; negative parts are drawn below zero."""
+    ml, mr, mt, mb = 52, right, 18, 26
+    pw, ph = w - ml - mr, h - mt - mb
+    tops = [sum(max(0, s[1][i]) for s in series) for i in range(len(xs))]
+    ticks, top = _ticks(max(tops))
+    bw = pw / len(xs)
+    Yv = lambda v: mt + ph - v / top * ph
+    b = []
+    for t in ticks:
+        b.append(f'<line x1="{ml}" x2="{ml+pw}" y1="{Yv(t):.1f}" y2="{Yv(t):.1f}" stroke="{T["grid"]}"/>')
+        b.append(f'<text x="{ml-8}" y="{Yv(t)+4:.1f}" text-anchor="end" class="tick">{fmt(t)}</text>')
+    for k, x in enumerate(xs):
+        bx = ml + k * bw + 1
+        base = 0
+        for name, vals, col in series:
+            v = max(0, vals[k])
+            if v <= 0:
+                continue
+            y1, y0 = Yv(base + v), Yv(base)
+            b.append(f'<rect x="{bx:.1f}" y="{y1:.1f}" width="{bw-2:.1f}" height="{max(0.4, y0-y1-1):.1f}" fill="{col}"/>')
+            base += v
+        if isinstance(x, str) or (x - xs[0]) % xstep == 0 or x == xs[-1]:
+            b.append(f'<text x="{bx+bw/2-1:.1f}" y="{h-8}" text-anchor="middle" class="tick">{esc(x)}</text>')
+    b.append(f'<line x1="{ml}" x2="{ml+pw}" y1="{Yv(0)}" y2="{Yv(0)}" stroke="{T["axis"]}"/>')
+    lastx = ml + len(xs) * bw
+    base = 0
+    labs = []
+    for name, vals, col in series:
+        v = max(0, vals[-1])
+        labs.append((Yv(base + v / 2) + 4, name, col))
+        base += v
+    ys = _spread([l[0] for l in labs], 13, mt + 6, mt + ph)
+    for (y, name, col), yy in zip(labs, ys):
+        b.append(f'<text x="{lastx+8:.1f}" y="{yy:.1f}" class="lab"><tspan fill="{col}">■</tspan> {esc(name)}</text>')
+    if total_lab:
+        b.append(f'<text x="{lastx+8:.1f}" y="{Yv(tops[-1])-4:.1f}" class="ann">{esc(total_lab)}</text>')
+    b.append(f'<text x="{ml-8}" y="{mt-6}" text-anchor="end" class="unit">{esc(unit)}</text>')
+    return _svg(w, h, label, b)
+
+
+def scatter_bins(points, bins, label, xunit, yunit, w=640, h=290, xmax=170, ymax=70, medlab=''):
+    """散布圖加分組中位數 · scatter with binned medians. points: [(x, y)]; bins: [((lo, hi), median, n)]."""
+    ml, mr, mt, mb = 52, 16, 18, 32
+    pw, ph = w - ml - mr, h - mt - mb
+    X = lambda v: ml + v / xmax * pw
+    Yv = lambda v: mt + ph - v / ymax * ph
+    b = []
+    for t in range(0, ymax + 1, 10):
+        b.append(f'<line x1="{ml}" x2="{ml+pw}" y1="{Yv(t):.1f}" y2="{Yv(t):.1f}" stroke="{T["grid"]}"/>')
+        b.append(f'<text x="{ml-8}" y="{Yv(t)+4:.1f}" text-anchor="end" class="tick">{t}%</text>')
+    for v in range(0, xmax + 1, 20):
+        b.append(f'<text x="{X(v):.1f}" y="{h-14}" text-anchor="middle" class="tick">{v}</text>')
+    b.append(f'<text x="{ml+pw:.1f}" y="{h-2}" text-anchor="end" class="unit">{esc(xunit)}</text>')
+    for x, y in points:
+        b.append(f'<circle cx="{X(min(x, xmax)):.1f}" cy="{Yv(min(y, ymax)):.1f}" r="2.4" fill="{T["c2"]}" fill-opacity=".45"/>')
+    for (lo, hi), med, n in bins:
+        x0, x1 = X(lo if lo > 40 else 40), X(min(hi, xmax))
+        b.append(f'<line x1="{x0:.1f}" x2="{x1:.1f}" y1="{Yv(med):.1f}" y2="{Yv(med):.1f}" stroke="{T["c1"]}" stroke-width="3.2"/>')
+        b.append(f'<text x="{(x0+x1)/2:.1f}" y="{Yv(med)-7:.1f}" text-anchor="middle" class="lab">{med:.1f}%</text>')
+    b.append(f'<line x1="{ml}" x2="{ml+pw}" y1="{Yv(0)}" y2="{Yv(0)}" stroke="{T["axis"]}"/>')
+    b.append(f'<text x="{ml-8}" y="{mt-6}" text-anchor="end" class="unit">{esc(yunit)}</text>')
+    return _svg(w, h, label, b)

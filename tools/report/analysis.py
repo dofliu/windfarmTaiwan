@@ -256,3 +256,185 @@ if __name__ == '__main__':
     pprint.pprint(D['found'])
     pprint.pprint(D['cf_us_period'])
     print({k: v for k, v in D['size_us'].items() if k % 5 == 0}, {k: v for k, v in D['size_de'].items() if k % 5 == 0})
+
+
+def compute_more(D):
+    """第二輪的深入分析 · deeper analyses added in the second round."""
+    import glob
+    G = load('wind_global')
+    CI = load('country_indicators')
+    FW = load('wind_farms')
+    GEN = load('generation')
+    TU = load('turbines')
+    TD = load('turbines_de')
+    MS = load('market_shares')
+    EV = load('events')
+    PO = load('ports')
+    Y = G['years']
+    C = G['countries']
+    W = G['worldTotal']
+    tot = lambda c, i: (c['on'][i] or 0) + (c['off'][i] or 0)
+    cols = FW['meta']['cols']
+    R = [dict(zip(cols, r)) for r in FW['rows']]
+
+    # 一、各地區的年新增 · yearly additions by region
+    def grp(c):
+        if c['iso'] == 'CHN':
+            return 'CHN'
+        if c['cont'] == 'Europe':
+            return 'EUR'
+        if c['iso'] == 'USA':
+            return 'USA'
+        return 'OTH'
+    adds = {k: [] for k in ('CHN', 'EUR', 'USA', 'OTH')}
+    ay = list(range(2001, 2026))
+    for yr in ay:
+        i = Y.index(yr)
+        s = collections.Counter()
+        for c in C:
+            s[grp(c)] += tot(c, i) - tot(c, i - 1)
+        for k in adds:
+            adds[k].append(s[k])
+    D['add_years'] = ay
+    D['add_by_region'] = adds
+    D['chn_add_share'] = {yr: 100 * adds['CHN'][ay.index(yr)] / sum(adds[k][ay.index(yr)] for k in adds) for yr in (2010, 2015, 2020, 2025)}
+    D['chn_add_share_2016_25'] = 100 * sum(adds['CHN'][ay.index(y)] for y in range(2016, 2026)) / sum(adds[k][ay.index(y)] for k in adds for y in range(2016, 2026))
+    dec = []
+    for a, b in ((1980, 1990), (1990, 2000), (2000, 2010), (2010, 2020), (2020, 2025)):
+        ia, ib = Y.index(a), Y.index(b)
+        gain = {c['iso']: tot(c, ib) - tot(c, ia) for c in C}
+        topc = max(gain, key=gain.get)
+        dec.append(dict(a=a, b=b, w0=W[ia], w1=W[ib], cagr=100 * ((W[ib] / W[ia]) ** (1 / (b - a)) - 1), add=W[ib] - W[ia],
+                        top=topc, top_add=gain[topc], top_share=100 * gain[topc] / (W[ib] - W[ia])))
+    D['decades'] = dec
+
+    # 二、集中度與門檻 · concentration and thresholds
+    D['conc_years'] = list(range(1990, 2026))
+    D['top5_share'] = []
+    D['n_1gw'] = []
+    D['n_10gw'] = []
+    for yr in D['conc_years']:
+        i = Y.index(yr)
+        v = sorted((tot(c, i) for c in C), reverse=True)
+        D['top5_share'].append(100 * sum(v[:5]) / W[i])
+        D['n_1gw'].append(sum(1 for x in v if x >= 1000))
+        D['n_10gw'].append(sum(1 for x in v if x >= 10000))
+    i25 = Y.index(2025)
+    pc = []
+    for c in C:
+        pop = (CI['c'].get(c['iso']) or {}).get('pop') or []
+        p = next((x for x in reversed(pop) if x), None)
+        if p and tot(c, i25) > 500:
+            pc.append((c['iso'], tot(c, i25) * 1e6 / p))
+    pc.sort(key=lambda x: -x[1])
+    D['percap'] = pc
+    D['percap_world'] = W[i25] * 1e6 / 8.1e9 if False else None
+    D['twn_percap_rank'] = 1 + [x[0] for x in pc].index('TWN') if 'TWN' in [x[0] for x in pc] else None
+
+    # 三、比功率（W/m²）· specific power of new turbines
+    import math
+    def spec(d):
+        return {y: v['mw'] * 1e6 / (math.pi * (v['rd'] / 2) ** 2) for y, v in d.items() if v.get('rd')}
+    D['sp_us'] = spec(D['size_us'])
+    D['sp_de'] = spec(D['size_de'])
+
+    # 四、離岸占年新增、離岸風場平均規模 · offshore share of additions; offshore farm size
+    off = D['off']
+    D['off_add_share'] = {yr: 100 * (off[Y.index(yr)] - off[Y.index(yr) - 1]) / (W[Y.index(yr)] - W[Y.index(yr) - 1]) for yr in range(2005, 2026)}
+    offf = [r for r in R if r['type'] in (1, 2) and r['st'] == 0 and r['year']]
+    rows = []
+    for a, b in ((1991, 2004), (2005, 2009), (2010, 2014), (2015, 2019), (2020, 2022), (2023, 2026)):
+        s = [r['mw'] for r in offf if a <= r['year'] <= b]
+        rows.append(dict(period=(a, b), n=len(s), med=st.median(s) if s else 0, mx=max(s) if s else 0))
+    D['off_farm_size'] = rows
+    biggest = sorted(offf, key=lambda r: -r['mw'])[:5]
+    D['off_biggest'] = [(r['name'], r['zh'], r['iso'], r['mw'], r['year']) for r in biggest]
+
+    # 五、容量因數與葉輪、丹麥陸域／離岸 · CF vs rotor; Danish onshore vs offshore
+    ftype = {(r['iso'], r['name']): r['type'] for r in R}
+    sc = []
+    dk = {'on': [], 'off': []}
+    for k, v in GEN['farms'].items():
+        iso, name = k.split('|', 1)
+        last = v['y'][max(v['y'])]
+        if iso == 'USA' and v.get('rd') and ftype.get((iso, name)) == 0:
+            t = TU['farms'].get(name)
+            if t and t.get('n') and t.get('kw'):
+                sp_ = (t['kw'] / t['n']) * 1000 / (math.pi * (v['rd'] / 2) ** 2)
+                sc.append((v['rd'], last[1], sp_))
+        if iso == 'DNK':
+            dk['off' if ftype.get((iso, name), 0) >= 1 else 'on'].append(last[1])
+    D['cf_rd'] = sc
+    bins = [(0, 80), (80, 100), (100, 120), (120, 140), (140, 200)]
+    D['cf_rd_bins'] = [dict(b=b, n=len(s), med=st.median(s)) for b in bins for s in [[c for r, c, _ in sc if b[0] <= r < b[1]]] if s]
+    D['cf_dk'] = {k: dict(n=len(v), med=st.median(v)) for k, v in dk.items() if v}
+
+    # 六、廠牌的世代變化（美國、德國）· makers by commissioning period
+    MK = MS['makers']
+    def by_period(iso, keep):
+        out = []
+        for a, b in ((1990, 2004), (2005, 2009), (2010, 2014), (2015, 2019), (2020, 2026)):
+            cnt = collections.Counter()
+            for y, ret, o, mi, mw in MS['m'].get(iso, []):
+                if ret or mi < 0 or not (a <= y <= b):
+                    continue
+                n = MK[mi]
+                cnt[n if n in keep else 'Other'] += mw
+            t = sum(cnt.values())
+            out.append(dict(period=(a, b), total=t, shares=[100 * cnt[k] / t if t else 0 for k in keep + ['Other']]))
+        return out
+    D['mk_us_period'] = by_period('USA', ['GE Vernova', 'Vestas', 'Siemens Gamesa'])
+    D['mk_de_period'] = by_period('DEU', ['Enercon', 'Vestas', 'Nordex'])
+    ow = MS['owners']['WORLD']['all']
+    D['ow_top10_share'] = 100 * sum(b for a, b in ow['top'][:10]) / ow['k']
+
+    # 七、港口 · ports
+    P = PO['ports']
+    D['ports_roles'] = collections.Counter(r for x in P for r in x['roles'])
+    D['ports_by_iso'] = collections.Counter(x['iso'] for x in P).most_common(12)
+    D['ports_status'] = collections.Counter(x['status'] for x in P)
+    D['ports_n'] = len(P)
+    D['ports_meta'] = PO['meta']
+    D['ports_tw'] = [dict(name=x['name'], zh=x.get('zh') or x['name'], roles=x['roles'], status=x['status'], farms=len(x.get('farms') or [])) for x in P if x['iso'] == 'TWN']
+    D['ports_most_farms'] = sorted(((x.get('zh') or x['name'], x['name'], x['iso'], len(x.get('farms') or [])) for x in P), key=lambda r: -r[3])[:6]
+
+    # 八、事故 · incidents
+    E = EV['events']
+    inc = [e for e in E if e['cat'] == 'inc']
+    D['ev_meta'] = EV['meta']
+    D['inc_n'] = len(inc)
+    def itype(e):
+        s = e['sub'][0]
+        if '火' in s:
+            return 'fire'
+        if '葉片' in s or '轉子' in s:
+            return 'blade'
+        if '倒' in s or '塔架' in s or '基礎' in s:
+            return 'tower'
+        return 'other'
+    D['inc_type'] = collections.Counter(itype(e) for e in inc)
+    D['inc_site'] = collections.Counter(e['site'] for e in inc)
+    D['inc_year'] = collections.Counter(e['year'] for e in inc)
+    D['inc_cont'] = collections.Counter(e['cont'] for e in inc)
+    D['inc_typhoon'] = sum(1 for e in inc if '颱風' in e['sub'][0] or '颱風' in (e['title'][0] or ''))
+    D['inc_deaths'] = sum(e['deaths'] or 0 for e in inc if isinstance(e['deaths'], (int, float)))
+    D['inc_with_deaths'] = sum(1 for e in inc if isinstance(e['deaths'], (int, float)) and e['deaths'] > 0)
+    D['inc_list'] = sorted(inc, key=lambda e: e['date'])
+
+    # 九、台灣與日韓 · Taiwan vs Japan and Korea offshore
+    D['asia_off'] = {iso: [next(c for c in C if c['iso'] == iso)['off'][Y.index(y)] or 0 for y in range(2010, 2026)] for iso in ('TWN', 'JPN', 'KOR', 'VNM')}
+    tw = []
+    for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'archive', 'wind_history_archive_*.json'))):
+        a = json.load(open(f, encoding='utf-8'))
+        t = [p['total'] for p in a['points'] if p.get('total') is not None]
+        if t:
+            tw.append((a['month'], st.mean(t), len(t)))
+    D['tw_month'] = tw
+
+    # 十、開發管線的陸域／離岸 · pipeline by type from the farm layer
+    pipe = collections.defaultdict(float)
+    for r in R:
+        if r['st'] in (1, 2, 3):
+            pipe[(r['st'], 'off' if r['type'] >= 1 else 'on')] += r['mw']
+    D['pipe_type'] = dict(pipe)
+    return D
