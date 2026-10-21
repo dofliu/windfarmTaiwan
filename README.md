@@ -38,6 +38,7 @@
 
 - **單檔版**：[windfarmTaiwan-standalone.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)（約 13 MB），整個網站；詳見下方「單檔版」。
 - **全球風電地圖公開版**（給一般人）：[windfarmTaiwan-globe.html](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html)（約 12 MB），只有 3D 地球儀與陸域、離岸、規劃中三個基本圖層。
+- **全球風電發展觀察報告**（A4 PDF，37 頁）：[中文版](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.zh.pdf)（約 14 MB）、[英文版](https://github.com/dofliu/windfarmTaiwan/releases/download/report/observation-report.en.pdf)（約 10 MB），1980–2025 年的成長、重心轉移與下一步；數字由本站資料計算，見 [tools/report/README.md](./tools/report/README.md)。
 
 **專案狀態（2026-10-15，v2.39.1）**：主要功能已完成，2026-09-27 起進入維護期，之後依使用者的要求逐項補強（每項一個 PR，見 CHANGELOG；2026-10 加入各國此刻的風電總出力、即時資料涵蓋範圍、國家比較與指標、風機廠牌與業主）。
 台灣與國外即時資料的自動更新照常運作；維護要注意的事見 [DEPLOY.md](./DEPLOY.md)「維護」，之後要接續的工作見 [TODO.md](./TODO.md) 最上面。
@@ -177,7 +178,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
   `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上（`tools/grab_page.py` 找可引用的片段）、
   `tools/smoke_test.js` 冒煙測試、`tools/check_version.py` 檢查版本號與 CHANGELOG；`tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
-- `tools/report/` — 全球風電發展觀察報告的產生程式（數字由資料計算、網站截圖、A4 PDF；成品在 `report/`，不進 git，見 [tools/report/README.md](./tools/report/README.md)）
+- `tools/report/` — 全球風電發展觀察報告的產生程式（數字由資料計算、網站截圖、A4 PDF；成品在 `report/`，不進 git，發布在 Release「report」，見 [tools/report/README.md](./tools/report/README.md)）
 - `tools/promo/` — 全球風電 3D 地球儀宣傳影片的製作程式（地球儀實機錄製、設計景、分鏡；成品不進 git，見 [tools/promo/README.md](./tools/promo/README.md)）
 - `standalone/`（不進 git）— 本機執行建置程式的輸出位置；正式的單檔版與全球風電地圖公開版由 Actions 建好後上傳到 GitHub Release「standalone」
 - `docs/` — 使用說明（`user-guide.md`）、資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、風場位置清單（`data-locations.md`）、水下基礎逐場清單（`foundations.md`）、
@@ -203,6 +204,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔，並從最近三週的 git 歷史補上每日取樣漏記的快照；可手動觸發（含 dry_run 選項）
 - `.github/workflows/wind-now.yml` — 每 6 小時抓 NOAA GFS 離地 10 m 風場（`tools/fetch_gfs_wind.py`），地球儀「此刻的風」用
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建兩個單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 25 MB）
+- `.github/workflows/report.yml` — 手動執行：重拍網站截圖、產生觀察報告中英文 PDF，上傳到 Release「report」（不 commit）
 - `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）
 - `.github/workflows/pr-check.yml` — 每個 PR 的自動檢查：Playwright 冒煙測試（全站各頁桌機與手機、兩個單檔版連網與離線，`tools/smoke_test.js`）、語法、座標健檢、
   由程式產生的文件是否已更新、改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）；本機可跑 `node tools/smoke_test.js http://localhost:8000/ --standalone`
