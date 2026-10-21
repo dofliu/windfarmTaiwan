@@ -14,7 +14,7 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Generated documents (e.g. `docs/data-coverage*.md`, `docs/data-cleanup*.md`, `docs/data-locations*.md`, `docs/foundations*.md`, `docs/events*.md`) are written in both languages by their generator; do not edit them by hand.
 - 網站介面文字也一律雙語：HTML 用 `data-l="zh"`／`data-l="en"`，JS 用 `WW.L(zh, en)` 或各模組的 i18n 字典。
   All UI text is bilingual as well: `data-l="zh"` / `data-l="en"` in HTML, `WW.L(zh, en)` or the module's i18n table in JS.
-- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/user-guide（使用說明）、docs/data-coverage、docs/data-cleanup、docs/data-locations、docs/foundations、docs/events、docs/live-data-sources、tools/promo/README。
+- 目前的文件 · Current documents：README、DEPLOY、ROADMAP、TODO、CHANGELOG、docs/user-guide（使用說明）、docs/data-coverage、docs/data-cleanup、docs/data-locations、docs/foundations、docs/events、docs/live-data-sources、tools/promo/README、tools/report/README。
 - 網站新增或改變使用者看得到的功能（頁面、工具列按鈕、圖層、網址參數）時，同一個 PR 更新 `docs/user-guide.md` 與 `.en.md`；README 的「功能」只寫摘要並連到使用說明。
   When a PR adds or changes something users see (pages, toolbar buttons, layers, URL parameters), update `docs/user-guide.md` and `.en.md` in the same PR; the README's feature list stays a summary that links to the guide.
   `CLAUDE.md` 本身以中英並列寫在同一個檔。This file itself keeps both languages side by side.
@@ -232,6 +232,8 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 網站聚焦風電。擴展成多能源別、改變部署方式或加入需要帳號／金鑰的資料源等決定，動工前先問使用者。
   The site is about wind power. Ask the owner before widening the scope (other energy sources, a different
   deployment, data sources that need accounts or API keys).
+- 觀察報告的產生程式在 `tools/report/`（說明見其 README）：數字一律由 `analysis.py` 從資料計算、外部機構的數字只用 `outlook_quotes.json` 核對過的原文；中文版先完成（使用者 2026-10-21 選定年報雜誌風格、A4 直式），英文版之後做（`text_en.py`）；成品在 `report/`，不進 git。
+  The observation report builder is `tools/report/` (see its README): figures come from `analysis.py`, outside figures only from the checked quotes in `outlook_quotes.json`; the Chinese edition comes first (the owner chose the magazine style, A4 portrait, on 21 Oct 2026) and the English one later (`text_en.py`); the output in `report/` stays out of git.
 - 宣傳影片的製作程式在 `tools/promo/`（說明見其 README）：目前影片不寫「開源」、不放網址（使用者 2026-10 的決定）；成品與中間檔不進 git。
   The promo video tooling lives in `tools/promo/` (see its README): for now the video does not say "open source" and shows no URL (the owner's
   decision, Oct 2026); the videos and intermediate files stay out of git.

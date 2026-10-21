@@ -9,3 +9,4 @@ tools/promo/assets/
 tools/promo/s[0-9]*.html
 tools/promo/*.mp4
 tools/promo/*.log*
+/report/
