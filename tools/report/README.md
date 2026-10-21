@@ -15,7 +15,7 @@ python3 tools/report/build_report.py en     # 英文版：report/observation-rep
 pdftoppm -r 50 -png report/observation-report.zh.pdf /tmp/p   # 逐頁預覽（選用）
 ```
 
-需要 Python 3、Pillow、Node.js 與 Playwright（Chromium 131 以上，頁尾與頁碼用 `@page` 的頁邊框）；字型由 Google Fonts 載入（Noto Sans TC、Noto Serif TC）。
+需要 Python 3、Pillow、Node.js 與 Playwright（Chromium 131 以上，頁尾與頁碼用 `@page` 的頁邊框）；字型由 Google Fonts 載入（Noto Sans TC、Noto Serif TC）。瀏覽器連不到 Google Fonts 時（例如經過自帶憑證的代理），要在本機以同樣的名稱安裝這兩套字型，否則備用字型的分頁會與發布的 PDF 不同（可用 `pdffonts` 檢查）。
 輸出在 `report/`（不進 git）。
 
 發布：在 GitHub Actions 手動執行 `build-report`（`.github/workflows/report.yml`），它在 CI 重拍截圖、產生兩份 PDF，上傳到 GitHub Release「report」（固定標籤，覆蓋同名檔案）：

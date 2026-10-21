@@ -15,7 +15,7 @@ python3 tools/report/build_report.py en     # English: report/observation-report
 pdftoppm -r 50 -png report/observation-report.zh.pdf /tmp/p   # page previews (optional)
 ```
 
-Needs Python 3, Pillow, Node.js and Playwright (Chromium 131 or later: the footer and page numbers use `@page` margin boxes); fonts load from Google Fonts (Noto Sans TC, Noto Serif TC).
+Needs Python 3, Pillow, Node.js and Playwright (Chromium 131 or later: the footer and page numbers use `@page` margin boxes); fonts load from Google Fonts (Noto Sans TC, Noto Serif TC). If the browser cannot reach Google Fonts (for example behind a proxy with its own certificate), install the two fonts locally under the same names, or the fallback fonts will paginate differently from the published PDFs (check with `pdffonts`).
 Output goes to `report/` (not in git).
 
 Publishing: run the `build-report` workflow by hand in GitHub Actions (`.github/workflows/report.yml`). It retakes the screenshots in CI, builds both PDFs and uploads them to the GitHub Release tagged `report` (fixed tag, assets overwritten):

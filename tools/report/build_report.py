@@ -72,8 +72,8 @@ p{{font-size:11.2px;line-height:1.88;margin:0 0 2.8mm;text-align:justify;orphans
 .multi figure{{margin:0}}.multi img{{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2.5mm;display:block}}.multi.n2 img{{aspect-ratio:4/3}}
 .multi figcaption{{font-size:9px;line-height:1.5;color:{T["muted"]};margin-top:1.5mm}}.multi figcaption b{{display:block;color:{T["ink"]};font-size:11px}}
 .cov .note{{position:absolute;left:17mm;right:17mm;top:186mm;font-size:9.5px;color:#d8d0bf;opacity:.85;text-align:right}}
-.tl{{display:grid;grid-template-columns:14mm 1fr;gap:0 4mm;font-size:9.8px;line-height:1.6}}
-.tl .y{{font:700 12px "Noto Serif TC";color:{T["c1"]};text-align:right;padding-top:.6mm}}.tl .e{{border-left:2px solid {T["soft"]};padding:0 0 2.4mm 4mm;position:relative}}
+.tl{{display:grid;grid-template-columns:14mm 1fr;gap:0 4mm;font-size:9.6px;line-height:1.5}}
+.tl .y{{font:700 12px "Noto Serif TC";color:{T["c1"]};text-align:right;padding-top:.6mm}}.tl .e{{border-left:2px solid {T["soft"]};padding:0 0 2mm 4mm;position:relative}}
 .tl .e:before{{content:"";position:absolute;left:-4.2px;top:2mm;width:6px;height:6px;border-radius:50%;background:{T["c1"]}}}.tl .e b{{font-size:10.2px}}
 .toc{{display:grid;grid-template-columns:12mm 1fr;gap:2.4mm 3mm;font-size:12px;margin:2mm 0 7mm}}.toc b{{font:700 14px "Noto Serif TC";color:{T["c1"]}}}
 .how{{display:grid;grid-template-columns:22mm 1fr;gap:2mm 3mm;font-size:9.8px;line-height:1.6;background:#fff;border-radius:3mm;padding:4mm 5mm;box-shadow:0 0 0 .4px {T["grid"]}}}.how b{{color:{T["muted"]}}}
