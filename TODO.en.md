@@ -13,6 +13,9 @@ The version-by-version work log and research leads from 28 Sep to 14 Oct 2026 mo
 
 ### Where things stand (19 Oct 2026)
 
+- **Global Wind Power Observation Report (started 21 Oct 2026)**: the owner asked for an observation report on decades of global wind development, analysis and outlook; after three sample styles they chose B, "annual-report magazine", A4 portrait, Chinese first and English later.
+  The Chinese edition is done (`tools/report/`; `python3 tools/report/build_report.py zh` writes `report/observation-report.zh.pdf`, about 25 pages with 16 figures, 6 tables and site screenshots; the output stays out of git).
+  **Next**: the owner's comments on the Chinese edition; the English edition (add `text_en.py` with the same keys as `text_zh.py`, then `build_report.py en`); where to publish the PDF (for example a GitHub Release) is the owner's call. After data updates, rerun and reread the chapter text.
 - **"Travel with the Wind" for young explorers, first version (v3.4.0)**: on 19 Oct 2026 the owner asked for a 3D globe for upper primary and junior high students, to play alone or in class, and after reviewing the design canvas (https://claude.ai/artifact/Bg23pinEdbLptTpd5BoZa1 ) settled on "Breezy (小風) as the guide, these stops".
   `#/kids` (welcome, globe with time machine, 8 stops with a stamped quiz, Taiwan's wind right now, wind passport); the code is `assets/js/kids.js` and `assets/css/kids.css`, loaded by `core.js` only when opened, with progress in `localStorage` as `wf_kids`.
   Every figure at the stops comes from the site's data (milestones, country capacity, `foundations.json`, Taiwan live); check the original sources as usual before changing a stop. Photos reuse the checked Commons photos in `photos.json`; stops 4 and 8 have no usable photo yet and show an illustration.

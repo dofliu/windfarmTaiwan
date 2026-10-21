@@ -32,6 +32,7 @@ Every document comes in Chinese and English with the same content; the site itse
 | Foundations | [docs/foundations.md](./docs/foundations.md) | [docs/foundations.en.md](./docs/foundations.en.md) | Foundation type and dimensions of each offshore farm (generated) |
 | Events and incidents | [docs/events.md](./docs/events.md) | [docs/events.en.md](./docs/events.en.md) | The events layer, row by row (generated) |
 | Live-data sources | [docs/live-data-sources.md](./docs/live-data-sources.md) | [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) | Which other countries publish live wind generation |
+| Observation report | [tools/report/README.md](./tools/report/README.md) | [tools/report/README.en.md](./tools/report/README.en.md) | Builder of the Global Wind Power Observation Report (PDF) |
 | Promo video | [tools/promo/README.md](./tools/promo/README.md) | [tools/promo/README.en.md](./tools/promo/README.en.md) | Scripts for the globe's promo video |
 | Project conventions | [CLAUDE.md](./CLAUDE.md) (both languages side by side) | | For developers and AI agents: rules for docs, data, testing and versions |
 
@@ -226,6 +227,7 @@ output and sea zones load only when needed.
   passages quoted during research really are on their source pages (`tools/grab_page.py` finds quotable passages),
   `tools/smoke_test.js` is the smoke test and `tools/check_version.py` checks the version and changelogs; `tools/research/` holds research notes not yet written into
   the tables (each source with its quoted passage and check result)
+- `tools/report/` — builder of the Global Wind Power Observation Report (figures computed from the data, site screenshots, A4 PDF; output in `report/`, not in git, see [tools/report/README.en.md](./tools/report/README.en.md))
 - `tools/promo/` — scripts for the promo video of the 3D globe (globe recording, designed scenes, storyboards; the videos stay out of git, see [tools/promo/README.en.md](./tools/promo/README.en.md))
 - `standalone/` (not in git) — where the build scripts write locally; the official single-file edition and public global wind map are built by Actions and uploaded to the GitHub Release "standalone"
 - `docs/` — the user guide (`user-guide.en.md`), the data coverage report (`data-coverage.en.md`), the data clean-up log (`data-cleanup.en.md`), the farm location list (`data-locations.en.md`), the

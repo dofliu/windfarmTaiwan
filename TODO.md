@@ -11,6 +11,9 @@
 
 ### 現在的狀態（2026-10-19）
 
+- **全球風電發展觀察報告（2026-10-21 開始）**：使用者要一份說明幾十年來全球風電發展、分析與未來的觀察報告，看過三種樣稿後選 B「年報雜誌」風格、A4 直式，先寫中文版、之後要英文版。
+  中文版已完成（`tools/report/`，`python3 tools/report/build_report.py zh` 輸出 `report/observation-report.zh.pdf`，約 25 頁、16 張圖、6 張表、網站截圖；成品不進 git）。
+  **下一步**：使用者看過中文版的意見；英文版（新增 `text_en.py`，鍵與 `text_zh.py` 相同，`build_report.py en`）；成品要放哪裡（例如 GitHub Release）待使用者決定。資料更新後重跑並重讀各章文字。
 - **探險版「跟著風去旅行」第一版（v3.4.0）**：使用者 2026-10-19 提出給小學高年級與國中生、可自己玩也可課堂用的 3D 地球儀，看過設計畫布（https://claude.ai/artifact/Bg23pinEdbLptTpd5BoZa1 ）後定案「角色用小風，站點照這樣」。
   `#/kids`（歡迎、地球＋時光機、8 站＋小問題蓋章、台灣此刻的風、風車護照）；程式在 `assets/js/kids.js`、`assets/css/kids.css`，`core.js` 只在打開時載入，進度記在 `localStorage` 的 `wf_kids`。
   站點的數字一律取自本站資料（里程碑、國家容量、`foundations.json`、台灣即時），改站點內容時照樣先對原始資料；照片沿用 `photos.json` 已核對的 Commons 照片，第 4、8 站目前沒有可用的照片、用插畫。

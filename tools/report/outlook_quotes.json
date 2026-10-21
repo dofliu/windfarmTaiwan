@@ -1,0 +1,115 @@
+[
+  {
+    "farm": "GWEC GWR 2026: 2025 installations (record 165 GW)",
+    "sources": [
+      {
+        "url": "https://www.gwec.net/reports/globalwindreport",
+        "quote": "Wind industry sets a new benchmark, as installations hit a record 165 GW last year, (up 40% on the previous record year of new capacity)."
+      },
+      {
+        "url": "https://tethys.pnnl.gov/sites/default/files/publications/GWEC-2026.pdf",
+        "quote": "New onshore wind installations surpassed the 150 GW annual milestone, with a record 155 GW connected to the grid in 2025. Offshore, 9 GW of wind capacity was commissioned in 2025"
+      }
+    ]
+  },
+  {
+    "farm": "GWEC GWR 2026: cumulative capacity end-2025",
+    "sources": [
+      {
+        "url": "https://www.gwec.net/reports/globalwindreport",
+        "quote": "Global wind power hit 1,299 GW, as governments turn to homegrown renewable energy"
+      }
+    ]
+  },
+  {
+    "farm": "GWEC GWR 2026: 2026-2030 forecast (969 GW)",
+    "sources": [
+      {
+        "url": "https://tethys.pnnl.gov/sites/default/files/publications/GWEC-2026.pdf",
+        "quote": "Under current policies and the global response to the Middle East crisis, a total of 969 GW of new capacity is expected over the next five years, averaging 194 GW annually through 2030."
+      }
+    ]
+  },
+  {
+    "farm": "GWEC GWR 2026: onshore and offshore outlook",
+    "sources": [
+      {
+        "url": "https://tethys.pnnl.gov/sites/default/files/publications/GWEC-2026.pdf",
+        "quote": "with annual installations expected to average 168 GW (totalling 840 GW in 2026-2030)."
+      },
+      {
+        "url": "https://tethys.pnnl.gov/sites/default/files/publications/GWEC-2026.pdf",
+        "quote": "With annual installations projected to average 26 GW , a total of 129 GW of offshore wind capacity is expected to be added worldwide in the forecast period"
+      }
+    ]
+  },
+  {
+    "farm": "IEA Renewables 2025: wind additions 2025-2030",
+    "sources": [
+      {
+        "url": "https://iea.blob.core.windows.net/assets/48eccb83-984c-45d2-bf78-67a61e88d241/Renewables2025.pdf",
+        "quote": "our forecast expects cumulative onshore wind capacity additions to increase 45% over 2025 -2030, reaching 732 GW."
+      },
+      {
+        "url": "https://iea.blob.core.windows.net/assets/48eccb83-984c-45d2-bf78-67a61e88d241/Renewables2025.pdf",
+        "quote": "Offshore wind capacity expansion is expected to reach 140 GW over the forecast period, more than doubling the growth of the previous five-year"
+      },
+      {
+        "url": "https://iea.blob.core.windows.net/assets/48eccb83-984c-45d2-bf78-67a61e88d241/Renewables2025.pdf",
+        "quote": "As a result, we have revised the global offshore wind capacity forecast 27% downwards from last year."
+      }
+    ]
+  },
+  {
+    "farm": "IEA Renewables 2025: tripling gap",
+    "sources": [
+      {
+        "url": "https://iea.blob.core.windows.net/assets/48eccb83-984c-45d2-bf78-67a61e88d241/Renewables2025.pdf",
+        "quote": "Global renewable power capacity is expected to reach 2.6 times its 2022 level by 2030 but fall short of the COP28 tripling pledge."
+      },
+      {
+        "url": "https://iea.blob.core.windows.net/assets/48eccb83-984c-45d2-bf78-67a61e88d241/Renewables2025.pdf",
+        "quote": "Nevertheless, the main case trajectory is not fully on track to triple global renewable capacity to around 11 500 GW"
+      },
+      {
+        "url": "https://iea.blob.core.windows.net/assets/48eccb83-984c-45d2-bf78-67a61e88d241/Renewables2025.pdf",
+        "quote": "Global renewable power capacity is expected to double between now and 2030, increasing by 4 600 gigawatts (GW)."
+      }
+    ]
+  },
+  {
+    "farm": "COP28 UAE Consensus (decision 1/CMA.5 para 28a)",
+    "sources": [
+      {
+        "url": "https://unfccc.int/sites/default/files/resource/cma2023_16a01E.pdf",
+        "quote": "Tripling renewable energy capacity globally and doubling the global average annual rate of energy efficiency improvements by 2030"
+      }
+    ]
+  },
+  {
+    "farm": "COP28 Global Renewables and Energy Efficiency Pledge (11,000 GW)",
+    "sources": [
+      {
+        "url": "https://www.cop28.com/en/global-renewables-and-energy-efficiency-pledge",
+        "quote": "Commit to work together to triple the world’s installed renewable energy generation capacity to at least 11,000 GW by 2030, taking into consideration different starting points and national circumstances."
+      }
+    ]
+  },
+  {
+    "farm": "Taiwan MOEA offshore wind 2026-2039 plan",
+    "sources": [
+      {
+        "url": "https://www.moea.gov.tw/MNS/populace/news/News.aspx?kind=1&menu_id=40&news_id=123431",
+        "quote": "目標2035年累計設置容量達18.3至19.9GW、2039年提升至24.7至27.9GW"
+      },
+      {
+        "url": "https://www.moea.gov.tw/MNS/populace/news/News.aspx?kind=1&menu_id=40&news_id=123431",
+        "quote": "已達成超過500座離岸風力機安裝，累計裝置容量達約4.9GW"
+      },
+      {
+        "url": "https://www.moea.gov.tw/MNS/populace/news/News.aspx?kind=1&menu_id=40&news_id=123431",
+        "quote": "並規劃每四年一期辦理選商，每期釋出約8GW容量"
+      }
+    ]
+  }
+]

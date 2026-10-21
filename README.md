@@ -30,6 +30,7 @@
 | 水下基礎 | [docs/foundations.md](./docs/foundations.md) | [docs/foundations.en.md](./docs/foundations.en.md) | 離岸風場的水下基礎型式與尺寸逐場清單（程式產生） |
 | 重大事件與事故 | [docs/events.md](./docs/events.md) | [docs/events.en.md](./docs/events.en.md) | 事件圖層的逐筆清單（程式產生） |
 | 即時資料來源評估 | [docs/live-data-sources.md](./docs/live-data-sources.md) | [docs/live-data-sources.en.md](./docs/live-data-sources.en.md) | 其他國家即時發電資料的可行性 |
+| 觀察報告 | [tools/report/README.md](./tools/report/README.md) | [tools/report/README.en.md](./tools/report/README.en.md) | 全球風電發展觀察報告（PDF）的產生程式 |
 | 宣傳影片 | [tools/promo/README.md](./tools/promo/README.md) | [tools/promo/README.en.md](./tools/promo/README.en.md) | 地球儀宣傳影片的製作程式 |
 | 專案慣例 | [CLAUDE.md](./CLAUDE.md)（中英並列） | | 給開發者與 AI：文件、資料、測試、版本的規則 |
 
@@ -176,6 +177,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
   `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上（`tools/grab_page.py` 找可引用的片段）、
   `tools/smoke_test.js` 冒煙測試、`tools/check_version.py` 檢查版本號與 CHANGELOG；`tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
+- `tools/report/` — 全球風電發展觀察報告的產生程式（數字由資料計算、網站截圖、A4 PDF；成品在 `report/`，不進 git，見 [tools/report/README.md](./tools/report/README.md)）
 - `tools/promo/` — 全球風電 3D 地球儀宣傳影片的製作程式（地球儀實機錄製、設計景、分鏡；成品不進 git，見 [tools/promo/README.md](./tools/promo/README.md)）
 - `standalone/`（不進 git）— 本機執行建置程式的輸出位置；正式的單檔版與全球風電地圖公開版由 Actions 建好後上傳到 GitHub Release「standalone」
 - `docs/` — 使用說明（`user-guide.md`）、資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、風場位置清單（`data-locations.md`）、水下基礎逐場清單（`foundations.md`）、
