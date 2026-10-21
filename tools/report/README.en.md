@@ -10,7 +10,8 @@ The report's text, chart design and layout are all rights reserved (see [LICENSE
 ```bash
 python3 -m http.server 8000 &               # serve the site for the screenshots
 node tools/report/shots.js                  # site screenshots into report/shots/ (retake only when the site's look changes)
-python3 tools/report/build_report.py zh     # writes report/observation-report.zh.html and .pdf
+python3 tools/report/build_report.py zh     # Chinese: report/observation-report.zh.html and .pdf
+python3 tools/report/build_report.py en     # English: report/observation-report.en.html and .pdf
 pdftoppm -r 50 -png report/observation-report.zh.pdf /tmp/p   # page previews (optional)
 ```
 
@@ -23,7 +24,7 @@ Output goes to `report/` (not in git).
 |---|---|
 | `analysis.py` | Computes every figure and series in the report from `data/global/`; nothing is typed in |
 | `charts.py` | SVG charts (area, columns, lines, dot strips, ranked bars); the palette is checked for colour-blind readers |
-| `text_zh.py` | The Chinese text (the English `text_en.py` uses the same keys) |
+| `text_zh.py`, `text_en.py` | The Chinese and English text (same keys; change both together) |
 | `build_report.py` | Layout: cover, contents, summary, 8 chapters, appendix and back cover; each chapter starts a new page and the browser paginates within it |
 | `outlook_quotes.json` | Sources and quoted passages for chapter 8's outlooks, checked with `python3 tools/check_quotes.py tools/report/outlook_quotes.json` |
 | `shots.js` | Site screenshots (1440×900 at 2×) |

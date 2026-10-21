@@ -51,7 +51,7 @@ body{{background:#faf7f0}}
 .open .t{{position:absolute;left:17mm;right:17mm;bottom:7mm;color:#fff;display:flex;gap:6mm;align-items:flex-end}}
 .open .num{{color:#f0b23c;font-size:68px}}.open h2{{font:900 27px/1.25 "Noto Sans TC";margin:0}}.open .k{{color:#e9dcc0}}
 .open .cap{{position:absolute;right:4mm;top:3mm;font-size:8px;color:#fff;opacity:.8;background:rgba(8,12,22,.55);padding:1mm 2.5mm;border-radius:2mm;margin:0;max-width:150mm}}
-p{{font-size:11.2px;line-height:1.88;margin:0 0 2.8mm;text-align:justify;orphans:2;widows:2}}
+p{{font-size:11.2px;line-height:1.88;margin:0 0 2.8mm;text-align:justify;orphans:2;widows:2;hyphens:auto}}
 .lede{{font-size:15px;line-height:1.7;font-weight:700;margin-bottom:4mm}}
 .cols{{column-count:2;column-gap:8mm;margin-bottom:2mm;break-inside:avoid}}
 .panel{{background:#fff;border-radius:3mm;padding:4.5mm 5mm 3.5mm;margin:0 0 4mm;box-shadow:0 0 0 .4px {T["grid"]};break-inside:avoid}}.panel.flow{{break-inside:auto}}.panel.flow .sub{{break-inside:avoid}}
@@ -160,7 +160,8 @@ def build(lang):
     B = Book(t)
     Y = D['years']
     i25 = Y.index(2025)
-    N = lambda iso: D['names'][iso]['zh' if lang == 'zh' else 'en']
+    SHORT = {'United States of America': 'United States'}
+    N = lambda iso: D['names'][iso]['zh'] if lang == 'zh' else SHORT.get(D['names'][iso]['en'], D['names'][iso]['en'])
 
     # 封面 · cover：平面地圖傾斜，各國風機高度依容量
     B.page(f'''<img src="{shot('cover_crop')}"><div class="veil"></div>
@@ -321,7 +322,7 @@ def build(lang):
     pr = D['ports_roles']
     figro = ch.hbars([(t['roles'][k], v, str(v)) for k, v in pr.most_common()], t['c7p_fig20'], labw=110, color=T['c2'])
     figpi = ch.hbars([(N(i), v, str(v)) for i, v in D['ports_by_iso']], t['c7p_fig21'], labw=110, color=T['c2'])
-    prow = [[esc(x['zh']), esc('、'.join(t['roles'][r] for r in x['roles'])), esc(t['pstatus'][x['status']]), str(x['farms'])] for x in D['ports_tw']]
+    prow = [[esc(x['zh'] if lang == 'zh' else x['name']), esc('、'.join(t['roles'][r] for r in x['roles'])), esc(t['pstatus'][x['status']]), str(x['farms'])] for x in D['ports_tw']]
     B.start(opener('07', t['c7p_kick'], t['c7p_title'], 'ports', t['c7p_shot']) + f'<p class="lede">{esc(t["c7p_lede"])}</p><div class="cols">{ps(t["c7p_p"][:2])}</div>')
     B.cont(B.figure(t['c7p_fig20'], figro, t['c7p_src'], '#/global', key='roles') + B.figure(t['c7p_fig21'], figpi, t['c7p_src'], key='portc'))
     B.cont(ps(t['c7p_p'][2:]) + B.table(t['c7p_tab'], t['c7p_tab_cols'], prow, t['c7p_src'], num_cols=(3,), key='portstw')
@@ -424,12 +425,12 @@ def _tw_2026(tl_, t):
 def _pipe_bars(rows, t, w=640, keys=None):
     rh = 22
     h = len(rows) * rh + 34
-    ml, mr = 110, 70
+    ml, mr = max(110, 14 + max(ch.tw(l, 11) for l, _, _ in rows)), 70
     pw = w - ml - mr
     vmax = max(a + b for _, a, b in rows)
     k1, k2 = keys or (t['pipe_st'][1], t['pipe_st'][2])
     b = [f'<rect x="{ml}" y="4" width="11" height="11" rx="2" fill="{T["c1"]}"/><text x="{ml+16}" y="14" class="lab">{esc(k1)}</text>',
-         f'<rect x="{ml+90}" y="4" width="11" height="11" rx="2" fill="{T["c2"]}"/><text x="{ml+106}" y="14" class="lab">{esc(k2)}</text>']
+         f'<rect x="{ml+30+ch.tw(k1, 11.5)}" y="4" width="11" height="11" rx="2" fill="{T["c2"]}"/><text x="{ml+46+ch.tw(k1, 11.5)}" y="14" class="lab">{esc(k2)}</text>']
     for k, (lab, a, c) in enumerate(rows):
         y = 26 + k * rh
         wa, wc = a / vmax * pw, c / vmax * pw

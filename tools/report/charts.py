@@ -19,6 +19,11 @@ def fmt(v, d=0):
     return f'{v:,.{d}f}'
 
 
+def tw(s, size=11):
+    """估計文字寬度（中日韓字全形、拉丁字半形）· rough text width: CJK full width, Latin about half."""
+    return sum(size if ord(c) > 0x2e80 else size * 0.56 for c in str(s))
+
+
 def _svg(w, h, label, body):
     return f'<svg viewBox="0 0 {w} {h}" class="chart" role="img" aria-label="{esc(label)}">{"".join(body)}</svg>'
 
@@ -131,7 +136,7 @@ def stack100(rows, keys, colors, label, w=640, h=230, legend=True):
         lx = ml
         for k, col in zip(keys, colors):
             b.append(f'<rect x="{lx}" y="6" width="11" height="11" rx="2" fill="{col}"/><text x="{lx+16}" y="16" class="lab">{esc(k)}</text>')
-            lx += 16 + 12.5 * len(k) + 26
+            lx += 16 + tw(k, 11.5) + 22
     for r, (lab, vals) in enumerate(rows):
         y0 = mt + r * rh + (rh - bh) / 2
         x0 = ml
@@ -151,6 +156,7 @@ def hbars(items, label, w=640, h=None, color=None, unit='', valfmt=None, labw=15
     """排名橫條 · ranked horizontal bars. items: [(label, value, right_text)]."""
     rh = 22
     h = h or (len(items) * rh + 12)
+    labw = max(labw, 14 + max(tw(l, 11) for l, _, _ in items))
     ml, mr = labw, 70 + note_w
     pw = w - ml - mr
     vmax = max(v for _, v, _ in items)
