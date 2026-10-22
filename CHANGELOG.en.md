@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.5.1 — 2026-10-22
+
+- **Taiwan live data updates more often** (the owner reported on 22 Oct 2026 that at noon the site still showed 7 a.m. data): GitHub's schedule is often late or skipped, so the 2-hourly job ran only 3–6 times a day, up to 6 hours apart, and Taipower's live data does not allow cross-site reads, so the page cannot fetch it directly. An external cron service now starts the fetch through the GitHub API about every 30 minutes (setup under "External trigger" in DEPLOY.en.md), with GitHub's 2-hourly schedule kept as a fallback.
+- The trend file `wind_history.json` gains only about one point an hour, its last point always the newest data, so it does not grow with the more frequent fetching; the Taiwan live samples (`farm_daily.json`) get denser.
+- The update-frequency wording on the site and in the user guide, README and DEPLOY now says "about every 30 minutes"; the sample notes say it was about every 2 hours before 22 Oct 2026.
+
 ## v3.5.0 — 2026-10-19
 
 - **Travel with the Wind, second version** (started at the owner's request on 19 Oct 2026; the three items listed when the first version was handed over):

@@ -68,10 +68,11 @@ GRID_OUTPUT = Path(__file__).with_name("grid_status.json")
 HISTORY = Path(__file__).with_name("wind_history.json")  # 滾動歷史(供前端畫真實出力趨勢)
 # 每日取樣累積(含民營風場，長期保存不修剪)：每次抓到的快照依台電資料時間累加到當日，
 # 供「發電表現」比較各併網點的平均出力與容量因數。民營風場沒有逐場的官方年發電量，這是唯一的逐場來源；
-# 它是每 2 小時一次的瞬間值取樣，不是官方發電量統計(前端要標示)。tools/build_farm_daily.py 可從 git 歷史回補。
+# 它是每次抓取(約每 30 分鐘；2026-10-22 以前約每 2 小時)的瞬間值取樣，不是官方發電量統計(前端要標示)。tools/build_farm_daily.py 可從 git 歷史回補。
 FARM_DAILY = Path(__file__).with_name("data") / "archive" / "farm_daily.json"
 HISTORY_DAYS = 7         # 滾動視窗：保留最近 7 天(backfill_history.py 回填後密度為每 10 分一筆)
 MAX_POINTS = 1200        # 安全上限(7 天 × 每 10 分 144 筆 = 1008，留餘裕)，防檔案異常膨脹
+HISTORY_GAP_MIN = 65     # 即時抓取約每 30 分鐘一次，趨勢只需約每小時一筆：新資料與前前一筆相隔不到這麼久時改寫最後一筆，檔案不會跟著變大
 
 # 中央氣象署 自動氣象站觀測(含風速 WindSpeed m/s)。需免費 API 授權碼(環境變數 CWA_API_KEY)。
 # 誠實聲明：測站在陸上/沿海，風場多在外海(離岸 35–60 km 者尤其)，此處只能取「最近測站」風速
@@ -474,7 +475,7 @@ def save_farm_daily(store, path=FARM_DAILY):
     store["meta"] = {
         "source": "Taiwan Power Company real-time generation by unit (data.gov.tw dataset 8931, genary opendata), sampled by taipower_wind_scraper.py",
         "license": "Open Government Data License, version 1.0 (Taiwan)",
-        "method": "Each scrape (about every 2 hours) adds Taipower's instantaneous net output of every wind unit to its Taipei date; "
+        "method": "Each scrape (about every 30 minutes; about every 2 hours before 22 Oct 2026) adds Taipower's instantaneous net output of every wind unit to its Taipei date; "
                   "a data time (source_time) is counted once. u[key] = [samples, sum of output MW, samples with listed capacity, "
                   "sum of output MW in those samples, sum of listed capacity MW in those samples]. Average output = sum/samples; "
                   "capacity factor = output sum / capacity sum over samples with a listed capacity (units in testing, listed as '-', are excluded). "
@@ -595,9 +596,10 @@ def get_farm_wind():
 def update_history(farms, total, source_time, updated, farm_wind):
     """維護滾動歷史，每筆 = 一次台電快照；供前端畫真實出力/風速趨勢(非模擬)。
 
-    去重關鍵：用台電資料時間(source_time)當每筆的 t。排程約每 2 小時抓一次，
+    去重關鍵：用台電資料時間(source_time)當每筆的 t。外部排程約每 30 分鐘抓一次，
     偶有兩次抓到同一份資料(尤其手動觸發與排程相近時)，
     同 t 者就地覆蓋而非重複累積，避免趨勢線出現假平台。
+    新資料與前前一筆相隔不到 HISTORY_GAP_MIN 分鐘時改寫最後一筆：趨勢約每 1 小時多一筆，最後一筆永遠是最新的資料。
     每筆記發電量(farms) 與風速(wind)；可用率不另存(=發電量÷裝置容量，前端可算)。
     """
     t = source_time or updated
@@ -610,8 +612,15 @@ def update_history(farms, total, source_time, updated, farm_wind):
 
     wind = {k: v.get("mps") for k, v in (farm_wind or {}).items() if v.get("mps") is not None}
     rec = {"t": t, "farms": farms, "wind": wind, "total": total}
+    def _gap_min(a, b):
+        try:
+            return (dt.datetime.fromisoformat(b) - dt.datetime.fromisoformat(a)).total_seconds() / 60
+        except (TypeError, ValueError):
+            return None
     if points and points[-1].get("t") == t:
         points[-1] = rec               # 同一台電資料時間 → 覆蓋
+    elif len(points) >= 2 and points[-1].get("t", "") < t and (g := _gap_min(points[-2].get("t"), t)) is not None and g < HISTORY_GAP_MIN:
+        points[-1] = rec               # 與前前一筆不到約一小時 → 改寫最後一筆(保持約每小時一筆)
     else:
         points.append(rec)
 

@@ -103,7 +103,7 @@ const I18N = {
     outPerOpt: (v, first) => v === 'all' ? `全部（${first} 起）` : `近 ${v} 天`,
     outSumS: (a, b, n, k, m) => `${a} 至 ${b} · ${n} 次取樣 · ${k} 個併網點 · 容量因數中位數 ${m}%`,
     outSrcS: ['台電即時資料', '台灣電力公司 各機組發電量即時資訊（政府資料開放平臺 8931，政府資料開放授權條款）'],
-    outCovS: sk => '以台電即時資料的併網點為單位（例如大彰化 1&2a 分成沃一風、沃二風），含民營風場。抓取程式約每 2 小時記下一次各併網點的瞬間出力；平均出力是這些取樣的平均，容量因數只計台電已列出裝置容量的時段。以 2026 年 7 月比對，台電自有 7 座風場的取樣容量因數與官方月發電量相差 0–2 個百分點。' +
+    outCovS: sk => '以台電即時資料的併網點為單位（例如大彰化 1&2a 分成沃一風、沃二風），含民營風場。抓取程式每次執行（約每 30 分鐘；2026-10-22 以前約每 2 小時）記下各併網點的瞬間出力；平均出力是這些取樣的平均，容量因數只計台電已列出裝置容量的時段。以 2026 年 7 月比對，台電自有 7 座風場的取樣容量因數與官方月發電量相差 0–2 個百分點。' +
       (sk.length ? '試運轉中或取樣不足、不列入：' + sk.join('、') + '。' : '') + '台電的「其它台電自有」「其它購電風力」是多座風場的彙總，不列入。',
     outSampErr: '即時取樣資料無法載入。',
     outNoteS: { gen: () => '平均出力＝期間內各次取樣的出力平均（MW），是瞬間值的取樣估計，不是官方發電量。規模越大通常越高；要比效率請看「容量因數」。',
@@ -111,7 +111,7 @@ const I18N = {
       model: () => '只列所屬風場只有一種機型、而且有兩個以上併網點有數字的機型；同一座風場的併網點（如沃一風、沃二風）會一起出現。每個點是一個併網點，點一下飛到所屬風場。差異主要來自風況、位置與停機，不只是機型。' },
     outSmp: n => `${n} 次取樣`, outGrpS: (n, m, lo, hi) => `${n} 個併網點 · 中位數 ${m}% · ${lo}–${hi}%`,
     sampLabel: '即時取樣（近 90 天）', sampVal: (o, c) => `平均出力 ${o} · 容量因數 ${c}%`,
-    sampNote: (a, b, u, part) => `${a} 至 ${b}，台電即時資料每 2 小時取樣（${u}）；是取樣估計、不是官方年發電量，夏季為風力淡季。` + (part ? '部分併網點試運轉中，只計已列出裝置容量者。' : ''),
+    sampNote: (a, b, u, part) => `${a} 至 ${b}，台電即時資料約每 30 分鐘～2 小時取樣（${u}）；是取樣估計、不是官方年發電量，夏季為風力淡季。` + (part ? '部分併網點試運轉中，只計已列出裝置容量者。' : ''),
     fsPh: '搜尋風場、開發商、機型、國家或港口…', fsSt: '狀態', fsTy: '類型', fsMin: '容量', fsYear: '年份', fsSort: '排序', fsAny: '不限', fsName: '名稱',
     fsClear: '清除篩選', fsWorld: '改搜全球', fsScope: s => `範圍：${s}`, fsCount: (n, mw) => `符合 ${n} 座 · ${mw}`, fsAll: (n, mw) => `共 ${n} 座 · ${mw}`,
     fsMapOnly: '地圖只顯示符合條件的風場', fsHidden: (y, n) => `時間軸在 ${y} 年：其中 ${n} 座這一年不在地圖上（尚未完工、已除役，或是規劃中而未開啟「規劃中」）`, fsToLatest: '移到最新年份',
@@ -237,7 +237,7 @@ const I18N = {
     outPerOpt: (v, first) => v === 'all' ? `All (since ${first})` : `Last ${v} days`,
     outSumS: (a, b, n, k, m) => `${a} to ${b} · ${n} samples · ${k} grid units · median capacity factor ${m}%`,
     outSrcS: ['Taipower live data', 'Taiwan Power Company, real-time generation by unit (data.gov.tw 8931, Open Government Data License)'],
-    outCovS: sk => 'Grid units as named in Taipower\'s live data (Greater Changhua 1 & 2a, for example, is split into two units), private farms included. The scraper records each unit\'s instantaneous output about every 2 hours; average output is the mean of these samples, and the capacity factor counts only times when Taipower lists the unit\'s capacity. Checked against July 2026, the sampled capacity factors of Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.' +
+    outCovS: sk => 'Grid units as named in Taipower\'s live data (Greater Changhua 1 & 2a, for example, is split into two units), private farms included. The scraper records each unit\'s instantaneous output on every run (about every 30 minutes; about every 2 hours before 22 Oct 2026); average output is the mean of these samples, and the capacity factor counts only times when Taipower lists the unit\'s capacity. Checked against July 2026, the sampled capacity factors of Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.' +
       (sk.length ? ' Not ranked (in testing or too few samples): ' + sk.join(', ') + '.' : '') + ' Taipower\'s "other Taipower-owned" and "other purchased wind" rows combine several farms and are left out.',
     outSampErr: 'The live sample archive could not be loaded.',
     outNoteS: { gen: () => 'Average output = mean of the sampled outputs over the period (MW): an estimate from instantaneous values, not official generation. Larger units usually score higher; to compare efficiency, see "Capacity factor".',
@@ -245,7 +245,7 @@ const I18N = {
       model: () => 'Only models that are the sole model of the unit\'s farm, with two or more units reporting; units of one farm appear side by side. Each dot is a grid unit; click it to fly to its farm. Differences mostly come from the wind, location and downtime, not the machine alone.' },
     outSmp: n => `${n} samples`, outGrpS: (n, m, lo, hi) => `${n} units · median ${m}% · ${lo}–${hi}%`,
     sampLabel: 'Live samples (last 90 days)', sampVal: (o, c) => `average output ${o} · capacity factor ${c}%`,
-    sampNote: (a, b, u, part) => `${a} to ${b}, Taipower live data sampled every 2 hours (${u}); an estimate from samples, not official yearly generation, and summer is the low-wind season.` + (part ? ' Some units are still in testing; only units with a listed capacity count.' : ''),
+    sampNote: (a, b, u, part) => `${a} to ${b}, Taipower live data sampled every 30 minutes to 2 hours (${u}); an estimate from samples, not official yearly generation, and summer is the low-wind season.` + (part ? ' Some units are still in testing; only units with a listed capacity count.' : ''),
     fsPh: 'Search farms, developers, turbines, countries or ports…', fsSt: 'Status', fsTy: 'Type', fsMin: 'Size', fsYear: 'Year', fsSort: 'Sort', fsAny: 'Any', fsName: 'Name',
     fsClear: 'Clear filters', fsWorld: 'Search worldwide', fsScope: s => `Scope: ${s}`, fsCount: (n, mw) => `${n} matching · ${mw}`, fsAll: (n, mw) => `${n} farms · ${mw}`,
     fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
@@ -2571,9 +2571,9 @@ function msPseudoFarm(m) {
 }
 function msStop(m) { return { kind: 'ms', m, name: m.name, zh: null, lat: m.lat, lon: m.lon, year: m.year, type: m.type, iso: m.iso, farm: farmsReady ? msPseudoFarm(m) : null }; }
 let cardItem = null;
-/* ================= 國外即時出力（intl_wind_scraper.py 約每 2 小時更新 data/live/intl_realtime.json）：
+/* ================= 國外即時出力（intl_wind_scraper.py 約每 30 分鐘更新 data/live/intl_realtime.json）：
    grids＝澳洲、加拿大的電網（有逐場資料）；nat＝英、德、法、丹全國與美國德州、加州電網的風電總量（沒有逐場資料） ================= */
-// 超過 LIVE_STALE_MS 的電網資料不再疊到風場上：排程約每 2 小時，容許漏跑一兩次（安大略的資料本身還晚約 1 小時）
+// 超過 LIVE_STALE_MS 的電網資料不再疊到風場上：排程約每 30 分鐘，容許外部排程停擺幾小時（安大略的資料本身還晚約 1 小時）
 const INTL_URL = 'data/live/intl_realtime.json', LIVE_HEX = 0x3fdcb0, LIVE_STALE_MS = 6 * 3600e3;
 const GRID_TZ = { AEMO: 'Australia/Brisbane', AESO: 'America/Edmonton', IESO: 'America/Toronto', GB: 'Europe/London', DE: 'Europe/Berlin', FR: 'Europe/Paris',
   DK: 'Europe/Copenhagen', ERCOT: 'America/Chicago', CAISO: 'America/Los_Angeles', BE: 'Europe/Brussels', PL: 'Europe/Warsaw',
@@ -2656,7 +2656,7 @@ function liveSpark(pts, cap) {
   const last = xy[xy.length - 1];
   return `<svg class="lspark" viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="${esc(L('過去 48 小時風電出力', 'Wind output, last 48 hours'))}"><polyline fill="none" stroke="var(--live)" stroke-width="1.5" points="${xy.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ')}"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="var(--live)"/></svg>`;
 }
-/* 全國總量的 48 小時趨勢：每小時平均（h = [起始整點, [MW…]]）；相隔 3 小時以內的點連起來（波蘭今天只有約每 2 小時一次的快照），缺得更久就斷開 */
+/* 全國總量的 48 小時趨勢：每小時平均（h = [起始整點, [MW…]]）；相隔 3 小時以內的點連起來（波蘭今天只有本站抓取時的快照），缺得更久就斷開 */
 function natSpark(e) {
   if (!e.h || e.h[1].filter(v => v != null).length < 2) return '';
   const W = 250, H = 36, v = e.h[1], n = v.length, ym = Math.max(e.cap || 0, ...v.filter(x => x != null)) || 1;
@@ -2680,8 +2680,8 @@ function natScope(k) {
     CAISO: L('加州獨立系統營運者約供應加州八成的用電。', 'The California ISO serves about 80% of California’s demand.'),
     BE: L('比利時全國：離岸，加上法蘭德斯與瓦隆的陸域（含接在配電網的風機）；Elia 以有監測的風場實測值推估到全部容量。百分比以 Elia 公布的監測容量計算。',
       'All of Belgium: offshore plus onshore in Flanders and Wallonia (turbines on the distribution network included); Elia scales the measured output of monitored farms up to the whole fleet. The percentage uses the monitored capacity Elia publishes.'),
-    PL: L('此刻值是 PSE 首頁「Mapa KSE」地圖的即時快照（網頁小工具的資料，沒有公開文件，可能變動）；48 小時趨勢裡，前一天以前是 PSE 次日公布的每 15 分鐘風電總發電量，今天只有本站約每 2 小時取一次的快照。',
-      'The current value is the live snapshot on PSE’s homepage map (“Mapa KSE”; the widget’s data, undocumented and subject to change). In the 48-hour trend, earlier days are PSE’s next-day 15-minute total wind generation, and today only has this site’s snapshots, taken about every 2 hours.'),
+    PL: L('此刻值是 PSE 首頁「Mapa KSE」地圖的即時快照（網頁小工具的資料，沒有公開文件，可能變動）；48 小時趨勢裡，前一天以前是 PSE 次日公布的每 15 分鐘風電總發電量，今天只有本站約每 30 分鐘取一次的快照。',
+      'The current value is the live snapshot on PSE’s homepage map (“Mapa KSE”; the widget’s data, undocumented and subject to change). In the 48-hour trend, earlier days are PSE’s next-day 15-minute total wind generation, and today only has this site’s snapshots, taken about every 30 minutes.'),
     IE: L('愛爾蘭共和國（不含北愛爾蘭）所有風場出力的估計值，每 15 分鐘，取自 EirGrid Smart Grid Dashboard（網頁背後的資料端點，沒有公開文件）；EirGrid 沒說明時間是時段起點、終點還是瞬時值。',
       'An estimate of the output of all wind farms in the Republic of Ireland (Northern Ireland excluded), every 15 minutes, from EirGrid’s Smart Grid Dashboard (the page’s undocumented data endpoint); EirGrid does not say whether a time marks the start or end of the interval or an instant.'),
     NI: L('北愛爾蘭（SONI 區域）所有風場出力的估計值，同樣取自 EirGrid Smart Grid Dashboard；大不列顛的數字不含北愛爾蘭，兩列不重疊。',
@@ -4033,8 +4033,8 @@ function showSources() {
         : ' (the Danish Energy Agency\'s turbine register, Vinddata and Parkproduktion' + (dkGot() ? ', retrieved ' + dkGot() : '') + ', credited under the agency\'s <a href="' + DK_TERMS + '" target="_blank" rel="noopener">terms of use</a>): capacity, rotor, hub height, model, position and monthly metered production of every turbine (updated about every 2 months); production is published for company-owned turbines only (not for private persons, sole proprietors or partnerships). Farms metered as a whole and individually metered turbines are matched to the site\'s Danish farms by location (within 3 km onshore or 12 km offshore, connected no earlier than the year before the farm\'s start), and used when the capacity is within 15% of the site\'s record; individually metered turbines are also listed under "Denmark · single turbines". Full years with a capacity factor of 5–65% only (tools/dk_output.py).') + '</li><li><a href="https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/" target="_blank" rel="noopener">AEMO, MMS Data Model</a>' + (zh
         ? '（月檔 DISPATCH_UNIT_SCADA：每個機組每 5 分鐘的 SCADA 實測出力；DUDETAIL：登記容量。資料來源：Australian Energy Market Operator（AEMO），依 <a href="' + AU_TERMS + '" target="_blank" rel="noopener">AEMO 版權許可</a>標示）：只有東部電網（NEM）。出力乘以 5 分鐘加總成年發電量，經機組與風場的對照（與即時出力相同）接到本站澳洲風場；一個機組涵蓋好幾座風場的不用，AEMO 登記容量與本站紀錄相差 15% 以內才用。新風場常分段併網，只列前一年 1 月時已在發電、當年登記容量沒變、5 分鐘資料 98% 以上、容量因數 5–65% 的年份；實測值含限電與負電價時的自主降載（tools/au_output.py）。'
         : ' (monthly DISPATCH_UNIT_SCADA, the 5-minute SCADA output of every unit, and DUDETAIL, registered capacity; source: Australian Energy Market Operator (AEMO), credited under <a href="' + AU_TERMS + '" target="_blank" rel="noopener">AEMO\'s copyright permissions</a>): eastern grid (NEM) only. Output × 5 minutes is summed into yearly output and linked to the site\'s Australian farms through the same unit mapping as the live output; units covering several farms are left out, and farms are used when AEMO\'s registered capacity is within 15% of the site\'s record. New farms often connect in stages, so only years in which the farm was already generating in January of the year before, kept its registered capacity, has 98% of the 5-minute data and a capacity factor of 5–65% are shown; measured output includes curtailment and self-curtailment at negative prices (tools/au_output.py).') + '</li><li>' +
-      (zh ? '台灣即時取樣（發電表現「台灣・即時取樣」與風場卡片）：抓取程式約每 2 小時記下台電即時資料（資料集 8931）各併網點的瞬間出力，累積成 data/archive/farm_daily.json（2026-06 起，含民營風場；tools/build_farm_daily.py 可從 git 歷史回補）。平均出力是取樣平均，容量因數只計已列裝置容量的時段；是取樣估計，不是官方發電量。以 2026 年 7 月比對，台電自有 7 座風場與官方月發電量相差 0–2 個百分點。'
-        : 'Taiwan live samples (the Output dialog\'s "Taiwan · live samples" and farm cards): the scraper records the instantaneous output of every grid unit in Taipower\'s live data (dataset 8931) about every 2 hours into data/archive/farm_daily.json (from June 2026, private farms included; tools/build_farm_daily.py backfills it from the git history). Average output is the mean of the samples and the capacity factor counts only times with a listed capacity: an estimate from samples, not official generation. Against July 2026, Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.') + '</li></ul>' +
+      (zh ? '台灣即時取樣（發電表現「台灣・即時取樣」與風場卡片）：抓取程式約每 30 分鐘（2026-10-22 以前約每 2 小時）記下台電即時資料（資料集 8931）各併網點的瞬間出力，累積成 data/archive/farm_daily.json（2026-06 起，含民營風場；tools/build_farm_daily.py 可從 git 歷史回補）。平均出力是取樣平均，容量因數只計已列裝置容量的時段；是取樣估計，不是官方發電量。以 2026 年 7 月比對，台電自有 7 座風場與官方月發電量相差 0–2 個百分點。'
+        : 'Taiwan live samples (the Output dialog\'s "Taiwan · live samples" and farm cards): the scraper records the instantaneous output of every grid unit in Taipower\'s live data (dataset 8931) about every 30 minutes (about every 2 hours before 22 Oct 2026) into data/archive/farm_daily.json (from June 2026, private farms included; tools/build_farm_daily.py backfills it from the git history). Average output is the mean of the samples and the capacity factor counts only times with a listed capacity: an estimate from samples, not official generation. Against July 2026, Taipower\'s 7 own farms are within 0–2 percentage points of the official monthly generation.') + '</li></ul>' +
     '<h4>' + (zh ? '風機廠牌與業主' : 'Turbine makers and owners') + '</h4><ul><li>' + (zh ? '廠牌：美國 USWTDB（公有領域）、德國 MaStR 與本站風場紀錄的機型欄（不用 OpenStreetMap），品牌依沿革歸併成目前的公司；只涵蓋已知廠牌的容量，不是年度市占統計。' : 'Makers: the US USWTDB (public domain), Germany\'s MaStR and the turbine field of the site\'s farm records (OpenStreetMap is not used), brands folded into today\'s companies; known makers only, not an annual market-share statistic.') + '</li>' +
     '<li>' + (zh ? '業主：' : 'Owners: ') + '<a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">Global Energy Monitor, Global Wind Power Tracker</a> ' + (zh ? '2026-02 版（CC BY 4.0）營運中機組的業主，依持股比例分配容量。' : 'February 2026 release (CC BY 4.0), owners of operating units with capacity split by stake.') + '</li></ul>' +
     '<h4>' + (zh ? '各國指標與國家比較' : 'Country indicators and comparison') + '</h4><ul><li><a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '：風電占發電比例、風電發電量與全國平均容量因數（發電量 ÷ 前後兩年年底容量的平均 × 當年時數；含限電與新機組的部分年份，只適合粗略比較）' : ': wind share of generation, wind generation and the national average capacity factor (generation ÷ the mean of the two year-end capacities × hours in the year; curtailment and partial years included, for rough comparison only)') + (IND && IND.meta && IND.meta.retrieved ? (zh ? '，' + IND.meta.retrieved + ' 取用' : ', retrieved ' + IND.meta.retrieved) : '') + (zh ? '。' : '.') + '</li>' +
@@ -4103,7 +4103,7 @@ function showSources() {
    兩種資料，不混在同一張排名裡：
    · 官方年資料：generation.json（美國＝EIA-923，台灣＝台電自有風場，丹麥＝丹麥能源署風機登記檔）；國家平均推估的值不排名。
    · 丹麥單部風機：turbine_output.json（同一登記檔裡單獨計量、公司持有的風機；整場計量的風場只有合計，在 generation.json）。
-   · 台灣即時取樣：data/archive/farm_daily.json（抓取程式每 2 小時一次記下台電各併網點的瞬間出力，含民營風場）。
+   · 台灣即時取樣：data/archive/farm_daily.json（抓取程式約每 30 分鐘記下台電各併網點的瞬間出力，含民營風場）。
      是取樣估計、不是官方發電量；以台電併網點為單位（沃一風、沃二風…），所屬風場由 live.js 的 GLOBE_FARM 對到地球儀。
    同機型：整座風場只有一種機型（官方年資料用 build_generation.py 寫的 m 欄；即時取樣取地球儀風場紀錄的機型，
    併網點容量超過風場紀錄 3% 以上時不列機型），而且有兩個以上單位有數字的機型。 */

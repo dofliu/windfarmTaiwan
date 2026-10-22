@@ -321,8 +321,8 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
     still in trial operation on 6 Oct 2026, so the project is not yet in full commercial operation
   - The live page's installed capacity and "in trial operation" follow Taipower's live data automatically (`syncCaps` in `live.js`); the
     farm layer's status and year are changed by hand in `tools/farm_cleanup.py`
-- **Git history keeps growing**: `scrape.yml` commits about every 2 hours, over four thousand commits a
-  year. It works, but the repo grows; the long-term archive is split by month (`data/archive/`, about 3.1 MB in total in Sep 2026) so the weekly
+- **Git history keeps growing**: `scrape.yml` commits about every 30 minutes (started by the external trigger, see DEPLOY.en.md), about 17,000 commits
+  and about 100 MB (packed) a year. It works, but the repo grows; the long-term archive is split by month (`data/archive/`, about 3.1 MB in total in Sep 2026) so the weekly
   backfill only rewrites the current month, and since v2.12.6 the single-file builds go to a Release instead of git.
 
 ### Global (3D globe)
