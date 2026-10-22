@@ -67,8 +67,11 @@ GitHub 的 `schedule` 常延遲或略過（2026-10 實測：`scrape.yml` 設定�
 2. **建立排程**（以 [cron-job.org](https://cron-job.org) 為例，免費，需要註冊帳號）：Create cronjob →
    - URL：`https://api.github.com/repos/dofliu/windfarmTaiwan/actions/workflows/scrape.yml/dispatches`
    - Schedule：Every 30 minutes
-   - Advanced → Request method：**POST**；Headers：`Authorization: Bearer <權杖>`、`Accept: application/vnd.github+json`、
-     `X-GitHub-Api-Version: 2022-11-28`；Request body：`{"ref":"main"}`
+   - Headers（四列）：`Authorization: Bearer <權杖>`、`Accept: application/vnd.github+json`、`X-GitHub-Api-Version: 2022-11-28`、
+     `Content-Type: application/json`（Advanced 的藍色提示「Add Content-Type header now」可一鍵加上）
+   - Advanced → Request method：**POST**；Request body：`{"ref":"main"}`
+   - 沒有 `Authorization` 或權杖碰不到這個 repo 時，GitHub 回 **404**（不是 401）；方法是 GET 也是 404。
+   - API 版本 `2022-11-28` 已標示淘汰，**2028-03-10 停用**；之前要把 `X-GitHub-Api-Version` 換成 GitHub 當時支援的版本（回應標頭的 `Sunset` 寫著日期）。
 3. 按 **Test run**，回應是 `204 No Content` 就成功；到 Actions 分頁會看到一筆 `workflow_dispatch` 觸發的 `scrape-taipower-wind`。
 4. 權杖只存在排程服務裡，不要寫進 repo 或貼到別處；外洩時到 GitHub 撤銷再換新的。
 

@@ -75,8 +75,11 @@ fetch it directly. A free external cron service therefore calls the GitHub API e
 2. **Create the job** (for example on [cron-job.org](https://cron-job.org), free, needs an account): Create cronjob →
    - URL: `https://api.github.com/repos/dofliu/windfarmTaiwan/actions/workflows/scrape.yml/dispatches`
    - Schedule: Every 30 minutes
-   - Advanced → Request method: **POST**; Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`,
-     `X-GitHub-Api-Version: 2022-11-28`; Request body: `{"ref":"main"}`
+   - Headers (four rows): `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`, `X-GitHub-Api-Version: 2022-11-28`,
+     `Content-Type: application/json` (the blue "Add Content-Type header now" hint under Advanced adds it in one click)
+   - Advanced → Request method: **POST**; Request body: `{"ref":"main"}`
+   - Without `Authorization`, or with a token that cannot reach this repo, GitHub answers **404** (not 401); a GET also gets 404.
+   - API version `2022-11-28` is deprecated and **stops working on 10 Mar 2028**; before then, change `X-GitHub-Api-Version` to a version GitHub supports (the response's `Sunset` header gives the date).
 3. Press **Test run**: a `204 No Content` response means it worked, and the Actions tab shows a `scrape-taipower-wind` run triggered by `workflow_dispatch`.
 4. Keep the token only in the cron service, never in the repo or anywhere else; if it leaks, revoke it on GitHub and make a new one.
 
