@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T19:00:54+08:00",
+  "updated": "2026-10-22T19:30:39+08:00",
   "interval_min": 15,
   "points": [
     {
@@ -3197,6 +3197,74 @@
         "longB": 15.1
       },
       "total": 930.8
+    },
+    {
+      "t": "2026-10-22T19:20:00",
+      "farms": {
+        "guanyuan": 21.3,
+        "taichungport": 4.6,
+        "wanggong": 14.2,
+        "changgong": 6.7,
+        "yunmai": 0.0,
+        "sihu": 0.0,
+        "tpc-other-on": 36.1,
+        "dapeng": 18.4,
+        "luwei": 31.4,
+        "guanwei": 35.2,
+        "zhongwei": 69.7,
+        "chuangwei": 35.4,
+        "xinyuan": 20.4,
+        "changpin": 0.0,
+        "ppa-other-on": 51.2,
+        "offshore1": 0.0,
+        "offshore2": 0.3,
+        "formosa1": 84.2,
+        "formosa2": 358.3,
+        "wo1": 0.0,
+        "wo2": 0.0,
+        "wo4": 0.0,
+        "wonan": 0.0,
+        "fang1": 16.5,
+        "fang2": 84.0,
+        "yunhu": 0.0,
+        "yunxi": 0.0,
+        "zhongneng": 27.6,
+        "longA": 0.0,
+        "longB": 0.0
+      },
+      "wind": {
+        "guanyuan": 13.1,
+        "taichungport": 7.7,
+        "wanggong": 17.7,
+        "changgong": 8.7,
+        "yunmai": 15.3,
+        "sihu": 9.1,
+        "tpc-other-on": 6.5,
+        "dapeng": 9.1,
+        "luwei": 5.1,
+        "guanwei": 13.1,
+        "zhongwei": 13.9,
+        "chuangwei": 9.1,
+        "xinyuan": 9.5,
+        "changpin": 8.0,
+        "ppa-other-on": 19.3,
+        "offshore1": 17.2,
+        "offshore2": 17.2,
+        "formosa1": 4.9,
+        "formosa2": 10.4,
+        "wo1": 16.0,
+        "wo2": 16.0,
+        "wo4": 15.3,
+        "wonan": 15.3,
+        "fang1": 17.7,
+        "fang2": 17.7,
+        "yunhu": 15.3,
+        "yunxi": 15.3,
+        "zhongneng": 17.2,
+        "longA": 15.3,
+        "longB": 15.3
+      },
+      "total": 915.5
     }
   ]
 }
