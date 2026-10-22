@@ -53,7 +53,7 @@ The bar at the top of the site has four pages:
 | Page | What it shows |
 |---|---|
 | **Home** | Everything on one page: Taiwan's wind output right now, the world's wind growth 1980–2025, and where Taiwan ranks |
-| **Taiwan live** | How much each of Taiwan's 30 wind farms is generating right now (updated about every 2 hours); click any farm for its details |
+| **Taiwan live** | How much each of Taiwan's 30 wind farms is generating right now (updated about every 30 minutes); click any farm for its details |
 | **Global** | A 3D globe that animates the growth of wind power by country and zooms down to single wind farms |
 | **Learn** | 13 illustrated chapters, from the first power-generating turbine in 1888 to Taiwan's offshore wind, with a glossary and "Frequently asked" |
 
@@ -78,7 +78,7 @@ Tips:
   shared as they are: whoever opens one sees the same view.
 - It works on phones. The globe downloads a few MB the first time, so give it a moment; older devices without 3D graphics get a
   bar-chart ranking instead.
-- How current the data is: Taiwan live updates about every 2 hours (the header shows Taipower's data time); country totals run to
+- How current the data is: Taiwan live updates about every 30 minutes (the header shows Taipower's data time); country totals run to
   the end of 2025, with the latest 2026 figures for 8 countries; the farm-by-farm data is GEM's February 2026 release.
 - To use it offline, download the [single-file edition](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)
   and open it from your computer.
@@ -139,7 +139,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
 ## Architecture
 
 ```
-GitHub Actions (about every 2 hours) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json / data/archive/farm_daily.json ─┐
+GitHub Actions (about every 30 minutes) ── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json / data/archive/farm_daily.json ─┐
                                      ── intl_wind_scraper.py    ──► data/live/intl_realtime.json (Australia, Canada) ─────────────────────────────────────┤
 GitHub Actions (weekly, Monday)      ── backfill_history.py      ──► data/archive/ monthly files / wind_archive_daily.json ─────────────────────────────────┤
 GitHub Actions (every 6 hours)       ── tools/fetch_gfs_wind.py  ──► data/live/wind_now.webp / wind_now.json (Wind now) ─────────────────────────────────────┤
@@ -236,10 +236,10 @@ output and sea zones load only when needed.
   assessment of live-data sources in other countries (`live-data-sources.en.md`), each with a Chinese version (`.md`)
 - `CLAUDE.md` — project conventions (bilingual docs, the single-file edition, data updates, testing and versions) for future
   contributors and AI agents
-- `taipower_wind_scraper.py` — runs about every 2 hours: fetches Taipower's open data, parses the 30
+- `taipower_wind_scraper.py` — runs about every 30 minutes: fetches Taipower's open data, parses the 30
   wind units → `wind_realtime.json`; accumulates a rolling 7-day history → `wind_history.json`; adds the daily samples of every grid
   unit → `data/archive/farm_daily.json`; also fetches the real-time supply-demand report → `grid_status.json`
-- `intl_wind_scraper.py` — runs about every 2 hours: fetches each wind farm's live output from Australia's NEM
+- `intl_wind_scraper.py` — runs about every 30 minutes: fetches each wind farm's live output from Australia's NEM
   (AEMO), Alberta (AESO) and Ontario (IESO), plus the wind totals of Great Britain, Northern Ireland, Ireland, Germany, France, Denmark, Belgium, Poland, Korea, Brazil, Texas (ERCOT)
   and California (CAISO) → `data/live/intl_realtime.json` (with each grid's 48-hour total, and hourly means for the national
   totals); if a source fails, the previous values are kept and flagged, and Taiwan's data is unaffected
@@ -261,7 +261,7 @@ output and sea zones load only when needed.
   can't fill gaps in the live 7-day trend window — its value is long-term trend analysis only.
   **Scope caveat**: 37331 covers only Taipower-**owned** wind units, excluding IPP (independent
   power producer) purchases; its totals aren't comparable to the live system-wide figure.
-- `.github/workflows/scrape.yml` — runs both scrapers about every 2 hours and commits
+- `.github/workflows/scrape.yml` — runs both scrapers about every 30 minutes and commits
 - `.github/workflows/backfill.yml` — accumulates the official retrospective archive weekly and fills daily-sample gaps from the last three weeks of
   git history; can also be triggered manually (with a dry-run option)
 - `.github/workflows/wind-now.yml` — fetches the NOAA GFS 10 m wind field every 6 hours (`tools/fetch_gfs_wind.py`) for the globe's "Wind now"
@@ -291,7 +291,7 @@ Learn) into one HTML file of about 13 MB, published in the GitHub Release "[stan
 
 - **Download**: "Download the single-file HTML" in the site footer or under Learn → Sources & method →
   About this site, or save `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html`.
-- **Online**: Taiwan live data is fetched fresh from the live site (updated about every 2 hours),
+- **Online**: Taiwan live data is fetched fresh from the live site (updated about every 30 minutes),
   zooming in on the globe loads Esri detail tiles, and farm cards look up Wikipedia.
 - **Offline**: the global data, ~31,000 farm records, borders and the 2k relief/satellite basemaps are
   inside the file, so the globe works as usual; Taiwan live shows the data saved at build time, labelled
@@ -309,8 +309,8 @@ Learn) into one HTML file of about 13 MB, published in the GitHub Release "[stan
 ## Notes
 
 - Uses a **public repo**: unlimited free Actions minutes.
-- The schedule runs about every 2 hours; GitHub's cron isn't precise (runs can be late or occasionally
-  skipped), which is fine here because the site does not need minute-by-minute data.
+- Live data updates about every 30 minutes: an external cron service starts the workflow through the GitHub API (GitHub's own
+  schedule is often late or skipped and is only a fallback; setup under "External trigger" in DEPLOY.en.md).
 - A repo with 60 days of no activity gets its scheduled workflows auto-disabled; the `keepalive`
   workflow re-enables them every month to prevent this (how to check: "Maintenance" in DEPLOY.en.md).
 - Every update creates a commit, so git history accumulates (harmless functionally). To avoid

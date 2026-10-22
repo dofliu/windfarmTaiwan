@@ -8,7 +8,7 @@
 
 ## 目前狀態（2026-10 更新）
 
-**已接入（逐場）**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 約每 2 小時抓取，
+**已接入（逐場）**：澳洲東部電網（AEMO）、加拿大亞伯達（AESO）與安大略（IESO），由 `intl_wind_scraper.py` 約每 30 分鐘抓取，
 輸出 `data/live/intl_realtime.json`。
 
 **已接入（只有總量，v2.31.0；比利時、波蘭 v2.32.0；愛爾蘭、北愛爾蘭、韓國 v2.33.0；巴西 v2.34.0）**：大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國、巴西全國，以及美國德州（ERCOT）、加州（CAISO）電網的風電總出力，
@@ -25,7 +25,7 @@ ERCOT 另存同一儀表板的當月風電容量、比利時另存 Elia 的監�
 | ERCOT | `ercot.com/api/1/services/read/dashboards/fuel-mix.json` | ERCOT 約占德州用電的九成（[ERCOT 簡介](https://www.ercot.com/about)：「about 90 percent of the state's electric load」）；只有昨天與今天，較早的小時沿用上一次的檔案。偶爾回 403，程式等 10 秒重試一次 | 5 分鐘 · 約 5 分鐘 |
 | CAISO | `caiso.com/outlook/current/fuelsource.csv`＋`outlook/history/日期/fuelsource.csv` | CAISO 約供應加州八成的用電（[CAISO 2024 年 10 月 Key Statistics](https://www.caiso.com/documents/key-statistics-oct-2024.pdf)：「Serve ~80% of California demand」）；檔內只有當地時間，依太平洋時間換算 | 5 分鐘 · 約 5 分鐘 |
 | BE | Elia 開放資料 `ods086`（近即時）＋`ods031`（歷史），`exports/json` | 比利時全國：離岸（Federal）、法蘭德斯與瓦隆的陸域，各分輸電網與配電網，每個時段 5 列，五列齊全才加總。欄位是「Measured & upscaled」：有監測的風場實測後推估到全部容量；另有「監測容量」合計約 6.0 GW，國家概況以它算百分比。近即時資料集只有今天，較早的時段用歷史資料集（同樣 5 列） | 15 分鐘 · 約 25 分鐘 |
-| PL | PSE 首頁「Mapa KSE」的 `www.pse.pl/transmissionMapService`（此刻）＋`api.raporty.pse.pl` 的 `his-wlk-cal`（趨勢） | 此刻值是網頁地圖小工具的資料端點（陸域、離岸風電，沒有公開文件，可能變動），只有一筆快照、沒有歷史；PSE 報表 API 的實際風電（`wi`＝「Sumaryczna generacja Źródeł Wiatrowych / Total generation of Wind Sources」，見 [EndpointsMap.pdf](https://api.raporty.pse.pl/EndpointsMap.pdf)）次日約 00:52 UTC 才公布，所以趨勢的前一天以前用它（`dtime_utc` 是時段結束），今天只有本站約每 2 小時的快照；API 其他有風電欄位的端點都是預測或日前計畫 | 快照 · 約 1 分鐘（趨勢的官方值晚一天） |
+| PL | PSE 首頁「Mapa KSE」的 `www.pse.pl/transmissionMapService`（此刻）＋`api.raporty.pse.pl` 的 `his-wlk-cal`（趨勢） | 此刻值是網頁地圖小工具的資料端點（陸域、離岸風電，沒有公開文件，可能變動），只有一筆快照、沒有歷史；PSE 報表 API 的實際風電（`wi`＝「Sumaryczna generacja Źródeł Wiatrowych / Total generation of Wind Sources」，見 [EndpointsMap.pdf](https://api.raporty.pse.pl/EndpointsMap.pdf)）次日約 00:52 UTC 才公布，所以趨勢的前一天以前用它（`dtime_utc` 是時段結束），今天只有本站約每 30 分鐘的快照；API 其他有風電欄位的端點都是預測或日前計畫 | 快照 · 約 1 分鐘（趨勢的官方值晚一天） |
 | IE、NI | EirGrid Smart Grid Dashboard 的 `smartgriddashboard.com/api/chart/?region=ROI\|NI&chartType=wind&dateRange=day&areas=windactual` | 愛爾蘭共和國（ROI）放在愛爾蘭的概況、北愛爾蘭（NI，SONI 區域）放在英國的概況（大不列顛的數字不含北愛爾蘭）；全島（ALL）＝ROI＋NI。數值是 EirGrid 對全部風場出力的估計（[風電頁](https://www.smartgriddashboard.com/all/wind/)：「Wind Generation is an estimate of the total electrical output of all wind farms on the system」）。網頁背後的資料端點，沒有公開文件（EirGrid 已換過一次端點）；時間是愛爾蘭當地時間、不帶時區，沒說明是時段起點、終點還是瞬時值；一次可取多天，取三天剛好涵蓋 48 小時。沒有同口徑的裝置容量（年報的兩地資料日期不同），不算百分比 | 15 分鐘 · 約 2–6 分鐘 |
 | KR | KPX `powerSource.es?mid=a10404030000&device=chart&view_sdate=…&view_edate=…` | 韓國全國每 5 分鐘的瞬時值（網頁註明「실시간 전력수급현황은 5분주기 순시자료 입니다」，2024-11-23 起風電單獨列出），網頁內嵌 `var ictArr = [...]`，以日期區間一次取三天（約 1.3 MB）。KPX 說會限制海外 IP 連線，本環境與 GitHub Actions 都連得上（2026-10-10 確認）；容量有兩個數列且彼此不一致，不算百分比 | 5 分鐘 · 約 4–7 分鐘 |
 | BR | ONS「Energia Agora」頁背後的 `tr.ons.org.br/Content/Get/Geracao_SIN_Eolica` | 巴西全國互聯電網（SIN）每分鐘的風電，大部分在東北部；頁面註明 2021-03-02 起含「usinas não supervisionadas e sem relacionamento com o ONS」。Google Charts 格式（分鐘序號、MW），只有巴西利亞時間（UTC−3）當天的資料，所以 48 小時趨勢由每次執行累積（午夜前最後約 1 小時可能缺）；更早的同一數列在開放資料入口網站 `balanco-energia-subsistema`（每小時，晚約 30 小時）。ONS 開放資料的風電容量約 33.8 GW 只含 ONS 調度的電廠，與即時值口徑不同，不算百分比 | 1 分鐘（約每 9 分鐘一批）· 最多約 15 分鐘 |

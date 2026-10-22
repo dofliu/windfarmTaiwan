@@ -3,10 +3,11 @@ name: scrape-taipower-wind
 # 放置位置：.github/workflows/scrape.yml
 on:
   schedule:
-    # 每 2 小時一次（本站不需要逐分即時；偶爾被 GitHub 延遲或略過也無妨）。
+    # 主要由外部排程服務約每 30 分鐘經 GitHub API 觸發（workflow_dispatch，設定見 DEPLOY.md「外部排程」）；
+    # 這個每 2 小時的排程只當備援（GitHub 排程常延遲或略過，2026-10 實測一天只跑 3–6 次）。
     # 刻意錯開整點（全球最壅塞、最常被略過的時段），在偶數小時的第 18 分執行（UTC）。
     - cron: "18 */2 * * *"
-  workflow_dispatch: {}       # 允許在 Actions 頁面手動觸發
+  workflow_dispatch: {}       # 外部排程（POST /repos/dofliu/windfarmTaiwan/actions/workflows/scrape.yml/dispatches）與 Actions 頁面手動觸發
 
 permissions:
   contents: write             # 需要寫入權限才能把 json commit 回 repo

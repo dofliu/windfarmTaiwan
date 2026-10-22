@@ -24,15 +24,15 @@ windfarmTaiwan/
 ├─ data/archive/                    # long-term archive of Taipower's official retrospective data (one file per month) and daily samples of every grid unit (farm_daily.json)
 ├─ docs/                            # user guide, data coverage report, data clean-up log, per-farm foundation list, events list, live-data source assessment (one Chinese and one English copy each)
 ├─ data/live/                       # live output in Australia and Canada (intl_realtime.json, scheduled) and the unit mapping (units.json)
-├─ taipower_wind_scraper.py         # about every 2 hours: live wind + live supply/demand
-├─ intl_wind_scraper.py             # about every 2 hours: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
+├─ taipower_wind_scraper.py         # about every 30 minutes: live wind + live supply/demand
+├─ intl_wind_scraper.py             # about every 30 minutes: live wind farm output in Australia's NEM, Alberta and Ontario → data/live/
 ├─ backfill_history.py              # every Monday: official retrospective history backfill
 ├─ wind_realtime.json               # live wind data (auto-updated by Actions)
 ├─ wind_history.json                # rolling 7-day wind history
 ├─ wind_archive_daily.json          # daily digest of the archive (read by the long-term trend chart)
 ├─ grid_status.json                 # live power supply/demand report
 └─ .github/workflows/
-   ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py about every 2 hours
+   ├─ scrape.yml                    # runs taipower_wind_scraper.py and intl_wind_scraper.py about every 30 minutes
    ├─ backfill.yml                  # runs backfill_history.py every Monday
    ├─ wind-now.yml                  # runs tools/fetch_gfs_wind.py every 6 hours (the globe's "Wind now", NOAA GFS)
    ├─ standalone.yml                # rebuilds the single-file HTML when site code or global data change and uploads it to the "standalone" Release
@@ -45,8 +45,8 @@ To set up a new project from scratch (instead of using this repo directly):
 ### Steps
 
 1. Create a **public** repo (public repos get unlimited free Actions minutes; private repos get
-   2,000 minutes a month; the current schedule, about every 2 hours or roughly 360 runs a month, is well within
-   that, but a high-frequency schedule would exceed it).
+   2,000 minutes a month; the current schedule, about every 30 minutes or roughly 1,400 runs a month, would
+   exceed that).
 2. Put `index.html`, `assets/`, `data/`, `taipower_wind_scraper.py`, `intl_wind_scraper.py` and
    `backfill_history.py` in the repo root (`tools/` is only needed to update the global data).
 3. Put `.github/workflows/scrape.yml`, `backfill.yml`, `wind-now.yml`, `standalone.yml` and `keepalive.yml` in place (`pr-check.yml` only checks pull requests and is optional).
@@ -59,20 +59,43 @@ To set up a new project from scratch (instead of using this repo directly):
    the long-term archive files are created.
 7. Open `https://<account>.github.io/<repo>/` — the top-right indicator changes from "Simulated" to a
    green "Live" dot.
+8. Set up the external trigger (next section) so the live data updates about every 30 minutes; without it only GitHub's
+   schedule runs, which in practice means one update every 3–6 hours.
+
+### External trigger: an update about every 30 minutes
+
+GitHub's `schedule` is often late or skipped (measured in Oct 2026: `scrape.yml` was set to every 2 hours but ran only 3–6
+times a day, up to 6 hours apart), and Taipower's live data does not allow cross-site reads (no CORS header), so the page cannot
+fetch it directly. A free external cron service therefore calls the GitHub API every 30 minutes to start `scrape.yml`
+(`workflow_dispatch`). The 2-hourly schedule in `scrape.yml` stays as a fallback.
+
+1. **Create a token**: GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token.
+   Repository access: **Only select repositories** → `dofliu/windfarmTaiwan`; Permissions → Repository permissions → **Actions: Read and write**
+   (nothing else). Tokens last at most a year: note the expiry date and replace the token before it.
+2. **Create the job** (for example on [cron-job.org](https://cron-job.org), free, needs an account): Create cronjob →
+   - URL: `https://api.github.com/repos/dofliu/windfarmTaiwan/actions/workflows/scrape.yml/dispatches`
+   - Schedule: Every 30 minutes
+   - Advanced → Request method: **POST**; Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`,
+     `X-GitHub-Api-Version: 2022-11-28`; Request body: `{"ref":"main"}`
+3. Press **Test run**: a `204 No Content` response means it worked, and the Actions tab shows a `scrape-taipower-wind` run triggered by `workflow_dispatch`.
+4. Keep the token only in the cron service, never in the repo or anywhere else; if it leaks, revoke it on GitHub and make a new one.
+
+Two runs started at once queue up (`concurrency`) instead of clashing. The trend file `wind_history.json` gains only about one point an
+hour (`HISTORY_GAP_MIN`), so it does not grow with the more frequent fetching.
 
 ### Limits to know about
 
-- **The schedule is not precise**: `scrape.yml` runs every 2 hours (minute 18 of even hours, UTC). GitHub's
-  `schedule` is not guaranteed to run on time; runs are often late and occasionally skipped at peak times,
-  and high-frequency schedules (e.g. every 15 minutes) in practice stretch to one run every 3–5 hours.
-  The site does not need minute-by-minute data, so this is acceptable.
+- **GitHub's schedule is not precise**: `scrape.yml`'s own schedule is every 2 hours (minute 18 of even hours, UTC), but GitHub's
+  `schedule` is not guaranteed to run on time; runs are often late and often skipped at peak times, so it actually runs 3–6 times a day.
+  The external trigger in the previous section (about every 30 minutes) is therefore the main schedule and GitHub's is only a fallback;
+  if the external trigger stops, updates fall back to one every few hours.
 - **Disabled after 60 days**: if a repo has no activity for 60 days, its scheduled workflows are
   disabled automatically, and bot commits made with the default `GITHUB_TOKEN` do not always count as
   activity. This repo's `keepalive.yml` handles it: on the 1st of each month it re-enables `scrape.yml`, `backfill.yml`, `wind-now.yml` and
   itself through the GitHub API (`PUT /repos/{owner}/{repo}/actions/workflows/{workflow}/enable`, permission `actions: write`),
   which resets the timer without making a commit. It is itself scheduled, so it has to keep running; if every schedule in the
   repo has already been disabled, press **Enable workflow** on the Actions tab by hand.
-- **Commits pile up**: one commit about every 2 hours means over four thousand a year. It works fine, but
+- **Commits pile up**: one commit about every 30 minutes means about 17,000 a year (about 6 KB each once packed, about 100 MB a year). It works fine, but
   the repo grows. The long-term archive is now split by month (`data/archive/`), so the weekly backfill only
   rewrites the current month (about 0.6 MB), and the single-file builds go to a Release instead of git; what remains
   is the small live-data commits. Accept it, squash history now and then, or switch to option B.
@@ -86,7 +109,7 @@ To set up a new project from scratch (instead of using this repo directly):
 
 The project has been in maintenance since 27 Sep 2026 (v2.11.1), with improvements made since as the owner asks (see the CHANGELOG). All of the following runs by itself:
 
-- `scrape-taipower-wind`: about every 2 hours, fetches Taipower's live wind output, the supply/demand report, per-farm live output in
+- `scrape-taipower-wind`: about every 30 minutes (started through the API by the external trigger, with GitHub's 2-hourly schedule as a fallback; replace the token before it expires, see "External trigger"), fetches Taipower's live wind output, the supply/demand report, per-farm live output in
   Australia and Canada, and the national wind totals of the UK, Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas and California grids (sources in [docs/live-data-sources.en.md](./docs/live-data-sources.en.md)), and commits any change; a failing foreign source does not affect the Taiwan data.
 - `backfill-taipower-wind-history`: every Monday (early Tuesday in Taipei), adds to Taipower's official retrospective archive.
 - `wind-now`: every 6 hours (05:37, 11:37, 17:37, 23:37 UTC) fetches the newest NOAA GFS 10 m wind field (public domain; needs `eccodes` to read GRIB2), writes `data/live/wind_now.webp` (about 50 KB) and `wind_now.json` and commits them; the globe's "Wind now" reads them.
@@ -98,7 +121,8 @@ The project has been in maintenance since 27 Sep 2026 (v2.11.1), with improvemen
 **Check once a month (about 5 minutes)**: `keepalive` takes care of the 60-day rule, so this check is mainly for problems with the
 data sources (for example Taipower changing its format).
 
-1. Open the site and look at the data time in the header ("Live · Taipower MM/DD HH:MM"). If it has not moved for more than half a
+1. Open the site and look at the data time in the header ("Live · Taipower MM/DD HH:MM"). It is normally less than an hour behind; several hours
+   behind usually means the external trigger has stopped (expired token or a paused job), so check the cron service's latest responses (401 means the token no longer works). If it has not moved for more than half a
    day, the schedule has stopped or fetching is failing; the site shows no error, it just keeps showing the last data it got. The "now" box of a globe country profile and the world list "Wind output right now" also show each source's data time.
 2. On GitHub's **Actions** tab, check that the latest run of each scheduled workflow is green (`keepalive` runs monthly; `pr-check` only runs when there is a pull request; `build-standalone` only when site code or global data change on `main`). If a
    workflow says "This scheduled workflow is disabled…" (GitHub disables schedules after 60 days without activity), press **Enable workflow**.

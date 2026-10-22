@@ -46,7 +46,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 
 ## 3. Taiwan live
 
-`#/live`. Taipower's open data updates about every 10 minutes and this site fetches it about every 2 hours; the line under the title shows Taipower's data time. Four tabs at the top:
+`#/live`. Taipower's open data updates about every 10 minutes and this site fetches it about every 30 minutes; the line under the title shows Taipower's data time. Four tabs at the top:
 
 | Tab | Link | What it shows |
 |---|---|---|
@@ -148,7 +148,7 @@ The layers themselves are described in 4.7.
 The panel opens on "Profile" (world, continent or country); the five lists sit under "Lists ▾", and once one is chosen the button shows its name; the three analyses sit under "Analyse ▾" and open inside the panel on desktop (4.8). The breadcrumb takes you back to the continent or the world in one click.
 
 - **Profile**: for a country, the year-end cumulative capacity with its curve, world rank, onshore / offshore, share of the world, the figure 10 years earlier, the offshore world rank, **added this year** (onshore / offshore), **per-capita capacity**, **wind share of generation**, **capacity factor (national average)** and a bar chart of the capacity added each year (4.8a); the number of farms in the data, the largest and earliest farms, **farm-level coverage** (capacity mapped farm by farm ÷ the national figure), foundation and pipeline totals;
-  Taiwan and Japan carry an official-statistics audit badge. The "Live output right now" box: for Taiwan, Australia and Canada it shows each grid's total (with farm-level figures as well); for the UK (Great Britain, with Northern Ireland as a second row), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil it shows national wind output (onshore/offshore for Germany, France, Denmark, Belgium and Poland), and for the US the Texas (ERCOT) and California (CAISO) grids — these are totals only, with nothing per farm. Each row has the data time (local time), the last 48 hours as a trend (hourly means), a coverage note (e.g. the UK figure leaves out most turbines on the distribution network, so it is low; Texas and Belgium also show the share of capacity; Poland's current value is a snapshot of PSE's homepage map, and today's part of its trend only has this site's points, about every 2 hours) and the attribution. Buttons below: tour this country, farm list, Compare, Makers & owners, Output rankings (Taiwan, the US, Australia, Denmark) and the Taiwan live dashboard. With the world or a continent in focus, it lists the top five countries and a "Wind output right now" list, sorted by output and not summed (the sources differ in coverage and timing); a name opens that country's profile.
+  Taiwan and Japan carry an official-statistics audit badge. The "Live output right now" box: for Taiwan, Australia and Canada it shows each grid's total (with farm-level figures as well); for the UK (Great Britain, with Northern Ireland as a second row), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil it shows national wind output (onshore/offshore for Germany, France, Denmark, Belgium and Poland), and for the US the Texas (ERCOT) and California (CAISO) grids — these are totals only, with nothing per farm. Each row has the data time (local time), the last 48 hours as a trend (hourly means), a coverage note (e.g. the UK figure leaves out most turbines on the distribution network, so it is low; Texas and Belgium also show the share of capacity; Poland's current value is a snapshot of PSE's homepage map, and today's part of its trend only has this site's points, about every 30 minutes) and the attribution. Buttons below: tour this country, farm list, Compare, Makers & owners, Output rankings (Taiwan, the US, Australia, Denmark) and the Taiwan live dashboard. With the world or a continent in focus, it lists the top five countries and a "Wind output right now" list, sorted by output and not summed (the sources differ in coverage and timing); a name opens that country's profile.
 - **Milestones**: landmark farms in wind history; click one to jump to its year and fly there. The stars on the globe show their names only when hovered, selected, just reached while playing, or the current stop of a tour.
 - **Farms**: search and filter every farm —
   - The search box takes a farm name, Chinese name, developer, turbine model, country or port.
@@ -197,7 +197,7 @@ Open it from "📊 Output" in the toolbar's or the panel's Analyse menu, "Output
 
 - **Data**:
   - Taiwan · official yearly (19 Taipower-owned farms, Taipower open data)
-  - Taiwan · live samples (every grid unit including private farms, sampled every 2 hours from Taipower's live data; last 30 days, last 90 days or everything)
+  - Taiwan · live samples (every grid unit including private farms, sampled from Taipower's live data about every 30 minutes, every 2 hours before 22 Oct 2026; last 30 days, last 90 days or everything)
   - USA (EIA-923, 834 farms) and Australia (AEMO 5-minute measurements, 64 farms, curtailment included)
   - Denmark · farms (Danish Energy Agency, 54 farms) and Denmark · single turbines (about 1,800 individually metered turbines; the same-model view draws a distribution)
 - **Three views**: total output (average output for samples), capacity factor, and same turbine model (one model's capacity factor across farms). Pick the year, high→low or low→high; search when there are more than 20 rows.
@@ -366,7 +366,7 @@ Both are HTML files you save and open in a browser, with no web server, publishe
 
 | Data | Updated |
 |---|---|
-| Taiwan live output | Taipower updates about every 10 minutes; this site fetches it about every 2 hours (GitHub's schedule is not always on time) |
+| Taiwan live output | Taipower updates about every 10 minutes; this site fetches it about every 30 minutes (every few hours if the external trigger stops) |
 | Australia and Canada live output | Same schedule as Taiwan; about 150 farms |
 | Wind totals for the UK, Ireland, Germany, France, Denmark, Belgium, Poland, Korea, Brazil, Texas and California | Same schedule as Taiwan; the sources publish every 1–15 minutes, about 1–45 minutes behind (Germany is slowest; Poland is a snapshot, with the official trend values a day later); totals only |
 | Taiwan long-term trend (37331) | Added weekly; the official data is about 4–5 months behind and covers Taipower-owned units only |

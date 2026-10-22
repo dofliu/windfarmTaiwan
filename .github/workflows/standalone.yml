@@ -3,11 +3,11 @@ name: build-standalone
 # 單檔版 HTML（windfarmTaiwan-standalone.html）與全球風電地圖公開版（windfarmTaiwan-globe.html）：網站程式、index.html 或全球資料有變更時
 # 自動重建，上傳到 GitHub Release「standalone」（固定標籤，每次覆蓋同名檔案），不再 commit 進 repo——兩個檔各約 6 MB，進 git 會讓歷史每次多 12 MB。
 # 下載網址固定為 https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<檔名>。
-# 即時資料約每 2 小時更新，不觸發重建——單檔版連網時會直接向正式網站抓最新的即時資料。
+# 即時資料約每 30 分鐘更新，不觸發重建——單檔版連網時會直接向正式網站抓最新的即時資料。
 # Single-file HTML: rebuilt whenever the site code, index.html or the global data change, and uploaded to the GitHub Release
 # tagged "standalone" (fixed tag, assets overwritten each time) instead of being committed — each file is about 6 MB.
 # Download URL: https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<file>.
-# The live-data commits (about every 2 hours) do not trigger it; the single-file copy fetches live data from the site when online.
+# The live-data commits (about every 30 minutes) do not trigger it; the single-file copy fetches live data from the site when online.
 on:
   push:
     branches: [main]

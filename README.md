@@ -50,7 +50,7 @@
 | 頁面 | 看什麼 |
 |---|---|
 | **首頁** | 一頁看完：台灣此刻的風電出力、全球 1980–2025 年的風電成長、台灣在全球排第幾 |
-| **台灣即時** | 全台 30 個風場此刻各發多少電（約每 2 小時更新），點任何一座看它的詳情 |
+| **台灣即時** | 全台 30 個風場此刻各發多少電（約每 30 分鐘更新），點任何一座看它的詳情 |
 | **全球發展** | 3D 地球儀：各國風電的成長動畫，可一路放大到單一風場 |
 | **風電知識** | 13 章圖文，從 1888 年第一部發電風機講到台灣的離岸風電，最後有名詞小辭典與「大家常問」 |
 
@@ -70,7 +70,7 @@
 
 - 右上角 **EN／中文** 切換語言；**分享** 產生附資料時間的即時圖卡。網址可以直接分享，別人打開會看到同一個畫面。
 - 手機也能用。地球儀第一次打開要下載幾 MB 的資料，要等一下；沒有 3D 繪圖能力的舊裝置會自動改用長條排名。
-- 資料新舊：台灣即時約每 2 小時更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底，另有 8 國的 2026 年最新可得數字；逐場風場資料是 GEM 2026 年 2 月版。
+- 資料新舊：台灣即時約每 30 分鐘更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底，另有 8 國的 2026 年最新可得數字；逐場風場資料是 GEM 2026 年 2 月版。
 - 沒有網路也想看：下載[單檔版](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)，存到電腦直接開啟。
 - 發現資料有錯：風場卡片底部有「回報資料錯誤」，或到 [GitHub](https://github.com/dofliu/windfarmTaiwan/issues) 回報。
 - 每個按鈕、圖層與網址參數的完整說明見 **[使用說明](./docs/user-guide.md)**。
@@ -111,7 +111,7 @@
 ## 架構
 
 ```
-GitHub Actions（約每 2 小時）── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json / data/archive/farm_daily.json ─┐
+GitHub Actions（約每 30 分鐘）── taipower_wind_scraper.py ──► wind_realtime.json / wind_history.json / grid_status.json / data/archive/farm_daily.json ─┐
                                ── intl_wind_scraper.py    ──► data/live/intl_realtime.json（澳洲、加拿大）────────────────────────────────────────┤
 GitHub Actions（每週一）       ── backfill_history.py      ──► data/archive/ 月檔 / wind_archive_daily.json ──────────────────────────────────────┤
 GitHub Actions（每 6 小時）    ── tools/fetch_gfs_wind.py  ──► data/live/wind_now.webp / wind_now.json（此刻的風）──────────────────────────────────┤
@@ -184,9 +184,9 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `docs/` — 使用說明（`user-guide.md`）、資料覆蓋率報告（`data-coverage.md`）、資料清理紀錄（`data-cleanup.md`）、風場位置清單（`data-locations.md`）、水下基礎逐場清單（`foundations.md`）、
   重大事件與事故清單（`events.md`）與其他國家即時資料來源評估（`live-data-sources.md`），各有英文版 `.en.md`
 - `CLAUDE.md` — 專案慣例（文件中英對照、單檔版、資料更新、測試與版本），給之後的開發者與 AI 參考
-- `taipower_wind_scraper.py` — 約每 2 小時執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
+- `taipower_wind_scraper.py` — 約每 30 分鐘執行：抓台電開放資料、解析風力 30 機組 → `wind_realtime.json`；
   滾動累積 7 天歷史 → `wind_history.json`；累加各併網點的每日取樣 → `data/archive/farm_daily.json`；同時抓電力供需即時報表 → `grid_status.json`
-- `intl_wind_scraper.py` — 約每 2 小時執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力，
+- `intl_wind_scraper.py` — 約每 30 分鐘執行：抓澳洲東部電網（AEMO）、亞伯達（AESO）、安大略（IESO）各風場的即時出力，
   以及大不列顛、北愛爾蘭、愛爾蘭、德國、法國、丹麥、比利時、波蘭、韓國、巴西、美國德州（ERCOT）、加州（CAISO）的風電總量 → `data/live/intl_realtime.json`
   （含各電網 48 小時總出力，全國總量存每小時平均）；任一來源失敗時保留上一次的數值並標示，不影響台灣資料
 - `wind_realtime.json` — 即時資料（由 Actions 自動更新）
@@ -200,7 +200,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   （前端「數據 → 長期趨勢」讀這個，含逐機組明細）。
   **時效注意**：37331 為季度回溯檔，落後約 4–5 個月，補不到近 7 天趨勢窗的缺口，主要價值是長期趨勢分析。
   **口徑注意**：37331 只含台電**自有**風力機組，不含民營購電，與即時資料的全系統數值不可混用比較。
-- `.github/workflows/scrape.yml` — 約每 2 小時自動執行兩個 scraper 並 commit
+- `.github/workflows/scrape.yml` — 約每 30 分鐘自動執行兩個 scraper 並 commit
 - `.github/workflows/backfill.yml` — 每週一自動累積官方回溯存檔，並從最近三週的 git 歷史補上每日取樣漏記的快照；可手動觸發（含 dry_run 選項）
 - `.github/workflows/wind-now.yml` — 每 6 小時抓 NOAA GFS 離地 10 m 風場（`tools/fetch_gfs_wind.py`），地球儀「此刻的風」用
 - `.github/workflows/standalone.yml` — 網站程式或全球資料有變更時重建兩個單檔版，上傳到 Release「standalone」（不 commit，避免 git 歷史每次多 25 MB）
@@ -225,7 +225,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 
 - **下載**：網站頁尾或「風電知識 → 資料來源與方法 → 關於本站」的「下載單檔版 HTML」，
   或直接開 `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html` 另存。
-- **連網時**：台灣即時資料直接向正式網站抓最新的（約每 2 小時更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
+- **連網時**：台灣即時資料直接向正式網站抓最新的（約每 30 分鐘更新），放大地球儀會載入 Esri 高解析圖磚，風場卡片會查維基百科。
 - **離線時**：全球資料、約 3.1 萬筆風場、國界與 2k 地形／衛星底圖都在檔案裡，地球儀照常運作；台灣即時改顯示建置當下的資料，
   並標示「離線快照」。台灣即時的衛星地圖（Leaflet）需要連網，離線時改畫台灣輪廓簡圖（Natural Earth）。
 - **更新**：push 到 `main` 且改到 `index.html`、`assets/`、`data/global/*.json` 時，GitHub Actions 會自動重建並上傳到 Release（檔案不進 git）；
@@ -238,7 +238,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 ## 注意事項
 
 - 用 **public repo**：Actions 分鐘數免費無限。
-- 排程約每 2 小時一次；GitHub 排程不保證準時（可能延遲或略過一兩次），本站不需要逐分即時，足夠。
+- 即時資料約每 30 分鐘更新一次：由外部排程服務經 GitHub API 觸發（GitHub 自己的排程常延遲或略過，只當備援；設定見 DEPLOY.md「外部排程」）。
 - repo 連續 60 天無活動，排程會被自動停用；`keepalive` workflow 每月自動重新啟用各排程來避免（檢查方式見 DEPLOY.md「維護」）。
 - 每次更新會 commit 一筆，git 歷史會累積（功能無礙）。若要避免，可改用 Cloudflare Worker Cron（見 `DEPLOY.md`）。
 - 瀏覽時會連到的第三方服務：cdnjs（Leaflet，僅地圖分頁）、Esri 圖磚（僅地球儀放大後）、維基百科與 Wikimedia Commons（風場照片與簡介，查不到或離線時只顯示連結）。

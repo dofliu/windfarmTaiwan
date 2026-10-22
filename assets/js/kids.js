@@ -618,7 +618,7 @@ function viewTaiwan() {
         '<div class="kfarms" role="img" aria-label="' + esc(L(gen + ' 個綠色風車代表正在發電，' + (nF - gen) + ' 個灰色代表此刻沒有出力', gen + ' green turbines are generating, ' + (nF - gen) + ' grey ones have no output now')) + '">' +
         LV.FARMS.map(f => (LV.RT[f.id] || 0) >= 0.05 ? ROTOR('kf on', '#12A594', NAVY, '#FFC845') : ROTOR('kf', '#EEF3F7', '#9DB4C6', '#D3DEE7')).join('') + '</div>' +
         '<div class="klegend"><span><i class="g"></i>' + L('正在發電', 'Generating') + '</span><span><i></i>' + L('此刻沒有出力', 'No output now') + '</span></div></div>' +
-      '<p class="ksmall">' + L('怎麼算的？家庭用電以每戶平均 0.5 kW 估算（一年約 3,600 度）。資料來自台電即時資料，本站約每 2 小時更新。', 'How is it worked out? A home uses about 0.5 kW on average (about 3,600 kWh a year). Data: Taipower’s live data, updated on this site about every 2 hours.') +
+      '<p class="ksmall">' + L('怎麼算的？家庭用電以每戶平均 0.5 kW 估算（一年約 3,600 度）。資料來自台電即時資料，本站約每 30 分鐘更新。', 'How is it worked out? A home uses about 0.5 kW on average (about 3,600 kWh a year). Data: Taipower’s live data, updated on this site about every 30 minutes.') +
         ' <a href="#/live">' + L('看大人版的台灣即時 →', 'See the full Taiwan live page →') + '</a></p>' +
     '</div></div></div>';
 }
