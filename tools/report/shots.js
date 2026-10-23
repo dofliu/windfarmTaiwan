@@ -49,6 +49,8 @@ const SHOTS = [
   // 第 8 章：事件 · chapter 8: incidents
   { n: 'events', url: '#/global?y=2025', events: true },
   { n: 'evtw', url: '#/global?ev=WIND-061', events: true },
+  // 此刻的風（風機運轉色階），產生報告當下的天氣 · Wind now, turbine view, the weather at build time
+  { n: 'windtw', url: '#/global?r=TWN&flow=1&fc=t', clean: true },
   // 第 9 章：台灣 · chapter 9: Taiwan
   { n: 'twzones', url: '#/global?r=TWN&zones=1' },
   { n: 'twoff', url: '#/global?r=TWN&layer=off&y=2025', clean: true },

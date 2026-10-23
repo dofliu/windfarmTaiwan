@@ -543,9 +543,11 @@ def more(D, t):
         f'{D["inc_with_deaths"]} incidents had officially confirmed deaths, {D["inc_deaths"]} people in all, every one of them a worker: falls during maintenance, nacelle fires, a blade that shifted during construction, '
         'and in 2024 a carbon-dioxide fire-suppression leak at the onshore substation of a Taiwanese offshore farm (3 deaths).',
         'For Taiwan, typhoons are the most direct risk: typhoons Jangmi (2008), Soudelor (2015) and Megi (2016) blew down Taiwanese turbines or broke their blades; in 2024 Super Typhoon Yagi also '
-        'snapped several 6.25 MW typhoon-class turbines that were still under construction and not yet connected, at Wenchang in Hainan, China.',
+        'snapped several 6.25 MW typhoon-class turbines that were still under construction and not yet connected, at Wenchang in Hainan, China. '
+        'The site\'s Wind now layer can switch to a turbine view that shows where the wind runs turbines at full output and where it is strong enough to shut them down (below).',
     ]
     t['inc_types'] = {'tower': 'Tower collapse', 'blade': 'Blade / rotor', 'fire': 'Fire', 'other': 'Other'}
+    t['c8i_wind'] = f'The site\'s Wind now layer in the turbine view (NOAA GFS, {D["wind_run"]} Taiwan time): grey = barely turning, blue-green = output rising, bright green = full output, magenta = above 25 m/s, shut down. Indicative, from 10 m wind; it is the weather when the report was built, not an average.'
     t['c8i_fig22'] = 'Recorded incidents by type'
     t['c8i_fig23'] = 'Recorded incidents by year'
     t['c8i_src'] = f'The site\'s events data (compiled {D["ev_meta"]["compiled"]}, each with a primary source; casualties only when officially confirmed). The list leans towards recent years and is not an incident rate.'
