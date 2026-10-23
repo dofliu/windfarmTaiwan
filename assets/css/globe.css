@@ -180,6 +180,19 @@
 #g-flowLegend[hidden]{display:none}
 #g-flowLegend .wlh b{color:var(--ink)}
 #g-flowLegend .wlbar{display:flex;gap:2px}
+#g-flowLegend .wlh{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#g-flowLegend .wseg{display:inline-flex;margin-left:auto;border:1px solid var(--gline);border-radius:8px;overflow:hidden}
+#g-flowLegend .wseg button{font:inherit;font-size:11px;color:var(--ink-2);background:transparent;border:0;padding:2px 9px;cursor:pointer;min-height:24px}
+#g-flowLegend .wseg button.on{background:rgba(255,255,255,.14);color:var(--ink)}
+#g-flowLegend .wgrad{height:8px;border-radius:4px;min-width:220px;margin-top:3px}
+#g-flowLegend .wticks{position:relative;height:14px;font-size:10px;font-variant-numeric:tabular-nums}
+#g-flowLegend .wticks em{position:absolute;top:0;transform:translateX(-50%);font-style:normal}
+#g-flowLegend .wticks em:first-child{transform:none}#g-flowLegend .wticks em:nth-last-child(2){transform:translateX(-100%)}
+#g-flowLegend .wbands{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;margin-top:3px}
+#g-flowLegend .wbands span{display:flex;flex-direction:column;gap:2px}
+#g-flowLegend .wbands i{display:block;height:8px;border-radius:3px}
+#g-flowLegend .wbands em{font-style:normal;font-size:10px;line-height:1.25}
+#g-flowLegend .wln{max-width:420px}
 #g-flowLegend .wlbar span{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:44px}
 #g-flowLegend .wlbar i{display:block;width:100%;height:3px;border-radius:2px;margin:3px 0}
 #g-flowLegend .wlbar em{font-style:normal;font-size:10px;white-space:nowrap;font-variant-numeric:tabular-nums}
