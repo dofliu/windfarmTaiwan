@@ -142,6 +142,10 @@ const ROUTES = [
     const n = document.querySelectorAll('.gana .omk .mkrow').length;
     return n >= 5 ? '' : 'makers & owners: ' + n + ' rows';
   }],
+  ['#/global?r=TWN&flow=1&fc=t', 15000, () => {
+    const l = document.querySelector('#g-flowLegend');
+    return l && !l.hidden && l.querySelector('.wbands') && l.querySelector('[data-fc="t"].on') ? '' : 'wind now (turbine wash): legend missing';
+  }],
   ['#/global?ind=share', 15000, () => {
     const l = document.querySelector('#g-indLegend');
     return l && !l.hidden && l.querySelector('.ilr') ? '' : 'indicator: legend missing';

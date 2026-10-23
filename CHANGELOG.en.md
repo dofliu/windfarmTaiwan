@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.6.0 — 2026-10-23
+
+- **Wind now redesigned** (chosen by the owner on 23 Oct 2026 after nine samples):
+  - The particles are white, brighter and thicker with speed, with a soft glow where they overlap; zoomed in, the canvas has twice the resolution and fast particles move in small steps, so trails are thin and continuous instead of dashed.
+  - A translucent colour wash underneath shows wind speed, so a typhoon's extent is obvious at a glance; it is computed from the same wind file, which does not grow.
+  - The legend switches the wash between **Speed** (more magenta = stronger, a 0–35+ m/s gradient) and **Turbines** (grey below 3 m/s = barely turning, blue-green 3–12 = output rising, bright green 12–25 = full output, magenta above 25 = shut down). The turbine view is indicative, from 10 m wind; the legend says hub-height wind is stronger and models differ. `fc=t` in the URL opens the turbine view. Colours checked for colour-blind readers.
+- Fix: on the 2.5D flat map, zooming in hid Wind now under the high-resolution tiles (the tiles are raised; the wind layer now rises above them).
+- The user guide (Wind now, URL parameters) is updated.
+
 ## v3.5.2 — 2026-10-23
 
 - **Two more speed steps in Wind now** (the owner's request on 23 Oct 2026): the top step used to be "≥12 m/s"; it is now split into 12–25 m/s (light magenta) and 25 m/s and above (deep magenta, typhoon strength), while speeds below 12 m/s still get brighter with speed. The satellite and other base maps each have their own colours, and the legend follows. The user guide is updated.

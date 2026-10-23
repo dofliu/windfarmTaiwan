@@ -54,7 +54,7 @@ const I18N = {
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
-    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', zoneLegT: '海域', zEezA: '專屬經濟區界線：協議或判決', zEezM: '中線與 200 浬外界', zEezU: '未定或有爭議（虛線）', zSites: '離岸風電規劃區：台灣潛力場址、日本促進區域、北海周邊國家', zSite: '潛力場址', zArea: '離岸風電規劃區', zAreaSrc: '規劃區出處（皆已簡化）：', zNote: '界線取自 Marine Regions（CC BY 4.0），已簡化，不具法律效力，也不代表本站對任何爭議海域的立場', zSkip: '新竹縣場址的點位順序無法確定，未畫出', zSrcE: 'Marine Regions', zSrcT: '能源署開放資料', zSrcA: '各國規劃區出處見「資料來源」', zErr: '海域圖層載入失敗（離線或資料暫時無法取得）', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m，越亮風越強，強風轉紫紅', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
+    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', zoneLegT: '海域', zEezA: '專屬經濟區界線：協議或判決', zEezM: '中線與 200 浬外界', zEezU: '未定或有爭議（虛線）', zSites: '離岸風電規劃區：台灣潛力場址、日本促進區域、北海周邊國家', zSite: '潛力場址', zArea: '離岸風電規劃區', zAreaSrc: '規劃區出處（皆已簡化）：', zNote: '界線取自 Marine Regions（CC BY 4.0），已簡化，不具法律效力，也不代表本站對任何爭議海域的立場', zSkip: '新竹縣場址的點位順序無法確定，未畫出', zSrcE: 'Marine Regions', zSrcT: '能源署開放資料', zSrcA: '各國規劃區出處見「資料來源」', zErr: '海域圖層載入失敗（離線或資料暫時無法取得）', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m', flowCS: '風速', flowCT: '風機運轉', flowT0: '<3 幾乎不轉', flowT1: '3–12 出力上升', flowT2: '12–25 滿載', flowT3: '>25 停機保護', flowTNote: '以離地 10 m 風速示意：風機輪轂多在 80–150 m，那裡的風更強；切入、額定、切出風速也因機型而異（約 3、12、25 m/s）', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
     attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrCaveat: '資料持續查證中、並非完全準確（見「資料來源」）', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
@@ -188,7 +188,7 @@ const I18N = {
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
-    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', zoneLegT: 'Sea zones', zEezA: 'EEZ boundaries: agreed or ruled', zEezM: 'Median lines and 200 NM limits', zEezU: 'Unsettled or disputed (dashed)', zSites: 'Offshore wind areas: Taiwan potential sites, Japan promotion zones, North Sea countries', zSite: 'Potential site', zArea: 'Offshore wind area', zAreaSrc: 'Area sources (all simplified): ', zNote: 'Boundaries from Marine Regions (CC BY 4.0), simplified; they have no legal value and imply no position on any disputed area', zSkip: 'The Hsinchu County site is not drawn: its vertex order cannot be determined', zSrcE: 'Marine Regions', zSrcT: 'Energy Administration open data', zSrcA: 'other countries: see Sources', zErr: 'Sea zones failed to load (offline or data unavailable)', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground; brighter = stronger, magenta = strong wind', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
+    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', zoneLegT: 'Sea zones', zEezA: 'EEZ boundaries: agreed or ruled', zEezM: 'Median lines and 200 NM limits', zEezU: 'Unsettled or disputed (dashed)', zSites: 'Offshore wind areas: Taiwan potential sites, Japan promotion zones, North Sea countries', zSite: 'Potential site', zArea: 'Offshore wind area', zAreaSrc: 'Area sources (all simplified): ', zNote: 'Boundaries from Marine Regions (CC BY 4.0), simplified; they have no legal value and imply no position on any disputed area', zSkip: 'The Hsinchu County site is not drawn: its vertex order cannot be determined', zSrcE: 'Marine Regions', zSrcT: 'Energy Administration open data', zSrcA: 'other countries: see Sources', zErr: 'Sea zones failed to load (offline or data unavailable)', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground', flowCS: 'Speed', flowCT: 'Turbines', flowT0: '<3 barely turning', flowT1: '3–12 output rising', flowT2: '12–25 full output', flowT3: '>25 shut down', flowTNote: 'Indicative, from 10 m wind: turbine hubs sit at about 80–150 m where the wind is stronger, and cut-in, rated and cut-out speeds vary by model (about 3, 12 and 25 m/s)', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
     attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrCaveat: 'Data still being checked, not fully accurate (see Sources)', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
@@ -3574,7 +3574,7 @@ function flowLoad() {
     const n = img.width * img.height, U = new Float32Array(n), V = new Float32Array(n), k = meta.scale;
     for (let i = 0; i < n; i++) { U[i] = px[i * 4] * k + meta.min; V[i] = px[i * 4 + 1] * k + meta.min; }
     Object.assign(FLOW, { meta, U, V, w: img.width, h: img.height });
-    flowSetup();
+    flowSetup(); flowWashTex();
   });
   return FLOW.p;
 }
@@ -3612,10 +3612,48 @@ function flowWindow(now) {
   else { geo = new THREE.PlaneGeometry(w.lonSpan * FS, w.latSpan * FS); geo.rotateX(-Math.PI / 2); geo.translate((w.lon0 + w.lonSpan / 2) * FS, 0.03, -(w.lat0 + w.latSpan / 2) * FS); }
   if (!F.mesh) { F.mesh = new THREE.Mesh(geo, F.mat); F.mesh.renderOrder = 2; scene.add(F.mesh); } else { F.mesh.geometry.dispose(); F.mesh.geometry = geo; }
   F.n = w.full ? 9000 : 3500;
-  const side = Math.min(2048, Math.round(innerHeight * Math.min(2, devicePixelRatio || 1) * 1.3 / 64) * 64);       // 拉近時用方形畫布（經緯跨度相近），大小約為畫面的 1.6 倍
+  const side = Math.min(2048, Math.round(innerHeight * Math.min(2, devicePixelRatio || 1) * 2 / 64) * 64);       // 拉近時用方形畫布（經緯跨度相近），邊長約為畫面高的 2 倍，拉近時線條才細
   F.cv.width = w.full ? 2048 : side; F.cv.height = w.full ? 1024 : side;
   F.g = F.cv.getContext('2d'); F.g.clearRect(0, 0, F.cv.width, F.cv.height);
   for (let i = 0; i < F.n; i++) flowSpawn(i, true);
+}
+/* 底色：整個地球一張 720×360 的貼圖，依風速塗上半透明的顏色，粒子畫在它上面。兩種色階（圖例可切換，網址 fc=t）：
+   s＝風速（越強越紫紅）；t＝風機運轉（不到切入風速 3 m/s 灰、3–12 出力上升藍綠、12–25 額定滿載亮綠、超過切出風速 25 m/s 紫紅＝停機保護）。
+   以離地 10 m 風速示意，風機輪轂高度的風更強，各機型的切入／額定／切出風速也不同。四段代表色（灰 #4a5262、藍 #2a9fd0、綠 #4fc882、紫紅 #eb2daf）經 dataviz 色盲檢查：相鄰色在色盲與一般視覺下都分得開（灰刻意不帶彩度＝不轉；圖例另有文字）。 */
+const WASH = {
+  s: [[0, 20, 30, 70, 0], [4, 35, 60, 130, 0.18], [8, 70, 80, 180, 0.34], [12, 130, 75, 195, 0.48], [18, 185, 60, 190, 0.58], [25, 235, 50, 175, 0.68], [35, 255, 125, 220, 0.78]],
+  t: [[0, 74, 82, 98, 0.12], [2.95, 74, 82, 98, 0.16], [3, 42, 159, 208, 0.24], [7, 42, 170, 190, 0.32], [11.95, 60, 190, 150, 0.4], [12, 79, 200, 130, 0.46], [24.95, 110, 215, 125, 0.5], [25, 235, 45, 175, 0.62], [35, 255, 110, 215, 0.72]],
+};
+function rampAt(r, v) {
+  if (v <= r[0][0]) return r[0].slice(1);
+  for (let k = 1; k < r.length; k++) if (v <= r[k][0]) {
+    const a = r[k - 1], b = r[k], t = (v - a[0]) / (b[0] - a[0]);
+    return [0, 1, 2, 3].map(j => a[j + 1] + (b[j + 1] - a[j + 1]) * t);
+  }
+  return r[r.length - 1].slice(1);
+}
+function flowWashTex() {
+  const F = FLOW, ramp = WASH[S.flowC === 't' ? 't' : 's'], W = 720, H = 360;
+  const c = F.wcv || (F.wcv = document.createElement('canvas')); c.width = W; c.height = H;
+  const g = c.getContext('2d'), im = g.createImageData(W, H), d = im.data;
+  if (!F.wsp) { F.wsp = new Float32Array(W * H); for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const [u, v] = flowAt(-180 + (x + 0.5) / 2, 90 - (y + 0.5) / 2); F.wsp[y * W + x] = Math.hypot(u, v); } }
+  for (let i = 0; i < W * H; i++) { const [r, gg, b, a] = rampAt(ramp, F.wsp[i]), o = i * 4; d[o] = r; d[o + 1] = gg; d[o + 2] = b; d[o + 3] = a * 255; }
+  g.putImageData(im, 0, 0);
+  if (!F.wtex) { F.wtex = new THREE.CanvasTexture(c); F.wtex.minFilter = THREE.LinearFilter; F.wtex.generateMipmaps = false; F.wmat = new THREE.MeshBasicMaterial({ map: F.wtex, transparent: true, depthWrite: false }); }
+  else F.wtex.needsUpdate = true;
+}
+function flowWashMesh(flat) {
+  const F = FLOW; if (!F.wmat || F.wflat === flat) return;
+  F.wflat = flat;
+  let geo;
+  if (!flat) geo = new THREE.SphereGeometry(R * 1.0015, 160, 100);
+  else { geo = new THREE.PlaneGeometry(360 * FS, 180 * FS); geo.rotateX(-Math.PI / 2); geo.translate(0, 0.02, 0); }
+  if (!F.wmesh) { F.wmesh = new THREE.Mesh(geo, F.wmat); F.wmesh.renderOrder = 1; scene.add(F.wmesh); } else { F.wmesh.geometry.dispose(); F.wmesh.geometry = geo; }
+}
+function setFlowScheme(c) {
+  S.flowC = c === 't' ? 't' : 's';
+  if (FLOW && FLOW.wtex) flowWashTex();
+  renderFlowLegend(); syncURL();
 }
 function flowSpawn(i, first) {                        // 依面積均勻撒在視窗裡（高緯度不擠在一起）
   const F = FLOW, w = F.win, s0 = Math.sin(Math.max(-85, w.lat0) * D2R), s1 = Math.sin(Math.min(85, w.lat0 + w.latSpan) * D2R);
@@ -3624,52 +3662,74 @@ function flowSpawn(i, first) {                        // 依面積均勻撒在�
 }
 function flowVisible() {
   if (!FLOW || !FLOW.mesh) return;
-  FLOW.mesh.visible = !!S.flow && !modeAnim;
+  const on = !!S.flow && !modeAnim;
+  FLOW.mesh.visible = on;
+  if (FLOW.wmesh) FLOW.wmesh.visible = on;
 }
+/* 粒子：白色、越強越亮越粗（量化成 24 階分批畫），重疊處用 lighter 疊加微微發光；快的粒子分小步畫（每段不超過約 1.5 個畫素），線條不會斷成一截一截 */
+const PART = [[0, 235, 240, 255, 0.3], [6, 245, 248, 255, 0.6], [12, 255, 255, 255, 0.85], [35, 255, 255, 255, 1]];
 function flowTick(dt, now) {
   const F = FLOW; if (!S.flow || !F || !F.g) return;
-  flowWindow(now); flowVisible();
+  flowWindow(now); flowWashMesh(S.modeT > 0.5); flowVisible();
   if (modeAnim) return;
+  const lift = clamp(curAlt() * 0.004, 0.0015, 0.4);   // 拉近時高解析圖磚會抬高 lift（見主迴圈）：底色與粒子跟著抬到它上面、國界（lift × 1.7）之下
+  if (S.mode === 'globe') { F.mesh.scale.setScalar((R * 1.002 + lift * 1.3) / (R * 1.002)); F.mesh.position.set(0, 0, 0); if (F.wmesh) { F.wmesh.scale.setScalar((R * 1.0015 + lift * 1.2) / (R * 1.0015)); F.wmesh.position.set(0, 0, 0); } }   // 球面：原本的高度再加上 lift，粗網格的弦也不會沉到圖磚下
+  else { F.mesh.scale.setScalar(1); F.mesh.position.y = lift * 1.3; if (F.wmesh) { F.wmesh.scale.setScalar(1); F.wmesh.position.y = lift * 1.2; } }
   const g = F.g, w = F.win, CW = F.cv.width, CH = F.cv.height, sx = CW / w.lonSpan, sy = CH / w.latSpan, top = w.lat0 + w.latSpan;
-  g.globalCompositeOperation = 'destination-in'; g.fillStyle = 'rgba(0,0,0,0.88)'; g.fillRect(0, 0, CW, CH);   // 舊軌跡淡出
-  g.globalCompositeOperation = 'source-over'; g.lineWidth = w.full ? 0.8 : 1.0; g.lineCap = 'round';
-  const step = 0.006 * Math.min(4, dt * 60) * (w.full ? clamp(curAlt() / 110, 1, 3) : clamp(w.latSpan / 60, 0.08, 1));   // 示意速度：畫面上看起來的速度大致固定   // 示意速度：拉近時放慢，畫面上的速度大致一樣
-  const BANDS = flowBands();
-  const paths = BANDS.map(() => []);
+  g.globalCompositeOperation = 'destination-in'; g.fillStyle = 'rgba(0,0,0,' + Math.pow(0.9, Math.min(4, dt * 60)).toFixed(3) + ')'; g.fillRect(0, 0, CW, CH);   // 舊軌跡淡出（與更新頻率無關）
+  g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';
+  const step = 0.006 * Math.min(4, dt * 60) * (w.full ? clamp(curAlt() / 110, 1, 3) : clamp(w.latSpan / 60, 0.08, 1));   // 示意速度：畫面上看起來的速度大致固定
+  const NB = 24, VMAX = 35, paths = Array.from({ length: NB }, () => []);
+  const lw0 = w.full ? 1.1 : 0.9 * CW / 1400, am = w.full ? 0.85 : 0.5;   // 整個地球時畫布較疏：線粗一點、亮一點
   const X = lon => { let d = (lon - w.lon0) % 360; if (d < 0) d += 360; return d * sx; };
   for (let i = 0; i < F.n; i++) {
     if ((F.age[i] += 2) > 180) { flowSpawn(i); continue; }
-    const lo = F.lon[i], la = F.lat[i], [u, v] = flowAt(lo, la), sp = Math.hypot(u, v);
-    let nlo = lo + u * step / Math.max(0.2, Math.cos(la * D2R)), nla = la + v * step;
-    if (nla > 85 || nla < -85 || nla < w.lat0 || nla > top) { flowSpawn(i); continue; }
-    if (nlo > 180) nlo -= 360; else if (nlo < -180) nlo += 360;
-    F.lon[i] = nlo; F.lat[i] = nla;
-    const x0 = X(lo), x1 = X(nlo);
-    if (Math.abs(x1 - x0) > CW / 2) continue;   // 跨過畫布邊緣（換日線）：這一格不畫
-    if (!w.full && x1 > CW) { flowSpawn(i); continue; }
-    let b = 0; while (sp > BANDS[b][0]) b++;
-    paths[b].push(x0, (top - la) * sy, x1, (top - nla) * sy);
+    let lo = F.lon[i], la = F.lat[i]; const [u0, v0] = flowAt(lo, la), sp = Math.hypot(u0, v0);
+    const px = sp * step * Math.max(sx, sy) / Math.max(0.2, Math.cos(la * D2R)), sub = Math.max(1, Math.min(10, Math.ceil(px / 1.5))), bk = Math.min(NB - 1, Math.floor(sp / VMAX * NB));
+    let dead = false;
+    for (let k = 0; k < sub; k++) {
+      const [u, v] = k ? flowAt(lo, la) : [u0, v0];
+      let nlo = lo + u * step / sub / Math.max(0.2, Math.cos(la * D2R)), nla = la + v * step / sub;
+      if (nla > 85 || nla < -85 || nla < w.lat0 || nla > top) { dead = true; break; }
+      if (nlo > 180) nlo -= 360; else if (nlo < -180) nlo += 360;
+      const x0 = X(lo), x1 = X(nlo);
+      if (!w.full && x1 > CW) { dead = true; break; }
+      if (Math.abs(x1 - x0) <= CW / 2) paths[bk].push(x0, (top - la) * sy, x1, (top - nla) * sy);   // 跨過畫布邊緣（換日線）的一段不畫
+      lo = nlo; la = nla;
+    }
+    if (dead) { flowSpawn(i); continue; }
+    F.lon[i] = lo; F.lat[i] = la;
   }
-  paths.forEach((p, b) => { g.strokeStyle = BANDS[b][1]; g.beginPath(); for (let k = 0; k < p.length; k += 4) { g.moveTo(p[k], p[k + 1]); g.lineTo(p[k + 2], p[k + 3]); } g.stroke(); });
+  paths.forEach((p, b) => {
+    if (!p.length) return;
+    const v = (b + 0.5) / NB * VMAX, [r, gg, bb, a] = rampAt(PART, v);
+    g.strokeStyle = 'rgba(' + (r | 0) + ',' + (gg | 0) + ',' + (bb | 0) + ',' + (a * am).toFixed(3) + ')';
+    g.lineWidth = lw0 * (0.7 + Math.min(1.1, v / 15));
+    g.beginPath(); for (let k = 0; k < p.length; k += 4) { g.moveTo(p[k], p[k + 1]); g.lineTo(p[k + 2], p[k + 3]); } g.stroke();
+  });
+  g.globalCompositeOperation = 'source-over';
   F.tex.needsUpdate = true;
-}
-/* 風速分級（m/s 上限、顏色）：12 m/s 以下越亮越強；強風（12–25）與颱風等級（≥25）改用紫紅，一眼看出強風區。
-   衛星底圖有白色雲雪：弱風改用帶藍紫的顏色才看得出來 */
-function flowBands() {
-  return S.base === 'sat'
-    ? [[3, 'rgba(150,170,255,0.45)'], [7, 'rgba(165,185,255,0.7)'], [12, 'rgba(200,212,255,0.9)'], [25, 'rgba(240,135,230,0.95)'], [999, 'rgba(255,45,195,1)']]
-    : [[3, 'rgba(225,225,245,0.35)'], [7, 'rgba(235,235,250,0.6)'], [12, 'rgba(250,250,255,0.9)'], [25, 'rgba(240,150,230,0.95)'], [999, 'rgba(255,60,200,1)']];
 }
 function renderFlowLegend() {
   const el = $('g-flowLegend'); if (!el) return;
   if (!S.flow || !FLOW || !FLOW.meta) { el.hidden = true; return; }
   const d = new Date(FLOW.meta.run.replace('Z', ':00Z')), tw = new Date(d.getTime() + 8 * 3600e3);
   const when = (tw.getUTCMonth() + 1) + '/' + tw.getUTCDate() + ' ' + String(tw.getUTCHours()).padStart(2, '0') + ':00';
-  const lab = ['<3', '3–7', '7–12', '12–25', '≥25'];
-  el.innerHTML = '<div class="wlh"><b>' + esc(T('flowLegT')) + '</b> · ' + esc(T('flowLegSub')) + '</div><div class="wlbar">' +
-    flowBands().map(([, c], k) => '<span><i style="background:' + c + '"></i><em>' + lab[k] + ' m/s</em></span>').join('') + '</div>' +
+  const t = S.flowC === 't', col = c => 'rgb(' + c.slice(0, 3).map(x => Math.round(x * Math.min(1, 0.45 + c[3]) + 14 * (1 - Math.min(1, 0.45 + c[3])))).join(',') + ')';
+  let bar;
+  if (!t) {
+    const stops = [0, 3, 6, 9, 12, 16, 20, 25, 30, 35].map(v => col(rampAt(WASH.s, v)) + ' ' + (v / 35 * 100).toFixed(1) + '%').join(',');
+    bar = '<div class="wgrad" style="background:linear-gradient(90deg,' + stops + ')"></div><div class="wticks">' +
+      [0, 7, 12, 25, 35].map(v => '<em style="left:' + (v / 35 * 100).toFixed(1) + '%">' + (v === 35 ? '35+ m/s' : v) + '</em>').join('') + '</div>';
+  } else {
+    bar = '<div class="wbands">' + [[1.5, T('flowT0')], [8, T('flowT1')], [18, T('flowT2')], [30, T('flowT3')]].map(([v, l]) => '<span><i style="background:' + col(rampAt(WASH.t, v)) + '"></i><em>' + esc(l) + '</em></span>').join('') + '</div>';
+  }
+  el.innerHTML = '<div class="wlh"><b>' + esc(T('flowLegT')) + '</b> · ' + esc(T('flowLegSub')) +
+    '<span class="wseg" role="group"><button type="button" data-fc="s" class="' + (t ? '' : 'on') + '" aria-pressed="' + !t + '">' + esc(T('flowCS')) + '</button><button type="button" data-fc="t" class="' + (t ? 'on' : '') + '" aria-pressed="' + t + '">' + esc(T('flowCT')) + '</button></span></div>' + bar +
+    (t ? '<div class="wln">' + esc(T('flowTNote')) + '</div>' : '') +
     '<div class="wln">' + esc(T('flowTime')(when)) + ' · <a href="' + esc(FLOW.meta.url) + '" target="_blank" rel="noopener">' + esc(T('flowSrc')) + '</a></div>' +
     (Math.floor(S.year) < Y1 ? '<div class="wln fly">' + esc(T('flowYearNote')(Math.floor(S.year))) + '</div>' : '');
+  el.querySelectorAll('[data-fc]').forEach(b => { b.onclick = () => setFlowScheme(b.dataset.fc); });
   el.classList.toggle('below', S.base === 'wind');
   el.hidden = false;
 }
@@ -4757,6 +4817,7 @@ function stateParams() {
   if (S.mode !== 'globe') p.mode = S.mode;
   if (S.layer !== 'both') p.layer = S.layer;
   if (S.flow) p.flow = '1';
+  if (S.flow && S.flowC === 't') p.fc = 't';
   if (S.zones) p.zones = '1';
   if (S.liveCov) p.live = '1';
   if (S.ind) p.ind = S.ind;
@@ -4794,6 +4855,7 @@ function applyParams(p, fromFarms) {
   if (p.layer && ['both', 'on', 'off', 'fd'].includes(p.layer)) { S.layer = p.layer; $('g-layerSel').value = p.layer; layerChanged(); updateBars(true); farmLayerDirty = true; }
   S.fdOnly = S.layer === 'fd' && FD_GROUPS.includes(p.fdg) ? p.fdg : null;
   if (p.pipe != null) togglePipe(p.pipe !== '0');
+  if (p.fc != null || p.flow != null) { const fc = p.fc === 't' ? 't' : 's'; if (fc !== S.flowC) { S.flowC = fc; if (FLOW && FLOW.wtex) { flowWashTex(); renderFlowLegend(); } } }
   if (p.flow != null && (p.flow === '1') !== !!S.flow) toggleFlow(p.flow === '1');
   if ((p.zones === '1') !== !!S.zones && !LITE) toggleZones(p.zones === '1');
   if ((p.live === '1') !== !!S.liveCov && !LITE) toggleLiveCov(p.live === '1');
