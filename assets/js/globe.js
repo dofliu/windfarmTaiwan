@@ -54,7 +54,7 @@ const I18N = {
     profCap: '年底累計', profRank: '全球排名', profOnOff: '陸域／離岸', profTen: '10 年前', profGrowth: '成長', profShare: '佔全球',
     profFarms: '資料中的風場', profLargest: '最大風場', profEarliest: '最早風場',
     tourCountry: '▶ 導覽這個國家', seeFarms: '風場清單', seeLive: '台灣即時儀表 →', noWebgl: '此裝置無法啟用 3D（WebGL），已切換為長條圖排名。',
-    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', zoneLegT: '海域', zEezA: '專屬經濟區界線：協議或判決', zEezM: '中線與 200 浬外界', zEezU: '未定或有爭議（虛線）', zSites: '離岸風電規劃區：台灣潛力場址、日本促進區域、北海周邊國家', zSite: '潛力場址', zArea: '離岸風電規劃區', zAreaSrc: '規劃區出處（皆已簡化）：', zNote: '界線取自 Marine Regions（CC BY 4.0），已簡化，不具法律效力，也不代表本站對任何爭議海域的立場', zSkip: '新竹縣場址的點位順序無法確定，未畫出', zSrcE: 'Marine Regions', zSrcT: '能源署開放資料', zSrcA: '各國規劃區出處見「資料來源」', zErr: '海域圖層載入失敗（離線或資料暫時無法取得）', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m，越亮風越強', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
+    attrWind: '平均風速：Global Wind Atlas（DTU、世界銀行，CC BY 4.0）· 國界：Natural Earth', windLegT: '離地 100 m 年平均風速', flowLegT: '此刻的風', zoneLegT: '海域', zEezA: '專屬經濟區界線：協議或判決', zEezM: '中線與 200 浬外界', zEezU: '未定或有爭議（虛線）', zSites: '離岸風電規劃區：台灣潛力場址、日本促進區域、北海周邊國家', zSite: '潛力場址', zArea: '離岸風電規劃區', zAreaSrc: '規劃區出處（皆已簡化）：', zNote: '界線取自 Marine Regions（CC BY 4.0），已簡化，不具法律效力，也不代表本站對任何爭議海域的立場', zSkip: '新竹縣場址的點位順序無法確定，未畫出', zSrcE: 'Marine Regions', zSrcT: '能源署開放資料', zSrcA: '各國規劃區出處見「資料來源」', zErr: '海域圖層載入失敗（離線或資料暫時無法取得）', regionEmpty: y => '時間軸在 ' + y + ' 年，這時這裡還沒有運轉中的風場；把時間軸拉到最新年份就看得到', flowLegSub: '離地 10 m，越亮風越強，強風轉紫紅', flowTime: t => '資料時間 ' + t + '（台灣時間）', flowYearNote: y => '時間軸停在 ' + y + ' 年，但風是此刻的天氣，不是當年的', flowSrc: 'NOAA GFS 預報（公有領域）', windLegSrc: 'Global Wind Atlas 3（DTU、世界銀行集團，CC BY 4.0）；陸地與離岸約 200 km 內，深色＝沒有資料',
     attrPlain: '國界：Natural Earth', credit: '© 2026 勤益科大 劉瑞弘研究室', attrCaveat: '資料持續查證中、並非完全準確（見「資料來源」）', attrRelief: '地形與國界：Natural Earth', attrSat: '影像：NASA Blue Marble · 國界：Natural Earth',
     attrTileRelief: '山影 © Esri, USGS, NASA 等', attrTileSat: '影像 © Esri, Vantor, Earthstar Geographics',
     worldCap: '年底累計裝置容量', ltYear: y => y + '（最新可得）', ltCap: '各國最新官方數字',
@@ -188,7 +188,7 @@ const I18N = {
     profCap: 'Year-end total', profRank: 'World rank', profOnOff: 'Onshore / offshore', profTen: '10 years earlier', profGrowth: 'Growth', profShare: 'Share of world',
     profFarms: 'Farms in the dataset', profLargest: 'Largest farm', profEarliest: 'Earliest farm',
     tourCountry: '▶ Tour this country', seeFarms: 'Farm list', seeLive: 'Taiwan live dashboard →', noWebgl: 'This device cannot run 3D (WebGL); showing the bar race instead.',
-    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', zoneLegT: 'Sea zones', zEezA: 'EEZ boundaries: agreed or ruled', zEezM: 'Median lines and 200 NM limits', zEezU: 'Unsettled or disputed (dashed)', zSites: 'Offshore wind areas: Taiwan potential sites, Japan promotion zones, North Sea countries', zSite: 'Potential site', zArea: 'Offshore wind area', zAreaSrc: 'Area sources (all simplified): ', zNote: 'Boundaries from Marine Regions (CC BY 4.0), simplified; they have no legal value and imply no position on any disputed area', zSkip: 'The Hsinchu County site is not drawn: its vertex order cannot be determined', zSrcE: 'Marine Regions', zSrcT: 'Energy Administration open data', zSrcA: 'other countries: see Sources', zErr: 'Sea zones failed to load (offline or data unavailable)', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground; brighter = stronger', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
+    attrWind: 'Wind speed: Global Wind Atlas (DTU, World Bank, CC BY 4.0) · Borders: Natural Earth', windLegT: 'Mean wind speed at 100 m', flowLegT: 'Wind now', zoneLegT: 'Sea zones', zEezA: 'EEZ boundaries: agreed or ruled', zEezM: 'Median lines and 200 NM limits', zEezU: 'Unsettled or disputed (dashed)', zSites: 'Offshore wind areas: Taiwan potential sites, Japan promotion zones, North Sea countries', zSite: 'Potential site', zArea: 'Offshore wind area', zAreaSrc: 'Area sources (all simplified): ', zNote: 'Boundaries from Marine Regions (CC BY 4.0), simplified; they have no legal value and imply no position on any disputed area', zSkip: 'The Hsinchu County site is not drawn: its vertex order cannot be determined', zSrcE: 'Marine Regions', zSrcT: 'Energy Administration open data', zSrcA: 'other countries: see Sources', zErr: 'Sea zones failed to load (offline or data unavailable)', regionEmpty: y => 'The timeline is at ' + y + ' and no farm here was operating yet; move the timeline to the latest year to see them', flowLegSub: '10 m above ground; brighter = stronger, magenta = strong wind', flowTime: t => 'Data time ' + t + ' (Taiwan time)', flowYearNote: y => 'The timeline is at ' + y + ', but the wind is today\'s weather, not that year\'s', flowSrc: 'NOAA GFS forecast (public domain)', windLegSrc: 'Global Wind Atlas 3 (DTU / World Bank Group, CC BY 4.0); land and up to about 200 km offshore, dark = no data',
     attrPlain: 'Borders: Natural Earth', credit: '© 2026 Dof Lab, NCUT', attrCaveat: 'Data still being checked, not fully accurate (see Sources)', attrRelief: 'Relief & borders: Natural Earth', attrSat: 'Imagery: NASA Blue Marble · Borders: Natural Earth',
     attrTileRelief: 'Hillshade © Esri, USGS, NASA et al.', attrTileSat: 'Imagery © Esri, Vantor, Earthstar Geographics',
     worldCap: 'Year-end cumulative installed capacity', ltYear: y => y + ' (latest available)', ltCap: 'Latest official figures by country',
@@ -3634,9 +3634,7 @@ function flowTick(dt, now) {
   g.globalCompositeOperation = 'destination-in'; g.fillStyle = 'rgba(0,0,0,0.88)'; g.fillRect(0, 0, CW, CH);   // 舊軌跡淡出
   g.globalCompositeOperation = 'source-over'; g.lineWidth = w.full ? 0.8 : 1.0; g.lineCap = 'round';
   const step = 0.006 * Math.min(4, dt * 60) * (w.full ? clamp(curAlt() / 110, 1, 3) : clamp(w.latSpan / 60, 0.08, 1));   // 示意速度：畫面上看起來的速度大致固定   // 示意速度：拉近時放慢，畫面上的速度大致一樣
-  const BANDS = S.base === 'sat'                    // 衛星底圖有白色雲雪：改用帶藍紫的顏色才看得出來
-    ? [[3, 'rgba(150,170,255,0.45)'], [7, 'rgba(165,185,255,0.7)'], [12, 'rgba(190,205,255,0.85)'], [99, 'rgba(215,225,255,0.95)']]
-    : [[3, 'rgba(225,225,245,0.35)'], [7, 'rgba(235,235,250,0.6)'], [12, 'rgba(245,245,255,0.8)'], [99, 'rgba(255,255,255,0.95)']];
+  const BANDS = flowBands();
   const paths = BANDS.map(() => []);
   const X = lon => { let d = (lon - w.lon0) % 360; if (d < 0) d += 360; return d * sx; };
   for (let i = 0; i < F.n; i++) {
@@ -3655,14 +3653,21 @@ function flowTick(dt, now) {
   paths.forEach((p, b) => { g.strokeStyle = BANDS[b][1]; g.beginPath(); for (let k = 0; k < p.length; k += 4) { g.moveTo(p[k], p[k + 1]); g.lineTo(p[k + 2], p[k + 3]); } g.stroke(); });
   F.tex.needsUpdate = true;
 }
+/* 風速分級（m/s 上限、顏色）：12 m/s 以下越亮越強；強風（12–25）與颱風等級（≥25）改用紫紅，一眼看出強風區。
+   衛星底圖有白色雲雪：弱風改用帶藍紫的顏色才看得出來 */
+function flowBands() {
+  return S.base === 'sat'
+    ? [[3, 'rgba(150,170,255,0.45)'], [7, 'rgba(165,185,255,0.7)'], [12, 'rgba(200,212,255,0.9)'], [25, 'rgba(240,135,230,0.95)'], [999, 'rgba(255,45,195,1)']]
+    : [[3, 'rgba(225,225,245,0.35)'], [7, 'rgba(235,235,250,0.6)'], [12, 'rgba(250,250,255,0.9)'], [25, 'rgba(240,150,230,0.95)'], [999, 'rgba(255,60,200,1)']];
+}
 function renderFlowLegend() {
   const el = $('g-flowLegend'); if (!el) return;
   if (!S.flow || !FLOW || !FLOW.meta) { el.hidden = true; return; }
   const d = new Date(FLOW.meta.run.replace('Z', ':00Z')), tw = new Date(d.getTime() + 8 * 3600e3);
   const when = (tw.getUTCMonth() + 1) + '/' + tw.getUTCDate() + ' ' + String(tw.getUTCHours()).padStart(2, '0') + ':00';
-  const sw = [['<3', 0.35], ['3–7', 0.6], ['7–12', 0.8], ['≥12', 0.95]];
+  const lab = ['<3', '3–7', '7–12', '12–25', '≥25'];
   el.innerHTML = '<div class="wlh"><b>' + esc(T('flowLegT')) + '</b> · ' + esc(T('flowLegSub')) + '</div><div class="wlbar">' +
-    sw.map(([l, a]) => '<span><i style="background:rgba(240,240,255,' + a + ')"></i><em>' + l + ' m/s</em></span>').join('') + '</div>' +
+    flowBands().map(([, c], k) => '<span><i style="background:' + c + '"></i><em>' + lab[k] + ' m/s</em></span>').join('') + '</div>' +
     '<div class="wln">' + esc(T('flowTime')(when)) + ' · <a href="' + esc(FLOW.meta.url) + '" target="_blank" rel="noopener">' + esc(T('flowSrc')) + '</a></div>' +
     (Math.floor(S.year) < Y1 ? '<div class="wln fly">' + esc(T('flowYearNote')(Math.floor(S.year))) + '</div>' : '');
   el.classList.toggle('below', S.base === 'wind');

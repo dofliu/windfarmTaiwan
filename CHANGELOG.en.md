@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.5.2 — 2026-10-23
+
+- **Two more speed steps in Wind now** (the owner's request on 23 Oct 2026): the top step used to be "≥12 m/s"; it is now split into 12–25 m/s (light magenta) and 25 m/s and above (deep magenta, typhoon strength), while speeds below 12 m/s still get brighter with speed. The satellite and other base maps each have their own colours, and the legend follows. The user guide is updated.
+
 ## v3.5.1 — 2026-10-22
 
 - **Taiwan live data updates more often** (the owner reported on 22 Oct 2026 that at noon the site still showed 7 a.m. data): GitHub's schedule is often late or skipped, so the 2-hourly job ran only 3–6 times a day, up to 6 hours apart, and Taipower's live data does not allow cross-site reads, so the page cannot fetch it directly. An external cron service now starts the fetch through the GitHub API about every 30 minutes (setup under "External trigger" in DEPLOY.en.md), with GitHub's 2-hourly schedule kept as a fallback.
