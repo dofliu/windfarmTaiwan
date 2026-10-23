@@ -156,6 +156,10 @@ def build(lang):
     else:
         import text_en as tx
     D = analysis.compute_more(analysis.compute())
+    import json, datetime as _dt
+    _run = json.load(open(os.path.join(ROOT, 'data', 'live', 'wind_now.json'), encoding='utf-8'))['run']   # 此刻的風截圖的資料時間（台灣時間）
+    _tw = _dt.datetime.strptime(_run, '%Y-%m-%dT%H:%MZ') + _dt.timedelta(hours=8)
+    D['wind_run'] = (f'{_tw.year}-{_tw.month:02d}-{_tw.day:02d} {_tw.hour:02d}:00')
     t = tx.build(D)
     B = Book(t)
     Y = D['years']
@@ -336,7 +340,8 @@ def build(lang):
     figiy = ch.bars(iyr, [D['inc_year'].get(y, 0) for y in iyr], t['c8i_fig23'], '', h=170, xstep=5, right=20)
     B.start(opener('08', t['c8i_kick'], t['c8i_title'], 'evtw', t['c8i_shot']) + f'<p class="lede">{esc(t["c8i_lede"])}</p><div class="cols">{ps(t["c8i_p"][:2])}</div>')
     B.cont(B.figure(t['c8i_fig22'], figit, t['c8i_src'], '#/global?ev=WIND-061', key='inctype') + B.figure(t['c8i_fig23'], figiy, t['c8i_src'], key='incyear')
-           + f'<div class="cols">{ps(t["c8i_p"][2:])}</div>')
+           + f'<div class="cols">{ps(t["c8i_p"][2:])}</div>'
+           + f'<div class="shot"><img src="{shot("windtw")}"></div><div class="cap">▲ {esc(t["c8i_wind"])}　{esc(t["see"])}：<a href="{SITE}#/global?r=TWN&flow=1&fc=t">#/global?r=TWN&amp;flow=1&amp;fc=t</a></div>')
 
     # 09 台灣
     ty = D['tw_years']
