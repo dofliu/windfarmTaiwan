@@ -1040,10 +1040,7 @@ async function initMap(){
   catch(e){mapFb=true;paintMapFb();return;}
   if(map)return;
   map=L.map("map",{zoomControl:true}).setView([24.1,120.3],8);
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    {maxZoom:18,attribution:"Tiles © Esri"}).addTo(map);
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
-    {maxZoom:18,opacity:.9}).addTo(map);
+  setBase();WW.onTheme(setBase);
   FARMS.forEach(f=>{
     const m=L.circleMarker([f.lat,f.lng],{radius:Math.max(6,Math.sqrt(sizeMW(f))*0.85),
       color:"#fff",weight:1.1,fillColor:hexColor(f),fillOpacity:.85}).addTo(map);
@@ -1051,6 +1048,19 @@ async function initMap(){
     m.on("popupopen",()=>{const b=document.getElementById(`pop-${f.id}`);if(b)b.onclick=()=>{map.closePopup();openDrawer(f.id);};});
     markers[f.id]=m;});
   setTimeout(()=>map.invalidateSize(),60);
+}
+// 底圖：深色模式用衛星影像，淺色模式（投影用）用淺灰底圖；兩者都是 Esri 圖磚
+const ESRI="https://server.arcgisonline.com/ArcGIS/rest/services/";
+let baseLayers=[];
+function setBase(){
+  if(!map)return;
+  baseLayers.forEach(l=>map.removeLayer(l));
+  const lt=document.documentElement.dataset.theme==="light",tile=n=>ESRI+n+"/MapServer/tile/{z}/{y}/{x}";
+  baseLayers=lt?[L.tileLayer(tile("Canvas/World_Light_Gray_Base"),{maxZoom:16,attribution:"Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors, and the GIS user community"}),
+                 L.tileLayer(tile("Canvas/World_Light_Gray_Reference"),{maxZoom:16})]
+              :[L.tileLayer(tile("World_Imagery"),{maxZoom:18,attribution:"Tiles © Esri"}),
+                L.tileLayer(tile("Reference/World_Boundaries_and_Places"),{maxZoom:18,opacity:.9})];
+  baseLayers.forEach(l=>l.addTo(map));
 }
 function popHTML(f){
   const r=f.cap?Math.max(0,Math.min(100,ratioOf(f)*100)):0;
@@ -1090,81 +1100,7 @@ function paintMapFb(){
 function updateMarkers(){if(mapFb&&curView==="map")paintMapFb();if(!map)return;FARMS.forEach(f=>{const m=markers[f.id];if(m){m.setStyle({fillColor:hexColor(f)});
   if(m.isPopupOpen())m.setPopupContent(popHTML(f));}});}
 
-/* ---------------- 分享圖卡（1080×1080，含醒目資料時間） ---------------- */
-function shareText(){
-  const total=Math.round(totals().total);
-  const sh=(LIVE&&sysTotal>0)?(EN()?`, ${(total/sysTotal*100).toFixed(1)}% of the national grid`:`，佔全國發電 ${(total/sysTotal*100).toFixed(1)}%`):"";
-  return EN()?`🌬 Taiwan's wind power right now: ~${total.toLocaleString()} MW${sh}. See the live status 👉`
-           :`🌬 台灣此刻風電即時出力約 ${total.toLocaleString()} MW${sh}。一起看台灣風電即時風況與全球發展 👉`;
-}
-function roundRect(x,X,Y,W,H,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+W,Y,X+W,Y+H,r);x.arcTo(X+W,Y+H,X,Y+H,r);x.arcTo(X,Y+H,X,Y,r);x.arcTo(X,Y,X+W,Y,r);x.closePath();}
-function drawShareCard(){                       // 產生 1080×1080 即時風況圖卡(canvas)
-  const S=1080,cv=document.createElement("canvas");cv.width=S;cv.height=S;
-  const x=cv.getContext("2d"),CN='"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif',P=80;
-  const g=x.createLinearGradient(0,0,S,S);g.addColorStop(0,"#10223a");g.addColorStop(1,"#060d18");
-  x.fillStyle=g;x.fillRect(0,0,S,S);x.strokeStyle="rgba(255,255,255,.14)";x.lineWidth=2;roundRect(x,24,24,S-48,S-48,20);x.stroke();
-  x.textBaseline="alphabetic";x.textAlign="left";
-  x.fillStyle="#eaf1f8";x.font=`800 54px ${CN}`;x.fillText(EN()?"Taiwan Wind Watch":"風電風情 · 台灣風力發電",P,132);
-  x.fillStyle="#7d8ca3";x.font="600 24px sans-serif";x.fillText("TAIWAN WIND WATCH",P,168);
-  // 圖卡會脫離網站情境被轉傳，時間務必含年份且要醒目，否則事後無從得知是哪一年、容易被誤認成「當下」的數字。
-  const fmtSrcFull=s=>{if(!s)return"";const d=new Date(s);if(isNaN(d))return s;
-    const p=n=>String(n).padStart(2,"0");
-    return `${d.getFullYear()}/${p(d.getMonth()+1)}/${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;};
-  const st=srcTime?fmtSrcFull(srcTime):"";
-  if(st){
-    const dtText=(EN()?"As of ":"資料時間 ")+st;
-    x.font=`700 30px ${CN}`;
-    const dtW=x.measureText(dtText).width,padX=22,pillH=52,pillW=dtW+padX*2,pillX=S-P-pillW,pillY=186;
-    roundRect(x,pillX,pillY,pillW,pillH,pillH/2);x.fillStyle="#0d1829";x.fill();x.strokeStyle="#3fdcb0";x.lineWidth=2;x.stroke();
-    x.textAlign="right";x.fillStyle="#3fdcb0";x.fillText(dtText,pillX+pillW-padX,pillY+pillH/2+10);x.textAlign="left";
-  }
-  const total=Math.round(totals().total);
-  x.fillStyle="#a9b7c9";x.font=`500 36px ${CN}`;x.fillText(EN()?"Taiwan's wind power right now":"台灣此刻風電即時出力",P,290);
-  const ns=total.toLocaleString();x.fillStyle="#eaf1f8";x.font=`800 156px ${CN}`;
-  const nw=x.measureText(ns).width;x.fillText(ns,P,432);   // 先量寬度(同字體)再畫，避免 MW 重疊
-  x.fillStyle="#a9b7c9";x.font="700 58px sans-serif";x.fillText("MW",P+nw+26,432);
-  const cap=FARMS.reduce((s,f)=>s+(f.cap||0),0),hm=Math.round(total*1000/0.5/10000);
-  const blocks=[[cap>0?(total/cap*100).toFixed(0)+"%":"—",EN()?"Availability":"可用率"],
-    [(LIVE&&sysTotal>0)?(total/sysTotal*100).toFixed(1)+"%":"—",EN()?"of national grid":"佔全國發電"],
-    [EN()?(hm*10)+"k":hm+"萬戶",EN()?"homes (est.)":"可供家庭(估算)"]];
-  let bx=P;const bw=(S-2*P-2*24)/3;
-  blocks.forEach(b=>{roundRect(x,bx,500,bw,120,16);x.fillStyle="#0d1829";x.fill();x.strokeStyle="rgba(255,255,255,.14)";x.stroke();
-    x.textAlign="center";x.fillStyle="#eaf1f8";x.font=`800 46px ${CN}`;x.fillText(b[0],bx+bw/2,560);
-    x.fillStyle="#7d8ca3";x.font=`500 22px ${CN}`;x.fillText(b[1],bx+bw/2,598);x.textAlign="left";bx+=bw+24;});
-  x.fillStyle="#a9b7c9";x.font=`600 26px ${CN}`;x.fillText(EN()?"Top farms right now":"此刻出力前段風場",P,700);
-  const top=[...FARMS].sort((a,b)=>RT[b.id]-RT[a.id]).slice(0,6),mx=Math.max(1,...top.map(f=>RT[f.id]));
-  let ty=726;const tX=P+176,tW=S-tX-P-118;
-  top.forEach(f=>{x.textAlign="right";x.fillStyle="#a9b7c9";let fs=23;x.font=`600 ${fs}px ${CN}`;
-    while(x.measureText(sn(f)).width>150&&fs>14){fs--;x.font=`600 ${fs}px ${CN}`;}   // 英文名稱較長時縮小字級
-    x.fillText(sn(f),P+160,ty+26);x.textAlign="left";
-    x.fillStyle="#16243a";roundRect(x,tX,ty+8,tW,24,7);x.fill();
-    x.fillStyle=hexColor(f);roundRect(x,tX,ty+8,Math.max(6,RT[f.id]/mx*tW),24,7);x.fill();
-    x.fillStyle="#eaf1f8";x.font=`700 23px ${CN}`;x.fillText((RT[f.id]||0).toFixed(0)+" MW",tX+tW+12,ty+27);ty+=39;});
-  x.fillStyle="#7d8ca3";x.font=`500 22px ${CN}`;
-  x.fillText(EN()?"Data: Taipower + CWA":"資料：台電＋中央氣象署",P,992);
-  x.fillStyle="#5b6b80";x.font=`400 18px ${CN}`;
-  x.fillText(EN()?"Figures are rough estimates from public data, for reference only.":"以上數據為公開資料整理之粗略估算，僅供參考，非官方正式數字。",P,1020);
-  x.fillStyle="#3fdcb0";x.font=`700 27px ${CN}`;x.fillText("dofliu.github.io/windfarmTaiwan",P,1052);
-  return cv;
-}
-async function doShareText(){                   // 純文字/連結後援
-  const url=WW.pageURL("#/live"),text=shareText();
-  if(navigator.share){try{await navigator.share({title:"風電風情",text,url});return;}catch(e){if(e&&e.name==="AbortError")return;}}
-  try{await navigator.clipboard.writeText(text+" "+url);WW.toast(EN()?"Copied ✓":"已複製分享文字與連結 ✓");}catch(e){WW.toast(EN()?"Please copy the URL manually":"請手動複製網址");}
-}
-function shareCard(){
-  let cv;try{cv=drawShareCard();}catch(e){return doShareText();}
-  const url=WW.pageURL("#/live");
-  cv.toBlob(async blob=>{
-    if(!blob)return doShareText();
-    const file=new File([blob],"taiwan-wind.png",{type:"image/png"});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){
-      try{await navigator.share({files:[file],title:"風電風情 Taiwan Wind Watch",text:shareText(),url});return;}catch(e){if(e&&e.name==="AbortError")return;}}
-    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="taiwan-wind.png";a.click();
-    setTimeout(()=>URL.revokeObjectURL(a.href),5000);WW.toast(EN()?"Card image downloaded ✓":"風況圖卡已下載 ✓");
-  },"image/png");
-}
-WW.shareHandlers.live=shareCard;
+/* 分享圖卡：today.js（方形、橫式、直式三種格式，首頁與即時頁共用） */
 
 /* ---------------- 子分頁與路由 ---------------- */
 let curView="dash";

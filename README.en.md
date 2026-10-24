@@ -74,7 +74,7 @@ A suggested first visit (about 5 minutes):
 
 Tips:
 
-- **EN / 中文** at the top right switches the language; **Share** makes a live image card with the data time on it. Links can be
+- **EN / 中文** at the top right switches the language; **☀ / ☾** switches between light (for projectors) and dark; **Share** makes an image card of the wind with the data time on it, in square, wide or story format. Links can be
   shared as they are: whoever opens one sees the same view.
 - It works on phones. The globe downloads a few MB the first time, so give it a moment; older devices without 3D graphics get a
   bar-chart ranking instead.
@@ -163,8 +163,9 @@ output and sea zones load only when needed.
   `assets/css/globe.css` — globe styles
 - `assets/js/core.js` — shared core: i18n, hash router, lazy loading, data cache, number formats, share; the version `WW.VERSION`
 - `assets/js/live.js` — Taiwan live (the `FARMS` list of 30 units/farms with specs and timelines;
-  live / history / grid data loading; dashboard, farm wall, charts, map, drawer, share card)
+  live / history / grid data loading; dashboard, farm wall, charts, map, drawer)
 - `assets/js/charts.js` — lightweight SVG charts (line, columns, bars, scatter; tooltips and table views)
+- `assets/js/today.js` — today's wind on Home (lines computed from the data) and the share cards (square, wide, story)
 - `assets/js/home.js`, `assets/js/learn.js` — Home and Learn pages
 - `assets/js/globe.js` — the 3D globe (rewritten from the "Global wind power development map",
   wind-history-map v3)

@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.6.0';
+WW.VERSION = '3.7.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -50,6 +50,8 @@ WW.windLevel = n => '<svg class="ico wlv" viewBox="0 0 24 24" width="24" height=
 WW.paintIcons = root => (root || document).querySelectorAll('[data-ico]').forEach(el => { if (!el.firstChild) el.innerHTML = WW.icon(el.dataset.ico); });
 const langSubs = [];
 WW.onLang = fn => { langSubs.push(fn); };
+const themeSubs = [];
+WW.onTheme = fn => { themeSubs.push(fn); };          // 淺色／深色切換時通知（即時頁地圖換底圖）
 WW.applyI18n = root => {
   const r = root || document;
   r.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = WW.t(el.dataset.i18n); });
@@ -350,7 +352,7 @@ WW.boot = () => {
   const tb = document.getElementById('themebtn');      // 淺色模式（投影用）：存在 localStorage，地球儀的 3D 地圖維持深色
   const syncTheme = () => { const lt = document.documentElement.dataset.theme === 'light'; tb.setAttribute('aria-pressed', String(lt)); tb.querySelector('.thic').textContent = lt ? '☾' : '☀'; };
   if (tb) { syncTheme(); tb.onclick = () => { const lt = document.documentElement.dataset.theme !== 'light'; if (lt) document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
-    try { localStorage.setItem('ww_theme', lt ? 'light' : 'dark'); } catch (e) {} syncTheme(); }; }
+    try { localStorage.setItem('ww_theme', lt ? 'light' : 'dark'); } catch (e) {} syncTheme(); themeSubs.forEach(f => { try { f(lt); } catch (e) {} }); }; }
   document.getElementById('sharebtn').onclick = () => WW.share();
   window.addEventListener('hashchange', onRoute);
   onRoute();

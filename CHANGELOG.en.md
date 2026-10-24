@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.7.0 — 2026-10-24
+
+- **Today's wind on Home** (the owner chose the headline-plus-chips style from three samples on 24 Oct 2026): the top of the right-now block has a headline computed from the data, with two small chips below. The lines come only from data: the GFS model's strongest wind over the sea near Taiwan with its Beaufort force (with the model time), the output now against the site's samples over the past 7 days, the change over the last 2–4 hours, availability close to full or very low, and homes supplied, in order of importance.
+- **Share cards in three formats**: Share on Home and Taiwan live first asks for Square 1:1 (1080×1080), Wide 1.91:1 (1200×630) or Story 9:16 (1080×1920), or copies the link only. The card adds the wind near Taiwan right now (GFS, 10 m above ground, in the turbine colours of the globe's Wind now, with wind-direction ticks, land and the farms), the first line of today's wind, the past 7 days and the data time with the year; it replaces the live page's old square card.
+- **Light mode** (for projectors): the ☀ / ☾ button in the header, remembered by the browser; the site's colours now switch through tokens, and chart rings and grid lines follow. In light mode the Taiwan live map uses Esri's light grey base map; the 3D globe on Global stays dark.
+- The user guide (header, Home) and the READMEs are updated; the smoke test checks today's wind, the three card sizes and the light-mode toggle.
+
 ## v3.6.0 — 2026-10-23
 
 - **Wind now redesigned** (chosen by the owner on 23 Oct 2026 after nine samples):

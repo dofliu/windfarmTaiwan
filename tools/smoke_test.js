@@ -50,6 +50,14 @@ const ROUTES = [
   ['#/', 3500, () => {
     // 首頁：過去 7 天的出力曲線、頁尾四組來源連結 · home: 7-day curve and the four footer source groups
     if (!document.querySelector('#hh-7d svg .ln')) return 'home: no 7-day output curve';
+    // 今天的風（由資料算出的大標）、三種分享圖卡、淺色模式切換 · today's headline, the three share-card formats, the light-mode toggle
+    if (!document.querySelector('#hh-today .tmain')) return 'home: no today headline';
+    for (const [f, w, h] of [['square', 1080, 1080], ['wide', 1200, 630], ['story', 1080, 1920]]) {
+      const cv = WW.drawTodayCard(f, null, []); if (cv.width !== w || cv.height !== h) return 'share card ' + f + ': ' + cv.width + '×' + cv.height;
+    }
+    const tb = document.getElementById('themebtn'); tb.click();
+    const lt = document.documentElement.dataset.theme === 'light' && getComputedStyle(document.body).color === 'rgb(13, 27, 46)'; tb.click();
+    if (!lt || document.documentElement.dataset.theme) return 'light mode toggle';
     const g = [...document.querySelectorAll('.sitefoot .fsrc dt a')].map(a => a.getAttribute('href'));
     return g.length === 4 && g.every(h => /^#\/learn\/sources\?s=/.test(h)) ? '' : 'footer: source groups ' + g.join(' ');
   }],

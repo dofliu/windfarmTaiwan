@@ -34,20 +34,14 @@ function paintLive() {
   paintToday();
 }
 
-/* ---------- 今天的風：由資料算出的一句話（today.js） ---------- */
-let WN = null, rot = 0, rotT = 0;
+/* ---------- 今天的風：由資料算出的幾句話（today.js），最重要的一句當大標、接著兩句當小標籤 ---------- */
+let WN = null;
 function paintToday() {
   const box = $('hh-today'); if (!box || !WW.todayFacts) return;
   const F = WW.todayFacts(WN); if (!F.length) { box.hidden = true; return; }
-  let sty = 'a'; try { sty = localStorage.getItem('ww_hl') || 'a'; } catch (e) {}      // 樣本：a 一行橫幅、b 大標＋兩個小標籤、c 輪播
-  box.hidden = false; box.className = 'hh-today s-' + sty;
   const fact = f => `<span class="ti" aria-hidden="true">${f.ic}</span><span class="tt">${WW.esc(f.text)}</span>` + (f.src ? `<span class="tsrc">${WW.esc(f.src)}</span>` : '');
-  clearInterval(rotT);
-  if (sty === 'b') box.innerHTML = `<div class="tmain">${fact(F[0])}</div>` + (F.length > 1 ? `<div class="tchips">${F.slice(1, 3).map(f => `<span class="tchip">${fact(f)}</span>`).join('')}</div>` : '');
-  else if (sty === 'c') {
-    const show = () => { const f = F[rot % F.length]; box.innerHTML = `<div class="trot">${fact(f)}</div><div class="tdots">${F.map((_, i) => `<i class="${i === rot % F.length ? 'on' : ''}"></i>`).join('')}</div>`; };
-    show(); if (F.length > 1) rotT = setInterval(() => { rot++; show(); }, 6000);
-  } else box.innerHTML = `<div class="tline">${fact(F[0])}</div>`;
+  box.innerHTML = `<div class="tmain">${fact(F[0])}</div>` + (F.length > 1 ? `<div class="tchips">${F.slice(1, 3).map(f => `<span class="tchip">${fact(f)}</span>`).join('')}</div>` : '');
+  box.hidden = false;
 }
 if (WW.todayWind) WW.todayWind().then(w => { WN = w; if (WW.currentPage() === 'home') paintToday(); }).catch(() => {});
 

@@ -143,7 +143,7 @@ function line(host, o) {
       // 註記（垂直細線＋上方文字），不與資料搶視覺
       (o.annotations || []).forEach(a => {
         const xx = sx(a.x);
-        g += `<line x1="${xx}" x2="${xx}" y1="${pt - 4}" y2="${pt + ih}" stroke="rgba(255,255,255,.14)"/><text class="dl2" x="${xx}" y="${pt - 9}" text-anchor="${xx > W - 90 ? 'end' : xx < pl + 60 ? 'start' : 'middle'}">${WW.esc(a.label)}</text>`;
+        g += `<line x1="${xx}" x2="${xx}" y1="${pt - 4}" y2="${pt + ih}" style="stroke:rgba(var(--fg-rgb),.14)"/><text class="dl2" x="${xx}" y="${pt - 9}" text-anchor="${xx > W - 90 ? 'end' : xx < pl + 60 ? 'start' : 'middle'}">${WW.esc(a.label)}</text>`;
       });
       S.forEach((s, k) => {
         const top = stackTop[k].map((v, i) => `${sx(X[i]).toFixed(1)},${sy(v).toFixed(1)}`);
@@ -160,12 +160,12 @@ function line(host, o) {
         labs.forEach(l => {
           if (l.y - lastY < 26) return;
           lastY = l.y;
-          g += `<circle cx="${sx(xmax)}" cy="${l.y}" r="4" fill="${l.s.color}" stroke="${'#0d1829'}" stroke-width="2"/>`;
+          g += `<circle cx="${sx(xmax)}" cy="${l.y}" r="4" fill="${l.s.color}" style="stroke:var(--surface-1)" stroke-width="2"/>`;
           g += `<text class="dl" x="${sx(xmax) + 8}" y="${l.y - 2}">${WW.esc(l.s.name)}</text><text class="dl2" x="${sx(xmax) + 8}" y="${l.y + 12}">${WW.esc(yf(l.s.values[n - 1] || 0))}</text>`;
         });
       }
-      g += `<line class="xh" x1="0" x2="0" y1="${pt}" y2="${pt + ih}" stroke="rgba(255,255,255,.35)" visibility="hidden"/>`;
-      g += S.map((s, k) => `<circle class="xd" data-k="${k}" r="4" fill="${s.color}" stroke="#0d1829" stroke-width="2" visibility="hidden"/>`).join('');
+      g += `<line class="xh" x1="0" x2="0" y1="${pt}" y2="${pt + ih}" style="stroke:rgba(var(--fg-rgb),.35)" visibility="hidden"/>`;
+      g += S.map((s, k) => `<circle class="xd" data-k="${k}" r="4" fill="${s.color}" style="stroke:var(--surface-1)" stroke-width="2" visibility="hidden"/>`).join('');
       g += `<rect class="hit" x="${pl}" y="${pt}" width="${iw}" height="${ih}" fill="transparent" tabindex="0" aria-label="${WW.esc(WW.L('用左右方向鍵逐點查看', 'Use arrow keys to step through points'))}"/>`;
       svg.innerHTML = g;
       plot.appendChild(svg);
@@ -297,10 +297,10 @@ function scatter(host, o) {
       const every = o.xEvery || (iw < 420 ? 40 : 20);
       for (let x = Math.ceil(x0 / every) * every; x <= x1; x += every) g += `<text x="${sx(x)}" y="${H - 8}" text-anchor="middle">${x}</text>`;
       g += '</g>';
-      (o.refLines || []).forEach(rl => { if (rl.y > tk.top) return; g += `<line x1="${pl}" x2="${W - pr}" y1="${sy(rl.y)}" y2="${sy(rl.y)}" stroke="rgba(255,255,255,.22)"/><text class="dl2" x="${pl + 6}" y="${sy(rl.y) - 5}">${WW.esc(rl.label)}</text>`; });
+      (o.refLines || []).forEach(rl => { if (rl.y > tk.top) return; g += `<line x1="${pl}" x2="${W - pr}" y1="${sy(rl.y)}" y2="${sy(rl.y)}" style="stroke:rgba(var(--fg-rgb),.22)"/><text class="dl2" x="${pl + 6}" y="${sy(rl.y) - 5}">${WW.esc(rl.label)}</text>`; });
       P.forEach((p, i) => {
         const cx = sx(p.x), cy = sy(p.y);
-        g += `<g class="hitbar" tabindex="0" data-i="${i}"><circle class="hit" cx="${cx}" cy="${cy}" r="12" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="5" fill="${o.series[p.s].color}" stroke="#0d1829" stroke-width="2"/></g>`;
+        g += `<g class="hitbar" tabindex="0" data-i="${i}"><circle class="hit" cx="${cx}" cy="${cy}" r="12" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="5" fill="${o.series[p.s].color}" style="stroke:var(--surface-1)" stroke-width="2"/></g>`;
       });
       P.forEach(p => {
         if (!p.label) return;
