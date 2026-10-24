@@ -347,6 +347,10 @@ WW.boot = () => {
   if ('ResizeObserver' in window) new ResizeObserver(syncHeaderH).observe(document.querySelector('.topbar'));
   else window.addEventListener('resize', syncHeaderH);
   document.getElementById('langbtn').onclick = () => WW.setLang(WW.lang === 'zh' ? 'en' : 'zh');
+  const tb = document.getElementById('themebtn');      // 淺色模式（投影用）：存在 localStorage，地球儀的 3D 地圖維持深色
+  const syncTheme = () => { const lt = document.documentElement.dataset.theme === 'light'; tb.setAttribute('aria-pressed', String(lt)); tb.querySelector('.thic').textContent = lt ? '☾' : '☀'; };
+  if (tb) { syncTheme(); tb.onclick = () => { const lt = document.documentElement.dataset.theme !== 'light'; if (lt) document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('ww_theme', lt ? 'light' : 'dark'); } catch (e) {} syncTheme(); }; }
   document.getElementById('sharebtn').onclick = () => WW.share();
   window.addEventListener('hashchange', onRoute);
   onRoute();

@@ -31,7 +31,25 @@ function paintLive() {
     mini(EN() ? 'Homes powered' : '可供家戶', EN() ? WW.int(V.homes * 10) : V.homes.toFixed(V.homes < 10 ? 1 : 0), EN() ? 'k' : '萬戶');
   $('hh-mood').innerHTML = `${WW.windLevel(M.m.lv)} ${WW.esc(M.m.t)}`;
   paint7d();
+  paintToday();
 }
+
+/* ---------- 今天的風：由資料算出的一句話（today.js） ---------- */
+let WN = null, rot = 0, rotT = 0;
+function paintToday() {
+  const box = $('hh-today'); if (!box || !WW.todayFacts) return;
+  const F = WW.todayFacts(WN); if (!F.length) { box.hidden = true; return; }
+  let sty = 'a'; try { sty = localStorage.getItem('ww_hl') || 'a'; } catch (e) {}      // 樣本：a 一行橫幅、b 大標＋兩個小標籤、c 輪播
+  box.hidden = false; box.className = 'hh-today s-' + sty;
+  const fact = f => `<span class="ti" aria-hidden="true">${f.ic}</span><span class="tt">${WW.esc(f.text)}</span>` + (f.src ? `<span class="tsrc">${WW.esc(f.src)}</span>` : '');
+  clearInterval(rotT);
+  if (sty === 'b') box.innerHTML = `<div class="tmain">${fact(F[0])}</div>` + (F.length > 1 ? `<div class="tchips">${F.slice(1, 3).map(f => `<span class="tchip">${fact(f)}</span>`).join('')}</div>` : '');
+  else if (sty === 'c') {
+    const show = () => { const f = F[rot % F.length]; box.innerHTML = `<div class="trot">${fact(f)}</div><div class="tdots">${F.map((_, i) => `<i class="${i === rot % F.length ? 'on' : ''}"></i>`).join('')}</div>`; };
+    show(); if (F.length > 1) rotT = setInterval(() => { rot++; show(); }, 6000);
+  } else box.innerHTML = `<div class="tline">${fact(F[0])}</div>`;
+}
+if (WW.todayWind) WW.todayWind().then(w => { WN = w; if (WW.currentPage() === 'home') paintToday(); }).catch(() => {});
 
 /* ---------- 台灣此刻：過去 7 天的全台出力（本站排程取樣的 wind_history.json，標出此刻與 7 天最高；滑過或方向鍵看各點） ·
    Taiwan's total output over the past 7 days from the site's sampled history, with now and the 7-day peak marked ---------- */
