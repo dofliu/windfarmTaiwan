@@ -31,7 +31,19 @@ function paintLive() {
     mini(EN() ? 'Homes powered' : '可供家戶', EN() ? WW.int(V.homes * 10) : V.homes.toFixed(V.homes < 10 ? 1 : 0), EN() ? 'k' : '萬戶');
   $('hh-mood').innerHTML = `${WW.windLevel(M.m.lv)} ${WW.esc(M.m.t)}`;
   paint7d();
+  paintToday();
 }
+
+/* ---------- 今天的風：由資料算出的幾句話（today.js），最重要的一句當大標、接著兩句當小標籤 ---------- */
+let WN = null;
+function paintToday() {
+  const box = $('hh-today'); if (!box || !WW.todayFacts) return;
+  const F = WW.todayFacts(WN); if (!F.length) { box.hidden = true; return; }
+  const fact = f => `<span class="ti" aria-hidden="true">${f.ic}</span><span class="tt">${WW.esc(f.text)}</span>` + (f.src ? `<span class="tsrc">${WW.esc(f.src)}</span>` : '');
+  box.innerHTML = `<div class="tmain">${fact(F[0])}</div>` + (F.length > 1 ? `<div class="tchips">${F.slice(1, 3).map(f => `<span class="tchip">${fact(f)}</span>`).join('')}</div>` : '');
+  box.hidden = false;
+}
+if (WW.todayWind) WW.todayWind().then(w => { WN = w; if (WW.currentPage() === 'home') paintToday(); }).catch(() => {});
 
 /* ---------- 台灣此刻：過去 7 天的全台出力（本站排程取樣的 wind_history.json，標出此刻與 7 天最高；滑過或方向鍵看各點） ·
    Taiwan's total output over the past 7 days from the site's sampled history, with now and the 7-day peak marked ---------- */

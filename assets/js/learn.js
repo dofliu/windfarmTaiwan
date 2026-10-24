@@ -264,7 +264,7 @@ function scaleFigure(host) {
       const H = Math.min(360, Math.max(250, W * 0.42)), base = H - 44, gap = 14, t101w = 46;
       const sumD = items.reduce((s, m) => s + m.rotor, 0);
       const k = Math.min((base - 24) / 508, (W - 40 - t101w - gap * (items.length + 1)) / sumD);
-      let x = 16, g = `<line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="rgba(255,255,255,.16)"/>`;
+      let x = 16, g = `<line x1="0" x2="${W}" y1="${base}" y2="${base}" style="stroke:rgba(var(--fg-rgb),.16)"/>`;
       items.forEach(m => {
         const d = m.rotor * k, r = d / 2, cx = x + r, cy = base - r;
         const col = m.type === 'onshore' ? COL.on : m.type === 'floating' ? COL.float : COL.off;

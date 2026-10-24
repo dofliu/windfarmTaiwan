@@ -68,7 +68,7 @@
 
 小提醒：
 
-- 右上角 **EN／中文** 切換語言；**分享** 產生附資料時間的即時圖卡。網址可以直接分享，別人打開會看到同一個畫面。
+- 右上角 **EN／中文** 切換語言；**☀／☾** 切換淺色（適合投影）與深色；**分享** 產生附資料時間的風況圖卡（方形、橫式、直式三種格式）。網址可以直接分享，別人打開會看到同一個畫面。
 - 手機也能用。地球儀第一次打開要下載幾 MB 的資料，要等一下；沒有 3D 繪圖能力的舊裝置會自動改用長條排名。
 - 資料新舊：台灣即時約每 30 分鐘更新（頁首會寫台電的資料時間）；全球各國容量到 2025 年底，另有 8 國的 2026 年最新可得數字；逐場風場資料是 GEM 2026 年 2 月版。
 - 沒有網路也想看：下載[單檔版](https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html)，存到電腦直接開啟。
@@ -131,7 +131,8 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `index.html` — 網站外殼：頂部導覽、四個頁面的版面與雙語文案、抽屜與提示
 - `assets/css/site.css` — 設計系統（深色資料風格、色票、元件、響應式）；`assets/css/globe.css` — 地球儀專用樣式
 - `assets/js/core.js` — 共用核心：雙語、hash 路由、延遲載入、資料快取、數字格式、分享；版本號 `WW.VERSION`
-- `assets/js/live.js` — 台灣即時（`FARMS` 30 個機組／風場的規格與開發歷程、即時／歷史／電網資料讀取、儀表、風場牆、圖表、地圖、抽屜、分享圖卡）
+- `assets/js/live.js` — 台灣即時（`FARMS` 30 個機組／風場的規格與開發歷程、即時／歷史／電網資料讀取、儀表、風場牆、圖表、地圖、抽屜）
+- `assets/js/today.js` — 首頁「今天的風」（由資料算出的句子）與分享圖卡（方形、橫式、直式）
 - `assets/js/charts.js` — 輕量 SVG 圖表（折線、柱狀、橫條、散佈；含提示框與表格檢視）
 - `assets/js/home.js`、`assets/js/learn.js` — 首頁與風電知識頁
 - `assets/js/globe.js` — 3D 地球儀（改寫自「全球風電發展觀察地圖」wind-history-map v3）
