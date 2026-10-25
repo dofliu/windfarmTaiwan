@@ -45,9 +45,9 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 
 ## 4. 資料 · Data
 
-- 重建 `data/global/wind_farms.json` 後跑 `python3 tools/qa_farms.py`（座標健檢）與
-  `python3 tools/coverage_report.py`（更新 `docs/data-coverage*.md`）。
-  After rebuilding the farm layer, run the coordinate check and regenerate the coverage report.
+- 重建 `data/global/wind_farms.json` 後跑 `python3 tools/qa_farms.py`（座標健檢）、
+  `python3 tools/coverage_report.py`（更新 `docs/data-coverage*.md`）與 `python3 tools/build_farm_points.py`（首頁「我附近」用的點位小檔 `farm_points.json`；單檔版不內嵌，直接用 `wind_farms.json`）。
+  After rebuilding the farm layer, run the coordinate check, regenerate the coverage report and rebuild `farm_points.json` (the slim points for "Near me"; the single-file copy uses `wind_farms.json` instead).
 - 國家統計：台灣＝能源署《能源統計手冊》表 3-6（`TWN_OFFICIAL`），日本＝JWPA 年末累積導入量（`JPN_JWPA`），其他國家＝IRENA（經 Our World in Data）。
   National figures: Taiwan from the Energy Administration handbook, Japan from JWPA, other countries from IRENA via Our World in Data.
 - 時間軸在 2025 年之後的「最新可得」年份寫在 `tools/latest_wind.py`：每國一列，附出處、資料月份與中英文說明；與本站 2025 年口徑不同的來源用「本站 2025 年＋該來源今年的增量」（標示估計），

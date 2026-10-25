@@ -216,9 +216,15 @@ WW.todayCardAssets = () => Promise.all([windNow().catch(() => null), landRings()
 /* 分享：先選格式（方形適合貼文、橫式適合連結預覽與簡報、直式適合限時動態），能分享檔案就用系統分享，否則下載 */
 const FMTS = [['square', '方形 1:1', 'Square 1:1'], ['wide', '橫式 1.91:1', 'Wide 1.91:1'], ['story', '直式 9:16', 'Story 9:16']];
 async function shareFmt(fmt) {
-  const [W, rings] = await WW.todayCardAssets();
-  const cv = WW.drawTodayCard(fmt, W, rings), F = WW.todayFacts(W), url = WW.pageURL('#/live');
-  const text = (EN() ? 'Taiwan wind right now: ' : '台灣此刻風電：') + WW.int(WW.live.totals().total) + ' MW' + (F[0] ? ' · ' + F[0].text : '');
+  let cv, text, url = WW.pageURL('#/live');
+  if (fmt === 'week') {                                          // 本週風電回顧（week.js）
+    try { cv = await WW.weekCard(); } catch (e) { WW.toast(EN() ? 'Weekly data is not available yet' : '本週資料還沒準備好'); return; }
+    text = WW.weekShareText(); url = WW.pageURL('#/home');
+  } else {
+    const [W, rings] = await WW.todayCardAssets();
+    cv = WW.drawTodayCard(fmt, W, rings); const F = WW.todayFacts(W);
+    text = (EN() ? 'Taiwan wind right now: ' : '台灣此刻風電：') + WW.int(WW.live.totals().total) + ' MW' + (F[0] ? ' · ' + F[0].text : '');
+  }
   cv.toBlob(async blob => {
     if (!blob) return;
     const name = 'taiwan-wind-' + fmt + '.png', file = new File([blob], name, { type: 'image/png' });
@@ -237,6 +243,7 @@ function sharePicker() {
     d.addEventListener('click', e => { if (e.target === d) d.close(); });
   }
   d.innerHTML = `<h3>${EN() ? 'Share a card of today\'s wind' : '分享今天的風況圖卡'}</h3><div class="spf">${FMTS.map(f => `<button class="btn" type="button" data-f="${f[0]}"><i class="spi spi-${f[0]}"></i>${EN() ? f[2] : f[1]}</button>`).join('')}</div>
+    ${WW.weekCard ? `<button class="btn spweek" type="button" data-f="week">📊 ${EN() ? 'This week\'s recap (square)' : '本週風電回顧（方形）'}</button>` : ''}
     <button class="btn sm splink" type="button">${EN() ? 'Copy link only' : '只複製連結'}</button><button class="btn sm spx" type="button" aria-label="${EN() ? 'Close' : '關閉'}">✕</button>`;
   d.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { d.close(); shareFmt(b.dataset.f); });
   d.querySelector('.spx').onclick = () => d.close();
@@ -244,5 +251,6 @@ function sharePicker() {
   d.showModal();
 }
 WW.shareTodayCard = shareFmt;
+WW.sharePicker = sharePicker;
 if (WW.shareHandlers) { WW.shareHandlers.home = sharePicker; WW.shareHandlers.live = sharePicker; }
 })();

@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.10.0 — 2026-10-25
+
+- **This week in Taiwan's wind** (the owner chose the two-week bars plus a shareable card from samples on 25 Oct 2026, on Home): a new Home section compares the last 7 complete days with the 7 before, from the site's samples about every 30 minutes (private farms included): a headline, two weeks of daily average output as bars, the windiest and calmest days, the highest moment and the farm with the highest capacity factor; days with fewer than 12 samples are hatched with the sample counts given, and it says these are estimates from samples, not official generation. "Share this week" and Share in the header both make a square weekly card.
+- **"Near me" loads faster**: it now reads the new slim `data/global/farm_points.json` (operating farms only, about 1.5 MB, 0.5 MB compressed, instead of the 4.4 MB farm file), built by `tools/build_farm_points.py` and re-checked by pr-check; the single-file copy keeps using its embedded full file.
+- **Hub heights corrected**: Yunlin 87 → 110.5 m (developer Skyborn's English project page; with a 167 m rotor, 87 m would leave the tips 3.5 m above the sea, so it is a height above the platform), Hywind Tampen 95 → 106.5 m (derived from two Norwegian sources giving about 190 m to the tip above the sea and a 167 m rotor). "How big is one turbine" skips sizes that would leave the tips under 10 m above the sea.
+- The user guide (Home, Share), the READMEs and CLAUDE.md (run `build_farm_points.py` after rebuilding the farm layer) are updated; the smoke test checks the weekly recap and the weekly card.
+
 ## v3.9.1 — 2026-10-25
 
 - **US latest-available capacity updated**: EIA-860M September 2026 edition, onshore 165,970.0 MW (August edition 165,745.2 MW), offshore 972.0 MW (unchanged); the same method on the August edition reproduces the earlier figures. The US value for 2026 (latest available) on the globe follows.

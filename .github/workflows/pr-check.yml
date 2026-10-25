@@ -47,9 +47,10 @@ jobs:
         run: |
           python tools/coverage_report.py
           python tools/build_foundations.py
+          python tools/build_farm_points.py
           if ! git diff --quiet -- docs data/global; then
             git diff --stat -- docs data/global
-            echo "::error::Generated files differ from the PR: run tools/coverage_report.py and tools/build_foundations.py and commit the result · 由程式產生的文件與 PR 不一致，請重跑並 commit"
+            echo "::error::Generated files differ from the PR: run tools/coverage_report.py, tools/build_foundations.py and tools/build_farm_points.py and commit the result · 由程式產生的文件與 PR 不一致，請重跑並 commit"
             exit 1
           fi
 
