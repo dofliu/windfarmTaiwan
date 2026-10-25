@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.9.0 — 2026-10-25
+
+- **📍 Wind near me** (the owner chose the map version from samples on 25 Oct 2026): a button under today's wind on Home asks the browser for your location only when pressed and opens a map centred on you (the wind now in turbine colours with direction ticks, the 5 nearest operating farms with distances, a scale bar), with the wind speed, direction and turbine band where you are (GFS, 10 m above ground, interpolated from a 1° grid) and the nearest operating farm; in Taiwan it also lists the nearest farm with live data and its output now. Your position is used only in this browser; it is never sent anywhere or stored.
+- **Globe "📍 Near me"**: a new toolbar button that moves the timeline to the latest year, flies between you and the nearest operating farm, opens its card and marks "📍 You are here"; the public single-file globe has it too.
+- The user guide (Home, globe toolbar) is updated; the smoke test checks both buttons.
+
 ## v3.8.0 — 2026-10-25
 
 - **How big is one turbine** (the owner chose the three comparison cards plus the pitch drawing from samples on 25 Oct 2026): globe farm cards and the Taiwan live farm details (offshore) gain an expandable "📏 How big is one turbine?": the highest blade tip against Taipei 101 (508 m, CTBUH), the rotor diameter against a standard football pitch's length, and the area one turn sweeps in standard pitches (FIFA's recommended 105 × 68 m), with a view from above of the rotor disc and pitches to the same scale. Sizes come from the site's checked hub heights and rotor diameters (tower heights alone are not used), then USWTDB / MaStR turbine data; with mixed models the largest is used.

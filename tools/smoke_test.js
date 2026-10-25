@@ -52,6 +52,7 @@ const ROUTES = [
     if (!document.querySelector('#hh-7d svg .ln')) return 'home: no 7-day output curve';
     // 今天的風（由資料算出的大標）、三種分享圖卡、淺色模式切換 · today's headline, the three share-card formats, the light-mode toggle
     if (!document.querySelector('#hh-today .tmain')) return 'home: no today headline';
+    if (!document.getElementById('nearbtn') || !document.getElementById('nearbox').hidden) return 'home: wind-near-me button missing or opened without a press';
     for (const [f, w, h] of [['square', 1080, 1080], ['wide', 1200, 630], ['story', 1080, 1920]]) {
       const cv = WW.drawTodayCard(f, null, []); if (cv.width !== w || cv.height !== h) return 'share card ' + f + ': ' + cv.width + '×' + cv.height;
     }
@@ -125,6 +126,7 @@ const ROUTES = [
     const c = document.querySelector('#g-infoCard');
     if (!(c && c.classList.contains('show') && c.innerText.trim().length > 50)) return 'farm card did not open';
     // 風機有多大：USWTDB 有輪轂高度與葉輪直徑，卡片要有三張比較卡與足球場圖 · the scale panel from USWTDB hub height and rotor
+    if (document.getElementById('g-btnNear').hidden) return 'globe: Near me button hidden';
     if (c.querySelectorAll('details.fscale .sctile').length !== 3 || !c.querySelector('details.fscale svg.scfig .scr')) return 'farm card: no turbine scale panel';
     if (innerWidth <= 640) { const d = document.querySelector('#g-drawer'); if (!d || !d.classList.contains('h1')) return 'phone: the card did not open the drawer half way'; }
     // 暫停時地球上只畫形狀：事件標題與里程碑名不出現 · shapes only while paused

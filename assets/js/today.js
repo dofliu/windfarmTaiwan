@@ -209,6 +209,8 @@ WW.drawTodayCard = (fmt, W, rings) => {
   x.fillStyle = '#3fdcb0'; x.font = `800 ${wide ? 20 : 24}px ${CN}`; x.fillText('dofliu.github.io/windfarmTaiwan', pad, K.foot[1]);
   return cv;
 };
+WW.windColor = v => rampAt(WASH_T, v);                       // 風機運轉色階（[r,g,b,a]，a 0–1），「我附近」共用
+WW.windBands = LEG;
 WW.todayCardAssets = () => Promise.all([windNow().catch(() => null), landRings()]);
 
 /* 分享：先選格式（方形適合貼文、橫式適合連結預覽與簡報、直式適合限時動態），能分享檔案就用系統分享，否則下載 */
