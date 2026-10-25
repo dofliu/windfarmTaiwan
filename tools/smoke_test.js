@@ -65,6 +65,10 @@ const ROUTES = [
     // 儀表精簡檢視：此刻在發電最多 8 張卡、沒出力的收成名稱；切到全部卡片要等於全部風場 · compact view vs the all-cards view
     const q = s => document.querySelectorAll('#groups ' + s).length, tg = document.querySelector('#groups .fulltoggle');
     if (!q('.fcard') && !q('.fchip')) return 'dashboard: no farms';
+    // 「可供家戶」卡片點一下換一種東西比，五種輪一圈回到家戶 · the conversion card cycles through five comparisons
+    const cv = () => document.querySelector('#lv-conv .ik') && document.querySelector('#lv-conv .ik').textContent, seen = new Set([cv()]);
+    for (let i = 0; i < 5; i++) { document.getElementById('lv-conv').click(); seen.add(cv()); }
+    if (seen.size !== 5) return 'conversion card: ' + seen.size + ' distinct comparisons';
     if (tg) {                                             // 風場不多時直接列全部卡片 · few farms: all cards already
       if (q('.genhead:not(.off) + .fgrid .fcard') > 8) return 'dashboard: more than 8 cards in the compact view';
       const mb = document.querySelector('#groups .genmore .fulltoggle'), more = mb ? parseInt(mb.textContent.match(/\d+/)[0], 10) : 0;
@@ -120,6 +124,8 @@ const ROUTES = [
   ['#/global?f=Sweetwater', 15000, () => {
     const c = document.querySelector('#g-infoCard');
     if (!(c && c.classList.contains('show') && c.innerText.trim().length > 50)) return 'farm card did not open';
+    // 風機有多大：USWTDB 有輪轂高度與葉輪直徑，卡片要有三張比較卡與足球場圖 · the scale panel from USWTDB hub height and rotor
+    if (c.querySelectorAll('details.fscale .sctile').length !== 3 || !c.querySelector('details.fscale svg.scfig .scr')) return 'farm card: no turbine scale panel';
     if (innerWidth <= 640) { const d = document.querySelector('#g-drawer'); if (!d || !d.classList.contains('h1')) return 'phone: the card did not open the drawer half way'; }
     // 暫停時地球上只畫形狀：事件標題與里程碑名不出現 · shapes only while paused
     const shown = [...document.querySelectorAll('#g-labels .lbl.ev, #g-labels .lbl.ms')].filter(l => l.style.display !== 'none');

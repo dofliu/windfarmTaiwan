@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.8.0 — 2026-10-25
+
+- **How big is one turbine** (the owner chose the three comparison cards plus the pitch drawing from samples on 25 Oct 2026): globe farm cards and the Taiwan live farm details (offshore) gain an expandable "📏 How big is one turbine?": the highest blade tip against Taipei 101 (508 m, CTBUH), the rotor diameter against a standard football pitch's length, and the area one turn sweeps in standard pitches (FIFA's recommended 105 × 68 m), with a view from above of the rotor disc and pitches to the same scale. Sizes come from the site's checked hub heights and rotor diameters (tower heights alone are not used), then USWTDB / MaStR turbine data; with mixed models the largest is used.
+- **Compare with something else** (the owner chose "tap to change"): tapping the Taiwan live "homes" card cycles through 1-ton air conditioners (~900 W, Hsinchu County), phones charged per hour (0.019 kWh, US EPA), Gogoro batteries (1.74 kWh, Gogoro) and Taipei Metro systems on average (~700 GWh a year, Taipei Metro); the browser remembers the choice. The 0.5 kW per home now cites Taipower's 2025 average household use (308–418 kWh a month). Every source quote was checked with `check_quotes.py`; figures without an official source (Boeing 747 wingspan, train-only power for THSR and the MRT) are not used.
+- The user guide (dashboard, farm details, farm cards) is updated; the smoke test checks the conversion card and the scale panel on farm cards.
+
 ## v3.7.0 — 2026-10-24
 
 - **Today's wind on Home** (the owner chose the headline-plus-chips style from three samples on 24 Oct 2026): the top of the right-now block has a headline computed from the data, with two small chips below. The lines come only from data: the GFS model's strongest wind over the sea near Taiwan with its Beaufort force (with the model time), the output now against the site's samples over the past 7 days, the change over the last 2–4 hours, availability close to full or very low, and homes supplied, in order of importance.

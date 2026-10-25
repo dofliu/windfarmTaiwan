@@ -700,3 +700,11 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
 .scfig .scr{fill:var(--live);fill-opacity:.16;stroke:var(--live);stroke-width:2}
 @media (max-width:420px){.sctiles{grid-template-columns:1fr}.sctile{display:grid;grid-template-columns:auto 1fr;column-gap:10px}.sctile .scbar,.sctile .scc{grid-column:1/-1}}
 .fscale .scnote{font-size:11.5px;color:var(--ink-3);line-height:1.5;margin-top:4px}
+/* 台灣即時：可點的換算卡（家戶／冷氣／手機／Gogoro 電池／台北捷運） */
+.imp.impconv{position:relative;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.imp.impconv:hover{border-color:var(--live)}
+.imp.impconv .cvdots{position:absolute;right:10px;top:8px;display:flex;gap:3px}
+.imp.impconv .cvdots i{width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+.imp.impconv .cvdots i.on{background:var(--live);width:12px;border-radius:3px}
+.imp.impconv .cvtap{position:absolute;right:10px;bottom:6px;font-size:13px;color:var(--ink-3)}
+.imp.impconv{padding-right:30px}

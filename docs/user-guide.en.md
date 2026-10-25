@@ -60,7 +60,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 
 - **Five figures**: Taiwan's live wind output, total installed capacity, overall availability (= output ÷ installed capacity), CO₂ avoided per hour (estimate), and the number of units / farms running.
 - **Grid**: the operating reserve light (ample / tight / alert / curtailment alert). When Taipower's live supply-demand report cannot be fetched from cloud servers, the daily government open-data figure is used and labelled "official daily data, not live".
-- **What this power means**: households supplied right now, wind's share of live national generation, today's generation so far, and today's avoided CO₂ as trees.
+- **What this power means**: households supplied right now, wind's share of live national generation, today's generation so far, and today's avoided CO₂ as trees. **Tap the first card to compare with something else** (the dots show which one; the browser remembers it): homes (0.5 kW each on average; Taipower: the average home used 308 kWh a month outside summer and 418 kWh in summer in 2025) → 1-ton air conditioners running at once (~900 W each, Hsinchu County appliance table) → phones fully charged per hour (0.019 kWh each, US EPA) → Gogoro batteries charged per hour (1.74 kWh each, Gogoro) → Taipei Metro systems on average (stations + trains use ~700 GWh a year, Taipei Metro 2025 business plan, 2023 figure). These are conversions, not what the wind power actually supplies.
 - **Sort & filter** (open the toolbar): sort by output, availability, capacity or name; group by type or developer; show only offshore, onshore, operating or in development; filter by developer, turbine maker or size.
   Your changes are remembered in this browser for the next visit and written into the link (e.g. `#/live?sort=cap&type=offshore`, section 7), so copying the link shares the same view; "Reset" goes back to all farms by output. Opening someone else's link does not change what you saved.
 - **Farm cards**: four groups (offshore / onshore × purchased / Taipower-owned, or grouped by developer); the figure under the turbine is availability, and the badges show commercial or trial operation, offshore or onshore, and the wind speed at the nearest station. Click a card for details.
@@ -88,6 +88,7 @@ Clicking a farm in any tab opens the details on the right:
 - Live output and availability; the **output** or **nearby station wind speed** over the last 6 hours, 24 hours or 7 days (the wind speed is from the nearest Central Weather Administration station on land, not a hub-height measurement).
 - Specs: offshore farms show capacity, status, number of turbines, unit size, model, water depth, distance to shore and yearly generation; onshore farms show location, model and unit size.
 - **Development and operation timeline**: each date checked against a source; dates that could not be verified are left out.
+- **📏 How big is one turbine?** (offshore farms with a checked hub height and rotor diameter): as on the globe's farm cards, see 4.6.
 - "🌍 See this farm on the 3D globe" opens the same farm on the globe.
 - **Previous / next**: ‹ › at the top move through the farms in the on-screen order (`←` `→` on a keyboard, or swipe sideways on the details on a phone), with the position shown between them. The dashboard follows its current sort and filters (including the cards folded under "show all cards"); the farm grid, charts and map follow the current output.
 - Close with ×, Esc, a click beside the panel or Back (Back closes only the details and stays on the page). While the details are open the link carries `?farm=<id>` and can be shared; `#/live?farm=<id>` opens a farm directly (e.g. `#/live?farm=formosa1`).
@@ -169,13 +170,14 @@ Click a farm on the map, in the search results or in a list to open its card; on
 3. **Foundation** (offshore farms): type and sources; water depth, hub height and rotor diameter; a **cross-section** (to scale when the dimensions are known, otherwise marked as not to scale).
 4. **Turbines**: where the close-up's turbine positions come from (USWTDB in the US, MaStR in Germany, OpenStreetMap elsewhere).
 5. **Distance to shore**, **actual yearly output** and capacity factor (where official farm-level measurements exist; "See rankings" opens the Output dialog) or **estimated yearly output** (capacity × the country's average capacity factor, labelled as an estimate); Taiwanese farms also show "live samples (last 90 days)".
-6. **Standing in the country**: capacity rank and share of the national total in the timeline year.
-7. **Phases**: dashed boxes are phases not yet finished in the timeline year.
-8. Description and data notes, including when the coordinates are only approximate (for example only the township or county centre) or a shared placeholder point.
-9. **Live output right now**: farms with live data in Taiwan, Australia and Canada (with the timeline at the latest year they get a green ring and their rotors turn with their output); Taiwanese farms link to their live details.
-10. Wikipedia summary; links to Wikipedia, a satellite map, OpenStreetMap, a wind resource map, a photo search, the GEM project page, Wikidata and the source.
-11. **Nearby farms** (within 30 km), other farms by the **same developer** and **related events**; click to switch.
-12. **🔗 Copy link to this farm** and **⚑ Report a data error** (opens a GitHub issue pre-filled with the farm's details).
+6. **📏 How big is one turbine?** (expand): where the hub height and rotor diameter are known, compares them with familiar things: the highest blade tip (hub height + rotor radius) with Taipei 101 (508 m, CTBUH), the rotor diameter with the length of a standard football pitch, and the area one turn sweeps in standard pitches (FIFA's recommended 105 × 68 m); below, a view from above draws the rotor disc and the pitches to the same scale. With mixed models the largest is used.
+7. **Standing in the country**: capacity rank and share of the national total in the timeline year.
+8. **Phases**: dashed boxes are phases not yet finished in the timeline year.
+9. Description and data notes, including when the coordinates are only approximate (for example only the township or county centre) or a shared placeholder point.
+10. **Live output right now**: farms with live data in Taiwan, Australia and Canada (with the timeline at the latest year they get a green ring and their rotors turn with their output); Taiwanese farms link to their live details.
+11. Wikipedia summary; links to Wikipedia, a satellite map, OpenStreetMap, a wind resource map, a photo search, the GEM project page, Wikidata and the source.
+12. **Nearby farms** (within 30 km), other farms by the **same developer** and **related events**; click to switch.
+13. **🔗 Copy link to this farm** and **⚑ Report a data error** (opens a GitHub issue pre-filled with the farm's details).
 
 Port cards list the roles, the farms served (drawn as arcs on the map) and the sources; event cards give the summary, capacity basis, casualties (officially confirmed only), related farms and sources.
 
