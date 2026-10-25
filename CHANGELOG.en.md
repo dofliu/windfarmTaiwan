@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.9.1 — 2026-10-25
+
+- **US latest-available capacity updated**: EIA-860M September 2026 edition, onshore 165,970.0 MW (August edition 165,745.2 MW), offshore 972.0 MW (unchanged); the same method on the August edition reproduces the earlier figures. The US value for 2026 (latest available) on the globe follows.
+- **Grid fallback wording corrected**: government open dataset 19995 has one row per day but is **published monthly** (around the 5th, up to the end of the previous month), not daily; the live page now says "official daily data (published monthly), not live", and the user guide, DEPLOY and ROADMAP say the same.
+- Taiwan's September table 4-02 and China's NEA first-three-quarters figures were still unpublished on 25 Oct and will be checked again in early November (noted in TODO); the TODO and ROADMAP hand-off sections are updated to v3.9.1.
+
 ## v3.9.0 — 2026-10-25
 
 - **📍 Wind near me** (the owner chose the map version from samples on 25 Oct 2026): a button under today's wind on Home asks the browser for your location only when pressed and opens a map centred on you (the wind now in turbine colours with direction ticks, the 5 nearest operating farms with distances, a scale bar), with the wind speed, direction and turbine band where you are (GFS, 10 m above ground, interpolated from a 1° grid) and the nearest operating farm; in Taiwan it also lists the nearest farm with live data and its output now. Your position is used only in this browser; it is never sent anywhere or stored.

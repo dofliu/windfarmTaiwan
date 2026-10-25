@@ -7,11 +7,11 @@ evaluated and deferred — so that nobody (you or an AI) has to fall into the sa
 concrete to-do list is in [TODO.en.md](./TODO.en.md); this file is about direction and background,
 TODO is about what to do next.
 
-## Current status (18 Oct 2026, v3.2.0): maintenance, improvements as the owner asks
+## Current status (25 Oct 2026, v3.9.1): maintenance, improvements as the owner asks
 
 The main features are finished and the project is in maintenance; since 28 Sep 2026 the owner has asked for a series of data checks,
 visual upgrades and new features (one PR each; details in [CHANGELOG.en.md](./CHANGELOG.en.md)).
-On 17 Oct 2026 the globe layout redesign was completed (v2.40.0–v3.0.0, seven steps: grouped toolbar, merged readout and legends, context panel, analyses in the panel, phone bottom drawer, first-visit start cards, shapes only on the globe), taking the major version to 3. On 18 Oct 2026 an interface review was worked through in three batches (v3.0.1–v3.2.0): corrected home page figures, Taiwan live readable in light wind ("generating now" first, one column on phones, an offline sketch map), a 7-day output curve on the home page, a current-chapter bar on Learn, line icons and grouped footer sources. The automatic Taiwan and international live-data updates keep running
+On 17 Oct 2026 the globe layout redesign was completed (v2.40.0–v3.0.0, seven steps: grouped toolbar, merged readout and legends, context panel, analyses in the panel, phone bottom drawer, first-visit start cards, shapes only on the globe), taking the major version to 3. On 18 Oct 2026 an interface review was worked through in three batches (v3.0.1–v3.2.0): corrected home page figures, Taiwan live readable in light wind ("generating now" first, one column on phones, an offline sketch map), a 7-day output curve on the home page, a current-chapter bar on Learn, line icons and grouped footer sources. From 19 to 25 Oct 2026 came two versions of the kids' page "Travel with the Wind" (v3.4.0–v3.5.0), the Wind now redesign (v3.6.0) and six friendlier-interface features (v3.7.0–v3.9.0: today's wind on Home, share cards in three formats, light mode, turbine scale, switchable everyday comparisons and 📍 Near me). The automatic Taiwan and international live-data updates keep running
 (maintenance: "Maintenance" in [DEPLOY.en.md](./DEPLOY.en.md)). How to use the site: [docs/user-guide.en.md](./docs/user-guide.en.md). What is done:
 
 - Four pages: Home, Taiwan live (dashboard, farm grid, charts, map, farm details, share cards), Global (3D globe 1980–2025 plus
@@ -296,8 +296,8 @@ The results of testing each source in Sep 2026 are in [docs/live-data-sources.en
 - **The supply/demand report cannot be truly live**: the primary source
   `www.taipower.com.tw/.../sys_dem_sup.csv` returns 403 when fetched from GitHub Actions, most likely a
   WAF blocking cloud-CI IP ranges; browser headers and a Referer do not help. The fallback is the
-  government open dataset 19995, which is nominally "daily" but was observed to lag about six weeks,
-  not just one day. The frontend labels it honestly as "not live, as of YYYY-MM-DD" and never pairs it
+  government open dataset 19995, which has one row per day but is published monthly (around the 5th, up to the end of the
+  previous month; its update frequency is "monthly"), so it lags by up to about five weeks, not just one day. The frontend labels it honestly as "not live, as of YYYY-MM-DD" and never pairs it
   with the live wind output.
 - **The 37331 backfill is a quarterly file, not a daily one**: it was expected to fill gaps in the
   7-day trend window, but the data lag 4–5 months, so it can never fill recent gaps. It is now a
