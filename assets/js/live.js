@@ -228,8 +228,8 @@ WW.addI18n({
   simTag:{zh:"（模擬·基準快照）",en:"(simulated snapshot)"},planned:{zh:"規劃",en:"planned"},notListed:{zh:"台電未列（註10）",en:"not yet listed"},
   onGlobe:{zh:"在 3D 地球儀上看這座風場",en:"See this farm on the 3D globe"},
   popMore:{zh:"查看專案資訊 →",en:"Project details →"},popUnit:{zh:"台電機組",en:"Taipower unit"},
-  foot_main:{zh:'機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準<br>影響力數字為換算估算：家戶 0.5kW、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值<br>風速為中央氣象署自動氣象站觀測，取各風場「最近測站」當沿海參考值，非風機輪轂高度實測（外海風場尤其僅供參考）',
-    en:'Unit classification, names & capacity: from Taipower "unit generation" (genary.json), four disclosure classes · capacity/output per Taipower<br>Impact figures are conversions/estimates: 0.5 kW/home, ~10 kWh/home-day, 0.495 kg CO₂/kWh, 12 kg CO₂/tree-yr; underlying MW for output & share are Taipower measured values<br>Wind speed from CWA automatic weather stations — nearest station as a coastal reference, not hub-height (offshore farms especially indicative only)'}
+  foot_main:{zh:'機組分類、名稱與容量：依台電「各機組發電量」（genary.json）四類揭露整理 · 容量／出力以台電公布為準<br>影響力數字為換算估算：家戶 0.5kW（台電 2025 年住宅每戶平均月用電 308～418 度）、家戶日用電約 10 度、排碳係數 0.495 kg/度、單樹年吸碳 12kg；發電與佔比之底層 MW 為台電實測值<br>點「可供家戶」卡片可換成：1 噸冷氣約 900 W（新竹縣政府常用電器耗電表）、手機充飽一次 0.019 度（美國環保署）、Gogoro 電池 1.74 度（Gogoro）、台北捷運車站與列車年用電約 7 億度（臺北捷運公司 114 年度事業計畫，2023 年）<br>風速為中央氣象署自動氣象站觀測，取各風場「最近測站」當沿海參考值，非風機輪轂高度實測（外海風場尤其僅供參考）',
+    en:'Unit classification, names & capacity: from Taipower "unit generation" (genary.json), four disclosure classes · capacity/output per Taipower<br>Impact figures are conversions/estimates: 0.5 kW/home (Taipower: average home used 308–418 kWh a month in 2025), ~10 kWh/home-day, 0.495 kg CO₂/kWh, 12 kg CO₂/tree-yr; underlying MW for output & share are Taipower measured values<br>Tap the homes card to compare with: a 1-ton air conditioner at ~900 W (Hsinchu County appliance table), 0.019 kWh per phone charge (US EPA), 1.74 kWh per Gogoro battery (Gogoro), and Taipei Metro stations and trains at ~700 GWh a year (Taipei Metro 2025 business plan, 2023 figure)<br>Wind speed from CWA automatic weather stations — nearest station as a coastal reference, not hub-height (offshore farms especially indicative only)'}
 });
 
 let LIVE=false,lastUpdate=null,srcTime=null,sortKey="output",filt="all",devFilt="all",brandFilt="all",capFilt="all",groupMode="type";
@@ -239,7 +239,16 @@ let sysTotal=null;                             // 全國即時淨發電量(MW)�
 let GRID=null;                                 // 電力供需即時報表
 let WIND={};                                   // 各風場鄰近測站風速{id:{mps,station,km}}，來源中央氣象署
 const windOf=f=>WIND[f.id]||null;
-const HH_KW=0.5;                               // 家戶平均用電功率估算(年約3600度÷8760h≈0.41kW，取0.5保守)
+const HH_KW=0.5;                               // 家戶平均用電功率估算：台電 2025 年住宅每戶平均月用電 非夏月 308 度、夏月 418 度（年約 4,136 度÷8760h≈0.47kW），取 0.5
+/* 「可供家戶」卡片點一下換成其他東西（換算估算；出處見頁尾與使用說明）。k＝每單位用電：功率（kW，同時運轉）或每次電量（kWh，每小時可充飽幾次） */
+const CONV=[
+  {id:"homes",ic:"home",k:HH_KW,div:1e4,zu:"萬戶",eu:"k homes",zk:"可同時供應家庭用電（估算）",ek:"Homes powered now (est.)"},
+  {id:"ac",ic:"snow",k:0.9,div:1e4,zu:"萬台",eu:"k units",zk:"可同時開的 1 噸冷氣（每台約 900 W）",ek:"1-ton air conditioners running at once (~900 W each)"},
+  {id:"phone",ic:"phone",k:0.019,div:1e4,zu:"萬支／小時",eu:"k/hour",zk:"每小時可充飽的手機（每次 0.019 度）",ek:"Phones fully charged per hour (0.019 kWh each)"},
+  {id:"gogoro",ic:"battery",k:1.74,div:1e4,zu:"萬顆／小時",eu:"k/hour",zk:"每小時可充飽的 Gogoro 電池（每顆 1.74 度）",ek:"Gogoro batteries charged per hour (1.74 kWh each)"},
+  {id:"mrt",ic:"train",k:7e8/8760,div:1,zu:"個",eu:"×",zk:"台北捷運系統的平均用電（車站＋列車，年約 7 億度）",ek:"Taipei Metro systems on average (stations + trains, ~700 GWh/yr)"},
+];
+let convI=0;try{convI=Math.max(0,CONV.findIndex(c=>c.id===localStorage.getItem("ww_conv")));}catch(e){}
 const CO2_KG_PER_KWH=0.495;                    // 台灣電力排碳係數估算(kg CO2/度)
 const TREE_KG_PER_YR=12;                       // 一棵樹年吸碳量估算(kg/年)
 const RT={};
@@ -462,10 +471,16 @@ function paintImpact(){
     <div class="iv">${iv}${unit?`<small>${unit}</small>`:""}</div><div class="ik">${k}</div></div></div>`;
   const homesV=EN()?WW.int(v.homes*10):v.homes.toFixed(v.homes<10?1:0);
   const todayV=v.mwh!=null?(EN()?WW.int(v.mwh):(v.mwh/10).toFixed(v.mwh/10<10?2:1)):t("accruing"),todayU=v.mwh!=null?(EN()?"MWh":"萬度"):"";
-  el.innerHTML=card(WW.icon("home"),homesV,t("unit_homes"),t("imp_homes"))+
+  const C=CONV[convI],cv=v.total*1000/C.k/C.div;                // 第一張可點：輪流換算成不同的東西
+  const cvV=C.div>1&&EN()?WW.int(cv*10):cv<10?cv.toFixed(1):WW.int(cv);
+  const convCard=`<button type="button" class="imp impconv" id="lv-conv" title="${EN()?"Tap to compare with something else":"點一下換一種東西比"}" aria-label="${EN()?"Show another comparison":"換一種比較"}">
+    <div class="ic" aria-hidden="true">${WW.icon(C.ic)}</div><div><div class="iv">${cvV}<small>${EN()?C.eu:C.zu}</small></div><div class="ik">${EN()?C.ek:C.zk}</div></div>
+    <span class="cvdots" aria-hidden="true">${CONV.map((_,i)=>`<i class="${i===convI?"on":""}"></i>`).join("")}</span><span class="cvtap" aria-hidden="true">↻</span></button>`;
+  el.innerHTML=convCard+
     card(WW.icon("bolt"),v.share!=null?v.share.toFixed(1):"—",v.share!=null?"%":"",t("imp_share"))+
     card(WW.icon("bulb"),todayV,todayU,t("imp_today"))+
     card(WW.icon("leaf"),v.trees!=null?WW.int(v.trees):t("accruing"),v.trees!=null?t("unit_trees"):"",t("imp_trees"));
+  document.getElementById("lv-conv").onclick=()=>{convI=(convI+1)%CONV.length;try{localStorage.setItem("ww_conv",CONV[convI].id);}catch(e){}paintImpact();const b=document.getElementById("lv-conv");if(b)b.focus();};
 }
 /* 台灣在世界：從全球資料集算離岸排名（與 3D 地球儀同一份資料） */
 function paintTwRank(){
@@ -990,8 +1005,12 @@ function openDrawer(id,how){                     // how："url"＝由網址打�
       <div class="v" style="font-size:${s[2]?"13px":"14px"}">${esc(s[1])}</div></div>`).join("")}</div>
     <div class="timeline"><div class="tlh">${t("timeline")}</div>
       <div class="tl">${f.tl.map(x=>`<div class="tlitem ${x[2]}"><div class="d">${esc(x[0])}</div><div class="t">${esc(EN()&&x[3]?x[3]:x[1])}</div></div>`).join("")}</div></div>
+    <div id="dscale"></div>
     ${f.note?`<div class="dnote">${esc(fv(f,"note"))}</div>`:""}
     ${gname?`<a class="btn hist dglobe" href="${WW.hashFor("global",null,{f:gname})}">🌍 ${t("onGlobe")} <span class="arr">→</span></a>`:""}`;
+  if(gname&&off)WW.getJSON(WW.DATA.foundations).then(J=>{        // 風機有多大：用本站逐場查證的輪轂高度與葉輪直徑（只有塔高的不用）
+    const r=J.farms&&J.farms[gname],box=document.getElementById("dscale");if(!r||!box||drawerFarm!==f||r.hk==="tower"||r.h==null||!r.r)return;
+    const h=Array.isArray(r.h)?r.h[1]:r.h;box.innerHTML=WW.scaleHTML(h,r.r,{note:Array.isArray(r.h)&&r.h[0]!==r.h[1]?WW.L("同場有不同機型，以最大的計。","Mixed models: the largest is used. "):""});}).catch(()=>{});
   const rerender=()=>{document.getElementById("sparkbox").innerHTML=renderSparkBox(f);};
   document.getElementById("sparkRange").onclick=e=>{const b=e.target.closest("button");if(!b)return;
     document.querySelectorAll("#sparkRange button").forEach(x=>x.classList.toggle("is-on",x===b));sparkWin=+b.dataset.w;rerender();};

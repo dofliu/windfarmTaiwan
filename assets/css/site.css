@@ -682,3 +682,29 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
 :root[data-theme="light"] body{background:radial-gradient(1100px 620px at 85% -10%,rgba(14,138,106,.08),transparent 60%),radial-gradient(900px 560px at -5% 105%,rgba(31,111,191,.08),transparent 58%),var(--bg)}
 :root[data-theme="light"] #page-global{color-scheme:dark;--bg:#07101d;--bg-2:#0a1526;--surface-1:#0d1829;--surface-2:#122039;--surface-3:#18294a;--line:rgba(var(--fg-rgb),.08);--line-2:rgba(var(--fg-rgb),.15);--ink:#eaf1f8;--ink-2:#a9b7c9;--ink-3:#7d8ca3;--live:#3fdcb0;--live-ink:#04241b;--onshore-b:#e3b458;--offshore-b:#6fb3ff;--floating-b:#9be8d8;--hist:#f0c86a;--grid:rgba(var(--fg-rgb),.07);--axis:rgba(var(--fg-rgb),.16);--glass-rgb:7,16,29;--fg-rgb:255,255,255;--pop:#0f1f36;--prose:#cfd9e6;--hl:#ffd98a;color:var(--ink);background:var(--bg)}
 :root[data-theme="light"] .btn.hist{color:#fff}
+/* ================= 風機有多大（風場卡片、台灣即時風場詳情；core.js WW.scaleHTML） ================= */
+.fscale{margin-top:10px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:rgba(var(--glass-rgb),.35)}
+.fscale summary{cursor:pointer;font-weight:800;font-size:13px}
+.fscale[open] summary{margin-bottom:8px}
+.sctiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.sctile{border:1px solid var(--line);border-radius:9px;padding:7px 8px;background:rgba(var(--glass-rgb),.5);min-width:0}
+.sctile .scv{font-size:17px;font-weight:900;line-height:1.15;white-space:nowrap}
+.sctile .sck{font-size:11px;color:var(--ink-3);margin-top:1px;line-height:1.3}
+.sctile .scc{font-size:11.5px;color:var(--ink-2);margin-top:5px;line-height:1.4}
+.scbar{display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.scbar i{display:block;height:5px;border-radius:3px;background:var(--live)}
+.scbar i.ref{background:var(--gen-na)}
+.scfig{display:block;width:100%;max-width:300px;height:auto;margin:10px auto 2px}
+.scfig .scp{fill:rgba(31,158,138,.28);stroke:var(--floating-b);stroke-opacity:.55;stroke-width:1}
+.scfig .scpl{stroke:var(--floating-b);stroke-opacity:.35;stroke-width:1}
+.scfig .scr{fill:var(--live);fill-opacity:.16;stroke:var(--live);stroke-width:2}
+@media (max-width:420px){.sctiles{grid-template-columns:1fr}.sctile{display:grid;grid-template-columns:auto 1fr;column-gap:10px}.sctile .scbar,.sctile .scc{grid-column:1/-1}}
+.fscale .scnote{font-size:11.5px;color:var(--ink-3);line-height:1.5;margin-top:4px}
+/* 台灣即時：可點的換算卡（家戶／冷氣／手機／Gogoro 電池／台北捷運） */
+.imp.impconv{position:relative;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.imp.impconv:hover{border-color:var(--live)}
+.imp.impconv .cvdots{position:absolute;right:10px;top:8px;display:flex;gap:3px}
+.imp.impconv .cvdots i{width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+.imp.impconv .cvdots i.on{background:var(--live);width:12px;border-radius:3px}
+.imp.impconv .cvtap{position:absolute;right:10px;bottom:6px;font-size:13px;color:var(--ink-3)}
+.imp.impconv{padding-right:30px}

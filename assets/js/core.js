@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.7.0';
+WW.VERSION = '3.8.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -41,7 +41,11 @@ const ICONS = {
   home: '<path d="M4 11l8-6 8 6M6 10v9h12v-9M10 19v-5h4v5"/>',
   bolt: '<path d="M13 3L5 13h6l-1 8 8-10h-6z"/>',
   bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.7.6 1.2 1.4 1.3 2.1h4.4c.1-.7.6-1.5 1.3-2.1A6 6 0 0 0 12 3z"/>',
-  leaf: '<path d="M12 21v-6M12 15c-4 0-7-3-7-7 4 0 7 3 7 7zM12 15c4 0 7-3 7-7-4 0-7 3-7 7z"/>'
+  leaf: '<path d="M12 21v-6M12 15c-4 0-7-3-7-7 4 0 7 3 7 7zM12 15c4 0 7-3 7-7-4 0-7 3-7 7z"/>',
+  snow: '<path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/>',
+  phone: '<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/>',
+  battery: '<rect x="4" y="7" width="15" height="10" rx="2"/><path d="M21 10.5v3M11.5 9l-2 3.2h3L10.5 15"/>',
+  train: '<rect x="6" y="3" width="12" height="13" rx="3"/><path d="M6 10h12M9 13h.01M15 13h.01M8.5 16 6.5 20M15.5 16l2 4"/>'
 };
 WW.icon = name => '<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + (ICONS[name] || '') + '</svg>';
 /* 風力等級：四格長條，亮起的格數＝等級 1–4 · wind level drawn as 1–4 lit bars */
@@ -194,6 +198,41 @@ WW.fdTurbine = function (cx, top, sc, SVG_COL, geom) {         // geom：{hubY, 
   [90, 210, 330].forEach(a => { const ra = a * Math.PI / 180; P.push('<line x1="' + cx + '" y1="' + hub + '" x2="' + (cx + Math.cos(ra) * rr) + '" y2="' + (hub - Math.sin(ra) * rr) + '" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>'); });
   P.push('<circle cx="' + cx + '" cy="' + hub + '" r="' + rr + '" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 3"/>');
   return P.join('');
+};
+/* 風機有多大：用熟悉的東西比（風場卡片、台灣即時的風場詳情共用）。hub＝輪轂高度、rotor＝葉輪直徑（公尺，取自本站逐場查證或 USWTDB／MaStR）；
+   比較物的尺寸與出處見 WW.SCALE_REF。三張比較卡＋由上往下看的葉輪與足球場（同一比例） */
+WW.SCALE_REF = {                                  // 出處：CTBUH Skyscraper Center（台北 101 高 508 m）、FIFA 球場指引（建議場地 105 × 68 m）
+  t101: { m: 508, url: 'https://www.skyscrapercenter.com/building/taipei-101/117' },
+  pitch: { w: 105, h: 68, url: 'https://publications.fifa.com/fr/football-stadiums-guidelines/technical-guideline/stadium-guidelines/pitch-dimensions-and-surrounding-areas' },
+};
+WW.scaleHTML = (hub, rotor, opt) => {
+  if (!(hub > 0 && rotor > 0)) return '';
+  opt = opt || {};
+  const L = WW.L, R = WW.SCALE_REF, tip = hub + rotor / 2, area = Math.PI * rotor * rotor / 4, pitch = R.pitch.w * R.pitch.h, np = area / pitch;
+  const fmt = v => (Math.round(v * 10) / 10).toLocaleString('en-US');
+  const bar = (a, b) => { const m = Math.max(a, b); return '<span class="scbar"><i style="width:' + (a / m * 100).toFixed(1) + '%"></i><i class="ref" style="width:' + (b / m * 100).toFixed(1) + '%"></i></span>'; };
+  const tile = (v, k, b, c) => '<div class="sctile"><div class="scv">' + v + '</div><div class="sck">' + k + '</div>' + b + '<div class="scc">' + c + '</div></div>';
+  const pct = tip / R.t101.m * 100;
+  const tips = tile(fmt(tip) + ' m', L('葉尖最高點（輪轂＋半徑）', 'Highest blade tip (hub + radius)'), bar(tip, R.t101.m),
+    L('約台北 101（' + R.t101.m + ' m）的 ' + Math.round(pct) + '%', 'About ' + Math.round(pct) + '% of Taipei 101 (' + R.t101.m + ' m)'));
+  const nl = rotor / R.pitch.w;
+  const rot = tile(fmt(rotor) + ' m', L('葉輪直徑', 'Rotor diameter'), bar(rotor, R.pitch.w),
+    nl >= 1.05 ? L('比標準足球場的長度（' + R.pitch.w + ' m）長 ' + Math.round((nl - 1) * 100) + '%', Math.round((nl - 1) * 100) + '% longer than a standard football pitch (' + R.pitch.w + ' m)')
+      : L('約標準足球場長度（' + R.pitch.w + ' m）的 ' + Math.round(nl * 100) + '%', 'About ' + Math.round(nl * 100) + '% of a standard football pitch\'s length (' + R.pitch.w + ' m)'));
+  const swp = tile((np >= 1 ? np.toFixed(1) : np.toFixed(2)) + L(' 個', ''), L('標準足球場', np >= 1 && np < 1.05 ? 'football pitch' : 'football pitches'), bar(area, pitch * Math.max(1, Math.round(np))),
+    L('葉片轉一圈掃過 ' + WW.int(area) + ' m²', 'One turn sweeps ' + WW.int(area) + ' m²'));
+  // 由上往下看：足球場排成一列，葉輪圓疊在中間；寬 300 的畫面依需要的場數縮放
+  const n = Math.max(1, Math.ceil(np)), W = 300, gap = 4, k = Math.min((W - 8 - gap * (n - 1)) / (n * R.pitch.w), 150 / rotor), pw = R.pitch.w * k, ph = R.pitch.h * k;
+  const H = Math.max(ph, rotor * k) + 12, cy = H / 2, x0 = (W - (n * pw + (n - 1) * gap)) / 2;
+  let g = '';
+  for (let i = 0; i < n; i++) { const x = x0 + i * (pw + gap); g += '<rect class="scp" x="' + x.toFixed(1) + '" y="' + (cy - ph / 2).toFixed(1) + '" width="' + pw.toFixed(1) + '" height="' + ph.toFixed(1) + '"/><line class="scpl" x1="' + (x + pw / 2).toFixed(1) + '" x2="' + (x + pw / 2).toFixed(1) + '" y1="' + (cy - ph / 2).toFixed(1) + '" y2="' + (cy + ph / 2).toFixed(1) + '"/>'; }
+  g += '<circle class="scr" cx="' + (W / 2) + '" cy="' + cy.toFixed(1) + '" r="' + (rotor * k / 2).toFixed(1) + '"/>';
+  const svg = '<svg class="scfig" viewBox="0 0 ' + W + ' ' + H.toFixed(0) + '" role="img" aria-label="' + WW.esc(L('由上往下看：葉輪掃過的圓與 ' + n + ' 個標準足球場，同一比例', 'From above: the rotor disc and ' + n + ' standard football pitches to the same scale')) + '">' + g + '</svg>';
+  const src = ' <a href="' + R.t101.url + '" target="_blank" rel="noopener">CTBUH</a> · <a href="' + R.pitch.url + '" target="_blank" rel="noopener">FIFA</a>';
+  return '<details class="fscale"' + (opt.open ? ' open' : '') + '><summary>' + L('📏 這部風機有多大？', '📏 How big is one turbine?') + '</summary>' +
+    '<div class="sctiles">' + tips + rot + swp + '</div>' + svg +
+    '<div class="scnote">' + WW.esc(L('由上往下看：葉輪掃過的圓（綠）與 FIFA 建議的標準足球場（' + R.pitch.w + ' × ' + R.pitch.h + ' m）同一比例。', 'From above: the swept disc (green) and FIFA-recommended pitches (' + R.pitch.w + ' × ' + R.pitch.h + ' m) to the same scale. ')) +
+    WW.esc(opt.note || '') + WW.esc(L(' 比較物尺寸：', ' Reference sizes: ')) + src + '</div></details>';
 };
 /* 全球資料集＋衍生查詢（首頁、知識頁、地球儀共用） */
 WW.globalData = () => WW.getJSON(WW.DATA.global).then(D => {
