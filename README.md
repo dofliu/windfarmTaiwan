@@ -133,6 +133,8 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `assets/js/core.js` — 共用核心：雙語、hash 路由、延遲載入、資料快取、數字格式、分享；版本號 `WW.VERSION`
 - `assets/js/live.js` — 台灣即時（`FARMS` 30 個機組／風場的規格與開發歷程、即時／歷史／電網資料讀取、儀表、風場牆、圖表、地圖、抽屜）
 - `assets/js/today.js` — 首頁「今天的風」（由資料算出的句子）與分享圖卡（方形、橫式、直式）
+- `assets/js/near.js` — 首頁「📍 我附近的風」（瀏覽器定位，位置不送出；以你為中心的地圖、最近的風場與此刻的風）
+- `assets/js/week.js` — 首頁「本週風電回顧」（最近 7 天與前 7 天的取樣比較、兩週長條圖、方形週報圖卡）
 - `assets/js/charts.js` — 輕量 SVG 圖表（折線、柱狀、橫條、散佈；含提示框與表格檢視）
 - `assets/js/home.js`、`assets/js/learn.js` — 首頁與風電知識頁
 - `assets/js/globe.js` — 3D 地球儀（改寫自「全球風電發展觀察地圖」wind-history-map v3）
@@ -158,6 +160,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   澳洲的來源彙整檔是 `data/global/sources/aemo_wind_monthly.json`（`python3 tools/au_output.py fetch` 下載 AEMO 月檔後產生）
 - `data/global/turbine_output.json` — 丹麥單獨計量的 1,848 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
+- `data/global/farm_points.json` — 「我附近」用的點位小檔：營運中、不在共用代用點的風場，只留名稱、座標、容量、年份、類型（由 `tools/build_farm_points.py` 從 `wind_farms.json` 產生，約 1.5 MB）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
 - `data/global/ports.json` — 離岸風電港口 103 個（20 國；人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
 - `data/global/events.json` — 重大事件與事故 91 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
@@ -270,6 +273,7 @@ python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離岸 15 km 內、出處、「服務過的風場」對得到風場名稱
+python tools/build_farm_points.py # 「我附近」用的點位小檔（重建風場層後一起跑）
 python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源；OSPAR 只有核准階段設計的要附施工紀錄），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe

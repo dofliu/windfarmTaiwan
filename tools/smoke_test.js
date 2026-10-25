@@ -47,12 +47,15 @@ const NET = /ERR_CERT|ERR_NAME|ERR_CONNECTION|ERR_INTERNET|ERR_TIMED_OUT|net::ER
 
 // [路由, 等待毫秒, 檢查（在頁面裡執行，回傳錯誤字串或空字串）]
 const ROUTES = [
-  ['#/', 3500, () => {
+  ['#/', 3500, async () => {
     // 首頁：過去 7 天的出力曲線、頁尾四組來源連結 · home: 7-day curve and the four footer source groups
     if (!document.querySelector('#hh-7d svg .ln')) return 'home: no 7-day output curve';
     // 今天的風（由資料算出的大標）、三種分享圖卡、淺色模式切換 · today's headline, the three share-card formats, the light-mode toggle
     if (!document.querySelector('#hh-today .tmain')) return 'home: no today headline';
     if (!document.getElementById('nearbtn') || !document.getElementById('nearbox').hidden) return 'home: wind-near-me button missing or opened without a press';
+    // 本週風電回顧：兩週長條、重點與方形週報圖卡 · the weekly recap: bars, highlights and the square weekly card
+    if (document.getElementById('hweek').hidden || document.querySelectorAll('#hweek .wkbars .wkc').length !== 7 || !document.querySelector('#hweek .wkchips li')) return 'home: weekly recap missing';
+    const wk = await WW.weekCard(); if (wk.width !== 1080 || wk.height !== 1080) return 'weekly card size ' + wk.width;
     for (const [f, w, h] of [['square', 1080, 1080], ['wide', 1200, 630], ['story', 1080, 1920]]) {
       const cv = WW.drawTodayCard(f, null, []); if (cv.width !== w || cv.height !== h) return 'share card ' + f + ': ' + cv.width + '×' + cv.height;
     }
