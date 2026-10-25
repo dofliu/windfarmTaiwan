@@ -713,7 +713,7 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
 .nearbox{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(var(--glass-rgb),.45)}
 .nearbox .nmap{display:block;width:100%;border-radius:10px;margin-bottom:10px}
 .nearbox .ntext{display:grid;gap:10px}
-.nearbox.s-b .ntext{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.nearbox .ntext{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .nwind{display:flex;gap:10px;align-items:center}
 .nwind .nband{width:12px;align-self:stretch;border-radius:6px;background:var(--c)}
 .nwind .nv{font-size:24px;font-weight:900;line-height:1.1}

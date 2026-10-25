@@ -727,3 +727,5 @@
 #g-welcome .wfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
 #globe #g-welcome .wskip{padding:5px 12px}
 @media (max-width:640px){#g-welcome{padding:10px;align-items:flex-start}#g-welcome .wbox{padding:16px 14px 12px}#g-welcome .wgrid{grid-template-columns:1fr;gap:8px}#globe #g-welcome .wcard{min-height:0;padding:11px 12px}#g-welcome h2{font-size:17px}}
+#globe .lbl.you b{color:#ffd98a;font-size:12px;font-weight:800}
+#globe .lbl.you::after{content:'';display:block;width:10px;height:10px;margin:2px auto 0;border-radius:50%;background:#ffd98a;border:2px solid #081324;box-sizing:content-box}

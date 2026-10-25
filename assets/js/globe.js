@@ -75,7 +75,8 @@ const I18N = {
     relMore: n => `顯示全部 ${n} 座`, relMoreT: n => `顯示全部 ${n} 部`, relCap: n => `另有 ${n} 座未列出`,
     copyLink: '複製此風場連結', copyLinkMs: '複製此里程碑連結', copied: '已複製連結 ✓', copyFail: '無法自動複製，請手動複製下方連結',
     report: '回報資料錯誤', reportT: '在 GitHub 開一則 issue（需登入），已預填名稱、座標與連結',
-    btnSearch: '🔍 搜尋', btnPorts: '⚓ 港口', portsTab: '港口',
+    btnSearch: '🔍 搜尋', btnPorts: '⚓ 港口', portsTab: '港口', btnNear: '📍 我附近', nearT: '找離你最近的營運中風場（位置只在這台瀏覽器裡計算，不會傳出去，也不會存下來）', youHere: '📍 你在這裡',
+    nearWait: '定位中…', nearOk: (n, d) => `離你最近的營運中風場：${n}，約 ${d} km`, nearDeny: '沒有取得定位權限：可以在瀏覽器的網站設定允許「位置」後再按一次', nearErr: '暫時無法定位，請稍後再試',
     btnOut: '📊 發電表現', outTitle: '風場發電表現', outGen: '總發電量', outCf: '容量因數', outModel: '同機型比較', outYear: '年份',
     outHigh: '高→低', outLow: '低→高', outByN: '依座數', outByMed: '依中位數', outPh: '找風場、機型…', outMed: '中位數', outMedM: '虛線＝該機型的中位數',
     outSum: (y, n, g, m) => `${y} 年 · ${n} 座風場有實測年發電量 · 合計 ${g} · 容量因數中位數 ${m}%`,
@@ -209,7 +210,8 @@ const I18N = {
     relMore: n => `Show all ${n}`, relMoreT: n => `Show all ${n}`, relCap: n => `${n} more not listed`,
     copyLink: 'Copy link to this farm', copyLinkMs: 'Copy link to this milestone', copied: 'Link copied ✓', copyFail: 'Could not copy automatically — copy the link below',
     report: 'Report a data error', reportT: 'Opens a GitHub issue (sign-in needed) pre-filled with the name, coordinates and link',
-    btnSearch: '🔍 Search', btnPorts: '⚓ Ports', portsTab: 'Ports',
+    btnSearch: '🔍 Search', btnPorts: '⚓ Ports', portsTab: 'Ports', btnNear: '📍 Near me', nearT: 'Find the operating wind farm nearest to you (your position is used only in this browser; it is never sent anywhere or stored)', youHere: '📍 You are here',
+    nearWait: 'Finding you…', nearOk: (n, d) => `Nearest operating wind farm: ${n}, about ${d} km away`, nearDeny: 'Location permission was not given: allow location for this site in your browser settings and try again', nearErr: 'Could not get your location; please try again later',
     btnOut: '📊 Output', outTitle: 'Wind farm output', outGen: 'Total output', outCf: 'Capacity factor', outModel: 'Same turbine model', outYear: 'Year',
     outHigh: 'High → low', outLow: 'Low → high', outByN: 'By farm count', outByMed: 'By median', outPh: 'Find a farm or model…', outMed: 'Median', outMedM: 'Dashed line = median for the model',
     outSum: (y, n, g, m) => `${y} · ${n} farms with measured yearly output · ${g} in total · median capacity factor ${m}%`,
@@ -295,6 +297,7 @@ host.innerHTML = `
   <span class="gtitle" data-gi="title"></span>
   <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
+  <button id="g-btnNear" type="button" data-gi="btnNear" hidden></button>
   <span class="gmenu gphx"><button id="g-mView" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pView"><span data-gi="mView"></span><i class="gcar"></i></button>
     <div id="g-pView" class="gmp" hidden>
       <div class="gmrow"><span class="gml" data-gi="mLayout"></span><div class="gseg" id="g-viewSeg" role="group"><button data-view="map" class="active" data-gi="vMap"></button><button data-view="split" data-gi="vSplit"></button><button data-view="bars" data-gi="vBars"></button></div></div>
@@ -1633,6 +1636,7 @@ function frame(now) {
     if (isTour || msSel || (S.playing && age < 1.5)) { g.getWorldPosition(tmpV); cands.push({ cat: 'm', pri: isTour ? 2e9 : msSel ? 1.5e9 : 1e8, pos: tmpV.clone().addScaledVector(upAt(tmpV), 3.4 * pinK * surfaceRoot.scale.x), name: '★ ' + m.name, val: m.year + (m.farm ? ' · ' + fmtMW(m.farm) : m.mw ? ' · ' + T('turbine') + ' ' + (m.mw < 1 ? WW.int(m.mw * 1000) + ' kW' : m.mw + ' MW') : ''), cls: 'ms', key: 'm' + m.name }); }
   });
 
+  if (S.you) cands.push({ cat: 'm', pri: 3e9, pos: posAt(S.you.lon, S.you.lat, 0, new THREE.Vector3()).applyMatrix4(surfaceRoot.matrixWorld), name: T('youHere'), val: '', cls: 'you', key: 'you' });
   updatePorts(alt, cands); updateEvents(alt, cands); zoneLabels(alt, cands);
   let li = 0;
   if (S.density > 0 || TOUR) {
@@ -3213,6 +3217,26 @@ function renderCard(it) {
   });
 }
 function closeCard() { $('g-infoCard').classList.remove('show'); $('g-mapPane').classList.remove('carded'); if (PHONE && drawerHv === 2) drawerSet(1); cardItem = null; focusPort = null; focusEvent = null; if (!TOUR) focusFarm = null; updateClusters(0, true); syncURL(); }
+/* 📍 我附近：瀏覽器定位 → 最近的營運中風場（不含共用代用點、示意位置與已除役）→ 飛到你與風場之間、打開卡片，地圖上標出你的位置。
+   位置只在這台瀏覽器裡用，不送出也不存下來 */
+function nearMe() {
+  const b = $('g-btnNear'); b.disabled = true; WW.toast(T('nearWait'));
+  navigator.geolocation.getCurrentPosition(p => {
+    const lat = p.coords.latitude, lon = p.coords.longitude, Y = new Date().getFullYear();
+    const go = () => {
+      const km = f => { const a = (f.lat - lat) * D2R, c = (f.lon - lon) * D2R, x = Math.sin(a / 2) ** 2 + Math.cos(lat * D2R) * Math.cos(f.lat * D2R) * Math.sin(c / 2) ** 2; return 12742 * Math.asin(Math.sqrt(x)); };
+      let best = null, bd = Infinity;
+      D.farms.forEach(f => { if (f.pipe || f.st !== 0 || f.pseudo || (f.flags & 4) || (f.end && f.end <= Y)) return; const d = km(f); if (d < bd) { bd = d; best = f; } });
+      b.disabled = false; if (!best) return;
+      S.you = { lon, lat }; setPlaying(false); S.year = Y1; syncYearUI();     // 「此刻」最近的風場：時間軸移到最新年份
+      selectFarm(best);
+      const ph = W <= 640;                                       // 手機：下半是抽屜，拉遠一點、中心往下移，讓你和風場都落在上半部
+      flyToLonLat((lon + best.lon) / 2, (lat + best.lat) / 2 - (ph ? Math.abs(lat - best.lat) * 0.5 + bd / 111 * 0.6 : 0), Math.max(farmAlt(best), Math.min(80, bd * KM * (ph ? 5 : 2.6))));
+      WW.toast(T('nearOk')(fname(best), bd < 10 ? bd.toFixed(1) : WW.int(bd)));
+    };
+    if (farmsReady) go(); else { const t = setInterval(() => { if (farmsReady) { clearInterval(t); go(); } }, 300); }
+  }, e => { b.disabled = false; WW.toast(T(e && e.code === 1 ? 'nearDeny' : 'nearErr')); }, { enableHighAccuracy: false, timeout: 15000, maximumAge: 600000 });
+}
 function selectFarm(f) {
   setPlaying(false);
   if (f.pipe) { if (!S.pipe) togglePipe(true); S.year = Y1; syncYearUI(); }
@@ -3978,7 +4002,7 @@ function applyI18n() {
   $('g-btnMore').title = T('more'); $('g-btnMore').setAttribute('aria-label', T('more')); const grip = host.querySelector('.gdgrip'); if (grip) grip.setAttribute('aria-label', T('drawer'));
   buildRegionSelect(); renderCrumb(); setPanelTab(panelTab);
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
-  $('g-btnSearch').title = T('fsKey');
+  $('g-btnSearch').title = T('fsKey'); $('g-btnNear').title = T('nearT');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
   renderWindLegend(); renderZoneLegend(); renderCvgLegend(); renderIndLegend();
   if (ANA.kind) anaOpen(ANA.kind);
@@ -4996,6 +5020,7 @@ function wireUI() {
   $('g-btnEvents').onclick = () => { toggleEvents(); if (S.events) setPanelTab('events'); };
   toggleEvents(S.events);
   $('g-btnSearch').onclick = openSearch;
+  if (navigator.geolocation) { $('g-btnNear').hidden = false; $('g-btnNear').onclick = nearMe; }
   document.querySelectorAll('#g-viewSeg button').forEach(b => b.onclick = () => setView(b.dataset.view));
   document.querySelectorAll('#g-modeSeg button').forEach(b => b.onclick = () => setMode(b.dataset.mode));
   $('g-btnRotate').onclick = e => { S.rotate = !S.rotate; e.currentTarget.classList.toggle('active', S.rotate); e.currentTarget.setAttribute('aria-pressed', S.rotate ? 'true' : 'false'); };

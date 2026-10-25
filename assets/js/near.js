@@ -133,12 +133,11 @@ function mount() {
     box.hidden = false; btn.setAttribute('aria-expanded', 'true');
     box.innerHTML = `<div class="nnote">${L('定位中…（位置只在這台瀏覽器裡計算，不會傳出去，也不會存下來）', 'Finding you… (your position is used only in this browser; it is never sent anywhere or stored)')}</div>`;
     locate().then(compute).then(r => Promise.all([r, borders()])).then(([r, B]) => {
-      let sty = 'b'; try { sty = localStorage.getItem('ww_near') || 'b'; } catch (e) {}          // 樣本：a 文字、b 地圖＋文字
-      box.dataset.ok = '1'; box.className = 'nearbox s-' + sty;
-      box.innerHTML = (sty === 'b' ? '<canvas class="nmap" aria-label="' + WW.esc(L('以你為中心的地圖：此刻的風與最近的風場', 'Map centred on you: the wind now and the nearest farms')) + '"></canvas>' : '') +
+      box.dataset.ok = '1';                                        // 地圖＋文字（使用者 2026-10-25 選定）
+      box.innerHTML = ('<canvas class="nmap" aria-label="' + WW.esc(L('以你為中心的地圖：此刻的風與最近的風場', 'Map centred on you: the wind now and the nearest farms')) + '"></canvas>') +
         '<div class="ntext">' + textHTML(r) + '</div>' +
         `<div class="nnote">${L('風：NOAA GFS 模式離地 10 m（1° 網格內插，代表大範圍的風，不是你家門口的實測）', 'Wind: NOAA GFS model, 10 m above ground (interpolated from a 1° grid: the wind over the wider area, not a measurement at your door)')}${r.wind ? '（' + twTime(r.wind.run) + '）' : ''}${L('，色階是風機運轉的大致區間，輪轂高度的風通常更強。位置只在這台瀏覽器裡計算，不會傳出去，也不會存下來。', '; the colours are rough turbine operating ranges, and wind at hub height is usually stronger. Your position is used only in this browser; it is never sent anywhere or stored.')}</div>`;
-      if (sty === 'b') drawMap(box.querySelector('.nmap'), r, B);
+      drawMap(box.querySelector('.nmap'), r, B);
     }).catch(e => {
       box.dataset.ok = '';
       box.innerHTML = `<div class="nnote">${e && e.code === 1 ? L('沒有取得定位權限。可以在瀏覽器的網站設定允許「位置」後再按一次。', 'Location permission was not given. Allow location for this site in your browser settings and try again.')
