@@ -183,7 +183,7 @@ WW.addI18n({
   grid_reserve:{zh:"備轉容量率",en:"operating reserve"},
   grid_wind:{zh:"風電此刻貢獻電網",en:"Wind is contributing"},
   grid_src:{zh:"台電電力供需即時報表",en:"Taipower real-time supply-demand"},
-  grid_src_daily:{zh:"官方每日資料，非即時，截至",en:"Official daily data, not live, as of"},
+  grid_src_daily:{zh:"官方每日資料（每月更新一次），非即時，截至",en:"Official daily data (published monthly), not live, as of"},
   unitsFarms:{zh:"運轉機組／風場",en:"Units / farms generating"},tonHr:{zh:"噸",en:"t"},
   imp_homes:{zh:"可同時供應家庭用電（估算）",en:"Homes powered now (est.)"},imp_share:{zh:"風電佔全國即時發電",en:"Share of national generation"},
   imp_today:{zh:"今日累積發電量",en:"Energy generated today"},imp_trees:{zh:"今日減碳≈種樹年吸碳量",en:"CO₂ cut today ≈ trees/yr"},

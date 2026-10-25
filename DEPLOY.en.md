@@ -140,7 +140,8 @@ data sources (for example Taipower changing its format).
 - Wind speeds disappear from farm cards: the Central Weather Administration key (the repo's Actions secret `CWA_API_KEY`) has expired
   or stopped working; update it under Settings → Secrets and variables → Actions. Without a key only the wind speeds are skipped.
 - Supply/demand keeps showing a date weeks ago: a known limitation (the primary source blocks cloud CI, so only the government
-  open-data daily fallback is available), not a fault.
+  open-data daily fallback is available), not a fault. The fallback, dataset 19995, has one row per day but is **published monthly**
+  (around the 5th, up to the end of the previous month; the dataset says "this year up to last month"), so it can lag by up to about five weeks.
 - The yearly global data update (country capacity, farm layer) is not scheduled; see "Updating the global data" in the README and
   "Global data" in TODO.
 
