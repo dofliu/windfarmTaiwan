@@ -138,6 +138,7 @@ WW.getLiveJSON = url => EMB ? EMB.live(url) : fetch(url, { cache: 'no-store' }).
 WW.DATA = {
   global: 'data/global/wind_global.json',
   farms: 'data/global/wind_farms.json',
+  farmPoints: 'data/global/farm_points.json',             // 「我附近」用的點位小檔（tools/build_farm_points.py）
   borders: 'data/global/world_borders.json',
   ports: 'data/global/ports.json',
   foundations: 'data/global/foundations.json',
@@ -206,7 +207,7 @@ WW.SCALE_REF = {                                  // 出處：CTBUH Skyscraper C
   pitch: { w: 105, h: 68, url: 'https://publications.fifa.com/fr/football-stadiums-guidelines/technical-guideline/stadium-guidelines/pitch-dimensions-and-surrounding-areas' },
 };
 WW.scaleHTML = (hub, rotor, opt) => {
-  if (!(hub > 0 && rotor > 0)) return '';
+  if (!(hub > 0 && rotor > 0) || hub - rotor / 2 < 10) return '';   // 葉尖離地（海面）不到 10 m 不合理：多半是輪轂高度的基準不同（例：從平台起算），不畫
   opt = opt || {};
   const L = WW.L, R = WW.SCALE_REF, tip = hub + rotor / 2, area = Math.PI * rotor * rotor / 4, pitch = R.pitch.w * R.pitch.h, np = area / pitch;
   const fmt = v => (Math.round(v * 10) / 10).toLocaleString('en-US');

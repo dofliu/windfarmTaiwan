@@ -17,10 +17,11 @@ const TY = ['onshore', 'offshore', 'floating'], TYN = { onshore: ['陸域', 'ons
 let FP = null;
 function farms() {
   if (FP) return FP;
-  FP = WW.getJSON(WW.DATA.farms).then(J => {
+  // 一般用 farm_points.json（只有營運中風場的點位，約 0.5 MB 壓縮後）；單檔版裡完整的 wind_farms.json 已經內嵌，直接用它，不另外內嵌小檔
+  FP = WW.standalone ? WW.getJSON(WW.DATA.farms).then(J => {
     const Y = new Date().getFullYear();
     return J.rows.filter(r => r[8] === 0 && !(r[12] & 4) && !(r[9] && r[9] <= Y)).map(r => ({ name: r[0], zh: r[1] || null, iso: r[2], lat: r[3], lon: r[4], mw: r[5], year: r[6], type: TY[r[7]] || 'onshore', approx: !!(r[12] & 1) }));
-  });
+  }) : WW.getJSON(WW.DATA.farmPoints).then(J => J.rows.map(r => ({ name: r[0], zh: r[1] || null, iso: r[2], lat: r[3], lon: r[4], mw: r[5], year: r[6], type: TY[r[7]] || 'onshore', approx: !!r[8] })));
   return FP;
 }
 function locate() {
