@@ -2990,7 +2990,16 @@ function factsHTML(f) {
       T('sampNote')(sp.from, sp.to, sp.units.map(k => WW.live.unitName(k)).join(L('、', ', ')), sp.part),
       ' <button type="button" class="fout" data-out="TWS" data-k="' + esc(sp.units[0]) + '">' + esc(T('outSee')) + '</button>'));
   }
+  const sc = scaleOf(f);                                           // 風機有多大：熟悉的東西比（core.js WW.scaleHTML）
+  if (sc) rows.push(WW.scaleHTML(sc.hub, sc.rotor, { note: sc.mixed ? L('同場有不同機型，以最大的計。', 'Mixed models: the largest is used. ') : '' }));
   return rows.length ? '<div class="ffacts">' + rows.join('') + '</div>' : '';
+}
+/* 一部風機的輪轂高度與葉輪直徑：本站逐場查證的尺寸優先（只有塔高的不用），其次 USWTDB／MaStR 的機組資料；範圍取最大機型 */
+function scaleOf(f) {
+  const dm = fdDims(f), tb = tbOf(f), mx = v => Array.isArray(v) ? v[1] : v;
+  if (dm && dm.hub != null && dm.rotor && !dm.tower) return { hub: mx(dm.hubRange), rotor: dm.rotor, mixed: Array.isArray(dm.hubRange) && dm.hubRange[0] !== dm.hubRange[1] };
+  if (tb && tb.hh && tb.rd) return { hub: tb.hh[1], rotor: tb.rd[1], mixed: tb.hh[0] !== tb.hh[1] || tb.rd[0] !== tb.rd[1] };
+  return null;
 }
 const fmtGWh = v => v >= 1000 ? (v / 1000).toLocaleString('en-US', { maximumFractionDigits: v >= 10000 ? 0 : 1 }) + ' TWh' : (v >= 100 ? Math.round(v) : v >= 10 ? v.toFixed(1) : v.toFixed(2)) + ' GWh';
 /* 到最近海岸線的距離（公里）：Natural Earth 1:50m 國界多邊形的邊（沿海的邊就是海岸線），只看附近 4 度內的多邊形 */

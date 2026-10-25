@@ -990,8 +990,12 @@ function openDrawer(id,how){                     // how："url"＝由網址打�
       <div class="v" style="font-size:${s[2]?"13px":"14px"}">${esc(s[1])}</div></div>`).join("")}</div>
     <div class="timeline"><div class="tlh">${t("timeline")}</div>
       <div class="tl">${f.tl.map(x=>`<div class="tlitem ${x[2]}"><div class="d">${esc(x[0])}</div><div class="t">${esc(EN()&&x[3]?x[3]:x[1])}</div></div>`).join("")}</div></div>
+    <div id="dscale"></div>
     ${f.note?`<div class="dnote">${esc(fv(f,"note"))}</div>`:""}
     ${gname?`<a class="btn hist dglobe" href="${WW.hashFor("global",null,{f:gname})}">🌍 ${t("onGlobe")} <span class="arr">→</span></a>`:""}`;
+  if(gname&&off)WW.getJSON(WW.DATA.foundations).then(J=>{        // 風機有多大：用本站逐場查證的輪轂高度與葉輪直徑（只有塔高的不用）
+    const r=J.farms&&J.farms[gname],box=document.getElementById("dscale");if(!r||!box||drawerFarm!==f||r.hk==="tower"||r.h==null||!r.r)return;
+    const h=Array.isArray(r.h)?r.h[1]:r.h;box.innerHTML=WW.scaleHTML(h,r.r,{note:Array.isArray(r.h)&&r.h[0]!==r.h[1]?WW.L("同場有不同機型，以最大的計。","Mixed models: the largest is used. "):""});}).catch(()=>{});
   const rerender=()=>{document.getElementById("sparkbox").innerHTML=renderSparkBox(f);};
   document.getElementById("sparkRange").onclick=e=>{const b=e.target.closest("button");if(!b)return;
     document.querySelectorAll("#sparkRange button").forEach(x=>x.classList.toggle("is-on",x===b));sparkWin=+b.dataset.w;rerender();};

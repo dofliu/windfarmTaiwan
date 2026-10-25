@@ -195,6 +195,41 @@ WW.fdTurbine = function (cx, top, sc, SVG_COL, geom) {         // geom：{hubY, 
   P.push('<circle cx="' + cx + '" cy="' + hub + '" r="' + rr + '" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 3"/>');
   return P.join('');
 };
+/* 風機有多大：用熟悉的東西比（風場卡片、台灣即時的風場詳情共用）。hub＝輪轂高度、rotor＝葉輪直徑（公尺，取自本站逐場查證或 USWTDB／MaStR）；
+   比較物的尺寸與出處見 WW.SCALE_REF。三張比較卡＋由上往下看的葉輪與足球場（同一比例） */
+WW.SCALE_REF = {
+  t101: { m: 508, url: 'https://www.taipei-101.com.tw/' },
+  pitch: { w: 105, h: 68, url: 'https://www.theifab.com/laws/latest/the-field-of-play/' },
+  b747: { m: 68.4, url: 'https://www.boeing.com/commercial/747' },
+};
+WW.scaleHTML = (hub, rotor, opt) => {
+  if (!(hub > 0 && rotor > 0)) return '';
+  opt = opt || {};
+  const L = WW.L, R = WW.SCALE_REF, tip = hub + rotor / 2, area = Math.PI * rotor * rotor / 4, pitch = R.pitch.w * R.pitch.h, np = area / pitch, nb = rotor / R.b747.m;
+  const fmt = v => (Math.round(v * 10) / 10).toLocaleString('en-US');
+  const bar = (a, b) => { const m = Math.max(a, b); return '<span class="scbar"><i style="width:' + (a / m * 100).toFixed(1) + '%"></i><i class="ref" style="width:' + (b / m * 100).toFixed(1) + '%"></i></span>'; };
+  const tile = (v, k, b, c) => '<div class="sctile"><div class="scv">' + v + '</div><div class="sck">' + k + '</div>' + b + '<div class="scc">' + c + '</div></div>';
+  const pct = tip / R.t101.m * 100;
+  const tips = tile(fmt(tip) + ' m', L('葉尖最高點（輪轂＋半徑）', 'Highest blade tip (hub + radius)'), bar(tip, R.t101.m),
+    L('約台北 101（' + R.t101.m + ' m）的 ' + Math.round(pct) + '%', 'About ' + Math.round(pct) + '% of Taipei 101 (' + R.t101.m + ' m)'));
+  const rot = tile(fmt(rotor) + ' m', L('葉輪直徑', 'Rotor diameter'), bar(rotor, R.b747.m * Math.max(1, Math.round(nb))),
+    nb >= 1.05 ? L('約 ' + nb.toFixed(1) + ' 架波音 747-8 的翼展（' + R.b747.m + ' m）', 'About ' + nb.toFixed(1) + ' Boeing 747-8 wingspans (' + R.b747.m + ' m)')
+      : L('約波音 747-8 翼展（' + R.b747.m + ' m）的 ' + Math.round(nb * 100) + '%', 'About ' + Math.round(nb * 100) + '% of a Boeing 747-8 wingspan (' + R.b747.m + ' m)'));
+  const swp = tile((np >= 1 ? np.toFixed(1) : np.toFixed(2)) + L(' 個', ''), L('標準足球場', np >= 1 && np < 1.05 ? 'football pitch' : 'football pitches'), bar(area, pitch * Math.max(1, Math.round(np))),
+    L('葉片轉一圈掃過 ' + WW.int(area) + ' m²', 'One turn sweeps ' + WW.int(area) + ' m²'));
+  // 由上往下看：足球場排成一列，葉輪圓疊在中間；寬 300 的畫面依需要的場數縮放
+  const n = Math.max(1, Math.ceil(np)), W = 300, gap = 4, k = Math.min((W - 8 - gap * (n - 1)) / (n * R.pitch.w), 150 / rotor), pw = R.pitch.w * k, ph = R.pitch.h * k;
+  const H = Math.max(ph, rotor * k) + 12, cy = H / 2, x0 = (W - (n * pw + (n - 1) * gap)) / 2;
+  let g = '';
+  for (let i = 0; i < n; i++) { const x = x0 + i * (pw + gap); g += '<rect class="scp" x="' + x.toFixed(1) + '" y="' + (cy - ph / 2).toFixed(1) + '" width="' + pw.toFixed(1) + '" height="' + ph.toFixed(1) + '"/><line class="scpl" x1="' + (x + pw / 2).toFixed(1) + '" x2="' + (x + pw / 2).toFixed(1) + '" y1="' + (cy - ph / 2).toFixed(1) + '" y2="' + (cy + ph / 2).toFixed(1) + '"/>'; }
+  g += '<circle class="scr" cx="' + (W / 2) + '" cy="' + cy.toFixed(1) + '" r="' + (rotor * k / 2).toFixed(1) + '"/>';
+  const svg = '<svg class="scfig" viewBox="0 0 ' + W + ' ' + H.toFixed(0) + '" role="img" aria-label="' + WW.esc(L('由上往下看：葉輪掃過的圓與 ' + n + ' 個標準足球場，同一比例', 'From above: the rotor disc and ' + n + ' standard football pitches to the same scale')) + '">' + g + '</svg>';
+  const src = ' <a href="' + R.t101.url + '" target="_blank" rel="noopener">' + L('台北 101', 'Taipei 101') + '</a> · <a href="' + R.pitch.url + '" target="_blank" rel="noopener">IFAB</a> · <a href="' + R.b747.url + '" target="_blank" rel="noopener">Boeing</a>';
+  return '<details class="fscale"' + (opt.open ? ' open' : '') + '><summary>' + L('📏 這部風機有多大？', '📏 How big is one turbine?') + '</summary>' +
+    '<div class="sctiles">' + tips + rot + swp + '</div>' + svg +
+    '<div class="scnote">' + WW.esc(L('由上往下看：葉輪掃過的圓（綠）與標準足球場（' + R.pitch.w + ' × ' + R.pitch.h + ' m）同一比例。', 'From above: the swept disc (green) and standard pitches (' + R.pitch.w + ' × ' + R.pitch.h + ' m) to the same scale. ')) +
+    WW.esc(opt.note || '') + WW.esc(L(' 比較物尺寸：', ' Reference sizes: ')) + src + '</div></details>';
+};
 /* 全球資料集＋衍生查詢（首頁、知識頁、地球儀共用） */
 WW.globalData = () => WW.getJSON(WW.DATA.global).then(D => {
   if (!D._idx) {
