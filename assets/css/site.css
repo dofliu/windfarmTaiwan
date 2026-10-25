@@ -708,3 +708,20 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
 .imp.impconv .cvdots i.on{background:var(--live);width:12px;border-radius:3px}
 .imp.impconv .cvtap{position:absolute;right:10px;bottom:6px;font-size:13px;color:var(--ink-3)}
 .imp.impconv{padding-right:30px}
+/* ================= 首頁：我附近的風（near.js） ================= */
+.hh-near{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.nearbox{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(var(--glass-rgb),.45)}
+.nearbox .nmap{display:block;width:100%;border-radius:10px;margin-bottom:10px}
+.nearbox .ntext{display:grid;gap:10px}
+.nearbox.s-b .ntext{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.nwind{display:flex;gap:10px;align-items:center}
+.nwind .nband{width:12px;align-self:stretch;border-radius:6px;background:var(--c)}
+.nwind .nv{font-size:24px;font-weight:900;line-height:1.1}
+.nwind .nv small{font-size:13px;color:var(--ink-2)}
+.nwind .nfrom{font-size:13px;font-weight:700;color:var(--ink-2)}
+.nearbox .nk{font-size:11.5px;color:var(--ink-3);font-weight:700}
+.nfarm .nname{font-size:16px;font-weight:800;margin-top:2px}
+.nfarm .nmeta{font-size:12.5px;color:var(--ink-2);margin-top:2px}
+.nfarm .nlive{font-size:13px;margin-top:4px}
+.nfarm .nact{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.nearbox .nnote{font-size:11.5px;color:var(--ink-3);line-height:1.5;margin-top:8px}
