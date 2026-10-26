@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "standalone" / "windfarmTaiwan-standalone.html"
 SITE = "https://dofliu.github.io/windfarmTaiwan/"
 
-PAGE_SCRIPTS = ["assets/js/core.js", "assets/js/charts.js", "assets/js/live.js", "assets/js/today.js", "assets/js/near.js", "assets/js/week.js", "assets/js/embed.js", "assets/js/home.js", "assets/js/learn.js", "assets/js/lessons.js"]
+PAGE_SCRIPTS = ["assets/js/core.js", "assets/js/charts.js", "assets/js/live.js", "assets/js/today.js", "assets/js/near.js", "assets/js/week.js", "assets/js/embed.js", "assets/js/status.js", "assets/js/home.js", "assets/js/learn.js", "assets/js/lessons.js"]
 LAZY = ["assets/css/globe.css", "assets/vendor/three-r128.min.js", "assets/vendor/OrbitControls-r128.js", "assets/js/globe.js"]
 KIDS = ["assets/css/kids.css", "assets/js/kids.js"]          # 兒童版（#/kids）：只放進完整單檔版，公開版地球儀沒有這一頁
 DATA = ["data/global/wind_global.json", "data/global/wind_farms.json", "data/global/world_borders.json", "data/global/ports.json", "data/global/foundations.json", "data/global/events.json", "data/global/country_stats.json", "data/global/country_indicators.json", "data/global/market_shares.json", "data/global/turbines.json", "data/global/turbines_osm.json", "data/global/generation.json", "data/global/turbine_output.json", "data/global/photos.json", "data/live/wind_now.json", "data/global/wind_resource.json", "data/global/turbines_de.json", "data/global/offshore_zones.json", "data/global/live_regions.json", "data/global/lcoe_wind.json"]

@@ -831,7 +831,7 @@ function chartMix(wrap){
 function paintChart(){
   const wrap=document.getElementById("chartwrap");if(!wrap)return;
   const note=document.getElementById("chartnote");
-  document.querySelectorAll("#chartmode button").forEach(x=>{const on=x.dataset.c===chartMode;x.classList.toggle("is-on",on);x.setAttribute("aria-selected",on?"true":"false");});
+  document.querySelectorAll("#chartmode button").forEach(x=>{const on=x.dataset.c===chartMode;x.classList.toggle("is-on",on);x.setAttribute("aria-pressed",on?"true":"false");});
   if(chartMode==="hist"){note.textContent=t("cn_hist");chartHist(wrap);return;}
   wrap.textContent="";
   if(chartMode==="bar"){chartBar(wrap);note.textContent=t("cn_bar");}

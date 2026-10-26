@@ -228,6 +228,20 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   以及改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）。新增合理的座標例外時把 workflow 裡的 `--max` 一起調高。
   The smoke test is `tools/smoke_test.js`; the `pr-check` workflow runs it on every PR together with syntax checks, `qa_farms.py --max` (no more farms outside their
   country than the known exceptions), a check that generated documents are up to date, and the version/changelog check (`tools/check_version.py`) when the site changes.
+- 冒煙測試另含：axe-core 無障礙檢查（WCAG 2.1 A／AA 與最佳做法，每一頁；首頁、台灣即時、風電知識、排程狀態再以淺色模式查對比；本機先 `npm install axe-core`，沒裝會略過並提示）、
+  鍵盤檢查（首頁前 14 個 Tab 停點要看得到、有焦點框，第一個是「跳到主要內容」）、減少動態效果（`prefers-reduced-motion` 下不能有 CSS 動畫在跑）與效能預算
+  （`tools/perf_budget.json`：各頁以全新分頁打開時的同源傳輸量上限，未壓縮、桌機；要提高時在 PR 說明原因，不要為了過關直接調高）。
+  新的互動元件要有可見的焦點樣式與可讀出的名稱（圖示按鈕加 `aria-label`）；淺色模式的新顏色要過 4.5:1；頁面用圖表的 SVG 若含可聚焦元素用 `role="group"`。
+  Lighthouse 不在每個 PR 跑（分數會浮動）：手動執行 `.github/workflows/lighthouse.yml`（對上線網站，報告在 Artifacts、分數在工作摘要）。
+  The smoke test also runs axe-core (WCAG 2.1 A/AA and best-practice rules on every page; Home, Taiwan live, Learn and the status page again in light mode for contrast;
+  `npm install axe-core` locally, skipped with a notice when missing), a keyboard check (the first 14 Tab stops on Home visible with a focus ring, the first being "Skip to content"),
+  a reduced-motion check (no CSS animation running under `prefers-reduced-motion`) and the performance budget (`tools/perf_budget.json`: the same-origin bytes each page may load in a
+  fresh tab, uncompressed, desktop; raise a figure only on purpose, with the reason in the PR). New controls need a visible focus style and a readable name (`aria-label` on icon buttons),
+  new light-mode colours must pass 4.5:1, and a chart SVG that holds a focusable element uses `role="group"`. Lighthouse is not run on every PR (scores drift): run `.github/workflows/lighthouse.yml`
+  by hand against the deployed site (reports in the artifacts, scores in the job summary).
+- 排程狀態頁 `#/status`（`assets/js/status.js`）從網站自己的即時檔讀各來源的資料時間、從 GitHub 公開 API 讀各排程最近一次的結果；新增或拿掉排程、即時來源時，把它的預期週期（`JOBS`、`dataRows`）一起改，DEPLOY 的「維護」以這一頁為主。
+  The status page `#/status` (`assets/js/status.js`) reads each source's data time from the site's own live files and the latest run of every schedule from GitHub's public API; when a schedule
+  or live source is added or removed, update its expected cadence there too (`JOBS`, `dataRows`); "Maintenance" in DEPLOY points to this page.
 - 單檔版以 `file://` 開啟，連網與離線（封鎖所有 http/https 請求）各測一次：離線時即時資料應標示「離線快照」。
   Open the single-file copy over `file://` both online and offline; offline, the live data must be labelled as an offline snapshot.
 

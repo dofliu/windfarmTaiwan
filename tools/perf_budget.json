@@ -1,0 +1,11 @@
+{
+  "_note": "Same-origin bytes (uncompressed, desktop 1400 px) each route may load, in MB; checked by tools/smoke_test.js. Measured on 26 Oct 2026 plus about 15%: raise a figure only on purpose, with the reason in the PR. 各頁可載入的同源位元組（未壓縮、桌機），冒煙測試檢查；2026-10-26 實測加約 15%，要提高時在 PR 說明原因。",
+  "#/": 1.1,
+  "#/live": 1.1,
+  "#/live/map": 2.4,
+  "#/learn": 1.7,
+  "#/kids": 3.6,
+  "#/embed": 1.1,
+  "#/status": 1.4,
+  "#/global": 10.2
+}

@@ -177,9 +177,11 @@ const FD_COL = { mp: '#3987e5', frame: '#d95926', fl: '#199e70', other: '#dfe3ea
 const fdGroupName = g => ({ mp: L('單樁', 'Monopile'), frame: L('鋼構框架', 'Steel frame'), fl: L('浮動式', 'Floating'), other: L('其他固定式', 'Other fixed'), unk: L('型式不詳', 'Type unknown') })[g];
 function loadFD() {
   if (FDD) return Promise.resolve(FDD);
-  return Promise.all([WW.getJSON(WW.DATA.farms), WW.getJSON(WW.DATA.foundations)]).then(([J, FD]) => {
+  // 離岸風場小檔（tools/build_farm_points.py 一起產生，約 0.2 MB）；單檔版沒有它，改用內嵌的完整風場檔 · the offshore extract, or the embedded full file in the single-file copy
+  const farmsP = WW.standalone ? WW.getJSON(WW.DATA.farms).then(J => { const c = {}; J.meta.cols.forEach((k, i) => { c[k] = i; }); return J.rows.filter(r => r[c.type] !== 0).map(r => [r[c.name], r[c.iso], r[c.mw], r[c.year], r[c.type], r[c.st], r[c.end], r[c.flags], r[c.ph]]); }) : WW.getJSON(WW.DATA.offshoreFarms).then(J => J.rows);
+  return Promise.all([farmsP, WW.getJSON(WW.DATA.foundations)]).then(([rows, FD]) => {
     const TY = ['onshore', 'offshore', 'floating'];
-    const farms = J.rows.map(r => ({ name: r[0], iso: r[2], mw: r[5], year: (r[12] & 2) ? D.Y1 : r[6], yu: !!(r[12] & 2), type: TY[r[7]] || 'onshore', st: r[8], end: r[9] || (r[8] === 4 ? r[6] + 20 : 0), ph: r[14] || null }))
+    const farms = rows.map(r => ({ name: r[0], iso: r[1], mw: r[2], year: (r[7] & 2) ? D.Y1 : r[3], yu: !!(r[7] & 2), type: TY[r[4]] || 'onshore', st: r[5], end: r[6] || (r[5] === 4 ? r[3] + 20 : 0), ph: r[8] || null }))
       .filter(f => f.type !== 'onshore' && !(f.st >= 1 && f.st <= 3));
     farms.forEach(f => { const r = FD.farms[f.name]; f.fd = r || null; f.g = r ? ((FD.meta.types[r.t] || [0, 0, 'unk'])[2]) : (f.type === 'floating' ? 'fl' : 'unk'); });
     FDD = { farms, FD }; return FDD;

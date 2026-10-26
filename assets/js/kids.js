@@ -116,7 +116,7 @@ function speak(on) {
   }
   paintSay();
 }
-const spkBtn = cls => CAN_SAY ? '<button type="button" class="kspk ' + (cls || '') + '" aria-pressed="false"></button>' : '';
+const spkBtn = cls => CAN_SAY ? '<button type="button" class="kspk ' + (cls || '') + '" aria-pressed="false" aria-label="唸給我聽 · Read to me"></button>' : '';
 function paintSay() {
   const none = CAN_SAY && SS.getVoices().length > 0 && sayVoice() === null;     // 裝置上沒有這個語言的語音
   page.querySelectorAll('.kspk').forEach(b => {
@@ -131,7 +131,7 @@ page.addEventListener('click', e => { const b = e.target.closest('.kspk'); if (b
 
 /* 全螢幕（全班一起玩） · full screen for the class mode */
 const FS_OK = !!(document.fullscreenEnabled && page.requestFullscreen);
-const fsBtn = cls => FS_OK ? '<button type="button" class="kfs ' + (cls || '') + '"></button>' : '';
+const fsBtn = cls => FS_OK ? '<button type="button" class="kfs ' + (cls || '') + '" aria-label="全螢幕 · Full screen"></button>' : '';
 function paintFS() {
   const on = document.fullscreenElement === page;
   page.querySelectorAll('.kfs').forEach(b => { b.innerHTML = ico(on ? 'unfull' : 'full') + '<span>' + (on ? L('離開全螢幕', 'Exit full screen') : L('全螢幕', 'Full screen')) + '</span>'; });
@@ -281,7 +281,7 @@ const bar = $('kbar'), host = $('kview');
 function paintBar() {
   bar.hidden = view === 'home';
   if (bar.hidden) return;
-  const homeA = '<a class="kb-home" href="#/kids">' + sprite('wave', 34) + '<span>' + L('跟著風去旅行', 'Travel with the Wind') + '</span></a>';
+  const homeA = '<a class="kb-home" href="#/kids" aria-label="跟著風去旅行 · Travel with the Wind">' + sprite('wave', 34) + '<span>' + L('跟著風去旅行', 'Travel with the Wind') + '</span></a>';
   if (view === 'class') {                                            // 全班一起玩：沒有護照與站點進度 · no personal progress in class mode
     bar.innerHTML = '<div class="kbin">' + homeA + '<span class="kcl-t">' + ico('board') + L('全班一起玩', 'Play as a class') + (CL.n >= 1 && CL.n <= 8 ? L(' · 第 ' + CL.n + ' 站 / 8', ' · stop ' + CL.n + ' / 8') : '') + '</span>' +
       '<div class="kb-r">' + spkBtn('kpill') + fsBtn('kpill') + '<a class="kpill" href="#/kids">' + L('結束', 'End') + '</a></div></div>';
@@ -444,7 +444,7 @@ function viewGlobe() {
   if (year == null) year = X.Y1;
   const nx = nextStop(), ns = nx ? STOPS[nx - 1] : null;
   const legend = [[1, '<1'], [2, '1–10'], [3, '10–50'], [4, '50–200'], [5, '≥200']].map(([i, t]) => '<span><i style="background:' + TINT[i] + '"></i>' + t + '</span>').join('');
-  host.innerHTML = '<div class="kwrap kglobev">' +
+  host.innerHTML = '<div class="kwrap kglobev"><h1 class="sr-only">' + L('地球與冒險路線', 'The globe and the route') + '</h1>' +
     '<div class="kg-left"><div class="kg-box" id="kgbox">' + (G.fail ? '<div class="kgfail">' + L('這台裝置無法顯示 3D 地球，可以從右邊的路線直接進入每一站。', 'This device can’t show the 3D globe — use the route list to open each stop.') + '</div>' : '') + '</div>' +
       '<div class="kg-hint">' + L('拖拉轉地球 · 滾輪或兩指縮放 · 點數字進入那一站', 'Drag to spin · scroll or pinch to zoom · tap a number to open that stop') + '</div>' +
       '<div class="kleg"><b>' + L('國家顏色＝累積裝置容量（GW）', 'Country colour = installed capacity (GW)') + '</b>' + legend + '</div></div>' +

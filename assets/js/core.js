@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.11.0';
+WW.VERSION = '3.12.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -86,8 +86,9 @@ WW.setLang = l => {
 /* ---------------- 格式與小工具 ---------------- */
 WW.esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 WW.clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-WW.int = n => Math.round(n).toLocaleString('en-US');
-WW.num = (n, d) => Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+const NF0 = new Intl.NumberFormat('en-US'), NFD = {};        // 快取格式器：toLocaleString 每次都重建，首頁要格式化幾百個數字 · cached formatters
+WW.int = n => NF0.format(Math.round(n));
+WW.num = (n, d) => (NFD[d] || (NFD[d] = new Intl.NumberFormat('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }))).format(Number(n));
 /* MW → 顯示字串：≥1 GW 以 GW 表示 */
 WW.fmtMW = mw => {
   if (mw == null || isNaN(mw)) return '—';
@@ -139,6 +140,7 @@ WW.DATA = {
   global: 'data/global/wind_global.json',
   farms: 'data/global/wind_farms.json',
   farmPoints: 'data/global/farm_points.json',             // 「我附近」用的點位小檔（tools/build_farm_points.py）
+  offshoreFarms: 'data/global/offshore_farms.json',       // 知識頁水下基礎圖表用的離岸風場小檔（同一支程式產生；單檔版用內嵌的完整檔）
   borders: 'data/global/world_borders.json',
   ports: 'data/global/ports.json',
   foundations: 'data/global/foundations.json',
@@ -273,7 +275,9 @@ const TITLES = {
   live: ['台灣風電即時 · 風電風情', 'Taiwan wind live · Wind Watch'],
   global: ['全球風電發展地圖 1980–2025 · 風電風情', 'Global wind power map 1980–2025 · Wind Watch'],
   learn: ['風電知識 · 風電風情', 'Learn about wind power · Wind Watch'],
-  kids: ['跟著風去旅行 · 風電風情探險版', 'Travel with the Wind · Wind Watch for young explorers']
+  kids: ['跟著風去旅行 · 風電風情探險版', 'Travel with the Wind · Wind Watch for young explorers'],
+  status: ['排程狀態 · 風電風情', 'Schedule status · Wind Watch'],
+  embed: ['台灣風電此刻 · 風電風情', 'Taiwan wind right now · Wind Watch']
 };
 function setTitle() {
   const t = TITLES[cur || 'home'];
@@ -395,6 +399,8 @@ WW.boot = () => {
   if (tb) { syncTheme(); tb.onclick = () => { const lt = document.documentElement.dataset.theme !== 'light'; if (lt) document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
     try { localStorage.setItem('ww_theme', lt ? 'light' : 'dark'); } catch (e) {} syncTheme(); themeSubs.forEach(f => { try { f(lt); } catch (e) {} }); }; }
   document.getElementById('sharebtn').onclick = () => WW.share();
+  const skip = document.querySelector('.skip');          // 「跳到主要內容」：直接把焦點移到 main，不改網址（#main 會被路由當成換頁）· move focus without touching the hash
+  if (skip) skip.onclick = e => { e.preventDefault(); const m = document.getElementById('main'); if (m) { m.tabIndex = -1; m.focus(); m.scrollIntoView({ block: 'start' }); } };
   window.addEventListener('hashchange', onRoute);
   onRoute();
 };
