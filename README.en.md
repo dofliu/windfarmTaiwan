@@ -168,6 +168,8 @@ output and sea zones load only when needed.
 - `assets/js/today.js` — today's wind on Home (lines computed from the data) and the share cards (square, wide, story)
 - `assets/js/near.js` — "📍 Wind near me" on Home (browser location, never sent; a map centred on you, the nearest farms and the wind now)
 - `assets/js/week.js` — "This week in Taiwan's wind" on Home (the last 7 days against the 7 before from the site's samples, two-week bars, a square weekly card)
+- `assets/js/embed.js` — the embeddable card `#/embed` (Taiwan's wind right now without header or footer, for other sites to put in an `<iframe>`) and the "Embed on your site" snippet
+- `assets/js/lessons.js` — the four hands-on panels in Learn (power curve, wake effect, capacity factor, falling costs)
 - `assets/js/home.js`, `assets/js/learn.js` — Home and Learn pages
 - `assets/js/globe.js` — the 3D globe (rewritten from the "Global wind power development map",
   wind-history-map v3)
@@ -200,6 +202,7 @@ output and sea zones load only when needed.
   the Australian source aggregate is `data/global/sources/aemo_wind_monthly.json` (made by `python3 tools/au_output.py fetch` from AEMO's monthly files)
 - `data/global/turbine_output.json` — position, specs and measured yearly output of 1,848 individually metered Danish turbines (Danish Energy Agency;
   production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
+- `data/global/lcoe_wind.json` — global wind LCOE by year, onshore and offshore (IRENA via Our World in Data, CC BY 4.0, constant 2025 US$ per kWh; built by `tools/build_lcoe.py` from `data/global/sources/owid_lcoe_wind.csv`, `--fetch` re-downloads), for the "falling costs" panel in Learn
 - `data/global/farm_points.json` — slim points for "Near me": operating farms not on shared placeholder points, with name, position, capacity, year and type only (built by `tools/build_farm_points.py` from `wind_farms.json`, about 1.5 MB)
 - `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
   per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
@@ -351,6 +354,7 @@ python tools/build_live_units.py # unit → farm mapping for Australian/Canadian
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
 python tools/qa_ports.py        # ports check: fields, inside the country or within 15 km of its coast, sources, farm names
 python tools/build_farm_points.py # slim points for "Near me" (run with every farm-layer rebuild)
+python tools/build_lcoe.py --fetch   # wind LCOE (Our World in Data, updated about every July)
 python tools/build_foundations.py # foundations: checks the per-farm table (farm names, OSPAR values, second sources; a construction source where OSPAR only has the consented design), writes foundations.json and docs/foundations*.md
 # 4. Terrain basemaps (needs Pillow + numpy; download locations in the script's docstring)
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe

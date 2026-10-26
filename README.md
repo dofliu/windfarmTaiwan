@@ -135,6 +135,8 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `assets/js/today.js` — 首頁「今天的風」（由資料算出的句子）與分享圖卡（方形、橫式、直式）
 - `assets/js/near.js` — 首頁「📍 我附近的風」（瀏覽器定位，位置不送出；以你為中心的地圖、最近的風場與此刻的風）
 - `assets/js/week.js` — 首頁「本週風電回顧」（最近 7 天與前 7 天的取樣比較、兩週長條圖、方形週報圖卡）
+- `assets/js/embed.js` — 可嵌入的小卡 `#/embed`（沒有頁首頁尾的台灣此刻風電，給其他網站用 `<iframe>` 放）與「嵌入到你的網站」的程式碼
+- `assets/js/lessons.js` — 風電知識的四個「動手試試看」（功率曲線、尾流效應、容量因數、成本下降）
 - `assets/js/charts.js` — 輕量 SVG 圖表（折線、柱狀、橫條、散佈；含提示框與表格檢視）
 - `assets/js/home.js`、`assets/js/learn.js` — 首頁與風電知識頁
 - `assets/js/globe.js` — 3D 地球儀（改寫自「全球風電發展觀察地圖」wind-history-map v3）
@@ -160,6 +162,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   澳洲的來源彙整檔是 `data/global/sources/aemo_wind_monthly.json`（`python3 tools/au_output.py fetch` 下載 AEMO 月檔後產生）
 - `data/global/turbine_output.json` — 丹麥單獨計量的 1,848 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
+- `data/global/lcoe_wind.json` — 全球風電均化發電成本（LCOE）逐年陸域與離岸（IRENA 經 Our World in Data，CC BY 4.0，固定 2025 年美元／度；`tools/build_lcoe.py` 從 `data/global/sources/owid_lcoe_wind.csv` 產生，`--fetch` 重新下載），知識頁「成本下降」教具用
 - `data/global/farm_points.json` — 「我附近」用的點位小檔：營運中、不在共用代用點的風場，只留名稱、座標、容量、年份、類型（由 `tools/build_farm_points.py` 從 `wind_farms.json` 產生，約 1.5 MB）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
 - `data/global/ports.json` — 離岸風電港口 103 個（20 國；人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
@@ -274,6 +277,7 @@ python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離岸 15 km 內、出處、「服務過的風場」對得到風場名稱
 python tools/build_farm_points.py # 「我附近」用的點位小檔（重建風場層後一起跑）
+python tools/build_lcoe.py --fetch   # 風電 LCOE（Our World in Data，約每年 7 月更新）
 python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源；OSPAR 只有核准階段設計的要附施工紀錄），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）
 python tools/build_basemaps.py world.topo.bathy.200412.3x5400x2700.jpg GRAY_50M_SR_OB.tif assets/img/globe

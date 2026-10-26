@@ -63,6 +63,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   人均容量由網站以本站年底容量 ÷ 人口計算，Ember 與人口只到各自最新的年份、之後沿用並標示；容量因數是全國平均（含限電與部分年份），介面要寫明只適合粗略比較，不與逐場實測混排。新的一年 Ember 發布後重跑 `--fetch`。
   Country indicators (`data/global/country_indicators.json`, for the globe's indicator colouring, country comparison and profiles) are built by `tools/build_country_indicators.py`: wind share of generation, generation and the national average capacity factor from Ember's yearly electricity data, population from Our World in Data (both CC BY 4.0; the extracts live in `data/global/sources/`, `--fetch` re-downloads them);
   the site computes per-capita capacity as its own year-end capacity ÷ population, Ember and the population series stop at their latest years and are carried forward with a label; the capacity factor is a national average (curtailment and partial years included), so the UI must say it is for rough comparison only and never mix it with measured per-farm output. Re-run with `--fetch` when Ember publishes a new year.
+- 風電均化發電成本（`data/global/lcoe_wind.json`，知識頁「成本下降」教具用）由 `tools/build_lcoe.py` 產生：IRENA 歷年成本報告的全球加權平均 LCOE，經 Our World in Data 取得（CC BY 4.0，固定 2025 年美元；IRENA 網站擋程式下載），摘錄檔在 `data/global/sources/`，`--fetch` 重新下載；網站從檔案的 meta 讀出處、單位與取用日期，不要寫死，也不要與台灣躉購費率混成一張圖。OWID 約每年 7 月更新後重跑。
+  知識頁的四個「動手試試看」（`assets/js/lessons.js`）：功率曲線與尾流是簡化模型，面板要寫明假設與出處（ISA 空氣密度、Betz 極限、Jensen 1983）；容量因數只用 `generation.json` 的實測值。
+  Wind LCOE (`data/global/lcoe_wind.json`, for the "falling costs" panel in Learn) is built by `tools/build_lcoe.py`: IRENA's global weighted-average LCOE from its yearly cost reports, taken through Our World in Data (CC BY 4.0, constant 2025 US$; IRENA's own site blocks scripted downloads), with the extract in `data/global/sources/` and `--fetch` to re-download; the site reads the source, unit and retrieval date from the file's meta (never hard-code them) and never mixes the series into the chart of Taiwan's feed-in tariffs. Re-run after OWID's yearly update (about July).
+  The four hands-on panels in Learn (`assets/js/lessons.js`): the power curve and the wake are simplified models and the panel must state the assumptions and sources (ISA air density, the Betz limit, Jensen 1983); the capacity factor uses only the measured values in `generation.json`.
 - 美國每部風機的位置（`data/global/turbines.json`）由 `tools/build_turbines.py` 從 USWTDB 產生；對應規則寧可少配（名稱、30 km、容量 ±15%），重建風場層後要重跑。
   US turbine positions (`data/global/turbines.json`) are built from USWTDB by `tools/build_turbines.py` (conservative matching by name, 30 km and
   capacity ±15%); re-run it after rebuilding the farm layer.
@@ -70,14 +74,14 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   台灣只有台電自有風場（台電開放資料 17140／17141，發電站對應寫在 `TW_STATIONS`，容量差 15% 以上不用）。民營風場沒有逐場官方數字，不要用憑證量或推估值充當實測。
   地球儀「發電表現」（排名與同機型比較）只用這個檔的實測值，不排名國家平均推估的值；同機型比較用的機型欄（`m`）寧可不寫：整座風場只有一種型號才寫（台灣另要求發電站容量與紀錄相差 3% 以內）。
   台灣另有「即時取樣」：`data/archive/farm_daily.json` 由 `taipower_wind_scraper.py` 每次執行時累加（台電即時資料各併網點的瞬間出力，含民營；同一資料時間只算一次），
-  `tools/build_farm_daily.py` 可從 git 歷史回補。它是取樣估計：介面一律寫「取樣」並註明期間與季節性，不與官方年發電量混排，也不要換算成年發電量當成實測。
+  `tools/build_farm_daily.py` 可從 git 歷史回補（每天最高的一次全台出力 `mx` 自 2026-10-26 起才記，`--remax` 用已有的取樣回補；每週排程的回補已加這個參數）。它是取樣估計：介面一律寫「取樣」並註明期間與季節性，不與官方年發電量混排，也不要換算成年發電量當成實測。
   Actual yearly output (`data/global/generation.json`) is built by `tools/build_generation.py`: US farms from EIA-923 through the EIA plant code USWTDB gives
   each turbine (plants spread over several farms and partial years are left out), with the capacity factor on the EIA-860M nameplate capacity (not the USWTDB sum: USWTDB often lacks turbines, inflating the factor), dropping farms whose USWTDB and EIA capacities differ by 10% or more; in Taiwan only Taipower-owned farms (open data 17140/17141, stations
   mapped in `TW_STATIONS`, skipped when capacities differ by more than 15%). Private farms have no official per-farm figures; never pass certificates or estimates off as measured output.
   The globe's Output dialog (rankings and same-model comparison) uses only these measured values, never the country-average estimates; the model field (`m`)
   is written only when a whole farm has one model (in Taiwan also only when the station capacity is within 3% of the record).
   Taiwan also has "live samples": `data/archive/farm_daily.json` is added to by `taipower_wind_scraper.py` on every run (instantaneous output of every grid unit
-  in Taipower's live data, private farms included; a data time counts once), and `tools/build_farm_daily.py` backfills it from the git history. These are
+  in Taipower's live data, private farms included; a data time counts once), and `tools/build_farm_daily.py` backfills it from the git history (each day's highest sampled total `mx` is recorded from 26 Oct 2026; `--remax` fills it from samples already there, and the weekly backfill schedule passes it). These are
   estimates from samples: always label them as samples with the period and the seasonality, never mix them into the official ranking, and never turn them into yearly generation presented as measured.
 - 丹麥實測發電量（`tools/dk_output.py`，由 `build_generation.py` 呼叫；丹麥能源署風機登記檔「Vinddata」＋「Parkproduktion」，約每 2 個月更新）：整場計量的風場與單獨計量的風機依位置歸到本站丹麥風場
   （陸域 3 km、離岸 12 km 內，併網年不早於風場商轉年的前一年），容量與本站紀錄相差 15% 以內才寫進 `generation.json`；單獨計量的風機另寫 `data/global/turbine_output.json`。

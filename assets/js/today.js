@@ -1,10 +1,12 @@
 /* 風電風情 · today.js — 「今天的風」：首頁一句話標題（全部由資料算出）與分享圖卡
    標題只寫資料看得到的事：此刻出力與本站過去 7 天取樣比、近 3 小時的變化、可用率、台灣附近 GFS 模式的最大風速；不寫推測與因果。
+   另從 farm_daily.json 判斷紀錄：昨天是不是取樣以來（或本月）最有風的一天、此刻（或今天某一刻）是不是取樣以來最高的出力（每天的最高取樣 mx 自 2026-10-26 起才有，累積滿 14 天才比）。
    圖卡：方形、橫式、直式三種，含資料時間（年月日時分）、近 7 天曲線與台灣附近此刻的風（GFS 底色）。 */
 (function () {
 'use strict';
 const WW = window.WW;
-const EN = () => WW.lang === 'en';
+let LO = null;                                      // 語言覆蓋：嵌入小卡（#/embed?l=en）用
+const EN = () => (LO || WW.lang) === 'en';
 const tms = s => Date.parse(/[zZ]|[+-]\d\d:?\d\d$/.test(s) ? s : s + '+08:00');    // 沒寫時區的是台灣時間
 const p2 = n => String(n).padStart(2, '0');
 const twTime = (ms, withYear) => { const d = new Date(ms + 288e5); return (withYear ? d.getUTCFullYear() + '/' : '') + (d.getUTCMonth() + 1) + '/' + d.getUTCDate() + ' ' + p2(d.getUTCHours()) + ':' + p2(d.getUTCMinutes()); };
@@ -39,6 +41,31 @@ function windNow() {
   return wnP;
 }
 
+/* ---------- 本站每日取樣（farm_daily.json）：昨天是不是取樣以來最有風的一天、此刻是不是最高出力 ·
+   the site's daily samples: was yesterday the windiest day since sampling began, is now the highest sampled output ---------- */
+let DP = null, DY = null;
+WW.farmDaily = () => DP || (DP = WW.getLiveJSON(WW.DATA.farmDaily).then(J => { DY = J; if (WW.repaintToday && WW.currentPage() === 'home') WW.repaintToday(); return J; }));
+const twDate = ms => new Date(ms + 288e5).toISOString().slice(0, 10);
+const mdd = k => +k.slice(5, 7) + '/' + +k.slice(8, 10);
+function records(now, nowT) {                       // now＝此刻全台出力（MW）、nowT＝資料時間（ms）
+  const D = DY && DY.days; if (!D) return [];
+  const today = twDate(nowT), keys = Object.keys(D).filter(k => k < today).sort(), F = [];
+  if (keys.length < 14) return F;
+  const avg = k => { let v = 0; for (const x of Object.values(D[k].u || {})) if (x[0]) v += x[1] / x[0]; return v; };
+  const y = keys[keys.length - 1], yv = avg(y), prev = keys.slice(0, -1);
+  if (y === twDate(nowT - 864e5) && (D[y].t || []).length >= 12) {                       // 昨天：取樣夠多才比
+    if (prev.length >= 29 && prev.every(k => avg(k) <= yv)) F.push({ w: 85, ic: '🏆', zh: `昨天（${mdd(y)}）全台風電平均 ${WW.int(yv)} MW，是本站取樣以來（自 ${mdd(keys[0])}）最有風的一天`, en: `Yesterday (${mdd(y)}) Taiwan's wind averaged ${WW.int(yv)} MW, the windiest day since the site began sampling (${mdd(keys[0])})` });
+    else { const m = prev.filter(k => k.slice(0, 7) === y.slice(0, 7)); if (m.length >= 10 && m.every(k => avg(k) <= yv)) F.push({ w: 60, ic: '🏆', zh: `昨天（${mdd(y)}）平均 ${WW.int(yv)} MW，是本月到目前最有風的一天`, en: `Yesterday (${mdd(y)}) averaged ${WW.int(yv)} MW, the windiest day so far this month` }); }
+  }
+  const mk = keys.filter(k => D[k].mx);                                                 // 每天最高的一次取樣（2026-10-26 起才記）
+  if (mk.length >= 14 && now > 0) {
+    const rec = Math.max(...mk.map(k => D[k].mx[0])), tm = D[today] && D[today].mx, best = tm && tm[0] > now ? tm : null;
+    if ((best ? best[0] : now) >= rec) F.push({ w: 95, ic: '🥇', record: true, zh: best ? `今天 ${best[1]} 的 ${WW.int(best[0])} MW，是本站自 ${mdd(mk[0])} 以來取樣到的最高出力` : `此刻 ${WW.int(now)} MW，是本站自 ${mdd(mk[0])} 以來取樣到的最高出力`,
+      en: best ? `${WW.int(best[0])} MW at ${best[1]} today, the highest output the site has sampled since ${mdd(mk[0])}` : `${WW.int(now)} MW right now, the highest output the site has sampled since ${mdd(mk[0])}` });
+  }
+  return F;
+}
+
 /* ---------- 今天的風：從資料算出幾句話，依重要性排序 ---------- */
 function hist7() {
   const L = WW.live; if (!L || !L.hist) return [];
@@ -56,12 +83,19 @@ function where(lon, lat) {                          // 相對台灣中心（120.
   const k = Math.round(((Math.atan2(dx, dy) * 180 / Math.PI + 360) % 360) / 45) % 8;
   return EN() ? DIR.en[k] : DIR.zh[k];
 }
-WW.todayFacts = W => {
+WW.todayFacts = (W, lang) => {
+  LO = lang || null;
+  try { return todayFacts(W); } finally { LO = null; }
+};
+function todayFacts(W) {
   const L = WW.live; if (!L) return [];
   const T = L.totals(), now = T.total, F = [], P = hist7(), live = L.isLive();
+  const R = live && L.srcTime && L.srcTime() ? records(now, tms(L.srcTime())) : [];       // 取樣紀錄：昨天最有風、此刻最高
+  R.forEach(f => F.push(f));
   if (live && P.length >= 6 && P[P.length - 1].t - P[0].t > 2 * 864e5) {
     const vs = P.map(p => p.v), mx = Math.max(...vs), mn = Math.min(...vs), avg = vs.reduce((a, b) => a + b, 0) / vs.length;
-    if (now >= mx - 1) F.push({ w: 80, ic: '📈', zh: `此刻 ${WW.int(now)} MW，是本站過去 7 天取樣中最高的`, en: `${WW.int(now)} MW right now, the highest of the site's samples over the past 7 days` });
+    if (R.some(f => f.record)) { /* 已經是取樣以來最高，不再說 7 天最高 */ }
+    else if (now >= mx - 1) F.push({ w: 80, ic: '📈', zh: `此刻 ${WW.int(now)} MW，是本站過去 7 天取樣中最高的`, en: `${WW.int(now)} MW right now, the highest of the site's samples over the past 7 days` });
     else if (now <= mn + 1) F.push({ w: 70, ic: '📉', zh: `此刻 ${WW.int(now)} MW，是本站過去 7 天取樣中最低的`, en: `${WW.int(now)} MW right now, the lowest of the site's samples over the past 7 days` });
     else if (avg > 0) {
       const d = (now - avg) / avg * 100;
@@ -88,8 +122,9 @@ WW.todayFacts = W => {
   const V = L.impactVals();
   if (live && V.homes > 0) F.push({ w: 20, ic: '🏠', zh: `此刻的風電約可同時供應 ${V.homes.toFixed(V.homes < 10 ? 1 : 0)} 萬戶家庭用電`, en: `Enough right now for about ${WW.int(V.homes * 10)}k homes at once` });
   return F.sort((a, b) => b.w - a.w).map(f => ({ ic: f.ic, text: EN() ? f.en : f.zh, src: f.src || '' }));
-};
+}
 WW.todayWind = windNow;
+WW.farmDaily().catch(() => {});
 
 /* ---------- 分享圖卡（方形 1080×1080、橫式 1200×630、直式 1080×1920） ---------- */
 const CN = '"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
@@ -244,9 +279,10 @@ function sharePicker() {
   }
   d.innerHTML = `<h3>${EN() ? 'Share a card of today\'s wind' : '分享今天的風況圖卡'}</h3><div class="spf">${FMTS.map(f => `<button class="btn" type="button" data-f="${f[0]}"><i class="spi spi-${f[0]}"></i>${EN() ? f[2] : f[1]}</button>`).join('')}</div>
     ${WW.weekCard ? `<button class="btn spweek" type="button" data-f="week">📊 ${EN() ? 'This week\'s recap (square)' : '本週風電回顧（方形）'}</button>` : ''}
-    <button class="btn sm splink" type="button">${EN() ? 'Copy link only' : '只複製連結'}</button><button class="btn sm spx" type="button" aria-label="${EN() ? 'Close' : '關閉'}">✕</button>`;
+    <div class="sprow"><button class="btn sm splink" type="button">${EN() ? 'Copy link only' : '只複製連結'}</button>${WW.embedSnippet ? `<button class="btn sm spemb" type="button" title="${EN() ? 'Copy the <iframe> code for a small live card on your own site' : '複製 <iframe> 程式碼，把台灣此刻的風電小卡放進你的網站'}">&lt;/&gt; ${EN() ? 'Embed on your site' : '嵌入到你的網站'}</button>` : ''}</div><button class="btn sm spx" type="button" aria-label="${EN() ? 'Close' : '關閉'}">✕</button>`;
   d.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { d.close(); shareFmt(b.dataset.f); });
   d.querySelector('.spx').onclick = () => d.close();
+  const em = d.querySelector('.spemb'); if (em) em.onclick = async () => { d.close(); try { await navigator.clipboard.writeText(WW.embedSnippet()); WW.toast(EN() ? 'Embed code copied ✓ — paste it into your page' : '已複製嵌入程式碼 ✓ 貼到你的網頁即可'); } catch (e) { WW.toast(EN() ? 'Please copy the embed code from the user guide' : '請從使用說明複製嵌入程式碼'); } };
   d.querySelector('.splink').onclick = async () => { d.close(); try { await navigator.clipboard.writeText(WW.pageURL()); WW.toast(EN() ? 'Link copied ✓' : '已複製此頁連結 ✓'); } catch (e) { WW.toast(EN() ? 'Please copy the URL manually' : '請手動複製網址'); } };
   d.showModal();
 }

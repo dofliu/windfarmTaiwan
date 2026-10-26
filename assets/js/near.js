@@ -146,6 +146,6 @@ function mount() {
     });
   };
 }
-WW.nearMe = { compute, textHTML, drawMap };
+WW.nearMe = { compute, textHTML, drawMap, locate, borders, dirName, band };   // 探險版「離我最近的風車」共用
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();
 })();

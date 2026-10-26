@@ -405,6 +405,7 @@ function scrollToCh(ch, sec) {
 function renderAll() {
   if (!D) return;
   paintFacts(); paintMilestones(); charts(); paintFoundations(); paintSources(); rendered = true;
+  if (WW.lessons) WW.lessons.mount();                 // 動手試試看（lessons.js）
 }
 WW.registerPage('learn', {
   enter(r) {

@@ -44,6 +44,7 @@ function paintToday() {
   box.hidden = false;
 }
 if (WW.todayWind) WW.todayWind().then(w => { WN = w; if (WW.currentPage() === 'home') paintToday(); }).catch(() => {});
+WW.repaintToday = paintToday;                       // 每日取樣檔（farm_daily.json）到了再畫一次：紀錄那一句
 
 /* ---------- 台灣此刻：過去 7 天的全台出力（本站排程取樣的 wind_history.json，標出此刻與 7 天最高；滑過或方向鍵看各點） ·
    Taiwan's total output over the past 7 days from the site's sampled history, with now and the 7-day peak marked ---------- */

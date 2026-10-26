@@ -8,7 +8,7 @@
    不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
    儀表精簡檢視最多 8 張「此刻在發電」卡片、切到全部卡片要等於全部風場；儀表篩選要寫進網址與瀏覽器、「恢復預設」要清掉；
    詳情的下一座要換風場，返回鍵（地球儀資訊卡也一樣）只關掉詳情、不離開頁面；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
-   手機的風電知識捲到某章時要有「目前章節」列；探險版要畫出地球與 8 個站點，答錯不蓋章、答對蓋章並出現下一站，護照要記得，
+   風電知識的四個「動手試試看」要畫出來、拉滑桿要有反應；嵌入小卡（#/embed）不能有頁首頁尾；手機的風電知識捲到某章時要有「目前章節」列；探險版要畫出地球與 8 個站點，答錯不蓋章、答對蓋章並出現下一站，護照要記得，
    有「唸給我聽」；全班一起玩要走得完三步（→ 鍵）且不動個人進度；集滿 8 個章要能列印護照、打開寫著名字的完成證書。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
    連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖，完整版的探險版地球要有 8 個站點。
@@ -20,7 +20,7 @@
    dashboard filters must reach the URL and storage and Reset must clear them, the drawer's next button must change farm and Back must close
    only the drawer (likewise the globe's info card), the map tab must show the map
    or the offline sketch, the home page must have the 7-day curve and the four footer source groups, and on phones Learn must
-   show the current-chapter bar inside a chapter; the kids page must draw its globe with 8 stops, stamp only a right answer, offer the next stop, keep
+   show the current-chapter bar inside a chapter; Learn's four hands-on lessons must render and respond to a slider; the embeddable card (#/embed) must hide the header and footer; the kids page must draw its globe with 8 stops, stamp only a right answer, offer the next stop, keep
    the stamp in the passport and offer read-aloud; its class mode must step through with the → key without touching personal progress, and with
    all 8 stamps the passport must offer printing and a certificate carrying the name.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
@@ -169,7 +169,14 @@ const ROUTES = [
     const l = document.querySelector('#g-indLegend');
     return l && !l.hidden && l.querySelector('.ilr') ? '' : 'indicator: legend missing';
   }],
-  ['#/learn', 3500],
+  ['#/learn', 3500, () => {
+    // 動手試試看：四個教具都要畫出來，拉滑桿要改變讀數 · the four hands-on lessons must render and respond to a slider
+    const ls = document.querySelectorAll('#page-learn .lesson'); if (ls.length !== 4) return 'learn: ' + ls.length + ' lessons (expected 4)';
+    if (![...ls].every(l => l.querySelector('.lplot svg') && l.querySelector('.lout .lchip'))) return 'learn: a lesson has no plot or readout';
+    const r = document.querySelector('#cv-v'), before = document.querySelector('[data-k="curve"] .lout').textContent; r.value = 12; r.dispatchEvent(new Event('input'));
+    if (document.querySelector('[data-k="curve"] .lout').textContent === before) return 'learn: the power-curve slider changes nothing';
+    return '';
+  }],
   ['#/learn/asia', 3500, () => {
     // 窄螢幕：目錄捲出畫面後出現「目前章節」列 · narrow screens: the current-chapter bar once the contents scroll away
     if (innerWidth > 1100) return '';
@@ -177,11 +184,19 @@ const ROUTES = [
     return b && b.classList.contains('is-on') && /05/.test(document.getElementById('lnc').textContent) ? '' : 'learn: current-chapter bar missing';
   }],
   ['#/learn/sources', 3500],
+  ['#/embed', 3500, () => {
+    // 嵌入小卡：沒有頁首頁尾、有出力數字與嵌入程式碼 · the embeddable card: no header or footer, an output figure, a snippet
+    if (getComputedStyle(document.querySelector('.topbar')).display !== 'none' || getComputedStyle(document.querySelector('.sitefoot')).display !== 'none') return 'embed: header or footer shown';
+    if (!/\d/.test((document.querySelector('#page-embed .emb-main b') || {}).textContent || '')) return 'embed: no output figure';
+    if (!/<iframe .*#\/embed/.test(WW.embedSnippet())) return 'embed: bad snippet';
+    return '';
+  }],
   ['#/kids', 3000, () => document.querySelector('#page-kids .khome h1') ? '' : 'kids: home page missing'],
   ['#/kids/globe', 6000, () => {
     const n = document.querySelectorAll('#page-kids .kpin').length;
     return document.querySelector('#page-kids canvas') && n === 8 ? '' : 'kids globe: canvas or 8 stop pins missing (' + n + ')';
   }],
+  ['#/kids/stop?n=7', 3000, () => document.querySelector('#page-kids .kcmp svg') ? '' : 'kids stop 7: no scale comparison'],
   ['#/kids/stop?n=6', 3000, () => {
     // 答錯不蓋章，答對蓋章並出現「下一站」 · a wrong answer gives no stamp, the right one stamps and shows Next
     localStorage.removeItem('wf_kids'); WW.kids.api().P.s = [];
@@ -194,7 +209,7 @@ const ROUTES = [
     if (!document.querySelector('#kquiz .kfb.ok') || !/"s":\[6\]/.test(localStorage.getItem('wf_kids') || '')) return 'kids quiz: right answer not stamped';
     return document.querySelector('#knext a[href="#/kids/stop?n=7"]') ? '' : 'kids quiz: no link to the next stop';
   }],
-  ['#/kids/taiwan', 3500, () => /\d/.test((document.querySelector('#page-kids .ktwv .kbig') || {}).textContent || '') ? '' : 'kids Taiwan: no output figure'],
+  ['#/kids/taiwan', 4500, () => !/\d/.test((document.querySelector('#page-kids .ktwv .kbig') || {}).textContent || '') ? 'kids Taiwan: no output figure' : !document.getElementById('knearbtn') ? 'kids Taiwan: no near-me button' : (document.getElementById('kweek').hidden || !document.querySelector('#kweek svg rect')) ? 'kids Taiwan: no weekly bars' : ''],
   ['#/kids/passport', 2500, () => {
     const st = document.querySelectorAll('#page-kids .kst'), ok = document.querySelectorAll('#page-kids .kst.ok');
     return st.length === 8 && ok.length === 1 ? '' : 'kids passport: ' + st.length + ' stamps, ' + ok.length + ' stamped';

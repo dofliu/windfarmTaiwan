@@ -743,3 +743,49 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
 .hweek .wknote{font-size:11.5px;color:var(--ink-3);line-height:1.55;margin-top:10px}
 .sharepick .spweek{width:100%;margin-top:10px}
 @media (max-width:720px){.hweek .wkrow{grid-template-columns:1fr}}
+
+/* 嵌入小卡 #/embed：沒有頁首頁尾，一張卡填滿 iframe · the embeddable card */
+body[data-page="embed"] .topbar,body[data-page="embed"] .sitefoot,body[data-page="embed"] #toast{display:none!important}
+body[data-page="embed"] main{min-height:0;padding:0}
+#page-embed .emb{display:flex;flex-direction:column;gap:8px;padding:14px 16px 12px;min-height:100vh;min-height:100dvh;box-sizing:border-box;background:var(--pop)}
+.emb-brand{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:var(--ink-2);text-decoration:none;letter-spacing:.02em}
+.emb-brand:hover{color:var(--ink)}
+.emb-dot{width:8px;height:8px;border-radius:50%;background:var(--ink-3)}.emb-dot.on{background:var(--live);box-shadow:0 0 0 3px rgba(63,220,176,.2)}
+.emb-main{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;line-height:1}
+.emb-main b{font-size:clamp(34px,9vw,44px);font-weight:900;letter-spacing:-.01em}
+.emb-main span{font-size:15px;font-weight:700;color:var(--ink-2)}
+.emb-main small{flex-basis:100%;font-size:12.5px;color:var(--ink-3);line-height:1.5;margin-top:2px}
+.emb-fact{font-size:14px;font-weight:700;line-height:1.45;color:var(--hl)}.emb-fact span{margin-right:6px}
+.emb-7d{display:flex;flex-direction:column;gap:2px}.emb-7d small{font-size:10.5px;color:var(--ink-3);text-align:right}
+.emb-spark{display:block;width:100%;height:54px}.emb-spark .ea{fill:var(--live);fill-opacity:.12}.emb-spark .el{fill:none;stroke:var(--live);stroke-width:2;vector-effect:non-scaling-stroke}.emb-spark .ed{fill:var(--live)}
+.emb-foot{margin-top:auto;font-size:11px;color:var(--ink-3);line-height:1.5}.emb-foot a{color:var(--ink-2);font-weight:700}
+.sharepick .sprow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.sharepick .sprow .btn{margin-top:0}
+
+/* 風電知識「動手試試看」· hands-on lessons */
+.lesson{background:var(--surface-1);border:1px solid var(--line);border-left:3px solid var(--live);border-radius:var(--radius);padding:14px 16px 12px;margin:14px 0}
+.lesson .lh{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+.lesson .ltag{flex:none;font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--live);border:1px solid rgba(63,220,176,.35);border-radius:99px;padding:3px 9px;margin-top:2px;white-space:nowrap}
+.lesson .lt{font-size:14.5px;font-weight:800;line-height:1.4}
+.lesson .ls{font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.55}
+.lesson .lgrid{display:grid;grid-template-columns:minmax(200px,.8fr) minmax(0,1.6fr);gap:14px 20px;align-items:start}
+.lesson .lctl{display:flex;flex-direction:column;gap:10px}
+.lesson .lsl{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--ink-2)}
+.lesson .lsl .lk{display:flex;justify-content:space-between;gap:8px;font-weight:700}
+.lesson .lsl output{color:var(--ink);font-variant-numeric:tabular-nums}
+.lesson input[type=range]{width:100%;accent-color:var(--live);margin:0}
+.lesson .fsel{width:100%;max-width:100%}
+.lesson .lplot svg{width:100%;height:auto;overflow:visible;display:block}
+.lesson .lg{stroke:var(--grid);stroke-width:1}.lesson .lx{fill:var(--ink-3);font-size:11px}.lesson .lx2{fill:var(--ink-3);font-size:10.5px}
+.lesson .lcut{stroke:var(--axis);stroke-width:1;stroke-dasharray:3 3}
+.lesson .lbz{fill:none;stroke:var(--ink-3);stroke-width:1.5;stroke-dasharray:5 4}
+.lesson .lcv{fill:none;stroke:var(--live);stroke-width:2.5;stroke-linejoin:round}
+.lesson .lpt{fill:var(--live);stroke:var(--pop);stroke-width:2}.lesson .lv{fill:var(--ink);font-size:12px;font-weight:700}
+.lesson .lwk{fill:var(--ink-3)}.lesson .lrot{stroke:var(--ink);stroke-width:4;stroke-linecap:round}.lesson .lhub{fill:var(--live)}
+.lesson .lbar{fill:var(--live)}.lesson .lbar2{fill:#B8892F}.lesson .ltrk{fill:rgba(var(--fg-rgb),.07)}
+.lesson .lon{stroke:#B8892F;fill:none;stroke-width:2.5;stroke-linejoin:round}.lesson .loff{stroke:#3B8FE0;fill:none;stroke-width:2.5;stroke-linejoin:round}
+.lesson circle.lon{fill:#B8892F;stroke:var(--pop)}.lesson circle.loff{fill:#3B8FE0;stroke:var(--pop)}
+.lesson .lout{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.lesson .lchip{display:inline-flex;flex-direction:column;gap:2px;background:rgba(var(--glass-rgb),.5);border:1px solid var(--line);border-radius:10px;padding:6px 11px;font-size:12px;color:var(--ink-3);min-width:0}
+.lesson .lchip b{font-size:13.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+.lesson .src{margin-top:8px}
+@media(max-width:720px){.lesson .lgrid{grid-template-columns:minmax(0,1fr)}}

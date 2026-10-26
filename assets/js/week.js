@@ -14,7 +14,7 @@ const hhmm = ms => { const d = new Date(ms + 288e5); return (d.getUTCMonth() + 1
 const twDate = ms => new Date(ms + 288e5).toISOString().slice(0, 10);
 
 let DP = null;
-const daily = () => DP || (DP = WW.getLiveJSON(WW.DATA.farmDaily));
+const daily = () => WW.farmDaily ? WW.farmDaily() : DP || (DP = WW.getLiveJSON(WW.DATA.farmDaily));   // 與 today.js 共用同一次下載
 
 /* 計算：每天的全台平均出力＝各併網點（取樣總和 ÷ 取樣次數）相加 */
 function compute(J) {
@@ -134,6 +134,7 @@ WW.weekCard = () => daily().then(J => {
   return cv;
 });
 WW.weekShareText = () => RES ? headline(RES) : '';
+WW.weekData = () => daily().then(compute);                 // 探險版「這一週的風」用同一套計算
 
 let asked = false;
 const onHome = () => (WW.currentPage() || (location.hash.replace(/^#\/?/, '').split(/[/?]/)[0] || 'home')) === 'home';

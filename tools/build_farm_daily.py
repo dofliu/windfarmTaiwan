@@ -3,6 +3,7 @@
 
   python3 tools/build_farm_daily.py                  # 重播全部歷史（第一次建檔用；需要完整的 git 歷史，淺複本先 git fetch --unshallow）
   python3 tools/build_farm_daily.py --since "21 days ago"   # 只重播最近的提交（每週排程用，補抓取程式漏記的取樣）
+  python3 tools/build_farm_daily.py --remax                 # 另把已記過的取樣也拿來回補每天的最高出力 mx（2026-10-26 起抓取程式才記）
 
 taipower_wind_scraper.py 每次抓到台電即時資料都會把快照累積進 farm_daily.json；排程每次也把 wind_realtime.json 提交進 git，
 所以 git 歷史裡的每一版 wind_realtime.json 就是一次取樣。這支程式依時間順序重播那些版本，用與抓取程式相同的函式
@@ -10,7 +11,8 @@ taipower_wind_scraper.py 每次抓到台電即時資料都會把快照累積進 
 
 The scraper adds each snapshot to farm_daily.json, and every scrape also commits wind_realtime.json, so each committed version
 is one sample. This replays them in order with the scraper's own add_daily_sample (a Taipower data time counts once), so it can
-be re-run safely: samples already in the archive are skipped.
+be re-run safely: samples already in the archive are skipped. --remax also uses the samples already there to fill in each
+day's highest sampled total (mx), which the scraper only records from 26 Oct 2026.
 """
 import argparse
 import json
@@ -27,7 +29,7 @@ def git(*args):
     return subprocess.run(['git', '-C', str(ROOT), *args], capture_output=True, check=True).stdout
 
 
-def main(since=None):
+def main(since=None, remax=False):
     if git('rev-parse', '--is-shallow-repository').strip() == b'true' and not since:
         sys.exit('shallow clone: run "git fetch --unshallow" first, or pass --since')
     log = ['log', '--reverse', '--format=%H']
@@ -42,14 +44,14 @@ def main(since=None):
         except (subprocess.CalledProcessError, ValueError):
             bad += 1
             continue
-        if add_daily_sample(store, snap.get('raw_wind_units'), snap.get('source_time') or snap.get('updated')):
+        if add_daily_sample(store, snap.get('raw_wind_units'), snap.get('source_time') or snap.get('updated'), remax):
             added += 1
         else:
             skipped += 1
     cur = ROOT / 'wind_realtime.json'                      # 工作目錄裡還沒提交的最新一版
     if cur.exists():
         snap = json.loads(cur.read_text(encoding='utf-8'))
-        added += add_daily_sample(store, snap.get('raw_wind_units'), snap.get('source_time') or snap.get('updated'))
+        added += add_daily_sample(store, snap.get('raw_wind_units'), snap.get('source_time') or snap.get('updated'), remax)
     save_farm_daily(store)
     days = store['days']
     print(f'{FARM_DAILY.relative_to(ROOT)}: {len(shas)} commits replayed, {added} samples added, {skipped} already there or '
@@ -60,4 +62,6 @@ def main(since=None):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--since', default=None, help='git date, e.g. "21 days ago"')
-    main(ap.parse_args().since)
+    ap.add_argument('--remax', action='store_true', help="also fill each day's highest sampled total (mx) from samples already in the archive")
+    a = ap.parse_args()
+    main(a.since, a.remax)
