@@ -31,7 +31,7 @@ function paint() {
   if (V.share != null) subs.push(L('占全國發電 ', 'share of national generation ') + V.share.toFixed(1) + '%');
   const url = WW.SITE + '#/live';
   host.querySelector('.emb').innerHTML =
-    `<a class="emb-brand" href="${url}" target="_top" rel="noopener"><span class="emb-dot${live ? ' on' : ''}"></span>${L('風電風情 · 台灣風電此刻', 'Wind Watch · Taiwan wind right now')}</a>
+    `<h1 class="emb-h"><a class="emb-brand" href="${url}" target="_top" rel="noopener"><span class="emb-dot${live ? ' on' : ''}"></span>${L('風電風情 · 台灣風電此刻', 'Wind Watch · Taiwan wind right now')}</a></h1>
     <div class="emb-main"><b>${WW.int(T.total)}</b><span>MW</span>${subs.length ? `<small>${WW.esc(subs.join(' · '))}</small>` : ''}</div>
     ${facts[0] ? `<div class="emb-fact"><span aria-hidden="true">${facts[0].ic}</span>${WW.esc(facts[0].text)}</div>` : ''}
     ${P7.length >= 3 ? `<div class="emb-7d">${spark(P7, 400, 54)}<small>${L('過去 7 天 · 本站取樣', 'Past 7 days · the site\'s samples')}</small></div>` : ''}

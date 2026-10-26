@@ -170,6 +170,7 @@ output and sea zones load only when needed.
 - `assets/js/week.js` — "This week in Taiwan's wind" on Home (the last 7 days against the 7 before from the site's samples, two-week bars, a square weekly card)
 - `assets/js/embed.js` — the embeddable card `#/embed` (Taiwan's wind right now without header or footer, for other sites to put in an `<iframe>`) and the "Embed on your site" snippet
 - `assets/js/lessons.js` — the four hands-on panels in Learn (power curve, wake effect, capacity factor, falling costs)
+- `assets/js/status.js` — the schedule status page `#/status` (last data time of every source against its cadence, the latest GitHub Actions run of every schedule, the single-file copies' upload time)
 - `assets/js/home.js`, `assets/js/learn.js` — Home and Learn pages
 - `assets/js/globe.js` — the 3D globe (rewritten from the "Global wind power development map",
   wind-history-map v3)
@@ -203,6 +204,7 @@ output and sea zones load only when needed.
 - `data/global/turbine_output.json` — position, specs and measured yearly output of 1,848 individually metered Danish turbines (Danish Energy Agency;
   production is published for company-owned turbines only), built with `generation.json` and loaded when the Output dialog shows "Denmark · single turbines"
 - `data/global/lcoe_wind.json` — global wind LCOE by year, onshore and offshore (IRENA via Our World in Data, CC BY 4.0, constant 2025 US$ per kWh; built by `tools/build_lcoe.py` from `data/global/sources/owid_lcoe_wind.csv`, `--fetch` re-downloads), for the "falling costs" panel in Learn
+- `data/global/offshore_farms.json` — offshore extract for Learn's foundation charts (every offshore and floating record, about 80 kB; built by the same script; the single-file copy uses the embedded full file)
 - `data/global/farm_points.json` — slim points for "Near me": operating farms not on shared placeholder points, with name, position, capacity, year and type only (built by `tools/build_farm_points.py` from `wind_farms.json`, about 1.5 MB)
 - `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
   per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
@@ -277,7 +279,9 @@ output and sea zones load only when needed.
 - `.github/workflows/keepalive.yml` — on the 1st of each month, re-enables the scheduled workflows through the GitHub API so they are not disabled after 60 days without activity (no commits)
 - `.github/workflows/pr-check.yml` — checks on every pull request: a Playwright smoke test (every page at desktop and phone widths, both single-file copies online and offline,
   `tools/smoke_test.js`), syntax, farm coordinates, generated documents being up to date, and the version and both changelogs when the site changes (`tools/check_version.py`);
-  run it locally with `node tools/smoke_test.js http://localhost:8000/ --standalone`
+  the smoke test also runs axe-core accessibility checks (WCAG 2.1 AA, light mode included), keyboard-focus and reduced-motion checks and the per-page same-origin transfer budget (`tools/perf_budget.json`);
+  run it locally with `node tools/smoke_test.js http://localhost:8000/ --standalone` (after `npm install axe-core`)
+- `.github/workflows/lighthouse.yml` — manual: Lighthouse against the deployed site (Home, Taiwan live, Learn, the globe; mobile simulation), reports as artifacts and the scores in the job summary (`tools/lighthouse_summary.js`)
 
 ## Deployment and local preview
 

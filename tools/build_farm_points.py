@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'data/global/wind_farms.json'
 OUT = ROOT / 'data/global/farm_points.json'
+OUT_OFF = ROOT / 'data/global/offshore_farms.json'   # 知識頁「水下基礎」圖表用：所有離岸與浮動式紀錄（含規劃中、已除役），欄位夠算各型式的容量與年份 · offshore extract for Learn
 YEAR = 2026          # 與 latest_wind.py 的「最新可得」年份相同：除役年 ≤ 這一年的不列 · retired by this year → left out
 
 
@@ -34,6 +35,11 @@ def main():
            'rows': rows}
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f'wrote {OUT.relative_to(ROOT)}: {len(rows)} farms, {OUT.stat().st_size / 1e6:.2f} MB')
+    off = [[r[c['name']], r[c['iso']], r[c['mw']], r[c['year']], r[c['type']], r[c['st']], r[c['end']], r[c['flags']], r[c['ph']]] for r in J['rows'] if r[c['type']] != 0]
+    OUT_OFF.write_text(json.dumps({'meta': {'from': 'data/global/wind_farms.json (tools/build_farm_points.py)', 'note': 'every offshore and floating record (all statuses) for the foundations charts in Learn; the single-file copy uses the embedded full file',
+                                            'cols': ['name', 'iso', 'mw', 'year', 'type', 'st', 'end', 'flags', 'ph'], 'types': J['meta']['types'], 'status': J['meta'].get('status')}, 'rows': off},
+                                  ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    print(f'wrote {OUT_OFF.relative_to(ROOT)}: {len(off)} offshore records, {OUT_OFF.stat().st_size / 1e3:.0f} kB')
 
 
 if __name__ == '__main__':

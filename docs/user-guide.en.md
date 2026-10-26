@@ -31,7 +31,8 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
   | **☀ / ☾** | Switches between light and dark. Light suits projectors and daytime classrooms; the browser remembers it. In light mode the Taiwan live map uses Esri's light grey base map (satellite imagery in dark mode); the 3D globe on Global always stays dark |
   | **EN / 中文** | Switches the language; the browser remembers it |
 
-- **Footer**: data sources in four groups (Taiwan, live output abroad, yearly statistics & farms, maps & other), each group name linking to its part of "Sources & method"; plus "Sources & method", downloads of the single-file editions, a link to this guide, and the site version (click it for the changelog).
+- **Footer**: data sources in four groups (Taiwan, live output abroad, yearly statistics & farms, maps & other), each group name linking to its part of "Sources & method"; plus "Sources & method", downloads of the single-file editions, links to this guide and to the **schedule status** page (`#/status`, section 7), and the site version (click it for the changelog).
+- **Keyboard and assistive tools**: the first Tab stop on every page is "Skip to content"; every button and link shows a focus ring; with the system's "reduce motion" setting the site plays no animation; every PR is checked with axe-core against WCAG 2.1 AA (including contrast in light mode).
 - Every view has its own link: copy the address and whoever opens it sees the same view (section 7).
 - The **Back** button (browser or phone) first closes the farm details, globe card or dialog you opened; press it again to go back a page. Anything you closed with × or Esc needs no extra Back.
 
@@ -315,6 +316,8 @@ The link is the view: share it and the other person sees the same thing. The glo
 
 **Taiwan live**: `#/live?farm=<id>` opens a farm's details (on any tab, e.g. `#/live/wall?farm=wo1`); `#/live/charts?mode=bar|donut|hist` picks the chart (ranking, mix, long-term).
 Dashboard sort and filters (on `#/live` only; defaults are left out): `sort=ratio|cap|name` (availability, capacity, name; output by default), `group=dev` (group by developer), `type=offshore|onshore|commercial|building`, `size=L|M|S` (large >300 MW, medium 100–300 MW, small <100 MW), `dev` and `brand` (developer and maker, using the names in the toolbar menus; picking them there and copying the link is easiest). Example: `#/live?sort=cap&type=offshore`. A link that carries them wins; otherwise the dashboard uses what this browser remembered. These parameters, `farm` and `mode` are written into the link as you go.
+
+**Schedule status**: `#/status` lists the last data time of every source (Taipower live, daily samples, supply and demand, each live source abroad, Wind now, the official retrospective archive), the latest run of every schedule (GitHub Actions) and the upload time of the single-file copies; green = within the expected cadence, amber = late, red = far behind or the last run failed, with a one-line summary at the top; the page reloads every 5 minutes while open. Run results come from GitHub's public API (no login, 60 requests per hour per IP; beyond that only the data times are shown).
 
 **Embeddable card**: `#/embed` is a small card without the header or footer (output now, availability, homes supplied, share of national generation, the first line of today's wind, the past 7 days, the data time and a link back to the site) for schools or other sites to put in an `<iframe>`; `?l=en` for English and `?t=light` for light colours (this page only; the browser's saved settings are untouched). "Embed on your site" under Share in the header copies this snippet:
 

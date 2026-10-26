@@ -121,8 +121,8 @@ The project has been in maintenance since 27 Sep 2026 (v2.11.1), with improvemen
 - `keepalive`: at 04:41 UTC on the 1st of each month, re-enables the three schedules above (`scrape`, `backfill`, `wind-now`) and itself through the GitHub API, so
   GitHub does not disable them after 60 days without activity; it makes no commits.
 
-**Check once a month (about 5 minutes)**: `keepalive` takes care of the 60-day rule, so this check is mainly for problems with the
-data sources (for example Taipower changing its format).
+**Check once a month (about 1 minute)**: open the site's **schedule status** page (`#/status`, linked under "Project" in the footer): the last data time of every source and the latest run of every schedule are on one page, with a one-line summary at the top ("All running normally", or the late and failing items; thresholds follow each source's cadence). `keepalive` takes care of the 60-day rule, so this check is mainly for problems with the
+data sources (for example Taipower changing its format). Only when something is amber or red, go through the steps below:
 
 1. Open the site and look at the data time in the header ("Live · Taipower MM/DD HH:MM"). It is normally less than an hour behind; several hours
    behind usually means the external trigger has stopped (expired token or a paused job), so check the cron service's latest responses (401 means the token no longer works). If it has not moved for more than half a

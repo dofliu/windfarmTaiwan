@@ -1,0 +1,43 @@
+name: lighthouse
+
+# 手動執行：對上線的網站跑 Lighthouse（首頁、台灣即時、風電知識、地球儀；行動裝置模擬），報告上傳到 Artifacts，分數寫進工作摘要。
+# 不在每個 PR 跑（分數會隨機器浮動）；PR 的效能預算改由冒煙測試檢查各頁同源傳輸量（tools/perf_budget.json）。
+# Manual: runs Lighthouse against the deployed site (Home, Taiwan live, Learn, the globe; mobile simulation), uploads the reports as
+# artifacts and writes the scores to the job summary. Not run on every PR (scores drift with the runner); PRs check the per-page
+# transfer budget in the smoke test instead (tools/perf_budget.json).
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Site URL · 網站網址"
+        default: "https://dofliu.github.io/windfarmTaiwan/"
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    name: Lighthouse (mobile simulation)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Lighthouse
+        run: npm install --no-save --no-audit --no-fund lighthouse@12.8.2
+
+      - name: Run Lighthouse on four pages
+        run: |
+          mkdir -p lighthouse
+          for r in "home:" "live:#/live" "learn:#/learn" "global:#/global"; do
+            n=${r%%:*}; h=${r#*:}
+            npx lighthouse "${{ github.event.inputs.url }}$h" --quiet --chrome-flags="--headless=new --no-sandbox" \
+              --only-categories=performance,accessibility,best-practices,seo --output=html --output=json --output-path="lighthouse/$n"
+          done
+
+      - name: Scores to the job summary
+        run: node tools/lighthouse_summary.js lighthouse >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: lighthouse/*.report.html

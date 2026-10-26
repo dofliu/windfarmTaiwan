@@ -116,7 +116,7 @@ function speak(on) {
   }
   paintSay();
 }
-const spkBtn = cls => CAN_SAY ? '<button type="button" class="kspk ' + (cls || '') + '" aria-pressed="false"></button>' : '';
+const spkBtn = cls => CAN_SAY ? '<button type="button" class="kspk ' + (cls || '') + '" aria-pressed="false" aria-label="唸給我聽 · Read to me"></button>' : '';
 function paintSay() {
   const none = CAN_SAY && SS.getVoices().length > 0 && sayVoice() === null;     // 裝置上沒有這個語言的語音
   page.querySelectorAll('.kspk').forEach(b => {
@@ -281,7 +281,7 @@ const bar = $('kbar'), host = $('kview');
 function paintBar() {
   bar.hidden = view === 'home';
   if (bar.hidden) return;
-  const homeA = '<a class="kb-home" href="#/kids">' + sprite('wave', 34) + '<span>' + L('跟著風去旅行', 'Travel with the Wind') + '</span></a>';
+  const homeA = '<a class="kb-home" href="#/kids" aria-label="跟著風去旅行 · Travel with the Wind">' + sprite('wave', 34) + '<span>' + L('跟著風去旅行', 'Travel with the Wind') + '</span></a>';
   if (view === 'class') {                                            // 全班一起玩：沒有護照與站點進度 · no personal progress in class mode
     bar.innerHTML = '<div class="kbin">' + homeA + '<span class="kcl-t">' + ico('board') + L('全班一起玩', 'Play as a class') + (CL.n >= 1 && CL.n <= 8 ? L(' · 第 ' + CL.n + ' 站 / 8', ' · stop ' + CL.n + ' / 8') : '') + '</span>' +
       '<div class="kb-r">' + spkBtn('kpill') + fsBtn('kpill') + '<a class="kpill" href="#/kids">' + L('結束', 'End') + '</a></div></div>';

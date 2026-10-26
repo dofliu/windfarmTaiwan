@@ -197,7 +197,7 @@ body[data-page="global"] .sitefoot{display:none}
 /* ================= live ================= */
 .subbar{position:sticky;top:var(--header-h);z-index:500;background:rgba(var(--glass-rgb),.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .subbar .in{max-width:var(--maxw);margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.subbar .title{font-weight:900;font-size:15px;margin-right:4px}
+.subbar .title{font-weight:900;font-size:15px;margin:0 4px 0 0}
 .subbar .srcline{margin-left:auto;font-size:12px;color:var(--ink-3)}
 .lv-full{height:calc(100vh - var(--header-h) - var(--subbar-h,54px));height:calc(100dvh - var(--header-h) - var(--subbar-h,54px));position:relative}
 .gridbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:11px 16px;font-size:13.5px}
@@ -498,7 +498,7 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
 /* ================= footer / toast ================= */
 .sitefoot{border-top:1px solid var(--line);background:rgba(var(--glass-rgb),.7)}
 .sitefoot .in{max-width:var(--maxw);margin:0 auto;padding:22px 22px 30px;display:grid;grid-template-columns:1.1fr 1.5fr 1fr;gap:24px;font-size:12.5px;color:var(--ink-3);line-height:1.7}
-.sitefoot h4{font-size:12.5px;color:var(--ink-2);margin-bottom:6px}
+.sitefoot h2{font-size:12.5px;color:var(--ink-2);margin-bottom:6px;font-weight:700;line-height:1.4}
 .sitefoot a{color:var(--ink-2)}
 .sitefoot .fsrc{display:flex;flex-direction:column;gap:7px;margin-bottom:6px}
 .sitefoot .fsrc dt{font-weight:800;line-height:1.5}
@@ -576,7 +576,7 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
   #sharebtn span{display:none}
   #sharebtn svg{display:block}
   .subbar .in{padding:5px 8px;gap:4px 8px}
-  .subbar .title{display:none}
+  .subbar .title{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0}   /* 手機：不顯示但保留給讀屏（每頁要有 h1）· hidden visually, kept for screen readers */
   .subbar .segctl{flex:1 1 auto;padding:2px;gap:2px}
   .subbar .segctl a{flex:1;text-align:center;padding:5px 4px;font-size:12.5px}
   .subbar .srcline{font-size:10.5px;line-height:1.3}
@@ -673,7 +673,7 @@ details.more summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(-
   --surface-1:#ffffff; --surface-2:#eef3f9; --surface-3:#e1e9f3;
   --line:rgba(16,32,56,.12); --line-2:rgba(16,32,56,.22);
   --ink:#0d1b2e; --ink-2:#3d4f66; --ink-3:#5d6d82;
-  --live:#0e8a6a; --live-ink:#ffffff;
+  --live:#0b7a5d; --live-ink:#ffffff;              /* 白字 5.3:1、在白底 5.3:1（WCAG AA；#0e8a6a 只有 4.3） */
   --onshore-b:#8a6212; --offshore-b:#1f6fbf; --floating-b:#127565;
   --hist:#9a6b00; --hl:#7a4f00;
   --grid:rgba(16,32,56,.08); --axis:rgba(16,32,56,.22);
@@ -789,3 +789,18 @@ body[data-page="embed"] main{min-height:0;padding:0}
 .lesson .lchip b{font-size:13.5px;color:var(--ink);font-variant-numeric:tabular-nums}
 .lesson .src{margin-top:8px}
 @media(max-width:720px){.lesson .lgrid{grid-template-columns:minmax(0,1fr)}}
+
+/* 排程狀態頁 #/status · the schedule status page */
+.status{padding:26px 0 40px}.status .lead{color:var(--ink-2);margin:6px 0 18px}
+.status .h3{margin:18px 0 8px}
+.sttbl{overflow:auto;border:1px solid var(--line);border-radius:12px;margin:0 0 14px}
+.sttbl table{width:100%;border-collapse:collapse;font-size:13px}
+.sttbl th,.sttbl td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.sttbl thead th{background:var(--surface-2);color:var(--ink-2);font-weight:700;white-space:nowrap}
+.sttbl td:first-child{white-space:nowrap;font-weight:700}.sttbl td small{color:var(--ink-3)}
+.stdot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;background:var(--ink-3);vertical-align:middle}
+.st-ok .stdot{background:var(--good)}.st-warn .stdot{background:var(--warn)}.st-bad .stdot{background:var(--critical)}
+.stsum{font-size:15px;font-weight:800;border:1px solid var(--line-2);border-left:4px solid var(--good);border-radius:10px;padding:10px 14px;margin-bottom:16px;background:var(--surface-1)}
+.stsum.st-warn{border-left-color:var(--warn)}.stsum.st-bad{border-left-color:var(--critical)}
+:root[data-theme="light"] .lnb .lnc .n{color:var(--ink-2)}   /* 淺色模式：琥珀色在半透明底不到 4.5:1 · amber fails AA on the glass bar */
+#page-embed .emb-h{margin:0;font-size:inherit;line-height:1;font-weight:inherit}

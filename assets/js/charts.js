@@ -99,6 +99,7 @@ function figure(host, o) {
     lastW = w;
     plot.textContent = '';
     o.render(plot, w, tip, offset);
+    plot.querySelectorAll('svg[role="img"]').forEach(s => { if (s.querySelector('[tabindex]')) s.setAttribute('role', 'group'); });   // 可用鍵盤逐點查看的圖：不能是 img（裡面有可聚焦的元素）· a chart with a focusable hit area is a group, not an image
   }
   if ('ResizeObserver' in window) {
     new ResizeObserver(() => {
@@ -166,7 +167,7 @@ function line(host, o) {
       }
       g += `<line class="xh" x1="0" x2="0" y1="${pt}" y2="${pt + ih}" style="stroke:rgba(var(--fg-rgb),.35)" visibility="hidden"/>`;
       g += S.map((s, k) => `<circle class="xd" data-k="${k}" r="4" fill="${s.color}" style="stroke:var(--surface-1)" stroke-width="2" visibility="hidden"/>`).join('');
-      g += `<rect class="hit" x="${pl}" y="${pt}" width="${iw}" height="${ih}" fill="transparent" tabindex="0" aria-label="${WW.esc(WW.L('用左右方向鍵逐點查看', 'Use arrow keys to step through points'))}"/>`;
+      g += `<rect class="hit" x="${pl}" y="${pt}" width="${iw}" height="${ih}" fill="transparent" tabindex="0" role="button" aria-label="${WW.esc(WW.L('用左右方向鍵逐點查看', 'Use arrow keys to step through points'))}"/>`;
       svg.innerHTML = g;
       plot.appendChild(svg);
       const xh = svg.querySelector('.xh'), dots = svg.querySelectorAll('.xd'), hit = svg.querySelector('.hit');

@@ -45,6 +45,7 @@
 <!-- ======================================================== HOME -->
 <section class="page" data-page="home" id="page-home">
  <div class="wrap">
+  <h1 class="sr-only"><span data-l="zh">風電風情：台灣風電即時 × 全球風電發展</span><span data-l="en">Wind Watch: Taiwan wind live × the global wind story</span></h1>
   <div class="home-hero">
     <article class="hh hh-live" aria-labelledby="hh-live-t">
       <div class="hh-top"><span class="eyebrow" id="hh-live-t"><span data-l="zh">此刻 · 台灣風電</span><span data-l="en">Right now · Taiwan wind</span></span><span class="feed" id="hh-feed"><span class="dot" id="hh-dot"></span><span id="hh-feedtxt">—</span></span></div>
@@ -117,7 +118,7 @@
 <!-- ======================================================== LIVE -->
 <section class="page" data-page="live" id="page-live" hidden>
   <div class="subbar" id="lv-subbar"><div class="in">
-    <span class="title"><span data-l="zh">台灣風電即時</span><span data-l="en">Taiwan wind · live</span></span>
+    <h1 class="title"><span data-l="zh">台灣風電即時</span><span data-l="en">Taiwan wind · live</span></h1>
     <nav class="segctl" id="lvnav" aria-label="即時分頁">
       <a href="#/live" data-lv="dash"><span data-l="zh">儀表</span><span data-l="en">Dashboard</span></a>
       <a href="#/live/wall" data-lv="wall"><span data-l="zh">風場牆</span><span data-l="en">Farm grid</span></a>
@@ -160,7 +161,7 @@
 
   <div class="lv" data-lv="charts" hidden>
     <div class="wrap chartpanel">
-      <div class="chartbar"><div class="segctl" id="chartmode" role="tablist"><button type="button" class="is-on" data-c="bar" data-i18n="c_bar">排行長條</button><button type="button" data-c="donut" data-i18n="c_donut">出力組成</button><button type="button" data-c="hist" data-i18n="c_hist">長期趨勢</button></div>
+      <div class="chartbar"><div class="segctl" id="chartmode"><button type="button" class="is-on" data-c="bar" data-i18n="c_bar">排行長條</button><button type="button" data-c="donut" data-i18n="c_donut">出力組成</button><button type="button" data-c="hist" data-i18n="c_hist">長期趨勢</button></div>
         <span class="chartnote" id="chartnote"></span>
         <a class="chartout" href="#/global?out=TWS.cf"><span data-l="zh">📊 各風場容量因數排名（即時取樣）</span><span data-l="en">📊 Capacity factor rankings (live samples)</span> <span class="arr">→</span></a></div>
       <div id="chartwrap"></div>
@@ -604,6 +605,8 @@
 <!-- ======================================================== KIDS（兒童版，內容由 assets/js/kids.js 產生） -->
 <section class="page" data-page="embed" id="page-embed" hidden></section>
 
+<section class="page" data-page="status" id="page-status" hidden></section>
+
 <section class="page" data-page="kids" id="page-kids" hidden>
   <div id="kids-loading"><span data-l="zh">載入「跟著風去旅行」…</span><span data-l="en">Loading “Travel with the Wind”…</span></div>
 </section>
@@ -614,7 +617,7 @@
   <div class="in">
     <div><div class="fbrand">風電風情</div>
       <p><span data-l="zh">台灣風力發電即時資訊 × 全球風電發展 1980–2025。以政府開放資料與公開資料整理，協助綠能資訊揭露；數字僅供參考，非官方正式統計。</span><span data-l="en">Taiwan wind power live × global wind power 1980–2025, compiled from government open data and public sources to support green-energy transparency. Figures are for reference only, not official statistics.</span></p></div>
-    <div><h4><span data-l="zh">資料來源</span><span data-l="en">Data</span></h4>
+    <div><h2><span data-l="zh">資料來源</span><span data-l="en">Data</span></h2>
       <dl class="fsrc">
         <div class="live"><dt><a href="#/learn/sources?s=tw"><span data-l="zh">台灣</span><span data-l="en">Taiwan</span></a></dt>
           <dd><span data-l="zh">台電開放資料 · 中央氣象署 · 經濟部能源署</span><span data-l="en">Taipower open data · CWA · MOEA Energy Administration</span></dd></div>
@@ -626,8 +629,8 @@
           <dd><span data-l="zh">OpenStreetMap · Natural Earth · 維基百科</span><span data-l="en">OpenStreetMap · Natural Earth · Wikipedia</span></dd></div>
       </dl>
       <a href="#/learn/sources"><span data-l="zh">來源與方法 →</span><span data-l="en">Sources &amp; method →</span></a></div>
-    <div><h4><span data-l="zh">專案</span><span data-l="en">Project</span></h4>
-      <p><span data-l="zh"><a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/user-guide.md" target="_blank" rel="noopener">使用說明</a></span><span data-l="en"><a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/user-guide.en.md" target="_blank" rel="noopener">User guide</a></span><br><a href="#/kids"><span data-l="zh">探險版：跟著風去旅行（給小學高年級和國中生）</span><span data-l="en">Travel with the Wind (for young explorers)</span></a><br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a><br><a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html"><span data-l="zh">下載單檔版 HTML（離線也能開）</span><span data-l="en">Download the single-file HTML (opens offline)</span></a><br><a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html"><span data-l="zh">下載全球風電地圖公開版（只有地球儀，給一般人）</span><span data-l="en">Download the public global wind map (globe only, for everyone)</span></a><br><span data-l="zh">政府資料開放授權條款－第 1 版 · three.js（MIT）· Leaflet（BSD-2）· 衛星底圖 © Esri</span><span data-l="en">Open Government Data License v1.0 · three.js (MIT) · Leaflet (BSD-2) · imagery © Esri</span></p></div>
+    <div><h2><span data-l="zh">專案</span><span data-l="en">Project</span></h2>
+      <p><span data-l="zh"><a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/user-guide.md" target="_blank" rel="noopener">使用說明</a></span><span data-l="en"><a href="https://github.com/dofliu/windfarmTaiwan/blob/main/docs/user-guide.en.md" target="_blank" rel="noopener">User guide</a></span><br><a href="#/status"><span data-l="zh">排程狀態（各資料來源的最後更新時間）</span><span data-l="en">Schedule status (last update of every data source)</span></a><br><a href="#/kids"><span data-l="zh">探險版：跟著風去旅行（給小學高年級和國中生）</span><span data-l="en">Travel with the Wind (for young explorers)</span></a><br><a href="https://github.com/dofliu/windfarmTaiwan" target="_blank" rel="noopener">GitHub · dofliu/windfarmTaiwan</a><br><a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-standalone.html"><span data-l="zh">下載單檔版 HTML（離線也能開）</span><span data-l="en">Download the single-file HTML (opens offline)</span></a><br><a href="https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/windfarmTaiwan-globe.html"><span data-l="zh">下載全球風電地圖公開版（只有地球儀，給一般人）</span><span data-l="en">Download the public global wind map (globe only, for everyone)</span></a><br><span data-l="zh">政府資料開放授權條款－第 1 版 · three.js（MIT）· Leaflet（BSD-2）· 衛星底圖 © Esri</span><span data-l="en">Open Government Data License v1.0 · three.js (MIT) · Leaflet (BSD-2) · imagery © Esri</span></p></div>
   </div>
   <div class="fcopy"><span data-l="zh">© 2026 國立勤益科技大學 智慧自動化工程系 劉瑞弘研究室 開發與維護</span><span data-l="en">© 2026 Developed and maintained by National Chin-Yi University of Technology, Dept. Intelligent Automation Engineering, Dof Lab by Juihung Liu</span> · <a class="ver" data-ver href="https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG.md" target="_blank" rel="noopener"></a></div>
 </footer>
@@ -648,6 +651,7 @@
 <script src="assets/js/near.js" defer></script>
 <script src="assets/js/week.js" defer></script>
 <script src="assets/js/embed.js" defer></script>
+<script src="assets/js/status.js" defer></script>
 <script src="assets/js/home.js" defer></script>
 <script src="assets/js/learn.js" defer></script>
 <script src="assets/js/lessons.js" defer></script>

@@ -12,6 +12,10 @@
    有「唸給我聽」；全班一起玩要走得完三步（→ 鍵）且不動個人進度；集滿 8 個章要能列印護照、打開寫著名字的完成證書。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
    連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖，完整版的探險版地球要有 8 個站點。
+3. 無障礙：裝了 axe-core（npm install axe-core，或環境變數 AXE_CORE 指到 axe.min.js；沒裝就略過並提示）時，每一頁以 WCAG 2.1 A／AA 與最佳做法規則檢查，
+   首頁、台灣即時、風電知識、排程狀態另以淺色模式再查一次（對比）；首頁用 Tab 走過前 14 個焦點，每個都要看得到、有焦點框，第一個是「跳到主要內容」且 Enter 後焦點到 #main；
+   減少動態效果（prefers-reduced-motion）下首頁、台灣即時與探險版不能有任何 CSS 動畫在跑。
+4. 效能預算：tools/perf_budget.json 列出的每一頁各以全新的分頁打開（桌機寬度），同源傳輸量（未壓縮）不能超過預算。
 有錯誤時結束碼為 1。GitHub Actions 的 pr-check 在每個 PR 跑這支（.github/workflows/pr-check.yml）。
 
 1. Walks every page (home, the four Taiwan live tabs, the globe, a farm card, the Output dialog, Learn) at desktop and phone widths:
@@ -25,6 +29,11 @@
    all 8 stamps the passport must offer printing and a certificate carrying the name.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
    and offline the full copy must label its live data as an offline snapshot and draw the sketch map; the full copy's kids globe must show 8 stops.
+3. Accessibility: with axe-core installed (npm install axe-core, or AXE_CORE pointing at axe.min.js; skipped with a notice otherwise) every page is checked
+   against the WCAG 2.1 A/AA and best-practice rules, and Home, Taiwan live, Learn and the status page again in light mode (contrast); on Home, Tab
+   through the first 14 focus stops, each visible with a focus ring, the first being "Skip to content" which moves focus to #main on Enter;
+   under prefers-reduced-motion Home, Taiwan live and the kids page must have no CSS animation running.
+4. Performance budget: each page in tools/perf_budget.json is opened in a fresh tab (desktop width) and its same-origin bytes (uncompressed) must stay under budget.
 Exits with 1 on any error. The pr-check workflow runs it on every pull request.
 */
 const path = require('path');
@@ -44,6 +53,27 @@ const ROOT = path.resolve(__dirname, '..');
 const LAUNCH = { args: ['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'] };
 // 外部網站（地圖圖磚、Commons 照片、即時資料備援）連不上不算網站錯誤 · unreachable external resources are not site errors
 const NET = /ERR_CERT|ERR_NAME|ERR_CONNECTION|ERR_INTERNET|ERR_TIMED_OUT|net::ERR|ERR_FAILED|429|403|Failed to load resource|CORS policy/;
+
+// axe-core：repo 的 node_modules、全域安裝或環境變數 AXE_CORE；沒有就略過 · axe-core from node_modules, a global install or AXE_CORE; optional
+function axeSource() {
+  const cands = [process.env.AXE_CORE, path.join(ROOT, 'node_modules/axe-core/axe.min.js')];
+  try { cands.push(path.join(require('child_process').execSync('npm root -g', { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(), 'axe-core/axe.min.js')); } catch (e) {}
+  for (const c of cands) if (c && fs.existsSync(c)) return fs.readFileSync(c, 'utf8');
+  return null;
+}
+const AXE = axeSource();
+const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'];
+const LIGHT = ['#/', '#/live', '#/learn', '#/status'];                      // 淺色模式也查（對比）· checked in light mode too
+async function axeCheck(page, label) {
+  if (!AXE) return [];
+  if (!await page.evaluate(() => !!window.axe)) await page.addScriptTag({ content: AXE });
+  const v = await page.evaluate(async tags => {
+    const r = await axe.run(document, { runOnly: { type: 'tag', values: tags } });
+    return r.violations.map(x => `${x.impact} ${x.id} ×${x.nodes.length}: ${x.help} (${x.nodes[0].target.join(' ')})`);
+  }, AXE_TAGS);
+  return v.map(x => 'axe' + (label ? ' ' + label : '') + ': ' + x);
+}
+const BUDGET = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/perf_budget.json'), 'utf8'));
 
 // [路由, 等待毫秒, 檢查（在頁面裡執行，回傳錯誤字串或空字串）]
 const ROUTES = [
@@ -191,6 +221,7 @@ const ROUTES = [
     if (!/<iframe .*#\/embed/.test(WW.embedSnippet())) return 'embed: bad snippet';
     return '';
   }],
+  ['#/status', 5000, () => document.querySelectorAll('#page-status .sttbl tr').length > 8 && document.querySelector('#page-status .stsum') ? '' : 'status: tables or summary missing'],
   ['#/kids', 3000, () => document.querySelector('#page-kids .khome h1') ? '' : 'kids: home page missing'],
   ['#/kids/globe', 6000, () => {
     const n = document.querySelectorAll('#page-kids .kpin').length;
@@ -253,6 +284,12 @@ async function walk(browser, fails) {
       const over = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       if (over > 2) errs.push('horizontal overflow ' + over + ' px');
       if (check) { const r = await page.evaluate(check); if (r) errs.push(r); }
+      errs.push(...await axeCheck(page));
+      if (LIGHT.includes(route)) {                      // 淺色模式：只換主題屬性，不寫入瀏覽器設定 · theme attribute only, nothing stored
+        await page.evaluate(() => { document.documentElement.dataset.theme = 'light'; }); await page.waitForTimeout(400);
+        errs.push(...await axeCheck(page, 'light'));
+        await page.evaluate(() => { delete document.documentElement.dataset.theme; });
+      }
       if (shots) await page.screenshot({ path: path.join(shots, `${tag}-${route.replace(/[^a-z0-9]+/gi, '_')}.png`) });
       console.log(`${tag.padEnd(7)} ${route.padEnd(24)} ${errs.length ? 'FAIL' : 'ok'}`);
       errs.forEach(e => { console.log('        ' + e.slice(0, 300)); fails.push(`${tag} ${route}: ${e}`); });
@@ -302,11 +339,66 @@ async function standalone(browser, fails) {
   }
 }
 
+/* 鍵盤：首頁前 14 個 Tab 停點都看得到、有焦點框；第一個是「跳到主要內容」，Enter 後焦點在 #main · keyboard: focus stops visible with a ring; skip link works */
+async function keyboard(browser, fails) {
+  const page = await browser.newPage({ viewport: { width: 1400, height: 900 } }), errs = [];
+  await page.goto(base + '#/'); await page.waitForTimeout(3500);
+  const stops = [];
+  for (let i = 0; i < 14; i++) {
+    await page.keyboard.press('Tab'); await page.waitForTimeout(60);
+    stops.push(await page.evaluate(() => {
+      const el = document.activeElement, r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+      const ring = el.closest('svg') ? true : (cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0) || cs.boxShadow !== 'none';
+      return { el: el.tagName.toLowerCase() + (el.id ? '#' + el.id : el.className && typeof el.className === 'string' ? '.' + el.className.split(' ')[0] : ''), vis: r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && r.bottom > 0 && r.top < innerHeight, ring };
+    }));
+    if (i === 0) {
+      if (!stops[0].el.includes('skip')) errs.push('first Tab stop is ' + stops[0].el + ', not the skip link');
+      await page.keyboard.press('Enter'); await page.waitForTimeout(300);
+      const at = await page.evaluate(() => ({ id: document.activeElement.id, page: document.body.dataset.page }));
+      if (at.id !== 'main' || at.page !== 'home') errs.push('skip link: focus on ' + (at.id || 'nothing') + ' on page ' + at.page);
+      await page.keyboard.press('Tab'); await page.waitForTimeout(60);          // 回到第二個停點 · back to the next stop
+    }
+  }
+  stops.forEach((s, i) => { if (!s.vis) errs.push(`Tab stop ${i + 1} (${s.el}) is not visible`); else if (!s.ring) errs.push(`Tab stop ${i + 1} (${s.el}) has no focus ring`); });
+  console.log(`keyboard ${'home'.padEnd(24)} ${errs.length ? 'FAIL' : 'ok'}`);
+  errs.forEach(e => { console.log('        ' + e); fails.push('keyboard: ' + e); });
+  await page.close();
+}
+/* 減少動態效果：不能有 CSS 動畫在跑 · reduced motion: no CSS animation may be running */
+async function reducedMotion(browser, fails) {
+  const ctx = await browser.newContext({ viewport: { width: 1400, height: 900 }, reducedMotion: 'reduce' }), page = await ctx.newPage(), errs = [];
+  for (const [route, wait] of [['#/', 3500], ['#/live', 3500], ['#/kids', 3000]]) {
+    await page.goto(base + route); await page.waitForTimeout(wait);
+    const n = await page.evaluate(() => document.getAnimations().filter(a => a.playState === 'running').length);
+    if (n) errs.push(route + ': ' + n + ' animation(s) running under prefers-reduced-motion');
+  }
+  console.log(`motion   ${'home/live/kids'.padEnd(24)} ${errs.length ? 'FAIL' : 'ok'}`);
+  errs.forEach(e => { console.log('        ' + e); fails.push('reduced motion: ' + e); });
+  await ctx.close();
+}
+/* 效能預算：每頁各開一個全新的分頁，同源傳輸量不能超過 tools/perf_budget.json · performance budget per page, fresh tab each */
+async function budget(browser, fails) {
+  for (const route of Object.keys(BUDGET).filter(k => k.startsWith('#'))) {
+    const ctx = await browser.newContext({ viewport: { width: 1400, height: 900 } }), page = await ctx.newPage();
+    let bytes = 0; const pending = [];
+    page.on('response', r => { if (r.url().startsWith(base)) pending.push(r.body().then(b => { bytes += b.length; }).catch(() => {})); });
+    await page.goto(base + route); await page.waitForTimeout(route.includes('global') ? 16000 : 6000); await Promise.all(pending);
+    const mb = bytes / 1048576, over = mb > BUDGET[route];
+    console.log(`budget  ${route.padEnd(24)} ${over ? 'FAIL' : 'ok'}   ${mb.toFixed(2)} MB / ${BUDGET[route]} MB`);
+    if (over) fails.push(`budget ${route}: ${mb.toFixed(2)} MB over the ${BUDGET[route]} MB budget (raise tools/perf_budget.json only on purpose)`);
+    await ctx.close();
+  }
+}
+
 (async () => {
   if (shots) fs.mkdirSync(shots, { recursive: true });
+  if (!AXE) console.log('note: axe-core not found (npm install axe-core) — accessibility rules skipped');
   const browser = await chromium.launch(LAUNCH), fails = [];
   try {
     await walk(browser, fails);
+    await keyboard(browser, fails);
+    await reducedMotion(browser, fails);
+    await budget(browser, fails);
     if (args.includes('--standalone')) await standalone(browser, fails);
   } finally { await browser.close(); }
   console.log(fails.length ? `\n${fails.length} problem(s)` : '\nall pages ok');

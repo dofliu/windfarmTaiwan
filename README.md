@@ -137,6 +137,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `assets/js/week.js` — 首頁「本週風電回顧」（最近 7 天與前 7 天的取樣比較、兩週長條圖、方形週報圖卡）
 - `assets/js/embed.js` — 可嵌入的小卡 `#/embed`（沒有頁首頁尾的台灣此刻風電，給其他網站用 `<iframe>` 放）與「嵌入到你的網站」的程式碼
 - `assets/js/lessons.js` — 風電知識的四個「動手試試看」（功率曲線、尾流效應、容量因數、成本下降）
+- `assets/js/status.js` — 排程狀態頁 `#/status`（各資料來源最後的資料時間與預期週期、GitHub Actions 各排程最近一次的結果、單檔版的上傳時間）
 - `assets/js/charts.js` — 輕量 SVG 圖表（折線、柱狀、橫條、散佈；含提示框與表格檢視）
 - `assets/js/home.js`、`assets/js/learn.js` — 首頁與風電知識頁
 - `assets/js/globe.js` — 3D 地球儀（改寫自「全球風電發展觀察地圖」wind-history-map v3）
@@ -163,6 +164,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/global/turbine_output.json` — 丹麥單獨計量的 1,848 部風機的位置、規格與各年實測發電量（丹麥能源署；只有公司持有的風機有公布），
   與 `generation.json` 一起產生，「發電表現」選「丹麥・單部風機」時才載入
 - `data/global/lcoe_wind.json` — 全球風電均化發電成本（LCOE）逐年陸域與離岸（IRENA 經 Our World in Data，CC BY 4.0，固定 2025 年美元／度；`tools/build_lcoe.py` 從 `data/global/sources/owid_lcoe_wind.csv` 產生，`--fetch` 重新下載），知識頁「成本下降」教具用
+- `data/global/offshore_farms.json` — 風電知識「水下基礎」圖表用的離岸風場小檔（所有離岸與浮動式紀錄，約 80 kB；同一支程式產生，單檔版改用內嵌的完整檔）
 - `data/global/farm_points.json` — 「我附近」用的點位小檔：營運中、不在共用代用點的風場，只留名稱、座標、容量、年份、類型（由 `tools/build_farm_points.py` 從 `wind_farms.json` 產生，約 1.5 MB）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
 - `data/global/ports.json` — 離岸風電港口 103 個（20 國；人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
@@ -214,7 +216,8 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `.github/workflows/report.yml` — 手動執行：重拍網站截圖、產生觀察報告中英文 PDF，上傳到 Release「report」（不 commit）
 - `.github/workflows/keepalive.yml` — 每月 1 日以 GitHub API 重新啟用各排程，避免 60 天無活動被停用（不產生 commit）
 - `.github/workflows/pr-check.yml` — 每個 PR 的自動檢查：Playwright 冒煙測試（全站各頁桌機與手機、兩個單檔版連網與離線，`tools/smoke_test.js`）、語法、座標健檢、
-  由程式產生的文件是否已更新、改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）；本機可跑 `node tools/smoke_test.js http://localhost:8000/ --standalone`
+  由程式產生的文件是否已更新、改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）；冒煙測試另跑 axe-core 無障礙檢查（WCAG 2.1 AA，含淺色模式）、鍵盤焦點與減少動態檢查，以及各頁同源傳輸量的效能預算（`tools/perf_budget.json`）；本機可跑 `node tools/smoke_test.js http://localhost:8000/ --standalone`（先 `npm install axe-core`）
+- `.github/workflows/lighthouse.yml` — 手動執行：對上線的網站跑 Lighthouse（首頁、台灣即時、風電知識、地球儀，行動裝置模擬），報告放在 Artifacts、分數寫進工作摘要（`tools/lighthouse_summary.js`）
 
 ## 部署現況與本機預覽
 

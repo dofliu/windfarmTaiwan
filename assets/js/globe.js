@@ -295,7 +295,7 @@ const loadingEl = $('globe-loading');     // 資料載入完成前保留「載�
 host.innerHTML = `
 <div id="g-top">
   <span class="gtitle" data-gi="title"></span>
-  <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel"></select></div>
+  <div class="ggrp"><label for="g-regionSel" data-gi="region"></label><select id="g-regionSel" aria-label="範圍 · Focus"></select></div>
   <button id="g-btnSearch" type="button" data-gi="btnSearch"></button>
   <button id="g-btnNear" type="button" data-gi="btnNear" hidden></button>
   <span class="gmenu gphx"><button id="g-mView" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pView"><span data-gi="mView"></span><i class="gcar"></i></button>
@@ -337,7 +337,7 @@ host.innerHTML = `
     <div id="g-labels"></div>
     <div id="g-hud"><div id="g-yearBig">1980<small></small></div><div id="g-worldStat"></div></div>
     <div id="g-msPanel">
-      <div class="ph"><div class="gcrumb" id="g-crumb"></div><div class="phrow"><span class="gseg" role="tablist"><button id="g-tabProf" type="button" class="active" data-gi="profTab"></button><span class="gmenu"><button id="g-tabList" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pList"><span id="g-tabListLabel"></span><i class="gcar"></i></button>
+      <div class="ph"><div class="gcrumb" id="g-crumb"></div><div class="phrow"><span class="gseg"><button id="g-tabProf" type="button" class="active" data-gi="profTab"></button><span class="gmenu"><button id="g-tabList" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pList"><span id="g-tabListLabel"></span><i class="gcar"></i></button>
         <div id="g-pList" class="gmp" hidden><button id="g-tabMs" type="button" class="gmt"><span data-gi="msTitle"></span><b class="gmn" id="g-nMs"></b></button><button id="g-tabFarms" type="button" class="gmt"><span data-gi="farmsTab"></span><b class="gmn" id="g-nFarms"></b></button><button id="g-tabPipe" type="button" class="gmt"><span data-gi="pipeTab"></span><b class="gmn" id="g-nPipeL"></b></button><button id="g-tabPorts" type="button" class="gmt"><span data-gi="portsTab"></span><b class="gmn" id="g-nPortsL"></b></button><button id="g-tabEvents" type="button" class="gmt"><span data-gi="evTab"></span><b class="gmn" id="g-nEventsL"></b></button></div></span><span class="gmenu"><button id="g-tabAna" type="button" class="gmb" aria-haspopup="true" aria-expanded="false" aria-controls="g-pAna2"><span data-gi="mAna"></span><i class="gcar"></i></button>
         <div id="g-pAna2" class="gmp" hidden><button id="g-pnOut" type="button" class="gmt" data-gi="btnOut"></button><button id="g-pnCmp" type="button" class="gmt" data-gi="btnCmp"></button><button id="g-pnMk" type="button" class="gmt" data-gi="btnMk"></button></div></span></span><button id="g-msToggle" type="button" aria-label="collapse">–</button></div></div>
       <div class="gpbody prof" id="g-profBody"></div>
@@ -350,7 +350,7 @@ host.innerHTML = `
     </div>
     <div id="g-legStack"><div id="g-fdLegend" hidden></div><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-welcome" hidden></div>
-    <div id="g-infoCard" role="dialog"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
+    <div id="g-infoCard" role="dialog" aria-label="風場、里程碑、港口或事件的資訊卡 · Farm, milestone, port or event card"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
     </div>
   </div>
@@ -364,7 +364,7 @@ host.innerHTML = `
 <div id="g-bottom">
   <button id="g-play" type="button">▶</button>
   <div id="g-yearNow">1980</div>
-  <input type="range" id="g-slider" min="1980" max="2026" step="0.02" value="1980">
+  <input type="range" id="g-slider" min="1980" max="2026" step="0.02" value="1980" aria-label="年份 · Year">
   <div class="ggrp"><label for="g-speedSel" data-gi="speed"></label><select id="g-speedSel"><option value="0.1"></option><option value="0.2"></option><option value="0.333"></option><option value="0.5"></option><option value="1" selected></option><option value="2"></option><option value="4"></option></select></div>
 </div>
 <div id="g-modal"><div class="box"><button class="gclose" id="g-modalClose" type="button" aria-label="close">✕</button><div id="g-modalBody" class="gana"></div></div></div>`;
@@ -1466,7 +1466,7 @@ function setPanelTab(t) {
   panelTab = t;
   if (t !== 'ana' && ANA.kind && !ANA.big) { ANA.kind = null; $('g-anaBody').innerHTML = ''; }   // 離開「分析」分頁就關掉面板裡的分析
   [['prof', 'g-tabProf', 'g-profBody'], ['ms', 'g-tabMs', 'g-msList'], ['farms', 'g-tabFarms', 'g-farmList'], ['pipe', 'g-tabPipe', 'g-pipeList'], ['ports', 'g-tabPorts', 'g-portList'], ['events', 'g-tabEvents', 'g-evList'], ['ana', 'g-tabAna', 'g-anaBody']].forEach(([k, b, body]) => {
-    $(b).classList.toggle('active', k === t); $(b).setAttribute('aria-selected', k === t ? 'true' : 'false'); $(body).hidden = k !== t;
+    $(b).classList.toggle('active', k === t); $(b).setAttribute('aria-pressed', k === t ? 'true' : 'false'); $(body).hidden = k !== t;
   });
   $('g-tabProf').hidden = LITE || !(byIso[S.region] || S.region.startsWith('C:') || S.region === 'WORLD');
   const LIST_KEY = { ms: 'msTitle', farms: 'farmsTab', pipe: 'pipeTab', ports: 'portsTab', events: 'evTab' };
