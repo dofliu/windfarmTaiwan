@@ -429,11 +429,13 @@ def load_farm_daily(path=FARM_DAILY):
         return {"days": {}, "names": {}}
 
 
-def add_daily_sample(store, wind_units, source_time):
+def add_daily_sample(store, wind_units, source_time, remax=False):
     """把一次快照加進每日累積。同一台電資料時間(source_time)只算一次；回傳是否有加入。
 
     每個併網點每天一列 [取樣數, 出力加總 MW, 有裝置容量的取樣數, 其出力加總 MW, 其裝置容量加總 MW]：
-    平均出力＝出力加總÷取樣數；容量因數＝有裝置容量時的出力加總÷裝置容量加總(試運轉、未列裝置容量的時段不計)。"""
+    平均出力＝出力加總÷取樣數；容量因數＝有裝置容量時的出力加總÷裝置容量加總(試運轉、未列裝置容量的時段不計)。
+    另記當天全台(所有併網點相加)出力最高的一次取樣 mx = [MW, "HH:MM"](首頁「今天的風」用來判斷是否創下本站取樣以來的新高)。
+    remax=True 時，已經記過的資料時間也拿來更新 mx(回補 2026-10-26 以前沒有 mx 的日子用)。"""
     try:
         t = dt.datetime.fromisoformat(str(source_time).strip())
     except ValueError:
@@ -443,6 +445,8 @@ def add_daily_sample(store, wind_units, source_time):
     day, slot = t.strftime("%Y-%m-%d"), t.strftime("%H:%M")
     d = store.setdefault("days", {}).setdefault(day, {"t": [], "u": {}})
     if slot in d["t"]:
+        if remax:
+            _note_daily_max(d, wind_units, slot)
         return False
     agg = {}
     for u in wind_units or []:
@@ -467,7 +471,15 @@ def add_daily_sample(store, wind_units, source_time):
             r[3] = round(r[3] + out, 2)
             r[4] = round(r[4] + cap, 2)
     d["t"] = sorted(d["t"] + [slot])
+    _note_daily_max(d, wind_units, slot)
     return True
+
+
+def _note_daily_max(d, wind_units, slot):
+    """全台出力(所有有出力值的併網點相加)高於當天記過的最高值時，記成 d["mx"] = [MW, "HH:MM"]。"""
+    tot = round(sum(u["output"] for u in wind_units or [] if u.get("output") is not None and u.get("name")), 1)
+    if "mx" not in d or tot > d["mx"][0]:
+        d["mx"] = [tot, slot]
 
 
 def save_farm_daily(store, path=FARM_DAILY):
@@ -479,6 +491,7 @@ def save_farm_daily(store, path=FARM_DAILY):
                   "a data time (source_time) is counted once. u[key] = [samples, sum of output MW, samples with listed capacity, "
                   "sum of output MW in those samples, sum of listed capacity MW in those samples]. Average output = sum/samples; "
                   "capacity factor = output sum / capacity sum over samples with a listed capacity (units in testing, listed as '-', are excluded). "
+                  "mx = [MW, 'HH:MM'] is the day's highest sampled total (all units; recorded from 26 Oct 2026, earlier days only where backfilled). "
                   "Sampled instantaneous values, not official energy statistics.",
         "keys": "Unit keys follow NAME_MAP_EXACT in taipower_wind_scraper.py (same as wind_realtime.json farms); 'u:<name>' = not mapped yet. "
                 "names = the latest Taipower name of each key.",

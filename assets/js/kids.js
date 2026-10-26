@@ -7,7 +7,7 @@
    Kids' edition "Travel with the Wind": the numbers come from the site's data files, the photos from photos.json; progress stays in this browser. */
 (() => {
 'use strict';
-const L = WW.L, esc = WW.esc, $ = id => document.getElementById(id);
+const L = WW.L, esc = WW.esc, $ = id => document.getElementById(id), EN = () => WW.lang === 'en';
 const page = $('page-kids');
 if (!page) return;
 
@@ -221,7 +221,7 @@ const STOPS = [
         [['用纜繩和錨拉住', 'Cables and anchors']],
         [['靠船一直推著它', 'A boat pushing it all the time'], ['船要一直開，太耗油了，風浪大的時候也推不住。再想想！', 'A boat would burn too much fuel and couldn’t hold it in big waves. Think again!']]],
       a: 1, ok: ['浮筒底部很重讓它站得穩，纜繩和錨讓它不會漂走。', 'The heavy bottom keeps it upright, and cables and anchors stop it drifting away.'] } },
-  { n: 7, ms: 'Formosa 1', photo: ['farms', 'TWN|Formosa 1 Phase 1'], scene: 'sea', count: 2,
+  { n: 7, ms: 'Formosa 1', photo: ['farms', 'TWN|Formosa 1 Phase 1'], scene: 'sea', count: 2, fd: 'Formosa 1 Phase 2',
     place: ['台灣 苗栗外海', 'Off Miaoli, Taiwan'], title: ['台灣第一座海上風場', 'Taiwan’s first offshore wind farm'],
     stamp: ['台灣第一座\n海上風場', 'Taiwan’s first\nat sea'],
     tease: ['回到台灣！看看台灣的第一座海上風場。', 'Back to Taiwan! Let’s see Taiwan’s first offshore wind farm.'],
@@ -528,6 +528,28 @@ function compareHTML(s) {
       '<p class="ksmall">' + L('陸地、風機和海深用同一個比例畫。最高點＝輪轂高 ' + F.h + ' m＋葉片長 ' + (F.r / 2) + ' m（葉輪直徑 ' + F.r + ' m）。浮筒在水下的長度沒有畫準。',
         'Land, turbine and sea are drawn to one scale. Tip = hub height ' + F.h + ' m + blade length ' + (F.r / 2) + ' m (rotor ' + F.r + ' m). The underwater float is not to scale.') + '</p></div>';
   }
+  if (s.n === 7 && FD && FD.farms && FD.farms[s.fd] && FD.farms[s.fd].h && FD.farms[s.fd].r && WW.SCALE_REF) {
+    // 比一比：一部風機有多高、葉輪有幾個足球場大（輪轂與葉輪取自 foundations.json，台北 101 與球場尺寸取自 WW.SCALE_REF）
+    const F = FD.farms[s.fd], R = WW.SCALE_REF, tip = F.h + F.r / 2, k = 200 / R.t101.m, base = 216, area = Math.PI * F.r * F.r / 4, np = area / (R.pitch.w * R.pitch.h);
+    const hub = base - F.h * k, rr = F.r / 2 * k;
+    const blades = [0, 120, 240].map(a => '<path d="M330 ' + hub.toFixed(1) + ' l-2.5 ' + (-rr * 0.55).toFixed(1) + ' l2.5 ' + (-rr * 0.45).toFixed(1) + ' l2.5 ' + (rr * 0.45).toFixed(1) + ' z" transform="rotate(' + a + ' 330 ' + hub.toFixed(1) + ')"/>').join('');
+    const pk = 0.42, pw = R.pitch.w * pk, ph = R.pitch.h * pk, nP = Math.ceil(np), px0 = 420, pcy = 150;   // 右邊：由上往下看，葉輪的圓疊在足球場上
+    let pitches = '';
+    for (let i = 0; i < Math.min(nP, 3); i++) pitches += '<rect x="' + (px0 + i * (pw + 3)).toFixed(1) + '" y="' + (pcy - ph / 2).toFixed(1) + '" width="' + pw.toFixed(1) + '" height="' + ph.toFixed(1) + '" fill="#CFE6B8" stroke="' + NAVY + '" stroke-width="1.5"/>';
+    const cx = px0 + (Math.min(nP, 3) * (pw + 3) - 3) / 2;
+    return '<div class="kcard kcmp"><b>' + L('比一比：這裡的風機有多大？', 'Compare: how big are the turbines here?') + '</b><svg viewBox="0 0 560 236" role="img" aria-label="' +
+      esc(L('台北 101 高 508 公尺；這裡的風機最高點約 ' + Math.round(tip) + ' 公尺；葉輪轉一圈掃過約 ' + np.toFixed(1) + ' 個足球場', 'Taipei 101 is 508 m tall; the turbine tip here is about ' + Math.round(tip) + ' m; one turn of the rotor sweeps about ' + np.toFixed(1) + ' football pitches')) + '">' +
+      '<path d="M0 ' + base + ' L390 ' + base + '" stroke="' + NAVY + '" stroke-width="3"/>' +
+      '<path d="M70 ' + base + ' L75 ' + (base - 200 * 0.86).toFixed(0) + ' L101 ' + (base - 200 * 0.86).toFixed(0) + ' L106 ' + base + ' Z" fill="#9DB7CC" stroke="' + NAVY + '" stroke-width="2"/><path d="M88 ' + (base - 172) + ' L88 ' + (base - 200) + '" stroke="' + NAVY + '" stroke-width="3"/>' +
+      '<text x="116" y="' + (base - 186) + '" font-size="15" font-weight="700" fill="' + NAVY + '">' + L('台北 101', 'Taipei 101') + '</text><text x="116" y="' + (base - 167) + '" font-size="15" fill="' + NAVY + '">508 m</text>' +
+      '<path d="M330 ' + base + ' L330 ' + hub.toFixed(1) + '" stroke="' + NAVY + '" stroke-width="4"/><g fill="#fff" stroke="' + NAVY + '" stroke-width="1.6">' + blades + '</g><circle cx="330" cy="' + hub.toFixed(1) + '" r="3" fill="#FFC845" stroke="' + NAVY + '" stroke-width="1.5"/>' +
+      '<text x="230" y="' + (hub - rr - 10).toFixed(0) + '" font-size="15" font-weight="700" fill="' + NAVY + '">' + L('最高點約 ', 'tip about ') + Math.round(tip) + ' m</text>' +
+      pitches + '<circle cx="' + cx.toFixed(1) + '" cy="' + pcy + '" r="' + (F.r / 2 * pk).toFixed(1) + '" fill="rgba(124,198,232,.35)" stroke="' + NAVY + '" stroke-width="2" stroke-dasharray="5 4"/>' +
+      '<text x="' + cx.toFixed(1) + '" y="' + (pcy - Math.max(ph / 2, F.r / 2 * pk) - 10).toFixed(0) + '" font-size="13" font-weight="700" fill="' + NAVY + '" text-anchor="middle">' + L('從上面看：' + np.toFixed(1) + ' 個足球場', 'From above: ' + np.toFixed(1) + ' pitches') + '</text></svg>' +
+      '<p class="ksmall" data-say="' + esc(L('這裡的風機輪轂高 ' + F.h + ' 公尺，葉片長 ' + (F.r / 2) + ' 公尺，最高點約 ' + Math.round(tip) + ' 公尺，差不多是台北 101 的 ' + Math.round(tip / R.t101.m * 100) + '%；葉片轉一圈掃過的範圍，大約是 ' + np.toFixed(1) + ' 個足球場那麼大。', 'The hub here is ' + F.h + ' m up and each blade is ' + (F.r / 2) + ' m long, so the tip reaches about ' + Math.round(tip) + ' m — about ' + Math.round(tip / R.t101.m * 100) + '% of Taipei 101. One turn of the blades sweeps an area of about ' + np.toFixed(1) + ' football pitches.')) + '">' +
+      L('輪轂高 ' + F.h + ' m＋葉片長 ' + (F.r / 2) + ' m（葉輪直徑 ' + F.r + ' m）＝最高點約 ' + Math.round(tip) + ' m，差不多是台北 101 的 ' + Math.round(tip / R.t101.m * 100) + '%。葉片轉一圈掃過 ' + WW.int(area) + ' 平方公尺，約 ' + np.toFixed(1) + ' 個標準足球場（' + R.pitch.w + '×' + R.pitch.h + ' m）。',
+        'Hub ' + F.h + ' m + blade ' + (F.r / 2) + ' m (rotor ' + F.r + ' m) = tip about ' + Math.round(tip) + ' m, about ' + Math.round(tip / R.t101.m * 100) + '% of Taipei 101. One turn sweeps ' + WW.int(area) + ' m², about ' + np.toFixed(1) + ' standard football pitches (' + R.pitch.w + '×' + R.pitch.h + ' m).') + '</p></div>';
+  }
   if (s.n === 8) {
     const k = 200 / 508, m = s.m, m1 = X.m1, R = m.rotor / 2 * k, r1 = Math.max(1.5, m1.rotor / 2 * k), base = 216;
     const circ = (cx, r) => '<circle cx="' + cx + '" cy="' + (base - r).toFixed(1) + '" r="' + r.toFixed(1) + '" fill="rgba(124,198,232,.25)" stroke="' + NAVY + '" stroke-width="2" stroke-dasharray="5 4"/>';
@@ -620,7 +642,53 @@ function viewTaiwan() {
         '<div class="klegend"><span><i class="g"></i>' + L('正在發電', 'Generating') + '</span><span><i></i>' + L('此刻沒有出力', 'No output now') + '</span></div></div>' +
       '<p class="ksmall">' + L('怎麼算的？家庭用電以每戶平均 0.5 kW 估算（一年約 3,600 度）。資料來自台電即時資料，本站約每 30 分鐘更新。', 'How is it worked out? A home uses about 0.5 kW on average (about 3,600 kWh a year). Data: Taipower’s live data, updated on this site about every 30 minutes.') +
         ' <a href="#/live">' + L('看大人版的台灣即時 →', 'See the full Taiwan live page →') + '</a></p>' +
-    '</div></div></div>';
+    '</div></div>' +
+    '<div class="kt-grid kt-more">' +
+      '<div class="kcard" id="kweek" hidden></div>' +
+      (WW.nearMe ? '<div class="kcard" id="knear"><b class="kq">' + L('📍 離我最近的風車在哪裡？', '📍 Where is the nearest turbine to me?') + '</b>' +
+        '<p class="ksmall">' + L('按下去，瀏覽器會先問你能不能知道你在哪裡。你的位置只在這台裝置上用來找風場，不會送出去，也不會存起來。', 'Press the button and the browser will first ask whether it may know where you are. Your position is used only on this device to find farms; it is never sent anywhere or stored.') + '</p>' +
+        '<div class="kbtns"><button type="button" class="kbtn sm" id="knearbtn">' + L('找找看！', 'Find it!') + '</button></div><div id="knearout"></div></div>' : '') +
+    '</div></div>';
+  paintKidsWeek();
+  const nb = $('knearbtn'); if (nb) nb.onclick = kidsNear;
+}
+
+/* 這一週的風（與首頁「本週風電回顧」同一套計算，week.js）· this week's wind in kids' words */
+function paintKidsWeek() {
+  if (!WW.weekData) return;
+  WW.weekData().then(R => {
+    const el = $('kweek'); if (!el || !R) return;
+    const d = R.B ? (R.A - R.B) / R.B * 100 : null, md = k => +k.slice(5, 7) + '/' + +k.slice(8, 10);
+    const cmp = d == null ? '' : Math.abs(d) < 10 ? L('，和前一週差不多', ', about the same as the week before') : d > 0 ? L('，比前一週多了 ' + Math.round(d) + '%', ', ' + Math.round(d) + '% more than the week before') : L('，比前一週少了 ' + Math.round(-d) + '%', ', ' + Math.round(-d) + '% less than the week before');
+    const say = L('這一週（到昨天為止的 7 天），台灣的風車平均發出 ' + WW.int(R.A) + ' MW' + cmp + '。最有風的是 ' + md(R.hi.k) + '，最安靜的是 ' + md(R.lo.k) + '。',
+      'Over the last 7 days (up to yesterday) Taiwan’s turbines averaged ' + WW.int(R.A) + ' MW' + cmp + '. The windiest day was ' + md(R.hi.k) + ' and the calmest ' + md(R.lo.k) + '.');
+    const mx = Math.max(...R.cur.map(x => x.v), 1), W = 420, H = 150, bw = W / 7, DOW = EN() ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] : ['日', '一', '二', '三', '四', '五', '六'];
+    const bars = R.cur.map((x, i) => { const h = Math.max(3, x.v / mx * 96), bx = i * bw + 8, dow = DOW[new Date(x.k + 'T12:00:00+08:00').getUTCDay()];
+      return '<rect x="' + bx.toFixed(1) + '" y="' + (118 - h).toFixed(1) + '" width="' + (bw - 16).toFixed(1) + '" height="' + h.toFixed(1) + '" rx="6" fill="' + (x === R.hi ? '#FFC845' : '#12A594') + '" stroke="' + NAVY + '" stroke-width="2"/>' +
+        '<text x="' + (bx + (bw - 16) / 2).toFixed(1) + '" y="' + (112 - h).toFixed(1) + '" font-size="12" font-weight="700" fill="' + NAVY + '" text-anchor="middle">' + WW.int(x.v) + '</text>' +
+        '<text x="' + (bx + (bw - 16) / 2).toFixed(1) + '" y="136" font-size="13" font-weight="700" fill="' + NAVY + '" text-anchor="middle">' + dow + '</text><text x="' + (bx + (bw - 16) / 2).toFixed(1) + '" y="148" font-size="10" fill="#5B7186" text-anchor="middle">' + md(x.k) + '</text>'; }).join('');
+    el.hidden = false;
+    el.innerHTML = '<b class="kq">' + L('這一週的風', 'This week’s wind') + '</b><p data-say="' + esc(say) + '">' + esc(say) + '</p>' +
+      '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(L('最近 7 天每天的平均出力（MW），黃色是最有風的一天', 'Average output each of the last 7 days (MW); yellow is the windiest day')) + '" style="width:100%;height:auto">' + bars + '</svg>' +
+      '<p class="ksmall">' + L('每根長條是那天的平均出力（MW），黃色是最有風的一天。這是本站約每 30 分鐘記下來的取樣，不是正式的發電量統計。', 'Each bar is that day’s average output (MW); yellow is the windiest day. These are the site’s samples taken about every 30 minutes, not official generation statistics.') + '</p>';
+  }).catch(() => {});
+}
+/* 離我最近的風車（near.js 的定位、比對與地圖；文字改成小朋友的說法）· the nearest turbine, in kids' words */
+function kidsNear() {
+  const out = $('knearout'), N = WW.nearMe; if (!out || !N) return;
+  out.innerHTML = '<p class="ksmall">' + L('正在找你在哪裡……', 'Finding where you are…') + '</p>';
+  N.locate().then(N.compute).then(r => Promise.all([r, N.borders()])).then(([r, B]) => {
+    const n0 = r.near[0], f = n0.f, name = (!EN() && f.zh) ? f.zh : f.name, km = n0.d < 10 ? n0.d.toFixed(1) : WW.int(n0.d), dir = N.dirName(n0.b);
+    const w = r.wind, b = w && N.band(w.s);
+    const say = L('離你最近的風場是「' + name + '」，在你的' + dir + '方大約 ' + km + ' 公里，有 ' + WW.int(f.mw) + ' MW。', 'The nearest wind farm to you is ' + name + ', about ' + km + ' km to the ' + dir + ', with ' + WW.int(f.mw) + ' MW.') +
+      (w ? L(' 你那裡現在的風大約 ' + w.s.toFixed(0) + ' m/s' + (b ? '，' + b[1] : '') + '。', ' The wind where you are is about ' + w.s.toFixed(0) + ' m/s' + (b ? ', ' + b[1] : '') + '.') : '');
+    out.innerHTML = '<canvas class="nmap knmap" aria-label="' + esc(L('以你為中心的地圖：此刻的風與最近的風場', 'Map centred on you: the wind now and the nearest farms')) + '"></canvas><p data-say="' + esc(say) + '">' + esc(say) + '</p>' +
+      '<p class="ksmall">' + L('風的顏色是 NOAA GFS 天氣模式算出來的大範圍風速，不是你家門口量的。', 'The wind colours come from the NOAA GFS weather model over a wide area, not a measurement at your door.') + ' <a href="' + WW.hashFor('global', null, { f: f.name }) + '">' + L('在地球儀上看 →', 'See it on the globe →') + '</a></p>';
+    N.drawMap(out.querySelector('.knmap'), r, B);
+    if (saying) speak(true);
+  }).catch(e => {
+    out.innerHTML = '<p class="ksmall">' + (e && e.code === 1 ? L('瀏覽器沒有讓我知道你在哪裡。可以在瀏覽器的網站設定允許「位置」後再按一次。', 'The browser didn’t let me know where you are. Allow location for this site in the browser settings and try again.') : L('暫時找不到你的位置或資料載不進來，等一下再試試。', 'Couldn’t get your location or load the data just now; try again in a moment.')) + '</p>';
+  });
 }
 
 /* ---------------- 風車護照 · passport ---------------- */

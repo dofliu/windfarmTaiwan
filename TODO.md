@@ -4,7 +4,7 @@
 
 具體可執行的任務清單。背景、評估理由與分階段規劃見 [ROADMAP.md](./ROADMAP.md)。
 
-## 進行中（2026-10-25 交接：v3.9.1，介面親切化六項全部完成（今天的風、分享圖卡、淺色模式、風機有多大、換一種東西比、我附近）；10 月底時效核對已做一部分；下一個對話從這裡開始）
+## 進行中（2026-10-26 交接：v3.11.0，介面親切化六項與後續四項（本週回顧、新紀錄提示、動手試試看、嵌入小卡、探險版沿用）全部完成；10 月底時效核對已做一部分；下一個對話從這裡開始）
 
 開新的工作階段先讀這一段（見 CLAUDE.md 第 8 節）；做完後把這一段改寫成下一件進行中的工作，完成的項目移到下面各主題的清單。
 2026-09-28 至 10-14 的逐版工作紀錄與查證線索移到本檔最下面的「工作紀錄與查證線索」，查線索時再讀；版本細節見 [CHANGELOG.md](./CHANGELOG.md)。
@@ -22,7 +22,8 @@
   **要使用者在真的裝置上試一次**：分享圖卡傳到 LINE、「📍 我附近」用真實位置、淺色模式的即時地圖底圖。
   **2026-10-25 再做（v3.10.0）**：首頁「本週風電回顧」（`assets/js/week.js`，資料 `farm_daily.json`；兩週長條＋重點＋方形週報圖卡）；「我附近」改讀 `data/global/farm_points.json`（`tools/build_farm_points.py`，重建風場層後要跑，pr-check 會比對）；允能輪轂 87 → 110.5 m、Hywind Tampen 95 → 106.5 m。
   **要人工查的**：大彰化東南第一階段＋西南第二階段（Greater Changhua 1 & 2a）與彰芳暨西島的輪轂高度，網路上找不到可引用的原文（中文維基大彰化的「輪轂高度 167 公尺」其實是葉輪直徑，不能用）；只有環境部環評書件系統（eiadoc.moenv.gov.tw）可能有海平面起算的值，要在瀏覽器手動查雲林、大彰化東南／西南與彰芳／西島的環差報告。允能的 110.5 m 原文沒寫基準面，查環評時一起確認。
-  **還可以做的（使用者沒有要求，不主動做）**：出力新紀錄提示、可嵌入的小卡（`#/embed`，要先問使用者）、探險版沿用比例與我附近。
+  **2026-10-26 再完成（v3.11.0，使用者選 A+B+C+D）**：A 新紀錄提示（`today.js`：昨天是不是取樣以來或本月最有風的一天、此刻是不是取樣以來最高出力；每天最高取樣 `mx` 由抓取程式自 2026-10-26 起記，`build_farm_daily.py --remax` 回補、每週排程已加；累積 14 天後才會出現「最高出力」那一句）；B 風電知識四個「動手試試看」（`lessons.js`：功率曲線、尾流效應、容量因數、成本下降；LCOE 資料 `lcoe_wind.json` 由 `tools/build_lcoe.py` 從 Our World in Data 取得）；C 探險版第 7 站「比一比」、台灣此刻的風加「這一週的風」與「離我最近的風車」；D 嵌入小卡 `#/embed` 與分享視窗的「嵌入到你的網站」。
+  **可選的後續**：把 `mx` 回補到 2026-06-15 起（在完整 git 歷史的機器上跑 `python3 tools/build_farm_daily.py --remax`，淺複本先 `git fetch --unshallow`；每週排程只補最近 21 天）；嵌入小卡在真實網頁的 `<iframe>` 裡試一次（高度 280 夠不夠）。
 - **全球風電發展觀察報告（2026-10-21 開始）**：使用者要一份說明幾十年來全球風電發展、分析與未來的觀察報告，看過三種樣稿後選 B「年報雜誌」風格、A4 直式，先寫中文版、之後要英文版。
   中文版已完成（`tools/report/`，`python3 tools/report/build_report.py zh` 輸出 `report/observation-report.zh.pdf`；成品不進 git）。
   2026-10-21 依使用者意見改第二版（約 37 頁、10 章）：封面改用平面地圖傾斜（各國風機高度依容量）；截圖一律關掉事件與港口圖層，每張拉近到該段落要講的地方（1981 年 Altamont、1990 北美／2000 歐洲／2025 亞洲、北海與中國沿海的離岸）；
@@ -54,7 +55,7 @@
 - **11 月中**：Northland 第三季報告 → 海龍（`assets/js/live.js` 的 `id:"longB"`，商轉仍寫 2027）。
 - **年底**：台電離岸二期（目標年底併網；10-07 裝 2／31）、沃四風（等沃旭全面商轉公告）、Baltic Power（76 部全裝完、預計 2026 年商轉）、Revolution Wind、Dieppe-Le Tréport（10-02 裝 41／62）、Sofia、青洲五、七（目標 2026-12）、儋州 CZ3 二場址；又德、環洋正式解約後改列 `PIPE_DROP`。
   查證紀錄在 `tools/research/twn_offshore_2026-10.json` 與 `farms_2026-10_status.json`（引文已核對）；要改哪裡見下面「需要定期回頭核對」。
-- **例行**：每月檢查資料時間與 Actions（[DEPLOY.md](./DEPLOY.md)「維護」）；每季重跑 `tools/build_live_units.py`（上次 2026-10-14；Elaine、Yawong、Forty Mile Bow Island 仍對不到）；USWTDB 每季出新版時重跑 `build_turbines.py`、`build_generation.py`、`build_market_shares.py`。
+- **例行**：Our World in Data 的 LCOE 約每年 7 月更新（下次約 2027-07）→ `python3 tools/build_lcoe.py --fetch`；每月檢查資料時間與 Actions（[DEPLOY.md](./DEPLOY.md)「維護」）；每季重跑 `tools/build_live_units.py`（上次 2026-10-14；Elaine、Yawong、Forty Mile Bow Island 仍對不到）；USWTDB 每季出新版時重跑 `build_turbines.py`、`build_generation.py`、`build_market_shares.py`。
 - **2027 年初**（第 2 類）：IRENA（約 3 月）、能源署《能源統計手冊》、JWPA（約 2 月）→ 2026 年度統計併進 `wind_global.json`、「最新可得」改成 2027；Ember 約 4–5 月發布 2026 年 → `python3 tools/build_country_indicators.py --fetch`；
   丹麥（2027 年初的檔案）、澳洲（AEMO 抓到 2026-12）、美國 EIA-923 補 2026 全年實測發電量；GEM 出新版時重建風場層、逐條核對清理規則並重跑 `fetch_gem_locations.py`。
 
