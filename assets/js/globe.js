@@ -4704,14 +4704,14 @@ function renderCompare() {
   const all = C.map(c => ({ c, t: c.on[yi] + c.off[yi] })).sort((a, b) => b.t - a.t), world = all.reduce((s, r) => s + r.t, 0);
   const rankOf = c => all.findIndex(r => r.c === c) + 1;
   const opts = sel => '<option value="">' + esc(T('cmpNone')) + '</option>' + C.slice().sort((a, b) => cname(a).localeCompare(cname(b), lang === 'en' ? 'en' : 'zh-Hant')).map(c => '<option value="' + c.iso + '"' + (c.iso === sel ? ' selected' : '') + '>' + esc(cname(c)) + '</option>').join('');
-  const picks = [0, 1, 2, 3].map(k => '<label class="oyl"><i class="gsw" style="background:' + CMP_COL[k] + '"></i><select class="cmpsel" data-k="' + k + '">' + opts(CMP.isos[k] || '') + '</select></label>').join('');
+  const picks = [0, 1, 2, 3].map(k => '<label class="oyl"><i class="gsw" style="background:' + CMP_COL[k] + '"></i><select class="cmpsel" data-k="' + k + '" aria-label="' + esc(T('cmpPick')) + ' ' + (k + 1) + '">' + opts(CMP.isos[k] || '') + '</select></label>').join('');
   const yrSel = '<label class="oyl">' + esc(T('cmpYear')) + ' <select class="cmpyear">' + YEARS.map(v => '<option' + (v === y ? ' selected' : '') + '>' + v + '</option>').join('') + '</select></label>';
   const cell = v => '<td>' + v + '</td>';
   const row = (lab, fn) => '<tr><th>' + esc(lab) + '</th>' + list.map(c => cell(fn(c))).join('') + '</tr>';
   const R = T('cmpRows');
   const bigOf = c => { if (!farmsReady || !farmsByIso[c.iso]) return '—'; const f = farmsByIso[c.iso].filter(x => !x.pipe && !AGG_RE.test(x.name) && farmActive(x, y + 0.99)).sort((a, b) => b.mw - a.mw)[0]; return f ? esc(fname(f)) + ' · ' + fmtMW(f.mw) : '—'; };
   const farmsOf = c => { if (!farmsReady || !farmsByIso[c.iso]) return '—'; const op = farmsByIso[c.iso].filter(x => !x.pipe && farmActive(x, y + 0.99)); return op.length + ' · ' + fmtMW(op.reduce((s, f) => s + farmMwAt(f, y + 0.99), 0)); };
-  const table = list.length ? '<table class="cmptab"><thead><tr><th></th>' + list.map((c, k) => '<th><i class="gsw" style="background:' + CMP_COL[k] + '"></i> ' + esc(cname(c)) + (c.lt && y === LT.year ? ' <small>' + esc(c.lt.asof) + '</small>' : '') + '</th>').join('') + '</tr></thead><tbody>' +
+  const table = list.length ? '<table class="cmptab"><thead><tr><th><span class="sr-only">' + esc(T('cmpTitle')) + '</span></th>' + list.map((c, k) => '<th><i class="gsw" style="background:' + CMP_COL[k] + '"></i> ' + esc(cname(c)) + (c.lt && y === LT.year ? ' <small>' + esc(c.lt.asof) + '</small>' : '') + '</th>').join('') + '</tr></thead><tbody>' +
     row(R.cap, c => '<b>' + fmtMW(c.on[yi] + c.off[yi]) + '</b>') + row(R.on, c => fmtMW(c.on[yi])) + row(R.off, c => fmtMW(c.off[yi])) +
     row(R.rank, c => '#' + rankOf(c)) + row(R.share, c => world ? ((c.on[yi] + c.off[yi]) / world * 100).toFixed(2) + '%' : '—') +
     row(R.add, c => { const a = addOf(c, y); return a ? (a.tot < 0 ? '−' : '+') + fmtMW(Math.abs(a.tot)) : '—'; }) +

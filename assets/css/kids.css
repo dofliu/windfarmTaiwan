@@ -207,8 +207,8 @@ button.kpill{font:inherit;font-weight:700;cursor:pointer}
 .kname input{font-size:20px;padding:10px 14px;border:2px solid var(--k-ink);border-radius:14px;background:#fff;color:var(--k-ink)}
 .kprog>div:first-child{display:flex;justify-content:space-between}
 .kbadges{list-style:none;display:flex;flex-direction:column;gap:10px}
-.kbadges li{display:flex;gap:12px;align-items:center;opacity:.62}
-.kbadges li.got{opacity:1}
+.kbadges li{display:flex;gap:12px;align-items:center}
+.kbadges li:not(.got) .kbi{opacity:.5}.kbadges li:not(.got) b{color:var(--k-ink2)}   /* 還沒拿到的徽章只淡化圖示，文字維持 4.5:1 · dim the icon only, keep text readable */
 .kbi{width:46px;height:46px;flex:none;border-radius:14px;border:3px solid var(--k-ink);background:#fff;display:flex;align-items:center;justify-content:center}
 .kbadges li.got .kbi{background:var(--k-sun)}
 .kbadges b{display:block;font-size:17px}
