@@ -12,6 +12,8 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 4. [Global (the 3D globe)](#4-global-the-3d-globe)
 5. [Learn](#5-learn)
 6. [Travel with the Wind (for young explorers)](#6-travel-with-the-wind-for-young-explorers)
+   - [6.1 For teachers: lesson plans, worksheets and classroom activities](#61-for-teachers-lesson-plans-worksheets-and-classroom-activities)
+   - [6.2 Data download: CSV and citation](#62-data-download-csv-and-citation)
 7. [Links and sharing](#7-links-and-sharing)
 8. [Single-file edition and public global wind map](#8-single-file-edition-and-public-global-wind-map)
 9. [Phones and older devices](#9-phones-and-older-devices)
@@ -309,6 +311,34 @@ The eight stops, by year:
 - **Read to me**: the browser's own speech synthesis reads out the screen's facts, question and options (nothing is sent anywhere); press again to stop. Without speech synthesis or a voice for the language, the button is disabled or shows a notice.
 - The language follows the EN / 中文 switch in the header.
 - The full single-file edition includes it (it works offline; photos need a connection); the public global wind map does not.
+
+### 6.1 For teachers: lesson plans, worksheets and classroom activities
+
+`#/teach` ("For teachers" under "Explore" on the home page, or "Project" in the footer) is for teachers; no account and nothing to install:
+
+- **Lesson plans and worksheets** (printable or saved as PDF, A4; "Print" at the top right hides the header and footer, and the worksheet and the teacher's key each start a new page):
+  - `#/teach/jh` **Junior high · Science · 45 min, "How much power is Taiwan's wind making right now?"**: read the output now, the homes it serves, the windiest day this week and where the farms are from Home, the kids page "Taiwan's wind right now" and the globe, then answer the claim "no wind, no power" with evidence. Maps to science learning content Nc-Ⅳ-2, Nc-Ⅳ-4, Nc-Ⅳ-6, INa-Ⅳ-4 and energy-education issue items 能 J1, J3, J5.
+  - `#/teach/sh` **Senior high · Scientific inquiry and practice · 2 periods, "Does a wind farm really generate all the time?"**: take official measured yearly output from the globe's Output dialog or the data page, compute the capacity factor = yearly generation ÷ (capacity × hours in the year), compare farms in Taiwan, Denmark, Australia and the US, argue and present in groups; with a rubric. Maps to the four inquiry items, chemistry CNc-Vc-1 and energy education 能 U6, U7, U9. The worked examples in the teacher's key are computed from the site's measured data when the page opens.
+  - The curriculum and issue passages are the original wording of the National Academy for Educational Research's guidelines and its issues-integration handbook (English translations are the site's own); the figures in the plans differ every lesson, so the worksheets leave blanks for students to fill from the site.
+- **Classroom activities**: one card each for the kids page, class mode, Taiwan's wind right now, Home, the four hands-on panels, the globe tours, the country comparison and the data page, with the suitable level, time and how to use it, a link and a QR code (pointing to the public site); "Print activity cards" prints them as a handout.
+- **Projection and settings**: light mode, full screen, language, the single-file copy for classrooms without internet, location permission and data times.
+
+### 6.2 Data download: CSV and citation
+
+`#/data` ("Project" in the footer, or from the teacher hub) converts the data the site is using right now into CSV (UTF-8 with BOM; opens in Excel and Google Sheets; the file name carries the download date), so it is always current; every dataset lists its columns, source and licence, with a link to the raw JSON:
+
+| Dataset | Content | Source |
+|---|---|---|
+| Taiwan daily samples per grid unit | each unit's daily average output, capacity factor and sample count (the site's sampled estimates) | Taipower live data (Open Government Data License) |
+| Taiwan daily total output | each day's average total and highest sample | same |
+| National capacity by year 1980–2025 | year-end cumulative, onshore and offshore | Energy Administration, JWPA, IRENA (via Our World in Data) |
+| Measured yearly farm output | farms with official per-farm figures: generation and capacity factor | EIA-923, Taipower, the Danish Energy Agency, AEMO |
+| Operating wind farms | name, position, capacity, start year, type | Global Energy Monitor, USWTDB, MaStR, the site's own records |
+| Offshore foundations and dimensions | foundation type, water depth, hub height, rotor diameter, a source per row | OSPAR and the site's farm-by-farm checks |
+| Global wind LCOE 1984–2025 | global weighted average onshore and offshore (constant 2025 US$ per kWh) | IRENA via Our World in Data |
+
+- "Citing the site" at the bottom gives a suggested citation (with version and access date) and "Copy citation" copies it; when citing a dataset, also credit its original source and licence.
+- OpenStreetMap turbine positions (ODbL) are not offered here; the limits of the data are in section 10 and in Learn's "Sources & method".
 
 ## 7. Links and sharing
 

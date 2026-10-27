@@ -15,6 +15,13 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.13.0 — 2026-10-27
+
+- **Teacher hub** `#/teach` ("For teachers" under "Explore" on Home and "Project" in the footer): activity cards (the kids page, class mode, Taiwan's wind right now, Home, the four hands-on panels, the globe tours, the country comparison, the data page), each with the suitable level, time, how to use it, a link and a QR code (`assets/vendor/qrcode-1.4.4.js`, MIT, generated in the browser; pointing to the public site), printable as a handout; projection and settings tips; a feedback link.
+- **Two lesson plans with worksheets** (printable A4, worksheet and teacher's key on their own pages): `#/teach/jh`, junior-high science, 45 min, "How much power is Taiwan's wind making right now?" (live data, the weekly recap, where the farms are, arguing the "no wind, no power" myth; Nc-Ⅳ-2, Nc-Ⅳ-4, Nc-Ⅳ-6, INa-Ⅳ-4, 能 J1/J3/J5) and `#/teach/sh`, senior-high scientific inquiry and practice, 2 periods, "Does a wind farm really generate all the time?" (capacity factor from official measured output, comparison across countries, argument and sharing, a rubric; the four inquiry items, CNc-Vc-1, 能 U6/U7/U9). The curriculum and issue passages are the original wording of the academy's guidelines and its issues-integration handbook (checked with `check_quotes.py`); the worked examples in the key are computed from `generation.json` at render time.
+- **Data page** `#/data`: seven datasets (Taiwan daily samples per grid unit, daily totals, national capacity by year, measured farm output, operating farms, offshore foundations and dimensions, global LCOE) converted to CSV in the browser (UTF-8 with BOM), each with columns, source, licence and a link to the raw JSON; a suggested citation with one-click copy.
+- User guide (6.1, 6.2), READMEs and CLAUDE.md updated; the smoke test checks the four new pages and adds them to the performance budget.
+
 ## v3.12.0 — 2026-10-26
 
 - **Schedule status page** `#/status` (linked under "Project" in the footer): the last data time of every source (Taipower live, daily samples, supply and demand, each live source abroad, Wind now, the official retrospective archive) graded against its expected cadence, the latest GitHub Actions run of every schedule (public API, no login) and the upload time of the single-file copies; a one-line summary at the top, reloaded every 5 minutes while open. The monthly check in DEPLOY's "Maintenance" now starts from this page.
