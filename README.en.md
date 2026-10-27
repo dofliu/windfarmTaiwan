@@ -114,7 +114,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 834 farms),
     Australia (AEMO, 64 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
     private farms (an estimate from samples, never mixed with the official figures)
-  - **Layers**: ports (103 in 20 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
+  - **Layers**: ports (120 in 21 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
     foundations (299 of the 342 operating offshore farms have a known type, 88.2% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
     Wind now (NOAA GFS, every 6 hours), Sea zones (EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
     areas of 6 North Sea countries) and a mean wind speed basemap (Global Wind Atlas)
@@ -211,7 +211,7 @@ output and sea zones load only when needed.
 - `data/global/farm_points.json` — slim points for "Near me": operating farms not on shared placeholder points, with name, position, capacity, year and type only (built by `tools/build_farm_points.py` from `wind_farms.json`, about 1.5 MB)
 - `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
   per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
-- `data/global/ports.json` — 103 offshore wind ports in 20 countries (curated by hand with sources; run `tools/qa_ports.py` after editing)
+- `data/global/ports.json` — 120 offshore wind ports in 21 countries (curated by hand with sources; run `tools/qa_ports.py` after editing)
 - `data/global/events.json` — 91 major events and incidents (built by `tools/build_events.py` from
   `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
   the build script, which checks that every event has English text and that farm names match the farm layer)

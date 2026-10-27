@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.15.1 — 2026-10-28
+
+- **Port links for the main European offshore farms**: 68 farm–port links added to the "farms served" lists in `ports.json` (37 offshore farms of 100 MW or more in the UK, Germany, the Netherlands, Denmark, Belgium, France and Sweden, plus Kentish Flats, Nordsee Ost and Shantou Lemen I), each with a source that states what the port did for the farm (owner or port news, government documents), quotes checked with `check_quotes.py`. 17 new ports (Ramsgate, Newhaven, Brightlingsea, Harland & Wolff Belfast, Zeebrugge, Klagshamn, Helgoland, Amsterdam, Harlingen, Urk, Hvide Sande, Thyborøn, Nyborg, Gedser, Rødbyhavn, Port-Joinville on Île d'Yeu, the Siemens Gamesa plant in Le Havre): 103 → 120 ports, 20 → 21 countries; Brest is back in use (Haizea Breizh tower assembly) and IJmuiden is now described as a multi-operator O&M hub. Operating offshore farms with a port link rise from 94 to 131 (116 of the 238 farms of 100 MW or more), so more farms start the sea-level view from a real port.
+- `FAR_OK` in `qa_ports.py` can give a per-port distance (Helgoland 60 km). For 30 large farms in Jiangsu and Guangdong, Jeju Hanlim and the O&M port of Borssele III & IV no source naming both the port and the farm was found; they are listed in TODO.
+
 ## v3.15.0 — 2026-10-27
 
 - **Sea-level view draws neighbouring farms**: other operating farms within 10 km (the nearest 12, at most 600 turbines) appear in a paler colour with their own positions (real or schematic) and sizes, named in the notes, so clustered farms (off Changhua and Miaoli, Fujian, the North Sea) no longer stand alone. Distances use the turbine-cluster centres, regional aggregates (such as the Jiuquan wind base) are never neighbours, and the credit line lists every position source used by the farm and its drawn neighbours. Where a farm's coordinates are only approximate, the notes warn that the scene may be off the real site, even on land.

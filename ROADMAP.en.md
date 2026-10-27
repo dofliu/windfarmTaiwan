@@ -33,7 +33,7 @@ On 17 Oct 2026 the globe layout redesign was completed (v2.40.0–v3.0.0, seven 
 - v2.29.0–v2.30.0 the "Sea zones" layer: EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
   areas of 6 North Sea countries.
 - 91 major events and incidents (the owner's 59 verified rows, 29 compiled from web searches and 3 from owner notices, each with sources;
-  [docs/events.en.md](./docs/events.en.md)); 103 ports in 20 countries (China, Korea, the Philippines, Europe and the US added in v2.37.0).
+  [docs/events.en.md](./docs/events.en.md)); 120 ports in 21 countries (China, Korea, the Philippines, Europe and the US added in v2.37.0; installation and O&M ports of the main European offshore farms in v3.15.1).
 - Live data: live output for about 150 farms in Australia and Canada; v2.31.0–v2.34.0 added national wind totals for the UK (Great Britain, Northern Ireland), Ireland, Germany, France, Denmark, Belgium, Poland, Korea and Brazil and the Texas and California grids (totals only, 48-hour trend);
   v2.35.0–v2.36.0 the globe's "Live data" layer colours countries by coverage (partly covered countries only in the states or provinces with data). Sources and licences: [docs/live-data-sources.en.md](./docs/live-data-sources.en.md).
 - v2.38.0 country comparison and indicators: the toolbar's "⚖ Compare" puts 2–4 countries side by side (cumulative curves and a table for the year); "Indicator" colours the map by year-end capacity, capacity per person, wind's share of generation, capacity factor or the year's additions (Ember yearly electricity data and Our World in Data population, CC BY 4.0); a yearly-additions chart in country profiles.
