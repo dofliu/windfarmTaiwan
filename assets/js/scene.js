@@ -73,8 +73,10 @@ function open(f, H, fromBtn) {
   const kx = 111320 * Math.cos(c0.lat * D2R), ky = 110574;
   const loc = { sea, xy: (lon, lat) => [(lon - c0.lon) * kx, (lat - c0.lat) * ky], ll: (x, y) => [c0.lon + x / kx, c0.lat + y / ky] };
   const tb = H.turbines(f), dm = H.dims(f), port = sea ? H.port(f) : null, n = tb.P.length;
+  const NB = H.neighbours ? H.neighbours(f, 10) : [];        // 10 km 內其他營運中的風場（淡色一起畫）· neighbouring operating farms, drawn dimmer
   const hub = dm.hub, rotor = dm.rotor;
   let rad = 0; tb.P.forEach(p => { rad = Math.max(rad, Math.hypot(p[0], p[1])); }); rad = Math.max(rad, 300);
+  let ext = rad; NB.forEach(nb => { const [ox, oy] = loc.xy(nb.lon, nb.lat); nb.off = [ox, oy]; nb.t.P.forEach(p => { ext = Math.max(ext, Math.hypot(ox + p[0], oy + p[1])); }); });
 
   // DOM
   const el = document.createElement('div'); el.id = 'g-scene'; el.setAttribute('role', 'region'); el.setAttribute('aria-label', L('實景視角', 'Sea-level view'));
@@ -104,7 +106,7 @@ function open(f, H, fromBtn) {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(im.x1 - im.x0, im.y1 - im.y0), groundMat(im.tex, sea ? .35 : 1));
     m.rotation.x = -Math.PI / 2; m.position.set((im.x0 + im.x1) / 2, y, -(im.y0 + im.y1) / 2); scene.add(m); patches.push(m); return im;
   };
-  const fine = addPatch(rad + 2500, 144, 3072, 0);
+  const fine = addPatch(Math.min(ext, rad + 8000) + 2500, 144, 3072, 0);
   const reach = port ? Math.hypot(...loc.xy(port.lon, port.lat)) + 6000 : 25000;
   addPatch(Math.max(reach, 20000), 100, 2048, -1.5);
   if (port) { const [px0, py0] = loc.xy(port.lon, port.lat); const [plon0, plat0] = loc.ll(px0 - 2500, py0 - 2500), [plon1, plat1] = loc.ll(px0 + 2500, py0 + 2500); const im = imagery(loc, plon0, plat0, plon1, plat1, 100, 2048); const m = new THREE.Mesh(new THREE.PlaneGeometry(im.x1 - im.x0, im.y1 - im.y0), groundMat(im.tex, .9)); m.rotation.x = -Math.PI / 2; m.position.set((im.x0 + im.x1) / 2, 0.4, -(im.y0 + im.y1) / 2); scene.add(m); patches.push(m); }
@@ -117,6 +119,16 @@ function open(f, H, fromBtn) {
   tb.P.forEach((p, i) => {
     const t = makeTurbine(mats, hub, rotor, sea); t.position.set(p[0], 0, -p[1]); t.userData.phase = Math.random() * 6.28; scene.add(t); rotors.push(t.userData.rot);
     if (bases) H.baseParts(bases[i]).forEach(part => { const m = new THREE.Mesh(part.geo, part.mat); m.scale.set(hub, hub, hub); m.position.set(p[0], 0, -p[1]); scene.add(m); });
+  });
+  // 相鄰風場：淡色、各自的機位與尺寸，最多 600 部 · neighbours: dimmer material, their own positions and sizes, at most 600 turbines
+  const dimMats = { white: new THREE.MeshStandardMaterial({ color: 0xcfd5db, roughness: .7 }) };
+  let nbCount = 0; const nbDrawn = [];
+  NB.forEach(nb => {
+    if (nbCount >= 600) return; const [ox, oy] = nb.off, nbBases = H.baseKeys(nb.f, nb.t.P.length);
+    nb.t.P.forEach((p, i) => { if (nbCount >= 600) return; nbCount++;
+      const t = makeTurbine(dimMats, nb.dims.hub, nb.dims.rotor, nb.f.type !== 'onshore'); t.position.set(ox + p[0], 0, -(oy + p[1])); t.userData.phase = Math.random() * 6.28; scene.add(t); rotors.push(t.userData.rot);
+      if (nbBases) H.baseParts(nbBases[i]).forEach(part => { const m = new THREE.Mesh(part.geo, part.mat); m.scale.set(nb.dims.hub, nb.dims.hub, nb.dims.hub); m.position.set(ox + p[0], 0, -(oy + p[1])); scene.add(m); }); });
+    nbDrawn.push(nb);
   });
   // 鏡頭與控制 · camera and controls
   const controls = new THREE.OrbitControls(camera, canvas);
@@ -154,6 +166,8 @@ function open(f, H, fromBtn) {
     sea ? (H.fdName(f) ? L('水下基礎：', 'Foundation: ') + H.fdName(f) + L('（水面以上的基座段為示意）', ' (the part above water is schematic)') : L('水下基礎型式不詳，基座未畫', 'Foundation type unknown; no base drawn')) : null,
     port ? L('從', 'Starting from ') + (WW.lang === 'en' ? port.name : (port.zh || port.name)) + L('出發（港區只有衛星影像，不畫建物）', ' (the port area is imagery only; no buildings are drawn)') : (sea ? L('本站沒有這座風場對應的港口，從外海進場', 'No port on file for this farm; approaching from open water') : null),
     live ? L(`此刻出力 ${WW.int(live.mw)} MW，葉片依出力轉動`, `Output now ${WW.int(live.mw)} MW; the blades turn with it`) : L('葉片轉速為示意', 'Blade speed is illustrative'),
+    H.posNote && H.posNote(f) ? L('這座風場的座標只是概略位置（見卡片說明），畫面可能落在離實際位置幾公里的地方，甚至在陸地上。', 'This farm\'s coordinates are only approximate (see the card), so the scene may sit kilometres from the real site, even on land.') : null,
+    nbDrawn.length ? L(`淡色風機是 10 km 內的其他風場（${nbDrawn.map(x => x.name + (x.t.real ? '' : '［示意］')).join('、')}）`, `Pale turbines belong to other farms within 10 km (${nbDrawn.map(x => x.name + (x.t.real ? '' : ' [schematic]')).join(', ')})`) : null,
     L('衛星影像的拍攝日期常早於風場完工，所以影像裡通常看不到風機；海岸線與地形以影像為準，沒有高程。', 'The imagery is often older than the farm, so the turbines themselves are usually not in it; coastlines follow the imagery and there is no terrain relief.')
   ].filter(Boolean);
   el.querySelector('.scn-hud').innerHTML = '<ul>' + lines.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul>';
@@ -179,10 +193,10 @@ function open(f, H, fromBtn) {
   window.addEventListener('keydown', onKey, true); window.addEventListener('resize', resize);
   H.pause();
   resize(); flyIn(); raf = requestAnimationFrame(frame);
-  cur = { el, dispose() { alive = false; cancelAnimationFrame(raf); window.removeEventListener('keydown', onKey, true); window.removeEventListener('resize', resize); controls.dispose(); scene.traverse(o => { if (o.geometry && !o.userData.shared) o.geometry.dispose(); }); patches.forEach(m => m.material.map && m.material.map.dispose()); renderer.dispose(); el.remove(); H.resume(); if (fromBtn && fromBtn.isConnected) fromBtn.focus(); }, f };
+  cur = { el, stats: { turbines: n, neighbours: nbDrawn.length, neighbourTurbines: nbCount, real: tb.real, port: !!port }, dispose() { alive = false; cancelAnimationFrame(raf); window.removeEventListener('keydown', onKey, true); window.removeEventListener('resize', resize); controls.dispose(); scene.traverse(o => { if (o.geometry && !o.userData.shared) o.geometry.dispose(); }); patches.forEach(m => m.material.map && m.material.map.dispose()); renderer.dispose(); el.remove(); H.resume(); if (fromBtn && fromBtn.isConnected) fromBtn.focus(); }, f };
   setTimeout(() => { const b = el.querySelector('.scn-back'); if (b) b.focus({ preventScroll: true }); }, 50);
   window.dispatchEvent(new CustomEvent('ww-scene', { detail: { open: true, farm: f.name } }));
 }
 function close() { if (!cur) return; const c = cur; cur = null; c.dispose(); window.dispatchEvent(new CustomEvent('ww-scene', { detail: { open: false } })); }
-WW.scene = { open, close, isOpen: () => !!cur, farm: () => cur && cur.f };
+WW.scene = { open, close, isOpen: () => !!cur, farm: () => cur && cur.f, stats: () => cur ? cur.stats : null };
 })();

@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.15.0 — 2026-10-27
+
+- **Sea-level view draws neighbouring farms**: other operating farms within 10 km (the nearest 12, at most 600 turbines) appear in a paler colour with their own positions (real or schematic) and sizes, named in the notes, so clustered farms (off Changhua and Miaoli, Fujian, the North Sea) no longer stand alone. Distances use the turbine-cluster centres. Where a farm's coordinates are only approximate, the notes warn that the scene may be off the real site, even on land.
+- User guide 4.6a updated; the smoke test checks the neighbouring farms.
+
 ## v3.14.0 — 2026-10-27
 
 - **Globe "sea-level view"** (`assets/js/scene.js`, loaded on first use; "🚢 Sail out to the farm" on the farm card, "🧭 Walk into the farm" for onshore farms; link `f=name&sv=1`): the camera starts at the farm's port (the nearest port whose "farms" list in `ports.json` names it), flies to the farm edge in 3–4 seconds and settles at a roughly 30° oblique view; orbit, zoom and pan follow, with "Sea level" (camera about 16 m up; eye height onshore), "Oblique 30°", "Sail again" and "Copy link"; "Back to the globe" or Esc removes the scene and the globe keeps its view, card and year.

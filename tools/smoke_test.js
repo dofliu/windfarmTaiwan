@@ -178,6 +178,13 @@ const ROUTES = [
     if (!document.querySelector('#g-infoCard').classList.contains('show')) return 'scene: the farm card was lost on Back';
     return '';
   }],
+  ['#/global?f=Formosa%201%20Phase%202&sv=1', 20000, () => {
+    // 相鄰風場一起畫：海洋二期 10 km 內有海能與竹南，淡色風機與說明都要有 · neighbours within 10 km drawn in a paler colour and named in the notes
+    const st = WW.scene && WW.scene.stats(); if (!st) return 'scene: not open';
+    if (st.neighbours < 1 || st.neighbourTurbines < 1) return 'scene: no neighbouring farms drawn (' + JSON.stringify(st) + ')';
+    if (![...document.querySelectorAll('#g-scene .scn-hud li')].some(l => /淡色|Pale/.test(l.textContent))) return 'scene: neighbour note missing';
+    document.querySelector('#g-scene .scn-back').click(); return document.getElementById('g-scene') ? 'scene: still open after Back' : '';
+  }],
   ['#/global?out=USA.cf', 15000, () => {
     const n = document.querySelectorAll('.gana .oout .orow').length;
     return n > 10 ? '' : 'Output dialog: ' + n + ' rows';

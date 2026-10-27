@@ -3123,8 +3123,17 @@ function sceneHooks() {
       PORTS.forEach(p => { if (p.status === 'former' || !(p.farms || []).includes(f.name)) return; const d = Math.hypot((p.lon - f.lon) * Math.cos(f.lat * D2R), p.lat - f.lat); if (d < bd) { bd = d; best = p; } });
       return best ? { name: best.name, zh: best.zh, lat: best.lat, lon: best.lon } : null;
     },
-    live: f => liveOn() ? liveFor(f) : null, spin: lv => spinOf(lv),
-    pause: () => stop(), resume: () => { if (active) start(); }
+    live: f => liveOn() ? liveFor(f) : null, spin: lv => spinOf(lv), posNote: f => posNote(f),
+    pause: () => stop(), resume: () => { if (active) start(); },
+    neighbours(f, km) {                                             // 10 km 內其他營運中的風場（最近的 12 座）：各自的機位、尺寸與中心 · nearby operating farms with their own positions and sizes
+      const c = clusterLL(f), cosl = Math.cos(c.lat * D2R), out = [];
+      for (const x of D.farms) {
+        if (x === f || x.pipe || x.pseudo || x.st !== 0 || x.end || !farmActive(x, Y1)) continue;
+        const cc = clusterLL(x), d = Math.hypot((cc.lon - c.lon) * 111.32 * cosl, (cc.lat - c.lat) * 110.574); if (d <= km) out.push([d, x, cc]);   // 兩邊都用機位中心 · both centres from the turbine positions where known
+      }
+      out.sort((a, b) => a[0] - b[0]);
+      return out.slice(0, 12).map(([d, x, cc]) => ({ f: x, name: fname(x), lon: cc.lon, lat: cc.lat, km: d, t: this.turbines(x), dims: this.dims(x) }));
+    }
   };
 }
 function openScene(f, btn) {
