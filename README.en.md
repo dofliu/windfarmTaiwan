@@ -110,7 +110,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
     (Taiwan and Japan carry an official-statistics audit badge)
   - **Farm cards**: hand-checked photos, Wikipedia summary, foundation and a to-scale cross-section, distance to shore, actual or estimated
     yearly output, national rank, phases, nearby and same-developer farms, related events, live output, external links, "Copy link to this
-    farm" and "Report a data error"
+    farm" and "Report a data error"; the **sea-level view** (`assets/js/scene.js`): sail out from the farm's port, reach the farm in a few seconds and look at the turbines at their real positions and sizes from the sea or the air (`f=name&sv=1`), with "Back to the globe" restoring the previous view
   - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 834 farms),
     Australia (AEMO, 64 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
     private farms (an estimate from samples, never mixed with the official figures)

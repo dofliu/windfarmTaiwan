@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.14.0 — 2026-10-27
+
+- **Globe "sea-level view"** (`assets/js/scene.js`, loaded on first use; "🚢 Sail out to the farm" on the farm card, "🧭 Walk into the farm" for onshore farms; link `f=name&sv=1`): the camera starts at the farm's port (the nearest port whose "farms" list in `ports.json` names it), flies to the farm edge in 3–4 seconds and settles at a roughly 30° oblique view; orbit, zoom and pan follow, with "Sea level" (camera about 16 m up; eye height onshore), "Oblique 30°", "Sail again" and "Copy link"; "Back to the globe" or Esc removes the scene and the globe keeps its view, card and year.
+  Turbines are drawn only at the site's real positions (USWTDB, MaStR, OpenStreetMap), otherwise in the close-up's schematic layout, labelled; hub height and rotor diameter come from checked or register values, otherwise labelled estimates; foundation bases follow the close-up; farms with live data in Taiwan, Australia and Canada turn their blades with the output now. Ground and sea carry Esri imagery (often older than the farm, as the notes say; the port area is imagery only with no buildings drawn; plain colours with a notice when offline). The approach is skipped under "reduce motion".
+- User guide (4.6, 4.6a, `sv` in section 7), READMEs and CLAUDE.md (section 4) updated; the smoke test gains the sea-level view route.
+
 ## v3.13.0 — 2026-10-27
 
 - **Teacher hub** `#/teach` ("For teachers" under "Explore" on Home and "Project" in the footer): activity cards (the kids page, class mode, Taiwan's wind right now, Home, the four hands-on panels, the globe tours, the country comparison, the data page), each with the suitable level, time, how to use it, a link and a QR code (`assets/vendor/qrcode-1.4.4.js`, MIT, generated in the browser; pointing to the public site), printable as a handout; projection and settings tips; a feedback link.

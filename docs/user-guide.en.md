@@ -182,7 +182,18 @@ Click a farm on the map, in the search results or in a list to open its card; on
 10. **Live output right now**: farms with live data in Taiwan, Australia and Canada (with the timeline at the latest year they get a green ring and their rotors turn with their output); Taiwanese farms link to their live details.
 11. Wikipedia summary; links to Wikipedia, a satellite map, OpenStreetMap, a wind resource map, a photo search, the GEM project page, Wikidata and the source.
 12. **Nearby farms** (within 30 km), other farms by the **same developer** and **related events**; click to switch.
-13. **🔗 Copy link to this farm** and **⚑ Report a data error** (opens a GitHub issue pre-filled with the farm's details).
+13. **🚢 Sail out to the farm** (onshore farms: **🧭 Walk into the farm**): opens the **sea-level view** (4.6a).
+14. **🔗 Copy link to this farm** and **⚑ Report a data error** (opens a GitHub issue pre-filled with the farm's details).
+
+### 4.6a Sea-level view
+
+"Sail out to the farm" on the card replaces the map with a 3D scene: the camera starts at the farm's marshalling or O&M port (the nearest port whose "farms" list names it), flies to the edge of the farm in 3–4 seconds and settles at a roughly 30° oblique view. Then:
+
+- Drag to orbit, scroll or pinch to zoom, right-drag or two-finger drag to pan; **Sea level** puts the camera about 16 m up (bridge height) just outside the turbine nearest the port (**Ground level**, eye height, on onshore farms); **Oblique 30°** returns to the arrival angle; **Sail again** replays the approach; **🔗 Copy link** copies the link with `sv=1`.
+- **↩ Back to the globe** (or Esc) removes the scene; the globe comes back exactly as you left it, card and year included.
+- The notes at the bottom left say where the farm's data comes from: whether the turbines stand at their real positions (USWTDB in the US, MaStR in Germany, OpenStreetMap elsewhere) or in a schematic layout; whether hub height and rotor diameter are the site's checked values, register values or estimates; the foundation type (the part above water is schematic); the port; and, for farms with live data in Taiwan, Australia and Canada, that the blades turn with the output right now.
+- Ground and sea carry Esri imagery: it is often older than the farm, so the turbines themselves are usually not in it; there is no terrain relief, and the port area is imagery only, with no buildings drawn. Offline (the single-file copy without a network) the ground is a plain colour with a notice.
+- With the system setting "reduce motion" the approach is skipped and the view starts at the oblique angle.
 
 Port cards list the roles, the farms served (drawn as arcs on the map) and the sources; event cards give the summary, capacity basis, casualties (officially confirmed only), related farms and sources.
 
@@ -370,6 +381,7 @@ Dashboard sort and filters (on `#/live` only; defaults are left out): `sort=rati
 | `layer` | Show: `both`, `on` (onshore), `off` (offshore), `fd` (foundations) | `layer=fd` |
 | `fdg` | One foundation group: `mp`, `frame`, `fl`, `other`, `unk` (with `layer=fd`) | `fdg=fl` |
 | `f` | Open a farm card (English name) | `f=Hornsea%20One` |
+| `sv` | With `f`: open the sea-level view directly | `f=Formosa%201%20Phase%202&sv=1` |
 | `ms` | Open a milestone | `ms=Horns%20Rev%201` |
 | `port` | Open a port | `port=twn-taichung` |
 | `ev` | Open an event | `ev=WIND-040` |
