@@ -73,6 +73,7 @@ const I18N = {
     near: '附近風場（30 km 內）', nearNone: '30 km 內沒有其他收錄的風場。',
     sameOwner: '同開發商', ownNote: '依業主名稱比對；各來源寫法不一，可能有遺漏。本國優先，依容量排序。',
     relMore: n => `顯示全部 ${n} 座`, relMoreT: n => `顯示全部 ${n} 部`, relCap: n => `另有 ${n} 座未列出`,
+    sceneOff: '🚢 從港口出海看風場', sceneOn: '🧭 走進風場看看', sceneT: '實景視角：幾秒內從港口（或外海）飛到風場，站在海面或空中看真實排列的風機；「回到地球儀」會回到現在的畫面',
     copyLink: '複製此風場連結', copyLinkMs: '複製此里程碑連結', copied: '已複製連結 ✓', copyFail: '無法自動複製，請手動複製下方連結',
     report: '回報資料錯誤', reportT: '在 GitHub 開一則 issue（需登入），已預填名稱、座標與連結',
     btnSearch: '🔍 搜尋', btnPorts: '⚓ 港口', portsTab: '港口', btnNear: '📍 我附近', nearT: '找離你最近的營運中風場（位置只在這台瀏覽器裡計算，不會傳出去，也不會存下來）', youHere: '📍 你在這裡',
@@ -208,6 +209,7 @@ const I18N = {
     near: 'Nearby farms (within 30 km)', nearNone: 'No other listed farm within 30 km.',
     sameOwner: 'Same developer', ownNote: 'Matched by owner name; sources spell names differently, so some may be missing. Same country first, then by capacity.',
     relMore: n => `Show all ${n}`, relMoreT: n => `Show all ${n}`, relCap: n => `${n} more not listed`,
+    sceneOff: '🚢 Sail out to the farm', sceneOn: '🧭 Walk into the farm', sceneT: 'Sea-level view: fly from the port (or open water) to the farm in a few seconds and look at the real layout from the sea or the air; "Back to the globe" returns to this view',
     copyLink: 'Copy link to this farm', copyLinkMs: 'Copy link to this milestone', copied: 'Link copied ✓', copyFail: 'Could not copy automatically — copy the link below',
     report: 'Report a data error', reportT: 'Opens a GitHub issue (sign-in needed) pre-filled with the name, coordinates and link',
     btnSearch: '🔍 Search', btnPorts: '⚓ Ports', portsTab: 'Ports', btnNear: '📍 Near me', nearT: 'Find the operating wind farm nearest to you (your position is used only in this browser; it is never sent anywhere or stored)', youHere: '📍 You are here',
@@ -455,7 +457,7 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJ
   $('g-slider').min = Y0; $('g-slider').max = Y1;
   init();
   WW.getJSON(WW.DATA.farms).then(expandFarms).catch(e => { console.error(e); notice(L('風場資料載入失敗', 'Farm data failed to load')); });
-  if (LITE) liteSetup(); else { loadPorts(); loadFoundations(); loadEvents(); }
+  if (LITE) liteSetup(); else { portsP = loadPorts(); fdP = loadFoundations(); loadEvents(); }
 });
 /* 單檔公開版：藏起進階功能的按鈕與分頁，里程碑清空（地圖上的星號與導覽都不出現），圖層選單去掉水下基礎 */
 function liteSetup() {
@@ -926,7 +928,7 @@ const _col = new THREE.Color();
    確切型式寫在卡片與提示框；圖例可只看一組。資料：data/global/foundations.json（tools/build_foundations.py） */
 const FD_GROUPS = ['mp', 'frame', 'fl', 'other', 'unk'];
 const FD_HEX = { mp: 0x3987e5, frame: 0xd95926, fl: 0x199e70, other: 0xdfe3ea, unk: 0xa7adb6 };
-let FD = null;
+let FD = null, fdP = null, portsP = null;
 function fdGroup(f) { return f.fd ? ((FD && FD.meta.types[f.fd.t]) || [0, 0, 'unk'])[2] : (f.type === 'floating' ? 'fl' : 'unk'); }
 function fdTypeName(t) { const x = FD && FD.meta.types[t]; return x ? x[lang === 'zh' ? 0 : 1] : ''; }
 function fdSubName(k) { const x = FD && FD.meta.subs[k]; return x ? x[lang === 'zh' ? 0 : 1] : ''; }
@@ -3095,6 +3097,42 @@ function refreshLiveBox() {                  // 即時資料更新：只換卡�
   const slot = cardItem && $('g-infoCard').querySelector('.lvslot'); if (!slot) return;
   const f = cardItem.f || cardItem.farm; slot.innerHTML = f ? liveBoxFor(f) : '';
 }
+/* ================= 實景視角（assets/js/scene.js，第一次按才載入）：地球儀提供機位、尺寸、基座、港口與即時出力，畫面暫停到按「回到地球儀」 ================= */
+const LITE_NO_SCENE = false;                                       // 公開版也有（機位與尺寸都在檔裡；衛星影像要連網）
+function sceneHooks() {
+  return {
+    fname, center: f => clusterLL(f),
+    turbines(f) {                                                   // 公尺（東、北）；實際機位或與近看相同的示意排列
+      const tb = tbOf(f), sp = turbSpec(f);
+      if (tb) return { P: tbKm(tb).map(p => [p[0] * 1000, p[1] * 1000]), real: true, src: tb.src, n: tb.n || sp.n };
+      const rnd = seeded(f.name + f.lat), r = Math.ceil(Math.sqrt(sp.n)) + 2, pts = [];
+      for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) { const x = i + (j & 1) * 0.5, z = j * 0.866; pts.push([x, z, x * x + z * z]); }
+      pts.sort((a, b) => a[2] - b[2]);
+      return { P: pts.slice(0, sp.n).map(p => [(p[0] + (rnd() - 0.5) * 0.25) * sp.spacing * 1000, -(p[1] + (rnd() - 0.5) * 0.25) * sp.spacing * 1000]), real: false, src: null, n: sp.n };
+    },
+    dims(f) {                                                       // 輪轂高度、葉輪直徑（公尺）與出處；沒有就依機組容量估計
+      const sc = scaleOf(f), dm = fdDims(f), tb = tbOf(f);
+      if (sc) return { hub: sc.hub, rotor: sc.rotor, est: false, src: dm && dm.hub != null && dm.rotor && !dm.tower ? L('本站逐場查證', 'checked by this site') : tb && tb.src === 'us' ? 'USWTDB' : 'MaStR' };
+      const sp = turbSpec(f), unit = sp.unit || defaultUnit(f.type, f.year), rotor = clamp(Math.sqrt(unit) * 48 + 16, 30, 260), hub = clamp(rotor * 0.62 + 8, 30, 170);
+      return { hub, rotor, est: true, src: '' };
+    },
+    baseKeys: (f, n) => baseKeys(f, n), baseParts: k => baseParts(k),
+    fdName: f => f.fd ? fdText(f) : '',
+    port(f) {                                                       // 「服務過的風場」列到這座風場、最近的港口；只用正在運作的港口
+      let best = null, bd = Infinity;
+      PORTS.forEach(p => { if (p.status === 'former' || !(p.farms || []).includes(f.name)) return; const d = Math.hypot((p.lon - f.lon) * Math.cos(f.lat * D2R), p.lat - f.lat); if (d < bd) { bd = d; best = p; } });
+      return best ? { name: best.name, zh: best.zh, lat: best.lat, lon: best.lon } : null;
+    },
+    live: f => liveOn() ? liveFor(f) : null, spin: lv => spinOf(lv),
+    pause: () => stop(), resume: () => { if (active) start(); }
+  };
+}
+function openScene(f, btn) {
+  needTurbines(f);
+  const waits = [fdP, portsP].concat(Object.values(tbLoad)).filter(Boolean);
+  Promise.all([WW.loadScript('assets/js/scene.js')].concat(waits.map(w => w.catch(() => null)))).then(() => { if (active && WW.scene) WW.scene.open(f, sceneHooks(), btn); })
+    .catch(e => { console.error(e); WW.toast(L('實景視角載入失敗', 'The sea-level view failed to load')); });
+}
 function renderCard(it) {
   const same = it === cardItem;               // 同一張卡重畫（換語言）：保留捲動位置
   cardItem = it; relFarms = [];
@@ -3177,7 +3215,7 @@ function renderCard(it) {
     (posNote(f) ? '<p class="fnote pos">' + esc(posNote(f)) + '</p>' : '') +
     '<div class="lvslot">' + (f ? liveBoxFor(f) : (it.farm ? liveBoxFor(it.farm) : '')) + '</div>' +
     '<p class="wx">' + T('wikiLoading') + '</p><div class="links xl">' + links + '</div>' + rel +
-    (full && it.kind !== 'turb' ? '<div class="factions"><button type="button" class="fcopy">🔗 ' + esc(T(it.kind === 'ms' ? 'copyLinkMs' : it.kind === 'port' ? 'copyLinkPort' : it.kind === 'event' ? 'copyLinkEv' : 'copyLink')) + '</button>' +
+    (full && it.kind !== 'turb' ? '<div class="factions">' + (it.kind === 'farm' && real && !f.pipe && !LITE_NO_SCENE ? '<button type="button" class="fscene" title="' + esc(T('sceneT')) + '">' + esc(T(f.type === 'onshore' ? 'sceneOn' : 'sceneOff')) + '</button>' : '') + '<button type="button" class="fcopy">🔗 ' + esc(T(it.kind === 'ms' ? 'copyLinkMs' : it.kind === 'port' ? 'copyLinkPort' : it.kind === 'event' ? 'copyLinkEv' : 'copyLink')) + '</button>' +
       '<a class="freport" href="' + esc(reportURL(it)) + '" target="_blank" rel="noopener" title="' + esc(T('reportT')) + '">⚑ ' + esc(T('report')) + '</a></div>' : '');
   card.classList.add('show'); $('g-mapPane').classList.add('carded');
   if (PHONE && !same) drawerSet(TOUR ? 1 : Math.max(1, drawerHv));   // 手機：卡片進抽屜，至少半開（導覽時保持半開，地圖才看得到）
@@ -3194,6 +3232,7 @@ function renderCard(it) {
     b.onclick = () => b.dataset.out === 'TWS' ? openOutput({ iso: 'TWS', view: 'cf', per: '90', hl: b.dataset.k })
       : b.dataset.out === 'DKT' ? openOutput({ iso: 'DKT', view: 'cf', year: b.dataset.y, hl: b.dataset.k }) : f && openOutput({ iso: f.iso, view: 'cf', hl: f.iso + '|' + f.name });
   });
+  const sb = card.querySelector('.fscene'); if (sb) sb.onclick = () => openScene(f, sb);
   const cp = card.querySelector('.fcopy');
   if (cp) cp.onclick = async () => {
     const url = itemLink(it);
@@ -4901,8 +4940,8 @@ function applyParams(p, fromFarms) {
     if (m) { if (!farmsReady) { pendingParams = { ms: p.ms }; } openStop(msStop(m)); }
   }
   if (p.f) {
-    if (!farmsReady) { pendingParams = Object.assign(pendingParams || {}, { f: p.f }); }
-    else { const f = D.farms.find(x => x.name === p.f && x.src === 0) || D.farms.find(x => x.name === p.f) || D.farms.find(x => x.name.toLowerCase().startsWith(String(p.f).toLowerCase())); if (f) selectFarm(f); }
+    if (!farmsReady) { pendingParams = Object.assign(pendingParams || {}, { f: p.f, sv: p.sv }); }
+    else { const f = D.farms.find(x => x.name === p.f && x.src === 0) || D.farms.find(x => x.name === p.f) || D.farms.find(x => x.name.toLowerCase().startsWith(String(p.f).toLowerCase())); if (f) { selectFarm(f); if (p.sv === '1' && !f.pseudo && !f.pipe) openScene(f); } }
   }
   if (!fromFarms) {                          // 網址即狀態：套用連結裡的搜尋條件，連結沒有就清空
     const had = fsActive();
@@ -5147,7 +5186,7 @@ WW.globe = {
       if (loadingEl) loadingEl.textContent = L('全球資料載入失敗，請檢查網路後重新整理。', 'Global data failed to load. Check your connection and reload.');
     });
   },
-  leave() { active = false; clearTimeout(urlT); clearInterval(intlTimer); intlTimer = null; stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
+  leave() { if (WW.scene && WW.scene.isOpen()) WW.scene.close(); active = false; clearTimeout(urlT); clearInterval(intlTimer); intlTimer = null; stop(); setPlaying(false); if (TOUR) tourPause(true); hideTip(); },
   api: () => ({ S, D, setRegion, selectFarm, tourStart, setMode, setBase, drawerSet, welcomeShow, flyToLonLat, curAlt, FL, clusters, get portArcs() { return portArcs; }, get TOUR() { return TOUR; },
     cam: () => { const f = focusLonLat(); return { lon: +f.lon.toFixed(3), lat: +f.lat.toFixed(3), alt: +curAlt().toFixed(1), frames: S.frames || 0, rotate: S.rotate }; },
     patchState: () => ({ info: patchInfo, tiles: tileAttrOn, visible: !!(patch && patch.visible), cache: tileCache.size, ok: [...tileCache.values()].filter(t => t.ok).length }) })
