@@ -7,5 +7,9 @@
   "#/kids": 3.6,
   "#/embed": 1.1,
   "#/status": 1.4,
+  "#/teach": 1.2,
+  "#/teach/jh": 1.2,
+  "#/teach/sh": 1.35,
+  "#/data": 3.6,
   "#/global": 10.2
 }

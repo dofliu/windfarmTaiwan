@@ -57,7 +57,7 @@ The bar at the top of the site has four pages:
 | **Global** | A 3D globe that animates the growth of wind power by country and zooms down to single wind farms |
 | **Learn** | 13 illustrated chapters, from the first power-generating turbine in 1888 to Taiwan's offshore wind, with a glossary and "Frequently asked" |
 
-There is also **"Travel with the Wind"** for upper primary and junior high students (`#/kids`, linked under "Explore" on the home page and in the footer).
+There is also **"Travel with the Wind"** for upper primary and junior high students (`#/kids`, linked under "Explore" on the home page and in the footer), a **teacher hub** (`#/teach`: lesson plans and worksheets for junior and senior high, links and QR codes for classroom activities) and a **data page** (`#/data`: CSV, licences and citation).
 
 A suggested first visit (about 5 minutes):
 
@@ -135,6 +135,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   (from Brush's 1888 turbine to a 26 MW giant in 2025), each with three key facts and a quick question whose right answer earns a stamp in the wind passport; "Taiwan's wind right now"
   turns the live data into homes; "Read to me" reads the facts and questions aloud with the browser's speech, the passport and the certificate earned with all 8 stamps can be printed,
   and "Play as a class" `#/kids/class` is for a teacher's projector (large type, three steps, countdown, full screen, no progress kept). Progress stays in the browser; see [user guide section 6](./docs/user-guide.en.md#6-travel-with-the-wind-for-young-explorers)
+- **For teachers** `#/teach` — a 45-minute junior-high plan and a two-period senior-high inquiry plan with worksheets and keys (printable; curriculum passages in the academy's original wording), links and QR codes for classroom activities, projection tips; **Data** `#/data` — CSVs of the daily samples, national capacity by year, measured farm output, the farm list, foundations and LCOE (made in the browser), with source, licence and citation; see [user guide 6.1 and 6.2](./docs/user-guide.en.md#61-for-teachers-lesson-plans-worksheets-and-classroom-activities)
 
 ## Architecture
 
@@ -170,6 +171,8 @@ output and sea zones load only when needed.
 - `assets/js/week.js` — "This week in Taiwan's wind" on Home (the last 7 days against the 7 before from the site's samples, two-week bars, a square weekly card)
 - `assets/js/embed.js` — the embeddable card `#/embed` (Taiwan's wind right now without header or footer, for other sites to put in an `<iframe>`) and the "Embed on your site" snippet
 - `assets/js/lessons.js` — the four hands-on panels in Learn (power curve, wake effect, capacity factor, falling costs)
+- `assets/js/teach.js` — the teacher hub `#/teach` (links and QR codes for classroom activities, projection tips) and two printable lesson plans, `#/teach/jh` (junior high, 45 min) and `#/teach/sh` (senior-high inquiry, 2 periods); QR codes from `assets/vendor/qrcode-1.4.4.js` (MIT)
+- `assets/js/datapage.js` — the data page `#/data` (the site's JSON converted to CSV in the browser, with columns, source, licence and citation)
 - `assets/js/status.js` — the schedule status page `#/status` (last data time of every source against its cadence, the latest GitHub Actions run of every schedule, the single-file copies' upload time)
 - `assets/js/home.js`, `assets/js/learn.js` — Home and Learn pages
 - `assets/js/globe.js` — the 3D globe (rewritten from the "Global wind power development map",

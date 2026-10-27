@@ -8,7 +8,7 @@
    不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
    儀表精簡檢視最多 8 張「此刻在發電」卡片、切到全部卡片要等於全部風場；儀表篩選要寫進網址與瀏覽器、「恢復預設」要清掉；
    詳情的下一座要換風場，返回鍵（地球儀資訊卡也一樣）只關掉詳情、不離開頁面；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
-   風電知識的四個「動手試試看」要畫出來、拉滑桿要有反應；嵌入小卡（#/embed）不能有頁首頁尾；手機的風電知識捲到某章時要有「目前章節」列；探險版要畫出地球與 8 個站點，答錯不蓋章、答對蓋章並出現下一站，護照要記得，
+   風電知識的四個「動手試試看」要畫出來、拉滑桿要有反應；教師專區要畫出 8 個 QR code、兩份教案的表格、學習單與教師版，資料下載頁七個資料集都要算出列數與出處；嵌入小卡（#/embed）不能有頁首頁尾；手機的風電知識捲到某章時要有「目前章節」列；探險版要畫出地球與 8 個站點，答錯不蓋章、答對蓋章並出現下一站，護照要記得，
    有「唸給我聽」；全班一起玩要走得完三步（→ 鍵）且不動個人進度；集滿 8 個章要能列印護照、打開寫著名字的完成證書。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
    連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖，完整版的探險版地球要有 8 個站點。
@@ -24,7 +24,7 @@
    dashboard filters must reach the URL and storage and Reset must clear them, the drawer's next button must change farm and Back must close
    only the drawer (likewise the globe's info card), the map tab must show the map
    or the offline sketch, the home page must have the 7-day curve and the four footer source groups, and on phones Learn must
-   show the current-chapter bar inside a chapter; Learn's four hands-on lessons must render and respond to a slider; the embeddable card (#/embed) must hide the header and footer; the kids page must draw its globe with 8 stops, stamp only a right answer, offer the next stop, keep
+   show the current-chapter bar inside a chapter; Learn's four hands-on lessons must render and respond to a slider; the teacher hub must draw 8 QR codes and both plans their tables, worksheet and key, and the data page must count and source all seven datasets; the embeddable card (#/embed) must hide the header and footer; the kids page must draw its globe with 8 stops, stamp only a right answer, offer the next stop, keep
    the stamp in the passport and offer read-aloud; its class mode must step through with the → key without touching personal progress, and with
    all 8 stamps the passport must offer printing and a certificate carrying the name.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
@@ -222,6 +222,14 @@ const ROUTES = [
     return '';
   }],
   ['#/status', 5000, () => document.querySelectorAll('#page-status .sttbl tr').length > 8 && document.querySelector('#page-status .stsum') ? '' : 'status: tables or summary missing'],
+  ['#/teach', 4000, () => document.querySelectorAll('#page-teach .tqr svg').length === 8 && document.querySelectorAll('#page-teach .tplan').length === 2 ? '' : 'teach: 8 QR codes or 2 plan cards missing'],
+  ['#/teach/jh', 4000, () => document.querySelectorAll('#page-teach .ttbl').length >= 3 && document.querySelector('#page-teach .tws') && document.querySelector('#page-teach .tkey') ? '' : 'teach/jh: tables, worksheet or key missing'],
+  ['#/teach/sh', 6000, () => document.querySelectorAll('#page-teach .tkey .ttbl tbody tr').length >= 4 ? '' : 'teach/sh: worked examples from generation.json missing'],
+  ['#/data', 8000, () => {
+    // 資料下載：七個資料集都算出列數、出處與授權都填上 · the data page: every dataset counted, source and licence filled
+    const n = [...document.querySelectorAll('#page-data .dn')].filter(e => /\d/.test(e.textContent)).length, s = [...document.querySelectorAll('#page-data .dsrct')].filter(e => e.textContent.length > 20).length;
+    return n === 7 && s === 7 && document.querySelector('#page-data .dcite') ? '' : `data: ${n}/7 counted, ${s}/7 sourced`;
+  }],
   ['#/kids', 3000, () => document.querySelector('#page-kids .khome h1') ? '' : 'kids: home page missing'],
   ['#/kids/globe', 6000, () => {
     const n = document.querySelectorAll('#page-kids .kpin').length;

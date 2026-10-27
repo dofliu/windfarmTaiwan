@@ -115,6 +115,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Turbine positions elsewhere (`data/global/turbines_osm.json`) come from OpenStreetMap and are shared under the ODbL: keep "© OpenStreetMap
   contributors" in the file's meta, the README, the card and the sources dialog, and never merge it into a file under another licence.
   Matching rules live in `tools/build_turbines_osm.py` (plant name and capacity, or spatial groups with a unit-size check), conservative.
+- 教師專區（`assets/js/teach.js`）的課綱與議題條文只寫以 `check_quotes.py` 核對過的國教院原文（`CODES`，附文件名稱與年份；英文為本站翻譯），教案裡的數字由資料當場算出或留白讓學生從網站抄，不寫死；新增課綱代碼時先核對原文。
+  資料下載頁（`assets/js/datapage.js`）在瀏覽器把網站已在用的 JSON 轉成 CSV，不另存 CSV 進 repo；出處與授權從各檔的 meta 讀，沒有 meta 的寫在 `SETS` 並與「資料來源」一致；OpenStreetMap（ODbL）的資料不放進去。新增資料集時使用說明 6.2 的表一起改。
+  The teacher hub (`assets/js/teach.js`) quotes curriculum and issue passages only in the academy's original wording checked with `check_quotes.py` (`CODES`, with document and year; English translations are the site's own); figures in the plans are computed from the data at render time or left blank for students, never hard-coded; check the passage before adding a code.
+  The data page (`assets/js/datapage.js`) converts the JSON the site already serves into CSV in the browser (no CSV is stored in the repo); source and licence come from each file's meta, or from `SETS` where a file has none, matching the sources chapter; OpenStreetMap (ODbL) data is never included. Update the table in user-guide 6.2 when adding a dataset.
 - 數字寫進網站或文件前先對照原始資料；查不到的不要臆測，寫明「待查證」。
   Check numbers against the original source before publishing them; if something cannot be verified, say so instead of guessing.
 - 風場的逐筆修正（重複、從未建成、錯置、數字錯誤）寫在 `tools/farm_cleanup.py`：每條規則用（國別, 名稱, 來源）指定剛好一筆，

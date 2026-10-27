@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.12.0';
+WW.VERSION = '3.13.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -277,6 +277,8 @@ const TITLES = {
   learn: ['風電知識 · 風電風情', 'Learn about wind power · Wind Watch'],
   kids: ['跟著風去旅行 · 風電風情探險版', 'Travel with the Wind · Wind Watch for young explorers'],
   status: ['排程狀態 · 風電風情', 'Schedule status · Wind Watch'],
+  teach: ['教師專區 · 風電風情', 'For teachers · Wind Watch'],
+  data: ['資料下載 · 風電風情', 'Data · Wind Watch'],
   embed: ['台灣風電此刻 · 風電風情', 'Taiwan wind right now · Wind Watch']
 };
 function setTitle() {
@@ -366,6 +368,21 @@ if (!(EMB && EMB.lite)) WW.registerPage('kids', {
   },
   leave() { if (WW.kids) WW.kids.leave(); }
 });
+
+/* ---------------- 教師專區與資料下載：程式只在第一次進入時載入（單檔公開版沒有） ---------------- */
+const lazyLoads = {};
+function lazyPage(name, files, api) {
+  if (EMB && EMB.lite) return;
+  WW.registerPage(name, {
+    enter(r) {
+      lazyLoads[name] = lazyLoads[name] || Promise.all(files.map(f => f.endsWith('.css') ? WW.loadCSS(f) : WW.loadScript(f)));
+      lazyLoads[name].then(() => { if (cur === name && WW[api]) WW[api].enter(r); }).catch(e => { console.error(e); lazyLoads[name] = null; });
+    },
+    leave() { if (WW[api] && WW[api].leave) WW[api].leave(); }
+  });
+}
+lazyPage('teach', ['assets/vendor/qrcode-1.4.4.js', 'assets/js/teach.js'], 'teach');
+lazyPage('data', ['assets/js/datapage.js'], 'datapage');
 
 /* ---------------- header 高度（全螢幕頁：地球儀、風場牆、地圖用） ---------------- */
 function syncHeaderH() {
