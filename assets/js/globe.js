@@ -3128,7 +3128,7 @@ function sceneHooks() {
     neighbours(f, km) {                                             // 10 km 內其他營運中的風場（最近的 12 座）：各自的機位、尺寸與中心 · nearby operating farms with their own positions and sizes
       const c = clusterLL(f), cosl = Math.cos(c.lat * D2R), out = [];
       for (const x of D.farms) {
-        if (x === f || x.pipe || x.pseudo || x.st !== 0 || x.end || !farmActive(x, Y1)) continue;
+        if (x === f || x.pipe || x.pseudo || x.st !== 0 || x.end || isAgg(x) || !farmActive(x, Y1)) continue;   // 區域合計、代用紀錄不算相鄰風場 · aggregates and placeholders are not neighbours
         const cc = clusterLL(x), d = Math.hypot((cc.lon - c.lon) * 111.32 * cosl, (cc.lat - c.lat) * 110.574); if (d <= km) out.push([d, x, cc]);   // 兩邊都用機位中心 · both centres from the turbine positions where known
       }
       out.sort((a, b) => a[0] - b[0]);

@@ -17,7 +17,7 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 
 ## v3.15.0 — 2026-10-27
 
-- **Sea-level view draws neighbouring farms**: other operating farms within 10 km (the nearest 12, at most 600 turbines) appear in a paler colour with their own positions (real or schematic) and sizes, named in the notes, so clustered farms (off Changhua and Miaoli, Fujian, the North Sea) no longer stand alone. Distances use the turbine-cluster centres. Where a farm's coordinates are only approximate, the notes warn that the scene may be off the real site, even on land.
+- **Sea-level view draws neighbouring farms**: other operating farms within 10 km (the nearest 12, at most 600 turbines) appear in a paler colour with their own positions (real or schematic) and sizes, named in the notes, so clustered farms (off Changhua and Miaoli, Fujian, the North Sea) no longer stand alone. Distances use the turbine-cluster centres, regional aggregates (such as the Jiuquan wind base) are never neighbours, and the credit line lists every position source used by the farm and its drawn neighbours. Where a farm's coordinates are only approximate, the notes warn that the scene may be off the real site, even on land.
 - User guide 4.6a updated; the smoke test checks the neighbouring farms.
 
 ## v3.14.0 — 2026-10-27
