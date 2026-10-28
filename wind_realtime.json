@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-28T20:30:49+08:00",
-  "source_time": "2026-10-28T20:20:00",
-  "wind_total_mw": 3770.0,
-  "system_total_mw": 30494.1,
+  "updated": "2026-10-28T21:00:54+08:00",
+  "source_time": "2026-10-28T20:50:00",
+  "wind_total_mw": 3568.8,
+  "system_total_mw": 30117.3,
   "farm_wind": {
     "guanyuan": {
       "mps": 6.2,
@@ -157,91 +157,91 @@
   },
   "mapped_farm_count": 30,
   "farms": {
-    "guanyuan": 7.2,
-    "taichungport": 12.4,
-    "wanggong": 11.4,
-    "changgong": 35.8,
-    "yunmai": 6.1,
-    "sihu": 3.1,
-    "tpc-other-on": 33.5,
-    "dapeng": 8.2,
-    "luwei": 23.2,
+    "guanyuan": 7.6,
+    "taichungport": 7.5,
+    "wanggong": 11.7,
+    "changgong": 30.8,
+    "yunmai": 2.2,
+    "sihu": 4.2,
+    "tpc-other-on": 26.9,
+    "dapeng": 6.3,
+    "luwei": 18.5,
     "guanwei": 14.3,
-    "zhongwei": 16.6,
-    "chuangwei": 30.9,
+    "zhongwei": 12.0,
+    "chuangwei": 25.5,
     "xinyuan": 7.2,
     "changpin": 0.0,
-    "ppa-other-on": 15.5,
-    "offshore1": 97.4,
+    "ppa-other-on": 9.5,
+    "offshore1": 87.1,
     "offshore2": 0.0,
-    "formosa1": 65.9,
-    "formosa2": 348.2,
-    "wo1": 562.0,
-    "wo2": 259.0,
+    "formosa1": 52.7,
+    "formosa2": 336.0,
+    "wo1": 563.6,
+    "wo2": 251.4,
     "wo4": 381.3,
-    "wonan": 247.9,
+    "wonan": 246.4,
     "fang1": 81.8,
-    "fang2": 391.4,
-    "yunhu": 233.5,
-    "yunxi": 290.1,
-    "zhongneng": 234.4,
-    "longA": 160.1,
-    "longB": 191.6
+    "fang2": 368.5,
+    "yunhu": 167.4,
+    "yunxi": 259.0,
+    "zhongneng": 239.3,
+    "longA": 158.7,
+    "longB": 191.4
   },
   "raw_wind_units": [
     {
       "name": "觀園",
       "raw_name": "觀園",
       "capacity": 30.0,
-      "output": 7.2
+      "output": 7.6
     },
     {
       "name": "台中港",
       "raw_name": "台中港",
       "capacity": 35.0,
-      "output": 12.4
+      "output": 7.5
     },
     {
       "name": "王功",
       "raw_name": "王功",
       "capacity": 23.0,
-      "output": 11.4
+      "output": 11.7
     },
     {
       "name": "彰工",
       "raw_name": "彰工",
       "capacity": 86.2,
-      "output": 35.8
+      "output": 30.8
     },
     {
       "name": "雲麥",
       "raw_name": "雲麥",
       "capacity": 46.0,
-      "output": 6.1
+      "output": 2.2
     },
     {
       "name": "四湖",
       "raw_name": "四湖",
       "capacity": 28.0,
-      "output": 3.1
+      "output": 4.2
     },
     {
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 33.5
+      "output": 26.9
     },
     {
       "name": "苗栗大鵬",
       "raw_name": "苗栗大鵬",
       "capacity": 42.0,
-      "output": 8.2
+      "output": 6.3
     },
     {
       "name": "鹿威彰濱",
       "raw_name": "鹿威彰濱",
       "capacity": 55.2,
-      "output": 23.2
+      "output": 18.5
     },
     {
       "name": "觀威觀音&桃威新屋",
@@ -253,13 +253,13 @@
       "name": "中威大安",
       "raw_name": "中威大安",
       "capacity": 75.9,
-      "output": 16.6
+      "output": 12.0
     },
     {
       "name": "創維風",
       "raw_name": "創維風",
       "capacity": 49.2,
-      "output": 30.9
+      "output": 25.5
     },
     {
       "name": "新源崙背",
@@ -277,13 +277,13 @@
       "name": "其它購電風力",
       "raw_name": "其它購電風力",
       "capacity": 178.4,
-      "output": 15.5
+      "output": 9.5
     },
     {
       "name": "離岸一期",
       "raw_name": "離岸一期",
       "capacity": 109.2,
-      "output": 97.4
+      "output": 87.1
     },
     {
       "name": "離岸二期",
@@ -295,25 +295,25 @@
       "name": "海洋竹南",
       "raw_name": "海洋竹南",
       "capacity": 128.0,
-      "output": 65.9
+      "output": 52.7
     },
     {
       "name": "海能風",
       "raw_name": "海能風",
       "capacity": 376.0,
-      "output": 348.2
+      "output": 336.0
     },
     {
       "name": "沃一風",
       "raw_name": "沃一風",
       "capacity": 605.2,
-      "output": 562.0
+      "output": 563.6
     },
     {
       "name": "沃二風",
       "raw_name": "沃二風",
       "capacity": 294.8,
-      "output": 259.0
+      "output": 251.4
     },
     {
       "name": "沃四風",
@@ -325,7 +325,7 @@
       "name": "沃南風",
       "raw_name": "沃南風",
       "capacity": 337.1,
-      "output": 247.9
+      "output": 246.4
     },
     {
       "name": "芳一風",
@@ -337,37 +337,37 @@
       "name": "芳二風",
       "raw_name": "芳二風",
       "capacity": 499.2,
-      "output": 391.4
+      "output": 368.5
     },
     {
       "name": "允湖",
       "raw_name": "允湖",
       "capacity": 320.0,
-      "output": 233.5
+      "output": 167.4
     },
     {
       "name": "允西",
       "raw_name": "允西",
       "capacity": 320.0,
-      "output": 290.1
+      "output": 259.0
     },
     {
       "name": "中能風",
       "raw_name": "中能風",
       "capacity": 294.5,
-      "output": 234.4
+      "output": 239.3
     },
     {
       "name": "龍A風",
       "raw_name": "龍A風(註10)",
       "capacity": null,
-      "output": 160.1
+      "output": 158.7
     },
     {
       "name": "龍B風",
       "raw_name": "龍B風(註10)",
       "capacity": null,
-      "output": 191.6
+      "output": 191.4
     },
     {
       "name": "龍三風",
