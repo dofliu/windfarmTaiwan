@@ -370,6 +370,8 @@ host.innerHTML = `
   <div class="ggrp"><label for="g-speedSel" data-gi="speed"></label><select id="g-speedSel"><option value="0.1"></option><option value="0.2"></option><option value="0.333"></option><option value="0.5"></option><option value="1" selected></option><option value="2"></option><option value="4"></option></select></div>
 </div>
 <div id="g-modal"><div class="box"><button class="gclose" id="g-modalClose" type="button" aria-label="close">✕</button><div id="g-modalBody" class="gana"></div></div></div>`;
+host.querySelectorAll('[data-gi]').forEach(el => { const v = T(el.dataset.gi); if (typeof v === 'string') el.textContent = v; });   // 資料還沒到就先把工具列與圖例的文字畫出來（LCP）
+
 if (loadingEl) { loadingEl.classList.add('gload'); host.appendChild(loadingEl); }
 
 /* ================= helpers ================= */
@@ -456,9 +458,27 @@ const ready = Promise.all([WW.globalData(), WW.getJSON(WW.DATA.borders), WW.getJ
   S.year = Y0;
   $('g-slider').min = Y0; $('g-slider').max = Y1;
   init();
-  WW.getJSON(WW.DATA.farms).then(expandFarms).catch(e => { console.error(e); notice(L('風場資料載入失敗', 'Farm data failed to load')); });
+  loadFarms();
   if (LITE) liteSetup(); else { portsP = loadPorts(); fdP = loadFoundations(); loadEvents(); }
+  // 文字先畫出來（工具列、側欄、圖例），底圖紋理、國界與符號等重的建置放到下一個畫面之後，手機上才不會卡住兩三秒才看到任何東西
+  return new Promise(res => requestAnimationFrame(() => setTimeout(() => { initScene(); res(); }, 0)));
 });
+/* 風場層：平常先載精簡檔（畫點、清單、篩選用的欄位，約 0.8 MB 壓縮後），卡片與搜尋要的業主、機型、說明、出處另一個檔在之後補上；
+   單檔版已內嵌完整檔，直接用它 */
+function loadFarms() {
+  if (WW.standalone) { WW.getJSON(WW.DATA.farms).then(expandFarms).catch(farmsFailed); return; }
+  WW.getJSON(WW.DATA.farmsCore).then(J => { expandFarms(J); return WW.getJSON(WW.DATA.farmsMore).then(mergeFarmDetails); }).catch(farmsFailed);
+}
+function farmsFailed(e) { console.error(e); notice(L('風場資料載入失敗', 'Farm data failed to load')); }
+function mergeFarmDetails(M) {
+  const c = {}; M.cols.forEach((k, i) => { c[k] = i; });
+  M.rows.forEach((r, i) => { const f = D.farms[i]; if (!f) return;
+    f.owner = r[c.owner] || null; f.turbine = r[c.turbine] || null; f.src = r[c.src]; f.note = r[c.note] || null; f.url = r[c.url] || null; f._hay = null; });
+  farmsDetailed = true;
+  warmOwners();
+  if (fsTokens.length) { fsRev++; farmLayerDirty = true; renderFarmList(true); }           // 搜尋可以比對業主與機型了
+  if (cardItem && cardItem.kind === 'farm') renderCard(cardItem);
+}
 /* 單檔公開版：藏起進階功能的按鈕與分頁，里程碑清空（地圖上的星號與導覽都不出現），圖層選單去掉水下基礎 */
 function liteSetup() {
   D.milestones = [];
@@ -470,11 +490,14 @@ function liteSetup() {
 
 const STACK_STEP = 0.045;     // 共用座標排開的間距（度，約 5 km）
 const AGG_RE = /\bbase\b|cluster|corridor|aggregate|remainder|placeholder|smaller projects|unnamed/i;   // 整區彙總列的名稱
+let farmsDetailed = false;                                       // 業主、機型、說明、出處是否已載入（精簡檔先到時為 false）
 function expandFarms(J) {
   const TY = ['onshore', 'offshore', 'floating'];
+  const c = {}; J.meta.cols.forEach((k, i) => { c[k] = i; });
+  farmsDetailed = c.owner != null;
   D.farms = J.rows.map(r => {
-    const f = { name: r[0], zh: r[1] || null, iso: r[2], lat: r[3], lon: r[4], mw: r[5], year: r[6], type: TY[r[7]] || 'onshore', st: r[8],
-      end: r[9] || null, owner: r[10] || null, turbine: r[11] || null, flags: r[12], src: r[13], ph: r[14] || null, note: r[15] || null, url: r[16] || null };
+    const f = { name: r[c.name], zh: r[c.zh] || null, iso: r[c.iso], lat: r[c.lat], lon: r[c.lon], mw: r[c.mw], year: r[c.year], type: TY[r[c.type]] || 'onshore', st: r[c.st],
+      end: r[c.end] || null, owner: r[c.owner] || null, turbine: r[c.turbine] || null, flags: r[c.flags], src: r[c.src] || 0, ph: r[c.ph] || null, note: r[c.note] || null, url: r[c.url] || null };
     if (f.flags & 2) { f.yu = true; f.year = DATA_Y; }
     if (f.st >= 1 && f.st <= 3) f.pipe = true;
     if (f.st === 4 && !f.end) f.end = f.year + 20;
@@ -502,7 +525,7 @@ function expandFarms(J) {
   if (pendingParams) { const p = pendingParams; pendingParams = null; applyParams(p, true); }
   if (cardItem && cardItem.kind === 'port') renderCard(cardItem);     // 港口卡片比風場資料先開：補上服務過的風場
   applyFoundations();
-  warmOwners();
+  if (farmsDetailed) warmOwners();
   layoutEvents();                                                 // 沒有座標的事件改用對應風場的位置
   if (panelTab === 'events') renderEventList(true);
   if (cardItem && cardItem.kind === 'event') { const e = cardItem.e; evFocus(e, true); renderCard(eventItem(e)); }
@@ -521,7 +544,7 @@ let RINGS, RING_ISO, ringBox, isoRings;
 let farmsByIso = {};
 let W = 1, H = 1;
 
-function init() {
+function init() {                        // 輕的部分：繪圖器、相機、控制與 DOM（文字先出現）
   canvas = $('g-gl');
   try {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -537,11 +560,13 @@ function init() {
   ambL = new THREE.AmbientLight(0xffffff, 0.55); scene.add(ambL);
   const sun = new THREE.DirectionalLight(0xffffff, 0.9); sun.position.set(200, 250, 300); scene.add(sun);
   const fillL = new THREE.DirectionalLight(0x88aaff, 0.35); fillL.position.set(-200, -50, -100); scene.add(fillL);
+  wireUI();
+  applyI18n();
+}
+function initScene() {                   // 重的部分：底圖紋理（4096×2048 畫布）、國界線、符號；在 init() 畫出一個畫面之後才做
   buildBase();
   buildBordersAll();
   buildSymbols();
-  wireUI();
-  applyI18n();
   setBase(S.base, true);
   if (!renderer) {
     S.view = 'bars'; setView('bars');

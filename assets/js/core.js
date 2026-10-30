@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.15.1';
+WW.VERSION = '3.16.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -139,6 +139,8 @@ WW.getLiveJSON = url => EMB ? EMB.live(url) : fetch(url, { cache: 'no-store' }).
 WW.DATA = {
   global: 'data/global/wind_global.json',
   farms: 'data/global/wind_farms.json',
+  farmsCore: 'data/global/wind_farms_core.json',          // 地球儀先載的精簡欄位（tools/build_farm_points.py 產生；單檔版用完整檔）
+  farmsMore: 'data/global/wind_farms_more.json',          // 其餘欄位（業主、機型、說明、出處），地球儀之後補載
   farmPoints: 'data/global/farm_points.json',             // 「我附近」用的點位小檔（tools/build_farm_points.py）
   offshoreFarms: 'data/global/offshore_farms.json',       // 知識頁水下基礎圖表用的離岸風場小檔（同一支程式產生；單檔版用內嵌的完整檔）
   borders: 'data/global/world_borders.json',
