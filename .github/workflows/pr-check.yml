@@ -62,7 +62,7 @@ jobs:
 
   smoke:
     name: Pages and single-file copies (Playwright)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # Playwright 1.56 還不支援 ubuntu-latest（26.04）的 Chromium 相依套件 · Playwright 1.56 cannot install Chromium deps on ubuntu-latest (26.04)
     steps:
       - uses: actions/checkout@v7
 
