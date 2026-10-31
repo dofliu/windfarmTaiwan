@@ -68,6 +68,7 @@
 #globe .lbl{position:absolute;left:0;top:0;will-change:transform;font-size:11px;color:var(--ink);text-shadow:0 1px 3px #000,0 0 6px #000;white-space:nowrap;pointer-events:none;line-height:1.15;text-align:center}
 #globe .lbl b{display:block;font-size:12px}
 #globe .lbl .v{color:var(--ink-2);font-size:10.5px}
+#globe .lbl.ctry{padding:2px 6px;border-radius:7px;background:rgba(8,14,26,.55)}
 #globe .lbl.ms{color:var(--acc)}
 #globe .lbl.farm b{font-size:11px;font-weight:600}
 #globe .lbl.fnew{color:#ffd98a}
@@ -371,6 +372,7 @@
 #g-ports .pmk.dev{background:rgba(10,17,30,.8);color:var(--port);border:1.5px dashed var(--port)}
 #g-ports .pmk.old{background:#6b7686;color:#1a1f27;border-color:rgba(255,255,255,.45)}
 #g-ports .pmk.far{width:8px;height:8px;font-size:0;border-width:1px}
+#g-ports .pmk.cov,#g-events .emk.cov{opacity:0;pointer-events:none}
 #g-ports .pmk.sel{width:26px;height:26px;font-size:14px;border-color:#fff;box-shadow:0 0 0 3px rgba(255,138,91,.45),0 1px 6px rgba(0,0,0,.7)}
 #globe .lbl.port{color:#ffc2a8}
 #globe .lbl.port.focus b{color:var(--port)}
