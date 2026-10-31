@@ -1,0 +1,432 @@
+[
+  {
+    "farm": "Eemmeerdijk (Zeewolde) — 2023-01-04",
+    "sources": [
+      {"url": "https://rijksoverheid.nl/binaries/rijksoverheid/documenten/kamerstukken/2023/10/17/onderzoek-afgebroken-windturbine-flevoland/onderzoek-afgebroken-windturbine-flevoland.pdf", "quote": "Het incident vond plaats op 4 januari 2023 bij het windpark aan de Eemmeerdijk, in de gemeente Zeewolde"},
+      {"url": "https://rijksoverheid.nl/binaries/rijksoverheid/documenten/kamerstukken/2023/10/17/onderzoek-afgebroken-windturbine-flevoland/onderzoek-afgebroken-windturbine-flevoland.pdf", "quote": "Achterstallig onderhoud, ouderdom van de windturbine, of metaalmoeheid speelden geen rol bij dit incident."},
+      {"url": "https://rijksoverheid.nl/binaries/rijksoverheid/documenten/kamerstukken/2023/10/17/onderzoek-afgebroken-windturbine-flevoland/onderzoek-afgebroken-windturbine-flevoland.pdf", "quote": "Hierdoor zijn de bladen, mede doordat er op dat moment een harde wind stond, te snel gaan draaien en is de windturbine door heftige trillingen instabiel geworden"},
+      {"url": "https://rijksoverheid.nl/binaries/rijksoverheid/documenten/kamerstukken/2023/10/17/onderzoek-afgebroken-windturbine-flevoland/onderzoek-afgebroken-windturbine-flevoland.pdf", "quote": "windpark zijn geplaatst in 1998"},
+      {"url": "https://nos.nl/l/2458725", "quote": "De zestien turbines die nog langs de dijk in Zeewolde staan, zijn nu uit voorzorg stilgezet."},
+      {"url": "https://nos.nl/l/2458725", "quote": "De windmolens langs de Eemmeerdijk, gebouwd door het inmiddels failliete NedWind"},
+      {"url": "https://nos.nl/l/2458725", "quote": "Het gaat namelijk om een turbine met twee wieken."}
+    ],
+    "data": {
+      "date": "2023-01-04", "country_zh": "荷蘭", "country_en": "Netherlands",
+      "area_zh": "Flevoland 省 Zeewolde Eemmeerdijk", "area_en": "Eemmeerdijk, Zeewolde, Flevoland",
+      "site": "陸域", "sub_zh": "塔架倒塌／飛車", "sub_en": "Tower collapse / overspeed",
+      "project_zh": "Eemmeerdijk 風場（Zeewolde）", "project_en": "Eemmeerdijk wind farm (Zeewolde)",
+      "title_zh": "25 年老舊雙葉風機上半段折斷，碎片砸在堤防道路上", "title_en": "Upper part of a 25-year-old two-blade turbine snaps off onto the dyke road",
+      "summary_zh": "1 月 4 日 Zeewolde 市 Eemmeerdijk 風場一部風機的上半段折斷，轉子、葉片與塔頂掉到堤防道路上，無人受傷；Vattenfall 隨即停下沿堤其餘 16 部風機，風場原已排定年內拆除。荷蘭基礎設施與水管理部 2023-10-17 致國會函引述 Vattenfall 委託的外部調查：維修中一個變槳油缸被固定，葉片無法順槳，強風下轉速過高、劇烈振動而失穩，機械煞車擋不住；老化、維修不足與金屬疲勞都不是原因。機組 1998 年安裝，為已倒閉 NedWind 製造的雙葉風機，荷蘭已無同型變槳系統的風機在運轉。",
+      "summary_en": "On 4 January the upper part of a turbine at the Eemmeerdijk wind farm in Zeewolde broke off; rotor, blades and tower top fell onto the dyke road and nobody was hurt. Vattenfall stopped the other 16 turbines along the dyke at once; the farm was already due for dismantling that year. The Ministry of Infrastructure and Water Management's letter to parliament of 17 Oct 2023 cites the external investigation commissioned by Vattenfall: a pitch cylinder had been fixed during maintenance so the blades could not feather, the rotor overspeeded in strong wind and the turbine became unstable through violent vibration, which the mechanical brake could not stop; ageing, deferred maintenance and metal fatigue played no role. The turbines were installed in 1998 by the now-defunct NedWind (two-blade machines) and no turbine with such a pitch system still operates in the Netherlands.",
+      "stage_zh": "營運", "farm_mw": "", "event_mw": "", "cap_note_zh": "本站紀錄 14 MW；NOS 報導堤防尚有 16 部",
+      "turbine": "NedWind 雙葉風機（型號待查證）", "unit_mw": "", "cod": "1998", "owner": "Vattenfall",
+      "deaths": "", "injuries": "", "cas_zh": "NOS：無人受傷", "cas_en": "NOS: nobody injured",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "荷蘭基礎設施與水管理部致國會函／NOS", "org_en": "Dutch Ministry of Infrastructure and Water Management (letter to parliament) / NOS",
+      "url1": "https://rijksoverheid.nl/binaries/rijksoverheid/documenten/kamerstukken/2023/10/17/onderzoek-afgebroken-windturbine-flevoland/onderzoek-afgebroken-windturbine-flevoland.pdf",
+      "url2": "https://nos.nl/l/2458725",
+      "verify_zh": "主管機關／業主一手資料",
+      "note_zh": "國會函說明原因（變槳油缸固定→無法順槳→飛車）。Recharge 2023-01-06 另有報導（付費）。",
+      "note_en": "The parliamentary letter states the cause (pitch cylinder fixed, blades could not feather, overspeed). Recharge also reported it on 6 Jan 2023 (paywalled).",
+      "site_farm": "Eemmeerdijk wind farm"
+    }
+  },
+  {
+    "farm": "Alfstedt-Ebersdorf — 2023-10-15",
+    "sources": [
+      {"url": "https://www.energiekontor.de/en/news/important-note-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "In the night of 14 October to 15 October 2023, a rotor blade on a wind turbine at the Alfstedt-Ebersdorf wind park in Lower Saxony, Germany, snapped off and partially broke off."},
+      {"url": "https://www.energiekontor.de/en/news/important-note-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "No personal injuries occurred."},
+      {"url": "https://www.energiekontor.de/en/news/important-note-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "The affected wind turbine is a wind turbine manufactured by GE Wind Energy GmbH."},
+      {"url": "https://www.energiekontor.de/en/news/important-note-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "Immediately after the incident occurred, Energiekontor instructed all the wind turbines in the park to be shut down for safety reasons"},
+      {"url": "https://www.energiekontor.de/en/news/important-note-another-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "The related work started on 26 October 2023."},
+      {"url": "https://www.energiekontor.de/en/news/important-note-another-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "The wind turbine in question was not in operation at the time of the incident. No personal injuries were caused."},
+      {"url": "https://www.energiekontor.de/en/news/important-note-another-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "With regard to the rotor blade breakage at the Alfstedt-Ebersdorf wind park in September 2022"},
+      {"url": "https://energiekontor.de/en/news/important-note-update-on-another-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html", "quote": "According to the requested statement, the second rotor blade most likely snapped off as a result of the first incident."},
+      {"url": "https://www.rechargenews.com/wind/another-blade-breaks-off-at-ge-turbine-in-germany/2-1-1544040", "quote": "GE turbine with broken blades at Alfstedt-Ebersdorf wind farm."}
+    ],
+    "data": {
+      "date": "2023-10-15", "country_zh": "德國", "country_en": "Germany",
+      "area_zh": "下薩克森邦 Alfstedt／Ebersdorf", "area_en": "Alfstedt / Ebersdorf, Lower Saxony",
+      "site": "陸域", "sub_zh": "葉片斷裂", "sub_en": "Blade failure",
+      "project_zh": "Windpark Alfstedt-Ebersdorf", "project_en": "Alfstedt-Ebersdorf wind park",
+      "title_zh": "GE 風機葉片折斷、碎片四散，同一部風機拆除時第二片又斷，全場停機", "title_en": "GE turbine blade snaps and scatters debris; a second blade breaks during removal and the whole park is shut down",
+      "summary_zh": "10 月 14 日夜至 15 日，Energiekontor 所有的 Alfstedt-Ebersdorf 風場一部 GE 風機的葉片折斷並部分斷落，塑膠與纖維碎片散落周邊，無人受傷；業主下令全場風機停機並要求 GE 分析。10 月 26 日傍晚製造商放下懸掛葉片殘段時，同一部風機的第二片葉片也折斷，當時機組未運轉、無人受傷；GE 書面說明第二片很可能是第一次事故的後果。同一風場 2022 年 9 月已發生過一次葉片斷裂（Energiekontor 2023-10-16、10-27、11-03 公告）。",
+      "summary_en": "In the night of 14/15 October a blade on a GE turbine at Energiekontor's Alfstedt-Ebersdorf wind park snapped and partly broke off, scattering plastic and fibre debris nearby; nobody was hurt. The owner had every turbine in the park shut down and asked GE for an analysis. In the evening of 26 October, while the manufacturer was bringing down the hanging blade parts, a second blade on the same turbine snapped; the machine was not operating and nobody was hurt. GE's statement says the second break was most likely a consequence of the first. A blade had already broken at the park in September 2022 (Energiekontor notices of 16 Oct, 27 Oct and 3 Nov 2023).",
+      "stage_zh": "營運", "farm_mw": "", "event_mw": "", "cap_note_zh": "Energiekontor 公告稱全場停機；Recharge 報導為 8 部 GE 5.3-158（付費，未核對）",
+      "turbine": "GE Wind Energy（Recharge 報導為 GE 5.3-158，待查證）", "unit_mw": "", "cod": "", "owner": "Energiekontor AG",
+      "deaths": "", "injuries": "", "cas_zh": "業主公告：無人受傷", "cas_en": "Owner's notice: no personal injuries",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "Energiekontor 公告／Recharge", "org_en": "Energiekontor notices / Recharge",
+      "url1": "https://www.energiekontor.de/en/news/important-note-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html",
+      "url2": "https://www.energiekontor.de/en/news/important-note-another-broken-rotor-blade-at-alfstedt-ebersdorf-wind-park.html",
+      "verify_zh": "主管機關／業主一手資料",
+      "note_zh": "截至公告日業主未公布第一片葉片斷裂的原因。本站紀錄「Alfstedt wind farm」42 MW（2022）與「Ebersdorf wind farm」17 MW（2022）可能即此風場的兩部分，待確認。",
+      "note_en": "The owner had not published the cause of the first blade break as of its notices. The site records \"Alfstedt wind farm\" (42 MW, 2022) and \"Ebersdorf wind farm\" (17 MW, 2022) may be the two parts of this park; to be confirmed.",
+      "site_farm": "Alfstedt wind farm"
+    }
+  },
+  {
+    "farm": "Scroby Sands — 2023-08-15",
+    "sources": [
+      {"url": "https://offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation", "quote": "A wind turbine at the Scroby Sands offshore wind farm in the UK caught fire yesterday morning (15 August)."},
+      {"url": "https://offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation", "quote": "RWE, the wind farm’s owner, said the fire broke out in the nacelle and that no one was working on board the wind turbine at the time, with the fire later extinguishing on its own."},
+      {"url": "https://offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation", "quote": "The 60 MW Scroby Sands offshore wind farm, owned and operated by RWE Renewables, comprises 30 Vestas V80-2.0 MW turbines."},
+      {"url": "https://offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation", "quote": "The coastguard set a 500-metre restriction zone around the wind turbine"},
+      {"url": "https://www.greatyarmouthmercury.co.uk/news/23766675.scroby-sands-wind-turbine-fire-investigations-continue", "quote": "A blade was badly damaged and a nacelle - which houses generating equipment - was gutted in the blaze."}
+    ],
+    "data": {
+      "date": "2023-08-15", "country_zh": "英國", "country_en": "United Kingdom",
+      "area_zh": "英格蘭 Great Yarmouth 外海", "area_en": "off Great Yarmouth, England",
+      "site": "離岸", "sub_zh": "機艙火災", "sub_en": "Nacelle fire",
+      "project_zh": "Scroby Sands", "project_en": "Scroby Sands",
+      "title_zh": "英國最早期離岸風場之一的風機機艙起火，自行燒熄", "title_en": "Nacelle fire on a turbine at one of the UK's earliest offshore wind farms burns itself out",
+      "summary_zh": "8 月 15 日上午 Great Yarmouth 外海 Scroby Sands 風場一部風機起火，海岸防衛隊 10:50 接獲通報，在風機周圍設 500 m 禁區；業主 RWE 稱火從機艙燒起，當時無人在機上，火勢當天自行熄滅。機艙燒毀、一片葉片嚴重受損，RWE 9 月 4 日表示調查仍需時間。風場 60 MW、30 部 Vestas V80-2.0 MW，2004 年投運（offshoreWIND.biz 2023-08-16、Great Yarmouth Mercury 2023-09）。",
+      "summary_en": "On the morning of 15 August a turbine at Scroby Sands off Great Yarmouth caught fire; the coastguard was alerted at 10:50 and set a 500 m exclusion zone. Owner RWE said the fire started in the nacelle, nobody was on board and it burnt itself out the same day. The nacelle was gutted and one blade badly damaged; on 4 September RWE said the investigation would take some time. The 60 MW farm has 30 Vestas V80-2.0 MW turbines and started in 2004 (offshoreWIND.biz 16 Aug 2023, Great Yarmouth Mercury Sep 2023).",
+      "stage_zh": "營運", "farm_mw": 60, "event_mw": 2, "cap_note_zh": "30×2.0 MW；事件 1 部",
+      "turbine": "Vestas V80-2.0 MW", "unit_mw": 2.0, "cod": "2004", "owner": "RWE Renewables",
+      "deaths": "", "injuries": "", "cas_zh": "RWE：當時無人在機上", "cas_en": "RWE: no one on board at the time",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "offshoreWIND.biz（引述 RWE 與海岸防衛隊）／Great Yarmouth Mercury", "org_en": "offshoreWIND.biz (citing RWE and HM Coastguard) / Great Yarmouth Mercury",
+      "url1": "https://offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation",
+      "url2": "https://www.greatyarmouthmercury.co.uk/news/23766675.scroby-sands-wind-turbine-fire-investigations-continue",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "起火原因截至查證日未見 RWE 公布。", "note_en": "No published cause from RWE found as of the check date.",
+      "site_farm": "Scroby Sands"
+    }
+  },
+  {
+    "farm": "Borssele 1 & 2 — 2021-10",
+    "sources": [
+      {"url": "https://www.offshorewind.biz/2021/10/28/wind-turbine-catches-fire-at-borssele-1-2-offshore-wind-farm", "quote": "No employees were present when the fire broke out and no one was injured, Ørsted said on 27 October"},
+      {"url": "https://www.offshorewind.biz/2021/10/28/wind-turbine-catches-fire-at-borssele-1-2-offshore-wind-farm", "quote": "Borssele 1 & 2 comprises 94 Siemens Gamesa 8 MW turbines, the last of which was installed in early September 2020"},
+      {"url": "https://www.offshorewind.biz/2021/10/28/wind-turbine-catches-fire-at-borssele-1-2-offshore-wind-farm", "quote": "The offshore wind farm continues to operate, with the exception of the damaged turbine and two other turbines which are directly connected to it."},
+      {"url": "https://www.maritime-executive.com/article/turbine-fire-at-netherland-s-largest-offshore-wind-farm", "quote": "The turbine malfunctioned the company reports causing the fire."},
+      {"url": "https://www.maritime-executive.com/article/turbine-fire-at-netherland-s-largest-offshore-wind-farm", "quote": "The wind farm has a capacity of 752 MW, using Siemens Gamesa 8 MW turbines."}
+    ],
+    "data": {
+      "date": "2021-10", "country_zh": "荷蘭", "country_en": "Netherlands",
+      "area_zh": "Zeeland 外海 Borssele 海域", "area_en": "Borssele zone off Zeeland",
+      "site": "離岸", "sub_zh": "機艙火災", "sub_en": "Nacelle fire",
+      "project_zh": "Borssele 1 & 2", "project_en": "Borssele 1 & 2",
+      "title_zh": "投運一年的 752 MW 離岸風場一部 8 MW 風機機艙起火", "title_en": "Nacelle fire on an 8 MW turbine at the 752 MW Borssele 1 & 2 a year after commissioning",
+      "summary_zh": "Ørsted 2021-10-27 表示，Borssele 1 & 2 的 94 部 Siemens Gamesa 8 MW 風機之一因故障引發機艙火災，起火時無人在場、無人受傷；受損風機與直接串接的兩部停機，其餘繼續運轉，製造商 Siemens Gamesa 與 Ørsted 共同調查原因。風場 752 MW，2020 年 11 月全面商轉（offshoreWIND.biz 2021-10-28、Maritime Executive 2021-10-28）。",
+      "summary_en": "Ørsted said on 27 Oct 2021 that one of the 94 Siemens Gamesa 8 MW turbines at Borssele 1 & 2 had malfunctioned, causing a nacelle fire; nobody was present and nobody was hurt. The damaged turbine and the two turbines directly connected to it were taken offline while the rest kept operating, and Siemens Gamesa was investigating with Ørsted. The 752 MW farm was fully commissioned in November 2020 (offshoreWIND.biz and Maritime Executive, 28 Oct 2021).",
+      "stage_zh": "營運", "farm_mw": 752, "event_mw": 8, "cap_note_zh": "94×8 MW；事件 1 部，另 2 部連帶停機",
+      "turbine": "Siemens Gamesa SG 8.0-167 DD", "unit_mw": 8.0, "cod": "2020-11", "owner": "Ørsted",
+      "deaths": "", "injuries": "", "cas_zh": "Ørsted：無人受傷", "cas_en": "Ørsted: no one injured",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "offshoreWIND.biz／Maritime Executive（引述 Ørsted 聲明）", "org_en": "offshoreWIND.biz / Maritime Executive (citing Ørsted's statement)",
+      "url1": "https://www.offshorewind.biz/2021/10/28/wind-turbine-catches-fire-at-borssele-1-2-offshore-wind-farm",
+      "url2": "https://www.maritime-executive.com/article/turbine-fire-at-netherland-s-largest-offshore-wind-farm",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "確切起火日期未見公布（報導稱 Ørsted 10 月 27 日聲明前一週），日期精度為月。機型 SG 8.0-167 DD 取自本站風場紀錄。",
+      "note_en": "The exact day of the fire was not published (reports place it in the week before Ørsted's 27 October statement), so the date is given to the month. The model SG 8.0-167 DD comes from the site's farm record.",
+      "site_farm": "Borssele I & II"
+    }
+  },
+  {
+    "farm": "Lübbenow — 2025-06-24",
+    "sources": [
+      {"url": "https://www.nordkurier.de/regional/uckermark/in-123-metern-hoehe-gibt-die-windkraftanlage-den-geist-auf-3699482", "quote": "Im Windpark Lübbenow brach im Sturm das Rotorblatt einer Windkraftanlage vom Typ 150 (Vestas Deutschland) ab und stürzte 123 Meter tief auf den Boden."},
+      {"url": "https://www.nordkurier.de/regional/uckermark/in-123-metern-hoehe-gibt-die-windkraftanlage-den-geist-auf-3699482", "quote": "Von dieser Windkraftanlage zwischen Karlstein und Trebenow (Uckerland) brach am 24. Juni eines der über 70 Meter langen Rotorblätter ab."},
+      {"url": "https://www.nordkurier.de/regional/uckermark/in-123-metern-hoehe-gibt-die-windkraftanlage-den-geist-auf-3699482", "quote": "Eine Anfrage des Uckermark Kurier zur möglichen Ursache des Unglücks beim Betreiber Notus Energie in Potsdam blieb bislang unbeantwortet."},
+      {"url": "https://www.nordkurier.de/regional/uckermark/in-123-metern-hoehe-gibt-die-windkraftanlage-den-geist-auf-3699482", "quote": "hohe Anlage am 26. September 2019 in Betrieb genommen worden. Errichtet wurde sie im Windpark Lübbenow 3 zwischen Karlstein und Trebenow (Uckerland)."},
+      {"url": "https://www.rechargenews.com/wind/blade-breaks-off-vestas-v150-turbine-in-germany/2-1-1838719", "quote": "manufacturer confirms incident at V150-4.2MW machine in wind farm in Brandenburg state"}
+    ],
+    "data": {
+      "date": "2025-06-24", "country_zh": "德國", "country_en": "Germany",
+      "area_zh": "布蘭登堡邦 Uckermark Lübbenow（Uckerland）", "area_en": "Lübbenow, Uckerland, Uckermark, Brandenburg",
+      "site": "陸域", "sub_zh": "葉片斷裂", "sub_en": "Blade failure",
+      "project_zh": "Windpark Lübbenow 3", "project_en": "Lübbenow 3 wind farm",
+      "title_zh": "暴風中 Vestas V150 一片逾 70 m 的葉片折斷，自 123 m 高墜地", "title_en": "A 70 m-plus blade of a Vestas V150 snaps in a storm and falls 123 m",
+      "summary_zh": "6 月 24 日暴風中，Uckerland 的 Lübbenow 3 風場一部 Vestas V150 風機一片逾 70 m 長的葉片折斷，自 123 m 輪轂高度墜落地面；該機 2019-09-26 投運，營運商 Notus Energie 未回覆原因詢問（Nordkurier 2025-06-29）。Vestas 向 Recharge 證實是布蘭登堡邦一部 V150-4.2 MW 的事故（Recharge 2025-06-26）。",
+      "summary_en": "On 24 June, in a storm, a blade more than 70 m long broke off a Vestas V150 turbine at the Lübbenow 3 wind farm in Uckerland and fell from the 123 m hub height; the turbine had started on 26 Sep 2019 and operator Notus Energie did not answer a question on the cause (Nordkurier 29 Jun 2025). Vestas confirmed to Recharge that the incident involved a V150-4.2 MW machine in Brandenburg (Recharge 26 Jun 2025).",
+      "stage_zh": "營運", "farm_mw": "", "event_mw": 4.2, "cap_note_zh": "事件 1 部；本站 Lübbenow 紀錄 13 MW（2021）是否同一區塊待確認",
+      "turbine": "Vestas V150-4.2 MW", "unit_mw": 4.2, "cod": "2019-09-26（該機）", "owner": "Notus Energie",
+      "deaths": "", "injuries": "", "cas_zh": "報導未提及人員受傷", "cas_en": "No injuries mentioned in the reports",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "Nordkurier／Recharge（引述 Vestas）", "org_en": "Nordkurier / Recharge (citing Vestas)",
+      "url1": "https://www.nordkurier.de/regional/uckermark/in-123-metern-hoehe-gibt-die-windkraftanlage-den-geist-auf-3699482",
+      "url2": "https://www.rechargenews.com/wind/blade-breaks-off-vestas-v150-turbine-in-germany/2-1-1838719",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "原因截至查證日未公布。Recharge 全文付費，只核對導言。",
+      "note_en": "No cause published as of the check date. The Recharge article is paywalled; only its standfirst was checked.",
+      "site_farm": "Lübbenow wind farm"
+    }
+  },
+  {
+    "farm": "Kilgallioch — 2017-03-15",
+    "sources": [
+      {"url": "https://www.scotcourts.gov.uk/media/5rjpqke1/2024fai050-fai-antonio-joao-da-silva-linares.pdf", "quote": "Antonio Linares, born on 8 December 1979, died at 19.51 hours on 15 March 2017 at Wind Turbine A8 at Kilgallioch Wind Farm, Barrhill, South Ayrshire, Scotland."},
+      {"url": "https://www.scotcourts.gov.uk/media/5rjpqke1/2024fai050-fai-antonio-joao-da-silva-linares.pdf", "quote": "Mr Linares fell approximately 5 metres from the yaw deck to the elevator deck."},
+      {"url": "https://www.scotcourts.gov.uk/media/5rjpqke1/2024fai050-fai-antonio-joao-da-silva-linares.pdf", "quote": "It was under construction at the time of the incident. The completed project has 96 wind turbines."},
+      {"url": "https://www.scotcourts.gov.uk/media/5rjpqke1/2024fai050-fai-antonio-joao-da-silva-linares.pdf", "quote": "Anywind had been engaged by Siemens Gamesa to carry out work on the project at the Kilgallioch Wind Farm."},
+      {"url": "https://www.scotcourts.gov.uk/media/5rjpqke1/2024fai050-fai-antonio-joao-da-silva-linares.pdf", "quote": "Very surprisingly there were no stretchers, spinal boards or neck braces on Kilgallioch Wind Farm."}
+    ],
+    "data": {
+      "date": "2017-03-15", "country_zh": "英國", "country_en": "United Kingdom",
+      "area_zh": "蘇格蘭 South Ayrshire Barrhill", "area_en": "Barrhill, South Ayrshire, Scotland",
+      "site": "陸域", "sub_zh": "工作者高處墜落／死亡", "sub_en": "Worker fall from height / fatality",
+      "project_zh": "Kilgallioch", "project_en": "Kilgallioch",
+      "title_zh": "施工中風場技師在機艙內墜落身亡，死因調查指出現場無擔架與脊椎板", "title_en": "Technician dies after a fall inside a turbine under construction; the fatal accident inquiry finds no stretcher or spinal board on site",
+      "summary_zh": "2017 年 3 月 15 日，葡萄牙承包商 Anywind（受 Siemens Gamesa 委託安裝風機）的技師 Antonio Linares 在施工中的 Kilgallioch 風場 A8 號風機內，從偏航平台墜落約 5 m 到電梯平台，19:51 宣告死亡。蘇格蘭法院 2024 年的死因調查（FAI）裁定書指出，救護車 17:29 到場後需人引導到風機，而偏遠工地沒有擔架、脊椎板與頸圈；風場建成後有 96 部風機（Scottish Courts 2024FAI050）。",
+      "summary_en": "On 15 March 2017 Antonio Linares, a technician with Portuguese contractor Anywind (engaged by Siemens Gamesa to erect the turbines), fell about 5 m from the yaw deck to the elevator deck inside turbine A8 at the Kilgallioch wind farm, then under construction, and was pronounced dead at 19:51. The 2024 fatal accident inquiry determination notes that the ambulance reached the site entrance at 17:29 and had to be guided to the turbine, and that the remote site had no stretcher, spinal board or neck brace; the completed project has 96 turbines (Scottish Courts 2024FAI050).",
+      "stage_zh": "施工中", "farm_mw": 239, "event_mw": "", "cap_note_zh": "96 部（本站紀錄 Gamesa G114 2.5 MW）",
+      "turbine": "Gamesa G114-2.5 MW", "unit_mw": 2.5, "cod": "2017", "owner": "ScottishPower Renewables",
+      "deaths": 1, "injuries": "", "cas_zh": "死因調查裁定：1 人死亡", "cas_en": "FAI determination: one fatality",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "蘇格蘭法院死因調查裁定（Scottish Courts FAI）", "org_en": "Scottish Courts fatal accident inquiry determination",
+      "url1": "https://www.scotcourts.gov.uk/media/5rjpqke1/2024fai050-fai-antonio-joao-da-silva-linares.pdf",
+      "url2": "",
+      "verify_zh": "主管機關／業主一手資料",
+      "note_zh": "機型取自本站風場紀錄，FAI 文件未寫型號。", "note_en": "The turbine model comes from the site's farm record; the FAI document does not name it.",
+      "site_farm": "Kilgallioch"
+    }
+  },
+  {
+    "farm": "Hästkullen (Nysäter) — 2022-07-16",
+    "sources": [
+      {"url": "https://www.svt.se/nyheter/inrikes/flera-havererade-vindkraftverk-pa-kort-tid", "quote": "16 juli 2022: Ett 220 meter högt vindkraftverk rasar i vindkraftsparken i Viksjö utanför Härnösand."},
+      {"url": "https://www.svt.se/nyheter/lokalt/vasternorrland/haverikommissionen-utreder-inte-vindkraftsolyckan-i-viksjo", "quote": "Statens haverikommission väljer att inte utreda vindkraftsolyckan på Hästkullen i Viksjö. Men teorin är att ett blad, eller en vinge, har havererat och det har sedan lett till att större delen av vindkraftverket rasat."},
+      {"url": "https://www.svt.se/nyheter/lokalt/vasternorrland/haverikommissionen-utreder-inte-vindkraftsolyckan-i-viksjo", "quote": "Turbinleverantören Nordex, RWE som sköter drift och underhåll, samt Nysäter Wind fortsätter att utreda händelsen"},
+      {"url": "https://www.nordex-online.com/en/2022/07/sweden-nysater-inaugurated/", "quote": "Hästkullen wind farm consists of 47 N149/4.0-4.5 turbines with 145-meter towers and 25 turbines with 125-meter towers."},
+      {"url": "https://www.nordex-online.com/en/2022/07/sweden-nysater-inaugurated/", "quote": "On Thursday 9 th of June, the Swedish Nysäter project including windfarms Hästkullen and Björnlandshöjden was inaugurated in Viksjö"}
+    ],
+    "data": {
+      "date": "2022-07-16", "country_zh": "瑞典", "country_en": "Sweden",
+      "area_zh": "Västernorrland 省 Härnösand Viksjö", "area_en": "Viksjö, Härnösand, Västernorrland",
+      "site": "陸域", "sub_zh": "塔架倒塌", "sub_en": "Tower collapse",
+      "project_zh": "Hästkullen（Nysäter 風電案）", "project_en": "Hästkullen (Nysäter wind project)",
+      "title_zh": "剛揭幕一個月的 Nysäter 風電案一部 220 m 高 Nordex 風機倒塌", "title_en": "A 220 m Nordex turbine collapses at the Nysäter project a month after its inauguration",
+      "summary_zh": "7 月 16 日 Härnösand 市 Viksjö 的 Hästkullen 風場一部 220 m 高的風機倒塌；風場屬 Nysäter 案（Hästkullen 68 部 N149/4.0-4.5 與 5 部 N131/3900），6 月 9 日才揭幕。瑞典事故調查局（SHK）8 月決定不立案調查，初步研判是一片葉片損壞後導致大部分機組倒塌，但不排除其他因素；製造商 Nordex、負責運維的 RWE 與業主 Nysäter Wind 繼續調查最終原因（SVT 2022-07-23、2022-08-11；Nordex 2022-07-15）。",
+      "summary_en": "On 16 July a 220 m turbine collapsed at the Hästkullen wind farm in Viksjö, Härnösand, part of the Nysäter project (Hästkullen: 68 N149/4.0-4.5 and 5 N131/3900), inaugurated on 9 June. In August the Swedish Accident Investigation Authority decided not to open an investigation; its preliminary theory is that a blade failed and brought down most of the turbine, without ruling out other factors, while supplier Nordex, O&M provider RWE and owner Nysäter Wind continued to investigate the final cause (SVT 23 Jul and 11 Aug 2022; Nordex 15 Jul 2022).",
+      "stage_zh": "營運", "farm_mw": "", "event_mw": "", "cap_note_zh": "Nysäter 全案 475 MW（Hästkullen 73 部＋Björnlandhöjden 33 部）；事件 1 部",
+      "turbine": "Nordex N149/4.0-4.5（145 m 塔，總高約 220 m）", "unit_mw": "", "cod": "2022-06-09（揭幕）", "owner": "Nysäter Wind（運維 RWE）",
+      "deaths": "", "injuries": "", "cas_zh": "報導未提及人員受傷", "cas_en": "No injuries mentioned in the reports",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "SVT（引述瑞典事故調查局 SHK）／Nordex", "org_en": "SVT (citing the Swedish Accident Investigation Authority) / Nordex",
+      "url1": "https://www.svt.se/nyheter/lokalt/vasternorrland/haverikommissionen-utreder-inte-vindkraftsolyckan-i-viksjo",
+      "url2": "https://www.svt.se/nyheter/inrikes/flera-havererade-vindkraftverk-pa-kort-tid",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "最終原因截至查證日未見公布。本站 Nysäter 紀錄的機型（Vestas V150）與 Nordex 揭幕新聞稿不符，待修正。",
+      "note_en": "No final cause published as of the check date. The site's Nysäter record lists Vestas V150 turbines, which contradicts Nordex's inauguration release; to be corrected.",
+      "site_farm": "Nysäter"
+    }
+  },
+  {
+    "farm": "Loughderryduff — 2013-03-22",
+    "sources": [
+      {"url": "https://www.donegallive.ie/news/councillor-wants-wind-farm-applications-halted-8630918", "quote": "Councillors have put questions about the collapse of the 64 metre high wind turbine at Loughderryduff near Ardara on March 22nd to Donegal County Council and have called for a full independent inquiry."},
+      {"url": "https://www.donegallive.ie/news/councillor-wants-wind-farm-applications-halted-8630918", "quote": "the manufacturers of the turbine – Danish company Vesta - and the owner of the wind farm"},
+      {"url": "https://www.donegallive.ie/news/councillor-wants-wind-farm-applications-halted-8630918", "quote": "“they were deemed safe and fit” to be turned on five days after the collapse"},
+      {"url": "https://donegalnews.com/huge-wind-turbine-blown-down-near-ardara", "quote": "A TECHNICAL examination is to resume this morning (Monday) after a huge 245-foot high wind turbine came crashing down during heavy winds near Ardara at the weekend."},
+      {"url": "https://donegalnews.com/huge-wind-turbine-blown-down-near-ardara", "quote": "The turbines at the wind farm have a ‘hub height’ of 49 metres (160 ft) and the 26 m (85 ft) radius of rotor, bringing their total height to 245 foot."},
+      {"url": "https://donegalnews.com/huge-wind-turbine-blown-down-near-ardara", "quote": "Posted: 8:53 pm March 24, 2013"}
+    ],
+    "data": {
+      "date": "2013-03-22", "country_zh": "愛爾蘭", "country_en": "Ireland",
+      "area_zh": "Donegal 郡 Ardara 附近 Loughderryduff", "area_en": "Loughderryduff near Ardara, County Donegal",
+      "site": "陸域", "sub_zh": "塔架倒塌", "sub_en": "Tower collapse",
+      "project_zh": "Loughderryduff 風場", "project_en": "Loughderryduff wind farm",
+      "title_zh": "強風中 Vestas V52 風機整部倒下，郡議會要求獨立調查", "title_en": "A Vestas V52 turbine comes down in high winds; county councillors demand an independent inquiry",
+      "summary_zh": "3 月 22 日強風中，Ardara 附近 Loughderryduff 風場一部風機（輪轂高 49 m、葉輪半徑 26 m，總高 245 ft）倒塌，塔身平躺地面、碎片散落，無人受傷；愛爾蘭健康安全局（HSA）等待技術鑑定。郡議會緊急動議要求製造商 Vestas 與業主說明並獨立調查；業主稱其餘 8 部經檢查後在倒塌 5 天後重新啟動（Donegal News 2013-03-24；Donegal Live）。",
+      "summary_en": "On 22 March, in high winds, a turbine at the Loughderryduff wind farm near Ardara (hub height 49 m, rotor radius 26 m, 245 ft overall) collapsed, the tower lying flat with debris spread around; nobody was hurt and the Health and Safety Authority awaited a technical evaluation. An emergency motion at Donegal County Council called on manufacturer Vestas and the owner to explain and for an independent inquiry; the owner said the other eight turbines were checked and restarted five days after the collapse (Donegal News 24 Mar 2013; Donegal Live).",
+      "stage_zh": "營運", "farm_mw": "", "event_mw": 0.85, "cap_note_zh": "9 部（事件後其餘 8 部）；NAW 報導全場 7.7 MW，待核對",
+      "turbine": "Vestas V52-850 kW（依輪轂高 49 m、葉輪半徑 26 m）", "unit_mw": 0.85, "cod": "", "owner": "North West Wind（Donegal Live 報導）",
+      "deaths": "", "injuries": "", "cas_zh": "報導：無人受傷", "cas_en": "Reports: nobody injured",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "Donegal News／Donegal Live", "org_en": "Donegal News / Donegal Live",
+      "url1": "https://www.donegallive.ie/news/councillor-wants-wind-farm-applications-halted-8630918",
+      "url2": "https://donegalnews.com/huge-wind-turbine-blown-down-near-ardara",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "Donegal News（3 月 24 日週日刊出）寫「週四傍晚」（3 月 21 日），Donegal Live 與 North American Windpower 寫 3 月 22 日；採後者，待查證。NAW 報導 Vestas 事後聲明原因為至少一片葉片未順槳導致飛車、葉片擊中塔架，但該站無法抓取、未核對。本站風場層無此風場（IRL 紀錄中查無 Loughderryduff）。愛爾蘭需新增 ISO 對照。",
+      "note_en": "Donegal News (published Sunday 24 March) says \"Thursday evening\" (21 March) while Donegal Live and North American Windpower give 22 March; the latter is used, to be verified. NAW reported Vestas' later statement that at least one blade failed to pitch, causing overspeed and a blade strike on the tower, but that site could not be fetched and the quote was not checked. The farm is not in the site's farm layer (no Loughderryduff among IRL records). Ireland needs a new ISO entry.",
+      "site_farm": null
+    }
+  },
+  {
+    "farm": "Bouin — 2018-01-01",
+    "sources": [
+      {"url": "https://www.thelocal.fr/20180102/wind-turbine-blown-down-by-wind-in-western-france", "quote": "The 260 tonne turbine was toppled in a field near the town of Bouin, where it had stood firmly for 13 years and survived numerous other storms."},
+      {"url": "https://www.thelocal.fr/20180102/wind-turbine-blown-down-by-wind-in-western-france", "quote": "one in the Vendée, western France where a 62-metre high turbine was"},
+      {"url": "https://www.deux-sevres.gouv.fr/index.php/contenu/telechargement/46246/338653/file/4_Etude_dangers_pages-85-88.pdf", "quote": "Chute d’une éolienne 01/01/2018 Bouin Vendée - 2003 - Chute du mât de 60 m qui se brise en 2. Débris éparpillés sur une surface assez importante."},
+      {"url": "https://www.deux-sevres.gouv.fr/index.php/contenu/telechargement/46246/338653/file/4_Etude_dangers_pages-85-88.pdf", "quote": "Tempête Carmen : erreur d’interprétation des données pour replacer l’éolienne, ce qui augmente une augmentation trop rapide du rotor."},
+      {"url": "https://www.keraunos.org/actualites/fil-infos/2018/janvier/tempete-carmen-eleanor-1-3-janvier-2018-submersion-orages-rafales-nord-et-ouest-france", "quote": "Le cas le plus spectaculaire a été observé en Vendée, où une éolienne a été abattue par le vent à Bouin"}
+    ],
+    "data": {
+      "date": "2018-01-01", "country_zh": "法國", "country_en": "France",
+      "area_zh": "Vendée 省 Bouin", "area_en": "Bouin, Vendée",
+      "site": "陸域", "sub_zh": "塔架倒塌", "sub_en": "Tower collapse",
+      "project_zh": "Bouin 風場", "project_en": "Bouin wind farm",
+      "title_zh": "Carmen 暴風中服役 13 年的風機倒塌，塔架斷成兩截", "title_en": "A 13-year-old turbine topples in Storm Carmen, its tower breaking in two",
+      "summary_zh": "1 月 1 日 Carmen 暴風襲擊法國西部時，Vendée 省 Bouin 風場一部 62 m 高、260 噸的風機倒塌，塔架斷成兩截、碎片散落大片範圍，該機 2003 年投運、已經歷多次暴風，同場其餘風機無恙（The Local 2018-01-02；Keraunos）。法國工業事故資料庫 ARIA 的紀錄（經 Deux-Sèvres 省政府公開的風場危害研究轉載）寫明原因：暴風中重新定位風機時資料判讀錯誤，使轉子加速過快。",
+      "summary_en": "On 1 January, as Storm Carmen hit western France, a 62 m, 260-tonne turbine at the Bouin wind farm in Vendée toppled, its tower breaking in two and debris spreading over a wide area; the machine dated from 2003 and had survived many storms, and the farm's other turbines were unharmed (The Local 2 Jan 2018; Keraunos). The ARIA industrial-accident record (reproduced in a wind-farm hazard study published by the Deux-Sèvres prefecture) gives the cause: a data-interpretation error while repositioning the turbine in the storm let the rotor accelerate too fast.",
+      "stage_zh": "營運", "farm_mw": 20, "event_mw": "", "cap_note_zh": "本站紀錄 20 MW（2003）；報導稱 8 部 62 m 高風機",
+      "turbine": "待查證（2003 年機組，塔高約 60 m）", "unit_mw": "", "cod": "2003", "owner": "EDF Renewables（本站紀錄）",
+      "deaths": "", "injuries": "", "cas_zh": "報導未提及人員傷亡", "cas_en": "No casualties mentioned in the reports",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "ARIA 工業事故資料庫（經省政府公開文件）／The Local／Keraunos", "org_en": "ARIA accident database (via a prefecture-published document) / The Local / Keraunos",
+      "url1": "https://www.deux-sevres.gouv.fr/index.php/contenu/telechargement/46246/338653/file/4_Etude_dangers_pages-85-88.pdf",
+      "url2": "https://www.thelocal.fr/20180102/wind-turbine-blown-down-by-wind-in-western-france",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "ARIA 原始條目未直接抓取，引文來自轉載該條目的危害研究 PDF。機型與業主待查證（搜尋結果提到 Bouin 另一處 Vendée Energie 的 3 部 N80，非本場）。",
+      "note_en": "The ARIA entry itself was not fetched; the quote comes from the hazard-study PDF that reproduces it. Turbine model and operator to be verified (search results mention a different Bouin site with three N80 turbines of Vendée Energie).",
+      "site_farm": "Bouin wind farm"
+    }
+  },
+  {
+    "farm": "Gols — 2017-12-19",
+    "sources": [
+      {"url": "https://www.vienna.at/burgendland-brennendes-windrad-fordert-zwei-schwerverletzte/5598965", "quote": "Bei Wartungsarbeiten eines Windrades in Gols (Bezirk Neusiedl am See) brach am Dienstagnachmittag ein Feuer aus."},
+      {"url": "https://www.vienna.at/burgendland-brennendes-windrad-fordert-zwei-schwerverletzte/5598965", "quote": "Die beiden anwesenden Techniker wurden dabei schwer verletzt, so Energie Burgenland."},
+      {"url": "https://www.vienna.at/burgendland-brennendes-windrad-fordert-zwei-schwerverletzte/5598965", "quote": "Die Windkraftanlage, die sich zwischen Gols und Zurndorf an einem Güterweg befindet, wird von der Energie Burgenland Windkraft betrieben."},
+      {"url": "https://www.vienna.at/burgendland-brennendes-windrad-fordert-zwei-schwerverletzte/5598965", "quote": "dürfte jedoch ein Kurzschluss den Brand ausgelöst haben, hieß es von der Energie Burgenland."},
+      {"url": "https://www.vienna.at/burgendland-brennendes-windrad-fordert-zwei-schwerverletzte/5598965", "quote": "Löscharbeiten seien aufgrund der großen Höhe des in mehr als 90 Metern gelegenen Brandherdes nicht möglich gewesen."},
+      {"url": "https://www.tt.com/artikel/15438547/nach-brand-eines-windrades-im-burgenland-diversion-fuer-techniker", "quote": "Am 19. Dezember 2017 kam es in Gols (Bezirk Neusiedl am See) zu dem folgenschweren Zwischenfall"},
+      {"url": "https://www.tt.com/artikel/15438547/nach-brand-eines-windrades-im-burgenland-diversion-fuer-techniker", "quote": "Den beiden schwer verletzten Technikern gelang es noch, vom Turm abzusteigen."}
+    ],
+    "data": {
+      "date": "2017-12-19", "country_zh": "奧地利", "country_en": "Austria",
+      "area_zh": "Burgenland 邦 Neusiedl am See 區 Gols", "area_en": "Gols, Neusiedl am See district, Burgenland",
+      "site": "陸域", "sub_zh": "維修火災／人員重傷", "sub_en": "Maintenance fire / serious injuries",
+      "project_zh": "Gols 風場（Energie Burgenland）", "project_en": "Gols wind farm (Energie Burgenland)",
+      "title_zh": "機艙維修時起火，兩名技師重傷", "title_en": "Fire breaks out during nacelle maintenance; two technicians seriously injured",
+      "summary_zh": "12 月 19 日下午，Gols 與 Zurndorf 之間一部 Energie Burgenland Windkraft 營運的風機在機艙維修時起火，兩名技師重傷，自行下塔後由直升機送往維也納與格拉茨醫院；火點在 90 多 m 高、無法滅火，機艙外罩燒毀、部分掉落，周圍 500 m 封鎖。Energie Burgenland 初步研判為短路（APA／vienna.at 2017-12-19）。2019 年 3 月一名 41 歲電工因此案在 Eisenstadt 受審並獲轉向處分（tt.com 2019-03-15）。",
+      "summary_en": "On the afternoon of 19 December a turbine between Gols and Zurndorf operated by Energie Burgenland Windkraft caught fire during maintenance in the nacelle; the two technicians were seriously injured, managed to climb down and were flown to hospitals in Vienna and Graz. The seat of the fire at over 90 m could not be fought, the nacelle cladding burnt and parts fell, and a 500 m cordon was set. Energie Burgenland's preliminary view was a short circuit (APA / vienna.at 19 Dec 2017). In March 2019 a 41-year-old electrician was tried in Eisenstadt over the fire and given a diversion (tt.com 15 Mar 2019).",
+      "stage_zh": "營運維修", "farm_mw": "", "event_mw": "", "cap_note_zh": "",
+      "turbine": "", "unit_mw": "", "cod": "", "owner": "Energie Burgenland Windkraft",
+      "deaths": "", "injuries": 2, "cas_zh": "Energie Burgenland：2 名技師重傷", "cas_en": "Energie Burgenland: two technicians seriously injured",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "APA（經 vienna.at）／Tiroler Tageszeitung", "org_en": "APA (via vienna.at) / Tiroler Tageszeitung",
+      "url1": "https://www.vienna.at/burgendland-brennendes-windrad-fordert-zwei-schwerverletzte/5598965",
+      "url2": "https://www.tt.com/artikel/15438547/nach-brand-eines-windrades-im-burgenland-diversion-fuer-techniker",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "本站 AUT 的「Gols wind farm」紀錄業主為 PÜSPÖK，與此機（Energie Burgenland）未必同一風場，故不對應。奧地利需新增 ISO 對照；「維修火災／人員重傷」為新子類。",
+      "note_en": "The site's AUT record \"Gols wind farm\" lists PÜSPÖK as owner and may not be the same farm as this Energie Burgenland turbine, so no site_farm is given. Austria needs a new ISO entry; the sub-type is new.",
+      "site_farm": null
+    }
+  },
+  {
+    "farm": "Bürgerwindpark Fehmarn — 2026-02-02",
+    "sources": [
+      {"url": "https://www.t-online.de/nachrichten/panorama/ungluecke/id_101110994/fehmarn-windrad-brennt-feuerwehr-ist-machtlos.html", "quote": "Auf der Urlaubsinsel Fehmarn ist am Montagmorgen ein Windrad teilweise in Flammen aufgegangen."},
+      {"url": "https://www.t-online.de/nachrichten/panorama/ungluecke/id_101110994/fehmarn-windrad-brennt-feuerwehr-ist-machtlos.html", "quote": "Der Bürgerwindpark Fehmarn, in dem sich die abgebrannte Anlage befindet, besteht aus sieben Windkraftanlagen und ist seit 1999 in Betrieb."},
+      {"url": "https://www.t-online.de/nachrichten/panorama/ungluecke/id_101110994/fehmarn-windrad-brennt-feuerwehr-ist-machtlos.html", "quote": "Immer wieder fielen brennende Trümmerteile herab, verletzt wurde aber niemand. Die Feuerwehr ließ das Windrad kontrolliert abbrennen."},
+      {"url": "https://www.t-online.de/nachrichten/panorama/ungluecke/id_101110994/fehmarn-windrad-brennt-feuerwehr-ist-machtlos.html", "quote": "teilte die Polizei mit, ein technischer Defekt sei am wahrscheinlichsten. Es entstand ein Sachschaden von rund 500.000 Euro."},
+      {"url": "https://www.t-online.de/nachrichten/panorama/ungluecke/id_101110994/fehmarn-windrad-brennt-feuerwehr-ist-machtlos.html", "quote": "Aktualisiert am 02.02.2026"},
+      {"url": "https://www.t-online.de/nachrichten/panorama/ungluecke/id_101110994/fehmarn-windrad-brennt-feuerwehr-ist-machtlos.html", "quote": "im Maschinenraum in rund 99 Metern Höhe, entstanden."}
+    ],
+    "data": {
+      "date": "2026-02-02", "country_zh": "德國", "country_en": "Germany",
+      "area_zh": "什勒斯維希－霍爾斯坦邦 Fehmarn 島", "area_en": "Fehmarn island, Schleswig-Holstein",
+      "site": "陸域", "sub_zh": "機艙火災", "sub_en": "Nacelle fire",
+      "project_zh": "Bürgerwindpark Fehmarn", "project_en": "Bürgerwindpark Fehmarn (community wind farm)",
+      "title_zh": "1999 年投運的公民風場風機 99 m 高機艙起火，消防只能放任燒盡", "title_en": "Nacelle fire at 99 m on a 1999 community wind farm turbine; firefighters can only let it burn out",
+      "summary_zh": "2 月 2 日（週一）早上 Fehmarn 島 Bürgerwindpark Fehmarn 一部風機起火，警方稱火從約 99 m 高的機艙燒起，煙柱遠處可見；雲梯只到約 40 m，消防封鎖周邊、讓風機受控燒盡，燃燒的碎片不斷掉落但無人受傷。警方初判技術故障最可能，財損約 50 萬歐元；該風場 7 部風機、1999 年投運（t-online 2026-02-02，引述警方）。",
+      "summary_en": "On the morning of Monday 2 February a turbine at the Bürgerwindpark Fehmarn caught fire; police said it started in the nacelle at about 99 m and the smoke plume was visible from afar. With ladders reaching only about 40 m, the fire brigade cordoned off the area and let the turbine burn out under control; burning debris kept falling but nobody was hurt. Police considered a technical defect most likely and put the damage at about EUR 500,000; the farm has seven turbines and has run since 1999 (t-online 2 Feb 2026, citing police).",
+      "stage_zh": "營運", "farm_mw": "", "event_mw": "", "cap_note_zh": "7 部（t-online）",
+      "turbine": "", "unit_mw": "", "cod": "1999", "owner": "Bürgerwindpark Fehmarn",
+      "deaths": "", "injuries": "", "cas_zh": "警方：無人受傷", "cas_en": "Police: nobody injured",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "t-online（引述 Polizei Lübeck 新聞稿與 NDR）", "org_en": "t-online (citing the Lübeck police release and NDR)",
+      "url1": "https://www.t-online.de/nachrichten/panorama/ungluecke/id_101110994/fehmarn-windrad-brennt-feuerwehr-ist-machtlos.html",
+      "url2": "",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "警方 presseportal 原稿（POL-HL）未找到連結，只有單一媒體來源。本站 Fehmarn 的風場紀錄（Fehmarn Mitte、Westfehmarn 等）年份為 2006–2008，對不到 1999 年的這座，故不對應。",
+      "note_en": "The police press release (POL-HL) could not be located, so there is a single media source. The site's Fehmarn farm records (Fehmarn Mitte, Westfehmarn etc.) date from 2006–2008 and do not match this 1999 park, so no site_farm is given.",
+      "site_farm": null
+    }
+  },
+  {
+    "farm": "Windpark Fischborn (Birstein) — 2026-02-25",
+    "sources": [
+      {"url": "https://www.hessenschau.de/panorama/toedlicher-unfall-in-birstein-zwei-windrad-arbeiter-stuerzen-aus-60-metern-ab-v4,birstein-tote-100.html", "quote": "Zwei Arbeiter sind am Mittwochmorgen bei Arbeiten für den Windpark Fischborn in Birstein (Main-Kinzig) gestorben. Laut der Polizei stürzte eine Art Arbeitskorb, der beim Aufbau einer Windkraftanlage genutzt wurde, aus großer Höhe ab."},
+      {"url": "https://www.hessenschau.de/panorama/toedlicher-unfall-in-birstein-zwei-windrad-arbeiter-stuerzen-aus-60-metern-ab-v4,birstein-tote-100.html", "quote": "Der Korb stürzte dann aus bisher unbekannter Ursache im Inneren des Turms ab. Andere Arbeiter hörten den Aufschlag des Korbs und verständigten gegen 4.45 Uhr die Polizei."},
+      {"url": "https://www.hessenschau.de/panorama/toedlicher-unfall-in-birstein-zwei-windrad-arbeiter-stuerzen-aus-60-metern-ab-v4,birstein-tote-100.html", "quote": "Veröffentlicht am 25.02.26 um 10:33 Uhr"},
+      {"url": "https://www.hessenschau.de/panorama/toedlicher-unfall-in-birstein-zwei-windrad-arbeiter-stuerzen-aus-60-metern-ab-v4,birstein-tote-100.html", "quote": "In der Gegend bei Birstein gibt es aktuell mehrere Baustellen, dort werden insgesamt zwölf Windräder errichtet."},
+      {"url": "https://www.rechargenews.com/accidents-and-casualties/two-workers-fall-to-death-at-german-wind-farm-construction-site/2-1-1950438", "quote": "Two 32-year-old men, employees of subcontractor to tower supplier Max Bögl, fell from work platform inside wind turbine tower"},
+      {"url": "https://switchgear-magazine.com/news/people/deadly-fall-at-german-wind-site/", "quote": "The wind farm is being developed by Hesse Energie and includes nine Vestas V172 turbines. Vestas confirmed that the deceased were employed by a subcontractor of tower supplier Max Bögl."}
+    ],
+    "data": {
+      "date": "2026-02-25", "country_zh": "德國", "country_en": "Germany",
+      "area_zh": "黑森邦 Main-Kinzig 郡 Birstein（Fischborn）", "area_en": "Birstein (Fischborn), Main-Kinzig district, Hesse",
+      "site": "陸域", "sub_zh": "工作者高處墜落／死亡", "sub_en": "Worker fall from height / fatality",
+      "project_zh": "Windpark Fischborn", "project_en": "Fischborn wind farm",
+      "title_zh": "施工中風機塔內工作吊籃自約 60 m 墜落，兩名工人死亡", "title_en": "Work platform falls about 60 m inside a turbine tower under construction; two workers killed",
+      "summary_zh": "2 月 25 日清晨，Birstein 的 Windpark Fischborn 工地上，兩名 32 歲工人在塔內約 60 m 高的工作吊籃作業時，吊籃不明原因墜落，兩人當場死亡；其他工人聽到撞擊聲，04:45 報警，警方委請鑑定人重建經過（hessenschau 2026-02-25）。Vestas 證實死者為塔架供應商 Max Bögl 分包商的員工，風場由 Hesse Energie 開發、9 部 Vestas V172（Recharge 2026-02-26；Switchgear Magazine 2026-02-27）。",
+      "summary_en": "In the early morning of 25 February, at the Fischborn wind farm site in Birstein, two 32-year-old workers were in a work platform about 60 m up inside a tower when it fell for an as yet unknown reason; both died at the scene. Other workers heard the impact and called the police at 04:45, who appointed an expert to reconstruct the sequence (hessenschau 25 Feb 2026). Vestas confirmed the men were employees of a subcontractor to tower supplier Max Bögl; the farm is developed by Hesse Energie with nine Vestas V172 turbines (Recharge 26 Feb 2026; Switchgear Magazine 27 Feb 2026).",
+      "stage_zh": "施工中", "farm_mw": "", "event_mw": "", "cap_note_zh": "9 部 Vestas V172（Switchgear）；本站紀錄 86 MW 待核對",
+      "turbine": "Vestas V172", "unit_mw": "", "cod": "", "owner": "Hesse Energie（開發商）；塔架 Max Bögl",
+      "deaths": 2, "injuries": "", "cas_zh": "警方：2 人死亡", "cas_en": "Police: two fatalities",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "hessenschau（引述警方）／Recharge（引述 Vestas）", "org_en": "hessenschau (citing police) / Recharge (citing Vestas)",
+      "url1": "https://www.hessenschau.de/panorama/toedlicher-unfall-in-birstein-zwei-windrad-arbeiter-stuerzen-aus-60-metern-ab-v4,birstein-tote-100.html",
+      "url2": "https://www.rechargenews.com/accidents-and-casualties/two-workers-fall-to-death-at-german-wind-farm-construction-site/2-1-1950438",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "原因截至查證日未公布（警方與鑑定人調查中）。", "note_en": "No cause published as of the check date (police and expert investigation ongoing).",
+      "site_farm": "Fischborn wind farm"
+    }
+  },
+  {
+    "farm": "Viking (Upper Kergord) — 2022-06-05",
+    "sources": [
+      {"url": "https://www.shetnews.co.uk/2022/06/05/young-man-dies-in-industrial-accident-at-upper-kergord", "quote": "A TWENTY three year old man has died following an accident on a wind farm construction site at Upper Kergord"},
+      {"url": "https://www.shetnews.co.uk/2022/06/05/young-man-dies-in-industrial-accident-at-upper-kergord", "quote": "The accident happened on the Viking Energy wind farm construction site at Upper Kergord, which is operated by Cheshire-based BAM Nuttall."},
+      {"url": "https://www.shetnews.co.uk/2022/06/05/young-man-dies-in-industrial-accident-at-upper-kergord", "quote": "the company building the 450 MW Viking Energy wind farm"},
+      {"url": "https://shetnews.co.uk/2024/12/10/principal-contractor-viking-project-sentenced", "quote": "Liam Macdonald, from Tain, died at the Viking construction site on 5 June 2022 while working for BAM Nuttall."},
+      {"url": "https://shetnews.co.uk/2024/12/10/principal-contractor-viking-project-sentenced", "quote": "Macdonald was killed by the bale arm of a concrete skip, which crushed him while he was cleaning the inside of the skip. BAM Nuttall pleaded guilty to breaching the Health and Safety at Work Act 1974"},
+      {"url": "https://shetnews.co.uk/2024/12/10/principal-contractor-viking-project-sentenced", "quote": "Construction firm fined £860,000 over death of young man on Viking construction site"}
+    ],
+    "data": {
+      "date": "2022-06-05", "country_zh": "英國", "country_en": "United Kingdom",
+      "area_zh": "蘇格蘭 Shetland Upper Kergord", "area_en": "Upper Kergord, Shetland, Scotland",
+      "site": "陸域", "sub_zh": "施工事故／人員死亡", "sub_en": "Construction accident / fatality",
+      "project_zh": "Viking", "project_en": "Viking",
+      "title_zh": "Viking 風場工地混凝土料斗吊臂壓死 23 歲工人，總承包商認罪罰款", "title_en": "Concrete skip bale arm crushes a 23-year-old worker at the Viking site; principal contractor pleads guilty and is fined",
+      "summary_zh": "6 月 5 日週日上午，SSE Renewables 450 MW Viking 風場的 Upper Kergord 工地（Kergord 換流站）發生工安事故，BAM Nuttall 僱用的 23 歲工人 Liam Macdonald 清理混凝土料斗時被料斗吊臂壓住，當場死亡（Shetland News 2022-06-05）。HSE 調查後，總承包商 BAM Nuttall 於 2024 年 12 月認罪違反職業安全衛生法，法院處以罰金（Shetland News 報導 86 萬英鎊，部分媒體報 80 萬英鎊罰金＋6 萬英鎊附加費）。",
+      "summary_en": "On the morning of Sunday 5 June an accident at the Upper Kergord site (Kergord converter station) of SSE Renewables' 450 MW Viking wind farm killed Liam Macdonald, 23, employed by BAM Nuttall, when the bale arm of a concrete skip crushed him while he was cleaning the skip (Shetland News 5 Jun 2022). After an HSE investigation, principal contractor BAM Nuttall pleaded guilty in December 2024 to breaching the Health and Safety at Work Act and was fined (Shetland News: GBP 860,000; other outlets: GBP 800,000 fine plus GBP 60,000 surcharge).",
+      "stage_zh": "施工中", "farm_mw": 443, "event_mw": "", "cap_note_zh": "本站紀錄 443 MW（103×4.2）；報導稱 450 MW",
+      "turbine": "Vestas V117-4.2 MW", "unit_mw": 4.2, "cod": "2024", "owner": "SSE Renewables（總承包 BAM Nuttall）",
+      "deaths": 1, "injuries": "", "cas_zh": "警方／法院：1 人死亡", "cas_en": "Police / court: one fatality",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "Shetland News（引述警方、BAM Nuttall、法院）", "org_en": "Shetland News (citing police, BAM Nuttall and the court)",
+      "url1": "https://www.shetnews.co.uk/2022/06/05/young-man-dies-in-industrial-accident-at-upper-kergord",
+      "url2": "https://shetnews.co.uk/2024/12/10/principal-contractor-viking-project-sentenced",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "事故地點是風場的換流站工地，不在風機上；HSE 新聞稿連結（press.hse.gov.uk/?p=6595）回 404，未核對。罰金數字各媒體不一。「施工事故／人員死亡」為新子類。",
+      "note_en": "The accident was at the farm's converter-station site, not on a turbine; the HSE press release link (press.hse.gov.uk/?p=6595) returned 404 and was not checked. Reported fine figures differ between outlets. The sub-type is new.",
+      "site_farm": "Viking"
+    }
+  },
+  {
+    "farm": "Korzkwy (Pleszew) — 2023-12-28",
+    "sources": [
+      {"url": "https://android.com.pl/tech/674667-awaria-wiatrak-zlamany-maszt/", "quote": "Do groźnego zdarzenia doszło 28 grudnia w powiecie pleszewskim (woj. wielkopolskie). W miejscowości Korzkwy jeden z wiatraków złamał się"},
+      {"url": "https://android.com.pl/tech/674667-awaria-wiatrak-zlamany-maszt/", "quote": "Odpadło jedno skrzydło i w konsekwencji wiatrak cały się złamał."},
+      {"url": "https://android.com.pl/tech/674667-awaria-wiatrak-zlamany-maszt/", "quote": "turbina wiatrowa stoi w tym miejscu od 10 lat"},
+      {"url": "https://spidersweb.pl/2023/12/wiatrak-rozpadl-sie-w-drobny-mak.html", "quote": "Najpierw oderwało się od niego skrzydło, a później cała konstrukcja złamała się i zawaliła pod własnym ciężarem."},
+      {"url": "https://spidersweb.pl/2023/12/wiatrak-rozpadl-sie-w-drobny-mak.html", "quote": "Awaria wiatraka w Korzkwach to nie pierwszy taki przypadek w Polsce."},
+      {"url": "https://spidersweb.pl/2023/12/wiatrak-rozpadl-sie-w-drobny-mak.html", "quote": "runęły na ziemię z wysokości ponad 70 m"}
+    ],
+    "data": {
+      "date": "2023-12-28", "country_zh": "波蘭", "country_en": "Poland",
+      "area_zh": "大波蘭省 Pleszew 郡 Korzkwy", "area_en": "Korzkwy, Pleszew county, Greater Poland",
+      "site": "陸域", "sub_zh": "塔架倒塌", "sub_en": "Tower collapse",
+      "project_zh": "Korzkwy 風機（Pleszew）", "project_en": "Korzkwy turbine (Pleszew)",
+      "title_zh": "葉片脫落後塔架攔腰折斷，碎片拋到 200 m 外", "title_en": "A blade comes off and the tower snaps in half, throwing debris 200 m",
+      "summary_zh": "12 月 28 日早上 7 時左右，大波蘭省 Pleszew 郡 Korzkwy 村一部已運轉約 10 年的風機先掉落一片葉片，接著塔架在約一半高度折斷倒塌，葉片碎片自 70 多 m 高墜落、部分拋到 200 m 外；風機位於田中、遠離建物，無人受傷，當時連業主是誰都尚待郡建築監督機關確認（android.com.pl 引述 Pleszew Nasze Miasto；Spider's Web 2023-12）。",
+      "summary_en": "At about 7 a.m. on 28 December a turbine that had run for some ten years at Korzkwy in Pleszew county, Greater Poland, first lost a blade and then its tower broke at about half height and collapsed; blade fragments fell from over 70 m and some were thrown 200 m. The turbine stood in a field away from buildings and nobody was hurt; at the time even the owner had yet to be established by the county building inspectorate (android.com.pl citing Pleszew Nasze Miasto; Spider's Web, Dec 2023).",
+      "stage_zh": "營運", "farm_mw": "", "event_mw": "", "cap_note_zh": "",
+      "turbine": "", "unit_mw": "", "cod": "約 2013", "owner": "",
+      "deaths": "", "injuries": "", "cas_zh": "報導：無人受傷", "cas_en": "Reports: nobody injured",
+      "lat": "", "lon": "", "coord_note_zh": "",
+      "org": "android.com.pl（引述 Pleszew Nasze Miasto）／Spider's Web", "org_en": "android.com.pl (citing Pleszew Nasze Miasto) / Spider's Web",
+      "url1": "https://android.com.pl/tech/674667-awaria-wiatrak-zlamany-maszt/",
+      "url2": "https://spidersweb.pl/2023/12/wiatrak-rozpadl-sie-w-drobny-mak.html",
+      "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+      "note_zh": "機型、業主與原因均未公布；來源為科技媒體轉述地方新聞，缺官方來源。波蘭需新增 ISO 對照。",
+      "note_en": "Model, owner and cause not published; the sources are tech outlets relaying local news and no official source was found. Poland needs a new ISO entry.",
+      "site_farm": null
+    }
+  }
+]
