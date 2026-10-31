@@ -1,0 +1,60 @@
+[
+  {
+    "farm": "Changfang & Xidao — end 2022",
+    "finding": "First power 15 Nov 2022 from phase 1 (Changfang phase 1 = 10 turbines / 100 MW, metering point 芳一風; its 100 MW onshore substation joined the Taipower system in March 2022). No source gives the number of turbines generating on 31 Dec 2022; the upper bound is phase 1 (10 × 9.5 MW ≈ 95 MW, 100 MW grid allocation). Turbine installation: first turbine July 2022, 16 installed by 28 Jun 2023, 31 by 23 Aug 2023.",
+    "confidence": "medium (bounded: ≤10 turbines / ≤100 MW at end 2022; exact count not sourced)",
+    "sources": [
+      {"url": "https://offshorewind.biz/2022/11/15/changfang-xidao-wind-farm-generates-first-power-offshore-taiwan", "quote": "First power has been produced from the 589 MW Changfang & Xidao offshore wind farms in Taiwan"},
+      {"url": "https://offshorewind.biz/2022/11/15/changfang-xidao-wind-farm-generates-first-power-offshore-taiwan", "quote": "The offshore wind project will comprise 62 Vestas 9.5 MW wind turbines, the first of which was installed in July by the installation vessel Bold Tern"},
+      {"url": "https://www.cna.com.tw/news/afe/202206230390.aspx", "quote": "目前兩艘施工船舶已抵台，將陸續進行彰芳西島一期風場的10座水下基礎、風機安裝作業，力拚8月完成建置"},
+      {"url": "https://news.cnyes.com/news/id/4837315", "quote": "彰芳暨西島離岸風電計畫第一期 100MW 陸上變電設備，完成通訊測試與跳脫測試後，已順利加入台電系統，後續將在第一期工程經驗基礎上，完成第二期陸上變電站工程，以整場 600MW 總裝置容量運轉"},
+      {"url": "https://www.cfxd.com.tw/news.php?idx=106&lang=tw", "quote": "風場首座風機於 2022 年開始發電，預計每年為台灣提供 65 萬家戶所需用電之潔淨能源"}
+    ]
+  },
+  {
+    "farm": "Changfang & Xidao — end 2023",
+    "finding": "No source states the number of turbines grid-connected on 31 Dec 2023. Bounds: 16 turbines installed by 28 Jun 2023, 31 of 62 by 23 Aug 2023 with all 62 targeted by end 2023; on 20 May 2024 only about one third (22 turbines) were grid-connected and the rest awaited the electricity licence; the completion ceremony was 22 May 2024 and the whole farm then awaited the licence. So on 31 Dec 2023 the connected count was between phase 1 (10 turbines, ~95-100 MW) and 22 turbines (~209 MW). Full 589 MW only in 2024 (licence obtained in 2024 per the Energy Administration).",
+    "confidence": "low-medium (bounded 10-22 turbines; a Nov 2023 LTN report of 'about 80% connected' could not be fetched (HTTP 403) and conflicts with the May 2024 count)",
+    "sources": [
+      {"url": "https://www.cfxd.com.tw/news.php?idx=100&lang=tw", "quote": "已完成全數186支基樁安裝與超過44座水下基礎，風機安裝支數甫完成16支，若持續以此進度推進，應能按規劃於今年底完工"},
+      {"url": "https://www.offshorewind.biz/2023/08/23/bold-tern-installs-half-of-changfang-xidao-wind-turbines-offshore-taiwan", "quote": "has installed 31 out of 62 Vestas V174-9.5 MW wind turbines at the Changfang and Xidao offshore wind project in Taiwan"},
+      {"url": "https://www.offshorewind.biz/2023/08/23/bold-tern-installs-half-of-changfang-xidao-wind-turbines-offshore-taiwan", "quote": "The project aims to complete all turbine installation by the end of the year"},
+      {"url": "https://www.ctee.com.tw/news/20240520700044-439901", "quote": "彰芳暨西島離岸風場獲配容量為600MW，規劃建置62座離岸風力機組，目前約1/3即22支已併網，其餘近期取得電業執照，力拚全場商轉"},
+      {"url": "https://www.cfxd.com.tw/news.php?idx=106&lang=tw", "quote": "將儘速於取得電業執照後整場併聯商轉"},
+      {"url": "https://www.cna.com.tw/news/afe/202405220325.aspx", "quote": "總共設置62座Vestas風機。風場首座風機在2022年開始發電"}
+    ]
+  },
+  {
+    "farm": "Zhong Neng — end 2024",
+    "finding": "First turbine generating by 26 Jun 2024; all 31 turbines installed and the whole-farm works/grid tie completed in Aug 2024 (ctee: '8月超前完成全場工程併網'); from Sep 2024 turbines were being commissioned and tested one by one with whole-farm connection hoped for by end 2024; the electricity licence came only in April 2025 (CSC) and COD was announced 22 May 2025; in June 2025 CSC still said whole-farm connection was expected 'this year'. So on 31 Dec 2024 the farm was installed and in test/commissioning (some units exporting test power) but not licensed; commercial operation and official whole-farm connection belong to 2025.",
+    "confidence": "medium-high for the sequence; the number of turbines actually exporting on 31 Dec 2024 is not sourced",
+    "sources": [
+      {"url": "https://www.cna.com.tw/news/afe/202406260392.aspx", "quote": "中能發電股份有限公司今天宣布，中能離岸風電計畫首座風機，已於日前開始發電，預計今年第3季整場併網"},
+      {"url": "https://www.chinatimes.com/newspapers/20240903000173-260202", "quote": "趕在今年8月超前完成全場工程併網，今年底前可望取得電業執照正式商轉"},
+      {"url": "https://news.cnyes.com/news/id/5707969", "quote": "目前 31 座風機目前全數完成安裝，所有工程建設皆已建置完成，接續風機設備將逐一進行調適與試俥，並辦理相關峻工查驗，有望於 2024 年底前如期整場併網發電"},
+      {"url": "https://cop.dk/zhong-neng-offshore-wind-farm-completes-construction-in-taiwan/", "quote": "the first turbine was installed in May 2024. Full grid connection is expected by year-end"},
+      {"url": "https://news.cnyes.com/news/id/6029237", "quote": "合作的中能風場已於去年完工商轉發電，今年可望整場併網"},
+      {"url": "https://www.csc.com.tw/csc/gc/gro_ser_p5.html", "quote": "風場31座風機已於113年全數完成安裝，並於114年4月取得電業執照，正式達成商業運轉併網發電"}
+    ]
+  },
+  {
+    "farm": "Zhong Neng — electricity licence 2025",
+    "finding": "CSC (parent company) states the licence was obtained in April 2025 (114年4月); the exact day is not published in any fetched source. The closest dated official document is the MOEA letter No. 11400575890 of 28 Apr 2025 (經授能字第11400575890號) on which the Navy's notice to mariners of 8 May 2025 declares the farm completed. COP announced COD on 22 May 2025 (300 MW into the grid).",
+    "confidence": "high for 'April 2025'; the exact licence date is unverified (28 Apr 2025 MOEA letter is the nearest dated record)",
+    "sources": [
+      {"url": "https://www.csc.com.tw/csc/gc/gro_ser_p5.html", "quote": "並於114年4月取得電業執照，正式達成商業運轉併網發電"},
+      {"url": "https://navy.mnd.gov.tw/Files/Other/25-68(%E6%B0%91).pdf", "quote": "經濟部114年4月28日經授能字第11400575890號函"},
+      {"url": "https://navy.mnd.gov.tw/Files/Other/25-68(%E6%B0%91).pdf", "quote": "中能離岸風場已完工，航經該水域船隻請注意避讓"},
+      {"url": "https://cop.dk/zhong-neng-offshore-wind-farm-reaches-commercial-operations-date-in-taiwan/", "quote": "The Zhong Neng Offshore Wind Farm has reached its Commercial Operations Date (COD) and is now in full-scale operation, delivering a capacity of 300 MW into Taiwan’s national grid"}
+    ]
+  },
+  {
+    "farm": "Taiwan offshore — official aggregates (cross-check)",
+    "finding": "Energy Administration: 374 turbines installed / 3.04 GW by end Jan 2025 (7 commercial farms completed). LTN (Feb 2025, HTTP 403 for us, not quoted) adds 367 connected at end 2024 and 137 turbines / 1.22 GW connected during 2024 (matches handbook 2,986.8 − 1,763.2 = 1,223.6 MW), i.e. only 230 of the 283 turbines standing at end 2023 were connected. No official per-farm breakdown was found.",
+    "confidence": "high for the quoted aggregate",
+    "sources": [
+      {"url": "https://www.cna.com.tw/news/afe/202502120377.aspx", "quote": "截至民國114年1月底，台灣已完成7座離岸商業風場建置，風力機設置累計374座，併網容量為3.04GW"},
+      {"url": "https://technews.tw/2025/06/04/374-offshore-wind-farms-have-been-connected-to-the-grid/", "quote": "截至今年5月底，台灣已完成七座離岸風場，安裝超過400座離岸風力機，累計併網達374座，總併網量突破3GW"}
+    ]
+  }
+]
