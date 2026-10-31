@@ -1,0 +1,90 @@
+[
+  {
+    "farm": "Yunlin — first power (Nov 2021)",
+    "finding": "First turbine connected and feeding in early November 2021; target of 9 turbines in operation by end-2021 was not met. Confidence: high.",
+    "confidence": "high",
+    "sources": [
+      {"url": "https://www.offshorewind.biz/2021/11/08/640-mw-taiwanese-offshore-wind-farm-starts-delivering/", "quote": "The first of the 80 Siemens Gamesa 8 MW wind turbines at the 640 MW Yunlin offshore wind farm has been connected to the Taiwanese grid and the feed-in has commenced, the project developer said."},
+      {"url": "https://www.energyglobal.com/wind/30112021/production-start-up-of-the-yunlin-offshore-wind-farm/", "quote": "The first turbine was commissioned and successfully connected to the grid in November, with a target to get a first batch of nine turbines into full operation mode by end-2021"},
+      {"url": "https://www.skybornrenewables.com/markets/taiwan/yunlin_offshore", "quote": "2021 April: First WTG installed November: First power feed-in 2023 July: Award of first Electricity Business License (EBL)"}
+    ]
+  },
+  {
+    "farm": "Yunlin — end 2021",
+    "finding": "Targets only: 20 turbines (1/4) by end-2021 was the revised goal (Aug/Sep 2021), then 9 by end-2021 (Nov 2021). Actual year-end figure: Liberty Times (ec.ltn.com.tw/article/paper/1535512, 2022-08-21) says 「去年底2座風機併網」 = 2 turbines (16 MW) connected at end-2021, but that site returns 403 to the checker so it is NOT quote-verified. Confidence of the 2-turbine figure: medium (single source, unverified).",
+    "confidence": "medium",
+    "sources": [
+      {"url": "https://www.cna.com.tw/news/afe/202108300253.aspx", "quote": "允能風場將於9月復工，盼年底前完成1/4、相當於20支風機併聯"},
+      {"url": "https://www.cna.com.tw/news/afe/202109100254.aspx", "quote": "達德能源將允能風場併聯風機數量調降為1/4，並在9月初復工，順利的話，9月底前首批機組、約10支風機可投入發電。"},
+      {"url": "https://e-info.org.tw/node/232224", "quote": "年底前預計完成20支離岸風機，年發電量約5億度，剩餘風機則預計2022年完工。"}
+    ]
+  },
+  {
+    "farm": "Yunlin — end 2022",
+    "finding": "16 turbines installed at end-2022 (CNA 2023-01-05 '至今只裝設16支風機'; Energy Bureau via wantrich 2023-05-06 '約16支'; Liberty Times 2023-04-23 unverified: 16 turbines, 22 foundations by end-2022). Number CONNECTED at end-2022 not directly sourced: EGCO's 6M/2023 SET snapshot says 18 turbines (144 MW) were installed and in operation from Q4 2021 to July 2023, and EGCO's Q2/2023 release says turbines started transmitting 'since Q4/2022' with 144 MW total — so end-2022 connected is at most 16 (128 MW) and the bulk of the first batch was energised in Q4 2022. Confidence: medium.",
+    "confidence": "medium",
+    "sources": [
+      {"url": "https://www.cna.com.tw/news/afe/202301050331.aspx", "quote": "允能風場分為一期、二期，共設置80支風機，總裝置容量達640MW，但至今只裝設16支風機，進度延宕。"},
+      {"url": "https://wantrich.chinatimes.com/news/20230506900038-420101", "quote": "另允能風場原定要在2021年完成80支水下基礎、2022年全數併網，但實際上僅完成20％、約16支，在超過期限的情況下，能源局決定開罰。"},
+      {"url": "https://www.egco.com/en/newsroom/press-releases/354/egco-group-posts-over-thb26-bn-operating-profit-in-q2-23-and-rolls-out-4s-strategy-to-enhance-continuous-growth", "quote": "Twenty wind turbines have been completed and started to generate and transmit electricity to the grid since Q4/2022. Its total capacity is 144 MW."},
+      {"url": "https://lssmedia.setlink.set.or.th/2023/6M/EGCO-6M66-ListedCompanySnapshot-EN.html", "quote": "During the fourth quarter of 2021 until July 2023, 18 wind turbines were installed and in operation, with a total capacity of 144 MW."}
+    ]
+  },
+  {
+    "farm": "Yunlin — 2023 progress (Oct–Dec 2023)",
+    "finding": "1 Oct 2023: 45 monopiles, 30 turbines connected, some with electricity business licences. 13 Dec 2023: 34th turbine installed, 45 monopiles. Cumulative output to end-2023: 880 GWh. Confidence: high.",
+    "confidence": "high",
+    "sources": [
+      {"url": "https://www.cna.com.tw/news/afe/202310010015.aspx", "quote": "截至目前，允能風場已完成45座單樁、30座風機併聯發電，且部分風機已取得電業執照，開始取得電費收入。"},
+      {"url": "https://www.chinatimes.com/newspapers/20231213000192-260202", "quote": "至今共完成45座水下基礎安裝作業，26條陣列海纜、12條輸出海纜鋪設完成，並完成第34座風機安裝"},
+      {"url": "https://www.offshorewind.biz/2024/03/22/2024-installation-campaign-starts-at-yunlin-offshore-wind-farm/", "quote": "The 2023 installation campaign was completed at the end of last year with 45 monopile foundations, 26 inter-array cables, twelve export cables, and 34 wind turbines installed at the project site in the Taiwan Strait."},
+      {"url": "https://technews.tw/2024/03/04/owf-yunlin/", "quote": "目前已完工且併網的風機，截至 2023 年底，總發電量已達 8.8 億度電（880GWh）"}
+    ]
+  },
+  {
+    "farm": "Yunlin — end 2023",
+    "finding": "33 turbines / 264 MW connected (EGCO FY2023 results, 29 Feb 2024, same figure repeated as of 30 Apr 2024 before the 2024 campaign added turbines), with 34 turbines installed and 45 monopiles at year-end. Confidence: high.",
+    "confidence": "high",
+    "sources": [
+      {"url": "https://www.egco.com/en/newsroom/press-releases/383/egco-group-announces-over-thb-8700-million-operating-profit-and-over-thb-28000-million-cash-for-ye2023-and-approves-dividend-of-325-baht-per-share-for-2h-2023", "quote": "Yunlin offshore wind farm made impressive progress in 2023. By the end of the year a total of 45 monopiles were installed. The project has transmitted a green energy of 264 MW from 33 completed wind turbine generators"},
+      {"url": "https://www.egco.com/en/newsroom/press-releases/389/egco-group-posts-over-thb-1500-million-operating-profit-in-q1-2024-m-and-a-investments-in-high-quality-gas-fired-and-re-projects-planned-for-immediate-income-recognition", "quote": "By the end of April 2024, a total of 54 monopiles were installed. The project has transmitted a green energy of 264 MW from 33 completed wind turbine generators to the grid."}
+    ]
+  },
+  {
+    "farm": "Yunlin — 2024 progress (Jul–Nov 2024)",
+    "finding": "11 Jul 2024: 42 connected / 336 MW (55 installed). Aug 2024 (EGCO Q2): 66 installed, 47 connected / 376 MW. 23 Aug 2024: 68 installed, 52 connected. 21 Oct 2024: all 80 installed, 78 of 81 cables laid. 14 Nov 2024 (EGCO Q3): 67 connected / 536 MW. Confidence: high.",
+    "confidence": "high",
+    "sources": [
+      {"url": "https://www.offshorewind.biz/2024/07/11/all-monopiles-up-at-yunlin-offshore-wind-farm-over-half-of-wind-turbines-connected-to-taiwanese-grid/", "quote": "Skyborn Renewables announced on social media that over half (42) of the wind turbines are connected to the grid, giving the project an energised capacity of 336 MW"},
+      {"url": "https://www.egco.com/en/newsroom/press-releases/403/egco-group-enjoys-over-thb-1800-million-operating-profit-in-q2-2024-and-over-thb-3400-million-operating-profit-in-6m-2024-strong-confidence-in-yunlin-project-completion-within-this-year", "quote": "Today, we have completed the installation of 66 wind turbine generators (WTGs), 47 of which have started transmitted electricity to the grid totaling 376 installed MW."},
+      {"url": "https://www.cna.com.tw/news/afe/202408230307.aspx", "quote": "雲林離岸風場施工團隊目前已完成全數80座水下基礎、68座風機安裝作業，其中52座風機已併聯至台電電網運轉發電"},
+      {"url": "https://www.enerdata.net/publications/daily-energy-news/final-turbine-installed-640-mw-yunlin-offshore-wind-park-taiwan.html", "quote": "All 80 Siemens Gamesa 8 MW turbines have now been installed at the wind park"},
+      {"url": "https://www.kaohooninternational.com/markets/546329", "quote": "installation of all 80 wind turbine generators (WTGs) has been completed and 78 out of 81 cables connecting to Taiwan’s power grid have been laid"},
+      {"url": "https://www.egco.com/en/newsroom/press-releases/418/egco-group-reports-over-thb-36-billion-operating-profit-in-q3-2024-and-more-than-thb-7-billion-for-9m-2024-strong-performance-driven-by-its-overseas-and-usa-power-plants", "quote": "the Yunlin offshore wind farm in Taiwan has completed the installation of all 80 monopiles and wind turbine generators, 67 of which have already transmitted a total of 536 MW of electricity to the grid."}
+    ]
+  },
+  {
+    "farm": "Yunlin — end 2024 and full energisation (30 Jan 2025)",
+    "finding": "No source gives the exact 31 Dec 2024 count. Closest dated figures: 67 turbines / 536 MW connected at 14 Nov 2024 (EGCO Q3 release); offshore construction completed December 2024 (Skyborn timeline); all 80 turbines / 640 MW fully energised on 30 January 2025 (EGCO SET snapshot Q1/2025; Skyborn: 'January 2025: Full energization'; announced 3 Feb 2025). So end-2024 is between 67 and 79 turbines (536–632 MW). Confidence of end-2024: low (bracket only); of the 30 Jan 2025 date: high.",
+    "confidence": "medium",
+    "sources": [
+      {"url": "https://www.skybornrenewables.com/markets/taiwan/yunlin_offshore", "quote": "2024 December: Completion of offshore construction activities 2025 January: Full energization of the offshore wind farm March: Inauguration of the offshore wind farm June: Award of final Electricity Business License (EBL) August: Commercial Operations Date (COD)"},
+      {"url": "https://lssmedia.setlink.set.or.th/2025/3M/EGCO-3M68-ListedCompanySnapshot-EN.html", "quote": "Completion of construction and installation of Yunlin, fully operational with 80 WTGs and a total capacity of 640 MW since January 30, 2025"},
+      {"url": "https://www.ctee.com.tw/news/20250219701609-430104", "quote": "2025年1月終將80支風機施工完成併網"},
+      {"url": "https://www.mirrormedia.mg/story/20250821ind001", "quote": "於今年1月達成風機全數併網運轉"},
+      {"url": "https://www.cna.com.tw/news/afe/202502030315.aspx", "quote": "天豐新能源3日宣布，允能雲林離岸風場80座風力發電機組均已全數安裝完成，並成功併網發電"},
+      {"url": "https://www.egco.com/en/newsroom/press-releases/429/great-success-yunlin-completes-full-operation-of-80-wtgs-with-640-mw-ready-for-full-year-revenue-recognition-in-2025", "quote": "Yunlin Offshore Wind Farm (OWF) in Taiwan successfully completed the full operation of all 80 wind turbine generators (WTGs) with the total capacity of 640 MW."}
+    ]
+  },
+  {
+    "farm": "Yunlin — electricity business licences and commercial operation (2023–Aug 2025)",
+    "finding": "First electricity business licence July 2023 (Skyborn); by Oct 2023 some turbines licensed and earning; on 3 Feb 2025 the 4th licence was being applied for with COD targeted June 2025; final EBL June 2025 (Skyborn); full commercial operation with all licences announced 21 August 2025. Confidence: high.",
+    "confidence": "high",
+    "sources": [
+      {"url": "https://www.cna.com.tw/news/afe/202502030315.aspx", "quote": "業者表示，風場目前正在申請第4張電業執照，預計今年6月正式商轉"},
+      {"url": "https://www.malaymail.com/news/money/mediaoutreach/2025/08/21/yunlin-offshore-wind-farm-officially-begins-commercial-operation/403741", "quote": "21 August 2025 - Yunneng Wind Power Co., Ltd. (Yunneng) announced today that the Yunlin Offshore Wind Farm (OWF) has officially entered full commercial operation."},
+      {"url": "https://www.malaymail.com/news/money/mediaoutreach/2025/08/21/yunlin-offshore-wind-farm-officially-begins-commercial-operation/403741", "quote": "has successfully secured all required electricity business licenses, has met all mandatory regulatory aspects and has fulfilled all applicable contractual obligations under the financing"},
+      {"url": "https://www.taisounds.com/news/content/76/209021", "quote": "允能風力發電股份有限公司今（21）日宣布，雲林離岸風場正式全面商轉。"}
+    ]
+  }
+]
