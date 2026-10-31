@@ -15,6 +15,17 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.17.0 — 2026-10-31
+
+- **Globe visuals tidied** (the owner asked on 31 Oct 2026 for the site's own critique of the visuals to be acted on):
+  - **Water in the sea-level view**: open sea gets a water surface with ripples and a sky reflection (illustrative, said so in the notes), bright in the distance and darker close by instead of a flat blue; it covers the sea only, leaving land and about 700 m of the shore to the satellite imagery by the Natural Earth coastline. The imagery now sits 6 m under the water, so the jagged depth fighting in the distance is gone.
+  - **Arrival camera in the sea-level view**: large farms are now seen from just outside their edge on the port side, looking about 1.5 km in (instead of from above the whole farm), so the nearest turbines read at their size; small farms are still framed whole.
+  - **Coastline when zoomed in**: the base texture is about 10 km per pixel, so low land and shallow sea looked alike up close; the 1:50m land polygons now draw a crisp coast (land a little lighter, sea a little deeper), and near-shore farms show how far out they are.
+  - **Live-data green ring**: the ring is 1.8% of the farm radius instead of 5% and less opaque, so a thick green ring no longer covers large farms.
+  - **Globe edge**: country turbines fade out near the edge of the globe, so tall ones no longer stick out sideways into space.
+  - **Dots at world zoom**: where event and port dots crowd together only one per 22 px shows (the more important first); all appear when zoomed in or selected.
+  - **Owner text**: where the source data cuts an owner off mid-bracket (e.g. "JERA Co Inc ["), the bracket is dropped and "…" added.
+
 ## v3.16.1 — 2026-10-31
 
 - **Port links, third batch** (Japan, Korea, Vietnam, China's Jiangsu/Fujian/Shandong, Denmark's Samsø): 17 farm–port links and 6 ports added (the floater yard at Fukue port, Goto; Hyundai Steel Industries' Yulchon plant on Gwangyang Bay; Horsens; Ba Son port at Phu My, Vietnam; Pingtan's Jinjing port area; the CNPC Offshore Engineering quay on Haixi Bay, Qingdao). Rudong's Xiaoyangkou wind-power mother port gains seven farms (H2, H3, H4, H6, H7, H8, H10: a Jiangsu feature states that all 13 Rudong farms were built from it), Sheyang port the Huaneng Sheyang H1 O&M base, Kitakyushu the floater assembly of the Hibiki demonstrator, Kashima the caisson load-out of the Choshi demonstrator. 136 → 142 ports; operating offshore farms with a port link 152 → 166 (173 of 330 with floating farms).
