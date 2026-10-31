@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.16.1 — 2026-10-31
+
+- **Port links, third batch** (Japan, Korea, Vietnam, China's Jiangsu/Fujian/Shandong, Denmark's Samsø): 17 farm–port links and 6 ports added (the floater yard at Fukue port, Goto; Hyundai Steel Industries' Yulchon plant on Gwangyang Bay; Horsens; Ba Son port at Phu My, Vietnam; Pingtan's Jinjing port area; the CNPC Offshore Engineering quay on Haixi Bay, Qingdao). Rudong's Xiaoyangkou wind-power mother port gains seven farms (H2, H3, H4, H6, H7, H8, H10: a Jiangsu feature states that all 13 Rudong farms were built from it), Sheyang port the Huaneng Sheyang H1 O&M base, Kitakyushu the floater assembly of the Hibiki demonstrator, Kashima the caisson load-out of the Choshi demonstrator. 136 → 142 ports; operating offshore farms with a port link 152 → 166 (173 of 330 with floating farms).
+  Left out as plan-only or indirect: Nyuzen (Mitsui's 2018 plan to assemble at Shin Nihonkai Heavy Industries), the O&M ports of Jeju Hanlim and Goto Sakiyama, the control centres in Rudong's industrial park, Dafeng H8-1 "can ship from Dafeng port", Yanweigang (where a fish-release trip boarded); the 18 Mekong-delta farms in Vietnam still have no report naming a port.
+
 ## v3.16.0 — 2026-10-31
 
 - **Faster loading (most visible on phones)**: the globe first loads a slim farm file (`wind_farms_core.json`: the columns needed to draw points, lists, filters and the timeline; about 0.8 MB compressed instead of 1.1 MB), then owners, turbines, notes and sources from a second file (`wind_farms_more.json`), updating cards and search when they arrive (the single-file copy keeps the embedded full file); the toolbar, panel and legend text is painted before any data arrives, and the heavy texture, border and symbol builds wait for the next frame. Learn now shows its text first and draws its charts one task at a time (nearest to the viewport first); the Taiwan live page no longer repaints itself while hidden (home, globe) and repaints once when entered. Local Lighthouse (mobile simulation): see the measurements in TODO.
