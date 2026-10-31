@@ -1,0 +1,47 @@
+[
+  {
+    "farm": "Formosa 2 (海能風電, 376 MW, 47 × SG 8.0-167 DD) — end 2022",
+    "finding": "No source states the exact number grid-connected on 31 Dec 2022. Bracketing: 12 installed / first power late June 2022 (21 Jul 2022); 27 installed, 8 feeding the grid (early Sep 2022); Energy Bureau count via CNA 29 Jan 2023: about 3 turbines still not completed from 2022 (i.e. ~44 of 47 completed at year-end); 1 Feb 2023 (last turbine installed 31 Jan 2023): all 47 standing, 'over 80 per cent of the installed turbines are generating power to the grid' (>= 38 turbines, ~304 MW). All 47 connected in March 2023. Best estimate for end-2022: ~44 installed, roughly 38 generating (~300 MW); treat as estimate.",
+    "confidence": "medium (bracketed, not an exact year-end figure)",
+    "sources": [
+      {"url": "https://news.cnyes.com/news/id/4918569", "quote": "海能風電 (Formosa 2) 今 (21) 日宣布，完成 12 支風機安裝作業，且於 6 月下旬成功併聯至台電電網開始送電，正穩定朝商轉目標前進。"},
+      {"url": "https://www.sreglobal.com/news/2022/09/%E6%B5%B7%E8%83%BD%E9%A2%A8%E9%9B%BB%E9%81%94%E6%88%90%E5%A4%9A%E9%A0%85%E9%87%8C%E7%A8%8B%E7%A2%91%2047%E5%BA%A7%E6%B0%B4%E4%B8%8B%E5%9F%BA%E7%A4%8E%E5%85%A8%E6%95%B8%E5%AE%89%E8%A3%9D%E5%AE%8C%E6%88%90?lang=zh", "quote": "目前海能風電團隊已完成27支、超過半數風機的安裝，其中有8座已開始送電，併入台電電網。"},
+      {"url": "https://www.cna.com.tw/news/afe/202301290019.aspx", "quote": "離岸風電部分，2023年預定併網風場包含CIP彰芳西島風場約57支風機、沃旭大彰化東南及西南第一階段風場去年未施工完成約31支風機、海能風場去年未施工完成約3支風機，以及天豐新能源允能風場剩餘64支風機，新增裝置容量達1.3GW。"},
+      {"url": "https://www.cna.com.tw/news/afe/202301290019.aspx", "quote": "根據經濟部能源局盤點，今年全台預估有至少6座大型太陽光電案場，以及4座離岸風場完工併網，新增裝置容量高達2GW"},
+      {"url": "https://www.offshorewind.biz/2023/02/01/formosa-2-wind-farm-stands-complete-offshore-taiwan/", "quote": "Following the installation of jacket foundations and subsea cables in 2022, now all 47 wind turbines are standing in the Taiwan Strait, and over 80 per cent of the installed turbines are generating power to the grid."},
+      {"url": "https://www.energytrend.com/print/31028", "quote": "before successfully installing 47 wind turbines at Miaoli’s offshore area, where more than 80% of these installed wind turbines have now started transmitting power."},
+      {"url": "https://technews.tw/?p=1070275", "quote": "順利在今年 1 月 31 日完成 47 支由西門子歌美颯製造生產的 8MW 風機安裝作業，緊接著在三月完成全數風機併網作業。"}
+    ]
+  },
+  {
+    "farm": "Greater Changhua 1 & 2a (大彰化東南及西南第一階段, 900 MW, 111 × SG 8.0-167 DD) — end 2022",
+    "finding": "No source gives the number generating on 31 Dec 2022. Ørsted: first power April 2022; 48 turbines installed (H1 2022 report, Aug 2022); 71 installed (Q3 2022 report, 1 Nov 2022); annual report 2022 (1 Feb 2023) gives no count, only 'generated first power in April' and 'delays ... with the commissioning of turbines'. Energy Bureau count via CNA 29 Jan 2023: about 31 turbines not completed from 2022 (i.e. ~80 of 111 completed at year-end). Ørsted Q1 2023 report (3 May 2023): 97 installed, of which only 25 fully commissioned. So at end-2022 roughly 71-80 turbines stood, but fewer than 25 were fully commissioned (Ørsted definition: producing under the subsidy); the number merely energised/first-powered is not published. Year-end 2022 grid-connected capacity cannot be sourced; closest: <25 commissioned (<200 MW) by early May 2023.",
+    "confidence": "low for a year-end figure; the bracketing sources themselves are reliable",
+    "sources": [
+      {"url": "https://cdn.orsted.com/-/media/q2-2022/q2-financial-report-2022.pdf?rev=7ca17d28f9004d7e87c71c1bfeb93e1c&hash=DEE9AF01F17DCE52689B64689517F4C1", "quote": "At Greater Changhua 1 & 2a, we have successfully installed 95 jacket foundations and 48 wind turbines. We continue to make good progress in all areas of the construction, had first power in April"},
+      {"url": "https://cdn.orsted.com/-/media/q3-2022/financial-interim-report-q3-2022.pdf?rev=1760d2b0f7f5421098cfed2b5f50ecc6&hash=B0D5D146ED0352E13B1249B352C0CBC7", "quote": "At Greater Changhua 1 & 2a, we have successfully installed all 111 jacket foundations and 71 wind turbines."},
+      {"url": "https://offshorewind.biz/2022/11/03/taiwans-largest-offshore-wind-farm-entering-home-stretch", "quote": "71 out of the 111 Siemens Gamesa SG 8.0-167 DD wind turbines have been installed at the 900 MW Greater Changhua 1 & 2a wind farm project offshore Taiwan."},
+      {"url": "https://cdn.orsted.com/-/media/2022-annual-report/orsted-annual-report-2022.pdf?rev=dbb7b462b5d64e53989413e99130cdbc&hash=C99358C5178E8149AFA302CF4D5E98C0", "quote": "In Asia Pacific, our first large-scale wind farm Greater Changhua 1 & 2a (0.9 GW) generated first power in April. The project is moving forward, and we expect COD to be in H2 2023."},
+      {"url": "https://www.cna.com.tw/news/afe/202301290019.aspx", "quote": "沃旭大彰化東南及西南第一階段風場去年未施工完成約31支風機、海能風場去年未施工完成約3支風機"},
+      {"url": "https://cdn.orsted.com/-/media/q12023/interim-financial-reportq12023.pdf?rev=765ccc5c83864af4804039d1216a47ce&hash=BC1AA520D361F8236939A0EB0AB8290D", "quote": "At Greater Changhua 1 and 2a, we have successfully installed all 111 jacket foundations and 97 wind turbines, of which 25 are now fully commissioned."},
+      {"url": "https://offshorewind.biz/2023/05/03/orsted-posts-all-time-high-offshore-wind-earnings", "quote": "All 111 jacket foundations and 97 wind turbines have now been installed offshore Taiwan. 25 of the turbines are now fully commissioned, the developer said."}
+    ]
+  },
+  {
+    "farm": "Greater Changhua 1 & 2a (大彰化東南及西南第一階段, 900 MW, 111 × SG 8.0-167 DD) — end 2023",
+    "finding": "No exact 31 Dec 2023 figure. Ørsted H1 2023 report (Aug 2023): 97 installed, 69 fully commissioned. Ørsted 9M 2023 report (1 Nov 2023): 100 installed, 89 commissioned 'and thus fully producing power under the subsidy' (89 × 8 = 712 MW). Ørsted 30/31 Jan 2024: 107 installed, 'nearly 85 per cent' connected to the grid, 'approximately 700 MW' (~94 turbines). Last four turbines installed Feb 2024; all 111 connected by 3 Apr 2024; inaugurated 25 Apr 2024. Best estimate for end-2023: about 89-94 turbines, ~700-750 MW grid-connected; Ørsted's own rounded figure of 'approximately 700 MW' (nearly 85 %) dated 30 Jan 2024 is the closest published number.",
+    "confidence": "medium-high (bracketed within ~5 turbines by Ørsted's own reports)",
+    "sources": [
+      {"url": "https://cdn.orsted.com/-/media/q2-2023/interim-financial-report-h1-2023.pdf?rev=4b5b22cad1dc49a7a438ebe4ec22acbc&hash=1AE0874375601B8CBC2B0799F3987EFB", "quote": "At Greater Changhua 1 and 2a, we have successfully installed all 111 jacket foundations and 97 wind turbines, of which 69 are now fully commissioned."},
+      {"url": "https://cdn.orsted.com/-/media/q3-2023/interim-financial-report-9m-2023.pdf?rev=a2c44c58c66d48a58f93e485350c9571&hash=19FB17D5539716FF13C76DB73F8B66C7", "quote": "At Greater Changhua 1 and 2a, we have successfully installed all 111 jacket foundations and 100 wind turbines, of which 89 are now commissioned and thus fully producing power under the subsidy."},
+      {"url": "https://www.offshorewind.biz/2023/11/06/orsteds-us-taiwan-offshore-wind-projects-hit-by-vessel-shortages-sunrise-wind-still-not-out-of-the-woods", "quote": "The company says that all 111 jacket foundations and 100 wind turbines have been installed at Greater Changhua 1 & 2a so far, with 89 wind turbines now commissioned and producing power under the subsidy."},
+      {"url": "https://wantrich.chinatimes.com/news/20240131900104-420101", "quote": "目前已完成107座風機安裝，累計約85%風機完成併網，相當於700MW，併網容量為全台單一風場之冠。"},
+      {"url": "https://wantrich.chinatimes.com/news/20240131900104-420101", "quote": "展望新年，我們將在2月展開最後風機安裝和併網工程，全力推動900MW離岸風場完工運轉"},
+      {"url": "https://offshorewind.biz/2024/01/30/orsteds-900-mw-taiwanese-offshore-wind-farm-nears-completion", "quote": "107 out of 111 Siemens Gamesa SG 8.0-167 DD wind turbines have been installed at Ørsted’s Greater Changhua 1 and 2a offshore wind farm site in Taiwan, with nearly 85 per cent of them connected to the national grid."},
+      {"url": "https://offshorewind.biz/2024/01/30/orsteds-900-mw-taiwanese-offshore-wind-farm-nears-completion", "quote": "Now, nearly 85 per cent of the wind turbines are connected to the grid, representing approximately 700 MW"},
+      {"url": "https://cdn.orsted.com/-/media/annual-report-2023/transcript-orsted-q4-2023.pdf?rev=6baf80efda79468492dc95e1d078fd92&hash=E7429EBE50C4F310BA09BCB604264756", "quote": "So we’re installing, as we speak, the last four turbines of Greater Changhua 1 and 2a"},
+      {"url": "https://cdn.orsted.com/-/media/q1-2024/q1-2024-interim-report.pdf?rev=7cdd95581d7b4c7b88c865fcf0e913ee&hash=C6BBB062A1ED36405CDF609D62C4AD9B", "quote": "In Taiwan, the Greater Changhua 1 and 2a wind farms are close to being completed, with all 111 wind turbines successfully installed in February. Final commissioning (COD) is expected in Q2 2024."},
+      {"url": "https://offshorewind.biz/2024/04/03/greater-changhua-1-2a-wind-turbines-connected-to-taiwanese-grid", "quote": "All 111 Siemens Gamesa SG 8.0-167 DD wind turbines at the 900 MW Greater Changhua 1 and 2a offshore wind farms have achieved first power and been connected to the Taiwanese national grid."}
+    ]
+  }
+]
