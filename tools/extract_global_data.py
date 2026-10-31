@@ -9,7 +9,7 @@ v3 稽核版＝原「全球風電發展觀察地圖」(wind-history-map v3) 的�
   · 台灣 2005–2025 陸域／離岸：經濟部能源署《2025 能源統計手冊》表 3-6（下方 TWN_OFFICIAL，已逐年核對原表）
   · 日本 2011–2025：日本風力發電協會 JWPA 年末累積導入量；洋上＝本格洋上＋セミ洋上（下方 JPN_JWPA，
     2019–2025 年總量已逐年核對 JWPA 公告）
-  · 兩國風場逐場稽核：分批併網的大型離岸風場以「全場完工年」計入；2025 年底尚未全場商轉者改列興建中
+  · 兩國風場逐場稽核：台灣分批併網的離岸風場依各年底的併網容量分期計入（分期與出處在 tools/farm_cleanup.py，v3.18.0 起）；日本的大型離岸風場以「全場完工年」計入
 兩個序列直接寫在本程式中，所以輸入原版 wind-history-map v3 也會得到相同的台灣／日本數字。
 
 輸出：
@@ -93,9 +93,9 @@ NOTE_ZH = {
     "Formosa 1 Phase 1": "8 MW 示範機組，自 2017 年商轉起計。",
     "Yunlin": "較早即已首度併網；640 MW 全場於 2025 年 1 月全數併網，因此自 2025 年起以全場容量計入。",
     "Greater Changhua 1 & 2a": "首度併網早於完工；全場容量自 2024 年完工啟用起計。",
-    "Changfang & Xidao": "2024 年全場完工；先前的部分併網不回推為全場容量。",
-    "Hai Long 2 & 3": "2025 年首度併網，但 2025 年底仍在完工前的測試與併網階段，不計為 1,044 MW 全場營運。",
-    "Greater Changhua 2b & 4": "興建與併網測試中，2025 年底尚未全場商轉。",
+    "Changfang & Xidao": "分期併網：各年底的併網容量見 tools/farm_cleanup.py。",
+    "Hai Long 2 & 3": "分期併網：各年底的併網容量見 tools/farm_cleanup.py。",
+    "Greater Changhua 2b & 4": "分期併網：各年底的併網容量見 tools/farm_cleanup.py。",
     "Taipower Offshore Phase 2": "計畫網站 2026 年仍顯示持續施工，不計入 2025 年底全場營運容量。",
     "Taoyuan Luzhu": "原精選資料中的容量與商轉年份為估計值，尚待官方許可或專案資料核對。",
     "Choshi Offshore Demonstration (NEDO/TEPCO)": "2013 年起為 NEDO 實證機，2019 年 1 月轉為商業運轉（JWPA 以 2019 年計）。",
@@ -126,9 +126,9 @@ for g in farms:
 n_st = sum(1 for g in farms if g.get("status") in ("construction", "retired", "unverified"))
 if n_st:
     EDITS.append(f"TWN/JPN farm audit: {n_st} farms re-classified (construction / retired / unverified); partly "
-                 "grid-connected Taiwanese offshore farms enter the operating layer in their full-completion year "
-                 "(Yunlin 2025, Greater Changhua 1&2a and Changfang & Xidao 2024); Hai Long 2&3, Greater Changhua 2b&4 "
-                 "and Taipower Offshore Phase 2 are listed as under construction at end-2025; Kitakyushu Hibikinada and "
+                 "grid-connected Taiwanese offshore farms count year by year at their year-end connected capacity (phases and "
+                 "sources in tools/farm_cleanup.py: Yunlin 2021–2025, Formosa 2 2022–2023, Changfang & Xidao 2022/2024, Greater Changhua 1&2a "
+                 "2023–2024, Hai Long 2&3 and Greater Changhua 2b&4 from 2025); Taipower Offshore Phase 2 is under construction; Kitakyushu Hibikinada and "
                  "the Goto floating farm are under construction (JWPA: no new offshore project in 2025).")
 
 # 海洋風電一期（原版輸入時）：兩部 4 MW 示範機於 2017 年 4 月商轉

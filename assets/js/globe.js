@@ -3314,7 +3314,7 @@ function renderCard(it) {
     spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(ownerTxt(f)) : '');
     desc = it.why || '';
   }
-  const yrs = it.kind === 'turb' ? (it.year ? T('outConn')(it.year) : '') : it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : partlyAt(f, Y1) ? '–' + phEnd(f) : ''));
+  const yrs = it.kind === 'turb' ? (it.year ? T('outConn')(it.year) : '') : it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : f && f.ph && phEnd(f) > f.year ? '–' + phEnd(f) : ''));   // 分期：首期年–末期年 · phased: first–last phase year
   const bare = it.name.replace(/ · .*$/, ''), la = (+it.lat).toFixed(5), lo = (+it.lon).toFixed(5);
   const q = encodeURIComponent(it.kind === 'port' ? (it.zh && lang === 'zh' ? it.zh + ' 離岸風電' : bare + ' offshore wind')
     : (it.zh && lang === 'zh' ? it.zh : bare) + (/wind|turbine|風/i.test(it.name) ? '' : ' wind farm'));

@@ -15,6 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.18.0 — 2026-10-31
+
+- **Taiwan's offshore farms count on the timeline as they connected** (the owner's choice on 31 Oct 2026): large farms connected in stages used to appear whole only on completion, so Yunlin, Formosa 2, Changfang & Xidao and Greater Changhua 1&2a counted from 2025, 2023, 2024 and 2024; they now count year by year at their year-end connected capacity (the card's "Phases" lists the years), and the timeline at 2021–2024 shows them growing.
+  The yearly figures and sources are in `tools/farm_cleanup.py` (bilingual reasons, quotes checked with `check_quotes.py`): Yunlin 4 turbines at the end of 2021 (from the Energy Administration handbook) → 16 in 2022 → 33 in 2023 (EGCO's annual results) → about 73 in 2024 (estimate) → 80 in 2025; Formosa 2 about 38 in 2022 (estimate) → all in 2023; Changfang & Xidao phase 1's 10 turbines in 2022 → the whole farm in 2024; Greater Changhua 1&2a 89 turbines (Ørsted, 712 MW) in 2023 → all in 2024 (first power came in April 2022, but the handbook's registered capacity hardly counted it, so it starts in 2023);
+  Zhong Neng now counts from 2024 (the Energy Administration's end-January 2025 tally of 7 commercial farms, 374 turbines and 3.04 GW already includes it). The yearly farm sums are all within 80 MW of the handbook's year-end offshore capacity (2021–2025).
+- **Hai Long and Greater Changhua 2b&4 are now operating (partly connected)**: Hai Long 2A's 21 turbines were complete and connected by the end of 2025 (294 MW), all 73 were generating on 15 Oct 2026 and final permits are expected in H1 2027; Greater Changhua 2b&4 about 252 MW at the end of 2025 (from the handbook, an estimate) and 920 MW in 2026 (all Greater Changhua 4 turbines commissioned in H1, 2b's 337.1 MW counted by Taipower since September, full commercial operation still unannounced). Hai Long's capacity is now 1,022 MW per the economics ministry's "518 + 504 MW". Taipower Offshore Phase 2 has no turbine generating and stays under construction (4 of 31 installed by 16 Oct).
+- **Globe**: an operating farm still connecting in phases (some turbines generating, later phases not yet built) gets a dashed "partly connected" tag in the card and lists, its card years read as a span such as "2025–2026", and the close-up draws only the connected share of the turbines.
+- Taiwan's farm-level coverage for 2026 goes from 88% to 100%; the audit note in the Sources dialog, the README and the user guide are reworded.
+
 ## v3.17.2 — 2026-10-31
 
 - **Readable country labels**: country names and capacities at continent and world zoom get a faint dark backing, so tall turbines of neighbouring countries no longer cut through the text; far event and port dots under a label are hidden (they come back when zoomed in, selected or hovered), so figures such as "Netherlands 11,762 MW" in the Europe view are no longer covered by red and white dots.

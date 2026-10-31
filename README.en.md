@@ -404,9 +404,10 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - France 2025 onshore/offshore now follows the grid-connected capacity at end-2025 in the SDES wind dashboard (Q2 2026 issue),
   23,992 / 2,008 MW; the original used IRENA onshore 24,155 and offshore 1,500 MW (missing Yeu-Noirmoutier, 500 MW, fully
   connected in 2025)
-- Taiwan and Japan farms were audited one by one: large offshore farms connected in stages count from their
-  full-completion year (Yunlin 2025, Greater Changhua 1&2a and Changfang & Xidao 2024), and those not fully
-  operating at end-2025 are under construction (Hai Long 2&3, Greater Changhua 2b&4, Taipower Offshore Phase 2,
+- Taiwan and Japan farms were audited one by one: large offshore farms connected in stages count year by year at their
+  year-end connected capacity (from v3.18.0; Yunlin 2021–2025, Formosa 2 2022–2023, Changfang & Xidao 2022/2024, Greater Changhua 1&2a 2023–2024,
+  Hai Long and Greater Changhua 2b&4 from 2025; the yearly figures and sources are in `tools/farm_cleanup.py`, all within 80 MW of the Energy
+  Administration handbook's year-end capacity), and farms with no turbine generating yet are under construction (Taipower Offshore Phase 2,
   Kitakyushu Hibikinada, Goto floating). Japan also gains five semi-offshore/port sites, retired demonstrators,
   100 small farms missing from GEM (NEDO prefecture lists, windfarm.work) and 22 corrected GEM coordinates
 - Formosa 1 Phase 1 and Formosa 2 years aligned with their actual grid connection / commercial dates
