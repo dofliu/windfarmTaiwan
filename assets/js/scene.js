@@ -44,7 +44,39 @@ function imagery(loc, lon0, lat0, lon1, lat1, maxTiles, px, onTile) {
     img.src = TILE + z + '/' + y + '/' + x;
   }
   const [x0, y0] = loc.xy(bl0, bt0), [x1, y1] = loc.xy(bl1, bt1);
-  return { tex, x0, y0, x1, y1, z, tiles: (tx1 - tx0 + 1) * (ty1 - ty0 + 1) };
+  return { tex, canvas: c, x0, y0, x1, y1, z, tiles: (tx1 - tx0 + 1) * (ty1 - ty0 + 1) };
+}
+
+/* ---------- 海面（示意）：波紋法線貼圖＋天空反射，只鋪在衛星影像判斷為海的地方 ----------
+   Esri 影像的外海幾乎是一片均勻的深藍，看起來像平面；這裡加一層會反射天空、帶細浪的水面。法線貼圖是可平鋪的正弦波疊加（不是實際浪況），
+   遮罩用 Natural Earth 1:50m 陸地多邊形（往外留約 700 m），所以陸地與港區不會被蓋上水面；近岸那一圈保留原本的影像。 */
+function waveNormals(px) {
+  const c = document.createElement('canvas'); c.width = c.height = px; const g = c.getContext('2d'), im = g.createImageData(px, px), d = im.data;
+  const W = [[3, 1, .9, .3], [1, 4, .7, 1.7], [5, 2, .45, 2.4], [2, 7, .35, .8], [8, 3, .22, 4.1], [11, 9, .12, 5.3]];   // [kx, ky, 振幅, 相位]：整數頻率才能無縫平鋪
+  const h = (x, y) => W.reduce((s, w) => s + w[2] * Math.sin(2 * Math.PI * (w[0] * x + w[1] * y) / px + w[3]), 0);
+  for (let y = 0; y < px; y++) for (let x = 0; x < px; x++) {
+    const dx = h(x + 1, y) - h(x - 1, y), dy = h(x, y + 1) - h(x, y - 1), k = 1.6, nx = -dx * k, ny = -dy * k, nz = 1, l = Math.hypot(nx, ny, nz), i = (y * px + x) * 4;
+    d[i] = (nx / l * .5 + .5) * 255; d[i + 1] = (ny / l * .5 + .5) * 255; d[i + 2] = (nz / l * .5 + .5) * 255; d[i + 3] = 255;
+  }
+  g.putImageData(im, 0, 0);
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t;
+}
+function seaMask(loc, im, rings, px) {
+  // 海＝白、陸地＝黑：陸地多邊形往外加粗約 700 m（1:50m 海岸線誤差約 1 km，寧可讓近岸留一圈原本的影像），再縮放模糊讓邊緣柔和；影像四邊淡出
+  // sea white, land black: land rings drawn with a ~700 m stroke (the 1:50m coast is off by about 1 km; better to leave a strip of plain imagery), softened by down/up-scaling, edges faded
+  const c = document.createElement('canvas'); c.width = c.height = px; const g = c.getContext('2d');
+  const sx = px / (im.x1 - im.x0), sy = px / (im.y1 - im.y0), X = x => (x - im.x0) * sx, Y = y => (im.y1 - y) * sy;
+  g.fillStyle = '#fff'; g.fillRect(0, 0, px, px);
+  g.fillStyle = g.strokeStyle = '#000'; g.lineJoin = 'round'; g.lineWidth = Math.max(2, 1400 * sx);
+  rings.forEach(r => { g.beginPath(); for (let i = 0; i < r.length; i += 2) { const [x, y] = loc.xy(r[i], r[i + 1]); if (i) g.lineTo(X(x), Y(y)); else g.moveTo(X(x), Y(y)); } g.closePath(); g.fill(); g.stroke(); });
+  const e = px * .06;                                                  // 四邊淡出 · fade the four edges
+  g.globalCompositeOperation = 'multiply';
+  [[0, 0, e, px, 0, 0, e, 0], [px - e, 0, e, px, px, 0, px - e, 0], [0, 0, px, e, 0, 0, 0, e], [0, px - e, px, e, 0, px, 0, px - e]].forEach(([x, y, w, h, gx0, gy0, gx1, gy1]) => {
+    const gr = g.createLinearGradient(gx0, gy0, gx1, gy1); gr.addColorStop(0, '#000'); gr.addColorStop(1, '#fff'); g.fillStyle = gr; g.fillRect(x, y, w, h); });
+  const o = document.createElement('canvas'); o.width = o.height = px; const og = o.getContext('2d'), q = px / 8;   // 縮小再放大＝模糊 · cheap blur
+  const t = document.createElement('canvas'); t.width = t.height = q; t.getContext('2d').drawImage(c, 0, 0, q, q);
+  og.imageSmoothingEnabled = true; og.drawImage(t, 0, 0, px, px);
+  const tex = new THREE.CanvasTexture(o); tex.anisotropy = 8; return tex;
 }
 
 /* ---------- 一部風機（公尺）：塔架、機艙、三片葉片；葉片外形為簡化的翼形 ---------- */
@@ -89,6 +121,7 @@ function open(f, H, fromBtn) {
   let renderer; try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, logarithmicDepthBuffer: true }); } catch (e) { el.remove(); WW.toast(L('這個瀏覽器無法顯示 3D 畫面', 'This browser cannot show the 3D view')); return; }
   renderer.outputEncoding = THREE.sRGBEncoding; renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2)); renderer.setClearColor(0xdfe9f2);
   const scene = new THREE.Scene();
+  let alive = true;
   const camera = new THREE.PerspectiveCamera(55, 1, 2, 400000);
   // 天空、光 · sky and light
   const sc = document.createElement('canvas'); sc.width = 2; sc.height = 256; const sg = sc.getContext('2d'); const gr = sg.createLinearGradient(0, 0, 0, 256);
@@ -102,15 +135,30 @@ function open(f, H, fromBtn) {
   const patches = [];
   const addPatch = (span, maxTiles, px, y) => {
     const [lon0, lat0] = loc.ll(-span, -span), [lon1, lat1] = loc.ll(span, span);
-    const im = imagery(loc, lon0, lat0, lon1, lat1, maxTiles, px, (pend, fail) => { if (!pend) { el.querySelector('.scn-load').hidden = true; if (fail) noteFail(fail); } });
+    const im = imagery(loc, lon0, lat0, lon1, lat1, maxTiles, px, (pend, fail) => { if (!pend) { el.querySelector('.scn-load').hidden = true; if (fail) noteFail(fail); if (im.onDone) im.onDone(); } });
     const m = new THREE.Mesh(new THREE.PlaneGeometry(im.x1 - im.x0, im.y1 - im.y0), groundMat(im.tex, sea ? .35 : 1));
     m.rotation.x = -Math.PI / 2; m.position.set((im.x0 + im.x1) / 2, y, -(im.y0 + im.y1) / 2); scene.add(m); patches.push(m); return im;
   };
-  const fine = addPatch(Math.min(ext, rad + 8000) + 2500, 144, 3072, 0);
+  const LOW = sea ? -6 : 0;                                          // 海上場景：影像放在水面下 6 m，避免遠處深度互搶 · sea scenes: imagery 6 m under the water to avoid depth fighting
+  const fine = addPatch(Math.min(ext, rad + 8000) + 2500, 144, 3072, LOW);
   const reach = port ? Math.hypot(...loc.xy(port.lon, port.lat)) + 6000 : 25000;
-  addPatch(Math.max(reach, 20000), 100, 2048, -1.5);
-  if (port) { const [px0, py0] = loc.xy(port.lon, port.lat); const [plon0, plat0] = loc.ll(px0 - 2500, py0 - 2500), [plon1, plat1] = loc.ll(px0 + 2500, py0 + 2500); const im = imagery(loc, plon0, plat0, plon1, plat1, 100, 2048); const m = new THREE.Mesh(new THREE.PlaneGeometry(im.x1 - im.x0, im.y1 - im.y0), groundMat(im.tex, .9)); m.rotation.x = -Math.PI / 2; m.position.set((im.x0 + im.x1) / 2, 0.4, -(im.y0 + im.y1) / 2); scene.add(m); patches.push(m); }
-  if (sea) { const s = new THREE.Mesh(new THREE.CircleGeometry(70000, 48), new THREE.MeshStandardMaterial({ color: 0x244f6b, roughness: .3, metalness: .2 })); s.rotation.x = -Math.PI / 2; s.position.y = -4; scene.add(s); }
+  const coarse = addPatch(Math.max(reach, 20000), 100, 2048, LOW - 1.5);
+  if (port) { const [px0, py0] = loc.xy(port.lon, port.lat); const [plon0, plat0] = loc.ll(px0 - 2500, py0 - 2500), [plon1, plat1] = loc.ll(px0 + 2500, py0 + 2500); const im = imagery(loc, plon0, plat0, plon1, plat1, 100, 2048); const m = new THREE.Mesh(new THREE.PlaneGeometry(im.x1 - im.x0, im.y1 - im.y0), groundMat(im.tex, .9)); m.rotation.x = -Math.PI / 2; m.position.set((im.x0 + im.x1) / 2, LOW + 0.4, -(im.y0 + im.y1) / 2); scene.add(m); patches.push(m); }
+  // 海面層 · water layer (illustrative ripples and sky reflection), only where the fine imagery reads as sea
+  let water = null;
+  if (sea) {
+    const pm = new THREE.PMREMGenerator(renderer), env = pm.fromEquirectangular(skyTex).texture; pm.dispose();
+    // 水面鋪滿遠處那塊影像的範圍（邊緣在 20 km 外、藏在霧裡）；遮罩用同一塊影像算 · the water spans the coarse patch (edges 20 km+ away, in the fog)
+    const nrm = waveNormals(256), span = coarse.x1 - coarse.x0, rep = Math.max(1, Math.round(span / 90));     // 一格約 90 m · one tile ≈ 90 m
+    nrm.repeat.set(rep, rep);
+    const wm = new THREE.MeshStandardMaterial({ color: 0x0d3a55, roughness: .16, metalness: 0, envMap: env, envMapIntensity: 1.1, normalMap: nrm, normalScale: new THREE.Vector2(.45, .45), transparent: true, opacity: .96, depthWrite: false });
+    water = new THREE.Mesh(new THREE.PlaneGeometry(span, coarse.y1 - coarse.y0), wm);
+    water.rotation.x = -Math.PI / 2; water.position.set((coarse.x0 + coarse.x1) / 2, 0, -(coarse.y0 + coarse.y1) / 2); water.renderOrder = 1; scene.add(water);
+    const [ml0, mb0] = loc.ll(coarse.x0, coarse.y0), [ml1, mb1] = loc.ll(coarse.x1, coarse.y1);
+    wm.alphaMap = seaMask(loc, coarse, H.land ? H.land(ml0, mb0, ml1, mb1) : [], 1024);
+    water.userData.env = env;
+  }
+  if (sea) { const s = new THREE.Mesh(new THREE.CircleGeometry(70000, 48), new THREE.MeshStandardMaterial({ color: 0x0d3a55, roughness: .22, metalness: 0, envMap: water.userData.env, envMapIntensity: 1.1 })); s.rotation.x = -Math.PI / 2; s.position.y = -12; scene.add(s); }
   else { const s = new THREE.Mesh(new THREE.CircleGeometry(70000, 48), new THREE.MeshStandardMaterial({ color: 0x55653f, roughness: 1 })); s.rotation.x = -Math.PI / 2; s.position.y = -4; scene.add(s); }
   function noteFail(k) { const h = el.querySelector('.scn-hud'); if (h && !h.dataset.fail) { h.dataset.fail = '1'; h.insertAdjacentHTML('beforeend', '<div class="scn-warn">' + esc(L('部分衛星影像載不到（離線或網路受限），地面以單色代替。', 'Some imagery could not be loaded (offline or restricted network); plain colours are used instead.')) + '</div>'); } }
   // 風機與基座 · turbines and bases
@@ -137,17 +185,23 @@ function open(f, H, fromBtn) {
   if (controls.listenToKeyEvents) controls.listenToKeyEvents(window);
   const [sx, sy] = port ? loc.xy(port.lon, port.lat) : [rad * 2 + 6000, -(rad + 4000)];
   const ang = Math.atan2(sx, sy);                                    // 進場方向（從起點看風場）· approach bearing
-  const dEnd = Math.min(6000, Math.max(900, rad * 1.35)); scene.fog = new THREE.Fog(0xdfe9f2, Math.max(3000, dEnd * 2.5), Math.max(30000, dEnd * 12));
-  const oblique = { x: Math.sin(ang) * dEnd, y: Math.tan(30 * D2R) * dEnd, z: -Math.cos(ang) * dEnd };
+  // 到達時的 30° 俯瞰：小風場看整座（以中心為目標）；大風場站在進場那一側的外緣、看向場內約 1.5 km，最近的風機才不會小到看不清
+  // arrival view at 30°: small farms are framed whole; large farms are seen from just outside the edge on the approach side, looking about 1.5 km in
+  let edge = 0; tb.P.forEach(p => { edge = Math.max(edge, p[0] * Math.sin(ang) + p[1] * Math.cos(ang)); });
+  const inset = Math.min(1500, rad * .6), tgt = Math.max(0, edge - inset);
+  const T = { x: Math.sin(ang) * tgt, z: -Math.cos(ang) * tgt };
+  const dEnd = rad < 1600 ? Math.max(900, rad * 1.35) : Math.min(2600, Math.max(1600, inset + 900));
+  scene.fog = new THREE.Fog(0xdfe9f2, Math.max(4000, dEnd * 3), Math.max(30000, dEnd * 14));
+  const oblique = { x: T.x + Math.sin(ang) * dEnd, y: Math.tan(30 * D2R) * dEnd, z: T.z - Math.cos(ang) * dEnd };
   const start = { x: sx, y: 16, z: -sy };
   let fly = null;
   function flyIn() {
-    controls.enabled = false; controls.target.set(0, 0, 0);
-    if (reduced()) { camera.position.set(oblique.x, oblique.y, oblique.z); camera.lookAt(0, 0, 0); controls.enabled = true; return; }
-    fly = { t0: performance.now(), dur: port ? 4.2 : 3 }; camera.position.set(start.x, start.y, start.z); camera.lookAt(0, 20, 0);
+    controls.enabled = false; controls.target.set(T.x, 0, T.z);
+    if (reduced()) { camera.position.set(oblique.x, oblique.y, oblique.z); camera.lookAt(T.x, 0, T.z); controls.enabled = true; return; }
+    fly = { t0: performance.now(), dur: port ? 4.2 : 3 }; camera.position.set(start.x, start.y, start.z); camera.lookAt(T.x, 20, T.z);
   }
   function setView(v) {
-    if (v === 'obl') { fly = null; camera.position.set(oblique.x, oblique.y, oblique.z); controls.target.set(0, 0, 0); controls.enabled = true; controls.update(); }
+    if (v === 'obl') { fly = null; camera.position.set(oblique.x, oblique.y, oblique.z); controls.target.set(T.x, 0, T.z); controls.enabled = true; controls.update(); }
     else if (v === 'sea') {                                          // 船橋／人眼高度，站在最靠近進場方向的風機外側 · bridge or eye height outside the nearest turbine
       fly = null; let best = tb.P[0], bd = -Infinity; tb.P.forEach(p => { const d = p[0] * Math.sin(ang) + p[1] * Math.cos(ang); if (d > bd) { bd = d; best = p; } });
       const eye = sea ? 16 : 2.2, back = Math.max(250, rotor * 2.2), px = best[0] + Math.sin(ang) * back, pz = -(best[1] + Math.cos(ang) * back);
@@ -168,6 +222,7 @@ function open(f, H, fromBtn) {
     live ? L(`此刻出力 ${WW.int(live.mw)} MW，葉片依出力轉動`, `Output now ${WW.int(live.mw)} MW; the blades turn with it`) : L('葉片轉速為示意', 'Blade speed is illustrative'),
     H.posNote && H.posNote(f) ? L('這座風場的座標只是概略位置（見卡片說明），畫面可能落在離實際位置幾公里的地方，甚至在陸地上。', 'This farm\'s coordinates are only approximate (see the card), so the scene may sit kilometres from the real site, even on land.') : null,
     nbDrawn.length ? L(`淡色風機是 10 km 內的其他風場（${nbDrawn.map(x => x.name + (x.t.real ? '（' + { us: 'USWTDB', de: 'MaStR', osm: 'OSM' }[x.t.src] + '）' : '［示意］')).join('、')}）`, `Pale turbines belong to other farms within 10 km (${nbDrawn.map(x => x.name + (x.t.real ? ' (' + { us: 'USWTDB', de: 'MaStR', osm: 'OSM' }[x.t.src] + ')' : ' [schematic]')).join(', ')})`) : null,
+    sea ? L('海面的波紋與天空倒影為示意，不是當天的浪況', 'Ripples and sky reflection on the water are illustrative, not today\'s sea state') : null,
     L('衛星影像的拍攝日期常早於風場完工，所以影像裡通常看不到風機；海岸線與地形以影像為準，沒有高程。', 'The imagery is often older than the farm, so the turbines themselves are usually not in it; coastlines follow the imagery and there is no terrain relief.')
   ].filter(Boolean);
   el.querySelector('.scn-hud').innerHTML = '<ul>' + lines.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul>';
@@ -176,17 +231,18 @@ function open(f, H, fromBtn) {
   // 迴圈 · loop
   const spin = live ? H.spin(live) : 1;                                // 0–2：地球儀近看的轉速係數 · the close-up's speed factor
   const rpm = (spin == null ? 1 : spin) * 60 * 55 / (Math.PI * rotor);  // 葉尖約 55 m/s × 係數 · tip speed about 55 m/s × factor
-  let last = performance.now(), raf = 0, alive = true;
+  let last = performance.now(), raf = 0;
   function resize() { const w = pane.clientWidth || innerWidth, h = pane.clientHeight || innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
   function frame(now) {
     if (!alive) return; raf = requestAnimationFrame(frame);
     const dt = Math.min(.1, (now - last) / 1000); last = now;
     rotors.forEach(r => { r.rotation.x = (r.parent.userData.phase || 0) + now / 1000 * rpm / 60 * 2 * Math.PI; });
+    if (water && !reduced()) { const o = water.material.normalMap.offset; o.x = (o.x + dt * .006) % 1; o.y = (o.y + dt * .004) % 1; }
     if (fly) {
       const k = Math.min(1, (now - fly.t0) / 1000 / fly.dur), e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
       camera.position.set(start.x + (oblique.x - start.x) * e, start.y + (oblique.y - start.y) * e * e, start.z + (oblique.z - start.z) * e);
-      camera.lookAt(0, 20 * (1 - e), 0);
-      if (k >= 1) { fly = null; controls.target.set(0, 0, 0); controls.enabled = true; controls.update(); }
+      camera.lookAt(T.x, 20 * (1 - e), T.z);
+      if (k >= 1) { fly = null; controls.target.set(T.x, 0, T.z); controls.enabled = true; controls.update(); }
     } else { controls.update(); if (camera.position.y < 3) { camera.position.y = 3; } }
     renderer.render(scene, camera);
   }
@@ -194,7 +250,7 @@ function open(f, H, fromBtn) {
   window.addEventListener('keydown', onKey, true); window.addEventListener('resize', resize);
   H.pause();
   resize(); flyIn(); raf = requestAnimationFrame(frame);
-  cur = { el, stats: { turbines: n, neighbours: nbDrawn.length, neighbourTurbines: nbCount, real: tb.real, port: !!port }, dispose() { alive = false; cancelAnimationFrame(raf); window.removeEventListener('keydown', onKey, true); window.removeEventListener('resize', resize); controls.dispose(); scene.traverse(o => { if (o.geometry && !o.userData.shared) o.geometry.dispose(); }); patches.forEach(m => m.material.map && m.material.map.dispose()); renderer.dispose(); el.remove(); H.resume(); if (fromBtn && fromBtn.isConnected) fromBtn.focus(); }, f };
+  cur = { el, stats: { turbines: n, neighbours: nbDrawn.length, neighbourTurbines: nbCount, real: tb.real, port: !!port }, dispose() { alive = false; cancelAnimationFrame(raf); window.removeEventListener('keydown', onKey, true); window.removeEventListener('resize', resize); controls.dispose(); scene.traverse(o => { if (o.geometry && !o.userData.shared) o.geometry.dispose(); }); patches.forEach(m => m.material.map && m.material.map.dispose()); if (water) { ['normalMap', 'alphaMap', 'envMap'].forEach(k => water.material[k] && water.material[k].dispose()); water.material.dispose(); } renderer.dispose(); el.remove(); H.resume(); if (fromBtn && fromBtn.isConnected) fromBtn.focus(); }, f };
   setTimeout(() => { const b = el.querySelector('.scn-back'); if (b) b.focus({ preventScroll: true }); }, 50);
   window.dispatchEvent(new CustomEvent('ww-scene', { detail: { open: true, farm: f.name } }));
 }

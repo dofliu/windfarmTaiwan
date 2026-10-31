@@ -187,12 +187,12 @@ Click a farm on the map, in the search results or in a list to open its card; on
 
 ### 4.6a Sea-level view
 
-"Sail out to the farm" on the card replaces the map with a 3D scene: the camera starts at the farm's marshalling or O&M port (the nearest port whose "farms" list names it), flies to the edge of the farm in 3–4 seconds and settles at a roughly 30° oblique view. Then:
+"Sail out to the farm" on the card replaces the map with a 3D scene: the camera starts at the farm's marshalling or O&M port (the nearest port whose "farms" list names it), flies to the edge of the farm in 3–4 seconds and settles at a roughly 30° oblique view (a small farm is framed whole; a large one is seen from just outside its edge on the port side, looking in, so the nearest turbines read at their real size). Then:
 
 - Drag to orbit, scroll or pinch to zoom, right-drag or two-finger drag to pan; **Sea level** puts the camera about 16 m up (bridge height) just outside the turbine nearest the port (**Ground level**, eye height, on onshore farms); **Oblique 30°** returns to the arrival angle; **Sail again** replays the approach; **🔗 Copy link** copies the link with `sv=1`.
 - **↩ Back to the globe** (or Esc) removes the scene; the globe comes back exactly as you left it, card and year included.
 - The notes at the bottom left say where the farm's data comes from: whether the turbines stand at their real positions (USWTDB in the US, MaStR in Germany, OpenStreetMap elsewhere) or in a schematic layout; whether hub height and rotor diameter are the site's checked values, register values or estimates; the foundation type (the part above water is schematic); the port; and, for farms with live data in Taiwan, Australia and Canada, that the blades turn with the output right now.
-- Ground and sea carry Esri imagery: it is often older than the farm, so the turbines themselves are usually not in it; there is no terrain relief, and the port area is imagery only, with no buildings drawn. Offline (the single-file copy without a network) the ground is a plain colour with a notice.
+- Ground and sea carry Esri imagery: it is often older than the farm, so the turbines themselves are usually not in it; there is no terrain relief, and the port area is imagery only, with no buildings drawn. Offline (the single-file copy without a network) the ground is a plain colour with a notice. The sea also gets a water surface with ripples and a sky reflection (illustrative, not today's sea state), laid only over open water: land and about 700 m of the shore are left to the imagery, following the Natural Earth coastline.
 - **Neighbouring farms**: other operating farms within 10 km (the nearest 12, at most 600 turbines) are drawn in a paler colour with their own positions and sizes and named in the notes (schematic ones marked); the camera and the port follow the farm you chose. Where a farm's coordinates are only approximate, the notes warn that the scene may be off the real site.
 - With the system setting "reduce motion" the approach is skipped and the view starts at the oblique angle.
 
@@ -201,7 +201,7 @@ Port cards list the roles, the farms served (drawn as arcs on the map) and the s
 ### 4.7 Layers
 
 - **Pipeline** (dashed rings): about 9,600 projects under construction, in pre-construction or announced; turning it on moves the timeline to the latest year.
-- **⚓ Ports**: 142 offshore wind ports in 23 countries (marshalling, manufacturing, cables, floating assembly, O&M), each with sources; small dots at world zoom, icons and names when zoomed in.
+- **⚓ Ports**: 142 offshore wind ports in 23 countries (marshalling, manufacturing, cables, floating assembly, O&M), each with sources; small dots at world zoom (where they crowd only one shows until you zoom in), icons and names when zoomed in.
 - **⚑ Events**: 91 major events and incidents (red = incident / failure, white = milestone, purple = policy & society), shown once the timeline reaches their year; the title on a marker appears only when hovered, selected or just reached while playing; events without coordinates are placed at their farm or listed only in the Events tab. Full list: [events.en.md](./events.en.md).
 - **Offshore: foundations** ("Show" in the Layers menu): colours operating offshore farms by type — monopile, steel frame (jacket, tripod, tripile), floating, other fixed-bottom (gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed) —
   with farms not yet checked as "type unknown". The legend counts each group in focus; click a group to show only that group. Farm-by-farm list: [foundations.en.md](./foundations.en.md).

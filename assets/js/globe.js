@@ -760,6 +760,30 @@ function drawTileInto(g, img, z, x, y, P) {
     g.drawImage(img, 0, s * 256 / strips, 256, 256 / strips, px0, py0, pw, ph + 0.6);
   }
 }
+function landPath(g, lon0, lat0, lon1, lat1, P) {
+  g.beginPath(); let n = 0;
+  for (let k = 0; k < RINGS.length; k++) {
+    const bx = ringBox[k]; if (bx[2] < lon0 || bx[0] > lon1 || bx[3] < lat0 || bx[1] > lat1) continue;
+    const r = RINGS[k]; n++;
+    for (let i = 0; i < r.length; i += 2) { const x = (r[i] - lon0) * P.sx, y = (P.lat1 - r[i + 1]) * P.sy; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); }
+    g.closePath();
+  }
+  return n;
+}
+function coastMask(g, lon0, lat0, lon1, lat1, P, landLift, seaDeepen) {
+  g.save();
+  if (landLift > 0 && landPath(g, lon0, lat0, lon1, lat1, P)) { g.fillStyle = 'rgba(150,166,188,' + landLift + ')'; g.fill('nonzero'); }
+  g.beginPath(); g.rect(0, 0, PW, PH); landPath2(g); g.fillStyle = 'rgba(6,18,40,' + seaDeepen + ')'; g.fill('evenodd');
+  g.restore();
+  function landPath2(gg) {                       // 同一批多邊形接在外框後面，用 evenodd 只填海面 · the same rings after the frame, evenodd fills the sea only
+    for (let k = 0; k < RINGS.length; k++) {
+      const bx = ringBox[k]; if (bx[2] < lon0 || bx[0] > lon1 || bx[3] < lat0 || bx[1] > lat1) continue;
+      const r = RINGS[k];
+      for (let i = 0; i < r.length; i += 2) { const x = (r[i] - lon0) * P.sx, y = (P.lat1 - r[i + 1]) * P.sy; if (i === 0) gg.moveTo(x, y); else gg.lineTo(x, y); }
+      gg.closePath();
+    }
+  }
+}
 function drawPatch(lon0, lat0, lonSpan, latSpan) {
   const g = patchCanvas.getContext('2d');
   const lat1 = lat0 + latSpan, lon1 = lon0 + lonSpan;
@@ -774,6 +798,8 @@ function drawPatch(lon0, lat0, lonSpan, latSpan) {
     if (lon0 < -180) { seg(lon0 + 360, 180, 0); seg(-180, lon1, (-180 - lon0) * P.sx); }
     else if (lon1 > 180) { seg(lon0, 180, 0); seg(-180, lon1 - 360, (180 - lon0) * P.sx); }
     else seg(lon0, lon1, 0);
+    // 拉近時底圖貼圖只有每像素約 10 km，海岸是一團模糊、低地與淺海幾乎同色：用 1:50m 陸地多邊形把海岸畫清楚（陸地略提亮、海面略壓暗），圖磚之後再疊上
+    if (latSpan <= 25 && lon0 >= -180 && lon1 <= 180 && (S.base === 'relief' || S.base === 'sat')) coastMask(g, lon0, lat0, lon1, lat1, P, S.base === 'relief' ? 0.26 : 0, S.base === 'relief' ? 0.3 : 0.22);
   } else {
     g.fillStyle = OCEAN; g.fillRect(0, 0, PW, PH);
     g.fillStyle = LAND;
@@ -879,7 +905,7 @@ function buildSymbols() {
   hubGeo = new THREE.SphereGeometry(0.045, 10, 8);
   bladeGeo = new THREE.BoxGeometry(0.035, 0.52, 0.012); bladeGeo.translate(0, 0.28, 0);
   ringGeo = new THREE.RingGeometry(0.75, 1, 48); ringGeo.rotateX(-Math.PI / 2);
-  thinRingGeo = new THREE.RingGeometry(0.95, 1, 72); thinRingGeo.rotateX(-Math.PI / 2);
+  thinRingGeo = new THREE.RingGeometry(0.982, 1, 96);   // 細環：大風場的半徑可達十幾公里，環寬取半徑的 1.8% thinRingGeo.rotateX(-Math.PI / 2);
   discGeo = new THREE.CircleGeometry(0.75, 48); discGeo.rotateX(-Math.PI / 2);
   rotorGeo = mergeGeos([[hubGeo, new THREE.Matrix4()], ...[0, 1, 2].map(i => [bladeGeo, new THREE.Matrix4().makeRotationZ(i * Math.PI * 2 / 3)])]);
   // 規劃中專案：虛線環（尚未蓋好，不畫風機）
@@ -888,7 +914,7 @@ function buildSymbols() {
   countryRoot = new THREE.Group(); surfaceRoot.add(countryRoot);
   C.forEach(c => {
     const anchor = new THREE.Group(); const tOn = makeTurbine('on'), tOff = makeTurbine('off');
-    anchor.add(tOn, tOff); anchor.userData = { c, tOn, tOff, dim: 1 };
+    anchor.add(tOn, tOff); anchor.userData = { c, tOn, tOff, dim: 1, limb: 1 };
     countryRoot.add(anchor); cGroups.push(anchor);
     [tOn, tOff].forEach(t => [t.userData.tower, t.userData.nac, t.userData.disc].forEach(m => { m.userData.anchor = anchor; }));
   });
@@ -917,7 +943,7 @@ function buildSymbols() {
       ring: new THREE.MeshBasicMaterial({ color: PIPE_HEX[st], transparent: true, opacity: 0.9, depthWrite: false, side: THREE.DoubleSide }),
       tower: ghost(), nac: ghost(), blade: ghost() };
   });
-  clusterMats.liveRing = new THREE.MeshBasicMaterial({ color: LIVE_HEX, transparent: true, opacity: 0.85, depthWrite: false, side: THREE.DoubleSide });
+  clusterMats.liveRing = new THREE.MeshBasicMaterial({ color: LIVE_HEX, transparent: true, opacity: 0.7, depthWrite: false, side: THREE.DoubleSide });
   thinDashGeo = mergeGeos([...Array(36)].map((_, i) => [new THREE.RingGeometry(0.96, 1, 3, 1, i * Math.PI / 18, Math.PI / 18 * 0.55), new THREE.Matrix4()])); thinDashGeo.rotateX(-Math.PI / 2);
 }
 
@@ -1608,6 +1634,10 @@ function frame(now) {
     a.visible = a.userData.dim > 0.02;
     worldOn += valAt(c.on, S.year); worldOff += valAt(c.off, S.year); if (cap.tot > 0.5) nWith++;
     if (!a.visible) return;
+    // 地球視角：靠近地球邊緣的國家風機淡出（越靠邊越斜，高的會橫著伸到太空裡）· globe view: fade turbines near the limb
+    if (S.modeT < 0.5) { a.getWorldPosition(tmpV); _n.copy(tmpV).normalize(); const fc = tmpW.copy(camera.position).sub(tmpV).normalize().dot(_n); a.userData.limb = clamp((fc - 0.22) / 0.33, 0, 1); }
+    else a.userData.limb = 1;
+    if (a.userData.limb <= 0.01) { a.userData.tOn.visible = a.userData.tOff.visible = false; return; }
     [['on', a.userData.tOn, cap.on], ['off', a.userData.tOff, cap.off]].forEach(([k, t, mw]) => {
       const u = t.userData;
       const hT = heightOf(mw) * sizeK, rT = radiusOf(mw) * sizeK;
@@ -1616,11 +1646,11 @@ function frame(now) {
       u.tower.scale.setScalar(u.h); u.nac.scale.setScalar(u.h); u.rotor.scale.setScalar(u.h); u.rotor.position.set(0, u.h, 0.12 * u.h);
       u.ring.scale.set(u.r, 1, u.r); u.disc.scale.set(u.r, 1, u.r);
       u.rotor.rotation.z += dt * 2.2 * (k === 'on' ? 1 : 0.9);
-      const op = a.userData.dim; u.mats[0].opacity = op; u.mats[1].opacity = op; u.mats[2].opacity = op; u.mats[3].opacity = 0.55 * op; u.mats[4].opacity = 0.16 * op;
+      const op = a.userData.dim * a.userData.limb; u.mats[0].opacity = op; u.mats[1].opacity = op; u.mats[2].opacity = op; u.mats[3].opacity = 0.55 * op; u.mats[4].opacity = 0.16 * op;
     });
     const sep = (a.userData.tOn.userData.r + a.userData.tOff.userData.r) * 0.6 + 0.8 * sizeK;
     a.userData.tOn.position.set(cap.off > 0.5 ? -sep * 0.5 : 0, 0, 0); a.userData.tOff.position.set(sep * 0.5, 0, 0);
-    if (inR && cap.tot > 0.5 && !hasFarms && a.userData.dim > 0.5) {
+    if (inR && cap.tot > 0.5 && !hasFarms && a.userData.dim > 0.5 && a.userData.limb > 0.5) {
       a.getWorldPosition(tmpV); const h = Math.max(a.userData.tOn.userData.h, a.userData.tOff.userData.h) * surfaceRoot.scale.x;
       cands.push({ cat: 'c', pri: cap.tot, pos: tmpV.clone().addScaledVector(upAt(tmpV), h * 1.15 + 1.2 * sizeK), name: cname(c), val: fmtMW(cap.tot), cls: '', key: 'c' + c.iso });
     }
@@ -1882,7 +1912,7 @@ function farmRow(f) {
   const yr = f.pipe ? (f.year ? T('expected') + ' ' + f.year : T('st')[f.st]) : (f.yu ? '—' : f.year + (f.end ? '–' + f.end : ''));
   const where = S.region !== f.iso && byIso[f.iso] ? ' · ' + esc(cname(byIso[f.iso])) : '';
   d.innerHTML = '<span class="y">' + esc(String(yr)) + '</span><span class="n">' + esc(fname(f)) + '</span>' +
-    '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + fmtMW(f.mw) + where + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(f.owner) : '') + '</span>';
+    '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + fmtMW(f.mw) + where + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(ownerTxt(f)) : '') + '</span>';
   const lv = liveOn() && liveFor(f);
   if (lv) d.querySelector('.t').insertAdjacentHTML('beforeend', ' · <b class="lv">● ' + WW.num(lv.mw, lv.mw < 100 ? 1 : 0) + ' MW</b>');
   d.onclick = () => selectFarm(f);
@@ -1968,11 +1998,14 @@ function tipPort(p) {
     '<br>' + esc(portRoles(p)) + '<br><span style="color:var(--ink-2)">' + esc(lang === 'zh' ? p.zhNote || p.en : p.en) + '</span><div class="hint2">' + T('clickMore') + '</div>';
 }
 /* 每一格：錨點跟著地球轉；背面或畫面外就藏起來。全球視角縮成小點，拉近或被選取時才有圖示與名稱標籤 */
+let PT_ORDER = null;
 function updatePorts(alt, cands) {
   if (!portsReady) return;
   const show = S.ports && S.view !== 'bars' && !TOUR, far = alt > 60;
   const scoped = S.region === 'WORLD' || S.region.startsWith('C:');
-  for (const p of PORTS) {
+  if (!PT_ORDER || PT_ORDER.length !== PORTS.length) PT_ORDER = PORTS.slice().sort((a, b) => ((a.status === 'operating') ? 0 : 1) - ((b.status === 'operating') ? 0 : 1) || (b.farms || []).length - (a.farms || []).length);
+  const occ = far ? new Set() : null;
+  for (const p of PT_ORDER) {
     let vis = show && (scoped ? inScope(p.iso) : (p.iso === S.region || alt < 25 || p === focusPort));
     if (vis) {
       tmpW.copy(p._pos).applyMatrix4(surfaceRoot.matrixWorld);
@@ -1980,6 +2013,7 @@ function updatePorts(alt, cands) {
       if (vis) {
         const q = project(tmpW);
         vis = q.z <= 1 && q.x > -12 && q.x < W + 12 && q.y > -12 && q.y < H + 12;
+        if (vis && occ && p !== focusPort) { const k = ((q.x / OCC) | 0) + ',' + ((q.y / OCC) | 0); if (occ.has(k)) vis = false; else occ.add(k); }
         if (vis) {
           p._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)';
           if (!far || p === focusPort) cands.push({ cat: 'p', pri: p === focusPort ? 2e9 : 5e7 + p.roles.length * 1e5, pos: tmpW.clone(), dy: 12,
@@ -2109,11 +2143,15 @@ function tipEvent(e) {
     '<br><span style="color:var(--ink-2)">' + esc(evL(e.project)) + '</span><div class="hint2">' + T('clickMore') + '</div>';
 }
 /* 每一格：標記跟著地球轉；背面、畫面外或時間軸還沒到就藏起來。全球視角縮成小點，拉近、剛發生或被選取時才有圖示與標籤 */
+let EV_ORDER = null;
+const OCC = 22;                                                     // 全球視角的小點：同一格只留一個 · far dots: one per 22 px cell
 function updateEvents(alt, cands) {
   if (!eventsReady) return;
   const show = S.events && S.view !== 'bars' && !TOUR, far = alt > 60;
   const scoped = S.region === 'WORLD' || S.region.startsWith('C:');
-  for (const e of EVENTS) {
+  if (!EV_ORDER || EV_ORDER.length !== EVENTS.length) EV_ORDER = EVENTS.slice().sort((a, b) => (a.pri - b.pri) || ((b.cat === 'inc') - (a.cat === 'inc')) || (b.year - a.year));
+  const occ = far ? new Set() : null;
+  for (const e of EV_ORDER) {
     let vis = show && !!e._pos && evShown(e) && (scoped ? inScope(e.iso) : (e.iso === S.region || alt < 25 || e === focusEvent));
     if (vis) {
       tmpW.copy(e._pos).applyMatrix4(surfaceRoot.matrixWorld);
@@ -2121,6 +2159,7 @@ function updateEvents(alt, cands) {
       if (vis) {
         const q = project(tmpW);
         vis = q.z <= 1 && q.x > -12 && q.x < W + 12 && q.y > -12 && q.y < H + 12;
+        if (vis && occ && e !== focusEvent) { const k = ((q.x / OCC) | 0) + ',' + ((q.y / OCC) | 0); if (occ.has(k)) vis = false; else occ.add(k); }
         if (vis) {
           e._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)';
           const recent = S.year - e.year < 1.5 && S.year < Y1 - 0.02;
@@ -2261,7 +2300,7 @@ function renderPipeList(force) {
     const c = byIso[f.iso];
     d.innerHTML = '<span class="y">' + (f.year ? esc(String(f.year)) : '—') + '</span><span class="n">' + esc(fname(f)) + '</span>' +
       '<span class="t"><span class="gtag p' + f.st + '">' + T('st')[f.st] + '</span>' + (byIso[S.region] ? '' : esc(c ? cname(c) : f.iso) + ' · ') + fmtMW(f.mw) +
-      (f.owner ? ' · ' + esc(f.owner) : '') + (f.year ? '' : ' · ' + T('tbd')) + '</span>';
+      (f.owner ? ' · ' + esc(ownerTxt(f)) : '') + (f.year ? '' : ' · ' + T('tbd')) + '</span>';
     d.onclick = () => selectFarm(f);
     box.appendChild(d);
   });
@@ -2814,6 +2853,8 @@ const OWN_PREFIX = [['taiwan power', 'taipower'], ['copenhagen infrastructure', 
   ['china huaneng', 'huaneng'], ['china energy investment', 'china energy'], ['dong energy', 'orsted']];
 const OWN_ALIAS = { cip: 'cip', dong: 'orsted' };
 const ownGeneric = t => OWN_WEAK.has(t) || OWN_PLACE.has(t) || t.length < 3;
+/* 業主欄在 GEM 原始資料裡有時被截在半個括號（例：「JERA Co Inc [」）：顯示時去掉沒寫完的括號並加「…」 · trim a dangling bracket left by the source's cut */
+function ownerTxt(f) { const s = f.owner || ''; return /\[[^\]]*$/.test(s) ? s.replace(/\s*\[[^\]]*$/, '').replace(/[;,\s]+$/, '') + '…' : s; }
 function ownerParts(f) {
   if (f._own) return f._own;
   const raw = f.owner || '', cut = raw.length >= 60 && !raw.endsWith('…'), seen = new Set();
@@ -3127,6 +3168,9 @@ const LITE_NO_SCENE = false;                                       // 公開版�
 function sceneHooks() {
   return {
     fname, center: f => clusterLL(f),
+    land(lon0, lat0, lon1, lat1) {                                  // 範圍內的陸地多邊形（Natural Earth 1:50m，[lon, lat, …]）· land rings in a box, for the water mask
+      const out = []; for (let k = 0; k < RINGS.length; k++) { const bx = ringBox[k]; if (bx[2] < lon0 || bx[0] > lon1 || bx[3] < lat0 || bx[1] > lat1) continue; out.push(RINGS[k]); } return out;
+    },
     turbines(f) {                                                   // 公尺（東、北）；實際機位或與近看相同的示意排列
       const tb = tbOf(f), sp = turbSpec(f);
       if (tb) return { P: tbKm(tb).map(p => [p[0] * 1000, p[1] * 1000]), real: true, src: tb.src, n: tb.n || sp.n };
@@ -3201,7 +3245,7 @@ function renderCard(it) {
     needTurbines(f); needGen();
     const sp = turbSpec(f);
     const phases = f.ph && f.ph.length < 2 ? ' · ' + f.ph.map(p => (p[0] || '?') + ': ' + WW.int(p[1])).join(', ') + ' MW' : '';   // 兩期以上另畫分期時間軸
-    spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(f.owner) : '');
+    spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(ownerTxt(f)) : '');
     desc = it.why || '';
   }
   const yrs = it.kind === 'turb' ? (it.year ? T('outConn')(it.year) : '') : it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : ''));
@@ -3597,7 +3641,7 @@ function tipFarm(f, p) {
   return (p && p.src ? '<img class="tph" src="' + esc(p.src) + '" alt="">' : '') +
     '<b>' + esc(fname(f)) + '</b>' + (f.zh && lang === 'zh' ? '<br><span style="color:var(--ink-2)">' + esc(f.name) + '</span>' : '') +
     '<br><i class="gsw" style="background:' + col + '"></i>' + T('type')[f.type] + ' · ' + esc(String(when)) +
-    '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(f.owner) + '</span>' : '') +
+    '<br>' + T('totalCap') + ' <b>' + fmtMW(f.pipe ? f.mw : farmMwAt(f, S.year)) + '</b>' + (f.turbine ? '<br>' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? '<br><span style="color:var(--ink-2)">' + esc(ownerTxt(f)) + '</span>' : '') +
     (S.layer === 'fd' && !f.pipe && f.type !== 'onshore' ? '<br><i class="fdsw fd-' + fdGroup(f) + '"></i>' + esc(T('fdLabel') + L('：', ': ') + fdText(f)) : '') +
     (noteOf(f) ? '<div class="tnote">' + esc(noteOf(f).length > 140 ? noteOf(f).slice(0, 140) + '…' : noteOf(f)) + '</div>' : '') +
     (f.nStack ? '<div class="tnote">' + T('tipStack') + '</div>' : '') +
