@@ -39,7 +39,7 @@ const I18N = {
     farmsLoading: '風場資料載入中…',
     dens: ['關閉', '精簡', '標準', '詳細'],
     tbLabel: '機組', tbModels: n => '等 ' + n + ' 種機型', tbNote: '近景依 USWTDB 的實際機位與尺寸繪製', tbSrcT: '美國風機資料庫 USWTDB（美國地質調查所、勞倫斯柏克萊國家實驗室，公有領域）', tbOsmNote: '近景依 OpenStreetMap 志工標示的機位繪製；機組數是標示的風機數，可能與實際略有出入', tbOsmCr: '© OpenStreetMap 貢獻者', tbOsmT: 'OpenStreetMap 資料，開放資料庫授權 ODbL', tbDeNote: '近景依德國聯邦網路局「市場主資料登錄」（MaStR）的機位與尺寸繪製', tbDeCr: '© Bundesnetzagentur | MaStR', tbDeT: '德國聯邦網路局 市場主資料登錄（Marktstammdatenregister），Datenlizenz Deutschland – Namensnennung 2.0',
-    coastLabel: '離岸距離', coastNote: '到最近海岸線的直線距離，依 Natural Earth 1:50m 海岸線估算（不含小島）',
+    vnShow: '查證與計算說明', vnShowT: '展開或收起各項數字的出處說明與計算方式', coastLabel: '離岸距離', coastNote: '到最近海岸線的直線距離，依 Natural Earth 1:50m 海岸線估算（不含小島）',
     actLabel: '實際年發電量', actCf: '容量因數', actNote: (mw, src, iso) => (iso === 'DNK' ? '計量發電量取自' : iso === 'AUS' ? '每 5 分鐘實測出力的加總，取自' : '淨發電量取自') + src + '；容量因數以' + (iso === 'USA' ? ' EIA 登記的裝置容量 ' : iso === 'DNK' ? '有公布發電量的機組的登記容量 ' : iso === 'AUS' ? ' AEMO 登記容量 ' : '台電公布的裝置容量 ') + mw + ' MW 計，只列全年運轉的年份' + (iso === 'AUS' ? '；實測值含限電與負電價時的自主降載' : ''), actSrc: { USA: ['美國能源資訊署 EIA-923', 'EIA-923', '美國能源資訊署 EIA-923 各電廠逐月淨發電量（公有領域）'], TWN: ['台電開放資料「自建之各類再生能源發電量」（只有台電自有的風場）', '台電開放資料', '台灣電力公司 自建之各類再生能源發電量（政府資料開放平臺 17140，政府資料開放授權條款）'], DNK: ['丹麥能源署（Energistyrelsen）的風機登記檔（只有公司持有的風機有公布發電量）', 'Energistyrelsen', 'Energistyrelsen, Stamdataregister for vindkraftanlæg（Vinddata、Parkproduktion）'], AUS: ['澳洲能源市場營運機構（AEMO）各機組的 SCADA 實測出力（MMS 資料模型月檔）', 'AEMO', 'Australian Energy Market Operator（AEMO）MMS Data Model：DISPATCH_UNIT_SCADA、DUDETAIL（依 AEMO 版權許可標示來源）'] },
     genLabel: '估計年發電量', genNote: (cn, cf, y) => '容量 × ' + cn + ' ' + y + ' 年風電平均容量因數 ' + cf + '%（Ember）；是估計，不是實測', genOff: '；離岸風場的容量因數通常高於全國平均',
     totalCap: '容量', units: '部', clickMore: '點擊：拉近並查看照片與連結', clickFarm: '點擊：拉近、畫出全部風機，並查看照片與連結',
@@ -175,7 +175,7 @@ const I18N = {
     farmsLoading: 'Loading farm data…',
     dens: ['Off', 'Minimal', 'Standard', 'Detailed'],
     tbLabel: 'Turbines', tbModels: n => n + ' models', tbNote: 'The close-up uses the real turbine positions and sizes from USWTDB', tbSrcT: 'U.S. Wind Turbine Database (USGS / Lawrence Berkeley National Laboratory, public domain)', tbOsmNote: 'The close-up uses turbine positions mapped by OpenStreetMap volunteers; the count is the number of mapped turbines and may differ slightly from the real one', tbOsmCr: '© OpenStreetMap contributors', tbOsmT: 'OpenStreetMap data, Open Database License (ODbL)', tbDeNote: 'The close-up uses the turbine positions and sizes in the Federal Network Agency\'s Market Master Data Register (MaStR)', tbDeCr: '© Bundesnetzagentur | MaStR', tbDeT: 'German Federal Network Agency, Marktstammdatenregister; Data licence Germany – attribution – 2.0',
-    coastLabel: 'Distance to shore', coastNote: 'Straight line to the nearest coastline, estimated from the Natural Earth 1:50m coastline (small islands not included)',
+    vnShow: 'Sources and method notes', vnShowT: 'Show or hide the notes on where each figure comes from and how it is worked out', coastLabel: 'Distance to shore', coastNote: 'Straight line to the nearest coastline, estimated from the Natural Earth 1:50m coastline (small islands not included)',
     actLabel: 'Actual yearly output', actCf: 'capacity factor', actNote: (mw, src, iso) => (iso === 'DNK' ? 'Metered generation from ' : iso === 'AUS' ? 'Sum of 5-minute measured output from ' : 'Net generation from ') + src + '; capacity factor on the ' + mw + ' MW ' + (iso === 'USA' ? 'nameplate capacity registered with the EIA' : iso === 'DNK' ? 'registered capacity of the turbines with published production' : iso === 'AUS' ? 'capacity registered with AEMO' : 'capacity stated by Taipower') + ', full years only' + (iso === 'AUS' ? '; measured output includes curtailment and self-curtailment at negative prices' : ''), actSrc: { USA: ['the U.S. EIA (Form EIA-923)', 'EIA-923', 'U.S. Energy Information Administration, Form EIA-923 monthly net generation by plant (public domain)'], TWN: ['Taipower open data on its own renewable stations (Taipower-owned farms only)', 'Taipower open data', 'Taiwan Power Company, generation of its own renewable stations (data.gov.tw 17140, Open Government Data License)'], DNK: ['the Danish Energy Agency\'s turbine register (production is published for company-owned turbines only)', 'Energistyrelsen', 'Energistyrelsen, Stamdataregister for vindkraftanlæg (Vinddata, Parkproduktion)'], AUS: ['the SCADA output of each unit published by the Australian Energy Market Operator (AEMO; MMS Data Model monthly archive)', 'AEMO', 'Australian Energy Market Operator (AEMO), MMS Data Model: DISPATCH_UNIT_SCADA, DUDETAIL (credited under AEMO\'s copyright permissions)'] },
     genLabel: 'Estimated yearly output', genNote: (cn, cf, y) => 'capacity × the ' + y + ' average wind capacity factor of ' + cn + ', ' + cf + '% (Ember); an estimate, not a measurement', genOff: '; offshore farms usually run above the national average',
     totalCap: 'Capacity', units: 'units', clickMore: 'Click to zoom in and see photo & links', clickFarm: 'Click to zoom in, draw all its turbines and see photo & links',
@@ -1150,6 +1150,7 @@ function needTurbines(f) {
       D.farms.forEach(x => { if (tbOf(x) && tbOf(x).src === kind) { x._spec = null; removeCluster(x); } });
       updateClusters(0, true);
       if (cardItem && cardItem.kind === 'farm' && tbOf(cardItem.f)) renderCard(cardItem);
+      if (focusFarm && framedFarm === focusFarm && !TOUR && tbOf(focusFarm)) flyToFarm(focusFarm, 0.9);   // 實際機位到了：依整座風場重新取景 · reframe on the real layout
     }).catch(e => { console.warn(e); tbLoad[kind] = null; });
   });
 }
@@ -1412,7 +1413,7 @@ function stepTween(dt) {
     vcam.position.lerpVectors(c.p0, c.p1, e); controls.target.lerpVectors(c.t0, c.t1, e);
     vcam.position.y += c.bump * Math.sin(Math.PI * e);
   }
-  if (k >= 1) camTween = null;
+  if (k >= 1) { camTween = null; S.lastDist = 0; }                 // 飛行結束那一格不算滾輪縮放（zoomFix） · the last tween step is not a wheel zoom
 }
 function flyToRegion(instant) {
   const rc = regionCenter(), alt = regionAlt(rc);
@@ -1428,6 +1429,44 @@ function flyToLonLat(lon, lat, alt, dur) {
   else { tgt = flatPos(lon, lat, 0); const tl = 0.95; pos = tgt.clone().add(new THREE.Vector3(0, alt * Math.cos(tl), alt * Math.sin(tl))); }
   return tweenTo(pos, tgt, dur);
 }
+/* 近看一座風場：鏡頭高度依整座風場的範圍（實際機位或推算範圍）與畫面上沒被遮住的區域決定，
+   再把中心移到那塊區域的中央（手機的底部抽屜、桌機右側的卡片與上緣工具列都不擋）。
+   近地面時鏡頭自動向北傾斜約 1 弧度（syncRenderCamera），這裡用同一個角度回推注視點。
+   Frame a whole farm: the height follows the farm's extent and the unobstructed part of the map (not under the phone drawer, the
+   desktop card or the toolbar), and the farm is centred in that part. Near the ground the camera tilts north by about 1 rad
+   (syncRenderCamera); the look-at point is worked back from the same angle. */
+function farmView(f) {
+  const cl = clusterLL(f), tb = tbOf(f), sp = turbSpec(f);
+  let rKm = sp.extent / 2;
+  if (tb) { rKm = 0; tbKm(tb).forEach(([e, n]) => { rKm = Math.max(rKm, Math.hypot(e, n)); }); }
+  rKm = Math.max(rKm, 0.5) + sp.hKm * 0.35;                       // 加上風機模型本身的大小 · room for the turbine models
+  const pane = $('g-mapPane').getBoundingClientRect(), Wp = pane.width || W, Hp = pane.height || H;
+  let x0 = 0, x1 = Wp, y0 = 0, y1 = Hp;
+  const cut = (el, side) => {
+    if (!el || el.hidden || !el.getClientRects().length) return;
+    const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2 || r.bottom <= pane.top || r.top >= pane.bottom) return;
+    if (side === 'top') y0 = Math.max(y0, r.bottom - pane.top);
+    else if (side === 'right') { if (r.left - pane.left > Wp * 0.4) x1 = Math.min(x1, r.left - pane.left - 8); }
+    else y1 = Math.min(y1, r.top - pane.top);
+  };
+  cut($('g-top'), 'top');
+  if (PHONE) y1 = Math.min(y1, Hp * 0.48);                           // 抽屜半開占 52% · drawer at half height
+  else { const c = $('g-infoCard'); if (c.classList.contains('show')) cut(c, 'right'); }
+  if (x1 - x0 < 120 || y1 - y0 < 120) { x0 = 0; x1 = Wp; y0 = 0; y1 = Hp; }
+  const fpx = (Hp / 2) / Math.tan(camera.fov * D2R / 2);
+  const a = S.mode === 'globe' ? 1 : 0.95, dep = Math.PI / 2 - a;  // 傾角與俯角 · tilt and depression
+  const r = rKm * KM;
+  let D = Math.max(2 * r * fpx / ((x1 - x0) * 0.9), 2 * r * Math.sin(dep) * fpx / ((y1 - y0) * 0.8) + r * 0.3);
+  D = clamp(D, 0.2, 2.6);
+  const h = D * Math.cos(a), b = D * Math.sin(a);
+  const dlt = Math.atan(((Hp / 2) - (y0 + y1) / 2) / fpx);
+  const tf = Math.max(0.12, dep - dlt), x = h / Math.tan(tf) - b;   // 注視點往鏡頭方向（南）移 x · look-at point moved x towards the camera (south)
+  const dist = Math.hypot(h, b + x), sx = ((Wp / 2) - (x0 + x1) / 2) / fpx * dist;   // 往東移，風場就落在左邊 · east shift puts the farm left
+  const kmLat = 110.574, kmLon = 111.32 * Math.cos(cl.lat * D2R);
+  return { lon: cl.lon + sx / KM / kmLon, lat: cl.lat - x / KM / kmLat, alt: D };
+}
+let framedFarm = null;                                             // 鏡頭最後對準的風場；使用者拖曳後清掉 · cleared when the user drags
+function flyToFarm(f, dur) { const v = farmView(f); framedFarm = f; return flyToLonLat(v.lon, v.lat, v.alt, dur); }
 let tiltBlend = 0;
 const _n = new THREE.Vector3(), _u = new THREE.Vector3(), _F = new THREE.Vector3();
 function syncRenderCamera(dt) {
@@ -1477,7 +1516,7 @@ function setMode(m) {
   if (m === 'flat') { controls.minDistance = 0.15; controls.maxDistance = 900; controls.zoomSpeed = 2.2; controls.enablePan = true; controls.maxPolarAngle = Math.PI / 2 - 0.08; }
   else { controls.minDistance = 1; controls.maxDistance = 1e5; controls.zoomSpeed = 1; controls.enablePan = false; controls.maxPolarAngle = Math.PI; }
   clusters.forEach((g, f) => removeCluster(f)); patchInfo = null; farmLayerDirty = true;
-  if (TOUR) tourShowStop(TOUR.i, true); else if (focusFarm) flyToLonLat(focusFarm.lon, focusFarm.lat, farmAlt(focusFarm)); else flyToRegion(false);
+  if (TOUR) tourShowStop(TOUR.i, true); else if (focusFarm) flyToFarm(focusFarm); else flyToRegion(false);
   syncURL();
 }
 function applyModeT() {
@@ -3021,15 +3060,15 @@ function fdHTML(f) {
   const src = r ? (r.o || []).map(id => '<a href="' + esc(FD.meta.ospar.url) + '" target="_blank" rel="noopener" title="' + esc(FD.meta.ospar.title) + '">OSPAR ' + esc(id) + '</a>')
     .concat(r.u ? ['<a href="' + esc(r.u) + '" target="_blank" rel="noopener" title="' + esc(T(r.o ? 'fdSecond' : 'fdSrc')) + '">' + esc(hostOf(r.u)) + '</a>'] : []) : [];
   return '<div class="ffd"><i class="fdsw fd-' + fdGroup(f) + '"></i><b>' + esc(T('fdLabel')) + '</b>' + esc(L('：', ': ') + fdText(f)) +
-    (src.length ? '<span class="fds">' + src.join('') + '</span>' : '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') +
-    (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') +
-    (fdDimText(f) ? '<div class="fdim">' + esc(fdDimText(f)) + (r.du ? '<span class="fds"><a href="' + esc(r.du) + '" target="_blank" rel="noopener" title="' + esc(T('fdDimSrc')) + '">' + esc(hostOf(r.du)) + '</a></span>' : '') + (r.dz ? '<div class="gnote">' + esc(lang === 'zh' ? r.dz : r.de) + '</div>' : '') + '</div>' : '') +
+    (src.length ? '<span class="fds">' + src.join('') + '</span>' : '') + (note ? '<div class="gnote vn">' + esc(note) + '</div>' : '') +
+    (!r && (f.fdx || f.type !== 'floating') ? '<div class="gnote vn">' + esc(f.fdx ? f.fdx[lang === 'zh' ? 0 : 1] : T('fdStep')) + '</div>' : '') +
+    (fdDimText(f) ? '<div class="fdim">' + esc(fdDimText(f)) + (r.du ? '<span class="fds"><a href="' + esc(r.du) + '" target="_blank" rel="noopener" title="' + esc(T('fdDimSrc')) + '">' + esc(hostOf(r.du)) + '</a></span>' : '') + (r.dz ? '<div class="gnote vn">' + esc(lang === 'zh' ? r.dz : r.de) + '</div>' : '') + '</div>' : '') +
     fdSVG(f) + '</div>';
 }
 /* 風場卡片的補充列：USWTDB 的機組與尺寸（美國）、離岸距離（由海岸線計算）、實際年發電量（EIA-923）或估計年發電量（容量 × 該國風電平均容量因數） */
 function factsHTML(f) {
   if (!f || f.pipe || f.pseudo) return '';
-  const rows = [], row = (label, text, note, link) => '<div class="ffact"><b>' + esc(label) + '</b>' + esc(L('：', ': ') + text) + (link || '') + (note ? '<div class="gnote">' + esc(note) + '</div>' : '') + '</div>';
+  const rows = [], row = (label, text, note, link, vn) => '<div class="ffact"><b>' + esc(label) + '</b>' + esc(L('：', ': ') + text) + (link || '') + (note ? '<div class="gnote' + (vn ? ' vn' : '') + '">' + esc(note) + '</div>' : '') + '</div>';
   const tb = tbOf(f);
   if (tb) {
     const rng = v => v[0] === v[1] ? fmtNum(v[0]) : fmtNum(v[0]) + '–' + fmtNum(v[1]), dm = fdDims(f);   // 已有查證過的尺寸（水下基礎列）就不重複列 USWTDB 的
@@ -3038,10 +3077,10 @@ function factsHTML(f) {
     const link = tb.src === 'us' ? '<span class="fds"><a href="' + esc(TB.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbSrcT') + ' ' + (TB.meta.version || '')) + '">USWTDB</a></span>'
       : tb.src === 'de' ? '<span class="fds"><a href="' + esc(TBD.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbDeT')) + '">' + esc(T('tbDeCr')) + '</a></span>'
       : '<span class="fds"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" title="' + esc(T('tbOsmT')) + '">' + esc(T('tbOsmCr')) + '</a></span>';
-    rows.push(row(T('tbLabel'), txt, tb.src === 'us' ? T('tbNote') : tb.src === 'de' ? T('tbDeNote') : T('tbOsmNote'), link));
+    rows.push(row(T('tbLabel'), txt, tb.src === 'us' ? T('tbNote') : tb.src === 'de' ? T('tbDeNote') : T('tbOsmNote'), link, true));
   }
   const ck = f.type !== 'onshore' && !f.nStack ? coastKm(f) : null;
-  if (ck != null) rows.push(row(T('coastLabel'), L('約 ', 'about ') + (ck < 10 ? ck.toFixed(1) : Math.round(ck)) + ' km', T('coastNote')));
+  if (ck != null) rows.push(row(T('coastLabel'), L('約 ', 'about ') + (ck < 10 ? ck.toFixed(1) : Math.round(ck)) + ' km', T('coastNote'), '', true));
   const ag = genOf(f), cf = STATS && STATS.cf && STATS.cf[f.iso];
   if (ag) {                                                        // 實測值：最近一年＋各年
     const ys = Object.keys(ag.y).sort(), last = ys[ys.length - 1], fy = y => fmtGWh(ag.y[y][0]) + L('（', ' (') + T('actCf') + ' ' + ag.y[y][1].toFixed(1) + '%' + L('）', ')');
@@ -3211,6 +3250,13 @@ function openScene(f, btn) {
   Promise.all([WW.loadScript('assets/js/scene.js')].concat(waits.map(w => w.catch(() => null)))).then(() => { if (active && WW.scene) WW.scene.open(f, sceneHooks(), btn); })
     .catch(e => { console.error(e); WW.toast(L('實景視角載入失敗', 'The sea-level view failed to load')); });
 }
+/* 卡片上的查證與計算說明（水下基礎與尺寸的查證、機位與離岸距離的算法）預設收起，按鈕展開；實測、取樣與估計的但書不收。
+   Verification and method notes (foundation and dimension research, how positions and distances are worked out) start folded behind
+   one button; the caveats on measured, sampled and estimated output always stay visible. */
+function vnWrap(html) {
+  const n = (html.match(/class="gnote vn"/g) || []).length;
+  return html + (n ? '<button type="button" class="fvn" aria-expanded="false" title="' + esc(T('vnShowT')) + '">' + esc(T('vnShow')) + '<span class="cnt">' + n + '</span></button>' : '');
+}
 function renderCard(it) {
   const same = it === cardItem;               // 同一張卡重畫（換語言）：保留捲動位置
   cardItem = it; relFarms = [];
@@ -3286,7 +3332,7 @@ function renderCard(it) {
     '<h3>' + esc(title) + '</h3>' + (sub ? '<div class="csub">' + esc(sub) + '</div>' : '') +
     (it.story && desc ? '<p class="desc story"><b>' + esc(T('tourStory')[it.story]) + (TOUR ? ' · ' + (TOUR.i + 1) + ' / ' + TOUR.stops.length : '') + '</b>' + esc(desc) + '</p>' : '') +
     (spec ? '<div class="spec">' + spec + '</div>' : '') +
-    (real ? fdHTML(f) + factsHTML(f) : '') + (it.kind === 'turb' ? turbFacts(it.r) : '') +
+    (real ? vnWrap(fdHTML(f) + factsHTML(f)) : '') + (it.kind === 'turb' ? turbFacts(it.r) : '') +
     (real ? '<div class="fstat">' + rankHTML(f) + '</div><div class="fphw">' + phaseHTML(f) + '</div>' : '') +
     (desc && !it.story ? '<p class="desc">' + esc(desc) + '</p>' : '') +
     (noteOf(f) ? '<p class="fnote">' + esc(noteOf(f)) + '</p>' : '') +
@@ -3303,6 +3349,10 @@ function renderCard(it) {
     if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;       // 另開分頁：交給瀏覽器
     e.preventDefault(); const g = relFarms[+a.dataset.rel]; if (g) selectFarm(g);
   });
+  card.classList.toggle('vnOpen', WW.store.get('ww_card_vn', '0') === '1');
+  const vb = card.querySelector('.fvn');
+  if (vb) { vb.setAttribute('aria-expanded', card.classList.contains('vnOpen') ? 'true' : 'false');
+    vb.onclick = () => { const on = card.classList.toggle('vnOpen'); vb.setAttribute('aria-expanded', on ? 'true' : 'false'); WW.store.set('ww_card_vn', on ? '1' : '0'); }; }
   card.querySelectorAll('details.frel').forEach(d => d.addEventListener('toggle', () => WW.store.set('ww_card_' + d.dataset.k, d.open ? '1' : '0')));
   wireEvRows(card);
   card.querySelectorAll('.frmore').forEach(b => b.onclick = () => { b.previousElementSibling.classList.remove('clip'); b.remove(); });
@@ -3361,8 +3411,8 @@ function selectFarm(f) {
   else if (f.end && S.year >= f.end) { S.year = Math.max(f.year + 0.5, f.end - 0.5); syncYearUI(); }     // 已除役：回到它還在運轉的年份
   if (f.iso && byIso[f.iso] && S.region !== f.iso) setRegion(f.iso, true);
   focusFarm = f; focusPort = null; focusEvent = null; updateClusters(0, true);
-  flyToLonLat(f.lon, f.lat, farmAlt(f));
   renderCard(farmItem(f));
+  flyToFarm(f);
   syncURL();
 }
 function openStop(st) {
@@ -5049,7 +5099,7 @@ function applyParams(p, fromFarms) {
 /* ================= UI wiring ================= */
 function wireUI() {
   labelsEl = $('g-labels');
-  controls.addEventListener('start', () => { S.dragging = true; camTween = null; if (TOUR && !TOUR.paused) tourPause(true); });
+  controls.addEventListener('start', () => { S.dragging = true; camTween = null; framedFarm = null; if (TOUR && !TOUR.paused) tourPause(true); });
   controls.addEventListener('end', () => { S.dragging = false; });
   canvas.addEventListener('mousemove', ev => {
     if (ev.buttons) { hideTip(); return; }

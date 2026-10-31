@@ -168,7 +168,9 @@ The panel opens on "Profile" (world, continent or country); the five lists sit u
 
 ### 4.6 Farm cards
 
-Click a farm on the map, in the search results or in a list to open its card; on desktop it appears where the side panel was, and closing it brings the panel back. From top to bottom (each part shows only when there is data):
+Click a farm on the map, in the search results or in a list to open its card; on desktop it appears where the side panel was, and closing it brings the panel back. The map flies to the farm at a height set by the whole farm's extent and centres it in the part not covered by the card (the bottom drawer on phones).
+
+The research notes on foundations and dimensions and the notes on how positions and distance to shore are worked out start folded; "▸ Sources and method notes" opens them (click again to fold; the browser remembers). The caveats on measured, sampled and estimated output always show. From top to bottom (each part shows only when there is data):
 
 1. **Photo**: a hand-checked Wikimedia Commons photo with author and licence; otherwise a Wikipedia image only when it shows wind turbines.
 2. Type, status, years, country and name; capacity, phases, turbine model and developer.

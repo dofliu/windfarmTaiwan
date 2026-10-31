@@ -269,6 +269,12 @@
 #globe .ffacts b{color:var(--ink);font-weight:600}
 #globe .ffacts .fds a{margin-left:8px;font-size:11px;color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
 #globe .ffacts .gnote{margin-top:1px}
+#g-infoCard:not(.vnOpen) .gnote.vn{display:none}
+#globe #g-infoCard .fvn{display:inline-flex;align-items:center;gap:6px;margin:2px 0 8px;padding:3px 10px;font-size:11.5px;border-radius:999px;background:none;border:1px solid var(--gline);color:var(--ink-2);cursor:pointer}
+#globe #g-infoCard .fvn::before{content:'▸';font-size:10px;transition:transform .15s}
+#globe #g-infoCard.vnOpen .fvn::before{transform:rotate(90deg)}
+#globe #g-infoCard .fvn .cnt{font-size:10.5px;color:var(--ginkm)}
+#globe #g-infoCard .fvn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 #globe .pbar.fdbar i{height:10px}
 #globe .fdyears{display:block;width:100%;height:auto;margin-top:5px;color:var(--ink-2);border-radius:6px;background:rgba(255,255,255,.03)}
 #globe .fdyears g:hover rect{filter:brightness(1.2)}

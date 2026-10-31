@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.17.1 — 2026-10-31
+
+- **Whole farm in the close-up**: when a farm is picked, the camera height now follows the whole farm's extent (its real turbine positions where known) and the part of the map that is not covered, and the farm is centred in that part: above the bottom drawer on phones, left of the card on desktop. Before, phones aimed only at the record's coordinates on a narrow portrait screen and often showed one or two turbines with the rest under the drawer. When the turbine-position file finishes loading during the flight, the view is reframed on the real layout (not after the map has been dragged).
+- **Last step of a camera flight**: at low frame rates the final step was taken for a wheel zoom and the height jumped several times over; fixed.
+- **Card notes folded**: the research notes on foundations and dimensions and the notes on how positions and distance to shore are worked out now sit behind a "Sources and method notes" button (with how many there are), opened with one click and remembered by the browser. The caveats on measured, sampled and estimated output, approximate positions and data notes still show as before.
+
 ## v3.17.0 — 2026-10-31
 
 - **Globe visuals tidied** (the owner asked on 31 Oct 2026 for the site's own critique of the visuals to be acted on):
