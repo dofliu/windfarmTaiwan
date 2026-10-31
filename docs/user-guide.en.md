@@ -203,7 +203,7 @@ Port cards list the roles, the farms served (drawn as arcs on the map) and the s
 ### 4.7 Layers
 
 - **Pipeline** (dashed rings): about 9,600 projects under construction, in pre-construction or announced; turning it on moves the timeline to the latest year.
-- **⚓ Ports**: 142 offshore wind ports in 23 countries (marshalling, manufacturing, cables, floating assembly, O&M), each with sources; small dots at world zoom (where they crowd only one shows until you zoom in), icons and names when zoomed in.
+- **⚓ Ports**: 142 offshore wind ports in 23 countries (marshalling, manufacturing, cables, floating assembly, O&M), each with sources; small dots at world zoom (where they crowd only one shows, and those under a country label are hidden, until you zoom in), icons and names when zoomed in.
 - **⚑ Events**: 91 major events and incidents (red = incident / failure, white = milestone, purple = policy & society), shown once the timeline reaches their year; the title on a marker appears only when hovered, selected or just reached while playing; events without coordinates are placed at their farm or listed only in the Events tab. Full list: [events.en.md](./events.en.md).
 - **Offshore: foundations** ("Show" in the Layers menu): colours operating offshore farms by type — monopile, steel frame (jacket, tripod, tripile), floating, other fixed-bottom (gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed) —
   with farms not yet checked as "type unknown". The legend counts each group in focus; click a group to show only that group. Farm-by-farm list: [foundations.en.md](./foundations.en.md).

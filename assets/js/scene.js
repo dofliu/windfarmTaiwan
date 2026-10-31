@@ -133,14 +133,27 @@ function open(f, H, fromBtn) {
   // 地面：近處高解析、遠處低解析各一塊影像 · two imagery patches: fine near the farm, coarse to the horizon
   const groundMat = (tex, rough) => new THREE.MeshStandardMaterial({ map: tex, roughness: rough, metalness: sea ? .12 : 0, color: sea ? 0xa9cbdc : 0xffffff });
   const patches = [];
-  const addPatch = (span, maxTiles, px, y) => {
+  // 近處那塊的外緣 10% 漸漸透明，接到遠處那塊時看不出接縫（Esri 低倍率的海面較暗）· the fine patch fades out over its outer 10%,
+  // so its edge melts into the coarse patch (Esri's low-zoom sea is darker)
+  let edgeA = null;
+  const edgeFade = () => {
+    if (edgeA) return edgeA;
+    const N = 256, c = document.createElement('canvas'); c.width = c.height = N; const g = c.getContext('2d'), d = g.createImageData(N, N);
+    for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+      const e = Math.min(i, N - 1 - i, j, N - 1 - j) / (N * 0.1), t = Math.min(1, e), v = Math.round(255 * t * t * (3 - 2 * t)), k = (j * N + i) * 4;
+      d.data[k] = d.data[k + 1] = d.data[k + 2] = v; d.data[k + 3] = 255;
+    }
+    g.putImageData(d, 0, 0); edgeA = new THREE.CanvasTexture(c); return edgeA;
+  };
+  const addPatch = (span, maxTiles, px, y, fade) => {
     const [lon0, lat0] = loc.ll(-span, -span), [lon1, lat1] = loc.ll(span, span);
     const im = imagery(loc, lon0, lat0, lon1, lat1, maxTiles, px, (pend, fail) => { if (!pend) { el.querySelector('.scn-load').hidden = true; if (fail) noteFail(fail); if (im.onDone) im.onDone(); } });
     const m = new THREE.Mesh(new THREE.PlaneGeometry(im.x1 - im.x0, im.y1 - im.y0), groundMat(im.tex, sea ? .35 : 1));
+    if (fade) { m.material.alphaMap = edgeFade(); m.material.transparent = true; m.material.depthWrite = false; m.renderOrder = -1; }   // 畫在遠處那塊之後、水面之前 · after the coarse patch, before the water
     m.rotation.x = -Math.PI / 2; m.position.set((im.x0 + im.x1) / 2, y, -(im.y0 + im.y1) / 2); scene.add(m); patches.push(m); return im;
   };
   const LOW = sea ? -6 : 0;                                          // 海上場景：影像放在水面下 6 m，避免遠處深度互搶 · sea scenes: imagery 6 m under the water to avoid depth fighting
-  const fine = addPatch(Math.min(ext, rad + 8000) + 2500, 144, 3072, LOW);
+  const fine = addPatch(Math.min(ext, rad + 8000) + 2500, 144, 3072, LOW, true);
   const reach = port ? Math.hypot(...loc.xy(port.lon, port.lat)) + 6000 : 25000;
   const coarse = addPatch(Math.max(reach, 20000), 100, 2048, LOW - 1.5);
   if (port) { const [px0, py0] = loc.xy(port.lon, port.lat); const [plon0, plat0] = loc.ll(px0 - 2500, py0 - 2500), [plon1, plat1] = loc.ll(px0 + 2500, py0 + 2500); const im = imagery(loc, plon0, plat0, plon1, plat1, 100, 2048); const m = new THREE.Mesh(new THREE.PlaneGeometry(im.x1 - im.x0, im.y1 - im.y0), groundMat(im.tex, .9)); m.rotation.x = -Math.PI / 2; m.position.set((im.x0 + im.x1) / 2, LOW + 0.4, -(im.y0 + im.y1) / 2); scene.add(m); patches.push(m); }
@@ -250,7 +263,7 @@ function open(f, H, fromBtn) {
   window.addEventListener('keydown', onKey, true); window.addEventListener('resize', resize);
   H.pause();
   resize(); flyIn(); raf = requestAnimationFrame(frame);
-  cur = { el, stats: { turbines: n, neighbours: nbDrawn.length, neighbourTurbines: nbCount, real: tb.real, port: !!port }, dispose() { alive = false; cancelAnimationFrame(raf); window.removeEventListener('keydown', onKey, true); window.removeEventListener('resize', resize); controls.dispose(); scene.traverse(o => { if (o.geometry && !o.userData.shared) o.geometry.dispose(); }); patches.forEach(m => m.material.map && m.material.map.dispose()); if (water) { ['normalMap', 'alphaMap', 'envMap'].forEach(k => water.material[k] && water.material[k].dispose()); water.material.dispose(); } renderer.dispose(); el.remove(); H.resume(); if (fromBtn && fromBtn.isConnected) fromBtn.focus(); }, f };
+  cur = { el, stats: { turbines: n, neighbours: nbDrawn.length, neighbourTurbines: nbCount, real: tb.real, port: !!port }, dispose() { alive = false; cancelAnimationFrame(raf); window.removeEventListener('keydown', onKey, true); window.removeEventListener('resize', resize); controls.dispose(); scene.traverse(o => { if (o.geometry && !o.userData.shared) o.geometry.dispose(); }); patches.forEach(m => m.material.map && m.material.map.dispose()); if (edgeA) edgeA.dispose(); if (water) { ['normalMap', 'alphaMap', 'envMap'].forEach(k => water.material[k] && water.material[k].dispose()); water.material.dispose(); } renderer.dispose(); el.remove(); H.resume(); if (fromBtn && fromBtn.isConnected) fromBtn.focus(); }, f };
   setTimeout(() => { const b = el.querySelector('.scn-back'); if (b) b.focus({ preventScroll: true }); }, 50);
   window.dispatchEvent(new CustomEvent('ww-scene', { detail: { open: true, farm: f.name } }));
 }

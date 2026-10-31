@@ -1573,6 +1573,18 @@ function setPanelTab(t) {
 
 /* ================= labels ================= */
 let labelsEl, labelPool = [];
+/* 遠景的事件與港口小點落在標籤底下時淡出，國名與容量才讀得清楚；拉近（小點變大、可點）、選到或滑過的不受影響。
+   Far event and port dots that sit under a placed label fade out so country names and figures stay readable; near, selected
+   and hovered dots are left alone. */
+const labRects = [];
+function dotsUnderLabels() {
+  const cov = (o, keep) => {
+    const hide = !!(o._vis && o._far && !keep && labRects.length && labRects.some(r => o._qx > r[0] - 4 && o._qx < r[2] + 4 && o._qy > r[1] - 4 && o._qy < r[3] + 4));
+    if (o._cov !== hide) { o._cov = hide; o._el.classList.toggle('cov', hide); }
+  };
+  if (portsReady) PORTS.forEach(p => cov(p, p === focusPort));
+  if (eventsReady) EVENTS.forEach(e => cov(e, e === focusEvent || e === hoverEvent));
+}
 function getLabel(i) { while (labelPool.length <= i) { const d = document.createElement('div'); d.className = 'lbl'; labelsEl.appendChild(d); labelPool.push(d); } return labelPool[i]; }
 const _pp = new THREE.Vector3();
 function project(v) { _pp.copy(v).project(camera); return { x: (_pp.x + 1) / 2 * W, y: (1 - _pp.y) / 2 * H, z: _pp.z }; }
@@ -1691,7 +1703,7 @@ function frame(now) {
     a.userData.tOn.position.set(cap.off > 0.5 ? -sep * 0.5 : 0, 0, 0); a.userData.tOff.position.set(sep * 0.5, 0, 0);
     if (inR && cap.tot > 0.5 && !hasFarms && a.userData.dim > 0.5 && a.userData.limb > 0.5) {
       a.getWorldPosition(tmpV); const h = Math.max(a.userData.tOn.userData.h, a.userData.tOff.userData.h) * surfaceRoot.scale.x;
-      cands.push({ cat: 'c', pri: cap.tot, pos: tmpV.clone().addScaledVector(upAt(tmpV), h * 1.15 + 1.2 * sizeK), name: cname(c), val: fmtMW(cap.tot), cls: '', key: 'c' + c.iso });
+      cands.push({ cat: 'c', pri: cap.tot, pos: tmpV.clone().addScaledVector(upAt(tmpV), h * 1.15 + 1.2 * sizeK), name: cname(c), val: fmtMW(cap.tot), cls: 'ctry', key: 'c' + c.iso });
     }
   });
   S.worldOn = worldOn; S.worldOff = worldOff; S.nWith = nWith;
@@ -1740,18 +1752,18 @@ function frame(now) {
     const pr = $('g-mapPane').getBoundingClientRect();
     // 標籤要避開的區塊；手機另有底部抽屜與浮動工具列 · label keep-out areas (phone: drawer and floating toolbar too)
     ['g-hud', 'g-legStack', 'g-msPanel', 'g-infoCard', 'g-drawer', 'g-top'].forEach(id => { const el = $(id); if (!el || el.offsetParent === null) return; const b = el.getBoundingClientRect(); if (b.width) rects.push([b.left - pr.left, b.top - pr.top, b.right - pr.left, b.bottom - pr.top]); });
-    const used = { c: 0, f: 0, m: 0, n: 0, p: 0, e: 0, z: 0 };
+    const used = { c: 0, f: 0, m: 0, n: 0, p: 0, e: 0, z: 0 }; labRects.length = 0;
     const lim = S.density > 0 ? dens : { c: 0, f: 0, m: 1, n: 0, p: 0, e: 0, z: 0 };
     cands.sort((a, b) => b.pri - a.pri);
     for (const cd of cands) {
       if (used[cd.cat] >= lim[cd.cat] && cd.pri < 1e9) continue;
       if (!facing(cd.pos)) continue;
       const p = project(cd.pos); if (cd.dy) p.y -= cd.dy; if (p.z > 1 || p.y < 31 || p.y > H + 10) continue;     // 標籤高 29px，錨點在底部：上緣也要在畫面內
-      const w = Math.max(textW(cd.name, 12), textW(cd.val, 10.5)) + 6, h = 29;
+      const w = Math.max(textW(cd.name, 12), textW(cd.val, 10.5)) + (cd.cat === 'c' ? 14 : 6), h = cd.cat === 'c' ? 33 : 29;
       if (p.x - w / 2 < 2 || p.x + w / 2 > W - 2) continue;             // 標籤要完整落在畫面內
       const r = [p.x - w / 2 - 3, p.y - h - 2, p.x + w / 2 + 3, p.y + 2];
       if (rects.some(q => !(r[2] < q[0] || r[0] > q[2] || r[3] < q[1] || r[1] > q[3]))) continue;
-      rects.push(r); used[cd.cat]++;
+      rects.push(r); labRects.push(r); used[cd.cat]++;
       const el = getLabel(li++);
       if (el._key !== cd.key) { el._key = cd.key; el.innerHTML = '<b>' + esc(cd.name) + '</b><span class="v">' + esc(cd.val) + '</span>'; el.className = 'lbl ' + cd.cls; el._val = cd.val; }
       else if (el._val !== cd.val) { el._val = cd.val; el.lastChild.textContent = cd.val; }
@@ -1759,6 +1771,8 @@ function frame(now) {
     }
   }
   for (let i = li; i < labelPool.length; i++) { if (labelPool[i].style.display !== 'none') { labelPool[i].style.display = 'none'; labelPool[i]._key = null; } }
+  if (li === 0) labRects.length = 0;
+  dotsUnderLabels();
 
   if (S.view !== 'bars') renderer.render(scene, camera);
   updateHUD();
@@ -2054,7 +2068,7 @@ function updatePorts(alt, cands) {
         vis = q.z <= 1 && q.x > -12 && q.x < W + 12 && q.y > -12 && q.y < H + 12;
         if (vis && occ && p !== focusPort) { const k = ((q.x / OCC) | 0) + ',' + ((q.y / OCC) | 0); if (occ.has(k)) vis = false; else occ.add(k); }
         if (vis) {
-          p._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)';
+          p._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)'; p._qx = q.x; p._qy = q.y;
           if (!far || p === focusPort) cands.push({ cat: 'p', pri: p === focusPort ? 2e9 : 5e7 + p.roles.length * 1e5, pos: tmpW.clone(), dy: 12,
             name: '⚓ ' + pname(p), val: portRoles(p, 2), cls: 'port' + (p === focusPort ? ' focus' : ''), key: 'p' + p.id });
         }
@@ -2200,7 +2214,7 @@ function updateEvents(alt, cands) {
         vis = q.z <= 1 && q.x > -12 && q.x < W + 12 && q.y > -12 && q.y < H + 12;
         if (vis && occ && e !== focusEvent) { const k = ((q.x / OCC) | 0) + ',' + ((q.y / OCC) | 0); if (occ.has(k)) vis = false; else occ.add(k); }
         if (vis) {
-          e._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)';
+          e._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)'; e._qx = q.x; e._qy = q.y;
           const recent = S.year - e.year < 1.5 && S.year < Y1 - 0.02;
           // 地球上只畫記號：標題在選到、滑過或播放到那一年時才出現 · shapes only; the title appears when selected, hovered or just reached while playing
           if (e === focusEvent || e === hoverEvent || (S.playing && recent)) cands.push({ cat: 'e', pri: e === focusEvent ? 2e9 : e === hoverEvent ? 1.5e9 : 9e7 + (3 - e.pri) * 1e6 + (e.cat === 'inc' ? 5e5 : 0), pos: tmpW.clone(), dy: 12,

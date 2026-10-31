@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.17.2 — 2026-10-31
+
+- **Readable country labels**: country names and capacities at continent and world zoom get a faint dark backing, so tall turbines of neighbouring countries no longer cut through the text; far event and port dots under a label are hidden (they come back when zoomed in, selected or hovered), so figures such as "Netherlands 11,762 MW" in the Europe view are no longer covered by red and white dots.
+- **Imagery seam in the sea-level view**: the outer 10% or so of the fine satellite patch now fades out, so where it meets the coarse patch there is no visible straight line (the two often differ in tone).
+
 ## v3.17.1 — 2026-10-31
 
 - **Whole farm in the close-up**: when a farm is picked, the camera height now follows the whole farm's extent (its real turbine positions where known) and the part of the map that is not covered, and the farm is centred in that part: above the bottom drawer on phones, left of the card on desktop. Before, phones aimed only at the record's coordinates on a narrow portrait screen and often showed one or two turbines with the rest under the drawer. When the turbine-position file finishes loading during the flight, the view is reframed on the real layout (not after the map has been dragged).
