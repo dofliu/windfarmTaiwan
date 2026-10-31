@@ -93,7 +93,7 @@
     外部連結、「複製此風場連結」與「回報資料錯誤」；**實景視角**（`assets/js/scene.js`）：從風場的港口出海、幾秒內飛到風場，站在海面或空中看真實機位與尺寸的風機（網址 `f=名稱&sv=1`），「回到地球儀」回到原本的畫面
   - **📊 發電表現**：台灣（台電自有 19 座）、美國（EIA-923，834 座）、澳洲（AEMO，64 座）與丹麥（54 座風場、約 1,800 部單獨計量的風機）逐場實測年發電量的排名與同機型比較；
     另有含民營風場的「台灣・即時取樣」（取樣估計，不與官方數字混排）
-  - **圖層**：港口（21 國 120 個，⚓）、重大事件與事故（91 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 342 座中 299 座已知型式、占容量 88.2%，
+  - **圖層**：港口（23 國 136 個，⚓）、重大事件與事故（91 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 342 座中 299 座已知型式、占容量 88.2%，
     [docs/foundations.md](./docs/foundations.md)）、此刻的風（NOAA GFS，每 6 小時）、海域（專屬經濟區界線、台灣 36 處潛力場址、日本 13 處促進區域、北海周邊 6 國的規劃區）、
     平均風速底圖（Global Wind Atlas）
   - **導覽**：自動導覽與四個故事導覽（台灣離岸之路、歐洲離岸、中國崛起、浮動式風電，`#/global?tour=tw`／`eu`／`cn`／`fl`）
@@ -169,8 +169,9 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/global/lcoe_wind.json` — 全球風電均化發電成本（LCOE）逐年陸域與離岸（IRENA 經 Our World in Data，CC BY 4.0，固定 2025 年美元／度；`tools/build_lcoe.py` 從 `data/global/sources/owid_lcoe_wind.csv` 產生，`--fetch` 重新下載），知識頁「成本下降」教具用
 - `data/global/offshore_farms.json` — 風電知識「水下基礎」圖表用的離岸風場小檔（所有離岸與浮動式紀錄，約 80 kB；同一支程式產生，單檔版改用內嵌的完整檔）
 - `data/global/farm_points.json` — 「我附近」用的點位小檔：營運中、不在共用代用點的風場，只留名稱、座標、容量、年份、類型（由 `tools/build_farm_points.py` 從 `wind_farms.json` 產生，約 1.5 MB）
+- `data/global/wind_farms_core.json`、`wind_farms_more.json` — 地球儀分兩段載入的風場層：先載畫點、清單與時間軸要的欄位，再補業主、機型、說明與出處（同一支程式產生，列的順序相同；單檔版用完整檔）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
-- `data/global/ports.json` — 離岸風電港口 120 個（21 國；人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
+- `data/global/ports.json` — 離岸風電港口 136 個（23 國；人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
 - `data/global/events.json` — 重大事件與事故 91 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
   英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
 - `data/global/photos.json` — 風場卡片的照片（65 座風場與 18 個里程碑；人工核對的 Wikimedia Commons 照片，由 `tools/build_photos.py` 依 `tools/farm_photos.py` 產生）
@@ -282,7 +283,7 @@ python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離岸 15 km 內、出處、「服務過的風場」對得到風場名稱
-python tools/build_farm_points.py # 「我附近」用的點位小檔（重建風場層後一起跑）
+python tools/build_farm_points.py # 「我附近」用的點位小檔與地球儀分段載入的兩個檔（重建風場層後一起跑）
 python tools/build_lcoe.py --fetch   # 風電 LCOE（Our World in Data，約每年 7 月更新）
 python tools/build_foundations.py # 水下基礎：檢查逐場對照（風場名稱、OSPAR 的值、第二來源；OSPAR 只有核准階段設計的要附施工紀錄），輸出 foundations.json 與 docs/foundations*.md
 # 4. 地貌底圖（需 Pillow + numpy；來源檔下載位置見程式說明）

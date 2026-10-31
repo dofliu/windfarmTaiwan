@@ -15,6 +15,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'data/global/wind_farms.json'
 OUT = ROOT / 'data/global/farm_points.json'
+OUT_CORE = ROOT / 'data/global/wind_farms_core.json'  # 地球儀先載的精簡欄位（畫點、清單、篩選、時間軸）· the columns the globe needs first
+OUT_MORE = ROOT / 'data/global/wind_farms_more.json'  # 其餘欄位，同樣順序（業主、機型、出處、說明、網址）· the rest, same row order
+CORE_COLS = ['name', 'zh', 'iso', 'lat', 'lon', 'mw', 'year', 'type', 'st', 'end', 'flags', 'ph']
 OUT_OFF = ROOT / 'data/global/offshore_farms.json'   # 知識頁「水下基礎」圖表用：所有離岸與浮動式紀錄（含規劃中、已除役），欄位夠算各型式的容量與年份 · offshore extract for Learn
 YEAR = 2026          # 與 latest_wind.py 的「最新可得」年份相同：除役年 ≤ 這一年的不列 · retired by this year → left out
 
@@ -40,6 +43,14 @@ def main():
                                             'cols': ['name', 'iso', 'mw', 'year', 'type', 'st', 'end', 'flags', 'ph'], 'types': J['meta']['types'], 'status': J['meta'].get('status')}, 'rows': off},
                                   ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f'wrote {OUT_OFF.relative_to(ROOT)}: {len(off)} offshore records, {OUT_OFF.stat().st_size / 1e3:.0f} kB')
+    # 地球儀用的兩份：精簡欄位先載（約 0.8 MB 壓縮後，原本整檔 1.1 MB），其餘欄位之後補；列的順序與 wind_farms.json 相同，以索引對應
+    more_cols = [k for k in J['meta']['cols'] if k not in CORE_COLS]
+    ci = [c[k] for k in CORE_COLS]; mi = [c[k] for k in more_cols]
+    meta = dict(J['meta']); meta['cols'] = CORE_COLS; meta['from'] = 'data/global/wind_farms.json (tools/build_farm_points.py); the other columns are in wind_farms_more.json, same row order'
+    OUT_CORE.write_text(json.dumps({'meta': meta, 'rows': [[r[i] for i in ci] for r in J['rows']]}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    OUT_MORE.write_text(json.dumps({'meta': {'from': 'data/global/wind_farms.json (tools/build_farm_points.py)', 'note': 'owner, turbine, source, note and url of every record in wind_farms_core.json, same row order'},
+                                    'cols': more_cols, 'rows': [[r[i] for i in mi] for r in J['rows']]}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    print(f'wrote {OUT_CORE.relative_to(ROOT)} ({OUT_CORE.stat().st_size / 1e6:.2f} MB) and {OUT_MORE.relative_to(ROOT)} ({OUT_MORE.stat().st_size / 1e6:.2f} MB)')
 
 
 if __name__ == '__main__':

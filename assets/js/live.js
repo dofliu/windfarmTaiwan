@@ -295,7 +295,7 @@ async function tryLive(){
 }
 async function tryHistory(){                    // 抓真實滾動歷史(供出力趨勢線、今日發電量)
   try{const j=await WW.getLiveJSON(HIST_ENDPOINT);
-    if(j&&Array.isArray(j.points)){HIST=j;paintImpact();paintHero();notify();}}catch(e){/* 尚無歷史檔時靜默忽略 */}
+    if(j&&Array.isArray(j.points)){HIST=j;if(onLive()){paintImpact();paintHero();}else heroDirty=true;notify();}}catch(e){/* 尚無歷史檔時靜默忽略 */}
 }
 async function tryGrid(){                       // 抓電力供需即時報表(獨立來源，失敗靜默略過)
   try{const j=await WW.getLiveJSON(GRID_ENDPOINT);
@@ -360,7 +360,11 @@ function rotorSVG(f){
     <circle cx="20" cy="20" r="2.8" fill="${col}"/></g></svg>`;
 }
 const esc=WW.esc;
-function paint(){paintKPIs();paintHero();paintGrid();paintImpact();paintGroups();
+// 台灣即時頁沒顯示時（首頁、地球儀…）只更新資料、通知訂閱者，不畫這一頁的 DOM；進入頁面時再補畫一次（省掉其他頁的主執行緒時間）
+const onLive=()=>WW.currentPage&&WW.currentPage()==="live";
+let paintDirty=false,heroDirty=false,rankDirty=false;
+function paint(){if(!onLive()){paintDirty=true;notify();return;}
+  paintDirty=false;paintKPIs();paintHero();paintGrid();paintImpact();paintGroups();
   if(curView==="wall")paintWall();if(curView==="charts")paintChart();updateMarkers();paintNav();notify();}
 
 /* ---------------- 儀表：KPI ---------------- */
@@ -484,6 +488,7 @@ function paintImpact(){
 }
 /* 台灣在世界：從全球資料集算離岸排名（與 3D 地球儀同一份資料） */
 function paintTwRank(){
+  if(!onLive()){rankDirty=true;return;}rankDirty=false;
   const el=document.getElementById("lv-twrank");if(!el)return;
   WW.globalData().then(D=>{
     const i=D.years.length-1,Y=D.Y1,tw=D._idx.TWN;if(!tw)return;
@@ -1138,6 +1143,8 @@ function showView(v){
 WW.registerPage("live",{
   enter(r){
     const p=r.params;
+    if(paintDirty)paint();else if(heroDirty){paintImpact();paintHero();}   // 這一頁沒顯示時累積的更新
+    heroDirty=false;if(rankDirty)paintTwRank();
     if(r.sub==="charts"&&["bar","donut","hist"].includes(p.mode))chartMode=p.mode;
     if(!VIEWS.includes(r.sub)){                     // 儀表：網址有條件用網址的，否則第一次用記住的，之後沿用目前的
       if(Object.keys(VIEW_DEF).some(k=>p[k]!=null))setViewState(p);

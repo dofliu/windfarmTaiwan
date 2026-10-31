@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # Playwright 1.56 還不支援 ubuntu-latest（26.04）· Playwright 1.56 has no Chromium deps for ubuntu-latest (26.04)
     timeout-minutes: 40
     env:
       GH_TOKEN: ${{ github.token }}

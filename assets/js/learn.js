@@ -35,6 +35,20 @@ function paintMilestones() {
 
 /* ---------- 圖表 ---------- */
 function mount(key) { const el = document.querySelector(`[data-chart="${key}"]`); if (el) el.textContent = ''; return el; }
+/* 圖表排隊畫：文字先出現，圖表一張一個工作、離畫面最近的先畫（手機上一次畫完會卡住主執行緒近 2 秒）；換語言時清掉還沒畫的 */
+let Q = [], qT = 0;
+function later(key, fn) {                          // key：data-chart 名稱，或直接給元素
+  const el = typeof key === 'string' ? document.querySelector(`[data-chart="${key}"]`) : key; if (!el) return;
+  Q.push({ el, fn }); if (!qT) qT = setTimeout(runQ, 0);
+}
+function runQ() {
+  qT = 0; if (!Q.length) return;
+  const vh = window.innerHeight || 800, d = el => { const r = el.getBoundingClientRect(); return r.bottom < 0 ? -r.bottom : r.top > vh ? r.top - vh : 0; };
+  Q.sort((a, b) => d(a.el) - d(b.el));
+  const it = Q.shift(); try { it.fn(); } catch (e) { console.error(e); }
+  if (Q.length) qT = setTimeout(runQ, 0);
+}
+function flushQ() { while (Q.length) { const it = Q.shift(); try { it.fn(); } catch (e) { console.error(e); } } if (qT) { clearTimeout(qT); qT = 0; } }
 function charts() {
   const Y = D.years, C = D.countries, n = Y.length, i = n - 1;
   const onS = Y.map((y, k) => C.reduce((s, c) => s + c.on[k], 0)), offS = Y.map((y, k) => C.reduce((s, c) => s + c.off[k], 0));
@@ -42,7 +56,7 @@ function charts() {
   const src = L('資料：IRENA / Our World in Data、GWEC、WFO、EWEA、BTM Consult（1980–1999 多數國家為估計值）', 'Data: IRENA / Our World in Data, GWEC, WFO, EWEA, BTM Consult (1980–1999 mostly estimates)');
 
   // 1. 全球累計（陸域＋離岸堆疊）
-  WW.chart.line(mount('world'), {
+  later('world', () => WW.chart.line(mount('world'), {
     title: L('全球風電累計裝置容量 1980–' + D.Y1, 'Global cumulative wind capacity 1980–' + D.Y1),
     subtitle: L('陸域與離岸堆疊 · 年底累計 · 縱軸單位 GW（1 GW＝1,000 MW），提示框同時列出 MW', 'Onshore and offshore stacked · year-end · axis in GW (1 GW = 1,000 MW), tooltip also in MW'),
     x: Y, stacked: true, endLabels: true, totalLabel: L('合計', 'Total'),
@@ -51,25 +65,25 @@ function charts() {
     annotations: [{ x: 1985, label: '1 GW' }, { x: 1999, label: '10 GW' }, { x: 2008, label: '100 GW' }, { x: 2023, label: '1 TW' }],
     height: 320, source: src,
     table: { head: [L('年', 'Year'), L('陸域 MW', 'Onshore MW'), L('離岸 MW', 'Offshore MW'), L('合計 MW', 'Total MW')], rows: Y.map((y, k) => [String(y), WW.int(onS[k]), WW.int(offS[k]), WW.int(onS[k] + offS[k])]).reverse() }
-  });
+  }));
   // 2. 每年新增
   const tot = Y.map((y, k) => onS[k] + offS[k]);
   const adds = tot.slice(1).map((v, k) => Math.max(0, v - tot[k]));
   const recIdx = adds.indexOf(Math.max(...adds));
-  WW.chart.columns(mount('adds'), {
+  later('adds', () => WW.chart.columns(mount('adds'), {
     title: L('每年新增裝置容量（GW）', 'Capacity added each year (GW)'),
     subtitle: L(`${Y[recIdx + 1]} 年新增 ${both(adds[recIdx])}，為歷年最高`, `${Y[recIdx + 1]} added ${both(adds[recIdx])}, the most ever`),
     x: Y.slice(1), values: adds, color: COL.live, mutedColor: '#2a6f5c', highlight: k => k === recIdx, labels: [recIdx],
     seriesName: L('新增', 'Added'), yFmt: v => WW.int(v / 1000), tipFmt: both, height: 230,
     table: { head: [L('年', 'Year'), L('新增 MW', 'Added MW')], rows: Y.slice(1).map((y, k) => [String(y), WW.int(adds[k])]).reverse() }, source: src
-  });
+  }));
 
   // 3. 洲別占比
   const cont = key => Y.map((y, k) => { const all = tot[k] || 1; return C.filter(c => c.cont === key).reduce((s, c) => s + c.on[k] + c.off[k], 0) / all * 100; });
   const y0 = Y.indexOf(1990);
   const asia = cont('Asia').slice(y0), eu = cont('Europe').slice(y0), na = cont('North America').slice(y0);
   const cross = Y.slice(y0).find((y, k) => asia[k] > eu[k]);
-  WW.chart.line(mount('regions'), {
+  later('regions', () => WW.chart.line(mount('regions'), {
     title: L('全球風電容量的洲別占比 1990–' + D.Y1, 'Share of global wind capacity by continent 1990–' + D.Y1),
     subtitle: L(`亞洲在 ${cross} 年超越歐洲`, `Asia overtook Europe in ${cross}`),
     x: Y.slice(y0), endLabels: true,
@@ -77,31 +91,31 @@ function charts() {
     yFmt: v => Math.round(v) + '%', yMax: 100, annotations: [{ x: cross, label: L('亞洲超越歐洲', 'Asia passes Europe') }], height: 280,
     table: { head: [L('年', 'Year'), L('亞洲', 'Asia'), L('歐洲', 'Europe'), L('北美', 'N. America')], rows: Y.slice(y0).map((y, k) => [String(y), asia[k].toFixed(1) + '%', eu[k].toFixed(1) + '%', na[k].toFixed(1) + '%']).reverse() },
     source: src
-  });
+  }));
 
   // 4. 前 15 名（MW）＋台灣
   const rankAll = C.slice().sort((a, b) => (b.on[i] + b.off[i]) - (a.on[i] + a.off[i]));
   const rows = rankAll.slice(0, 15).map((c, k) => ({ label: WW.cname(c), rank: k + 1, parts: [c.on[i], c.off[i]], highlight: c.iso === 'TWN', onClick: () => WW.go(WW.hashFor('global', null, { r: c.iso })) }));
   const twR = rankAll.findIndex(c => c.iso === 'TWN');
   if (twR >= 15) { const c = rankAll[twR]; rows.push({ label: `#${twR + 1} ${WW.cname(c)}`, rank: twR + 1, parts: [c.on[i], c.off[i]], highlight: true, onClick: () => WW.go(WW.hashFor('global', null, { r: 'TWN' })) }); }
-  WW.chart.hbar(mount('top15'), {
+  later('top15', () => WW.chart.hbar(mount('top15'), {
     title: L(`累計裝置容量前 15 名（${D.Y1}，MW）`, `Top 15 by cumulative capacity (${D.Y1}, MW)`),
     subtitle: L('點一下國家，在 3D 地球儀上飛過去 · 台灣另列於最後', 'Click a country to fly there on the 3D globe · Taiwan appended'),
     series: [{ name: L('陸域', 'Onshore'), color: COL.on }, { name: L('離岸', 'Offshore'), color: COL.off }],
     rows, valueFmt: v => WW.int(v) + ' MW', totalLabel: L('合計', 'Total'), source: src,
     table: { head: ['#', L('國家', 'Country'), L('陸域 MW', 'Onshore MW'), L('離岸 MW', 'Offshore MW'), L('合計 MW', 'Total MW')], rows: rankAll.map((c, k) => [String(k + 1), WW.cname(c), WW.int(c.on[i]), WW.int(c.off[i]), WW.int(c.on[i] + c.off[i])]) }
-  });
+  }));
 
   // 5. 離岸前 10（強調台灣）
   const offR = C.slice().sort((a, b) => b.off[i] - a.off[i]).filter(c => c.off[i] > 0);
-  WW.chart.hbar(mount('offtop'), {
+  later('offtop', () => WW.chart.hbar(mount('offtop'), {
     title: L(`離岸風電累計容量前 10 名（${D.Y1}，MW）`, `Top 10 offshore wind countries (${D.Y1}, MW)`),
     subtitle: L('台灣以亮色標示；台灣與中國含部分併網中的容量（見第 13 章口徑說明）', 'Taiwan highlighted; Taiwan and China include partially connected capacity (see chapter 13)'),
     series: [{ name: L('離岸', 'Offshore'), color: COL.off }], emphasis: true, muted: COL.muted,
     rows: offR.slice(0, 10).map((c, k) => ({ label: WW.cname(c), rank: k + 1, parts: [c.off[i]], highlight: c.iso === 'TWN', onClick: () => WW.go(WW.hashFor('global', null, { r: c.iso, layer: 'off' })) })),
     valueFmt: v => WW.int(v) + ' MW', source: src,
     table: { head: ['#', L('國家', 'Country'), L('離岸 MW', 'Offshore MW')], rows: offR.map((c, k) => [String(k + 1), WW.cname(c), WW.int(c.off[i])]) }
-  });
+  }));
 
   // 6. 葉輪直徑演進（里程碑）
   const TYPES = ['onshore', 'offshore', 'floating'];
@@ -112,7 +126,7 @@ function charts() {
     labelDy: /Growian/.test(m.name) ? 14 : -8,
     onClick: () => WW.go(WW.hashFor('global', null, { ms: m.name }))
   }));
-  WW.chart.scatter(mount('rotor'), {
+  later('rotor', () => WW.chart.scatter(mount('rotor'), {
     title: L('葉輪直徑的演進（里程碑機組）', 'Rotor diameter of milestone turbines'),
     subtitle: L('點一下點，在地球儀上看那部風機', 'Click a dot to see that turbine on the globe'),
     series: [{ name: L('陸域', 'Onshore'), color: COL.on }, { name: L('離岸', 'Offshore'), color: COL.off }, { name: L('浮動式', 'Floating'), color: COL.float }],
@@ -120,12 +134,12 @@ function charts() {
     refLines: [{ y: 105, label: L('足球場長 ≈ 105 m', 'football pitch ≈ 105 m') }],
     table: { head: [L('年', 'Year'), L('機組', 'Turbine'), L('類型', 'Type'), L('葉輪直徑', 'Rotor Ø'), L('單機', 'Rating')], rows: D.milestones.filter(m => m.rotor).map(m => [String(m.year), m.name, WW.typeName(m.type), m.rotor + ' m', m.mw ? (m.mw < 1 ? WW.num(m.mw * 1000, 0) + ' kW' : m.mw + ' MW') : '—']) },
     source: L('資料：本站全球資料集的 35 個里程碑（製造商與維基百科公開規格）', "Data: the 35 milestones in this site's global dataset (manufacturer and Wikipedia specifications)")
-  });
-  scaleFigure(mount('scale'));
+  }));
+  later('scale', () => scaleFigure(mount('scale')));
 
   // 7. 台灣
   const tw = D._idx.TWN, t0 = Y.indexOf(2000);
-  WW.chart.line(mount('taiwan'), {
+  later('taiwan', () => WW.chart.line(mount('taiwan'), {
     title: L('台灣風電裝置容量 2000–' + D.Y1 + '（MW）', "Taiwan's wind capacity 2000–" + D.Y1 + ' (MW)'),
     subtitle: L('陸域與離岸堆疊 · 國際比較口徑（見下方說明）', 'Onshore and offshore stacked · international-comparison basis (see note below)'),
     x: Y.slice(t0), stacked: true, endLabels: true, totalLabel: L('合計', 'Total'),
@@ -133,19 +147,19 @@ function charts() {
     yFmt: v => WW.int(v) + ' MW', annotations: [{ x: 2017, label: L('第一部離岸風機', 'first offshore turbines') }, { x: 2021, label: L('台電離岸一期', 'Taipower Phase 1') }],
     height: 300, table: { head: [L('年', 'Year'), L('陸域 MW', 'Onshore MW'), L('離岸 MW', 'Offshore MW'), L('合計 MW', 'Total MW')], rows: Y.slice(t0).map((y, k) => [String(y), WW.int(tw.on[t0 + k]), WW.int(tw.off[t0 + k]), WW.int(tw.on[t0 + k] + tw.off[t0 + k])]).reverse() },
     source: L('資料：IRENA（總量）、WFO／GWEC（離岸），台灣 2022–2025 陸域／離岸拆分經本站修正（第 13 章）', 'Data: IRENA (totals), WFO/GWEC (offshore); Taiwan 2022–2025 split corrected by this site (chapter 13)')
-  });
+  }));
 
   // 8. 迷思：季節互補（示意）
-  WW.chart.line(mount('season'), {
+  later('season', () => WW.chart.line(mount('season'), {
     title: L('風電與太陽能的季節互補（示意）', 'Wind and solar complement each other through the year (illustrative)'),
     subtitle: L('典型季節型態，相對強度 0–1；非特定年份實測', 'Typical seasonal pattern, relative strength 0–1; not a specific year'),
     x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], xFmt: m => EN() ? ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m] : m + '月', xEvery: 1, endLabels: true,
     series: [{ name: L('離岸風電', 'Offshore wind'), color: COL.wind, values: [.9, .85, .72, .52, .36, .26, .22, .28, .42, .66, .84, .9] }, { name: L('太陽能', 'Solar'), color: COL.solar, values: [.42, .52, .66, .8, .9, .96, .96, .9, .76, .6, .46, .4] }],
     yFmt: v => v.toFixed(1), yMax: 1, height: 240,
     table: { head: [L('月', 'Month'), L('離岸風電', 'Offshore wind'), L('太陽能', 'Solar')], rows: [.9, .85, .72, .52, .36, .26, .22, .28, .42, .66, .84, .9].map((v, k) => [String(k + 1), String(v), String([.42, .52, .66, .8, .9, .96, .96, .9, .76, .6, .46, .4][k])]) }
-  });
+  }));
   // 9. 迷思：成本
-  WW.chart.hbar(mount('cost'), {
+  later('cost', () => WW.chart.hbar(mount('cost'), {
     title: L('台灣離岸風電價格一路下降（元／度）', "Taiwan's offshore wind prices fell steadily (NT$/kWh)"),
     series: [{ name: L('價格', 'Price'), color: COL.wind }],
     rows: [
@@ -155,9 +169,9 @@ function charts() {
     max: 6.2, valueFmt: v => v.toFixed(2), rowH: 34,
     source: L('＊零元躉購：改由企業以綠電購售合約（CPPA）承購，不再領政府躉購費率。', '*Zero subsidy: power sold to companies through corporate PPAs instead of a government feed-in tariff.'),
     table: { head: [L('階段', 'Phase'), L('價格', 'Price')], rows: [[L('示範／遴選', 'Demo / selection'), L('約 5.8 元/度', '~NT$5.8/kWh')], [L('競價 2018', 'Auction 2018'), L('2.2–2.5 元/度', 'NT$2.2–2.5/kWh')], [L('區塊開發', 'Zonal phase'), L('零元躉購（CPPA）', 'zero subsidy (CPPA)')]] }
-  });
+  }));
   // 10. 迷思：鳥類
-  WW.chart.hbar(mount('birds'), {
+  later('birds', () => WW.chart.hbar(mount('birds'), {
     title: L('每年鳥類死亡原因估計（美國，國際研究）', 'Estimated annual bird deaths by cause (US, international studies)'),
     series: [{ name: L('每年死亡', 'Deaths / yr'), color: COL.live }], emphasis: true, muted: COL.muted,
     rows: [
@@ -167,7 +181,7 @@ function charts() {
     valueFmt: v => WW.int(v), rowH: 34,
     source: L('資料：美國魚類及野生動物署等國際研究估計；風機那一條短到幾乎看不見——這正是重點。', 'Data: US Fish & Wildlife Service and other studies; the turbine bar is almost invisible — that is the point.'),
     table: { head: [L('原因', 'Cause'), L('每年', 'Per year')], rows: [[L('家貓', 'Cats'), '2,400,000,000'], [L('建築玻璃', 'Buildings'), '599,000,000'], [L('風機', 'Turbines'), '234,000']] }
-  });
+  }));
 }
 
 /* ---------- 第 7 章：水下基礎型式（型式圖、營運中離岸風場的分組占比、各年新增依分組；資料：wind_farms.json＋foundations.json） ---------- */
@@ -384,6 +398,7 @@ function setupBar() {
 }
 let alignTok = 0;
 function scrollToCh(ch, sec) {
+  flushQ();                                           // 先把圖表畫完，章節位置才正確
   const el = (sec && document.getElementById('src-' + sec)) || document.getElementById('ch-' + ch); if (!el) return;
   if (el.tagName === 'DETAILS') el.open = true;
   requestAnimationFrame(() => el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }));
@@ -406,8 +421,9 @@ function scrollToCh(ch, sec) {
 }
 function renderAll() {
   if (!D) return;
+  Q = []; if (qT) { clearTimeout(qT); qT = 0; }
   paintFacts(); paintMilestones(); charts(); paintFoundations(); paintSources(); rendered = true;
-  if (WW.lessons) WW.lessons.mount();                 // 動手試試看（lessons.js）
+  if (WW.lessons) later(document.querySelector('#page-learn [data-lesson]'), () => WW.lessons.mount());   // 動手試試看（lessons.js）：也排隊
 }
 WW.registerPage('learn', {
   enter(r) {
