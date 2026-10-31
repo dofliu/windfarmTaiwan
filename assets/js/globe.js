@@ -3059,7 +3059,7 @@ function reportURL(it) {
     rows.push('狀態 Status: ' + both(Z.st[f.st], E.st[f.st]) + ' · ' + both(Z.type[f.type], E.type[f.type]) + ' · ' + (f.yu ? '年份不詳 year unknown' : (f.pipe ? '預計 expected ' : '') + (f.year || '—') + (f.end ? '–' + f.end : '')));
     if (f.owner) rows.push('業主 Owner: ' + f.owner);
     if (f.turbine) rows.push('機型 Turbines: ' + f.turbine);
-    rows.push('資料集 Dataset: ' + (['精選清單 curated list', 'GPPD (WRI)', 'GEM Global Wind Power Tracker', '2026 年整理清單 2026 compilation', '德國 MaStR (Bundesnetzagentur)'][f.src] || '—'));
+    rows.push('資料集 Dataset: ' + (['精選清單 curated list', 'GPPD (WRI)', 'GEM Global Wind Power Tracker', '2026 年整理清單 2026 compilation', '德國 MaStR (Bundesnetzagentur)', '英國 REPD (DESNZ, OGL v3)'][f.src] || '—'));
   } else if (it.kind === 'ms') rows.push('年份 Year: ' + it.m.year);
   else if (it.kind === 'event') { rows.push('日期 Date: ' + it.e.date); rows.push('出處 Sources: ' + it.e.src.join(' ')); }
   else if (it.kind === 'port') {

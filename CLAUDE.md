@@ -114,6 +114,12 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   by farm name and location; groups matched to a site farm (name, distance, capacity ±20%; re-matched by start year when the units' years do not fit the farm, and hand-checked matches with sources in `MANUAL`) go to `turbines_de.json`; other onshore groups of 1 MW+ with no
   possibly identical site record nearby go to `sources/mastr_parks_DEU.json`, added by `build_farms.py` as source code 4. The build stops if site onshore +
   added exceeds 102% of the MaStR onshore total (duplicates): find the cause rather than loosening the thresholds.
+- 英國（`tools/build_repd.py`，REPD，Open Government Licence v3.0）：每季的 REPD CSV（gov.uk）對到本站英國風場（名稱互相包含、陸域 8 km／離岸 40 km、一筆配一座），輸出 `data/global/sources/repd_GBR.json`，
+  `build_farms.py` 只做保守補充：本站規劃中而 REPD 已營運（容量 ±25%、商轉年不比預計年早 2 年以上）的改營運中，沒寫的機組與業主補上，概略座標與同名但離 20 km 以上的點改用 REPD 格網座標，還沒收錄的營運中陸域風場以來源代碼 5 加入；
+  本站已營運的不改年份，REPD 標已除役但沒日期的只記 log。配錯的用 `SKIP_UP` 排除並寫理由；建置會檢查英國陸域加總不超過官方的 102%。新一季 REPD 發布後重跑：先 `SKIP_REPD=1` 建置一次、跑 `build_repd.py`、再正常建置（它要對還沒套用 REPD 的風場層比對）。
+  UK (`tools/build_repd.py`, REPD, Open Government Licence v3.0): the quarterly REPD CSV (gov.uk) is matched to the site's UK farms (names containing each other, within 8 km onshore / 40 km offshore, one record per farm) into `data/global/sources/repd_GBR.json`;
+  `build_farms.py` makes only conservative fills: pipeline farms that REPD shows operational (capacity ±25%, start year not more than 2 years before the expected year) become operating, empty turbine and owner fields are filled, approximate points and same-name farms 20 km+ off take REPD's grid reference, and operating onshore farms the site lacks are added as source code 5;
+  farms already operating keep their year, and decommissioned records without a date are only logged. Wrong matches go in `SKIP_UP` with a reason; the build checks the UK onshore sum against 102% of the official total. After each quarterly release: build once with `SKIP_REPD=1`, run `build_repd.py`, then build normally (it must match against the layer without the REPD changes).
 - 其他國家的風機位置（`data/global/turbines_osm.json`）來自 OpenStreetMap，以 ODbL 分享：檔案的 meta、README、卡片與「資料來源」都要標示「© OpenStreetMap 貢獻者」，
   不要把它併進其他授權的資料檔。對應規則在 `tools/build_turbines_osm.py`（風場範圍的名稱與容量，或空間群聚加單機容量檢查），寧可少配。
   Turbine positions elsewhere (`data/global/turbines_osm.json`) come from OpenStreetMap and are shared under the ODbL: keep "© OpenStreetMap

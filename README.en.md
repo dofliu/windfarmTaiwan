@@ -198,6 +198,9 @@ output and sea zones load only when needed.
 - `data/global/turbines_dk.json` — position and specs of every Danish turbine (the Energy Agency's Stamdataregister for vindkraftanlæg; 103 farms, 1,324 turbines), built from the "Vinddata" workbook by
   `tools/build_turbines_dk.py` (matched within 12 km at sea / 3 km on land and ±15% of capacity); credited as Energistyrelsen, the dataset and the retrieval date per the agency's data terms
   (the retrieval month is in the file's meta); used first for Danish farms, OpenStreetMap only where it has no match
+- `data/global/sources/repd_GBR.json` — the UK REPD (the Department for Energy Security and Net Zero's quarterly Renewable Energy Planning Database, Open Government Licence v3.0) matched to the site's UK farms, built by
+  `tools/build_repd.py` and read by `build_farms.py`: pipeline farms that REPD shows operational become operating with their start year, empty turbine and owner fields are filled, same-name farms whose point is
+  20 km+ off take REPD's grid reference, and operating onshore farms the site lacks are added as source code 5 (the build checks the UK onshore sum against 102% of the official total)
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
   turbines), downloaded by `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
   Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
@@ -360,6 +363,8 @@ python tools/fetch_gem_locations.py data/global/wind_farms.json data/global/sour
 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 #   clean-up rules that no longer match the new names stop the build; when upgrading the GEM release, build once with CLEANUP_LENIENT=1 to see the new names, then rewrite the rules in tools/farm_cleanup.py
 #    (applies the record-level clean-up rules in tools/farm_cleanup.py and writes docs/data-cleanup.md and .en.md)
+#    UK: after each quarterly REPD release, build once with SKIP_REPD=1 (build_repd.py must match against the layer without the REPD changes), run build_repd.py, then build normally
+SKIP_REPD=1 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json && python tools/build_repd.py REPD_Publication_Q2_2026.csv && python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
@@ -554,6 +559,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Turbine makers and owners (the globe's "Makers & owners"): makers from the US USWTDB (public domain), Germany's MaStR (above) and the turbine field of the site's farm records (OpenStreetMap is not used); owners and stakes of operating units from GEM's Global Wind Power Tracker, February 2026 release (CC BY 4.0)
 - Country indicators (the globe's indicator colouring and country comparison): wind share of generation, wind generation and the national average capacity factor from [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/) (CC BY 4.0);
   per-capita capacity divides the site's year-end capacity by [Our World in Data's population series](https://ourworldindata.org/grapher/population) (CC BY 4.0, based on UN World Population Prospects and others)
+- UK farm status, turbines and owners: the [Renewable Energy Planning Database (REPD)](https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract), Department for Energy Security and Net Zero, Open Government Licence v3.0 (contains public sector information licensed under the OGL v3.0)
 - Turbine positions: the US [USWTDB](https://energy.usgs.gov/uswtdb/) (USGS, LBNL, American Clean Power Association; public domain); Germany's MaStR (above); Denmark's [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) (the agency's data terms; retrieval date in the meta of `turbines_dk.json`);
   elsewhere © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (ODbL 1.0; the derived `data/global/turbines_osm.json` is likewise shared under the ODbL)
 - Foundations: OSPAR Offshore Renewable Energy Developments 2024 (CC0); every other farm's sources (developers, construction contractors, government documents,

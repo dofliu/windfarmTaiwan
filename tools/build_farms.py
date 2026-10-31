@@ -36,7 +36,7 @@
 
 輸出為精簡欄位陣列（見 COLS），前端再展開。
 """
-import csv, difflib, json, math, re, sys, unicodedata, urllib.parse
+import csv, difflib, json, math, os, re, sys, unicodedata, urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
@@ -620,6 +620,55 @@ for p in mastr['parks']:
     row = [p['name'], '', 'DEU', p['lat'], p['lon'], p['mw'], p['year'], 0, 0, 0, '', p['turbine'], 0 if p['year'] else 2, 4, p['ph'] or 0, 0, 0]
     allrows.append(row); by_iso['DEU'].append(row)
 print(f"MaStR (Germany): added {len(mastr['parks'])} farms, {sum(p['mw'] for p in mastr['parks']):,.0f} MW")
+# 英國 REPD（tools/build_repd.py 產生，OGL v3）：對到的本站風場只做保守補充（規劃中→營運中、機組、概略座標、業主），
+# 同名但點標錯的改用 REPD 座標，還沒收錄的營運中陸域風場以來源代碼 5 加入；檢查本站英國陸域營運容量＋新增不超過官方的 102%
+# UK REPD (tools/build_repd.py, OGL v3): conservative fills on matched farms, coordinate moves for clearly misplaced same-name farms,
+# missing operating onshore farms added as source code 5; site UK onshore operating + added must stay within 102% of the official total
+rp = EXTRA / 'repd_GBR.json'
+km_ll = lambda a, b, c, d: math.hypot((d - b) * 111.32 * math.cos(math.radians((a + c) / 2)), (c - a) * 110.574)
+# 重跑 tools/build_repd.py 之前先 SKIP_REPD=1 建置一次（它要對「還沒套用 REPD」的風場層比對），再正常建置
+# build once with SKIP_REPD=1 before re-running build_repd.py (it must match against the layer without the REPD changes), then build normally
+repd = json.loads(rp.read_text(encoding='utf-8')) if rp.exists() and not os.environ.get('SKIP_REPD') else {'matches': [], 'moves': [], 'parks': [], 'meta': {}}
+gb_idx = defaultdict(list)
+for r in allrows:
+    if r[2] == 'GBR':
+        gb_idx[(r[0], r[13])].append(r)
+n_up = n_tb = n_ll = n_own = n_mv = 0
+for m in repd['matches']:
+    hits = gb_idx.get((m['site'], m['src']), [])
+    if len(hits) != 1:
+        log.append(f"REPD-MISS GBR {m['site']} (src {m['src']}): {len(hits)} records"); continue
+    r = hits[0]
+    if m.get('upgrade') and r[8] in (1, 2, 3):
+        r[8], r[6] = 0, int(m['operational'][:4]); r[12] &= ~2; n_up += 1
+        log.append(f"REPD-UP GBR {m['site']} -> operating {r[6]} (REPD {m['ref']} {m['repd']}, {m['mw']} MW)")
+    elif m['status'] == 'Decommissioned' and r[8] == 0 and not r[9]:
+        log.append(f"REPD-DECOM GBR {m['site']}: REPD lists it as decommissioned (no date given; record left as is)")
+    if not r[11] and m.get('n') and m.get('unit'):
+        r[11] = f"{m['n']} x {m['unit']:g} MW"; n_tb += 1
+    if m.get('lat') and ((r[12] & 1) or (not m.get('sea') and km_ll(r[3], r[4], m['lat'], m['lon']) > 20)):   # 離岸的格網座標常是登陸點，不搬 · offshore grid references are often the landfall   # 概略座標，或同名但點標錯 20 km 以上 · approximate, or clearly misplaced
+        if not (r[12] & 1): log.append(f"REPD-MOVE GBR {m['site']} -> {m['lat']}, {m['lon']} (REPD {m['ref']})"); n_mv += 1
+        else: n_ll += 1
+        r[3], r[4] = m['lat'], m['lon']; r[12] &= ~1
+    if not r[10] and m.get('operator'):
+        r[10] = m['operator']; n_own += 1
+for m in repd['moves']:
+    hits = gb_idx.get((m['site'], m['src']), [])
+    if len(hits) == 1:
+        hits[0][3], hits[0][4] = m['lat'], m['lon']; hits[0][12] &= ~1; n_mv += 1
+        log.append(f"REPD-MOVE GBR {m['site']} -> {m['lat']}, {m['lon']} ({m['km']} km; REPD {m['ref']})")
+for p in repd['parks']:
+    row = [p['name'], '', 'GBR', p['lat'], p['lon'], p['mw'], p['year'], 0, 0, 0, p.get('owner') or '', p.get('turbine') or '', 0 if p['year'] else 2, 5, 0, 0, 0]
+    allrows.append(row); by_iso['GBR'].append(row)
+    log.append(f"REPD-ADD GBR {p['name']} {p['mw']} y{p['year']}")
+if repd['meta']:
+    gb_on = sum(r[5] for r in allrows if r[2] == 'GBR' and r[7] == 0 and r[8] == 0 and not r[9])
+    gb_c = next((c for c in json.loads((OUT.parent / 'wind_global.json').read_text(encoding='utf-8'))['countries'] if c['iso'] == 'GBR'), None)
+    gb_nat = gb_c['on'][-1] if gb_c else 0
+    print(f"REPD (UK, {repd['meta'].get('release')}): {n_up} pipeline farms now operating, {n_tb} turbine fields, {n_ll} approximate points and {n_own} owners filled, "
+          f"{n_mv} misplaced farms moved, {len(repd['parks'])} farms added ({sum(p['mw'] for p in repd['parks']):,.0f} MW); site UK onshore operating {gb_on:,.0f} MW vs official {gb_nat:,.0f} MW")
+    if gb_nat and gb_on > 1.02 * gb_nat:
+        raise SystemExit(f"UK onshore farm sum {gb_on:,.0f} MW exceeds 102% of the official {gb_nat:,.0f} MW: duplicates from REPD; check tools/build_repd.py")
 # 共用座標：同一國同一點上有 3 筆以上的紀錄（多為省或國家中心的代用座標）→ flags 4
 stack = defaultdict(list)
 for r in allrows:
@@ -640,7 +689,8 @@ meta = {
                 "Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0)",
                 "2026 compilation (wind-history-map, Sep 2026): curated pipeline projects; Japanese farms from NEDO "
                 "prefecture lists and windfarm.work / operator sites",
-                "Bundesnetzagentur, Marktstammdatenregister (MaStR), Datenlizenz Deutschland – Namensnennung – Version 2.0: German onshore farms not in the other sources (tools/build_mastr.py)"],
+                "Bundesnetzagentur, Marktstammdatenregister (MaStR), Datenlizenz Deutschland – Namensnennung – Version 2.0: German onshore farms not in the other sources (tools/build_mastr.py)",
+                "Department for Energy Security and Net Zero, Renewable Energy Planning Database (REPD), Open Government Licence v3.0: UK operating onshore farms not in the other sources (tools/build_repd.py)"],
     "gem_release": GEM_REL,
     "pipeline_curated_asof": pc.get('asOf'),
     "cleanup": cleanup_summary(clean_log),

@@ -160,6 +160,8 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
   **以 Datenlizenz Deutschland – Namensnennung 2.0 分享（© Bundesnetzagentur | Marktstammdatenregister）**；`data/global/sources/mastr_parks_DEU.json` 是要加進風場層的德國風場
 - `data/global/turbines_dk.json` — 丹麥每部風機的位置與規格（能源署風機登記檔 Stamdataregister for vindkraftanlæg；103 座風場、1,324 部），由 `tools/build_turbines_dk.py` 從「Vinddata」產生（海域 12 km、陸域 3 km 內、容量 ±15% 才配對）；
   依能源署資料使用條款標示 Energistyrelsen、資料集與取用時間（取用月份在檔案的 meta）；點到丹麥風場時先用它，對不到的才用 OpenStreetMap
+- `data/global/sources/repd_GBR.json` — 英國 REPD（能源安全與淨零部每季發布的 Renewable Energy Planning Database，Open Government Licence v3.0）對到本站英國風場的紀錄，由 `tools/build_repd.py` 產生、`build_farms.py` 讀取：
+  本站列規劃中而 REPD 已營運的改成營運中並補商轉年，沒寫機組、業主的補上，同名但點標錯 20 km 以上的改用 REPD 的格網座標，還沒收錄的營運中陸域風場以來源代碼 5 加入（建置會檢查英國陸域加總不超過官方的 102%）
 - `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
   **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入（德國以 MaStR、丹麥以能源署登記檔優先）
 - `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 834 座：EIA-923，容量以 EIA-860M 登記的裝置容量計，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；
@@ -281,6 +283,8 @@ python tools/fetch_gem_locations.py data/global/wind_farms.json data/global/sour
 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 #   對不到新版名稱的清理規則會讓建置中止；升級 GEM 版本時可先 CLEANUP_LENIENT=1 建置、看新名稱，再逐條改寫 tools/farm_cleanup.py
 #    （會套用 tools/farm_cleanup.py 的逐筆清理規則，並輸出 docs/data-cleanup.md 與 .en.md）
+#    英國：新一季 REPD 發布後，先 SKIP_REPD=1 建置一次（build_repd.py 要對「還沒套用 REPD」的風場層比對），再跑 build_repd.py、再正常建置
+SKIP_REPD=1 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json && python tools/build_repd.py REPD_Publication_Q2_2026.csv && python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
@@ -421,6 +425,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 風機廠牌與業主（地球儀「廠牌與業主」）：廠牌取自美國 USWTDB（公有領域）、德國 MaStR（見上）與本站風場紀錄的機型欄（不用 OpenStreetMap）；業主取自 GEM Global Wind Power Tracker 2026-02 版（CC BY 4.0）營運中機組的業主與持股比例
 - 各國指標（地球儀「指標」上色與國家比較）：風電占發電比例、風電發電量與全國平均容量因數取自 [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/)（CC BY 4.0）；
   人均容量用 [Our World in Data 的人口序列](https://ourworldindata.org/grapher/population)（CC BY 4.0，依聯合國《世界人口展望》等整理）除本站的年底容量
+- 英國風場的狀態、機組與業主：[Renewable Energy Planning Database（REPD）](https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract)，能源安全與淨零部，Open Government Licence v3.0（含依 OGL v3.0 授權的公部門資訊）
 - 風機位置：美國 [USWTDB](https://energy.usgs.gov/uswtdb/)（USGS、LBNL、American Clean Power Association，公有領域）；德國 MaStR（見上）；丹麥 [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren)（能源署資料使用條款，取用時間見 `turbines_dk.json` 的 meta）；
   其他國家 © [OpenStreetMap](https://www.openstreetmap.org/copyright) 貢獻者（ODbL 1.0，衍生的 `data/global/turbines_osm.json` 同樣以 ODbL 分享）
 - 水下基礎：OSPAR Offshore Renewable Energy Developments 2024（CC0）；其他逐場出處（開發商、施工廠商、政府文件、產業新聞）寫在 [docs/foundations.md](./docs/foundations.md)

@@ -14,6 +14,11 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v3.20.0 — 2026-10-31
+
+- **英國風場接上官方 REPD**：能源安全與淨零部每季發布的 Renewable Energy Planning Database（2026 年第二季版，Open Government Licence v3.0）由新的 `tools/build_repd.py` 對到本站英國風場（887 筆營運中／興建中／已除役紀錄對到 793 座），建置時保守補充：13 座本站仍列規劃中、REPD 已營運的改成營運中並補商轉年（South Kyle 240 MW 2023、Enoch Hill 70 MW 2026、Benbrack 67 MW 2025、Broken Cross 48 MW 2024、Gordonbush 二期 47 MW 2021、Douglas West 45 MW 2023、Camster II 36 MW 2026、Blary Hill 35 MW 2022、Pines Burn 34 MW 2024、Glengesh Lower Forest 21 MW 2024、Howpark 16 MW 2024、Alaska 9 MW 2025、Arbikie 1 MW 2023）；
+  713 筆沒寫機組的補「N x U MW」、543 筆補業主、2 筆概略座標改用格網座標；同名但點標錯的 Black Law 1b（差 508 km）、Dalquhandy（77 km）、Darracott Moor（28 km）改用 REPD 座標；新增 1 座還沒收錄的小風場（Land near Ventonteague 2.3 MW）。REPD 標已除役但沒有日期的 Spurness、Ovenden Moor 先記在建置 log。卡片的「資料集」多了「英國 REPD」，資料下載頁的授權說明一併補上。
+
 ## v3.19.0 — 2026-10-31
 
 - **丹麥風場改用能源署登記檔的實際機位**：丹麥能源署風機登記檔（Stamdataregister for vindkraftanlæg，與實測發電量同一份「Vinddata」）有每部風機的座標、容量、機型、輪轂高度與葉輪直徑，新的 `tools/build_turbines_dk.py` 依位置與容量對到本站的丹麥風場（103 座、1,324 部、4,536 MW，占丹麥營運容量 91%；10 座容量對不上先略過，仍用 OpenStreetMap）。地球儀近看與實景視角對丹麥風場先用它，卡片「機組」列、實景視角的說明與出處列、「資料來源」視窗都標示能源署、資料集與取用月份（從檔案的 meta 讀）。
