@@ -1,0 +1,966 @@
+[
+ {
+  "farm": "Robin Rigg — 2010-04",
+  "sources": [
+   {
+    "url": "https://caselaw.nationalarchives.gov.uk/uksc/2017/59/data.pdf",
+    "quote": "In April 2010 the grouted connections at Robin Rigg started to fail, as they had done a year earlier at Egmond aan Zee"
+   },
+   {
+    "url": "https://caselaw.nationalarchives.gov.uk/uksc/2017/59/data.pdf",
+    "quote": "It was wrong by a factor of about ten. This meant that the axial capacity of the grouted connections in wind farm foundations at various locations including Egmond aan Zee and Robin Rigg had been substantially over-estim"
+   },
+   {
+    "url": "https://www.offshorewind.biz/2017/08/03/e-on-wins-robin-rigg-dispute-against-mt-hojgaard/",
+    "quote": "The grouted connections at Robin Rigg started to fail in April 2010 with the transition pieces starting to slip down the monopiles."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2017/08/03/e-on-wins-robin-rigg-dispute-against-mt-hojgaard/",
+    "quote": "The dispute concerned who bears the remedial costs in the sum of EUR 26.25m."
+   }
+  ],
+  "data": {
+   "date": "2010-04",
+   "country_zh": "英國",
+   "country_en": "United Kingdom",
+   "area_zh": "索爾威灣 Solway Firth",
+   "area_en": "Solway Firth",
+   "site": "離岸",
+   "sub_zh": "基礎灌漿連接失效",
+   "sub_en": "Grouted connection failure",
+   "project_zh": "Robin Rigg",
+   "project_en": "Robin Rigg",
+   "title_zh": "單樁灌漿連接失效，過渡段沿樁身下滑",
+   "title_en": "Grouted connections failed; transition pieces slipped down the monopiles",
+   "summary_zh": "MT Højgaard 設計安裝的 60 座單樁基礎於 2010 年 4 月開始失效，過渡段沿單樁下滑；起因是 DNV J101 標準公式有誤、軸向承載力高估約 10 倍，Egmond aan Zee 等風場一年前已先出事。補救費用 2,625 萬歐元由誰負擔打到英國最高法院，2017 年 8 月判 E.ON 勝訴（UKSC 2017/59）。",
+   "summary_en": "The 60 monopile foundations designed and installed by MT Højgaard began to fail in April 2010, with transition pieces slipping down the monopiles; the cause was an error in the DNV J101 standard that over-estimated axial capacity by a factor of about ten, as had already shown at Egmond aan Zee a year earlier. Who bears the EUR 26.25m remedial cost went to the UK Supreme Court, which found for E.ON in August 2017 (UKSC 2017/59).",
+   "stage_zh": "營運／故障",
+   "farm_mw": 180,
+   "event_mw": "",
+   "cap_note_zh": "60×3 MW；判決書述 60 部風機（本站紀錄 174 MW，後減為 58 部）",
+   "turbine": "Vestas V90-3.0 MW",
+   "unit_mw": 3.0,
+   "foundation_zh": "單樁（灌漿連接，無剪力鍵）",
+   "cod": "2010",
+   "owner": "E.ON Climate & Renewables UK Robin Rigg East/West",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "",
+   "cas_en": "",
+   "lat": 54.75,
+   "lon": -3.717,
+   "coord_note_zh": "本站風場參考點；非單一機位",
+   "org": "英國最高法院判決／offshoreWIND.biz",
+   "url1": "https://caselaw.nationalarchives.gov.uk/uksc/2017/59/data.pdf",
+   "url2": "https://www.offshorewind.biz/2017/08/03/e-on-wins-robin-rigg-dispute-against-mt-hojgaard/",
+   "verify_zh": "主管機關／業主一手資料",
+   "note_zh": "同一 J101 錯誤也影響 Horns Rev 1、Egmond aan Zee 等場；本列只記 Robin Rigg。",
+   "note_en": "The same J101 error affected Horns Rev 1, Egmond aan Zee and others; this row covers Robin Rigg only.",
+   "site_farm": "Robin Rigg"
+  }
+ },
+ {
+  "farm": "Horns Rev 1 — 2004-07",
+  "sources": [
+   {
+    "url": "https://ing.dk/artikel/kostbar-udskiftning-af-alle-transformere-i-havmoellepark-0",
+    "quote": "Vestas er i gang med at udskifte samtlige tørtransformere på Horns Rev Havmøllepark 14-20 km fra den jyske vestkyst."
+   },
+   {
+    "url": "https://ing.dk/artikel/havmoeller-overvejes-demonteret",
+    "quote": "Vestas overvejer nu om man skal demontere alle naceller fra de 80 havmøller på Horns Rev for at kunne reparere dem under de be"
+   },
+   {
+    "url": "https://innovations-report.com/power-and-electrical-engineering/report-31048",
+    "quote": "it has now been decided to transport all 81 units of the V80-2.0MW nacelles to Ringkøbing and Lem"
+   },
+   {
+    "url": "https://innovations-report.com/power-and-electrical-engineering/report-31048",
+    "quote": "it has been ascertained that all transformers and a number of generators had to be changed"
+   }
+  ],
+  "data": {
+   "date": "2004-07",
+   "country_zh": "丹麥",
+   "country_en": "Denmark",
+   "area_zh": "北海 Horns Rev（Esbjerg 外海）",
+   "area_en": "North Sea, Horns Rev off Esbjerg",
+   "site": "離岸",
+   "sub_zh": "變壓器與發電機缺陷",
+   "sub_en": "Transformer and generator defects",
+   "project_zh": "Horns Rev 1",
+   "project_en": "Horns Rev 1",
+   "title_zh": "全部 80 具機艙拆回岸上整修",
+   "title_en": "All 80 nacelles taken ashore for repair",
+   "summary_zh": "世界首座大型離岸風場商轉一年後，80 部 Vestas V80 的乾式變壓器陸續故障（2003 年夏起），接著發現多部發電機有製造缺陷；北海作業條件惡劣，Vestas 2004 年 7 月宣布把 80 具機艙加 Tjæreborg 試驗機艙共 81 具運回 Ringkøbing 與 Lem 整修，預計秋季完成（ing.dk 2004-01、2004-05；Vestas 2004-07-09）。",
+   "summary_en": "A year after the world's first large offshore wind farm started, the dry-type transformers of its 80 Vestas V80s began failing (from summer 2003) and production defects were then found in many generators; with repairs hampered by North Sea conditions, Vestas announced on 9 July 2004 that all 80 nacelles plus the Tjæreborg test nacelle (81) would be shipped to Ringkøbing and Lem for repair, to finish in the autumn.",
+   "stage_zh": "營運中斷／整修",
+   "farm_mw": 160,
+   "event_mw": 160,
+   "cap_note_zh": "80×2 MW 全場",
+   "turbine": "Vestas V80-2.0 MW",
+   "unit_mw": 2.0,
+   "foundation_zh": "單樁",
+   "cod": "2002",
+   "owner": "Elsam（今 Ørsted／Vattenfall 各半）",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "",
+   "cas_en": "",
+   "lat": 55.53,
+   "lon": 7.906,
+   "coord_note_zh": "本站風場參考點",
+   "org": "Ingeniøren／Vestas 新聞稿（經 innovations-report）",
+   "url1": "https://ing.dk/artikel/havmoeller-overvejes-demonteret",
+   "url2": "https://innovations-report.com/power-and-electrical-engineering/report-31048",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "日期取 Vestas 決定拆回岸上的公告（2004-07-09）；變壓器故障自 2003 年 8 月起。",
+   "note_en": "Dated to Vestas' announcement of the nacelle removal (9 July 2004); transformer failures began in August 2003.",
+   "site_farm": "Horns Rev 1"
+  }
+ },
+ {
+  "farm": "Nysted (Rødsand I) — 2007-06-09",
+  "sources": [
+   {
+    "url": "https://ing.dk/artikel/havvindmoeller-i-nysted-lammet-af-transformerhavari",
+    "quote": "Den centrale transformer hos Nysted Havmøllepark har siden 9. juni været i stykker og ingen aner, hvornår møllerne kommer i gang igen."
+   },
+   {
+    "url": "https://ing.dk/artikel/havvindmoeller-i-nysted-lammet-af-transformerhavari",
+    "quote": "I syv uger har 72 havmøller ved Nysted stået stille, fordi en italiensk-produceret transformator på 140 ton er br"
+   },
+   {
+    "url": "https://ing.dk/artikel/fejlramt-transformer-tilbage-paa-verdens-stoerste-havmoellepark",
+    "quote": "Efter fire måneder uden strømproduktion er der håb om, at Nysted Havmøllepark snart begynder at levere el igen. En havareret transformer er tilbage efter reparation i Norge."
+   }
+  ],
+  "data": {
+   "date": "2007-06-09",
+   "country_zh": "丹麥",
+   "country_en": "Denmark",
+   "area_zh": "波羅的海 Rødsand（Lolland 南方）",
+   "area_en": "Baltic Sea, Rødsand south of Lolland",
+   "site": "離岸",
+   "sub_zh": "離岸變電站變壓器故障／停擺",
+   "sub_en": "Offshore substation transformer failure / outage",
+   "project_zh": "Nysted（Rødsand I）",
+   "project_en": "Nysted (Rødsand I)",
+   "title_zh": "離岸變電站主變壓器損壞，全場停擺四個月",
+   "title_en": "Main offshore transformer failed; whole farm idle for four months",
+   "summary_zh": "當時世界最大離岸風場（72×2.3 MW）的 140 噸主變壓器 6 月 9 日損壞，72 部風機全部停擺，業主 DONG Energy 與 E.ON 每月損失約 2,300 萬克朗；變壓器拆下運到挪威 ABB 廠更換繞組，10 月初才運回平台（ing.dk 2007-07-31、2007-10-08）。",
+   "summary_en": "The 140-tonne main transformer of the then largest offshore wind farm (72 × 2.3 MW) failed on 9 June, idling all 72 turbines and costing owners DONG Energy and E.ON about DKK 23 million a month; it was shipped to ABB's works in Norway for a new winding and only returned to the platform in early October (ing.dk 31 Jul and 8 Oct 2007).",
+   "stage_zh": "營運中斷",
+   "farm_mw": 165.6,
+   "event_mw": 165.6,
+   "cap_note_zh": "72×2.3 MW 全場",
+   "turbine": "Bonus/Siemens 2.3 MW",
+   "unit_mw": 2.3,
+   "foundation_zh": "重力式",
+   "cod": "2003-12-01",
+   "owner": "DONG Energy 80%／E.ON 20%",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "",
+   "cas_en": "",
+   "lat": 54.55,
+   "lon": 11.71,
+   "coord_note_zh": "本站風場參考點；事故在離岸變電站",
+   "org": "Ingeniøren",
+   "url1": "https://ing.dk/artikel/havvindmoeller-i-nysted-lammet-af-transformerhavari",
+   "url2": "https://ing.dk/artikel/fejlramt-transformer-tilbage-paa-verdens-stoerste-havmoellepark",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "",
+   "note_en": "",
+   "site_farm": "Nysted (Rødsand I)"
+  }
+ },
+ {
+  "farm": "BARD Offshore 1 / BorWin alpha — 2014-03",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2014/06/26/tennet-working-to-power-up-borwin-1/",
+    "quote": "In March a smoldering fire in an electrical component of the converter platform took place, which led to the shutdown of the network connecti"
+   },
+   {
+    "url": "https://www.offshorewind.biz/2014/06/23/bard-offshore-1-wind-farm-remains-out-of-operation/",
+    "quote": "Bard Offshore 1, a 400 MW German offshore wind farm, will not be operational until further notice, informs the Spiegel."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2014/06/23/bard-offshore-1-wind-farm-remains-out-of-operation/",
+    "quote": "In late March, a smoldering fire occurred on the substation and caused preliminary failure of the system. Recommissioning was planned for June, but is n"
+   }
+  ],
+  "data": {
+   "date": "2014-03",
+   "country_zh": "德國",
+   "country_en": "Germany",
+   "area_zh": "北海（Borkum 西北）BorWin alpha 換流平台",
+   "area_en": "North Sea, BorWin alpha converter platform north-west of Borkum",
+   "site": "離岸",
+   "sub_zh": "換流平台火災／併網中斷",
+   "sub_en": "Converter platform fire / grid link outage",
+   "project_zh": "BARD Offshore 1（BorWin 1 併網）",
+   "project_en": "BARD Offshore 1 (BorWin 1 link)",
+   "title_zh": "BorWin alpha 換流平台悶燒火災，400 MW 風場停擺數月",
+   "title_en": "Smouldering fire on BorWin alpha; the 400 MW farm off the grid for months",
+   "summary_zh": "TenneT 的 BorWin 1 高壓直流併網 2014 年初反覆跳脫，3 月底換流平台電氣元件悶燒起火，整條併網停擺；80×5 MW 的 BARD Offshore 1 因此停止送電，6 月仍「無限期」停擺，TenneT 稱清理修復完成、尚待測試才能恢復送電（offshoreWIND.biz 2014-06-23、06-26）。",
+   "summary_en": "TenneT's BorWin 1 HVDC link tripped repeatedly in early 2014, and in late March a smouldering fire in an electrical component of the converter platform shut the connection down; the 80 × 5 MW BARD Offshore 1 stopped exporting and was still out 'until further notice' in June, when TenneT said cleaning and repairs were done and tests were pending (offshoreWIND.biz 23 and 26 Jun 2014).",
+   "stage_zh": "試運轉／部分營運",
+   "farm_mw": 400,
+   "event_mw": 400,
+   "cap_note_zh": "80×5 MW 全場",
+   "turbine": "BARD 5.0 MW",
+   "unit_mw": 5.0,
+   "foundation_zh": "三樁式（Tripile）",
+   "cod": "2013",
+   "owner": "BARD（風場）／TenneT（併網）",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "",
+   "cas_en": "",
+   "lat": 54.355,
+   "lon": 5.98,
+   "coord_note_zh": "本站風場參考點；火災在換流平台",
+   "org": "offshoreWIND.biz（引述 Spiegel、TenneT）",
+   "url1": "https://www.offshorewind.biz/2014/06/26/tennet-working-to-power-up-borwin-1/",
+   "url2": "https://www.offshorewind.biz/2014/06/23/bard-offshore-1-wind-farm-remains-out-of-operation/",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "火災原因與恢復送電日期未公開，不填。",
+   "note_en": "Cause and restart date not published; left blank.",
+   "site_farm": "BARD Offshore 1"
+  }
+ },
+ {
+  "farm": "Gode Wind 1 — 2023-04-24",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2023/05/30/cargo-ship-hit-gode-wind-turbine-went-back-into-service-in-24-hours-vessel-said-to-have-been-kilometres-off-course/",
+    "quote": "The turbine at the Gode Wind 1 offshore wind farm in Germany that was hit by a cargo vessel last month was put back into service around 24 hours after being taken out of operation for inspection, Ørsted tells offshoreWIND.biz."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2023/05/30/cargo-ship-hit-gode-wind-turbine-went-back-into-service-in-24-hours-vessel-said-to-have-been-kilometres-off-course/",
+    "quote": "the cargo vessel Petra L. arrived that day from Szczecin, Poland, to Emden, Germany, with massive damage on its starboard side, resulting in a 5"
+   },
+   {
+    "url": "https://www.offshorewind.biz/2023/05/30/cargo-ship-hit-gode-wind-turbine-went-back-into-service-in-24-hours-vessel-said-to-have-been-kilometres-off-course/",
+    "quote": "offshore wind farm within the German EEZ in the North Sea at around 20:00 (CEST) on 24 April 2023. After the allision, the vessel proceeded to Emden under its own power without tug assistance."
+   }
+  ],
+  "data": {
+   "date": "2023-04-24",
+   "country_zh": "德國",
+   "country_en": "Germany",
+   "area_zh": "北海（Norderney 北方約 33 km）",
+   "area_en": "North Sea, about 33 km north of Norderney",
+   "site": "離岸",
+   "sub_zh": "船舶碰撞風機",
+   "sub_en": "Vessel collision with turbine",
+   "project_zh": "Gode Wind 1",
+   "project_en": "Gode Wind 1",
+   "title_zh": "貨輪 Petra L 撞上風機，船身破洞 5×3 公尺",
+   "title_en": "Cargo ship Petra L struck a turbine, leaving a 5 × 3 m hole in her hull",
+   "summary_zh": "4 月 24 日約 20:00（CEST）貨輪 Petra L 在德國專屬經濟區內撞上 Gode Wind 1 一部 6 MW 風機，船以自力駛回 Emden，右舷破洞 5×3 公尺並進水；風機停機檢查約 24 小時後恢復運轉。德國海難調查局 BSU 列為「嚴重海事事故」調查，2025 年 1 月出具報告 192/23。",
+   "summary_en": "At about 20:00 CEST on 24 April the cargo ship Petra L hit a 6 MW turbine at Gode Wind 1 inside the German EEZ, then sailed to Emden under her own power with a 5 × 3 m hole in the starboard hull and water ingress; the turbine returned to service about 24 hours after inspection. Germany's BSU investigated it as a serious marine casualty and published report 192/23 in January 2025.",
+   "stage_zh": "營運／事故",
+   "farm_mw": 330,
+   "event_mw": 6,
+   "cap_note_zh": "55×6 MW；事件 1 部",
+   "turbine": "Siemens SWT-6.0-154",
+   "unit_mw": 6.0,
+   "foundation_zh": "單樁",
+   "cod": "2016",
+   "owner": "Ørsted（50%）等",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "報導稱無人受傷",
+   "cas_en": "Reports say no one was injured",
+   "lat": 54.05,
+   "lon": 7.033,
+   "coord_note_zh": "本站風場參考點；非被撞機位",
+   "org": "offshoreWIND.biz（引述 BSU、WSP）／BSU 調查報告 192/23",
+   "url1": "https://www.offshorewind.biz/2023/05/30/cargo-ship-hit-gode-wind-turbine-went-back-into-service-in-24-hours-vessel-said-to-have-been-kilometres-off-course/",
+   "url2": "https://bsu-bund.de/SharedDocs/pdf/EN/Investigation_Report/2025/Investigation_Report_192_23.pdf",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "BSU 報告的肇因結論（值班人員睡著等）未以 check_quotes 核對，不寫進摘要。",
+   "note_en": "The BSU report's causal findings (officer asleep etc.) were not verified with check_quotes and are left out.",
+   "site_farm": "Gode Wind 1"
+  }
+ },
+ {
+  "farm": "Scroby Sands — 2023-08-15",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation/",
+    "quote": "A wind turbine at the Scroby Sands offshore wind farm in the UK caught fire yesterday morning (15 August). The cause of the fire, which self-extinguished later the same day, is now being investigated."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation/",
+    "quote": "RWE, the wind farm’s owner, said the fire broke out in the nacelle and that no one was working on board the wind turbine at the time, with the fire later extinguishing on its own."
+   },
+   {
+    "url": "https://maritime-executive.com/article/video-uk-offshore-wind-turbine-catches-fire",
+    "quote": "HM Coast Guard reports it was notified of the fire at 10:50 am local time as residents on the coast watched and filmed the fire at the nearshore location."
+   }
+  ],
+  "data": {
+   "date": "2023-08-15",
+   "country_zh": "英國",
+   "country_en": "United Kingdom",
+   "area_zh": "北海 Great Yarmouth 外海",
+   "area_en": "North Sea off Great Yarmouth",
+   "site": "離岸",
+   "sub_zh": "機艙火災",
+   "sub_en": "Nacelle fire",
+   "project_zh": "Scroby Sands",
+   "project_en": "Scroby Sands",
+   "title_zh": "英國最早離岸風場之一的 V80 機艙起火燒毀",
+   "title_en": "Nacelle fire gutted a V80 at one of the UK's oldest offshore farms",
+   "summary_zh": "8 月 15 日上午 10:50 海岸防衛隊接獲通報，30×2 MW 的 Scroby Sands 一部風機機艙起火、黑煙與火焰自岸上可見，當時無人在機上，火勢當天自行燒盡；RWE 展開調查（offshoreWIND.biz 2023-08-16）。燒毀機組兩年後才排定拆除。",
+   "summary_en": "At 10:50 on 15 August the Coastguard was alerted to a nacelle fire on one of the 30 × 2 MW turbines at Scroby Sands, visible from the shore; no one was on board and the fire burned itself out the same day while RWE investigated (offshoreWIND.biz 16 Aug 2023). The gutted turbine was only scheduled for removal two years later.",
+   "stage_zh": "營運／事故",
+   "farm_mw": 60,
+   "event_mw": 2,
+   "cap_note_zh": "30×2 MW；事件 1 部",
+   "turbine": "Vestas V80-2.0 MW",
+   "unit_mw": 2.0,
+   "foundation_zh": "單樁",
+   "cod": "2004",
+   "owner": "RWE Renewables",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "業主稱無人受傷",
+   "cas_en": "Owner reports no injuries",
+   "lat": 52.633,
+   "lon": 1.783,
+   "coord_note_zh": "本站風場參考點；非事故機位",
+   "org": "offshoreWIND.biz／Maritime Executive",
+   "url1": "https://www.offshorewind.biz/2023/08/16/fire-on-scroby-sands-wind-turbine-self-extinguishes-incident-under-investigation/",
+   "url2": "https://maritime-executive.com/article/video-uk-offshore-wind-turbine-catches-fire",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "火災原因未公布。",
+   "note_en": "Cause not published.",
+   "site_farm": "Scroby Sands"
+  }
+ },
+ {
+  "farm": "Borssele 1 & 2 — 2021-10",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2021/10/28/wind-turbine-catches-fire-at-borssele-1-2-offshore-wind-farm/",
+    "quote": "No employees were present when the fire broke out and no one was injured, Ørsted said on 27 October, adding that the wind turbine manufacturer Siemens Gamesa is now investigating the cause of the failure."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2021/10/28/wind-turbine-catches-fire-at-borssele-1-2-offshore-wind-farm/",
+    "quote": "Borssele 1 & 2 comprises 94 Siemens Gamesa 8 MW turbines, the last of which was installed in early September 2020"
+   }
+  ],
+  "data": {
+   "date": "2021-10",
+   "country_zh": "荷蘭",
+   "country_en": "Netherlands",
+   "area_zh": "北海 Borssele 區（Zeeland 外海）",
+   "area_en": "North Sea, Borssele zone off Zeeland",
+   "site": "離岸",
+   "sub_zh": "機艙火災",
+   "sub_en": "Nacelle fire",
+   "project_zh": "Borssele 1 & 2",
+   "project_en": "Borssele 1 & 2",
+   "title_zh": "商轉未滿一年的 8 MW 風機故障後機艙起火",
+   "title_en": "An 8 MW turbine malfunctioned and its nacelle caught fire within a year of commissioning",
+   "summary_zh": "荷蘭當時最大離岸風場（94×8 MW，2020 年 11 月全部商轉）一部風機故障後機艙起火，Ørsted 10 月 27 日說明當時無人在場、無人受傷，Siemens Gamesa 調查原因；受損機組拆除，直接相連的兩部風機一併停機檢查（offshoreWIND.biz 2021-10-28）。",
+   "summary_en": "A turbine at what was then the Netherlands' largest offshore farm (94 × 8 MW, fully commissioned November 2020) malfunctioned and its nacelle caught fire; Ørsted said on 27 October that no one was present or injured and Siemens Gamesa was investigating; the damaged unit was dismantled and the two turbines wired to it were also stopped for checks (offshoreWIND.biz 28 Oct 2021).",
+   "stage_zh": "營運／事故",
+   "farm_mw": 752,
+   "event_mw": 8,
+   "cap_note_zh": "94×8 MW；事件 1 部",
+   "turbine": "Siemens Gamesa SG 8.0-167 DD",
+   "unit_mw": 8.0,
+   "foundation_zh": "單樁",
+   "cod": "2020-11",
+   "owner": "Ørsted",
+   "deaths": "0",
+   "injuries": "0",
+   "cas_zh": "業主明確說明無人受傷",
+   "cas_en": "Owner states no one was injured",
+   "lat": 51.703,
+   "lon": 3.06,
+   "coord_note_zh": "本站風場參考點；非事故機位",
+   "org": "offshoreWIND.biz（引述 Ørsted）",
+   "url1": "https://www.offshorewind.biz/2021/10/28/wind-turbine-catches-fire-at-borssele-1-2-offshore-wind-farm/",
+   "url2": "",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "起火確切日期報導未寫，日期精度取月。",
+   "note_en": "Exact fire date not given; month precision.",
+   "site_farm": "Borssele I & II"
+  }
+ },
+ {
+  "farm": "alpha ventus — 2018-04-06",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2018/04/09/adwen-turbine-missing-hardware-on-alpha-ventus/",
+    "quote": "A rear part of a nacelle panel on one of the Adwen M5000 (AD 5-116) wind turbines installed on the Alpha Ventus wind farm in the German North Sea has broken off and fell into the sea, the operator of the wind farm reports."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2018/04/09/adwen-turbine-missing-hardware-on-alpha-ventus/",
+    "quote": "The accident happened on Friday, 06 April, the operator said."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2018/05/14/adwen-turbine-accident-probe-gets-down-to-nuts-and-bolts/",
+    "quote": "The operator has now revealed that the AV 07 turbine lost the nacelle roof, the sides"
+   }
+  ],
+  "data": {
+   "date": "2018-04-06",
+   "country_zh": "德國",
+   "country_en": "Germany",
+   "area_zh": "北海（Borkum 北方 45 km）",
+   "area_en": "North Sea, 45 km north of Borkum",
+   "site": "離岸",
+   "sub_zh": "機艙外罩脫落",
+   "sub_en": "Nacelle cover detachment",
+   "project_zh": "alpha ventus",
+   "project_en": "alpha ventus",
+   "title_zh": "AV07 機艙頂、側與底板脫落入海，整具機艙更換",
+   "title_en": "AV07 lost its nacelle roof, sides and floor into the sea; nacelle replaced",
+   "summary_zh": "德國首座離岸風場的 Adwen M5000（AD 5-116）7 號機 4 月 6 日機艙後段外罩脫落入海，其餘 5 部同型機轉為空轉待檢，營運者發布航行警告；5 月說明機艙頂、側板與底板都已脫落、固定螺栓斷裂或撕裂但原因未明，整具機艙更換（offshoreWIND.biz 2018-04-09、05-14）。",
+   "summary_en": "On 6 April the rear nacelle cladding of Adwen M5000 (AD 5-116) turbine AV07 at Germany's first offshore wind farm broke off into the sea; the other five Adwens were idled and a notice to mariners issued. In May the operator said the roof, sides and floor had all gone and the bolts were broken or torn, cause unknown, and the whole nacelle would be replaced (offshoreWIND.biz 9 Apr and 14 May 2018).",
+   "stage_zh": "營運／故障",
+   "farm_mw": 60,
+   "event_mw": 5,
+   "cap_note_zh": "6×5 MW Adwen＋6×5 MW Senvion；事件 1 部",
+   "turbine": "Adwen M5000 (AD 5-116)",
+   "unit_mw": 5.0,
+   "foundation_zh": "三腳架（Tripod，Adwen 機組）",
+   "cod": "2010",
+   "owner": "DOTI（EWE、E.ON、Vattenfall）",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "報導稱無人受傷",
+   "cas_en": "Reports say no one was harmed",
+   "lat": 54.017,
+   "lon": 6.6,
+   "coord_note_zh": "本站風場參考點；非 AV07 機位",
+   "org": "offshoreWIND.biz（引述營運者 DOTI）",
+   "url1": "https://www.offshorewind.biz/2018/04/09/adwen-turbine-missing-hardware-on-alpha-ventus/",
+   "url2": "https://www.offshorewind.biz/2018/05/14/adwen-turbine-accident-probe-gets-down-to-nuts-and-bolts/",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "",
+   "note_en": "",
+   "site_farm": "alpha ventus"
+  }
+ },
+ {
+  "farm": "Nysted (Rødsand I) — 2022-01-12",
+  "sources": [
+   {
+    "url": "https://ens.dk/media/6697/download",
+    "quote": "Energistyrelsen har den 11. maj 2022 givet Nysted I tilladelse til at afvikle mølle A02 efter at den havarerede den 12. januar 2022."
+   },
+   {
+    "url": "https://www.maritimedanmark.dk/kaempe-havvindmolle-vaeltet-syd-for-lolland",
+    "quote": "Der var ikke servicepersonale i nærheden da møllen væltede, og Ingen personer er kommet til skade."
+   },
+   {
+    "url": "https://www.maritimedanmark.dk/kaempe-havvindmolle-vaeltet-syd-for-lolland",
+    "quote": "Nysted havvindmøllepark er opført i 2003 med 72 stk. Siemens-Gamesa 2,3 MW møller med gravitationsfundamenter."
+   },
+   {
+    "url": "https://www.tu.no/artikler/havvindmolle-veltet-i-danmark/516569",
+    "quote": "Det er ikke bare selve vindmøllen som har veltet. Også det enorme betongfundamentet har gått over ende. Til sammen er dette et byggverk på cirka 2050 tonn."
+   },
+   {
+    "url": "https://ing.dk/artikel/oersted-finder-nye-revner-i-fundament-paa-nysted-havmoellepark",
+    "quote": "Efter kollapset af en Siemens 2,3 MW mølle i januar har Ørsted fundet revner i fundamentet på endnu en mølle, som bliver taget ud af drift."
+   }
+  ],
+  "data": {
+   "date": "2022-01-12",
+   "country_zh": "丹麥",
+   "country_en": "Denmark",
+   "area_zh": "波羅的海 Rødsand（Lolland 南方）",
+   "area_en": "Baltic Sea, Rødsand south of Lolland",
+   "site": "離岸",
+   "sub_zh": "塔架倒塌／基礎失效",
+   "sub_en": "Tower collapse / foundation failure",
+   "project_zh": "Nysted（Rødsand I）",
+   "project_en": "Nysted (Rødsand I)",
+   "title_zh": "A02 風機連同重力式混凝土基礎整座翻倒入海",
+   "title_en": "Turbine A02 toppled into the sea together with its gravity-base foundation",
+   "summary_zh": "運轉 19 年的 72×2.3 MW 風場 1 月 12 日一部 110 公尺高風機脫網後翻倒，隔天才發現機組連同混凝土重力式基礎（合計約 2,050 噸）都倒在海中，當時無人在場、無人受傷；8 月 Ørsted 在另一部風機基礎發現裂縫、一併停機，能源署 5 月 11 日核准拆除 A02（ens.dk；Maritimedanmark 2022-01-14；ing.dk 2022-08-09）。",
+   "summary_en": "On 12 January a 110 m turbine at the 19-year-old 72 × 2.3 MW farm dropped off the grid and was found the next day lying in the sea together with its concrete gravity-base foundation (about 2,050 t in all); nobody was present or hurt. In August Ørsted found cracks in another foundation and stopped that turbine too; the Danish Energy Agency approved the removal of A02 on 11 May 2022 (ens.dk; Maritimedanmark 14 Jan 2022; ing.dk 9 Aug 2022).",
+   "stage_zh": "營運／事故",
+   "farm_mw": 165.6,
+   "event_mw": 2.3,
+   "cap_note_zh": "72×2.3 MW；事件 1 部（A02），另 1 部（G04）後續停機",
+   "turbine": "Bonus/Siemens 2.3 MW",
+   "unit_mw": 2.3,
+   "foundation_zh": "重力式（混凝土）",
+   "cod": "2003-12-01",
+   "owner": "Ørsted（Nysted I A/S）",
+   "deaths": "0",
+   "injuries": "0",
+   "cas_zh": "報導稱無人受傷、現場無維修人員",
+   "cas_en": "Reports: no one injured, no service staff on site",
+   "lat": 54.55,
+   "lon": 11.71,
+   "coord_note_zh": "本站風場參考點；非 A02 機位",
+   "org": "丹麥能源署／Maritimedanmark／Ingeniøren／TU.no",
+   "url1": "https://ens.dk/media/6697/download",
+   "url2": "https://www.maritimedanmark.dk/kaempe-havvindmolle-vaeltet-syd-for-lolland",
+   "verify_zh": "主管機關／業主一手資料",
+   "note_zh": "媒體引述 Ørsted 稱倒塌肇因為海水滲入基礎混凝土接縫，調查報告未公開，摘要不寫原因。",
+   "note_en": "Press cites Ørsted blaming seawater ingress at the concrete joint; the investigation report is not public, so the cause is left out of the summary.",
+   "site_farm": "Nysted (Rødsand I)"
+  }
+ },
+ {
+  "farm": "Taipower Offshore Phase 1 (Changhua) — 2020-06-15",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2020/06/18/aegir-suffers-dropfall-incident-offshore-taiwan/",
+    "quote": "Heerema Marine Contractors’ (HMC) heavy lift vessel Aegir has experienced a dropfall incident off the coast of Taiwan. The incident occurred on 15 June at 16:42 local time."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2020/06/18/aegir-suffers-dropfall-incident-offshore-taiwan/",
+    "quote": "The exact cause is yet unknown and will be the subject of an investigation. Aegir is in charge of installing 21 jacket foundations at the 109.2 MW Changhua offshore wind project some 8km off the coast."
+   }
+  ],
+  "data": {
+   "date": "2020-06-15",
+   "country_zh": "台灣",
+   "country_en": "Taiwan",
+   "area_zh": "彰化芳苑外海約 8 km",
+   "area_en": "About 8 km off Fangyuan, Changhua",
+   "site": "離岸",
+   "sub_zh": "安裝船舶事故",
+   "sub_en": "Installation vessel incident",
+   "project_zh": "台電離岸風電一期",
+   "project_en": "Taipower Offshore Phase 1 (Changhua)",
+   "title_zh": "重吊船 Aegir 打樁作業發生墜落事故，暫停基礎施工",
+   "title_en": "Heavy-lift vessel Aegir suffered a dropfall during pin-pile work; foundation work paused",
+   "summary_zh": "Heerema 重吊船 Aegir 為台電一期（21 座套筒式基礎，109.2 MW）打設基樁時，6 月 15 日 16:42 發生墜落（dropfall）事故，無人受傷、無環境影響，打樁架與一支基樁輕微受損，Heerema 暫停基礎安裝調查原因（offshoreWIND.biz 2020-06-18）；9 月底 21 座套筒式基礎全部就位。",
+   "summary_en": "While driving pin piles for Taipower's Phase 1 (21 jackets, 109.2 MW), Heerema's heavy-lift vessel Aegir had a dropfall incident at 16:42 on 15 June; no one was hurt, no environmental impact, only the piling frame and a pin pile were slightly damaged, and foundation work paused for an investigation (offshoreWIND.biz 18 Jun 2020). All 21 jackets were in place by late September.",
+   "stage_zh": "施工中",
+   "farm_mw": 109.2,
+   "event_mw": "",
+   "cap_note_zh": "21×5.2 MW 規劃容量",
+   "turbine": "Hitachi HTW5.2-127",
+   "unit_mw": 5.2,
+   "foundation_zh": "套筒式（四腳）",
+   "cod": "2021",
+   "owner": "台灣電力公司（EPC：Jan De Nul；分包 Heerema）",
+   "deaths": "0",
+   "injuries": "0",
+   "cas_zh": "承包商明確說明無人受傷",
+   "cas_en": "Contractor states no one was injured",
+   "lat": 23.986,
+   "lon": 120.242,
+   "coord_note_zh": "本站風場參考點（OSM 21 部風機中心）",
+   "org": "offshoreWIND.biz（引述 Heerema）",
+   "url1": "https://www.offshorewind.biz/2020/06/18/aegir-suffers-dropfall-incident-offshore-taiwan/",
+   "url2": "",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "調查結果未公開。",
+   "note_en": "Investigation findings not published.",
+   "site_farm": "Taipower Offshore Phase 1 (Changhua)"
+  }
+ },
+ {
+  "farm": "Greater Gabbard — 2010-05-21",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2015/10/02/two-companies-sentenced-for-2010-fatal-accident/",
+    "quote": "after a worker was killed and another seriously injured while loading wind turbine blades onto a barge for delivery to Greater Gabbard offshore wind farm on 21 May 2010."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2015/10/02/two-companies-sentenced-for-2010-fatal-accident/",
+    "quote": "Both workers were employed by Siemens Windpower A/S, but were working for Fluor Ltd, the principal contractor."
+   },
+   {
+    "url": "https://maritime-executive.com/article/two-firms-fined-over-offshore-wind-worker-death",
+    "quote": "During the loading of wind turbine components at Pakeston Quay, Harwich, a 2.11 ton part of the blade transport arrangement fell off, crushing and fatally injuring one worker and seriously in"
+   },
+   {
+    "url": "https://maritime-executive.com/article/two-firms-fined-over-offshore-wind-worker-death",
+    "quote": "They were ordered to pay £375,000 ($569,000) in fines with costs of £105,355 ($160,000)."
+   }
+  ],
+  "data": {
+   "date": "2010-05-21",
+   "country_zh": "英國",
+   "country_en": "United Kingdom",
+   "area_zh": "Essex 郡 Harwich 港（Parkeston Quay）",
+   "area_en": "Harwich, Essex (Parkeston Quay)",
+   "site": "陸域",
+   "sub_zh": "吊裝工程死亡",
+   "sub_en": "Lifting-work fatality",
+   "project_zh": "Greater Gabbard（葉片裝船）",
+   "project_en": "Greater Gabbard (blade loading)",
+   "title_zh": "葉片裝駁船時 2.11 噸運輸架件掉落，1 死 1 重傷",
+   "title_en": "A 2.11 t blade-transport part fell while loading a barge: one killed, one seriously hurt",
+   "summary_zh": "為 Greater Gabbard（140×3.6 MW）裝運葉片上駁船時，2.11 噸的葉片運輸架件掉落，壓死 1 名工人、另 1 人重傷；兩人受僱於 Siemens Wind Power、為主承包商 Fluor 工作。英國 HSE 起訴，2015 年 10 月 Chelmsford 刑事法院判 Siemens 罰 37.5 萬英鎊、Fluor 罰 27.5 萬英鎊並各付訴訟費；HSE 指吊裝計畫未檢查固定葉片與架子的螺栓與托架。",
+   "summary_en": "While blades for Greater Gabbard (140 × 3.6 MW) were being loaded onto a barge, a 2.11 t part of the blade transport arrangement fell, crushing one worker to death and seriously injuring another; both were Siemens Wind Power employees working for principal contractor Fluor. After an HSE prosecution, Chelmsford Crown Court fined Siemens £375,000 and Fluor £275,000 plus costs in October 2015; HSE said the bolt and brackets holding blade and frame had not been checked when the lift was planned.",
+   "stage_zh": "施工中",
+   "farm_mw": 504,
+   "event_mw": "",
+   "cap_note_zh": "140×3.6 MW",
+   "turbine": "Siemens SWT-3.6-107",
+   "unit_mw": 3.6,
+   "foundation_zh": "單樁",
+   "cod": "2012",
+   "owner": "SSE／RWE（施工主承包商 Fluor）",
+   "deaths": "1",
+   "injuries": "1",
+   "cas_zh": "HSE：1 死 1 重傷",
+   "cas_en": "HSE: one killed, one seriously injured",
+   "lat": 51.948,
+   "lon": 1.254,
+   "coord_note_zh": "Harwich Parkeston Quay 概略位置（事故在碼頭，非風場）",
+   "org": "英國 HSE（經 offshoreWIND.biz／Maritime Executive）",
+   "url1": "https://www.offshorewind.biz/2015/10/02/two-companies-sentenced-for-2010-fatal-accident/",
+   "url2": "https://maritime-executive.com/article/two-firms-fined-over-offshore-wind-worker-death",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "事故發生在港區碼頭而非海上，陸域／離岸依事故地點填陸域，專案為離岸風場。",
+   "note_en": "The accident was on the quay, not at sea; site is onshore by location, the project is an offshore farm.",
+   "site_farm": "Greater Gabbard"
+  }
+ },
+ {
+  "farm": "Riffgat — 2013-07",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2013/07/15/diver-dies-at-riffgat-offshore-wind-farm-germany/",
+    "quote": "A British diver was killed while performing underwater work at the Riffgat offshore wind farm, located north of Borkum in the North Sea, between Friday 12 July and Saturday 13 July."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2013/07/15/diver-dies-at-riffgat-offshore-wind-farm-germany/",
+    "quote": "The mats were spread to weigh down power cables on the seabed. The diver wanted to bring the concrete mat into position with one of his coworkers, and fell under the mat during that attempt."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2013/07/15/diver-dies-at-riffgat-offshore-wind-farm-germany/",
+    "quote": "Riffgat offshore wind farm is being developed by EWE in collaboration with Enova. It consists of 30 wind turbines with a capaci"
+   }
+  ],
+  "data": {
+   "date": "2013-07",
+   "country_zh": "德國",
+   "country_en": "Germany",
+   "area_zh": "北海（Borkum 北方）",
+   "area_en": "North Sea north of Borkum",
+   "site": "離岸",
+   "sub_zh": "潛水作業死亡",
+   "sub_en": "Diving-work fatality",
+   "project_zh": "Riffgat",
+   "project_en": "Riffgat",
+   "title_zh": "鋪設海纜壓載混凝土墊時潛水員遭壓身亡",
+   "title_en": "Diver killed under a concrete cable-protection mat",
+   "summary_zh": "7 月 12 日至 13 日夜間，一名 26 歲英國潛水員在 Riffgat（30×3.6 MW，施工中）海底為海纜放置壓載混凝土墊時被墊子壓住，急救醫師到場只能宣告死亡；警方調查事故與死因（offshoreWIND.biz 2013-07-15 引述 Die Welt）。德國離岸風電兩年內第三起死亡事故。",
+   "summary_en": "On the night of 12–13 July a 26-year-old British diver placing a concrete mat to weigh down a cable at Riffgat (30 × 3.6 MW, under construction) was trapped under the mat; the emergency doctor could only pronounce him dead and police investigated (offshoreWIND.biz 15 Jul 2013 citing Die Welt). It was the third fatal accident at German offshore wind farms in two years.",
+   "stage_zh": "施工中",
+   "farm_mw": 108,
+   "event_mw": "",
+   "cap_note_zh": "30×3.6 MW（本站紀錄 113.4 MW）",
+   "turbine": "Siemens SWT-3.6-120",
+   "unit_mw": 3.6,
+   "foundation_zh": "單樁",
+   "cod": "2014",
+   "owner": "EWE／Enova",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "報導稱 1 名潛水員死亡（Die Welt 經 offshoreWIND.biz）；未見主管機關說明",
+   "cas_en": "Reports: one diver killed (Die Welt via offshoreWIND.biz); no authority statement seen",
+   "lat": 53.69,
+   "lon": 6.48,
+   "coord_note_zh": "本站風場參考點",
+   "org": "offshoreWIND.biz（引述 Die Welt）",
+   "url1": "https://www.offshorewind.biz/2013/07/15/diver-dies-at-riffgat-offshore-wind-farm-germany/",
+   "url2": "https://spectrum.ieee.org/germanys-largest-offshore-windfarm-hits-snag",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "確切日期（12 或 13 日）報導未定，精度取月。",
+   "note_en": "Reports give the night of 12–13 July; month precision used.",
+   "site_farm": "Riffgat"
+  }
+ },
+ {
+  "farm": "CGN Huizhou Gangkou I — 2021-07-25",
+  "sources": [
+   {
+    "url": "https://www.offshorewind.biz/2021/07/26/four-missing-after-jack-up-vessel-tilts-at-offshore-wind-farm-in-china/",
+    "quote": "The Sheng Ping 001 jack-up vessel, formerly Teras Fortress 2, tilted on 25 July while working at the site of China General Nuclear Power Corporation’s (CGN) wind farm off Huizhou, with four people reported missing"
+   },
+   {
+    "url": "https://www.offshorewind.biz/2021/07/28/china-search-for-four-missing-people-from-sheng-ping-001-continues/",
+    "quote": "Of the total of 65 people on board, 61 were evacuated from the site and transferred to shore the same day, while four went missing."
+   },
+   {
+    "url": "https://www.bairdmaritime.com/offshore/vessels-rigs/jackups-liftboats/four-feared-dead-after-installation-vessel-capsizes-off-southern-china",
+    "quote": "At the time of the capsizing, the jackup was involved in the final stages of construction of CGN's Huizhou Gangkou I wind farm, which will have a generating capacity of 400 MW once completed."
+   }
+  ],
+  "data": {
+   "date": "2021-07-25",
+   "country_zh": "中國",
+   "country_en": "China",
+   "area_zh": "廣東惠州港口外海",
+   "area_en": "Off Gangkou, Huizhou, Guangdong",
+   "site": "離岸",
+   "sub_zh": "安裝船傾覆／人員失蹤",
+   "sub_en": "Installation vessel capsizing / persons missing",
+   "project_zh": "中廣核惠州港口一",
+   "project_en": "CGN Huizhou Gangkou I",
+   "title_zh": "自升式安裝船「升平 001」傾斜進水，4 人落海失蹤",
+   "title_en": "Jack-up Sheng Ping 001 tilted and flooded; four people lost overboard",
+   "summary_zh": "7 月 25 日上午約 11 時，為中廣核惠州港口一（400 MW）施工的自升式安裝船升平 001（前 Teras Fortress 2）作業中傾斜進水，船上 65 人中 61 人當天撤離、4 人落海失蹤，40 多艘船隻與直升機搜救，27 日晚間仍未尋獲（offshoreWIND.biz 2021-07-26、07-28 引述央視）。",
+   "summary_en": "At about 11:00 on 25 July the jack-up Sheng Ping 001 (ex Teras Fortress 2), working on CGN's 400 MW Huizhou Gangkou I, tilted and flooded; 61 of the 65 on board were evacuated the same day and four went overboard and missing, with more than 40 vessels and helicopters searching and no one found by the night of 27 July (offshoreWIND.biz 26 and 28 Jul 2021 citing CCTV).",
+   "stage_zh": "施工中",
+   "farm_mw": 400,
+   "event_mw": "",
+   "cap_note_zh": "港口一期 400 MW（本站紀錄一、二期合計 1,000 MW）",
+   "turbine": "",
+   "unit_mw": "",
+   "foundation_zh": "",
+   "cod": "2021",
+   "owner": "中國廣核集團 CGN",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "央視：4 人失蹤（後續未查到官方結果）",
+   "cas_en": "CCTV: four missing (no official outcome found)",
+   "lat": 22.55,
+   "lon": 114.95,
+   "coord_note_zh": "本站風場參考點",
+   "org": "offshoreWIND.biz（引述央視）／Baird Maritime",
+   "url1": "https://www.offshorewind.biz/2021/07/26/four-missing-after-jack-up-vessel-tilts-at-offshore-wind-farm-in-china/",
+   "url2": "https://www.offshorewind.biz/2021/07/28/china-search-for-four-missing-people-from-sheng-ping-001-continues/",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "媒體推測為樁腿穿刺（punch-through），官方未公布，不填原因；死亡人數待官方確認。",
+   "note_en": "Press speculated a leg punch-through; nothing official, cause left blank; fatalities await official confirmation.",
+   "site_farm": "CGN Huizhou Gangkou I & II"
+  }
+ },
+ {
+  "farm": "Hornsea One — 2019-08-09",
+  "sources": [
+   {
+    "url": "https://www.ofgem.gov.uk/publications/companies-pay-ps105-million-over-9-august-power-cut",
+    "quote": "Ofgem has concluded that two large power stations, Hornsea One Ltd (co-owned by Orsted) and Little Barford (operated by RWE) did not remain connected after the lightning strike."
+   },
+   {
+    "url": "https://www.ofgem.gov.uk/publications/companies-pay-ps105-million-over-9-august-power-cut",
+    "quote": "They have agreed to make a voluntary payment of £4.5 million each into Ofgem’s redress fund."
+   },
+   {
+    "url": "https://www.offshorewind.biz/2020/01/03/hornsea-one-to-pay-gbp-4-5-million-for-august-power-cut/",
+    "quote": "triggered the subsequent disconnection, loss of power and disruption to more than one million consumers."
+   }
+  ],
+  "data": {
+   "date": "2019-08-09",
+   "country_zh": "英國",
+   "country_en": "United Kingdom",
+   "area_zh": "北海（Yorkshire 外海 120 km）",
+   "area_en": "North Sea, 120 km off Yorkshire",
+   "site": "離岸",
+   "sub_zh": "電網／系統事件",
+   "sub_en": "Grid / system event",
+   "project_zh": "Hornsea One",
+   "project_en": "Hornsea One",
+   "title_zh": "雷擊後風場未保持併網，英國百萬用戶大停電",
+   "title_en": "Farm failed to ride through a lightning strike; over a million UK customers cut off",
+   "summary_zh": "8 月 9 日輸電線路遭雷擊後，Hornsea One（當時仍在安裝、174×7 MW）與 Little Barford 燃氣電廠都未保持併網，合計出力驟降觸發低頻卸載，逾百萬用戶停電、鐵路大亂；Ofgem 調查認定兩者違反併網規範，Hornsea One Ltd 與 RWE 各自願支付 450 萬英鎊（Ofgem 2020-01-03）。",
+   "summary_en": "After lightning hit a transmission line on 9 August, Hornsea One (174 × 7 MW, still being installed) and the Little Barford gas plant both failed to stay connected; the combined loss triggered low-frequency load shedding that cut off more than a million customers and disrupted rail services. Ofgem found both had breached their connection obligations and each made a voluntary £4.5 million payment (Ofgem 3 Jan 2020).",
+   "stage_zh": "試運轉／部分營運",
+   "farm_mw": 1218,
+   "event_mw": 737,
+   "cap_note_zh": "174×7 MW；Ofgem 稱出力由 799 MW 降至 62 MW（報導：失去 2、3 模組共 737 MW）",
+   "turbine": "Siemens Gamesa SWT-7.0-154",
+   "unit_mw": 7.0,
+   "foundation_zh": "單樁",
+   "cod": "2020-01",
+   "owner": "Hornsea One Ltd（Ørsted 50%、GIP 等）",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "",
+   "cas_en": "",
+   "lat": 53.885,
+   "lon": 1.791,
+   "coord_note_zh": "本站風場參考點",
+   "org": "英國 Ofgem",
+   "url1": "https://www.ofgem.gov.uk/publications/companies-pay-ps105-million-over-9-august-power-cut",
+   "url2": "https://www.offshorewind.biz/2020/01/03/hornsea-one-to-pay-gbp-4-5-million-for-august-power-cut/",
+   "verify_zh": "主管機關／業主一手資料",
+   "note_zh": "跨系統事件；風機控制器對電壓波動反應錯誤的技術細節見 Ofgem 調查報告。",
+   "note_en": "A system-wide event; the turbine-controller voltage-response detail is in Ofgem's investigation report.",
+   "site_farm": "Hornsea One"
+  }
+ },
+ {
+  "farm": "Klondike III — 2007-08-25",
+  "sources": [
+   {
+    "url": "https://ohsonline.com/Articles/2008/03/Oregon-OSHA-Fines-Siemens-10500-after-Wind-Turbine-Fatality.aspx?p=1",
+    "quote": "has fined Siemens Power Generation a total of $10,500 for safety violations related to an Aug. 25, 2007, wind turbine tower collapse that killed one worker and injured anoth"
+   },
+   {
+    "url": "https://ohsonline.com/Articles/2008/03/Oregon-OSHA-Fines-Siemens-10500-after-Wind-Turbine-Fatality.aspx?p=1",
+    "quote": "when he released the service brake, wind energy on the out-of-position blades caused an \"overspeed\" condition, causing one of the blades to strike the tow"
+   },
+   {
+    "url": "https://www.nbcnews.com/news/amp/wbna20453035",
+    "quote": "PPM is using 44 Siemens 2.3 megawatt wind turbines and 80 General Electric 1.5 megawatt wind turbines."
+   }
+  ],
+  "data": {
+   "date": "2007-08-25",
+   "country_zh": "美國",
+   "country_en": "United States",
+   "area_zh": "奧勒岡州 Sherman 郡 Wasco",
+   "area_en": "Wasco, Sherman County, Oregon",
+   "site": "陸域",
+   "sub_zh": "塔架倒塌／飛車",
+   "sub_en": "Tower collapse / overspeed",
+   "project_zh": "Klondike III",
+   "project_en": "Klondike III",
+   "title_zh": "維修後煞車放開風機飛車，葉片擊塔倒塌，1 死 1 傷",
+   "title_en": "Overspeed after maintenance; a blade struck the tower and it collapsed, killing one worker",
+   "summary_zh": "施工收尾中的 Klondike III（44×2.3 MW Siemens＋80×1.5 MW GE）一部 Siemens 風機 8 月 25 日倒塌，塔頂的 Siemens 技師 Chadd Mitchell 死亡、塔內另 1 人受傷。奧勒岡 OSHA 調查：技師進輪轂後把葉片轉到最大受風位置並鎖住隔離裝置，離開時未復位，放開服務煞車後風力使轉子飛車、葉片擊中塔架；無結構缺陷，罰 Siemens 10,500 美元（OSHA 2008-03）。美國風電首起工人死亡事故之一。",
+   "summary_en": "On 25 August a Siemens turbine at Klondike III (44 × 2.3 MW Siemens plus 80 × 1.5 MW GE, nearing completion) collapsed, killing Siemens technician Chadd Mitchell at the top and injuring another worker inside. Oregon OSHA found no structural defect: a technician had set the blades to maximum wind resistance and closed the pitch isolation devices, left them that way, and when the service brake was released the out-of-position blades drove the rotor into overspeed and a blade struck the tower; Siemens was fined $10,500 (OSHA, March 2008).",
+   "stage_zh": "施工／試運轉",
+   "farm_mw": 221,
+   "event_mw": 2.3,
+   "cap_note_zh": "Klondike III 221 MW；事件 1 部",
+   "turbine": "Siemens 2.3 MW",
+   "unit_mw": 2.3,
+   "foundation_zh": "",
+   "cod": "2007",
+   "owner": "PPM Energy（今 Avangrid）；風機當時仍屬 Siemens",
+   "deaths": "1",
+   "injuries": "1",
+   "cas_zh": "奧勒岡 OSHA：1 死 1 傷",
+   "cas_en": "Oregon OSHA: one killed, one injured",
+   "lat": 45.58,
+   "lon": -120.61,
+   "coord_note_zh": "本站 Klondike 風場參考點；非事故機位",
+   "org": "奧勒岡 OSHA（經 OH&S）／AP（經 NBC News）",
+   "url1": "https://ohsonline.com/Articles/2008/03/Oregon-OSHA-Fines-Siemens-10500-after-Wind-Turbine-Fatality.aspx?p=1",
+   "url2": "https://www.nbcnews.com/news/amp/wbna20453035",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "",
+   "note_en": "",
+   "site_farm": "Klondike"
+  }
+ },
+ {
+  "farm": "Smith–Putnam wind turbine, Grandpa's Knob — 1945-03-26",
+  "sources": [
+   {
+    "url": "https://www.rutlandherald.com/news/breezin-through-history/article_7b33bc23-bd8e-57b9-95b6-cfa302b5e928.html",
+    "quote": "All proceeded normally until 3:10 in the morning of March 26. That's when disaster struck the turbine. Turning in a 20-mph wind, one of the 75-foot blades suddenly snapped off and hurled off into space."
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Smith%E2%80%93Putnam_wind_turbine",
+    "quote": "The 1.25 MW turbine operated for 1100 hours before a blade failed at a known weak point, which had not been reinforced due to wartime material shortages."
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Smith%E2%80%93Putnam_wind_turbine",
+    "quote": "Repairs were never done after the March 1945 failure. The prototype turbine was dismantled in 1946, leaving only concrete footings and a marker plaque at the site"
+   }
+  ],
+  "data": {
+   "date": "1945-03-26",
+   "country_zh": "美國",
+   "country_en": "United States",
+   "area_zh": "佛蒙特州 Castleton 附近 Grandpa's Knob",
+   "area_en": "Grandpa's Knob near Castleton, Vermont",
+   "site": "陸域",
+   "sub_zh": "葉片斷裂",
+   "sub_en": "Blade failure",
+   "project_zh": "Smith–Putnam 風機（Grandpa's Knob）",
+   "project_en": "Smith–Putnam wind turbine (Grandpa's Knob)",
+   "title_zh": "世界首部百萬瓦級風機葉片斷裂，計畫就此結束",
+   "title_en": "The first megawatt-class turbine lost a blade and the project ended",
+   "summary_zh": "1941 年併網的 1.25 MW 兩葉式 Smith–Putnam 風機累積運轉約 1,100 小時後，1945 年 3 月 26 日凌晨 3:10 在 20 mph 風中一片 8 噸、75 呎長的葉片自葉根斷裂飛出（翼梁舊裂縫延伸，戰時材料短缺未能徹底補強），落在山坡 700 呎外；未再修復，1946 年拆除（Rutland Herald；維基百科）。",
+   "summary_en": "The 1.25 MW two-bladed Smith–Putnam turbine, grid-connected in 1941, had run about 1,100 hours when at 3:10 am on 26 March 1945, in a 20 mph wind, one 8-ton, 75 ft blade snapped at the root (an old crack in the spar had grown; wartime shortages had prevented full reinforcement) and landed 700 ft down the slope; it was never repaired and was dismantled in 1946 (Rutland Herald; Wikipedia).",
+   "stage_zh": "營運",
+   "farm_mw": 1.25,
+   "event_mw": 1.25,
+   "cap_note_zh": "單機 1.25 MW",
+   "turbine": "S. Morgan Smith／Putnam 1.25 MW 兩葉下風式",
+   "unit_mw": 1.25,
+   "foundation_zh": "",
+   "cod": "1941-10-19 首次併網",
+   "owner": "S. Morgan Smith Company（售電給 Central Vermont Public Service）",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "",
+   "cas_en": "",
+   "lat": 43.63,
+   "lon": -73.08,
+   "coord_note_zh": "Grandpa's Knob 山頂概略位置",
+   "org": "Rutland Herald／維基百科",
+   "url1": "https://www.rutlandherald.com/news/breezin-through-history/article_7b33bc23-bd8e-57b9-95b6-cfa302b5e928.html",
+   "url2": "https://en.wikipedia.org/wiki/Smith%E2%80%93Putnam_wind_turbine",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "Mills Archive 寫 3 月 25 日；本列採 Rutland Herald 的 3 月 26 日 3:10。",
+   "note_en": "Mills Archive gives 25 March; this row follows the Rutland Herald (3:10 am, 26 March).",
+   "site_farm": null
+  }
+ },
+ {
+  "farm": "Growian — 1987-08",
+  "sources": [
+   {
+    "url": "https://en.wikipedia.org/wiki/Growian",
+    "quote": "When it was decommissioned it had only logged a total of 420 hours in active operation."
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Growian",
+    "quote": "Growian was decommissioned over the course of 1987, and dismantled in summer 1988."
+   },
+   {
+    "url": "https://wind-works.org/growian-i-and-ii-germanys-giant-failure/",
+    "quote": "In the end Growian cost nearly twice that estimated and was dismantled from 1987 to 1988."
+   }
+  ],
+  "data": {
+   "date": "1987-08",
+   "country_zh": "德國",
+   "country_en": "Germany",
+   "area_zh": "什勒斯維希－霍爾斯坦邦 Kaiser-Wilhelm-Koog",
+   "area_en": "Kaiser-Wilhelm-Koog, Schleswig-Holstein",
+   "site": "陸域",
+   "sub_zh": "設計缺陷／提前除役",
+   "sub_en": "Design faults / early decommissioning",
+   "project_zh": "Growian 大型風機試驗",
+   "project_en": "Growian large wind turbine test",
+   "title_zh": "世界最大 3 MW 試驗風機只運轉 420 小時即除役",
+   "title_en": "The world's largest 3 MW test turbine was retired after only 420 operating hours",
+   "summary_zh": "1983 年投入測試的 3 MW、葉輪直徑 100 公尺兩葉下風式 Growian 因多項嚴重設計缺陷無法持續試運轉，1987 年 8 月停止運作時只累積 420 小時發電，1987 年除役、1988 年夏拆除，造價近估算的兩倍（維基百科；wind-works.org）。被視為風電史上最大的失敗案例之一，但 25 年後同尺寸機型成為市場主流。",
+   "summary_en": "The 3 MW, 100 m rotor, two-bladed downwind Growian, tested from 1983, could not sustain test operation because of serious design faults; when it stopped in August 1987 it had logged only 420 hours, was decommissioned in 1987 and dismantled in summer 1988 at nearly twice the estimated cost (Wikipedia; wind-works.org). Regarded as one of wind power's great failures, though turbines of the same size dominated the market 25 years later.",
+   "stage_zh": "試運轉",
+   "farm_mw": 3,
+   "event_mw": 3,
+   "cap_note_zh": "單機 3 MW",
+   "turbine": "Growian 3 MW 兩葉下風式（MAN）",
+   "unit_mw": 3.0,
+   "foundation_zh": "",
+   "cod": "1983-10-04 正式啟用",
+   "owner": "Growian GmbH（HEW、Schleswag、RWE）",
+   "deaths": "",
+   "injuries": "",
+   "cas_zh": "",
+   "cas_en": "",
+   "lat": 53.98,
+   "lon": 8.93,
+   "coord_note_zh": "本站 Growian 紀錄位置",
+   "org": "維基百科／wind-works.org",
+   "url1": "https://en.wikipedia.org/wiki/Growian",
+   "url2": "https://wind-works.org/growian-i-and-ii-germanys-giant-failure/",
+   "verify_zh": "媒體報導核對（出處原文已以 check_quotes 核對）",
+   "note_zh": "輪轂裂縫的說法只有二手來源，摘要不寫。",
+   "note_en": "The hub-crack account is second-hand only and is left out of the summary.",
+   "site_farm": "Growian"
+  }
+ }
+]
