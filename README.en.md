@@ -195,10 +195,13 @@ output and sea zones load only when needed.
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
 - `data/global/turbines_de.json` — position and specs of every German turbine (MaStR; about 6,600 farms, 26,000 turbines), built by `tools/build_mastr.py`;
   **shared under the Data licence Germany – attribution – 2.0 (© Bundesnetzagentur | Marktstammdatenregister)**; `data/global/sources/mastr_parks_DEU.json` lists the German farms added to the farm layer
+- `data/global/turbines_dk.json` — position and specs of every Danish turbine (the Energy Agency's Stamdataregister for vindkraftanlæg; 103 farms, 1,324 turbines), built from the "Vinddata" workbook by
+  `tools/build_turbines_dk.py` (matched within 12 km at sea / 3 km on land and ±15% of capacity); credited as Energistyrelsen, the dataset and the retrieval date per the agency's data terms
+  (the retrieval month is in the file's meta); used first for Danish farms, OpenStreetMap only where it has no match
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
   turbines), downloaded by `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
   Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
-  non-US farm is selected (Germany prefers MaStR)
+  non-US farm is selected (Germany prefers MaStR, Denmark the Energy Agency's register)
 - `data/global/generation.json` — actual yearly output and capacity factor of farms (834 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
   19 Taipower-owned farms in Taiwan from Taipower open data 17140; 54 Danish farms from the Danish Energy Agency's turbine register, matched by location;
   64 Australian farms from AEMO's 5-minute SCADA output per unit; the turbine model when a farm has only one, for the Output dialog's same-model comparison),
@@ -551,7 +554,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Turbine makers and owners (the globe's "Makers & owners"): makers from the US USWTDB (public domain), Germany's MaStR (above) and the turbine field of the site's farm records (OpenStreetMap is not used); owners and stakes of operating units from GEM's Global Wind Power Tracker, February 2026 release (CC BY 4.0)
 - Country indicators (the globe's indicator colouring and country comparison): wind share of generation, wind generation and the national average capacity factor from [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/) (CC BY 4.0);
   per-capita capacity divides the site's year-end capacity by [Our World in Data's population series](https://ourworldindata.org/grapher/population) (CC BY 4.0, based on UN World Population Prospects and others)
-- Turbine positions: the US [USWTDB](https://energy.usgs.gov/uswtdb/) (USGS, LBNL, American Clean Power Association; public domain); Germany's MaStR (above);
+- Turbine positions: the US [USWTDB](https://energy.usgs.gov/uswtdb/) (USGS, LBNL, American Clean Power Association; public domain); Germany's MaStR (above); Denmark's [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) (the agency's data terms; retrieval date in the meta of `turbines_dk.json`);
   elsewhere © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (ODbL 1.0; the derived `data/global/turbines_osm.json` is likewise shared under the ODbL)
 - Foundations: OSPAR Offshore Renewable Energy Developments 2024 (CC0); every other farm's sources (developers, construction contractors, government documents,
   trade press) are in [docs/foundations.en.md](./docs/foundations.en.md)

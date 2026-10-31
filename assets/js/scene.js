@@ -225,7 +225,7 @@ function open(f, H, fromBtn) {
   el.querySelectorAll('[data-v]').forEach(b => b.onclick = () => setView(b.dataset.v));
   el.querySelector('.scn-back').onclick = () => close();
   // 說明與出處 · notes and credits
-  const srcName = { us: L('USWTDB（美國風機資料庫，公有領域）', 'USWTDB (U.S. Wind Turbine Database, public domain)'), de: L('MaStR（© Bundesnetzagentur | Marktstammdatenregister）', 'MaStR (© Bundesnetzagentur | Marktstammdatenregister)'), osm: L('OpenStreetMap 志工標的位置（© OpenStreetMap 貢獻者，ODbL）', 'positions mapped by OpenStreetMap volunteers (© OpenStreetMap contributors, ODbL)') }[tb.src];
+  const srcName = { us: L('USWTDB（美國風機資料庫，公有領域）', 'USWTDB (U.S. Wind Turbine Database, public domain)'), de: L('MaStR（© Bundesnetzagentur | Marktstammdatenregister）', 'MaStR (© Bundesnetzagentur | Marktstammdatenregister)'), dk: L('丹麥能源署風機登記檔（Energistyrelsen，Stamdataregister for vindkraftanlæg）', 'the Danish Energy Agency\'s turbine register (Energistyrelsen, Stamdataregister for vindkraftanlæg)'), osm: L('OpenStreetMap 志工標的位置（© OpenStreetMap 貢獻者，ODbL）', 'positions mapped by OpenStreetMap volunteers (© OpenStreetMap contributors, ODbL)') }[tb.src];
   const live = H.live(f);
   const lines = [
     tb.real ? L(`${n} 部風機在實際位置：`, `${n} turbines at their real positions: `) + srcName : L(`${n} 部風機為示意排列（依機組數推算，本站沒有這座風場的實際機位）`, `${n} turbines in a schematic layout (estimated from the unit count; no real positions on file)`),
@@ -234,13 +234,13 @@ function open(f, H, fromBtn) {
     port ? L('從', 'Starting from ') + (WW.lang === 'en' ? port.name : (port.zh || port.name)) + L('出發（港區只有衛星影像，不畫建物）', ' (the port area is imagery only; no buildings are drawn)') : (sea ? L('本站沒有這座風場對應的港口，從外海進場', 'No port on file for this farm; approaching from open water') : null),
     live ? L(`此刻出力 ${WW.int(live.mw)} MW，葉片依出力轉動`, `Output now ${WW.int(live.mw)} MW; the blades turn with it`) : L('葉片轉速為示意', 'Blade speed is illustrative'),
     H.posNote && H.posNote(f) ? L('這座風場的座標只是概略位置（見卡片說明），畫面可能落在離實際位置幾公里的地方，甚至在陸地上。', 'This farm\'s coordinates are only approximate (see the card), so the scene may sit kilometres from the real site, even on land.') : null,
-    nbDrawn.length ? L(`淡色風機是 10 km 內的其他風場（${nbDrawn.map(x => x.name + (x.t.real ? '（' + { us: 'USWTDB', de: 'MaStR', osm: 'OSM' }[x.t.src] + '）' : '［示意］')).join('、')}）`, `Pale turbines belong to other farms within 10 km (${nbDrawn.map(x => x.name + (x.t.real ? ' (' + { us: 'USWTDB', de: 'MaStR', osm: 'OSM' }[x.t.src] + ')' : ' [schematic]')).join(', ')})`) : null,
+    nbDrawn.length ? L(`淡色風機是 10 km 內的其他風場（${nbDrawn.map(x => x.name + (x.t.real ? '（' + { us: 'USWTDB', de: 'MaStR', dk: '丹麥能源署', osm: 'OSM' }[x.t.src] + '）' : '［示意］')).join('、')}）`, `Pale turbines belong to other farms within 10 km (${nbDrawn.map(x => x.name + (x.t.real ? ' (' + { us: 'USWTDB', de: 'MaStR', dk: 'Energistyrelsen', osm: 'OSM' }[x.t.src] + ')' : ' [schematic]')).join(', ')})`) : null,
     sea ? L('海面的波紋與天空倒影為示意，不是當天的浪況', 'Ripples and sky reflection on the water are illustrative, not today\'s sea state') : null,
     L('衛星影像的拍攝日期常早於風場完工，所以影像裡通常看不到風機；海岸線與地形以影像為準，沒有高程。', 'The imagery is often older than the farm, so the turbines themselves are usually not in it; coastlines follow the imagery and there is no terrain relief.')
   ].filter(Boolean);
   el.querySelector('.scn-hud').innerHTML = '<ul>' + lines.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul>';
   const srcs = new Set([tb.src].concat(nbDrawn.map(x => x.t.src)).filter(Boolean));   // 本場與畫出的相鄰風場用到的機位來源都要標示 · credit every position source drawn
-  el.querySelector('.scn-cr').textContent = L('影像 © Esri, Vantor, Earthstar Geographics', 'Imagery © Esri, Vantor, Earthstar Geographics') + (srcs.has('osm') ? ' · © OpenStreetMap contributors (ODbL)' : '') + (srcs.has('de') ? ' · © Bundesnetzagentur | MaStR' : '') + (srcs.has('us') ? ' · USWTDB' : '');
+  el.querySelector('.scn-cr').textContent = L('影像 © Esri, Vantor, Earthstar Geographics', 'Imagery © Esri, Vantor, Earthstar Geographics') + (srcs.has('osm') ? ' · © OpenStreetMap contributors (ODbL)' : '') + (srcs.has('de') ? ' · © Bundesnetzagentur | MaStR' : '') + (srcs.has('dk') ? ' · ' + (tb.credit || (nbDrawn.find(x => x.t.credit) || { t: {} }).t.credit || 'Energistyrelsen, Stamdataregister for vindkraftanlæg') : '') + (srcs.has('us') ? ' · USWTDB' : '');
   // 迴圈 · loop
   const spin = live ? H.spin(live) : 1;                                // 0–2：地球儀近看的轉速係數 · the close-up's speed factor
   const rpm = (spin == null ? 1 : spin) * 60 * 55 / (Math.PI * rotor);  // 葉尖約 55 m/s × 係數 · tip speed about 55 m/s × factor

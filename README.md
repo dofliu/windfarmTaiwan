@@ -158,8 +158,10 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；967 座風場、約 6.1 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
 - `data/global/turbines_de.json` — 德國每部風機的位置與規格（MaStR；約 6,600 座風場、2.6 萬部），由 `tools/build_mastr.py` 產生；
   **以 Datenlizenz Deutschland – Namensnennung 2.0 分享（© Bundesnetzagentur | Marktstammdatenregister）**；`data/global/sources/mastr_parks_DEU.json` 是要加進風場層的德國風場
+- `data/global/turbines_dk.json` — 丹麥每部風機的位置與規格（能源署風機登記檔 Stamdataregister for vindkraftanlæg；103 座風場、1,324 部），由 `tools/build_turbines_dk.py` 從「Vinddata」產生（海域 12 km、陸域 3 km 內、容量 ±15% 才配對）；
+  依能源署資料使用條款標示 Energistyrelsen、資料集與取用時間（取用月份在檔案的 meta）；點到丹麥風場時先用它，對不到的才用 OpenStreetMap
 - `data/global/turbines_osm.json` — 其他國家的風機位置（OpenStreetMap；約 6,100 座風場、13.9 萬部），由 `tools/fetch_osm_turbines.py` 下載、`tools/build_turbines_osm.py` 對到本站風場；
-  **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入（德國以 MaStR 優先）
+  **這個檔案以開放資料庫授權 ODbL 1.0 分享（© OpenStreetMap 貢獻者）**，與網站其他資料的授權不同；點到美國以外的風場時才載入（德國以 MaStR、丹麥以能源署登記檔優先）
 - `data/global/generation.json` — 風場的實際年發電量與容量因數（美國 834 座：EIA-923，容量以 EIA-860M 登記的裝置容量計，公有領域；台灣 19 座台電自有風場：台電開放資料 17140；
   丹麥 54 座：丹麥能源署風機登記檔，依位置歸到本站風場；澳洲 64 座：AEMO 每個機組每 5 分鐘的 SCADA 實測出力加總；風場只有一種機型時附機型，給「發電表現」的同機型比較），
   由 `tools/build_generation.py`（丹麥的規則在 `tools/dk_output.py`，澳洲在 `tools/au_output.py`）產生，第一次打開風場卡片時才載入；
@@ -419,7 +421,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - 風機廠牌與業主（地球儀「廠牌與業主」）：廠牌取自美國 USWTDB（公有領域）、德國 MaStR（見上）與本站風場紀錄的機型欄（不用 OpenStreetMap）；業主取自 GEM Global Wind Power Tracker 2026-02 版（CC BY 4.0）營運中機組的業主與持股比例
 - 各國指標（地球儀「指標」上色與國家比較）：風電占發電比例、風電發電量與全國平均容量因數取自 [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/)（CC BY 4.0）；
   人均容量用 [Our World in Data 的人口序列](https://ourworldindata.org/grapher/population)（CC BY 4.0，依聯合國《世界人口展望》等整理）除本站的年底容量
-- 風機位置：美國 [USWTDB](https://energy.usgs.gov/uswtdb/)（USGS、LBNL、American Clean Power Association，公有領域）；德國 MaStR（見上）；
+- 風機位置：美國 [USWTDB](https://energy.usgs.gov/uswtdb/)（USGS、LBNL、American Clean Power Association，公有領域）；德國 MaStR（見上）；丹麥 [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren)（能源署資料使用條款，取用時間見 `turbines_dk.json` 的 meta）；
   其他國家 © [OpenStreetMap](https://www.openstreetmap.org/copyright) 貢獻者（ODbL 1.0，衍生的 `data/global/turbines_osm.json` 同樣以 ODbL 分享）
 - 水下基礎：OSPAR Offshore Renewable Energy Developments 2024（CC0）；其他逐場出處（開發商、施工廠商、政府文件、產業新聞）寫在 [docs/foundations.md](./docs/foundations.md)
 - 重大事件與事故、港口：逐筆附主管機關、業主或產業新聞的出處（[docs/events.md](./docs/events.md)、`data/global/ports.json`）

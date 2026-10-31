@@ -93,6 +93,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   Production is published for company-owned turbines only (none for private persons, sole proprietors or partnerships): never present part of a farm as the whole farm or loosen the
   matching to fill gaps. The agency's terms require crediting "Energistyrelsen", the dataset name (Stamdataregister for vindkraftanlæg) and the retrieval date on the site and in the
   README; the build writes the retrieval month from the downloaded file's time into the data files and the site reads it from there, so never hard-code it.
+- 丹麥每部風機的實際位置（`data/global/turbines_dk.json`）由 `tools/build_turbines_dk.py` 從同一份「Vinddata」產生（只用還在運轉的風機，依位置海域 12 km、陸域 3 km 與容量 ±15% 對到本站營運中的丹麥風場，規則同 `dk_output.py`）；
+  地球儀近看與實景視角對丹麥先用它、對不到才用 OpenStreetMap。標示方式與取用月份同上（寫在 meta）；下載新的登記檔或重建風場層後重跑。
+  Danish turbine positions (`data/global/turbines_dk.json`) are built from the same "Vinddata" workbook by `tools/build_turbines_dk.py` (operating turbines only, matched to the site's operating Danish farms within 12 km at sea / 3 km on land and ±15% of capacity, the same rules as `dk_output.py`);
+  the close-up and the sea-level view use it first for Denmark and OpenStreetMap only where it has no match. Credit and retrieval month as above (in the meta); re-run after downloading a newer register or rebuilding the farm layer.
 - 澳洲實測發電量（`tools/au_output.py`）：`python3 tools/au_output.py fetch 起月 迄月` 下載 AEMO MMSDM 月檔（每個機組每 5 分鐘的 SCADA 出力、登記容量），彙整成
   `data/global/sources/aemo_wind_monthly.json`（進 git），`build_generation.py` 自動讀取。機組經 `data/live/units.json`（與即時出力同一份對照）接到本站風場；一個機組分給好幾座風場的不用，
   前一年 1 月時還沒發電、當年登記容量有變動、5 分鐘資料不到 98% 的年份不用，容量因數以 AEMO 登記容量計、與本站紀錄相差 15% 以上的不用。實測值含限電，介面要寫明；

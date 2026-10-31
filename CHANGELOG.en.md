@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.19.0 — 2026-10-31
+
+- **Danish farms use the Energy Agency register's real turbine positions**: the agency's turbine register (Stamdataregister for vindkraftanlæg, the same "Vinddata" workbook as the measured output) carries every turbine's position, rating, model, hub height and rotor diameter; the new `tools/build_turbines_dk.py` matches them by position and capacity to the site's Danish farms (103 farms, 1,324 turbines, 4,536 MW, 91% of Denmark's operating capacity; 10 farms whose capacity does not match are skipped and keep OpenStreetMap). The globe's close-up and the sea-level view use it first for Danish farms, and the card's "Turbines" row, the sea-level notes and credit line and the Sources dialog credit the agency, the dataset and the retrieval month (read from the file's meta).
+
 ## v3.18.0 — 2026-10-31
 
 - **Taiwan's offshore farms count on the timeline as they connected** (the owner's choice on 31 Oct 2026): large farms connected in stages used to appear whole only on completion, so Yunlin, Formosa 2, Changfang & Xidao and Greater Changhua 1&2a counted from 2025, 2023, 2024 and 2024; they now count year by year at their year-end connected capacity (the card's "Phases" lists the years), and the timeline at 2021–2024 shows them growing.
