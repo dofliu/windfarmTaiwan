@@ -31,7 +31,7 @@ const I18N = {
     world: '全世界', worldTotal: '全球累計', countriesWith: '個國家有風電', top15: n => '全球前 ' + n + ' 名', inRegion: n => '區域內前 ' + n + ' 名',
     cont: { Asia: '亞洲', Europe: '歐洲', 'North America': '北美洲', 'South America': '南美洲', Africa: '非洲', Oceania: '大洋洲' },
     turbine: '單機', farm: '風場', rotor: '葉輪直徑', type: { onshore: '陸域', offshore: '離岸', floating: '浮動式' },
-    st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'],
+    st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'], partly: '部分併網', partlyT: (y0, y1) => y0 + ' 起分期併網，預計 ' + y1 + ' 年全部完工',
     srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界', anaGrow: '⤢ 放大', anaShrink: '⤡ 縮回面板', more: '更多', drawer: '展開或收起面板',
     wTitle: '你想做什麼？', wSub: '四個起點，之後都可以從工具列換。', wExplore: '看風電怎麼長大', wExploreS: '從 1980 年播放到今天，看裝置容量在地球上長出來', wCmp: '比較國家', wCmpS: '台灣、中國、美國、丹麥並排：容量、人均、占比、容量因數', wLive: '看此刻', wLiveS: '哪些國家有即時出力、此刻的風電出力有多少', wStory: '聽故事', wStoryS: '地圖跟著站點飛，附中英文旁白', wSkip: '先看看地圖', wAgain: '之後可從「導覽」選單的「任務卡」再打開', tourCards: '✦ 任務卡：從這裡開始',
     msFocus: '點里程碑可跳到該年份並把鏡頭飛到現場',
@@ -252,7 +252,7 @@ const I18N = {
     sampNote: (a, b, u, part) => `${a} to ${b}, Taipower live data sampled every 30 minutes to 2 hours (${u}); an estimate from samples, not official yearly generation, and summer is the low-wind season.` + (part ? ' Some units are still in testing; only units with a listed capacity count.' : ''),
     fsPh: 'Search farms, developers, turbines, countries or ports…', fsSt: 'Status', fsTy: 'Type', fsMin: 'Size', fsYear: 'Year', fsSort: 'Sort', fsAny: 'Any', fsName: 'Name',
     fsClear: 'Clear filters', fsWorld: 'Search worldwide', fsScope: s => `Scope: ${s}`, fsCount: (n, mw) => `${n} matching · ${mw}`, fsAll: (n, mw) => `${n} farms · ${mw}`,
-    fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
+    partly: 'partly connected', partlyT: (y0, y1) => 'connected in phases from ' + y0 + ', completion expected in ' + y1, fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
     fsHud: n => `🔍 Filter on: the map shows only the ${n} matching farms`, fsNone: 'No farms match.', fsKey: 'Press / to search',
     role: { marshalling: 'Marshalling', foundation: 'Foundations', tower: 'Towers', blade: 'Blades', nacelle: 'Nacelles', cable: 'Cables', floating: 'Floating assembly', om: 'O&M base' },
     portTag: 'Port', portDev: 'in development', portOld: 'no longer active', portSince: y => `since ${y}`, portFarms: 'Wind farms served', portOther: 'Other projects: ',
@@ -434,6 +434,12 @@ function layerChanged() {
 function showFarm(f) { return layerOk(f.type) && (S.layer !== 'fd' || (!f.pipe && (!S.fdOnly || fdGroup(f) === S.fdOnly))); }
 const PIPE_HEX = [0, 0xe3eaf5, 0x9fb0c9, 0x6a7c97];                // 興建中 → 前期開發 → 已宣布（有序，越接近完工越亮）
 const stCls = f => f.st === 1 ? 'p1' : f.st === 2 ? 'p2' : f.st === 3 ? 'p3' : f.st === 4 ? 'ret' : (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off');
+/* 分期併網中的營運風場：已有機組併網發電、其餘分期還沒完工（分期表的最後一年在時間軸之後）；卡片與清單加「部分併網」標籤。
+   An operating farm still connecting in phases (turbines generating, later phases not yet built: the last phase year is after
+   the timeline year); the card and lists add a "partly connected" tag. */
+const phEnd = f => f.ph ? f.ph.reduce((m, p) => Math.max(m, p[0] || 0), 0) : 0;
+const partlyAt = (f, y) => !f.pipe && !!f.ph && f.ph.length > 1 && phEnd(f) - BUILD > (y == null ? S.year : y);
+const partlyTag = f => partlyAt(f) ? '<span class="gtag partly" title="' + esc(T('partlyT')(f.year, phEnd(f))) + '">' + esc(T('partly')) + '</span>' : '';
 
 /* ================= boot ================= */
 let THREEOK = true;
@@ -1348,7 +1354,7 @@ function updateClusters(now, force) {
 function animateClusters(dt) {
   clusters.forEach((g, f) => {
     const u = g.userData, n = u.P.length;
-    const built = (f.yu || f.pipe) ? n : clamp(Math.ceil(n * fAge(f) / BUILD), 0, n);
+    const built = (f.yu || f.pipe) ? n : f.ph && f.ph.length > 1 ? clamp(Math.round(n * farmMwAt(f, S.year) / f.mw), 0, n) : clamp(Math.ceil(n * fAge(f) / BUILD), 0, n);   // 分期：只畫已併網的那一部分 · phased farms: only the connected share
     if (built !== u.count) { u.count = built; u.tower.count = built; u.nac.count = built; u.rotor.count = built; }
     const lv = liveOn() && liveFor(f);
     if (!!lv !== u.live) { u.live = !!lv; u.ring.material = lv ? clusterMats.liveRing : u.ringMat; }   // 有即時資料：外圈改為即時綠
@@ -1965,7 +1971,7 @@ function farmRow(f) {
   const yr = f.pipe ? (f.year ? T('expected') + ' ' + f.year : T('st')[f.st]) : (f.yu ? '—' : f.year + (f.end ? '–' + f.end : ''));
   const where = S.region !== f.iso && byIso[f.iso] ? ' · ' + esc(cname(byIso[f.iso])) : '';
   d.innerHTML = '<span class="y">' + esc(String(yr)) + '</span><span class="n">' + esc(fname(f)) + '</span>' +
-    '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + fmtMW(f.mw) + where + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(ownerTxt(f)) : '') + '</span>';
+    '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + partlyTag(f) + fmtMW(f.mw) + where + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(ownerTxt(f)) : '') + '</span>';
   const lv = liveOn() && liveFor(f);
   if (lv) d.querySelector('.t').insertAdjacentHTML('beforeend', ' · <b class="lv">● ' + WW.num(lv.mw, lv.mw < 100 ? 1 : 0) + ' MW</b>');
   d.onclick = () => selectFarm(f);
@@ -3301,14 +3307,14 @@ function renderCard(it) {
     desc = lang === 'zh' ? (pt.zhNote || pt.en) : pt.en;
   } else {
     title = fname(f); if (lang === 'zh' && f.zh) sub = f.name;
-    tag = '<span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + (f.pipe ? '<span class="gtag ' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off') + '">' + T('type')[f.type] + '</span>' : '');
+    tag = '<span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + partlyTag(f) + (f.pipe ? '<span class="gtag ' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off') + '">' + T('type')[f.type] + '</span>' : '');
     needTurbines(f); needGen();
     const sp = turbSpec(f);
     const phases = f.ph && f.ph.length < 2 ? ' · ' + f.ph.map(p => (p[0] || '?') + ': ' + WW.int(p[1])).join(', ') + ' MW' : '';   // 兩期以上另畫分期時間軸
     spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(ownerTxt(f)) : '');
     desc = it.why || '';
   }
-  const yrs = it.kind === 'turb' ? (it.year ? T('outConn')(it.year) : '') : it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : ''));
+  const yrs = it.kind === 'turb' ? (it.year ? T('outConn')(it.year) : '') : it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : partlyAt(f, Y1) ? '–' + phEnd(f) : ''));
   const bare = it.name.replace(/ · .*$/, ''), la = (+it.lat).toFixed(5), lo = (+it.lon).toFixed(5);
   const q = encodeURIComponent(it.kind === 'port' ? (it.zh && lang === 'zh' ? it.zh + ' 離岸風電' : bare + ' offshore wind')
     : (it.zh && lang === 'zh' ? it.zh : bare) + (/wind|turbine|風/i.test(it.name) ? '' : ' wind farm'));

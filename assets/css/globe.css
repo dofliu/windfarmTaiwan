@@ -118,6 +118,7 @@
 #globe .gtag.off{color:var(--off-b);border-color:var(--off)}
 #globe .gtag.floating{color:var(--fl-b);border-color:var(--fl)}
 #globe .gtag.p1{color:var(--p1);border-color:var(--p1);border-style:dashed}
+#globe .gtag.partly{color:#ffd98a;border-color:#ffd98a;border-style:dashed}
 #globe .gtag.p2{color:var(--p2);border-color:var(--p2);border-style:dashed}
 #globe .gtag.p3{color:var(--p3);border-color:var(--p3);border-style:dashed}
 #globe .gtag.ret{color:var(--ginkm);border-color:var(--ginkm)}
