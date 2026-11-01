@@ -109,11 +109,11 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   copyright permissions require crediting AEMO and the dataset (MMS Data Model) next to the data. Capacity factors in every country use the hours in the year (8,784 in leap years).
 - 德國（`tools/build_mastr.py`，MaStR，Datenlizenz Deutschland – Namensnennung 2.0，標示「© Bundesnetzagentur | Marktstammdatenregister」）：每部風機依風場名稱與位置分群，
   對到本站德國風場（名稱、距離、容量 ±20%，配到的機組年份與風場商轉年不符時依年份改配；名稱比對會配錯、已人工核對的寫在 `MANUAL`，附出處）就寫進 `turbines_de.json`；其餘 1 MW 以上的陸域群在附近沒有可能相同的本站紀錄時，才列進 `sources/mastr_parks_DEU.json`
-  由 `build_farms.py` 加進風場層（來源代碼 4）。建置會檢查「本站陸域＋新增」不超過 MaStR 陸域容量的 102%，超過表示重複，要找出原因，不要放寬門檻了事。
+  由 `build_farms.py` 加進風場層（來源代碼 4）。建置會檢查「本站陸域＋新增」不超過 MaStR 陸域容量的 102%，超過表示重複，要找出原因，不要放寬門檻了事。GEM 還列規劃中、但 3 km 內有同名、容量 ±25%、2025 年起運轉的 MaStR 風場的，建置時以 MaStR 為準刪掉規劃中那筆（log 記 `MASTR-BUILT`）。
   Germany (`tools/build_mastr.py`, MaStR, Data licence Germany – attribution 2.0, credit "© Bundesnetzagentur | Marktstammdatenregister"): turbines are grouped
   by farm name and location; groups matched to a site farm (name, distance, capacity ±20%; re-matched by start year when the units' years do not fit the farm, and hand-checked matches with sources in `MANUAL`) go to `turbines_de.json`; other onshore groups of 1 MW+ with no
   possibly identical site record nearby go to `sources/mastr_parks_DEU.json`, added by `build_farms.py` as source code 4. The build stops if site onshore +
-  added exceeds 102% of the MaStR onshore total (duplicates): find the cause rather than loosening the thresholds.
+  added exceeds 102% of the MaStR onshore total (duplicates): find the cause rather than loosening the thresholds. A GEM pipeline record with a same-name MaStR park within 3 km, ±25% capacity and operating from 2025 is dropped in favour of the register (logged as `MASTR-BUILT`).
 - 英國（`tools/build_repd.py`，REPD，Open Government Licence v3.0）：每季的 REPD CSV（gov.uk）對到本站英國風場（名稱互相包含、陸域 8 km／離岸 40 km、一筆配一座），輸出 `data/global/sources/repd_GBR.json`，
   `build_farms.py` 只做保守補充：本站規劃中而 REPD 已營運（容量 ±25%、商轉年不比預計年早 2 年以上）的改營運中，沒寫的機組與業主補上，概略座標與同名但離 20 km 以上的點改用 REPD 格網座標，還沒收錄的營運中陸域風場以來源代碼 5 加入；
   本站已營運的不改年份，REPD 標已除役但沒日期的只記 log。配錯的用 `SKIP_UP` 排除並寫理由；建置會檢查英國陸域加總不超過官方的 102%。新一季 REPD 發布後重跑：先 `SKIP_REPD=1` 建置一次、跑 `build_repd.py`、再正常建置（它要對還沒套用 REPD 的風場層比對）。

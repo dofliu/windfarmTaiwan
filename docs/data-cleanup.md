@@ -6,21 +6,21 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 925 條：刪除 264 筆（其中營運中 49,429.4 MW），修正 661 筆。另有 1204 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 943 條：刪除 272 筆（其中營運中 49,486.1 MW），修正 671 筆。另有 1204 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
 | 國家 | 刪除 | 營運中 MW | 修正 |
 |---|---:|---:|---:|
 | CMR | 1 | 100 | 0 |
-| 中國大陸 | 63 | 27,723.5 | 193 |
+| 中國大陸 | 64 | 27,723.5 | 194 |
 | 丹麥 | 1 | 180 | 6 |
 | 以色列 | 1 | 21 | 1 |
 | 伊朗 | 2 | 62 | 3 |
 | 克羅埃西亞 | 0 | 0 | 2 |
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
-| 南韓 | 4 | 158.3 | 9 |
+| 南韓 | 5 | 200.3 | 9 |
 | 印度 | 8 | 525 | 55 |
 | 台灣 | 2 | 0 | 26 |
 | 哥倫比亞 | 1 | 8 | 3 |
@@ -32,24 +32,24 @@
 | 多明尼加 | 2 | 50 | 8 |
 | 奧蘭 | 0 | 0 | 1 |
 | 巴西 | 2 | 208.5 | 4 |
-| 德國 | 11 | 265 | 25 |
+| 德國 | 11 | 265 | 29 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
 | 摩洛哥 | 3 | 642 | 3 |
 | 日本 | 2 | 30 | 15 |
 | 智利 | 1 | 105.6 | 0 |
 | 比利時 | 2 | 343 | 0 |
-| 法國 | 50 | 1,200.5 | 105 |
+| 法國 | 51 | 1,200.5 | 107 |
 | 波蘭 | 1 | 45 | 4 |
 | 泰國 | 1 | 600 | 7 |
-| 澳洲 | 4 | 1,161 | 8 |
+| 澳洲 | 4 | 1,161 | 9 |
 | 烏拉圭 | 1 | 141.6 | 1 |
-| 瑞典 | 0 | 0 | 5 |
+| 瑞典 | 0 | 0 | 6 |
 | 立陶宛 | 1 | 50 | 0 |
 | 約旦 | 1 | 117 | 0 |
 | 納米比亞 | 0 | 0 | 1 |
 | 羅馬尼亞 | 16 | 2,439 | 11 |
-| 美國 | 7 | 943.6 | 8 |
+| 美國 | 12 | 958.3 | 9 |
 | 義大利 | 11 | 398 | 14 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 2 |
@@ -264,6 +264,8 @@
 | CTG Yangjiang Shapa Phase 2 · 400 MW · 2021 | 精選 | 修正：機組 | 沙扒二期海域使用補充論證報告書（陽江市自然資源局，建成後）：62 台 6.45 MW，機型為明陽 MySE6.45-180 與金風 GW171/6450 兩種，2021-11-27 最後一台併網；兩種機型各幾台報告沒寫；三峽能源招股書：二期風機及塔筒分兩個標段，I 標明陽智慧（14.996 億元）、II 標金風科技（14.646 億元），GlobalData（Energy Monitor）列二期 I、II 各 31 台，機型欄依此寫明陽、金風各 31 台（原寫 62 台全為明陽） | [連結](http://www.yangjiang.gov.cn/yjzrzy/attachment/0/58/58162/731643.pdf) |
 | Shandong Bandaonan U2 (Guohua) Offshore wind farm · 603.5 MW | GEM | 修正：狀態、年份、機組 | 山東半島南 U 場址（150 萬瓩，含國家電投 U1 的 90 萬瓩與國家能源集團 U2 的 60 萬瓩，共 177 台）2024-10-26 實現全容量併網（威海市委對外宣傳辦經澎湃新聞 2024-10-29；山東 2024-12 報導同）；國家能源集團 2025-09：U2 安裝 71 台 8.5 MW、603.5 MW（機型為遠景 EN226-8.5，世紀新能源網的專案介紹）。改為營運中 2024 年。中證鵬元 2025-06 評級報告把 U2 列在「截至 2024 年末在建、擬建項目」，應是會計上尚未結轉 | [連結](https://m.thepaper.cn/newsDetail_forward_29177936) |
 | Liaoning Changtu Sanjiangkou (Liaoning Water Management) wind farm · 99 MW | GEM | 重複（併入「Liaoning Changtu Sanjiangkou wind farm」） | 兩筆都是辽宁省水资源集团（辽水清洁能源）在昌图县三江口镇的約 99 MW 風場：前者 99.2 MW、2023 年，業主辽宁水资源集团清洁能源；後者 99 MW、沒有年份，營運者同樣是辽宁水资源集团清洁能源。集團自己說昌图三江口 99.2 MW 是「集团首个风电项目」，招標公告也寫明該風場位於三江口镇、裝置容量 99.2 MW、招標人昌图水资源清洁能源有限公司，可見集團在三江口只有這一座，後者是重複。保留有年份與較準座標的前者。 | [連結](http://www.60654a.com/home/ywly/detail/id/344) |
+| Liaoning Haicheng CTG Wind Power Project · 150 MW | GEM | 重複（併入「Liaoning Haicheng CTG wind farm」） | 兩筆都是三峽能源在海城的 150 MW 風電項目，座標完全相同，GEM 兩頁引用同一篇「三峽能源150MW風電項目首台風機吊裝完成」報導；營運中那頁已記為 2025 年商轉，規劃中這筆是過時的施工階段紀錄，應刪除。 | [連結](https://www.gem.wiki/Liaoning_Haicheng_CTG_wind_farm) |
+| Liaoning Haicheng CTG wind farm · 150 MW · 2025 | GEM | 修正：業主 | 業主補上（同一專案的規劃中紀錄已併入） | [連結](https://www.gem.wiki/Liaoning_Haicheng_CTG_wind_farm) |
 | Shanghai Fengxian Bay Retrofit and Upgrade wind farm · 48 MW | GEM | 重複（併入「Shanghai Fengxian Haiwan 1 wind farm」） | 同一個汰換案：上海市發改委 2023 年清單的「奉賢海灣風電場改造升級」（上海新能源環保工程，陸上風電 4.8 萬瓩，前期）在 2024 年清單改名「上海奉賢海灣風力發電場一期擴容工程」（4.8 萬瓩，調整納入，執行風電場改造升級辦法），2025、2026 年清單擴大為 6.25 萬瓩；2026 年清單只剩「一期擴容工程」。GEM 把 2023 與 2025 年版本各列一筆，保留 62.5 MW 那筆 | [連結](https://fgw.sh.gov.cn/cmsres/de/de4b42f5f30241c88757752ef1004c34/54a6401b19396ff535006fd29d60218f.pdf) |
 | CTG Dafeng H8-2 · 300 MW · 2021 | 精選 | 修正：座標 | 三峽大豐 H8-2 離岸約 72 km（offshoreWIND.biz 2021-12）；GEM 依鹽城市政府資料標的確切位置在大豐毛竹沙海域（北緯 33.3225°、東經 121.5927°），落在 OpenStreetMap 依海事局通告 715/2025 繪製的風場範圍（way 1343826793）裡；點位改到這裡。原點位（33.2 N、121.3 E）在西南方約 30 km，落在 OpenStreetMap 標為 H17 的場址範圍（way 1454078619，三峽 800 MW 項目的一區） | [連結](https://www.gem.wiki/Jiangsu_Dafeng_H8-2_Offshore_wind_farm) |
 | Zhejiang Jiaxing 2 Offshore wind farm · 300 MW · 2021 | GEM | 修正：座標 | OpenStreetMap 的風場範圍 way 1177759242 標名「华能嘉兴2号海上风电场」，範圍北緯 30.563–30.654°、東經 121.445–121.500°；點位改為範圍中心（北緯 30.608°、東經 121.473°），原點位在其西方約 13 km | [連結](https://www.openstreetmap.org/way/1177759242) |
@@ -396,6 +398,7 @@
 | YEP wind farm · 76 MW · 2017 | GEM | 修正：名稱、中文名、年份、機組 | 韓華建設的英陽風場 76 MW、22 部 3.45 MW 級，2020 年完工（易投資日報 2021 年 1 月：「去年完工」）；GEM 寫 2017 年 | [連結](https://www.etoday.co.kr/news/view/1988572) |
 | Yeongyang 2nd wind power generation · 42 MW · 2022 | GEM | 修正：中文名、年份、機組 | 英陽第二風場 42 MW、10 部 4.2 MW 級，2023 年 5 月起商業運轉（GEM 寫 2022 年，那是試運轉） | [連結](https://www.fnnews.com/news/202309241852426048) |
 | Ulsan Dongbu floating demo (Vindmøllen 750 kW) · 0.8 MW · 2020 | 精選 | 刪除 | 蔚山 750 kW 浮動式示範機從未在海上安裝：2019 年 11 月蔚州郡四度退回細部設計、無法下海；2025 年政府的風電研發企畫報告說 750 kW 浮動式實證「曾嘗試」、因取得實證海域困難而受阻，2025 年 9 月 KISTEP 報告說韓國沒有浮動式離岸風電的運送安裝實例 | [連結](https://www.kistep.re.kr/boardDownload.es?bid=0067&list_no=94369&seq=1) |
+| Cheongsong Myeongbong wind farm · 42 MW · 2021 | GEM | 重複（併入「Cheongsong Myeonbongsan Wind Power Plant」） | 兩筆都是青松面峰山風電（Kumho 承攬、10 部 Vestas V136-4.2 MW、42 MW）。但韓國電力交易所 2025 年下半年的建設現況表寫它 2019 年 11 月動工、預計 2026 年 10 月完工，所以營運中那筆的 2021 年是當初「預計 2021 年第三季吊裝完成」的舊說法，並未完工；應保留規劃中（施工中）這筆、刪掉營運中那筆，等確認完工再改。 | [連結](https://www.kpx.or.kr/boardDownload.es?bid=0040&list_no=76494&seq=3) |
 
 ## 印度 (IND)
 
@@ -610,6 +613,10 @@
 | Ottelin wind farm · 20 MW · 2015 | GEM | 重複（併入「Oettelin wind farm」） | 兩筆座標完全相同（53.864, 12.088，GEM 兩頁都取自 Esri 的同一個點）、都是 20 MW。The Wind Power 在 Oettelin／Kassow 只有一座 20 MW 風場：8 部 Nordex N100/2500，座標同一處；附近其他風場（Groß Schwiesow - Oettelin 6.9 MW、Mistorf 等）容量都不同。「Ottelin」是拼錯的地名，保留「Oettelin」。業主：Enertrag 是開發商，GEM 另一頁依 Terravent 的持股清單寫 Terravent Deutschland，但 Terravent 網站連不上無法核對，業主不改，待查證。 | [連結](https://thewindpower.net/windfarm_en_21885_mecklenburger-schweiz.php) |
 | Emlichheim-Nord wind farm · 33 MW · 2018 | GEM | 重複（併入「Emlichheim wind farm」） | BVT 說明 Emlichheim 風場原有 21 部、31.5 MW，2018 年汰舊換新後是 12 部、36 MW；GEM 的「Emlichheim-Nord」別名就是「BVT Windpark Emlichheim」（33 MW、2018），與 Emlichheim 汰換期（36 MW）是同一座風場重複收錄。MaStR 顯示這座風場的機組分在相距約 7 km 的南北兩群，汰換期年份應為 2018；2026 年 9 月另完成 6 部、25.4 MW 的擴建（本站「Emlichheim wind farm · 2」）。 | [連結](https://www.cash-online.de/a/bvt-kuendigt-windpark-vermoegensanlage-an-686594/) |
 | Emlichheim wind farm · 36 MW · 2017 | GEM | 修正：年份 | 依查證更正（見上一條重複規則的出處）：BVT 說明 Emlichheim 風場原有 21 部、31.5 MW，2018 年汰舊換新後是 12 部、36 MW；GEM 的「Emlichheim-Nord」別名就是「BVT Windpark Emlichheim」（33 MW、2018），與 Emlichheim 汰換期（36 MW）是同一座風場重複收錄。MaStR 顯示這座風場的機組分在相距約 7 km 的南北兩群，汰換期年份應為 2018；2026 年 9 月另完成 6 部、25.4 MW 的擴建（本站「Emlichheim wind farm · 2」）。 | [連結](https://www.cash-online.de/a/bvt-kuendigt-windpark-vermoegensanlage-an-686594/) |
+| Mangelsdorf (Envia) wind farm · 12 MW · 2014 | GEM | 修正：業主、機組、座標 | 這筆是 BOREAS 2014 年 12 月建成的 8 部 Vestas V112 中、沒有賣給 enercity 的 4 部（12 MW，營運公司 Windpark Jerichow-Mangelsdorf I GmbH & Co. KG）。enercity 2015 年新聞稿說 BOREAS 持有這 4 部的多數股權並負責營運；envia THERM 把它列在自己的設備組合（業主欄的「Envia」由此而來），但沒有證據是 100% 持有。業主改為 BOREAS（多數）＋envia THERM（持股），不寫百分比。座標改到 MaStR 這 4 部（MG 01、04、05、06）的中心。 | [連結](https://www.enercity.de/presse/pressemitteilungen/2015/enercity-boreas-windpark) |
+| Mangelsdorf wind farm · 12 MW · 2014 | GEM | 修正：機組 | enercity 2015 年 4 月經子公司 enercity Erneuerbare 向 BOREAS 買下 Mangelsdorf 風場 8 部 V112 中的 4 部（12 MW，2014 年 12 月起併網），業主 enercity、年份 2014、容量 12 MW 都正確，只補上機型。 | [連結](https://www.enercity.de/presse/pressemitteilungen/2015/enercity-boreas-windpark) |
+| Mangelsdorf (PNE) wind farm · 13 MW · 2002 | GEM | 修正：機組、容量、座標 | 這是 2002 年 Plambeck（今 PNE）開發的 Nordex N62 風場：原有 10 部 1.3 MW（13 MW），MaStR 登記其中 1 部已在 2022 年 9 月永久停用，目前 9 部、11.7 MW 運轉。座標改到這 9 部的中心（原座標 52.528, 12.041 其實落在 Fischbeck 的 GE 1.5sl 機群）。業主寫 PNE AG 100% 出自 PNE 的開發實績清單，PNE 是開發商、目前持有人查不到，待查證。 | [連結](https://www.renewableenergyworld.com/?p=215779) |
+| Emlichheim wind farm · 2 · 25 MW · 2026 | GEM | 修正：狀態、年份、容量、業主、機組 | BVT 2026 年 9 月宣布 Emlichheim 風場擴建提前完工：6 部 Enercon 新機自 7 月底起併網（原訂 11 月），新增 25.4 MW，全場超過 61 MW。MaStR 登記這 6 部在 2026-07-20 至 07-28 投入運轉（2 部 E-115 EP3 E4、4 部 E-138 EP3，合計 25.38 MW），營運公司 BVT Windpark Emlichheim 2 GmbH & Co. KG。改為營運中、2026 年、25.4 MW。 | [連結](https://www.cash-online.de/a/bvt-nimmt-windpark-projekt-fuer-vermoegensanlage-frueher-als-geplant-in-betrieb-726771/) |
 | Dreiberg wind farm · 60 MW · 1995 | GEM | 重複（併入「Windpark Druiberg (Dardesheim)」） | 同一座風場：GEM 的「Dreiberg」是 Dardesheim 的 Druiberg 風場拼錯，GEM 座標（51.990, 10.833）正是德文維基 Windpark Druiberg 的座標 | [連結](https://de.wikipedia.org/wiki/Windpark_Druiberg) |
 | Windpark Druiberg (Dardesheim) · 62 MW · 1994 | 精選 | 修正：座標 | 座標改到 Druiberg 山上的風場（德文維基：北緯 51°59′23″、東經 10°50′0″；原座標是 Dardesheim 鎮） | [連結](https://de.wikipedia.org/wiki/Windpark_Druiberg) |
 | Gohlocher Wald wind farm · 12 MW · 2018 | GEM | 修正：容量、機組 | Gohlocher Wald 風場在 Lebach，是 2 部 Nordex N131/3000、6 MW（GEM 寫 12 MW）；與 Püttlingen 的 Schwalbach 風場（4 部 E-115、12 MW）是不同風場 | [連結](https://www.energy3k.com/wp-gow-erste-kwh/) |
@@ -742,6 +749,9 @@
 | Croix-De-Chalais wind farm · 12 MW · 2022 | GEM | 修正：機組 | 依查證更正（見上一條重複規則的出處）：維埃納省 Millac 有兩座相鄰、同規模的風場：JPee 的 Croix de Chalais 與 Sergies 的 Croix de la Mérotte，各 4 部 Nordex N117、12 MW。這兩筆都叫 Croix de Chalais、業主都是 JPee，相距約 0.7 km，是同一座；Mérotte 本站已另有一筆（業主寫 JPee，但施工簡報上 Mérotte 的業主聯絡人是 Sergies，待查證）。保留座標精確的那筆。 | [連結](https://lumo-france.com/uploads/2021/10/presentation-travaux-millac-pdf.pdf) |
 | Les Nouillers wind farm · 10 MW · 2014 | GEM | 重複（併入「Nouillers wind farm」） | Les Nouillers（濱海夏朗德省）只有一座風場：EOL LES NOUILLERS 公司，5 部 Enercon E70、各 2 MW、合計 10 MW，2014 年商轉；兩筆都是 10 MW、2014 年，相距約 3 km。保留座標精確的那筆。母公司 Régie d'Energie Eolienne 2021 年併入 BOREAS。 | [連結](https://georisques.gouv.fr/webappReport/ws/installations/inspection/0T1zEJC8ab8Rbsy9fIhTMz0OjZpPZSnu) |
 | Nouillers wind farm · 10 MW · 2014 | GEM | 修正：機組 | 依查證更正（見上一條重複規則的出處）：Les Nouillers（濱海夏朗德省）只有一座風場：EOL LES NOUILLERS 公司，5 部 Enercon E70、各 2 MW、合計 10 MW，2014 年商轉；兩筆都是 10 MW、2014 年，相距約 3 km。保留座標精確的那筆。母公司 Régie d'Energie Eolienne 2021 年併入 BOREAS。 | [連結](https://georisques.gouv.fr/webappReport/ws/installations/inspection/0T1zEJC8ab8Rbsy9fIhTMz0OjZpPZSnu) |
+| Bese wind farm · 11.3 MW | GEM | 重複（併入「la Besse wind farm」） | 兩筆都是 Volkswind 子公司 Ferme éolienne de la Besse 在 Cherves-Châtelars 與 Lésignac-Durand 的 3 部風機案（得標清單寫 11.25 MW，2020 年 3 月許可）。但它並未營運：2026 年 3 月省府因濕地與兩棲類問題命令停工，7 月 16 日前不得復工。應只留一筆並標為施工中，「la Besse」的營運中狀態是錯的。 | [連結](https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/KTPMRbDqBFovFC9NiRMXL58vppPIEKa0) |
+| la Besse wind farm · 12.6 MW | GEM | 修正：狀態、容量、年份 | 改為興建中（尚未運轉）：兩筆都是 Volkswind 子公司 Ferme éolienne de la Besse 在 Cherves-Châtelars 與 Lésignac-Durand 的 3 部風機案（得標清單寫 11.25 MW，2020 年 3 月許可）。但它並未營運：2026 年 3 月省府因濕地與兩棲類問題命令停工，7 月 16 日前不得復工。應只留一筆並標為施工中，「la Besse」的營運中狀態是錯的。 | [連結](https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/KTPMRbDqBFovFC9NiRMXL58vppPIEKa0) |
+| Croix de la Merotte wind farm · 12 MW · 2022 | GEM | 修正：業主、年份、機組 | Millac 有兩座相鄰風場：JPEE 的 Croix de Chalais（營運公司 Millac Énergie，2023-01-02 併網）與 Croix de la Mérotte。主管機關 2023 年 12 月 6 日的檢查報告寫明 Mérotte 由 Brimborion Energies 營運、文件經 Sorégies 系統取得，且當時尚未併網（預定 2024 年 1 月）；2021 年施工簡報 Mérotte 的聯絡人屬 Sergies（Sorégies 集團）。本筆的業主 JPEE 與 2022 年是從 Croix de Chalais 混過來的。業主改為 Brimborion Energies（Sorégies 集團），年份改為 2024，機型 4 部 Nordex N117。 | [連結](https://georisques.gouv.fr/webappReport/ws/installations/inspection/A0WBK9YT5i1CgUWQ6akyLWHII5wq0XF5) |
 | Village du Richebourg wind farm · 109.2 MW | GEM | 修正：座標 | 位置更正：En Avel Braz 的 Village de Richebourg I（22 部，92.4 MW）與 II 位於奧布省（Aube），法國國家發電設施登錄（ODRÉ）的「PARC EOLIEN RICHEBOURG 6」在 Salon 鎮，環評意見書也說 Richebourg III（Villiers-Herbisse、Semoine）緊鄰 I、II 期；原座標是加來海峽省同名的 Richebourg 村，偏離約 230 km。改用 Salon 鎮座標（概略位置） | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Aube%22%20and%20commune%3D%22Salon%22&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 | Fontenelle-Montby wind farm · 56 MW | GEM | 重複（併入「Rougemont wind farm」） | 同一座風場：Fontenelle-Montby 鎮的風機是 Innergex／VSB 的 Rougemont II（16 部 GE 120，44.5 MW）；法國國家發電設施登錄（ODRÉ）在 Fontenelle-Montby 與 Mésandans 只有 Energies du Plateau Central 2 的 4 個併網點、各 11.12 MW（合計 44.48 MW，2016-10 至 2017-10 併網），已含在 Rougemont 風場（80 MW，2017） | [連結](https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/registre-national-installation-production-stockage-electricite-agrege/exports/csv?where=codefiliere%3D%22EOLIE%22%20and%20departement%3D%22Doubs%22%20and%20commune%20in%20%28%22Fontenelle-Montby%22%2C%22M%C3%A9sandans%22%29&select=nominstallation,commune,codeinseecommune,datemiseenservice,dateraccordement,puismaxinstallee,nbinstallations&order_by=datemiseenservice&delimiter=%3B) |
 | Pelade wind farm · 48 MW | GEM | 重複（併入「Artigues Et Ollieres wind farm」） | 同一座風場：Provencialis 的 Colle Pelade 風場就是 Artigues 與 Ollières 的 22 部風機（2020-12-01 起運轉，NTR 收購的 48 MW 風場）；國家發電設施登錄的「Ferme éolienne de Pelade」4 個併網點合計 48.4 MW、2020-11-06 併網 | [連結](https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/kechPa3nkXwlrxDJr3hpjwrav9FaC6zU) |
@@ -910,6 +920,7 @@
 | Rye Park · 327 MW · 2024 | 精選 | 修正：容量、機組 | Rye Park 是 66 部 Vestas V162-6.2（以 6.0 MW 模式運轉），共 396 MW（Vestas 2021 年訂單新聞稿；AEMO 登記容量同），不是 327 MW | [連結](https://vestas.com/en/media/company-news/2021/vestas-wins-396-mw-enventus-order-for-wind-project-in-a-c3407249) |
 | Cullerin Range wind farm · 26 MW · 2009 | GEM | 修正：容量、機組 | Cullerin Range 是 8 部 Senvion MM82 2 MW 加 7 部 MM92 2.05 MW，共 30 MW（英文維基；AEMO 登記容量 30 MW），不是 26 MW | [連結](https://en.wikipedia.org/wiki/Cullerin_Range_Wind_Farm) |
 | Lal Lal · 228 MW · 2021 | 精選 | 修正：機組 | Lal Lal 的 60 部是 Vestas V136-3.45 平台、每部 3.8 MW（共 228 MW，英文維基），原寫「V136 3.6」與容量不符 | [連結](https://en.wikipedia.org/wiki/Lal_Lal_Wind_Farm) |
+| Murra Warra 2 wind farm · 209 MW · 2022 | GEM | 修正：年份 | Murra Warra II 2022 年 2 月首度發電（AEMO SCADA），但弱電網區的分段併網測試（hold point）拖長：2022 年 7 月才升到 150 MW 階段，2023 年初才獲准以全容量商轉；業主 Squadron Energy 也寫 2023 年商轉。全面運轉年應為 2023。 | [連結](https://entura.com.au/projects/11038) |
 | Gullen Range wind farm · 165 MW · 2014 | GEM | 修正：容量、機組 | 73 部金風（56 部 GW100-2.5MW＋17 部 GW82-1.5MW），165.5 MW，2014 年 12 月全部運轉（風場年度環境報告） | [連結](https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf) |
 | Denmark Community wind farm · 1.4 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2013 並更正容量與機組：Denmark 社區風場的兩部 Enercon E48（各 800 kW）2013 年 2 月 20 日開始發電 | [連結](https://c4ce.org.au/node/166) |
 
@@ -928,6 +939,7 @@
 | Bockstigen · 2.8 MW · 1998 | 精選 | 修正：容量、分期 | 2018 年換上整修過的 Vestas V47（660 kW）機艙與葉片，沿用原本的塔架與基礎，容量由 2.8 MW 增為 3.3 MW | [連結](https://www.offshorewind.biz/2018/12/05/swedish-old-timer-gains-momentum/) |
 | Vindpark Vänern (Gässlingegrund) · 30 MW · 2010 | 精選 | 修正：座標 | 座標改到維納恩湖 Gässlingegrund 的 10 部風機（原座標偏南約 27 km） | [連結](https://www.openstreetmap.org/relation/14399986) |
 | Skarhults wind farm · 10 MW · 2009 | GEM | 修正：容量 | 容量更正：埃斯勒夫市有兩座：Skarhult（55.787, 13.364）8 部、10.4 MW（4 部 Enercon E44/600＋4 部 E82/2000，BayWa 協助營運管理），以及東北方約 7 km 的 Skarhults（又名 Östra Strö，55.836, 13.438）6 部 Enercon E66/1800、10.8 MW。兩筆座標正好各對一座，不是重複。Skarhults 那筆的容量建議改為 10.8 MW；它寫的業主 BayWa 與 2009 年看來是從 Skarhult 混過來的，待查證。 | [連結](https://nordic.baywa-re.com/en/local-projects/commissioned-projects/skarhult) |
+| Skarhults wind farm · 10.8 MW · 2009 | GEM | 修正：年份、業主、機組 | Skarhults（又名 Östra Strö，Vindbrukskollen 稱 Skarhults nygård）是 6 部 Enercon、10.8 MW 的另一座風場，與西南約 7 km、BayWa 協助營運管理的 Skarhult（8 部、1999／2001／2009 年）不同。瑞典風電登記 Vindbrukskollen 記這 6 部 2004-10-13 建成，登記的組織是 Universal Wind AB（開發商欄，不一定是現在的業主）。年份改為 2004；BayWa 與 2009 年是從 Skarhult 混過來的，業主清空待查。 | [連結](https://www.thewindpower.net/windfarm_en_26663_skarhults.php) |
 | Kölvallen wind farm · 96.6 MW | GEM | 修正：年份、容量、業主、機組 | 補上商轉年 2025 並更正容量、機組與業主：Arise 的 Kölvallen 風場共 42 部 Siemens Gamesa 風機、277.2 MW，2022 年 7 月售予 Foresight Group 管理的基金（Arise 保留約 9%），Arise 2025 年第三季報告說 Kölvallen 已完工，生產部門頁面說它 2025 年為 SE2 電價區新增 277 MW。原寫 96.6 MW、年份不詳 | [連結](https://www.arise.se/en/node/1595) |
 
 ## 立陶宛 (LTU)
@@ -996,6 +1008,12 @@
 | Revolution Wind · 715 MW · 2026 | GEM | 修正：容量 | 開發商的容量是 704 MW（羅德島 400 MW＋康乃狄克 304 MW）；65 部 × 11 MW 的銘牌合計為 715 MW | [連結](https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind) |
 | Empire wind farm · 816 MW · 2027 | GEM | 修正：容量 | 開發商的容量是 810 MW（54 部 Vestas V236-15 MW） | [連結](https://www.empirewind.com/project/) |
 | Kingman Wind · 214.8 MW · 2017 | WRI GPPD | 重複（併入「Kingman Wind Energy Center」） | WRI GPPD 舊資料；GEM 專案頁的別名就是 Kingman Wind（214.8 MW，2016 年） | [連結](https://www.gem.wiki/Kingman_Wind_Energy_Center) |
+| Marshall Wind 1 LLC wind farm · 2.1 MW · 2007 | GEM | 重複（併入「Marshall (WMMPA) wind farm」） | Marshall 風場是 9 部 2.1 MW 的 Suzlon S88（18.9 MW），2007 年 12 月商轉；在 EIA 拆成 Marshall Wind 1–6 LLC 六個電廠（56840、56824–56828，營運實體都是 Marshall Wind Farm, LLC），USWTDB 則是一個專案「Marshall」9 部、18.9 MW。WMMPA 2020 年 3 月簽約買下整座 9 部風場，MRES 現在把「18.9 MW 的 Marshall 風場」列為 WMMPA 的資產。六筆合併成一筆 18.9 MW、業主 WMMPA。 | [連結](https://www.mrenergy.com/about/wmmpa) |
+| Marshall Wind 2 LLC wind farm · 4.2 MW · 2007 | GEM | 重複（併入「Marshall (WMMPA) wind farm」） | Marshall 風場是 9 部 2.1 MW 的 Suzlon S88（18.9 MW），2007 年 12 月商轉；在 EIA 拆成 Marshall Wind 1–6 LLC 六個電廠（56840、56824–56828，營運實體都是 Marshall Wind Farm, LLC），USWTDB 則是一個專案「Marshall」9 部、18.9 MW。WMMPA 2020 年 3 月簽約買下整座 9 部風場，MRES 現在把「18.9 MW 的 Marshall 風場」列為 WMMPA 的資產。六筆合併成一筆 18.9 MW、業主 WMMPA。 | [連結](https://www.mrenergy.com/about/wmmpa) |
+| Marshall Wind 3 LLC wind farm · 4.2 MW · 2007 | GEM | 重複（併入「Marshall (WMMPA) wind farm」） | Marshall 風場是 9 部 2.1 MW 的 Suzlon S88（18.9 MW），2007 年 12 月商轉；在 EIA 拆成 Marshall Wind 1–6 LLC 六個電廠（56840、56824–56828，營運實體都是 Marshall Wind Farm, LLC），USWTDB 則是一個專案「Marshall」9 部、18.9 MW。WMMPA 2020 年 3 月簽約買下整座 9 部風場，MRES 現在把「18.9 MW 的 Marshall 風場」列為 WMMPA 的資產。六筆合併成一筆 18.9 MW、業主 WMMPA。 | [連結](https://www.mrenergy.com/about/wmmpa) |
+| Marshall Wind 5 LLC wind farm · 2.1 MW · 2007 | GEM | 重複（併入「Marshall (WMMPA) wind farm」） | Marshall 風場是 9 部 2.1 MW 的 Suzlon S88（18.9 MW），2007 年 12 月商轉；在 EIA 拆成 Marshall Wind 1–6 LLC 六個電廠（56840、56824–56828，營運實體都是 Marshall Wind Farm, LLC），USWTDB 則是一個專案「Marshall」9 部、18.9 MW。WMMPA 2020 年 3 月簽約買下整座 9 部風場，MRES 現在把「18.9 MW 的 Marshall 風場」列為 WMMPA 的資產。六筆合併成一筆 18.9 MW、業主 WMMPA。 | [連結](https://www.mrenergy.com/about/wmmpa) |
+| Marshall Wind 6 LLC wind farm · 2.1 MW · 2007 | GEM | 重複（併入「Marshall (WMMPA) wind farm」） | Marshall 風場是 9 部 2.1 MW 的 Suzlon S88（18.9 MW），2007 年 12 月商轉；在 EIA 拆成 Marshall Wind 1–6 LLC 六個電廠（56840、56824–56828，營運實體都是 Marshall Wind Farm, LLC），USWTDB 則是一個專案「Marshall」9 部、18.9 MW。WMMPA 2020 年 3 月簽約買下整座 9 部風場，MRES 現在把「18.9 MW 的 Marshall 風場」列為 WMMPA 的資產。六筆合併成一筆 18.9 MW、業主 WMMPA。 | [連結](https://www.mrenergy.com/about/wmmpa) |
+| Marshall (WMMPA) wind farm · 4.2 MW · 2007 | GEM | 修正：容量、機組、座標 | 六筆 LLC 合併成一座：Marshall 風場是 9 部 2.1 MW 的 Suzlon S88（18.9 MW），2007 年 12 月商轉；在 EIA 拆成 Marshall Wind 1–6 LLC 六個電廠（56840、56824–56828，營運實體都是 Marshall Wind Farm, LLC），USWTDB 則是一個專案「Marshall」9 部、18.9 MW。WMMPA 2020 年 3 月簽約買下整座 9 部風場，MRES 現在把「18.9 MW 的 Marshall 風場」列為 WMMPA 的資產。六筆合併成一筆 18.9 MW、業主 WMMPA。 | [連結](https://www.mrenergy.com/about/wmmpa) |
 | Shiloh · 300 MW · 2006 | 精選 | 修正：容量、分期、機組、業主 | Shiloh 共四期 505 MW：I 期 2006 年 4 月 150 MW（100 部 GE 1.5 MW，Iberdrola）、II 期 2009 年 1 月 150 MW（75 部 REpower MM92）、III 期 2011 年 12 月與 IV 期 2012 年 12 月各 102.5 MW（各 50 部 REpower 2.05 MW，II–IV 期屬 EDF）。建置把 GEM 四期 504 MW 的紀錄併進這筆 300 MW，III、IV 期因此不見；與 SMUD 的 Solano 是不同風場 | [連結](https://en.wikipedia.org/wiki/Shiloh_Wind_Power_Plant) |
 | Dempsey Ridge Wind Farm · 132 MW · 2012 | WRI GPPD | 重複（併入「Big Smile wind farm」） | 同一座風場：Acciona 的 Dempsey Ridge 風場 2012 年改名為 Big Smile Wind Farm at Dempsey Ridge（132 MW，奧克拉荷馬州） | [連結](https://www.windpowerengineering.com/oklahoma-wind-farm-begins-operation-new-name/) |
 | Revolution Wind · 704 MW · 2026 | GEM | 修正：座標 | 座標改到 65 部風機的中心（OpenStreetMap 標為 Revolution Wind LLC 營運的 SG 11.0-200 DD）；原座標在風場西北角外 | [連結](https://www.openstreetmap.org/node/13097062280) |

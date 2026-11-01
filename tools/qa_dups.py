@@ -31,20 +31,17 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from farm_cleanup import DUP_OK  # noqa: E402
 
-ARGS = sys.argv[1:]
-MAX = None
-if '--max' in ARGS:
-    i = ARGS.index('--max'); MAX = int(ARGS[i + 1]); del ARGS[i:i + 2]
-J = json.loads(Path(ARGS[0] if ARGS else 'data/global/wind_farms.json').read_text(encoding='utf-8'))
-C = J['meta']['cols']
-FARMS = [dict(zip(C, r)) for r in J['rows']]
-OP = [f for f in FARMS if f['st'] == 0 and not f['end'] and f['mw'] and f['lat'] is not None]
 
 GENERIC = (r'\b(wind|farm|farms|windfarm|park|windpark|power|project|plant|energy|station|onshore|offshore|the|of|and|de|del|des|du|la|le|les|'
            r'el|los|las|di|da|do|und|am|im|an|parque|eolico|eolien|eolienne|centrale|vindpark|llc|inc|ltd|distributed)\b')
 MARK = r'\b(i{1,3}|iv|v|vi{0,3}|ix|x|\d+[a-z]?|[a-z]\d+|area [a-z]|[a-z] area|north|south|east|west|nord|sud|est|ouest)\b'
 EXACT = {'CHN', 'IND', 'VNM'}      # 拼音或轉寫：差一兩個字母就是不同地名，只認完全相同 · romanised place names: only identical stems count
 ROMAN = {'i': '1', 'ii': '2', 'iii': '3', 'iv': '4', 'v': '5', 'vi': '6', 'vii': '7', 'viii': '8', 'ix': '9', 'x': '10'}
+
+
+def load(path='data/global/wind_farms.json'):
+    j = json.loads(Path(path).read_text(encoding='utf-8'))
+    return [dict(zip(j['meta']['cols'], r)) for r in j['rows']]
 
 
 def ascii_lower(s):
@@ -78,7 +75,27 @@ def km(a, b):
     return 12742 * math.asin(math.sqrt(h))
 
 
-def candidates():
+def same_name(a, b):
+    """兩個風場名稱是否可能指同一座（名稱主體相同或幾乎相同，期別與括號裡的開發商不衝突）· whether two farm names may be the same farm"""
+    sa, sb = stem(a['name']), stem(b['name'])
+    if len(sa) < 3 or len(sb) < 3:
+        return False
+    if sa != sb:
+        if a['iso'] in EXACT:
+            return False
+        ta, tb = sa.split(), sb.split()
+        da, db = ' '.join(t for t in ta if t not in tb), ' '.join(t for t in tb if t not in ta)
+        if difflib.SequenceMatcher(None, da or sa, db or sb).ratio() < 0.8:
+            return False
+    ma, mb = marks(a['name']), marks(b['name'])
+    if ma and mb and ma != mb:
+        return False
+    ba, bb = brackets(a['name']), brackets(b['name'])
+    return not (ba and bb and not any(x in y or y in x for x in ba for y in bb))
+
+
+def candidates(farms=None):
+    OP = [f for f in (farms or load()) if f['st'] == 0 and not f['end'] and f['mw'] and f['lat'] is not None]
     grid = defaultdict(list)
     for f in OP:
         f['_s'] = stem(f['name'])
@@ -102,18 +119,7 @@ def candidates():
                         continue
                     if f['year'] and g['year'] and abs(f['year'] - g['year']) > 2:
                         continue
-                    if f['_s'] != g['_s']:
-                        if f['iso'] in EXACT:
-                            continue
-                        ta, tb = f['_s'].split(), g['_s'].split()          # 只比不相同的字，省、縣等共同字首不拉高相似度 · compare the differing words only
-                        da, db = ' '.join(t for t in ta if t not in tb), ' '.join(t for t in tb if t not in ta)
-                        if difflib.SequenceMatcher(None, da or f['_s'], db or g['_s']).ratio() < 0.8:
-                            continue
-                    ma, mb = marks(f['name']), marks(g['name'])
-                    if ma and mb and ma != mb:
-                        continue
-                    ba, bb = brackets(f['name']), brackets(g['name'])
-                    if ba and bb and not any(x in y or y in x for x in ba for y in bb):
+                    if not same_name(f, g):     # 只比不相同的字，省、縣等共同字首不拉高相似度 · differing words only, shared prefixes do not count
                         continue
                     if (f['flags'] or 0) & 4 and (g['flags'] or 0) & 4 and (f['owner'] or '').split('[')[0].strip() != (g['owner'] or '').split('[')[0].strip():
                         continue
@@ -127,7 +133,11 @@ def candidates():
 
 
 if __name__ == '__main__':
-    found = candidates()
+    ARGS = sys.argv[1:]
+    MAX = None
+    if '--max' in ARGS:
+        i = ARGS.index('--max'); MAX = int(ARGS[i + 1]); del ARGS[i:i + 2]
+    found = candidates(load(ARGS[0]) if ARGS else None)
     for iso, d, a, b in found:
         print(f"{iso} {d:5.1f} km | {a['name']} ({a['mw']:g} MW, {a['year'] or '?'}, src {a['src']}) = {b['name']} ({b['mw']:g} MW, {b['year'] or '?'}, src {b['src']})")
     print(f'{len(found)} candidate pairs of possibly duplicated operating farms')
