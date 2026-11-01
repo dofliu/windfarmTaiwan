@@ -146,6 +146,7 @@ CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang South
 CLEAN dup CHN Jilin Tongyu (Huaneng) 2000 MW Unsubsidized wind farm 200.0 -> Jilin Tongyu Shihuadao wind farm
 CLEAN dup CHN Liaoning Changtu Sanjiangkou (Liaoning Water Management) wind farm 99.0 -> Liaoning Changtu Sanjiangkou wind farm
 CLEAN dup CHN Liaoning Chifeng Poverty Alleviation District (China Guangdong Nuclear) wind farm 100.0 -> Inner Mongolia Chifeng Poverty Alleviation Area (China Guangdong Nuclear) wind farm
+CLEAN dup CHN Liaoning Haicheng CTG Wind Power Project 150.0 -> Liaoning Haicheng CTG wind farm
 CLEAN dup CHN Ningde Xiapu / Xiapu A 300.0 -> Fujian Ningde Xiapu Offshore wind farm · B
 CLEAN dup CHN Shandong Bandaobei BW Offshore wind farm 510.0 -> Huaneng Peninsula North BW
 CLEAN dup CHN Shandong Bandaonan 4 Offshore wind farm 302.0 -> Huaneng Peninsula South 4
@@ -179,6 +180,7 @@ CLEAN dup ESP Do Vilan wind farm 16.9 -> Do Vilán wind farm
 CLEAN dup ESP Tirupan wind farm 13.0 -> Tirapun wind farm
 CLEAN dup FIN Kemi Ajos 30.0 -> Ajos Retrofit wind farm
 CLEAN dup FRA Baronville wind farm 12.0 -> Destry wind farm
+CLEAN dup FRA Bese wind farm 11.3 -> la Besse wind farm
 CLEAN dup FRA Binas wind farm 11.5 -> Viertiville wind farm
 CLEAN dup FRA Blancfossé wind farm 10.0 -> Butte Saint Liphard wind farm
 CLEAN dup FRA Bois Madame wind farm 13.2 -> Méharicourt wind farm
@@ -248,6 +250,7 @@ CLEAN dup JOR Tafilah wind farm 117.0 -> Tafila
 CLEAN dup JPN Kyushu floating wind farm 1000.0 -> Kyushu - GIP floating wind farm
 CLEAN dup KEN Kajiado wind farm 100.0 -> Kipeto
 CLEAN dup KEN Lake Turkana 310.0 -> Lake Turkana
+CLEAN dup KOR Cheongsong Myeongbong wind farm 42.0 -> Cheongsong Myeonbongsan Wind Power Plant
 CLEAN dup KOR Jeonnam (SK E&C) wind farm 96.0 -> Jeonnam Shinan 1 / others
 CLEAN dup KOR Yeongyang 61.5 -> Yeong Yang (Macquarie Group) wind farm
 CLEAN dup LTU Strepeikiu wind farm 50.0 -> Pagegiai 13 wind farm
@@ -279,6 +282,11 @@ CLEAN dup USA Chanarambie Power Partners  LLC 85.5 -> Chanarambie wind farm
 CLEAN dup USA Dempsey Ridge Wind Farm 132.0 -> Big Smile wind farm
 CLEAN dup USA FPL Energy Story Wind LLC 150.0 -> Story County
 CLEAN dup USA Kingman Wind 214.8 -> Kingman Wind Energy Center
+CLEAN dup USA Marshall Wind 1 LLC wind farm 2.1 -> Marshall (WMMPA) wind farm
+CLEAN dup USA Marshall Wind 2 LLC wind farm 4.2 -> Marshall (WMMPA) wind farm
+CLEAN dup USA Marshall Wind 3 LLC wind farm 4.2 -> Marshall (WMMPA) wind farm
+CLEAN dup USA Marshall Wind 5 LLC wind farm 2.1 -> Marshall (WMMPA) wind farm
+CLEAN dup USA Marshall Wind 6 LLC wind farm 2.1 -> Marshall (WMMPA) wind farm
 CLEAN dup USA Prairie Winds SD1 162.0 -> Crow Lake wind farm
 CLEAN dup USA Snyder Wind Farm 63.0 -> Snyder wind farm
 CLEAN dup USA Windy Point wind farm (United States) 136.3 -> Windy Point / Windy Flats
@@ -303,6 +311,7 @@ CLEAN fix AUS Cullerin Range wind farm 26.0
 CLEAN fix AUS Denmark Community wind farm 1.4
 CLEAN fix AUS Gullen Range wind farm 165.0
 CLEAN fix AUS Lal Lal 228.0
+CLEAN fix AUS Murra Warra 2 wind farm 209.0
 CLEAN fix AUS Portland (PWEP) Wind Energy Project · Codrington wind farm, Yambuk wind farm 48.0
 CLEAN fix AUS Rye Park 327.0
 CLEAN fix AUS Snowtown 370.0
@@ -1033,6 +1042,7 @@ CLEAN fix CHN Liaoning Dandong Haiyanghong wind farm 21.0
 CLEAN fix CHN Liaoning Fumeng Gulibengao wind farm 50.0
 CLEAN fix CHN Liaoning Fumeng Julike wind farm 50.0
 CLEAN fix CHN Liaoning Fumeng Sifangmiao wind farm 50.0
+CLEAN fix CHN Liaoning Haicheng CTG wind farm 150.0
 CLEAN fix CHN Liaoning Liaozhong (Guohua) wind farm 150.0
 CLEAN fix CHN Liaoning Pulandian Lejia "Grid Friendly" Wind Farm Demonstration Project 100.0
 CLEAN fix CHN Liaoning Tai'An Huandong wind farm · 1 50.0
@@ -1420,6 +1430,7 @@ CLEAN fix DEU Bornstedt-Holdenstedt wind farm 12.0
 CLEAN fix DEU Büttstedt wind farm 37.0
 CLEAN fix DEU Damme wind farm · 2, RP 40.0
 CLEAN fix DEU Emlichheim wind farm 36.0
+CLEAN fix DEU Emlichheim wind farm · 2 25.0
 CLEAN fix DEU Erbes-Büdesheim wind farm 15.0
 CLEAN fix DEU Flomborn-Stetten wind farm 15.0
 CLEAN fix DEU Gohlocher Wald wind farm 12.0
@@ -1430,6 +1441,9 @@ CLEAN fix DEU Hooksiel (BARD test turbine) 5.0
 CLEAN fix DEU Kesfeld wind farm 33.0
 CLEAN fix DEU Köhlen wind farm 48.0
 CLEAN fix DEU Lütjenholm wind farm 14.0
+CLEAN fix DEU Mangelsdorf (Envia) wind farm 12.0
+CLEAN fix DEU Mangelsdorf (PNE) wind farm 13.0
+CLEAN fix DEU Mangelsdorf wind farm 12.0
 CLEAN fix DEU Oederquart wind farm 16.0
 CLEAN fix DEU Paderborn wind farm 36.0
 CLEAN fix DEU Riede wind farm 17.0
@@ -1560,6 +1574,7 @@ CLEAN fix FRA Chauvé wind farm 12.0
 CLEAN fix FRA Chemin De Grès wind farm 30.0
 CLEAN fix FRA Chemin De Valenciennes wind farm 18.0
 CLEAN fix FRA Chenu wind farm 11.0
+CLEAN fix FRA Croix de la Merotte wind farm 12.0
 CLEAN fix FRA Croix-De-Chalais wind farm 12.0
 CLEAN fix FRA Crouy et Cuffies wind farm 12.0
 CLEAN fix FRA D'Autremencourt wind farm 12.0
@@ -1640,6 +1655,7 @@ CLEAN fix FRA Village du Richebourg wind farm 109.2
 CLEAN fix FRA Villers-le-Tourneur wind farm 15.0
 CLEAN fix FRA Voie Romaine wind farm 22.0
 CLEAN fix FRA Vron wind farm 17.2
+CLEAN fix FRA la Besse wind farm 12.6
 CLEAN fix FRA Îles d'Yeu et de Noirmoutier 496.0
 CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank A 1200.0
@@ -2051,6 +2067,7 @@ CLEAN fix SRB Kula wind farm 10.0
 CLEAN fix SWE Bockstigen 2.8
 CLEAN fix SWE Kölvallen wind farm 96.6
 CLEAN fix SWE Skarhults wind farm 10.0
+CLEAN fix SWE Skarhults wind farm 10.8
 CLEAN fix SWE Utgrunden I 10.5
 CLEAN fix SWE Vindpark Vänern (Gässlingegrund) 30.0
 CLEAN fix THA Hanuman 1 wind farm 45.0
@@ -2111,6 +2128,7 @@ CLEAN fix URY Pampa (Tacuarembó) 141.6
 CLEAN fix USA Coastal Virginia Offshore Wind (CVOW) Commercial Project 2640.0
 CLEAN fix USA Empire wind farm 816.0
 CLEAN fix USA Goodnight wind farm 266.0
+CLEAN fix USA Marshall (WMMPA) wind farm 4.2
 CLEAN fix USA Revolution Wind 704
 CLEAN fix USA Revolution Wind 715.0
 CLEAN fix USA Shiloh 300.0

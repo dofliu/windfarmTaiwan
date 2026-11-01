@@ -107,5 +107,33 @@
     "quote": "Operating [ 1 ] 50 MW [ 1 ] Onshore [ 1 ] United Sustainable Energy India Pvt Ltd [100%]"
    }
   ]
+ },
+ {
+  "farm": "CHN Shaanxi Zhidan wind farm ~ Shaanxi Zhidan (Datang) wind farm",
+  "verdict": "unclear",
+  "why_zh": "規劃中這筆沒有業主，唯一出處是 2025 年 11 月的北極星報導（擋程式下載、無法核對）；大唐寶雞熱電廠的志丹風電 2024 年 9 月仍在施工，兩者都是 10 萬千瓦，可能是同一案也可能是志丹另一個專案，查不清楚。",
+  "why_en": "The pipeline record has no owner and its only source is a Nov 2025 bjx article that cannot be read; Datang Baoji's Zhidan wind project was still under construction in Sept 2024. Both are 100 MW, so it may be the same project or another Zhidan project; unresolved.",
+  "sources": [
+   {
+    "url": "https://www.cpnn.com.cn/qiye/fadianPD2023/202409/t20240927_1739686.html",
+    "quote": "近日，大唐宝鸡热电厂新能源项目建设如火如荼，同时开工建设的有志丹风电和陇县光伏两个工程项目。"
+   }
+  ]
+ },
+ {
+  "farm": "GBR Shantavy Scotch wind farm ~ Shantavny Scotch wind farm",
+  "verdict": "unclear",
+  "why_zh": "REPD 有兩筆：Tyrone Wind Energy 的 Shantavny Scotch（7 部、16.1 MW，2017 年 3 月營運，許可 M/2007/1407/F）與 Brookfield 2020 年申請、2021 年核准的 Shantavy Scotch（7 部、14 MW、葉尖 100 m，LA09/2020/0880/F，等待施工），相距約 1.4 km。可能是同一場址的變更申請，也可能是另一座，查不到申請內容，暫不判定。",
+  "why_en": "REPD has two rows: Tyrone Wind Energy's Shantavny Scotch (7 turbines, 16.1 MW, operational Mar 2017, consent M/2007/1407/F) and Brookfield's Shantavy Scotch (7 turbines, 14 MW, 100 m tip, LA09/2020/0880/F, applied 2020, consented 2021, awaiting construction), about 1.4 km apart. It may be a variation for the same site or a separate farm; the application could not be read, so unresolved.",
+  "sources": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6a6cbdc00c36759b5ccaa305/REPD_Publication_Q2_2026.csv",
+    "quote": "Tyrone Wind Energy Ltd,Shantavny Scotch,Wind Onshore,,,16.1,,,,,,,2,7,,,Operational,Operational"
+   },
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6a6cbdc00c36759b5ccaa305/REPD_Publication_Q2_2026.csv",
+    "quote": "Brookfield Renewable,Shantavy Scotch,Wind Onshore,,,14,,,,,,,,7,100,,Planning Permission Granted,Awaiting Construction"
+   }
+  ]
  }
 ]

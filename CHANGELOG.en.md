@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.2 — 2026-11-01
+
+- **Farms built but still listed as planned**: 35 German GEM pipeline records (846 MW) are farms MaStR registers as operating from 2025–2026 and the site already adds from MaStR, so each was counted as both operating and planned; the build now drops the pipeline record in favour of the register (within 3 km, same name, capacity ±25%, the MaStR park operating from 2025; logged as `MASTR-BUILT`). Elsewhere, 26 same-name pipeline/operating pairs were checked one by one: the Haicheng CTG pipeline record in Liaoning is merged into the operating one; Cheongsong Myeonbongsan in Korea is in fact still under construction (completion October 2026; the operating record carried the old 2021 target) and la Besse in France has had its works halted and is not yet operating, so both become under construction; the other 21 pairs are separate projects.
+- **Corrections found during the duplicate check**: Emlichheim phase 2 in Germany has been connected since July 2026 (6 turbines, 25.4 MW; listed as announced); owners, turbines and points of the three Mangelsdorf records (their MaStR positions had been swapped); Croix de la Merotte in France starts in 2024 and belongs to Brimborion Energies (Sorégies group); Murra Warra 2 in Australia reached full operation in 2023; Skarhults in Sweden dates from 2004 with 6 E66 (its owner had been copied from neighbouring Skarhult and is left blank until found); the six Marshall LLC records in Minnesota become one 18.9 MW farm of 9 Suzlon S88 (owned by WMMPA).
+
 ## v3.22.1 — 2026-11-01
 
 - **Duplicate farm records found and merged**: the new check `tools/qa_dups.py` lists operating records in the same country with the same or nearly the same name, within 15 km and with similar capacity and year (47 candidate pairs), and three research teams checked each pair with sources (139 quoted passages, all checked with `check_quotes.py`):
