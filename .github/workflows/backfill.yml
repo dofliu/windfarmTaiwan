@@ -57,5 +57,9 @@ jobs:
           [ -d data/archive ] && git add -A data/archive || true
           git add -A wind_history_archive.json 2>/dev/null || true   # 舊的單一存檔拆成月檔後會被刪除
           git diff --staged --quiet || git commit -m "chore: backfill wind history $(date -u +%FT%TZ)"
-          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
-          git push
+          # GitHub 偶爾回 500（2026-10-26 那次就是），推送失敗時隔一段時間再拉一次、重推，最多 4 次
+          for i in 1 2 3 4; do
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push && exit 0
+            echo "push attempt $i failed; retrying"; sleep $((i * 15))
+          done
+          exit 1
