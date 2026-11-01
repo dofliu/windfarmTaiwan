@@ -76,6 +76,19 @@ The version-by-version work log and research leads from 28 Sep to 14 Oct 2026 mo
 - All automatic updates run normally: Taiwan and international live data (about every 30 minutes, started by cron-job.org through the GitHub API from 22 Oct 2026; replace the token before it expires and update API version 2022-11-28 before it stops working on 10 Mar 2028, see "External trigger" in DEPLOY.en.md), the retrospective archive (weekly), Wind now (every 6 hours), the single-file rebuild (on pushes to `main`), keepalive (monthly). The current habit after a merge is to run `scrape-taipower-wind` by hand once and check that every source succeeded (last done at 00:16 Taiwan time on 20 Oct 2026: run 1370, Taipower and all 15 foreign sources succeeded; GitHub Actions had an incident at the time, so the data was written on schedule but the run only showed as finished about 15 minutes later. Runs 1366, 1368 and 1369 on 19 Oct 2026 succeeded too).
 - In progress: the three real-device checks under "A friendlier interface" above; the second version of the kids page awaits the owner's feedback (see above); "Read to me" still needs one listen on a real computer or tablet (the headless test browser has no speech engine, so only the "can't read aloud" notice was verified); the owner picks any other next piece from "Next-step options" below.
 
+### Weekly schedule (from 1 Nov 2026)
+
+On 1 Nov 2026 the owner set up a weekly Claude scheduled task, "windfarmTaiwan weekly upkeep": every Monday at 19:33 Taiwan time it opens a fresh session, reads CLAUDE.md and this section, and in order:
+handles any still-open weekly PR (branch `claude/weekly-*`); does the dated checks below that are due and checks the Actions runs; then, time permitting, advances one item from "Features the schedule may advance", or else one data-quality item.
+Any change goes into a draft PR (branch `claude/weekly-YYYYMMDD`) for the owner to merge; it never merges, never starts a feature not listed below and never widens the scope. A push notification goes to the owner's phone when it finishes.
+To pause it or change the time: the scheduled tasks page on claude.ai, or ask Claude in a conversation.
+
+### Features the schedule may advance (listed only once the owner approves)
+
+New features are discussed with the owner in a conversation first; once scope and approach are agreed, write one entry (goal, scope, done-when) here. The weekly run advances one entry at a time and moves it to its topic list when finished. Ideas not yet approved go under "To evaluate / waiting for the owner's direction".
+
+(none yet)
+
 ### Due soon (dated)
 
 - **End of October, second round (done 30 Oct 2026)**: the US EIA-860M September edition is in use (next edition 24 Nov); **China now uses the NEA's Q3 briefing of 30 Oct (v3.16.0)**: January–September additions onshore 58.21 GW, offshore 2.45 GW; end-September 650 GW onshore, 49.84 GW offshore. Taiwan's table 4-02 still ended at August on 30 Oct → **check again in early November**; India MNRE still 30 Sept (in use); Brazil ANEEL has no September text release; Germany WindGuard, France SDES (the T3 URL is a 404) and the UK ET 6.1 are still H1, Q3 due November–December (UK on the last Thursday of December); Japan JWPA end-2025 only. Run `python3 tools/build_country_stats.py` after editing.
