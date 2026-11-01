@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-02T04:30:39+08:00",
-  "source_time": "2026-11-02T04:20:00",
-  "wind_total_mw": 19.6,
-  "system_total_mw": 23985.1,
+  "updated": "2026-11-02T05:01:34+08:00",
+  "source_time": "2026-11-02T04:50:00",
+  "wind_total_mw": 19.5,
+  "system_total_mw": 24130.3,
   "farm_wind": {
     "guanyuan": {
       "mps": 0.8,
@@ -163,11 +163,11 @@
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 10.5,
+    "tpc-other-on": 10.6,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
-    "zhongwei": 0.3,
+    "zhongwei": 0.1,
     "chuangwei": 0.0,
     "xinyuan": 7.2,
     "changpin": 0.0,
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 10.5
+      "output": 10.6
     },
     {
       "name": "苗栗大鵬",
@@ -253,7 +253,7 @@
       "name": "中威大安",
       "raw_name": "中威大安",
       "capacity": 75.9,
-      "output": 0.3
+      "output": 0.1
     },
     {
       "name": "創維風",
