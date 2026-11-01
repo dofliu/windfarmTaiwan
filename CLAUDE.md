@@ -138,12 +138,14 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 風場的逐筆修正（重複、從未建成、錯置、數字錯誤）寫在 `tools/farm_cleanup.py`：每條規則用（國別, 名稱, 來源）指定剛好一筆，
   附中英文理由與出處連結，建置時輸出 `docs/data-cleanup*.md`。規則對不到資料時建置會中止，要逐條重新查證，不要直接刪掉規則了事。
   確認是不同風場、但名稱相近會被當成重複的 GEM 專案，列在同一檔的 `GEM_KEEP`；2026 年整理的規劃中專案清單裡、之後已停止的專案列在 `PIPE_DROP`。
+  重建風場層後跑 `python3 tools/qa_dups.py`：列出同國、同名或幾乎同名、15 km 內、容量相差 10% 內的營運中紀錄（中國、印度、越南的拼音只認完全相同）；每組查證後，同一座就寫 `dup()`，確認是不同風場就列進同一檔的 `DUP_OK`（附理由），查不清的留著並寫進 TODO；`pr-check` 用 `--max` 擋住新出現的候選。
   GEM 專案被併進某筆精選紀錄、而那筆精選紀錄之後被 dup／drop 刪掉時，建置會中止（否則整座風場會消失）：是另一座就列 `GEM_KEEP`，確認已由別的紀錄涵蓋才列 `ORPHAN_OK`。
   Record-level farm fixes (duplicates, never built, misplaced, wrong figures) live in `tools/farm_cleanup.py`: each rule names
   exactly one record by (country, name, source) with bilingual reasons and a source link, and the build writes `docs/data-cleanup*.md`.
   If a rule stops matching, the build stops: re-check it rather than just deleting it. GEM projects that are confirmed to be
   different farms but have look-alike names go in `GEM_KEEP` in the same file, and projects in the 2026 pipeline compilation that have
   since stopped go in `PIPE_DROP`.
+  After rebuilding the farm layer, run `python3 tools/qa_dups.py`: it lists operating records in the same country with the same or nearly the same name, within 15 km and 10% of capacity (identical stems only for romanised Chinese, Indian and Vietnamese names); verify each pair, then write a `dup()` rule for one farm entered twice or list the pair in `DUP_OK` in the same file (with the reason) when they are different farms, and leave unclear ones open in TODO; `pr-check` uses `--max` to stop new candidates.
   If a GEM project was merged into a curated record that a dup/drop rule later removes, the build stops (otherwise the farm would
   vanish): list it in `GEM_KEEP` if it is a separate farm, or in `ORPHAN_OK` only when another record is confirmed to cover it.
   GEM 放在省或國家中心代用點的營運中風場，由 `tools/fetch_gem_locations.py` 依 GEM 專案頁的鄉鎮／縣文字找到 Wikidata 項目、取其座標（CC0；OSM Nominatim 只當查詢索引，不寫出 OSM 資料；Nominatim 找不到時直接搜尋 Wikidata，所在行政區鏈要含 GEM 寫的縣與省），
@@ -242,10 +244,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   （儀表／風場牆／數據／地圖）、全球地球儀、風電知識，桌機與手機寬度都要沒有錯誤。
   Walk through every page with Playwright on desktop and phone widths and check for errors.
 - 冒煙測試寫成 `tools/smoke_test.js`（`node tools/smoke_test.js http://localhost:8000/ --standalone`，先開本機預覽並建好兩個單檔版）；GitHub Actions `pr-check`
-  （`.github/workflows/pr-check.yml`）在每個 PR 跑它，另外檢查語法、`qa_farms.py --max`（不在國界內的風場不能比已知例外多）、由程式產生的文件是否已更新，
+  （`.github/workflows/pr-check.yml`）在每個 PR 跑它，另外檢查語法、`qa_farms.py --max`（不在國界內的風場不能比已知例外多）、`qa_dups.py --max`（可能重複的風場不能比待查的多）、由程式產生的文件是否已更新，
   以及改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）。新增合理的座標例外時把 workflow 裡的 `--max` 一起調高。
   The smoke test is `tools/smoke_test.js`; the `pr-check` workflow runs it on every PR together with syntax checks, `qa_farms.py --max` (no more farms outside their
-  country than the known exceptions), a check that generated documents are up to date, and the version/changelog check (`tools/check_version.py`) when the site changes.
+  country than the known exceptions), `qa_dups.py --max` (no more possibly duplicated farms than the open ones), a check that generated documents are up to date, and the version/changelog check (`tools/check_version.py`) when the site changes.
 - 冒煙測試另含：axe-core 無障礙檢查（WCAG 2.1 A／AA 與最佳做法，每一頁；首頁、台灣即時、風電知識、排程狀態再以淺色模式查對比；本機先 `npm install axe-core`，沒裝會略過並提示）、
   鍵盤檢查（首頁前 14 個 Tab 停點要看得到、有焦點框，第一個是「跳到主要內容」）、減少動態效果（`prefers-reduced-motion` 下不能有 CSS 動畫在跑）與效能預算
   （`tools/perf_budget.json`：各頁以全新分頁打開時的同源傳輸量上限，未壓縮、桌機；要提高時在 PR 說明原因，不要為了過關直接調高）。

@@ -192,7 +192,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/archive/farm_daily.json` — 台電即時資料各併網點（含民營）的每日取樣累積（2026-06 起，抓取程式每次累加；`tools/build_farm_daily.py` 可從 git 歷史回補），
   「發電表現」的台灣即時取樣與風場卡片用；一天一行，欄位說明在檔案的 meta
 - `tools/` — 全球資料與底圖的產生程式（見下方「全球資料更新」）；`tools/build_standalone.py`、`tools/build_globe_lite.py` 產生兩個單檔版、
-  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_ports.py` 檢查港口資料、
+  `tools/coverage_report.py` 產生資料覆蓋率報告、`tools/qa_farms.py` 檢查風場座標、`tools/qa_dups.py` 列出可能重複的風場、`tools/qa_ports.py` 檢查港口資料、
   `tools/build_foundations.py` 產生水下基礎資料與逐場清單、`tools/check_quotes.py` 核對研究時引用的原文真的在出處網頁上（`tools/grab_page.py` 找可引用的片段）、
   `tools/smoke_test.js` 冒煙測試、`tools/check_version.py` 檢查版本號與 CHANGELOG；`tools/research/` 放還沒寫進對照表的查證紀錄（每個出處附原文與核對結果）
 - `tools/report/` — 全球風電發展觀察報告的產生程式（數字由資料計算、網站截圖、A4 PDF；成品在 `report/`，不進 git，發布在 Release「report」，見 [tools/report/README.md](./tools/report/README.md)）
@@ -286,6 +286,7 @@ python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2
 #    英國：新一季 REPD 發布後，先 SKIP_REPD=1 建置一次（build_repd.py 要對「還沒套用 REPD」的風場層比對），再跑 build_repd.py、再正常建置
 SKIP_REPD=1 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json && python tools/build_repd.py REPD_Publication_Q2_2026.csv && python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 python tools/qa_farms.py        # 座標健檢：列出落在國界外的風場
+python tools/qa_dups.py         # 可能重複的營運中風場（同名或幾乎同名、15 km 內、容量相近）；查證後寫進 farm_cleanup.py 的 dup() 或 DUP_OK
 python tools/build_live_units.py # 澳洲、加拿大即時資料的機組→風場對照（需 openpyxl；新風場併網時重跑，並檢查「未對應」清單）
 python tools/coverage_report.py # 資料覆蓋率報告：docs/data-coverage.md（中文）與 .en.md（英文）
 python tools/qa_ports.py        # 港口資料健檢：欄位、國界內或離岸 15 km 內、出處、「服務過的風場」對得到風場名稱

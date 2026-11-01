@@ -1,0 +1,111 @@
+[
+ {
+  "farm": "IND Betul wind farm = Betul (United) I wind farm",
+  "verdict": "same",
+  "keep": "Betul (United) I wind farm",
+  "fix": {
+   "mw": 49.5,
+   "year": 2014,
+   "turbine": "33 × Regen Powertech VENSYS 82 (1.5 MW)"
+  },
+  "why_zh": "貝圖爾（Betul）這座風場實際只有兩期、共 99.5 MW：一期 33 部 Regen VENSYS 82（1.5 MW）＝49.5 MW，二期 25 部 Gamesa G97（2 MW）＝50 MW；專案公司 Betul Wind Farms Pvt Ltd 原由 Atria 體系的 WPA Clean Energy 持有約 50.01%、其餘由 United Sustainable Energy India（USEIPL）持有，2024 年 3 月 USEIPL 買下全部股份。本站卻有「Betul」「Betul (United) I」「Betul (United) II」「Betul (Atria)」四筆、各 50 MW，合計 200 MW。「Betul」與「Betul (United) I」在 GEM 都引用同一頁 USEIPL 專案清單（該頁憑證過期、無法核對引文），業主、容量相同；這處只有兩期，所以沒寫期別的「Betul」是重複。保留「Betul (United) I」並改成一期的 49.5 MW、2014 年（CARE 寫 2014 年 1 月商轉）與機型；「Betul (United) II」是二期；「Betul (Atria)」也和這兩期重複，建議另外處理。",
+  "why_en": "The Betul farm has only two phases, 99.5 MW in all: phase I with 33 Regen VENSYS 82 machines (1.5 MW) = 49.5 MW and phase II with 25 Gamesa G97 (2 MW) = 50 MW. The project company Betul Wind Farms Pvt Ltd was about 50.01% held by WPA Clean Energy (an Atria company) and otherwise by United Sustainable Energy India (USEIPL), which bought all the shares in March 2024. The site, however, has four 50 MW records — 'Betul', 'Betul (United) I', 'Betul (United) II' and 'Betul (Atria)' — 200 MW in all. On GEM, 'Betul' and 'Betul (United) I' cite the same USEIPL project list (its certificate has expired, so it cannot be quoted) and share owner and capacity; with only two phases on the ground, the unphased 'Betul' is a duplicate. Keep 'Betul (United) I' and correct it to phase I: 49.5 MW, 2014 (CARE gives commercial operation in January 2014) and the turbine model; 'Betul (United) II' is phase II, and 'Betul (Atria)' duplicates the same two phases as well and should be handled separately.",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/data-insights/power-plant-profile-atria-wind-farm-betul-india/",
+    "quote": "Atria Wind Farm-Betul is a 99.5MW onshore wind power project. It is located in Madhya Pradesh, India."
+   },
+   {
+    "url": "https://www.power-technology.com/data-insights/power-plant-profile-atria-wind-farm-betul-india/",
+    "quote": "Atria Wind Farm-Betul (Atria Wind Farm-Betul I) is equipped with Regen Powertech VENSYS 82 turbines. The phase consists of 33 turbines with 1.5MW nameplate capacity."
+   },
+   {
+    "url": "https://www.power-technology.com/data-insights/power-plant-profile-atria-wind-farm-betul-india/",
+    "quote": "Atria Wind Farm-Betul (Atria Wind Farm-Betul II) is equipped with Siemens Gamesa Renewable Energy G97-2.0 MW turbines. The phase consists of 25 turbines with 2MW nameplate capacity."
+   },
+   {
+    "url": "https://www.careratings.com/upload/CompanyFiles/PR/202404130418_Betul_Wind_Farms_Private_Limited.pdf",
+    "quote": "The project achieved commercial operations date (COD) in January 2014."
+   },
+   {
+    "url": "https://www.careratings.com/upload/CompanyFiles/PR/202404130418_Betul_Wind_Farms_Private_Limited.pdf",
+    "quote": "promoted by WPA Clean Energy Private Limited (mainly held by Atria Brindavan Power Private Limited) holding around 50.01% in the company and balance stake was held by United Sustainable Energy India P rivate Limited (USEIPL). In March 2024, USEIPL and its affiliates have purchased all the shares of BWFPL."
+   }
+  ]
+ },
+ {
+  "farm": "GRC Milia (Kaphereos Evia) wind farm = Milza wind farm",
+  "verdict": "unclear",
+  "keep": "",
+  "why_zh": "兩筆都是 Terna、18 MW、2023 年、別名 Karystia，座標相距約 4 km；Kafireas 156 MW 環評核准列了「Milia」（30 MW）卻沒有「Milza」，The Wind Power 則把兩者列成相距 4 km 的兩座。找不到希臘登記資料確認 Milza 是否為另一座（或 Milia 的誤拼），待查證。",
+  "why_en": "Both are Terna, 18 MW, 2023, other name Karystia, about 4 km apart. The 156 MW Kafireas environmental approval lists a 'Milia' site (30 MW) but no 'Milza', while The Wind Power lists them as two farms 4 km apart. No Greek register entry was found to confirm whether Milza is a separate farm or a misspelling of Milia; needs checking against the RAAEY register.",
+  "sources": [
+   {
+    "url": "https://pste.gov.gr/en/?p=63515",
+    "quote": "TERNA ENERGIAKI AVETE - ENERGIAKI KAFIREOS EVIAS O.E. power of 21 MW, 21 MW, 30 MW, 30 MW, 12 MW and 27 MW in the locations ΄΄Bios - Kalamaki - Bathriza, Tsouka - Mandrayara, Tsouka - Skoura, Milia, Dougza - Antias, Mouriza - Petra Megali - Vranouli΄΄ respectively"
+   },
+   {
+    "url": "https://thewindpower.net/windfarm_en_981_milza.php",
+    "quote": "Milza (Greece) Operational (18 MW)"
+   },
+   {
+    "url": "https://thewindpower.net/windfarm_en_981_milza.php",
+    "quote": "Melia (Kaphereos Evia) (4 km)"
+   },
+   {
+    "url": "https://www.gem.wiki/Milza_wind_farm",
+    "quote": "Other names: Karystia wind project Milza wind farm (Μιλζα) is an operating wind farm"
+   }
+  ]
+ },
+ {
+  "farm": "IND Betul wind farm = Betul (United) II wind farm",
+  "verdict": "unclear",
+  "keep": "",
+  "why_zh": "GEM 在貝圖爾列了四筆各 50 MW（United I、United II、Betul、Atria），The Wind Power 也列四期合計 199.5 MW，數量相符；但 GE 說 Atria 在貝圖爾有兩座 50 MW，而 GEM 只歸一座給 Atria，「Betul」一筆的業主可能有誤。兩筆都沒有年份、座標都是概略，無法確認是否同一座，待查證。",
+  "why_en": "GEM lists four 50 MW Betul records (United I, United II, Betul, Atria) and The Wind Power lists four parts totalling 199.5 MW, so the count matches; but GE says Atria has two 50 MW Betul projects while GEM attributes only one to Atria, so the owner of 'Betul' may be wrong. Neither record has a year and both positions are approximate; cannot confirm.",
+  "sources": [
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_17284_betul.php",
+    "quote": "Betul (India) Operational (199,5 MW) General data Maps Suggest an update Localisation Country India County/Zone Madhya Pradesh City Betul Wind farm type Onshore wind farm Key dates 49.5 MW commissioned 50 MW commissioned 50 MW commissioned 50 MW commissioned"
+   },
+   {
+    "url": "https://www.ge.com/news/press-releases/ge-energy-financial-services-invests-atria-powers-wind-farms-india-supports-usd-1-0",
+    "quote": "The two other projects, each 50 megawatts, are located in Betul district of Madhya Pradesh"
+   },
+   {
+    "url": "https://www.gem.wiki/Betul_wind_farm",
+    "quote": "Operating [ 1 ] 50 MW [ 1 ] Onshore [ 1 ] United Sustainable Energy India Pvt Ltd [100%]"
+   },
+   {
+    "url": "https://www.gem.wiki/Betul_(United)_II_wind_farm",
+    "quote": "Operating [ 1 ] 50 MW [ 1 ] Onshore United Sustainable Energy India Pvt Ltd [100%]"
+   }
+  ]
+ },
+ {
+  "farm": "IND Betul wind farm = Betul (Atria) wind farm",
+  "verdict": "unclear",
+  "keep": "",
+  "why_zh": "兩筆相距 0.8 km、各 50 MW；GE 說 Atria 在貝圖爾有兩座 50 MW 風場，GEM 卻只把一座歸給 Atria、另一筆「Betul」歸給 United Sustainable Energy。可能是 Atria 的第二座（業主寫錯），也可能是另一家的風場，找不到 MNRE 或開發商資料確認，待查證。",
+  "why_en": "The records are 0.8 km apart and 50 MW each. GE says Atria has two 50 MW Betul projects, but GEM credits only one to Atria and gives 'Betul' to United Sustainable Energy. 'Betul' may be Atria's second project with the wrong owner, or another developer's farm; no MNRE or developer record found to settle it.",
+  "sources": [
+   {
+    "url": "https://www.ge.com/news/press-releases/ge-energy-financial-services-invests-atria-powers-wind-farms-india-supports-usd-1-0",
+    "quote": "The two other projects, each 50 megawatts, are located in Betul district of Madhya Pradesh"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_17284_betul.php",
+    "quote": "Betul (India) Operational (199,5 MW) General data Maps Suggest an update Localisation Country India County/Zone Madhya Pradesh City Betul Wind farm type Onshore wind farm Key dates 49.5 MW commissioned 50 MW commissioned 50 MW commissioned 50 MW commissioned"
+   },
+   {
+    "url": "https://www.gem.wiki/Betul_(Atria)_wind_farm",
+    "quote": "Operating [ 1 ] 50 MW [ 1 ] Onshore Atria Power [100%]"
+   },
+   {
+    "url": "https://www.gem.wiki/Betul_wind_farm",
+    "quote": "Operating [ 1 ] 50 MW [ 1 ] Onshore [ 1 ] United Sustainable Energy India Pvt Ltd [100%]"
+   }
+  ]
+ }
+]

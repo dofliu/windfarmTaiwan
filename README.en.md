@@ -242,7 +242,7 @@ output and sea zones load only when needed.
   fields described in the file's meta
 - `tools/` — generators for the global data and basemaps (see "Updating the global data" below);
   `tools/build_standalone.py` and `tools/build_globe_lite.py` build the two single-file copies, `tools/coverage_report.py` the data coverage report,
-  `tools/qa_farms.py` checks farm coordinates, `tools/qa_ports.py` checks the ports data,
+  `tools/qa_farms.py` checks farm coordinates, `tools/qa_dups.py` lists possibly duplicated farms, `tools/qa_ports.py` checks the ports data,
   `tools/build_foundations.py` builds the foundation data and the farm-by-farm list, `tools/check_quotes.py` confirms that
   passages quoted during research really are on their source pages (`tools/grab_page.py` finds quotable passages),
   `tools/smoke_test.js` is the smoke test and `tools/check_version.py` checks the version and changelogs; `tools/research/` holds research notes not yet written into
@@ -366,6 +366,7 @@ python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2
 #    UK: after each quarterly REPD release, build once with SKIP_REPD=1 (build_repd.py must match against the layer without the REPD changes), run build_repd.py, then build normally
 SKIP_REPD=1 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json && python tools/build_repd.py REPD_Publication_Q2_2026.csv && python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
+python tools/qa_dups.py         # possibly duplicated operating farms (same or nearly the same name, within 15 km, similar capacity); verify, then add a dup() rule or a DUP_OK entry in farm_cleanup.py
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
 python tools/qa_ports.py        # ports check: fields, inside the country or within 15 km of its coast, sources, farm names

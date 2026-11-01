@@ -45,6 +45,9 @@ jobs:
       - name: Farm coordinates (tools/qa_farms.py)
         run: python tools/qa_farms.py --max 19
 
+      - name: Possibly duplicated farms (tools/qa_dups.py)
+        run: python tools/qa_dups.py --max 4
+
       - name: Generated documents are up to date
         run: |
           python tools/coverage_report.py

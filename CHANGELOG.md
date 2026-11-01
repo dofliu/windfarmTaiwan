@@ -14,6 +14,13 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v3.22.1 — 2026-11-01
+
+- **找出並合併重複的風場紀錄**：新的檢查程式 `tools/qa_dups.py` 列出同一國、名稱相同或幾乎相同、15 km 內、容量與年份相近的營運中紀錄（47 組候選），三組查證小組逐組附出處核對（引文 139 段都以 `check_quotes.py` 核對）：
+  15 組確認是同一座風場登錄兩次，併成一筆（法國 9 座：Les Hauts Pays、La Montagne Ardéchoise、Les Egrouettes、Chemin de Grès、Monts de l'Ain、Nieul-sur-l'Autise、Épinette、Croix de Chalais、Nouillers；比利時 Sainte-Ode、德國 Oettelin 與 Emlichheim、英國 St John's Hill、遼寧昌圖三江口、印度 Belgaum），保留的那筆依出處補上機組數與型號；
+  28 組確認是不同風場（例：寧夏太陽山不同業主的風場、澳洲 Murra Warra 一二期、美國 Plainfield 各別的 LLC），列進 `DUP_OK` 附理由，之後不再列出。查證時另外更正：法國 Hauteurs de l'Albe 其實是兩座各 6.9 MW 的風場（兩筆原本都寫合計的 13.8 MW）、瑞典 Skarhults 為 10.8 MW。
+  希臘 Milia／Milza 與印度 Betul 的三組證據互相矛盾，先不動。`pr-check` 加上這項檢查，有新的候選時要先查證。
+
 ## v3.22.0 — 2026-11-01
 
 - **事件再加 47 筆（152 → 199）**：台灣 16 筆（台灣 15 → 31 筆：2000 年麥寮第一座商轉風場、2001 年台電澎湖中屯、2013 年苑裡反瘋車抗爭、2017 年第一批離岸風機、2018 年遴選與競價、區塊開發 3-1／3-2／3-3、離岸一期故障率、2024 年凱米颱風、國產化規定在 WTO 後取消、海峽一期解約、EDF 撤出蔚藍海、離岸二期統包商富崴聲請破產等）、政策與社會 16 筆（2 → 28 筆：美國暫停離岸租賃與 Empire Wind、Revolution Wind 停工令、英國 AR5 零投標與 AR7、德國與丹麥標案零投標、Esbjerg 與 Ostend 宣言、三菱退出日本第一輪、南韓離岸風電特別法、澳洲 Gippsland、Fosen 和解、荷蘭零補貼、巴西離岸法）、里程碑 15 筆（36 → 56 筆：1887 年 Blyth、1957 年 Gedser、1978 年 Tvind、中國馬蘭、英國 Delabole、愛爾蘭 Arklow Bank、荷蘭 Egmond aan Zee、比利時 Thornton Bank、德國 alpha ventus、越南薄寮、WindFloat Atlantic、三峽引領號、Dogger Bank A、東方電氣 26 MW、波蘭 Baltic Power）。新增比利時、葡萄牙與 10 個子類的中英對照；每筆的出處原文都以 `check_quotes.py` 核對（三組查證小組，共 222 段引文）。
