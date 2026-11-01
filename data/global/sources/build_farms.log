@@ -205,6 +205,7 @@ CLEAN dup FRA Vaux-Andigny wind farm 21.0 -> Plateau D'Andigny wind farm
 CLEAN dup FRA Villes D'Oyses wind farm 28.0 -> Achery-Mayot wind farm
 CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
+CLEAN dup GBR Lambs Hill wind farm 8.0 -> Lambs Hill I wind farm
 CLEAN dup GBR Sofia wind farm 1400.0 -> Sofia
 CLEAN dup GBR Triton Knoll (Innogy) wind farm 857.0 -> Triton Knoll
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
@@ -1425,7 +1426,10 @@ CLEAN fix DEU Windanker wind farm 300.0
 CLEAN fix DEU Windpark Druiberg (Dardesheim) 62.0
 CLEAN fix DEU Winsen wind farm 20.0
 CLEAN fix DEU Zettingen wind farm 13.0
+CLEAN fix DNK Brorstrup wind farm 11.0
 CLEAN fix DNK Frederikshavn 7.6
+CLEAN fix DNK Nørre Økse Sø wind farm 28.0
+CLEAN fix DNK Quistrup wind farm 11.0
 CLEAN fix DNK Rønland 17.2
 CLEAN fix DNK Vesterhav Nord 176.4
 CLEAN fix DOM Esperanza (Dominican Republic) wind farm 50.0
@@ -1616,9 +1620,12 @@ CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank A 1200.0
 CLEAN fix GBR Dogger Bank wind farm · B, C 2400.0
 CLEAN fix GBR Kincardine 49.5
+CLEAN fix GBR Ovenden Moor (Repower) wind farm 18.0
+CLEAN fix GBR Ovenden Moor wind farm 23.0
 CLEAN fix GBR Pentland wind farm 100.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
+CLEAN fix GBR Spurness wind farm 10.0
 CLEAN fix HRV Kamensko-Vostane wind farm 42.0
 CLEAN fix HRV Lukovac wind farm 49.0
 CLEAN fix IND Agaswadi wind farm 50.0
@@ -2729,7 +2736,7 @@ PIPE-UPD TWN Formosa 6 -> Formosa 6 st2 y2029
 PIPE-UPD TWN Huanyang -> Huanyang st2 y2028
 PIPE-UPD TWN YouDe -> YouDe st2 y2029
 REPD-ADD GBR Land near Ventonteague 2.3 y2020
-REPD-DECOM GBR Ovenden Moor wind farm: REPD lists it as decommissioned (no date given; record left as is)
+REPD-ADD GBR Moor House Wind Farm 12.0 y2017
 REPD-DECOM GBR Spurness wind farm: REPD lists it as decommissioned (no date given; record left as is)
 REPD-MOVE GBR Black Law wind farm · 1b -> 55.76219, -3.76257 (507.6 km; REPD 4580)
 REPD-MOVE GBR Dalquhandy wind farm -> 55.18061, -4.90958 (77.0 km; REPD 4189)

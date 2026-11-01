@@ -114,7 +114,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 834 farms),
     Australia (AEMO, 64 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
     private farms (an estimate from samples, never mixed with the official figures)
-  - **Layers**: ports (142 in 23 countries, ⚓), major events and incidents (152, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
+  - **Layers**: ports (142 in 23 countries, ⚓), major events and incidents (199, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
     foundations (299 of the 342 operating offshore farms have a known type, 88.2% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
     Wind now (NOAA GFS, every 6 hours), Sea zones (EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
     areas of 6 North Sea countries) and a mean wind speed basemap (Global Wind Atlas)
@@ -195,7 +195,7 @@ output and sea zones load only when needed.
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
 - `data/global/turbines_de.json` — position and specs of every German turbine (MaStR; about 6,600 farms, 26,000 turbines), built by `tools/build_mastr.py`;
   **shared under the Data licence Germany – attribution – 2.0 (© Bundesnetzagentur | Marktstammdatenregister)**; `data/global/sources/mastr_parks_DEU.json` lists the German farms added to the farm layer
-- `data/global/turbines_dk.json` — position and specs of every Danish turbine (the Energy Agency's Stamdataregister for vindkraftanlæg; 103 farms, 1,324 turbines), built from the "Vinddata" workbook by
+- `data/global/turbines_dk.json` — position and specs of every Danish turbine (the Energy Agency's Stamdataregister for vindkraftanlæg; 110 farms, 1,373 turbines), built from the "Vinddata" workbook by
   `tools/build_turbines_dk.py` (matched within 12 km at sea / 3 km on land and ±15% of capacity); credited as Energistyrelsen, the dataset and the retrieval date per the agency's data terms
   (the retrieval month is in the file's meta); used first for Danish farms, OpenStreetMap only where it has no match
 - `data/global/sources/repd_GBR.json` — the UK REPD (the Department for Energy Security and Net Zero's quarterly Renewable Energy Planning Database, Open Government Licence v3.0) matched to the site's UK farms, built by
@@ -219,7 +219,7 @@ output and sea zones load only when needed.
 - `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
   per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
 - `data/global/ports.json` — 142 offshore wind ports in 23 countries (curated by hand with sources; run `tools/qa_ports.py` after editing)
-- `data/global/events.json` — 152 major events and incidents (built by `tools/build_events.py` from
+- `data/global/events.json` — 199 major events and incidents (built by `tools/build_events.py` from
   `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
   the build script, which checks that every event has English text and that farm names match the farm layer)
 - `data/global/photos.json` — farm card photos (65 farms and 18 milestones; hand-checked Wikimedia Commons photos, built by `tools/build_photos.py` from `tools/farm_photos.py`)

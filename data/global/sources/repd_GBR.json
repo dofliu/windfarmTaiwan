@@ -7,8 +7,8 @@
 "retrieved": "2026-10-31",
 "records": 887,
 "matched": 793,
-"parks": 1,
-"parks_mw": 2.3,
+"parks": 2,
+"parks_mw": 14.3,
 "moves": 3,
 "tool": "tools/build_repd.py",
 "note": "matches: REPD records matched to site UK farms (name tokens within 8 km onshore / 40 km offshore, or a lone candidate within 2 / 15 km and ±15% capacity); moves: same-name site farms whose point lies far from the REPD grid reference (coordinates replaced); parks: operating onshore REPD farms of 1 MW+ with no site record within 3 km and no same-name record within 12 km, added by build_farms.py as source 5."
@@ -9039,8 +9039,8 @@
 "lon": -1.93684,
 "operator": "Unknown",
 "site_st": 0,
-"site_year": 2017,
-"site_mw": 23.0,
+"site_year": 1993,
+"site_mw": 9.2,
 "site_flags": 0,
 "upgrade": false
 },
@@ -16704,6 +16704,17 @@
 }
 ],
 "parks": [
+{
+"name": "Moor House Wind Farm",
+"lat": 54.57465,
+"lon": -1.49724,
+"mw": 12.0,
+"year": 2017,
+"turbine": "6x Senvion MM100 (2 MW)",
+"owner": "OnPath Energy (formerly Banks Renewables)",
+"ref": "4642",
+"country": "England"
+},
 {
 "name": "Land near Ventonteague",
 "lat": 50.3208,

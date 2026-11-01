@@ -7,9 +7,9 @@ English ｜ [中文](data-coverage.md)
 ## Summary
 
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
-- **Farm level**: 20,637 operating farms, 1,183,488 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
+- **Farm level**: 20,636 operating farms, 1,183,485 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 54 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 4 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 248 duplicate, never-built or non-existent records were removed and 642 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Clean-up**: checked record by record in 2026-09; 249 duplicate, never-built or non-existent records were removed and 648 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 9,561 projects, 2,715,409 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
@@ -18,7 +18,7 @@ English ｜ [中文](data-coverage.md)
 - **India**: national 54,511 MW, mapped 41,792 MW (77%), gap 12,719 MW.
 - **Italy**: national 13,568 MW, mapped 10,107 MW (74%), gap 3,461 MW.
 - **Germany**: national 77,873 MW, mapped 74,862 MW (96%), gap 3,011 MW.
-- **Denmark**: national 7,547 MW, mapped 5,001 MW (66%), gap 2,546 MW.
+- **Denmark**: national 7,547 MW, mapped 5,018 MW (66%), gap 2,529 MW.
 - **Spain**: national 33,301 MW, mapped 31,350 MW (94%), gap 1,951 MW.
 - **Belgium**: national 5,851 MW, mapped 3,972 MW (68%), gap 1,879 MW.
 - **Poland**: national 10,602 MW, mapped 8,976 MW (85%), gap 1,626 MW.
@@ -105,7 +105,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 4 | India (IND) | 54,511 | 0 | 38,937 | 41,792 | 77% | 12,719 | 623 | 8,218 | 561 | △ |
 | 5 | Brazil (BRA) | 34,866 | 0 | 35,718 | 34,232 | 98% | 634 | 294 | 0 | 3 | ✓ |
 | 6 | Spain (ESP) | 33,301 | 7 | 31,007 | 31,350 | 94% | 1,951 | 868 | 2,820 | 267 | ✓ |
-| 7 | United Kingdom (GBR) | 33,088 | 16,071 | 28,965 | 32,299 | 98% | 789 | 752 | 2 | 0 | ✓ |
+| 7 | United Kingdom (GBR) | 33,088 | 16,071 | 28,965 | 32,280 | 98% | 808 | 751 | 2 | 0 | ✓ |
 | 8 | France (FRA) | 26,000 | 2,008 | 25,610 | 24,859 | 96% | 1,141 | 1,205 | 1,105 | 301 | ✓ |
 | 9 | Canada (CAN) | 18,153 | 0 | 17,709 | 17,755 | 98% | 398 | 197 | 0 | 6 | ✓ |
 | 10 | Sweden (SWE) | 17,381 | 191 | 16,574 | 16,734 | 96% | 647 | 259 | 0 | 0 | ✓ |
@@ -115,7 +115,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 14 | Netherlands (NLD) | 11,782 | 5,425 | 12,022 | 10,685 | 91% | 1,097 | 160 | 284 | 49 | ✓ |
 | 15 | Poland (POL) | 10,602 | 0 | 8,962 | 8,976 | 85% | 1,626 | 238 | 609 | 114 | △ |
 | 16 | Finland (FIN) | 9,383 | 71 | 8,551 | 9,012 | 96% | 371 | 143 | 0 | 1 | ✓ |
-| 17 | Denmark (DNK) | 7,547 | 2,687 | 5,003 | 5,001 | 66% | 2,546 | 119 | 80 | 4 | △ |
+| 17 | Denmark (DNK) | 7,547 | 2,687 | 5,003 | 5,018 | 66% | 2,529 | 119 | 80 | 4 | △ |
 | 18 | Mexico (MEX) | 7,512 | 0 | 8,425 | 8,214 | 109% | 0 | 55 | 558 | 19 | ✓ |
 | 19 | Japan (JPN) | 6,434 | 288 | 5,383 | 5,793 | 90% | 641 | 276 | 20 | 149 | ✓ |
 | 20 | Vietnam (VNM) | 6,239 | 1,000 | 7,081 | 4,884 | 78% | 1,355 | 73 | 46 | 39 | △ |

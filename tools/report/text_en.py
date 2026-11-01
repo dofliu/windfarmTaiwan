@@ -550,7 +550,7 @@ def more(D, t):
     t['c8i_wind'] = f'The site\'s Wind now layer in the turbine view (NOAA GFS, {D["wind_run"]} Taiwan time): grey = barely turning, blue-green = output rising, bright green = full output, magenta = above 25 m/s, shut down. Indicative, from 10 m wind; it is the weather when the report was built, not an average.'
     t['c8i_fig22'] = 'Recorded incidents by type'
     t['c8i_fig23'] = 'Recorded incidents by year'
-    t['c8i_src'] = f'The site\'s events data (compiled {D["ev_meta"]["compiled"]}, each with a primary source; casualties only when officially confirmed). The list leans towards recent years and is not an incident rate.'
+    t['c8i_src'] = f'The site\'s events data (compiled from {D["ev_meta"]["compiled"]}, checked up to {D["ev_meta"].get("checkedTo", D["ev_meta"]["compiled"])}, each with a primary source; casualties only when officially confirmed). The list leans towards recent years and is not an incident rate.'
 
     # 9 Taiwan, more
     t['c7_shot'] = 'Offshore farms off Taiwan\'s west coast (site, offshore only).'
@@ -595,7 +595,7 @@ def more(D, t):
     t['ap_sec'] = t['ap_sec'] + [
         ('Ports, events and the Taiwan archive', [
             f'Ports: the {D["ports_n"]} offshore wind ports the site has compiled by hand ({D["ports_meta"]["asof"]}), each with sources; "farms served" lists only farms a source ties to the port.',
-            f'Events: the {D["ev_meta"]["count"]} major events and incidents the site has compiled by hand ({D["ev_meta"]["compiled"]}), each with a primary source; casualties and causes only when officially confirmed. The list leans towards recent years and is not an incident rate.',
+            f'Events: the {D["ev_meta"]["count"]} major events and incidents the site has compiled by hand ({D["ev_meta"]["compiled"]} to {D["ev_meta"].get("checkedTo", D["ev_meta"]["compiled"])}), each with a primary source; casualties and causes only when officially confirmed. The list leans towards recent years and is not an incident rate.',
             'Taiwan monthly output: Taipower, past generation by unit (Government Open Data Platform 37331, every 10 minutes), subtotal of Taipower\'s own farms (Open Government Data License, version 1.0).',
             'Capacity per person: population from Our World in Data (CC BY 4.0), latest available year; the site divides year-end capacity by population.',
         ]),

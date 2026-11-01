@@ -192,6 +192,11 @@ def main(path):
                         'operator': r['operator'], 'site_st': best['st'], 'site_year': best['year'], 'site_mw': best['mw'], 'site_flags': best['flags']})
     # 新增：營運中、1 MW 以上、陸域、附近 3 km 內沒有任何本站紀錄 · additions
     parks, held, moves = [], [], []
+    # 人工核對過、附近的本站紀錄不是同一座的 REPD 風場（照樣新增） · REPD farms checked by hand: the nearby site record is a different farm
+    PARK_OK = {'4642': 'Moor House（Banks／OnPath，12 MW、6 部 Senvion MM100，2017-12 運轉，Darlington Great Burdon）；12 km 內同字「Moor」的本站紀錄是別的風場 · '
+                       'Moor House (Banks / OnPath, 12 MW, 6 Senvion MM100, operating Dec 2017, Great Burdon, Darlington); the site record within 12 km sharing “Moor” is another farm'}
+    # 人工更正 REPD 欄位（附出處） · hand corrections to REPD fields (with sources)
+    PARK_FIX = {'4642': {'turbine': '6x Senvion MM100 (2 MW)', 'owner': 'OnPath Energy (formerly Banks Renewables)'}}   # Engineering News 2017-04-21: 6 部 MM100；REPD 的單機 2.5 MW 與 12 MW 不合 · REPD's 2.5 MW unit size does not fit 12 MW
     for r in unmatched:
         if r['st'] != 'Operational' or r['mw'] < 1 or r['sea']:
             if r['st'] == 'Operational' and r['mw'] >= 1:
@@ -210,12 +215,13 @@ def main(path):
             continue
         # 附近 12 km 內有名稱相同字的本站紀錄（多半是合併計算的擴建），或 3 km 內有任何紀錄：不新增 · covered by a nearby record (usually an extension folded into it)
         near = [f for f in site if km(r['lat'], r['lon'], f['lat'], f['lon']) <= 3 or (km(r['lat'], r['lon'], f['lat'], f['lon']) <= 12 and f['_t'] & rt)]
-        if near:
+        if near and r['ref'] not in PARK_OK:
             held.append(r)
             continue
         parks.append({'name': r['name'], 'lat': r['lat'], 'lon': r['lon'], 'mw': round(r['mw'], 2), 'year': r['op'].year if r['op'] else 0,
                       'turbine': f"{r['n']} x {r['unit']:g} MW" if r['n'] and r['unit'] else '', 'owner': r['operator'], 'ref': r['ref'],
                       'country': r['country']})
+        parks[-1].update(PARK_FIX.get(r['ref'], {}))
     parks.sort(key=lambda p: (-p['mw'], p['name']))
     SKIP_UP = {'Lochluichart wind farm · 3': 'REPD 的 Lochluichart (Extension) 是 2014 年的 18 MW 擴建，不是 GEM 這筆 24 MW 的第三期 · the 2014 18 MW extension, not this 24 MW third phase'}
     # 升級的判定只看 REPD 的證據，不看本站目前的狀態：這樣對已套用過 REPD 的資料重跑也會得到同樣的結果（建置時只對規劃中的紀錄套用）

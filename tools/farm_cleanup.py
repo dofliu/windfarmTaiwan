@@ -1785,6 +1785,44 @@ RULES = [
         'Danish Energy Agency: 3 turbines (7.6 MW) were put up at sea in 2003; after the harbour extension two are land-connected and only one 2.3 MW turbine is left at sea. '
         'OpenStreetMap tags the Nordex N90/2300 as the offshore one (the Bonus 2.3 MW and the Vestas V90 now stand on land); point moved to that turbine',
         'https://ens.dk/energikilder/etablerede-havvindmoelleparker', mw=2.3, turbine='1x Nordex N90/2300', lat=57.442, lon=10.565, note=True),
+    # 英國 REPD 標為已除役而沒有日期的紀錄與相關重複（2026-11 查證） · UK records REPD lists as decommissioned without a date, and a related duplicate
+    fix('GBR', 'Spurness wind farm', G,
+        'SSE Renewables：Spurness 在 2012 年汰換，原本 3 部風機除役、換成 5 部；本站這筆（10 MW、2012）是汰換後的風場。REPD 汰換案（編號 3837）為 10 MW、5 部 2 MW，'
+        'The Wind Power 記為 5 部 Vestas V80/2000 運轉中、3 部 NEG Micon NM92/2750 已拆除。原本機組欄「4 x 2.75 MW」是舊風場（REPD 4036）的數字，改正；2004–2012 年的舊風場不另列',
+        'SSE Renewables: Spurness was repowered in 2012, its original three turbines decommissioned and replaced with five; this record (10 MW, 2012) is the repowered farm. REPD\'s repowering '
+        'record (ref 3837) is 10 MW with 5 × 2 MW, and The Wind Power lists 5 Vestas V80/2000 operating and 3 NEG Micon NM92/2750 dismantled. The turbine field “4 x 2.75 MW” came from the old farm\'s '
+        'REPD record (4036) and is corrected; the 2004–2012 farm is not listed separately',
+        'https://www.sserenewables.com/onshore-wind/great-britain/spurness/', turbine='5x Vestas V80-2.0 MW', owner='SSE Renewables', note=True),
+    fix('GBR', 'Ovenden Moor wind farm', G,
+        'REPD（編號 2925）：原風場 23 部 0.4 MW、9.2 MW，1993-06-01 運轉，已除役；Wikipedia：舊風機在 2015 年 3 月前除役。本站原寫 23 MW、2017 年（混入汰換案的年份）。'
+        '改為 9.2 MW、1993 年、2015 年除役；汰換後的 18 MW 是另一筆「Ovenden Moor (Repower)」',
+        'REPD (ref 2925): the original farm had 23 × 0.4 MW, 9.2 MW, operating from 1 Jun 1993 and since decommissioned; Wikipedia: the old turbines were decommissioned by March 2015. '
+        'The site had 23 MW and 2017 (the repowering\'s year). Set to 9.2 MW, 1993, ended 2015; the repowered 18 MW farm is the separate “Ovenden Moor (Repower)” record',
+        'https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract', mw=9.2, year=1993, end=2015, turbine='23x 0.4 MW', note=True),
+    fix('GBR', 'Ovenden Moor (Repower) wind farm', G,
+        'Gamesa 2015-08：供應 9 部 G80-2.0 MW，取代原本 23 部；REPD（編號 4408）寫 18 MW、9 部、2017-01-24 運轉（REPD 的單機 2.5 MW 與總容量不合）',
+        'Gamesa, Aug 2015: nine G80-2.0 MW turbines replacing the 23 existing ones; REPD (ref 4408) gives 18 MW, 9 turbines, operating from 24 Jan 2017 (its 2.5 MW unit size does not fit the total)',
+        'https://www.renewableenergymagazine.com/wind/gamesa-to-install-nine-turbines-in-uk-20150818', turbine='9x Gamesa G80-2.0 MW'),
+    dup('GBR', 'Lambs Hill wind farm', G, ('Lambs Hill I wind farm', G),
+        '同一座風場：REPD 只有一筆 Lambs Hill（編號 4390，8 MW，Banks），格網座標在 Lambs Hill I 的位置；這筆 GEM 紀錄（8 MW、2017、沒有業主）的點在西北約 9 km 處',
+        'Same farm: REPD has a single Lambs Hill (ref 4390, 8 MW, Banks) whose grid reference is at Lambs Hill I; this GEM record (8 MW, 2017, no owner) sits about 9 km to the north-west',
+        'https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract'),
+    # 丹麥能源署風機登記檔（Stamdataregister for vindkraftanlæg，Vinddata，2026-10 取用）與本站容量不符的風場 · farms whose capacity disagrees with the Danish Energy Agency's turbine register
+    fix('DNK', 'Nørre Økse Sø wind farm', G,
+        '能源署風機登記檔：原風場是 19 部 NEG Micon NM48/750（14.25 MW），2000-02-16 併網、2023 年 3–4 月逐部除役；汰換後的 11 部 Vestas V126-3.6 MW（39.6 MW）2024 年 2–3 月併網（同一登記檔，業主 European Energy）。'
+        '本站原寫 28 MW、2000 年，兩個階段都不符；改為汰換後的現況（2000–2023 年的舊風場不另列，時間軸在 2024 年以前少算約 14 MW）',
+        'Danish Energy Agency turbine register: the original farm was 19 NEG Micon NM48/750 (14.25 MW), connected on 16 Feb 2000 and decommissioned one by one in March–April 2023; '
+        'the 11 Vestas V126-3.6 MW that replaced them (39.6 MW) were connected in February–March 2024 (same register; owner European Energy). The site had 28 MW and 2000, matching neither stage; '
+        'set to the repowered farm (the 2000–2023 farm is not listed separately, so the timeline before 2024 is about 14 MW short)',
+        'https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren', mw=39.6, year=2024, turbine='11x Vestas V126-3.6 MW', note=True),
+    fix('DNK', 'Brorstrup wind farm', G,
+        '能源署風機登記檔：5 部 Siemens SWT-3.6-120（18 MW），3 部 2010-07-08 併網、2 部 2011 年 10 月併網（本站原寫 11 MW，約只含第一批 3 部）',
+        'Danish Energy Agency turbine register: 5 Siemens SWT-3.6-120 (18 MW), 3 connected on 8 Jul 2010 and 2 in October 2011 (the site had 11 MW, roughly the first three)',
+        'https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren', mw=18, ph=[[2010, 10.8], [2011, 7.2]], turbine='5x Siemens SWT-3.6-120'),
+    fix('DNK', 'Quistrup wind farm', G,
+        '能源署風機登記檔：本站座標上的是 3 部 Siemens SWT-3.0-101（9 MW），2012 年 5 月併網；東方 3.2–3.9 km 另有 3 部 Vestas V112（2012 年 9 月）登記為另一座風場，不併入',
+        'Danish Energy Agency turbine register: the site point holds 3 Siemens SWT-3.0-101 (9 MW), connected in May 2012; 3 Vestas V112 3.2–3.9 km to the east (September 2012) are registered as a separate park and are not merged',
+        'https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren', mw=9, turbine='3x Siemens SWT-3.0-101'),
     fix('NOR', 'Sormarkfjellet wind farm', G, '31 部 Vestas V117、每部 4.2 MW（業主 Aneo 專案頁）', '31 Vestas V117 turbines of 4.2 MW each (owner Aneo’s project page)',
         'https://www.aneo.com/en/projects/sormarkfjellet-wind-farm', turbine='31x Vestas V117-4.2 MW'),
     fix('FIN', 'Ajos Retrofit wind farm', G,

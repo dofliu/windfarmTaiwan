@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 890 rules: 248 records removed (48,918.1 MW of them operating), 642 records fixed. In addition, 1204 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
+- 897 rules: 249 records removed (48,926.1 MW of them operating), 648 records fixed. In addition, 1204 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -22,7 +22,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | China | 62 | 27,624.5 | 193 |
 | Colombia | 1 | 8 | 3 |
 | Croatia | 0 | 0 | 2 |
-| Denmark | 1 | 180 | 3 |
+| Denmark | 1 | 180 | 6 |
 | Dominican Rep. | 2 | 50 | 8 |
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 2 |
@@ -55,7 +55,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Taiwan | 2 | 0 | 26 |
 | Thailand | 1 | 600 | 7 |
 | Turkey | 9 | 592 | 18 |
-| United Kingdom | 7 | 3,485 | 7 |
+| United Kingdom | 8 | 3,493 | 10 |
 | United States of America | 7 | 943.6 | 8 |
 | Uruguay | 1 | 141.6 | 1 |
 | Vietnam | 15 | 1,512.8 | 39 |
@@ -405,6 +405,9 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Vesterhav Nord · 176.4 MW · 2024 | curated | fixed: location | Point moved offshore between Thyborøn and Ferring Sø (the old one was about 20 km too far south) | [link](https://powerplants.vattenfall.com/vesterhav-nord/) |
 | Rønland · 17.2 MW · 2003 | curated | fixed: capacity, turbines, location | Danish Energy Agency: the Rønland offshore wind farm now consists of the four southern turbines (9.2 MW); the four northern Vestas V80 have become land-connected through the Thyborøn port extension (8 turbines and 17.2 MW from 2003). Point moved to the centre of the southern four (OpenStreetMap relation “Rønland Vindmøllepark”) | [link](https://ens.dk/energikilder/etablerede-havvindmoelleparker) |
 | Frederikshavn · 7.6 MW · 2003 | curated | fixed: capacity, turbines, location | Danish Energy Agency: 3 turbines (7.6 MW) were put up at sea in 2003; after the harbour extension two are land-connected and only one 2.3 MW turbine is left at sea. OpenStreetMap tags the Nordex N90/2300 as the offshore one (the Bonus 2.3 MW and the Vestas V90 now stand on land); point moved to that turbine | [link](https://ens.dk/energikilder/etablerede-havvindmoelleparker) |
+| Nørre Økse Sø wind farm · 28 MW · 2000 | GEM | fixed: capacity, year, turbines | Danish Energy Agency turbine register: the original farm was 19 NEG Micon NM48/750 (14.25 MW), connected on 16 Feb 2000 and decommissioned one by one in March–April 2023; the 11 Vestas V126-3.6 MW that replaced them (39.6 MW) were connected in February–March 2024 (same register; owner European Energy). The site had 28 MW and 2000, matching neither stage; set to the repowered farm (the 2000–2023 farm is not listed separately, so the timeline before 2024 is about 14 MW short) | [link](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) |
+| Brorstrup wind farm · 11 MW · 2010 | GEM | fixed: capacity, phases, turbines | Danish Energy Agency turbine register: 5 Siemens SWT-3.6-120 (18 MW), 3 connected on 8 Jul 2010 and 2 in October 2011 (the site had 11 MW, roughly the first three) | [link](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) |
+| Quistrup wind farm · 11 MW · 2012 | GEM | fixed: capacity, turbines | Danish Energy Agency turbine register: the site point holds 3 Siemens SWT-3.0-101 (9 MW), connected in May 2012; 3 Vestas V112 3.2–3.9 km to the east (September 2012) are registered as a separate park and are not merged | [link](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) |
 
 ## Dominican Rep. (DOM)
 
@@ -1098,6 +1101,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Triton Knoll (Innogy) wind farm · 857 MW · 2022 | GEM | duplicate of “Triton Knoll” | Same farm (857 MW); GEM gives 2022, this site keeps 2021 when all turbines were generating | [link](https://www.gem.wiki/Triton_Knoll_(Innogy)_wind_farm) |
 | Dogger Bank wind farm · B, C · 2,400 MW · 2026 | GEM | fixed: year | Only 20 turbines of phase B were in by June 2026 and installation runs to about Q2 2027, with phase C after B | [link](https://www.offshorewind.biz/2026/06/09/20-turbines-installed-at-dogger-bank-b-offshore-wind-farm/) |
 | Pentland wind farm · 100 MW | GEM | fixed: year, location | Pentland floating wind farm (GEM’s other record, “Pentland Floating Offshore wind farm”, is the same project; the two GEM pages list each other as other names): Marine Scotland granted Section 36 consent on 2023-06-29, it won a Contract for Difference in Allocation Round 7 in January 2026, with a final investment decision expected in 2027 and operation in 2030; not yet under construction. Moved to GEM’s other point about 7.5 km off Dounreay (the old point was on land at Thurso; approximate) | [link](https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/) |
+| Spurness wind farm · 10 MW · 2012 | GEM | fixed: turbines, owner | SSE Renewables: Spurness was repowered in 2012, its original three turbines decommissioned and replaced with five; this record (10 MW, 2012) is the repowered farm. REPD's repowering record (ref 3837) is 10 MW with 5 × 2 MW, and The Wind Power lists 5 Vestas V80/2000 operating and 3 NEG Micon NM92/2750 dismantled. The turbine field “4 x 2.75 MW” came from the old farm's REPD record (4036) and is corrected; the 2004–2012 farm is not listed separately | [link](https://www.sserenewables.com/onshore-wind/great-britain/spurness/) |
+| Ovenden Moor wind farm · 23 MW · 2017 | GEM | fixed: capacity, year, end year, turbines | REPD (ref 2925): the original farm had 23 × 0.4 MW, 9.2 MW, operating from 1 Jun 1993 and since decommissioned; Wikipedia: the old turbines were decommissioned by March 2015. The site had 23 MW and 2017 (the repowering's year). Set to 9.2 MW, 1993, ended 2015; the repowered 18 MW farm is the separate “Ovenden Moor (Repower)” record | [link](https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract) |
+| Ovenden Moor (Repower) wind farm · 18 MW · 2017 | GEM | fixed: turbines | Gamesa, Aug 2015: nine G80-2.0 MW turbines replacing the 23 existing ones; REPD (ref 4408) gives 18 MW, 9 turbines, operating from 24 Jan 2017 (its 2.5 MW unit size does not fit the total) | [link](https://www.renewableenergymagazine.com/wind/gamesa-to-install-nine-turbines-in-uk-20150818) |
+| Lambs Hill wind farm · 8 MW · 2017 | GEM | duplicate of “Lambs Hill I wind farm” | Same farm: REPD has a single Lambs Hill (ref 4390, 8 MW, Banks) whose grid reference is at Lambs Hill I; this GEM record (8 MW, 2017, no owner) sits about 9 km to the north-west | [link](https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract) |
 
 ## United States of America (USA)
 

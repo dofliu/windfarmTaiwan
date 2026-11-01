@@ -238,7 +238,9 @@ function open(f, H, fromBtn) {
     sea ? L('海面的波紋與天空倒影為示意，不是當天的浪況', 'Ripples and sky reflection on the water are illustrative, not today\'s sea state') : null,
     L('衛星影像的拍攝日期常早於風場完工，所以影像裡通常看不到風機；海岸線與地形以影像為準，沒有高程。', 'The imagery is often older than the farm, so the turbines themselves are usually not in it; coastlines follow the imagery and there is no terrain relief.')
   ].filter(Boolean);
-  el.querySelector('.scn-hud').innerHTML = '<ul>' + lines.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul>';
+  // 手機上先收合，只露出一行標題，點開才看完整說明（畫面下方留給風場） · folded on phones so the farm keeps the lower part of the screen
+  const wide = (pane.clientWidth || innerWidth) > 640;
+  el.querySelector('.scn-hud').innerHTML = '<details' + (wide ? ' open' : '') + '><summary>' + esc(L(`說明：哪些是實際資料、哪些是示意（${lines.length} 項）`, `Notes: what is real and what is illustrative (${lines.length})`)) + '</summary><ul>' + lines.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul></details>';
   const srcs = new Set([tb.src].concat(nbDrawn.map(x => x.t.src)).filter(Boolean));   // 本場與畫出的相鄰風場用到的機位來源都要標示 · credit every position source drawn
   el.querySelector('.scn-cr').textContent = L('影像 © Esri, Vantor, Earthstar Geographics', 'Imagery © Esri, Vantor, Earthstar Geographics') + (srcs.has('osm') ? ' · © OpenStreetMap contributors (ODbL)' : '') + (srcs.has('de') ? ' · © Bundesnetzagentur | MaStR' : '') + (srcs.has('dk') ? ' · ' + (tb.credit || (nbDrawn.find(x => x.t.credit) || { t: {} }).t.credit || 'Energistyrelsen, Stamdataregister for vindkraftanlæg') : '') + (srcs.has('us') ? ' · USWTDB' : '');
   // 迴圈 · loop
