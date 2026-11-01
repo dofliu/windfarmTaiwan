@@ -564,10 +564,12 @@ RULES = [
         'https://balkangreenenergynews.com/ukrainian-billionaire-akhmetov-completes-60-mw-ruginoasa-wind-farm-in-romania/', year=2023),
     # ------------------------------------------------ 台灣、日本、韓國、美國的離岸風場（2026-09 查水下基礎第 4 步時發現）
     fix('TWN', 'Zhong Neng', C,
-        '31 部風機 2024 年 8 月全數安裝併網，2025 年 4 月取得電業執照正式商轉；獲配容量 300 MW，實際裝置 31 部 × 9.5 MW＝294.5 MW',
-        'All 31 turbines were installed and grid-connected by August 2024, and commercial operation began with the electricity licence in '
-        'April 2025; the allocated capacity is 300 MW, while the installed capacity is 31 × 9.5 MW = 294.5 MW',
-        'https://www.csc.com.tw/csc/esg/env/env2_1.html', year=2025, mw=294.5, note=True),
+        '31 部風機 2024 年 8 月全數安裝、整場併網，年底前逐部調適試俥；2025 年 4 月取得電業執照正式商轉。以 2024 年計：能源署 2025 年 1 月底統計「7 座商業風場、374 部、3.04 GW」已含中能，'
+        '手冊 2024 年底離岸容量 2,986.8 MW 也對得上。獲配容量 300 MW，實際裝置 31 部 × 9.5 MW＝294.5 MW',
+        'All 31 turbines were installed and the whole farm grid-tied by August 2024, with turbines commissioned one by one to year-end; the electricity licence and commercial '
+        'operation came in April 2025. Counted from 2024: the Energy Administration\'s end-January 2025 tally (7 commercial farms, 374 turbines, 3.04 GW) already includes Zhong Neng, '
+        'and the handbook\'s end-2024 offshore capacity (2,986.8 MW) only adds up with it. Allocated 300 MW; installed 31 × 9.5 MW = 294.5 MW',
+        'https://www.cna.com.tw/news/afe/202502120377.aspx', year=2024, mw=294.5, note=True),
     fix('TWN', 'Taipower Offshore Phase 1 (Changhua)', C, '機組是日立 HTW5.2-127（葉片 127 m），不是 HTW5.2-136。位置：台電只寫「芳苑外海 7.2–8.7 km」，'
         '改用 OpenStreetMap 標出的 21 部風機的中心（23.986 N、120.242 E，© OpenStreetMap 貢獻者）；原座標 24.05 N、120.35 E 在海岸邊，與官方的離岸距離不符',
         'The turbines are Hitachi HTW5.2-127 (127 m blades), not HTW5.2-136. Position: Taipower only says “7.2–8.7 km off Fangyuan”, so the centre of the 21 turbines '
@@ -1283,19 +1285,63 @@ RULES = [
         'https://news.cts.com.tw/cna/money/202608/202608243070944.html', owner='Shinfox Energy'),
     # 2026-10 時間軸延伸到「2026（最新可得）」時核對的興建中離岸風場（出處原文以 check_quotes.py 核對）
     fix('TWN', 'Hai Long 2 & 3', C,
-        'Northland 2026 年第二季報告：73 部已裝 71 部、59 部發電，全案商轉預計 2027 年',
-        'Northland\'s Q2 2026 report: 71 of 73 turbines installed and 59 generating; commercial operation of the whole project expected in 2027',
-        'https://northlandpower.com/northland-power-reports-second-quarter-2026-results-and-construction-progress-updates/', year=2027),
+        '分期併網：2025 年 6 月首度併網，海龍 2A 的 21 部（14 MW，294 MW）2025 年底「如期完工併網」（海龍 2026-03 說明；Northland 2026 年 2 月：37 部已裝、20 部發電）；'
+        '2026 年 10 月 15 日 Northland 宣布 73 部全部安裝並發電，最終許可預計 2027 年上半年取得。容量依經濟部「海龍二號 518 MW＋海龍三號 504 MW」改為 1,022 MW（73 × 14）；原列興建中、1,044 MW',
+        'Connected in phases: first power June 2025; Hai Long 2A\'s 21 turbines (14 MW each, 294 MW) were complete and grid-connected by the end of 2025 (Hai Long, March 2026; '
+        'Northland in February 2026: 37 installed, 20 generating); on 15 October 2026 Northland announced all 73 turbines installed and generating, with final permitting '
+        'approvals expected in H1 2027. Capacity changed to 1,022 MW (73 × 14) per the economics ministry\'s "Hai Long 2 518 MW + Hai Long 3 504 MW"; the record said under construction, 1,044 MW',
+        'https://northlandpower.com/northlands-hai-long-offshore-wind-project-reaches-major-milestone-all-73-turbines-installed-and-generating-power/',
+        st=0, year=2025, mw=1022, ph=[[2025, 294], [2026, 728]], note=True),
     fix('TWN', 'Taipower Offshore Phase 2', C,
         '2026 年 6 月經濟部長表示整體進度逾九成、只剩風機安裝，盼年底裝完、2027 年上半年併聯；10 月台電表示已接管船隊安裝風機、目標年底完工',
         'In June 2026 the economy minister said over 90% was done with only turbine installation left, aiming to finish by year-end and connect in H1 2027; in October Taipower said it had taken over the vessels and aims to finish by year-end',
         'https://www.cna.com.tw/news/afe/202606170184.aspx', year=2027),
     # 2026-10-06 時效核對（出處原文以 check_quotes.py 核對）
     fix('TWN', 'Greater Changhua 2b & 4', C,
-        '2b（337.1 MW，台電即時資料的「沃南風」）2026-09-18 起列入台電裝置容量（試運轉結束）；4（583 MW，「沃四風」）至 2026-10-06 仍標示註10（試運轉、暫不計入裝置容量），全案尚未全面商轉',
-        '2b (337.1 MW, “沃南風” in Taipower’s live data) has been counted in Taipower’s installed capacity since 18 Sep 2026 (trial operation over); 4 (583 MW, “沃四風”) still carried note 10 '
-        '(trial operation, not yet counted) on 6 Oct 2026, so the whole project is not yet in full commercial operation',
-        'https://service.taipower.com.tw/data/opendata/apply/file/d006001/001.json', note=True),
+        '分期併網：2025 年 7 月首度併網，2025 年底大彰化 4 已開始爬升發電（2b 的輸出海纜受損）；年底發電機組數沒有公布，依能源署手冊 2025 年底離岸 3,586.9 MW 減其他風場推算約 252 MW（18 部 × 14 MW，估計）。'
+        '2026 年 1 月 66 部全部安裝完成、上半年大彰化 4 全部完成試運轉；2b（337.1 MW，台電即時資料的「沃南風」）2026-09-18 起列入台電裝置容量；4（583 MW，「沃四風」）至 10 月底仍標示註10（試運轉），全案尚未宣布全面商轉；原列興建中',
+        'Connected in phases: first power July 2025; by the end of 2025 Greater Changhua 4 was ramping up (2b\'s export cable was damaged); the number generating at year-end was not published, '
+        'so about 252 MW (18 × 14 MW, an estimate) is taken from the handbook\'s end-2025 offshore capacity of 3,586.9 MW less the other farms. All 66 turbines were installed by January 2026 and '
+        'every Greater Changhua 4 turbine commissioned in H1 2026; 2b (337.1 MW, “沃南風” in Taipower’s live data) has been counted in Taipower’s installed capacity since 18 Sep 2026, while 4 (583 MW, '
+        '“沃四風”) still carried note 10 (trial operation) at the end of October, with full commercial operation not yet announced; the record said under construction',
+        'https://cdn.orsted.com/-/media/q22026/orsted-interim-financial-report-h1-2026.pdf?rev=fe628c8206314f60ab55d20d65ef3819&hash=542EBD9B4368B6FF9958864DE74C28DC',
+        st=0, year=2025, ph=[[2025, 252], [2026, 668]], note=True),
+    # 台灣離岸風場分期併網（2026-10-31，使用者要求時間軸依分期顯示；每年的數字取最接近能源署手冊「登記容量」口徑的出處，查不到年底數的寫明是估計；引文以 check_quotes.py 核對）
+    # Taiwan's phased grid connection (31 Oct 2026, the owner asked for the timeline to follow the phases; each year takes the source closest to the handbook's
+    # registered-capacity scope, and years without a year-end figure are marked as estimates; quotes checked with check_quotes.py)
+    fix('TWN', 'Formosa 2', C,
+        '分期併網：2022 年 6 月下旬首度送電，9 月初 8 部送電；2023 年 1 月 31 日 47 部全部安裝完成時「超過八成已送電」（≥38 部，約 304 MW，以此作 2022 年底的估計；能源局統計 2022 年底約 44 部完工）；'
+        '2023 年 3 月全數併網、9 月 8 日全場商轉。原以 2023 年全場計入',
+        'Connected in phases: first power late June 2022, 8 turbines exporting by early September; when the 47th turbine was installed on 31 January 2023 "more than 80%" were already '
+        'exporting (≥38 turbines, about 304 MW, used as the end-2022 estimate; the Energy Bureau counted about 44 complete at the end of 2022); all connected in March 2023 and the whole farm in '
+        'commercial operation on 8 September 2023. The record counted the whole farm from 2023',
+        'https://www.energytrend.com/print/31028', year=2022, ph=[[2022, 304], [2023, 72]], note=True),
+    fix('TWN', 'Greater Changhua 1 & 2a', C,
+        '分期併網：2022 年 4 月首度併網，但沃旭 2023 年 5 月報告 97 部已裝、只有 25 部完成試運轉，能源署 2022 年底的登記容量裡幾乎沒有這座風場，因此自 2023 年起計；'
+        '2023 年 11 月 1 日沃旭：100 部已裝、89 部完成試運轉並依躉購費率發電（712 MW），2024 年 1 月 30 日「近 85% 併網、約 700 MW」；2024 年 2 月裝完 111 部、4 月 3 日全部併網、4 月 25 日啟用。原以 2024 年全場計入',
+        'Connected in phases: first power April 2022, but Ørsted\'s May 2023 report had 97 turbines installed and only 25 fully commissioned, and the Energy Administration\'s end-2022 '
+        'registered capacity leaves almost no room for this farm, so it counts from 2023; on 1 November 2023 Ørsted reported 100 installed and 89 commissioned and producing under the tariff '
+        '(712 MW), and on 30 January 2024 "nearly 85% connected, approximately 700 MW"; the last of the 111 turbines was installed in February 2024, all were connected by 3 April and the farm '
+        'was inaugurated on 25 April 2024. The record counted the whole farm from 2024',
+        'https://cdn.orsted.com/-/media/q3-2023/interim-financial-report-9m-2023.pdf?rev=a2c44c58c66d48a58f93e485350c9571&hash=19FB17D5539716FF13C76DB73F8B66C7',
+        year=2023, ph=[[2023, 712], [2024, 188]], note=True),
+    fix('TWN', 'Yunlin', C,
+        '分期併網：2021 年 11 月首部風機併網，2021 年底 4 部（32 MW，依能源署手冊 2021 年底離岸 269.2 MW 減海洋風電與台電一期 237.2 MW 推算；報導寫 2 部，未能核對）；'
+        '2022 年底 16 部安裝完成（能源局）、128 MW；2023 年底 33 部併網、264 MW（EGCO 年報）；2024 年 11 月 14 日 67 部、536 MW，年底約 73 部、584 MW（依手冊 2024 年底容量推算，估計）；'
+        '2025 年 1 月 30 日 80 部全部併網、640 MW，8 月 21 日全面商轉。原以 2025 年全場計入',
+        'Connected in phases: first turbine on the grid November 2021, 4 turbines (32 MW) at the end of 2021 (from the handbook\'s end-2021 offshore capacity of 269.2 MW less Formosa 1 and '
+        'Taipower Phase 1, 237.2 MW; a press report says 2, unverifiable); 16 turbines installed at the end of 2022 (Energy Bureau), 128 MW; 33 connected at the end of 2023, 264 MW (EGCO\'s '
+        'annual results); 67 turbines and 536 MW on 14 November 2024 and about 73 turbines, 584 MW, at year-end (from the handbook\'s end-2024 capacity, an estimate); all 80 turbines, 640 MW, '
+        'energised on 30 January 2025 and full commercial operation on 21 August 2025. The record counted the whole farm from 2025',
+        'https://www.egco.com/en/newsroom/press-releases/383/egco-group-announces-over-thb-8700-million-operating-profit-and-over-thb-28000-million-cash-for-ye2023-and-approves-dividend-of-325-baht-per-share-for-2h-2023',
+        year=2021, ph=[[2021, 32], [2022, 96], [2023, 136], [2024, 320], [2025, 56]], note=True),
+    fix('TWN', 'Changfang & Xidao', C,
+        '分期併網：一期 10 部（芳一風併網點，約 95 MW）2022 年 11 月 15 日首度發電，以此作 2022 年底；2023 年底仍只有一期（2024 年 5 月 20 日「約 1/3 即 22 支已併網、其餘近期取得電業執照」，'
+        '能源署 2024 年新增併網 137 部的數字也只容得下一期）；2024 年全場完工、取得電業執照、5 月 22 日啟用。原以 2024 年全場計入',
+        'Connected in phases: phase 1\'s 10 turbines (the 芳一風 metering point, about 95 MW) produced first power on 15 November 2022 and stand for the end of 2022; at the end of 2023 only phase 1 '
+        'was connected (on 20 May 2024 "about one third, 22 turbines, connected, the rest awaiting the electricity licence", and the Energy Administration\'s 137 turbines connected during 2024 '
+        'leave room for phase 1 only); the whole farm was completed and licensed in 2024 and inaugurated on 22 May 2024. The record counted the whole farm from 2024',
+        'https://www.ctee.com.tw/news/20240520700044-439901', year=2022, ph=[[2022, 95], [2024, 494]], note=True),
     fix('TWN', 'Greater Changhua 2b & 4', C,
         '沃旭：583 MW 的大彰化西北（4）由沃旭與國泰人壽各持有 50%；原寫沃旭 100%',
         'Ørsted: the 583 MW Greater Changhua 4 is co-owned by Ørsted (50%) and Cathay Life (50%); the record said Ørsted 100%',

@@ -114,7 +114,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   - **📊 Output**: rankings and same-model comparisons of measured yearly output for Taiwan (19 Taipower-owned farms), the US (EIA-923, 834 farms),
     Australia (AEMO, 64 farms) and Denmark (54 farms and about 1,800 individually metered turbines); plus "Taiwan · live samples" including
     private farms (an estimate from samples, never mixed with the official figures)
-  - **Layers**: ports (142 in 23 countries, ⚓), major events and incidents (91, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
+  - **Layers**: ports (142 in 23 countries, ⚓), major events and incidents (152, ⚑, [docs/events.en.md](./docs/events.en.md)), offshore
     foundations (299 of the 342 operating offshore farms have a known type, 88.2% of capacity, [docs/foundations.en.md](./docs/foundations.en.md)),
     Wind now (NOAA GFS, every 6 hours), Sea zones (EEZ boundaries, Taiwan's 36 potential sites, Japan's 13 promotion zones and the offshore wind
     areas of 6 North Sea countries) and a mean wind speed basemap (Global Wind Atlas)
@@ -195,10 +195,16 @@ output and sea zones load only when needed.
   turbines), built by `tools/build_turbines.py` and loaded only when a US farm is selected
 - `data/global/turbines_de.json` — position and specs of every German turbine (MaStR; about 6,600 farms, 26,000 turbines), built by `tools/build_mastr.py`;
   **shared under the Data licence Germany – attribution – 2.0 (© Bundesnetzagentur | Marktstammdatenregister)**; `data/global/sources/mastr_parks_DEU.json` lists the German farms added to the farm layer
+- `data/global/turbines_dk.json` — position and specs of every Danish turbine (the Energy Agency's Stamdataregister for vindkraftanlæg; 103 farms, 1,324 turbines), built from the "Vinddata" workbook by
+  `tools/build_turbines_dk.py` (matched within 12 km at sea / 3 km on land and ±15% of capacity); credited as Energistyrelsen, the dataset and the retrieval date per the agency's data terms
+  (the retrieval month is in the file's meta); used first for Danish farms, OpenStreetMap only where it has no match
+- `data/global/sources/repd_GBR.json` — the UK REPD (the Department for Energy Security and Net Zero's quarterly Renewable Energy Planning Database, Open Government Licence v3.0) matched to the site's UK farms, built by
+  `tools/build_repd.py` and read by `build_farms.py`: pipeline farms that REPD shows operational become operating with their start year, empty turbine and owner fields are filled, same-name farms whose point is
+  20 km+ off take REPD's grid reference, and operating onshore farms the site lacks are added as source code 5 (the build checks the UK onshore sum against 102% of the official total)
 - `data/global/turbines_osm.json` — turbine positions in other countries from OpenStreetMap (about 6,100 farms, 139,000
   turbines), downloaded by `tools/fetch_osm_turbines.py` and matched to the site's farms by `tools/build_turbines_osm.py`. **This file is shared under the
   Open Database License (ODbL) 1.0 (© OpenStreetMap contributors)**, unlike the rest of the site's data; loaded only when a
-  non-US farm is selected (Germany prefers MaStR)
+  non-US farm is selected (Germany prefers MaStR, Denmark the Energy Agency's register)
 - `data/global/generation.json` — actual yearly output and capacity factor of farms (834 in the US from EIA-923 with the nameplate capacity registered in EIA-860M, public domain;
   19 Taipower-owned farms in Taiwan from Taipower open data 17140; 54 Danish farms from the Danish Energy Agency's turbine register, matched by location;
   64 Australian farms from AEMO's 5-minute SCADA output per unit; the turbine model when a farm has only one, for the Output dialog's same-model comparison),
@@ -213,7 +219,7 @@ output and sea zones load only when needed.
 - `data/global/foundations.json` — foundation types and dimensions of offshore farms (built by `tools/build_foundations.py` from the
   per-farm tables in `tools/farm_foundations.py` and `tools/farm_dimensions.py`)
 - `data/global/ports.json` — 142 offshore wind ports in 23 countries (curated by hand with sources; run `tools/qa_ports.py` after editing)
-- `data/global/events.json` — 91 major events and incidents (built by `tools/build_events.py` from
+- `data/global/events.json` — 152 major events and incidents (built by `tools/build_events.py` from
   `data/global/sources/events_2026-09.csv`; the English titles, summaries and notes and the event-to-farm links live in
   the build script, which checks that every event has English text and that farm names match the farm layer)
 - `data/global/photos.json` — farm card photos (65 farms and 18 milestones; hand-checked Wikimedia Commons photos, built by `tools/build_photos.py` from `tools/farm_photos.py`)
@@ -357,6 +363,8 @@ python tools/fetch_gem_locations.py data/global/wind_farms.json data/global/sour
 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 #   clean-up rules that no longer match the new names stop the build; when upgrading the GEM release, build once with CLEANUP_LENIENT=1 to see the new names, then rewrite the rules in tools/farm_cleanup.py
 #    (applies the record-level clean-up rules in tools/farm_cleanup.py and writes docs/data-cleanup.md and .en.md)
+#    UK: after each quarterly REPD release, build once with SKIP_REPD=1 (build_repd.py must match against the layer without the REPD changes), run build_repd.py, then build normally
+SKIP_REPD=1 python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json && python tools/build_repd.py REPD_Publication_Q2_2026.csv && python tools/build_farms.py data/global/sources/farms_attachment.json gwpt_map_2026-02.geojson data/global/wind_farms.json
 python tools/qa_farms.py        # sanity check: lists farms located outside their country
 python tools/build_live_units.py # unit → farm mapping for Australian/Canadian live data (needs openpyxl; rerun when new farms connect and check the "unmapped" list)
 python tools/coverage_report.py # coverage report: docs/data-coverage.md (Chinese) and .en.md (English)
@@ -404,9 +412,10 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - France 2025 onshore/offshore now follows the grid-connected capacity at end-2025 in the SDES wind dashboard (Q2 2026 issue),
   23,992 / 2,008 MW; the original used IRENA onshore 24,155 and offshore 1,500 MW (missing Yeu-Noirmoutier, 500 MW, fully
   connected in 2025)
-- Taiwan and Japan farms were audited one by one: large offshore farms connected in stages count from their
-  full-completion year (Yunlin 2025, Greater Changhua 1&2a and Changfang & Xidao 2024), and those not fully
-  operating at end-2025 are under construction (Hai Long 2&3, Greater Changhua 2b&4, Taipower Offshore Phase 2,
+- Taiwan and Japan farms were audited one by one: large offshore farms connected in stages count year by year at their
+  year-end connected capacity (from v3.18.0; Yunlin 2021–2025, Formosa 2 2022–2023, Changfang & Xidao 2022/2024, Greater Changhua 1&2a 2023–2024,
+  Hai Long and Greater Changhua 2b&4 from 2025; the yearly figures and sources are in `tools/farm_cleanup.py`, all within 80 MW of the Energy
+  Administration handbook's year-end capacity), and farms with no turbine generating yet are under construction (Taipower Offshore Phase 2,
   Kitakyushu Hibikinada, Goto floating). Japan also gains five semi-offshore/port sites, retired demonstrators,
   100 small farms missing from GEM (NEDO prefecture lists, windfarm.work) and 22 corrected GEM coordinates
 - Formosa 1 Phase 1 and Formosa 2 years aligned with their actual grid connection / commercial dates
@@ -550,7 +559,8 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
 - Turbine makers and owners (the globe's "Makers & owners"): makers from the US USWTDB (public domain), Germany's MaStR (above) and the turbine field of the site's farm records (OpenStreetMap is not used); owners and stakes of operating units from GEM's Global Wind Power Tracker, February 2026 release (CC BY 4.0)
 - Country indicators (the globe's indicator colouring and country comparison): wind share of generation, wind generation and the national average capacity factor from [Ember Yearly Electricity Data](https://ember-energy.org/data/yearly-electricity-data/) (CC BY 4.0);
   per-capita capacity divides the site's year-end capacity by [Our World in Data's population series](https://ourworldindata.org/grapher/population) (CC BY 4.0, based on UN World Population Prospects and others)
-- Turbine positions: the US [USWTDB](https://energy.usgs.gov/uswtdb/) (USGS, LBNL, American Clean Power Association; public domain); Germany's MaStR (above);
+- UK farm status, turbines and owners: the [Renewable Energy Planning Database (REPD)](https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract), Department for Energy Security and Net Zero, Open Government Licence v3.0 (contains public sector information licensed under the OGL v3.0)
+- Turbine positions: the US [USWTDB](https://energy.usgs.gov/uswtdb/) (USGS, LBNL, American Clean Power Association; public domain); Germany's MaStR (above); Denmark's [Energistyrelsen, Stamdataregister for vindkraftanlæg](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) (the agency's data terms; retrieval date in the meta of `turbines_dk.json`);
   elsewhere © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (ODbL 1.0; the derived `data/global/turbines_osm.json` is likewise shared under the ODbL)
 - Foundations: OSPAR Offshore Renewable Energy Developments 2024 (CC0); every other farm's sources (developers, construction contractors, government documents,
   trade press) are in [docs/foundations.en.md](./docs/foundations.en.md)

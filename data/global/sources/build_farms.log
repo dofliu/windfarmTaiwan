@@ -2043,9 +2043,12 @@ CLEAN fix TUR Soganli wind farm 32.0
 CLEAN fix TUR Sunjüt wind farm 1.2
 CLEAN fix TUR Tepe wind farm 5.9
 CLEAN fix TUR Ömerli wind farm 100.0
+CLEAN fix TWN Changfang & Xidao 589.0
 CLEAN fix TWN Datan (Tatan) 12.5
 CLEAN fix TWN Datian Youde Offshore wind farm 700.0
 CLEAN fix TWN Formosa 1 Phase 1 8.0
+CLEAN fix TWN Formosa 2 376.0
+CLEAN fix TWN Greater Changhua 1 & 2a 900.0
 CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Greater Changhua 2b & 4 920.0
 CLEAN fix TWN Hai Long 2 & 3 1044.0
@@ -2062,6 +2065,7 @@ CLEAN fix TWN Taipower Offshore Phase 2 294.5
 CLEAN fix TWN Taoyuan Luzhu 33.6
 CLEAN fix TWN Wanggong 20.0
 CLEAN fix TWN Yongxing (Fangyuan) 16.8
+CLEAN fix TWN Yunlin 640.0
 CLEAN fix TWN Yunlin Taixi 16.8
 CLEAN fix TWN Yunmai (Mailiao) 46.0
 CLEAN fix TWN Zhong Neng 298.0
@@ -2724,3 +2728,22 @@ PIPE-UPD TWN Formosa 4 -> Formosa 4 st2 y2028
 PIPE-UPD TWN Formosa 6 -> Formosa 6 st2 y2029
 PIPE-UPD TWN Huanyang -> Huanyang st2 y2028
 PIPE-UPD TWN YouDe -> YouDe st2 y2029
+REPD-ADD GBR Land near Ventonteague 2.3 y2020
+REPD-DECOM GBR Ovenden Moor wind farm: REPD lists it as decommissioned (no date given; record left as is)
+REPD-DECOM GBR Spurness wind farm: REPD lists it as decommissioned (no date given; record left as is)
+REPD-MOVE GBR Black Law wind farm · 1b -> 55.76219, -3.76257 (507.6 km; REPD 4580)
+REPD-MOVE GBR Dalquhandy wind farm -> 55.18061, -4.90958 (77.0 km; REPD 4189)
+REPD-MOVE GBR Darracott Moor wind farm -> 50.97186, -4.11894 (28.0 km; REPD 3450)
+REPD-UP GBR Alaska II wind farm -> operating 2025 (REPD 4333 Alaska Wind Farm, 9.2 MW)
+REPD-UP GBR Arbikie, Inverkeilor - Green Hydrogen Project & Wind Turbine wind farm -> operating 2023 (REPD 11706 Arbikie, Inverkeilor - Green Hydrogen Project & Wind Turbine, 1.0 MW)
+REPD-UP GBR Benbrack wind farm -> operating 2025 (REPD 3503 Benbrack Wind Farm, 67.1 MW)
+REPD-UP GBR Blary Hill wind farm -> operating 2022 (REPD 4605 Blary Hill Wind Farm, 35.0 MW)
+REPD-UP GBR Broken Cross (Former Surface Mine) wind farm -> operating 2024 (REPD 6708 Broken Cross (Former Surface Mine), 48.0 MW)
+REPD-UP GBR Camster wind farm · 2 -> operating 2026 (REPD 4351 Camster II, 36.0 MW)
+REPD-UP GBR Douglas West And Dalquhandy Renewable Energy Project wind farm -> operating 2023 (REPD 5393 Douglas West and Dalquhandy Renewable Energy Project, 45.0 MW)
+REPD-UP GBR Enoch Hill wind farm -> operating 2026 (REPD 3502 Enoch Hill, 70.0 MW)
+REPD-UP GBR Glengesh Lower Forest wind farm -> operating 2024 (REPD 6096 Glengesh Lower Forest (Murley), 20.7 MW)
+REPD-UP GBR Gordonbush wind farm · 2 -> operating 2021 (REPD 3435 Gordonbush (extension), 47.0 MW)
+REPD-UP GBR Howpark Farm wind farm -> operating 2024 (REPD 6214 Howpark Wind Farm, 16.0 MW)
+REPD-UP GBR Pines Burn wind farm -> operating 2024 (REPD 6147 Pines Burn Wind Farm, 33.6 MW)
+REPD-UP GBR South Kyle wind farm · 1 -> operating 2023 (REPD 4586 South Kyle Wind Farm, 240.0 MW)

@@ -31,14 +31,14 @@ const I18N = {
     world: '全世界', worldTotal: '全球累計', countriesWith: '個國家有風電', top15: n => '全球前 ' + n + ' 名', inRegion: n => '區域內前 ' + n + ' 名',
     cont: { Asia: '亞洲', Europe: '歐洲', 'North America': '北美洲', 'South America': '南美洲', Africa: '非洲', Oceania: '大洋洲' },
     turbine: '單機', farm: '風場', rotor: '葉輪直徑', type: { onshore: '陸域', offshore: '離岸', floating: '浮動式' },
-    st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'],
+    st: ['營運中', '興建中', '前期開發', '已宣布', '已除役'], partly: '部分併網', partlyT: (y0, y1) => y0 + ' 起分期併網，預計 ' + y1 + ' 年全部完工',
     srcTitle: '資料來源與說明', msTitle: '里程碑', farmsTab: '風場', profTab: '概況', listTab: '清單', crumbWorld: '全世界', anaGrow: '⤢ 放大', anaShrink: '⤡ 縮回面板', more: '更多', drawer: '展開或收起面板',
     wTitle: '你想做什麼？', wSub: '四個起點，之後都可以從工具列換。', wExplore: '看風電怎麼長大', wExploreS: '從 1980 年播放到今天，看裝置容量在地球上長出來', wCmp: '比較國家', wCmpS: '台灣、中國、美國、丹麥並排：容量、人均、占比、容量因數', wLive: '看此刻', wLiveS: '哪些國家有即時出力、此刻的風電出力有多少', wStory: '聽故事', wStoryS: '地圖跟著站點飛，附中英文旁白', wSkip: '先看看地圖', wAgain: '之後可從「導覽」選單的「任務卡」再打開', tourCards: '✦ 任務卡：從這裡開始',
     msFocus: '點里程碑可跳到該年份並把鏡頭飛到現場',
     play: '播放', pause: '暫停', farmLayer: '風場層', farmShown: '已出現', farmNone: '此國家尚無風場層級資料',
     farmsLoading: '風場資料載入中…',
     dens: ['關閉', '精簡', '標準', '詳細'],
-    tbLabel: '機組', tbModels: n => '等 ' + n + ' 種機型', tbNote: '近景依 USWTDB 的實際機位與尺寸繪製', tbSrcT: '美國風機資料庫 USWTDB（美國地質調查所、勞倫斯柏克萊國家實驗室，公有領域）', tbOsmNote: '近景依 OpenStreetMap 志工標示的機位繪製；機組數是標示的風機數，可能與實際略有出入', tbOsmCr: '© OpenStreetMap 貢獻者', tbOsmT: 'OpenStreetMap 資料，開放資料庫授權 ODbL', tbDeNote: '近景依德國聯邦網路局「市場主資料登錄」（MaStR）的機位與尺寸繪製', tbDeCr: '© Bundesnetzagentur | MaStR', tbDeT: '德國聯邦網路局 市場主資料登錄（Marktstammdatenregister），Datenlizenz Deutschland – Namensnennung 2.0',
+    tbLabel: '機組', tbModels: n => '等 ' + n + ' 種機型', tbNote: '近景依 USWTDB 的實際機位與尺寸繪製', tbSrcT: '美國風機資料庫 USWTDB（美國地質調查所、勞倫斯柏克萊國家實驗室，公有領域）', tbOsmNote: '近景依 OpenStreetMap 志工標示的機位繪製；機組數是標示的風機數，可能與實際略有出入', tbOsmCr: '© OpenStreetMap 貢獻者', tbOsmT: 'OpenStreetMap 資料，開放資料庫授權 ODbL', tbDeNote: '近景依德國聯邦網路局「市場主資料登錄」（MaStR）的機位與尺寸繪製', tbDeCr: '© Bundesnetzagentur | MaStR', tbDkNote: '近景依丹麥能源署風機登記檔（Stamdataregister for vindkraftanlæg）的機位與尺寸繪製', tbDkCr: 'Energistyrelsen', tbDkT: '丹麥能源署風機登記檔 Stamdataregister for vindkraftanlæg（Vinddata），依能源署資料使用條款使用', tbDeT: '德國聯邦網路局 市場主資料登錄（Marktstammdatenregister），Datenlizenz Deutschland – Namensnennung 2.0',
     vnShow: '查證與計算說明', vnShowT: '展開或收起各項數字的出處說明與計算方式', coastLabel: '離岸距離', coastNote: '到最近海岸線的直線距離，依 Natural Earth 1:50m 海岸線估算（不含小島）',
     actLabel: '實際年發電量', actCf: '容量因數', actNote: (mw, src, iso) => (iso === 'DNK' ? '計量發電量取自' : iso === 'AUS' ? '每 5 分鐘實測出力的加總，取自' : '淨發電量取自') + src + '；容量因數以' + (iso === 'USA' ? ' EIA 登記的裝置容量 ' : iso === 'DNK' ? '有公布發電量的機組的登記容量 ' : iso === 'AUS' ? ' AEMO 登記容量 ' : '台電公布的裝置容量 ') + mw + ' MW 計，只列全年運轉的年份' + (iso === 'AUS' ? '；實測值含限電與負電價時的自主降載' : ''), actSrc: { USA: ['美國能源資訊署 EIA-923', 'EIA-923', '美國能源資訊署 EIA-923 各電廠逐月淨發電量（公有領域）'], TWN: ['台電開放資料「自建之各類再生能源發電量」（只有台電自有的風場）', '台電開放資料', '台灣電力公司 自建之各類再生能源發電量（政府資料開放平臺 17140，政府資料開放授權條款）'], DNK: ['丹麥能源署（Energistyrelsen）的風機登記檔（只有公司持有的風機有公布發電量）', 'Energistyrelsen', 'Energistyrelsen, Stamdataregister for vindkraftanlæg（Vinddata、Parkproduktion）'], AUS: ['澳洲能源市場營運機構（AEMO）各機組的 SCADA 實測出力（MMS 資料模型月檔）', 'AEMO', 'Australian Energy Market Operator（AEMO）MMS Data Model：DISPATCH_UNIT_SCADA、DUDETAIL（依 AEMO 版權許可標示來源）'] },
     genLabel: '估計年發電量', genNote: (cn, cf, y) => '容量 × ' + cn + ' ' + y + ' 年風電平均容量因數 ' + cf + '%（Ember）；是估計，不是實測', genOff: '；離岸風場的容量因數通常高於全國平均',
@@ -174,7 +174,7 @@ const I18N = {
     play: 'Play', pause: 'Pause', farmLayer: 'Farm layer', farmShown: 'shown', farmNone: 'No farm-level data for this country yet',
     farmsLoading: 'Loading farm data…',
     dens: ['Off', 'Minimal', 'Standard', 'Detailed'],
-    tbLabel: 'Turbines', tbModels: n => n + ' models', tbNote: 'The close-up uses the real turbine positions and sizes from USWTDB', tbSrcT: 'U.S. Wind Turbine Database (USGS / Lawrence Berkeley National Laboratory, public domain)', tbOsmNote: 'The close-up uses turbine positions mapped by OpenStreetMap volunteers; the count is the number of mapped turbines and may differ slightly from the real one', tbOsmCr: '© OpenStreetMap contributors', tbOsmT: 'OpenStreetMap data, Open Database License (ODbL)', tbDeNote: 'The close-up uses the turbine positions and sizes in the Federal Network Agency\'s Market Master Data Register (MaStR)', tbDeCr: '© Bundesnetzagentur | MaStR', tbDeT: 'German Federal Network Agency, Marktstammdatenregister; Data licence Germany – attribution – 2.0',
+    tbLabel: 'Turbines', tbModels: n => n + ' models', tbNote: 'The close-up uses the real turbine positions and sizes from USWTDB', tbSrcT: 'U.S. Wind Turbine Database (USGS / Lawrence Berkeley National Laboratory, public domain)', tbOsmNote: 'The close-up uses turbine positions mapped by OpenStreetMap volunteers; the count is the number of mapped turbines and may differ slightly from the real one', tbOsmCr: '© OpenStreetMap contributors', tbOsmT: 'OpenStreetMap data, Open Database License (ODbL)', tbDeNote: 'The close-up uses the turbine positions and sizes in the Federal Network Agency\'s Market Master Data Register (MaStR)', tbDeCr: '© Bundesnetzagentur | MaStR', tbDkNote: 'The close-up uses the turbine positions and sizes in the Danish Energy Agency\'s turbine register (Stamdataregister for vindkraftanlæg)', tbDkCr: 'Energistyrelsen', tbDkT: 'Danish Energy Agency, Stamdataregister for vindkraftanlæg (Vinddata), used under the agency\'s data terms', tbDeT: 'German Federal Network Agency, Marktstammdatenregister; Data licence Germany – attribution – 2.0',
     vnShow: 'Sources and method notes', vnShowT: 'Show or hide the notes on where each figure comes from and how it is worked out', coastLabel: 'Distance to shore', coastNote: 'Straight line to the nearest coastline, estimated from the Natural Earth 1:50m coastline (small islands not included)',
     actLabel: 'Actual yearly output', actCf: 'capacity factor', actNote: (mw, src, iso) => (iso === 'DNK' ? 'Metered generation from ' : iso === 'AUS' ? 'Sum of 5-minute measured output from ' : 'Net generation from ') + src + '; capacity factor on the ' + mw + ' MW ' + (iso === 'USA' ? 'nameplate capacity registered with the EIA' : iso === 'DNK' ? 'registered capacity of the turbines with published production' : iso === 'AUS' ? 'capacity registered with AEMO' : 'capacity stated by Taipower') + ', full years only' + (iso === 'AUS' ? '; measured output includes curtailment and self-curtailment at negative prices' : ''), actSrc: { USA: ['the U.S. EIA (Form EIA-923)', 'EIA-923', 'U.S. Energy Information Administration, Form EIA-923 monthly net generation by plant (public domain)'], TWN: ['Taipower open data on its own renewable stations (Taipower-owned farms only)', 'Taipower open data', 'Taiwan Power Company, generation of its own renewable stations (data.gov.tw 17140, Open Government Data License)'], DNK: ['the Danish Energy Agency\'s turbine register (production is published for company-owned turbines only)', 'Energistyrelsen', 'Energistyrelsen, Stamdataregister for vindkraftanlæg (Vinddata, Parkproduktion)'], AUS: ['the SCADA output of each unit published by the Australian Energy Market Operator (AEMO; MMS Data Model monthly archive)', 'AEMO', 'Australian Energy Market Operator (AEMO), MMS Data Model: DISPATCH_UNIT_SCADA, DUDETAIL (credited under AEMO\'s copyright permissions)'] },
     genLabel: 'Estimated yearly output', genNote: (cn, cf, y) => 'capacity × the ' + y + ' average wind capacity factor of ' + cn + ', ' + cf + '% (Ember); an estimate, not a measurement', genOff: '; offshore farms usually run above the national average',
@@ -252,7 +252,7 @@ const I18N = {
     sampNote: (a, b, u, part) => `${a} to ${b}, Taipower live data sampled every 30 minutes to 2 hours (${u}); an estimate from samples, not official yearly generation, and summer is the low-wind season.` + (part ? ' Some units are still in testing; only units with a listed capacity count.' : ''),
     fsPh: 'Search farms, developers, turbines, countries or ports…', fsSt: 'Status', fsTy: 'Type', fsMin: 'Size', fsYear: 'Year', fsSort: 'Sort', fsAny: 'Any', fsName: 'Name',
     fsClear: 'Clear filters', fsWorld: 'Search worldwide', fsScope: s => `Scope: ${s}`, fsCount: (n, mw) => `${n} matching · ${mw}`, fsAll: (n, mw) => `${n} farms · ${mw}`,
-    fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
+    partly: 'partly connected', partlyT: (y0, y1) => 'connected in phases from ' + y0 + ', completion expected in ' + y1, fsMapOnly: 'The map shows only the matching farms', fsHidden: (y, n) => `Timeline at ${y}: ${n} of them are not on the map for this year (not built yet, decommissioned, or pipeline projects with “Pipeline” off)`, fsToLatest: 'Go to the latest year',
     fsHud: n => `🔍 Filter on: the map shows only the ${n} matching farms`, fsNone: 'No farms match.', fsKey: 'Press / to search',
     role: { marshalling: 'Marshalling', foundation: 'Foundations', tower: 'Towers', blade: 'Blades', nacelle: 'Nacelles', cable: 'Cables', floating: 'Floating assembly', om: 'O&M base' },
     portTag: 'Port', portDev: 'in development', portOld: 'no longer active', portSince: y => `since ${y}`, portFarms: 'Wind farms served', portOther: 'Other projects: ',
@@ -434,6 +434,12 @@ function layerChanged() {
 function showFarm(f) { return layerOk(f.type) && (S.layer !== 'fd' || (!f.pipe && (!S.fdOnly || fdGroup(f) === S.fdOnly))); }
 const PIPE_HEX = [0, 0xe3eaf5, 0x9fb0c9, 0x6a7c97];                // 興建中 → 前期開發 → 已宣布（有序，越接近完工越亮）
 const stCls = f => f.st === 1 ? 'p1' : f.st === 2 ? 'p2' : f.st === 3 ? 'p3' : f.st === 4 ? 'ret' : (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off');
+/* 分期併網中的營運風場：已有機組併網發電、其餘分期還沒完工（分期表的最後一年在時間軸之後）；卡片與清單加「部分併網」標籤。
+   An operating farm still connecting in phases (turbines generating, later phases not yet built: the last phase year is after
+   the timeline year); the card and lists add a "partly connected" tag. */
+const phEnd = f => f.ph ? f.ph.reduce((m, p) => Math.max(m, p[0] || 0), 0) : 0;
+const partlyAt = (f, y) => !f.pipe && !!f.ph && f.ph.length > 1 && phEnd(f) - BUILD > (y == null ? S.year : y);
+const partlyTag = f => partlyAt(f) ? '<span class="gtag partly" title="' + esc(T('partlyT')(f.year, phEnd(f))) + '">' + esc(T('partly')) + '</span>' : '';
 
 /* ================= boot ================= */
 let THREEOK = true;
@@ -1131,22 +1137,23 @@ function animateFarmKind(L2, dt, farmScale) {
 
 /* ---------------- 每部風機的實際位置與尺寸（第一次點到該區的風場才載入）：
    美國＝USWTDB（tools/build_turbines.py → turbines.json，公有領域）；德國＝MaStR（tools/build_mastr.py → turbines_de.json，dl-de/by-2-0）；
+   丹麥＝能源署風機登記檔（tools/build_turbines_dk.py → turbines_dk.json，能源署資料使用條款）；
    其他國家＝OpenStreetMap（tools/build_turbines_osm.py → turbines_osm.json，ODbL） ---------------- */
-let TB = null, TBO = null, TBD = null;
-const tbLoad = {}, TB_FILES = { us: 'turbines', osm: 'turbinesOsm', de: 'turbinesDe' };
+let TB = null, TBO = null, TBD = null, TBK = null;
+const tbLoad = {}, TB_FILES = { us: 'turbines', osm: 'turbinesOsm', de: 'turbinesDe', dk: 'turbinesDk' };
 const tbOf = f => {
   if (!f || f.pseudo || f.pipe) return null;
   if (f.iso === 'USA') return TB ? TB.farms[f.name] || null : null;
   const k = f.iso + '|' + f.name;
-  return (f.iso === 'DEU' && TBD && TBD.farms[k]) || (TBO ? TBO.farms[k] || null : null);   // 德國：MaStR 優先，其次 OSM
+  return (f.iso === 'DEU' && TBD && TBD.farms[k]) || (f.iso === 'DNK' && TBK && TBK.farms[k]) || (TBO ? TBO.farms[k] || null : null);   // 德國：MaStR 優先；丹麥：登記檔優先；其次 OSM
 };
 function needTurbines(f) {
   if (!f || f.pseudo || f.pipe) return;
-  (f.iso === 'USA' ? ['us'] : f.iso === 'DEU' ? ['de', 'osm'] : ['osm']).forEach(kind => {
+  (f.iso === 'USA' ? ['us'] : f.iso === 'DEU' ? ['de', 'osm'] : f.iso === 'DNK' ? ['dk', 'osm'] : ['osm']).forEach(kind => {
     if (tbLoad[kind]) return;
     tbLoad[kind] = WW.getJSON(WW.DATA[TB_FILES[kind]]).then(j => {
       Object.values(j.farms).forEach(v => v.src = kind);
-      if (kind === 'us') TB = j; else if (kind === 'de') TBD = j; else TBO = j;
+      if (kind === 'us') TB = j; else if (kind === 'de') TBD = j; else if (kind === 'dk') TBK = j; else TBO = j;
       D.farms.forEach(x => { if (tbOf(x) && tbOf(x).src === kind) { x._spec = null; removeCluster(x); } });
       updateClusters(0, true);
       if (cardItem && cardItem.kind === 'farm' && tbOf(cardItem.f)) renderCard(cardItem);
@@ -1348,7 +1355,7 @@ function updateClusters(now, force) {
 function animateClusters(dt) {
   clusters.forEach((g, f) => {
     const u = g.userData, n = u.P.length;
-    const built = (f.yu || f.pipe) ? n : clamp(Math.ceil(n * fAge(f) / BUILD), 0, n);
+    const built = (f.yu || f.pipe) ? n : f.ph && f.ph.length > 1 ? clamp(Math.round(n * farmMwAt(f, S.year) / f.mw), 0, n) : clamp(Math.ceil(n * fAge(f) / BUILD), 0, n);   // 分期：只畫已併網的那一部分 · phased farms: only the connected share
     if (built !== u.count) { u.count = built; u.tower.count = built; u.nac.count = built; u.rotor.count = built; }
     const lv = liveOn() && liveFor(f);
     if (!!lv !== u.live) { u.live = !!lv; u.ring.material = lv ? clusterMats.liveRing : u.ringMat; }   // 有即時資料：外圈改為即時綠
@@ -1965,7 +1972,7 @@ function farmRow(f) {
   const yr = f.pipe ? (f.year ? T('expected') + ' ' + f.year : T('st')[f.st]) : (f.yu ? '—' : f.year + (f.end ? '–' + f.end : ''));
   const where = S.region !== f.iso && byIso[f.iso] ? ' · ' + esc(cname(byIso[f.iso])) : '';
   d.innerHTML = '<span class="y">' + esc(String(yr)) + '</span><span class="n">' + esc(fname(f)) + '</span>' +
-    '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + fmtMW(f.mw) + where + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(ownerTxt(f)) : '') + '</span>';
+    '<span class="t"><span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + partlyTag(f) + fmtMW(f.mw) + where + (f.turbine ? ' · ' + esc(f.turbine) : f.owner ? ' · ' + esc(ownerTxt(f)) : '') + '</span>';
   const lv = liveOn() && liveFor(f);
   if (lv) d.querySelector('.t').insertAdjacentHTML('beforeend', ' · <b class="lv">● ' + WW.num(lv.mw, lv.mw < 100 ? 1 : 0) + ' MW</b>');
   d.onclick = () => selectFarm(f);
@@ -3052,7 +3059,7 @@ function reportURL(it) {
     rows.push('狀態 Status: ' + both(Z.st[f.st], E.st[f.st]) + ' · ' + both(Z.type[f.type], E.type[f.type]) + ' · ' + (f.yu ? '年份不詳 year unknown' : (f.pipe ? '預計 expected ' : '') + (f.year || '—') + (f.end ? '–' + f.end : '')));
     if (f.owner) rows.push('業主 Owner: ' + f.owner);
     if (f.turbine) rows.push('機型 Turbines: ' + f.turbine);
-    rows.push('資料集 Dataset: ' + (['精選清單 curated list', 'GPPD (WRI)', 'GEM Global Wind Power Tracker', '2026 年整理清單 2026 compilation', '德國 MaStR (Bundesnetzagentur)'][f.src] || '—'));
+    rows.push('資料集 Dataset: ' + (['精選清單 curated list', 'GPPD (WRI)', 'GEM Global Wind Power Tracker', '2026 年整理清單 2026 compilation', '德國 MaStR (Bundesnetzagentur)', '英國 REPD (DESNZ, OGL v3)'][f.src] || '—'));
   } else if (it.kind === 'ms') rows.push('年份 Year: ' + it.m.year);
   else if (it.kind === 'event') { rows.push('日期 Date: ' + it.e.date); rows.push('出處 Sources: ' + it.e.src.join(' ')); }
   else if (it.kind === 'port') {
@@ -3090,8 +3097,9 @@ function factsHTML(f) {
       tb.hh && !(dm && dm.hub != null) ? T('dimHub') + ' ' + rng(tb.hh) + ' m' : null, tb.rd && !(dm && dm.rotor) ? T('dimRotor') + ' ' + rng(tb.rd) + ' m' : null].filter(Boolean).join(' · ');
     const link = tb.src === 'us' ? '<span class="fds"><a href="' + esc(TB.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbSrcT') + ' ' + (TB.meta.version || '')) + '">USWTDB</a></span>'
       : tb.src === 'de' ? '<span class="fds"><a href="' + esc(TBD.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbDeT')) + '">' + esc(T('tbDeCr')) + '</a></span>'
+      : tb.src === 'dk' ? '<span class="fds"><a href="' + esc(TBK.meta.url) + '" target="_blank" rel="noopener" title="' + esc(T('tbDkT') + ' · ' + TBK.meta.credit) + '">' + esc(T('tbDkCr')) + '</a></span>'
       : '<span class="fds"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" title="' + esc(T('tbOsmT')) + '">' + esc(T('tbOsmCr')) + '</a></span>';
-    rows.push(row(T('tbLabel'), txt, tb.src === 'us' ? T('tbNote') : tb.src === 'de' ? T('tbDeNote') : T('tbOsmNote'), link, true));
+    rows.push(row(T('tbLabel'), txt, tb.src === 'us' ? T('tbNote') : tb.src === 'de' ? T('tbDeNote') : tb.src === 'dk' ? T('tbDkNote') : T('tbOsmNote'), link, true));
   }
   const ck = f.type !== 'onshore' && !f.nStack ? coastKm(f) : null;
   if (ck != null) rows.push(row(T('coastLabel'), L('約 ', 'about ') + (ck < 10 ? ck.toFixed(1) : Math.round(ck)) + ' km', T('coastNote'), '', true));
@@ -3226,7 +3234,7 @@ function sceneHooks() {
     },
     turbines(f) {                                                   // 公尺（東、北）；實際機位或與近看相同的示意排列
       const tb = tbOf(f), sp = turbSpec(f);
-      if (tb) return { P: tbKm(tb).map(p => [p[0] * 1000, p[1] * 1000]), real: true, src: tb.src, n: tb.n || sp.n };
+      if (tb) return { P: tbKm(tb).map(p => [p[0] * 1000, p[1] * 1000]), real: true, src: tb.src, n: tb.n || sp.n, credit: tb.src === 'dk' && TBK ? TBK.meta.credit : null };
       const rnd = seeded(f.name + f.lat), r = Math.ceil(Math.sqrt(sp.n)) + 2, pts = [];
       for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) { const x = i + (j & 1) * 0.5, z = j * 0.866; pts.push([x, z, x * x + z * z]); }
       pts.sort((a, b) => a[2] - b[2]);
@@ -3234,7 +3242,7 @@ function sceneHooks() {
     },
     dims(f) {                                                       // 輪轂高度、葉輪直徑（公尺）與出處；沒有就依機組容量估計
       const sc = scaleOf(f), dm = fdDims(f), tb = tbOf(f);
-      if (sc) return { hub: sc.hub, rotor: sc.rotor, est: false, src: dm && dm.hub != null && dm.rotor && !dm.tower ? L('本站逐場查證', 'checked by this site') : tb && tb.src === 'us' ? 'USWTDB' : 'MaStR' };
+      if (sc) return { hub: sc.hub, rotor: sc.rotor, est: false, src: dm && dm.hub != null && dm.rotor && !dm.tower ? L('本站逐場查證', 'checked by this site') : tb && tb.src === 'us' ? 'USWTDB' : tb && tb.src === 'dk' ? 'Energistyrelsen' : 'MaStR' };
       const sp = turbSpec(f), unit = sp.unit || defaultUnit(f.type, f.year), rotor = clamp(Math.sqrt(unit) * 48 + 16, 30, 260), hub = clamp(rotor * 0.62 + 8, 30, 170);
       return { hub, rotor, est: true, src: '' };
     },
@@ -3301,14 +3309,14 @@ function renderCard(it) {
     desc = lang === 'zh' ? (pt.zhNote || pt.en) : pt.en;
   } else {
     title = fname(f); if (lang === 'zh' && f.zh) sub = f.name;
-    tag = '<span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + (f.pipe ? '<span class="gtag ' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off') + '">' + T('type')[f.type] + '</span>' : '');
+    tag = '<span class="gtag ' + stCls(f) + '">' + (f.pipe ? T('st')[f.st] : T('type')[f.type]) + '</span>' + partlyTag(f) + (f.pipe ? '<span class="gtag ' + (f.type === 'onshore' ? 'on' : f.type === 'floating' ? 'floating' : 'off') + '">' + T('type')[f.type] + '</span>' : '');
     needTurbines(f); needGen();
     const sp = turbSpec(f);
     const phases = f.ph && f.ph.length < 2 ? ' · ' + f.ph.map(p => (p[0] || '?') + ': ' + WW.int(p[1])).join(', ') + ' MW' : '';   // 兩期以上另畫分期時間軸
     spec = T('totalCap') + ' ' + fmtMW(f.mw) + phases + (f.turbine ? ' · ' + esc(f.turbine) : (sp.n > 1 && !f.pseudo && !f.pipe ? ' · ' + (sp.real ? '' : '~') + sp.n + ' ' + T('units') : '')) + (f.owner ? ' · ' + esc(ownerTxt(f)) : '');
     desc = it.why || '';
   }
-  const yrs = it.kind === 'turb' ? (it.year ? T('outConn')(it.year) : '') : it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : ''));
+  const yrs = it.kind === 'turb' ? (it.year ? T('outConn')(it.year) : '') : it.kind === 'event' ? evDate(it.e) + ' · ' + evL(it.e.area) : it.kind === 'port' ? (it.p.since ? T('portSince')(it.p.since) : '') : f && f.pipe ? (f.year ? T('expected') + ' ' + f.year : '') : (f && f.yu ? T('yearUnknown') : it.year + (it.end ? '–' + it.end + ' (' + T('decom') + ')' : f && f.ph && phEnd(f) > f.year ? '–' + phEnd(f) : ''));   // 分期：首期年–末期年 · phased: first–last phase year
   const bare = it.name.replace(/ · .*$/, ''), la = (+it.lat).toFixed(5), lo = (+it.lon).toFixed(5);
   const q = encodeURIComponent(it.kind === 'port' ? (it.zh && lang === 'zh' ? it.zh + ' 離岸風電' : bare + ' offshore wind')
     : (it.zh && lang === 'zh' ? it.zh : bare) + (/wind|turbine|風/i.test(it.name) ? '' : ' wind farm'));
@@ -4202,6 +4210,7 @@ function dataStats(zh) {
   if (GEN) li.push(zh ? '實際年發電量：美國 ' + n(GEN.meta.by_iso.USA || 0) + ' 座風場（EIA-923）、台灣 ' + n(GEN.meta.by_iso.TWN || 0) + ' 座台電風場（台電開放資料）、澳洲 ' + n(GEN.meta.by_iso.AUS || 0) + ' 座風場（AEMO）、丹麥 ' + n(GEN.meta.by_iso.DNK || 0) + ' 座風場（丹麥能源署）'
     : 'Actual yearly output: ' + n(GEN.meta.by_iso.USA || 0) + ' US farms (EIA-923), ' + n(GEN.meta.by_iso.TWN || 0) + ' Taipower farms in Taiwan (Taipower open data), ' + n(GEN.meta.by_iso.AUS || 0) + ' Australian farms (AEMO) and ' + n(GEN.meta.by_iso.DNK || 0) + ' Danish farms (Danish Energy Agency)');
   if (TBD) li.push(zh ? '德國每部風機的位置與規格：' + n(TBD.meta.farms) + ' 座風場、' + n(TBD.meta.turbines) + ' 部（MaStR）' : 'German turbine positions and specs: ' + n(TBD.meta.turbines) + ' turbines in ' + n(TBD.meta.farms) + ' farms (MaStR)');
+  if (TBK) li.push(zh ? '丹麥每部風機的位置與規格：' + n(TBK.meta.farms) + ' 座風場、' + n(TBK.meta.turbines) + ' 部（丹麥能源署登記檔，取用 ' + TBK.meta.retrieved + '）' : 'Danish turbine positions and specs: ' + n(TBK.meta.turbines) + ' turbines in ' + n(TBK.meta.farms) + ' farms (Danish Energy Agency register, retrieved ' + TBK.meta.retrieved + ')');
   if (TBO) li.push(zh ? '其他國家的風機位置：' + n(TBO.meta.farms) + ' 座風場、' + n(TBO.meta.turbines) + ' 部（© OpenStreetMap 貢獻者，ODbL）' : 'Turbine positions elsewhere: ' + n(TBO.meta.turbines) + ' turbines in ' + n(TBO.meta.farms) + ' farms (© OpenStreetMap contributors, ODbL)');
   if (farmsReady && D.farms) {
     const F = D.farms, isos = new Set(F.map(f => f.iso)), op = F.filter(f => f.st === 0 && !f.end);
@@ -4263,8 +4272,8 @@ function dataLimits(zh) {
   }
   est.push(zh ? '<b>估計值</b>：風場卡片的「估計年發電量」用該國平均容量因數推算，不是實測（實測年發電量只有美國、台電自有風場、丹麥與澳洲）；「台灣・即時取樣」是取樣估計；時間軸的「最新可得」有些國家是「前一年底＋今年增量」的估計，其他國家沿用前一年底；1980–1999 年多數國家的容量是估計值。'
               : '<b>Estimates</b>: the “estimated yearly output” on farm cards uses the country’s average capacity factor and is not measured (measured output exists only for the US, Taipower-owned farms, Denmark and Australia); “Taiwan · live samples” are estimates from samples; in the timeline’s “latest available” year some countries are “previous year-end + this year’s growth” estimates and the rest carry the previous year-end; most countries’ 1980–1999 capacities are estimates.');
-  est.push(zh ? '<b>風機位置</b>：近景裡的風機，有 USWTDB（美國）、MaStR（德國）或 OpenStreetMap 資料的才是實際機位，其餘依機組數示意排列；規劃中專案的狀態與時程變動快，座標多為概略位置。'
-              : '<b>Turbine positions</b>: in the close-up, turbines are at their real positions only where USWTDB (US), MaStR (Germany) or OpenStreetMap has them; elsewhere they are laid out schematically from the unit count. Pipeline projects change status and timing often, and most of their locations are approximate.');
+  est.push(zh ? '<b>風機位置</b>：近景裡的風機，有 USWTDB（美國）、MaStR（德國）、能源署登記檔（丹麥）或 OpenStreetMap 資料的才是實際機位，其餘依機組數示意排列；規劃中專案的狀態與時程變動快，座標多為概略位置。'
+              : '<b>Turbine positions</b>: in the close-up, turbines are at their real positions only where USWTDB (US), MaStR (Germany), the Energy Agency\'s register (Denmark) or OpenStreetMap has them; elsewhere they are laid out schematically from the unit count. Pipeline projects change status and timing often, and most of their locations are approximate.');
   if (EVENTS.length) {
     const unl = EVENTS.filter(e => !(e.farms || []).length).length;
     open.push(zh ? '<b>事件</b>：' + n(EVENTS.length) + ' 筆中有 ' + n(unl) + ' 筆還沒對到風場（風場不在資料裡，或報導沒寫風場名）；部分事故的原因與傷亡還在等官方調查，卡片只寫已確認的部分。'
@@ -4320,6 +4329,7 @@ function showSources() {
     '<li><a href="https://ourworldindata.org/grapher/population" target="_blank" rel="noopener">Our World in Data, Population</a> (CC BY 4.0' + (zh ? '，依聯合國《世界人口展望》等整理）：人均容量＝本站年底容量 ÷ 當年人口' : ', based on UN World Population Prospects and others): per-capita capacity = the site\'s year-end capacity ÷ the population of the year') + (IND && IND.meta && IND.meta.population ? (zh ? '，人口到 ' + IND.meta.population.last_year + ' 年、之後沿用' : ', population to ' + IND.meta.population.last_year + ' and carried forward') : '') + (zh ? '。當年新增為本站年底累計的逐年差。' : '. Capacity added this year is the year-on-year difference of the site\'s year-end totals.') + '</li></ul>' +
     '<h4>' + (zh ? '風場卡片的估計年發電量' : 'Estimated yearly output on farm cards') + '</h4><ul><li>' + (zh ? '容量 × 該國 2023–2025 年風電平均容量因數，取自 ' : 'Capacity × the country\'s 2023–2025 average wind capacity factor, from ') + '<a href="https://ember-energy.org/data/yearly-electricity-data/" target="_blank" rel="noopener">Ember, Yearly Electricity Data</a> (CC BY 4.0)' + (zh ? '；是估計，不是實測。' : '; an estimate, not a measurement.') + '</li></ul>' +
     '<h4>' + (zh ? '其他國家的風機位置' : 'Turbine positions in other countries') + '</h4><ul><li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap ' + (zh ? '貢獻者' : 'contributors') + '</a>' + (zh ? '，開放資料庫授權（ODbL）；由 tools/build_turbines_osm.py 依 OSM 的風場範圍（名稱、容量）或空間群聚（單機容量要合理）對到本站的風場，衍生的 data/global/turbines_osm.json 同樣以 ODbL 分享。' : ', Open Database License (ODbL); matched to the site\'s farms by OSM wind-plant areas (name, capacity) or by spatial groups (plausible unit size) in tools/build_turbines_osm.py; the derived data/global/turbines_osm.json is likewise shared under the ODbL.') + '</li></ul>' +
+    '<h4>' + (zh ? '丹麥的風機位置' : 'Danish turbine positions') + '</h4><ul><li><a href="https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren" target="_blank" rel="noopener">Energistyrelsen, Stamdataregister for vindkraftanlæg (Vinddata)</a>' + (zh ? '，丹麥能源署資料使用條款（須標示能源署、資料集與取用時間）：每部風機的座標、容量、機型、輪轂高度與葉輪直徑。由 tools/build_turbines_dk.py 依位置（海域 12 km、陸域 3 km 內）與容量（±15%）對到本站的丹麥風場，近景與實景視角改畫實際機位；對不到的仍用 OpenStreetMap。取用月份寫在資料檔的 meta。' : ', under the Danish Energy Agency\'s data terms (credit the agency, the dataset and the retrieval date): every turbine\'s position, rating, model, hub height and rotor diameter. tools/build_turbines_dk.py matches them to the site\'s Danish farms by position (within 12 km at sea, 3 km on land) and capacity (±15%), and the close-up and sea-level view then use the real positions; unmatched farms keep OpenStreetMap. The retrieval month is in the file\'s meta.') + '</li></ul>' +
     '<h4>' + (zh ? '德國的風場與風機' : 'German farms and turbines') + '</h4><ul><li><a href="https://www.marktstammdatenregister.de/MaStR/Datendownload" target="_blank" rel="noopener">© Bundesnetzagentur | Marktstammdatenregister (MaStR)</a>' + (zh ? '，Datenlizenz Deutschland – Namensnennung – Version 2.0：每部營運中風機的座標、機型、輪轂高度、葉輪直徑與商轉日。依風場名稱與位置分群後，對到本站已有的德國風場（近景改畫實際機位），其餘 1 MW 以上、附近沒有可能相同之本站紀錄的陸域風場加進風場層（tools/build_mastr.py）。' : ', Data licence Germany – attribution – version 2.0: position, model, hub height, rotor diameter and commissioning date of every operating turbine. Grouped by wind-farm name and location, matched to the site\'s German farms (whose close-ups now use the real positions); onshore groups of 1 MW or more with no possibly identical site record nearby are added to the farm layer (tools/build_mastr.py).') + '</li></ul>' +
     '<h4>' + (zh ? '美國每部風機的位置與規格' : 'US turbine positions and specs') + '</h4><ul><li><a href="https://energy.usgs.gov/uswtdb/" target="_blank" rel="noopener">U.S. Wind Turbine Database (USWTDB)</a>' + (zh ? '，美國地質調查所、勞倫斯柏克萊國家實驗室與美國潔淨電力協會，公有領域；由 tools/build_turbines.py 依名稱、距離與容量（±15%）對到本站的風場，對不上的維持推算的排列。' : ', USGS, Lawrence Berkeley National Laboratory and American Clean Power Association, public domain; matched to the site\'s farms by name, distance and capacity (±15%) in tools/build_turbines.py; unmatched farms keep the estimated layout.') + '</li></ul>' +
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
