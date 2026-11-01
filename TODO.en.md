@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 1 Nov 2026: v3.22.2, built-but-planned farms and small corrections are done; the owner picks what comes next; the next conversation starts here)
+## In progress (hand-off, 1 Nov 2026: v3.22.3, the early-November checks are done; the owner picks what comes next; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -76,11 +76,27 @@ The version-by-version work log and research leads from 28 Sep to 14 Oct 2026 mo
 - All automatic updates run normally: Taiwan and international live data (about every 30 minutes, started by cron-job.org through the GitHub API from 22 Oct 2026; replace the token before it expires and update API version 2022-11-28 before it stops working on 10 Mar 2028, see "External trigger" in DEPLOY.en.md), the retrospective archive (weekly), Wind now (every 6 hours), the single-file rebuild (on pushes to `main`), keepalive (monthly). The current habit after a merge is to run `scrape-taipower-wind` by hand once and check that every source succeeded (last done at 00:16 Taiwan time on 20 Oct 2026: run 1370, Taipower and all 15 foreign sources succeeded; GitHub Actions had an incident at the time, so the data was written on schedule but the run only showed as finished about 15 minutes later. Runs 1366, 1368 and 1369 on 19 Oct 2026 succeeded too).
 - In progress: the three real-device checks under "A friendlier interface" above; the second version of the kids page awaits the owner's feedback (see above); "Read to me" still needs one listen on a real computer or tablet (the headless test browser has no speech engine, so only the "can't read aloud" notice was verified); the owner picks any other next piece from "Next-step options" below.
 
+### Weekly schedule (from 1 Nov 2026)
+
+On 1 Nov 2026 the owner set up a weekly Claude scheduled task, "windfarmTaiwan weekly upkeep": every Monday at 19:33 Taiwan time it opens a fresh session, reads CLAUDE.md and this section, and in order:
+handles any still-open weekly PR (branch `claude/weekly-*`); does the dated checks below that are due and checks the Actions runs; then, time permitting, advances one item from "Features the schedule may advance", or else one data-quality item.
+Any change goes into a draft PR (branch `claude/weekly-YYYYMMDD`) for the owner to merge; it never merges, never starts a feature not listed below and never widens the scope. A push notification goes to the owner's phone when it finishes.
+To pause it or change the time: the scheduled tasks page on claude.ai, or ask Claude in a conversation.
+
+### Features the schedule may advance (listed only once the owner approves)
+
+New features are discussed with the owner in a conversation first; once scope and approach are agreed, write one entry (goal, scope, done-when) here. The weekly run advances one entry at a time and moves it to its topic list when finished. Ideas not yet approved go under "To evaluate / waiting for the owner's direction".
+
+(none yet)
+
 ### Due soon (dated)
 
 - **End of October, second round (done 30 Oct 2026)**: the US EIA-860M September edition is in use (next edition 24 Nov); **China now uses the NEA's Q3 briefing of 30 Oct (v3.16.0)**: January–September additions onshore 58.21 GW, offshore 2.45 GW; end-September 650 GW onshore, 49.84 GW offshore. Taiwan's table 4-02 still ended at August on 30 Oct → **check again in early November**; India MNRE still 30 Sept (in use); Brazil ANEEL has no September text release; Germany WindGuard, France SDES (the T3 URL is a 404) and the UK ET 6.1 are still H1, Q3 due November–December (UK on the last Thursday of December); Japan JWPA end-2025 only. Run `python3 tools/build_country_stats.py` after editing.
   Actions (checked 30 Oct): `scrape-taipower-wind` has 14 failures since 25 Oct (Taipower d006001 timing out after 20 s plus genary.json 403, alternating with successes every half hour; Taipower's side, the data keeps accumulating with gaps); `backfill` on 26 Oct hit a GitHub Internal Server Error on push (next run 2 Nov); everything else fine. Look at the status page again in early November.
   The grid fallback (government open data 19995) **has not stopped**: its update frequency is "monthly" and it covers "this year up to last month"; the file was updated on 5 Oct 2026 up to the end of August, so September should appear around 5 November. The site and docs now say "daily data, published monthly". If September is still missing in mid-November, check whether the file moved.
+- **Early November (done 1 Nov 2026, v3.22.3)**: Taiwan's table 4-02 still ends at August → **check again in mid-November**; India MNRE still 30 Sept; Brazil's SIGA plant list of 1 Nov 2026 still has only 3 farms for 2026 (184.5 MW), so the "latest available" row now covers January–October; France SDES Q3 not yet published (404).
+  Actions (checked 1 Nov): `scrape-taipower-wind` still fails about half the time over the last two days, always Taipower d006001 read timeouts (45 s ×2) followed by a genary.json 403; the retries rescue only some runs. From the cloud test machine one of three requests to the same URL was cut off, so it is Taipower's side and the code is unchanged. `wind-now` and `build-standalone` fine. `backfill` now retries its push up to 4 times (next run 2 Nov 2026 19:23 UTC; confirm it succeeds).
+  Grid fallback (19995): `grid_status.json` on 1 Nov still ends on 31 August; September should appear after about 5 November; if it is still missing in mid-November, check whether the file moved.
 - **Mid-November**: Northland's Q3 report → Hai Long (`id:"longB"` in `assets/js/live.js`; commercial operation still 2027).
 - **Year-end**: Taipower Offshore Phase 2 (grid connection targeted for year-end; 2 of 31 installed on 7 Oct), Greater Changhua 4 (wait for Ørsted's full-operation notice), Baltic Power (all 76 installed, commercial operation expected in 2026), Revolution Wind, Dieppe-Le Tréport (41 of 62 on 2 Oct), Sofia, Qingzhou 5 and 7 (target Dec 2026), Danzhou CZ3 site 2; move Yude and Huanyang to `PIPE_DROP` once their termination is formal.
   Research notes in `tools/research/twn_offshore_2026-10.json` and `farms_2026-10_status.json` (quotes checked); what to change is under "Re-check periodically" below.

@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.3 — 2026-11-01
+
+- **Early-November data check**: Brazil's "latest available" row now covers January–October 2026 (ANEEL's SIGA plant list of 1 November still has only 3 farms, 184.5 MW, none added in September or October); Taiwan's table 4-02 and India's MNRE have no newer month yet and stay at August and September.
+- **Schedules**: the weekly history backfill now retries its push (up to 4 times) when GitHub returns a temporary error instead of failing the whole run.
+
 ## v3.22.2 — 2026-11-01
 
 - **Farms built but still listed as planned**: 35 German GEM pipeline records (846 MW) are farms MaStR registers as operating from 2025–2026 and the site already adds from MaStR, so each was counted as both operating and planned; the build now drops the pipeline record in favour of the register (within 3 km, same name, capacity ±25%, the MaStR park operating from 2025; logged as `MASTR-BUILT`). Elsewhere, 26 same-name pipeline/operating pairs were checked one by one: the Haicheng CTG pipeline record in Liaoning is merged into the operating one; Cheongsong Myeonbongsan in Korea is in fact still under construction (completion October 2026; the operating record carried the old 2021 target) and la Besse in France has had its works halted and is not yet operating, so both become under construction; the other 21 pairs are separate projects.
