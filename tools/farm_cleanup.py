@@ -2543,6 +2543,11 @@ NOT_DUP = {
          'https://www.openstreetmap.org/relation/13943144'),
 }
 
+# tools/qa_dups.py 列出、查證後確認是不同風場的組合（每組附理由），之後不再列為可能重複 · pairs tools/qa_dups.py lists that research showed to be different farms
+DUP_OK = {
+}
+DUP_OK = {iso: {frozenset(p) for p, _ in v} for iso, v in DUP_OK.items()}
+
 GEM_KEEP = {
     ('CHN', "Fujian Zhangpu Liu'Ao Offshore wind farm"):
         (
