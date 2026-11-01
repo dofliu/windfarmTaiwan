@@ -2735,6 +2735,41 @@ JP-COORD Tsuruoka Hachimorimama wind farm moved 14 km to JRE Tsuruoka Hachimoriy
 JP-COORD Ueno/Hikawara wind farm moved 8 km to Ueno-Hikawara Wind Farm (Shinato no Kaze)
 JP-COORD Wakami wind farm moved 351 km to Wakami Wind Farm
 JP-COORD Yokohama-machi (JWD) wind farm moved 9 km to Yokohama-machi Wind Farm
+MASTR-BUILT DEU Bad Wildbad wind farm (pre-construction, 12 MW) = MaStR Windpark Bad Wildbad (11.2 MW, 2025): pipeline record dropped
+MASTR-BUILT DEU Bartow-Pfalz wind farm (pre-construction, 49 MW) = MaStR Bartow-Pfalz (49.2 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Bimöhlen wind farm (announced, 34 MW) = MaStR Bimöhlen (32.4 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Bingen wind farm (pre-construction, 34 MW) = MaStR Bingen (33.6 MW, 2025): pipeline record dropped
+MASTR-BUILT DEU Brand wind farm (announced, 36 MW) = MaStR Brand (36 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Breuna wind farm (pre-construction, 28.5 MW) = MaStR Breuna (28.5 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Cheine wind farm (announced, 22 MW) = MaStR Cheine (22.24 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Grönland-Schönmoor wind farm (pre-construction, 14.4 MW) = MaStR Grönland-Schönmoor (14.4 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Halterner Straße wind farm (announced, 21 MW) = MaStR Halterner Straße (16.8 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Heiden-Nordick wind farm (announced, 12 MW) = MaStR Heiden-Nordick (12 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Hohenaspe wind farm (announced, 14 MW) = MaStR Hohenaspe (13.6 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Jördenstorf wind farm (announced, 24 MW) = MaStR Windpark Jördenstorf (29.7 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Kreulkerhok wind farm (announced, 10 MW) = MaStR Kreulkerhok (9.76 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Kroppenstedt wind farm (pre-construction, 24.6 MW) = MaStR Windpark Kroppenstedt (18.6 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Mandelsloh wind farm · 2 (construction, 57 MW) = MaStR Mandelsloh (57 MW, 2025): pipeline record dropped
+MASTR-BUILT DEU Minfeld R wind farm (pre-construction, 12 MW) = MaStR Minfeld R (12 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU MÄ Märkischer Kreis wind farm (announced, 12 MW) = MaStR MÄ Märkischer Kreis (12 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Nieder-Schleidern wind farm (pre-construction, 17 MW) = MaStR Windpark Nieder-Schleidern (16.8 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Niederasphe wind farm (construction, 34 MW) = MaStR Windpark Niederasphe (28.5 MW, 2025): pipeline record dropped
+MASTR-BUILT DEU Ostharingen wind farm (announced, 70 MW) = MaStR Ostharingen (70.2 MW, 2025): pipeline record dropped
+MASTR-BUILT DEU Ottenbüttel wind farm (announced, 10 MW) = MaStR Ottenbüttel (9.6 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Roggenmöörte wind farm (announced, 35 MW) = MaStR Windpark Roggenmöörte (35 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Rosendahl Oberdarfeld wind farm (announced, 18 MW) = MaStR Rosendahl Oberdarfeld (18 MW, 2025): pipeline record dropped
+MASTR-BUILT DEU Salz-Berzhahn wind farm (announced, 10 MW) = MaStR Salz-Berzhahn (10.46 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Sammethöhe Süd wind farm (announced, 11 MW) = MaStR Sammethöhe Süd (11.12 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Sassenberg-Füchtorfer Moor wind farm (announced, 28 MW) = MaStR Sassenberg-Füchtorfer Moor II (27.8 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Schlage wind farm (pre-construction, 14 MW) = MaStR Windpark Schlage 3 (14.4 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Schwennenz wind farm (pre-construction, 14 MW) = MaStR Windpark Schwennenz (13.85 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Spitze Warte wind farm (pre-construction, 17 MW) = MaStR Windpark Spitze Warte (17.04 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Steinert wind farm (announced, 22 MW) = MaStR Steinert (22.24 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Vöhl wind farm (pre-construction, 17 MW) = MaStR Windpark Vöhl (16.68 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Wagenfeld-Süd wind farm (announced, 39 MW) = MaStR Windpark Wagenfeld-Süd (38.92 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Weddelbrook wind farm (pre-construction, 18 MW) = MaStR Windpark Weddelbrook (18 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Wolpertswende wind farm (announced, 22 MW) = MaStR Wolpertswende (22.24 MW, 2026): pipeline record dropped
+MASTR-BUILT DEU Wussentin wind farm (announced, 34 MW) = MaStR Wussentin (34.2 MW, 2026): pipeline record dropped
 PIPE-ADD JPN Aomori Sea of Japan South st2 y2030
 PIPE-ADD JPN Choshi (re-tender) st2 y2032
 PIPE-ADD JPN Enoshima-Saikai st2 y2029

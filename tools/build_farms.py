@@ -613,6 +613,7 @@ if set(PIPE_FIX) - pipe_fixed:
     raise SystemExit(f"farm_cleanup.PIPE_FIX entries not found in pipeline_curated.json: {sorted(set(PIPE_FIX) - pipe_fixed)}")
 print(f"curated pipeline: updated {pipe_upd} GEM projects, added {pipe_add}; Japan list: added {jp_add} farms, "
       f"upgraded {jp_upg} to operating, fixed {jp_fix} GEM coordinates")
+km_mastr = lambda a, b: math.hypot((b[4] - a[4]) * 111.32 * math.cos(math.radians((a[3] + b[3]) / 2)), (b[3] - a[3]) * 110.574)
 # 德國：MaStR 裡本站還沒收錄的陸域風場（tools/build_mastr.py 產生，來源代碼 4；已排除與本站紀錄可能相同的）
 mp = EXTRA / 'mastr_parks_DEU.json'
 mastr = json.loads(mp.read_text(encoding='utf-8')) if mp.exists() else {'parks': [], 'meta': {}}
@@ -620,6 +621,27 @@ for p in mastr['parks']:
     row = [p['name'], '', 'DEU', p['lat'], p['lon'], p['mw'], p['year'], 0, 0, 0, '', p['turbine'], 0 if p['year'] else 2, 4, p['ph'] or 0, 0, 0]
     allrows.append(row); by_iso['DEU'].append(row)
 print(f"MaStR (Germany): added {len(mastr['parks'])} farms, {sum(p['mw'] for p in mastr['parks']):,.0f} MW")
+# GEM 還列規劃中、但 MaStR 已登記運轉的同一座風場（3 km 內、名稱相同、容量 ±25%）：MaStR 是官方登記檔，以它為準，刪掉規劃中那筆（業主補到 MaStR 那筆），寫進 log
+# GEM pipeline records that MaStR already registers as operating: the register wins; the pipeline row is dropped (its owner moves over) and logged
+from qa_dups import same_name   # noqa: E402
+_rec = lambda r: {'name': r[0], 'iso': r[2]}
+mparks = [r for r in by_iso['DEU'] if r[13] == 4]
+built = set()
+for r in by_iso['DEU']:
+    if r[13] == 4 or r[8] not in (1, 2, 3) or not r[5]:
+        continue
+    # MaStR 那座要 2025 年起才運轉（GEM 2026-02 版仍列規劃中）；更早的是既有風場，規劃中那筆多半是它旁邊的新一期 · registered from 2025 on; older ones are the existing farm next to a new phase
+    hit = [m for m in mparks if (m[6] or 0) >= 2025 and km_mastr(r, m) <= 3 and abs(m[5] - r[5]) <= 0.25 * max(m[5], r[5]) and same_name(_rec(r), _rec(m))]
+    if len(hit) == 1:
+        m = hit[0]
+        if not m[10] and r[10]:
+            m[10] = r[10]
+        built.add(id(r))
+        log.append(f"MASTR-BUILT DEU {r[0]} ({['', 'construction', 'pre-construction', 'announced'][r[8]]}, {r[5]:g} MW) = MaStR {m[0]} ({m[5]:g} MW, {m[6]}): pipeline record dropped")
+if built:
+    allrows[:] = [r for r in allrows if id(r) not in built]
+    by_iso['DEU'] = [r for r in by_iso['DEU'] if id(r) not in built]
+print(f"MaStR (Germany): {len(built)} GEM pipeline records already registered as operating, dropped")
 # 英國 REPD（tools/build_repd.py 產生，OGL v3）：對到的本站風場只做保守補充（規劃中→營運中、機組、概略座標、業主），
 # 同名但點標錯的改用 REPD 座標，還沒收錄的營運中陸域風場以來源代碼 5 加入；檢查本站英國陸域營運容量＋新增不超過官方的 102%
 # UK REPD (tools/build_repd.py, OGL v3): conservative fills on matched farms, coordinate moves for clearly misplaced same-name farms,
