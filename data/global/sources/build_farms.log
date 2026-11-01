@@ -104,6 +104,7 @@ CLEAN dup AUS Bluff Point wind farm 64.0 -> Woolnorth (Bluff Point / Studland Ba
 CLEAN dup AUS MacIntyre 923.0 -> MacIntyre precinct wind farm
 CLEAN dup AUS Snowtown I wind farm 99.0 -> Snowtown
 CLEAN dup AUS Studland Bay wind farm 75.0 -> Woolnorth (Bluff Point / Studland Bay)
+CLEAN dup BEL Sainte Ode wind farm 18.0 -> Saint Ode (Aspiravi) wind farm
 CLEAN dup BRA Rei dos Ventos 1 58.5 -> Ventus wind farm
 CLEAN dup BRA Ventos Do Sul wind farm 150.0 -> Osório
 CLEAN dup CAN Whitla wind farm 353.0 -> Whitla
@@ -143,6 +144,7 @@ CLEAN dup CHN Jiangsu Dafeng H9 (Three Gorges) Offshore wind farm 200.0 -> CTG D
 CLEAN dup CHN Jiangsu Rudong H1-2 (Xiexin) Offshore wind farm 200.0 -> Zhongtian Rudong H15
 CLEAN dup CHN Jiangsu Sheyang South H1 (Longyuan) 400.0 -> Jiangsu Sheyang Southern Area H5 Offshore wind farm
 CLEAN dup CHN Jilin Tongyu (Huaneng) 2000 MW Unsubsidized wind farm 200.0 -> Jilin Tongyu Shihuadao wind farm
+CLEAN dup CHN Liaoning Changtu Sanjiangkou (Liaoning Water Management) wind farm 99.0 -> Liaoning Changtu Sanjiangkou wind farm
 CLEAN dup CHN Liaoning Chifeng Poverty Alleviation District (China Guangdong Nuclear) wind farm 100.0 -> Inner Mongolia Chifeng Poverty Alleviation Area (China Guangdong Nuclear) wind farm
 CLEAN dup CHN Ningde Xiapu / Xiapu A 300.0 -> Fujian Ningde Xiapu Offshore wind farm · B
 CLEAN dup CHN Shandong Bandaobei BW Offshore wind farm 510.0 -> Huaneng Peninsula North BW
@@ -160,8 +162,10 @@ CLEAN dup CHN Zhejiang Putuo 6 Offshore wind farm 252.0 -> Guodian Zhoushan Putu
 CLEAN dup DEU Ackendorf-Gutenswegen wind farm 12.0 -> Niedere Börde wind farm
 CLEAN dup DEU Brockoh wind farm 36.0 -> Köhlen wind farm
 CLEAN dup DEU Dreiberg wind farm 60.0 -> Windpark Druiberg (Dardesheim)
+CLEAN dup DEU Emlichheim-Nord wind farm 33.0 -> Emlichheim wind farm
 CLEAN dup DEU Felde Windpark 17.0 -> Riede wind farm
 CLEAN dup DEU Lichtenau wind farm 11.0 -> Paderborn wind farm
+CLEAN dup DEU Ottelin wind farm 20.0 -> Oettelin wind farm
 CLEAN dup DEU Twist (WT) wind farm 22.0 -> Twist (Wea) wind farm
 CLEAN dup DEU Wegeleben wind farm 28.0 -> Speckberg wind farm
 CLEAN dup DEU Wittstedt wind farm 12.0 -> Lohkamp wind farm
@@ -179,22 +183,31 @@ CLEAN dup FRA Binas wind farm 11.5 -> Viertiville wind farm
 CLEAN dup FRA Blancfossé wind farm 10.0 -> Butte Saint Liphard wind farm
 CLEAN dup FRA Bois Madame wind farm 13.2 -> Méharicourt wind farm
 CLEAN dup FRA Chasseradès wind farm 27.4 -> Taillades Sud wind farm
+CLEAN dup FRA Chemins De Gres wind farm 30.0 -> Chemin De Grès wind farm
 CLEAN dup FRA Chêne Courteau Terre d'Abbayes wind farm 27.6 -> Moreuil wind farm
 CLEAN dup FRA Des Hauts Pres wind farm 28.0 -> Haut Pres wind farm
 CLEAN dup FRA EFGL wind farm 30.0 -> Les Éoliennes Flottantes du Golfe du Lion (EFGL)
 CLEAN dup FRA Ecuvilly wind farm 8.0 -> Haut Pres wind farm
+CLEAN dup FRA Egrouettes wind farm 33.6 -> Les Egrouettes wind farm
 CLEAN dup FRA Entre Seine Et Aube wind farm 49.0 -> La Prévoterie wind farm
 CLEAN dup FRA Eolmed Floating wind farm 30.0 -> EolMed (Gruissan)
 CLEAN dup FRA Fontenelle-Montby wind farm 56.0 -> Rougemont wind farm
 CLEAN dup FRA L'Epine Aux Bois wind farm 18.0 -> Epine-Aux-Bois wind farm
+CLEAN dup FRA L'Epinette (Ostwind) wind farm 12.0 -> Epinette wind farm
+CLEAN dup FRA La Croix De Chalais wind farm 12.0 -> Croix-De-Chalais wind farm
 CLEAN dup FRA Laucourt wind farm 10.0 -> Laucourt-Beuvraignes wind farm
 CLEAN dup FRA Le Mont Hussard wind farm 38.0 -> Mont D'Origny wind farm
 CLEAN dup FRA Le Moulin De Sehen wind farm 12.0 -> Mesnil-Rousset wind farm
 CLEAN dup FRA Le Nitis 1 wind farm 11.8 -> Le Nitis wind farm
 CLEAN dup FRA Le Val D'Esnoms wind farm 28.0 -> Langres Sud wind farm
 CLEAN dup FRA Les Chandelles wind farm 12.0 -> Breteuil-Esquennoy wind farm
+CLEAN dup FRA Les Hauts Pays wind farm 80.0 -> Hauts-Pays wind farm
+CLEAN dup FRA Les Monts D'Ain wind farm 18.0 -> Monts De L'Ain wind farm
+CLEAN dup FRA Les Nouillers wind farm 10.0 -> Nouillers wind farm
 CLEAN dup FRA Les Trois Fermes wind farm 10.0 -> Pithiviers Le Vieil wind farm
 CLEAN dup FRA Les Vignottes wind farm 36.0 -> Vignottes wind farm
+CLEAN dup FRA Montagne Ardéchoise wind farm 74.0 -> La Montagne Ardéchoise wind farm
+CLEAN dup FRA Nieul sur l'Autise wind farm 16.0 -> Neuil Sur L'Autise wind farm
 CLEAN dup FRA Pelade wind farm 48.0 -> Artigues Et Ollieres wind farm
 CLEAN dup FRA Sacquenay wind farm 10.0 -> Sources Du Mistral wind farm
 CLEAN dup FRA Sommette-Eaucourt wind farm 22.0 -> Les Tournevents du COS wind farm
@@ -207,10 +220,12 @@ CLEAN dup GBR Dogger Bank wind farm 1200.0 -> Dogger Bank A
 CLEAN dup GBR Hornsea wind farm · 1 1218.0 -> Hornsea One
 CLEAN dup GBR Lambs Hill wind farm 8.0 -> Lambs Hill I wind farm
 CLEAN dup GBR Sofia wind farm 1400.0 -> Sofia
+CLEAN dup GBR St John Hill wind farm 7.7 -> St. Johns Hill wind farm
 CLEAN dup GBR Triton Knoll (Innogy) wind farm 857.0 -> Triton Knoll
 CLEAN dup GBR Westermost Rough A wind farm 210.0 -> Westermost Rough
 CLEAN dup IND Agar (Greenko) wind farm 40.0 -> Maliya wind farm
 CLEAN dup IND Basavana Bagewadi (Atria) II wind farm 40.0 -> Basavana Bagewadi (Atria) I wind farm
+CLEAN dup IND Belgaum (Korys) wind farm 40.0 -> Belgaum wind farm
 CLEAN dup IND Dangri (Bhilwara) wind farm 20.0 -> Jaisalmer (Bhilwara) wind farm
 CLEAN dup IND Gopalpura wind farm 15.0 -> Gopalpura (Hindustan Zinc) wind farm
 CLEAN dup IND Vankusawade Wind Park 189.0 -> Vankusawade
@@ -1404,6 +1419,7 @@ CLEAN fix DEU Borne (MDP) wind farm 33.0
 CLEAN fix DEU Bornstedt-Holdenstedt wind farm 12.0
 CLEAN fix DEU Büttstedt wind farm 37.0
 CLEAN fix DEU Damme wind farm · 2, RP 40.0
+CLEAN fix DEU Emlichheim wind farm 36.0
 CLEAN fix DEU Erbes-Büdesheim wind farm 15.0
 CLEAN fix DEU Flomborn-Stetten wind farm 15.0
 CLEAN fix DEU Gohlocher Wald wind farm 12.0
@@ -1541,22 +1557,29 @@ CLEAN fix FRA Champ Vert Sommer wind farm 12.0
 CLEAN fix FRA Champarts wind farm 15.2
 CLEAN fix FRA Chaunay wind farm 18.0
 CLEAN fix FRA Chauvé wind farm 12.0
+CLEAN fix FRA Chemin De Grès wind farm 30.0
 CLEAN fix FRA Chemin De Valenciennes wind farm 18.0
 CLEAN fix FRA Chenu wind farm 11.0
+CLEAN fix FRA Croix-De-Chalais wind farm 12.0
 CLEAN fix FRA Crouy et Cuffies wind farm 12.0
 CLEAN fix FRA D'Autremencourt wind farm 12.0
 CLEAN fix FRA Energie Du Gatinais wind farm · 2 21.0
 CLEAN fix FRA EolMed (Gruissan) 30.0
+CLEAN fix FRA Epinette wind farm 12.0
 CLEAN fix FRA Falvieux wind farm 25.0
 CLEAN fix FRA Fereole wind farm 27.5
 CLEAN fix FRA Fortel En Artois wind farm 11.0
 CLEAN fix FRA Goulafrière wind farm 10.0
 CLEAN fix FRA Grande Combe wind farm 18.0
 CLEAN fix FRA Haut-Vignoble wind farm 14.1
+CLEAN fix FRA Hauters De L'Albe wind farm 13.8
+CLEAN fix FRA Hauteurs De L'Albe wind farm 14.0
+CLEAN fix FRA Hauts-Pays wind farm 78.0
 CLEAN fix FRA Ker Rose wind farm 10.0
 CLEAN fix FRA L'Huître Et Granville wind farm 24.0
 CLEAN fix FRA La Chapelle Bâton wind farm 21.6
 CLEAN fix FRA La Côte Du Cerisat wind farm 50.0
+CLEAN fix FRA La Montagne Ardéchoise wind farm 73.5
 CLEAN fix FRA La Prévoterie wind farm 48.9
 CLEAN fix FRA La Remise Des Bruyeres wind farm 12.0
 CLEAN fix FRA La Seauve wind farm 12.0
@@ -1586,6 +1609,8 @@ CLEAN fix FRA Monnes Energies wind farm 16.0
 CLEAN fix FRA Mont Louis wind farm (France) 15.0
 CLEAN fix FRA Monterfil wind farm 10.8
 CLEAN fix FRA Montloué wind farm 10.0
+CLEAN fix FRA Neuil Sur L'Autise wind farm 16.0
+CLEAN fix FRA Nouillers wind farm 10.0
 CLEAN fix FRA Noyal-Muzillac wind farm 10.0
 CLEAN fix FRA Orvilliers wind farm 19.0
 CLEAN fix FRA Pays de Caux wind farm 12.9
@@ -1626,6 +1651,7 @@ CLEAN fix GBR Pentland wind farm 100.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Sofia 1400.0
 CLEAN fix GBR Spurness wind farm 10.0
+CLEAN fix GBR St. Johns Hill wind farm 7.7
 CLEAN fix HRV Kamensko-Vostane wind farm 42.0
 CLEAN fix HRV Lukovac wind farm 49.0
 CLEAN fix IND Agaswadi wind farm 50.0
@@ -1644,6 +1670,7 @@ CLEAN fix IND Basavana Bagewadi (Atria) I wind farm 119.0
 CLEAN fix IND Belgaum (Doddanavar) wind farm 47.0
 CLEAN fix IND Belgaum (Giriraj) wind farm 10.0
 CLEAN fix IND Belgaum (Korys) wind farm 40.0
+CLEAN fix IND Belgaum wind farm 40.0
 CLEAN fix IND Belgaum wind farm 40.0
 CLEAN fix IND Belguppa (Adurjee) wind farm 15.0
 CLEAN fix IND Belguppa (Greenko) wind farm 101.0
@@ -2023,6 +2050,7 @@ CLEAN fix SEN Taiba N’Diaye wind farm 158.0
 CLEAN fix SRB Kula wind farm 10.0
 CLEAN fix SWE Bockstigen 2.8
 CLEAN fix SWE Kölvallen wind farm 96.6
+CLEAN fix SWE Skarhults wind farm 10.0
 CLEAN fix SWE Utgrunden I 10.5
 CLEAN fix SWE Vindpark Vänern (Gässlingegrund) 30.0
 CLEAN fix THA Hanuman 1 wind farm 45.0
@@ -2738,6 +2766,7 @@ PIPE-UPD TWN YouDe -> YouDe st2 y2029
 REPD-ADD GBR Land near Ventonteague 2.3 y2020
 REPD-ADD GBR Moor House Wind Farm 12.0 y2017
 REPD-DECOM GBR Spurness wind farm: REPD lists it as decommissioned (no date given; record left as is)
+REPD-MISS GBR St John Hill wind farm (src 2): 0 records
 REPD-MOVE GBR Black Law wind farm · 1b -> 55.76219, -3.76257 (507.6 km; REPD 4580)
 REPD-MOVE GBR Dalquhandy wind farm -> 55.18061, -4.90958 (77.0 km; REPD 4189)
 REPD-MOVE GBR Darracott Moor wind farm -> 50.97186, -4.11894 (28.0 km; REPD 3450)
