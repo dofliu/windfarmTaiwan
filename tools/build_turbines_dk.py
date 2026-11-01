@@ -15,6 +15,9 @@
   2. 風機歸到最近的本站風場，海域 12 km、陸域 3 km 內，陸域／海域要相同；併網年份不早於該風場商轉年的前一年
      （更早的是附近別的風機）。
   3. 歸到同一座風場的機組容量加總要在本站紀錄 ±15% 內才寫出（差太多表示混進鄰場或本站紀錄有誤）。
+     對不上時再試兩步（仍要在 ±15% 內）：(a) 陸域 5 km 內、與已歸入的風機同型號同併網年、又沒有歸給別座風場的補進來
+     （一排風機超出 3 km 的情形）；(b) 把機組依「型號＋併網年」分組（2–6 組），只留商轉年前後一年、單獨一組就對得上的那組
+     （鄰近另一期、另一座風場混入的情形；要兩組以上才湊得上的不配）。兩步都不行就不寫，地球儀改用 OpenStreetMap。
   4. 機型只在所有機組同一種寫法時寫（dk_output.model_of）。
 
 授權：丹麥能源署資料使用條款（免費、非專屬，須標示 Energistyrelsen、資料集名稱與取用時間）；取用月份由檔案的修改時間寫進 meta，
@@ -24,7 +27,10 @@ Input: the Danish Energy Agency's "Vinddata" workbook (the same file tools/dk_ou
 Output: data/global/turbines_dk.json in the turbines_de.json format. Rules (conservative, same as dk_output.py's farm assignment):
 operating turbines only (no decommissioning date), matched to the site's operating Danish farms by nearest point within 12 km at sea /
 3 km on land of the same kind, connected no earlier than the year before the farm's start year, and written only when the assigned
-capacity is within ±15% of the site record; a model is written only when every turbine carries the same model string.
+capacity is within ±15% of the site record (when it is not, two fallbacks are tried, still within ±15%: (a) add unassigned turbines within
+5 km on land that share model and connection year with turbines already assigned — a row reaching past 3 km; (b) group the turbines by
+model + connection year (2–6 groups) and keep a single group from the farm's start year ±1 that matches on its own — a neighbouring
+phase or farm mixed in; combinations of groups are never used); a model is written only when every turbine carries the same model string.
 Licence: the agency's data terms (credit Energistyrelsen, the dataset and the retrieval date, which the build writes into meta from
 the file's modification time). Re-run after rebuilding the farm layer or downloading a newer register.
 """
@@ -42,6 +48,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FARMS = ROOT / 'data/global/wind_farms.json'
 OUT = ROOT / 'data/global/turbines_dk.json'
 SEA_KM, LAND_KM, TOL = 12.0, 3.0, 0.15
+EXT_KM = 5.0      # (a) 同型號同年份的延伸距離（陸域） · reach of fallback (a) on land
 LICENSE = ('Danish Energy Agency data terms (free, non-exclusive reuse; credit Energistyrelsen, the dataset and the retrieval date): '
            + SRC['terms'])
 
@@ -79,13 +86,44 @@ def main(vind_xlsx, debug=None):
         if best:
             assign[(best['iso'], best['name'])].append(t)
 
-    out, dropped = {}, []
+    used = {id(t) for tt in assign.values() for t in tt}
+    ok = lambda tt, f: abs(sum(t['kw'] for t in tt) / 1000 - f['mw']) <= TOL * f['mw']
+    grp = lambda t: (t['model'] or '', t['on'].year if t['on'] else None)
+
+    def fallback(f, tt):
+        if f['type'] == 0:                                   # (a) 陸域：同型號同年份、5 km 內 · same model and year within 5 km
+            keys = {grp(t) for t in tt}
+            more = [t for t in ts if id(t) not in used and not t['sea'] and grp(t) in keys
+                    and km(t['ll'][0], t['ll'][1], f['lat'], f['lon']) <= EXT_KM]
+            if more and ok(tt + more, f):
+                return tt + more, 'a'
+        groups = defaultdict(list)                           # (b) 依型號＋年份分組取單一組 · one model+year group
+        for t in tt:
+            groups[grp(t)].append(t)
+        gl = list(groups.values())
+        if not 2 <= len(gl) <= 6:
+            return None, ''
+        best = None
+        for pick in gl:                                      # 只接受單一組（同一期同型號）就對上的 · only a single group (one phase, one model)
+            if f['year'] and not (pick[0]['on'] and abs(pick[0]['on'].year - f['year']) <= 1):
+                continue
+            d = abs(sum(t['kw'] for t in pick) / 1000 - f['mw'])
+            if ok(pick, f) and (best is None or d < best[0]):
+                best = (d, pick)
+        return (best[1], 'b') if best else (None, '')
+
+    out, dropped, rescued = {}, [], []
     for (iso, name), tt in sorted(assign.items()):
         f = next(x for x in site if x['name'] == name)
         kw = sum(t['kw'] for t in tt)
         if abs(kw / 1000 - f['mw']) > TOL * f['mw']:
-            dropped.append((name, f['mw'], round(kw / 1000, 1), len(tt)))
-            continue
+            alt, how = fallback(f, tt)
+            if not alt:
+                dropped.append((name, f['mw'], round(kw / 1000, 1), len(tt)))
+                continue
+            rescued.append((name, how, f['mw'], round(kw / 1000, 1), round(sum(t['kw'] for t in alt) / 1000, 1), len(tt), len(alt)))
+            used.update(id(t) for t in alt)
+            tt, kw = alt, sum(t['kw'] for t in alt)
         pts = [(t['ll'][1], t['ll'][0]) for t in tt]       # (經度, 緯度) · (lon, lat)
         c = (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
         p = []
@@ -105,10 +143,12 @@ def main(vind_xlsx, debug=None):
                 print(k, {a: b for a, b in v.items() if a != 'p'})
     for d in dropped:
         print(f'  skip {d[0]}: site {d[1]} MW vs register {d[2]} MW ({d[3]} turbines)')
+    for r in rescued:
+        print(f'  fallback ({r[1]}) {r[0]}: site {r[2]} MW; register {r[3]} MW ({r[5]} turbines) -> {r[4]} MW ({r[6]} turbines)')
     meta = {'source': 'Energistyrelsen, Stamdataregister for vindkraftanlæg (Vinddata): every turbine\'s position, rating, rotor, hub height and model',
             'url': SRC['url'], 'license': LICENSE, 'credit': 'Energistyrelsen, Stamdataregister for vindkraftanlæg (Vinddata), retrieved ' + got,
             'retrieved': got, 'farms': len(out), 'turbines': sum(v['n'] for v in out.values()), 'mw': round(sum(v['kw'] for v in out.values()) / 1000),
-            'register_turbines': len(ts), 'skipped': len(dropped), 'tool': 'tools/build_turbines_dk.py',
+            'register_turbines': len(ts), 'skipped': len(dropped), 'fallback': len(rescued), 'tool': 'tools/build_turbines_dk.py',
             'note': 'Keys are "ISO|farm name". Positions are offsets from "c" in 1e-5 degrees, [dlon, dlat, ...]; hh/rd = hub height and rotor diameter '
                     'range (m) when at least half the turbines report them; kw = summed rating; y = range of grid-connection years; m = model when every '
                     'turbine carries the same model.'}

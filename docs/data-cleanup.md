@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 890 條：刪除 248 筆（其中營運中 48,918.1 MW），修正 642 筆。另有 1204 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 897 條：刪除 249 筆（其中營運中 48,926.1 MW），修正 648 筆。另有 1204 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -14,7 +14,7 @@
 |---|---:|---:|---:|
 | CMR | 1 | 100 | 0 |
 | 中國大陸 | 62 | 27,624.5 | 193 |
-| 丹麥 | 1 | 180 | 3 |
+| 丹麥 | 1 | 180 | 6 |
 | 以色列 | 1 | 21 | 1 |
 | 伊朗 | 2 | 62 | 3 |
 | 克羅埃西亞 | 0 | 0 | 2 |
@@ -53,7 +53,7 @@
 | 義大利 | 11 | 398 | 14 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 2 |
-| 英國 | 7 | 3,485 | 7 |
+| 英國 | 8 | 3,493 | 10 |
 | 荷蘭 | 8 | 1,852 | 19 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
@@ -335,6 +335,9 @@
 | Vesterhav Nord · 176.4 MW · 2024 | 精選 | 修正：座標 | 座標改到 Thyborøn 與 Ferring Sø 之間的外海（原座標偏南約 20 km） | [連結](https://powerplants.vattenfall.com/vesterhav-nord/) |
 | Rønland · 17.2 MW · 2003 | 精選 | 修正：容量、機組、座標 | 丹麥能源署：羅恩蘭海上風場現在只有南側 4 部（9.2 MW）；北側 4 部 Vestas V80 因 Thyborøn 港擴建已與陸地相連（2003 年起原為 8 部、17.2 MW）。座標改到南側 4 部的中心（OpenStreetMap 關係「Rønland Vindmøllepark」） | [連結](https://ens.dk/energikilder/etablerede-havvindmoelleparker) |
 | Frederikshavn · 7.6 MW · 2003 | 精選 | 修正：容量、機組、座標 | 丹麥能源署：2003 年在海上設 3 部（7.6 MW），港口擴建後兩部已與陸地相連，海上只剩 1 部 2.3 MW；OpenStreetMap 標為離岸的是 Nordex N90/2300（Bonus 2.3 MW 與 Vestas V90 已在陸上），座標改到這部風機 | [連結](https://ens.dk/energikilder/etablerede-havvindmoelleparker) |
+| Nørre Økse Sø wind farm · 28 MW · 2000 | GEM | 修正：容量、年份、機組 | 能源署風機登記檔：原風場是 19 部 NEG Micon NM48/750（14.25 MW），2000-02-16 併網、2023 年 3–4 月逐部除役；汰換後的 11 部 Vestas V126-3.6 MW（39.6 MW）2024 年 2–3 月併網（同一登記檔，業主 European Energy）。本站原寫 28 MW、2000 年，兩個階段都不符；改為汰換後的現況（2000–2023 年的舊風場不另列，時間軸在 2024 年以前少算約 14 MW） | [連結](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) |
+| Brorstrup wind farm · 11 MW · 2010 | GEM | 修正：容量、分期、機組 | 能源署風機登記檔：5 部 Siemens SWT-3.6-120（18 MW），3 部 2010-07-08 併網、2 部 2011 年 10 月併網（本站原寫 11 MW，約只含第一批 3 部） | [連結](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) |
+| Quistrup wind farm · 11 MW · 2012 | GEM | 修正：容量、機組 | 能源署風機登記檔：本站座標上的是 3 部 Siemens SWT-3.0-101（9 MW），2012 年 5 月併網；東方 3.2–3.9 km 另有 3 部 Vestas V112（2012 年 9 月）登記為另一座風場，不併入 | [連結](https://ens.dk/analyser-og-statistik/data-oversigt-over-energisektoren) |
 
 ## 以色列 (ISR)
 
@@ -1037,6 +1040,10 @@
 | Triton Knoll (Innogy) wind farm · 857 MW · 2022 | GEM | 重複（併入「Triton Knoll」） | 同一座風場（857 MW）；GEM 寫 2022 年，本站依全數風機 2021 年發電列 2021 年 | [連結](https://www.gem.wiki/Triton_Knoll_(Innogy)_wind_farm) |
 | Dogger Bank wind farm · B, C · 2,400 MW · 2026 | GEM | 修正：年份 | B 期 2026 年 6 月才裝了 20 部，風機安裝持續到約 2027 年第二季，C 期在 B 期之後 | [連結](https://www.offshorewind.biz/2026/06/09/20-turbines-installed-at-dogger-bank-b-offshore-wind-farm/) |
 | Pentland wind farm · 100 MW | GEM | 修正：年份、座標 | Pentland 浮動式風場（GEM 另一筆「Pentland Floating Offshore wind farm」是同一案，GEM 的頁面互列為別名）：2023-06-29 取得蘇格蘭海洋局 Section 36 許可，2026 年 1 月在第 7 輪差價合約得標，預計 2027 年最終投資決定、2030 年商轉，尚未施工；位置改用 GEM 另一筆在 Dounreay 外海約 7.5 km 的點（原座標在 Thurso 陸上，概略位置） | [連結](https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/) |
+| Spurness wind farm · 10 MW · 2012 | GEM | 修正：機組、業主 | SSE Renewables：Spurness 在 2012 年汰換，原本 3 部風機除役、換成 5 部；本站這筆（10 MW、2012）是汰換後的風場。REPD 汰換案（編號 3837）為 10 MW、5 部 2 MW，The Wind Power 記為 5 部 Vestas V80/2000 運轉中、3 部 NEG Micon NM92/2750 已拆除。原本機組欄「4 x 2.75 MW」是舊風場（REPD 4036）的數字，改正；2004–2012 年的舊風場不另列 | [連結](https://www.sserenewables.com/onshore-wind/great-britain/spurness/) |
+| Ovenden Moor wind farm · 23 MW · 2017 | GEM | 修正：容量、年份、除役年、機組 | REPD（編號 2925）：原風場 23 部 0.4 MW、9.2 MW，1993-06-01 運轉，已除役；Wikipedia：舊風機在 2015 年 3 月前除役。本站原寫 23 MW、2017 年（混入汰換案的年份）。改為 9.2 MW、1993 年、2015 年除役；汰換後的 18 MW 是另一筆「Ovenden Moor (Repower)」 | [連結](https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract) |
+| Ovenden Moor (Repower) wind farm · 18 MW · 2017 | GEM | 修正：機組 | Gamesa 2015-08：供應 9 部 G80-2.0 MW，取代原本 23 部；REPD（編號 4408）寫 18 MW、9 部、2017-01-24 運轉（REPD 的單機 2.5 MW 與總容量不合） | [連結](https://www.renewableenergymagazine.com/wind/gamesa-to-install-nine-turbines-in-uk-20150818) |
+| Lambs Hill wind farm · 8 MW · 2017 | GEM | 重複（併入「Lambs Hill I wind farm」） | 同一座風場：REPD 只有一筆 Lambs Hill（編號 4390，8 MW，Banks），格網座標在 Lambs Hill I 的位置；這筆 GEM 紀錄（8 MW、2017、沒有業主）的點在西北約 9 km 處 | [連結](https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract) |
 
 ## 荷蘭 (NLD)
 

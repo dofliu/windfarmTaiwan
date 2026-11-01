@@ -125,7 +125,7 @@ const I18N = {
     btnEvents: '⚑ 事件', evTab: '事件', evCat: { ms: '里程碑', inc: '事故／故障', pol: '政策與社會' }, evPh: '搜尋事件、風場、國家、機型…',
     evHead: n => `收錄 ${n} 筆事件`, evNone: '這個範圍沒有符合的事件。', evLater: (y, n) => `時間軸在 ${y} 年：另有 ${n} 筆在之後`,
     evNote: '2026 年 9 月人工查證的重大事件與事故（每筆附主管機關或業主的一手來源）；時間軸到達事件年份才出現，2026 年的事件在最新年份顯示。紅色＝事故／故障，白色＝里程碑，紫色＝政策與社會。沒有座標的事件只列在這裡。',
-    evStage: '階段', evMw: '風場規模', evMwEvent: '本次涉及', evFd: '基礎', evDeaths: n => `死亡 ${n} 人`, evInjured: n => `受傷 ${n} 人`,
+    evStage: '階段', evMw: '風場規模', evMwEvent: '本次涉及', evFd: '基礎', evDeaths: n => `死亡 ${n} 人`, evStack: n => `這裡還有 ${n} 筆事件：點一下拉近，或看「事件」分頁`, evInjured: n => `受傷 ${n} 人`,
     evCap: '容量口徑', evStart: '開工', evCod: '完成／商轉', evNoteT: '註記', evCoord: '座標說明', evPosFarm: '事件本身沒有座標，位置依對應風場標示。', evNoPos: '沒有座標，不標在地圖上。',
     evFarms: '相關風場', evOfFarm: '相關事件', evSrcT: '出處', evOrg: '主要來源', evChecked: d => `查證日期 ${d}`, evPhoto: '照片頁面（本站不轉載，權利見說明）', copyLinkEv: '複製此事件連結',
     evDatePrec: { m: '（月）', y: '（年）' },
@@ -261,7 +261,7 @@ const I18N = {
     btnEvents: '⚑ Events', evTab: 'Events', evCat: { ms: 'Milestone', inc: 'Incident / failure', pol: 'Policy & society' }, evPh: 'Search events, farms, countries, turbines…',
     evHead: n => `${n} events listed`, evNone: 'No matching events in this area.', evLater: (y, n) => `Timeline at ${y}: ${n} more happen later`,
     evNote: 'Major events and incidents verified by hand in Sep 2026 (each with a primary source from a regulator or the owner); an event appears once the timeline reaches its year, and 2026 events show at the latest year. Red = incident / failure, white = milestone, purple = policy & society. Events without coordinates are listed here only.',
-    evStage: 'Stage', evMw: 'Farm size', evMwEvent: 'Affected', evFd: 'Foundation', evDeaths: n => `${n} dead`, evInjured: n => `${n} injured`,
+    evStage: 'Stage', evMw: 'Farm size', evMwEvent: 'Affected', evFd: 'Foundation', evDeaths: n => `${n} dead`, evStack: n => `${n} more event${n > 1 ? 's' : ''} here: tap to zoom in, or see the Events tab`, evInjured: n => `${n} injured`,
     evCap: 'Capacity basis', evStart: 'Start', evCod: 'Completion / operation', evNoteT: 'Note', evCoord: 'Coordinates', evPosFarm: 'The event has no coordinates of its own; it is placed at the linked farm.', evNoPos: 'No coordinates; not shown on the map.',
     evFarms: 'Related farms', evOfFarm: 'Related events', evSrcT: 'Sources', evOrg: 'Main source', evChecked: d => `verified ${d}`, evPhoto: 'Photo page (not reproduced here; see rights note)', copyLinkEv: 'Copy link to this event',
     evDatePrec: { m: '(month)', y: '(year)' },
@@ -1613,9 +1613,14 @@ function resize() {
 const tmpV = new THREE.Vector3(), tmpW = new THREE.Vector3();
 function start() { if (running) return; running = true; S.lastT = performance.now(); requestAnimationFrame(frame); }
 function stop() { running = false; }
+// 閒置時（4 秒沒有操作，也沒有播放、導覽、飛行、切換或自動旋轉）每秒最多畫約 30 格：旋翼照樣轉，手機省電、少發熱
+// When idle (no input for 4 s and nothing playing, touring, flying, switching or auto-rotating) draw at most ~30 frames a second
+const IDLE_MS = 4000, IDLE_FRAME = 31;
+function isIdle(now) { return now - (S.lastInput || 0) > IDLE_MS && !S.playing && !TOUR && !camTween && !modeAnim && !S.rotate && !S.dragging; }
 function frame(now) {
   if (!running) return;
   requestAnimationFrame(frame);
+  if (now - S.lastT < IDLE_FRAME && isIdle(now)) return;
   const dt = Math.min(0.25, (now - S.lastT) / 1000 || 0); S.lastT = now; S.frames = (S.frames || 0) + 1;
 
   if (S.playing) { S.year += dt * S.speed; if (S.year >= Y1) { S.year = Y1; setPlaying(false); } syncYearUI(); }
@@ -2185,8 +2190,9 @@ function loadEvents() {
     EVENTS.forEach(e => {
       const b = document.createElement('button'); b.type = 'button'; b.tabIndex = -1;          // 鍵盤改用「事件」分頁的清單
       b.className = 'emk ' + e.cat; b.textContent = EV_ICON[e.cat]; b.style.display = 'none';
-      b.onclick = ev => { ev.stopPropagation(); selectEvent(e); };
-      b.onmouseenter = ev => { hoverEvent = e; showTip(ev, tipEvent(e), $('g-mapPane')); };
+      // 疊在一起的記號：先拉近讓它們分開；已經很近（同一點）就選這一筆，其他的在「事件」分頁 · a stack zooms in first; once close (same point) it selects
+      b.onclick = ev => { ev.stopPropagation(); const p = e._p || evPos(e), a = curAlt(); if (e._stkShown && p && a > 2.5) flyToLonLat(p.lon, p.lat, Math.max(1.2, a / 3)); else selectEvent(e); };
+      b.onmouseenter = ev => { hoverEvent = e; showTip(ev, tipEvent(e) + (e._stkShown ? '<div class="tnote">' + esc(T('evStack')(e._stkShown)) + '</div>' : ''), $('g-mapPane')); };
       b.onmousemove = ev => moveTip(ev, $('g-mapPane'));
       b.onmouseleave = hideTip;
       e._el = b; e._vis = false; box.appendChild(b);
@@ -2205,13 +2211,16 @@ function tipEvent(e) {
 /* 每一格：標記跟著地球轉；背面、畫面外或時間軸還沒到就藏起來。全球視角縮成小點，拉近、剛發生或被選取時才有圖示與標籤 */
 let EV_ORDER = null;
 const OCC = 22;                                                     // 全球視角的小點：同一格只留一個 · far dots: one per 22 px cell
+const STK = 26;                                                     // 拉近時兩個記號中心相距不到 26 px 就疊成一個 · closer than 26 px when zoomed in: stack
 function updateEvents(alt, cands) {
   if (!eventsReady) return;
   const show = S.events && S.view !== 'bars' && !TOUR, far = alt > 60;
   const scoped = S.region === 'WORLD' || S.region.startsWith('C:');
   if (!EV_ORDER || EV_ORDER.length !== EVENTS.length) EV_ORDER = EVENTS.slice().sort((a, b) => (a.pri - b.pri) || ((b.cat === 'inc') - (a.cat === 'inc')) || (b.year - a.year));
   const occ = far ? new Set() : null;
+  const shown = [];               // 拉近時重疊的記號只畫一個，其餘數量標在角上 · overlapping markers (not far): draw one, badge the rest
   for (const e of EV_ORDER) {
+    e._stk = 0;
     let vis = show && !!e._pos && evShown(e) && (scoped ? inScope(e.iso) : (e.iso === S.region || alt < 25 || e === focusEvent));
     if (vis) {
       tmpW.copy(e._pos).applyMatrix4(surfaceRoot.matrixWorld);
@@ -2220,7 +2229,12 @@ function updateEvents(alt, cands) {
         const q = project(tmpW);
         vis = q.z <= 1 && q.x > -12 && q.x < W + 12 && q.y > -12 && q.y < H + 12;
         if (vis && occ && e !== focusEvent) { const k = ((q.x / OCC) | 0) + ',' + ((q.y / OCC) | 0); if (occ.has(k)) vis = false; else occ.add(k); }
+        if (vis && !occ && e !== focusEvent) {
+          const top = shown.find(o => Math.abs(o._qx - q.x) < STK && Math.abs(o._qy - q.y) < STK);
+          if (top) { top._stk++; vis = false; }
+        }
         if (vis) {
+          if (e !== focusEvent) shown.push(e);
           e._el.style.transform = 'translate(' + (q.x | 0) + 'px,' + (q.y | 0) + 'px) translate(-50%,-50%)'; e._qx = q.x; e._qy = q.y;
           const recent = S.year - e.year < 1.5 && S.year < Y1 - 0.02;
           // 地球上只畫記號：標題在選到、滑過或播放到那一年時才出現 · shapes only; the title appears when selected, hovered or just reached while playing
@@ -2232,6 +2246,10 @@ function updateEvents(alt, cands) {
     if (e._vis !== vis) { e._vis = vis; e._el.style.display = vis ? '' : 'none'; }
     const small = far && e !== focusEvent; if (e._far !== small) { e._far = small; e._el.classList.toggle('far', small); }
     const sel = e === focusEvent; if (e._sel !== sel) { e._sel = sel; e._el.classList.toggle('sel', sel); }
+  }
+  for (const e of EVENTS) {
+    const n = e._vis && !e._far ? e._stk : 0;
+    if (e._stkShown !== n) { e._stkShown = n; e._el.classList.toggle('stk', n > 0); if (n) e._el.dataset.n = '+' + n; else delete e._el.dataset.n; }
   }
 }
 function toggleEvents(on) {
@@ -5151,6 +5169,8 @@ function wireUI() {
     else showTip(ev, tipCountry(h.country), pane);
   });
   canvas.addEventListener('mouseleave', hideTip);
+  const woke = () => { S.lastInput = performance.now(); };
+  ['pointerdown', 'pointermove', 'wheel', 'keydown', 'touchstart'].forEach(t => window.addEventListener(t, woke, { passive: true }));
   let downAt = null;
   canvas.tabIndex = 0;              // 點過地圖後，空白鍵／方向鍵等快捷鍵即可使用
   canvas.addEventListener('pointerdown', ev => { downAt = { x: ev.clientX, y: ev.clientY, t: performance.now() }; canvas.focus({ preventScroll: true }); });

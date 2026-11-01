@@ -93,7 +93,7 @@
     外部連結、「複製此風場連結」與「回報資料錯誤」；**實景視角**（`assets/js/scene.js`）：從風場的港口出海、幾秒內飛到風場，站在海面或空中看真實機位與尺寸的風機（網址 `f=名稱&sv=1`），「回到地球儀」回到原本的畫面
   - **📊 發電表現**：台灣（台電自有 19 座）、美國（EIA-923，834 座）、澳洲（AEMO，64 座）與丹麥（54 座風場、約 1,800 部單獨計量的風機）逐場實測年發電量的排名與同機型比較；
     另有含民營風場的「台灣・即時取樣」（取樣估計，不與官方數字混排）
-  - **圖層**：港口（23 國 142 個，⚓）、重大事件與事故（152 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 342 座中 299 座已知型式、占容量 88.2%，
+  - **圖層**：港口（23 國 142 個，⚓）、重大事件與事故（199 筆，⚑，[docs/events.md](./docs/events.md)）、離岸水下基礎（營運中離岸風場 342 座中 299 座已知型式、占容量 88.2%，
     [docs/foundations.md](./docs/foundations.md)）、此刻的風（NOAA GFS，每 6 小時）、海域（專屬經濟區界線、台灣 36 處潛力場址、日本 13 處促進區域、北海周邊 6 國的規劃區）、
     平均風速底圖（Global Wind Atlas）
   - **導覽**：自動導覽與四個故事導覽（台灣離岸之路、歐洲離岸、中國崛起、浮動式風電，`#/global?tour=tw`／`eu`／`cn`／`fl`）
@@ -158,7 +158,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/global/turbines.json` — 美國每部風機的位置與規格（USWTDB，公有領域；967 座風場、約 6.1 萬部），由 `tools/build_turbines.py` 產生，點到美國風場時才載入
 - `data/global/turbines_de.json` — 德國每部風機的位置與規格（MaStR；約 6,600 座風場、2.6 萬部），由 `tools/build_mastr.py` 產生；
   **以 Datenlizenz Deutschland – Namensnennung 2.0 分享（© Bundesnetzagentur | Marktstammdatenregister）**；`data/global/sources/mastr_parks_DEU.json` 是要加進風場層的德國風場
-- `data/global/turbines_dk.json` — 丹麥每部風機的位置與規格（能源署風機登記檔 Stamdataregister for vindkraftanlæg；103 座風場、1,324 部），由 `tools/build_turbines_dk.py` 從「Vinddata」產生（海域 12 km、陸域 3 km 內、容量 ±15% 才配對）；
+- `data/global/turbines_dk.json` — 丹麥每部風機的位置與規格（能源署風機登記檔 Stamdataregister for vindkraftanlæg；110 座風場、1,373 部），由 `tools/build_turbines_dk.py` 從「Vinddata」產生（海域 12 km、陸域 3 km 內、容量 ±15% 才配對）；
   依能源署資料使用條款標示 Energistyrelsen、資料集與取用時間（取用月份在檔案的 meta）；點到丹麥風場時先用它，對不到的才用 OpenStreetMap
 - `data/global/sources/repd_GBR.json` — 英國 REPD（能源安全與淨零部每季發布的 Renewable Energy Planning Database，Open Government Licence v3.0）對到本站英國風場的紀錄，由 `tools/build_repd.py` 產生、`build_farms.py` 讀取：
   本站列規劃中而 REPD 已營運的改成營運中並補商轉年，沒寫機組、業主的補上，同名但點標錯 20 km 以上的改用 REPD 的格網座標，還沒收錄的營運中陸域風場以來源代碼 5 加入（建置會檢查英國陸域加總不超過官方的 102%）
@@ -176,7 +176,7 @@ GitHub Actions（每個 PR）── tools/smoke_test.js 等 ──► 自動檢�
 - `data/global/wind_farms_core.json`、`wind_farms_more.json` — 地球儀分兩段載入的風場層：先載畫點、清單與時間軸要的欄位，再補業主、機型、說明與出處（同一支程式產生，列的順序相同；單檔版用完整檔）
 - `data/global/foundations.json` — 離岸風場的水下基礎型式與尺寸（由 `tools/build_foundations.py` 依 `tools/farm_foundations.py` 與 `tools/farm_dimensions.py` 的逐場對照表產生）
 - `data/global/ports.json` — 離岸風電港口 142 個（23 國；人工整理、每港附出處；改完跑 `tools/qa_ports.py`）
-- `data/global/events.json` — 重大事件與事故 152 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
+- `data/global/events.json` — 重大事件與事故 199 筆（由 `tools/build_events.py` 自 `data/global/sources/events_2026-09.csv` 產生；
   英文標題、摘要、註記與事件對風場的對應寫在建置程式裡，建置時檢查每筆都有英文、風場名稱對得到）
 - `data/global/photos.json` — 風場卡片的照片（65 座風場與 18 個里程碑；人工核對的 Wikimedia Commons 照片，由 `tools/build_photos.py` 依 `tools/farm_photos.py` 產生）
 - `data/global/offshore_zones.json` — 海域圖層：專屬經濟區界線（Marine Regions 第 12 版，CC BY 4.0，簡化到約 2 km 供顯示）、台灣離岸風電潛力場址（能源署開放資料 36681）、

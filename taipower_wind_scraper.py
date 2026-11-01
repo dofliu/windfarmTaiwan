@@ -37,6 +37,7 @@
 import csv
 import io
 import json
+import time
 import re
 import sys
 import os
@@ -153,8 +154,8 @@ def clean_name(s: str) -> str:
     return re.sub(r"\(註\d+\)", "", strip_html(s or "")).strip()
 
 
-def fetch_genary(url=GENARY_URL) -> dict:
-    r = requests.get(url, headers=HEADERS, timeout=20)
+def fetch_genary(url=GENARY_URL, timeout=20) -> dict:
+    r = requests.get(url, headers=HEADERS, timeout=timeout)
     r.raise_for_status()
     # 台電偶爾回傳 BOM / 非標準編碼，這裡保險處理
     r.encoding = r.apparent_encoding or "utf-8"
@@ -656,12 +657,19 @@ def update_history(farms, total, source_time, updated, farm_wind):
 
 def main():
     data = None
-    for url in (GENARY_URL, GENARY_URL_ALT):
+    # 台電 opendata 端點常在 20 秒內沒回應（2026-10 起約一半的執行逾時），備用端點又擋雲端 403：
+    # 主端點等久一點、隔幾秒再試一次，最後才試備用端點。
+    # The open-data endpoint often takes longer than 20 s (about half the runs from Oct 2026) and the fallback answers 403 to
+    # cloud runners, so the primary gets a longer timeout and one retry before the fallback.
+    attempts = ((GENARY_URL, 45), (GENARY_URL, 45), (GENARY_URL_ALT, 20))
+    for i, (url, tmo) in enumerate(attempts):
         try:
-            data = fetch_genary(url)
+            data = fetch_genary(url, tmo)
             break
         except Exception as e:
-            print(f"[WARN] 取得失敗 {url}：{e}", file=sys.stderr)
+            print(f"[WARN] 取得失敗（第 {i + 1} 次）{url}：{e}", file=sys.stderr)
+            if i + 1 < len(attempts):
+                time.sleep(5)
     if data is None:
         print("[ERROR] 兩個端點都無法取得資料", file=sys.stderr)
         sys.exit(1)
