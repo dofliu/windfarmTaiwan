@@ -1,0 +1,238 @@
+[
+ {
+  "farm": "DEU Mangelsdorf (Envia) wind farm",
+  "verdict": "fix",
+  "fix": {
+   "owner": "BOREAS Energie GmbH (majority); envia THERM GmbH (stake)",
+   "turbine": "4x Vestas V112-3.0 MW",
+   "lat": 52.5257,
+   "lon": 12.0693
+  },
+  "why_zh": "這筆是 BOREAS 2014 年 12 月建成的 8 部 Vestas V112 中、沒有賣給 enercity 的 4 部（12 MW，營運公司 Windpark Jerichow-Mangelsdorf I GmbH & Co. KG）。enercity 2015 年新聞稿說 BOREAS 持有這 4 部的多數股權並負責營運；envia THERM 把它列在自己的設備組合（業主欄的「Envia」由此而來），但沒有證據是 100% 持有。業主改為 BOREAS（多數）＋envia THERM（持股），不寫百分比。座標改到 MaStR 這 4 部（MG 01、04、05、06）的中心。",
+  "why_en": "This record is the four of BOREAS's eight Vestas V112 (built December 2014) that were not sold to enercity: 12 MW run by Windpark Jerichow-Mangelsdorf I GmbH & Co. KG. enercity's 2015 release says BOREAS keeps a majority in these four and operates them; envia THERM lists the park in its portfolio (the source of GEM's 'Envia'), but nothing shows a 100% holding. Owner set to BOREAS (majority) + envia THERM (stake), without percentages; the point is moved to the centre of these four MaStR units (MG 01, 04, 05, 06).",
+  "sources": [
+   {
+    "url": "https://www.enercity.de/presse/pressemitteilungen/2015/enercity-boreas-windpark",
+    "quote": "Die vier Anlagen sind Teil eines Gesamtprojektes mit acht Windenergieanlagen. Entwickelt wurde der Park von der BOREAS Energie GmbH."
+   },
+   {
+    "url": "https://www.enercity.de/presse/pressemitteilungen/2015/enercity-boreas-windpark",
+    "quote": "Neben der Mehrheitsbeteiligung an den weiteren vier Anlagen und deren Betriebsführung übernimmt BOREAS"
+   },
+   {
+    "url": "https://www.envia-therm.de/unternehmen/ueberuns/anlagenportfolio",
+    "quote": "Windpark Mangelsdorf Standort Landkreis Jerichower Land, Sachsen-Anhalt Anzahl und Typ der Windkraftanlagen 4 Vestas V112 Gesamtleistung 12 MW Inbetriebnahme 2014 Betreiber Windpark Jerichow-Mangelsdorf I GmbH & Co. KG"
+   },
+   {
+    "url": "https://www.gem.wiki/Mangelsdorf_(Envia)_wind_farm",
+    "quote": "Mangelsdorf (Envia) wind farm is an operating wind farm in Jerichow, Jerichower Land, Saxony-Anhalt, Germany."
+   }
+  ],
+  "notes": "MaStR export of 14 Oct 2026 (scratchpad copy): the four units are SEE972375833609 'MG 01' (2014-12-17), SEE985887804326 'MG 04', SEE938521550783 'MG 05', SEE914777909667 'MG 06' (2014-12-15), Vestas V112, 3,075 kW each = 12.3 MW, park names 'Mangelsdorf/Fischbeck' and 'Mangelsdorf'; centre 52.5257, 12.0693 (the current record point 52.531, 12.066 sits on the 2002 Nordex N62 park instead). The envia THERM page does not state a share; the 'majority' is enercity's 2015 statement and may have changed since. GEM's coordinate source (thewindpower 22855) now points to an unrelated farm (Remlingen II)."
+ },
+ {
+  "farm": "DEU Mangelsdorf wind farm",
+  "verdict": "no change",
+  "fix": {
+   "turbine": "4x Vestas V112-3.0 MW"
+  },
+  "why_zh": "enercity 2015 年 4 月經子公司 enercity Erneuerbare 向 BOREAS 買下 Mangelsdorf 風場 8 部 V112 中的 4 部（12 MW，2014 年 12 月起併網），業主 enercity、年份 2014、容量 12 MW 都正確，只補上機型。",
+  "why_en": "In April 2015 enercity, through enercity Erneuerbare, bought four of the eight V112 at Mangelsdorf from BOREAS (12 MW, feeding in since December 2014). Owner enercity, year 2014 and 12 MW are right; only the turbine field can be filled.",
+  "sources": [
+   {
+    "url": "https://www.enercity.de/presse/pressemitteilungen/2015/enercity-boreas-windpark",
+    "quote": "Die vier Windenergieanlagen aus dem Windpark Mangelsdorf in Sachsen-Anhalt (Landkreis Jerichower Land) haben eine Gesamtleistung von 12 MW."
+   },
+   {
+    "url": "https://www.enercity.de/presse/pressemitteilungen/2015/enercity-boreas-windpark",
+    "quote": "Die Windturbinen speisen seit Dezember 2014 regenerativ erzeugten Strom in das Netz ein."
+   }
+  ],
+  "notes": "MaStR: park 'Windpark Mangelsdorf', units 'Mangelsdorf 205518/205519/205521/205522', Vestas 'V112 - 3,0MW', 3,075 kW each, 2014-12-15 to 2014-12-29, at 52.527-52.539 N, 12.076-12.079 E (the record point 52.539, 12.077 fits). turbines_de.json 'DEU|Mangelsdorf wind farm' already holds this group correctly (n 4, m 'Vestas V112 - 3,0MW', kw 12300, y [2014, 2014])."
+ },
+ {
+  "farm": "DEU Mangelsdorf (PNE) wind farm",
+  "verdict": "fix",
+  "fix": {
+   "turbine": "9x Nordex N62/1300 (10 built; 1 decommissioned 2022)",
+   "mw": 11.7,
+   "lat": 52.5298,
+   "lon": 12.0651
+  },
+  "why_zh": "這是 2002 年 Plambeck（今 PNE）開發的 Nordex N62 風場：原有 10 部 1.3 MW（13 MW），MaStR 登記其中 1 部已在 2022 年 9 月永久停用，目前 9 部、11.7 MW 運轉。座標改到這 9 部的中心（原座標 52.528, 12.041 其實落在 Fischbeck 的 GE 1.5sl 機群）。業主寫 PNE AG 100% 出自 PNE 的開發實績清單，PNE 是開發商、目前持有人查不到，待查證。",
+  "why_en": "This is the Nordex N62 park Plambeck (now PNE) built in 2002: ten 1.3 MW turbines (13 MW); MaStR shows one unit permanently shut down in September 2022, leaving nine (11.7 MW). The point moves to the centre of the nine (the current 52.528, 12.041 sits among Fischbeck's GE 1.5sl turbines). 'PNE AG 100%' comes from PNE's list of developed projects; PNE was the developer and the present owner could not be found (to be verified).",
+  "sources": [
+   {
+    "url": "https://www.renewableenergyworld.com/?p=215779",
+    "quote": "Plambeck Neue Energie, Cuxhaven, which provides for the installation of 10 Nordex N62/1,300 kW turbines at the Mangelsdorf wind farm"
+   },
+   {
+    "url": "https://www.volksstimme.de/lokal/genthin/windpark-mangelsdorf-investor-interessiert-sich-fur-repowering-470096",
+    "quote": "In diesem Eignungsgebiet stehen bereits zehn Anlagen mit einer Nabenhöhe von 65 Metern."
+   },
+   {
+    "url": "https://www.gem.wiki/Mangelsdorf_(PNE)_wind_farm",
+    "quote": "Mangelsdorf (PNE) wind farm (Windpark Mangelsdorf) is an operating wind farm in Jerichow, Jerichower Land, Saxony-Anhalt, Germany."
+   }
+  ],
+  "notes": "MaStR (park 'WP Mangelsdorf'): nine operating N62 units 'MG-N62-1,2,4..10' commissioned 2002-12-06 to 2002-12-20 (1,300 kW each), plus SEE900160185985 'WP Mangelsdorf 07WEA1480' decommissioned 2022-09-08. Owner left as is pending a source: GEM names the operator 'Windpark Mangelsdorf GMBH & Co Betriebs'; if the site prefers not to show an unverified owner, blank it. If mw should stay the as-built figure, keep 13 and only fix the turbine field.\nturbines_de.json (what the file actually contains): 'DEU|Mangelsdorf (Envia) wind farm' = {c [12.06508, 52.52978], n 9, m 'Nordex Energy N62', mn 1, hh [69,69], rd [62,62], kw 11700, y [2002, 2002]} — the 2002 N62 park; 'DEU|Mangelsdorf (PNE) wind farm' = {c [12.06931, 52.52566], n 4, m 'Vestas V112', mn 1, hh [140,140], rd [112,112], kw 12300, y [2014, 2014]} — the Jerichow-Mangelsdorf I V112s; 'DEU|Mangelsdorf wind farm' = {n 4, m 'Vestas V112 - 3,0MW', kw 12300, y [2014, 2014]} — enercity's four (correct). So the first two are swapped: each group was matched to the record whose (GEM) point is nearest, and the GEM points are themselves swapped. Moving the two record points as proposed should let build_mastr match by distance and year; otherwise add both pairs to build_mastr.py MANUAL (N62 group -> 'Mangelsdorf (PNE) wind farm', MG 01/04/05/06 V112 group -> 'Mangelsdorf (Envia) wind farm')."
+ },
+ {
+  "farm": "DEU Emlichheim wind farm · 2",
+  "verdict": "fix",
+  "fix": {
+   "st": 0,
+   "year": 2026,
+   "mw": 25.4,
+   "owner": "BVT Windpark Emlichheim 2 GmbH & Co. KG (BVT Group)",
+   "turbine": "2x Enercon E-115 EP3 E4 (4.26 MW), 1x E-138 EP3 E3 (4.26 MW), 3x E-138 EP3 E2 (4.2 MW)"
+  },
+  "why_zh": "BVT 2026 年 9 月宣布 Emlichheim 風場擴建提前完工：6 部 Enercon 新機自 7 月底起併網（原訂 11 月），新增 25.4 MW，全場超過 61 MW。MaStR 登記這 6 部在 2026-07-20 至 07-28 投入運轉（2 部 E-115 EP3 E4、4 部 E-138 EP3，合計 25.38 MW），營運公司 BVT Windpark Emlichheim 2 GmbH & Co. KG。改為營運中、2026 年、25.4 MW。",
+  "why_en": "BVT announced in September 2026 that the Emlichheim extension finished early: all six new Enercon turbines have fed in since late July (planned for November), adding 25.4 MW for over 61 MW in total. MaStR has the six units commissioned 20–28 July 2026 (two E-115 EP3 E4 and four E-138 EP3, 25.38 MW), held by BVT Windpark Emlichheim 2 GmbH & Co. KG. Set to operating, 2026, 25.4 MW.",
+  "sources": [
+   {
+    "url": "https://www.cash-online.de/a/bvt-nimmt-windpark-projekt-fuer-vermoegensanlage-frueher-als-geplant-in-betrieb-726771/",
+    "quote": "Alle sechs neu errichteten Windenergieanlagen des Herstellers Enercon speisen seit Ende Juli Strom ins Netz ein, teilt das Unternehmen mit. Ursprünglich war die Inbetriebnahme erst für November 2026 vorgesehen."
+   },
+   {
+    "url": "https://www.cash-online.de/a/bvt-nimmt-windpark-projekt-fuer-vermoegensanlage-frueher-als-geplant-in-betrieb-726771/",
+    "quote": "Mit den sechs neuen Anlagen kommen 25,4 Megawatt hinzu. Damit steigt die Gesamtleistung auf mehr als 61 Megawatt."
+   },
+   {
+    "url": "https://www.cash-online.de/a/bvt-nimmt-windpark-projekt-fuer-vermoegensanlage-frueher-als-geplant-in-betrieb-726771/",
+    "quote": "Finanziert wurde die Erweiterung über ein öffentliches Angebot der BVT Windpark Emlichheim 2 GmbH & Co. KG nach dem Vermögensanlagengesetz."
+   }
+  ],
+  "notes": "MaStR units (park 'BVT Windpark Emlichheim 2', status 35 = in operation): WEA 013 SEE995360327112 E-115 EP3 E4 4,260 kW 2026-07-22; WEA 015 SEE956306353794 E-138 EP3 E3 4,260 kW 2026-07-20; WEA 016 SEE915188320928 E-115 EP3 E4 4,260 kW 2026-07-20; WEA 017 SEE988583624243, WEA 018 SEE971984402329, WEA 019 SEE921930361422 E-138 EP3 E2 4,200 kW 2026-07-27/28. Three sit in the southern cluster (52.580-52.586 N) and three in the northern one (52.637-52.648 N), like the 2018 units. turbines_de.json currently folds them into the old groups: 'DEU|Emlichheim wind farm' kw 30780 = 6x3000 + 3x4260, y [2018, 2026], and 'DEU|Emlichheim-Nord wind farm' kw 30600 = 6x3000 + 3x4200, y [2018, 2026]; once '· 2' is operating, build_mastr should give the six 2026 units to '· 2' (year re-match) and the northern 2018 cluster to 'Emlichheim wind farm' after the Emlichheim-Nord dup rule. The site's point for '· 2' (52.581, 6.771, flag 1) covers only the southern three."
+ },
+ {
+  "farm": "FRA Croix de la Merotte wind farm",
+  "verdict": "fix",
+  "fix": {
+   "owner": "Brimborion Energies (Groupe Sorégies)",
+   "year": 2024,
+   "turbine": "4x Nordex N117"
+  },
+  "why_zh": "Millac 有兩座相鄰風場：JPEE 的 Croix de Chalais（營運公司 Millac Énergie，2023-01-02 併網）與 Croix de la Mérotte。主管機關 2023 年 12 月 6 日的檢查報告寫明 Mérotte 由 Brimborion Energies 營運、文件經 Sorégies 系統取得，且當時尚未併網（預定 2024 年 1 月）；2021 年施工簡報 Mérotte 的聯絡人屬 Sergies（Sorégies 集團）。本筆的業主 JPEE 與 2022 年是從 Croix de Chalais 混過來的。業主改為 Brimborion Energies（Sorégies 集團），年份改為 2024，機型 4 部 Nordex N117。",
+  "why_en": "Millac has two neighbouring farms: JPEE's Croix de Chalais (operator Millac Énergie, in service 2 Jan 2023) and Croix de la Mérotte. The inspectorate's report of 6 Dec 2023 says Mérotte is run by Brimborion Energies, with documents held on Sorégies's system, and was not yet in service (planned January 2024); the 2021 construction briefing gives a Sergies (Sorégies group) contact for Mérotte. This record's JPEE owner and 2022 were borrowed from Croix de Chalais. Owner set to Brimborion Energies (Sorégies group), year 2024, turbines 4 Nordex N117.",
+  "sources": [
+   {
+    "url": "https://georisques.gouv.fr/webappReport/ws/installations/inspection/A0WBK9YT5i1CgUWQ6akyLWHII5wq0XF5",
+    "quote": "Le jour de la visite d’inspection, la mise en service du parc n’avait pas encore eu lieu (prévu en janvier 2024). Visite d'inspection du parc éolien exploité par la société Brimborion Energies sur la commune de Millac."
+   },
+   {
+    "url": "https://georisques.gouv.fr/webappReport/ws/installations/inspection/A0WBK9YT5i1CgUWQ6akyLWHII5wq0XF5",
+    "quote": "l’exploitant indique que le système d’accès au document se fait par communication avec Soregies (sharepoint)."
+   },
+   {
+    "url": "https://lumo-france.com/uploads/2021/10/presentation-travaux-millac-pdf.pdf",
+    "quote": "4 éoliennes N117 de 120 m hauteur de moyeu"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_38076_la-croix-de-la-merotte.php",
+    "quote": "Nordex N117/3000 (x 4)"
+   },
+   {
+    "url": "https://georisques.gouv.fr/webappReport/ws/installations/inspection/AgcoLgsZyFXeaLOL4O3boWDw0oGW7lU8",
+    "quote": "La mise en service du parc date du 2 janvier 2023."
+   }
+  ],
+  "notes": "Year 2024 rests on 'not in service on 6 Dec 2023, planned January 2024'; the exact date was not found (ODRÉ registry and travail-industrie.com could not be reached). energynews.pro (20 Sep 2024, HTTP 403 to the checker, so not quoted) says Groupe Sorégies 51%, Banque des Territoires 30%, Terra Énergies 19%, Sorégies operating, 4 x 3 MW = 12 MW, 26 GWh/yr; if that article can be quoted later, the owner could read 'Sorégies [51%], Banque des Territoires [30%], Terra Énergies [19%]'. Rating conflict: the inspection report says 4 x 3.2 MW (12.8 MW), the 2021 briefing and thewindpower say 3 MW (12 MW) — mw left at 12. Side finding: the site's 'Croix-De-Chalais wind farm' has year 2022, but the inspectorate gives service from 2 January 2023 (the quote above) — consider a year fix there too."
+ },
+ {
+  "farm": "AUS Murra Warra 2 wind farm",
+  "verdict": "fix",
+  "fix": {
+   "year": 2023
+  },
+  "why_zh": "Murra Warra II 2022 年 2 月首度發電（AEMO SCADA），但弱電網區的分段併網測試（hold point）拖長：2022 年 7 月才升到 150 MW 階段，2023 年初才獲准以全容量商轉；業主 Squadron Energy 也寫 2023 年商轉。全面運轉年應為 2023。",
+  "why_en": "Murra Warra II first generated in February 2022 (AEMO SCADA), but staged hold-point commissioning in a weak part of the grid took time: it reached the 150 MW hold point only in July 2022 and was approved for commercial operation at full output in early 2023; owner Squadron Energy also gives 2023. The year of full operation is 2023.",
+  "sources": [
+   {
+    "url": "https://entura.com.au/projects/11038",
+    "quote": "Murra Warra II Wind Farm gained approval for commercial operation at full output in early 2023."
+   },
+   {
+    "url": "https://squadronenergy.com/our-projects/murra-warra-ll-wind-farm",
+    "quote": "38 Wind Turbines 2023 Commercial operations 209MW Maximum capacity"
+   },
+   {
+    "url": "https://reneweconomy.com.au/res-switches-on-spinning-machine-to-support-big-victorian-wind-farm/amp/",
+    "quote": "The inauguration of the 60Mvr syncon has enabled the Murra Warra 2 wind project to leap to the next “hold point” of its commissioning process – 150MW – before moving towards its full capacity of 209MW."
+   }
+  ],
+  "notes": "First power: data/global/sources/aemo_wind_monthly.json (AEMO MMS DISPATCH_UNIT_SCADA) has DUID MUWAWF2 from 2022-02 (419 MWh in the second half of February), registered 209 MW from 2022-02-15; monthly output was already 44-54 GWh from August 2022, but under the hold-point cap. The RenewEconomy article is dated 28 July 2022. The Squadron page URL really is '.../murra-warra-ll-wind-farm' (two lower-case L). Turbines: 38 GE Cypress 5.5-158 (Zenviron lists '38 x GE158 – 5.5MW') if the turbine field is to be filled. build_generation's 'not generating by January of the previous year' rule already excludes 2022."
+ },
+ {
+  "farm": "SWE Skarhults wind farm",
+  "verdict": "fix",
+  "fix": {
+   "year": 2004,
+   "owner": "",
+   "turbine": "6x Enercon E66/1800"
+  },
+  "why_zh": "Skarhults（又名 Östra Strö，Vindbrukskollen 稱 Skarhults nygård）是 6 部 Enercon、10.8 MW 的另一座風場，與西南約 7 km、BayWa 協助營運管理的 Skarhult（8 部、1999／2001／2009 年）不同。瑞典風電登記 Vindbrukskollen 記這 6 部 2004-10-13 建成，登記的組織是 Universal Wind AB（開發商欄，不一定是現在的業主）。年份改為 2004；BayWa 與 2009 年是從 Skarhult 混過來的，業主清空待查。",
+  "why_en": "Skarhults (also Östra Strö; 'Skarhults nygård' in Vindbrukskollen) is a separate six-turbine Enercon farm of 10.8 MW, not the BayWa-managed Skarhult about 7 km south-west (eight turbines, 1999/2001/2009). Sweden's register Vindbrukskollen has the six built on 13 Oct 2004 under the organisation Universal Wind AB (the developer field, not necessarily today's owner). Year set to 2004; BayWa and 2009 were borrowed from Skarhult, so the owner is cleared pending a source.",
+  "sources": [
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_26663_skarhults.php",
+    "quote": "Eslöv Other name Ostra Strö Wind farm type Onshore wind farm Key dates 10.8 MW commissioned"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_26663_skarhults.php",
+    "quote": "Enercon E66/1800 (x 6)"
+   },
+   {
+    "url": "https://nordic.baywa-re.com/en/local-projects/commissioned-projects/skarhult",
+    "quote": "BayWa r.e. supports the operator with management of the eight-turbine Skarhult wind farm in the municipality of Eslöv."
+   },
+   {
+    "url": "https://nordic.baywa-re.com/en/local-projects/commissioned-projects/skarhult",
+    "quote": "Commissioned 1999, 2001 / 2009"
+   }
+  ],
+  "notes": "Year source (not quotable, data file): Vindbrukskollen export lst.vbk_vindkraftverk (Länsstyrelsen, CC0 1.0, file dated 2026-10-31, https://ext-dokument.lansstyrelsen.se/gemensamt/geodata/ShapeExport/lst.vbk_vindkraftverk.zip): OMRID 1285-V-019 'Skarhults nygård', 6 turbines 1285-V-019-001..006, status 'Uppfört', UPPFORT 2004-10-13, ORGNAMN 'Universal Wind AB' (556571-8151), at 55.828-55.841 N, 13.4365 E (the record point 55.836, 13.437 matches). Caveat: its turbine fields are inconsistent (rotor 70 m, hub 85 m, MAXEFFEKT 2.0/1.5/1.5/2.3/1.5/1.5 = 10.3 MW, model blank), so the model and 10.8 MW follow thewindpower (E66/1800 x 6). For comparison Vindbrukskollen's Skarhult (1285-V-020) is 4 E44/600 (1999, 2001) + 4 E82/2000 (2009), organisation Blåshult AB 556043-5587 — the same org. no. as today's Skarhults Vindkraft AB, so the site's 'Skarhult wind farm' owner could read 'Skarhults Vindkraft AB' (BayWa only manages it). If an owner must be shown for Skarhults, 'Universal Wind AB' is the only lead; thewindpower's player fields are behind its paywall."
+ },
+ {
+  "farm": "USA Marshall Wind 1 LLC wind farm",
+  "verdict": "fix",
+  "fix": {
+   "merge_into": "Marshall (WMMPA) wind farm",
+   "merge_records": [
+    "Marshall Wind 1 LLC wind farm",
+    "Marshall Wind 2 LLC wind farm",
+    "Marshall Wind 3 LLC wind farm",
+    "Marshall Wind 5 LLC wind farm",
+    "Marshall Wind 6 LLC wind farm",
+    "Marshall (WMMPA) wind farm"
+   ],
+   "mw": 18.9,
+   "owner": "Western Minnesota Municipal Power Agency [100%]",
+   "year": 2007,
+   "turbine": "9x Suzlon S88-2.1 MW",
+   "lat": 44.3287,
+   "lon": -95.8158
+  },
+  "why_zh": "Marshall 風場是 9 部 2.1 MW 的 Suzlon S88（18.9 MW），2007 年 12 月商轉；在 EIA 拆成 Marshall Wind 1–6 LLC 六個電廠（56840、56824–56828，營運實體都是 Marshall Wind Farm, LLC），USWTDB 則是一個專案「Marshall」9 部、18.9 MW。WMMPA 2020 年 3 月簽約買下整座 9 部風場，MRES 現在把「18.9 MW 的 Marshall 風場」列為 WMMPA 的資產。六筆合併成一筆 18.9 MW、業主 WMMPA。",
+  "why_en": "The Marshall farm is nine 2.1 MW Suzlon S88 (18.9 MW) in service since December 2007. EIA splits it into six plants, Marshall Wind 1-6 LLC (56840, 56824-56828, all under the entity Marshall Wind Farm, LLC), while USWTDB has one project 'Marshall' of nine turbines and 18.9 MW. WMMPA signed to buy the whole nine-turbine farm in March 2020, and MRES now lists 'the 18.9-MW Marshall Wind Farm' among WMMPA's projects. Merge the six records into one 18.9 MW record owned by WMMPA.",
+  "sources": [
+   {
+    "url": "https://www.mrenergy.com/about/wmmpa",
+    "quote": "The 18.9-MW Marshall Wind Farm near the community of Marshall, Minnesota"
+   },
+   {
+    "url": "https://www.mrenergy.com/about/wmmpa",
+    "quote": "WMMPA Projects WMMPA's projects include:"
+   },
+   {
+    "url": "https://www.interconnection.fyi/eia/plant/56826",
+    "quote": "Plant ID 56826 Plant Name Marshall Wind 4 LLC Operator Marshall Wind Farm, LLC"
+   },
+   {
+    "url": "https://www.interconnection.fyi/eia/plant/56840",
+    "quote": "Plant ID 56840 Plant Name Marshall Wind 1 LLC Operator Marshall Wind Farm, LLC"
+   }
+  ],
+  "notes": "EIA-860M August 2026 (Operating sheet, scratchpad copy): entity 63166 'Marshall Wind Farm, LLC' — 56840 Wind 1 2.1 MW, 56824 Wind 2 4.2, 56825 Wind 3 4.2, 56826 Wind 4 4.2, 56827 Wind 5 2.1, 56828 Wind 6 2.1; all Lyon County MN, MISO, operating since 12/2007; sum 18.9 MW. GEM's 'Marshall (WMMPA)' 4.2 MW is Wind 4 LLC. USWTDB V9.1 (2026-09-28): p_name 'Marshall', p_year 2008, p_tnum 9, p_cap 18.9, Suzlon S88 2,100 kW, but all nine turbines carry eia_id 56826 only — so build_generation would compare EIA 56826 (4.2 MW) with 18.9 MW and drop the farm; to get measured output it would have to sum the six plant ids. Year: EIA says December 2007 (USWTDB 2008); keep 2007. The MRES purchase release (mrenergy.com/news/wmmpa-purchases-marshall-minn-wind-farm, 'executed agreements' on 31 March 2020 to buy the nine 2.1 MW turbines) now returns 404, so it is not quoted; the WMMPA page is the current evidence of ownership. Point = mean of the nine USWTDB turbines. Keep the record name 'Marshall (WMMPA) wind farm' (src 2) and drop the other five, or write it as one dup() per record into the WMMPA one with mw/owner fixes."
+ }
+]
