@@ -1,0 +1,181 @@
+[
+  {
+    "farm": "CHN Xinjiang Mori 40 Wells (Huadian) wind farm = Xinjiang Mori  40 Wells (Huadian Kaisheng) wind farm",
+    "verdict": "different",
+    "keep": "",
+    "why_zh": "兩筆是同一風區（木垒四十个井子）裡的兩個 800 MW 專案。華電新能木垒四十个井子 80 萬千瓦風電（125 台、配套 1 座 220 kV 汇集站）2023 年 6 月 28 日隨華電昌吉木垒 105 萬千瓦風光基地全容量併網；凯升木垒四十个井子 800 MW 專案的風機採購 2023 年 4 月 6 日才招標，2024 年由新疆华电凯升另取得「四十个井子东」220 kV 汇集站的環評批覆，GEM 記為 2025 年商轉。前者的 125 台風機 2023 年 5 月已吊裝完成，不可能是 2023 年 4 月才招標的那批，所以是兩座不同的風場，兩筆都保留。",
+    "why_en": "These are two separate 800 MW projects in the same Mulei 'Forty Wells' (Sishigejingzi) wind zone. Huadian New Energy's 800 MW Sishigejingzi farm (125 turbines, its own 220 kV collector station) reached full grid connection on 28 June 2023 as part of Huadian's 1.05 GW Changji Mulei wind-solar base; the Kaisheng Sishigejingzi 800 MW project only tendered its turbines on 6 April 2023, and Xinjiang Huadian Kaisheng received EIA approval for a separate 'Sishigejingzi East' 220 kV collector station in 2024, with GEM giving 2025 as its start. The first farm's 125 turbines were already erected in May 2023, so they cannot be the turbines tendered in April 2023: two different farms, keep both.",
+    "sources": [
+      {
+        "url": "http://xj.news.cn/20230710/6245183a6da44c3cb2356203dd198c4d/c.html",
+        "quote": "6月28日，华电昌吉木垒105万千瓦风光基地项目实现全容量并网发电"
+      },
+      {
+        "url": "http://xj.news.cn/20230710/6245183a6da44c3cb2356203dd198c4d/c.html",
+        "quote": "总装机105万千瓦，分别为华电木垒四十个井子80万千瓦风电、华电木垒光伏园区25万千瓦光伏项目及30MW/60MWh配套储能。拥有80台单机容量6.25兆瓦风机，44台单机容量6.7兆瓦风机和1单机容量7.5兆瓦风机，配套新建1座110千伏升压站和1座220千伏汇集站"
+      },
+      {
+        "url": "http://www.dlztb.com/chdtp/202304/6280.html",
+        "quote": "800MW风电项目风电机组采购（含塔筒、锚栓、锚板）标段一 2023-04-06 中国电力招标采购网"
+      },
+      {
+        "url": "http://www.dlztb.com/chdtp/202304/6280.html",
+        "quote": "相关招标项目 凯升木垒四十个井子800MW风电项目风电机组采购（含塔筒、锚栓、锚板）标段一 已由 华电新疆发电 批准"
+      },
+      {
+        "url": "https://www.cj.gov.cn/c/sthjj/zdjsxmhp/275061.jhtml",
+        "quote": "关于木垒县四十个井子东220kV汇集站项目环境影响报告表的批复 发布日期： 2024-08-15"
+      },
+      {
+        "url": "https://www.cj.gov.cn/c/sthjj/zdjsxmhp/275061.jhtml",
+        "quote": "新疆华电凯升新能源开发有限公司： 你公司报送的《木垒县四十个井子东220kV汇集站项目环境影响报告表》"
+      }
+    ]
+  },
+  {
+    "farm": "CHN Liaoning Changtu Sanjiangkou wind farm = Liaoning Changtu Sanjiangkou (Liaoning Water Management) wind farm",
+    "verdict": "same",
+    "keep": "Liaoning Changtu Sanjiangkou wind farm",
+    "why_zh": "兩筆都是辽宁省水资源集团（辽水清洁能源）在昌图县三江口镇的約 99 MW 風場：前者 99.2 MW、2023 年，業主辽宁水资源集团清洁能源；後者 99 MW、沒有年份，營運者同樣是辽宁水资源集团清洁能源。集團自己說昌图三江口 99.2 MW 是「集团首个风电项目」，招標公告也寫明該風場位於三江口镇、裝置容量 99.2 MW、招標人昌图水资源清洁能源有限公司，可見集團在三江口只有這一座，後者是重複。保留有年份與較準座標的前者。",
+    "why_en": "Both records are Liaoning Water Resources Group's (Liaoshui Clean Energy) farm of about 99 MW in Sanjiangkou township, Changtu county: the first is 99.2 MW, 2023, owned by the group's clean-energy company; the second is 99 MW with no year and the same company as operator. The group calls the Changtu Sanjiangkou 99.2 MW farm its first wind project, and the tender notice places the 99.2 MW farm in Sanjiangkou with Changtu Water Resources Clean Energy as the buyer, so the group has only this one farm there and the second record is a duplicate. Keep the first, which has the year and the better position.",
+    "sources": [
+      {
+        "url": "http://www.60654a.com/home/ywly/detail/id/344",
+        "quote": "2023年1月1日，集团首个风电项目——辽水清洁能源昌图三江口99.2MW风电场新建工程首批风机成功并网发电，标志着集团能源板块取得重大突破。 昌图三江口风电项目新建25台风力发电机组，每台机组单机容量4MW"
+      },
+      {
+        "url": "http://www.envirunion.com/newsinfo-29464.html",
+        "quote": "辽水清洁能源昌图三江口99.2MW风电场位于昌图县北部地区的三江口镇境内，装机容量为99.2MW；新建220kV升压站1座,容量100MVA"
+      },
+      {
+        "url": "http://www.envirunion.com/newsinfo-29464.html",
+        "quote": "招标人： 昌图水资源清洁能源有限公司"
+      },
+      {
+        "url": "https://www.gem.wiki/Liaoning_Changtu_Sanjiangkou_(Liaoning_Water_Management)_wind_farm",
+        "quote": "Liaoning Changtu Sanjiangkou (Liaoning Water Management) wind farm is an operating wind farm in Sanjiangkou, Changtu, Tieling, Liaoning, China."
+      }
+    ]
+  },
+  {
+    "farm": "CHN Inner Mongolia Wuchuan Dayuanshan (Mengtian) wind farm = Inner Mongolia Wuchuan Dayuanshan wind farm",
+    "verdict": "different",
+    "keep": "",
+    "why_zh": "兩筆是河北建投（蒙天风能）武川大元山的一期與二期：一期即大元山（小井）風場，50 MW、2018 年；二期（德胜風場）50 MW、2020 年。GEM 把它們分成第 1、2 期兩頁，別名分別是 Dayuanshan Xiaojing 與 Dayuanshan Desheng；運達 2019 年 1 月的運輸招標還在為「武川大元山（小井）二期項目」的 20 台 WD2500-140 安排運輸，晚於一期 2018 年商轉，所以是兩期不同的風場，兩筆都保留。",
+    "why_en": "These are phase 1 and phase 2 of Hebei Construction Investment's (Mengtian Windpower) Wuchuan Dayuanshan farm: phase 1 is the Dayuanshan (Xiaojing) farm, 50 MW, 2018; phase 2 (the Desheng farm) is 50 MW, 2020. GEM keeps them as phase 1 and phase 2 on separate pages (other names Dayuanshan Xiaojing and Dayuanshan Desheng), and Windey's January 2019 transport tender was still shipping the 20 WD2500-140 turbines of the 'Wuchuan Dayuanshan (Xiaojing) phase II project', after phase 1 had started in 2018. Two phases, two farms: keep both.",
+    "sources": [
+      {
+        "url": "https://www.gem.wiki/Inner_Mongolia_Wuchuan_Dayuanshan_(Mengtian)_wind_farm",
+        "quote": "Other names: Dayuanshan Xiaojing Windfarm Inner Mongolia Wuchuan Dayuanshan (Mengtian) wind farm is an operating wind farm in Kuisuocun, Wuchuan, Hohhot, Inner Mongolia, China."
+      },
+      {
+        "url": "https://www.gem.wiki/Inner_Mongolia_Wuchuan_Dayuanshan_wind_farm",
+        "quote": "Other names: Dayuanshan Desheng Windfarm Inner Mongolia Wuchuan Dayuanshan wind farm is an operating wind farm in Erfenzi Xiang, Wuchuan, Hohhot, Inner Mongolia, China."
+      },
+      {
+        "url": "https://windeyenergy.com/tendering_show?id=115",
+        "quote": "新华发电定边新安边50MW风电、武川大元山（小井）二期项目 发布时间：2019-01-22"
+      },
+      {
+        "url": "https://windeyenergy.com/tendering_show?id=115",
+        "quote": "内蒙四华、大元山二期项目分别为运达风电制造的WD2500-107（20台）和WD2500-140（20台）型的风电机组"
+      }
+    ]
+  },
+  {
+    "farm": "IND Belgaum wind farm = Belgaum (Korys) wind farm",
+    "verdict": "same",
+    "keep": "Belgaum wind farm",
+    "fix": {
+      "turbine": "Gamesa (20 × 2 MW)"
+    },
+    "why_zh": "兩筆都是 Sanchore Renewable Pvt Ltd 在貝爾高姆（Itnal, Karnataka）的 40 MW 風場，2018 年 3 月完工：Korys 2019 年 1 月買下 Sanchore Renewable，這座風場由 20 部 Gamesa 風機組成、共 40 MW；後來由 Virya Energy（Korys 的再生能源公司）持有，2026 年 9 月 Blueleaf Energy 向 Virya 買下 Sanchore Renewable 全部股權。兩筆只是以專案公司與母公司分別登錄同一座風場。保留以專案公司命名的「Belgaum wind farm」，機型補上 Gamesa 20 部 2 MW。",
+    "why_en": "Both records are Sanchore Renewable Pvt Ltd's 40 MW farm in Belgaum (Itnal, Karnataka), completed in March 2018: Korys bought Sanchore Renewable in January 2019 (20 Gamesa turbines, 40 MW); it was later held by Virya Energy (Korys' renewables company), and in September 2026 Blueleaf Energy bought 100% of Sanchore Renewable from Virya. The two records list the same farm once under the project company and once under its parent. Keep 'Belgaum wind farm' (named after the project company) and add the turbines: 20 Gamesa machines of 2 MW.",
+    "sources": [
+      {
+        "url": "https://korys.be/pers/january-2019-sanchore-investment-2/",
+        "quote": "Korys acquired Sanchore Renewable Private Ltd., a company owning and operating an onshore wind park situated in Itnal (Karnataka). The park consists of 20 wind turbines resulting in a total capacity of 40 MW. The project was initially developed and constructed by Gamesa, and was fully commissioned by end of March 2018."
+      },
+      {
+        "url": "https://virya-energy.com/en/project/wind/sanchore/",
+        "quote": "The Sanchore wind farm, located in Itnal, Karnataka, represents Korys’ first renewable energy investment in India with 40 MW of installed capacity across 20 Gamesa wind turbines."
+      },
+      {
+        "url": "https://www.barandbench.com/law-firms/dealstreet/tta-saraf-and-partners-act-on-blueleaf-energys-acquisition-of-wind-power-asset-in-karnataka",
+        "quote": "acquired a 100% equity stake in Sanchore Renewable Private Limited from Virya Energy NV, adding a 40 MW wind power asset in Belgaum, Karnataka."
+      }
+    ]
+  },
+  {
+    "farm": "IND Betul wind farm = Betul (United) I wind farm",
+    "verdict": "same",
+    "keep": "Betul (United) I wind farm",
+    "fix": {
+      "mw": 49.5,
+      "year": 2014,
+      "turbine": "33 × Regen Powertech VENSYS 82 (1.5 MW)"
+    },
+    "why_zh": "貝圖爾（Betul）這座風場實際只有兩期、共 99.5 MW：一期 33 部 Regen VENSYS 82（1.5 MW）＝49.5 MW，二期 25 部 Gamesa G97（2 MW）＝50 MW；專案公司 Betul Wind Farms Pvt Ltd 原由 Atria 體系的 WPA Clean Energy 持有約 50.01%、其餘由 United Sustainable Energy India（USEIPL）持有，2024 年 3 月 USEIPL 買下全部股份。本站卻有「Betul」「Betul (United) I」「Betul (United) II」「Betul (Atria)」四筆、各 50 MW，合計 200 MW。「Betul」與「Betul (United) I」在 GEM 都引用同一頁 USEIPL 專案清單（該頁憑證過期、無法核對引文），業主、容量相同；這處只有兩期，所以沒寫期別的「Betul」是重複。保留「Betul (United) I」並改成一期的 49.5 MW、2014 年（CARE 寫 2014 年 1 月商轉）與機型；「Betul (United) II」是二期；「Betul (Atria)」也和這兩期重複，建議另外處理。",
+    "why_en": "The Betul farm has only two phases, 99.5 MW in all: phase I with 33 Regen VENSYS 82 machines (1.5 MW) = 49.5 MW and phase II with 25 Gamesa G97 (2 MW) = 50 MW. The project company Betul Wind Farms Pvt Ltd was about 50.01% held by WPA Clean Energy (an Atria company) and otherwise by United Sustainable Energy India (USEIPL), which bought all the shares in March 2024. The site, however, has four 50 MW records — 'Betul', 'Betul (United) I', 'Betul (United) II' and 'Betul (Atria)' — 200 MW in all. On GEM, 'Betul' and 'Betul (United) I' cite the same USEIPL project list (its certificate has expired, so it cannot be quoted) and share owner and capacity; with only two phases on the ground, the unphased 'Betul' is a duplicate. Keep 'Betul (United) I' and correct it to phase I: 49.5 MW, 2014 (CARE gives commercial operation in January 2014) and the turbine model; 'Betul (United) II' is phase II, and 'Betul (Atria)' duplicates the same two phases as well and should be handled separately.",
+    "sources": [
+      {
+        "url": "https://www.power-technology.com/data-insights/power-plant-profile-atria-wind-farm-betul-india/",
+        "quote": "Atria Wind Farm-Betul is a 99.5MW onshore wind power project. It is located in Madhya Pradesh, India."
+      },
+      {
+        "url": "https://www.power-technology.com/data-insights/power-plant-profile-atria-wind-farm-betul-india/",
+        "quote": "Atria Wind Farm-Betul (Atria Wind Farm-Betul I) is equipped with Regen Powertech VENSYS 82 turbines. The phase consists of 33 turbines with 1.5MW nameplate capacity."
+      },
+      {
+        "url": "https://www.power-technology.com/data-insights/power-plant-profile-atria-wind-farm-betul-india/",
+        "quote": "Atria Wind Farm-Betul (Atria Wind Farm-Betul II) is equipped with Siemens Gamesa Renewable Energy G97-2.0 MW turbines. The phase consists of 25 turbines with 2MW nameplate capacity."
+      },
+      {
+        "url": "https://www.careratings.com/upload/CompanyFiles/PR/202404130418_Betul_Wind_Farms_Private_Limited.pdf",
+        "quote": "The project achieved commercial operations date (COD) in January 2014."
+      },
+      {
+        "url": "https://www.careratings.com/upload/CompanyFiles/PR/202404130418_Betul_Wind_Farms_Private_Limited.pdf",
+        "quote": "promoted by WPA Clean Energy Private Limited (mainly held by Atria Brindavan Power Private Limited) holding around 50.01% in the company and balance stake was held by United Sustainable Energy India P rivate Limited (USEIPL). In March 2024, USEIPL and its affiliates have purchased all the shares of BWFPL."
+      }
+    ]
+  },
+  {
+    "farm": "USA Creston Ridge wind farm = Creston Ridge II, LLC wind farm",
+    "verdict": "different",
+    "keep": "",
+    "why_zh": "兩筆是內布拉斯加州 Creston 附近同一處的兩期：一期 Creston Ridge 4 部風機、6.8 MW，2015 年 12 月上線；二期 Creston Ridge II 另加 3 部 2.3 MW、6.9 MW，2017 年商轉。兩期在 EIA 各有電廠代碼（60932、61668），州能源署也分開列出，是兩座不同的風場，兩筆都保留。",
+    "why_en": "These are the two phases near Creston, Nebraska: Creston Ridge (four turbines, 6.8 MW, online December 2015) and the Creston Ridge II expansion (three more 2.3 MW turbines, 6.9 MW, in commercial operation in 2017). They have separate EIA plant codes (60932 and 61668) and the state energy office lists them separately: two farms, keep both.",
+    "sources": [
+      {
+        "url": "https://dwee.nebraska.gov/state-energy-information/energy-statistics/fuels/wind/wind-energy-generation-nebraska",
+        "quote": "The four–turbine Creston Ridge Wind Farm located near Creston in Platte County went online in December of 2015. The four turbines were constructed by Bluestem Energy Solutions. Maximum capacity is 6,800 kilowatts"
+      },
+      {
+        "url": "https://dwee.nebraska.gov/state-energy-information/energy-statistics/fuels/wind/wind-energy-generation-nebraska",
+        "quote": "of the Creston Ridge II Wind Farm is located near Creston in Platte County and began commercial operation in late 2017. The three turbines were constructed by Bluestem Energy Solutions. Maximum capacity is 6,900 kilowatts"
+      },
+      {
+        "url": "https://boydjones.biz/project/creston-ridge-wind-farm/",
+        "quote": "The first phase, Creston Ridge I, came online in 2015 with four turbines producing 6.8 MW. Boyd Jones later delivered three additional 2.3 MW turbines for Creston Ridge II, which began generating power in 2017."
+      }
+    ]
+  },
+  {
+    "farm": "CHN Qinghai Huangyuan distributed (Huahanhai) wind farm = Qinghai Huangyuan distributed (Huahan) wind farm",
+    "verdict": "different",
+    "keep": "",
+    "why_zh": "名稱只差一字，但其實是兩家專案公司（湟源华汉、湟源华瀚海）各一個 49 MW 的分散式風電專案，由中國能建浙江火电同時投資與承包、在湟源县大华镇巴汉村一帶一起開工，兩案合計 16 部風機、98 MW。分散式風電每案規模有上限，所以拆成兩案；是兩座不同的風場，兩筆都保留。",
+    "why_en": "The names differ by one character, but these are two 49 MW distributed wind projects of two project companies (Huangyuan Huahan and Huangyuan Huahanhai), both invested in and built by China Energy Engineering's Zhejiang Thermal Power and started together near Bahan village, Dahua town, Huangyuan county: 16 turbines and 98 MW for the two. Distributed projects are capped in size, hence the split; two farms, keep both.",
+    "sources": [
+      {
+        "url": "http://www.ceec.net.cn/art/2023/3/22/art_11019_2526671.html",
+        "quote": "浙江火电投资和PC承包的湟源华汉新能源有限责任公司49兆瓦分散式风力发电项目、湟源华瀚海新能源有限责任公司49兆瓦分散式风力发电项目正式开工。 两个项目地处青海省湟源县大华镇巴汉村西南部山脊，共计安装14台容量为6250千瓦风力发电机组和2台5250千瓦风力发电机组，总装机容量为98兆瓦"
+      },
+      {
+        "url": "http://www.dlztb.com/xmxx/202212/64388.html",
+        "quote": "本招标项目湟源华瀚海新能源有限责任公司49兆瓦分散式风力发电项目已由青海省西宁市发改委核准，项目业主为湟源华瀚海新能源有限责任公司"
+      }
+    ]
+  }
+]
