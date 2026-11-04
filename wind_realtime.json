@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-05T03:30:52+08:00",
-  "source_time": "2026-11-05T03:20:00",
-  "wind_total_mw": 14.9,
-  "system_total_mw": 25858.4,
+  "updated": "2026-11-05T04:02:11+08:00",
+  "source_time": "2026-11-05T03:50:00",
+  "wind_total_mw": 14.0,
+  "system_total_mw": 25925.3,
   "farm_wind": {
     "guanyuan": {
       "mps": 2.1,
@@ -157,7 +157,7 @@
   },
   "mapped_farm_count": 30,
   "farms": {
-    "guanyuan": 0.2,
+    "guanyuan": 0.0,
     "taichungport": 0.0,
     "wanggong": 0.0,
     "changgong": 0.0,
@@ -184,7 +184,7 @@
     "fang2": 0.0,
     "yunhu": 0.0,
     "yunxi": 0.0,
-    "zhongneng": 0.7,
+    "zhongneng": 0.0,
     "longA": 0.0,
     "longB": 0.0
   },
@@ -193,7 +193,7 @@
       "name": "觀園",
       "raw_name": "觀園",
       "capacity": 30.0,
-      "output": 0.2
+      "output": 0.0
     },
     {
       "name": "台中港",
@@ -355,7 +355,7 @@
       "name": "中能風",
       "raw_name": "中能風",
       "capacity": 294.5,
-      "output": 0.7
+      "output": 0.0
     },
     {
       "name": "龍A風",
