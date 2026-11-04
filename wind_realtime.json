@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-04T21:32:00+08:00",
-  "source_time": "2026-11-04T21:20:00",
-  "wind_total_mw": 18.3,
-  "system_total_mw": 31428.6,
+  "updated": "2026-11-04T22:01:19+08:00",
+  "source_time": "2026-11-04T21:50:00",
+  "wind_total_mw": 16.3,
+  "system_total_mw": 30975.2,
   "farm_wind": {
     "guanyuan": {
       "mps": 0.8,
@@ -163,7 +163,7 @@
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 17.0,
+    "tpc-other-on": 14.8,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -173,7 +173,7 @@
     "changpin": 0.0,
     "ppa-other-on": 0.6,
     "offshore1": 0.0,
-    "offshore2": 0.7,
+    "offshore2": 0.9,
     "formosa1": 0.0,
     "formosa2": 0.0,
     "wo1": 0.0,
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 17.0
+      "output": 14.8
     },
     {
       "name": "苗栗大鵬",
@@ -289,7 +289,7 @@
       "name": "離岸二期",
       "raw_name": "離岸二期(註10)",
       "capacity": null,
-      "output": 0.7
+      "output": 0.9
     },
     {
       "name": "海洋竹南",
