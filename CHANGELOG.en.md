@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.4 — 2026-11-04
+
+- **Farm positions**: 19 more operating farms that still sat on a province or country placeholder now sit on a township or county centre (still flagged approximate): where GEM misspells the place (Kaythar, Tirunelvellii, Khambaliya, the state "Schieswig-Holstein") or the placeholder itself is wrong (Inner Mongolia's is 900 km from Alxa, Yunnan's is in Macau, the Canary Islands' is on the Spanish mainland), a hand-checked Wikidata item is used (`MANUAL_PLACES` in `tools/fetch_gem_locations.py`; the script re-checks the state/province and county): 3 in Alxa Left Banner (Inner Mongolia), Xundian (Yunnan), 2 in Navarre and 2 in the Canary Islands (Spain), 3 on Goeree-Overflakkee (Netherlands), 2 in Iwaki (Japan), 4 in India, and 1 each in Germany and Kazakhstan. Unlocated farms drop from 139 to 120; see [docs/data-locations.en.md](./docs/data-locations.en.md).
+
 ## v3.22.3 — 2026-11-01
 
 - **Early-November data check**: Brazil's "latest available" row now covers January–October 2026 (ANEEL's SIGA plant list of 1 November still has only 3 farms, 184.5 MW, none added in September or October); Taiwan's table 4-02 and India's MNRE have no newer month yet and stay at August and September.

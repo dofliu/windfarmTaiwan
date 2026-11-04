@@ -6,7 +6,7 @@
 
 GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或國家中心的代用座標上（同一點有幾十筆）。GEM 專案頁的「Location」仍寫出鄉鎮、縣（區）、市、省，這裡依那段文字把風場改到該行政區的中心：座標取自 Wikidata（CC0），行政區以 OpenStreetMap Nominatim 查出（只當索引，不含 OSM 資料）。這些仍是**概略位置**（卡片標示「概略位置」）：鄉鎮或縣中心不是風場本身，但比省中心近得多。定位不到的風場維持原代用點，列在 gem_locations.json 的 skipped。
 
-- 共 1204 座：鄉鎮層級 422、縣（區）層級 752、市層級 30。
+- 共 1223 座：鄉鎮層級 436、縣（區）層級 754、市層級 33。
 
 ## 中國大陸 (CHN)
 
@@ -917,6 +917,10 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Inner Mongolia Alxa Left Banner Beiwan distributed wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Beiwan_distributed_wind_farm) | 35 | Beiwan area, Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
 | [Ningxia Qingtongxia Helanshan Number 4 Hongchazi wind farm · 3](https://www.gem.wiki/Ningxia_Qingtongxia_Helanshan_Number_4_Hongchazi_wind_farm) | 10 | 1, 2, 3 RP Qingtongxia City, Wuzhong, Ningxia, China | [吳忠市](https://www.wikidata.org/wiki/Q604517) | 37.9874, 106.1919 | 縣（區） |
 | [Liaoning Dandong Haiyanghong wind farm](https://www.gem.wiki/Liaoning_Dandong_Haiyanghong_wind_farm) | 21 | Dandong, Liaoning, China | [丹東市](https://www.wikidata.org/wiki/Q75110) | 40.1167, 124.3833 | 縣（區） |
+| [Inner Mongolia Alxa Left Banner Helanshan (China Aluminum) wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Helanshan_%28China_Aluminum%29_wind_farm) | 200 | Baxingtu Gacha in Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China | [嘉尔嘎勒赛汉镇](https://www.wikidata.org/wiki/Q10923997) | 37.9621, 105.366 | 鄉鎮 |
+| [Inner Mongolia Alashanzuo Banner Helanshan (Yingxing) wind farm · 2](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_Helanshan_%28Yingxing%29_wind_farm) | 50 | 1 Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
+| [Inner Mongolia Alsashanzuo Banner Windpower Heating Project](https://www.gem.wiki/Inner_Mongolia_Alsashanzuo_Banner_Windpower_Heating_Project) | 50 | Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China | [嘉尔嘎勒赛汉镇](https://www.wikidata.org/wiki/Q10923997) | 37.9621, 105.366 | 鄉鎮 |
+| [Yunnan Xundian Lianhe wind farm](https://www.gem.wiki/Yunnan_Xundian_Lianhe_wind_farm) | 100 | 1 Lianhe Xiang, Xundian, Kunming, Yunnan, China | [联合乡](https://www.wikidata.org/wiki/Q28832272) | 25.9369, 102.9976 | 鄉鎮 |
 
 ## 印度 (IND)
 
@@ -1126,12 +1130,17 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Nakhatrana Sn1 (GIPCL) wind farm](https://www.gem.wiki/Nakhatrana_Sn1_%28GIPCL%29_wind_farm) | 10 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
 | [Nakhatrana Sn5 (GIPCL) wind farm](https://www.gem.wiki/Nakhatrana_Sn5_%28GIPCL%29_wind_farm) | 10 | Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
 | [Jamanvada (GACL) I wind farm](https://www.gem.wiki/Jamanvada_%28GACL%29_I_wind_farm) | 10 | 1 Jamanvada, Kutch, Gujarat, India | [卡奇縣](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | 縣（區） |
+| [Khambhaliya wind farm](https://www.gem.wiki/Khambhaliya_wind_farm) | 79 | 1 Khambaliya, Gujarat, India | [肯帕利亞](https://www.wikidata.org/wiki/Q2120093) | 22.2, 69.65 | 鄉鎮 |
+| [Bharmasagar - Devangere wind farm](https://www.gem.wiki/Bharmasagar_-_Devangere_wind_farm) | 36 | Bharmasagara, Karnataka, India | [Bharamasagara](https://www.wikidata.org/wiki/Q4901082) | 14.22, 76.4 | 鄉鎮 |
+| [Kaythar Subhash wind farm](https://www.gem.wiki/Kaythar_Subhash_wind_farm) | 30 | Kaythar, Tamil Nadu, India | [卡耶塔魯](https://www.wikidata.org/wiki/Q2125845) | 8.9483, 77.7742 | 鄉鎮 |
+| [Tirunelveli (Green Infra) wind farm](https://www.gem.wiki/Tirunelveli_%28Green_Infra%29_wind_farm) | 24 | Tirunelvellii, Tamil Nadu, India | [蒂魯內爾維利](https://www.wikidata.org/wiki/Q213248) | 8.7289, 77.7081 | 市 |
 
 ## 哈薩克 (KAZ)
 
 | 風場 | MW | GEM 的位置 | 改到 | 座標 | 層級 |
 |---|---:|---|---|---|---|
 | [Borey wind farm](https://www.gem.wiki/Borey_wind_farm) | 100 | 1 Arshaly District, Akmola Region, Kazakhstan | [阿爾沙雷區](https://www.wikidata.org/wiki/Q2321988) | 50.8314, 72.1814 | 縣（區） |
+| [Energo Trust wind farm](https://www.gem.wiki/Energo_Trust_wind_farm) | 50 | Arshaly District, Aqmola oblysy, Kazakhstan | [阿爾沙雷區](https://www.wikidata.org/wiki/Q2321988) | 50.8314, 72.1814 | 縣（區） |
 
 ## 哥倫比亞 (COL)
 
@@ -1147,6 +1156,7 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Hohe Heide wind farm](https://www.gem.wiki/Hohe_Heide_wind_farm) | 18 | Lower Saxony, Germany | [下薩克森州](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | 市 |
 | [Borne (MDP) wind farm](https://www.gem.wiki/Borne_%28MDP%29_wind_farm) | 33 | 1 Salzlandkreis, Saxony-Anhalt, Germany | [萨尔茨兰县](https://www.wikidata.org/wiki/Q6081) | 51.8333, 11.5833 | 縣（區） |
 | [Damme wind farm · 2, RP](https://www.gem.wiki/Damme_wind_farm) | 40 | 1 Vechta district, Lower Saxony, Germany | [費希塔縣](https://www.wikidata.org/wiki/Q5941) | 52.67, 8.25 | 縣（區） |
+| [Schuby (Energy Farming) wind farm](https://www.gem.wiki/Schuby_%28Energy_Farming%29_wind_farm) | 18 | Schleswig, Schieswig-Holstein, Germany | [石勒苏益格](https://www.wikidata.org/wiki/Q501661) | 54.5153, 9.5697 | 鄉鎮 |
 
 ## 挪威 (NOR)
 
@@ -1175,6 +1185,8 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Hizen South (JWE) wind farm](https://www.gem.wiki/Hizen_South_%28JWE%29_wind_farm) | 18 | Karatsu City, Saga Prefecture, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
 | [Hizen (JWE) wind farm](https://www.gem.wiki/Hizen_%28JWE%29_wind_farm) | 12 | Karatsu City, Saga, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
 | [Hizen (Daigas) wind farm](https://www.gem.wiki/Hizen_%28Daigas%29_wind_farm) | 12 | Karatsu City, Saga Prefecture, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
+| [Sandai Myojin wind farm](https://www.gem.wiki/Sandai_Myojin_wind_farm) | 34 | Iwaki, Tonomachi Kaminemoto, Fukushima Prefecture, Japan | [磐城市](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | 市 |
+| [Tabito wind farm](https://www.gem.wiki/Tabito_wind_farm) | 19 | Iwaki, Kazakoshi, Fukushima Prefecture, Japan | [磐城市](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | 市 |
 
 ## 波蘭 (POL)
 
@@ -1218,6 +1230,14 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Vrg Wind 030 wind farm](https://www.gem.wiki/Vrg_Wind_030_wind_farm) | 60 | Prizzi E Corleone, Siciliy, Italy | [普里齐](https://www.wikidata.org/wiki/Q264940) | 37.7215, 13.4312 | 縣（區） |
 | [Vrg Wind 040 wind farm](https://www.gem.wiki/Vrg_Wind_040_wind_farm) | 30 | Campofelice E Villafrati, Siciliy, Italy | [坎波費利切-迪羅切拉](https://www.wikidata.org/wiki/Q496823) | 37.9894, 13.8711 | 縣（區） |
 | [Mistretta wind farm](https://www.gem.wiki/Mistretta_wind_farm) | 30 | Siciliy, Italy | [西西里島](https://www.wikidata.org/wiki/Q1460) | 37.6, 14.0167 | 市 |
+
+## 荷蘭 (NLD)
+
+| 風場 | MW | GEM 的位置 | 改到 | 座標 | 層級 |
+|---|---:|---|---|---|---|
+| [Oostflakkee wind farm](https://www.gem.wiki/Oostflakkee_wind_farm) | 32 | Goeree-Overflakkee, Zuid-Holland, Netherlands | [胡雷-上弗拉凱](https://www.wikidata.org/wiki/Q933459) | 51.75, 4.1167 | 鄉鎮 |
+| [Battenoert wind farm](https://www.gem.wiki/Battenoert_wind_farm) | 14 | Goeree-Overflakkee, Zuid-Holland, Netherlands | [胡雷-上弗拉凱](https://www.wikidata.org/wiki/Q933459) | 51.75, 4.1167 | 鄉鎮 |
+| [Hellegatsplein Windpark](https://www.gem.wiki/Hellegatsplein_Windpark) | 12 | Goeree-Overflakkee, Zuid-Holland, Netherlands | [胡雷-上弗拉凱](https://www.wikidata.org/wiki/Q933459) | 51.75, 4.1167 | 鄉鎮 |
 
 ## 西班牙 (ESP)
 
@@ -1272,6 +1292,10 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Hoya De Lucas wind farm](https://www.gem.wiki/Hoya_De_Lucas_wind_farm) | 16 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
 | [Bermejo wind farm](https://www.gem.wiki/Bermejo_wind_farm) | 13 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
 | [Vera De Abote wind farm](https://www.gem.wiki/Vera_De_Abote_wind_farm) | 11 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [阿里科](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | 鄉鎮 |
+| [El Montecillo wind farm](https://www.gem.wiki/El_Montecillo_wind_farm) | 41 | Corella, La Ribera, Comunidad Foral de Navarra, Spain | [科雷利亚](https://www.wikidata.org/wiki/Q550407) | 42.1147, -1.7867 | 鄉鎮 |
+| [Corral del Molino wind farm](https://www.gem.wiki/Corral_del_Molino_wind_farm) | 52 | 1 Tudela, La Ribera, Comunidad Foral de Navarra, Spain | [圖德拉](https://www.wikidata.org/wiki/Q244747) | 42.0653, -1.6067 | 鄉鎮 |
+| [Montaña De Arinaga wind farm](https://www.gem.wiki/Monta%C3%B1a_De_Arinaga_wind_farm) | 19 | 1 Agüimes, Gran Canaria, Canarias, Spain | [Agüimes](https://www.wikidata.org/wiki/Q23990990) | 27.9051, -15.4448 | 鄉鎮 |
+| [El Hierro Hidroeólico wind farm](https://www.gem.wiki/El_Hierro_Hidroe%C3%B3lico_wind_farm) | 12 | Valverde, El Hierro, Santa Cruz de Tenerife, Canarias, Spain | [巴尔韦尔德](https://www.wikidata.org/wiki/Q1853429) | 27.8097, -17.9151 | 鄉鎮 |
 
 ## 越南 (VNM)
 

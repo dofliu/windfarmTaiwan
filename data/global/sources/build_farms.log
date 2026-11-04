@@ -841,9 +841,12 @@ CLEAN fix CHN Inner Mongolia Abaga Banner Bieligutai Power Export (Huaneng Huabe
 CLEAN fix CHN Inner Mongolia Abaga Banner Bieligutai Power Export (State Power Investment) wind farm 227.0
 CLEAN fix CHN Inner Mongolia Alashanyou Banner (Huadian) wind farm 150.0
 CLEAN fix CHN Inner Mongolia Alashanyou Banner (State Power Investment) wind farm 200.0
+CLEAN fix CHN Inner Mongolia Alashanzuo Banner Helanshan (Yingxing) wind farm · 2 50.0
 CLEAN fix CHN Inner Mongolia Alashanzuo Banner Zongbieli (China Resources) wind farm 200.0
+CLEAN fix CHN Inner Mongolia Alsashanzuo Banner Windpower Heating Project 50.0
 CLEAN fix CHN Inner Mongolia Alxa Left Banner Beiwan distributed wind farm 35.0
 CLEAN fix CHN Inner Mongolia Alxa Left Banner Heishan distributed wind farm 50.0
+CLEAN fix CHN Inner Mongolia Alxa Left Banner Helanshan (China Aluminum) wind farm 200.0
 CLEAN fix CHN Inner Mongolia Alxa Left Banner Shuangjingzi distributed wind farm 35.0
 CLEAN fix CHN Inner Mongolia Alxa Left BannerWuri Tugaole distributed wind farm 50.0
 CLEAN fix CHN Inner Mongolia Baiyunebo Mining District (Lingxiang) wind farm 50.0
@@ -1400,6 +1403,7 @@ CLEAN fix CHN Yunnan Qiaojia Xinchanggou wind farm 50.0
 CLEAN fix CHN Yunnan Qiaojia Xiyangtang wind farm 50.0
 CLEAN fix CHN Yunnan Xiangyun Yangjiafang wind farm 36.0
 CLEAN fix CHN Yunnan Xiangyun Yemaoshan wind farm 50.0
+CLEAN fix CHN Yunnan Xundian Lianhe wind farm 100.0
 CLEAN fix CHN Yunnan Yongshan Dapingzi wind farm 50.0
 CLEAN fix CHN Yunnan Yuxi Tonghai Wunaoshan wind farm 48.0
 CLEAN fix CHN Zhejiang Daishan 4 Offshore wind farm 234.0
@@ -1447,6 +1451,7 @@ CLEAN fix DEU Mangelsdorf wind farm 12.0
 CLEAN fix DEU Oederquart wind farm 16.0
 CLEAN fix DEU Paderborn wind farm 36.0
 CLEAN fix DEU Riede wind farm 17.0
+CLEAN fix DEU Schuby (Energy Farming) wind farm 18.0
 CLEAN fix DEU Speckberg wind farm 28.0
 CLEAN fix DEU Streumen wind farm 13.0
 CLEAN fix DEU Süderauerdorf wind farm 12.0
@@ -1480,6 +1485,7 @@ CLEAN fix ESP Casa Del Aire wind farm · 2 50.0
 CLEAN fix ESP Castil De Tierra wind farm 36.0
 CLEAN fix ESP Cañaseca wind farm 18.0
 CLEAN fix ESP Cinseiro wind farm 12.0
+CLEAN fix ESP Corral del Molino wind farm 52.0
 CLEAN fix ESP Croa wind farm 10.0
 CLEAN fix ESP EEE repotenciado wind farm 32.0
 CLEAN fix ESP El Bancal wind farm 21.0
@@ -1489,7 +1495,9 @@ CLEAN fix ESP El Coto wind farm 20.0
 CLEAN fix ESP El Coto wind farm 21
 CLEAN fix ESP El Cuadrón wind farm 22.0
 CLEAN fix ESP El Gramal wind farm 37.0
+CLEAN fix ESP El Hierro Hidroeólico wind farm 12.0
 CLEAN fix ESP El Llano wind farm (Spain) 50.0
+CLEAN fix ESP El Montecillo wind farm 41.0
 CLEAN fix ESP El Mulatón wind farm 38.0
 CLEAN fix ESP El Páramo wind farm 24.0
 CLEAN fix ESP Encinedo wind farm 30.0
@@ -1519,6 +1527,7 @@ CLEAN fix ESP Los Gigantes wind farm 21.0
 CLEAN fix ESP Los Lances wind farm 11.0
 CLEAN fix ESP Los Siglos wind farm 18.0
 CLEAN fix ESP Lubián wind farm 50.0
+CLEAN fix ESP Montaña De Arinaga wind farm 19.0
 CLEAN fix ESP Monte Da Serra wind farm 14.0
 CLEAN fix ESP Monte Marbán wind farm 11.0
 CLEAN fix ESP Monte Villalbesa wind farm 24.0
@@ -1690,6 +1699,7 @@ CLEAN fix IND Belgaum wind farm 40.0
 CLEAN fix IND Belgaum wind farm 40.0
 CLEAN fix IND Belguppa (Adurjee) wind farm 15.0
 CLEAN fix IND Belguppa (Greenko) wind farm 101.0
+CLEAN fix IND Bharmasagar - Devangere wind farm 36.0
 CLEAN fix IND Bhu Kitta wind farm 52.0
 CLEAN fix IND Bhuj (Alfanar) wind farm 300.0
 CLEAN fix IND Bhuj (Green Infra) wind farm 44.0
@@ -1763,7 +1773,9 @@ CLEAN fix IND Kalorana wind farm 36.0
 CLEAN fix IND Karnataka (Green Infra) wind farm 54.6
 CLEAN fix IND Kasturi Rengapuram wind farm 10.0
 CLEAN fix IND Kayathar wind farm 50.0
+CLEAN fix IND Kaythar Subhash wind farm 30.0
 CLEAN fix IND Kethanur Wind Farms wind farm 11.0
+CLEAN fix IND Khambhaliya wind farm 79.0
 CLEAN fix IND Khandke (CLP) wind farm 50.0
 CLEAN fix IND Khandke (Tata) wind farm 50.0
 CLEAN fix IND Khodiyasar (REMC) wind farm 26.0
@@ -1902,6 +1914,7 @@ CLEAN fix IND Tebdha (Vish Wind) wind farm 24.0
 CLEAN fix IND Tejuva (CLP) wind farm 101.0
 CLEAN fix IND Tejuva (Hpcl) wind farm 50.0
 CLEAN fix IND Tirunelveli (Eveready) wind farm 41.0
+CLEAN fix IND Tirunelveli (Green Infra) wind farm 24.0
 CLEAN fix IND Tirunelveli (KPR) wind farm 62.0
 CLEAN fix IND Tirunelveli (KPR) wind farm 62.0
 CLEAN fix IND Tirunelveli (Nupower) wind farm 100.0
@@ -1982,12 +1995,15 @@ CLEAN fix JPN Kamisu Phase 1 (Wind Power Ibaraki) 14.0
 CLEAN fix JPN Kamisu Phase 2 16.0
 CLEAN fix JPN Kitakyushu Hibikinada 220.0
 CLEAN fix JPN Kitakyushu Offshore Demonstration (NEDO/J-Power) 2.0
+CLEAN fix JPN Sandai Myojin wind farm 34.0
 CLEAN fix JPN Setana semi-offshore 1.2
 CLEAN fix JPN Setana semi-offshore 1.2
 CLEAN fix JPN Shinkamigoto Whales Wind System 16.0
+CLEAN fix JPN Tabito wind farm 19.0
 CLEAN fix JPN Yokohama Town Hibaritaira wind farm 32.0
 CLEAN fix JPN Yurihonjo Bayside wind farm 16.0
 CLEAN fix KAZ Borey wind farm 100.0
+CLEAN fix KAZ Energo Trust wind farm 50.0
 CLEAN fix KEN Chania Green Wind Project 50.0
 CLEAN fix KEN Kilifi wind farm 36.0
 CLEAN fix KEN Lake Turkana 310.0
@@ -2009,6 +2025,7 @@ CLEAN fix MEX Coromuel wind farm 56.0
 CLEAN fix MEX San Pedro wind farm (Mexico) 30.0
 CLEAN fix NAM Ombepo wind farm 6.0
 CLEAN fix NLD Anna Vosdijk Polder wind farm 15.0
+CLEAN fix NLD Battenoert wind farm 14.0
 CLEAN fix NLD Borssele V (Two Towers innovation site) 19.0
 CLEAN fix NLD De Drentse Monden En Oostermoer wind farm 156.8
 CLEAN fix NLD Delfzijl Midden wind farm 39.0
@@ -2016,10 +2033,12 @@ CLEAN fix NLD Ecowende Offshore wind farm 780.0
 CLEAN fix NLD Epz wind farm 24.0
 CLEAN fix NLD Etten-Leur wind farm 13.0
 CLEAN fix NLD Flevo Ventum wind farm 32.0
+CLEAN fix NLD Hellegatsplein Windpark 12.0
 CLEAN fix NLD Hollandse Kust Noord 759.0
 CLEAN fix NLD Irene Vorrink (Dronten) 16.8
 CLEAN fix NLD Kubbeweg wind farm 74.0
 CLEAN fix NLD Noordoostpolder (incl. Westermeerwind nearshore) 429.0
+CLEAN fix NLD Oostflakkee wind farm 32.0
 CLEAN fix NLD Piet De Wit wind farm 32.0
 CLEAN fix NLD Suyderlandt wind farm 11.0
 CLEAN fix NLD Windmolens Groetpolder wind farm 13.0
