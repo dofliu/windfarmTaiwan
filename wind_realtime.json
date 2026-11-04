@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-05T05:32:00+08:00",
-  "source_time": "2026-11-05T05:20:00",
-  "wind_total_mw": 14.6,
-  "system_total_mw": 26069.1,
+  "updated": "2026-11-05T06:01:16+08:00",
+  "source_time": "2026-11-05T05:50:00",
+  "wind_total_mw": 14.4,
+  "system_total_mw": 26101.4,
   "farm_wind": {
     "guanyuan": {
       "mps": 2.2,
@@ -159,7 +159,7 @@
   "farms": {
     "guanyuan": 0.0,
     "taichungport": 0.0,
-    "wanggong": 0.1,
+    "wanggong": 0.0,
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
@@ -167,13 +167,13 @@
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.2,
-    "zhongwei": 0.0,
+    "zhongwei": 0.1,
     "chuangwei": 0.0,
     "xinyuan": 0.0,
     "changpin": 0.0,
     "ppa-other-on": 0.6,
     "offshore1": 0.0,
-    "offshore2": 0.9,
+    "offshore2": 0.7,
     "formosa1": 0.0,
     "formosa2": 0.0,
     "wo1": 0.0,
@@ -205,7 +205,7 @@
       "name": "王功",
       "raw_name": "王功",
       "capacity": 23.0,
-      "output": 0.1
+      "output": 0.0
     },
     {
       "name": "彰工",
@@ -253,7 +253,7 @@
       "name": "中威大安",
       "raw_name": "中威大安",
       "capacity": 75.9,
-      "output": 0.0
+      "output": 0.1
     },
     {
       "name": "創維風",
@@ -289,7 +289,7 @@
       "name": "離岸二期",
       "raw_name": "離岸二期(註10)",
       "capacity": null,
-      "output": 0.9
+      "output": 0.7
     },
     {
       "name": "海洋竹南",
