@@ -384,8 +384,78 @@ def main():
             skipped.append(x)
         if (n + 1) % 25 == 0:
             print(time.strftime('%H:%M:%S'), 'wikidata search', n + 1, '/', len(retry), 'located', len(located), flush=True)
+    located, skipped = apply_manual(located, skipped, placeholder)
     out.write_text(json.dumps({'meta': META, 'located': located, 'skipped': skipped}, ensure_ascii=False, indent=0), encoding='utf-8')
     print('done', len(todo), 'located', len(located), 'skipped', len(skipped))
+
+
+# 第五階段：人工核對的地名 → Wikidata 項目（GEM 拼錯、或同名村落太多讓自動搜尋放棄的）。每條都人工看過 Wikidata 項目的
+# 名稱、說明與所在行政區；程式再檢查一次：項目有座標、P131 鏈上有 GEM 寫的邦（省）、與代用點相距 800 km 內。不符合就不用。
+# Hand-checked place → Wikidata item for places the automatic search gave up on (GEM misspellings, or many villages sharing the name).
+# Each item's label, description and containing areas were read by hand; the script checks again that it has a coordinate, that the
+# state/province GEM names is in its P131 chain and that it lies within 800 km of the placeholder, and skips it otherwise.
+#   '地點文字（與 GEM 頁面相同）': ('Q 編號', 'township'|'county'|'city', '中文說明', 'English note')
+MANUAL_PLACES = {
+}
+
+
+def p131_chain(q, depth=7):
+    """項目的所在行政區鏈（英文標籤，最多 depth 層）· English labels of the item's P131 chain"""
+    labels, cur = [], q
+    for _ in range(depth):
+        t = get(WD_API + '?' + urllib.parse.urlencode({'action': 'wbgetentities', 'ids': cur, 'props': 'claims', 'format': 'json'}), retries=5, ua=WD_UA)
+        if t.startswith('ERR'):
+            return None
+        c = json.loads(t).get('entities', {}).get(cur, {}).get('claims', {}).get('P131')
+        nxt = c[0]['mainsnak'].get('datavalue', {}).get('value', {}).get('id') if c else None
+        if not nxt:
+            break
+        t = get(WD_API + '?' + urllib.parse.urlencode({'action': 'wbgetentities', 'ids': nxt, 'props': 'labels', 'languages': 'en', 'format': 'json'}), retries=5, ua=WD_UA)
+        if t.startswith('ERR'):
+            return None
+        labels.append(json.loads(t).get('entities', {}).get(nxt, {}).get('labels', {}).get('en', {}).get('value', ''))
+        cur = nxt
+    return labels
+
+
+def apply_manual(located, skipped, placeholder):
+    use = [x for x in skipped if x.get('place') in MANUAL_PLACES]
+    if not use:
+        return located, skipped
+    wd = wikidata_coords([MANUAL_PLACES[x['place']][0] for x in use])
+    keep = []
+    for x in skipped:
+        if x.get('place') not in MANUAL_PLACES:
+            keep.append(x); continue
+        q, level, _zh, _en = MANUAL_PLACES[x['place']]
+        w = wd.get(q)
+        parts = [p.strip() for p in x['place'].split(',') if p.strip()]
+        prov = parts[-2] if parts[-1].lower() in COUNTRIES else parts[-1]
+        chain = p131_chain(q) or []
+        ok_prov = any(norm(strip_accents(c)) == norm(strip_accents(prov)) for c in chain)
+        p0 = placeholder.get((x['iso'], x['name']))
+        if w and ok_prov and (p0 is None or km(p0[0], p0[1], w['lat'], w['lon']) <= MAX_KM):
+            located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], wikidata=q, query='manual:' + q, level=level, **w))
+        else:
+            x['why'] = 'manual Wikidata item failed the check (' + ('no coordinate' if not w else 'province not in P131 chain' if not ok_prov else 'too far') + ')'
+            keep.append(x)
+    return located, keep
+
+
+def manual_only(src, out):
+    """只套用 MANUAL_PLACES（不重新抓 GEM 與 Nominatim）· apply MANUAL_PLACES to an existing output only"""
+    CACHE.mkdir(parents=True, exist_ok=True)
+    f = json.loads(src.read_text(encoding='utf-8'))
+    cols = f['meta']['cols']
+    placeholder = {(r[cols.index('iso')], r[cols.index('name')]): (r[cols.index('lat')], r[cols.index('lon')]) for r in f['rows']}
+    d = json.loads(out.read_text(encoding='utf-8'))
+    n0 = len(d['located'])
+    located, skipped = apply_manual(d['located'], d['skipped'], placeholder)
+    out.write_text(json.dumps({'meta': META, 'located': located, 'skipped': skipped}, ensure_ascii=False, indent=0), encoding='utf-8')
+    print('manual: located', len(located) - n0, 'more; skipped', len(skipped))
+    for x in skipped:
+        if x['why'].startswith('manual'):
+            print('  FAILED', x['place'], x['why'])
 
 
 META = {
@@ -394,4 +464,8 @@ META = {
 }
 
 if __name__ == '__main__':
-    main()
+    if '--manual-only' in sys.argv:
+        a = [x for x in sys.argv[1:] if x != '--manual-only']
+        manual_only(Path(a[0]), Path(a[1]))
+    else:
+        main()
