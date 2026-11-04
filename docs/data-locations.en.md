@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-locations.md)
 
 The February 2026 GEM release places many operating farms (mostly in China and India) on province- or country-centre placeholders (dozens of records on one point). The GEM project page’s “Location” still names the township, county or district, city and province, so each farm is moved to the centre of that administrative unit: the coordinate comes from Wikidata (CC0) and the unit was found with OpenStreetMap Nominatim (used only as an index; no OSM data is included). These are still **approximate** positions (the card says so): a township or county centre is not the farm itself, but far closer than a province centre. Farms that could not be located keep the placeholder and are listed under skipped in gem_locations.json.
 
-- 1204 farms: 422 at township level, 752 at county or district level, 30 at city level.
+- 1223 farms: 436 at township level, 754 at county or district level, 33 at city level.
 
 ## China (CHN)
 
@@ -917,6 +917,10 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Inner Mongolia Alxa Left Banner Beiwan distributed wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Beiwan_distributed_wind_farm) | 35 | Beiwan area, Alxa Left Banner, Alxa League, Inner Mongolia, China | [Alxa Left Banner](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | county or district |
 | [Ningxia Qingtongxia Helanshan Number 4 Hongchazi wind farm · 3](https://www.gem.wiki/Ningxia_Qingtongxia_Helanshan_Number_4_Hongchazi_wind_farm) | 10 | 1, 2, 3 RP Qingtongxia City, Wuzhong, Ningxia, China | [Wuzhong](https://www.wikidata.org/wiki/Q604517) | 37.9874, 106.1919 | county or district |
 | [Liaoning Dandong Haiyanghong wind farm](https://www.gem.wiki/Liaoning_Dandong_Haiyanghong_wind_farm) | 21 | Dandong, Liaoning, China | [Dandong](https://www.wikidata.org/wiki/Q75110) | 40.1167, 124.3833 | county or district |
+| [Inner Mongolia Alxa Left Banner Helanshan (China Aluminum) wind farm](https://www.gem.wiki/Inner_Mongolia_Alxa_Left_Banner_Helanshan_%28China_Aluminum%29_wind_farm) | 200 | Baxingtu Gacha in Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China | [Jargal Saihan](https://www.wikidata.org/wiki/Q10923997) | 37.9621, 105.366 | township |
+| [Inner Mongolia Alashanzuo Banner Helanshan (Yingxing) wind farm · 2](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_Helanshan_%28Yingxing%29_wind_farm) | 50 | 1 Alxa Left Banner, Alxa League, Inner Mongolia, China | [Alxa Left Banner](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | county or district |
+| [Inner Mongolia Alsashanzuo Banner Windpower Heating Project](https://www.gem.wiki/Inner_Mongolia_Alsashanzuo_Banner_Windpower_Heating_Project) | 50 | Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China | [Jargal Saihan](https://www.wikidata.org/wiki/Q10923997) | 37.9621, 105.366 | township |
+| [Yunnan Xundian Lianhe wind farm](https://www.gem.wiki/Yunnan_Xundian_Lianhe_wind_farm) | 100 | 1 Lianhe Xiang, Xundian, Kunming, Yunnan, China | [Lianhe Township](https://www.wikidata.org/wiki/Q28832272) | 25.9369, 102.9976 | township |
 
 ## Colombia (COL)
 
@@ -932,6 +936,7 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Hohe Heide wind farm](https://www.gem.wiki/Hohe_Heide_wind_farm) | 18 | Lower Saxony, Germany | [Lower Saxony](https://www.wikidata.org/wiki/Q1197) | 52.7561, 9.3931 | city |
 | [Borne (MDP) wind farm](https://www.gem.wiki/Borne_%28MDP%29_wind_farm) | 33 | 1 Salzlandkreis, Saxony-Anhalt, Germany | [Salzlandkreis](https://www.wikidata.org/wiki/Q6081) | 51.8333, 11.5833 | county or district |
 | [Damme wind farm · 2, RP](https://www.gem.wiki/Damme_wind_farm) | 40 | 1 Vechta district, Lower Saxony, Germany | [Vechta District](https://www.wikidata.org/wiki/Q5941) | 52.67, 8.25 | county or district |
+| [Schuby (Energy Farming) wind farm](https://www.gem.wiki/Schuby_%28Energy_Farming%29_wind_farm) | 18 | Schleswig, Schieswig-Holstein, Germany | [Schleswig](https://www.wikidata.org/wiki/Q501661) | 54.5153, 9.5697 | township |
 
 ## India (IND)
 
@@ -1141,6 +1146,10 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Nakhatrana Sn1 (GIPCL) wind farm](https://www.gem.wiki/Nakhatrana_Sn1_%28GIPCL%29_wind_farm) | 10 | Kutch, Gujarat, India | [Kutch district](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | county or district |
 | [Nakhatrana Sn5 (GIPCL) wind farm](https://www.gem.wiki/Nakhatrana_Sn5_%28GIPCL%29_wind_farm) | 10 | Kutch, Gujarat, India | [Kutch district](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | county or district |
 | [Jamanvada (GACL) I wind farm](https://www.gem.wiki/Jamanvada_%28GACL%29_I_wind_farm) | 10 | 1 Jamanvada, Kutch, Gujarat, India | [Kutch district](https://www.wikidata.org/wiki/Q1063417) | 23.13, 69.8 | county or district |
+| [Khambhaliya wind farm](https://www.gem.wiki/Khambhaliya_wind_farm) | 79 | 1 Khambaliya, Gujarat, India | [Jamkhambhaliya](https://www.wikidata.org/wiki/Q2120093) | 22.2, 69.65 | township |
+| [Bharmasagar - Devangere wind farm](https://www.gem.wiki/Bharmasagar_-_Devangere_wind_farm) | 36 | Bharmasagara, Karnataka, India | [Bharamasagara](https://www.wikidata.org/wiki/Q4901082) | 14.22, 76.4 | township |
+| [Kaythar Subhash wind farm](https://www.gem.wiki/Kaythar_Subhash_wind_farm) | 30 | Kaythar, Tamil Nadu, India | [Kayatharu](https://www.wikidata.org/wiki/Q2125845) | 8.9483, 77.7742 | township |
+| [Tirunelveli (Green Infra) wind farm](https://www.gem.wiki/Tirunelveli_%28Green_Infra%29_wind_farm) | 24 | Tirunelvellii, Tamil Nadu, India | [Tirunelveli](https://www.wikidata.org/wiki/Q213248) | 8.7289, 77.7081 | city |
 
 ## Italy (ITA)
 
@@ -1175,12 +1184,15 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Hizen South (JWE) wind farm](https://www.gem.wiki/Hizen_South_%28JWE%29_wind_farm) | 18 | Karatsu City, Saga Prefecture, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
 | [Hizen (JWE) wind farm](https://www.gem.wiki/Hizen_%28JWE%29_wind_farm) | 12 | Karatsu City, Saga, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
 | [Hizen (Daigas) wind farm](https://www.gem.wiki/Hizen_%28Daigas%29_wind_farm) | 12 | Karatsu City, Saga Prefecture, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
+| [Sandai Myojin wind farm](https://www.gem.wiki/Sandai_Myojin_wind_farm) | 34 | Iwaki, Tonomachi Kaminemoto, Fukushima Prefecture, Japan | [Iwaki](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | city |
+| [Tabito wind farm](https://www.gem.wiki/Tabito_wind_farm) | 19 | Iwaki, Kazakoshi, Fukushima Prefecture, Japan | [Iwaki](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | city |
 
 ## Kazakhstan (KAZ)
 
 | Farm | MW | GEM location | Moved to | Coordinates | Level |
 |---|---:|---|---|---|---|
 | [Borey wind farm](https://www.gem.wiki/Borey_wind_farm) | 100 | 1 Arshaly District, Akmola Region, Kazakhstan | [Arshaly District](https://www.wikidata.org/wiki/Q2321988) | 50.8314, 72.1814 | county or district |
+| [Energo Trust wind farm](https://www.gem.wiki/Energo_Trust_wind_farm) | 50 | Arshaly District, Aqmola oblysy, Kazakhstan | [Arshaly District](https://www.wikidata.org/wiki/Q2321988) | 50.8314, 72.1814 | county or district |
 
 ## Morocco (MAR)
 
@@ -1188,6 +1200,14 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 |---|---:|---|---|---|---|
 | [Jbel Lahdid wind farm](https://www.gem.wiki/Jbel_Lahdid_wind_farm) | 270 | Essaouira, Marakesh-Safi, Morocco | [Essaouira](https://www.wikidata.org/wiki/Q216939) | 31.513, -9.7687 | county or district |
 | [Oualidia wind farm](https://www.gem.wiki/Oualidia_wind_farm) | 35 | 1 Safi, Marakesh-Safi, Morocco | [Safi](https://www.wikidata.org/wiki/Q183405) | 32.2833, -9.2333 | county or district |
+
+## Netherlands (NLD)
+
+| Farm | MW | GEM location | Moved to | Coordinates | Level |
+|---|---:|---|---|---|---|
+| [Oostflakkee wind farm](https://www.gem.wiki/Oostflakkee_wind_farm) | 32 | Goeree-Overflakkee, Zuid-Holland, Netherlands | [Goeree-Overflakkee](https://www.wikidata.org/wiki/Q933459) | 51.75, 4.1167 | township |
+| [Battenoert wind farm](https://www.gem.wiki/Battenoert_wind_farm) | 14 | Goeree-Overflakkee, Zuid-Holland, Netherlands | [Goeree-Overflakkee](https://www.wikidata.org/wiki/Q933459) | 51.75, 4.1167 | township |
+| [Hellegatsplein Windpark](https://www.gem.wiki/Hellegatsplein_Windpark) | 12 | Goeree-Overflakkee, Zuid-Holland, Netherlands | [Goeree-Overflakkee](https://www.wikidata.org/wiki/Q933459) | 51.75, 4.1167 | township |
 
 ## Norway (NOR)
 
@@ -1258,6 +1278,10 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Hoya De Lucas wind farm](https://www.gem.wiki/Hoya_De_Lucas_wind_farm) | 16 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
 | [Bermejo wind farm](https://www.gem.wiki/Bermejo_wind_farm) | 13 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
 | [Vera De Abote wind farm](https://www.gem.wiki/Vera_De_Abote_wind_farm) | 11 | Arico, Tenerife, Santa Cruz de Tenerife, Canarias, Spain | [Arico](https://www.wikidata.org/wiki/Q657738) | 28.1904, -16.4977 | township |
+| [El Montecillo wind farm](https://www.gem.wiki/El_Montecillo_wind_farm) | 41 | Corella, La Ribera, Comunidad Foral de Navarra, Spain | [Corella](https://www.wikidata.org/wiki/Q550407) | 42.1147, -1.7867 | township |
+| [Corral del Molino wind farm](https://www.gem.wiki/Corral_del_Molino_wind_farm) | 52 | 1 Tudela, La Ribera, Comunidad Foral de Navarra, Spain | [Tudela](https://www.wikidata.org/wiki/Q244747) | 42.0653, -1.6067 | township |
+| [Montaña De Arinaga wind farm](https://www.gem.wiki/Monta%C3%B1a_De_Arinaga_wind_farm) | 19 | 1 Agüimes, Gran Canaria, Canarias, Spain | [Agüimes](https://www.wikidata.org/wiki/Q23990990) | 27.9051, -15.4448 | township |
+| [El Hierro Hidroeólico wind farm](https://www.gem.wiki/El_Hierro_Hidroe%C3%B3lico_wind_farm) | 12 | Valverde, El Hierro, Santa Cruz de Tenerife, Canarias, Spain | [Valverde](https://www.wikidata.org/wiki/Q1853429) | 27.8097, -17.9151 | township |
 
 ## United States of America (USA)
 

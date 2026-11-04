@@ -15,6 +15,8 @@ GEM 2026-02 版把約 1,350 座營運中風場（多在中國、印度）放在�
   4. 輸出 {name, iso, place, gem_url, wikidata, lat, lon, label_zh, label_en, level}，由 tools/farm_cleanup.py 的 GEM_LOC_RULES
      套用成「概略位置」的更正（仍標 flags 1：鄉鎮或縣中心不是風場本身的位置，但比省中心近得多）。
 定位不到、或檢查不過的寫在 "skipped"，不臆測。
+  5. GEM 拼錯地名或代用點本身就錯的，用人工核對的 MANUAL_PLACES（地點文字 → Wikidata 項目，程式再檢查邦省與縣）；
+     只套用這張表：python3 tools/fetch_gem_locations.py --manual-only data/global/wind_farms.json data/global/sources/gem_locations.json
 
 The February 2026 GEM release places about 1,350 operating farms (mostly China and India) on province- or country-centre
 placeholders (location-accuracy = approximate, dozens of records on one point). The GEM project page's Location table still
@@ -127,7 +129,8 @@ PROV_ALIAS = {'castillayleon': 'castileandleon', 'castillalamancha': 'castilelam
               'cataluna': 'catalonia', 'catalunya': 'catalonia', 'paisvasco': 'basquecountry', 'euskadi': 'basquecountry', 'comunidadvalenciana': 'valenciancommunity',
               'islascanarias': 'canaryislands', 'canarias': 'canaryislands', 'siciliy': 'sicily', 'sicilia': 'sicily', 'puglia': 'apulia', 'sardegna': 'sardinia', 'toscana': 'tuscany',
               'hokkadio': 'hokkaido', 'zaragosa': 'zaragoza', 'ananthapuramu': 'anantapur', 'marakeshsafi': 'marrakeshsafi', 'innermongolia': 'innermongolia',
-              'xinjianguyghur': 'xinjiang', 'guangxizhuang': 'guangxi', 'ningxiahui': 'ningxia', 'tibet': 'tibet'}
+              'xinjianguyghur': 'xinjiang', 'guangxizhuang': 'guangxi', 'ningxiahui': 'ningxia', 'tibet': 'tibet',
+              'comunidadforaldenavarra': 'navarre', 'navarra': 'navarre', 'zuidholland': 'southholland', 'schieswigholstein': 'schleswigholstein', 'aqmola': 'akmola'}
 
 
 QUERY_FIX = {'Hokkadio': 'Hokkaido', 'Siciliy': 'Sicily', 'Zaragosa': 'Zaragoza', 'Ananthapuramu': 'Anantapur', 'Marakesh-Safi': 'Marrakesh-Safi', 'Anantpur': 'Anantapur',
@@ -384,8 +387,110 @@ def main():
             skipped.append(x)
         if (n + 1) % 25 == 0:
             print(time.strftime('%H:%M:%S'), 'wikidata search', n + 1, '/', len(retry), 'located', len(located), flush=True)
+    located, skipped = apply_manual(located, skipped, placeholder)
     out.write_text(json.dumps({'meta': META, 'located': located, 'skipped': skipped}, ensure_ascii=False, indent=0), encoding='utf-8')
     print('done', len(todo), 'located', len(located), 'skipped', len(skipped))
+
+
+# 第五階段：人工核對的地名 → Wikidata 項目（GEM 拼錯、或同名村落太多讓自動搜尋放棄的）。每條都人工看過 Wikidata 項目的
+# 名稱、說明與所在行政區；程式再檢查一次：項目有座標、P131 鏈上有 GEM 寫的邦（省）、與代用點相距 800 km 內。不符合就不用。
+# Hand-checked place → Wikidata item for places the automatic search gave up on (GEM misspellings, or many villages sharing the name).
+# Each item's label, description and containing areas were read by hand; the script checks again that it has a coordinate, that the
+# state/province GEM names is in its P131 chain and that it lies within 800 km of the placeholder, and skips it otherwise.
+#   '地點文字（與 GEM 頁面相同）': ('Q 編號', 'township'|'county'|'city', '中文說明', 'English note'[, '必須在 P131 鏈上的縣或市'])
+#   第 5 欄只用在代用點本身就錯的時候（例：內蒙古的代用點在東部、阿拉善在 900 km 外；雲南的代用點在澳門；加那利群島的代用點在西班牙本土）：
+#   這時不檢查 800 km，改要求所在行政區鏈上也有這個縣（市）。
+#   The optional 5th field is used only where the placeholder itself is wrong (Inner Mongolia's sits in the east, 900 km from Alxa; Yunnan's
+#   is in Macau; the Canary Islands' is on the Spanish mainland): the 800 km test is replaced by requiring that county/city in the P131 chain.
+MANUAL_PLACES = {
+    # 2026-11-04 核對（Wikidata API 回 429 時改用 SPARQL 一次查完）· checked 4 Nov 2026
+    "Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China": ('Q10923997', 'township', '嘉爾嘎勒賽漢鎮（GEM 的拼音）', "Jargal Saihan town (GEM's romanisation)", 'Alxa Left Banner'),
+    "Baxingtu Gacha in Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China": ('Q10923997', 'township', '巴興圖嘎查所在的嘉爾嘎勒賽漢鎮', 'Jargal Saihan, the town that holds Baxingtu gacha', 'Alxa Left Banner'),
+    '1 Alxa Left Banner, Alxa League, Inner Mongolia, China': ('Q1367222', 'county', '阿拉善左旗', 'Alxa Left Banner', 'Alxa League'),
+    '1 Lianhe Xiang, Xundian, Kunming, Yunnan, China': ('Q28832272', 'township', '尋甸縣聯合鄉', 'Lianhe Township, Xundian', 'Xundian Hui and Yi Autonomous County'),
+    'Corella, La Ribera, Comunidad Foral de Navarra, Spain': ('Q550407', 'township', '納瓦拉的科雷利亞市鎮', 'the municipality of Corella, Navarre'),
+    '1 Tudela, La Ribera, Comunidad Foral de Navarra, Spain': ('Q244747', 'township', '納瓦拉的圖德拉市鎮', 'the municipality of Tudela, Navarre'),
+    'Goeree-Overflakkee, Zuid-Holland, Netherlands': ('Q933459', 'township', '南荷蘭省胡雷-上弗拉凱市（島與市同名）', 'the island municipality of Goeree-Overflakkee, South Holland'),
+    'Valverde, El Hierro, Santa Cruz de Tenerife, Canarias, Spain': ('Q1853429', 'township', '耶羅島的巴爾韋爾德市鎮', 'the municipality of Valverde on El Hierro', 'Santa Cruz de Tenerife Province'),
+    '1 Agüimes, Gran Canaria, Canarias, Spain': ('Q23990990', 'township', '大加那利島阿圭梅斯鎮', 'the town of Agüimes, Gran Canaria', 'Las Palmas'),
+    'Arshaly District, Aqmola oblysy, Kazakhstan': ('Q2321988', 'county', '阿克莫拉州阿爾沙雷區', 'Arshaly District, Akmola Region'),
+    '1 Khambaliya, Gujarat, India': ('Q2120093', 'township', '古吉拉特邦坎帕利亞鎮（GEM 拼成 Khambaliya）', 'the town of Khambhaliya, Gujarat (GEM spells it Khambaliya)'),
+    'Tirunelvellii, Tamil Nadu, India': ('Q213248', 'city', '蒂魯內爾維利市（GEM 拼錯）', 'the city of Tirunelveli (misspelt on GEM)'),
+    'Bharmasagara, Karnataka, India': ('Q4901082', 'township', '奇特拉杜爾加縣巴拉馬薩加拉村', 'Bharamasagara village, Chitradurga district'),
+    'Kaythar, Tamil Nadu, India': ('Q2125845', 'township', '圖特庫迪縣卡耶塔魯村（GEM 拼成 Kaythar）', 'Kayatharu village, Thoothukudi district (GEM spells it Kaythar)'),
+    'Iwaki, Tonomachi Kaminemoto, Fukushima Prefecture, Japan': ('Q274384', 'city', '福島縣磐城市', 'Iwaki city, Fukushima'),
+    'Iwaki, Kazakoshi, Fukushima Prefecture, Japan': ('Q274384', 'city', '福島縣磐城市', 'Iwaki city, Fukushima'),
+    'Schleswig, Schieswig-Holstein, Germany': ('Q501661', 'township', '石勒蘇益格鎮（GEM 把州名拼錯）', 'the town of Schleswig (GEM misspells the state)'),
+}
+# 沒有寫進來的（核對過但不採用）：Rokkasho（GEM 寫北海道，六所村在青森縣）、Tainai City（GEM 寫青森縣，胎內市在新潟縣）——GEM 的省與地名矛盾，不判斷是哪一個錯。
+# Left out on purpose: Rokkasho (GEM says Hokkaido; the village is in Aomori) and Tainai City (GEM says Aomori; the city is in Niigata) — GEM's place and prefecture contradict each other.
+
+
+def manual_items(qids):
+    """一次 SPARQL 查出項目的座標、中英文標籤與所在行政區鏈（Wikidata API 常回 429）· coordinates, labels and P131 chain in one SPARQL query"""
+    query = ('SELECT ?i ?c ?en ?zh (GROUP_CONCAT(DISTINCT ?al; separator="|") AS ?chain) WHERE { VALUES ?i { ' + ' '.join('wd:' + q for q in sorted(set(qids))) + ' } '
+             '?i wdt:P625 ?c. OPTIONAL { ?i rdfs:label ?en FILTER(LANG(?en) = "en") } OPTIONAL { ?i rdfs:label ?zh FILTER(LANG(?zh) IN ("zh-hant", "zh", "zh-hans")) } '
+             'OPTIONAL { ?i wdt:P131+ ?a. ?a rdfs:label ?al FILTER(LANG(?al) = "en") } } GROUP BY ?i ?c ?en ?zh')
+    t = get(SPARQL + '?' + urllib.parse.urlencode({'query': query, 'format': 'json'}), retries=5, ua=WD_UA)
+    if t.startswith('ERR'):
+        raise SystemExit('Wikidata SPARQL failed: ' + t)
+    out = {}
+    rows = sorted(json.loads(t)['results']['bindings'], key=lambda r: (r['i']['value'], r['c']['value']))   # 有兩個座標時固定取排序第一個 · deterministic pick when an item has two
+    for r in rows:
+        q = r['i']['value'].rsplit('/', 1)[1]
+        if q in out:
+            continue
+        m = re.match(r'Point\(([-\d.]+) ([-\d.]+)\)', r['c']['value'])
+        if not m:
+            continue
+        out[q] = dict(lat=round(float(m.group(2)), 4), lon=round(float(m.group(1)), 4), label_en=r.get('en', {}).get('value', ''),
+                      label_zh=r.get('zh', {}).get('value', ''), chain=r.get('chain', {}).get('value', '').split('|'))
+    return out
+
+
+def apply_manual(located, skipped, placeholder):
+    use = [x for x in skipped if x.get('place') in MANUAL_PLACES]
+    if not use:
+        return located, skipped
+    wd = manual_items([MANUAL_PLACES[x['place']][0] for x in use])
+    keep = []
+    for x in skipped:
+        if x.get('place') not in MANUAL_PLACES:
+            keep.append(x); continue
+        q, level, _zh, _en, *far = MANUAL_PLACES[x['place']]
+        w = wd.get(q)
+        parts = [p.strip() for p in x['place'].split(',') if p.strip()]
+        prov = parts[-2] if len(parts) >= 3 else parts[-1]          # 地點文字都以國名結尾 · place texts end with the country
+        prov_n = norm(strip_accents(re.sub(r'\b(province|state|prefecture|region|oblast|oblysy)( of)?\b', '', prov, flags=re.I)))
+        prov_c = {prov_n, PROV_ALIAS.get(prov_n, prov_n)}
+        ok_prov = bool(w) and any(norm(strip_accents(re.sub(r'\b(Province|State|Prefecture|Autonomous Region|Oblast|Region)( of)?\b', '', c))) in prov_c for c in w['chain'])
+        p0 = placeholder.get((x['iso'], x['name']))
+        near = p0 is None or km(p0[0], p0[1], w['lat'], w['lon']) <= MAX_KM if w else False
+        if far and w:
+            near = any(norm(strip_accents(c)) == norm(strip_accents(far[0])) for c in w['chain'])
+        if w and ok_prov and near:
+            g = {k: v for k, v in w.items() if k != 'chain'}
+            located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], wikidata=q, query='manual:' + q, level=level, **g))
+        else:
+            x['why'] = 'manual Wikidata item failed the check (' + ('no coordinate' if not w else 'province not in P131 chain' if not ok_prov else 'county not in P131 chain' if far else 'too far') + ')'
+            keep.append(x)
+    return located, keep
+
+
+def manual_only(src, out):
+    """只套用 MANUAL_PLACES（不重新抓 GEM 與 Nominatim）· apply MANUAL_PLACES to an existing output only"""
+    CACHE.mkdir(parents=True, exist_ok=True)
+    f = json.loads(src.read_text(encoding='utf-8'))
+    cols = f['meta']['cols']
+    placeholder = {(r[cols.index('iso')], r[cols.index('name')]): (r[cols.index('lat')], r[cols.index('lon')]) for r in f['rows']}
+    d = json.loads(out.read_text(encoding='utf-8'))
+    n0 = len(d['located'])
+    located, skipped = apply_manual(d['located'], d['skipped'], placeholder)
+    out.write_text(json.dumps({'meta': META, 'located': located, 'skipped': skipped}, ensure_ascii=False, indent=0), encoding='utf-8')
+    print('manual: located', len(located) - n0, 'more; skipped', len(skipped))
+    for x in skipped:
+        if x['why'].startswith('manual'):
+            print('  FAILED', x['place'], x['why'])
 
 
 META = {
@@ -394,4 +499,8 @@ META = {
 }
 
 if __name__ == '__main__':
-    main()
+    if '--manual-only' in sys.argv:
+        a = [x for x in sys.argv[1:] if x != '--manual-only']
+        manual_only(Path(a[0]), Path(a[1]))
+    else:
+        main()
