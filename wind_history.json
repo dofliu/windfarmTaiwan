@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-05T00:23:35+08:00",
+  "updated": "2026-11-05T00:31:10+08:00",
   "interval_min": 15,
   "points": [
     {
@@ -10852,7 +10852,7 @@
       "total": 16.0
     },
     {
-      "t": "2026-11-05T00:10:00",
+      "t": "2026-11-05T00:20:00",
       "farms": {
         "guanyuan": 0.0,
         "taichungport": 0.0,
@@ -10860,7 +10860,7 @@
         "changgong": 0.0,
         "yunmai": 0.0,
         "sihu": 0.0,
-        "tpc-other-on": 13.5,
+        "tpc-other-on": 13.4,
         "dapeng": 0.0,
         "luwei": 0.0,
         "guanwei": 0.0,
@@ -10917,7 +10917,7 @@
         "longA": 0.0,
         "longB": 0.0
       },
-      "total": 14.7
+      "total": 14.6
     }
   ]
 }
