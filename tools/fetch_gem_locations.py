@@ -128,7 +128,7 @@ PROV_ALIAS = {'castillayleon': 'castileandleon', 'castillalamancha': 'castilelam
               'islascanarias': 'canaryislands', 'canarias': 'canaryislands', 'siciliy': 'sicily', 'sicilia': 'sicily', 'puglia': 'apulia', 'sardegna': 'sardinia', 'toscana': 'tuscany',
               'hokkadio': 'hokkaido', 'zaragosa': 'zaragoza', 'ananthapuramu': 'anantapur', 'marakeshsafi': 'marrakeshsafi', 'innermongolia': 'innermongolia',
               'xinjianguyghur': 'xinjiang', 'guangxizhuang': 'guangxi', 'ningxiahui': 'ningxia', 'tibet': 'tibet',
-              'comunidadforaldenavarra': 'navarre', 'navarra': 'navarre', 'zuidholland': 'southholland'}
+              'comunidadforaldenavarra': 'navarre', 'navarra': 'navarre', 'zuidholland': 'southholland', 'schieswigholstein': 'schleswigholstein', 'aqmola': 'akmola'}
 
 
 QUERY_FIX = {'Hokkadio': 'Hokkaido', 'Siciliy': 'Sicily', 'Zaragosa': 'Zaragoza', 'Ananthapuramu': 'Anantapur', 'Marakesh-Safi': 'Marrakesh-Safi', 'Anantpur': 'Anantapur',
@@ -433,9 +433,9 @@ def apply_manual(located, skipped, placeholder):
         parts = [p.strip() for p in x['place'].split(',') if p.strip()]
         prov = parts[-2] if parts[-1].lower() in COUNTRIES else parts[-1]
         chain = p131_chain(q) or []
-        prov_n = norm(strip_accents(re.sub(r'\b(province|state|prefecture|region)\b', '', prov, flags=re.I)))
+        prov_n = norm(strip_accents(re.sub(r'\b(province|state|prefecture|region|oblast|oblysy)( of)?\b', '', prov, flags=re.I)))
         prov_c = {prov_n, PROV_ALIAS.get(prov_n, prov_n)}
-        ok_prov = any(norm(strip_accents(re.sub(r'\b(Province|State|Prefecture|Autonomous Region)\b', '', c))) in prov_c for c in chain)
+        ok_prov = any(norm(strip_accents(re.sub(r'\b(Province|State|Prefecture|Autonomous Region|Oblast|Region)( of)?\b', '', c))) in prov_c for c in chain)
         p0 = placeholder.get((x['iso'], x['name']))
         if w and ok_prov and (p0 is None or km(p0[0], p0[1], w['lat'], w['lon']) <= MAX_KM):
             located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], wikidata=q, query='manual:' + q, level=level, **w))
