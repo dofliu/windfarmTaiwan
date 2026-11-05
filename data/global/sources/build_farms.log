@@ -825,6 +825,7 @@ CLEAN fix CHN Hunan Zixing Bamianshan wind farm · 1 50.0
 CLEAN fix CHN Hunan Zixing Lianping wind farm 65.0
 CLEAN fix CHN Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (Huaneng) wind farm 400.0
 CLEAN fix CHN Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (Shandong Energy) wind farm 400.0
+CLEAN fix CHN Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (State Power Investment) wind farm 400.0
 CLEAN fix CHN Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage Power Export (Datang) wind farm 400.0
 CLEAN fix CHN Inner Mongolia - Shandong Power Export Hanggin Banner  (China Resources) wind farm 100.0
 CLEAN fix CHN Inner Mongolia - Shandong Power Export Hanggin Banner (State Development Investment) wind farm 150.0
@@ -841,6 +842,8 @@ CLEAN fix CHN Inner Mongolia Abaga Banner Bieligutai Power Export (Huaneng Huabe
 CLEAN fix CHN Inner Mongolia Abaga Banner Bieligutai Power Export (State Power Investment) wind farm 227.0
 CLEAN fix CHN Inner Mongolia Alashanyou Banner (Huadian) wind farm 150.0
 CLEAN fix CHN Inner Mongolia Alashanyou Banner (State Power Investment) wind farm 200.0
+CLEAN fix CHN Inner Mongolia Alashanzuo Banner (Qinghua) wind farm 100.0
+CLEAN fix CHN Inner Mongolia Alashanzuo Banner Helanshan (Hanasi) wind farm 200.0
 CLEAN fix CHN Inner Mongolia Alashanzuo Banner Helanshan (Yingxing) wind farm · 2 50.0
 CLEAN fix CHN Inner Mongolia Alashanzuo Banner Zongbieli (China Resources) wind farm 200.0
 CLEAN fix CHN Inner Mongolia Alsashanzuo Banner Windpower Heating Project 50.0
@@ -1395,6 +1398,7 @@ CLEAN fix CHN Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 3 56.0
 CLEAN fix CHN Xinjiang Urumqi (Huadian Dabancheng) wind farm · Area 4, Area 5 300.0
 CLEAN fix CHN Xinjiang Urumqi Tuoli (China Energy Conservation) 100 MW wind farm 100.0
 CLEAN fix CHN Xinjiang Weihuliang 300 MW Dabancheng wind farm 300.0
+CLEAN fix CHN Yunnan Fumin Baihuashan wind farm 48.0
 CLEAN fix CHN Yunnan Fuyuan Shengjing wind farm 48.0
 CLEAN fix CHN Yunnan Fuyuan Wenbishan wind farm 40.0
 CLEAN fix CHN Yunnan Fuyuan Yibashan wind farm 48.0
@@ -1403,6 +1407,7 @@ CLEAN fix CHN Yunnan Qiaojia Xinchanggou wind farm 50.0
 CLEAN fix CHN Yunnan Qiaojia Xiyangtang wind farm 50.0
 CLEAN fix CHN Yunnan Xiangyun Yangjiafang wind farm 36.0
 CLEAN fix CHN Yunnan Xiangyun Yemaoshan wind farm 50.0
+CLEAN fix CHN Yunnan Xundian Dezhulong wind farm · 2, 3 96.0
 CLEAN fix CHN Yunnan Xundian Lianhe wind farm 100.0
 CLEAN fix CHN Yunnan Yongshan Dapingzi wind farm 50.0
 CLEAN fix CHN Yunnan Yuxi Tonghai Wunaoshan wind farm 48.0
@@ -1455,6 +1460,7 @@ CLEAN fix DEU Schuby (Energy Farming) wind farm 18.0
 CLEAN fix DEU Speckberg wind farm 28.0
 CLEAN fix DEU Streumen wind farm 13.0
 CLEAN fix DEU Süderauerdorf wind farm 12.0
+CLEAN fix DEU Timpberg wind farm 28.0
 CLEAN fix DEU Twist (Wea) wind farm 40.0
 CLEAN fix DEU Uelitz wind farm 30.0
 CLEAN fix DEU Windanker wind farm 300.0
@@ -1783,6 +1789,7 @@ CLEAN fix IND Khodiyasar (Roha) wind farm 20.0
 CLEAN fix IND Kita (Orix) wind farm 39.0
 CLEAN fix IND Kotadapitha wind farm 15.0
 CLEAN fix IND Kotiya (Oil India) wind farm 27.0
+CLEAN fix IND Kuchddi wind farm 69.0
 CLEAN fix IND Kutch (Adani) I wind farm 50.0
 CLEAN fix IND Kutch (Adani) II wind farm 50.0
 CLEAN fix IND Kutch (Adani) III wind farm 50.0
@@ -1822,10 +1829,12 @@ CLEAN fix IND Ludarwa wind farm 100.0
 CLEAN fix IND Ludurva (Oil India) wind farm 14.0
 CLEAN fix IND Ludurwa (NALCO) wind farm 48.0
 CLEAN fix IND MPR Dam (Axis) wind farm 100.0
+CLEAN fix IND Mahidad (Goenka) wind farm 26.0
 CLEAN fix IND Mahuriya (Suzlon) I wind farm 15.0
 CLEAN fix IND Mahuriya (Suzlon) II wind farm 15.0
 CLEAN fix IND Maliya wind farm 40.0
 CLEAN fix IND Mamatkheda wind farm 101.0
+CLEAN fix IND Matalpur wind farm 34.0
 CLEAN fix IND Modha Ganeshpur I wind farm 24.0
 CLEAN fix IND Modha Ganeshpur II wind farm 28.0
 CLEAN fix IND Modha wind farm 52.0
@@ -1855,6 +1864,7 @@ CLEAN fix IND Pipartoda Jamnagar wind farm 26.0
 CLEAN fix IND Pithala Satta Gorera (Hpcl) wind farm 21.0
 CLEAN fix IND Pohara Baramsar wind farm 11.0
 CLEAN fix IND Poly wind farm 24.0
+CLEAN fix IND Poolavadi (Chettinad) wind farm 17.0
 CLEAN fix IND Poolavadi (Tata) wind farm 99.0
 CLEAN fix IND Poovani wind farm 200.0
 CLEAN fix IND Pottipadu (Mytrah) I wind farm 23.0
@@ -1870,6 +1880,7 @@ CLEAN fix IND Rajpara Sardhar (GSFC) wind farm 29.0
 CLEAN fix IND Ralla wind farm 197.0
 CLEAN fix IND Ramagiri wind farm 10.0
 CLEAN fix IND Rastha wind farm 10.0
+CLEAN fix IND Ratadi wind farm 34.0
 CLEAN fix IND Ratedi wind farm 24.0
 CLEAN fix IND Ratlam (Choksi) I wind farm 15.0
 CLEAN fix IND Ratlam (Suzlon) I wind farm 14.0
@@ -1937,6 +1948,7 @@ CLEAN fix IND Varshamedi (GACL) wind farm 15.0
 CLEAN fix IND Varshamedi (GSPL) wind farm 32.0
 CLEAN fix IND Vashpet wind farm 45.0
 CLEAN fix IND Vejalpar (Giriraj) I wind farm 12.0
+CLEAN fix IND Vejalpar (Giriraj) II wind farm 10.0
 CLEAN fix IND Verdant wind farm 105.0
 CLEAN fix IND Vijayapura (Giriraj) I wind farm 10.0
 CLEAN fix IND Vijayapura (Giriraj) II wind farm 20.0
@@ -1980,6 +1992,7 @@ CLEAN fix ITA Vrg Wind 040 wind farm 30.0
 CLEAN fix JPN Abukuma South wind farm 89.6
 CLEAN fix JPN Banya wind farm 18.0
 CLEAN fix JPN Choshi Offshore Demonstration (NEDO/TEPCO) 2.4
+CLEAN fix JPN Date Kitakogane wind farm 13.0
 CLEAN fix JPN Eurus Akita Port semi-offshore 3.0
 CLEAN fix JPN Fukushima FORWARD floating demo 14.0
 CLEAN fix JPN Goto City Offshore floating project 16.8
@@ -2140,6 +2153,8 @@ CLEAN fix TWN Yunlin 640.0
 CLEAN fix TWN Yunlin Taixi 16.8
 CLEAN fix TWN Yunmai (Mailiao) 46.0
 CLEAN fix TWN Zhong Neng 298.0
+CLEAN fix UKR Dmitrievskaya wind farm 30.0
+CLEAN fix UKR Tuzlovskaya wind farm 12.0
 CLEAN fix URY Luz De Loma wind farm 20.0
 CLEAN fix URY Luz De Mar wind farm 18.0
 CLEAN fix URY Luz De Rio wind farm 50.0
@@ -2180,6 +2195,7 @@ CLEAN fix VNM Hoa Binh 2 50.0
 CLEAN fix VNM Hoa Binh 2 50.0
 CLEAN fix VNM Ia Bang wind farm 50.0
 CLEAN fix VNM Ia Le wind farm 47.0
+CLEAN fix VNM Ia Pếch wind farm 66.0
 CLEAN fix VNM Lạc Hòa wind farm 154.0
 CLEAN fix VNM Soc Trang 1 Phase 1 (Cong Ly) 30.0
 CLEAN fix VNM Soc Trang 1 Phase 1 (Cong Ly) 30.0

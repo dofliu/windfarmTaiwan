@@ -343,7 +343,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   修正 52 筆的座標、容量、年份、分期或狀態；比對名稱時先把繁體轉成簡體並比較分區代號（江蘇等地同一座離岸風場不再重複收錄）；
   共用省或國家中心代用座標的風場在地圖上示意排開並註明。逐筆理由與出處見 [docs/data-cleanup.md](./docs/data-cleanup.md)
 - 2026 年 10 月：只有省或國家中心代用座標的營運中風場，依 GEM 專案頁寫的鄉鎮或縣，改用 Wikidata（CC0）該地項目的座標當概略位置（`tools/fetch_gem_locations.py`，
-  OpenStreetMap Nominatim 只當查詢索引、不寫出 OSM 資料；仍標概略位置），逐場清單見 [docs/data-locations.md](./docs/data-locations.md)；GEM 拼錯地名或代用點本身就錯的，以人工核對的 Wikidata 項目定位（`MANUAL_PLACES`，2026 年 11 月加 19 座）；查不到的仍共用省中心
+  OpenStreetMap Nominatim 只當查詢索引、不寫出 OSM 資料；仍標概略位置），逐場清單見 [docs/data-locations.md](./docs/data-locations.md)；GEM 拼錯地名或代用點本身就錯的，以人工核對的 Wikidata 項目定位（`MANUAL_PLACES`，2026 年 11 月加 35 座）；查不到的仍共用省中心
 - 2026 年 9 月比對 OSPAR 離岸風場資料時，另刪除 2 筆重複：GEM 的比利時「C-Power」整場合計（與 Thornton Bank 一、二、三期重複），
   以及法國 Saint-Brieuc 座標偏離約 170 km 的第二筆
 - 2026 年 9 月查歐洲離岸風場水下基礎（第 2 步）時，另以 26 條規則更正：英國 Sofia、法國 Calvados 原本誤列為 2025 年營運中（其實仍在興建）；

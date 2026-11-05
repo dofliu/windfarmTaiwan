@@ -135,5 +135,30 @@
     "quote": "Brookfield Renewable,Shantavy Scotch,Wind Onshore,,,14,,,,,,,,7,100,,Planning Permission Granted,Awaiting Construction"
    }
   ]
+ },
+ {
+  "farm": "IND Kukru wind farm / Kukru (United Sustainable) / Betul (Atria)",
+  "verdict": "unclear",
+  "keep": "",
+  "why_zh": "2026-11-05 每週排程新線索：Gamesa 2016 年 2 月替 Atria 接的 50 MW（25 部 G97）是在 Kukru 風場，而 power-technology 把同樣的 25 部 G97 列為「Atria Wind Farm-Betul」第二期；The Wind Power 另有 Kukru 100 MW（一期 25 部 G97、另一期 50 MW）且寫「Betul (0 km)」。本站在貝圖爾／Kukru 一帶共有 6 筆（Betul 4 筆各 50 MW、Kukru (United Sustainable) 50 MW、Kukru 25 MW），合計 275 MW，可引用的只有 Betul Wind Farms 兩期 99.5 MW；但找不到逐場登記能確認其餘是否為其他業主的風場（Kukru 25 MW 的座標也在 150 km 外的省中心附近）。待查：MPNRED 或 MPPMCL 的風場購電名單。",
+  "why_en": "New lead from the 5 Nov 2026 weekly run: Gamesa's February 2016 50 MW order from Atria (25 × G97) was for the Kukru wind farm, while power-technology lists the same 25 G97 machines as phase II of 'Atria Wind Farm-Betul'; The Wind Power also has a 100 MW Kukru (one part of 25 G97 and another of 50 MW) with 'Betul (0 km)'. The site has six records around Betul/Kukru (four 50 MW Betul, Kukru (United Sustainable) 50 MW and Kukru 25 MW), 275 MW in all, while the only quotable figure is Betul Wind Farms' two phases of 99.5 MW; no per-farm register was found to show whether the rest belong to other owners (the 25 MW Kukru point also sits near a state-centre placeholder 150 km away). Next: MPNRED or MPPMCL lists of wind power purchase agreements.",
+  "sources": [
+   {
+    "url": "https://www.energetica-india.net/news/-gamesa-secures-50-mw-wind-turbine-order-from-atria-power",
+    "quote": "Gamesa India, has announced a new 50 MW wind power project with Atria Power to be commissioned in Kukru wind farm, Madhya Pradesh by 31 March 2016."
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_23266_kukru.php",
+    "quote": "Kukru (India) Operational (100 MW)"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_23266_kukru.php",
+    "quote": "City Kukru Commissioning Turbines 25x Gamesa G97/2000 (power 2,000 kW, diameter 97 m) Total nominal power 50,000 kW"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_23266_kukru.php",
+    "quote": "Nearby wind farms Betul (0 km)"
+   }
+  ]
  }
 ]
