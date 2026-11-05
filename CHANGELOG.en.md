@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.5 — 2026-11-05
+
+- **Farm positions**: 16 more operating farms that still sat on province or country-centre placeholders now use the centre of their township, district or city (still flagged approximate; `MANUAL_PLACES` in `tools/fetch_gem_locations.py`): three in Alxa Left Banner, Inner Mongolia (Aolunbulage, Barun Bieli and the banner centre), Xundian and Luomian (Fumin) in Yunnan, five in Gujarat and one in Tamil Nadu, India (the villages have no Wikidata item, so the district centre is used only where GEM names the district too), two in the former Ochakiv Raion, Ukraine, Date city in Hokkaido, Ia Grai district in Gia Lai, Vietnam, and the town of Zehdenick, Germany. Unlocated farms 120 → 104; see [docs/data-locations.en.md](./docs/data-locations.en.md).
+
 ## v3.22.4 — 2026-11-04
 
 - **Farm positions**: 19 more operating farms that still sat on a province or country placeholder now sit on a township or county centre (still flagged approximate): where GEM misspells the place (Kaythar, Tirunelvellii, Khambaliya, the state "Schieswig-Holstein") or the placeholder itself is wrong (Inner Mongolia's is 900 km from Alxa, Yunnan's is in Macau, the Canary Islands' is on the Spanish mainland), a hand-checked Wikidata item is used (`MANUAL_PLACES` in `tools/fetch_gem_locations.py`; the script re-checks the state/province and county): 3 in Alxa Left Banner (Inner Mongolia), Xundian (Yunnan), 2 in Navarre and 2 in the Canary Islands (Spain), 3 on Goeree-Overflakkee (Netherlands), 2 in Iwaki (Japan), 4 in India, and 1 each in Germany and Kazakhstan. Unlocated farms drop from 139 to 120; see [docs/data-locations.en.md](./docs/data-locations.en.md).

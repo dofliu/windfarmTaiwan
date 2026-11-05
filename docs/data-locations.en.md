@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-locations.md)
 
 The February 2026 GEM release places many operating farms (mostly in China and India) on province- or country-centre placeholders (dozens of records on one point). The GEM project page’s “Location” still names the township, county or district, city and province, so each farm is moved to the centre of that administrative unit: the coordinate comes from Wikidata (CC0) and the unit was found with OpenStreetMap Nominatim (used only as an index; no OSM data is included). These are still **approximate** positions (the card says so): a township or county centre is not the farm itself, but far closer than a province centre. Farms that could not be located keep the placeholder and are listed under skipped in gem_locations.json.
 
-- 1223 farms: 436 at township level, 754 at county or district level, 33 at city level.
+- 1239 farms: 440 at township level, 765 at county or district level, 34 at city level.
 
 ## China (CHN)
 
@@ -921,6 +921,11 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Inner Mongolia Alashanzuo Banner Helanshan (Yingxing) wind farm · 2](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_Helanshan_%28Yingxing%29_wind_farm) | 50 | 1 Alxa Left Banner, Alxa League, Inner Mongolia, China | [Alxa Left Banner](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | county or district |
 | [Inner Mongolia Alsashanzuo Banner Windpower Heating Project](https://www.gem.wiki/Inner_Mongolia_Alsashanzuo_Banner_Windpower_Heating_Project) | 50 | Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China | [Jargal Saihan](https://www.wikidata.org/wiki/Q10923997) | 37.9621, 105.366 | township |
 | [Yunnan Xundian Lianhe wind farm](https://www.gem.wiki/Yunnan_Xundian_Lianhe_wind_farm) | 100 | 1 Lianhe Xiang, Xundian, Kunming, Yunnan, China | [Lianhe Township](https://www.wikidata.org/wiki/Q28832272) | 25.9369, 102.9976 | township |
+| [Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (State Power Investment) wind farm](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Alxa_Left_Banner_Aolunbulage_%28State_Power_Investment%29_wind_farm) | 400 | Bayinhari Gacha in Aolubulage, Alxa Left Banner, Alxa League, Inner Mongolia, China | [Olon Bulag](https://www.wikidata.org/wiki/Q11079137) | 40.4219, 106.1989 | township |
+| [Inner Mongolia Alashanzuo Banner Helanshan (Hanasi) wind farm](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_Helanshan_%28Hanasi%29_wind_farm) | 200 | Barunbiela, Alxa Left Banner, Alxa League, Inner Mongolia, China | [Barun Beil](https://www.wikidata.org/wiki/Q11059231) | 38.5333, 105.6044 | township |
+| [Inner Mongolia Alashanzuo Banner (Qinghua) wind farm](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_%28Qinghua%29_wind_farm) | 100 | Tengger Economic and Technical Zone, Alxa Left Banner, Alxa League, Inner Mongolia, China | [Alxa Left Banner](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | county or district |
+| [Yunnan Xundian Dezhulong wind farm · 2, 3](https://www.gem.wiki/Yunnan_Xundian_Dezhulong_wind_farm) | 96 | 1 Changdian Zhen, Xundian, Kunming, Yunnan, China | [Xundian Hui and Yi Autonomous County](https://www.wikidata.org/wiki/Q1339949) | 25.5633, 103.2558 | county or district |
+| [Yunnan Fumin Baihuashan wind farm](https://www.gem.wiki/Yunnan_Fumin_Baihuashan_wind_farm) | 48 | Luomian Zhen, Fumin, Kunming, Yunnan, China | [Luomian Town](https://www.wikidata.org/wiki/Q14180697) | 25.3394, 102.4565 | township |
 
 ## Colombia (COL)
 
@@ -937,6 +942,7 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Borne (MDP) wind farm](https://www.gem.wiki/Borne_%28MDP%29_wind_farm) | 33 | 1 Salzlandkreis, Saxony-Anhalt, Germany | [Salzlandkreis](https://www.wikidata.org/wiki/Q6081) | 51.8333, 11.5833 | county or district |
 | [Damme wind farm · 2, RP](https://www.gem.wiki/Damme_wind_farm) | 40 | 1 Vechta district, Lower Saxony, Germany | [Vechta District](https://www.wikidata.org/wiki/Q5941) | 52.67, 8.25 | county or district |
 | [Schuby (Energy Farming) wind farm](https://www.gem.wiki/Schuby_%28Energy_Farming%29_wind_farm) | 18 | Schleswig, Schieswig-Holstein, Germany | [Schleswig](https://www.wikidata.org/wiki/Q501661) | 54.5153, 9.5697 | township |
+| [Timpberg wind farm](https://www.gem.wiki/Timpberg_wind_farm) | 28 | 1 Timpberg, Zehdenick, Prignitz-Oberhavel, Germany | [Zehdenick](https://www.wikidata.org/wiki/Q184481) | 52.9831, 13.3331 | township |
 
 ## India (IND)
 
@@ -1150,6 +1156,12 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Bharmasagar - Devangere wind farm](https://www.gem.wiki/Bharmasagar_-_Devangere_wind_farm) | 36 | Bharmasagara, Karnataka, India | [Bharamasagara](https://www.wikidata.org/wiki/Q4901082) | 14.22, 76.4 | township |
 | [Kaythar Subhash wind farm](https://www.gem.wiki/Kaythar_Subhash_wind_farm) | 30 | Kaythar, Tamil Nadu, India | [Kayatharu](https://www.wikidata.org/wiki/Q2125845) | 8.9483, 77.7742 | township |
 | [Tirunelveli (Green Infra) wind farm](https://www.gem.wiki/Tirunelveli_%28Green_Infra%29_wind_farm) | 24 | Tirunelvellii, Tamil Nadu, India | [Tirunelveli](https://www.wikidata.org/wiki/Q213248) | 8.7289, 77.7081 | city |
+| [Kuchddi wind farm](https://www.gem.wiki/Kuchddi_wind_farm) | 69 | Kuchhdi, Porbander, Gujarat, India | [Porbandar district](https://www.wikidata.org/wiki/Q1772815) | 21.63, 69.6 | county or district |
+| [Ratadi wind farm](https://www.gem.wiki/Ratadi_wind_farm) | 34 | Ratadi, Porbander, Gujarat, India | [Porbandar district](https://www.wikidata.org/wiki/Q1772815) | 21.63, 69.6 | county or district |
+| [Matalpur wind farm](https://www.gem.wiki/Matalpur_wind_farm) | 34 | Matalpur, Porbander, Gujarat, India | [Porbandar district](https://www.wikidata.org/wiki/Q1772815) | 21.63, 69.6 | county or district |
+| [Mahidad (Goenka) wind farm](https://www.gem.wiki/Mahidad_%28Goenka%29_wind_farm) | 26 | Mahidad, Sirendranagar, Gujarat, India | [Surendranagar district](https://www.wikidata.org/wiki/Q237535) | 22.73, 71.51 | county or district |
+| [Poolavadi (Chettinad) wind farm](https://www.gem.wiki/Poolavadi_%28Chettinad%29_wind_farm) | 17 | Poolavadi, Udumaplet, Tamil Nadu, India | [Udumalaipettai taluk](https://www.wikidata.org/wiki/Q12979488) | 10.58, 77.24 | county or district |
+| [Vejalpar (Giriraj) II wind farm](https://www.gem.wiki/Vejalpar_%28Giriraj%29_II_wind_farm) | 10 | Vejalpar, Rakjot, Gujarat, India | [Rajkot district](https://www.wikidata.org/wiki/Q1815245) | 22.3, 70.78 | county or district |
 
 ## Italy (ITA)
 
@@ -1186,6 +1198,7 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Hizen (Daigas) wind farm](https://www.gem.wiki/Hizen_%28Daigas%29_wind_farm) | 12 | Karatsu City, Saga Prefecture, Japan | [Karatsu](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | county or district |
 | [Sandai Myojin wind farm](https://www.gem.wiki/Sandai_Myojin_wind_farm) | 34 | Iwaki, Tonomachi Kaminemoto, Fukushima Prefecture, Japan | [Iwaki](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | city |
 | [Tabito wind farm](https://www.gem.wiki/Tabito_wind_farm) | 19 | Iwaki, Kazakoshi, Fukushima Prefecture, Japan | [Iwaki](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | city |
+| [Date Kitakogane wind farm](https://www.gem.wiki/Date_Kitakogane_wind_farm) | 13 | Date City, Hokkadio Prefecture, Japan | [Date](https://www.wikidata.org/wiki/Q693178) | 42.4719, 140.8647 | city |
 
 ## Kazakhstan (KAZ)
 
@@ -1283,6 +1296,13 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Montaña De Arinaga wind farm](https://www.gem.wiki/Monta%C3%B1a_De_Arinaga_wind_farm) | 19 | 1 Agüimes, Gran Canaria, Canarias, Spain | [Agüimes](https://www.wikidata.org/wiki/Q23990990) | 27.9051, -15.4448 | township |
 | [El Hierro Hidroeólico wind farm](https://www.gem.wiki/El_Hierro_Hidroe%C3%B3lico_wind_farm) | 12 | Valverde, El Hierro, Santa Cruz de Tenerife, Canarias, Spain | [Valverde](https://www.wikidata.org/wiki/Q1853429) | 27.8097, -17.9151 | township |
 
+## Ukraine (UKR)
+
+| Farm | MW | GEM location | Moved to | Coordinates | Level |
+|---|---:|---|---|---|---|
+| [Dmitrievskaya wind farm](https://www.gem.wiki/Dmitrievskaya_wind_farm) | 30 | 1 Ochakiv District, Mykolaiv Region, Ukraine | [Ochakiv Raion](https://www.wikidata.org/wiki/Q41440) | 46.6783, 31.7283 | county or district |
+| [Tuzlovskaya wind farm](https://www.gem.wiki/Tuzlovskaya_wind_farm) | 12 | 1 Ochakiv District, Mykolaiv Region, Ukraine | [Ochakiv Raion](https://www.wikidata.org/wiki/Q41440) | 46.6783, 31.7283 | county or district |
+
 ## United States of America (USA)
 
 | Farm | MW | GEM location | Moved to | Coordinates | Level |
@@ -1305,3 +1325,4 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Chinh Thang wind farm](https://www.gem.wiki/Chinh_Thang_wind_farm) | 50 | Ninh Thuận Province, Vietnam | [Ninh Thuận](https://www.wikidata.org/wiki/Q36903) | 11.75, 108.8333 | city |
 | [Hanbaram wind farm](https://www.gem.wiki/Hanbaram_wind_farm) | 117 | 1 Ninh Thuận Province, Vietnam | [Ninh Thuận](https://www.wikidata.org/wiki/Q36903) | 11.75, 108.8333 | city |
 | [Ia Bang wind farm](https://www.gem.wiki/Ia_Bang_wind_farm) | 50 | 1 Chư Pưh, Gia Lai Province, Vietnam | [Chư Pưh](https://www.wikidata.org/wiki/Q263608) | 13.5208, 108.0792 | county or district |
+| [Ia Pếch wind farm](https://www.gem.wiki/Ia_P%E1%BA%BFch_wind_farm) | 66 | 1-1 la Grai, Gia Lai Province, Vietnam | [Ia Grai](https://www.wikidata.org/wiki/Q5980266) | 13.9875, 107.7375 | county or district |

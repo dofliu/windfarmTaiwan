@@ -130,7 +130,8 @@ PROV_ALIAS = {'castillayleon': 'castileandleon', 'castillalamancha': 'castilelam
               'islascanarias': 'canaryislands', 'canarias': 'canaryislands', 'siciliy': 'sicily', 'sicilia': 'sicily', 'puglia': 'apulia', 'sardegna': 'sardinia', 'toscana': 'tuscany',
               'hokkadio': 'hokkaido', 'zaragosa': 'zaragoza', 'ananthapuramu': 'anantapur', 'marakeshsafi': 'marrakeshsafi', 'innermongolia': 'innermongolia',
               'xinjianguyghur': 'xinjiang', 'guangxizhuang': 'guangxi', 'ningxiahui': 'ningxia', 'tibet': 'tibet',
-              'comunidadforaldenavarra': 'navarre', 'navarra': 'navarre', 'zuidholland': 'southholland', 'schieswigholstein': 'schleswigholstein', 'aqmola': 'akmola'}
+              'comunidadforaldenavarra': 'navarre', 'navarra': 'navarre', 'zuidholland': 'southholland', 'schieswigholstein': 'schleswigholstein', 'aqmola': 'akmola',
+              'prignitzoberhavel': 'brandenburg'}   # 布蘭登堡邦的區域規劃區，不是行政區 · a planning region of Brandenburg, not an administrative area
 
 
 QUERY_FIX = {'Hokkadio': 'Hokkaido', 'Siciliy': 'Sicily', 'Zaragosa': 'Zaragoza', 'Ananthapuramu': 'Anantapur', 'Marakesh-Safi': 'Marrakesh-Safi', 'Anantpur': 'Anantapur',
@@ -421,6 +422,23 @@ MANUAL_PLACES = {
     'Iwaki, Tonomachi Kaminemoto, Fukushima Prefecture, Japan': ('Q274384', 'city', '福島縣磐城市', 'Iwaki city, Fukushima'),
     'Iwaki, Kazakoshi, Fukushima Prefecture, Japan': ('Q274384', 'city', '福島縣磐城市', 'Iwaki city, Fukushima'),
     'Schleswig, Schieswig-Holstein, Germany': ('Q501661', 'township', '石勒蘇益格鎮（GEM 把州名拼錯）', 'the town of Schleswig (GEM misspells the state)'),
+    # 2026-11-05 核對（SPARQL）；村子在 Wikidata 沒有項目時，只在 GEM 也寫了縣（區）名時退到縣 · checked 5 Nov 2026; where the village has no
+    # item, fall back to the district only when GEM names it too
+    'Bayinhari Gacha in Aolubulage, Alxa Left Banner, Alxa League, Inner Mongolia, China': ('Q11079137', 'township', '巴音哈日嘎查所在的敖倫布拉格鎮', 'Aolunbulage town, which holds Bayinhari gacha', 'Alxa Left Banner'),
+    'Barunbiela, Alxa Left Banner, Alxa League, Inner Mongolia, China': ('Q11059231', 'township', '阿拉善左旗巴潤別立鎮（GEM 的拼音）', "Barun Bieli town, Alxa Left Banner (GEM's romanisation)", 'Alxa Left Banner'),
+    'Tengger Economic and Technical Zone, Alxa Left Banner, Alxa League, Inner Mongolia, China': ('Q1367222', 'county', '騰格里經濟技術開發區所在的阿拉善左旗', 'Alxa Left Banner, which holds the Tengger economic zone', 'Alxa League'),
+    '1 Changdian Zhen, Xundian, Kunming, Yunnan, China': ('Q1339949', 'county', '尋甸縣（GEM 的鎮名「Changdian」對不到）', 'Xundian County (the town name "Changdian" on GEM matches none)', 'Kunming'),
+    'Luomian Zhen, Fumin, Kunming, Yunnan, China': ('Q14180697', 'township', '富民縣羅免鎮', 'Luomian town, Fumin County', 'Fumin County'),
+    'Kuchhdi, Porbander, Gujarat, India': ('Q1772815', 'county', '博爾本德爾縣（村子沒有 Wikidata 項目）', 'Porbandar district (the village has no Wikidata item)'),
+    'Ratadi, Porbander, Gujarat, India': ('Q1772815', 'county', '博爾本德爾縣（村子沒有 Wikidata 項目）', 'Porbandar district (the village has no Wikidata item)'),
+    'Matalpur, Porbander, Gujarat, India': ('Q1772815', 'county', '博爾本德爾縣（村子沒有 Wikidata 項目）', 'Porbandar district (the village has no Wikidata item)'),
+    'Mahidad, Sirendranagar, Gujarat, India': ('Q237535', 'county', '蘇倫德拉納加爾縣（GEM 拼成 Sirendranagar；村子沒有項目）', 'Surendranagar district (GEM spells it Sirendranagar; the village has no item)'),
+    'Vejalpar, Rakjot, Gujarat, India': ('Q1815245', 'county', '拉傑果德縣（GEM 拼成 Rakjot；村子沒有項目）', 'Rajkot district (GEM spells it Rakjot; the village has no item)'),
+    'Poolavadi, Udumaplet, Tamil Nadu, India': ('Q12979488', 'county', '烏杜馬萊佩泰縣分區（GEM 拼成 Udumaplet；村子沒有項目）', 'Udumalaipettai taluk (GEM spells it Udumaplet; the village has no item)'),
+    '1 Ochakiv District, Mykolaiv Region, Ukraine': ('Q41440', 'county', '尼古拉耶夫州原奧恰基夫區（2020 年併入尼古拉耶夫區）', 'the former Ochakiv Raion, Mykolaiv Oblast (merged into Mykolaiv Raion in 2020)'),
+    'Date City, Hokkadio Prefecture, Japan': ('Q693178', 'city', '北海道伊達市（GEM 把道名拼錯）', 'Date city, Hokkaido (GEM misspells the prefecture)'),
+    '1-1 la Grai, Gia Lai Province, Vietnam': ('Q5980266', 'county', '嘉萊省 Ia Grai 縣', 'Ia Grai district, Gia Lai'),
+    '1 Timpberg, Zehdenick, Prignitz-Oberhavel, Germany': ('Q184481', 'township', '布蘭登堡邦策德尼克鎮（Timpberg 所在）', 'the town of Zehdenick, Brandenburg (where Timpberg lies)'),
 }
 # 沒有寫進來的（核對過但不採用）：Rokkasho（GEM 寫北海道，六所村在青森縣）、Tainai City（GEM 寫青森縣，胎內市在新潟縣）——GEM 的省與地名矛盾，不判斷是哪一個錯。
 # Left out on purpose: Rokkasho (GEM says Hokkaido; the village is in Aomori) and Tainai City (GEM says Aomori; the city is in Niigata) — GEM's place and prefecture contradict each other.

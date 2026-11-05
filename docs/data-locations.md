@@ -6,7 +6,7 @@
 
 GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或國家中心的代用座標上（同一點有幾十筆）。GEM 專案頁的「Location」仍寫出鄉鎮、縣（區）、市、省，這裡依那段文字把風場改到該行政區的中心：座標取自 Wikidata（CC0），行政區以 OpenStreetMap Nominatim 查出（只當索引，不含 OSM 資料）。這些仍是**概略位置**（卡片標示「概略位置」）：鄉鎮或縣中心不是風場本身，但比省中心近得多。定位不到的風場維持原代用點，列在 gem_locations.json 的 skipped。
 
-- 共 1223 座：鄉鎮層級 436、縣（區）層級 754、市層級 33。
+- 共 1239 座：鄉鎮層級 440、縣（區）層級 765、市層級 34。
 
 ## 中國大陸 (CHN)
 
@@ -921,6 +921,11 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Inner Mongolia Alashanzuo Banner Helanshan (Yingxing) wind farm · 2](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_Helanshan_%28Yingxing%29_wind_farm) | 50 | 1 Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
 | [Inner Mongolia Alsashanzuo Banner Windpower Heating Project](https://www.gem.wiki/Inner_Mongolia_Alsashanzuo_Banner_Windpower_Heating_Project) | 50 | Jia'ergalesaihan, Alxa Left Banner, Alxa League, Inner Mongolia, China | [嘉尔嘎勒赛汉镇](https://www.wikidata.org/wiki/Q10923997) | 37.9621, 105.366 | 鄉鎮 |
 | [Yunnan Xundian Lianhe wind farm](https://www.gem.wiki/Yunnan_Xundian_Lianhe_wind_farm) | 100 | 1 Lianhe Xiang, Xundian, Kunming, Yunnan, China | [联合乡](https://www.wikidata.org/wiki/Q28832272) | 25.9369, 102.9976 | 鄉鎮 |
+| [Inner Mongolia - Shandong Power Export Alxa Left Banner Aolunbulage (State Power Investment) wind farm](https://www.gem.wiki/Inner_Mongolia_-_Shandong_Power_Export_Alxa_Left_Banner_Aolunbulage_%28State_Power_Investment%29_wind_farm) | 400 | Bayinhari Gacha in Aolubulage, Alxa Left Banner, Alxa League, Inner Mongolia, China | [敖伦布拉格镇](https://www.wikidata.org/wiki/Q11079137) | 40.4219, 106.1989 | 鄉鎮 |
+| [Inner Mongolia Alashanzuo Banner Helanshan (Hanasi) wind farm](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_Helanshan_%28Hanasi%29_wind_farm) | 200 | Barunbiela, Alxa Left Banner, Alxa League, Inner Mongolia, China | [巴润别立镇](https://www.wikidata.org/wiki/Q11059231) | 38.5333, 105.6044 | 鄉鎮 |
+| [Inner Mongolia Alashanzuo Banner (Qinghua) wind farm](https://www.gem.wiki/Inner_Mongolia_Alashanzuo_Banner_%28Qinghua%29_wind_farm) | 100 | Tengger Economic and Technical Zone, Alxa Left Banner, Alxa League, Inner Mongolia, China | [阿拉善左旗](https://www.wikidata.org/wiki/Q1367222) | 38.8336, 105.6703 | 縣（區） |
+| [Yunnan Xundian Dezhulong wind farm · 2, 3](https://www.gem.wiki/Yunnan_Xundian_Dezhulong_wind_farm) | 96 | 1 Changdian Zhen, Xundian, Kunming, Yunnan, China | [尋甸回族彝族自治縣](https://www.wikidata.org/wiki/Q1339949) | 25.5633, 103.2558 | 縣（區） |
+| [Yunnan Fumin Baihuashan wind farm](https://www.gem.wiki/Yunnan_Fumin_Baihuashan_wind_farm) | 48 | Luomian Zhen, Fumin, Kunming, Yunnan, China | [罗免镇](https://www.wikidata.org/wiki/Q14180697) | 25.3394, 102.4565 | 鄉鎮 |
 
 ## 印度 (IND)
 
@@ -1134,6 +1139,12 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Bharmasagar - Devangere wind farm](https://www.gem.wiki/Bharmasagar_-_Devangere_wind_farm) | 36 | Bharmasagara, Karnataka, India | [Bharamasagara](https://www.wikidata.org/wiki/Q4901082) | 14.22, 76.4 | 鄉鎮 |
 | [Kaythar Subhash wind farm](https://www.gem.wiki/Kaythar_Subhash_wind_farm) | 30 | Kaythar, Tamil Nadu, India | [卡耶塔魯](https://www.wikidata.org/wiki/Q2125845) | 8.9483, 77.7742 | 鄉鎮 |
 | [Tirunelveli (Green Infra) wind farm](https://www.gem.wiki/Tirunelveli_%28Green_Infra%29_wind_farm) | 24 | Tirunelvellii, Tamil Nadu, India | [蒂魯內爾維利](https://www.wikidata.org/wiki/Q213248) | 8.7289, 77.7081 | 市 |
+| [Kuchddi wind farm](https://www.gem.wiki/Kuchddi_wind_farm) | 69 | Kuchhdi, Porbander, Gujarat, India | [博爾本德爾縣](https://www.wikidata.org/wiki/Q1772815) | 21.63, 69.6 | 縣（區） |
+| [Ratadi wind farm](https://www.gem.wiki/Ratadi_wind_farm) | 34 | Ratadi, Porbander, Gujarat, India | [博爾本德爾縣](https://www.wikidata.org/wiki/Q1772815) | 21.63, 69.6 | 縣（區） |
+| [Matalpur wind farm](https://www.gem.wiki/Matalpur_wind_farm) | 34 | Matalpur, Porbander, Gujarat, India | [博爾本德爾縣](https://www.wikidata.org/wiki/Q1772815) | 21.63, 69.6 | 縣（區） |
+| [Mahidad (Goenka) wind farm](https://www.gem.wiki/Mahidad_%28Goenka%29_wind_farm) | 26 | Mahidad, Sirendranagar, Gujarat, India | [蘇倫德拉訥格爾縣](https://www.wikidata.org/wiki/Q237535) | 22.73, 71.51 | 縣（區） |
+| [Poolavadi (Chettinad) wind farm](https://www.gem.wiki/Poolavadi_%28Chettinad%29_wind_farm) | 17 | Poolavadi, Udumaplet, Tamil Nadu, India | [Udumalaipettai taluk](https://www.wikidata.org/wiki/Q12979488) | 10.58, 77.24 | 縣（區） |
+| [Vejalpar (Giriraj) II wind farm](https://www.gem.wiki/Vejalpar_%28Giriraj%29_II_wind_farm) | 10 | Vejalpar, Rakjot, Gujarat, India | [拉傑果德縣](https://www.wikidata.org/wiki/Q1815245) | 22.3, 70.78 | 縣（區） |
 
 ## 哈薩克 (KAZ)
 
@@ -1157,6 +1168,7 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Borne (MDP) wind farm](https://www.gem.wiki/Borne_%28MDP%29_wind_farm) | 33 | 1 Salzlandkreis, Saxony-Anhalt, Germany | [萨尔茨兰县](https://www.wikidata.org/wiki/Q6081) | 51.8333, 11.5833 | 縣（區） |
 | [Damme wind farm · 2, RP](https://www.gem.wiki/Damme_wind_farm) | 40 | 1 Vechta district, Lower Saxony, Germany | [費希塔縣](https://www.wikidata.org/wiki/Q5941) | 52.67, 8.25 | 縣（區） |
 | [Schuby (Energy Farming) wind farm](https://www.gem.wiki/Schuby_%28Energy_Farming%29_wind_farm) | 18 | Schleswig, Schieswig-Holstein, Germany | [石勒苏益格](https://www.wikidata.org/wiki/Q501661) | 54.5153, 9.5697 | 鄉鎮 |
+| [Timpberg wind farm](https://www.gem.wiki/Timpberg_wind_farm) | 28 | 1 Timpberg, Zehdenick, Prignitz-Oberhavel, Germany | [采德尼克](https://www.wikidata.org/wiki/Q184481) | 52.9831, 13.3331 | 鄉鎮 |
 
 ## 挪威 (NOR)
 
@@ -1187,6 +1199,7 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Hizen (Daigas) wind farm](https://www.gem.wiki/Hizen_%28Daigas%29_wind_farm) | 12 | Karatsu City, Saga Prefecture, Japan | [唐津市](https://www.wikidata.org/wiki/Q738275) | 33.4501, 129.9683 | 縣（區） |
 | [Sandai Myojin wind farm](https://www.gem.wiki/Sandai_Myojin_wind_farm) | 34 | Iwaki, Tonomachi Kaminemoto, Fukushima Prefecture, Japan | [磐城市](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | 市 |
 | [Tabito wind farm](https://www.gem.wiki/Tabito_wind_farm) | 19 | Iwaki, Kazakoshi, Fukushima Prefecture, Japan | [磐城市](https://www.wikidata.org/wiki/Q274384) | 37.0505, 140.8877 | 市 |
+| [Date Kitakogane wind farm](https://www.gem.wiki/Date_Kitakogane_wind_farm) | 13 | Date City, Hokkadio Prefecture, Japan | [伊達市](https://www.wikidata.org/wiki/Q693178) | 42.4719, 140.8647 | 市 |
 
 ## 波蘭 (POL)
 
@@ -1195,6 +1208,13 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Wielowies wind farm](https://www.gem.wiki/Wielowies_wind_farm) | 66 | Pomeranian Voivodeship, Poland | [濱海省](https://www.wikidata.org/wiki/Q54180) | 54.1833, 18 | 市 |
 | [Dolice wind farm](https://www.gem.wiki/Dolice_wind_farm) | 48 | West Pomeranian Voivodeship, Poland | [西濱海省](https://www.wikidata.org/wiki/Q54188) | 53.6, 15.5333 | 市 |
 | [Gniew wind farm](https://www.gem.wiki/Gniew_wind_farm) | 22 | Pomeranian Voivodeship, Poland | [濱海省](https://www.wikidata.org/wiki/Q54180) | 54.1833, 18 | 市 |
+
+## 烏克蘭 (UKR)
+
+| 風場 | MW | GEM 的位置 | 改到 | 座標 | 層級 |
+|---|---:|---|---|---|---|
+| [Dmitrievskaya wind farm](https://www.gem.wiki/Dmitrievskaya_wind_farm) | 30 | 1 Ochakiv District, Mykolaiv Region, Ukraine | [奧恰基夫區](https://www.wikidata.org/wiki/Q41440) | 46.6783, 31.7283 | 縣（區） |
+| [Tuzlovskaya wind farm](https://www.gem.wiki/Tuzlovskaya_wind_farm) | 12 | 1 Ochakiv District, Mykolaiv Region, Ukraine | [奧恰基夫區](https://www.wikidata.org/wiki/Q41440) | 46.6783, 31.7283 | 縣（區） |
 
 ## 烏拉圭 (URY)
 
@@ -1305,3 +1325,4 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Chinh Thang wind farm](https://www.gem.wiki/Chinh_Thang_wind_farm) | 50 | Ninh Thuận Province, Vietnam | [寧順省](https://www.wikidata.org/wiki/Q36903) | 11.75, 108.8333 | 市 |
 | [Hanbaram wind farm](https://www.gem.wiki/Hanbaram_wind_farm) | 117 | 1 Ninh Thuận Province, Vietnam | [寧順省](https://www.wikidata.org/wiki/Q36903) | 11.75, 108.8333 | 市 |
 | [Ia Bang wind farm](https://www.gem.wiki/Ia_Bang_wind_farm) | 50 | 1 Chư Pưh, Gia Lai Province, Vietnam | [诸蒲县](https://www.wikidata.org/wiki/Q263608) | 13.5208, 108.0792 | 縣（區） |
+| [Ia Pếch wind farm](https://www.gem.wiki/Ia_P%E1%BA%BFch_wind_farm) | 66 | 1-1 la Grai, Gia Lai Province, Vietnam | [亚格来县](https://www.wikidata.org/wiki/Q5980266) | 13.9875, 107.7375 | 縣（區） |

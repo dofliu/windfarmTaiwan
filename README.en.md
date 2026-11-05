@@ -437,7 +437,7 @@ python tools/build_generation.py uswtdb_V9_1_20260928.csv f923_2023.zip f923_202
   and labelled. Every record, with its reason and source, is in [docs/data-cleanup.en.md](./docs/data-cleanup.en.md)
 - Oct 2026: operating farms that only had a province or country centre as a placeholder are moved to the coordinate of the Wikidata item (CC0) of the township
   or county named on their GEM project page (`tools/fetch_gem_locations.py`; OpenStreetMap Nominatim serves only as the lookup index and no OSM data is written;
-  the approximate flag stays), listed in [docs/data-locations.en.md](./docs/data-locations.en.md); where GEM misspells the place or the placeholder itself is wrong, a hand-checked Wikidata item is used (`MANUAL_PLACES`, 19 farms added in Nov 2026); farms with no such place keep the province centre
+  the approximate flag stays), listed in [docs/data-locations.en.md](./docs/data-locations.en.md); where GEM misspells the place or the placeholder itself is wrong, a hand-checked Wikidata item is used (`MANUAL_PLACES`, 35 farms added in Nov 2026); farms with no such place keep the province centre
 - While matching the OSPAR offshore data in Sep 2026, two more duplicates were removed: GEM's whole-farm “C-Power”
   record in Belgium (which repeated Thornton Bank phases I–III) and a second Saint-Brieuc record in France placed
   about 170 km away
