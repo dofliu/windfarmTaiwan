@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.6 — 2026-11-06
+
+- **Offshore dimensions**: water depth and rotor diameter for two newly completed Taiwanese farms (`tools/farm_dimensions.py`, quotes checked with `check_quotes.py`): Greater Changhua 2b & 4, 23.8–44.1 m and a 236 m rotor (66 SG 14-236 DD; Ørsted and Black Ridge); Hai Long 2 & 3, 35–60 m and a 222 m rotor (73 SG 14-222 DD; Hai Long's website and Breakbulk). No quotable hub height for either yet, so it stays blank.
+
 ## v3.22.5 — 2026-11-05
 
 - **Farm positions**: 16 more operating farms that still sat on province or country-centre placeholders now use the centre of their township, district or city (still flagged approximate; `MANUAL_PLACES` in `tools/fetch_gem_locations.py`): three in Alxa Left Banner, Inner Mongolia (Aolunbulage, Barun Bieli and the banner centre), Xundian and Luomian (Fumin) in Yunnan, five in Gujarat and one in Tamil Nadu, India (the villages have no Wikidata item, so the district centre is used only where GEM names the district too), two in the former Ochakiv Raion, Ukraine, Date city in Hokkaido, Ia Grai district in Gia Lai, Vietnam, and the town of Zehdenick, Germany. Unlocated farms 120 → 104; see [docs/data-locations.en.md](./docs/data-locations.en.md).
