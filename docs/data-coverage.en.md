@@ -10,7 +10,7 @@ English ｜ [中文](data-coverage.md)
 - **Farm level**: 20,614 operating farms, 1,182,914 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 54 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 4 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
 - **Clean-up**: checked record by record in 2026-09; 272 duplicate, never-built or non-existent records were removed and 671 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,524 projects, 2,714,387 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Pipeline**: 9,522 projects, 2,712,877 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
@@ -50,7 +50,7 @@ English ｜ [中文](data-coverage.md)
    - CHN (43.8522, 113.644) · 7 farms · 1,805 MW · Inner Mongolia Chagannaoer Thermal/Wind/Solar/Hydrogen Demonstration Project Sonid Left Banner wind farm, Inner Mongolia Sonid Left Banner Bayanhangggai High Voltage Power Export (Fengding) wind farm, Inner Mongolia Sunitezuo Banner Bayanhanggai High Voltage Power Export (Jingneng) wind farm…
 5. **Pipeline totals**: projects and country totals are both from GEM 2026-02; the differences are mostly the Sep 2026 compiled list added here, projects removed by the clean-up rules, and phases GEM gives no capacity for. Top-15 countries:
    - China: projects 742,382 MW · GEM total 743,588 MW
-   - United States of America: projects 89,451 MW · GEM total 89,440 MW
+   - United States of America: projects 87,941 MW · GEM total 89,440 MW
    - Germany: projects 36,611 MW · GEM total 18,119 MW
    - India: projects 51,063 MW · GEM total 51,063 MW
    - Brazil: projects 277,700 MW · GEM total 277,866 MW
