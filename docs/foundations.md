@@ -28,7 +28,7 @@
 
 ## 各國進度（營運中的離岸風場）
 
-合計：已知型式 290／333 座，占容量 88.4%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
+合計：已知型式 292／335 座，占容量 88.6%（浮動式風場本來就知道是浮動式，細分型式見下方「浮動式風場」）。
 
 | 國家 | 營運中 | 已知型式 | 占容量 | 單樁 | 鋼構框架 | 浮動式 | 其他固定式 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -40,11 +40,11 @@
 | 丹麥 | 17 | 16 | 99% | 8 | 1 |  | 7 |
 | 比利時 | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | 法國 | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
+| 美國 | 5 | 5 | 100% | 4 | 1 |  |  |
 | 越南 | 20 | 15 | 78% | 3 |  |  | 12 |
 | 日本 | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
 | 南韓 | 6 | 5 | 89% | 1 | 4 |  |  |
 | 瑞典 | 4 | 4 | 100% | 1 |  |  | 3 |
-| 美國 | 3 | 3 | 100% | 2 | 1 |  |  |
 | 挪威 | 3 | 3 | 100% |  |  | 3 |  |
 | 芬蘭 | 1 | 1 | 100% |  |  |  | 1 |
 | 義大利 | 1 | 1 | 100% | 1 |  |  |  |
@@ -342,10 +342,10 @@
 | Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,640 | 2027 | 單樁 |  |  |  | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 座單樁（最大直徑 9.5 m、1,538 噸），2024–2025 年安裝（3 座海上變電站另以基樁固定） |
 | Coastal Virginia Offshore Wind (CVOW) Pilot | 12.0 | 2020 | 單樁 | 0–24 |  | 154 | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/)<br>[inspireenvironmental.com](https://www.inspireenvironmental.com/project/coastal-virginia-offshore-wind-pilot-project-foundation-monitoring/) | 2 座單樁（877 噸、直徑 7.8 m）配轉接段；INSPIRE Environmental：2 部 6 MW 風機，水深最深 24 m；機型 SWT-6.0-154（葉輪 154 m，依資料庫機型）；輪轂高度未查到。 |
 | Empire wind farm | 810 | 2027 | 單樁 |  |  |  | [empirewind.com](https://www.empirewind.com/offshore-installation/) | 54 座單樁（Sif 製）配轉接段，2025 年夏秋安裝（海上變電站立在套管上） |
-| Revolution Wind | 704 | 2026 | 單樁 |  |  |  | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us) | 65 座加大型（XXL）風機單樁，2024 年 5 月至 2025 年第 2 季安裝（2 座海上變電站另有更大的單樁） |
+| Revolution Wind | 704 | 2026 | 單樁 | 26–45 | 133 | 200 | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us)<br>[tethys.pnnl.gov](https://tethys.pnnl.gov/wind-project-sites/revolution-wind)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Revolution_Wind) | 65 座加大型（XXL）風機單樁，2024 年 5 月至 2025 年第 2 季安裝（2 座海上變電站另有更大的單樁）；Tethys：水深 26～45 m、65 部 SG 11.0-200 DD，輪轂 133 m、葉輪 200 m；英文維基百科同為 200 m 葉輪、97 m 葉片。 |
 | South Fork Wind | 132 | 2024 | 單樁 | 33–41 | 100.9–143.9 | 200 | [offshorewind.biz](https://www.offshorewind.biz/2023/08/10/all-monopiles-up-for-new-yorks-first-offshore-wind-farm/)<br>[tethys.pnnl.gov](https://tethys.pnnl.gov/wind-project-sites/south-fork-wind) | 12 座風機單樁，2023 年 6–8 月安裝（海上變電站另立在第 13 座單樁上）；Tethys：水深 33～41 m，SG 11.0-200 DD 輪轂 100.9～143.9 m（許可範圍）、葉輪 200 m。 |
 | Sunrise Wind | 924 | 2027 | 單樁 |  |  |  | [orsted.com](https://orsted.com/en/media/news/2026/01/sunrise-wind-llc-to-file-preliminary-injunction-ag-1474210611) | 84 座風機單樁（2025 年年中開始安裝，2026 年 8 月已裝好 77 座）；海上變流站另為一座構造 |
-| Vineyard Wind 1 | 806 | 2026 | 單樁 |  |  |  | [deme-group.com](https://www.deme-group.com/news/offshore-works-kick-vineyard-wind-farm-us-installation-first-foundation) | 62 座風機單樁配轉接段，2023 年 6 月起安裝（海上變電站另有單樁） |
+| Vineyard Wind 1 | 806 | 2026 | 單樁 | 35–60 |  | 220 | [deme-group.com](https://www.deme-group.com/news/offshore-works-kick-vineyard-wind-farm-us-installation-first-foundation)<br>[tethys.pnnl.gov](https://tethys.pnnl.gov/wind-project-sites/vineyard-wind) | 62 座風機單樁配轉接段，2023 年 6 月起安裝（海上變電站另有單樁）；Tethys：水深 35～60 m（租約區範圍）、62 部 GE Haliade-X 13 MW，葉輪 220 m；Tethys 的輪轂 109～144 m 是許可範圍、不是建成值，不採用。 |
 
 ### 義大利
 

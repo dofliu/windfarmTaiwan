@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.7 — 2026-11-07
+
+- **Two US offshore farms now operating**: Vineyard Wind 1 (62 GE Haliade-X 13 MW, 806 MW) reached full commercial operations on 29 October 2026, according to the developer (WBUR); Ørsted announced full operation of Revolution Wind (65 SG 11.0-200 DD, 704 MW) on 5 November 2026 (WorkBoat). Both are now operating from 2026 (`tools/farm_cleanup.py`), and Revolution Wind gets its turbine model back.
+- **Offshore dimensions**: water depth and rotor for both (`tools/farm_dimensions.py`, quotes checked with `check_quotes.py`): Vineyard Wind 1, 35–60 m (lease-area range) and a 220 m rotor (Tethys's 109–144 m hub height is the permitted envelope and is not used); Revolution Wind, 26–45 m, a 133 m hub and a 200 m rotor (Tethys, English Wikipedia).
+
 ## v3.22.6 — 2026-11-06
 
 - **Offshore dimensions**: water depth and rotor diameter for two newly completed Taiwanese farms (`tools/farm_dimensions.py`, quotes checked with `check_quotes.py`): Greater Changhua 2b & 4, 23.8–44.1 m and a 236 m rotor (66 SG 14-236 DD; Ørsted and Black Ridge); Hai Long 2 & 3, 35–60 m and a 222 m rotor (73 SG 14-222 DD; Hai Long's website and Breakbulk). No quotable hub height for either yet, so it stays blank.

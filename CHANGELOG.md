@@ -14,6 +14,11 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v3.22.7 — 2026-11-07
+
+- **美國兩座離岸風場改為營運中**：Vineyard Wind 1（62 部 GE Haliade-X 13 MW、806 MW）開發商說 2026 年 10 月 29 日全場商轉（WBUR）；Revolution Wind（65 部 SG 11.0-200 DD、704 MW）Ørsted 2026 年 11 月 5 日宣布全場運轉（WorkBoat）。兩筆都改為 2026 年營運中（`tools/farm_cleanup.py`），Revolution Wind 補上機型。
+- **離岸風場尺寸**：兩座補上水深與葉輪（`tools/farm_dimensions.py`，引文以 `check_quotes.py` 核對）：Vineyard Wind 1 水深 35–60 m（租約區範圍）、葉輪 220 m（Tethys 的輪轂 109–144 m 是許可範圍，不採用）；Revolution Wind 水深 26–45 m、輪轂 133 m、葉輪 200 m（Tethys、英文維基百科）。
+
 ## v3.22.6 — 2026-11-06
 
 - **離岸風場尺寸**：補上台灣兩座新完工風場的水深與葉輪直徑（`tools/farm_dimensions.py`，引文以 `check_quotes.py` 核對）：大彰化西南第二階段及西北水深 23.8–44.1 m、葉輪 236 m（66 部 SG 14-236 DD，沃旭與 Black Ridge）；海龍二號及三號水深 35–60 m、葉輪 222 m（73 部 SG 14-222 DD，海龍官網與 Breakbulk）。兩座的輪轂高度都還找不到可引用的原文，維持空白。

@@ -10,7 +10,7 @@
 - **風場層級**：已逐場標示的營運中風場 20,614 座、1,182,914 MW，約為國家統計的 **92%**。差額是資料庫未收錄的風場（多為小型風場，GEM 以 10 MW 以上為主），地圖不補虛構風場。
 - **覆蓋率分級**：✓ 85% 以上 54 國 · △ 60–85% 13 國 · ✗ 低於 60% 8 國 · ⚠ 高於 110% 4 國（逐場加總超過國家統計，口徑不同或有重複，需要求證）。
 - **資料清理**：2026-09 逐筆查證，刪除 272 筆重複、從未建成或查無此場的紀錄，修正 671 筆（座標、容量、年份、分期、狀態），每筆的理由與出處見[資料清理紀錄](data-cleanup.md)。
-- **規劃中**：逐案 9,524 案、2,714,387 MW（GEM 2025-02＋2026 年 9 月人工整理）；另以 GEM 2026-02 各國總量對照。
+- **規劃中**：逐案 9,522 案、2,712,877 MW（GEM 2025-02＋2026 年 9 月人工整理）；另以 GEM 2026-02 各國總量對照。
 
 ## 需要補足的國家（差額超過 1,000 MW）
 
@@ -50,7 +50,7 @@
    - CHN (43.8522, 113.644) · 7 座 · 1,805 MW · Inner Mongolia Chagannaoer Thermal/Wind/Solar/Hydrogen Demonstration Project Sonid Left Banner wind farm, Inner Mongolia Sonid Left Banner Bayanhangggai High Voltage Power Export (Fengding) wind farm, Inner Mongolia Sunitezuo Banner Bayanhanggai High Voltage Power Export (Jingneng) wind farm…
 5. **規劃中總量對照**：逐案資料與各國總量同為 GEM 2026-02；差額多為本站另收的 2026 年整理清單、被清理規則移除的專案，以及 GEM 未給容量的分期。前 15 大國家的對照：
    - 中國大陸：逐案 742,382 MW · GEM 總量 743,588 MW
-   - 美國：逐案 89,451 MW · GEM 總量 89,440 MW
+   - 美國：逐案 87,941 MW · GEM 總量 89,440 MW
    - 德國：逐案 36,611 MW · GEM 總量 18,119 MW
    - 印度：逐案 51,063 MW · GEM 總量 51,063 MW
    - 巴西：逐案 277,700 MW · GEM 總量 277,866 MW

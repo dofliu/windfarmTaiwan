@@ -669,10 +669,11 @@ RULES = [
         'https://www.boem.gov/renewable-energy/state-activities/sunrise-wind', rename='Sunrise Wind', lat=40.99, lon=-71.06, approx=True),
     fix('USA', 'Vineyard Wind 1', C,
         '最後一部風機 2026 年 3 月 13 日才裝好（開發商 2026 年 1 月的訴狀說 2025 年底 62 部中只有 44 部運轉、約 572 MW）；'
-        '依本站慣例改列興建中、年份 2026',
+        '開發商發言人說 2026 年 10 月 29 日全場進入商轉（WBUR 2026-11-06），改為營運中、年份 2026',
         'The last turbine was only installed on 13 March 2026 (the developer’s January 2026 court filing says 44 of the 62 turbines were '
-        'operating at the end of 2025, about 572 MW), so it is listed as under construction with 2026 as its year',
-        'https://www.wbur.org/news/2026/03/14/vineyard-wind-construction-complete-massachusetts-offshore-wind', st=1, year=2026, note=True),
+        'operating at the end of 2025, about 572 MW); the developer’s spokesperson says the whole farm reached full commercial operations '
+        'on 29 October 2026 (WBUR, 6 Nov 2026), so it is now operating with 2026 as its year',
+        'https://www.wbur.org/news/2026/11/06/vineyard-wind-fully-running-offshore-wind-massachusetts', st=0, year=2026, note=True),
     fix('USA', 'Coastal Virginia Offshore Wind (CVOW) Commercial Project', G,
         '完工時間延到 2027 年底：2026 年 8 月時 176 部風機裝好 31 部，2026 年 3 月起首批運轉約 450 MW'
         '（清單的預計完工年也一併改為 2027，見 PIPE_FIX）',
@@ -680,9 +681,11 @@ RULES = [
         'generating about 450 MW since March 2026 (the compilation’s expected year is corrected to 2027 as well, see PIPE_FIX)',
         'https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027',
         turbine='176 x Siemens Gamesa SG 14-222 DD', note=True),
-    fix('USA', 'Revolution Wind', G, '開發商的容量是 704 MW（羅德島 400 MW＋康乃狄克 304 MW）；65 部 × 11 MW 的銘牌合計為 715 MW',
-        'The developers give 704 MW (400 MW for Rhode Island plus 304 MW for Connecticut); 65 × 11 MW of nameplate would be 715 MW',
-        'https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind', mw=704),
+    fix('USA', 'Revolution Wind', G, '開發商的容量是 704 MW（羅德島 400 MW＋康乃狄克 304 MW）；65 部 × 11 MW 的銘牌合計為 715 MW。'
+        'Ørsted 2026-11-05 宣布全場運轉（WorkBoat），改為營運中、年份 2026',
+        'The developers give 704 MW (400 MW for Rhode Island plus 304 MW for Connecticut); 65 × 11 MW of nameplate would be 715 MW. '
+        'Ørsted announced full operation on 5 Nov 2026 (WorkBoat), so it is now operating with 2026 as its year',
+        'https://www.workboat.com/wind/revolution-wind-fully-operational-rsted-reports', mw=704, st=0, year=2026, turbine='65 x Siemens Gamesa SG 11.0-200 DD', note=True),
     fix('USA', 'Empire wind farm', G, '開發商的容量是 810 MW（54 部 Vestas V236-15 MW）',
         'The developer gives 810 MW (54 Vestas V236-15 MW turbines)', 'https://www.empirewind.com/project/', mw=810),
     # ------------------------------------------------ 2026-09-27 依使用者整理的《全球離岸風場資料庫｜亞洲查核版 v2》逐案覆核
