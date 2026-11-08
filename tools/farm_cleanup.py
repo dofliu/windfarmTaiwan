@@ -2759,6 +2759,21 @@ DUP_OK = {
         (("Hauteurs De L'Albe wind farm", "Hauters De L'Albe wind farm"),
          "Nelling、Gréning、Léning 有兩座各自登記的風場，都是 3 部 2.3 MW（Enercon E70）、2009 年 9 月 14 日商轉：西邊的 Hauteurs de l'Albe Ouest 由 Energiequelle 營運，東邊的 Nelling-Albe Est 是另一家公司（PARC EOLIEN DE NELLING ALBE EST，Mundolsheim）。GEM 這兩筆一西（Energiequelle）一東，各寫 13.8～14 MW，等於把兩座合計的 13.8 MW 算了兩次。建議兩筆都保留、容量各改為 6.9 MW；「Hauters」是拼錯，東邊那筆業主 P&T Technologie 未能核對。 · Nelling, Gréning and Léning host two separately registered farms, each three 2.3 MW turbines (Enercon E70) commissioned on 14 Sep 2009: Hauteurs de l'Albe Ouest in the west, run by Energiequelle, and Nelling-Albe Est in the east, held by another company (PARC EOLIEN DE NELLING ALBE EST, Mundolsheim). GEM's two records sit one west (Energiequelle) and one east, each at 13.8-14 MW, which counts the 13.8 MW pair twice. Keep both and set each to 6.9 MW; 'Hauters' is a misspelling, and the eastern record's owner P&T Technologie could not be checked."),
     ],
+    'GRC': [
+        (('Milia (Kaphereos Evia) wind farm', 'Milza wind farm'),
+         "名稱只差一個字母，但希臘的發電執照登記是兩座：「Μίλζα」（Milza）18 MW 是執照 ΑΔ-02482，原屬 RF Energy Ξεσπόρτες，"
+         "是 2015 年環評核准的「卡里斯托斯 11 座風場」之一，現由 ΤΕΡΝΑ ΕΝΕΡΓΕΙΑΚΗ ΟΜΑΛΙΕΣ 持有；「Μηλιά」（Milia）18 MW 是執照 ΑΔ-01265，"
+         "由 Terna 的 ΕΝΕΡΓΕΙΑΚΗ ΚΑΦΗΡΕΩΣ ΕΥΒΟΙΑΣ 持有（2012 年 156 MW 環評的六處場址之一，2023 年申請修改安裝許可）。兩張執照、兩家專案公司、"
+         "GEM 座標相距約 4 km，是兩座風場，兩筆都保留。另有一座同名的 Μηλιά 18.4 MW（執照 ΑΔ-01261，ΑΙΟΛΙΚΑ ΠΑΡΚΑ ΜΗΛΙΑΣ）列在 Enel 卡菲雷亞斯（Kafireas）風場群的 181.7 MW 環評裡，"
+         "業主與執照都不同，也不是這兩筆的任一筆。"
+         "出處：energyregister.gr/stathmos/1890、/831、/827（彙整 RAE 執照與 diavgeia 公告）。 · "
+         "The names differ by one letter, but the Greek licence register has two farms: 'Μίλζα' (Milza), 18 MW, licence ΑΔ-02482, first held by "
+         "RF Energy Xesportes and one of the eleven Karystos farms approved in 2015, now held by TERNA ENERGIAKI OMALIES; and 'Μηλιά' (Milia), 18 MW, "
+         "licence ΑΔ-01265, held by Terna's ENERGIAKI KAFIREOS EVIAS (one of six sites in the 156 MW approval of 2012; installation licence amendment "
+         "requested in 2023). Two licences, two project companies and GEM positions about 4 km apart: two farms, keep both. A third, Enel's "
+         "Μηλιά 18.4 MW (licence ΑΔ-01261, AIOLIKA PARKA MILIAS), is listed in the 181.7 MW environmental approval of Enel's Kafireas complex; "
+         "with its own owner and licence, it is neither record. Sources: energyregister.gr/stathmos/1890, /831 and /827 (RAE licences and Diavgeia notices)."),
+    ],
     'SWE': [
         (('Skarhult wind farm', 'Skarhults wind farm'),
          "埃斯勒夫市有兩座：Skarhult（55.787, 13.364）8 部、10.4 MW（4 部 Enercon E44/600＋4 部 E82/2000，BayWa 協助營運管理），以及東北方約 7 km 的 Skarhults（又名 Östra Strö，55.836, 13.438）6 部 Enercon E66/1800、10.8 MW。兩筆座標正好各對一座，不是重複。Skarhults 那筆的容量建議改為 10.8 MW；它寫的業主 BayWa 與 2009 年看來是從 Skarhult 混過來的，待查證。 · Eslöv has two farms: Skarhult (55.787, 13.364), eight turbines and 10.4 MW (four Enercon E44/600 plus four E82/2000; BayWa supports its operator), and Skarhults, also called Östra Strö, about 7 km north-east (55.836, 13.438), six Enercon E66/1800 and 10.8 MW. Each record's point matches one of them, so this is not a duplicate. Set Skarhults to 10.8 MW; its owner (BayWa) and year (2009) look borrowed from Skarhult and remain to be verified."),
