@@ -669,10 +669,11 @@ RULES = [
         'https://www.boem.gov/renewable-energy/state-activities/sunrise-wind', rename='Sunrise Wind', lat=40.99, lon=-71.06, approx=True),
     fix('USA', 'Vineyard Wind 1', C,
         '最後一部風機 2026 年 3 月 13 日才裝好（開發商 2026 年 1 月的訴狀說 2025 年底 62 部中只有 44 部運轉、約 572 MW）；'
-        '依本站慣例改列興建中、年份 2026',
+        '開發商發言人說 2026 年 10 月 29 日全場進入商轉（WBUR 2026-11-06），改為營運中、年份 2026',
         'The last turbine was only installed on 13 March 2026 (the developer’s January 2026 court filing says 44 of the 62 turbines were '
-        'operating at the end of 2025, about 572 MW), so it is listed as under construction with 2026 as its year',
-        'https://www.wbur.org/news/2026/03/14/vineyard-wind-construction-complete-massachusetts-offshore-wind', st=1, year=2026, note=True),
+        'operating at the end of 2025, about 572 MW); the developer’s spokesperson says the whole farm reached full commercial operations '
+        'on 29 October 2026 (WBUR, 6 Nov 2026), so it is now operating with 2026 as its year',
+        'https://www.wbur.org/news/2026/11/06/vineyard-wind-fully-running-offshore-wind-massachusetts', st=0, year=2026, note=True),
     fix('USA', 'Coastal Virginia Offshore Wind (CVOW) Commercial Project', G,
         '完工時間延到 2027 年底：2026 年 8 月時 176 部風機裝好 31 部，2026 年 3 月起首批運轉約 450 MW'
         '（清單的預計完工年也一併改為 2027，見 PIPE_FIX）',
@@ -680,9 +681,11 @@ RULES = [
         'generating about 450 MW since March 2026 (the compilation’s expected year is corrected to 2027 as well, see PIPE_FIX)',
         'https://www.offshorewind.biz/2026/08/03/largest-us-offshore-wind-farm-81-pct-complete-final-turbine-expected-by-end-of-2027',
         turbine='176 x Siemens Gamesa SG 14-222 DD', note=True),
-    fix('USA', 'Revolution Wind', G, '開發商的容量是 704 MW（羅德島 400 MW＋康乃狄克 304 MW）；65 部 × 11 MW 的銘牌合計為 715 MW',
-        'The developers give 704 MW (400 MW for Rhode Island plus 304 MW for Connecticut); 65 × 11 MW of nameplate would be 715 MW',
-        'https://www.offshorewind.biz/2026/09/18/us-gets-new-offshore-wind-farm-as-all-turbines-installed-at-704-mw-revolution-wind', mw=704),
+    fix('USA', 'Revolution Wind', G, '開發商的容量是 704 MW（羅德島 400 MW＋康乃狄克 304 MW）；65 部 × 11 MW 的銘牌合計為 715 MW。'
+        'Ørsted 2026-11-05 宣布全場運轉（WorkBoat），改為營運中、年份 2026',
+        'The developers give 704 MW (400 MW for Rhode Island plus 304 MW for Connecticut); 65 × 11 MW of nameplate would be 715 MW. '
+        'Ørsted announced full operation on 5 Nov 2026 (WorkBoat), so it is now operating with 2026 as its year',
+        'https://www.workboat.com/wind/revolution-wind-fully-operational-rsted-reports', mw=704, st=0, year=2026, turbine='65 x Siemens Gamesa SG 11.0-200 DD', note=True),
     fix('USA', 'Empire wind farm', G, '開發商的容量是 810 MW（54 部 Vestas V236-15 MW）',
         'The developer gives 810 MW (54 Vestas V236-15 MW turbines)', 'https://www.empirewind.com/project/', mw=810),
     # ------------------------------------------------ 2026-09-27 依使用者整理的《全球離岸風場資料庫｜亞洲查核版 v2》逐案覆核
@@ -2755,6 +2758,21 @@ DUP_OK = {
     'FRA': [
         (("Hauteurs De L'Albe wind farm", "Hauters De L'Albe wind farm"),
          "Nelling、Gréning、Léning 有兩座各自登記的風場，都是 3 部 2.3 MW（Enercon E70）、2009 年 9 月 14 日商轉：西邊的 Hauteurs de l'Albe Ouest 由 Energiequelle 營運，東邊的 Nelling-Albe Est 是另一家公司（PARC EOLIEN DE NELLING ALBE EST，Mundolsheim）。GEM 這兩筆一西（Energiequelle）一東，各寫 13.8～14 MW，等於把兩座合計的 13.8 MW 算了兩次。建議兩筆都保留、容量各改為 6.9 MW；「Hauters」是拼錯，東邊那筆業主 P&T Technologie 未能核對。 · Nelling, Gréning and Léning host two separately registered farms, each three 2.3 MW turbines (Enercon E70) commissioned on 14 Sep 2009: Hauteurs de l'Albe Ouest in the west, run by Energiequelle, and Nelling-Albe Est in the east, held by another company (PARC EOLIEN DE NELLING ALBE EST, Mundolsheim). GEM's two records sit one west (Energiequelle) and one east, each at 13.8-14 MW, which counts the 13.8 MW pair twice. Keep both and set each to 6.9 MW; 'Hauters' is a misspelling, and the eastern record's owner P&T Technologie could not be checked."),
+    ],
+    'GRC': [
+        (('Milia (Kaphereos Evia) wind farm', 'Milza wind farm'),
+         "名稱只差一個字母，但希臘的發電執照登記是兩座：「Μίλζα」（Milza）18 MW 是執照 ΑΔ-02482，原屬 RF Energy Ξεσπόρτες，"
+         "是 2015 年環評核准的「卡里斯托斯 11 座風場」之一，現由 ΤΕΡΝΑ ΕΝΕΡΓΕΙΑΚΗ ΟΜΑΛΙΕΣ 持有；「Μηλιά」（Milia）18 MW 是執照 ΑΔ-01265，"
+         "由 Terna 的 ΕΝΕΡΓΕΙΑΚΗ ΚΑΦΗΡΕΩΣ ΕΥΒΟΙΑΣ 持有（2012 年 156 MW 環評的六處場址之一，2023 年申請修改安裝許可）。兩張執照、兩家專案公司、"
+         "GEM 座標相距約 4 km，是兩座風場，兩筆都保留。另有一座同名的 Μηλιά 18.4 MW（執照 ΑΔ-01261，ΑΙΟΛΙΚΑ ΠΑΡΚΑ ΜΗΛΙΑΣ）列在 Enel 卡菲雷亞斯（Kafireas）風場群的 181.7 MW 環評裡，"
+         "業主與執照都不同，也不是這兩筆的任一筆。"
+         "出處：energyregister.gr/stathmos/1890、/831、/827（彙整 RAE 執照與 diavgeia 公告）。 · "
+         "The names differ by one letter, but the Greek licence register has two farms: 'Μίλζα' (Milza), 18 MW, licence ΑΔ-02482, first held by "
+         "RF Energy Xesportes and one of the eleven Karystos farms approved in 2015, now held by TERNA ENERGIAKI OMALIES; and 'Μηλιά' (Milia), 18 MW, "
+         "licence ΑΔ-01265, held by Terna's ENERGIAKI KAFIREOS EVIAS (one of six sites in the 156 MW approval of 2012; installation licence amendment "
+         "requested in 2023). Two licences, two project companies and GEM positions about 4 km apart: two farms, keep both. A third, Enel's "
+         "Μηλιά 18.4 MW (licence ΑΔ-01261, AIOLIKA PARKA MILIAS), is listed in the 181.7 MW environmental approval of Enel's Kafireas complex; "
+         "with its own owner and licence, it is neither record. Sources: energyregister.gr/stathmos/1890, /831 and /827 (RAE licences and Diavgeia notices)."),
     ],
     'SWE': [
         (('Skarhult wind farm', 'Skarhults wind farm'),

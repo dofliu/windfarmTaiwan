@@ -140,8 +140,8 @@
   "farm": "IND Kukru wind farm / Kukru (United Sustainable) / Betul (Atria)",
   "verdict": "unclear",
   "keep": "",
-  "why_zh": "2026-11-05 每週排程新線索：Gamesa 2016 年 2 月替 Atria 接的 50 MW（25 部 G97）是在 Kukru 風場，而 power-technology 把同樣的 25 部 G97 列為「Atria Wind Farm-Betul」第二期；The Wind Power 另有 Kukru 100 MW（一期 25 部 G97、另一期 50 MW）且寫「Betul (0 km)」。本站在貝圖爾／Kukru 一帶共有 6 筆（Betul 4 筆各 50 MW、Kukru (United Sustainable) 50 MW、Kukru 25 MW），合計 275 MW，可引用的只有 Betul Wind Farms 兩期 99.5 MW；但找不到逐場登記能確認其餘是否為其他業主的風場（Kukru 25 MW 的座標也在 150 km 外的省中心附近）。待查：MPNRED 或 MPPMCL 的風場購電名單。",
-  "why_en": "New lead from the 5 Nov 2026 weekly run: Gamesa's February 2016 50 MW order from Atria (25 × G97) was for the Kukru wind farm, while power-technology lists the same 25 G97 machines as phase II of 'Atria Wind Farm-Betul'; The Wind Power also has a 100 MW Kukru (one part of 25 G97 and another of 50 MW) with 'Betul (0 km)'. The site has six records around Betul/Kukru (four 50 MW Betul, Kukru (United Sustainable) 50 MW and Kukru 25 MW), 275 MW in all, while the only quotable figure is Betul Wind Farms' two phases of 99.5 MW; no per-farm register was found to show whether the rest belong to other owners (the 25 MW Kukru point also sits near a state-centre placeholder 150 km away). Next: MPNRED or MPPMCL lists of wind power purchase agreements.",
+  "why_zh": "2026-11-05 每週排程新線索：Gamesa 2016 年 2 月替 Atria 接的 50 MW（25 部 G97）是在 Kukru 風場，而 power-technology 把同樣的 25 部 G97 列為「Atria Wind Farm-Betul」第二期；The Wind Power 另有 Kukru 100 MW（一期 25 部 G97、另一期 50 MW）且寫「Betul (0 km)」。本站在貝圖爾／Kukru 一帶共有 6 筆（Betul 4 筆各 50 MW、Kukru (United Sustainable) 50 MW、Kukru 25 MW），合計 275 MW，可引用的只有 Betul Wind Farms 兩期 99.5 MW；但找不到逐場登記能確認其餘是否為其他業主的風場（Kukru 25 MW 的座標也在 150 km 外的省中心附近）。待查：MPNRED 或 MPPMCL 的風場購電名單。 2026-11-08 再補線索（無法引用）：India Ratings 2024 年 11 月評等新聞稿（indiaratings.co.in/pressrelease/73556，網頁以程式載入，check_quotes 抓不到內文）寫 Kukru Wind Power Pvt Ltd 約 50 MW、Gamesa 機組、2016 年 4 月商轉、46 MW 售電給 MPPMCL；加上 CARE 的 Betul Wind Farms 49.5 MW（2014 年 1 月），兩家專案公司合計正好是 power-technology 的 99.5 MW。所以「Kukru (United Sustainable)」很可能就是 Kukru Wind Power（二期），Betul 一帶其餘 4 筆（Betul、Betul (United) II、Betul (Atria)、Kukru 25 MW）是否另有實體仍查不到。下一步：CARE／ICRA 的 Kukru Wind Power PDF 評等報告、MPPMCL 購電名單。",
+  "why_en": "New lead from the 5 Nov 2026 weekly run: Gamesa's February 2016 50 MW order from Atria (25 × G97) was for the Kukru wind farm, while power-technology lists the same 25 G97 machines as phase II of 'Atria Wind Farm-Betul'; The Wind Power also has a 100 MW Kukru (one part of 25 G97 and another of 50 MW) with 'Betul (0 km)'. The site has six records around Betul/Kukru (four 50 MW Betul, Kukru (United Sustainable) 50 MW and Kukru 25 MW), 275 MW in all, while the only quotable figure is Betul Wind Farms' two phases of 99.5 MW; no per-farm register was found to show whether the rest belong to other owners (the 25 MW Kukru point also sits near a state-centre placeholder 150 km away). Next: MPNRED or MPPMCL lists of wind power purchase agreements. Further lead on 8 Nov 2026 (not quotable): India Ratings' November 2024 release (indiaratings.co.in/pressrelease/73556, rendered by script, so check_quotes cannot read it) gives Kukru Wind Power Pvt Ltd about 50 MW, Gamesa machines, commissioned April 2016, 46 MW sold to MPPMCL; with CARE's Betul Wind Farms 49.5 MW (January 2014) the two project companies add up to power-technology's 99.5 MW. 'Kukru (United Sustainable)' is therefore probably Kukru Wind Power (phase II); whether the other four records (Betul, Betul (United) II, Betul (Atria), Kukru 25 MW) are real separate farms is still unknown. Next: a CARE/ICRA PDF rating of Kukru Wind Power, MPPMCL's purchase list.",
   "sources": [
    {
     "url": "https://www.energetica-india.net/news/-gamesa-secures-50-mw-wind-turbine-order-from-atria-power",
@@ -158,6 +158,41 @@
    {
     "url": "https://www.thewindpower.net/windfarm_en_23266_kukru.php",
     "quote": "Nearby wind farms Betul (0 km)"
+   }
+  ]
+ },
+ {
+  "farm": "GRC Milia (Kaphereos Evia) wind farm ≠ Milza wind farm (2026-11-08 resolved)",
+  "verdict": "different",
+  "keep": "both",
+  "sources": [
+   {
+    "url": "https://www.energyregister.gr/stathmos/1890",
+    "quote": "Μητρώο PAE: ΑΔ-02482 Εταιρεία: ΤΕΡΝΑ ΕΝΕΡΓΕΙΑΚΗ ΟΜΑΛΙΕΣ ΜΑΕ Τεχνολογία: ΑΙΟΛΙΚΑ Ισχύς(MW): 18.00 Θέση/Δήμος: ΜΙΛΖΑ / ΚΑΡΥΣΤΟΥ"
+   },
+   {
+    "url": "https://www.energyregister.gr/stathmos/1890",
+    "quote": "από αιολικό σταθμό ισχύος 18MW στη θέση «Μίλζα», της Δημοτικής Ενότητας Καφηρέως, του Δήμου Καρύστου, της Περιφερειακής Ενότητας Ευβοίας"
+   },
+   {
+    "url": "https://www.energyregister.gr/stathmos/1890",
+    "quote": "Ανάπτυξη 11 αιολικών πάρκων στο Δήμο Καρύστου της Νότιας Εύβοιας στις θέσεις Κορακόβραχος (21MW), Κορακόβραχος ΙΙ (6MW), Καλαμάκι (12MW), Καλαμάκι ΙΙ (18MW), Πράρο (39MW), Μίλζα (18MW)"
+   },
+   {
+    "url": "https://www.energyregister.gr/stathmos/831",
+    "quote": "Μητρώο PAE: ΑΔ-01265 Εταιρεία: ΕΝΕΡΓΕΙΑΚΗ ΚΑΦΗΡΕΩΣ ΕΥΒΟΙΑΣ ΑΝΩΝΥΜΗ ΕΤΑΙΡΕΙΑ ΠΑΡΑΓΩΓΗΣ ΗΛΕΚΤΡΙΚΗΣ ΕΝΕΡΓΕΙΑΣ"
+   },
+   {
+    "url": "https://www.energyregister.gr/stathmos/831",
+    "quote": "ΑΙΤΗΣΗ ΤΡΟΠΟΠΟΙΗΣΗΣ ΤΗΣ ΑΔΕΙΑΣ ΕΓΚΑΤΑΣΤΑΣΗΣ ΤΟΥ ΑΙΟΛΙΚΟΥ ΣΤΑΘΜΟΥ ΙΣΧΥΟΣ 18 ΜW ΣΤΗ ΘΕΣΗ ΜΗΛΙΑ ΣΤΟ ΔΗΜΟ ΚΑΡΥΣΤΟΥ Π.Ε. ΕΥΒΟΙΑΣ"
+   },
+   {
+    "url": "https://www.energyregister.gr/stathmos/827",
+    "quote": "Μητρώο PAE: ΑΔ-01261 Εταιρεία: ΑΙΟΛΙΚΑ ΠΑΡΚΑ ΜΗΛΙΑΣ ΜΟΝΟΠΡΟΣΩΠΗ ΑΕ Τεχνολογία: ΑΙΟΛΙΚΑ Ισχύς(MW): 18.40"
+   },
+   {
+    "url": "https://www.energyregister.gr/stathmos/827",
+    "quote": "Μύτικα Α.Ε. ισχύος 18.4MW, Πλάτανος Α.Ε. ισχύος 13.8MW, Μηλιάς Α.Ε. ισχύος 18.4MW"
    }
   ]
  }

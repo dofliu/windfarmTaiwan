@@ -28,7 +28,7 @@ This page shows the results of steps 1–4 and the part of step 5 done so far. O
 
 ## Progress by country (operating offshore farms)
 
-Total: type known for 290 of 333 farms, 88.4% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
+Total: type known for 292 of 335 farms, 88.6% of their capacity (floating farms are known to be floating; their sub-types are under “Floating farms” below).
 
 | Country | Operating | Type known | Share of MW | Monopile | Steel frame | Floating | Other fixed |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -40,11 +40,11 @@ Total: type known for 290 of 333 farms, 88.4% of their capacity (floating farms 
 | Denmark | 17 | 16 | 99% | 8 | 1 |  | 7 |
 | Belgium | 12 | 12 | 100% | 8 | 3 |  | 1 |
 | France | 8 | 8 | 100% | 2 | 1 | 4 | 1 |
+| United States of America | 5 | 5 | 100% | 4 | 1 |  |  |
 | Vietnam | 20 | 15 | 78% | 3 |  |  | 12 |
 | Japan | 12 | 11 | 99% | 5 | 2 | 3 | 1 |
 | South Korea | 6 | 5 | 89% | 1 | 4 |  |  |
 | Sweden | 4 | 4 | 100% | 1 |  |  | 3 |
-| United States of America | 3 | 3 | 100% | 2 | 1 |  |  |
 | Norway | 3 | 3 | 100% |  |  | 3 |  |
 | Finland | 1 | 1 | 100% |  |  |  | 1 |
 | Italy | 1 | 1 | 100% | 1 |  |  |  |
@@ -440,10 +440,10 @@ Total: type known for 290 of 333 farms, 88.4% of their capacity (floating farms 
 | Coastal Virginia Offshore Wind (CVOW) Commercial Project | 2,640 | 2027 | Monopile |  |  |  | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/) | 176 monopiles (up to 9.5 m across and 1,538 t), installed in 2024–2025 (the three offshore substations stand on pin piles) |
 | Coastal Virginia Offshore Wind (CVOW) Pilot | 12.0 | 2020 | Monopile | 0–24 |  | 154 | [eew-group.com](https://eew-group.com/projects-references/success-stories/news-detail/coastal-virginia-offshore-wind-project/)<br>[inspireenvironmental.com](https://www.inspireenvironmental.com/project/coastal-virginia-offshore-wind-pilot-project-foundation-monitoring/) | 2 monopiles (877 t, 7.8 m across) with transition pieces; INSPIRE Environmental: two 6 MW turbines in water depths up to 24 m; SWT-6.0-154 (154 m rotor from model name); hub height not found. |
 | Empire wind farm | 810 | 2027 | Monopile |  |  |  | [empirewind.com](https://www.empirewind.com/offshore-installation/) | 54 monopiles (made by Sif) with transition pieces, installed in summer and autumn 2025 (the offshore substation stands on a jacket) |
-| Revolution Wind | 704 | 2026 | Monopile |  |  |  | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us) | 65 XXL turbine monopiles installed between May 2024 and Q2 2025 (two larger monopiles carry the offshore substations) |
+| Revolution Wind | 704 | 2026 | Monopile | 26–45 | 133 | 200 | [oedigital.com](https://www.oedigital.com/news/513807-boskalis-installs-first-foundation-for-revolution-wind-project-offshore-us)<br>[tethys.pnnl.gov](https://tethys.pnnl.gov/wind-project-sites/revolution-wind)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/Revolution_Wind) | 65 XXL turbine monopiles installed between May 2024 and Q2 2025 (two larger monopiles carry the offshore substations); Tethys: 26–45 m water depth, 65 SG 11.0-200 DD with a 133 m hub and a 200 m rotor; English Wikipedia also gives a 200 m rotor and 97 m blades. |
 | South Fork Wind | 132 | 2024 | Monopile | 33–41 | 100.9–143.9 | 200 | [offshorewind.biz](https://www.offshorewind.biz/2023/08/10/all-monopiles-up-for-new-yorks-first-offshore-wind-farm/)<br>[tethys.pnnl.gov](https://tethys.pnnl.gov/wind-project-sites/south-fork-wind) | 12 turbine monopiles installed between June and August 2023 (a 13th carries the offshore substation); Tethys: 33–41 m water depth; SG 11.0-200 DD, hub 100.9–143.9 m (permitted range), rotor 200 m. |
 | Sunrise Wind | 924 | 2027 | Monopile |  |  |  | [orsted.com](https://orsted.com/en/media/news/2026/01/sunrise-wind-llc-to-file-preliminary-injunction-ag-1474210611) | 84 turbine monopiles (installation started in mid-2025; 77 were in place by August 2026); the offshore converter station is a separate structure |
-| Vineyard Wind 1 | 806 | 2026 | Monopile |  |  |  | [deme-group.com](https://www.deme-group.com/news/offshore-works-kick-vineyard-wind-farm-us-installation-first-foundation) | 62 turbine monopiles with transition pieces, installed from June 2023 (the offshore substation stands on its own monopile) |
+| Vineyard Wind 1 | 806 | 2026 | Monopile | 35–60 |  | 220 | [deme-group.com](https://www.deme-group.com/news/offshore-works-kick-vineyard-wind-farm-us-installation-first-foundation)<br>[tethys.pnnl.gov](https://tethys.pnnl.gov/wind-project-sites/vineyard-wind) | 62 turbine monopiles with transition pieces, installed from June 2023 (the offshore substation stands on its own monopile); Tethys: 35–60 m water depth (lease-area range), 62 GE Haliade-X 13 MW with a 220 m rotor; Tethys’s 109–144 m hub height is the permitted envelope, not an as-built value, so it is not used. |
 
 ### Vietnam
 
