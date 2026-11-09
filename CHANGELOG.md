@@ -14,6 +14,10 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v3.22.8 — 2026-11-09
+
+- **美國離岸風場的輪轂高度**：改用美國風機資料庫 USWTDB（2026-09 版）裡屬性信心等級 3（「多個來源一致」）的建成值（`tools/farm_dimensions.py`，引文以 `check_quotes.py` 核對 USWTDB 公開 API）：CVOW 示範場補上輪轂 108 m（原本空白）；South Fork Wind 由許可範圍 100.9–143.9 m 改為 140 m；Block Island 由 100 m 改為 106 m（原值引自 GE 的 Haliade 150 產品頁，不是本場數字；USWTDB 的葉尖 181.1 m 與維基百科的 600 ft／180 m 相符）。Vineyard Wind 1 的 137.5 m 在 USWTDB 只有部分機組且信心等級低，不採用。
+
 ## v3.22.7 — 2026-11-07
 
 - **美國兩座離岸風場改為營運中**：Vineyard Wind 1（62 部 GE Haliade-X 13 MW、806 MW）開發商說 2026 年 10 月 29 日全場商轉（WBUR）；Revolution Wind（65 部 SG 11.0-200 DD、704 MW）Ørsted 2026 年 11 月 5 日宣布全場運轉（WorkBoat）。兩筆都改為 2026 年營運中（`tools/farm_cleanup.py`），Revolution Wind 補上機型。

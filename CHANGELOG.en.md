@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.8 — 2026-11-09
+
+- **US offshore hub heights**: taken from the US Wind Turbine Database (USWTDB, Sept 2026) where its attribute confidence is 3 ("consistent information across multiple data sources") (`tools/farm_dimensions.py`; quotes checked with `check_quotes.py` against the public USWTDB API): the CVOW pilot gains a 108 m hub (previously blank); South Fork Wind changes from the 100.9–143.9 m permitted range to 140 m; Block Island changes from 100 m to 106 m (the old value came from GE's Haliade 150 product page, not this farm; USWTDB's 181.1 m tip matches Wikipedia's 600 ft / 180 m). Vineyard Wind 1's 137.5 m is not used: USWTDB has it for only some units, at low confidence.
+
 ## v3.22.7 — 2026-11-07
 
 - **Two US offshore farms now operating**: Vineyard Wind 1 (62 GE Haliade-X 13 MW, 806 MW) reached full commercial operations on 29 October 2026, according to the developer (WBUR); Ørsted announced full operation of Revolution Wind (65 SG 11.0-200 DD, 704 MW) on 5 November 2026 (WorkBoat). Both are now operating from 2026 (`tools/farm_cleanup.py`), and Revolution Wind gets its turbine model back.
