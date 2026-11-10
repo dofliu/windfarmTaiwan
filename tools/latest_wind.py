@@ -23,11 +23,11 @@ YEAR = 2026
 ROOT = Path(__file__).resolve().parent.parent
 
 ROWS = [
-    dict(iso='TWN', asof='2026-08', on=940.2, off=4984.9, mode_on='abs', mode_off='abs',
+    dict(iso='TWN', asof='2026-09', on=952.8, off=4984.9, mode_on='abs', mode_off='abs',
          src=('經濟部能源署 能源統計月報表 4-02「再生能源發電裝置容量」', 'MOEA Energy Administration, monthly energy statistics table 4-02 (renewable generating capacity)'),
          url='https://ea01.moeaea.gov.tw/a0303/02/api/v1/zone/monthly/4/2',
-         note=('2026 年 8 月：陸域 940.2 MW、離岸 4,984.9 MW。同一張表的 2025 年 12 月為陸域 930.3、離岸 3,586.9 MW，與本站 2025 年採用的《能源統計手冊》表 3-6 相同，所以直接用。月報表每月更新，近幾個月可能修正。',
-               'August 2026: onshore 940.2 MW, offshore 4,984.9 MW. The same table gives 930.3 and 3,586.9 MW for December 2025, identical to the Energy Statistics Handbook table 3-6 the site uses for 2025, so the values are used as they are. The table is updated monthly and recent months may be revised.')),
+         note=('2026 年 9 月：陸域 952.8 MW、離岸 4,984.9 MW。同一張表的 2025 年 12 月為陸域 930.3、離岸 3,586.9 MW，與本站 2025 年採用的《能源統計手冊》表 3-6 相同，所以直接用。月報表每月更新，近幾個月可能修正。',
+               'September 2026: onshore 952.8 MW, offshore 4,984.9 MW. The same table gives 930.3 and 3,586.9 MW for December 2025, identical to the Energy Statistics Handbook table 3-6 the site uses for 2025, so the values are used as they are. The table is updated monthly and recent months may be revised.')),
     dict(iso='CHN', asof='2026-09', add_on=58210, add_off=2450, mode_on='delta', mode_off='delta',
          src=('國家能源局 2026 年前三季度能源形勢新聞發布會（2026-10-30）', 'National Energy Administration, Q3 2026 energy situation press conference (30 Oct 2026)'),
          url='https://www.nea.gov.cn/20261030/dd2b15f04b92441aa59f839a1a3413ba/c.html',
