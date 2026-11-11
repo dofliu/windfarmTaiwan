@@ -15,8 +15,9 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
-## v3.22.8 — 2026-11-10
+## v3.22.8 — 2026-11-11
 
+- **Hub heights of two German offshore farms from the register**: Borkum Riffgrund 2 goes from 105 m to 110.8–114.6 m (per-turbine values in the German market register MaStR: 36 units at 110.8 m and 20 at 114.6 m, exactly the 36 monopiles + 20 suction bucket jackets; the old 105 m was pre-construction text); Nordsee Ost goes from 92 m to 95.3–97.2 m (MaStR per turbine; the old 92 m was the English Wikipedia infobox, which cites 4C Offshore, a source this site does not use). Nordergründe (Senvion 97–100 m vs MaStR 84 m) and Deutsche Bucht (100 m vs 108.3 m) differ widely for unknown reasons; they keep their values and the notes now give the MaStR figure (`tools/farm_dimensions.py`, quotes checked with `check_quotes.py`).
 - **Taiwan's "latest available" capacity now September 2026**: the Energy Administration's monthly table 4-02 now has September: onshore 952.8 MW (940.2 MW in August), offshore 4,984.9 MW (unchanged); December 2025 in the same table still matches the site's 2025 figure (`tools/latest_wind.py`, `build_country_stats.py` re-run).
 - **US offshore hub heights**: taken from the US Wind Turbine Database (USWTDB, Sept 2026) where its attribute confidence is 3 ("consistent information across multiple data sources") (`tools/farm_dimensions.py`; quotes checked with `check_quotes.py` against the public USWTDB API): the CVOW pilot gains a 108 m hub (previously blank); South Fork Wind changes from the 100.9–143.9 m permitted range to 140 m; Block Island changes from 100 m to 106 m (the old value came from GE's Haliade 150 product page, not this farm; USWTDB's 181.1 m tip matches Wikipedia's 600 ft / 180 m). Vineyard Wind 1's 137.5 m is not used: USWTDB has it for only some units, at low confidence.
 
