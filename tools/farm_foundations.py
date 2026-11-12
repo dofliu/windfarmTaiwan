@@ -26,7 +26,7 @@ Hornsea One 西區也與建成紀錄不符。
 （NEDO 明寫「ドルフィン」＝ High-Rise Pile Cap 高樁承台）。
 第 5 步（2026-09 起，F5）：中國、越南。先依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」
 補上中國 4 座與中廣核如東 H8，2026-09-30 起逐批補查（開發商、施工廠商、地方政府公開的海域使用論證報告與竣工環保驗收、產業新聞），
-引用的原文都以 tools/check_quotes.py 核對過；只有如東 H6、H10 的出處是三峽集團自家網頁，核對環境連不上（見 TODO）。
+引用的原文都以 tools/check_quotes.py 核對過（如東 H6、H10 原本以三峽集團自家網頁為出處、核對環境連不上，2026-11-12 改用南通海事局通告與世紀新能源網的招標公告）。
 沒把握的不列（見 EXCLUDED），不臆測。
 """
 
@@ -367,16 +367,16 @@ FOUNDATIONS = [
 
     # ================================================ 第 5 步（2026-09 起）：中國、越南
     # 依使用者 2026-09-27 的「亞洲逐案覆核」。2026-09-30 以 check_quotes 核對：上海市政府、福建省工信廳、澎湃、新浪財經（補貼公示）、
-    # 中廣核的頁面 OK；三峽集團自家網域（eps／tgdc／www.ctg.com.cn、ctgne.com）在核對環境連不上，如東 H6、H10 兩列仍以三峽網頁為出處（見 TODO）
+    # 中廣核的頁面 OK；三峽集團自家網域（eps／tgdc／www.ctg.com.cn、ctgne.com）在核對環境連不上，如東 H6、H10 兩列 2026-11-12 改用南通海事局通告與世紀新能源網轉載的三峽招標公告（引文都 OK）
     F5('CHN', 'Donghai Bridge', 'pc', url='https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_437507.html',
        zh='34 部 3 MW 風機立在高樁混凝土承台上（上海市政府：2010 年 6 月 8 日全部風機併網），中國第一座大型離岸風場',
        en='34 × 3 MW turbines on high-rise pile caps with concrete caps (Shanghai government: all turbines connected on 8 June 2010); China’s first large offshore wind farm'),
-    F5('CHN', 'CTG Rudong H6', 'mp', url='https://eps.ctg.com.cn/cms/channel/1ywgg1/17129.htm',
-       zh='100 部 4 MW 風機，全部為單樁（2021 年 12 月全容量併網；與 H10 共用柔性直流送出）',
-       en='100 × 4 MW turbines, all on monopiles (fully connected in December 2021; shares a flexible HVDC link with H10)'),
-    F5('CHN', 'CTG Rudong H10', 'mx', url='https://eps.ctg.com.cn/cms/channel/1ywgg1/19830.htm', parts=[['mp', 77], ['bk', 23]],
-       zh='100 部 4 MW 風機：77 座單樁、23 座複合筒（2021 年 12 月全容量併網）',
-       en='100 × 4 MW turbines: 77 on monopiles and 23 on composite buckets (fully connected in December 2021)'),
+    F5('CHN', 'CTG Rudong H6', 'mp', url='https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=97f9924d75c74c82978fa3bb6d9ef24b',
+       zh='100 部 4 MW 風機，全部為單樁（南通海事局 2024-12 通航安全技術參數通告：「風電機組採用單樁基礎」；2021 年 12 月全容量併網；與 H10 共用柔性直流送出）',
+       en='100 × 4 MW turbines, all on monopiles (Nantong MSA navigation-safety parameter notice, Dec 2024: “the turbines use monopile foundations”; fully connected in December 2021; shares a flexible HVDC link with H10)'),
+    F5('CHN', 'CTG Rudong H10', 'mx', url='https://www.ne21.com/news/show-169433.html', parts=[['mp', 77], ['bk', 23]],
+       zh='100 部 4 MW 風機：77 座單樁、23 座全鋼單柱筒型基礎（三峽新能源 2022-04 招標公告，世紀新能源網轉載：「共安裝100台4.0MW風機，其中77台……單樁基礎，23台採用全鋼單柱筒型基礎」；2021 年 12 月全容量併網）',
+       en='100 × 4 MW turbines: 77 on monopiles and 23 on all-steel single-column bucket foundations (CTG New Energy tender notice, Apr 2022, reprinted by ne21.com: “100 × 4.0 MW installed, 77 on monopiles, 23 on all-steel single-column bucket foundations”; fully connected in December 2021)'),
     F5('CHN', "CTG Zhangpu Liu'ao Phase 2", 'jk', url='https://gxt.fj.gov.cn/zwgk/xw/hydt/snhydt/202405/t20240523_6453562.htm',
        zh='四樁套管（福建省工信廳：機位水深逾 46 m，設計團隊採「4 樁導管架」）；28 部 13 MW 以上機組（含 6 部 16 MW），2024 年 6 月全容量併網（澎湃新聞）',
        en='Four-pile jackets (Fujian industry department: over 46 m of water, the design team chose a four-pile jacket); 28 turbines of 13 MW and above (six of 16 MW), fully connected in June 2024 (The Paper)'),
