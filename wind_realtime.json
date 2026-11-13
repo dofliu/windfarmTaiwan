@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-13T21:31:29+08:00",
-  "source_time": "2026-11-13T21:20:00",
-  "wind_total_mw": 24.2,
-  "system_total_mw": 29781.5,
+  "updated": "2026-11-13T22:00:46+08:00",
+  "source_time": "2026-11-13T21:50:00",
+  "wind_total_mw": 23.3,
+  "system_total_mw": 29368.7,
   "farm_wind": {
     "guanyuan": {
       "mps": 0.9,
@@ -163,7 +163,7 @@
     "changgong": 0.0,
     "yunmai": 0.0,
     "sihu": 0.0,
-    "tpc-other-on": 17.0,
+    "tpc-other-on": 15.8,
     "dapeng": 0.0,
     "luwei": 0.0,
     "guanwei": 0.0,
@@ -176,7 +176,7 @@
     "offshore2": 0.7,
     "formosa1": 0.0,
     "formosa2": 0.0,
-    "wo1": 0.0,
+    "wo1": 0.3,
     "wo2": 0.0,
     "wo4": 0.0,
     "wonan": 0.0,
@@ -229,7 +229,7 @@
       "name": "其它台電自有",
       "raw_name": "其它台電自有",
       "capacity": 84.7,
-      "output": 17.0
+      "output": 15.8
     },
     {
       "name": "苗栗大鵬",
@@ -307,7 +307,7 @@
       "name": "沃一風",
       "raw_name": "沃一風",
       "capacity": 605.2,
-      "output": 0.0
+      "output": 0.3
     },
     {
       "name": "沃二風",
