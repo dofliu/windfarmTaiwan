@@ -47,9 +47,14 @@ LANG_FIRST = {'ko': ('cp949',), 'ja': ('shift_jis', 'euc-jp'), 'zh-cn': ('gb1803
 def to_text(b, charset=None):
     """把下載的內容轉成純文字：PDF、Word 檔、HTML（依編碼）"""
     if b[:4] == b'%PDF':
-        sys.modules.setdefault('cryptography', None)     # 部分環境的 cryptography 會讓 pypdf 匯入失敗；讀一般 PDF 用不到
         import logging
-        import pypdf
+        try:
+            import pypdf     # 加密（AES，空密碼）的 PDF 要 cryptography，例如中國的環評報告書
+        except BaseException:     # 部分環境的 cryptography 會讓 pypdf 匯入失敗（pyo3 panic 不是 Exception）；讀一般 PDF 用不到
+            for k in [k for k in sys.modules if k == 'pypdf' or k.startswith(('pypdf.', 'cryptography'))]:
+                del sys.modules[k]
+            sys.modules['cryptography'] = None
+            import pypdf
         logging.getLogger('pypdf').setLevel(logging.ERROR)   # 字型解析的警告與文字比對無關
         t = '\n'.join((p.extract_text() or '') for p in pypdf.PdfReader(io.BytesIO(b)).pages)
         return re.sub(r'(\w)-\n(\w)', r'\1\2', t)     # 行尾斷字
