@@ -990,36 +990,6 @@
   ]
  },
  {
-  "farm": "Jiangsu Dafeng (Huaneng) Offshore wind farm · capacity expansion",
-  "iso": "CHN",
-  "type": "none",
-  "value": {},
-  "note_zh": "仍查不到型式：遠景 2019-12（ne21 轉載）：擴建 100 MW 採用 23 部 EN-148/4.5，2019-10-08 首台安裝、12-21 全部吊裝完成；鹽城海事局 2026-03 公告只寫基礎頂高程 13 m。本輪 ne21 站內搜尋（華能大丰 擴建）只找到這兩篇，無基礎型式。",
-  "note_en": "Type still not found: Envision (Dec 2019, via ne21) says the 100 MW extension uses 23 EN-148/4.5 units, first installed 8 Oct and all installed by 21 Dec 2019; the Yancheng MSA notice (Mar 2026) gives only a +13 m foundation top. The ne21 site search found only these two items, without a foundation type.",
-  "sources": [
-   {
-    "url": "https://www.msa.gov.cn/msacncms_wap/pages/content.jhtml?articleId=c229d4597db94c06831c3cffa425287b",
-    "quote": "二期为100MW扩建项目，共布置23台远景EN148-4.5风力发电机组，单机容量为4.5MW，总装机容量103.5MW。项目基础顶高程为13m，风电机组轮毂高度为95.97m",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.cs.com.cn/ssgs/gsxw/202005/t20200512_6055758.html",
-    "quote": "大丰海上风电位于江苏盐城市大丰区毛竹沙海域，中心离岸距离约55千米。二期项目安装23台4.5兆瓦的远景风电机组",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-132959.html",
-    "quote": "该项目采用23台远景EN-148/4.5海上智能风机",
-    "check": "OK"
-   },
-   {
-    "url": "https://www.ne21.com/news/show-132959.html",
-    "quote": "从10月8日完成首台风机安装，到12月21日完成全部风机吊装再到全部交付",
-    "check": "OK"
-   }
-  ]
- },
- {
   "farm": "Jiangsu Binhai (Datang) Offshore wind farm",
   "iso": "CHN",
   "type": "lead",

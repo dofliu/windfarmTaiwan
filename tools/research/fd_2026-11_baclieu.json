@@ -1,0 +1,11 @@
+[
+ {"farm": "VNM Bac Lieu Phase 2 (foundation type, lead only)", "verdict": "unclear",
+  "why_zh": "2026-11-10 每週排程：人民報 2014 年寫二期 52 座「打樁、灌混凝土」，TEDI WECCO 設計基礎、施工在軟土很厚的海上；投資報寫每座基礎造價 120 億越盾、離岸約 300 m。沒有一處寫明每座幾根樁、有沒有架高承台，依規則不歸成高樁承台（越南其他風場都有「群樁＋承台」或「每座 N 根樁」的原文）。下一步：HTL（20 座）或 Descon（55–62 號）的施工紀錄、TEDI WECCO 的設計說明。",
+  "why_en": "Weekly run, 10 Nov 2026: Nhan Dan (2014) reports piling and concrete pouring at phase 2's 52 turbine foundations, designed by TEDI WECCO, built at sea on thick soft soil; Bao Dau tu gives VND 12 bn per foundation, about 300 m offshore. Nothing states the number of piles per turbine or a raised cap, so it is not coded as a high-rise pile cap (the other Vietnamese farms have a 'pile group with cap' or 'N piles per turbine' passage). Next: HTL (20 foundations) or Descon (nos. 55-62) records, or TEDI WECCO's design note.",
+  "sources": [
+   {"url": "https://nhandan.vn/soi-dong-tren-cong-truong-xay-dung-dien-gio-bac-lieu-post225941.html", "quote": "việc đóng cọc, đổ bê-tông tại 52 trụ cột tua-bin gió là một trong những công việc vô cùng quan trọng"},
+   {"url": "https://tediwecco.vn/portfolio/nha-may-dien-gio-bac-lieu/", "quote": "Công ty nghiên cứu thiết kế móng trụ turbine là Công ty CP Tư vấn Thiết kế Xây dựng Giao thông thủy (TEDI WECCO)"},
+   {"url": "https://baodautu.vn/gia-dien-gio-cao-vi-chi-phi-lon-d1498.html", "quote": "chi phí đầu tư xây dựng móng trụ tại Dự án Nhà máy Điện gió Bạc Liêu là 12 tỷ đồng/trụ"},
+   {"url": "https://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/", "quote": "HTL was also awarded a contract for the construction of 20 wind turbine foundations for the second phase"}
+  ]}
+]

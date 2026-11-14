@@ -275,8 +275,8 @@ def write_docs(rows, out, ospar, countries):
                      '引用的原文逐筆核對過（日文、韓文網頁依網頁編碼比對，PDF 逐頁比對），不引用 4C Offshore；日本港灣內的風場以 NEDO 的'
                      '支持構造分類為準（NEDO 明寫「ドルフィン」就是 High-Rise Pile Cap 高樁承台）。查不到型式的列在下方「查過但暫不列入」。'] if done >= 4 else []),
                   *([f'- **第 5 步（進行中）**：中國 {N5} 筆、越南 {N5V} 筆。最早幾筆依使用者 2026-09-27 整理的《全球離岸風場資料庫｜亞洲查核版 v2》「亞洲逐案覆核」，'
-                     '之後逐座查開發商、施工廠商、地方政府公開的海域使用論證報告與竣工環保驗收、產業新聞；引用的原文都以 `tools/check_quotes.py` 核對過，'
-                     '只有如東 H6、H10 兩列的出處是三峽集團自家網頁（核對環境連不上，列在 TODO）。新增「複合筒」型式，歸在「其他固定式」色組。'] if done >= 5 else []),
+                     '之後逐座查開發商、施工廠商、地方政府公開的海域使用論證報告與竣工環保驗收、產業新聞；引用的原文都以 `tools/check_quotes.py` 核對過'
+                     '（如東 H6、H10 原本只有三峽集團自家網頁，2026-11-12 改用海事局通告與招標公告）。新增「複合筒」型式，歸在「其他固定式」色組。'] if done >= 5 else []),
                   '- 下表「來源」欄：OSPAR 紀錄附上它寫的原值；其他連結是第二來源，或沒有 OSPAR 紀錄時的出處。',
                   f'- **水深、輪轂高度、葉輪直徑**（{DIMS_ASOF} 起，`tools/farm_dimensions.py`）：逐座查維基百科（含英文維基百科各國離岸風場清單的「Depth range」欄）、開發商、風機廠商、政府文件或產業新聞，引用的原文逐筆核對過；查不到的留空，不用典型值推估。下表的「水深／輪轂／葉輪」欄即為這些值；地球儀的風場卡片剖面圖與近景風機依這些值等比例繪製。',
                   '- 地圖上色依結構歸成四組（多於三種顏色在地圖上分不清）：單樁、鋼構框架（套管、三腳架、三樁）、浮動式、其他固定式（重力式、高樁承台、圍堰式、岩錨式、複合筒、混合）；'
@@ -318,8 +318,8 @@ def write_docs(rows, out, ospar, countries):
                   *([f'- **Step 5 (under way)**: {N5} Chinese and {N5V} Vietnamese records. The first few come from the “Asia case-by-case review” in the owner’s '
                      'compilation of 27 Sep 2026; the rest were checked farm by farm against developers, construction contractors, sea-use assessment '
                      'reports and completion environmental acceptances published by local governments, and trade press. Every quoted passage was checked '
-                     'with `tools/check_quotes.py`, except the rows for Rudong H6 and H10, whose sources are China Three Gorges’ own pages (unreachable '
-                     'from the checking environment; listed in TODO). A new “composite bucket” type joins the “other fixed-bottom” colour group.'] if done >= 5 else []),
+                     'with `tools/check_quotes.py` (Rudong H6 and H10, first sourced only to China Three Gorges’ own pages, moved to an MSA notice and a '
+                     'tender notice on 12 Nov 2026). A new “composite bucket” type joins the “other fixed-bottom” colour group.'] if done >= 5 else []),
                   '- In the Sources column below, OSPAR records show the value OSPAR gives; other links are second sources, or the source itself where OSPAR has no record.',
                   f'- **Water depth, hub height and rotor diameter** (from {DIMS_ASOF}, `tools/farm_dimensions.py`): checked farm by farm against Wikipedia (including the “Depth range” column of the English Wikipedia lists of offshore wind farms by country), developers, turbine makers, government documents or trade press, with every quoted passage verified; unknown values are left blank, never filled with typical values. The “Depth / Hub / Rotor” columns below hold these values, and the globe’s farm-card cross-section and close-up turbines are drawn to scale from them.',
                   '- The map folds the types into four colour groups by structure (more than three colours cannot be told apart on a map): monopile, steel frame '
