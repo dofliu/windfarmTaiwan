@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 943 條：刪除 272 筆（其中營運中 49,486.1 MW），修正 671 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 944 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 671 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -53,7 +53,7 @@
 | 義大利 | 11 | 398 | 14 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 2 |
-| 英國 | 9 | 3,500.7 | 11 |
+| 英國 | 10 | 3,500.7 | 11 |
 | 荷蘭 | 8 | 1,852 | 19 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
@@ -1084,6 +1084,7 @@
 | Triton Knoll (Innogy) wind farm · 857 MW · 2022 | GEM | 重複（併入「Triton Knoll」） | 同一座風場（857 MW）；GEM 寫 2022 年，本站依全數風機 2021 年發電列 2021 年 | [連結](https://www.gem.wiki/Triton_Knoll_(Innogy)_wind_farm) |
 | Dogger Bank wind farm · B, C · 2,400 MW · 2026 | GEM | 修正：年份 | B 期 2026 年 6 月才裝了 20 部，風機安裝持續到約 2027 年第二季，C 期在 B 期之後 | [連結](https://www.offshorewind.biz/2026/06/09/20-turbines-installed-at-dogger-bank-b-offshore-wind-farm/) |
 | Pentland wind farm · 100 MW | GEM | 修正：年份、座標 | Pentland 浮動式風場（GEM 另一筆「Pentland Floating Offshore wind farm」是同一案，GEM 的頁面互列為別名）：2023-06-29 取得蘇格蘭海洋局 Section 36 許可，2026 年 1 月在第 7 輪差價合約得標，預計 2027 年最終投資決定、2030 年商轉，尚未施工；位置改用 GEM 另一筆在 Dounreay 外海約 7.5 km 的點（原座標在 Thurso 陸上，概略位置） | [連結](https://cop.dk/pentland-floating-offshore-wind-farm-secures-contract-for-difference-cfd/) |
+| Shantavy Scotch wind farm · 14 MW | GEM | 重複（併入「Shantavny Scotch wind farm」） | 同一座風場：REPD 的「Shantavy Scotch」（Brookfield，7 部、14 MW，申請 LA09/2020/0880/F，標「等待施工」）不是新風場，而是 2017 年起營運的 Shantavny Scotch（許可 M/2007/1407/F，2018 年起由 Brookfield 辦理許可條件）依北愛《2011 年規劃法》第 54 條申請變更第 19 項條件、把運轉年限從 25 年延長到 30 年，Mid Ulster 議會 2022 年 1 月 11 日核准。GEM 照 REPD 把這筆申請列成規劃中的另一座風場，刪掉它、保留營運中那筆。 | [連結](https://www.midulstercouncil.org/getmedia/ca2d7c42-1527-4606-899a-6af329771173/Planning-Applications-Decisions-Issued-Jan-22.pdf.aspx) |
 | St John Hill wind farm · 7.7 MW · 2013 | GEM | 重複（併入「St. Johns Hill wind farm」） | REPD 有兩筆（2867「St John Hill」3×2.5 MW；4031「St. Johns Hill」9×0.85 MW），經度相同、相距約 0.55 km、都在 2013 年 3～4 月商轉，GEM 照抄成兩筆。實際上 Kinneff 附近只有一座 St John's Hill 風場：2013 年商轉，9 部 Gamesa G58/850，合計 7.65 MW；3×2.5 MW 那筆應是同一座的另一種登記。保留 9×0.85 MW 那筆，容量改為 7.65 MW。業主說法不一（Auquhirie Land Company、K E Projects、SSE），不改。 | [連結](https://www.scottish-places.info/features/featurefirst93192.html) |
 | St. Johns Hill wind farm · 7.7 MW · 2013 | GEM | 修正：容量、機組 | 依查證更正（見上一條重複規則的出處）：REPD 有兩筆（2867「St John Hill」3×2.5 MW；4031「St. Johns Hill」9×0.85 MW），經度相同、相距約 0.55 km、都在 2013 年 3～4 月商轉，GEM 照抄成兩筆。實際上 Kinneff 附近只有一座 St John's Hill 風場：2013 年商轉，9 部 Gamesa G58/850，合計 7.65 MW；3×2.5 MW 那筆應是同一座的另一種登記。保留 9×0.85 MW 那筆，容量改為 7.65 MW。業主說法不一（Auquhirie Land Company、K E Projects、SSE），不改。 | [連結](https://www.scottish-places.info/features/featurefirst93192.html) |
 | Spurness wind farm · 10 MW · 2012 | GEM | 修正：機組、業主 | SSE Renewables：Spurness 在 2012 年汰換，原本 3 部風機除役、換成 5 部；本站這筆（10 MW、2012）是汰換後的風場。REPD 汰換案（編號 3837）為 10 MW、5 部 2 MW，The Wind Power 記為 5 部 Vestas V80/2000 運轉中、3 部 NEG Micon NM92/2750 已拆除。原本機組欄「4 x 2.75 MW」是舊風場（REPD 4036）的數字，改正；2004–2012 年的舊風場不另列 | [連結](https://www.sserenewables.com/onshore-wind/great-britain/spurness/) |
