@@ -64,5 +64,21 @@
   "sources": [
    {"url": "https://www.power-technology.com/news/iberdrolas-windanker-offshore-wind-delivery/", "quote": "we look forward to adding Windanker to our portfolio of operational projects by the end of 2026."}
   ]
+ },
+ {
+  "farm": "Baltic Power",
+  "iso": "POL",
+  "status": "not commercially operating as of 2026-11-13: Northland Q3 2026 results (12 Nov 2026) say all 76 turbines installed, over 70% generating, commissioning in Q4 2026; keep as pipeline until a COD announcement",
+  "sources": [
+   {"url": "https://northlandpower.com/northland-power-reports-third-quarter-2026-results-value-accretive-growth-updates-and-reaffirms-2026-guidance/", "quote": "with all 76 turbines installed and over 70% generating power. The project is advancing through commissioning in the fourth quarter of 2026."}
+  ]
+ },
+ {
+  "farm": "Hai Long 2 & 3",
+  "iso": "TWN",
+  "status": "Northland Q3 2026 results (12 Nov 2026) repeat the 15 Oct milestone (73 turbines installed and generating) and final permitting in H1 2027; no change to live.js (COD still 2027)",
+  "sources": [
+   {"url": "https://northlandpower.com/northland-power-reports-third-quarter-2026-results-value-accretive-growth-updates-and-reaffirms-2026-guidance/", "quote": "with all 73 turbines installed and generating power. The project remains on track, with final permitting approvals expected in the first half of 2027"}
+  ]
  }
 ]
