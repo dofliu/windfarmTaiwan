@@ -14,6 +14,10 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v3.22.9 — 2026-11-15
+
+- **北愛 Shantavy Scotch 規劃中紀錄刪除（與營運中的 Shantavny Scotch 是同一座）**：REPD 的「Shantavy Scotch」（Brookfield，7 部、14 MW，申請 LA09/2020/0880/F）不是新風場，而是依北愛《2011 年規劃法》第 54 條申請變更既有風場許可 M/2007/1407/F 第 19 項條件、把運轉年限從 25 年延長到 30 年，Mid Ulster 議會 2022 年 1 月 11 日核准（議會決定清單，引文以 `check_quotes.py` 核對）。GEM 照 REPD 列成另一座規劃中風場，以 `dup()` 規則刪掉（`tools/farm_cleanup.py`，重建風場層與相關檔案）；英國逐案規劃中減少 14 MW。
+
 ## v3.22.8 — 2026-11-14
 
 - **華能大豐擴建 100 MW 補上水下基礎與尺寸**：單樁（單樁供應商潤邦的實績表列「華能大豐擴建 100MW 項目」8 套，其餘依 2018 年環評報告書的單樁設計）；輪轂高度 95.97 m、葉輪 148 m（鹽城海事局 2026 年建成通告；`tools/farm_foundations.py`、`tools/farm_dimensions.py`，引文以 `check_quotes.py` 核對，重跑 `build_foundations.py`）。營運中離岸風場已知基礎型式由 292 座增為 293 座。`check_quotes.py` 改為先用 cryptography 讀加密（AES）的 PDF，匯入失敗時才略過。

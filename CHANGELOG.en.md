@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.22.9 — 2026-11-15
+
+- **Northern Ireland's Shantavy Scotch pipeline record removed (same farm as the operating Shantavny Scotch)**: REPD's 'Shantavy Scotch' (Brookfield, 7 turbines, 14 MW, application LA09/2020/0880/F) is not a new farm but a section 54 application under the Planning Act (NI) 2011 to vary condition 19 of the existing farm's permission M/2007/1407/F, extending its operational lifetime from 25 to 30 years, granted by Mid Ulster Council on 11 January 2022 (council decision list; quotes checked with `check_quotes.py`). GEM had copied it as a separate pipeline farm; a `dup()` rule removes it (`tools/farm_cleanup.py`, farm layer and derived files rebuilt); the UK project-level pipeline drops by 14 MW.
+
 ## v3.22.8 — 2026-11-14
 
 - **Foundation and dimensions for the Huaneng Dafeng 100 MW extension**: monopiles (monopile supplier Rainbow lists 8 sets for the “Huaneng Dafeng extension 100 MW project”; the rest follow the monopile design of the 2018 EIA report); hub height 95.97 m and rotor 148 m (Yancheng MSA as-built notice of 2026; `tools/farm_foundations.py`, `tools/farm_dimensions.py`, quotes checked with `check_quotes.py`, `build_foundations.py` re-run). Operating offshore farms with a known foundation type go from 292 to 293. `check_quotes.py` now reads AES-encrypted PDFs with cryptography first and only drops it when the import fails.

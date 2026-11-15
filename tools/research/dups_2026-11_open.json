@@ -121,22 +121,6 @@
   ]
  },
  {
-  "farm": "GBR Shantavy Scotch wind farm ~ Shantavny Scotch wind farm",
-  "verdict": "unclear",
-  "why_zh": "REPD 有兩筆：Tyrone Wind Energy 的 Shantavny Scotch（7 部、16.1 MW，2017 年 3 月營運，許可 M/2007/1407/F）與 Brookfield 2020 年申請、2021 年核准的 Shantavy Scotch（7 部、14 MW、葉尖 100 m，LA09/2020/0880/F，等待施工），相距約 1.4 km。可能是同一場址的變更申請，也可能是另一座，查不到申請內容，暫不判定。",
-  "why_en": "REPD has two rows: Tyrone Wind Energy's Shantavny Scotch (7 turbines, 16.1 MW, operational Mar 2017, consent M/2007/1407/F) and Brookfield's Shantavy Scotch (7 turbines, 14 MW, 100 m tip, LA09/2020/0880/F, applied 2020, consented 2021, awaiting construction), about 1.4 km apart. It may be a variation for the same site or a separate farm; the application could not be read, so unresolved.",
-  "sources": [
-   {
-    "url": "https://assets.publishing.service.gov.uk/media/6a6cbdc00c36759b5ccaa305/REPD_Publication_Q2_2026.csv",
-    "quote": "Tyrone Wind Energy Ltd,Shantavny Scotch,Wind Onshore,,,16.1,,,,,,,2,7,,,Operational,Operational"
-   },
-   {
-    "url": "https://assets.publishing.service.gov.uk/media/6a6cbdc00c36759b5ccaa305/REPD_Publication_Q2_2026.csv",
-    "quote": "Brookfield Renewable,Shantavy Scotch,Wind Onshore,,,14,,,,,,,,7,100,,Planning Permission Granted,Awaiting Construction"
-   }
-  ]
- },
- {
   "farm": "IND Kukru wind farm / Kukru (United Sustainable) / Betul (Atria)",
   "verdict": "unclear",
   "keep": "",

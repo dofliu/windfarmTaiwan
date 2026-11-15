@@ -9,8 +9,8 @@ English ｜ [中文](data-coverage.md)
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
 - **Farm level**: 20,614 operating farms, 1,182,914 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 54 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 4 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 272 duplicate, never-built or non-existent records were removed and 671 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
-- **Pipeline**: 9,522 projects, 2,712,877 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
+- **Clean-up**: checked record by record in 2026-09; 273 duplicate, never-built or non-existent records were removed and 671 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Pipeline**: 9,521 projects, 2,712,863 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
 
@@ -55,7 +55,7 @@ English ｜ [中文](data-coverage.md)
    - India: projects 51,063 MW · GEM total 51,063 MW
    - Brazil: projects 277,700 MW · GEM total 277,866 MW
    - Spain: projects 56,501 MW · GEM total 56,471 MW
-   - United Kingdom: projects 99,533 MW · GEM total 88,436 MW
+   - United Kingdom: projects 99,519 MW · GEM total 88,436 MW
    - France: projects 23,262 MW · GEM total 22,138 MW
    - Canada: projects 17,852 MW · GEM total 17,852 MW
    - Sweden: projects 85,605 MW · GEM total 85,597 MW
