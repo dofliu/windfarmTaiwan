@@ -73,7 +73,7 @@ FILMS = {
             dict(id='profile', start='layer=fd&f=' + quote('Hywind Scotland'), dur=9, settle=4, acts=[], pad=CARD_PAD,
                  cap={'zh': ('TO SCALE', '水深、輪轂、葉輪按比例畫出', '依每座風場自己的數字'),
                       'en': ('TO SCALE', 'Depth, hub and rotor to scale', "Drawn from each farm's own figures")}),
-            dict(id='floating', start='', dur=15, settle=1, acts=[(0.3, H('tour=fl')), (5.2, NEXT), (10.2, NEXT)],
+            dict(id='floating', start='', dur=15, settle=1, acts=[(0.3, H('tour=fl')), (4.6, NEXT), (8.8, NEXT)],
                  cap={'zh': ('FLOATING WIND', '浮動式：把風機帶到深海', '故事導覽，一站一站飛過去'),
                       'en': ('FLOATING WIND', 'Floating wind: into deep water', 'A guided story, stop by stop')}),
             dict(id='build', start='f=' + quote('Baltic Power Offshore wind farm'), dur=10, settle=3, acts=[], pad=CARD_PAD,
@@ -163,7 +163,7 @@ FILMS = {
                   'en': ('TAIWAN', 'Wind power in Taiwan', 'From demonstration turbines to gigawatt offshore farms')},
         'hero': ('r=TWN', [], 3),
         'segs': [
-            dict(id='tour', start='', dur=15, settle=1, acts=[(0.3, H('tour=tw')), (5.2, NEXT), (10.2, NEXT)],
+            dict(id='tour', start='', dur=15, settle=1, acts=[(0.3, H('tour=tw')), (4.6, NEXT), (8.8, NEXT)],
                  cap={'zh': ('STORY TOUR', '台灣離岸之路', '故事導覽，一站一站飛過去'),
                       'en': ('STORY TOUR', "Taiwan's road offshore", 'A guided story, stop by stop')}),
             dict(id='farms', start='y=2026', dur=13, settle=1, acts=[(0.4, H('r=TWN')), (6.5, F('Greater Changhua 1 & 2a', 'r=TWN'))],
