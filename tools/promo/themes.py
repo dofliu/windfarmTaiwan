@@ -94,7 +94,7 @@ def card_html(path, dur, kicker, title, sub, qr=None, lang='zh'):
     else:
         body = f"""
  <div class="kicker in" style="--d:.2s">{kicker}</div>
- <div class="t1 pop" style="--d:.6s;margin-top:26px">{title}</div>
+ <div class="t1 pop" style="--d:.6s;margin-top:26px;{'font-size:84px;' if lang == 'en' else ''}max-width:1760px;white-space:normal">{title}</div>
  <div class="t2 in" style="--d:1.3s">{sub}</div>
 """
     h = pre.replace('<title>SceneXX 標題</title>', f'<title>{title}</title>')
