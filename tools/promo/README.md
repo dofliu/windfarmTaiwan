@@ -66,7 +66,7 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 每週排程依序做一支；完成的主題寫在 `themes.py` 的 `THEMES`。
 
 - 不配旁白；字卡比介紹影片大；開場與結尾都從同一個深色背景淡入淡出，可以循環播放。
-- 結尾字卡放網站的 QR code（`qrcode` 套件產生，指向 `https://dofliu.github.io/windfarmTaiwan/`）。
+- 結尾字卡放網站的 QR code（`qrcode` 套件產生 SVG，不需要 Pillow，指向 `https://dofliu.github.io/windfarmTaiwan/`）。
 - 字卡不寫會過期的數字；一定要寫時從網站資料當場算，不寫死。船隻畫面一律寫明「示意、不是即時船位、大小不是實際比例」。
 - 事件片不放製作日前三年內的事件，各國都可，不刻意放台灣。
 

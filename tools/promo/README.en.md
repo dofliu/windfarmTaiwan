@@ -66,7 +66,7 @@ The owner approved five on 16 Nov 2026, each 60–90 seconds in a Chinese and an
 The weekly schedule makes one at a time, in that order; finished themes live in `THEMES` in `themes.py`.
 
 - No voice-over; captions larger than in the introduction video; the film fades in from and out to the same dark background so it can loop.
-- The end card carries a QR code to the site (made with the `qrcode` package, pointing at `https://dofliu.github.io/windfarmTaiwan/`).
+- The end card carries a QR code to the site (an SVG made with the `qrcode` package, no Pillow needed, pointing at `https://dofliu.github.io/windfarmTaiwan/`).
 - Captions avoid figures that go stale; when one is needed it is computed from the site's data, never hard-coded. Vessel shots always say "illustrative, not live positions, not to scale".
 - The events video leaves out events from the three years before production and covers all countries without singling out Taiwan.
 

@@ -77,7 +77,7 @@ def card_html(path, dur, kicker, title, sub, qr=None, lang='zh'):
 .t2{font-size:40px;color:rgba(232,238,247,.78);margin-top:30px}
 .qr{width:420px;height:420px;border-radius:28px;background:#fff;padding:26px;box-sizing:border-box;margin-top:46px;
  box-shadow:0 0 90px rgba(45,212,191,.35)}
-.qr img{width:100%;height:100%;image-rendering:pixelated}
+.qr img{width:100%;height:100%;display:block}
 .url{font-size:30px;letter-spacing:.04em;color:#7ff0df;margin-top:26px;font-weight:700}
 .fadeout{position:fixed;inset:0;background:#04070d;opacity:0;animation:fo .9s ease calc(var(--dur) - .9s) both;z-index:50}
 @keyframes fo{to{opacity:1}}
@@ -106,10 +106,10 @@ def card_html(path, dur, kicker, title, sub, qr=None, lang='zh'):
 
 
 def make_qr(path):
-    import qrcode
-    q = qrcode.QRCode(border=0, error_correction=qrcode.constants.ERROR_CORRECT_M, box_size=16)
+    import qrcode, qrcode.image.svg                      # SVG：不需要 Pillow · SVG output, no Pillow needed
+    q = qrcode.QRCode(border=0, error_correction=qrcode.constants.ERROR_CORRECT_M, image_factory=qrcode.image.svg.SvgPathFillImage)
     q.add_data(SITE); q.make(fit=True)
-    q.make_image(fill_color='#04070d', back_color='white').save(path)
+    q.make_image().save(str(path))
 
 
 def main():
@@ -139,9 +139,9 @@ def main():
     if do_all or a.cards:
         k, tz, sz, te, se = th['title']
         ez, ezs, ee, ees = th['end']
-        make_qr(work / 'qr.png')
+        make_qr(work / 'qr.svg')
         card_html(work / open_f, 6, k, te if en else tz, se if en else sz, lang=a.lang)
-        card_html(work / end_f, 8, 'TAIWAN WIND WATCH', ee if en else ez, ees if en else ezs, qr='qr.png', lang=a.lang)
+        card_html(work / end_f, 8, 'TAIWAN WIND WATCH', ee if en else ez, ees if en else ezs, qr='qr.svg', lang=a.lang)
         sb = dict(fps=30, width=1920, height=1080, xfade=0.6,
                   scenes=[dict(file=open_f, duration=6, transition='fade'), dict(file=end_f, duration=8, transition='fade')])
         (work / 'cards.json').write_text(json.dumps(sb, indent=1), encoding='utf-8')
