@@ -30,6 +30,7 @@
 | `storyboard.json`、`storyboard_en.json` | 整支影片 18 景的順序、長度與轉場 |
 | `storyboard_design.json`、`storyboard_design_en.json` | 只含 6 個設計景，給渲染程式用 |
 | `skill_path.py` | 尋找 intro-video 技能的位置 |
+| `themes.py` | 主題導覽影片（展覽用，見下面「主題導覽影片」）：每個主題的錄製段落、開場與結尾字卡（含 QR code）與合成 |
 
 ## 步驟
 
@@ -58,3 +59,28 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 地球儀實機錄製是用 SwiftShader 軟體繪圖逐格截圖，每段約 5–12 分鐘，12 段約 1.5 小時。
 每段錄完會在 `work/check_<段名>.png` 留一張接近結尾的畫面，方便檢查字卡與畫面有沒有重疊。
 中間檔（`work*/`、`assets/`、產生的 `s*.html`）與成品都列在 `.gitignore`，不會進 git。
+
+## 主題導覽影片（展覽用）
+
+使用者 2026-11-16 核准 5 支、每支中英文各一版、60–90 秒：①離岸風電：從海床到海面 ②港口與供應鏈 ③事件與教訓 ④關鍵風場與里程碑 ⑤台灣。
+每週排程依序做一支；完成的主題寫在 `themes.py` 的 `THEMES`。
+
+- 不配旁白；字卡比介紹影片大；開場與結尾都從同一個深色背景淡入淡出，可以循環播放。
+- 結尾字卡放網站的 QR code（`qrcode` 套件產生 SVG，不需要 Pillow，指向 `https://dofliu.github.io/windfarmTaiwan/`）。
+- 字卡不寫會過期的數字；一定要寫時從網站資料當場算，不寫死。船隻畫面一律寫明「示意、不是即時船位、大小不是實際比例」。
+- 事件片不放製作日前三年內的事件，各國都可，不刻意放台灣。
+
+| 主題 | `THEMES` 鍵 | 段落 | 狀態 |
+|---|---|---|---|
+| ① 離岸風電：從海床到海面 | `offshore` | 開場字卡、水下基礎上色（歐洲→Gemini）、按比例剖面（Hywind Scotland）、浮動式故事導覽、實景視角從港口出海（Hornsea Two）、船隻示意（Hornsea Two）、QR code 結尾 | 2026-11-16 完成 |
+
+```bash
+python3 -m http.server 8765 &                            # repo 根目錄
+cd tools/promo
+python3 themes.py offshore --preview                     # 先看每段 5 格（work_t_offshore/pv_*.png）
+python3 themes.py offshore                               # 錄製＋字卡＋合成 → theme_offshore.mp4、theme_offshore_share.mp4
+python3 themes.py offshore --lang en                     # 英文版 → theme_offshore_en.mp4
+python3 themes.py offshore --only o4_sea                 # 只重錄一段；再用 --cards、--assemble 只做字卡或合成
+```
+
+每段錄製約 5–10 分鐘（SwiftShader 軟體繪圖），一支約 40–60 分鐘。

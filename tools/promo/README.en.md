@@ -30,6 +30,7 @@ The finished files are about 70 MB (about 27 MB for the shareable copies) and ar
 | `storyboard.json`, `storyboard_en.json` | Order, length and transitions of all 18 scenes |
 | `storyboard_design.json`, `storyboard_design_en.json` | The 6 designed scenes only, for the renderer |
 | `skill_path.py` | Finds the intro-video skill |
+| `themes.py` | Themed tour videos for exhibitions (see "Themed tour videos" below): each theme's recorded clips, title and end cards (with the QR code) and assembly |
 
 ## Steps
 
@@ -58,3 +59,28 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 The globe clips are captured with SwiftShader software rendering, about 5–12 minutes per clip and about 1.5 hours for all 12.
 After each clip, `work/check_<clip>.png` holds a frame near its end for checking that captions and content do not overlap.
 Intermediate files (`work*/`, `assets/`, the generated `s*.html`) and the videos are in `.gitignore` and stay out of git.
+
+## Themed tour videos (for exhibitions)
+
+The owner approved five on 16 Nov 2026, each 60–90 seconds in a Chinese and an English edition: ① offshore wind from seabed to sea surface, ② ports and the supply chain, ③ events and lessons, ④ key farms and milestones, ⑤ Taiwan.
+The weekly schedule makes one at a time, in that order; finished themes live in `THEMES` in `themes.py`.
+
+- No voice-over; captions larger than in the introduction video; the film fades in from and out to the same dark background so it can loop.
+- The end card carries a QR code to the site (an SVG made with the `qrcode` package, no Pillow needed, pointing at `https://dofliu.github.io/windfarmTaiwan/`).
+- Captions avoid figures that go stale; when one is needed it is computed from the site's data, never hard-coded. Vessel shots always say "illustrative, not live positions, not to scale".
+- The events video leaves out events from the three years before production and covers all countries without singling out Taiwan.
+
+| Theme | `THEMES` key | Clips | Status |
+|---|---|---|---|
+| ① Offshore wind: from seabed to sea surface | `offshore` | Title card, foundation colours (Europe → Gemini), to-scale profile (Hywind Scotland), floating-wind story tour, sea-level view sailing out of the port (Hornsea Two), illustrative vessels (Hornsea Two), QR end card | Done 16 Nov 2026 |
+
+```bash
+python3 -m http.server 8765 &                            # repo root
+cd tools/promo
+python3 themes.py offshore --preview                     # 5 frames per clip first (work_t_offshore/pv_*.png)
+python3 themes.py offshore                               # record + cards + assemble → theme_offshore.mp4, theme_offshore_share.mp4
+python3 themes.py offshore --lang en                     # English → theme_offshore_en.mp4
+python3 themes.py offshore --only o4_sea                 # re-record one clip; --cards or --assemble for cards or assembly only
+```
+
+Each clip takes about 5–10 minutes to record (SwiftShader software rendering), about 40–60 minutes per film.
