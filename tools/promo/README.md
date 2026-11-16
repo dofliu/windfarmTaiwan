@@ -58,3 +58,29 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 地球儀實機錄製是用 SwiftShader 軟體繪圖逐格截圖，每段約 5–12 分鐘，12 段約 1.5 小時。
 每段錄完會在 `work/check_<段名>.png` 留一張接近結尾的畫面，方便檢查字卡與畫面有沒有重疊。
 中間檔（`work*/`、`assets/`、產生的 `s*.html`）與成品都列在 `.gitignore`，不會進 git。
+
+## 展覽用主題導覽影片（`exhibit.py`，2026-11-16 起）
+
+五支 60–90 秒的短片，每支中英文各一版，結尾放網站的 QR code，不配旁白、頭尾接得上可循環播放：
+
+| 代號 | 片名 | 內容 |
+|---|---|---|
+| `f1` | 離岸風電：從海床到海面 | 水下基礎上色、按比例剖面、浮動式故事導覽、施工船與運維船（示意）、實景視角 |
+| `f2` | 港口與供應鏈 | 港口圖層、埃斯比約的服務弧線、赫爾（葉片）、庫克斯港（機艙）、福清江陰、台中港 |
+| `f3` | 事件與教訓 | 事件隨時間出現，再看四則（日本颱風、英國灌漿連接、英國電網、丹麥重力式基礎）；不放製作日前三年內的事件，程式會檢查 |
+| `f4` | 關鍵風場與里程碑 | Brush、Gedser、Vindeby、Horns Rev 1、Hywind Scotland、Hornsea 2、東方電氣 26 MW |
+| `f5` | 台灣的風電 | 台灣離岸之路故事導覽、台灣風場、海上的運維船（示意）、台灣即時與風場牆 |
+
+```bash
+python3 -m http.server 8765 &                       # 在 repo 根目錄
+cd tools/promo
+python3 exhibit.py f1                               # 一支兩種語言；all＝五支
+python3 exhibit.py f1 --lang en --only sealevel     # 只重錄一段（再重新合成）
+python3 exhibit.py f2 --lang zh --only open end     # 只重做片頭與結尾
+python3 exhibit.py f3 --preview                     # 每段只存 5 張預覽圖
+```
+
+- 需要 Python 的 `playwright` 與 `qrcode`；預裝的 Chromium 用 `CHROMIUM_PATH` 指定。
+- 字卡上的數字（港口數、埃斯比約服務過的風場數）由資料檔即時代入；錄影時卡片上的維基百科摘要不查也不顯示（API 限流，內容也不是本站查證的）。
+- 每段約 4–15 分鐘（實景視角最久），一支兩種語言約 1 小時；兩支可以同時跑。
+- 中間檔在 `exhibit/<代號>/<語言>/`，成品在 `exhibit/out/<代號>_<語言>.mp4` 與分享版 `_share.mp4`，都不進 git。

@@ -58,3 +58,29 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 The globe clips are captured with SwiftShader software rendering, about 5–12 minutes per clip and about 1.5 hours for all 12.
 After each clip, `work/check_<clip>.png` holds a frame near its end for checking that captions and content do not overlap.
 Intermediate files (`work*/`, `assets/`, the generated `s*.html`) and the videos are in `.gitignore` and stay out of git.
+
+## Themed exhibition videos (`exhibit.py`, from 16 Nov 2026)
+
+Five films of 60–90 s, each in Chinese and English, ending with a QR code to the site, with no narration and a loopable start and end:
+
+| Code | Film | Content |
+|---|---|---|
+| `f1` | Offshore wind: from seabed to sea surface | Foundation colouring, the to-scale profile, the floating story tour, construction and service vessels (illustrative), the sea-level view |
+| `f2` | Ports and the supply chain | The ports layer, Esbjerg's arcs to the farms it served, Hull (blades), Cuxhaven (nacelles), Fuqing Jiangyin, Taichung |
+| `f3` | Events and lessons | Events appearing over time, then four of them (a typhoon in Japan, UK grouted connections, the UK grid, a Danish gravity base); events from the three years before production are left out and the script checks this |
+| `f4` | Key farms and milestones | Brush, Gedser, Vindeby, Horns Rev 1, Hywind Scotland, Hornsea 2, the Dongfang 26 MW turbine |
+| `f5` | Wind power in Taiwan | The Taiwan offshore story tour, Taiwan's farms, service vessels at sea (illustrative), Taiwan live and the farm wall |
+
+```bash
+python3 -m http.server 8765 &                       # in the repo root
+cd tools/promo
+python3 exhibit.py f1                               # one film, both languages; all = all five
+python3 exhibit.py f1 --lang en --only sealevel     # re-record one clip (and reassemble)
+python3 exhibit.py f2 --lang zh --only open end     # redo only the title and end cards
+python3 exhibit.py f3 --preview                     # five preview stills per clip
+```
+
+- Needs Python `playwright` and `qrcode`; point `CHROMIUM_PATH` at the pre-installed Chromium.
+- Caption figures (the number of ports, the farms Esbjerg served) come from the data files at run time; Wikipedia extracts on the cards are neither fetched nor shown in the recordings (the API rate-limits, and the text is not checked by this site).
+- Each clip takes about 4–15 minutes (the sea-level view longest), about an hour per film in both languages; two films can run at once.
+- Intermediate files are in `exhibit/<code>/<lang>/`, the videos in `exhibit/out/<code>_<lang>.mp4` with share versions `_share.mp4`; none go into git.
