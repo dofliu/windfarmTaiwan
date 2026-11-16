@@ -13,7 +13,7 @@ frame on a virtual clock, adds a title card and a QR-code end card, and assemble
   - 字卡上的數字是製作當時的，重做前先對照網站與資料檔（本檔的 FACTS 由資料檔即時計算）。
   - 船隻是示意（網站圖例會寫），字卡也要寫「示意」。
 """
-import argparse, datetime, json, os, shutil, subprocess, sys, tempfile, time
+import argparse, datetime, json, os, re, shutil, subprocess, sys, tempfile, time
 from pathlib import Path
 from urllib.parse import quote
 import capture as C                                    # VIRTUAL_CLOCK_JS、OVERLAY_JS、run_act、adv、H、F、click、speed、wheel
@@ -76,13 +76,13 @@ FILMS = {
             dict(id='floating', start='', dur=15, settle=1, acts=[(0.3, H('tour=fl')), (4.6, NEXT), (8.8, NEXT)],
                  cap={'zh': ('FLOATING WIND', '浮動式：把風機帶到深海', '故事導覽，一站一站飛過去'),
                       'en': ('FLOATING WIND', 'Floating wind: into deep water', 'A guided story, stop by stop')}),
-            dict(id='build', start='f=' + quote('Baltic Power Offshore wind farm'), dur=10, settle=3, acts=[], pad=CARD_PAD,
+            dict(id='build', start='f=Sofia', dur=10, settle=3, acts=[], pad=CARD_PAD,
                  cap={'zh': ('AT SEA · ILLUSTRATIVE', '興建中：安裝船在海上施工', '船隻為示意，不是即時船位'),
                       'en': ('AT SEA · ILLUSTRATIVE', 'Under construction: the jack-up at work', 'Vessels are illustrative, not live positions')}),
             dict(id='service', start='f=' + quote('Hornsea One'), dur=11, settle=3, acts=[], pad=CARD_PAD,
                  cap={'zh': ('AT SEA · ILLUSTRATIVE', '營運中：CTV 與 SOV 出海維護', '航線依港口資料，船隻為示意'),
                       'en': ('AT SEA · ILLUSTRATIVE', 'In service: CTVs and an SOV', 'Routes from the port data; vessels are illustrative')}),
-            dict(id='sealevel', start='f=' + quote('Formosa 1 Phase 2') + '&sv=1', dur=14, settle=1.5, acts=[], pos='bl',
+            dict(id='sealevel', start='f=' + quote('Formosa 1 Phase 2') + '&sv=1', dur=14, settle=1.5, acts=[],
                  cap={'zh': ('SEA-LEVEL VIEW', '從港口出海看風場', '實際機位與尺寸，3D 呈現'),
                       'en': ('SEA-LEVEL VIEW', 'Sail out from the port', 'Real turbine positions and sizes in 3D')}),
         ]},
@@ -198,6 +198,10 @@ def open_page(b, lang, start):
     pg.add_init_script(C.VIRTUAL_CLOCK_JS)
     pg.add_init_script("try{localStorage.setItem('ww_lang',%s);localStorage.setItem('ww_globe_seen','1');localStorage.setItem('ww_globe_ships','1');"
                        "localStorage.setItem('ww_globe_ports','1');localStorage.setItem('ww_theme','dark')}catch(e){}" % json.dumps(lang))
+    # 卡片上的維基百科摘要：時有時無（API 限流），內容也不是本站查證的，錄影時不查、整段藏起來 · Wikipedia extracts: rate-limited and not
+    # checked by this site, so they are neither fetched nor shown in the recordings
+    pg.route(re.compile(r'wikipedia\.org/w/api\.php'), lambda r: r.abort())
+    pg.add_init_script("document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('style');s.textContent='#g-infoCard .wx{display:none!important}';document.head.appendChild(s)})")
     url = C.BASE + (start if start.startswith('#') else '#/global' + ('?' + start if start else ''))
     pg.goto(url)
     t0 = time.time()
