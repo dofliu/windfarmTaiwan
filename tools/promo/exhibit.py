@@ -280,7 +280,7 @@ def write_cards(film, lang, work, fx):
     k, t, e = film['title'][lang]
     big = 128 if lang == 'zh' else 104
     (work / 'open.html').write_text(card_html(t, 6, """
-.hero-img img{opacity:.82;filter:saturate(1.05)}
+.hero-img img{opacity:.82;filter:saturate(1.05);transform:scale(1.2);transform-origin:50% 72%}
 .scrim{--scrim:.55}
 .brand{font-size:26px;letter-spacing:.32em;text-indent:.32em;color:rgba(232,238,247,.7);margin-top:46px}
 """, f"""
@@ -291,7 +291,7 @@ def write_cards(film, lang, work, fx):
 """), encoding='utf-8')
     scan = '掃描 QR code，打開網站繼續探索' if lang == 'zh' else 'Scan the QR code to explore the site'
     (work / 'end.html').write_text(card_html('QR', 8, """
-.hero-img img{opacity:.5}
+.hero-img img{opacity:.5;transform:scale(1.2);transform-origin:50% 72%}
 .scrim{--scrim:.7}
 .row{display:flex;align-items:center;gap:90px}
 .qr{width:420px;height:420px;background:#fff;border-radius:28px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
