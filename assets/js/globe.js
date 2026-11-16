@@ -76,7 +76,7 @@ const I18N = {
     sceneOff: '🚢 從港口出海看風場', sceneOn: '🧭 走進風場看看', sceneT: '實景視角：幾秒內從港口（或外海）飛到風場，站在海面或空中看真實排列的風機；「回到地球儀」會回到現在的畫面',
     copyLink: '複製此風場連結', copyLinkMs: '複製此里程碑連結', copied: '已複製連結 ✓', copyFail: '無法自動複製，請手動複製下方連結',
     report: '回報資料錯誤', reportT: '在 GitHub 開一則 issue（需登入），已預填名稱、座標與連結',
-    btnSearch: '🔍 搜尋', btnPorts: '⚓ 港口', portsTab: '港口', btnNear: '📍 我附近', nearT: '找離你最近的營運中風場（位置只在這台瀏覽器裡計算，不會傳出去，也不會存下來）', youHere: '📍 你在這裡',
+    btnSearch: '🔍 搜尋', btnShips: '船隻（示意）', shipLegT: '⛴ 船隻為示意，不是即時船位', shipLegB: '施工船（自升式安裝船、運輸駁船、拖船）在興建中的離岸風場；CTV 往返本站登錄的運維港（沒有登錄就在場內）；400 MW 以上、運維港遠於 40 km 或不詳的風場另有一艘 SOV', btnPorts: '⚓ 港口', portsTab: '港口', btnNear: '📍 我附近', nearT: '找離你最近的營運中風場（位置只在這台瀏覽器裡計算，不會傳出去，也不會存下來）', youHere: '📍 你在這裡',
     nearWait: '定位中…', nearOk: (n, d) => `離你最近的營運中風場：${n}，約 ${d} km`, nearDeny: '沒有取得定位權限：可以在瀏覽器的網站設定允許「位置」後再按一次', nearErr: '暫時無法定位，請稍後再試',
     btnOut: '📊 發電表現', outTitle: '風場發電表現', outGen: '總發電量', outCf: '容量因數', outModel: '同機型比較', outYear: '年份',
     outHigh: '高→低', outLow: '低→高', outByN: '依座數', outByMed: '依中位數', outPh: '找風場、機型…', outMed: '中位數', outMedM: '虛線＝該機型的中位數',
@@ -212,7 +212,7 @@ const I18N = {
     sceneOff: '🚢 Sail out to the farm', sceneOn: '🧭 Walk into the farm', sceneT: 'Sea-level view: fly from the port (or open water) to the farm in a few seconds and look at the real layout from the sea or the air; "Back to the globe" returns to this view',
     copyLink: 'Copy link to this farm', copyLinkMs: 'Copy link to this milestone', copied: 'Link copied ✓', copyFail: 'Could not copy automatically — copy the link below',
     report: 'Report a data error', reportT: 'Opens a GitHub issue (sign-in needed) pre-filled with the name, coordinates and link',
-    btnSearch: '🔍 Search', btnPorts: '⚓ Ports', portsTab: 'Ports', btnNear: '📍 Near me', nearT: 'Find the operating wind farm nearest to you (your position is used only in this browser; it is never sent anywhere or stored)', youHere: '📍 You are here',
+    btnSearch: '🔍 Search', btnShips: 'Vessels (illustrative)', shipLegT: '⛴ Vessels are illustrative, not live positions', shipLegB: 'Construction vessels (jack-up installer, feeder barge, tugs) at offshore farms under construction; CTVs shuttle to the O&M port the site lists for the farm (inside the farm when none is listed); farms of 400 MW+ whose O&M port is over 40 km away or unknown also get an SOV', btnPorts: '⚓ Ports', portsTab: 'Ports', btnNear: '📍 Near me', nearT: 'Find the operating wind farm nearest to you (your position is used only in this browser; it is never sent anywhere or stored)', youHere: '📍 You are here',
     nearWait: 'Finding you…', nearOk: (n, d) => `Nearest operating wind farm: ${n}, about ${d} km away`, nearDeny: 'Location permission was not given: allow location for this site in your browser settings and try again', nearErr: 'Could not get your location; please try again later',
     btnOut: '📊 Output', outTitle: 'Wind farm output', outGen: 'Total output', outCf: 'Capacity factor', outModel: 'Same turbine model', outYear: 'Year',
     outHigh: 'High → low', outLow: 'Low → high', outByN: 'By farm count', outByMed: 'By median', outPh: 'Find a farm or model…', outMed: 'Median', outMedM: 'Dashed line = median for the model',
@@ -312,6 +312,7 @@ host.innerHTML = `
     <div id="g-pLayers" class="gmp" hidden>
       <button id="g-btnPipe" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw dash p1"></i><span data-gi="pipe"></span><b class="gmn" id="g-nPipe"></b></button>
       <button id="g-btnPorts" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw" style="background:var(--port)"></i><span data-gi="btnPorts"></span><b class="gmn" id="g-nPorts"></b></button>
+      <button id="g-btnShips" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw" style="background:#f28c28"></i><span data-gi="btnShips"></span></button>
       <button id="g-btnEvents" type="button" class="gmt" aria-pressed="true"><i class="gtk"></i><i class="gsw" style="background:var(--ev-inc)"></i><span data-gi="btnEvents"></span><b class="gmn" id="g-nEvents"></b></button>
       <button id="g-btnZones" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><i class="gsw zline"></i><span data-gi="zones"></span></button>
       <button id="g-btnLiveCov" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><i class="gsw cvsw full"></i><span data-gi="liveCov"></span></button>
@@ -350,7 +351,7 @@ host.innerHTML = `
       <div class="gpbody" id="g-evList" hidden></div>
       <div class="gpbody gana" id="g-anaBody" hidden></div>
     </div>
-    <div id="g-legStack"><div id="g-fdLegend" hidden></div><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-pipeLegend" hidden></div><div id="g-liveLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
+    <div id="g-legStack"><div id="g-fdLegend" hidden></div><div id="g-indLegend" hidden></div><div id="g-cvgLegend" hidden></div><div id="g-zoneLegend" hidden></div><div id="g-flowLegend" hidden></div><div id="g-windLegend" hidden></div><div id="g-pipeLegend" hidden></div><div id="g-shipLegend" hidden></div><div id="g-liveLegend" hidden></div></div><div id="g-hint"></div><div id="g-attr"></div><div id="g-notice" role="status"></div><div id="g-tip"></div>
     <div id="g-welcome" hidden></div>
     <div id="g-infoCard" role="dialog" aria-label="風場、里程碑、港口或事件的資訊卡 · Farm, milestone, port or event card"><button class="gx" type="button" aria-label="close">✕</button><div class="cb"></div>
       <div id="g-tourBar"><button class="tprev" type="button" aria-label="previous">⏮</button><button class="tp" type="button" aria-label="pause">❚❚</button><button class="tnext" type="button" aria-label="next">⏭</button><span class="cnt"></span><div class="prog"><i></i></div><button class="tx" type="button" aria-label="exit">✕</button></div>
@@ -488,7 +489,7 @@ function mergeFarmDetails(M) {
 /* 單檔公開版：藏起進階功能的按鈕與分頁，里程碑清空（地圖上的星號與導覽都不出現），圖層選單去掉水下基礎 */
 function liteSetup() {
   D.milestones = [];
-  ['g-btnPorts', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-btnZones', 'g-btnLiveCov', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
+  ['g-btnPorts', 'g-btnShips', 'g-btnEvents', 'g-btnTour', 'g-btnFlow', 'g-btnZones', 'g-btnLiveCov', 'g-viewSeg', 'g-tabProf', 'g-tabMs', 'g-tabPorts', 'g-tabEvents'].forEach(id => { const el = $(id); if (el) el.hidden = true; });
   const fd = $('g-layerSel').querySelector('option[value="fd"]'); if (fd) fd.remove();
   const vs = $('g-viewSeg'); if (vs && vs.parentNode.classList.contains('gmrow')) vs.parentNode.hidden = true;   // 「檢視」選單裡的版面列整列藏起
   panelTab = 'farms';
@@ -879,7 +880,7 @@ function updatePatch(now) {
 /* ================= symbols: turbines, milestones, farm layer, clusters ================= */
 let towerGeo, nacGeo, hubGeo, bladeGeo, ringGeo, discGeo, rotorGeo, dashRingGeo, thinRingGeo, thinDashGeo;
 const COL = { on: 0xB8892F, onB: 0xe3b458, off: 0x3B8FE0, offB: 0x6fb3ff, fl: 0x1f9e8a, flB: 0x9be8d8 };
-let surfaceRoot, countryRoot, msRoot, clusterRoot;
+let surfaceRoot, countryRoot, msRoot, clusterRoot, shipRoot;
 const cGroups = [];
 let msMarkers = [];
 let countryPicks = [];
@@ -938,6 +939,7 @@ function buildSymbols() {
   });
   buildFarmLayer();
   clusterRoot = new THREE.Group(); surfaceRoot.add(clusterRoot);
+  shipRoot = new THREE.Group(); surfaceRoot.add(shipRoot);
   clusterMats = {
     on: { disc: new THREE.MeshBasicMaterial({ color: COL.on, transparent: true, opacity: 0.16, depthWrite: false }), ring: new THREE.MeshBasicMaterial({ color: COL.on, transparent: true, opacity: 0.55, depthWrite: false }), tower: new THREE.MeshPhongMaterial({ color: 0xe6ebf2 }), nac: new THREE.MeshPhongMaterial({ color: COL.on }), blade: new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: COL.onB, emissiveIntensity: 0.18 }) },
     off: { disc: new THREE.MeshBasicMaterial({ color: COL.off, transparent: true, opacity: 0.16, depthWrite: false }), ring: new THREE.MeshBasicMaterial({ color: COL.off, transparent: true, opacity: 0.6, depthWrite: false }), tower: new THREE.MeshPhongMaterial({ color: 0xe6ebf2 }), nac: new THREE.MeshPhongMaterial({ color: COL.off }), blade: new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: COL.offB, emissiveIntensity: 0.18 }) }
@@ -1682,6 +1684,7 @@ function frame(now) {
   const sizeK = S.mode === 'globe' ? clamp(alt / 65, 0.02, 1) : clamp(alt / 220, 0.02, 1.4);
   const fsOn = farmsReady && fsActive();
   const farmScale = farmK * clamp(Math.pow(alt / Math.max(1, farmRefAlt), 0.75), 0.015, 1.3) * (fsOn && !byIso[S.region] ? clamp(alt / 30, 1, 6) : 1);   // 篩選結果在全球視角也看得到
+  updateShips(now, dt, alt, farmScale);
   const pinK = clamp(Math.pow(alt / 150, 0.85), 0.004, 1) * (FL.op.list.length ? 0.5 : 1);
   const selHasFarms = !!(byIso[S.region] && farmsByIso[S.region] && farmsByIso[S.region].length);
 
@@ -1839,6 +1842,7 @@ function updateHUD() {
     lg.hidden = !showLg;
     if (showLg) lg.innerHTML = '<span>' + T('pipeLegendT') + '</span>' + [1, 2, 3].map(k => '<span><i class="gsw dash p' + k + '"></i>' + T('st')[k] + '</span>').join('');
   }
+  renderShipLegend();
   renderFdLegend();
 }
 /* 水下基礎圖例：範圍內、此刻營運中的離岸風場依型式分組的座數，已知型式的座數與容量占比；點一組只看這一組 */
@@ -2134,6 +2138,181 @@ function farmNamed(n) {
   if (!farmsReady) return null;
   if (!farmByName) { farmByName = new Map(); D.farms.forEach(f => farmByName.set(f.name, f)); }
   return farmByName.get(n) || null;
+}
+/* ================= 海上的船（示意） · vessels at sea (illustrative) =================
+   使用者 2026-11-16 決定：地球儀拉近時，在離岸風場畫示意的船，增加趣味；不是即時船位（AIS 需要金鑰，暫不做），圖例一律寫明。
+   規則（只用本站已有的資料，不臆造船名或作業內容）：
+   - 興建中（時間軸在該場的建造期內、分期還沒全部併網，或「規劃中」裡狀態為興建中）：固定式畫一艘自升式安裝船，浮動式畫拖船；
+     ports.json 裡有出處把該場列在某個組裝出港（或浮動式組裝）港口時，另有運輸駁船（浮動式為拖著浮台的拖船）往返該港。
+   - 營運中：CTV 往返 ports.json 列該場為「服務過的風場」的運維港（取最近的一個；沒有就在場內巡航），400 MW 以上而運維港遠於 40 km 或不詳的另畫一艘 SOV。
+   - 航線是港口到風場的直線；中段穿過陸地（Natural Earth 國界）的不畫往返，改在場內。大小依風場符號（或近看的風機）放大，不是實際比例。
+   Vessels are drawn only from data the site already has; they are illustrative, never live positions, and the legend says so. */
+S.ships = WW.store.get('ww_globe_ships', '1') === '1';
+const SHIP_LEN = { ctv: 0.32, sov: 0.62, jack: 0.72, feeder: 0.55, tow: 0.55, tug: 0.3 }, SHIP_LEN_CL = { ctv: 0.7, sov: 1.1, jack: 1.1, feeder: 1.0, tow: 1.0, tug: 0.6 };
+const SHIP_ALT_G = 24, SHIP_ALT_F = 40, SHIP_FARMS = 12, SHIP_SOV_MW = 400, SHIP_SOV_KM = 40;
+let shipModels = null, shipPlanT = 0, shipPlanKey = '', shipsShown = 0, shipPortIdx = null, shipPortN = -1;
+const SHIPS = new Map();                                            // key → { f, kind, g, route, phase, ... }
+const shipRouteOk = new Map();
+function toggleShips(on) {
+  S.ships = LITE ? false : on != null ? on : !S.ships; WW.store.set('ww_globe_ships', S.ships ? '1' : '0');
+  const b = $('g-btnShips'); if (b) { b.classList.toggle('active', S.ships); b.setAttribute('aria-pressed', S.ships ? 'true' : 'false'); }
+  shipPlanKey = ''; if (typeof syncLayerMenu === 'function' && D.farms) syncLayerMenu();
+}
+/* 船的模型：船首朝 +z、長度約 1、原點在水線中央 · bow towards +z, length about 1, origin at the waterline */
+function buildShipModels() {
+  const mat = c => new THREE.MeshPhongMaterial({ color: c, shininess: 20 });
+  const M = { orange: mat(0xf28c28), white: mat(0xf4f6f8), glass: mat(0x1d2a3a), navy: mat(0x1f4e79), yellow: mat(0xf2c230), grey: mat(0x6b7785), red: mat(0xc8372d), steel: mat(0x9aa3ad), hullW: mat(0xdfe4ea) };
+  const box = (w, h, d, m, x, y, z, ry) => { const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); o.position.set(x || 0, y || 0, z || 0); if (ry) o.rotation.y = ry; return o; };
+  const cyl = (r, h, m, x, y, z, seg) => { const o = new THREE.Mesh(new THREE.CylinderGeometry(r, r, h, seg || 10), m); o.position.set(x || 0, y || 0, z || 0); return o; };
+  const grp = (...a) => { const g = new THREE.Group(); a.forEach(o => g.add(o)); return g; };
+  const tug = () => grp(box(0.16, 0.08, 0.26, M.red, 0, 0.04, 0), box(0.113, 0.08, 0.113, M.red, 0, 0.04, 0.13, Math.PI / 4), box(0.11, 0.08, 0.1, M.white, 0, 0.12, 0.02), box(0.112, 0.025, 0.102, M.glass, 0, 0.14, 0.02));
+  const floater = () => { const g = new THREE.Group(); for (let i = 0; i < 3; i++) { const a = i * Math.PI * 2 / 3; g.add(cyl(0.06, 0.16, M.yellow, Math.sin(a) * 0.2, 0.06, Math.cos(a) * 0.2, 12)); const b = box(0.03, 0.03, 0.35, M.yellow, Math.sin(a + Math.PI / 3) * 0.1, 0.0, Math.cos(a + Math.PI / 3) * 0.1); b.rotation.y = a + Math.PI / 3 + Math.PI / 2; g.add(b); } return g; };
+  const ctv = grp(box(0.09, 0.08, 1, M.orange, -0.13, 0.03, 0), box(0.09, 0.08, 1, M.orange, 0.13, 0.03, 0), box(0.36, 0.03, 0.72, M.white, 0, 0.085, -0.06),
+    box(0.26, 0.12, 0.3, M.white, 0, 0.16, 0.14), box(0.265, 0.04, 0.305, M.glass, 0, 0.19, 0.14), box(0.34, 0.06, 0.06, M.grey, 0, 0.07, 0.52));
+  const sov = grp(box(0.2, 0.1, 0.82, M.hullW, 0, 0.04, -0.02), box(0.141, 0.1, 0.141, M.hullW, 0, 0.04, 0.4, Math.PI / 4), box(0.204, 0.03, 0.84, M.navy, 0, 0.0, -0.02),
+    box(0.18, 0.16, 0.26, M.white, 0, 0.17, 0.22), box(0.182, 0.035, 0.12, M.glass, 0, 0.23, 0.3), cyl(0.085, 0.012, M.hullW, 0, 0.256, 0.2, 16),
+    (() => { const o = box(0.025, 0.025, 0.26, M.orange, 0.09, 0.15, -0.12); o.rotation.x = -0.18; return o; })(), cyl(0.02, 0.1, M.orange, 0.09, 0.13, -0.24));
+  const jack = (() => { const g = grp(box(0.46, 0.08, 1, M.hullW, 0, 0.16, 0), box(0.4, 0.012, 0.9, M.grey, 0, 0.205, 0));
+    [[-0.19, -0.42], [0.19, -0.42], [-0.19, 0.42], [0.19, 0.42]].forEach(([x, z]) => g.add(cyl(0.032, 0.72, M.yellow, x, 0.3, z, 8)));
+    g.add(box(0.16, 0.12, 0.16, M.white, 0, 0.27, 0.36), cyl(0.05, 0.1, M.red, 0.12, 0.25, -0.3));
+    const boom = box(0.035, 0.035, 0.75, M.red, 0.12, 0.47, 0.02); boom.rotation.x = -0.62; g.add(boom);
+    for (let i = 0; i < 3; i++) { const pile = cyl(0.04, 0.42, M.yellow, -0.1 + i * 0.09, 0.24, -0.1, 10); pile.rotation.x = Math.PI / 2; g.add(pile); }
+    return g; })();
+  const feeder = (() => { const g = grp(box(0.3, 0.06, 0.62, M.grey, 0, 0.03, -0.18));
+    for (let i = 0; i < 2; i++) { const t = cyl(0.045, 0.5, M.white, -0.07 + i * 0.14, 0.11, -0.18, 10); t.rotation.x = Math.PI / 2; g.add(t); }
+    const tg = tug(); tg.position.z = 0.36; g.add(tg); g.add(box(0.008, 0.008, 0.14, M.steel, 0, 0.05, 0.17)); return g; })();
+  const tow = (() => { const g = new THREE.Group(); const tg = tug(); tg.position.z = 0.36; g.add(tg); const fl = floater(); fl.position.z = -0.12; fl.name = 'cargo'; g.add(fl); g.add(box(0.008, 0.008, 0.2, M.steel, 0, 0.05, 0.14)); return g; })();
+  const tugM = (() => { const g = tug(); g.scale.setScalar(1.4); return grp(g); })();
+  return { ctv, sov, jack, feeder, tow, tug: tugM };
+}
+function shipPorts() {                                              // 風場名稱 → 運維港、組裝港（只取有出處列出該場的港口）
+  if (shipPortIdx && shipPortN === PORTS.length) return shipPortIdx;
+  shipPortN = PORTS.length; shipPortIdx = new Map();
+  PORTS.forEach(p => {
+    if (p.status === 'developing') return;
+    const om = p.roles.includes('om') && p.status !== 'former', mar = p.roles.includes('marshalling') || p.roles.includes('floating');
+    (p.farms || []).forEach(n => {
+      if (!shipPortIdx.has(n)) shipPortIdx.set(n, { om: [], mar: [] });
+      const e = shipPortIdx.get(n); if (om) e.om.push(p); if (mar) e.mar.push(p);
+    });
+  });
+  return shipPortIdx;
+}
+const shipKm = (lon1, lat1, lon2, lat2) => { const x = (lon2 - lon1) * 111.32 * Math.cos((lat1 + lat2) / 2 * D2R), y = (lat2 - lat1) * 110.574; return Math.hypot(x, y); };
+function nearestPort(list, f) { let best = null, bd = Infinity; list.forEach(p => { if (p.since && S.year < p.since) return; const d = shipKm(p.lon, p.lat, f.lon, f.lat); if (d < bd) { bd = d; best = p; } }); return best ? { p: best, km: bd } : null; }
+function routeOk(p, f) {                                            // 直線航線的中段（10%–90%）不能落在陸地上 · the middle of the route must stay at sea
+  const k = p.id + '|' + f.name; if (shipRouteOk.has(k)) return shipRouteOk.get(k);
+  let ok = true; for (let i = 1; i < 12 && ok; i++) { const t = 0.1 + 0.8 * i / 12; if (countryAt(p.lon + (f.lon - p.lon) * t, p.lat + (f.lat - p.lat) * t)) ok = false; }
+  shipRouteOk.set(k, ok); return ok;
+}
+function shipBuilding(f) {
+  if (f.pipe) return f.st === 1;
+  if (f.yu) return false;
+  if (f.ph && f.ph.length > 1 && farmMwAt(f, S.year) < f.mw - 1e-6) return true;
+  return fAge(f) < BUILD;
+}
+function shipNeeds(f) {                                             // 這座風場要畫哪些船 · the vessels a farm gets
+  const ix = shipPorts().get(f.name) || { om: [], mar: [] }, out = [], fl = f.type === 'floating';
+  if (f.pipe && f.st !== 1) return out;                                // 前期開發與已宣布：還沒有船 · not yet any vessels
+  if (shipBuilding(f)) {
+    out.push({ kind: fl ? 'tug' : 'jack', mode: 'park' });
+    const mp = nearestPort(ix.mar, f);
+    if (mp && mp.km < 900 && routeOk(mp.p, f)) out.push({ kind: fl ? 'tow' : 'feeder', mode: 'route', port: mp.p, km: mp.km });
+    else if (fl) out.push({ kind: 'tug', mode: 'loop' });
+    return out;
+  }
+  const op = nearestPort(ix.om, f), routed = op && op.km < 250 && routeOk(op.p, f);
+  const n = clamp(Math.round(f.mw / 350), 1, 3);
+  for (let i = 0; i < n; i++) out.push(routed ? { kind: 'ctv', mode: 'route', port: op.p, km: op.km } : { kind: 'ctv', mode: 'loop' });
+  if (f.mw >= SHIP_SOV_MW && (!op || op.km > SHIP_SOV_KM)) out.push({ kind: 'sov', mode: 'loop' });
+  return out;
+}
+function farmRadiusKm(f) { const tb = tbOf(f), sp = turbSpec(f); if (!tb) return sp.extent / 2; let r = 0; tbKm(tb).forEach(([e, n]) => { r = Math.max(r, Math.hypot(e, n)); }); return Math.max(0.4, r); }
+function planShips(now, alt) {
+  const on = S.ships && !LITE && renderer && farmsReady && S.view !== 'bars' && !modeAnim && alt < (S.mode === 'globe' ? SHIP_ALT_G : SHIP_ALT_F);
+  const fc = on ? focusLonLat() : { lon: 0, lat: 0 };
+  const key = on ? [S.region, S.pipe, S.layer, Math.floor(S.year * 4), fsRev, PORTS.length, (fc.lon / Math.max(0.5, alt * 0.25)).toFixed(0), (fc.lat / Math.max(0.5, alt * 0.25)).toFixed(0), Math.round(Math.log2(alt) * 2)].join('|') : 'off';
+  if (key === shipPlanKey) return; shipPlanKey = key;
+  const want = new Map();
+  if (on) {
+    const cosl = Math.max(0.2, Math.cos(fc.lat * D2R)), rad = clamp(alt * (S.mode === 'globe' ? 0.9 : 0.55), 1.2, 22), fsOn = fsActive(), cands = [];
+    const camN = S.mode === 'globe' ? vcam.position.clone().normalize() : null;
+    for (const f of D.farms) {
+      if (f.type === 'onshore' || f.mw < 10 || f.pseudo || !farmActive(f, S.year) || !showFarm(f) || isAgg(f)) continue;
+      if (fsOn && (!inScope(f.iso) || !fsMatch(f))) continue;
+      const dl = f.lat - fc.lat, dn = (f.lon - fc.lon) * cosl, d = Math.sqrt(dl * dl + dn * dn);
+      if (d > rad) continue;
+      if (camN && globePos(f.lon, f.lat, 0, _shV).normalize().dot(camN) < 0.25) continue;
+      cands.push([d - (f === focusFarm ? 1e3 : 0), f]);
+    }
+    cands.sort((a, b) => a[0] - b[0]);
+    cands.slice(0, SHIP_FARMS).forEach(([, f]) => shipNeeds(f).forEach((v, i) => want.set(f.name + '#' + i + v.kind + v.mode, Object.assign(v, { f }))));
+  }
+  SHIPS.forEach((v, k) => { if (!want.has(k)) { shipRoot.remove(v.g); SHIPS.delete(k); } });
+  if (want.size && !shipModels) shipModels = buildShipModels();
+  want.forEach((v, k) => {
+    if (SHIPS.has(k)) return;
+    const rnd = seeded(k);
+    v.g = shipModels[v.kind].clone(); v.g.visible = false; shipRoot.add(v.g);
+    v.rKm = farmRadiusKm(v.f); v.phase = rnd() * 1000; v.ang0 = rnd() * Math.PI * 2; v.spot = [rnd(), rnd()];
+    v.cargo = v.g.getObjectByName('cargo') || null;
+    SHIPS.set(k, v);
+  });
+}
+const _shV = new THREE.Vector3(), _shQ = new THREE.Quaternion(), _shY = new THREE.Quaternion();
+/* 一艘船此刻的位置（相對風場中心的東、北公里數，或港口端的經緯度）與航向 · where a vessel is now */
+function shipState(v, t) {
+  const f = v.f, c = clusterLL(f), r = v.rKm;
+  const inFarm = (a, rr) => [Math.cos(a) * rr, Math.sin(a) * rr];
+  if (v.mode === 'park') {                                          // 安裝船：在場內一個機位停 40 秒，再慢慢移到下一個 · jack-up: 40 s on a spot, then moves
+    const per = 52, k = Math.floor((t + v.phase) / per), u = ((t + v.phase) % per) / per;
+    const sp = i => { const rr = seeded(f.name + i); return inFarm(rr() * 6.283, r * (0.25 + 0.6 * rr())); };
+    const a = sp(k), b = sp(k + 1), m = u < 0.8 ? 0 : (u - 0.8) / 0.2, e = m * m * (3 - 2 * m);
+    return { e: a[0] + (b[0] - a[0]) * e, n: a[1] + (b[1] - a[1]) * e, hd: Math.atan2(b[0] - a[0], b[1] - a[1]), c, vis: 1 };
+  }
+  if (v.mode === 'loop') {                                          // 場內巡航 · cruising inside the farm
+    const w = v.kind === 'sov' ? 0.035 : 0.09, a = v.ang0 + (t + v.phase) * w, rr = r * (v.kind === 'sov' ? 0.55 : 0.75) * (0.85 + 0.15 * Math.sin(a * 2.3));
+    const p = inFarm(a, rr);
+    return { e: p[0], n: p[1], hd: Math.atan2(-Math.sin(a), Math.cos(a)), c, vis: 1 };
+  }
+  // 往返港口：出港 → 進場 → 停在機位旁 → 出場 → 回港 → 在港停靠 · port → farm → turbine → farm edge → port → berth
+  const p = v.port, km = Math.max(1, v.km), tr = clamp(km / 4, 5, 26), tin = 3.5, dw = v.kind === 'ctv' ? 7 : 10, dp = 5;
+  const per = tr * 2 + tin * 2 + dw + dp, u = (t + v.phase) % per;
+  const en = { e: (p.lon - c.lon) * 111.32 * Math.cos(c.lat * D2R), n: (p.lat - c.lat) * 110.574 }, L = Math.hypot(en.e, en.n) || 1;
+  const edge = [en.e / L * r * 0.95, en.n / L * r * 0.95], spot = inFarm(v.spot[0] * 6.283, r * (0.2 + 0.6 * v.spot[1]));
+  const lerp2 = (a, b, k) => [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k], ease = k => k * k * (3 - 2 * k);
+  const port = [en.e, en.n];
+  let pos, from, to, vis = 1, cargo = true;
+  if (u < tr) { const k = ease(u / tr); from = port; to = edge; pos = lerp2(port, edge, k); vis = clamp(k / 0.08, 0, 1); }
+  else if (u < tr + tin) { const k = ease((u - tr) / tin); from = edge; to = spot; pos = lerp2(edge, spot, k); }
+  else if (u < tr + tin + dw) { from = edge; to = spot; pos = spot; cargo = false; }
+  else if (u < tr + tin * 2 + dw) { const k = ease((u - tr - tin - dw) / tin); from = spot; to = edge; pos = lerp2(spot, edge, k); cargo = false; }
+  else if (u < tr * 2 + tin * 2 + dw) { const k = ease((u - tr * 2 - tin * 2 - dw) / tr) ; from = edge; to = port; pos = lerp2(edge, port, k); vis = clamp((1 - k) / 0.08, 0, 1); cargo = false; }
+  else { from = edge; to = port; pos = port; vis = 0; }
+  return { e: pos[0], n: pos[1], hd: Math.atan2(to[0] - from[0], to[1] - from[1]), c, vis, cargo };
+}
+function updateShips(now, dt, alt, farmScale) {
+  if (!shipRoot) return;
+  if (now - shipPlanT > 500) { shipPlanT = now; planShips(now, alt); }
+  let shown = 0; const t = now / 1000;
+  SHIPS.forEach(v => {
+    const st = shipState(v, t), f = v.f;
+    // 大小不是實際比例：近看時以風機高度為準、小船放大到看得見；其他風場依其風場符號 · not to scale: relative to the close-up turbines (small craft enlarged to stay visible) or to the farm symbol
+    const cg = clusters.get(f), len = cg ? cg.userData.h * SHIP_LEN_CL[v.kind] : fHeight(farmMwAt(f, S.year) || f.mw) * farmScale * 0.55 * SHIP_LEN[v.kind];
+    if (st.vis <= 0.01 || len < 1e-5) { v.g.visible = false; return; }
+    const lat = st.c.lat + st.n / 110.574, lon = st.c.lon + st.e / (111.32 * Math.max(0.2, Math.cos(st.c.lat * D2R)));
+    const en = localEN(lon, lat), vx = Math.sin(st.hd) * en.e[0] + Math.cos(st.hd) * en.n[0], vz = Math.sin(st.hd) * en.e[1] + Math.cos(st.hd) * en.n[1];
+    posAt(lon, lat, 0, v.g.position); quatAt(lon, lat, _shQ); _shY.setFromAxisAngle(UP, Math.atan2(vx, vz)); v.g.quaternion.copy(_shQ).multiply(_shY);
+    v.g.scale.setScalar(len * st.vis); v.g.visible = true; if (v.cargo) v.cargo.visible = st.cargo !== false; shown++;
+  });
+  shipsShown = shown;
+}
+function renderShipLegend() {
+  const lg = $('g-shipLegend'); if (!lg) return;
+  const show = shipsShown > 0 && S.ships && S.view !== 'bars';
+  if (lg.hidden === !show && lg._lang === lang) return;
+  lg.hidden = !show; lg._lang = lang;
+  if (show) lg.innerHTML = '<b>' + esc(T('shipLegT')) + '</b><span>' + esc(T('shipLegB')) + '</span>';
 }
 const portStatusTag = p => p.status === 'developing' ? '<span class="gtag p2">' + esc(T('portDev')) + '</span>' : p.status === 'former' ? '<span class="gtag ret">' + esc(T('portOld')) + '</span>' : '';
 const portRowHTML = p => '<button type="button" class="msItem port' + (p.status === 'developing' ? ' pipe' : p.status === 'former' ? ' gone' : '') + '" data-port="' + esc(p.id) + '"><span class="y">⚓</span><span class="n">' + esc(pname(p)) + '</span>' +
@@ -3638,7 +3817,7 @@ function renderCrumb() {
 }
 function syncLayerMenu() {                                 // 「圖層」按鈕的數字與各圖層的筆數（範圍內、到目前年份）
   const vis = id => { const el = $(id); return el && !el.hidden; };            // 單檔公開版藏起的圖層不算
-  const n = [[S.pipe, 'g-btnPipe'], [S.ports, 'g-btnPorts'], [S.events, 'g-btnEvents'], [S.zones, 'g-btnZones'], [S.liveCov, 'g-btnLiveCov'], [S.flow, 'g-btnFlow']].filter(([on, id]) => on && vis(id)).length + (S.layer === 'fd' ? 1 : 0) + (S.ind ? 1 : 0);
+  const n = [[S.pipe, 'g-btnPipe'], [S.ports, 'g-btnPorts'], [S.ships, 'g-btnShips'], [S.events, 'g-btnEvents'], [S.zones, 'g-btnZones'], [S.liveCov, 'g-btnLiveCov'], [S.flow, 'g-btnFlow']].filter(([on, id]) => on && vis(id)).length + (S.layer === 'fd' ? 1 : 0) + (S.ind ? 1 : 0);
   const c = $('g-layerCount'); if (c) { c.textContent = n; c.hidden = !n; }
   const yr = Math.floor(S.year + 1e-6), key = S.region + '|' + yr + '|' + (farmsReady ? 1 : 0) + '|' + PORTS.length + '|' + EVENTS.length + '|' + lang;
   if (key === syncLayerMenu.key) return; syncLayerMenu.key = key;
@@ -4211,6 +4390,7 @@ function applyI18n() {
   hudCache = ''; msRendered = -1; renderMilestones(true); renderFarmList(true); renderProfile(); renderPipeList(true); renderPortList(); renderEventList(true); updateAttr();
   $('g-btnSearch').title = T('fsKey'); $('g-btnNear').title = T('nearT');
   $('g-pipeLegend').hidden = true;      // 下一個 HUD 更新時依新語言重畫圖例
+  $('g-shipLegend')._lang = null;
   renderWindLegend(); renderZoneLegend(); renderCvgLegend(); renderIndLegend();
   if (ANA.kind) anaOpen(ANA.kind);
   renderOutput(); renderCompare(); renderMk();
@@ -4352,7 +4532,7 @@ function showSources() {
     '<h4>' + (zh ? '美國每部風機的位置與規格' : 'US turbine positions and specs') + '</h4><ul><li><a href="https://energy.usgs.gov/uswtdb/" target="_blank" rel="noopener">U.S. Wind Turbine Database (USWTDB)</a>' + (zh ? '，美國地質調查所、勞倫斯柏克萊國家實驗室與美國潔淨電力協會，公有領域；由 tools/build_turbines.py 依名稱、距離與容量（±15%）對到本站的風場，對不上的維持推算的排列。' : ', USGS, Lawrence Berkeley National Laboratory and American Clean Power Association, public domain; matched to the site\'s farms by name, distance and capacity (±15%) in tools/build_turbines.py; unmatched farms keep the estimated layout.') + '</li></ul>' +
     '<h4>' + (zh ? '1980–1999 早期資料' : 'Early data 1980–1999') + '</h4><ul>' + li(src.early) + '</ul>' +
     '<h4>' + (zh ? '風場層級資料' : 'Farm-level data') + '</h4><ul><li>Global Energy Monitor, Global Wind Power Tracker, February 2026 release (CC BY 4.0): <a href="https://globalenergymonitor.org/projects/global-wind-power-tracker/" target="_blank" rel="noopener">globalenergymonitor.org</a></li>' + li(src.farms) + '<li>' + (zh ? '代用座標的風場：依 GEM 專案頁的鄉鎮或縣名稱，取 Wikidata（CC0）該地項目的座標當概略位置（以 OpenStreetMap Nominatim 查索引，不含 OSM 資料），清單見 GitHub 的 docs/data-locations.md。' : 'Farms on placeholder points: the township or county named on the GEM project page is placed at the coordinate of its Wikidata item (CC0), looked up through OpenStreetMap Nominatim (no OSM data included); listed in docs/data-locations.md on GitHub.') + '</li></ul>' +
-    (LITE ? '' : '<h4>' + (zh ? '離岸風電港口' : 'Offshore wind ports') + '</h4><ul><li>' + (zh ? '2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。' : 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.') + '</li></ul>' +
+    (LITE ? '' : '<h4>' + (zh ? '離岸風電港口' : 'Offshore wind ports') + '</h4><ul><li>' + (zh ? '2026 年 9 月人工整理：港務機關、政府、開發商與製造商的公告，以及產業新聞（offshoreWIND.biz、Recharge 等）；每個港口的卡片列出出處，「服務過的風場」只列有出處佐證的。' : 'Compiled by hand in Sep 2026 from port authorities, governments, developer and manufacturer announcements and trade press (offshoreWIND.biz, Recharge and others); each port card lists its sources, and “wind farms served” only lists farms a source ties to the port.') + '</li><li>' + (zh ? '海上的船（圖層「船隻（示意）」）是示意，不是即時船位，也不代表真的有哪艘船在哪裡作業：興建中的離岸風場畫施工船（固定式為自升式安裝船，浮動式為拖船），有出處把該場列在組裝出港港口時另有運輸駁船往返；營運中的風場畫 CTV，往返本站列該場為服務過風場的運維港（航線中段穿過陸地或沒有登錄時改在場內巡航），400 MW 以上而運維港遠於 40 km 或不詳的另有一艘 SOV。船的大小放大過，不是實際比例。' : 'The vessels at sea (layer “Vessels (illustrative)”) are illustrative, not live positions, and do not claim that any particular vessel works there: offshore farms under construction get construction vessels (a jack-up installer for fixed-bottom farms, tugs for floating ones), plus a feeder barge to the marshalling port when a source ties the farm to one; operating farms get CTVs shuttling to the O&M port that lists the farm among those it served (cruising inside the farm when none is listed or the straight route would cross land), and farms of 400 MW or more whose O&M port is over 40 km away or unknown also get an SOV. The vessels are enlarged, not to scale.') + '</li></ul>' +
     '<h4>' + (zh ? '水下基礎型式' : 'Foundation types') + '</h4><ul><li>' + (zh ? 'OSPAR Offshore Renewable Energy Developments 2024（CC0，資料時間 2024-01-01）：北海與東北大西洋逐場的基礎型式；逐筆比對本站風場。OSPAR 與建成紀錄不符或沒寫具體型式的（德國每一座、英國 Hornsea One 等），改以德文維基百科或建造新聞為準。歐洲其他風場（波羅的海、地中海、艾瑟爾湖）與 2024 年以後才完工的風場，逐座查開發商、施工廠商、產業新聞或維基百科；全球浮動式風場的細分型式（單柱式、半潛式、駁船式、張力腳）逐座查技術供應商與開發商資料。台灣、日本、韓國、美國逐座查開發商、施工廠商、政府文件或產業新聞（日本港灣內的風場以 NEDO 的支持構造分類為準，「ドルフィン」即高樁承台）。卡片列出每座的出處。中國與越南逐座查開發商、施工廠商、地方政府（含竣工環保驗收報告）或產業新聞，出處原文逐筆核對：2026 年 10 月中國營運中的離岸風場 141 座已查明 106 座（約占容量 77%）、越南 20 座查明 15 座，其餘仍暫列「型式不詳」；逐場清單見 GitHub 的 docs/foundations.md。' : 'OSPAR Offshore Renewable Energy Developments 2024 (CC0, data as of 1 Jan 2024): foundation type per farm for the North Sea and NE Atlantic, matched to this site’s farms one by one. Where OSPAR differs from what was built or gives no specific type (every German farm, the UK’s Hornsea One and a few others), German Wikipedia or construction news is used instead. The rest of Europe (the Baltic, the Mediterranean, the IJsselmeer) and farms finished after 2024 were checked one by one against developers, construction contractors, trade press or Wikipedia, and floating farms worldwide got their sub-type (spar, semi-submersible, barge, tension-leg) from technology providers and developers. Taiwan, Japan, Korea and the USA were checked the same way against developers, contractors, government documents and trade press (farms inside Japanese ports follow NEDO’s classification of support structures, where a “dolphin” is a high-rise pile cap). Each farm card lists its sources. China and Vietnam are checked farm by farm against developers, construction contractors, local governments (including completion environmental acceptance reports) or trade press, with every quoted passage verified: as of October 2026, 106 of China’s 141 operating offshore farms are known (about 77% of the capacity) and 15 of Vietnam’s 20; the rest still show “type unknown”. The farm-by-farm list is docs/foundations.en.md on GitHub.') + '</li></ul>' +
     '<h4>' + (zh ? '重大事件與事故' : 'Major events & incidents') + '</h4><ul><li>' + (zh ? '2026 年 9 月 28 日人工查證的清單（' + (EVENTS.length || 59) + ' 筆）：每筆附主管機關或業主的一手來源（能源署、BSEE、OSHA、METI、韓國氣候能源環境部、AEMO、各業主新聞稿等）；傷亡人數與根因只寫官方已確認的，未確認的留空；照片只記錄頁面網址與權利狀態，本站不轉載。逐筆清單見 GitHub 的 docs/events.md。' : 'A list verified by hand on 28 Sep 2026 (' + (EVENTS.length || 59) + ' events): each with a primary source from a regulator or the owner (Energy Administration, BSEE, OSHA, METI, Korea’s climate and energy ministry, AEMO, owners’ press releases and others); casualties and root causes are recorded only when officially confirmed; photos are recorded as page URLs with their rights status and are not reproduced here. The full list is docs/events.en.md on GitHub.') + '</li></ul>') +
     '<h4>' + (zh ? '備註（離岸）' : 'Notes (offshore)') + '</h4><ul>' + li(n.offshore) + '</ul>' +
@@ -5100,6 +5280,7 @@ function applyParams(p, fromFarms) {
   if (p.fc != null || p.flow != null) { const fc = p.fc === 't' ? 't' : 's'; if (fc !== S.flowC) { S.flowC = fc; if (FLOW && FLOW.wtex) { flowWashTex(); renderFlowLegend(); } } }
   if (p.flow != null && (p.flow === '1') !== !!S.flow) toggleFlow(p.flow === '1');
   if ((p.zones === '1') !== !!S.zones && !LITE) toggleZones(p.zones === '1');
+  if (p.ships != null && (p.ships !== '0') !== !!S.ships && !LITE) toggleShips(p.ships !== '0');
   if ((p.live === '1') !== !!S.liveCov && !LITE) toggleLiveCov(p.live === '1');
   if ((p.ind || '') !== S.ind) setIndicator(p.ind || '', true);
   if (p.r && !fromFarms) setRegion(p.r);
@@ -5228,6 +5409,8 @@ function wireUI() {
   $('g-btnPipe').classList.toggle('active', S.pipe); $('g-btnPipe').setAttribute('aria-pressed', S.pipe ? 'true' : 'false');
   $('g-btnPorts').onclick = () => { togglePorts(); if (S.ports) setPanelTab('ports'); };
   togglePorts(S.ports);
+  $('g-btnShips').onclick = () => toggleShips();
+  toggleShips(S.ships);
   $('g-btnEvents').onclick = () => { toggleEvents(); if (S.events) setPanelTab('events'); };
   toggleEvents(S.events);
   $('g-btnSearch').onclick = openSearch;

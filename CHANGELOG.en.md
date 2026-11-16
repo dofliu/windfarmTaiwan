@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.23.0 — 2026-11-16
+
+- **New globe layer "Vessels (illustrative)"** (the owner's decision of 16 Nov 2026): zoomed in on offshore farms, illustrative vessels appear at sea: farms under construction get construction vessels (a jack-up installer for fixed-bottom farms, tugs for floating ones) plus a feeder barge to the marshalling port when the port data ties the farm to one by a source; operating farms get CTVs shuttling to the O&M port the port data lists for the farm (cruising inside the farm when none is listed or the route would cross land), and farms of 400 MW or more whose O&M port is over 40 km away or unknown also get an SOV. Vessels follow the timeline (construction vessels during the build period, service vessels once the farm is complete). The legend, the sources dialog and the user guide say they are illustrative, not live positions and not to scale; the Layers menu turns them off and `ships=0/1` in the link sets them; the public single-file map does not have the layer.
+
 ## v3.22.9 — 2026-11-15
 
 - **Northern Ireland's Shantavy Scotch pipeline record removed (same farm as the operating Shantavny Scotch)**: REPD's 'Shantavy Scotch' (Brookfield, 7 turbines, 14 MW, application LA09/2020/0880/F) is not a new farm but a section 54 application under the Planning Act (NI) 2011 to vary condition 19 of the existing farm's permission M/2007/1407/F, extending its operational lifetime from 25 to 30 years, granted by Mid Ulster Council on 11 January 2022 (council decision list; quotes checked with `check_quotes.py`). GEM had copied it as a separate pipeline farm; a `dup()` rule removes it (`tools/farm_cleanup.py`, farm layer and derived files rebuilt); the UK project-level pipeline drops by 14 MW.

@@ -8,6 +8,7 @@ The finished files are about 70 MB (about 27 MB for the shareable copies) and ar
 ## Content rules
 
 - For now the video does not say "open source" and shows no URL (the owner's decision in October 2026; this may change later).
+- The themed exhibition videos (offshore wind from seabed to sea surface, ports and supply chain, events and lessons, key farms and milestones, Taiwan; one Chinese and one English edition each) may end with a QR code to the site (approved by the owner on 16 Nov 2026); the events video leaves out events from the three years before production and covers all countries without singling out Taiwan.
 - The figures on the captions (countries, farms, turbines, events, milestones and so on) are from the time of making. Before rebuilding,
   check them against the site and update the captions in `capture.py` (`SCENES` and `CAP_EN`) and the content of `make_scenes.py` and `make_scenes_en.py`.
 - The background music is the intro-video skill's default track and is not in the repo.

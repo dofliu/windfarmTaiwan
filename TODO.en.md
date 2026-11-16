@@ -5,7 +5,7 @@ English (this page) ｜ [中文](./TODO.md)
 Concrete, actionable tasks. Background, the reasons behind decisions and the phased plan are in
 [ROADMAP.en.md](./ROADMAP.en.md).
 
-## In progress (hand-off, 15 Nov 2026: v3.22.9, the weekly run on PR branch `claude/weekly-20261115` closed the Shantavy/Shantavny Scotch duplicate in Northern Ireland (the pipeline record was really a lifetime-extension variation of the existing farm and is removed); the 19995 grid fallback still stops at 31 Aug, and whether to switch to the daily-updated dataset 25850 is for the owner to decide; the Betul duplicate is still unresolved; the owner picks what comes next; the next conversation starts here)
+## In progress (hand-off, 16 Nov 2026: v3.23.0, the owner approved two new features — the globe's "Vessels (illustrative)" layer is done (PR branch `claude/lucid-ride-84gpvo`), and five themed tour videos (Chinese and English, QR code in the exhibition edition) are listed under "Features the schedule may advance" below; whether the 19995 grid fallback should switch to 25850 is still for the owner to decide; the Betul duplicate is still open; the next conversation starts here)
 
 Read this section first in a new session (see section 8 of CLAUDE.md); when you stop, rewrite it as the next piece of work in progress
 and move finished items to the topic lists below.
@@ -104,7 +104,12 @@ To pause it or change the time: the scheduled tasks page on claude.ai, or ask Cl
 
 New features are discussed with the owner in a conversation first; once scope and approach are agreed, write one entry (goal, scope, done-when) here. The weekly run advances one entry at a time and moves it to its topic list when finished. Ideas not yet approved go under "To evaluate / waiting for the owner's direction".
 
-(none yet)
+**1. Five themed tour videos (approved by the owner on 16 Nov 2026)**
+- Goal: short films for exhibitions and outside presentations, each on one group of features: ① offshore wind from seabed to sea surface (foundation colouring, the to-scale profile, the floating tour, the sea-level view leaving port, illustrative vessels); ② ports and the supply chain (port roles, arcs from ports to the farms they served); ③ events and lessons; ④ key farms and milestones; ⑤ Taiwan (the Taiwan offshore story tour plus the live dashboard).
+- Scope: reuse the capture and assembly scripts in `tools/promo/`; 60–90 s each, one Chinese and one English edition; no narration, large captions, loopable start and end; the exhibition edition ends with a QR code to the site (approved); the events film **leaves out events from the three years before production**, covers all countries and does not single out Taiwan; caption figures checked against the site on the day; photos only those the site already shows with their licences.
+- Done when: each film's storyboard and scene scripts are in `tools/promo/` (README updated in both languages) and the 10 MP4s (plus share versions) are handed to the owner (where they go is the owner's call; the videos stay out of git); the weekly run makes one film (both languages) per run, in the order ①→⑤.
+
+Done: ~~the globe's "Vessels (illustrative)" layer~~ (v3.23.0, 16 Nov 2026: the owner chose "illustrative first, globe only"; a curated real-vessel table and live AIS are not being done for now).
 
 ### Due soon (dated)
 
