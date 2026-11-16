@@ -32,6 +32,7 @@ SITE = 'https://dofliu.github.io/windfarmTaiwan/'
 EVENT_CUTOFF = (datetime.date.today() - datetime.timedelta(days=3 * 365 + 1)).isoformat()   # 製作日前三年 · three years before production
 H, F, click, speed, wheel = C.H, C.F, C.click, C.speed, C.wheel
 NEXT = click('#g-tourBar .tnext')
+EV_Y = 'y=' + str(int(EVENT_CUTOFF[:4]) - 1)   # 事件片的時間軸停在截止日前一年底，地圖上不會出現近三年的事件記號 · keeps recent event markers off the map
 
 
 def page(h):                                           # 地球儀以外的頁面 · a page other than the globe
@@ -50,7 +51,15 @@ def facts():
 
 def check_events(film):                                # 事件片：確認沒有用到製作日前三年內的事件 · no events from the last three years
     ev = {e['id']: e for e in json.loads((ROOT / 'data' / 'global' / 'events.json').read_text(encoding='utf-8'))['events']}
+    ylim = int(EVENT_CUTOFF[:4]) - 1
     for s in film['segs']:
+        hashes = [s['start']] + [a[1] for _, a in s.get('acts', []) if a[0] == 'hash']
+        if not any('y=' in h for h in hashes) and s['id'] != 'timeline':
+            raise SystemExit(f"{s['id']}: the events film must pin the timeline year (y=…) so recent event markers stay off the map")
+        for h in hashes:
+            m = re.search(r'\by=(\d{4})', h)
+            if m and int(m.group(1)) > ylim:
+                raise SystemExit(f"{s['id']}: y={m.group(1)} is later than {ylim}; recent events would show on the map")
         for _, a in s.get('acts', []):
             if a[0] == 'hash' and 'ev=' in a[1]:
                 i = a[1].split('ev=')[1].split('&')[0]
@@ -118,16 +127,16 @@ FILMS = {
             dict(id='timeline', start='y=2002', dur=10, settle=1, setup=[speed(2)], acts=[(0.4, click('#g-play'))],
                  cap={'zh': ('EVENTS', '重大事件與事故，隨時間出現', '紅點是事故與故障，逐筆附出處'),
                       'en': ('EVENTS', 'Major events and incidents over time', 'Red marks are incidents and failures, each sourced')}),
-            dict(id='typhoon', start='', dur=9, settle=1, acts=[(0.3, H('ev=WIND-063'))], pad=CARD_PAD,
+            dict(id='typhoon', start='', dur=9, settle=1, acts=[(0.3, H(EV_Y + '&ev=WIND-063'))], pad=CARD_PAD,
                  cap={'zh': ('2003 · JAPAN', '颱風梅米吹倒宮古島 3 部風機', '颱風地區的風機設計'),
                       'en': ('2003 · JAPAN', 'Typhoon Maemi topples three turbines', 'Turbine design in typhoon regions')}),
-            dict(id='grout', start='', dur=9, settle=1, acts=[(0.3, H('ev=WIND-139'))], pad=CARD_PAD,
+            dict(id='grout', start='', dur=9, settle=1, acts=[(0.3, H(EV_Y + '&ev=WIND-139'))], pad=CARD_PAD,
                  cap={'zh': ('2010 · UK', '單樁灌漿連接失效', '過渡段沿樁身下滑'),
                       'en': ('2010 · UK', 'Grouted connections fail', 'Transition pieces slip down the monopiles')}),
-            dict(id='grid', start='', dur=9, settle=1, acts=[(0.3, H('ev=WIND-150'))], pad=CARD_PAD,
+            dict(id='grid', start='', dur=9, settle=1, acts=[(0.3, H(EV_Y + '&ev=WIND-150'))], pad=CARD_PAD,
                  cap={'zh': ('2019 · UK', '雷擊後風場未保持併網', '電網穩定與故障穿越'),
                       'en': ('2019 · UK', 'A farm fails to ride through a lightning strike', 'Grid stability and fault ride-through')}),
-            dict(id='gravity', start='', dur=9, settle=1, acts=[(0.3, H('ev=WIND-145'))], pad=CARD_PAD,
+            dict(id='gravity', start='', dur=9, settle=1, acts=[(0.3, H(EV_Y + '&ev=WIND-145'))], pad=CARD_PAD,
                  cap={'zh': ('2022 · DENMARK', '風機連同重力式基礎翻倒入海', '老風場的結構檢查'),
                       'en': ('2022 · DENMARK', 'A turbine topples with its gravity base', 'Inspecting ageing offshore structures')}),
         ]},
@@ -358,7 +367,7 @@ def main():
             print(f'{fid} [{lang}]', flush=True)
             for s in film['segs']:
                 if a.only and s['id'] not in a.only: continue
-                if a.preview or a.force or a.only or not (work / f"{s['id']}.mp4").exists():
+                if a.preview or a.force or a.only or not (work / f"check_{s['id']}.png").exists():   # 抽查格最後才寫：有它才算錄完 · the check frame is written last
                     record(s, lang, work, a.preview)
             if a.preview: continue
             shutil.copy(base / 'hero.png', work / 'hero.png')
