@@ -12,7 +12,7 @@ const EMB = WW.standalone = window.WW_STANDALONE || null;
 WW.SITE = 'https://dofliu.github.io/windfarmTaiwan/';
 /* 專案版本（語意化版本 MAJOR.MINOR.PATCH）：每次發布到網站就更新，並在 CHANGELOG.md／CHANGELOG.en.md 各加一段。
    頁尾、「關於本站」、地球儀出處列與「資料來源」視窗都讀這裡；單檔版建置時會檢查兩份 CHANGELOG 都有這個版本 */
-WW.VERSION = '3.23.0';
+WW.VERSION = '3.24.0';
 WW.changelogURL = () => 'https://github.com/dofliu/windfarmTaiwan/blob/main/CHANGELOG' + (WW.lang === 'en' ? '.en' : '') + '.md';
 WW.asset = p => (EMB && EMB.url(p)) || p;                    // 圖檔：單檔版改用內嵌的 data URL
 /* 分享用網址：單檔版（file://）一律指向正式網站 */
@@ -279,6 +279,7 @@ const TITLES = {
   global: ['全球風電發展地圖 1980–2025 · 風電風情', 'Global wind power map 1980–2025 · Wind Watch'],
   learn: ['風電知識 · 風電風情', 'Learn about wind power · Wind Watch'],
   kids: ['跟著風去旅行 · 風電風情探險版', 'Travel with the Wind · Wind Watch for young explorers'],
+  lab: ['風電實驗室 · 風電風情國高中探究版', 'Wind Lab · Wind Watch for secondary school'],
   status: ['排程狀態 · 風電風情', 'Schedule status · Wind Watch'],
   teach: ['教師專區 · 風電風情', 'For teachers · Wind Watch'],
   data: ['資料下載 · 風電風情', 'Data · Wind Watch'],
@@ -386,6 +387,7 @@ function lazyPage(name, files, api) {
 }
 lazyPage('teach', ['assets/vendor/qrcode-1.4.4.js', 'assets/js/teach.js'], 'teach');
 lazyPage('data', ['assets/js/datapage.js'], 'datapage');
+lazyPage('lab', ['assets/css/lab.css', 'assets/js/lab.js', 'assets/js/lab-levels.js'], 'lab');   // 國高中探究版「風電實驗室」
 
 /* ---------------- header 高度（全螢幕頁：地球儀、風場牆、地圖用） ---------------- */
 function syncHeaderH() {

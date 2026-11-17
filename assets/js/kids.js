@@ -319,6 +319,8 @@ function viewHome() {
     '</div><a class="kteach" href="#/kids/class"><span class="kfi t">' + ico('board', 30) + '</span><span><b>' + L('給老師：全班一起玩', 'For teachers: play as a class') + '</b>' +
       '<span>' + L('投影到大螢幕，一站一站看、全班舉手作答，可以倒數計時和全螢幕；這個模式不蓋章，也不記錄任何人的進度。',
         'Project it on the big screen: stop by stop, the class answers by show of hands, with a countdown and full screen; this mode gives no stamps and keeps no one’s progress.') + '</span></span>' + ico('next', 26) + '</a>' +
+    '<a class="kteach" href="#/lab"><span class="kfi c">' + ico('award', 30) + '</span><span><b>' + L('國中、高中生：風電實驗室', 'Secondary school: the Wind Lab') + '</b>' +
+      '<span>' + L('想挑戰更難的？8 關探究，用網站的真實資料算出答案，分國中、高中兩種難度，全部過關可以印證書。', 'Up for a harder challenge? Eight inquiry levels where you work out answers from the site’s real data, at junior or senior difficulty, with a certificate at the end.') + '</span></span>' + ico('next', 26) + '</a>' +
     '<p class="knote">' + L('數字都來自風電風情網站的資料；進度只記在這台裝置的瀏覽器裡，不用註冊。', 'All figures come from Wind Watch’s data; your progress stays in this browser, with no sign-up.') + '</p></div>';
   paintSay();
 }

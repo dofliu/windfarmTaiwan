@@ -28,6 +28,10 @@ const ACTS = () => [
   { h: '#/kids/class', ic: '📽', who: L('全班投影', 'Whole class, projected'), t: L('每站 5–8 分鐘', '5–8 min per stop'),
     name: L('全班一起玩（投影模式）', 'Play as a class (projector mode)'),
     how: L('字放大、每站三步「看重點 → 小問題 → 公布答案」。小問題按「倒數 10 秒」讓全班舉手，點最多人選的答案（答錯會說明、可再選）。→ 或簡報器下一頁＝下一步，F＝全螢幕。不蓋章、不記錄任何人的進度。', 'Large type, three steps per stop: facts → question → answer. Start the 10-second countdown, take a show of hands, tap the most popular answer (a wrong one is explained and can be retried). → or a clicker = next, F = full screen. No stamps, no one\'s progress is kept.') },
+  { h: '#/lab', ic: '🧪', who: L('國中、高中', 'Junior and senior high'), t: L('10–15 分鐘 / 關', '10–15 min per level'),
+    name: L('國高中探究版：風電實驗室', 'For secondary school: the Wind Lab'),
+    how: L('8 關探究（風的能量、風機放大、容量因數、尾流、離岸基礎、台灣此刻、成本下降、事故教訓），每關先動手試、再用網站資料算出答案；分國中與高中兩種難度，數值題答錯有提示、兩次後可看解法，8 關都過可印證書。適合個人、分組或回家作業；網址加 ?lv=sh 直接用高中難度。',
+      'Eight inquiry levels (wind energy, scaling up, capacity factor, wakes, offshore foundations, Taiwan right now, falling costs, lessons from incidents): try it hands-on, then work out the answer from the site\'s data, at junior or senior difficulty; wrong numeric answers get a hint and the solution after two tries, and passing all 8 prints a certificate. For individuals, groups or homework; add ?lv=sh to the link for senior difficulty.') },
   { h: '#/kids/taiwan', ic: '🌬', who: L('國小高年級、國中', 'Upper primary, junior high'), t: L('5 分鐘開場', '5-min opener'),
     name: L('台灣此刻的風（每天 5 分鐘）', 'Taiwan\'s wind right now (5 minutes a day)'),
     how: L('上課先看：全台風機此刻發多少電、夠幾萬戶用、這週哪天最有風。數字每 30 分鐘更新，每天都不一樣，是「風力發電要看天氣」最直接的例子。按「唸給我聽」可以讓瀏覽器唸出來。', 'Open the lesson with it: how much Taiwan\'s turbines are making now, how many homes that is, which day this week was windiest. The figures change every 30 minutes, the most direct example of wind depending on the weather. "Read to me" lets the browser read it aloud.') },
@@ -57,7 +61,7 @@ function hub() {
   }).join('');
   return `<div class="wrap teach"><header class="thead"><div class="eyebrow">${L('教師專區', 'For teachers')}</div><h1 class="h2">${L('把風電風情帶進課堂', 'Bringing Wind Watch into the classroom')}</h1>
     <p class="lead">${L('不用帳號、不用安裝：投影、平板或手機打開網址就能用。下面是現成的教案與學習單、每個活動的連結與 QR code，以及投影時的設定。', 'No account, nothing to install: open a link on a projector, tablet or phone. Below are ready-made lesson plans with worksheets, a link and QR code for every activity, and projection tips.')}</p>
-    <div class="tchips"><span>${L('國小高年級、國中 → 探險版', 'Upper primary and junior high → Travel with the Wind')}</span><span>${L('高中 → 風電知識與動手教具', 'Senior high → Learn and the hands-on panels')}</span><span>${L('大學通識、科展 → 地球儀與資料下載', 'University courses and science fairs → the globe and the data page')}</span></div></header>
+    <div class="tchips"><span>${L('國小高年級、國中 → 探險版', 'Upper primary and junior high → Travel with the Wind')}</span><span>${L('國中、高中 → 風電實驗室', 'Junior and senior high → the Wind Lab')}</span><span>${L('高中 → 風電知識與動手教具', 'Senior high → Learn and the hands-on panels')}</span><span>${L('大學通識、科展 → 地球儀與資料下載', 'University courses and science fairs → the globe and the data page')}</span></div></header>
 
     <h2 class="h3">${L('教案與學習單（可列印）', 'Lesson plans and worksheets (printable)')}</h2>
     <div class="tplans">

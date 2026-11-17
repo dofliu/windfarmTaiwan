@@ -37,7 +37,7 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<檔名>`）；本機改完也可以自己跑一次確認。
   The `build-standalone` workflow rebuilds them after such pushes and uploads them to the GitHub Release tagged `standalone` (fixed tag,
   assets overwritten; download URL `https://github.com/dofliu/windfarmTaiwan/releases/download/standalone/<file>`); you can also run the scripts locally.
-- 新增執行時載入的檔案（JS、CSS、JSON、圖檔）時，要加進建置程式的清單（`PAGE_SCRIPTS`、`LAZY`、`KIDS`、`DATA`、`LIVE`、`IMAGES`；`KIDS` 是兒童版的程式，只放進完整單檔版）。
+- 新增執行時載入的檔案（JS、CSS、JSON、圖檔）時，要加進建置程式的清單（`PAGE_SCRIPTS`、`LAZY`、`KIDS`、`DATA`、`LIVE`、`IMAGES`；`KIDS` 是兒童版與國高中探究版「風電實驗室」的程式，只放進完整單檔版）。
   資料一律經 `WW.getJSON`／`WW.getLiveJSON` 讀取，程式經 `WW.loadScript`／`WW.loadCSS` 載入，圖檔經 `WW.asset()` 取得網址，
   單檔版才能改用內嵌內容。
   When adding a runtime resource, add it to the lists in the build script, and load it through
@@ -132,8 +132,10 @@ For people and AI agents working in this repo (Claude Code reads this file autom
 - 地球儀「船隻（示意）」（`globe.js` 的 `shipNeeds`、`shipState`；使用者 2026-11-16 決定）：拉近時在離岸風場畫示意的船，只用本站已有的資料決定畫什麼——興建中（時間軸在建造期內、分期還沒全部併網或 `st=1`）畫施工船，`ports.json` 有出處列該場的組裝出港港口才畫往返的運輸駁船；營運中畫 CTV 往返列該場的運維港（沒有或直線航線中段穿過陸地就在場內），400 MW 以上、運維港遠於 40 km 或不詳的加一艘 SOV。不寫船名、不臆造哪艘船在哪裡作業；圖例、「資料來源」與使用說明都要寫明是示意、不是即時船位、大小不是實際比例。即時 AIS 船位需要金鑰，要先問使用者。改規則時三處說明一起改。
   The globe's "Vessels (illustrative)" layer (`shipNeeds`, `shipState` in `globe.js`; the owner's decision of 16 Nov 2026) draws vessels only from data the site has: construction vessels at farms being built, a feeder barge only to a marshalling port that `ports.json` ties to the farm by a source, CTVs to the farm's listed O&M port (inside the farm when none is listed or the straight route crosses land) and an SOV at farms of 400 MW+ whose O&M port is over 40 km away or unknown. Never name vessels or invent which ship works where; the legend, the sources dialog and the user guide must say the vessels are illustrative, not live positions and not to scale. Live AIS positions need keys: ask the owner first. Update all three texts when the rules change.
 - 教師專區（`assets/js/teach.js`）的課綱與議題條文只寫以 `check_quotes.py` 核對過的國教院原文（`CODES`，附文件名稱與年份；英文為本站翻譯），教案裡的數字由資料當場算出或留白讓學生從網站抄，不寫死；新增課綱代碼時先核對原文。
+  國高中探究版「風電實驗室」（`assets/js/lab.js` 框架、`assets/js/lab-levels.js` 8 關；使用者 2026-11-17 決定：同一套關卡、國中／高中兩種難度、全部完成發證書）：題目與答案的數字一律由資料當場算出，物理模型標明「簡化模型」與假設、出處；事件關只問事件摘要寫到的內容；新增或改關卡後跑冒煙測試。
   資料下載頁（`assets/js/datapage.js`）在瀏覽器把網站已在用的 JSON 轉成 CSV，不另存 CSV 進 repo；出處與授權從各檔的 meta 讀，沒有 meta 的寫在 `SETS` 並與「資料來源」一致；OpenStreetMap（ODbL）的資料不放進去。新增資料集時使用說明 6.2 的表一起改。
   The teacher hub (`assets/js/teach.js`) quotes curriculum and issue passages only in the academy's original wording checked with `check_quotes.py` (`CODES`, with document and year; English translations are the site's own); figures in the plans are computed from the data at render time or left blank for students, never hard-coded; check the passage before adding a code.
+  The secondary-school Wind Lab (`assets/js/lab.js` shell, `assets/js/lab-levels.js` with the eight levels; the owner's decision of 17 Nov 2026: one set of levels, junior/senior difficulty, a certificate when all are done): every figure in questions and answers is computed from the data at render time, physics models are labelled simplified with their assumptions and sources, and the incidents level asks only what the event summaries say; run the smoke test after changing a level.
   The data page (`assets/js/datapage.js`) converts the JSON the site already serves into CSV in the browser (no CSV is stored in the repo); source and licence come from each file's meta, or from `SETS` where a file has none, matching the sources chapter; OpenStreetMap (ODbL) data is never included. Update the table in user-guide 6.2 when adding a dataset.
 - 數字寫進網站或文件前先對照原始資料；查不到的不要臆測，寫明「待查證」。
   Check numbers against the original source before publishing them; if something cannot be verified, say so instead of guessing.
@@ -250,12 +252,12 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   以及改到網站時的版本號與兩份 CHANGELOG（`tools/check_version.py`）。新增合理的座標例外時把 workflow 裡的 `--max` 一起調高。
   The smoke test is `tools/smoke_test.js`; the `pr-check` workflow runs it on every PR together with syntax checks, `qa_farms.py --max` (no more farms outside their
   country than the known exceptions), `qa_dups.py --max` (no more possibly duplicated farms than the open ones), a check that generated documents are up to date, and the version/changelog check (`tools/check_version.py`) when the site changes.
-- 冒煙測試另含：axe-core 無障礙檢查（WCAG 2.1 A／AA 與最佳做法，每一頁；首頁、台灣即時、風電知識、排程狀態再以淺色模式查對比；本機先 `npm install axe-core`，沒裝會略過並提示）、
+- 冒煙測試另含：axe-core 無障礙檢查（WCAG 2.1 A／AA 與最佳做法，每一頁；首頁、台灣即時、風電知識、排程狀態與風電實驗室第 1 關再以淺色模式查對比；本機先 `npm install axe-core`，沒裝會略過並提示）、
   鍵盤檢查（首頁前 14 個 Tab 停點要看得到、有焦點框，第一個是「跳到主要內容」）、減少動態效果（`prefers-reduced-motion` 下不能有 CSS 動畫在跑）與效能預算
   （`tools/perf_budget.json`：各頁以全新分頁打開時的同源傳輸量上限，未壓縮、桌機；要提高時在 PR 說明原因，不要為了過關直接調高）。
   新的互動元件要有可見的焦點樣式與可讀出的名稱（圖示按鈕加 `aria-label`）；淺色模式的新顏色要過 4.5:1；頁面用圖表的 SVG 若含可聚焦元素用 `role="group"`。
   Lighthouse 不在每個 PR 跑（分數會浮動）：手動執行 `.github/workflows/lighthouse.yml`（對上線網站，報告在 Artifacts、分數在工作摘要）。
-  The smoke test also runs axe-core (WCAG 2.1 A/AA and best-practice rules on every page; Home, Taiwan live, Learn and the status page again in light mode for contrast;
+  The smoke test also runs axe-core (WCAG 2.1 A/AA and best-practice rules on every page; Home, Taiwan live, Learn, the status page and Wind Lab level 1 again in light mode for contrast;
   `npm install axe-core` locally, skipped with a notice when missing), a keyboard check (the first 14 Tab stops on Home visible with a focus ring, the first being "Skip to content"),
   a reduced-motion check (no CSS animation running under `prefers-reduced-motion`) and the performance budget (`tools/perf_budget.json`: the same-origin bytes each page may load in a
   fresh tab, uncompressed, desktop; raise a figure only on purpose, with the reason in the PR). New controls need a visible focus style and a readable name (`aria-label` on icon buttons),
