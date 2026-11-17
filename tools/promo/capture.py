@@ -128,6 +128,8 @@ def capture(name, sc, preview=False):
         page.add_init_script(VIRTUAL_CLOCK_JS)
         if LANG == 'en':
             page.add_init_script("try{localStorage.setItem('ww_lang','en')}catch(e){}")
+        if sc.get('ls'):                                   # 圖層開關（記在瀏覽器的）· layer toggles kept in localStorage
+            page.add_init_script('try{' + ''.join(f'localStorage.setItem({json.dumps(k)},{json.dumps(v)});' for k, v in sc['ls'].items()) + '}catch(e){}')
         page.goto(BASE + '#/global' + ('?' + sc['start'] if sc['start'] else ''))
         t0 = time.time()
         while time.time() - t0 < 14:                       # 資料載入（真實時間）期間推進虛擬時間

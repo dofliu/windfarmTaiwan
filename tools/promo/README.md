@@ -69,10 +69,12 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 - 結尾字卡放網站的 QR code（`qrcode` 套件產生 SVG，不需要 Pillow，指向 `https://dofliu.github.io/windfarmTaiwan/`）。
 - 字卡不寫會過期的數字；一定要寫時從網站資料當場算，不寫死。船隻畫面一律寫明「示意、不是即時船位、大小不是實際比例」。
 - 事件片不放製作日前三年內的事件，各國都可，不刻意放台灣。
+- 段落可加 `ls`：開頁前寫進瀏覽器的圖層開關（例：港口片用 `QUIET` 關掉事件與船隻），網址參數管不到的圖層用這個。
 
 | 主題 | `THEMES` 鍵 | 段落 | 狀態 |
 |---|---|---|---|
 | ① 離岸風電：從海床到海面 | `offshore` | 開場字卡、水下基礎上色（歐洲→Gemini）、按比例剖面（Hywind Scotland）、浮動式故事導覽、實景視角從港口出海（Hornsea Two）、船隻示意（Hornsea Two）、QR code 結尾 | 2026-11-16 完成 |
+| ② 港口與供應鏈 | `ports` | 開場字卡、歐洲港口總覽、組裝出港港口與服務過的風場弧線（埃斯比約）、港邊製造（庫克斯港機艙廠→勒哈佛葉片與機艙廠）、亞洲（福清江陰產業園→台中港）、實景視角從港口出海（Horns Rev 3）、QR code 結尾 | 2026-11-17 完成 |
 
 ```bash
 python3 -m http.server 8765 &                            # repo 根目錄
