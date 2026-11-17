@@ -21,6 +21,8 @@ from capture import wheel
 HERE = Path(__file__).parent
 INTRO, CH, OUTRO, N, CLIP = 6.0, 8.0, 12.0, 10, 4.0
 MS = lambda name, extra='': (extra + '&' if extra else '') + 'ms=' + quote(name)
+# 拉近：對地圖畫布送合成的滾輪事件，滑鼠游標不進地圖，不會跳出風場提示框 · zoom with a synthetic wheel event on the canvas so the pointer never hovers a farm
+ZOOM = ('js', "(()=>{const c=document.querySelector('#page-global canvas');if(c)c.dispatchEvent(new WheelEvent('wheel',{deltaY:-12,clientX:760,clientY:600,bubbles:true,cancelable:true}));})()")
 
 # 章節 → 地球儀深連結（里程碑或事件卡片）與字卡 · chapter → globe deep link and caption
 # Blyth 與 26 MW 級風機的事件沒有座標、26 MW 里程碑的點位（福建）與事件（山東東營）不一致（TODO 待查證）→ 這兩章開事件卡片
@@ -54,7 +56,7 @@ def record(lang, only):
         C.CAP_EN[cid] = cap
         # 船隻關掉、規劃中不畫；滑鼠停在左下角，不觸發地圖上的提示框 · vessels off, no pipeline rings, mouse parked in a corner
         sc = dict(dur=CLIP, start=start + '&pipe=0&ships=0', setup=[wheel(0, 4, 1076)], settle=5.0,
-                  acts=[(0.2 + i * 0.7, wheel(-12, 760, 600)) for i in range(3)] + [(2.4, wheel(0, 4, 1076))], cap=cap)
+                  acts=[(0.2 + i * 0.7, ZOOM) for i in range(3)], cap=cap)
         C.capture(cid, sc)
 
 
