@@ -8,12 +8,13 @@
    不能有頁面錯誤、console 錯誤（外部網站連不上的除外）或橫向捲動；地球儀要畫出來、風場卡片與發電表現要有內容；
    儀表精簡檢視最多 8 張「此刻在發電」卡片、切到全部卡片要等於全部風場；儀表篩選要寫進網址與瀏覽器、「恢復預設」要清掉；
    詳情的下一座要換風場，返回鍵（地球儀資訊卡也一樣）只關掉詳情、不離開頁面；地圖要有衛星地圖或離線簡圖；首頁要有 7 天出力曲線、頁尾四組來源連結；
-   風電知識的四個「動手試試看」要畫出來、拉滑桿要有反應；教師專區要畫出 8 個 QR code、兩份教案的表格、學習單與教師版，資料下載頁七個資料集都要算出列數與出處；地球儀的實景視角（f=…&sv=1）要有畫面、說明與出處，按「回到地球儀」後卡片要還在；嵌入小卡（#/embed）不能有頁首頁尾；手機的風電知識捲到某章時要有「目前章節」列；探險版要畫出地球與 8 個站點，答錯不蓋章、答對蓋章並出現下一站，護照要記得，
+   風電知識的四個「動手試試看」要畫出來、拉滑桿要有反應；教師專區要畫出 9 個 QR code、兩份教案的表格、學習單與教師版，資料下載頁七個資料集都要算出列數與出處；地球儀的實景視角（f=…&sv=1）要有畫面、說明與出處，按「回到地球儀」後卡片要還在；嵌入小卡（#/embed）不能有頁首頁尾；手機的風電知識捲到某章時要有「目前章節」列；探險版要畫出地球與 8 個站點，答錯不蓋章、答對蓋章並出現下一站，護照要記得，
    有「唸給我聽」；全班一起玩要走得完三步（→ 鍵）且不動個人進度；集滿 8 個章要能列印護照、打開寫著名字的完成證書。
+   國高中探究版「風電實驗室」（#/lab）要有 8 關卡片；第 1 關答錯不能過關、全部答對才過關並出現解說與下一關；第 6 關（即時資料）要出題；8 關都完成時證書要寫出名字並可列印。
 2. --standalone：standalone/ 的兩個單檔版（先跑 tools/build_standalone.py、tools/build_globe_lite.py）以 file:// 開啟，
    連網與離線（擋掉所有 http/https 請求）各一次：不能有頁面錯誤，離線時完整版的即時資料要標示「離線快照」、地圖改畫離線簡圖，完整版的探險版地球要有 8 個站點。
 3. 無障礙：裝了 axe-core（npm install axe-core，或環境變數 AXE_CORE 指到 axe.min.js；沒裝就略過並提示）時，每一頁以 WCAG 2.1 A／AA 與最佳做法規則檢查，
-   首頁、台灣即時、風電知識、排程狀態另以淺色模式再查一次（對比）；首頁用 Tab 走過前 14 個焦點，每個都要看得到、有焦點框，第一個是「跳到主要內容」且 Enter 後焦點到 #main；
+   首頁、台灣即時、風電知識、排程狀態與風電實驗室第 1 關另以淺色模式再查一次（對比）；首頁用 Tab 走過前 14 個焦點，每個都要看得到、有焦點框，第一個是「跳到主要內容」且 Enter 後焦點到 #main；
    減少動態效果（prefers-reduced-motion）下首頁、台灣即時與探險版不能有任何 CSS 動畫在跑。
 4. 效能預算：tools/perf_budget.json 列出的每一頁各以全新的分頁打開（桌機寬度），同源傳輸量（未壓縮）不能超過預算。
 有錯誤時結束碼為 1。GitHub Actions 的 pr-check 在每個 PR 跑這支（.github/workflows/pr-check.yml）。
@@ -24,13 +25,15 @@
    dashboard filters must reach the URL and storage and Reset must clear them, the drawer's next button must change farm and Back must close
    only the drawer (likewise the globe's info card), the map tab must show the map
    or the offline sketch, the home page must have the 7-day curve and the four footer source groups, and on phones Learn must
-   show the current-chapter bar inside a chapter; Learn's four hands-on lessons must render and respond to a slider; the teacher hub must draw 8 QR codes and both plans their tables, worksheet and key, the data page must count and source all seven datasets, and the globe's sea-level view (f=…&sv=1) must render with notes and credits and keep the card after Back; the embeddable card (#/embed) must hide the header and footer; the kids page must draw its globe with 8 stops, stamp only a right answer, offer the next stop, keep
+   show the current-chapter bar inside a chapter; Learn's four hands-on lessons must render and respond to a slider; the teacher hub must draw 9 QR codes and both plans their tables, worksheet and key, the data page must count and source all seven datasets, and the globe's sea-level view (f=…&sv=1) must render with notes and credits and keep the card after Back; the embeddable card (#/embed) must hide the header and footer; the kids page must draw its globe with 8 stops, stamp only a right answer, offer the next stop, keep
    the stamp in the passport and offer read-aloud; its class mode must step through with the → key without touching personal progress, and with
    all 8 stamps the passport must offer printing and a certificate carrying the name.
+   The secondary-school Wind Lab (#/lab) must list 8 level cards; on level 1 a wrong answer must not pass while all right answers pass and show the take-away and the next level;
+   level 6 (live data) must build its questions; with all 8 levels done the certificate must carry the name and offer printing.
 2. --standalone: opens both single-file copies in standalone/ over file:// online and offline (all http/https blocked): no page errors,
    and offline the full copy must label its live data as an offline snapshot and draw the sketch map; the full copy's kids globe must show 8 stops.
 3. Accessibility: with axe-core installed (npm install axe-core, or AXE_CORE pointing at axe.min.js; skipped with a notice otherwise) every page is checked
-   against the WCAG 2.1 A/AA and best-practice rules, and Home, Taiwan live, Learn and the status page again in light mode (contrast); on Home, Tab
+   against the WCAG 2.1 A/AA and best-practice rules, and Home, Taiwan live, Learn, the status page and Wind Lab level 1 again in light mode (contrast); on Home, Tab
    through the first 14 focus stops, each visible with a focus ring, the first being "Skip to content" which moves focus to #main on Enter;
    under prefers-reduced-motion Home, Taiwan live and the kids page must have no CSS animation running.
 4. Performance budget: each page in tools/perf_budget.json is opened in a fresh tab (desktop width) and its same-origin bytes (uncompressed) must stay under budget.
@@ -63,7 +66,7 @@ function axeSource() {
 }
 const AXE = axeSource();
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'];
-const LIGHT = ['#/', '#/live', '#/learn', '#/status'];                      // 淺色模式也查（對比）· checked in light mode too
+const LIGHT = ['#/', '#/live', '#/learn', '#/status', '#/lab/level?n=1&lv=jh'];                      // 淺色模式也查（對比）· checked in light mode too
 async function axeCheck(page, label) {
   if (!AXE) return [];
   if (!await page.evaluate(() => !!window.axe)) await page.addScriptTag({ content: AXE });
@@ -240,7 +243,7 @@ const ROUTES = [
     return '';
   }],
   ['#/status', 5000, () => document.querySelectorAll('#page-status .sttbl tr').length > 8 && document.querySelector('#page-status .stsum') ? '' : 'status: tables or summary missing'],
-  ['#/teach', 4000, () => document.querySelectorAll('#page-teach .tqr svg').length === 8 && document.querySelectorAll('#page-teach .tplan').length === 2 ? '' : 'teach: 8 QR codes or 2 plan cards missing'],
+  ['#/teach', 4000, () => document.querySelectorAll('#page-teach .tqr svg').length === 9 && document.querySelectorAll('#page-teach .tplan').length === 2 ? '' : 'teach: 9 QR codes or 2 plan cards missing'],
   ['#/teach/jh', 4000, () => document.querySelectorAll('#page-teach .ttbl').length >= 3 && document.querySelector('#page-teach .tws') && document.querySelector('#page-teach .tkey') ? '' : 'teach/jh: tables, worksheet or key missing'],
   ['#/teach/sh', 6000, () => document.querySelectorAll('#page-teach .tkey .ttbl tbody tr').length >= 4 ? '' : 'teach/sh: worked examples from generation.json missing'],
   ['#/data', 8000, () => {
@@ -294,6 +297,38 @@ const ROUTES = [
     c.click(); await wait(800);
     const n = document.querySelector('.kcert .kc-name');
     return n && n.value === 'Smoke' && document.querySelectorAll('.kcert .kc-stamps .kst').length === 8 ? '' : 'kids certificate: name or stamps missing';
+  }],
+  ['#/lab', 2500, () => {
+    localStorage.removeItem('wf_lab');
+    const A = WW.lab && WW.lab.api(); if (!A) return 'lab: not loaded';
+    A.P.jh = []; A.P.sh = []; A.P.lv = 'jh';
+    return A.LEVELS.length === 8 && document.querySelectorAll('#page-lab .lbcard').length === 8 ? '' : 'lab: ' + A.LEVELS.length + ' levels, ' + document.querySelectorAll('#page-lab .lbcard').length + ' cards';
+  }],
+  ['#/lab/level?n=1&lv=jh', 2500, async () => {
+    // 答錯不過關、全部答對才過關並出現下一關 · a wrong answer does not pass; all right answers pass and offer the next level
+    const A = WW.lab.api(), c = A.cur(), wait = ms => new Promise(r => setTimeout(r, ms));
+    if (!c || !c.B.qs.length) return 'lab level 1: questions missing';
+    const q0 = c.B.qs[0], li0 = () => document.querySelector('.lbq[data-q="' + q0.id + '"]');
+    if (q0.type === 'mc') li0().querySelector('input[value="' + ((q0.a + 1) % q0.opts.length) + '"]').click(); else li0().querySelector('input').value = String(q0.ans * 3 + 7);
+    li0().querySelector('[data-check]').click(); await wait(200);
+    if (!li0().querySelector('.lbbad') || A.P.jh.includes(1)) return 'lab level 1: wrong answer accepted';
+    for (const q of c.B.qs) {
+      const li = () => document.querySelector('.lbq[data-q="' + q.id + '"]');
+      if (q.type === 'mc') li().querySelector('input[value="' + q.a + '"]').click(); else li().querySelector('input').value = String(+q.ans.toFixed(4));
+      li().querySelector('[data-check]').click(); await wait(300);
+    }
+    await wait(500);
+    return A.P.jh.includes(1) && document.querySelector('.lbnav a[href="#/lab/level?n=2"]') && document.querySelector('.lbexp') ? '' : 'lab level 1: right answers did not pass the level';
+  }],
+  ['#/lab/level?n=6&lv=sh', 3000, () => document.querySelectorAll('#page-lab .lbq').length >= 3 ? '' : 'lab level 6: questions missing'],
+  ['#/lab/cert', 2000, async () => {
+    const A = WW.lab.api(), wait = ms => new Promise(r => setTimeout(r, ms));
+    A.P.lv = 'sh'; A.P.sh = [1, 2, 3, 4, 5, 6, 7, 8]; A.P.name = 'Smoke'; localStorage.setItem('wf_lab', JSON.stringify(A.P));
+    location.hash = '#/lab'; await wait(500); location.hash = '#/lab/cert'; await wait(600);
+    const nm = document.getElementById('lbcname');
+    const ok = nm && nm.textContent.includes('Smoke') && document.getElementById('lbprint') && document.querySelectorAll('.lbc-list li').length === 8;
+    localStorage.removeItem('wf_lab'); A.P.sh = []; A.P.jh = [];
+    return ok ? '' : 'lab certificate: name, print button or 8 levels missing';
   }],
 ];
 

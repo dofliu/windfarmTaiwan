@@ -5,6 +5,8 @@
   "#/live/map": 2.4,
   "#/learn": 1.7,
   "#/kids": 3.6,
+  "#/lab": 1.3,
+  "#/lab/level?n=5": 1.6,
   "#/embed": 1.1,
   "#/status": 1.4,
   "#/teach": 1.2,

@@ -57,7 +57,7 @@ The bar at the top of the site has four pages:
 | **Global** | A 3D globe that animates the growth of wind power by country and zooms down to single wind farms |
 | **Learn** | 13 illustrated chapters, from the first power-generating turbine in 1888 to Taiwan's offshore wind, with a glossary and "Frequently asked" |
 
-There is also **"Travel with the Wind"** for upper primary and junior high students (`#/kids`, linked under "Explore" on the home page and in the footer), a **teacher hub** (`#/teach`: lesson plans and worksheets for junior and senior high, links and QR codes for classroom activities) and a **data page** (`#/data`: CSV, licences and citation).
+There is also **"Travel with the Wind"** for upper primary and junior high students (`#/kids`, linked under "Explore" on the home page and in the footer), the **Wind Lab** for junior and senior high students (`#/lab`: eight inquiry levels at two difficulties), a **teacher hub** (`#/teach`: lesson plans and worksheets for junior and senior high, links and QR codes for classroom activities) and a **data page** (`#/data`: CSV, licences and citation).
 
 A suggested first visit (about 5 minutes):
 
@@ -135,6 +135,7 @@ Four pages in the nav bar (hash routes, so every view can be shared as a link). 
   (from Brush's 1888 turbine to a 26 MW giant in 2025), each with three key facts and a quick question whose right answer earns a stamp in the wind passport; "Taiwan's wind right now"
   turns the live data into homes; "Read to me" reads the facts and questions aloud with the browser's speech, the passport and the certificate earned with all 8 stamps can be printed,
   and "Play as a class" `#/kids/class` is for a teacher's projector (large type, three steps, countdown, full screen, no progress kept). Progress stays in the browser; see [user guide section 6](./docs/user-guide.en.md#6-travel-with-the-wind-for-young-explorers)
+- **Wind Lab** `#/lab` — eight inquiry levels for junior and senior high students (wind energy, scaling up, capacity factor, wakes, offshore foundations, Taiwan right now, falling costs, lessons from incidents) at two difficulties: try it hands-on, then work out the answer from the site's data, with hints and worked solutions; passing all 8 prints a certificate. See [user guide section 6.3](./docs/user-guide.en.md#63-for-secondary-school-the-wind-lab)
 - **For teachers** `#/teach` — a 45-minute junior-high plan and a two-period senior-high inquiry plan with worksheets and keys (printable; curriculum passages in the academy's original wording), links and QR codes for classroom activities, projection tips; **Data** `#/data` — CSVs of the daily samples, national capacity by year, measured farm output, the farm list, foundations and LCOE (made in the browser), with source, licence and citation; see [user guide 6.1 and 6.2](./docs/user-guide.en.md#61-for-teachers-lesson-plans-worksheets-and-classroom-activities)
 
 ## Architecture

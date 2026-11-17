@@ -14,6 +14,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 6. [Travel with the Wind (for young explorers)](#6-travel-with-the-wind-for-young-explorers)
    - [6.1 For teachers: lesson plans, worksheets and classroom activities](#61-for-teachers-lesson-plans-worksheets-and-classroom-activities)
    - [6.2 Data download: CSV and citation](#62-data-download-csv-and-citation)
+   - [6.3 For secondary school: the Wind Lab](#63-for-secondary-school-the-wind-lab)
 7. [Links and sharing](#7-links-and-sharing)
 8. [Single-file edition and public global wind map](#8-single-file-edition-and-public-global-wind-map)
 9. [Phones and older devices](#9-phones-and-older-devices)
@@ -46,7 +47,7 @@ How to use the 風電風情 · Taiwan Wind Watch site (`https://dofliu.github.io
 2. **1980–2025 · Global wind**: world cumulative capacity with its curve, the year's additions and the offshore part; a line below gives the world figure for "2026 (latest available)" and how it is made up (how many countries have this year's figures, the rest carrying the end of 2025, as on the globe); "Open the 3D globe" or "Play from 1980".
 3. **This week in Taiwan's wind**: the last 7 complete days (Taiwan time, up to yesterday) against the 7 before: a headline (how much more or less), a two-week bar chart of daily average output (grey = the 7 days before, green = the last 7 days; hover for the date, average and sample count), the windiest and calmest days, the highest moment and the farm with the highest capacity factor (aggregates left out). The data is Taipower's live output as the site records it about every 30 minutes (`data/archive/farm_daily.json`, private farms included; about every 2 hours before 22 Oct 2026): estimates from samples, not official generation; days with fewer than 12 samples are hatched and the sample counts are given below. "Share this week" makes a square weekly card (also offered by Share in the header).
 4. **Taiwan in the world**: Taiwan's world rank in offshore wind, its share of world offshore capacity and its rank in total wind; "Read Taiwan's path" opens Learn chapter 10.
-5. **Explore**: four cards for the live dashboard, the 3D globe, the 13 Learn chapters and the long-term trend. On phones, "Taiwan in the world" and "Explore" are laid out in two columns. The banner under the cards, "For young explorers: Travel with the Wind", opens the version for students (section 6).
+5. **Explore**: four cards for the live dashboard, the 3D globe, the 13 Learn chapters and the long-term trend. On phones, "Taiwan in the world" and "Explore" are laid out in two columns. The banner under the cards, "For young explorers: Travel with the Wind", opens the version for students (section 6), and "For secondary school: the Wind Lab" opens the eight inquiry levels for junior and senior high (section 6.3).
 6. **Featured milestones**: click a card to fly to that farm on the globe; "▶ Guided tour" runs through the key moments in wind power.
 
 ## 3. Taiwan live
@@ -336,7 +337,7 @@ The eight stops, by year:
   - `#/teach/jh` **Junior high · Science · 45 min, "How much power is Taiwan's wind making right now?"**: read the output now, the homes it serves, the windiest day this week and where the farms are from Home, the kids page "Taiwan's wind right now" and the globe, then answer the claim "no wind, no power" with evidence. Maps to science learning content Nc-Ⅳ-2, Nc-Ⅳ-4, Nc-Ⅳ-6, INa-Ⅳ-4 and energy-education issue items 能 J1, J3, J5.
   - `#/teach/sh` **Senior high · Scientific inquiry and practice · 2 periods, "Does a wind farm really generate all the time?"**: take official measured yearly output from the globe's Output dialog or the data page, compute the capacity factor = yearly generation ÷ (capacity × hours in the year), compare farms in Taiwan, Denmark, Australia and the US, argue and present in groups; with a rubric. Maps to the four inquiry items, chemistry CNc-Vc-1 and energy education 能 U6, U7, U9. The worked examples in the teacher's key are computed from the site's measured data when the page opens.
   - The curriculum and issue passages are the original wording of the National Academy for Educational Research's guidelines and its issues-integration handbook (English translations are the site's own); the figures in the plans differ every lesson, so the worksheets leave blanks for students to fill from the site.
-- **Classroom activities**: one card each for the kids page, class mode, Taiwan's wind right now, Home, the four hands-on panels, the globe tours, the country comparison and the data page, with the suitable level, time and how to use it, a link and a QR code (pointing to the public site); "Print activity cards" prints them as a handout.
+- **Classroom activities**: one card each for the kids page, the Wind Lab, class mode, Taiwan's wind right now, Home, the four hands-on panels, the globe tours, the country comparison and the data page, with the suitable level, time and how to use it, a link and a QR code (pointing to the public site); "Print activity cards" prints them as a handout.
 - **Projection and settings**: light mode, full screen, language, the single-file copy for classrooms without internet, location permission and data times.
 
 ### 6.2 Data download: CSV and citation
@@ -356,6 +357,29 @@ The eight stops, by year:
 - "Citing the site" at the bottom gives a suggested citation (with version and access date) and "Copy citation" copies it; when citing a dataset, also credit its original source and licence.
 - OpenStreetMap turbine positions (ODbL) are not offered here; the limits of the data are in section 10 and in Learn's "Sources & method".
 
+### 6.3 For secondary school: the Wind Lab
+
+`#/lab`: eight inquiry levels for junior and senior high students (from the banner under "Explore" on Home, the kids home page, the teacher hub or "Project" in the footer). Each level asks one question: try the "Try it" panel or read the data, then answer; every figure in the questions is computed from the site's data on the spot, so it changes as the data is updated.
+
+- **Difficulty**: the "Junior high / Senior high" switch at the top (or `?lv=jh` / `?lv=sh` in the link). Junior high reads data, compares and works out ratios and percentages; senior high adds derivations with formulas, estimates and a discussion of assumptions. Each difficulty keeps its own progress.
+- **Answering**: pick an option or type a number (decimals are fine; the question says how far to round) and press "Check" or Enter. A wrong answer says "too high / too low" with a hint, and after two wrong tries "Show the solution" appears. A level is passed when all its questions are right; then "Take-away" and the next level appear.
+- **Check it on the site**: every level ends with the matching pages on the site (globe, Learn, Taiwan live) and the sources of its data and models.
+- **Certificate**: once all 8 levels are passed at one difficulty, `#/lab/cert` takes a name and prints a "Certificate of Inquiry" (A4, without the site's header and footer, naming the junior or senior level and the completion date); until then it lists the levels still to do.
+
+| Level | Topic | Data used |
+|---|---|---|
+| 1 | The energy in the wind (P = ½ρAv³, the Betz limit) | Simplified model (International Standard Atmosphere air density); the rotor diameter of Formosa 1 Phase 2 |
+| 2 | From Gedser to 26 MW (scaling up) | The globe's milestones (rotor diameter, capacity) |
+| 3 | Capacity factor | Measured yearly output of Taipower's farms (`generation.json`) |
+| 4 | Wakes | Simplified model (Jensen 1983, as in Learn's wake panel) |
+| 5 | Why go offshore (foundations and water depth) | Offshore foundation types and water depths (`foundations.json`) |
+| 6 | Taiwan right now | Taipower's live data (the same as Taiwan live; the data time is shown, and simulated or offline-snapshot data is labelled) |
+| 7 | Falling costs | Global levelised cost of wind power (IRENA via Our World in Data) |
+| 8 | Lessons from incidents | The site's verified major events (each with an official source) |
+
+- Progress (which levels are passed at each difficulty, the name on the certificate) stays in this browser, with no sign-up and nothing uploaded.
+- The language follows the EN / 中文 switch in the header; it works on phones. The full single-file copy has this page; the public global wind map does not.
+
 ## 7. Links and sharing
 
 The link is the view: share it and the other person sees the same thing. The globe keeps its link up to date as you use it.
@@ -372,6 +396,8 @@ Dashboard sort and filters (on `#/live` only; defaults are left out): `sort=rati
 ```
 
 **Travel with the Wind**: `#/kids`, `#/kids/globe`, `#/kids/stop?n=1` to `8`, `#/kids/taiwan`, `#/kids/passport`, `#/kids/cert`, `#/kids/class` (optionally `?n=1` to `8`) (section 6).
+
+**The Wind Lab**: `#/lab`, `#/lab/level?n=1` to `8`, `#/lab/cert`; add `lv=jh` (junior high) or `lv=sh` (senior high) to any of them to set the difficulty (section 6.3).
 
 **Learn**: `#/learn/<chapter>` jumps to a chapter; `#/learn/sources?s=tw|intl|global|all` jumps to the Taiwan live, live abroad or global wind part of the sources, or opens "All sources and data notes".
 

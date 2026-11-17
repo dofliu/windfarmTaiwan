@@ -279,6 +279,7 @@ const TITLES = {
   global: ['全球風電發展地圖 1980–2025 · 風電風情', 'Global wind power map 1980–2025 · Wind Watch'],
   learn: ['風電知識 · 風電風情', 'Learn about wind power · Wind Watch'],
   kids: ['跟著風去旅行 · 風電風情探險版', 'Travel with the Wind · Wind Watch for young explorers'],
+  lab: ['風電實驗室 · 風電風情國高中探究版', 'Wind Lab · Wind Watch for secondary school'],
   status: ['排程狀態 · 風電風情', 'Schedule status · Wind Watch'],
   teach: ['教師專區 · 風電風情', 'For teachers · Wind Watch'],
   data: ['資料下載 · 風電風情', 'Data · Wind Watch'],
@@ -386,6 +387,7 @@ function lazyPage(name, files, api) {
 }
 lazyPage('teach', ['assets/vendor/qrcode-1.4.4.js', 'assets/js/teach.js'], 'teach');
 lazyPage('data', ['assets/js/datapage.js'], 'datapage');
+lazyPage('lab', ['assets/css/lab.css', 'assets/js/lab.js', 'assets/js/lab-levels.js'], 'lab');   // 國高中探究版「風電實驗室」
 
 /* ---------------- header 高度（全螢幕頁：地球儀、風場牆、地圖用） ---------------- */
 function syncHeaderH() {
