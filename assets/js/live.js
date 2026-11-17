@@ -137,6 +137,11 @@ const FARMS=[
   cod:"預計 2027",annual:"—",homes:"—",
   tl:[["2023/09","完成最終投資決定與財務結案","done","Final investment decision and financial close"],["2025/06","海龍首度併網發電","done","Hai Long's first power to the grid"],["2026/03","海龍三號首支機組安裝完成","done","First Hai Long 3 turbine installed"],["2026/08","Northland 第二季報告：73 部風機已裝 71 部、59 部發電，商轉維持 2027 年；完成 550 億元增額融資","done","Northland's Q2 report: 71 of 73 turbines installed and 59 generating; commercial operation still 2027; NT$55 billion of incremental financing closed"],["2026/10","73 部風機全部裝完並發電；最終許可預計 2027 年上半年","done","All 73 turbines installed and generating; final permits expected in the first half of 2027"],["2027","全案商轉（原規劃 2026 年）","","Full commercial operation (originally planned for 2026)"]],
   note:"台電 genary 仍標示「-（註10）」。海龍二號及三號計畫併網點之一；原規劃 2026 年商轉，Northland 2026 年 8 月 12 日第二季報告寫 2027 年；10 月 15 日宣布 73 部全部裝完並發電，最終許可預計 2027 年上半年取得。"},
+ {id:"longC",tp:"龍三風",name:"海龍（龍三風）",grp:"off-ppa",cap:null,snap:277.2,lat:23.86,lng:119.84,pending:true,
+  dev:"海龍（Northland・三井・Gentari）",site:"彰化外海 45–70 km",model:"Siemens Gamesa SG 14-222 DD",unit:"14 MW",depth:"30–55 m",dist:"45–70 km",turbines:"—",planned:"—",
+  cod:"預計 2027",annual:"—",homes:"—",
+  tl:[["2026/11","台電即時資料出現「龍三風（註10）」併網點","done","Taipower's live data lists a new grid unit, “Long-3 (note 10)”"]],
+  note:"台電 genary 自 2026-11-13 起列出「龍三風（註10）」，尚未列裝置容量；與龍A風、龍B風同屬海龍二號及三號計畫（名稱對應，哪一期的併網點待查證）。座標為概略位置。"},
 ];
 
 const GROUPS=[
@@ -153,13 +158,13 @@ const GLOBE_FARM={guanyuan:"Dayuan Guanyuan",taichungport:"Taichung Port",wanggo
   zhongwei:"Taichung (Da'an/Dajia)",chuangwei:"Chuangwei wind farm",xinyuan:"Yunlin Lunbei",offshore1:"Taipower Offshore Phase 1 (Changhua)",
   offshore2:"Taipower Offshore Phase 2",formosa1:"Formosa 1 Phase 2",formosa2:"Formosa 2",wo1:"Greater Changhua 1 & 2a",wo2:"Greater Changhua 1 & 2a",
   wo4:"Greater Changhua 2b & 4",wonan:"Greater Changhua 2b & 4",fang1:"Changfang & Xidao",fang2:"Changfang & Xidao",yunhu:"Yunlin",yunxi:"Yunlin",
-  zhongneng:"Zhong Neng",longA:"Hai Long 2 & 3",longB:"Hai Long 2 & 3"};
+  zhongneng:"Zhong Neng",longA:"Hai Long 2 & 3",longB:"Hai Long 2 & 3",longC:"Hai Long 2 & 3"};
 
 /* 台電即時資料以併網點簡稱命名（沃一風、芳二風、龍A風…），同一座風場分成好幾個併網點：風場牆標出所屬的風場，免得找不到「大彰化」 */
 const PROJ={wo1:["大彰化東南及西南一階","Greater Changhua 1 & 2a"],wo2:["大彰化東南及西南一階","Greater Changhua 1 & 2a"],
   wo4:["大彰化西南二階及西北","Greater Changhua 2b & 4"],wonan:["大彰化西南二階及西北","Greater Changhua 2b & 4"],
   fang1:["彰芳暨西島","Changfang & Xidao"],fang2:["彰芳暨西島","Changfang & Xidao"],yunhu:["允能","Yunlin"],yunxi:["允能","Yunlin"],
-  longA:["海龍二、三號","Hai Long 2 & 3"],longB:["海龍二、三號","Hai Long 2 & 3"]};
+  longA:["海龍二、三號","Hai Long 2 & 3"],longB:["海龍二、三號","Hai Long 2 & 3"],longC:["海龍二、三號","Hai Long 2 & 3"]};
 const projOf=f=>PROJ[f.id]?PROJ[f.id][EN()?1:0]:"";
 
 const t=WW.t;
@@ -277,9 +282,10 @@ function simOutput(f){
 function refresh(){if(LIVE)return;            // 即時模式：不跑模擬，保留台電真實值不被覆蓋
   FARMS.forEach(f=>RT[f.id]=simOutput(f));lastUpdate=new Date();paint();}
 // 台電即時資料的裝置容量與「註10」（試運轉、暫不計入裝置容量）為準：機組結束試運轉或改容量時不必改程式（FARMS 的靜態值只在模擬與離線時用）
-function syncCaps(units){
+function syncCaps(units,farms){
   const by={};units.forEach(u=>{if(u&&u.name)by[u.name]=u;});
   FARMS.forEach(f=>{const u=by[f.tp];if(!u)return;
+    if(farms&&farms[f.id]==null&&typeof u.output==="number")RT[f.id]=u.output;   // 爬蟲還沒對應的新機組：用台電原始機組的出力 · units the scraper has not mapped yet
     if(/註10/.test(u.raw_name||"")){f.pending=true;f.cap=null;}
     else if(typeof u.capacity==="number"&&u.capacity>0){f.cap=u.capacity;delete f.pending;}});
 }
@@ -287,7 +293,7 @@ async function tryLive(){
   if(!DATA_ENDPOINT){setFeed(false);return;}
   try{const j=await WW.getLiveJSON(DATA_ENDPOINT);
     if(j&&j.farms){FARMS.forEach(f=>{if(j.farms[f.id]!=null)RT[f.id]=j.farms[f.id]});
-      if(Array.isArray(j.raw_wind_units))syncCaps(j.raw_wind_units);
+      if(Array.isArray(j.raw_wind_units))syncCaps(j.raw_wind_units,j.farms);
       srcTime=j.source_time||null;sysTotal=(typeof j.system_total_mw==="number")?j.system_total_mw:null;
       WIND=(j.farm_wind&&typeof j.farm_wind==="object")?j.farm_wind:{};
       lastUpdate=j.updated?new Date(j.updated):new Date();setFeed(true);paint();return;}
@@ -557,7 +563,8 @@ const NAME_EN={
   "yunxi":["Yunlin (Yunxi)","Yunxi"],
   "zhongneng":["Zhong Neng","Zhong Neng"],
   "longA":["Hai Long (Long-A)","Long-A"],
-  "longB":["Hai Long (Long-B)","Long-B"]
+  "longB":["Hai Long (Long-B)","Long-B"],
+  "longC":["Hai Long (Long-3)","Long-3"]
 };
 const nm=f=>EN()&&NAME_EN[f.id]?NAME_EN[f.id][0]:f.name;        // 完整名稱
 const sn=f=>EN()&&NAME_EN[f.id]?NAME_EN[f.id][1]:f.tp;          // 短名稱

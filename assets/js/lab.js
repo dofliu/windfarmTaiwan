@@ -34,8 +34,8 @@ const f = (v, d) => WW.num(v, d == null ? 1 : d);
 const U = {
   L, esc, EN, f, int: WW.int,
   /* 滑桿：id 在同一關內唯一；fmt 把數值轉成顯示文字 */
-  slider: (id, label, min, max, step, val, fmt) => '<label class="lbs"><span class="lbk">' + label + '<output id="lb-' + id + '-o">' + fmt(val) + '</output></span>' +
-    '<input type="range" id="lb-' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '"></label>',
+  slider: (id, label, min, max, step, val, fmt) => '<label class="lbs"><span class="lbk"><span id="lb-' + id + '-l">' + label + '</span><output id="lb-' + id + '-o">' + fmt(val) + '</output></span>' +
+    '<input type="range" id="lb-' + id + '" aria-labelledby="lb-' + id + '-l" min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '"></label>',
   /* 綁定滑桿：S[id] 隨滑桿更新，接著呼叫 draw() */
   bind: (root, S, fmts, draw) => {
     root.querySelectorAll('input[type=range][id^="lb-"]').forEach(r => {
@@ -64,7 +64,7 @@ function need(keys) {
 /* ---------------- 版面 · shell ---------------- */
 let view = 'home', curN = 1;
 const QS = {};                                        // 作答狀態：`${lv}:${n}` → { ok: {qid: true}, tries: {qid: n}, shown: {qid: true} }
-const qstate = (n, lv) => QS[lv + ':' + n] || (QS[lv + ':' + n] = { ok: {}, tries: {}, shown: {} });
+const qstate = (n, lv) => QS[lv + ':' + n] || (QS[lv + ':' + n] = { ok: {}, tries: {}, shown: {}, val: {} });
 
 function lvSwitch() {
   return '<div class="lbseg" role="group" aria-label="' + esc(L('難度', 'Difficulty')) + '">' + ['jh', 'sh'].map(k =>
@@ -113,7 +113,7 @@ function qHTML(q, i, st) {
     inp = '<div class="lbopts" role="radiogroup" aria-labelledby="lbq-' + q.id + '">' + q.opts.map((o, k) =>
       '<label class="lbopt"><input type="radio" name="lbq-' + q.id + '" value="' + k + '"' + (ok && k === q.a ? ' checked' : '') + (ok ? ' disabled' : '') + '><span>' + o[0] + '</span></label>').join('') + '</div>';
   } else {
-    inp = '<div class="lbnum"><input type="text" inputmode="decimal" autocomplete="off" id="lbin-' + q.id + '" aria-labelledby="lbq-' + q.id + '"' + (ok ? ' disabled value="' + esc(String(q.shown != null ? q.shown : q.ans)) + '"' : '') + '>' +
+    inp = '<div class="lbnum"><input type="text" inputmode="decimal" autocomplete="off" id="lbin-' + q.id + '" aria-labelledby="lbq-' + q.id + '"' + (ok ? ' disabled value="' + esc(st.val[q.id] != null ? st.val[q.id] : String(+(+q.ans).toPrecision(6))) + '"' : '') + '>' +
       (q.unit ? '<span class="lbu">' + q.unit + '</span>' : '') + '</div>';
   }
   return '<li class="lbq' + (ok ? ' ok' : '') + '" data-q="' + q.id + '"><div class="lbqt" id="lbq-' + q.id + '"><span class="lbqn">' + (i + 1) + '</span><div>' + q.q + '</div></div>' + inp +
@@ -182,7 +182,7 @@ function check(qid) {
   }
   if (good) {
     st.ok[qid] = true;
-    if (q.type === 'num') q.shown = li.querySelector('input').value;
+    if (q.type === 'num') st.val[qid] = li.querySelector('input').value;
     li.outerHTML = qHTML(q, CUR.B.qs.indexOf(q), st);
     const all = CUR.B.qs.every(z => st.ok[z.id]);
     if (all) {
@@ -253,6 +253,8 @@ WW.lab = {
     CUR = null; render(); window.scrollTo(0, 0);
   },
   leave() { CUR = null; },
+  /* 重建某一關（例：即時資料更新後）；clear 為 true 時清掉這一關兩種難度的作答狀態 · rebuild a level, optionally clearing its answers */
+  rebuild(n, clear) { if (clear) { delete QS['jh:' + n]; delete QS['sh:' + n]; } if (view === 'level' && curN === n && WW.currentPage() === 'lab') viewLevel(n); },
   api: () => ({ P, LEVELS, QS, DATA, need, U, cur: () => CUR })
 };
 WW.onLang(() => { if (WW.currentPage() === 'lab') render(); });
