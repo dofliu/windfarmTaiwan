@@ -1,0 +1,91 @@
+{
+  "createdWith": "history-timeline-film/scripts/new_film.mjs",
+  "skill": "/root/.claude/skills/synced/79704726-45c7-4e0f-94ad-410c81141e6c_9d78875b-375d-428a-9731-649c89ad27d3/history-timeline-film",
+  "examples": "/root/.claude/skills/synced/79704726-45c7-4e0f-94ad-410c81141e6c_9d78875b-375d-428a-9731-649c89ad27d3/history-timeline-film/references/examples",
+  "staging": "gallery-ride+spoonbill",
+  "lang": "zh-Hant",
+  "sceneKind": "square",
+  "demo": false,
+  "chapters": [
+    {
+      "id": "blyth",
+      "year": 1887,
+      "preset": "victorian-musicbox",
+      "style": "維多利亞木口版畫",
+      "medium": "woodengraving",
+      "look": "engraving"
+    },
+    {
+      "id": "putnam",
+      "year": 1941,
+      "preset": "newsreel-brass",
+      "style": "黑白新聞片",
+      "medium": "newsreel",
+      "look": "newsreel"
+    },
+    {
+      "id": "gedser",
+      "year": 1957,
+      "preset": "cool-jazz-vibes",
+      "style": "世紀中期現代主義海報",
+      "medium": "midcentury",
+      "look": "poster"
+    },
+    {
+      "id": "tvind",
+      "year": 1978,
+      "preset": "seventies-analog",
+      "style": "絲網印刷海報",
+      "medium": "screenprint",
+      "look": "poster"
+    },
+    {
+      "id": "altamont",
+      "year": 1981,
+      "preset": "synthwave",
+      "style": "合成器浪潮霓虹",
+      "medium": "synthwave",
+      "look": "screen"
+    },
+    {
+      "id": "vindeby",
+      "year": 1991,
+      "preset": "chiptune",
+      "style": "像素遊戲",
+      "medium": "pixel",
+      "look": "pixel"
+    },
+    {
+      "id": "hornsrev",
+      "year": 2002,
+      "preset": "ambient-fm-bells",
+      "style": "衛星地圖",
+      "medium": "satellite",
+      "look": "screen"
+    },
+    {
+      "id": "hywind",
+      "year": 2017,
+      "preset": "electro-arps",
+      "style": "數位線框 HUD",
+      "medium": "hud",
+      "look": "screen"
+    },
+    {
+      "id": "formosa",
+      "year": 2019,
+      "preset": "temple-yueqin",
+      "style": "客家花布＋廟宇彩繪",
+      "medium": "hud",
+      "look": "poster"
+    },
+    {
+      "id": "dongfang",
+      "year": 2025,
+      "preset": "fm-keys-electro",
+      "style": "等角 3D 低多邊形",
+      "medium": "iso",
+      "look": "poster"
+    }
+  ]
+}

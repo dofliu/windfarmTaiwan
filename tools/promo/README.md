@@ -92,6 +92,7 @@ python3 themes.py offshore --only o4_sea                 # 只重錄一段；再
 
 使用者 2026-11-17 看過試作後要「英文版、接上地球儀」。動畫本身用 history-timeline-film 技能做：10 章（1887 布萊斯布帆風車 → 2025 年 26 MW 級風機），每章一種該時代的畫風，配樂由瀏覽器合成；章節的事實取自本站查證過的事件與里程碑（新增的引文以 `check_quotes.py` 核對）。
 
-- 專案：`work_t_history/`（中文）與 `work_t_history_en/`（英文），都不進 git；在專案裡用技能的 `check_film.mjs` 檢查，`tools/render-audio.mjs`＋`tools/render.mjs --audio out/soundtrack.wav --jpeg --out out/film_zh.mp4`（英文 `film_en.mp4`）渲染。
+- 原始檔收在 `history/`（中文專案，含技能的動畫引擎、10 個場景、`research/fact-sheet.md` 事實表）與 `history/en/`（英文版只有 12 個檔不同：章節文字、設定、事實表、字形表與 8 個場景）；`history/README.md` 與 `SCENE_GUIDE.md` 是引擎範本自帶的英文說明。`python3 history_film.py setup [--lang en]` 還原出可渲染的專案（並裝 esbuild）。
+- 專案：`work_t_history/`（中文）與 `work_t_history_en/`（英文），都不進 git；改場景時改 `history/`（英文改 `history/en/`）再重新 setup，或在專案裡改完複製回來；在專案裡用技能的 `check_film.mjs` 檢查，`tools/render-audio.mjs`＋`tools/render.mjs --audio out/soundtrack.wav --jpeg --out out/film_zh.mp4`（英文 `film_en.mp4`）渲染。
 - 展覽版：`history_film.py globe [--lang en]` 錄 10 段地球儀片段（開該章的里程碑或事件卡片），`history_film.py assemble [--lang en]` 把片段插在每章之後（配樂重複該章最後 2 小節，節拍不亂），片尾接 6 秒 QR code（用片頭的風鈴聲淡出，可循環），輸出 `history_milestones_globe_zh.mp4`／`_en.mp4` 與分享版。
 - 1887 年與 26 MW 級風機兩章開事件卡片：事件沒有座標，且 26 MW 里程碑的點位（福建）與事件（山東東營）不一致，待查證。

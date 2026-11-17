@@ -1,9 +1,12 @@
 """風電里程碑動畫的展覽版：每章結尾接 4 秒地球儀實機畫面，片尾接 QR code · Exhibition cut of the wind-milestones film:
 a 4-second clip of the real globe after every chapter, and a QR-code end card.
 
-動畫本身由 history-timeline-film 技能產生（專案在 tools/promo/work_t_history[_en]/，不進 git），先在那裡渲染出 out/film_<lang>.mp4。
-The film itself comes from the history-timeline-film skill (project in tools/promo/work_t_history[_en]/, not in git); render out/film_<lang>.mp4 there first.
+動畫本身由 history-timeline-film 技能產生；原始檔收在 tools/promo/history/（中文）與 history/en/（英文差異檔），
+`setup [--lang en]` 還原成可渲染的專案 tools/promo/work_t_history[_en]/（不進 git），先在那裡渲染出 out/film_<lang>.mp4。
+The film comes from the history-timeline-film skill; its sources live in tools/promo/history/ (Chinese) and history/en/ (the English
+overrides), and `setup [--lang en]` restores a renderable project in tools/promo/work_t_history[_en]/ (not in git); render out/film_<lang>.mp4 there first.
 
+  python3 tools/promo/history_film.py setup [--lang en]                # 從 history/ 還原專案 · restore the project
   python3 -m http.server 8765                                 # repo 根目錄 · serve the repo root
   python3 tools/promo/history_film.py globe [--lang en] [--only c03]   # 錄地球儀片段 · record the globe clips
   python3 tools/promo/history_film.py assemble [--lang en]              # 插入片段、加 QR 結尾、合成 · splice and assemble
@@ -38,6 +41,21 @@ CLIPS = [
  ('c09', MS('Formosa 1 offshore wind farm, Miaoli'), ('海洋風電', 'Formosa 1'), ('台灣海峽的離岸風場', 'Offshore farms in the Taiwan Strait')),
  ('c10', 'r=CHN&ev=WIND-166', ('26 MW 級海上風機', 'A 26 MW-class turbine'), ('事件卡片：原文出處', 'Event card with its sources')),
 ]
+
+
+def setup(lang):
+    """從 repo 的 history/（中文原始檔）與 history/en/（英文差異檔）還原出可渲染的專案，並安裝 esbuild · restore a renderable project"""
+    import shutil
+    src, dst = HERE / 'history', HERE / ('work_t_history' + ('_en' if lang == 'en' else ''))
+    if dst.exists():
+        raise SystemExit(f'{dst} already exists; remove it first · 目錄已存在，先刪除再還原')
+    shutil.copytree(src, dst, ignore=shutil.ignore_patterns('en'))
+    if lang == 'en':
+        for f in (src / 'en').rglob('*'):
+            if f.is_file():
+                (dst / f.relative_to(src / 'en')).write_bytes(f.read_bytes())
+    subprocess.run(['npm', 'install', '--no-audit', '--no-fund'], cwd=dst, check=True)
+    print('ready', dst)
 
 
 def work(lang):
@@ -141,11 +159,11 @@ def assemble(lang):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('step', choices=['globe', 'assemble'])
+    ap.add_argument('step', choices=['setup', 'globe', 'assemble'])
     ap.add_argument('--lang', default='zh', choices=['zh', 'en'])
     ap.add_argument('--only', nargs='*')
     a = ap.parse_args()
-    record(a.lang, a.only) if a.step == 'globe' else assemble(a.lang)
+    {'setup': lambda: setup(a.lang), 'globe': lambda: record(a.lang, a.only), 'assemble': lambda: assemble(a.lang)}[a.step]()
 
 
 if __name__ == '__main__':

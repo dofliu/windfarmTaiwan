@@ -1,0 +1,21 @@
+{
+  "name": "history-timeline-film",
+  "version": "0.1.0",
+  "description": "Deterministic, 100% procedural animated timeline film template: chapters drawn in their own art media, a character travelling through them, a synthesised soundtrack.",
+  "type": "module",
+  "private": true,
+  "license": "Apache-2.0",
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "validate": "node tools/validate.mjs",
+    "shot": "node tools/shot.mjs",
+    "sheet": "node tools/sheet.mjs",
+    "check-audio": "node tools/check-audio.mjs",
+    "render-audio": "node tools/render-audio.mjs",
+    "render": "node tools/render.mjs",
+    "build": "node tools/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
