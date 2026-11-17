@@ -44,7 +44,7 @@
 .lbsec ul,.lbsec ol{padding-left:1.3em;color:var(--prose)}
 .lbtool{border-left:3px solid var(--live)}
 .lbexp{border-left:3px solid var(--hist)}
-.lbeq{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;background:var(--surface-2);border-radius:8px;padding:8px 12px;margin:8px 0;overflow-x:auto;white-space:nowrap;font-size:14px}
+.lbeq{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;background:var(--surface-2);border-radius:8px;padding:8px 12px;margin:8px 0;overflow-wrap:anywhere;font-size:14px}
 .lbs{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--ink-2);margin:6px 0}
 .lbk{display:flex;justify-content:space-between;gap:10px}
 .lbk output{font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
