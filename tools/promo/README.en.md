@@ -31,6 +31,7 @@ The finished files are about 70 MB (about 27 MB for the shareable copies) and ar
 | `storyboard_design.json`, `storyboard_design_en.json` | The 6 designed scenes only, for the renderer |
 | `skill_path.py` | Finds the intro-video skill |
 | `themes.py` | Themed tour videos for exhibitions (see "Themed tour videos" below): each theme's recorded clips, title and end cards (with the QR code) and assembly |
+| `history_film.py` | Exhibition cut of the wind-milestones film: a 4-second clip of the real globe after every chapter and a QR end card (see "Wind milestones film" below) |
 
 ## Steps
 
@@ -86,3 +87,11 @@ python3 themes.py offshore --only o4_sea                 # re-record one clip; -
 ```
 
 Each clip takes about 5–10 minutes to record (SwiftShader software rendering), about 40–60 minutes per film.
+
+## Wind milestones film (for exhibitions, trial)
+
+After seeing the trial on 17 Nov 2026 the owner asked for "an English edition, joined up with the globe". The film itself is made with the history-timeline-film skill: 10 chapters (James Blyth's cloth-sailed windmill of 1887 → a 26 MW-class turbine in 2025), each in an art medium of its period, with a soundtrack synthesised in the browser; the chapter facts come from the site's verified events and milestones (new quotes checked with `check_quotes.py`).
+
+- Projects: `work_t_history/` (Chinese) and `work_t_history_en/` (English), not in git; check them with the skill's `check_film.mjs` and render with `tools/render-audio.mjs` + `tools/render.mjs --audio out/soundtrack.wav --jpeg --out out/film_zh.mp4` (English: `film_en.mp4`).
+- Exhibition cut: `history_film.py globe [--lang en]` records 10 globe clips (opening the chapter's milestone or event card), and `history_film.py assemble [--lang en]` inserts them after each chapter (repeating the chapter's last two bars of music, so the beat holds) and ends with a 6-second QR card (the intro's wind chimes fading out, so it loops), writing `history_milestones_globe_zh.mp4` / `_en.mp4` and share copies.
+- The 1887 and 26 MW-class chapters open event cards: those events have no coordinates, and the 26 MW milestone's position (Fujian) disagrees with the event (Dongying, Shandong) — to be verified.
