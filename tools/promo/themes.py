@@ -33,6 +33,10 @@ C.OVERLAY_JS = (C.OVERLAY_JS.replace('font-size:46px', 'font-size:66px').replace
 
 # 港口片：關掉事件與船隻圖層，只看港口與離岸風場 · ports film: events and vessels off, ports and offshore farms only
 QUIET = {'ww_globe_events': '0', 'ww_globe_ships': '0'}
+# 事件片：事件開、船隻關；時間軸停在 2022 年（製作日 2026-11 前三年以前；事件以整年篩選，所以用 2022 而不是 2023）
+# events film: events on, vessels off; timeline held at 2022 (older than three years before Nov 2026; events filter by whole year)
+EVQ = {'ww_globe_events': '1', 'ww_globe_ships': '0'}
+EV_Y = 2022
 
 
 def tnext():
@@ -92,6 +96,37 @@ THEMES = {
       en=('SET SAIL', 'From the port out to the farm', 'Sea-level view, turbines at their real positions')),
   },
   end=('掃描打開網站', '港口、風場、事件與里程碑，都在這顆地球上', 'Scan to open the site', 'Ports, farms, events and milestones on one globe'),
+ ),
+ # 事件片：只放製作日前三年以前的事件（使用者 2026-11-16）——時間軸固定在 EV_Y，地圖與清單都只顯示該年以前的事件；
+ # 各國都可、不刻意放台灣；字卡只寫事件摘要裡有的內容。
+ # Events film: only events older than three years before production (owner, 16 Nov 2026) — the timeline stays at EV_Y so the map and
+ # the list show nothing later; any country, Taiwan not singled out; captions say only what the event summaries say.
+ 'events': dict(
+  title=('EVENTS & LESSONS', '事件與教訓', '風機倒塌、火災、基礎失效與大停電，每則附出處',
+         'Events and lessons', 'Collapses, fires, foundation failures and blackouts, each with a source'),
+  scenes={
+   'e1_list': dict(dur=12, start=f'y={EV_Y}&r=C%3AEurope', ls=EVQ, setup=[], settle=3.0,
+      acts=[(2.0, click('#g-tabEvents')), (5.5, click('#g-evList [data-c="inc"]'))],
+      cap=('EVENTS', '重大事件與事故，每則附出處', '事故與故障、政策與社會、里程碑'),
+      en=('EVENTS', 'Major events, each with a source', 'Incidents and failures, policy and society, milestones')),
+   'e2_storm': dict(dur=12, start=f'y={EV_Y}&r=JPN', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-063')), (6.3, H(f'y={EV_Y}&ev=WIND-126'))],
+      cap=('TYPHOONS', '颱風：塔架挫屈、整部倒下', '宮古島 2003 · 和歌山 2018'),
+      en=('TYPHOONS', 'Typhoons: towers buckle and fall', 'Miyakojima 2003 · Wakayama 2018')),
+   'e3_fire': dict(dur=12, start=f'y={EV_Y}&r=GBR', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-066')), (6.3, H(f'y={EV_Y}&ev=WIND-082'))],
+      cap=('FIRE', '機艙火災：消防搆不到的高度', '蘇格蘭 Ardrossan 2011 · 美國密西根 2019'),
+      en=('FIRE', 'Nacelle fires, out of reach', 'Ardrossan, Scotland 2011 · Michigan, USA 2019')),
+   'e4_found': dict(dur=12, start=f'y={EV_Y}&r=GBR', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-139')), (6.3, H(f'y={EV_Y}&ev=WIND-145'))],
+      cap=('FOUNDATIONS', '海上基礎：接頭滑移、整座翻倒', 'Robin Rigg 2010 · Nysted 2022'),
+      en=('FOUNDATIONS', 'Foundations at sea can fail', 'Robin Rigg 2010 · Nysted 2022')),
+   'e5_grid': dict(dur=12, start=f'y={EV_Y}&r=AUS', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-010')), (6.3, H(f'y={EV_Y}&ev=WIND-150'))],
+      cap=('GRID', '電網擾動：風場要撐得過去', '南澳大停電 2016 · 英國大停電 2019'),
+      en=('GRID', 'Riding through grid disturbances', 'South Australia 2016 · Great Britain 2019')),
+  },
+  end=('掃描打開網站', '事件、港口、風場與里程碑，都在這顆地球上', 'Scan to open the site', 'Events, ports, farms and milestones on one globe'),
  ),
 }
 

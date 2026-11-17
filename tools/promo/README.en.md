@@ -69,13 +69,14 @@ The weekly schedule makes one at a time, in that order; finished themes live in 
 - No voice-over; captions larger than in the introduction video; the film fades in from and out to the same dark background so it can loop.
 - The end card carries a QR code to the site (an SVG made with the `qrcode` package, no Pillow needed, pointing at `https://dofliu.github.io/windfarmTaiwan/`).
 - Captions avoid figures that go stale; when one is needed it is computed from the site's data, never hard-coded. Vessel shots always say "illustrative, not live positions, not to scale".
-- The events video leaves out events from the three years before production and covers all countries without singling out Taiwan.
+- The events video leaves out events from the three years before production and covers all countries without singling out Taiwan: `EV_Y` in `themes.py` holds the timeline at an earlier year (events filter by whole year), and the captions say only what the event summaries say.
 - A clip may set `ls`: layer toggles written to browser storage before the page opens (e.g. `QUIET` turns events and vessels off in the ports film), for layers the URL parameters do not control.
 
 | Theme | `THEMES` key | Clips | Status |
 |---|---|---|---|
 | ① Offshore wind: from seabed to sea surface | `offshore` | Title card, foundation colours (Europe → Gemini), to-scale profile (Hywind Scotland), floating-wind story tour, sea-level view sailing out of the port (Hornsea Two), illustrative vessels (Hornsea Two), QR end card | Done 16 Nov 2026 |
 | ② Ports and the supply chain | `ports` | Title card, overview of European ports, a marshalling port with arcs to the farms it served (Esbjerg), manufacturing at the quay (Cuxhaven nacelle plant → Le Havre blade and nacelle plant), Asia (Fuqing Jiangyin industrial park → Port of Taichung), sea-level view sailing out of the port (Horns Rev 3), QR end card | Done 17 Nov 2026 |
+| ③ Events and lessons | `events` | Title card, the European events list (filtered to "Incident / failure"), typhoons (Miyakojima 2003 → Wakayama 2018), nacelle fires (Ardrossan 2011 → Michigan 2019), foundation failures at sea (Robin Rigg 2010 → Nysted 2022), grid disturbances (South Australia 2016 → Great Britain 2019), QR end card; the timeline is held at 2022 (`EV_Y`) so the map and the list show nothing later | Done 17 Nov 2026 |
 
 ```bash
 python3 -m http.server 8765 &                            # repo root
