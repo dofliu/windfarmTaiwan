@@ -6,6 +6,7 @@ standalone/
 tools/promo/work/
 tools/promo/work_en/
 tools/promo/work_t_*/
+tools/promo/work_h_*/
 tools/promo/assets/
 tools/promo/s[0-9]*.html
 tools/promo/*.mp4

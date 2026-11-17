@@ -31,6 +31,7 @@
 | `storyboard_design.json`、`storyboard_design_en.json` | 只含 6 個設計景，給渲染程式用 |
 | `skill_path.py` | 尋找 intro-video 技能的位置 |
 | `themes.py` | 主題導覽影片（展覽用，見下面「主題導覽影片」）：每個主題的錄製段落、開場與結尾字卡（含 QR code）與合成 |
+| `history_film.py` | 風電里程碑動畫的展覽版：每章結尾接 4 秒地球儀實機畫面、片尾接 QR code（見下面「風電里程碑動畫」） |
 
 ## 步驟
 
@@ -86,3 +87,11 @@ python3 themes.py offshore --only o4_sea                 # 只重錄一段；再
 ```
 
 每段錄製約 5–10 分鐘（SwiftShader 軟體繪圖），一支約 40–60 分鐘。
+
+## 風電里程碑動畫（展覽用，試作）
+
+使用者 2026-11-17 看過試作後要「英文版、接上地球儀」。動畫本身用 history-timeline-film 技能做：10 章（1887 布萊斯布帆風車 → 2025 年 26 MW 級風機），每章一種該時代的畫風，配樂由瀏覽器合成；章節的事實取自本站查證過的事件與里程碑（新增的引文以 `check_quotes.py` 核對）。
+
+- 專案：`work_t_history/`（中文）與 `work_t_history_en/`（英文），都不進 git；在專案裡用技能的 `check_film.mjs` 檢查，`tools/render-audio.mjs`＋`tools/render.mjs --audio out/soundtrack.wav --jpeg --out out/film_zh.mp4`（英文 `film_en.mp4`）渲染。
+- 展覽版：`history_film.py globe [--lang en]` 錄 10 段地球儀片段（開該章的里程碑或事件卡片），`history_film.py assemble [--lang en]` 把片段插在每章之後（配樂重複該章最後 2 小節，節拍不亂），片尾接 6 秒 QR code（用片頭的風鈴聲淡出，可循環），輸出 `history_milestones_globe_zh.mp4`／`_en.mp4` 與分享版。
+- 1887 年與 26 MW 級風機兩章開事件卡片：事件沒有座標，且 26 MW 里程碑的點位（福建）與事件（山東東營）不一致，待查證。
