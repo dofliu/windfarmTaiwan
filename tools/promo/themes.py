@@ -82,7 +82,7 @@ THEMES = {
    'p3_make': dict(dur=12, start='r=C%3AEurope&layer=off&pipe=0', ls=QUIET, setup=[], settle=2.0,
       acts=[(0.3, H('port=deu-cuxhaven')), (6.3, H('port=fra-le-havre-sgre'))],
       cap=('SUPPLY CHAIN', '機艙、葉片、基礎、海纜，在港邊製造', '工廠就在碼頭旁，直接上船'),
-      en=('SUPPLY CHAIN', 'Nacelles, blades, foundations, cables', 'Built at the quay, loaded straight onto ships')),
+      en=('SUPPLY CHAIN', 'Factories on the quay', 'Nacelles, blades, foundations and cables, loaded straight onto ships')),
    'p4_asia': dict(dur=12, start='r=C%3AAsia&layer=off&pipe=0', ls=QUIET, setup=[], settle=2.0,
       acts=[(0.3, H('port=chn-fuqing-jiangyin')), (6.3, H('port=twn-taichung'))],
       cap=('ASIA', '亞洲：產業園與港口一起長大', '從福建到台中'),
