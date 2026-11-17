@@ -31,6 +31,10 @@ C.OVERLAY_JS = (C.OVERLAY_JS.replace('font-size:46px', 'font-size:66px').replace
                 .replace('font-size:21px', 'font-size:30px').replace('padding:16px 40px 18px', 'padding:22px 56px 26px'))
 
 
+# 港口片：關掉事件與船隻圖層，只看港口與離岸風場 · ports film: events and vessels off, ports and offshore farms only
+QUIET = {'ww_globe_events': '0', 'ww_globe_ships': '0'}
+
+
 def tnext():
     return click('#g-tourBar .tnext')
 
@@ -62,6 +66,32 @@ THEMES = {
       en=('VESSELS · ILLUSTRATIVE', 'Service and installation vessels', 'Illustrative: not live positions, not to scale')),
   },
   end=('掃描打開網站', '離岸風電、港口、事件與里程碑，都在這顆地球上', 'Scan to open the site', 'Offshore wind, ports, events and milestones on one globe'),
+ ),
+ 'ports': dict(
+  title=('PORTS & SUPPLY CHAIN', '港口與供應鏈', '每一座離岸風場，都從港口出發',
+         'Ports and the supply chain', 'Every offshore wind farm starts from a port'),
+  scenes={
+   'p1_map': dict(dur=10, start='r=C%3AEurope&layer=off&pipe=0', ls=QUIET, setup=[], settle=3.0,
+      acts=[(3.0 + k * 0.5, wheel(-90, 900, 430)) for k in range(4)] + [(5.2, wheel(0, 4, 1076))],
+      cap=('PORTS', '離岸風電港口，每港附出處', '組裝出港、製造、海纜、運維'),
+      en=('PORTS', 'Offshore wind ports, each sourced', 'Marshalling, manufacturing, cables, O&M')),
+   'p2_hub': dict(dur=13, start='r=C%3AEurope&layer=off&pipe=0', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('port=dnk-esbjerg'))],
+      cap=('MARSHALLING', '一座港口，送出一座座風場', '弧線連到有出處佐證的風場'),
+      en=('MARSHALLING', 'One port, many wind farms', 'Arcs link only to farms a source ties to it')),
+   'p3_make': dict(dur=12, start='r=C%3AEurope&layer=off&pipe=0', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('port=deu-cuxhaven')), (6.3, H('port=fra-le-havre-sgre'))],
+      cap=('SUPPLY CHAIN', '機艙、葉片、基礎、海纜，在港邊製造', '工廠就在碼頭旁，直接上船'),
+      en=('SUPPLY CHAIN', 'Nacelles, blades, foundations, cables', 'Built at the quay, loaded straight onto ships')),
+   'p4_asia': dict(dur=12, start='r=C%3AAsia&layer=off&pipe=0', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('port=chn-fuqing-jiangyin')), (6.3, H('port=twn-taichung'))],
+      cap=('ASIA', '亞洲：產業園與港口一起長大', '從福建到台中'),
+      en=('ASIA', 'Asia: industrial parks on the quay', 'From Fujian to Taichung')),
+   'p5_sail': dict(dur=12, start='f=' + quote('Horns Rev 3') + '&sv=1', setup=[], settle=0.5, acts=[],
+      cap=('SET SAIL', '從港口出海，看它服務的風場', '實景視角：風機在實際機位'),
+      en=('SET SAIL', 'From the port out to the farm', 'Sea-level view, turbines at their real positions')),
+  },
+  end=('掃描打開網站', '港口、風場、事件與里程碑，都在這顆地球上', 'Scan to open the site', 'Ports, farms, events and milestones on one globe'),
  ),
 }
 
