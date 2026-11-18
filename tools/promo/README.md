@@ -70,6 +70,7 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 - 結尾字卡放網站的 QR code（`qrcode` 套件產生 SVG，不需要 Pillow，指向 `https://dofliu.github.io/windfarmTaiwan/`）。
 - 字卡不寫會過期的數字；一定要寫時從網站資料當場算，不寫死。船隻畫面一律寫明「示意、不是即時船位、大小不是實際比例」。
 - 事件片不放製作日前三年內的事件，各國都可，不刻意放台灣：`themes.py` 的 `EV_Y` 把時間軸固定在那之前的年份（事件以整年篩選），字卡只寫事件摘要裡有的內容。
+- 里程碑片只用 `wind_global.json` 的里程碑（名稱完全一致），字卡只寫各筆說明裡有的年份、容量與葉輪直徑。
 - 段落可加 `ls`：開頁前寫進瀏覽器的圖層開關（例：港口片用 `QUIET` 關掉事件與船隻），網址參數管不到的圖層用這個。
 
 | 主題 | `THEMES` 鍵 | 段落 | 狀態 |
@@ -77,6 +78,7 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 | ① 離岸風電：從海床到海面 | `offshore` | 開場字卡、水下基礎上色（歐洲→Gemini）、按比例剖面（Hywind Scotland）、浮動式故事導覽、實景視角從港口出海（Hornsea Two）、船隻示意（Hornsea Two）、QR code 結尾 | 2026-11-16 完成 |
 | ② 港口與供應鏈 | `ports` | 開場字卡、歐洲港口總覽、組裝出港港口與服務過的風場弧線（埃斯比約）、港邊製造（庫克斯港機艙廠→勒哈佛葉片與機艙廠）、亞洲（福清江陰產業園→台中港）、實景視角從港口出海（Horns Rev 3）、QR code 結尾 | 2026-11-17 完成 |
 | ③ 事件與教訓 | `events` | 開場字卡、歐洲事件清單（篩選「事故／故障」）、颱風（宮古島 2003→和歌山 2018）、機艙火災（Ardrossan 2011→密西根 2019）、海上基礎失效（Robin Rigg 2010→Nysted 2022）、電網擾動（南澳 2016→英國 2019）、QR code 結尾；時間軸固定在 2022 年（`EV_Y`），地圖與清單都看不到之後的事件 | 2026-11-17 完成 |
+| ④ 關鍵風場與里程碑 | `milestones` | 開場字卡、播放時間軸看里程碑出現（1980 起）、先驅（克里夫蘭 Brush 1888→Gedser 1957）、陸上風場（Altamont Pass 1981→達坂城 1997）、走向海上（Vindeby 1991→London Array 2013）、巨型風機（Østerild V236 2023→海南明陽 18–20 MW 2024）、QR code 結尾；字卡只寫里程碑說明裡有的內容，東方 26 MW 地點待查證先不用 | 2026-11-18 完成 |
 
 ```bash
 python3 -m http.server 8765 &                            # repo 根目錄

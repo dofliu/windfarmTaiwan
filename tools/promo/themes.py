@@ -17,7 +17,7 @@ import argparse, json, subprocess, sys
 from pathlib import Path
 from urllib.parse import quote
 import capture as C
-from capture import H, F, click, wheel
+from capture import H, F, click, wheel, speed
 from skill_path import intro_video_dir
 
 HERE = Path(__file__).parent
@@ -37,6 +37,11 @@ QUIET = {'ww_globe_events': '0', 'ww_globe_ships': '0'}
 # events film: events on, vessels off; timeline held at 2022 (older than three years before Nov 2026; events filter by whole year)
 EVQ = {'ww_globe_events': '1', 'ww_globe_ships': '0'}
 EV_Y = 2022
+
+
+def msz(t, name):
+    """選一筆里程碑，等鏡頭飛到（約 3 秒）再在畫面中央滾輪拉遠兩格（太近時只看得到圖磚；飛行中滾動會打斷飛行）· pick a milestone, wait for the camera to arrive (about 3 s; scrolling mid-flight stops it), then zoom out two notches"""
+    return [(t, H('ms=' + quote(name)))] + [(t + 3.0 + k * 0.3, wheel(150, 960, 560)) for k in range(2)]
 
 
 def tnext():
@@ -127,6 +132,39 @@ THEMES = {
       en=('GRID', 'Riding through grid disturbances', 'South Australia 2016 · Great Britain 2019')),
   },
   end=('掃描打開網站', '事件、港口、風場與里程碑，都在這顆地球上', 'Scan to open the site', 'Events, ports, farms and milestones on one globe'),
+ ),
+ # 里程碑片：只用 wind_global.json 的里程碑（名稱完全一致），字卡只寫里程碑說明裡有的內容（年份、單機容量、葉輪直徑）。
+ # 東方 26 MW 那筆的地點待查證（福建或山東東營，見 TODO），先不用。
+ # Milestones film: only milestones from wind_global.json (exact names); captions say only what their summaries say (year, unit size, rotor).
+ # The Dongfang 26 MW entry is left out until its location (Fujian or Dongying, Shandong) is checked (see TODO).
+# 選到里程碑後用 msz 拉遠、字卡放左下，看得到所在地區 · msz zooms out after each milestone and captions sit bottom-left so the region shows
+# 事件與船隻圖層關掉（QUIET）：播放時間軸時才不會出現近三年內的事故 · events and vessels off (QUIET) so the timeline shows no recent incidents
+ 'milestones': dict(
+  title=('MILESTONES', '關鍵風場與里程碑', '從 1888 年的 12 kW 到今天的離岸巨型風機',
+         'Key wind farms and milestones', 'From a 12 kW machine in 1888 to the offshore giants of today'),
+  scenes={
+   'm1_time': dict(dur=14, start='y=1980', ls=QUIET, setup=[speed(4), click('#g-btnRotate')], settle=1.0,
+      acts=[(0.4, click('#g-play'))],
+      cap=('TIMELINE', '播放時間軸，里程碑一一出現', '每一筆都附出處'),
+      en=('TIMELINE', 'Play the timeline, milestones appear', 'Each one with a source')),
+   'm2_pioneer': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Brush wind turbine, Cleveland'), *msz(6.3, 'Gedser wind turbine')],
+      cap=('PIONEERS', '先驅：從 144 片葉片到「丹麥概念」', '克里夫蘭 1888 · Gedser 1957'),
+      en=('PIONEERS', 'From 144 blades to the Danish concept', 'Cleveland 1888 · Gedser 1957')),
+   'm3_land': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Altamont Pass wind farm, California'), *msz(6.3, 'Dabancheng wind farm, Xinjiang')],
+      cap=('WIND FARMS', '陸上風場：從加州到新疆', 'Altamont Pass 1981 · 達坂城 1997'),
+      en=('WIND FARMS', 'Wind farms: from California to Xinjiang', 'Altamont Pass 1981 · Dabancheng 1997')),
+   'm4_sea': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Vindeby offshore wind farm'), *msz(6.3, 'London Array')],
+      cap=('OFFSHORE', '走向海上：第一座離岸風場到 630 MW', 'Vindeby 1991 · London Array 2013'),
+      en=('OFFSHORE', 'Out to sea: from the first farm to 630 MW', 'Vindeby 1991 · London Array 2013')),
+   'm5_giant': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Vestas V236-15.0 MW prototype, Østerild'), *msz(6.3, 'Mingyang MySE 18.X-20 MW, Hainan')],
+      cap=('GIANTS', '葉輪從 17 m 長到 292 m', 'Østerild 15 MW 2023 · 海南 18–20 MW 2024'),
+      en=('GIANTS', 'Rotors grew from 17 m to 292 m', 'Østerild 15 MW 2023 · Hainan 18–20 MW 2024')),
+  },
+  end=('掃描打開網站', '里程碑、風場、港口與事件，都在這顆地球上', 'Scan to open the site', 'Milestones, farms, ports and events on one globe'),
  ),
 }
 
