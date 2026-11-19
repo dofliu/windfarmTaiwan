@@ -72,6 +72,7 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 - 事件片不放製作日前三年內的事件，各國都可，不刻意放台灣：`themes.py` 的 `EV_Y` 把時間軸固定在那之前的年份（事件以整年篩選），字卡只寫事件摘要裡有的內容。
 - 里程碑片只用 `wind_global.json` 的里程碑（名稱完全一致），字卡只寫各筆說明裡有的年份、容量與葉輪直徑。
 - 段落可加 `ls`：開頁前寫進瀏覽器的圖層開關（例：港口片用 `QUIET` 關掉事件與船隻），網址參數管不到的圖層用這個。
+- 段落可加 `route`：錄地球儀以外的頁面（例：台灣片的 `live/dash`）。即時畫面只在台電資料是新的時候錄；排程 `scrape.yml` 停著時，先在本機跑一次 `python3 taipower_wind_scraper.py`，錄完用 `git checkout` 還原 `wind_realtime.json`、`wind_history.json`、`grid_status.json`、`data/archive/`，不要提交。
 
 | 主題 | `THEMES` 鍵 | 段落 | 狀態 |
 |---|---|---|---|
@@ -79,6 +80,7 @@ ffmpeg -y -i windfarmTaiwan_globe_promo.mp4 -c:v libx264 -preset slow -b:v 1150k
 | ② 港口與供應鏈 | `ports` | 開場字卡、歐洲港口總覽、組裝出港港口與服務過的風場弧線（埃斯比約）、港邊製造（庫克斯港機艙廠→勒哈佛葉片與機艙廠）、亞洲（福清江陰產業園→台中港）、實景視角從港口出海（Horns Rev 3）、QR code 結尾 | 2026-11-17 完成 |
 | ③ 事件與教訓 | `events` | 開場字卡、歐洲事件清單（篩選「事故／故障」）、颱風（宮古島 2003→和歌山 2018）、機艙火災（Ardrossan 2011→密西根 2019）、海上基礎失效（Robin Rigg 2010→Nysted 2022）、電網擾動（南澳 2016→英國 2019）、QR code 結尾；時間軸固定在 2022 年（`EV_Y`），地圖與清單都看不到之後的事件 | 2026-11-17 完成 |
 | ④ 關鍵風場與里程碑 | `milestones` | 開場字卡、播放時間軸看里程碑出現（1980 起）、先驅（克里夫蘭 Brush 1888→Gedser 1957）、陸上風場（Altamont Pass 1981→達坂城 1997）、走向海上（Vindeby 1991→London Array 2013）、巨型風機（Østerild V236 2023→海南明陽 18–20 MW 2024）、QR code 結尾；字卡只寫里程碑說明裡有的內容，東方 26 MW 地點待查證先不用 | 2026-11-18 完成 |
+| ⑤ 台灣 | `taiwan` | 開場字卡、台灣離岸之路導覽（`tour=tw`：海洋風電 2017 示範機→2019 二期）、大型風場（大彰化 1&2a→允能）、台中港與服務過的風場弧線、海面視角（海能風電，起點台中港）、台灣即時（儀表→風場牆）、QR code 結尾；字卡不寫數字（即時數字在畫面上、附資料時間） | 2026-11-19 完成 |
 
 ```bash
 python3 -m http.server 8765 &                            # repo 根目錄

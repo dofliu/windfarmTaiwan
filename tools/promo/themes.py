@@ -166,6 +166,37 @@ THEMES = {
   },
   end=('掃描打開網站', '里程碑、風場、港口與事件，都在這顆地球上', 'Scan to open the site', 'Milestones, farms, ports and events on one globe'),
  ),
+ # 台灣片：地球儀「台灣離岸之路」導覽（tour=tw）＋台中港＋海面視角＋台灣即時（儀表、風場牆）。字卡不寫數字（即時數字在畫面上，附資料時間）；
+ # 即時兩段要在台電資料是新的時候錄（scrape.yml 停著時先在本機跑一次 taipower_wind_scraper.py，錄完把資料檔還原、不要提交）。
+ # Taiwan film: the "Taiwan's offshore journey" tour (tour=tw), the Port of Taichung, the sea-level view and Taiwan live (dashboard, farm wall).
+ # Captions carry no figures (the live figures are on screen with their data time); record the live segments only while Taipower's data is fresh
+ # (if scrape.yml is stopped, run taipower_wind_scraper.py locally first, then restore the data files afterwards — never commit them).
+ 'taiwan': dict(
+  title=('TAIWAN', '台灣：離岸風電之路與即時風電', '從兩部示範機，到每座風場此刻的出力',
+         "Taiwan: the offshore journey, live", 'From two demonstration turbines to every farm\'s output right now'),
+  scenes={
+   't1_start': dict(dur=13, start='r=TWN', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('tour=tw')), (6.5, tnext())],
+      cap=('TAIWAN OFFSHORE', '台灣離岸之路：從兩部示範機開始', '海洋風電 2017 · 2019'),
+      en=('TAIWAN OFFSHORE', 'It began with two demonstrators', 'Formosa 1, 2017 · 2019')),
+   't2_scale': dict(dur=13, start='r=TWN', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('tour=tw'))] + [(0.6 + k * 0.25, tnext()) for k in range(4)] + [(6.5, tnext()), (6.8, tnext())],
+      cap=('UTILITY SCALE', '大型風場一座座接上電網', '大彰化 · 允能'),
+      en=('UTILITY SCALE', 'Large farms join the grid', 'Greater Changhua · Yunlin')),
+   't3_port': dict(dur=12, start='r=TWN&layer=off&pipe=0', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('r=TWN&layer=off&pipe=0&port=twn-taichung'))],
+      cap=('PORT OF TAICHUNG', '台中港：台灣離岸風電的組裝港', '弧線連到有出處佐證的風場'),
+      en=('PORT OF TAICHUNG', "Taiwan's offshore wind hub", 'Arcs link only to farms a source ties to it')),
+   't4_sea': dict(dur=12, start='f=' + quote('Formosa 2') + '&sv=1', setup=[], settle=0.5, acts=[],
+      cap=('SEA LEVEL', '海面視角：苗栗外海的風場', '船橋高度看出去'),
+      en=('SEA-LEVEL VIEW', 'Out at sea off Miaoli', 'From bridge height')),
+   't5_live': dict(dur=13, route='live/dash', start='', setup=[], settle=2.0,
+      acts=[(6.5, ('hash', '#/live/wall'))], pos='bl',
+      cap=('LIVE', '台灣即時：每座風場此刻的出力', '台電即時資料，畫面上附資料時間'),
+      en=('LIVE', "Every farm's output, right now", "Taipower's live data, with its data time on screen")),
+  },
+  end=('掃描打開網站', '台灣即時、地球儀、港口與事件，都在這個網站', 'Scan to open the site', 'Taiwan live, the globe, ports and events on one site'),
+ ),
 }
 
 
