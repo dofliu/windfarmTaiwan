@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 944 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 671 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 950 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 677 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -35,8 +35,9 @@
 | 德國 | 11 | 265 | 29 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
+| 捷克 | 0 | 0 | 2 |
 | 摩洛哥 | 3 | 642 | 3 |
-| 日本 | 2 | 30 | 15 |
+| 日本 | 2 | 30 | 19 |
 | 智利 | 1 | 105.6 | 0 |
 | 比利時 | 2 | 343 | 0 |
 | 法國 | 51 | 1,200.5 | 107 |
@@ -674,6 +675,13 @@
 | TetraSpar Demonstrator (METCentre) · 3.6 MW · 2021 | 精選 | 修正：除役年 | 2026 年夏天除役，拖回港口 | [連結](https://www.rwe.com/en/our-energy/discover-renewables/floating-offshore-wind/tetraspar/) |
 | Sormarkfjellet wind farm · 130.2 MW · 2021 | GEM | 修正：機組 | 31 部 Vestas V117、每部 4.2 MW（業主 Aneo 專案頁） | [連結](https://www.aneo.com/en/projects/sormarkfjellet-wind-farm) |
 
+## 捷克 (CZE)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Horni Lodenice - Lipina wind farm · 18 MW · 2009 | GEM | 修正：座標 | 座標改到奧洛穆茨州 Horní Loděnice 村（Wikidata 座標，概略位置；風場在 Horní Loděnice 與 Lipina 之間）：oenergetice.cz 的捷克風機表列 Horní Loděnice – Lipina 在奧洛穆茨州，9 部 Vestas V90 2 MW、18 MW，2009 年；GEM 只寫國名，原座標是捷克國土中心 | [連結](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
+| Horni Paseky wind farm · 10 MW · 2012 | GEM | 修正：座標 | 座標改到卡羅維瓦利州阿什市的 Horní Paseky（Wikidata 座標，概略位置）：oenergetice.cz 的捷克風機表列 Horní Paseky 在卡羅維瓦利州，5 部 Vestas V90 2 MW、10 MW，2012 年；捷克另一個 Horní Paseky（茲林州）不在該州。GEM 只寫國名，原座標是捷克國土中心 | [連結](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
+
 ## 摩洛哥 (MAR)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -706,6 +714,10 @@
 | Kakegawa wind farm · 13.8 MW · 2020 | GEM | 修正：機組 | 機組是 Enercon E-82（2,300 kW，6 部，2020 年 7 月交貨；日立 Power Solutions 的 Enercon 國內交貨表） | [連結](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 | Shinkamigoto Whales Wind System · 16 MW | GEM | 修正：年份、機組 | 補上商轉年 2010 並補上機組：NEDO 的長崎縣風力發電設備一覽列九州風力發電（株）「新上五島ホエールズウィンドシステム」2010 年 2 月運轉，8 部日本製鋼所 2,000 kW、共 16,000 kW | [連結](https://www.nedo.go.jp/library/fuuryoku/case/pref_42.html) |
 | Banya wind farm · 18 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2004 並更正容量與機組：環境省 2020 年說南薩摩市「番屋風力發電所」有 10 部運轉中的風機（鹿兒島風力發電研究所計畫汰換）；NEDO 的鹿兒島縣一覽列南薩摩市（舊坊津町）風力發電研究所 10 部 Vestas 1,750 kW、共 17,500 kW，2004 年 3 月運轉，是該市唯一的 10 部風場 | [連結](https://www.nedo.go.jp/library/fuuryoku/case/pref_46.html) |
+| Rokkasho-Mura-Futamata wind farm · 51 MW · 2008 | GEM | 修正：座標 | 座標改到青森縣六ヶ所村（村的 Wikidata 座標，概略位置）：NEDO 日本風力發電導入實績表列二又風力開發的 34 部 GE 1.5 MW 在青森縣六ヶ所村，2008 年 5 月運轉、2011 年 4 月解除出力限制後 51 MW；GEM 寫「北海道」，把它放在北海道的代用點 | [連結](https://www.nedo.go.jp/library/fuuryoku/case/pdf/pref_02.pdf) |
+| Futsukoshi-Daichi wind farm · 20 MW · 2015 | GEM | 修正：座標 | 座標改到青森縣六ヶ所村（村的 Wikidata 座標，概略位置）：NEDO 導入實績表列日本風力開發 Joint Fund 的吹越台地風力發電所在青森縣六ヶ所村，10 部 2 MW、20 MW，2015 年 3 月運轉；GEM 寫「北海道」，把它放在北海道的代用點 | [連結](https://www.nedo.go.jp/library/fuuryoku/case/pdf/pref_02.pdf) |
+| Tainai wind farm · 20 MW · 2014 | GEM | 修正：座標 | 座標改到新潟縣胎內市（市的 Wikidata 座標，概略位置）：NEDO 導入實績表列 JEN 胎內 Wind Farm 的 10 部 2 MW、20 MW 在新潟縣胎內市，2014 年 9 月運轉；GEM 寫「青森縣」，原座標在青森縣、偏離約 320 公里 | [連結](https://www.nedo.go.jp/library/fuuryoku/case/pdf/pref_15.pdf) |
+| Kamiyuchi wind farm · 52 MW · 2023 | GEM | 修正：座標 | 座標改到北海道稚內市（市的 Wikidata 座標，概略位置）：Cosmo Eco Power 2023-04-18 新聞稿寫上勇知 Wind Farm 位於稚內市抜海村的國有林內，12 部 4.3 MW（併網上限 49.4 MW），2023 年 4 月 12 日商轉；GEM 只寫「北海道」，原座標是北海道的代用點 | [連結](https://www.cosmo-energy.co.jp/ja/information/press/2023/230418-01/pdf/230418jp_01.html) |
 
 ## 智利 (CHL)
 

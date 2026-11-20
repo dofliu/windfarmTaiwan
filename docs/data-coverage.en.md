@@ -9,7 +9,7 @@ English ｜ [中文](data-coverage.md)
 - **Country level**: 79 countries total 1,287,956 MW at year-end, which is the site’s world total (1,287,956 MW); other countries are small and not included. Source: IRENA via Our World in Data; Taiwan uses Energy Administration and Japan JWPA official statistics.
 - **Farm level**: 20,614 operating farms, 1,182,914 MW are mapped individually — about **92%** of the national statistics. The gap is farms missing from the databases (mostly small ones; GEM focuses on projects of 10 MW and above); the map does not invent farms to fill it.
 - **Coverage bands**: ✓ 85% or more: 54 countries · △ 60–85%: 13 · ✗ below 60%: 8 · ⚠ above 110%: 4 (the farm sum exceeds the national figure — a scope difference or duplicates to verify).
-- **Clean-up**: checked record by record in 2026-09; 273 duplicate, never-built or non-existent records were removed and 671 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
+- **Clean-up**: checked record by record in 2026-09; 273 duplicate, never-built or non-existent records were removed and 677 were fixed (location, capacity, year, phases, status). The reason and source for each are in the [clean-up log](data-cleanup.en.md).
 - **Pipeline**: 9,521 projects, 2,712,863 MW listed individually (GEM Feb 2025 plus projects curated in Sep 2026), cross-checked against GEM 2026-02 country totals.
 
 ## Countries to fill in (gap above 1,000 MW)
@@ -39,10 +39,10 @@ English ｜ [中文](data-coverage.md)
 3. **Expected year already passed but still in the pipeline**: 2 projects, 630 MW — they may have started operating, slipped or been cancelled. The 10 largest:
    - Monsoon Wind (Sekong/Attapeu) (LAO) · 600 MW · construction · expected 2025
    - BPP Vĩnh Châu wind farm (VNM) · 30 MW · construction · expected 2025
-4. **Coordinates**: 4,980 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 19 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
+4. **Coordinates**: 4,979 operating farms have approximate coordinates (GEM ‘approximate’); the border check (`tools/qa_farms.py`) currently lists 19 farms outside their own country, mostly explainable (small islands such as Penghu, Western Sahara, Puerto Rico).
    **Suspected duplicates A (same or similar name)**: 0 pairs, smaller side 0 MW — different sources, same or very similar names, within 50 km; most likely the same farm listed twice. Fix these first:
    **Suspected duplicates B (different names, same capacity, close by)**: none left — every pair found has been checked: same-farm pairs were merged by the clean-up rules and pairs confirmed as different farms are listed in `NOT_DUP` in `tools/farm_cleanup.py` (see the [clean-up log](data-cleanup.en.md)).
-   **Shared coordinates**: 126 points each hold 3 or more operating farms (689 farms, 57,866 MW in total) — mostly township, county or province centres used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:
+   **Shared coordinates**: 124 points each hold 3 or more operating farms (683 farms, 57,701 MW in total) — mostly township, county or province centres used as placeholders; the map fans them out around that point and their cards say the position is schematic. The 5 largest:
    - IND (23.13, 69.8) · 37 farms · 4,001 MW · Bhuj (Alfanar) wind farm, Kutch (Alfanar) wind farm, Kutch (Renew) II wind farm…
    - CHN (40.5148, 95.7806) · 16 farms · 3,306 MW · Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm, Gansu Guazhou Localization Demonstration wind farm…
    - CHN (44.0222, 87.2961) · 22 farms · 3,098 MW · Xinjiang Qitai Beitashan (Three Gorges) wind farm, Xinjiang Mulei Laojunmiao (State Power Investment) wind farm · 3, 4, Xinjiang Mulei Dashitou (Tebian Electric) wind farm…
@@ -117,7 +117,7 @@ Flag: ✓ 85% or more · △ 60–85% · ✗ below 60% · ⚠ above 110% (to ver
 | 16 | Finland (FIN) | 9,383 | 71 | 8,551 | 9,012 | 96% | 371 | 143 | 0 | 1 | ✓ |
 | 17 | Denmark (DNK) | 7,547 | 2,687 | 5,003 | 5,018 | 66% | 2,529 | 119 | 80 | 4 | △ |
 | 18 | Mexico (MEX) | 7,512 | 0 | 8,425 | 8,214 | 109% | 0 | 55 | 558 | 19 | ✓ |
-| 19 | Japan (JPN) | 6,434 | 288 | 5,383 | 5,793 | 90% | 641 | 276 | 20 | 149 | ✓ |
+| 19 | Japan (JPN) | 6,434 | 288 | 5,383 | 5,793 | 90% | 641 | 276 | 20 | 148 | ✓ |
 | 20 | Vietnam (VNM) | 6,239 | 1,000 | 7,081 | 4,884 | 78% | 1,355 | 73 | 46 | 39 | △ |
 | 21 | Chile (CHL) | 5,883 | 0 | 6,300 | 6,477 | 110% | 0 | 57 | 30 | 14 | ⚠ |
 | 22 | Belgium (BEL) | 5,851 | 2,263 | 3,966 | 3,954 | 68% | 1,897 | 102 | 71 | 11 | △ |
