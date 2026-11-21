@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 944 rules: 273 records removed (49,486.1 MW of them operating), 671 records fixed. In addition, 1239 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
+- 950 rules: 273 records removed (49,486.1 MW of them operating), 677 records fixed. In addition, 1239 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -22,6 +22,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | China | 64 | 27,723.5 | 194 |
 | Colombia | 1 | 8 | 3 |
 | Croatia | 0 | 0 | 2 |
+| Czechia | 0 | 0 | 2 |
 | Denmark | 1 | 180 | 6 |
 | Dominican Rep. | 2 | 50 | 8 |
 | Egypt | 2 | 1,082 | 0 |
@@ -33,7 +34,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Ireland | 0 | 0 | 1 |
 | Israel | 1 | 21 | 1 |
 | Italy | 11 | 398 | 14 |
-| Japan | 2 | 30 | 15 |
+| Japan | 2 | 30 | 19 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
 | Lithuania | 1 | 50 | 0 |
@@ -401,6 +402,13 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Lukovac wind farm · 49 MW | GEM | fixed: year | Commissioning year 2018 added: owner Enlight’s project page gives the Lukovac farm (Split-Dalmatia County) a commercial operation date of 2018, 49 MW and 16 turbines | [link](https://enlightenergy.com/?p=1322) |
 | Kamensko-Vostane wind farm · 42 MW | GEM | fixed: year, turbines | Commissioning year 2013 added: the Croatian wind farm table on English Wikipedia lists VE Kamensko-Voštane (14 Siemens 3 MW turbines) as commissioned in 2013 | [link](https://en.wikipedia.org/wiki/Wind_power_in_Croatia) |
+
+## Czechia (CZE)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Horni Lodenice - Lipina wind farm · 18 MW · 2009 | GEM | fixed: location | Point moved to the village of Horní Loděnice, Olomouc Region (Wikidata coordinate; approximate; the farm lies between Horní Loděnice and Lipina): oenergetice.cz’s table of Czech wind farms lists Horní Loděnice – Lipina in the Olomouc Region, nine Vestas V90 2 MW, 18 MW, 2009; GEM gives only the country, and the old point was the centre of Czechia | [link](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
+| Horni Paseky wind farm · 10 MW · 2012 | GEM | fixed: location | Point moved to Horní Paseky in Aš, Karlovy Vary Region (Wikidata coordinate; approximate): oenergetice.cz’s table of Czech wind farms lists Horní Paseky in the Karlovy Vary Region, five Vestas V90 2 MW, 10 MW, 2012 (the other Horní Paseky, in the Zlín Region, is not in that region). GEM gives only the country, and the old point was the centre of Czechia | [link](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
 
 ## Denmark (DNK)
 
@@ -794,6 +802,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Kakegawa wind farm · 13.8 MW · 2020 | GEM | fixed: turbines | The turbines are Enercon E-82 (2,300 kW, 6 units, delivered July 2020; Hitachi Power Solutions’ Enercon delivery list) | [link](https://www.hitachi-power-solutions.com/energy/wind-solor/wind-power/case/doc/doc_2024.pdf) |
 | Shinkamigoto Whales Wind System · 16 MW | GEM | fixed: year, turbines | Commissioning year 2010 added with turbines: NEDO’s list of wind installations in Nagasaki gives Kyushu Wind Power’s Shinkamigoto Whales Wind System as running from February 2010, 8 Japan Steel Works 2,000 kW units, 16,000 kW in all | [link](https://www.nedo.go.jp/library/fuuryoku/case/pref_42.html) |
 | Banya wind farm · 18 MW | GEM | fixed: year, capacity, turbines | Commissioning year 2004 added, capacity and turbines corrected: in 2020 the Ministry of the Environment described the “Banya wind farm” in Minamisatsuma as 10 operating turbines (to be replaced by Kagoshima Wind Power Research); NEDO’s Kagoshima list gives the Wind Power Research farm at Minamisatsuma (former Bōnotsu), 10 Vestas 1,750 kW units, 17,500 kW, running from March 2004 — the only 10-turbine farm in the city | [link](https://www.nedo.go.jp/library/fuuryoku/case/pref_46.html) |
+| Rokkasho-Mura-Futamata wind farm · 51 MW · 2008 | GEM | fixed: location | Point moved to Rokkasho village, Aomori (the village’s Wikidata coordinate; approximate): NEDO’s table of wind installations in Japan lists Futamata Wind Development’s 34 GE 1.5 MW units in Rokkasho, Aomori, in service from May 2008 and at 51 MW after the output limit was lifted in April 2011; GEM says “Hokkaido” and put it on the Hokkaido placeholder | [link](https://www.nedo.go.jp/library/fuuryoku/case/pdf/pref_02.pdf) |
+| Futsukoshi-Daichi wind farm · 20 MW · 2015 | GEM | fixed: location | Point moved to Rokkasho village, Aomori (the village’s Wikidata coordinate; approximate): NEDO’s installation table lists Japan Wind Development Joint Fund’s Futsukoshi-Daichi farm in Rokkasho, Aomori, ten 2 MW units, 20 MW, in service from March 2015; GEM says “Hokkaido” and put it on the Hokkaido placeholder | [link](https://www.nedo.go.jp/library/fuuryoku/case/pdf/pref_02.pdf) |
+| Tainai wind farm · 20 MW · 2014 | GEM | fixed: location | Point moved to Tainai city, Niigata (the city’s Wikidata coordinate; approximate): NEDO’s installation table lists JEN Tainai Wind Farm’s ten 2 MW units, 20 MW, in Tainai, Niigata, in service from September 2014; GEM says “Aomori”, and the old point was in Aomori, about 320 km off | [link](https://www.nedo.go.jp/library/fuuryoku/case/pdf/pref_15.pdf) |
+| Kamiyuchi wind farm · 52 MW · 2023 | GEM | fixed: location | Point moved to Wakkanai city, Hokkaido (the city’s Wikidata coordinate; approximate): Cosmo Eco Power’s release of 18 Apr 2023 places the Kamiyuchi wind farm in national forest at Bakkai, Wakkanai, with twelve 4.3 MW units (output limited to 49.4 MW), in commercial operation from 12 Apr 2023; GEM gives only “Hokkaido”, and the old point was the Hokkaido placeholder | [link](https://www.cosmo-energy.co.jp/ja/information/press/2023/230418-01/pdf/230418jp_01.html) |
 
 ## Jordan (JOR)
 

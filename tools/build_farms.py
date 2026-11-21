@@ -577,7 +577,8 @@ def find_same_jp(f, pool):
 
 # 一定另加、不和既有紀錄比對的日本清單風場：遠州掛川（黑潮風力，8 部 Enercon E-82，2009–2011 年）離中部電力御前崎二期（8 部 Subaru 2 MW，2011 年）
 # 約 7 km、容量年份都相同，會被當成同址；兩者是不同風場（日立 Power Solutions 的 Enercon 國內交貨表）
-JP_DISTINCT = {'Enshu Kakegawa Wind Farm'}
+# 日立 Wind Power 胎內（1 部 1,990 kW，2014 年 3 月）與 JEN 胎內 Wind Farm（10 部 2 MW，2014 年 9 月）同在新潟縣胎內市、是兩座（NEDO 導入實績表 pref_15）
+JP_DISTINCT = {'Enshu Kakegawa Wind Farm', 'Hitachi Wind Power Tainai'}
 jp_add = jp_upg = jp_fix = 0
 moved = set()
 jc = json.loads((EXTRA / 'farms_jp_compiled.json').read_text(encoding='utf-8')) if (EXTRA / 'farms_jp_compiled.json').exists() else {'farms': []}

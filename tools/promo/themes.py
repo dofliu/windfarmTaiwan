@@ -17,7 +17,7 @@ import argparse, json, subprocess, sys
 from pathlib import Path
 from urllib.parse import quote
 import capture as C
-from capture import H, F, click, wheel
+from capture import H, F, click, wheel, speed
 from skill_path import intro_video_dir
 
 HERE = Path(__file__).parent
@@ -33,6 +33,15 @@ C.OVERLAY_JS = (C.OVERLAY_JS.replace('font-size:46px', 'font-size:66px').replace
 
 # 港口片：關掉事件與船隻圖層，只看港口與離岸風場 · ports film: events and vessels off, ports and offshore farms only
 QUIET = {'ww_globe_events': '0', 'ww_globe_ships': '0'}
+# 事件片：事件開、船隻關；時間軸停在 2022 年（製作日 2026-11 前三年以前；事件以整年篩選，所以用 2022 而不是 2023）
+# events film: events on, vessels off; timeline held at 2022 (older than three years before Nov 2026; events filter by whole year)
+EVQ = {'ww_globe_events': '1', 'ww_globe_ships': '0'}
+EV_Y = 2022
+
+
+def msz(t, name):
+    """選一筆里程碑，等鏡頭飛到（約 3 秒）再在畫面中央滾輪拉遠兩格（太近時只看得到圖磚；飛行中滾動會打斷飛行）· pick a milestone, wait for the camera to arrive (about 3 s; scrolling mid-flight stops it), then zoom out two notches"""
+    return [(t, H('ms=' + quote(name)))] + [(t + 3.0 + k * 0.3, wheel(150, 960, 560)) for k in range(2)]
 
 
 def tnext():
@@ -92,6 +101,101 @@ THEMES = {
       en=('SET SAIL', 'From the port out to the farm', 'Sea-level view, turbines at their real positions')),
   },
   end=('掃描打開網站', '港口、風場、事件與里程碑，都在這顆地球上', 'Scan to open the site', 'Ports, farms, events and milestones on one globe'),
+ ),
+ # 事件片：只放製作日前三年以前的事件（使用者 2026-11-16）——時間軸固定在 EV_Y，地圖與清單都只顯示該年以前的事件；
+ # 各國都可、不刻意放台灣；字卡只寫事件摘要裡有的內容。
+ # Events film: only events older than three years before production (owner, 16 Nov 2026) — the timeline stays at EV_Y so the map and
+ # the list show nothing later; any country, Taiwan not singled out; captions say only what the event summaries say.
+ 'events': dict(
+  title=('EVENTS & LESSONS', '事件與教訓', '風機倒塌、火災、基礎失效與大停電，每則附出處',
+         'Events and lessons', 'Collapses, fires, foundation failures and blackouts, each with a source'),
+  scenes={
+   'e1_list': dict(dur=12, start=f'y={EV_Y}&r=C%3AEurope', ls=EVQ, setup=[], settle=3.0,
+      acts=[(2.0, click('#g-tabEvents')), (5.5, click('#g-evList [data-c="inc"]'))],
+      cap=('EVENTS', '重大事件與事故，每則附出處', '事故與故障、政策與社會、里程碑'),
+      en=('EVENTS', 'Major events, each with a source', 'Incidents and failures, policy and society, milestones')),
+   'e2_storm': dict(dur=12, start=f'y={EV_Y}&r=JPN', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-063')), (6.3, H(f'y={EV_Y}&ev=WIND-126'))],
+      cap=('TYPHOONS', '颱風：塔架挫屈、整部倒下', '宮古島 2003 · 和歌山 2018'),
+      en=('TYPHOONS', 'Typhoons: towers buckle and fall', 'Miyakojima 2003 · Wakayama 2018')),
+   'e3_fire': dict(dur=12, start=f'y={EV_Y}&r=GBR', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-066')), (6.3, H(f'y={EV_Y}&ev=WIND-082'))],
+      cap=('FIRE', '機艙火災：消防搆不到的高度', '蘇格蘭 Ardrossan 2011 · 美國密西根 2019'),
+      en=('FIRE', 'Nacelle fires, out of reach', 'Ardrossan, Scotland 2011 · Michigan, USA 2019')),
+   'e4_found': dict(dur=12, start=f'y={EV_Y}&r=GBR', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-139')), (6.3, H(f'y={EV_Y}&ev=WIND-145'))],
+      cap=('FOUNDATIONS', '海上基礎：接頭滑移、整座翻倒', 'Robin Rigg 2010 · Nysted 2022'),
+      en=('FOUNDATIONS', 'Foundations at sea can fail', 'Robin Rigg 2010 · Nysted 2022')),
+   'e5_grid': dict(dur=12, start=f'y={EV_Y}&r=AUS', ls=EVQ, setup=[], settle=2.0,
+      acts=[(0.3, H(f'y={EV_Y}&ev=WIND-010')), (6.3, H(f'y={EV_Y}&ev=WIND-150'))],
+      cap=('GRID', '電網擾動：風場要撐得過去', '南澳大停電 2016 · 英國大停電 2019'),
+      en=('GRID', 'Riding through grid disturbances', 'South Australia 2016 · Great Britain 2019')),
+  },
+  end=('掃描打開網站', '事件、港口、風場與里程碑，都在這顆地球上', 'Scan to open the site', 'Events, ports, farms and milestones on one globe'),
+ ),
+ # 里程碑片：只用 wind_global.json 的里程碑（名稱完全一致），字卡只寫里程碑說明裡有的內容（年份、單機容量、葉輪直徑）。
+ # 東方 26 MW 那筆的地點待查證（福建或山東東營，見 TODO），先不用。
+ # Milestones film: only milestones from wind_global.json (exact names); captions say only what their summaries say (year, unit size, rotor).
+ # The Dongfang 26 MW entry is left out until its location (Fujian or Dongying, Shandong) is checked (see TODO).
+# 選到里程碑後用 msz 拉遠、字卡放左下，看得到所在地區 · msz zooms out after each milestone and captions sit bottom-left so the region shows
+# 事件與船隻圖層關掉（QUIET）：播放時間軸時才不會出現近三年內的事故 · events and vessels off (QUIET) so the timeline shows no recent incidents
+ 'milestones': dict(
+  title=('MILESTONES', '關鍵風場與里程碑', '從 1888 年的 12 kW 到今天的離岸巨型風機',
+         'Key wind farms and milestones', 'From a 12 kW machine in 1888 to the offshore giants of today'),
+  scenes={
+   'm1_time': dict(dur=14, start='y=1980', ls=QUIET, setup=[speed(4), click('#g-btnRotate')], settle=1.0,
+      acts=[(0.4, click('#g-play'))],
+      cap=('TIMELINE', '播放時間軸，里程碑一一出現', '每一筆都附出處'),
+      en=('TIMELINE', 'Play the timeline, milestones appear', 'Each one with a source')),
+   'm2_pioneer': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Brush wind turbine, Cleveland'), *msz(6.3, 'Gedser wind turbine')],
+      cap=('PIONEERS', '先驅：從 144 片葉片到「丹麥概念」', '克里夫蘭 1888 · Gedser 1957'),
+      en=('PIONEERS', 'From 144 blades to the Danish concept', 'Cleveland 1888 · Gedser 1957')),
+   'm3_land': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Altamont Pass wind farm, California'), *msz(6.3, 'Dabancheng wind farm, Xinjiang')],
+      cap=('WIND FARMS', '陸上風場：從加州到新疆', 'Altamont Pass 1981 · 達坂城 1997'),
+      en=('WIND FARMS', 'Wind farms: from California to Xinjiang', 'Altamont Pass 1981 · Dabancheng 1997')),
+   'm4_sea': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Vindeby offshore wind farm'), *msz(6.3, 'London Array')],
+      cap=('OFFSHORE', '走向海上：第一座離岸風場到 630 MW', 'Vindeby 1991 · London Array 2013'),
+      en=('OFFSHORE', 'Out to sea: from the first farm to 630 MW', 'Vindeby 1991 · London Array 2013')),
+   'm5_giant': dict(dur=12, start='y=2026', ls=QUIET, setup=[], settle=2.0, pos='bl',
+      acts=[*msz(0.3, 'Vestas V236-15.0 MW prototype, Østerild'), *msz(6.3, 'Mingyang MySE 18.X-20 MW, Hainan')],
+      cap=('GIANTS', '葉輪從 17 m 長到 292 m', 'Østerild 15 MW 2023 · 海南 18–20 MW 2024'),
+      en=('GIANTS', 'Rotors grew from 17 m to 292 m', 'Østerild 15 MW 2023 · Hainan 18–20 MW 2024')),
+  },
+  end=('掃描打開網站', '里程碑、風場、港口與事件，都在這顆地球上', 'Scan to open the site', 'Milestones, farms, ports and events on one globe'),
+ ),
+ # 台灣片：地球儀「台灣離岸之路」導覽（tour=tw）＋台中港＋海面視角＋台灣即時（儀表、風場牆）。字卡不寫數字（即時數字在畫面上，附資料時間）；
+ # 即時兩段要在台電資料是新的時候錄（scrape.yml 停著時先在本機跑一次 taipower_wind_scraper.py，錄完把資料檔還原、不要提交）。
+ # Taiwan film: the "Taiwan's offshore journey" tour (tour=tw), the Port of Taichung, the sea-level view and Taiwan live (dashboard, farm wall).
+ # Captions carry no figures (the live figures are on screen with their data time); record the live segments only while Taipower's data is fresh
+ # (if scrape.yml is stopped, run taipower_wind_scraper.py locally first, then restore the data files afterwards — never commit them).
+ 'taiwan': dict(
+  title=('TAIWAN', '台灣：離岸風電之路與即時風電', '從兩部示範機，到每座風場此刻的出力',
+         "Taiwan: the offshore journey, live", 'From two demonstration turbines to every farm\'s output right now'),
+  scenes={
+   't1_start': dict(dur=13, start='r=TWN', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('tour=tw')), (6.5, tnext())],
+      cap=('TAIWAN OFFSHORE', '台灣離岸之路：從兩部示範機開始', '海洋風電 2017 · 2019'),
+      en=('TAIWAN OFFSHORE', 'It began with two demonstrators', 'Formosa 1, 2017 · 2019')),
+   't2_scale': dict(dur=13, start='r=TWN', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('tour=tw'))] + [(0.6 + k * 0.25, tnext()) for k in range(4)] + [(6.5, tnext()), (6.8, tnext())],
+      cap=('UTILITY SCALE', '大型風場一座座接上電網', '大彰化 · 允能'),
+      en=('UTILITY SCALE', 'Large farms join the grid', 'Greater Changhua · Yunlin')),
+   't3_port': dict(dur=12, start='r=TWN&layer=off&pipe=0', ls=QUIET, setup=[], settle=2.0,
+      acts=[(0.3, H('r=TWN&layer=off&pipe=0&port=twn-taichung'))],
+      cap=('PORT OF TAICHUNG', '台中港：台灣離岸風電的組裝港', '弧線連到有出處佐證的風場'),
+      en=('PORT OF TAICHUNG', "Taiwan's offshore wind hub", 'Arcs link only to farms a source ties to it')),
+   't4_sea': dict(dur=12, start='f=' + quote('Formosa 2') + '&sv=1', setup=[], settle=0.5, acts=[],
+      cap=('SEA LEVEL', '海面視角：苗栗外海的風場', '船橋高度看出去'),
+      en=('SEA-LEVEL VIEW', 'Out at sea off Miaoli', 'From bridge height')),
+   't5_live': dict(dur=13, route='live/dash', start='', setup=[], settle=2.0,
+      acts=[(6.5, ('hash', '#/live/wall'))], pos='bl',
+      cap=('LIVE', '台灣即時：每座風場此刻的出力', '台電即時資料，畫面上附資料時間'),
+      en=('LIVE', "Every farm's output, right now", "Taipower's live data, with its data time on screen")),
+  },
+  end=('掃描打開網站', '台灣即時、地球儀、港口與事件，都在這個網站', 'Scan to open the site', 'Taiwan live, the globe, ports and events on one site'),
  ),
 }
 

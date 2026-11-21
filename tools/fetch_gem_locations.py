@@ -440,8 +440,8 @@ MANUAL_PLACES = {
     '1-1 la Grai, Gia Lai Province, Vietnam': ('Q5980266', 'county', '嘉萊省 Ia Grai 縣', 'Ia Grai district, Gia Lai'),
     '1 Timpberg, Zehdenick, Prignitz-Oberhavel, Germany': ('Q184481', 'township', '布蘭登堡邦策德尼克鎮（Timpberg 所在）', 'the town of Zehdenick, Brandenburg (where Timpberg lies)'),
 }
-# 沒有寫進來的（核對過但不採用）：Rokkasho（GEM 寫北海道，六所村在青森縣）、Tainai City（GEM 寫青森縣，胎內市在新潟縣）——GEM 的省與地名矛盾，不判斷是哪一個錯。
-# Left out on purpose: Rokkasho (GEM says Hokkaido; the village is in Aomori) and Tainai City (GEM says Aomori; the city is in Niigata) — GEM's place and prefecture contradict each other.
+# 沒有寫進來的（核對過但不採用）：Rokkasho（GEM 寫北海道，六所村在青森縣）、Tainai City（GEM 寫青森縣，胎內市在新潟縣）——GEM 的省與地名矛盾，不判斷是哪一個錯；2026-11-20 改由 farm_cleanup.py 依 NEDO 導入實績表逐筆定位（Rokkasho-Mura-Futamata、Futsukoshi-Daichi、Tainai）。
+# Left out on purpose: Rokkasho (GEM says Hokkaido; the village is in Aomori) and Tainai City (GEM says Aomori; the city is in Niigata) — GEM's place and prefecture contradict each other; since 20 Nov 2026 farm_cleanup.py places these farms one by one from NEDO's installation tables (Rokkasho-Mura-Futamata, Futsukoshi-Daichi, Tainai).
 
 
 def manual_items(qids):
