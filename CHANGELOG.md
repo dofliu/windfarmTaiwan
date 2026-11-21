@@ -14,6 +14,10 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v3.24.2 — 2026-11-21
+
+- **資料更正：再把 4 座停在代用點的營運中風場改到實際所在地**（`tools/farm_cleanup.py`，引文以 `check_quotes.py` 核對）：烏克蘭 Tyligulska（DTEK，114 MW）原本在尼古拉耶夫市，依 Kyiv Post 改到 Berezanka 區 Anatolivka 村（仍標概略位置）；越南 Nhơn Hòa（100 MW）依 Báo Đầu tư 改到嘉萊省 Chư Pưh 縣（概略位置）；西班牙 Odón de Buen（Repsol，26.9 MW，兩座相加）依亞拉岡自治區環境監測報告的風機座標改到 Gurrea de Gállego 與 Marracos 之間（概略位置）；義大利 Lucus Power 依 ERG 文件改到波坦察省 Melfi 的風機位置，容量 20 → 19.8 MW、補上機型 6 部 Gamesa G132-3.3 MW。
+
 ## v3.24.1 — 2026-11-20
 
 - **資料更正：6 座停在代用點的營運中風場改到所在市町村**（`tools/farm_cleanup.py`，引文以 `check_quotes.py` 核對）：日本二又（51 MW）與吹越台地（20 MW）原本放在北海道的代用點，依 NEDO 日本風力導入實績表改到青森縣六ヶ所村（二又再由日本風場清單的逐場座標定位）；胎內（20 MW）原本在青森縣，改到新潟縣胎內市；上勇知（Cosmo Eco Power，2023 年商轉）依業者新聞稿改到北海道稚內市；捷克 Horní Loděnice – Lipina（18 MW）與 Horní Paseky（10 MW）原本在捷克國土中心，依 oenergetice.cz 的全國風機表改到奧洛穆茨州與卡羅維瓦利州。都仍標「概略位置」。
