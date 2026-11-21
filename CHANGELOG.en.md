@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.24.2 — 2026-11-21
+
+- **Data correction: four more operating farms moved off placeholders to where they are** (`tools/farm_cleanup.py`, quotes checked with `check_quotes.py`): Ukraine's Tyligulska (DTEK, 114 MW) sat on Mykolaiv city and now lies at Anatolivka, Berezanka district, per the Kyiv Post (still approximate); Vietnam's Nhơn Hòa (100 MW) moves to Chư Pưh district, Gia Lai, per Báo Đầu tư (approximate); Spain's Odón de Buen (Repsol, 26.9 MW, two farms added together) moves between Gurrea de Gállego and Marracos from the turbine coordinates in Aragón's environmental monitoring reports (approximate); Italy's Lucus Power moves to its turbines at Melfi, province of Potenza, per an ERG document, with capacity 20 → 19.8 MW and the model six Gamesa G132-3.3 MW added.
+
 ## v3.24.1 — 2026-11-20
 
 - **Data correction: six operating farms left on placeholders moved to their municipalities** (`tools/farm_cleanup.py`, quotes checked with `check_quotes.py`): Japan's Futamata (51 MW) and Futsukoshi-Daichi (20 MW) sat on the Hokkaido placeholder and now lie in Rokkasho, Aomori, per NEDO's table of wind installations in Japan (Futamata then takes the per-farm point of the Japanese farm list); Tainai (20 MW) sat in Aomori and now lies in Tainai, Niigata; Kamiyuchi (Cosmo Eco Power, in service 2023) moves to Wakkanai, Hokkaido, per the operator's release; Czechia's Horní Loděnice – Lipina (18 MW) and Horní Paseky (10 MW) sat at the centre of the country and now lie in the Olomouc and Karlovy Vary regions per oenergetice.cz's national table. All keep the approximate-position label.

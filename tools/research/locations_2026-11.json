@@ -1,0 +1,175 @@
+[
+ {
+  "farm": "OMN Dhofar wind farm",
+  "sources": [
+   {
+    "url": "https://www.omanobserver.om/ampArticle/11378",
+    "quote": "The 50-megawatt-capacity farm, featuring 13 wind turbines of around 3.8 MW capacity each, is located at Harweel – a windswept part of Dhofar Governorate in the south of Oman."
+   },
+   {
+    "url": "https://www.omanobserver.om/ampArticle/26805",
+    "quote": "the landmark project, located at Harweel in Dhofar Governorate, was brought online for the first time last week"
+   },
+   {
+    "url": "https://masdar.ae/-/media/corporate-revamp/projects/downloads/dhofar-wind-power/2023/dhofar-wind-power-project_en.pdf",
+    "quote": "The Thumrait plateau, where the project is currently constructed, provides ideal conditions for the wind farm"
+   }
+  ],
+  "status": "Place confirmed (Harweel, Thumrait plateau) but Wikidata has no Harweel item; the farm item Q114359009 has an unreferenced P625 17.81,54.59, 22 km from the current GEM point. Not changed."
+ },
+ {
+  "farm": "KAZ Sofievskaya wind farm",
+  "sources": [
+   {
+    "url": "https://ecoportal.kz/Rubric/RubService/LoadFile/14544",
+    "quote": "В состав строительства объектов ВЭС-3 39 Мвт ветровой электрической станции мощностью 156 МВт вблизи села Булаксай, Аршалынского района Акмолинской области, входят"
+   }
+  ],
+  "status": "Current GEM point is ~1.5 km from Bulaksay (Q7299212, 51.2870,72.0929), Arshaly district — effectively correct; not changed."
+ },
+ {
+  "farm": "KAZ Jasil Jel Energy wind farm",
+  "sources": [
+   {
+    "url": "https://ecoportal.kz/Rubric/RubService/LoadFile/22154",
+    "quote": "Координаты участка проектирования: 1: 51°16'45.58\"СШ; 72° 6'32.56\"ВД; 2: 51°16'42.86\"СШ; 72° 6'40.45\"ВД; 3: 51°16'17.85\"СШ; 72 ° 6'3.62\"ВД; 4: 51°16'22.95\"СШ; 72° 5'58.09\"ВД. Расстояние от границ участка проектирования до ближайшего населенного пункта (ст.Сарыоба) составляет около 1 км."
+   },
+   {
+    "url": "https://ecoportal.kz/Rubric/RubService/LoadFile/21418",
+    "quote": "Расстояние от границ участка проектирования до ближайшего населенного пункта (ст.Сарыоба) составляет около 1,15 км."
+   },
+   {
+    "url": "https://ecoportal.kz/Rubric/RubService/LoadFile/21418",
+    "quote": "Количество ВЭУ - 2 установки. Суммарная мощность ВЭУ составляет 10 МВт"
+   }
+  ],
+  "status": "Current point ~3 km from the 5 MW unit site (corner coordinates centre ~51.2756,72.1052, near Saryoba station) — effectively correct; not changed. Hint: both KAZ farms connect to the Borey Energo substation; the site's \"Borey wind farm\" point (50.8314,72.1814) equals the Arshaly district centroid and may be a placeholder."
+ },
+ {
+  "farm": "VNM Dong Hai 1 Offshore wind farm (Bac Phuong)",
+  "sources": [
+   {
+    "url": "https://www.vir.com.vn/110-million-wind-farm-kicked-off-in-bac-lieu-67119.html",
+    "quote": "the ground-breaking ceremony of the operations centre of the Dong Hai 1 wind farm – phase 1 in Long Dien commune, Dong Hai district, the Mekong Delta province of Bac Lieu"
+   },
+   {
+    "url": "https://congthuong.vn/work-begins-on-wind-power-plant-in-bac-lieu-province-192110.html",
+    "quote": "According to the Director of Bac Phuong Joint Stock Company- the investor of the project"
+   },
+   {
+    "url": "https://vietnamnet.vn/en/construction-of-wind-power-plants-second-phase-begins-in-bac-lieu-680274.html",
+    "quote": "Work on construction of the Dong Hai 1 wind power plant, second phase, began in Long Dien Dong commune, Dong Hai district of the Mekong Delta province of Bac Lieu on October 10."
+   },
+   {
+    "url": "https://www.nsenergybusiness.com/news/vestas-wins-50-mw-order-for-second-phase-of-largest-intertidal-wind-project-in-vietnam-to-date/",
+    "quote": "With this second phase in place, the 100 MW Dong Hai 1 intertidal wind project will be the largest intertidal wind project in Vietnam to date."
+   }
+  ],
+  "status": "In Bạc Liêu (Đông Hải district; phase 1 Long Điền, phase 2 Long Điền Đông), not Trà Vinh. Current point is at sea ~10 km SE of Long Điền Đông, as good as a commune centroid for an intertidal farm; not changed."
+ },
+ {
+  "farm": "Borne (WPD) wind farm (DEU)",
+  "sources": [
+   {
+    "url": "https://presse.sachsen-anhalt.de/wp-content/uploads/pdf/ministerium-fuer-wissenschaft-energie-klimaschutz-und-umwelt_24_08_2023_Pressemitteilung_willingmann-wirbt-fuer-schnelle-aufruestung-der-windparks-mit-bedarfsgesteuerter-nachtkennzeichnung.pdf",
+    "quote": "Energieminister Prof. Dr. Armin Willingmann hat am heutigen Donnerstag einen Windpark bei Borne im Salzlandkreis besucht"
+   },
+   {
+    "url": "https://presse.sachsen-anhalt.de/wp-content/uploads/pdf/ministerium-fuer-wissenschaft-energie-klimaschutz-und-umwelt_24_08_2023_Pressemitteilung_willingmann-wirbt-fuer-schnelle-aufruestung-der-windparks-mit-bedarfsgesteuerter-nachtkennzeichnung.pdf",
+    "quote": "Zu den Betreibern des Windparks bei Borne zählt die wpd Gruppe."
+   }
+  ],
+  "status": "Record already flags 0 and ~4 km from Borne municipality; wpd is one of the operators of the Borne field. Not changed."
+ },
+ {
+  "farm": "Alcantara wind farm (ITA)",
+  "sources": [
+   {
+    "url": "https://evwind.aeeolica.org/?p=18009",
+    "quote": "encompasses four wind farms: Nebrodi (64.6 MW), Alcántara (47.6 MW), Lago Arancio (44 MW) and Rocca Ficuzza (22.1 MW)"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-alcantara-italy/",
+    "quote": "The company provided 56 units of G52-850 kW turbines, each with 0.85MW nameplate capacity."
+   },
+   {
+    "url": "https://gazzettadelsud.it/articoli/archivio/2013/02/15/parchi-eolici-i-nomidei-5-arrestati-e9c51c0f-262c-486b-9b19-021b7d7ec67a/",
+    "quote": "ricadente nei Comuni di Fondachelli Fantina, Antillo e Francavilla di Sicilia, avente ad oggetto la realizzazione di 63 aerogeneratori per una potenza complessiva di 57.6 MW, distribuiti su due lotti convenzionalmente denominati"
+   },
+   {
+    "url": "https://www.gazzettajonica.it/news-2012-03-05-parco-eolico-montati-gli-ultimi-aerogeneratori-nessun-incidente-8606/",
+    "quote": "Complessivamente quasi tutti i 63 aerogeneratori previsti tra Antillo (15), Fondachelli (19) e Francavilla (29) sono stati installati"
+   },
+   {
+    "url": "https://www.tempostretto.it/news/rinnovabili-sospette-operazione-zefiro-10-processo-parco-eolico-alcantara.html",
+    "quote": "ricadono sul crimale nebroideo compreso tra i comuni di Fondachello Fantina, su un versante, e Francavilla dall’altro"
+   }
+  ],
+  "status": "Probable: comuni Francavilla di Sicilia / Fondachelli-Fantina / Antillo (Messina), but local press says 63 turbines 57.6 MW vs GEM 56 x G52 47.6 MW, and no source names the owner. Not changed; needs a source tying Eni Plenitude/Iberdrola to the park."
+ },
+ {
+  "farm": "Lucus Power wind farm (ITA)",
+  "sources": [
+   {
+    "url": "https://www.erg.eu/c/document_library/get_file?uuid=f1c3c4bc-5d54-158f-c24c-8b0f30b3f606&groupId=10181&version=1.0",
+    "quote": "Il parco eolico è costituito da 6 aerogeneratori Gamesa G132 da 3,3 MW, per una potenza nominale complessiva di 19,8 MW, ed è situato nel territorio del Comune di Melfi (PZ)."
+   },
+   {
+    "url": "https://www.erg.eu/c/document_library/get_file?uuid=f1c3c4bc-5d54-158f-c24c-8b0f30b3f606&groupId=10181&version=1.0",
+    "quote": "Ragione sociale: Lucus Power S.r.l. Indirizzo: Via De Marini 1 Città: 16149 – Genova"
+   },
+   {
+    "url": "https://www.erg.eu/c/document_library/get_file?uuid=f1c3c4bc-5d54-158f-c24c-8b0f30b3f606&groupId=10181&version=1.0",
+    "quote": "T1 41°02'33\" 15°39'01\" T2 41°02'18\" 15°38'50\" T3 41°02'05\" 15°38'54\" T4 41°02'01\" 15°39'11\" T5 41°02'14\" 15°39'12\" T6 41°02'29\" 15°39'21\""
+   },
+   {
+    "url": "https://www.edpr-investors.com/sites/edpr-investors/files/document/2025-05/edpr_consolidated_accounts_2016.pdf",
+    "quote": "Lucus Power, S.r.l. Melfi KPMG 100,00% 100,00%"
+   },
+   {
+    "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2022-07/20220729_118534.pdf",
+    "quote": "ERG has signed an agreement with EDP Renewables Italia Holding Srl for the acquisition of the entire share capital of seven companies owning seven wind farms in Italy."
+   }
+  ],
+  "status": "Placed (v3.24.2). Owner: GEM string (EDPR Greece) is wrong; ERG likely owner since the 2022 EDPR deal, but the release does not list the farms. Year unknown (release: the seven farms 2018-2021)."
+ },
+ {
+  "farm": "Ventus Nord-2 wind farm (ROU)",
+  "sources": [
+   {
+    "url": "https://onoff.greatnews.ro/producatori-de-energie-eoliana-in-romania-lista-completa-a-centralelor-in-2024/",
+    "quote": "În România, grupul deține 3 parcuri eoliene cu o putere totală instalată de 226,2 MW: 20. Alpha Wind Nord 1+3 , comuna Casimcea, județul Tulcea, putere instalată 81,3 MW; 21. Cas Sud 2 , comuna Casimcea, județul Tulcea, putere instalată de 75,9 MW; 22. Ventus Nord 2 , comuna Casimcea, județul Tulcea, putere instalată de 69 MW;"
+   },
+   {
+    "url": "https://www.transelectrica.ro/web/tel/probe-centrale",
+    "quote": "CEE Ventus Nord 2 eolian 69 01.10.2013"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-casimcea-romania/",
+    "quote": "226.2MW onshore wind power project"
+   }
+  ],
+  "issue_sources": [
+   {
+    "url": "https://cursdeguvernare.ro/cele-mai-mari-parcuri-eoliene-din-romania-top-14-centrale.html",
+    "quote": "Parcul eolian aflat în județul Sibiu este cel mai mare din Transilvania."
+   }
+  ],
+  "status": "Already at Casimcea (ro_casimcea rule). Transelectrica probe-centrale lists 01.10.2013 (tests/energisation, not clearly commercial operation); year not set."
+ },
+ {
+  "farm": "ITA Parco La Rocca wind farm",
+  "status": "Not found: no EDPR/ERG source places it (other La Rocca farms in Liguria and Foggia are different).",
+  "sources": []
+ },
+ {
+  "farm": "DEU Rheinland wind farm",
+  "status": "Not found: nothing ties EFI Wind to a 26 MW Rheinland park (MaStR only has Windparc Rheinland GmbH, 0.8 MW at Nörvenich, 2007).",
+  "sources": []
+ },
+ {
+  "farm": "IND Betul (all)",
+  "status": "2026-11-21: web.archive.org still resets the connection from the cloud machine; useipl.com unreachable. Still open (see dups_2026-11_open.json).",
+  "sources": []
+ }
+]
