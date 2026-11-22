@@ -103,9 +103,13 @@
    {
     "url": "https://www.tempostretto.it/news/rinnovabili-sospette-operazione-zefiro-10-processo-parco-eolico-alcantara.html",
     "quote": "ricadono sul crimale nebroideo compreso tra i comuni di Fondachello Fantina, su un versante, e Francavilla dall’altro"
+   },
+   {
+    "url": "https://www.energias-renovables.com/eolica/iberdrola-pone-en-marcha-en-sicilia-un",
+    "quote": "El complejo Messina-Agrigento engloba cuatro parques: Nebrodi (64,6 MW), Alcántara (foto, 47,6 MW), Lago Arancio (44 MW) y Rocca Ficuzza (22,1 MW)."
    }
   ],
-  "status": "Probable: comuni Francavilla di Sicilia / Fondachelli-Fantina / Antillo (Messina), but local press says 63 turbines 57.6 MW vs GEM 56 x G52 47.6 MW, and no source names the owner. Not changed; needs a source tying Eni Plenitude/Iberdrola to the park."
+  "status": "Applied 2026-11-22 (farm_cleanup.py fix, approx): weighted centre of Antillo/Fondachelli-Fantina/Francavilla di Sicilia Wikidata points (37.945, 15.172); capacity left at 47.6 MW because local press gives 63 turbines 57.6 MW."
  },
  {
   "farm": "Lucus Power wind farm (ITA)",
@@ -171,5 +175,15 @@
   "farm": "IND Betul (all)",
   "status": "2026-11-21: web.archive.org still resets the connection from the cloud machine; useipl.com unreachable. Still open (see dups_2026-11_open.json).",
   "sources": []
+ },
+ {
+  "farm": "ITA Monte Durra wind farm",
+  "sources": [
+   {
+    "url": "https://va.mite.gov.it/File/Documento/973424",
+    "quote": "ricadono nel territorio di Licata Provincia di Agrigento. L’area di intervento è localizzata sui rilievi di monte Durrà"
+   }
+  ],
+  "status": "Lead only (2026-11-22): the VIA document for the new 'Portella di Naro' project puts the Monte Durrà hill in Licata, but nothing ties Moncada's existing 25.5–26 MW farm to it; moving it would use the farm name as a place name (owner's decision). Monte Narbonne: only 'Impianto eolico di Monte Narbone, Agrigento' found."
  }
 ]

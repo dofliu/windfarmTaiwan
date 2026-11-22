@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 954 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 681 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 955 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 682 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -52,7 +52,7 @@
 | 納米比亞 | 0 | 0 | 1 |
 | 羅馬尼亞 | 16 | 2,439 | 11 |
 | 美國 | 12 | 958.3 | 9 |
-| 義大利 | 11 | 398 | 15 |
+| 義大利 | 11 | 398 | 16 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 2 |
 | 英國 | 10 | 3,500.7 | 11 |
@@ -1067,6 +1067,7 @@
 | Marsica 2 At wind farm · 28 MW | GEM | 重複（併入「Marsica II wind farm」） | 同一座風場：Eneco 開發的 Marsica 風場（Marsica I 8 MW＋Marsica II 28 MW，共 18 部 Vestas V80 2 MW、36 MW）現屬 PLT Energia；GEM 的 Marsica 2 At（Eneco，28 MW）與 Marsica II（PLT，28 MW，2009）相距不到 2 公里 | [連結](https://energymonitor.ai/?p=111063) |
 | Ponte Rotto wind farm · 26 MW | GEM | 重複（併入「Ordona (Inergia) wind farm」） | 同一座風場：Ponte Rotto 是 Inergia 在 Foggia 省 Ordona 的 26 MW 風場（13 部 2 MW，2009 年商轉）所在的地名；The Wind Power 把 Ordona 的 26 MW 期就稱為 Ponte Rotto，兩筆 GEM 紀錄相距 0.4 公里 | [連結](https://www.inergia.it/en/wind-farms/) |
 | Lucus Power wind farm · 20 MW | GEM | 修正：座標、容量、機組 | 座標改到風機位置的中心、容量改為 19.8 MW：ERG 的安全協調文件寫 Lucus Power S.r.l. 的風場是 6 部 Gamesa G132 3.3 MW、共 19.8 MW，位於波坦察省 Melfi，並列出 6 部風機的經緯度；EDPR 2016 年財報也列 Lucus Power S.r.l. 在 Melfi。GEM 只寫義大利（原座標是義大利國土中心），業主寫成 EDPR 的希臘公司也不對（ERG 2022 年向 EDPR 買下七座義大利風場，但新聞稿沒逐一列名，業主暫不改） | [連結](https://www.erg.eu/c/document_library/get_file?uuid=f1c3c4bc-5d54-158f-c24c-8b0f30b3f606&groupId=10181&version=1.0) |
+| Alcantara wind farm · 47.6 MW · 2012 | GEM | 修正：座標 | 座標改到西西里墨西拿省 Antillo、Fondachelli-Fantina 與 Francavilla di Sicilia 三個市鎮（Wikidata 座標依各鎮風機數 15、19、29 部加權的中心，概略位置）：Iberdrola 的 Messina-Agrigento 風場群包含 Alcántara（47.6 MW，56 部 Gamesa G52），當地報導寫「Alcantara Nord」「Alcantara Sud」兩個標段的風機位於 Fondachelli Fantina 與 Francavilla 之間的山脊，另一篇寫三鎮共 63 部（Antillo 15、Fondachelli 19、Francavilla 29）。當地報導的 63 部、57.6 MW 與本站的 56 部、47.6 MW 不符，容量沒改。原座標是義大利國土中心的代用點（在翁布里亞，偏北約 600 公里） | [連結](https://www.tempostretto.it/news/rinnovabili-sospette-operazione-zefiro-10-processo-parco-eolico-alcantara.html) |
 
 ## 肯亞 (KEN)
 

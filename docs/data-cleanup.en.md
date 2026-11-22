@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 954 rules: 273 records removed (49,486.1 MW of them operating), 681 records fixed. In addition, 1239 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
+- 955 rules: 273 records removed (49,486.1 MW of them operating), 682 records fixed. In addition, 1239 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -33,7 +33,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Israel | 1 | 21 | 1 |
-| Italy | 11 | 398 | 15 |
+| Italy | 11 | 398 | 16 |
 | Japan | 2 | 30 | 19 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
@@ -782,6 +782,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Marsica 2 At wind farm · 28 MW | GEM | duplicate of “Marsica II wind farm” | Same farm: the Marsica project Eneco developed (Marsica I 8 MW + Marsica II 28 MW, 18 Vestas V80 2 MW, 36 MW) is now owned by PLT Energia; GEM’s Marsica 2 At (Eneco, 28 MW) and Marsica II (PLT, 28 MW, 2009) are under 2 km apart | [link](https://energymonitor.ai/?p=111063) |
 | Ponte Rotto wind farm · 26 MW | GEM | duplicate of “Ordona (Inergia) wind farm” | Same farm: Ponte Rotto is the locality of Inergia’s 26 MW farm at Ordona, Foggia (13 turbines of 2 MW, in service 2009); The Wind Power names Ordona’s 26 MW part Ponte Rotto, and the two GEM records are 0.4 km apart | [link](https://www.inergia.it/en/wind-farms/) |
 | Lucus Power wind farm · 20 MW | GEM | fixed: location, capacity, turbines | Point moved to the centre of the turbines and capacity set to 19.8 MW: ERG’s safety-coordination document describes Lucus Power S.r.l.’s farm as six Gamesa G132 3.3 MW units, 19.8 MW, in Melfi, province of Potenza, with each turbine’s coordinates; EDPR’s 2016 accounts also list Lucus Power S.r.l. at Melfi. GEM gives only Italy (the old point was the centre of Italy), and its owner, an EDPR company in Greece, is also wrong (ERG bought seven Italian farms from EDPR in 2022, but the release does not name them, so the owner is left as is) | [link](https://www.erg.eu/c/document_library/get_file?uuid=f1c3c4bc-5d54-158f-c24c-8b0f30b3f606&groupId=10181&version=1.0) |
+| Alcantara wind farm · 47.6 MW · 2012 | GEM | fixed: location | Point moved to the comuni of Antillo, Fondachelli-Fantina and Francavilla di Sicilia, province of Messina, Sicily (the centre of their Wikidata coordinates weighted by 15, 19 and 29 turbines; approximate): Iberdrola’s Messina-Agrigento complex includes Alcántara (47.6 MW, 56 Gamesa G52), and local reports place the turbines of the “Alcantara Nord” and “Alcantara Sud” lots on the ridge between Fondachelli Fantina and Francavilla, with 63 turbines across the three comuni (Antillo 15, Fondachelli 19, Francavilla 29). The local figure of 63 turbines and 57.6 MW does not match the site’s 56 turbines and 47.6 MW, so the capacity is unchanged. The old point was the centre-of-Italy placeholder (in Umbria, about 600 km north) | [link](https://www.tempostretto.it/news/rinnovabili-sospette-operazione-zefiro-10-processo-parco-eolico-alcantara.html) |
 
 ## Japan (JPN)
 

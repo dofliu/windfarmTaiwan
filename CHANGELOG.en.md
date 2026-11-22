@@ -18,6 +18,7 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 ## v3.24.2 — 2026-11-21
 
 - **Data correction: four more operating farms moved off placeholders to where they are** (`tools/farm_cleanup.py`, quotes checked with `check_quotes.py`): Ukraine's Tyligulska (DTEK, 114 MW) sat on Mykolaiv city and now lies at Anatolivka, Berezanka district, per the Kyiv Post (still approximate); Vietnam's Nhơn Hòa (100 MW) moves to Chư Pưh district, Gia Lai, per Báo Đầu tư (approximate); Spain's Odón de Buen (Repsol, 26.9 MW, two farms added together) moves between Gurrea de Gállego and Marracos from the turbine coordinates in Aragón's environmental monitoring reports (approximate); Italy's Lucus Power moves to its turbines at Melfi, province of Potenza, per an ERG document, with capacity 20 → 19.8 MW and the model six Gamesa G132-3.3 MW added.
+- **Added on 22 Nov 2026: Italy's Alcantara (47.6 MW, 56 Gamesa G52) moved from the centre-of-Italy placeholder (in Umbria) to the province of Messina, Sicily**: Iberdrola's Messina-Agrigento complex includes Alcántara, and local reports place the turbines of the "Alcantara Nord/Sud" lots on the ridge between the comuni of Antillo, Fondachelli-Fantina and Francavilla di Sicilia; the point is the centre of their Wikidata coordinates weighted by turbine count (still approximate). The local figure of 63 turbines and 57.6 MW does not match the site's, so the capacity is unchanged.
 
 ## v3.24.1 — 2026-11-20
 

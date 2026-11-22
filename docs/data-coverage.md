@@ -9,7 +9,7 @@
 - **國家層級**：79 國的年底容量合計 1,287,956 MW，即本站的全球總量（全球 1,287,956 MW）；其他國家容量很小，未列入。來源：IRENA（經 Our World in Data）；台灣採能源署、日本採 JWPA 官方統計。
 - **風場層級**：已逐場標示的營運中風場 20,614 座、1,182,914 MW，約為國家統計的 **92%**。差額是資料庫未收錄的風場（多為小型風場，GEM 以 10 MW 以上為主），地圖不補虛構風場。
 - **覆蓋率分級**：✓ 85% 以上 54 國 · △ 60–85% 13 國 · ✗ 低於 60% 8 國 · ⚠ 高於 110% 4 國（逐場加總超過國家統計，口徑不同或有重複，需要求證）。
-- **資料清理**：2026-09 逐筆查證，刪除 273 筆重複、從未建成或查無此場的紀錄，修正 681 筆（座標、容量、年份、分期、狀態），每筆的理由與出處見[資料清理紀錄](data-cleanup.md)。
+- **資料清理**：2026-09 逐筆查證，刪除 273 筆重複、從未建成或查無此場的紀錄，修正 682 筆（座標、容量、年份、分期、狀態），每筆的理由與出處見[資料清理紀錄](data-cleanup.md)。
 - **規劃中**：逐案 9,521 案、2,712,863 MW（GEM 2025-02＋2026 年 9 月人工整理）；另以 GEM 2026-02 各國總量對照。
 
 ## 需要補足的國家（差額超過 1,000 MW）
@@ -42,7 +42,7 @@
 4. **座標**：4,978 座營運中風場為概略座標（GEM 標示 approximate）；座標健檢（`tools/qa_farms.py`）目前有 19 筆不在自己國界內，多為可解釋的例外（澎湖等小島、西撒哈拉、波多黎各）。
    **疑似重複 A（名稱相同或相似）**：0 組、較小一方合計 0 MW——來源不同、名稱相同或高度相似、相距 50 km 內，很可能是同一座風場被收了兩次，應優先處理：
    **疑似重複 B（名稱不同、容量相同、位置相近）**：0 組——找到的每一組都已逐組查證：同一座的已由清理規則合併，確認是不同風場的列在 `tools/farm_cleanup.py` 的 `NOT_DUP`（見[資料清理紀錄](data-cleanup.md)）。
-   **共用座標**：124 個點上各有 3 座以上營運中風場（合計 683 座、57,820 MW），多半是鄉鎮、縣或省中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：
+   **共用座標**：124 個點上各有 3 座以上營運中風場（合計 683 座、57,821 MW），多半是鄉鎮、縣或省中心的代用座標；地圖上以該點為中心示意排開，卡片會註明「位置示意」。最大的 5 處：
    - IND (23.13, 69.8) · 37 座 · 4,001 MW · Bhuj (Alfanar) wind farm, Kutch (Alfanar) wind farm, Kutch (Renew) II wind farm…
    - CHN (40.5148, 95.7806) · 16 座 · 3,306 MW · Gansu Guazhou Beidaqiao 6 Areas A And B wind farm, Gansu Guazhou Anbei 3 Area AB wind farm, Gansu Guazhou Localization Demonstration wind farm…
    - CHN (44.0222, 87.2961) · 22 座 · 3,098 MW · Xinjiang Qitai Beitashan (Three Gorges) wind farm, Xinjiang Mulei Laojunmiao (State Power Investment) wind farm · 3, 4, Xinjiang Mulei Dashitou (Tebian Electric) wind farm…

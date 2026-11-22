@@ -17,6 +17,7 @@ v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 ## v3.24.2 — 2026-11-21
 
 - **資料更正：再把 4 座停在代用點的營運中風場改到實際所在地**（`tools/farm_cleanup.py`，引文以 `check_quotes.py` 核對）：烏克蘭 Tyligulska（DTEK，114 MW）原本在尼古拉耶夫市，依 Kyiv Post 改到 Berezanka 區 Anatolivka 村（仍標概略位置）；越南 Nhơn Hòa（100 MW）依 Báo Đầu tư 改到嘉萊省 Chư Pưh 縣（概略位置）；西班牙 Odón de Buen（Repsol，26.9 MW，兩座相加）依亞拉岡自治區環境監測報告的風機座標改到 Gurrea de Gállego 與 Marracos 之間（概略位置）；義大利 Lucus Power 依 ERG 文件改到波坦察省 Melfi 的風機位置，容量 20 → 19.8 MW、補上機型 6 部 Gamesa G132-3.3 MW。
+- **2026-11-22 再加：義大利 Alcantara（47.6 MW，56 部 Gamesa G52）從義大利國土中心的代用點（在翁布里亞）改到西西里墨西拿省**：Iberdrola 的 Messina-Agrigento 風場群包含 Alcántara，當地報導寫「Alcantara Nord／Sud」兩標段的風機在 Antillo、Fondachelli-Fantina 與 Francavilla di Sicilia 三鎮之間的山脊，座標取三鎮 Wikidata 座標依風機數加權的中心（仍標概略位置）；當地報導的 63 部、57.6 MW 與本站不符，容量沒改。
 
 ## v3.24.1 — 2026-11-20
 
