@@ -659,11 +659,13 @@ def update_history(farms, total, source_time, updated, farm_wind):
 
 def main():
     data = None
-    # 台電 opendata 端點常在 20 秒內沒回應（2026-10 起約一半的執行逾時），備用端點又擋雲端 403：
-    # 主端點等久一點、隔幾秒再試一次，最後才試備用端點。
-    # The open-data endpoint often takes longer than 20 s (about half the runs from Oct 2026) and the fallback answers 403 to
-    # cloud runners, so the primary gets a longer timeout and one retry before the fallback.
-    attempts = ((GENARY_URL, 45), (GENARY_URL, 45), (GENARY_URL_ALT, 20))
+    # 台電 opendata 端點時好時壞（2026-10 起約三到五成的執行取不到）：失敗時多半幾秒內就被切斷，成功時 1–2 秒就回來，
+    # 所以改成每次最多等 20 秒、主端點試 5 次、間隔逐次拉長（共約 2.5 分鐘內），最後才試會擋雲端 403 的備用端點。
+    # The open-data endpoint is intermittent (30-50% of runs failed from Oct 2026): failures are mostly cut off within seconds
+    # and successes answer in 1-2 s, so the primary gets five tries of up to 20 s each with growing pauses (about 2.5 min in
+    # all) before the fallback, which answers 403 to cloud runners.
+    attempts = [(GENARY_URL, 20)] * 5 + [(GENARY_URL_ALT, 20)]
+    pauses = (3, 6, 10, 15, 5)
     for i, (url, tmo) in enumerate(attempts):
         try:
             data = fetch_genary(url, tmo)
@@ -671,7 +673,7 @@ def main():
         except Exception as e:
             print(f"[WARN] 取得失敗（第 {i + 1} 次）{url}：{e}", file=sys.stderr)
             if i + 1 < len(attempts):
-                time.sleep(5)
+                time.sleep(pauses[i])
     if data is None:
         print("[ERROR] 兩個端點都無法取得資料", file=sys.stderr)
         sys.exit(1)
