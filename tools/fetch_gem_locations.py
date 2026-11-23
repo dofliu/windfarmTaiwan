@@ -439,6 +439,54 @@ MANUAL_PLACES = {
     'Date City, Hokkadio Prefecture, Japan': ('Q693178', 'city', '北海道伊達市（GEM 把道名拼錯）', 'Date city, Hokkaido (GEM misspells the prefecture)'),
     '1-1 la Grai, Gia Lai Province, Vietnam': ('Q5980266', 'county', '嘉萊省 Ia Grai 縣', 'Ia Grai district, Gia Lai'),
     '1 Timpberg, Zehdenick, Prignitz-Oberhavel, Germany': ('Q184481', 'township', '布蘭登堡邦策德尼克鎮（Timpberg 所在）', 'the town of Zehdenick, Brandenburg (where Timpberg lies)'),
+    # 2026-11-23 核對（SPARQL）：自動定位只退到地級市中心、但 GEM 寫了縣（旗、縣級市、區）的，改到該縣；第 5 欄要求所在地級市在 P131 鏈上。
+    # 鐘祥市（GEM 寫襄陽，實屬荊門）、遼陽縣（GEM 寫鞍山）的縣與地級市矛盾，伊州區的座標與哈密市相同，都不列。
+    # checked 23 Nov 2026: automatic results that only reached the prefecture city although GEM names the county (banner, county-level city,
+    # district) go to that county; the 5th field requires the prefecture in its P131 chain. Zhongxiang (GEM: Xiangyang; it is in Jingmen) and
+    # Liaoyang County (GEM: Anshan) contradict their prefecture, and Yizhou District has the same point as Hami city, so they are left out.
+    'Dashitou, Mori, Changji AP, Xinjiang, China': ('Q1023497', 'county', '木壘哈薩克自治縣（GEM 寫成 Mori）', 'Mori (Mulei) Kazakh Autonomous County', 'Changji Hui Autonomous Prefecture'),
+    "Ming'an, Damao Banner, Baotou, Inner Mongolia, China": ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    '1 Mori, Changji AP, Xinjiang, China': ('Q1023497', 'county', '木壘哈薩克自治縣（GEM 寫成 Mori）', 'Mori (Mulei) Kazakh Autonomous County', 'Changji Hui Autonomous Prefecture'),
+    'Mori, Changji AP, Xinjiang, China': ('Q1023497', 'county', '木壘哈薩克自治縣（GEM 寫成 Mori）', 'Mori (Mulei) Kazakh Autonomous County', 'Changji Hui Autonomous Prefecture'),
+    'Laojunmiao Area, Mori, Changji AP, Xinjiang, China': ('Q1023497', 'county', '木壘哈薩克自治縣（GEM 寫成 Mori）', 'Mori (Mulei) Kazakh Autonomous County', 'Changji Hui Autonomous Prefecture'),
+    '1,2,3,4 Beitashan Ranch, Qitai, Changji AP, Xinjiang, China': ('Q1023074', 'county', '奇台縣', 'Qitai County', 'Changji Hui Autonomous Prefecture'),
+    'Sishige Jingzi area, Mori, Changji AP, Xinjiang, China': ('Q1023497', 'county', '木壘哈薩克自治縣（GEM 寫成 Mori）', 'Mori (Mulei) Kazakh Autonomous County', 'Changji Hui Autonomous Prefecture'),
+    '1 Zhoumensi, Zixing City, Chenzhou, Hunan, China': ('Q206996', 'county', '資興市', 'Zixing City', 'Chenzhou'),
+    '1 Bailingmiao, Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    "Lijiacha Zhen, Zichang City, Yan'an, Shaanxi, China": ('Q198383', 'county', '子長市', 'Zichang City', "Yan'an"),
+    'Beitashan Ranch, Qitai, Changji AP, Xinjiang, China': ('Q1023074', 'county', '奇台縣', 'Qitai County', 'Changji Hui Autonomous Prefecture'),
+    '1,2 Mori, Changji AP, Xinjiang, China': ('Q1023497', 'county', '木壘哈薩克自治縣（GEM 寫成 Mori）', 'Mori (Mulei) Kazakh Autonomous County', 'Changji Hui Autonomous Prefecture'),
+    'Bamian, Zixing City, Chenzhou, Hunan, China': ('Q206996', 'county', '資興市', 'Zixing City', 'Chenzhou'),
+    'Adjoining Baiyunebo Mining District, Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    'Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    'Maodukundui Gacha in Bayinaobao Sumu, Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    '2 Baiyinhua, Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    'Narenbaolige Gacha in Chagenhada Sumu, Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    "Chaganaobao Gacha in Da'ergan Sumu, Damao Banner, Baotou, Inner Mongolia, China": ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    '1 Aolongwudong Gacha in Baiyinhua, Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    '1 Laojunmiao Area, Mori, Changji AP, Xinjiang, China': ('Q1023497', 'county', '木壘哈薩克自治縣（GEM 寫成 Mori）', 'Mori (Mulei) Kazakh Autonomous County', 'Changji Hui Autonomous Prefecture'),
+    'Qitai, Changji AP, Xinjiang, China': ('Q1023074', 'county', '奇台縣', 'Qitai County', 'Changji Hui Autonomous Prefecture'),
+    '1 Daliuhang, Penglai City, Yantai, Shandong, China': ('Q1357774', 'county', '煙臺市蓬萊區（原蓬萊市）', 'Penglai District, Yantai (formerly Penglai City)', 'Yantai'),
+    '1 Zhangshanzi, Taierzhuang District, Zaozhuang, Shandong, China': ('Q1198168', 'county', '台兒莊區', "Tai'erzhuang District", 'Zaozhuang'),
+    "1 Dongfanghong, Zichang City, Yan'an, Shaanxi, China": ('Q198383', 'county', '子長市', 'Zichang City', "Yan'an"),
+    "1 Baishansi, Zichang City, Yan'an, Shaanxi, China": ('Q198383', 'county', '子長市', 'Zichang City', "Yan'an"),
+    "1 Yong'an, Nongan, Changchun, Jilin, China": ('Q1205815', 'county', '農安縣', "Nong'an County", 'Changchun'),
+    'Shagou, Xinghua City, Taizhou, Jiangsu, China': ('Q1028116', 'county', '興化市', 'Xinghua City', 'Taizhou'),
+    '1 Dongshan, Xiangyun, Dali AP, Yunnan, China': ('Q1200773', 'county', '祥雲縣', 'Xiangyun County', 'Dali Bai Autonomous Prefecture'),
+    'Yanzifu, Pizhou City, Xuzhou, Jiangsu, China': ('Q1342853', 'county', '邳州市', 'Pizhou City', 'Xuzhou'),
+    'Zhaihuo Xiang, Boai, Jiaozuo, Henan, China': ('Q887296', 'county', '博愛縣', "Bo'ai County", 'Jiaozuo'),
+    'Dongshan, Xiangyun, Dali AP, Yunnan, China': ('Q1200773', 'county', '祥雲縣', 'Xiangyun County', 'Dali Bai Autonomous Prefecture'),
+    'Bagongshan, Shouxian, Huainan, Anhui, China': ('Q1349884', 'county', '壽縣', 'Shou County', 'Huainan'),
+    'Barun Industrial Park, Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    '1 Damao Banner, Baotou, Inner Mongolia, China': ('Q783151', 'county', '達爾罕茂明安聯合旗', 'Darhan Muminggan United Banner', 'Baotou'),
+    'Dorbod (Siziwang) Banner, Ulanqab, Inner Mongolia, China': ('Q1342442', 'county', '四子王旗', 'Dorbod (Siziwang) Banner', 'Ulanqab'),
+    '1 Wulanhua Zhen, Dorbod (Siziwang) Banner, Ulanqab, Inner Mongolia, China': ('Q1342442', 'county', '四子王旗', 'Dorbod (Siziwang) Banner', 'Ulanqab'),
+    'Santanghu, Barköl, Hami, Xinjiang, China': ('Q808309', 'county', '巴里坤哈薩克自治縣', 'Barkol Kazakh Autonomous County', 'Hami'),
+    '1 Wuling Zhen, Binyang, Nanning, Guangxi, China': ('Q864098', 'county', '賓陽縣', 'Binyang County', 'Nanning'),
+    '1 Heiyanquan area, Barköl, Hami, Xinjiang, China': ('Q808309', 'county', '巴里坤哈薩克自治縣', 'Barkol Kazakh Autonomous County', 'Hami'),
+    'Luxu Zhen, Binyang, Nanning, Guangxi, China': ('Q864098', 'county', '賓陽縣', 'Binyang County', 'Nanning'),
+    '1 Santanghu, Barköl, Hami, Xinjiang, China': ('Q808309', 'county', '巴里坤哈薩克自治縣', 'Barkol Kazakh Autonomous County', 'Hami'),
+    '1 Dajingzi, Datong District, Daqing, Heilongjiang, China': ('Q1172643', 'county', '大慶市大同區', 'Datong District, Daqing', 'Daqing'),
 }
 # 沒有寫進來的（核對過但不採用）：Rokkasho（GEM 寫北海道，六所村在青森縣）、Tainai City（GEM 寫青森縣，胎內市在新潟縣）——GEM 的省與地名矛盾，不判斷是哪一個錯；2026-11-20 改由 farm_cleanup.py 依 NEDO 導入實績表逐筆定位（Rokkasho-Mura-Futamata、Futsukoshi-Daichi、Tainai）。
 # Left out on purpose: Rokkasho (GEM says Hokkaido; the village is in Aomori) and Tainai City (GEM says Aomori; the city is in Niigata) — GEM's place and prefecture contradict each other; since 20 Nov 2026 farm_cleanup.py places these farms one by one from NEDO's installation tables (Rokkasho-Mura-Futamata, Futsukoshi-Daichi, Tainai).
@@ -467,6 +515,16 @@ def manual_items(qids):
 
 
 def apply_manual(located, skipped, placeholder):
+    # 自動定位只退到地級市中心的，若 MANUAL_PLACES 有人工核對的縣，也改用那個縣；人工項目檢查不過時保留原本的市 ·
+    # automatic results that fell back to a prefecture-level city are replaced too when MANUAL_PLACES holds the checked county;
+    # if the manual item fails its check the city-level result is kept
+    back = {}
+    for x in located:
+        if x.get('place') in MANUAL_PLACES and not x['query'].startswith('manual:'):
+            back[(x['iso'], x['name'])] = x
+    if back:
+        located = [x for x in located if (x['iso'], x['name']) not in back]
+        skipped = skipped + [dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], why='city-level fallback') for x in back.values()]
     use = [x for x in skipped if x.get('place') in MANUAL_PLACES]
     if not use:
         return located, skipped
@@ -490,6 +548,10 @@ def apply_manual(located, skipped, placeholder):
             g = {k: v for k, v in w.items() if k != 'chain'}
             located.append(dict(name=x['name'], iso=x['iso'], place=x['place'], gem_url=x['gem_url'], wikidata=q, query='manual:' + q, level=level, **g))
         else:
+            if (x['iso'], x['name']) in back:
+                located.append(back[(x['iso'], x['name'])])
+                print('  FAILED (city-level result kept)', x['place'])
+                continue
             x['why'] = 'manual Wikidata item failed the check (' + ('no coordinate' if not w else 'province not in P131 chain' if not ok_prov else 'county not in P131 chain' if far else 'too far') + ')'
             keep.append(x)
     return located, keep
