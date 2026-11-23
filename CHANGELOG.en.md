@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.24.3 — 2026-11-23
+
+- **Data correction: 65 operating farms in China moved from the prefecture city to the county GEM names** (`MANUAL_PLACES` in `tools/fetch_gem_locations.py`, coordinates from Wikidata, still approximate): where the automatic search could not resolve the county it fell back to the prefecture city, which put 17 farms in Mulei, Xinjiang (spelt "Mori" on GEM) on Changji city 239 km away, 5 Qitai farms 183 km away, 16 farms in Damao Banner, Inner Mongolia on Baotou city 126 km away, and likewise for Siziwang Banner, Barkol (Santanghu), Zichang, Penglai, Pizhou and others. Each county item and its prefecture were checked on Wikidata before moving; counties that contradict GEM's prefecture (Zhongxiang, Liaoyang County) are left unchanged.
+
 ## v3.24.2 — 2026-11-21
 
 - **Data correction: four more operating farms moved off placeholders to where they are** (`tools/farm_cleanup.py`, quotes checked with `check_quotes.py`): Ukraine's Tyligulska (DTEK, 114 MW) sat on Mykolaiv city and now lies at Anatolivka, Berezanka district, per the Kyiv Post (still approximate); Vietnam's Nhơn Hòa (100 MW) moves to Chư Pưh district, Gia Lai, per Báo Đầu tư (approximate); Spain's Odón de Buen (Repsol, 26.9 MW, two farms added together) moves between Gurrea de Gállego and Marracos from the turbine coordinates in Aragón's environmental monitoring reports (approximate); Italy's Lucus Power moves to its turbines at Melfi, province of Potenza, per an ERG document, with capacity 20 → 19.8 MW and the model six Gamesa G132-3.3 MW added.

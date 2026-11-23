@@ -14,6 +14,10 @@
 日期為台灣時間（UTC+8）。排程自動更新的即時資料、機器人自動重建的單檔版都不另外編版號。
 v2.6.1 之前的版本號是 2026-09-27 依 GitHub 的合併紀錄補上的。
 
+## v3.24.3 — 2026-11-23
+
+- **資料更正：65 座中國營運中風場從地級市中心改到 GEM 寫的縣**（`tools/fetch_gem_locations.py` 的 `MANUAL_PLACES`，座標取 Wikidata，仍標概略位置）：自動定位找不到縣名時退到地級市中心，造成新疆木壘（GEM 拼成「Mori」）17 座風場落在 239 km 外的昌吉市、奇台 5 座落在 183 km 外、內蒙古達茂旗 16 座落在 126 km 外的包頭市、四子王旗、巴里坤（三塘湖）、子長、蓬萊、邳州等也一樣。這次逐一以 Wikidata 核對縣級項目與所在地級市後改到該縣；GEM 寫的縣與地級市互相矛盾的（鐘祥市、遼陽縣）不改。
+
 ## v3.24.2 — 2026-11-21
 
 - **資料更正：再把 4 座停在代用點的營運中風場改到實際所在地**（`tools/farm_cleanup.py`，引文以 `check_quotes.py` 核對）：烏克蘭 Tyligulska（DTEK，114 MW）原本在尼古拉耶夫市，依 Kyiv Post 改到 Berezanka 區 Anatolivka 村（仍標概略位置）；越南 Nhơn Hòa（100 MW）依 Báo Đầu tư 改到嘉萊省 Chư Pưh 縣（概略位置）；西班牙 Odón de Buen（Repsol，26.9 MW，兩座相加）依亞拉岡自治區環境監測報告的風機座標改到 Gurrea de Gállego 與 Marracos 之間（概略位置）；義大利 Lucus Power 依 ERG 文件改到波坦察省 Melfi 的風機位置，容量 20 → 19.8 MW、補上機型 6 部 Gamesa G132-3.3 MW。
