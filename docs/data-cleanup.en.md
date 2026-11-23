@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 950 rules: 273 records removed (49,486.1 MW of them operating), 677 records fixed. In addition, 1239 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
+- 955 rules: 273 records removed (49,486.1 MW of them operating), 682 records fixed. In addition, 1239 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -33,7 +33,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Israel | 1 | 21 | 1 |
-| Italy | 11 | 398 | 14 |
+| Italy | 11 | 398 | 16 |
 | Japan | 2 | 30 | 19 |
 | Jordan | 1 | 117 | 0 |
 | Kenya | 2 | 410 | 3 |
@@ -51,15 +51,16 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Serbia | 0 | 0 | 1 |
 | South Africa | 2 | 159 | 2 |
 | South Korea | 5 | 200.3 | 9 |
-| Spain | 5 | 107.3 | 29 |
+| Spain | 5 | 107.3 | 30 |
 | Sweden | 0 | 0 | 6 |
 | Taiwan | 2 | 0 | 26 |
 | Thailand | 1 | 600 | 7 |
 | Turkey | 9 | 592 | 18 |
+| Ukraine | 0 | 0 | 1 |
 | United Kingdom | 10 | 3,500.7 | 11 |
 | United States of America | 12 | 958.3 | 9 |
 | Uruguay | 1 | 141.6 | 1 |
-| Vietnam | 15 | 1,512.8 | 39 |
+| Vietnam | 15 | 1,512.8 | 40 |
 | Åland | 0 | 0 | 1 |
 
 ## Argentina (ARG)
@@ -780,6 +781,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Pietrafitta wind farm · 31 MW · 2005 | GEM | fixed: owner | Owner corrected: developed by Gamesa Energía and now owned by Acciona Eolica Cesa Italia (GEM gave the turbine maker Siemens Gamesa as owner) | [link](https://power-technology.com/?p=182741) |
 | Marsica 2 At wind farm · 28 MW | GEM | duplicate of “Marsica II wind farm” | Same farm: the Marsica project Eneco developed (Marsica I 8 MW + Marsica II 28 MW, 18 Vestas V80 2 MW, 36 MW) is now owned by PLT Energia; GEM’s Marsica 2 At (Eneco, 28 MW) and Marsica II (PLT, 28 MW, 2009) are under 2 km apart | [link](https://energymonitor.ai/?p=111063) |
 | Ponte Rotto wind farm · 26 MW | GEM | duplicate of “Ordona (Inergia) wind farm” | Same farm: Ponte Rotto is the locality of Inergia’s 26 MW farm at Ordona, Foggia (13 turbines of 2 MW, in service 2009); The Wind Power names Ordona’s 26 MW part Ponte Rotto, and the two GEM records are 0.4 km apart | [link](https://www.inergia.it/en/wind-farms/) |
+| Lucus Power wind farm · 20 MW | GEM | fixed: location, capacity, turbines | Point moved to the centre of the turbines and capacity set to 19.8 MW: ERG’s safety-coordination document describes Lucus Power S.r.l.’s farm as six Gamesa G132 3.3 MW units, 19.8 MW, in Melfi, province of Potenza, with each turbine’s coordinates; EDPR’s 2016 accounts also list Lucus Power S.r.l. at Melfi. GEM gives only Italy (the old point was the centre of Italy), and its owner, an EDPR company in Greece, is also wrong (ERG bought seven Italian farms from EDPR in 2022, but the release does not name them, so the owner is left as is) | [link](https://www.erg.eu/c/document_library/get_file?uuid=f1c3c4bc-5d54-158f-c24c-8b0f30b3f606&groupId=10181&version=1.0) |
+| Alcantara wind farm · 47.6 MW · 2012 | GEM | fixed: location | Point moved to the comuni of Antillo, Fondachelli-Fantina and Francavilla di Sicilia, province of Messina, Sicily (the centre of their Wikidata coordinates weighted by 15, 19 and 29 turbines; approximate): Iberdrola’s Messina-Agrigento complex includes Alcántara (47.6 MW, 56 Gamesa G52), and local reports place the turbines of the “Alcantara Nord” and “Alcantara Sud” lots on the ridge between Fondachelli Fantina and Francavilla, with 63 turbines across the three comuni (Antillo 15, Fondachelli 19, Francavilla 29). The local figure of 63 turbines and 57.6 MW does not match the site’s 56 turbines and 47.6 MW, so the capacity is unchanged. The old point was the centre-of-Italy placeholder (in Umbria, about 600 km north) | [link](https://www.tempostretto.it/news/rinnovabili-sospette-operazione-zefiro-10-processo-parco-eolico-alcantara.html) |
 
 ## Japan (JPN)
 
@@ -1043,6 +1046,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Alto de Croa 2 wind farm · 10.4 MW | GEM | duplicate of “Croa wind farm” | Same farm as the Croa record: Greenalia’s Alto da Croa II farm at Vimianzo (10.4 MW); GEM’s own Croa record gives Alto de Croa II as an alias, and the two records are about 0.5 km apart (Greenalia’s separate 7.3 MW Alto da Croa is not in the data) | [link](https://greenalia.es/en/business/onshore-wind/) |
 | Croa wind farm · 10 MW · 2021 | GEM | fixed: capacity | Capacity set to 10.4 MW, Greenalia’s figure for Alto da Croa II | [link](https://greenalia.es/en/business/onshore-wind/) |
 | Els Pessells wind farm · 47 MW | GEM | removed | Never built: Catalonia’s Directorate-General for Energy revoked the authorisation of the Els Pesells wind farm at Horta de Sant Joan (Terra Alta) in 2020; Fercom Eòlica (this record’s operator) had held the project since 2015 and asked for its grid-connection guarantee back after Red Eléctrica refused access; the record’s point was a placeholder shared with Els Barrancs | [link](https://ebredigital.cat/?p=196548) |
+| Odón de Buen wind farm · 26.9 MW · 2024 | GEM | fixed: location | Point moved to the centre of the two farms’ turbines (approximate): Aragón’s environmental monitoring reports put Odón de Buen II (15.5 MW, three turbines) in Gurrea de Gállego, Huesca, and Odón de Buen III (11.4 MW, two turbines) in Gurrea de Gállego and Marracos, Zaragoza, with the UTM coordinates of every turbine; this 26.9 MW record is the two added together, about 9 km apart. GEM’s “Caseta del Melonero” has no source, and the old point was about 40 km south | [link](https://www.aragon.es/documents/d/guest/pe-odon-de-buen-iii_ano2_ic02_expl_abr-jul25-pdf) |
 
 ## Sweden (SWE)
 
@@ -1132,6 +1136,12 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Akyurt wind farm · 15 MW · 2016 | GEM | duplicate of “Ado Akyurt wind farm” | Same farm as the Ado Akyurt record: TÜREB’s statistics report lists a single Akyurt RES of ADO Enerji (Tokat, 14.7 MW, 2016); this record’s point is in Sivas, under 1 km from the Konakpınar record (ADO Enerji’s Konakpınarı RES) | [link](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
 | Kocadağ-2 wind farm · 25 MW | GEM | duplicate of “Kores wind farm” | Same farm as the Kores record: GEM took this record from the EPDK licence, operated by Kores Kocadağ (Birgi, Urla, 25 MW); TÜREB’s statistics report lists a single plant for Kores Kocadağ, KORES (İzmir, 25 MW, Nordex N90/N100, 2009/2012/2015), and the two records are about 0.6 km apart | [link](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
 | Kores wind farm · 22.5 MW · 2009 | GEM | fixed: capacity, year | Capacity set to 25 MW and the year to 2015, when the last phase was completed: TÜREB’s statistics report lists KORES at 25 MW (Nordex N90/N100, built in 2009, 2012 and 2015; the phase sizes are not given) | [link](https://server.tureb.tr/storage/20250509/0196b507-a0cb-7192-a74c-67714bf7e342.pdf) |
+
+## Ukraine (UKR)
+
+| Record | Source | Action | Reason | Source link |
+|---|---|---|---|---|
+| Tyligulska wind farm · 114 MW · 2022 | GEM | fixed: location | Point moved to the village of Anatolivka, Mykolaiv oblast (Wikidata coordinate; approximate): Kyiv Post reports DTEK’s Tylihulska wind farm company in the territory of the Anatolivka, Krasnopillia and Tashyne rural councils of Berezanka district (this is the whole 500 MW licence area; no source gives the exact site of the 114 MW first phase); GEM gives only Mykolaiv oblast, and the old point was Mykolaiv city, about 66 km east | [link](https://archive.kyivpost.com/business/dtek-seeks-to-build-2-wind-farms-with-total-capacity-of-565-mw-in-mykolaiv-oblast.html) |
 
 ## United Kingdom (GBR)
 
@@ -1250,6 +1260,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Dong Hai V1-4 Offshore wind farm · 50 MW | GEM | fixed: name, Chinese name, owner, status, year, location | GEM’s local name for this record is “Nhà máy điện gió Đông Hải 1 Giai đoạn 4” (Dong Hai 1 phase 4), and its status source, MOIT Decision 1509/QĐ-BCT (30 May 2025), lists that project under Bạc Liêu province (50 MW, 2025–2030); the “V1-4” label, the point off Trà Vinh and the owner SC-CCG come from older data on a Trà Vinh V1-4 site (Trà Vinh’s V1-4 is REE’s Duyen Hai, already a separate record). VietnamPlus, 28 Aug 2026: Cà Mau (which absorbed Bạc Liêu) launched Dong Hai 1 phases 3 and 4 and Dong Hai 13 phase 2 in Đông Hải commune; phase 4 is Mien Tay Wind Power JSC’s, 50 MW, due by Q4 2028, with surveys and the feasibility study still to come. Renamed, owner changed, set to pre-construction (2028); the point provisionally takes the approximate point of phases 1–2 | [link](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
 | Dong Hai 1 Offshore wind farm · 3 · 50 MW | GEM | fixed: name, Chinese name, owner, status, year, location | Dong Hai 1 phase 3 in Bạc Liêu (now Cà Mau): MOIT Decision 1509/QĐ-BCT lists it under Bạc Liêu (50 MW, 2025–2030, connecting to the Hòa Bình 2 switching station that belongs to Dong Hai 1); VietnamPlus, 28 Aug 2026: Cà Mau launched phases 3 and 4, phase 3 being Bac Phuong Wind Energy JSC’s, 50 MW, in the sea off Đông Hải commune, due by Q1 2029. GEM’s point (9.352 N, 109.146 E) is in the South China Sea about 390 km offshore, so the approximate point of phases 1–2 is used; set to pre-construction (2029) with the owner added | [link](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
 | Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | curated | fixed: location | The point moves to the mean of the 25 turbines of the OpenStreetMap wind-farm relation “điện gió Đông Hải 1 Trà Vinh” (18122789; operator Trungnam Group, 100 MW): 9.522 N, 106.451 E (the old point was about 14 km north-east, near Trà Vinh V1-1 to V1-3) | [link](https://www.openstreetmap.org/relation/18122789) |
+| Nhơn Hòa wind farm · 100 MW · 2021 | GEM | fixed: location | Point moved to Chư Pưh district, Gia Lai (the district’s Wikidata coordinate; approximate): Báo Đầu tư places Nhơn Hòa 1 (50 MW) in Ia Phang commune, Chư Pưh district, and The Wind Power puts phase 2 in the neighbouring Chư Don commune; GEM gives only Gia Lai province, and the old point was about 35 km off | [link](https://baodautu.vn/lien-danh-emi-nhon-hoa-1-va-2-duoc-phe-duyet-4-du-an-nang-luong-d571152.html) |
 
 ## Åland (ALA)
 

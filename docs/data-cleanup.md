@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 950 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 677 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 955 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 682 筆。另有 1239 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -44,6 +44,7 @@
 | 波蘭 | 1 | 45 | 4 |
 | 泰國 | 1 | 600 | 7 |
 | 澳洲 | 4 | 1,161 | 9 |
+| 烏克蘭 | 0 | 0 | 1 |
 | 烏拉圭 | 1 | 141.6 | 1 |
 | 瑞典 | 0 | 0 | 6 |
 | 立陶宛 | 1 | 50 | 0 |
@@ -51,15 +52,15 @@
 | 納米比亞 | 0 | 0 | 1 |
 | 羅馬尼亞 | 16 | 2,439 | 11 |
 | 美國 | 12 | 958.3 | 9 |
-| 義大利 | 11 | 398 | 14 |
+| 義大利 | 11 | 398 | 16 |
 | 肯亞 | 2 | 410 | 3 |
 | 芬蘭 | 1 | 30 | 2 |
 | 英國 | 10 | 3,500.7 | 11 |
 | 荷蘭 | 8 | 1,852 | 19 |
 | 菲律賓 | 1 | 160 | 1 |
 | 葡萄牙 | 1 | 14 | 2 |
-| 西班牙 | 5 | 107.3 | 29 |
-| 越南 | 15 | 1,512.8 | 39 |
+| 西班牙 | 5 | 107.3 | 30 |
+| 越南 | 15 | 1,512.8 | 40 |
 | 阿根廷 | 2 | 200 | 1 |
 
 ## CMR (CMR)
@@ -936,6 +937,12 @@
 | Gullen Range wind farm · 165 MW · 2014 | GEM | 修正：容量、機組 | 73 部金風（56 部 GW100-2.5MW＋17 部 GW82-1.5MW），165.5 MW，2014 年 12 月全部運轉（風場年度環境報告） | [連結](https://gullenrangewindfarm.com/wp-content/uploads/2025/03/NGRWF-Annual-Environmental-Management-Report_2024-signed.pdf) |
 | Denmark Community wind farm · 1.4 MW | GEM | 修正：年份、容量、機組 | 補上商轉年 2013 並更正容量與機組：Denmark 社區風場的兩部 Enercon E48（各 800 kW）2013 年 2 月 20 日開始發電 | [連結](https://c4ce.org.au/node/166) |
 
+## 烏克蘭 (UKR)
+
+| 紀錄 | 來源 | 動作 | 理由 | 出處 |
+|---|---|---|---|---|
+| Tyligulska wind farm · 114 MW · 2022 | GEM | 修正：座標 | 座標改到尼古拉耶夫州 Anatolivka 村（Wikidata 座標，概略位置）：Kyiv Post 報導 DTEK 的 Tylihulska 風場公司位於 Berezanka 區 Anatolivka、Krasnopillia 與 Tashyne 三個村議會的範圍內（這是整個 500 MW 的許可範圍，一期 114 MW 的確切位置沒有出處）；GEM 只寫尼古拉耶夫州，原座標在尼古拉耶夫市、偏東約 66 公里 | [連結](https://archive.kyivpost.com/business/dtek-seeks-to-build-2-wind-farms-with-total-capacity-of-565-mw-in-mykolaiv-oblast.html) |
+
 ## 烏拉圭 (URY)
 
 | 紀錄 | 來源 | 動作 | 理由 | 出處 |
@@ -1059,6 +1066,8 @@
 | Pietrafitta wind farm · 31 MW · 2005 | GEM | 修正：業主 | 更正業主：Gamesa Energía 開發、現由 Acciona Eolica Cesa Italia 持有（GEM 把風機製造商 Siemens Gamesa 當成業主） | [連結](https://power-technology.com/?p=182741) |
 | Marsica 2 At wind farm · 28 MW | GEM | 重複（併入「Marsica II wind farm」） | 同一座風場：Eneco 開發的 Marsica 風場（Marsica I 8 MW＋Marsica II 28 MW，共 18 部 Vestas V80 2 MW、36 MW）現屬 PLT Energia；GEM 的 Marsica 2 At（Eneco，28 MW）與 Marsica II（PLT，28 MW，2009）相距不到 2 公里 | [連結](https://energymonitor.ai/?p=111063) |
 | Ponte Rotto wind farm · 26 MW | GEM | 重複（併入「Ordona (Inergia) wind farm」） | 同一座風場：Ponte Rotto 是 Inergia 在 Foggia 省 Ordona 的 26 MW 風場（13 部 2 MW，2009 年商轉）所在的地名；The Wind Power 把 Ordona 的 26 MW 期就稱為 Ponte Rotto，兩筆 GEM 紀錄相距 0.4 公里 | [連結](https://www.inergia.it/en/wind-farms/) |
+| Lucus Power wind farm · 20 MW | GEM | 修正：座標、容量、機組 | 座標改到風機位置的中心、容量改為 19.8 MW：ERG 的安全協調文件寫 Lucus Power S.r.l. 的風場是 6 部 Gamesa G132 3.3 MW、共 19.8 MW，位於波坦察省 Melfi，並列出 6 部風機的經緯度；EDPR 2016 年財報也列 Lucus Power S.r.l. 在 Melfi。GEM 只寫義大利（原座標是義大利國土中心），業主寫成 EDPR 的希臘公司也不對（ERG 2022 年向 EDPR 買下七座義大利風場，但新聞稿沒逐一列名，業主暫不改） | [連結](https://www.erg.eu/c/document_library/get_file?uuid=f1c3c4bc-5d54-158f-c24c-8b0f30b3f606&groupId=10181&version=1.0) |
+| Alcantara wind farm · 47.6 MW · 2012 | GEM | 修正：座標 | 座標改到西西里墨西拿省 Antillo、Fondachelli-Fantina 與 Francavilla di Sicilia 三個市鎮（Wikidata 座標依各鎮風機數 15、19、29 部加權的中心，概略位置）：Iberdrola 的 Messina-Agrigento 風場群包含 Alcántara（47.6 MW，56 部 Gamesa G52），當地報導寫「Alcantara Nord」「Alcantara Sud」兩個標段的風機位於 Fondachelli Fantina 與 Francavilla 之間的山脊，另一篇寫三鎮共 63 部（Antillo 15、Fondachelli 19、Francavilla 29）。當地報導的 63 部、57.6 MW 與本站的 56 部、47.6 MW 不符，容量沒改。原座標是義大利國土中心的代用點（在翁布里亞，偏北約 600 公里） | [連結](https://www.tempostretto.it/news/rinnovabili-sospette-operazione-zefiro-10-processo-parco-eolico-alcantara.html) |
 
 ## 肯亞 (KEN)
 
@@ -1189,6 +1198,7 @@
 | Alto de Croa 2 wind farm · 10.4 MW | GEM | 重複（併入「Croa wind farm」） | 與 Croa 風場是同一座：Greenalia 在 Vimianzo 的 Alto da Croa II 風場（10.4 MW）；GEM 的 Croa 紀錄以 Alto de Croa II 為別名，兩筆相距約 0.5 km（Greenalia 另有 7.3 MW 的 Alto da Croa，本站沒有收錄） | [連結](https://greenalia.es/en/business/onshore-wind/) |
 | Croa wind farm · 10 MW · 2021 | GEM | 修正：容量 | 容量依 Greenalia 公布的 Alto da Croa II 改為 10.4 MW | [連結](https://greenalia.es/en/business/onshore-wind/) |
 | Els Pessells wind farm · 47 MW | GEM | 刪除 | 從未建成：加泰隆尼亞自治區能源總局 2020 年撤銷 Horta de Sant Joan（Terra Alta）Els Pesells 風場的許可；這個案子自 2015 年由 Fercom Eòlica（GEM 這筆的經營者）持有，電網業者 REE 拒絕併網後業者申請取回併網保證金；原座標是與 Els Barrancs 共用的代用點 | [連結](https://ebredigital.cat/?p=196548) |
+| Odón de Buen wind farm · 26.9 MW · 2024 | GEM | 修正：座標 | 座標改到兩座風場風機的中心（概略位置）：亞拉岡自治區的環境監測報告寫 Odón de Buen II（15.5 MW，3 部）在韋斯卡省 Gurrea de Gállego、Odón de Buen III（11.4 MW，2 部）在 Gurrea de Gállego 與薩拉戈薩省 Marracos，並列出各風機的 UTM 座標；這筆 26.9 MW 是兩座相加，兩座相距約 9 公里。GEM 寫的「Caseta del Melonero」沒有出處，原座標偏南約 40 公里 | [連結](https://www.aragon.es/documents/d/guest/pe-odon-de-buen-iii_ano2_ic02_expl_abr-jul25-pdf) |
 
 ## 越南 (VNM)
 
@@ -1248,6 +1258,7 @@
 | Dong Hai V1-4 Offshore wind farm · 50 MW | GEM | 修正：名稱、中文名、業主、狀態、年份、座標 | GEM 這筆的本地名稱是「Nhà máy điện gió Đông Hải 1 Giai đoạn 4」（東海 1 號第 4 期），狀態引用的工貿部 1509/QĐ-BCT 號決定（2025-05-30）把它列在薄遼省（50 MW、2025–2030）；「V1-4」與茶榮外海的點、業主 SC-CCG 來自另一個茶榮 V1-4 場址的舊資料（茶榮 V1-4 是 REE 的 Duyên Hải，已另有紀錄）。越通社 2026-08-28：金甌省（原薄遼）在東海社為東海 1 號第 3、4 期與東海 13 號第 2 期舉行啟動儀式，第 4 期由 Miền Tây 風電股份公司投資、50 MW、目標 2028 年第 4 季完成，之後才做勘察與可行性研究。改名、改業主、改為規劃中（2028），點位暫用同名第 1–2 期的概略點 | [連結](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
 | Dong Hai 1 Offshore wind farm · 3 · 50 MW | GEM | 修正：名稱、中文名、業主、狀態、年份、座標 | 薄遼（今金甌）東海 1 號第 3 期：工貿部 1509/QĐ-BCT 號決定列在薄遼省（50 MW、2025–2030，接到屬於東海 1 號的和平 2 開關站）；越通社 2026-08-28：金甌省為第 3、4 期舉行啟動儀式，第 3 期由 Bắc Phương 風能股份公司投資、50 MW、在東海社海域、預計 2029 年第 1 季完成。GEM 的點（北緯 9.352°、東經 109.146°）在南海中、離岸約 390 km，改用同名第 1–2 期的概略點；改為規劃中（2029）並補業主 | [連結](https://www.vietnamplus.vn/ca-mau-khoi-dong-3-du-an-dien-gio-voi-tong-von-dau-tu-6300-ty-dong-post1133100.vnp) |
 | Dong Hai 1 – Tra Vinh (Trungnam) · 100 MW · 2021 | 精選 | 修正：座標 | 點位改為 OpenStreetMap 風場關係「điện gió Đông Hải 1 Trà Vinh」（18122789，營運者中南集團、100 MW）25 部風機的平均（北緯 9.522°、東經 106.451°；原點在東北方約 14 km，靠近茶榮 V1-1～V1-3） | [連結](https://www.openstreetmap.org/relation/18122789) |
+| Nhơn Hòa wind farm · 100 MW · 2021 | GEM | 修正：座標 | 座標改到嘉萊省 Chư Pưh 縣（縣的 Wikidata 座標，概略位置）：Báo Đầu tư 報導 Nhơn Hòa 1（50 MW）位於 Chư Pưh 縣 Ia Phang 社，The Wind Power 列二期在相鄰的 Chư Don 社；GEM 只寫嘉萊省，原座標偏離約 35 公里 | [連結](https://baodautu.vn/lien-danh-emi-nhon-hoa-1-va-2-duoc-phe-duyet-4-du-an-nang-luong-d571152.html) |
 
 ## 阿根廷 (ARG)
 
