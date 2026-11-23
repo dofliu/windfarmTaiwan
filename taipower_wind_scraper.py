@@ -164,6 +164,21 @@ def fetch_genary(url=GENARY_URL, timeout=20) -> dict:
     return json.loads(r.text.lstrip("\ufeff"))
 
 
+def genary_cols(row):
+    """genary.json 一列 → (機組名稱, 裝置容量, 淨發電量)；小計列回傳 None。
+    舊版 6 欄 [能源別, 名稱, 容量, 出力, 比, 備註]；新版多一欄分組 [能源別, 分組, 名稱, 容量, 出力, 比, 備註]。
+    第 3 欄(row[2])是文字而不是數字(或「-」)時就是新版。任何文字欄含小計／合計／總計都略過，避免把小計當成機組重複相加。
+    genary.json row → (unit name, capacity, output), None for subtotal rows. The newer layout inserts a group column after the
+    energy type; it is recognised by a third column that is text rather than a number or "-"."""
+    texts = [clean_name(str(c)) for c in row[:3]]
+    if any(x in t for t in texts for x in ("小計", "合計", "總計")):
+        return None
+    third = strip_html(str(row[2])).strip()
+    if len(row) >= 7 and third not in ("", "-") and to_float(third) is None:
+        return str(row[2]), to_float(row[3]), to_float(row[4])
+    return str(row[1]), to_float(row[2]), to_float(row[3])
+
+
 def parse_wind(data: dict):
     """
     從台電資料取出風力(Wind)機組，同時支援兩種格式：
@@ -173,7 +188,9 @@ def parse_wind(data: dict):
         "裝置容量(MW)":"-","淨發電量(MW)":"374.2", ...}
 
     B) genary.json 位置陣列：每列為 list
-       [能源別(含<img>), 機組名稱, 裝置容量, 淨發電量, 百分比, 備註]
+       舊版 [能源別(含<img>), 機組名稱, 裝置容量, 淨發電量, 百分比, 備註]
+       新版（2026-11 起見到）多一欄分組：[能源別, 分組(例「陸域風力台電自有(註13)」), 機組名稱, 裝置容量, 淨發電量, 百分比, 備註]
+       ——舊程式把分組當名稱、把裝置容量當出力（11-04 18:20、11-13 14:50 兩次全台風電記成 8,374 MW），見 genary_cols()。
 
     回傳 (wind_units, total)；wind_units 內含原始名稱(raw_name)與去註名稱(name)。
     """
@@ -187,10 +204,11 @@ def parse_wind(data: dict):
             cap = to_float(row.get("裝置容量(MW)"))
             out = to_float(row.get("淨發電量(MW)"))
         elif isinstance(row, (list, tuple)) and len(row) >= 4:  # B) genary 格式
+            cols = genary_cols(row)
+            if cols is None:
+                continue
             etype = strip_html(str(row[0]))
-            raw = str(row[1])
-            cap = to_float(row[2])
-            out = to_float(row[3])
+            raw, cap, out = cols
         else:
             continue
 
@@ -224,7 +242,10 @@ def parse_system_total(data):
             raw = str(row.get("機組名稱", ""))
             out = to_float(row.get("淨發電量(MW)"))
         elif isinstance(row, (list, tuple)) and len(row) >= 4:
-            raw, out = str(row[1]), to_float(row[3])
+            cols = genary_cols(row)
+            if cols is None:
+                continue
+            raw, _cap, out = cols
         else:
             continue
         name = clean_name(raw)
@@ -425,11 +446,41 @@ def unit_key(name):
     return fid or "u:" + name
 
 
+# 2026-11-04 18:20 與 11-13 14:50 從 genary.json 新版格式讀錯的兩次取樣：只有這四個分組名稱、出力其實是裝置容量。
+# The two samples misread from the newer genary.json layout: only these group names, with capacities read as output.
+BOGUS_KEYS = ("u:陸域風力台電自有", "u:陸域風力購電", "u:離岸風力台電自有", "u:離岸風力購電")
+
+
+def sanitize_farm_daily(store):
+    """移除讀錯的取樣：刪掉 BOGUS_KEYS，若當天的最高出力 mx 就是那次取樣(數值等於這些列相加)，連同時間點與 mx 一起刪，
+    之後 build_farm_daily.py --remax 會從 git 歷史(已有防呆)重算 mx。可重複執行。回傳刪掉的天數。
+    Drop the misread samples: remove BOGUS_KEYS and, when the day's mx is that sample (equal to their sum), its time slot and mx too;
+    build_farm_daily.py --remax then recomputes mx from the git history. Idempotent; returns the number of days cleaned."""
+    n = 0
+    for d in store.get("days", {}).values():
+        bad = {k: d["u"].pop(k) for k in BOGUS_KEYS if k in d.get("u", {})}
+        if not bad:
+            continue
+        n += 1
+        tot = sum(v[1] / v[0] for v in bad.values() if v[0])
+        mx = d.get("mx")
+        if mx and abs(mx[0] - tot) < 0.5:
+            if mx[1] in d["t"]:
+                d["t"].remove(mx[1])
+            del d["mx"]
+    if n:
+        for k in BOGUS_KEYS:
+            store.get("names", {}).pop(k, None)
+    return n
+
+
 def load_farm_daily(path=FARM_DAILY):
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        store = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return {"days": {}, "names": {}}
+    sanitize_farm_daily(store)
+    return store
 
 
 def add_daily_sample(store, wind_units, source_time, remax=False):
@@ -463,8 +514,8 @@ def add_daily_sample(store, wind_units, source_time, remax=False):
             a[2] = False
         else:
             a[1] += u["capacity"]
-    if not agg:
-        return False
+    if not agg or all(k.startswith("u:") for k in agg):
+        return False              # 一座都對不到的快照不記（格式改變時的錯誤資料）· skip snapshots in which nothing maps
     for k, (out, cap, known) in agg.items():
         r = d["u"].setdefault(k, [0, 0.0, 0, 0.0, 0.0])
         r[0] += 1
@@ -687,6 +738,13 @@ def main():
 
     wind_units, total = parse_wind(data)
     farms = map_to_farms(wind_units)
+    if wind_units and not farms:
+        # 有風力列卻一座都對不到：多半是來源格式變了（例：2026-11 genary.json 多一欄分組，裝置容量被讀成出力）。
+        # 不寫入，保留上一次的資料，讓這次執行失敗以便從 Actions 看到。
+        # Wind rows but no farm matched: the source layout has most likely changed, so keep the previous data and fail loudly.
+        print(f"[ERROR] 風力 {len(wind_units)} 列都對不到風場（名稱例：{wind_units[0].get('raw_name')}），疑似資料格式改變，不寫入",
+              file=sys.stderr)
+        sys.exit(1)
     system_total = parse_system_total(data)
     farm_wind = get_farm_wind()        # {farm_id:{mps,station,km}}，無 key 或失敗則為 {}
 
