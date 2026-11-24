@@ -131,7 +131,8 @@ PROV_ALIAS = {'castillayleon': 'castileandleon', 'castillalamancha': 'castilelam
               'hokkadio': 'hokkaido', 'zaragosa': 'zaragoza', 'ananthapuramu': 'anantapur', 'marakeshsafi': 'marrakeshsafi', 'innermongolia': 'innermongolia',
               'xinjianguyghur': 'xinjiang', 'guangxizhuang': 'guangxi', 'ningxiahui': 'ningxia', 'tibet': 'tibet',
               'comunidadforaldenavarra': 'navarre', 'navarra': 'navarre', 'zuidholland': 'southholland', 'schieswigholstein': 'schleswigholstein', 'aqmola': 'akmola',
-              'prignitzoberhavel': 'brandenburg'}   # 布蘭登堡邦的區域規劃區，不是行政區 · a planning region of Brandenburg, not an administrative area
+              'prignitzoberhavel': 'brandenburg',
+              'northerndobruja': 'tulceacounty'}   # GEM 把歷史地區多布羅加寫在省的位置 · GEM puts the historical region Dobruja where the county belongs   # 布蘭登堡邦的區域規劃區，不是行政區 · a planning region of Brandenburg, not an administrative area
 
 
 QUERY_FIX = {'Hokkadio': 'Hokkaido', 'Siciliy': 'Sicily', 'Zaragosa': 'Zaragoza', 'Ananthapuramu': 'Anantapur', 'Marakesh-Safi': 'Marrakesh-Safi', 'Anantpur': 'Anantapur',
@@ -439,6 +440,11 @@ MANUAL_PLACES = {
     'Date City, Hokkadio Prefecture, Japan': ('Q693178', 'city', '北海道伊達市（GEM 把道名拼錯）', 'Date city, Hokkaido (GEM misspells the prefecture)'),
     '1-1 la Grai, Gia Lai Province, Vietnam': ('Q5980266', 'county', '嘉萊省 Ia Grai 縣', 'Ia Grai district, Gia Lai'),
     '1 Timpberg, Zehdenick, Prignitz-Oberhavel, Germany': ('Q184481', 'township', '布蘭登堡邦策德尼克鎮（Timpberg 所在）', 'the town of Zehdenick, Brandenburg (where Timpberg lies)'),
+    # 2026-11-24 核對（SPARQL：英文標籤完全相同、有座標、所在行政區鏈含 GEM 寫的省／州，只有一個項目）· checked 24 Nov 2026 (exact English label,
+    # a coordinate, GEM's province in the chain, exactly one item); 印度村名查不到項目的（77 筆）仍留在 skipped · Indian villages with no item stay skipped
+    # 不採用（2026-11-24 核對）：Serro Di Luca（Rocchetta Sant'Antonio）原座標已在該市鎮 1 km 內；Borne (WPD) 原座標是精確的（改到薩爾茨蘭縣中心會差 14 km）；
+    # Casimcea 的原座標已在 Casimcea 鄉（改到圖爾恰縣中心會差 42 km）。改到行政區中心只會更不準 · not used: these farms already sit closer than the area centre would
+    '1 Corugea, Tulcea, Northern Dobruja, Romania': ('Q12113305', 'township', '圖爾恰縣科魯傑亞村', 'Corugea village, Tulcea County'),
     # 2026-11-23 核對（SPARQL）：自動定位只退到地級市中心、但 GEM 寫了縣（旗、縣級市、區）的，改到該縣；第 5 欄要求所在地級市在 P131 鏈上。
     # 鐘祥市（GEM 寫襄陽，實屬荊門）、遼陽縣（GEM 寫鞍山）的縣與地級市矛盾，伊州區的座標與哈密市相同，都不列。
     # checked 23 Nov 2026: automatic results that only reached the prefecture city although GEM names the county (banner, county-level city,

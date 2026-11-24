@@ -18,6 +18,7 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 ## v3.26.1 — 2026-11-24
 
 - The globe's comic colours give the phone's bottom drawer a bold navy edge and rounded corners; the smoke test's comic check now looks at the page's sky background (on phones the panel sits in the drawer, so checking its border failed wrongly).
+- Data correction: Romania's Corugea wind farm (70 MW) moves from a shared national placeholder to Corugea village, Tulcea County (Wikidata, still approximate). Checked but **not changed**: Serro Di Luca, Borne (WPD) and Casimcea already sit closer than the area centre would put them; the 77 Indian farms given only a village name have no Wikidata item and stay as they are.
 
 ## v3.26.0 — 2026-11-24
 

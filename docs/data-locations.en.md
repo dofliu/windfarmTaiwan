@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-locations.md)
 
 The February 2026 GEM release places many operating farms (mostly in China and India) on province- or country-centre placeholders (dozens of records on one point). The GEM project page’s “Location” still names the township, county or district, city and province, so each farm is moved to the centre of that administrative unit: the coordinate comes from Wikidata (CC0) and the unit was found with OpenStreetMap Nominatim (used only as an index; no OSM data is included). These are still **approximate** positions (the card says so): a township or county centre is not the farm itself, but far closer than a province centre. Farms that could not be located keep the placeholder and are listed under skipped in gem_locations.json.
 
-- 1239 farms: 440 at township level, 765 at county or district level, 34 at city level.
+- 1240 farms: 441 at township level, 765 at county or district level, 34 at city level.
 
 ## China (CHN)
 
@@ -1237,6 +1237,12 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Wielowies wind farm](https://www.gem.wiki/Wielowies_wind_farm) | 66 | Pomeranian Voivodeship, Poland | [Pomeranian Voivodeship](https://www.wikidata.org/wiki/Q54180) | 54.1833, 18 | city |
 | [Dolice wind farm](https://www.gem.wiki/Dolice_wind_farm) | 48 | West Pomeranian Voivodeship, Poland | [West Pomeranian Voivodeship](https://www.wikidata.org/wiki/Q54188) | 53.6, 15.5333 | city |
 | [Gniew wind farm](https://www.gem.wiki/Gniew_wind_farm) | 22 | Pomeranian Voivodeship, Poland | [Pomeranian Voivodeship](https://www.wikidata.org/wiki/Q54180) | 54.1833, 18 | city |
+
+## Romania (ROU)
+
+| Farm | MW | GEM location | Moved to | Coordinates | Level |
+|---|---:|---|---|---|---|
+| [Corugea wind farm](https://www.gem.wiki/Corugea_wind_farm) | 70 | 1 Corugea, Tulcea, Northern Dobruja, Romania | [Corugea](https://www.wikidata.org/wiki/Q12113305) | 44.7357, 28.3395 | township |
 
 ## Spain (ESP)
 

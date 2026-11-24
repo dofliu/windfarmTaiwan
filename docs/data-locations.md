@@ -6,7 +6,7 @@
 
 GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或國家中心的代用座標上（同一點有幾十筆）。GEM 專案頁的「Location」仍寫出鄉鎮、縣（區）、市、省，這裡依那段文字把風場改到該行政區的中心：座標取自 Wikidata（CC0），行政區以 OpenStreetMap Nominatim 查出（只當索引，不含 OSM 資料）。這些仍是**概略位置**（卡片標示「概略位置」）：鄉鎮或縣中心不是風場本身，但比省中心近得多。定位不到的風場維持原代用點，列在 gem_locations.json 的 skipped。
 
-- 共 1239 座：鄉鎮層級 440、縣（區）層級 765、市層級 34。
+- 共 1240 座：鄉鎮層級 441、縣（區）層級 765、市層級 34。
 
 ## 中國大陸 (CHN)
 
@@ -1223,6 +1223,12 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Luz De Rio wind farm](https://www.gem.wiki/Luz_De_Rio_wind_farm) | 50 | Florida, Uruguay | [佛罗里达省](https://www.wikidata.org/wiki/Q16593) | -34.0994, -56.2153 | 市 |
 | [Luz De Loma wind farm](https://www.gem.wiki/Luz_De_Loma_wind_farm) | 20 | Florida, Uruguay | [佛罗里达省](https://www.wikidata.org/wiki/Q16593) | -34.0994, -56.2153 | 市 |
 | [Luz De Mar wind farm](https://www.gem.wiki/Luz_De_Mar_wind_farm) | 18 | Florida, Uruguay | [佛罗里达省](https://www.wikidata.org/wiki/Q16593) | -34.0994, -56.2153 | 市 |
+
+## 羅馬尼亞 (ROU)
+
+| 風場 | MW | GEM 的位置 | 改到 | 座標 | 層級 |
+|---|---:|---|---|---|---|
+| [Corugea wind farm](https://www.gem.wiki/Corugea_wind_farm) | 70 | 1 Corugea, Tulcea, Northern Dobruja, Romania | [Corugea](https://www.wikidata.org/wiki/Q12113305) | 44.7357, 28.3395 | 鄉鎮 |
 
 ## 美國 (USA)
 
