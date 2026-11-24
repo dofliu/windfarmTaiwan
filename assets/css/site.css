@@ -143,6 +143,7 @@ body[data-page="global"] .sitefoot{display:none}
 /* 首頁：過去 7 天的全台出力 */
 .hh-7d{position:relative}
 .hh-7d[hidden]{display:none}
+.hh-7d .c7wait{margin:6px 0 2px;font-size:13px;color:var(--prose)}
 .c7{display:block;max-width:100%;overflow:visible;touch-action:pan-y;cursor:crosshair}
 .c7:focus{outline:none}
 .c7:focus-visible{outline:2px solid var(--live);outline-offset:3px;border-radius:6px}
