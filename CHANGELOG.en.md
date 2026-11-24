@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.25.1 — 2026-11-24
+
+- **Light globe colours, steps 2 and 3: data colours and the sea-level view**: in light, onshore/offshore/floating, the pipeline rings (darker nearer completion), the four foundation colours, live rings, port arcs, sea-zone lines and the live-coverage shading switch to darker versions of the same hues that read on a light map; every mark is ≥ 3:1 against the light sea and land and ΔE ≥ 12 apart under three colour-blind simulations. Port and event markers keep their bright fills, while their text uses darker shades (4.5:1). The deep sea of the light relief is a little lighter (`#a8d8f0`) so marks pass 3:1 there too, and the close-up coast mask no longer darkens the sea in light. The sea-level view's top bar, notes panel and image credit follow the light colours. Switching colours recolours every layer on the spot, without a reload.
+- Fixed: a shared farm link with `gt=light` turned dark again once the farm data loaded; dropdown arrows filled the whole control in light.
+
 ## v3.25.0 — 2026-11-24
 
 - **The globe can change colours: dark or light (daytime)** (the owner decided on 24 Nov 2026 to have dark, light and comic; this is the first step): the View menu has a new "Colours" setting — follow the site (☀/☾ in the header, the default), dark or light — and the URL parameter `gt=light`. Light means a sky background, a light relief basemap (the same Natural Earth shaded relief with pale green land and sky-blue sea: `relief_light_*.jpg`, built by `tools/build_basemaps.py`), dark labels with white halos, white panels and dark Wind now particles. Panel and button colours are generated from `globe.css` by the new `tools/build_globe_themes.py` into `assets/css/globe-themes.css` (never edited by hand; `pr-check` checks it is current). The data colours (onshore/offshore, foundations, ports, events) are not changed yet: they are next, after a colour-blind and contrast check, followed by the sea-level view and the comic style.

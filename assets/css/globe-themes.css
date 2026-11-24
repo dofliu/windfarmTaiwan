@@ -1,40 +1,40 @@
 /* 由 tools/build_globe_themes.py 從 globe.css 產生，請勿手動編輯 · generated from globe.css by tools/build_globe_themes.py; do not edit */
 
 /* ---------- 淺色（白天）· light (daytime) ---------- */
-#globe[data-gt="light"]{--gpanel:rgba(244,247,251,.88);--gline:rgba(18,50,74,.09);--ginkm:#5c6b82;--acc:#ab7c0d;--p1:#12324a;--p2:#3e5970;--p3:#687a95;color:var(--ink);background:#f7f9fc}
-#globe[data-gt="light"] button,#globe[data-gt="light"] select,#globe[data-gt="light"] input{color:var(--ink);background:rgba(18,50,74,.06);border:1px solid var(--gline)}
-#globe[data-gt="light"] button:hover,#globe[data-gt="light"] select:hover{background:rgba(18,50,74,.12)}
+#globe[data-gt="light"]{--gpanel:rgba(244,247,251,.88);--gline:rgba(18,50,74,.09);--ginkm:#5c6b82;--acc:#ab7c0d;--p1:#12324a;--p2:#3e5970;--p3:#687a95;color:var(--ink);background-color:#f7f9fc}
+#globe[data-gt="light"] button,#globe[data-gt="light"] select,#globe[data-gt="light"] input{color:var(--ink);background-color:rgba(18,50,74,.06);border:1px solid var(--gline)}
+#globe[data-gt="light"] button:hover,#globe[data-gt="light"] select:hover{background-color:rgba(18,50,74,.12)}
 #globe[data-gt="light"] button.active{background:var(--acc);color:#fcfaf7;border-color:var(--acc)}
 #globe[data-gt="light"] select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%)}
-#globe[data-gt="light"] select option{background:#eef1f8}
-#globe[data-gt="light"] .gload{background:#f7f9fc}
+#globe[data-gt="light"] select option{background-color:#eef1f8}
+#globe[data-gt="light"] .gload{background-color:#f7f9fc}
 #globe[data-gt="light"] .gseg{border:1px solid var(--gline)}
-#globe[data-gt="light"] .gseg button{background:rgba(18,50,74,.04)}
+#globe[data-gt="light"] .gseg button{background-color:rgba(18,50,74,.04)}
 #globe[data-gt="light"] .gseg button+button{border-left:1px solid var(--gline)}
 #globe[data-gt="light"] .gseg button.active{background:var(--acc);color:#fcfaf7}
 #globe[data-gt="light"] .ggrp>label{color:var(--ink-2)}
 #globe[data-gt="light"] #g-top{background:var(--gpanel);border-bottom:1px solid var(--gline)}
 #globe[data-gt="light"] #g-top .gtitle small{color:var(--ink-2)}
-#globe[data-gt="light"] .gmb.open{background:rgba(18,50,74,.16);border-color:rgba(18,50,74,.3)}
+#globe[data-gt="light"] .gmb.open{background-color:rgba(18,50,74,.16);border-color:rgba(18,50,74,.3)}
 #globe[data-gt="light"] .gmb .gcar::after{color:var(--ink-2)}
 #globe[data-gt="light"] .gmc{background:var(--acc);color:#fcfaf7}
-#globe[data-gt="light"] .gmp{background:rgba(245,247,251,.97);border:1px solid var(--gline);box-shadow:0 6px 20px rgba(18,50,74,0.18)}
+#globe[data-gt="light"] .gmp{background-color:rgba(245,247,251,.97);border:1px solid var(--gline);box-shadow:0 6px 20px rgba(18,50,74,0.18)}
 #globe[data-gt="light"] .gmrow .gml{color:var(--ink-2)}
 #globe[data-gt="light"] .gmsep{background:var(--gline)}
 #globe[data-gt="light"] .gmp .gmt{border:1px solid transparent;color:var(--ink)}
-#globe[data-gt="light"] .gmp .gmt:hover{background:rgba(18,50,74,.08)}
-#globe[data-gt="light"] .gmp .gmt.active{background:rgba(171,124,13,.12);border-color:rgba(171,124,13,.35);color:var(--ink)}
+#globe[data-gt="light"] .gmp .gmt:hover{background-color:rgba(18,50,74,.08)}
+#globe[data-gt="light"] .gmp .gmt.active{background-color:rgba(171,124,13,.12);border-color:rgba(171,124,13,.35);color:var(--ink)}
 #globe[data-gt="light"] .gmp .gmt .gtk{border:1.5px solid var(--ink-2);color:#fcfaf7}
 #globe[data-gt="light"] .gmp .gmt.active .gtk{background:var(--acc);border-color:var(--acc)}
 #globe[data-gt="light"] .gmp .gmt .gsw.zline{border-top:2px solid #1b6e9c}
 #globe[data-gt="light"] .gmp .gmt .gsw.flow{background:linear-gradient(90deg,transparent,#12324a)}
 #globe[data-gt="light"] .gmp .gmt .gmn{color:var(--ink-2)}
 #globe[data-gt="light"] #g-mapPane{background:radial-gradient(ellipse at 50% 40%,#ebeff7 0%,#f4f6fb 60%,#f8f9fc 100%)}
-#globe[data-gt="light"] #g-barPane{background:#f3f5fa;border-left:1px solid var(--gline)}
+#globe[data-gt="light"] #g-barPane{background-color:#f3f5fa;border-left:1px solid var(--gline)}
 #globe[data-gt="light"] #g-gl:focus-visible{box-shadow:inset 0 0 0 2px var(--acc)}
 #globe[data-gt="light"] .lbl{color:var(--ink);text-shadow:0 1px 3px #fbfbfb,0 0 6px #fbfbfb}
 #globe[data-gt="light"] .lbl .v{color:var(--ink-2)}
-#globe[data-gt="light"] .lbl.ctry{background:rgba(246,248,252,.55)}
+#globe[data-gt="light"] .lbl.ctry{background-color:rgba(246,248,252,.55)}
 #globe[data-gt="light"] .lbl.ms{color:var(--acc)}
 #globe[data-gt="light"] .lbl.fnew{color:#b87c00}
 #globe[data-gt="light"] .lbl.focus{color:#12324a}
@@ -42,7 +42,7 @@
 #globe[data-gt="light"] .lbl.pipe{color:var(--p2)}
 #globe[data-gt="light"] #g-yearBig{color:rgba(18,50,74,.93);text-shadow:0 2px 12px rgba(251,251,251,.6)}
 #globe[data-gt="light"] #g-yearBig small{color:var(--ink-2)}
-#globe[data-gt="light"] #g-worldStat{color:var(--ink-2);text-shadow:0 1px 4px #fbfbfb;background:rgba(247,249,252,.62)}
+#globe[data-gt="light"] #g-worldStat{color:var(--ink-2);text-shadow:0 1px 4px #fbfbfb;background-color:rgba(247,249,252,.62)}
 #globe[data-gt="light"] #g-worldStat b{color:var(--ink)}
 #globe[data-gt="light"] #g-worldStat .pl{color:var(--p2)}
 #globe[data-gt="light"] #g-msPanel{background:var(--gpanel);border:1px solid var(--gline)}
@@ -56,8 +56,8 @@
 #globe[data-gt="light"] #g-msPanel .gcrumb b{color:var(--ink)}
 #globe[data-gt="light"] .gnote{color:var(--ginkm)}
 #globe[data-gt="light"] .msItem{border-left:3px solid rgba(18,50,74,.15)}
-#globe[data-gt="light"] .msItem:hover{background:rgba(18,50,74,.06)}
-#globe[data-gt="light"] .msItem.new{border-left-color:var(--acc);background:rgba(171,124,13,.10)}
+#globe[data-gt="light"] .msItem:hover{background-color:rgba(18,50,74,.06)}
+#globe[data-gt="light"] .msItem.new{border-left-color:var(--acc);background-color:rgba(171,124,13,.10)}
 #globe[data-gt="light"] .msItem .y{color:var(--acc)}
 #globe[data-gt="light"] .msItem .t{color:var(--ginkm)}
 #globe[data-gt="light"] .gtag.on{color:var(--on-b);border-color:var(--on)}
@@ -74,9 +74,9 @@
 #globe[data-gt="light"] .prof .rows span:nth-child(odd){color:var(--ink-2)}
 #globe[data-gt="light"] .prof .rows span:nth-child(even) small{color:var(--ink-2)}
 #globe[data-gt="light"] .prof .blurb{color:#1c3b52;border-left:2px solid var(--acc)}
-#globe[data-gt="light"] .prof .livebox{border:1px solid rgba(25,158,121,.35);background:rgba(25,158,121,.07)}
+#globe[data-gt="light"] .prof .livebox{border:1px solid rgba(25,158,121,.35);background-color:rgba(25,158,121,.07)}
 #globe[data-gt="light"] .prof .livebox b{color:var(--live)}
-#globe[data-gt="light"] .prof .acts a,#globe[data-gt="light"] .prof .acts button{color:var(--ink);border:1px solid var(--gline);background:rgba(18,50,74,.06)}
+#globe[data-gt="light"] .prof .acts a,#globe[data-gt="light"] .prof .acts button{color:var(--ink);border:1px solid var(--gline);background-color:rgba(18,50,74,.06)}
 #globe[data-gt="light"] .pbar i.p1{background:var(--p1)}
 #globe[data-gt="light"] .pbar i.p2{background:var(--p2)}
 #globe[data-gt="light"] .pbar i.p3{background:var(--p3)}
@@ -85,36 +85,36 @@
 #globe[data-gt="light"] .gsw.dash.p1{color:var(--p1)}
 #globe[data-gt="light"] .gsw.dash.p2{color:var(--p2)}
 #globe[data-gt="light"] .gsw.dash.p3{color:var(--p3)}
-#globe[data-gt="light"] .cov{border:1px solid var(--gline);background:rgba(18,50,74,.025)}
+#globe[data-gt="light"] .cov{border:1px solid var(--gline);background-color:rgba(18,50,74,.025)}
 #globe[data-gt="light"] .covh{color:var(--ink-2)}
 #globe[data-gt="light"] .covh b{color:var(--ink)}
-#globe[data-gt="light"] .covr{background:rgba(18,50,74,.1)}
+#globe[data-gt="light"] .covr{background-color:rgba(18,50,74,.1)}
 #globe[data-gt="light"] .covr i{background:var(--acc)}
 #globe[data-gt="light"] .covm{color:var(--ginkm)}
-#globe[data-gt="light"] .audit{border:1px solid rgba(171,124,13,.35);background:rgba(171,124,13,.06)}
+#globe[data-gt="light"] .audit{border:1px solid rgba(171,124,13,.35);background-color:rgba(171,124,13,.06)}
 #globe[data-gt="light"] .audit b{color:var(--acc)}
 #globe[data-gt="light"] .alinks a,#globe[data-gt="light"] .gnote a{color:var(--off-b)}
-#globe[data-gt="light"] #g-pipeLegend{color:var(--ink-2);background:rgba(247,249,252,.62)}
-#globe[data-gt="light"] #g-liveLegend{color:var(--ink-2);background:rgba(247,249,252,.62)}
+#globe[data-gt="light"] #g-pipeLegend{color:var(--ink-2);background-color:rgba(247,249,252,.62)}
+#globe[data-gt="light"] #g-liveLegend{color:var(--ink-2);background-color:rgba(247,249,252,.62)}
 #globe[data-gt="light"] .fd-mp{background:var(--fd-mp)}
 #globe[data-gt="light"] .fd-frame{background:var(--fd-frame)}
 #globe[data-gt="light"] .fd-fl{background:var(--fd-fl)}
 #globe[data-gt="light"] .fd-other{background:var(--fd-other)}
 #globe[data-gt="light"] .fd-unk{background:var(--fd-unk)}
 #globe[data-gt="light"] .fdsw{box-shadow:0 0 0 1px rgba(18,50,74,0.158)}
-#globe[data-gt="light"] #g-fdLegend{color:var(--ink-2);background:rgba(247,249,252,.78);border:1px solid var(--gline)}
-#globe[data-gt="light"] #g-windLegend{color:var(--ink-2);background:rgba(247,249,252,.78);border:1px solid var(--gline)}
-#globe[data-gt="light"] #g-flowLegend{color:var(--ink-2);background:rgba(247,249,252,.78);border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-fdLegend{color:var(--ink-2);background-color:rgba(247,249,252,.78);border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-windLegend{color:var(--ink-2);background-color:rgba(247,249,252,.78);border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-flowLegend{color:var(--ink-2);background-color:rgba(247,249,252,.78);border:1px solid var(--gline)}
 #globe[data-gt="light"] #g-flowLegend .wlh b{color:var(--ink)}
 #globe[data-gt="light"] #g-flowLegend .wseg{border:1px solid var(--gline)}
 #globe[data-gt="light"] #g-flowLegend .wseg button{color:var(--ink-2);background:transparent}
-#globe[data-gt="light"] #g-flowLegend .wseg button.on{background:rgba(18,50,74,.14);color:var(--ink)}
+#globe[data-gt="light"] #g-flowLegend .wseg button.on{background-color:rgba(18,50,74,.14);color:var(--ink)}
 #globe[data-gt="light"] #g-flowLegend .wln a{color:var(--ginkm)}
 #globe[data-gt="light"] #g-flowLegend .fly{color:var(--acc)}
-#globe[data-gt="light"] #g-legStack>#g-fdLegend,#globe[data-gt="light"] #g-legStack>#g-windLegend,#globe[data-gt="light"] #g-legStack>#g-flowLegend,#globe[data-gt="light"] #g-legStack>#g-pipeLegend,#globe[data-gt="light"] #g-legStack>#g-liveLegend{border:1px solid var(--gline);background:rgba(247,249,252,.84)}
-#globe[data-gt="light"] #g-legStack>#g-shipLegend{border:1px solid var(--gline);background:rgba(247,249,252,.84);color:var(--ink-2)}
+#globe[data-gt="light"] #g-legStack>#g-fdLegend,#globe[data-gt="light"] #g-legStack>#g-windLegend,#globe[data-gt="light"] #g-legStack>#g-flowLegend,#globe[data-gt="light"] #g-legStack>#g-pipeLegend,#globe[data-gt="light"] #g-legStack>#g-liveLegend{border:1px solid var(--gline);background-color:rgba(247,249,252,.84)}
+#globe[data-gt="light"] #g-legStack>#g-shipLegend{border:1px solid var(--gline);background-color:rgba(247,249,252,.84);color:var(--ink-2)}
 #globe[data-gt="light"] #g-legStack>#g-shipLegend b{color:var(--ink)}
-#globe[data-gt="light"] #g-zoneLegend,#globe[data-gt="light"] #g-cvgLegend{color:var(--ink-2);background:rgba(247,249,252,.84);border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-zoneLegend,#globe[data-gt="light"] #g-cvgLegend{color:var(--ink-2);background-color:rgba(247,249,252,.84);border:1px solid var(--gline)}
 #globe[data-gt="light"] #g-cvgLegend .wlh b{color:var(--ink)}
 #globe[data-gt="light"] #g-cvgLegend .cvt{color:var(--ginkm)}
 #globe[data-gt="light"] #g-cvgLegend .zl b{color:var(--ink)}
@@ -122,7 +122,7 @@
 #globe[data-gt="light"] #g-cvgLegend a:hover{color:var(--ink)}
 #globe[data-gt="light"] #g-cvgLegend .cvp{color:var(--ginkm)}
 #globe[data-gt="light"] #g-cvgLegend .wln{color:var(--ginkm)}
-#globe[data-gt="light"] .cvsw.full{background:rgba(30,154,124,.75);border:1.5px solid #1e9a7c}
+#globe[data-gt="light"] .cvsw.full{background-color:rgba(30,154,124,.75);border:1.5px solid #1e9a7c}
 #globe[data-gt="light"] .cvsw.part{background:repeating-linear-gradient(135deg,#4b14a3 0 2.5px,rgba(75,20,163,.22) 2.5px 6px);border:1.5px solid #4b14a3}
 #globe[data-gt="light"] #g-tip .tcvg{color:var(--ink-2)}
 #globe[data-gt="light"] #g-tip .tcvg small{color:var(--ginkm)}
@@ -134,30 +134,30 @@
 #globe[data-gt="light"] #g-windLegend .wlh b{color:var(--ink)}
 #globe[data-gt="light"] #g-windLegend .wlbar em{color:var(--ink-2)}
 #globe[data-gt="light"] #g-windLegend .wln a{color:var(--ginkm)}
-#globe[data-gt="light"] #g-ports.fdm .pmk{background:rgba(245,247,251,.85);color:#12324a;border-color:rgba(18,50,74,.8)}
+#globe[data-gt="light"] #g-ports.fdm .pmk{background-color:rgba(245,247,251,.85);color:#12324a;border-color:rgba(18,50,74,.8)}
 #globe[data-gt="light"] #g-fdLegend .fdh b{color:var(--ink)}
-#globe[data-gt="light"] #g-fdLegend .fdchip.on{border-color:var(--acc);background:rgba(171,124,13,.12)}
+#globe[data-gt="light"] #g-fdLegend .fdchip.on{border-color:var(--acc);background-color:rgba(171,124,13,.12)}
 #globe[data-gt="light"] #g-fdLegend .fdn{color:var(--ginkm)}
 #globe[data-gt="light"] #g-fdLegend .fdn a{color:var(--ink-2)}
 #globe[data-gt="light"] .ffd{color:var(--ink-2)}
 #globe[data-gt="light"] .ffd b{color:var(--ink)}
 #globe[data-gt="light"] .ffd .fds a{color:var(--ink-2)}
 #globe[data-gt="light"] .ffd .fdim{color:var(--ink)}
-#globe[data-gt="light"] .ffd .fdsvg{background:rgba(242,245,250,.55);box-shadow:0 0 0 1px rgba(18,50,74,.08)}
+#globe[data-gt="light"] .ffd .fdsvg{background-color:rgba(242,245,250,.55);box-shadow:0 0 0 1px rgba(18,50,74,.08)}
 #globe[data-gt="light"] .ffacts{color:var(--ink-2)}
 #globe[data-gt="light"] .ffacts b{color:var(--ink)}
 #globe[data-gt="light"] .ffacts .fds a{color:var(--ink-2)}
 #globe[data-gt="light"] #g-infoCard .fvn{border:1px solid var(--gline);color:var(--ink-2)}
 #globe[data-gt="light"] #g-infoCard .fvn .cnt{color:var(--ginkm)}
 #globe[data-gt="light"] #g-infoCard .fvn:focus-visible{outline:2px solid var(--acc)}
-#globe[data-gt="light"] .fdyears{color:var(--ink-2);background:rgba(18,50,74,.03)}
+#globe[data-gt="light"] .fdyears{color:var(--ink-2);background-color:rgba(18,50,74,.03)}
 #globe[data-gt="light"] .livebox.none{border-color:var(--gline);background:transparent}
 #globe[data-gt="light"] .livebox .lago{color:var(--ink-2)}
 #globe[data-gt="light"] .msItem .lv{color:var(--live)}
 #globe[data-gt="light"] #g-tip .tlive{color:var(--live)}
 #globe[data-gt="light"] #g-tip .tnote{color:var(--ink-2);border-left:2px solid var(--p2)}
-#globe[data-gt="light"] #g-infoCard{background:rgba(245,247,251,.95);border:1px solid var(--gline);box-shadow:0 10px 40px rgba(18,50,74,0.203)}
-#globe[data-gt="light"] #g-infoCard .gx{background:rgba(251,251,251,.45)}
+#globe[data-gt="light"] #g-infoCard{background-color:rgba(245,247,251,.95);border:1px solid var(--gline);box-shadow:0 10px 40px rgba(18,50,74,0.203)}
+#globe[data-gt="light"] #g-infoCard .gx{background-color:rgba(251,251,251,.45)}
 #globe[data-gt="light"] #g-infoCard .gph .cr{color:#12324a;text-shadow:0 1px 3px #fbfbfb;background:linear-gradient(transparent,rgba(251,251,251,.55))}
 #globe[data-gt="light"] #g-infoCard .gph .cr a{color:#12324a}
 #globe[data-gt="light"] #g-infoCard .kick{color:var(--ink-2)}
@@ -166,29 +166,29 @@
 #globe[data-gt="light"] #g-infoCard .wx{color:var(--ink-2)}
 #globe[data-gt="light"] #g-infoCard .fnote{color:#1c3b52;border-left:2px solid var(--p2)}
 #globe[data-gt="light"] #g-infoCard .fnote.pos{color:#3a566c;border-left-color:#5c6b80}
-#globe[data-gt="light"] #g-infoCard .livebox{border:1px solid rgba(25,158,121,.35);background:rgba(25,158,121,.07)}
+#globe[data-gt="light"] #g-infoCard .livebox{border:1px solid rgba(25,158,121,.35);background-color:rgba(25,158,121,.07)}
 #globe[data-gt="light"] #g-infoCard .livebox b{color:var(--live)}
-#globe[data-gt="light"] #g-infoCard .links a,#globe[data-gt="light"] #g-infoCard .links button{color:var(--off-b);border:1px solid var(--gline);background:rgba(18,50,74,.04)}
-#globe[data-gt="light"] #g-infoCard .links a:hover{background:rgba(18,50,74,.1)}
+#globe[data-gt="light"] #g-infoCard .links a,#globe[data-gt="light"] #g-infoCard .links button{color:var(--off-b);border:1px solid var(--gline);background-color:rgba(18,50,74,.04)}
+#globe[data-gt="light"] #g-infoCard .links a:hover{background-color:rgba(18,50,74,.1)}
 #globe[data-gt="light"] #g-infoCard .fh{color:var(--ink-2)}
-#globe[data-gt="light"] #g-infoCard .ftiles>div{border:1px solid var(--gline);background:rgba(18,50,74,.03)}
+#globe[data-gt="light"] #g-infoCard .ftiles>div{border:1px solid var(--gline);background-color:rgba(18,50,74,.03)}
 #globe[data-gt="light"] #g-infoCard .ftiles span{color:var(--ink-2)}
 #globe[data-gt="light"] #g-infoCard .fphase .y{color:var(--ink-2)}
-#globe[data-gt="light"] #g-infoCard .fphase .tr{background:rgba(18,50,74,.05)}
+#globe[data-gt="light"] #g-infoCard .fphase .tr{background-color:rgba(18,50,74,.05)}
 #globe[data-gt="light"] #g-infoCard .fphase .tr i{background:var(--c)}
 #globe[data-gt="light"] #g-infoCard .fphase li.todo .tr i{background:transparent;border:1px dashed var(--c)}
 #globe[data-gt="light"] #g-infoCard .fphase li.todo .y,#globe[data-gt="light"] #g-infoCard .fphase li.todo .v{color:var(--ginkm)}
 #globe[data-gt="light"] #g-infoCard .frel{border-top:1px solid var(--gline)}
-#globe[data-gt="light"] #g-infoCard .frel summary .cnt{background:rgba(18,50,74,.08);color:var(--ink-2)}
+#globe[data-gt="light"] #g-infoCard .frel summary .cnt{background-color:rgba(18,50,74,.08);color:var(--ink-2)}
 #globe[data-gt="light"] #g-infoCard .frel a{border-left:3px solid rgba(18,50,74,.15);color:var(--ink)}
-#globe[data-gt="light"] #g-infoCard .frel a:hover,#globe[data-gt="light"] #g-infoCard .frel a:focus-visible{background:rgba(18,50,74,.07)}
+#globe[data-gt="light"] #g-infoCard .frel a:hover,#globe[data-gt="light"] #g-infoCard .frel a:focus-visible{background-color:rgba(18,50,74,.07)}
 #globe[data-gt="light"] #g-infoCard .frel .m{color:var(--ginkm)}
 #globe[data-gt="light"] #g-infoCard .psrc{color:var(--ink-2)}
 #globe[data-gt="light"] #g-infoCard .psrc a{color:var(--off-b)}
 #globe[data-gt="light"] #g-infoCard .factions{border-top:1px solid var(--gline)}
-#globe[data-gt="light"] #g-infoCard .factions button,#globe[data-gt="light"] #g-infoCard .factions a{border:1px solid var(--gline);background:rgba(18,50,74,.05);color:var(--ink)}
-#globe[data-gt="light"] #g-infoCard .factions a:hover{background:rgba(18,50,74,.1)}
-#globe[data-gt="light"] #g-infoCard .proles span{border:1px solid rgba(184,53,0,.45);color:#b83700;background:rgba(184,53,0,.08)}
+#globe[data-gt="light"] #g-infoCard .factions button,#globe[data-gt="light"] #g-infoCard .factions a{border:1px solid var(--gline);background-color:rgba(18,50,74,.05);color:var(--ink)}
+#globe[data-gt="light"] #g-infoCard .factions a:hover{background-color:rgba(18,50,74,.1)}
+#globe[data-gt="light"] #g-infoCard .proles span{border:1px solid rgba(184,53,0,.45);color:#b83700;background-color:rgba(184,53,0,.08)}
 #globe[data-gt="light"] .fsrow .fsl{color:var(--ink-2)}
 #globe[data-gt="light"] .fsel label{color:var(--ink-2)}
 #globe[data-gt="light"] .fres .fshide{color:var(--acc)}
@@ -198,23 +198,23 @@
 #globe[data-gt="light"] .msItem.port .y{color:var(--port)}
 #globe[data-gt="light"] .gtag.port{color:var(--port);border-color:var(--port)}
 #globe[data-gt="light"] #g-ports .pmk{border:1.5px solid rgba(18,50,74,.75);background:var(--port);color:#faf5f3;box-shadow:0 1px 4px rgba(18,50,74,0.27)}
-#globe[data-gt="light"] #g-ports .pmk:hover{background:#b83600}
-#globe[data-gt="light"] #g-ports .pmk.dev{background:rgba(245,247,251,.8);color:var(--port);border:1.5px dashed var(--port)}
-#globe[data-gt="light"] #g-ports .pmk.old{background:#798494;color:#f1f3f6;border-color:rgba(18,50,74,.45)}
+#globe[data-gt="light"] #g-ports .pmk:hover{background-color:#b83600}
+#globe[data-gt="light"] #g-ports .pmk.dev{background-color:rgba(245,247,251,.8);color:var(--port);border:1.5px dashed var(--port)}
+#globe[data-gt="light"] #g-ports .pmk.old{background-color:#798494;color:#f1f3f6;border-color:rgba(18,50,74,.45)}
 #globe[data-gt="light"] #g-ports .pmk.sel{border-color:#12324a;box-shadow:0 0 0 3px rgba(184,53,0,.45),0 1px 6px rgba(18,50,74,0.315)}
 #globe[data-gt="light"] .lbl.port{color:#b83700}
 #globe[data-gt="light"] .lbl.port.focus b{color:var(--port)}
-#globe[data-gt="light"] #g-tourBar{border-top:1px solid var(--gline);background:rgba(245,247,251,.97)}
-#globe[data-gt="light"] #g-tourMenu{background:rgba(245,247,251,.97);border:1px solid var(--gline);box-shadow:0 6px 20px rgba(18,50,74,0.18)}
-#globe[data-gt="light"] #g-infoCard .desc.story{border-left:3px solid var(--acc);background:rgba(171,124,13,.08);color:var(--ink)}
+#globe[data-gt="light"] #g-tourBar{border-top:1px solid var(--gline);background-color:rgba(245,247,251,.97)}
+#globe[data-gt="light"] #g-tourMenu{background-color:rgba(245,247,251,.97);border:1px solid var(--gline);box-shadow:0 6px 20px rgba(18,50,74,0.18)}
+#globe[data-gt="light"] #g-infoCard .desc.story{border-left:3px solid var(--acc);background-color:rgba(171,124,13,.08);color:var(--ink)}
 #globe[data-gt="light"] #g-infoCard .desc.story b{color:var(--acc)}
 #globe[data-gt="light"] #g-tourBar .cnt{color:var(--ink-2)}
-#globe[data-gt="light"] #g-tourBar .prog{background:rgba(18,50,74,.12)}
+#globe[data-gt="light"] #g-tourBar .prog{background-color:rgba(18,50,74,.12)}
 #globe[data-gt="light"] #g-tourBar .prog i{background:var(--acc)}
 #globe[data-gt="light"] #g-hint{color:var(--ginkm);text-shadow:0 1px 3px #fbfbfb}
 #globe[data-gt="light"] #g-attr{color:rgba(18,50,74,.7);text-shadow:0 1px 3px #fbfbfb}
-#globe[data-gt="light"] #g-notice{background:rgba(245,247,251,.95);border:1px solid var(--gline)}
-#globe[data-gt="light"] #g-tip{background:rgba(245,247,251,.96);border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-notice{background-color:rgba(245,247,251,.95);border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-tip{background-color:rgba(245,247,251,.96);border:1px solid var(--gline)}
 #globe[data-gt="light"] #g-tip .hint2{color:var(--acc)}
 #globe[data-gt="light"] .glegend{color:var(--ink-2)}
 #globe[data-gt="light"] .brow .nm small{color:var(--ginkm)}
@@ -224,7 +224,7 @@
 #globe[data-gt="light"] .brow.sel .nm{color:var(--acc)}
 #globe[data-gt="light"] .brow.carry .bar i{background-image:repeating-linear-gradient(135deg,rgba(246,248,252,.55) 0 3px,transparent 3px 6px)}
 #globe[data-gt="light"] .ltn{color:var(--ginkm)}
-#globe[data-gt="light"] .ltbox{background:rgba(171,124,13,.08);border:1px solid rgba(171,124,13,.25);color:var(--ink-2)}
+#globe[data-gt="light"] .ltbox{background-color:rgba(171,124,13,.08);border:1px solid rgba(171,124,13,.25);color:var(--ink-2)}
 #globe[data-gt="light"] .ltbox a{color:var(--ink)}
 #globe[data-gt="light"] .brow.sel .bar i.on{background:var(--on-b)}
 #globe[data-gt="light"] .brow.sel .bar i.off{background:var(--off-b)}
@@ -232,14 +232,14 @@
 #globe[data-gt="light"] #g-barFoot{color:var(--ginkm)}
 #globe[data-gt="light"] #g-bottom{background:var(--gpanel);border-top:1px solid var(--gline)}
 #globe[data-gt="light"] #g-slider{background:linear-gradient(to right,var(--acc) var(--p,0%),rgba(18,50,74,.14) var(--p,0%))}
-#globe[data-gt="light"] #g-slider::-webkit-slider-thumb{background:#12324a;border:2px solid var(--acc)}
-#globe[data-gt="light"] #g-slider::-moz-range-thumb{background:#12324a;border:2px solid var(--acc)}
+#globe[data-gt="light"] #g-slider::-webkit-slider-thumb{background-color:#12324a;border:2px solid var(--acc)}
+#globe[data-gt="light"] #g-slider::-moz-range-thumb{background-color:#12324a;border:2px solid var(--acc)}
 #globe[data-gt="light"] #g-slider:focus-visible{outline:2px solid var(--acc)}
-#globe[data-gt="light"] #g-modal{background:rgba(251,251,251,.6)}
-#globe[data-gt="light"] #g-modal .box{background:#f0f3f9;border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-modal{background-color:rgba(251,251,251,.6)}
+#globe[data-gt="light"] #g-modal .box{background-color:#f0f3f9;border:1px solid var(--gline)}
 #globe[data-gt="light"] #g-modal h4{color:var(--acc)}
 #globe[data-gt="light"] #g-modal a{color:var(--off-b)}
-#globe[data-gt="light"] #g-modal .glim{border:1px solid rgba(184,111,0,.45);border-left:4px solid #b86f00;background:rgba(184,111,0,.07)}
+#globe[data-gt="light"] #g-modal .glim{border:1px solid rgba(184,111,0,.45);border-left:4px solid #b86f00;background-color:rgba(184,111,0,.07)}
 #globe[data-gt="light"] #g-modal .glim h4{color:#b86f00}
 @media (max-width:900px){
   #globe[data-gt="light"] #g-barPane{border-top:1px solid var(--gline)}
@@ -251,7 +251,7 @@
 #globe[data-gt="light"] #g-events .emk.inc{background:var(--ev-inc);color:#faf3f4}
 #globe[data-gt="light"] #g-events .emk.ms{background:var(--ev-ms);color:#ebeff7}
 #globe[data-gt="light"] #g-events .emk.pol{background:var(--ev-pol);color:#ede7f6}
-#globe[data-gt="light"] #g-events .emk.stk::after{background:#f3f6fa;color:#12324a;border:1px solid rgba(18,50,74,.75)}
+#globe[data-gt="light"] #g-events .emk.stk::after{background-color:#f3f6fa;color:#12324a;border:1px solid rgba(18,50,74,.75)}
 #globe[data-gt="light"] #g-events .emk.sel{border-color:#12324a;box-shadow:0 0 0 3px rgba(184,0,19,.4),0 1px 6px rgba(18,50,74,0.315)}
 #globe[data-gt="light"] .msItem.ev{border-left-color:var(--ev-ms)}
 #globe[data-gt="light"] .msItem.ev.inc{border-left-color:var(--ev-inc)}
@@ -266,15 +266,15 @@
 #globe[data-gt="light"] .lbl.ev.pol{color:var(--ev-pol)}
 #globe[data-gt="light"] #g-infoCard .fnote.evcas{color:#b80013}
 #globe[data-gt="light"] .gana .oout .oyl{color:var(--ginkm)}
-#globe[data-gt="light"] .gana .oout .oq{background:rgba(18,50,74,.06);border:1px solid var(--gline)}
+#globe[data-gt="light"] .gana .oout .oq{background-color:rgba(18,50,74,.06);border:1px solid var(--gline)}
 #globe[data-gt="light"] .gana .oout .osum{color:#39577e}
 #globe[data-gt="light"] .gana .oout .ocov{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .oout .olegend{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .oout .osw{background:var(--on)}
 #globe[data-gt="light"] .gana .oout .omed{border-left:1.5px dashed #12324a}
 #globe[data-gt="light"] .gana .oout .orow{border-top:1px solid var(--gline)}
-#globe[data-gt="light"] .gana .oout .orow:hover,#globe[data-gt="light"] .gana .oout .orow:focus-visible{background:rgba(18,50,74,.05)}
-#globe[data-gt="light"] .gana .oout .orow.sel{background:rgba(171,124,13,.14);box-shadow:inset 3px 0 0 var(--acc)}
+#globe[data-gt="light"] .gana .oout .orow:hover,#globe[data-gt="light"] .gana .oout .orow:focus-visible{background-color:rgba(18,50,74,.05)}
+#globe[data-gt="light"] .gana .oout .orow.sel{background-color:rgba(171,124,13,.14);box-shadow:inset 3px 0 0 var(--acc)}
 #globe[data-gt="light"] .gana .oout .ork{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .oout .onm small{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .oout .obar i{background:var(--on)}
@@ -284,27 +284,27 @@
 #globe[data-gt="light"] .gana .oout .oval small{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .oout .oaxis{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .oout .omh{border-top:1px solid var(--gline)}
-#globe[data-gt="light"] .gana .oout .omh:hover{background:rgba(18,50,74,.04)}
+#globe[data-gt="light"] .gana .oout .omh:hover{background-color:rgba(18,50,74,.04)}
 #globe[data-gt="light"] .gana .oout .odots{background:linear-gradient(var(--gline),var(--gline)) 0 50%/100% 1px no-repeat}
 #globe[data-gt="light"] .gana .oout .odot{border:2px solid #f0f3f9;background:var(--on)}
 #globe[data-gt="light"] .gana .oout .odot:hover,#globe[data-gt="light"] .gana .oout .odot:focus-visible{border-color:#12324a}
 #globe[data-gt="light"] .gana .oout .odots.oh{background:linear-gradient(var(--gline),var(--gline)) 0 100%/100% 1px no-repeat}
 #globe[data-gt="light"] .gana .oout .ohist{background:var(--on)}
-#globe[data-gt="light"] .gana .oout .oexp{background:rgba(18,50,74,.05);border:1px solid var(--gline)}
+#globe[data-gt="light"] .gana .oout .oexp{background-color:rgba(18,50,74,.05);border:1px solid var(--gline)}
 #globe[data-gt="light"] .gana .oout .omb{border-left:2px solid var(--gline)}
-#globe[data-gt="light"] .gana .oout .omod.open>.omh{background:rgba(18,50,74,.04)}
-#globe[data-gt="light"] .gana .oout .otip{background:#f3f6fa;border:1px solid var(--gline);box-shadow:0 4px 14px rgba(18,50,74,0.18)}
+#globe[data-gt="light"] .gana .oout .omod.open>.omh{background-color:rgba(18,50,74,.04)}
+#globe[data-gt="light"] .gana .oout .otip{background-color:#f3f6fa;border:1px solid var(--gline);box-shadow:0 4px 14px rgba(18,50,74,0.18)}
 #globe[data-gt="light"] .gana .oout .otip small{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .oout .onote{color:var(--ginkm)}
 #globe[data-gt="light"] #g-infoCard .fout{color:var(--off-b);border:1px solid var(--gline)}
-#globe[data-gt="light"] #g-indLegend{color:var(--ink-2);background:rgba(247,249,252,.84);border:1px solid var(--gline)}
+#globe[data-gt="light"] #g-indLegend{color:var(--ink-2);background-color:rgba(247,249,252,.84);border:1px solid var(--gline)}
 #globe[data-gt="light"] #g-indLegend .wlh b{color:var(--ink)}
 #globe[data-gt="light"] #g-indLegend .ilu{color:var(--ginkm)}
 #globe[data-gt="light"] #g-indLegend .ilt{color:var(--ginkm)}
 #globe[data-gt="light"] #g-indLegend .ilr i{border:1px solid rgba(18,50,74,.18)}
 #globe[data-gt="light"] #g-indLegend .wln{color:var(--ginkm)}
-#globe[data-gt="light"] #g-bars.ind .brow .bar i.on{background:#2c878b}
-#globe[data-gt="light"] #g-bars.ind .brow.sel .bar i.on{background:#30887f}
+#globe[data-gt="light"] #g-bars.ind .brow .bar i.on{background-color:#2c878b}
+#globe[data-gt="light"] #g-bars.ind .brow.sel .bar i.on{background-color:#30887f}
 #globe[data-gt="light"] .gana .ocmp .oyl{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .ocmp .ocov{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .ocmp .onote{color:var(--ginkm)}
@@ -314,12 +314,12 @@
 #globe[data-gt="light"] .gana .ocmp .cmptab thead th small{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .ocmp .cmptab tbody th{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .ocmp .cmptab td small{color:var(--ginkm)}
-#globe[data-gt="light"] .gana .ocmp .cmptw,#globe[data-gt="light"] .gana .ocmp .cmplink{border:1px solid var(--gline);background:rgba(18,50,74,.06);color:var(--ink)}
-#globe[data-gt="light"] .gana .omk .mkwarn{color:#ab7c0d;background:rgba(171,124,13,.08);border:1px solid rgba(171,124,13,.3)}
+#globe[data-gt="light"] .gana .ocmp .cmptw,#globe[data-gt="light"] .gana .ocmp .cmplink{border:1px solid var(--gline);background-color:rgba(18,50,74,.06);color:var(--ink)}
+#globe[data-gt="light"] .gana .omk .mkwarn{color:#ab7c0d;background-color:rgba(171,124,13,.08);border:1px solid rgba(171,124,13,.3)}
 #globe[data-gt="light"] .gana .omk .mkhd{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .omk .mkn{color:var(--ink)}
-#globe[data-gt="light"] .gana .omk .mkb{background:rgba(18,50,74,.04)}
-#globe[data-gt="light"] .gana .omk .mkb i{background:#2c878b}
+#globe[data-gt="light"] .gana .omk .mkb{background-color:rgba(18,50,74,.04)}
+#globe[data-gt="light"] .gana .omk .mkb i{background-color:#2c878b}
 #globe[data-gt="light"] .gana .omk .mkv,#globe[data-gt="light"] .gana .omk .mkp{color:var(--ink-2)}
 #globe[data-gt="light"] .gana .omk .mkp{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .omk .mko .mkn{color:var(--ginkm)}
@@ -328,38 +328,38 @@
 #globe[data-gt="light"] .gana .omk .ocov{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .omk .onote{color:var(--ginkm)}
 #globe[data-gt="light"] .gana .omk .cmpchart{color:var(--ink-2)}
-#globe[data-gt="light"] .gana .omk .cmplink{border:1px solid var(--gline);background:rgba(18,50,74,.06);color:var(--ink)}
-#globe[data-gt="light"] .gana .omk .cmplink{border:1px solid var(--gline);background:rgba(18,50,74,.06);color:var(--ink)}
+#globe[data-gt="light"] .gana .omk .cmplink{border:1px solid var(--gline);background-color:rgba(18,50,74,.06);color:var(--ink)}
+#globe[data-gt="light"] .gana .omk .cmplink{border:1px solid var(--gline);background-color:rgba(18,50,74,.06);color:var(--ink)}
 @media (max-width:640px){
-  #globe[data-gt="light"] #g-top button,#globe[data-gt="light"] #g-top select{background:rgba(245,247,251,.84);border-color:rgba(18,50,74,.16);box-shadow:0 1px 4px rgba(18,50,74,0.18)}
-  #globe[data-gt="light"] #g-top .gmb.open{background:rgba(234,238,244,.95)}
-  #globe[data-gt="light"] #g-top.more #g-btnMore{background:rgba(18,50,74,.2)}
-  #globe[data-gt="light"] #g-drawer{background:rgba(245,247,251,.96);border-top:1px solid rgba(18,50,74,.14);box-shadow:0 -6px 24px rgba(18,50,74,0.203)}
-  #globe[data-gt="light"] #g-drawer .gdgrip i{background:rgba(18,50,74,.38)}
+  #globe[data-gt="light"] #g-top button,#globe[data-gt="light"] #g-top select{background-color:rgba(245,247,251,.84);border-color:rgba(18,50,74,.16);box-shadow:0 1px 4px rgba(18,50,74,0.18)}
+  #globe[data-gt="light"] #g-top .gmb.open{background-color:rgba(234,238,244,.95)}
+  #globe[data-gt="light"] #g-top.more #g-btnMore{background-color:rgba(18,50,74,.2)}
+  #globe[data-gt="light"] #g-drawer{background-color:rgba(245,247,251,.96);border-top:1px solid rgba(18,50,74,.14);box-shadow:0 -6px 24px rgba(18,50,74,0.203)}
+  #globe[data-gt="light"] #g-drawer .gdgrip i{background-color:rgba(18,50,74,.38)}
   #globe[data-gt="light"] #g-drawer #g-worldStat>div+div::before,#globe[data-gt="light"] #g-drawer #g-worldStat>div[style*="margin-top"]::before,#globe[data-gt="light"] #g-drawer #g-worldStat>div.pl::before{color:var(--ginkm)}
   #globe[data-gt="light"] #g-drawer #g-msPanel,#globe[data-gt="light"] #g-drawer #g-infoCard{border-top:1px solid var(--gline)}
-  #globe[data-gt="light"] #g-drawer #g-msPanel .ph{background:rgba(245,247,251,.96)}
+  #globe[data-gt="light"] #g-drawer #g-msPanel .ph{background-color:rgba(245,247,251,.96)}
 }
-#globe[data-gt="light"] #g-welcome{background:rgba(249,251,253,.55)}
-#globe[data-gt="light"] #g-welcome .wbox{background:rgba(245,247,251,.97);border:1px solid var(--gline);box-shadow:0 14px 50px rgba(18,50,74,0.225)}
+#globe[data-gt="light"] #g-welcome{background-color:rgba(249,251,253,.55)}
+#globe[data-gt="light"] #g-welcome .wbox{background-color:rgba(245,247,251,.97);border:1px solid var(--gline);box-shadow:0 14px 50px rgba(18,50,74,0.225)}
 #globe[data-gt="light"] #g-welcome .wsub{color:var(--ink-2)}
-#globe[data-gt="light"] #g-welcome .wcard{border:1px solid var(--gline);background:rgba(18,50,74,.04);color:var(--ink)}
-#globe[data-gt="light"] #g-welcome button.wcard:hover,#globe[data-gt="light"] #g-welcome button.wcard:focus-visible{background:rgba(171,124,13,.12);border-color:rgba(171,124,13,.5)}
+#globe[data-gt="light"] #g-welcome .wcard{border:1px solid var(--gline);background-color:rgba(18,50,74,.04);color:var(--ink)}
+#globe[data-gt="light"] #g-welcome button.wcard:hover,#globe[data-gt="light"] #g-welcome button.wcard:focus-visible{background-color:rgba(171,124,13,.12);border-color:rgba(171,124,13,.5)}
 #globe[data-gt="light"] #g-welcome .wcard i{color:var(--acc)}
 #globe[data-gt="light"] #g-welcome .wcard span{color:var(--ink-2)}
 #globe[data-gt="light"] .lbl.you b{color:#b87c00}
-#globe[data-gt="light"] .lbl.you::after{background:#b87c00;border:2px solid #f4f7fb}
-#globe[data-gt="light"] #g-scene{background:#f2f6fa}
+#globe[data-gt="light"] .lbl.you::after{background-color:#b87c00;border:2px solid #f4f7fb}
+#globe[data-gt="light"] #g-scene{background-color:#f2f6fa}
 #globe[data-gt="light"] #g-scene .scn-bar{background:linear-gradient(rgba(249,251,253,.75),rgba(249,251,253,0))}
 #globe[data-gt="light"] #g-scene .scn-title{color:#12324a;text-shadow:0 1px 3px #fbfbfb}
-#globe[data-gt="light"] #g-scene button{background:rgba(245,247,251,.72);color:#12324a;border-color:rgba(18,50,74,.3)}
-#globe[data-gt="light"] #g-scene button:hover{background:rgba(230,236,245,.85)}
+#globe[data-gt="light"] #g-scene button{background-color:rgba(245,247,251,.72);color:#12324a;border-color:rgba(18,50,74,.3)}
+#globe[data-gt="light"] #g-scene button:hover{background-color:rgba(230,236,245,.85)}
 #globe[data-gt="light"] #g-scene button:focus-visible{outline:2px solid var(--acc)}
-#globe[data-gt="light"] #g-scene .scn-hud{background:rgba(249,251,253,.62);color:#12324a}
+#globe[data-gt="light"] #g-scene .scn-hud{background-color:rgba(249,251,253,.62);color:#12324a}
 #globe[data-gt="light"] #g-scene .scn-hud summary:focus-visible{outline:2px solid var(--acc)}
 #globe[data-gt="light"] #g-scene .scn-warn{color:#b88100}
 #globe[data-gt="light"] #g-scene .scn-cr{color:#12324a;text-shadow:0 0 3px #fbfbfb}
-#globe[data-gt="light"] #g-scene .scn-load{color:#12324a;background:rgba(249,251,253,.6)}
+#globe[data-gt="light"] #g-scene .scn-load{color:#12324a;background-color:rgba(249,251,253,.6)}
 /* 天空色的背景（取代深色太空）· a sky in place of dark space */
 /* 網站共用的變數改成淺色模式的值（不論頁首 ☀／☾）· the site's shared variables take their light-mode values */
 #globe[data-gt="light"]{color-scheme:light;--ink:#12324A;--ink-2:#3E5A70;--ink-3:#566f84;--acc:#0b7d70;background:#e4f2fb;
@@ -375,3 +375,21 @@
 #globe[data-gt="light"] .lbl.focus b,#globe[data-gt="light"] .lbl.ms{color:#8a5a00}
 #globe[data-gt="light"] .lbl.fnew{color:#8a5a00}
 #globe[data-gt="light"] button.active,#globe[data-gt="light"] .gseg button.active{color:#fff}
+/* 資料用色（與 globe.js 的 DATA_PAL.light 一致）：陸域／離岸／浮動的字與連結用深色版；水下基礎的中性色改深灰 ·
+   data colours (matching DATA_PAL.light in globe.js): darker onshore/offshore/floating for text and links, dark-grey foundation neutrals */
+#globe[data-gt="light"]{--on:#9a6b14;--on-b:#8a6212;--off:#1f6fbf;--off-b:#1a5fa6;--fl:#127565;--fl-b:#0f6658;--fd-mp:#2a64c0;--fd-frame:#b8441a;--fd-fl:#0b7552;--fd-other:#2f3742;--fd-unk:#6c7785;--p1:#1c3044;--p2:#3f546a;--p3:#66788b}
+/* 港口與事件：記號維持原本的亮色填色（深色字），當文字用的地方改深色 · ports and events: markers keep their bright fills, text uses darker shades */
+#globe[data-gt="light"] .fsports .fh,#globe[data-gt="light"] .pres .fh,#globe[data-gt="light"] .msItem.port .y,#globe[data-gt="light"] .gtag.port,#globe[data-gt="light"] .lbl.port.focus b,#globe[data-gt="light"] #g-ports .pmk.dev{color:#b5401e}
+#globe[data-gt="light"] .gtag.port{border-color:#b5401e}
+#globe[data-gt="light"] #g-ports .pmk{border-color:#12324A}
+#globe[data-gt="light"] #g-ports .pmk.dev{background:rgba(255,255,255,.9);border-color:#b5401e}
+#globe[data-gt="light"] .gtag.ev,#globe[data-gt="light"] .lbl.ev{color:#12324A;border-color:#12324A}
+#globe[data-gt="light"] .gtag.ev.inc,#globe[data-gt="light"] .lbl.ev.inc b{color:#b3261e;border-color:#b3261e}
+#globe[data-gt="light"] .gtag.ev.pol,#globe[data-gt="light"] .lbl.ev.pol{color:#6b3fb5;border-color:#6b3fb5}
+#globe[data-gt="light"] .msItem.ev{border-left-color:#12324A}
+#globe[data-gt="light"] #g-events .emk{box-shadow:0 0 0 1.5px #12324A}
+/* 實景視角：影像出處列加白底（海面是深色的影像）· sea-level view: a white backing for the credit line over the dark imagery */
+#globe[data-gt="light"] #g-scene .scn-cr{background:rgba(255,255,255,.85);color:#12324A;text-shadow:none;padding:1px 6px;border-radius:5px}
+#globe[data-gt="light"] #g-scene .scn-load{background:rgba(255,255,255,.9);color:#12324A}
+/* 水下基礎剖面圖維持深色水體（圖裡的塔架是白色）· the foundation cross-sections keep a dark water panel (their towers are white) */
+#globe[data-gt="light"] .ffd .fdsvg{background:#1d3348;color:#e3eaf5}

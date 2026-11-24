@@ -138,6 +138,8 @@ def theme_rules(rules, attr, mapper):
                 val = COLOR.sub(lambda m: shadow(m.group(0)), val.strip())
             else:
                 val = COLOR.sub(lambda m: mapper(m.group(0)), val.strip())
+            if prop == 'background' and COLOR.fullmatch(val.strip()):   # 只有顏色的簡寫改成 background-color，不重設位置與大小 · colour-only shorthand → background-color (keeps position/size)
+                prop = 'background-color'
             decls.append(prop + ':' + val)
         if decls:
             out.append(scope(pre, attr) + '{' + ';'.join(decls) + '}')
@@ -162,6 +164,24 @@ EXTRA = {
 #globe[data-gt="light"] .lbl.focus b,#globe[data-gt="light"] .lbl.ms{color:#8a5a00}
 #globe[data-gt="light"] .lbl.fnew{color:#8a5a00}
 #globe[data-gt="light"] button.active,#globe[data-gt="light"] .gseg button.active{color:#fff}
+/* 資料用色（與 globe.js 的 DATA_PAL.light 一致）：陸域／離岸／浮動的字與連結用深色版；水下基礎的中性色改深灰 ·
+   data colours (matching DATA_PAL.light in globe.js): darker onshore/offshore/floating for text and links, dark-grey foundation neutrals */
+#globe[data-gt="light"]{--on:#9a6b14;--on-b:#8a6212;--off:#1f6fbf;--off-b:#1a5fa6;--fl:#127565;--fl-b:#0f6658;--fd-mp:#2a64c0;--fd-frame:#b8441a;--fd-fl:#0b7552;--fd-other:#2f3742;--fd-unk:#6c7785;--p1:#1c3044;--p2:#3f546a;--p3:#66788b}
+/* 港口與事件：記號維持原本的亮色填色（深色字），當文字用的地方改深色 · ports and events: markers keep their bright fills, text uses darker shades */
+#globe[data-gt="light"] .fsports .fh,#globe[data-gt="light"] .pres .fh,#globe[data-gt="light"] .msItem.port .y,#globe[data-gt="light"] .gtag.port,#globe[data-gt="light"] .lbl.port.focus b,#globe[data-gt="light"] #g-ports .pmk.dev{color:#b5401e}
+#globe[data-gt="light"] .gtag.port{border-color:#b5401e}
+#globe[data-gt="light"] #g-ports .pmk{border-color:#12324A}
+#globe[data-gt="light"] #g-ports .pmk.dev{background:rgba(255,255,255,.9);border-color:#b5401e}
+#globe[data-gt="light"] .gtag.ev,#globe[data-gt="light"] .lbl.ev{color:#12324A;border-color:#12324A}
+#globe[data-gt="light"] .gtag.ev.inc,#globe[data-gt="light"] .lbl.ev.inc b{color:#b3261e;border-color:#b3261e}
+#globe[data-gt="light"] .gtag.ev.pol,#globe[data-gt="light"] .lbl.ev.pol{color:#6b3fb5;border-color:#6b3fb5}
+#globe[data-gt="light"] .msItem.ev{border-left-color:#12324A}
+#globe[data-gt="light"] #g-events .emk{box-shadow:0 0 0 1.5px #12324A}
+/* 實景視角：影像出處列加白底（海面是深色的影像）· sea-level view: a white backing for the credit line over the dark imagery */
+#globe[data-gt="light"] #g-scene .scn-cr{background:rgba(255,255,255,.85);color:#12324A;text-shadow:none;padding:1px 6px;border-radius:5px}
+#globe[data-gt="light"] #g-scene .scn-load{background:rgba(255,255,255,.9);color:#12324A}
+/* 水下基礎剖面圖維持深色水體（圖裡的塔架是白色）· the foundation cross-sections keep a dark water panel (their towers are white) */
+#globe[data-gt="light"] .ffd .fdsvg{background:#1d3348;color:#e3eaf5}
 ''',
 }
 
