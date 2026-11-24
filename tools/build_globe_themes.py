@@ -5,7 +5,7 @@
     python3 tools/build_globe_themes.py --check    # 只檢查是否需要重建（pr-check 用）
 
 globe.css 是依深色設計的，裡面有幾十個寫死的顏色。這支程式讀 globe.css，把每一條含顏色的宣告換成對應主題的顏色，
-寫成 `#globe[data-gt="light"] …`（之後加 comic）的覆寫規則；改了 globe.css 之後重跑，不要手改輸出檔。
+寫成 `#globe[data-gt="light"] …` 與 `#globe[data-gt="comic"] …` 的覆寫規則；改了 globe.css 之後重跑，不要手改輸出檔。
 換色規則（深色→淺色）：
   · 灰階與低彩度的顏色把明度反過來（深底變淺底、白字變深藍字），白色半透明的疊層變成深藍半透明；
   · 有彩度的重點色保留色相、壓低明度到在白底上讀得清楚（例：金色 #f0c86a → 深金）；
@@ -138,8 +138,11 @@ def theme_rules(rules, attr, mapper):
                 val = COLOR.sub(lambda m: shadow(m.group(0)), val.strip())
             else:
                 val = COLOR.sub(lambda m: mapper(m.group(0)), val.strip())
-            if prop == 'background' and COLOR.fullmatch(val.strip()):   # 只有顏色的簡寫改成 background-color，不重設位置與大小 · colour-only shorthand → background-color (keeps position/size)
-                prop = 'background-color'
+            if prop == 'background' and COLOR.fullmatch(val.strip()):
+                # 只有顏色的簡寫：改成 background-color＋background-image:none（與原本簡寫一樣清掉圖片，但不重設之後規則給的位置與大小）·
+                # colour-only shorthand → background-color + background-image:none (clears the image like the shorthand, without resetting later position/size)
+                decls.append('background-color:' + val + ';background-image:none')
+                continue
             decls.append(prop + ':' + val)
         if decls:
             out.append(scope(pre, attr) + '{' + ';'.join(decls) + '}')
@@ -186,12 +189,40 @@ EXTRA = {
 }
 
 
+COMIC = '''
+/* 漫畫：探險版的天空底、深藍粗框、圓角與錯位陰影、黃色重點色（深藍字）· comic: the kids edition's sky, bold navy outlines, rounded corners, offset shadows, yellow accent */
+#globe[data-gt="comic"]{--acc:#8a5a00;--ink:#12324A;--ink-2:#2f4a5f;--gline:#12324A;background:#EEF7FC;font-weight:600}
+#globe[data-gt="comic"] #g-mapPane{background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#eef7fc 50%,#cfe9f7 100%)}
+#globe[data-gt="comic"] button,#globe[data-gt="comic"] select,#globe[data-gt="comic"] input{background-color:#fff;border:2px solid #12324A;border-radius:999px;font-weight:800;box-shadow:2px 2px 0 #12324A}
+#globe[data-gt="comic"] .gseg{border:2px solid #12324A;border-radius:999px;box-shadow:2px 2px 0 #12324A}
+#globe[data-gt="comic"] .gseg button{border:0;border-radius:0;box-shadow:none}
+#globe[data-gt="comic"] button.active,#globe[data-gt="comic"] .gseg button.active,#globe[data-gt="comic"] #g-msPanel .ph .gseg .gmb.active{background:#FFC845;color:#12324A}
+#globe[data-gt="comic"] #g-msPanel .ph .gseg .gmb.active .gcar::after{color:#12324A}
+#globe[data-gt="comic"] .gmc,#globe[data-gt="comic"] .gmp .gmt.active .gtk{background:#FFC845;border-color:#12324A;color:#12324A}
+/* 重點色當文字用時是深琥珀（白底 5.6:1），黃色只用在底色 · the accent as text is dark amber; yellow only as a fill */
+#globe[data-gt="comic"] .ffd .fdnote{opacity:1}
+#globe[data-gt="comic"] #g-top,#globe[data-gt="comic"] #g-bottom{background:#fff;border-color:#12324A;border-width:2px}
+#globe[data-gt="comic"] #g-msPanel,#globe[data-gt="comic"] #g-infoCard,#globe[data-gt="comic"] .gmp,#globe[data-gt="comic"] #g-modal>div,
+#globe[data-gt="comic"] #g-worldStat,#globe[data-gt="comic"] #g-legStack>*,#globe[data-gt="comic"] #g-zoneLegend,#globe[data-gt="comic"] #g-cvgLegend{background:#fff;border:2px solid #12324A;border-radius:16px;box-shadow:4px 4px 0 #12324A;text-shadow:none}
+#globe[data-gt="comic"] #g-yearBig{color:#12324A;text-shadow:3px 3px 0 #FFC845}
+#globe[data-gt="comic"] .lbl{color:#12324A;font-weight:800;text-shadow:2px 0 0 #fff,-2px 0 0 #fff,0 2px 0 #fff,0 -2px 0 #fff,1.5px 1.5px 0 #fff,-1.5px -1.5px 0 #fff,1.5px -1.5px 0 #fff,-1.5px 1.5px 0 #fff}
+#globe[data-gt="comic"] .lbl.ctry{background:#fff;border:2px solid #12324A;border-radius:10px;text-shadow:none;box-shadow:2px 2px 0 #12324A}
+#globe[data-gt="comic"] .lbl.ms,#globe[data-gt="comic"] .lbl.focus b,#globe[data-gt="comic"] .lbl.fnew{color:#8a4b00}
+#globe[data-gt="comic"] #g-ports .pmk,#globe[data-gt="comic"] #g-events .emk{border:2px solid #12324A;box-shadow:2px 2px 0 #12324A}
+@media(max-width:640px){#globe[data-gt="comic"] #g-top button,#globe[data-gt="comic"] #g-top select{background-color:#fff;border:2px solid #12324A;box-shadow:2px 2px 0 #12324A}}
+'''
+
+
 def build():
     rules = split_rules(SRC.read_text(encoding='utf-8'))
     head = ('/* 由 tools/build_globe_themes.py 從 globe.css 產生，請勿手動編輯 · generated from globe.css by '
             'tools/build_globe_themes.py; do not edit */\n')
     body = '\n'.join(theme_rules(rules, 'light', to_light))
-    return head + '\n/* ---------- 淺色（白天）· light (daytime) ---------- */\n' + body + '\n' + EXTRA['light'].lstrip('\n')
+    light = '\n/* ---------- 淺色（白天）· light (daytime) ---------- */\n' + body + '\n' + EXTRA['light'].lstrip('\n')
+    # 漫畫＝淺色的換色規則（同一組資料用色）＋漫畫的框線與陰影 · comic = the light mapping (same data colours) + comic outlines and shadows
+    comic = ('\n/* ---------- 漫畫 · comic ---------- */\n' + '\n'.join(theme_rules(rules, 'comic', to_light)) + '\n'
+             + EXTRA['light'].lstrip('\n').replace('data-gt="light"', 'data-gt="comic"') + COMIC.lstrip('\n'))
+    return head + light + comic
 
 
 if __name__ == '__main__':

@@ -217,6 +217,15 @@ const ROUTES = [
     const l = document.querySelector('#g-flowLegend');
     return l && !l.hidden && l.querySelector('.wbands') && l.querySelector('[data-fc="t"].on') ? '' : 'wind now (turbine wash): legend missing';
   }],
+  // 地球儀配色：淺色（白天）與漫畫（v3.25–3.26）· globe colour themes: light and comic
+  ['#/global?r=TWN&gt=light', 15000, () => {
+    const g = document.getElementById('globe'), s = document.getElementById('g-themeSel');
+    return g.dataset.gt === 'light' && s && s.value === 'light' ? '' : 'globe: light colours not applied';
+  }],
+  ['#/global?r=TWN&layer=fd&gt=comic', 15000, () => {
+    const g = document.getElementById('globe');
+    return g.dataset.gt === 'comic' && getComputedStyle(document.getElementById('g-msPanel')).borderTopWidth === '2px' ? '' : 'globe: comic colours not applied';
+  }],
   ['#/global?ind=share', 15000, () => {
     const l = document.querySelector('#g-indLegend');
     return l && !l.hidden && l.querySelector('.ilr') ? '' : 'indicator: legend missing';

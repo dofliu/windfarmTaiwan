@@ -15,7 +15,7 @@ const host = $('globe');
 const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
-    region: '範圍', gtheme: '配色', gtAuto: '跟著網站（☀／☾）', gtDark: '深色', gtLight: '淺色（白天）', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', liveCov: '即時資料', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
+    region: '範圍', gtheme: '配色', gtAuto: '跟著網站（☀／☾）', gtDark: '深色', gtLight: '淺色（白天）', gtComic: '漫畫', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', liveCov: '即時資料', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     mView: '檢視', mLayers: '圖層', mAna: '分析', mLayout: '版面', mProj: '投影', speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、低樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
@@ -151,7 +151,7 @@ const I18N = {
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
-    region: 'Focus', gtheme: 'Colours', gtAuto: 'Follow the site (☀/☾)', gtDark: 'Dark', gtLight: 'Light (daytime)', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', liveCov: 'Live data', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
+    region: 'Focus', gtheme: 'Colours', gtAuto: 'Follow the site (☀/☾)', gtDark: 'Dark', gtLight: 'Light (daytime)', gtComic: 'Comic', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', liveCov: 'Live data', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     mView: 'View', mLayers: 'Layers', mAna: 'Analyse', mLayout: 'Layout', mProj: 'Projection', speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
@@ -305,7 +305,7 @@ host.innerHTML = `
       <div class="gmrow"><span class="gml" data-gi="mLayout"></span><div class="gseg" id="g-viewSeg" role="group"><button data-view="map" class="active" data-gi="vMap"></button><button data-view="split" data-gi="vSplit"></button><button data-view="bars" data-gi="vBars"></button></div></div>
       <div class="gmrow"><span class="gml" data-gi="mProj"></span><div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div></div>
       <div class="gmrow"><label class="gml" for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
-      <div class="gmrow"><label class="gml" for="g-themeSel" data-gi="gtheme"></label><select id="g-themeSel"><option value="auto" data-gi="gtAuto"></option><option value="dark" data-gi="gtDark"></option><option value="light" data-gi="gtLight"></option></select></div>
+      <div class="gmrow"><label class="gml" for="g-themeSel" data-gi="gtheme"></label><select id="g-themeSel"><option value="auto" data-gi="gtAuto"></option><option value="dark" data-gi="gtDark"></option><option value="light" data-gi="gtLight"></option><option value="comic" data-gi="gtComic"></option></select></div>
       <div class="gmrow"><label class="gml" for="g-densSel" data-gi="labels"></label><select id="g-densSel"><option value="0"></option><option value="1" selected></option><option value="2"></option><option value="3"></option></select></div>
       <button id="g-btnRotate" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><span data-gi="rotate"></span></button>
     </div></span>
@@ -552,7 +552,10 @@ const GTP = {
   dark: { ocean: '#0c1830', land: '#33486a', grid: 'rgba(255,255,255,0.035)', border: 0x9db0cf, borderOp: 0.4, hi: 0xf0c86a, atmo: 0x3b8fe0, atmoOp: 0.08,
     part: [[0, 235, 240, 255, 0.3], [6, 245, 248, 255, 0.6], [12, 255, 255, 255, 0.85], [35, 255, 255, 255, 1]], blend: 'lighter' },
   light: { ocean: '#bfe3f5', land: '#e2eed2', grid: 'rgba(18,50,74,0.06)', border: 0x557389, borderOp: 0.6, hi: 0xa86d00, atmo: 0x8fd0ff, atmoOp: 0.22,
-    part: [[0, 62, 96, 124, 0.4], [6, 40, 74, 104, 0.65], [12, 18, 50, 74, 0.85], [35, 8, 28, 46, 1]], blend: 'source-over' }   // 淺色底上用深色粒子 · dark particles on a light map
+    part: [[0, 62, 96, 124, 0.4], [6, 40, 74, 104, 0.65], [12, 18, 50, 74, 0.85], [35, 8, 28, 46, 1]], blend: 'source-over' },   // 淺色底上用深色粒子 · dark particles on a light map
+  // 漫畫：照探險版的配色——亮藍海、奶油色陸地、深藍粗國界（畫進底圖）、深藍外框的地球 · comic: the kids edition's bright sea, cream land, bold navy borders drawn into the map
+  comic: { ocean: '#8fd6f2', land: '#fff1c4', grid: 'rgba(18,50,74,0.07)', ink: '#12324A', border: 0x12324A, borderOp: 0.85, hi: 0xe0522c, atmo: 0x12324a, atmoOp: 0.32,
+    part: [[0, 40, 74, 104, 0.5], [6, 24, 56, 84, 0.75], [12, 18, 50, 74, 0.9], [35, 8, 28, 46, 1]], blend: 'source-over' }
 };
 /* 資料用色也依主題：深色維持原本（已過色盲檢查的一組）；淺色保留同一組色相、改成在淺色底上看得清楚的深色版，
    中性色（其他型式、規劃中、事件里程碑）從淺灰改成深灰／深藍 · data colours per theme: light keeps the checked hues, darker,
@@ -566,7 +569,8 @@ const DATA_PAL = {
     FD: { mp: 0x2a64c0, frame: 0xb8441a, fl: 0x0b7552, other: 0x2f3742, unk: 0x6c7785 }, LIVE: 0x0b7a5d, ZONE: { eez: 0x1f5f9e, site: 0xb0447a },
     CVG: { full: '#1d8a70', part: '#7b4fd0' }, ARC: 0x1f6fbf, GHOST: 0x7d8ea0 }
 };
-const GT_OK = ['dark', 'light'];
+DATA_PAL.comic = DATA_PAL.light;                     // 漫畫的底色與淺色相近，資料用色共用同一組（同樣過對比檢查）· comic shares the light data colours
+const GT_OK = ['dark', 'light', 'comic'];
 let GT = 'dark', gtPref = WW.store.get('ww_globe_theme', 'auto'), gtUrl = null;
 const gtWant = () => GT_OK.includes(gtUrl) ? gtUrl : GT_OK.includes(gtPref) ? gtPref : (document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
 let RINGS, RING_ISO, ringBox, isoRings;
@@ -635,7 +639,8 @@ function drawBaseTexture() {   // 向量繪製的陸地遮罩（「簡潔」底�
   for (let i = 0; i <= 12; i++) { g.beginPath(); g.moveTo(i * TW / 12, 0); g.lineTo(i * TW / 12, TH); g.stroke(); }
   for (let i = 0; i <= 6; i++) { g.beginPath(); g.moveTo(0, i * TH / 6); g.lineTo(TW, i * TH / 6); g.stroke(); }
   g.fillStyle = P.land;
-  RINGS.forEach(r => { g.beginPath(); for (let i = 0; i < r.length; i += 2) { const x = (r[i] + 180) / 360 * TW, y = (90 - r[i + 1]) / 180 * TH; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); } g.closePath(); g.fill(); });
+  RINGS.forEach(r => { g.beginPath(); for (let i = 0; i < r.length; i += 2) { const x = (r[i] + 180) / 360 * TW, y = (90 - r[i + 1]) / 180 * TH; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); } g.closePath(); g.fill();
+    if (P.ink) { g.strokeStyle = P.ink; g.lineWidth = TW / 1600; g.lineJoin = 'round'; g.stroke(); } });   // 漫畫：粗國界與海岸線畫進底圖 · comic: bold borders in the texture
   landTex.needsUpdate = true;
 }
 /* 底圖：地形（Natural Earth 陰影地形上色）／衛星（NASA Blue Marble）／簡潔（向量）／平均風速（Global Wind Atlas，tools/build_wind_resource.py） */
@@ -646,6 +651,7 @@ function setBase(b, silent) {
   renderWindLegend();
   const apply = tex => { globe.material.map = tex; plane.material.map = tex; globe.material.needsUpdate = true; plane.material.needsUpdate = true; patchInfo = null; updateAttr(); };
   if (b === 'plain') { apply(landTex); return; }
+  if (b === 'relief' && GT === 'comic') { apply(landTex); return; }      // 漫畫：平塗底圖（粗國界）· comic: flat colours with bold borders
   const k = b === 'relief' && GT === 'light' ? 'relief_light' : b;        // 淺色主題用淺色地形底圖 · the light theme uses the light relief
   if (baseTex[k]) { apply(baseTex[k]); return; }
   const img = new Image(); img.decoding = 'async';
@@ -836,7 +842,7 @@ function landPath(g, lon0, lat0, lon1, lat1, P) {
 }
 function coastMask(g, lon0, lat0, lon1, lat1, P, landLift, seaDeepen) {
   g.save();
-  const lt = GT === 'light';                    // 淺色：陸地提成淡綠、海面加天空藍，不壓暗 · light: pale green land, sky-blue sea, no darkening
+  const lt = GT !== 'dark';                     // 淺色：陸地提成淡綠、海面加天空藍，不壓暗 · light: pale green land, sky-blue sea, no darkening
   if (landLift > 0 && landPath(g, lon0, lat0, lon1, lat1, P)) { g.fillStyle = (lt ? 'rgba(226,238,210,' : 'rgba(150,166,188,') + landLift + ')'; g.fill('nonzero'); }
   g.beginPath(); g.rect(0, 0, PW, PH); landPath2(g); g.fillStyle = (lt ? 'rgba(150,205,236,' : 'rgba(6,18,40,') + seaDeepen + ')'; g.fill('evenodd');
   g.restore();
@@ -854,7 +860,7 @@ function drawPatch(lon0, lat0, lonSpan, latSpan) {
   const lat1 = lat0 + latSpan, lon1 = lon0 + lonSpan;
   const P = { lon0, lat1, sx: PW / lonSpan, sy: PH / latSpan };
   g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
-  const img = S.base !== 'plain' && baseImg[S.base === 'relief' && GT === 'light' ? 'relief_light' : S.base];
+  const img = S.base !== 'plain' && !(GT === 'comic' && S.base === 'relief') && baseImg[S.base === 'relief' && GT === 'light' ? 'relief_light' : S.base];
   if (img) {
     // 先畫底圖貼圖的對應區塊（立即可見），跨越換日線時分兩段
     const iw = img.naturalWidth, ih = img.naturalHeight;
@@ -873,11 +879,12 @@ function drawPatch(lon0, lat0, lonSpan, latSpan) {
       const r = RINGS[k]; g.beginPath();
       for (let i = 0; i < r.length; i += 2) { const x = (r[i] - lon0) * P.sx, y = (lat1 - r[i + 1]) * P.sy; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); }
       g.closePath(); g.fill();
+      if (GTP[GT].ink) { g.strokeStyle = GTP[GT].ink; g.lineWidth = 1.6; g.lineJoin = 'round'; g.stroke(); }
     }
   }
   patchTex.needsUpdate = true;
   tileAttrOn = false;
-  if (S.base === 'plain' || S.base === 'wind' || latSpan > 30) { updateAttr(); return; }   // 風速底圖沒有對應的高解析圖磚
+  if (S.base === 'plain' || S.base === 'wind' || latSpan > 30 || (GT === 'comic' && S.base === 'relief')) { updateAttr(); return; }   // 風速底圖沒有對應的高解析圖磚；漫畫維持平塗 · comic stays flat
   // 圖磚：地形＝World_Hillshade 以色彩增值疊在深色地形上（海面不變）；衛星＝World_Imagery 再略為壓暗
   let z = Math.floor(Math.log2(PW / lonSpan * 360 / 256)) - (isTouch ? 1 : 0);
   z = clamp(z, 3, S.base === 'sat' ? 17 : 15);
