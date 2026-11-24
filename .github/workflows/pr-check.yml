@@ -65,6 +65,7 @@ jobs:
 
   smoke:
     name: Pages and single-file copies (Playwright)
+    timeout-minutes: 45     # 正常約 18 分鐘；2026-11-23 安裝 Playwright 卡住 6 小時才被取消 · normally ~18 min; an install hung for 6 h on 23 Nov 2026
     runs-on: ubuntu-24.04   # Playwright 1.56 還不支援 ubuntu-latest（26.04）的 Chromium 相依套件 · Playwright 1.56 cannot install Chromium deps on ubuntu-latest (26.04)
     steps:
       - uses: actions/checkout@v7
@@ -74,6 +75,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install Playwright (Chromium)
+        timeout-minutes: 15
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1 axe-core@4.10.3
           npx playwright install --with-deps chromium

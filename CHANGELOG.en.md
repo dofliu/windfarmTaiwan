@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.24.4 — 2026-11-24
+
+- **The home page's "past 7 days" curve no longer vanishes after a sampling gap**: it used to need 24 hours of samples, so when the Taipower live scrape stopped for eight days (15–23 Nov) and the rolling file started over, the curve disappeared from the home page (and the smoke test failed on desktop and phone). It is now drawn from 3 samples over 2 hours, with a caption saying "since …" when it covers less than 7 days; with fewer samples a short "rebuilding" note with the sample count takes its place instead of a blank.
+- The smoke test accepts that note (missing data is not a site error), and the `pr-check` browser job now has time limits (45 minutes in all, 15 for installing Playwright), so an install that hangs — as it did for 6 hours on 23 Nov — fails within minutes.
+
 ## v3.24.3 — 2026-11-23
 
 - **Data correction: 65 operating farms in China moved from the prefecture city to the county GEM names** (`MANUAL_PLACES` in `tools/fetch_gem_locations.py`, coordinates from Wikidata, still approximate): where the automatic search could not resolve the county it fell back to the prefecture city, which put 17 farms in Mulei, Xinjiang (spelt "Mori" on GEM) on Changji city 239 km away, 5 Qitai farms 183 km away, 16 farms in Damao Banner, Inner Mongolia on Baotou city 126 km away, and likewise for Siziwang Banner, Barkol (Santanghu), Zichang, Penglai, Pizhou and others. Each county item and its prefecture were checked on Wikidata before moving; counties that contradict GEM's prefecture (Zhongxiang, Liaoyang County) are left unchanged.

@@ -82,7 +82,8 @@ const BUDGET = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/perf_budget.jso
 const ROUTES = [
   ['#/', 3500, async () => {
     // 首頁：過去 7 天的出力曲線、頁尾四組來源連結 · home: 7-day curve and the four footer source groups
-    if (!document.querySelector('#hh-7d svg .ln')) return 'home: no 7-day output curve';
+    // 曲線，或排程中斷後「重新累積中」的說明（資料不足不算網站錯誤） · the curve, or the rebuilding note after a sampling gap
+    if (!document.querySelector('#hh-7d svg .ln') && !document.querySelector('#hh-7d:not([hidden]) .c7wait')) return 'home: no 7-day output curve';
     // 今天的風（由資料算出的大標）、三種分享圖卡、淺色模式切換 · today's headline, the three share-card formats, the light-mode toggle
     if (!document.querySelector('#hh-today .tmain')) return 'home: no today headline';
     if (!document.getElementById('nearbtn') || !document.getElementById('nearbox').hidden) return 'home: wind-near-me button missing or opened without a press';

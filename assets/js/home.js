@@ -57,9 +57,17 @@ function paint7d() {
   const st = L.srcTime && L.srcTime(), now = st && L.isLive() ? tms(st) : NaN;
   if (all.length && !isNaN(now) && now > all[all.length - 1].t + 6e4) all.push({ t: now, v: L.totals().total });   // 補上此刻的即時值
   const end = all.length ? all[all.length - 1].t : 0, P = all.filter(p => p.t >= end - 7 * 864e5);
-  if (P.length < 3 || P[P.length - 1].t - P[0].t < 864e5) { box.hidden = true; return; }
   box.hidden = false;
-  c7 = { P, i: -1 };
+  if (P.length < 3 || P[P.length - 1].t - P[0].t < 2 * 36e5) {
+    // 排程中斷超過 7 天時取樣會整個清掉、重新累積：先寫明，不畫只有一兩點的線 ·
+    // after a scheduling gap of more than 7 days the samples start over: say so rather than draw a line of one or two points
+    c7 = null;
+    box.innerHTML = `<p class="c7wait">${EN()
+      ? `The 7-day curve is rebuilding after a break in the site's sampling (${P.length} sample${P.length === 1 ? '' : 's'} so far); it appears once two hours are covered.`
+      : `本站取樣中斷後重新累積中（目前 ${P.length} 點），累積滿 2 小時後就會畫出過去 7 天曲線。`} <a href="#/live/charts?mode=hist">${EN() ? 'Long-term trend →' : '長期趨勢 →'}</a></p>`;
+    return;
+  }
+  c7 = { P, i: -1, part: P[P.length - 1].t - P[0].t < 6.5 * 864e5 };
   draw7d();
 }
 function draw7d() {
@@ -89,7 +97,9 @@ function draw7d() {
     <line class="bl" x1="0" x2="${W}" y1="${H - pb}" y2="${H - pb}"/>${pk !== last && !close ? dot(pk, 'pk') : ''}${dot(last, 'nw')}${labels}
     <g class="hv" visibility="hidden"><line class="cx" y1="${pt - 6}" y2="${H - pb}"/><circle class="hd" r="4.5"/></g></svg>
     <div class="t7" hidden></div>
-    <div class="c7cap">${EN() ? `Past 7 days · ${n} samples taken by the site (uneven spacing)` : `過去 7 天 · 本站取樣 ${n} 點（間隔不等）`} · <a href="#/live/charts?mode=hist">${EN() ? 'Long-term trend →' : '長期趨勢 →'}</a></div>`;
+    <div class="c7cap">${c7.part
+      ? (EN() ? `Since ${tFmt(t0)} only (sampling restarted after a break) · ${n} samples taken by the site (uneven spacing)` : `只有 ${tFmt(t0)} 以後（本站取樣中斷後重新累積）· 本站取樣 ${n} 點（間隔不等）`)
+      : (EN() ? `Past 7 days · ${n} samples taken by the site (uneven spacing)` : `過去 7 天 · 本站取樣 ${n} 點（間隔不等）`)} · <a href="#/live/charts?mode=hist">${EN() ? 'Long-term trend →' : '長期趨勢 →'}</a></div>`;
   const svg = box.querySelector('svg'), hv = svg.querySelector('.hv'), tip = box.querySelector('.t7');
   const show = i => {
     c7.i = i; if (i < 0) { hv.setAttribute('visibility', 'hidden'); tip.hidden = true; return; }
