@@ -77,7 +77,7 @@ for w, h, tag in SIZES:
     save(im, f"relief_{tag}.jpg", 82 if tag == "4k" else 80)
     # 淺色（白天）：陰影處淡橄欖綠 → 向陽處米白；海洋深處天空藍 → 陸棚淺藍 · light: olive-green shade → cream, sky blue → pale shelf
     land_lo, land_hi = hexrgb("#a9c08e"), hexrgb("#f4f6e4")
-    sea_lo, sea_hi = hexrgb("#8ccbea"), hexrgb("#d6eef9")
+    sea_lo, sea_hi = hexrgb("#a8d8f0"), hexrgb("#d6eef9")
     land = land_lo + (land_hi - land_lo) * s_land[..., None]
     sea = sea_lo + (sea_hi - sea_lo) * s_sea[..., None]
     rgb = sea * (1 - mask) + land * mask
