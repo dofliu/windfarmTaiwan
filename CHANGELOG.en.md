@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.26.1 — 2026-11-24
+
+- The globe's comic colours give the phone's bottom drawer a bold navy edge and rounded corners; the smoke test's comic check now looks at the page's sky background (on phones the panel sits in the drawer, so checking its border failed wrongly).
+
 ## v3.26.0 — 2026-11-24
 
 - **A third globe style: comic** (View › Colours › Comic, or `gt=comic` in the URL), in the kids edition's style: bright blue sea, cream land, bold navy borders and coastlines (drawn into the map; the relief basemap turns flat in comic), a navy-rimmed globe, bold rounded panels with offset shadows, pill buttons and a yellow accent with navy text, with bold navy map labels in a white outline. It shares the light theme's data colours (checked for colour blindness and contrast); the accent used as text is dark amber (5.6:1 on white) and yellow appears only as a fill. The sea-level view's panels follow too. All three globe themes (dark, light, comic) are now done.
