@@ -47,4 +47,10 @@ jobs:
           [ -f grid_status.json ] && git add grid_status.json || true
           [ -f data/live/intl_realtime.json ] && git add data/live/intl_realtime.json || true
           git diff --staged --quiet || git commit -m "chore: update wind data $(date -u +%FT%TZ)"
-          git push
+          # 同一時間有別的推送（合併 PR、wind-now、backfill）時會被拒（2026-11-24 07:30 UTC 那次就是），先拉新的再重推，最多 4 次
+          for i in 1 2 3 4; do
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            echo "push attempt $i failed; retrying"; sleep $((i * 10))
+          done
+          exit 1
