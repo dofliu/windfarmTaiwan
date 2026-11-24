@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.25.0 — 2026-11-24
+
+- **The globe can change colours: dark or light (daytime)** (the owner decided on 24 Nov 2026 to have dark, light and comic; this is the first step): the View menu has a new "Colours" setting — follow the site (☀/☾ in the header, the default), dark or light — and the URL parameter `gt=light`. Light means a sky background, a light relief basemap (the same Natural Earth shaded relief with pale green land and sky-blue sea: `relief_light_*.jpg`, built by `tools/build_basemaps.py`), dark labels with white halos, white panels and dark Wind now particles. Panel and button colours are generated from `globe.css` by the new `tools/build_globe_themes.py` into `assets/css/globe-themes.css` (never edited by hand; `pr-check` checks it is current). The data colours (onshore/offshore, foundations, ports, events) are not changed yet: they are next, after a colour-blind and contrast check, followed by the sea-level view and the comic style.
+
 ## v3.24.4 — 2026-11-24
 
 - **The home page's "past 7 days" curve no longer vanishes after a sampling gap**: it used to need 24 hours of samples, so when the Taipower live scrape stopped for eight days (15–23 Nov) and the rolling file started over, the curve disappeared from the home page (and the smoke test failed on desktop and phone). It is now drawn from 3 samples over 2 hours, with a caption saying "since …" when it covers less than 7 days; with fewer samples a short "rebuilding" note with the sample count takes its place instead of a blank.
