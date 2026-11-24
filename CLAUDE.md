@@ -203,6 +203,9 @@ For people and AI agents working in this repo (Claude Code reads this file autom
   rotor radius needs both numbers in the same quoted passage, measured from sea level. With mixed turbines, give the hub height as a
   range and the rotor diameter of the largest model.
 
+- 地球儀配色（使用者 2026-11-24 決定：深色、淺色白天、漫畫三種都要、可切換）：`globe.js` 的 `GTP` 是 3D 場景的各主題顏色（向量底圖、國界、大氣、風粒子），面板與按鈕的顏色由 `tools/build_globe_themes.py` 從 `globe.css` 換色產生 `assets/css/globe-themes.css`（改了 `globe.css` 就重跑，不要手改輸出；`pr-check` 會檢查）。淺色地形底圖 `relief_light_*.jpg` 由 `tools/build_basemaps.py` 產生。資料用色（陸域／離岸、水下基礎、港口、事件）各主題要另外過色盲與 4.5:1 對比檢查，不交給自動換色。
+  Globe colour themes (the owner's decision of 24 Nov 2026: dark, light daytime and comic, all switchable): `GTP` in `globe.js` holds each theme's scene colours (vector basemap, borders, atmosphere, wind particles); panel and button colours are generated from `globe.css` by `tools/build_globe_themes.py` into `assets/css/globe-themes.css` (re-run after editing `globe.css`, never edit the output; `pr-check` checks it). The light relief `relief_light_*.jpg` is built by `tools/build_basemaps.py`. Data colours (onshore/offshore, foundations, ports, events) need their own colour-blind and 4.5:1 contrast check per theme and are not left to the automatic mapping.
+
 - 「此刻的風」：`tools/fetch_gfs_wind.py`（排程 `wind-now`，每 6 小時）從 NOAA NOMADS 取 GFS 離地 10 m 的 U、V，寫成 `data/live/wind_now.webp`＋`wind_now.json`；
   檔案要維持小（約 50 KB，每次都會 commit），不要提高解析度或加欄位前先估算 repo 一年的增量。它是此刻的天氣，不隨時間軸變動，圖例要寫出資料時間。
   "Wind now": `tools/fetch_gfs_wind.py` (the 6-hourly `wind-now` schedule) takes GFS 10 m U and V from NOAA NOMADS and writes

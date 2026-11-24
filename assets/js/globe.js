@@ -15,7 +15,7 @@ const host = $('globe');
 const I18N = {
   zh: {
     title: '全球風電發展地圖', vMap: '地圖', vSplit: '地圖＋長條', vBars: '長條排名', mGlobe: '3D 地球', mFlat: '2.5D 平面',
-    region: '範圍', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', liveCov: '即時資料', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
+    region: '範圍', gtheme: '配色', gtAuto: '跟著網站（☀／☾）', gtDark: '深色', gtLight: '淺色（白天）', base: '底圖', bRelief: '地形', bSat: '衛星', bPlain: '簡潔', bWind: '平均風速', pipe: '規劃中', flow: '此刻的風', zones: '海域', liveCov: '即時資料', rotate: '自動旋轉', tour: '▶ 導覽', labels: '標籤', sources: '資料來源',
     mView: '檢視', mLayers: '圖層', mAna: '分析', mLayout: '版面', mProj: '投影', speed: '速度', layer: '顯示', lBoth: '陸域＋離岸', lOn: '只看陸域', lOff: '只看離岸', lFd: '離岸：水下基礎',
     fdTitle: '水下基礎型式', fdGroup: { mp: '單樁', frame: '鋼構框架', fl: '浮動式', other: '其他固定式', unk: '型式不詳' },
     fdGroupTip: { mp: '單樁（Monopile）', frame: '套管式、三腳架、三樁', fl: '浮動式：單柱式、半潛式、駁船式、張力腳', other: '重力式、高樁承台、低樁承台、圍堰式、岩錨式、複合筒、混合', unk: '還沒查證的固定式離岸風場' },
@@ -151,7 +151,7 @@ const I18N = {
   },
   en: {
     title: 'Global wind power map', vMap: 'Map', vSplit: 'Map + bars', vBars: 'Bar race', mGlobe: '3D globe', mFlat: '2.5D map',
-    region: 'Focus', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', liveCov: 'Live data', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
+    region: 'Focus', gtheme: 'Colours', gtAuto: 'Follow the site (☀/☾)', gtDark: 'Dark', gtLight: 'Light (daytime)', base: 'Basemap', bRelief: 'Relief', bSat: 'Satellite', bPlain: 'Plain', bWind: 'Wind speed', pipe: 'Pipeline', flow: 'Wind now', zones: 'Sea zones', liveCov: 'Live data', rotate: 'Auto-rotate', tour: '▶ Tour', labels: 'Labels', sources: 'Sources',
     mView: 'View', mLayers: 'Layers', mAna: 'Analyse', mLayout: 'Layout', mProj: 'Projection', speed: 'Speed', layer: 'Show', lBoth: 'Onshore + offshore', lOn: 'Onshore only', lOff: 'Offshore only', lFd: 'Offshore: foundations',
     fdTitle: 'Foundation type', fdGroup: { mp: 'Monopile', frame: 'Steel frame', fl: 'Floating', other: 'Other fixed', unk: 'Type unknown' },
     fdGroupTip: { mp: 'Monopile', frame: 'Jacket, tripod, tripile', fl: 'Floating: spar, semi-submersible, barge, tension-leg', other: 'Gravity-based, high-rise pile cap, low pile cap, cofferdam, rock-anchored, composite bucket, mixed', unk: 'Fixed-bottom offshore farms not yet checked' },
@@ -305,6 +305,7 @@ host.innerHTML = `
       <div class="gmrow"><span class="gml" data-gi="mLayout"></span><div class="gseg" id="g-viewSeg" role="group"><button data-view="map" class="active" data-gi="vMap"></button><button data-view="split" data-gi="vSplit"></button><button data-view="bars" data-gi="vBars"></button></div></div>
       <div class="gmrow"><span class="gml" data-gi="mProj"></span><div class="gseg" id="g-modeSeg" role="group"><button data-mode="globe" class="active" data-gi="mGlobe"></button><button data-mode="flat" data-gi="mFlat"></button></div></div>
       <div class="gmrow"><label class="gml" for="g-baseSel" data-gi="base"></label><select id="g-baseSel"><option value="relief" data-gi="bRelief"></option><option value="sat" data-gi="bSat"></option><option value="plain" data-gi="bPlain"></option><option value="wind" data-gi="bWind"></option></select></div>
+      <div class="gmrow"><label class="gml" for="g-themeSel" data-gi="gtheme"></label><select id="g-themeSel"><option value="auto" data-gi="gtAuto"></option><option value="dark" data-gi="gtDark"></option><option value="light" data-gi="gtLight"></option></select></div>
       <div class="gmrow"><label class="gml" for="g-densSel" data-gi="labels"></label><select id="g-densSel"><option value="0"></option><option value="1" selected></option><option value="2"></option><option value="3"></option></select></div>
       <button id="g-btnRotate" type="button" class="gmt" aria-pressed="false"><i class="gtk"></i><span data-gi="rotate"></span></button>
     </div></span>
@@ -546,13 +547,23 @@ function notice(msg, ms) {
 let renderer, scene, camera, vcam, controls, canvas, globe, atmo, plane, bordersG, bordersF, landTex, texCanvas, ambL;
 const R = 100, FS = 1.6, KM = 0.015;
 const G_MIN_ALT = 0.12, G_MAX_ALT = 520, CL_ALT = 3.2;
-const OCEAN = '#0c1830', LAND = '#33486a';
+/* 地球儀配色：深色／淺色（白天）；網址 gt=、「檢視」選單，或跟著頁首 ☀／☾（auto）· globe colour themes: dark / light (daytime) */
+const GTP = {
+  dark: { ocean: '#0c1830', land: '#33486a', grid: 'rgba(255,255,255,0.035)', border: 0x9db0cf, borderOp: 0.4, hi: 0xf0c86a, atmo: 0x3b8fe0, atmoOp: 0.08,
+    part: [[0, 235, 240, 255, 0.3], [6, 245, 248, 255, 0.6], [12, 255, 255, 255, 0.85], [35, 255, 255, 255, 1]], blend: 'lighter' },
+  light: { ocean: '#bfe3f5', land: '#e2eed2', grid: 'rgba(18,50,74,0.06)', border: 0x557389, borderOp: 0.6, hi: 0xa86d00, atmo: 0x8fd0ff, atmoOp: 0.22,
+    part: [[0, 62, 96, 124, 0.4], [6, 40, 74, 104, 0.65], [12, 18, 50, 74, 0.85], [35, 8, 28, 46, 1]], blend: 'source-over' }   // 淺色底上用深色粒子 · dark particles on a light map
+};
+const GT_OK = ['dark', 'light'];
+let GT = 'dark', gtPref = WW.store.get('ww_globe_theme', 'auto'), gtUrl = null;
+const gtWant = () => GT_OK.includes(gtUrl) ? gtUrl : GT_OK.includes(gtPref) ? gtPref : (document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
 let RINGS, RING_ISO, ringBox, isoRings;
 let farmsByIso = {};
 let W = 1, H = 1;
 
 function init() {                        // 輕的部分：繪圖器、相機、控制與 DOM（文字先出現）
   canvas = $('g-gl');
+  try { gtUrl = new URLSearchParams(location.hash.split('?')[1] || '').get('gt'); } catch (e) { gtUrl = null; }
   try {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isTouch ? 1.6 : 2));
@@ -568,6 +579,7 @@ function init() {                        // 輕的部分：繪圖器、相機、
   const sun = new THREE.DirectionalLight(0xffffff, 0.9); sun.position.set(200, 250, 300); scene.add(sun);
   const fillL = new THREE.DirectionalLight(0x88aaff, 0.35); fillL.position.set(-200, -50, -100); scene.add(fillL);
   wireUI();
+  applyTheme(true);
   applyI18n();
 }
 function initScene() {                   // 重的部分：底圖紋理（4096×2048 畫布）、國界線、符號；在 init() 畫出一個畫面之後才做
@@ -599,34 +611,36 @@ function buildBase() {
   isoRings = {}; RING_ISO.forEach((iso, i) => { if (iso) (isoRings[iso] = isoRings[iso] || []).push(i); });
   drawBaseTexture();
   globe = new THREE.Mesh(new THREE.SphereGeometry(R, 160, 100), new THREE.MeshPhongMaterial({ map: landTex, shininess: 8, specular: 0x223344 })); scene.add(globe);
-  atmo = new THREE.Mesh(new THREE.SphereGeometry(R * 1.03, 64, 48), new THREE.MeshBasicMaterial({ color: 0x3b8fe0, transparent: true, opacity: 0.08, side: THREE.BackSide, depthWrite: false })); scene.add(atmo);
+  atmo = new THREE.Mesh(new THREE.SphereGeometry(R * 1.03, 64, 48), new THREE.MeshBasicMaterial({ color: GTP[GT].atmo, transparent: true, opacity: GTP[GT].atmoOp, side: THREE.BackSide, depthWrite: false })); scene.add(atmo);
   plane = new THREE.Mesh(new THREE.PlaneGeometry(360 * FS, 180 * FS), new THREE.MeshPhongMaterial({ map: landTex, shininess: 6, specular: 0x223344 }));
   plane.rotation.x = -Math.PI / 2; plane.visible = false; scene.add(plane);
 }
 function drawBaseTexture() {   // 向量繪製的陸地遮罩（「簡潔」底圖）
   const g = texCanvas.getContext('2d'), TW = TEXW, TH = TEXH;
-  g.fillStyle = OCEAN; g.fillRect(0, 0, TW, TH);
-  g.strokeStyle = 'rgba(255,255,255,0.035)'; g.lineWidth = 1;
+  const P = GTP[GT];
+  g.fillStyle = P.ocean; g.fillRect(0, 0, TW, TH);
+  g.strokeStyle = P.grid; g.lineWidth = 1;
   for (let i = 0; i <= 12; i++) { g.beginPath(); g.moveTo(i * TW / 12, 0); g.lineTo(i * TW / 12, TH); g.stroke(); }
   for (let i = 0; i <= 6; i++) { g.beginPath(); g.moveTo(0, i * TH / 6); g.lineTo(TW, i * TH / 6); g.stroke(); }
-  g.fillStyle = LAND;
+  g.fillStyle = P.land;
   RINGS.forEach(r => { g.beginPath(); for (let i = 0; i < r.length; i += 2) { const x = (r[i] + 180) / 360 * TW, y = (90 - r[i + 1]) / 180 * TH; if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); } g.closePath(); g.fill(); });
   landTex.needsUpdate = true;
 }
 /* 底圖：地形（Natural Earth 陰影地形上色）／衛星（NASA Blue Marble）／簡潔（向量）／平均風速（Global Wind Atlas，tools/build_wind_resource.py） */
-const BASE_URL = { relief: 'assets/img/globe/relief_', sat: 'assets/img/globe/sat_', wind: 'assets/img/globe/wind_' };
+const BASE_URL = { relief: 'assets/img/globe/relief_', relief_light: 'assets/img/globe/relief_light_', sat: 'assets/img/globe/sat_', wind: 'assets/img/globe/wind_' };
 const baseTex = {}, baseImg = {};
 function setBase(b, silent) {
   S.base = b; WW.store.set('ww_globe_base', b); $('g-baseSel').value = b;
   renderWindLegend();
   const apply = tex => { globe.material.map = tex; plane.material.map = tex; globe.material.needsUpdate = true; plane.material.needsUpdate = true; patchInfo = null; updateAttr(); };
   if (b === 'plain') { apply(landTex); return; }
-  if (baseTex[b]) { apply(baseTex[b]); return; }
+  const k = b === 'relief' && GT === 'light' ? 'relief_light' : b;        // 淺色主題用淺色地形底圖 · the light theme uses the light relief
+  if (baseTex[k]) { apply(baseTex[k]); return; }
   const img = new Image(); img.decoding = 'async';
-  img.onload = () => { const t = new THREE.Texture(img); t.anisotropy = 4; t.needsUpdate = true; baseTex[b] = t; baseImg[b] = img; if (S.base === b) apply(t); };
+  img.onload = () => { const t = new THREE.Texture(img); t.anisotropy = 4; t.needsUpdate = true; baseTex[k] = t; baseImg[k] = img; if (S.base === b && (b !== 'relief' || (GT === 'light') === (k === 'relief_light'))) apply(t); };
   img.onerror = () => { if (!silent) notice(L('底圖載入失敗，改用簡潔底圖', 'Basemap failed to load; using plain')); if (S.base === b) apply(landTex); };
-  let src = BASE_URL[b] + (TEXW >= 4096 ? '4k' : '2k') + '.jpg';
-  if (WW.standalone && !WW.standalone.url(src)) src = BASE_URL[b] + '2k.jpg';   // 單檔版只內嵌 2k 底圖
+  let src = BASE_URL[k] + (TEXW >= 4096 ? '4k' : '2k') + '.jpg';
+  if (WW.standalone && !WW.standalone.url(src)) src = BASE_URL[k] + '2k.jpg';   // 單檔版只內嵌 2k 底圖
   img.src = WW.asset(src);
   apply(landTex);   // 載入前先用向量底圖
 }
@@ -692,6 +706,27 @@ function xyzToLonLat(p) {
 function curAlt() { return S.mode === 'globe' ? vcam.position.length() - R : vcam.position.distanceTo(controls.target); }
 function focusLonLat() { return S.mode === 'globe' ? xyzToLonLat(vcam.position) : xyzToLonLat(controls.target); }
 
+/* 換配色：頁面屬性（globe-themes.css）、向量底圖、國界、大氣與高亮線；粒子每一格讀 GTP · apply a colour theme */
+function applyTheme(force) {
+  const t = gtWant(); if (t === GT && !force) return;
+  GT = t; const P = GTP[t], el = $('globe');
+  if (t === 'dark') delete el.dataset.gt; else el.dataset.gt = t;
+  const sel = $('g-themeSel'); if (sel) sel.value = GT_OK.includes(gtUrl) ? gtUrl : gtPref;
+  if (!globe) return;                                      // 場景還沒建好：建好時會讀 GT · the scene reads GT when it is built
+  drawBaseTexture();
+  [bordersG, bordersF].forEach(b => { if (b) { b.material.color.setHex(P.border); b.material.opacity = P.borderOp; } });
+  if (hiLines) hiLines.material.color.setHex(P.hi);
+  atmo.material.color.setHex(P.atmo); atmo.material.opacity = P.atmoOp;
+  if (FLOW && FLOW.g) FLOW.g.clearRect(0, 0, FLOW.cv.width, FLOW.cv.height);   // 舊軌跡換色 · clear trails drawn in the old colour
+  patchInfo = null;                                        // 高解析底圖片重畫 · redraw the close-up patch
+  setBase(S.base, true);                                   // 地形底圖換成該主題的版本 · relief basemap for the theme
+  if (WW.scene && WW.scene.isOpen && WW.scene.isOpen() && WW.scene.retheme) WW.scene.retheme(t);
+}
+function setThemePref(v) {
+  gtPref = v; gtUrl = null; WW.store.set('ww_globe_theme', v); applyTheme(); syncURL();
+}
+WW.onTheme(() => { if (gtPref === 'auto' && !gtUrl) applyTheme(); });
+
 /* ---------------- borders & country highlight ---------------- */
 function buildBorders(flat) {
   const pts = [], a = new THREE.Vector3(), b = new THREE.Vector3();
@@ -699,7 +734,7 @@ function buildBorders(flat) {
     if (flat) { flatPos(r[i], r[i + 1], 0, a); flatPos(r[i + 2], r[i + 3], 0, b); } else { globePos(r[i], r[i + 1], 0, a); globePos(r[i + 2], r[i + 3], 0, b); }
     pts.push(a.x, a.y, a.z, b.x, b.y, b.z); } });
   const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
-  return new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: 0x9db0cf, transparent: true, opacity: 0.4 }));
+  return new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: GTP[GT].border, transparent: true, opacity: GTP[GT].borderOp }));
 }
 function buildBordersAll() {
   bordersG = buildBorders(false); bordersF = buildBorders(true);
@@ -713,7 +748,7 @@ function setHighlight(iso) {
   const pts = [], a = new THREE.Vector3(), b = new THREE.Vector3();
   idx.forEach(k => { const r = RINGS[k]; for (let i = 0; i < r.length - 2; i += 2) { posAt(r[i], r[i + 1], 0, a); posAt(r[i + 2], r[i + 3], 0, b); pts.push(a.x, a.y, a.z, b.x, b.y, b.z); } });
   const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
-  hiLines = new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: 0xf0c86a, transparent: true, opacity: 0.9 }));
+  hiLines = new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: GTP[GT].hi, transparent: true, opacity: 0.9 }));
   scene.add(hiLines);
 }
 function countryAt(lon, lat) {
@@ -796,7 +831,7 @@ function drawPatch(lon0, lat0, lonSpan, latSpan) {
   const lat1 = lat0 + latSpan, lon1 = lon0 + lonSpan;
   const P = { lon0, lat1, sx: PW / lonSpan, sy: PH / latSpan };
   g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
-  const img = S.base !== 'plain' && baseImg[S.base];
+  const img = S.base !== 'plain' && baseImg[S.base === 'relief' && GT === 'light' ? 'relief_light' : S.base];
   if (img) {
     // 先畫底圖貼圖的對應區塊（立即可見），跨越換日線時分兩段
     const iw = img.naturalWidth, ih = img.naturalHeight;
@@ -808,8 +843,8 @@ function drawPatch(lon0, lat0, lonSpan, latSpan) {
     // 拉近時底圖貼圖只有每像素約 10 km，海岸是一團模糊、低地與淺海幾乎同色：用 1:50m 陸地多邊形把海岸畫清楚（陸地略提亮、海面略壓暗），圖磚之後再疊上
     if (latSpan <= 25 && lon0 >= -180 && lon1 <= 180 && (S.base === 'relief' || S.base === 'sat')) coastMask(g, lon0, lat0, lon1, lat1, P, S.base === 'relief' ? 0.26 : 0, S.base === 'relief' ? 0.3 : 0.22);
   } else {
-    g.fillStyle = OCEAN; g.fillRect(0, 0, PW, PH);
-    g.fillStyle = LAND;
+    g.fillStyle = GTP[GT].ocean; g.fillRect(0, 0, PW, PH);
+    g.fillStyle = GTP[GT].land;
     for (let k = 0; k < RINGS.length; k++) {
       const bx = ringBox[k]; if (bx[2] < lon0 || bx[0] > lon1 || bx[3] < lat0 || bx[1] > lat1) continue;
       const r = RINGS[k]; g.beginPath();
@@ -4085,8 +4120,7 @@ function flowVisible() {
   FLOW.mesh.visible = on;
   if (FLOW.wmesh) FLOW.wmesh.visible = on;
 }
-/* 粒子：白色、越強越亮越粗（量化成 24 階分批畫），重疊處用 lighter 疊加微微發光；快的粒子分小步畫（每段不超過約 1.5 個畫素），線條不會斷成一截一截 */
-const PART = [[0, 235, 240, 255, 0.3], [6, 245, 248, 255, 0.6], [12, 255, 255, 255, 0.85], [35, 255, 255, 255, 1]];
+/* 粒子：深色主題白色（淺色主題深色，見 GTP）、越強越亮越粗（量化成 24 階分批畫），重疊處用 lighter 疊加微微發光；快的粒子分小步畫（每段不超過約 1.5 個畫素），線條不會斷成一截一截 */
 function flowTick(dt, now) {
   const F = FLOW; if (!S.flow || !F || !F.g) return;
   flowWindow(now); flowWashMesh(S.modeT > 0.5); flowVisible();
@@ -4096,7 +4130,7 @@ function flowTick(dt, now) {
   else { F.mesh.scale.setScalar(1); F.mesh.position.y = lift * 1.3; if (F.wmesh) { F.wmesh.scale.setScalar(1); F.wmesh.position.y = lift * 1.2; } }
   const g = F.g, w = F.win, CW = F.cv.width, CH = F.cv.height, sx = CW / w.lonSpan, sy = CH / w.latSpan, top = w.lat0 + w.latSpan;
   g.globalCompositeOperation = 'destination-in'; g.fillStyle = 'rgba(0,0,0,' + Math.pow(0.9, Math.min(4, dt * 60)).toFixed(3) + ')'; g.fillRect(0, 0, CW, CH);   // 舊軌跡淡出（與更新頻率無關）
-  g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';
+  g.globalCompositeOperation = GTP[GT].blend; g.lineCap = 'round';
   const step = 0.006 * Math.min(4, dt * 60) * (w.full ? clamp(curAlt() / 110, 1, 3) : clamp(w.latSpan / 60, 0.08, 1));   // 示意速度：畫面上看起來的速度大致固定
   const NB = 24, VMAX = 35, paths = Array.from({ length: NB }, () => []);
   const lw0 = w.full ? 1.1 : 0.9 * CW / 1400, am = w.full ? 0.85 : 0.5;   // 整個地球時畫布較疏：線粗一點、亮一點
@@ -4121,7 +4155,7 @@ function flowTick(dt, now) {
   }
   paths.forEach((p, b) => {
     if (!p.length) return;
-    const v = (b + 0.5) / NB * VMAX, [r, gg, bb, a] = rampAt(PART, v);
+    const v = (b + 0.5) / NB * VMAX, [r, gg, bb, a] = rampAt(GTP[GT].part, v);
     g.strokeStyle = 'rgba(' + (r | 0) + ',' + (gg | 0) + ',' + (bb | 0) + ',' + (a * am).toFixed(3) + ')';
     g.lineWidth = lw0 * (0.7 + Math.min(1.1, v / 15));
     g.beginPath(); for (let k = 0; k < p.length; k += 4) { g.moveTo(p[k], p[k + 1]); g.lineTo(p[k + 2], p[k + 3]); } g.stroke();
@@ -5238,6 +5272,7 @@ function stateParams() {
   if (S.view !== 'map') p.v = S.view;
   if (S.mode !== 'globe') p.mode = S.mode;
   if (S.layer !== 'both') p.layer = S.layer;
+  if (gtUrl) p.gt = gtUrl;
   if (S.flow) p.flow = '1';
   if (S.flow && S.flowC === 't') p.fc = 't';
   if (S.zones) p.zones = '1';
@@ -5272,6 +5307,7 @@ function applyParams(p, fromFarms) {
   if (!p) return;
   if (TOUR && p.tour !== '1' && !STORIES[p.tour]) tourEnd(false);     // 導覽中打開分享連結（或按上一頁）：結束導覽，與點地球、換範圍、搜尋一致
   if (p.base && ['relief', 'sat', 'plain', 'wind'].includes(p.base)) setBase(p.base);
+  if ('gt' in p || gtUrl) { gtUrl = GT_OK.includes(p.gt) ? p.gt : null; applyTheme(); }
   if (p.mode === 'flat' || p.mode === 'globe') setMode(p.mode);
   if (p.v && ['map', 'split', 'bars'].includes(p.v)) setView(p.v);
   if (p.layer && ['both', 'on', 'off', 'fd'].includes(p.layer)) { S.layer = p.layer; $('g-layerSel').value = p.layer; layerChanged(); updateBars(true); farmLayerDirty = true; }
@@ -5398,6 +5434,7 @@ function wireUI() {
   $('g-densSel').onchange = e => { S.density = +e.target.value; };
   $('g-regionSel').onchange = e => { if (TOUR) tourEnd(false); closeCard(); setRegion(e.target.value); };
   $('g-baseSel').onchange = e => setBase(e.target.value);
+  $('g-themeSel').onchange = e => setThemePref(e.target.value);
   $('g-btnFlow').onclick = () => toggleFlow();
   $('g-btnZones').onclick = () => toggleZones();
   $('g-btnLiveCov').onclick = () => toggleLiveCov();

@@ -2,6 +2,7 @@
 """產生 3D 地球儀的地貌底圖（等距圓柱投影，2:1）。
 
     python tools/build_basemaps.py <world.topo.bathy.200412.3x5400x2700.jpg> <GRAY_50M_SR_OB.tif> assets/img/globe
+    python tools/build_basemaps.py - <GRAY_50M_SR_OB.tif> assets/img/globe      # 只重建地形底圖（深色與淺色）· relief maps only
 
 來源（皆為公有領域）：
   · NASA Earth Observatory「Blue Marble Next Generation w/ Topography and Bathymetry」(2004-12)
@@ -9,6 +10,7 @@
   · Natural Earth「Gray Earth with Shaded Relief, Hypsography and Ocean Bottom」1:50m
     https://www.naturalearthdata.com/downloads/50m-raster-data/50m-gray-earth/ → 深色地形底圖 relief_*.jpg
     （以 data/global/world_borders.json 的國界多邊形當陸地遮罩，陸地與海洋分別上色，維持網站的深色資料風格）
+    → 淺色地形底圖 relief_light_*.jpg（同一份陰影地形，淡綠陸地、天空藍海洋；地球儀淺色主題用）
 
 輸出 4096×2048（桌機）與 2048×1024（手機／低記憶體）兩種尺寸。
 """
@@ -31,8 +33,8 @@ def save(img, name, q):
 
 
 # ---------------------------------------------------------------- satellite (Blue Marble)
-bm = Image.open(BM).convert("RGB")
-for w, h, tag in SIZES:
+bm = Image.open(BM).convert("RGB") if str(BM) != "-" else None
+for w, h, tag in (SIZES if bm else []):
     im = bm.resize((w, h), Image.LANCZOS)
     # 稍微壓暗、降一點飽和，讓金色(陸域)/藍色(離岸)風機與標籤仍然是畫面主角
     im = ImageEnhance.Brightness(im).enhance(0.80)
@@ -73,3 +75,12 @@ for w, h, tag in SIZES:
     im = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8), "RGB")
     im = im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=2))
     save(im, f"relief_{tag}.jpg", 82 if tag == "4k" else 80)
+    # 淺色（白天）：陰影處淡橄欖綠 → 向陽處米白；海洋深處天空藍 → 陸棚淺藍 · light: olive-green shade → cream, sky blue → pale shelf
+    land_lo, land_hi = hexrgb("#a9c08e"), hexrgb("#f4f6e4")
+    sea_lo, sea_hi = hexrgb("#8ccbea"), hexrgb("#d6eef9")
+    land = land_lo + (land_hi - land_lo) * s_land[..., None]
+    sea = sea_lo + (sea_hi - sea_lo) * s_sea[..., None]
+    rgb = sea * (1 - mask) + land * mask
+    im = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8), "RGB")
+    im = im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=2))
+    save(im, f"relief_light_{tag}.jpg", 82 if tag == "4k" else 80)
