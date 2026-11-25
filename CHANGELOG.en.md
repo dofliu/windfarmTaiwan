@@ -19,6 +19,16 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 
 - The globe's comic colours give the phone's bottom drawer a bold navy edge and rounded corners; the smoke test's comic check now looks at the page's sky background (on phones the panel sits in the drawer, so checking its border failed wrongly).
 - Data correction: Romania's Corugea wind farm (70 MW) moves from a shared national placeholder to Corugea village, Tulcea County (Wikidata, still approximate). Checked but **not changed**: Serro Di Luca, Borne (WPD) and Casimcea already sit closer than the area centre would put them; the 77 Indian farms given only a village name have no Wikidata item and stay as they are.
+## v3.26.3 — 2026-11-25
+
+- Data update: the US "latest available" point now uses the October 2026 edition of EIA-860M (onshore 166,333.5 MW, offshore 1,687.0 MW; offshore adds Revolution Wind, 715 MW, listed by EIA as operating from October 2026).
+- Data corrections: the Fukushima floating demonstration (FORWARD) gains a water depth of 120 m, hub heights of 66.2–105 m and a 167 m rotor (the evaluation report on the METI-commissioned demonstration); the Kitakyushu offshore demonstrator gains a hub height of about 80 m and a rotor of about 83 m (NEDO's demonstration report).
+
+## v3.26.2 — 2026-11-24
+
+- Data correction: Kitakyushu Hibikinada (Japan) now has its 110 m hub height (Japanese wind farm directory windfarm.work; the owner's start-of-operation notice gives a 174 m rotor and a tip about 200 m above the sea in the same passage, which agrees).
+- Maintenance: when the Taiwan live-data job's push is rejected because of a simultaneous push, it now pulls and pushes again (up to 4 times) instead of failing the run.
+- The version skips v3.26.1, which is left to PR #188 still under review.
 
 ## v3.26.0 — 2026-11-24
 
