@@ -15,6 +15,12 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.26.2 — 2026-11-24
+
+- Data correction: Kitakyushu Hibikinada (Japan) now has its 110 m hub height (Japanese wind farm directory windfarm.work; the owner's start-of-operation notice gives a 174 m rotor and a tip about 200 m above the sea in the same passage, which agrees).
+- Maintenance: when the Taiwan live-data job's push is rejected because of a simultaneous push, it now pulls and pushes again (up to 4 times) instead of failing the run.
+- The version skips v3.26.1, which is left to PR #188 still under review.
+
 ## v3.26.0 — 2026-11-24
 
 - **A third globe style: comic** (View › Colours › Comic, or `gt=comic` in the URL), in the kids edition's style: bright blue sea, cream land, bold navy borders and coastlines (drawn into the map; the relief basemap turns flat in comic), a navy-rimmed globe, bold rounded panels with offset shadows, pill buttons and a yellow accent with navy text, with bold navy map labels in a white outline. It shares the light theme's data colours (checked for colour blindness and contrast); the accent used as text is dark amber (5.6:1 on white) and yellow appears only as a fill. The sea-level view's panels follow too. All three globe themes (dark, light, comic) are now done.
