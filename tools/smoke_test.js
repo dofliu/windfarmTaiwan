@@ -224,7 +224,8 @@ const ROUTES = [
   }],
   ['#/global?r=TWN&layer=fd&gt=comic', 15000, () => {
     const g = document.getElementById('globe');
-    return g.dataset.gt === 'comic' && getComputedStyle(document.getElementById('g-msPanel')).borderTopWidth === '2px' ? '' : 'globe: comic colours not applied';
+    // 漫畫的天空底色（桌機與手機相同；手機的面板是底部抽屜，框線規則不同）· the comic sky background, the same at every width
+    return g.dataset.gt === 'comic' && getComputedStyle(g).backgroundColor === 'rgb(238, 247, 252)' ? '' : 'globe: comic colours not applied';
   }],
   ['#/global?ind=share', 15000, () => {
     const l = document.querySelector('#g-indLegend');

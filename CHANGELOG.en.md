@@ -15,6 +15,10 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.26.1 — 2026-11-24
+
+- The globe's comic colours give the phone's bottom drawer a bold navy edge and rounded corners; the smoke test's comic check now looks at the page's sky background (on phones the panel sits in the drawer, so checking its border failed wrongly).
+- Data correction: Romania's Corugea wind farm (70 MW) moves from a shared national placeholder to Corugea village, Tulcea County (Wikidata, still approximate). Checked but **not changed**: Serro Di Luca, Borne (WPD) and Casimcea already sit closer than the area centre would put them; the 77 Indian farms given only a village name have no Wikidata item and stay as they are.
 ## v3.26.3 — 2026-11-25
 
 - Data update: the US "latest available" point now uses the October 2026 edition of EIA-860M (onshore 166,333.5 MW, offshore 1,687.0 MW; offshore adds Revolution Wind, 715 MW, listed by EIA as operating from October 2026).

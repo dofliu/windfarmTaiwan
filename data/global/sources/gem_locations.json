@@ -16110,6 +16110,19 @@
 "lon": 124.8144,
 "label_en": "Datong District",
 "label_zh": "大同区"
+},
+{
+"name": "Corugea wind farm",
+"iso": "ROU",
+"place": "1 Corugea, Tulcea, Northern Dobruja, Romania",
+"gem_url": "https://www.gem.wiki/Corugea_wind_farm",
+"wikidata": "Q12113305",
+"query": "manual:Q12113305",
+"level": "township",
+"lat": 44.7357,
+"lon": 28.3395,
+"label_en": "Corugea",
+"label_zh": ""
 }
 ],
 "skipped": [
@@ -16285,13 +16298,6 @@
 "iso": "IND",
 "place": "Kaladongar, Rajasthan, India",
 "gem_url": "https://www.gem.wiki/Kaladongar_wind_farm",
-"why": "no acceptable result (Nominatim and Wikidata search)"
-},
-{
-"name": "Corugea wind farm",
-"iso": "ROU",
-"place": "1 Corugea, Tulcea, Northern Dobruja, Romania",
-"gem_url": "https://www.gem.wiki/Corugea_wind_farm",
 "why": "no acceptable result (Nominatim and Wikidata search)"
 },
 {

@@ -209,7 +209,8 @@ COMIC = '''
 #globe[data-gt="comic"] .lbl.ctry{background:#fff;border:2px solid #12324A;border-radius:10px;text-shadow:none;box-shadow:2px 2px 0 #12324A}
 #globe[data-gt="comic"] .lbl.ms,#globe[data-gt="comic"] .lbl.focus b,#globe[data-gt="comic"] .lbl.fnew{color:#8a4b00}
 #globe[data-gt="comic"] #g-ports .pmk,#globe[data-gt="comic"] #g-events .emk{border:2px solid #12324A;box-shadow:2px 2px 0 #12324A}
-@media(max-width:640px){#globe[data-gt="comic"] #g-top button,#globe[data-gt="comic"] #g-top select{background-color:#fff;border:2px solid #12324A;box-shadow:2px 2px 0 #12324A}}
+@media(max-width:640px){#globe[data-gt="comic"] #g-top button,#globe[data-gt="comic"] #g-top select{background-color:#fff;border:2px solid #12324A;box-shadow:2px 2px 0 #12324A}
+  #globe[data-gt="comic"] #g-drawer{border-top:3px solid #12324A;border-radius:18px 18px 0 0;box-shadow:0 -3px 0 #FFC845}}
 '''
 
 
