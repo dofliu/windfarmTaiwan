@@ -410,29 +410,12 @@
   "value": {
    "hub_m": null
   },
-  "note_zh": "本輪讀了 provencegrandlarge.fr 全站（le-projet、une-innovation-mondiale、documentations）、2025 年 6 月新聞資料袋與 2018 年專案簡介 PDF：只有浮體 45 m 高、錨深逾 100 m、葉尖高 174 m，沒有輪轂高度；edf-renouvelables.com 的專案頁與 PDF 都 404。",
-  "note_en": "This round read the whole provencegrandlarge.fr site (project, innovation, documentation pages), the June 2025 press kit and the 2018 project sheet: only floater height 45 m, anchors below 100 m and 174 m tip height, no hub height; the edf-renouvelables.com project page and PDFs return 404.",
+  "note_zh": "本輪讀了 provencegrandlarge.fr 全站（le-projet、une-innovation-mondiale、documentations）、2025 年 6 月新聞資料袋與 2018 年專案簡介 PDF：只有浮體 45 m 高、錨深逾 100 m、葉尖高 174 m，沒有輪轂高度；edf-renouvelables.com 的專案頁與 PDF 都 404。2026-11-26 再查：葉尖高「海面上 174 m」與 2017 年環評的葉輪 154 m／轉軸 97 m 在不同文件，且環評是設計值，不推算。",
+  "note_en": "This round read the whole provencegrandlarge.fr site (project, innovation, documentation pages), the June 2025 press kit and the 2018 project sheet: only floater height 45 m, anchors below 100 m and 174 m tip height, no hub height; the edf-renouvelables.com project page and PDFs return 404. 2026-11-26 recheck: the 174 m tip above the sea and the 2017 EIA's 154 m rotor / 97 m rotor axis are in different documents and the EIA is a design value, so nothing is derived.",
   "sources": [
    {
     "url": "https://www.connaissancedesenergies.org/une-premiere-eolienne-offshore-flottante-installee-au-large-du-golfe-de-fos-241104",
     "quote": "Culminant chacune à 174 m au-dessus de la mer",
-    "check": "OK"
-   }
-  ]
- },
- {
-  "farm": "Les Éoliennes Flottantes du Golfe du Lion (EFGL)",
-  "iso": "FRA",
-  "type": "none",
-  "value": {
-   "hub_m": null
-  },
-  "note_zh": "Ocean Winds 專案頁、Principle Power 專案頁與 Banque des Territoires 的文章只寫 3 部 10 MW、WindFloat 浮體與「186 mètres de hauteur en bout de pale」；efgl.fr 從這裡連不上（DNS／502），lejournaldesentreprises 回 503；沒有輪轂高度。",
-  "note_en": "Ocean Winds' and Principle Power's project pages and the Banque des Territoires article give only 3 × 10 MW, WindFloat floaters and '186 m tip height'; efgl.fr is unreachable from here (DNS/502) and Le Journal des Entreprises returned 503; no hub height.",
-  "sources": [
-   {
-    "url": "https://www.banquedesterritoires.fr/eoliennes-flottantes-du-golfe-du-lion-zoom-sur-un-projet-pilote-pour-la-transition-energetique",
-    "quote": "186 mètres de hauteur en bout de pale",
     "check": "OK"
    }
   ]
@@ -560,8 +543,8 @@
    "models": "",
    "lead": "tip 260 m above sea level and 107 m blades (Energy Global); rotor 220 m only in other sources → ~150 m, not derivable"
   },
-  "note_zh": "Energy Global（2023-10 首部風機）：葉尖高於海平面 260 m、每片葉片 107 m；葉片長不是葉輪半徑（220 m 葉輪在別的出處），依規則不能推算（約 150 m）。Dogger Bank 官網各頁沒有高度；A／B 除役計畫書是 2020 年施工前版本，不採用。",
-  "note_en": "Energy Global (first turbine, Oct 2023): blade tips 260 m above sea level, each blade 107 m; blade length is not the rotor radius (the 220 m rotor is in other sources), so ~150 m cannot be derived under the rules. The Dogger Bank website pages have no heights; the A/B decommissioning programme is a 2020 pre-construction draft and is not used.",
+  "note_zh": "Energy Global（2023-10 首部風機）：葉尖高於海平面 260 m、每片葉片 107 m；葉片長不是葉輪半徑（220 m 葉輪在別的出處），依規則不能推算（約 150 m）。Dogger Bank 官網各頁沒有高度；A／B 除役計畫書是 2020 年施工前版本，不採用。2026-11-26 再查：仍只有 Energy Global 的葉尖 260 m＋葉片 107 m 與 GE 規格「Height 248 m」（未說明基準）；A／B 除役計畫書仍是 2020 草稿。",
+  "note_en": "Energy Global (first turbine, Oct 2023): blade tips 260 m above sea level, each blade 107 m; blade length is not the rotor radius (the 220 m rotor is in other sources), so ~150 m cannot be derived under the rules. The Dogger Bank website pages have no heights; the A/B decommissioning programme is a 2020 pre-construction draft and is not used. 2026-11-26 recheck: still only Energy Global's 260 m tip + 107 m blades and the GE sheet's \"Height 248 m\" (base not stated); the A/B decommissioning programme is still the 2020 draft.",
   "sources": [
    {
     "url": "https://www.energyglobal.com/wind/11102023/voltaire-installs-first-next-generation-wind-turbines-at-dogger-bank/",
@@ -625,13 +608,17 @@
    "models": "",
    "lead": "no hub height; KOWP spec image confirms 17 x TCS (134 m rotor) + 3 x TC2 (100 m rotor); Money Today 157 m max height stays a lead"
   },
-  "note_zh": "韓國海上風力（KOWP）官網「설비 및 시스템—터빈 및 블레이드」頁只有一張圖（estate_system_01.jpg）：WinDS3000/134 TCS 17 部（葉輪 134 m）、TC2 3 部（葉輪 100 m），沒有輪轂高度；「실증단지 소개」頁寫 2017-05 海上開工、2019-07 商轉、2020-01 竣工。海岸海洋工學會 2023 年 LCOE 論文與 2014 年造船學會文章也沒有輪轂高度。머니투데이的「最高 157 m」仍只能當線索。",
-  "note_en": "KOWP's 'facilities—turbine and blades' page is a single image (estate_system_01.jpg): 17 WinDS3000/134 TCS units (134 m rotor) and 3 TC2 units (100 m rotor), no hub height; the demonstration-farm page gives offshore start May 2017, commercial operation July 2019 and completion Jan 2020. The 2023 KSCOE LCOE paper and the 2014 SNAK article have no hub height either. Money Today's '157 m maximum height' stays a lead.",
+  "note_zh": "韓國海上風力（KOWP）官網「설비 및 시스템—터빈 및 블레이드」頁只有一張圖（estate_system_01.jpg）：WinDS3000/134 TCS 17 部（葉輪 134 m）、TC2 3 部（葉輪 100 m），沒有輪轂高度；「실증단지 소개」頁寫 2017-05 海上開工、2019-07 商轉、2020-01 竣工。海岸海洋工學會 2023 年 LCOE 論文與 2014 年造船學會文章也沒有輪轂高度。머니투데이的「最高 157 m」仍只能當線索。2026-11-26 再查：電子新聞 2020-09 引韓國海上風力職員「海床到風機頂端約 100 m」，與머니투데이「最高 157 m」不一致，基準也不同，都不採用。",
+  "note_en": "KOWP's 'facilities—turbine and blades' page is a single image (estate_system_01.jpg): 17 WinDS3000/134 TCS units (134 m rotor) and 3 TC2 units (100 m rotor), no hub height; the demonstration-farm page gives offshore start May 2017, commercial operation July 2019 and completion Jan 2020. The 2023 KSCOE LCOE paper and the 2014 SNAK article have no hub height either. Money Today's '157 m maximum height' stays a lead. 2026-11-26 recheck: etnews (Sep 2020) quotes a KOWP staffer as \"about 100 m from the seabed to the top of the turbine\", which conflicts with Money Today's 157 m and uses a different base; neither is used.",
   "sources": [
    {
     "url": "http://www.kowp.co.kr/business/advertise01.asp",
     "quote": "2017년 5월 해상공사를 시작으로 2019년 7월 상업운전을 개시하였으며, 2020년 1월 종합준공 되었습니다. 총 60MW 규모로 조성된 실증단지는",
     "check": "OK"
+   },
+   {
+    "url": "https://www.etnews.com/20200918000060",
+    "quote": "해저면부터 풍력발전기 상단까지 높이는 약 100m"
    }
   ]
  },
@@ -773,6 +760,25 @@
     "url": "https://compositesworld.com/news/vestas-wins-50-mw-order-for-largest-vietnam-intertidal-wind-project",
     "quote": "The project will also feature customized towers placed on reinforced onshore foundations above sea level.",
     "check": "OK"
+   }
+  ]
+ },
+ {
+  "farm": "Vineyard Wind 1",
+  "iso": "USA",
+  "type": "lead",
+  "value": {
+   "hub_m": null,
+   "basis": "",
+   "models": "",
+   "lead": "electrek: 220 m rotor and 248 m tall in one passage (base not stated) → ~138 m, matching USWTDB 137.5 m (low confidence)"
+  },
+  "note_zh": "2026-11-26：electrek（2023-10 首部風機）同一句寫葉輪 220 m、高 248 m，但沒寫高度從哪裡算起（海平面或過渡段），依規則不推算；248 − 110 = 138 m 與 USWTDB 的 137.5 m 相近，仍只當線索。",
+  "note_en": "26 Nov 2026: electrek (first turbine, Oct 2023) gives a 220 m rotor and 248 m tall in one sentence but not the base of the height (sea level or transition piece), so nothing is derived under the rules; 248 − 110 = 138 m is close to USWTDB's 137.5 m, still a lead only.",
+  "sources": [
+   {
+    "url": "https://electrek.co/2023/10/20/first-turbine-us-first-commercial-offshore-wind-farm/",
+    "quote": "It has a 220-meter (722-foot) rotor, has 107-meter (351-foot) blades, and is 248 meters (814 feet) tall."
    }
   ]
  }
