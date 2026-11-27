@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 955 rules: 273 records removed (49,486.1 MW of them operating), 682 records fixed. In addition, 1240 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
+- 960 rules: 273 records removed (49,486.1 MW of them operating), 687 records fixed. In addition, 1240 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -22,14 +22,14 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | China | 64 | 27,723.5 | 194 |
 | Colombia | 1 | 8 | 3 |
 | Croatia | 0 | 0 | 2 |
-| Czechia | 0 | 0 | 2 |
+| Czechia | 0 | 0 | 3 |
 | Denmark | 1 | 180 | 6 |
 | Dominican Rep. | 2 | 50 | 8 |
 | Egypt | 2 | 1,082 | 0 |
 | Finland | 1 | 30 | 2 |
 | France | 51 | 1,200.5 | 107 |
 | Germany | 11 | 265 | 29 |
-| India | 8 | 525 | 55 |
+| India | 8 | 525 | 59 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Israel | 1 | 21 | 1 |
@@ -410,6 +410,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 |---|---|---|---|---|
 | Horni Lodenice - Lipina wind farm · 18 MW · 2009 | GEM | fixed: location | Point moved to the village of Horní Loděnice, Olomouc Region (Wikidata coordinate; approximate; the farm lies between Horní Loděnice and Lipina): oenergetice.cz’s table of Czech wind farms lists Horní Loděnice – Lipina in the Olomouc Region, nine Vestas V90 2 MW, 18 MW, 2009; GEM gives only the country, and the old point was the centre of Czechia | [link](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
 | Horni Paseky wind farm · 10 MW · 2012 | GEM | fixed: location | Point moved to Horní Paseky in Aš, Karlovy Vary Region (Wikidata coordinate; approximate): oenergetice.cz’s table of Czech wind farms lists Horní Paseky in the Karlovy Vary Region, five Vestas V90 2 MW, 10 MW, 2012 (the other Horní Paseky, in the Zlín Region, is not in that region). GEM gives only the country, and the old point was the centre of Czechia | [link](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
+| Cerveny Kopec - Rejchartice wind farm · 14 MW · 2012 | GEM | fixed: location, capacity | Point moved to the village of Rejchartice, Bruntál district, Moravian-Silesian Region (Wikidata coordinate; approximate) and capacity set to 13.8 MW: oenergetice.cz’s table of Czech wind farms lists Červený kopec – Rejchartice in the Olomouc Region, six Siemens SWT-2.3-101, 13.8 MW, 2012; The Wind Power puts it 1 km from Rejchartice, 11 km from Hraničné Petrovice and 12 km from Horní Loděnice – Lipina (so it is the Rejchartice next to Stará Libavá, not the village of that name in Šumperk district), Ekonomický deník also mentions the six turbines built in 2012 on Červený vrch north of Stará Libavá, and Novinky says the hill straddles the Moravian-Silesian and Olomouc regions, with the turbines on the land of four municipalities including Norberčany and Dvorce (so the two region names do not conflict). GEM gives only the country, and the old point was the centre of Czechia, about 147 km west | [link](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
 
 ## Denmark (DNK)
 
@@ -728,6 +729,10 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Bidadi wind farm · 10 MW | GEM | fixed: location, owner | Position and capacity unverified: GEM’s only source is Toyota Kirloskar Motor’s release of 29 Jun 2023, which puts the 27.2 MW group-captive solar and wind project (a joint venture with ReNew) in Kudligi taluk, Vijayanagara district (phase 1: 20.6 MW of solar and wind; phase 2: a further 6.6 MW of wind), not at Bidadi, where TKM’s factory is; the release does not give the wind capacity, so GEM’s 10 MW cannot be checked. The point now uses the town of Kudligi (approximate) | [link](https://www.toyotabharat.com/news/2023/tkm-renew-energy-global-plc-jointly-inaugurated-the-newly-set-up-27.2-mw-group-captive-solar-and-wind-renewable.html) |
 | Agar (Greenko) wind farm · 40 MW | GEM | duplicate of “Maliya wind farm” | Same farm: Greenko Agar Wind Power (formerly Orange Agar Wind Power, a project company of Orange Renewable) set up a 40 MW wind farm at Maliya, Morbi district, Gujarat, which is the “Maliya” record (40 MW, Greenko, 2017); GEM took “Agar” in the company name for a place and put this 40 MW Greenko farm on a Gujarat placeholder, counting it twice | [link](https://cbonds.com/company/194073/) |
 | Kita (Orix) wind farm · 39 MW | GEM | fixed: capacity | Capacity set to 38.4 MW: the ICRA rating report GEM cites (ORIX’s five project companies) lists Kita in Rajasthan at 38.4 MW. The commissioning year was not found (it may be Wind Urja India’s 38.4 MW at Jaisalmer, commissioned in September 2010, but no source ties that farm to Kita) | [link](https://www.icra.in/Rating/ShowRationalReportFilePdf?Id=98041) |
+| Maniyachi wind farm · 252 MW · 2019 | GEM | fixed: location | Point moved to the centre of the project area (approximate): the environmental and social impact assessment of Mytrah Vayu (Sabarmati)’s 252 MW wind farm (March 2018; its appendix is titled “Maniyachi North 252 MW”) spreads the turbines over the Kayathar, Kovilpatti and Ottapidaram taluks of Thoothukudi district, Tamil Nadu, and gives the corners of the site as 8°53′07.96″N 77°47′32.83″E and 9°04′58.81″N 77°56′21.39″E; the point is the midpoint of the two. The report predates construction and has no per-turbine coordinates. GEM gives only Tamil Nadu, and the old point was the state placeholder, about 150 km north | [link](https://openlandcontracts.org/contract/ocds-591adf-1355447404/download/pdf) |
+| Kaladongar wind farm · 76 MW · 2012 | GEM | fixed: location | Point moved to the city of Jaisalmer, Rajasthan (Wikidata coordinate; approximate): The Wind Power lists Kaladongar’s first part as 36 Suzlon S95 2.1 MW units, 75.6 MW, with Jaisalmer as the city, and GlobalData also gives Kaladongar as 75.6 MW in Rajasthan. GEM gives only Rajasthan, and the old point was the state placeholder (near Kota), about 530 km east | [link](https://thewindpower.net/windfarm_en_26859_kaladongar.php) |
+| Mokal (Hindustan Zinc) wind farm · 80 MW · 2011 | GEM | fixed: location | Point moved to the city of Jaisalmer, Rajasthan (Wikidata coordinate; approximate): The Wind Power’s Mokal page lists a part of 38 Suzlon S88 2.1 MW units, 79.8 MW, with Jaisalmer as the city, matching GlobalData’s 79.8 MW Hindustan Zinc Mokal farm (Mokal is around the village of Mokla north-west of Jaisalmer). GEM gives only Rajasthan, and the old point was the state placeholder, about 530 km east | [link](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
+| Mokal (Mytrah) wind farm · 42 MW · 2011 | GEM | fixed: location | Point moved to the city of Jaisalmer, Rajasthan (Wikidata coordinate; approximate): The Wind Power’s Mokal page lists a part of 20 Suzlon S88 2.1 MW units, 42 MW, with Jaisalmer as the city, matching this 42 MW Mytrah record, and CleanTechnica also names Mytrah Energy among the companies with projects in the Jaisalmer wind park. GEM put it on the Gujarat placeholder (another state), about 550 km off | [link](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
 
 ## Iran (IRN)
 

@@ -1433,6 +1433,7 @@ CLEAN fix COL Carreto wind farm 9.9
 CLEAN fix COL Vientos De Galerazamba wind farm 69.9
 CLEAN fix COL WESP 01 wind farm 12.0
 CLEAN fix COL WESP 01 wind farm 12.0
+CLEAN fix CZE Cerveny Kopec - Rejchartice wind farm 14.0
 CLEAN fix CZE Horni Lodenice - Lipina wind farm 18.0
 CLEAN fix CZE Horni Paseky wind farm 10.0
 CLEAN fix DEU Asselner wind farm 19.5
@@ -1778,6 +1779,7 @@ CLEAN fix IND Jath (NALCO) wind farm 50.0
 CLEAN fix IND Jed wind farm 24.0
 CLEAN fix IND Jodhpur (CEPCO) wind farm 39.0
 CLEAN fix IND Jogmatti BSES wind farm 14.0
+CLEAN fix IND Kaladongar wind farm 76.0
 CLEAN fix IND Kaladunga wind farm 23.0
 CLEAN fix IND Kalorana wind farm 36.0
 CLEAN fix IND Karnataka (Green Infra) wind farm 54.6
@@ -1838,11 +1840,14 @@ CLEAN fix IND Mahuriya (Suzlon) I wind farm 15.0
 CLEAN fix IND Mahuriya (Suzlon) II wind farm 15.0
 CLEAN fix IND Maliya wind farm 40.0
 CLEAN fix IND Mamatkheda wind farm 101.0
+CLEAN fix IND Maniyachi wind farm 252.0
 CLEAN fix IND Matalpur wind farm 34.0
 CLEAN fix IND Modha Ganeshpur I wind farm 24.0
 CLEAN fix IND Modha Ganeshpur II wind farm 28.0
 CLEAN fix IND Modha wind farm 52.0
 CLEAN fix IND Mokal (Hindustan Zinc) wind farm 80.0
+CLEAN fix IND Mokal (Hindustan Zinc) wind farm 80.0
+CLEAN fix IND Mokal (Mytrah) wind farm 42.0
 CLEAN fix IND Mokal (Rsmml) wind farm 32.0
 CLEAN fix IND Mokla Selat wind farm 13.0
 CLEAN fix IND Mokla wind farm 32.0

@@ -1,0 +1,89 @@
+[
+ {
+  "farm": "CZE Cerveny Kopec - Rejchartice wind farm",
+  "sources": [
+   {
+    "url": "https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni",
+    "quote": "Červený kopec – Rejchartice Olomoucký Siemens SWT-2,3-101 101 80 2.3 6 13.8 2012"
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_20921_cerveny-kopec-rejchartice.php",
+    "quote": "Nearby wind farms Rejchartice (1 km) Hranicne Petrovice (11 km) Horni Lodenice - Lipina (12 km)"
+   },
+   {
+    "url": "https://ekonomickydenik.cz/?p=169719",
+    "quote": "Větrníky mají vyrůst severně od osady Stará Libavá. Tedy poblíž šesti elektráren, které na Červeném vrchu v roce 2012 postavil jiný investor."
+   },
+   {
+    "url": "https://www.novinky.cz/clanek/ekonomika-snazsi-povolovani-vetrnych-elektraren-starostove-obci-nejsou-nadseni-40573339",
+    "quote": "Celkem sedm větrníků se tyčí na kopci zasahujícím do dvou krajů, Moravskoslezského a Olomouckého. Katastrálně jsou na území čtyř obcí včetně Norberčan či Dvorců."
+   }
+  ],
+  "note": "Resolves the 2026-11-20 contradiction (CENIA: Rejchartice in Dvorce, Bruntál, Moravian-Silesian; oenergetice: Olomouc Region): the hill straddles both regions; 7 turbines = these 6 + the single 2 MW Rejchartice/Stará Libavá unit."
+ },
+ {
+  "farm": "IND Maniyachi wind farm",
+  "sources": [
+   {
+    "url": "https://openlandcontracts.org/contract/ocds-591adf-1355447404/download/pdf",
+    "quote": "Location of Site Tehsil: Kayathar, Kovilpatti, & Ottapidaram District: Thoothukudi, Tamilnadu Broad Geographical Coordinates of the site 8°53'7.96\"N, 77°47'32.83\"E and 9° 4'58.81\"N, 77°56'21.39\"E Project Capacity 252 MW"
+   },
+   {
+    "url": "https://openlandcontracts.org/contract/ocds-591adf-1355447404/download/pdf",
+    "quote": "Appendix U:: Maniyachi North 252 MW detailed Land status"
+   },
+   {
+    "url": "https://openlandcontracts.org/contract/ocds-591adf-1355447404/download/pdf",
+    "quote": "Prepared for: Mytrah Vayu (Sabarmati) Pvt. Ltd."
+   }
+  ]
+ },
+ {
+  "farm": "IND Kaladongar wind farm",
+  "sources": [
+   {
+    "url": "https://thewindpower.net/windfarm_en_26859_kaladongar.php",
+    "quote": "Part #1 City Jaisalmer Commissioning Turbines 36x Suzlon S95/2100 (power 2,100 kW, diameter 95 m) Hub height Total nominal power 75,600 kW"
+   },
+   {
+    "url": "https://www.power-technology.com/marketdata/kaladongar-india",
+    "quote": "Kaladongar is a 75.6MW onshore wind power project. It is located in Rajasthan, India."
+   }
+  ]
+ },
+ {
+  "farm": "IND Mokal (Hindustan Zinc) wind farm",
+  "sources": [
+   {
+    "url": "https://www.power-technology.com/marketdata/power-plant-profile-mokal-hzl-india/",
+    "quote": "Mokal – HZL is a 79.8MW onshore wind power project. It is located in Rajasthan, India."
+   },
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_16276_mokal.php",
+    "quote": "Part #4 City Jaisalmer Commissioning Turbines 38x Suzlon S88/2100 (power 2,100 kW, diameter 88 m) Total nominal power 79,800 kW"
+   }
+  ]
+ },
+ {
+  "farm": "IND Mokal (Mytrah) wind farm",
+  "sources": [
+   {
+    "url": "https://www.thewindpower.net/windfarm_en_16276_mokal.php",
+    "quote": "Part #3 City Jaisalmer Commissioning Turbines 20x Suzlon S88/2100 (power 2,100 kW, diameter 88 m) Hub height Total nominal power 42,000 kW"
+   },
+   {
+    "url": "https://cleantechnica.com/2012/05/15/largest-wind-farm-in-india-crosses-1000-mw-of-capacity/",
+    "quote": "The wind park houses projects of various companies including Mytrah Energy, Hindustan Zinc Limited"
+   }
+  ]
+ },
+ {
+  "farm": "IND Kaluneerkulam wind farm (lead only)",
+  "sources": [
+   {
+    "url": "https://www.projectstoday.com/News/Neyveli-to-commission-its-wind-power-project-by-next-year",
+    "quote": "The company has proposed to set up a 51 MW wind power farm at Kaluneerkulam."
+   }
+  ]
+ }
+]
