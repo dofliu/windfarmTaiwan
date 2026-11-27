@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 955 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 682 筆。另有 1240 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 960 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 687 筆。另有 1240 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -21,7 +21,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 5 | 200.3 | 9 |
-| 印度 | 8 | 525 | 55 |
+| 印度 | 8 | 525 | 59 |
 | 台灣 | 2 | 0 | 26 |
 | 哥倫比亞 | 1 | 8 | 3 |
 | 土耳其 | 9 | 592 | 18 |
@@ -35,7 +35,7 @@
 | 德國 | 11 | 265 | 29 |
 | 愛爾蘭 | 0 | 0 | 1 |
 | 挪威 | 7 | 1,939 | 10 |
-| 捷克 | 0 | 0 | 2 |
+| 捷克 | 0 | 0 | 3 |
 | 摩洛哥 | 3 | 642 | 3 |
 | 日本 | 2 | 30 | 19 |
 | 智利 | 1 | 105.6 | 0 |
@@ -469,6 +469,10 @@
 | Bidadi wind farm · 10 MW | GEM | 修正：座標、業主 | 位置與容量待查證：GEM 這筆唯一的出處是豐田 Kirloskar（TKM）2023 年 6 月 29 日的新聞稿，稱與 ReNew 合資的 27.2 MW 太陽光電＋風電團體自用案位於維傑亞納加拉縣 Kudligi 鄉（第一期太陽光電與風電合計 20.6 MW，第二期再加 6.6 MW 風電），不在 TKM 工廠所在的 Bidadi；新聞稿沒有寫風電容量，GEM 的 10 MW 無從核對。座標改用 Kudligi 鎮（概略位置） | [連結](https://www.toyotabharat.com/news/2023/tkm-renew-energy-global-plc-jointly-inaugurated-the-newly-set-up-27.2-mw-group-captive-solar-and-wind-renewable.html) |
 | Agar (Greenko) wind farm · 40 MW | GEM | 重複（併入「Maliya wind farm」） | 同一座風場：Greenko Agar Wind Power（原名 Orange Agar Wind Power，Orange Renewable 的專案公司）在古吉拉特邦 Morbi 縣 Maliya 建了 40 MW 風場，就是「Maliya」這筆（40 MW、Greenko、2017）；GEM 把公司名裡的 Agar 當成地名，把這筆 40 MW 的 Greenko 風場放在古吉拉特邦的代用點，重複計算 | [連結](https://cbonds.com/company/194073/) |
 | Kita (Orix) wind farm · 39 MW | GEM | 修正：容量 | 容量改為 38.4 MW：GEM 引用的 ICRA 評等報告（ORIX 五家專案公司）列拉賈斯坦邦 Kita 的容量為 38.4 MW。商轉年未查到（可能是 IL&FS 專案公司 Wind Urja India 在 Jaisalmer 的 38.4 MW、2010 年 9 月商轉，但沒有出處把它對到 Kita） | [連結](https://www.icra.in/Rating/ShowRationalReportFilePdf?Id=98041) |
+| Maniyachi wind farm · 252 MW · 2019 | GEM | 修正：座標 | 座標改到場址範圍的中心（概略位置）：Mytrah Vayu (Sabarmati) 的 252 MW 風場環境與社會影響評估（2018 年 3 月，附錄名稱「Maniyachi North 252 MW」）寫風機分布在坦米爾納德邦圖蒂戈林（Thoothukudi）縣 Kayathar、Kovilpatti、Ottapidaram 三個區，場址範圍的兩個角點是北緯 8°53′07.96″、東經 77°47′32.83″ 與北緯 9°04′58.81″、東經 77°56′21.39″；這裡取兩角點的中點。這是興建前的報告，風機的實際位置沒有逐部座標。GEM 只寫坦米爾納德邦，原座標是州的代用點、偏北約 150 公里 | [連結](https://openlandcontracts.org/contract/ocds-591adf-1355447404/download/pdf) |
+| Kaladongar wind farm · 76 MW · 2012 | GEM | 修正：座標 | 座標改到拉賈斯坦邦傑伊瑟爾梅爾（Jaisalmer）市（Wikidata 座標，概略位置）：The Wind Power 列 Kaladongar 第一期 36 部 Suzlon S95 2.1 MW、75.6 MW，城市是 Jaisalmer；GlobalData 也寫 Kaladongar 75.6 MW 在拉賈斯坦邦。GEM 只寫拉賈斯坦邦，原座標是州的代用點（在科塔附近），偏東約 530 公里 | [連結](https://thewindpower.net/windfarm_en_26859_kaladongar.php) |
+| Mokal (Hindustan Zinc) wind farm · 80 MW · 2011 | GEM | 修正：座標 | 座標改到拉賈斯坦邦傑伊瑟爾梅爾市（Wikidata 座標，概略位置）：The Wind Power 的 Mokal 風場頁列一期 38 部 Suzlon S88 2.1 MW、79.8 MW，城市是 Jaisalmer，與 GlobalData 寫的 Hindustan Zinc Mokal 79.8 MW 相符（Mokal 即 Jaisalmer 西北的 Mokla 村一帶）。GEM 只寫拉賈斯坦邦，原座標是州的代用點，偏東約 530 公里 | [連結](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
+| Mokal (Mytrah) wind farm · 42 MW · 2011 | GEM | 修正：座標 | 座標改到拉賈斯坦邦傑伊瑟爾梅爾市（Wikidata 座標，概略位置）：The Wind Power 的 Mokal 風場頁列一期 20 部 Suzlon S88 2.1 MW、42 MW，城市是 Jaisalmer，與這筆 Mytrah 的 42 MW 相符；CleanTechnica 也寫傑伊瑟爾梅爾風電園區裡有 Mytrah Energy 的專案。GEM 把它放在古吉拉特邦的代用點（別的州），偏離約 550 公里 | [連結](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
 
 ## 台灣 (TWN)
 
@@ -682,6 +686,7 @@
 |---|---|---|---|---|
 | Horni Lodenice - Lipina wind farm · 18 MW · 2009 | GEM | 修正：座標 | 座標改到奧洛穆茨州 Horní Loděnice 村（Wikidata 座標，概略位置；風場在 Horní Loděnice 與 Lipina 之間）：oenergetice.cz 的捷克風機表列 Horní Loděnice – Lipina 在奧洛穆茨州，9 部 Vestas V90 2 MW、18 MW，2009 年；GEM 只寫國名，原座標是捷克國土中心 | [連結](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
 | Horni Paseky wind farm · 10 MW · 2012 | GEM | 修正：座標 | 座標改到卡羅維瓦利州阿什市的 Horní Paseky（Wikidata 座標，概略位置）：oenergetice.cz 的捷克風機表列 Horní Paseky 在卡羅維瓦利州，5 部 Vestas V90 2 MW、10 MW，2012 年；捷克另一個 Horní Paseky（茲林州）不在該州。GEM 只寫國名，原座標是捷克國土中心 | [連結](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
+| Cerveny Kopec - Rejchartice wind farm · 14 MW · 2012 | GEM | 修正：座標、容量 | 座標改到摩拉維亞-西里西亞州布倫塔爾縣的 Rejchartice 村（Wikidata 座標，概略位置）、容量改為 13.8 MW：oenergetice.cz 的捷克風機表列 Červený kopec – Rejchartice 在奧洛穆茨州，6 部 Siemens SWT-2.3-101、13.8 MW，2012 年；The Wind Power 列它離 Rejchartice 1 km、Hraničné Petrovice 11 km、Horní Loděnice – Lipina 12 km（所以是 Stará Libavá 旁的這個 Rejchartice，不是舒姆佩爾克縣的同名村）；Ekonomický deník 也寫 Stará Libavá 北邊的 Červený vrch 上有 2012 年建的 6 部風機；Novinky 寫這座山跨摩拉維亞-西里西亞與奧洛穆茨兩州、風機在 Norberčany、Dvorce 等四個鄉鎮的土地上（所以州別寫法不同並不矛盾）。GEM 只寫國名，原座標是捷克國土中心、偏西約 147 公里 | [連結](https://oenergetice.cz/obnovitelne-zdroje/vetrne-elektrarny-princip-cinnosti-zakladni-rozdeleni) |
 
 ## 摩洛哥 (MAR)
 

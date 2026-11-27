@@ -15,10 +15,15 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
-## v3.26.1 — 2026-11-24
+## v3.26.5 — 2026-11-27
 
-- The globe's comic colours give the phone's bottom drawer a bold navy edge and rounded corners; the smoke test's comic check now looks at the page's sky background (on phones the panel sits in the drawer, so checking its border failed wrongly).
-- Data correction: Romania's Corugea wind farm (70 MW) moves from a shared national placeholder to Corugea village, Tulcea County (Wikidata, still approximate). Checked but **not changed**: Serro Di Luca, Borne (WPD) and Casimcea already sit closer than the area centre would put them; the 77 Indian farms given only a village name have no Wikidata item and stay as they are.
+- Data correction: five operating farms move from province or country placeholders to the places sources give (still marked approximate): Maniyachi in India (252 MW, to the project area in Thoothukudi district from its impact assessment), Kaladongar and the two Mokal records (Hindustan Zinc, Mytrah; to Jaisalmer, from near Kota and from Gujarat), and Červený kopec – Rejchartice in Czechia (to the village of Rejchartice; capacity 14 → 13.8 MW).
+
+## v3.26.4 — 2026-11-26
+
+- Data correction: France's EFGL floating farm now has its 104 m hub height (the project press kit lists a 164 m rotor, a 186 m total tip height and a minimum 22 m between blade and sea in one passage; 186 − 82 = 104 m, matching the nacelle height in the same passage).
+- Maintenance: fixes the leftovers of two merged PRs — a duplicated `WW.VERSION` line in `core.js` and the position of v3.26.1 in both changelogs.
+
 ## v3.26.3 — 2026-11-25
 
 - Data update: the US "latest available" point now uses the October 2026 edition of EIA-860M (onshore 166,333.5 MW, offshore 1,687.0 MW; offshore adds Revolution Wind, 715 MW, listed by EIA as operating from October 2026).
@@ -29,6 +34,11 @@ Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge 
 - Data correction: Kitakyushu Hibikinada (Japan) now has its 110 m hub height (Japanese wind farm directory windfarm.work; the owner's start-of-operation notice gives a 174 m rotor and a tip about 200 m above the sea in the same passage, which agrees).
 - Maintenance: when the Taiwan live-data job's push is rejected because of a simultaneous push, it now pulls and pushes again (up to 4 times) instead of failing the run.
 - The version skips v3.26.1, which is left to PR #188 still under review.
+
+## v3.26.1 — 2026-11-24
+
+- The globe's comic colours give the phone's bottom drawer a bold navy edge and rounded corners; the smoke test's comic check now looks at the page's sky background (on phones the panel sits in the drawer, so checking its border failed wrongly).
+- Data correction: Romania's Corugea wind farm (70 MW) moves from a shared national placeholder to Corugea village, Tulcea County (Wikidata, still approximate). Checked but **not changed**: Serro Di Luca, Borne (WPD) and Casimcea already sit closer than the area centre would put them; the 77 Indian farms given only a village name have no Wikidata item and stay as they are.
 
 ## v3.26.0 — 2026-11-24
 
