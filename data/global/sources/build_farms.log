@@ -231,6 +231,7 @@ CLEAN dup IND Basavana Bagewadi (Atria) II wind farm 40.0 -> Basavana Bagewadi (
 CLEAN dup IND Belgaum (Korys) wind farm 40.0 -> Belgaum wind farm
 CLEAN dup IND Dangri (Bhilwara) wind farm 20.0 -> Jaisalmer (Bhilwara) wind farm
 CLEAN dup IND Gopalpura wind farm 15.0 -> Gopalpura (Hindustan Zinc) wind farm
+CLEAN dup IND Mokal (Rsmml) wind farm 32.0 -> Mokla wind farm
 CLEAN dup IND Vankusawade Wind Park 189.0 -> Vankusawade
 CLEAN dup IND Visapur wind farm 32.0 -> Girijashankarwadi wind farm
 CLEAN dup IRN Harzvil wind farm 14.0 -> Manjil wind farm
@@ -1850,6 +1851,7 @@ CLEAN fix IND Mokal (Hindustan Zinc) wind farm 80.0
 CLEAN fix IND Mokal (Mytrah) wind farm 42.0
 CLEAN fix IND Mokal (Rsmml) wind farm 32.0
 CLEAN fix IND Mokla Selat wind farm 13.0
+CLEAN fix IND Mokla wind farm 31.5
 CLEAN fix IND Mokla wind farm 32.0
 CLEAN fix IND Mondri wind farm 15.0
 CLEAN fix IND Mota (Veer) Gunda wind farm 46.0

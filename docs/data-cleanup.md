@@ -6,7 +6,7 @@
 
 合併各來源後，逐場資料仍有重複（同一座風場被兩個來源各收一次、或精選的「整區彙總」與 GEM 的逐場資料並存）、從未建成的案子被標為營運中，以及錯置的座標。這些以明確規則修正：每條規則指定剛好一筆紀錄，上游資料改版後若對不到就讓建置失敗，提醒重新查證。
 
-- 規則 960 條：刪除 273 筆（其中營運中 49,486.1 MW），修正 687 筆。另有 1240 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
+- 規則 962 條：刪除 274 筆（其中營運中 49,518.1 MW），修正 688 筆。另有 1240 座放在省或國家中心代用點的營運中風場，依 GEM 專案頁的鄉鎮／縣文字改到該行政區的中心（仍為概略位置），清單見 [data-locations.md](data-locations.md)。
 - 另外，比對名稱時先把繁體字轉成簡體（精選清單用繁體、GEM 用簡體），並比對分區代號（H6、K 區…）與陸域／離岸，讓江蘇、廣東、山東等地重複收錄的離岸風場能自動併成一筆；`GEM_KEEP` 列出名稱相近但確認是不同風場的例外。
 - 動作：**重複**＝與另一筆是同一座，刪除並把業主、分期併過去；**刪除**＝從未建成、查無此場或是重複的彙總；**修正**＝改正欄位。
 
@@ -21,7 +21,7 @@
 | 加拿大 | 1 | 353 | 0 |
 | 南非 | 2 | 159 | 2 |
 | 南韓 | 5 | 200.3 | 9 |
-| 印度 | 8 | 525 | 59 |
+| 印度 | 9 | 557 | 60 |
 | 台灣 | 2 | 0 | 26 |
 | 哥倫比亞 | 1 | 8 | 3 |
 | 土耳其 | 9 | 592 | 18 |
@@ -473,6 +473,8 @@
 | Kaladongar wind farm · 76 MW · 2012 | GEM | 修正：座標 | 座標改到拉賈斯坦邦傑伊瑟爾梅爾（Jaisalmer）市（Wikidata 座標，概略位置）：The Wind Power 列 Kaladongar 第一期 36 部 Suzlon S95 2.1 MW、75.6 MW，城市是 Jaisalmer；GlobalData 也寫 Kaladongar 75.6 MW 在拉賈斯坦邦。GEM 只寫拉賈斯坦邦，原座標是州的代用點（在科塔附近），偏東約 530 公里 | [連結](https://thewindpower.net/windfarm_en_26859_kaladongar.php) |
 | Mokal (Hindustan Zinc) wind farm · 80 MW · 2011 | GEM | 修正：座標 | 座標改到拉賈斯坦邦傑伊瑟爾梅爾市（Wikidata 座標，概略位置）：The Wind Power 的 Mokal 風場頁列一期 38 部 Suzlon S88 2.1 MW、79.8 MW，城市是 Jaisalmer，與 GlobalData 寫的 Hindustan Zinc Mokal 79.8 MW 相符（Mokal 即 Jaisalmer 西北的 Mokla 村一帶）。GEM 只寫拉賈斯坦邦，原座標是州的代用點，偏東約 530 公里 | [連結](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
 | Mokal (Mytrah) wind farm · 42 MW · 2011 | GEM | 修正：座標 | 座標改到拉賈斯坦邦傑伊瑟爾梅爾市（Wikidata 座標，概略位置）：The Wind Power 的 Mokal 風場頁列一期 20 部 Suzlon S88 2.1 MW、42 MW，城市是 Jaisalmer，與這筆 Mytrah 的 42 MW 相符；CleanTechnica 也寫傑伊瑟爾梅爾風電園區裡有 Mytrah Energy 的專案。GEM 把它放在古吉拉特邦的代用點（別的州），偏離約 550 公里 | [連結](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
+| Mokal (Rsmml) wind farm · 32 MW · 2010 | GEM | 重複（併入「Mokla wind farm」） | 同一座風場：拉賈斯坦邦礦業公司 RSMML 的官網逐期列出 9 期、共 106.3 MW 的風場，傑伊瑟爾梅爾縣 Mokal 只有第 VIII 期（31.5 MW、15 部 2,100 kW，2010 年 3 月 31 日商轉）；GEM 把它記成兩筆（「Mokal (Rsmml)」與「Mokla」，都是 32 MW、2010 年、RSMML 100%），Mokal 就是 Mokla 村一帶。保留有鄉鎮座標的「Mokla」 | [連結](https://www.rsmm.com/wind.htm) |
+| Mokla wind farm · 32 MW · 2010 | GEM | 修正：容量 | 容量改為 31.5 MW（15 部 2,100 kW）：RSMML 官網的逐期表列第 VIII 期在 Mokal、31.5 MW、15 部 2,100 kW、2010 年 3 月 31 日商轉（GEM 寫 32 MW） | [連結](https://www.rsmm.com/wind.htm) |
 
 ## 台灣 (TWN)
 

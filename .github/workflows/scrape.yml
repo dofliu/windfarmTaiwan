@@ -30,6 +30,10 @@ jobs:
         run: pip install requests
 
       - name: Run scraper
+        id: tw
+        # 台電端點整段失效時（2026-11-27 起連續一天以上逾時＋403）不能讓國外來源一起停更：
+        # 這一步失敗時繼續跑國外來源並 commit，最後一步再讓整次執行標成失敗（狀態頁看得到）
+        continue-on-error: true
         env:
           CWA_API_KEY: ${{ secrets.CWA_API_KEY }}   # 中央氣象署風速授權碼(未設定則自動略過風速)
         run: python taipower_wind_scraper.py
@@ -53,4 +57,10 @@ jobs:
             git rebase --abort 2>/dev/null || true
             echo "push attempt $i failed; retrying"; sleep $((i * 10))
           done
+          exit 1
+
+      - name: Fail the run when Taipower failed
+        if: steps.tw.outcome == 'failure'
+        run: |
+          echo "::error::taipower_wind_scraper.py failed (Taiwan data not updated); international sources were still updated"
           exit 1
