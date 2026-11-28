@@ -1044,7 +1044,7 @@ The February 2026 GEM release places many operating farms (mostly in China and I
 | [Vijayapura (Giriraj) I wind farm](https://www.gem.wiki/Vijayapura_%28Giriraj%29_I_wind_farm) | 10 | Vijayapura, Karnataka, India | [Vijaypura District](https://www.wikidata.org/wiki/Q83108) | 16.82, 75.72 | county or district |
 | [Belgaum (Giriraj) wind farm](https://www.gem.wiki/Belgaum_%28Giriraj%29_wind_farm) | 10 | Belgaum, Karnataka, India | [Belgaum](https://www.wikidata.org/wiki/Q270176) | 15.8569, 74.5044 | county or district |
 | [Chitradurga (India Power) wind farm](https://www.gem.wiki/Chitradurga_%28India_Power%29_wind_farm) | 10 | Chitradurga, Karnataka, India | [Chitradurga district](https://www.wikidata.org/wiki/Q165264) | 14, 76.5 | county or district |
-| [Mokla wind farm](https://www.gem.wiki/Mokla_wind_farm) | 32 | Mokla, Jaisalmer, Rajasthan, India | [Mokla](https://www.wikidata.org/wiki/Q110471325) | 27.1213, 70.622 | township |
+| [Mokla wind farm](https://www.gem.wiki/Mokla_wind_farm) | 31.5 | Mokla, Jaisalmer, Rajasthan, India | [Mokla](https://www.wikidata.org/wiki/Q110471325) | 27.1213, 70.622 | township |
 | [Mokla Selat wind farm](https://www.gem.wiki/Mokla_Selat_wind_farm) | 13 | Mokla, Jaisalmer, Rajasthan, India | [Mokla](https://www.wikidata.org/wiki/Q110471325) | 27.1213, 70.622 | township |
 | [Sadawaghapur II wind farm](https://www.gem.wiki/Sadawaghapur_II_wind_farm) | 170 | Sadawaghapur, Satara, Maharashtra, India | [Satara district](https://www.wikidata.org/wiki/Q1135612) | 17.7, 74 | county or district |
 | [Karnataka (Green Infra) wind farm](https://www.gem.wiki/Karnataka_%28Green_Infra%29_wind_farm) | 54.6 | 1 Koppal, Karnataka, India | [Koppal](https://www.wikidata.org/wiki/Q1119991) | 15.35, 76.15 | county or district |

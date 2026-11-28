@@ -1027,7 +1027,7 @@ GEM 2026-02 版把許多營運中風場（多在中國、印度）放在省或�
 | [Vijayapura (Giriraj) I wind farm](https://www.gem.wiki/Vijayapura_%28Giriraj%29_I_wind_farm) | 10 | Vijayapura, Karnataka, India | [比賈布爾縣](https://www.wikidata.org/wiki/Q83108) | 16.82, 75.72 | 縣（區） |
 | [Belgaum (Giriraj) wind farm](https://www.gem.wiki/Belgaum_%28Giriraj%29_wind_farm) | 10 | Belgaum, Karnataka, India | [貝爾高姆](https://www.wikidata.org/wiki/Q270176) | 15.8569, 74.5044 | 縣（區） |
 | [Chitradurga (India Power) wind farm](https://www.gem.wiki/Chitradurga_%28India_Power%29_wind_farm) | 10 | Chitradurga, Karnataka, India | [吉德勒杜尔加](https://www.wikidata.org/wiki/Q165264) | 14, 76.5 | 縣（區） |
-| [Mokla wind farm](https://www.gem.wiki/Mokla_wind_farm) | 32 | Mokla, Jaisalmer, Rajasthan, India | [Mokla](https://www.wikidata.org/wiki/Q110471325) | 27.1213, 70.622 | 鄉鎮 |
+| [Mokla wind farm](https://www.gem.wiki/Mokla_wind_farm) | 31.5 | Mokla, Jaisalmer, Rajasthan, India | [Mokla](https://www.wikidata.org/wiki/Q110471325) | 27.1213, 70.622 | 鄉鎮 |
 | [Mokla Selat wind farm](https://www.gem.wiki/Mokla_Selat_wind_farm) | 13 | Mokla, Jaisalmer, Rajasthan, India | [Mokla](https://www.wikidata.org/wiki/Q110471325) | 27.1213, 70.622 | 鄉鎮 |
 | [Sadawaghapur II wind farm](https://www.gem.wiki/Sadawaghapur_II_wind_farm) | 170 | Sadawaghapur, Satara, Maharashtra, India | [薩達拉縣](https://www.wikidata.org/wiki/Q1135612) | 17.7, 74 | 縣（區） |
 | [Karnataka (Green Infra) wind farm](https://www.gem.wiki/Karnataka_%28Green_Infra%29_wind_farm) | 54.6 | 1 Koppal, Karnataka, India | [戈伯爾](https://www.wikidata.org/wiki/Q1119991) | 15.35, 76.15 | 縣（區） |

@@ -15,6 +15,11 @@ number opens this page.
 Dates are Taiwan time (UTC+8). Scheduled live-data updates and the bot's single-file rebuilds do not get version numbers.
 Version numbers before v2.6.1 were assigned on 2026-09-27 from the GitHub merge history.
 
+## v3.26.6 — 2026-11-28
+
+- Data correction: India's "Mokal (Rsmml)" and "Mokla" are one farm (Rajasthan State Mines and Minerals has only phase VIII at Mokal, 31.5 MW, 15 × 2,100 kW, commissioned in 2010); the duplicate is removed and "Mokla", which has a township point, is kept at 31.5 MW.
+- Data update: France's "latest available" figure now uses SDES Q3 2026 (30 September: onshore 24,616.7 MW, offshore 2,316.2 MW).
+
 ## v3.26.5 — 2026-11-27
 
 - Data correction: five operating farms move from province or country placeholders to the places sources give (still marked approximate): Maniyachi in India (252 MW, to the project area in Thoothukudi district from its impact assessment), Kaladongar and the two Mokal records (Hindustan Zinc, Mytrah; to Jaisalmer, from near Kota and from Gujarat), and Červený kopec – Rejchartice in Czechia (to the village of Rejchartice; capacity 14 → 13.8 MW).

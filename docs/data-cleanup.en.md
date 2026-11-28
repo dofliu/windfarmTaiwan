@@ -6,7 +6,7 @@ English (this page) ｜ [中文](data-cleanup.md)
 
 After the sources are merged, the farm list still had duplicates (the same farm taken from two sources, or a curated “whole area” total next to GEM’s farm-by-farm records), projects that were never built but marked as operating, and misplaced points. They are fixed with explicit rules: each rule names exactly one record, and the build fails if a rule no longer matches after an upstream update, so it gets checked again.
 
-- 960 rules: 273 records removed (49,486.1 MW of them operating), 687 records fixed. In addition, 1240 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
+- 962 rules: 274 records removed (49,518.1 MW of them operating), 688 records fixed. In addition, 1240 operating farms that sat on province- or country-centre placeholders were moved to the centre of the township or county named on their GEM project page (still approximate); see [data-locations.en.md](data-locations.en.md).
 - In addition, names are compared after converting Traditional to Simplified Chinese (the curated list uses Traditional, GEM Simplified), and zone codes (H6, zone K…) and onshore / offshore are compared too, so offshore farms listed twice in Jiangsu, Guangdong, Shandong and elsewhere are merged automatically; `GEM_KEEP` lists the exceptions with similar names that were confirmed to be different farms.
 - Actions: **duplicate** = the same farm as another record, removed and its owner and phases merged into that one; **removed** = never built, not found, or a duplicate aggregate; **fixed** = fields corrected.
 
@@ -29,7 +29,7 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Finland | 1 | 30 | 2 |
 | France | 51 | 1,200.5 | 107 |
 | Germany | 11 | 265 | 29 |
-| India | 8 | 525 | 59 |
+| India | 9 | 557 | 60 |
 | Iran | 2 | 62 | 3 |
 | Ireland | 0 | 0 | 1 |
 | Israel | 1 | 21 | 1 |
@@ -733,6 +733,8 @@ After the sources are merged, the farm list still had duplicates (the same farm 
 | Kaladongar wind farm · 76 MW · 2012 | GEM | fixed: location | Point moved to the city of Jaisalmer, Rajasthan (Wikidata coordinate; approximate): The Wind Power lists Kaladongar’s first part as 36 Suzlon S95 2.1 MW units, 75.6 MW, with Jaisalmer as the city, and GlobalData also gives Kaladongar as 75.6 MW in Rajasthan. GEM gives only Rajasthan, and the old point was the state placeholder (near Kota), about 530 km east | [link](https://thewindpower.net/windfarm_en_26859_kaladongar.php) |
 | Mokal (Hindustan Zinc) wind farm · 80 MW · 2011 | GEM | fixed: location | Point moved to the city of Jaisalmer, Rajasthan (Wikidata coordinate; approximate): The Wind Power’s Mokal page lists a part of 38 Suzlon S88 2.1 MW units, 79.8 MW, with Jaisalmer as the city, matching GlobalData’s 79.8 MW Hindustan Zinc Mokal farm (Mokal is around the village of Mokla north-west of Jaisalmer). GEM gives only Rajasthan, and the old point was the state placeholder, about 530 km east | [link](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
 | Mokal (Mytrah) wind farm · 42 MW · 2011 | GEM | fixed: location | Point moved to the city of Jaisalmer, Rajasthan (Wikidata coordinate; approximate): The Wind Power’s Mokal page lists a part of 20 Suzlon S88 2.1 MW units, 42 MW, with Jaisalmer as the city, matching this 42 MW Mytrah record, and CleanTechnica also names Mytrah Energy among the companies with projects in the Jaisalmer wind park. GEM put it on the Gujarat placeholder (another state), about 550 km off | [link](https://www.thewindpower.net/windfarm_en_16276_mokal.php) |
+| Mokal (Rsmml) wind farm · 32 MW · 2010 | GEM | duplicate of “Mokla wind farm” | Same farm: the website of Rajasthan State Mines and Minerals (RSMML) lists its nine wind phases, 106.3 MW in all, and the only one at Mokal in Jaisalmer district is phase VIII (31.5 MW, 15 × 2,100 kW, commissioned 31 March 2010); GEM has it twice (“Mokal (Rsmml)” and “Mokla”, both 32 MW, 2010, RSMML 100%), Mokal being the area of Mokla village. The “Mokla” record, which has a township point, is kept | [link](https://www.rsmm.com/wind.htm) |
+| Mokla wind farm · 32 MW · 2010 | GEM | fixed: capacity | Capacity set to 31.5 MW (15 × 2,100 kW): RSMML’s phase table lists phase VIII at Mokal as 31.5 MW, 15 × 2,100 kW, commissioned 31 March 2010 (GEM gives 32 MW) | [link](https://www.rsmm.com/wind.htm) |
 
 ## Iran (IRN)
 
